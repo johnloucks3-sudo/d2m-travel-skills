@@ -1,0 +1,66 @@
+# Virtual environments
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Secrets & credentials
+config/*.env
+.env*
+*.key
+*.pem
+api_key.txt
+drive_token.json
+gmail_token.json
+credentials.json
+service_account*.json
+
+# Token/state files
+*_token.json
+*_state.json
+email_intel_state.json
+
+# Large/binary files
+backups/
+*.tar.gz
+*.pdf
+*.docx
+*.xlsx
+screenshots/
+output/
+
+# Images (keep logo refs but not bulk)
+*.jpg
+*.jpeg
+*.png
+!Agency_Logo.png
+!Agency_Logo_email.png
+
+# OS/editor
+.DS_Store
+*.swp
+*.swo
+*~
+
+# Logs
+logs/
+*.log
+*.jsonl
+
+# Node
+node_modules/
+
+# Credentials (catch-all)
+*credentials*.json
+*client_secret*.json
+
+# Browser automation profiles
+browser_profiles/
+
+# Nested Thunderbird copy
+Thunderbird/
+
+# Claude internals
+.claude/
+docs/tess_and_tokens_raw.md

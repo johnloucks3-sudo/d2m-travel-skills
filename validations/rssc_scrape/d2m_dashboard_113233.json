@@ -1,0 +1,1698 @@
+{
+  "title": "Travel Agent Center - Manage Bookings",
+  "url": "https://www.rssc.com/agent/dashboard/",
+  "sections": {},
+  "images": [
+    {
+      "src": "https://www.rssc.com/sites/default/files/Africa_StaticMaps_Explore.jpg",
+      "alt": "",
+      "w": 375,
+      "h": 535
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/Africa_StaticMaps_Explore.jpg",
+      "alt": "",
+      "w": 375,
+      "h": 535
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/Africa_StaticMaps_Explore.jpg",
+      "alt": "",
+      "w": 375,
+      "h": 535
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/Alaska_StaticMaps_Explore.jpg",
+      "alt": "",
+      "w": 375,
+      "h": 535
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/Alaska_StaticMaps_Explore.jpg",
+      "alt": "",
+      "w": 375,
+      "h": 535
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/Alaska_StaticMaps_Explore.jpg",
+      "alt": "",
+      "w": 375,
+      "h": 535
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/Asia_StaticMaps_Explore.jpg",
+      "alt": "",
+      "w": 375,
+      "h": 535
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/Asia_StaticMaps_Explore.jpg",
+      "alt": "",
+      "w": 375,
+      "h": 535
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/Asia_StaticMaps_Explore.jpg",
+      "alt": "",
+      "w": 375,
+      "h": 535
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/Australia_StaticMaps_Explore.jpg",
+      "alt": "",
+      "w": 375,
+      "h": 535
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/Australia_StaticMaps_Explore.jpg",
+      "alt": "",
+      "w": 375,
+      "h": 535
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/Australia_StaticMaps_Explore.jpg",
+      "alt": "",
+      "w": 375,
+      "h": 535
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/Bermuda_StaticMaps_Explore.jpg",
+      "alt": "",
+      "w": 375,
+      "h": 535
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/Bermuda_StaticMaps_Explore.jpg",
+      "alt": "",
+      "w": 375,
+      "h": 535
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/Bermuda_StaticMaps_Explore.jpg",
+      "alt": "",
+      "w": 375,
+      "h": 535
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/CanadaNewEngland_StaticMaps_Explore.jpg",
+      "alt": "",
+      "w": 375,
+      "h": 535
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/CanadaNewEngland_StaticMaps_Explore.jpg",
+      "alt": "",
+      "w": 375,
+      "h": 535
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/CanadaNewEngland_StaticMaps_Explore.jpg",
+      "alt": "",
+      "w": 375,
+      "h": 535
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/Caribbean_StaticMaps_Explore.jpg",
+      "alt": "",
+      "w": 375,
+      "h": 535
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/Caribbean_StaticMaps_Explore.jpg",
+      "alt": "",
+      "w": 375,
+      "h": 535
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/Caribbean_StaticMaps_Explore.jpg",
+      "alt": "",
+      "w": 375,
+      "h": 535
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/Mediterranean_StaticMaps_Explore.jpg",
+      "alt": "",
+      "w": 375,
+      "h": 535
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/Mediterranean_StaticMaps_Explore.jpg",
+      "alt": "",
+      "w": 375,
+      "h": 535
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/Mediterranean_StaticMaps_Explore.jpg",
+      "alt": "",
+      "w": 375,
+      "h": 535
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/NorthernEurope_StaticMaps_Explore.jpg",
+      "alt": "",
+      "w": 375,
+      "h": 535
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/NorthernEurope_StaticMaps_Explore.jpg",
+      "alt": "",
+      "w": 375,
+      "h": 535
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/NorthernEurope_StaticMaps_Explore.jpg",
+      "alt": "",
+      "w": 375,
+      "h": 535
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/SouthAmerica_StaticMaps_Explore.jpg",
+      "alt": "",
+      "w": 375,
+      "h": 535
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/SouthAmerica_StaticMaps_Explore.jpg",
+      "alt": "",
+      "w": 375,
+      "h": 535
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/SouthAmerica_StaticMaps_Explore.jpg",
+      "alt": "",
+      "w": 375,
+      "h": 535
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/SouthPacific_StaticMaps_Explore.jpg",
+      "alt": "",
+      "w": 375,
+      "h": 535
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/SouthPacific_StaticMaps_Explore.jpg",
+      "alt": "",
+      "w": 375,
+      "h": 535
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/SouthPacific_StaticMaps_Explore.jpg",
+      "alt": "",
+      "w": 375,
+      "h": 535
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/Ships_Overview_Thumbs_Splendor_091219.png",
+      "alt": "",
+      "w": 249,
+      "h": 52
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/Ships_Overview_Thumbs_Splendor_091219.png",
+      "alt": "",
+      "w": 249,
+      "h": 52
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/Ships_Overview_Thumbs_Explorer_091219.png",
+      "alt": "",
+      "w": 249,
+      "h": 52
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/Ships_Overview_Thumbs_Splendor_091219.png",
+      "alt": "",
+      "w": 249,
+      "h": 52
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/Ships_Overview_Thumbs_Voyager_091219.png",
+      "alt": "",
+      "w": 227,
+      "h": 49
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/Ships_Overview_Thumbs_Mariner_091219.png",
+      "alt": "",
+      "w": 240,
+      "h": 49
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/Ships_Overview_Thumbs_Navigator_091219.png",
+      "alt": "",
+      "w": 193,
+      "h": 40
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/MAR260187_MarchEYEOfferToolkit_900x250_TPC_BookNow.png",
+      "alt": "regent",
+      "w": 900,
+      "h": 250
+    },
+    {
+      "src": "https://www.rssc.com/media/agentcenter/common/tac-cta-marketing-central.jpg",
+      "alt": "Marketing Central",
+      "w": 222,
+      "h": 140
+    },
+    {
+      "src": "https://www.rssc.com/media/agentcenter/common/tac-cta-sales-resources.jpg",
+      "alt": "Sales Resources",
+      "w": 222,
+      "h": 140
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/tac-cta-promotions-NEW.png",
+      "alt": "Promotions & Toolkits",
+      "w": 222,
+      "h": 140
+    },
+    {
+      "src": "https://www.rssc.com/sites/default/files/tac-cta-university-NEW.png",
+      "alt": "Training",
+      "w": 222,
+      "h": 140
+    },
+    {
+      "src": "https://www.rssc.com/media/common/loading.png",
+      "alt": "Regent Logo",
+      "w": 218,
+      "h": 139
+    },
+    {
+      "src": "https://cdn.cookielaw.org/logos/3b29983e-65ce-4479-a104-3fcc5cc101d0/019c0b60-4e5a-7860-b7d2-fcf2089cb6f0/9d25f109-506c-4753-a59a-fb2392256a90/logo-rssc-black-v2.png",
+      "alt": "Regent Seven Seas Cruises",
+      "w": 144,
+      "h": 60
+    },
+    {
+      "src": "https://cdn.cookielaw.org/logos/static/powered_by_logo.svg",
+      "alt": "Powered by Onetrust",
+      "w": 136,
+      "h": 16
+    },
+    {
+      "src": "https://cdn.cookielaw.org/logos/static/ot_close.svg",
+      "alt": "bg",
+      "w": 0,
+      "h": 0
+    }
+  ],
+  "tables": [
+    [
+      [
+        "Name of credit",
+        "ID",
+        "Book by Date",
+        "Sail by Date",
+        "Amount",
+        "Eligible To Convert"
+      ]
+    ],
+    [
+      [
+        "Name of credit",
+        "ID",
+        "Book by Date",
+        "Sail by Date",
+        "Amount",
+        "Eligible To Convert"
+      ]
+    ],
+    [
+      [
+        "Booking #",
+        "Guest Name",
+        "Amount Due",
+        "Due Date",
+        "Actions",
+        "Ship",
+        "Embark Date",
+        "Debark Date",
+        "Nights",
+        "# Guests",
+        "Suite"
+      ]
+    ],
+    [
+      [
+        "3122006",
+        "JOHN LOUCKS",
+        "$24,798.00",
+        "08/01/2026",
+        "Email Invoice",
+        "Seven Seas Grandeur",
+        "12/29/2026",
+        "01/14/2027",
+        "16",
+        "2",
+        "658"
+      ],
+      [
+        "3114500",
+        "ERIK MC LEOD",
+        "$14,598.00",
+        "07/21/2027",
+        "Email Invoice",
+        "Seven Seas Prestige",
+        "12/18/2027",
+        "12/28/2027",
+        "10",
+        "2",
+        "820"
+      ]
+    ],
+    [
+      [
+        "Booking #",
+        "Guest Name",
+        "Amount Due",
+        "Due Date",
+        "Actions",
+        "Ship",
+        "Embark Date",
+        "Debark Date",
+        "Nights",
+        "# Guests",
+        "Suite"
+      ]
+    ],
+    [
+      [
+        "Booking #",
+        "Guest Name",
+        "Amount Due",
+        "Due Date",
+        "Actions",
+        "Ship",
+        "Embark Date",
+        "Debark Date",
+        "Nights",
+        "# Guests",
+        "Suite"
+      ]
+    ]
+  ],
+  "links": [
+    {
+      "text": "Accessibility Screen-Reader Guide, Feedback, and Issue Reporting | New window",
+      "href": "https://accessibe.com/blog/knowledgebase/screen-reader-guide"
+    },
+    {
+      "text": "Cookie Policy",
+      "href": "https://www.rssc.com/legal/cookies-policy"
+    },
+    {
+      "text": "Privacy Policy",
+      "href": "https://www.rssc.com/legal/privacy-policy"
+    },
+    {
+      "text": "Close",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Menu",
+      "href": "https://www.rssc.com/agent/dashboard/#modal-mainHeader-menu"
+    },
+    {
+      "text": "Special Offers",
+      "href": "https://www.rssc.com/specials"
+    },
+    {
+      "text": "Find a Cruise",
+      "href": "https://www.rssc.com/cruises"
+    },
+    {
+      "text": "Request Information",
+      "href": "https://www.rssc.com/agent/dashboard/#modal-global-flyout"
+    },
+    {
+      "text": "My Account",
+      "href": "https://www.rssc.com/agent/dashboard/#modal-mainHeader-my-account"
+    },
+    {
+      "text": "My Account",
+      "href": "https://www.rssc.com/agent/dashboard/#modal-mainHeader-my-account"
+    },
+    {
+      "text": "Partner Center",
+      "href": "https://www.rssc.com/agent/dashboard/#modal-mainHeader-agent-center"
+    },
+    {
+      "text": "English",
+      "href": "https://www.rssc.com/agent/dashboard/#modal-mainHeader-language"
+    },
+    {
+      "text": "Close",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Home",
+      "href": "https://www.rssc.com/"
+    },
+    {
+      "text": "Special Offers",
+      "href": "https://www.rssc.com/specials"
+    },
+    {
+      "text": "Find a Cruise",
+      "href": "https://www.rssc.com/cruises"
+    },
+    {
+      "text": "Request Information",
+      "href": "https://www.rssc.com/agent/dashboard/#modal-mainHeader-request-info"
+    },
+    {
+      "text": "My Account",
+      "href": "https://www.rssc.com/agent/dashboard/#modal-mainHeader-my-account"
+    },
+    {
+      "text": "Agent Center",
+      "href": "https://www.rssc.com/agent/dashboard/#c81-tab-content-b-5"
+    },
+    {
+      "text": "Find a Cruise",
+      "href": "https://www.rssc.com/cruises"
+    },
+    {
+      "text": "The Regent Experience",
+      "href": "https://www.rssc.com/agent/dashboard/#c81-tab-content-14203-1"
+    },
+    {
+      "text": "Our Ships",
+      "href": "https://www.rssc.com/agent/dashboard/#c81-tab-content-14203-2"
+    },
+    {
+      "text": "Worldwide Destinations",
+      "href": "https://www.rssc.com/agent/dashboard/#c81-tab-content-14203-3"
+    },
+    {
+      "text": "Regent Cruise Collections",
+      "href": "https://www.rssc.com/collections"
+    },
+    {
+      "text": "Special Offers",
+      "href": "https://www.rssc.com/specials"
+    },
+    {
+      "text": "Discover More",
+      "href": "https://www.rssc.com/agent/dashboard/#c81-tab-content-14203-6"
+    },
+    {
+      "text": "Seven Seas Society",
+      "href": "https://www.rssc.com/seven-seas-society"
+    },
+    {
+      "text": "Contact Us",
+      "href": "https://www.rssc.com/agent/dashboard/#c81-tab-content-14203-8"
+    },
+    {
+      "text": "BACK",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Find a Cruise",
+      "href": "https://www.rssc.com/cruises"
+    },
+    {
+      "text": "BACK",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "What's Included",
+      "href": "https://www.rssc.com/experience/all-included"
+    },
+    {
+      "text": "Immersive Exploration",
+      "href": "https://www.rssc.com/experience/immersive-exploration"
+    },
+    {
+      "text": "Culinary Experiences",
+      "href": "https://www.rssc.com/experience/epicurean-perfection"
+    },
+    {
+      "text": "Luxury Suites",
+      "href": "https://www.rssc.com/experience/suites"
+    },
+    {
+      "text": "Heartfelt Hospitality",
+      "href": "https://www.rssc.com/experience/who-we-are"
+    },
+    {
+      "text": "Onboard Activities",
+      "href": "https://www.rssc.com/experience/onboard-activities"
+    },
+    {
+      "text": "Regent Enrichment",
+      "href": "https://www.rssc.com/experience/enrichment"
+    },
+    {
+      "text": "Customize Your Journey",
+      "href": "https://www.rssc.com/experience/customize-your-journey"
+    },
+    {
+      "text": "How We Compare",
+      "href": "https://www.rssc.com/experience/value-comparison"
+    },
+    {
+      "text": "The Regent Experience",
+      "href": "https://www.rssc.com/experience/"
+    },
+    {
+      "text": "BACK",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Seven Seas Prestige\u2122",
+      "href": "https://www.rssc.com/ships/seven_seas_prestige"
+    },
+    {
+      "text": "Seven Seas Grandeur\u00ae",
+      "href": "https://www.rssc.com/ships/seven_seas_grandeur"
+    },
+    {
+      "text": "Seven Seas Splendor\u00ae",
+      "href": "https://www.rssc.com/ships/seven_seas_splendor"
+    },
+    {
+      "text": "Seven Seas Explorer\u00ae",
+      "href": "https://www.rssc.com/ships/seven_seas_explorer"
+    },
+    {
+      "text": "Seven Seas Voyager\u00ae",
+      "href": "https://www.rssc.com/ships/seven_seas_voyager"
+    },
+    {
+      "text": "Seven Seas Mariner\u00ae",
+      "href": "https://www.rssc.com/ships/seven_seas_mariner"
+    },
+    {
+      "text": "Seven Seas Navigator\u00ae",
+      "href": "https://www.rssc.com/ships/seven_seas_navigator"
+    },
+    {
+      "text": "Deck Plans",
+      "href": "https://www.rssc.com/ships/explorer"
+    },
+    {
+      "text": "Our Ships",
+      "href": "https://www.rssc.com/ships/"
+    },
+    {
+      "text": "BACK",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Africa & Arabia",
+      "href": "https://www.rssc.com/destinations/africa-arabia"
+    },
+    {
+      "text": "Alaska",
+      "href": "https://www.rssc.com/destinations/alaska"
+    },
+    {
+      "text": "Asia",
+      "href": "https://www.rssc.com/destinations/asia"
+    },
+    {
+      "text": "Australia & New Zealand",
+      "href": "https://www.rssc.com/destinations/australia-new-zealand"
+    },
+    {
+      "text": "Bermuda",
+      "href": "https://www.rssc.com/destinations/bermuda"
+    },
+    {
+      "text": "Canada & New England",
+      "href": "https://www.rssc.com/destinations/canada-new-england"
+    },
+    {
+      "text": "Caribbean & Panama Canal",
+      "href": "https://www.rssc.com/destinations/caribbean-panama-canal"
+    },
+    {
+      "text": "Mediterranean",
+      "href": "https://www.rssc.com/destinations/mediterranean"
+    },
+    {
+      "text": "Northern Europe",
+      "href": "https://www.rssc.com/destinations/northern-europe"
+    },
+    {
+      "text": "South America",
+      "href": "https://www.rssc.com/destinations/south-america"
+    },
+    {
+      "text": "South Pacific",
+      "href": "https://www.rssc.com/destinations/south-pacific"
+    },
+    {
+      "text": "Transoceanic Crossings",
+      "href": "https://www.rssc.com/destinations/transoceanic-crossings"
+    },
+    {
+      "text": "Grand Voyages",
+      "href": "https://www.rssc.com/destinations/grand-voyages"
+    },
+    {
+      "text": "World Cruises",
+      "href": "https://www.rssc.com/destinations/world-cruises"
+    },
+    {
+      "text": "Worldwide Destinations",
+      "href": "https://www.rssc.com/destinations/"
+    },
+    {
+      "text": "BACK",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Regent Cruise Collections",
+      "href": "https://www.rssc.com/collections"
+    },
+    {
+      "text": "BACK",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Special Offers",
+      "href": "https://www.rssc.com/specials"
+    },
+    {
+      "text": "BACK",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Digital Brochures",
+      "href": "https://www.rssc.com/discover-more/digital-brochures"
+    },
+    {
+      "text": "Virtual Tours",
+      "href": "https://www.rssc.com/discover-more/virtual-suite-tours"
+    },
+    {
+      "text": "Destination Insights",
+      "href": "https://www.rssc.com/discover-more/destination-insights"
+    },
+    {
+      "text": "Luxury Goes Exploring Blog",
+      "href": "https://www.rssc.com/discover-more/blog"
+    },
+    {
+      "text": "Social Media",
+      "href": "https://www.rssc.com/discover-more/social-media"
+    },
+    {
+      "text": "Discover More",
+      "href": "https://www.rssc.com/discover-more"
+    },
+    {
+      "text": "BACK",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Seven Seas Society",
+      "href": "https://www.rssc.com/seven-seas-society"
+    },
+    {
+      "text": "Contact Us",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Request a Call",
+      "href": "https://www.rssc.com/request-a-call"
+    },
+    {
+      "text": "Post Cruise Inquiry",
+      "href": "https://www.rssc.com/post-cruise-inquiry-form"
+    },
+    {
+      "text": "FAQs",
+      "href": "https://www.rssc.com/frequently-asked-questions"
+    },
+    {
+      "text": "Request a Call",
+      "href": "https://www.rssc.com/request-a-call"
+    },
+    {
+      "text": "Post Cruise Inquiry",
+      "href": "https://www.rssc.com/post-cruise-inquiry-form"
+    },
+    {
+      "text": "FAQs",
+      "href": "https://www.rssc.com/frequently-asked-questions"
+    },
+    {
+      "text": "BACK",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "BACK",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "BACK",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "BACK",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "BACK",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "BACK",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Home",
+      "href": "https://www.rssc.com/agent/dashboard"
+    },
+    {
+      "text": "My Bookings",
+      "href": "https://www.rssc.com/agent/dashboard/#myBookings"
+    },
+    {
+      "text": "Marketing Tools",
+      "href": "https://www.rssc.com/agent/marketing-tools"
+    },
+    {
+      "text": "Promotions",
+      "href": "https://www.rssc.com/agent/promotions"
+    },
+    {
+      "text": "Sales Resources",
+      "href": "https://www.rssc.com/agent/sales-resources"
+    },
+    {
+      "text": "RSSC University",
+      "href": "https://www.rssc.com/agent/GageSSORedirect.aspx?to=rsscu"
+    },
+    {
+      "text": "Update Profile",
+      "href": "https://www.rssc.com/agent/update-profile"
+    },
+    {
+      "text": "Logout",
+      "href": "https://www.rssc.com/agent/logout.aspx"
+    },
+    {
+      "text": "Back",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Close",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "English",
+      "href": "https://www.rssc.com/"
+    },
+    {
+      "text": "Close",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "By Destination",
+      "href": "https://www.rssc.com/agent/dashboard/#explore-menu-84560-0"
+    },
+    {
+      "text": "By Ship",
+      "href": "https://www.rssc.com/agent/dashboard/#explore-menu-84560-1"
+    },
+    {
+      "text": "Africa & Arabia",
+      "href": "https://www.rssc.com/agent/dashboard/#dest-map-tab-84182-0"
+    },
+    {
+      "text": "Alaska",
+      "href": "https://www.rssc.com/agent/dashboard/#dest-map-tab-84182-1"
+    },
+    {
+      "text": "Asia",
+      "href": "https://www.rssc.com/agent/dashboard/#dest-map-tab-84182-2"
+    },
+    {
+      "text": "Australia & New Zealand",
+      "href": "https://www.rssc.com/agent/dashboard/#dest-map-tab-84182-3"
+    },
+    {
+      "text": "Bermuda",
+      "href": "https://www.rssc.com/agent/dashboard/#dest-map-tab-84182-4"
+    },
+    {
+      "text": "Canada & New England",
+      "href": "https://www.rssc.com/agent/dashboard/#dest-map-tab-84182-5"
+    },
+    {
+      "text": "Caribbean & Panama Canal",
+      "href": "https://www.rssc.com/agent/dashboard/#dest-map-tab-84182-6"
+    },
+    {
+      "text": "Mediterranean",
+      "href": "https://www.rssc.com/agent/dashboard/#dest-map-tab-84182-7"
+    },
+    {
+      "text": "Northern Europe",
+      "href": "https://www.rssc.com/agent/dashboard/#dest-map-tab-84182-8"
+    },
+    {
+      "text": "South America",
+      "href": "https://www.rssc.com/agent/dashboard/#dest-map-tab-84182-9"
+    },
+    {
+      "text": "South Pacific",
+      "href": "https://www.rssc.com/agent/dashboard/#dest-map-tab-84182-10"
+    },
+    {
+      "text": "Transoceanic Crossings",
+      "href": "https://www.rssc.com/agent/dashboard/#dest-map-tab-84182-11"
+    },
+    {
+      "text": "Grand Voyages",
+      "href": "https://www.rssc.com/agent/dashboard/#dest-map-tab-84182-12"
+    },
+    {
+      "text": "World Cruises",
+      "href": "https://www.rssc.com/agent/dashboard/#dest-map-tab-84182-13"
+    },
+    {
+      "text": "Transoceanic Crossings",
+      "href": "https://www.rssc.com/destinations/transoceanic-crossings"
+    },
+    {
+      "text": "Grand Voyages",
+      "href": "https://www.rssc.com/destinations/grand-voyages"
+    },
+    {
+      "text": "World Cruises",
+      "href": "https://www.rssc.com/destinations/world-cruises"
+    },
+    {
+      "text": "Africa & Arabia 56 Ports",
+      "href": "https://www.rssc.com/agent/dashboard/#dest-map-tab-84182-0"
+    },
+    {
+      "text": "Alaska 14 Ports",
+      "href": "https://www.rssc.com/agent/dashboard/#dest-map-tab-84182-1"
+    },
+    {
+      "text": "Asia 70 Ports",
+      "href": "https://www.rssc.com/agent/dashboard/#dest-map-tab-84182-2"
+    },
+    {
+      "text": "Australia & New Zealand 37 Ports",
+      "href": "https://www.rssc.com/agent/dashboard/#dest-map-tab-84182-3"
+    },
+    {
+      "text": "Bermuda 2 Ports",
+      "href": "https://www.rssc.com/agent/dashboard/#dest-map-tab-84182-4"
+    },
+    {
+      "text": "Canada & New England 24 Ports",
+      "href": "https://www.rssc.com/agent/dashboard/#dest-map-tab-84182-5"
+    },
+    {
+      "text": "Caribbean & Panama Canal 54 Ports",
+      "href": "https://www.rssc.com/agent/dashboard/#dest-map-tab-84182-6"
+    },
+    {
+      "text": "Mediterranean 121 Ports",
+      "href": "https://www.rssc.com/agent/dashboard/#dest-map-tab-84182-7"
+    },
+    {
+      "text": "Northern Europe 101 Ports",
+      "href": "https://www.rssc.com/agent/dashboard/#dest-map-tab-84182-8"
+    },
+    {
+      "text": "South America 41 Ports",
+      "href": "https://www.rssc.com/agent/dashboard/#dest-map-tab-84182-9"
+    },
+    {
+      "text": "South Pacific  31 Ports",
+      "href": "https://www.rssc.com/agent/dashboard/#dest-map-tab-84182-10"
+    },
+    {
+      "text": "Transoceanic Crossings",
+      "href": "https://www.rssc.com/agent/dashboard/#dest-map-tab-84182-11"
+    },
+    {
+      "text": "Grand Voyages",
+      "href": "https://www.rssc.com/agent/dashboard/#dest-map-tab-84182-12"
+    },
+    {
+      "text": "World Cruises",
+      "href": "https://www.rssc.com/agent/dashboard/#dest-map-tab-84182-13"
+    },
+    {
+      "text": "SEVEN SEASPRESTIGE\u2122",
+      "href": "https://www.rssc.com/agent/dashboard/#ship-tab-62580-0"
+    },
+    {
+      "text": "SEVEN SEASGRANDEUR\u00ae",
+      "href": "https://www.rssc.com/agent/dashboard/#ship-tab-62580-1"
+    },
+    {
+      "text": "SEVEN SEASEXPLORER\u00ae",
+      "href": "https://www.rssc.com/agent/dashboard/#ship-tab-62580-2"
+    },
+    {
+      "text": "SEVEN SEASSPLENDOR\u00ae",
+      "href": "https://www.rssc.com/agent/dashboard/#ship-tab-62580-3"
+    },
+    {
+      "text": "SEVEN SEASVOYAGER\u00ae",
+      "href": "https://www.rssc.com/agent/dashboard/#ship-tab-62580-4"
+    },
+    {
+      "text": "SEVEN SEASMARINER\u00ae",
+      "href": "https://www.rssc.com/agent/dashboard/#ship-tab-62580-5"
+    },
+    {
+      "text": "SEVEN SEASNAVIGATOR\u00ae",
+      "href": "https://www.rssc.com/agent/dashboard/#ship-tab-62580-6"
+    },
+    {
+      "text": "Close",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Forgot Password?",
+      "href": "https://www.rssc.com/forgot-password/reset"
+    },
+    {
+      "text": "Create an account.",
+      "href": "https://www.rssc.com/account/create-an-account"
+    },
+    {
+      "text": "Travel Partner Center.",
+      "href": "https://www.rssc.com/agent/default.aspx"
+    },
+    {
+      "text": "My Account",
+      "href": "https://www.rssc.com/myaccount/"
+    },
+    {
+      "text": "Logout",
+      "href": "https://www.rssc.com/logout.aspx"
+    },
+    {
+      "text": "Close",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Request Pricing",
+      "href": "https://www.rssc.com/request-quote"
+    },
+    {
+      "text": "Special Offers",
+      "href": "https://www.rssc.com/email-signup"
+    },
+    {
+      "text": "Request a Call",
+      "href": "https://www.rssc.com/request-a-call"
+    },
+    {
+      "text": "Submit an Inquiry",
+      "href": "https://www.rssc.com/about/contact"
+    },
+    {
+      "text": "Group Travel Benefits",
+      "href": "https://www.rssc.com/group-cruises"
+    },
+    {
+      "text": "Order a Brochure",
+      "href": "https://www.rssc.com/order-brochure"
+    },
+    {
+      "text": "Become a Regent Insider",
+      "href": "https://www.rssc.com/agent/dashboard/"
+    },
+    {
+      "text": "Request Pricing",
+      "href": "https://www.rssc.com/request-quote"
+    },
+    {
+      "text": "Special Offers",
+      "href": "https://www.rssc.com/email-signup"
+    },
+    {
+      "text": "Request a Call",
+      "href": "https://www.rssc.com/request-a-call"
+    },
+    {
+      "text": "Submit an Inquiry",
+      "href": "https://www.rssc.com/about/contact"
+    },
+    {
+      "text": "Group Travel Benefits",
+      "href": "https://www.rssc.com/group-cruises"
+    },
+    {
+      "text": "Order a Brochure",
+      "href": "https://www.rssc.com/order-brochure"
+    },
+    {
+      "text": "Become a Regent Insider",
+      "href": "https://www.rssc.com/agent/dashboard/"
+    },
+    {
+      "text": "Privacy Policy",
+      "href": "https://www.rssc.com/legal/privacy-policy"
+    },
+    {
+      "text": "Privacy Notice",
+      "href": "https://www.rssc.com/legal/privacy-policy"
+    },
+    {
+      "text": "special offers",
+      "href": "https://www.rssc.com/specials"
+    },
+    {
+      "text": "company announcements",
+      "href": "https://www.rssc.com/news"
+    },
+    {
+      "text": "voyage collection debuts",
+      "href": "https://www.rssc.com/collections"
+    },
+    {
+      "text": "Close",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Request Pricing",
+      "href": "https://www.rssc.com/request-quote"
+    },
+    {
+      "text": "Special Offers",
+      "href": "https://www.rssc.com/email-signup"
+    },
+    {
+      "text": "Request a Call",
+      "href": "https://www.rssc.com/request-a-call"
+    },
+    {
+      "text": "Request A Brochure",
+      "href": "https://www.rssc.com/order-brochure"
+    },
+    {
+      "text": "Request A Brochure",
+      "href": "https://www.rssc.com/agent/marketing-tools/order-brochures/"
+    },
+    {
+      "text": "Group Travel Benefits",
+      "href": "https://www.rssc.com/group-cruises"
+    },
+    {
+      "text": "Contact Us",
+      "href": "https://www.rssc.com/about/contact"
+    },
+    {
+      "text": "Privacy Notice",
+      "href": "https://www.rssc.com/legal/privacy-policy"
+    },
+    {
+      "text": "Close",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Request a Call",
+      "href": "https://www.rssc.com/request-a-call"
+    },
+    {
+      "text": "Post Cruise Inquiry",
+      "href": "https://www.rssc.com/post-cruise-inquiry-form"
+    },
+    {
+      "text": "FAQs",
+      "href": "https://www.rssc.com/frequently-asked-questions"
+    },
+    {
+      "text": "Request a Call",
+      "href": "https://www.rssc.com/request-a-call"
+    },
+    {
+      "text": "Post Cruise Inquiry",
+      "href": "https://www.rssc.com/post-cruise-inquiry-form"
+    },
+    {
+      "text": "FAQs",
+      "href": "https://www.rssc.com/frequently-asked-questions"
+    },
+    {
+      "text": "Close",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Home",
+      "href": "https://www.rssc.com/agent/dashboard"
+    },
+    {
+      "text": "My Bookings",
+      "href": "https://www.rssc.com/agent/dashboard/#myBookings"
+    },
+    {
+      "text": "Marketing Tools",
+      "href": "https://www.rssc.com/agent/marketing-tools"
+    },
+    {
+      "text": "Promotions",
+      "href": "https://www.rssc.com/agent/promotions"
+    },
+    {
+      "text": "Sales Resources",
+      "href": "https://www.rssc.com/agent/sales-resources"
+    },
+    {
+      "text": "RSSC University",
+      "href": "https://www.rssc.com/agent/GageSSORedirect.aspx?to=rsscu"
+    },
+    {
+      "text": "Update Profile",
+      "href": "https://www.rssc.com/agent/update-profile"
+    },
+    {
+      "text": "Logout",
+      "href": "https://www.rssc.com/agent/logout.aspx"
+    },
+    {
+      "text": "Close",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Terms & Conditions",
+      "href": "https://www.rssc.com/legal/cruise-credit-terms-conditions"
+    },
+    {
+      "text": "Close",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Terms & Conditions",
+      "href": "https://www.rssc.com/legal/cruise-credit-terms-conditions"
+    },
+    {
+      "text": "Submit",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Close",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Go Back",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Close",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Go Back",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Close",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "View my Saved Cruises",
+      "href": "https://www.rssc.com/myaccount/savedcruises.aspx"
+    },
+    {
+      "text": "Log in",
+      "href": "https://www.rssc.com/#modal-mainHeader-my-account"
+    },
+    {
+      "text": "Create New Account",
+      "href": "https://www.rssc.com/account/create-an-account"
+    },
+    {
+      "text": "LEARN MORE",
+      "href": "https://www.rssc.com/regent-elevate"
+    },
+    {
+      "text": "Travel Partner Selling Guide",
+      "href": "https://brochures.rssc.com/travel-partner-selling-guide"
+    },
+    {
+      "text": "Upselling Guide - Premium to Luxury",
+      "href": "https://brochures.rssc.com/view/983382442"
+    },
+    {
+      "text": "Immediate Confirmation Rates",
+      "href": "https://www.rssc.com/sites/default/files/2026-02/ExclusiveRatesForTravelPartners021926.pdf"
+    },
+    {
+      "text": "Suite Advantage Upgrade",
+      "href": "https://www.rssc.com/sites/default/files/2024-10/suite-upgrade-advantage.pdf"
+    },
+    {
+      "text": "Regent Connect",
+      "href": "https://inspires.to/regent"
+    },
+    {
+      "text": "Update Your Profile",
+      "href": "https://www.rssc.com/agent/update-profile/"
+    },
+    {
+      "text": "My Bookings",
+      "href": "https://www.rssc.com/agent/dashboard/#myBookings"
+    },
+    {
+      "text": "Make a New Booking",
+      "href": "https://www.rssc.com/agent/dashboard/#miniCruiseFinder"
+    },
+    {
+      "text": "Confirmed Bookings",
+      "href": "https://www.rssc.com/agent/dashboard/#pnlCNF"
+    },
+    {
+      "text": "Option Bookings",
+      "href": "https://www.rssc.com/agent/dashboard/#pnlOPT"
+    },
+    {
+      "text": "Group Bookings",
+      "href": "https://www.rssc.com/agent/dashboard/#pnlMNG"
+    },
+    {
+      "text": "Booking #",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Guest Name",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Amount Due",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Due Date",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Actions",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Ship",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Embark Date",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Debark Date",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Nights",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "# Guests",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Suite",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "3122006",
+      "href": "https://www.rssc.com/agent/myaccount/bookedcruise.aspx?EUQc5OJShNzRnf6WDNdRorwtMN96BHdNAoCRU76%2bXT%2fsOWFoWGyj%2fal2KN%2bqYiHit2tgnul78coeYRaj31f8gA%3d%3d"
+    },
+    {
+      "text": "$24,798.00",
+      "href": "https://www.rssc.com/agent/myaccount/makepayment.aspx?EUQc5OJShNzRnf6WDNdRorwtMN96BHdNAoCRU76%2bXT%2fsOWFoWGyj%2fal2KN%2bqYiHit2tgnul78coeYRaj31f8gA%3d%3d"
+    },
+    {
+      "text": "3114500",
+      "href": "https://www.rssc.com/agent/myaccount/bookedcruise.aspx?7Pj2t4BavLZNCSDlo8V1DFNkwj3m8OmucLObhINqdxND5UslCJ5iHM6Ue0kxgytZatCxOTMNUr6QuB943KScOg%3d%3d"
+    },
+    {
+      "text": "$14,598.00",
+      "href": "https://www.rssc.com/agent/myaccount/makepayment.aspx?7Pj2t4BavLZNCSDlo8V1DFNkwj3m8OmucLObhINqdxND5UslCJ5iHM6Ue0kxgytZatCxOTMNUr6QuB943KScOg%3d%3d"
+    },
+    {
+      "text": "Go to the first page",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Go to the previous page",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Go to the next page",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Go to the last page",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Booking #",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Guest Name",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Amount Due",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Due Date",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Actions",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Ship",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Embark Date",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Debark Date",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Nights",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "# Guests",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Suite",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Go to the first page",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Go to the previous page",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Go to the next page",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Go to the last page",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Booking #",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Guest Name",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Amount Due",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Due Date",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Actions",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Ship",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Embark Date",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Debark Date",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Nights",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "# Guests",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Suite",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Go to the first page",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Go to the previous page",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Go to the next page",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Go to the last page",
+      "href": "https://www.rssc.com/agent/dashboard/#"
+    },
+    {
+      "text": "Plan a Cruise",
+      "href": "https://www.rssc.com/agent/dashboard/#footer-collapse-Plan-a-Cruise"
+    },
+    {
+      "text": "Find a Cruise",
+      "href": "https://www.rssc.com/cruises"
+    },
+    {
+      "text": "Seven Seas Society",
+      "href": "https://www.rssc.com/seven-seas-society"
+    },
+    {
+      "text": "Request A Brochure",
+      "href": "https://www.rssc.com/order-brochure"
+    },
+    {
+      "text": "Request A Brochure",
+      "href": "https://www.rssc.com/agent/marketing-tools/order-brochures/"
+    },
+    {
+      "text": "Sign-up for Special Offers",
+      "href": "https://www.rssc.com/email-signup"
+    },
+    {
+      "text": "Group Travel Benefits",
+      "href": "https://www.rssc.com/group-cruises"
+    },
+    {
+      "text": "Group Cruises",
+      "href": "https://www.rssc.com/group-cruises"
+    },
+    {
+      "text": "Resources",
+      "href": "https://www.rssc.com/agent/dashboard/#footer-collapse-Resources"
+    },
+    {
+      "text": "My Account",
+      "href": "https://www.rssc.com/myaccount"
+    },
+    {
+      "text": "Frequently Asked Questions",
+      "href": "https://www.rssc.com/frequently-asked-questions"
+    },
+    {
+      "text": "RegentCare Travel Protection",
+      "href": "https://www.rssc.com/frequently-asked-questions/regent-care-guest-protection-program"
+    },
+    {
+      "text": "Update Marketing Preferences",
+      "href": "https://privacyportal.onetrust.com/ui/#/preferences/multipage/login/859611dd-605e-4df0-8943-49d5f2f1b6c6"
+    },
+    {
+      "text": "Travel Partner Center",
+      "href": "https://www.rssc.com/agent/dashboard"
+    },
+    {
+      "text": "Videos",
+      "href": "https://www.rssc.com/discover-more/videos"
+    },
+    {
+      "text": "Digital Brochures",
+      "href": "https://www.rssc.com/discover-more/digital-brochures"
+    },
+    {
+      "text": "Charters, Meetings & Incentives",
+      "href": "https://www.rssc.com/events"
+    },
+    {
+      "text": "The Regent Bed Collection",
+      "href": "https://regentbedcollection.com/"
+    },
+    {
+      "text": "Gift Order Form",
+      "href": "https://www.rssc.com/sites/default/files/2025-12/Bon%20Voyage%20Gift%20Form_12_2025.pdf"
+    },
+    {
+      "text": "Sail & Sustain",
+      "href": "https://www.rssc.com/about-regent-seven-seas-cruises/sail-and-sustain"
+    },
+    {
+      "text": "Company Information",
+      "href": "https://www.rssc.com/agent/dashboard/#footer-collapse-Company-Information"
+    },
+    {
+      "text": "About Us",
+      "href": "https://www.rssc.com/about-regent-seven-seas-cruises"
+    },
+    {
+      "text": "Global Partnerships",
+      "href": "https://www.rssc.com/partnerships"
+    },
+    {
+      "text": "Careers",
+      "href": "https://www.rssc.com/employment"
+    },
+    {
+      "text": "Legal",
+      "href": "https://www.rssc.com/legal"
+    },
+    {
+      "text": "Press & Media",
+      "href": "https://www.rssc.com/news"
+    },
+    {
+      "text": "For Investors",
+      "href": "http://www.nclhltdinvestor.com/"
+    },
+    {
+      "text": "Site Map",
+      "href": "https://www.rssc.com/sitemap"
+    },
+    {
+      "text": "Privacy Policy",
+      "href": "https://www.rssc.com/legal/privacy-policy"
+    },
+    {
+      "text": "Accessibility Statement",
+      "href": "https://www.rssc.com/accessibility-statement"
+    },
+    {
+      "text": "Travel Restrictions",
+      "href": "https://www.rssc.com/legal/travel-restrictions"
+    },
+    {
+      "text": "Contact Us",
+      "href": "https://www.rssc.com/about/contact"
+    },
+    {
+      "text": "SIGN UP FOR EXCLUSIVE OFFERS",
+      "href": "https://www.rssc.com/agent/dashboard/#footer-collapse-sign-up"
+    },
+    {
+      "text": "FOLLOW US",
+      "href": "https://www.rssc.com/agent/dashboard/#footer-collapse-social-media"
+    },
+    {
+      "text": "Country Selector",
+      "href": "https://www.rssc.com/agent/dashboard/#footer-collapse-country-selector"
+    },
+    {
+      "text": "United States",
+      "href": "https://www.rssc.com/countryselector.aspx?ReturnUrl=/"
+    },
+    {
+      "text": "Terms and Conditions",
+      "href": "https://www.rssc.com/legal/terms-conditions"
+    },
+    {
+      "text": "Privacy Policy",
+      "href": "https://www.rssc.com/legal/privacy-policy"
+    },
+    {
+      "text": "Offline Form",
+      "href": "https://privacyportal.onetrust.com/webform/3b29983e-65ce-4479-a104-3fcc5cc101d0/8755d483-97e9-4eb4-8086-46ab0658a6eb"
+    }
+  ],
+  "fullText": "#if(Suite == 'Waitlist') {#\n            <tr class='odd red'>\n            #}else{ #\n            <tr class='odd'>\n            #}#\n            <td class='firstCol'>#if(BookingLink == ''){#\n                <span>${ BookingNo }</span>\n                #}else{#\n                <a href='${ BookingLink }'>${ BookingNo }</a>\n            #}#</td>\n            <td class=\"guestName\"><span>${ GuestName }</span></td>\n            <td>#if(AmountDueLink == ''){#\n                    <span>${ AmountDue }</span>\n                    #}else{#\n                    <a href='${ AmountDueLink }' class='amountDueLink'>${ AmountDue }</a>\n            #}#</td>\n            <td><span>#= kendo.toString(DueDate, \"MM/dd/yyyy\") #</span></td>\n            <td><a rel='${ Actions }' class='email'>Email Invoice</a></td>\n            <td class=\"ship\"><span>${ Ship }</span></td>\n            <td><span>#= kendo.toString(EmbarkDate, \"MM/dd/yyyy\") #</span></td>\n            <td><span>#= kendo.toString(DebarkDate, \"MM/dd/yyyy\") #</span></td>\n            <td><span>${ Nights }</span></td>\n            <td><span>${ GuestsNo }</span></td>\n            <td class=\"suite\"><span>${ Suite }</span></td>\n            </tr>\n        \n        \n            #if(Suite == 'Waitlist') {#\n            <tr class='even red'>\n            #}else{ #\n            <tr class='even'>\n            #}#\n            <td class='firstCol'>#if(BookingLink == ''){#\n                <span>${ BookingNo }</span>\n                #}else{#\n                <a href='${ BookingLink }'>${ BookingNo }</a>\n            #}#</td>\n            <td class=\"guestName\"><span>${ GuestName }</span></td>\n            <td>#if(AmountDueLink == ''){#\n                    <span>${ AmountDue }</span>\n                    #}else{#\n                    <a href='${ AmountDueLink }' class='amountDueLink'>${ AmountDue }</a>\n            #}#</td>\n            <td><span>#= kendo.toString(DueDate, \"MM/dd/yyyy\") #</span></td>\n            <td><a rel='${ Actions }' class='email'>Email Invoice</a></td>\n            <td class=\"ship\"><span>${ Ship }</span></td>\n            <td><span>#= kendo.toString(EmbarkDate, \"MM/dd/yyyy\") #</span></td>\n            <td><span>#= kendo.toString(DebarkDate, \"MM/dd/yyyy\") #</span></td>\n            <td><span>${ Nights }</span></td>\n            <td><span>${ GuestsNo }</span></td>\n            <td class=\"suite\"><span>${ Suite }</span></td>\n            </tr>\n        \n\n\t\n\t\tTravel Partner Center\n\t\tPromotions, Bookings, Tools and Other Resources\n        \n            \n    \n#tac_header{ margin: 10px 0;}\n#tac_intro{ margin: 10px 20px; width: 600px; float: left; font: 14px \"ProximaNovaRegular\", sans-serif;}\n#tac_intro h3{ font: 14px \"ProximaNovaBold\", sans-serif; letter-spacing: 1px; border-bottom: 1px dotted #6c6a67; text-transform: uppercase; padding-bottom: 5px;}\n#tac_intro p{ margin-top: 10px; line-height: 18px;}\n#tac_quick_links{ margin: 10px 0; padding: 15px; width: 210px; float: left; border: 1px solid #d9d9d9; background-color: #fff; font: 12px \"ProximaNovaRegular\", sans-serif;}\n#tac_quick_links h3{ font: 14px \"ProximaNovaBold\", sans-serif; letter-spacing: 1px; border-bottom: 1px dotted #6c6a67; text-transform: uppercase; padding-bottom: 5px;}\n#tac_quick_links ul{ margin: 10px 0 0 20px}\n#tac_quick_links li{}\n#tac_quick_links a{}\n#tac_cta_links{ clear: both; margin: 10px 0;}\n#tac_cta_links img{ display: inline-block;}\n\n\n\n\n\n\n\n    Welcome, Travel Partners!\n        At Regent Seven Seas Cruises\u00ae, Nobody Does It Better\u2122, especially when it comes to partnerships. Our mission is to empower you, our valued Travel Advisors, with cutting-edge insights, unrivaled support and revenue-enhancing opportunities. Regent is dedicated to elevating your expertise, ensuring you thrive in an ever-evolving travel landscape while delivering exceptional value to your clients.\n    Elevate your business by selling the best value in all-inclusive ultra luxury travel, and enjoy our incredible guest return rate, unrivaled commissions and generous perks. LEARN MORE\n\n\n    Quick Links:\n    \n    Travel Partner Selling Guide\n    Upselling Guide - Premium to Luxury\n    Immediate Confirmation Rates\n    Suite Advantage Upgrade\n    Regent Connect\n    Update Your Profile\n    My Bookings\n    Make a New Booking\n    \n\n\n    \n    \n \n \n\n\n\n\n        \n        \n\t\t\tMake a New Booking\n            To make a new reservation, select a cruise below. You may use any of the drop down menus to filter the list of cruises. After selecting a cruise, you may either get a Quick Quote which you may send to yourself and/or your clients, or begin the booking process.\n            \n                \n\n\t\n\t\t\n\t\t    \n                Select DestinationAfrica & ArabiaAlaskaAsiaAustralia & New ZealandBermudaCanada & New EnglandCaribbean & Panama CanalGrand VoyagesMediterraneanNorthern EuropeSouth AmericaSouth Pacific Transoceanic CrossingsWorld CruisesSelect DestinationSelect DestinationAfrica & ArabiaAlaskaAsiaAustralia & New ZealandBermudaCanada & New EnglandCaribbean & Panama CanalGrand VoyagesMediterraneanNorthern EuropeSouth AmericaSouth Pacific Transoceanic CrossingsWorld Cruises\n\t\t    \n\t\t    \n                Select DateMarch, 2026April, 2026May, 2026June, 2026July, 2026August, 2026September, 2026October, 2026November, 2026December, 2026January, 2027February, 2027March, 2027April, 2027May, 2027June, 2027July, 2027August, 2027September, 2027October, 2027November, 2027December, 2027January, 2028February, 2028March, 2028April, 2028May, 2028Select DateSelect DateMarch, 2026April, 2026May, 2026June, 2026July, 2026August, 2026September, 2026October, 2026November, 2026December, 2026January, 2027February, 2027March, 2027April, 2027May, 2027June, 2027July, 2027August, 2027September, 2027October, 2027November, 2027December, 2027January, 2028February, 2028March, 2028April, 2028May, 2028\n\t\t    \n            \n                Select DurationUp to 910 - 1415 - 20Over 21Select DurationSelect DurationUp to 910 - 1415 - 20Over 21\n\t\t    \n\t\t    \n                Select ShipSeven Seas ExplorerSeven Seas GrandeurSeven Seas MarinerSeven Seas NavigatorSeven Seas PrestigeSeven Seas SplendorSeven Seas VoyagerSelect ShipSelect ShipSeven Seas ExplorerSeven Seas GrandeurSeven Seas MarinerSeven Seas NavigatorSeven Seas PrestigeSeven Seas SplendorSeven Seas Voyager\n\t\t    \n\t\t \t\t\t\t\t\t\n\t\t\n\t\t    \n                Select Cruise3/23/2026 | Seven Seas Voyager | 10 Nights | Lisbon to Malaga3/24/2026 | Seven Seas Mariner | 16 Nights | Bali (Benoa) to Singapore3/25/2026 | Seven Seas Explorer | 14 Nights | Tokyo to Tokyo3/26/2026 | Seven Seas Grandeur | 12 Nights | Miami to Miami3/27/2026 | Seven Seas Splendor | 14 Nights | Lisbon to Barcelona3/31/2026 | Seven Seas Navigator | 18 Nights | Auckland to Bali (Benoa)4/2/2026 | Seven Seas Voyager | 8 Nights | Malaga to Barcelona4/7/2026 | Seven Seas Grandeur | 14 Nights | Miami to Barcelona4/8/2026 | Seven Seas Explorer | 11 Nights | Tokyo to Tokyo4/9/2026 | Seven Seas Mariner | 30 Nights | Singapore to Cape Town4/9/2026 | Seven Seas Mariner | 54 Nights | Singapore to Lisbon4/10/2026 | Seven Seas Splendor | 9 Nights | Barcelona to Rome (Civitavecchia)4/10/2026 | Seven Seas Voyager | 7 Nights | Barcelona to Rome (Civitavecchia)4/17/2026 | Seven Seas Voyager | 9 Nights | Rome (Civitavecchia) to Barcelona (Tarragona)4/18/2026 | Seven Seas Navigator | 14 Nights | Bali (Benoa) to Bangkok (Laem Chabang)4/19/2026 | Seven Seas Explorer | 14 Nights | Tokyo to Tokyo4/19/2026 | Seven Seas Explorer | 31 Nights | Tokyo to Vancouver4/19/2026 | Seven Seas Splendor | 13 Nights | Rome (Civitavecchia) to Venice (Fusina)4/21/2026 | Seven Seas Grandeur | 14 Nights | Barcelona to Istanbul5/2/2026 | Seven Seas Navigator | 20 Nights | Bangkok (Laem Chabang) to Doha5/3/2026 | Seven Seas Explorer | 17 Nights | Tokyo to Vancouver5/4/2026 | Seven Seas Voyager | 7 Nights | Provence (Marseille) to Provence (Marseille)5/5/2026 | Seven Seas Grandeur | 12 Nights | Istanbul to Trieste5/8/2026 | Seven Seas Splendor | 7 Nights | Rome (Civitavecchia) to Athens (Piraeus)5/9/2026 | Seven Seas Mariner | 24 Nights | Cape Town to Lisbon5/9/2026 | Seven Seas Mariner | 35 Nights | Cape Town to Miami5/11/2026 | Seven Seas Voyager | 7 Nights | Provence (Marseille) to Provence (Marseille)5/15/2026 | Seven Seas Splendor | 7 Nights | Athens (Piraeus) to Istanbul5/17/2026 | Seven Seas Grandeur | 7 Nights | Trieste to Rome (Civitavecchia)5/18/2026 | Seven Seas Voyager | 3 Nights | Provence (Marseille) to Barcelona5/20/2026 | Seven Seas Explorer | 7 Nights | Vancouver to Whittier5/20/2026 | Seven Seas Explorer | 14 Nights | Vancouver to Vancouver5/21/2026 | Seven Seas Voyager | 12 Nights | Barcelona to Athens (Piraeus)5/22/2026 | Seven Seas Navigator | 20 Nights | Doha to Cape Town5/22/2026 | Seven Seas Splendor | 12 Nights | Istanbul to Istanbul5/24/2026 | Seven Seas Grandeur | 13 Nights | Rome (Civitavecchia) to London (Southampton)5/27/2026 | Seven Seas Explorer | 7 Nights | Whittier to Vancouver6/2/2026 | Seven Seas Mariner | 11 Nights | Lisbon to Miami6/2/2026 | Seven Seas Voyager | 14 Nights | Athens (Piraeus) to Trieste6/3/2026 | Seven Seas Explorer | 7 Nights | Vancouver to Whittier6/3/2026 | Seven Seas Splendor | 10 Nights | Istanbul to Athens (Piraeus)6/6/2026 | Seven Seas Grandeur | 10 Nights | London (Southampton) to London (Southampton)6/10/2026 | Seven Seas Explorer | 7 Nights | Whittier to Vancouver6/11/2026 | Seven Seas Navigator | 24 Nights | Cape Town to Barcelona6/13/2026 | Seven Seas Mariner | 16 Nights | Miami to New York6/16/2026 | Seven Seas Grandeur | 12 Nights | London (Southampton) to London (Southampton)6/16/2026 | Seven Seas Voyager | 12 Nights | Trieste to Istanbul6/17/2026 | Seven Seas Explorer | 7 Nights | Vancouver to Whittier6/19/2026 | Seven Seas Splendor | 10 Nights | Athens (Piraeus) to Lisbon6/19/2026 | Seven Seas Splendor | 17 Nights | Athens (Piraeus) to Monte Carlo6/24/2026 | Seven Seas Explorer | 7 Nights | Whittier to Vancouver6/28/2026 | Seven Seas Grandeur | 7 Nights | London (Southampton) to Belfast6/28/2026 | Seven Seas Grandeur | 14 Nights | London (Southampton) to Reykjavik6/28/2026 | Seven Seas Voyager | 12 Nights | Istanbul to Rome (Civitavecchia)6/28/2026 | Seven Seas Voyager | 22 Nights | Istanbul to Lisbon6/29/2026 | Seven Seas Mariner | 18 Nights | New York to Reykjavik6/29/2026 | Seven Seas Mariner | 81 Nights | New York to Barcelona6/29/2026 | Seven Seas Splendor | 7 Nights | Lisbon to Monte Carlo7/1/2026 | Seven Seas Explorer | 7 Nights | Vancouver to Whittier7/5/2026 | Seven Seas Grandeur | 7 Nights | Belfast to Reykjavik7/5/2026 | Seven Seas Navigator | 14 Nights | Barcelona to London (Dover)7/6/2026 | Seven Seas Splendor | 7 Nights | Monte Carlo to Rome (Civitavecchia)7/8/2026 | Seven Seas Explorer | 7 Nights | Whittier to Vancouver7/10/2026 | Seven Seas Voyager | 10 Nights | Rome (Civitavecchia) to Lisbon7/12/2026 | Seven Seas Grandeur | 10 Nights | Reykjavik to Reykjavik7/15/2026 | Seven Seas Explorer | 7 Nights | Vancouver to Whittier7/17/2026 | Seven Seas Mariner | 14 Nights | Reykjavik to London (Southampton)7/19/2026 | Seven Seas Navigator | 9 Nights | London (Dover) to Stockholm7/20/2026 | Seven Seas Splendor | 8 Nights | Trieste to Athens (Piraeus)7/20/2026 | Seven Seas Voyager | 14 Nights | Lisbon to London (Southampton)7/22/2026 | Seven Seas Explorer | 7 Nights | Whittier to Vancouver7/22/2026 | Seven Seas Grandeur | 10 Nights | Reykjavik to Reykjavik7/28/2026 | Seven Seas Navigator | 15 Nights | Stockholm to Paris (Le Havre)7/28/2026 | Seven Seas Splendor | 7 Nights | Athens (Piraeus) to Athens (Piraeus)7/28/2026 | Seven Seas Splendor | 14 Nights | Athens (Piraeus) to Athens (Piraeus)7/29/2026 | Seven Seas Explorer | 7 Nights | Vancouver to Whittier7/31/2026 | Seven Seas Mariner | 18 Nights | London (Southampton) to Copenhagen8/1/2026 | Seven Seas Grandeur | 14 Nights | Reykjavik to Oslo8/3/2026 | Seven Seas Voyager | 9 Nights | London (Southampton) to London (Southampton)8/4/2026 | Seven Seas Splendor | 7 Nights | Athens (Piraeus) to Athens (Piraeus)8/5/2026 | Seven Seas Explorer | 7 Nights | Whittier to Vancouver8/11/2026 | Seven Seas Splendor | 12 Nights | Athens (Piraeus) to Lisbon8/11/2026 | Seven Seas Splendor | 26 Nights | Athens (Piraeus) to New York8/12/2026 | Seven Seas Explorer | 7 Nights | Vancouver to Whittier8/12/2026 | Seven Seas Explorer | 14 Nights | Vancouver to Vancouver8/12/2026 | Seven Seas Navigator | 12 Nights | Paris (Le Havre) to Barcelona8/12/2026 | Seven Seas Voyager | 8 Nights | London (Southampton) to Reykjavik8/12/2026 | Seven Seas Voyager | 20 Nights | London (Southampton) to London (Southampton)8/15/2026 | Seven Seas Grandeur | 7 Nights | Oslo to Copenhagen8/15/2026 | Seven Seas Grandeur | 14 Nights | Oslo to Stockholm8/18/2026 | Seven Seas Mariner | 20 Nights | Copenhagen to Amsterdam8/19/2026 | Seven Seas Explorer | 7 Nights | Whittier to Vancouver8/20/2026 | Seven Seas Voyager | 12 Nights | Reykjavik to London (Southampton)8/22/2026 | Seven Seas Grandeur | 7 Nights | Copenhagen to Stockholm8/23/2026 | Seven Seas Splendor | 14 Nights | Lisbon to New York8/24/2026 | Seven Seas Navigator | 9 Nights | Barcelona to Barcelona8/26/2026 | Seven Seas Explorer | 7 Nights | Vancouver to Whittier8/29/2026 | Seven Seas Grandeur | 10 Nights | Stockholm to Oslo9/1/2026 | Seven Seas Voyager | 10 Nights | London (Southampton) to Copenhagen9/2/2026 | Seven Seas Explorer | 7 Nights | Whittier to Vancouver9/2/2026 | Seven Seas Navigator | 10 Nights | Barcelona to Venice (Fusina)9/6/2026 | Seven Seas Splendor | 11 Nights | New York to Montr\u00e9al9/7/2026 | Seven Seas Mariner | 11 Nights | Amsterdam to Barcelona9/8/2026 | Seven Seas Grandeur | 19 Nights | Oslo to Amsterdam9/9/2026 | Seven Seas Explorer | 9 Nights | Vancouver to Seattle9/11/2026 | Seven Seas Voyager | 8 Nights | Copenhagen to Paris (Le Havre)9/11/2026 | Seven Seas Voyager | 17 Nights | Copenhagen to Barcelona9/12/2026 | Seven Seas Navigator | 10 Nights | Venice (Fusina) to Athens (Piraeus)9/17/2026 | Seven Seas Splendor | 11 Nights | Montr\u00e9al to Boston9/18/2026 | Seven Seas Explorer | 12 Nights | Seattle to Seattle9/18/2026 | Seven Seas Mariner | 11 Nights | Barcelona to Rome (Civitavecchia)9/19/2026 | Seven Seas Voyager | 9 Nights | Paris (Le Havre) to Barcelona9/22/2026 | Seven Seas Navigator | 10 Nights | Athens (Piraeus) to Istanbul9/27/2026 | Seven Seas Grandeur | 12 Nights | Amsterdam to Lisbon9/28/2026 | Seven Seas Splendor | 11 Nights | Boston to Montr\u00e9al9/28/2026 | Seven Seas Voyager | 12 Nights | Barcelona to Rome (Civitavecchia)9/29/2026 | Seven Seas Mariner | 13 Nights | Rome (Civitavecchia) to Athens (Piraeus)9/30/2026 | Seven Seas Explorer | 20 Nights | Seattle to Tokyo10/2/2026 | Seven Seas Navigator | 14 Nights | Istanbul to Rome (Civitavecchia)10/9/2026 | Seven Seas Grandeur | 11 Nights | Lisbon to Valletta10/9/2026 | Seven Seas Splendor | 11 Nights | Montr\u00e9al to New York10/10/2026 | Seven Seas Voyager | 7 Nights | Rome (Civitavecchia) to Venice (Fusina)10/12/2026 | Seven Seas Mariner | 14 Nights | Athens (Piraeus) to Barcelona10/12/2026 | Seven Seas Mariner | 28 Nights | Athens (Piraeus) to Miami10/17/2026 | Seven Seas Voyager | 7 Nights | Venice (Fusina) to Athens (Piraeus)10/20/2026 | Seven Seas Explorer | 11 Nights | Tokyo to Tokyo10/20/2026 | Seven Seas Explorer | 60 Nights | Tokyo to Sydney10/20/2026 | Seven Seas Grandeur | 12 Nights | Valletta to Athens (Piraeus)10/20/2026 | Seven Seas Splendor | 10 Nights | New York to Montr\u00e9al10/24/2026 | Seven Seas Voyager | 10 Nights | Athens (Piraeus) to Istanbul10/26/2026 | Seven Seas Mariner | 14 Nights | Barcelona to Miami10/30/2026 | Seven Seas Splendor | 16 Nights | Montr\u00e9al to Miami10/31/2026 | Seven Seas Explorer | 10 Nights | Tokyo to Hong Kong10/31/2026 | Seven Seas Explorer | 22 Nights | Tokyo to Bangkok (Laem Chabang)11/1/2026 | Seven Seas Grandeur | 7 Nights | Athens (Piraeus) to Rome (Civitavecchia)11/1/2026 | Seven Seas Grandeur | 21 Nights | Athens (Piraeus) to Miami11/1/2026 | Seven Seas Navigator | 10 Nights | Rome (Civitavecchia) to Barcelona11/3/2026 | Seven Seas Voyager | 7 Nights | Istanbul to Trieste11/8/2026 | Seven Seas Grandeur | 14 Nights | Rome (Civitavecchia) to Miami11/8/2026 | Seven Seas Grandeur | 21 Nights | Rome (Civitavecchia) to Miami11/9/2026 | Seven Seas Mariner | 22 Nights | Miami to Miami11/10/2026 | Seven Seas Explorer | 12 Nights | Hong Kong to Bangkok (Laem Chabang)11/10/2026 | Seven Seas Voyager | 7 Nights | Trieste to Athens (Piraeus)11/10/2026 | Seven Seas Voyager | 17 Nights | Trieste to Istanbul11/11/2026 | Seven Seas Navigator | 12 Nights | Barcelona to Lisbon11/15/2026 | Seven Seas Splendor | 15 Nights | Miami to Galveston11/17/2026 | Seven Seas Voyager | 10 Nights | Athens (Piraeus) to Istanbul11/22/2026 | Seven Seas Explorer | 11 Nights | Bangkok (Laem Chabang) to Bali (Benoa)11/22/2026 | Seven Seas Grandeur | 7 Nights | Miami to Miami11/23/2026 | Seven Seas Navigator | 14 Nights | Lisbon to Barcelona11/27/2026 | Seven Seas Voyager | 10 Nights | Istanbul to Athens (Piraeus)11/29/2026 | Seven Seas Grandeur | 10 Nights | Miami to Miami11/30/2026 | Seven Seas Splendor | 11 Nights | Galveston to Galveston12/1/2026 | Seven Seas Mariner | 10 Nights | Miami to Tampa Bay12/3/2026 | Seven Seas Explorer | 16 Nights | Bali (Benoa) to Sydney12/7/2026 | Seven Seas Navigator | 14 Nights | Barcelona to Rome (Civitavecchia)12/7/2026 | Seven Seas Voyager | 21 Nights | Athens (Piraeus) to Dubai12/9/2026 | Seven Seas Grandeur | 10 Nights | Miami to Miami12/11/2026 | Seven Seas Mariner | 10 Nights | Tampa Bay to Tampa Bay12/11/2026 | Seven Seas Splendor | 17 Nights | Galveston to Galveston12/13/2026 | Seven Seas Prestige | 14 Nights | Barcelona to Miami12/19/2026 | Seven Seas Explorer | 10 Nights | Sydney to Sydney12/19/2026 | Seven Seas Grandeur | 10 Nights | Miami to Miami12/21/2026 | Seven Seas Mariner | 14 Nights | Tampa Bay to Miami12/21/2026 | Seven Seas Navigator | 14 Nights | Rome (Civitavecchia) to Athens (Piraeus)12/28/2026 | Seven Seas Prestige | 11 Nights | Miami to Miami12/28/2026 | Seven Seas Splendor | 14 Nights | Galveston to Miami12/28/2026 | Seven Seas Voyager | 20 Nights | Dubai to Port Louis12/29/2026 | Seven Seas Explorer | 16 Nights | Sydney to Auckland12/29/2026 | Seven Seas Grandeur | 16 Nights | Miami to Los Angeles1/4/2027 | Seven Seas Mariner | 18 Nights | Miami to Rio de Janeiro1/4/2027 | Seven Seas Navigator | 11 Nights | Athens (Piraeus) to Istanbul1/10/2027 | Seven Seas Prestige | 10 Nights | Miami to Miami1/11/2027 | Seven Seas Splendor | 127 Nights | Miami to Rome (Civitavecchia)1/11/2027 | Seven Seas Splendor | 141 Nights | Miami to New York1/12/2027 | Seven Seas Splendor | 14 Nights | Miami to Panama City1/12/2027 | Seven Seas Splendor | 42 Nights | Miami to Papeete (Tahiti)1/14/2027 | Seven Seas Explorer | 14 Nights | Auckland to Sydney1/14/2027 | Seven Seas Grandeur | 10 Nights | Los Angeles to Los Angeles1/15/2027 | Seven Seas Navigator | 14 Nights | Istanbul to Athens (Piraeus)1/17/2027 | Seven Seas Voyager | 15 Nights | Port Louis to Cape Town1/20/2027 | Seven Seas Prestige | 15 Nights | Miami to Los Angeles1/22/2027 | Seven Seas Mariner | 11 Nights | Rio de Janeiro to Buenos Aires1/24/2027 | Seven Seas Grandeur | 16 Nights | Los Angeles to Miami1/26/2027 | Seven Seas Splendor | 28 Nights | Panama City to Papeete (Tahiti)1/28/2027 | Seven Seas Explorer | 19 Nights | Sydney to Bali (Benoa)1/29/2027 | Seven Seas Navigator | 14 Nights | Athens (Piraeus) to Lisbon2/1/2027 | Seven Seas Voyager | 15 Nights | Cape Town to Port Louis2/1/2027 | Seven Seas Voyager | 61 Nights | Cape Town to Barcelona2/2/2027 | Seven Seas Mariner | 18 Nights | Buenos Aires to Buenos Aires2/9/2027 | Seven Seas Grandeur | 7 Nights | Miami to Miami2/10/2027 | Seven Seas Prestige | 12 Nights | Los Angeles to Panama City2/12/2027 | Seven Seas Navigator | 25 Nights | Lisbon to Cape Town2/16/2027 | Seven Seas Explorer | 14 Nights | Bali (Benoa) to Bangkok (Laem Chabang)2/16/2027 | Seven Seas Grandeur | 7 Nights | Miami to Miami2/16/2027 | Seven Seas Voyager | 15 Nights | Port Louis to Doha2/20/2027 | Seven Seas Mariner | 18 Nights | Buenos Aires to Lima (Callao)2/22/2027 | Seven Seas Prestige | 11 Nights | Panama City to Miami2/23/2027 | Seven Seas Grandeur | 14 Nights | Miami to Panama City2/23/2027 | Seven Seas Splendor | 21 Nights | Papeete (Tahiti) to Sydney3/2/2027 | Seven Seas Explorer | 16 Nights | Bangkok (Laem Chabang) to Tokyo3/3/2027 | Seven Seas Voyager | 21 Nights | Doha to Rome (Civitavecchia)3/5/2027 | Seven Seas Prestige | 12 Nights | Miami to Miami3/9/2027 | Seven Seas Grandeur | 22 Nights | Panama City to Panama City3/9/2027 | Seven Seas Navigator | 28 Nights | Cape Town to Singapore3/10/2027 | Seven Seas Mariner | 16 Nights | Lima (Callao) to Miami3/16/2027 | Seven Seas Splendor | 18 Nights | Sydney to Singapore3/18/2027 | Seven Seas Explorer | 12 Nights | Tokyo to Tokyo3/20/2027 | Seven Seas Prestige | 10 Nights | Miami to San Juan3/24/2027 | Seven Seas Voyager | 10 Nights | Rome (Civitavecchia) to Barcelona3/26/2027 | Seven Seas Mariner | 10 Nights | Miami to Miami3/26/2027 | Seven Seas Mariner | 20 Nights | Miami to Miami3/30/2027 | Seven Seas Explorer | 14 Nights | Tokyo to Tokyo3/30/2027 | Seven Seas Prestige | 10 Nights | San Juan to Miami3/31/2027 | Seven Seas Grandeur | 14 Nights | Panama City to Miami4/3/2027 | Seven Seas Splendor | 22 Nights | Singapore to Abu Dhabi4/3/2027 | Seven Seas Voyager | 15 Nights | Barcelona to Barcelona4/5/2027 | Seven Seas Mariner | 10 Nights | Miami to Miami4/6/2027 | Seven Seas Navigator | 12 Nights | Singapore to Hong Kong4/9/2027 | Seven Seas Prestige | 14 Nights | Miami to New York4/13/2027 | Seven Seas Explorer | 12 Nights | Tokyo to Seoul (Incheon)4/14/2027 | Seven Seas Grandeur | 14 Nights | Miami to Lisbon4/14/2027 | Seven Seas Grandeur | 24 Nights | Miami to Lisbon4/15/2027 | Seven Seas Mariner | 14 Nights | Miami to New York4/18/2027 | Seven Seas Navigator | 11 Nights | Hong Kong to Kyoto (Kobe)4/18/2027 | Seven Seas Navigator | 20 Nights | Hong Kong to Kyoto (Kobe)4/18/2027 | Seven Seas Voyager | 11 Nights | Barcelona to Lisbon4/18/2027 | Seven Seas Voyager | 22 Nights | Barcelona to London (Southampton)4/25/2027 | Seven Seas Explorer | 12 Nights | Seoul (Incheon) to Tokyo4/25/2027 | Seven Seas Splendor | 23 Nights | Abu Dhabi to Rome (Civitavecchia)4/25/2027 | Seven Seas Splendor | 37 Nights | Abu Dhabi to New York4/27/2027 | Seven Seas Prestige | 14 Nights | New York to Barcelona4/28/2027 | Seven Seas Grandeur | 10 Nights | Lisbon to Lisbon4/29/2027 | Seven Seas Mariner | 16 Nights | New York to Lisbon4/29/2027 | Seven Seas Mariner | 28 Nights | New York to Paris (Le Havre)4/29/2027 | Seven Seas Mariner | 92 Nights | New York to London (Southampton)4/29/2027 | Seven Seas Mariner | 174 Nights | New York to Athens (Piraeus)4/29/2027 | Seven Seas Navigator | 9 Nights | Kyoto (Kobe) to Kyoto (Kobe)4/29/2027 | Seven Seas Voyager | 11 Nights | Lisbon to London (Southampton)5/7/2027 | Seven Seas Explorer | 19 Nights | Tokyo to Vancouver5/8/2027 | Seven Seas Grandeur | 7 Nights | Lisbon to Barcelona5/8/2027 | Seven Seas Grandeur | 17 Nights | Lisbon to Rome (Civitavecchia)5/10/2027 | Seven Seas Voyager | 11 Nights | London (Southampton) to Edinburgh (Leith)5/11/2027 | Seven Seas Prestige | 14 Nights | Barcelona to London (Southampton)5/15/2027 | Seven Seas Grandeur | 10 Nights | Barcelona to Rome (Civitavecchia)5/15/2027 | Seven Seas Grandeur | 18 Nights | Barcelona to Venice (Fusina)5/15/2027 | Seven Seas Mariner | 12 Nights | Lisbon to Paris (Le Havre)5/18/2027 | Seven Seas Splendor | 14 Nights | Rome (Civitavecchia) to New York5/21/2027 | Seven Seas Navigator | 12 Nights | Singapore to Bali (Benoa)5/21/2027 | Seven Seas Voyager | 12 Nights | Edinburgh (Leith) to Stockholm5/25/2027 | Seven Seas Grandeur | 8 Nights | Rome (Civitavecchia) to Venice (Fusina)5/26/2027 | Seven Seas Explorer | 7 Nights | Vancouver to Whittier5/27/2027 | Seven Seas Mariner | 14 Nights | Paris (Le Havre) to Copenhagen5/27/2027 | Seven Seas Prestige | 12 Nights | London (Southampton) to Lisbon6/1/2027 | Seven Seas Splendor | 14 Nights | New York to London (Southampton)6/2/2027 | Seven Seas Explorer | 7 Nights | Whittier to Vancouver6/2/2027 | Seven Seas Grandeur | 11 Nights | Venice (Fusina) to Barcelona6/2/2027 | Seven Seas Grandeur | 18 Nights | Venice (Fusina) to Rome (Civitavecchia)6/2/2027 | Seven Seas Navigator | 14 Nights | Bali (Benoa) to Perth (Fremantle)6/2/2027 | Seven Seas Voyager | 12 Nights | Stockholm to Copenhagen6/8/2027 | Seven Seas Prestige | 9 Nights | Lisbon to Barcelona6/8/2027 | Seven Seas Prestige | 18 Nights | Lisbon to Rome (Civitavecchia)6/9/2027 | Seven Seas Explorer | 7 Nights | Vancouver to Whittier6/10/2027 | Seven Seas Mariner | 10 Nights | Copenhagen to Stockholm6/10/2027 | Seven Seas Mariner | 20 Nights | Copenhagen to Amsterdam (Ijmuiden)6/13/2027 | Seven Seas Grandeur | 7 Nights | Barcelona to Rome (Civitavecchia)6/14/2027 | Seven Seas Voyager | 18 Nights | Copenhagen to London (Southampton)6/15/2027 | Seven Seas Splendor | 12 Nights | London (Southampton) to London (Southampton)6/16/2027 | Seven Seas Explorer | 7 Nights | Whittier to Vancouver6/16/2027 | Seven Seas Navigator | 11 Nights | Perth (Fremantle) to Darwin6/17/2027 | Seven Seas Prestige | 9 Nights | Barcelona to Rome (Civitavecchia)6/20/2027 | Seven Seas Grandeur | 7 Nights | Rome (Civitavecchia) to Venice (Fusina)6/20/2027 | Seven Seas Grandeur | 14 Nights | Rome (Civitavecchia) to Athens (Piraeus)6/20/2027 | Seven Seas Mariner | 10 Nights | Stockholm to Amsterdam (Ijmuiden)6/23/2027 | Seven Seas Explorer | 7 Nights | Vancouver to Whittier6/27/2027 | Seven Seas Grandeur | 7 Nights | Venice (Fusina) to Athens (Piraeus)6/27/2027 | Seven Seas Grandeur | 14 Nights | Venice (Fusina) to Rome (Civitavecchia)6/27/2027 | Seven Seas Navigator | 16 Nights | Darwin to Sydney6/27/2027 | Seven Seas Splendor | 14 Nights | London (Southampton) to Copenhagen6/30/2027 | Seven Seas Explorer | 7 Nights | Whittier to Vancouver6/30/2027 | Seven Seas Mariner | 14 Nights | Amsterdam (Ijmuiden) to Reykjavik7/2/2027 | Seven Seas Voyager | 12 Nights | London (Southampton) to Edinburgh (Leith)7/4/2027 | Seven Seas Grandeur | 7 Nights | Athens (Piraeus) to Rome (Civitavecchia)7/5/2027 | Seven Seas Prestige | 10 Nights | Ravenna to Barcelona7/5/2027 | Seven Seas Prestige | 17 Nights | Ravenna to Rome (Civitavecchia)7/7/2027 | Seven Seas Explorer | 7 Nights | Vancouver to Whittier7/11/2027 | Seven Seas Grandeur | 8 Nights | Rome (Civitavecchia) to Venice (Fusina)7/11/2027 | Seven Seas Splendor | 14 Nights | Copenhagen to London (Southampton)7/13/2027 | Seven Seas Navigator | 12 Nights | Sydney to Cairns7/13/2027 | Seven Seas Navigator | 21 Nights | Sydney to Cairns7/14/2027 | Seven Seas Explorer | 7 Nights | Whittier to Vancouver7/14/2027 | Seven Seas Mariner | 16 Nights | Reykjavik to London (Southampton)7/14/2027 | Seven Seas Voyager | 12 Nights | Edinburgh (Leith) to Stockholm7/15/2027 | Seven Seas Prestige | 7 Nights | Barcelona to Rome (Civitavecchia)7/15/2027 | Seven Seas Prestige | 14 Nights | Barcelona to Trieste7/19/2027 | Seven Seas Grandeur | 10 Nights | Venice (Fusina) to Barcelona7/19/2027 | Seven Seas Grandeur | 19 Nights | Venice (Fusina) to Rome (Civitavecchia)7/21/2027 | Seven Seas Explorer | 7 Nights | Vancouver to Whittier7/22/2027 | Seven Seas Prestige | 7 Nights | Rome (Civitavecchia) to Trieste7/22/2027 | Seven Seas Prestige | 14 Nights | Rome (Civitavecchia) to Athens (Piraeus)7/25/2027 | Seven Seas Navigator | 9 Nights | Cairns to Cairns7/25/2027 | Seven Seas Splendor | 14 Nights | London (Southampton) to Reykjavik7/26/2027 | Seven Seas Voyager | 8 Nights | Stockholm to Copenhagen7/28/2027 | Seven Seas Explorer | 7 Nights | Whittier to Vancouver7/29/2027 | Seven Seas Grandeur | 9 Nights | Barcelona to Rome (Civitavecchia)7/29/2027 | Seven Seas Prestige | 7 Nights | Trieste to Athens (Piraeus)7/29/2027 | Seven Seas Prestige | 14 Nights | Trieste to Rome (Civitavecchia)7/30/2027 | Seven Seas Mariner | 12 Nights | London (Southampton) to Lisbon7/30/2027 | Seven Seas Mariner | 23 Nights | London (Southampton) to Barcelona7/30/2027 | Seven Seas Mariner | 82 Nights | London (Southampton) to Athens (Piraeus)8/3/2027 | Seven Seas Navigator | 12 Nights | Cairns to Lautoka8/3/2027 | Seven Seas Voyager | 18 Nights | Copenhagen to London (Southampton)8/4/2027 | Seven Seas Explorer | 7 Nights | Vancouver to Whittier8/5/2027 | Seven Seas Prestige | 7 Nights | Athens (Piraeus) to Rome (Civitavecchia)8/7/2027 | Seven Seas Grandeur | 10 Nights | Rome (Civitavecchia) to Lisbon8/7/2027 | Seven Seas Grandeur | 20 Nights | Rome (Civitavecchia) to London (Southampton)8/8/2027 | Seven Seas Splendor | 10 Nights | Reykjavik to Reykjavik8/11/2027 | Seven Seas Explorer | 7 Nights | Whittier to Vancouver8/11/2027 | Seven Seas Mariner | 11 Nights | Lisbon to Barcelona8/11/2027 | Seven Seas Mariner | 22 Nights | Lisbon to Rome (Civitavecchia)8/12/2027 | Seven Seas Prestige | 9 Nights | Rome (Civitavecchia) to Trieste8/15/2027 | Seven Seas Navigator | 10 Nights | Lautoka to Lautoka8/17/2027 | Seven Seas Grandeur | 10 Nights | Lisbon to London (Southampton)8/18/2027 | Seven Seas Explorer | 7 Nights | Vancouver to Whittier8/18/2027 | Seven Seas Splendor | 10 Nights | Reykjavik to Reykjavik8/21/2027 | Seven Seas Prestige | 10 Nights | Trieste to Barcelona8/21/2027 | Seven Seas Voyager | 12 Nights | London (Southampton) to London (Southampton)8/22/2027 | Seven Seas Mariner | 11 Nights | Barcelona to Rome (Civitavecchia)8/25/2027 | Seven Seas Explorer | 7 Nights | Whittier to Vancouver8/25/2027 | Seven Seas Navigator | 10 Nights | Lautoka to Lautoka8/27/2027 | Seven Seas Grandeur | 14 Nights | London (Southampton) to Montr\u00e9al8/27/2027 | Seven Seas Grandeur | 25 Nights | London (Southampton) to New York8/28/2027 | Seven Seas Splendor | 16 Nights | Reykjavik to London (Southampton)8/31/2027 | Seven Seas Prestige | 9 Nig",
+  "downloaded_images": [
+    {
+      "file": "/home/john/Thunderbird/validations/rssc_scrape/images/d2m_dashboard_000.jpg",
+      "src": "https://www.rssc.com/sites/default/files/Africa_StaticMaps_Explore.jpg",
+      "alt": "",
+      "kb": 22
+    },
+    {
+      "file": "/home/john/Thunderbird/validations/rssc_scrape/images/d2m_dashboard_003.jpg",
+      "src": "https://www.rssc.com/sites/default/files/Alaska_StaticMaps_Explore.jpg",
+      "alt": "",
+      "kb": 14
+    },
+    {
+      "file": "/home/john/Thunderbird/validations/rssc_scrape/images/d2m_dashboard_006.jpg",
+      "src": "https://www.rssc.com/sites/default/files/Asia_StaticMaps_Explore.jpg",
+      "alt": "",
+      "kb": 29
+    },
+    {
+      "file": "/home/john/Thunderbird/validations/rssc_scrape/images/d2m_dashboard_009.jpg",
+      "src": "https://www.rssc.com/sites/default/files/Australia_StaticMaps_Explore.jpg",
+      "alt": "",
+      "kb": 12
+    },
+    {
+      "file": "/home/john/Thunderbird/validations/rssc_scrape/images/d2m_dashboard_012.jpg",
+      "src": "https://www.rssc.com/sites/default/files/Bermuda_StaticMaps_Explore.jpg",
+      "alt": "",
+      "kb": 13
+    },
+    {
+      "file": "/home/john/Thunderbird/validations/rssc_scrape/images/d2m_dashboard_015.jpg",
+      "src": "https://www.rssc.com/sites/default/files/CanadaNewEngland_StaticMaps_Explore.jpg",
+      "alt": "",
+      "kb": 24
+    },
+    {
+      "file": "/home/john/Thunderbird/validations/rssc_scrape/images/d2m_dashboard_018.jpg",
+      "src": "https://www.rssc.com/sites/default/files/Caribbean_StaticMaps_Explore.jpg",
+      "alt": "",
+      "kb": 16
+    },
+    {
+      "file": "/home/john/Thunderbird/validations/rssc_scrape/images/d2m_dashboard_021.jpg",
+      "src": "https://www.rssc.com/sites/default/files/Mediterranean_StaticMaps_Explore.jpg",
+      "alt": "",
+      "kb": 27
+    },
+    {
+      "file": "/home/john/Thunderbird/validations/rssc_scrape/images/d2m_dashboard_024.jpg",
+      "src": "https://www.rssc.com/sites/default/files/NorthernEurope_StaticMaps_Explore.jpg",
+      "alt": "",
+      "kb": 27
+    },
+    {
+      "file": "/home/john/Thunderbird/validations/rssc_scrape/images/d2m_dashboard_027.jpg",
+      "src": "https://www.rssc.com/sites/default/files/SouthAmerica_StaticMaps_Explore.jpg",
+      "alt": "",
+      "kb": 14
+    }
+  ],
+  "screenshot": "/home/john/Thunderbird/validations/rssc_scrape/d2m_dashboard_113233.png"
+}

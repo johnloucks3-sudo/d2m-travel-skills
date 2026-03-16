@@ -1,0 +1,650 @@
+"""
+Dreams2Memories Travel Automation MCP Server
+============================================
+
+Comprehensive MCP server for luxury travel itinerary automation:
+- PDF data extraction and parsing
+- Excel workbook synchronization
+- Image generation and insertion (Stable Diffusion)
+- Client itinerary creation from templates
+- Booking data consolidation
+- Live luxury cruise voyage & cabin scraping (Playwright Stealth)
+
+Transport: stdio (local), SSE (legacy), or Streamable HTTP (production)
+
+Streamable HTTP is the production transport — stateless, load-balancer friendly,
+and the MCP standard replacing SSE (deprecated April 2026).
+"""
+from thunderbird_ship_intel import register_ship_intel_tools
+from thunderbird_world_intel import register_world_intel_tools
+from thunderbird_ship_compare import register_comparison_tools
+from thunderbird_drive import register_drive_tools
+from thunderbird_browser import register_browser_tools
+from thunderbird_weekly_report import register_weekly_report_tools
+from thunderbird_tech_monitor import register_tech_monitor_tools
+from thunderbird_v3 import register_v3_tools
+from itinerary_finishing_pipeline import register_itinerary_pipeline_tools
+from thunderbird_hotel_search import register_hotel_search_tools
+from thunderbird_flight_search import register_flight_search_tools
+from thunderbird_gmail import register_gmail_tools
+from thunderbird_tour_search import register_tour_search_tools
+from thunderbird_fare_watch import register_fare_watch_tools
+from thunderbird_personas import register_persona_tools
+from thunderbird_sms import register_sms_tools
+from thunderbird_evernote import register_evernote_tools
+from thunderbird_whatsapp import register_whatsapp_tools
+from thunderbird_quote_render import register_quote_tools
+from thunderbird_star_protocol import register_star_protocol_tools
+from thunderbird_dani_email import register_dani_email_tools
+from thunderbird_keep import register_keep_tools
+from thunderbird_dining import register_dining_tools
+from thunderbird_anchor_dates import register_anchor_date_tools
+from thunderbird_dossier import register_dossier_tools
+from thunderbird_outside_agents import register_outside_agents_tools
+from thunderbird_morning_briefing import register_briefing_tools
+from thunderbird_x_osint import register_x_osint_tools
+from d2m_client_materials import register_client_materials_tools
+from thunderbird_trip_architect import register_trip_architect_tools
+from thunderbird_commission_recon import register_commission_recon_tools
+from thunderbird_survey import register_survey_tools
+from thunderbird_competitive_surveillance import register_surveillance_tools
+from thunderbird_price_monitor import register_price_monitor_tools
+from thunderbird_email_intel import register_email_intel_tools
+from thunderbird_tess import register_tess_tools
+from thunderbird_shared_memory import register_memory_tools
+from thunderbird_crewai import register_crewai_tools
+from thunderbird_a2a import register_a2a_tools
+from thunderbird_airline_monitor import register_airline_monitor_tools
+from thunderbird_intel_crew import register_intel_crew_tools
+import json
+import logging
+import asyncio
+from pathlib import Path
+from datetime import datetime
+import re
+from typing import Optional, List, Dict, Any
+from enum import Enum
+
+from pydantic import BaseModel, Field, ConfigDict
+from mcp.server.fastmcp import FastMCP
+
+# New Imports for Web Scraping
+from playwright.async_api import async_playwright
+from playwright_stealth import Stealth
+
+# Initialize MCP server
+mcp = FastMCP("dreams2memories_travel_mcp")
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+# ============================================================================
+# DATA MODELS
+# ============================================================================
+
+class CruisePortStop(BaseModel):
+    """Model for cruise port information"""
+    model_config = ConfigDict(str_strip_whitespace=True, extra='forbid')
+
+    port_name: str = Field(..., description="Port name (e.g., 'Yokohama', 'Seattle')", min_length=1)
+    date: str = Field(..., description="ISO date (YYYY-MM-DD)")
+    arrival_time: Optional[str] = Field(None, description="Arrival time (HH:MM 24-hour format)")
+    departure_time: Optional[str] = Field(None, description="Departure time (HH:MM 24-hour format)")
+    description: Optional[str] = Field(None, description="Port description or highlights")
+    shore_excursions: Optional[List[str]] = Field(default_factory=list, description="Available excursions")
+
+class ShoreExcursion(BaseModel):
+    """Model for shore excursion details"""
+    model_config = ConfigDict(str_strip_whitespace=True, extra='forbid')
+
+    excursion_id: str = Field(..., description="Unique excursion ID")
+    port: str = Field(..., description="Port where excursion operates")
+    name: str = Field(..., description="Excursion name")
+    price: float = Field(..., description="Price per person", ge=0)
+    duration_hours: float = Field(..., description="Duration in hours", ge=0.5)
+    status: str = Field("available", description="Status: available, waitlisted, cancelled")
+    description: Optional[str] = Field(None, description="Excursion description")
+
+class SpecialtyDining(BaseModel):
+    """Model for specialty dining reservations"""
+    model_config = ConfigDict(str_strip_whitespace=True, extra='forbid')
+
+    restaurant: str = Field(..., description="Restaurant name")
+    date: str = Field(..., description="Reservation date (YYYY-MM-DD)")
+    time: str = Field(..., description="Reservation time (HH:MM 24-hour)")
+    party_size: int = Field(..., description="Number of guests", ge=1, le=10)
+    notes: Optional[str] = Field(None, description="Special requests or notes")
+
+class CruiseBooking(BaseModel):
+    """Model for complete cruise booking"""
+    model_config = ConfigDict(str_strip_whitespace=True, extra='forbid')
+
+    booking_id: str = Field(..., description="Booking confirmation number")
+    cruise_line: str = Field(..., description="Cruise line (e.g., 'Silversea')")
+    ship_name: str = Field(..., description="Ship name")
+    voyage_start: str = Field(..., description="Voyage start date (YYYY-MM-DD)")
+    voyage_end: str = Field(..., description="Voyage end date (YYYY-MM-DD)")
+    total_cost: float = Field(..., description="Total cost in USD", ge=0)
+    paid_in_full: bool = Field(False, description="Whether payment is complete")
+    passengers: List[str] = Field(default_factory=list, description="Passenger names")
+    travel_agent: Optional[str] = Field(None, description="Travel agent name and contact")
+    ports: List[CruisePortStop] = Field(default_factory=list, description="Port itinerary")
+    excursions: List[ShoreExcursion] = Field(default_factory=list, description="Booked excursions")
+    dining_reservations: List[SpecialtyDining] = Field(default_factory=list, description="Specialty dining")
+
+class ItineraryGenerationRequest(BaseModel):
+    """Request model for itinerary generation"""
+    model_config = ConfigDict(str_strip_whitespace=True, extra='forbid')
+
+    booking_id: str = Field(..., description="Reference booking ID")
+    client_name: str = Field(..., description="Client name for personalization")
+    format: str = Field("pdf", description="Output format: 'pdf' or 'google_docs'")
+    include_images: bool = Field(True, description="Generate and include images")
+    image_style: str = Field("luxury_travel", description="Image style: 'luxury_travel', 'adventure', 'cultural'")
+    template_type: str = Field("standard", description="Template: 'standard', 'luxury', 'adventure'")
+
+# ============================================================================
+# PDF EXTRACTION TOOLS
+# ============================================================================
+
+@mcp.tool(
+    name="extract_pdf_booking_details",
+    annotations={"title": "Extract Booking Details from PDF", "readOnlyHint": True}
+)
+async def extract_pdf_booking_details(
+    pdf_path: str = Field(..., description="Path to PDF file (e.g., '/uploads/Silver_Nova_Confirmation.pdf')")
+) -> str:
+    """Extract structured booking data from cruise confirmation PDF."""
+    try:
+        logger.info(f"Extracting booking details from: {pdf_path}")
+        result = {
+            "status": "success",
+            "message": f"PDF extraction initiated for {pdf_path}",
+            "requires_implementation": "PyPDF2 or pdfplumber integration needed",
+        }
+        return json.dumps(result, indent=2)
+    except Exception as e:
+        logger.error(f"Error extracting PDF: {str(e)}")
+        return json.dumps({"error": str(e), "type": "extraction_error"})
+
+@mcp.tool(
+    name="extract_pdf_itinerary",
+    annotations={"title": "Extract Port Itinerary from PDF", "readOnlyHint": True}
+)
+async def extract_pdf_itinerary(
+    pdf_path: str = Field(..., description="Path to itinerary PDF"),
+    page_range: Optional[str] = Field(None, description="Page range (e.g., '1-5') or 'all'")
+) -> str:
+    """Extract detailed port-by-port itinerary from PDF."""
+    logger.info(f"Extracting itinerary from {pdf_path} (pages: {page_range or 'all'})")
+    result = {
+        "status": "initiated",
+        "file": pdf_path,
+        "pages": page_range or "all",
+        "requires_implementation": "PDF text/table extraction and NLP parsing"
+    }
+    return json.dumps(result, indent=2)
+
+# ============================================================================
+# EXCEL SYNCHRONIZATION TOOLS
+# ============================================================================
+
+@mcp.tool(
+    name="sync_booking_to_excel",
+    annotations={"title": "Sync Booking Data to Excel", "readOnlyHint": False}
+)
+async def sync_booking_to_excel(
+    excel_path: str = Field(..., description="Path to Excel workbook"),
+    booking_data: str = Field(..., description="JSON string of CruiseBooking data"),
+    sheet_name: str = Field("Booking Master", description="Target sheet name"),
+    overwrite_existing: bool = Field(False, description="Overwrite existing data")
+) -> str:
+    """Synchronize booking data to Excel workbook."""
+    try:
+        booking_json = json.loads(booking_data)
+        logger.info(f"Syncing booking {booking_json.get('booking_id')} to {excel_path}")
+        result = {
+            "status": "initiated",
+            "excel_file": excel_path,
+            "target_sheet": sheet_name,
+            "booking_id": booking_json.get("booking_id"),
+            "requires_implementation": "openpyxl integration for Excel writing"
+        }
+        return json.dumps(result, indent=2)
+    except json.JSONDecodeError as e:
+        return json.dumps({"error": f"Invalid JSON: {str(e)}"})
+
+@mcp.tool(
+    name="read_excel_booking_data",
+    annotations={"title": "Read Booking Data from Excel", "readOnlyHint": True}
+)
+async def read_excel_booking_data(
+    excel_path: str = Field(..., description="Path to Excel workbook"),
+    sheet_name: str = Field("Booking Master", description="Sheet to read")
+) -> str:
+    """Read structured booking data from Excel workbook."""
+    logger.info(f"Reading {sheet_name} from {excel_path}")
+    result = {
+        "status": "initiated",
+        "file": excel_path,
+        "sheet": sheet_name,
+        "requires_implementation": "openpyxl integration for Excel reading"
+    }
+    return json.dumps(result, indent=2)
+
+# ============================================================================
+# IMAGE GENERATION & DOCUMENT TOOLS
+# ============================================================================
+
+@mcp.tool(name="generate_itinerary_images")
+async def generate_itinerary_images(
+    booking_data: str = Field(..., description="JSON string of CruiseBooking data"),
+    ports: Optional[List[str]] = Field(None, description="Specific ports to generate images for, or 'all'"),
+    image_style: str = Field("luxury_travel", description="Style: 'luxury_travel', 'adventure', 'cultural', 'romantic'"),
+    api_source: str = Field("stability_ai", description="Image source: 'stability_ai' or 'local_stable_diffusion'")
+) -> str:
+    """Generate professional images for each cruise port using Stable Diffusion."""
+    try:
+        booking_json = json.loads(booking_data)
+        booking_id = booking_json.get("booking_id", "unknown")
+        logger.info(f"Generating images for booking {booking_id} with style '{image_style}'")
+        result = {
+            "status": "initiated",
+            "booking_id": booking_id,
+            "image_style": image_style,
+            "api_source": api_source,
+            "requires_implementation": "Stability AI API or local Stable Diffusion integration"
+        }
+        return json.dumps(result, indent=2)
+    except json.JSONDecodeError as e:
+        return json.dumps({"error": f"Invalid JSON: {str(e)}"})
+
+@mcp.tool(name="insert_images_to_pdf")
+async def insert_images_to_pdf(
+    pdf_path: str = Field(..., description="Path to template PDF"),
+    images_mapping: str = Field(..., description="JSON: {'port_name': 'image_path', ...}"),
+    output_path: str = Field(..., description="Output PDF path")
+) -> str:
+    """Insert generated images into PDF itinerary template."""
+    logger.info(f"Inserting images into PDF: {pdf_path}")
+    return json.dumps({"status": "initiated", "template_pdf": pdf_path, "output_pdf": output_path}, indent=2)
+
+@mcp.tool(name="insert_images_to_google_docs")
+async def insert_images_to_google_docs(
+    doc_id: str = Field(..., description="Google Doc ID"),
+    images_mapping: str = Field(..., description="JSON: {'port_name': 'image_path', ...}"),
+    image_width_pixels: int = Field(600, description="Image width in pixels", ge=200, le=1200)
+) -> str:
+    """Insert generated images into Google Docs itinerary."""
+    logger.info(f"Inserting images into Google Doc: {doc_id}")
+    return json.dumps({"status": "initiated", "doc_id": doc_id, "image_width": image_width_pixels}, indent=2)
+
+@mcp.tool(name="generate_itinerary_from_template")
+async def generate_itinerary_from_template(
+    booking_data: str = Field(..., description="JSON string of CruiseBooking data"),
+    client_name: str = Field(..., description="Client name for personalization"),
+    output_format: str = Field("pdf", description="Output: 'pdf', 'google_docs', or 'both'"),
+    template_type: str = Field("standard", description="Template: 'standard', 'luxury', 'adventure'"),
+    include_images: bool = Field(True, description="Generate and include custom images"),
+    image_style: str = Field("luxury_travel", description="Image style for generation")
+) -> str:
+    """Generate complete personalized itinerary from booking data."""
+    try:
+        booking_json = json.loads(booking_data)
+        booking_id = booking_json.get("booking_id", "unknown")
+        logger.info(f"Generating {template_type} itinerary for {client_name} ({booking_id})")
+        return json.dumps({
+            "status": "initiated",
+            "client": client_name,
+            "booking_id": booking_id,
+            "template": template_type,
+            "format": output_format
+        }, indent=2)
+    except json.JSONDecodeError as e:
+        return json.dumps({"error": f"Invalid JSON: {str(e)}"})
+
+@mcp.tool(name="consolidate_booking_sources")
+async def consolidate_booking_sources(
+    pdf_path: Optional[str] = Field(None, description="Path to confirmation PDF"),
+    excel_path: Optional[str] = Field(None, description="Path to Excel workbook"),
+    gmail_labels: Optional[List[str]] = Field(None, description="Gmail labels to search for confirmations"),
+    booking_id: Optional[str] = Field(None, description="Booking ID to filter results")
+) -> str:
+    """Consolidate booking data from multiple sources (PDFs, Excel, Gmail)."""
+    logger.info("Consolidating booking data from multiple sources")
+    sources = []
+    if pdf_path: sources.append(f"PDF: {pdf_path}")
+    if excel_path: sources.append(f"Excel: {excel_path}")
+    if gmail_labels: sources.append(f"Gmail labels: {', '.join(gmail_labels)}")
+
+    return json.dumps({
+        "status": "initiated",
+        "sources": sources or "none specified",
+        "booking_id_filter": booking_id
+    }, indent=2)
+
+# ============================================================================
+# LIVE WEB SCRAPING TOOLS (PLAYWRIGHT + STEALTH V2)
+# ============================================================================
+
+@mcp.tool(
+    name="search_live_cruise_voyages",
+    annotations={
+        "title": "Live Search Cruise Voyages (Stealth)",
+        "readOnlyHint": True
+    }
+)
+async def search_live_cruise_voyages(
+    url: str = Field(..., description="Target URL to search, e.g., 'https://www.silversea.com/find-a-cruise.html'")
+) -> str:
+    """Scrapes live luxury cruise voyage information using a stealth browser."""
+    logger.info(f"Launching Stealth Playwright to search voyages at: {url}")
+    try:
+        # V2 SYNTAX: Automatically applies stealth to the entire context
+        async with Stealth().use_async(async_playwright()) as p:
+            browser = await p.chromium.launch(headless=True)
+            context = await browser.new_context(
+                user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36"
+            )
+            page = await context.new_page()
+
+            # Rate limit fix: Slight delay to prevent hammering the server
+            await asyncio.sleep(3)
+
+            # Navigate and wait for the page to load
+            await page.goto(url, wait_until="networkidle", timeout=45000)
+
+            # Scroll to trigger lazy-loaded elements
+            await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
+            await page.wait_for_timeout(3000)
+
+            content = await page.evaluate("document.body.innerText")
+            await browser.close()
+
+            return json.dumps({
+                "status": "success",
+                "url": url,
+                "raw_data_snippet": content[:6000]
+            }, indent=2)
+
+    except Exception as e:
+        logger.error(f"Playwright error: {str(e)}")
+        return json.dumps({"error": str(e), "type": "scraping_error"})
+
+
+@mcp.tool(
+    name="check_cabin_availability",
+    annotations={
+        "title": "Check Live Cabin Availability (Stealth)",
+        "readOnlyHint": True
+    }
+)
+async def check_cabin_availability(
+    voyage_url: str = Field(..., description="Direct URL to the specific cruise voyage page")
+) -> str:
+    """Scrapes a specific voyage page to find available cabin categories and pricing."""
+    logger.info(f"Checking live cabin availability via Stealth for: {voyage_url}")
+    try:
+        async with Stealth().use_async(async_playwright()) as p:
+            browser = await p.chromium.launch(headless=True)
+            context = await browser.new_context(
+                user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36"
+            )
+            page = await context.new_page()
+
+            # Rate limit fix: Slight delay
+            await asyncio.sleep(3)
+
+            await page.goto(voyage_url, wait_until="networkidle", timeout=45000)
+
+            content = await page.evaluate("document.body.innerText")
+            await browser.close()
+
+            return json.dumps({
+                "status": "success",
+                "url": voyage_url,
+                "availability_data_snippet": content[:6000]
+            }, indent=2)
+
+    except Exception as e:
+        logger.error(f"Playwright error: {str(e)}")
+        return json.dumps({"error": str(e), "type": "scraping_error"})
+# ============================================================================
+# REGISTER THUNDERBIRD INTELLIGENCE TOOLS
+# ============================================================================
+register_ship_intel_tools(mcp)
+register_world_intel_tools(mcp)
+register_comparison_tools(mcp)
+register_drive_tools(mcp)
+register_browser_tools(mcp)
+register_weekly_report_tools(mcp)
+register_tech_monitor_tools(mcp)
+register_v3_tools(mcp)
+register_itinerary_pipeline_tools(mcp)
+register_hotel_search_tools(mcp)
+register_flight_search_tools(mcp)
+register_gmail_tools(mcp)
+register_tour_search_tools(mcp)
+register_fare_watch_tools(mcp)
+register_persona_tools(mcp)
+register_sms_tools(mcp)
+register_evernote_tools(mcp)
+register_whatsapp_tools(mcp)
+register_quote_tools(mcp)
+register_star_protocol_tools(mcp)
+register_dani_email_tools(mcp)
+register_keep_tools(mcp)
+register_dining_tools(mcp)
+register_outside_agents_tools(mcp)
+register_anchor_date_tools(mcp)
+register_dossier_tools(mcp)
+register_briefing_tools(mcp)
+register_x_osint_tools(mcp)
+register_trip_architect_tools(mcp)
+register_commission_recon_tools(mcp)
+register_client_materials_tools(mcp)
+register_survey_tools(mcp)
+register_surveillance_tools(mcp)
+register_price_monitor_tools(mcp)
+register_email_intel_tools(mcp)
+register_tess_tools(mcp)
+register_memory_tools(mcp)
+register_crewai_tools(mcp)
+register_a2a_tools(mcp)
+register_airline_monitor_tools(mcp)
+register_intel_crew_tools(mcp)
+
+# ============================================================================
+# SHELL EXEC TOOL
+# ============================================================================
+
+import subprocess
+import os
+
+SHELL_LOG = os.path.expanduser("~/Thunderbird/logs/shell_exec.log")
+
+@mcp.tool(
+    name="shell_exec",
+    annotations={
+        "title": "Execute Shell Command",
+        "readOnlyHint": False,
+        "destructiveHint": True,
+        "idempotentHint": False,
+        "openWorldHint": True,
+    },
+)
+async def shell_exec(
+    command: str = Field(..., description="Bash command to execute on the local machine"),
+    working_dir: Optional[str] = Field(None, description="Working directory (default: ~/Thunderbird)"),
+    timeout: int = Field(30, description="Timeout in seconds (1-300)", ge=1, le=300),
+) -> str:
+    """Execute an arbitrary bash command on the local machine.
+    Logs every invocation to ~/Thunderbird/logs/shell_exec.log."""
+    cwd = os.path.expanduser(working_dir or "~/Thunderbird")
+    start = datetime.now()
+
+    os.makedirs(os.path.dirname(SHELL_LOG), exist_ok=True)
+    with open(SHELL_LOG, "a", encoding="utf-8") as log_file:
+        log_file.write(f"[{start.isoformat()}] CWD={cwd} CMD={command}\n")
+
+    try:
+        result = subprocess.run(
+            command, shell=True, cwd=cwd,
+            capture_output=True, text=True, timeout=timeout,
+        )
+        elapsed = (datetime.now() - start).total_seconds()
+        return json.dumps({
+            "stdout": result.stdout,
+            "stderr": result.stderr,
+            "exit_code": result.returncode,
+            "elapsed_seconds": elapsed,
+            "command": command,
+            "cwd": cwd,
+        }, indent=2)
+    except subprocess.TimeoutExpired:
+        return json.dumps({"error": f"Command timed out after {timeout}s", "command": command, "cwd": cwd}, indent=2)
+    except Exception as e:
+        return json.dumps({"error": str(e), "command": command, "cwd": cwd}, indent=2)
+
+
+# ============================================================================
+# SERVER INITIALIZATION
+# ============================================================================
+# This MUST be the final block in the file to ensure tools are read first!
+
+if __name__ == "__main__":
+    import sys
+
+    # Print server info to stderr — stdout is reserved for MCP JSON-RPC
+    def log(msg=""):
+        print(msg, file=sys.stderr)
+
+    log("=" * 70)
+    log("Dreams2Memories Travel Automation MCP Server")
+    log("=" * 70)
+    log("\nAvailable Tools:")
+    log("  PDF Extraction:")
+    log("    - extract_pdf_booking_details")
+    log("    - extract_pdf_itinerary")
+    log("\n  Excel Synchronization:")
+    log("    - sync_booking_to_excel")
+    log("    - read_excel_booking_data")
+    log("\n  Image Generation:")
+    log("    - generate_itinerary_images")
+    log("    - insert_images_to_pdf")
+    log("    - insert_images_to_google_docs")
+    log("\n  Itinerary Generation:")
+    log("    - generate_itinerary_from_template")
+    log("\n  Data Consolidation:")
+    log("    - consolidate_booking_sources")
+    log("\n  Live Web Search:")
+    log("    - search_live_cruise_voyages")
+    log("    - check_cabin_availability")
+    log("\n  Hotel Search (Hotelbeds/Bedsonline):")
+    log("    - search_hotels")
+    log("    - check_hotel_rates")
+    log("    - get_hotel_details")
+    log("    - bedsonline_browse_search")
+    log("    - bedsonline_browse_interact")
+    log("    - compare_hotels")
+    log("    - render_hotel_quote_pdf")
+    log("    - email_hotel_quote")
+    log("\n  Flight Search (Amadeus):")
+    log("    - search_flights")
+    log("    - verify_flight_price")
+    log("    - search_airports")
+    log("    - compare_flights")
+    log("    - render_flight_quote_pdf")
+    log("    - email_flight_quote")
+    log("\n  Gmail:")
+    log("    - gmail_search_messages")
+    log("    - gmail_read_message")
+    log("    - gmail_read_thread")
+    log("    - gmail_list_drafts")
+    log("    - gmail_create_draft")
+    log("    - gmail_send_draft")
+    log("    - gmail_update_draft")
+    log("    - gmail_delete_draft")
+    log("    - gmail_get_profile")
+    log("\n  Tours & Activities:")
+    log("    - search_tours (Amadeus)")
+    log("    - search_tours_musement")
+    log("    - browse_tour_portal (ProjectExpedition/TAAP/Viator TA)")
+    log("    - scrape_consumer_tour_prices (Expedia/Viator public)")
+    log("    - scrape_tour_content (Fodor's/Rick Steves)")
+    log("    - compare_tours")
+    log("    - render_tour_quote_pdf")
+    log("    - email_tour_quote")
+    log("\n  SMS Notifications:")
+    log("    - send_sms_notification")
+    log("\n  Evernote Mirror:")
+    log("    - mirror_to_evernote")
+    log("\n  WhatsApp (Twilio):")
+    log("    - send_whatsapp")
+    # Parse transport mode from CLI args
+    # --http / --streamable-http → Streamable HTTP (production, recommended)
+    # --sse                      → Legacy SSE (deprecated April 2026)
+    # (default)                  → stdio (Claude CLI local)
+    transport = "stdio"
+    host = "0.0.0.0"
+    port = 8765
+    for arg in sys.argv[1:]:
+        if arg in ("--http", "--streamable-http"):
+            transport = "streamable-http"
+        elif arg == "--sse":
+            transport = "sse"
+        elif arg.startswith("--port="):
+            port = int(arg.split("=", 1)[1])
+        elif arg.startswith("--host="):
+            host = arg.split("=", 1)[1]
+
+    if transport != "stdio":
+        # Set host/port on the FastMCP settings for SSE/HTTP
+        mcp.settings.host = host
+        mcp.settings.port = port
+
+        # Streamable HTTP production settings:
+        # - stateless_http: no server-side session state → works behind load balancers
+        # - json_response: plain JSON instead of SSE streams for simple responses
+        if transport == "streamable-http":
+            mcp.settings.stateless_http = True
+            mcp.settings.json_response = True
+
+        # Update DNS rebinding protection to allow tunnel hostnames.
+        # FastMCP auto-enables this with localhost-only defaults (MCP SDK 1.26+),
+        # but cloudflared forwards requests with the original Host header
+        # (e.g., mcp.d2mluxury.quest), which gets rejected as 421.
+        from mcp.server.transport_security import TransportSecuritySettings
+        mcp.settings.transport_security = TransportSecuritySettings(
+            enable_dns_rebinding_protection=True,
+            allowed_hosts=[
+                "127.0.0.1:*", "localhost:*", "[::1]:*",
+                "mcp.d2mluxury.quest",       # cloudflared tunnel
+                "10.0.0.53:*",               # LAN IP
+                "100.69.222.124:*",          # Tailscale IP
+            ],
+            allowed_origins=[
+                "http://127.0.0.1:*", "http://localhost:*", "http://[::1]:*",
+                "https://mcp.d2mluxury.quest",
+                "http://10.0.0.53:*",        # LAN
+                "http://100.69.222.124:*",   # Tailscale
+            ],
+        )
+
+    mode_str = f"{transport} transport"
+    if transport != "stdio":
+        mode_str += f" on {host}:{port}"
+        if transport == "streamable-http":
+            mode_str += f"  endpoint: /mcp"
+
+    if transport == "sse":
+        log(f"\n  *** WARNING: SSE transport is deprecated (April 2026) ***")
+        log(f"  *** Use --http for Streamable HTTP (production standard) ***")
+
+    log(f"\n{'=' * 70}")
+    log(f"Starting MCP server ({mode_str})...")
+    log("=" * 70 + "\n")
+
+    # Run the server
+    mcp.run(transport=transport)

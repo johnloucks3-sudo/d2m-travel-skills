@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thunderbird Project Plan v4.5 — All Tasks + Plugins + Supplier Registry</title>
+<style>
+  :root {
+    --navy: #0d1b2e;
+    --navy2: #152540;
+    --navy3: #1e3358;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-pale: #f5e9c8;
+    --muted: #8a9ab5;
+    --white: #f0f0f0;
+    --red: #e74c3c;
+    --orange: #e67e22;
+    --green: #2ecc71;
+    --blue: #3498db;
+    --purple: #9b59b6;
+    --teal: #1abc9c;
+    --pink: #e84393;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    padding: 20px;
+    font-size: 14px;
+  }
+
+  .header {
+    text-align: center;
+    padding: 30px 20px 24px;
+    border-bottom: 2px solid var(--gold);
+    margin-bottom: 24px;
+  }
+  .header h1 { font-size: 1.8em; color: var(--gold); letter-spacing: 2px; }
+  .header .sub { color: var(--muted); margin-top: 4px; }
+  .header .stats {
+    display: flex; justify-content: center; gap: 28px; margin-top: 16px; flex-wrap: wrap;
+  }
+  .stat { text-align: center; }
+  .stat .n { font-size: 1.8em; font-weight: 700; color: var(--gold); }
+  .stat .l { font-size: 0.7em; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+
+  /* SECTIONS */
+  .section-box {
+    max-width: 1400px; margin: 0 auto 28px;
+    background: var(--navy2); border: 1px solid var(--navy3); border-radius: 10px; padding: 20px;
+  }
+  .section-box h2 {
+    color: var(--gold); font-size: 1.1em; letter-spacing: 1px; margin-bottom: 14px;
+    border-bottom: 1px solid var(--navy3); padding-bottom: 8px;
+  }
+
+  /* PLUGIN REGISTRY */
+  .plugin-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px;
+  }
+  .plugin {
+    background: var(--navy); border: 1px solid var(--navy3); border-radius: 6px;
+    padding: 8px 10px; font-size: 0.8em; display: flex; align-items: center; gap: 8px;
+  }
+  .plugin .dot {
+    width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+  }
+  .plugin .name { color: var(--gold-light); font-family: 'Consolas', monospace; font-size: 0.9em; }
+  .dot-exists { background: var(--green); }
+  .dot-new { background: var(--orange); }
+  .dot-upgrade { background: var(--blue); }
+  .dot-supplier { background: var(--purple); }
+  .dot-tool { background: var(--teal); }
+
+  .legend {
+    display: flex; gap: 20px; margin-top: 12px; font-size: 0.8em; color: var(--muted); flex-wrap: wrap;
+  }
+  .legend span { display: flex; align-items: center; gap: 4px; }
+
+  /* SUPPLIER REGISTRY */
+  .supplier-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 8px;
+  }
+  .supplier-card {
+    background: var(--navy); border: 1px solid var(--navy3); border-radius: 6px;
+    padding: 10px 12px; font-size: 0.8em;
+  }
+  .supplier-card .s-name { color: var(--gold-light); font-weight: 600; margin-bottom: 4px; }
+  .supplier-card .s-url { color: var(--muted); font-family: 'Consolas', monospace; font-size: 0.85em; }
+  .supplier-card .s-type {
+    display: inline-block; font-size: 0.7em; padding: 2px 8px; border-radius: 10px; margin-top: 4px;
+  }
+  .st-cruise { background: rgba(52,152,219,0.2); color: var(--blue); border: 1px solid rgba(52,152,219,0.3); }
+  .st-tour { background: rgba(155,89,182,0.2); color: var(--purple); border: 1px solid rgba(155,89,182,0.3); }
+  .st-tool { background: rgba(26,188,156,0.2); color: var(--teal); border: 1px solid rgba(26,188,156,0.3); }
+  .st-live { background: rgba(46,204,113,0.2); color: var(--green); border: 1px solid rgba(46,204,113,0.3); }
+
+  /* PHASE HEADERS */
+  .phase { margin-bottom: 20px; }
+  .phase-header {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 16px; border-radius: 8px 8px 0 0;
+    border-bottom: 2px solid;
+  }
+  .phase-header h3 { font-size: 1.05em; }
+  .phase-header .count { margin-left: auto; font-size: 0.8em; opacity: 0.7; }
+
+  .ph-client { background: #1a2a1a; border-color: var(--green); }
+  .ph-client h3 { color: var(--green); }
+  .ph-wk1 { background: #1a1a2e; border-color: var(--blue); }
+  .ph-wk1 h3 { color: var(--blue); }
+  .ph-wk2 { background: #2a1a2e; border-color: var(--purple); }
+  .ph-wk2 h3 { color: var(--purple); }
+  .ph-wk3 { background: #2e1a1a; border-color: var(--orange); }
+  .ph-wk3 h3 { color: var(--orange); }
+  .ph-mo2 { background: #1a2e2e; border-color: var(--teal); }
+  .ph-mo2 h3 { color: var(--teal); }
+  .ph-mon { background: #2e2a1a; border-color: var(--gold); }
+  .ph-mon h3 { color: var(--gold); }
+  .ph-stand { background: #1e1e1e; border-color: var(--muted); }
+  .ph-stand h3 { color: var(--muted); }
+  .ph-mo3 { background: #2e1a2a; border-color: var(--pink); }
+  .ph-mo3 h3 { color: var(--pink); }
+
+  /* TASK ROWS */
+  .task-list {
+    background: var(--navy2);
+    border: 1px solid var(--navy3);
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+  }
+  .task-row {
+    display: grid;
+    grid-template-columns: 50px 1fr 300px 100px;
+    padding: 10px 16px;
+    border-bottom: 1px solid rgba(30,51,88,0.5);
+    align-items: center;
+  }
+  .task-row:last-child { border-bottom: none; }
+  .task-row:hover { background: rgba(201,168,76,0.05); }
+
+  .task-id {
+    font-family: 'Consolas', monospace;
+    font-size: 0.85em;
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .task-name { font-size: 0.9em; color: var(--white); }
+  .task-name .initiative {
+    font-size: 0.75em; color: var(--muted); margin-left: 6px;
+  }
+  .task-plugins { display: flex; flex-wrap: wrap; gap: 4px; }
+  .chip {
+    font-size: 0.7em;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-family: 'Consolas', monospace;
+    white-space: nowrap;
+  }
+  .chip-exists { background: rgba(46,204,113,0.2); color: var(--green); border: 1px solid rgba(46,204,113,0.3); }
+  .chip-new { background: rgba(230,126,34,0.2); color: var(--orange); border: 1px solid rgba(230,126,34,0.3); }
+  .chip-upgrade { background: rgba(52,152,219,0.2); color: var(--blue); border: 1px solid rgba(52,152,219,0.3); }
+  .chip-external { background: rgba(155,89,182,0.2); color: var(--purple); border: 1px solid rgba(155,89,182,0.3); }
+  .chip-sheet { background: rgba(26,188,156,0.2); color: var(--teal); border: 1px solid rgba(26,188,156,0.3); }
+  .chip-supplier { background: rgba(201,168,76,0.15); color: var(--gold-light); border: 1px solid rgba(201,168,76,0.3); }
+
+  .task-deadline { font-size: 0.8em; text-align: right; }
+  .dl-hot { color: var(--red); font-weight: 700; }
+  .dl-soon { color: var(--orange); }
+  .dl-future { color: var(--muted); }
+
+  /* GANTT MINI */
+  .gantt-row {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    margin-bottom: 6px;
+    align-items: center;
+  }
+  .gantt-label { font-size: 0.8em; color: var(--muted); }
+  .gantt-track {
+    height: 24px; position: relative;
+    background: var(--navy); border-radius: 4px; overflow: hidden;
+  }
+  .gantt-bar {
+    position: absolute; height: 100%; border-radius: 4px;
+    display: flex; align-items: center; padding: 0 8px;
+    font-size: 0.7em; font-weight: 600; color: var(--navy);
+    white-space: nowrap; overflow: hidden;
+  }
+  .gantt-months {
+    display: grid; grid-template-columns: 140px 1fr; margin-bottom: 8px;
+  }
+  .gantt-month-labels {
+    display: flex; justify-content: space-between;
+    font-size: 0.7em; color: var(--muted); padding: 0 2px;
+  }
+  .gantt-today {
+    position: absolute; top: 0; bottom: 0;
+    width: 2px; background: var(--red); z-index: 10;
+  }
+
+  .footer {
+    text-align: center; padding: 24px;
+    color: var(--muted); font-size: 0.75em;
+    max-width: 1400px; margin: 0 auto;
+    border-top: 1px solid var(--navy3);
+  }
+  .footer a { color: var(--gold); text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+
+  .highlight-row { background: rgba(201,168,76,0.08) !important; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>THUNDERBIRD PROJECT PLAN</h1>
+  <div class="sub">Dreams2Memories Travel, LLC | v4.5 — All Tasks + Plugins + Supplier Registry</div>
+  <div class="stats">
+    <div class="stat"><div class="n">68</div><div class="l">Total Tasks</div></div>
+    <div class="stat"><div class="n">37</div><div class="l">Modules (Exist)</div></div>
+    <div class="stat"><div class="n">11</div><div class="l">Modules (To Build)</div></div>
+    <div class="stat"><div class="n">8</div><div class="l">Cruise Portals</div></div>
+    <div class="stat"><div class="n">6</div><div class="l">Tour Operators</div></div>
+    <div class="stat"><div class="n">$15.7K</div><div class="l">D2M Commission</div></div>
+  </div>
+</div>
+
+<!-- SUPPLIER & TOOL REGISTRY -->
+<div class="section-box">
+  <h2>SUPPLIER & TOOL REGISTRY — Cruise Portals + Tour Operators + Planning Tools</h2>
+  <div class="supplier-grid">
+    <!-- Cruise Line Agent Portals -->
+    <div class="supplier-card">
+      <div class="s-name">Regent Seven Seas</div>
+      <div class="s-url">rssc.com/agent</div>
+      <span class="s-type st-cruise">Cruise Portal</span>
+    </div>
+    <div class="supplier-card">
+      <div class="s-name">Silversea / CruisingPower</div>
+      <div class="s-url">my.silversea.com</div>
+      <span class="s-type st-cruise">Cruise Portal</span>
+    </div>
+    <div class="supplier-card">
+      <div class="s-name">Viking Travel Advisor</div>
+      <div class="s-url">viking.com/travel-advisor</div>
+      <span class="s-type st-cruise">Cruise Portal</span>
+    </div>
+    <div class="supplier-card">
+      <div class="s-name">Cunard Advisors</div>
+      <div class="s-url">cunardadvisors.com</div>
+      <span class="s-type st-cruise">Cruise Portal</span>
+    </div>
+    <div class="supplier-card">
+      <div class="s-name">Oceania Cruises</div>
+      <div class="s-url">oceaniacruises.com/travel-advisor</div>
+      <span class="s-type st-cruise">Cruise Portal</span>
+    </div>
+    <div class="supplier-card">
+      <div class="s-name">Seabourn</div>
+      <div class="s-url">seabourn.com/travel-advisor</div>
+      <span class="s-type st-cruise">Cruise Portal</span>
+    </div>
+    <div class="supplier-card">
+      <div class="s-name">AmaWaterways</div>
+      <div class="s-url">amawaterways.com/agent</div>
+      <span class="s-type st-cruise">Cruise Portal</span>
+    </div>
+    <div class="supplier-card">
+      <div class="s-name">Ponant</div>
+      <div class="s-url">ponant.com/en/travel-agents</div>
+      <span class="s-type st-cruise">Cruise Portal</span>
+    </div>
+    <!-- Tour Operators -->
+    <div class="supplier-card">
+      <div class="s-name">Kensington Tours</div>
+      <div class="s-url">kensingtontours.com</div>
+      <span class="s-type st-tour">Tour Operator</span>
+    </div>
+    <div class="supplier-card">
+      <div class="s-name">Goway Travel</div>
+      <div class="s-url">goway.com</div>
+      <span class="s-type st-tour">Tour Operator</span>
+    </div>
+    <div class="supplier-card">
+      <div class="s-name">Insight Vacations</div>
+      <div class="s-url">myinsight.insightvacations.com</div>
+      <span class="s-type st-tour">Tour Operator</span>
+    </div>
+    <div class="supplier-card">
+      <div class="s-name">Abercrombie & Kent</div>
+      <div class="s-url">abercrombiekent.com/agent-services</div>
+      <span class="s-type st-tour">Tour Operator</span>
+    </div>
+    <div class="supplier-card">
+      <div class="s-name">Europe Express</div>
+      <div class="s-url">booking.europeexpress.com</div>
+      <span class="s-type st-tour">Tour Operator</span>
+    </div>
+    <div class="supplier-card">
+      <div class="s-name">CIE Tours</div>
+      <div class="s-url">bookings.cietours.com</div>
+      <span class="s-type st-tour">Tour Operator</span>
+    </div>
+    <!-- Planning Tools -->
+    <div class="supplier-card">
+      <div class="s-name">Rometorio</div>
+      <div class="s-url">rometorio.com</div>
+      <span class="s-type st-tool">Route/Map Planner</span>
+    </div>
+    <div class="supplier-card">
+      <div class="s-name">FlightAware AeroAPI</div>
+      <div class="s-url">flightaware.com/aeroapi</div>
+      <span class="s-type st-tool">Flight Tracking</span>
+    </div>
+    <div class="supplier-card">
+      <div class="s-name">NOAA Weather</div>
+      <div class="s-url">api.weather.gov</div>
+      <span class="s-type st-tool">Weather (Free)</span>
+    </div>
+    <div class="supplier-card">
+      <div class="s-name">Skyscanner Partner</div>
+      <div class="s-url">partners.skyscanner.net</div>
+      <span class="s-type st-tool">Price Comparison</span>
+    </div>
+    <!-- Already Live -->
+    <div class="supplier-card">
+      <div class="s-name">Hotelbeds API</div>
+      <div class="s-url">thunderbird_hotel_search.py</div>
+      <span class="s-type st-live">LIVE</span>
+    </div>
+    <div class="supplier-card">
+      <div class="s-name">Bedsonline</div>
+      <div class="s-url">app.bedsonline.com</div>
+      <span class="s-type st-live">LIVE</span>
+    </div>
+    <div class="supplier-card">
+      <div class="s-name">Amadeus</div>
+      <div class="s-url">thunderbird_flight_search.py</div>
+      <span class="s-type st-live">LIVE</span>
+    </div>
+    <div class="supplier-card">
+      <div class="s-name">MAGtap / Odysseus / TESS</div>
+      <div class="s-url">thunderbird_outside_agents.py</div>
+      <span class="s-type st-live">LIVE</span>
+    </div>
+  </div>
+  <div class="legend">
+    <span><div class="dot dot-exists" style="width:8px;height:8px;border-radius:50%;background:var(--blue)"></div> Cruise Portal (8)</span>
+    <span><div class="dot" style="width:8px;height:8px;border-radius:50%;background:var(--purple)"></div> Tour Operator (6)</span>
+    <span><div class="dot" style="width:8px;height:8px;border-radius:50%;background:var(--teal)"></div> Planning Tool (4)</span>
+    <span><div class="dot dot-exists" style="width:8px;height:8px;border-radius:50%;"></div> Already Live (4)</span>
+  </div>
+</div>
+
+<!-- MODULE REGISTRY -->
+<div class="section-box">
+  <h2>THUNDERBIRD MODULE REGISTRY — 37 Existing + 11 To Build</h2>
+  <div class="plugin-grid">
+    <div class="plugin"><div class="dot dot-exists"></div><span class="name">travel_mcp_server</span></div>
+    <div class="plugin"><div class="dot dot-exists"></div><span class="name">thunderbird_personas</span></div>
+    <div class="plugin"><div class="dot dot-exists"></div><span class="name">thunderbird_morning_briefing</span></div>
+    <div class="plugin"><div class="dot dot-exists"></div><span class="name">thunderbird_payment_alerts</span></div>
+    <div class="plugin"><div class="dot dot-exists"></div><span class="name">thunderbird_star_protocol</span></div>
+    <div class="plugin"><div class="dot dot-exists"></div><span class="name">thunderbird_dossier</span></div>
+    <div class="plugin"><div class="dot dot-exists"></div><span class="name">thunderbird_anchor_dates</span></div>
+    <div class="plugin"><div class="dot dot-exists"></div><span class="name">thunderbird_hotel_search</span></div>
+    <div class="plugin"><div class="dot dot-exists"></div><span class="name">thunderbird_flight_search</span></div>
+    <div class="plugin"><div class="dot dot-exists"></div><span class="name">thunderbird_tour_search</span></div>
+    <div class="plugin"><div class="dot dot-exists"></div><span class="name">thunderbird_ship_intel</span></div>
+    <div class="plugin"><div class="dot dot-exists"></div><span class="name">thunderbird_ship_compare</span></div>
+    <div class="plugin"><div class="dot dot-exists"></div><span class="name">thunderbird_world_intel</span></div>
+    <div class="plugin"><div class="dot dot-exists"></div><span class="name">thunderbird_browser</span></div>
+    <div class="plugin"><div class="dot dot-exists"></div><span class="name">thunderbird_drive</span></div>
+    <div class="plugin"><div class="dot dot-exists"></div><span class="name">thunderbird_gmail</span></div>
+    <div class="plugin"><div class="dot dot-exists"></div><span class="name">thunderbird_api</span></div>
+    <div class="plugin"><div class="dot dot-exists"></div><span class="name">thunderbird_sms</span></div>
+    <div class="plugin"><div class="dot dot-exists"></div><span class="name">thunderbird_whatsapp</span></div>
+    <div class="plugin"><div class="dot dot-exists"></div><span class="name">thunderbird_evernote</span></div>
+    <div class="plugin"><div class="dot dot-exists"></div><span class="name">thunderbird_hud_memory</span></div>
+    <div class="plugin"><div class="dot dot-exists"></div><span class="name">thunderbird_intel_digest</span></div>
+    <div class="plugin"><div class="dot dot-exists"></div><span class="name">thunderbird_fb_cruise_digest</span></div>
+    <div class="plugin"><div class="dot dot-exists"></div><span class="name">thunderbird_x_osint</span></div>
+    <div class="plugin"><div class="dot dot-exists"></div><span class="name">thunderbird_weekly_report</span></div>
+    <div class="plugin"><div class="dot dot-exists"></div><span class="name">thunderbird_tech_monitor</span></div>
+    <div class="plugin"><div class="dot dot-exists"></div><span class="name">thunderbird_fare_watch</span></div>
+    <div class="plugin"><div class="dot dot-exists"></div><span class="name">thunderbird_cruise_reviews</span></div>
+    <div class="plugin"><div class="dot dot-exists"></div><span class="name">thunderbird_dining</span></div>
+    <div class="plugin"><div class="dot dot-exists"></div><span class="name">thunderbird_keep</span></div>
+    <div class="plugin"><div class="dot dot-exists"></div><span class="name">thunderbird_outside_agents</span></div>
+    <div class="plugin"><div class="dot dot-exists"></div><span class="name">thunderbird_quote_render</span></div>
+    <div class="plugin"><div class="dot dot-exists"></div><span class="name">thunderbird_scheduler</span></div>
+    <div class="plugin"><div class="dot dot-exists"></div><span class="name">thunderbird_v3</span></div>
+    <div class="plugin"><div class="dot dot-exists"></div><span class="name">itinerary_finishing_pipeline</span></div>
+    <div class="plugin"><div class="dot dot-exists"></div><span class="name">luxury_itinerary_generator</span></div>
+    <div class="plugin"><div class="dot dot-exists"></div><span class="name">batch_luxury_processor</span></div>
+    <div class="plugin"><div class="dot dot-new"></div><span class="name">thunderbird_sync</span></div>
+    <div class="plugin"><div class="dot dot-new"></div><span class="name">thunderbird_model_router</span></div>
+    <div class="plugin"><div class="dot dot-new"></div><span class="name">thunderbird_email_classifier</span></div>
+    <div class="plugin"><div class="dot dot-new"></div><span class="name">thunderbird_autopilot</span></div>
+    <div class="plugin"><div class="dot dot-new"></div><span class="name">thunderbird_presentations</span></div>
+    <div class="plugin"><div class="dot dot-new"></div><span class="name">thunderbird_calendar_sync</span></div>
+    <div class="plugin"><div class="dot dot-new"></div><span class="name">thunderbird_voice_harvester</span></div>
+    <div class="plugin"><div class="dot dot-new"></div><span class="name">poe_d2m_bot</span></div>
+    <div class="plugin"><div class="dot dot-new"></div><span class="name">thunderbird_dashboard</span></div>
+    <div class="plugin"><div class="dot dot-new"></div><span class="name">thunderbird_tess_oauth</span></div>
+    <div class="plugin"><div class="dot dot-new"></div><span class="name">thunderbird_scribe_engine</span></div>
+  </div>
+  <div class="legend">
+    <span><div class="dot dot-exists" style="width:8px;height:8px;border-radius:50%;"></div> Exists (37)</span>
+    <span><div class="dot dot-new" style="width:8px;height:8px;border-radius:50%;"></div> To Build (11)</span>
+    <span><div class="dot dot-upgrade" style="width:8px;height:8px;border-radius:50%;"></div> Needs Upgrade</span>
+  </div>
+</div>
+
+<!-- GANTT CHART -->
+<div class="section-box">
+  <h2>TIMELINE — Mar 2026 to Sep 2026</h2>
+  <div class="gantt-months">
+    <div></div>
+    <div class="gantt-month-labels">
+      <span>MAR</span><span>APR</span><span>MAY</span><span>JUN</span><span>JUL</span><span>AUG</span><span>SEP</span>
+    </div>
+  </div>
+  <div class="gantt-row">
+    <div class="gantt-label">Client Ops</div>
+    <div class="gantt-track">
+      <div class="gantt-today" style="left: 4.7%;"></div>
+      <div class="gantt-bar" style="left:0%;width:100%;background:linear-gradient(90deg, var(--green), rgba(46,204,113,0.3));">C1-C16 &mdash; ongoing through all voyages</div>
+    </div>
+  </div>
+  <div class="gantt-row">
+    <div class="gantt-label">Week 1 + Luna</div>
+    <div class="gantt-track">
+      <div class="gantt-bar" style="left:0%;width:4.7%;background:var(--blue);">1.1-1.8</div>
+    </div>
+  </div>
+  <div class="gantt-row">
+    <div class="gantt-label">Week 2</div>
+    <div class="gantt-track">
+      <div class="gantt-bar" style="left:4.7%;width:4.7%;background:var(--purple);">2.1-2.4</div>
+    </div>
+  </div>
+  <div class="gantt-row">
+    <div class="gantt-label">Week 3</div>
+    <div class="gantt-track">
+      <div class="gantt-bar" style="left:9.4%;width:4.7%;background:var(--orange);">3.1-3.4</div>
+    </div>
+  </div>
+  <div class="gantt-row">
+    <div class="gantt-label">Month 2</div>
+    <div class="gantt-track">
+      <div class="gantt-bar" style="left:14.3%;width:14.3%;background:var(--teal);">4.1-4.5 &mdash; Depth + Soul</div>
+    </div>
+  </div>
+  <div class="gantt-row">
+    <div class="gantt-label">Monetization</div>
+    <div class="gantt-track">
+      <div class="gantt-bar" style="left:0%;width:57%;background:linear-gradient(90deg, var(--gold), rgba(201,168,76,0.3));">M1-M12 &mdash; parallel track</div>
+    </div>
+  </div>
+  <div class="gantt-row">
+    <div class="gantt-label">Month 3+</div>
+    <div class="gantt-track">
+      <div class="gantt-bar" style="left:28.6%;width:42.8%;background:linear-gradient(90deg, var(--pink), rgba(232,67,147,0.3));">5.1-5.11 &mdash; Strategic Depth</div>
+    </div>
+  </div>
+  <div class="gantt-row">
+    <div class="gantt-label" style="color:var(--green);font-weight:600;">Silver Nova</div>
+    <div class="gantt-track">
+      <div class="gantt-bar" style="left:19%;width:9%;background:var(--green);opacity:0.6;">Apr 23 - May 11</div>
+    </div>
+  </div>
+  <div class="gantt-row">
+    <div class="gantt-label" style="color:var(--green);font-weight:600;">Silver Muse</div>
+    <div class="gantt-track">
+      <div class="gantt-bar" style="left:52%;width:5%;background:var(--green);opacity:0.6;">Jun 23 - Jul 3</div>
+    </div>
+  </div>
+  <div class="gantt-row">
+    <div class="gantt-label" style="color:var(--green);font-weight:600;">Grandeur</div>
+    <div class="gantt-track">
+      <div class="gantt-bar" style="left:81%;width:5%;background:var(--green);opacity:0.6;">Aug 29 - Sep 8</div>
+    </div>
+  </div>
+  <div class="gantt-row">
+    <div class="gantt-label" style="color:var(--gold);font-weight:600;">ASTA Conf</div>
+    <div class="gantt-track">
+      <div class="gantt-bar" style="left:38%;width:2%;background:var(--gold);">May 27</div>
+    </div>
+  </div>
+</div>
+
+<!-- CLIENT OPS -->
+<div style="max-width:1400px;margin:0 auto;">
+<div class="phase">
+  <div class="phase-header ph-client"><h3>CLIENT OPS — Revenue Operations</h3><span class="count">16 tasks</span></div>
+  <div class="task-list">
+    <div class="task-row">
+      <div class="task-id">C1</div>
+      <div class="task-name">Prep for Ely call — payment summary, Regent brief</div>
+      <div class="task-plugins"><span class="chip chip-exists">thunderbird_dossier</span><span class="chip chip-sheet">Booking Master</span></div>
+      <div class="task-deadline dl-hot">Mar 12</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">C2</div>
+      <div class="task-name">Contact Furlows re: full payment preferences</div>
+      <div class="task-plugins"><span class="chip chip-exists">thunderbird_gmail</span><span class="chip chip-exists">thunderbird_dossier</span></div>
+      <div class="task-deadline dl-hot">Mar 13</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">C3</div>
+      <div class="task-name">Nichols CFAR call — when Larry returns from cruise</div>
+      <div class="task-plugins"><span class="chip chip-exists">thunderbird_dossier</span></div>
+      <div class="task-deadline dl-hot">Mar 16</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">C4</div>
+      <div class="task-name">Kuklinski Guest Info Forms (6 guests)</div>
+      <div class="task-plugins"><span class="chip chip-supplier">Viking Portal</span><span class="chip chip-exists">thunderbird_gmail</span></div>
+      <div class="task-deadline dl-hot">Mar 15</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">C5</div>
+      <div class="task-name">Viking final payments (3 bookings, $21,244)</div>
+      <div class="task-plugins"><span class="chip chip-supplier">Viking Portal</span><span class="chip chip-sheet">Booking Master</span></div>
+      <div class="task-deadline dl-hot">Mar 31</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">C6</div>
+      <div class="task-name">Regent final payments (3 bookings, $46,112)</div>
+      <div class="task-plugins"><span class="chip chip-supplier">Regent Portal</span><span class="chip chip-sheet">Booking Master</span></div>
+      <div class="task-deadline dl-soon">Apr 1</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">C7</div>
+      <div class="task-name">Regent dining/excursion selections (Furlow, Ely, Nichols)</div>
+      <div class="task-plugins"><span class="chip chip-exists">thunderbird_dining</span><span class="chip chip-exists">thunderbird_dossier</span></div>
+      <div class="task-deadline dl-soon">Apr 15</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">C8</div>
+      <div class="task-name">McLeod Silver Muse — excursion/dining selections</div>
+      <div class="task-plugins"><span class="chip chip-exists">thunderbird_dining</span><span class="chip chip-exists">thunderbird_dossier</span><span class="chip chip-supplier">Silversea Portal</span></div>
+      <div class="task-deadline dl-soon">Apr 2026</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">C9</div>
+      <div class="task-name">McLeod Silver Muse — pre-voyage itinerary + restaurant guide</div>
+      <div class="task-plugins"><span class="chip chip-exists">luxury_itinerary_generator</span><span class="chip chip-exists">thunderbird_dining</span><span class="chip chip-exists">thunderbird_quote_render</span><span class="chip chip-external">rometorio.com</span></div>
+      <div class="task-deadline dl-future">May 2026</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">C10</div>
+      <div class="task-name">McLeod Lesser Antilles — confirm final payment date</div>
+      <div class="task-plugins"><span class="chip chip-supplier">Regent Portal</span><span class="chip chip-sheet">Booking Master</span><span class="chip chip-exists">thunderbird_dossier</span></div>
+      <div class="task-deadline dl-hot">This week</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">C11</div>
+      <div class="task-name">McLeod Season To Cheer 2027 — confirm final payment date</div>
+      <div class="task-plugins"><span class="chip chip-supplier">Regent Portal</span><span class="chip chip-sheet">Booking Master</span></div>
+      <div class="task-deadline dl-hot">This week</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">C12</div>
+      <div class="task-name">McGlasson Princess Mexico 2027 — confirm final payment date</div>
+      <div class="task-plugins"><span class="chip chip-external">Princess Portal</span><span class="chip chip-sheet">Booking Master</span></div>
+      <div class="task-deadline dl-hot">This week</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">C13</div>
+      <div class="task-name">Loucks Silver Nova — confirm logistics (flights, pre-cruise)</div>
+      <div class="task-plugins"><span class="chip chip-exists">thunderbird_dossier</span><span class="chip chip-exists">thunderbird_flight_search</span><span class="chip chip-external">rometorio.com</span></div>
+      <div class="task-deadline dl-soon">Apr 1</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">C14</div>
+      <div class="task-name">Westbrook Tokyo/Silver Nova — confirm Hilton + embarkation</div>
+      <div class="task-plugins"><span class="chip chip-exists">thunderbird_hotel_search</span><span class="chip chip-exists">thunderbird_dossier</span></div>
+      <div class="task-deadline dl-soon">Apr 1</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">C15</div>
+      <div class="task-name">Loucks Regent Panama Canal — confirm final payment date</div>
+      <div class="task-plugins"><span class="chip chip-supplier">Regent Portal</span><span class="chip chip-sheet">Booking Master</span></div>
+      <div class="task-deadline dl-hot">This week</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">C16</div>
+      <div class="task-name">Booking Master cleanup — fix 5 data quality issues</div>
+      <div class="task-plugins"><span class="chip chip-sheet">Booking Master</span><span class="chip chip-exists">thunderbird_api</span></div>
+      <div class="task-deadline dl-hot">This week</div>
+    </div>
+  </div>
+</div>
+
+<!-- STANDALONE -->
+<div class="phase">
+  <div class="phase-header ph-stand"><h3>STANDALONE TASKS — Not Initiative-Linked</h3><span class="count">6 tasks</span></div>
+  <div class="task-list">
+    <div class="task-row">
+      <div class="task-id">S1</div>
+      <div class="task-name">MCP Tool Validation Sprint (7-Day)</div>
+      <div class="task-plugins"><span class="chip chip-exists">travel_mcp_server</span><span class="chip chip-external">mcp.d2mluxury.quest</span></div>
+      <div class="task-deadline dl-future">Flexible</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">S2</div>
+      <div class="task-name">Reddit Research — Claude CLI Competitive Landscape</div>
+      <div class="task-plugins"><span class="chip chip-exists">thunderbird_browser</span><span class="chip chip-exists">thunderbird_x_osint</span></div>
+      <div class="task-deadline dl-future">Flexible</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">S3</div>
+      <div class="task-name">SmartEX Train Tickets — Japan (Loucks)</div>
+      <div class="task-plugins"><span class="chip chip-external">SmartEX App</span><span class="chip chip-exists">thunderbird_dossier</span></div>
+      <div class="task-deadline dl-soon">Before Apr 21</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">S4</div>
+      <div class="task-name">Amadeus Enterprise Upgrade <span class="initiative">LEGAL</span></div>
+      <div class="task-plugins"><span class="chip chip-upgrade">thunderbird_flight_search</span><span class="chip chip-external">Amadeus Portal</span></div>
+      <div class="task-deadline dl-soon">Before M5</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">S5</div>
+      <div class="task-name">E&O Insurance (~$500-1,500/yr)</div>
+      <div class="task-plugins"><span class="chip chip-external">Insurance Provider</span></div>
+      <div class="task-deadline dl-soon">Before M6</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">S6</div>
+      <div class="task-name">IP Protection — patent + trademark + privacy policy</div>
+      <div class="task-plugins"><span class="chip chip-external">IP Attorney</span><span class="chip chip-external">Termly.io</span></div>
+      <div class="task-deadline dl-future">Before M5</div>
+    </div>
+  </div>
+</div>
+
+<!-- WEEK 1 -->
+<div class="phase">
+  <div class="phase-header ph-wk1"><h3>WEEK 1 (Mar 10-16) — Protect + Foundation + LUNA</h3><span class="count">8 tasks</span></div>
+  <div class="task-list">
+    <div class="task-row">
+      <div class="task-id">1.1</div>
+      <div class="task-name">Drive Mirror <span class="initiative">I1</span></div>
+      <div class="task-plugins"><span class="chip chip-new">thunderbird_sync</span><span class="chip chip-exists">thunderbird_drive</span><span class="chip chip-external">systemd timer</span></div>
+      <div class="task-deadline dl-hot">Mar 16</div>
+    </div>
+    <div class="task-row highlight-row">
+      <div class="task-id">1.2</div>
+      <div class="task-name"><strong>Luna (A6) persona creation</strong> <span class="initiative">I3 — PRIORITY</span></div>
+      <div class="task-plugins"><span class="chip chip-upgrade">thunderbird_personas</span><span class="chip chip-exists">Personas/D2M_Staff_Introduction</span></div>
+      <div class="task-deadline dl-hot">Mar 16</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">1.3</div>
+      <div class="task-name">Activate Morning Briefing <span class="initiative">I4-P1</span></div>
+      <div class="task-plugins"><span class="chip chip-exists">thunderbird_morning_briefing</span><span class="chip chip-sheet">Booking Master</span><span class="chip chip-external">cron</span></div>
+      <div class="task-deadline dl-hot">Mar 16</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">1.4</div>
+      <div class="task-name">Daily Itinerary consolidation <span class="initiative">I7</span></div>
+      <div class="task-plugins"><span class="chip chip-exists">thunderbird_api</span><span class="chip chip-sheet">Daily Itinerary</span></div>
+      <div class="task-deadline dl-hot">Mar 16</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">1.5</div>
+      <div class="task-name">Activate Payment Alerts <span class="initiative">I4-P1</span></div>
+      <div class="task-plugins"><span class="chip chip-exists">thunderbird_payment_alerts</span><span class="chip chip-exists">thunderbird_sms</span><span class="chip chip-external">cron</span></div>
+      <div class="task-deadline dl-hot">Mar 16</div>
+    </div>
+    <div class="task-row highlight-row">
+      <div class="task-id">1.6</div>
+      <div class="task-name"><strong>Register cruise line agent portals</strong> <span class="initiative">SUPPLIER</span></div>
+      <div class="task-plugins"><span class="chip chip-supplier">RSSC</span><span class="chip chip-supplier">Silversea</span><span class="chip chip-supplier">Viking</span><span class="chip chip-supplier">Cunard</span><span class="chip chip-supplier">Oceania</span><span class="chip chip-supplier">Seabourn</span><span class="chip chip-supplier">Ama</span><span class="chip chip-supplier">Ponant</span></div>
+      <div class="task-deadline dl-hot">Mar 16</div>
+    </div>
+    <div class="task-row highlight-row">
+      <div class="task-id">1.7</div>
+      <div class="task-name"><strong>Register tour operator portals</strong> <span class="initiative">SUPPLIER</span></div>
+      <div class="task-plugins"><span class="chip chip-supplier">Kensington Tours</span><span class="chip chip-supplier">Goway Travel</span></div>
+      <div class="task-deadline dl-hot">Mar 16</div>
+    </div>
+    <div class="task-row highlight-row">
+      <div class="task-id">1.8</div>
+      <div class="task-name"><strong>Integrate Rometorio route planner</strong> <span class="initiative">TOOLS</span></div>
+      <div class="task-plugins"><span class="chip chip-external">rometorio.com</span><span class="chip chip-exists">thunderbird_browser</span><span class="chip chip-exists">luxury_itinerary_generator</span></div>
+      <div class="task-deadline dl-soon">Mar 16</div>
+    </div>
+  </div>
+</div>
+
+<!-- WEEK 2 -->
+<div class="phase">
+  <div class="phase-header ph-wk2"><h3>WEEK 2 (Mar 17-23) — Intelligence + Automation</h3><span class="count">4 tasks</span></div>
+  <div class="task-list">
+    <div class="task-row">
+      <div class="task-id">2.1</div>
+      <div class="task-name">Groq-first model routing <span class="initiative">I5</span></div>
+      <div class="task-plugins"><span class="chip chip-new">thunderbird_model_router</span><span class="chip chip-upgrade">thunderbird_personas</span><span class="chip chip-external">Groq API</span><span class="chip chip-external">Anthropic API</span></div>
+      <div class="task-deadline dl-soon">Mar 23</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">2.2</div>
+      <div class="task-name">Email auto-classification <span class="initiative">I4-P1</span></div>
+      <div class="task-plugins"><span class="chip chip-new">thunderbird_email_classifier</span><span class="chip chip-exists">thunderbird_gmail</span><span class="chip chip-external">Groq 8b</span></div>
+      <div class="task-deadline dl-soon">Mar 23</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">2.3</div>
+      <div class="task-name">Client follow-up reminders <span class="initiative">I4-P1</span></div>
+      <div class="task-plugins"><span class="chip chip-upgrade">thunderbird_payment_alerts</span><span class="chip chip-sheet">Booking Master</span></div>
+      <div class="task-deadline dl-soon">Mar 23</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">2.4</div>
+      <div class="task-name">Persona auto-consultation <span class="initiative">I2-A</span></div>
+      <div class="task-plugins"><span class="chip chip-new">thunderbird_autopilot</span><span class="chip chip-exists">thunderbird_personas</span></div>
+      <div class="task-deadline dl-soon">Mar 23</div>
+    </div>
+  </div>
+</div>
+
+<!-- WEEK 3 -->
+<div class="phase">
+  <div class="phase-header ph-wk3"><h3>WEEK 3 (Mar 24-30) — Polish + Cleanup</h3><span class="count">4 tasks</span></div>
+  <div class="task-list">
+    <div class="task-row">
+      <div class="task-id">3.1</div>
+      <div class="task-name">Cinematic presentations <span class="initiative">I4-P2</span></div>
+      <div class="task-plugins"><span class="chip chip-new">thunderbird_presentations</span><span class="chip chip-external">python-pptx</span></div>
+      <div class="task-deadline dl-soon">Mar 30</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">3.2</div>
+      <div class="task-name">API cost tracking <span class="initiative">I4-P2</span></div>
+      <div class="task-plugins"><span class="chip chip-upgrade">thunderbird_api</span><span class="chip chip-sheet">API_Cost_Log</span></div>
+      <div class="task-deadline dl-soon">Mar 30</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">3.3</div>
+      <div class="task-name">Calendar auto-events from bookings <span class="initiative">I4-P2</span></div>
+      <div class="task-plugins"><span class="chip chip-new">thunderbird_calendar_sync</span><span class="chip chip-sheet">Booking Master</span><span class="chip chip-external">Google Calendar</span></div>
+      <div class="task-deadline dl-soon">Mar 30</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">3.4</div>
+      <div class="task-name">Tab cleanup — delete z_MIGRATED_, add new tabs <span class="initiative">I6</span></div>
+      <div class="task-plugins"><span class="chip chip-exists">thunderbird_api</span><span class="chip chip-sheet">EARA D2M Thunderbird v2</span></div>
+      <div class="task-deadline dl-soon">Mar 30</div>
+    </div>
+  </div>
+</div>
+
+<!-- MONTH 2 -->
+<div class="phase">
+  <div class="phase-header ph-mo2"><h3>MONTH 2 (April) — Depth + Soul</h3><span class="count">5 tasks</span></div>
+  <div class="task-list">
+    <div class="task-row">
+      <div class="task-id">4.1</div>
+      <div class="task-name">My Voice profile <span class="initiative">I4-P3</span></div>
+      <div class="task-plugins"><span class="chip chip-new">thunderbird_voice_harvester</span><span class="chip chip-exists">thunderbird_gmail</span><span class="chip chip-upgrade">thunderbird_personas</span></div>
+      <div class="task-deadline dl-future">April</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">4.2</div>
+      <div class="task-name">Mobile dashboard <span class="initiative">I4-P3</span></div>
+      <div class="task-plugins"><span class="chip chip-new">thunderbird_dashboard</span><span class="chip chip-exists">thunderbird_api</span><span class="chip chip-external">api.d2mluxury.quest</span></div>
+      <div class="task-deadline dl-future">April</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">4.3</div>
+      <div class="task-name">Nova self-improvement system <span class="initiative">I4-P3</span></div>
+      <div class="task-plugins"><span class="chip chip-exists">thunderbird_personas</span><span class="chip chip-sheet">Action_Tracker</span></div>
+      <div class="task-deadline dl-future">April</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">4.4</div>
+      <div class="task-name">Full persona sentience protocol <span class="initiative">I2-ALL</span></div>
+      <div class="task-plugins"><span class="chip chip-exists">thunderbird_personas</span><span class="chip chip-new">thunderbird_autopilot</span></div>
+      <div class="task-deadline dl-future">April</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">4.5</div>
+      <div class="task-name">MCP Tool Validation Sprint (if not done) <span class="initiative">S1</span></div>
+      <div class="task-plugins"><span class="chip chip-exists">travel_mcp_server</span></div>
+      <div class="task-deadline dl-future">April</div>
+    </div>
+  </div>
+</div>
+
+<!-- MONETIZATION -->
+<div class="phase">
+  <div class="phase-header ph-mon"><h3>MONETIZATION TRACK — Parallel</h3><span class="count">12 tasks</span></div>
+  <div class="task-list">
+    <div class="task-row">
+      <div class="task-id">M1</div>
+      <div class="task-name">Package 15 commercial tools — strip internals</div>
+      <div class="task-plugins"><span class="chip chip-exists">travel_mcp_server</span></div>
+      <div class="task-deadline dl-hot">Mar 14</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">M2</div>
+      <div class="task-name">Create D2M logo (400x400 PNG)</div>
+      <div class="task-plugins"><span class="chip chip-external">Canva / FLUX.1</span></div>
+      <div class="task-deadline dl-hot">Mar 14</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">M3</div>
+      <div class="task-name">Submit to PulseMCP directory</div>
+      <div class="task-plugins"><span class="chip chip-external">PulseMCP</span></div>
+      <div class="task-deadline dl-hot">Mar 13</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">M4</div>
+      <div class="task-name">Register MCP Hive founding provider</div>
+      <div class="task-plugins"><span class="chip chip-external">MCP Hive</span></div>
+      <div class="task-deadline dl-soon">Mar 17</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">M5</div>
+      <div class="task-name">Deploy to MCPize — free + Pro $29/mo</div>
+      <div class="task-plugins"><span class="chip chip-external">MCPize</span><span class="chip chip-external">mcp.d2mluxury.quest</span></div>
+      <div class="task-deadline dl-soon">Mar 18</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">M6</div>
+      <div class="task-name">Fiverr gig — "AI-Powered Luxury Itinerary" $297</div>
+      <div class="task-plugins"><span class="chip chip-exists">luxury_itinerary_generator</span><span class="chip chip-exists">thunderbird_quote_render</span><span class="chip chip-external">Fiverr</span></div>
+      <div class="task-deadline dl-soon">Mar 24</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">M7</div>
+      <div class="task-name">Build Poe bot — D2M Luxury Cruise Advisor</div>
+      <div class="task-plugins"><span class="chip chip-new">poe_d2m_bot</span><span class="chip chip-external">fastapi-poe</span><span class="chip chip-external">cloudflared</span></div>
+      <div class="task-deadline dl-soon">Apr 11</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">M8</div>
+      <div class="task-name">Chainlit MVP on d2mluxury.quest</div>
+      <div class="task-plugins"><span class="chip chip-external">Chainlit</span><span class="chip chip-external">Clerk Auth</span><span class="chip chip-external">Stripe</span></div>
+      <div class="task-deadline dl-future">Apr-May</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">M9</div>
+      <div class="task-name">LinkedIn advisor outreach — 50 cold DMs</div>
+      <div class="task-plugins"><span class="chip chip-external">LinkedIn</span></div>
+      <div class="task-deadline dl-future">Apr-May</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">M10</div>
+      <div class="task-name">X/Twitter thread — publish (Yoda voice pass first)</div>
+      <div class="task-plugins"><span class="chip chip-exists">thunderbird_x_osint</span></div>
+      <div class="task-deadline dl-future">Apr</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">M11</div>
+      <div class="task-name">Stripe account setup</div>
+      <div class="task-plugins"><span class="chip chip-external">Stripe</span></div>
+      <div class="task-deadline dl-soon">Mar 18</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">M12</div>
+      <div class="task-name">ASTA Conference prep — San Diego May 27-29</div>
+      <div class="task-plugins"><span class="chip chip-new">thunderbird_presentations</span><span class="chip chip-external">ASTA</span></div>
+      <div class="task-deadline dl-future">May</div>
+    </div>
+  </div>
+</div>
+
+<!-- MONTH 3+ -->
+<div class="phase">
+  <div class="phase-header ph-mo3"><h3>MONTH 3+ (May-June) — Strategic Depth</h3><span class="count">11 tasks</span></div>
+  <div class="task-list">
+    <div class="task-row">
+      <div class="task-id">5.1</div>
+      <div class="task-name">Virtuoso 9-Month Client Lifecycle framework</div>
+      <div class="task-plugins"><span class="chip chip-exists">thunderbird_dossier</span><span class="chip chip-exists">thunderbird_anchor_dates</span></div>
+      <div class="task-deadline dl-future">May</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">5.2</div>
+      <div class="task-name">Dossier RAG / Vector Search</div>
+      <div class="task-plugins"><span class="chip chip-exists">thunderbird_dossier</span><span class="chip chip-external">ChromaDB / FAISS</span><span class="chip chip-exists">thunderbird_personas</span></div>
+      <div class="task-deadline dl-future">May</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">5.3</div>
+      <div class="task-name">Financial Circuit Breakers</div>
+      <div class="task-plugins"><span class="chip chip-upgrade">thunderbird_api</span><span class="chip chip-sheet">API_Cost_Log</span></div>
+      <div class="task-deadline dl-future">May</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">5.4</div>
+      <div class="task-name">Outside Agents Portal Integration</div>
+      <div class="task-plugins"><span class="chip chip-exists">thunderbird_outside_agents</span><span class="chip chip-new">thunderbird_tess_oauth</span></div>
+      <div class="task-deadline dl-future">May-Jun</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">5.5</div>
+      <div class="task-name">FLUX.1 / Image Generation pipeline</div>
+      <div class="task-plugins"><span class="chip chip-external">FLUX.1 API</span><span class="chip chip-exists">thunderbird_personas</span></div>
+      <div class="task-deadline dl-future">Jun</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">5.6</div>
+      <div class="task-name">Romance/Scribe Narrative Engine</div>
+      <div class="task-plugins"><span class="chip chip-new">thunderbird_scribe_engine</span><span class="chip chip-exists">thunderbird_personas</span><span class="chip chip-external">Claude API</span></div>
+      <div class="task-deadline dl-future">Jun</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">5.7</div>
+      <div class="task-name">Adopt 7-Stage Development Lifecycle</div>
+      <div class="task-plugins"><span class="chip chip-sheet">Process doc</span></div>
+      <div class="task-deadline dl-future">May</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">5.8</div>
+      <div class="task-name">TESS OAuth Portal Integration</div>
+      <div class="task-plugins"><span class="chip chip-new">thunderbird_tess_oauth</span><span class="chip chip-exists">thunderbird_outside_agents</span></div>
+      <div class="task-deadline dl-future">May-Jun</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">5.9</div>
+      <div class="task-name">Restore eliminated persona roles (A4, A6, A7, A8)</div>
+      <div class="task-plugins"><span class="chip chip-upgrade">thunderbird_personas</span></div>
+      <div class="task-deadline dl-future">Jun</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">5.10</div>
+      <div class="task-name">End-of-Session Protocol — formalize in CLAUDE.md</div>
+      <div class="task-plugins"><span class="chip chip-exists">thunderbird_hud_memory</span><span class="chip chip-exists">thunderbird_drive</span></div>
+      <div class="task-deadline dl-future">May</div>
+    </div>
+    <div class="task-row">
+      <div class="task-id">5.11</div>
+      <div class="task-name">Voice Harvester &rarr; My Voice</div>
+      <div class="task-plugins"><span class="chip chip-new">thunderbird_voice_harvester</span><span class="chip chip-exists">thunderbird_gmail</span><span class="chip chip-upgrade">thunderbird_personas</span></div>
+      <div class="task-deadline dl-future">May</div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end timeline-section -->
+
+<div class="footer">
+  Thunderbird Master Project Plan v4.5 | 68 tasks across 8 phases | 37 existing modules + 11 to build | 22 supplier sites<br>
+  Keeper: EXEC Naia Solberg-Vega | Dreams2Memories Travel, LLC | Commander John "Yoda" Loucks<br>
+  Generated: March 10, 2026 | <a href="WEEKLY_PLAN.html">View Week-by-Week Plan &rarr;</a>
+</div>
+
+</body>
+</html>

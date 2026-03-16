@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ client_name }} — Flight Options | Dreams2Memories Travel</title>
+    <style>
+        :root {
+            --navy: #0d1b2e;
+            --navy2: #152540;
+            --navy3: #1e3358;
+            --gold: #c9a84c;
+            --gold-light: #e8c97a;
+            --gold-pale: #f5e9c8;
+            --muted: #8a9ab5;
+            --white: #ffffff;
+            --light-bg: #f4f6f9;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.5; color: var(--navy); background: var(--light-bg); }
+        .container { max-width: 900px; margin: 0 auto; background: var(--white); box-shadow: 0 0 30px rgba(0,0,0,0.08); }
+
+        /* ── COVER ── */
+        .cover { background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%); color: var(--white); padding: 60px 50px; text-align: center; border-bottom: 4px solid var(--gold); }
+        .cover h1 { font-size: 2.2em; font-weight: 300; margin-bottom: 8px; }
+        .cover .route { font-size: 1.6em; color: var(--gold-light); margin: 15px 0; font-weight: 600; }
+        .cover .meta-strip { margin-top: 20px; font-size: 0.95em; color: var(--muted); border-top: 1px solid rgba(255,255,255,0.15); padding-top: 15px; }
+        .cover .meta-strip span { display: inline-block; margin: 0 15px; }
+
+        /* ── SECTION HEADERS ── */
+        .section-title { font-size: 1.4em; color: var(--navy); padding: 30px 40px 15px; border-bottom: 2px solid var(--gold); margin: 0 40px; }
+
+        /* ── FLIGHT CARDS ── */
+        .flights { padding: 30px 40px; }
+        .flight-card { border: 1px solid #e2e6ed; border-radius: 8px; margin-bottom: 25px; overflow: hidden; page-break-inside: avoid; }
+        .flight-card-header { background: var(--navy3); color: var(--white); padding: 15px 25px; display: flex; justify-content: space-between; align-items: center; }
+        .flight-card-header .option-num { font-size: 1.3em; font-weight: 600; }
+        .flight-card-header .airline { color: var(--gold-light); font-size: 1.05em; }
+        .badge { display: inline-block; background: var(--gold); color: var(--navy); font-size: 0.75em; font-weight: 700; padding: 3px 10px; border-radius: 12px; margin-left: 10px; text-transform: uppercase; }
+
+        .flight-card-body { padding: 25px; }
+        .leg { margin-bottom: 20px; }
+        .leg:last-child { margin-bottom: 0; }
+        .leg-label { font-size: 0.8em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 8px; letter-spacing: 0.5px; }
+
+        .segment-row { display: flex; align-items: center; gap: 20px; padding: 8px 0; }
+        .seg-time { font-size: 1.2em; font-weight: 600; min-width: 55px; }
+        .seg-airport { font-size: 0.9em; color: var(--muted); min-width: 40px; }
+        .seg-arrow { flex: 1; text-align: center; border-top: 2px dashed #d0d5dd; position: relative; margin: 0 10px; min-width: 80px; }
+        .seg-arrow .duration { position: absolute; top: -20px; left: 50%; transform: translateX(-50%); font-size: 0.75em; color: var(--muted); background: var(--white); padding: 0 8px; white-space: nowrap; }
+        .seg-arrow .stops-info { position: absolute; bottom: -18px; left: 50%; transform: translateX(-50%); font-size: 0.7em; color: var(--gold); font-weight: 600; white-space: nowrap; }
+        .seg-flight-num { font-size: 0.85em; color: var(--muted); }
+
+        /* ── PRICE BOX ── */
+        .price-section { background: var(--light-bg); border-top: 1px solid #e2e6ed; padding: 20px 25px; display: flex; justify-content: space-between; align-items: center; }
+        .price-net { font-size: 0.85em; color: var(--muted); }
+        .price-client { font-size: 1.5em; font-weight: 700; color: var(--navy); }
+        .price-cabin { font-size: 0.85em; color: var(--gold); font-weight: 600; text-transform: uppercase; }
+        .price-seats { font-size: 0.8em; color: #c0392b; font-weight: 600; }
+
+        /* ── COMPARISON TABLE ── */
+        .comparison { padding: 30px 40px 40px; }
+        .comp-table { width: 100%; border-collapse: collapse; font-size: 0.9em; }
+        .comp-table th { background: var(--navy); color: var(--white); padding: 12px 15px; text-align: left; font-weight: 600; font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.3px; }
+        .comp-table td { padding: 12px 15px; border-bottom: 1px solid #e9ecef; }
+        .comp-table tr:nth-child(even) { background: var(--light-bg); }
+        .comp-table .pick-row { background: var(--gold-pale) !important; border-left: 4px solid var(--gold); }
+        .comp-table .price-col { font-weight: 700; color: var(--navy); }
+
+        /* ── RECOMMENDATION ── */
+        .recommendation { margin: 0 40px 30px; padding: 25px; background: linear-gradient(135deg, var(--navy) 0%, var(--navy3) 100%); color: var(--white); border-radius: 8px; border-left: 5px solid var(--gold); }
+        .recommendation h3 { color: var(--gold-light); margin-bottom: 10px; font-size: 1.1em; }
+        .recommendation p { font-size: 0.95em; line-height: 1.6; }
+
+        /* ── FOOTER ── */
+        .footer { background: var(--navy); color: var(--white); padding: 40px 50px; text-align: center; border-top: 4px solid var(--gold); }
+        .footer h3 { color: var(--gold-light); margin-bottom: 10px; }
+        .footer a { color: var(--gold); text-decoration: none; }
+        .footer .contact { font-size: 0.95em; color: var(--muted); margin-top: 5px; }
+
+        /* ── PRINT ── */
+        @media print {
+            body { background: white; }
+            .container { box-shadow: none; max-width: 100%; }
+            .flight-card { break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- COVER -->
+        <div class="cover">
+            <h1>Flight Options for {{ client_name }}</h1>
+            <div class="route">{{ origin_city }} &#x2708; {{ destination_city }}</div>
+            <div class="meta-strip">
+                <span>{{ departure_date }}</span>
+                {% if return_date %}<span>Return: {{ return_date }}</span>{% endif %}
+                <span>{{ travelers }} traveler{{ 's' if travelers != '1' else '' }}</span>
+                <span>Prepared {{ prepared_date }}</span>
+            </div>
+        </div>
+
+        <!-- FLIGHT OPTION CARDS -->
+        <h2 class="section-title">Your Options</h2>
+        <div class="flights">
+            {% for flight in flights %}
+            <div class="flight-card">
+                <div class="flight-card-header">
+                    <div>
+                        <span class="option-num">Option {{ flight.option }}</span>
+                        {% for badge in flight.badges %}<span class="badge">{{ badge }}</span>{% endfor %}
+                    </div>
+                    <span class="airline">{{ flight.airline }}</span>
+                </div>
+                <div class="flight-card-body">
+                    {% for leg in flight.legs %}
+                    <div class="leg">
+                        <div class="leg-label">{{ leg.label }}</div>
+                        {% for seg in leg.segments %}
+                        <div class="segment-row">
+                            <span class="seg-time">{{ seg.dep_time }}</span>
+                            <span class="seg-airport">{{ seg.dep_airport }}</span>
+                            <div class="seg-arrow">
+                                <span class="duration">{{ seg.duration }}</span>
+                                {% if seg.stops > 0 %}<span class="stops-info">{{ seg.stops }} stop{{ 's' if seg.stops > 1 else '' }}</span>{% else %}<span class="stops-info">Nonstop</span>{% endif %}
+                            </div>
+                            <span class="seg-airport">{{ seg.arr_airport }}</span>
+                            <span class="seg-time">{{ seg.arr_time }}</span>
+                            <span class="seg-flight-num">{{ seg.flight_num }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="price-section">
+                    <div>
+                        <div class="price-cabin">{{ flight.cabin }}</div>
+                        {% if flight.seats_remaining %}<div class="price-seats">{{ flight.seats_remaining }} seat{{ 's' if flight.seats_remaining != 1 else '' }} left</div>{% endif %}
+                    </div>
+                    <div style="text-align: right;">
+                        <div class="price-client">{{ flight.client_price }}</div>
+                        <div class="price-net">per person</div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- COMPARISON TABLE -->
+        {% if comparison %}
+        <h2 class="section-title">Side-by-Side Comparison</h2>
+        <div class="comparison">
+            <table class="comp-table">
+                <thead>
+                    <tr>
+                        <th>Option</th>
+                        <th>Airline</th>
+                        <th>Departure</th>
+                        <th>Arrival</th>
+                        <th>Duration</th>
+                        <th>Stops</th>
+                        <th>Cabin</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in comparison %}
+                    <tr{% if row.is_pick %} class="pick-row"{% endif %}>
+                        <td>{{ row.option }}{% if row.is_pick %} <span class="badge">PICK</span>{% endif %}</td>
+                        <td>{{ row.airline }}</td>
+                        <td>{{ row.departure }}</td>
+                        <td>{{ row.arrival }}</td>
+                        <td>{{ row.duration }}</td>
+                        <td>{{ row.stops }}</td>
+                        <td>{{ row.cabin }}</td>
+                        <td class="price-col">{{ row.client_price }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+
+        <!-- RECOMMENDATION -->
+        {% if recommendation %}
+        <div class="recommendation">
+            <h3>Our Recommendation</h3>
+            <p>{{ recommendation }}</p>
+        </div>
+        {% endif %}
+
+        <!-- NOTES -->
+        {% if notes %}
+        <div style="padding: 20px 40px 30px; font-size: 0.85em; color: #7f8c8d;">
+            <p><strong>Important:</strong> {{ notes }}</p>
+        </div>
+        {% endif %}
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <h3>Ready to Book?</h3>
+            <p><strong>Dreams2Memories Travel, LLC</strong></p>
+            <p class="contact"><a href="mailto:johnloucks3@gmail.com">johnloucks3@gmail.com</a> | (719) 291-0742</p>
+        </div>
+
+    </div>
+</body>
+</html>

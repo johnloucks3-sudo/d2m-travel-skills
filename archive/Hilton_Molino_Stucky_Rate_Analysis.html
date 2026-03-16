@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @page {
+    size: letter;
+    margin: 0.75in 0.85in;
+  }
+  body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #1a1a2e;
+    font-size: 10.5pt;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Header bar */
+  .header {
+    background: #0d1b2e;
+    color: white;
+    padding: 18px 24px;
+    margin: -0.75in -0.85in 0 -0.85in;
+    width: calc(100% + 1.7in);
+  }
+  .header h1 {
+    font-size: 18pt;
+    font-weight: 600;
+    margin: 0 0 2px 0;
+    color: #c9a84c;
+    letter-spacing: 0.5px;
+  }
+  .header .subtitle {
+    font-size: 9pt;
+    color: #8a9ab5;
+    letter-spacing: 0.3px;
+  }
+  .header .logo-line {
+    font-size: 8pt;
+    color: #c9a84c;
+    margin-top: 6px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* Content area */
+  .content { padding-top: 20px; }
+
+  h2 {
+    font-size: 12pt;
+    color: #0d1b2e;
+    border-bottom: 2px solid #c9a84c;
+    padding-bottom: 3px;
+    margin: 16px 0 8px 0;
+    letter-spacing: 0.3px;
+  }
+  h3 {
+    font-size: 10.5pt;
+    color: #0d1b2e;
+    margin: 10px 0 4px 0;
+  }
+
+  .property-box {
+    background: #f5f0e6;
+    border-left: 4px solid #c9a84c;
+    padding: 12px 16px;
+    margin: 12px 0;
+  }
+  .property-box .name {
+    font-size: 13pt;
+    font-weight: 600;
+    color: #0d1b2e;
+  }
+  .property-box .detail {
+    font-size: 9pt;
+    color: #555;
+    margin-top: 3px;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0 16px 0;
+    font-size: 10pt;
+  }
+  th {
+    background: #0d1b2e;
+    color: #c9a84c;
+    text-align: left;
+    padding: 8px 10px;
+    font-weight: 600;
+    font-size: 9pt;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+  td {
+    padding: 7px 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  tr:nth-child(even) td { background: #f9f7f2; }
+  .highlight td {
+    background: #eef6e8 !important;
+    font-weight: 600;
+  }
+  .num { text-align: right; }
+  .savings { color: #2e7d32; font-weight: 600; }
+  .gold-text { color: #b8941f; font-weight: 600; }
+
+  /* Summary box */
+  .summary-box {
+    background: #0d1b2e;
+    color: white;
+    padding: 12px 18px;
+    margin: 10px 0;
+    border-radius: 4px;
+  }
+  .summary-box h3 {
+    color: #c9a84c;
+    margin: 0 0 6px 0;
+    font-size: 11pt;
+  }
+  .summary-box p {
+    margin: 3px 0;
+    font-size: 10pt;
+    line-height: 1.5;
+    color: #cbd5e1;
+  }
+  .summary-box .figure {
+    color: #4ade80;
+    font-weight: 600;
+  }
+
+  /* Notes */
+  .notes {
+    font-size: 8.5pt;
+    color: #777;
+    margin-top: 10px;
+    line-height: 1.4;
+  }
+  .notes p { margin: 2px 0; }
+
+  /* Footer */
+  .footer {
+    margin-top: 14px;
+    padding-top: 8px;
+    border-top: 1px solid #ddd;
+    font-size: 8.5pt;
+    color: #888;
+    text-align: center;
+  }
+  .footer .brand {
+    color: #0d1b2e;
+    font-weight: 600;
+  }
+
+  /* Page break */
+  .page-break { page-break-before: always; }
+
+  ul { margin: 4px 0; padding-left: 18px; }
+  li { margin: 2px 0; font-size: 9.5pt; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <h1>Hotel Rate Analysis</h1>
+  <div class="subtitle">Hilton Molino Stucky Venice &mdash; Executive Room &mdash; July 3&ndash;6, 2026</div>
+  <div class="logo-line">Dreams2Memories Travel, LLC</div>
+</div>
+
+<div class="content">
+
+<!-- PROPERTY -->
+<div class="property-box">
+  <div class="name">Hilton Molino Stucky Venice</div>
+  <div class="detail">Isola Della Giudecca 810, Venice, VE 30133, Italy</div>
+  <div class="detail">Executive Room, 2 Twin Beds &nbsp;|&nbsp; 2 Guests &nbsp;|&nbsp; 3 Nights &nbsp;|&nbsp; Breakfast Included</div>
+  <div class="detail">291 ft&sup2; &nbsp;|&nbsp; Executive Lounge access &nbsp;|&nbsp; 40" TV &nbsp;|&nbsp; Marble bathroom &nbsp;|&nbsp; Complimentary drinks &amp; snacks</div>
+</div>
+
+<!-- RATE COMPARISON -->
+<h2>Rate Comparison</h2>
+
+<table>
+  <tr>
+    <th></th>
+    <th>Room-Res (Agent Rate)</th>
+    <th>Booking.com</th>
+    <th>AMEX</th>
+  </tr>
+  <tr>
+    <td>Nightly Rate</td>
+    <td class="num">$550.93</td>
+    <td class="num">$579.00</td>
+    <td class="num">~$733.00</td>
+  </tr>
+  <tr>
+    <td>Room (3 nights)</td>
+    <td class="num">$1,652.79</td>
+    <td class="num">$1,736.00</td>
+    <td class="num">~$2,200.00</td>
+  </tr>
+  <tr>
+    <td>Taxes &amp; Fees</td>
+    <td class="num">$182.30</td>
+    <td class="num">~$175*</td>
+    <td class="num">Included</td>
+  </tr>
+  <tr>
+    <td>Mandatory Fee</td>
+    <td class="num">$34.82</td>
+    <td class="num">&mdash;</td>
+    <td class="num">&mdash;</td>
+  </tr>
+  <tr>
+    <td>Breakfast</td>
+    <td>Included</td>
+    <td>Included</td>
+    <td>Included</td>
+  </tr>
+  <tr>
+    <td>Cancellation</td>
+    <td>Pay at hotel</td>
+    <td>Non-refundable</td>
+    <td>Unknown</td>
+  </tr>
+  <tr style="border-top: 2px solid #0d1b2e;">
+    <td><strong>Client Total</strong></td>
+    <td class="num"><strong>$1,835.09</strong></td>
+    <td class="num"><strong>~$1,911</strong></td>
+    <td class="num"><strong>$2,200.00</strong></td>
+  </tr>
+</table>
+
+<p class="notes">*Booking.com excludes city tax (&euro;5/person/night) and 10% VAT from displayed rates. Estimated total includes those additions on the breakfast-included flexible rate.</p>
+
+<!-- SAVINGS -->
+<h2>Savings vs. AMEX Benchmark ($2,200)</h2>
+
+<table>
+  <tr>
+    <th>Source</th>
+    <th>Client Pays</th>
+    <th>Savings</th>
+    <th>Agent Commission</th>
+  </tr>
+  <tr class="highlight">
+    <td>Room-Res</td>
+    <td class="num">$1,835.09</td>
+    <td class="num savings">$364.91 (16.6%)</td>
+    <td class="num gold-text">$238.65</td>
+  </tr>
+  <tr>
+    <td>Booking.com</td>
+    <td class="num">~$1,911</td>
+    <td class="num">~$289 (13.1%)</td>
+    <td class="num">$0</td>
+  </tr>
+  <tr>
+    <td>AMEX</td>
+    <td class="num">$2,200.00</td>
+    <td class="num">&mdash;</td>
+    <td class="num">$0</td>
+  </tr>
+</table>
+
+<!-- PAGE 2 -->
+<div class="page-break"></div>
+
+<h2>What Each Rate Includes</h2>
+
+<h3>Room-Res (Agent Channel) &mdash; $1,835.09</h3>
+<ul>
+  <li>Executive Room with Executive Lounge access (complimentary drinks &amp; snacks)</li>
+  <li>Daily buffet breakfast for 2 guests</li>
+  <li>Pay at hotel &mdash; no prepayment required</li>
+  <li>918 loyalty points earned</li>
+  <li>All taxes and mandatory fees included in quoted total</li>
+  <li>City tax collected at property (~&euro;5/person/night, 2 pax, 3 nights = ~&euro;30)</li>
+</ul>
+
+<h3>AMEX &mdash; $2,200.00</h3>
+<ul>
+  <li>Executive Room with Executive Lounge access</li>
+  <li>Daily buffet breakfast for 2 guests</li>
+  <li>Cancellation terms not confirmed</li>
+  <li>Hilton Honors recognition likely preserved</li>
+</ul>
+
+<h2>Hilton Gold Status Considerations</h2>
+<p style="margin: 4px 0; font-size: 9.5pt;">Both rates book the Executive Room, which already includes the primary Gold benefit: Executive Lounge access with complimentary drinks and snacks. The remaining Gold benefits to consider:</p>
+<ul>
+  <li><strong>Room upgrade:</strong> Possible upgrade to a higher-category Executive room (subject to availability at check-in regardless of booking channel)</li>
+  <li><strong>Hilton Honors points:</strong> Points earning may vary by booking channel. Direct Hilton bookings earn full points; agent-channel bookings can have Honors numbers attached &mdash; confirm with Room-Res at time of booking.</li>
+  <li><strong>Food &amp; beverage credit:</strong> Gold members receive a daily credit &mdash; this applies at check-in based on Honors status, not booking source.</li>
+</ul>
+
+<!-- SUMMARY -->
+<div class="summary-box">
+  <h3>Summary</h3>
+  <p>The Room-Res agent rate delivers the same Executive Room with breakfast at <span class="figure">$1,835</span> vs. the AMEX rate of <span class="figure">$2,200</span> &mdash; a <span class="figure">$365 savings (16.6%)</span> with no prepayment required.</p>
+  <p>Since the Executive Room already includes lounge access, the core Hilton Gold benefit is built into both rates. The primary difference is price.</p>
+</div>
+
+<div class="notes">
+  <p>Rates verified March 5, 2026. Hotel rates are subject to change and availability.</p>
+  <p>City tax (~&euro;5/person/night for adults, Jul 2026) collected directly by property at check-in.</p>
+  <p>Venice access fee exemption voucher required for hotel guests &mdash; request in advance at cda.ve.it/en/.</p>
+</div>
+
+<div class="footer">
+  <span class="brand">Dreams2Memories Travel, LLC</span><br>
+  John A Loucks III &nbsp;|&nbsp; 719-291-0742 &nbsp;|&nbsp; johnloucks3@gmail.com &nbsp;|&nbsp; www.d2mluxury.quest
+</div>
+
+</div>
+</body>
+</html>

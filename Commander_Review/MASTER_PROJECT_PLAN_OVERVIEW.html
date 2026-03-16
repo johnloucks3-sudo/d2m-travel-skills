@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thunderbird Master Project Plan — Overview</title>
+<style>
+  :root {
+    --navy: #0d1b2e;
+    --navy2: #152540;
+    --navy3: #1e3358;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-pale: #f5e9c8;
+    --muted: #8a9ab5;
+    --white: #f0f0f0;
+    --red: #e74c3c;
+    --green: #2ecc71;
+    --blue: #3498db;
+    --purple: #7a5a9a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    padding: 24px;
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  .header {
+    text-align: center;
+    padding: 40px 20px 30px;
+    border-bottom: 2px solid var(--gold);
+    margin-bottom: 32px;
+  }
+  .header h1 {
+    font-size: 2.2em;
+    color: var(--gold);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .header .subtitle {
+    color: var(--muted);
+    font-size: 1.1em;
+    margin-bottom: 4px;
+  }
+  .header .keeper {
+    color: var(--gold-light);
+    font-size: 0.95em;
+    font-style: italic;
+  }
+  .header .stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  .stat-box {
+    text-align: center;
+  }
+  .stat-box .number {
+    font-size: 2em;
+    font-weight: 700;
+    color: var(--gold);
+  }
+  .stat-box .label {
+    font-size: 0.75em;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* GRID */
+  .parts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto 40px;
+  }
+
+  /* CARDS */
+  .card {
+    background: var(--navy2);
+    border: 1px solid var(--navy3);
+    border-radius: 12px;
+    padding: 24px;
+    transition: border-color 0.2s;
+    position: relative;
+  }
+  .card:hover { border-color: var(--gold); }
+  .card .part-num {
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: var(--gold);
+    color: var(--navy);
+    font-weight: 800;
+    font-size: 0.75em;
+    padding: 4px 12px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+  }
+  .card h3 {
+    color: var(--gold-light);
+    font-size: 1.15em;
+    margin: 8px 0 12px;
+  }
+  .card p {
+    color: var(--muted);
+    font-size: 0.9em;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .card ul {
+    list-style: none;
+    padding: 0;
+  }
+  .card ul li {
+    font-size: 0.85em;
+    color: var(--white);
+    padding: 4px 0 4px 16px;
+    position: relative;
+  }
+  .card ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+
+  /* SPECIAL: EXEC PROTOCOL */
+  .exec-banner {
+    background: linear-gradient(135deg, var(--navy3), #2a1a3e);
+    border: 2px solid var(--purple);
+    border-radius: 12px;
+    padding: 24px;
+    max-width: 1200px;
+    margin: 0 auto 32px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .exec-banner .shield {
+    font-size: 3em;
+    flex-shrink: 0;
+  }
+  .exec-banner h3 {
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .exec-banner p {
+    color: var(--gold-pale);
+    font-size: 0.95em;
+    line-height: 1.6;
+  }
+  .exec-banner .quote {
+    border-left: 3px solid var(--purple);
+    padding-left: 16px;
+    margin-top: 12px;
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  /* STANDING ORDERS */
+  .orders {
+    text-align: center;
+    padding: 30px;
+    max-width: 800px;
+    margin: 0 auto 32px;
+  }
+  .orders blockquote {
+    font-size: 1.3em;
+    color: var(--gold-light);
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+  .orders .attr {
+    color: var(--muted);
+    font-size: 0.85em;
+  }
+
+  /* PIPELINE */
+  .pipeline {
+    max-width: 1200px;
+    margin: 0 auto 40px;
+  }
+  .pipeline h2 {
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.4em;
+    letter-spacing: 2px;
+  }
+  .pipeline-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .pipeline-item {
+    background: var(--navy2);
+    border: 1px solid var(--navy3);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    width: 130px;
+  }
+  .pipeline-item .amount {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--gold);
+  }
+  .pipeline-item .client {
+    font-size: 0.75em;
+    color: var(--white);
+    margin-top: 4px;
+  }
+  .pipeline-item .date {
+    font-size: 0.7em;
+    color: var(--red);
+    margin-top: 4px;
+    font-weight: 600;
+  }
+  .pipeline-total {
+    background: var(--gold);
+    color: var(--navy);
+    border: none;
+  }
+  .pipeline-total .amount { color: var(--navy); }
+  .pipeline-total .client { color: var(--navy2); font-weight: 700; }
+
+  /* EVOLUTION TIMELINE */
+  .timeline {
+    max-width: 1000px;
+    margin: 0 auto 40px;
+    position: relative;
+  }
+  .timeline h2 {
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 1.4em;
+    letter-spacing: 2px;
+  }
+  .timeline-track {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 0 20px;
+  }
+  .timeline-track::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: 60px;
+    right: 60px;
+    height: 3px;
+    background: linear-gradient(to right, var(--muted), var(--gold-light), var(--gold));
+  }
+  .era {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    width: 22%;
+  }
+  .era .dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin: 20px auto 12px;
+  }
+  .era .name {
+    font-weight: 700;
+    font-size: 1.1em;
+    color: var(--gold-light);
+  }
+  .era .detail {
+    font-size: 0.75em;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+  .era .metric {
+    font-size: 0.85em;
+    color: var(--gold);
+    font-weight: 600;
+    margin-top: 6px;
+  }
+
+  /* BIG ROCKS */
+  .rocks {
+    max-width: 1200px;
+    margin: 0 auto 40px;
+  }
+  .rocks h2 {
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.4em;
+    letter-spacing: 2px;
+  }
+  .rocks-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .rock {
+    background: var(--navy2);
+    border: 1px solid var(--navy3);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 200px;
+    border-top: 3px solid var(--gold);
+  }
+  .rock .num {
+    font-size: 2em;
+    font-weight: 800;
+    color: var(--gold);
+  }
+  .rock .title {
+    font-size: 0.95em;
+    color: var(--gold-light);
+    font-weight: 600;
+    margin: 8px 0 6px;
+  }
+  .rock .owner {
+    font-size: 0.75em;
+    color: var(--muted);
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding: 30px;
+    border-top: 1px solid var(--navy3);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .footer .version {
+    color: var(--muted);
+    font-size: 0.8em;
+  }
+  .footer .vision {
+    color: var(--gold-light);
+    font-style: italic;
+    font-size: 1.1em;
+    margin-top: 12px;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <h1>Thunderbird Master Project Plan</h1>
+  <div class="subtitle">Dreams2Memories Travel, LLC</div>
+  <div class="keeper">Keeper: EXEC — Naia Solberg-Vega</div>
+  <div class="stats">
+    <div class="stat-box"><div class="number">9</div><div class="label">Parts</div></div>
+    <div class="stat-box"><div class="number">1,250</div><div class="label">Lines</div></div>
+    <div class="stat-box"><div class="number">97</div><div class="label">MCP Tools</div></div>
+    <div class="stat-box"><div class="number">9</div><div class="label">AI Personas</div></div>
+    <div class="stat-box"><div class="number">$68K</div><div class="label">Pipeline</div></div>
+    <div class="stat-box"><div class="number">5</div><div class="label">Clients</div></div>
+  </div>
+</div>
+
+<!-- STANDING ORDERS -->
+<div class="orders">
+  <blockquote>"Some men see things that are and ask why.<br>I see things that can be and say why not."</blockquote>
+  <blockquote>"We are curating the voyage of a lifetime."</blockquote>
+  <div class="attr">— Commander's Standing Orders to All Staff</div>
+</div>
+
+<!-- EXEC PROTOCOL -->
+<div class="exec-banner">
+  <div class="shield">&#x1F6E1;</div>
+  <div>
+    <h3>EXEC DELETION SAFEGUARD — "Specify Before You Strike"</h3>
+    <p>When the Commander orders a deletion, EXEC intervenes before execution to protect what matters.</p>
+    <div class="quote">"Commander, can you specify exactly what should be deleted? Files, folders, content — and confirm what should be preserved?"</div>
+    <p style="margin-top: 10px; font-size: 0.8em; color: #8a9ab5;">Protocol instituted Mar 10, 2026. Incident of record: 24 files deleted, 23 recovered. Never again.</p>
+  </div>
+</div>
+
+<!-- EVOLUTION TIMELINE -->
+<div class="timeline">
+  <h2>THE EVOLUTION</h2>
+  <div class="timeline-track">
+    <div class="era">
+      <div class="dot" style="background: var(--muted);"></div>
+      <div class="name">ELLA</div>
+      <div class="detail">Dec 30 '25 — Jan 13 '26</div>
+      <div class="metric">24 functions</div>
+    </div>
+    <div class="era">
+      <div class="dot" style="background: var(--blue);"></div>
+      <div class="name">EARA</div>
+      <div class="detail">Jan 9 — Feb 5 '26</div>
+      <div class="metric">20 tabs, 1,355 revisions</div>
+    </div>
+    <div class="era">
+      <div class="dot" style="background: var(--purple);"></div>
+      <div class="name">TITAN</div>
+      <div class="detail">Feb 5 — Feb 18 '26</div>
+      <div class="metric">112 functions, 162K chars</div>
+    </div>
+    <div class="era">
+      <div class="dot" style="background: var(--gold);"></div>
+      <div class="name">THUNDERBIRD</div>
+      <div class="detail">Feb 13 — Present</div>
+      <div class="metric">97 MCP tools, 40 modules</div>
+    </div>
+  </div>
+</div>
+
+<!-- 9 PARTS GRID -->
+<div class="parts-grid">
+
+  <div class="card">
+    <div class="part-num">PART 1</div>
+    <h3>The Origin Story</h3>
+    <p>ELLA to EARA to TITAN to Thunderbird — how a frustrated travel advisor built an AI agency from a Google Sheet.</p>
+    <ul>
+      <li>Founding Documents A & B (Jan 29)</li>
+      <li>EARA Constitution & Init Vector</li>
+      <li>Three persona registries evolved</li>
+      <li>Commander's Standing Orders</li>
+      <li>EXEC Standing Protocols (NEW)</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="part-num">PART 2</div>
+    <h3>Lost Capabilities Audit</h3>
+    <p>32 capabilities tracked from ELLA/EARA/TITAN. The real gap is activation, not implementation.</p>
+    <ul>
+      <li>~16 truly missing capabilities</li>
+      <li>~8 exist but need scheduling</li>
+      <li>~8 partial implementations</li>
+      <li>Virtuoso 9-Month Lifecycle (not codified)</li>
+      <li>Voice Harvester, TESS OAuth, Scribe</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="part-num">PART 3</div>
+    <h3>Seven Initiatives</h3>
+    <p>The roadmap to restore lost power and add new capability.</p>
+    <ul>
+      <li>I1: Drive Mirror (backup)</li>
+      <li>I2: Persona Sentience (auto-consult)</li>
+      <li>I3: Luna — The Dreamweaver (A6)</li>
+      <li>I4: Restore Lost Capabilities</li>
+      <li>I5: Groq-First Architecture</li>
+      <li>I6: Tab Cleanup</li>
+      <li>I7: Daily Itinerary Consolidation</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="part-num">PART 4</div>
+    <h3>Monetization & Commercial</h3>
+    <p>5 revenue channels. Zero cruise MCP competition. 4-6 month competitive window.</p>
+    <ul>
+      <li>Poe Bot: $500-5K/mo</li>
+      <li>MCPize: $5K-20K/mo</li>
+      <li>SaaS: $5K-12K/mo</li>
+      <li>Commission/Affiliate: $2K-10K/mo</li>
+      <li>Year 1 realistic: $35K-90K</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="part-num">PART 5</div>
+    <h3>Active Client Operations</h3>
+    <p>5 active clients. $68,356 in final payments due. $8,309 D2M commission.</p>
+    <ul>
+      <li>Kuklinski: 3 Viking suites, Mar 31</li>
+      <li>Furlow: Regent Grandeur, Apr 1</li>
+      <li>Ely/Darrow: Regent Grandeur, Apr 1</li>
+      <li>Nichols: Regent + CFAR issue, Apr 1</li>
+      <li>McLeod: Rome proposal sent</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="part-num">PART 6</div>
+    <h3>Daily Routine — Covey</h3>
+    <p>"Begin with the End in Mind" — every task maps to a Big Rock.</p>
+    <ul>
+      <li>THE END: Voyage of a lifetime</li>
+      <li>5 Big Rocks (see below)</li>
+      <li>0630 Morning Intel</li>
+      <li>0700 Logistics & Payments</li>
+      <li>0715 Star Protocol</li>
+      <li>EOD "Land this bird"</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="part-num">PART 7</div>
+    <h3>Commander Review Library</h3>
+    <p>Index of 28 operational files + 32 Drive strategic documents.</p>
+    <ul>
+      <li>Email drafts (sent + unsent)</li>
+      <li>Client briefings & CFAR research</li>
+      <li>3 persona registry evolution</li>
+      <li>Voice Harvester, TESS, Scribe</li>
+      <li>30+ Drive architecture docs</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="part-num">PART 8</div>
+    <h3>Task Tracker</h3>
+    <p>All active work in one place. S-tasks, C-tasks, weekly sprints, monetization.</p>
+    <ul>
+      <li>S1-S6: Standalone tasks</li>
+      <li>C1-C7: Client ops deadlines</li>
+      <li>Weeks 1-3: Initiative sprints</li>
+      <li>M1-M12: Monetization track</li>
+      <li>Month 3+: Strategic depth</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="part-num">PART 9</div>
+    <h3>The Vision</h3>
+    <p>ELLA was a secretary. EARA was ops. TITAN was a command center. Thunderbird is an agency. Now we give them hearts.</p>
+    <ul>
+      <li>"A dream isn't a destination."</li>
+      <li>"It's the feeling of arriving."</li>
+      <li>— Luna Reeves, Chief Dreamweaver</li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- BIG ROCKS -->
+<div class="rocks">
+  <h2>THE FIVE BIG ROCKS</h2>
+  <div class="rocks-row">
+    <div class="rock">
+      <div class="num">1</div>
+      <div class="title">Know the Client</div>
+      <div class="owner">Commander + A3 Moreau</div>
+    </div>
+    <div class="rock">
+      <div class="num">2</div>
+      <div class="title">Curate the Voyage</div>
+      <div class="owner">A2 Dembe + EXEC Naia</div>
+    </div>
+    <div class="rock">
+      <div class="num">3</div>
+      <div class="title">Nail the Logistics</div>
+      <div class="owner">A3 Moreau + A10 Ikeda</div>
+    </div>
+    <div class="rock">
+      <div class="num">4</div>
+      <div class="title">Protect the Relationship</div>
+      <div class="owner">Commander + EXEC Naia</div>
+    </div>
+    <div class="rock">
+      <div class="num">5</div>
+      <div class="title">Sustain the Business</div>
+      <div class="owner">A9 Harlan + A5 Castillo</div>
+    </div>
+  </div>
+</div>
+
+<!-- PAYMENT PIPELINE -->
+<div class="pipeline">
+  <h2>PAYMENT PIPELINE — $68,356</h2>
+  <div class="pipeline-row">
+    <div class="pipeline-item">
+      <div class="amount">$21.2K</div>
+      <div class="client">Kuklinski<br>3 Viking suites</div>
+      <div class="date">MAR 31</div>
+    </div>
+    <div class="pipeline-item">
+      <div class="amount">$15.5K</div>
+      <div class="client">Furlow<br>Regent Grandeur</div>
+      <div class="date">APR 1</div>
+    </div>
+    <div class="pipeline-item">
+      <div class="amount">$16.6K</div>
+      <div class="client">Ely/Darrow<br>Regent Grandeur</div>
+      <div class="date">APR 1</div>
+    </div>
+    <div class="pipeline-item">
+      <div class="amount">$15.0K</div>
+      <div class="client">Nichols<br>Regent Grandeur</div>
+      <div class="date">APR 1</div>
+    </div>
+    <div class="pipeline-item pipeline-total">
+      <div class="amount">$8,309</div>
+      <div class="client">D2M COMMISSION</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="vision">"A dream isn't a destination. It's the feeling of arriving."</div>
+  <div class="version" style="margin-top: 16px;">
+    Thunderbird Master Project Plan v4.3 | 1,250 lines | 9 Parts<br>
+    Keeper: EXEC Naia Solberg-Vega | Backup: Google Drive doc 18WjwXBux...<br>
+    Dreams2Memories Travel, LLC | Commander John "Yoda" Loucks<br>
+    Classification: THUNDERBIRD INTERNAL
+  </div>
+</div>
+
+</body>
+</html>

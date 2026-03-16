@@ -1,0 +1,26 @@
+# Facebook Cruise Community Groups — 2026-03-08
+# Scraped daily at 0900 MT for Cruise Community Digest
+
+# === Member — Cruise/Travel ===
+# Regent Seven Seas Cruises Social Club
+groups/RSSCsocialclub
+# Silversea Cruiseline passengers
+groups/501447368412752
+# Oceania Cruiseline
+groups/3633939636830289
+# Oceania Cruises - Hacks, Tips, Questions & Answers
+groups/310846507995371
+# Business Class & First Class Flights
+groups/business.class.deals
+# Space Launch Schedule
+groups/SpaceLaunchSchedule
+
+# === New adds (need to search/join) ===
+# SILVER NOVA (5.7K — public)
+groups/silvernova
+# Atlas Ocean Voyages Cruisers (4.2K — private, need to join)
+groups/atlasoceanvoyagescruisers
+# AmaMagna by AmaWaterways (150 — private, need to join)
+groups/AmaMagnabyAmaWaterways
+# Celebrity River Cruises (2.7K — private, need to join)
+groups/celebrityrivercruises

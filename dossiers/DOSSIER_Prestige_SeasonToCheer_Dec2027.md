@@ -1,0 +1,130 @@
+════════════════════════════════════════════════════════════
+DREAMS2MEMORIES TRAVEL, LLC
+TRIP DOSSIER
+════════════════════════════════════════════════════════════
+
+Trip: SS Prestige — Season To Cheer
+Ship: SS Prestige (Regent Seven Seas)
+Route: Lesser Antilles
+Embarkation: December 18, 2027 — TBD
+Disembarkation: December 28, 2027 — TBD
+Duration: 10 nights
+Last Updated: March 07, 2026
+
+────────────────────────────────────────────────────────────
+1. GENERAL TRIP NOTES
+────────────────────────────────────────────────────────────
+• Erik McLeod & Melissa McGlasson — Concierge D suite
+• Booked Dec 31, 2025 — option paid by Jan 5, 2026
+• $16,398 total cost
+• Nexion 70/30 split — D2M commission $1,967.76
+• Shore excursions open: Concierge E-210 (May 22, 2027), all suites E-180 (Jun 21, 2027)
+• FPD and exact invoice details needed
+
+
+════════════════════════════════════════════════════════════
+4. CLIENT: ERIK MCLEOD & MELISSA MCGLASSON
+════════════════════════════════════════════════════════════
+
+CONTACT INFORMATION
+  Erik McLeod
+    Phone:   ⚠ NEEDED
+    Email:   emcleod@gmail.com
+    Address: ⚠ NEEDED
+
+  Melissa McGlasson
+    Phone:   ⚠ NEEDED
+    Email:   memcglas@gmail.com
+    Address: ⚠ NEEDED
+
+BOOKING SUMMARY
+  Supplier:        Regent
+  Confirmation #:  3112369
+  Ship:            SS Prestige
+  Booking Date:    December 31, 2025
+  Embarkation:     December 18, 2027
+  Disembarkation:  December 28, 2027
+  Final Payment:   September 18, 2027 — UNKNOWN
+
+ANCHOR DATE TIMELINE
+Date         Status Category     Milestone
+----------------------------------------------------------------------
+2026-01-05   PAST   [supplier  ] ★ HARD: Option payment due
+2026-01-15   PAST   [insurance ]   Insurance pre-existing window closes
+2027-03-23          [documents ]   E-270: Passport validity check (6-month rule)
+2027-05-22          [supplier  ] ★ HARD: Shore Excursions Open (Concierge E-210)
+2027-06-21          [insurance ]   E-180: Insurance decision deadline
+2027-06-21          [supplier  ] ★ HARD: Shore Excursions Open (all suites E-180)
+2027-07-21          [documents ]   E-150: Guest Info Forms due
+2027-08-20          [client_care]   E-120: Pre-trip call / planning session
+2027-08-28          [payment   ]   Payment reminder #1 (FPD-21)
+2027-09-04          [payment   ]   Payment reminder #2 (FPD-14)
+2027-09-11          [payment   ]   Goal: payment in hand (FPD-7)
+2027-09-18          [payment   ]   FINAL PAYMENT DUE
+2027-09-19          [documents ]   E-90: All docs confirmed, ancillary bookings locked
+2027-09-25          [payment   ]   Confirm payment received (FPD+7)
+2027-11-18          [deliverable]   E-30: Final itinerary PDF delivered
+2027-11-18          [operations]   E-30 to E-3: Operational window (flights, weather, State Dept, dining)
+2027-12-04          [client_care]   E-14: Bon Voyage package / final check-in
+2027-12-18          [milestone ]   EMBARKATION DAY
+2027-12-28          [milestone ]   DISEMBARKATION DAY
+2028-01-04          [client_care]   D+7: Welcome Home email
+2028-01-11          [client_care]   D+14: Review request (TripAdvisor, Google)
+2028-01-27          [business  ]   D+30: Next trip conversation + commission audit
+
+★ = HARD date from supplier invoice
+
+SUPPLIER HARD DATES (from invoice)
+  PAST 2026-01-05 — Option payment due
+       2027-05-22 — Shore Excursions Open (Concierge E-210)
+       2027-06-21 — Shore Excursions Open (all suites E-180)
+
+TOURS & EXCURSIONS
+  [To be populated — shore excursion selections pending]
+
+DINING PLANNER
+  [To be populated — specialty dining reservations pending]
+
+LOGISTICS & TRANSPORT
+  [Flights, transfers, and ground transport details]
+
+INSURANCE STATUS
+  Status: UNKNOWN
+
+DOCUMENTS CHECKLIST
+  [ ] Passport verified (6-month validity)
+  [ ] Guest Information Form submitted
+  [ ] Travel insurance decision
+  [ ] Emergency contact provided
+  [ ] Final payment received
+  [ ] Dining selections made
+  [ ] Excursion selections made
+  [ ] Final itinerary delivered
+
+════════════════════════════════════════════════════════════
+5. ANTICIPATION ENGINE LOG
+════════════════════════════════════════════════════════════
+Content drip tracker — what has been sent to clients pre-trip.
+
+Date Sent    T-minus  Content                                  Channel
+----------------------------------------------------------------------
+  [No content sent yet]
+
+════════════════════════════════════════════════════════════
+6. COMMUNICATION LOG
+════════════════════════════════════════════════════════════
+
+Date         Type     Summary
+----------------------------------------------------------------------
+  [To be populated from Gmail thread analysis]
+
+════════════════════════════════════════════════════════════
+7. REFERRAL TRACKING
+════════════════════════════════════════════════════════════
+
+  [No referrals tracked yet]
+
+────────────────────────────────────────────────────────────
+Generated by Thunderbird OS — Dreams2Memories Travel, LLC
+Dossier Version 1.0 | March 07, 2026
+────────────────────────────────────────────────────────────

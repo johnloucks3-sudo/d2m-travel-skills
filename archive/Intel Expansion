@@ -1,0 +1,105 @@
+/**
+ * 🛰️ MODULE: A12-PHOENIX EXPANSION (v1.0)
+ * Directives: Aggressive Tool Hunting & Branded Weekly Reports.
+ * Oversight: A12
+ */
+
+const INTEL_VAULT_FOLDER = '1MjjbqQVnzMYpHyAtNu-zZej-1mXhHkGk'; // Your Intel Vault
+const BRAND_LOGO_URL = 'YOUR_LOGO_URL_HERE'; // Replace with your agency logo URL
+
+/**
+ * 🔍 DIRECTIVE: AGGRESSIVE ADDON HUNT
+ * Logic: Daily search for 7 days, then pivots to weekly.
+ */
+function aggressiveAddonHunt() {
+  var GLOBAL_MODEL = getModel('RESEARCH'); // Forces this script to use Gemini 2.5 Pro
+  // ... rest of your code ...
+  const props = PropertiesService.getScriptProperties();
+  const launchDate = props.getProperty('INTEL_LAUNCH_DATE') || new Date().toISOString();
+  if (!props.getProperty('INTEL_LAUNCH_DATE')) props.setProperty('INTEL_LAUNCH_DATE', launchDate);
+
+  const daysSinceLaunch = (new Date() - new Date(launchDate)) / (1000 * 60 * 60 * 24);
+
+  // Pivot Logic: Skip if we are in "Weekly Mode" and it's not the right day
+  if (daysSinceLaunch > 30 && new Date().getDay() !== 1) { // 1 = Monday
+    console.log("⏸️ A12: Pivot Mode Active. Skipping until Monday.");
+    return;
+  }
+
+  console.log(`📡 A12: Initiating Aggressive Tool Scan (Day ${Math.floor(daysSinceLaunch)})...`);
+
+  // Search for the specific technologies you requested
+  const techQueries = [
+    'site:workspace.google.com/marketplace "luxury cruise travel" OR "luxury cruise intelligence"',
+    '"Browser Use MCP" Google Workspace integration',
+    '"Instructor" JSON schema for Google Apps Script',
+    'Pinecone vector database Google Sheets tutorial'
+  ];
+
+  let toolReport = "🛠️ A12 TOOL DISCOVERY REPORT\n\n";
+  techQueries.forEach(query => {
+    const results = searchNews(query, 3);
+    results.forEach(r => toolReport += `• [${r.source}] ${r.title}\n  Link: ${r.link}\n\n`);
+  });
+
+  // Log findings to your Intel_Log
+  const ss = SpreadsheetApp.openById(CONFIG.SPREADSHEET_ID);
+  const logSheet = getOrCreateSheet(ss, 'Tool_Discoveries', ['Date', 'Finding', 'Status']);
+  logSheet.appendRow([new Date(), toolReport, 'NEW']);
+
+  console.log("✅ A12: Tool Discovery Logged.");
+}
+
+/**
+ * 💎 DIRECTIVE: LOGO-BEARING WEEKLY INTEL BRIEF
+ * Compiles the week's best NCLH/Regent/Oceania intel into a Doc.
+ */
+function generateClientWeeklyBrief() {
+  console.log("📜 A12: Compiling Weekly Luxury Brief...");
+
+  const ss = SpreadsheetApp.openById(CONFIG.SPREADSHEET_ID);
+  const intelSheet = ss.getSheetByName('Intel_Log');
+  const data = intelSheet.getDataRange().getValues();
+
+  // Filter for the last 7 days + HIGH Priority + NCLH/Regent/Oceania
+  const oneWeekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+  const filteredIntel = data.filter(row => {
+    const date = new Date(row[0]);
+    const priority = row[6];
+    const line = row[2];
+    return date > oneWeekAgo && priority === 'HIGH' && (line.includes('Regent') || line.includes('AMA Magna') || line.includes('Atlas Ocean Voyages'));
+  });
+
+  if (filteredIntel.length === 0) return console.log("⚠️ No high-priority intel found this week.");
+
+  // Create the Doc
+  const docName = `D2M_LUXURY_INTEL_${new Date().toISOString().slice(0,10)}`;
+  const doc = DocumentApp.create(docName);
+  const body = doc.getBody();
+
+  // 1. ADD BRANDING (Logo)
+  try {
+    const logoResp = UrlFetchApp.fetch(BRAND_LOGO_URL);
+    body.insertImage(0, logoResp.getBlob()).setWidth(150).setHeight(50);
+  } catch (e) { console.warn("Logo not found. Proceeding with text-only header."); }
+
+  body.appendParagraph("ULTRA-LUXURY CRUISE INTELLIGENCE").setHeading(DocumentApp.ParagraphHeading.HEADING1);
+  body.appendParagraph(`Report Cycle: ${oneWeekAgo.toLocaleDateString()} - ${new Date().toLocaleDateString()}`).setItalic(true);
+
+  // 2. ADD AI SYNTHESIS (Use Groq/Llama 3.3 for "Executive" voice)
+  const intelString = filteredIntel.map(i => i[4]).join('\n'); // Headlines
+  const prompt = `ROLE: A6 (The Scribe).
+  MISSION: Write a high-end intelligence summary for VIP luxury cruise clients.
+  DATA: ${intelString}
+  TONE: Sophisticated, authoritative, clinical. Focus on Regent and Oceania.
+  VOICE: Colonel Loucks style.`;
+
+  const synthesis = callGroqScribe(prompt);
+  body.appendParagraph("\nEXECUTIVE SUMMARY").setHeading(DocumentApp.ParagraphHeading.HEADING2);
+  body.appendParagraph(synthesis);
+
+  // 3. ARCHIVE & LOG
+  doc.saveAndClose();
+  DriveApp.getFileById(doc.getId()).moveTo(DriveApp.getFolderById(INTEL_VAULT_FOLDER));
+  console.log(`✅ Weekly Brief Secured: ${docName}`);
+}

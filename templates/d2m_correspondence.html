@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dreams2Memories Travel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Lora:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ===== RESET & BASE ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --gold: #c9a84c;
+            --gold-light: #e8c97a;
+            --gold-pale: #f5e9c8;
+            --navy: #0d1b2e;
+            --navy-light: #1e3358;
+            --ink-blue: #2b6cb0;      /* Commander's light blue ink */
+            --text-dark: #2d3748;
+            --text-muted: #718096;
+            --warm-cream: #faf8f3;
+            --sand: #e8dcc8;
+            --border-gold: #d4c5a0;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink-blue);
+            background: var(--white);
+            line-height: 1.7;
+            font-size: 15px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== PRINT STYLES ===== */
+        @media print {
+            body { background: white; font-size: 12pt; }
+            .email-wrapper { max-width: 100%; box-shadow: none; }
+            .header { padding: 20pt 30pt 15pt; }
+            .content { padding: 20pt 30pt; }
+            .footer { padding: 15pt 30pt; }
+            .gold-rule { margin: 0 30pt; }
+            a { color: var(--ink-blue); text-decoration: none; }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media screen and (max-width: 600px) {
+            .email-wrapper { margin: 0; border-radius: 0; }
+            .header { padding: 24px 20px 18px; }
+            .content { padding: 24px 20px; }
+            .footer { padding: 18px 20px; }
+            .agent-row { flex-direction: column; align-items: center; text-align: center; }
+            .agent-photo { margin-bottom: 12px; }
+        }
+
+        /* ===== WRAPPER ===== */
+        .email-wrapper {
+            max-width: 680px;
+            margin: 0 auto;
+            background: var(--white);
+            border: 1px solid #e2e0db;
+            border-radius: 4px;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            padding: 28px 40px 20px;
+            text-align: center;
+            background: var(--white);
+        }
+
+        .logo {
+            max-height: 60px;
+            width: auto;
+            margin-bottom: 6px;
+        }
+
+        .tagline {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        /* ===== GOLD RULE ===== */
+        .gold-rule {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 0 40px;
+            border: none;
+        }
+
+        /* ===== DATE LINE ===== */
+        .date-line {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+            text-align: right;
+            padding: 14px 40px 0;
+        }
+
+        /* ===== CONTENT ===== */
+        .content {
+            padding: 10px 40px 30px;
+        }
+
+        .greeting {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 18px;
+        }
+
+        .content p {
+            margin-bottom: 14px;
+            color: var(--ink-blue);
+        }
+
+        .content ul, .content ol {
+            margin: 10px 0 14px 24px;
+            color: var(--ink-blue);
+        }
+
+        .content li {
+            margin-bottom: 6px;
+        }
+
+        .content strong {
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        .content a {
+            color: var(--gold);
+            text-decoration: underline;
+            text-decoration-color: var(--gold-pale);
+            text-underline-offset: 2px;
+        }
+
+        .content a:hover {
+            color: var(--navy);
+        }
+
+        /* ===== HIGHLIGHT BOX ===== */
+        .highlight-box {
+            background: var(--warm-cream);
+            border-left: 3px solid var(--gold);
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+
+        .highlight-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-box .label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        /* ===== SIGN-OFF ===== */
+        .sign-off {
+            margin-top: 28px;
+        }
+
+        .sign-off .closing {
+            margin-bottom: 4px;
+            color: var(--ink-blue);
+        }
+
+        .sign-off .name {
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 16px;
+        }
+
+        .sign-off .title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            color: var(--text-muted);
+            letter-spacing: 0.3px;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--warm-cream);
+            border-top: 1px solid var(--sand);
+            padding: 22px 40px;
+        }
+
+        .agent-row {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .agent-photo {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--gold-pale);
+            flex-shrink: 0;
+        }
+
+        .agent-info {
+            flex: 1;
+        }
+
+        .agent-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .agent-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        .contact-line {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 6px;
+            line-height: 1.6;
+        }
+
+        .contact-line a {
+            color: var(--ink-blue);
+            text-decoration: none;
+        }
+
+        .contact-line a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-separator {
+            color: var(--sand);
+            margin: 0 6px;
+        }
+
+        /* ===== BOTTOM BAR ===== */
+        .bottom-bar {
+            text-align: center;
+            padding: 10px 40px;
+            background: var(--navy);
+        }
+
+        .bottom-bar span {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 9px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+    </style>
+</head>
+<body>
+    <div class="email-wrapper">
+
+        <!-- HEADER -->
+        <div class="header">
+            <img src="{{ LOGO_URL }}" alt="Dreams2Memories Travel" class="logo">
+            <div class="tagline">Luxury Travel, Personally Crafted</div>
+        </div>
+
+        <hr class="gold-rule">
+
+        <!-- DATE -->
+        <div class="date-line">{{ DATE }}</div>
+
+        <!-- BODY -->
+        <div class="content">
+
+            <div class="greeting">{{ GREETING }}</div>
+
+            {{ BODY }}
+
+            <!-- OPTIONAL: Use highlight box for key details -->
+            <!--
+            <div class="highlight-box">
+                <div class="label">Key Details</div>
+                <p><strong>Booking Reference:</strong> XXXXXX</p>
+                <p><strong>Travel Dates:</strong> Month DD – DD, YYYY</p>
+                <p><strong>Destination:</strong> City, Country</p>
+            </div>
+            -->
+
+            <div class="sign-off">
+                <p class="closing">{{ CLOSING }},</p>
+                <p class="name">{{ AGENT_NAME }}</p>
+                <p class="title">{{ AGENT_TITLE }}</p>
+            </div>
+
+        </div>
+
+        <!-- FOOTER — AGENT CONTACT BLOCK -->
+        <div class="footer">
+            <div class="agent-row">
+                <img src="{{ AGENT_PHOTO }}" alt="{{ AGENT_NAME }}" class="agent-photo">
+                <div class="agent-info">
+                    <div class="agent-name">{{ AGENT_NAME }}</div>
+                    <div class="agent-title">{{ AGENT_TITLE }}</div>
+                    <div class="contact-line">
+                        <a href="tel:{{ PHONE }}">{{ PHONE_DISPLAY }}</a>
+                        <span class="contact-separator">·</span>
+                        <a href="mailto:{{ EMAIL }}">{{ EMAIL }}</a>
+                        <span class="contact-separator">·</span>
+                        <a href="https://t.me/d2m_dani_bot">Telegram</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BRAND BAR -->
+        <div class="bottom-bar">
+            <span>Dreams2Memories Travel, LLC · Monument, CO</span>
+        </div>
+
+    </div>
+</body>
+</html>

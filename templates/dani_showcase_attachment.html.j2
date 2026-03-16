@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pre-Departure Validation — Loucks Pacific Journey</title>
+<style>
+  body, table, td, p, a { margin: 0; padding: 0; }
+  body { font-family: 'Georgia', 'Times New Roman', serif; background-color: #f4f1ec; color: #1a1a1a; line-height: 1.7; }
+  .wrapper { max-width: 700px; margin: 0 auto; background: #ffffff; }
+  .header { background: #0d1b2e; padding: 32px 40px 24px 40px; text-align: center; }
+  .header .tagline { font-family: 'Georgia', serif; font-size: 11px; color: #f5e9c8; letter-spacing: 2.5px; font-style: italic; margin-top: 10px; }
+  .gold-line { height: 2px; background: linear-gradient(90deg, #0d1b2e 5%, #c9a84c 30%, #c9a84c 70%, #0d1b2e 95%); }
+
+  /* Title area */
+  .title-area { background: linear-gradient(135deg, #0d1b2e 0%, #1e3358 50%, #2a4a5a 100%); padding: 28px 40px; text-align: center; }
+  .title-main { font-family: 'Georgia', serif; font-size: 20px; color: #c9a84c; letter-spacing: 2px; margin-bottom: 6px; }
+  .title-sub { font-size: 13px; color: #8a9ab5; letter-spacing: 1px; }
+  .title-prepared { font-size: 12px; color: #e8c97a; font-style: italic; margin-top: 10px; }
+
+  .content { padding: 32px 40px; }
+
+  /* Journey summary box */
+  .journey-box { background: #0d1b2e; border-radius: 6px; padding: 22px 28px; margin-bottom: 28px; text-align: center; }
+  .journey-route { font-family: 'Georgia', serif; font-size: 14px; color: #e8c97a; line-height: 1.6; margin-bottom: 8px; }
+  .journey-stats { font-size: 13px; color: #c9a84c; letter-spacing: 1px; font-weight: bold; }
+
+  /* Section headers */
+  .section-header { text-align: center; margin: 28px 0 16px 0; }
+  .section-header span { display: inline-block; font-size: 13px; font-family: 'Georgia', serif; font-weight: bold; color: #c9a84c; letter-spacing: 2px; text-transform: uppercase; }
+  .section-header::before, .section-header::after { content: ""; display: inline-block; width: 50px; height: 1px; background: #e8d9b8; vertical-align: middle; margin: 0 12px; }
+
+  /* Data tables */
+  .data-table { width: 100%; border-collapse: collapse; margin: 12px 0 24px 0; font-size: 13px; }
+  .data-table th { background: #152540; color: #c9a84c; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; padding: 10px 10px; text-align: left; font-weight: normal; }
+  .data-table td { padding: 9px 10px; border-bottom: 1px solid #f0ebe3; color: #2a2a2a; vertical-align: top; }
+  .data-table tr:nth-child(even) td { background: #faf8f4; }
+  .data-table .highlight { color: #0d1b2e; font-weight: bold; }
+  .data-table .status-confirmed { color: #2a7a4a; font-weight: bold; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .data-table .status-waitlisted { color: #b8860b; font-weight: bold; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .data-table .status-tbd { color: #c0392b; font-weight: bold; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  /* Note boxes */
+  .note-box { background: #f6f9fa; border-left: 3px solid #2a4a5a; padding: 12px 18px; margin: 8px 0 20px 0; border-radius: 0 4px 4px 0; font-size: 13px; color: #2a4a5a; font-style: italic; line-height: 1.6; }
+
+  /* Warning box */
+  .warning-box { background: #fef9f0; border-left: 3px solid #e8a838; padding: 12px 18px; margin: 8px 0 20px 0; border-radius: 0 4px 4px 0; font-size: 13px; color: #8a6a20; line-height: 1.6; }
+  .warning-icon { font-size: 14px; margin-right: 4px; }
+
+  /* Dining split table */
+  .dining-grid { width: 100%; border-collapse: collapse; margin: 12px 0 24px 0; font-size: 13px; }
+  .dining-grid th { background: #152540; color: #c9a84c; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; padding: 10px 10px; text-align: left; font-weight: normal; }
+  .dining-grid td { padding: 7px 10px; border-bottom: 1px solid #f0ebe3; color: #2a2a2a; vertical-align: top; }
+  .dining-grid tr:nth-child(even) td { background: #faf8f4; }
+  .dining-grid .waitlisted { color: #b8860b; font-style: italic; }
+
+  /* Transfer list */
+  .transfer-list { margin: 12px 0 24px 0; padding: 0; list-style: none; }
+  .transfer-list li { font-size: 13px; color: #2a2a2a; line-height: 1.6; padding: 6px 0; border-bottom: 1px solid #f0ebe3; }
+  .transfer-list li:last-child { border-bottom: none; }
+  .transfer-status { font-size: 11px; letter-spacing: 0.5px; font-weight: bold; text-transform: uppercase; }
+  .transfer-confirmed { color: #2a7a4a; }
+  .transfer-not-booked { color: #c0392b; }
+
+  /* Cruise box */
+  .cruise-box { background: #0d1b2e; border-radius: 6px; padding: 20px 26px; margin-bottom: 20px; }
+  .cruise-title { font-family: 'Georgia', serif; font-size: 16px; color: #e8c97a; margin-bottom: 6px; }
+  .cruise-detail { font-size: 13px; color: #8a9ab5; line-height: 1.6; }
+  .cruise-detail strong { color: #c9a84c; }
+
+  /* Action items */
+  .action-list { margin: 12px 0 24px 0; padding: 0 0 0 20px; }
+  .action-list li { font-size: 13px; color: #2a2a2a; line-height: 1.7; margin-bottom: 10px; }
+  .action-list li strong { color: #0d1b2e; }
+
+  /* Timeline */
+  .timeline-table { width: 100%; border-collapse: collapse; margin: 12px 0 24px 0; font-size: 13px; }
+  .timeline-table td { padding: 8px 10px; border-bottom: 1px solid #f0ebe3; color: #2a2a2a; vertical-align: top; }
+  .timeline-table tr:nth-child(even) td { background: #faf8f4; }
+  .timeline-date { color: #0d1b2e; font-weight: bold; white-space: nowrap; width: 90px; }
+
+  /* Prepared by */
+  .prepared-by { text-align: center; margin-top: 28px; padding-top: 20px; border-top: 1px solid #e8e0d0; }
+  .prepared-by p { font-size: 12px; color: #8a9ab5; font-style: italic; line-height: 1.5; }
+
+  /* IP Statement */
+  .ip-statement { margin-top: 12px; padding: 12px 20px; text-align: center; }
+  .ip-statement p { font-size: 10px; color: #8a9ab5; line-height: 1.5; font-style: italic; }
+
+  /* Footer */
+  .footer { background: #0d1b2e; padding: 24px 40px; text-align: center; }
+  .footer-brand { font-size: 13px; color: #c9a84c; letter-spacing: 3px; margin-bottom: 4px; }
+  .footer-tagline { font-size: 10px; color: #f5e9c8; letter-spacing: 2px; font-style: italic; }
+</style>
+</head>
+<body>
+<center>
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color: #f4f1ec;">
+<tr><td align="center" style="padding: 20px 10px;">
+
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <div class="header">
+    {% if logo_b64 %}
+    <img src="data:image/png;base64,{{ logo_b64 }}" alt="Dreams2Memories Travel" style="max-width: 260px; height: auto;" />
+    {% else %}
+    <div style="font-family: 'Georgia', serif; font-size: 20px; color: #c9a84c; letter-spacing: 2px;">DREAMS2MEMORIES</div>
+    <div style="font-family: 'Georgia', serif; font-size: 11px; color: #8a9ab5; letter-spacing: 3px; text-transform: uppercase; margin-top: 4px;">Travel, LLC</div>
+    {% endif %}
+    <div class="tagline">Curating the voyage of your lifetime</div>
+  </div>
+  <div class="gold-line"></div>
+
+  <!-- TITLE -->
+  <div class="title-area">
+    <div class="title-main">Pre-Departure Validation</div>
+    <div class="title-sub">John &amp; Susie Loucks &mdash; Pacific Journey 2026</div>
+    <div class="title-prepared">Prepared by Dani Moreau, Concierge Intelligence &middot; March 2026</div>
+  </div>
+  <div class="gold-line"></div>
+
+  <div class="content">
+
+    <!-- JOURNEY SUMMARY -->
+    <div class="journey-box">
+      <div class="journey-route">{{ journey_route }}</div>
+      <div class="journey-stats">{{ journey_stats }}</div>
+    </div>
+
+    <!-- FLIGHTS -->
+    <div class="section-header"><span>Flights</span></div>
+    <table class="data-table">
+      <thead>
+        <tr><th>Leg</th><th>Flight</th><th>Route</th><th>Date</th><th>Class</th></tr>
+      </thead>
+      <tbody>
+        {% for f in flights %}
+        <tr>
+          <td class="highlight">{{ f.leg }}</td>
+          <td>{{ f.flight }}</td>
+          <td>{{ f.route }}</td>
+          <td>{{ f.date }}</td>
+          <td>{{ f.class_info }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <div class="note-box">{{ flight_note }}</div>
+
+    <!-- HOTELS -->
+    <div class="section-header"><span>Hotels</span></div>
+    <table class="data-table">
+      <thead>
+        <tr><th>Property</th><th>Dates</th><th>Nights</th><th>Room</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        {% for h in hotels %}
+        <tr>
+          <td class="highlight">{{ h.property }}</td>
+          <td>{{ h.dates }}</td>
+          <td style="text-align: center;">{{ h.nights }}</td>
+          <td>{{ h.room }}</td>
+          <td class="status-confirmed">{{ h.status }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <!-- PRE-CRUISE EXCURSIONS -->
+    <div class="section-header"><span>Pre-Cruise Excursions (Tokyo)</span></div>
+    <table class="data-table">
+      <thead>
+        <tr><th>Date</th><th>Excursion</th><th>Details</th></tr>
+      </thead>
+      <tbody>
+        {% for e in precruise_excursions %}
+        <tr>
+          <td class="highlight">{{ e.date }}</td>
+          <td>{{ e.name }}</td>
+          <td>{{ e.details }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <div class="note-box">{{ precruise_note }}</div>
+
+    <!-- TRANSFERS -->
+    <div class="section-header"><span>Transfers</span></div>
+    <ul class="transfer-list">
+      {% for t in transfers %}
+      <li>
+        <strong>{{ t.segment }}</strong> &mdash; {{ t.method }}
+        {% if t.status == 'Confirmed' %}
+        <span class="transfer-status transfer-confirmed">&#10003; {{ t.status }}</span>
+        {% elif t.status == 'NOT YET BOOKED' %}
+        <span class="transfer-status transfer-not-booked">&#9888; {{ t.status }}</span>
+        {% else %}
+        <span class="transfer-status" style="color: #b8860b;">{{ t.status }}</span>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+
+    <!-- CRUISE -->
+    <div class="section-header"><span>Cruise &mdash; Silversea Silver Nova</span></div>
+    <div class="cruise-box">
+      <div class="cruise-title">Tokyo Harumi &rarr; Seattle</div>
+      <div class="cruise-detail">
+        <strong>Apr 23 &ndash; May 11</strong> &middot; 18 nights<br>
+        Superior Veranda Suite <em style="color: #8a9ab5;">(upgrade bid submitted &mdash; Premium Medallion and Medallion)</em>
+      </div>
+    </div>
+
+    <!-- SHORE EXCURSIONS -->
+    <div class="section-header"><span>Shore Excursions</span></div>
+    <table class="data-table">
+      <thead>
+        <tr><th>Date</th><th>Port</th><th>Excursion</th><th>Duration</th></tr>
+      </thead>
+      <tbody>
+        {% for s in shore_excursions %}
+        <tr>
+          <td class="highlight">{{ s.date }}</td>
+          <td>{{ s.port }}</td>
+          <td>
+            {{ s.name }}
+            {% if s.waitlisted %}
+            <span class="status-waitlisted" style="margin-left: 6px;">WAITLISTED</span>
+            {% endif %}
+          </td>
+          <td>{{ s.duration }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <!-- SPECIALTY DINING -->
+    <div class="section-header"><span>Specialty Dining</span></div>
+    <table class="dining-grid">
+      <thead>
+        <tr><th>Date</th><th>Restaurant</th><th></th><th>Date</th><th>Restaurant</th></tr>
+      </thead>
+      <tbody>
+        {% for row in dining_rows %}
+        <tr>
+          <td class="highlight">{{ row.date_l }}</td>
+          <td>{{ row.rest_l }}{% if row.wait_l %} <span class="waitlisted">(waitlisted)</span>{% endif %}</td>
+          <td style="width: 20px;"></td>
+          <td class="highlight">{{ row.date_r }}</td>
+          <td>{{ row.rest_r }}{% if row.wait_r %} <span class="waitlisted">(waitlisted)</span>{% endif %}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <!-- COMING UP NEXT -->
+    <div class="section-header"><span>Coming Up Next</span></div>
+    <table class="timeline-table">
+      <tbody>
+        {% for item in timeline %}
+        <tr>
+          <td class="timeline-date">{{ item.date }}</td>
+          <td>{{ item.event }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <!-- ACTION ITEMS -->
+    <div class="section-header"><span>Action Items</span></div>
+    <ol class="action-list">
+      {% for a in action_items %}
+      <li><strong>{{ a.title }}</strong> &mdash; {{ a.detail }}</li>
+      {% endfor %}
+    </ol>
+
+    <!-- PREPARED BY -->
+    <div class="prepared-by">
+      <p>Prepared by Dani Moreau, Concierge Intelligence &mdash; Dreams2Memories Travel, LLC</p>
+    </div>
+
+    <!-- IP STATEMENT -->
+    <div class="ip-statement">
+      <p>{{ ip_statement }}</p>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="gold-line"></div>
+  <div class="footer">
+    <div class="footer-brand">DREAMS2MEMORIES</div>
+    <div class="footer-tagline">Curating the voyage of your lifetime</div>
+  </div>
+
+</div>
+
+</td></tr>
+</table>
+</center>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background: #0f172a; color: #94a3b8; font-family: monospace; overflow: hidden; height: 100vh; }
+    .chat-staff { background: #1e293b; border-left: 3px solid #06b6d4; margin-right: 1.5rem; }
+    .chat-user { background: #1e3a8a; border-right: 3px solid #3b82f6; text-align: right; margin-left: 1.5rem; }
+    .terminal-window { box-shadow: inset 0 0 15px rgba(0,0,0,0.5); border: 1px solid #1e293b; }
+    .mic-active { color: #ef4444; animation: pulse 1.5s infinite; }
+    @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
+  </style>
+</head>
+<body class="p-2 flex flex-col h-screen overflow-hidden">
+  <div id="root" class="flex-1 flex flex-col h-full overflow-hidden"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect, useRef } = React;
+
+    const HUD = () => {
+      const [log, setLog] = useState([{ p: 'A1', m: 'Thunderbird v5.8 Online. Speech-to-Text Link Active.', side: 'staff' }]);
+      const [input, setInput] = useState('');
+      const [isListening, setIsListening] = useState(false);
+      const scrollRef = useRef(null);
+
+      // ⚡ AUTO-SCROLL: Snaps to bottom on new message
+      useEffect(() => {
+        if (scrollRef.current) {
+          scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+        }
+      }, [log]);
+
+      // 🎙️ SPEECH TO TEXT ENGINE
+      const startListening = () => {
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (!SpeechRecognition) return alert("Speech recognition not supported in this browser.");
+
+        const recognition = new SpeechRecognition();
+        recognition.onstart = () => setIsListening(true);
+        recognition.onend = () => setIsListening(false);
+        recognition.onresult = (event) => {
+          const transcript = event.results[0][0].transcript;
+          setInput(prev => prev + " " + transcript);
+        };
+        recognition.start();
+      };
+
+      const transmit = () => {
+        if (!input.trim()) return;
+        setLog(prev => [...prev, { p: 'YODA', m: input, side: 'user' }]);
+        const query = input; setInput('');
+
+        google.script.run.withSuccessHandler(res => {
+          setLog(prev => [...prev, { p: (res.persona || 'SYSTEM'), m: (res.message || '...'), side: 'staff' }]);
+        }).handleSidebarQuery(query);
+      };
+
+      return (
+        <div className="flex flex-col h-full max-h-screen">
+          <div className="flex justify-between items-center border-b border-cyan-900 pb-1 mb-2">
+            <h1 className="text-[10px] font-bold text-cyan-400 italic">⚡ THUNDERBIRD v5.8</h1>
+          </div>
+
+          {/* INPUT AREA WITH MICROPHONE */}
+          <div className="flex gap-1 mb-2">
+            <button onClick={startListening} className={`bg-slate-800 border border-slate-700 px-3 h-10 ${isListening ? 'mic-active' : 'text-slate-400'}`}>
+              🎤
+            </button>
+            <input className="flex-1 bg-slate-900 border border-slate-700 p-2 text-xs text-white outline-none focus:border-cyan-500 h-10"
+              placeholder="DIRECTIVE..." value={input} onChange={e => setInput(e.target.value)} onKeyDown={e => e.key === 'Enter' && transmit()} />
+            <button onClick={transmit} className="bg-cyan-600 px-4 text-white font-bold text-xs h-10 italic">SEND</button>
+          </div>
+
+          {/* ⚡ SCROLLING DIALOGUE SPACE */}
+          <div ref={scrollRef} className="flex-1 overflow-y-auto p-2 bg-black/40 rounded terminal-window mb-2">
+            {log.map((e, i) => (
+              <div key={i} className={`mb-3 p-2 text-[10px] rounded leading-snug ${e.side === 'user' ? 'chat-user' : 'chat-staff'}`}>
+                <div className="font-bold text-cyan-500 mb-0.5 uppercase">[{e.p}]</div>
+                <div className="text-slate-200 whitespace-pre-wrap">{e.m}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* TACTICAL BUTTONS (Evernote, Drive, Gmail) */}
+          <div className="grid grid-cols-3 gap-2 pb-1">
+            <button onClick={() => window.open('https://evernote.com')} className="bg-slate-800 py-2.5 text-[9px] text-green-400 border border-slate-700 font-bold uppercase">Evernote</button>
+            <button onClick={() => window.open('https://drive.google.com')} className="bg-slate-800 py-2.5 text-[9px] text-amber-400 border border-slate-700 font-bold uppercase">Drive</button>
+            <button onClick={() => window.open('https://mail.google.com')} className="bg-slate-800 py-2.5 text-[9px] text-cyan-400 border border-slate-700 font-bold uppercase">Gmail</button>
+          </div>
+        </div>
+      );
+    };
+    ReactDOM.createRoot(document.getElementById('root')).render(<HUD />);
+  </script>
+</body>
+</html>

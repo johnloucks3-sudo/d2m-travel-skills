@@ -1,0 +1,239 @@
+{
+  "metadata": {
+    "source": "Salvaged from dreams2memories_ship_comparison.gs + dreams2memories_ship_intelligence.gs",
+    "salvaged_date": "2026-03-05",
+    "notes": "Reference data for ship intel tools, proposals, and comparison reports"
+  },
+  "vessels": {
+    "Silver Nova": {
+      "line": "Silversea",
+      "imo": "9834629",
+      "launched": 2023,
+      "flag": "Malta",
+      "home_port": "Lisbon",
+      "gross_tonnage": 40700,
+      "length_m": 186,
+      "beam_m": 25,
+      "draft_m": 6,
+      "decks": 9,
+      "max_guests": 728,
+      "suites": 364,
+      "all_suites_balcony": true,
+      "suite_sizes_sqm": {"min": 29, "avg": 29, "max": 328},
+      "crew_count": 656,
+      "ratios": {
+        "space_to_guest": 10.7,
+        "crew_to_guest": "1:1.1"
+      },
+      "dining": {
+        "restaurant_count": 7,
+        "specialty": ["La Terrazza", "Atlantide", "The Grill", "Indochine"],
+        "bars": 6,
+        "lounges": 8
+      },
+      "amenities": {
+        "spa": "Aquamar Spa & Fitness Center",
+        "spa_sqft": 5500,
+        "theatre_seats": 445,
+        "pools": 3,
+        "hot_tubs": 4,
+        "casino": true,
+        "casino_seats": 150,
+        "design_feature": "Asymmetrical hull design maximizes cabin views"
+      },
+      "technology": [
+        "WiFi 6 (fastest at sea)",
+        "Digital concierge app",
+        "Butler service in all suites",
+        "Modern stabilization system",
+        "In-suite voice activated services"
+      ],
+      "pricing_usd_pp": {
+        "base_suite": 28500,
+        "veranda": 32000,
+        "owners_suite": 45000
+      },
+      "all_inclusive": ["wines", "spirits", "shore_excursions", "tips", "transfers"],
+      "monitor_items": ["Pool deck capacity", "Soft goods refresh", "Red Box specials"],
+      "priority": "HIGH"
+    },
+    "Seven Seas Grandeur": {
+      "line": "Regent Seven Seas Cruises",
+      "imo": "9841216",
+      "launched": 2024,
+      "flag": "Marshall Islands",
+      "home_port": "Rome",
+      "gross_tonnage": 54000,
+      "length_m": 207,
+      "beam_m": 27,
+      "draft_m": 7,
+      "decks": 12,
+      "max_guests": 750,
+      "suites": 375,
+      "all_suites_balcony": true,
+      "suite_sizes_sqm": {"min": 36, "avg": 36, "max": 450},
+      "crew_count": 750,
+      "ratios": {
+        "space_to_guest": 12.7,
+        "crew_to_guest": "1:1"
+      },
+      "dining": {
+        "restaurant_count": 8,
+        "specialty": ["Compass", "Chartroom", "Sails", "Tepanyaki", "Italian Kitchen"],
+        "bars": 8,
+        "lounges": 10
+      },
+      "amenities": {
+        "spa": "Canyon Ranch SpaClub",
+        "spa_sqft": 10000,
+        "theatre_seats": 550,
+        "pools": 4,
+        "hot_tubs": 6,
+        "casino": true,
+        "casino_seats": 200,
+        "design_feature": "Largest suites at sea (Master Suite 450 sq meters)"
+      },
+      "technology": [
+        "WiFi 6 technology",
+        "Digital assistant (AI-powered)",
+        "Personalized concierge service",
+        "Touch-screen suite controls",
+        "Digital room service ordering"
+      ],
+      "pricing_usd_pp": {
+        "base_suite": 35000,
+        "signature_suite": 42000,
+        "medallion_suite": 48000,
+        "master_suite": 65000
+      },
+      "all_inclusive": ["wines", "spirits", "shore_excursions", "tips", "transfers"],
+      "monitor_items": ["Regent Suite availability", "Faberge partnership", "Medallion perks"],
+      "priority": "CRITICAL"
+    },
+    "World Navigator": {
+      "line": "Atlas Ocean Voyages",
+      "imo": "9753750",
+      "launched": 2019,
+      "flag": "Bahamas",
+      "home_port": "Seattle",
+      "gross_tonnage": 9500,
+      "length_m": 104,
+      "beam_m": 16,
+      "draft_m": 5,
+      "decks": 5,
+      "max_guests": 200,
+      "suites": 100,
+      "all_suites_balcony": true,
+      "suite_sizes_sqm": {"min": 22, "avg": 22, "max": 32},
+      "crew_count": 160,
+      "ratios": {
+        "space_to_guest": 47.5,
+        "crew_to_guest": "1:0.8"
+      },
+      "dining": {
+        "restaurant_count": 2,
+        "specialty": ["Indigo", "Market Kitchen"],
+        "bars": 3,
+        "lounges": 4
+      },
+      "amenities": {
+        "spa": "Spa At Sea",
+        "spa_sqft": 800,
+        "theatre_seats": 130,
+        "pools": 1,
+        "hot_tubs": 2,
+        "casino": false,
+        "zodiac_count": 12,
+        "design_feature": "Polar Class ice-strengthened hull"
+      },
+      "technology": [
+        "Polar Class ice-strengthening",
+        "Retractable Azimuth thrusters",
+        "Expedition-grade navigation",
+        "Advanced weather tracking"
+      ],
+      "pricing_usd_pp": {
+        "ocean_view": 28000,
+        "veranda": 32000,
+        "suite_style": 35000
+      },
+      "all_inclusive": ["wines", "spirits", "shore_excursions", "tips", "transfers"],
+      "monitor_items": ["Arctic landings", "Zodiac operations", "Expedition success rates"],
+      "priority": "HIGH"
+    },
+    "World Traveller": {
+      "line": "Atlas Ocean Voyages",
+      "imo": "9841419",
+      "launched": 2022,
+      "flag": "Bahamas",
+      "home_port": "Ushuaia",
+      "gross_tonnage": 9500,
+      "length_m": 104,
+      "beam_m": 16,
+      "draft_m": 5,
+      "decks": 5,
+      "max_guests": 200,
+      "suites": 100,
+      "all_suites_balcony": true,
+      "suite_sizes_sqm": {"min": 22, "avg": 22, "max": 32},
+      "crew_count": 160,
+      "ratios": {
+        "space_to_guest": 47.5,
+        "crew_to_guest": "1:0.8"
+      },
+      "monitor_items": ["Antarctic operations", "Naturalist quality", "Remote landings"],
+      "priority": "HIGH"
+    },
+    "World Voyager": {
+      "line": "Atlas Ocean Voyages",
+      "imo": "9844146",
+      "launched": 2023,
+      "flag": "Bahamas",
+      "home_port": "Various",
+      "gross_tonnage": 9500,
+      "length_m": 104,
+      "beam_m": 16,
+      "draft_m": 5,
+      "decks": 5,
+      "max_guests": 200,
+      "suites": 100,
+      "all_suites_balcony": true,
+      "suite_sizes_sqm": {"min": 22, "avg": 22, "max": 32},
+      "crew_count": 160,
+      "ratios": {
+        "space_to_guest": 47.5,
+        "crew_to_guest": "1:0.8"
+      },
+      "monitor_items": ["Deep expedition access", "Crew expertise", "Guest satisfaction"],
+      "priority": "HIGH"
+    }
+  },
+  "client_alert_thresholds": {
+    "urgent_suites_remaining": 3,
+    "warning_price_increase_pct": 5,
+    "critical_availability": 0
+  },
+  "alert_email_templates": {
+    "urgency_suite": {
+      "subject_pattern": "EXCLUSIVE: {vessel} - {suite_type} Opportunity ({window}-Hour Window)",
+      "tone": "urgency with exclusivity, not pressure",
+      "elements": [
+        "Sailing details (route, date, vessel)",
+        "Availability status with emoji indicators",
+        "Key metrics (space-to-guest, crew-to-guest, all-inclusive)",
+        "Current pricing vs baseline",
+        "Urgency projection (sell-out window)",
+        "Next steps with checkbox options",
+        "Contact info"
+      ]
+    },
+    "price_drop": {
+      "subject_pattern": "{vessel} {route} - Price Alert: Now ${price}/pp",
+      "tone": "value opportunity, act-now but respectful"
+    },
+    "expedition_opening": {
+      "subject_pattern": "Arctic/Antarctic Expedition - Limited Spots Remaining",
+      "tone": "adventure exclusivity, highlight credentials"
+    }
+  }
+}

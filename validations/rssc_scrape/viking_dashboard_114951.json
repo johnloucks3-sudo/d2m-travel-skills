@@ -1,0 +1,68 @@
+{
+  "title": "My Viking Journey - No Active Booking",
+  "url": "https://www.viking.com/myjourney/no-active-booking",
+  "sections": {},
+  "images": [
+    {
+      "src": "https://aem-prod-publish.viking.com/content/dam/vikingcruises/en/magnolia-images/site_elements/viking-white-horiz-logo.svg",
+      "alt": "logo",
+      "w": 306,
+      "h": 72
+    },
+    {
+      "src": "https://cdn.cookielaw.org/logos/22436591-17ce-44af-8016-05c8958e7867/67e068b2-6c59-4bcd-8bf7-d09a94f433e7/c4ead1e3-02fd-4837-bb37-814d50692cf4/viking-logo.png",
+      "alt": "Company Logo",
+      "w": 229,
+      "h": 125
+    },
+    {
+      "src": "https://cdn.cookielaw.org/logos/static/powered_by_logo.svg",
+      "alt": "Powered by Onetrust",
+      "w": 136,
+      "h": 16
+    },
+    {
+      "src": "https://cdn.cookielaw.org/logos/static/ot_close.svg",
+      "alt": "bg",
+      "w": 0,
+      "h": 0
+    }
+  ],
+  "tables": [],
+  "links": [
+    {
+      "text": "Add a Booking Number",
+      "href": "https://www.viking.com/myjourney/no-active-booking"
+    },
+    {
+      "text": "Sign Out",
+      "href": "https://www.viking.com/myjourney/sign-out"
+    },
+    {
+      "text": "Statement on Cookies",
+      "href": "https://www.viking.com/cookie-policy/index.html?locationRedirect=false"
+    }
+  ],
+  "fullText": "Add a BookingOur records do not indicate an active booking associated to your account, you can add a new booking by selecting the \"Add a Booking\" option below or to browse and book a new cruise select \"Book Your Next Voyage.\"ADD A BOOKINGBOOK YOUR NEXT VOYAGE",
+  "downloaded_images": [
+    {
+      "file": "/home/john/Thunderbird/validations/rssc_scrape/images/viking_dashboard_000.jpg",
+      "src": "https://aem-prod-publish.viking.com/content/dam/vikingcruises/en/magnolia-images/site_elements/viking-white-horiz-logo.svg",
+      "alt": "logo",
+      "kb": 10
+    },
+    {
+      "file": "/home/john/Thunderbird/validations/rssc_scrape/images/viking_dashboard_001.png",
+      "src": "https://cdn.cookielaw.org/logos/22436591-17ce-44af-8016-05c8958e7867/67e068b2-6c59-4bcd-8bf7-d09a94f433e7/c4ead1e3-02fd-4837-bb37-814d50692cf4/viking-logo.png",
+      "alt": "Company Logo",
+      "kb": 7
+    },
+    {
+      "file": "/home/john/Thunderbird/validations/rssc_scrape/images/viking_dashboard_002.jpg",
+      "src": "https://cdn.cookielaw.org/logos/static/powered_by_logo.svg",
+      "alt": "Powered by Onetrust",
+      "kb": 5
+    }
+  ],
+  "screenshot": "/home/john/Thunderbird/validations/rssc_scrape/viking_dashboard_114951.png"
+}

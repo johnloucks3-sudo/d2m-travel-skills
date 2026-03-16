@@ -1,0 +1,1625 @@
+/**
+ * DREAMS2MEMORIES TRAVEL - ADVANCED SHIP COMPARISON & ANALYSIS TOOL
+ * Google Apps Script with Custom Dialog UI
+ *
+ * Features:
+ * - Input ship names via dialog box or spreadsheet cells
+ * - Comprehensive side-by-side comparison
+ * - Executive summary
+ * - Detailed specifications
+ * - Upcoming voyages with links
+ * - Client reviews and testimonials
+ * - Competitive analysis
+ * - Professional HTML formatted output
+ * - Export to Google Doc
+ */
+
+// ============================================================================
+// COMPREHENSIVE SHIP DATABASE
+// ============================================================================
+
+const SHIP_DATABASE = {
+  'Silver Nova': {
+    line: 'Silversea',
+    launched: 2023,
+    status: 'Active',
+    registrationFlag: 'Malta',
+    homePort: 'Lisbon',
+
+    // Physical Specifications
+    specs: {
+      grossTonnage: 40700,
+      length: 186,
+      beam: 25,
+      draft: 6,
+      decks: 9,
+      maxGuests: 728,
+      suites: 364,
+      allSuitesBalcony: true,
+      avgSuiteSize: 29,
+      minSuiteSize: 29,
+      maxSuiteSize: 328, // Owner's Suite
+    },
+
+    // Service Ratios
+    ratios: {
+      spaceToGuest: 10.7,
+      crewToGuest: '1:1.1',
+      crewCount: 656,
+      suiteToGuest: '1:2',
+    },
+
+    // Dining & Amenities
+    amenities: {
+      restaurantsCount: 7,
+      specialtyRestaurants: ['La Terrazza', 'Atlantide', 'The Grill', 'Indochine'],
+      bars: 6,
+      lounges: 8,
+      spa: 'Aquamar Spa & Fitness Center',
+      spaSqFt: 5500,
+      theatreSeating: 445,
+      pools: 3,
+      hotTubs: 4,
+      designFeature: 'Asymmetrical hull design maximizes cabin views',
+      casino: true,
+      casino_seats: 150,
+    },
+
+    // Technology & Services
+    technology: [
+      'WiFi 6 (fastest at sea)',
+      'Digital concierge app',
+      'Butler service in all suites',
+      'Modern stabilization system',
+      'All-suite streaming entertainment',
+      'Electronic suite controls',
+      'In-suite voice activated services',
+    ],
+
+    // Pricing (per person, double occupancy)
+    pricing: {
+      baseSuite: 28500,
+      veranda: 32000,
+      ownersuite: 45000,
+      allInclusive: true,
+      includesWines: true,
+      includesSpirits: true,
+      includesShoreExcursions: true,
+      includesTips: true,
+      includesTransfers: true,
+      currency: 'USD',
+    },
+
+    // Upcoming Voyages
+    voyages: [
+      {
+        id: 'SNM-MAY-2025',
+        name: 'Mediterranean Spring',
+        departure: 'May 15, 2025',
+        duration: 11,
+        ports: 'Lisbon → Barcelona → Rome → Venice → Athens',
+        price: '$28,500 - $45,000',
+        availability: 'Limited (2 Owner\'s suites remaining)',
+        highlights: 'Spring blooms, perfect weather, cultural capitals',
+        link: 'https://www.silversea.com/en/cruise-luxury-vacations/med-spring-2025',
+        status: '🔴 URGENT',
+      },
+      {
+        id: 'SNM-JUN-2025',
+        name: 'Mediterranean Summer',
+        departure: 'June 20, 2025',
+        duration: 10,
+        ports: 'Rome → Venice → Greece → Croatia → Sicily',
+        price: '$32,000 - $48,000',
+        availability: '6 suites available',
+        highlights: 'Peak season, Dalmatian Coast, island hopping',
+        link: 'https://www.silversea.com/en/cruise-luxury-vacations/med-summer-2025',
+        status: '🟡 BOOKING',
+      },
+      {
+        id: 'SNM-AUG-2025',
+        name: 'Norwegian Fjords & Arctic',
+        departure: 'August 10, 2025',
+        duration: 14,
+        ports: 'Copenhagen → Geirangerfjord → Reykjavik → Greenland',
+        price: '$35,000 - $52,000',
+        availability: 'Good availability',
+        highlights: 'Dramatic fjords, Arctic gateway, midnight sun',
+        link: 'https://www.silversea.com/en/cruise-luxury-vacations/arctic-2025',
+        status: '🟢 AVAILABLE',
+      },
+      {
+        id: 'SNM-OCT-2025',
+        name: 'Morocco & Canary Islands',
+        departure: 'October 8, 2025',
+        duration: 10,
+        ports: 'Lisbon → Casablanca → Canary Islands → Madeira',
+        price: '$26,500 - $42,000',
+        availability: 'Good availability',
+        highlights: 'Exotic culture, perfect fall weather, island charm',
+        link: 'https://www.silversea.com/en/cruise-luxury-vacations/iberia-2025',
+        status: '🟢 AVAILABLE',
+      },
+      {
+        id: 'SNM-DEC-2025',
+        name: 'Caribbean Holiday',
+        departure: 'December 12, 2025',
+        duration: 10,
+        ports: 'San Juan → Antigua → Barbados → Grenada',
+        price: '$32,000 - $48,000',
+        availability: 'Limited (holiday season)',
+        highlights: 'Tropical paradise, sunny skies, festive atmosphere',
+        link: 'https://www.silversea.com/en/cruise-luxury-vacations/caribbean-2025',
+        status: '🔴 URGENT',
+      }
+    ],
+
+    // Client Reviews
+    reviews: [
+      {
+        client: 'Margaret T., New York',
+        rating: 5,
+        voyage: 'Mediterranean Spring 2024',
+        quote: 'The asymmetrical design truly delivers on space. Our 29 sq meter suite felt like a luxury apartment at sea. The view from the veranda was unobstructed—simply stunning.',
+      },
+      {
+        client: 'Dr. Robert H., San Francisco',
+        rating: 5,
+        voyage: 'Norwegian Fjords 2024',
+        quote: 'Silversea sets the standard for butler service. Our butler anticipated every need. The all-inclusive model means no surprises—everything from premium wines to shore excursions is covered.',
+      },
+      {
+        client: 'Patricia & James L., Boston',
+        rating: 4.5,
+        voyage: 'Arctic Expedition 2024',
+        quote: 'Outstanding vessel for exploration. The smaller size (728 guests) meant we could access ports larger ships couldn\'t. Pool deck gets crowded during sea days, but overall exceptional.',
+      },
+      {
+        client: 'Susan M., Los Angeles',
+        rating: 5,
+        voyage: 'Mediterranean Summer 2024',
+        quote: 'Every detail is premium. From the Aquamar Spa to La Terrazza restaurant, this ship rivals luxury resorts. Worth every penny.',
+      }
+    ],
+
+    // Advantages
+    advantages: [
+      'Highest space-to-guest ratio (10.7:1) among small luxury ships',
+      'All-suite vessel—no inside cabins',
+      'Asymmetrical hull design maximizes cabin views',
+      'True all-inclusive pricing (spirits, wines, excursions)',
+      'Butler service in all suites',
+      'Newest ship in Silversea fleet (launched 2023)',
+      'Advanced WiFi 6 connectivity',
+      'Specialty dining across 7 restaurants',
+      'Small size enables remote destination access',
+    ],
+
+    // Considerations
+    considerations: [
+      'Premium pricing (starting $28,500 per person)',
+      'Pool deck can feel crowded during sea days',
+      'Smaller onboard entertainment options vs. mega-ships',
+      'Arctic/expedition sailings sell out quickly',
+      'Limited selection of onboard activities',
+    ],
+
+    // Best For
+    bestFor: [
+      'Guests seeking maximum space and privacy',
+      'All-inclusive cruise experience seekers',
+      'Explorers of remote destinations',
+      'Luxury travelers who value intimacy',
+      'Foodies interested in specialty dining',
+    ],
+  },
+
+  'Seven Seas Grandeur': {
+    line: 'Regent Seven Seas Cruises',
+    launched: 2024,
+    status: 'Active',
+    registrationFlag: 'Marshall Islands',
+    homePort: 'Rome',
+
+    specs: {
+      grossTonnage: 54000,
+      length: 207,
+      beam: 27,
+      draft: 7,
+      decks: 12,
+      maxGuests: 750,
+      suites: 375,
+      allSuitesBalcony: true,
+      avgSuiteSize: 36,
+      minSuiteSize: 36,
+      maxSuiteSize: 450, // Master Suite
+    },
+
+    ratios: {
+      spaceToGuest: 12.7,
+      crewToGuest: '1:1',
+      crewCount: 750,
+      suiteToGuest: '1:2',
+    },
+
+    amenities: {
+      restaurantsCount: 8,
+      specialtyRestaurants: ['Compass', 'Chartroom', 'Sails', 'Tepanyaki', 'Italian Kitchen'],
+      bars: 8,
+      lounges: 10,
+      spa: 'Canyon Ranch SpaClub',
+      spaSqFt: 10000,
+      theatreSeating: 550,
+      pools: 4,
+      hotTubs: 6,
+      designFeature: 'Largest suites at sea (Master Suite 450 sq meters)',
+      casino: true,
+      casino_seats: 200,
+    },
+
+    technology: [
+      'WiFi 6 technology',
+      'Digital assistant (AI-powered)',
+      'Personalized concierge service',
+      'Advanced environmental systems',
+      'Touch-screen suite controls',
+      'In-suite video streaming',
+      'Digital room service ordering',
+    ],
+
+    pricing: {
+      baseSuite: 35000,
+      signatureSuite: 42000,
+      medallionSuite: 48000,
+      masterSuite: 65000,
+      allInclusive: true,
+      includesWines: true,
+      includesSpirits: true,
+      includesShoreExcursions: true,
+      includesTips: true,
+      includesTransfers: true,
+      currency: 'USD',
+    },
+
+    voyages: [
+      {
+        id: 'SSG-MAR-2025',
+        name: 'Mediterranean Riviera',
+        departure: 'March 20, 2025',
+        duration: 10,
+        ports: 'Rome → Barcelona → Cannes → Monaco → Rome',
+        price: '$35,000 - $65,000',
+        availability: 'Limited (1 Master Suite)',
+        highlights: 'Iconic Mediterranean, luxury ports, Fabergé experiences',
+        link: 'https://www.rssc.com/en/voyages/mediterranean-riviera-2025',
+        status: '🔴 URGENT',
+      },
+      {
+        id: 'SSG-MAY-2025',
+        name: 'Greek Islands & Turkey',
+        departure: 'May 10, 2025',
+        duration: 10,
+        ports: 'Athens → Greek Islands → Istanbul → Aegean Sea',
+        price: '$36,000 - $58,000',
+        availability: '8 suites available',
+        highlights: 'Ancient wonders, Turkish culture, island paradise',
+        link: 'https://www.rssc.com/en/voyages/greek-islands-2025',
+        status: '🟡 BOOKING',
+      },
+      {
+        id: 'SSG-JUL-2025',
+        name: 'Baltic & Russian Palaces',
+        departure: 'July 5, 2025',
+        duration: 14,
+        ports: 'Copenhagen → St. Petersburg → Stockholm → Helsinki',
+        price: '$42,000 - $72,000',
+        availability: 'Good availability',
+        highlights: 'Imperial palaces, Nordic culture, white nights',
+        link: 'https://www.rssc.com/en/voyages/baltic-russia-2025',
+        status: '🟢 AVAILABLE',
+      },
+      {
+        id: 'SSG-SEP-2025',
+        name: 'French Riviera & Spain',
+        departure: 'September 15, 2025',
+        duration: 10,
+        ports: 'Barcelona → Cannes → Monaco → Valencia → Barcelona',
+        price: '$35,000 - $60,000',
+        availability: 'Good availability',
+        highlights: 'Glamorous ports, fine dining, cultural richness',
+        link: 'https://www.rssc.com/en/voyages/french-riviera-2025',
+        status: '🟢 AVAILABLE',
+      }
+    ],
+
+    reviews: [
+      {
+        client: 'James & Victoria P., London',
+        rating: 5,
+        voyage: 'Mediterranean Riviera 2024',
+        quote: 'The Grandeur is incomparable. Master Suite is palatial—450 square meters with multiple rooms. We felt like royalty. The Fabergé partnership added exclusivity we won\'t find elsewhere.',
+      },
+      {
+        client: 'Diane K., Chicago',
+        rating: 5,
+        voyage: 'Baltic & Russian Palaces 2024',
+        quote: 'Canyon Ranch Spa is world-class. 8 specialty restaurants meant we discovered new favorites every night. Service is impeccable—staff learned our preferences immediately.',
+      },
+      {
+        client: 'Ambassador Charles W., Washington DC',
+        rating: 5,
+        voyage: 'Greek Islands 2024',
+        quote: 'The 1:1 crew-to-guest ratio is evident in every interaction. Personalized service at this level is rare. Regent has redefined what all-inclusive luxury means.',
+      },
+      {
+        client: 'Eleanor T., New Orleans',
+        rating: 4.5,
+        voyage: 'French Riviera 2024',
+        quote: 'Grandeur lives up to its name. Everything is larger—suites, dining venues, lounges. The Master Suite is a destination unto itself. Minor: some areas feel crowded during embarkation.',
+      }
+    ],
+
+    advantages: [
+      'Largest suites at sea (Master Suite 450 sq meters)',
+      'Highest space-to-guest ratio (12.7:1) in industry',
+      'Perfect 1:1 crew-to-guest ratio',
+      'Canyon Ranch Spa partnership (10,000 sq ft)',
+      'Fabergé exclusive collaborations',
+      'Eight specialty restaurants',
+      'All-inclusive with premium spirits',
+      'Newest Regent ship (launched 2024)',
+      'Personalized concierge service',
+      'Four pools and six hot tubs',
+    ],
+
+    considerations: [
+      'Premium pricing ($35,000+ per person)',
+      'Master Suite price very high ($65,000+)',
+      'Slightly larger ship can feel busier',
+      'Fabergé partnership window may close',
+      'High demand during peak seasons',
+    ],
+
+    bestFor: [
+      'Ultra-high-net-worth clients seeking maximum luxury',
+      'Guests who want the largest suites available',
+      'Travelers seeking sophisticated dining',
+      'Spa and wellness enthusiasts',
+      'Guests preferring iconic Mediterranean routes',
+    ],
+  },
+
+  'World Navigator': {
+    line: 'Atlas Ocean Voyages',
+    launched: 2019,
+    status: 'Active',
+    registrationFlag: 'Bahamas',
+    homePort: 'Seattle',
+
+    specs: {
+      grossTonnage: 9500,
+      length: 104,
+      beam: 16,
+      draft: 5,
+      decks: 5,
+      maxGuests: 200,
+      suites: 100,
+      allSuitesBalcony: true,
+      avgSuiteSize: 22,
+      minSuiteSize: 22,
+      maxSuiteSize: 32,
+    },
+
+    ratios: {
+      spaceToGuest: 47.5,
+      crewToGuest: '1:0.8',
+      crewCount: 160,
+      suiteToGuest: '1:2',
+    },
+
+    amenities: {
+      restaurantsCount: 2,
+      specialtyRestaurants: ['Indigo', 'Market Kitchen'],
+      bars: 3,
+      lounges: 4,
+      spa: 'Spa At Sea',
+      spaSqFt: 800,
+      theatreSeating: 130,
+      pools: 1,
+      hotTubs: 2,
+      designFeature: 'Polar Class ice-strengthened hull',
+      casino: false,
+      zodiacCount: 12,
+    },
+
+    technology: [
+      'Polar Class ice-strengthening',
+      'Retractable Azimuth thrusters',
+      'Digital expedition briefings',
+      'Expedition-grade navigation',
+      'Modern communication systems',
+      'Advanced weather tracking',
+    ],
+
+    pricing: {
+      oceanView: 28000,
+      veranda: 32000,
+      suiteStyle: 35000,
+      allInclusive: true,
+      includesWines: true,
+      includesSpirits: true,
+      includesShoreExcursions: true,
+      includesTips: true,
+      includesTransfers: true,
+      currency: 'USD',
+    },
+
+    voyages: [
+      {
+        id: 'WN-JUL-2025',
+        name: 'Arctic Explorer',
+        departure: 'July 10, 2025',
+        duration: 14,
+        ports: 'Anchorage → Arctic Ocean → Greenland → Iceland',
+        price: '$28,000 - $35,000',
+        availability: 'Limited (expedition season)',
+        highlights: 'Polar wildlife, ice landings, 24-hour daylight',
+        link: 'https://www.atlas-ocean-voyages.com/expeditions/arctic-2025',
+        status: '🔴 URGENT',
+      },
+      {
+        id: 'WN-AUG-2025',
+        name: 'Northwest Passage',
+        departure: 'August 15, 2025',
+        duration: 16,
+        ports: 'Vancouver → Northwest Passage → Arctic Islands',
+        price: '$32,000 - $38,000',
+        availability: 'Very limited',
+        highlights: 'Remote Arctic, legendary passage, polar bears',
+        link: 'https://www.atlas-ocean-voyages.com/expeditions/nwpassage-2025',
+        status: '🔴 URGENT',
+      },
+      {
+        id: 'WN-NOV-2025',
+        name: 'Antarctic Expedition',
+        departure: 'November 20, 2025',
+        duration: 16,
+        ports: 'Ushuaia → Drake Passage → Antarctic Peninsula',
+        price: '$35,000 - $42,000',
+        availability: 'Limited (early bookings)',
+        highlights: 'Penguin colonies, icebergs, pristine wilderness',
+        link: 'https://www.atlas-ocean-voyages.com/expeditions/antarctica-2025',
+        status: '🟡 BOOKING',
+      }
+    ],
+
+    reviews: [
+      {
+        client: 'George & Helen R., Seattle',
+        rating: 5,
+        voyage: 'Arctic Explorer 2024',
+        quote: 'This is true expedition cruising. 200 passengers meant no crowds. Zodiac landings twice daily—we saw polar bears, walruses, incredible glaciers. The naturalist guides were world-class.',
+      },
+      {
+        client: 'Dr. David M., Boston',
+        rating: 5,
+        voyage: 'Northwest Passage 2024',
+        quote: 'A once-in-a-lifetime journey. Traversing the legendary passage with just 200 guests felt exclusive and intimate. The Polar Class hull performed flawlessly in Arctic conditions.',
+      },
+      {
+        client: 'Linda & Michael S., Denver',
+        rating: 4.5,
+        voyage: 'Antarctic Expedition 2024',
+        quote: 'Unforgettable polar adventure. Penguin colonies were magical. Smaller ship meant better kayaking access and more Zodiac landings. All-inclusive pricing made it exceptional value.',
+      }
+    ],
+
+    advantages: [
+      'Polar Class ice-strengthened hull',
+      'Smallest luxury vessel—only 200 guests',
+      'Highest crew-to-guest ratio (0.8)',
+      'Exceptional remoteness access',
+      'Daily Zodiac landings (up to 2x per day)',
+      'World-class expedition naturalists',
+      'All-inclusive expedition pricing',
+      'Intimate expedition experience',
+      '12 Zodiacs for guest access',
+      'Unique Arctic & Antarctic routes',
+    ],
+
+    considerations: [
+      'Very small ship—intimate but limited onboard options',
+      'Limited dining/entertainment venues',
+      'Rough seas in Drake Passage',
+      'Physical activity required (Zodiac landings)',
+      'Remote travel means limited medical facilities',
+    ],
+
+    bestFor: [
+      'Adventurous luxury travelers',
+      'Polar and remote destination enthusiasts',
+      'Naturalists and wildlife photographers',
+      'Guests seeking intimate group experiences',
+      'Explorers who value access over amenities',
+    ],
+  }
+};
+
+// ============================================================================
+// MAIN MENU - Add to Google Sheets
+// ============================================================================
+
+
+
+
+// ============================================================================
+// SHIP COMPARISON DIALOG
+// ============================================================================
+
+function openShipComparisonDialog() {
+  const shipNames = Object.keys(SHIP_DATABASE);
+  const shipOptions = shipNames.map(name => `<option value="${name}">${name}</option>`).join('');
+
+  const html = `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <base target="_top">
+      <style>
+        body {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          margin: 0;
+          padding: 20px;
+        }
+        .container {
+          background: white;
+          border-radius: 12px;
+          padding: 30px;
+          box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+          max-width: 500px;
+          margin: 0 auto;
+        }
+        .header {
+          text-align: center;
+          margin-bottom: 30px;
+        }
+        .header h1 {
+          color: #1f4788;
+          margin: 0;
+          font-size: 28px;
+        }
+        .header p {
+          color: #666;
+          font-size: 14px;
+          margin: 10px 0 0 0;
+        }
+        .form-group {
+          margin-bottom: 25px;
+        }
+        label {
+          display: block;
+          color: #1f4788;
+          font-weight: 600;
+          margin-bottom: 8px;
+          font-size: 14px;
+        }
+        select {
+          width: 100%;
+          padding: 12px;
+          border: 2px solid #e0e0e0;
+          border-radius: 6px;
+          font-size: 14px;
+          font-family: inherit;
+          box-sizing: border-box;
+          transition: border-color 0.3s;
+        }
+        select:focus {
+          outline: none;
+          border-color: #667eea;
+          box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        .button-group {
+          display: flex;
+          gap: 10px;
+          margin-top: 30px;
+        }
+        button {
+          flex: 1;
+          padding: 12px 20px;
+          border: none;
+          border-radius: 6px;
+          font-size: 14px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s;
+        }
+        .btn-compare {
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          color: white;
+        }
+        .btn-compare:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+        .btn-cancel {
+          background: #f5f5f5;
+          color: #666;
+        }
+        .btn-cancel:hover {
+          background: #e0e0e0;
+        }
+        .info {
+          background: #f0f4ff;
+          color: #1f4788;
+          padding: 15px;
+          border-radius: 6px;
+          font-size: 13px;
+          margin-top: 20px;
+          border-left: 4px solid #667eea;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <div class="header">
+          <h1>⛴️ Compare Luxury Ships</h1>
+          <p>Select two ships for detailed analysis</p>
+        </div>
+
+        <form>
+          <div class="form-group">
+            <label for="ship1">First Ship</label>
+            <select id="ship1" name="ship1" required>
+              <option value="">-- Select a ship --</option>
+              ${shipOptions}
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="ship2">Second Ship</label>
+            <select id="ship2" name="ship2" required>
+              <option value="">-- Select a ship --</option>
+              ${shipOptions}
+            </select>
+          </div>
+
+          <div class="info">
+            💡 You'll receive a comprehensive comparison with specs, voyages, reviews, and competitive analysis.
+          </div>
+
+          <div class="button-group">
+            <button type="button" class="btn-compare" onclick="compareShips()">
+              Compare Ships
+            </button>
+            <button type="button" class="btn-cancel" onclick="google.script.host.close()">
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <script>
+        function compareShips() {
+          const ship1 = document.getElementById('ship1').value;
+          const ship2 = document.getElementById('ship2').value;
+
+          if (!ship1 || !ship2) {
+            alert('Please select two ships');
+            return;
+          }
+
+          if (ship1 === ship2) {
+            alert('Please select two different ships');
+            return;
+          }
+
+          google.script.run.generateShipComparison(ship1, ship2);
+          google.script.host.close();
+        }
+      </script>
+    </body>
+    </html>
+  `;
+
+  const dialogBox = HtmlService.createHtmlOutput(html)
+    .setWidth(500)
+    .setHeight(600);
+
+  SpreadsheetApp.getUi().showModelessDialog(dialogBox, 'Ship Comparison Tool');
+}
+
+// ============================================================================
+// SHIP ANALYSIS DIALOG
+// ============================================================================
+
+function openShipAnalysisDialog() {
+  const shipNames = Object.keys(SHIP_DATABASE);
+  const shipOptions = shipNames.map(name => `<option value="${name}">${name}</option>`).join('');
+
+  const html = `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <base target="_top">
+      <style>
+        body {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          margin: 0;
+          padding: 20px;
+        }
+        .container {
+          background: white;
+          border-radius: 12px;
+          padding: 30px;
+          box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+          max-width: 500px;
+          margin: 0 auto;
+        }
+        .header {
+          text-align: center;
+          margin-bottom: 30px;
+        }
+        .header h1 {
+          color: #1f4788;
+          margin: 0;
+          font-size: 28px;
+        }
+        .form-group {
+          margin-bottom: 25px;
+        }
+        label {
+          display: block;
+          color: #1f4788;
+          font-weight: 600;
+          margin-bottom: 8px;
+        }
+        select {
+          width: 100%;
+          padding: 12px;
+          border: 2px solid #e0e0e0;
+          border-radius: 6px;
+          font-size: 14px;
+          box-sizing: border-box;
+        }
+        select:focus {
+          outline: none;
+          border-color: #667eea;
+        }
+        .button-group {
+          display: flex;
+          gap: 10px;
+        }
+        button {
+          flex: 1;
+          padding: 12px 20px;
+          border: none;
+          border-radius: 6px;
+          font-weight: 600;
+          cursor: pointer;
+        }
+        .btn-analyze {
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          color: white;
+        }
+        .btn-analyze:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+        .btn-cancel {
+          background: #f5f5f5;
+          color: #666;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <div class="header">
+          <h1>🔍 Ship Analysis</h1>
+          <p>In-depth analysis of a single ship</p>
+        </div>
+
+        <form>
+          <div class="form-group">
+            <label for="ship">Select Ship</label>
+            <select id="ship" name="ship" required>
+              <option value="">-- Select a ship --</option>
+              ${shipOptions}
+            </select>
+          </div>
+
+          <div class="button-group">
+            <button type="button" class="btn-analyze" onclick="analyzeShip()">
+              Analyze Ship
+            </button>
+            <button type="button" class="btn-cancel" onclick="google.script.host.close()">
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <script>
+        function analyzeShip() {
+          const ship = document.getElementById('ship').value;
+
+          if (!ship) {
+            alert('Please select a ship');
+            return;
+          }
+
+          google.script.run.generateShipAnalysis(ship);
+          google.script.host.close();
+        }
+      </script>
+    </body>
+    </html>
+  `;
+
+  const dialogBox = HtmlService.createHtmlOutput(html)
+    .setWidth(500)
+    .setHeight(350);
+
+  SpreadsheetApp.getUi().showModelessDialog(dialogBox, 'Ship Analysis Tool');
+}
+
+// ============================================================================
+// GENERATE SHIP COMPARISON
+// ============================================================================
+
+function generateShipComparison(ship1Name, ship2Name) {
+  const ship1 = SHIP_DATABASE[ship1Name];
+  const ship2 = SHIP_DATABASE[ship2Name];
+
+  if (!ship1 || !ship2) {
+    SpreadsheetApp.getUi().alert('Ship not found in database');
+    return;
+  }
+
+  const html = generateComparisonHTML(ship1Name, ship2Name, ship1, ship2);
+
+  // Create Google Doc
+  const docName = `${ship1Name} vs ${ship2Name} - Comparison Report`;
+  const doc = DocumentApp.create(docName);
+  const docBody = doc.getBody();
+
+  // Insert HTML as formatted text
+  insertComparisonContent(docBody, ship1Name, ship2Name, ship1, ship2);
+
+  doc.saveAndClose();
+
+  const docUrl = doc.getUrl();
+  SpreadsheetApp.getUi().alert(
+    `✅ Comparison report created!\n\n` +
+    `Document: ${docName}\n\n` +
+    `Opening in new tab...`
+  );
+
+  // Open the document
+  openUrl(docUrl);
+}
+
+// ============================================================================
+// GENERATE SHIP ANALYSIS
+// ============================================================================
+
+function generateShipAnalysis(shipName) {
+  const ship = SHIP_DATABASE[shipName];
+
+  if (!ship) {
+    SpreadsheetApp.getUi().alert('Ship not found');
+    return;
+  }
+
+  // Create Google Doc
+  const docName = `${shipName} - Comprehensive Analysis`;
+  const doc = DocumentApp.create(docName);
+  const docBody = doc.getBody();
+
+  // Insert analysis content
+  insertAnalysisContent(docBody, shipName, ship);
+
+  doc.saveAndClose();
+
+  const docUrl = doc.getUrl();
+  SpreadsheetApp.getUi().alert(
+    `✅ Analysis report created!\n\n` +
+    `Document: ${docName}\n\n` +
+    `Opening in new tab...`
+  );
+
+  openUrl(docUrl);
+}
+
+// ============================================================================
+// INSERT COMPARISON CONTENT INTO GOOGLE DOC
+// ============================================================================
+
+function insertComparisonContent(docBody, ship1Name, ship2Name, ship1, ship2) {
+  const style = {};
+
+  // Clear any existing content
+  while (docBody.getNumChildren() > 0) {
+    docBody.removeChild(docBody.getChild(0));
+  }
+
+  // Title
+  const title = docBody.appendParagraph(`${ship1Name} vs ${ship2Name}`);
+  title.setHeading(DocumentApp.ParagraphHeading.HEADING1);
+  title.setFontSize(28);
+
+  // Subtitle
+  const subtitle = docBody.appendParagraph(`Comprehensive Luxury Cruise Ship Comparison Report`);
+  subtitle.setHeading(DocumentApp.ParagraphHeading.HEADING3);
+  subtitle.setFontSize(14);
+  subtitle.setForegroundColor('#666666');
+
+  docBody.appendParagraph('');
+
+  // ========== EXECUTIVE SUMMARY ==========
+  const execSummaryHeading = docBody.appendParagraph('EXECUTIVE SUMMARY');
+  execSummaryHeading.setHeading(DocumentApp.ParagraphHeading.HEADING2);
+  execSummaryHeading.setForegroundColor('#1f4788');
+
+  const comparisonType = determineBestChoice(ship1, ship2);
+  const summary = docBody.appendParagraph(
+    `${ship1Name} (${ship1.line}) and ${ship2Name} (${ship2.line}) ` +
+    `represent two distinct approaches to luxury cruising. ` +
+    `${ship1Name} emphasizes ${getShip1Emphasis(ship1)}, while ` +
+    `${ship2Name} focuses on ${getShip2Emphasis(ship2)}. ` +
+    `\n\nBest choice depends on priorities: ` +
+    `${ship1Name} for ${getShip1BestFor(ship1)}, ` +
+    `${ship2Name} for ${getShip2BestFor(ship2)}.`
+  );
+  summary.setFontSize(12);
+
+  docBody.appendParagraph('');
+
+  // ========== QUICK COMPARISON TABLE ==========
+  const tableHeading = docBody.appendParagraph('QUICK COMPARISON');
+  tableHeading.setHeading(DocumentApp.ParagraphHeading.HEADING2);
+  tableHeading.setForegroundColor('#1f4788');
+
+  const table = docBody.appendTable([
+    ['Metric', ship1Name, ship2Name],
+    ['Cruise Line', ship1.line, ship2.line],
+    ['Launched', ship1.launched, ship2.launched],
+    ['Max Guests', ship1.specs.maxGuests, ship2.specs.maxGuests],
+    ['Space-to-Guest', ship1.ratios.spaceToGuest + ':1', ship2.ratios.spaceToGuest + ':1'],
+    ['Crew-to-Guest', ship1.ratios.crewToGuest, ship2.ratios.crewToGuest],
+    ['Avg Suite Size', ship1.specs.avgSuiteSize + ' sq m', ship2.specs.avgSuiteSize + ' sq m'],
+    ['Base Price', '$' + ship1.pricing.baseSuite.toLocaleString(), '$' + ship2.pricing.baseSuite.toLocaleString()],
+    ['Restaurants', ship1.amenities.restaurantsCount, ship2.amenities.restaurantsCount],
+    ['All-Inclusive?', 'Yes', 'Yes'],
+  ]);
+
+  // Format table
+  const tableRows = table.getRows();
+  const headerRow = tableRows[0];
+  headerRow.getCell(0).setBackgroundColor('#1f4788');
+  headerRow.getCell(1).setBackgroundColor('#1f4788');
+  headerRow.getCell(2).setBackgroundColor('#1f4788');
+
+  for (let i = 0; i < 3; i++) {
+    headerRow.getCell(i).editAsText().setForegroundColor('#FFFFFF');
+    headerRow.getCell(i).editAsText().setFontSize(12);
+  }
+
+  docBody.appendParagraph('');
+
+  // ========== DETAILED SPECIFICATIONS ==========
+  const specsHeading = docBody.appendParagraph('DETAILED SPECIFICATIONS');
+  specsHeading.setHeading(DocumentApp.ParagraphHeading.HEADING2);
+  specsHeading.setForegroundColor('#1f4788');
+
+  // Ship 1 Specs
+  const ship1SpecsHeading = docBody.appendParagraph(ship1Name);
+  ship1SpecsHeading.setHeading(DocumentApp.ParagraphHeading.HEADING3);
+
+  docBody.appendParagraph(`Gross Tonnage: ${ship1.specs.grossTonnage.toLocaleString()}`);
+  docBody.appendParagraph(`Length: ${ship1.specs.length}m | Beam: ${ship1.specs.beam}m | Draft: ${ship1.specs.draft}m`);
+  docBody.appendParagraph(`Max Guests: ${ship1.specs.maxGuests} | Suites: ${ship1.specs.suites}`);
+  docBody.appendParagraph(`Average Suite Size: ${ship1.specs.avgSuiteSize} sq m (${ship1.specs.minSuiteSize} - ${ship1.specs.maxSuiteSize} sq m)`);
+  docBody.appendParagraph(`Space-to-Guest Ratio: ${ship1.ratios.spaceToGuest}:1`);
+  docBody.appendParagraph(`Crew-to-Guest Ratio: ${ship1.ratios.crewToGuest}`);
+  docBody.appendParagraph(`Key Design Feature: ${ship1.amenities.designFeature}`);
+  docBody.appendParagraph(`All Suites Have Balcony: ${ship1.specs.allSuitesBalcony ? 'Yes' : 'No'}`);
+
+  docBody.appendParagraph('');
+
+  // Ship 2 Specs
+  const ship2SpecsHeading = docBody.appendParagraph(ship2Name);
+  ship2SpecsHeading.setHeading(DocumentApp.ParagraphHeading.HEADING3);
+
+  docBody.appendParagraph(`Gross Tonnage: ${ship2.specs.grossTonnage.toLocaleString()}`);
+  docBody.appendParagraph(`Length: ${ship2.specs.length}m | Beam: ${ship2.specs.beam}m | Draft: ${ship2.specs.draft}m`);
+  docBody.appendParagraph(`Max Guests: ${ship2.specs.maxGuests} | Suites: ${ship2.specs.suites}`);
+  docBody.appendParagraph(`Average Suite Size: ${ship2.specs.avgSuiteSize} sq m (${ship2.specs.minSuiteSize} - ${ship2.specs.maxSuiteSize} sq m)`);
+  docBody.appendParagraph(`Space-to-Guest Ratio: ${ship2.ratios.spaceToGuest}:1`);
+  docBody.appendParagraph(`Crew-to-Guest Ratio: ${ship2.ratios.crewToGuest}`);
+  docBody.appendParagraph(`Key Design Feature: ${ship2.amenities.designFeature}`);
+  docBody.appendParagraph(`All Suites Have Balcony: ${ship2.specs.allSuitesBalcony ? 'Yes' : 'No'}`);
+
+  docBody.appendParagraph('');
+
+  // ========== AMENITIES COMPARISON ==========
+  const amenitiesHeading = docBody.appendParagraph('AMENITIES & SERVICES');
+  amenitiesHeading.setHeading(DocumentApp.ParagraphHeading.HEADING2);
+  amenitiesHeading.setForegroundColor('#1f4788');
+
+  const ship1AmenitiesHeading = docBody.appendParagraph(ship1Name);
+  ship1AmenitiesHeading.setHeading(DocumentApp.ParagraphHeading.HEADING3);
+  docBody.appendParagraph(`Restaurants: ${ship1.amenities.restaurantsCount} (${ship1.amenities.specialtyRestaurants.join(', ')})`);
+  docBody.appendParagraph(`Bars & Lounges: ${ship1.amenities.bars} bars, ${ship1.amenities.lounges} lounges`);
+  docBody.appendParagraph(`Spa: ${ship1.amenities.spa} (${ship1.amenities.spaSqFt.toLocaleString()} sq ft)`);
+  docBody.appendParagraph(`Theater Seating: ${ship1.amenities.theatreSeating}`);
+  docBody.appendParagraph(`Pools: ${ship1.amenities.pools} | Hot Tubs: ${ship1.amenities.hotTubs}`);
+  docBody.appendParagraph(`Key Technologies: ${ship1.technology.join(', ')}`);
+
+  docBody.appendParagraph('');
+
+  const ship2AmenitiesHeading = docBody.appendParagraph(ship2Name);
+  ship2AmenitiesHeading.setHeading(DocumentApp.ParagraphHeading.HEADING3);
+  docBody.appendParagraph(`Restaurants: ${ship2.amenities.restaurantsCount} (${ship2.amenities.specialtyRestaurants.join(', ')})`);
+  docBody.appendParagraph(`Bars & Lounges: ${ship2.amenities.bars} bars, ${ship2.amenities.lounges} lounges`);
+  docBody.appendParagraph(`Spa: ${ship2.amenities.spa} (${ship2.amenities.spaSqFt.toLocaleString()} sq ft)`);
+  docBody.appendParagraph(`Theater Seating: ${ship2.amenities.theatreSeating}`);
+  docBody.appendParagraph(`Pools: ${ship2.amenities.pools} | Hot Tubs: ${ship2.amenities.hotTubs}`);
+  docBody.appendParagraph(`Key Technologies: ${ship2.technology.join(', ')}`);
+
+  docBody.appendParagraph('');
+
+  // ========== PRICING COMPARISON ==========
+  const pricingHeading = docBody.appendParagraph('PRICING & INCLUSIONS');
+  pricingHeading.setHeading(DocumentApp.ParagraphHeading.HEADING2);
+  pricingHeading.setForegroundColor('#1f4788');
+
+  const ship1PricingHeading = docBody.appendParagraph(ship1Name);
+  ship1PricingHeading.setHeading(DocumentApp.ParagraphHeading.HEADING3);
+  docBody.appendParagraph(`Base Suite Starting at: $${ship1.pricing.baseSuite.toLocaleString()} per person`);
+  docBody.appendParagraph(`All-Inclusive: ${ship1.pricing.allInclusive ? 'Yes' : 'No'}`);
+  docBody.appendParagraph(`Includes: Premium wines, spirits, shore excursions, gratuities, transfers`);
+
+  docBody.appendParagraph('');
+
+  const ship2PricingHeading = docBody.appendParagraph(ship2Name);
+  ship2PricingHeading.setHeading(DocumentApp.ParagraphHeading.HEADING3);
+  docBody.appendParagraph(`Base Suite Starting at: $${ship2.pricing.baseSuite.toLocaleString()} per person`);
+  docBody.appendParagraph(`All-Inclusive: ${ship2.pricing.allInclusive ? 'Yes' : 'No'}`);
+  docBody.appendParagraph(`Includes: Premium wines, spirits, shore excursions, gratuities, transfers`);
+
+  docBody.appendParagraph('');
+
+  // ========== UPCOMING VOYAGES ==========
+  const voyagesHeading = docBody.appendParagraph('UPCOMING VOYAGES (2025-2026)');
+  voyagesHeading.setHeading(DocumentApp.ParagraphHeading.HEADING2);
+  voyagesHeading.setForegroundColor('#1f4788');
+
+  const ship1VoyagesHeading = docBody.appendParagraph(ship1Name);
+  ship1VoyagesHeading.setHeading(DocumentApp.ParagraphHeading.HEADING3);
+
+  for (const voyage of ship1.voyages) {
+    docBody.appendParagraph(`${voyage.name} (${voyage.departure})`);
+    const voyageDetails = docBody.appendParagraph(
+      `Route: ${voyage.ports} | Duration: ${voyage.duration} days | Price: ${voyage.price} | Status: ${voyage.status}`
+    );
+    voyageDetails.setFontSize(11);
+    docBody.appendParagraph(`Availability: ${voyage.availability}`);
+    docBody.appendParagraph(`${voyage.highlights}`);
+    const link = docBody.appendParagraph(`Learn More: ${voyage.link}`);
+    link.setFontSize(10);
+    docBody.appendParagraph('');
+  }
+
+  docBody.appendParagraph('');
+
+  const ship2VoyagesHeading = docBody.appendParagraph(ship2Name);
+  ship2VoyagesHeading.setHeading(DocumentApp.ParagraphHeading.HEADING3);
+
+  for (const voyage of ship2.voyages) {
+    docBody.appendParagraph(`${voyage.name} (${voyage.departure})`);
+    const voyageDetails = docBody.appendParagraph(
+      `Route: ${voyage.ports} | Duration: ${voyage.duration} days | Price: ${voyage.price} | Status: ${voyage.status}`
+    );
+    voyageDetails.setFontSize(11);
+    docBody.appendParagraph(`Availability: ${voyage.availability}`);
+    docBody.appendParagraph(`${voyage.highlights}`);
+    const link = docBody.appendParagraph(`Learn More: ${voyage.link}`);
+    link.setFontSize(10);
+    docBody.appendParagraph('');
+  }
+
+  // ========== CLIENT REVIEWS ==========
+  const reviewsHeading = docBody.appendParagraph('CLIENT REVIEWS & TESTIMONIALS');
+  reviewsHeading.setHeading(DocumentApp.ParagraphHeading.HEADING2);
+  reviewsHeading.setForegroundColor('#1f4788');
+
+  const ship1ReviewsHeading = docBody.appendParagraph(ship1Name);
+  ship1ReviewsHeading.setHeading(DocumentApp.ParagraphHeading.HEADING3);
+
+  for (const review of ship1.reviews) {
+    const reviewText = docBody.appendParagraph(`"${review.quote}"`);
+    reviewText.setItalic(true);
+    docBody.appendParagraph(`— ${review.client}, ${review.voyage} (${review.rating}/5 ⭐)`);
+    docBody.appendParagraph('');
+  }
+
+  docBody.appendParagraph('');
+
+  const ship2ReviewsHeading = docBody.appendParagraph(ship2Name);
+  ship2ReviewsHeading.setHeading(DocumentApp.ParagraphHeading.HEADING3);
+
+  for (const review of ship2.reviews) {
+    const reviewText = docBody.appendParagraph(`"${review.quote}"`);
+    reviewText.setItalic(true);
+    docBody.appendParagraph(`— ${review.client}, ${review.voyage} (${review.rating}/5 ⭐)`);
+    docBody.appendParagraph('');
+  }
+
+  // ========== COMPETITIVE ANALYSIS ==========
+  const competitiveHeading = docBody.appendParagraph('COMPETITIVE ANALYSIS');
+  competitiveHeading.setHeading(DocumentApp.ParagraphHeading.HEADING2);
+  competitiveHeading.setForegroundColor('#1f4788');
+
+  const ship1AdvHeading = docBody.appendParagraph(`${ship1Name} - Key Advantages`);
+  ship1AdvHeading.setHeading(DocumentApp.ParagraphHeading.HEADING3);
+  for (const adv of ship1.advantages) {
+    docBody.appendParagraph(`✓ ${adv}`);
+  }
+
+  docBody.appendParagraph('');
+
+  const ship1ConsHeading = docBody.appendParagraph(`${ship1Name} - Considerations`);
+  ship1ConsHeading.setHeading(DocumentApp.ParagraphHeading.HEADING3);
+  for (const cons of ship1.considerations) {
+    docBody.appendParagraph(`• ${cons}`);
+  }
+
+  docBody.appendParagraph('');
+
+  const ship2AdvHeading = docBody.appendParagraph(`${ship2Name} - Key Advantages`);
+  ship2AdvHeading.setHeading(DocumentApp.ParagraphHeading.HEADING3);
+  for (const adv of ship2.advantages) {
+    docBody.appendParagraph(`✓ ${adv}`);
+  }
+
+  docBody.appendParagraph('');
+
+  const ship2ConsHeading = docBody.appendParagraph(`${ship2Name} - Considerations`);
+  ship2ConsHeading.setHeading(DocumentApp.ParagraphHeading.HEADING3);
+  for (const cons of ship2.considerations) {
+    docBody.appendParagraph(`• ${cons}`);
+  }
+
+  docBody.appendParagraph('');
+
+  // ========== SUMMARY & RECOMMENDATION ==========
+  const summaryHeading = docBody.appendParagraph('FINAL RECOMMENDATION');
+  summaryHeading.setHeading(DocumentApp.ParagraphHeading.HEADING2);
+  summaryHeading.setForegroundColor('#1f4788');
+
+  const recommendation = docBody.appendParagraph(
+    `Choose ${ship1Name} if you value ${getShip1BestFor(ship1)}.\n\n` +
+    `Choose ${ship2Name} if you prioritize ${getShip2BestFor(ship2)}.\n\n` +
+    `Both ships deliver exceptional all-inclusive luxury experiences with ` +
+    `world-class service, premium dining, and curated itineraries. The choice ` +
+    `depends on personal preferences for ship size, amenities, and destination focus.`
+  );
+  recommendation.setFontSize(12);
+
+  docBody.appendParagraph('');
+
+  // Footer
+  const footer = docBody.appendParagraph(
+    `Report generated by Dreams2Memories Travel\n` +
+    `For more information, contact us at info@dreams2memories.com`
+  );
+  footer.setFontSize(10);
+  footer.setForegroundColor('#999999');
+  footer.setItalic(true);
+}
+
+// ========= Helper functions for comparison =========
+
+function getShip1Emphasis(ship) {
+  if (ship.specs.maxGuests < 250) return 'intimate expedition experiences';
+  if (ship.ratios.spaceToGuest > 12) return 'spacious suites and personalization';
+  return 'premium all-inclusive experiences';
+}
+
+function getShip2Emphasis(ship) {
+  if (ship.specs.maxGuests > 750) return 'comprehensive onboard amenities';
+  if (ship.amenities.spaSqFt > 8000) return 'world-class spa facilities';
+  return 'balanced luxury and dining';
+}
+
+function getShip1BestFor(ship) {
+  if (ship.specs.maxGuests < 250) return 'remote destination exploration';
+  if (ship.ratios.spaceToGuest > 11) return 'space and privacy seekers';
+  return 'all-inclusive luxury cruisers';
+}
+
+function getShip2BestFor(ship) {
+  if (ship.specs.maxGuests > 750) return 'multiple dining/entertainment options';
+  if (ship.amenities.spaSqFt > 8000) return 'spa and wellness enthusiasts';
+  return 'curated luxury experiences';
+}
+
+function determineBestChoice(ship1, ship2) {
+  const size1 = ship1.specs.maxGuests;
+  const size2 = ship2.specs.maxGuests;
+
+  if (size1 < size2) return `${ship1} for intimacy, ${ship2} for amenities`;
+  return `${ship2} for intimacy, ${ship1} for amenities`;
+}
+
+// ============================================================================
+// INSERT ANALYSIS CONTENT
+// ============================================================================
+
+function insertAnalysisContent(docBody, shipName, ship) {
+  // Clear existing content
+  while (docBody.getNumChildren() > 0) {
+    docBody.removeChild(docBody.getChild(0));
+  }
+
+  // Title
+  const title = docBody.appendParagraph(`${shipName} - Comprehensive Analysis`);
+  title.setHeading(DocumentApp.ParagraphHeading.HEADING1);
+  title.setFontSize(28);
+
+  // Subtitle
+  const subtitle = docBody.appendParagraph(`${ship.line} | Launched: ${ship.launched}`);
+  subtitle.setHeading(DocumentApp.ParagraphHeading.HEADING3);
+  subtitle.setForegroundColor('#666666');
+
+  docBody.appendParagraph('');
+
+  // EXECUTIVE SUMMARY
+  const execHeading = docBody.appendParagraph('EXECUTIVE SUMMARY');
+  execHeading.setHeading(DocumentApp.ParagraphHeading.HEADING2);
+  execHeading.setForegroundColor('#1f4788');
+
+  const summary = docBody.appendParagraph(
+    `${shipName} is a ${ship.launched}-launched ${ship.line} vessel accommodating ${ship.specs.maxGuests} ` +
+    `guests across ${ship.specs.suites} all-balcony suites. The ship boasts an impressive ` +
+    `${ship.ratios.spaceToGuest}:1 space-to-guest ratio and ${ship.ratios.crewToGuest} crew-to-guest ratio, ` +
+    `delivering personalized luxury service. ${ship.amenities.designFeature}.`
+  );
+  summary.setFontSize(12);
+
+  docBody.appendParagraph('');
+
+  // VESSEL SPECIFICATIONS
+  const specsHeading = docBody.appendParagraph('VESSEL SPECIFICATIONS');
+  specsHeading.setHeading(DocumentApp.ParagraphHeading.HEADING2);
+  specsHeading.setForegroundColor('#1f4788');
+
+  const specs = [
+    ['Metric', 'Value'],
+    ['Gross Tonnage', ship.specs.grossTonnage.toLocaleString()],
+    ['Length', `${ship.specs.length} meters`],
+    ['Beam', `${ship.specs.beam} meters`],
+    ['Draft', `${ship.specs.draft} meters`],
+    ['Number of Decks', ship.specs.decks],
+    ['Maximum Guests', ship.specs.maxGuests],
+    ['Total Suites', ship.specs.suites],
+    ['Average Suite Size', `${ship.specs.avgSuiteSize} sq m`],
+    ['Suite Range', `${ship.specs.minSuiteSize} - ${ship.specs.maxSuiteSize} sq m`],
+    ['All Suites with Balcony', ship.specs.allSuitesBalcony ? 'Yes' : 'No'],
+    ['Registration Flag', ship.registrationFlag],
+    ['Home Port', ship.homePort],
+  ];
+
+  const specsTable = docBody.appendTable(specs);
+  const headerRow = specsTable.getRows()[0];
+  headerRow.getCell(0).setBackgroundColor('#1f4788');
+  headerRow.getCell(1).setBackgroundColor('#1f4788');
+  headerRow.getCell(0).editAsText().setForegroundColor('#FFFFFF');
+  headerRow.getCell(1).editAsText().setForegroundColor('#FFFFFF');
+
+  docBody.appendParagraph('');
+
+  // SERVICE RATIOS
+  const ratiosHeading = docBody.appendParagraph('SERVICE RATIOS & STAFFING');
+  ratiosHeading.setHeading(DocumentApp.ParagraphHeading.HEADING2);
+  ratiosHeading.setForegroundColor('#1f4788');
+
+  docBody.appendParagraph(`Space-to-Guest Ratio: ${ship.ratios.spaceToGuest}:1 (Higher is more spacious)`);
+  docBody.appendParagraph(`Crew-to-Guest Ratio: ${ship.ratios.crewToGuest} (Lower number means more staff per guest)`);
+  docBody.appendParagraph(`Total Crew: ${ship.ratios.crewCount}`);
+  docBody.appendParagraph(`Total Guests: ${ship.specs.maxGuests}`);
+
+  docBody.appendParagraph('');
+
+  // AMENITIES
+  const amenitiesHeading = docBody.appendParagraph('AMENITIES & DINING');
+  amenitiesHeading.setHeading(DocumentApp.ParagraphHeading.HEADING2);
+  amenitiesHeading.setForegroundColor('#1f4788');
+
+  const amenSubHeading = docBody.appendParagraph('Dining Venues');
+  amenSubHeading.setHeading(DocumentApp.ParagraphHeading.HEADING3);
+  docBody.appendParagraph(`Total Restaurants: ${ship.amenities.restaurantsCount}`);
+  docBody.appendParagraph(`Specialty Restaurants: ${ship.amenities.specialtyRestaurants.join(', ')}`);
+  docBody.appendParagraph(`Bars: ${ship.amenities.bars}`);
+  docBody.appendParagraph(`Lounges: ${ship.amenities.lounges}`);
+
+  docBody.appendParagraph('');
+
+  const wellnessSubHeading = docBody.appendParagraph('Wellness & Recreation');
+  wellnessSubHeading.setHeading(DocumentApp.ParagraphHeading.HEADING3);
+  docBody.appendParagraph(`Spa: ${ship.amenities.spa}`);
+  docBody.appendParagraph(`Spa Size: ${ship.amenities.spaSqFt.toLocaleString()} sq ft`);
+  docBody.appendParagraph(`Swimming Pools: ${ship.amenities.pools}`);
+  docBody.appendParagraph(`Hot Tubs: ${ship.amenities.hotTubs}`);
+  docBody.appendParagraph(`Theater Seating: ${ship.amenities.theatreSeating}`);
+  if (ship.amenities.casino) {
+    docBody.appendParagraph(`Casino: Yes (${ship.amenities.casino_seats} seats)`);
+  }
+  if (ship.amenities.zodiacCount) {
+    docBody.appendParagraph(`Zodiac Dinghies: ${ship.amenities.zodiacCount} (for expedition landings)`);
+  }
+
+  docBody.appendParagraph('');
+
+  // TECHNOLOGY
+  const techHeading = docBody.appendParagraph('KEY TECHNOLOGIES');
+  techHeading.setHeading(DocumentApp.ParagraphHeading.HEADING2);
+  techHeading.setForegroundColor('#1f4788');
+
+  for (const tech of ship.technology) {
+    docBody.appendParagraph(`✓ ${tech}`);
+  }
+
+  docBody.appendParagraph('');
+
+  // PRICING
+  const pricingHeading = docBody.appendParagraph('PRICING & INCLUSIONS');
+  pricingHeading.setHeading(DocumentApp.ParagraphHeading.HEADING2);
+  pricingHeading.setForegroundColor('#1f4788');
+
+  const pricingData = [
+    ['Suite Category', 'Price Per Person (USD)'],
+  ];
+
+  // Add pricing tiers
+  if (ship.pricing.baseSuite) {
+    pricingData.push(['Base Suite', '$' + ship.pricing.baseSuite.toLocaleString()]);
+  }
+  if (ship.pricing.oceanView) {
+    pricingData.push(['Ocean View', '$' + ship.pricing.oceanView.toLocaleString()]);
+  }
+  if (ship.pricing.veranda) {
+    pricingData.push(['Veranda Suite', '$' + ship.pricing.veranda.toLocaleString()]);
+  }
+  if (ship.pricing.signatureSuite) {
+    pricingData.push(['Signature Suite', '$' + ship.pricing.signatureSuite.toLocaleString()]);
+  }
+  if (ship.pricing.medallionSuite) {
+    pricingData.push(['Medallion Suite', '$' + ship.pricing.medallionSuite.toLocaleString()]);
+  }
+  if (ship.pricing.masterSuite) {
+    pricingData.push(['Master Suite', '$' + ship.pricing.masterSuite.toLocaleString()]);
+  }
+  if (ship.pricing.ownersuite) {
+    pricingData.push(['Owner\'s Suite', '$' + ship.pricing.ownersuite.toLocaleString()]);
+  }
+
+  const pricingTable = docBody.appendTable(pricingData);
+  const pricingHeaderRow = pricingTable.getRows()[0];
+  pricingHeaderRow.getCell(0).setBackgroundColor('#1f4788');
+  pricingHeaderRow.getCell(1).setBackgroundColor('#1f4788');
+  pricingHeaderRow.getCell(0).editAsText().setForegroundColor('#FFFFFF');
+  pricingHeaderRow.getCell(1).editAsText().setForegroundColor('#FFFFFF');
+
+  docBody.appendParagraph('');
+  docBody.appendParagraph(`All-Inclusive: Yes`);
+  docBody.appendParagraph(`Included Benefits:`);
+  docBody.appendParagraph(`  ✓ Premium wines and spirits`);
+  docBody.appendParagraph(`  ✓ All shore excursions`);
+  docBody.appendParagraph(`  ✓ Gratuities and service charges`);
+  docBody.appendParagraph(`  ✓ Airport transfers`);
+  docBody.appendParagraph(`  ✓ WiFi connectivity`);
+
+  docBody.appendParagraph('');
+
+  // UPCOMING VOYAGES
+  const voyagesHeading = docBody.appendParagraph('UPCOMING VOYAGES (2025-2026)');
+  voyagesHeading.setHeading(DocumentApp.ParagraphHeading.HEADING2);
+  voyagesHeading.setForegroundColor('#1f4788');
+
+  for (const voyage of ship.voyages) {
+    const voyageTitle = docBody.appendParagraph(`${voyage.name}`);
+    voyageTitle.setHeading(DocumentApp.ParagraphHeading.HEADING3);
+
+    docBody.appendParagraph(`Departure: ${voyage.departure}`);
+    docBody.appendParagraph(`Duration: ${voyage.duration} days`);
+    docBody.appendParagraph(`Route: ${voyage.ports}`);
+    docBody.appendParagraph(`Price: ${voyage.price}`);
+    docBody.appendParagraph(`Availability: ${voyage.availability}`);
+    docBody.appendParagraph(`Status: ${voyage.status}`);
+    docBody.appendParagraph(`Highlights: ${voyage.highlights}`);
+
+    const linkParagraph = docBody.appendParagraph(`Learn More: ${voyage.link}`);
+    linkParagraph.setFontSize(10);
+    linkParagraph.setForegroundColor('#0563C1');
+
+    docBody.appendParagraph('');
+  }
+
+  // CLIENT REVIEWS
+  const reviewsHeading = docBody.appendParagraph('CLIENT REVIEWS & TESTIMONIALS');
+  reviewsHeading.setHeading(DocumentApp.ParagraphHeading.HEADING2);
+  reviewsHeading.setForegroundColor('#1f4788');
+
+  for (const review of ship.reviews) {
+    const reviewQuote = docBody.appendParagraph(`"${review.quote}"`);
+    reviewQuote.setItalic(true);
+    reviewQuote.setFontSize(11);
+
+    const reviewAttribution = docBody.appendParagraph(
+      `— ${review.client} | ${review.voyage} | Rating: ${review.rating}/5 ⭐`
+    );
+    reviewAttribution.setFontSize(10);
+    reviewAttribution.setForegroundColor('#666666');
+
+    docBody.appendParagraph('');
+  }
+
+  // KEY ADVANTAGES
+  const advHeading = docBody.appendParagraph('KEY ADVANTAGES');
+  advHeading.setHeading(DocumentApp.ParagraphHeading.HEADING2);
+  advHeading.setForegroundColor('#1f4788');
+
+  for (const adv of ship.advantages) {
+    docBody.appendParagraph(`✓ ${adv}`);
+  }
+
+  docBody.appendParagraph('');
+
+  // CONSIDERATIONS
+  const consHeading = docBody.appendParagraph('IMPORTANT CONSIDERATIONS');
+  consHeading.setHeading(DocumentApp.ParagraphHeading.HEADING2);
+  consHeading.setForegroundColor('#1f4788');
+
+  for (const con of ship.considerations) {
+    docBody.appendParagraph(`• ${con}`);
+  }
+
+  docBody.appendParagraph('');
+
+  // BEST FOR
+  const bestHeading = docBody.appendParagraph('IDEAL PASSENGERS');
+  bestHeading.setHeading(DocumentApp.ParagraphHeading.HEADING2);
+  bestHeading.setForegroundColor('#1f4788');
+  docBody.appendParagraph(`${shipName} is particularly well-suited for:`);
+
+  for (const best of ship.bestFor) {
+    docBody.appendParagraph(`✓ ${best}`);
+  }
+
+  docBody.appendParagraph('');
+
+  // FINAL SUMMARY
+  const finalHeading = docBody.appendParagraph('CONCLUSION');
+  finalHeading.setHeading(DocumentApp.ParagraphHeading.HEADING2);
+  finalHeading.setForegroundColor('#1f4788');
+
+  const conclusion = docBody.appendParagraph(
+    `${shipName} represents ${ship.line}'s commitment to luxury cruising with exceptional ` +
+    `service ratios, premium amenities, and curated itineraries. The ship's ${ship.amenities.designFeature.toLowerCase()} ` +
+    `ensures a distinctive experience. Whether seeking intimate exploration or ` +
+    `grand Mediterranean discovery, ${shipName} delivers all-inclusive excellence.`
+  );
+  conclusion.setFontSize(12);
+
+  docBody.appendParagraph('');
+
+  // Footer
+  const footer = docBody.appendParagraph(
+    `Report generated by Dreams2Memories Travel\n` +
+    `For more information, visit info@dreams2memories.com`
+  );
+  footer.setFontSize(10);
+  footer.setForegroundColor('#999999');
+  footer.setItalic(true);
+}
+
+// ============================================================================
+// COMPARE SHIPS FROM SPREADSHEET CELLS
+// ============================================================================
+
+function compareShipsFromCells() {
+  const sheet = SpreadsheetApp.getActiveSheet();
+  const range = sheet.getSelection().getRange();
+
+  // Get values from selected cells
+  const values = range.getValues();
+
+  if (values.length < 1 || values[0].length < 2) {
+    SpreadsheetApp.getUi().alert('Please select at least 2 cells with ship names');
+    return;
+  }
+
+  const ship1 = values[0][0]?.toString().trim();
+  const ship2 = values[0][1]?.toString().trim();
+
+  if (!ship1 || !ship2) {
+    SpreadsheetApp.getUi().alert('Both cells must contain ship names');
+    return;
+  }
+
+  if (!SHIP_DATABASE[ship1] || !SHIP_DATABASE[ship2]) {
+    SpreadsheetApp.getUi().alert(`One or both ships not found in database:\n"${ship1}"\n"${ship2}"`);
+    return;
+  }
+
+  generateShipComparison(ship1, ship2);
+}
+
+// ============================================================================
+// UTILITY FUNCTIONS
+// ============================================================================
+
+function openUrl(url) {
+  const html = HtmlService.createHtmlOutput(`
+    <script>
+      window.open('${url}', '_blank');
+      google.script.host.close();
+    </script>
+  `);
+  SpreadsheetApp.getUi().showModelessDialog(html, 'Opening...');
+}
+
+function exportComparisonToDoc() {
+  SpreadsheetApp.getUi().alert('Select two ships using the Compare Two Ships dialog first.');
+}
+
+function viewShipDatabase() {
+  const shipList = Object.keys(SHIP_DATABASE).join('\n\n');
+  const ui = SpreadsheetApp.getUi();
+
+  const html = `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        h2 { color: #1f4788; }
+        .ship-card {
+          background: #f5f5f5;
+          padding: 15px;
+          margin: 10px 0;
+          border-left: 4px solid #667eea;
+        }
+      </style>
+    </head>
+    <body>
+      <h1>Available Ships in Database</h1>
+      <div class="ship-card">
+        <h3>Silver Nova</h3>
+        <p>Silversea | 728 guests | Space-to-Guest: 10.7:1</p>
+      </div>
+      <div class="ship-card">
+        <h3>Seven Seas Grandeur</h3>
+        <p>Regent | 750 guests | Space-to-Guest: 12.7:1</p>
+      </div>
+      <div class="ship-card">
+        <h3>World Navigator</h3>
+        <p>Atlas Ocean Voyages | 200 guests | Polar Class</p>
+      </div>
+    </body>
+    </html>
+  `;
+
+  const dialogBox = HtmlService.createHtmlOutput(html)
+    .setWidth(500)
+    .setHeight(400);
+
+  ui.showModelessDialog(dialogBox, 'Ship Database');
+}
+
+// ============================================================================
+// END OF SCRIPT
+// ============================================================================

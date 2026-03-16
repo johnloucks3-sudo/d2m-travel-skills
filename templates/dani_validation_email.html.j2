@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ subject }}</title>
+<style>
+  /* Reset */
+  body, table, td, p, a { margin: 0; padding: 0; }
+  body { font-family: 'Georgia', 'Times New Roman', serif; background-color: #f4f1ec; color: #1a1a1a; line-height: 1.7; }
+
+  /* Container */
+  .wrapper { max-width: 640px; margin: 0 auto; background: #ffffff; }
+
+  /* Header Bar */
+  .header { background: #0d1b2e; padding: 36px 40px 28px 40px; text-align: center; }
+  .header .tagline { font-family: 'Georgia', serif; font-size: 11px; color: #f5e9c8; letter-spacing: 2.5px; font-style: italic; margin-top: 10px; }
+
+  /* Gold accent line */
+  .gold-line { height: 2px; background: linear-gradient(90deg, #0d1b2e 5%, #c9a84c 30%, #c9a84c 70%, #0d1b2e 95%); }
+
+  /* Hero gradient (Scandinavia-inspired) */
+  .hero-area {
+    width: 100%;
+    height: 180px;
+    background: linear-gradient(135deg, #0d1b2e 0%, #1e3358 30%, #2a5a6a 60%, #4a8a7a 80%, #8ab4a0 100%);
+    text-align: center;
+    line-height: 180px;
+  }
+  .hero-text {
+    font-family: 'Georgia', serif;
+    font-size: 16px;
+    color: #c9a84c;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  /* Body content */
+  .content { padding: 36px 40px; }
+  .greeting { font-size: 19px; color: #0d1b2e; margin-bottom: 20px; }
+  .body-text { font-size: 15px; color: #2a2a2a; margin-bottom: 16px; }
+
+  /* Section divider — gold diamond */
+  .section-divider { text-align: center; margin: 28px 0 14px 0; }
+  .section-divider span {
+    display: inline-block;
+    font-size: 13px;
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    color: #c9a84c;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .section-divider::before,
+  .section-divider::after {
+    content: "";
+    display: inline-block;
+    width: 60px;
+    height: 1px;
+    background: #e8d9b8;
+    vertical-align: middle;
+    margin: 0 12px;
+  }
+
+  /* Info box — cruise summary */
+  .cruise-box {
+    background: #0d1b2e;
+    border-left: 4px solid #c9a84c;
+    padding: 22px 26px;
+    margin: 20px 0;
+    border-radius: 0 4px 4px 0;
+    box-shadow: inset 0 0 20px rgba(201, 168, 76, 0.05);
+  }
+  .cruise-box .ship-name { font-family: 'Georgia', serif; font-size: 20px; color: #c9a84c; text-shadow: 0 1px 2px rgba(0,0,0,0.3); }
+  .cruise-box .voyage-detail { font-size: 14px; color: #d0d8e8; margin-top: 4px; }
+  .cruise-box .suite-detail { font-size: 14px; color: #e8c97a; margin-top: 8px; }
+  .cruise-box .payment-detail { font-size: 14px; color: #ffffff; margin-top: 10px; font-weight: bold; }
+  .cruise-box .payment-amount { color: #e8c97a; }
+
+  /* Detail list items */
+  .detail-item { font-size: 14px; color: #2a2a2a; padding: 5px 0 5px 16px; position: relative; }
+  .detail-item::before { content: "\25C6"; color: #c9a84c; position: absolute; left: 0; font-size: 8px; top: 9px; }
+
+  /* Excursion table */
+  .exc-table { width: 100%; border-collapse: collapse; margin: 10px 0 20px 0; font-size: 13px; }
+  .exc-table th {
+    background: #152540;
+    color: #c9a84c;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 10px 10px;
+    text-align: left;
+    font-weight: normal;
+  }
+  .exc-table td { padding: 8px 10px; border-bottom: 1px solid #f0ebe3; color: #2a2a2a; }
+  .exc-table tr:nth-child(even) td { background: #faf8f4; }
+  .exc-table tr:last-child td { border-bottom: none; }
+  .exc-table .port-name { color: #0d1b2e; font-weight: bold; }
+  .exc-table .included-pill {
+    display: inline-block;
+    background: #2a6e3f;
+    color: #ffffff;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+  }
+
+  /* Action items box */
+  .action-box {
+    background: #faf6ef;
+    border: 1px solid #e8d9b8;
+    border-left: 4px solid #c9a84c;
+    padding: 20px 24px;
+    margin: 24px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .action-box .action-title {
+    font-family: 'Georgia', serif;
+    font-size: 13px;
+    color: #0d1b2e;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .action-item { font-size: 14px; color: #2a2a2a; padding: 4px 0 4px 20px; position: relative; }
+  .action-item::before { content: "\2192"; color: #e8c97a; position: absolute; left: 0; font-weight: bold; }
+
+  /* Coming up next */
+  .timeline-item { font-size: 14px; color: #2a2a2a; padding: 4px 0; }
+  .timeline-date { color: #0d1b2e; font-weight: bold; }
+
+  /* Signature block */
+  .sig-divider { width: 60px; height: 1px; background: #c9a84c; margin: 28px 0 20px 0; }
+  .sig-block { display: flex; align-items: center; gap: 16px; }
+  .sig-avatar { width: 64px; height: 64px; border-radius: 50%; border: 2px solid #c9a84c; }
+  .sig-name { font-family: 'Georgia', serif; font-size: 17px; color: #0d1b2e; font-weight: bold; letter-spacing: 0.5px; }
+  .sig-title { font-size: 12px; color: #c9a84c; letter-spacing: 1.5px; text-transform: uppercase; font-style: italic; margin-top: 2px; }
+  .sig-company { font-size: 12px; color: #8a9ab5; letter-spacing: 1px; margin-top: 2px; }
+  .sig-contact { font-size: 12px; color: #2a2a2a; margin-top: 4px; }
+  .sig-contact a { color: #c9a84c; text-decoration: none; }
+
+  /* AI Disclosure */
+  .ai-disclosure {
+    margin-top: 20px;
+    padding: 16px 20px;
+    background: #f9f7f3;
+    border-radius: 4px;
+    border: 1px solid #e8e0d0;
+  }
+  .ai-disclosure p { font-size: 12px; color: #5a6a85; line-height: 1.6; font-style: italic; }
+
+  /* Footer */
+  .footer { background: #0d1b2e; padding: 28px 40px; text-align: center; }
+  .footer-brand { font-size: 14px; color: #c9a84c; letter-spacing: 3px; margin-bottom: 4px; }
+  .footer-tagline { font-size: 10px; color: #f5e9c8; letter-spacing: 2px; font-style: italic; margin-bottom: 10px; }
+  .footer-contact { font-size: 12px; color: #d0d8e8; margin-top: 4px; }
+  .footer-contact a { color: #c9a84c; text-decoration: none; }
+  .footer-legal { font-size: 10px; color: #5a6a85; margin-top: 14px; line-height: 1.5; }
+</style>
+</head>
+<body>
+<center>
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color: #f4f1ec;">
+<tr><td align="center" style="padding: 20px 10px;">
+
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <div class="header">
+    {% if logo_b64 %}
+    <img src="data:image/png;base64,{{ logo_b64 }}" alt="Dreams2Memories Travel" style="max-width: 300px; height: auto;" />
+    {% else %}
+    <div style="font-family: 'Georgia', serif; font-size: 22px; color: #c9a84c; letter-spacing: 2px;">DREAMS2MEMORIES</div>
+    <div style="font-family: 'Georgia', serif; font-size: 11px; color: #8a9ab5; letter-spacing: 3px; text-transform: uppercase; margin-top: 4px;">Travel, LLC</div>
+    {% endif %}
+    <div class="tagline">Curating the voyage of your lifetime</div>
+  </div>
+  <div class="gold-line"></div>
+
+  <!-- HERO AREA -->
+  {% if hero_image_b64 %}
+  <div style="width: 100%; max-height: 200px; overflow: hidden;">
+    <img src="data:image/jpeg;base64,{{ hero_image_b64 }}" alt="Destination" style="width: 100%; height: auto; display: block;" />
+  </div>
+  {% else %}
+  <div class="hero-area">
+    <span class="hero-text">{{ hero_text | default('Your Voyage Awaits') }}</span>
+  </div>
+  {% endif %}
+  <div class="gold-line"></div>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    {% if personal_note %}
+    <!-- PERSONAL NOTE FROM JOHN -->
+    <div style="background: #f9f7f3; border: 1px solid #e8e0d0; border-radius: 4px; padding: 18px 22px; margin-bottom: 24px;">
+      <p style="font-size: 14px; color: #0d1b2e; font-weight: bold; margin-bottom: 8px;">A quick note from John:</p>
+      <p style="font-size: 14px; color: #2a2a2a; line-height: 1.6; font-style: italic;">{{ personal_note }}</p>
+    </div>
+    {% endif %}
+
+    <p class="greeting">{{ greeting }}</p>
+
+    <p class="body-text">{{ intro_text }}</p>
+
+    <!-- CRUISE SUMMARY BOX -->
+    <div class="cruise-box">
+      <div class="ship-name">{{ ship_name }}</div>
+      <div class="voyage-detail">{{ voyage_description }}</div>
+      <div class="suite-detail">Suite {{ suite_number }} &middot; Deck {{ deck_number }}</div>
+      <div class="payment-detail">Balance Due {{ payment_date }}: <span class="payment-amount">${{ balance_due }}</span></div>
+    </div>
+
+    <!-- FLIGHTS -->
+    <div class="section-divider"><span>Flights</span></div>
+    {% for flight in flights %}
+    <div class="detail-item">{{ flight }}</div>
+    {% endfor %}
+    {% if flight_notes %}
+    <p class="body-text" style="margin-top: 10px; font-size: 13px; color: #8a9ab5;">{{ flight_notes }}</p>
+    {% endif %}
+
+    <!-- HOTEL & TRANSFERS -->
+    <div class="section-divider"><span>Hotel &amp; Transfers</span></div>
+    {% for item in hotel_transfers %}
+    <div class="detail-item">{{ item }}</div>
+    {% endfor %}
+
+    <!-- EXCURSIONS -->
+    <div class="section-divider"><span>Your Excursions &mdash; {{ excursion_count }} Booked</span></div>
+    <table class="exc-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Port</th>
+          <th>Excursion</th>
+          <th>Cost</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for exc in excursions %}
+        <tr>
+          <td>{{ exc.date }}</td>
+          <td class="port-name">{{ exc.port }}</td>
+          <td>{{ exc.name }}</td>
+          <td>{% if exc.cost %}<span class="included-pill">{{ exc.cost }}</span>{% else %}<span class="included-pill">INCLUDED</span>{% endif %}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <!-- SPECIALTY DINING (optional) -->
+    {% if dining %}
+    <div class="section-divider"><span>Specialty Dining &mdash; {{ dining | length }} Reservations</span></div>
+    <table class="exc-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Restaurant</th>
+          <th>Time</th>
+          <th>Cost</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for d in dining %}
+        <tr>
+          <td>{{ d.date }}</td>
+          <td class="port-name">{{ d.restaurant }}</td>
+          <td>{{ d.time }}</td>
+          <td>{% if d.cost %}<span class="included-pill">{{ d.cost }}</span>{% else %}<span class="included-pill">INCLUDED</span>{% endif %}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endif %}
+
+    <!-- COMING UP NEXT -->
+    <div class="section-divider"><span>Coming Up Next</span></div>
+    {% for item in upcoming %}
+    <div class="timeline-item"><span class="timeline-date">{{ item.date }}:</span> {{ item.description }}</div>
+    {% endfor %}
+
+    <!-- ACTION ITEMS -->
+    <div class="action-box">
+      <div class="action-title">&#9734; A Few Items to Note</div>
+      {% for action in action_items %}
+      <div class="action-item">{{ action }}</div>
+      {% endfor %}
+    </div>
+
+    <!-- CLOSING & SIGNATURE -->
+    <div style="margin-top: 32px;">
+      <p class="body-text">{{ closing_text }}</p>
+
+      <div class="sig-divider"></div>
+
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          {% if avatar_b64 %}
+          <td style="padding-right: 16px; vertical-align: top;">
+            <img src="data:image/png;base64,{{ avatar_b64 }}" alt="Dani Moreau" class="sig-avatar" width="64" height="64" style="width: 64px; height: 64px; border-radius: 50%; border: 2px solid #c9a84c;" />
+          </td>
+          {% endif %}
+          <td style="vertical-align: top;">
+            <div class="sig-name">Dani Moreau</div>
+            <div class="sig-title">Concierge Intelligence</div>
+            <div class="sig-company">DREAMS2MEMORIES TRAVEL</div>
+            <div class="sig-contact">
+              +1 (719) 291-0742 &middot; <a href="mailto:concierge@d2mluxury.quest" style="color: #c9a84c; text-decoration: none;">concierge@d2mluxury.quest</a>
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <!-- AI DISCLOSURE -->
+      <div class="ai-disclosure">
+        <p>Dani Moreau is your dedicated concierge at Dreams2Memories Travel &mdash; an AI-powered specialist designed to ensure every detail of your journey receives the attention it deserves. From payment timelines to cabin confirmations to pre-departure checklists, Dani works around the clock so nothing is ever missed, forgotten, or left to chance. She operates under the direct oversight of John Loucks, your travel advisor, who reviews every recommendation and personally stands behind every communication. Think of Dani as the reason your experience feels effortless &mdash; because someone is always watching the details, even when you&rsquo;re not.</p>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+
+  <!-- FOOTER -->
+  <div class="gold-line"></div>
+  <div class="footer">
+    <div class="footer-brand">DREAMS2MEMORIES</div>
+    <div class="footer-tagline">Curating the voyage of your lifetime</div>
+    <div class="footer-contact">+1 (719) 291-0742 &middot; <a href="mailto:concierge@d2mluxury.quest" style="color: #c9a84c; text-decoration: none;">concierge@d2mluxury.quest</a></div>
+    <div class="footer-legal">
+      Florida Seller of Travel # ST1578 &middot; California Seller of Travel No. 2090937-50<br>
+      Washington UBID No. 603189022 &middot; Iowa Registered Agency # 1202
+    </div>
+  </div>
+
+</div><!-- /wrapper -->
+
+</td></tr>
+</table>
+</center>
+</body>
+</html>

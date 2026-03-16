@@ -1,0 +1,114 @@
+// ============================================================================
+// SHIP COMPARISON DIALOGS & REPORTING
+// ============================================================================
+
+function openShipComparisonDialog() {
+  const shipNames = Object.keys(SHIP_DATABASE);
+  const shipOptions = shipNames.map(name => `<option value="${name}">${name}</option>`).join('');
+
+  // Use the helper function to create the UI directly from a string
+  const htmlOutput = HtmlService.createHtmlOutput(getComparisonHtml(shipOptions))
+      .setWidth(500)
+      .setHeight(400);
+
+  SpreadsheetApp.getUi().showModelessDialog(htmlOutput, 'Ship Comparison Tool');
+}
+
+function generateShipComparison(ship1Name, ship2Name) {
+  const ship1 = SHIP_DATABASE[ship1Name];
+  const ship2 = SHIP_DATABASE[ship2Name];
+  if (!ship1 || !ship2) return;
+
+  const doc = DocumentApp.create(`${ship1Name} vs ${ship2Name} - Comparison Report`);
+  const body = doc.getBody();
+
+  // THE HIGH-END FORMATTING LOGIC
+  insertComparisonContent(body, ship1Name, ship2Name, ship1, ship2);
+
+  doc.saveAndClose();
+  openUrl(doc.getUrl());
+}
+
+function insertComparisonContent(docBody, ship1Name, ship2Name, ship1, ship2) {
+  docBody.clear();
+  const title = docBody.appendParagraph(`${ship1Name} vs ${ship2Name}`).setHeading(DocumentApp.ParagraphHeading.HEADING1).setFontSize(28);
+  docBody.appendParagraph("Comprehensive Luxury Cruise Ship Comparison Report").setHeading(DocumentApp.ParagraphHeading.HEADING3).setForegroundColor('#666666');
+
+  // Executive Summary
+  docBody.appendParagraph('EXECUTIVE SUMMARY').setHeading(DocumentApp.ParagraphHeading.HEADING2).setForegroundColor('#1f4788');
+  docBody.appendParagraph(`${ship1Name} emphasizes ${getShip1Emphasis(ship1)}, while ${ship2Name} focuses on ${getShip2Emphasis(ship2)}.`);
+
+  // Quick Comparison Table
+  const table = docBody.appendTable([
+    ['Metric', ship1Name, ship2Name],
+    ['Max Guests', ship1.specs.maxGuests, ship2.specs.maxGuests],
+    ['Space-to-Guest', ship1.ratios.spaceToGuest + ':1', ship2.ratios.spaceToGuest + ':1'],
+    ['Avg Suite Size', ship1.specs.avgSuiteSize + ' sq m', ship2.specs.avgSuiteSize + ' sq m'],
+    ['Base Price', '$' + ship1.pricing.baseSuite.toLocaleString(), '$' + (ship2.pricing.baseSuite || 35000).toLocaleString()]
+  ]);
+  table.getRow(0).setBackgroundColor('#1f4788');
+  for(let i=0; i<3; i++) table.getRow(0).getCell(i).editAsText().setForegroundColor('#FFFFFF').setBold(true);
+
+  // Voyages Section
+  docBody.appendParagraph('\nUPCOMING VOYAGES').setHeading(DocumentApp.ParagraphHeading.HEADING2).setForegroundColor('#1f4788');
+  [ship1, ship2].forEach(ship => {
+    ship.voyages.forEach(v => {
+      docBody.appendParagraph(`${v.name} (${v.departure}) - ${v.status}`).setBold(true);
+      docBody.appendParagraph(`Route: ${v.ports} | Link: ${v.link}`).setFontSize(10);
+    });
+  });
+}
+
+// HELPER FUNCTIONS FOR COMPARISON
+function getShip1Emphasis(s) { return s.specs.maxGuests < 300 ? 'intimacy' : 'spaciousness'; }
+function getShip2Emphasis(s) { return s.amenities.designFeature || 'luxury'; }
+function openUrl(url) {
+  const html = `<script>window.open('${url}', '_blank'); google.script.host.close();</script>`;
+  SpreadsheetApp.getUi().showModelessDialog(HtmlService.createHtmlOutput(html), 'Opening Report...');
+}
+
+function getComparisonHtml(options) {
+  return `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <style>
+        body { font-family: 'Segoe UI', sans-serif; padding: 25px; background: #f4f7f6; color: #333; }
+        h2 { color: #1f4788; border-bottom: 2px solid #1f4788; padding-bottom: 10px; margin-top: 0; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; font-weight: bold; margin-bottom: 8px; color: #1f4788; }
+        select { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px; }
+        .btn {
+          background: linear-gradient(135deg, #1f4788 0%, #355c9d 100%);
+          color: white; padding: 14px; border: none; width: 100%;
+          border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 16px;
+          box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.2s;
+        }
+        .btn:hover { transform: translateY(-1px); box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
+      </style>
+    </head>
+    <body>
+      <h2>⛴️ Intel Comparison</h2>
+      <div class="form-group">
+        <label>Primary Vessel</label>
+        <select id="s1">${options}</select>
+      </div>
+      <div class="form-group">
+        <label>Comparative Vessel</label>
+        <select id="s2">${options}</select>
+      </div>
+      <button class="btn" onclick="run()">Generate Intelligence Report</button>
+
+      <script>
+        function run(){
+          const s1 = document.getElementById('s1').value;
+          const s2 = document.getElementById('s2').value;
+          if(s1 === s2) { alert('Please select two different vessels.'); return; }
+          google.script.run.generateShipComparison(s1, s2);
+          google.script.host.close();
+        }
+      </script>
+    </body>
+    </html>
+  `;
+}

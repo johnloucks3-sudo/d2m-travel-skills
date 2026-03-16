@@ -1,0 +1,1137 @@
+/* ═══════════════════════════════════════════════════════════════════════════════
+ SECTION 20: TITAN INTEL COMMAND - CRUISE & WORLD INTELLIGENCE
+ Version 14.0 - Master Deconflicted Kernel
+ ═══════════════════════════════════════════════════════════════════════════════
+
+ ═══════════════════════════════════════════════════════════════════════════════
+ 1. DATABASES & CONFIGURATIONS
+ ═══════════════════════════════════════════════════════════════════════════════
+*/
+const CRUISE_INTEL_DB = {
+  ultraLuxury: {
+    'Regent Seven Seas Cruises': {
+      code: 'RSSC', tier: 'ultra-luxury', parent: 'Norwegian Cruise Line Holdings',
+      ships: [
+        { name: 'Seven Seas Prestige', year: 2026, tonnage: 77000, capacity: 850, status: 'new-build' },
+        { name: 'Seven Seas Grandeur', year: 2023, tonnage: 55000, capacity: 750, status: 'active' },
+        { name: 'Seven Seas Splendor', year: 2020, tonnage: 55000, capacity: 750, status: 'active' }
+      ],
+    keywords: ['Regent','Prestige', 'Grandeur','Explorer'],
+      website: 'rssc.com', priority: 1
+    },
+    'Silversea Cruises': {
+      code: 'SS', tier: 'ultra-luxury', parent: 'Royal Caribbean Group',
+      ships: [
+        { name: 'Silver Nova', year: 2023, tonnage: 54700, capacity: 728, status: 'active' },
+        { name: 'Silver Ray', year: 2024, tonnage: 54700, capacity: 728, status: 'active' },
+        { name: 'Silver Muse', year: 2017, tonnage: 40700, capacity: 596, status: 'active' },
+        { name: 'Silver Dawn', year: 2022, tonnage: 40700, capacity: 596, status: 'active' },
+        { name: 'Silver Moon', year: 2020, tonnage: 40700, capacity: 596, status: 'active' },
+        { name: 'Silver Spirit', year: 2009, tonnage: 36000, capacity: 540, status: 'active' },
+        { name: 'Silver Shadow', year: 2000, tonnage: 28000, capacity: 382, status: 'active' },
+        { name: 'Silver Whisper', year: 2001, tonnage: 28000, capacity: 382, status: 'active' },
+        { name: 'Silver Wind', year: 1995, tonnage: 17000, capacity: 296, status: 'active' },
+        { name: 'Silver Cloud', year: 1994, tonnage: 17000, capacity: 296, status: 'expedition' },
+        { name: 'Silver Endeavour', year: 2021, tonnage: 23000, capacity: 200, status: 'expedition' },
+        { name: 'Silver Origin', year: 2020, tonnage: 5800, capacity: 100, status: 'expedition' }
+      ],
+      keywords: ['Silversea', 'Silver Nova', 'Silver Ray', 'Silversea expedition'],
+      website: 'silversea.com', priority: 1
+    },
+    'Explora Journeys': {
+      code: 'EJ', tier: 'ultra-luxury', parent: 'MSC Group',
+      ships: [
+        { name: 'Explora I', year: 2023, tonnage: 63900, capacity: 922, status: 'active' },
+        { name: 'Explora II', year: 2024, tonnage: 63900, capacity: 922, status: 'active' },
+        { name: 'Explora III', year: 2026, tonnage: 63900, capacity: 922, status: 'new-build' },
+        { name: 'Explora IV', year: 2027, tonnage: 63900, capacity: 922, status: 'ordered' },
+        { name: 'Explora V', year: 2028, tonnage: 63900, capacity: 922, status: 'ordered' },
+        { name: 'Explora VI', year: 2028, tonnage: 63900, capacity: 922, status: 'ordered' }
+      ],
+      keywords: ['Explora Journeys', 'Explora I', 'Explora II', 'MSC luxury'],
+      website: 'explorajourneys.com', priority: 1
+    },
+    'Seabourn': {
+      code: 'SBN', tier: 'ultra-luxury', parent: 'Carnival Corporation',
+      ships: [
+        { name: 'Seabourn Pursuit', year: 2023, tonnage: 23000, capacity: 264, status: 'expedition' },
+        { name: 'Seabourn Venture', year: 2022, tonnage: 23000, capacity: 264, status: 'expedition' },
+        { name: 'Seabourn Ovation', year: 2018, tonnage: 41000, capacity: 604, status: 'active' },
+        { name: 'Seabourn Encore', year: 2016, tonnage: 41000, capacity: 604, status: 'active' },
+        { name: 'Seabourn Quest', year: 2011, tonnage: 32000, capacity: 450, status: 'active' },
+        { name: 'Seabourn Sojourn', year: 2010, tonnage: 32000, capacity: 450, status: 'active' }
+      ],
+      keywords: ['Seabourn', 'Seabourn Pursuit', 'Seabourn expedition'],
+      website: 'seabourn.com', priority: 1
+    },
+    'The Ritz-Carlton Yacht Collection': {
+      code: 'RCYC', tier: 'ultra-luxury', parent: 'Marriott International',
+      ships: [
+        { name: 'Evrima', year: 2022, tonnage: 26500, capacity: 298, status: 'active' },
+        { name: 'Ilma', year: 2025, tonnage: 37000, capacity: 456, status: 'new-build' },
+        { name: 'Luminara', year: 2026, tonnage: 37000, capacity: 456, status: 'new-build' }
+      ],
+      keywords: ['Ritz-Carlton Yacht', 'Evrima', 'Ilma', 'Ritz Carlton cruise'],
+      website: 'rfritzcarltonyachtcollection.com', priority: 2
+    },
+    'Four Seasons Yachts': {
+      code: 'FSY', tier: 'ultra-luxury', parent: 'Four Seasons Hotels',
+      ships: [
+        { name: 'Four Seasons I', year: 2026, tonnage: 34000, capacity: 190, status: 'new-build' }
+      ],
+      keywords: ['Four Seasons Yacht', 'Four Seasons cruise', 'Four Seasons I'],
+      website: 'fourseasons.com/yachts', priority: 2
+    },
+    'Aman at Sea': {
+      code: 'AMAN', tier: 'ultra-luxury', parent: 'Aman Resorts',
+      ships: [
+        { name: 'Project Sama', year: 2027, tonnage: 22000, capacity: 100, status: 'ordered' }
+      ],
+      keywords: ['Aman yacht', 'Aman at Sea', 'Project Sama'],
+      website: 'aman.com', priority: 3
+    }
+  },
+  premium: {
+    'Oceania Cruises': {
+      code: 'OCI', tier: 'premium', parent: 'Norwegian Cruise Line Holdings',
+      ships: [
+        { name: 'Allura', year: 2025, tonnage: 67000, capacity: 1200, status: 'new-build' },
+        { name: 'Vista', year: 2023, tonnage: 67000, capacity: 1200, status: 'active' },
+        { name: 'Marina', year: 2011, tonnage: 66000, capacity: 1250, status: 'active' },
+        { name: 'Riviera', year: 2012, tonnage: 66000, capacity: 1250, status: 'active' },
+        { name: 'Regatta', year: 1998, tonnage: 30000, capacity: 684, status: 'active' },
+        { name: 'Insignia', year: 1998, tonnage: 30000, capacity: 684, status: 'active' },
+        { name: 'Nautica', year: 2000, tonnage: 30000, capacity: 684, status: 'active' },
+        { name: 'Sirena', year: 1999, tonnage: 30000, capacity: 684, status: 'active' }
+      ],
+      keywords: ['Oceania Cruises', 'Oceania Vista', 'Oceania Allura', 'finest cuisine at sea'],
+      website: 'oceaniacruises.com', priority: 1
+    },
+    'Viking Ocean': {
+      code: 'VIK', tier: 'premium', parent: 'Viking Holdings',
+      ships: [
+        { name: 'Viking Vela', year: 2024, tonnage: 54300, capacity: 998, status: 'active' },
+        { name: 'Viking Saturn', year: 2023, tonnage: 54300, capacity: 998, status: 'active' },
+        { name: 'Viking Neptune', year: 2022, tonnage: 47800, capacity: 930, status: 'active' },
+        { name: 'Viking Mars', year: 2022, tonnage: 47800, capacity: 930, status: 'active' },
+        { name: 'Viking Venus', year: 2021, tonnage: 47800, capacity: 930, status: 'active' },
+        { name: 'Viking Star', year: 2015, tonnage: 47800, capacity: 930, status: 'active' },
+        { name: 'Viking Sea', year: 2016, tonnage: 47800, capacity: 930, status: 'active' },
+        { name: 'Viking Sky', year: 2017, tonnage: 47800, capacity: 930, status: 'active' },
+        { name: 'Viking Sun', year: 2017, tonnage: 47800, capacity: 930, status: 'active' },
+        { name: 'Viking Orion', year: 2018, tonnage: 47800, capacity: 930, status: 'active' },
+        { name: 'Viking Jupiter', year: 2019, tonnage: 47800, capacity: 930, status: 'active' }
+      ],
+      keywords: ['Viking Ocean', 'Viking Cruises', 'Viking expedition'],
+      website: 'vikingcruises.com', priority: 1
+    },
+    'Cunard': {
+      code: 'CUN', tier: 'premium', parent: 'Carnival Corporation',
+      ships: [
+        { name: 'Queen Anne', year: 2024, tonnage: 113000, capacity: 2996, status: 'active' },
+        { name: 'Queen Mary 2', year: 2004, tonnage: 149000, capacity: 2691, status: 'active' },
+        { name: 'Queen Victoria', year: 2007, tonnage: 90000, capacity: 2014, status: 'active' },
+        { name: 'Queen Elizabeth', year: 2010, tonnage: 90000, capacity: 2081, status: 'active' }
+      ],
+      keywords: ['Cunard', 'Queen Mary 2', 'Queen Anne', 'transatlantic crossing'],
+      website: 'cunard.com', priority: 2
+    },
+    'Celebrity Cruises': {
+      code: 'CEL', tier: 'premium', parent: 'Royal Caribbean Group',
+      ships: [
+        { name: 'Celebrity Xcel', year: 2025, tonnage: 140600, capacity: 3260, status: 'new-build' },
+        { name: 'Celebrity Ascent', year: 2023, tonnage: 140600, capacity: 3260, status: 'active' },
+        { name: 'Celebrity Beyond', year: 2022, tonnage: 140600, capacity: 3260, status: 'active' },
+        { name: 'Celebrity Apex', year: 2020, tonnage: 129500, capacity: 2910, status: 'active' },
+        { name: 'Celebrity Edge', year: 2018, tonnage: 129500, capacity: 2910, status: 'active' },
+        { name: 'Celebrity Reflection', year: 2012, tonnage: 122000, capacity: 3030, status: 'active' },
+        { name: 'Celebrity Silhouette', year: 2011, tonnage: 122000, capacity: 2886, status: 'active' },
+        { name: 'Celebrity Eclipse', year: 2010, tonnage: 122000, capacity: 2852, status: 'active' },
+        { name: 'Celebrity Equinox', year: 2009, tonnage: 122000, capacity: 2852, status: 'active' },
+        { name: 'Celebrity Solstice', year: 2008, tonnage: 122000, capacity: 2852, status: 'active' },
+        { name: 'Celebrity Constellation', year: 2002, tonnage: 91000, capacity: 2170, status: 'active' },
+        { name: 'Celebrity Infinity', year: 2001, tonnage: 91000, capacity: 2170, status: 'active' },
+        { name: 'Celebrity Millennium', year: 2000, tonnage: 91000, capacity: 2138, status: 'active' },
+        { name: 'Celebrity Summit', year: 2001, tonnage: 91000, capacity: 2138, status: 'active' }
+      ],
+      keywords: ['Celebrity Cruises', 'Celebrity Edge', 'Celebrity Beyond'],
+      website: 'celebritycruises.com', priority: 2
+    },
+    'Holland America Line': {
+      code: 'HAL', tier: 'premium', parent: 'Carnival Corporation',
+      ships: [
+        { name: 'Rotterdam', year: 2021, tonnage: 99000, capacity: 2668, status: 'active' },
+        { name: 'Nieuw Statendam', year: 2018, tonnage: 99000, capacity: 2666, status: 'active' },
+        { name: 'Koningsdam', year: 2016, tonnage: 99000, capacity: 2650, status: 'active' },
+        { name: 'Nieuw Amsterdam', year: 2010, tonnage: 86000, capacity: 2106, status: 'active' },
+        { name: 'Eurodam', year: 2008, tonnage: 86000, capacity: 2104, status: 'active' },
+        { name: 'Westerdam', year: 2004, tonnage: 82000, capacity: 1916, status: 'active' },
+        { name: 'Oosterdam', year: 2003, tonnage: 82000, capacity: 1916, status: 'active' },
+        { name: 'Zuiderdam', year: 2002, tonnage: 82000, capacity: 1916, status: 'active' },
+        { name: 'Zaandam', year: 2000, tonnage: 63000, capacity: 1432, status: 'active' },
+        { name: 'Volendam', year: 1999, tonnage: 63000, capacity: 1432, status: 'active' }
+      ],
+      keywords: ['Holland America', 'Holland America Line', 'HAL cruises'],
+      website: 'hollandamerica.com', priority: 2
+    }
+  },
+  expedition: {
+    'Lindblad Expeditions': {
+      code: 'LBD', tier: 'expedition', parent: 'Lindblad Expeditions Holdings',
+      ships: [
+        { name: 'National Geographic Resolution', year: 2021, tonnage: 12700, capacity: 126, status: 'active' },
+        { name: 'National Geographic Endurance', year: 2020, tonnage: 12700, capacity: 126, status: 'active' },
+        { name: 'National Geographic Orion', year: 2003, tonnage: 4000, capacity: 102, status: 'active' },
+        { name: 'National Geographic Explorer', year: 1982, tonnage: 6500, capacity: 148, status: 'active' },
+        { name: 'National Geographic Quest', year: 2017, tonnage: 2400, capacity: 100, status: 'active' },
+        { name: 'National Geographic Venture', year: 2018, tonnage: 2400, capacity: 100, status: 'active' }
+      ],
+      keywords: ['Lindblad', 'National Geographic expedition', 'Lindblad expeditions'],
+      website: 'expeditions.com', priority: 2
+    },
+    'Hurtigruten Expeditions': {
+      code: 'HRT', tier: 'expedition', parent: 'Hurtigruten Group',
+      ships: [
+        { name: 'MS Roald Amundsen', year: 2019, tonnage: 20000, capacity: 530, status: 'active' },
+        { name: 'MS Fridtjof Nansen', year: 2020, tonnage: 20000, capacity: 530, status: 'active' },
+        { name: 'MS Fram', year: 2007, tonnage: 11647, capacity: 318, status: 'active' },
+        { name: 'MS Spitsbergen', year: 2009, tonnage: 7344, capacity: 335, status: 'active' },
+        { name: 'MS Santa Cruz II', year: 2002, tonnage: 4500, capacity: 90, status: 'active' }
+      ],
+      keywords: ['Hurtigruten', 'Hurtigruten expedition', 'Norway coastal'],
+      website: 'hurtigruten.com', priority: 3
+    },
+    'Ponant': {
+      code: 'PON', tier: 'expedition', parent: 'Artémis Group',
+      ships: [
+        { name: 'Le Commandant Charcot', year: 2021, tonnage: 31000, capacity: 270, status: 'active' },
+        { name: 'Le Bougainville', year: 2019, tonnage: 10000, capacity: 184, status: 'active' },
+        { name: 'Le Dumont-d\'Urville', year: 2019, tonnage: 10000, capacity: 184, status: 'active' },
+        { name: 'Le Bellot', year: 2020, tonnage: 10000, capacity: 184, status: 'active' },
+        { name: 'Le Jacques Cartier', year: 2020, tonnage: 10000, capacity: 184, status: 'active' },
+        { name: 'Le Champlain', year: 2018, tonnage: 10000, capacity: 184, status: 'active' },
+        { name: 'Le Lapérouse', year: 2018, tonnage: 10000, capacity: 184, status: 'active' },
+        { name: 'Le Lyrial', year: 2015, tonnage: 10700, capacity: 264, status: 'active' },
+        { name: 'Le Soléal', year: 2013, tonnage: 10700, capacity: 264, status: 'active' },
+        { name: 'Le Boréal', year: 2010, tonnage: 10700, capacity: 264, status: 'active' },
+        { name: 'L\'Austral', year: 2011, tonnage: 10700, capacity: 264, status: 'active' },
+        { name: 'Le Ponant', year: 1991, tonnage: 1443, capacity: 64, status: 'active' }
+      ],
+      keywords: ['Ponant', 'Le Commandant Charcot', 'French expedition'],
+      website: 'ponant.com', priority: 2
+    },
+    'Swan Hellenic': {
+      code: 'SWH', tier: 'expedition', parent: 'Swan Hellenic Ltd',
+      ships: [
+        { name: 'SH Diana', year: 2023, tonnage: 12100, capacity: 192, status: 'active' },
+        { name: 'SH Vega', year: 2022, tonnage: 10000, capacity: 152, status: 'active' },
+        { name: 'SH Minerva', year: 2021, tonnage: 10000, capacity: 152, status: 'active' }
+      ],
+      keywords: ['Swan Hellenic', 'SH Minerva', 'cultural expedition'],
+      website: 'swanhellenic.com', priority: 3
+    },
+    'Atlas Ocean Voyages': {
+      code: 'AOV', tier: 'expedition', parent: 'Mystic Invest Holding',
+      ships: [
+        { name: 'World Navigator', year: 2021, tonnage: 9500, capacity: 196, status: 'active' },
+        { name: 'World Traveller', year: 2022, tonnage: 9500, capacity: 196, status: 'active' },
+        { name: 'World Voyager', year: 2024, tonnage: 9930, capacity: 200, status: 'active' }
+      ],
+      keywords: ['Atlas Ocean Voyages', 'World Navigator', 'luxury expedition'],
+      website: 'atlasoceanvoyages.com', priority: 3
+    }
+  },
+  river: {
+    'Viking River': {
+      code: 'VIKR', tier: 'river-luxury', parent: 'Viking Holdings',
+      ships: [
+        { name: 'Viking Longships (75+ vessels)', year: 'Various', tonnage: 2700, capacity: 190, status: 'active' },
+        { name: 'Viking Mississippi', year: 2022, tonnage: null, capacity: 386, status: 'active' }
+      ],
+      keywords: ['Viking River', 'Viking river cruise', 'Viking Longship'],
+      website: 'vikingcruises.com', priority: 1
+    },
+    'AmaWaterways': {
+      code: 'AMA', tier: 'river-luxury', parent: 'AmaWaterways',
+      ships: [
+        { name: 'AmaMagna', year: 2019, tonnage: null, capacity: 196, status: 'active' },
+        { name: 'AmaDouro', year: 2019, tonnage: null, capacity: 102, status: 'active' },
+        { name: 'AmaLea', year: 2018, tonnage: null, capacity: 156, status: 'active' },
+        { name: 'AmaSiena', year: 2020, tonnage: null, capacity: 156, status: 'active' }
+      ],
+      keywords: ['AmaWaterways', 'AmaMagna', 'Ama river cruise'],
+      website: 'amawaterways.com', priority: 2
+    },
+    'Uniworld': {
+      code: 'UNI', tier: 'river-luxury', parent: 'Travel Corporation',
+      ships: [
+        { name: 'S.S. Sphinx', year: 2024, tonnage: null, capacity: 84, status: 'active' },
+        { name: 'S.S. Bon Voyage', year: 2019, tonnage: null, capacity: 124, status: 'active' },
+        { name: 'S.S. Beatrice', year: 2009, tonnage: null, capacity: 130, status: 'active' },
+        { name: 'S.S. Catherine', year: 2014, tonnage: null, capacity: 159, status: 'active' },
+        { name: 'S.S. Joie de Vivre', year: 2017, tonnage: null, capacity: 128, status: 'active' },
+        { name: 'S.S. Maria Theresa', year: 2015, tonnage: null, capacity: 150, status: 'active' }
+      ],
+      keywords: ['Uniworld', 'Uniworld boutique', 'SS Sphinx'],
+      website: 'uniworld.com', priority: 2
+    },
+    'Scenic Luxury Cruises': {
+      code: 'SCN', tier: 'river-luxury', parent: 'Scenic Group',
+      ships: [
+        { name: 'Scenic Eclipse', year: 2019, tonnage: 17085, capacity: 228, status: 'ocean' },
+        { name: 'Scenic Eclipse II', year: 2023, tonnage: 17085, capacity: 228, status: 'ocean' },
+        { name: 'Scenic Crystal', year: 2012, tonnage: null, capacity: 163, status: 'river' },
+        { name: 'Scenic Sapphire', year: 2008, tonnage: null, capacity: 163, status: 'river' },
+        { name: 'Scenic Amber', year: 2016, tonnage: null, capacity: 155, status: 'river' }
+      ],
+      keywords: ['Scenic Cruises', 'Scenic Eclipse', 'Scenic river'],
+      website: 'scenic.com', priority: 2
+    },
+    'Tauck River': {
+      code: 'TAU', tier: 'river-luxury', parent: 'Tauck Inc',
+      ships: [
+        { name: 'ms Andorinha', year: 2021, tonnage: null, capacity: 84, status: 'active' },
+        { name: 'ms Joy', year: 2016, tonnage: null, capacity: 130, status: 'active' },
+        { name: 'ms Grace', year: 2016, tonnage: null, capacity: 130, status: 'active' },
+        { name: 'ms Esprit', year: 2014, tonnage: null, capacity: 98, status: 'active' },
+        { name: 'ms Savor', year: 2014, tonnage: null, capacity: 130, status: 'active' },
+        { name: 'ms Inspire', year: 2014, tonnage: null, capacity: 130, status: 'active' }
+      ],
+      keywords: ['Tauck river', 'Tauck cruise', 'Tauck Danube'],
+      website: 'tauck.com', priority: 2
+    },
+    'Avalon Waterways': {
+      code: 'AVL', tier: 'river-premium', parent: 'Globus Family',
+      ships: [
+        { name: 'Avalon View', year: 2020, tonnage: null, capacity: 166, status: 'active' },
+        { name: 'Avalon Envision', year: 2019, tonnage: null, capacity: 166, status: 'active' },
+        { name: 'Avalon Imagery II', year: 2016, tonnage: null, capacity: 166, status: 'active' }
+      ],
+      keywords: ['Avalon Waterways', 'Avalon river', 'Suite Ships'],
+      website: 'avalonwaterways.com', priority: 3
+    }
+  }
+};
+
+const INTEL_SOURCES = {
+  trade: [
+    { name: 'Cruise Industry News', baseUrl: 'https://news.google.com/rss/search?q=site:cruiseindustrynews.com+', authority: 5, category: 'trade' },
+    { name: 'Seatrade Cruise News', baseUrl: 'https://news.google.com/rss/search?q=site:seatrade-cruise.com+', authority: 5, category: 'trade' },
+    { name: 'Travel Weekly Cruise', baseUrl: 'https://news.google.com/rss/search?q=site:travelweekly.com+cruise+', authority: 4, category: 'trade' },
+    { name: 'Travel Pulse', baseUrl: 'https://news.google.com/rss/search?q=site:travelpulse.com+cruise+', authority: 4, category: 'trade' },
+    { name: 'Cruise Critic News', baseUrl: 'https://news.google.com/rss/search?q=site:cruisecritic.com+news+', authority: 4, category: 'consumer' }
+  ],
+  general: { name: 'Google News', baseUrl: 'https://news.google.com/rss/search?q=', suffix: '&hl=en-US&gl=US&ceid=US:en', authority: 3 },
+  promoKeywords: [
+    'wave season', 'wave offer', 'onboard credit', 'OBC', 'reduced deposit', 'free airfare', 'air credit', 'upgrade offer',
+    'flash sale', 'limited time', 'bonus offer', 'complimentary', 'early booking', 'group rate', 'agent incentive', 'override',
+    'two-for-one', 'all inclusive', 'beverage package', 'shore excursion credit', 'prepaid gratuities', 'WiFi included', 'specialty dining'
+  ],
+  categories: {
+    NEW_BUILD: ['new ship', 'launch', 'maiden', 'christening', 'order', 'delivery', 'construction', 'inaugural'],
+    PROMOTION: ['sale', 'offer', 'discount', 'OBC', 'credit', 'deal', 'savings', 'bonus', 'complimentary'],
+    DEPLOYMENT: ['itinerary', 'destination', 'port', 'sailing', 'homeport', 'season', 'repositioning'],
+    EXECUTIVE: ['CEO', 'appointed', 'president', 'executive', 'leadership', 'board'],
+    REFURB: ['refurbishment', 'renovation', 'dry dock', 'upgrade', 'refresh', 'refit'],
+    INCIDENT: ['delay', 'cancel', 'incident', 'mechanical', 'issue', 'emergency'],
+    AWARD: ['award', 'best', 'top rated', 'winner', 'recognition'],
+    PARTNERSHIP: ['partnership', 'collaboration', 'alliance', 'agreement'],
+    FINANCIAL: ['earnings', 'revenue', 'profit', 'stock', 'investment', 'IPO']
+  }
+};
+
+const WORLD_INTEL_SOURCES = [
+  { name: 'The War Zone', rss: 'https://www.twz.com/feed' },
+  { name: 'RealClearPolitics', rss: 'https://www.realclearpolitics.com/index.xml' },
+  { name: 'Hoover Institution', rss: 'https://www.hoover.org/rss/all' },
+  { name: 'Fox News', rss: 'https://feeds.foxnews.com/foxnews/latest' },
+  { name: 'Hillsdale Imprimis', rss: 'https://imprimis.hillsdale.edu/feed/' },
+  { name: 'National Review', rss: 'https://www.nationalreview.com/feed/' },
+  { name: 'Reuters World', rss: 'https://news.google.com/rss/search?q=when:24h+allinurl:reuters.com/world' },
+  { name: 'AP World News', rss: 'https://news.google.com/rss/search?q=when:24h+source:Associated_Press' }
+];
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// 2. MASTER COMMAND HANDLER
+// ═══════════════════════════════════════════════════════════════════════════════/**
+/* TITAN INTEL COMMAND ENGINE
+ * Processes incoming directives and routes to specialized intelligence modules.
+ */
+function handleIntelCommand(command) {
+  const lower = command.toLowerCase().trim();
+  console.log(`📡 COMMAND RECEIVED: ${lower}`);
+
+  // 1. FULL SWEEPS & AUTOMATION
+  if (lower.match(/intel sweep|full sweep/)) return runFullIntelSweep();
+  if (lower.match(/morning brief|daily brief/)) return generateMorningBrief();
+  if (lower.match(/quick intel/)) return runQuickIntelCheck();
+
+  // 2. SHIP COMPARISON (On-Demand)
+  // Trigger: "Compare [Ship A] vs [Ship B]"
+  if (lower.match(/^compare\s+(.+)\s+vs\s+(.+)/i)) {
+    const parts = lower.match(/^compare\s+(.+)\s+vs\s+(.+)/i);
+    return generateShipComparison(parts[1].trim(), parts[2].trim());
+  }
+
+  // 3. SHIP ANALYSIS (Accesses Large Database)
+  // Trigger: "Ship Intel [Ship Name]"
+  if (lower.match(/^ship intel\s+(.+)/i)) {
+    const shipName = lower.replace('ship intel ', '').trim();
+    // Routes to the analysis engine in D2M_Ship_Compare.gs
+    return generateShipAnalysis(shipName);
+  }
+
+  // 4. CRUISE LINE & ENTITY RESEARCH
+  if (lower.match(/^line intel\s+(.+)/i)) return generateLineDossier(lower.replace('line intel ', ''));
+  if (lower.match(/research\s+(.+)/i)) return researchEntity(lower.replace('research ', ''));
+
+  // 5. MARKET & COMPETITIVE INTELLIGENCE
+  if (lower.match(/competitor|competitive/)) return generateCompetitorAnalysis();
+  if (lower.match(/promo|promotion/)) return scanPromotions();
+  if (lower.match(/new build|new ship/)) return trackNewBuilds();
+
+  // DEFAULT FALLBACK
+  return "❌ COMMAND REJECTED: Directive not recognized.";
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// 3. CORE SWEEPS & RADAR TASKS
+// ═══════════════════════════════════════════════════════════════════════════════
+function runFullIntelSweep() {
+  const startTime = new Date();
+  const ss = SpreadsheetApp.openById('1GFjUe8RvP-GT4YHGn0DYv_BEAZGXlYfwEicFrm8ANuU');
+  const intelSheet = getOrCreateSheet(ss, 'Intel_Log', ['Timestamp', 'Source', 'Line', 'Ship', 'Headline', 'Category', 'Priority', 'URL', 'Processed']);
+
+  let report = { timestamp: startTime, itemsFound: 0, highPriority: [], promotions: [], byCategory: {} };
+
+  Object.keys(CRUISE_INTEL_DB).forEach(tier => {
+    Object.keys(CRUISE_INTEL_DB[tier]).forEach(lineName => {
+      const config = CRUISE_INTEL_DB[tier][lineName];
+      if (config.priority > 2) return;
+
+      const items = sweepLineIntel(lineName, config); // Assumed defined externally or via searchNews loop
+      if (items && items.length > 0) {
+        items.forEach(item => {
+          if (logIntelItem(intelSheet, item)) {
+            report.itemsFound++;
+            if (item.priority === 'HIGH') report.highPriority.push(item);
+            if (item.category === 'PROMOTION') report.promotions.push(item);
+            if (!report.byCategory[item.category]) report.byCategory[item.category] = [];
+            report.byCategory[item.category].push(item);
+          }
+        });
+      }
+      Utilities.sleep(1000);
+    });
+  });
+
+  return formatSweepReport(report, (new Date() - startTime) / 1000);
+}
+function sweepLineIntel(lineName, config) {
+  const items = [];
+  const primaryQuery = config.keywords[0];
+  const newsItems = searchNews(primaryQuery, 8); // Uses the searchNews function
+
+  newsItems.forEach(news => {
+    const category = classifyHeadline(news.title);
+    const priority = calculatePriority(news, config, category);
+    items.push({
+      line: lineName,
+      ship: detectShipMention(news.title, config.ships),
+      headline: news.title,
+      source: news.source,
+      url: news.link,
+      pubDate: news.pubDate,
+      category: category,
+      priority: priority,
+      tier: config.tier
+    });
+  });
+  return items;
+}
+function runWorldEventsSweep() {
+  console.log("📡 A3-RADAR: Initiating Global Intel Sweep...");
+  let masterBrief = "";
+  let successCount = 0;
+
+  WORLD_INTEL_SOURCES.forEach(source => {
+    try {
+      console.log(`🔍 Pinging ${source.name}...`);
+      const response = UrlFetchApp.fetch(source.rss, { muteHttpExceptions: true, followRedirects: true });
+      const code = response.getResponseCode();
+
+      if (code !== 200) {
+        console.warn(`⚠️ ${source.name} returned Code ${code}. Skipping.`);
+        return;
+      }
+
+      const xml = response.getContentText();
+      if (!xml || xml.length < 100) return;
+
+      const document = XmlService.parse(xml);
+      const items = document.getRootElement().getChild('channel').getChildren('item').slice(0, 3);
+
+      if (items.length > 0) {
+        masterBrief += `🔹 **${source.name}**\n`;
+        items.forEach(item => {
+          masterBrief += `- ${item.getChildText('title')} (${item.getChildText('link')})\n`;
+        });
+        masterBrief += "\n";
+        successCount++;
+      }
+    } catch (e) {
+      console.error(`❌ CRITICAL FAILURE on ${source.name}: ${e.message}`);
+    }
+  });
+
+  console.log(`🏁 Sweep Complete. Successful sources: ${successCount}/${WORLD_INTEL_SOURCES.length}`);
+
+  if (masterBrief && typeof logDirective === 'function') {
+    logDirective('WORLD_EVENTS', masterBrief);
+  } else if (!masterBrief) {
+    console.error("🚨 COMMAND ALERT: Zero Intel Gathered. Check network/SSL.");
+  }
+
+  return masterBrief;
+}
+function generateShipReportsToDocs() {
+  console.log("📡 A12-NOVA: Initiating Deep Ship Scan...");
+
+  const ss = SpreadsheetApp.openById('1GFjUe8RvP-GT4YHGn0DYv_BEAZGXlYfwEicFrm8ANuU');
+  const sheet = ss.getSheetByName('Ship_Profiles');
+  if (!sheet) return console.error("❌ RADAR: 'Ship_Profiles' sheet not found.");
+
+  const data = sheet.getDataRange().getValues();
+  const headers = data.shift();
+  const ships = data.map(r => r.reduce((acc, v, i) => ({ ...acc, [headers[i]]: v }), {}));
+
+  if (!ships.length) return console.error("❌ RADAR: Ship_Profiles empty.");
+
+  const fleet = ships.sort(() => 0.5 - Math.random()).slice(0, 4);
+  const briefFolder = DriveApp.getFolderById(CONFIG.FOLDERS.INTEL_VAULT || '1MjjbqQVnzMYpHyAtNu-zZej-1mXhHkGk');
+
+  fleet.forEach(ship => {
+    try {
+      // FIX: Safely grab the ship name regardless of exact column header formatting
+      const targetName = ship['Ship_Name'] || ship['Ship Name'] || ship['Ship'] || ship['Name'] || "Unknown Ship";
+
+      console.log(`🔍 CLINICAL DIVE: ${targetName}...`);
+
+      const liveIntel = searchNews(`"${targetName}" cruise review OR refurbishment OR news`, 5);
+      const intelContext = liveIntel.map(n => `- ${n.title} (${n.source})`).join('\n');
+
+      const prompt = `ROLE: A6 (The Scribe).
+      MISSION: Generate a highly detailed, data-driven Clinical Intelligence Brief for the vessel: ${targetName}.
+
+      BASE DATA: ${JSON.stringify(ship)}
+      LIVE INTELLIGENCE INTERCEPTS:
+      ${intelContext ? intelContext : 'No recent intercepts. Rely on baseline data.'}
+
+      FORMAT: Clinical outline.
+      Section 1: Hardware Analysis (Mention specific tonnages, refits, or physical issues based on intel).
+      Section 2: Soft Product/Service (Analyze crew, dining, and service trends).
+      Section 3: Strategic Verdict (Buy/Sell/Hold with a strict justification).
+
+      VOICE: Clipped, military precision, analytical, zero fluff. Use Colonel John Loucks style. Do not use generic filler.`;
+
+      const reportContent = callGroqScribe(prompt);
+
+      const docName = `INTEL_BRIEF: ${targetName} (${new Date().toISOString().slice(0,10)})`;
+      const doc = DocumentApp.create(docName);
+      doc.getBody().appendParagraph(reportContent);
+      doc.saveAndClose();
+
+      DriveApp.getFileById(doc.getId()).moveTo(briefFolder);
+      console.log(`✅ Deep Dossier Secured: ${targetName}`);
+    } catch (e) {
+      console.error(`❌ RADAR FAILURE: ${e.message}`);
+    }
+  });
+
+  console.log("🏁 Cycle Complete. Fleet intelligence updated.");
+}
+// ═══════════════════════════════════════════════════════════════════════════════
+// 4. REPORTS, BRIEFS & DOSSIERS
+// ═══════════════════════════════════════════════════════════════════════════════
+/**
+ * THUNDERBIRD COMMAND - INTEL AGGREGATOR
+ * Generates the content for the morning briefing.
+ */
+function getMorningBrief() {
+  const date = new Date().toLocaleDateString();
+  let brief = `D2M CRUISE INTELLIGENCE BRIEF\n${date}\n\n`;
+  brief += `Good morning, Commander.\n\n`;
+
+  // 1. PRIORITY LINE NEWS
+  brief += `--- PRIORITY LINE UPDATES ---\n\n`;
+  const categories = ['REGENT SEVEN SEAS', 'SILVERSEA', 'EXPLORA JOURNEYS', 'OCEANIA'];
+
+  categories.forEach(cat => {
+    const items = getIntelForCategory(cat); // Fix: Defined below
+    if (items.length > 0) {
+      brief += `${cat}:\n`;
+      items.forEach(item => {
+        brief += `• ${item.headline} (${item.source})\n`;
+      });
+      brief += `\n`;
+    }
+  });
+
+  // 2. SYSTEM STATUS (From A1-TITAN)
+  brief += `--- COMMAND STATUS ---\n`;
+  brief += `Staff Units: 12 Units Active\n`;
+  brief += `Primary AI: Groq (Online)\n\n`;
+
+  brief += `END OF BRIEFING.`;
+  return brief;
+}
+/**
+ * HELPER: Missing data logic for TITAN_Intel_Command.gs
+ * Pulls recent items from the 'Intel_Log' sheet for a specific line.
+ */
+
+ function getIntelForCategory(category) {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const sheet = ss.getSheetByName("Intel_Log"); // Aligned with your CONFIG
+  if (!sheet) return [];
+
+  const data = sheet.getDataRange().getValues();
+  const results = [];
+  const lowerCat = category.toLowerCase();
+
+  // Filter for items from today or recent cycle
+  for (let i = data.length - 1; i > 0; i--) {
+    const row = data[i];
+    const headline = row[4]; // Column E: Headline
+    const lineMentioned = row[2]; // Column C: Line
+
+    if (lineMentioned.toLowerCase().includes(lowerCat) || headline.toLowerCase().includes(lowerCat)) {
+      results.push({
+        headline: headline,
+        source: row[1], // Column B: Source
+        url: row[7]     // Column H: URL
+      });
+    }
+    if (results.length >= 3) break; // Limit to top 3 per category
+  }
+  return results;
+}
+function runQuickIntelCheck() {
+  let report = `┌──────────────────────────────────────────────────────────────────┐\n│  ⚡ QUICK INTEL CHECK                                            │\n│  ${new Date().toLocaleString().padEnd(52)}│\n└──────────────────────────────────────────────────────────────────┘\n\n`;
+  const quickLines = [
+    { name: 'Regent Seven Seas', query: 'Regent Seven Seas' },
+    { name: 'Silversea', query: 'Silversea Cruises' },
+    { name: 'Explora Journeys', query: 'Explora Journeys' },
+    { name: 'Seabourn', query: 'Seabourn' },
+    { name: 'Viking Ocean', query: 'Viking Ocean' }
+  ];
+
+  for (const line of quickLines) {
+    const items = searchNews(line.query, 2);
+    report += `  📌 ${line.name.toUpperCase()}\n`;
+    if (items.length > 0) {
+      items.forEach(item => { report += `     • ${truncate(item.title, 55)}\n`; });
+    } else {
+      report += `     • No recent headlines\n`;
+    }
+    report += '\n';
+    Utilities.sleep(600);
+  }
+  return report;
+}
+
+function generateShipDossier(shipName) {
+  let shipData = null, parentLine = null, lineConfig = null;
+  for (const tier of Object.values(CRUISE_INTEL_DB)) {
+    for (const [lineName, config] of Object.entries(tier)) {
+      const found = config.ships.find(s => s.name.toLowerCase().includes(shipName.toLowerCase()) || shipName.toLowerCase().includes(s.name.toLowerCase()));
+      if (found) { shipData = found; parentLine = lineName; lineConfig = config; break; }
+    }
+    if (shipData) break;
+  }
+
+  let dossier = `╔══════════════════════════════════════════════════════════════════════════════╗\n║  🚢 SHIP INTELLIGENCE DOSSIER                                                ║\n╚══════════════════════════════════════════════════════════════════════════════╝\n\n`;
+  if (shipData) {
+    dossier += `┌──────────────────────────────────────────────────────────────────────────────┐\n│  ${shipData.name.toUpperCase().padEnd(74)}│\n└──────────────────────────────────────────────────────────────────────────────┘\n\n  VESSEL PROFILE\n  ─────────────────────────────────────────────────────────\n  Line:            ${parentLine}\n  Line Code:       ${lineConfig.code}\n  Tier:            ${lineConfig.tier.toUpperCase()}\n  Parent Company:  ${lineConfig.parent}\n  \n  SPECIFICATIONS\n  ─────────────────────────────────────────────────────────\n  Year Built:      ${shipData.year}\n  Gross Tonnage:   ${shipData.tonnage ? shipData.tonnage.toLocaleString() + ' GT' : 'N/A'}\n  Guest Capacity:  ${shipData.capacity}\n  Status:          ${formatStatus(shipData.status)}\n\n`;
+  } else {
+    dossier += `  Ship "${shipName}" not found in database.\n  Searching news sources...\n\n`;
+  }
+
+  const searchTerm = shipData ? `"${shipData.name}"` : `"${shipName}"`;
+  const shipNews = searchNews(searchTerm, 8);
+  dossier += `  RECENT INTELLIGENCE\n  ─────────────────────────────────────────────────────────\n`;
+
+  if (shipNews.length > 0) {
+    shipNews.forEach((news, i) => {
+      dossier += `\n  ${i + 1}. ${getCategoryIcon(classifyHeadline(news.title))} ${news.title}\n     └─ Source: ${news.source}\n     └─ ${news.pubDate}\n`;
+    });
+  } else {
+    dossier += `\n  No recent news found for this vessel.\n`;
+  }
+  return dossier;
+}
+
+function generateLineDossier(lineName) {
+  let lineConfig = null, foundLineName = null;
+  for (const tier of Object.values(CRUISE_INTEL_DB)) {
+    for (const [name, config] of Object.entries(tier)) {
+      if (name.toLowerCase().includes(lineName.toLowerCase()) || config.code.toLowerCase() === lineName.toLowerCase()) {
+        lineConfig = config; foundLineName = name; break;
+      }
+    }
+    if (lineConfig) break;
+  }
+
+  if (!lineConfig) return `Line "${lineName}" not found in database.`;
+
+  let dossier = `╔══════════════════════════════════════════════════════════════════════════════╗\n║  🏢 CRUISE LINE INTELLIGENCE DOSSIER                                         ║\n╚══════════════════════════════════════════════════════════════════════════════╝\n\n┌──────────────────────────────────────────────────────────────────────────────┐\n│  ${foundLineName.toUpperCase().padEnd(74)}│\n└──────────────────────────────────────────────────────────────────────────────┘\n\n  COMPANY PROFILE\n  ─────────────────────────────────────────────────────────\n  Code:            ${lineConfig.code}\n  Tier:            ${lineConfig.tier.toUpperCase()}\n  Parent Company:  ${lineConfig.parent}\n  Website:         ${lineConfig.website}\n  Priority Level:  ${'★'.repeat(4 - lineConfig.priority)}${'☆'.repeat(lineConfig.priority - 1)}\n\n  FLEET OVERVIEW\n  ─────────────────────────────────────────────────────────\n  Total Ships:     ${lineConfig.ships.length}\n  Active:          ${lineConfig.ships.filter(s => s.status === 'active').length}\n  New Builds:      ${lineConfig.ships.filter(s => s.status === 'new-build').length}\n  On Order:        ${lineConfig.ships.filter(s => s.status === 'ordered').length}\n\n  FLEET ROSTER\n  ─────────────────────────────────────────────────────────\n`;
+
+  lineConfig.ships.forEach(ship => {
+    const statusIcon = ship.status === 'active' ? '●' : ship.status === 'new-build' ? '◐' : ship.status === 'ordered' ? '○' : '◆';
+    dossier += `  ${statusIcon} ${ship.name.padEnd(35)} (${ship.year}) ${ship.capacity} pax\n`;
+  });
+
+  const lineNews = searchNews(lineConfig.keywords[0], 6);
+  dossier += `\n  RECENT INTELLIGENCE\n  ─────────────────────────────────────────────────────────\n`;
+  if (lineNews.length > 0) {
+    lineNews.forEach((news, i) => { dossier += `  ${i + 1}. ${getCategoryIcon(classifyHeadline(news.title))} ${truncate(news.title, 60)}\n`; });
+  } else {
+    dossier += `  No recent news found.\n`;
+  }
+  return dossier;
+}
+
+function generateCompetitorAnalysis() {
+  let report = `╔══════════════════════════════════════════════════════════════════════════════╗\n║  📊 COMPETITIVE INTELLIGENCE ANALYSIS                                        ║\n║  Ultra-Luxury & Premium Ocean Segment                                        ║\n╚══════════════════════════════════════════════════════════════════════════════╝\n\n┌──────────────────────────────────────────────────────────────────────────────┐\n│  ULTRA-LUXURY SEGMENT                                                        │\n└──────────────────────────────────────────────────────────────────────────────┘\n\n`;
+
+  for (const [name, config] of Object.entries(CRUISE_INTEL_DB.ultraLuxury)) {
+    const activeShips = config.ships.filter(s => s.status === 'active').length;
+    const newBuilds = config.ships.filter(s => s.status === 'new-build' || s.status === 'ordered').length;
+    const totalCapacity = config.ships.filter(s => s.status === 'active').reduce((sum, s) => sum + s.capacity, 0);
+    report += `  ${config.code.padEnd(6)} │ ${name.padEnd(30)} │ Ships: ${activeShips} (+${newBuilds}) │ Capacity: ${totalCapacity}\n`;
+  }
+
+  report += `\n┌──────────────────────────────────────────────────────────────────────────────┐\n│  PREMIUM SEGMENT                                                             │\n└──────────────────────────────────────────────────────────────────────────────┘\n\n`;
+  for (const [name, config] of Object.entries(CRUISE_INTEL_DB.premium)) {
+    const activeShips = config.ships.filter(s => s.status === 'active').length;
+    const newBuilds = config.ships.filter(s => s.status === 'new-build' || s.status === 'ordered').length;
+    report += `  ${config.code.padEnd(6)} │ ${name.padEnd(30)} │ Ships: ${activeShips} (+${newBuilds})\n`;
+  }
+
+  report += `\n┌──────────────────────────────────────────────────────────────────────────────┐\n│  NEW BUILD PIPELINE (2025-2028)                                              │\n└──────────────────────────────────────────────────────────────────────────────┘\n\n`;
+  const newBuilds = [];
+  for (const tier of Object.values(CRUISE_INTEL_DB)) {
+    for (const config of Object.values(tier)) {
+      config.ships.forEach(ship => {
+        if ((ship.status === 'new-build' || ship.status === 'ordered') && ship.year >= 2025) {
+          newBuilds.push({ ship: ship.name, line: config.code, year: ship.year, capacity: ship.capacity });
+        }
+      });
+    }
+  }
+
+  newBuilds.sort((a, b) => a.year - b.year);
+  let currentYear = null;
+  newBuilds.forEach(b => {
+    if (b.year !== currentYear) {
+      currentYear = b.year;
+      report += `\n  ── ${currentYear} ──────────────────────────────────────────\n`;
+    }
+    report += `  ${b.line.padEnd(6)} │ ${b.ship.padEnd(30)} │ ${b.capacity} pax\n`;
+  });
+  return report;
+}
+
+function scanPromotions() {
+  let report = `╔══════════════════════════════════════════════════════════════════════════════╗\n║  💰 PROMOTION INTELLIGENCE SCAN                                              ║\n║  ${new Date().toLocaleString().padEnd(72)}║\n╚══════════════════════════════════════════════════════════════════════════════╝\n\n`;
+  const promoQueries = [
+    { name: 'Wave Season Offers', query: 'cruise wave season 2025 OR 2026' },
+    { name: 'Onboard Credit Deals', query: 'cruise onboard credit OBC offer' },
+    { name: 'Luxury Cruise Promotions', query: 'luxury cruise promotion sale offer' },
+    { name: 'Free Air Promotions', query: 'cruise free airfare air credit' }
+  ];
+
+  for (const search of promoQueries) {
+    const results = searchNews(search.query, 4);
+    report += `┌─ ${search.name.toUpperCase()} ${'─'.repeat(60 - search.name.length)}┐\n`;
+    if (results.length > 0) {
+      results.forEach(r => { report += `│  💵 ${truncate(r.title, 68)}\n│     └─ ${r.source}\n`; });
+    } else {
+      report += `│  No current promotions detected\n`;
+    }
+    report += `└${'─'.repeat(76)}┘\n\n`;
+    Utilities.sleep(800);
+  }
+  return report;
+}
+
+function trackNewBuilds() {
+  let report = `╔══════════════════════════════════════════════════════════════════════════════╗\n║  🚢 NEW BUILD INTELLIGENCE TRACKER                                           ║\n║  Ships Under Construction & On Order                                         ║\n╚══════════════════════════════════════════════════════════════════════════════╝\n\n`;
+  const newBuilds = [];
+  for (const tier of Object.values(CRUISE_INTEL_DB)) {
+    for (const [lineName, config] of Object.entries(tier)) {
+      config.ships.forEach(ship => {
+        if (ship.status === 'new-build' || ship.status === 'ordered') {
+          newBuilds.push({ ...ship, line: lineName, code: config.code, tier: config.tier });
+        }
+      });
+    }
+  }
+
+  newBuilds.sort((a, b) => a.year - b.year);
+  const years = [...new Set(newBuilds.map(b => b.year))];
+
+  for (const year of years) {
+    report += `┌──────────────────────────────────────────────────────────────────────────────┐\n│  📅 ${year}                                                                       │\n└──────────────────────────────────────────────────────────────────────────────┘\n\n`;
+    newBuilds.filter(b => b.year === year).forEach(b => {
+      report += `  ${b.status === 'new-build' ? '🔨' : '📋'} ${b.name}\n     └─ ${b.line} (${b.code})\n     └─ Tier: ${b.tier.toUpperCase()} │ Capacity: ${b.capacity} │ Tonnage: ${b.tonnage ? b.tonnage.toLocaleString() + ' GT' : 'TBD'}\n\n`;
+    });
+  }
+  return report;
+}
+
+function researchEntity(entityName) {
+  const tradeNews = searchTradeNews(entityName, 5);
+  const generalNews = searchNews(entityName + ' cruise', 8);
+  const allNews = [...tradeNews];
+
+  generalNews.forEach(n => { if (!allNews.some(t => t.title === n.title)) allNews.push(n); });
+  if (allNews.length === 0) return `No recent intelligence found for "${entityName}".`;
+
+  let report = `╔══════════════════════════════════════════════════════════════════════════════╗\n║  🔍 RESEARCH REPORT: ${entityName.toUpperCase().padEnd(53)}║\n║  ${new Date().toLocaleString().padEnd(72)}║\n╚══════════════════════════════════════════════════════════════════════════════╝\n\n  ${allNews.length} items found from ${new Set(allNews.map(n => n.source)).size} sources.\n\n`;
+  allNews.slice(0, 12).forEach((item, i) => {
+    report += `  ${String(i + 1).padStart(2)}. ${getCategoryIcon(classifyHeadline(item.title))} ${item.title}\n      └─ ${item.source}${item.authority ? ` (Authority: ${item.authority}/5)` : ''}\n\n`;
+  });
+  return report;
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// 5. NEWS, PARSING & CLASSIFICATION HELPERS
+// ═══════════════════════════════════════════════════════════════════════════════
+function searchNews(query, max = 10) {
+  try {
+    const url = `https://news.google.com/rss/search?q=${encodeURIComponent(query)}&hl=en-US&gl=US&ceid=US:en`;
+    const res = UrlFetchApp.fetch(url, { muteHttpExceptions: true });
+    if (res.getResponseCode() !== 200) return [];
+    return parseRSSFeed(res.getContentText()).slice(0, max);
+  } catch (e) { return []; }
+}
+
+function searchTradeNews(query, maxResults = 5) {
+  const results = [];
+  for (const source of INTEL_SOURCES.trade.slice(0, 3)) {
+    try {
+      const url = `${source.baseUrl}${encodeURIComponent(query)}&hl=en-US&gl=US&ceid=US:en`;
+      const response = UrlFetchApp.fetch(url, { muteHttpExceptions: true });
+      if (response.getResponseCode() === 200) {
+        const parsed = parseRSSFeed(response.getContentText());
+        parsed.forEach(item => { item.source = source.name; item.authority = source.authority; });
+        results.push(...parsed.slice(0, 2));
+      }
+      Utilities.sleep(500);
+    } catch (e) { console.log(`Trade search error (${source.name}): ${e.message}`); }
+  }
+  return results.slice(0, maxResults);
+}
+
+function parseRSSFeed(xml) {
+  const results = [];
+  try {
+    const channel = XmlService.parse(xml).getRootElement().getChild('channel');
+    if (!channel) return results;
+
+    for (const item of channel.getChildren('item')) {
+      const title = item.getChildText('title') || '';
+      results.push({
+        title: cleanHeadline(title),
+        link: item.getChildText('link') || '',
+        pubDate: item.getChildText('pubDate') || '',
+        source: extractSource(title)
+      });
+    }
+  } catch (e) { console.log('RSS parse error: ' + e.message); }
+  return results;
+}
+
+function cleanHeadline(title) { return title.replace(/ - [^-]+$/, '').trim(); }
+function extractSource(title) { const match = title.match(/ - ([^-]+)$/); return match ? match[1].trim() : 'Unknown'; }
+
+function classifyHeadline(headline) {
+  const lower = headline.toLowerCase();
+  for (const [category, keywords] of Object.entries(INTEL_SOURCES.categories)) {
+    if (keywords.some(kw => lower.includes(kw))) return category;
+  }
+  return 'GENERAL';
+}
+
+function calculatePriority(newsItem, config, category) {
+  let score = 0;
+  if (config.tier === 'ultra-luxury') score += 3;
+  if (config.tier === 'premium') score += 2;
+  if (config.priority === 1) score += 2;
+  if (config.priority === 2) score += 1;
+  if (category === 'PROMOTION') score += 2;
+  if (category === 'NEW_BUILD' || category === 'INCIDENT') score += 3;
+  if (config.ships.some(s => (s.status === 'new-build' || s.status === 'ordered') && newsItem.title.toLowerCase().includes(s.name.toLowerCase()))) score += 2;
+  if (INTEL_SOURCES.promoKeywords.some(kw => newsItem.title.toLowerCase().includes(kw))) score += 2;
+
+  return score >= 6 ? 'HIGH' : score >= 3 ? 'MEDIUM' : 'LOW';
+}
+
+function detectShipMention(headline, ships) {
+  const lower = headline.toLowerCase();
+  for (const ship of ships) { if (lower.includes(ship.name.toLowerCase())) return ship.name; }
+  return null;
+}
+
+function getTimeGreeting() {
+  const hour = new Date().getHours();
+  if (hour < 12) return 'Good morning, Commander.';
+  if (hour < 17) return 'Good afternoon, Commander.';
+  return 'Good evening, Commander.';
+}
+
+function getCategoryIcon(category) {
+  const icons = { 'PROMOTION': '💰', 'NEW_BUILD': '🚢', 'DEPLOYMENT': '🗺️', 'EXECUTIVE': '👔', 'REFURB': '🔧', 'INCIDENT': '⚠️', 'AWARD': '🏆', 'PARTNERSHIP': '🤝', 'FINANCIAL': '📈', 'GENERAL': '○' };
+  return icons[category] || '○';
+}
+
+function formatStatus(status) {
+  const statusMap = { 'active': '✅ Active Service', 'new-build': '🔨 Under Construction', 'ordered': '📋 On Order', 'expedition': '🧊 Expedition Service', 'river': '🏞️ River Service', 'ocean': '🌊 Ocean Service' };
+  return statusMap[status] || status;
+}
+
+function truncate(str, length) {
+  if (!str) return '';
+  return str.length <= length ? str : str.substring(0, length - 3) + '...';
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// 6. LOGGING & TRIGGERS
+// ═══════════════════════════════════════════════════════════════════════════════
+function logIntelItem(sheet, item) {
+  const lastRow = sheet.getLastRow();
+  if (lastRow > 1) {
+    const checkRows = Math.min(100, lastRow - 1);
+    const existingHeadlines = sheet.getRange(lastRow - checkRows + 1, 5, checkRows, 1).getValues().flat();
+    if (existingHeadlines.includes(item.headline)) return false;
+  }
+  sheet.appendRow([new Date(), item.source, item.line, item.ship || '', item.headline, item.category, item.priority, item.url, false]);
+  return true;
+}
+
+function formatSweepReport(report, duration) {
+  let output = `╔══════════════════════════════════════════════════════════════════════════════╗\n║  🕵️ INTEL SWEEP COMPLETE                                                     ║\n╚══════════════════════════════════════════════════════════════════════════════╝\n\n  Timestamp:    ${report.timestamp.toLocaleString()}\n  Duration:     ${duration.toFixed(1)} seconds\n  Items Found:  ${report.itemsFound}\n\n`;
+
+  if (report.highPriority.length > 0) {
+    output += `┌──────────────────────────────────────────────────────────────────────────────┐\n│  🔴 HIGH PRIORITY ITEMS                                                      │\n└──────────────────────────────────────────────────────────────────────────────┘\n\n`;
+    report.highPriority.slice(0, 5).forEach(item => {
+      output += `  • ${truncate(item.headline, 70)}\n    └─ ${item.line}\n\n`;
+    });
+  }
+
+  output += `┌──────────────────────────────────────────────────────────────────────────────┐\n│  BY CATEGORY                                                                 │\n└──────────────────────────────────────────────────────────────────────────────┘\n\n`;
+  for (const [category, items] of Object.entries(report.byCategory || {})) {
+    output += `  ${getCategoryIcon(category)} ${category}: ${items.length} items\n`;
+  }
+  return output;
+}
+
+function getOrCreateSheet(ss, name, headers) {
+  let sheet = ss.getSheetByName(name);
+  if (!sheet) {
+    sheet = ss.insertSheet(name);
+    if (headers) {
+      sheet.appendRow(headers);
+      sheet.getRange(1, 1, 1, headers.length).setFontWeight('bold').setBackground('#4a86e8').setFontColor('white');
+      sheet.setFrozenRows(1);
+    }
+  }
+  return sheet;
+}
+// ═══════════════════════════════════════════════════════════════════════════════
+// SCHEDULED INTEL TRIGGERS (Run once from editor)
+// ═══════════════════════════════════════════════════════════════════════════════
+
+function setupIntelTriggers() {
+  // 1. Delete existing intel triggers to prevent duplicates
+  const triggers = ScriptApp.getProjectTriggers();
+  triggers.forEach(t => {
+    const funcName = t.getHandlerFunction();
+    if (funcName === 'sendMorningBrief' ||
+        funcName === 'runScheduledIntelSweep' ||
+        funcName === 'runWorldEventsSweep' ||
+        funcName === 'generateShipReportsToDocs') {
+      ScriptApp.deleteTrigger(t);
+    }
+  });
+
+  // 2. Morning brief at 6:30 AM
+  ScriptApp.newTrigger('sendMorningBrief')
+    .timeBased()
+    .atHour(6)
+    .nearMinute(30)
+    .everyDays(1)
+    .create();
+
+  // 3. Full Cruise Intel sweep at 7:00 AM and 5:00 PM
+  ScriptApp.newTrigger('runScheduledIntelSweep')
+    .timeBased()
+    .atHour(7)
+    .everyDays(1)
+    .create();
+
+  ScriptApp.newTrigger('runScheduledIntelSweep')
+    .timeBased()
+    .atHour(17)
+    .everyDays(1)
+    .create();
+
+  // 4. Global World Events Sweep at 5:00 AM (Runs before your morning brief)
+  ScriptApp.newTrigger('runWorldEventsSweep')
+    .timeBased()
+    .atHour(5)
+    .everyDays(1)
+    .create();
+
+  // 5. Deep-dive Ship Radar scans at 2:00 AM (Quiet hours)
+  ScriptApp.newTrigger('generateShipReportsToDocs')
+    .timeBased()
+    .atHour(2)
+    .everyDays(1)
+    .create();
+
+  console.log('✅ ALL Intel triggers configured successfully.');
+  SpreadsheetApp.getActiveSpreadsheet().toast("Intel Triggers Armed", "TITAN");
+
+  return '✅ Intel triggers configured: Brief (6:30 AM), Sweeps (7 AM/5 PM), World (5 AM), Ship Radar (2 AM)';
+}
+
+function sendMorningBrief() {
+  const brief = generateMorningBrief();
+  GmailApp.sendEmail(CONFIG.OWNER_EMAIL, '🌊 D2M Morning Intel Brief - ' + new Date().toLocaleDateString(), brief);
+}
+
+function runScheduledIntelSweep() {
+  const results = runFullIntelSweep();
+  if (results.includes('HIGH PRIORITY')) GmailApp.sendEmail(CONFIG.OWNER_EMAIL, '🕵️ TITAN Intel Sweep - Action Items', results);
+}
+// ============================================
+// EXTERNAL API & MEMORY BRIDGES
+// ============================================
+
+/**
+ * 🧠 MEMORY: UPSERT TO PINECONE
+ * Sends intelligence vectors to the cloud index.
+ */
+function upsertToPinecone(vectorId, values, metadata) {
+  const apiKey = PropertiesService.getScriptProperties().getProperty('PINECONE_API_KEY');
+  const url = "https://thunderbird-260220-7xttuu4.svc.aped-4627-b74a.pinecone.io/vectors/upsert";
+
+  const payload = {
+    vectors: [{ id: vectorId, values: values, metadata: metadata }]
+  };
+
+  const res = UrlFetchApp.fetch(url, {
+    method: "post",
+    headers: { "Api-Key": apiKey },
+    contentType: "application/json",
+    payload: JSON.stringify(payload)
+  });
+
+  return res.getContentText();
+}
+
+/**
+ * 🛰️ BRIDGE: GEMINI 2.0 FLASH
+ */
+function callGeminiFlash(prompt) {
+  const key = PropertiesService.getScriptProperties().getProperty('GEMINI_API_KEY');
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${key}`;
+  const payload = { contents: [{ parts: [{ text: prompt }] }] };
+  const res = UrlFetchApp.fetch(url, { method: "post", contentType: "application/json", payload: JSON.stringify(payload) });
+  return JSON.parse(res.getContentText()).candidates[0].content.parts[0].text;
+}
+
+/**
+ * 🎙️ BRIDGE: GROQ / LLAMA 3.3
+ */
+function callGroqScribe(prompt) {
+  const key = PropertiesService.getScriptProperties().getProperty('GROQ_API_KEY');
+  const url = "https://api.groq.com/openai/v1/chat/completions";
+  const payload = {
+    model: "llama-3.3-70b-versatile",
+    messages: [{ role: "user", content: prompt }],
+    "response_format": { "type": "json_object" }
+  };
+  const res = UrlFetchApp.fetch(url, {
+    method: "post",
+    headers: { "Authorization": "Bearer " + key },
+    contentType: "application/json",
+    payload: JSON.stringify(payload)
+  });
+  return JSON.parse(res.getContentText()).choices[0].message.content;
+}
+
+/**
+ * 🚀 A12-PHOENIX: PINECONE CONNECTION TEST
+ * Run this to verify the link between TITAN and your Pinecone Memory.
+ */
+function testPineconeConnection() {
+  console.log("🚀 A12-PHOENIX: Initiating Pinecone Link Test...");
+
+  // 1. Create dummy data (1536 is the standard dimension for high-end AI models)
+  const testId = "test-vector-" + new Date().getTime();
+  const testValues = Array(1536).fill(0.1);
+  const testMetadata = {
+    "type": "test",
+    "status": "active",
+    "commander": "Loucks",
+    "timestamp": new Date().toISOString()
+  };
+
+  try {
+    // 2. Attempt the handshake
+    const result = upsertToPinecone(testId, testValues, testMetadata);
+    console.log("✅ PHOENIX LINK ESTABLISHED: " + result);
+    if (typeof SpreadsheetApp !== 'undefined') {
+      SpreadsheetApp.getActiveSpreadsheet().toast("Pinecone Memory Online", "TITAN System");
+    }
+  } catch (e) {
+    console.error("❌ PHOENIX LINK FAILURE: " + e.message);
+    if (e.message.includes("401")) console.log("💡 TIP: Check your PINECONE_API_KEY in Script Properties.");
+    if (e.message.includes("404")) console.log("💡 TIP: Check your Host URL in the code.");
+  }
+}
+/**
+ * 📊 TITAN INTEL: SHEET UPDATER
+ * Manually pushes gathered intelligence into the command center spreadsheet.
+ */
+function updateTitanIntelSheet() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  let sheet = ss.getSheetByName("TITAN_Intel");
+
+  // 1. Create the sheet if it doesn't exist
+  if (!sheet) {
+    sheet = ss.insertSheet("TITAN_Intel");
+    sheet.appendRow(["SHIP NAME", "INTEL CATEGORY", "SPECIFIC DETAIL", "TIMELINE/DATES"]);
+    sheet.getRange("A1:D1").setFontWeight("bold").setBackground("#d1e0ec");
+  }
+
+  // 2. Data to be injected (Regent Seven Seas Intelligence)
+  const intelData = [
+    ["Seven Seas Prestige", "Inaugural Season", "Barcelona to Miami Maiden Voyage", "Dec 13, 2026"],
+    ["Seven Seas Prestige", "Hardware Upgrade", "Skyview Regent Suite (9,000 sq. ft. / 2-story)", "2026 Launch"],
+    ["Seven Seas Prestige", "Hardware Upgrade", "Azure Specialty Dining (Mediterranean)", "2026 Launch"],
+    ["Seven Seas Grandeur", "2026-2027 Season", "Canada & New England Fall Foliage Cruises", "Fall 2026"],
+    ["Seven Seas Grandeur", "Hardware Upgrade", "Compass Rose Crystal Forest Entryway", "Current"],
+    ["Seven Seas Grandeur", "Hardware Upgrade", "Reimagined Deluxe Veranda Suite Layouts", "Current"]
+  ];
+
+  // 3. Append the data
+  intelData.forEach(row => sheet.appendRow(row));
+
+  // 4. Confirmation
+  ss.toast("Intelligence uploaded to TITAN_Intel sheet.", "TITAN System");
+  console.log("✅ INTEL SYNC COMPLETE: " + intelData.length + " entries added.");
+}

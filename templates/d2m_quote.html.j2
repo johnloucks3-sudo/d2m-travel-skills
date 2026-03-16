@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ client_name }} — {{ quote_type|title }} Options | Dreams2Memories Travel</title>
+    <style>
+        :root {
+            --navy: #0d1b2e;
+            --navy2: #152540;
+            --navy3: #1e3358;
+            --gold: #c9a84c;
+            --gold-light: #e8c97a;
+            --gold-pale: #f5e9c8;
+            --muted: #8a9ab5;
+            --white: #ffffff;
+            --light-bg: #f4f6f9;
+            --green: #4CAF50;
+            --red: #c0392b;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.5; color: var(--navy); background: var(--light-bg); }
+        .container { max-width: 900px; margin: 0 auto; background: var(--white); box-shadow: 0 0 30px rgba(0,0,0,0.08); }
+
+        /* ── COVER ── */
+        .cover { background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%); color: var(--white); padding: 60px 50px; text-align: center; border-bottom: 4px solid var(--gold); }
+        .cover .logo { max-height: 60px; margin-bottom: 12px; }
+        .cover h1 { font-size: 2.2em; font-weight: 300; margin-bottom: 8px; }
+        .cover .headline { font-size: 1.6em; color: var(--gold-light); margin: 15px 0; font-weight: 600; }
+        .cover .meta-strip { margin-top: 20px; font-size: 0.95em; color: var(--muted); border-top: 1px solid rgba(255,255,255,0.15); padding-top: 15px; }
+        .cover .meta-strip span { display: inline-block; margin: 0 15px; }
+
+        /* ── SECTION HEADERS ── */
+        .section-title { font-size: 1.4em; color: var(--navy); padding: 30px 40px 15px; border-bottom: 2px solid var(--gold); margin: 0 40px; }
+
+        /* ── OPTION CARDS (shared) ── */
+        .options { padding: 30px 40px; }
+        .option-card { border: 1px solid #e2e6ed; border-radius: 8px; margin-bottom: 25px; overflow: hidden; page-break-inside: avoid; }
+        .option-card-header { background: var(--navy3); color: var(--white); padding: 15px 25px; display: flex; justify-content: space-between; align-items: center; }
+        .option-card-header .option-num { font-size: 1.3em; font-weight: 600; }
+        .option-card-header .option-label { color: var(--gold-light); font-size: 1.05em; }
+        .badge { display: inline-block; background: var(--gold); color: var(--navy); font-size: 0.75em; font-weight: 700; padding: 3px 10px; border-radius: 12px; margin-left: 10px; text-transform: uppercase; }
+        .badge-green { background: var(--green); color: var(--white); }
+
+        .option-card-body { padding: 25px; }
+
+        /* ── FLIGHT-SPECIFIC ── */
+        .leg { margin-bottom: 20px; }
+        .leg:last-child { margin-bottom: 0; }
+        .leg-label { font-size: 0.8em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 8px; letter-spacing: 0.5px; }
+        .segment-row { display: flex; align-items: center; gap: 20px; padding: 8px 0; }
+        .seg-time { font-size: 1.2em; font-weight: 600; min-width: 55px; }
+        .seg-airport { font-size: 0.9em; color: var(--muted); min-width: 40px; }
+        .seg-arrow { flex: 1; text-align: center; border-top: 2px dashed #d0d5dd; position: relative; margin: 0 10px; min-width: 80px; }
+        .seg-arrow .duration { position: absolute; top: -20px; left: 50%; transform: translateX(-50%); font-size: 0.75em; color: var(--muted); background: var(--white); padding: 0 8px; white-space: nowrap; }
+        .seg-arrow .stops-info { position: absolute; bottom: -18px; left: 50%; transform: translateX(-50%); font-size: 0.7em; color: var(--gold); font-weight: 600; white-space: nowrap; }
+        .seg-flight-num { font-size: 0.85em; color: var(--muted); }
+
+        /* ── HOTEL-SPECIFIC ── */
+        .hotel-details { display: flex; gap: 20px; }
+        .hotel-details .info { flex: 1; }
+        .hotel-details .info-row { font-size: 0.9em; margin-bottom: 6px; }
+        .hotel-details .info-label { color: var(--muted); font-size: 0.8em; text-transform: uppercase; font-weight: 600; }
+        .hotel-zone { font-size: 0.85em; color: var(--muted); font-style: italic; }
+        .cancel-ok { color: var(--green); font-weight: 600; }
+        .cancel-no { color: var(--red); font-weight: 600; }
+        .cancel-tbd { color: var(--muted); }
+
+        /* ── TOUR-SPECIFIC ── */
+        .tour-meta { font-size: 0.85em; color: var(--muted); margin-bottom: 8px; }
+        .tour-description { font-size: 0.9em; color: #555; margin-top: 10px; line-height: 1.6; }
+        .tour-rating { color: var(--gold); font-weight: 600; }
+        .tour-photo { width: 100%; height: 180px; object-fit: cover; }
+        .savings { font-size: 0.8em; margin-top: 5px; }
+        .savings .old-price { text-decoration: line-through; color: var(--muted); }
+        .savings .save-amount { color: var(--green); font-weight: 600; margin-left: 8px; }
+
+        /* ── CRUISE-SPECIFIC ── */
+        .cruise-itinerary { font-size: 0.85em; color: #555; margin-top: 10px; }
+        .cruise-itinerary .port-list { color: var(--muted); font-style: italic; }
+        .cruise-dates { font-size: 0.9em; margin-bottom: 6px; }
+
+        /* ── PRICE BOX (all types) ── */
+        .price-section { background: var(--light-bg); border-top: 1px solid #e2e6ed; padding: 20px 25px; display: flex; justify-content: space-between; align-items: center; }
+        .price-left { }
+        .price-detail-label { font-size: 0.85em; color: var(--gold); font-weight: 600; text-transform: uppercase; }
+        .price-detail-sub { font-size: 0.8em; color: var(--red); font-weight: 600; }
+        .price-client { font-size: 1.5em; font-weight: 700; color: var(--navy); }
+        .price-per { font-size: 0.85em; color: var(--muted); }
+
+        /* ── COMPARISON TABLE ── */
+        .comparison { padding: 30px 40px 40px; }
+        .comp-table { width: 100%; border-collapse: collapse; font-size: 0.9em; }
+        .comp-table th { background: var(--navy); color: var(--white); padding: 12px 15px; text-align: left; font-weight: 600; font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.3px; }
+        .comp-table td { padding: 12px 15px; border-bottom: 1px solid #e9ecef; }
+        .comp-table tr:nth-child(even) { background: var(--light-bg); }
+        .comp-table .pick-row { background: var(--gold-pale) !important; border-left: 4px solid var(--gold); }
+        .comp-table .price-col { font-weight: 700; color: var(--navy); }
+
+        /* ── RECOMMENDATION ── */
+        .recommendation { margin: 0 40px 30px; padding: 25px; background: linear-gradient(135deg, var(--navy) 0%, var(--navy3) 100%); color: var(--white); border-radius: 8px; border-left: 5px solid var(--gold); }
+        .recommendation h3 { color: var(--gold-light); margin-bottom: 10px; font-size: 1.1em; }
+        .recommendation p { font-size: 0.95em; line-height: 1.6; }
+
+        /* ── NOTES ── */
+        .notes { padding: 20px 40px 30px; font-size: 0.85em; color: #7f8c8d; }
+
+        /* ── FOOTER ── */
+        .footer { background: var(--navy); color: var(--white); padding: 40px 50px; text-align: center; border-top: 4px solid var(--gold); }
+        .footer h3 { color: var(--gold-light); margin-bottom: 10px; }
+        .footer a { color: var(--gold); text-decoration: none; }
+        .footer .contact { font-size: 0.95em; color: var(--muted); margin-top: 5px; }
+        .footer .headshot { width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--gold); object-fit: cover; margin-bottom: 10px; }
+        .footer .slogan { color: var(--gold); font-size: 0.9em; font-style: italic; margin-top: 10px; }
+
+        /* ── PRINT ── */
+        @media print {
+            body { background: white; }
+            .container { box-shadow: none; max-width: 100%; }
+            .option-card { break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        {# ════════════════════════════════════════════ COVER ════════════════════════════════════════════ #}
+        <div class="cover">
+            {% if logo_uri %}<img src="{{ logo_uri }}" class="logo" alt="D2M Travel">{% endif %}
+
+            {% if quote_type == 'flight' %}
+                <h1>Flight Options for {{ client_name }}</h1>
+                <div class="headline">{{ origin_city }} &#x2708; {{ destination_city }}</div>
+            {% elif quote_type == 'hotel' %}
+                <h1>Hotel Options for {{ client_name }}</h1>
+                <div class="headline">{{ destination }}</div>
+            {% elif quote_type == 'tour' %}
+                <h1>Tours & Activities</h1>
+                <div class="headline">{{ destination }}</div>
+            {% elif quote_type == 'cruise' %}
+                <h1>Cruise Options for {{ client_name }}</h1>
+                <div class="headline">{{ cruise_line }}{% if itinerary_name %} — {{ itinerary_name }}{% endif %}</div>
+            {% endif %}
+
+            <div class="meta-strip">
+                {% if quote_type == 'flight' %}
+                    <span>{{ departure_date }}</span>
+                    {% if return_date %}<span>Return: {{ return_date }}</span>{% endif %}
+                {% elif quote_type == 'hotel' %}
+                    <span>{{ check_in }} — {{ check_out }}</span>
+                    {% if nights %}<span>{{ nights }} night{{ 's' if nights != 1 else '' }}</span>{% endif %}
+                {% elif quote_type == 'tour' %}
+                    <span>{{ travel_dates }}</span>
+                {% elif quote_type == 'cruise' %}
+                    <span>{{ sailing_dates }}</span>
+                    {% if nights %}<span>{{ nights }} nights</span>{% endif %}
+                {% endif %}
+                <span>{{ travelers }} traveler{{ 's' if travelers != '1' else '' }}</span>
+                {% if quote_type == 'tour' %}
+                    <span>Prepared for <strong>{{ client_name }}</strong></span>
+                {% endif %}
+                <span>Prepared {{ prepared_date }}</span>
+            </div>
+        </div>
+
+        {# ════════════════════════════════════════════ OPTION CARDS ════════════════════════════════════════════ #}
+        <h2 class="section-title">Your Options</h2>
+        <div class="options">
+
+            {% for item in options %}
+            <div class="option-card">
+                {# ── Card header ── #}
+                <div class="option-card-header">
+                    <div>
+                        <span class="option-num">Option {{ item.option }}</span>
+                        {% for badge in item.badges|default([]) %}<span class="badge">{{ badge }}</span>{% endfor %}
+                    </div>
+                    <span class="option-label">
+                        {% if quote_type == 'flight' %}{{ item.airline }}
+                        {% elif quote_type == 'hotel' %}{{ item.category|default('') }}
+                        {% elif quote_type == 'tour' %}{{ item.source|default('')|title }}
+                        {% elif quote_type == 'cruise' %}{{ item.ship|default('') }}
+                        {% endif %}
+                    </span>
+                </div>
+
+                {# ── Tour photo (if available) ── #}
+                {% if quote_type == 'tour' and item.pictures|default([])|length > 0 and item.pictures[0] %}
+                    <img src="{{ item.pictures[0] }}" class="tour-photo" alt="{{ item.name|default('') }}">
+                {% endif %}
+
+                {# ── Card body ── #}
+                <div class="option-card-body">
+
+                    {# ── FLIGHT body ── #}
+                    {% if quote_type == 'flight' %}
+                        {% for leg in item.legs|default([]) %}
+                        <div class="leg">
+                            <div class="leg-label">{{ leg.label }}</div>
+                            {% for seg in leg.segments|default([]) %}
+                            <div class="segment-row">
+                                <span class="seg-time">{{ seg.dep_time }}</span>
+                                <span class="seg-airport">{{ seg.dep_airport }}</span>
+                                <div class="seg-arrow">
+                                    <span class="duration">{{ seg.duration }}</span>
+                                    {% if seg.stops|default(0) > 0 %}<span class="stops-info">{{ seg.stops }} stop{{ 's' if seg.stops > 1 else '' }}</span>{% else %}<span class="stops-info">Nonstop</span>{% endif %}
+                                </div>
+                                <span class="seg-airport">{{ seg.arr_airport }}</span>
+                                <span class="seg-time">{{ seg.arr_time }}</span>
+                                <span class="seg-flight-num">{{ seg.flight_num }}</span>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% endfor %}
+
+                    {# ── HOTEL body ── #}
+                    {% elif quote_type == 'hotel' %}
+                        <div class="hotel-details">
+                            <div class="info">
+                                <h3 style="margin: 0 0 10px; font-size: 1.15em;">{{ item.name }}</h3>
+                                {% if item.zone %}<div class="hotel-zone">{{ item.zone }}</div>{% endif %}
+                                <div class="info-row"><span class="info-label">Room:</span> {{ item.room|default('Standard') }}</div>
+                                <div class="info-row"><span class="info-label">Board:</span> {{ item.board|default('Room Only') }}</div>
+                                {% if item.cancellation %}
+                                    <div class="info-row"><span class="info-label">Cancellation:</span>
+                                        {% if 'free' in item.cancellation|lower or 'refund' in item.cancellation|lower %}
+                                            <span class="cancel-ok">{{ item.cancellation }}</span>
+                                        {% elif 'non' in item.cancellation|lower %}
+                                            <span class="cancel-no">{{ item.cancellation }}</span>
+                                        {% else %}
+                                            <span class="cancel-tbd">{{ item.cancellation }}</span>
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                    {# ── TOUR body ── #}
+                    {% elif quote_type == 'tour' %}
+                        <h3 style="margin: 0 0 8px; font-size: 1.1em;">{{ item.name }}</h3>
+                        <div class="tour-meta">
+                            {{ item.type|default('Activity') }} · {{ item.duration|default('N/A') }}
+                            {% if item.rating %}<span class="tour-rating" style="margin-left: 10px;">★ {{ item.rating }}</span>{% endif %}
+                        </div>
+                        {% if item.short_description %}
+                            <div class="tour-description">{{ item.short_description }}</div>
+                        {% endif %}
+
+                    {# ── CRUISE body ── #}
+                    {% elif quote_type == 'cruise' %}
+                        <h3 style="margin: 0 0 8px; font-size: 1.1em;">{{ item.ship }}</h3>
+                        <div class="cruise-dates">{{ item.embark_date|default('') }} — {{ item.disembark_date|default('') }}</div>
+                        <div class="info-row"><span class="info-label">Stateroom:</span> {{ item.stateroom_category|default('') }} {% if item.stateroom_number %}({{ item.stateroom_number }}){% endif %}</div>
+                        {% if item.deck %}<div class="info-row"><span class="info-label">Deck:</span> {{ item.deck }}</div>{% endif %}
+                        {% if item.embark_port %}<div class="info-row"><span class="info-label">Embark:</span> {{ item.embark_port }}</div>{% endif %}
+                        {% if item.disembark_port %}<div class="info-row"><span class="info-label">Disembark:</span> {{ item.disembark_port }}</div>{% endif %}
+                        {% if item.ports %}
+                            <div class="cruise-itinerary">
+                                <span class="info-label">Ports of Call:</span>
+                                <span class="port-list">{{ item.ports|join(' · ') }}</span>
+                            </div>
+                        {% endif %}
+                        {% if item.inclusions %}
+                            <div style="margin-top: 10px; font-size: 0.85em; color: var(--muted);">
+                                <span class="info-label">Includes:</span> {{ item.inclusions }}
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                </div>
+
+                {# ── Price box ── #}
+                <div class="price-section">
+                    <div class="price-left">
+                        {% if quote_type == 'flight' %}
+                            <div class="price-detail-label">{{ item.cabin }}</div>
+                            {% if item.seats_remaining %}<div class="price-detail-sub">{{ item.seats_remaining }} seat{{ 's' if item.seats_remaining != 1 else '' }} left</div>{% endif %}
+                        {% elif quote_type == 'hotel' %}
+                            <div class="price-detail-label">{{ item.per_night_client|default('') }} / night</div>
+                        {% elif quote_type == 'tour' %}
+                            {% if item.consumer_price and item.savings %}
+                                <div class="savings">
+                                    <span class="old-price">Consumer: {{ item.consumer_price }}</span>
+                                    <span class="save-amount">Save {{ item.savings }}</span>
+                                </div>
+                            {% endif %}
+                        {% elif quote_type == 'cruise' %}
+                            <div class="price-detail-label">{{ item.stateroom_category|default('') }}</div>
+                            {% if item.deposit %}<div style="font-size: 0.8em; color: var(--muted);">Deposit: {{ item.deposit }}</div>{% endif %}
+                        {% endif %}
+                    </div>
+                    <div style="text-align: right;">
+                        <div class="price-client">{{ item.client_price|default(item.client_total|default('')) }}</div>
+                        <div class="price-per">
+                            {% if quote_type == 'hotel' %}total ({{ nights }} night{{ 's' if nights != 1 else '' }})
+                            {% elif quote_type == 'cruise' %}per person
+                            {% else %}per person
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        {# ════════════════════════════════════════════ COMPARISON TABLE ════════════════════════════════════════════ #}
+        {% if comparison %}
+        <h2 class="section-title">Side-by-Side Comparison</h2>
+        <div class="comparison">
+            <table class="comp-table">
+                <thead>
+                    <tr>
+                        <th>Option</th>
+                        {% if quote_type == 'flight' %}
+                            <th>Airline</th><th>Departure</th><th>Arrival</th><th>Duration</th><th>Stops</th><th>Cabin</th>
+                        {% elif quote_type == 'hotel' %}
+                            <th>Hotel</th><th>Rating</th><th>Room / Board</th><th>Per Night</th><th>Cancellation</th>
+                        {% elif quote_type == 'tour' %}
+                            <th>Tour/Activity</th><th>Source</th><th>Duration</th><th>Rating</th>
+                        {% elif quote_type == 'cruise' %}
+                            <th>Ship</th><th>Stateroom</th><th>Dates</th><th>Nights</th><th>Inclusions</th>
+                        {% endif %}
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in comparison %}
+                    <tr{% if row.is_pick %} class="pick-row"{% endif %}>
+                        <td>{{ row.option }}{% if row.is_pick %} <span class="badge">PICK</span>{% endif %}</td>
+
+                        {% if quote_type == 'flight' %}
+                            <td>{{ row.airline }}</td>
+                            <td>{{ row.departure }}</td>
+                            <td>{{ row.arrival }}</td>
+                            <td>{{ row.duration }}</td>
+                            <td>{{ row.stops }}</td>
+                            <td>{{ row.cabin }}</td>
+                        {% elif quote_type == 'hotel' %}
+                            <td>{{ row.name }}</td>
+                            <td>{{ row.category }}</td>
+                            <td>{{ row.room|default('') }}{% if row.board %}<br><span style="font-size:0.8em;color:var(--muted);">{{ row.board }}</span>{% endif %}</td>
+                            <td>{{ row.per_night_client|default('') }}</td>
+                            <td style="font-size:0.85em;">{{ row.cancellation|default('') }}</td>
+                        {% elif quote_type == 'tour' %}
+                            <td>{{ row.name }}</td>
+                            <td>{{ row.source|default('') }}</td>
+                            <td>{{ row.duration|default('') }}</td>
+                            <td>{% if row.rating and row.rating != 'N/A' %}★ {{ row.rating }}{% endif %}</td>
+                        {% elif quote_type == 'cruise' %}
+                            <td>{{ row.ship }}</td>
+                            <td>{{ row.stateroom_category|default('') }}</td>
+                            <td>{{ row.dates|default('') }}</td>
+                            <td>{{ row.nights|default('') }}</td>
+                            <td style="font-size:0.8em;">{{ row.inclusions|default('') }}</td>
+                        {% endif %}
+
+                        <td class="price-col">{{ row.client_price|default(row.client_total|default('')) }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+
+        {# ════════════════════════════════════════════ RECOMMENDATION ════════════════════════════════════════════ #}
+        {% if recommendation %}
+        <div class="recommendation">
+            <h3>Our Recommendation</h3>
+            <p>{{ recommendation }}</p>
+        </div>
+        {% endif %}
+
+        {# ════════════════════════════════════════════ NOTES ════════════════════════════════════════════ #}
+        {% if notes %}
+        <div class="notes">
+            <p><strong>Important:</strong> {{ notes }}</p>
+        </div>
+        {% endif %}
+
+        {# ════════════════════════════════════════════ FOOTER ════════════════════════════════════════════ #}
+        <div class="footer">
+            {% if headshot_uri %}<img src="{{ headshot_uri }}" class="headshot" alt="John Loucks">{% endif %}
+            <h3>Ready to Book?</h3>
+            <p><strong>Dreams2Memories Travel, LLC</strong></p>
+            <p class="contact"><a href="mailto:johnloucks3@gmail.com">johnloucks3@gmail.com</a> | (719) 291-0742</p>
+            {% if slogan %}<p class="slogan">{{ slogan }}</p>{% endif %}
+        </div>
+
+    </div>
+</body>
+</html>

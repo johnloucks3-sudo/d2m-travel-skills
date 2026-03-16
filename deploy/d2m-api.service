@@ -1,0 +1,17 @@
+[Unit]
+Description=Dreams2Memories Thunderbird REST API
+After=network.target
+
+[Service]
+Type=simple
+User=john
+WorkingDirectory=/home/john/Thunderbird
+ExecStart=/usr/bin/python3.13 /home/john/Thunderbird/thunderbird_api.py --port=8766
+Restart=always
+RestartSec=10
+Environment=PYTHONPATH=/home/john/Thunderbird:/home/john/Thunderbird/venv/lib/python3.13/site-packages:/home/john/Thunderbird/venv/lib64/python3.13/site-packages
+Environment=VIRTUAL_ENV=/home/john/Thunderbird/venv
+Environment=PATH=/home/john/Thunderbird/venv/bin:/usr/bin:/bin
+
+[Install]
+WantedBy=multi-user.target

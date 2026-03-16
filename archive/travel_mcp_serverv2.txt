@@ -1,0 +1,516 @@
+"""
+Dreams2Memories Travel Automation MCP Server
+============================================
+
+Comprehensive MCP server for luxury travel itinerary automation:
+- PDF data extraction and parsing
+- Excel workbook synchronization
+- Image generation and insertion (Stable Diffusion)
+- Client itinerary creation from templates
+- Booking data consolidation
+
+Transport: stdio (local) or HTTP (remote)
+"""
+
+from mcp.server.fastmcp import FastMCP
+from pydantic import BaseModel, Field, ConfigDict, field_validator
+from typing import Optional, List, Dict, Any
+from enum import Enum
+import json
+import logging
+from pathlib import Path
+from datetime import datetime
+import re
+
+# Initialize MCP server
+mcp = FastMCP("dreams2memories_travel_mcp")
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+# ============================================================================
+# DATA MODELS
+# ============================================================================
+
+class CruisePortStop(BaseModel):
+    """Model for cruise port information"""
+    model_config = ConfigDict(str_strip_whitespace=True, extra='forbid')
+    
+    port_name: str = Field(..., description="Port name (e.g., 'Yokohama', 'Seattle')", min_length=1)
+    date: str = Field(..., description="ISO date (YYYY-MM-DD)")
+    arrival_time: Optional[str] = Field(None, description="Arrival time (HH:MM 24-hour format)")
+    departure_time: Optional[str] = Field(None, description="Departure time (HH:MM 24-hour format)")
+    description: Optional[str] = Field(None, description="Port description or highlights")
+    shore_excursions: Optional[List[str]] = Field(default_factory=list, description="Available excursions")
+
+class ShoreExcursion(BaseModel):
+    """Model for shore excursion details"""
+    model_config = ConfigDict(str_strip_whitespace=True, extra='forbid')
+    
+    excursion_id: str = Field(..., description="Unique excursion ID")
+    port: str = Field(..., description="Port where excursion operates")
+    name: str = Field(..., description="Excursion name")
+    price: float = Field(..., description="Price per person", ge=0)
+    duration_hours: float = Field(..., description="Duration in hours", ge=0.5)
+    status: str = Field("available", description="Status: available, waitlisted, cancelled")
+    description: Optional[str] = Field(None, description="Excursion description")
+
+class SpecialtyDining(BaseModel):
+    """Model for specialty dining reservations"""
+    model_config = ConfigDict(str_strip_whitespace=True, extra='forbid')
+    
+    restaurant: str = Field(..., description="Restaurant name")
+    date: str = Field(..., description="Reservation date (YYYY-MM-DD)")
+    time: str = Field(..., description="Reservation time (HH:MM 24-hour)")
+    party_size: int = Field(..., description="Number of guests", ge=1, le=10)
+    notes: Optional[str] = Field(None, description="Special requests or notes")
+
+class CruiseBooking(BaseModel):
+    """Model for complete cruise booking"""
+    model_config = ConfigDict(str_strip_whitespace=True, extra='forbid')
+    
+    booking_id: str = Field(..., description="Booking confirmation number")
+    cruise_line: str = Field(..., description="Cruise line (e.g., 'Silversea')")
+    ship_name: str = Field(..., description="Ship name")
+    voyage_start: str = Field(..., description="Voyage start date (YYYY-MM-DD)")
+    voyage_end: str = Field(..., description="Voyage end date (YYYY-MM-DD)")
+    total_cost: float = Field(..., description="Total cost in USD", ge=0)
+    paid_in_full: bool = Field(False, description="Whether payment is complete")
+    passengers: List[str] = Field(default_factory=list, description="Passenger names")
+    travel_agent: Optional[str] = Field(None, description="Travel agent name and contact")
+    ports: List[CruisePortStop] = Field(default_factory=list, description="Port itinerary")
+    excursions: List[ShoreExcursion] = Field(default_factory=list, description="Booked excursions")
+    dining_reservations: List[SpecialtyDining] = Field(default_factory=list, description="Specialty dining")
+
+class ItineraryGenerationRequest(BaseModel):
+    """Request model for itinerary generation"""
+    model_config = ConfigDict(str_strip_whitespace=True, extra='forbid')
+    
+    booking_id: str = Field(..., description="Reference booking ID")
+    client_name: str = Field(..., description="Client name for personalization")
+    format: str = Field("pdf", description="Output format: 'pdf' or 'google_docs'")
+    include_images: bool = Field(True, description="Generate and include images")
+    image_style: str = Field("luxury_travel", description="Image style: 'luxury_travel', 'adventure', 'cultural'")
+    template_type: str = Field("standard", description="Template: 'standard', 'luxury', 'adventure'")
+
+# ============================================================================
+# PDF EXTRACTION TOOLS
+# ============================================================================
+
+@mcp.tool(
+    name="extract_pdf_booking_details",
+    annotations={
+        "title": "Extract Booking Details from PDF",
+        "readOnlyHint": True,
+        "destructiveHint": False,
+        "idempotentHint": True,
+        "openWorldHint": False
+    }
+)
+async def extract_pdf_booking_details(
+    pdf_path: str = Field(..., description="Path to PDF file (e.g., '/uploads/Silver_Nova_Confirmation.pdf')")
+) -> str:
+    """
+    Extract structured booking data from cruise confirmation PDF.
+    
+    Returns JSON with:
+    - Booking ID, ship info, dates
+    - Passenger names
+    - Total cost and payment status
+    - Port itinerary
+    - Contact information
+    
+    Example output:
+    {
+        "booking_id": "566910-25",
+        "ship_name": "Silver Nova",
+        "voyage_start": "2026-04-23",
+        "voyage_end": "2026-05-11",
+        "total_cost": 10800,
+        "passengers": ["COL JOHN LOUCKS", "MRS SUSAN LOUCKS"],
+        "ports": [...]
+    }
+    """
+    try:
+        # TODO: Implement PDF parsing with PyPDF2 or pdfplumber
+        # For now, return template structure
+        logger.info(f"Extracting booking details from: {pdf_path}")
+        
+        result = {
+            "status": "success",
+            "message": f"PDF extraction initiated for {pdf_path}",
+            "requires_implementation": "PyPDF2 or pdfplumber integration needed",
+            "next_steps": [
+                "Install PyPDF2: pip install PyPDF2",
+                "Parse PDF structure and extract text",
+                "Use regex/NLP to identify booking fields",
+                "Validate extracted data against CruiseBooking schema"
+            ]
+        }
+        return json.dumps(result, indent=2)
+    except Exception as e:
+        logger.error(f"Error extracting PDF: {str(e)}")
+        return json.dumps({"error": str(e), "type": "extraction_error"})
+
+@mcp.tool(
+    name="extract_pdf_itinerary",
+    annotations={
+        "title": "Extract Port Itinerary from PDF",
+        "readOnlyHint": True,
+        "destructiveHint": False,
+        "idempotentHint": True,
+        "openWorldHint": False
+    }
+)
+async def extract_pdf_itinerary(
+    pdf_path: str = Field(..., description="Path to itinerary PDF"),
+    page_range: Optional[str] = Field(None, description="Page range (e.g., '1-5') or 'all'")
+) -> str:
+    """
+    Extract detailed port-by-port itinerary from PDF.
+    
+    Returns array of ports with:
+    - Port names and dates
+    - Arrival/departure times
+    - Port descriptions and highlights
+    - Available shore excursions by port
+    """
+    logger.info(f"Extracting itinerary from {pdf_path} (pages: {page_range or 'all'})")
+    
+    result = {
+        "status": "initiated",
+        "file": pdf_path,
+        "pages": page_range or "all",
+        "requires_implementation": "PDF text/table extraction and NLP parsing"
+    }
+    return json.dumps(result, indent=2)
+
+# ============================================================================
+# EXCEL SYNCHRONIZATION TOOLS
+# ============================================================================
+
+@mcp.tool(
+    name="sync_booking_to_excel",
+    annotations={
+        "title": "Sync Booking Data to Excel",
+        "readOnlyHint": False,
+        "destructiveHint": False,
+        "idempotentHint": False,
+        "openWorldHint": False
+    }
+)
+async def sync_booking_to_excel(
+    excel_path: str = Field(..., description="Path to Excel workbook"),
+    booking_data: str = Field(..., description="JSON string of CruiseBooking data"),
+    sheet_name: str = Field("Booking Master", description="Target sheet name"),
+    overwrite_existing: bool = Field(False, description="Overwrite existing data")
+) -> str:
+    """
+    Synchronize booking data to Excel workbook.
+    
+    Updates or creates:
+    - Booking Master sheet with core booking info
+    - Daily Itinerary sheet with port-by-port schedule
+    - Excursions sheet with all shore excursions
+    - Dining sheet with specialty dining reservations
+    
+    Returns confirmation with cells updated and validation status.
+    """
+    try:
+        booking_json = json.loads(booking_data)
+        logger.info(f"Syncing booking {booking_json.get('booking_id')} to {excel_path}")
+        
+        result = {
+            "status": "initiated",
+            "excel_file": excel_path,
+            "target_sheet": sheet_name,
+            "booking_id": booking_json.get("booking_id"),
+            "requires_implementation": "openpyxl integration for Excel writing"
+        }
+        return json.dumps(result, indent=2)
+    except json.JSONDecodeError as e:
+        return json.dumps({"error": f"Invalid JSON: {str(e)}"})
+
+@mcp.tool(
+    name="read_excel_booking_data",
+    annotations={
+        "title": "Read Booking Data from Excel",
+        "readOnlyHint": True,
+        "destructiveHint": False,
+        "idempotentHint": True,
+        "openWorldHint": False
+    }
+)
+async def read_excel_booking_data(
+    excel_path: str = Field(..., description="Path to Excel workbook"),
+    sheet_name: str = Field("Booking Master", description="Sheet to read")
+) -> str:
+    """
+    Read structured booking data from Excel workbook.
+    
+    Returns all booking information from specified sheet in JSON format.
+    """
+    logger.info(f"Reading {sheet_name} from {excel_path}")
+    
+    result = {
+        "status": "initiated",
+        "file": excel_path,
+        "sheet": sheet_name,
+        "requires_implementation": "openpyxl integration for Excel reading"
+    }
+    return json.dumps(result, indent=2)
+
+# ============================================================================
+# IMAGE GENERATION TOOLS
+# ============================================================================
+
+@mcp.tool(
+    name="generate_itinerary_images",
+    annotations={
+        "title": "Generate Images for Itinerary Days",
+        "readOnlyHint": False,
+        "destructiveHint": False,
+        "idempotentHint": False,
+        "openWorldHint": False
+    }
+)
+async def generate_itinerary_images(
+    booking_data: str = Field(..., description="JSON string of CruiseBooking data"),
+    ports: Optional[List[str]] = Field(None, description="Specific ports to generate images for, or 'all'"),
+    image_style: str = Field("luxury_travel", description="Style: 'luxury_travel', 'adventure', 'cultural', 'romantic'"),
+    api_source: str = Field("stability_ai", description="Image source: 'stability_ai' or 'local_stable_diffusion'")
+) -> str:
+    """
+    Generate professional images for each cruise port using Stable Diffusion.
+    
+    Creates images optimized for:
+    - Itinerary documents (16:9 aspect ratio)
+    - PDF embedding (high resolution)
+    - Google Docs insertion (optimized size)
+    
+    Returns:
+    - List of generated image paths
+    - Mapping of ports to image files
+    - Status and any generation errors
+    """
+    try:
+        booking_json = json.loads(booking_data)
+        booking_id = booking_json.get("booking_id", "unknown")
+        logger.info(f"Generating images for booking {booking_id} with style '{image_style}'")
+        
+        result = {
+            "status": "initiated",
+            "booking_id": booking_id,
+            "image_style": image_style,
+            "api_source": api_source,
+            "requires_implementation": "Stability AI API or local Stable Diffusion integration"
+        }
+        return json.dumps(result, indent=2)
+    except json.JSONDecodeError as e:
+        return json.dumps({"error": f"Invalid JSON: {str(e)}"})
+
+@mcp.tool(
+    name="insert_images_to_pdf",
+    annotations={
+        "title": "Insert Generated Images into PDF",
+        "readOnlyHint": False,
+        "destructiveHint": False,
+        "idempotentHint": False,
+        "openWorldHint": False
+    }
+)
+async def insert_images_to_pdf(
+    pdf_path: str = Field(..., description="Path to template PDF"),
+    images_mapping: str = Field(..., description="JSON: {'port_name': 'image_path', ...}"),
+    output_path: str = Field(..., description="Output PDF path")
+) -> str:
+    """
+    Insert generated images into PDF itinerary template.
+    
+    Updates PDF with:
+    - Port images at appropriate locations
+    - Image captions and metadata
+    - Proper aspect ratio and placement
+    
+    Returns path to updated PDF and status.
+    """
+    logger.info(f"Inserting images into PDF: {pdf_path}")
+    
+    result = {
+        "status": "initiated",
+        "template_pdf": pdf_path,
+        "output_pdf": output_path,
+        "requires_implementation": "PyPDF2 or reportlab for image insertion"
+    }
+    return json.dumps(result, indent=2)
+
+@mcp.tool(
+    name="insert_images_to_google_docs",
+    annotations={
+        "title": "Insert Generated Images into Google Docs",
+        "readOnlyHint": False,
+        "destructiveHint": False,
+        "idempotentHint": False,
+        "openWorldHint": False
+    }
+)
+async def insert_images_to_google_docs(
+    doc_id: str = Field(..., description="Google Doc ID"),
+    images_mapping: str = Field(..., description="JSON: {'port_name': 'image_path', ...}"),
+    image_width_pixels: int = Field(600, description="Image width in pixels", ge=200, le=1200)
+) -> str:
+    """
+    Insert generated images into Google Docs itinerary.
+    
+    Updates document with:
+    - Properly sized and positioned images
+    - Image captions and descriptions
+    - Maintains document formatting
+    
+    Returns update status and image count.
+    """
+    logger.info(f"Inserting images into Google Doc: {doc_id}")
+    
+    result = {
+        "status": "initiated",
+        "doc_id": doc_id,
+        "image_width": image_width_pixels,
+        "requires_implementation": "Google Docs API integration"
+    }
+    return json.dumps(result, indent=2)
+
+# ============================================================================
+# ITINERARY GENERATION TOOLS
+# ============================================================================
+
+@mcp.tool(
+    name="generate_itinerary_from_template",
+    annotations={
+        "title": "Generate New Itinerary from Template",
+        "readOnlyHint": False,
+        "destructiveHint": False,
+        "idempotentHint": False,
+        "openWorldHint": False
+    }
+)
+async def generate_itinerary_from_template(
+    booking_data: str = Field(..., description="JSON string of CruiseBooking data"),
+    client_name: str = Field(..., description="Client name for personalization"),
+    output_format: str = Field("pdf", description="Output: 'pdf', 'google_docs', or 'both'"),
+    template_type: str = Field("standard", description="Template: 'standard', 'luxury', 'adventure'"),
+    include_images: bool = Field(True, description="Generate and include custom images"),
+    image_style: str = Field("luxury_travel", description="Image style for generation")
+) -> str:
+    """
+    Generate complete personalized itinerary from booking data.
+    
+    Creates professional itinerary with:
+    - Personalized cover page
+    - Day-by-day port schedule
+    - Shore excursion details and maps
+    - Dining reservations and restaurant info
+    - Generated images for each port
+    - Practical information and tips
+    
+    Returns paths to generated documents.
+    """
+    try:
+        booking_json = json.loads(booking_data)
+        booking_id = booking_json.get("booking_id", "unknown")
+        logger.info(f"Generating {template_type} itinerary for {client_name} ({booking_id})")
+        
+        result = {
+            "status": "initiated",
+            "client": client_name,
+            "booking_id": booking_id,
+            "template": template_type,
+            "format": output_format,
+            "include_images": include_images,
+            "requires_implementation": "Template rendering and document generation pipeline"
+        }
+        return json.dumps(result, indent=2)
+    except json.JSONDecodeError as e:
+        return json.dumps({"error": f"Invalid JSON: {str(e)}"})
+
+# ============================================================================
+# DATA CONSOLIDATION TOOLS
+# ============================================================================
+
+@mcp.tool(
+    name="consolidate_booking_sources",
+    annotations={
+        "title": "Consolidate Booking Data from Multiple Sources",
+        "readOnlyHint": True,
+        "destructiveHint": False,
+        "idempotentHint": True,
+        "openWorldHint": False
+    }
+)
+async def consolidate_booking_sources(
+    pdf_path: Optional[str] = Field(None, description="Path to confirmation PDF"),
+    excel_path: Optional[str] = Field(None, description="Path to Excel workbook"),
+    gmail_labels: Optional[List[str]] = Field(None, description="Gmail labels to search for confirmations"),
+    booking_id: Optional[str] = Field(None, description="Booking ID to filter results")
+) -> str:
+    """
+    Consolidate booking data from multiple sources (PDFs, Excel, Gmail).
+    
+    Combines:
+    - Confirmation PDF data
+    - Excel workbook data
+    - Email confirmations from Gmail
+    - Identifies discrepancies and missing information
+    
+    Returns unified booking structure with source tracking.
+    """
+    logger.info("Consolidating booking data from multiple sources")
+    
+    sources = []
+    if pdf_path:
+        sources.append(f"PDF: {pdf_path}")
+    if excel_path:
+        sources.append(f"Excel: {excel_path}")
+    if gmail_labels:
+        sources.append(f"Gmail labels: {', '.join(gmail_labels)}")
+    
+    result = {
+        "status": "initiated",
+        "sources": sources or "none specified",
+        "booking_id_filter": booking_id,
+        "requires_implementation": "Multi-source data extraction and reconciliation"
+    }
+    return json.dumps(result, indent=2)
+
+# ============================================================================
+# SERVER INITIALIZATION
+# ============================================================================
+
+if __name__ == "__main__":
+    import asyncio
+    
+    # Print server info
+    print("=" * 70)
+    print("Dreams2Memories Travel Automation MCP Server")
+    print("=" * 70)
+    print("\nAvailable Tools:")
+    print("  PDF Extraction:")
+    print("    - extract_pdf_booking_details")
+    print("    - extract_pdf_itinerary")
+    print("\n  Excel Synchronization:")
+    print("    - sync_booking_to_excel")
+    print("    - read_excel_booking_data")
+    print("\n  Image Generation:")
+    print("    - generate_itinerary_images")
+    print("    - insert_images_to_pdf")
+    print("    - insert_images_to_google_docs")
+    print("\n  Itinerary Generation:")
+    print("    - generate_itinerary_from_template")
+    print("\n  Data Consolidation:")
+    print("    - consolidate_booking_sources")
+    print("\n" + "=" * 70)
+    print("Starting MCP server (stdio transport)...")
+    print("=" * 70 + "\n")
+    
+    # Run the server
+    mcp.run(transport="stdio")

@@ -1,0 +1,368 @@
+{
+  "title": "Home - Google Drive",
+  "url": "https://drive.google.com/drive/home",
+  "sections": {},
+  "images": [
+    {
+      "src": "https://ssl.gstatic.com/docs/doclist/images/empty_state_details_v2.svg",
+      "alt": "",
+      "w": 1080,
+      "h": 1080
+    },
+    {
+      "src": "https://ssl.gstatic.com/docs/doclist/images/empty_state_multiple_files_selected.svg",
+      "alt": "",
+      "w": 150,
+      "h": 150
+    },
+    {
+      "src": "https://www.gstatic.com/companion/icon_assets/calendar_2020q4_2x.png",
+      "alt": "bg",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gstatic.com/companion/icon_assets/keep_2020q4v3_2x.png",
+      "alt": "bg",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gstatic.com/companion/icon_assets/tasks_2021_2x.png",
+      "alt": "bg",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gstatic.com/companion/icon_assets/contacts_2022_2x.png",
+      "alt": "bg",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gstatic.com/workflows/studio/product_logo_24px_filled_black.svg",
+      "alt": "bg",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://lh3.googleusercontent.com/gwao/AIP6Tur8-nefyJTy2prKfdPm7RJSFJEQBCwCYzOKByh21Icr5eoitFlPxtUWfdpV2Ka-AcNoauoesnv6VYVi_IRYqZfEI5XirFtInIDWjKAj7aODtw=s48-k-no",
+      "alt": "bg",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://lh3.googleusercontent.com/gwao/AIP6TuoZgch9hFVZm-sSwhGoadguqvt45GpxSDRm95UgGQvstSUPoj5GEaq4tmqughzWrXE-TrLDF-8rC3jU9CPQ7xbK25Okx9TR62D0cnO6qeFBpd4H2f-kyEw=s48-k-no",
+      "alt": "bg",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "https://www.gstatic.com/images/icons/material/system/1x/add_white_24dp.png",
+      "alt": "bg",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "src": "//www.gstatic.com/images/icons/material/system/2x/more_horiz_white_24dp.png",
+      "alt": "bg",
+      "w": 0,
+      "h": 0
+    }
+  ],
+  "tables": [
+    [
+      [
+        "tab",
+        "tab"
+      ],
+      [
+        "tab"
+      ]
+    ],
+    [
+      [
+        "tab"
+      ]
+    ],
+    [
+      [
+        "",
+        "Advanced searchAll results"
+      ]
+    ],
+    [
+      [
+        "Name",
+        "Details",
+        "Owner",
+        "Location",
+        ""
+      ],
+      [
+        "Google SheetsEARA D2M Thunderbird v2",
+        "You opened \u2022 Mar 11",
+        "me",
+        "System_Assets",
+        "Share (Ctrl+Alt+A) Download Rename (Ctrl+Alt+E) Add to starred (Ctrl+Alt+S)More actions (Alt+A)"
+      ],
+      [
+        "Google Sheets\"z_ARCHIVE_EARA_v1",
+        "You opened \u2022 Mar 11",
+        "me",
+        "System_Assets",
+        "Share (Ctrl+Alt+A) Download Rename (Ctrl+Alt+E) Add to starred (Ctrl+Alt+S)More actions (Alt+A)"
+      ],
+      [
+        "PDFTravel_Agent_LOUCKS_566910-25.pdf",
+        "You modified \u2022 Mar 7",
+        "me",
+        "Travel_Agent_Invoices",
+        "Share (Ctrl+Alt+A) Download Rename (Ctrl+Alt+E) Add to starred (Ctrl+Alt+S)More actions (Alt+A)"
+      ],
+      [
+        "CLAUDE.md",
+        "You opened \u2022 Mar 8",
+        "me",
+        "Thunderbird",
+        "Share (Ctrl+Alt+A) Download Rename (Ctrl+Alt+E) Add to starred (Ctrl+Alt+S)More actions (Alt+A)"
+      ],
+      [
+        "THUNDERBIRD_USER_MANUAL.html",
+        "You edited \u2022 Mar 11",
+        "me",
+        "output",
+        "Share (Ctrl+Alt+A) Download Rename (Ctrl+Alt+E) Add to starred (Ctrl+Alt+S)More actions (Alt+A)"
+      ],
+      [
+        "THUNDERBIRD_MASTER_PLAN.md",
+        "You modified \u2022 Mar 11",
+        "me",
+        "Thunderbird_Mirror",
+        "Share (Ctrl+Alt+A) Download Rename (Ctrl+Alt+E) Add to starred (Ctrl+Alt+S)More actions (Alt+A)"
+      ],
+      [
+        "CLAUDE.md",
+        "You edited \u2022 Mar 11",
+        "me",
+        "Thunderbird_Mirror",
+        "Share (Ctrl+Alt+A) Download Rename (Ctrl+Alt+E) Add to starred (Ctrl+Alt+S)More actions (Alt+A)"
+      ],
+      [
+        "travel_mcp_server.py",
+        "You modified \u2022 Mar 11",
+        "me",
+        "Thunderbird_Mirror",
+        "Share (Ctrl+Alt+A) Download Rename (Ctrl+Alt+E) Add to starred (Ctrl+Alt+S)More actions (Alt+A)"
+      ],
+      [
+        "my_voice_profile.md",
+        "You modified \u2022 Mar 11",
+        "me",
+        "Thunderbird_Mirror",
+        "Share (Ctrl+Alt+A) Download Rename (Ctrl+Alt+E) Add to starred (Ctrl+Alt+S)More actions (Alt+A)"
+      ],
+      [
+        "cos-hale.md",
+        "You edited \u2022 Mar 11",
+        "me",
+        "agents",
+        "Share (Ctrl+Alt+A) Download Rename (Ctrl+Alt+E) Add to starred (Ctrl+Alt+S)More actions (Alt+A)"
+      ],
+      [
+        "thunderbird_model_router.py",
+        "You modified \u2022 Mar 11",
+        "me",
+        "Thunderbird_Mirror",
+        "Share (Ctrl+Alt+A) Download Rename (Ctrl+Alt+E) Add to starred (Ctrl+Alt+S)More actions (Alt+A)"
+      ],
+      [
+        "health_check.py",
+        "You modified \u2022 Mar 11",
+        "me",
+        "deploy",
+        "Share (Ctrl+Alt+A) Download Rename (Ctrl+Alt+E) Add to starred (Ctrl+Alt+S)More actions (Alt+A)"
+      ],
+      [
+        "Loucks_Japan_Kyoto_Fuji_Apr2026.html",
+        "You edited \u2022 Mar 10",
+        "me",
+        "archive",
+        "Share (Ctrl+Alt+A) Download Rename (Ctrl+Alt+E) Add to starred (Ctrl+Alt+S)More actions (Alt+A)"
+      ],
+      [
+        "wing-coordinator.md",
+        "You created \u2022 Mar 11",
+        "me",
+        "agents",
+        "Share (Ctrl+Alt+A) Download Rename (Ctrl+Alt+E) Add to starred (Ctrl+Alt+S)More actions (Alt+A)"
+      ],
+      [
+        "wing-coordinator.md",
+        "You created \u2022 Mar 11",
+        "me",
+        "agents",
+        "Share (Ctrl+Alt+A) Download Rename (Ctrl+Alt+E) Add to starred (Ctrl+Alt+S)More actions (Alt+A)"
+      ],
+      [
+        "exec-solberg-vega.md",
+        "You modified \u2022 Mar 11",
+        "me",
+        "agents",
+        "Share (Ctrl+Alt+A) Download Rename (Ctrl+Alt+E) Add to starred (Ctrl+Alt+S)More actions (Alt+A)"
+      ],
+      [
+        "thunderbird_scheduler.py",
+        "You edited \u2022 Mar 11",
+        "me",
+        "Thunderbird_Mirror",
+        "Share (Ctrl+Alt+A) Download Rename (Ctrl+Alt+E) Add to starred (Ctrl+Alt+S)More actions (Alt+A)"
+      ],
+      [
+        "briefing_daily_20260307_1803.html",
+        "You modified \u2022 Mar 10",
+        "me",
+        "output",
+        "Share (Ctrl+Alt+A) Download Rename (Ctrl+Alt+E) Add to starred (Ctrl+Alt+S)More actions (Alt+A)"
+      ],
+      [
+        "thunderbird_trip_architect.py",
+        "You modified \u2022 Mar 11",
+        "me",
+        "Thunderbird_Mirror",
+        "Share (Ctrl+Alt+A) Download Rename (Ctrl+Alt+E) Add to starred (Ctrl+Alt+S)More actions (Alt+A)"
+      ],
+      [
+        "thunderbird_email_intel.py",
+        "You edited \u2022 Mar 11",
+        "me",
+        "Thunderbird_Mirror",
+        "Share (Ctrl+Alt+A) Download Rename (Ctrl+Alt+E) Add to starred (Ctrl+Alt+S)More actions (Alt+A)"
+      ],
+      [
+        "thunderbird_survey.py",
+        "You modified \u2022 Mar 11",
+        "me",
+        "Thunderbird_Mirror",
+        "Share (Ctrl+Alt+A) Download Rename (Ctrl+Alt+E) Add to starred (Ctrl+Alt+S)More actions (Alt+A)"
+      ],
+      [
+        "Westbrook_Silver_Nova_Apr2026.html",
+        "You modified \u2022 Mar 10",
+        "me",
+        "output",
+        "Share (Ctrl+Alt+A) Download Rename (Ctrl+Alt+E) Add to starred (Ctrl+Alt+S)More actions (Alt+A)"
+      ],
+      [
+        "19_Staff_Meeting_Brief.md",
+        "You created \u2022 Mar 11",
+        "me",
+        "Commander_Review",
+        "Share (Ctrl+Alt+A) Download Rename (Ctrl+Alt+E) Add to starred (Ctrl+Alt+S)More actions (Alt+A)"
+      ],
+      [
+        "19_Staff_Meeting_Brief.md",
+        "You uploaded \u2022 Mar 11",
+        "me",
+        "Commander_Review",
+        "Share (Ctrl+Alt+A) Download Rename (Ctrl+Alt+E) Add to starred (Ctrl+Alt+S)More actions (Alt+A)"
+      ],
+      [
+        "Loucks_Japan_Escape_Apr2026.html",
+        "You modified \u2022 Mar 10",
+        "me",
+        "output",
+        "Share (Ctrl+Alt+A) Download Rename (Ctrl+Alt+E) Add to starred (Ctrl+Alt+S)More actions (Alt+A)"
+      ],
+      [
+        "thunderbird_personas.py",
+        "You modified \u2022 Mar 11",
+        "me",
+        "Thunderbird_Mirror",
+        "Share (Ctrl+Alt+A) Download Rename (Ctrl+Alt+E) Add to starred (Ctrl+Alt+S)More actions (Alt+A)"
+      ],
+      [
+        "briefing_daily_20260307_1752.html",
+        "You modified \u2022 Mar 10",
+        "me",
+        "output",
+        "Share (Ctrl+Alt+A) Download Rename (Ctrl+Alt+E) Add to starred (Ctrl+Alt+S)More actions (Alt+A)"
+      ],
+      [
+        "thunderbird_price_monitor.py",
+        "You uploaded \u2022 Mar 11",
+        "me",
+        "Thunderbird_Mirror",
+        "Share (Ctrl+Alt+A) Download Rename (Ctrl+Alt+E) Add to starred (Ctrl+Alt+S)More actions (Alt+A)"
+      ],
+      [
+        "thunderbird_price_monitor.py",
+        "You uploaded \u2022 Mar 11",
+        "me",
+        "Thunderbird_Mirror",
+        "Share (Ctrl+Alt+A) Download Rename (Ctrl+Alt+E) Add to starred (Ctrl+Alt+S)More actions (Alt+A)"
+      ],
+      [
+        "intel_digest_20260308_0945.html",
+        "You edited \u2022 Mar 10",
+        "me",
+        "output",
+        "Share (Ctrl+Alt+A) Download Rename (Ctrl+Alt+E) Add to starred (Ctrl+Alt+S)More actions (Alt+A)"
+      ]
+    ]
+  ],
+  "links": [
+    {
+      "text": "Drive",
+      "href": "https://drive.google.com/?tab=oo&authuser=0"
+    },
+    {
+      "text": "Drive",
+      "href": "https://drive.google.com/?tab=oo&authuser=0"
+    },
+    {
+      "text": "My Drive",
+      "href": "https://drive.google.com/drive/home"
+    }
+  ],
+  "fullText": "<div jscontroller=\"WEULEe\" jsaction=\"JIbuQc:cdkcBb(Njthtb),VRhX7e(eBSUOb),mEhUbc(HSqmu);rcuQ6b:npT2md;\" class=\"xDBFpb jarqkf vCBaZd\"><span class=\"MMvswb\"><span class=\"OLCwg\"></span></span><div class=\"sMNisf\" role='complementary' data-role-complementary='true' jsname=\"bN97Pc\" aria-label=\"\"><div class=\"KlHtFb\"><div class=\"Aitr4c\" jsname=\"fmcmS\"><div class=\"a-D-xf-ua\">JavaScript must be enabled to use Google Drive<a href=\"https://support.google.com/drive/answer/2375082\" target=\"_blank\" class=\"a-D-xf-A\">Learn more</a></div></div></div><div class=\"WsXadc\" jsname=\"LQLjdd\"></div></div></div>window.WIZ_global_data = {\"JDMNec\":\"/u/0/_/AppsNotifyUi/\",\"K1cgmc\":\"%.@.[null,null,null,[1,1,[1773141962,222689000],4],null,9]]\",\"MT7f9b\":[],\"Pc8sse\":false,\"TSDtV\":\"%.@.[[null,[[45736426,null,null,0.5,null,null,\\\"AtjTse\\\"],[45759550,null,false,null,null,null,\\\"ipHXZe\\\"],[45765567,null,false,null,null,null,\\\"Gu5Dg\\\"],[45755088,null,false,null,null,null,\\\"fzPMYc\\\"],[45681910,null,true,null,null,null,\\\"OKXfNb\\\"],[45702908,2,null,null,null,null,\\\"YUmR1e\\\"],[45662509,null,true,null,null,null,\\\"fLCtnf\\\"],[45734741,null,true,null,null,null,\\\"gWu1Ue\\\"],[45736423,null,true,null,null,null,\\\"KdGYpb\\\"],[45762085,null,false,null,null,null,\\\"h6H74b\\\"],[45657263,null,false,null,null,null,\\\"ByEExb\\\"],[45735251,null,false,null,null,null,\\\"QxYuRc\\\"],[45744490,null,false,null,null,null,\\\"luHWB\\\"],[45760386,null,false,null,null,null,\\\"B22Yae\\\"],[45699018,null,null,null,\\\"hoiy8M2zL0suK1NZr2K0T7URFV3w\\\",null,\\\"evsAs\\\"],[45678214,null,null,null,\\\"qYGgY5L4A0suK1NZr2K0QusvQmcX\\\",null,\\\"VL579e\\\"],[45677726,null,false,null,null,null,\\\"C5oZKe\\\"],[45764507,null,false,null,null,null,\\\"En02yf\\\"],[45727616,null,true,null,null,null,\\\"qNQRAf\\\"],[45727273,null,false,null,null,null,\\\"dMkROb\\\"],[45644642,null,null,null,\\\"X-WS exp!\\\",null,\\\"rsrxGc\\\"],[45748088,null,false,null,null,null,\\\"KLuwTc\\\"],[45744236,null,false,null,null,null,\\\"Rnque\\\"],[45747674,null,false,null,null,null,\\\"uwvdNc\\\"],[45761354,null,false,null,null,null,\\\"lW3R0d\\\"],[45749331,null,false,null,null,null,\\\"JQs3De\\\"],[45676183,null,false,null,null,null,\\\"EpABPb\\\"],[45696305,null,false,null,null,null,\\\"Uujhbc\\\"],[45699426,null,true,null,null,null,\\\"qWUOSd\\\"],[45679175,null,false,null,null,null,\\\"OETeme\\\"],[45747909,null,false,null,null,null,\\\"uTkAWb\\\"],[45677009,null,true,null,null,null,\\\"JkUdKe\\\"],[45678187,null,false,null,null,null,\\\"OrvCpd\\\"],[45672203,null,true,null,null,null,\\\"jDBBvd\\\"],[45643359,null,true,null,null,null,\\\"GcxuKe\\\"],[45672066,null,true,null,null,null,\\\"E1A5lb\\\"],[45751947,null,false,null,null,null,\\\"sT6Vl\\\"],[45725181,null,null,null,\\\"Ge5kDSw2j0suK1NZr2K0WTQKW9Am\\\",null,\\\"QOhO3d\\\"],[45766728,null,false,null,null,null,\\\"NYCded\\\"],[45670693,null,false,null,null,null,\\\"V7Wemb\\\"],[45691859,null,false,null,null,null,\\\"p9TOQ\\\"],[45730498,null,false,null,null,null,\\\"ZycXJf\\\"],[45717711,null,false,null,null,null,\\\"lhxHkd\\\"],[45674760,null,null,null,\\\"Q2udpf42g0suK1NZr2K0SS4sTYE7\\\",null,\\\"E55iCf\\\"],[45712967,null,false,null,null,null,\\\"rZW8ld\\\"],[45673686,null,true,null,null,null,\\\"TVdkuc\\\"],[45673687,null,true,null,null,null,\\\"OQKgkd\\\"],[45762063,null,false,null,null,null,\\\"WlmQwb\\\"],[45681145,null,true,null,null,null,\\\"hV6kcd\\\"],[45743516,null,false,null,null,null,\\\"C3mEk\\\"],[45678265,null,false,null,null,null,\\\"P7qpdc\\\"],[45724030,null,false,null,null,null,\\\"V0bNGd\\\"],[45725105,null,true,null,null,null,\\\"VQN2ac\\\"],[45672211,null,false,null,null,null,\\\"Wgtd8c\\\"],[45762103,null,true,null,null,null,\\\"JcQrv\\\"],[45750865,null,false,null,null,null,\\\"ixZdae\\\"],[45693258,null,null,null,null,null,\\\"BrCRse\\\",[\\\"[[\\\\\\\"en\\\\\\\",\\\\\\\"en-US\\\\\\\",\\\\\\\"en-GB\\\\\\\",\\\\\\\"en-CA\\\\\\\",\\\\\\\"en-AU\\\\\\\",\\\\\\\"en-IN\\\\\\\",\\\\\\\"en-IE\\\\\\\",\\\\\\\"en-NZ\\\\\\\",\\\\\\\"en-ZA\\\\\\\"]]\\\"]],[45729447,null,false,null,null,null,\\\"hjIR6e\\\"],[45754885,null,false,null,null,null,\\\"rKnVYd\\\"],[45757913,null,false,null,null,null,\\\"qmNm7d\\\"],[45752217,null,false,null,null,null,\\\"N9LDI\\\"],[45686665,null,true,null,null,null,\\\"xGJelc\\\"],[45668197,null,true,null,null,null,\\\"pReYPb\\\"],[45723911,null,false,null,null,null,\\\"e77Z7d\\\"],[45763814,null,false,null,null,null,\\\"s2BRxc\\\"],[45674975,null,false,null,null,null,\\\"sBUhfc\\\"],[45706188,null,true,null,null,null,\\\"OF1zrd\\\"],[45706819,null,false,null,null,null,\\\"aPAx2b\\\"],[45742777,null,true,null,null,null,\\\"PPsZu\\\"],[45714946,null,true,null,null,null,\\\"ZYrane\\\"],[45664242,null,false,null,null,null,\\\"o4hKqd\\\"],[45678908,null,true,null,null,null,\\\"V6Qvvf\\\"],[45751437,null,true,null,null,null,\\\"HgnE6e\\\"],[45757809,15,null,null,null,null,\\\"XMeNkf\\\"],[45700150,null,false,null,null,null,\\\"RLRykc\\\"],[45678679,null,false,null,null,null,\\\"HbebVe\\\"],[45715074,null,false,null,null,null,\\\"xxxPgb\\\"],[45700770,null,false,null,null,null,\\\"Mk7a4d\\\"],[45681147,null,false,null,null,null,\\\"pgDArb\\\"],[45677445,null,true,null,null,null,\\\"rPYk8\\\"],[45658949,null,true,null,null,null,\\\"NfShlf\\\"],[45722047,null,null,null,null,null,\\\"D6k5oe\\\",[\\\"[[\\\\\\\"af\\\\\\\",\\\\\\\"am\\\\\\\",\\\\\\\"ar\\\\\\\",\\\\\\\"ar-EG\\\\\\\",\\\\\\\"ar-001\\\\\\\",\\\\\\\"az\\\\\\\",\\\\\\\"be\\\\\\\",\\\\\\\"bg\\\\\\\",\\\\\\\"bn\\\\\\\",\\\\\\\"ca\\\\\\\",\\\\\\\"ceb\\\\\\\",\\\\\\\"cs\\\\\\\",\\\\\\\"da\\\\\\\",\\\\\\\"de\\\\\\\",\\\\\\\"el\\\\\\\",\\\\\\\"en\\\\\\\",\\\\\\\"es\\\\\\\",\\\\\\\"es-419\\\\\\\",\\\\\\\"es-ES\\\\\\\",\\\\\\\"es-MX\\\\\\\",\\\\\\\"es-US\\\\\\\",\\\\\\\"et\\\\\\\",\\\\\\\"eu\\\\\\\",\\\\\\\"fa\\\\\\\",\\\\\\\"fi\\\\\\\",\\\\\\\"fil\\\\\\\",\\\\\\\"fr\\\\\\\",\\\\\\\"fr-FR\\\\\\\",\\\\\\\"fr-CA\\\\\\\",\\\\\\\"gl\\\\\\\",\\\\\\\"gu\\\\\\\",\\\\\\\"hi\\\\\\\",\\\\\\\"hr\\\\\\\",\\\\\\\"ht\\\\\\\",\\\\\\\"hu\\\\\\\",\\\\\\\"hy\\\\\\\",\\\\\\\"id\\\\\\\",\\\\\\\"is\\\\\\\",\\\\\\\"it\\\\\\\",\\\\\\\"iw\\\\\\\",\\\\\\\"ja\\\\\\\",\\\\\\\"jv\\\\\\\",\\\\\\\"ka\\\\\\\",\\\\\\\"kn\\\\\\\",\\\\\\\"ko\\\\\\\",\\\\\\\"kok\\\\\\\",\\\\\\\"la\\\\\\\",\\\\\\\"lt\\\\\\\",\\\\\\\"lv\\\\\\\",\\\\\\\"mai\\\\\\\",\\\\\\\"mk\\\\\\\",\\\\\\\"ml\\\\\\\",\\\\\\\"mr\\\\\\\",\\\\\\\"ms\\\\\\\",\\\\\\\"my\\\\\\\",\\\\\\\"ne\\\\\\\",\\\\\\\"nl\\\\\\\",\\\\\\\"no\\\\\\\",\\\\\\\"nb-NO\\\\\\\",\\\\\\\"nn-NO\\\\\\\",\\\\\\\"or\\\\\\\",\\\\\\\"pa\\\\\\\",\\\\\\\"pl\\\\\\\",\\\\\\\"ps\\\\\\\",\\\\\\\"pt\\\\\\\",\\\\\\\"pt-BR\\\\\\\",\\\\\\\"pt-PT\\\\\\\",\\\\\\\"ro\\\\\\\",\\\\\\\"ru\\\\\\\",\\\\\\\"sd\\\\\\\",\\\\\\\"si\\\\\\\",\\\\\\\"sk\\\\\\\",\\\\\\\"sl\\\\\\\",\\\\\\\"sq\\\\\\\",\\\\\\\"sr\\\\\\\",\\\\\\\"sv\\\\\\\",\\\\\\\"sw\\\\\\\",\\\\\\\"ta\\\\\\\",\\\\\\\"te\\\\\\\",\\\\\\\"th\\\\\\\",\\\\\\\"tr\\\\\\\",\\\\\\\"uk\\\\\\\",\\\\\\\"ur\\\\\\\",\\\\\\\"vi\\\\\\\",\\\\\\\"zh\\\\\\\",\\\\\\\"zh-Hans-CN\\\\\\\",\\\\\\\"zh-Hant-TW\\\\\\\",\\\\\\\"zh-CN\\\\\\\",\\\\\\\"zh-TW\\\\\\\",\\\\\\\"zh-Hans\\\\\\\",\\\\\\\"zh-Hant\\\\\\\",\\\\\\\"nl-NL\\\\\\\"]]\\\"]],[45726559,null,true,null,null,null,\\\"yZFXEc\\\"],[45759929,null,false,null,null,null,\\\"EbXKSb\\\"],[45748403,null,false,null,null,null,\\\"XYCTRc\\\"],[45699702,null,false,null,null,null,\\\"Xo3sI\\\"],[45765896,null,false,null,null,null,\\\"Gl5aM\\\"],[45749214,null,null,null,\\\"\\\",null,\\\"HkDBBd\\\"],[45710394,null,true,null,null,null,\\\"ZsDmSd\\\"],[45729467,null,false,null,null,null,\\\"kKLGLb\\\"],[45677526,null,null,null,\\\"hZeGRZs5p0suK1NZr2K0V3syYPHo\\\",null,\\\"KtCfwd\\\"],[45754522,null,true,null,null,null,\\\"xpNFQe\\\"],[45762489,null,false,null,null,null,\\\"cqFBGe\\\"],[45760024,null,false,null,null,null,\\\"iKoeab\\\"],[45721408,null,true,null,null,null,\\\"smbAqe\\\"],[45724259,null,false,null,null,null,\\\"Sjqsdf\\\"],[45748452,null,false,null,null,null,\\\"oAMlce\\\"],[45672206,null,true,null,null,null,\\\"qxTK9b\\\"],[45709238,null,true,null,null,null,\\\"jQTN0e\\\"],[45729422,null,true,null,null,null,\\\"OOSdib\\\"],[45739155,null,false,null,null,null,\\\"Ljfylf\\\"],[45672527,null,true,null,null,null,\\\"LIKBre\\\"],[45764491,null,false,null,null,null,\\\"S8LJ2d\\\"],[45728555,null,null,null,\\\"\\\",null,\\\"ptUmFe\\\"],[45654291,null,false,null,null,null,\\\"rhP5uf\\\"],[45725182,null,null,null,\\\"N7WcPjZPR0suK1NZr2K0TGZuB5Ce\\\",null,\\\"McLXzc\\\"],[45653421,null,true,null,null,null,\\\"K2C7od\\\"],[45744297,null,false,null,null,null,\\\"HAj7Mb\\\"],[45644639,null,true,null,null,null,\\\"GoJCRc\\\"],[45754280,null,true,null,null,null,\\\"j636ic\\\"],[45744234,null,true,null,null,null,\\\"LtNgOd\\\"],[45672202,null,true,null,null,null,\\\"CyvTSb\\\"],[45726382,null,false,null,null,null,\\\"QUY3\\\"],[45744918,null,true,null,null,null,\\\"f9HMbb\\\"],[45724458,null,true,null,null,null,\\\"MRpQbd\\\"],[45621619,null,false,null,null,null,\\\"PfkIr\\\"],[45754507,null,true,null,null,null,\\\"Trm0fb\\\"],[45705865,5000,null,null,null,null,\\\"Hjg95d\\\"],[45735186,null,false,null,null,null,\\\"SIvvz\\\"],[45749708,null,true,null,null,null,\\\"ktRboc\\\"],[45672213,null,true,null,null,null,\\\"BfWTle\\\"],[45758631,null,false,null,null,null,\\\"kGhHOe\\\"],[45715289,null,true,null,null,null,\\\"Y26Whf\\\"],[45757518,null,false,null,null,null,\\\"hbO0Gd\\\"],[45724460,null,null,0.5,null,null,\\\"U6t0Ob\\\"],[45748160,null,true,null,null,null,\\\"SX7P2b\\\"],[45730792,null,true,null,null,null,\\\"m0Fg3c\\\"],[45730506,null,false,null,null,null,\\\"qhuWUc\\\"],[45752216,null,false,null,null,null,\\\"EJg6N\\\"],[45690176,null,false,null,null,null,\\\"qF6xVc\\\"],[45686663,null,true,null,null,null,\\\"KGh4Cc\\\"],[45725770,null,false,null,null,null,\\\"yRc2q\\\"],[45697234,null,true,null,null,null,\\\"cUoIXb\\\"],[45708298,null,true,null,null,null,\\\"T4IN0c\\\"],[45748868,null,false,null,null,null,\\\"HraNse\\\"],[45751187,null,false,null,null,null,\\\"OuEQae\\\"],[45718842,null,false,null,null,null,\\\"Ywwwdb\\\"],[45696619,null,false,null,null,null,\\\"U7gqEe\\\"],[45748872,null,false,null,null,null,\\\"U6lopd\\\"],[45766700,null,false,null,null,null,\\\"wxRkOc\\\"],[45723113,null,true,null,null,null,\\\"Mv7Xhb\\\"],[45752852,null,false,null,null,null,\\\"Pdqiud\\\"],[45752686,null,false,null,null,null,\\\"mi0YMb\\\"],[45729830,null,false,null,null,null,\\\"DCV6If\\\"],[45712870,null,false,null,null,null,\\\"J04FPb\\\"],[45762802,null,false,null,null,null,\\\"zcN1ic\\\"],[45703610,null,false,null,null,null,\\\"UtcGCc\\\"],[45658679,null,false,null,null,null,\\\"qdTkee\\\"],[45744196,null,false,null,null,null,\\\"Ptkzx\\\"],[45720792,null,false,null,null,null,\\\"NFUw0c\\\"],[45753332,null,false,null,null,null,\\\"s7RHUb\\\"],[45767102,null,false,null,null,null,\\\"SFyMwf\\\"],[45754118,null,false,null,null,null,\\\"mho2lc\\\"],[45724459,null,null,null,\\\"rHrAD6ykh0suK1NZr2K0TB6fPtWB\\\",null,\\\"CE91jd\\\"],[45725154,null,false,null,null,null,\\\"WbzTGf\\\"],[45718464,null,true,null,null,null,\\\"MmyjKe\\\"],[45641838,null,false,null,null,null,\\\"fLPxhf\\\"],[45750741,null,true,null,null,null,\\\"CUcuI\\\"],[45723283,null,false,null,null,null,\\\"SoWiLc\\\"],[45723104,null,false,null,null,null,\\\"EkiEee\\\"],[45747769,null,false,null,null,null,\\\"pkwVub\\\"],[45762861,null,true,null,null,null,\\\"TyuTqc\\\"],[45742776,null,true,null,null,null,\\\"wyKum\\\"],[45725720,null,true,null,null,null,\\\"ZBeYxd\\\"],[45737532,null,false,null,null,null,\\\"JmYEv\\\"],[45755277,null,false,null,null,null,\\\"kHLD6e\\\"],[45751442,null,true,null,null,null,\\\"f4YkJ\\\"],[45686662,null,true,null,null,null,\\\"go03Eb\\\"],[45746367,null,false,null,null,null,\\\"GFsSZ\\\"],[45660690,null,true,null,null,null,\\\"ovKHsb\\\"],[45765943,null,false,null,null,null,\\\"OhdpDb\\\"],[45677461,null,null,null,null,null,\\\"qb66hd\\\",[\\\"[]\\\"]],[45746380,null,false,null,null,null,\\\"fkqxGb\\\"],[45691858,null,false,null,null,null,\\\"rWzu0d\\\"],[45728726,null,false,null,null,null,\\\"yMFQX\\\"],[45746750,null,false,null,null,null,\\\"CRyfMe\\\"],[45725110,null,true,null,null,null,\\\"ElheSd\\\"],[45751415,null,false,null,null,null,\\\"fJBcbd\\\"],[45679439,null,false,null,null,null,\\\"DNzQwe\\\"],[45699017,null,null,null,\\\"rffTE8sLk0suK1NZr2K0RtLUVxzE\\\",null,\\\"tWGWgc\\\"],[45728785,null,false,null,null,null,\\\"UPAJB\\\"],[45765410,null,false,null,null,null,\\\"CaEMO\\\"],[45660287,null,false,null,null,null,\\\"nIuPDe\\\"],[45686664,null,true,null,null,null,\\\"P0fSX\\\"],[45676780,null,true,null,null,null,\\\"GSMsUe\\\"],[45692064,null,false,null,null,null,\\\"wZ64Sb\\\"],[45747596,null,false,null,null,null,\\\"Vaq9Qe\\\"],[45711477,null,false,null,null,null,\\\"Rnlerd\\\"],[45765658,null,false,null,null,null,\\\"ETmFzf\\\"],[45674758,null,true,null,null,null,\\\"ZHtfUc\\\"],[45676996,null,true,null,null,null,\\\"KFVYtf\\\"],[45672205,null,true,null,null,null,\\\"E7dKkc\\\"],[45699204,null,false,null,null,null,\\\"XWRwod\\\"],[45752655,null,false,null,null,null,\\\"NsOFEe\\\"],[45729696,null,null,1,null,null,\\\"UeMd4b\\\"],[45730222,null,null,30000,null,null,\\\"qnlClb\\\"],[45746333,null,false,null,null,null,\\\"EWbcm\\\"],[45736179,null,false,null,null,null,\\\"LIe8ub\\\"],[45727546,null,true,null,null,null,\\\"wT569b\\\"],[45729690,null,false,null,null,null,\\\"AQMuhd\\\"],[45644640,42,null,null,null,null,\\\"xbuGR\\\"],[45687747,null,true,null,null,null,\\\"n1Nom\\\"],[45717234,null,true,null,null,null,\\\"ciRkJd\\\"],[45747553,null,true,null,null,null,\\\"NIUGN\\\"],[45677729,null,true,null,null,null,\\\"wzZQPd\\\"],[45708977,null,false,null,null,null,\\\"AxurIf\\\"],[45752218,null,false,null,null,null,\\\"Gktqke\\\"],[45691313,null,false,null,null,null,\\\"KS9F0c\\\"],[45715626,null,true,null,null,null,\\\"ERq70c\\\"],[45726560,null,true,null,null,null,\\\"tIR90c\\\"],[45748873,null,false,null,null,null,\\\"XtECIf\\\"],[45742079,null,false,null,null,null,\\\"awHj9\\\"],[45676754,null,true,null,null,null,\\\"YwbU8\\\"],[45678215,null,null,null,\\\"6PSdkFYUx0suK1NZr2K0SmPPgaGe\\\",null,\\\"JR8rtc\\\"],[45767159,0,null,null,null,null,\\\"yDErgc\\\"],[45761752,null,false,null,null,null,\\\"tYjnud\\\"],[45726852,null,false,null,null,null,\\\"qgjRgd\\\"],[45700504,null,false,null,null,null,\\\"u6ksOd\\\"],[45678217,null,null,0.01,null,null,\\\"RL6SLc\\\"],[45672085,null,true,null,null,null,\\\"FJbUAf\\\"],[45742759,null,false,null,null,null,\\\"hc5Fic\\\"],[45754335,null,true,null,null,null,\\\"P5Zswc\\\"],[45648275,null,true,null,null,null,\\\"X5yyz\\\"],[45750887,null,false,null,null,null,\\\"WTvwUd\\\"],[45703717,null,false,null,null,null,\\\"ZfxSFe\\\"],[45762425,null,false,null,null,null,\\\"l5Ziqe\\\"],[45765314,null,false,null,null,null,\\\"jNI7Hb\\\"],[45737769,null,false,null,null,null,\\\"C4gACf\\\"],[45684108,null,true,null,null,null,\\\"IHwhDb\\\"],[45674285,null,false,null,null,null,\\\"zRoGXc\\\"],[45679713,null,true,null,null,null,\\\"EEZ1dd\\\"],[45766771,null,false,null,null,null,\\\"aCW0Qd\\\"],[45746176,null,false,null,null,null,\\\"atfOHe\\\"],[45729695,null,false,null,null,null,\\\"tYEdHb\\\"],[45750646,null,false,null,null,null,\\\"ZsLlE\\\"],[45674761,null,null,0.5,null,null,\\\"GpQcOb\\\"],[45736482,null,false,null,null,null,\\\"DAnsv\\\"],[45684730,null,true,null,null,null,\\\"aW7Ggd\\\"],[45753879,null,false,null,null,null,\\\"E2Jroe\\\"],[45677444,null,false,null,null,null,\\\"WYEV9b\\\"],[45752518,null,true,null,null,null,\\\"i5Z2r\\\"],[45747879,null,false,null,null,null,\\\"kZsK5\\\"],[45764672,null,false,null,null,null,\\\"R1I5We\\\"],[45661802,null,false,null,null,null,\\\"I09lfd\\\"],[45709342,null,false,null,null,null,\\\"Ab7Nmd\\\"],[45760916,null,false,null,null,null,\\\"vlgbcd\\\"],[45746685,null,true,null,null,null,\\\"Q3KBSd\\\"],[45737207,null,false,null,null,null,\\\"Kw5UUd\\\"],[45639541,null,true,null,null,null,\\\"LHinid\\\"],[45736727,null,false,null,null,null,\\\"JJHfwf\\\"],[45748983,null,false,null,null,null,\\\"s0d1Kd\\\"],[45757707,null,false,null,null,null,\\\"yZYBLb\\\"],[45752219,null,false,null,null,null,\\\"QIG0Je\\\"],[45736425,null,null,null,\\\"Z7vabQzZ0Bn3gbW4AcZC0TfvmSab\\\",null,\\\"fFl01\\\"],[45719766,null,false,null,null,null,\\\"A3eSQd\\\"],[45696085,null,false,null,null,null,\\\"g3Gc7d\\\"],[45707719,null,true,null,null,null,\\\"GtbvFd\\\"],[45757471,null,true,null,null,null,\\\"fDV6xf\\\"],[45731897,null,true,null,null,null,\\\"NK5elf\\\"],[45745030,null,true,null,null,null,\\\"HKORbd\\\"],[45682655,null,false,null,null,null,\\\"riQMFe\\\"],[45762174,null,false,null,null,null,\\\"eUI0gb\\\"],[45751523,null,true,null,null,null,\\\"zDi7Gf\\\"],[45683718,null,true,null,null,null,\\\"zQUS6d\\\"],[45744453,null,false,null,null,null,\\\"pbArof\\\"],[45751476,null,false,null,null,null,\\\"gwKlXb\\\"],[45737396,null,false,null,null,null,\\\"KJRJ6d\\\"],[45746766,null,false,null,null,null,\\\"a6khDf\\\"],[45657471,null,null,null,null,null,\\\"kMR5pc\\\",[\\\"[[\\\\\\\"es\\\\\\\",\\\\\\\"pt\\\\\\\",\\\\\\\"ja\\\\\\\",\\\\\\\"ko\\\\\\\",\\\\\\\"fr\\\\\\\",\\\\\\\"it\\\\\\\",\\\\\\\"de\\\\\\\",\\\\\\\"zh-CN\\\\\\\",\\\\\\\"nl\\\\\\\",\\\\\\\"tr\\\\\\\",\\\\\\\"cs\\\\\\\",\\\\\\\"sv\\\\\\\",\\\\\\\"da\\\\\\\",\\\\\\\"no\\\\\\\",\\\\\\\"pl\\\\\\\",\\\\\\\"vi\\\\\\\",\\\\\\\"th\\\\\\\",\\\\\\\"fi\\\\\\\",\\\\\\\"uk\\\\\\\",\\\\\\\"ru\\\\\\\",\\\\\\\"hu\\\\\\\",\\\\\\\"ro\\\\\\\",\\\\\\\"ms\\\\\\\",\\\\\\\"el\\\\\\\",\\\\\\\"ca\\\\\\\",\\\\\\\"ar\\\\\\\",\\\\\\\"iw\\\\\\\",\\\\\\\"he\\\\\\\",\\\\\\\"id\\\\\\\",\\\\\\\"in\\\\\\\",\\\\\\\"zh-TW\\\\\\\"]]\\\"]],[45686667,null,true,null,null,null,\\\"ek81nf\\\"],[45658731,null,true,null,null,null,\\\"zMe6ub\\\"],[45761648,null,false,null,null,null,\\\"DiTvVe\\\"],[45658716,null,false,null,null,null,\\\"Fa3cob\\\"],[45685754,null,true,null,null,null,\\\"OyPt5\\\"],[45756433,null,false,null,null,null,\\\"Zb8rLd\\\"],[45661086,null,true,null,null,null,\\\"wfVdS\\\"],[45742887,null,false,null,null,null,\\\"bzXlub\\\"],[45666088,null,false,null,null,null,\\\"MgfT5\\\"],[45750874,1,null,null,null,null,\\\"oshfwd\\\"],[45735477,null,false,null,null,null,\\\"qK0Vqb\\\"],[45753474,null,false,null,null,null,\\\"m03ghd\\\"],[45729970,null,false,null,null,null,\\\"V517pe\\\"],[45677456,null,false,null,null,null,\\\"pyUPD\\\"],[45658644,null,true,null,null,null,\\\"ZdwoD\\\"],[45696263,null,null,null,null,null,\\\"W12Bse\\\",[\\\"[[\\\\\\\"feature named `pageObserver` was not found\\\\\\\",\\\\\\\"feature named `hover` was not found\\\\\\\"]]\\\"]],[45653615,null,null,null,null,null,\\\"lwF00d\\\",[\\\"[[\\\\\\\"es\\\\\\\",\\\\\\\"pt\\\\\\\",\\\\\\\"ja\\\\\\\",\\\\\\\"ko\\\\\\\",\\\\\\\"fr\\\\\\\",\\\\\\\"it\\\\\\\",\\\\\\\"de\\\\\\\",\\\\\\\"zh\\\\\\\",\\\\\\\"nl\\\\\\\",\\\\\\\"iw\\\\\\\",\\\\\\\"he\\\\\\\",\\\\\\\"tr\\\\\\\",\\\\\\\"cs\\\\\\\",\\\\\\\"sv\\\\\\\",\\\\\\\"da\\\\\\\",\\\\\\\"no\\\\\\\",\\\\\\\"pl\\\\\\\",\\\\\\\"vi\\\\\\\",\\\\\\\"th\\\\\\\",\\\\\\\"fi\\\\\\\",\\\\\\\"uk\\\\\\\",\\\\\\\"ar\\\\\\\",\\\\\\\"ru\\\\\\\",\\\\\\\"hu\\\\\\\",\\\\\\\"ro\\\\\\\",\\\\\\\"ms\\\\\\\",\\\\\\\"el\\\\\\\",\\\\\\\"ca\\\\\\\",\\\\\\\"id\\\\\\\",\\\\\\\"in\\\\\\\"]]\\\"]],[45747953,null,true,null,null,null,\\\"teCRCb\\\"],[45658291,null,true,null,null,null,\\\"OSuRGd\\\"],[45689771,null,true,null,null,null,\\\"dkdoVc\\\"],[45716368,null,false,null,null,null,\\\"Rd9FMb\\\"],[45735651,null,true,null,null,null,\\\"QEOLhc\\\"],[45743085,null,false,null,null,null,\\\"Ph5VH\\\"],[45765839,null,false,null,null,null,\\\"qNyb0e\\\"],[45681790,null,true,null,null,null,\\\"uPCxtc\\\"],[45647060,null,true,null,null,null,\\\"uYjPWb\\\"],[45720439,null,false,null,null,null,\\\"UFhFZb\\\"],[45736698,null,false,null,null,null,\\\"nhgo9c\\\"],[45686666,null,true,null,null,null,\\\"dZ9mjb\\\"],[45644641,null,null,3.14159,null,null,\\\"FX1FL\\\"],[45747887,null,false,null,null,null,\\\"BvfvHb\\\"],[45694562,null,false,null,null,null,\\\"D50qNc\\\"],[45696552,null,true,null,null,null,\\\"f1ZShc\\\"],[45726996,null,true,null,null,null,\\\"sneWj\\\"],[45674759,null,null,null,\\\"nHWnsqMqi0suK1NZr2K0QMJZfKqX\\\",null,\\\"xH7haf\\\"]],\\\"CAMSgQMd+QXe66ooA+K4AAP31hMDl+FjkdQEA6MGA5+ZAgO0+w0DjgYD3KsGA7hhA/AZA/IiA5DNBAP5T6mcBAOImgmzrgTmwgID1QIDry0DDwMfAzQDvgYDzpoBAw8DqdMEA8X2BAPzAQPyPwOlAQPNcgOAFtwxwOUFA8bjBgPDUgP8tAYD1QUDxQ4DnIMGA9juBgOANgPwrwED7vsGA4nsBQO0iwUDZAN6A7YGA5cGA1ED/IwFA4eXA6vNDdPkBAPhXAOUvwYDoflB0ZUNA+WJAcnEBAOioQUDmuwDA+PPBYWLDt2RBgPdggYDv5kBA9zaBAPa3gCo3uoDA566BQMwA/+jBQP50wIDlxYDs/4Cxz8Dk9UDA/nJAwP6yw8Dzg8Ek7QFA7XeBgOtiAoE9oECA64FA5b5BZT8BQPUgAUDgD0DwMAGp6UEA4SWBAP7mwYD7jsDm9kBA5L1BAOWrgUDjwUDhgMDtMEEA7yzAAP0CQKeWwO71g8D1+UDApLTDgO54QQD\\\"]]]\",\"XRqI7\":\"%.@.1,1]\",\"eQxUid\":false,\"eptZe\":\"/drive/_/\",\"gnD3ee\":\"%.@.null,null,null,\\\"https://drive.google.com/viewer/main\\\"]\",\"nQyAE\":{\"cEGEwf\":\"true\",\"HliJuf\":\"true\",\"bz2lGd\":\"true\",\"pjBGl\":\"true\",\"LlDNDf\":\"false\",\"Bw1Tmc\":\"true\",\"Yft8Bf\":\"false\",\"buRbgf\":\"false\",\"o14Xi\":\"true\",\"k6yvCf\":\"true\",\"Vcf8Ff\":\"true\",\"YswK2b\":\"true\",\"DEOVGe\":\"false\",\"b0LOw\":\"true\",\"IgRrTb\":\"true\",\"hqXS3b\":\"true\",\"RSeJXb\":\"true\",\"pCzPGd\":\"true\",\"TkrMad\":\"false\",\"uD6DEe\":\"true\",\"ihfOIf\":\"true\",\"jVrwec\":\"false\",\"rdkohc\":\"false\"},\"vD8wrb\":{\"/_/drive_fe/_/js/k\\u003ddrive_fe.main.en.oXKJ-9bRtJ0.2021.O/am\\u003dAAAIYO0nCAAAAAAAIAAAiAAADwAEggBhAgc/d\\u003d1/br\\u003d1/rs\\u003dAFB8gsx6S6ubotBacWlrrR6E-pYKskDfpQ/dti\\u003d1/m\\u003db?wli\\u003dmain.X5Chl5ZnCHE.loadWasmCloudStore.O%3A%3B\":2,\"/_/drive_fe/_/js/k\\u003ddrive_fe.main.en.oXKJ-9bRtJ0.2021.O/am\\u003dAAAIYO0nCAAAAAAAIAAAiAAADwAEggBhAgc/d\\u003d1/exm\\u003db/ed\\u003d1/br\\u003d1/rs\\u003dAFB8gsx6S6ubotBacWlrrR6E-pYKskDfpQ/dti\\u003d1/m\\u003dRsR2Mc?wli\\u003dmain.X5Chl5ZnCHE.loadWasmCloudStore.O%3A%3B\":3,\"/_/drive_fe/_/js/k\\u003ddrive_fe.main.en.oXKJ-9bRtJ0.2021.O/am\\u003dAAAIYO0nCAAAAAAAIAAAiAAADwAEggBhAgc/d\\u003d1/exm\\u003dRsR2Mc,b/ed\\u003d1/br\\u003d1/rs\\u003dAFB8gsx6S6ubotBacWlrrR6E-pYKskDfpQ/dti\\u003d1/m\\u003dcore?wli\\u003dmain.X5Chl5ZnCHE.loadWasmCloudStore.O%3A%3B\":15,\"/_/drive_fe/_/ss/k\\u003ddrive_fe.main.SKndeB4DElA.L.W.O/am\\u003dDDiNZf1nmq9_AABGKimBiAAOD7QEhll_Agc/d\\u003d0/br\\u003d1/rs\\u003dAFB8gsx-JHDrjLskBGd647Z9hMqxSmHfvA\":1},\"vLjptb\":\"13793271868454236267\",\"w2btAe\":\"%.@.\\\"13793271868454236267\\\",\\\"13793271868454236267\\\",\\\"0\\\",false,null,null,true,false]\",\"yLTeS\":\"***REMOVED-GOOGLE-API***\"};var AF_initDataKeys = [\"ds:0\",\"ds:1\",\"ds:2\",\"ds:3\",\"ds:4\",\"ds:5\"]; var AF_dataServiceRequests = {'ds:0' : {id:'Airzle',request:[]},'ds:1' : {id:'Rtk8Cd',request:[\"0AGPQl6-UOmJfUk9PVA\"]},'ds:2' : {id:'jhkq9e',request:[]},'ds:3' : {id:'DXNbTd',request:[1,\"0AGPQl6-UOmJfUk9PVA\"]},'ds:4' : {id:'ozz5Z',request:[[[[null,\"1\",539]]]]},'ds:5' : {id:'CZ9cHb',request:[[2,1,null,null,[1,2]],null,[[6]]]}}; var AF_initDataChunkQueue = []; var AF_initDataCallback; var AF_initDataInitializeCallback; if (AF_initDataInitializeCallback) {AF_initDataInitializeCallback(AF_initDataKeys, AF_initDataChunkQueue, AF_dataServiceRequests);}if (!AF_initDataCallback) {AF_initDataCallback = function(chunk) {AF_initDataChunkQueue.push(chunk);};}.Z7C2he{display: flex; pointer-events: none; left: 0; position: absolute; right: 0; top: 0; z-index: 1000;}.VZq03d{position: relative; top: -1000px;}Skip to main contentKeyboard shortcutsAccessibility feedbackDriveDriveDrivetabAdvanced searchAll resultsHelpTrainingTerms and PolicySend feedback to GoogleAsk Geminithis.gbar_=this.gbar_||{};(function(_){var window=this;\ntry{\n_.Ed=function(a,b,c){if(!a.j)if(c instanceof Array)for(var d of c)_.Ed(a,b,d);else{d=(0,_.z)(a.C,a,b);const e=a.v+c;a.v++;b.dataset.eqid=e;a.B[e]=d;b&&b.addEventListener?b.addEventListener(c,d,!1):b&&b.attachEvent?b.attachEvent(\"on\"+c,d):a.o.log(Error(\"t`\"+b))}};\n}catch(e){_._DumpException(e)}\ntry{\nvar Fd=document.querySelector(\".gb_J .gb_B\"),Gd=document.querySelector(\"#gb.gb_ad\");Fd&&!Gd&&_.Ed(_.nd,Fd,\"click\");\n}catch(e){_._DumpException(e)}\ntry{\n_.Hd=function(a){return/^[\\s\\xa0]*$/.test(a)};_.Id=function(a){a&&typeof a.dispose==\"function\"&&a.dispose()};_.Jd=function(a,b){b==void 0&&(b=0);return a!=null?a:b};_.Kd=function(a,b){a.qa?b():(a.Y||(a.Y=[]),a.Y.push(b))};_.Ld=function(a,b){_.Kd(a,_.Ob(_.Id,b))};_.Md=typeof AsyncContext!==\"undefined\"&&typeof AsyncContext.Snapshot===\"function\"?a=>a&&AsyncContext.Snapshot.wrap(a):a=>a;\n}catch(e){_._DumpException(e)}\ntry{\nvar Nd;Nd=class extends _.rd{};_.Od=function(a,b){if(b in a.i)return a.i[b];throw new Nd;};_.Pd=function(a){return _.Od(_.od.i(),a)};\n}catch(e){_._DumpException(e)}\ntry{\n/*\n\n Copyright Google LLC\n SPDX-License-Identifier: Apache-2.0\n*/\nvar Sd;_.Qd=function(a){const b=a.length;if(b>0){const c=Array(b);for(let d=0;d<b;d++)c[d]=a[d];return c}return[]};Sd=function(a){return new _.Rd(b=>b.substr(0,a.length+1).toLowerCase()===a+\":\")};_.Td=globalThis.trustedTypes;_.Ud=class{constructor(a){this.i=a}toString(){return this.i}};_.Vd=new _.Ud(\"about:invalid#zClosurez\");_.Rd=class{constructor(a){this.Vh=a}};_.Wd=[Sd(\"data\"),Sd(\"http\"),Sd(\"https\"),Sd(\"mailto\"),Sd(\"ftp\"),new _.Rd(a=>/^[^:]*([/?#]|$)/.test(a))];_.Xd=class{constructor(a){this.i=a}toString(){return this.i+\"\"}};_.Yd=new _.Xd(_.Td?_.Td.emptyHTML:\"\");\n}catch(e){_._DumpException(e)}\ntry{\nvar ce,oe,re,be,de,ie;_.Zd=function(a){return a==null?a:(0,_.Na)(a)?a|0:void 0};_.$d=function(a){if(a==null)return a;if(typeof a===\"string\"&&a)a=+a;else if(typeof a!==\"number\")return;return(0,_.Na)(a)?a|0:void 0};_.ae=function(a,b){return a.lastIndexOf(b,0)==0};ce=function(){let a=null;if(!be)return a;try{const b=c=>c;a=be.createPolicy(\"ogb-qtm#html\",{createHTML:b,createScript:b,createScriptURL:b})}catch(b){}return a};_.ee=function(){de===void 0&&(de=ce());return de};\n_.ge=function(a){const b=_.ee();a=b?b.createScriptURL(a):a;return new _.fe(a)};_.he=function(a){if(a instanceof _.fe)return a.i;throw Error(\"x\");};_.je=function(a){if(ie.test(a))return a};_.ke=function(a){if(a instanceof _.Ud)if(a instanceof _.Ud)a=a.i;else throw Error(\"x\");else a=_.je(a);return a};_.le=function(a,b=document){let c;const d=(c=b.querySelector)==null?void 0:c.call(b,`${a}[nonce]`);return d==null?\"\":d.nonce||d.getAttribute(\"nonce\")||\"\"};\n_.me=function(a,b,c,d){return _.Zd(_.Oc(a,b,c,d))};_.Q=function(a,b,c){return _.Ma(_.Oc(a,b,c,_.Nc))};_.ne=function(a,b){return _.$d(_.Oc(a,b,void 0,_.Nc))};oe=class extends _.N{constructor(a){super(a)}Yb(a){return _.L(this,24,a)}};_.pe=function(){return _.C(_.jd,oe,1)};_.qe=function(a){var b=_.Ka(a);return b==\"array\"||b==\"object\"&&typeof a.length==\"number\"};be=_.Td;_.fe=class{constructor(a){this.i=a}toString(){return this.i+\"\"}};ie=/^\\s*(?!javascript:)(?:[\\w+.-]+:|[^:/?#]*(?:[/?#]|$))/i;var xe,Be,se;_.ue=function(a){return a?new se(_.te(a)):re||(re=new se)};_.ve=function(a,b){return typeof b===\"string\"?a.getElementById(b):b};_.S=function(a,b){var c=b||document;c.getElementsByClassName?a=c.getElementsByClassName(a)[0]:(c=document,a=a?(b||c).querySelector(a?\".\"+a:\"\"):_.we(c,\"*\",a,b)[0]||null);return a||null};_.we=function(a,b,c,d){a=d||a;return(b=b&&b!=\"*\"?String(b).toUpperCase():\"\")||c?a.querySelectorAll(b+(c?\".\"+c:\"\")):a.getElementsByTagName(\"*\")};\n_.ye=function(a,b){_.Bb(b,function(c,d){d==\"style\"?a.style.cssText=c:d==\"class\"?a.className=c:d==\"for\"?a.htmlFor=c:xe.hasOwnProperty(d)?a.setAttribute(xe[d],c):_.ae(d,\"aria-\")||_.ae(d,\"data-\")?a.setAttribute(d,c):a[d]=c})};xe={cellpadding:\"cellPadding\",cellspacing:\"cellSpacing\",colspan:\"colSpan\",frameborder:\"frameBorder\",height:\"height\",maxlength:\"maxLength\",nonce:\"nonce\",role:\"role\",rowspan:\"rowSpan\",type:\"type\",usemap:\"useMap\",valign:\"vAlign\",width:\"width\"};\n_.ze=function(a){return a?a.defaultView:window};_.Ce=function(a,b){const c=b[1],d=_.Ae(a,String(b[0]));c&&(typeof c===\"string\"?d.className=c:Array.isArray(c)?d.className=c.join(\" \"):_.ye(d,c));b.length>2&&Be(a,d,b);return d};Be=function(a,b,c){function d(e){e&&b.appendChild(typeof e===\"string\"?a.createTextNode(e):e)}for(let e=2;e<c.length;e++){const f=c[e];!_.qe(f)||_.Lb(f)&&f.nodeType>0?d(f):_.ec(f&&typeof f.length==\"number\"&&typeof f.item==\"function\"?_.Qd(f):f,d)}};\n_.De=function(a){return _.Ae(document,a)};_.Ae=function(a,b){b=String(b);a.contentType===\"application/xhtml+xml\"&&(b=b.toLowerCase());return a.createElement(b)};_.Ee=function(a){let b;for(;b=a.firstChild;)a.removeChild(b)};_.Fe=function(a){return a&&a.parentNode?a.parentNode.removeChild(a):null};_.Ge=function(a,b){return a&&b?a==b||a.contains(b):!1};_.te=function(a){return a.nodeType==9?a:a.ownerDocument||a.document};se=function(a){this.i=a||_.t.document||document};_.n=se.prototype;\n_.n.H=function(a){return _.ve(this.i,a)};_.n.Ra=function(a,b,c){return _.Ce(this.i,arguments)};_.n.appendChild=function(a,b){a.appendChild(b)};_.n.Pe=_.Ee;_.n.tg=_.Fe;_.n.rg=_.Ge;\n}catch(e){_._DumpException(e)}\ntry{\n_.Ie=function(a,b,c){Array.isArray(c)&&(c=c.join(\" \"));const d=\"aria-\"+b;c===\"\"||c==void 0?(He||(He={atomic:!1,autocomplete:\"none\",dropeffect:\"none\",haspopup:!1,live:\"off\",multiline:!1,multiselectable:!1,orientation:\"vertical\",readonly:!1,relevant:\"additions text\",required:!1,sort:\"none\",busy:!1,disabled:!1,hidden:!1,invalid:\"false\"}),c=He,b in c?a.setAttribute(d,c[b]):a.removeAttribute(d)):a.setAttribute(d,c)};_.Je=function(a){return _.Lb(a)&&a.nodeType==1};\n_.Ke=function(a,b){if(\"textContent\"in a)a.textContent=b;else if(a.nodeType==3)a.data=String(b);else if(a.firstChild&&a.firstChild.nodeType==3){for(;a.lastChild!=a.firstChild;)a.removeChild(a.lastChild);a.firstChild.data=String(b)}else _.Ee(a),a.appendChild(_.te(a).createTextNode(String(b)))};var He;var Oe;_.Ne=function(a,b,c,d,e,f){if(_.nc&&e)return _.Le(a);if(e&&!d)return!1;if(!_.lc){typeof b===\"number\"&&(b=_.Me(b));const g=b==17||b==18||_.nc&&b==91;if((!c||_.nc)&&g||_.nc&&b==16&&(d||f))return!1}if(_.mc&&d&&c)switch(a){case 220:case 219:case 221:case 192:case 186:case 189:case 187:case 188:case 190:case 191:case 192:case 222:return!1}switch(a){case 13:return _.lc?f||e?!1:!(c&&d):!0;case 27:return!_.mc&&!_.lc}return _.lc&&(d||e||f)?!1:_.Le(a)};\n_.Le=function(a){if(a>=48&&a<=57||a>=96&&a<=106||a>=65&&a<=90||_.mc&&a==0)return!0;switch(a){case 32:case 43:case 63:case 64:case 107:case 109:case 110:case 111:case 186:case 59:case 189:case 187:case 61:case 188:case 190:case 191:case 192:case 222:case 219:case 220:case 221:case 163:case 58:return!0;case 173:case 171:return _.lc;default:return!1}};_.Me=function(a){if(_.lc)a=Oe(a);else if(_.nc&&_.mc)a:switch(a){case 93:a=91;break a}return a};\nOe=function(a){switch(a){case 61:return 187;case 59:return 186;case 173:return 189;case 224:return 91;case 0:return 224;default:return a}};\n}catch(e){_._DumpException(e)}\ntry{\nvar Pe,Qe,Re;Pe=function(a){return typeof a.className==\"string\"?a.className:a.getAttribute&&a.getAttribute(\"class\")||\"\"};Qe=function(a){return a.classList?a.classList:Pe(a).match(/\\S+/g)||[]};Re=function(a,b){typeof a.className==\"string\"?a.className=b:a.setAttribute&&a.setAttribute(\"class\",b)};_.T=function(a,b){return a.classList?a.classList.contains(b):_.Ba(Qe(a),b)};_.Se=function(a,b){if(a.classList)a.classList.add(b);else if(!_.T(a,b)){const c=Pe(a);Re(a,c+(c.length>0?\" \"+b:b))}};\n_.Te=function(a,b){if(a.classList)Array.prototype.forEach.call(b,function(d){_.Se(a,d)});else{var c={};Array.prototype.forEach.call(Qe(a),function(d){c[d]=!0});Array.prototype.forEach.call(b,function(d){c[d]=!0});b=\"\";for(const d in c)b+=b.length>0?\" \"+d:d;Re(a,b)}};_.Ue=function(a,b){a.classList?a.classList.remove(b):_.T(a,b)&&Re(a,Array.prototype.filter.call(Qe(a),function(c){return c!=b}).join(\" \"))};\n_.Ve=function(a,b){a.classList?Array.prototype.forEach.call(b,function(c){_.Ue(a,c)}):Re(a,Array.prototype.filter.call(Qe(a),function(c){return!_.Ba(b,c)}).join(\" \"))};\n}catch(e){_._DumpException(e)}\ntry{\n_.We=class extends _.N{constructor(a){super(a)}};\n}catch(e){_._DumpException(e)}\ntry{\nvar Ye,df,ef,Ze;_.Xe=function(a,b){b=_.Aa(a,b);let c;(c=b>=0)&&Array.prototype.splice.call(a,b,1);return c};Ye=function(a,b){for(const c in a)if(b.call(void 0,a[c],c,a))return!0;return!1};_.$e=function(a,b){let c,d;for(let e=1;e<arguments.length;e++){d=arguments[e];for(c in d)a[c]=d[c];for(let f=0;f<Ze.length;f++)c=Ze[f],Object.prototype.hasOwnProperty.call(d,c)&&(a[c]=d[c])}};\n_.bf=function(a,b){_.af.call(this,a?a.type:\"\");this.relatedTarget=this.currentTarget=this.target=null;this.button=this.screenY=this.screenX=this.clientY=this.clientX=this.offsetY=this.offsetX=0;this.key=\"\";this.charCode=this.keyCode=0;this.metaKey=this.shiftKey=this.altKey=this.ctrlKey=!1;this.state=null;this.pointerId=0;this.pointerType=\"\";this.timeStamp=0;this.Tb=null;a&&this.init(a,b)};\ndf=function(a,b,c,d,e){this.listener=a;this.proxy=null;this.src=b;this.type=c;this.capture=!!d;this.Hd=e;this.key=++cf;this.md=this.xd=!1",
+  "downloaded_images": [
+    {
+      "file": "/home/john/Thunderbird/validations/rssc_scrape/images/ely_shipboard_credits_000.jpg",
+      "src": "https://ssl.gstatic.com/docs/doclist/images/empty_state_details_v2.svg",
+      "alt": "",
+      "kb": 2
+    },
+    {
+      "file": "/home/john/Thunderbird/validations/rssc_scrape/images/ely_shipboard_credits_001.jpg",
+      "src": "https://ssl.gstatic.com/docs/doclist/images/empty_state_multiple_files_selected.svg",
+      "alt": "",
+      "kb": 4
+    },
+    {
+      "file": "/home/john/Thunderbird/validations/rssc_scrape/images/ely_shipboard_credits_002.png",
+      "src": "https://www.gstatic.com/companion/icon_assets/calendar_2020q4_2x.png",
+      "alt": "bg",
+      "kb": 1
+    },
+    {
+      "file": "/home/john/Thunderbird/validations/rssc_scrape/images/ely_shipboard_credits_004.png",
+      "src": "https://www.gstatic.com/companion/icon_assets/tasks_2021_2x.png",
+      "alt": "bg",
+      "kb": 0
+    },
+    {
+      "file": "/home/john/Thunderbird/validations/rssc_scrape/images/ely_shipboard_credits_005.png",
+      "src": "https://www.gstatic.com/companion/icon_assets/contacts_2022_2x.png",
+      "alt": "bg",
+      "kb": 1
+    },
+    {
+      "file": "/home/john/Thunderbird/validations/rssc_scrape/images/ely_shipboard_credits_008.png",
+      "src": "https://lh3.googleusercontent.com/gwao/AIP6TuoZgch9hFVZm-sSwhGoadguqvt45GpxSDRm95UgGQvstSUPoj5GEaq4tmqughzWrXE-TrLDF-8rC3jU9CPQ7xbK25Okx9TR62D0cnO6qeFBpd4H2f-kyEw=s48-k-no",
+      "alt": "bg",
+      "kb": 2
+    }
+  ],
+  "screenshot": "/home/john/Thunderbird/validations/rssc_scrape/ely_shipboard_credits_152938.png"
+}

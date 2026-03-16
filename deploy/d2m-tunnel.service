@@ -1,0 +1,14 @@
+[Unit]
+Description=Dreams2Memories Cloudflare Tunnel
+After=network.target d2m-api.service
+Requires=d2m-api.service
+
+[Service]
+Type=simple
+User=john
+ExecStart=/usr/bin/cloudflared tunnel --url http://localhost:8766 --logfile /home/john/Thunderbird/tunnel.log
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

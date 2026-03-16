@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0f172a;
+      color: #94a3b8;
+      font-family: 'Courier New', monospace;
+      overflow: hidden;
+      height: 100vh;
+      height: 100dvh;
+      width: 100vw;
+    }
+    .app {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      height: 100dvh;
+    }
+
+    /* ── Header ── */
+    .hud-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 14px;
+      background: #0b1120;
+      border-bottom: 1px solid #1e293b;
+      flex-shrink: 0;
+    }
+    .hud-title {
+      font-size: 13px;
+      font-weight: bold;
+      color: #06b6d4;
+      font-style: italic;
+      letter-spacing: 1.5px;
+    }
+    .hud-status {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10px;
+      color: #22d3ee;
+      letter-spacing: 0.5px;
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22d3ee;
+      box-shadow: 0 0 6px #22d3ee;
+    }
+    .hud-status.offline .status-dot {
+      background: #ef4444;
+      box-shadow: 0 0 6px #ef4444;
+    }
+    .hud-status.offline { color: #ef4444; }
+    .hud-status.checking .status-dot {
+      background: #fbbf24;
+      box-shadow: 0 0 6px #fbbf24;
+      animation: pulse 1.2s infinite;
+    }
+    .hud-status.checking { color: #fbbf24; }
+
+    /* ── Chat Area ── */
+    .chat-area {
+      flex: 1;
+      overflow-y: auto;
+      padding: 12px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .chat-area::-webkit-scrollbar { width: 4px; }
+    .chat-area::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
+
+    /* ── Chat Bubbles ── */
+    .bubble-row {
+      display: flex;
+      flex-direction: column;
+      max-width: 82%;
+    }
+    .bubble-row.user {
+      align-self: flex-end;
+      align-items: flex-end;
+    }
+    .bubble-row.system {
+      align-self: flex-start;
+      align-items: flex-start;
+    }
+    .bubble-label {
+      font-size: 9px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 3px;
+      padding: 0 8px;
+    }
+    .bubble-row.user .bubble-label { color: #60a5fa; }
+    .bubble-row.system .bubble-label { color: #06b6d4; }
+
+    .bubble {
+      padding: 10px 14px;
+      font-size: 13px;
+      line-height: 1.55;
+      color: #e2e8f0;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .bubble-row.user .bubble {
+      background: #1d4ed8;
+      border-radius: 18px 18px 4px 18px;
+    }
+    .bubble-row.system .bubble {
+      background: #1e293b;
+      border-radius: 18px 18px 18px 4px;
+    }
+
+    /* ── Loading indicator ── */
+    .typing-indicator {
+      display: flex;
+      gap: 5px;
+      padding: 12px 16px;
+      align-items: center;
+    }
+    .typing-indicator span {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #06b6d4;
+      animation: typingBounce 1.4s infinite ease-in-out;
+    }
+    .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+    .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes typingBounce {
+      0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+      30% { transform: translateY(-6px); opacity: 1; }
+    }
+
+    /* ── Action Strip (collapsible) ── */
+    .action-strip {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      background: #0b1120;
+      border-top: 1px solid #1e293b;
+      flex-shrink: 0;
+      overflow: hidden;
+      transition: max-height 0.25s ease;
+    }
+    .action-strip.collapsed { max-height: 0; border-top: none; }
+    .action-strip.expanded { max-height: 50px; }
+
+    .action-strip-btn {
+      flex: 1;
+      background: none;
+      border: none;
+      border-right: 1px solid #1e293b;
+      padding: 10px 0;
+      font-family: 'Courier New', monospace;
+      font-size: 10px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+    }
+    .action-strip-btn:last-child { border-right: none; }
+    .action-strip-btn:active { background: rgba(255,255,255,0.05); }
+    .btn-evernote { color: #4ade80; }
+    .btn-drive { color: #fbbf24; }
+    .btn-tasks { color: #a78bfa; }
+
+    /* ── Input Bar (pinned bottom) ── */
+    .input-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      padding-bottom: max(8px, env(safe-area-inset-bottom));
+      background: #0b1120;
+      border-top: 1px solid #1e293b;
+      flex-shrink: 0;
+    }
+    .mic-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: #94a3b8;
+      cursor: pointer;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .mic-btn:hover { border-color: #06b6d4; }
+    .mic-btn.active {
+      color: #ef4444;
+      border-color: #ef4444;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse { 0%{opacity:1} 50%{opacity:0.3} 100%{opacity:1} }
+
+    .query-input {
+      flex: 1;
+      min-width: 0;
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 22px;
+      color: #e2e8f0;
+      padding: 10px 16px;
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      outline: none;
+      height: 44px;
+    }
+    .query-input:focus { border-color: #06b6d4; }
+    .query-input::placeholder { color: #475569; }
+
+    .send-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #0891b2;
+      border: none;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .send-btn:hover { background: #06b6d4; }
+    .send-btn:disabled { background: #334155; color: #64748b; cursor: default; }
+
+    .toolbar-toggle {
+      width: 30px;
+      height: 44px;
+      background: none;
+      border: none;
+      color: #475569;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .toolbar-toggle:hover { color: #94a3b8; }
+    .toolbar-toggle.open { color: #06b6d4; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect, useRef, useCallback } = React;
+
+    const HUD = () => {
+      const [log, setLog] = useState([
+        { from: 'THUNDERBIRD', text: 'v3.0 Online. Neural link stable. Query window active.', side: 'system' }
+      ]);
+      const [input, setInput] = useState('');
+      const [listening, setListening] = useState(false);
+      const [sending, setSending] = useState(false);
+      const [online, setOnline] = useState(null);
+      const [toolsOpen, setToolsOpen] = useState(false);
+      const scrollRef = useRef(null);
+
+      // Auto-scroll on new message
+      useEffect(() => {
+        if (scrollRef.current) {
+          scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+        }
+      }, [log, sending]);
+
+      // Health check on load
+      useEffect(() => {
+        try {
+          google.script.run
+            .withSuccessHandler(res => setOnline(res && res.status === 'ok'))
+            .withFailureHandler(() => setOnline(false))
+            .checkHealth();
+        } catch(e) {
+          setOnline(false);
+        }
+      }, []);
+
+      // Speech-to-text
+      const startListening = () => {
+        const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (!SR) return;
+        const rec = new SR();
+        rec.onstart = () => setListening(true);
+        rec.onend = () => setListening(false);
+        rec.onresult = (ev) => {
+          setInput(prev => (prev + ' ' + ev.results[0][0].transcript).trim());
+        };
+        rec.start();
+      };
+
+      // Send query
+      const transmit = useCallback(() => {
+        const q = input.trim();
+        if (!q || sending) return;
+
+        setLog(prev => [...prev, { from: 'YODA', text: q, side: 'user' }]);
+        setInput('');
+        setSending(true);
+
+        try {
+          google.script.run
+            .withSuccessHandler(res => {
+              setSending(false);
+              const text = (res && res.answer) ? res.answer
+                         : (res && res.error) ? 'ERROR: ' + res.error + (res.detail ? '\n' + res.detail : '')
+                         : (res && res.message) ? res.message
+                         : JSON.stringify(res);
+              setLog(prev => [...prev, { from: 'EARA', text: text, side: 'system' }]);
+            })
+            .withFailureHandler(err => {
+              setSending(false);
+              setLog(prev => [...prev, { from: 'SYSTEM', text: 'LINK FAILURE: ' + err, side: 'system' }]);
+            })
+            .handleQuery(q);
+        } catch(e) {
+          setSending(false);
+          setLog(prev => [...prev, { from: 'SYSTEM', text: 'OFFLINE: ' + e, side: 'system' }]);
+        }
+      }, [input, sending]);
+
+      // Open Evernote
+      const toEvernote = () => {
+        window.open('https://www.evernote.com/client/web', '_blank');
+      };
+
+      // Open Drive
+      const toDrive = () => {
+        window.open('https://drive.google.com', '_blank');
+      };
+
+      // Open Google Tasks
+      const toTasks = () => {
+        window.open('https://tasks.google.com', '_blank');
+      };
+
+      const statusClass = online === null ? 'checking' : online ? '' : 'offline';
+      const statusText = online === null ? 'CHECKING' : online ? 'LINK ACTIVE' : 'OFFLINE';
+
+      return (
+        <div className="app">
+          {/* Header */}
+          <div className="hud-header">
+            <div className="hud-title">THUNDERBIRD v3.0</div>
+            <div className={`hud-status ${statusClass}`}>
+              <span className="status-dot"></span>
+              {statusText}
+            </div>
+          </div>
+
+          {/* Chat Area */}
+          <div className="chat-area" ref={scrollRef}>
+            {log.map((m, i) => (
+              <div key={i} className={`bubble-row ${m.side === 'user' ? 'user' : 'system'}`}>
+                <div className="bubble-label">{m.from}</div>
+                <div className="bubble">{m.text}</div>
+              </div>
+            ))}
+            {sending && (
+              <div className="bubble-row system">
+                <div className="bubble-label">EARA</div>
+                <div className="bubble">
+                  <div className="typing-indicator">
+                    <span></span><span></span><span></span>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Collapsible Action Strip */}
+          <div className={`action-strip ${toolsOpen ? 'expanded' : 'collapsed'}`}>
+            <button className="action-strip-btn btn-evernote" onClick={toEvernote}>Evernote</button>
+            <button className="action-strip-btn btn-drive" onClick={toDrive}>Drive</button>
+            <button className="action-strip-btn btn-tasks" onClick={toTasks}>Tasks</button>
+          </div>
+
+          {/* Input Bar (pinned bottom) */}
+          <div className="input-bar">
+            <button className={`mic-btn ${listening ? 'active' : ''}`} onClick={startListening} title="Voice input">
+              {listening ? '\u{1F534}' : '\u{1F3A4}'}
+            </button>
+            <input
+              className="query-input"
+              placeholder="Message..."
+              value={input}
+              onChange={e => setInput(e.target.value)}
+              onKeyDown={e => e.key === 'Enter' && transmit()}
+              disabled={sending}
+            />
+            <button
+              className={`toolbar-toggle ${toolsOpen ? 'open' : ''}`}
+              onClick={() => setToolsOpen(prev => !prev)}
+              title="Tools"
+            >
+              {toolsOpen ? '\u{2715}' : '\u{2026}'}
+            </button>
+            <button className="send-btn" onClick={transmit} disabled={sending} title="Send">
+              {'\u{2191}'}
+            </button>
+          </div>
+        </div>
+      );
+    };
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<HUD />);
+  </script>
+</body>
+</html>

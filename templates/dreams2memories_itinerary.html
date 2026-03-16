@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dreams2Memories Luxury Itinerary</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Lora:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #d4af37;
+            --dark-navy: #1a2744;
+            --warm-cream: #faf8f3;
+            --sand: #e8dcc8;
+            --ocean: #2a8b96;
+            --text-dark: #3d3d3d;
+            --text-light: #666666;
+            --accent-peach: #d5a583;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            color: var(--text-dark);
+            background: linear-gradient(180deg, #ffffff 0%, var(--warm-cream) 100%);
+            line-height: 1.6;
+        }
+
+        /* ===== HEADER / HERO ===== */
+        .hero {
+            background: linear-gradient(135deg, var(--dark-navy) 0%, rgba(42, 139, 150, 0.95) 100%);
+            color: white;
+            padding: 60px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .logo-container {
+            margin-bottom: 30px;
+        }
+
+        .logo-container img {
+            max-height: 80px;
+            width: auto;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+        }
+
+        .tagline {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .trip-details {
+            font-family: 'Lora', serif;
+            font-size: 18px;
+            opacity: 0.95;
+            margin: 15px 0;
+            font-style: italic;
+        }
+
+        .trip-dates {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-top: 20px;
+            font-weight: 500;
+        }
+
+        .greeting {
+            font-family: 'Lora', serif;
+            font-size: 16px;
+            margin-top: 30px;
+            line-height: 1.8;
+            color: #f0f0f0;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ===== MAIN CONTAINER ===== */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== QUICK REFERENCE SECTION ===== */
+        .section {
+            margin: 60px 0;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: var(--dark-navy);
+            margin-bottom: 10px;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold) 0%, var(--accent-peach) 100%);
+        }
+
+        .section-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        /* ===== QUICK REFERENCE GRID ===== */
+        .reference-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .reference-card {
+            background: white;
+            border-left: 5px solid var(--gold);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .reference-card:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .reference-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            color: var(--dark-navy);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .reference-card .status-badge {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .card-content {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-light);
+        }
+
+        .card-label {
+            font-weight: 600;
+            color: var(--dark-navy);
+            margin-bottom: 8px;
+        }
+
+        /* ===== EXPANDABLE SECTIONS ===== */
+        .accordion-item {
+            margin-bottom: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .accordion-header {
+            background: linear-gradient(135deg, var(--warm-cream) 0%, #f5f1e8 100%);
+            padding: 20px 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-family: 'Lora', serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--dark-navy);
+            transition: all 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background: linear-gradient(135deg, #f5f1e8 0%, #ede5d6 100%);
+        }
+
+        .accordion-header.active {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--accent-peach) 100%);
+            color: white;
+        }
+
+        .accordion-toggle {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+            color: currentColor;
+        }
+
+        .accordion-header.active .accordion-toggle {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            display: none;
+            padding: 25px;
+            background: white;
+            border-top: 1px solid #e0e0e0;
+            animation: slideDown 0.3s ease;
+        }
+
+        .accordion-content.active {
+            display: block;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .accordion-content p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        .accordion-content strong {
+            color: var(--dark-navy);
+        }
+
+        /* ===== DAY CARDS ===== */
+        .days-container {
+            margin: 60px 0;
+        }
+
+        .day-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .day-card:hover {
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .day-card-image {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+        }
+
+        .day-card-image img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .day-card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent);
+            pointer-events: none;
+        }
+
+        .day-card-content {
+            padding: 40px;
+        }
+
+        .day-header {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 20px;
+            align-items: start;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--sand);
+        }
+
+        .day-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 60px;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .day-title-group h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            color: var(--dark-navy);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .day-timing {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--ocean);
+            font-weight: 600;
+        }
+
+        .day-narrative {
+            font-family: 'Lora', serif;
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+
+        .day-details {
+            background: var(--warm-cream);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .detail-item {
+            margin-bottom: 12px;
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 15px;
+            font-size: 14px;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: var(--dark-navy);
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .detail-value {
+            color: var(--text-light);
+        }
+
+        /* ===== PORT INSIGHTS SECTION ===== */
+        .port-insights {
+            background: linear-gradient(135deg, var(--warm-cream) 0%, #f9f6f0 100%);
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 25px;
+        }
+
+        .insights-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--ocean);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .insight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+        }
+
+        .insight-item {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 3px solid var(--accent-peach);
+        }
+
+        .insight-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-light);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .insight-value {
+            font-size: 14px;
+            color: var(--dark-navy);
+            font-weight: 500;
+        }
+
+        /* ===== AGENT SECTION ===== */
+        .agent-section {
+            background: linear-gradient(135deg, var(--dark-navy) 0%, rgba(42, 139, 150, 0.95) 100%);
+            color: white;
+            padding: 50px 40px;
+            border-radius: 12px;
+            margin: 60px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .agent-message {
+            font-size: 16px;
+            line-height: 1.9;
+        }
+
+        .agent-message p {
+            margin-bottom: 15px;
+        }
+
+        .agent-message strong {
+            color: var(--gold);
+        }
+
+        .agent-card {
+            text-align: center;
+        }
+
+        .agent-photo {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 4px solid var(--gold);
+            object-fit: cover;
+            margin: 0 auto 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .agent-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .agent-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0.85;
+            margin-bottom: 20px;
+        }
+
+        .agent-contact {
+            font-size: 14px;
+            line-height: 2;
+            opacity: 0.95;
+        }
+
+        .agent-contact a {
+            color: var(--gold);
+            text-decoration: none;
+            border-bottom: 1px solid var(--gold);
+            transition: opacity 0.3s ease;
+        }
+
+        .agent-contact a:hover {
+            opacity: 0.8;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 2px solid var(--sand);
+            margin-top: 60px;
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 40px 20px;
+            }
+
+            .logo-container img {
+                max-height: 60px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .reference-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .day-header {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .day-number {
+                font-size: 45px;
+            }
+
+            .day-card-image img {
+                height: 250px;
+            }
+
+            .day-card-content {
+                padding: 30px 20px;
+            }
+
+            .agent-section {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 40px 25px;
+            }
+
+            .agent-card {
+                border-top: 1px solid rgba(255, 255, 255, 0.2);
+                padding-top: 30px;
+            }
+
+            .insight-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .detail-item {
+                grid-template-columns: 1fr;
+                gap: 5px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero {
+                padding: 30px 15px;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .day-card-image img {
+                height: 200px;
+            }
+
+            .day-card-content {
+                padding: 20px 15px;
+            }
+
+            .day-number {
+                font-size: 35px;
+            }
+
+            .day-title-group h2 {
+                font-size: 22px;
+            }
+
+            .reference-card {
+                padding: 20px;
+            }
+
+            .accordion-header {
+                padding: 15px;
+                font-size: 14px;
+            }
+
+            .accordion-content {
+                padding: 15px;
+            }
+        }
+
+        /* ===== PRINT STYLES ===== */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .day-card {
+                page-break-inside: avoid;
+                margin-bottom: 30px;
+            }
+
+            .accordion-item {
+                page-break-inside: avoid;
+            }
+
+            .accordion-header {
+                background: var(--sand) !important;
+                color: var(--dark-navy) !important;
+            }
+
+            .accordion-header.active {
+                background: var(--sand) !important;
+                color: var(--dark-navy) !important;
+            }
+
+            .accordion-content {
+                display: block !important;
+            }
+
+            .accordion-header .accordion-toggle {
+                display: none;
+            }
+
+            a {
+                color: var(--ocean);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <div class="hero">
+        <div class="hero-content">
+            <div class="logo-container">
+                <img src="{{ LOGO_URL }}" alt="Dreams2Memories">
+            </div>
+            <div class="tagline">✦ Exclusively Prepared For ✦</div>
+            <h1>{{ Client_Name }}</h1>
+            <div class="trip-details">
+                {{ Trip_Name }} • {{ Supplier }}
+            </div>
+            <div class="trip-dates">{{ Start_Date }} — {{ End_Date }}</div>
+            <div class="greeting">
+                Dear {{ Client_Name|default('Traveler', True) }},<br><br>
+                Your luxury voyage awaits. We've curated every detail of this journey with you in mind—from the moment you depart until your return home. This itinerary is your personal companion for the adventure ahead.
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+
+        <!-- QUICK REFERENCE SECTION -->
+        <div class="section">
+            <h2 class="section-title">Your Journey at a Glance</h2>
+            <p class="section-subtitle">Confirmations & Essential Details</p>
+
+            <div class="reference-grid">
+                <div class="reference-card">
+                    <h3>✈️ Pre-Cruise Travel</h3>
+                    <span class="status-badge">{{ Flight_Status|default('Finalizing', True) }}</span>
+                    <div class="card-content" style="margin-top: 15px;">
+                        <div class="card-label">Departure Flight</div>
+                        <div>{{ Outbound_Flight|default('Details to follow', True) }}</div>
+                        <div class="card-label" style="margin-top: 12px;">Arrival at Port</div>
+                        <div>{{ Port_Arrival|default('Check-in time: 1:00 PM', True) }}</div>
+                    </div>
+                </div>
+
+                <div class="reference-card">
+                    <h3>🛢 Your Accommodation</h3>
+                    <span class="status-badge">Confirmed</span>
+                    <div class="card-content" style="margin-top: 15px;">
+                        <div class="card-label">Ship</div>
+                        <div>{{ Supplier|default('Luxury Cruise Line', True) }}</div>
+                        <div class="card-label" style="margin-top: 12px;">Cabin</div>
+                        <div>{{ Cabin_Number|default('To be assigned at check-in', True) }}</div>
+                    </div>
+                </div>
+
+                <div class="reference-card">
+                    <h3>🚗 Transfers & Transport</h3>
+                    <span class="status-badge">Arranged</span>
+                    <div class="card-content" style="margin-top: 15px;">
+                        <div class="card-label">Ground Transport</div>
+                        <div>{{ Transfer_Details|default('Private transfer coordinated', True) }}</div>
+                        <div class="card-label" style="margin-top: 12px;">Return Flight</div>
+                        <div>{{ Return_Flight|default('Details to follow', True) }}</div>
+                    </div>
+                </div>
+
+                <div class="reference-card">
+                    <h3>🎭 Special Arrangements</h3>
+                    <span class="status-badge">Personalized</span>
+                    <div class="card-content" style="margin-top: 15px;">
+                        <div class="card-label">Dining Preferences</div>
+                        <div>{{ Dining_Prefs|default('Noted for your cruise', True) }}</div>
+                        <div class="card-label" style="margin-top: 12px;">Special Requests</div>
+                        <div>{{ Special_Requests|default('Contact us anytime to adjust', True) }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRACTICAL INFORMATION (EXPANDABLE) -->
+        <div class="section">
+            <h2 class="section-title">Traveler's Essential Information</h2>
+            <p class="section-subtitle">Expand Each Section For Details</p>
+
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(event)">
+                    <span>📋 What to Pack & Dress Codes</span>
+                    <span class="accordion-toggle">▼</span>
+                </button>
+                <div class="accordion-content">
+                    <p><strong>Climate Preview:</strong> {{ Weather_Forecast|default('Tropical climate with warm temperatures and gentle sea breezes.', True) }}</p>
+                    <p><strong>Casual Wear:</strong> Lightweight cotton, linens, and breathable fabrics for daytime exploration.</p>
+                    <p><strong>Evening Formal:</strong> Two formal nights typically featured on luxury cruises—tuxedos or dark suits, formal gowns.</p>
+                    <p><strong>Casual Evening:</strong> Smart casual—dress pants/slacks with collared shirts or elegant dresses.</p>
+                    <p><strong>Shore Excursions:</strong> Comfortable walking shoes, sun protection, light layers.</p>
+                    <p><strong>Don't Forget:</strong> Sunscreen (SPF 30+), sunglasses, hat, medications (original bottles), and any specialized gear.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(event)">
+                    <span>💰 Currency, Tipping & Payments</span>
+                    <span class="accordion-toggle">▼</span>
+                </button>
+                <div class="accordion-content">
+                    <p><strong>Onboard Charges:</strong> Your cabin is billed to a single account. Gratuities are typically added at approximately {{ Gratuity_Rate|default('$15-16 per person per day', True) }}.</p>
+                    <p><strong>Local Currency:</strong> ATMs are available at most ports. We recommend notifying your bank of travel dates.</p>
+                    <p><strong>Tipping at Ports:</strong> 15-20% customary for guides, drivers, and restaurant servers.</p>
+                    <p><strong>Credit Cards:</strong> Visa and Mastercard accepted worldwide. Notify your bank of international travel to avoid fraud blocks.</p>
+                    <p><strong>Travel Documents:</strong> Valid passport required (check expiration—must be valid 6 months beyond travel dates).</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(event)">
+                    <span>🌍 Health, Wellness & Safety</span>
+                    <span class="accordion-toggle">▼</span>
+                </button>
+                <div class="accordion-content">
+                    <p><strong>Medications:</strong> Bring sufficient quantities in original bottles with prescription labels. Pack in carry-on luggage.</p>
+                    <p><strong>Travel Insurance:</strong> We recommend comprehensive coverage including trip cancellation and medical evacuation.</p>
+                    <p><strong>Vaccinations:</strong> Check with your healthcare provider regarding recommended vaccinations for your destinations.</p>
+                    <p><strong>Medical Facilities:</strong> All luxury ships feature onboard medical clinics staffed by doctors and nurses.</p>
+                    <p><strong>Fitness & Wellness:</strong> Most ships include gyms, yoga, and wellness programs. Check your ship's daily bulletin for schedules.</p>
+                    <p><strong>Motion Sickness:</strong> Consider medication or pressure bands if prone to seasickness, especially on rough seas.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(event)">
+                    <span>📱 Technology & Connectivity</span>
+                    <span class="accordion-toggle">▼</span>
+                </button>
+                <div class="accordion-content">
+                    <p><strong>Internet:</strong> WiFi packages available for purchase or as part of premium cabin categories. International roaming charges apply if using cellular.</p>
+                    <p><strong>Phone Service:</strong> Satellite phone calls are extremely expensive. Consider local SIM cards at ports for emergencies.</p>
+                    <p><strong>Adapters:</strong> Most international ships use 110V and 220V outlets. Universal adapters recommended.</p>
+                    <p><strong>Photography:</strong> Memory cards and batteries readily available on ship, but at premium prices—bring extras.</p>
+                    <p><strong>Passwords & Security:</strong> Use VPN for sensitive transactions on public WiFi. Store documents digitally in secure cloud storage.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(event)">
+                    <span>🎫 Dining & Shore Excursions</span>
+                    <span class="accordion-toggle">▼</span>
+                </button>
+                <div class="accordion-content">
+                    <p><strong>Dining Schedule:</strong> {{ Dining_Schedule|default('Multiple seating times available for main dining room and alternative restaurants.', True) }}</p>
+                    <p><strong>Dietary Restrictions:</strong> Notify dining staff of allergies or preferences—most ships accommodate special diets with advance notice.</p>
+                    <p><strong>Shore Excursions:</strong> Book early through your cruise line for the best availability. Moderate, strenuous, and easy options available for all fitness levels.</p>
+                    <p><strong>Local Guides:</strong> Licensed local guides provide exceptional insight into history, culture, and hidden gems.</p>
+                    <p><strong>Independent Exploration:</strong> Tender ports require tenders (small boats) to go ashore. Plan accordingly based on ship schedule.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- DAY-BY-DAY CHRONICLE -->
+        <div class="section">
+            <h2 class="section-title">The Daily Chronicle</h2>
+            <p class="section-subtitle">Your Journey Unfolds Here</p>
+        </div>
+
+        <div class="days-container">
+            {% for day in days %}
+            <div class="day-card">
+                <div class="day-card-image">
+                    <img src="{{ day.Image_1_URL }}" alt="{{ day.Port_Location }}">
+                    <div class="day-card-overlay"></div>
+                </div>
+                <div class="day-card-content">
+                    <div class="day-header">
+                        <div class="day-number">{{ day.Day }}</div>
+                        <div class="day-title-group">
+                            <h2>{{ day.Port_Location }}</h2>
+                            <div class="day-timing">Arrive {{ day.Arrive }} • Depart {{ day.Depart }}</div>
+                        </div>
+                    </div>
+
+                    <div class="day-narrative">
+                        {{ day.Romance_Narrative }}
+                    </div>
+
+                    <div class="day-details">
+                        <div class="detail-item">
+                            <div class="detail-label">📍 Location</div>
+                            <div class="detail-value">{{ day.Port_Location }}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">⏰ Timing</div>
+                            <div class="detail-value">All ashore by {{ day.Depart|default('5:00 PM', True) }}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">🌤 Weather</div>
+                            <div class="detail-value">{{ day.Weather|default('Typical for season', True) }}</div>
+                        </div>
+                    </div>
+
+                    {% if day.Recommended_Activity %}
+                    <div class="port-insights">
+                        <div class="insights-title">✨ Insider Recommendations</div>
+                        <div class="insight-grid">
+                            <div class="insight-item">
+                                <div class="insight-label">Must See</div>
+                                <div class="insight-value">{{ day.Recommended_Activity|default('Local landmark', True) }}</div>
+                            </div>
+                            {% if day.Best_Restaurant %}
+                            <div class="insight-item">
+                                <div class="insight-label">Dining Gem</div>
+                                <div class="insight-value">{{ day.Best_Restaurant }}</div>
+                            </div>
+                            {% endif %}
+                            {% if day.Local_Tip %}
+                            <div class="insight-item">
+                                <div class="insight-label">Local Secret</div>
+                                <div class="insight-value">{{ day.Local_Tip }}</div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- AGENT MESSAGE & CONTACT -->
+        <div class="agent-section">
+            <div class="agent-message">
+                <p>Dear {{ Client_Name|default('Traveler', True) }},</p>
+                <p>
+                    I've carefully curated every element of this journey because I believe travel is more than destinations—it's about creating memories that define who we are. From the moment you step aboard until you return home, you'll be cared for by world-class hospitality teams.
+                </p>
+                <p>
+                    But more importantly, I'm here for you. If questions arise, if preferences shift, or if you simply want to discuss a detail, please don't hesitate to reach out. This journey is yours to enjoy.
+                </p>
+                <p>
+                    <strong>Safe travels and bon voyage!</strong>
+                </p>
+            </div>
+
+            <div class="agent-card">
+                <img src="{{ AGENT_PHOTO_URL }}" alt="{{ AGENT_NAME }}" class="agent-photo">
+                <div class="agent-name">{{ AGENT_NAME }}</div>
+                <div class="agent-title">Luxury Travel Advisor<br>Dreams2Memories Travel</div>
+                <div class="agent-contact">
+                    <a href="tel:{{ AGENT_PHONE }}">{{ AGENT_PHONE }}</a><br>
+                    <a href="mailto:{{ AGENT_EMAIL }}">{{ AGENT_EMAIL }}</a><br>
+                    www.lovegrouptravel.com
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            ✦ Prepared with Precision & Care for Your Luxury Journey ✦
+        </div>
+    </div>
+
+    <script>
+        function toggleAccordion(event) {
+            const header = event.target.closest('.accordion-header');
+            const item = header.parentElement;
+            const content = item.querySelector('.accordion-content');
+            const allItems = document.querySelectorAll('.accordion-item');
+
+            // Close all other accordions
+            allItems.forEach(i => {
+                if (i !== item) {
+                    i.querySelector('.accordion-header').classList.remove('active');
+                    i.querySelector('.accordion-content').classList.remove('active');
+                }
+            });
+
+            // Toggle current accordion
+            header.classList.toggle('active');
+            content.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>

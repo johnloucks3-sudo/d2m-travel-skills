@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rome Experience Proposal — McLeod / McGlasson</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8D5A3;
+    --navy: #1A2744;
+    --cream: #FAF6EF;
+    --warm-gray: #8B7D6B;
+    --text: #2C2C2C;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #EDE8DF;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text);
+    padding: 40px 20px;
+  }
+  .envelope {
+    max-width: 680px;
+    margin: 0 auto;
+    background: var(--cream);
+    border-top: 4px solid var(--gold);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+  }
+  .header {
+    background: var(--navy);
+    padding: 32px 40px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0;
+    width: 160px;
+    background: linear-gradient(135deg, transparent 40%, rgba(201,168,76,0.12) 100%);
+  }
+  .brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 300;
+    color: #fff;
+    line-height: 1.2;
+  }
+  .header h1 em { font-style: italic; color: var(--gold-light); }
+  .meta {
+    margin-top: 14px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+  }
+  .body { padding: 36px 40px; }
+  .salutation {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+  p {
+    font-size: 13px;
+    line-height: 1.8;
+    color: #3A3A3A;
+    margin-bottom: 14px;
+    font-weight: 300;
+  }
+  .divider {
+    width: 48px;
+    height: 1px;
+    background: var(--gold);
+    margin: 24px 0;
+  }
+  .section-label {
+    font-size: 9px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+    font-size: 12px;
+  }
+  thead tr {
+    background: var(--navy);
+    color: #fff;
+  }
+  thead th {
+    padding: 9px 12px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  tbody tr { border-bottom: 1px solid #EDE5D8; }
+  tbody tr:nth-child(even) { background: #FAF7F1; }
+  tbody td { padding: 9px 12px; color: #3A3A3A; line-height: 1.5; }
+  .td-name { font-weight: 500; color: var(--navy); }
+  .td-savings {
+    font-weight: 600;
+    color: #2E7D32;
+  }
+  .td-note { font-size: 11px; color: var(--warm-gray); font-style: italic; }
+  .td-book { font-size: 11px; color: #888; }
+  .callout {
+    border-left: 3px solid var(--gold);
+    background: #FBF7EE;
+    padding: 14px 18px;
+    margin: 20px 0;
+    font-size: 12.5px;
+    line-height: 1.7;
+    color: #3A3A3A;
+    font-weight: 300;
+  }
+  .callout strong { color: var(--navy); font-weight: 600; }
+  .dinner-row { display: flex; gap: 12px; margin-bottom: 8px; }
+  .dinner-night {
+    background: var(--navy);
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+  }
+  .dinner-text { font-size: 12px; line-height: 1.6; color: #3A3A3A; font-weight: 300; }
+  .dinner-text strong { color: var(--navy); font-weight: 600; }
+  .closer { font-family: 'Cormorant Garamond', serif; font-size: 16px; font-weight: 400; color: var(--navy); margin-top: 4px; margin-bottom: 20px; }
+  .sig {
+    border-top: 1px solid #E0D8CC;
+    padding-top: 20px;
+    font-size: 12px;
+    color: var(--warm-gray);
+    line-height: 1.7;
+  }
+  .sig strong { color: var(--navy); font-size: 13px; display: block; margin-bottom: 2px; }
+  .sig a { color: var(--gold); text-decoration: none; }
+  .total-row td { background: #F5F0E6 !important; font-weight: 600; color: var(--navy) !important; }
+</style>
+</head>
+<body>
+<div class="envelope">
+
+  <div class="header">
+    <div class="brand">Dreams2Memories Travel, LLC</div>
+    <h1>Three Days in Rome &amp; <em>Florence</em></h1>
+    <div class="meta">Erik McLeod &amp; Melissa McGlasson &nbsp;&middot;&nbsp; June 20&ndash;22, 2026</div>
+  </div>
+
+  <div class="body">
+    <div class="salutation">Erik and Melissa,</div>
+
+    <p>I went through everything you sent. You clearly put real time into this, and your instincts are good. I compared your picks against what I can get, and I'm going to be honest with you: <strong>some of these, you should book yourselves.</strong> On others, I can either save you real money or add something you won't find on any platform.</p>
+
+    <div class="divider"></div>
+
+    <div class="section-label">June 20 &mdash; Colosseum, Roman Forum &amp; Palatine Hill</div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Option</th>
+          <th>Group Size</th>
+          <th>What's Included</th>
+          <th>Total for 2</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-name">Your Pick (GetYourGuide)<br><span class="td-note">Arena Floor + Forum + Palatine, licensed guide</span></td>
+          <td>Up to 25</td>
+          <td>Colosseum interior + Arena Floor, Forum, Palatine Hill, skip-the-line, 3 hrs</td>
+          <td style="font-weight:600;color:#555;">$290 <span class="td-note">(~$145/pp)</span></td>
+        </tr>
+        <tr>
+          <td class="td-name">Through Me &mdash; Same Tour, Smaller Group<br><span class="td-note">Musement 4.6&#9733; &middot; 1,004 reviews, licensed guide</span></td>
+          <td>Up to 20</td>
+          <td>Colosseum interior, Forum, Palatine Hill, skip-the-line, 3 hrs &mdash; <em>no Arena Floor</em></td>
+          <td class="td-savings">$138 <span class="td-note">save ~$152</span></td>
+        </tr>
+        <tr>
+          <td class="td-name">Through Me &mdash; With Arena Floor<br><span class="td-note">Same group + &euro;22 Arena ticket add-on</span></td>
+          <td>Up to 20</td>
+          <td>Colosseum interior + Arena Floor, Forum, Palatine Hill, skip-the-line, 3 hrs &mdash; same access as GYG</td>
+          <td class="td-savings">~$150 <span class="td-note">save ~$140</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout" style="margin-bottom:24px;">
+      The Arena Floor is the question here. If you want to stand where the gladiators actually fought &mdash; and it is a different experience looking up from that level &mdash; your GYG pick at $145/pp is fair for what you get. If Arena Floor isn't a must, I can book the same caliber guided tour through a smaller group for about <strong>$150 less total</strong>. I can also add Arena Floor access to that tour for roughly the same savings. Just let me know which way you're leaning.
+    </div>
+
+    <div class="section-label">June 21 &mdash; Florence: Uffizi, Accademia &amp; Gelato Walk</div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Option</th>
+          <th>Group Size</th>
+          <th>What's Included</th>
+          <th>Total for 2</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-name">Your Pick (GetYourGuide) &mdash; <span style="color:var(--gold);font-weight:600;">My Recommendation Too</span><br><span class="td-note">Uffizi + David + Gelato Walk, Art Historian</span></td>
+          <td><strong>Max 9</strong> &mdash; semi-private</td>
+          <td>Uffizi Gallery, Accademia/David, guided gelato walk, skip-the-line, dedicated art historian, 4 hrs</td>
+          <td style="font-weight:600;color:#555;">$258 <span class="td-note">(~$129/pp)</span></td>
+        </tr>
+        <tr>
+          <td class="td-name">Through Me &mdash; Combined Tour<br><span class="td-note">Musement 4.7&#9733; &middot; 42 reviews</span></td>
+          <td>Up to 15</td>
+          <td>Uffizi + Accademia/David, skip-the-line, expert guide, 3 hrs &mdash; <em>no gelato walk, larger group</em></td>
+          <td class="td-book">$234 <span class="td-note">save ~$24</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout" style="margin-bottom:24px;">
+      I'm including my alternative here for completeness, but I'll be straightforward: <strong>book the tour you starred.</strong> A semi-private group of 9 with a dedicated art historian, covering both galleries plus a gelato walk, for $129 a person &mdash; I can't meaningfully beat that. My version saves you $24 for a bigger group and no gelato. Not worth it. What I <em>can</em> help with is making sure the rest of your Florence day lines up &mdash; the right train, a good dinner that evening, the small details that make it feel seamless.
+    </div>
+
+    <div class="section-label">June 22 &mdash; Vatican</div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Option</th>
+          <th>Group Size</th>
+          <th>What's Included</th>
+          <th>Total for 2</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-name">Your Pick &mdash; Vatican, Sistine Chapel, Basilica + Dome Climb<br><span class="td-note">GetYourGuide &middot; includes the climb (551 steps)</span></td>
+          <td>Up to 15</td>
+          <td>Vatican Museums, Sistine Chapel, St. Peter's Basilica, <strong>Dome Climb</strong>, skip-the-line, expert guide, 8:30 AM start</td>
+          <td style="font-weight:600;color:#555;">$767 <span class="td-note">(~$383/pp)</span></td>
+        </tr>
+        <tr>
+          <td class="td-name">Alternative &mdash; Pristine Sistine&trade; Early Entrance<br><span class="td-note">Walks of Italy &middot; same price everywhere</span></td>
+          <td>Max 15</td>
+          <td>7:45 AM entry, 45 min before public opening, Sistine Chapel + Vatican Museums, expert art historian &mdash; <em>no Dome Climb, no Basilica tour</em></td>
+          <td style="font-weight:600;color:var(--navy);">$768 <span class="td-note">(~$384/pp)</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      Two very different experiences at nearly the same price. Your starred pick includes the <strong>Dome Climb</strong> &mdash; that's 551 steps (or 320 if you take the elevator partway) up a narrow, winding staircase to the top of St. Peter's. The view from up there is genuinely stunning. But be honest with yourselves about whether you'll enjoy it &mdash; the last stretch is tight and there's no turning back once you start. If you're good with stairs, do it. It's one of those moments you don't forget.<br><br>
+      The Pristine Sistine is a different play &mdash; early entry, 45 minutes before the public floods in. You see the Sistine Chapel in relative quiet, which is something most people never get to experience. No Dome Climb, but a very different kind of special.<br><br>
+      Either way, at this price point, if anything changes last-minute &mdash; a cancelled tour, a no-show guide at 8 AM &mdash; you want someone who picks up the phone. I'd rather you book this one through me so I can handle anything that comes up directly.
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-label">Dinner</div>
+
+    <p>This is the part that doesn't show up on any booking platform. I'd like to suggest three restaurants &mdash; one for each evening &mdash; and I'll reach out to each one personally on your behalf.</p>
+
+    <div class="dinner-row">
+      <div class="dinner-night">June 20</div>
+      <div class="dinner-text"><strong>Aroma at Palazzo Manfredi</strong> &mdash; 1 Michelin Star, rooftop terrace with a direct view of the Colosseum at night. 28 seats. Chef Giuseppe Di Iorio. You'll have spent the day inside the Colosseum; now you'll have dinner looking at it lit up against the sky. ~&euro;180&ndash;220/person. Books out months ahead for June &mdash; <strong>I'd move on this one now.</strong></div>
+    </div>
+    <div class="dinner-row">
+      <div class="dinner-night">June 21</div>
+      <div class="dinner-text"><strong>Glass Hostaria, Trastevere</strong> &mdash; 1 Michelin Star, Chef Cristina Bowerman. A converted 18th-century carriage workshop with soaring ceilings and a stunning modern interior. The right kind of reward after a full Florence day and a train ride back. ~&euro;100&ndash;140/person.</div>
+    </div>
+    <div class="dinner-row">
+      <div class="dinner-night">June 22</div>
+      <div class="dinner-text"><strong>Antico Arco, Gianicolo Hill</strong> &mdash; Candlelit, white linen, perched above Trastevere. Elegant without the Michelin price tag. A quiet close to three remarkable days. ~&euro;60&ndash;90/person.</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <p>Here's where I'd start: let me know on the Arena Floor question and I'll get the Colosseum booked &mdash; that's where the real savings are, about <strong>$140&ndash;$150 for two</strong>. For Florence, book the GYG tour you starred &mdash; it's the right product at a fair price and I'll tell you that plainly. For the Vatican, send that one my way and I'll handle it. And <strong>Aroma fills up fast for June</strong> &mdash; I'd grab that table this week regardless of anything else.</p>
+
+    <p>Melissa &mdash; I told you to book one of your tours direct because it's the better deal. That's how I work. Where I come in is the stuff that doesn't show up on any app: the right table at a 28-seat rooftop with a note from your advisor, someone who coordinates the train timing so your Florence day actually flows, and a person who answers the phone if something goes sideways in Rome at 7 AM.</p>
+
+    <p>Happy to jump on a quick call whenever works. Just say the word.</p>
+
+    <div class="closer">Looking forward to this one,</div>
+
+    <div class="sig">
+      <strong>John Loucks</strong>
+      Dreams2Memories Travel, LLC<br>
+      719-291-0742<br>
+      <a href="mailto:johnloucks3@gmail.com">johnloucks3@gmail.com</a><br>
+      <a href="https://www.d2mluxury.quest">d2mluxury.quest</a>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

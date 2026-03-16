@@ -1,0 +1,56 @@
+# CLIENT DOSSIER — Joe Britan
+## Travel & Dining Assistance
+
+---
+
+### CLIENT PROFILE
+| Field | Details |
+|-------|---------|
+| **Primary Contact** | Joe Britan |
+| **Home Location** | New Jersey |
+| **Relationship** | Friend/client of Commander (John Loucks) |
+| **Service Tier** | TBD — initial service request |
+| **Dossier Created** | March 15, 2026 |
+
+---
+
+### ACTIVE SERVICE REQUESTS
+
+**1. Dining Recommendations — New Jersey Area**
+| Field | Details |
+|-------|---------|
+| Type | Restaurant/dining recommendations |
+| Location | New Jersey (specific area TBD) |
+| Status | Standing by — may want recommendations |
+
+**2. Airline Travel Quotes — Visit Family**
+| Field | Details |
+|-------|---------|
+| Type | Round-trip airfare quotes |
+| Origin | New Jersey (EWR/JFK/LGA) |
+| Destination | TBD — family location unknown |
+| Status | Standing by — may want quotes to visit family |
+
+---
+
+### COMMANDER NOTES LOG
+
+| Date | Source | Note |
+|------|--------|------|
+| Mar 15, 2026 | Commander (Telegram) | Joe Britan lives in New Jersey. May want dining recommendations, or possibly airline travel quotes to visit his family. |
+| Mar 15, 2026 | Commander (Telegram) | Added to Dani tryout list — target date: Wednesday, March 18, 2026 |
+
+---
+
+### OPEN ACTION ITEMS
+1. [ ] Confirm what Joe specifically needs (dining recs, flight quotes, or both)
+2. [ ] If dining: get preferred cuisine type, budget, location in NJ
+3. [ ] If flights: get destination (where family lives), travel dates, party size
+4. [ ] Dani to reach out mentioning she heard from John
+
+---
+
+### NOTES
+- Scope and service tier TBD pending first engagement
+- New Jersey airports: Newark (EWR, most likely), JFK, LGA also accessible
+- Dani available to assist; mention she heard from John

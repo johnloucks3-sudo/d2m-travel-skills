@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thunderbird Week-by-Week Execution Plan</title>
+<style>
+  :root {
+    --navy: #0d1b2e;
+    --navy2: #152540;
+    --navy3: #1e3358;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-pale: #f5e9c8;
+    --muted: #8a9ab5;
+    --white: #f0f0f0;
+    --red: #e74c3c;
+    --orange: #e67e22;
+    --green: #2ecc71;
+    --blue: #3498db;
+    --purple: #9b59b6;
+    --teal: #1abc9c;
+    --pink: #e84393;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    padding: 20px;
+    font-size: 14px;
+  }
+
+  .header {
+    text-align: center;
+    padding: 30px 20px 20px;
+    border-bottom: 2px solid var(--gold);
+    margin-bottom: 24px;
+    max-width: 1100px;
+    margin-left: auto; margin-right: auto;
+  }
+  .header h1 { font-size: 1.6em; color: var(--gold); letter-spacing: 2px; }
+  .header .sub { color: var(--muted); margin-top: 4px; font-size: 0.9em; }
+  .header .link { margin-top: 10px; }
+  .header .link a {
+    color: var(--gold-light); text-decoration: none; font-size: 0.85em;
+    padding: 6px 16px; border: 1px solid var(--gold); border-radius: 20px;
+    transition: background 0.2s;
+  }
+  .header .link a:hover { background: rgba(201,168,76,0.15); }
+
+  .week {
+    max-width: 1100px;
+    margin: 0 auto 28px;
+    background: var(--navy2);
+    border: 1px solid var(--navy3);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .week-header {
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border-bottom: 2px solid;
+  }
+  .week-header h2 { font-size: 1.15em; }
+  .week-header .dates { font-size: 0.8em; opacity: 0.7; }
+  .week-header .badge {
+    margin-left: auto;
+    font-size: 0.75em;
+    padding: 3px 12px;
+    border-radius: 12px;
+    font-weight: 600;
+  }
+
+  .wh-now { border-color: var(--red); background: rgba(231,76,60,0.1); }
+  .wh-now h2 { color: var(--red); }
+  .wh-now .badge { background: var(--red); color: white; }
+
+  .wh-next { border-color: var(--blue); background: rgba(52,152,219,0.08); }
+  .wh-next h2 { color: var(--blue); }
+  .wh-next .badge { background: var(--blue); color: white; }
+
+  .wh-soon { border-color: var(--purple); background: rgba(155,89,182,0.08); }
+  .wh-soon h2 { color: var(--purple); }
+  .wh-soon .badge { background: var(--purple); color: white; }
+
+  .wh-month { border-color: var(--teal); background: rgba(26,188,156,0.08); }
+  .wh-month h2 { color: var(--teal); }
+  .wh-month .badge { background: var(--teal); color: white; }
+
+  .wh-gold { border-color: var(--gold); background: rgba(201,168,76,0.08); }
+  .wh-gold h2 { color: var(--gold); }
+  .wh-gold .badge { background: var(--gold); color: var(--navy); }
+
+  .wh-deep { border-color: var(--pink); background: rgba(232,67,147,0.08); }
+  .wh-deep h2 { color: var(--pink); }
+  .wh-deep .badge { background: var(--pink); color: white; }
+
+  .task-grid {
+    padding: 12px 16px;
+  }
+  .task-item {
+    display: grid;
+    grid-template-columns: 52px 1fr auto;
+    padding: 10px 8px;
+    border-bottom: 1px solid rgba(30,51,88,0.4);
+    align-items: start;
+    gap: 8px;
+  }
+  .task-item:last-child { border-bottom: none; }
+  .task-item:hover { background: rgba(201,168,76,0.04); border-radius: 6px; }
+
+  .t-id {
+    font-family: 'Consolas', monospace;
+    font-size: 0.85em;
+    color: var(--gold);
+    font-weight: 600;
+    padding-top: 2px;
+  }
+  .t-body {}
+  .t-name { font-weight: 500; margin-bottom: 3px; }
+  .t-desc { font-size: 0.8em; color: var(--muted); line-height: 1.4; }
+  .t-chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 5px; }
+  .t-deadline {
+    font-size: 0.8em;
+    text-align: right;
+    padding-top: 2px;
+    white-space: nowrap;
+  }
+
+  .chip {
+    font-size: 0.68em;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-family: 'Consolas', monospace;
+    white-space: nowrap;
+  }
+  .c-mod { background: rgba(46,204,113,0.2); color: var(--green); border: 1px solid rgba(46,204,113,0.3); }
+  .c-new { background: rgba(230,126,34,0.2); color: var(--orange); border: 1px solid rgba(230,126,34,0.3); }
+  .c-sup { background: rgba(201,168,76,0.15); color: var(--gold-light); border: 1px solid rgba(201,168,76,0.3); }
+  .c-ext { background: rgba(155,89,182,0.2); color: var(--purple); border: 1px solid rgba(155,89,182,0.3); }
+  .c-sheet { background: rgba(26,188,156,0.2); color: var(--teal); border: 1px solid rgba(26,188,156,0.3); }
+
+  .dl-hot { color: var(--red); font-weight: 700; }
+  .dl-soon { color: var(--orange); }
+  .dl-future { color: var(--muted); }
+
+  .highlight { background: rgba(201,168,76,0.06); border-left: 3px solid var(--gold); padding-left: 12px !important; }
+
+  .revenue-bar {
+    max-width: 1100px; margin: 0 auto 24px;
+    background: linear-gradient(90deg, var(--navy2), var(--navy3));
+    border: 1px solid var(--gold);
+    border-radius: 10px;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .rev-item { text-align: center; }
+  .rev-item .rv { font-size: 1.4em; font-weight: 700; color: var(--gold); }
+  .rev-item .rl { font-size: 0.7em; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+
+  .voyage-timeline {
+    max-width: 1100px; margin: 0 auto 24px;
+    background: var(--navy2); border: 1px solid var(--navy3); border-radius: 10px; padding: 16px 20px;
+  }
+  .voyage-timeline h3 { color: var(--gold); font-size: 0.95em; margin-bottom: 10px; }
+  .vt-row {
+    display: flex; align-items: center; gap: 10px; padding: 6px 0;
+    border-bottom: 1px solid rgba(30,51,88,0.4);
+    font-size: 0.85em;
+  }
+  .vt-row:last-child { border-bottom: none; }
+  .vt-date { width: 140px; color: var(--muted); font-family: 'Consolas', monospace; font-size: 0.9em; }
+  .vt-name { color: var(--white); font-weight: 500; }
+  .vt-client { color: var(--gold-light); margin-left: auto; font-size: 0.9em; }
+
+  .footer {
+    text-align: center; padding: 24px;
+    color: var(--muted); font-size: 0.75em;
+    max-width: 1100px; margin: 0 auto;
+    border-top: 1px solid var(--navy3);
+  }
+  .footer a { color: var(--gold); text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>THUNDERBIRD WEEKLY EXECUTION PLAN</h1>
+  <div class="sub">Dreams2Memories Travel, LLC | Week-by-Week Roadmap | v4.5</div>
+  <div class="link"><a href="PROJECT_PLAN_VISUAL.html">View Full Project Plan with Plugin Map &rarr;</a></div>
+</div>
+
+<!-- REVENUE BAR -->
+<div class="revenue-bar">
+  <div class="rev-item"><div class="rv">$15,666</div><div class="rl">D2M Commission</div></div>
+  <div class="rev-item"><div class="rv">12</div><div class="rl">Revenue Bookings</div></div>
+  <div class="rev-item"><div class="rv">$68,356</div><div class="rl">Final Payments Due</div></div>
+  <div class="rev-item"><div class="rv">68</div><div class="rl">Total Tasks</div></div>
+  <div class="rev-item"><div class="rv">22</div><div class="rl">Supplier Sites</div></div>
+</div>
+
+<!-- VOYAGE TIMELINE -->
+<div class="voyage-timeline">
+  <h3>VOYAGE CALENDAR — Key Dates</h3>
+  <div class="vt-row"><div class="vt-date">Mar 15</div><div class="vt-name">Kuklinski Guest Info Forms due</div><div class="vt-client">Viking Panama</div></div>
+  <div class="vt-row"><div class="vt-date">Mar 31</div><div class="vt-name">Viking final payments ($21,244)</div><div class="vt-client">Kuklinski x3</div></div>
+  <div class="vt-row"><div class="vt-date">Apr 1</div><div class="vt-name">Regent final payments ($46,112)</div><div class="vt-client">Furlow, Ely, Nichols</div></div>
+  <div class="vt-row"><div class="vt-date">Apr 15</div><div class="vt-name">Regent dining/excursion selections</div><div class="vt-client">All 3 Regent clients</div></div>
+  <div class="vt-row"><div class="vt-date">Apr 21-23</div><div class="vt-name">Silver Nova departure</div><div class="vt-client">Loucks + Westbrook</div></div>
+  <div class="vt-row"><div class="vt-date">May 27-29</div><div class="vt-name">ASTA Conference — San Diego</div><div class="vt-client">D2M / Yoda</div></div>
+  <div class="vt-row"><div class="vt-date">Jun 23</div><div class="vt-name">Silver Muse departure</div><div class="vt-client">McLeod/McGlasson</div></div>
+  <div class="vt-row"><div class="vt-date">Aug 29</div><div class="vt-name">Regent Grandeur departure</div><div class="vt-client">Furlow, Ely, Nichols</div></div>
+  <div class="vt-row"><div class="vt-date">Dec 17</div><div class="vt-name">Viking Mars departure</div><div class="vt-client">Kuklinski x3 + Morton</div></div>
+  <div class="vt-row"><div class="vt-date">Dec 19</div><div class="vt-name">Regent Lesser Antilles departure</div><div class="vt-client">McLeod/McGlasson</div></div>
+  <div class="vt-row"><div class="vt-date">Dec 29</div><div class="vt-name">Regent Panama Canal departure</div><div class="vt-client">Loucks (personal)</div></div>
+</div>
+
+<!-- ====================== WEEK 1 ====================== -->
+<div class="week">
+  <div class="week-header wh-now">
+    <h2>WEEK 1 — THIS WEEK</h2>
+    <span class="dates">Mar 10-16, 2026</span>
+    <span class="badge">NOW</span>
+  </div>
+  <div class="task-grid">
+    <div class="task-item highlight">
+      <div class="t-id">1.2</div>
+      <div class="t-body">
+        <div class="t-name">Luna (A6) Persona Creation</div>
+        <div class="t-desc">Chief Dreamweaver — Art, Emotion & Sensory Design. Add to thunderbird_personas.py + Staff Introduction. Claude-only model routing. The brand needs its dreamer.</div>
+        <div class="t-chips"><span class="chip c-mod">thunderbird_personas</span><span class="chip c-mod">Personas/D2M_Staff_Introduction</span></div>
+      </div>
+      <div class="t-deadline dl-hot">PRIORITY</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id">1.1</div>
+      <div class="t-body">
+        <div class="t-name">Drive Mirror</div>
+        <div class="t-desc">Build thunderbird_sync.py — mirror ~/Thunderbird/ to Drive. Exclude creds, .venv, __pycache__. 6hr cron via systemd.</div>
+        <div class="t-chips"><span class="chip c-new">thunderbird_sync</span><span class="chip c-mod">thunderbird_drive</span><span class="chip c-ext">systemd timer</span></div>
+      </div>
+      <div class="t-deadline dl-hot">Mar 16</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id">1.3</div>
+      <div class="t-body">
+        <div class="t-name">Activate Morning Briefing</div>
+        <div class="t-desc">Module EXISTS — wire up cron (0600 MT), connect to Booking Master + Calendar + Intel_Log. Each persona reports their domain.</div>
+        <div class="t-chips"><span class="chip c-mod">thunderbird_morning_briefing</span><span class="chip c-sheet">Booking Master</span><span class="chip c-ext">cron</span></div>
+      </div>
+      <div class="t-deadline dl-hot">Mar 16</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id">1.4</div>
+      <div class="t-body">
+        <div class="t-name">Daily Itinerary Consolidation</div>
+        <div class="t-desc">Map schemas, dedup, merge DI Bucket (596 rows) + A (75) + B (80) into main Daily Itinerary tab.</div>
+        <div class="t-chips"><span class="chip c-mod">thunderbird_api</span><span class="chip c-sheet">Daily Itinerary</span></div>
+      </div>
+      <div class="t-deadline dl-hot">Mar 16</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id">1.5</div>
+      <div class="t-body">
+        <div class="t-name">Activate Payment Alerts</div>
+        <div class="t-desc">Module EXISTS — wire up cron, connect to Booking Master deadlines. Critical with Viking Mar 31 and Regent Apr 1 coming fast.</div>
+        <div class="t-chips"><span class="chip c-mod">thunderbird_payment_alerts</span><span class="chip c-mod">thunderbird_sms</span><span class="chip c-ext">cron</span></div>
+      </div>
+      <div class="t-deadline dl-hot">Mar 16</div>
+    </div>
+    <div class="task-item highlight">
+      <div class="t-id">1.6</div>
+      <div class="t-body">
+        <div class="t-name">Register Cruise Line Agent Portals</div>
+        <div class="t-desc">Register as travel advisor at all 8 targeted cruise lines. Get login credentials for future Playwright scraper integration.</div>
+        <div class="t-chips">
+          <span class="chip c-sup">RSSC</span><span class="chip c-sup">Silversea</span><span class="chip c-sup">Viking</span><span class="chip c-sup">Cunard</span>
+          <span class="chip c-sup">Oceania</span><span class="chip c-sup">Seabourn</span><span class="chip c-sup">AmaWaterways</span><span class="chip c-sup">Ponant</span>
+        </div>
+      </div>
+      <div class="t-deadline dl-hot">Mar 16</div>
+    </div>
+    <div class="task-item highlight">
+      <div class="t-id">1.7</div>
+      <div class="t-body">
+        <div class="t-name">Register Tour Operator Portals</div>
+        <div class="t-desc">Register as agent with Kensington Tours (custom luxury) and Goway Travel (multi-destination packages). New revenue channels.</div>
+        <div class="t-chips"><span class="chip c-sup">Kensington Tours</span><span class="chip c-sup">Goway Travel</span></div>
+      </div>
+      <div class="t-deadline dl-hot">Mar 16</div>
+    </div>
+    <div class="task-item highlight">
+      <div class="t-id">1.8</div>
+      <div class="t-body">
+        <div class="t-name">Integrate Rometorio Route Planner</div>
+        <div class="t-desc">rometorio.com — use for multi-stop route planning, driving time validation, embed route maps in luxury itineraries.</div>
+        <div class="t-chips"><span class="chip c-ext">rometorio.com</span><span class="chip c-mod">thunderbird_browser</span><span class="chip c-mod">luxury_itinerary_generator</span></div>
+      </div>
+      <div class="t-deadline dl-soon">Mar 16</div>
+    </div>
+
+    <!-- Client Ops this week -->
+    <div class="task-item" style="border-top: 2px solid var(--green); margin-top: 8px; padding-top: 14px;">
+      <div class="t-id" style="color:var(--green)">C1</div>
+      <div class="t-body">
+        <div class="t-name">Prep for Ely call</div>
+        <div class="t-desc">Payment summary, Regent brief, Oslo departure clarification.</div>
+        <div class="t-chips"><span class="chip c-mod">thunderbird_dossier</span><span class="chip c-sheet">Booking Master</span></div>
+      </div>
+      <div class="t-deadline dl-hot">Mar 12</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id" style="color:var(--green)">C2</div>
+      <div class="t-body">
+        <div class="t-name">Contact Furlows re: full payment</div>
+        <div class="t-desc">Discuss payment preferences ahead of Apr 1 Regent deadline.</div>
+        <div class="t-chips"><span class="chip c-mod">thunderbird_gmail</span><span class="chip c-mod">thunderbird_dossier</span></div>
+      </div>
+      <div class="t-deadline dl-hot">Mar 13</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id" style="color:var(--green)">C3</div>
+      <div class="t-body">
+        <div class="t-name">Nichols CFAR call</div>
+        <div class="t-desc">When Larry returns from cruise — CFAR research + AmEx Platinum correction.</div>
+        <div class="t-chips"><span class="chip c-mod">thunderbird_dossier</span></div>
+      </div>
+      <div class="t-deadline dl-hot">Mar 16</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id" style="color:var(--green)">C4</div>
+      <div class="t-body">
+        <div class="t-name">Kuklinski Guest Info Forms (6 guests)</div>
+        <div class="t-desc">Collect forms for all 6 guests across 3 Viking suites.</div>
+        <div class="t-chips"><span class="chip c-sup">Viking Portal</span><span class="chip c-mod">thunderbird_gmail</span></div>
+      </div>
+      <div class="t-deadline dl-hot">Mar 15</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id" style="color:var(--green)">C10</div>
+      <div class="t-body">
+        <div class="t-name">McLeod Lesser Antilles — confirm final payment date</div>
+        <div class="t-chips"><span class="chip c-sup">Regent Portal</span><span class="chip c-sheet">Booking Master</span></div>
+      </div>
+      <div class="t-deadline dl-hot">This week</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id" style="color:var(--green)">C11</div>
+      <div class="t-body">
+        <div class="t-name">McLeod Season To Cheer 2027 — confirm final payment date</div>
+        <div class="t-chips"><span class="chip c-sup">Regent Portal</span><span class="chip c-sheet">Booking Master</span></div>
+      </div>
+      <div class="t-deadline dl-hot">This week</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id" style="color:var(--green)">C12</div>
+      <div class="t-body">
+        <div class="t-name">McGlasson Princess Mexico 2027 — confirm final payment date</div>
+        <div class="t-chips"><span class="chip c-ext">Princess Portal</span><span class="chip c-sheet">Booking Master</span></div>
+      </div>
+      <div class="t-deadline dl-hot">This week</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id" style="color:var(--green)">C15</div>
+      <div class="t-body">
+        <div class="t-name">Loucks Regent Panama Canal — confirm final payment date</div>
+        <div class="t-chips"><span class="chip c-sup">Regent Portal</span><span class="chip c-sheet">Booking Master</span></div>
+      </div>
+      <div class="t-deadline dl-hot">This week</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id" style="color:var(--green)">C16</div>
+      <div class="t-body">
+        <div class="t-name">Booking Master cleanup — fix data quality</div>
+        <div class="t-desc">5 fixes applied to Sheet. ~10 duplicate rows still need cleanup.</div>
+        <div class="t-chips"><span class="chip c-sheet">Booking Master</span></div>
+      </div>
+      <div class="t-deadline dl-hot">This week</div>
+    </div>
+
+    <!-- Monetization this week -->
+    <div class="task-item" style="border-top: 2px solid var(--gold); margin-top: 8px; padding-top: 14px;">
+      <div class="t-id" style="color:var(--gold)">M1</div>
+      <div class="t-body">
+        <div class="t-name">Package 15 commercial MCP tools</div>
+        <div class="t-desc">Identify tools to expose vs. keep private. Strip internal ops.</div>
+        <div class="t-chips"><span class="chip c-mod">travel_mcp_server</span></div>
+      </div>
+      <div class="t-deadline dl-hot">Mar 14</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id" style="color:var(--gold)">M2</div>
+      <div class="t-body">
+        <div class="t-name">Create D2M logo (400x400 PNG)</div>
+        <div class="t-chips"><span class="chip c-ext">Canva / FLUX.1</span></div>
+      </div>
+      <div class="t-deadline dl-hot">Mar 14</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id" style="color:var(--gold)">M3</div>
+      <div class="t-body">
+        <div class="t-name">Submit to PulseMCP directory</div>
+        <div class="t-desc">Free directory, 8,590+ servers, zero cruise entries. First mover.</div>
+        <div class="t-chips"><span class="chip c-ext">PulseMCP</span></div>
+      </div>
+      <div class="t-deadline dl-hot">Mar 13</div>
+    </div>
+  </div>
+</div>
+
+<!-- ====================== WEEK 2 ====================== -->
+<div class="week">
+  <div class="week-header wh-next">
+    <h2>WEEK 2 — Intelligence + Automation</h2>
+    <span class="dates">Mar 17-23, 2026</span>
+    <span class="badge">NEXT</span>
+  </div>
+  <div class="task-grid">
+    <div class="task-item">
+      <div class="t-id">2.1</div>
+      <div class="t-body">
+        <div class="t-name">Groq-first Model Routing</div>
+        <div class="t-desc">Build thunderbird_model_router.py. Default Groq for speed, escalate to Claude for creative/strategic/client-facing.</div>
+        <div class="t-chips"><span class="chip c-new">thunderbird_model_router</span><span class="chip c-mod">thunderbird_personas</span><span class="chip c-ext">Groq API</span><span class="chip c-ext">Anthropic API</span></div>
+      </div>
+      <div class="t-deadline dl-soon">Mar 23</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id">2.2</div>
+      <div class="t-body">
+        <div class="t-name">Email Auto-Classification</div>
+        <div class="t-desc">New thunderbird_email_classifier.py. Groq 8b for speed. Restore EARA label tree. Process "THUNDERBIRD-Process" every 15 min.</div>
+        <div class="t-chips"><span class="chip c-new">thunderbird_email_classifier</span><span class="chip c-mod">thunderbird_gmail</span><span class="chip c-ext">Groq 8b</span></div>
+      </div>
+      <div class="t-deadline dl-soon">Mar 23</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id">2.3</div>
+      <div class="t-body">
+        <div class="t-name">Client Follow-Up Reminders</div>
+        <div class="t-desc">Expand payment_alerts to general 7-day inactivity scan. Dani drafts suggestions, Harlan flags overdue.</div>
+        <div class="t-chips"><span class="chip c-mod">thunderbird_payment_alerts</span><span class="chip c-sheet">Booking Master</span></div>
+      </div>
+      <div class="t-deadline dl-soon">Mar 23</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id">2.4</div>
+      <div class="t-body">
+        <div class="t-name">Persona Auto-Consultation</div>
+        <div class="t-desc">Build thunderbird_autopilot.py. Event hooks: booking -> A3+A9+CH, quote -> EXEC+A5, crisis -> A10+COS.</div>
+        <div class="t-chips"><span class="chip c-new">thunderbird_autopilot</span><span class="chip c-mod">thunderbird_personas</span></div>
+      </div>
+      <div class="t-deadline dl-soon">Mar 23</div>
+    </div>
+
+    <!-- Client Ops Week 2 -->
+    <div class="task-item" style="border-top: 2px solid var(--green); margin-top: 8px; padding-top: 14px;">
+      <div class="t-id" style="color:var(--green)">C5</div>
+      <div class="t-body">
+        <div class="t-name">Viking Final Payments — $21,244 (3 bookings)</div>
+        <div class="t-desc">Kuklinski suites — process or confirm scheduled. Due Mar 31.</div>
+        <div class="t-chips"><span class="chip c-sup">Viking Portal</span><span class="chip c-sheet">Booking Master</span></div>
+      </div>
+      <div class="t-deadline dl-hot">Mar 31</div>
+    </div>
+
+    <!-- Monetization Week 2 -->
+    <div class="task-item" style="border-top: 2px solid var(--gold); margin-top: 8px; padding-top: 14px;">
+      <div class="t-id" style="color:var(--gold)">M4</div>
+      <div class="t-body">
+        <div class="t-name">Register MCP Hive founding provider</div>
+        <div class="t-desc">Launches May 11 — zero fees for founding 100. Early mover advantage.</div>
+        <div class="t-chips"><span class="chip c-ext">MCP Hive</span></div>
+      </div>
+      <div class="t-deadline dl-soon">Mar 17</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id" style="color:var(--gold)">M5</div>
+      <div class="t-body">
+        <div class="t-name">Deploy to MCPize — free + Pro $29/mo</div>
+        <div class="t-chips"><span class="chip c-ext">MCPize</span><span class="chip c-ext">mcp.d2mluxury.quest</span></div>
+      </div>
+      <div class="t-deadline dl-soon">Mar 18</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id" style="color:var(--gold)">M11</div>
+      <div class="t-body">
+        <div class="t-name">Stripe Account Setup</div>
+        <div class="t-desc">Required for MCPize + Poe payouts. Do this before M5.</div>
+        <div class="t-chips"><span class="chip c-ext">Stripe</span></div>
+      </div>
+      <div class="t-deadline dl-soon">Mar 18</div>
+    </div>
+  </div>
+</div>
+
+<!-- ====================== WEEK 3 ====================== -->
+<div class="week">
+  <div class="week-header wh-soon">
+    <h2>WEEK 3 — Polish + Cleanup</h2>
+    <span class="dates">Mar 24-30, 2026</span>
+    <span class="badge">SOON</span>
+  </div>
+  <div class="task-grid">
+    <div class="task-item">
+      <div class="t-id">3.1</div>
+      <div class="t-body">
+        <div class="t-name">Cinematic Presentations</div>
+        <div class="t-desc">New thunderbird_presentations.py. python-pptx. Navy/gold brand. Ship metrics viz. Luna narrative overlays.</div>
+        <div class="t-chips"><span class="chip c-new">thunderbird_presentations</span><span class="chip c-ext">python-pptx</span></div>
+      </div>
+      <div class="t-deadline dl-soon">Mar 30</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id">3.2</div>
+      <div class="t-body">
+        <div class="t-name">API Cost Tracking</div>
+        <div class="t-desc">Log every Groq/Claude/Gemini/Hotelbeds/Amadeus call. New API_Cost_Log sheet tab.</div>
+        <div class="t-chips"><span class="chip c-mod">thunderbird_api</span><span class="chip c-sheet">API_Cost_Log</span></div>
+      </div>
+      <div class="t-deadline dl-soon">Mar 30</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id">3.3</div>
+      <div class="t-body">
+        <div class="t-name">Calendar Auto-Events from Bookings</div>
+        <div class="t-desc">Auto-create Calendar events for embarkation, final payment, doc deadlines from Booking Master.</div>
+        <div class="t-chips"><span class="chip c-new">thunderbird_calendar_sync</span><span class="chip c-sheet">Booking Master</span><span class="chip c-ext">Google Calendar</span></div>
+      </div>
+      <div class="t-deadline dl-soon">Mar 30</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id">3.4</div>
+      <div class="t-body">
+        <div class="t-name">Tab Cleanup</div>
+        <div class="t-desc">Delete z_MIGRATED_ tabs (after 2-week verification). Add API_Cost_Log + My_Voice tabs.</div>
+        <div class="t-chips"><span class="chip c-mod">thunderbird_api</span><span class="chip c-sheet">EARA D2M Thunderbird v2</span></div>
+      </div>
+      <div class="t-deadline dl-soon">Mar 30</div>
+    </div>
+
+    <!-- Monetization Week 3 -->
+    <div class="task-item" style="border-top: 2px solid var(--gold); margin-top: 8px; padding-top: 14px;">
+      <div class="t-id" style="color:var(--gold)">M6</div>
+      <div class="t-body">
+        <div class="t-name">Fiverr Gig — "AI-Powered Luxury Itinerary" $297</div>
+        <div class="t-desc">Revenue in 7-14 days. Screenshot best PDF for images. First revenue from tools.</div>
+        <div class="t-chips"><span class="chip c-mod">luxury_itinerary_generator</span><span class="chip c-mod">thunderbird_quote_render</span><span class="chip c-ext">Fiverr</span></div>
+      </div>
+      <div class="t-deadline dl-soon">Mar 24</div>
+    </div>
+  </div>
+</div>
+
+<!-- ====================== WEEK 4 / MONTH 2 ====================== -->
+<div class="week">
+  <div class="week-header wh-month">
+    <h2>MONTH 2 (April) — Depth + Soul</h2>
+    <span class="dates">Apr 1-30, 2026</span>
+    <span class="badge">APRIL</span>
+  </div>
+  <div class="task-grid">
+    <div class="task-item">
+      <div class="t-id">4.1</div>
+      <div class="t-body">
+        <div class="t-name">My Voice Profile</div>
+        <div class="t-desc">Capture John's communication DNA from sent emails. Feed into Naia + Luna system prompts.</div>
+        <div class="t-chips"><span class="chip c-new">thunderbird_voice_harvester</span><span class="chip c-mod">thunderbird_gmail</span><span class="chip c-mod">thunderbird_personas</span></div>
+      </div>
+      <div class="t-deadline dl-future">April</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id">4.2</div>
+      <div class="t-body">
+        <div class="t-name">Mobile Dashboard</div>
+        <div class="t-desc">Web UI via dv7 REST API. Navy/gold responsive HTML at api.d2mluxury.quest/dashboard.</div>
+        <div class="t-chips"><span class="chip c-new">thunderbird_dashboard</span><span class="chip c-mod">thunderbird_api</span><span class="chip c-ext">api.d2mluxury.quest</span></div>
+      </div>
+      <div class="t-deadline dl-future">April</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id">4.3</div>
+      <div class="t-body">
+        <div class="t-name">Nova Self-Improvement System</div>
+        <div class="t-desc">Weekly audit driven by ELON (A12). Improvement tickets in Action_Tracker.</div>
+        <div class="t-chips"><span class="chip c-mod">thunderbird_personas</span><span class="chip c-sheet">Action_Tracker</span></div>
+      </div>
+      <div class="t-deadline dl-future">April</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id">4.4</div>
+      <div class="t-body">
+        <div class="t-name">Full Persona Sentience Protocol</div>
+        <div class="t-desc">Dissent protocol, morning stand-up with all personas, complete auto-consultation coverage.</div>
+        <div class="t-chips"><span class="chip c-mod">thunderbird_personas</span><span class="chip c-new">thunderbird_autopilot</span></div>
+      </div>
+      <div class="t-deadline dl-future">April</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id">4.5</div>
+      <div class="t-body">
+        <div class="t-name">MCP Tool Validation Sprint</div>
+        <div class="t-desc">Test all 97 MCP tools systematically. If not started in Week 1 window.</div>
+        <div class="t-chips"><span class="chip c-mod">travel_mcp_server</span></div>
+      </div>
+      <div class="t-deadline dl-future">April</div>
+    </div>
+
+    <!-- Client Ops April -->
+    <div class="task-item" style="border-top: 2px solid var(--green); margin-top: 8px; padding-top: 14px;">
+      <div class="t-id" style="color:var(--green)">C6</div>
+      <div class="t-body">
+        <div class="t-name">Regent Final Payments — $46,112 (3 bookings)</div>
+        <div class="t-desc">Furlow, Ely/Darrow, Nichols — the big three.</div>
+        <div class="t-chips"><span class="chip c-sup">Regent Portal</span><span class="chip c-sheet">Booking Master</span></div>
+      </div>
+      <div class="t-deadline dl-soon">Apr 1</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id" style="color:var(--green)">C7</div>
+      <div class="t-body">
+        <div class="t-name">Regent Dining/Excursion Selections</div>
+        <div class="t-desc">All 3 Regent clients need dining and excursion preferences captured.</div>
+        <div class="t-chips"><span class="chip c-mod">thunderbird_dining</span><span class="chip c-mod">thunderbird_dossier</span></div>
+      </div>
+      <div class="t-deadline dl-soon">Apr 15</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id" style="color:var(--green)">C8</div>
+      <div class="t-body">
+        <div class="t-name">McLeod Silver Muse — excursion/dining</div>
+        <div class="t-chips"><span class="chip c-mod">thunderbird_dining</span><span class="chip c-sup">Silversea Portal</span></div>
+      </div>
+      <div class="t-deadline dl-soon">Apr 2026</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id" style="color:var(--green)">C13</div>
+      <div class="t-body">
+        <div class="t-name">Loucks Silver Nova — confirm logistics</div>
+        <div class="t-desc">Flights, pre-cruise hotel, route planning via Rometorio.</div>
+        <div class="t-chips"><span class="chip c-mod">thunderbird_dossier</span><span class="chip c-mod">thunderbird_flight_search</span><span class="chip c-ext">rometorio.com</span></div>
+      </div>
+      <div class="t-deadline dl-soon">Apr 1</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id" style="color:var(--green)">C14</div>
+      <div class="t-body">
+        <div class="t-name">Westbrook Tokyo/Silver Nova — Hilton + embarkation</div>
+        <div class="t-chips"><span class="chip c-mod">thunderbird_hotel_search</span><span class="chip c-mod">thunderbird_dossier</span></div>
+      </div>
+      <div class="t-deadline dl-soon">Apr 1</div>
+    </div>
+
+    <!-- Monetization April -->
+    <div class="task-item" style="border-top: 2px solid var(--gold); margin-top: 8px; padding-top: 14px;">
+      <div class="t-id" style="color:var(--gold)">M7</div>
+      <div class="t-body">
+        <div class="t-name">Build Poe Bot — D2M Luxury Cruise Advisor</div>
+        <div class="t-chips"><span class="chip c-new">poe_d2m_bot</span><span class="chip c-ext">fastapi-poe</span><span class="chip c-ext">cloudflared</span></div>
+      </div>
+      <div class="t-deadline dl-soon">Apr 11</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id" style="color:var(--gold)">M10</div>
+      <div class="t-body">
+        <div class="t-name">X/Twitter Thread — publish</div>
+        <div class="t-desc">5 tweets, "78 tools that execute" hook. Yoda voice pass first.</div>
+        <div class="t-chips"><span class="chip c-mod">thunderbird_x_osint</span></div>
+      </div>
+      <div class="t-deadline dl-future">Apr</div>
+    </div>
+  </div>
+</div>
+
+<!-- ====================== MONTH 3+ ====================== -->
+<div class="week">
+  <div class="week-header wh-gold">
+    <h2>MONETIZATION — Ongoing Parallel Track</h2>
+    <span class="dates">Mar-May 2026</span>
+    <span class="badge">$$$</span>
+  </div>
+  <div class="task-grid">
+    <div class="task-item">
+      <div class="t-id" style="color:var(--gold)">M8</div>
+      <div class="t-body">
+        <div class="t-name">Chainlit MVP on d2mluxury.quest</div>
+        <div class="t-desc">Auth (Clerk), billing (Stripe Checkout). B2B revenue channel.</div>
+        <div class="t-chips"><span class="chip c-ext">Chainlit</span><span class="chip c-ext">Clerk Auth</span><span class="chip c-ext">Stripe</span></div>
+      </div>
+      <div class="t-deadline dl-future">Apr-May</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id" style="color:var(--gold)">M9</div>
+      <div class="t-body">
+        <div class="t-name">LinkedIn Advisor Outreach — 50 cold DMs</div>
+        <div class="t-desc">Free 30-day trial offer to travel advisors.</div>
+        <div class="t-chips"><span class="chip c-ext">LinkedIn</span></div>
+      </div>
+      <div class="t-deadline dl-future">Apr-May</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id" style="color:var(--gold)">M12</div>
+      <div class="t-body">
+        <div class="t-name">ASTA Conference Prep — San Diego May 27-29</div>
+        <div class="t-desc">Demo deck, business cards, registration. Face-to-face B2B opportunity.</div>
+        <div class="t-chips"><span class="chip c-new">thunderbird_presentations</span><span class="chip c-ext">ASTA</span></div>
+      </div>
+      <div class="t-deadline dl-future">May</div>
+    </div>
+  </div>
+</div>
+
+<!-- ====================== STRATEGIC DEPTH ====================== -->
+<div class="week">
+  <div class="week-header wh-deep">
+    <h2>MONTH 3+ (May-June) — Strategic Depth</h2>
+    <span class="dates">May-Jun 2026</span>
+    <span class="badge">DEPTH</span>
+  </div>
+  <div class="task-grid">
+    <div class="task-item">
+      <div class="t-id">5.1</div>
+      <div class="t-body">
+        <div class="t-name">Virtuoso 9-Month Client Lifecycle</div>
+        <div class="t-desc">4 phases: Discovery -> Layering -> Polish -> Aftercare. Automate triggers at each milestone.</div>
+        <div class="t-chips"><span class="chip c-mod">thunderbird_dossier</span><span class="chip c-mod">thunderbird_anchor_dates</span></div>
+      </div>
+      <div class="t-deadline dl-future">May</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id">5.2</div>
+      <div class="t-body">
+        <div class="t-name">Dossier RAG / Vector Search</div>
+        <div class="t-desc">Client dossier embeddings for personalized narratives. Luna + RAG = dream descriptions.</div>
+        <div class="t-chips"><span class="chip c-mod">thunderbird_dossier</span><span class="chip c-ext">ChromaDB / FAISS</span></div>
+      </div>
+      <div class="t-deadline dl-future">May</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id">5.3</div>
+      <div class="t-body">
+        <div class="t-name">Financial Circuit Breakers</div>
+        <div class="t-desc">API cost limits with auto-shutoff. Prevent runaway spend.</div>
+        <div class="t-chips"><span class="chip c-mod">thunderbird_api</span><span class="chip c-sheet">API_Cost_Log</span></div>
+      </div>
+      <div class="t-deadline dl-future">May</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id">5.4</div>
+      <div class="t-body">
+        <div class="t-name">Outside Agents Portal Integration</div>
+        <div class="t-chips"><span class="chip c-mod">thunderbird_outside_agents</span><span class="chip c-new">thunderbird_tess_oauth</span></div>
+      </div>
+      <div class="t-deadline dl-future">May-Jun</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id">5.5</div>
+      <div class="t-body">
+        <div class="t-name">FLUX.1 / Image Generation Pipeline</div>
+        <div class="t-chips"><span class="chip c-ext">FLUX.1 API</span><span class="chip c-mod">thunderbird_personas</span></div>
+      </div>
+      <div class="t-deadline dl-future">Jun</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id">5.6</div>
+      <div class="t-body">
+        <div class="t-name">Romance/Scribe Narrative Engine</div>
+        <div class="t-desc">Port-by-port sensory narratives. Luna-driven.</div>
+        <div class="t-chips"><span class="chip c-new">thunderbird_scribe_engine</span><span class="chip c-ext">Claude API</span></div>
+      </div>
+      <div class="t-deadline dl-future">Jun</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id">5.7</div>
+      <div class="t-body">
+        <div class="t-name">7-Stage Development Lifecycle</div>
+        <div class="t-chips"><span class="chip c-sheet">Process doc</span></div>
+      </div>
+      <div class="t-deadline dl-future">May</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id">5.8</div>
+      <div class="t-body">
+        <div class="t-name">TESS OAuth Portal Integration</div>
+        <div class="t-chips"><span class="chip c-new">thunderbird_tess_oauth</span><span class="chip c-mod">thunderbird_outside_agents</span></div>
+      </div>
+      <div class="t-deadline dl-future">May-Jun</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id">5.9</div>
+      <div class="t-body">
+        <div class="t-name">Restore Eliminated Persona Roles</div>
+        <div class="t-desc">A4, A6, A7, A8 — at minimum add marketing persona for monetization.</div>
+        <div class="t-chips"><span class="chip c-mod">thunderbird_personas</span></div>
+      </div>
+      <div class="t-deadline dl-future">Jun</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id">5.10</div>
+      <div class="t-body">
+        <div class="t-name">End-of-Session Protocol</div>
+        <div class="t-chips"><span class="chip c-mod">thunderbird_hud_memory</span><span class="chip c-mod">thunderbird_drive</span></div>
+      </div>
+      <div class="t-deadline dl-future">May</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id">5.11</div>
+      <div class="t-body">
+        <div class="t-name">Voice Harvester -> My Voice</div>
+        <div class="t-desc">Port TITAN harvestUserVoice() to Python. Style DNA for Naia + Luna.</div>
+        <div class="t-chips"><span class="chip c-new">thunderbird_voice_harvester</span><span class="chip c-mod">thunderbird_gmail</span></div>
+      </div>
+      <div class="t-deadline dl-future">May</div>
+    </div>
+  </div>
+</div>
+
+<!-- STANDALONE -->
+<div class="week">
+  <div class="week-header" style="background: #1e1e1e; border-color: var(--muted);">
+    <h2 style="color: var(--muted);">STANDALONE — Flexible Timing</h2>
+    <span class="badge" style="background: var(--muted); color: var(--navy);">FLEX</span>
+  </div>
+  <div class="task-grid">
+    <div class="task-item">
+      <div class="t-id">S1</div>
+      <div class="t-body">
+        <div class="t-name">MCP Tool Validation Sprint (7-Day)</div>
+        <div class="t-chips"><span class="chip c-mod">travel_mcp_server</span><span class="chip c-ext">mcp.d2mluxury.quest</span></div>
+      </div>
+      <div class="t-deadline dl-future">Flexible</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id">S2</div>
+      <div class="t-body">
+        <div class="t-name">Reddit Research — Competitive Landscape</div>
+        <div class="t-chips"><span class="chip c-mod">thunderbird_browser</span><span class="chip c-mod">thunderbird_x_osint</span></div>
+      </div>
+      <div class="t-deadline dl-future">Flexible</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id">S3</div>
+      <div class="t-body">
+        <div class="t-name">SmartEX Train Tickets — Japan</div>
+        <div class="t-desc">Tokyo -> Kyoto (Apr 21 AM) + Kyoto -> Tokyo (Apr 21 PM). 2 pax.</div>
+        <div class="t-chips"><span class="chip c-ext">SmartEX App</span><span class="chip c-mod">thunderbird_dossier</span></div>
+      </div>
+      <div class="t-deadline dl-soon">Before Apr 21</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id">S4</div>
+      <div class="t-body">
+        <div class="t-name">Amadeus Enterprise Upgrade</div>
+        <div class="t-desc">LEGAL REQUIREMENT — Self-Service tier is dev-only.</div>
+        <div class="t-chips"><span class="chip c-mod">thunderbird_flight_search</span><span class="chip c-ext">Amadeus Portal</span></div>
+      </div>
+      <div class="t-deadline dl-soon">Before M5</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id">S5</div>
+      <div class="t-body">
+        <div class="t-name">E&O Insurance (~$500-1,500/yr)</div>
+        <div class="t-chips"><span class="chip c-ext">Insurance Provider</span></div>
+      </div>
+      <div class="t-deadline dl-soon">Before M6</div>
+    </div>
+    <div class="task-item">
+      <div class="t-id">S6</div>
+      <div class="t-body">
+        <div class="t-name">IP Protection — Patent + Trademark</div>
+        <div class="t-chips"><span class="chip c-ext">IP Attorney</span><span class="chip c-ext">Termly.io</span></div>
+      </div>
+      <div class="t-deadline dl-future">Before M5</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  Thunderbird Master Project Plan v4.5 | 68 tasks | 37 modules + 11 to build | 22 supplier sites<br>
+  Keeper: EXEC Naia Solberg-Vega | Dreams2Memories Travel, LLC | Commander John "Yoda" Loucks<br>
+  Generated: March 10, 2026 | <a href="PROJECT_PLAN_VISUAL.html">View Full Project Plan with Plugin Map &rarr;</a>
+</div>
+
+</body>
+</html>

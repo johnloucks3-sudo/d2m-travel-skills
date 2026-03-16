@@ -1,0 +1,355 @@
+#!/usr/bin/env python3
+"""
+THUNDERBIRD OS: THE SCRUPULOUS MASTERPIECE (v1.5.5)
+Religiously integrating 11:21 AM logic, luxury artifacts, and original file paths.
+"""
+
+import os, time, json, requests, logging
+from pathlib import Path
+from datetime import datetime
+from jinja2 import Template
+from weasyprint import HTML
+import gspread
+from google.oauth2 import service_account
+from googleapiclient.discovery import build
+from openai import OpenAI
+from pdf2image import convert_from_path
+import pytesseract
+
+# ============================================================================
+# 1. CONFIGURATION (ORIGINAL PATHS & BRANDING ARTIFACTS)
+# ============================================================================
+class Config:
+    GEMINI_API_KEY = "***REMOVED-SECRET***"
+    GEMINI_BASE_URL = "https://generativelanguage.googleapis.com/v1beta/openai/"
+    GEMINI_MODEL = "gemini-2.5-flash"
+    GROQ_KEY = "***REMOVED-SECRET***"
+
+    # Sniper Vision & Thunderbird Art Bucket
+    GOOGLE_SEARCH_API_KEY = "***REMOVED-SECRET***"
+    GOOGLE_CX_ID = "c521728142cd34117"
+    PEXELS_KEY = "***REMOVED-SECRET***"
+    ART_FOLDER_ID = "1V_iUoy5oXs8RxY5S4-2QSHTXueGircnQ"
+
+    # Agency Branding (Update these URLs for the final glitz)
+    LOGO_URL = ""
+    AGENT_PHOTO_URL = ""
+    AGENT_NAME = "John Westbrook"
+    AGENT_PHONE = "+1-555-555-5555"
+    AGENT_EMAIL = "john@dreams2memories.com"
+
+    SHEET_ID = "1GFjUe8RvP-GT4YHGn0DYv_BEAZGXlYfwEicFrm8ANuU"
+    SERVICE_ACCOUNT_FILE = '/home/john/Thunderbird/credentials.json'
+    MASTER_TAB = "Booking Master"
+    DAILY_TAB = "Daily Itinerary"
+
+    # RESTORED ORIGINAL CLEAN FILE PATHS
+    INPUT_DIR = Path.home() / "Downloads" / "BookingPDFs"
+    PROCESSED_DIR = Path.home() / "Documents" / "ProcessedPDFs"
+    OUTPUT_DIR = Path.home() / "Documents" / "Luxury_Itineraries"
+
+logging.basicConfig(level=logging.INFO, format='⚡ %(message)s')
+logger = logging.getLogger(__name__)
+
+# ============================================================================
+# 2. IMAGE HIERARCHY (TITAN ART DRIVE -> SNIPER VISION -> PEXELS)
+# ============================================================================
+def get_drive_service():
+    creds = service_account.Credentials.from_service_account_file(
+        Config.SERVICE_ACCOUNT_FILE,
+        scopes=['https://www.googleapis.com/auth/drive.readonly']
+    )
+    return build('drive', 'v3', credentials=creds)
+
+def find_curated_art(port_name: str) -> str:
+    """Searches Drive for the specific Titan_Art convention."""
+    service = get_drive_service()
+    # Convention: Titan_Art_City__Country_ID.png
+    search_term = f"Titan_Art_{port_name}"
+    query = f"'{Config.ART_FOLDER_ID}' in parents and name contains '{search_term}'"
+    try:
+        results = service.files().list(q=query, fields="files(id, webContentLink, name)").execute()
+        files = results.get('files', [])
+        if files:
+            logger.info(f"🎨 Thunderbird Art MATCH: {files[0]['name']}")
+            return files[0].get('webContentLink')
+    except: pass
+    return None
+
+def get_best_image(query: str, port_name: str) -> str:
+    art = find_curated_art(port_name)
+    if art: return art
+
+    logger.info(f"🎯 Sniper Vision searching for: {port_name}")
+    search_url = "https://www.googleapis.com/customsearch/v1"
+    params = {
+        "q": f"{port_name} luxury travel photography {query}",
+        "cx": Config.GOOGLE_CX_ID, "key": Config.GOOGLE_SEARCH_API_KEY,
+        "searchType": "image", "imgSize": "huge", "num": 1
+    }
+    try:
+        res = requests.get(search_url, params=params).json()
+        if 'items' in res: return res['items'][0]['link']
+    except: pass
+
+    # Pexels Final Fallback
+    headers = {"Authorization": Config.PEXELS_KEY}
+    try:
+        res = requests.get(f"https://api.pexels.com/v1/search?query={query}&per_page=1", headers=headers).json()
+        if 'photos' in res: return res['photos'][0]['src']['large2x']
+    except: pass
+
+    return "https://images.unsplash.com/photo-1548574505-5e239809ee19"
+
+# ============================================================================
+# 3. THE 49-COLUMN PDF VACUUM (OCR + GROQ)
+# ============================================================================
+def process_pdfs():
+    creds = service_account.Credentials.from_service_account_file(Config.SERVICE_ACCOUNT_FILE, scopes=['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive'])
+    gc = gspread.authorize(creds)
+    doc = gc.open_by_key(Config.SHEET_ID)
+    master_ws = doc.worksheet(Config.MASTER_TAB)
+    daily_ws = doc.worksheet(Config.DAILY_TAB)
+
+    m_headers = master_ws.get_all_values()[0]
+    mh_map = {h.strip(): i for i, h in enumerate(m_headers) if h.strip()}
+    d_headers = daily_ws.get_all_values()[0]
+    dh_map = {h.strip(): i for i, h in enumerate(d_headers) if h.strip()}
+
+    pdf_files = list(Config.INPUT_DIR.glob("*.pdf"))
+    if not pdf_files:
+        print("No PDFs found in Downloads/BookingPDFs!")
+        return
+
+    for pdf in pdf_files:
+        logger.info(f"🔍 Analyzing {pdf.name}...")
+        images = convert_from_path(pdf)
+        text = "".join([pytesseract.image_to_string(img) for img in images])
+
+        # Groq Extraction
+        url = "https://api.groq.com/openai/v1/chat/completions"
+        m_prompt = f"Extract all travel data into JSON. Output ONLY JSON. TEXT: {text[:15000]}"
+        res = requests.post(url, json={"model": "llama-3.3-70b-versatile", "messages": [{"role": "user", "content": m_prompt}], "response_format": {"type": "json_object"}}, headers={"Authorization": f"Bearer {Config.GROQ_KEY}"}).json()
+        data = json.loads(res['choices'][0]['message']['content'])
+
+        # Push to Master
+        new_row = ["" for _ in range(len(m_headers))]
+        for k, v in data.items():
+            if k in mh_map: new_row[mh_map[k]] = str(v)
+        master_ws.append_row(new_row)
+
+        # Push Itinerary
+        i_prompt = f"Extract cruise ports into JSON schedule with Romance_Short 3-word visual query. TEXT: {text[:15000]}"
+        res_i = requests.post(url, json={"model": "llama-3.3-70b-versatile", "messages": [{"role": "user", "content": i_prompt}], "response_format": {"type": "json_object"}}, headers={"Authorization": f"Bearer {Config.GROQ_KEY}"}).json()
+        itin = json.loads(res_i['choices'][0]['message']['content']).get("schedule", [])
+
+        if itin:
+            rows = []
+            for day in itin:
+                d_row = ["" for _ in range(len(d_headers))]
+                d_row[dh_map['Confirmation_Number']] = data.get('Confirmation_Number', '')
+                for k, v in day.items():
+                    if k in dh_map: d_row[dh_map[k]] = str(v)
+                rows.append(d_row)
+            daily_ws.append_rows(rows)
+
+        Config.PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
+        pdf.rename(Config.PROCESSED_DIR / pdf.name)
+        logger.info(f"📦 Archived {pdf.name}")
+
+# ============================================================================
+# 4. THE GOLD STANDARD HTML MASTERPIECE
+# ============================================================================
+HTML_TEMPLATE = """
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;600&family=Cormorant+Garamond:ital,wght@1,600&display=swap" rel="stylesheet">
+    <style>
+        @page { margin: 0; size: letter; }
+        * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        body { font-family: 'Inter', sans-serif; background: #faf8f2; color: #2c2c2c; margin: 0; line-height: 1.6; }
+
+        /* COVER PAGE ARTIFACTS */
+        .cover { background: #1a2744; color: white; text-align: center; padding: 100px 40px; position: relative; }
+        .logo { width: 140px; margin-bottom: 30px; }
+        .cover h1 { font-family: 'Playfair Display', serif; font-size: 55px; margin: 10px 0; letter-spacing: 2px; line-height: 1.1; }
+        .cover p { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-style: italic; opacity: 0.8; }
+        .dates { margin-top: 30px; font-size: 15px; letter-spacing: 4px; border-top: 1px solid rgba(255,255,255,0.2); border-bottom: 1px solid rgba(255,255,255,0.2); padding: 15px 0; display: inline-block; text-transform: uppercase; }
+
+        /* SECTION TITLES */
+        .section-header { text-align: center; padding: 60px 0 20px; }
+        .section-header h2 { font-family: 'Playfair Display'; font-size: 38px; color: #1a2744; margin: 0; }
+        .divider { width: 100px; height: 3px; background: #c9a84c; margin: 15px auto 40px; }
+
+        /* SUMMARY CARDS (THE GLITZ) */
+        .grid { width: 90%; margin: 0 auto; display: table; border-spacing: 20px; border-collapse: separate; }
+        .card { display: table-cell; background: white; border-top: 5px solid #1a2744; padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); width: 50%; vertical-align: top; }
+        .status-badge { float: right; background: #e8f5e9; color: #27ae60; font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 20px; text-transform: uppercase; }
+        .card h4 { font-size: 11px; letter-spacing: 2px; color: #5a5a5a; text-transform: uppercase; margin-bottom: 15px; margin-top: 0; font-weight: 700; }
+        .card-data { font-size: 14px; color: #444; white-space: pre-wrap; font-weight: 400; }
+
+        /* THE DAILY CHRONICLE (VISUAL IMPACT) */
+        .day-card { background: white; margin: 40px auto; width: 90%; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); page-break-inside: avoid; }
+        .day-img { width: 100%; height: 450px; object-fit: cover; border-bottom: 5px solid #c9a84c; }
+        .day-content { padding: 45px; }
+        .day-header { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #eee; padding-bottom: 25px; margin-bottom: 25px; }
+        .day-num { font-family: 'Playfair Display'; font-size: 55px; color: #c9a84c; font-weight: 900; line-height: 1; }
+        .day-port { font-family: 'Cormorant Garamond'; font-size: 34px; font-style: italic; color: #1a2744; }
+        .narrative { font-size: 17px; line-height: 1.9; color: #444; font-weight: 300; }
+
+        /* CONCIERGE FOOTER ARTIFACTS */
+        .footer-grid { width: 90%; margin: 60px auto; display: flex; gap: 40px; }
+        .contact-card { background: #1a2744; color: white; padding: 40px; border-radius: 15px; width: 40%; text-align: center; }
+        .agent-photo { width: 100px; height: 100px; border-radius: 50%; border: 3px solid #c9a84c; margin-bottom: 20px; object-fit: cover; }
+        .footer-text { font-size: 14px; line-height: 1.7; color: #555; }
+    </style>
+</head>
+<body>
+    <div class="cover">
+        <img src="{{ LOGO_URL }}" class="logo">
+        <p>✦ EXCLUSIVELY PREPARED FOR ✦</p>
+        <h1>{{ Client_Name }}</h1>
+        <p>{{ Trip_Name }} | {{ Supplier }}</p>
+        <div class="dates">{{ Start_Date }} — {{ End_Date }}</div>
+    </div>
+
+    <div class="section-header"><h2>Quick Reference & Confirmations</h2><div class="divider"></div></div>
+    <div class="grid">
+        <div class="card">
+            <span class="status-badge">Confirmed</span>
+            <h4>✈️ Aerial Logistics</h4>
+            <div class="card-data">{{ Flight_Info | default('Finalizing Schedules...', True) }}</div>
+        </div>
+        <div class="card">
+            <span class="status-badge">Confirmed</span>
+            <h4>🏨 Accommodations</h4>
+            <div class="card-data">{{ Hotel_Info | default('Confirmed per Booking', True) }}</div>
+        </div>
+    </div>
+    <div class="grid" style="margin-top: -10px;">
+        <div class="card">
+            <span class="status-badge">Confirmed</span>
+            <h4>🚗 Transportation</h4>
+            <div class="card-data">{{ Transfer_Info | default('Private Transfer Coordinated', True) }}</div>
+        </div>
+        <div class="card">
+            <span class="status-badge">Confirmed</span>
+            <h4>🏛️ Curated Tours</h4>
+            <div class="card-data">{{ Tour_Info | default('Bespoke Excursions Ready', True) }}</div>
+        </div>
+    </div>
+
+    <div class="section-header"><h2>The Daily Chronicle</h2><div class="divider"></div></div>
+    {% for day in days %}
+    <div class="day-card">
+        <img src="{{ day.Image_1_URL }}" class="day-img">
+        <div class="day-content">
+            <div class="day-header">
+                <div class="day-num">{{ day.Day }}</div>
+                <div class="day-port">{{ day.Port_Location }}</div>
+            </div>
+            <div style="color:#2a8b96; font-weight:700; margin-bottom:20px; font-size:13px; letter-spacing:2px; text-transform:uppercase;">
+                Timing: {{ day.Arrive }} — {{ day.Depart }}
+            </div>
+            <div class="narrative">{{ day.Romance_Narrative }}</div>
+        </div>
+    </div>
+    {% endfor %}
+
+    <div class="footer-grid">
+        <div class="card" style="width:60%; border-top-color:#c9a84c;">
+            <h4>🌍 Traveler's Intel</h4>
+            <div class="footer-text">
+                <strong>Climate Forecast:</strong> Seasonal attire recommended.<br>
+                <strong>Bespoke Tip:</strong> {{ AI_Uncategorized_Notes | default('Ensure travel documents are stored in carry-on for seamless arrivals.', True) }}
+            </div>
+        </div>
+        <div class="contact-card">
+            <img src="{{ AGENT_PHOTO_URL }}" class="agent-photo">
+            <div style="font-size:22px; font-weight:700; font-family: 'Playfair Display';">{{ AGENT_NAME }}</div>
+            <p style="font-size:12px; opacity:0.7; letter-spacing: 1px;">Luxury Travel Advisor</p>
+            <div style="font-size:14px; margin-top:15px; opacity: 0.9;">{{ AGENT_PHONE }}<br>{{ AGENT_EMAIL }}</div>
+        </div>
+    </div>
+    <div style="text-align: center; font-size: 10px; color: #aaa; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px;">
+        ✦ Prepared with Precision for Your Luxury Journey ✦
+    </div>
+</body>
+</html>
+"""
+def generate_itinerary():
+    name = input("Client Name (Exact from Sheet): ").strip()
+    logger.info(f"⚡ 🎨 Generating Masterpiece for {name}...")
+    creds = service_account.Credentials.from_service_account_file(Config.SERVICE_ACCOUNT_FILE, scopes=['https://www.googleapis.com/auth/spreadsheets'])
+    gc = gspread.authorize(creds)
+    doc = gc.open_by_key(Config.SHEET_ID)
+
+    m_ws = doc.worksheet(Config.MASTER_TAB)
+    m_vals = m_ws.get_all_values()
+    m_rec = [dict(zip(m_vals[0], r)) for r in m_vals[1:]]
+    master_row = next((r for r in m_rec if name.lower() in str(r.get('Client_Name','')).lower()), None)
+
+    if not master_row: return logger.error(f"Client {name} not found.")
+
+    d_ws = doc.worksheet(Config.DAILY_TAB)
+    d_vals = d_ws.get_all_values()
+    d_headers = d_vals[0]
+
+    # NEW LOGIC: Capture the exact sheet row number before processing
+    d_rec = []
+    for i, r in enumerate(d_vals[1:]):
+        row_dict = dict(zip(d_headers, r))
+        row_dict['__sheet_row__'] = i + 2  # +1 for header, +1 for 1-based indexing
+        d_rec.append(row_dict)
+
+    daily_rows = [r for r in d_rec if str(r.get('Confirmation_Number')) == str(master_row.get('Confirmation_Number'))]
+
+    client = OpenAI(api_key=Config.GEMINI_API_KEY, base_url=Config.GEMINI_BASE_URL)
+
+    for i, day in enumerate(daily_rows):
+        row_idx = day['__sheet_row__'] # Direct access, no more .index() search
+
+        # Clean Romance Storytelling
+        if not day.get('Romance_Narrative') or "luxury sentences" in day.get('Romance_Narrative', '').lower():
+            logger.info(f"⚡ ✍ Storytelling for {day['Port_Location']}...")
+            prompt = f"Write 3 luxury travel sentences about {day['Port_Location']}. Prose only. No introductory phrases."
+            res = client.chat.completions.create(model=Config.GEMINI_MODEL, messages=[{"role":"user", "content":prompt}])
+            day['Romance_Narrative'] = res.choices[0].message.content.strip()
+
+            # Update Sheet Row using the pinned index
+            d_ws.update_cell(row_idx, d_headers.index('Romance_Narrative') + 1, day['Romance_Narrative'])
+
+        # Sniper Image Fetch
+        if not day.get('Image_1_URL'):
+            img = get_best_image(day.get('Romance_Short', 'Luxury'), day.get('Port_Location'))
+            day['Image_1_URL'] = img
+            # Update Sheet Row using the pinned index
+            d_ws.update_cell(row_idx, d_headers.index('Image_1_URL') + 1, img)
+
+    # FINAL RENDERING (Template remains identical)
+    html_content = Template(HTML_TEMPLATE).render(**master_row, days=daily_rows,
+                                                LOGO_URL=Config.LOGO_URL, AGENT_PHOTO_URL=Config.AGENT_PHOTO_URL,
+                                                AGENT_NAME=Config.AGENT_NAME, AGENT_PHONE=Config.AGENT_PHONE, AGENT_EMAIL=Config.AGENT_EMAIL)
+    Config.OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    out_path = Config.OUTPUT_DIR / f"MASTERPIECE_{name.replace(' ', '_')}.pdf"
+    HTML(string=html_content).write_pdf(out_path)
+    logger.info(f"✅ FINAL MASTERPIECE SAVED: {out_path}")
+
+# ============================================================================
+# MAIN INTERFACE
+# ============================================================================
+if __name__ == "__main__":
+    Config.INPUT_DIR.mkdir(parents=True, exist_ok=True)
+    while True:
+        print("\n=========================================================")
+        print("      DREAMS2MEMORIES: THUNDERBIRD OS v1.5.5")
+        print("=========================================================")
+        print("[1] Process PDFs in Downloads/BookingPDFs")
+        print("[2] Generate Gold Standard PDF for Client")
+        print("[3] Exit")
+        choice = input("Select: ")
+        if choice == '1': process_pdfs()
+        elif choice == '2': generate_itinerary()
+        elif choice == '3': break

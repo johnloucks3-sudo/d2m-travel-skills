@@ -1,0 +1,198 @@
+{
+  "title": "My Silversea",
+  "url": "https://my.silversea.com/MyBookings",
+  "sections": {},
+  "images": [
+    {
+      "src": "https://my.silversea.com/Content/images/logosvg.svg",
+      "alt": "Silversea logo",
+      "w": 206,
+      "h": 24
+    },
+    {
+      "src": "https://my.silversea.com/Content/images/blue/divisorio.png",
+      "alt": "",
+      "w": 146,
+      "h": 24
+    },
+    {
+      "src": "https://my.silversea.com/Content/images/logosvg.svg",
+      "alt": "",
+      "w": 206,
+      "h": 24
+    },
+    {
+      "src": "https://my.silversea.com/Content/images/blue/simbolo_link.png",
+      "alt": "",
+      "w": 158,
+      "h": 30
+    },
+    {
+      "src": "https://cdn.cookielaw.org/logos/static/ot_company_logo.png",
+      "alt": "Company Logo",
+      "w": 600,
+      "h": 106
+    },
+    {
+      "src": "https://cdn.cookielaw.org/logos/static/powered_by_logo.svg",
+      "alt": "Powered by Onetrust",
+      "w": 136,
+      "h": 16
+    },
+    {
+      "src": "https://cdn.cookielaw.org/logos/static/ot_close.svg",
+      "alt": "bg",
+      "w": 0,
+      "h": 0
+    }
+  ],
+  "tables": [],
+  "links": [
+    {
+      "text": "johnloucks3@gmail.comLog out",
+      "href": "https://my.silversea.com/MyBookings#"
+    },
+    {
+      "text": "Home",
+      "href": "https://my.silversea.com/"
+    },
+    {
+      "text": "BOOKINGS",
+      "href": "https://my.silversea.com/MyBookings"
+    },
+    {
+      "text": "BOOKINGS",
+      "href": "https://my.silversea.com/"
+    },
+    {
+      "text": "My Bookings",
+      "href": "https://my.silversea.com/MyBookings"
+    },
+    {
+      "text": "Passport & Visa",
+      "href": "https://my.silversea.com/Passport"
+    },
+    {
+      "text": "Private Arrangements",
+      "href": "https://my.silversea.com/PrivateArrangementFT"
+    },
+    {
+      "text": "PROFILE",
+      "href": "https://my.silversea.com/profile/account"
+    },
+    {
+      "text": "Marketing Central",
+      "href": "https://my.silversea.com/GAGE"
+    },
+    {
+      "text": "SERVICES",
+      "href": "https://my.silversea.com/SalesTeamFT"
+    },
+    {
+      "text": "COMMUNICATIONS",
+      "href": "https://my.silversea.com/GAP"
+    },
+    {
+      "text": "Silversea Academy",
+      "href": "https://my.silversea.com/Academy"
+    },
+    {
+      "text": "Create Booking",
+      "href": "https://my.silversea.com/bookings/create?code=179350"
+    },
+    {
+      "text": "Modify",
+      "href": "https://my.silversea.com/bookings/modify?code=298475-25"
+    },
+    {
+      "text": "Activities",
+      "href": "https://my.silversea.com/activities2/#/298475-25"
+    },
+    {
+      "text": "Modify",
+      "href": "https://my.silversea.com/bookings/modify?code=566910-25"
+    },
+    {
+      "text": "Activities",
+      "href": "https://my.silversea.com/activities2/#/566910-25"
+    },
+    {
+      "text": "Modify",
+      "href": "https://my.silversea.com/bookings/modify?code=298475-25"
+    },
+    {
+      "text": "Activities",
+      "href": "https://my.silversea.com/activities2/#/298475-25"
+    },
+    {
+      "text": "Modify",
+      "href": "https://my.silversea.com/bookings/modify?code=566910-25"
+    },
+    {
+      "text": "Activities",
+      "href": "https://my.silversea.com/activities2/#/566910-25"
+    },
+    {
+      "text": "Terms of use",
+      "href": "https://www.silversea.com/digital-terms-of-use-and-end-user-license-agreement.html"
+    },
+    {
+      "text": "Privacy",
+      "href": "http://www.silversea.com/privacy-policy/"
+    },
+    {
+      "text": "Contact",
+      "href": "https://www.silversea.com/other-resources/contact-us.html"
+    },
+    {
+      "text": "Terms of use",
+      "href": "https://www.silversea.com/digital-terms-of-use-and-end-user-license-agreement.html"
+    },
+    {
+      "text": "Privacy",
+      "href": "http://www.silversea.com/privacy-policy/"
+    },
+    {
+      "text": "Contact",
+      "href": "https://www.silversea.com/other-resources/contact-us.html"
+    },
+    {
+      "text": "Privacy Notice",
+      "href": "https://www.silversea.com/privacy-policy.html"
+    }
+  ],
+  "fullText": ";\n\n    \n    \n        var JQMPageId = 'mybookings';\n        var _ApplicationName = \"/\";\n        var _CurrentCulture = \"\";\n    \n\n    \n    \n    \n    \n\n    \n    \n\n    \n    \n    \n    \n    \n\n    \n    \n\n    \n\n    \n    \n    \n\n    \n\n\n    \n\n    \n\n    \n    \n    \n    \n    \n    \n    \n\n\n    \n\n    \n    \n\n\n    \n\n    \n    \n    \n\n    \n                var DataLayer = {\n                    \"CRMID\": \"32995587\"\n                };\n\n    \n\n    \n\n    function dom_loaded(pageName) {\n\t    document.dispatchEvent(\n\t\t    new CustomEvent(\n\t\t\t    \"page-view-tracking-data-available\",\n\t\t\t    {\n\t\t\t\t    bubbles: true,\n\t\t\t\t    cancelable: true,\n\t\t\t\t    detail: {\n\t\t\t\t\t    track_current_page: window.location.href.split(\"?\")[0]+pageName,\n\t\t\t\t\t    page_cat1: \"my_silversea\",\n\t\t\t\t\t    page_cat2: \"my_silversea\",\n\t\t\t\t\t    track_page_type: \"my_silversea\",\n                        user_language: 'en',\n                        user_country: 'US',\n                        custom_env:  'Prod',\n                        custom_usertype: 'Agency',\n\t\t\t\t\t    individual_id: undefined\n\t\t\t\t    }\n\t\t\t    }\n\t\t    )\n        );\n        }\n    \n\n        \n            (function (d, t) {\n                var searchParams = new URLSearchParams(window.location.search);\n                var gtmDebug = searchParams.get(\"gtm_debug\");\n                var scriptUrl = gtmDebug\n                    ? \"https://qa--silversea-com-analytics-core.netlify.app/index.js?version=1\"\n                    : \"https://silversea-com-analytics-core.netlify.app/index.js?version=1\";\n                if (scriptUrl && scriptUrl.length > 0) {\n                    t = d.createElement(\"script\");\n                    t.setAttribute(\"src\", scriptUrl);\n                    t.setAttribute(\"async\", true);\n                    t.onload = function () {\n                        if (document.readyState == \"loading\") {\n                            document.addEventListener(\"DOMContentLoaded\", dom_loaded);\n                        } else {\n                            dom_loaded();\n                        }\n                    }\n                    d.getElementsByTagName(\"head\")[0].appendChild(t);\n                }\n            })(document)\n        \n\n\n    \n        \n        $(document).bind(\"mobileinit\", function () {\n            //apply overrides here\n            $(document).on('pageshow', function (event) {\n                $(\"input\").focus(function (elem) {\n                    $($(elem.currentTarget).parents()[1]).siblings(\".itemLabel\").addClass(\"focus\");\n                    $($(elem.currentTarget).parents()[2]).siblings(\".itemLabel\").addClass(\"focus\");\n                });\n                $(\"input\").blur(function (elem) {\n                    //if (!elem.currentTarget.value && elem.currentTarget.getAttribute(\"id\") != \"password-input-login\" && elem.currentTarget.getAttribute(\"id\") != \"email-input-login\") {\n                    if (!elem.currentTarget.value) {\n                        $($(elem.currentTarget).parents()[1]).siblings(\".itemLabel\").removeClass(\"focus\");\n                        $($(elem.currentTarget).parents()[2]).siblings(\".itemLabel\").removeClass(\"focus\");\n                    }\n                });\n\n                $(\"select\").focus(function (elem) {\n                    $($(elem.currentTarget).parents()[2]).siblings(\".itemLabel\").addClass(\"focus\");\n                });\n                $(\"select\").blur(function (elem) {\n                    if (!$($(elem.currentTarget))[0].value) {\n                        $($(elem.currentTarget).parents()[2]).siblings(\".itemLabel\").removeClass(\"focus\");\n                    }\n                });\n                $(\"select\").each(function (index, elem) {\n                    if ($(elem)[0].value.length > 0) {\n                        $($(elem).parents()[2]).siblings(\".itemLabel\").addClass(\"focus\");\n                    }\n                })\n                $(\"input\").each(function (index, elem) {\n                    if ($(elem)[0].value.length > 0) {\n                        $($(elem).parents()[1]).siblings(\".itemLabel\").addClass(\"focus\");\n                    }\n                })\n\n                \n\n                if (typeof dom_loaded == \"function\")\n                    dom_loaded();\n\n                _activePage = $.mobile.activePage;\n\n                var $activeforms_selector = _activePage.find(\"form\").removeData(\"validator\").removeData(\"unobtrusiveValidation\");\n\n                $.validator.unobtrusive.parse($activeforms_selector);\n                applyMaxLength($activeforms_selector);\n\n                executeReadyScripts();\n            });\n        });\n        //$(document).ready(function () {\n        //    //var message = '<div class=\"itemField\"><div class=\"ui-checkbox\"><input class=\"customCheckbox\" data-val=\"true\" id=\"hideMessage\" name=\"hideMessage\" type=\"checkbox\" value=\"true\"></div><input name=\"hideMessage\" type=\"hidden\" value=\"false\"> Do not show this message again</div>'\n        //    var message = `<div style=\"text-align: left; margin: 0px auto;\">\n        //        <div class=\"categoryTitle\"> WELCOME TO YOUR NEW LOOK <span> My</span> SILVERSEA</div >\n        //            <div class=\"bodytext\" style=\"padding: 10px 35px 10px 10px; margin-bottom: 10px;\">\n        //                <ul class=\"section-list\">\n        //                    <li>Your My Silversea has received a new look. You will find all your usual features in the same place. We hope you enjoy your new experience</li>\n        //                    <li>Need assistance? <a href=\"https://www.silversea.com/other-resources/contact-us.html\">Contact us</a>\n        //                </ul>\n        //                <div class=\"itemSet\">\n        //                    <div class=\"itemField\">\n        //                        <div class=\"ui-checkbox\"><input class=\"customCheckbox valid\" data-val=\"true\" id=\"hideMessage\" name=\"hideMessage\" type=\"checkbox\" value=\"true\"></div>\n        //                            Do not show this message again\n        //                        </div>\n\n        //                    </div>\n        //               </div>\n        //        </div>`\n        //    var gotOpened = sessionStorage.getItem(\"tempModal\");\n        //    var isHided = localStorage.getItem(\"hideTempModal\")\n        //    if (!gotOpened &&!isHided) {\n        //        showTempMessageBox(message, function () { }, function () {\n        //            console.log($('#hideMessage'))\n        //            sessionStorage.setItem(\"tempModal\", \"true\");\n        //            if ($('#hideMessage').is(\":checked\")) {\n        //                localStorage.setItem(\"hideTempModal\", \"true\");\n        //            }\n        //        });\n        //    }\n\n        //});\n    \n\n\n    \n    \n    \n\n\n\n\n\n    function OverrideDateValidation(newlanguage)\n    {\n        Globalize.culture(newlanguage);\n\n        $.validator.methods.date = function (value, element) {\n            var result = this.optional(element) ||\n                ((Globalize.parseDate(value, \"dd MMM yyyy\")) != null);\n\n            return result;\n        }\n    }\n\n\n    function CheckCulture(newlanguage)\n    {\n        if (_CurrentCulture != newlanguage)\n        {\n            $.getScript(\"/Scripts/plugins/globalize/globalize.js\",\n                function ()\n                {\n                    $.getScript(\"/Scripts/plugins/globalize/cultures/\" + \"globalize.culture.\" + newlanguage + \".js\",\n                        function ()\n                        {\n                            _CurrentCulture = newlanguage;\n\n                            OverrideDateValidation(newlanguage);\n                        }\n                    );\n                }\n            );\n        }\n\n    }\n\n\n    function methodDateParse(dateVal, element, param) {\n        \n        var date = Globalize.parseDate(dateVal, \"dd MMM yyyy\");\n\n        var o = $.parseJSON(param);\n        var otherValue = null;\n\n        if (typeof o.minDate != \"undefined\") {\n            otherValue = o.minDate;\n        }\n        else if (typeof o.maxDate != \"undefined\") {\n            otherValue = o.maxDate;\n        }\n        else if (typeof o.compareName != \"undefined\") {\n            var id = $(element).attr(\"id\");\n            var selector = id == null ? \"#\" + o.compareName : \"#\" + id.replace(o.propertyName, o.compareName);\n            otherValue = $(selector).val();\n\n            if (date != null)\n            {\n                if (typeof o.compareToOffsetYears == \"number\" && o.compareToOffsetYears != 0)\n                    date.setFullYear(date.getFullYear() + o.compareToOffsetYears);\n\n                if (typeof o.compareToOffsetMonths == \"number\" && o.compareToOffsetMonths != 0)\n                    date.setMonth(date.getMonth() + o.compareToOffsetMonths);\n\n                if (typeof o.compareToOffsetDays == \"number\" && o.compareToOffsetDays != 0)\n                    date.setDate(date.getDate() + o.compareToOffsetDays);\n            }\n        }\n        \n        var otherDate = Globalize.parseDate(otherValue, \"dd MMM yyyy\");\n\n        if (typeof o.currentYear != \"undefined\") {\n            otherDate = new Date(date);\n            otherDate.setFullYear(o.currentYear);\n        }\n        \n        return { date: date, otherDate: otherDate };\n    }\n   \n    function yearCheck(value, element, param)\n    {\n        var d = methodDateParse(value, element, param);\n\n        if (d.date.toString() == d.otherDate.toString()) {\n            setTimeout(function () {\n\n                var $e = $(element);\n                \n                var msg = $('<span class=\"val-warning-msg\"></span>');\n                var text = $e.data('val-yearcheck');\n\n                msg.text(text);\n\n                $('[data-valmsg-for=\"' + $e.attr('name') + '\"]:hidden')\n                    .attr('class', 'field-validation-error')\n                    .empty()\n                    .append(msg);\n\n                if (!$e.data(\"notifydate\") || $e.data(\"notifydate\").toString() != d.date.toString())\n                {\n                    showMessageBox(text);\n\n                    $e.data(\"notifydate\", d.date);\n                }\n                \n            }, 100);\n        }\n\n        return true;\n    }\n\n    $(document).ready(function () {\n        CheckCulture(\"en-US\");\n\n        var comparisons = [{ name: \"datelessthan\", op: \"<\" }, { name: \"dateequalto\", op: \"==\" }, { name: \"dategreaterthan\", op: \">\" },\n            { name: \"datelessorequal\", op: \"<=\" }, { name: \"dategreaterorequal\", op:\">=\" }, { name: \"mindate\", op:\">=\" }, { name: \"maxdate\", op:\"<=\" }];\n\n        $.each(comparisons, function (i, comparison) {\n\n            $.validator.addMethod(comparison.name, new Function(\"value, element, param\", \"var d = methodDateParse(value, element, param); return (d.date == null || d.otherDate == null) || d.date \" + comparison.op + \" d.otherDate;\"));\n            \n            $.validator.unobtrusive.adapters.add(comparison.name, [\"value\"], function (options) {\n                options.rules[comparison.name] = options.params.value;\n                options.messages[comparison.name] = options.message;\n            });            \n        });\n\n        $.validator.addMethod(\"yearcheck\", yearCheck);\n\n        $.validator.unobtrusive.adapters.add(\"yearcheck\", [\"value\"], function (options) {\n            options.rules[\"yearcheck\"] = options.params.value;\n            options.messages[\"yearcheck\"] = options.message;\n        });\n        \n        $.validator.addMethod(\n            'notequalto',\n           function (value, element, params) {\n\n               if (this.optional(element)) {\n                   return true;\n               }\n\n               var id = $(element).attr(\"id\");\n               var selector = id == null ? \"#\" + params.other : \"#\" + id.replace(params.property, params.other);\n               var otherValue = $(element).closest(\"[data-address-name]\").find(selector).val();\n\n               return (otherValue != value);\n           });\n\n        $.validator.unobtrusive.adapters.add(\n            'notequalto', ['other', \"property\"], function (options) {\n                var params = {\n                    other: options.params.other,\n                    property: options.params.property\n                };\n                options.rules['notequalto'] = params;\n                options.messages['notequalto'] = options.message;\n            });\n    });    \n\n\n    \n    \n    \n        <style>\n            .bodyContainer {\n                display: none;\n            }\n\n            .noscriptContent {\n                font-size: 1.3em;\n                margin-top: 20%;\n                text-align: center;\n            }\n\n            body {\n                overflow: hidden;\n            }\n        </style>\n    \n\n\n\n    \n        \n                \n             \n    function logoff() {\n        ajaxGetWithOptions({ url: '/Account/LogOff' }, function (data) {\n            jQuery.mobile.navigate(\"/Account/LogOn\");\n        });\n    }\n\n\n    function toggleMenu() {\n        console.log($('.nav2'))\n        $('.nav2').slideToggle();\n        $('.item-links').slideToggle();\n    };\n\n    $(document).on('pageshow', function () {\n        if (window.innerWidth < 769) {\n            $('.nav2').hide();\n            $('.item-links').hide();\n        } else {\n            $('.nav2').show();\n            $('.item-links').show();\n        }\n    });\n    $(window).resize(function () {\n        if (window.innerWidth < 769) {\n            $('.nav2').hide();\n            $('.item-links').hide();\n        } else {\n            $('.nav2').show();\n            $('.item-links').show();\n        }\n    });\n\n\n\n\n\n\n    \n        \n            \n                \n                \n                    \n                        \n                            \n                        \n                    \n                    \n                        \n                    \n                    \n                            \n                                johnloucks3@gmail.comLog out \n                                Home\n                            \n\n                    \n                    \n\n                    \n                        \n\n            \n                    BOOKINGS\n            \n            \n                    BOOKINGS\n            \n    \n            My Bookings\n    \n    \n            Passport & Visa\n    \n    \n            Private Arrangements\n    \n    \n        function goToMenuItem(event) {\n            //$(\".h-menu-item\").hide();\n            //$(event.target).parent().show();\n            $(\".h-menu-subitem\").hide();\n            _LastMenu = \"\";\n            _LastSubmenu = \"\";\n            _LastSubmenuDescr = \"\";\n            _LastUrl = \"\";\n        };\n    \n    \n            \n                \n                PROFILE\n            \n    \n        function goToMenuItem(event) {\n            //$(\".h-menu-item\").hide();\n            //$(event.target).parent().show();\n            $(\".h-menu-subitem\").hide();\n            _LastMenu = \"\";\n            _LastSubmenu = \"\";\n            _LastSubmenuDescr = \"\";\n            _LastUrl = \"\";\n        };\n    \n    \n            \n                \n                Marketing Central\n            \n    \n        function goToMenuItem(event) {\n            //$(\".h-menu-item\").hide();\n            //$(event.target).parent().show();\n            $(\".h-menu-subitem\").hide();\n            _LastMenu = \"\";\n            _LastSubmenu = \"\";\n            _LastSubmenuDescr = \"\";\n            _LastUrl = \"\";\n        };\n    \n    \n            \n                \n                SERVICES\n            \n    \n        function goToMenuItem(event) {\n            //$(\".h-menu-item\").hide();\n            //$(event.target).parent().show();\n            $(\".h-menu-subitem\").hide();\n            _LastMenu = \"\";\n            _LastSubmenu = \"\";\n            _LastSubmenuDescr = \"\";\n            _LastUrl = \"\";\n        };\n    \n    \n            \n                \n                COMMUNICATIONS\n            \n    \n        function goToMenuItem(event) {\n            //$(\".h-menu-item\").hide();\n            //$(event.target).parent().show();\n            $(\".h-menu-subitem\").hide();\n            _LastMenu = \"\";\n            _LastSubmenu = \"\";\n            _LastSubmenuDescr = \"\";\n            _LastUrl = \"\";\n        };\n    \n    \n            \n                \n                Silversea Academy\n            \n    \n        function goToMenuItem(event) {\n            //$(\".h-menu-item\").hide();\n            //$(event.target).parent().show();\n            $(\".h-menu-subitem\").hide();\n            _LastMenu = \"\";\n            _LastSubmenu = \"\";\n            _LastSubmenuDescr = \"\";\n            _LastUrl = \"\";\n        };\n    \n    \n                        \n                    \n                \n            \n        \n    \n\n\n\n \n        \n\n        \n            <div class=\"noscriptContent\">\n                Javascript disabled\n            </div>\n        \n\n        \n            \n                \n                    \n                        page not found\n                    \n                \n            \n            \n            \n\n\n\n    \n\n        \n            \n                \n                        \n        \n             \n                PROFILE\n                Make and modify your agent and agency details\n            \n        \n    \n\n                        \n        \n             \n                BOOKINGS\n                Create new bookings, create onboard guest information, reserve onboard activities, reserve shore excursions and view all your bookings.\n            \n        \n    \n\n                \n                \n                        \n        \n             \n                SERVICES\n                Sales Team. Marketing materials, Brochure request, reporting\n            \n        \n    \n\n                        \n        \n             \n                Marketing Central\n                Discover how to boost your sales via customisable emails, campaigns, flyers and more\n            \n        \n    \n\n                    \n                \n                \n                        \n        \n             \n                COMMUNICATIONS\n                Official communications from Silversea to Agent and Guest\n            \n        \n    \n\n                        \n        \n             \n                Silversea Academy\n                With over 30 training modules averaging just 12 minutes each, go at your own pace, learning about Silversea's fleet, destinations, experiences & more.\n            \n        \n    \n\n                \n                \n            \n        \n        \n                \n            \n    \n        \n\n\n            Edit Login\n\n    \n            \n        \n        \n            \n    \n        \n\n\n            My Bookings\n\n    \n    \n        \n\n\n            Passport & Visa\n\n    \n    \n        \n\n\n            Private Arrangements\n\n    \n            \n        \n        \n            \n    \n        \n\n\n            Sales Team\n\n    \n            \n        \n        \n            \n            \n        \n        \n            \n    \n        \n\n\n            Silversea Group Program\n\n    \n    \n        \n\n\n            Travel partner reduced rates\n\n    \n    \n        \n\n\n            Arch RSA Communication\n\n    \n            \n        \n        \n            \n    \n        \n\n\n            Silversea Academy\n\n    \n            \n        \n        \n            \n    \n        \n\n\n            Marketing Central\n\n    \n            \n        \n\n\n\n\n\n\n    \n\n\n    $(document).ready(function () {\n        $(\".menuList li\").on(\"mouseover\", function () { $(this).find(\".ui-icon\").addClass(\"ui-icon-silver\") });\n        $(\".menuList li\").on(\"mouseout\", function () { $(this).find(\".ui-icon\").removeClass(\"ui-icon-silver\") })\n        $('.smallIconMenu a img').on(\"mouseenter\", function () { $(this).css(\"border\", \"2px solid #ffde99\"); });\n        $('.smallIconMenu a img').on(\"mouseout\", function () { $(this).css(\"border\", \"2px solid transparent\"); });\n        var winWidth = $(window).width();\n        if (winWidth < 800) {\n            $(\"#menupanelblue\").attr(\"data-role\", \"panel\").attr(\"data-display\", \"push\").attr(\"data-position\", \"left\").attr(\"data-theme\", \"y\");\n        }\n\n        //getSelectedLeftBarMenu();\n    });\n\n\n\n\n\n\n\n\n\n    \n        \n                \n\n\n\n\n        My Bookings\n\n\n\n    \n        \n        My Bookings\n    \n\n\n\n\n        \u00a0\n\n\n\n\n\n\n\n\n\n\n\n            \n                 \n            \n \n            \n                \n\n                \n\n                            \n                                Create Booking\n                            \n                \n\n\n                \n                    \n\n         \n                \n                    Status\n                    Booking\n                    Guest Name\n                    Voyage\n                    Embark / Debark\n                    Departure\n                    Days\n                    Ship\n                \n             \n\n\n\n\n\n\n        \n            \n\n\n                Booked\n\n\n        \n        \n            298475-25\n                    \n        \n        Mr Erik Mc Leod | Ms Melissa Mc Glasson\n        SM260623010\n        Civitavecchia (Rome) - Fusina (Venice)\n        \n\n\n23 Jun 2026\n\n\n    \n        10\n        Silver Muse\n    \n\n\n    \n\n    \n        Details\n    \n\n    \n\n    \n        Documents\n    \n\n        Modify\n\n        Activities\n\n\n\n    $(\"#details-298475_25\").focus(function (elem) {\n        $(\"#gif-298475_25\").removeClass(\"ui-focus\")\n        $(\"#docs-298475_25\").removeClass(\"ui-focus\")\n        setTimeout(function () {\n            $(\"#details-298475_25\").addClass(\"ui-focus\")\n        }, 10)\n    });\n    $(\"#details-298475_25\").mouseleave(function (elem) {\n        if ($(\"#infoLayer_detail_298475_25\").css('display').toLowerCase() != 'none') {\n            $(this).addClass(\"ui-focus\")\n        } else {\n            $(this).removeClass(\"ui-focus\")\n        }\n    });\n    $(\"#details-298475_25\").blur(function (elem) {\n        if ($(\"#infoLayer_detail_298475_25\").css('display').toLowerCase() != 'none') {\n            $(this).addClass(\"ui-focus\")\n        } else {\n            $(this).removeClass(\"ui-focus\")\n        }\n    });\n\n    $(\"#gif-298475_25\").focus(function (elem) {\n        $(\"#details-298475_25\").removeClass(\"ui-focus\")\n        $(\"#docs-298475_25\").removeClass(\"ui-focus\")\n        setTimeout(function () {\n            $(\"#gif-298475_25\").addClass(\"ui-focus\")\n        }, 10)\n    });\n    $(\"#gif-298475_25\").mouseleave(function (elem) {\n        if ($(\"#infoLayer_gif_298475_25\").css('display').toLowerCase() != 'none') {\n            $(this).addClass(\"ui-focus\")\n        } else {\n            $(this).removeClass(\"ui-focus\")\n        }\n    });\n        $(\"#gif-298475_25\").blur(function (elem) {\n        if ($(\"#infoLayer_gif_298475_25\").css('display').toLowerCase() != 'none') {\n            $(this).addClass(\"ui-focus\")\n        } else {\n            $(this).removeClass(\"ui-focus\")\n        }\n    });\n\n    $(\"#docs-298475_25\").focus(function (elem) {\n        $(\"#details-298475_25\").removeClass(\"ui-focus\")\n        $(\"#gif-298475_25\").removeClass(\"ui-focus\")\n        setTimeout(function () {\n            $(\"#docs-298475_25\").addClass(\"ui-focus\")\n        }, 10)\n    });\n    $(\"#docs-298475_25\").mouseleave(function (elem) {\n        if ($(\"#infoLayer_docs_298475_25\").css('display').toLowerCase() != 'none') {\n            $(this).addClass(\"ui-focus\")\n        } else {\n            $(this).removeClass(\"ui-focus\")\n        }\n    });\n    $(\"#docs-298475_25\").blur(function (elem) {\n        if ($(\"#infoLayer_docs_298475_25\").css('display').toLowerCase() != 'none') {\n            $(this).addClass(\"ui-focus\")\n        } else {\n            $(this).removeClass(\"ui-focus\")\n        }\n    });\n\n\n\n\n\n    \n    \n\n    \n    \n\n    \n    \n\n    \n\n             \n         \n         \n             \n\n\n\n\n\n\n        \n            \n\n\n                Booked\n\n\n        \n        \n            566910-25\n                    \n        \n        Col John Loucks | Mrs Susan Loucks\n        SN260423019\n        Yokohama (Tokyo) - Seattle (Washington)\n        \n\n\n23 Apr 2026\n\n\n    \n        19\n        Silver Nova\n    \n\n\n    \n\n    \n        Details\n    \n\n    \n        \n            \n                \n\n                    Guest Info\n                \n            \n        \n\n    \n        Documents\n    \n\n        Modify\n\n        Activities\n\n\n\n    $(\"#details-566910_25\").focus(function (elem) {\n        $(\"#gif-566910_25\").removeClass(\"ui-focus\")\n        $(\"#docs-566910_25\").removeClass(\"ui-focus\")\n        setTimeout(function () {\n            $(\"#details-566910_25\").addClass(\"ui-focus\")\n        }, 10)\n    });\n    $(\"#details-566910_25\").mouseleave(function (elem) {\n        if ($(\"#infoLayer_detail_566910_25\").css('display').toLowerCase() != 'none') {\n            $(this).addClass(\"ui-focus\")\n        } else {\n            $(this).removeClass(\"ui-focus\")\n        }\n    });\n    $(\"#details-566910_25\").blur(function (elem) {\n        if ($(\"#infoLayer_detail_566910_25\").css('display').toLowerCase() != 'none') {\n            $(this).addClass(\"ui-focus\")\n        } else {\n            $(this).removeClass(\"ui-focus\")\n        }\n    });\n\n    $(\"#gif-566910_25\").focus(function (elem) {\n        $(\"#details-566910_25\").removeClass(\"ui-focus\")\n        $(\"#docs-566910_25\").removeClass(\"ui-focus\")\n        setTimeout(function () {\n            $(\"#gif-566910_25\").addClass(\"ui-focus\")\n        }, 10)\n    });\n    $(\"#gif-566910_25\").mouseleave(function (elem) {\n        if ($(\"#infoLayer_gif_566910_25\").css('display').toLowerCase() != 'none') {\n            $(this).addClass(\"ui-focus\")\n        } else {\n            $(this).removeClass(\"ui-focus\")\n        }\n    });\n        $(\"#gif-566910_25\").blur(function (elem) {\n        if ($(\"#infoLayer_gif_566910_25\").css('display').toLowerCase() != 'none') {\n            $(this).addClass(\"ui-focus\")\n        } else {\n            $(this).removeClass(\"ui-focus\")\n        }\n    });\n\n    $(\"#docs-566910_25\").focus(function (elem) {\n        $(\"#details-566910_25\").removeClass(\"ui-focus\")\n        $(\"#gif-566910_25\").removeClass(\"ui-focus\")\n        setTimeout(function () {\n            $(\"#docs-566910_25\").addClass(\"ui-focus\")\n        }, 10)\n    });\n    $(\"#docs-566910_25\").mouseleave(function (elem) {\n        if ($(\"#infoLayer_docs_566910_25\").css('display').toLowerCase() != 'none') {\n            $(this).addClass(\"ui-focus\")\n        } else {\n            $(this).removeClass(\"ui-focus\")\n        }\n    });\n    $(\"#docs-566910_25\").blur(function (elem) {\n        if ($(\"#infoLayer_docs_566910_25\").css('display').toLowerCase() != 'none') {\n            $(this).addClass(\"ui-focus\")\n        } else {\n            $(this).removeClass(\"ui-focus\")\n        }\n    });\n\n\n\n\n\n    \n    \n\n    \n    \n\n    \n    \n\n    \n\n             \n         \n\n                 \n\n\n\n\n         \n\n\n\n    \n        Status\n            \n    \n    \n            Booking\n            298475-25\n    \n    \n            Guest Name\n            Mr Erik Mc Leod | Ms Melissa Mc Glasson\n    \n    \n            Voyage\n            SM260623010\n    \n    \n            Embark / Debark\n            Civitavecchia (Rome) - Fusina (Venice)\n    \n    \n            Departure\n            23 Jun 2026\n    \n    \n            Days\n            10\n    \n    \n            Ship\n            Silver Muse\n    \n\n\n\n\n    \n    \n        Details\n    \n\n\n\n\n\n    \n        Documents\n    \n\n\n        Modify\n\n        Activities\n\n\n\n\n\n    \n    \n\n           \n    \n\n       \n    \n\n    \n\n         \n         \n\n\n\n    \n        Status\n            \n    \n    \n            Booking\n            566910-25\n    \n    \n            Guest Name\n            Col John Loucks | Mrs Susan Loucks\n    \n    \n            Voyage\n            SN260423019\n    \n    \n            Embark / Debark\n            Yokohama (Tokyo) - Seattle (Washington)\n    \n    \n            Departure\n            23 Apr 2026\n    \n    \n            Days\n            19\n    \n    \n            Ship\n            Silver Nova\n    \n\n\n\n\n    \n    \n        Details\n    \n\n\n\n            \n                \n                    \n                        Guest Info\n                    \n                \n            \n\n\n    \n        Documents\n    \n\n\n        Modify\n\n        Activities\n\n\n\n\n\n    \n    \n\n           \n    \n\n       \n    \n\n    \n\n         \n\n\n\n\n                \n            \n            \n        \n    \n\n\n\n    $('#formBookings input, #formBookings select').keypress(function (e) {\n    if (e.which == 13) {\n    submitSearch(true);\n    }\n    });\n\n    attachValidation(\"#formBookings\", true);\n\n    \n\n\n\n\n\n\n\n\n    /*$(\"#booking-code\").mouseover(function () {\n        $(this).addClass(\"expandLabel\")\n    })\n\n    $(\"#booking-code\").mouseleave(function() {\n        $(this).removeClass(\"expandLabel\")\n    })\n\n    $(\"#group-code\").mouseover(function () {\n        $(this).addClass(\"expandLabel\")\n    })\n    $(\"#group-code\").mouseleave(function () {\n        $(this).removeClass(\"expandLabel\")\n    })*/\n\n        $(document).ready(function () {\n            fixDropDown()\n            $(\"input\").addClass(\"ui-input-text\")\n        })\n\n    var last_tab_id = \"\";\n\n    \n\n\n\n    // handle submit\n    function submitSearch(resetPage) {\n\n        if (resetPage == true)\n            $(\"#hiddenPageNum\").val(1);\n\n        ajaxFormSubmit(\"formBookings\", function (data) {\n            $(\"#bookingList\").empty().html(data);\n            $(\"#bookingList\").executeReady();\n        });\n    }\n\n    function changeBookingsNavPage(n) {\n        $(\"#hiddenPageNum\").val(n);\n        submitSearch();\n    }\n\n\n\n    function resetFilterBox() {\n        $(\".bookingFilterItem input\").val(\"\");\n        $(\".bookingFilterItem select\").val(\"\"); // prop('selectedIndex', 0);\n        $(\".bookingFilterItem select\").selectmenu('refresh');\n    }\n\n\n    \n    function showItemDetail(elem, type) {\n        var type;\n\n        $(\".detailsContainer>div\").css(\"display\", \"none\");\n\n        $(elem).parent().parent().find(\".detailsContainer\").find('.' + type).animate({ height: 'toggle', opacity: '1' });\n    }\n\n    function triggerStats(url) {\n        dom_loaded(url)\n    }\n\n\n    \n    function requestTab(targetid, tabtype, ajaxurl, that) {\n        dom_loaded(ajaxurl)\n        var tab_id = \"#infoLayer_\" + tabtype + \"_\" + targetid;\n\n        $(\".detailsContainer>div\").css(\"display\", \"none\");\n\n        if (tab_id == last_tab_id)      // if last id opened was this one, just return after close\n        {\n            last_tab_id = \"\";\n            return;\n        }\n\n        aj",
+  "downloaded_images": [
+    {
+      "file": "/home/john/Thunderbird/validations/rssc_scrape/images/silversea_bookings_000.jpg",
+      "src": "https://my.silversea.com/Content/images/logosvg.svg",
+      "alt": "Silversea logo",
+      "kb": 16
+    },
+    {
+      "file": "/home/john/Thunderbird/validations/rssc_scrape/images/silversea_bookings_001.png",
+      "src": "https://my.silversea.com/Content/images/blue/divisorio.png",
+      "alt": "",
+      "kb": 2
+    },
+    {
+      "file": "/home/john/Thunderbird/validations/rssc_scrape/images/silversea_bookings_003.png",
+      "src": "https://my.silversea.com/Content/images/blue/simbolo_link.png",
+      "alt": "",
+      "kb": 5
+    },
+    {
+      "file": "/home/john/Thunderbird/validations/rssc_scrape/images/silversea_bookings_004.png",
+      "src": "https://cdn.cookielaw.org/logos/static/ot_company_logo.png",
+      "alt": "Company Logo",
+      "kb": 8
+    },
+    {
+      "file": "/home/john/Thunderbird/validations/rssc_scrape/images/silversea_bookings_005.jpg",
+      "src": "https://cdn.cookielaw.org/logos/static/powered_by_logo.svg",
+      "alt": "Powered by Onetrust",
+      "kb": 5
+    }
+  ],
+  "screenshot": "/home/john/Thunderbird/validations/rssc_scrape/silversea_bookings_113628.png"
+}
