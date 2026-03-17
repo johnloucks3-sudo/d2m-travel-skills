@@ -564,6 +564,7 @@ if __name__ == "__main__":
     log("    - gmail_list_drafts")
     log("    - gmail_create_draft")
     log("    - gmail_send_draft")
+    log("    - gmail_send_email")
     log("    - gmail_update_draft")
     log("    - gmail_delete_draft")
     log("    - gmail_get_profile")

@@ -66,6 +66,10 @@ PERSONA_DISPLAY_NAMES = {
     "COMMANDER": "John Loucks, Dreams2Memories Travel",
 }
 
+# Commander's email ink color — bright blue, his pen of choice.
+# Restored to #0000ff per Commander directive 2026-03-16.
+D2M_INK_COLOR = "#0000ff"
+
 logger = logging.getLogger(__name__)
 
 # Cached service instance
@@ -154,21 +158,120 @@ def _retry_on_error(func):
     return wrapper
 
 
+def _strip_html(html: str) -> str:
+    """Convert HTML to readable plain text using stdlib."""
+    import html as html_mod
+    import re
+    # Replace common block elements with newlines
+    text = re.sub(r'<br\s*/?>', '\n', html, flags=re.IGNORECASE)
+    text = re.sub(r'</(?:p|div|tr|li|h[1-6])>', '\n', text, flags=re.IGNORECASE)
+    text = re.sub(r'<[^>]+>', '', text)  # strip remaining tags
+    text = html_mod.unescape(text)
+    # Collapse excessive blank lines
+    text = re.sub(r'\n{3,}', '\n\n', text)
+    return text.strip()
+
+
 def _decode_body(payload):
-    """Extract plain text body from a Gmail message payload."""
-    if payload.get("mimeType") == "text/plain" and payload.get("body", {}).get("data"):
+    """Extract body from a Gmail message payload.
+
+    Prefers text/plain. Falls back to text/html (stripped to plain text)
+    so HTML-only emails (confirmations, cruise lines, etc.) aren't lost.
+    """
+    plain = _find_mime_part(payload, "text/plain")
+    if plain:
+        return plain
+    html = _find_mime_part(payload, "text/html")
+    if html:
+        logger.debug("No text/plain part found — falling back to HTML→text conversion")
+        return _strip_html(html)
+    logger.debug("No text/plain or text/html body found in message payload")
+    return ""
+
+
+def _find_mime_part(payload, mime_type: str) -> str | None:
+    """Recursively search a Gmail payload for a specific MIME type and decode it."""
+    if payload.get("mimeType") == mime_type and payload.get("body", {}).get("data"):
         return base64.urlsafe_b64decode(payload["body"]["data"]).decode("utf-8", errors="replace")
 
-    # Walk multipart parts
     for part in payload.get("parts", []):
-        if part.get("mimeType") == "text/plain" and part.get("body", {}).get("data"):
+        if part.get("mimeType") == mime_type and part.get("body", {}).get("data"):
             return base64.urlsafe_b64decode(part["body"]["data"]).decode("utf-8", errors="replace")
         # Nested multipart
         if part.get("parts"):
-            result = _decode_body(part)
+            result = _find_mime_part(part, mime_type)
             if result:
                 return result
-    return ""
+    return None
+
+
+def _get_logo_data_uri() -> str:
+    """Load the D2M email logo as a base64 data URI. Cached after first call."""
+    if not hasattr(_get_logo_data_uri, '_cached'):
+        logo_path = Path(__file__).parent / "Agency_Logo_email.png"
+        if logo_path.exists():
+            import base64 as b64
+            with open(logo_path, 'rb') as f:
+                _get_logo_data_uri._cached = f"data:image/png;base64,{b64.b64encode(f.read()).decode()}"
+        else:
+            _get_logo_data_uri._cached = ""
+            logger.warning("Agency_Logo_email.png not found — email banner will be omitted")
+    return _get_logo_data_uri._cached
+
+
+def _wrap_body_html(plain_text: str) -> str:
+    """Wrap plain text body in styled HTML — D2M luxury stationery for Gmail.
+
+    Design intent: navy banner with D2M logo, then a sheet of Crane's Ecru
+    cotton card stock with bright blue ink.  Inline-only for Gmail compatibility.
+
+    Layout:
+      - Full-width navy banner (#0d1b2e) with centered D2M logo (180px)
+      - Warm linen surround (#eee8db) — the desk beneath the stationery
+      - Cream paper card (#f7f3ea) — warm ivory cotton stock
+      - Gold top-rule accent, subtle box-shadow for depth
+      - Bright blue ink (#0000ff), Georgia serif, 1.6 line-height, 640px max-width
+    """
+    import html as html_mod
+    escaped = html_mod.escape(plain_text)
+    html_body = escaped.replace('\n', '<br>\n')
+
+    # Logo banner — omitted gracefully if logo file is missing
+    logo_uri = _get_logo_data_uri()
+    if logo_uri:
+        banner = (
+            f'<div style="background-color: #0d1b2e; padding: 28px 0; text-align: center; margin: 0;">'
+            f'<img src="{logo_uri}" alt="Dreams2Memories Travel" '
+            f'style="height: 180px; width: auto; display: inline-block;" />'
+            f'</div>'
+        )
+    else:
+        banner = ''
+
+    return (
+        f'<div style="background-color: #eee8db; padding: 0; margin: 0;">'
+        f'{banner}'
+        f'<div style="padding: 24px 16px 32px 16px; margin: 0;">'
+        f'<div style="'
+        f'max-width: 640px; '
+        f'margin: 0 auto; '
+        f'padding: 36px 40px; '
+        f'background-color: #f7f3ea; '
+        f'border-top: 2.5px solid rgba(201, 168, 76, 0.50); '
+        f'box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08), 0 0 1px rgba(0, 0, 0, 0.05); '
+        f'">'
+        f'<div style="'
+        f'color: {D2M_INK_COLOR}; '
+        f'font-family: Georgia, \'Times New Roman\', serif; '
+        f'font-size: 10.5pt; '
+        f'line-height: 1.6; '
+        f'">'
+        f'{html_body}'
+        f'</div>'
+        f'</div>'
+        f'</div>'
+        f'</div>'
+    )
 
 
 def _extract_headers(headers, keys=None):
@@ -406,7 +509,38 @@ def register_gmail_tools(mcp):
         try:
             service = _get_gmail_service()
 
-            message = MIMEMultipart()
+            # Build body part: plain text + HTML with Commander's blue ink
+            body_part = MIMEMultipart("alternative")
+            body_part.attach(MIMEText(body, "plain"))
+            body_part.attach(MIMEText(_wrap_body_html(body), "html"))
+
+            # If attachments, wrap in mixed; otherwise alternative is the root
+            attached_files = []
+            if attachment_paths:
+                message = MIMEMultipart("mixed")
+                message.attach(body_part)
+                for file_path_str in attachment_paths:
+                    file_path = Path(file_path_str)
+                    if not file_path.exists():
+                        return json.dumps({"error": f"Attachment not found: {file_path}", "type": "file_error"})
+                    if not file_path.is_file():
+                        return json.dumps({"error": f"Not a file: {file_path}", "type": "file_error"})
+
+                    content_type, _ = mimetypes.guess_type(str(file_path))
+                    if content_type is None:
+                        content_type = "application/octet-stream"
+                    main_type, sub_type = content_type.split("/", 1)
+
+                    with open(file_path, "rb") as f:
+                        att = MIMEBase(main_type, sub_type)
+                        att.set_payload(f.read())
+                    encoders.encode_base64(att)
+                    att.add_header("Content-Disposition", "attachment", filename=file_path.name)
+                    message.attach(att)
+                    attached_files.append(file_path.name)
+            else:
+                message = body_part
+
             message["to"] = to
 
             # Set From based on persona
@@ -424,31 +558,6 @@ def register_gmail_tools(mcp):
                 message["cc"] = cc
             if bcc:
                 message["bcc"] = bcc
-
-            message.attach(MIMEText(body, "plain"))
-
-            # Attach files if provided
-            attached_files = []
-            if attachment_paths:
-                for file_path_str in attachment_paths:
-                    file_path = Path(file_path_str)
-                    if not file_path.exists():
-                        return json.dumps({"error": f"Attachment not found: {file_path}", "type": "file_error"})
-                    if not file_path.is_file():
-                        return json.dumps({"error": f"Not a file: {file_path}", "type": "file_error"})
-
-                    content_type, _ = mimetypes.guess_type(str(file_path))
-                    if content_type is None:
-                        content_type = "application/octet-stream"
-                    main_type, sub_type = content_type.split("/", 1)
-
-                    with open(file_path, "rb") as f:
-                        part = MIMEBase(main_type, sub_type)
-                        part.set_payload(f.read())
-                    encoders.encode_base64(part)
-                    part.add_header("Content-Disposition", "attachment", filename=file_path.name)
-                    message.attach(part)
-                    attached_files.append(file_path.name)
 
             raw = base64.urlsafe_b64encode(message.as_bytes()).decode("utf-8")
             draft_body = {"message": {"raw": raw}}
@@ -563,6 +672,126 @@ def register_gmail_tools(mcp):
             return json.dumps({"error": str(e), "status_code": e.resp.status, "type": "gmail_error"})
         except Exception as e:
             logger.error(f"Gmail send draft error: {e}")
+            return json.dumps({"error": str(e), "type": "gmail_error"})
+
+    # ------------------------------------------------------------------
+    # DIRECT SEND — compose and send in one step (bypasses draft stage)
+    # ------------------------------------------------------------------
+
+    @mcp.tool(
+        name="gmail_send_email",
+        annotations={"title": "Send Email via Gmail", "readOnlyHint": False},
+    )
+    @_retry_on_error
+    async def gmail_send_email(
+        to: str = Field(..., description="Recipient email address"),
+        subject: str = Field(..., description="Email subject line"),
+        body: str = Field(..., description="Email body (plain text)"),
+        cc: Optional[str] = Field(None, description="CC recipients (comma-separated)"),
+        bcc: Optional[str] = Field(None, description="BCC recipients (comma-separated)"),
+        from_persona: Optional[str] = Field(
+            None,
+            description="Persona ID (e.g. 'A3', 'CONCIERGE', 'COMMANDER') — sets From display name. "
+                        "Defaults to concierge@d2mluxury.quest; COMMANDER uses john@d2mluxury.quest",
+        ),
+        html_body: Optional[str] = Field(
+            None,
+            description="Optional HTML email body. If provided, sends as HTML with plain text fallback.",
+        ),
+        reply_to_message_id: Optional[str] = Field(
+            None,
+            description="Message ID to reply to (threads the conversation)",
+        ),
+    ) -> str:
+        """Send an email directly via Gmail API — no draft stage.
+
+        Dani's primary send channel. Composes and sends in one call.
+        Uses D2M persona display names and concierge@d2mluxury.quest as From address.
+        Reply-To is always set to johnloucks3@gmail.com so client replies reach the Commander.
+
+        IMPORTANT: This sends immediately. Use gmail_create_draft if Commander review is needed first.
+        """
+        try:
+            service = _get_gmail_service()
+
+            # Build MIME message — always include HTML for blue ink color
+            message = MIMEMultipart("alternative")
+            message.attach(MIMEText(body, "plain"))
+            message.attach(MIMEText(html_body if html_body else _wrap_body_html(body), "html"))
+
+            message["to"] = to
+            message["subject"] = subject
+
+            # Set From based on persona
+            if from_persona and from_persona.upper() in PERSONA_DISPLAY_NAMES:
+                pid = from_persona.upper()
+                display_name = PERSONA_DISPLAY_NAMES[pid]
+                from_addr = COMMANDER_D2M_EMAIL if pid == "COMMANDER" else D2M_FROM_ADDRESS
+                message["from"] = f'"{display_name}" <{from_addr}>'
+            else:
+                # Default: Dani as concierge
+                message["from"] = f'"{PERSONA_DISPLAY_NAMES["CONCIERGE"]}" <{D2M_FROM_ADDRESS}>'
+
+            message["reply-to"] = COMMANDER_EMAIL
+
+            if cc:
+                message["cc"] = cc
+            if bcc:
+                message["bcc"] = bcc
+
+            # Thread support — reply to existing conversation
+            send_body = {}
+            if reply_to_message_id:
+                try:
+                    orig = (
+                        service.users()
+                        .messages()
+                        .get(userId="me", id=reply_to_message_id, format="metadata",
+                             metadataHeaders=["Message-ID", "Subject"])
+                        .execute()
+                    )
+                    orig_headers = {h["name"]: h["value"] for h in orig.get("payload", {}).get("headers", [])}
+                    if orig_headers.get("Message-ID"):
+                        message["In-Reply-To"] = orig_headers["Message-ID"]
+                        message["References"] = orig_headers["Message-ID"]
+                    send_body["threadId"] = orig.get("threadId", "")
+                except Exception as thread_err:
+                    logger.warning(f"Could not thread reply: {thread_err}")
+
+            raw = base64.urlsafe_b64encode(message.as_bytes()).decode("utf-8")
+            send_body["raw"] = raw
+
+            sent = (
+                service.users()
+                .messages()
+                .send(userId="me", body=send_body)
+                .execute()
+            )
+
+            msg_id = sent.get("id", "unknown")
+            pid_used = (from_persona or "CONCIERGE").upper()
+            _log_email_action(
+                to=to, subject=subject,
+                persona_id=pid_used, auto_send=True, ref_id=msg_id,
+            )
+
+            return json.dumps({
+                "status": "success",
+                "action": "sent",
+                "message_id": msg_id,
+                "thread_id": sent.get("threadId", ""),
+                "from_persona": pid_used,
+                "from_display": PERSONA_DISPLAY_NAMES.get(pid_used, "D2M Concierge"),
+                "to": to,
+                "subject": subject,
+                "labels": sent.get("labelIds", []),
+            }, indent=2)
+
+        except HttpError as e:
+            logger.error(f"Gmail send email error: {e}")
+            return json.dumps({"error": str(e), "status_code": e.resp.status, "type": "gmail_error"})
+        except Exception as e:
+            logger.error(f"Gmail send email error: {e}")
             return json.dumps({"error": str(e), "type": "gmail_error"})
 
     @mcp.tool(
@@ -749,7 +978,7 @@ async def _send_or_draft_as_persona(
         display_name = PERSONA_DISPLAY_NAMES.get(pid, PERSONA_DISPLAY_NAMES["CONCIERGE"])
         from_address = COMMANDER_D2M_EMAIL if pid == "COMMANDER" else D2M_FROM_ADDRESS
 
-        message = MIMEMultipart()
+        message = MIMEMultipart("alternative")
         message["to"] = to
         message["from"] = f'"{display_name}" <{from_address}>'
         message["reply-to"] = COMMANDER_EMAIL
@@ -757,7 +986,9 @@ async def _send_or_draft_as_persona(
         if cc:
             message["cc"] = cc
 
+        # Plain text fallback + HTML with Commander's blue ink color
         message.attach(MIMEText(body, "plain"))
+        message.attach(MIMEText(_wrap_body_html(body), "html"))
 
         raw = base64.urlsafe_b64encode(message.as_bytes()).decode("utf-8")
 
@@ -979,9 +1210,9 @@ def gmail_send_draft_sync(draft_id: str) -> dict:
 
 
 def gmail_get_draft_sync(draft_id: str) -> dict:
-    """Synchronous wrapper: fetch a draft's metadata and body preview.
+    """Synchronous wrapper: fetch a draft's metadata and full body.
 
-    Returns dict with to, subject, body_preview, from fields.
+    Returns dict with to, subject, body_preview (500 chars), body_full, from fields.
     """
     service = _get_gmail_service()
     draft = service.users().drafts().get(userId="me", id=draft_id, format="full").execute()

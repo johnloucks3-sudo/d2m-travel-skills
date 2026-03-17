@@ -474,13 +474,13 @@ async def handle_draft_callback(update: Update, context: ContextTypes.DEFAULT_TY
         try:
             from thunderbird_gmail import gmail_get_draft_sync
             draft = await loop.run_in_executor(None, lambda: gmail_get_draft_sync(draft_id))
-            text = (
+            body_text = draft.get('body_full') or draft.get('body_preview', '(empty)')
+            header = (
                 f"📧 *Full Draft Preview*\n"
                 f"{'━' * 28}\n"
                 f"*From:* {draft.get('from', '?')}\n"
                 f"*To:* {draft.get('to', '?')}\n"
                 f"*Subject:* {draft.get('subject', '?')}\n\n"
-                f"{draft.get('body_preview', '(empty)')}"
             )
 
             keyboard = [
@@ -490,17 +490,39 @@ async def handle_draft_callback(update: Update, context: ContextTypes.DEFAULT_TY
                 ],
             ]
 
-            try:
-                await query.message.reply_text(
-                    text,
-                    parse_mode=ParseMode.MARKDOWN,
-                    reply_markup=InlineKeyboardMarkup(keyboard),
-                )
-            except Exception:
-                await query.message.reply_text(
-                    text.replace("*", "").replace("_", ""),
-                    reply_markup=InlineKeyboardMarkup(keyboard),
-                )
+            # Split long drafts across multiple messages, attach buttons to the last one
+            full_text = header + body_text
+            if len(full_text) <= MAX_MESSAGE_LENGTH:
+                chunks = [full_text]
+            else:
+                # Send body in chunks; header goes with first chunk
+                chunks = []
+                remaining = full_text
+                while remaining:
+                    if len(remaining) <= MAX_MESSAGE_LENGTH:
+                        chunks.append(remaining)
+                        break
+                    # Split at last newline within limit
+                    split_at = remaining.rfind('\n', 0, MAX_MESSAGE_LENGTH)
+                    if split_at <= 0:
+                        split_at = MAX_MESSAGE_LENGTH
+                    chunks.append(remaining[:split_at])
+                    remaining = remaining[split_at:].lstrip('\n')
+
+            for i, chunk in enumerate(chunks):
+                is_last = (i == len(chunks) - 1)
+                markup = InlineKeyboardMarkup(keyboard) if is_last else None
+                try:
+                    await query.message.reply_text(
+                        chunk,
+                        parse_mode=ParseMode.MARKDOWN,
+                        reply_markup=markup,
+                    )
+                except Exception:
+                    await query.message.reply_text(
+                        chunk.replace("*", "").replace("_", ""),
+                        reply_markup=markup,
+                    )
         except Exception as e:
             await query.message.reply_text(f"Failed to preview draft: {e}")
 

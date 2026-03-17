@@ -1,877 +1,5 @@
 [
   {
-    "timestamp": "2026-03-14T05:55:50.701505",
-    "message_id": "19cec25e199c2df8",
-    "from": "\"Forbes | Weekly\" <forbes@email.forbes.com>",
-    "subject": "This Week's Biggest Stories",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response is entirely inappropriate for a client.\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T06:10:16.959556",
-    "message_id": "19cec3f2afaa9b0e",
-    "from": "MAGA Posts <magaposts@substack.com>",
-    "subject": "SAVE America Act: Only Real Americans Vote! Thune, Get It to Trump's Desk!",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response is entirely inappropriate for a\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T06:10:45.520138",
-    "message_id": "19cec3abc230d667",
-    "from": "Ancestry <ancestry@email.ancestry.com>",
-    "subject": "John, you have a hint about your father",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response is entirely inappropriate for a\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T06:40:18.656024",
-    "message_id": "19cec5688355ccea",
-    "from": "Hoover Weekend Review <hoovercommunications@stanford.edu>",
-    "subject": "Hoover Weekend Review | Saturday, March 14, 2026",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response is entirely inappropriate for a client.\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T07:10:16.996572",
-    "message_id": "19cec777500187ae",
-    "from": "USPS Informed Delivery <USPSInformeddelivery@email.informeddelivery.usps.com>",
-    "subject": "Your Daily Digest for Sat, 3/14 is ready to view",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response is entirely inappropriate for a\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T07:10:45.731037",
-    "message_id": "19cec76f768769d0",
-    "from": "Bo Snerdley <news@bosnerdley.com>",
-    "subject": "Morning BS Alert: Virginia parents allege adult male illegal immigrant student who entered US under Biden admin groped daughters",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response is entirely inappropriate.\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T07:11:11.595826",
-    "message_id": "19cec71de4260457",
-    "from": "The Washington Post <email@washingtonpost.com>",
-    "subject": "Must Reads: The Oscars are usually wrong. Here are the real best pictures.",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response is entirely inappropriate.\n\n1.\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T07:11:40.455668",
-    "message_id": "19cec701a41abbf1",
-    "from": "Renewed Right <info@mg.renewedright.com>",
-    "subject": "New York\u2019s Communist Mayor Snuck Into the White House and Handed Trump a Fake Newspaper",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response is entirely inappropriate.\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T07:12:03.982378",
-    "message_id": "19cec6f352886af3",
-    "from": "Chelsea with IFTTT <chelsea.c@ifttt.com>",
-    "subject": "3 IFTTT features worth trying today",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response is entirely inappropriate.\n\n1\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T07:25:17.217710",
-    "message_id": "19cec84cd52d428f",
-    "from": "Just the News <info@justthenews.com>",
-    "subject": "BREAKING:  State Department cuts fee for renouncing US citizenship from $2,350 to $450",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response is entirely inappropriate.\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T07:25:52.033196",
-    "message_id": "19cec81c6329e448",
-    "from": "Allrecipes <email@email.allrecipes.com>",
-    "subject": "Psst! Amazon's Hidden Outlet Has So Many Under-$50 Deals",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response is entirely inappropriate.\n\n1\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T07:26:17.318451",
-    "message_id": "19cec7c74aabb1e9",
-    "from": "Rotten Tomatoes <rottentomatoes@movies.rottentomatoes.com>",
-    "subject": "Oscars 2026: Where to Watch the Nominees",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response is entirely inappropriate.\n\n1.  **Accuracy:** It does not address the client's question in any way. It's completely off-topic.\n2.  **Conf\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T07:26:44.087478",
-    "message_id": "19cec7b061c02837",
-    "from": "The Flyover <news@editor.jointheflyover.com>",
-    "subject": "Fatal Air Crash, Crazy Weather, and UFC to Train FBI",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response is entirely inappropriate.\n\n1\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T07:27:09.623388",
-    "message_id": "19cec7818150b6d0",
-    "from": "Allrecipes Kitchen Fix <email@email.allrecipes.com>",
-    "subject": "Where You Should Actually Put Dishwasher Pods",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response is entirely inappropriate and cannot be\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T07:41:17.605165",
-    "message_id": "19cec8ccf9fb6e1b",
-    "from": "Hillsdale College <onlinesupport@hillsdale.edu>",
-    "subject": "The Father of Conservative Journalism?",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response is entirely inappropriate and cannot be sent to a client.\n\n*   **Accuracy & Completeness:** It does not address the client's question (\"The Father of Conservative Journalism?\") in any way. It's completely off-topic.\n*   **Confidentiality:** It discusses internal operational focus (\"updated data,\" \"upcoming payments,\" \"critical documentation\"), which is not for client consumption.\n*   **Tone:** The response is professional but cold and irrelevant to the client's inquiry, failing to provide the care and confidence we promise.\n\nYou need\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T07:41:45.585451",
-    "message_id": "19cec8bf98098a6b",
-    "from": "Hillsdale College <onlinesupport@hillsdale.edu>",
-    "subject": "The Father of Conservative Journalism?",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response is entirely inappropriate and cannot be sent to a client.\n\n*   **Accuracy & Completeness:** It does not address the client's question (\"The Father\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T07:42:11.976938",
-    "message_id": "19cec87b685332eb",
-    "from": "Notifications@online.aacu.com",
-    "subject": "Security Alert Notification: Valid Password",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response is entirely inappropriate and cannot be sent\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T07:56:17.060737",
-    "message_id": "19cec9903705f860",
-    "from": "BookBub <info@bookbub.com>",
-    "subject": "Your ebook bargains for Saturday",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response is entirely inappropriate and cannot be\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T07:56:46.080985",
-    "message_id": "19cec94e65d8586d",
-    "from": "The Substack Post <post+the-weekender@substack.com>",
-    "subject": "\u201cI just kept thinking, they were almost home\u201d",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response is entirely inappropriate and\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T08:10:17.310267",
-    "message_id": "19cecae4104c98f8",
-    "from": "\"Coleman Nee, DAV\" <davinfo@dav.org>",
-    "subject": "How DAV is keeping our promise for veterans with brain injuries",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response is entirely inappropriate and cannot be\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T08:10:53.515054",
-    "message_id": "19cecad627564110",
-    "from": "The Counter Signal <thecountersignal@substack.com>",
-    "subject": "Alberta government launches investigation into Calgary water main disasters",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response is entirely inappropriate and cannot be sent\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T08:11:25.267493",
-    "message_id": "19cecaa88f5aa1a3",
-    "from": "The Points Guy <tpg@thepointsguy.com>",
-    "subject": "\u2708 Access Granted to Exclusive Spots (in the Airport), Southwest Ends Service to 2 Major Airports & More News From TPG \u2708",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response is entirely inappropriate and cannot be sent.\n\n*   **Accuracy & Comple\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T08:11:57.359470",
-    "message_id": "19cecaa87c69b3c5",
-    "from": "\"Lose It!\" <donotreply@loseit.com>",
-    "subject": "Lose It! Daily Summary for Fri, Mar 13th",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response is entirely inappropriate and cannot be sent\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T08:12:21.121326",
-    "message_id": "19ceca82e389814a",
-    "from": "Costco Wine Blog <editor@costcowineblog.com>",
-    "subject": "New from Costco Wine Blog",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response is entirely inappropriate and cannot be\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T08:12:47.833499",
-    "message_id": "19ceca2c6f051900",
-    "from": "Taste of Life Natural Market <donna@tasteoflifestores.com>",
-    "subject": "Pi Day today!  Next week; Monster Cookies & a new breakfast entree",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response is entirely inappropriate and cannot be sent\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T08:25:17.124460",
-    "message_id": "19cecbc1caf1b01e",
-    "from": "USAA <USAA.customer.service@mailcenter.usaa.com>",
-    "subject": "View Your USAA Insurance Bill",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\nBLOCKED\n\nThis response is completely off-target and inappropriate.\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T08:25:49.147927",
-    "message_id": "19cecbb49d467fb6",
-    "from": "\"Newsmax.com\" <newsmax@latest.newsmax.com>",
-    "subject": "Iran Retaliates; Filibuster Fight Set Next Week; US Offers Bounty on Iran Tips",
-    "status": "cos_blocked",
-    "cos_note": "BLOCKED\n\nThis response completely misses the client's direct question and offers corporate platitudes\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T08:26:10.059408",
-    "message_id": "19cecb5aafeeedc5",
-    "from": "Costco Account Center <tsowards026@gmail.com>",
-    "subject": "Thanks for Connecting Today",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\nBLOCKED\n\nDani, this response completely misinterprets the\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T08:41:17.134969",
-    "message_id": "19cecc6f082dbffe",
-    "from": "The American Mind <update@claremont.org>",
-    "subject": "Clearing Up Confusion on Birthright Citizenship",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\nBLOCKED\n\nThis response is completely off-target and inappropriate\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T08:41:51.213380",
-    "message_id": "19cecc483dba6ba1",
-    "from": "",
-    "subject": "(no subject)",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\nBLOCKED\n\nDani, this response completely misses the mark. It\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T08:42:16.839538",
-    "message_id": "19cecbd7b80d2910",
-    "from": "Kyle Kuklinski <kyle.kuklinski@gmail.com>",
-    "subject": "Re: Viking Guest Registration Form for Reservation #9593880",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\nBLOCKED\n\nDani, this response is incomplete and fails\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T08:55:17.231864",
-    "message_id": "19cecd7671480a96",
-    "from": "Costco Wholesale <Costco@digital.costco.com>",
-    "subject": "See What Just Arrived For You",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\nBLOCKED\n\nDani, this response completely misinterpre\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T09:11:17.345943",
-    "message_id": "19cece0ea1368088",
-    "from": "Ken Lyons <klyons3@bellsouth.net>",
-    "subject": "trip details",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\nBLOCKED\n\nDani, this response completely misinterprets\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T09:11:46.841753",
-    "message_id": "19cece073380e1e2",
-    "from": "\"Newsmax.com\" <newsmax@latest.newsmax.com>",
-    "subject": "BIG on War: Dick Morris, Liz Truss, Paul Kengor on Rita",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\nBLOCKED\n\nDani, this response completely misinterprets the client\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T09:12:10.499531",
-    "message_id": "19cecdd8487e0950",
-    "from": "Sling TV <sling@slingemail.com>",
-    "subject": "Why cancel? Get premium content for almost nothing.",
-    "status": "cos_blocked",
-    "cos_note": "BLOCKED\n\nDani, this response completely misinterprets the client's question and is an\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T09:26:17.257881",
-    "message_id": "19cecf4255baced2",
-    "from": "Costco Wholesale <Costco@digital.costco.com>",
-    "subject": "See What Just Arrived For You",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\nBLOCKED\n\nDani, this response completely misinterprets the\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T09:40:13.453242",
-    "message_id": "19cecff7c36a4276",
-    "from": "Heritage Membership Team <info@heritage.org>",
-    "subject": "Don\u2019t miss out",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\nBLOCKED\n\nDani, this response completely misinterprets\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T09:40:44.159296",
-    "message_id": "19cecf93a3577263",
-    "from": "Lawn Doctor <group333@lawndoctor.com>",
-    "subject": "Spring Pest Activity Is Here, Are You Protected?",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\nBLOCKED\n\nDani, this response completely misinterprets the client\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T09:55:18.913876",
-    "message_id": "19ced0cc81609b37",
-    "from": "Kyle Kuklinski <kyle.kuklinski@gmail.com>",
-    "subject": "Re: Viking Guest Registration Form for Reservation #9593880",
-    "status": "cos_blocked",
-    "cos_note": "BLOCKED\n\nDani, this response completely misinterprets the client's question and is\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T09:56:04.585471",
-    "message_id": "19ced01514e87022",
-    "from": "Pro-Life Press <news@prolifepress.com>",
-    "subject": "Late-Term Abortionist Susan Robinson Said She Had No Regrets Two Days Before She Died",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\nBLOCKED\n\nDani, this response completely misinterprets the\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T10:10:27.959355",
-    "message_id": "19ced17e298473e1",
-    "from": "Brian Kelly <askBK@thepointsguy.com>",
-    "subject": "I earn thousands of Bilt points each month \u2014 here\u2019s how",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\nBLOCKED\n\nDani, this response completely misinterprets\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T10:11:02.114827",
-    "message_id": "19ced1009b79b2d5",
-    "from": "Cruise Critic <news@info.cruisecritic.com>",
-    "subject": "Imperial Japan to South East Asia Voyage with an Exclusive Chinese New Year Event",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\nBLOCKED\n\nDani, this response is incomplete and does not\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T10:25:32.005589",
-    "message_id": "19ced2444fae370e",
-    "from": "Ronald Westbrook <rwestbrook3@gmail.com>",
-    "subject": "Re: Dinner NEXT Saturday",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\nBLOCKED\n\nDani, this response completely misinterprets\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T10:40:26.979364",
-    "message_id": "19ced30f94e1aacc",
-    "from": "",
-    "subject": "(no subject)",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\nBLOCKED\n\nDani, this response completely misinterprets the recipient\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T10:41:00.630125",
-    "message_id": "19ced2ca5a5de161",
-    "from": "KAYAK <alert@cmpr.kayak.com>",
-    "subject": "Lock in this price for your Seattle, WA \u2192 Denver, CO flight.",
-    "status": "cos_blocked",
-    "cos_note": "BLOCKED\n\nDani, this response completely misinterprets the recipient and the purpose of client communication\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T10:41:20.724096",
-    "message_id": "19ced2c87667eb72",
-    "from": "POLITICO Weekend <politicoweekend@email.politico.com>",
-    "subject": "Trump, Big Tech and God",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\nBLOCKED\n\nDani, this response completely misinterprets the client\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T10:55:29.461301",
-    "message_id": "19ced3e9b8f62b54",
-    "from": "\"Newsmax.com\" <newsmax@latest.newsmax.com>",
-    "subject": "Trump Calls for Warships; Probe Clouds Warsh Nod; Cash for Signatures Probed",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\nBLOCKED\n\nDani, this response completely misinterprets the recipient\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T11:11:17.135875",
-    "message_id": "19ced4ec29e50b26",
-    "from": "Allrecipes Well Seasoned <email@email.allrecipes.com>",
-    "subject": "17 Irish Pub Recipes You Have To Try",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\nBLOCKED\n\nDani, this response completely misinterprets the\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T11:11:46.411702",
-    "message_id": "19ced4ac54c321d1",
-    "from": "LG Electronics USA <hello@attn.us.lg.com>",
-    "subject": "\u26a1Today\u2019s Flash Deal: Up to 56% Off Select Appliances",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\nBLOCKED\n\nDani, this response completely misinterprets the client's\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T11:12:05.066484",
-    "message_id": "19ced4a94ed7aaf8",
-    "from": "Restoring the West by Ayaan Hirsi Ali <ayaanhirsiali+the-world-according-to-ayaan@substack.com>",
-    "subject": "TWAA: Why the Fight for Western Civilization Matters",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\nBLOCKED\n\nDani, this response completely misinterprets the client\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T11:26:17.398918",
-    "message_id": "19ced5eb9bb0aabe",
-    "from": "The Broadmoor <TheBroadmoor@info.broadmoor.com>",
-    "subject": "An Easter Getaway for the Family for Only $235",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\nBLOCKED\n\nDani, this response completely misinterprets the\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T11:55:17.099385",
-    "message_id": "19ced742d7a6362e",
-    "from": "Slickdeals <deals@d.slickdeals.net>",
-    "subject": "Limited-Time Deals from Walgreens, eBay, Amazon & more!",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\nBLOCKED\n\nDani, this response completely misinterprets the client\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T12:10:17.045859",
-    "message_id": "19ced8631a0af133",
-    "from": "Space Strategies Center <strategos@spacewarfare.info>",
-    "subject": "John - Space Warfare Full Kill Chain Software Tool",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\nBLOCKED\n\nDani, this response completely misinterprets the\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T12:25:17.282434",
-    "message_id": "19ced97faa796ea6",
-    "from": "Bo Snerdley <news@bosnerdley.com>",
-    "subject": "Afternoon BS Alert: Even notorious terror group Hamas thinks Iran\u2019s retaliatory strikes on neighbors are too much",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\nBLOCKED\n\nDani, this response completely misinterprets the client\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T12:25:49.176091",
-    "message_id": "19ced979e80d0ba2",
-    "from": "History Facts <hello@historyfacts.com>",
-    "subject": "6 historical dramas up for an Oscar",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\nBLOCKED\n\nDani, this response completely misinterpre\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T12:26:15.111686",
-    "message_id": "19ced8d27fb2865d",
-    "from": "Indeed <donotreply@jobalert.indeed.com>",
-    "subject": "Goodwill of Colorado is hiring for Temporary Outlet Associate - Colorado Springs Outlet. 16 more Community Faith Based Non Profit Organization jobs in Colorado Springs, CO.",
-    "status": "cos_blocked",
-    "cos_note": "BLOCKED\n\nDani, this response completely misinterprets the client's communication.\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T12:40:29.341204",
-    "message_id": "19ced9dadda5c84c",
-    "from": "Alex Berenson from Unreported Truths <alexberenson@substack.com>",
-    "subject": "Some quick weekend housekeeping before UT gets back to business...",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\nBLOCKED\n\nDani, this response completely misinterprets the\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T13:10:29.259122",
-    "message_id": "19cedbb77a4a076d",
-    "from": "\"Newsmax.com\" <newsmax@latest.newsmax.com>",
-    "subject": "Ginseng Fights Parkinson's Disease",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\nBLOCKED\n\nDani, this response completely misinterprets the client\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T13:10:52.298254",
-    "message_id": "19cedb8e78866a43",
-    "from": "Tripadvisor <content@mp1.tripadvisor.com>",
-    "subject": "Did you go to Rome?",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the client\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T13:11:15.926554",
-    "message_id": "19cedb8bd06933d7",
-    "from": "Tripadvisor <updates@mp1.tripadvisor.com>",
-    "subject": "Rome's best-kept secrets",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\nBLOCKED\n\nDani, this response completely misinterprets the client's communication and our\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T13:11:35.871233",
-    "message_id": "19cedb8595e855e5",
-    "from": "\"Seabourn Cruises & Expeditions\" <seabourn@m.seabourn.com>",
-    "subject": "A Journey That Engages Every Sense",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\nBLOCKED\n\nDani, this response completely misinterprets the client\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T13:40:13.246436",
-    "message_id": "19cedd877572aaf2",
-    "from": "Just the News <info@justthenews.com>",
-    "subject": "BREAKING:  Trump: US will keep 'shooting Iranian boats and ships out of the water,' Hormuz will soon reopen",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T14:10:33.324462",
-    "message_id": "19cedf53d4eaac80",
-    "from": "Renewed Right <info@mg.renewedright.com>",
-    "subject": "Candace Cameron Bure Walked Into a Hollywood Sex Party and Did Something Most Stars Never Would",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T14:10:51.652522",
-    "message_id": "19cedf3bfaa61206",
-    "from": "Huckabee Post  <huckabeepost@substack.com>",
-    "subject": "The effort to turn America into the failed socialist state of California",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the client'\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T14:25:31.313488",
-    "message_id": "19cee030cec8fc39",
-    "from": "Kyle Kuklinski <kyle.kuklinski@gmail.com>",
-    "subject": "Re: Viking Guest Registration Form for Reservation #9593880",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the client\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T14:26:04.265116",
-    "message_id": "19cedfec007be63c",
-    "from": "Slickdeals <deals@d.slickdeals.net>",
-    "subject": "Reveal the Day\u2019s Best Deals: Check Them Out Now!",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the client\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T14:40:22.184480",
-    "message_id": "19cee1073c5eba9e",
-    "from": "\"Newsmax.com\" <newsmax@latest.newsmax.com>",
-    "subject": "Americans to Evacuate; Trump Rejects; Dick Morris Warns, More",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T14:40:51.798722",
-    "message_id": "19cee0e4700ade3b",
-    "from": "Pro-Life Press <news@prolifepress.com>",
-    "subject": "West Virginia Just Cut Abortion Funding and Started Paying to Save Babies From the Pill",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T15:40:08.067676",
-    "message_id": "19cee48800ccfbee",
-    "from": "Kyle Kuklinski <kyle.kuklinski@gmail.com>",
-    "subject": "Re: Viking Guest Registration Form for Reservation #9593880",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the client\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T16:25:33.945595",
-    "message_id": "19cee668898a6f2f",
-    "from": "Just the News <info@justthenews.com>",
-    "subject": "BREAKING:  Trump administration declines attempts to begin Iran ceasefire talks, report says",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T16:55:34.299169",
-    "message_id": "19cee8d7ed8b143c",
-    "from": "Credit Karma <notifications@mail.creditkarma.com>",
-    "subject": "John, your new score is here.",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T16:56:10.707595",
-    "message_id": "19cee8c48365ad37",
-    "from": "Just the News <info@justthenews.com>",
-    "subject": "BREAKING:  Three more members of Iran\u2019s women\u2019s soccer team decide against staying in Australia as refugees",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the client\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T16:56:44.592067",
-    "message_id": "19cee87ab1311343",
-    "from": "",
-    "subject": "(no subject)",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the client'\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T16:57:19.389827",
-    "message_id": "19cee858c228ad4f",
-    "from": "Kyle Kuklinski <kyle.kuklinski@gmail.com>",
-    "subject": "Re: Viking Guest Registration Form for Reservation #9593880",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the client'\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T17:40:33.985448",
-    "message_id": "19ceeb682568dba2",
-    "from": "Pro-Life Press <news@prolifepress.com>",
-    "subject": "An Environmental Group Blamed a 2020 Wildfire to Hand Out Plan B at University of Arizona",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the client'\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T17:41:02.963531",
-    "message_id": "19ceeaead71d96d7",
-    "from": "Kyle Kuklinski <kyle.kuklinski@gmail.com>",
-    "subject": "Re: Viking Guest Registration Form for Reservation #9593880",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T18:10:33.834380",
-    "message_id": "19ceed0d6f360aee",
-    "from": "Renewed Right <info@mg.renewedright.com>",
-    "subject": "The Room Went Silent After John Kennedy Told a Democrat Witness He Triggers His Gag Reflex",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the client'\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T19:25:33.835013",
-    "message_id": "19cef129a8898c77",
-    "from": "Costco Mini Kit Insider <easminakter360@gmail.com>",
-    "subject": "Made to simplify things",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the client'\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T21:10:33.752793",
-    "message_id": "19cef6c65e78fc33",
-    "from": "Notifications@online.aacu.com",
-    "subject": "Security Alert Notification: Valid Password",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the client's urgent security\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T21:11:01.941776",
-    "message_id": "19cef6c625b00ac7",
-    "from": "Notifications@online.aacu.com",
-    "subject": "Security Alert Notification: Valid Password",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the client'\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T21:25:34.363102",
-    "message_id": "19cef83a96a17966",
-    "from": "\"DataRepublican from DataRepublican\u2019s Substack\" <datarepublican@substack.com>",
-    "subject": "The Blob Eats Its Own: War on the Rocks and the Capture of Realist Journalism",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the client'\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T21:26:09.288653",
-    "message_id": "19cef7e437e3c4bf",
-    "from": "Quora Digest <english-quora-digest@quora.com>",
-    "subject": "BREAKING NEWS: WAR ALERT",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the client\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-14T21:55:33.997715",
-    "message_id": "19cef9b6c112cc3d",
-    "from": "AliExpress <ae-ug-ut-interest24@mail.aliexpress.com>",
-    "subject": "How about some handpicked bestsellers?",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the client'\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-15T04:10:33.932955",
-    "message_id": "19cf0f74d348f4f0",
-    "from": "The Free Press <bariweiss+the-big-read@substack.com>",
-    "subject": "Tough Love: I Want Kids. My Boyfriend Says He\u2019s Not Ready.",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the client'\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-15T04:11:12.953541",
-    "message_id": "19cf0f657f199741",
-    "from": "Renewed Right <info@mg.renewedright.com>",
-    "subject": "An Obama Judge Spent Months Blocking ICE in Chicago and the Appeals Court Just Wiped Her Out",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-15T04:11:33.871484",
-    "message_id": "19cf0f292d5cc0b7",
-    "from": "The Flyover <news@editor.jointheflyover.com>",
-    "subject": "Strikes on Iran's Oil Operations, Renewed US-Venezuela Ties, and AI Dependency",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-15T04:11:57.903446",
-    "message_id": "19cf0f112cc3f5cf",
-    "from": "Senate GOP Leadership <editor@alerts.usconservativenetwork.com>",
-    "subject": "Democrats are holding America Hostage",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the client'\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-15T04:25:34.334827",
-    "message_id": "19cf0fe8f0c50be9",
-    "from": "Cruise Critic Community <cruisecritic@invisioncloudcommunity.com>",
-    "subject": "Your Cruise Critic Community digest",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the client'\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-15T04:40:33.728494",
-    "message_id": "19cf10d105c2759e",
-    "from": "The Flyover Podcast <news@editor.jointheflyover.com>",
-    "subject": "Hormuz Buildup, Genetic Disease Combatant, Great Wealth Transfer",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the client\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-15T05:10:34.468680",
-    "message_id": "19cf12edd3c9d281",
-    "from": "Amit Segal <amitsegal@substack.com>",
-    "subject": "It\u2019s Noon in Israel: Operation Roaring Lion Day 16: Target: Kharg Island",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the client\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-15T05:11:09.791320",
-    "message_id": "19cf12d372cb6124",
-    "from": "\"Newsmax.com\" <newsmax@latest.newsmax.com>",
-    "subject": "Fatal U.S. Crash Crew Identified; Trump Seeks California Oil; U.S. Issues Exit Warning",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-15T05:11:30.799635",
-    "message_id": "19cf12a014bb35ac",
-    "from": "FamilySearch <reply@e.familysearch.org>",
-    "subject": "You have a cousin in Australia",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-15T05:12:04.848118",
-    "message_id": "19cf12851b75ea38",
-    "from": "Just the News <info@justthenews.com>",
-    "subject": "Today's Headlines: Naturalized but radicalized: Recent terror attacks expose glaring problems with citizenship vetting",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the client'\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-15T05:25:34.219847",
-    "message_id": "19cf13913a00ee7d",
-    "from": "Google Calendar <calendar-notification@google.com>",
-    "subject": "You have no events scheduled today.",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the client'\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-15T05:26:06.783766",
-    "message_id": "19cf1386b1e6d3a0",
-    "from": "History Facts <hello@historyfacts.com>",
-    "subject": "The biggest myth about today",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-15T05:55:33.876926",
-    "message_id": "19cf14cac9937ce2",
-    "from": "elizabeth nickson from Welcome to Absurdistan  <elizabethnickson@substack.com>",
-    "subject": "Without The Save Act, We are Living in a Slave State and Our Labor Is Harvested by Crooks.",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the client\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-15T06:25:33.742349",
-    "message_id": "19cf17043f66635d",
-    "from": "Grammarly <hello@mail.grammarly.com>",
-    "subject": "\u23f0 Ending soon: 50% off Grammarly Pro",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the client'\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-15T06:26:03.505039",
-    "message_id": "19cf16d74707b2e5",
-    "from": "\"Forbes | Special Edition\" <forbes@email.forbes.com>",
-    "subject": "The Highest-Paid Actors In Hollywood",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the client\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-15T06:26:25.303700",
-    "message_id": "19cf168f158c4f6c",
-    "from": "Pro-Life Press <news@prolifepress.com>",
-    "subject": "Gwen Stefani Shared the Miracle That Brought Her Back to God and Pro-Abortion Activists Are Furious",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-15T06:40:33.821982",
-    "message_id": "19cf17f56d1ff947",
-    "from": "Just the News <info@justthenews.com>",
-    "subject": "BREAKING:  Iranians report health issues from black rain after attacks on oil facilities: report",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the client'\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-15T07:10:34.044559",
-    "message_id": "19cf199173ed275d",
-    "from": "Bo Snerdley <news@bosnerdley.com>",
-    "subject": "Morning BS Alert: Even notorious terror group Hamas thinks Iran\u2019s retaliatory strikes on neighbors are too much",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the client'\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-15T07:11:06.309062",
-    "message_id": "19cf1970a6086c6b",
-    "from": "Allrecipes Easy Eats <email@email.allrecipes.com>",
-    "subject": "20 Dump Dinners Ready in 20 Minutes",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-15T07:11:32.295755",
-    "message_id": "19cf197082447370",
-    "from": "Create Your Cruise <harold@createyourcruise.com>",
-    "subject": "\ud83d\udef3\ufe0fJohn Regent Seven Seas Cruises - Webinar Invitation - What's new with Regent Seven Seas",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the client\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-15T07:25:34.038769",
-    "message_id": "19cf1a0aef9ec886",
-    "from": "Covered Insurance <quotes@covered.carringtonms.com>",
-    "subject": "It\u2019s almost that time\u2026",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-15T07:26:03.639481",
-    "message_id": "19cf1a0958fc1329",
-    "from": "Allrecipes Kitchen Fix <email@email.allrecipes.com>",
-    "subject": "Cut the Kitchen Clutter with These Under-$25 Organizers",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the client\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-15T07:40:34.353449",
-    "message_id": "19cf1b2e5775cb23",
-    "from": "Renewed Right <info@mg.renewedright.com>",
-    "subject": "SJSU Sued the Federal Government Over a Male Athlete on the Women\u2019s Team and Linda McMahon Just Hit Back Hard",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the client\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-15T08:10:33.764834",
-    "message_id": "19cf1d04313346f8",
-    "from": "\"Lose It!\" <donotreply@loseit.com>",
-    "subject": "Lose It! Daily Summary for Sat, Mar 14th",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the client\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-15T08:11:03.581123",
-    "message_id": "19cf1cffca887d24",
-    "from": "The Points Guy <tpg@thepointsguy.com>",
-    "subject": "\u2708 Your Weekend Travel Updates, Peek Inside Denver's Pop Culture-Themed Hotel & More Daily News From TPG \u2708",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the client'\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
-    "timestamp": "2026-03-15T08:11:26.700758",
-    "message_id": "19cf1ceaa899e24f",
-    "from": "WIRED <wired@eml.condenast.com>",
-    "subject": "Subscribe now to enjoy exclusive benefits",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE: BLOCKED\n\nDani, this response completely misinterprets the client'\n\n---\n_Gemini 2.5 Flash_"
-  },
-  {
     "timestamp": "2026-03-15T08:11:45.346404",
     "message_id": "19cf1cd7d0f81ea1",
     "from": "Silversea <silversea@email.silversea.com>",
@@ -1584,6 +712,813 @@
     "message_id": "19cf6ca2326155ff",
     "from": "",
     "subject": "(no subject)",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T07:40:53.478179",
+    "message_id": "19cf6d7eaea2a9ac",
+    "from": "",
+    "subject": "(no subject)",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T07:55:52.700011",
+    "message_id": "19cf6eb781f478cf",
+    "from": "Racket News <taibbi@substack.com>",
+    "subject": "THE SWAMP LOG: Dire Strait, Pentagon Bans Cartoons, Little Marco's Big Shoes",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T07:56:33.759650",
+    "message_id": "19cf6e62953effba",
+    "from": "",
+    "subject": "(no subject)",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE: **BLOCKED.**\n\nThis is not a client question. This is an internal infrastructure notice about the SMS gateway failing \u2014 nobody asked Dani anything. There is no client on the other end of this message.\n\nDani's response dumps the entire operational picture \u2014 six clients' payment balances, confirmation numbers, final payment dates, booking details, internal staff notes, and action items \u2014 to nobody. This is an internal morning brief, not a client response.\n\n**Why blocked:**\n- **No client asked a question.** The \"sender\" is an SMS gateway bounce notification.\n- **Massive confidentiality violation** if this somehow reached any client \u2014 it contains financial data for Kuklinski, Morton/Dodge, Furlow, Ely/Darrow, Nichols, Loucks, Westbrook, and McLeod/McGlasson.\n- **Internal ops exposed** \u2014 payment reminder schedules, staff notes, portal status, Dani/Dembe references.\n\n**Disposition:** Discard. No response needed. The SMS gateway issue was already addressed earlier today \u2014 Telegram is primary C2, no operational impact.\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T07:58:03.845183",
+    "message_id": "19cf6e5aeed19c3b",
+    "from": "",
+    "subject": "(no subject)",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T07:58:33.439787",
+    "message_id": "19cf6e51f53b1ebf",
+    "from": "History Facts <hello@historyfacts.com>",
+    "subject": "What's the button on the floor of old cars?",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T08:10:52.419190",
+    "message_id": "19cf6fafde699ef6",
+    "from": "TourRadar <explore@tourradar.com>",
+    "subject": "We\u2019ve Missed You",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE: **BLOCKED.**\n\nNot a client. This is a TourRadar marketing email \u2014 generic retention drip campaign. Nobody asked D2M anything. There is no client on the other end of this message.\n\nDani correctly identified it as noise in the first sentence, then inexplicably dumped the entire Ely/Darrow operational picture \u2014 payment balances, confirmation numbers, suite assignments, overdue action items \u2014 into a response that has no recipient and no purpose.\n\nDiscard. No response required.\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T08:12:33.771946",
+    "message_id": "19cf6f7615fa2475",
+    "from": "The Points Guy <tpg@thepointsguy.com>",
+    "subject": "\u2708 How to Fast-Track AAdvantage Status, 8 Tools That Help You Save on Airfare & More Daily News From TPG \u2708",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T08:12:58.632113",
+    "message_id": "19cf6f6ad99da134",
+    "from": "\"Lose It!\" <donotreply@loseit.com>",
+    "subject": "Lose It! Daily Summary for Sun, Mar 15th",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE: **BLOCKED.**\n\nNot a client. This is a **Lose It! diet app** daily summary email \u2014 automated calorie tracking notification. Nobody asked D2M anything.\n\nDani treated a spam-tier app notification as a client query, then dumped the Commander's personal booking data, financial balances, and internal data integrity flags into a \"response\" addressed to nobody.\n\nDiscard.\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T08:14:08.333104",
+    "message_id": "19cf6f57647004d9",
+    "from": "PragerU <info@update.prageru.com>",
+    "subject": "Henry Knox: Washington\u2019s Artillery Master",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T08:14:30.909166",
+    "message_id": "19cf6f35a0d49f3e",
+    "from": "",
+    "subject": "(no subject)",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE: **BLOCKED.**\n\nNot a client. This is an internal infrastructure notice about the T-Mobile SMS gateway \u2014 our own system traffic. Nobody asked D2M anything. There is no client on the other end of this message.\n\nDani correctly identified it as noise in the first sentence, then dumped the Commander's full operational dashboard \u2014 final payment balances, booking confirmations, suite numbers, insurance status, and multi-client financial data \u2014 into what she framed as a client response. To no one.\n\nDiscard.\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T08:25:52.689386",
+    "message_id": "19cf6fc6cf29d827",
+    "from": "American Express <AmericanExpress@welcome.americanexpress.com>",
+    "subject": "Here's your weekly account snapshot",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T08:40:52.613189",
+    "message_id": "19cf711d95f6211d",
+    "from": "Business Class Guru <specials-businessclassguru.com@shared1.ccsend.com>",
+    "subject": "Hurry! Deals Ending Soon!",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T08:41:11.889736",
+    "message_id": "19cf710b866767ce",
+    "from": "Renewed Right <info@mg.renewedright.com>",
+    "subject": "Bill Clinton Shoved Hillary Toward a Manhattan Traffic Two Weeks After His Epstein Grilling",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T08:41:31.240183",
+    "message_id": "19cf70b29fb21c5b",
+    "from": "Rocket Money <hello@email.rocketmoney.com>",
+    "subject": "Your March spending update",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T08:41:50.350382",
+    "message_id": "19cf70b08b52136c",
+    "from": "\"Newsmax.com\" <newsmax@latest.newsmax.com>",
+    "subject": "Trump Blasts Courts; Hormuz Safe Passage; China Visit Delay",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T08:55:52.625304",
+    "message_id": "19cf71a380cdbb06",
+    "from": "Zapier Alerts <alerts@mail.zapier.com>",
+    "subject": "Notice: Upcoming routine maintenance planned",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T08:56:12.661995",
+    "message_id": "19cf717d97c11fd4",
+    "from": "\"Cruise.com Weekly E-Deals\" <offers@e-deals.cruise.com>",
+    "subject": "ENDS TODAY: \u00a050% OFF 2nd Guest + 3rd & 4th Guest Free",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T09:10:52.703367",
+    "message_id": "19cf73313ec49913",
+    "from": "\"Reality's Last Stand\" <colinwright+articles@substack.com>",
+    "subject": "I\u2019m a Furry. My Community Has a Violence Problem.",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE: **BLOCKED.**\n\nNot a client. This is a **Substack newsletter article** \u2014 Commander's personal reading subscription (Reality's Last Stand). Nobody asked D2M anything. There is no client on the other end of this message.\n\nDani correctly identified it as noise in the first sentence, then dumped the Commander's entire operational picture \u2014 every client's booking data, payment balances, suite numbers, and internal milestone tracking \u2014 into a response frame that was triggered by spam. That data dump goes nowhere useful and trains bad habits.\n\nDiscard. No response required.\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T09:12:29.599959",
+    "message_id": "19cf72a6eafd032b",
+    "from": "Colorado Springs Urology <coloradospringsurology-gmail.com@shared1.ccsend.com>",
+    "subject": "Silence the Sudden Urge to Urinate: A New Treatment",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T09:25:52.644060",
+    "message_id": "19cf73a346088b7c",
+    "from": "\"Lose It!\" <donotreply@loseit.com>",
+    "subject": "Lose It! Weekly Summary for Week of Mon, Mar 9th",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE: **BLOCKED.**\n\nNot a client. This is a **Lose It! diet app** weekly summary email \u2014 Commander's personal health tracking subscription. Nobody asked D2M anything.\n\nDani ignored the actual input entirely, then generated an unsolicited operational briefing about Silver Nova and Regent bookings that nobody requested. That briefing may contain useful information, but it wasn't asked for and it certainly isn't a client response.\n\nDiscard.\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T09:27:07.093391",
+    "message_id": "19cf738e8c570d4b",
+    "from": "Huckabee Post  <huckabeepost@substack.com>",
+    "subject": "Hilarious update on Obama Presidential Center",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE: **BLOCKED.**\n\nNot a client. This is a **Huckabee Post Substack newsletter** \u2014 Commander's personal political news subscription. Nobody asked D2M anything.\n\nDani correctly identified it as noise in the first sentence, then dumped the Commander's full operational briefing \u2014 client names, dollar amounts, booking IDs, suite numbers, payment status \u2014 into what would have been a response to a Substack newsletter. There is no human on the other end of this message waiting for a reply.\n\nDiscard.\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T09:40:52.736786",
+    "message_id": "19cf74e522b0aa94",
+    "from": "Lawn Doctor <group333@lawndoctor.com>",
+    "subject": "Steps to Keep Your Lawn Healthy During Drought",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE: **BLOCKED.**\n\nNot a client. This is a **Lawn Doctor marketing email** \u2014 Commander's local lawn care service. Nobody asked D2M anything. Discard.\n\nDani correctly identified it as noise in the first sentence, then dumped the Commander's full operational briefing \u2014 client names, payment balances, suite numbers, booking IDs, action items \u2014 into what would be a *client-facing response to Lawn Doctor*. That's a confidentiality breach if it ever left the building.\n\nThe operational update on Ely/Darrow is useful intel, but it belongs in a **Commander brief**, not stapled to a spam filter action.\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T09:42:37.657341",
+    "message_id": "19cf74d136de4eb6",
+    "from": "Alex Berenson from Unreported Truths <alexberenson@substack.com>",
+    "subject": "Why the Iran war is so tricky",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE: **BLOCKED.**\n\nNot a client. This is an **Alex Berenson / Unreported Truths Substack newsletter** \u2014 Commander's personal political news subscription. Nobody asked D2M anything. Discard.\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T09:43:44.375658",
+    "message_id": "19cf74b25b184a26",
+    "from": "Pro-Life Press <news@prolifepress.com>",
+    "subject": "Asheville Wrote a Law to Silence This Pro-Life Counselor and Just Lost a Four-Year Fight",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T09:44:04.043090",
+    "message_id": "19cf74abbe4b3302",
+    "from": "Allrecipes Recall Alert <email@email.allrecipes.com>",
+    "subject": "Recall Alert: Costco Meals",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE: **BLOCKED.**\n\nNot a client. This is an **Allrecipes marketing newsletter** \u2014 Costco Salmonella recall alert. Nobody asked D2M anything. Discard.\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T09:55:52.922446",
+    "message_id": "19cf7516818b4cb3",
+    "from": "Cruise Critic <news@info.cruisecritic.com>",
+    "subject": "Explore the iconic shores of the Mediterranean during \u201cquiet season\u201d",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T10:10:52.668709",
+    "message_id": "19cf761540af44f4",
+    "from": "",
+    "subject": "(no subject)",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE: **BLOCKED.**\n\nThis is **not a client question.** This is an internal system notification \u2014 a T-Mobile SMS gateway bounce. No client asked anything. No client should receive anything.\n\nDani correctly identified it as a non-issue in the first line, then dumped the **entire operational picture** \u2014 booking IDs, payment balances, final payment dates, confirmation numbers, client names (Westbrook, Nichols), suite assignments, and internal milestone tracking \u2014 into a response formatted as if it's going out the door.\n\n**Specific violations:**\n- **Confidentiality:** Westbrook, Nichols, and Kuklinski/Loucks booking data cross-contaminated in a single response. No client should ever see another client's financials or booking details.\n- **No recipient exists.** There is no client on the other end of this conversation. This is a bounce notification from Google's mail delivery subsystem.\n- **Internal ops exposed:** FPDs, commission-relevant balances, overdue milestone items, and internal priority assessments are Commander-only data.\n\n**Disposition:** Discard. No response needed to anyone.\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T10:25:53.393744",
+    "message_id": "19cf772731614a61",
+    "from": "Zoom <teamzoom@e.zoom.us>",
+    "subject": "Newsletter: streamline work and boost productivity",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T10:26:41.287392",
+    "message_id": "19cf76ead357e256",
+    "from": "Healthgrades <myhg@nl.healthgrades.com>",
+    "subject": "The Surprising Brain Benefits of Fish Oil",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE: **BLOCKED.**\n\nNot a client. This is a **Healthgrades marketing newsletter** \u2014 health/wellness spam. Nobody asked D2M anything. Discard.\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T10:27:37.669490",
+    "message_id": "19cf76aa57a31382",
+    "from": "Railbookers <promotions@railbookers.com>",
+    "subject": "Our Best-Selling Rail Journeys Are On Sale",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T10:28:09.219984",
+    "message_id": "19cf76a89c460b36",
+    "from": "Restoring the West by Ayaan Hirsi Ali <ayaanhirsiali+faith-and-family@substack.com>",
+    "subject": "Fathers Matter More Than We Admit",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T10:40:52.803321",
+    "message_id": "19cf780326bd6810",
+    "from": "Heidi Vasiloff <spacefoundation@spacefoundation.org>",
+    "subject": "Summer Cosmic Adventures at Discovery Center",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T10:41:33.457860",
+    "message_id": "19cf77dd914b78dd",
+    "from": "Olivia Brooks <olivia@ceoflights.com>",
+    "subject": "A Better Way to Fly Business Class",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE: **BLOCKED.**\n\nNot a client. This is a **CEOFLIGHTS marketing newsletter** \u2014 business class flight deals spam. Nobody asked D2M anything. Discard.\n\n---\n_Claude Opus 4.6 (Max)_\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T10:42:31.473838",
+    "message_id": "19cf77cb044c603c",
+    "from": "Public News <public@substack.com>",
+    "subject": "Batya And Me On The Latest Drama",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T11:10:23.530067",
+    "message_id": "19cf79fcbacf2d88",
+    "from": "ParkDIA <info@parkdia.com>",
+    "subject": "Spring Break Starts Now \u2708\ufe0f \u2014 Reserve ParkDIA While You Still Can",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T11:11:00.367533",
+    "message_id": "19cf79dec1aac6c4",
+    "from": "Candice Malcolm <junonews@substack.com>",
+    "subject": "Our plan to bring back one of Canada\u2019s most fearless reporters",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE: **BLOCKED.**\n\nNot a client. This is a **Juno News / Substack fundraising newsletter** \u2014 Canadian media spam. Nobody asked D2M anything. Discard.\n\nDani correctly identified it as spam in the first line, then dumped the entire operational picture \u2014 client names, booking IDs, balances, payment dates, document statuses \u2014 into a response that should never exist. There is no client on the other end of this. There is no conversation to respond to.\n\nNothing goes out.\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T11:12:47.508841",
+    "message_id": "19cf796bf3c50e5e",
+    "from": "Susan Loucks <susanna.loucks@gmail.com>",
+    "subject": "Fwd: Your bill statement is ready",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE: **BLOCKED.**\n\nNot a client inquiry. This is a **forwarded Xfinity bill statement** \u2014 Susan's cable/internet autopay notice. Nobody asked D2M anything.\n\nDani ignored the actual content, then dumped the entire operational portfolio \u2014 client names, booking IDs, balances, payment deadlines, internal action items \u2014 into what would be a client-facing response. That's a confidentiality breach waiting to happen.\n\nDiscard.\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T11:25:11.346694",
+    "message_id": "19cf7ac3a4cabeca",
+    "from": "\"Forbes | CEO\" <forbes@email.forbes.com>",
+    "subject": "How Manufacturers Can Stay Nimble Through Change",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T11:25:32.563821",
+    "message_id": "19cf7aae2b76403f",
+    "from": "\"Arby\u2019s\" <arbys@emails.arbys.com>",
+    "subject": "Forgot about your offer?",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE: **BLOCKED.**\n\n\"Arby's\" is not a client. This is a **marketing email from Arby's** \u2014 fast food promotional spam. \"Forgot about your offer?\" is a coupon reminder. Nobody asked D2M anything. Discard.\n\nDani ignored the actual content, then dumped the entire operational portfolio \u2014 client names, booking IDs, balances, payment deadlines, internal action items \u2014 to a fast food chain's marketing system.\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T11:26:29.391685",
+    "message_id": "19cf7a46edcbf2e9",
+    "from": "Allrecipes Well Seasoned <email@email.allrecipes.com>",
+    "subject": "The Only Fried Fish Sandwich Worth Ordering",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE: **BLOCKED.**\n\nNot a client. This is an **Allrecipes \"Well Seasoned\" newsletter** \u2014 recipe spam about fried fish sandwiches for Lent. Nobody asked D2M anything. Discard.\n\nDani correctly identified it as junk in the first line, then dumped the entire operational portfolio \u2014 client names, booking IDs, balances, payment deadlines, email addresses, insurance status, internal data gaps \u2014 to nobody. There is no human on the other end of this asking a question.\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T11:27:37.391444",
+    "message_id": "19cf7a390769f6a5",
+    "from": "Travel Leaders Network <mail@tln.messages2.com>",
+    "subject": "A Special Message from AmaWaterways",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T11:28:11.130506",
+    "message_id": "19cf7a1c17666baf",
+    "from": "Travel Leaders Network <mail@tln.messages2.com>",
+    "subject": "A Special Message from AmaWaterways",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T11:28:39.101044",
+    "message_id": "19cf7a0f32bb2ab1",
+    "from": "\"Newsmax.com\" <newsmax@latest.newsmax.com>",
+    "subject": "Federal Workforce Slashed; Draft Rubio 2028; Trump Crazed Democrats",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE: **BLOCKED.**\n\nNot a client. This is a **Newsmax political newsletter** \u2014 headline spam about federal workforce cuts, Rubio 2028, and partisan politics. Nobody asked D2M anything. Discard.\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T11:40:10.104420",
+    "message_id": "19cf7b845e6f70fd",
+    "from": "",
+    "subject": "(no subject)",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE: **BLOCKED.**\n\nNot a client. This is the **Commander's own test email** verifying the concierge@ send-as alias works. Nobody asked D2M anything. Discard.\n\nDani got the first line right \u2014 identified it as a test, no action needed \u2014 then dumped the entire operational portfolio. Client names, booking IDs, balances, payment deadlines, data quality notes, internal scheduling. All of it unsolicited, all of it irrelevant to the input.\n\n**Standing directive remains:** Respond to what was asked. Nothing more.\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T11:55:11.446551",
+    "message_id": "19cf7c90dddfc6c6",
+    "from": "Notifications@online.aacu.com",
+    "subject": "Security Alert Notification: Valid Password",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T11:55:32.438901",
+    "message_id": "19cf7c413b85b8ee",
+    "from": "Cruisebound <hello@marketing.cruisebound.com>",
+    "subject": "Feeling lucky? \u2618\ufe0f Check out these cruises to Ireland",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T11:56:05.853426",
+    "message_id": "19cf7c38eb316757",
+    "from": "Slickdeals <deals@d.slickdeals.net>",
+    "subject": "Limited-Time Deals from Columbia, Amazon, Walmart & more!",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T12:10:26.945245",
+    "message_id": "19cf7d4eddd9cb4e",
+    "from": "United Cruises <UnitedCruises@email.cruises.united.com>",
+    "subject": "Summer cruises from $182 ...",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T12:25:24.603401",
+    "message_id": "19cf7e0396c6e291",
+    "from": "Indeed <donotreply@jobalert.indeed.com>",
+    "subject": "Children's Hospital Colorado is hiring for Patient Registration Rep PRN. 23 more Community Faith Based Non Profit Organization jobs in Colorado Springs, CO.",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T12:25:56.723932",
+    "message_id": "19cf7dc71878362f",
+    "from": "The Celebrity Commitment <celebritycommitmentpresents@celebritysales.celebrity.com>",
+    "subject": "Promos in Focus: Feel the Luck with St. Patrick\u2019s Day Sale + Alaska Flash Sale Bonus Savings",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE: **BLOCKED.**\n\nNot a client. This is a **Celebrity Cruises promotional newsletter** \u2014 St. Patrick's Day sale and Alaska flash sale marketing blast. Nobody asked D2M anything. Discard.\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T12:26:56.909916",
+    "message_id": "19cf7dc0123f97fd",
+    "from": "History Facts <hello@historyfacts.com>",
+    "subject": "People used to sleep very differently",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T12:55:05.338657",
+    "message_id": "19cf7fc43ee9f7ba",
+    "from": "Bo Snerdley <news@bosnerdley.com>",
+    "subject": "Afternoon BS Alert: Trump briefed by Intel that Iran\u2019s new Supreme Leader is \u2018probably gay\u2019",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T12:55:36.592591",
+    "message_id": "19cf7f83a5fe98d7",
+    "from": "\"Shipwreckedcrew from Shipwreckedcrew's Port-O-Call\" <shipwreckedcrew@substack.com>",
+    "subject": "Mass. Federal Judge Going For Trifecta With Supreme Court -- Again Invents Law Requiring Criminal Aliens To Get MO\u2026",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE: **BLOCKED.**\n\nNot a client. This is a **Substack political/legal newsletter** \u2014 immigration law commentary from \"Shipwreckedcrew.\" Nobody asked D2M anything. Discard.\n\nDani correctly identified it as junk in the first line, then dumped the entire operational portfolio \u2014 client names, booking IDs, balance amounts, payment deadlines, passport timelines, guest form issues \u2014 into a response addressed to nobody. That data goes nowhere.\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T13:10:26.337310",
+    "message_id": "19cf80d5f26f1a0a",
+    "from": "Travel Leaders Network <mail@tln.messages2.com>",
+    "subject": "Oceania Cruises: New 2026 Booking Incentive",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T13:10:55.835373",
+    "message_id": "19cf808f0eb0e96b",
+    "from": "KAYAK <trip@notify.kayak.com>",
+    "subject": "It\u2019s official: next stop, Stockholm \u2708\ufe0f",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE: **BLOCKED.**\n\nThis is not a client. This is a **KAYAK promotional email** \u2014 \"next stop, Stockholm\" is a marketing subject line pushing flight deals. Nobody asked D2M anything. Discard.\n\nDani treated a travel aggregator's spam as a client inquiry, then dumped the entire operational portfolio \u2014 final payment dates, balances, booking IDs, client names, action items \u2014 into a response addressed to no one. That's a confidentiality breach aimed at an inbox robot.\n\n**Standing pattern, same root cause every time:** Dani cannot distinguish inbound client questions from marketing noise. Until that filter is fixed, this will keep happening.\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T13:25:29.435209",
+    "message_id": "19cf819c6a52b19b",
+    "from": "Heidi Nichols <heidi.nichols1@yahoo.com>",
+    "subject": "Re: Nichols: Scandinavia Voyage Pre-Payment Review",
+    "status": "draft_created",
+    "draft_id": "r-3619910399913647997",
+    "cos_note": "COS approved."
+  },
+  {
+    "timestamp": "2026-03-16T13:29:27.279206",
+    "message_id": "19cf81082a57c12a",
+    "from": "Travel Leaders Network <mail@tln.messages2.com>",
+    "subject": "Oceania Cruises: New 2026 Booking Incentive",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T13:40:26.097326",
+    "message_id": "19cf829887c57e2c",
+    "from": "Pro-Life Press <news@prolifepress.com>",
+    "subject": "A Wyoming Pro-Abortion Group Asked One Retired Judge to Block Their Third Pro-Life Law in Four Years",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T13:40:48.476599",
+    "message_id": "19cf822ed0068e4f",
+    "from": "Royal Caribbean International <royalcaribbeaninternationalsalespromotion@royalsales.rccl.com>",
+    "subject": "\ud83e\udd11 Weekly Royal Promo Roundup: Up to $900 Instant Savings, $50 Bonus Commission, & More!",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE: **BLOCKED.**\n\nNot a client. This is a **Royal Caribbean promotional email** \u2014 weekly promo roundup pushing instant savings and bonus commission. Nobody asked D2M anything. Discard.\n\nDani dumped the entire operational portfolio again \u2014 client names, booking IDs, balances, payment deadlines, passport schedules, cancellation penalties \u2014 in response to a cruise line's marketing blast. This is the same pattern I've blocked four times today.\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T13:55:03.237840",
+    "message_id": "19cf82ae138c01c2",
+    "from": "\"Newsmax.com\" <newsmax@latest.newsmax.com>",
+    "subject": "War Analysis: Invasion, Seizure of Kharg Island Likely",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE: **BLOCKED.**\n\nNot a client. This is a **Newsmax news article** \u2014 geopolitical war analysis about Kharg Island. Nobody asked D2M anything. Discard.\n\nDani misrouted again. A news headline hit the inbox, and instead of recognizing it as noise, she spun up a full operational dump on Ely/Darrow \u2014 client names, booking IDs, suite numbers, commission figures, payment schedules, hotel confirmations, flight details. All of it completely unrelated to the inbound.\n\n**Standing issue:** Dani's trigger logic still can't distinguish between client communications and inbox noise. Every non-client email produces an unprompted data spill of the entire portfolio. This is the same pattern as KAYAK, Substack, and Royal Caribbean before it.\n\n**No response goes out. Nothing here is client-facing.**\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T13:56:08.654580",
+    "message_id": "19cf829887c57e2c",
+    "from": "Pro-Life Press <news@prolifepress.com>",
+    "subject": "A Wyoming Pro-Abortion Group Asked One Retired Judge to Block Their Third Pro-Life Law in Four Years",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T13:56:26.987993",
+    "message_id": "19cf822ed0068e4f",
+    "from": "Royal Caribbean International <royalcaribbeaninternationalsalespromotion@royalsales.rccl.com>",
+    "subject": "\ud83e\udd11 Weekly Royal Promo Roundup: Up to $900 Instant Savings, $50 Bonus Commission, & More!",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE: **BLOCKED.**\n\nNot a client. This is a **Royal Caribbean promotional email** \u2014 weekly promo roundup pushing instant savings and bonus commission. Nobody asked D2M anything. Discard.\n\nDani dumped the entire operational portfolio again \u2014 six booking balances, payment deadlines, client names, embarkation dates \u2014 in response to marketing spam. This is the fourth time today she's treated inbox noise as a client inquiry.\n\n**Pattern is clear.** Dani's intake filter is broken. She needs a gate *before* she spins up a response:\n\n1. **Is the sender a D2M client?** No \u2192 stop.\n2. **Is there an actual question or request?** No \u2192 stop.\n3. **If neither, discard and move on.**\n\nUntil that gate is fixed, every promo email, every KAYAK deal, every Newsmax headline will trigger a full data dump with real client financials attached to it. That's not a tone problem \u2014 it's a confidentiality risk.\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T13:57:16.752376",
+    "message_id": "19cf821f3bbcf1a3",
+    "from": "",
+    "subject": "(no subject)",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE: **BLOCKED.**\n\nThis response is addressed to **John**, not to the client. Dani built an internal ops briefing \u2014 status board, action trackers, \"what do you need me to run on?\" \u2014 and is about to send it to **Heidi Nichols**.\n\nA client should never see:\n\n- **Financial details** \u2014 \"$15,898 balance,\" payment reminder schedules, confirmation numbers for every supplier\n- **Internal tracking language** \u2014 \"flagged,\" \"fires Wednesday,\" \"action items I'm tracking,\" \"Guest Info Forms \u2014 NOT received\"\n- **Operations shorthand** \u2014 PNR codes, \"T-16,\" insurance window status, the full supplier matrix\n- **The tone** \u2014 this reads like a staff officer briefing the Commander, not a concierge speaking to a guest\n\n**What the client actually asked:** Did you get my flight documents, and here are my seats for Helsinki\u2192Stockholm.\n\n**What the client should receive:** A warm acknowledgment that we received the documents, confirmation we've noted seats 2D and 2F on the Helsinki\u2192Stockholm leg, and a gentle ask about whether she'd like help selecting seats on the remaining legs. That's it. Three sentences, maybe four.\n\nDani needs to answer the question that was asked \u2014 not dump the operational file.\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T13:58:38.778625",
+    "message_id": "19cf81f3f1d24d9a",
+    "from": "The Points Guy <tpg@thepointsguy.com>",
+    "subject": "\ud83d\ude0d Premium Card Bonuses up to 175,000 Points!",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T14:10:23.920067",
+    "message_id": "19cf8453a33fba30",
+    "from": "Travel Leaders Network <mail@tln.messages2.com>",
+    "subject": "Discover a New South Florida Icon",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T14:10:42.296779",
+    "message_id": "19cf8415add855b6",
+    "from": "Renewed Right <info@mg.renewedright.com>",
+    "subject": "Sydney Sweeney Just Said Something About Her Body That Has Hollywood Furious",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T14:10:57.114499",
+    "message_id": "19cf840a9bd5fbf0",
+    "from": "The Feel Good Flyover <news@editor.jointheflyover.com>",
+    "subject": "Paralympians, Gifting Penguins, and 80-Year-Old Basketball Referee",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE: **BLOCKED.**\n\nThis is not a client interaction. \"The Feel Good Flyover\" is a **newsletter or content digest** \u2014 the subject line (\"Paralympians, Gifting Penguins, and 80-Year-Old Basketball Referee\") is a curated feel-good news roundup. Nobody asked D2M anything.\n\nDani misrouted **again**. Inbox noise hit, and instead of recognizing it as non-client content, she spun up the full operational portfolio \u2014 six bookings, final payment dates, client names, cabin numbers, financial deadlines, internal action items.\n\n**What's wrong:**\n- **Not a client question.** This is inbound content, not a service request. Discard.\n- **Confidentiality violation.** Dani dumped Kuklinski, Furlow, Ely/Darrow, Nichols, Westbrook, McLeod/McGlasson booking details, payment statuses, and deadlines into a response addressed to nobody.\n- **Pattern is repeating.** This is the fourth consecutive misroute in this session \u2014 Royal Caribbean promo, Newsmax article, another RC promo, now a newsletter. Dani's intake filter is not distinguishing between client communications and inbox noise.\n\n**Recommendation:** This needs a filter fix, not just a block. Dani should be classifying inbound before generating a response \u2014 if the sender isn't a known client or the content isn't a booking-related inquiry, she should flag it as noise and move on. I'll keep blocking these, but we're burning cycles on reviews that shouldn't exist.\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T14:11:59.351081",
+    "message_id": "19cf8409b47fcfef",
+    "from": "Travel Leaders Network <mail@tln.messages2.com>",
+    "subject": "Discover a New South Florida Icon",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T14:25:19.647363",
+    "message_id": "19cf850f421c1b89",
+    "from": "Slickdeals <deals@d.slickdeals.net>",
+    "subject": "Reveal the Day\u2019s Best Deals: Check Them Out Now!",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T14:25:39.314974",
+    "message_id": "19cf850f110f4558",
+    "from": "Just the News <info@justthenews.com>",
+    "subject": "BREAKING:  Trump signs EO forming national fraud task force, with JD Vance in charge",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T14:26:07.628339",
+    "message_id": "19cf8460cd756e0f",
+    "from": "The Flyover Podcast <news@editor.jointheflyover.com>",
+    "subject": "Dog Survives Mountain, Flowers in Death Valley, Barking Saves Life",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE: **BLOCKED.**\n\nNot a client. This is **The Flyover Podcast** \u2014 a daily newsletter/content digest. The subject line (\"Dog Survives Mountain, Flowers in Death Valley, Barking Saves Life\") is a curated feel-good news roundup. Nobody asked D2M anything.\n\nDani misrouted again. Same pattern \u2014 inbox noise triggers a full operational dump with **every active client's name, booking status, payment deadlines, and financial timelines** exposed to a newsletter sender.\n\n**Standing directive, repeated:** If the sender is not a known D2M client, the response is **DISCARD**. No reply. No draft. No operational data leaves the building.\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T14:40:21.410116",
+    "message_id": "19cf85a5873f6b72",
+    "from": "\"Carrington Mortgage Services, LLC\" <customercontact@carringtonms.com>",
+    "subject": "Happy Loanniversary John! Let\u2019s celebrate your homeownership journey.",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T14:41:01.516367",
+    "message_id": "19cf8599ff29aa59",
+    "from": "Candice Malcolm <junonews+the-candice-malcolm-show@substack.com>",
+    "subject": "Iranian Mullahs spotted at YYZ and at Al Quds Day rally in Toronto",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE: **BLOCKED.**\n\nNot a client. This is **Candice Malcolm / Juno News** \u2014 a Canadian political newsletter about Iranian mullahs and Al Quds Day rallies. Nobody asked D2M anything.\n\nDani compounded the error by loading a real client file (Ely/Darrow) and preparing to send their **full financial breakdown, commission splits, booking confirmations, and action items** to a newsletter sender. That's a confidentiality breach if it goes out.\n\n**Two failures here:**\n1. **Routing** \u2014 political newsletter misidentified as client interaction. Same pattern we've blocked all day.\n2. **Data exposure** \u2014 Dani should never load and display client financials unless the recipient IS that client or the Commander. A random inbound email doesn't get the Ely/Darrow file.\n\nDani: filter by sender before loading any client data. If the sender isn't in the client roster, stop. Don't build a response. Don't pull dossiers. Just flag it as non-client and discard.\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T14:42:22.669793",
+    "message_id": "19cf85921c31d9f4",
+    "from": "Team Hinson <editor@alerts.americanfreedomreport.com>",
+    "subject": "Democrat Opponent Tied with Ashley Hinson!",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T14:55:17.304940",
+    "message_id": "19cf860de2ddc78f",
+    "from": "The Free Press <bariweiss+the-big-read@substack.com>",
+    "subject": "Niall Ferguson: This Is How the Iran War Goes Global",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE: **BLOCKED.**\n\nThis is not a client interaction. \"The Free Press\" is a **media newsletter** \u2014 Niall Ferguson's column on the Iran conflict. Nobody asked D2M anything.\n\nDani compounded the error by loading a real client file (Ely/Darrow) and preparing to send their **full booking details, payment status, financial balances, and flight itineraries** in response to a newsletter that has nothing to do with them.\n\n**Two failures here:**\n\n1. **Misroute** \u2014 political newsletter treated as a client inquiry. Same pattern I've blocked five times today.\n2. **Data exposure risk** \u2014 Dani surfaced Al & Amy's complete financial and travel profile unprompted. If this had actually gone to a client channel, that's a confidentiality breach.\n\n**Dani:** The Ely/Darrow data itself looks solid \u2014 I'm not questioning your file work. But you cannot load a client dossier and present it in response to inbox noise. The trigger matters. No sender asking D2M a question = no response. Filter by sender domain before you route anything to the engine.\n\n**Standing directive, sixth time today:** Newsletter subscriptions from `thefp.com`, `justthenews.com`, `substack.com`, podcast digests \u2014 these are **not client interactions**. Discard on intake.\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T15:10:30.394645",
+    "message_id": "19cf87a630cf3863",
+    "from": "Travel Leaders Network <mail@tln.messages2.com>",
+    "subject": "Save Up to $800 & More with Royalton Hotels & Resorts",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T15:10:47.918734",
+    "message_id": "19cf878efb1c99ca",
+    "from": "Goway Travel <reply@e-mail.goway.com>",
+    "subject": "Spotlight on French Polynesia",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE: **BLOCKED.**\n\nNot a client. This is a **Goway Travel trade marketing newsletter** \u2014 supplier spotlight on French Polynesia aimed at travel agents. Nobody asked D2M anything. Discard.\n\nDani, you correctly identified it as a newsletter this time \u2014 good. But then you dumped the **entire operational board** into a response frame anyway. There is no client here. There is no one to respond to. A correct answer to a non-question is still a wrong answer.\n\n**The fix is upstream:** If the inbound is not from a client, there is no response to draft. Stop at \"not a client, discarded.\" Full stop.\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T15:12:13.284421",
+    "message_id": "19cf877d17a6297c",
+    "from": "\"Today's News Podcast\" <taibbi+todays-news@substack.com>",
+    "subject": "Livestream, Tonight, 8 PM ET, Monday 3/16: \"Today's News\" on Iran, FCC, Podcasts v. MSM",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T15:25:31.277259",
+    "message_id": "19cf887d1581e4b1",
+    "from": "Jiffy Lube <marketing@jiffylubegfl.com>",
+    "subject": "Save BIG this Wednesday! Jiffy Lube",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T15:25:46.508484",
+    "message_id": "19cf884bc51e74bc",
+    "from": "The Counter Signal <thecountersignal@substack.com>",
+    "subject": "Calgary middle school bans food in cafeteria for Ramadan",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE: **BLOCKED.**\n\nNot a client. This is **The Counter Signal** \u2014 a political newsletter about a Calgary school policy. Nobody asked D2M anything.\n\nDani, this is the **fifth time today.** Same pattern, same failure mode. A newsletter hits the inbox, you treat it like a client inquiry, load a real client file, and prepare to dump **booking details, payment balances, and flight itineraries** into the void.\n\n**What almost went out the door:**\n- Ely/Darrow suite number, sailing dates, confirmation number\n- Exact payment amounts and balance due\n- Flight details including seat assignments\n- Hotel and transfer booking status\n\nTo a political newsletter. With no human on the other end who asked for anything.\n\n**Standing directive, restated for the last time:**\n1. **Check the sender** before loading any client file. `thecountersignal.com` is not a client.\n2. **Newsletters, marketing blasts, and editorial content are not client interactions.** Discard them.\n3. **Never load client data until you've confirmed a real human client is asking a real question.**\n\nThe Ely/Darrow data you surfaced \u2014 if it's accurate \u2014 is useful for *us*. That payment reminder draft is a good operational instinct. But it goes nowhere near an outbound response to a newsletter.\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T15:27:14.521817",
+    "message_id": "19cf87d537aa497d",
+    "from": "Travel Leaders Network <mail@tln.messages2.com>",
+    "subject": "Save Up to $800 & More with Royalton Hotels & Resorts",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T15:27:29.113018",
+    "message_id": "19cf85c91fe5bdd2",
+    "from": "\"SBDC TechSource: Commercialization\" <outreach-sbdc-techsource.org@shared1.ccsend.com>",
+    "subject": "REMINDER: Today is the last day to apply for our Tech Venture Accelerator \ud83d\ude31",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T15:55:14.563663",
+    "message_id": "19cf8a232be910e5",
+    "from": "Just the News <info@justthenews.com>",
+    "subject": "BREAKING: U.S. intel holds secret evidence China accessed voter files as Senate weighs election security law",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T15:55:54.964592",
+    "message_id": "19cf89f1761ab89e",
+    "from": "Racket News <taibbi@substack.com>",
+    "subject": "Will Evicting Blackstone Help Young People Buy Homes?",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED.**\n\nNot a client. This is **Racket News** \u2014 a political newsletter about housing policy and Blackstone. Nobody asked D2M anything.\n\nDani, the Ely/Darrow briefing is solid work, but it's answering a question nobody asked. The inbound was a newsletter subscription hit, not a client inquiry. No response needed, no response sent.\n\nDiscard.\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T16:10:24.311399",
+    "message_id": "19cf8aacee8939ad",
+    "from": "Hoover Daily Report <hooverwebmaster@stanford.edu>",
+    "subject": "Liquidating Silicon Valley with a Wealth Tax",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T16:30:01.643497",
+    "message_id": "19cf8c153f2d6e59",
+    "from": "Alex Berenson from Unreported Truths <alexberenson@substack.com>",
+    "subject": "URGENT: A Biden-appointed federal judge has ruled the Trump administration may not change the childhood vaccine sc\u2026",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED.**\n\nNot a client. This is **Alex Berenson's Unreported Truths** \u2014 a political Substack newsletter about vaccine policy and a federal court ruling. Nobody asked D2M anything.\n\nDani, the Ely/Darrow operational briefing is good work, but it's answering a question nobody asked. The inbound was a newsletter subscription hit, not a client inquiry. No response required. Discard.\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T16:40:28.659180",
+    "message_id": "19cf8cce53d38eed",
+    "from": "Declassified with Julie Kelly <juliekelly@substack.com>",
+    "subject": "Did Jerome Powell Try to 'Strongarm' His Way out of a Criminal Investigation?",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED.**\n\nNot a client. This is **Julie Kelly's \"Declassified\" political newsletter** \u2014 a Substack post about Jerome Powell and DOJ grand juries. Nobody asked D2M anything.\n\nDani's response is well-constructed operationally, but it's answering a question nobody asked to a recipient that isn't a client. This is a newsletter that hit the inbox, not a client interaction. Discard.\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T17:10:13.549722",
+    "message_id": "19cf8e8eee129071",
+    "from": "Holland America <reply@halpartners.hollandamerica.com>",
+    "subject": "Last chance \u2014 Wave offer ends Thursday, March 19",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T17:10:30.203070",
+    "message_id": "19cf8e6b55a9f35c",
+    "from": "Renewed Right <info@mg.renewedright.com>",
+    "subject": "Kurt Russell Looked a Hollywood Podcast Host in the Eye and Said Something They Never Expected",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T17:10:46.067409",
+    "message_id": "19cf8e469b6b36fb",
+    "from": "Travel Leaders Network <mail@tln.messages2.com>",
+    "subject": "Exclusive Webinar for Travel Leaders Network \u2014 Register Now!",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED.**\n\nNot a client. This is a **Travel Leaders Network marketing email** \u2014 a webinar registration pitch aimed at travel advisors. Nobody asked D2M anything.\n\nDani's operational briefing is solid work, but it's answering a question nobody asked to a recipient that isn't a client. Discard.\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T17:25:09.236439",
+    "message_id": "19cf8f224d469958",
+    "from": "Travel Leaders Network <mail@tln.messages2.com>",
+    "subject": "Exclusive Webinar for Travel Leaders Network \u2014 Register Now!",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T17:25:25.896434",
+    "message_id": "19cf8ec871bf2520",
+    "from": "The Permanent Campaign <editor@alerts.americanfreedomreport.com>",
+    "subject": "Trump Puts Plan In Motion To Open The Strait Of Hormuz",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T17:40:15.960582",
+    "message_id": "19cf8ff40c8a040b",
+    "from": "The Ridge at Fox Run Homeowners Association Inc <notifications@frontsteps.com>",
+    "subject": "Board of Directors Meeting \u2013 March 19 at 7:00 PM",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T17:40:31.967140",
+    "message_id": "19cf8fc2f66a93d4",
+    "from": "News Picasso Travel <news@news.picassotravel.com>",
+    "subject": "Picasso Travel Newsletter - 69 - AAx2, AI, AZ, BR, DL, EK, GF, JL, JX, LYx2, MSx2, NH, SA, SV, TK, UA, VN, YP - (ALL)",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED.**\n\nNot a client. This is a **Picasso Travel marketing newsletter** \u2014 a bulk airline fare/deal distribution aimed at travel agents. The subject line is airline codes (AA, DL, EK, UA, etc.), not a client asking D2M anything.\n\nNobody asked us a question. Dani drafted a full operational briefing to a mailing list robot.\n\nDiscard.\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T18:10:07.889885",
+    "message_id": "19cf91fa55e25c9e",
+    "from": "Prayer Tree  <huckabeepost+the-prayer-tree@substack.com>",
+    "subject": "1 Peter 5:6-7",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED.**\n\nNot a client. This is a **Huckabee Prayer Tree / Substack newsletter** \u2014 a daily Bible verse email forwarded into the inbox. Nobody asked D2M anything.\n\nDani correctly identified it as non-client in the first line \u2014 then inexplicably pivoted into a full operational status brief with payment balances, flight gaps, and booking IDs. That brief is fine for the *Commander's eyes* in a separate context, but it has zero connection to this inbound email and should not be packaged as a \"response\" to it.\n\n**Disposition:** Discard the inbound. No response required. If Dani wants to surface that payment/flight status to the Commander, she routes it as a separate proactive brief \u2014 not stapled to a newsletter.\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T18:11:56.602099",
+    "message_id": "19cf919cf0f0dbc9",
+    "from": "The Adam Carolla Show <adamcarolla+the-adam-carolla-show@substack.com>",
+    "subject": "Dan Abrams: Why People Hate Cops & What the Media Gets Wrong",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T18:25:12.279867",
+    "message_id": "19cf91fa55e25c9e",
+    "from": "Prayer Tree  <huckabeepost+the-prayer-tree@substack.com>",
+    "subject": "1 Peter 5:6-7",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED.**\n\nNot a client. This is a **Huckabee Prayer Tree / Substack newsletter** \u2014 a daily Bible verse email that landed in the inbox. Nobody asked D2M anything.\n\nDani correctly identified it as non-client in the first sentence \u2014 then dumped an entire operational status board into what would be a \"response.\" There is no recipient. There is no client interaction. There is nothing to respond to.\n\nThe payment reminders, flight gaps, and action items are useful internal tracking \u2014 but they don't belong in a COS Review queue framed as a client response. If Dani wants to surface that status, she brings it to me as an internal brief, not as a draft reply to a Bible verse.\n\n**Discard. No response sent.**\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T18:26:56.510369",
+    "message_id": "19cf919cf0f0dbc9",
+    "from": "The Adam Carolla Show <adamcarolla+the-adam-carolla-show@substack.com>",
+    "subject": "Dan Abrams: Why People Hate Cops & What the Media Gets Wrong",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T18:27:21.786147",
+    "message_id": "19cf9183f70ef962",
+    "from": "Susan Loucks <susanna.loucks@gmail.com>",
+    "subject": "Loucks_IS _Final_Seminar_6",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED.**\n\nThree fatal problems.\n\n1. **Dani didn't answer the question.** Susan Loucks asked about \"Loucks_IS_Final_Seminar_6\" \u2014 that's a file name or document reference, not a booking inquiry. Dani ignored the actual question entirely and dumped a booking status board nobody asked for.\n\n2. **Confidentiality breach.** Dani disclosed Ron & Linda Westbrook's insurance status and sailing details to Susan Loucks. Another client's data \u2014 in writing \u2014 to someone who didn't ask and has no need to know. That's a hard stop.\n\n3. **Internal ops exposure.** Balance discrepancies, \"UNKNOWN\" statuses, overdue milestone flags, OpsAdmin record conflicts, \"dossier notes invoice details needed\" \u2014 this is back-office language for internal staff, not client communication. Susan doesn't need to see our housekeeping problems.\n\n**Disposition:** Do not send. Dani needs to actually read the client's question, determine what \"Loucks_IS_Final_Seminar_6\" refers to (likely a document, photo, or file Susan is asking about), and respond to *that*. If Dani doesn't know, the correct answer is: \"Let me look into that and get back to you.\"\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T18:55:16.085853",
+    "message_id": "19cf943694a8119b",
+    "from": "Star Wars <starwars@e.lucasfilm.com>",
+    "subject": "The official trailer for Star Wars: Maul - Shadow Lord is here!",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED.**\n\nNot a client. This is a **Star Wars / Lucasfilm marketing email** \u2014 a trailer announcement for \"Maul: Shadow Lord\" with newsletter signup links. Nobody asked D2M anything.\n\nDani ignored the actual content, invented a client interaction that doesn't exist, and dumped a full operational status board including **another client's name and insurance status** (Ron & Linda Westbrook) into a response to nobody.\n\nThree violations:\n1. **No client interaction occurred.** This is spam. Discard.\n2. **Confidentiality breach** \u2014 Westbrook booking details surfaced in an unsolicited response.\n3. **Financial data exposed** \u2014 commission figures, payment amounts, balance due \u2014 none of which should appear in any client-facing message, ever.\n\nDiscard. No response needed.\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T18:56:13.826273",
+    "message_id": "19cf93e799ec9aa3",
+    "from": "Pro-Life Press <news@prolifepress.com>",
+    "subject": "Laken Snelling Grand Jury Just Indicted the Kentucky Cheerleader Who Wrapped Her Newborn in a Trash Bag",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T19:10:24.466240",
+    "message_id": "19cf94d75b4f5399",
+    "from": "Notifications@online.aacu.com",
+    "subject": "Security Alert Notification: Valid Password",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T19:40:11.509643",
+    "message_id": "19cf97029f9e2c81",
+    "from": "USAFacts <info@usafacts.org>",
+    "subject": "Sports betting = tax money for states",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T19:55:19.669036",
+    "message_id": "19cf976ff62e442f",
+    "from": "American Express <AmericanExpress@welcome.americanexpress.com>",
+    "subject": "Your Card may not have been present for a purchase",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T22:23:40.586530",
+    "message_id": "19cfa05eb9ebe3d5",
+    "from": "Just the News <info@justthenews.com>",
+    "subject": "BREAKING: Trump teases potential statehood for Venezuela after baseball win: \u2018STATEHOOD, #51, ANYONE?\u2019",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T22:24:26.918390",
+    "message_id": "19cf9c2eac318e88",
+    "from": "Notifications@online.aacu.com",
+    "subject": "Security Alert Notification: Valid Password",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED.**\n\nTwo problems, both serious.\n\n1. **The inbound message is not a client question.** It's an automated security alert from a bank \u2014 someone's online banking login notification. It has nothing to do with D2M, travel, or any client request. Dani should not be responding to this at all.\n\n2. **The proposed response dumps the entire active client roster** \u2014 names, booking IDs, payment deadlines, financial statuses, flight gaps, and internal action items \u2014 to what is effectively a non-message. Even if this *were* a legitimate client inquiry, you never send the full board to a single client. That's every other client's business exposed.\n\n**Disposition:** Discard the inbound. No response needed. This is a bank security notification that landed in the wrong queue.\n\n---\n_Claude Opus 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-16T22:25:13.872357",
+    "message_id": "19cf9c2e6749b4af",
+    "from": "Notifications@online.aacu.com",
+    "subject": "Security Alert Notification: Valid Password",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T22:25:34.849217",
+    "message_id": "19cf9bfa319713a0",
+    "from": "\"Newsmax.com\" <newsmax@latest.newsmax.com>",
+    "subject": "The 2026 Breaking Point: Prepare for the American Reset\u2026",
+    "status": "dani_failed"
+  },
+  {
+    "timestamp": "2026-03-16T22:55:35.255650",
+    "message_id": "19cfa23d9771ba9a",
+    "from": "\"DataRepublican from DataRepublican\u2019s Substack\" <datarepublican@substack.com>",
+    "subject": "Data Analysis of the State of the Iranian Conflict on March 16, 2026",
     "status": "dani_failed"
   }
 ]
