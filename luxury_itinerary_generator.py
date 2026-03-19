@@ -55,8 +55,8 @@ CONFIG = {
     "OUTPUT_FOLDER": str(Path.home() / "Documents" / "Luxury_Itineraries"),
     
     # Google API scopes (don't change unless you know what you're doing)
-    "SCOPES": ["https://www.googleapis.com/auth/documents.readonly",
-               "https://www.googleapis.com/auth/spreadsheets.readonly"]
+    "SCOPES": ["https://www.googleapis.com/auth/documents",
+               "https://www.googleapis.com/auth/spreadsheets"]
 }
 
 # ============================================

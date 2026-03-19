@@ -48,8 +48,8 @@ def _get_sheets_client():
     creds = sa.Credentials.from_service_account_file(
         str(CREDENTIALS_FILE),
         scopes=[
-            "https://www.googleapis.com/auth/spreadsheets.readonly",
-            "https://www.googleapis.com/auth/drive.readonly",
+            "https://www.googleapis.com/auth/spreadsheets",
+            "https://www.googleapis.com/auth/drive",
         ],
     )
     return gspread.authorize(creds)

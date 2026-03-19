@@ -52,7 +52,7 @@ LOG_FILE = LOG_DIR / "commission_recon.log"
 SPREADSHEET_ID = "1GFjUe8RvP-GT4YHGn0DYv_BEAZGXlYfwEicFrm8ANuU"
 BOOKING_MASTER_TAB = "Booking Master"
 
-SHEETS_SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
+SHEETS_SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
 
 # Gmail search terms for commission/payment emails
 PAYMENT_SEARCH_QUERIES = [

@@ -8,7 +8,10 @@ __pycache__/
 # Secrets & credentials
 config/*.env
 .env*
+*.env
 *.key
+*.api_key
+.n8n_api_key
 *.pem
 api_key.txt
 drive_token.json
@@ -18,6 +21,8 @@ service_account*.json
 
 # Token/state files
 *_token.json
+*_token_*.json
+*_backup.json
 *_state.json
 email_intel_state.json
 

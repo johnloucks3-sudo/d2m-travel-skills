@@ -1,0 +1,18 @@
+[Unit]
+Description=Dreams2Memories MCP Server (Streamable HTTP Transport)
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+User=john
+WorkingDirectory=/home/john/Thunderbird
+ExecStart=/usr/bin/python3 /home/john/Thunderbird/travel_mcp_server.py --http --port=8765
+Restart=always
+RestartSec=5
+Environment=PYTHONPATH=/home/john/Thunderbird:/home/john/Thunderbird/.venv/lib/python3.13/site-packages:/home/john/Thunderbird/.venv/lib64/python3.13/site-packages
+Environment=VIRTUAL_ENV=/home/john/Thunderbird/.venv
+Environment=PATH=/home/john/Thunderbird/.venv/bin:/usr/bin:/bin
+
+[Install]
+WantedBy=multi-user.target

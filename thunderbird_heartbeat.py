@@ -60,7 +60,7 @@ OWNER_EMAIL = "johnloucks3@gmail.com"
 COMMANDER_REVIEW_LABEL = "THUNDERBIRD-Commander-Review"
 
 # Calendar API scopes (read-only for heartbeat)
-CALENDAR_SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"]
+CALENDAR_SCOPES = ["https://www.googleapis.com/auth/calendar"]
 
 # ── Logging ─────────────────────────────────────────────────────────────────
 logging.basicConfig(

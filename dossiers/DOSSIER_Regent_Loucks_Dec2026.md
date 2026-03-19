@@ -17,6 +17,7 @@ Last Updated: March 07, 2026
 • John & Susan Loucks
 • $25,798 total cost
 • Invoice details needed — FPD approximate
+• FPD SWEEP 2026-03-17: FPD Sep 30, 2026 — UNKNOWN. $25,798 total confirmed. Invoice pull from TESS needed to verify deposit paid and balance due.
 
 
 ════════════════════════════════════════════════════════════

@@ -1,0 +1,79 @@
+{
+  "name": "D2M — Client Email Sweep",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [{"field": "cronExpression", "expression": "0 */2 * * *"}]
+        }
+      },
+      "id": "b1b2c3d4-0001-4000-8000-000000000001",
+      "name": "Schedule — Every 2 Hours",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.d2mluxury.quest/api/tool/run_dani_email_sweep",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [{"name": "x-api-key", "value": "***REMOVED-SECRET***"}]
+        },
+        "options": {"timeout": 120000}
+      },
+      "id": "b1b2c3d4-0002-4000-8000-000000000002",
+      "name": "Dani Email Sweep",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const r = $input.item.json;\nconst drafted = r.drafted || r.result?.drafted || 0;\nreturn [{ json: { drafted, hasActivity: drafted > 0, raw: r } }];"
+      },
+      "id": "b1b2c3d4-0003-4000-8000-000000000003",
+      "name": "Check Drafts",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {"caseSensitive": true, "leftValue": "", "typeValidation": "strict"},
+          "conditions": [{"id": "c1", "leftValue": "={{ $json.hasActivity }}", "rightValue": true, "operator": {"type": "boolean", "operation": "true"}}],
+          "combinator": "and"
+        }
+      },
+      "id": "b1b2c3d4-0004-4000-8000-000000000004",
+      "name": "Any Drafts?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "chatId": "7554895206",
+        "text": "=✉️ *Dani Email Sweep*\n\n{{ $json.drafted }} draft(s) ready.\nGmail → THUNDERBIRD-Commander-Review",
+        "additionalFields": {"parse_mode": "Markdown"}
+      },
+      "id": "b1b2c3d4-0005-4000-8000-000000000005",
+      "name": "Telegram — Drafts Ready",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [1120, 200],
+      "credentials": {"telegramApi": {"id": "1", "name": "Telegram D2M Bot"}}
+    }
+  ],
+  "connections": {
+    "Schedule — Every 2 Hours": {"main": [[{"node": "Dani Email Sweep", "type": "main", "index": 0}]]},
+    "Dani Email Sweep": {"main": [[{"node": "Check Drafts", "type": "main", "index": 0}]]},
+    "Check Drafts": {"main": [[{"node": "Any Drafts?", "type": "main", "index": 0}]]},
+    "Any Drafts?": {"main": [[{"node": "Telegram — Drafts Ready", "type": "main", "index": 0}], []]}
+  },
+  "active": false,
+  "settings": {"executionOrder": "v1"},
+  "tags": ["d2m", "dani", "email"]
+}

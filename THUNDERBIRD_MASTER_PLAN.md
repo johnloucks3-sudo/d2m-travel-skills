@@ -364,6 +364,45 @@ The 9-persona "Wing" replaced TITAN's flat function calls with characters who th
 | **Bedsonline** | thunderbird_browser.py | LIVE — Playwright login |
 | **Amadeus** | thunderbird_flight_search.py | LIVE — Self-Service tier |
 | **MAGtap / Odysseus / TESS** | thunderbird_outside_agents.py | LIVE — CDP tools |
+| **CIA World Factbook** | thunderbird_worldfactbook.py | LIVE — no credentials needed |
+
+#### Tier 1 API Integrations — Built, Awaiting Credentials
+*Modules coded and registered as of 2026-03-18. Code-complete — Commander registers partner accounts to activate.*
+
+| Provider | Module | Credential File | Registration URL | Commission | Priority |
+|----------|--------|----------------|-----------------|------------|---------|
+| **Viator** | thunderbird_excursions.py | `viator_credentials.json` | travelagents.viator.com | 8–12% per booking | **URGENT** — McLeod Rome excursions were booked direct, missed commissions |
+| **GetYourGuide** | thunderbird_excursions.py | `getyourguide_credentials.json` | integrator.getyourguide.com | 8–12% per booking | **URGENT** — McLeod used GYG for all Rome excursions |
+| **Shore Excursions Group** | thunderbird_excursions.py | `shore_excursions_credentials.json` | shoreexcursionsgroup.com/agents | 8% per booking | HIGH — TESS integrated, cruise-specific |
+| **Welcome Pickups** | thunderbird_transfers.py | `welcome_pickups_credentials.json` | partner.welcomepickups.com | Commission per transfer | HIGH — 350+ Mediterranean/European cities, zero platform fee |
+| **Mozio** | thunderbird_transfers.py | `mozio_credentials.json` | webflow.mozio.com/travel-agents | Agent-set commission | HIGH — 3,000+ providers, 180 countries, zero cost |
+| **Blacklane** | thunderbird_transfers.py | `blacklane_credentials.json` | blacklane.com/en/travel-agencies/leisure/ | Commission-based | HIGH — Silversea clients already using; McLeod FCO transfer active |
+| **OpenTable** | thunderbird_opentable.py | `opentable_credentials.json` | dev.opentable.com (affiliate) | Per reservation | MEDIUM — deep-link works now; API search pending |
+| **Expedia TAAP** | thunderbird_expedia_taap.py | `expedia_credentials.json` | expediataap.com | Up to 13% hotel | MEDIUM — requires CLIA credentials (we have CLIA 00409065) |
+
+**Commander Action Required:** Register each partner program above. Each credential file is at `~/Thunderbird/[filename]` — paste API key into `"api_key": ""` field to activate that tool. No code changes needed.
+
+---
+
+#### Claude.ai Marketplace MCPs — Evaluated 2026-03-18
+*OAuth integrations at claude.ai Settings → Integrations. Available in claude.ai conversations. Evaluate each for standalone server/API installable on YOGA for Thunderbird OS automation.*
+
+| Service | Category | D2M Value | YOGA Path | Action |
+|---------|----------|-----------|-----------|--------|
+| **lastminute.com** ⭐ | Flight + Hotel GDS | Full aggregator — may replace Centrav browser automation. Dynamic packages (flight+hotel). | Research lmgroup.net Partner API | **Enable NOW in claude.ai. Test live flight search. Request Partner API for YOGA.** |
+| **Apify** ⭐ | Web Automation | 1000s of pre-built scrapers — Regent/Silversea/GYG actors may already exist | `@apify/actors-mcp-server` (npm — install on YOGA) | Install on YOGA + browse store for cruise line scrapers |
+| **Fever Event Discovery** | Activities/Events | Live events in every port city — gap between structured tours and local experiences | Research Fever Partner API | Enable in claude.ai; test port city event coverage |
+| **Trivago** | Hotel Intelligence | Real-time rate comparison vs. our TAAP quotes | Trivago Business API (evaluate) | Enable in claude.ai; use for client rate validation |
+| **TomTom Maps** | Maps/Navigation | Real-time traffic + routing for port city briefings (vs. static Google Maps) | TomTom Developer API / MCP server | Evaluate vs. Google Maps / Mapbox plan |
+| **DirectBooker** | Hotel Comparison | Compare + direct booking links; complements TAAP | Research standalone API | Enable in claude.ai for rate checks |
+| **SignWell** | E-Signature | Client service agreements + booking authorization forms | SignWell API available | Enable + create D2M authorization template |
+| **Calendly** | Scheduling | Dani/EXEC schedules discovery calls inside email replies | Calendly API available | Enable + create D2M 30-min discovery template |
+| **PDF by Anthropic** | Document Parsing | Superior booking confirmation + cruise doc extraction | N/A (claude.ai only) | **Enable NOW — zero cost, instant value** |
+| **Zapier** | Integration Bus | Connects 7,000+ apps — safety net for any gap | Zapier MCP server available | Enable as connector fallback |
+| **n8n** | Workflow Automation | Self-hosted visual workflows | ~~DECOMMISSIONED 2026-03-19~~ | Redundant with APScheduler. 4 workflows were inactive. Service stopped + disabled. Workflow JSONs kept in deploy/n8n/ for reference. |
+| **Canva** | Design | EXEC (Naia) tool — proposal visuals, social content | Active | Already available |
+
+**Highest-value immediate actions:** (1) Enable lastminute.com in claude.ai and test flight search. (2) Enable PDF by Anthropic — zero cost. (3) Install Apify on YOGA for scraper replacement.
 
 ---
 
@@ -1561,6 +1600,185 @@ The technology exists. The infrastructure is built. The personas are ready. Now 
 
 ---
 
-**Document Version:** 5.0 — Thunderbird Master Project Plan. Keeper: EXEC (Naia Solberg-Vega). v5.0 adds: Part 10 Phased Roadmap (March 2026) — 5 phases from tonight through Q2 2026, deferred items list, D2M email system (concierge@ + john@d2mluxury.quest + persona addresses), autonomous Trip Architect timeline, multi-model router, 11 subagents, 4 skills, agent teams. Previous: v4.5 Supplier & Tool Registry, Luna (A6) prioritized to Week 1. Backup: Google Drive (Doc ID: `18WjwXBuxeDpJl4VIspx9dOlTq9TNh3S4OGVoFCieSOw`).
+## PART 11: GRANT PROGRAM — THUNDERBIRD OS FUNDING STRATEGY
+
+*Added 2026-03-19 | Keeper: COS Hale*
+
+### Background
+Thunderbird OS qualifies for multiple federal, veteran, and state grant programs. SBIR/STTR programs were just reauthorized by Congress (Senate March 3, House March 17, 2026) after a lapse since October 1, 2025. **The preparation window is now.** NSF solicitations open April–May 2026. DoD/AFWERX opens March–April 2026.
+
+### Founder Grant Profile
+- **SDVOSB:** Qualifies — 60% service-connected disability (VA-verified)
+- **Commission:** USAF Academy (USAFA) — Colorado Springs, CO
+- **Entity:** Dreams2Memories Travel, LLC — Monument, CO (El Paso County)
+- **Equity:** Non-dilutive grants preferred; equity decisions deferred until post-SBIR, post-patent
+- **Hivers & Strivers:** NOT applicable — West Point (USMA) only
+
+### Grant Targets (Priority Order)
+
+| # | Program | Amount | Type | Window |
+|---|---------|--------|------|--------|
+| 1 | **NSF SBIR Phase I** (AI3/AI4 topics) | $305,000 | Non-dilutive | Opens Apr–May 2026 |
+| 2 | **AFWERX Open Topic Phase I** | $75,000–$110,000 | Non-dilutive | Opens Mar–Apr 2026 |
+| 3 | **Army SBIR AI/ML Open Topic (NLP)** | $150,000 | Non-dilutive | Opens Mar–Apr 2026 |
+| 4 | **Colorado OEDIT Advanced Industries** | $250,000 | Non-dilutive | Jan 2027 cycle |
+| 5 | **Second Service Foundation MEC** | $15K + $50K legal | Non-dilutive | Rolling/annual |
+| 6 | **IVMF Military Founders Lab** | Free cohort | Non-dilutive | April 20, 2026 cohort |
+| 7 | **Microsoft for Startups Founders Hub** | $150K credits | Non-dilutive | Anytime |
+| 8 | **Anthropic Partnership** | Credits + co-mktg | Strategic | Anytime |
+
+### Key SBIR Framing Principle
+D2M is an **AI software company that operates in travel** — never a "travel agency." This framing opens the entire SBIR/AI grant ecosystem. The Fort Carson / Colorado Springs geographic anchor provides dual-use language for DoD/AFWERX applications (military family travel coordination angle).
+
+### Supporting Documents
+- Full narrative + winning abstract draft: `Commander_Review/GRANT_NARRATIVE_THUNDERBIRD_OS_v2.md`
+- Google Drive backup: `Thunderbird_Knowledge_Base/GRANT_NARRATIVE_THUNDERBIRD_OS_v2.md`
+
+---
+
+### GRANT SUBMITTAL TIMELINE & COMMANDER PROMPTS
+
+*Batch coding sessions: 2X days, after noon*
+
+---
+
+#### PHASE 0 — REGISTRATIONS (This Week — No Coding Required)
+**Deadline: Before any SBIR can be submitted**
+
+| Action | Where | Time |
+|--------|-------|------|
+| SBA VetCert SDVOSB certification | veterans.certify.sba.gov | 12-day processing — start today |
+| SAM.gov registration | sam.gov | Required for all federal grants |
+| Grants.gov account + UEI number | grants.gov | Required 6–8 weeks before submission |
+| IVMF Military Founders Lab application | ivmf.syracuse.edu | Cohort starts April 20 — apply this week |
+| Contact Mt. Carmel VBOC | veteranscenter.org/vboc | Free SBIR counseling, Colorado Springs |
+
+**No Claude session needed for Phase 0 — these are manual registrations.**
+
+---
+
+#### PHASE 1 — AFWERX APPLICATION (Target: March 28–April 4, 2026)
+*Batch coding session: first 2X day after March 25*
+
+**Commander Prompt:**
+```
+Grant work session. AFWERX Open Topic Phase I application.
+Pull GRANT_NARRATIVE_THUNDERBIRD_OS_v2.md from Commander_Review.
+Draft the full AFWERX Phase I application package:
+- Technical Volume (10 pages max): novel AI architecture, authority-gradient personas, MCP deployment, SWITCHBLADE
+- Commercialization Volume (5 pages): white-label + SaaS paths, $1.9T market, FORA competitive gap
+- Dual-use narrative: military family travel coordination, Fort Carson / Peterson SFB angle
+- Executive Summary (1 page): the hook paragraph from Section 10 of the narrative
+Format per AFWERX Open Topic requirements. Use winning SBIR language from Section 7 of the narrative.
+```
+
+---
+
+#### PHASE 2 — NSF SBIR PHASE I (Target: April 15–May 15, 2026)
+*Batch coding session: first 2X day after NSF solicitation opens*
+
+**Commander Prompt:**
+```
+Grant work session. NSF SBIR Phase I application — AI3/AI4 topic.
+Pull GRANT_NARRATIVE_THUNDERBIRD_OS_v2.md from Commander_Review.
+Also pull the three-week COS assessment from Commander_Review.
+Draft the NSF SBIR Phase I application:
+- Project Summary (1 page): feasibility of AI agent coordination platform for luxury travel
+- Technical Narrative (15 pages): authority-gradient architecture, MCP deployment, SWITCHBLADE accuracy data, Phase I feasibility question and go/no-go criteria
+- Broader Impacts: democratizing luxury travel expertise, disabled veteran founder, scalable to 100+ advisors
+- Commercialization plan: three paths (white-label, SaaS, horizontal), TAM, Phase III pathway
+Use the winning abstract from Section 7 of the narrative as the Project Summary lead.
+```
+
+---
+
+#### PHASE 3 — ARMY SBIR AI/ML NLP TOPIC (Target: April 2026, parallel with NSF)
+*Can be batched in same session as NSF if solicitations align*
+
+**Commander Prompt:**
+```
+Grant work session. Army SBIR AI/ML Open Topic — NLP subtopic.
+Pull GRANT_NARRATIVE_THUNDERBIRD_OS_v2.md from Commander_Review.
+Draft the Army SBIR Phase I application tailored for NLP:
+- Reframe Dani as "autonomous NLP scheduling and logistics concierge"
+- Technical emphasis: multi-turn conversation management, intent classification (SWITCHBLADE), real-time inventory API integration
+- Dual-use angle: high-tempo operational scheduling, not just travel
+- Phase I feasibility: can NLP-based multi-agent system achieve human-equivalent accuracy in logistics coordination tasks?
+Keep under Army Phase I page limits. Adapt commercialization for DoD licensing pathway.
+```
+
+---
+
+#### PHASE 4 — SECOND SERVICE FOUNDATION PITCH (Target: May 2026)
+*One batch session — lighter lift than SBIR*
+
+**Commander Prompt:**
+```
+Grant work session. Second Service Foundation Military Entrepreneur Challenge pitch.
+Pull GRANT_NARRATIVE_THUNDERBIRD_OS_v2.md from Commander_Review.
+Build the competition pitch package:
+- 3-minute verbal pitch script (hook → problem → solution → traction → ask)
+- One-page executive summary for judges
+- 10-slide pitch deck outline (Thunderbird story: ELLA→EARA→TITAN→THUNDERBIRD, Dani deployments, revenue validation, commercialization)
+Tone: confident, veteran-authentic, narrative-forward. Lead with the disability/USAFA/10-weeks story. End with the $305K SBIR application already filed (assumes Phase 1 and 2 done by then).
+```
+
+---
+
+#### PHASE 5 — COLORADO OEDIT ADVANCED INDUSTRIES (Target: January 2027)
+*Prep session: October 2026*
+
+**Commander Prompt (October 2026):**
+```
+Grant work session. Colorado OEDIT Advanced Industries Early-Stage Capital Grant — January 2027 cycle.
+Pull the current GRANT_NARRATIVE from Commander_Review (get latest version).
+Confirm current status: SBIR award received? Patent filed? Matching funds secured?
+Draft the Colorado OEDIT application:
+- Project description: AI agent platform, Colorado-based, Advanced Industries sector
+- Commercialization plan: updated with any SBIR Phase II pathway
+- Matching funds documentation: federal SBIR award + any investor commitments
+- Economic impact: jobs created in El Paso County, Colorado Springs tech ecosystem
+Note: Matching funds are required. If no SBIR award yet, this phase cannot proceed until that's resolved.
+```
+
+---
+
+#### PHASE 6 — NSF SBIR PHASE II (Target: 6–12 months post Phase I award)
+*Brief when Phase I award letter received*
+
+**Commander Prompt (post-award):**
+```
+Grant work session. NSF SBIR Phase II application.
+Phase I award received: [paste award details].
+Build Phase II application:
+- Demonstrate Phase I feasibility achieved (pull validation data from Thunderbird systems)
+- Scale plan: move from single-agency proof-of-concept to multi-agency platform
+- Phase II technical objectives: white-label architecture, advisor onboarding system, client portal productization
+- Team expansion plan: what hires does $2M enable?
+- Phase III commercialization: first paying external customer, distribution partnership (Brownell/Virtuoso/Ensemble)
+```
+
+---
+
+### MILESTONE TRACKER
+
+| Milestone | Target | Status |
+|-----------|--------|--------|
+| SAM.gov + UEI registration | Mar 25, 2026 | ⬜ Pending |
+| SBA VetCert SDVOSB | Apr 2, 2026 | ⬜ Pending |
+| IVMF Founders Lab application | Mar 22, 2026 | ⬜ Pending |
+| Provisional patent filed | Apr 30, 2026 | ⬜ Pending |
+| AFWERX Phase I submitted | Apr 4, 2026 | ⬜ Pending |
+| NSF SBIR Phase I submitted | May 15, 2026 | ⬜ Pending |
+| Army SBIR NLP submitted | May 1, 2026 | ⬜ Pending |
+| Second Service Foundation pitch | May 2026 | ⬜ Pending |
+| Colorado OEDIT prep | Oct 2026 | ⬜ Future |
+| NSF SBIR Phase I award decision | Oct–Nov 2026 | ⬜ Future |
+| Colorado OEDIT submitted | Jan 2027 | ⬜ Future |
+| NSF SBIR Phase II submitted | 2027 | ⬜ Future |
+
+---
+
+**Document Version:** 6.0 — Thunderbird Master Project Plan. Keeper: EXEC (Naia Solberg-Vega). v6.0 adds: Part 11 Grant Program — full funding strategy, 8 grant targets, 6-phase submittal timeline with Commander prompts for each batch coding session. Previous: v5.0 Part 10 Phased Roadmap. Backup: Google Drive (Doc ID: `18WjwXBuxeDpJl4VIspx9dOlTq9TNh3S4OGVoFCieSOw`).
 **Prepared for:** Commander John "Yoda" Loucks
 **Classification:** THUNDERBIRD INTERNAL

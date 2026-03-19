@@ -532,59 +532,62 @@ def alert_commander(classification: dict, draft_id: Optional[str]):
     )
     _telegram_alert(tg_text)
 
-    # Email alert (detailed, for review)
-    try:
-        from thunderbird_gmail import _get_gmail_service
-        service = _get_gmail_service()
+    # Email alert DISABLED per Commander directive 2026-03-17.
+    # Concierge channel is client-facing only — no internal alerts from concierge@.
+    # Commander gets Telegram alert (above) + draft in Gmail with Commander-Review label.
+    if False:  # DISABLED — kept for reference
+        try:
+            from thunderbird_gmail import _get_gmail_service
+            service = _get_gmail_service()
 
-        from email.mime.text import MIMEText
-        import base64
+            from email.mime.text import MIMEText
+            import base64
 
-        urgency = "🔴 URGENT" if classification["is_urgent"] else "📬"
-        known = "Known client" if classification["is_known"] else "⚠ UNKNOWN SENDER"
-        friend = " (Friend Service)" if classification["is_friend_service"] else ""
-        draft_status = f"Draft waiting in Gmail drafts (ID: {draft_id})" if draft_id else "No draft created — Commander review required"
+            urgency = "🔴 URGENT" if classification["is_urgent"] else "📬"
+            known = "Known client" if classification["is_known"] else "⚠ UNKNOWN SENDER"
+            friend = " (Friend Service)" if classification["is_friend_service"] else ""
+            draft_status = f"Draft waiting in Gmail drafts (ID: {draft_id})" if draft_id else "No draft created — Commander review required"
 
-        body = (
-            f"{urgency} Concierge Email Received\n\n"
-            f"From: {classification['sender_name']} <{classification['sender_email']}>\n"
-            f"Status: {known}{friend}\n"
-            f"Party: {classification['party']}\n"
-            f"Booking: {classification['booking']}\n\n"
-            f"Subject: {classification['subject']}\n\n"
-            f"Preview:\n{classification['body_preview'][:300]}\n\n"
-            f"---\n"
-            f"{draft_status}\n"
-        )
-
-        subject_prefix = "🔴 URGENT: " if classification["is_urgent"] else ""
-        subject = f"{subject_prefix}Dani received email from {classification['sender_name']}"
-
-        msg = MIMEText(body, "plain")
-        msg["to"] = COMMANDER_EMAIL
-        msg["from"] = f'"Thunderbird Concierge Monitor" <{CONCIERGE_ADDR}>'
-        msg["subject"] = subject
-
-        raw = base64.urlsafe_b64encode(msg.as_bytes()).decode("utf-8")
-        service.users().messages().send(userId="me", body={"raw": raw}).execute()
-        log.info(f"Commander alerted: {classification['sender_email']}")
-
-        # SMS alert for urgent items
-        if classification["is_urgent"]:
-            sms_body = (
-                f"URGENT concierge email from {classification['sender_name']}. "
-                f"Subject: {classification['subject'][:50]}. Check Gmail drafts."
+            body = (
+                f"{urgency} Concierge Email Received\n\n"
+                f"From: {classification['sender_name']} <{classification['sender_email']}>\n"
+                f"Status: {known}{friend}\n"
+                f"Party: {classification['party']}\n"
+                f"Booking: {classification['booking']}\n\n"
+                f"Subject: {classification['subject']}\n\n"
+                f"Preview:\n{classification['body_preview'][:300]}\n\n"
+                f"---\n"
+                f"{draft_status}\n"
             )
-            sms_msg = MIMEText(sms_body, "plain")
-            sms_msg["to"] = COMMANDER_SMS
-            sms_msg["from"] = CONCIERGE_ADDR
-            sms_msg["subject"] = ""
-            raw_sms = base64.urlsafe_b64encode(sms_msg.as_bytes()).decode("utf-8")
-            service.users().messages().send(userId="me", body={"raw": raw_sms}).execute()
-            log.info(f"SMS alert sent for urgent email from {classification['sender_email']}")
 
-    except Exception as e:
-        log.error(f"Failed to alert Commander: {e}")
+            subject_prefix = "🔴 URGENT: " if classification["is_urgent"] else ""
+            subject = f"{subject_prefix}Dani received email from {classification['sender_name']}"
+
+            msg = MIMEText(body, "plain")
+            msg["to"] = COMMANDER_EMAIL
+            msg["from"] = f'"Thunderbird Concierge Monitor" <{CONCIERGE_ADDR}>'
+            msg["subject"] = subject
+
+            raw = base64.urlsafe_b64encode(msg.as_bytes()).decode("utf-8")
+            service.users().messages().send(userId="me", body={"raw": raw}).execute()
+            log.info(f"Commander alerted: {classification['sender_email']}")
+
+            # SMS alert for urgent items
+            if classification["is_urgent"]:
+                sms_body = (
+                    f"URGENT concierge email from {classification['sender_name']}. "
+                    f"Subject: {classification['subject'][:50]}. Check Gmail drafts."
+                )
+                sms_msg = MIMEText(sms_body, "plain")
+                sms_msg["to"] = COMMANDER_SMS
+                sms_msg["from"] = CONCIERGE_ADDR
+                sms_msg["subject"] = ""
+                raw_sms = base64.urlsafe_b64encode(sms_msg.as_bytes()).decode("utf-8")
+                service.users().messages().send(userId="me", body={"raw": raw_sms}).execute()
+                log.info(f"SMS alert sent for urgent email from {classification['sender_email']}")
+
+        except Exception as e:
+            log.error(f"Failed to alert Commander: {e}")
 
 
 # ══════════════════════════════════════════════════════════════
@@ -863,9 +866,8 @@ def process_commander_directive(message: dict) -> bool:
             f"Do NOT repeat the directive back verbatim. Summarize and act."
         )
 
-        # FIX 2026-03-16: Removed model_override="llama-3.3-70b-versatile"
-        # All personas now route through Opus via Max plan ($0).
-        result = call_persona("A3", prompt)
+        # Opus — client-facing concierge channel (Commander directive 2026-03-18)
+        result = call_persona("A3", prompt, model_override="opus")
         reply_text = result.get("answer", "") if isinstance(result, dict) else str(result)
 
     except Exception as e:
@@ -1142,6 +1144,127 @@ def poll_big_picture():
 
 
 # ══════════════════════════════════════════════════════════════
+# WING GMAIL REPLY LOOP
+# ══════════════════════════════════════════════════════════════
+
+WING_STATE_FILE = LOG_DIR / "wing_reply_state.json"
+
+# Keywords Commander can use in a Wing Gmail reply to approve a staged draft
+_APPROVAL_SIGNALS = re.compile(
+    r"\b(✅|send\s+it|approved?|ok\s+send|go\s+ahead|confirm(?:ed)?|yes\s+send)\b",
+    re.IGNORECASE,
+)
+
+
+def _load_wing_state() -> dict:
+    if WING_STATE_FILE.exists():
+        try:
+            return json.loads(WING_STATE_FILE.read_text())
+        except Exception:
+            pass
+    return {"processed_ids": [], "last_poll": None}
+
+
+def _save_wing_state(state: dict):
+    WING_STATE_FILE.write_text(json.dumps(state, indent=2))
+
+
+def poll_wing_replies() -> int:
+    """Poll d2mconcierge@gmail.com for Commander replies; route to Telegram.
+
+    For each unread message from a Commander address:
+      - Forward a Telegram alert to Commander with the reply content
+      - If the body contains an approval signal (✅ / "send it" / "approved"):
+          search for a matching staged draft and send it
+      - Mark as read and dedup via wing_reply_state.json
+
+    Returns number of replies processed.
+    """
+    try:
+        from thunderbird_gmail import gmail_check_wing_inbox, gmail_list_drafts_sync, gmail_send_draft_sync
+    except ImportError as e:
+        log.error(f"Wing poll: import failed — {e}")
+        return 0
+
+    state = _load_wing_state()
+    processed = 0
+
+    replies = gmail_check_wing_inbox(max_results=10, mark_read=True)
+    if not replies:
+        return 0
+
+    for msg in replies:
+        msg_id = msg["message_id"]
+        if msg_id in state["processed_ids"]:
+            continue
+        state["processed_ids"].append(msg_id)
+
+        subject = msg.get("subject", "(no subject)")
+        sender = msg.get("from", "Commander")
+        body_text = (msg.get("body") or msg.get("snippet", "")).strip()
+        date_str = msg.get("date", "")
+
+        log.info(f"Wing reply received — from: {sender}, subject: {subject}")
+
+        # ── Telegram alert ───────────────────────────────────────────────────
+        tg_lines = [
+            "📬 *WING GMAIL — COMMANDER REPLY*",
+            f"*From:* {sender}",
+            f"*Subject:* {subject}",
+            f"*Date:* {date_str}",
+            "",
+            body_text[:800] + ("…" if len(body_text) > 800 else ""),
+        ]
+        _telegram_alert("\n".join(tg_lines))
+
+        # ── Approval flow ────────────────────────────────────────────────────
+        if _APPROVAL_SIGNALS.search(body_text):
+            log.info(f"Wing reply: approval signal detected in reply to '{subject}'")
+
+            # Try to match subject to a staged draft
+            # Strip "Re: " prefix to find the original subject
+            orig_subject = re.sub(r"^(Re:\s*)+", "", subject, flags=re.IGNORECASE).strip()
+
+            try:
+                drafts = gmail_list_drafts_sync(max_results=30)
+                match = next(
+                    (d for d in drafts if orig_subject.lower() in d.get("subject", "").lower()),
+                    None,
+                )
+                if match:
+                    result = gmail_send_draft_sync(match["draft_id"])
+                    if result.get("status") == "success":
+                        log.info(f"Wing approval: draft sent — {match['subject']}")
+                        _telegram_alert(
+                            f"✅ *WING APPROVAL EXECUTED*\n"
+                            f"Draft sent: *{match['subject']}*\n"
+                            f"Message ID: `{result.get('message_id', '?')}`"
+                        )
+                    else:
+                        log.warning(f"Wing approval: draft send failed — {result}")
+                        _telegram_alert(
+                            f"⚠️ *WING APPROVAL FAILED*\n"
+                            f"Could not send draft for: *{orig_subject}*\n"
+                            f"Error: {result.get('error', 'unknown')}"
+                        )
+                else:
+                    log.info(f"Wing approval: no matching draft found for '{orig_subject}'")
+                    _telegram_alert(
+                        f"ℹ️ *WING APPROVAL — NO DRAFT FOUND*\n"
+                        f"Approval received for: *{orig_subject}*\n"
+                        f"No matching staged draft. May have already been sent."
+                    )
+            except Exception as e:
+                log.error(f"Wing approval flow failed: {e}")
+                _telegram_alert(f"⚠️ Wing approval error: {e}")
+
+        processed += 1
+
+    _save_wing_state(state)
+    return processed
+
+
+# ══════════════════════════════════════════════════════════════
 # SCHEDULER INTEGRATION
 # ══════════════════════════════════════════════════════════════
 
@@ -1150,10 +1273,13 @@ async def job_concierge_monitor():
     log.info("Concierge monitor poll starting")
     count = poll_once()
     cmd_count = poll_commander_directives()
+    wing_count = poll_wing_replies()
     if count:
         log.info(f"Processed {count} concierge email(s)")
     if cmd_count:
         log.info(f"Processed {cmd_count} Commander directive(s)")
+    if wing_count:
+        log.info(f"Processed {wing_count} Wing reply(ies)")
 
 
 # ══════════════════════════════════════════════════════════════
@@ -1164,10 +1290,14 @@ if __name__ == "__main__":
     if "--poll" in sys.argv:
         count = poll_once()
         cmd_count = poll_commander_directives()
-        print(f"Processed {count} client message(s), {cmd_count} Commander directive(s)")
+        wing_count = poll_wing_replies()
+        print(f"Processed {count} client message(s), {cmd_count} Commander directive(s), {wing_count} Wing reply(ies)")
     elif "--commander" in sys.argv:
         count = poll_commander_directives()
         print(f"Processed {count} Commander directive(s)")
+    elif "--wing" in sys.argv:
+        count = poll_wing_replies()
+        print(f"Processed {count} Wing reply(ies)")
     elif "--big-picture" in sys.argv:
         poll_big_picture()
     elif "--status" in sys.argv:

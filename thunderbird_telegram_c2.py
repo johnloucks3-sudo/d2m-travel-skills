@@ -173,6 +173,46 @@ def _log_command(cmd_type: str, target: str, query: str, response: str,
         logger.error(f"C2 log failed: {e}")
 
 # ---------------------------------------------------------------------------
+# Typing heartbeat — keeps "typing..." indicator alive during long ops
+# ---------------------------------------------------------------------------
+
+async def _typing_heartbeat(update: Update, stop_event: asyncio.Event) -> None:
+    """Send typing action every 4s until stop_event fires.
+
+    Telegram's typing indicator expires after ~5s. For ops that take 30-120s,
+    this keeps Commander informed that work is in progress.
+    """
+    while not stop_event.is_set():
+        try:
+            await update.message.chat.send_action(ChatAction.TYPING)
+        except Exception:
+            pass
+        try:
+            await asyncio.wait_for(stop_event.wait(), timeout=4.0)
+        except asyncio.TimeoutError:
+            pass  # Normal — 4s elapsed, loop and send typing again
+
+
+async def _run_with_typing(update: Update, coro_or_callable, loop=None):
+    """Run a blocking callable in executor while keeping typing indicator alive.
+
+    Returns the result of the callable.
+    """
+    stop_typing = asyncio.Event()
+    typing_task = asyncio.create_task(_typing_heartbeat(update, stop_typing))
+    _loop = loop or asyncio.get_event_loop()
+    try:
+        result = await _loop.run_in_executor(None, coro_or_callable)
+        return result
+    finally:
+        stop_typing.set()
+        try:
+            await asyncio.wait_for(typing_task, timeout=0.5)
+        except (asyncio.TimeoutError, asyncio.CancelledError):
+            pass
+
+
+# ---------------------------------------------------------------------------
 # Message sending helper
 # ---------------------------------------------------------------------------
 
@@ -249,13 +289,9 @@ async def cmd_help(update: Update, context: ContextTypes.DEFAULT_TYPE):
 @commander_only
 async def cmd_sitrep(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Quick status report — COS assembles from all sources."""
-    await update.message.chat.send_action(ChatAction.TYPING)
     query = "SITREP: Give me a quick status on all active bookings, pending actions, and system health."
-
     loop = asyncio.get_event_loop()
-    answer = await loop.run_in_executor(
-        None, lambda: call_cos_with_tools(query)
-    )
+    answer = await _run_with_typing(update, lambda: call_cos_with_tools(query), loop)
 
     _log_command("SITREP", "COS", query, answer)
     header = format_persona_header("COS")
@@ -273,7 +309,6 @@ async def cmd_staff(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
         return
 
-    await update.message.chat.send_action(ChatAction.TYPING)
     logger.info(f"Staff meeting via C2: {query}")
 
     staff_query = (
@@ -283,9 +318,7 @@ async def cmd_staff(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
 
     loop = asyncio.get_event_loop()
-    answer = await loop.run_in_executor(
-        None, lambda: call_cos_with_tools(staff_query)
-    )
+    answer = await _run_with_typing(update, lambda: call_cos_with_tools(staff_query), loop)
 
     _log_command("TASK", "STAFF", query, answer)
     header = format_persona_header("COS")
@@ -318,15 +351,14 @@ async def cmd_persona(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await update.message.reply_text(f"Usage: /{command} <your message>")
         return
 
-    await update.message.chat.send_action(ChatAction.TYPING)
     logger.info(f"C2 persona {persona_id}: {query}")
 
     user_id = update.effective_user.id
     _add_to_history(user_id, "user", f"[/{command}] {query}")
 
     loop = asyncio.get_event_loop()
-    answer = await loop.run_in_executor(
-        None, lambda: call_cos_via_cli(query, persona=persona_id, intent_type="TASK")
+    answer = await _run_with_typing(
+        update, lambda: call_cos_via_cli(query, persona=persona_id, intent_type="TASK"), loop
     )
 
     _add_to_history(user_id, "assistant", answer)
@@ -344,7 +376,8 @@ async def handle_plain_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
 
     user_id = update.effective_user.id
-    await update.message.chat.send_action(ChatAction.TYPING)
+    # Immediate ACK so Commander knows we received the message
+    ack_msg = await update.message.reply_text("⚙️ _Working..._", parse_mode=ParseMode.MARKDOWN)
     _add_to_history(user_id, "user", query)
 
     logger.info(f"C2 Commander msg -> COS (Opus): {query}")
@@ -354,18 +387,24 @@ async def handle_plain_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     loop = asyncio.get_event_loop()
     try:
-        answer = await loop.run_in_executor(
-            None, lambda: call_cos_with_tools(query, conv_hist or None)
+        answer = await _run_with_typing(
+            update, lambda: call_cos_with_tools(query, conv_hist or None), loop
         )
     except Exception as e:
         logger.error(f"C2 Opus call failed: {e}")
         answer = f"C2 error: {e}\n\nFalling back..."
         try:
-            answer = await loop.run_in_executor(
-                None, lambda: call_cos_via_cli(query, intent_type="TASK")
+            answer = await _run_with_typing(
+                update, lambda: call_cos_via_cli(query, intent_type="TASK"), loop
             )
         except Exception as e2:
             answer = f"Both SDK and CLI failed.\nSDK: {e}\nCLI: {e2}"
+
+    # Delete the ACK message now that we have the real answer
+    try:
+        await ack_msg.delete()
+    except Exception:
+        pass
 
     _add_to_history(user_id, "assistant", answer)
     _log_command("TASK", "COS", query, answer)
@@ -385,12 +424,10 @@ async def error_handler(update: object, context: ContextTypes.DEFAULT_TYPE):
 @commander_only
 async def cmd_drafts(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """List pending Gmail drafts with approve/reject buttons."""
-    await update.message.chat.send_action(ChatAction.TYPING)
-
     loop = asyncio.get_event_loop()
     try:
         from thunderbird_gmail import gmail_list_drafts_sync
-        drafts = await loop.run_in_executor(None, lambda: gmail_list_drafts_sync(10))
+        drafts = await _run_with_typing(update, lambda: gmail_list_drafts_sync(10), loop)
     except Exception as e:
         await update.message.reply_text(f"Failed to fetch drafts: {e}")
         return
@@ -406,15 +443,22 @@ async def cmd_drafts(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     for d in drafts[:5]:  # Show top 5
         draft_id = d.get("draft_id", "?")
+        message_id = d.get("message_id", "")
         to = d.get("To", "?")
         subject = d.get("Subject", "(no subject)")
         snippet = d.get("snippet", "")[:150]
+
+        # Gmail deep link for viewing/editing in browser
+        gmail_link = ""
+        if message_id:
+            gmail_link = f"\n[Open in Gmail](https://mail.google.com/mail/u/0/#drafts?compose={message_id})"
 
         text = (
             f"📧 *Draft*\n"
             f"*To:* {to}\n"
             f"*Subject:* {subject}\n"
             f"_{snippet}_"
+            f"{gmail_link}"
         )
 
         keyboard = [
@@ -426,6 +470,11 @@ async def cmd_drafts(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 InlineKeyboardButton("❌ Reject & Delete", callback_data=f"draft_reject:{draft_id}"),
             ],
         ]
+        # Add "Edit in Gmail" button if we have a message_id for the deep link
+        if message_id:
+            keyboard[1].append(
+                InlineKeyboardButton("📝 Edit in Gmail", url=f"https://mail.google.com/mail/u/0/#drafts?compose={message_id}")
+            )
 
         try:
             await update.message.reply_text(
@@ -475,12 +524,20 @@ async def handle_draft_callback(update: Update, context: ContextTypes.DEFAULT_TY
             from thunderbird_gmail import gmail_get_draft_sync
             draft = await loop.run_in_executor(None, lambda: gmail_get_draft_sync(draft_id))
             body_text = draft.get('body_full') or draft.get('body_preview', '(empty)')
+            message_id = draft.get('message_id', '')
+
+            # Gmail deep link for viewing/editing in browser
+            gmail_link = ""
+            if message_id:
+                gmail_link = f"\n[Open in Gmail](https://mail.google.com/mail/u/0/#drafts?compose={message_id})\n"
+
             header = (
                 f"📧 *Full Draft Preview*\n"
                 f"{'━' * 28}\n"
                 f"*From:* {draft.get('from', '?')}\n"
                 f"*To:* {draft.get('to', '?')}\n"
-                f"*Subject:* {draft.get('subject', '?')}\n\n"
+                f"*Subject:* {draft.get('subject', '?')}\n"
+                f"{gmail_link}\n"
             )
 
             keyboard = [
@@ -489,6 +546,11 @@ async def handle_draft_callback(update: Update, context: ContextTypes.DEFAULT_TY
                     InlineKeyboardButton("❌ Reject", callback_data=f"draft_reject:{draft_id}"),
                 ],
             ]
+            # Add "Edit in Gmail" button if we have a message_id for the deep link
+            if message_id:
+                keyboard.append([
+                    InlineKeyboardButton("📝 Edit in Gmail", url=f"https://mail.google.com/mail/u/0/#drafts?compose={message_id}"),
+                ])
 
             # Split long drafts across multiple messages, attach buttons to the last one
             full_text = header + body_text

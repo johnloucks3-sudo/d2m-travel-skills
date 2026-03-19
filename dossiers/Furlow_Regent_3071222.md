@@ -9,14 +9,15 @@
 - **Total Booking Amount:** $19,236.00
 - **Paid to Date:** $3,750.00
 - **Balance Due:** $15,486.00 (Apr 1, 2026)
-- **Guest Registration:** John Furlow COMPLETE, **Melissa Furlow NOT COMPLETE**
+- **Guest Registration:** John Furlow COMPLETE, **Melissa Furlow COMPLETE** ✓ (confirmed Mar 18, 2026)
 - **Deposit Received:** Sep 15, 2025
 - **Excursions open since:** Jan 31, 2026
 - **Dining reservations open:** May 31, 2026 (8pm ET)
 - **Culinary Arts Kitchen Classes open:** May 1, 2026 (8pm ET)
 - **Online Check-in:** Aug 8, 2026
 
-**⚠️ ACTION: Melissa needs to complete Guest Registration & Ticket Contract**
+**✓ RESOLVED: Both guests fully registered in Regent portal (confirmed Mar 18)**
+**⚠️ OPEN: Travel insurance — not booked. COS to track; do not lead with in client-facing comms.**
 
 ### KEY DATES
 | Date | Milestone |
@@ -129,4 +130,5 @@ All included (Regent Choice — $0.00). Both guests on all excursions.
 4. [ ] Process final payment $15,486 by Apr 1
 5. [x] Haymarket hotel pre-night confirmed — Bedsonline 131-2656351
 6. [x] Bedsonline transfer and hotel bookings in place
-7. [ ] **⚠️ Melissa Furlow must complete Guest Registration & Ticket Contract** (John's is done)
+7. [x] ~~Melissa Furlow Guest Registration~~ — **COMPLETE** (confirmed Mar 18)
+8. [ ] Travel insurance — not yet booked. COS tracking only, do not raise in client email.

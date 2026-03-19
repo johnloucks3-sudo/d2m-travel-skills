@@ -56,6 +56,14 @@ from thunderbird_crewai import register_crewai_tools
 from thunderbird_a2a import register_a2a_tools
 from thunderbird_airline_monitor import register_airline_monitor_tools
 from thunderbird_intel_crew import register_intel_crew_tools
+from thunderbird_tasks import register_tasks_tools
+from thunderbird_files_api import register_files_api_tools
+from thunderbird_skills_api import register_skills_tools
+from thunderbird_excursions import register_excursion_tools
+from thunderbird_transfers import register_transfer_tools
+from thunderbird_opentable import register_opentable_tools
+from thunderbird_expedia_taap import register_taap_tools
+from thunderbird_worldfactbook import register_worldfactbook_tools
 import json
 import logging
 import asyncio
@@ -454,6 +462,14 @@ register_crewai_tools(mcp)
 register_a2a_tools(mcp)
 register_airline_monitor_tools(mcp)
 register_intel_crew_tools(mcp)
+register_tasks_tools(mcp)
+register_files_api_tools(mcp)
+register_skills_tools(mcp)
+register_excursion_tools(mcp)
+register_transfer_tools(mcp)
+register_opentable_tools(mcp)
+register_taap_tools(mcp)
+register_worldfactbook_tools(mcp)
 
 # ============================================================================
 # SHELL EXEC TOOL

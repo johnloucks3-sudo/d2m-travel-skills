@@ -375,6 +375,8 @@ def sync_anchors_to_calendar(anchors: list[dict], booking_label: str = "") -> di
             "start": {"date": adate.isoformat()},
             "end": {"date": (adate + timedelta(days=1)).isoformat()},
             "colorId": color_map.get(anchor["category"], "8"),
+            "transparency": "transparent",  # Show as "Free" — reminders, not meetings
+            "conferenceData": None,  # Explicitly suppress Google Meet link
             "reminders": {
                 "useDefault": False,
                 "overrides": reminder_overrides[:5],  # Calendar API max 5 reminders

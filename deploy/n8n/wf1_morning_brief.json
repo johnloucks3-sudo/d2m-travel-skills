@@ -1,0 +1,81 @@
+{
+  "name": "D2M — Morning Brief",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [{"field": "cronExpression", "expression": "0 13 * * 1-5"}]
+        }
+      },
+      "id": "a1b2c3d4-0001-4000-8000-000000000001",
+      "name": "Schedule — 7AM MDT",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.d2mluxury.quest/api/tool/run_world_intelligence_sweep",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [{"name": "x-api-key", "value": "***REMOVED-SECRET***"}]
+        },
+        "options": {"timeout": 120000}
+      },
+      "id": "a1b2c3d4-0002-4000-8000-000000000002",
+      "name": "World Intel",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.d2mluxury.quest/api/tool/run_ship_intelligence_sweep",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [{"name": "x-api-key", "value": "***REMOVED-SECRET***"}]
+        },
+        "options": {"timeout": 120000}
+      },
+      "id": "a1b2c3d4-0003-4000-8000-000000000003",
+      "name": "Ship Intel",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [700, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const world = $('World Intel').item.json;\nconst ship = $('Ship Intel').item.json;\nconst ts = new Date().toLocaleString('en-US', {timeZone: 'America/Denver', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'});\n\n// Extract from nested .data if present\nconst wData = world.data || world;\nconst sData = ship.data || ship;\n\n// World Intel — format stats + top alerts\nlet wText = '';\nif (wData.news_articles !== undefined) {\n  wText = `${wData.news_articles} articles · ${wData.urgent_news || 0} urgent`;\n  if (wData.travel_advisories_total > 0) wText += ` · ${wData.travel_advisories_total} advisories`;\n  if (wData.weather_alerts > 0) wText += ` · ${wData.weather_alerts} weather alerts`;\n  const alerts = wData.top_alerts || [];\n  if (alerts.length) wText += '\\n' + alerts.slice(0,3).map(a => `• ${a}`).join('\\n');\n} else {\n  wText = wData.summary || wData.result || wData.message || JSON.stringify(wData).slice(0,500);\n}\n\n// Ship Intel — format stats\nlet sText = '';\nif (sData.voyages_scraped !== undefined) {\n  sText = `${sData.cruise_lines_monitored || 'Cruise lines'} · ${sData.voyages_scraped} voyages · ${sData.pricing_alerts || 0} price alerts · ${sData.availability_alerts || 0} availability alerts`;\n} else {\n  sText = sData.summary || sData.result || sData.message || JSON.stringify(sData).slice(0,500);\n}\n\nconst msg = `*D2M Morning Brief — ${ts}*\\n\\n*World Intel*\\n${wText}\\n\\n*Ship Intel*\\n${sText}`;\nreturn [{ json: { message: msg } }];"
+      },
+      "id": "a1b2c3d4-0004-4000-8000-000000000004",
+      "name": "Format Brief",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [940, 300]
+    },
+    {
+      "parameters": {
+        "chatId": "7554895206",
+        "text": "={{ $json.message }}",
+        "additionalFields": {"parse_mode": "Markdown"}
+      },
+      "id": "a1b2c3d4-0005-4000-8000-000000000005",
+      "name": "Telegram — Commander",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [1180, 300],
+      "credentials": {"telegramApi": {"id": "1", "name": "Telegram D2M Bot"}}
+    }
+  ],
+  "connections": {
+    "Schedule — 7AM MDT": {"main": [[{"node": "World Intel", "type": "main", "index": 0}]]},
+    "World Intel": {"main": [[{"node": "Ship Intel", "type": "main", "index": 0}]]},
+    "Ship Intel": {"main": [[{"node": "Format Brief", "type": "main", "index": 0}]]},
+    "Format Brief": {"main": [[{"node": "Telegram — Commander", "type": "main", "index": 0}]]}
+  },
+  "active": false,
+  "settings": {"executionOrder": "v1"},
+  "tags": ["d2m", "intel", "morning"]
+}

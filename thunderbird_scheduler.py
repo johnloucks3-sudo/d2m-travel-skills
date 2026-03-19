@@ -1208,8 +1208,9 @@ def build_scheduler() -> AsyncIOScheduler:
     #              payment_alerts, followup_scan, world_intel (AM), ship_intel (AM)
     #    Now also collects Claude Opus persona results (submitted at 0600).
     scheduler.add_job(consolidated_morning_brief,
-                      CronTrigger(hour=6, minute=30, timezone=TZ),
-                      id="morning_brief", name="Morning Brief (0630)")
+                      CronTrigger(hour=6, minute=31, timezone=TZ),
+                      id="morning_brief", name="Morning Brief (0631)",
+                      misfire_grace_time=300)
 
     # 2. Midday Pulse: 12:00PM daily
     #    Replaces: email_classifier (was every 15min), payment recheck, followup recheck

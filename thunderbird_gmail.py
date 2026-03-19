@@ -9,7 +9,7 @@ Extends the travel MCP server with Gmail operations:
 - List drafts
 - Create drafts (never auto-send for safety)
 
-Uses OAuth 2.0 Desktop flow for personal Gmail (johnloucks3@gmail.com).
+Uses OAuth 2.0 Desktop flow for D2M ops Gmail (d2mconcierge@gmail.com).
 First run requires browser authorization; refresh token is saved for
 all subsequent runs.
 
@@ -44,10 +44,34 @@ OAUTH_CREDENTIALS_FILE = THUNDERBIRD_DIR / "gmail_oauth_credentials.json"
 TOKEN_FILE = THUNDERBIRD_DIR / "gmail_token.json"
 EMAIL_SENT_LOG = THUNDERBIRD_DIR / "logs" / "email_sent.log"
 SCOPES = ["https://www.googleapis.com/auth/gmail.modify"]
-USER_EMAIL = "johnloucks3@gmail.com"
+USER_EMAIL = "d2mconcierge@gmail.com"
 D2M_FROM_ADDRESS = "concierge@d2mluxury.quest"
 COMMANDER_D2M_EMAIL = "john@d2mluxury.quest"
-COMMANDER_EMAIL = "johnloucks3@gmail.com"
+COMMANDER_EMAIL = "d2mconcierge@gmail.com"  # Commander directive 2026-03-19: d2mconcierge is sole D2M ops Gmail
+
+# ── D2M Ops Gmail (d2mconcierge@gmail.com) ───────────────────────────────────
+# PRIMARY D2M ops account — Commander directive 2026-03-19.
+# ALL drafts, reads, sends, and label ops happen here.
+# johnloucks3 is personal only — not D2M ops.
+# COS → Commander stays on Telegram (per Commander directive 2026-03-18).
+WING_GMAIL_ADDRESS = "d2mconcierge@gmail.com"
+
+def _get_wing_gmail_service():
+    """Return Gmail service authenticated as the Wing persona account."""
+    try:
+        from thunderbird_google_auth import get_persona_gmail
+        return get_persona_gmail()
+    except Exception as e:
+        raise RuntimeError(f"Wing Gmail not available: {e}. Run --authorize-persona.")
+
+# All Commander-owned addresses — sends here are auto-authorized, no draft staging needed.
+# Commander directive 2026-03-18: "SENDING TO ME FROM D2M CONCIERGE OR D2M STAFF IS AUTHORIZED"
+COMMANDER_ADDRS = {
+    "johnloucks3@gmail.com",
+    "johnloucks75@gmail.com",
+    "concierge@d2mluxury.quest",
+    "john@d2mluxury.quest",
+}
 
 # Persona display names for Send As support
 PERSONA_DISPLAY_NAMES = {
@@ -232,6 +256,11 @@ def _wrap_body_html(plain_text: str) -> str:
       - Gold top-rule accent, subtle box-shadow for depth
       - Bright blue ink (#0000ff), Georgia serif, 1.6 line-height, 640px max-width
     """
+    # If caller already passed a full HTML document, use it directly — don't double-wrap.
+    stripped = plain_text.strip()
+    if stripped.lower().startswith("<!doctype") or stripped.lower().startswith("<html"):
+        return plain_text
+
     import html as html_mod
     escaped = html_mod.escape(plain_text)
     html_body = escaped.replace('\n', '<br>\n')
@@ -702,14 +731,26 @@ def register_gmail_tools(mcp):
             None,
             description="Message ID to reply to (threads the conversation)",
         ),
+        commander_approved: bool = Field(
+            False,
+            description="WF17 APPROVAL GATE: Set True ONLY when the Commander has explicitly "
+                        "approved this send via Telegram /drafts flow or direct order. "
+                        "When False (default), email is saved as a draft for Commander review.",
+        ),
     ) -> str:
-        """Send an email directly via Gmail API — no draft stage.
+        """Send an email via Gmail — subject to WF17 approval gate.
 
-        Dani's primary send channel. Composes and sends in one call.
+        DEFAULT BEHAVIOR: Creates a draft, applies THUNDERBIRD-Commander-Review label,
+        and returns draft_id for Commander review via Telegram. Does NOT send.
+
+        ONLY when commander_approved=True does this send immediately. That flag
+        should be set exclusively when:
+          - Commander explicitly orders "send this now" via Telegram or CLI
+          - Commander approves a draft via the /drafts Telegram approval flow
+          - An internal-only email (staff, not client-facing)
+
         Uses D2M persona display names and concierge@d2mluxury.quest as From address.
         Reply-To is always set to johnloucks3@gmail.com so client replies reach the Commander.
-
-        IMPORTANT: This sends immediately. Use gmail_create_draft if Commander review is needed first.
         """
         try:
             service = _get_gmail_service()
@@ -740,7 +781,7 @@ def register_gmail_tools(mcp):
                 message["bcc"] = bcc
 
             # Thread support — reply to existing conversation
-            send_body = {}
+            thread_id_for_msg = ""
             if reply_to_message_id:
                 try:
                     orig = (
@@ -754,12 +795,59 @@ def register_gmail_tools(mcp):
                     if orig_headers.get("Message-ID"):
                         message["In-Reply-To"] = orig_headers["Message-ID"]
                         message["References"] = orig_headers["Message-ID"]
-                    send_body["threadId"] = orig.get("threadId", "")
+                    thread_id_for_msg = orig.get("threadId", "")
                 except Exception as thread_err:
                     logger.warning(f"Could not thread reply: {thread_err}")
 
             raw = base64.urlsafe_b64encode(message.as_bytes()).decode("utf-8")
-            send_body["raw"] = raw
+
+            # ── WF17 APPROVAL GATE ──────────────────────────────────────
+            # DEFAULT: stage as draft → label → notify Commander
+            # OVERRIDE: commander_approved=True → send immediately
+            if not commander_approved:
+                logger.info(f"WF17 GATE: staging draft for Commander review — to={to} subj={subject[:60]}")
+                draft_body = {"message": {"raw": raw}}
+                if thread_id_for_msg:
+                    draft_body["message"]["threadId"] = thread_id_for_msg
+
+                draft = (
+                    service.users()
+                    .drafts()
+                    .create(userId="me", body=draft_body)
+                    .execute()
+                )
+                draft_id = draft.get("id", "unknown")
+
+                # Tag with THUNDERBIRD-Commander-Review label
+                try:
+                    draft_msg_id = draft.get("message", {}).get("id")
+                    if draft_msg_id:
+                        _tag_commander_review(service, draft_msg_id)
+                except Exception as e:
+                    logger.warning(f"Failed to tag draft with review label: {e}")
+
+                pid_used = (from_persona or "CONCIERGE").upper()
+                _log_email_action(
+                    to=to, subject=subject,
+                    persona_id=pid_used, auto_send=False, ref_id=draft_id,
+                )
+
+                return json.dumps({
+                    "status": "success",
+                    "action": "draft_created",
+                    "draft_id": draft_id,
+                    "from_persona": pid_used,
+                    "from_display": PERSONA_DISPLAY_NAMES.get(pid_used, "D2M Concierge"),
+                    "to": to,
+                    "subject": subject,
+                    "note": "WF17: Draft staged for Commander review. NOT sent. "
+                            "Commander must approve via Telegram /drafts flow.",
+                }, indent=2)
+
+            # ── COMMANDER APPROVED — send immediately ───────────────────
+            send_body = {"raw": raw}
+            if thread_id_for_msg:
+                send_body["threadId"] = thread_id_for_msg
 
             sent = (
                 service.users()
@@ -785,6 +873,7 @@ def register_gmail_tools(mcp):
                 "to": to,
                 "subject": subject,
                 "labels": sent.get("labelIds", []),
+                "note": "Commander-approved send.",
             }, indent=2)
 
         except HttpError as e:
@@ -841,11 +930,18 @@ def register_gmail_tools(mcp):
             updated["subject"] = subject if subject else headers.get("Subject", "")
 
             # Use new body if provided, otherwise keep existing
+            # Always attach both plain + HTML (stationery) for consistency
             if body:
-                updated.attach(MIMEText(body, "plain"))
+                alt = MIMEMultipart("alternative")
+                alt.attach(MIMEText(body, "plain"))
+                alt.attach(MIMEText(_wrap_body_html(body), "html"))
+                updated.attach(alt)
             else:
                 existing_body = _decode_body(payload)
-                updated.attach(MIMEText(existing_body, "plain"))
+                alt = MIMEMultipart("alternative")
+                alt.attach(MIMEText(existing_body, "plain"))
+                alt.attach(MIMEText(_wrap_body_html(existing_body), "html"))
+                updated.attach(alt)
 
             raw = base64.urlsafe_b64encode(updated.as_bytes()).decode("utf-8")
             draft_body = {"message": {"raw": raw}}
@@ -917,17 +1013,19 @@ def register_gmail_tools(mcp):
         persona_id: str = Field("CONCIERGE", description="Persona ID: COS, EXEC, A2, A3, A5, A6, A9, A10, CH, A12, D2M, CONCIERGE"),
         cc: Optional[str] = Field(None, description="CC recipients (comma-separated)"),
     ) -> str:
-        """Send an email as a D2M persona via concierge@d2mluxury.quest.
+        """WF17 APPROVAL GATE — stages email for Commander approval. Never sends directly.
 
-        Uses Gmail Send As to send from the persona display name.
-        Reply-To is set to johnloucks3@gmail.com so all replies go to the Commander.
-        WARNING: This SENDS immediately — use draft_client_email for Commander review.
+        Creates a Gmail draft, tags it THUNDERBIRD-Commander-Review, and immediately
+        pushes a Telegram notification to Commander with Preview / Approve & Send / Reject buttons.
+        The only path to actual sending is Commander pressing ✅ Approve in Telegram or /drafts.
+
+        Use this for ALL client-facing emails. There is no bypass.
         """
         return await _send_or_draft_as_persona(
             service=_get_gmail_service(),
             to=to, subject=subject, body=body,
             persona_id=persona_id, cc=cc,
-            auto_send=True,
+            auto_send=False,   # WF17 hard gate — no model call can override this
         )
 
     @mcp.tool(
@@ -954,7 +1052,132 @@ def register_gmail_tools(mcp):
             auto_send=False,
         )
 
-    logger.info("Gmail tools registered successfully (including Send As persona tools)")
+    # ── Email Management Tools (label/thread operations) ──
+
+    @mcp.tool(
+        name="gmail_create_label",
+        annotations={"title": "Create Gmail Label", "readOnlyHint": False},
+    )
+    @_retry_on_error
+    async def gmail_create_label(
+        name: str = Field(..., description="Label name (use '/' for nesting, e.g. 'D2M/Clients')"),
+    ) -> str:
+        """Create a new Gmail label. Supports nested labels with '/' separator."""
+        try:
+            service = _get_gmail_service()
+            # Check if already exists
+            results = service.users().labels().list(userId="me").execute()
+            for label in results.get("labels", []):
+                if label["name"] == name:
+                    return json.dumps({"status": "exists", "label_id": label["id"], "name": name})
+            body = {
+                "name": name,
+                "messageListVisibility": "show",
+                "labelListVisibility": "labelShow",
+            }
+            created = service.users().labels().create(userId="me", body=body).execute()
+            return json.dumps({"status": "created", "label_id": created["id"], "name": name})
+        except HttpError as e:
+            return json.dumps({"status": "error", "error": str(e)})
+
+    @mcp.tool(
+        name="gmail_delete_label",
+        annotations={"title": "Delete Gmail Label", "readOnlyHint": False},
+    )
+    @_retry_on_error
+    async def gmail_delete_label(
+        label_id: str = Field(..., description="Label ID to delete (from gmail_list_labels)"),
+    ) -> str:
+        """Delete a Gmail label. Does NOT delete messages — just removes the label."""
+        try:
+            service = _get_gmail_service()
+            service.users().labels().delete(userId="me", id=label_id).execute()
+            return json.dumps({"status": "deleted", "label_id": label_id})
+        except HttpError as e:
+            return json.dumps({"status": "error", "error": str(e)})
+
+    @mcp.tool(
+        name="gmail_modify_message",
+        annotations={"title": "Modify Gmail Message Labels", "readOnlyHint": False},
+    )
+    @_retry_on_error
+    async def gmail_modify_message(
+        message_id: str = Field(..., description="Gmail message ID"),
+        add_labels: Optional[str] = Field(None, description="Comma-separated label IDs to add"),
+        remove_labels: Optional[str] = Field(None, description="Comma-separated label IDs to remove (use 'INBOX' to archive)"),
+    ) -> str:
+        """Add or remove labels on a Gmail message. Remove 'INBOX' to archive."""
+        try:
+            service = _get_gmail_service()
+            body = {}
+            if add_labels:
+                body["addLabelIds"] = [lid.strip() for lid in add_labels.split(",")]
+            if remove_labels:
+                body["removeLabelIds"] = [lid.strip() for lid in remove_labels.split(",")]
+            result = service.users().messages().modify(userId="me", id=message_id, body=body).execute()
+            return json.dumps({"status": "success", "message_id": message_id, "labels": result.get("labelIds", [])})
+        except HttpError as e:
+            return json.dumps({"status": "error", "error": str(e)})
+
+    @mcp.tool(
+        name="gmail_modify_thread",
+        annotations={"title": "Modify Gmail Thread Labels", "readOnlyHint": False},
+    )
+    @_retry_on_error
+    async def gmail_modify_thread(
+        thread_id: str = Field(..., description="Gmail thread ID"),
+        add_labels: Optional[str] = Field(None, description="Comma-separated label IDs to add"),
+        remove_labels: Optional[str] = Field(None, description="Comma-separated label IDs to remove (use 'INBOX' to archive)"),
+    ) -> str:
+        """Add or remove labels on an entire Gmail thread. Remove 'INBOX' to archive."""
+        try:
+            service = _get_gmail_service()
+            body = {}
+            if add_labels:
+                body["addLabelIds"] = [lid.strip() for lid in add_labels.split(",")]
+            if remove_labels:
+                body["removeLabelIds"] = [lid.strip() for lid in remove_labels.split(",")]
+            result = service.users().threads().modify(userId="me", id=thread_id, body=body).execute()
+            return json.dumps({"status": "success", "thread_id": thread_id, "thread_id_out": result.get("id", "")})
+        except HttpError as e:
+            return json.dumps({"status": "error", "error": str(e)})
+
+    @mcp.tool(
+        name="gmail_trash_message",
+        annotations={"title": "Trash Gmail Message", "readOnlyHint": False},
+    )
+    @_retry_on_error
+    async def gmail_trash_message(
+        message_id: str = Field(..., description="Gmail message ID to trash"),
+    ) -> str:
+        """Move a Gmail message to trash. Recoverable for 30 days."""
+        try:
+            service = _get_gmail_service()
+            service.users().messages().trash(userId="me", id=message_id).execute()
+            return json.dumps({"status": "trashed", "message_id": message_id})
+        except HttpError as e:
+            return json.dumps({"status": "error", "error": str(e)})
+
+    @mcp.tool(
+        name="gmail_list_labels",
+        annotations={"title": "List Gmail Labels", "readOnlyHint": True},
+    )
+    @_retry_on_error
+    async def gmail_list_labels() -> str:
+        """List all Gmail labels (system and user-created) with their IDs."""
+        try:
+            service = _get_gmail_service()
+            results = service.users().labels().list(userId="me").execute()
+            labels = results.get("labels", [])
+            user_labels = [
+                {"id": l["id"], "name": l["name"], "type": l.get("type", "")}
+                for l in labels
+            ]
+            return json.dumps({"status": "success", "count": len(user_labels), "labels": user_labels}, indent=2)
+        except HttpError as e:
+            return json.dumps({"status": "error", "error": str(e)})
+
+    logger.info("Gmail tools registered successfully (including Send As persona tools + email management)")
 
 
 async def _send_or_draft_as_persona(
@@ -1019,6 +1242,19 @@ async def _send_or_draft_as_persona(
             except Exception as e:
                 logger.warning(f"Failed to tag draft with review label: {e}")
 
+            # WF17 — push Telegram notification so Commander doesn't need to poll /drafts
+            try:
+                _push_telegram_draft_alert(
+                    draft_id=ref_id,
+                    message_id=draft.get("message", {}).get("id", ""),
+                    to=to,
+                    subject=subject,
+                    body_full=body,
+                    persona_display=display_name,
+                )
+            except Exception as e:
+                logger.warning(f"WF17 Telegram push failed: {e}")
+
         # Log the action
         _log_email_action(
             to=to, subject=subject, persona_id=pid,
@@ -1078,6 +1314,100 @@ def _tag_commander_review(service, message_id: str):
     ).execute()
 
 
+def _push_telegram_draft_alert(
+    draft_id: str, message_id: str,
+    to: str, subject: str, body_full: str,
+    persona_display: str,
+) -> None:
+    """Push the complete draft to Commander via Telegram when staged for approval.
+
+    Sends the full email body — no truncation.
+    Splits into multiple messages if body exceeds Telegram's 4096-char limit.
+    Buttons (Preview / Approve & Send / Reject) always appear on the last message.
+    Failure is silent — draft is already saved in Gmail.
+    """
+    import urllib.request
+    import json as _json
+    import re as _re
+
+    poe_env = THUNDERBIRD_DIR / "config" / "poe.env"
+    bot_token = ""
+    chat_id   = ""
+    if poe_env.exists():
+        for line in poe_env.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if line.startswith("TELEGRAM_BOT_TOKEN="):
+                bot_token = line.split("=", 1)[1].strip()
+            elif line.startswith("TELEGRAM_COMMANDER_ID="):
+                chat_id = line.split("=", 1)[1].strip()
+
+    if not bot_token or not chat_id:
+        logger.warning("WF17 Telegram push skipped — no bot token/chat_id in poe.env")
+        return
+
+    tg_url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
+
+    def _send(text: str, keyboard: dict | None = None) -> None:
+        body: dict = {"chat_id": chat_id, "text": text, "parse_mode": "HTML"}
+        if keyboard:
+            body["reply_markup"] = keyboard
+        payload = _json.dumps(body).encode()
+        req = urllib.request.Request(tg_url, data=payload, headers={"Content-Type": "application/json"})
+        urllib.request.urlopen(req, timeout=8)
+
+    # Strip HTML tags from email body for clean Telegram display
+    clean_body = _re.sub(r"<[^>]+>", "", body_full).strip()
+
+    # Gmail compose deep-link
+    gmail_link = ""
+    if message_id:
+        gmail_link = f"\n<a href=\"https://mail.google.com/mail/u/0/#drafts?compose={message_id}\">Open in Gmail ↗</a>"
+
+    header = (
+        f"📧 <b>Draft Staged for Approval</b> — WF17\n"
+        f"━━━━━━━━━━━━━━━━━━━━\n"
+        f"<b>From:</b> {persona_display}\n"
+        f"<b>To:</b> {to}\n"
+        f"<b>Subject:</b> {subject}"
+        f"{gmail_link}\n"
+        f"━━━━━━━━━━━━━━━━━━━━\n"
+    )
+
+    keyboard = {
+        "inline_keyboard": [
+            [
+                {"text": "👁 Preview",         "callback_data": f"draft_preview:{draft_id}"},
+                {"text": "✅ Approve & Send",   "callback_data": f"draft_approve:{draft_id}"},
+            ],
+            [
+                {"text": "❌ Reject & Delete",  "callback_data": f"draft_reject:{draft_id}"},
+            ],
+        ]
+    }
+
+    TG_LIMIT = 4096
+
+    try:
+        # Fit header + as much body as possible in the first message
+        first_chunk_capacity = TG_LIMIT - len(header) - 10
+        if len(clean_body) <= first_chunk_capacity:
+            # Entire email fits in one message — send with buttons
+            _send(header + clean_body, keyboard)
+        else:
+            # Split: first message = header + partial body, continuation(s) follow
+            _send(header + clean_body[:first_chunk_capacity])
+            remaining = clean_body[first_chunk_capacity:]
+            while remaining:
+                chunk = remaining[:TG_LIMIT]
+                remaining = remaining[TG_LIMIT:]
+                # Attach buttons to the final chunk only
+                _send(chunk, keyboard if not remaining else None)
+
+        logger.info("WF17 Telegram draft alert sent for draft_id=%s (%d chars)", draft_id, len(clean_body))
+    except Exception as e:
+        logger.warning("WF17 Telegram push failed (draft still saved): %s", e)
+
+
 def _log_email_action(to: str, subject: str, persona_id: str, auto_send: bool, ref_id: str):
     """Append a line to ~/Thunderbird/logs/email_sent.log."""
     try:
@@ -1095,6 +1425,44 @@ def _log_email_action(to: str, subject: str, persona_id: str, auto_send: bool, r
 # Standalone convenience functions (importable without MCP)
 # ============================================================================
 
+def gmail_send_from_wing(
+    to: str, subject: str, body: str,
+    persona_id: str = "COS", cc: Optional[str] = None,
+) -> dict:
+    """Send staff→Commander email FROM d2mconcierge@gmail.com (Wing inbox).
+
+    PRIMARY channel for all persona→Commander internal communications.
+    COS→Commander stays on Telegram — use this for A2, A3, EXEC, A5, A9 etc.
+    Client emails: use gmail_send_as_persona() via concierge@ instead.
+    """
+    service = _get_wing_gmail_service()
+    pid = persona_id.upper()
+    display_name = PERSONA_DISPLAY_NAMES.get(pid, PERSONA_DISPLAY_NAMES.get("D2M", "D2M Wing"))
+
+    html_body = _wrap_body_html(body)
+    msg = MIMEMultipart("alternative")
+    msg["to"] = to
+    msg["from"] = f'"{display_name}" <{WING_GMAIL_ADDRESS}>'
+    msg["reply-to"] = WING_GMAIL_ADDRESS
+    msg["subject"] = subject
+    if cc:
+        msg["cc"] = cc
+    msg.attach(MIMEText(body, "plain"))
+    msg.attach(MIMEText(html_body, "html"))
+
+    raw = base64.urlsafe_b64encode(msg.as_bytes()).decode("utf-8")
+    result = service.users().messages().send(userId="me", body={"raw": raw}).execute()
+    _log_email_action(to=to, subject=subject, persona_id=pid, auto_send=True, ref_id=result.get("id", ""))
+    return {
+        "status": "success",
+        "action": "sent",
+        "message_id": result.get("id"),
+        "from": f"{display_name} <{WING_GMAIL_ADDRESS}>",
+        "to": to,
+        "subject": subject,
+    }
+
+
 def gmail_send_as_persona(to: str, subject: str, body: str, persona_id: str = "CONCIERGE", cc: Optional[str] = None) -> dict:
     """Synchronous wrapper: send an email as a D2M persona.
 
@@ -1103,6 +1471,14 @@ def gmail_send_as_persona(to: str, subject: str, body: str, persona_id: str = "C
     sets Reply-To to johnloucks3@gmail.com,
     and SENDS via Gmail API. Returns dict with message ID and confirmation.
     """
+    if SEND_LOCKOUT:
+        return {
+            "status": "blocked",
+            "error": "SEND LOCKOUT active (Commander directive 2026-03-18). "
+                     "All AI send privileges revoked. Commander must send manually.",
+            "to": to, "subject": subject,
+        }
+
     service = _get_gmail_service()
     pid = persona_id.upper()
     display_name = PERSONA_DISPLAY_NAMES.get(pid, PERSONA_DISPLAY_NAMES["CONCIERGE"])
@@ -1140,12 +1516,26 @@ def gmail_send_with_approval(
     persona_id: str = "CONCIERGE", auto_send: bool = False,
     cc: Optional[str] = None,
 ) -> dict:
-    """Safety gate: send or draft based on auto_send flag.
+    """Safety gate: send or draft based on recipient and auto_send flag.
 
-    - auto_send=True: sends directly (for automated payment reminders, follow-ups, confirmations)
-    - auto_send=False (default): creates a draft for Commander review
+    Routing logic (Commander directive 2026-03-18):
+    - TO Commander address: always send directly — no draft staging
+    - TO client/vendor:     auto_send=True sends, False (default) creates draft for review
     - Always logs to ~/Thunderbird/logs/email_sent.log
     """
+    to_lower = to.lower()
+    if any(addr in to_lower for addr in COMMANDER_ADDRS):
+        auto_send = True  # Commander addresses always send directly
+
+    if SEND_LOCKOUT and auto_send:
+        return {
+            "status": "blocked",
+            "error": "SEND LOCKOUT active (Commander directive 2026-03-18). "
+                     "All AI send privileges revoked. auto_send=True is blocked. "
+                     "Draft creation still permitted.",
+            "to": to, "subject": subject,
+        }
+
     service = _get_gmail_service()
     pid = persona_id.upper()
     display_name = PERSONA_DISPLAY_NAMES.get(pid, PERSONA_DISPLAY_NAMES["CONCIERGE"])
@@ -1187,12 +1577,28 @@ def gmail_send_with_approval(
     }
 
 
+# ══════════════════════════════════════════════════════════════════════════════
+# SEND LOCKOUT — lifted 2026-03-18 per Commander directive (test workflow)
+# WF17 hook (pre_tool_guard.py) remains the primary approval gate.
+# Set True to re-engage full lockout; False = normal operation.
+# ══════════════════════════════════════════════════════════════════════════════
+SEND_LOCKOUT = False
+
+
 def gmail_send_draft_sync(draft_id: str) -> dict:
     """Synchronous wrapper: send (promote) an existing Gmail draft.
 
     Used by the Telegram approval flow: Commander approves → COS calls this → draft sent.
     Returns dict with message ID and confirmation.
     """
+    if SEND_LOCKOUT:
+        return {
+            "status": "blocked",
+            "error": "SEND LOCKOUT active (Commander directive 2026-03-18). "
+                     "All AI send privileges revoked. Commander must send manually.",
+            "draft_id": draft_id,
+        }
+
     service = _get_gmail_service()
     sent = service.users().drafts().send(userId="me", body={"id": draft_id}).execute()
 
@@ -1223,6 +1629,7 @@ def gmail_get_draft_sync(draft_id: str) -> dict:
 
     return {
         "draft_id": draft_id,
+        "message_id": msg.get("id", ""),
         "to": headers.get("To", ""),
         "from": headers.get("From", ""),
         "subject": headers.get("Subject", ""),
@@ -1258,6 +1665,126 @@ def gmail_list_drafts_sync(max_results: int = 10) -> list[dict]:
             **headers,
         })
     return summaries
+
+
+def gmail_check_wing_inbox(max_results: int = 10, mark_read: bool = True) -> list[dict]:
+    """Check d2mconcierge@gmail.com inbox for unread Commander replies.
+
+    Polls the Wing Gmail account for messages FROM any Commander address.
+    Used by the Wing reply loop to close the conversational loop:
+      Staff → Wing Gmail → Commander → reply → Wing Gmail inbox → here → Telegram
+
+    Args:
+        max_results: Max messages to return (cap at 20).
+        mark_read:   Mark fetched messages as read (default True).
+
+    Returns:
+        List of dicts: message_id, thread_id, from, subject, date, snippet, body.
+        Empty list if Wing Gmail unavailable or no unread Commander messages.
+    """
+    try:
+        service = _get_wing_gmail_service()
+    except Exception as e:
+        logger.warning(f"Wing Gmail not available for inbox check: {e}")
+        return []
+
+    # Build query: unread messages from any Commander address
+    addrs = " OR ".join(f"from:{addr}" for addr in COMMANDER_ADDRS)
+    query = f"is:unread ({addrs})"
+
+    try:
+        results = service.users().messages().list(
+            userId="me", q=query, maxResults=min(max_results, 20)
+        ).execute()
+    except Exception as e:
+        logger.error(f"Wing inbox list failed: {e}")
+        return []
+
+    stubs = results.get("messages", [])
+    if not stubs:
+        return []
+
+    fetched = []
+    for stub in stubs:
+        msg_id = stub["id"]
+        try:
+            full = service.users().messages().get(
+                userId="me", id=msg_id, format="full"
+            ).execute()
+            headers = {
+                h["name"]: h["value"]
+                for h in full.get("payload", {}).get("headers", [])
+            }
+            body = _decode_body(full.get("payload", {}))
+
+            if mark_read:
+                service.users().messages().modify(
+                    userId="me", id=msg_id,
+                    body={"removeLabelIds": ["UNREAD"]}
+                ).execute()
+
+            fetched.append({
+                "message_id": msg_id,
+                "thread_id": full.get("threadId", ""),
+                "from": headers.get("From", ""),
+                "subject": headers.get("Subject", ""),
+                "date": headers.get("Date", ""),
+                "snippet": full.get("snippet", ""),
+                "body": body,
+            })
+        except Exception as e:
+            logger.error(f"Wing inbox: failed to fetch message {msg_id}: {e}")
+
+    return fetched
+
+
+def gmail_create_draft_sync(
+    to: str,
+    subject: str,
+    body: str,
+    from_address: str = "concierge@d2mluxury.quest",
+    label_review: bool = True,
+) -> dict:
+    """Synchronous wrapper: create a Gmail draft with D2M stationery.
+
+    Used by n8n workflows to stage Intel / Tech drafts for Commander review.
+    Applies THUNDERBIRD-Commander-Review label by default.
+    Returns dict with draft_id, message_id, subject, and status.
+    """
+    import base64 as _b64
+
+    service = _get_gmail_service()
+
+    msg = MIMEMultipart("alternative")
+    msg["to"] = to
+    msg["from"] = from_address
+    msg["subject"] = subject
+    msg.attach(MIMEText(body, "plain"))
+    msg.attach(MIMEText(_wrap_body_html(body), "html"))
+
+    raw = _b64.urlsafe_b64encode(msg.as_bytes()).decode()
+    draft = service.users().drafts().create(
+        userId="me", body={"message": {"raw": raw}}
+    ).execute()
+
+    draft_id = draft["id"]
+    message_id = draft.get("message", {}).get("id", "")
+
+    if label_review and message_id:
+        try:
+            _tag_commander_review(service, message_id)
+        except Exception as e:
+            logger.warning(f"gmail_create_draft_sync: label tagging failed: {e}")
+
+    logger.info(f"Draft created — id={draft_id} subject='{subject}'")
+    return {
+        "status": "success",
+        "draft_id": draft_id,
+        "message_id": message_id,
+        "subject": subject,
+        "to": to,
+        "label_applied": label_review,
+    }
 
 
 if __name__ == "__main__":

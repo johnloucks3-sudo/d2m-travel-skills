@@ -852,7 +852,7 @@ def register_flight_search_tools(mcp: FastMCP):
                     "error": "Google service account credentials not found at ~/Thunderbird/credentials.json",
                 }, indent=2)
 
-            scopes = ["https://www.googleapis.com/auth/gmail.compose"]
+            scopes = ["https://www.googleapis.com/auth/gmail.modify"]
             credentials = service_account.Credentials.from_service_account_file(
                 str(creds_path), scopes=scopes
             )

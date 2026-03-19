@@ -1,0 +1,16 @@
+[Unit]
+Description=Thunderbird Off-Peak Batch Runner
+After=network.target d2m-mcp.service
+Requires=d2m-mcp.service
+
+[Service]
+Type=oneshot
+User=john
+WorkingDirectory=/home/john/Thunderbird
+ExecStart=/home/john/Thunderbird/.venv/bin/python /home/john/Thunderbird/thunderbird_batch_run.py
+StandardOutput=journal
+StandardError=journal
+TimeoutStartSec=3600
+
+[Install]
+WantedBy=multi-user.target

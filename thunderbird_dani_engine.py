@@ -246,8 +246,8 @@ def _get_sheets_client():
         creds = service_account.Credentials.from_service_account_file(
             str(SA_CREDS),
             scopes=[
-                "https://www.googleapis.com/auth/spreadsheets.readonly",
-                "https://www.googleapis.com/auth/drive.readonly",
+                "https://www.googleapis.com/auth/spreadsheets",
+                "https://www.googleapis.com/auth/drive",
             ],
         )
         return gspread.authorize(creds)
@@ -739,6 +739,70 @@ def cos_review(query: str, dani_answer: str, is_client: bool = False) -> dict:
 
 
 # ---------------------------------------------------------------------------
+# PRE-SEND EVALUATOR (2.7) — fast regex scan before COS review
+# Zero API cost. Catches leaks before they reach a human reviewer or client.
+# ---------------------------------------------------------------------------
+
+import re as _re
+
+_PRESEND_PATTERNS = [
+    # Commission / financial leaks
+    (_re.compile(r'\b(commission|markup|mark-up|net cost|net rate|net price|margin|override fee|override)\b', _re.I),
+     "COMMISSION_LEAK", "HIGH"),
+    # Persona name / internal staff leaks
+    (_re.compile(r'\b(Victoria Hale|Iron Vic|Marcus Dembe|Wraith|Ryan Castillo|Viper|Victor Harlan|Tommy Ikeda|ELON|Luna Voss|Naia Solberg)\b', _re.I),
+     "PERSONA_NAME_LEAK", "HIGH"),
+    # Persona code leaks (A2, A3, A5, A9, A10, A12 as standalone tokens)
+    (_re.compile(r'\bA(2|3|5|9|10|12)\b'),
+     "PERSONA_CODE_LEAK", "HIGH"),
+    # AI / system exposure
+    (_re.compile(r'\b(system prompt|Claude|Anthropic|LLM|language model|AI model|AI persona|Thunderbird OS)\b', _re.I),
+     "AI_EXPOSURE", "HIGH"),
+    # Bracket placeholders (unfilled template slots)
+    (_re.compile(r'\[[A-Z][^\]]{2,50}\]'),
+     "BRACKET_ARTIFACT", "MEDIUM"),
+    # Internal workflow language
+    (_re.compile(r'\b(dossier|SWITCHBLADE|COS review|MCP tool|workflow|booking engine)\b', _re.I),
+     "INTERNAL_LANGUAGE", "MEDIUM"),
+]
+
+
+def pre_send_evaluate(response_text: str) -> dict:
+    """Scan Dani's response for leaks before COS review.
+
+    Fast, zero-API-cost check. Runs on every client-facing response.
+
+    Returns:
+        {
+          "clean": bool,
+          "risk": "CLEAR" | "MEDIUM" | "HIGH",
+          "flags": [{"type": str, "match": str, "risk": str}],
+          "blocked": bool   # True only for HIGH-risk hits
+        }
+    """
+    flags = []
+    highest_risk = "CLEAR"
+
+    for pattern, flag_type, risk in _PRESEND_PATTERNS:
+        matches = pattern.findall(response_text)
+        for m in matches:
+            match_str = m if isinstance(m, str) else " ".join(m)
+            flags.append({"type": flag_type, "match": match_str, "risk": risk})
+            if risk == "HIGH":
+                highest_risk = "HIGH"
+            elif risk == "MEDIUM" and highest_risk != "HIGH":
+                highest_risk = "MEDIUM"
+
+    blocked = highest_risk == "HIGH"
+    return {
+        "clean": len(flags) == 0,
+        "risk": highest_risk,
+        "flags": flags,
+        "blocked": blocked,
+    }
+
+
+# ---------------------------------------------------------------------------
 # Main engine
 # ---------------------------------------------------------------------------
 
@@ -841,6 +905,44 @@ def build_dani_context(query: str, client_scope: Optional[str] = None,
             sections.append(mem_text)
     except Exception as e:
         pass  # shared memory is optional — don't break Dani if it fails
+
+    # ---------------------------------------------------------------------------
+    # DATA CONFIDENCE CLASSIFIER (2.6) — injected before rules
+    # Tells Dani exactly how much verified data she has for this query.
+    # Kills hallucination at the architectural level — she knows before she speaks.
+    # ---------------------------------------------------------------------------
+    has_bookings = bool(bookings and len(bookings) > 50)
+    has_dossier  = bool(dossier and len(dossier) > 50)
+    has_anchors  = bool(anchors and len(anchors) > 50)
+    has_sheets   = bool(sheets and len(sheets) > 50)
+    client_detected = len(clients) > 0
+
+    _key_sources = sum([has_bookings, has_dossier, has_anchors])
+    if not client_detected and not has_bookings and not has_dossier:
+        _confidence = "ZERO"
+        _conf_note  = ("No client identified and no booking data found. "
+                       "You have NO verified facts about this query. "
+                       "Do NOT state any booking details. Ask who they are or what trip they mean.")
+    elif client_detected and _key_sources == 0:
+        _confidence = "LOW"
+        _conf_note  = ("Client detected but no booking records, dossier, or anchor dates found. "
+                       "You have general context only. "
+                       "Do NOT quote specific dates, amounts, or booking IDs. "
+                       "Acknowledge warmly and say you'll verify the details.")
+    elif client_detected and _key_sources == 1:
+        _confidence = "MEDIUM"
+        _conf_note  = ("Some verified data found but record is incomplete. "
+                       "State only what appears explicitly in the data above. "
+                       "For any detail NOT in the data, use an escalation phrase — do not fill in gaps.")
+    else:
+        _confidence = "HIGH"
+        _conf_note  = ("Strong data coverage: booking records, dossier, and/or anchor dates all present. "
+                       "Answer confidently from the data above. "
+                       "Still: NEVER state a detail you cannot locate in the sections above.")
+
+    sections.append(
+        f"[DATA CONFIDENCE: {_confidence}]\n{_conf_note}"
+    )
 
     # Rules for Dani
     sections.append(

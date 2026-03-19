@@ -1,0 +1,22 @@
+[Unit]
+Description=n8n Workflow Automation
+After=network.target
+
+[Service]
+Type=simple
+User=john
+Environment=N8N_HOST=0.0.0.0
+Environment=N8N_PORT=5678
+Environment=N8N_PROTOCOL=https
+Environment=WEBHOOK_URL=https://n8n.d2mluxury.quest
+Environment=N8N_EDITOR_BASE_URL=https://n8n.d2mluxury.quest
+Environment=N8N_LOG_LEVEL=info
+Environment=N8N_SECURITY_AUDIT_NODES_ENABLED=false
+Environment=ALLOW_LIST_URLS=http://localhost:8766
+ExecStart=/usr/local/bin/n8n start
+Restart=always
+RestartSec=10
+WorkingDirectory=/home/john
+
+[Install]
+WantedBy=multi-user.target

@@ -61,6 +61,9 @@ LEGACY_MAP = {
     "A7": "EXEC",   # Anchor -> EXEC (visual function)
     "A8": "A9",     # Beacon -> Harlan (absorbed into finance/analysis)
     "A11": "COS",   # Concierge -> COS (A10 decommissioned)
+    # Name aliases — Commander uses both names and IDs interchangeably
+    "DANI": "A3",   # "Dani" and "A3" are the same persona
+    "DANIELLE": "A3",
 }
 
 # ============================================================================
@@ -645,11 +648,29 @@ def get_roster() -> str:
 
 
 # ============================================================================
-# OPUS CALLER
+# LLM CALLER — per-persona model routing
 # ============================================================================
 
-def _call_opus(system_prompt: str, query: str, max_tokens: int = 2000) -> str:
-    """Call Claude Opus via CLI subprocess. Cost: $0 (Max plan).
+# Per-persona model overrides. Default: sonnet (2026-03-18 Commander directive — preserve all-models quota).
+# To re-enable Opus for specific personas: add "COS": "opus", "EXEC": "opus" etc.
+PERSONA_MODEL_MAP = {
+    # All personas default to Sonnet.
+    # Opus is injected at call-site level for Dani client-facing work only:
+    #   - thunderbird_dani_email.py  → client email drafts
+    #   - Telegram D2M concierge channel → client Telegram replies
+    # COS escalates to Opus via "COS Opus" keyword in the message.
+}
+
+MODEL_TAGS = {
+    "opus":   "Claude Opus 4.6 (Max)",
+    "sonnet": "Claude Sonnet 4.6 (Max)",
+    "haiku":  "Claude Haiku 4.5 (Max)",
+}
+
+
+def _call_claude(system_prompt: str, query: str, max_tokens: int = 2000,
+                 model: str = "sonnet") -> str:
+    """Call Claude via CLI subprocess. Cost: $0 (Max plan).
 
     Strips ANTHROPIC_API_KEY from env to force Max plan OAuth.
     """
@@ -659,10 +680,10 @@ def _call_opus(system_prompt: str, query: str, max_tokens: int = 2000) -> str:
         CLAUDE_CMD,
         "--print",
         "--system-prompt", system_prompt,
-        "--model", "opus",
+        "--model", model,
         "--dangerously-skip-permissions",
         "--output-format", "text",
-        "-p", query,
+        "-p", "-",  # read prompt from stdin to avoid ARG_MAX on large emails
     ]
 
     clean_env = {
@@ -673,9 +694,10 @@ def _call_opus(system_prompt: str, query: str, max_tokens: int = 2000) -> str:
     try:
         result = subprocess.run(
             cmd,
+            input=query,
             capture_output=True,
             text=True,
-            timeout=180,
+            timeout=600,
             cwd=os.path.expanduser("~/Thunderbird"),
             env=clean_env,
         )
@@ -691,11 +713,14 @@ def _call_opus(system_prompt: str, query: str, max_tokens: int = 2000) -> str:
         return response
 
     except subprocess.TimeoutExpired:
-        raise RuntimeError("Claude CLI timed out after 180s")
+        raise RuntimeError("Claude CLI timed out after 600s")
 
 
-def call_persona(persona_id: str, query: str, max_tokens: int = 2000) -> Dict[str, Any]:
-    """Call Claude Opus with the given persona's system prompt.
+def call_persona(persona_id: str, query: str, max_tokens: int = 2000,
+                  model_override: str = None) -> Dict[str, Any]:
+    """Call Claude with the given persona's system prompt.
+
+    Model selection: PERSONA_MODEL_MAP[pid] → model_override → "opus" (default).
 
     Memory integration:
       - Before: injects recent memories into the system prompt.
@@ -705,16 +730,32 @@ def call_persona(persona_id: str, query: str, max_tokens: int = 2000) -> Dict[st
     persona = get_persona(pid)
     system_prompt = build_system_prompt(pid)
 
+    # --- COS Opus keyword escalation ---
+    # Commander can say "COS Opus" anywhere in the query to force Opus for that call.
+    # The keyword is stripped before sending to the model.
+    import re as _re_kw
+    cos_opus_escalation = False
+    if _re_kw.search(r'\bCOS\s+Opus\b', query, _re_kw.IGNORECASE):
+        query = _re_kw.sub(r'\bCOS\s+Opus\b', '', query, flags=_re_kw.IGNORECASE).strip()
+        if pid == "COS":
+            cos_opus_escalation = True
+
+    # --- Model selection: per-persona map → explicit override → keyword escalation → sonnet default ---
+    if cos_opus_escalation:
+        model = "opus"
+    else:
+        model = model_override or PERSONA_MODEL_MAP.get(pid, "sonnet")
+
     # --- Memory: inject recent context into system prompt ---
     system_prompt = inject_memory_context(pid, system_prompt)
 
-    answer = _call_opus(system_prompt, query, max_tokens)
+    answer = _call_claude(system_prompt, query, max_tokens, model=model)
 
     # Strip <think> blocks
     import re as _re
     answer = _re.sub(r"<think>[\s\S]*?</think>\s*", "", answer).strip()
 
-    model_tag = "Claude Opus 4.6 (Max)"
+    model_tag = MODEL_TAGS.get(model, f"Claude {model} (Max)")
     answer += f"\n\n---\n_{model_tag}_"
 
     # --- Memory: store notable output ---

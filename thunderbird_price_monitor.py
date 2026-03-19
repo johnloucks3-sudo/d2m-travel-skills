@@ -107,8 +107,8 @@ def _fetch_booking_master_departures() -> List[Dict[str, Any]]:
             return []
 
         scopes = [
-            "https://www.googleapis.com/auth/spreadsheets.readonly",
-            "https://www.googleapis.com/auth/drive.readonly",
+            "https://www.googleapis.com/auth/spreadsheets",
+            "https://www.googleapis.com/auth/drive",
         ]
         creds = Credentials.from_service_account_file(str(creds_file), scopes=scopes)
         gc = gspread.authorize(creds)

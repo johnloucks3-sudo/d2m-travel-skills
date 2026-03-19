@@ -1,0 +1,37 @@
+{
+  "dani_travel": {
+    "file_id": "file_011CZ9XKGWEsJ8f7Xt94TeJo",
+    "skill_name": "dani_travel",
+    "description": "Dani (A3) \u2014 travel concierge tools: destination lookup, cruise search, hotel rates, tour search, port weather",
+    "synced_at": "2026-03-17T23:31:00.612307+00:00",
+    "size_bytes": 1851
+  },
+  "a2_intel": {
+    "file_id": "file_011CZ9XKYXejcpEKGQDhY3qe",
+    "skill_name": "a2_intel",
+    "description": "A2 Dembe \u2014 market intelligence tools: cruise intel, competitor analysis, destination research, X/OSINT feeds",
+    "synced_at": "2026-03-17T23:31:01.339561+00:00",
+    "size_bytes": 1385
+  },
+  "a9_finance": {
+    "file_id": "file_011CZ9XKcE9MNSNPnTKse3vW",
+    "skill_name": "a9_finance",
+    "description": "A9 Harlan \u2014 finance tools: commission reconciliation, cost analysis, booking audit",
+    "synced_at": "2026-03-17T23:31:02.249954+00:00",
+    "size_bytes": 1350
+  },
+  "cos_ops": {
+    "file_id": "file_011CZ9XKgQv5y12rLtHSaZve",
+    "skill_name": "cos_ops",
+    "description": "COS Hale \u2014 operations tools: weekly report, morning briefing, staff coordination, calendar sync",
+    "synced_at": "2026-03-17T23:31:03.178273+00:00",
+    "size_bytes": 1240
+  },
+  "a5_strategy": {
+    "file_id": "file_011CZ9XKku32GL73GKYeNBzz",
+    "skill_name": "a5_strategy",
+    "description": "A5 Castillo \u2014 strategy tools: competitive positioning, pricing models, growth opportunity analysis",
+    "synced_at": "2026-03-17T23:31:04.410896+00:00",
+    "size_bytes": 963
+  }
+}

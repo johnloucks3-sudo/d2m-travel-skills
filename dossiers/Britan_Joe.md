@@ -7,6 +7,7 @@
 | Field | Details |
 |-------|---------|
 | **Primary Contact** | Joe Britan |
+| **Email** | jbitran@enterprizer.com |
 | **Home Location** | New Jersey |
 | **Relationship** | Friend/client of Commander (John Loucks) |
 | **Service Tier** | TBD — initial service request |

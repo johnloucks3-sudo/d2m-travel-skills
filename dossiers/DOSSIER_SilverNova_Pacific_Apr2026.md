@@ -41,7 +41,7 @@ BOOKING SUMMARY
   Booking Date:    December 01, 2025
   Embarkation:     April 23, 2026
   Disembarkation:  May 11, 2026
-  Final Payment:   February 01, 2026 — UNKNOWN
+  Final Payment:   February 01, 2026 — ★ PAID IN FULL (confirmed by Commander Mar 18, 2026)
 
 ANCHOR DATE TIMELINE
 Date         Status Category     Milestone
@@ -55,8 +55,8 @@ Date         Status Category     Milestone
 2026-01-18   PAST   [payment   ]   Payment reminder #2 (FPD-14)
 2026-01-23   PAST   [documents ]   E-90: All docs confirmed, ancillary bookings locked
 2026-01-25   PAST   [payment   ]   Goal: payment in hand (FPD-7)
-2026-02-01   PAST   [payment   ]   FINAL PAYMENT DUE
-2026-02-08   PAST   [payment   ]   Confirm payment received (FPD+7)
+2026-02-01   PAST   [payment   ]   ★ FINAL PAYMENT DUE — PAID IN FULL
+2026-02-08   PAST   [payment   ]   Confirm payment received (FPD+7) — CONFIRMED
 2026-03-24          [deliverable]   E-30: Final itinerary PDF delivered
 2026-03-24          [operations]   E-30 to E-3: Operational window (flights, weather, State Dept, dining)
 2026-04-09          [client_care]   E-14: Bon Voyage package / final check-in
@@ -69,23 +69,25 @@ Date         Status Category     Milestone
 ★ = HARD date from supplier invoice
 
 TOURS & EXCURSIONS
-  [To be populated — shore excursion selections pending]
+  [See personal dossier — 6 booked, 1 waitlisted (Sitka)]
 
 DINING PLANNER
-  [To be populated — specialty dining reservations pending]
+  [See personal dossier — 16 reservations, 1 waitlisted (Grill Apr 24)]
 
 LOGISTICS & TRANSPORT
-  [Flights, transfers, and ground transport details]
+  [See personal dossier — full flight chain COS→SNA→HNL→HND, hotels, transfers]
 
 INSURANCE STATUS
-  Status: UNKNOWN
+  Status: PURCHASED
+  Provider: Allianz Annual Premier
+  Coverage: $15,000
 
 DOCUMENTS CHECKLIST
-  [ ] Passport verified (6-month validity)
-  [ ] Guest Information Form submitted
-  [ ] Travel insurance decision
+  [x] Passport verified (6-month validity) — John exp 02/2030, Susan exp 04/2031
+  [x] Guest Information Form submitted
+  [x] Travel insurance decision — Allianz Annual Premier $15K
   [ ] Emergency contact provided
-  [ ] Final payment received
+  [x] Final payment received — PAID IN FULL (Commander confirmed Mar 18)
   [ ] Dining selections made
   [ ] Excursion selections made
   [ ] Final itinerary delivered

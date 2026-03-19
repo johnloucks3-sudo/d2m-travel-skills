@@ -1,0 +1,11 @@
+[Unit]
+Description=Thunderbird Batch Runner — 12:05 PM MDT (18:05 UTC) Mon-Fri
+
+[Timer]
+# 18:05 UTC = 12:05 PM MDT — safely in off-peak window (peak ends 8 AM-2 PM ET = ends 18:00 UTC)
+OnCalendar=Mon-Fri 18:05 UTC
+Persistent=true
+RandomizedDelaySec=60
+
+[Install]
+WantedBy=timers.target

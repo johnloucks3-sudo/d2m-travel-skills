@@ -329,7 +329,7 @@ def fetch_sheets_data():
 
         creds = service_account.Credentials.from_service_account_file(
             str(SA_CREDS),
-            scopes=["https://www.googleapis.com/auth/spreadsheets.readonly"],
+            scopes=["https://www.googleapis.com/auth/spreadsheets"],
         )
         gc = gspread.authorize(creds)
         wb = gc.open_by_key(SHEET_ID)

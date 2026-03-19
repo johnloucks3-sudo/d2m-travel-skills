@@ -3,7 +3,7 @@
 
 ---
 
-### STATUS: ACTIVE — Final Payment Apr 1, 2026 ($16,640) | Suite 1212, Deck 12
+### STATUS: ACTIVE — Final Payment Apr 1, 2026 ($16,640) | Suite 1212, Deck 12 | **CC uploaded to Regent portal ✓**
 
 ### RSSC PORTAL DATA (Scraped Mar 12, 2026)
 - **Guest Registration:** Al Ely COMPLETE, Amy Darrow COMPLETE
@@ -52,6 +52,11 @@
 | — | Regent transport ship → Oslo airport | Sep 8 | Included | — |
 
 ---
+
+### COMMANDER NOTES LOG
+| Date | Source | Note |
+|------|--------|------|
+| Mar 18, 2026 | Commander (CLI session) | Al uploaded CC to Regent portal ✓ — ready for final payment processing |
 
 ### EMAIL LOG (Mar 3–10, 2026)
 

@@ -16,6 +16,7 @@ Last Updated: March 07, 2026
 ────────────────────────────────────────────────────────────
 • Erik McLeod & Melissa McGlasson second booking
 • Invoice details needed — FPD approximate
+• FPD SWEEP 2026-03-17: FPD Sep 1, 2026 — UNKNOWN. Invoice pull from TESS needed to confirm amount and deposit status.
 
 
 ════════════════════════════════════════════════════════════

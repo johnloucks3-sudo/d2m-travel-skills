@@ -46,7 +46,7 @@ MODEL_TAGS = {
     "grok": "\u26a1 Grok",
     "extraction": "\U0001f512 DeepSeek (fenced)",
     "deepseek": "\U0001f512 DeepSeek (fenced)",
-    "claude": "\U0001f7e3 Claude Opus",
+    "claude": "\U0001f7e3 Claude Sonnet",
 }
 
 # ── Model Usage Log Path ──
@@ -157,15 +157,15 @@ ESCALATION_MAP = {
     "CH":   {TaskType.CREATIVE, TaskType.STRATEGIC, TaskType.OPERATIONAL},
 }
 
-# Legacy model map — all keys now resolve to Claude Opus via CLI
+# Legacy model map — all keys now resolve to Claude Sonnet via CLI
 # Retained for backward compatibility (call_deepseek fallback references, etc.)
 GROQ_MODELS = {
-    "fast": "claude-opus-4-0-20250514",
-    "premium": "claude-opus-4-0-20250514",
-    "light": "claude-opus-4-0-20250514",
-    "kimi": "claude-opus-4-0-20250514",
-    "detail": "claude-opus-4-0-20250514",
-    "visionary": "claude-opus-4-0-20250514",
+    "fast": "claude-sonnet-4-5",
+    "premium": "claude-sonnet-4-5",
+    "light": "claude-sonnet-4-5",
+    "kimi": "claude-sonnet-4-5",
+    "detail": "claude-sonnet-4-5",
+    "visionary": "claude-sonnet-4-5",
 }
 
 # Claude model — PRIMARY ENGINE (via CLI subprocess, Max plan $0)
@@ -209,10 +209,10 @@ def should_escalate(persona_id: str, task_type: Optional[TaskType] = None) -> bo
 
 def _call_groq(system_prompt: str, query: str, model: str = "fast",
                max_tokens: int = 600, temperature: float = 0.7) -> str:
-    """Route to Claude Opus via CLI subprocess (Max plan, $0).
+    """Route to Claude Sonnet via CLI subprocess (Max plan, $0).
 
     Function name retained for backward compatibility — Groq is ELIMINATED.
-    All calls now go through Claude Opus via the CLI.
+    All calls now go through Claude Sonnet via the CLI.
     """
     combined_prompt = f"{system_prompt}\n\n{query}"
 
@@ -222,7 +222,7 @@ def _call_groq(system_prompt: str, query: str, model: str = "fast",
     cmd = [
         os.path.expanduser("~/.local/bin/claude"),
         "--print",
-        "--model", "opus",
+        "--model", "sonnet",
         "--dangerously-skip-permissions",
         "--output-format", "text",
         "-p", combined_prompt,

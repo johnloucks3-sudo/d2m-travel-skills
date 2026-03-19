@@ -20,6 +20,7 @@ Last Updated: March 07, 2026
 • Nexion 70/30 split — D2M commission $1,967.76
 • Shore excursions open: Concierge E-210 (May 22, 2027), all suites E-180 (Jun 21, 2027)
 • FPD and exact invoice details needed
+• FPD SWEEP 2026-03-17: FPD Sep 18, 2027 — UNKNOWN. 18 months out. Option payment Jan 5, 2026 — confirm past status via TESS. Invoice pull needed for deposit/balance.
 
 
 ════════════════════════════════════════════════════════════

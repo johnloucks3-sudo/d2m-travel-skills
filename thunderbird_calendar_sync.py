@@ -362,6 +362,8 @@ def _create_all_day_event(service, milestone: dict) -> Optional[str]:
             "timeZone": TIMEZONE,
         },
         "colorId": milestone["colorId"],
+        "transparency": "transparent",  # Show as "Free" — reminders, not meetings
+        "conferenceData": None,  # Explicitly suppress Google Meet link
         "reminders": {
             "useDefault": False,
             "overrides": [

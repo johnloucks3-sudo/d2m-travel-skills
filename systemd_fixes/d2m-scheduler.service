@@ -1,0 +1,20 @@
+[Unit]
+Description=Dreams2Memories Intel Scheduler
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+User=john
+WorkingDirectory=/home/john/Thunderbird
+ExecStart=/usr/bin/python3 /home/john/Thunderbird/thunderbird_scheduler.py
+Restart=always
+RestartSec=30
+Environment=TELEGRAM_BOT_TOKEN=***REMOVED-SECRET***
+Environment=TELEGRAM_COMMANDER_ID=7554895206
+Environment=PYTHONPATH=/home/john/Thunderbird:/home/john/Thunderbird/.venv/lib/python3.13/site-packages:/home/john/Thunderbird/.venv/lib64/python3.13/site-packages
+Environment=VIRTUAL_ENV=/home/john/Thunderbird/.venv
+Environment=PATH=/home/john/Thunderbird/.venv/bin:/usr/bin:/bin
+
+[Install]
+WantedBy=multi-user.target

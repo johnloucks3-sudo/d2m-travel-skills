@@ -12,7 +12,7 @@
 | 10421237 (mod from 59018SF737412) | Hale Koa Hotel, Waikiki, Ocean View, 5 nights, $309/night | Apr 13-18 | **CONFIRMED** | ~$1,545 |
 | FJHPYY | JAL JL 73, HNL → HND, Business Sky Suite III, Seats 6G/6D, 12:15pm→3:55pm+1 | Apr 18-19 | **CONFIRMED** | $4,093.60 |
 | 3337550400 | Hilton Tokyo Odaiba, Twin Superior Deluxe, 2 adults, Honors Bfast | Apr 19-23 | **CONFIRMED** — cancel free by Apr 18 11:59pm | ¥424,373 (~$2,770) |
-| PE164717508 | Kyoto Food Tour, 3 hrs, Hiro, Matsumoto Kiyoshi Shijo Kawaramachi, 10AM | Apr 21 | **CONFIRMED** — questionnaire DONE | $484.96 |
+| PE164717508 / HL857174 / CIT-T123798325 | Kyoto Food Tour, 3 hrs, Hiro, Matsumoto Kiyoshi Shijo Kawaramachi, 10AM | Apr 21 | **CONFIRMED** — voucher received, fully paid, cancel free before Apr 20 10AM local | $484.96 |
 | PE164714008 | Mt. Fuji & Hakone Bus Tour, 7:50 AM | Apr 22 | **CONFIRMED** | $365.62 |
 | PE151557101 | Hilton Odaiba → Harumi Port transfer, 4 pax, Minibus | Apr 23, 10:30 AM (requested) | **CONFIRMED** — 10:30 time change PENDING (Kyra ack'd Mar 10) | paid |
 | 3740314183 | SmartEX Shinkansen membership | — | **ACTIVE** — PW: Tokyo26! | — |
@@ -60,7 +60,8 @@
 | Who | Contact | Purpose |
 |-----|---------|---------|
 | Hale Koa Hotel | 808-955-0555 / reservations@halekoa.zendesk.com | Mat Ore, request #239525 |
-| Hiro (Kyoto guide) | flowerpotion25@gmail.com | Apr 21 food tour |
+| Hiro (Kyoto guide) | +817043638092 / flowerpotion25@gmail.com | Apr 21 food tour |
+| City Unscripted | 1-844-909-2626 / +44 (0)20 3776 1000 | Kyoto tour operator, conf CIT-T123798325 |
 | Project Expedition | +1 (855) 782-3006 / support@projectexpedition.com | Tours & transfers |
 | Kyra (PE) | support@projectexpedition.com | Transfer modification, ticket HL855855 |
 | Heycars - Asia (driver) | +86 2882075832, WhatsApp +86 18030751797 | Day-of driver contact |
@@ -69,7 +70,7 @@
 
 ---
 
-### EMAIL LOG (Updated Mar 12, 2026)
+### EMAIL LOG (Updated Mar 18, 2026)
 
 **Aug 5, 2025 — Hale Koa** original reservation: Conf #59018SF737412, Apr 14-19, $309/night
 **Aug 8 — John to Hale Koa** requested: move to Apr 13-18, add 2nd guest, upgrade to Deluxe Ocean Front
@@ -96,6 +97,9 @@
 **Mar 12 — Google Flights** LAX-HNL-Tokyo tracker: $6,072 (was $5,726) — UP $346
 **Mar 12 — Southwest** LAST CHANCE $49 spring sale — relevant for SEA→COS return
 
+**Mar 18 — Caitlynn** (Re: PE164717508 - HL857174)
+> **Mar 18, 2026 — PE (Caitlynn)** Kyoto Food Tour voucher received, PE164717508, ticket HL857174, City Unscripted conf CIT-T123798325. Hiro phone: +817043638092. Meeting: Matsumoto Kiyoshi Shijo Kawaramachi 10:00 AM. Fully paid $484.96. Cancel free before Apr 20 10:00 AM local. NOTE: Voucher lists agent as 'Love Group Travel, LLC' — correction pending Commander decision.
+
 ---
 
 ---
@@ -121,14 +125,14 @@
 | 13 | Excursions | Mt. Fuji & Hakone Tour | Optional | **CONFIRMED** | PE164714008 Apr 22 7:50AM |
 | 14 | Transfers | Hotel → port transfer | YES | **CONFIRMED** | PE151557101, 4 pax, 10:30 AM (pending time confirm) |
 | 15 | Cruise | Booking confirmed | YES | **CONFIRMED** | 566910-25, Silver Nova |
-| 16 | Cruise | Payment status | YES | **CONFIRMED** | $10,800 (assumed paid) |
+| 16 | Cruise | Payment status | YES | **CONFIRMED** | $10,800 — PAID IN FULL (Commander confirmed Mar 18) |
 | 17 | Cruise | Embarkation details | YES | **CONFIRMED** | Tokyo Harumi, Apr 23, 7:00 PM |
 | 17a | Excursions | Shore excursions | Optional | **BOOKED** | 6 booked (1 waitlisted — Sitka) |
 | 17b | Dining | Specialty dining | Optional | **BOOKED** | 16 reservations (1 waitlisted — Grill Apr 24) |
 | 18 | Cruise | Disembarkation | Optional | **CONFIRMED** | Seattle, May 11, 7:00 AM |
 | 19 | Transfers | Port → airport transfer | YES | **NOT BOOKED** | Seattle terminal→SEA-TAC for May 11 |
 | 20 | Flights | Return flight (SEA→COS) | YES | **NOT BOOKED** | May 11, exploring Southwest/United |
-| 21 | Admin | Dossier current | YES | **YES** | Updated Mar 12, 2026 |
+| 21 | Admin | Dossier current | YES | **YES** | Updated Mar 18, 2026 |
 
 **Coverage: ~90%** | **Critical Gaps:** Visit Japan Web, SEA→COS return flight, Seattle transfer
 
@@ -177,3 +181,8 @@ All $0 unless noted. Both guests on all excursions.
 6. [ ] Save Mt. Fuji meeting point file to dossier (PE164714008 attachment)
 7. [ ] Confirm Silversea upgrade bid results when Plusgrade responds
 8. [ ] Visit Japan Web registration — complete before Apr 21 at vjw.digital.go.jp (both travelers)
+
+- [x] ~~Update dossier EMAIL LOG with Mar 18 voucher receipt~~ — DONE Mar 18
+- [ ] Email PE to change agent name from 'Love Group Travel, LLC' to 'Dreams2Memories Travel, LLC' — **ON HOLD per Commander directive**
+- [x] ~~Update dossier: add ticket ref HL857174 and City Unscripted conf CIT-T123798325~~ — DONE Mar 18
+- [x] ~~Update dossier KEY CONTACTS: add Hiro phone +817043638092~~ — DONE Mar 18

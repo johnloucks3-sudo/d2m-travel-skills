@@ -13,14 +13,13 @@
 
 Fares: Kyle/Roger = OMAFSV26-3 (DV1 $3,799pp) | Josh/Erica = OMAPSF26-3 (V1 $3,099pp) | $50 deposit each
 
-### STATUS: **URGENT** — Final Payment Due Mar 31, 2026
+### STATUS: ACTIVE — Payment Delayed to Mar 25 per Kyle's Request | CC on File
 
 ### KEY DATES
 | Date | Milestone |
 |------|-----------|
-| **Mar 31** | **⚠️ FINAL PAYMENT DUE — $21,244 ($7,548 + $7,548 + $6,148)** |
-| Mar 15 | Guest Info Forms due (6 guests) |
-| Mar 25 | Travel protection discussion |
+| **Mar 25** | **⚠️ PROCESS PAYMENT — $21,244 ($7,548 + $7,548 + $6,148) — Kyle requested delay to float ~$23K** |
+| Mar 25 | Travel protection discussion (same call) |
 | Dec 17 | EMBARKATION — Panama City, 3:00 PM |
 | Dec 27 | Disembarkation — Ft. Lauderdale (Port Everglades), 5:00 AM |
 
@@ -73,8 +72,13 @@ Fares: Kyle/Roger = OMAFSV26-3 (DV1 $3,799pp) | Josh/Erica = OMAPSF26-3 (V1 $3,0
 
 **Mar 10 — Odysseus portal check**
 - Confirmed all 3 bookings: $7,598 each, $50 deposit paid, $7,548 balance
-- **PAYMENT DUE TODAY (not Mar 31 as Viking emails suggested)**
 - Staterooms confirmed: 4122 (Kyle) and 8012 (Roger)
+
+**Mar 18 — Commander (CLI session)**
+- Kyle Kuklinski uploaded CC to Viking portal ✓
+- Kyle requested payment delay to March 25 — wants to float the ~$23K until then
+- Al Ely also uploaded CC to Regent portal ✓
+- Furlow and Nichols CC upload status — not yet checked
 
 ---
 
@@ -110,9 +114,10 @@ Fares: Kyle/Roger = OMAFSV26-3 (DV1 $3,799pp) | Josh/Erica = OMAPSF26-3 (V1 $3,0
 ---
 
 ### OPEN ACTION ITEMS
-1. [ ] **PROCESS 3 FINAL PAYMENTS — $21,244 total ($7,548 + $7,548 + $6,148)** due Mar 31
-   - Need CC info from Kyle (804-801-4762) for his + Roger's bookings
-   - Need CC info from Josh (818-317-9843 / Josh@jerichopix.com) for his booking
+1. [ ] **PROCESS 3 FINAL PAYMENTS — $21,244 total ($7,548 + $7,548 + $6,148)** — TARGET: Mar 25
+   - Kyle CC uploaded to Viking portal ✓ — process Kyle (9593880) + Roger (9593873) on Mar 25
+   - Need CC info from Josh (818-317-9843 / Josh@jerichopix.com) for booking 9595029
+   - Travel protection discussion same call/day (Mar 25)
 2. [ ] **SEND portal activation emails to all 6 guests** — Kyle gave green light
 3. [ ] Fix Josh/Erica booking: update email, phone, address from John's placeholders to actual (188 Cays Dr, Naples FL 34114)
 4. [ ] Collect Guest Info Forms by Mar 15

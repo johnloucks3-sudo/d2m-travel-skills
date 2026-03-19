@@ -6,14 +6,17 @@ Replaces the `claude --print` subprocess approach with the Claude Agent SDK
 for streaming, hooks, sessions, and custom tools.
 
 Architecture:
-  1. Telegram message arrives, classified by Claude (Max plan, $0)
+  1. Telegram message arrives, classified by Claude
   2. This module calls the Claude Agent SDK with persona system prompt
-  3. Claude Opus runs in ~/Thunderbird/ with full MCP tool access
+  3. Claude runs in ~/Thunderbird/ with full MCP tool access
   4. Streaming progress callbacks sent to Telegram as the agent works
   5. Response returned to Telegram
 
-Cost: $0 (Max plan OAuth — ANTHROPIC_API_KEY stripped from env)
-Quality: S-tier (Opus 4.6) for every persona, Sonnet fallback on timeout
+Billing modes (controlled by ~/Thunderbird/config/poe.env):
+  POE_MODE=0 (default) — Max plan OAuth, $0 per call, Opus quality
+  POE_MODE=1           — Poe gateway, burns Poe points, Sonnet quality
+  Switch:  sed -i 's/POE_MODE=0/POE_MODE=1/' ~/Thunderbird/config/poe.env
+  Revert:  sed -i 's/POE_MODE=1/POE_MODE=0/' ~/Thunderbird/config/poe.env
 
 Replaces: thunderbird_telegram_tools_v2.py (subprocess CLI approach)
 """
@@ -30,19 +33,30 @@ from typing import Any, Callable, Optional, Union
 
 logger = logging.getLogger("thunderbird_telegram_tools_sdk")
 
-# ── Strip ANTHROPIC_API_KEY so SDK uses Max plan OAuth ($0) ──
-# This MUST happen before any SDK import to prevent the SDK from
-# picking up a pay-per-token API key.
-if "ANTHROPIC_API_KEY" in os.environ:
-    logger.info("Stripping ANTHROPIC_API_KEY from env — using Max plan OAuth")
-    del os.environ["ANTHROPIC_API_KEY"]
+# ── Poe / Max plan mode — import BEFORE any SDK import ──────────────────────
+# build_api_env() sets or strips ANTHROPIC_API_KEY depending on POE_MODE.
+# This must run before any SDK import so the SDK picks up the right credentials.
+from thunderbird_poe_config import build_api_env, poe_mode, poe_model, route_model, log_usage, estimate_from_text
+
+# Apply mode to the live process environment so SDK auto-detects credentials
+_startup_env = build_api_env()
+if poe_mode():
+    os.environ["ANTHROPIC_API_KEY"]  = _startup_env.get("ANTHROPIC_API_KEY", "")
+    os.environ["ANTHROPIC_BASE_URL"] = _startup_env.get("ANTHROPIC_BASE_URL", "")
+    logger.info("Poe gateway mode active — routing via %s", os.environ["ANTHROPIC_BASE_URL"])
+else:
+    os.environ.pop("ANTHROPIC_API_KEY", None)
+    os.environ.pop("ANTHROPIC_BASE_URL", None)
+    logger.info("Max plan mode active — using OAuth credentials")
 
 # ── Config ──
 THUNDERBIRD_DIR = os.path.expanduser("~/Thunderbird")
 CLAUDE_CMD = os.path.expanduser("~/.local/bin/claude")
-MAX_RESPONSE_TIME = 180  # seconds
-DEFAULT_MODEL = "opus"
-FALLBACK_MODEL = "sonnet"
+MAX_RESPONSE_TIME = 600  # seconds — complex multi-tool requests (research + draft + status) can exceed 180s
+# Model routing — Sonnet is default (separate weekly quota, ~0% used).
+# Escalate to Opus via route_model("client_proposal") etc. for high-value work.
+DEFAULT_MODEL  = poe_model() if poe_mode() else route_model("default")   # claude-sonnet-4-6
+FALLBACK_MODEL = route_model("classify")                                   # claude-haiku-4-5-*
 
 
 # ── Session store — maps Telegram chat IDs to SDK session IDs ──
@@ -364,8 +378,8 @@ def classify_intent(message: str) -> dict:
         f"MESSAGE: {message}"
     )
 
-    # Strip ANTHROPIC_API_KEY so CLI uses Max plan OAuth ($0)
-    clean_env = {k: v for k, v in os.environ.items() if k != "ANTHROPIC_API_KEY"}
+    # Build mode-aware env (Max plan: strip key | Poe: set key+base_url)
+    clean_env = build_api_env()
 
     cmd = [
         os.path.expanduser("~/.local/bin/claude"),
@@ -373,12 +387,13 @@ def classify_intent(message: str) -> dict:
         "--model", "haiku",
         "--dangerously-skip-permissions",
         "--output-format", "text",
-        "-p", prompt,
+        "-p", "-",  # read prompt from stdin to avoid ARG_MAX
     ]
 
     try:
         result = subprocess.run(
             cmd,
+            input=prompt,
             capture_output=True,
             text=True,
             timeout=30,
@@ -562,10 +577,8 @@ async def _call_via_sdk(
     if model == DEFAULT_MODEL:
         options_kwargs["fallback_model"] = FALLBACK_MODEL
 
-    # Ensure ANTHROPIC_API_KEY is NOT passed to the SDK subprocess
-    options_kwargs["env"] = {
-        k: v for k, v in os.environ.items() if k != "ANTHROPIC_API_KEY"
-    }
+    # Build mode-aware env for SDK subprocess
+    options_kwargs["env"] = build_api_env()
 
     # MCP config — let the SDK pick up from mcp.json automatically
     # The SDK inherits the user's ~/.claude/mcp.json when running
@@ -779,13 +792,11 @@ def _call_via_cli_sync(
         "--model", model,
         "--dangerously-skip-permissions",
         "--output-format", "text",
-        "-p", prompt,
+        "-p", "-",  # read prompt from stdin to avoid ARG_MAX on large emails
     ]
 
-    # Build clean env without ANTHROPIC_API_KEY
-    clean_env = {
-        k: v for k, v in os.environ.items() if k != "ANTHROPIC_API_KEY"
-    }
+    # Build mode-aware env (Max plan: strip key | Poe: set key+base_url)
+    clean_env = build_api_env()
     clean_env["CLAUDE_CODE_ENTRYPOINT"] = "cli"
 
     logger.info(
@@ -796,6 +807,7 @@ def _call_via_cli_sync(
     try:
         result = subprocess.run(
             cmd,
+            input=prompt,
             capture_output=True,
             text=True,
             timeout=MAX_RESPONSE_TIME,
@@ -821,6 +833,15 @@ def _call_via_cli_sync(
 
         if len(response) > 16000:
             response = response[:16000] + "\n\n[Response truncated for Telegram]"
+
+        # Log Poe point consumption (estimated from char count when no token data)
+        log_usage(
+            persona=persona,
+            model=model,
+            input_tokens=estimate_from_text(prompt),
+            output_tokens=estimate_from_text(response),
+            source="telegram_cli",
+        )
 
         return response
 

@@ -199,7 +199,7 @@ def _build_dani_email_response(sender_name: str, sender_email: str,
         )
         context += email_rules
 
-        result = call_persona("A3", context, max_tokens=800)
+        result = call_persona("A3", context, max_tokens=800, model_override="opus")  # client-facing email
         answer = result.get("answer", "")
 
         # Strip the model attribution tag for email drafts

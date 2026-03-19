@@ -32,7 +32,7 @@
 | Leg | Flight | Route | Depart | Arrive | Seats |
 |-----|--------|-------|--------|--------|-------|
 | OUT 1 | AA 9018 (Finnair) | DFW → HEL | Aug 26, 4:50 PM | Aug 27, 10:45 AM | Not assigned |
-| OUT 2 | AY 811 | HEL → ARN | Aug 27, 1:15 PM | Aug 27, 1:15 PM | Not assigned |
+| OUT 2 | AY 811 | HEL → ARN | Aug 27, 1:15 PM | Aug 27, 1:15 PM | **2D (Larry) · 2F (Heidi)** ✓ |
 | RET 1 | BA 6776 (AA) | OSL → LHR | Sep 8, 11:15 AM | Sep 8, 12:45 PM | Not assigned |
 | RET 2 | AA 79 | LHR → DFW | Sep 8, 2:25 PM | Sep 8, 6:35 PM | Not assigned |
 
@@ -93,7 +93,7 @@
 | 4 | Flights | Outbound leg 1 (DFW→HEL) | YES | **CONFIRMED** | AA 9018 (Finnair) Aug 26 4:50PM |
 | 5 | Flights | Outbound leg 2 (HEL→ARN) | YES | **CONFIRMED** | AY 811 Aug 27 1:15PM |
 | 6 | Flights | Outbound PNR / e-ticket | YES | **CONFIRMED** | AA: DSTAGH / Finnair: BERJYH |
-| 7 | Flights | Outbound seat assignments | Nice-to-have | **MISSING** | No seats assigned on any flight |
+| 7 | Flights | Outbound seat assignments | Nice-to-have | **PARTIAL** | HEL→ARN: 2D/2F confirmed (Heidi Mar 16). DFW→HEL: none assigned |
 | 8 | Transfers | Airport → hotel transfer | YES | **CONFIRMED** | Bedsonline #1095089/LN693883 |
 | 9 | Hotel | Pre-cruise hotel (1 night) | YES | **CONFIRMED** | Haymarket By Scandic, Aug 27-28 (Furlow group) |
 | 10 | Hotel | Regent included hotel night | YES | **CONFIRMED** | Aug 28 |
@@ -113,7 +113,7 @@
 | 23 | Admin | Portal activated | Nice-to-have | **SENT** | Activation sent |
 | 24 | Admin | Dossier current | YES | **YES** | Updated Mar 12, 2026 |
 
-**Coverage: ~80%** | **Critical Gaps:** Insurance clarity, passport verification, final payment, ALL seat assignments missing
+**Coverage: ~83%** | **Critical Gaps:** Insurance clarity, passport verification, final payment, 3 of 4 seat legs unassigned
 
 ### SHORE EXCURSIONS (from RSSC Portal — Mar 12, 2026)
 All included (Regent Choice — $0.00). Both guests on all excursions.

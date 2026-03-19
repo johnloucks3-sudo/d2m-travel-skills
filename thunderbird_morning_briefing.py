@@ -98,7 +98,7 @@ def _mark_sent(text: str, cache: dict):
 def _get_sheets_client():
     creds = service_account.Credentials.from_service_account_file(
         str(SA_CREDS),
-        scopes=["https://www.googleapis.com/auth/spreadsheets.readonly"],
+        scopes=["https://www.googleapis.com/auth/spreadsheets"],
     )
     return gspread.authorize(creds)
 

@@ -37,7 +37,7 @@ import uvicorn
 # Add project root to path
 sys.path.insert(0, str(Path(__file__).parent))
 
-from thunderbird_gmail import _get_gmail_service, _decode_body, _extract_headers
+from thunderbird_gmail import _get_gmail_service, _decode_body, _extract_headers, gmail_create_draft_sync
 from thunderbird_drive import _get_drive_service
 from thunderbird_fare_watch import list_watches, check_fare, add_watch, get_fare_history
 from thunderbird_ship_intel import run_ship_intelligence_sweep
@@ -349,6 +349,16 @@ def _build_tool_registry():
     async def _fare_watch_history(**kwargs):
         return get_fare_history(kwargs["watch_id"], kwargs.get("limit", 30))
 
+    async def _gmail_create_draft(**kwargs):
+        """Create a Gmail draft and tag it THUNDERBIRD-Commander-Review."""
+        return gmail_create_draft_sync(
+            to=kwargs.get("to", "johnloucks3@gmail.com"),
+            subject=kwargs.get("subject", "(no subject)"),
+            body=kwargs.get("body", ""),
+            from_address=kwargs.get("from_address", "concierge@d2mluxury.quest"),
+            label_review=kwargs.get("label_review", True),
+        )
+
     TOOL_REGISTRY.update({
         "run_ship_intelligence_sweep": _run_ship_intel,
         "run_world_intelligence_sweep": _run_world_intel,
@@ -357,6 +367,7 @@ def _build_tool_registry():
         "fare_watch_check": _fare_watch_check,
         "fare_watch_add": _fare_watch_add,
         "fare_watch_history": _fare_watch_history,
+        "gmail_create_draft": _gmail_create_draft,
     })
 
 

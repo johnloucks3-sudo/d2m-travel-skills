@@ -54,7 +54,8 @@ from thunderbird_personas import (
     resolve_id,
 )
 from thunderbird_context import gather_commander_context
-from thunderbird_dani_engine import build_dani_context, cos_review
+from thunderbird_dani_engine import build_dani_context, cos_review, pre_send_evaluate
+from thunderbird_telegram_tools_sdk import call_cos_with_tools
 
 # ---------------------------------------------------------------------------
 # Config
@@ -122,13 +123,21 @@ def commander_only(func):
     @wraps(func)
     async def wrapper(update: Update, context: ContextTypes.DEFAULT_TYPE):
         user_id = update.effective_user.id
-        if not _is_commander(user_id):
-            logger.warning(f"Unauthorized command attempt: user_id={user_id}")
+        if _is_commander(user_id):
+            # Commander's channel is @D2MC2C_bot — this bot is clients only
             await update.message.reply_text(
-                "This command is not available. Just send me a message and I'll help!"
+                "⚠️ *Wrong channel, Commander.*\n\n"
+                "This bot is reserved for clients only.\n"
+                "Use @D2MC2C\\_bot for Wing access, staff commands, and ops.",
+                parse_mode=ParseMode.MARKDOWN,
             )
             return
-        return await func(update, context)
+        # Non-commanders: friendly block for staff commands
+        logger.warning(f"Unauthorized command attempt: user_id={user_id}")
+        await update.message.reply_text(
+            "This command is not available. Just send me a message and I'll help!"
+        )
+        return
     return wrapper
 
 # ---------------------------------------------------------------------------
@@ -275,10 +284,49 @@ def _build_dani_query_client(query: str, user_id: int = None) -> str:
         return _build_contextual_query(query)
 
 
-# All personas on Claude Opus via Max plan — no model override needed
+# Model routing: per-persona map in thunderbird_personas.py (A3=Sonnet, rest=Opus)
 
 
-def _call_persona_safe(persona_id: str, query: str, max_tokens: int = 600) -> dict:
+def _build_cos_query(query: str, user_id: int = None) -> str:
+    """Build COS query with rich data context for Commander briefings.
+
+    Uses the Dani data engine but strips Dani persona rules and replaces
+    with COS briefing instructions.
+    """
+    try:
+        context = build_dani_context(query, is_commander=True)
+
+        # Strip Dani's rules — COS has her own system prompt
+        if "DANI'S RULES:" in context:
+            context = context[:context.index("DANI'S RULES:")]
+
+        cos_rules = (
+            "COS DATA PRESENTATION RULES:\n"
+            "- You are briefing the COMMANDER. Present ALL data from above — every field, every date, every detail.\n"
+            "- Format as a clean briefing: structured, scannable, complete.\n"
+            "- Include: names, booking IDs, confirmation numbers, dates, costs, phone numbers, emails, addresses.\n"
+            "- Include: anchor date timelines, cancellation penalties, payment status, insurance status.\n"
+            "- Include: dossier data, checklist items, logistics, tour/dining status.\n"
+            "- If data exists above, PRESENT IT. Do not summarize or skip fields.\n"
+            "- If data is missing (shows blank or pending), say so explicitly.\n"
+            "- NEVER fabricate data. NEVER narrate around the data. Give the Commander the facts."
+        )
+
+        parts = [context.rstrip(), cos_rules]
+
+        if user_id:
+            history = _get_history_context(user_id)
+            if history:
+                parts.append(history)
+
+        parts.append(f"COMMANDER QUERY: {query}")
+        return "\n\n".join(parts)
+    except Exception as e:
+        logger.error(f"_build_cos_query failed: {e}")
+        return f"COMMANDER QUERY: {query}"
+
+
+def _call_persona_safe(persona_id: str, query: str, max_tokens: int = 2000) -> dict:
     """Call persona via Claude Opus with safety fallbacks.
 
     Additional safety: on 413 (too large), retries with trimmed query.
@@ -288,7 +336,7 @@ def _call_persona_safe(persona_id: str, query: str, max_tokens: int = 600) -> di
 
     pid = resolve_id(persona_id)
 
-    # All personas on Opus — no model override
+    # Model routing handled by PERSONA_MODEL_MAP in thunderbird_personas.py
     model_override = None
 
     try:
@@ -370,16 +418,17 @@ async def run_staff_meeting_async(query: str) -> dict:
 async def cmd_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Handle /start — different welcome for Commander vs client."""
     user_id = update.effective_user.id
+    # Clients can only /start in private DMs — suppress in groups/channels
+    if not _is_commander(user_id) and update.effective_chat.type != "private":
+        return
     if _is_commander(user_id):
-        welcome = (
-            "Welcome to *Thunderbird Command*, Commander.\n\n"
-            "Your Wing is standing by. Use a persona command to consult staff, "
-            "or just type a message to reach Dani (A3).\n\n"
-            "Type /help for the full command list.\n\n"
-            f"_Dreams2Memories Travel, LLC_\n"
-            f"_{datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}_"
+        # Commander's channel is @D2MC2C_bot — this bot is clients only
+        await update.message.reply_text(
+            "⚠️ *Wrong channel, Commander.*\n\n"
+            "This bot is reserved for clients only.\n"
+            "Use @D2MC2C\\_bot for Wing access, staff commands, and ops.",
+            parse_mode=ParseMode.MARKDOWN,
         )
-        await update.message.reply_text(welcome, parse_mode=ParseMode.MARKDOWN)
         return
     else:
         user_first = update.effective_user.first_name or "there"
@@ -615,6 +664,18 @@ async def handle_button_callback(update: Update, context: ContextTypes.DEFAULT_T
     user_id = query.from_user.id
     user_name = query.from_user.full_name or "Client"
 
+    # Commander belongs on @D2MC2C_bot — redirect
+    if _is_commander(user_id):
+        await query.message.reply_text(
+            "⚠️ *Wrong channel, Commander.* Use @D2MC2C\\_bot.",
+            parse_mode=ParseMode.MARKDOWN,
+        )
+        return
+
+    # Clients can only use buttons in private DMs
+    if query.message.chat.type != "private":
+        return
+
     if callback_data in DANI_BUTTON_PROMPTS:
         response_text = DANI_BUTTON_PROMPTS[callback_data]
 
@@ -667,6 +728,16 @@ async def handle_plain_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     is_cmdr = _is_commander(user_id)
     user_name = update.effective_user.full_name or "Unknown"
+    chat_type = update.effective_chat.type  # "private", "group", "supergroup", "channel"
+
+    # ── SECURITY: Dani must NEVER respond on group/public channels ──
+    # Commander can use the bot anywhere; clients must DM only.
+    if not is_cmdr and chat_type != "private":
+        logger.info(
+            f"Ignoring non-private msg from {user_name} (uid={user_id}) "
+            f"in {chat_type} chat {update.effective_chat.id}"
+        )
+        return
 
     await update.message.chat.send_action(ChatAction.TYPING)
 
@@ -674,32 +745,14 @@ async def handle_plain_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     loop = asyncio.get_event_loop()
     if is_cmdr:
-        # Commander → COS with real tool access (Claude Opus via Max plan)
-        logger.info(f"Commander msg -> COS (Opus + tools): {query[:80]}...")
-
-        # Build conversation history for context
-        history = _conversation_history.get(user_id, [])
-        conv_hist = [{"role": h["role"], "text": h["text"]} for h in history[:-1]]  # exclude current msg (already added)
-
-        try:
-            answer_text = await loop.run_in_executor(
-                None, lambda: call_cos_with_tools(query, conv_hist or None)
-            )
-            result = {
-                "persona": "COS",
-                "name": "Col Victoria Hale",
-                "icon": "🎖️",
-                "answer": answer_text,
-            }
-        except Exception as e:
-            logger.error(f"COS tool-calling failed, falling back to persona path: {e}")
-            # Fallback to persona call path
-            enriched_query = await loop.run_in_executor(
-                None, _build_cos_query, query, user_id
-            )
-            result = await loop.run_in_executor(
-                None, lambda: _call_persona_safe(COMMANDER_PERSONA, enriched_query, max_tokens=1500)
-            )
+        # Commander's channel is @D2MC2C_bot — this bot is clients only
+        await update.message.reply_text(
+            "⚠️ *Wrong channel, Commander.*\n\n"
+            "This bot is reserved for clients only.\n"
+            "Use @D2MC2C\\_bot for Wing access, staff commands, and ops.",
+            parse_mode=ParseMode.MARKDOWN,
+        )
+        return
     else:
         # Client → Dani with filtered context
         logger.info(f"Client msg -> A3 (Dani): {query[:80]}...")
@@ -710,25 +763,40 @@ async def handle_plain_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     answer = result.get("answer", FALLBACK_MSG)
 
-    # COS Review Gate — clients only
+    # Pre-Send Evaluator Gate — fast regex, zero API cost, runs first
     cos_note = ""
     if not is_cmdr:
-        cos_result = await loop.run_in_executor(
-            None, cos_review, query, answer, True  # is_client=True
-        )
-        cos_note = cos_result.get("note", "")
-
-        if not cos_result.get("approved", True):
-            # COS blocked this response — don't send it to client
-            logger.warning(f"COS BLOCKED response to {user_name}: {cos_note}")
+        presend = pre_send_evaluate(answer)
+        if presend["blocked"]:
+            flag_summary = "; ".join(f"{f['type']}='{f['match']}'" for f in presend["flags"])
+            logger.warning(f"PRE-SEND BLOCKED for {user_name}: {flag_summary}")
             answer = (
                 "Thank you for your question! I'm checking on this with our team "
                 "and John will follow up with you shortly."
             )
-        elif cos_result.get("revised"):
-            # COS revised the response — use the revised version
-            logger.info(f"COS revised response for {user_name}")
-            answer = cos_result["revised"]
+            cos_note = f"PRE-SEND BLOCKED [{flag_summary}] — COS review skipped."
+        else:
+            if not presend["clean"]:
+                flag_summary = "; ".join(f"{f['type']}='{f['match']}'" for f in presend["flags"])
+                logger.info(f"PRE-SEND flagged (non-blocking) for {user_name}: {flag_summary}")
+
+            # COS Review Gate — clients only (runs after pre-send passes)
+            cos_result = await loop.run_in_executor(
+                None, cos_review, query, answer, True  # is_client=True
+            )
+            cos_note = cos_result.get("note", "")
+
+            if not cos_result.get("approved", True):
+                # COS blocked this response — don't send it to client
+                logger.warning(f"COS BLOCKED response to {user_name}: {cos_note}")
+                answer = (
+                    "Thank you for your question! I'm checking on this with our team "
+                    "and John will follow up with you shortly."
+                )
+            elif cos_result.get("revised"):
+                # COS revised the response — use the revised version
+                logger.info(f"COS revised response for {user_name}")
+                answer = cos_result["revised"]
 
     _add_to_history(user_id, "assistant", answer)
 
@@ -741,10 +809,8 @@ async def handle_plain_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not is_cmdr:
         # LOG: Persistent record of every client interaction
         _log_client_interaction(user_id, user_name, query, answer, cos_note)
-        # CLIENT: Always notify Commander — every single interaction
-        await _notify_commander_client_msg(
-            bot, query, answer, user_name, cos_note
-        )
+        # CLIENT: Commander DM notifications disabled per 2026-03-17 directive
+        # Use /logs or C2 channel to review interactions; only escalations push through
         # Additional follow-up alert if Dani couldn't answer
         if _is_followup_needed(answer):
             _log_followup(query, answer, user_name)
@@ -860,7 +926,7 @@ async def _notify_commander_followup(bot, query: str, user_name: str = "Client")
     notice = (
         f"🔴 *DANI NEEDS HELP — {ts}*\n\n"
         f"*From:* {user_name}\n"
-        f"*Question:* _{query[:300]}_\n\n"
+        f"*Question:* _{query}_\n\n"
         "Dani could not answer from available data.\n"
         "*Action required.*"
     )
@@ -872,15 +938,14 @@ async def _notify_commander_client_msg(bot, query: str, answer: str,
                                         cos_note: str = ""):
     """DM the Commander on EVERY client interaction — awareness, not just failures."""
     ts = datetime.now(timezone.utc).strftime("%H:%M UTC")
-    # Truncate answer for readability
-    short_answer = answer[:200] + "..." if len(answer) > 200 else answer
+    # Full response — no truncation (Telegram splits automatically via send_long_message)
     cos_line = f"\n*COS:* {cos_note}" if cos_note else ""
 
     notice = (
         f"💬 *CLIENT MESSAGE — {ts}*\n\n"
         f"*From:* {user_name}\n"
-        f"*Question:* _{query[:300]}_\n\n"
-        f"*Dani's response:* {short_answer}{cos_line}"
+        f"*Question:* _{query}_\n\n"
+        f"*Dani's response:* {answer}{cos_line}"
     )
     await _dm_commander(bot, notice)
 
