@@ -749,6 +749,15 @@ def call_persona(persona_id: str, query: str, max_tokens: int = 2000,
     # --- Memory: inject recent context into system prompt ---
     system_prompt = inject_memory_context(pid, system_prompt)
 
+    # --- Learning: inject Commander-validated rules ---
+    try:
+        from thunderbird_learning import get_applicable_rules
+        rules_block = get_applicable_rules(persona_id=pid)
+        if rules_block:
+            system_prompt += rules_block
+    except Exception as _lr_err:
+        logger.debug(f"Learning rules injection skipped: {_lr_err}")
+
     answer = _call_claude(system_prompt, query, max_tokens, model=model)
 
     # Strip <think> blocks

@@ -1160,6 +1160,55 @@ def render_briefing_html(
 
         html += "  </div>\n"
 
+    # ── SECTION 7: LEARNING DIGEST + DOSSIER ALERTS (IOC) ──
+    try:
+        from thunderbird_learning import get_learning_digest
+        learning_digest = get_learning_digest()
+    except Exception:
+        learning_digest = ""
+
+    try:
+        from thunderbird_dossier_scanner import generate_alert_digest
+        dossier_digest = generate_alert_digest()
+    except Exception:
+        dossier_digest = ""
+
+    if learning_digest or dossier_digest:
+        html += """
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:rgba(255,68,68,0.15);">&#9888;</div>
+      <div class="section-title">IOC Operations</div>
+    </div>
+"""
+        if dossier_digest:
+            html += f'    <div style="padding:12px 16px;font-size:13px;line-height:1.7;color:#e0e6ed;">\n'
+            for line in dossier_digest.split("\n"):
+                if line.startswith("**CRITICAL"):
+                    html += f'      <div style="color:#ff6666;font-weight:600;margin-top:8px;">{line}</div>\n'
+                elif line.startswith("**WARNING"):
+                    html += f'      <div style="color:#e8c97a;font-weight:600;margin-top:8px;">{line}</div>\n'
+                elif line.startswith("- **"):
+                    html += f'      <div style="color:#ff8888;padding-left:12px;">{line}</div>\n'
+                elif line.startswith("- "):
+                    html += f'      <div style="padding-left:12px;">{line}</div>\n'
+                elif line.strip():
+                    html += f'      <div>{line}</div>\n'
+            html += '    </div>\n'
+
+        if learning_digest:
+            html += f'    <div style="padding:12px 16px;font-size:13px;line-height:1.7;color:#e0e6ed;border-top:1px solid #1e3358;">\n'
+            for line in learning_digest.split("\n"):
+                if line.startswith("**ACTION"):
+                    html += f'      <div style="color:#ff8888;font-weight:600;">{line}</div>\n'
+                elif line.startswith("- "):
+                    html += f'      <div style="padding-left:12px;">{line}</div>\n'
+                elif line.strip():
+                    html += f'      <div>{line}</div>\n'
+            html += '    </div>\n'
+
+        html += "  </div>\n"
+
     # ── FOOTER ──
     html += f"""
   <div class="footer">

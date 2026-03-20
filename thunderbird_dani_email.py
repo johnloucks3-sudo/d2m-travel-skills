@@ -376,6 +376,18 @@ def dani_email_sweep() -> Dict[str, Any]:
         # Use COS-revised version if available
         final_response = cos_result.get("revised") or dani_response
 
+        # Capture diff for learning compiler (Skill 1: Capture the Diff)
+        if final_response != dani_response:
+            try:
+                from thunderbird_learning import capture_email_diff
+                capture_email_diff(
+                    dani_response, final_response,
+                    context=f"COS review of Dani reply to {sender_name} re: {subject}",
+                    source="cos_review",
+                )
+            except Exception as _learn_err:
+                logger.debug(f"Learning capture skipped: {_learn_err}")
+
         # Create Gmail draft reply
         try:
             draft = _create_draft_reply(

@@ -64,6 +64,9 @@ from thunderbird_transfers import register_transfer_tools
 from thunderbird_opentable import register_opentable_tools
 from thunderbird_expedia_taap import register_taap_tools
 from thunderbird_worldfactbook import register_worldfactbook_tools
+from thunderbird_learning import register_learning_tools
+from thunderbird_sss import register_sss_tools
+from thunderbird_dossier_scanner import register_dossier_scanner_tools
 import json
 import logging
 import asyncio
@@ -470,6 +473,9 @@ register_transfer_tools(mcp)
 register_opentable_tools(mcp)
 register_taap_tools(mcp)
 register_worldfactbook_tools(mcp)
+register_learning_tools(mcp)
+register_sss_tools(mcp)
+register_dossier_scanner_tools(mcp)
 
 # ============================================================================
 # SHELL EXEC TOOL
