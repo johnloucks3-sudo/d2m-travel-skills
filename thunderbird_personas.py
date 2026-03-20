@@ -635,6 +635,16 @@ CRITICAL DIRECTIVES:
         except Exception:
             pass  # No voice profile yet — skip silently
 
+    # Inject Voice Ledger rules for client-facing personas (A3/Dani, EXEC, A6)
+    if pid in ("A3", "EXEC", "A6"):
+        try:
+            from thunderbird_voice_ledger import get_voice_rules
+            voice_rules = get_voice_rules()  # global rules for now; client/tier injected at call time
+            if voice_rules:
+                prompt += f"\n\n{voice_rules}"
+        except Exception:
+            pass
+
     return prompt
 
 

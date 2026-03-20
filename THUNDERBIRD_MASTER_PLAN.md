@@ -1431,14 +1431,16 @@ The personas were redesigned THREE times. Capabilities were gained and lost at e
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
-| IOC-1 | **Claude Code Channels** — evaluate as replacement for custom Telegram C2 bot | `[ ]` TODO | COS proposed, Commander approved. May replace thunderbird_telegram_c2.py |
-| IOC-2 | **Claude Code Scheduled Tasks** — test as alternative to systemd timers | `[ ]` TODO | For morning briefs, intel sweeps, price checks |
-| IOC-3 | **Claude Code Remote Control** — mobile/web CLI access | `[ ]` TODO | Gives Commander CLI access without SSH/mosh from Chromebook |
-| IOC-4 | **Verify 1M context on Max plan** | `[ ]` TODO | Reduces compaction during long sessions |
-| IOC-5 | **Staff Learning Loop (Skills 1-3)** — build feedback compiler | `[ ]` TODO | Capture diff → extract principle → apply forward. ELON's architecture: structured rule store, tagged by persona/domain/severity. Runs before output ships. |
+| IOC-1 | **Claude Code Channels** — evaluate as replacement for custom Telegram C2 bot | `[~]` EVALUATE FURTHER | Session-bound only — dies when terminal closes. Cannot replace always-on python-telegram-bot. May supplement for CI alerts. Keep Telegram bot. |
+| IOC-2 | **Claude Code Scheduled Tasks** — test as alternative to systemd timers | `[✗]` NOT READY | 3-day auto-expiry, session-bound, no persistence across reboots. Unsuitable for production. Keep systemd timers on Yoga. |
+| IOC-3 | **Claude Code Remote Control** — mobile/web CLI access | `[x]` ADOPT Mar 20 | Stable, fully supported. `claude --remote-control` + QR scan from Chromebook/phone. Complements mosh for quick C2 commands. Keep mosh for deep terminal work. |
+| IOC-4 | **Verify 1M context on Max plan** | `[x]` CONFIRMED Mar 20 | 1M context GA for Opus 4.6 & Sonnet 4.6 as of Mar 13, 2026. No extra cost on Max. Use `--model opus` for long sessions. Reduces compaction significantly. |
+| IOC-5 | **Staff Learning Loop (Skills 1-3)** — build feedback compiler | `[x]` DONE Mar 20 | `thunderbird_learning.py` — SQLite rule store, capture/extract/validate/apply pipeline. 5 MCP tools. Injected into every call_persona(). |
+| IOC-5a | **Staff Summary Sheet (Skill 5)** — formal debate + coordination | `[x]` DONE Mar 20 | `thunderbird_sss.py` — USAF AF1768 model, 3-mode routing (IOC/client/hybrid), CONCUR/NON-CONCUR workflow. 6 MCP tools. |
+| IOC-5b | **Proactive Dossier Scanner** — remove Commander as safety net | `[x]` DONE Mar 20 | `thunderbird_dossier_scanner.py` — scans all dossiers for FPDs, seats, passports, insurance. 2 MCP tools. Integrated into morning briefing. |
 | IOC-6 | **Dani Role Separation** — wire aggregator/artist/advocate workflow | `[x]` DONE Mar 20 | Persona definition updated. CLAUDE.md updated. Handoff format TBD with A2/A9. |
 | IOC-7 | **Staff Communication Channels** — all personas can reach Commander | `[x]` DONE Mar 20 | Email (d2mconcierge → johnloucks3) + Telegram C2. Any medium Commander uses. |
-| IOC-8 | **Voice Ledger** — living doc fed by Commander edits | `[ ]` TODO | EXEC + A6 own this. Every edit diffed, principled, filed. Per-client, per-relationship-tier. |
+| IOC-8 | **Voice Ledger** — living doc fed by Commander edits | `[x]` DONE Mar 20 | `thunderbird_voice_ledger.py` — JSON ledger, 5 tiers (paying/friend/prospect/vendor/staff), per-client rules. 6 MCP tools. Seeded with 9 rules from Mar 19-20 emails. Injected into A3/EXEC/A6 prompts. |
 | IOC-9 | **A2 Intel Expansion** — all regions, ISW, defense, politics | `[x]` DONE Mar 20 | Standing order updated. Broader scope than A2 thinks needed. |
 
 ### WEEK 3 (Mar 24-30) — Polish + Cleanup

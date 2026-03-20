@@ -67,6 +67,7 @@ from thunderbird_worldfactbook import register_worldfactbook_tools
 from thunderbird_learning import register_learning_tools
 from thunderbird_sss import register_sss_tools
 from thunderbird_dossier_scanner import register_dossier_scanner_tools
+from thunderbird_voice_ledger import register_voice_ledger_tools
 import json
 import logging
 import asyncio
@@ -476,6 +477,7 @@ register_worldfactbook_tools(mcp)
 register_learning_tools(mcp)
 register_sss_tools(mcp)
 register_dossier_scanner_tools(mcp)
+register_voice_ledger_tools(mcp)
 
 # ============================================================================
 # SHELL EXEC TOOL
