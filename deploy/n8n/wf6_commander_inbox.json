@@ -1,17 +1,25 @@
 {
-  "name": "D2M — Commander Inbox Sweep",
+  "name": "D2M \u2014 Commander Inbox Sweep",
   "nodes": [
     {
       "parameters": {
         "rule": {
-          "interval": [{"field": "cronExpression", "expression": "15 14,16,18,20,22,0,2 * * *"}]
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "15 14,16,18,20,22,0,2 * * *"
+            }
+          ]
         }
       },
       "id": "d6000001-0001-4000-8000-000000000001",
-      "name": "Schedule — Every 2hr Business Hours",
+      "name": "Schedule \u2014 Every 2hr Business Hours",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
-      "position": [240, 300]
+      "position": [
+        240,
+        300
+      ]
     },
     {
       "parameters": {
@@ -19,15 +27,25 @@
         "url": "https://api.d2mluxury.quest/api/tool/scan_commander_inbox",
         "sendHeaders": true,
         "headerParameters": {
-          "parameters": [{"name": "x-api-key", "value": "={{$env.D2M_API_KEY}}"}]
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "={{$env.D2M_API_KEY}}"
+            }
+          ]
         },
-        "options": {"timeout": 120000}
+        "options": {
+          "timeout": 120000
+        }
       },
       "id": "d6000001-0002-4000-8000-000000000002",
       "name": "Scan Commander Inbox",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [460, 300]
+      "position": [
+        460,
+        300
+      ]
     },
     {
       "parameters": {
@@ -37,27 +55,73 @@
       "name": "Format Summary",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [700, 300]
+      "position": [
+        700,
+        300
+      ]
     },
     {
       "parameters": {
         "chatId": "={{$env.TELEGRAM_COMMANDER_ID}}",
         "text": "={{ $json.message }}",
-        "additionalFields": {"parse_mode": "Markdown"}
+        "additionalFields": {
+          "parse_mode": "Markdown"
+        }
       },
       "id": "d6000001-0004-4000-8000-000000000004",
       "name": "Notify Commander",
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
-      "position": [940, 300],
-      "credentials": {"telegramApi": {"id": "1", "name": "D2MC2C Bot"}}
+      "position": [
+        940,
+        300
+      ],
+      "credentials": {
+        "telegramApi": {
+          "id": "1",
+          "name": "D2MC2C Bot"
+        }
+      }
     }
   ],
   "connections": {
-    "Schedule — Every 2hr Business Hours": {"main": [[{"node": "Scan Commander Inbox", "type": "main", "index": 0}]]},
-    "Scan Commander Inbox": {"main": [[{"node": "Format Summary", "type": "main", "index": 0}]]},
-    "Format Summary": {"main": [[{"node": "Notify Commander", "type": "main", "index": 0}]]}
+    "Schedule \u2014 Every 2hr Business Hours": {
+      "main": [
+        [
+          {
+            "node": "Scan Commander Inbox",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Scan Commander Inbox": {
+      "main": [
+        [
+          {
+            "node": "Format Summary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Summary": {
+      "main": [
+        [
+          {
+            "node": "Notify Commander",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
   },
   "active": false,
-  "settings": {"executionOrder": "v1"}
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "id": "d2m-wf-6"
 }

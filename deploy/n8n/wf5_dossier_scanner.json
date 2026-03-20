@@ -1,17 +1,25 @@
 {
-  "name": "D2M — Dossier Scanner",
+  "name": "D2M \u2014 Dossier Scanner",
   "nodes": [
     {
       "parameters": {
         "rule": {
-          "interval": [{"field": "cronExpression", "expression": "45 12 * * *"}]
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "45 12 * * *"
+            }
+          ]
         }
       },
       "id": "d5000001-0001-4000-8000-000000000001",
-      "name": "Schedule — 6:45AM MDT",
+      "name": "Schedule \u2014 6:45AM MDT",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
-      "position": [240, 300]
+      "position": [
+        240,
+        300
+      ]
     },
     {
       "parameters": {
@@ -19,45 +27,101 @@
         "url": "https://api.d2mluxury.quest/api/dossier-scanner/scan",
         "sendHeaders": true,
         "headerParameters": {
-          "parameters": [{"name": "x-api-key", "value": "={{$env.D2M_API_KEY}}"}]
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "={{$env.D2M_API_KEY}}"
+            }
+          ]
         },
-        "options": {"timeout": 60000}
+        "options": {
+          "timeout": 60000
+        }
       },
       "id": "d5000001-0002-4000-8000-000000000002",
       "name": "Scan Dossiers",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [460, 300]
+      "position": [
+        460,
+        300
+      ]
     },
     {
       "parameters": {
-        "jsCode": "const data = $('Scan Dossiers').item.json;\nconst alerts = data.alerts || [];\nconst critical = alerts.filter(a => a.severity === 'CRITICAL');\nconst warnings = alerts.filter(a => a.severity === 'WARNING');\n\nif (alerts.length === 0) return [];\n\nlet msg = `*Dossier Scanner — ${alerts.length} alerts found*\\n`;\nif (critical.length) msg += `\\n*CRITICAL (${critical.length}):*\\n` + critical.map(a => `🔴 ${a.client}: ${a.message}`).join('\\n');\nif (warnings.length) msg += `\\n\\n*WARNINGS (${warnings.length}):*\\n` + warnings.slice(0,5).map(a => `🟡 ${a.client}: ${a.message}`).join('\\n');\nif (warnings.length > 5) msg += `\\n... and ${warnings.length - 5} more`;\n\nreturn [{ json: { message: msg } }];"
+        "jsCode": "const data = $('Scan Dossiers').item.json;\nconst alerts = data.alerts || [];\nconst critical = alerts.filter(a => a.severity === 'CRITICAL');\nconst warnings = alerts.filter(a => a.severity === 'WARNING');\n\nif (alerts.length === 0) return [];\n\nlet msg = `*Dossier Scanner \u2014 ${alerts.length} alerts found*\\n`;\nif (critical.length) msg += `\\n*CRITICAL (${critical.length}):*\\n` + critical.map(a => `\ud83d\udd34 ${a.client}: ${a.message}`).join('\\n');\nif (warnings.length) msg += `\\n\\n*WARNINGS (${warnings.length}):*\\n` + warnings.slice(0,5).map(a => `\ud83d\udfe1 ${a.client}: ${a.message}`).join('\\n');\nif (warnings.length > 5) msg += `\\n... and ${warnings.length - 5} more`;\n\nreturn [{ json: { message: msg } }];"
       },
       "id": "d5000001-0003-4000-8000-000000000003",
       "name": "Format Alert",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [700, 300]
+      "position": [
+        700,
+        300
+      ]
     },
     {
       "parameters": {
         "chatId": "={{$env.TELEGRAM_COMMANDER_ID}}",
         "text": "={{ $json.message }}",
-        "additionalFields": {"parse_mode": "Markdown"}
+        "additionalFields": {
+          "parse_mode": "Markdown"
+        }
       },
       "id": "d5000001-0004-4000-8000-000000000004",
       "name": "Telegram Alert",
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
-      "position": [940, 300],
-      "credentials": {"telegramApi": {"id": "1", "name": "D2MC2C Bot"}}
+      "position": [
+        940,
+        300
+      ],
+      "credentials": {
+        "telegramApi": {
+          "id": "1",
+          "name": "D2MC2C Bot"
+        }
+      }
     }
   ],
   "connections": {
-    "Schedule — 6:45AM MDT": {"main": [[{"node": "Scan Dossiers", "type": "main", "index": 0}]]},
-    "Scan Dossiers": {"main": [[{"node": "Format Alert", "type": "main", "index": 0}]]},
-    "Format Alert": {"main": [[{"node": "Telegram Alert", "type": "main", "index": 0}]]}
+    "Schedule \u2014 6:45AM MDT": {
+      "main": [
+        [
+          {
+            "node": "Scan Dossiers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Scan Dossiers": {
+      "main": [
+        [
+          {
+            "node": "Format Alert",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Alert": {
+      "main": [
+        [
+          {
+            "node": "Telegram Alert",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
   },
   "active": false,
-  "settings": {"executionOrder": "v1"}
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "id": "d2m-wf-5"
 }

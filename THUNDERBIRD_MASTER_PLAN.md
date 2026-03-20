@@ -973,8 +973,8 @@ When ANY booking is created, confirmed, or significantly updated, the following 
 | M7 | **Lesser Antilles Dec 19** — excursion/dining selections | NOT STARTED | ~Oct 2026 |
 | M8 | **Season To Cheer Dec 18, 2027** — confirm final payment date | NOT STARTED | Check now |
 | M9 | **Princess Mexico Mar 13, 2027** — confirm final payment date | NOT STARTED | Check now |
-| M10 | Fix Booking Master: Silver Muse client name "VS" → "Erik McLeod & Melissa McGlasson" | NOT STARTED | This week |
-| M11 | Fix Booking Master: Nichols row shows McLeod email — correct to larry.nichols4811@gmail.com | NOT STARTED | This week |
+| M10 | Fix Booking Master: Silver Muse client name "VS" → "Erik McLeod & Melissa McGlasson" | **DONE** Mar 20 — already correct in live sheet (Row 4) | Done |
+| M11 | Fix Booking Master: Nichols row shows McLeod email — correct to larry.nichols4811@gmail.com | **DONE** Mar 20 — already correct in live sheet (Row 6) | Done |
 
 **PERSONAL TRAVEL — LOUCKS & WESTBROOK**
 
@@ -990,7 +990,7 @@ When ANY booking is created, confirmed, or significantly updated, the following 
 | P2a | **Cancel Westbrook Blacklane PE146862609** — goes to Yokohama (WRONG PORT) | **ACTION NEEDED** | ASAP |
 | P3 | **Westbrook joins Silver Nova Apr 25** — confirm embarkation logistics | NOT STARTED | Apr 1 |
 | P4 | **Regent Panama Canal Dec 29** — confirm final payment date | NOT STARTED | Check now |
-| P5 | Fix Booking Master: Loucks Silver Nova row shows Nichols emails | NOT STARTED | This week |
+| P5 | Fix Booking Master: Loucks Silver Nova row shows Nichols emails | **DONE** Mar 20 — Row 13 scrubbed (15 cells fixed: Lead_Traveler, flights, hotels, transfers, insurance, notes, all LEGs, ship name, ports) | Done |
 
 ---
 
@@ -1395,7 +1395,7 @@ The personas were redesigned THREE times. Capabilities were gained and lost at e
 | C13 | **Loucks Silver Nova** — confirm logistics (flights, pre-cruise) | `[ ]` TODO | Apr 1 |
 | C14 | **Westbrook Tokyo/Silver Nova** — confirm Hilton + embarkation | `[ ]` TODO | Apr 1 |
 | C15 | **Loucks Regent Panama Canal** — confirm final payment date | `[ ]` TODO | This week |
-| C16 | **Booking Master cleanup** — fix 5 data quality issues (see Part 5) | `[ ]` TODO | This week |
+| C16 | **Booking Master cleanup** — fix 5 data quality issues (see Part 5) | `[x]` DONE Mar 20 — M10/M11 already clean; P5 Row 13 fully scrubbed (15 cells). BKG- duplicates & Morton annotation remain open. | Done |
 
 ---
 

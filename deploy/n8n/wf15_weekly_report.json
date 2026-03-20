@@ -1,17 +1,25 @@
 {
-  "name": "D2M — Weekly Operations Report",
+  "name": "D2M \u2014 Weekly Operations Report",
   "nodes": [
     {
       "parameters": {
         "rule": {
-          "interval": [{"field": "cronExpression", "expression": "0 2 * * 1"}]
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 2 * * 1"
+            }
+          ]
         }
       },
       "id": "wf15-0001-4000-8000-000000000001",
-      "name": "Schedule — Sun 8PM MDT",
+      "name": "Schedule \u2014 Sun 8PM MDT",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
-      "position": [240, 300]
+      "position": [
+        240,
+        300
+      ]
     },
     {
       "parameters": {
@@ -19,46 +27,102 @@
         "url": "https://api.d2mluxury.quest/api/tool/generate_weekly_report",
         "sendHeaders": true,
         "headerParameters": {
-          "parameters": [{"name": "x-api-key", "value": "={{$env.D2M_API_KEY}}"}]
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "={{$env.D2M_API_KEY}}"
+            }
+          ]
         },
-        "options": {"timeout": 180000}
+        "options": {
+          "timeout": 180000
+        }
       },
       "id": "wf15-0002-4000-8000-000000000002",
       "name": "Generate Weekly Report",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [460, 300]
+      "position": [
+        460,
+        300
+      ]
     },
     {
       "parameters": {
-        "jsCode": "const r = $input.item.json;\nconst data = r.data || r;\nconst ts = new Date().toLocaleString('en-US', {timeZone: 'America/Denver', month: 'short', day: 'numeric', year: 'numeric'});\n\n// Revenue & bookings\nconst revenue = data.revenue_week || data.commissions_week || null;\nconst revStr = revenue ? `\\n• Revenue this week: $${Number(revenue).toLocaleString()}` : '';\nconst bookings = data.active_bookings || data.bookings_count || null;\nconst bookStr = bookings ? `\\n• Active bookings: ${bookings}` : '';\nconst newClients = data.new_clients || data.prospects_added || 0;\nconst clientStr = newClients ? `\\n• New prospects: ${newClients}` : '';\n\n// Ops\nconst emailsSent = data.emails_sent || data.dani_emails || null;\nconst emailStr = emailsSent ? `\\n• Client emails sent: ${emailsSent}` : '';\nconst dossierUpdates = data.dossier_updates || null;\nconst dossierStr = dossierUpdates ? `\\n• Dossier updates: ${dossierUpdates}` : '';\n\n// Key wins\nconst wins = data.wins || data.highlights || data.key_events || [];\nlet winsBlock = '';\nif (wins.length) {\n  winsBlock = '\\n\\n*Key Wins:*\\n' + wins.slice(0,5).map(w => `• ${w.title || w.summary || w}`).join('\\n');\n}\n\n// Actions needed\nconst actions = data.actions_needed || data.open_items || [];\nlet actionsBlock = '';\nif (actions.length) {\n  actionsBlock = '\\n\\n*Actions Needed:*\\n' + actions.slice(0,5).map(a => `• ${a.title || a.action || a}`).join('\\n');\n}\n\n// Full summary fallback\nconst summaryBlock = (data.summary || data.narrative) ? `\\n\\n${data.summary || data.narrative}` : '';\n\nconst statsBlock = `*Operations:*${revStr}${bookStr}${clientStr}${emailStr}${dossierStr}`;\nconst message = `*D2M Weekly Report — Week of ${ts}*\\n\\n${statsBlock}${winsBlock}${actionsBlock}${summaryBlock}`;\nreturn [{ json: { message } }];"
+        "jsCode": "const r = $input.item.json;\nconst data = r.data || r;\nconst ts = new Date().toLocaleString('en-US', {timeZone: 'America/Denver', month: 'short', day: 'numeric', year: 'numeric'});\n\n// Revenue & bookings\nconst revenue = data.revenue_week || data.commissions_week || null;\nconst revStr = revenue ? `\\n\u2022 Revenue this week: $${Number(revenue).toLocaleString()}` : '';\nconst bookings = data.active_bookings || data.bookings_count || null;\nconst bookStr = bookings ? `\\n\u2022 Active bookings: ${bookings}` : '';\nconst newClients = data.new_clients || data.prospects_added || 0;\nconst clientStr = newClients ? `\\n\u2022 New prospects: ${newClients}` : '';\n\n// Ops\nconst emailsSent = data.emails_sent || data.dani_emails || null;\nconst emailStr = emailsSent ? `\\n\u2022 Client emails sent: ${emailsSent}` : '';\nconst dossierUpdates = data.dossier_updates || null;\nconst dossierStr = dossierUpdates ? `\\n\u2022 Dossier updates: ${dossierUpdates}` : '';\n\n// Key wins\nconst wins = data.wins || data.highlights || data.key_events || [];\nlet winsBlock = '';\nif (wins.length) {\n  winsBlock = '\\n\\n*Key Wins:*\\n' + wins.slice(0,5).map(w => `\u2022 ${w.title || w.summary || w}`).join('\\n');\n}\n\n// Actions needed\nconst actions = data.actions_needed || data.open_items || [];\nlet actionsBlock = '';\nif (actions.length) {\n  actionsBlock = '\\n\\n*Actions Needed:*\\n' + actions.slice(0,5).map(a => `\u2022 ${a.title || a.action || a}`).join('\\n');\n}\n\n// Full summary fallback\nconst summaryBlock = (data.summary || data.narrative) ? `\\n\\n${data.summary || data.narrative}` : '';\n\nconst statsBlock = `*Operations:*${revStr}${bookStr}${clientStr}${emailStr}${dossierStr}`;\nconst message = `*D2M Weekly Report \u2014 Week of ${ts}*\\n\\n${statsBlock}${winsBlock}${actionsBlock}${summaryBlock}`;\nreturn [{ json: { message } }];"
       },
       "id": "wf15-0003-4000-8000-000000000003",
       "name": "Format Weekly Report",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [680, 300]
+      "position": [
+        680,
+        300
+      ]
     },
     {
       "parameters": {
         "chatId": "={{$env.TELEGRAM_COMMANDER_ID}}",
         "text": "={{ $json.message }}",
-        "additionalFields": {"parse_mode": "Markdown"}
+        "additionalFields": {
+          "parse_mode": "Markdown"
+        }
       },
       "id": "wf15-0004-4000-8000-000000000004",
-      "name": "Telegram — Weekly Report",
+      "name": "Telegram \u2014 Weekly Report",
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
-      "position": [900, 300],
-      "credentials": {"telegramApi": {"id": "1", "name": "D2MC2C Bot"}}
+      "position": [
+        900,
+        300
+      ],
+      "credentials": {
+        "telegramApi": {
+          "id": "1",
+          "name": "D2MC2C Bot"
+        }
+      }
     }
   ],
   "connections": {
-    "Schedule — Sun 8PM MDT": {"main": [[{"node": "Generate Weekly Report", "type": "main", "index": 0}]]},
-    "Generate Weekly Report": {"main": [[{"node": "Format Weekly Report", "type": "main", "index": 0}]]},
-    "Format Weekly Report": {"main": [[{"node": "Telegram — Weekly Report", "type": "main", "index": 0}]]}
+    "Schedule \u2014 Sun 8PM MDT": {
+      "main": [
+        [
+          {
+            "node": "Generate Weekly Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Weekly Report": {
+      "main": [
+        [
+          {
+            "node": "Format Weekly Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Weekly Report": {
+      "main": [
+        [
+          {
+            "node": "Telegram \u2014 Weekly Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
   },
   "active": false,
-  "settings": {"executionOrder": "v1"},
-  "tags": ["d2m", "weekly", "operations", "report"]
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "tags": [],
+  "id": "d2m-wf-15"
 }

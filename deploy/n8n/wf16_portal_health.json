@@ -1,17 +1,25 @@
 {
-  "name": "D2M — Portal & Service Health Check",
+  "name": "D2M \u2014 Portal & Service Health Check",
   "nodes": [
     {
       "parameters": {
         "rule": {
-          "interval": [{"field": "cronExpression", "expression": "*/30 * * * *"}]
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "*/30 * * * *"
+            }
+          ]
         }
       },
       "id": "wf16-0001-4000-8000-000000000001",
-      "name": "Schedule — Every 30 Min",
+      "name": "Schedule \u2014 Every 30 Min",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
-      "position": [240, 300]
+      "position": [
+        240,
+        300
+      ]
     },
     {
       "parameters": {
@@ -19,16 +27,26 @@
         "url": "https://api.d2mluxury.quest/api/health",
         "sendHeaders": true,
         "headerParameters": {
-          "parameters": [{"name": "x-api-key", "value": "={{$env.D2M_API_KEY}}"}]
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "={{$env.D2M_API_KEY}}"
+            }
+          ]
         },
-        "options": {"timeout": 15000},
+        "options": {
+          "timeout": 15000
+        },
         "onError": "continueRegularOutput"
       },
       "id": "wf16-0002-4000-8000-000000000002",
-      "name": "Health — API Server",
+      "name": "Health \u2014 API Server",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [460, 200]
+      "position": [
+        460,
+        200
+      ]
     },
     {
       "parameters": {
@@ -36,16 +54,26 @@
         "url": "https://portal.d2mluxury.quest/api/health",
         "sendHeaders": true,
         "headerParameters": {
-          "parameters": [{"name": "x-api-key", "value": "={{$env.D2M_API_KEY}}"}]
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "={{$env.D2M_API_KEY}}"
+            }
+          ]
         },
-        "options": {"timeout": 15000},
+        "options": {
+          "timeout": 15000
+        },
         "onError": "continueRegularOutput"
       },
       "id": "wf16-0003-4000-8000-000000000003",
-      "name": "Health — Portal",
+      "name": "Health \u2014 Portal",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [460, 420]
+      "position": [
+        460,
+        420
+      ]
     },
     {
       "parameters": {
@@ -56,23 +84,43 @@
       "name": "Merge Health Results",
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
-      "position": [680, 300]
+      "position": [
+        680,
+        300
+      ]
     },
     {
       "parameters": {
-        "jsCode": "// Both health check results arrive as separate items\nconst items = $input.all();\n\nconst apiResult = items[0]?.json || {};\nconst portalResult = items[1]?.json || {};\n\nconst ts = new Date().toLocaleString('en-US', {timeZone: 'America/Denver', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'});\n\n// Determine health status — check for error object, status field, or HTTP error codes\nconst apiOk = !apiResult.error && (apiResult.status === 'ok' || apiResult.status === 'healthy' || apiResult.status === 'up' || apiResult.ok === true || (apiResult.$responseCode !== undefined ? apiResult.$responseCode < 400 : true));\nconst portalOk = !portalResult.error && (portalResult.status === 'ok' || portalResult.status === 'healthy' || portalResult.status === 'up' || portalResult.ok === true || (portalResult.$responseCode !== undefined ? portalResult.$responseCode < 400 : true));\n\nconst anyDown = !apiOk || !portalOk;\n\nlet message = '';\nif (anyDown) {\n  const failures = [];\n  if (!apiOk) failures.push(`• API Server (api.d2mluxury.quest) — DOWN\\n  ${apiResult.error || apiResult.message || 'No response'}`);\n  if (!portalOk) failures.push(`• Portal (portal.d2mluxury.quest) — DOWN\\n  ${portalResult.error || portalResult.message || 'No response'}`);\n  message = `*D2M SERVICE ALERT — ${ts}*\\n\\n${failures.join('\\n\\n')}\\n\\nCheck YOGA (10.0.0.53) and cloudflared tunnel.`;\n}\n\nreturn [{ json: { anyDown, message, apiOk, portalOk } }];"
+        "jsCode": "// Both health check results arrive as separate items\nconst items = $input.all();\n\nconst apiResult = items[0]?.json || {};\nconst portalResult = items[1]?.json || {};\n\nconst ts = new Date().toLocaleString('en-US', {timeZone: 'America/Denver', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'});\n\n// Determine health status \u2014 check for error object, status field, or HTTP error codes\nconst apiOk = !apiResult.error && (apiResult.status === 'ok' || apiResult.status === 'healthy' || apiResult.status === 'up' || apiResult.ok === true || (apiResult.$responseCode !== undefined ? apiResult.$responseCode < 400 : true));\nconst portalOk = !portalResult.error && (portalResult.status === 'ok' || portalResult.status === 'healthy' || portalResult.status === 'up' || portalResult.ok === true || (portalResult.$responseCode !== undefined ? portalResult.$responseCode < 400 : true));\n\nconst anyDown = !apiOk || !portalOk;\n\nlet message = '';\nif (anyDown) {\n  const failures = [];\n  if (!apiOk) failures.push(`\u2022 API Server (api.d2mluxury.quest) \u2014 DOWN\\n  ${apiResult.error || apiResult.message || 'No response'}`);\n  if (!portalOk) failures.push(`\u2022 Portal (portal.d2mluxury.quest) \u2014 DOWN\\n  ${portalResult.error || portalResult.message || 'No response'}`);\n  message = `*D2M SERVICE ALERT \u2014 ${ts}*\\n\\n${failures.join('\\n\\n')}\\n\\nCheck YOGA (10.0.0.53) and cloudflared tunnel.`;\n}\n\nreturn [{ json: { anyDown, message, apiOk, portalOk } }];"
       },
       "id": "wf16-0005-4000-8000-000000000005",
       "name": "Evaluate Health",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [900, 300]
+      "position": [
+        900,
+        300
+      ]
     },
     {
       "parameters": {
         "conditions": {
-          "options": {"caseSensitive": true, "leftValue": "", "typeValidation": "strict"},
-          "conditions": [{"id": "c1", "leftValue": "={{ $json.anyDown }}", "rightValue": true, "operator": {"type": "boolean", "operation": "true"}}],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "c1",
+              "leftValue": "={{ $json.anyDown }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "true"
+              }
+            }
+          ],
           "combinator": "and"
         }
       },
@@ -80,38 +128,113 @@
       "name": "Any Service Down?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
-      "position": [1120, 300]
+      "position": [
+        1120,
+        300
+      ]
     },
     {
       "parameters": {
         "chatId": "={{$env.TELEGRAM_COMMANDER_ID}}",
         "text": "={{ $json.message }}",
-        "additionalFields": {"parse_mode": "Markdown"}
+        "additionalFields": {
+          "parse_mode": "Markdown"
+        }
       },
       "id": "wf16-0007-4000-8000-000000000007",
-      "name": "Telegram — Service Alert",
+      "name": "Telegram \u2014 Service Alert",
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
-      "position": [1340, 200],
-      "credentials": {"telegramApi": {"id": "1", "name": "D2MC2C Bot"}}
+      "position": [
+        1340,
+        200
+      ],
+      "credentials": {
+        "telegramApi": {
+          "id": "1",
+          "name": "D2MC2C Bot"
+        }
+      }
     }
   ],
   "connections": {
-    "Schedule — Every 30 Min": {
+    "Schedule \u2014 Every 30 Min": {
       "main": [
         [
-          {"node": "Health — API Server", "type": "main", "index": 0},
-          {"node": "Health — Portal", "type": "main", "index": 0}
+          {
+            "node": "Health \u2014 API Server",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Health \u2014 Portal",
+            "type": "main",
+            "index": 0
+          }
         ]
       ]
     },
-    "Health — API Server": {"main": [[{"node": "Merge Health Results", "type": "main", "index": 0}]]},
-    "Health — Portal": {"main": [[{"node": "Merge Health Results", "type": "main", "index": 1}]]},
-    "Merge Health Results": {"main": [[{"node": "Evaluate Health", "type": "main", "index": 0}]]},
-    "Evaluate Health": {"main": [[{"node": "Any Service Down?", "type": "main", "index": 0}]]},
-    "Any Service Down?": {"main": [[{"node": "Telegram — Service Alert", "type": "main", "index": 0}], []]}
+    "Health \u2014 API Server": {
+      "main": [
+        [
+          {
+            "node": "Merge Health Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Health \u2014 Portal": {
+      "main": [
+        [
+          {
+            "node": "Merge Health Results",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge Health Results": {
+      "main": [
+        [
+          {
+            "node": "Evaluate Health",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Evaluate Health": {
+      "main": [
+        [
+          {
+            "node": "Any Service Down?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Any Service Down?": {
+      "main": [
+        [
+          {
+            "node": "Telegram \u2014 Service Alert",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    }
   },
   "active": false,
-  "settings": {"executionOrder": "v1"},
-  "tags": ["d2m", "health", "monitoring", "infrastructure"]
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "tags": [],
+  "id": "d2m-wf-16"
 }

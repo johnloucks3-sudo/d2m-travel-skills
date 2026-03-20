@@ -1,17 +1,25 @@
 {
-  "name": "D2M — Booking Deadline Monitor",
+  "name": "D2M \u2014 Booking Deadline Monitor",
   "nodes": [
     {
       "parameters": {
         "rule": {
-          "interval": [{"field": "cronExpression", "expression": "0 14 * * *"}]
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 14 * * *"
+            }
+          ]
         }
       },
       "id": "d1b2c3d4-0001-4000-8000-000000000001",
-      "name": "Schedule — 8AM MDT Daily",
+      "name": "Schedule \u2014 8AM MDT Daily",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
-      "position": [240, 300]
+      "position": [
+        240,
+        300
+      ]
     },
     {
       "parameters": {
@@ -19,18 +27,28 @@
         "url": "https://api.d2mluxury.quest/api/ai/query",
         "sendHeaders": true,
         "headerParameters": {
-          "parameters": [{"name": "x-api-key", "value": "***REMOVED-SECRET***"}]
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "***REMOVED-SECRET***"
+            }
+          ]
         },
         "sendBody": true,
         "specifyBody": "json",
         "jsonBody": "={\"query\": \"Review all dossiers in ~/Thunderbird/dossiers/. List every open action item, FPD deadline within 30 days, and overdue payment. Return a prioritized bullet list. Flag anything needing Commander action today.\", \"persona\": \"COS\"}",
-        "options": {"timeout": 120000}
+        "options": {
+          "timeout": 120000
+        }
       },
       "id": "d1b2c3d4-0002-4000-8000-000000000002",
       "name": "COS Dossier Review",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [460, 300]
+      "position": [
+        460,
+        300
+      ]
     },
     {
       "parameters": {
@@ -40,28 +58,74 @@
       "name": "Parse Response",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [700, 300]
+      "position": [
+        700,
+        300
+      ]
     },
     {
       "parameters": {
         "chatId": "7554895206",
-        "text": "=📅 *D2M Deadline Monitor*{{ $json.urgent ? ' ⚠️ ACTION REQUIRED' : '' }}\n\n{{ $json.text.slice(0, 3800) }}",
-        "additionalFields": {"parse_mode": "Markdown"}
+        "text": "=\ud83d\udcc5 *D2M Deadline Monitor*{{ $json.urgent ? ' \u26a0\ufe0f ACTION REQUIRED' : '' }}\n\n{{ $json.text.slice(0, 3800) }}",
+        "additionalFields": {
+          "parse_mode": "Markdown"
+        }
       },
       "id": "d1b2c3d4-0004-4000-8000-000000000004",
-      "name": "Telegram — Brief",
+      "name": "Telegram \u2014 Brief",
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
-      "position": [940, 300],
-      "credentials": {"telegramApi": {"id": "1", "name": "Telegram D2M Bot"}}
+      "position": [
+        940,
+        300
+      ],
+      "credentials": {
+        "telegramApi": {
+          "id": "1",
+          "name": "Telegram D2M Bot"
+        }
+      }
     }
   ],
   "connections": {
-    "Schedule — 8AM MDT Daily": {"main": [[{"node": "COS Dossier Review", "type": "main", "index": 0}]]},
-    "COS Dossier Review": {"main": [[{"node": "Parse Response", "type": "main", "index": 0}]]},
-    "Parse Response": {"main": [[{"node": "Telegram — Brief", "type": "main", "index": 0}]]}
+    "Schedule \u2014 8AM MDT Daily": {
+      "main": [
+        [
+          {
+            "node": "COS Dossier Review",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "COS Dossier Review": {
+      "main": [
+        [
+          {
+            "node": "Parse Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Response": {
+      "main": [
+        [
+          {
+            "node": "Telegram \u2014 Brief",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
   },
   "active": false,
-  "settings": {"executionOrder": "v1"},
-  "tags": ["d2m", "bookings", "deadlines"]
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "tags": [],
+  "id": "d2m-wf-4"
 }

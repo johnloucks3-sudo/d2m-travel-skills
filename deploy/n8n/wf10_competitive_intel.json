@@ -1,20 +1,29 @@
 {
-  "name": "D2M — Competitive Intel Surveillance",
+  "name": "D2M \u2014 Competitive Intel Surveillance",
   "nodes": [
     {
       "parameters": {
         "rule": {
           "interval": [
-            {"field": "cronExpression", "expression": "0 11 * * 2"},
-            {"field": "cronExpression", "expression": "0 11 * * 5"}
+            {
+              "field": "cronExpression",
+              "expression": "0 11 * * 2"
+            },
+            {
+              "field": "cronExpression",
+              "expression": "0 11 * * 5"
+            }
           ]
         }
       },
       "id": "wf10-0001-4000-8000-000000000001",
-      "name": "Schedule — Tues/Fri 5AM MDT",
+      "name": "Schedule \u2014 Tues/Fri 5AM MDT",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
-      "position": [240, 300]
+      "position": [
+        240,
+        300
+      ]
     },
     {
       "parameters": {
@@ -22,46 +31,102 @@
         "url": "https://api.d2mluxury.quest/api/tool/run_competitive_surveillance",
         "sendHeaders": true,
         "headerParameters": {
-          "parameters": [{"name": "x-api-key", "value": "={{$env.D2M_API_KEY}}"}]
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "={{$env.D2M_API_KEY}}"
+            }
+          ]
         },
-        "options": {"timeout": 180000}
+        "options": {
+          "timeout": 180000
+        }
       },
       "id": "wf10-0002-4000-8000-000000000002",
       "name": "Competitive Surveillance",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [460, 300]
+      "position": [
+        460,
+        300
+      ]
     },
     {
       "parameters": {
-        "jsCode": "const r = $input.item.json;\nconst data = r.data || r;\nconst ts = new Date().toLocaleString('en-US', {timeZone: 'America/Denver', weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'});\n\n// Pricing changes\nconst priceChanges = data.pricing_changes || data.price_alerts || [];\nlet priceBlock = '';\nif (priceChanges.length) {\n  priceBlock = '*Pricing Changes:*\\n' + priceChanges.slice(0,5).map(p => `• ${p.cruise_line || p.line} — ${p.change || p.summary}`).join('\\n');\n} else {\n  priceBlock = '*Pricing:* No significant changes detected';\n}\n\n// New itineraries\nconst newItin = data.new_itineraries || data.itinerary_launches || [];\nlet itinBlock = '';\nif (newItin.length) {\n  itinBlock = '\\n\\n*New Itineraries:*\\n' + newItin.slice(0,5).map(i => `• ${i.cruise_line || i.line}: ${i.name || i.itinerary} (${i.dates || i.season || ''})`).join('\\n');\n}\n\n// Summary stats\nconst lines = data.lines_monitored || data.cruise_lines_checked || 0;\nconst statsLine = lines ? `\\n\\n_${lines} cruise lines monitored_` : '';\n\n// Key findings\nconst findings = data.key_findings || data.highlights || [];\nlet findingsBlock = '';\nif (findings.length) {\n  findingsBlock = '\\n\\n*Key Findings:*\\n' + findings.slice(0,3).map(f => `• ${f}`).join('\\n');\n}\n\nconst message = `*D2M Competitive Intel — ${ts}*\\n\\n${priceBlock}${itinBlock}${findingsBlock}${statsLine}`;\nreturn [{ json: { message } }];"
+        "jsCode": "const r = $input.item.json;\nconst data = r.data || r;\nconst ts = new Date().toLocaleString('en-US', {timeZone: 'America/Denver', weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'});\n\n// Pricing changes\nconst priceChanges = data.pricing_changes || data.price_alerts || [];\nlet priceBlock = '';\nif (priceChanges.length) {\n  priceBlock = '*Pricing Changes:*\\n' + priceChanges.slice(0,5).map(p => `\u2022 ${p.cruise_line || p.line} \u2014 ${p.change || p.summary}`).join('\\n');\n} else {\n  priceBlock = '*Pricing:* No significant changes detected';\n}\n\n// New itineraries\nconst newItin = data.new_itineraries || data.itinerary_launches || [];\nlet itinBlock = '';\nif (newItin.length) {\n  itinBlock = '\\n\\n*New Itineraries:*\\n' + newItin.slice(0,5).map(i => `\u2022 ${i.cruise_line || i.line}: ${i.name || i.itinerary} (${i.dates || i.season || ''})`).join('\\n');\n}\n\n// Summary stats\nconst lines = data.lines_monitored || data.cruise_lines_checked || 0;\nconst statsLine = lines ? `\\n\\n_${lines} cruise lines monitored_` : '';\n\n// Key findings\nconst findings = data.key_findings || data.highlights || [];\nlet findingsBlock = '';\nif (findings.length) {\n  findingsBlock = '\\n\\n*Key Findings:*\\n' + findings.slice(0,3).map(f => `\u2022 ${f}`).join('\\n');\n}\n\nconst message = `*D2M Competitive Intel \u2014 ${ts}*\\n\\n${priceBlock}${itinBlock}${findingsBlock}${statsLine}`;\nreturn [{ json: { message } }];"
       },
       "id": "wf10-0003-4000-8000-000000000003",
       "name": "Format Competitive Report",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [680, 300]
+      "position": [
+        680,
+        300
+      ]
     },
     {
       "parameters": {
         "chatId": "={{$env.TELEGRAM_COMMANDER_ID}}",
         "text": "={{ $json.message }}",
-        "additionalFields": {"parse_mode": "Markdown"}
+        "additionalFields": {
+          "parse_mode": "Markdown"
+        }
       },
       "id": "wf10-0004-4000-8000-000000000004",
-      "name": "Telegram — Competitive Report",
+      "name": "Telegram \u2014 Competitive Report",
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
-      "position": [900, 300],
-      "credentials": {"telegramApi": {"id": "1", "name": "D2MC2C Bot"}}
+      "position": [
+        900,
+        300
+      ],
+      "credentials": {
+        "telegramApi": {
+          "id": "1",
+          "name": "D2MC2C Bot"
+        }
+      }
     }
   ],
   "connections": {
-    "Schedule — Tues/Fri 5AM MDT": {"main": [[{"node": "Competitive Surveillance", "type": "main", "index": 0}]]},
-    "Competitive Surveillance": {"main": [[{"node": "Format Competitive Report", "type": "main", "index": 0}]]},
-    "Format Competitive Report": {"main": [[{"node": "Telegram — Competitive Report", "type": "main", "index": 0}]]}
+    "Schedule \u2014 Tues/Fri 5AM MDT": {
+      "main": [
+        [
+          {
+            "node": "Competitive Surveillance",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Competitive Surveillance": {
+      "main": [
+        [
+          {
+            "node": "Format Competitive Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Competitive Report": {
+      "main": [
+        [
+          {
+            "node": "Telegram \u2014 Competitive Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
   },
   "active": false,
-  "settings": {"executionOrder": "v1"},
-  "tags": ["d2m", "competitive-intel", "cruise"]
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "tags": [],
+  "id": "d2m-wf-10"
 }

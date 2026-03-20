@@ -1,17 +1,25 @@
 {
-  "name": "D2M — Staff Summary Sheet Monitor",
+  "name": "D2M \u2014 Staff Summary Sheet Monitor",
   "nodes": [
     {
       "parameters": {
         "rule": {
-          "interval": [{"field": "cronExpression", "expression": "0 */4 * * *"}]
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 */4 * * *"
+            }
+          ]
         }
       },
       "id": "wf11-0001-4000-8000-000000000001",
-      "name": "Schedule — Every 4 Hours",
+      "name": "Schedule \u2014 Every 4 Hours",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
-      "position": [240, 300]
+      "position": [
+        240,
+        300
+      ]
     },
     {
       "parameters": {
@@ -19,31 +27,58 @@
         "url": "https://api.d2mluxury.quest/api/sss/list?status=ready",
         "sendHeaders": true,
         "headerParameters": {
-          "parameters": [{"name": "x-api-key", "value": "={{$env.D2M_API_KEY}}"}]
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "={{$env.D2M_API_KEY}}"
+            }
+          ]
         },
-        "options": {"timeout": 60000}
+        "options": {
+          "timeout": 60000
+        }
       },
       "id": "wf11-0002-4000-8000-000000000002",
-      "name": "SSS List — Pending Decisions",
+      "name": "SSS List \u2014 Pending Decisions",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [460, 300]
+      "position": [
+        460,
+        300
+      ]
     },
     {
       "parameters": {
-        "jsCode": "const r = $input.item.json;\nconst data = r.data || r;\nconst items = data.items || data.results || data.pending || [];\nconst count = items.length;\nconst hasPending = count > 0;\n\nlet message = '';\nif (hasPending) {\n  const ts = new Date().toLocaleString('en-US', {timeZone: 'America/Denver', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'});\n  const lines = items.slice(0,8).map(item => {\n    const age = item.age_hours ? ` (${item.age_hours}h old)` : '';\n    const from = item.from_persona || item.persona || item.author || '';\n    const fromStr = from ? ` — ${from}` : '';\n    return `• ${item.title || item.subject || item.id}${fromStr}${age}`;\n  });\n  message = `*D2M SSS — ${count} Item${count > 1 ? 's' : ''} Awaiting Decision — ${ts}*\\n\\n${lines.join('\\n')}`;\n  if (count > 8) message += `\\n_...and ${count - 8} more_`;\n}\n\nreturn [{ json: { hasPending, message, count } }];"
+        "jsCode": "const r = $input.item.json;\nconst data = r.data || r;\nconst items = data.items || data.results || data.pending || [];\nconst count = items.length;\nconst hasPending = count > 0;\n\nlet message = '';\nif (hasPending) {\n  const ts = new Date().toLocaleString('en-US', {timeZone: 'America/Denver', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'});\n  const lines = items.slice(0,8).map(item => {\n    const age = item.age_hours ? ` (${item.age_hours}h old)` : '';\n    const from = item.from_persona || item.persona || item.author || '';\n    const fromStr = from ? ` \u2014 ${from}` : '';\n    return `\u2022 ${item.title || item.subject || item.id}${fromStr}${age}`;\n  });\n  message = `*D2M SSS \u2014 ${count} Item${count > 1 ? 's' : ''} Awaiting Decision \u2014 ${ts}*\\n\\n${lines.join('\\n')}`;\n  if (count > 8) message += `\\n_...and ${count - 8} more_`;\n}\n\nreturn [{ json: { hasPending, message, count } }];"
       },
       "id": "wf11-0003-4000-8000-000000000003",
       "name": "Check Pending Items",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [680, 300]
+      "position": [
+        680,
+        300
+      ]
     },
     {
       "parameters": {
         "conditions": {
-          "options": {"caseSensitive": true, "leftValue": "", "typeValidation": "strict"},
-          "conditions": [{"id": "c1", "leftValue": "={{ $json.hasPending }}", "rightValue": true, "operator": {"type": "boolean", "operation": "true"}}],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "c1",
+              "leftValue": "={{ $json.hasPending }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "true"
+              }
+            }
+          ],
           "combinator": "and"
         }
       },
@@ -51,29 +86,86 @@
       "name": "Items Pending?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
-      "position": [900, 300]
+      "position": [
+        900,
+        300
+      ]
     },
     {
       "parameters": {
         "chatId": "={{$env.TELEGRAM_COMMANDER_ID}}",
         "text": "={{ $json.message }}",
-        "additionalFields": {"parse_mode": "Markdown"}
+        "additionalFields": {
+          "parse_mode": "Markdown"
+        }
       },
       "id": "wf11-0005-4000-8000-000000000005",
-      "name": "Telegram — SSS Alert",
+      "name": "Telegram \u2014 SSS Alert",
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
-      "position": [1120, 200],
-      "credentials": {"telegramApi": {"id": "1", "name": "D2MC2C Bot"}}
+      "position": [
+        1120,
+        200
+      ],
+      "credentials": {
+        "telegramApi": {
+          "id": "1",
+          "name": "D2MC2C Bot"
+        }
+      }
     }
   ],
   "connections": {
-    "Schedule — Every 4 Hours": {"main": [[{"node": "SSS List — Pending Decisions", "type": "main", "index": 0}]]},
-    "SSS List — Pending Decisions": {"main": [[{"node": "Check Pending Items", "type": "main", "index": 0}]]},
-    "Check Pending Items": {"main": [[{"node": "Items Pending?", "type": "main", "index": 0}]]},
-    "Items Pending?": {"main": [[{"node": "Telegram — SSS Alert", "type": "main", "index": 0}], []]}
+    "Schedule \u2014 Every 4 Hours": {
+      "main": [
+        [
+          {
+            "node": "SSS List \u2014 Pending Decisions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SSS List \u2014 Pending Decisions": {
+      "main": [
+        [
+          {
+            "node": "Check Pending Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Pending Items": {
+      "main": [
+        [
+          {
+            "node": "Items Pending?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Items Pending?": {
+      "main": [
+        [
+          {
+            "node": "Telegram \u2014 SSS Alert",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    }
   },
   "active": false,
-  "settings": {"executionOrder": "v1"},
-  "tags": ["d2m", "sss", "decisions"]
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "tags": [],
+  "id": "d2m-wf-11"
 }
