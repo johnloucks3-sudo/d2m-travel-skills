@@ -328,6 +328,24 @@ def _phase_artist(aggregated_data: Dict[str, Any]) -> Optional[str]:
     if voice_rules:
         context += f"\n\n{voice_rules}"
 
+    # Conversation state machine — detect phase, inject guidance
+    try:
+        from thunderbird_conversation_state import detect_and_guide
+        body_excerpt = aggregated_data.get("body_excerpt", "")
+        phase_guidance = detect_and_guide(body_excerpt, is_first_message=False)
+        context += f"\n\n{phase_guidance.to_injection_block()}"
+
+        # Response library — inject template structure if one matches
+        try:
+            from thunderbird_response_library import select_template
+            template = select_template(body_excerpt, phase_hint=phase_guidance.template_hint)
+            if template:
+                context += f"\n\n{template.to_injection_block()}"
+        except Exception:
+            pass
+    except Exception:
+        pass
+
     email_format_rules = (
         "\n\nEMAIL RESPONSE RULES:\n"
         "- You are responding to a client EMAIL, not a chat message.\n"
@@ -395,6 +413,35 @@ def _phase_advocate(crafted_response: str, aggregated_data: Dict[str, Any],
     sender_email = aggregated_data["sender_email"]
     subject      = aggregated_data["subject"]
     body_excerpt = aggregated_data["body_excerpt"]
+
+    # --- Pre-send evaluator (zero-API-cost leak detection) ---
+    try:
+        from thunderbird_presend_evaluator import evaluate_draft
+        eval_result = evaluate_draft(
+            body=crafted_response,
+            subject=subject,
+            recipient=sender_email,
+            is_client_facing=True,
+        )
+        if not eval_result.passed:
+            logger.warning(
+                f"[ADVOCATE] Pre-send evaluator FAILED for {sender_name}: "
+                f"{eval_result.summary()}"
+            )
+            for v in eval_result.violations:
+                logger.warning(f"  {v}")
+            # Block if any BLOCK-severity violations found
+            return {
+                "status": "presend_blocked",
+                "draft_id": None,
+                "cos_note": eval_result.to_cos_report(),
+                "final_response": crafted_response,
+                "sss_id": None,
+            }
+        else:
+            logger.debug(f"[ADVOCATE] Pre-send evaluator PASSED for {sender_name}")
+    except Exception as _eval_err:
+        logger.debug(f"[ADVOCATE] Pre-send eval skipped: {_eval_err}")
 
     # --- COS review gate ---
     cos_query = f"{sender_name} asked: {subject}\n{body_excerpt[:500]}"

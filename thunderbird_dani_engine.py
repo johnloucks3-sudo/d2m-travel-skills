@@ -819,27 +819,32 @@ def build_dani_context(query: str, client_scope: Optional[str] = None,
         is_commander: True for Commander queries, False for client queries.
                      Controls access to financial/strategic data.
     """
-    # Detect conversation phase for minimal inputs
-    _ack_patterns = {
-        "ok", "okay", "ok.", "okay.", "thanks", "thanks.", "thank you",
-        "thank you.", "got it", "got it.", "cool", "cool.", "sure", "sure.",
-        "sounds good", "sounds good.", "perfect", "perfect.", "great",
-        "great.", "nice", "nice.", "awesome", "awesome.", "understood",
-        "understood.", "will do", "will do.", "noted", "noted.",
-        "please do", "yes please", "yes", "yes.", "yep", "yep.", "k",
-    }
-    query_stripped = query.strip().lower().rstrip("!").strip()
-    if query_stripped in _ack_patterns or len(query_stripped.split()) <= 3:
-        # Minimal input detected — inject phase context
-        sections_prefix = (
-            "[CONVERSATION PHASE: ACKNOWLEDGMENT — The client just sent a brief "
-            "acknowledgment or minimal response. Keep your reply SHORT (1-2 sentences). "
-            "Do NOT repeat your previous message or ask the same question again. "
-            "Either warmly close, offer one new piece of information, or confirm "
-            "an action was taken. Let the conversation breathe.]\n\n"
-        )
-    else:
-        sections_prefix = ""
+    # Detect conversation phase via state machine
+    try:
+        from thunderbird_conversation_state import detect_and_guide
+        phase_guidance = detect_and_guide(query, is_first_message=False)
+        sections_prefix = phase_guidance.to_injection_block() + "\n\n"
+    except Exception:
+        # Fallback: basic ack detection
+        _ack_patterns = {
+            "ok", "okay", "ok.", "okay.", "thanks", "thanks.", "thank you",
+            "thank you.", "got it", "got it.", "cool", "cool.", "sure", "sure.",
+            "sounds good", "sounds good.", "perfect", "perfect.", "great",
+            "great.", "nice", "nice.", "awesome", "awesome.", "understood",
+            "understood.", "will do", "will do.", "noted", "noted.",
+            "please do", "yes please", "yes", "yes.", "yep", "yep.", "k",
+        }
+        query_stripped = query.strip().lower().rstrip("!").strip()
+        if query_stripped in _ack_patterns or len(query_stripped.split()) <= 3:
+            sections_prefix = (
+                "[CONVERSATION PHASE: ACKNOWLEDGMENT — The client just sent a brief "
+                "acknowledgment or minimal response. Keep your reply SHORT (1-2 sentences). "
+                "Do NOT repeat your previous message or ask the same question again. "
+                "Either warmly close, offer one new piece of information, or confirm "
+                "an action was taken. Let the conversation breathe.]\n\n"
+            )
+        else:
+            sections_prefix = ""
 
     # Detect clients AND trip context (ships, ports, destinations)
     if client_scope:

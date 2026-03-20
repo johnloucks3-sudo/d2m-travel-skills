@@ -510,6 +510,64 @@ except Exception as e:
 
 # thunderbird_bulletin: registered above (hard import — line 74)
 
+# ── Dani Hardening Tools (data confidence, pre-send, conversation state, response library) ──
+
+@mcp.tool(
+    name="presend_evaluate",
+    annotations={"title": "Pre-Send Email Evaluator", "readOnlyHint": True},
+)
+async def presend_evaluate(body: str, subject: str = "", recipient: str = "") -> str:
+    """Evaluate a draft email for leaks (commission, personas, jargon) before sending."""
+    from thunderbird_presend_evaluator import evaluate_draft
+    result = evaluate_draft(body, subject, recipient, is_client_facing=True)
+    return result.to_cos_report()
+
+
+@mcp.tool(
+    name="conversation_detect_phase",
+    annotations={"title": "Detect Conversation Phase", "readOnlyHint": True},
+)
+async def conversation_detect_phase(message: str, is_first_message: bool = False) -> str:
+    """Detect client conversation phase (GREETING/DISCOVERY/INFORMATION/etc)."""
+    from thunderbird_conversation_state import detect_and_guide
+    guidance = detect_and_guide(message, is_first_message=is_first_message)
+    return guidance.to_injection_block()
+
+
+@mcp.tool(
+    name="response_library_list",
+    annotations={"title": "List Response Templates", "readOnlyHint": True},
+)
+async def response_library_list() -> str:
+    """List all available structured response templates for Dani."""
+    from thunderbird_response_library import list_templates
+    import json
+    return json.dumps(list_templates(), indent=2)
+
+
+@mcp.tool(
+    name="response_library_select",
+    annotations={"title": "Select Response Template", "readOnlyHint": True},
+)
+async def response_library_select(query: str, phase_hint: str = "") -> str:
+    """Select the best response template for a client query."""
+    from thunderbird_response_library import select_template
+    tmpl = select_template(query, phase_hint=phase_hint)
+    if tmpl:
+        return tmpl.to_injection_block()
+    return "No matching template found for this query."
+
+
+@mcp.tool(
+    name="data_confidence_report",
+    annotations={"title": "Data Confidence Report", "readOnlyHint": True},
+)
+async def data_confidence_report(client: str, query: str = "") -> str:
+    """Generate a data confidence report for a client query."""
+    from thunderbird_data_confidence import build_confidence_report
+    report = build_confidence_report(query=query, client=client)
+    return report.to_injection_block()
+
 
 # ── Hotel Guide PDF Render ─────────────────────────────────────────────────
 
