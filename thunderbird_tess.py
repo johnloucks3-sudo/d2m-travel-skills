@@ -539,6 +539,26 @@ class TESSClient:
         """Search bookings with filters (status, client, date range, etc.)."""
         return self._api_request("POST", "/bookings/search", json_body=filters)
 
+    def create_booking(self, trip_id: str, booking_data: dict) -> dict:
+        """Create a new booking under a trip.
+
+        Args:
+            trip_id: TESS trip ID to attach the booking to.
+            booking_data: Booking details (supplier, confirmation_number, dates,
+                          traveler info, costs, etc.).
+        """
+        payload = {**booking_data, "trip_id": trip_id}
+        return self._api_request("POST", "/bookings", json_body=payload)
+
+    def update_booking(self, booking_id: str, updates: dict) -> dict:
+        """Update an existing booking.
+
+        Args:
+            booking_id: TESS booking ID.
+            updates: Fields to update (status, dates, costs, notes, etc.).
+        """
+        return self._api_request("PUT", f"/bookings/{booking_id}", json_body=updates)
+
     # ------------------------------------------------------------------
     # Clients
     # ------------------------------------------------------------------
@@ -550,6 +570,15 @@ class TESSClient:
     def get_client(self, client_id: str) -> dict:
         """Get a specific client by ID."""
         return self._api_request("GET", f"/clients/{client_id}")
+
+    def create_client(self, client_data: dict) -> dict:
+        """Create a new client in TESS.
+
+        Args:
+            client_data: Client details (first_name, last_name, email, phone,
+                         address, passport info, preferences, etc.).
+        """
+        return self._api_request("POST", "/clients", json_body=client_data)
 
     def update_client(self, client_id: str, client_data: dict) -> dict:
         """Update client information."""
@@ -604,6 +633,105 @@ class TESSClient:
 
             if resp.ok:
                 return resp.json()
+            return {
+                "error": f"Upload failed: HTTP {resp.status_code}",
+                "type": "api_error",
+                "status_code": resp.status_code,
+            }
+        except requests.RequestException as e:
+            return {"error": str(e), "type": "network_error"}
+
+    # ------------------------------------------------------------------
+    # Notes
+    # ------------------------------------------------------------------
+
+    def add_note(self, entity_type: str, entity_id: str, note_text: str) -> dict:
+        """Add a note to an entity (trip, booking, or client).
+
+        Args:
+            entity_type: One of 'trips', 'bookings', or 'clients'.
+            entity_id: The entity's TESS ID.
+            note_text: The note content.
+        """
+        valid_types = ("trips", "bookings", "clients")
+        if entity_type not in valid_types:
+            return {
+                "error": f"Invalid entity_type '{entity_type}'. Must be one of: {', '.join(valid_types)}",
+                "type": "validation_error",
+            }
+        return self._api_request(
+            "POST",
+            f"/{entity_type}/{entity_id}/notes",
+            json_body={"text": note_text},
+        )
+
+    # ------------------------------------------------------------------
+    # Entity Documents (generic)
+    # ------------------------------------------------------------------
+
+    def upload_entity_document(
+        self,
+        entity_type: str,
+        entity_id: str,
+        file_path: str,
+        doc_type: str = "general",
+    ) -> dict:
+        """Upload a document to any entity (trip, booking, or client).
+
+        Uses multipart form upload — bypasses the JSON content-type.
+
+        Args:
+            entity_type: One of 'trips', 'bookings', or 'clients'.
+            entity_id: The entity's TESS ID.
+            file_path: Absolute path to the file to upload.
+            doc_type: Document category (e.g. 'general', 'invoice', 'itinerary',
+                      'insurance', 'passport', 'visa').
+        """
+        valid_types = ("trips", "bookings", "clients")
+        if entity_type not in valid_types:
+            return {
+                "error": f"Invalid entity_type '{entity_type}'. Must be one of: {', '.join(valid_types)}",
+                "type": "validation_error",
+            }
+
+        token = self.auth.get_valid_token()
+        if not token:
+            return {"error": "Not authenticated", "type": "auth_required"}
+
+        path = Path(file_path)
+        if not path.exists():
+            return {"error": f"File not found: {file_path}", "type": "file_error"}
+
+        url = f"{API_BASE_URL}/{entity_type}/{entity_id}/documents"
+        try:
+            with open(path, "rb") as f:
+                resp = requests.post(
+                    url,
+                    files={"file": (path.name, f)},
+                    data={"type": doc_type},
+                    headers={
+                        "Authorization": f"Bearer {token}",
+                        "User-Agent": USER_AGENT,
+                    },
+                    timeout=60,
+                )
+
+            if resp.status_code == 401:
+                # Try refresh and retry once
+                logger.info("TESS document upload 401 — attempting token refresh")
+                if self.auth.refresh_token():
+                    return self.upload_entity_document(
+                        entity_type, entity_id, file_path, doc_type
+                    )
+                return {
+                    "error": "Authentication expired. Re-authorize.",
+                    "type": "auth_expired",
+                }
+
+            if resp.ok:
+                if resp.headers.get("content-type", "").startswith("application/json"):
+                    return resp.json()
+                return {"status": "uploaded", "raw_response": resp.text[:2000]}
             return {
                 "error": f"Upload failed: HTTP {resp.status_code}",
                 "type": "api_error",
@@ -816,6 +944,230 @@ def register_tess_tools(mcp):
         result = client.get_client_tasks(client_id)
         return json.dumps(result, indent=2, default=str)
 
+    # ------------------------------------------------------------------
+    # Write Tools
+    # ------------------------------------------------------------------
+
+    @mcp.tool(
+        name="tess_create_booking",
+        annotations={"title": "Create TESS Booking", "readOnlyHint": False},
+    )
+    async def tess_create_booking(
+        trip_id: str = Field(..., description="TESS trip ID to attach the booking to"),
+        supplier: str = Field("", description="Supplier/vendor name (e.g. 'Silversea', 'Marriott')"),
+        confirmation_number: str = Field("", description="Supplier confirmation/PNR number"),
+        booking_type: str = Field("", description="Booking type (e.g. 'cruise', 'hotel', 'air', 'transfer', 'excursion')"),
+        start_date: str = Field("", description="Start date (YYYY-MM-DD)"),
+        end_date: str = Field("", description="End date (YYYY-MM-DD)"),
+        total_cost: float = Field(0, description="Total cost in USD"),
+        notes: str = Field("", description="Additional notes for the booking"),
+        extra_fields: str = Field("{}", description="JSON string of additional booking fields"),
+    ) -> str:
+        """Create a new booking in TESS under a specific trip.
+
+        Provide the trip_id and booking details. Use extra_fields (JSON string)
+        for any fields not covered by the named parameters.
+        """
+        booking_data: dict[str, Any] = {}
+        if supplier:
+            booking_data["supplier"] = supplier
+        if confirmation_number:
+            booking_data["confirmation_number"] = confirmation_number
+        if booking_type:
+            booking_data["booking_type"] = booking_type
+        if start_date:
+            booking_data["start_date"] = start_date
+        if end_date:
+            booking_data["end_date"] = end_date
+        if total_cost:
+            booking_data["total_cost"] = total_cost
+        if notes:
+            booking_data["notes"] = notes
+
+        # Merge any extra fields
+        try:
+            extra = json.loads(extra_fields)
+            if isinstance(extra, dict):
+                booking_data.update(extra)
+        except json.JSONDecodeError:
+            pass
+
+        client = _get_client()
+        result = client.create_booking(trip_id, booking_data)
+        return json.dumps(result, indent=2, default=str)
+
+    @mcp.tool(
+        name="tess_update_booking",
+        annotations={"title": "Update TESS Booking", "readOnlyHint": False},
+    )
+    async def tess_update_booking(
+        booking_id: str = Field(..., description="TESS booking ID to update"),
+        status: str = Field("", description="New booking status (e.g. 'confirmed', 'cancelled', 'pending')"),
+        confirmation_number: str = Field("", description="Updated confirmation/PNR number"),
+        start_date: str = Field("", description="Updated start date (YYYY-MM-DD)"),
+        end_date: str = Field("", description="Updated end date (YYYY-MM-DD)"),
+        total_cost: float = Field(0, description="Updated total cost in USD"),
+        notes: str = Field("", description="Updated notes"),
+        extra_fields: str = Field("{}", description="JSON string of additional fields to update"),
+    ) -> str:
+        """Update an existing TESS booking.
+
+        Only provided (non-empty) fields are included in the update payload.
+        Use extra_fields (JSON string) for fields not covered by named parameters.
+        """
+        updates: dict[str, Any] = {}
+        if status:
+            updates["status"] = status
+        if confirmation_number:
+            updates["confirmation_number"] = confirmation_number
+        if start_date:
+            updates["start_date"] = start_date
+        if end_date:
+            updates["end_date"] = end_date
+        if total_cost:
+            updates["total_cost"] = total_cost
+        if notes:
+            updates["notes"] = notes
+
+        try:
+            extra = json.loads(extra_fields)
+            if isinstance(extra, dict):
+                updates.update(extra)
+        except json.JSONDecodeError:
+            pass
+
+        if not updates:
+            return json.dumps({"error": "No update fields provided", "type": "validation_error"}, indent=2)
+
+        client = _get_client()
+        result = client.update_booking(booking_id, updates)
+        return json.dumps(result, indent=2, default=str)
+
+    @mcp.tool(
+        name="tess_create_client",
+        annotations={"title": "Create TESS Client", "readOnlyHint": False},
+    )
+    async def tess_create_client(
+        first_name: str = Field(..., description="Client first name"),
+        last_name: str = Field(..., description="Client last name"),
+        email: str = Field("", description="Client email address"),
+        phone: str = Field("", description="Client phone number"),
+        date_of_birth: str = Field("", description="Date of birth (YYYY-MM-DD)"),
+        address: str = Field("", description="Mailing address"),
+        notes: str = Field("", description="Agent notes about the client"),
+        extra_fields: str = Field("{}", description="JSON string of additional client fields (passport, preferences, etc.)"),
+    ) -> str:
+        """Create a new client in TESS CRM.
+
+        Provide at minimum first_name and last_name. Use extra_fields (JSON string)
+        for passport details, travel preferences, loyalty programs, etc.
+        """
+        client_data: dict[str, Any] = {
+            "first_name": first_name,
+            "last_name": last_name,
+        }
+        if email:
+            client_data["email"] = email
+        if phone:
+            client_data["phone"] = phone
+        if date_of_birth:
+            client_data["date_of_birth"] = date_of_birth
+        if address:
+            client_data["address"] = address
+        if notes:
+            client_data["notes"] = notes
+
+        try:
+            extra = json.loads(extra_fields)
+            if isinstance(extra, dict):
+                client_data.update(extra)
+        except json.JSONDecodeError:
+            pass
+
+        client = _get_client()
+        result = client.create_client(client_data)
+        return json.dumps(result, indent=2, default=str)
+
+    @mcp.tool(
+        name="tess_update_client",
+        annotations={"title": "Update TESS Client", "readOnlyHint": False},
+    )
+    async def tess_update_client(
+        client_id: str = Field(..., description="TESS client ID to update"),
+        first_name: str = Field("", description="Updated first name"),
+        last_name: str = Field("", description="Updated last name"),
+        email: str = Field("", description="Updated email address"),
+        phone: str = Field("", description="Updated phone number"),
+        notes: str = Field("", description="Updated agent notes"),
+        extra_fields: str = Field("{}", description="JSON string of additional fields to update"),
+    ) -> str:
+        """Update an existing client in TESS CRM.
+
+        Only provided (non-empty) fields are included in the update payload.
+        """
+        updates: dict[str, Any] = {}
+        if first_name:
+            updates["first_name"] = first_name
+        if last_name:
+            updates["last_name"] = last_name
+        if email:
+            updates["email"] = email
+        if phone:
+            updates["phone"] = phone
+        if notes:
+            updates["notes"] = notes
+
+        try:
+            extra = json.loads(extra_fields)
+            if isinstance(extra, dict):
+                updates.update(extra)
+        except json.JSONDecodeError:
+            pass
+
+        if not updates:
+            return json.dumps({"error": "No update fields provided", "type": "validation_error"}, indent=2)
+
+        client = _get_client()
+        result = client.update_client(client_id, updates)
+        return json.dumps(result, indent=2, default=str)
+
+    @mcp.tool(
+        name="tess_add_note",
+        annotations={"title": "Add Note to TESS Entity", "readOnlyHint": False},
+    )
+    async def tess_add_note(
+        entity_type: str = Field(..., description="Entity type: 'trips', 'bookings', or 'clients'"),
+        entity_id: str = Field(..., description="TESS entity ID"),
+        note_text: str = Field(..., description="Note content to add"),
+    ) -> str:
+        """Add a note to a TESS trip, booking, or client.
+
+        Notes are appended to the entity's note history — useful for tracking
+        communications, special requests, internal memos, etc.
+        """
+        client = _get_client()
+        result = client.add_note(entity_type, entity_id, note_text)
+        return json.dumps(result, indent=2, default=str)
+
+    @mcp.tool(
+        name="tess_upload_entity_document",
+        annotations={"title": "Upload Document to TESS Entity", "readOnlyHint": False},
+    )
+    async def tess_upload_entity_document(
+        entity_type: str = Field(..., description="Entity type: 'trips', 'bookings', or 'clients'"),
+        entity_id: str = Field(..., description="TESS entity ID"),
+        file_path: str = Field(..., description="Absolute path to the file to upload"),
+        doc_type: str = Field("general", description="Document type (e.g. 'general', 'invoice', 'itinerary', 'insurance', 'passport', 'visa')"),
+    ) -> str:
+        """Upload a document to any TESS entity (trip, booking, or client).
+
+        Supports PDF, images, and other file types. Documents are attached to the
+        entity record for reference and client portal access.
+        """
+        client = _get_client()
+        result = client.upload_entity_document(entity_type, entity_id, file_path, doc_type)
+        return json.dumps(result, indent=2, default=str)
+
     @mcp.tool(
         name="tess_test_connection",
         annotations={"title": "Test TESS API Connection", "readOnlyHint": True},
@@ -839,7 +1191,7 @@ def register_tess_tools(mcp):
             return json.dumps({"status": "error", **result}, indent=2)
         return json.dumps({"status": "connected", "profile": result}, indent=2)
 
-    logger.info("TESS API tools registered (11 tools)")
+    logger.info("TESS API tools registered (17 tools)")
 
 
 # ============================================================================
