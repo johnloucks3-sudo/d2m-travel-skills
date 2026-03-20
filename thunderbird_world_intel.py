@@ -837,7 +837,7 @@ def register_world_intel_tools(mcp_server: FastMCP):
             from the nearest weather station. US locations only.
             """
             try:
-                observations = noaa.get_observations(zipcode, "US")
+                observations = list(noaa.get_observations(zipcode, "US"))
 
                 results = []
                 for obs in observations[:5]:

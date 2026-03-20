@@ -164,7 +164,7 @@ def check_current_prices(departures: List[Dict[str, Any]]) -> List[Dict[str, Any
 
     Returns departures enriched with current_price and source.
     """
-    from thunderbird_model_router import _call_grok, _call_groq, XAI_API_KEY
+    from thunderbird_model_router import _call_grok, XAI_API_KEY
 
     results = []
 
@@ -196,8 +196,15 @@ def check_current_prices(departures: List[Dict[str, Any]]) -> List[Dict[str, Any
             if XAI_API_KEY:
                 raw = _call_grok(system_prompt, price_query, max_tokens=300, temperature=0.1)
             else:
-                raw = _call_groq(system_prompt, price_query, model="fast",
-                                 max_tokens=300, temperature=0.1)
+                import anthropic
+                client = anthropic.Anthropic()
+                resp = client.messages.create(
+                    model="claude-sonnet-4-20250514",
+                    max_tokens=300,
+                    system=system_prompt,
+                    messages=[{"role": "user", "content": price_query}],
+                )
+                raw = resp.content[0].text
 
             import re
             json_match = re.search(r'\{.*\}', raw, re.DOTALL)

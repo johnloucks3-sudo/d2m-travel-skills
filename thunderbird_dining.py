@@ -37,32 +37,24 @@ OUTPUT_DIR = THUNDERBIRD_DIR / "output"
 LOGO_PATH = THUNDERBIRD_DIR / "Agency_Logo.png"
 HEADSHOT_PATH = THUNDERBIRD_DIR / "John_Headshot.jpg"
 
-# Groq for structured extraction
-GROQ_API_KEY = "***REMOVED-SECRET***"
-GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
+# LLM calls — routed through Claude Opus ($0 on Max plan)
+# Groq eliminated per standing order 2026-03-17
 
 IMAGE_CACHE.mkdir(parents=True, exist_ok=True)
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def _groq_call(system: str, user: str, max_tokens: int = 2000) -> str:
-    """Call Groq LLM and return the response text."""
-    resp = requests.post(
-        GROQ_URL,
-        json={
-            "model": "llama-3.3-70b-versatile",
-            "messages": [
-                {"role": "system", "content": system},
-                {"role": "user", "content": user},
-            ],
-            "max_tokens": max_tokens,
-            "temperature": 0.3,
-        },
-        headers={"Authorization": f"Bearer {GROQ_API_KEY}"},
-        timeout=60,
+    """Call Claude Opus via Anthropic SDK. Name kept for backward compat."""
+    import anthropic
+    client = anthropic.Anthropic()
+    resp = client.messages.create(
+        model="claude-sonnet-4-20250514",
+        max_tokens=max_tokens,
+        system=system,
+        messages=[{"role": "user", "content": user}],
     )
-    resp.raise_for_status()
-    return resp.json()["choices"][0]["message"]["content"]
+    return resp.content[0].text
 
 
 def _img_to_base64(path: Path) -> str:
