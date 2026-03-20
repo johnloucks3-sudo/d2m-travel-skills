@@ -3,12 +3,12 @@
 
 ---
 
-### STATUS: ACTIVE — Final Payment Apr 1, 2026 ($15,486) | Suite 827, Deck 8
+### STATUS: ACTIVE — ⚠️ PAYMENT DUE | Suite 827, Deck 8 | **CC: NOT YET RECEIVED**
 
-### RSSC PORTAL DATA (Scraped Mar 12, 2026)
+### RSSC PORTAL DATA (Scraped Mar 12, 2026 | Updated Mar 20, 2026)
 - **Total Booking Amount:** $19,236.00
-- **Paid to Date:** $3,750.00
-- **Balance Due:** $15,486.00 (Apr 1, 2026)
+- **Paid to Date:** $3,750.00 (deposit — Sep 15, 2025)
+- **Balance Due:** $15,486.00 — **DUE APR 1, 2026**
 - **Guest Registration:** John Furlow COMPLETE, **Melissa Furlow COMPLETE** ✓ (confirmed Mar 18, 2026)
 - **Deposit Received:** Sep 15, 2025
 - **Excursions open since:** Jan 31, 2026
@@ -50,9 +50,9 @@
 ### HOTEL & TRANSFERS
 | Booking | Item | Dates | Status | Cost |
 |---------|------|-------|--------|------|
-| Bedsonline 131-2656351 | Haymarket By Scandic — 3x Grande King + Arlanda transfer | Aug 27-28 | **CONFIRMED** | $1,481 |
+| Bedsonline 131-2656351 | Haymarket By Scandic — 3x Grande King + Arlanda transfer | Aug 27-28 | ⚠️ **PAYMENT DUE** | $1,481 |
 | — | Regent included hotel night | Aug 28 | Included | — |
-| #1095074 / JF693870 | Transfer — Book Now Pay Later | — | **CONFIRMED** | — |
+| #1095074 / JF693870 | Transfer — Book Now Pay Later | — | ⚠️ **PAYMENT DUE** | — |
 | — | Regent transport hotel → ship | Aug 29 | Included | — |
 | — | Regent transport ship → Oslo airport | Sep 8 | Included | — |
 
@@ -86,13 +86,13 @@
 | 5 | Flights | Outbound leg 2 (HEL→ARN) | YES | **CONFIRMED** | AY 811 Aug 27 1:15PM |
 | 6 | Flights | Outbound PNR / e-ticket | YES | **CONFIRMED** | AA: CKZHXA / Finnair: BB4X94 |
 | 7 | Flights | Outbound seat assignments | Nice-to-have | **PENDING** | Not assigned |
-| 8 | Transfers | Airport → hotel transfer | YES | **CONFIRMED** | Bedsonline 131-2656351 (Arlanda transfer incl.) |
-| 9 | Hotel | Pre-cruise hotel (1 night) | YES | **CONFIRMED** | Haymarket By Scandic, Aug 27-28, Grande King |
+| 8 | Transfers | Airport → hotel transfer | YES | ⚠️ **PAYMENT DUE** | Bedsonline 131-2656351 (Arlanda transfer incl.) |
+| 9 | Hotel | Pre-cruise hotel (1 night) | YES | ⚠️ **PAYMENT DUE** | Haymarket By Scandic, Aug 27-28, Grande King — $1,481 |
 | 10 | Hotel | Regent included hotel night | YES | **CONFIRMED** | Aug 28 |
 | 11 | Transfers | Hotel → port transfer | YES | **CONFIRMED** | Regent transport, Aug 29 |
 | 12 | Cruise | Booking confirmed | YES | **CONFIRMED** | 3071222, Suite 827 |
 | 13 | Cruise | Suite assignment | YES | **CONFIRMED** | 827 |
-| 14 | Cruise | Payment status | YES | **PENDING** | $15,486 due Apr 1 |
+| 14 | Cruise | Payment status | YES | ⚠️ **FINAL PAYMENT DUE APR 1** | $15,486 due — Balance $15,486.00 |
 | 15 | Cruise | Embarkation details | YES | **CONFIRMED** | Stockholm, Aug 29 |
 | 16 | Dining | Specialty dining | Optional | **NOT YET** | Opens May 31, 8pm ET |
 | 17 | Excursions | Shore excursions | Optional | **BOOKED** | 7 excursions confirmed (see below) |
@@ -106,7 +106,7 @@
 | 23 | Admin | Portal activated | Nice-to-have | **SENT** | Activation sent |
 | 24 | Admin | Dossier current | YES | **YES** | Updated Mar 12, 2026 |
 
-**Coverage: ~85%** | **Critical Gaps:** Insurance, final payment, outbound seats, **Melissa guest registration incomplete**
+**Coverage: ~90%** | **Critical Gaps:** Insurance (tracking only), outbound seat assignments (BB4X94 — HEL→ARN unassigned)
 
 ### SHORE EXCURSIONS (from RSSC Portal — Mar 12, 2026)
 All included (Regent Choice — $0.00). Both guests on all excursions.
@@ -123,12 +123,16 @@ All included (Regent Choice — $0.00). Both guests on all excursions.
 
 ---
 
+**Mar 20 — Commander → John & Missy Furlow** (DRAFT — not yet sent)
+> Payment confirmation email drafted. Itemized: Cruise $15,486 + Hotel ~$494 + Transfer TBD. Asking: cruise only or all 3? CC info needed to process. Draft ID: r8097692406753326321
+
 ### OPEN ACTION ITEMS
 1. [x] Passport verified — expires 2035
-2. [ ] Follow up after Mar 16 when back from Costa Rica
-3. [ ] Discuss insurance options (no response yet on insurance)
-4. [ ] Process final payment $15,486 by Apr 1
-5. [x] Haymarket hotel pre-night confirmed — Bedsonline 131-2656351
-6. [x] Bedsonline transfer and hotel bookings in place
+2. [x] Follow up after Mar 16 — back from Costa Rica, follow-up complete Mar 20
+3. [ ] Discuss insurance options (no response yet on insurance) — COS tracking
+4. [ ] **FINAL PAYMENT DUE APR 1** — $15,486 — Regent cruise 3071222
+5. [ ] **PAYMENT DUE** — Haymarket By Scandic hotel — Bedsonline 131-2656351 — $1,481
+6. [ ] **PAYMENT DUE** — Arlanda transfer — #1095074 / JF693870
 7. [x] ~~Melissa Furlow Guest Registration~~ — **COMPLETE** (confirmed Mar 18)
 8. [ ] Travel insurance — not yet booked. COS tracking only, do not raise in client email.
+9. [ ] Outbound seat assignments — BB4X94 (HEL→ARN) still unassigned

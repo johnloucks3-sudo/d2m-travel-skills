@@ -13,13 +13,13 @@
 
 Fares: Kyle/Roger = OMAFSV26-3 (DV1 $3,799pp) | Josh/Erica = OMAPSF26-3 (V1 $3,099pp) | $50 deposit each
 
-### STATUS: ACTIVE — Payment Delayed to Mar 25 per Kyle's Request | CC on File
+### STATUS: ACTIVE — ⚠️ FULL PAYMENT PENDING Mar 25 ($21,244) | CC on File (Kyle ✓ · Roger ✓) | Josh/Erica CC still needed
 
 ### KEY DATES
 | Date | Milestone |
 |------|-----------|
-| **Mar 25** | **⚠️ PROCESS PAYMENT — $21,244 ($7,548 + $7,548 + $6,148) — Kyle requested delay to float ~$23K** |
-| Mar 25 | Travel protection discussion (same call) |
+| **Mar 25** | **🔴 PROCESS PAYMENT — $21,244 ($7,548 + $7,548 + $6,148) — 5 DAYS OUT — Kyle CC ✓ · Roger CC ✓ · Josh CC still needed** |
+| Mar 25 | Travel protection discussion (same call as payment) |
 | Dec 17 | EMBARKATION — Panama City, 3:00 PM |
 | Dec 27 | Disembarkation — Ft. Lauderdale (Port Everglades), 5:00 AM |
 
@@ -100,28 +100,31 @@ Fares: Kyle/Roger = OMAFSV26-3 (DV1 $3,799pp) | Josh/Erica = OMAPSF26-3 (V1 $3,0
 | 8 | Cruise | Booking 9593880 (Kyle/Rosalie) | YES | **CONFIRMED** | Stateroom 4122, DV1 |
 | 9 | Cruise | Booking 9593873 (Roger/Nick) | YES | **CONFIRMED** | Stateroom 8012, DV1 |
 | 10 | Cruise | Booking 9595029 (Josh/Erica) | YES | **CONFIRMED** | Guarantee V1, stateroom TBA |
-| 11 | Cruise | Payment status | YES | **URGENT** | $21,244 due Mar 31 |
+| 11 | Cruise | Payment status | YES | **🔴 PENDING — Mar 25** | $21,244 due Mar 31 · Kyle CC ✓ · Roger CC ✓ · Josh CC STILL NEEDED |
 | 12 | Cruise | Embarkation details | YES | **CONFIRMED** | Panama City, Dec 17, 3:00 PM |
 | 13 | Cruise | Disembarkation | Optional | **CONFIRMED** | Ft. Lauderdale (Port Everglades), Dec 27, 5:00 AM |
 | 14 | Transfers | Port → airport (Ft. Lauderdale) | YES | **NOT BOOKED** | FLL |
 | 15 | Flights | Return flights (3 bookings) | YES | **NOT BOOKED** | From FLL |
-| 16 | Admin | Portal activated | Nice-to-have | **PENDING** | Kyle gave green light, not sent |
-| 17 | Admin | TESS CRM entry | Nice-to-have | **NOT DONE** | 3 bookings |
-| 18 | Admin | Dossier current | YES | **YES** | Updated Mar 12, 2026 |
+| 16 | Admin | Portal activated | Nice-to-have | **⚠️ BLOCKED** | Kyle gave green light · CDP offline Mar 20 · Queued for next session |
+| 17 | Admin | TESS CRM entry | Nice-to-have | **⚠️ BLOCKED** | TESS auth down Mar 20 · Queued |
+| 18 | Admin | Dossier current | YES | **YES** | Updated Mar 20, 2026 |
 
-**Coverage: ~35%** | **Critical Gaps:** Payments, insurance, flights (out + return), transfers, passports, Guest Info Forms
+**Coverage: ~37%** | **Critical Gaps:** Full payment (Mar 25), insurance, flights, transfers, passports · Portal activations queued (CDP blocked)
 
 ---
 
 ### OPEN ACTION ITEMS
-1. [ ] **PROCESS 3 FINAL PAYMENTS — $21,244 total ($7,548 + $7,548 + $6,148)** — TARGET: Mar 25
-   - Kyle CC uploaded to Viking portal ✓ — process Kyle (9593880) + Roger (9593873) on Mar 25
-   - Need CC info from Josh (818-317-9843 / Josh@jerichopix.com) for booking 9595029
-   - Travel protection discussion same call/day (Mar 25)
-2. [ ] **SEND portal activation emails to all 6 guests** — Kyle gave green light
-3. [ ] Fix Josh/Erica booking: update email, phone, address from John's placeholders to actual (188 Cays Dr, Naples FL 34114)
-4. [ ] Collect Guest Info Forms by Mar 15
-5. [ ] Travel protection discussion by Mar 25
-6. [ ] Confirm stateroom for Morton/Dodge (9595029)
-7. [ ] Update Kyle's booking — change email/phone from John's to Kyle's actual info
-8. [ ] Enter all 3 Viking bookings into TESS CRM
+1. [ ] **🔴 PROCESS 3 FINAL PAYMENTS — $21,244 total** — *TARGET: Mar 25 (5 days)*
+   - 9593880 (Kyle/Rosalie) — $7,548 · CC ✓ confirmed
+   - 9593873 (Roger/Nick) — $7,548 · CC ✓ confirmed (updated Mar 20)
+   - 9595029 (Josh/Erica) — $6,148 · **CC STILL NEEDED** — contact Josh: 818-317-9843 / Josh@jerichopix.com
+   - Travel protection discussion same call Mar 25
+2. [ ] **SEND portal activation emails to all 6 guests** — Kyle gave green light · CDP offline Mar 20 · **Queued**
+3. [x] Josh/Erica booking info corrected in dossier — 188 Cays Dr, Naples FL 34114 ✓
+4. [ ] Guest Info Forms — **OVERDUE (due Mar 15)** — follow up with Kyle
+5. [ ] Travel protection discussion — Mar 25 (with payment call)
+6. [ ] Confirm stateroom for Morton/Dodge (9595029) — Guarantee V1, TBA
+7. [x] Kyle's booking info corrected in dossier — kyle.kuklinski@gmail.com / 804-801-4762 ✓
+8. [ ] Enter all 3 Viking bookings into TESS CRM — **BLOCKED (TESS auth down Mar 20)** · Queued
+
+*Last updated: Mar 20, 2026*

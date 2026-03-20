@@ -143,8 +143,27 @@ if tool in CLIENT_DRAFT_TOOLS:
             "<!-- intro-email -->",
         ]
         is_intro_email = any(marker in body.lower() for marker in INTRO_MARKERS)
-        if is_intro_email:
-            pass  # Intro emails bypass Client Materials Standard
+
+        # Administrative/payment emails are exempt from Client Materials Standard.
+        # These are billing confirmations, payment schedule notices, CC requests —
+        # not property recommendations. No links or reviews required.
+        ADMIN_MARKERS = [
+            "<!-- admin-email -->",
+            "<!-- payment-email -->",
+            "process your payment",
+            "process final payment",
+            "final payment",
+            "payment due",
+            "payment information",
+            "credit card information",
+            "credit card on file",
+            "book now pay later",
+            "itemized breakdown",
+        ]
+        is_admin_email = any(marker in body.lower() for marker in ADMIN_MARKERS)
+
+        if is_intro_email or is_admin_email:
+            pass  # Intro and admin/payment emails bypass Client Materials Standard
         else:
             has_link    = "http" in body
             has_price   = "$" in body

@@ -3,7 +3,7 @@
 
 ---
 
-### STATUS: ACTIVE — Final Payment Apr 1, 2026 ($14,986) | Suite 939, Deck 9
+### STATUS: ACTIVE — Final Payment Apr 1, 2026 ($14,986) | Suite 939, Deck 9 | **CC: NOT YET RECEIVED**
 
 ### RSSC PORTAL DATA (Scraped Mar 12, 2026)
 - **Total Booking Amount:** $18,896.00
@@ -130,6 +130,9 @@ All included (Regent Choice — $0.00). Both guests on all excursions.
 | Oslo (2 days) | Panoramic Oslo | Sep 07 | 09:15 |
 
 ---
+
+**Mar 20 — Commander → Larry & Heidi Nichols** (DRAFT — not yet sent)
+> Payment confirmation email drafted. Itemized: Cruise $14,986 + Hotel ~$494 + Transfer TBD. Asking: cruise only or all 3? CC info needed to process. Draft ID: r8933170342867443181
 
 ### OPEN ACTION ITEMS
 1. [ ] **URGENT:** Clarify what the $700 Allianz policy covers — pull policy details

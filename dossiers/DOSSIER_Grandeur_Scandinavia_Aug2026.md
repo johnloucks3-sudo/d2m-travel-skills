@@ -408,26 +408,31 @@ Dossier Version 1.0 | March 07, 2026
 **Mar 17 — Melissa Furlow** (Re: Re: Accepted: GRANDEUR 08-29-2026: Booking: 3071222 Guest: FURLOW - Rem... @ Wed Mar 18, 2026 (johnloucks3@gmail.com))
 > 2026-03-17 — EMAIL IN: Missy confirmed no meeting needed re: accidental Calendar invite on passport reminder. Thread closed, no action. Next touchpoint: payment reminder #2 (Mar 18).
 
+**Mar 20 — Al Ely** (Cruise Payment)
+> 2026-03-20: Al emailed John authorizing charges for cruise, hotel, and transportation. Passport photo uploaded to portal (self-reported, needs verification). Insurance deferred — will activate in a couple months. John replied confirming he'll process payments this week.
+
 ### OPEN ACTION ITEMS
+- [ ] PROCESS: Ely/Darrow payments this week — cruise ($16,640) + hotel + transport per Al's Mar 20 authorization
+- [ ] VERIFY: Al's passport photo upload to portal (he said "I think?")
 - [ ] CHECK: Gmail inbox for flight documents from heidi.nichols1@yahoo.com sent between Mar 13-16 (auto-intel Mar 16)
 
-- [ ] Resolve Furlow outbound seat gap: DFW→HEL (AA 9018/Finnair) and HEL→ARN (AY 811) both unassigned — contact Finnair or Regent air desk (auto-intel Mar 17)
+- [ ] Furlow outbound seats — monitoring every 2 days per Commander directive (Mar 20). Next check: Mar 22.
 
-- [ ] Prepare payment reminder #2 for Mar 18 (FPD-14) — $15,486 due Apr 1 (auto-intel Mar 17)
+- [x] Prepare payment reminder #2 for Mar 18 (FPD-14) — $15,486 due Apr 1 — DRAFTED Mar 20, pending Commander review
 
 - [ ] Fix Google Calendar parameter that auto-generates Meet links on forwarded events (auto-intel Mar 17)
 
-- [ ] CRITICAL: Resolve Furlow outbound seat assignments (DFW→HEL and HEL→ARN both unassigned under PNR BB4X94) (auto-intel Mar 17)
+- [ ] MONITOR: Furlow outbound seat assignments every 2 days — DFW→HEL and HEL→ARN under PNR BB4X94 (Commander directive Mar 20: watch, don't escalate yet)
 
-- [ ] Send payment reminder #2 on Mar 18 (tomorrow) — final payment $15,486 due Apr 1 (auto-intel Mar 17)
+- [x] Send payment reminder #2 — DRAFTED Mar 20, portal instructions + 3-item payment question included
 
 - [ ] Confirm Furlow passport expiration dates are on file and valid through Mar 2027 (auto-intel Mar 17)
 
-- [ ] RESOLVE: Close the CRITICAL GAP — Furlow outbound seats must be assigned or escalated (auto-intel Mar 17)
+- [ ] MONITOR: Furlow seat gap — Commander says watch every 2 days, no direct escalation yet (directive Mar 20)
 
 - [ ] TIMELINE: Payment reminder #2 triggers tomorrow (2026-03-18, FPD-14) — coordinate timing so seat update and payment nudge don't collide awkwardly (auto-intel Mar 17)
 
-- [ ] DOSSIER: Mark guest registration as COMPLETED for Furlow (auto-intel Mar 17)
+- [x] DOSSIER: Guest registration COMPLETED for Furlow (confirmed by Missy Mar 17)
 
 - [ ] DOSSIER: Add PNR BB4X94 to Furlow flight records (auto-intel Mar 17)
 

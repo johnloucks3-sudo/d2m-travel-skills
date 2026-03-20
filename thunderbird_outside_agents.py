@@ -66,7 +66,8 @@ ODY_BOOKINGS = f"{ODY_BASE}/bookings/report.aspx"
 def _notify_commander(message: str):
     """Send a Telegram notification to the Commander."""
     try:
-        bot_token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
+        # GUARDRAIL: OA notifications use C2 bot, never the client-facing dani_bot.
+        bot_token = os.environ.get("TELEGRAM_C2_BOT_TOKEN", "")
         commander_id = os.environ.get("TELEGRAM_COMMANDER_ID", "")
         if not bot_token or not commander_id:
             logger.warning("Telegram env vars not set — skipping notification")

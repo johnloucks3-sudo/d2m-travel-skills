@@ -809,8 +809,11 @@ async def handle_plain_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not is_cmdr:
         # LOG: Persistent record of every client interaction
         _log_client_interaction(user_id, user_name, query, answer, cos_note)
-        # CLIENT: Commander DM notifications disabled per 2026-03-17 directive
-        # Use /logs or C2 channel to review interactions; only escalations push through
+        # AUTONOMOUS MODE (2026-03-19): lightweight Commander visibility — read-only, no approval needed
+        await _notify_commander(
+            bot,
+            f"📲 *Dani → {user_name}*\n_{answer[:200]}_"
+        )
         # Additional follow-up alert if Dani couldn't answer
         if _is_followup_needed(answer):
             _log_followup(query, answer, user_name)

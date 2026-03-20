@@ -117,13 +117,13 @@ MAX_MESSAGE_LENGTH = 4096
 # ---------------------------------------------------------------------------
 
 _conversation_history: dict[int, list[dict]] = {}
-MAX_HISTORY = 10  # C2 gets deeper history than client bot
+MAX_HISTORY = 40  # Doubled again from 20 — Commander directive 2026-03-20
 
 def _add_to_history(user_id: int, role: str, text: str):
     if user_id not in _conversation_history:
         _conversation_history[user_id] = []
     _conversation_history[user_id].append({
-        "role": role, "text": text[:800],
+        "role": role, "text": text[:3200],  # Doubled again from 1600 — Commander directive 2026-03-20
         "ts": datetime.now(timezone.utc).isoformat(),
     })
     if len(_conversation_history[user_id]) > MAX_HISTORY:

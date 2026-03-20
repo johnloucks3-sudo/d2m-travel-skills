@@ -14,11 +14,11 @@
 | 3337550400 | Hilton Tokyo Odaiba, Twin Superior Deluxe, 2 adults, Honors Bfast | Apr 19-23 | **CONFIRMED** — cancel free by Apr 18 11:59pm | ¥424,373 (~$2,770) |
 | PE164717508 / HL857174 / CIT-T123798325 | Kyoto Food Tour, 3 hrs, Hiro, Matsumoto Kiyoshi Shijo Kawaramachi, 10AM | Apr 21 | **CONFIRMED** — voucher received, fully paid, cancel free before Apr 20 10AM local | $484.96 |
 | PE164714008 | Mt. Fuji & Hakone Bus Tour, 7:50 AM | Apr 22 | **CONFIRMED** | $365.62 |
-| PE151557101 | Hilton Odaiba → Harumi Port transfer, 4 pax, Minibus | Apr 23, 10:30 AM (requested) | **CONFIRMED** — 10:30 time change PENDING (Kyra ack'd Mar 10) | paid |
+| PE151557101 / HL855855 / PREXP-27443260 | Hilton Odaiba → Harumi Port transfer, 4 pax, Private Minibus (40 min, tolls incl) | Apr 23, **10:30 AM** | **CONFIRMED** — voucher received, fully paid, cancel free before Apr 21 10:30 AM local | $0 due (fully paid) |
 | 3740314183 | SmartEX Shinkansen membership | — | **ACTIVE** — PW: Tokyo26! | — |
 | 566910-25 | Silversea Silver Nova, Tokyo Harumi → Seattle | Apr 23 – May 11 | **CONFIRMED** | $10,800 |
 | Plusgrade | Upgrade bids: Premium Medallion $2,305 + Medallion $1,600 | — | **SUBMITTED Mar 12** — current suite: Superior Veranda | TBD |
-| — | SEA → COS return flight | May 11 | **NOT BOOKED** | TBD |
+| ASC3LX | Southwest, SEA → DEN return flight | May 11 | **CONFIRMED** | TBD |
 
 ### INSURANCE
 - **Allianz Annual Premier $15K** — coverage active
@@ -42,7 +42,7 @@
 | Mt. Fuji Tour (2 pax) | $365.62 |
 | Harumi Port Transfer (4 pax shared) | paid |
 | Silver Nova Cruise | $10,800.00 |
-| SEA → COS return flight | TBD |
+| Southwest SEA → DEN return flight | TBD |
 | **TOTAL (confirmed)** | **~$22,663** |
 
 ---
@@ -97,6 +97,9 @@
 **Mar 12 — Google Flights** LAX-HNL-Tokyo tracker: $6,072 (was $5,726) — UP $346
 **Mar 12 — Southwest** LAST CHANCE $49 spring sale — relevant for SEA→COS return
 
+**Mar 20 — Southwest** SEA→DEN return flight booked for May 11 — conf# *ASC3LX* (Commander confirmed)
+**Mar 20 — PE (Kyra, email)** Updated voucher received for PE151557101 / HL855855. Hilton Tokyo Odaiba → Harumi Port (HRP0), Apr 23, **10:30 AM pickup CONFIRMED**. Private Standard Minibus, 4 pax/4 luggage, 40 min, tolls included. Operator: Heycars-Asia. Fully paid, $0 due. Cancel free before Apr 21 10:30 AM local. Driver locator: checkpickup.com/3AG7KZ. NOTE: Kyra sent voucher to john@lovegrouptravel.com on Mar 12 — old branding.
+
 **Mar 18 — Caitlynn** (Re: PE164717508 - HL857174)
 > **Mar 18, 2026 — PE (Caitlynn)** Kyoto Food Tour voucher received, PE164717508, ticket HL857174, City Unscripted conf CIT-T123798325. Hiro phone: +817043638092. Meeting: Matsumoto Kiyoshi Shijo Kawaramachi 10:00 AM. Fully paid $484.96. Cancel free before Apr 20 10:00 AM local. NOTE: Voucher lists agent as 'Love Group Travel, LLC' — correction pending Commander decision.
 
@@ -123,7 +126,7 @@
 | 11 | Hotel | Hilton Tokyo Odaiba (4 nights) | YES | **CONFIRMED** | #3337550400, Apr 19-23, ¥424,373 |
 | 12 | Excursions | Kyoto Food Tour | Optional | **CONFIRMED** | PE164717508 Apr 21 10AM, Hiro guide |
 | 13 | Excursions | Mt. Fuji & Hakone Tour | Optional | **CONFIRMED** | PE164714008 Apr 22 7:50AM |
-| 14 | Transfers | Hotel → port transfer | YES | **CONFIRMED** | PE151557101, 4 pax, 10:30 AM (pending time confirm) |
+| 14 | Transfers | Hotel → port transfer | YES | **CONFIRMED** | PE151557101 / PREXP-27443260, 4 pax, **10:30 AM**, voucher received, fully paid, cancel before Apr 21 |
 | 15 | Cruise | Booking confirmed | YES | **CONFIRMED** | 566910-25, Silver Nova |
 | 16 | Cruise | Payment status | YES | **CONFIRMED** | $10,800 — PAID IN FULL (Commander confirmed Mar 18) |
 | 17 | Cruise | Embarkation details | YES | **CONFIRMED** | Tokyo Harumi, Apr 23, 7:00 PM |
@@ -131,10 +134,10 @@
 | 17b | Dining | Specialty dining | Optional | **BOOKED** | 16 reservations (1 waitlisted — Grill Apr 24) |
 | 18 | Cruise | Disembarkation | Optional | **CONFIRMED** | Seattle, May 11, 7:00 AM |
 | 19 | Transfers | Port → airport transfer | YES | **NOT BOOKED** | Seattle terminal→SEA-TAC for May 11 |
-| 20 | Flights | Return flight (SEA→COS) | YES | **NOT BOOKED** | May 11, exploring Southwest/United |
+| 20 | Flights | Return flight (SEA→DEN) | YES | **CONFIRMED** — Southwest *ASC3LX* | May 11 |
 | 21 | Admin | Dossier current | YES | **YES** | Updated Mar 18, 2026 |
 
-**Coverage: ~90%** | **Critical Gaps:** Visit Japan Web, SEA→COS return flight, Seattle transfer
+**Coverage: ~93%** | **Critical Gaps:** Visit Japan Web, Seattle port→SEA-TAC transfer | **RESOLVED:** SEA→DEN return flight (Southwest, May 11)
 
 ### SILVERSEA PORTAL — SHORE EXCURSIONS (Scraped Mar 12, 2026)
 All $0 unless noted. Both guests on all excursions.
@@ -174,9 +177,9 @@ All $0 unless noted. Both guests on all excursions.
 
 ### OPEN ACTION ITEMS
 1. [x] ~~Complete Kyoto Food Tour questionnaire~~ — DONE (Hiro confirmed Mar 12)
-2. [ ] **Follow up PE on transfer time change** — Kyra ack'd Mar 10, no update yet
+2. [x] ~~Follow up PE on transfer time change~~ — **10:30 AM CONFIRMED Mar 20** ✅
 3. [x] ~~Find/book Hilton Tokyo Odaiba~~ — **FOUND** Conf #3337550400, Twin Superior Deluxe, ¥424,373 (~$2,770)
-4. [ ] **Book SEA → COS return flight** (May 11) — set up Southwest + United alerts
+4. [x] ~~Book SEA → DEN return flight~~ — **Southwest SEA→DEN CONFIRMED May 11** — conf# *ASC3LX*
 5. [x] ~~Cancel Westbrook Blacklane PE146862609~~ — **CANCELLED Mar 12**
 6. [ ] Save Mt. Fuji meeting point file to dossier (PE164714008 attachment)
 7. [ ] Confirm Silversea upgrade bid results when Plusgrade responds

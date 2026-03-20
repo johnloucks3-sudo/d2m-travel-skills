@@ -260,7 +260,10 @@ def _notify_commander_telegram(action_type: str, subject: str, from_addr: str,
         import os
         import requests as _requests
 
-        bot_token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
+        # GUARDRAIL: Star Protocol notifications MUST use the C2 bot, never the
+        # client-facing dani_bot (TELEGRAM_BOT_TOKEN). Internal staff replies go
+        # Commander-only via @D2MC2C_bot (TELEGRAM_C2_BOT_TOKEN).
+        bot_token = os.environ.get("TELEGRAM_C2_BOT_TOKEN", "")
         commander_id = os.environ.get("TELEGRAM_COMMANDER_ID", "")
 
         if not bot_token or not commander_id:

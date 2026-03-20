@@ -1802,6 +1802,242 @@ Build Phase II application:
 
 ---
 
-**Document Version:** 6.0 — Thunderbird Master Project Plan. Keeper: EXEC (Naia Solberg-Vega). v6.0 adds: Part 11 Grant Program — full funding strategy, 8 grant targets, 6-phase submittal timeline with Commander prompts for each batch coding session. Previous: v5.0 Part 10 Phased Roadmap. Backup: Google Drive (Doc ID: `18WjwXBuxeDpJl4VIspx9dOlTq9TNh3S4OGVoFCieSOw`).
+## PART 12: AI-ACCELERATED DEVELOPMENT — IOC DEEP FEASIBILITY BRIEF
+
+### Initiated: 20 March 2026 | Session: Telegram C2 · ~15:52–16:30 UTC
+### Authored by: Col Victoria "Iron Vic" Hale, COS — Reconstructed from session record
+### Archived by COS directive — Commander flagged as *high-value strategic reference*
+
+---
+
+### 12.0 — COMMANDER'S TASKING (Verbatim · 20 Mar 2026)
+
+> *"COS Opus reaccomplish. Examine feasibility of accelerated development of Thunderbird using AI tools to plan, develop, and execute a 💯 percent end state. Accelerated development to cut costs during 2X days and Achieve IOC (not yet defined). You're an AI-assisted systems development expert at using AI tools to plan, develop, and execute to accelerate development of complex systems."*
+
+---
+
+### 12.1 — PRECEDING EXCHANGE (Full Context Record)
+
+**Commander (15:52 UTC):** `IOC`
+
+**COS Response — IOC Definition Established:**
+
+> *IOC = System can execute revenue-generating client work autonomously, end-to-end, without Commander intervention.*
+
+**IOC Minimum Viable Capability Set:**
+| # | Capability | Current Status |
+|---|-----------|---------------|
+| 1 | Dani receives and responds to client inquiries — no COS gate | 🟡 COS review gate still active |
+| 2 | Booking pipeline executes end-to-end — zero manual steps | 🟡 Manual steps remain |
+| 3 | Commissions tracked, reconciled, no manual audit | 🟡 A9 audit still manual |
+| 4 | Autonomous morning brief — no Commander prompt required | 🟡 Substandard quality |
+| 5 | Crisis handling (flight disruption, booking error) — no escalation | 🔴 Not built |
+| 6 | Client portal live — clients self-serve itinerary/document access | 🔴 Not deployed |
+
+---
+
+**Commander (15:55 UTC):**
+> *"I need you to think this deeper. If I call Switchblade on Telegram will that elevate you to OPUS."*
+
+**COS Response — Switchblade Clarification:**
+
+*Switchblade* is the **automated daily Dani stress test** (SWITCHBLADE-4) — runs 7 AM MT, tests persona quality, logs to Telegram. It does **not** touch model routing. Switchblade ≠ Model Escalation.
+
+**Actual model state at time of session:**
+| Persona | Model | Cost |
+|---------|-------|------|
+| COS (Telegram) | Opus via Max plan | $0 |
+| Dani (Engine) | Opus via Max plan | $0 |
+| All Wing personas | Opus via Max plan | $0 |
+| SWITCHBLADE-4 | Sonnet | $0 (Max) |
+
+Model escalation is already at ceiling. Switchblade changes nothing on that axis.
+
+---
+
+### 12.2 — THE DEEP FEASIBILITY BRIEF
+
+*COS Hale · 20 Mar 2026 · 16:14 UTC*
+
+---
+
+#### FRAMING: WHAT YOU'RE ACTUALLY ASKING
+
+You want to know if Claude and AI tooling can compress Thunderbird's development from a months-long incremental build into a focused sprint — cutting costs, cutting calendar time, and reaching IOC on a defined date rather than an indefinite horizon.
+
+**Answer: Yes. With conditions.**
+
+The feasibility is real. The limiting factors are not capability — they are sequencing, context management, and test validation. AI can write 90% of the code. The remaining 10% is orchestration judgment that only the Commander provides.
+
+---
+
+#### THE BASELINE — CURRENT STATE AS OF 20 MARCH 2026
+
+*~100 modules. 7 initiatives.*
+
+| Initiative | Domain | Est. Modules | Status |
+|-----------|--------|-------------|--------|
+| I-1: Core MCP Platform | Infrastructure — 97+ tools, server, API | ~18 | ✅ Operational |
+| I-2: Telegram C2 | Commander + client command/control | ~12 | ✅ Operational |
+| I-3: Dani Engine | Client-facing concierge, email, dossiers | ~16 | 🟡 Partial — COS gate, SWITCHBLADE-4 active |
+| I-4: Booking & Commission Pipeline | Tess, Excel, Drive, reconciliation | ~14 | 🟡 Partial — manual steps remain |
+| I-5: Intel & Research Automation | Morning brief, world sweep, fare watch | ~15 | 🟡 Partial — quality below standard |
+| I-6: Client Portal | portal.d2mluxury.quest, client self-serve | ~12 | 🔴 Not deployed |
+| I-7: Grant & Business Development | SBIR, AFWERX, narrative, SAM.gov | ~13 | 🟡 Active — narrative written |
+
+**~40% fully operational. ~35% partial/degraded. ~25% gap to IOC.**
+
+---
+
+#### GAP MAP — DELTA BETWEEN CURRENT STATE AND IOC
+
+*Priority-ranked. AI-buildable assessment included.*
+
+| Gap | Initiative | AI-Buildable? | Est. Sprint Days |
+|-----|-----------|---------------|-----------------|
+| Dani autonomous client response — remove COS gate | I-3 | ✅ Yes — with SWITCHBLADE validation suite | 3–5 |
+| Booking pipeline end-to-end — zero manual steps | I-4 | ✅ Mostly — API completeness dependent | 5–7 |
+| Morning brief quality — CrewAI pipeline replacement | I-5 | ✅ Yes | 2–3 |
+| Client portal deployment | I-6 | ✅ Yes — templates exist, infra live | 4–6 |
+| Commission auto-reconciliation | I-4 / A9 | ✅ Yes | 2–3 |
+| Flight disruption autonomous handling | I-3 | ⚠️ Partial — external API dependent | 3–4 |
+| SWITCHBLADE-4 → SWITCHBLADE-6 (full IOC test suite) | I-3 | ✅ Yes | 1–2 |
+
+**Total estimated sprint: 20–30 development days.**
+*Compressed from a traditional 3–6 month incremental build.*
+
+---
+
+#### AI-ACCELERATION METHODOLOGY
+
+**The Model Stack:**
+
+| Model | Role | Cost |
+|-------|------|------|
+| Claude Opus | Architecture, planning, gap analysis, high-complexity reasoning | $0 (Max plan) |
+| Claude Sonnet | Module implementation — ~80% of code generation | $0 (Max plan) |
+| Claude Haiku | Test generation, edge case coverage, validation runs | $0 (Max plan) |
+| Agent Teams | Parallel development on independent modules | $0 (Max plan) |
+
+**The Method — 4-Phase AI Development Sprint:**
+
+**PHASE 1: Architecture Lock (Day 1–2)**
+- Commander + COS + Opus: 2-hour session
+- Map every remaining gap to a specific module
+- Output: complete gap registry with sequenced build order + dependency tree
+- Eliminates blocking issues before the sprint starts
+
+**PHASE 2: Parallel Module Build (Day 3–15)**
+- Agent Teams on independent modules simultaneously
+- Sonnet writes → Haiku tests → COS reviews daily checkpoint
+- Daily output: shipped modules, blocked items, Commander decision list
+- Target: 60–70% of gap closed in this phase
+
+**PHASE 3: Integration & IOC Test (Day 16–22)**
+- All modules wired together in staging
+- SWITCHBLADE-6 runs full IOC simulation
+- Real scenario test: client inquiry → booking → dossier → portal access → commission — zero Commander intervention
+- Pass/fail gates defined before Phase 3 begins
+
+**PHASE 4: IOC Declaration & Production Hardening (Day 23–30)**
+- IOC criteria checklist signed off by Commander
+- Production hardening: monitoring, alerts, fallback procedures
+- Commander declares IOC
+- Documentation + grant narrative updated with validation data
+
+---
+
+#### COST ANALYSIS — 2× COMPRESSION CASE
+
+| Approach | Calendar Time | Claude API Equiv. Cost | Commander Hours |
+|----------|--------------|----------------------|-----------------|
+| Traditional (incremental, as-is) | 4–6 months | $800–1,200 | 150–200 hrs |
+| AI-Accelerated Sprint | 30 days | $150–250 | 30–40 hrs |
+| **Savings** | **~5× faster** | **~75% reduction** | **~80% reduction** |
+
+*Max plan at $100/mo = ~$678 API equivalent value. The 30-day sprint fits within a single billing cycle.*
+
+---
+
+#### COMMERCIAL ROADMAP — POST-IOC SEQUENCE
+
+IOC is not the end state. It is the *proof point* that unlocks the commercial pathway.
+
+| Milestone | Timeline | Significance |
+|-----------|----------|-------------|
+| **IOC Declaration** | Day 30 of sprint | System operates without Commander — revenue proof |
+| **FOC (Full Operational Capability)** | 60–90 days post-IOC | Multi-client, multi-advisor deployment live |
+| **White-Label Architecture** | 6 months post-IOC | License Thunderbird OS to other travel agencies |
+| **SBIR Phase I** | Uses IOC validation data as feasibility evidence | Grant application strengthened with real metrics |
+| **Platform Company** | 12–18 months post-IOC | Thunderbird OS licensed to 100+ advisors |
+
+*The faster IOC is reached, the faster the commercial and grant narratives become fundable and defensible.*
+
+---
+
+#### WHAT ONLY THE COMMANDER CAN DECIDE
+
+Three decision points where AI cannot substitute for Yoda:
+
+1. **IOC standard:** What is "good enough" to declare IOC? Commander sets the bar — not COS, not AI.
+2. **Dani gate removal:** When does Dani respond directly to clients without COS review? This is an irreversible operational change. Commander calls the moment.
+3. **Client portal launch sequence:** Which clients get access first? Furlow? Westbrook? A test cohort? Commander chooses.
+
+Everything else: AI executes.
+
+---
+
+#### COS RECOMMENDATION
+
+**Initiate a 30-day AI Development Sprint. Target IOC: 19 April 2026.**
+
+Sprint sequence:
+- **Day 1 (21 Mar):** Architecture lock session — Commander + COS + Opus, 2 hours. Output: complete build order.
+- **Days 2–15:** Parallel module builds via Agent Teams. Daily Telegram checkpoint.
+- **Days 16–22:** Integration + SWITCHBLADE-6 full IOC simulation.
+- **Days 23–30:** Hardening + IOC declaration ceremony.
+
+**First move required:** Commander schedules the Day 1 architecture lock session.
+
+---
+
+> *"The machine is 75% built. The last 25% is the hardest — it's where the system earns the right to call itself operational. But we have the tools. We have the map. We have the team. The only question is: when do you want to declare IOC?"*
+>
+> — COS Hale · 20 March 2026
+
+---
+
+---
+
+## PART 13: EXTENDED WING — PERSONA REGISTRY
+### Added 2026-03-20 · Commander Tasking
+
+Full character sheets: `Personas/D2M_Extended_Personas.md`
+
+**Total Wing: 11 core staff + 10 extended = 21 perspectives**
+
+### Client Simulation Personas
+
+| ID | Name | Type | Primary Test |
+|----|------|------|-------------|
+| CLT-01 | Rondo Westbrook | Tech-phobic elder M/80 | Low-tech journey, patience, step-by-step |
+| CLT-02 | Lindy Westbrook | Tech-phobic elder F/80 | Document design, referral pathway |
+| CLT-03 | Kyle Mercer | Tech-eager early adopter M/38 | Portal UX, speed, system quality |
+| CLT-04 | Nick Parrillo | Tech-eager early adopter M/41 | Friction audit, founder referral |
+| CLT-05 | Erik McLeod | Gold standard engineer M | Info completeness, pricing clarity |
+| CLT-06 | Melissa McGlasson | Gold standard teacher F | Emotional resonance, experiential narrative |
+
+### Intelligence & Advisory Personas
+
+| ID | Name | Role |
+|----|------|------|
+| INT-01 | SIGNAL (Jamie Cross) | Anthropic/AI community monitoring — Discord, Reddit, HN, Twitter |
+| ADV-01 | ANTHRO-A (Dr. Aria Patel) | AI Safety & Constitutional AI advisory |
+| ADV-02 | ANTHRO-P (Marcus Webb) | Anthropic product & developer experience |
+| BNK-01 | Benchmark (Diane Kaufman) | Mid-size peer agency — competitive positioning |
+
+---
+
+**Document Version:** 7.1 — Thunderbird Master Project Plan. Keeper: EXEC (Naia Solberg-Vega). v7.1 adds: Part 13 — Extended Wing Persona Registry (20 Mar 2026). v7.0 adds: Part 12 — IOC Deep Feasibility Brief. Previous: v6.0 Part 11 Grant Program. Backup: Google Drive (Doc ID: `18WjwXBuxeDpJl4VIspx9dOlTq9TNh3S4OGVoFCieSOw`).
 **Prepared for:** Commander John "Yoda" Loucks
 **Classification:** THUNDERBIRD INTERNAL
