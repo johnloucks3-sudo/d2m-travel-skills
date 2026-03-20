@@ -1427,6 +1427,20 @@ The personas were redesigned THREE times. Capabilities were gained and lost at e
 | 2.9 | **Structured Response Library** | DANI | `[ ]` TODO Thu Mar 20 | Templates for top 6 known scenarios (booking status, payment dates, fee deflection, greeting, excursion info, internal ops probe). LLM personalizes but works from template |
 | 2.10 | **SWITCHBLADE automation + alerting** | DANI | `[ ]` TODO Fri Mar 21 | Daily cron 0300, JSON results to SWITCHBLADE_Results Sheet tab, regression alerts via Telegram+Gmail, trend tracking |
 
+### IOC ITEMS — Commander-Approved (Mar 20, 2026)
+
+| # | Task | Status | Notes |
+|---|------|--------|-------|
+| IOC-1 | **Claude Code Channels** — evaluate as replacement for custom Telegram C2 bot | `[ ]` TODO | COS proposed, Commander approved. May replace thunderbird_telegram_c2.py |
+| IOC-2 | **Claude Code Scheduled Tasks** — test as alternative to systemd timers | `[ ]` TODO | For morning briefs, intel sweeps, price checks |
+| IOC-3 | **Claude Code Remote Control** — mobile/web CLI access | `[ ]` TODO | Gives Commander CLI access without SSH/mosh from Chromebook |
+| IOC-4 | **Verify 1M context on Max plan** | `[ ]` TODO | Reduces compaction during long sessions |
+| IOC-5 | **Staff Learning Loop (Skills 1-3)** — build feedback compiler | `[ ]` TODO | Capture diff → extract principle → apply forward. ELON's architecture: structured rule store, tagged by persona/domain/severity. Runs before output ships. |
+| IOC-6 | **Dani Role Separation** — wire aggregator/artist/advocate workflow | `[x]` DONE Mar 20 | Persona definition updated. CLAUDE.md updated. Handoff format TBD with A2/A9. |
+| IOC-7 | **Staff Communication Channels** — all personas can reach Commander | `[x]` DONE Mar 20 | Email (d2mconcierge → johnloucks3) + Telegram C2. Any medium Commander uses. |
+| IOC-8 | **Voice Ledger** — living doc fed by Commander edits | `[ ]` TODO | EXEC + A6 own this. Every edit diffed, principled, filed. Per-client, per-relationship-tier. |
+| IOC-9 | **A2 Intel Expansion** — all regions, ISW, defense, politics | `[x]` DONE Mar 20 | Standing order updated. Broader scope than A2 thinks needed. |
+
 ### WEEK 3 (Mar 24-30) — Polish + Cleanup
 
 | # | Task | Initiative | Status | Notes |

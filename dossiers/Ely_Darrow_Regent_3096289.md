@@ -3,7 +3,7 @@
 
 ---
 
-### STATUS: ACTIVE — Final Payment Apr 1, 2026 ($16,640) | Suite 1212, Deck 12 | **CC uploaded to Regent portal ✓**
+### STATUS: ACTIVE — Final Payment Apr 1, 2026 ($16,640) | Suite 1212, Deck 12 | **CC uploaded to Regent portal ✓** | **PAYMENT AUTHORIZED Mar 20 — process cruise + hotel + transport this week**
 
 ### RSSC PORTAL DATA (Scraped Mar 12, 2026)
 - **Guest Registration:** Al Ely COMPLETE, Amy Darrow COMPLETE
@@ -57,6 +57,8 @@
 | Date | Source | Note |
 |------|--------|------|
 | Mar 18, 2026 | Commander (CLI session) | Al uploaded CC to Regent portal ✓ — ready for final payment processing |
+| Mar 20, 2026 | Al Ely (email to Commander) | Al confirms: passport uploaded to portal ("I think?"), CC on file. Authorizes charging cruise, hotel, and transportation NOW. Holding off on insurance "a couple of months." |
+| Mar 20, 2026 | Commander (email reply to Al) | "I will process the payments for the cruise, hotel, and transportation this week. I'll let you know once that's done. Holding off on insurance is fine." |
 
 ### EMAIL LOG (Mar 3–10, 2026)
 
@@ -125,9 +127,10 @@ All included (Regent Choice — $0.00). Both guests on all excursions.
 ---
 
 ### OPEN ACTION ITEMS
-1. [ ] Schedule Mar 13 call with Al to finalize payments
-2. [ ] Verify Allianz Premier $15K annual pricing — $450 quote suspicious
+1. [x] Schedule Mar 13 call with Al to finalize payments — SUPERSEDED by Mar 20 email authorization
+2. [ ] Verify Allianz Premier $15K annual pricing — $450 quote suspicious (Al holding off "a couple months")
 3. [ ] Send Regent experience / what-to-expect guide
 4. [x] Confirm transport from Stockholm is booked — Bedsonline #1095091
-5. [ ] Process final payment $16,640 by Apr 1
-6. [ ] **VALIDATION:** Verify passports for Al and Amy
+5. [ ] **PROCESS PAYMENTS THIS WEEK** — cruise ($16,640) + hotel + transport. Al authorized Mar 20. CC on file at portal.
+6. [ ] **VALIDATION:** Verify passports for Al and Amy — Al says uploaded to portal ("I think?") — VERIFY
+7. [ ] Confirm passport photo actually uploaded correctly (Al was uncertain)
