@@ -571,7 +571,7 @@ async def data_confidence_report(client: str, query: str = "") -> str:
 
 # ── Hotel Guide PDF Render ─────────────────────────────────────────────────
 
-@mcp_server.tool(
+@mcp.tool(
     name="render_hotel_guide_pdf",
     annotations={"title": "Render Hotel Guide PDF", "readOnlyHint": False},
 )
