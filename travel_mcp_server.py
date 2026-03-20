@@ -68,6 +68,10 @@ from thunderbird_learning import register_learning_tools
 from thunderbird_sss import register_sss_tools
 from thunderbird_dossier_scanner import register_dossier_scanner_tools
 from thunderbird_voice_ledger import register_voice_ledger_tools
+from thunderbird_commander_inbox import register_commander_inbox_tools
+from thunderbird_health import register_health_tools
+from thunderbird_session_checkpoint import register_checkpoint_tools
+from thunderbird_bulletin import register_bulletin_tools
 import json
 import logging
 import asyncio
@@ -478,6 +482,123 @@ register_learning_tools(mcp)
 register_sss_tools(mcp)
 register_dossier_scanner_tools(mcp)
 register_voice_ledger_tools(mcp)
+register_commander_inbox_tools(mcp)
+register_health_tools(mcp)
+register_checkpoint_tools(mcp)
+register_bulletin_tools(mcp)
+
+try:
+    from thunderbird_guest_forms import register_guest_form_tools
+    register_guest_form_tools(mcp)
+    logger.info("Guest form tools registered")
+except Exception as e:
+    logger.warning(f"Guest form tools not available: {e}")
+
+try:
+    from thunderbird_reconciliation import register_reconciliation_tools
+    register_reconciliation_tools(mcp)
+    logger.info("Reconciliation tools registered")
+except Exception as e:
+    logger.warning(f"Reconciliation tools not available: {e}")
+
+try:
+    from thunderbird_product_intake import register_product_intake_tools
+    register_product_intake_tools(mcp)
+    logger.info("Product intake tools registered")
+except Exception as e:
+    logger.warning(f"Product intake tools not available: {e}")
+
+# thunderbird_bulletin: registered above (hard import — line 74)
+
+
+# ── Hotel Guide PDF Render ─────────────────────────────────────────────────
+
+@mcp_server.tool(
+    name="render_hotel_guide_pdf",
+    annotations={"title": "Render Hotel Guide PDF", "readOnlyHint": False},
+)
+async def render_hotel_guide_pdf(
+    client_name: str,
+    destination: str,
+    travel_dates: str,
+    nights: int,
+    guests: int,
+    hotels_json: str,
+    budget: str = "",
+    comparison_json: str = "[]",
+    logistics_json: str = "{}",
+) -> str:
+    """Render a D2M-branded hotel guide PDF from structured data.
+
+    Args:
+        client_name: Client name (e.g., "Nancy & Ken Lyons")
+        destination: City/region (e.g., "Athens")
+        travel_dates: Date range string (e.g., "August 8-12, 2026")
+        nights: Number of nights
+        guests: Number of guests
+        hotels_json: JSON array of hotel objects (name, stars, neighborhood, description, rates, etc.)
+        budget: Optional budget string (pre-formatted)
+        comparison_json: Optional JSON array of comparison rows
+        logistics_json: Optional JSON object with transport/notes
+    """
+    import json as _json
+    from pathlib import Path
+    sys_path = str(Path(__file__).parent / "templates")
+    if sys_path not in sys.path:
+        sys.path.insert(0, sys_path)
+    from d2m_hotel_guide_schema import (
+        HotelGuideContext, DocMeta, HotelCard, PriceBox, RoomRate,
+        Badge, Landmark, Cancellation, CompRow, Recommendation,
+        Transport, Logistics, render_to_pdf,
+    )
+
+    doc = DocMeta(
+        client_name=client_name,
+        destination=destination,
+        travel_dates=travel_dates,
+        nights=nights,
+        guests=guests,
+        budget=budget,
+    )
+
+    hotels_data = _json.loads(hotels_json)
+    hotels = []
+    for h in hotels_data:
+        rates = [RoomRate(**r) for r in h.get("rates", [])]
+        badges = [Badge(**b) for b in h.get("badges", [])]
+        landmarks = [Landmark(**lm) for lm in h.get("landmarks", [])]
+        cancel = Cancellation(**h["cancellation"]) if h.get("cancellation") else None
+        price_box = PriceBox(**h.get("price_box", {}))
+        hotels.append(HotelCard(
+            name=h["name"],
+            stars=h.get("stars", 5),
+            neighborhood=h.get("neighborhood", ""),
+            description=h.get("description", ""),
+            photos=h.get("photos", []),
+            badges=badges,
+            price_box=price_box,
+            rates=rates,
+            landmarks=landmarks,
+            cancellation=cancel,
+        ))
+
+    comparison = [CompRow(**c) for c in _json.loads(comparison_json)]
+    logi_data = _json.loads(logistics_json)
+    logistics = None
+    if logi_data:
+        logistics = Logistics(
+            transport=[Transport(**t) for t in logi_data.get("transport", [])],
+            notes=logi_data.get("notes", []),
+            footnotes=logi_data.get("footnotes", []),
+        )
+
+    ctx = HotelGuideContext(doc=doc, hotels=hotels, comparison=comparison, logistics=logistics)
+
+    safe_name = client_name.replace(" ", "_").replace("&", "and")
+    output_path = Path.home() / "Thunderbird" / "output" / f"{safe_name}_{destination}_Hotel_Guide.pdf"
+    render_to_pdf(ctx, output_path)
+    return f"Hotel guide PDF rendered: {output_path}"
+
 
 # ============================================================================
 # SHELL EXEC TOOL
@@ -613,7 +734,7 @@ if __name__ == "__main__":
     # (default)                  → stdio (Claude CLI local)
     transport = "stdio"
     host = "0.0.0.0"
-    port = 8765
+    port = int(os.environ.get("PORT", 8765))
     for arg in sys.argv[1:]:
         if arg in ("--http", "--streamable-http"):
             transport = "streamable-http"

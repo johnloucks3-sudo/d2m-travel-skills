@@ -42,7 +42,10 @@ DEDUP_CACHE = THUNDERBIRD_DIR / "intel_digest_sent.json"
 
 GMAIL_TOKEN = THUNDERBIRD_DIR / "gmail_token.json"
 GMAIL_OAUTH = THUNDERBIRD_DIR / "gmail_oauth_credentials.json"
-USER_EMAIL = "johnloucks3@gmail.com"
+# D2M ops account — authenticated sender (gmail_token.json)
+OPS_EMAIL = "d2mconcierge@gmail.com"
+# Commander's personal inbox — digests delivered here
+COMMANDER_EMAIL = "johnloucks3@gmail.com"
 SCOPES_GMAIL = ["https://www.googleapis.com/auth/gmail.modify"]
 
 PROFILE_NAME = "x_twitter"
@@ -725,8 +728,8 @@ def send_digest_email(html_content, subject):
     service = _get_gmail_service()
 
     msg = MIMEMultipart("alternative")
-    msg["To"] = USER_EMAIL
-    msg["From"] = USER_EMAIL
+    msg["To"] = COMMANDER_EMAIL
+    msg["From"] = OPS_EMAIL
     msg["Subject"] = subject
 
     plain = f"Thunderbird Intel Digest — {datetime.now().strftime('%B %d, %Y')}\nView in HTML-capable email client."
@@ -735,7 +738,7 @@ def send_digest_email(html_content, subject):
 
     raw = base64.urlsafe_b64encode(msg.as_bytes()).decode("utf-8")
     service.users().messages().send(userId="me", body={"raw": raw}).execute()
-    logger.info(f"Digest SENT to {USER_EMAIL}: {subject}")
+    logger.info(f"Digest SENT to {COMMANDER_EMAIL}: {subject}")
 
 
 # ---------------------------------------------------------------------------
@@ -748,7 +751,7 @@ def send_sms_ping():
         service = _get_gmail_service()
         sms_msg = MIMEText("Intel Digest delivered. Check email.")
         sms_msg["to"] = "7192910742@tmomail.net"
-        sms_msg["from"] = USER_EMAIL
+        sms_msg["from"] = OPS_EMAIL
         sms_msg["subject"] = "THUNDERBIRD"
         raw = base64.urlsafe_b64encode(sms_msg.as_bytes()).decode()
         service.users().messages().send(userId="me", body={"raw": raw}).execute()

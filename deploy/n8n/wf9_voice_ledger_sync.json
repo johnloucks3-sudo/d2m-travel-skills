@@ -1,0 +1,79 @@
+{
+  "name": "D2M — Voice Ledger Sync",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [{"field": "cronExpression", "expression": "0 5 * * *"}]
+        }
+      },
+      "id": "wf09-0001-4000-8000-000000000001",
+      "name": "Schedule — 11PM MDT",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.d2mluxury.quest/api/tool/voice_ledger_import",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [{"name": "x-api-key", "value": "={{$env.D2M_API_KEY}}"}]
+        },
+        "options": {"timeout": 120000}
+      },
+      "id": "wf09-0002-4000-8000-000000000002",
+      "name": "Voice Ledger Import",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const r = $input.item.json;\nconst data = r.data || r;\nconst newRules = data.new_rules || data.imported || data.rules_added || 0;\nconst hasNew = newRules > 0;\n\nlet message = '';\nif (hasNew) {\n  const ts = new Date().toLocaleString('en-US', {timeZone: 'America/Denver', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'});\n  const examples = data.rule_examples || data.examples || [];\n  message = `*D2M Voice Ledger — ${ts}*\\n\\n${newRules} new rule(s) captured from today's sessions.`;\n  if (examples.length) {\n    message += '\\n\\n*Principles extracted:*\\n' + examples.slice(0,3).map(e => `• ${e}`).join('\\n');\n  }\n  if (data.total_rules) message += `\\n\\n_Total rules in ledger: ${data.total_rules}_`;\n}\n\nreturn [{ json: { hasNew, message, newRules } }];"
+      },
+      "id": "wf09-0003-4000-8000-000000000003",
+      "name": "Check New Rules",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {"caseSensitive": true, "leftValue": "", "typeValidation": "strict"},
+          "conditions": [{"id": "c1", "leftValue": "={{ $json.hasNew }}", "rightValue": true, "operator": {"type": "boolean", "operation": "true"}}],
+          "combinator": "and"
+        }
+      },
+      "id": "wf09-0004-4000-8000-000000000004",
+      "name": "New Rules Imported?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "chatId": "={{$env.TELEGRAM_COMMANDER_ID}}",
+        "text": "={{ $json.message }}",
+        "additionalFields": {"parse_mode": "Markdown"}
+      },
+      "id": "wf09-0005-4000-8000-000000000005",
+      "name": "Telegram — Ledger Update",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [1120, 200],
+      "credentials": {"telegramApi": {"id": "1", "name": "D2MC2C Bot"}}
+    }
+  ],
+  "connections": {
+    "Schedule — 11PM MDT": {"main": [[{"node": "Voice Ledger Import", "type": "main", "index": 0}]]},
+    "Voice Ledger Import": {"main": [[{"node": "Check New Rules", "type": "main", "index": 0}]]},
+    "Check New Rules": {"main": [[{"node": "New Rules Imported?", "type": "main", "index": 0}]]},
+    "New Rules Imported?": {"main": [[{"node": "Telegram — Ledger Update", "type": "main", "index": 0}], []]}
+  },
+  "active": false,
+  "settings": {"executionOrder": "v1"},
+  "tags": ["d2m", "voice-ledger", "learning"]
+}

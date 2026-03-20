@@ -1,0 +1,63 @@
+{
+  "name": "D2M — Learning Extraction",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [{"field": "cronExpression", "expression": "30 12 * * *"}]
+        }
+      },
+      "id": "d7000001-0001-4000-8000-000000000001",
+      "name": "Schedule — 6:30AM MDT",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://api.d2mluxury.quest/api/learning/digest",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [{"name": "x-api-key", "value": "={{$env.D2M_API_KEY}}"}]
+        },
+        "options": {"timeout": 60000}
+      },
+      "id": "d7000001-0002-4000-8000-000000000002",
+      "name": "Get Learning Digest",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const data = $('Get Learning Digest').item.json;\nconst digest = data.digest || '';\nif (!digest || digest.includes('No corrections') || digest.includes('0 corrections')) return [];\nreturn [{ json: { message: `*Learning Compiler Digest*\\n${digest}` } }];"
+      },
+      "id": "d7000001-0003-4000-8000-000000000003",
+      "name": "Filter & Format",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [700, 300]
+    },
+    {
+      "parameters": {
+        "chatId": "={{$env.TELEGRAM_COMMANDER_ID}}",
+        "text": "={{ $json.message }}",
+        "additionalFields": {"parse_mode": "Markdown"}
+      },
+      "id": "d7000001-0004-4000-8000-000000000004",
+      "name": "Notify Commander",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [940, 300],
+      "credentials": {"telegramApi": {"id": "1", "name": "D2MC2C Bot"}}
+    }
+  ],
+  "connections": {
+    "Schedule — 6:30AM MDT": {"main": [[{"node": "Get Learning Digest", "type": "main", "index": 0}]]},
+    "Get Learning Digest": {"main": [[{"node": "Filter & Format", "type": "main", "index": 0}]]},
+    "Filter & Format": {"main": [[{"node": "Notify Commander", "type": "main", "index": 0}]]}
+  },
+  "active": false,
+  "settings": {"executionOrder": "v1"}
+}

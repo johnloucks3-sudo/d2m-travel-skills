@@ -63,7 +63,7 @@ SCOPES = [
 # Account: concierge.d2mluxury@gmail.com (or similar — create in browser first)
 # Purpose: Personas send FROM this account TO Commander. Commander replies
 #          land in this inbox — closing the conversational loop. Eliminates
-#          draft clutter in johnloucks3 ops inbox.
+#          draft clutter in Commander's personal inbox (johnloucks3 = personal only, not D2M ops).
 #
 # Setup (one-time, Commander must do):
 #   1. Create Google account: concierge.d2mluxury@gmail.com

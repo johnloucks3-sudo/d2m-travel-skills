@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ doc.client_name }} — {{ doc.destination }} Hotel Guide</title>
+  <style>
+    {% include "d2m_base.css.j2" %}
+  </style>
+</head>
+<body>
+<div class="page">
+
+  {# ── BLOCK: Cover ──────────────────────────────────────────────── #}
+  {% block cover %}
+  <div class="cover">
+    <h1>{{ doc.client_name }}</h1>
+    <div class="subtitle">{{ doc.destination }} — Curated Hotel Selection</div>
+    <div class="meta-strip">
+      <span>{{ doc.travel_dates }}</span>
+      <span>{{ doc.nights }} Nights</span>
+      <span>{{ doc.guests }} Guests</span>
+      {% if doc.budget %}<span>Budget: {{ doc.budget }}</span>{% endif %}
+    </div>
+  </div>
+  {% endblock %}
+
+  {# ── BLOCK: Hotel Cards ────────────────────────────────────────── #}
+  {% block hotel_cards %}
+  {% for hotel in hotels %}
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:rgba(201,168,76,0.15);">{{ loop.index }}</div>
+      <div>
+        <h2 style="margin-bottom:2px;">{{ hotel.name }}</h2>
+        <div style="font-size:12px;color:var(--muted);">
+          {{ hotel.stars }}{{ "&#9733;" * hotel.stars }} &middot; {{ hotel.neighborhood }}
+          {% for badge in hotel.badges %}
+            <span class="badge {{ badge.css_class }}">{{ badge.label }}</span>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    {# Photos #}
+    {% if hotel.photos %}
+    <div class="photo-grid">
+      <img class="main" src="{{ hotel.photos[0] }}" alt="{{ hotel.name }} main">
+      {% if hotel.photos|length > 1 %}<img src="{{ hotel.photos[1] }}" alt="{{ hotel.name }} detail">{% endif %}
+      {% if hotel.photos|length > 2 %}<img src="{{ hotel.photos[2] }}" alt="{{ hotel.name }} detail">{% endif %}
+    </div>
+    {% endif %}
+
+    {# Description #}
+    <p>{{ hotel.description }}</p>
+
+    {# Price Box #}
+    <div class="price-box {{ 'prestige' if hotel.price_box.prestige else '' }}">
+      <div class="price-label">{{ hotel.price_box.label }}</div>
+      <div class="price-amount">{{ hotel.price_box.amount }}</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:4px;">{{ hotel.price_box.per_night }}</div>
+    </div>
+
+    {# Room Rates Table #}
+    {% if hotel.rates %}
+    <table>
+      <thead>
+        <tr>
+          <th>Room Type</th>
+          <th>Nightly</th>
+          <th>Total ({{ doc.nights }}n)</th>
+          <th>Includes</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for rate in hotel.rates %}
+        <tr class="{{ 'is-pick' if rate.is_pick else '' }}">
+          <td>{{ rate.room_type }}{% if rate.is_pick %} <span class="badge experience">OUR PICK</span>{% endif %}</td>
+          <td>{{ rate.nightly }}</td>
+          <td>{{ rate.total }}</td>
+          <td>{{ rate.includes }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endif %}
+
+    {# Distances / Landmarks #}
+    {% if hotel.landmarks %}
+    <h3>Location</h3>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;">
+      {% for lm in hotel.landmarks %}
+      <div style="background:var(--navy2);border-radius:6px;padding:8px 14px;font-size:12px;">
+        {% if lm.nearest %}<span class="badge nearest">NEAREST</span> {% endif %}
+        {{ lm.name }} — {{ lm.distance }}
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {# Cancellation #}
+    {% if hotel.cancellation %}
+    <div style="margin-top:12px;font-size:12px;">
+      <strong>Cancellation:</strong>
+      <span class="cancel-{{ hotel.cancellation.cancel_class }}">{{ hotel.cancellation.text }}</span>
+    </div>
+    {% endif %}
+  </div>
+  {% endfor %}
+  {% endblock %}
+
+  {# ── BLOCK: Comparison ─────────────────────────────────────────── #}
+  {% block comparison %}
+  {% if comparison %}
+  <div class="section">
+    <h2>Side-by-Side Comparison</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Feature</th>
+          {% for hotel in hotels %}<th>{{ hotel.name }}</th>{% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in comparison %}
+        <tr>
+          <td><strong>{{ row.feature }}</strong></td>
+          {% for val in row.values %}
+          <td class="{{ 'cancel-' + row.cancel_class if row.cancel_class else '' }}">{{ val }}</td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    {# Recommendations #}
+    {% if recommendations %}
+    <div class="comparison-grid" style="margin-top:20px;">
+      {% for rec in recommendations %}
+      <div class="recommendation">
+        <div class="label">{{ rec.label }}</div>
+        <h3 style="color:var(--cream);margin:8px 0;">{{ rec.hotel_name }}</h3>
+        <p style="font-size:13px;color:var(--muted);">{{ rec.reason }}</p>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+  {% endif %}
+  {% endblock %}
+
+  {# ── BLOCK: Logistics ──────────────────────────────────────────── #}
+  {% block logistics %}
+  {% if logistics %}
+  <div class="section">
+    <h2>Getting There</h2>
+
+    {% if logistics.transport %}
+    <div class="transport-grid">
+      {% for t in logistics.transport %}
+      <div class="transport-card">
+        <div class="icon">{{ t.icon }}</div>
+        <div class="mode">{{ t.mode }}</div>
+        <div class="detail">{{ t.detail }}</div>
+        {% if t.cost %}<div style="color:var(--gold-light);font-size:13px;margin-top:4px;">{{ t.cost }}</div>{% endif %}
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if logistics.notes %}
+    <div class="card" style="margin-top:16px;">
+      <div class="card-title">Local Tips</div>
+      <ul style="padding-left:20px;font-size:13px;">
+        {% for note in logistics.notes %}
+        <li style="margin-bottom:6px;">{{ note }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+    {% if logistics.footnotes %}
+    <div style="margin-top:16px;font-size:11px;color:var(--muted);font-style:italic;">
+      {% for fn in logistics.footnotes %}
+      <div>{{ fn }}</div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+  {% endif %}
+  {% endblock %}
+
+  {# ── Footer ────────────────────────────────────────────────────── #}
+  <div class="footer">
+    <div class="footer-brand">Dreams2Memories Travel, LLC</div>
+    <div>Prepared by Dani Moreau, D2M Luxury Travel Concierge</div>
+    <div style="margin-top:8px;">{{ doc.prepared_date }}</div>
+    <div style="margin-top:4px;font-size:10px;">Curating the experience of a lifetime</div>
+  </div>
+
+</div>
+</body>
+</html>

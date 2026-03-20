@@ -49,7 +49,10 @@ SHEET_ID = "1GFjUe8RvP-GT4YHGn0DYv_BEAZGXlYfwEicFrm8ANuU"
 SA_CREDS = THUNDERBIRD_DIR / "credentials.json"
 GMAIL_TOKEN = THUNDERBIRD_DIR / "gmail_token.json"
 GMAIL_OAUTH = THUNDERBIRD_DIR / "gmail_oauth_credentials.json"
-USER_EMAIL = "johnloucks3@gmail.com"
+# D2M ops account — authenticated sender for all briefing emails (gmail_token.json)
+OPS_EMAIL = "d2mconcierge@gmail.com"
+# Commander's personal inbox — all briefings delivered here
+COMMANDER_EMAIL = "johnloucks3@gmail.com"
 SCOPES_GMAIL = ["https://www.googleapis.com/auth/gmail.modify"]
 
 # Dedup window: items older than this many days get purged from cache
@@ -215,7 +218,7 @@ def _mailto_done_link(booking_key: str, anchor_label: str) -> str:
         f"Mark complete:\nBooking: {booking_key}\nMilestone: {anchor_label}\n\n"
         f"(Sent from Thunderbird Briefing — Star Protocol will process)"
     )
-    return f"mailto:{USER_EMAIL}?subject={subject}&body={body}"
+    return f"mailto:{COMMANDER_EMAIL}?subject={subject}&body={body}"
 
 
 def _mailto_snooze_link(booking_key: str, anchor_label: str) -> str:
@@ -225,7 +228,7 @@ def _mailto_snooze_link(booking_key: str, anchor_label: str) -> str:
         f"Snooze 7 days:\nBooking: {booking_key}\nMilestone: {anchor_label}\n\n"
         f"(Sent from Thunderbird Briefing — Star Protocol will process)"
     )
-    return f"mailto:{USER_EMAIL}?subject={subject}&body={body}"
+    return f"mailto:{COMMANDER_EMAIL}?subject={subject}&body={body}"
 
 
 def fetch_anchor_dates_upcoming() -> dict:
@@ -249,23 +252,36 @@ def fetch_anchor_dates_upcoming() -> dict:
 # DIRECT RSS FEED FETCHER
 # ---------------------------------------------------------------------------
 
-# Domain category mapping for RSS sources
-_SOURCE_CATEGORIES = {
-    "Cruise Critic": "Cruise", "Seatrade Cruise News": "Cruise",
-    "Travel Weekly": "Cruise", "Cruise Industry News": "Cruise",
-    "Cruise Hive": "Cruise", "Cruise Mapper": "Cruise",
-    "ISW": "War/Geopolitics", "RealClearDefense": "War/Geopolitics",
-    "RealClearWorld": "War/Geopolitics", "Defense One": "War/Geopolitics",
-    "War on the Rocks": "War/Geopolitics",
-    "RealClearPolitics": "Politics", "RealClearPolicy": "Politics",
-    "The Hill": "Politics",
-    "Simple Flying": "Airline", "Routes Online": "Airline",
-    "The Points Guy Airlines": "Airline", "Cranky Flier": "Airline",
-    "The Maritime Executive": "Maritime", "gCaptain": "Maritime",
-    "TradeWinds": "Maritime",
-    "RealClearMarkets": "Markets", "RealClearEnergy": "Markets",
-    "Skift": "Travel", "Travel Pulse": "Travel",
-}
+# Domain category mapping for RSS sources — kept in sync with WorldIntelConfig.FEED_CATEGORIES.
+# When adding a new feed to WorldIntelConfig.NEWS_FEEDS, add it here too.
+def _build_source_categories() -> dict:
+    """Build _SOURCE_CATEGORIES from WorldIntelConfig.FEED_CATEGORIES with a local fallback."""
+    try:
+        from thunderbird_world_intel import WorldIntelConfig
+        return dict(WorldIntelConfig.FEED_CATEGORIES)
+    except Exception:
+        pass
+    # Fallback hardcoded copy (kept in sync manually)
+    return {
+        "Cruise Critic": "Cruise", "Seatrade Cruise News": "Cruise",
+        "Travel Weekly": "Cruise", "Cruise Industry News": "Cruise",
+        "Cruise Hive": "Cruise", "Cruise Mapper": "Cruise",
+        "ISW": "War/Geopolitics", "RealClearDefense": "War/Geopolitics",
+        "RealClearWorld": "War/Geopolitics", "Defense One": "War/Geopolitics",
+        "War on the Rocks": "War/Geopolitics", "Foreign Affairs": "War/Geopolitics",
+        "RealClearPolitics": "Politics", "RealClearPolicy": "Politics",
+        "The Hill": "Politics",
+        "Simple Flying": "Airline", "Aviation Week": "Airline",
+        "Routes Online": "Airline", "The Points Guy Airlines": "Airline",
+        "Cranky Flier": "Airline",
+        "The Maritime Executive": "Maritime", "gCaptain": "Maritime",
+        "TradeWinds": "Maritime",
+        "RealClearMarkets": "Markets", "RealClearEnergy": "Markets",
+        "Skift": "Travel", "Travel Pulse": "Travel", "The Points Guy": "Travel",
+    }
+
+
+_SOURCE_CATEGORIES = _build_source_categories()
 
 
 def fetch_direct_rss_feeds() -> list[dict]:
@@ -340,6 +356,8 @@ def fetch_direct_rss_feeds() -> list[dict]:
 def build_executive_summary(
     commander_log, intel_log, pricing, tech_news, fare_log, anchor_report, today,
     rss_direct=None,
+    recon_line: str = "",
+    product_digest: str = "",
 ) -> dict:
     """Build counts and highlights for the exec summary banner."""
     # Count new items (after dedup)
@@ -383,6 +401,8 @@ def build_executive_summary(
         "alert_level": alert_level,
         "alert_icon": alert_icon,
         "alert_text": alert_text,
+        "recon_line": recon_line,
+        "product_digest": product_digest,
     }
 
 
@@ -442,6 +462,7 @@ def render_briefing_html(
     is_weekly: bool = False,
     completed_actions: set = None,
     rss_direct: list = None,
+    intel_crew_report: dict = None,
 ) -> str:
     """Render the full briefing as branded HTML email."""
 
@@ -907,6 +928,16 @@ def render_briefing_html(
   </div>
 """
 
+    # ── RECONCILIATION BANNER ──
+    if summary.get("recon_line"):
+        recon_color = "#cc0000" if "mismatch" in summary["recon_line"] else ("#b8860b" if "missing" in summary["recon_line"] else "#2e7d32")
+        html += (
+            f'<div style="background:#fff8f0;border-left:4px solid {recon_color};'
+            f'padding:8px 16px;margin:8px 0 4px 0;font-family:Georgia,serif;'
+            f'font-size:13px;color:{recon_color};">'
+            f'<strong>&#9634; {summary["recon_line"]}</strong></div>\n'
+        )
+
     # ── SECTION 1: ANCHOR DATES ──
     if completed_actions is None:
         completed_actions = set()
@@ -1075,6 +1106,75 @@ def render_briefing_html(
                 html += "      </tr>\n"
         html += "    </table>\n  </div>\n"
 
+    # ── SECTION 5a: INTEL CREW ANALYSIS (A2 Dembe → A1 Radar → COS Hale) ──
+    if intel_crew_report:
+        cos_review = intel_crew_report.get("cos_review", "")
+        analysis = intel_crew_report.get("analysis", "")
+        crew_status = intel_crew_report.get("status", "")
+        raw_counts = intel_crew_report.get("raw_item_counts", {})
+        airline_impacts = intel_crew_report.get("airline_impacts", [])
+        counts_str = (
+            f"{raw_counts.get('news', 0)} news · "
+            f"{raw_counts.get('airline', 0)} airline · "
+            f"{raw_counts.get('advisories', 0)} advisories"
+        )
+        status_color = "#44c8c8" if "APPROVED" in crew_status else "#c9a84c"
+        html += f"""
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:rgba(68,200,200,0.18);">&#127942;</div>
+      <div class="section-title">Intelligence Analysis — A2/COS Pipeline</div>
+      <div class="section-count" style="color:{status_color};">{crew_status} // {counts_str}</div>
+    </div>
+"""
+        if cos_review:
+            # Escape any stray HTML and render COS synthesis first
+            cos_escaped = (
+                cos_review
+                .replace("&", "&amp;")
+                .replace("<", "&lt;")
+                .replace(">", "&gt;")
+                .replace("\n\n", "</p><p>")
+                .replace("\n", "<br>")
+            )
+            html += f"""    <div class="source-block">
+      <div class="source-name">COS Hale — Synthesis &amp; Quality Gate</div>
+      <div style="font-size:13px;color:#c8d0dc;line-height:1.7;padding:8px 0;"><p>{cos_escaped}</p></div>
+    </div>
+"""
+        if analysis:
+            analysis_escaped = (
+                analysis
+                .replace("&", "&amp;")
+                .replace("<", "&lt;")
+                .replace(">", "&gt;")
+                .replace("\n\n", "</p><p>")
+                .replace("\n", "<br>")
+            )
+            html += f"""    <div class="source-block">
+      <div class="source-name">A2 Dembe — Full Domain Analysis</div>
+      <div style="font-size:13px;color:#c8d0dc;line-height:1.7;padding:8px 0;"><p>{analysis_escaped}</p></div>
+    </div>
+"""
+        # Client impact alerts from airline monitor
+        if airline_impacts:
+            html += '    <div class="source-block">\n'
+            html += '      <div class="source-name">CLIENT IMPACT FLAGS</div>\n'
+            for impact in airline_impacts:
+                client = impact.get("client", "")
+                severity = impact.get("severity", "")
+                headline = impact.get("headline", impact.get("title", ""))
+                url = impact.get("url", "")
+                sev_color = {"CRITICAL": "#ff4444", "HIGH": "#c9a84c", "MEDIUM": "#44aa44"}.get(severity, "#8a9ab5")
+                if url:
+                    html += f'      <div class="intel-item" style="border-left:3px solid {sev_color};padding-left:10px;"><a href="{url}">{headline}</a>'
+                else:
+                    html += f'      <div class="intel-item" style="border-left:3px solid {sev_color};padding-left:10px;"><span style="color:#c8d0dc">{headline}</span>'
+                html += f'<div class="intel-meta">{severity} // {client}</div></div>\n'
+            html += '    </div>\n'
+
+        html += "  </div>\n  <div class='divider'></div>\n"
+
     # ── SECTION 5b: LIVE INTELLIGENCE FEEDS (direct RSS) ──
     if rss_direct:
         # Group articles by category
@@ -1173,7 +1273,22 @@ def render_briefing_html(
     except Exception:
         dossier_digest = ""
 
-    if learning_digest or dossier_digest:
+    # Pending SSS decisions
+    sss_pending = ""
+    try:
+        from thunderbird_sss import list_sss
+        active = list_sss(status_filter="coordinating") + list_sss(status_filter="ready")
+        if active:
+            sss_lines = [f"**{len(active)} Staff Summary Sheet(s) awaiting decision:**"]
+            for s in active:
+                sss_lines.append(
+                    f"- **{s.sss_id}** ({s.status}) — AO: {s.action_officer} | {s.purpose[:80]}"
+                )
+            sss_pending = "\n".join(sss_lines)
+    except Exception:
+        pass
+
+    if learning_digest or dossier_digest or sss_pending:
         html += """
   <div class="section">
     <div class="section-header">
@@ -1194,6 +1309,17 @@ def render_briefing_html(
                     html += f'      <div style="padding-left:12px;">{line}</div>\n'
                 elif line.strip():
                     html += f'      <div>{line}</div>\n'
+            html += '    </div>\n'
+
+        if sss_pending:
+            html += '    <div style="padding:12px 16px;font-size:13px;line-height:1.7;color:#e0e6ed;border-top:1px solid #1e3358;">\n'
+            for line in sss_pending.split("\n"):
+                if line.startswith("**"):
+                    html += f'      <div style="color:#7eb8ff;font-weight:600;margin-top:8px;">{line}</div>\n'
+                elif line.startswith("- **"):
+                    html += f'      <div style="padding-left:12px;color:#a0c4ff;">{line}</div>\n'
+                elif line.strip():
+                    html += f'      <div style="padding-left:12px;">{line}</div>\n'
             html += '    </div>\n'
 
         if learning_digest:
@@ -1243,25 +1369,77 @@ def _get_gmail_service():
     return build("gmail", "v1", credentials=creds)
 
 
+def _wrap_briefing_in_stationery(html_content: str) -> str:
+    """Wrap the briefing's dark-navy HTML body in D2M stationery outer shell.
+
+    The briefing has its own internal styling (dark navy, gold accents).
+    This adds the D2M brand layer on top:
+      - Full-width navy banner with D2M logo (180px)
+      - Warm linen surround (#eee8db) — the desk beneath the card
+      - The briefing's own HTML sits inside as a self-contained block
+
+    We inject the banner above the briefing body content so the logo
+    appears at the top of the email, then the briefing's internal
+    header follows naturally.
+    """
+    logo_uri = _img_base64(LOGO_FILE)
+    if logo_uri:
+        banner_html = (
+            f'<div style="background-color:#0d1b2e;padding:28px 0;text-align:center;margin:0;">'
+            f'<img src="{logo_uri}" alt="Dreams2Memories Travel" '
+            f'style="height:180px;width:auto;display:inline-block;" />'
+            f'</div>'
+        )
+    else:
+        banner_html = ''
+
+    # Inject banner + linen surround. The briefing HTML is self-contained
+    # (has its own <!DOCTYPE>, <html>, <body>). We extract the <body>
+    # content and re-wrap it inside the stationery shell so email clients
+    # render a single clean document.
+    import re
+    body_match = re.search(r'<body[^>]*>([\s\S]*)</body>', html_content, re.IGNORECASE)
+    if body_match:
+        body_inner = body_match.group(1)
+        # Preserve the original <head> (styles, fonts)
+        head_match = re.search(r'<head[^>]*>([\s\S]*?)</head>', html_content, re.IGNORECASE)
+        head_block = head_match.group(0) if head_match else ''
+        wrapped = (
+            f'<!DOCTYPE html><html>'
+            f'{head_block}'
+            f'<body style="margin:0;padding:0;background-color:#eee8db;">'
+            f'{banner_html}'
+            f'<div style="background-color:#eee8db;padding:12px 0 32px 0;">'
+            f'{body_inner}'
+            f'</div>'
+            f'</body></html>'
+        )
+        return wrapped
+    else:
+        # Fallback: prepend banner above the raw HTML
+        return f'<div style="background-color:#eee8db;margin:0;padding:0;">{banner_html}{html_content}</div>'
+
+
 def send_briefing_email(html_content: str, subject: str):
     """Send the briefing as an HTML email to Commander."""
     service = _get_gmail_service()
 
     msg = MIMEMultipart("alternative")
-    msg["To"] = USER_EMAIL
-    msg["From"] = USER_EMAIL
+    msg["To"] = COMMANDER_EMAIL
+    msg["From"] = OPS_EMAIL
     msg["Subject"] = subject
 
     # Plain text fallback
     plain = f"Thunderbird Briefing — {datetime.now().strftime('%B %d, %Y')}\nView in HTML-capable email client."
     msg.attach(MIMEText(plain, "plain"))
-    msg.attach(MIMEText(html_content, "html"))
+    # Wrap in D2M stationery (navy banner + linen surround) before sending
+    msg.attach(MIMEText(_wrap_briefing_in_stationery(html_content), "html"))
 
     raw = base64.urlsafe_b64encode(msg.as_bytes()).decode("utf-8")
     service.users().messages().send(
         userId="me", body={"raw": raw}
     ).execute()
-    logger.info(f"Briefing SENT to {USER_EMAIL}: {subject}")
+    logger.info(f"Briefing SENT to {COMMANDER_EMAIL}: {subject}")
 
 
 # ---------------------------------------------------------------------------
@@ -1325,14 +1503,48 @@ def run_briefing(preview: bool = False, weekly: bool = False):
     completed_actions = fetch_completed_actions(gc)
     logger.info(f"  {len(completed_actions)} items marked DONE")
 
+    # ── Booking Reconciliation ─────────────────────────────────────────────
+    recon_line = ""
+    try:
+        from thunderbird_reconciliation import reconciliation_briefing_line
+        recon_line = reconciliation_briefing_line()
+        logger.info(f"  {recon_line}")
+    except Exception as e:
+        logger.warning(f"Reconciliation skipped: {e}")
+
+    # ── Product Intake Digest ──────────────────────────────────────────────
+    product_digest = ""
+    try:
+        from thunderbird_product_intake import generate_product_digest
+        product_digest = generate_product_digest(days=7)
+        if product_digest:
+            logger.info(f"  Product digest: {len(product_digest)} chars")
+    except Exception as e:
+        logger.debug(f"Product digest skipped: {e}")
+
     logger.info("Fetching direct RSS feeds...")
     rss_direct = fetch_direct_rss_feeds()
     logger.info(f"  {len(rss_direct)} articles from live feeds")
+
+    # ── INTEL CREW: A2 Dembe → A1 Radar → COS Hale ──
+    # Run the persona-chain pipeline for analyzed, COS-approved intelligence.
+    # Falls back gracefully to raw RSS if the crew fails.
+    intel_crew_report = None
+    logger.info("Running Intel Crew pipeline (A2 → A1 → COS)...")
+    try:
+        from thunderbird_intel_crew import IntelCrew
+        intel_crew_report = IntelCrew().run()
+        crew_status = intel_crew_report.get("status", "UNKNOWN")
+        logger.info(f"  Intel Crew complete — status: {crew_status}")
+    except Exception as e:
+        logger.warning(f"Intel Crew failed, falling back to raw RSS only: {e}")
 
     # Build executive summary
     summary = build_executive_summary(
         commander_log, intel_log, pricing, tech_news, fare_log, anchor_report, today,
         rss_direct=rss_direct,
+        recon_line=recon_line,
+        product_digest=product_digest,
     )
 
     # Render HTML
@@ -1342,6 +1554,7 @@ def run_briefing(preview: bool = False, weekly: bool = False):
         tech_news, fare_log, anchor_report, is_weekly=weekly,
         completed_actions=completed_actions,
         rss_direct=rss_direct,
+        intel_crew_report=intel_crew_report,
     )
 
     # Save dedup cache

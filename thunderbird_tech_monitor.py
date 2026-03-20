@@ -621,7 +621,7 @@ def generate_daily_digest_html(articles: List[TechNewsArticle]) -> str:
         category_count=len(articles_by_category),
         articles_by_category=articles_by_category,
         category_names=category_names,
-        company_email="johnloucks3@gmail.com"
+        company_email="d2mconcierge@gmail.com"
     )
     
     return html

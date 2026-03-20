@@ -57,27 +57,35 @@ class WorldIntelConfig:
     WEATHER_API_KEY = "YOUR_OPENWEATHER_API_KEY"  # Get free key at openweathermap.org
     WEATHER_BASE_URL = "https://api.openweathermap.org/data/2.5/forecast"
     
-    # News RSS Feeds — expanded from 4 to ~30 (Intel Overhaul 2026-03-15)
+    # News RSS Feeds — expanded (Intel Overhaul 2026-03-15, 2026-03-20)
+    # Format: "Source Name": "feed_url"
+    # Companion dicts FEED_CATEGORIES and FEED_WEIGHTS control display grouping
+    # and relevance scoring multipliers (see scrape_all_news_feeds).
     NEWS_FEEDS = {
-        # === Cruise (existing + new) ===
+        # === Cruise / Travel Industry ===
         "Cruise Critic": "https://www.cruisecritic.com/news/feed/",
         "Seatrade Cruise News": "https://www.seatrade-cruise.com/rss.xml",
         "Travel Weekly": "https://www.travelweekly.com/RSS/Cruise-Travel",
-        "Cruise Industry News": "https://www.cruiseindustrynews.com/feed/",
+        "Cruise Industry News": "https://www.cruiseindustrynews.com/cruise-news/feed",
         "Cruise Hive": "https://www.cruisehive.com/feed",
         "Cruise Mapper": "https://www.cruisemapper.com/feed",
-        # === War / Geopolitics ===
+        "Skift": "https://skift.com/feed/",
+        "Travel Pulse": "https://www.travelpulse.com/rss/feed.xml",
+        "The Points Guy": "https://thepointsguy.com/feed/",
+        # === Defense / Geopolitics (highest relevance weight — client safety) ===
         "ISW": "https://www.understandingwar.org/rss.xml",
         "RealClearDefense": "https://www.realcleardefense.com/index.xml",
         "RealClearWorld": "https://www.realclearworld.com/index.xml",
         "Defense One": "https://www.defenseone.com/rss/",
         "War on the Rocks": "https://warontherocks.com/feed/",
+        "Foreign Affairs": "https://www.foreignaffairs.com/rss.xml",
         # === Politics / Policy ===
         "RealClearPolitics": "https://www.realclearpolitics.com/index.xml",
         "RealClearPolicy": "https://www.realclearpolicy.com/index.xml",
         "The Hill": "https://thehill.com/feed/",
         # === Airline / Aviation ===
         "Simple Flying": "https://simpleflying.com/feed/",
+        "Aviation Week": "https://aviationweek.com/rss.xml",
         "Routes Online": "https://www.routesonline.com/rss/news/",
         "The Points Guy Airlines": "https://thepointsguy.com/airlines/feed/",
         "Cranky Flier": "https://crankyflier.com/feed/",
@@ -88,9 +96,65 @@ class WorldIntelConfig:
         # === Markets / Energy ===
         "RealClearMarkets": "https://www.realclearmarkets.com/index.xml",
         "RealClearEnergy": "https://www.realclearenergy.org/index.xml",
-        # === Travel / Destinations ===
-        "Skift": "https://skift.com/feed/",
-        "Travel Pulse": "https://www.travelpulse.com/rss/feed.xml",
+    }
+
+    # Display category for each feed — used by morning briefing grouping and
+    # _SOURCE_CATEGORIES in thunderbird_morning_briefing.py.
+    FEED_CATEGORIES = {
+        "Cruise Critic": "Cruise",
+        "Seatrade Cruise News": "Cruise",
+        "Travel Weekly": "Cruise",
+        "Cruise Industry News": "Cruise",
+        "Cruise Hive": "Cruise",
+        "Cruise Mapper": "Cruise",
+        "Skift": "Travel",
+        "Travel Pulse": "Travel",
+        "The Points Guy": "Travel",
+        "ISW": "War/Geopolitics",
+        "RealClearDefense": "War/Geopolitics",
+        "RealClearWorld": "War/Geopolitics",
+        "Defense One": "War/Geopolitics",
+        "War on the Rocks": "War/Geopolitics",
+        "Foreign Affairs": "War/Geopolitics",
+        "RealClearPolitics": "Politics",
+        "RealClearPolicy": "Politics",
+        "The Hill": "Politics",
+        "Simple Flying": "Airline",
+        "Aviation Week": "Airline",
+        "Routes Online": "Airline",
+        "The Points Guy Airlines": "Airline",
+        "Cranky Flier": "Airline",
+        "The Maritime Executive": "Maritime",
+        "gCaptain": "Maritime",
+        "TradeWinds": "Maritime",
+        "RealClearMarkets": "Markets",
+        "RealClearEnergy": "Markets",
+    }
+
+    # Relevance scoring weight multipliers per feed (applied in scrape_all_news_feeds).
+    # Defense/geopolitics feeds score higher because they drive client safety decisions.
+    # Standard feeds get 1.0; elevated feeds get 1.5–2.0.
+    FEED_WEIGHTS = {
+        # Defense / Geopolitics — highest weight (client safety, travel advisories)
+        "ISW": 2.0,
+        "RealClearDefense": 1.75,
+        "RealClearWorld": 1.75,
+        "Defense One": 1.75,
+        "War on the Rocks": 1.75,
+        "Foreign Affairs": 1.5,
+        # Airline — high weight (direct client impact)
+        "Simple Flying": 1.5,
+        "Aviation Week": 1.5,
+        "Routes Online": 1.5,
+        "Cranky Flier": 1.5,
+        "The Points Guy Airlines": 1.25,
+        # Cruise / Maritime — standard elevated
+        "Cruise Critic": 1.25,
+        "Seatrade Cruise News": 1.25,
+        "Cruise Industry News": 1.25,
+        "The Maritime Executive": 1.25,
+        "gCaptain": 1.25,
+        # Everything else defaults to 1.0
     }
     
     # Key Cruise Ports (for weather monitoring)
@@ -386,49 +450,57 @@ def fetch_all_port_weather() -> List[PortWeather]:
 
 def scrape_all_news_feeds() -> List[NewsArticle]:
     """
-    Aggregate multi-domain intelligence from 30+ RSS feeds.
+    Aggregate multi-domain intelligence from RSS feeds.
 
     Domains: geopolitics/defense, cruise/maritime, airline/aviation,
     markets/energy, politics/policy, travel/destinations.
 
+    Relevance scoring applies per-feed weight multipliers from
+    WorldIntelConfig.FEED_WEIGHTS — defense/geopolitics feeds score
+    higher because they drive client safety decisions.
+
     Returns:
-        List of NewsArticle objects, scored by relevance
+        List of NewsArticle objects, sorted by weighted relevance score
     """
-    logger.info("📰 Aggregating multi-domain intelligence feeds (30+ sources)...")
+    logger.info("📰 Aggregating multi-domain intelligence feeds...")
     articles = []
-    
+
     for source_name, feed_url in WorldIntelConfig.NEWS_FEEDS.items():
         try:
             logger.info(f"📡 Fetching {source_name}...")
             feed = feedparser.parse(feed_url)
-            
+
+            # Per-feed weight: defense/geopolitics elevated, others 1.0
+            weight = WorldIntelConfig.FEED_WEIGHTS.get(source_name, 1.0)
+
             for entry in feed.entries[:25]:  # Top 25 from each source
                 # Extract article details
                 title = entry.get('title', 'No title')
                 url = entry.get('link', '')
                 published = entry.get('published', datetime.now().isoformat())
                 summary = entry.get('summary', entry.get('description', ''))
-                
+
                 # Clean HTML from summary
                 summary_text = BeautifulSoup(summary, 'html.parser').get_text()
                 # Deliver full article content — no truncation
-                
-                # Calculate relevance score based on keywords
-                relevance = 1
+
+                # Calculate relevance score based on keywords, then apply weight
+                raw_relevance = 1
                 category = "neutral"
-                
+
                 text_to_search = (title + " " + summary_text).lower()
-                
+
                 for keyword in WorldIntelConfig.ALERT_KEYWORDS:
                     if keyword in text_to_search:
-                        relevance += 1
+                        raw_relevance += 1
                         if keyword in ["strike", "closure", "cancelled", "storm", "outbreak"]:
                             category = "alert"
                         elif keyword in ["discount", "offer", "new ship", "maiden voyage"]:
                             category = "opportunity"
-                
-                relevance = min(relevance, 5)  # Cap at 5
-                
+
+                # Apply feed weight and cap at 5
+                relevance = min(int(raw_relevance * weight), 5)
+
                 # Create NewsArticle object
                 article = NewsArticle(
                     title=title,
@@ -439,19 +511,19 @@ def scrape_all_news_feeds() -> List[NewsArticle]:
                     relevance_score=relevance,
                     category=category
                 )
-                
+
                 articles.append(article)
-                
+
                 if relevance >= 4:
                     logger.info(f"🚨 HIGH RELEVANCE: {title[:60]}...")
-                    
+
         except Exception as e:
             logger.error(f"❌ Failed to fetch {source_name}: {str(e)}")
             continue
-    
+
     # Sort by relevance score (highest first)
     articles.sort(key=lambda x: x.relevance_score, reverse=True)
-    
+
     logger.info(f"✅ Aggregated {len(articles)} news articles")
     return articles
 

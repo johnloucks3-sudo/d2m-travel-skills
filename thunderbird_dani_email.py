@@ -9,12 +9,21 @@ Routing:
   - Emails FROM Commander's addresses → SKIP (handled by Star Protocol)
   - Emails FROM known clients or unknown senders → Dani drafts reply → COS reviews
 
+Standing Order 2026-03-20 — Three-Phase Workflow:
+  Phase 1 (AGGREGATE): Gather all data from specialists, dossier, sheets, memory.
+                        Pure data — no client-facing prose.
+  Phase 2 (ARTIST):    Craft the response with voice/tone/relationship rules.
+                        Pull from voice ledger. Apply per-client rules.
+  Phase 3 (ADVOCATE):  COS review gate, learning diff capture, draft creation,
+                        Commander notification. Package and present.
+
 Run modes:
   - Standalone sweep:  python3 thunderbird_dani_email.py --sweep
   - Cron/scheduler:    from thunderbird_dani_email import dani_email_sweep
   - MCP tool:          run_dani_email_sweep (registered in travel_mcp_server.py)
 
-Dependencies: thunderbird_gmail.py, thunderbird_dani_engine.py, thunderbird_personas.py
+Dependencies: thunderbird_gmail.py, thunderbird_dani_engine.py, thunderbird_personas.py,
+              thunderbird_voice_ledger.py
 """
 
 import base64
@@ -117,7 +126,7 @@ def _create_draft_reply(service, msg: Dict, to_email: str, subject: str,
     """Create a Gmail draft reply on a thread."""
     mime_msg = MIMEText(reply_body, "plain")
     mime_msg["to"] = to_email
-    mime_msg["from"] = "johnloucks3@gmail.com"
+    mime_msg["from"] = "d2mconcierge@gmail.com"  # D2M ops account — not Commander personal
     mime_msg["subject"] = f"Re: {subject}" if not subject.startswith("Re:") else subject
 
     raw = base64.urlsafe_b64encode(mime_msg.as_bytes()).decode("utf-8")
@@ -165,55 +174,350 @@ def _log_action(entry: Dict):
 
 
 # ---------------------------------------------------------------------------
-# Dani response engine
+# Dani response engine — Standing Order 2026-03-20
+# Three discrete phases: AGGREGATE → ARTIST → ADVOCATE
 # ---------------------------------------------------------------------------
 
-def _build_dani_email_response(sender_name: str, sender_email: str,
-                                 subject: str, body: str) -> Optional[str]:
-    """Build Dani's response to a client email using the full data engine.
+# ---------------------------------------------------------------------------
+# Client tier resolution helpers
+# ---------------------------------------------------------------------------
 
-    Returns the response text, or None if engine fails.
+# Known client-to-tier mapping. Supplement with dossier/sheets lookups at runtime.
+_CLIENT_TIER_MAP = {
+    # Paying clients
+    "furlow": "paying", "ely": "paying", "kuklinski": "paying",
+    "nichols": "paying", "morton": "paying", "mcleod": "paying",
+    # Friends & family
+    "lyons": "friend", "loucks": "friend", "britan": "friend",
+    "westbrook": "friend",
+}
+
+
+def _resolve_client_tier(sender_name: str, sender_email: str) -> str:
+    """Determine the client tier from sender name/email for voice rule lookup.
+
+    Returns one of: paying | friend | prospect | vendor | staff
+    Falls back to 'prospect' when tier is unknown.
     """
-    from thunderbird_dani_engine import build_dani_context
-    from thunderbird_personas import call_persona
+    combined = f"{sender_name} {sender_email}".lower()
+    for key, tier in _CLIENT_TIER_MAP.items():
+        if key in combined:
+            return tier
+    return "prospect"
 
-    # Build the query as Dani would see it
+
+# ---------------------------------------------------------------------------
+# Phase 1: AGGREGATE
+# ---------------------------------------------------------------------------
+
+def _phase_aggregate(sender_name: str, sender_email: str,
+                     subject: str, body: str,
+                     dossier_data: Optional[str] = None) -> Dict[str, Any]:
+    """Phase 1 — Pure data collection. No client-facing prose.
+
+    Gathers from: dossier, booking data, sheets, memory, Gmail history.
+    Consults A2 (Dembe) if destination/intel is needed.
+    Consults A9 (Harlan) if pricing/financial data is needed.
+    A5, COS, and CH are available for Commander-side context only.
+
+    Args:
+        sender_name:   Display name from the From header.
+        sender_email:  Bare email address of the sender.
+        subject:       Email subject line.
+        body:          Email body text (will be trimmed to 3000 chars).
+        dossier_data:  Optional pre-loaded dossier content (reserved for future
+                       direct injection; build_dani_context reads dossiers internally).
+
+    Returns:
+        Structured dict with all gathered data — NOT prose.
+        {
+            "query":        str,   # normalised query string
+            "context":      str,   # full Dani context block from engine
+            "sender_name":  str,
+            "sender_email": str,
+            "subject":      str,
+            "body_excerpt": str,   # first 3000 chars
+            "client_tier":  str,   # paying | friend | prospect | vendor | staff
+            "clients":      list,  # detected client family names
+            "error":        str | None,
+        }
+    """
+    from thunderbird_dani_engine import build_dani_context, _detect_clients
+
     query = (
         f"EMAIL from {sender_name} ({sender_email}):\n"
         f"Subject: {subject}\n\n"
         f"{body[:3000]}"
     )
 
+    detected_clients = _detect_clients(query)
+    client_tier = _resolve_client_tier(sender_name, sender_email)
+
     try:
-        # Build full Dani context (client mode — hides financials)
+        # build_dani_context handles: KNOWN_BOOKINGS, dossiers, Sheets (Booking Master
+        # + all tabs), Gmail history, anchor dates, client profile, shared memory,
+        # specialist consults (A2 for research, A9 for financials), and the
+        # data-confidence classifier. is_commander=False hides financial/A9 data.
         context = build_dani_context(query, is_commander=False)
 
-        # Add email-specific rules
-        email_rules = (
-            "\n\nEMAIL RESPONSE RULES:\n"
-            "- You are responding to a client EMAIL, not a chat message.\n"
-            "- Use proper email formatting — greeting, body, warm sign-off.\n"
-            "- Sign as: Dani Moreau, Luxury Travel Concierge, Dreams2Memories Travel\n"
-            "- Keep the response focused and professional. No emojis.\n"
-            "- If you need to reference John, say 'John Loucks, our owner' or 'John'.\n"
-        )
-        context += email_rules
-
-        result = call_persona("A3", context, max_tokens=800, model_override="opus")  # client-facing email
-        answer = result.get("answer", "")
-
-        # Strip the model attribution tag for email drafts
-        answer = re.sub(r"\n\n---\n_.*?_$", "", answer).strip()
-
-        return answer if answer else None
+        return {
+            "query": query,
+            "context": context,
+            "sender_name": sender_name,
+            "sender_email": sender_email,
+            "subject": subject,
+            "body_excerpt": body[:3000],
+            "client_tier": client_tier,
+            "clients": detected_clients,
+            "error": None,
+        }
 
     except Exception as e:
-        logger.error(f"Dani email response failed: {e}")
+        logger.error(f"[AGGREGATE] Data gather failed for {sender_name}: {e}")
+        return {
+            "query": query,
+            "context": "",
+            "sender_name": sender_name,
+            "sender_email": sender_email,
+            "subject": subject,
+            "body_excerpt": body[:3000],
+            "client_tier": client_tier,
+            "clients": detected_clients,
+            "error": str(e),
+        }
+
+
+# ---------------------------------------------------------------------------
+# Phase 2: ARTIST
+# ---------------------------------------------------------------------------
+
+def _phase_artist(aggregated_data: Dict[str, Any]) -> Optional[str]:
+    """Phase 2 — Craft the response with voice/tone/relationship rules.
+
+    This is where Dani's personality and warmth come through.
+    Pulls from the voice ledger (global → tier → client-specific rules).
+    Calls the A3 persona with: aggregated context + voice rules + email rules.
+
+    Args:
+        aggregated_data: Dict returned by _phase_aggregate().
+
+    Returns:
+        Crafted prose email response, or None if generation fails.
+    """
+    from thunderbird_personas import call_persona
+    from thunderbird_voice_ledger import get_voice_rules
+
+    if aggregated_data.get("error") and not aggregated_data.get("context"):
+        logger.warning(
+            f"[ARTIST] Skipping — aggregate phase had error and no context: "
+            f"{aggregated_data['error']}"
+        )
+        return None
+
+    sender_name = aggregated_data["sender_name"]
+    client_tier = aggregated_data["client_tier"]
+    clients = aggregated_data["clients"]
+
+    # Pull voice rules: global + tier + per-client (most specific wins)
+    client_key = clients[0] if clients else sender_name
+    voice_rules = get_voice_rules(client_name=client_key, tier=client_tier)
+
+    # Build the full prompt: aggregated data block + voice rules + email format rules
+    context = aggregated_data["context"]
+
+    if voice_rules:
+        context += f"\n\n{voice_rules}"
+
+    email_format_rules = (
+        "\n\nEMAIL RESPONSE RULES:\n"
+        "- You are responding to a client EMAIL, not a chat message.\n"
+        "- Use proper email formatting — greeting, body, warm sign-off.\n"
+        "- Sign as: Dani Moreau, Luxury Travel Concierge, Dreams2Memories Travel\n"
+        "- FROM address: concierge@d2mluxury.quest — never mention it in the body.\n"
+        "- Keep the response focused and professional. No emojis.\n"
+        "- If you need to reference John, say 'John Loucks, our owner' or 'John'.\n"
+        "- Apply Commander's voice rules above before generating any output.\n"
+    )
+    context += email_format_rules
+
+    try:
+        # A3 = Dani. model_override=opus for all client-facing email (quality floor).
+        result = call_persona("A3", context, max_tokens=800, model_override="opus")
+        answer = result.get("answer", "")
+
+        # Strip the model attribution tag that call_persona appends
+        answer = re.sub(r"\n\n---\n_.*?_$", "", answer).strip()
+
+        if not answer:
+            logger.warning(f"[ARTIST] Empty response from A3 for {sender_name}")
+            return None
+
+        logger.debug(f"[ARTIST] Crafted {len(answer)} chars for {sender_name}")
+        return answer
+
+    except Exception as e:
+        logger.error(f"[ARTIST] Persona call failed for {sender_name}: {e}")
         return None
 
 
+# ---------------------------------------------------------------------------
+# Phase 3: ADVOCATE
+# ---------------------------------------------------------------------------
+
+def _phase_advocate(crafted_response: str, aggregated_data: Dict[str, Any],
+                    service, msg: Dict, thread_id: str,
+                    processed_label_id: str) -> Dict[str, Any]:
+    """Phase 3 — Package as concierge, COS review gate, draft creation, notify.
+
+    Dani presents as advocate: she owns the response and puts it in front of
+    the COS, then into Gmail, then tells the Commander.
+
+    Args:
+        crafted_response:    Prose from _phase_artist().
+        aggregated_data:     Structured data from _phase_aggregate().
+        service:             Authenticated Gmail API service object.
+        msg:                 Full Gmail message dict.
+        thread_id:           Gmail thread ID for the reply.
+        processed_label_id:  Gmail label ID for DANI-Processed.
+
+    Returns:
+        {
+            "status":    str,   # draft_created | cos_blocked | draft_error
+            "draft_id":  str | None,
+            "cos_note":  str,
+            "final_response": str,  # what actually went into the draft (may be COS-revised)
+            "sss_id":    str | None,  # populated if COS blocked and SSS was created
+        }
+    """
+    from thunderbird_dani_engine import cos_review
+
+    sender_name  = aggregated_data["sender_name"]
+    sender_email = aggregated_data["sender_email"]
+    subject      = aggregated_data["subject"]
+    body_excerpt = aggregated_data["body_excerpt"]
+
+    # --- COS review gate ---
+    cos_query = f"{sender_name} asked: {subject}\n{body_excerpt[:500]}"
+    cos_result = cos_review(cos_query, crafted_response, is_client=True)
+    cos_note   = cos_result.get("note", "")
+
+    if not cos_result.get("approved", True):
+        logger.warning(f"[ADVOCATE] COS BLOCKED reply to {sender_name}: {cos_note}")
+
+        sss_id = None
+        try:
+            from thunderbird_sss import create_sss, coordinate_sss
+            sss = create_sss(
+                action_officer="A3",
+                purpose=f"COS blocked Dani reply to {sender_name} re: {subject}",
+                background=(
+                    f"Dani drafted a response to {sender_name} ({sender_email}) "
+                    f"regarding: {subject}. COS blocked with note: {cos_note}"
+                ),
+                discussion=f"Original draft:\n{crafted_response[:500]}",
+                recommendation=(
+                    "Revise draft per COS guidance and re-submit, "
+                    "or override with Commander approval."
+                ),
+                scope="client",
+                category="comms",
+            )
+            coordinate_sss(sss.sss_id)
+            sss_id = sss.sss_id
+            logger.info(f"[ADVOCATE] SSS {sss_id} created for COS-blocked email to {sender_name}")
+        except Exception as _sss_err:
+            logger.debug(f"[ADVOCATE] SSS escalation skipped: {_sss_err}")
+
+        return {
+            "status": "cos_blocked",
+            "draft_id": None,
+            "cos_note": cos_note,
+            "final_response": crafted_response,
+            "sss_id": sss_id,
+        }
+
+    # Use COS-revised version if Hale edited
+    final_response = cos_result.get("revised") or crafted_response
+
+    # --- Learning diff capture (Skill 1: Capture the Diff) ---
+    if final_response != crafted_response:
+        try:
+            from thunderbird_learning import capture_email_diff
+            capture_email_diff(
+                crafted_response, final_response,
+                context=f"COS review of Dani reply to {sender_name} re: {subject}",
+                source="cos_review",
+            )
+            logger.debug(f"[ADVOCATE] Learning diff captured for {sender_name}")
+        except Exception as _learn_err:
+            logger.debug(f"[ADVOCATE] Learning capture skipped: {_learn_err}")
+
+    # --- Draft creation ---
+    try:
+        draft = _create_draft_reply(
+            service, msg, sender_email, subject, final_response, thread_id
+        )
+        draft_id = draft.get("id", "unknown")
+
+        # Label as processed
+        try:
+            service.users().messages().modify(
+                userId="me", id=msg["id"],
+                body={"addLabelIds": [processed_label_id]}
+            ).execute()
+        except Exception as _label_err:
+            logger.warning(f"[ADVOCATE] Failed to label message: {_label_err}")
+
+        # Notify Commander via Telegram
+        _notify_commander_telegram(
+            f"{sender_name} <{sender_email}>", subject,
+            final_response, cos_note, draft_id
+        )
+
+        logger.info(f"[ADVOCATE] Draft created for {sender_name} — draft ID: {draft_id}")
+        return {
+            "status": "draft_created",
+            "draft_id": draft_id,
+            "cos_note": cos_note,
+            "final_response": final_response,
+            "sss_id": None,
+        }
+
+    except Exception as e:
+        logger.error(f"[ADVOCATE] Draft creation failed for {sender_name}: {e}")
+        return {
+            "status": "draft_error",
+            "draft_id": None,
+            "cos_note": cos_note,
+            "final_response": final_response,
+            "sss_id": None,
+            "error": str(e),
+        }
+
+
+# ---------------------------------------------------------------------------
+# Phase chain — aggregate → artist → advocate
+# ---------------------------------------------------------------------------
+
+def _build_dani_email_response(sender_name: str, sender_email: str,
+                                subject: str, body: str) -> Optional[str]:
+    """Backward-compatible wrapper: aggregate → artist → return prose only.
+
+    The sweep loop calls this to get Dani's crafted response text, then
+    calls _phase_advocate() itself to control draft creation and logging.
+    Callers that only need the prose (e.g. tests, external tools) use this.
+
+    Returns the Artist-phase prose, or None if either phase fails.
+    """
+    aggregated = _phase_aggregate(sender_name, sender_email, subject, body)
+    return _phase_artist(aggregated)
+
+
 def _cos_review_email(query: str, dani_answer: str) -> Dict:
-    """COS reviews Dani's email draft before it becomes a Gmail draft."""
+    """COS reviews Dani's email draft before it becomes a Gmail draft.
+
+    Kept for backward compatibility. The sweep now goes through _phase_advocate().
+    """
     from thunderbird_dani_engine import cos_review
     return cos_review(query, dani_answer, is_client=True)
 
@@ -350,73 +654,56 @@ def dani_email_sweep() -> Dict[str, Any]:
             "status": "pending",
         }
 
-        # Get Dani's response
-        dani_response = _build_dani_email_response(sender_name, sender_email, subject, body)
-        if not dani_response:
+        # ----------------------------------------------------------------
+        # Phase 1 — AGGREGATE: gather all data, consult A2/A9 as needed
+        # ----------------------------------------------------------------
+        aggregated = _phase_aggregate(sender_name, sender_email, subject, body)
+        logger.debug(
+            f"  [P1-AGGREGATE] clients={aggregated['clients']} "
+            f"tier={aggregated['client_tier']} "
+            f"context_len={len(aggregated['context'])}"
+        )
+
+        # ----------------------------------------------------------------
+        # Phase 2 — ARTIST: craft prose with voice rules + Dani's warmth
+        # ----------------------------------------------------------------
+        crafted_response = _phase_artist(aggregated)
+        if not crafted_response:
             entry["status"] = "dani_failed"
             _log_action(entry)
             processed_ids.add(msg_id)
             continue
 
-        # COS review
-        cos_result = _cos_review_email(
-            f"{sender_name} asked: {subject}\n{body[:500]}",
-            dani_response
+        logger.debug(f"  [P2-ARTIST] crafted {len(crafted_response)} chars")
+
+        # ----------------------------------------------------------------
+        # Phase 3 — ADVOCATE: COS review, diff capture, draft, notify
+        # ----------------------------------------------------------------
+        advocate_result = _phase_advocate(
+            crafted_response, aggregated,
+            service, msg, thread_id, processed_label_id
         )
-        cos_note = cos_result.get("note", "")
 
-        if not cos_result.get("approved", True):
-            logger.warning(f"COS BLOCKED email response to {sender_name}: {cos_note}")
-            entry["status"] = "cos_blocked"
-            entry["cos_note"] = cos_note
-            _log_action(entry)
-            processed_ids.add(msg_id)
-            continue
+        entry["status"]   = advocate_result["status"]
+        entry["cos_note"] = advocate_result.get("cos_note", "")
+        if advocate_result.get("draft_id"):
+            entry["draft_id"] = advocate_result["draft_id"]
+        if advocate_result.get("sss_id"):
+            entry["sss_id"] = advocate_result["sss_id"]
+        if advocate_result.get("error"):
+            entry["error"] = advocate_result["error"]
 
-        # Use COS-revised version if available
-        final_response = cos_result.get("revised") or dani_response
-
-        # Capture diff for learning compiler (Skill 1: Capture the Diff)
-        if final_response != dani_response:
-            try:
-                from thunderbird_learning import capture_email_diff
-                capture_email_diff(
-                    dani_response, final_response,
-                    context=f"COS review of Dani reply to {sender_name} re: {subject}",
-                    source="cos_review",
-                )
-            except Exception as _learn_err:
-                logger.debug(f"Learning capture skipped: {_learn_err}")
-
-        # Create Gmail draft reply
-        try:
-            draft = _create_draft_reply(
-                service, msg, sender_email, subject, final_response, thread_id
-            )
-            draft_id = draft.get("id", "unknown")
-            entry["status"] = "draft_created"
-            entry["draft_id"] = draft_id
-            entry["cos_note"] = cos_note
+        if advocate_result["status"] == "draft_created":
             drafted += 1
-
-            # Label as processed
-            try:
-                service.users().messages().modify(
-                    userId="me", id=msg_id,
-                    body={"addLabelIds": [processed_label_id]}
-                ).execute()
-            except Exception as e:
-                logger.warning(f"Failed to label message: {e}")
-
-            # Notify Commander
-            _notify_commander_telegram(from_field, subject, final_response, cos_note, draft_id)
-
-            logger.info(f"  Draft created for {sender_name} — draft ID: {draft_id}")
-
-        except Exception as e:
-            logger.error(f"Failed to create draft reply: {e}")
-            entry["status"] = "draft_error"
-            entry["error"] = str(e)
+            logger.info(
+                f"  [P3-ADVOCATE] Draft created for {sender_name} "
+                f"— draft ID: {advocate_result['draft_id']}"
+            )
+        elif advocate_result["status"] == "cos_blocked":
+            logger.warning(
+                f"  [P3-ADVOCATE] COS BLOCKED reply to {sender_name}: "
+                f"{advocate_result['cos_note']}"
+            )
 
         _log_action(entry)
         processed_ids.add(msg_id)

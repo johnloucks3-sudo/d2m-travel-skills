@@ -88,6 +88,131 @@ async def task_airline_scan():
         return {'note': 'airline scan included in world intel run'}
 
 
+# ── IOC Tasks (added Mar 20) ────────────────────────────────────────────────
+
+async def task_learning_extraction():
+    """Extract principles from recent Commander corrections."""
+    from thunderbird_learning import extract_principles
+    loop = asyncio.get_event_loop()
+    result = await loop.run_in_executor(None, extract_principles)
+    return {'principles_extracted': len(result) if result else 0, 'principles': result}
+
+
+async def task_dossier_scan():
+    """Scan all dossiers for gaps, missing data, approaching deadlines."""
+    from thunderbird_dossier_scanner import scan_all_dossiers, generate_alert_digest
+    loop = asyncio.get_event_loop()
+    alerts = await loop.run_in_executor(None, scan_all_dossiers)
+    digest = await loop.run_in_executor(None, generate_alert_digest)
+    return {
+        'total_alerts': len(alerts),
+        'critical': sum(1 for a in alerts if a.severity == 'CRITICAL'),
+        'warnings': sum(1 for a in alerts if a.severity == 'WARNING'),
+        'digest': digest,
+    }
+
+
+async def task_commander_inbox():
+    """Scan Commander's personal inbox for D2M-relevant emails."""
+    try:
+        from thunderbird_commander_inbox import run_commander_inbox_sweep
+        loop = asyncio.get_event_loop()
+        return await loop.run_in_executor(None, run_commander_inbox_sweep)
+    except ImportError:
+        return {'note': 'Commander inbox scanner not yet installed'}
+
+
+async def task_fare_watch():
+    """Check all active fare watches for price changes."""
+    from thunderbird_fare_watch import list_watches, check_fare
+    loop = asyncio.get_event_loop()
+    watches = await loop.run_in_executor(None, list_watches)
+    if not watches:
+        return {'note': 'No active fare watches'}
+    results = []
+    for w in watches:
+        try:
+            result = await loop.run_in_executor(None, check_fare, w.get('id') or w.get('watch_id'))
+            results.append(result)
+        except Exception as e:
+            results.append({'watch': w.get('route', 'unknown'), 'error': str(e)})
+    return {'watches_checked': len(results), 'results': results}
+
+
+async def task_voice_ledger_update():
+    """Import new rules from learning compiler into voice ledger."""
+    from thunderbird_voice_ledger import import_from_learning_compiler
+    loop = asyncio.get_event_loop()
+    result = await loop.run_in_executor(None, import_from_learning_compiler)
+    return {'imported': result}
+
+
+async def task_booking_reconciliation():
+    """Weekly: cross-check all bookings across dossiers, Sheets, and TESS."""
+    from thunderbird_reconciliation import reconcile_all_bookings, reconciliation_briefing_line
+    loop = asyncio.get_event_loop()
+    reports = await loop.run_in_executor(None, reconcile_all_bookings)
+    mismatches = [r for r in reports if r.status == 'RED']
+    missing = [r for r in reports if r.status == 'YELLOW']
+    return {
+        'total': len(reports),
+        'clean': sum(1 for r in reports if r.status == 'GREEN'),
+        'mismatches': len(mismatches),
+        'missing_data': len(missing),
+        'briefing_line': reconciliation_briefing_line(reports),
+        'mismatch_details': [r.summary_line for r in mismatches],
+        'missing_details': [r.summary_line for r in missing],
+    }
+
+
+async def task_product_intake():
+    """Scan vendor emails for new product offers — cruises, hotels, tours."""
+    try:
+        from thunderbird_product_intake import scan_vendor_emails, generate_product_digest
+        loop = asyncio.get_event_loop()
+        products = await loop.run_in_executor(None, scan_vendor_emails, 3)
+        digest = await loop.run_in_executor(None, generate_product_digest, 7)
+        return {
+            'new_products': len(products) if products else 0,
+            'digest': digest[:1000] if digest else 'No new products',
+        }
+    except ImportError:
+        return {'note': 'Product intake module not yet installed'}
+
+
+async def task_guest_forms():
+    """Batch: send guest profile forms for upcoming departures."""
+    try:
+        from thunderbird_guest_forms import send_all_pending_guest_forms
+        loop = asyncio.get_event_loop()
+        result = await loop.run_in_executor(None, send_all_pending_guest_forms, 60)
+        return result
+    except ImportError:
+        return {'note': 'Guest forms module not yet installed'}
+
+
+async def task_claude_code_batch(prompt: str, name: str = 'batch'):
+    """Run a Claude Code CLI task headlessly. For off-peak heavy coding."""
+    import subprocess, os
+    cmd = [
+        'claude', '-p', prompt,
+        '--allowedTools', 'Read,Edit,Write,Bash,Grep,Glob,mcp__dreams2memories__*',
+        '--output-format', 'json',
+        '--max-turns', '30',
+        '--max-budget-usd', '2.00',
+    ]
+    result = subprocess.run(
+        cmd, capture_output=True, text=True, timeout=3600,
+        cwd=str(THUNDERBIRD_DIR),
+        env={**os.environ, 'CLAUDE_BATCH_MODE': '1'},
+    )
+    try:
+        parsed = json.loads(result.stdout)
+        return {'session_id': parsed.get('session_id'), 'result': parsed.get('result', '')[:500]}
+    except json.JSONDecodeError:
+        return {'stdout': result.stdout[:500], 'stderr': result.stderr[:200], 'exit_code': result.returncode}
+
+
 TASKS = [
     {'name': 'World Intelligence Sweep',        'weight': 'heavy',  'fn': task_world_intel},
     {'name': 'Ship Intelligence Sweep',         'weight': 'heavy',  'fn': task_ship_intel},
@@ -97,6 +222,17 @@ TASKS = [
     {'name': 'Dani Email Sweep',                'weight': 'medium', 'fn': task_dani_email},
     {'name': 'Tech Monitor',                    'weight': 'light',  'fn': task_tech_monitor},
     {'name': 'Airline Route Scan',              'weight': 'light',  'fn': task_airline_scan},
+    # IOC tasks (Mar 20)
+    {'name': 'Learning Extraction',             'weight': 'medium', 'fn': task_learning_extraction},
+    {'name': 'Dossier Gap Scanner',             'weight': 'light',  'fn': task_dossier_scan},
+    {'name': 'Commander Inbox Sweep',           'weight': 'medium', 'fn': task_commander_inbox},
+    {'name': 'Fare Watch Check',                'weight': 'light',  'fn': task_fare_watch},
+    {'name': 'Voice Ledger Update',             'weight': 'light',  'fn': task_voice_ledger_update},
+    # Weekly reconciliation (runs every batch cycle but logs weekly summary)
+    {'name': 'Booking Reconciliation',          'weight': 'light',  'fn': task_booking_reconciliation},
+    # Product & client management
+    {'name': 'Product Intake Scan',             'weight': 'medium', 'fn': task_product_intake},
+    {'name': 'Guest Profile Forms',             'weight': 'light',  'fn': task_guest_forms},
 ]
 
 

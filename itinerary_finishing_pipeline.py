@@ -15,8 +15,8 @@ import pdfkit
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
 
-# Gemini via OpenAI SDK
-from openai import OpenAI
+# Claude via subprocess CLI (thunderbird_personas pattern)
+from thunderbird_personas import _call_claude
 
 # ============================================================================
 # 0. LOGGING CONFIGURATION
@@ -35,10 +35,8 @@ logger = logging.getLogger(__name__)
 # 1. CONFIGURATION
 # ============================================================================
 class Config:
-    # --- GEMINI SETTINGS ---
-    GEMINI_API_KEY = "***REMOVED-SECRET***"
-    GEMINI_BASE_URL = "https://generativelanguage.googleapis.com/v1beta/openai/"
-    GEMINI_MODEL = "gemini-2.5-flash"
+    # --- CLAUDE SETTINGS ---
+    CLAUDE_MODEL = "sonnet"  # sonnet = $0 on Max plan; use "opus" for highest quality
 
     # --- GOOGLE SHEETS & DRIVE IDs ---
     GOOGLE_SHEET_ID = "1GFjUe8RvP-GT4YHGn0DYv_BEAZGXlYfwEicFrm8ANuU"
@@ -169,12 +167,15 @@ HTML_TEMPLATE = """
 # ============================================================================
 # 3. GENERATORS & MANAGERS
 # ============================================================================
-class GeminiNarrativeGenerator:
-    def __init__(self):
-        self.client = OpenAI(api_key=Config.GEMINI_API_KEY, base_url=Config.GEMINI_BASE_URL)
-
+class ClaudeNarrativeGenerator:
     def generate_narrative(self, port_name: str, supplier: str, region_context: str, trip_name: str) -> str:
         is_sea_day = "sea" in port_name.lower() or "cruising" in port_name.lower()
+
+        system_prompt = (
+            "You are a luxury travel copywriter for Dreams2Memories Travel, LLC. "
+            "Write vivid, evocative prose that inspires clients and captures the emotional "
+            "essence of each destination or sea day. Keep responses concise — exactly 3 sentences."
+        )
 
         if is_sea_day:
             prompt = (
@@ -186,12 +187,9 @@ class GeminiNarrativeGenerator:
             prompt = f"Write a luxurious 3-sentence description for a cruise port stop at {port_name} with {supplier}."
 
         try:
-            response = self.client.chat.completions.create(
-                model=Config.GEMINI_MODEL, messages=[{"role": "user", "content": prompt}]
-            )
-            return response.choices[0].message.content.strip()
+            return _call_claude(system_prompt, prompt, max_tokens=300, model=Config.CLAUDE_MODEL)
         except Exception as e:
-            logger.error(f"Gemini error for {port_name}: {e}")
+            logger.error(f"Claude narrative error for {port_name}: {e}")
             return f"Experience the magic of {port_name}."
 
 class QuotaSavingImageManager:
@@ -342,7 +340,7 @@ class HTMLItineraryGenerator:
 class ItineraryFinishingPipeline:
     def __init__(self):
         self.services = GoogleServiceManager()
-        self.narrative_gen = GeminiNarrativeGenerator()
+        self.narrative_gen = ClaudeNarrativeGenerator()
         self.image_manager = QuotaSavingImageManager(self.services.sheets, self.services.drive)
         self.html_gen = HTMLItineraryGenerator()
 
@@ -408,7 +406,7 @@ def register_itinerary_pipeline_tools(mcp):
     async def run_itinerary_pipeline(
         booking_id: str = PydField(..., description="Booking ID to generate itinerary for (e.g., '3071222-26')"),
     ) -> str:
-        """Run the full itinerary finishing pipeline for a booking: fetch data from Sheets, generate Gemini narratives, source images (Drive/Sheets/Unsplash/Pexels), and produce HTML + PDF output."""
+        """Run the full itinerary finishing pipeline for a booking: fetch data from Sheets, generate Claude narratives, source images (Drive/Sheets/Unsplash/Pexels), and produce HTML + PDF output."""
         import json as _json
         try:
             pipeline = ItineraryFinishingPipeline()

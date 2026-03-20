@@ -7,66 +7,614 @@
   <meta name="description" content="Your personal travel concierge portal. Dreams2Memories Travel, LLC.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/static/style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9992;</text></svg>">
 </head>
 <body>
 
-  <header class="header">
-    <div class="header__brand">Dreams2Memories Travel</div>
-    <div class="header__tagline">Luxury Travel, Personally Crafted</div>
+  <!-- ── Header ─────────────────────────────────────── -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <div class="header__brand">
+        <span class="header__wordmark">Dreams2Memories</span>
+        <span class="header__tagline">Travel, LLC</span>
+      </div>
+      <nav class="header__nav" id="headerNav" style="display:none;">
+        <button class="nav-link" data-page="dashboard">My Trips</button>
+        <button class="nav-link" data-page="contact">Contact</button>
+        <button class="nav-link nav-link--logout" id="btnLogout">Sign Out</button>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <h1 class="hero__title">Welcome to Your <em>Client Portal</em></h1>
-      <p class="hero__subtitle">
-        Everything you need for your upcoming journey, all in one place.
-        Your dedicated concierge is here to help every step of the way.
-      </p>
-    </section>
+  <!-- ── Pages ──────────────────────────────────────── -->
+  <main id="appRoot">
 
-    <hr class="gold-rule">
-
-    <section class="concierge">
-      <div class="concierge__card">
-        <div class="concierge__avatar">DM</div>
-        <div class="concierge__name">Dani Moreau</div>
-        <div class="concierge__role">Your Travel Concierge</div>
-        <p class="concierge__message">
-          "Welcome! I'm Dani, your personal concierge at Dreams2Memories.
-          Whether you have a question about your itinerary, need a restaurant
-          recommendation, or want to adjust your plans — I'm just a message away."
-        </p>
+    <!-- LOGIN PAGE -->
+    <section id="page-login" class="page page--login" style="display:none;">
+      <div class="login-wrap">
+        <div class="login-card">
+          <div class="login-card__crest">✈</div>
+          <h1 class="login-card__title">Welcome Back</h1>
+          <p class="login-card__sub">
+            Enter your email address and we'll send you a secure link
+            to access your trip details.
+          </p>
+          <form id="loginForm" class="login-form" novalidate>
+            <div class="form-group">
+              <label class="form-label" for="loginEmail">Email Address</label>
+              <input
+                type="email"
+                id="loginEmail"
+                class="form-input"
+                placeholder="you@example.com"
+                autocomplete="email"
+                required
+              >
+            </div>
+            <button type="submit" class="btn btn--gold btn--full" id="loginBtn">
+              Send My Portal Link
+            </button>
+          </form>
+          <div id="loginMsg" class="login-message" style="display:none;"></div>
+          <p class="login-card__note">
+            No password needed. Your concierge will always be
+            <a href="mailto:concierge@d2mluxury.quest">concierge@d2mluxury.quest</a>
+          </p>
+        </div>
       </div>
     </section>
 
-    <nav class="actions" aria-label="Portal actions">
-      <a href="https://t.me/d2m_dani_bot" class="btn btn--primary" target="_blank" rel="noopener">
-        <span class="btn__icon">&#9993;</span>
-        Chat with Dani on Telegram
-      </a>
-      <a href="mailto:concierge@d2mluxury.quest" class="btn btn--secondary">
-        <span class="btn__icon">&#9993;</span>
-        Email Your Concierge
-      </a>
-      <div class="btn btn--disabled" aria-disabled="true">
-        <span class="btn__icon">&#128203;</span>
-        Your Trip Details
-        <span class="btn__badge">Coming Soon</span>
+    <!-- DASHBOARD PAGE -->
+    <section id="page-dashboard" class="page page--dashboard" style="display:none;">
+      <div class="page-inner">
+        <div class="page-header">
+          <h2 class="page-title">Your Journeys</h2>
+          <p class="page-subtitle" id="dashGreeting">Welcome back.</p>
+        </div>
+        <div id="tripsGrid" class="trips-grid">
+          <!-- Trip cards injected here -->
+        </div>
+        <div id="tripsEmpty" class="empty-state" style="display:none;">
+          <div class="empty-state__icon">🧭</div>
+          <p class="empty-state__text">No trips on file yet. Your concierge is standing by.</p>
+          <button class="btn btn--outline" data-page="contact">Contact Dani</button>
+        </div>
+        <div id="tripsLoading" class="loading-state">
+          <div class="spinner"></div>
+          <p>Loading your journeys…</p>
+        </div>
       </div>
-    </nav>
+    </section>
+
+    <!-- TRIP DETAIL PAGE -->
+    <section id="page-trip" class="page page--trip" style="display:none;">
+      <div class="page-inner">
+        <button class="back-btn" data-page="dashboard">← Back to My Trips</button>
+        <div id="tripDetail">
+          <!-- Injected by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT PAGE -->
+    <section id="page-contact" class="page page--contact" style="display:none;">
+      <div class="page-inner page-inner--narrow">
+        <div class="page-header">
+          <h2 class="page-title">Reach Your Concierge</h2>
+          <p class="page-subtitle">Dani is here to help with anything about your trip.</p>
+        </div>
+
+        <div class="concierge-card">
+          <div class="concierge-card__avatar">DM</div>
+          <div class="concierge-card__info">
+            <div class="concierge-card__name">Dani Moreau</div>
+            <div class="concierge-card__role">Your Travel Concierge</div>
+            <p class="concierge-card__quote">
+              "Whether it's a question about your itinerary, a restaurant recommendation,
+              or a last-minute change — send me a message and I'll be back to you promptly."
+            </p>
+          </div>
+        </div>
+
+        <form id="contactForm" class="contact-form" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="contactSubject">Subject</label>
+            <input
+              type="text"
+              id="contactSubject"
+              class="form-input"
+              placeholder="Question about my trip…"
+              maxlength="120"
+            >
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contactMessage">Message</label>
+            <textarea
+              id="contactMessage"
+              class="form-textarea"
+              rows="6"
+              placeholder="Tell Dani what's on your mind…"
+              maxlength="2000"
+              required
+            ></textarea>
+            <div class="char-count"><span id="charCount">0</span> / 2000</div>
+          </div>
+          <button type="submit" class="btn btn--gold" id="contactBtn">
+            Send Message
+          </button>
+        </form>
+        <div id="contactMsg" class="contact-message" style="display:none;"></div>
+
+        <div class="contact-alternatives">
+          <p class="contact-alternatives__label">Or reach us directly:</p>
+          <a href="mailto:concierge@d2mluxury.quest" class="alt-link">
+            <span class="alt-link__icon">✉</span>
+            concierge@d2mluxury.quest
+          </a>
+          <a href="https://t.me/d2m_dani_bot" class="alt-link" target="_blank" rel="noopener">
+            <span class="alt-link__icon">💬</span>
+            Chat on Telegram
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ERROR / NOT FOUND -->
+    <section id="page-error" class="page page--error" style="display:none;">
+      <div class="error-wrap">
+        <div class="error-icon">✈</div>
+        <h2 class="error-title">Something went sideways.</h2>
+        <p id="errorMsg" class="error-text">An unexpected error occurred.</p>
+        <button class="btn btn--outline" data-page="login">Start Over</button>
+      </div>
+    </section>
+
   </main>
 
+  <!-- ── Footer ─────────────────────────────────────── -->
   <footer class="footer">
-    <div class="footer__contact">
-      <a href="mailto:concierge@d2mluxury.quest">concierge@d2mluxury.quest</a>
-    </div>
-    <div class="footer__legal">
-      &copy; 2026 Dreams2Memories Travel, LLC &middot; Colorado Springs, CO
+    <div class="footer__inner">
+      <a href="mailto:concierge@d2mluxury.quest" class="footer__email">
+        concierge@d2mluxury.quest
+      </a>
+      <span class="footer__sep">&middot;</span>
+      <span class="footer__legal">&copy; 2026 Dreams2Memories Travel, LLC</span>
     </div>
   </footer>
+
+<!-- ── Application Script ──────────────────────────────────────────────────── -->
+<script>
+(function () {
+  'use strict';
+
+  // ── State ────────────────────────────────────────────────────────────────
+  const state = {
+    authenticated: false,
+    email: null,
+    dossierKeys: [],
+    currentPage: null,
+    currentTripKey: null,
+    tripsCache: null,
+  };
+
+  // ── DOM refs ─────────────────────────────────────────────────────────────
+  const $  = id => document.getElementById(id);
+  const $$ = sel => document.querySelectorAll(sel);
+
+  // ── API ──────────────────────────────────────────────────────────────────
+  async function api(method, path, body) {
+    const opts = {
+      method,
+      credentials: 'include',
+      headers: { 'Content-Type': 'application/json' },
+    };
+    if (body) opts.body = JSON.stringify(body);
+    const res = await fetch(path, opts);
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw Object.assign(new Error(data.detail || 'Request failed'), { status: res.status });
+    return data;
+  }
+
+  // ── Router ───────────────────────────────────────────────────────────────
+  function showPage(pageId) {
+    $$('.page').forEach(p => { p.style.display = 'none'; });
+    const el = $(`page-${pageId}`);
+    if (el) {
+      el.style.display = 'block';
+      el.classList.add('page--enter');
+      setTimeout(() => el.classList.remove('page--enter'), 400);
+    }
+    state.currentPage = pageId;
+    // Show nav only when authenticated
+    $('headerNav').style.display = state.authenticated ? 'flex' : 'none';
+    // Active nav link
+    $$('.nav-link[data-page]').forEach(btn => {
+      btn.classList.toggle('nav-link--active', btn.dataset.page === pageId);
+    });
+  }
+
+  function navigate(page, extra) {
+    if (page === 'trip' && extra) {
+      state.currentTripKey = extra;
+      history.pushState({ page, tripKey: extra }, '', `#trip/${extra}`);
+    } else {
+      history.pushState({ page }, '', `#${page}`);
+    }
+    renderPage(page);
+  }
+
+  function renderPage(page) {
+    switch (page) {
+      case 'login':    renderLogin();     break;
+      case 'dashboard': renderDashboard(); break;
+      case 'trip':     renderTripDetail(state.currentTripKey); break;
+      case 'contact':  renderContact();   break;
+      default:         renderLogin();
+    }
+  }
+
+  // ── Boot ─────────────────────────────────────────────────────────────────
+  async function boot() {
+    try {
+      const me = await api('GET', '/api/auth/me');
+      state.authenticated = true;
+      state.email = me.email;
+      state.dossierKeys = me.dossier_keys || [];
+      // Route from hash
+      const hash = location.hash.replace('#', '');
+      if (hash.startsWith('trip/')) {
+        state.currentTripKey = hash.slice(5);
+        showPage('trip');
+        renderTripDetail(state.currentTripKey);
+      } else if (hash === 'contact') {
+        navigate('contact');
+      } else {
+        navigate('dashboard');
+      }
+    } catch (err) {
+      if (err.status === 401) {
+        navigate('login');
+      } else {
+        showError('Could not connect to portal. Please try again shortly.');
+      }
+    }
+  }
+
+  // ── Login page ───────────────────────────────────────────────────────────
+  function renderLogin() {
+    showPage('login');
+    $('loginForm').addEventListener('submit', onLoginSubmit, { once: true });
+  }
+
+  async function onLoginSubmit(e) {
+    e.preventDefault();
+    const email = $('loginEmail').value.trim();
+    if (!email) return;
+
+    const btn = $('loginBtn');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    $('loginMsg').style.display = 'none';
+
+    try {
+      const res = await api('POST', '/api/auth/request', { email });
+      showLoginMsg(res.message || 'Check your email for your magic link.', 'success');
+      // Dev mode: token returned when SMTP not configured
+      if (res.dev_token) {
+        showLoginMsg(
+          `[DEV] Magic link: <a href="/api/auth/verify?token=${res.dev_token}" style="color:#0000ff;">Click here</a>`,
+          'info'
+        );
+      }
+    } catch (err) {
+      showLoginMsg(err.message || 'Something went wrong. Please try again.', 'error');
+      // Re-attach listener since we used { once: true }
+      $('loginForm').addEventListener('submit', onLoginSubmit, { once: true });
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Send My Portal Link';
+    }
+  }
+
+  function showLoginMsg(html, type) {
+    const el = $('loginMsg');
+    el.className = `login-message login-message--${type}`;
+    el.innerHTML = html;
+    el.style.display = 'block';
+  }
+
+  // ── Dashboard ────────────────────────────────────────────────────────────
+  async function renderDashboard() {
+    showPage('dashboard');
+    $('dashGreeting').textContent = state.email
+      ? `Viewing as ${state.email}`
+      : 'Welcome back.';
+
+    if (state.tripsCache) {
+      renderTripCards(state.tripsCache);
+      return;
+    }
+
+    $('tripsLoading').style.display = 'flex';
+    $('tripsGrid').style.display = 'none';
+    $('tripsEmpty').style.display = 'none';
+
+    try {
+      const data = await api('GET', '/api/trips');
+      state.tripsCache = data.trips || [];
+      renderTripCards(state.tripsCache);
+    } catch (err) {
+      $('tripsLoading').style.display = 'none';
+      showError(`Could not load trips: ${err.message}`);
+    }
+  }
+
+  function renderTripCards(trips) {
+    $('tripsLoading').style.display = 'none';
+
+    if (!trips.length) {
+      $('tripsEmpty').style.display = 'block';
+      return;
+    }
+
+    $('tripsGrid').style.display = 'grid';
+    $('tripsGrid').innerHTML = trips.map(trip => tripCardHTML(trip)).join('');
+
+    // Attach click handlers
+    $$('.trip-card').forEach(card => {
+      card.addEventListener('click', () => {
+        state.currentTripKey = card.dataset.key;
+        navigate('trip', card.dataset.key);
+      });
+    });
+  }
+
+  function tripCardHTML(trip) {
+    const countdown = countdownBadge(trip.days_until_departure);
+    const payBadge  = paymentBadge(trip.payment_status, trip.balance, trip.balance_due_date);
+    const dest = trip.destinations.length
+      ? trip.destinations.slice(0, 3).join(' → ')
+      : '';
+    const dateRange = formatDateRange(trip.embark_date, trip.disembark_date);
+
+    return `
+      <article class="trip-card" data-key="${escHtml(trip.client_key)}" tabindex="0"
+               role="button" aria-label="View ${escHtml(trip.title)}">
+        <div class="trip-card__header">
+          ${countdown}
+          <h3 class="trip-card__title">${escHtml(trip.title)}</h3>
+          ${trip.subtitle ? `<p class="trip-card__ship">${escHtml(trip.subtitle)}</p>` : ''}
+        </div>
+        <div class="trip-card__body">
+          ${dest ? `<p class="trip-card__route">${escHtml(dest)}</p>` : ''}
+          ${dateRange ? `<p class="trip-card__dates">${dateRange}</p>` : ''}
+        </div>
+        <div class="trip-card__footer">
+          ${payBadge}
+          <span class="trip-card__cta">View Details →</span>
+        </div>
+      </article>`;
+  }
+
+  function countdownBadge(days) {
+    if (days === null || days === undefined) return '';
+    if (days < 0)  return `<span class="badge badge--muted">Completed</span>`;
+    if (days === 0) return `<span class="badge badge--gold">Departs Today!</span>`;
+    if (days <= 7)  return `<span class="badge badge--urgent">${days}d to departure</span>`;
+    if (days <= 30) return `<span class="badge badge--warm">${days} days away</span>`;
+    return `<span class="badge badge--calm">${days} days away</span>`;
+  }
+
+  function paymentBadge(status, balance, dueDate) {
+    if (status === 'paid') {
+      return `<span class="pay-badge pay-badge--ok">✓ Paid in Full</span>`;
+    }
+    if (status === 'balance_due' && balance) {
+      const dueTxt = dueDate ? ` · Due ${formatDate(dueDate)}` : '';
+      return `<span class="pay-badge pay-badge--warn">Balance $${Number(balance).toLocaleString()}${dueTxt}</span>`;
+    }
+    return '';
+  }
+
+  // ── Trip Detail ──────────────────────────────────────────────────────────
+  async function renderTripDetail(key) {
+    showPage('trip');
+    const container = $('tripDetail');
+    container.innerHTML = '<div class="loading-state"><div class="spinner"></div><p>Loading trip details…</p></div>';
+
+    try {
+      const trip = await api('GET', `/api/trips/${encodeURIComponent(key)}`);
+      container.innerHTML = buildTripDetailHTML(trip);
+    } catch (err) {
+      if (err.status === 403) {
+        container.innerHTML = `<p class="error-inline">Access denied to this trip record.</p>`;
+      } else {
+        container.innerHTML = `<p class="error-inline">${escHtml(err.message)}</p>`;
+      }
+    }
+  }
+
+  function buildTripDetailHTML(trip) {
+    const pay = trip.payment || {};
+    const dateRange = formatDateRange(trip.embark_date, trip.disembark_date);
+    const dest = (trip.destinations || []).join(' → ');
+    const countdown = countdownBadge(trip.days_until_departure);
+
+    // Key dates table
+    const keyDatesHTML = (trip.key_dates || []).length
+      ? `<div class="detail-section">
+          <h4 class="detail-section__title">Key Dates &amp; Timeline</h4>
+          <table class="dates-table">
+            <thead><tr><th>Date</th><th>Milestone</th><th></th></tr></thead>
+            <tbody>
+              ${trip.key_dates.map(kd => `
+                <tr class="${kd.days_until !== null && kd.days_until <= 14 && kd.days_until >= 0 ? 'dates-table__row--urgent' : ''}">
+                  <td class="dates-table__date">${formatDate(kd.date)}</td>
+                  <td class="dates-table__label">${escHtml(kd.label)}</td>
+                  <td class="dates-table__countdown">${kd.days_until !== null ? (kd.days_until < 0 ? 'Past' : kd.days_until === 0 ? 'Today' : `${kd.days_until}d`) : ''}</td>
+                </tr>`).join('')}
+            </tbody>
+          </table>
+        </div>`
+      : '';
+
+    // Payment card
+    const payHTML = (pay.total || pay.balance || pay.status !== 'unknown')
+      ? `<div class="detail-section">
+          <h4 class="detail-section__title">Payment Status</h4>
+          <div class="pay-card">
+            ${pay.total    ? `<div class="pay-card__row"><span>Total</span><strong>$${Number(pay.total).toLocaleString()}</strong></div>` : ''}
+            ${pay.paid     ? `<div class="pay-card__row"><span>Paid</span><strong>$${Number(pay.paid).toLocaleString()}</strong></div>` : ''}
+            ${pay.balance  ? `<div class="pay-card__row pay-card__row--${pay.status === 'paid' ? 'ok' : 'warn'}"><span>Balance</span><strong>$${Number(pay.balance).toLocaleString()}</strong></div>` : ''}
+            ${pay.due_date ? `<div class="pay-card__row pay-card__row--due"><span>Due Date</span><strong>${formatDate(pay.due_date)}</strong></div>` : ''}
+            <div class="pay-card__status">
+              ${pay.status === 'paid'
+                ? '<span class="pay-badge pay-badge--ok pay-badge--lg">✓ Paid in Full</span>'
+                : '<span class="pay-badge pay-badge--warn pay-badge--lg">Balance Outstanding — Contact Dani</span>'}
+            </div>
+          </div>
+        </div>`
+      : '';
+
+    // Documents
+    const docsHTML = (trip.documents || []).length
+      ? `<div class="detail-section">
+          <h4 class="detail-section__title">Documents on File</h4>
+          <ul class="doc-list">
+            ${trip.documents.map(d => `<li class="doc-list__item">${escHtml(d)}</li>`).join('')}
+          </ul>
+        </div>`
+      : '';
+
+    return `
+      <div class="trip-detail">
+        <div class="trip-detail__hero">
+          <div class="trip-detail__meta">${countdown}</div>
+          <h2 class="trip-detail__title">${escHtml(trip.title)}</h2>
+          ${trip.subtitle ? `<p class="trip-detail__ship">${escHtml(trip.subtitle)}</p>` : ''}
+          ${dest     ? `<p class="trip-detail__route">${escHtml(dest)}</p>` : ''}
+          ${dateRange ? `<p class="trip-detail__dates">${dateRange}</p>` : ''}
+        </div>
+        <div class="trip-detail__grid">
+          ${keyDatesHTML}
+          ${payHTML}
+          ${docsHTML}
+        </div>
+        <div class="trip-detail__actions">
+          <button class="btn btn--gold" data-page="contact">Message Dani</button>
+          <a href="mailto:concierge@d2mluxury.quest" class="btn btn--outline">Email Concierge</a>
+        </div>
+      </div>`;
+  }
+
+  // ── Contact page ─────────────────────────────────────────────────────────
+  function renderContact() {
+    showPage('contact');
+
+    const textarea = $('contactMessage');
+    textarea.addEventListener('input', () => {
+      $('charCount').textContent = textarea.value.length;
+    });
+
+    $('contactForm').addEventListener('submit', onContactSubmit, { once: true });
+  }
+
+  async function onContactSubmit(e) {
+    e.preventDefault();
+    const message = $('contactMessage').value.trim();
+    const subject = $('contactSubject').value.trim() || 'Portal Message';
+    if (!message) return;
+
+    const btn = $('contactBtn');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    try {
+      const res = await api('POST', '/api/contact', { message, subject });
+      $('contactMsg').className = 'contact-message contact-message--success';
+      $('contactMsg').textContent = res.message;
+      $('contactMsg').style.display = 'block';
+      $('contactForm').reset();
+      $('charCount').textContent = '0';
+    } catch (err) {
+      $('contactMsg').className = 'contact-message contact-message--error';
+      $('contactMsg').textContent = err.message || 'Could not send message. Please try again.';
+      $('contactMsg').style.display = 'block';
+      $('contactForm').addEventListener('submit', onContactSubmit, { once: true });
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Send Message';
+    }
+  }
+
+  // ── Error page ───────────────────────────────────────────────────────────
+  function showError(msg) {
+    $('errorMsg').textContent = msg;
+    showPage('error');
+  }
+
+  // ── Logout ───────────────────────────────────────────────────────────────
+  $('btnLogout').addEventListener('click', async () => {
+    try { await api('POST', '/api/auth/logout'); } catch (_) { /* ignore */ }
+    state.authenticated = false;
+    state.email = null;
+    state.tripsCache = null;
+    navigate('login');
+  });
+
+  // ── Delegated nav clicks (data-page attribute) ────────────────────────────
+  document.addEventListener('click', e => {
+    const btn = e.target.closest('[data-page]');
+    if (!btn) return;
+    const page = btn.dataset.page;
+    if (page === 'login' || state.authenticated) navigate(page);
+  });
+
+  // ── Back/forward ─────────────────────────────────────────────────────────
+  window.addEventListener('popstate', e => {
+    const pg = e.state?.page;
+    if (e.state?.tripKey) state.currentTripKey = e.state.tripKey;
+    renderPage(pg || 'dashboard');
+  });
+
+  // ── Keyboard accessibility on trip cards ─────────────────────────────────
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && e.target.classList.contains('trip-card')) {
+      e.target.click();
+    }
+  });
+
+  // ── Helpers ──────────────────────────────────────────────────────────────
+  function escHtml(s) {
+    return String(s)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function formatDate(iso) {
+    if (!iso) return '';
+    try {
+      const [y, m, d] = iso.split('-');
+      const dt = new Date(Number(y), Number(m) - 1, Number(d));
+      return dt.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    } catch (_) { return iso; }
+  }
+
+  function formatDateRange(a, b) {
+    if (!a && !b) return '';
+    if (!b) return formatDate(a);
+    return `${formatDate(a)} – ${formatDate(b)}`;
+  }
+
+  // ── Init ─────────────────────────────────────────────────────────────────
+  boot();
+
+})();
+</script>
 
 </body>
 </html>

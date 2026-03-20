@@ -1,0 +1,82 @@
+{
+  "name": "D2M — Fare Watch Price Monitor",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {"field": "cronExpression", "expression": "0 14 * * *"},
+            {"field": "cronExpression", "expression": "0 22 * * *"}
+          ]
+        }
+      },
+      "id": "wf08-0001-4000-8000-000000000001",
+      "name": "Schedule — 8AM + 4PM MDT",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.d2mluxury.quest/api/tool/fare_watch_check",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [{"name": "x-api-key", "value": "={{$env.D2M_API_KEY}}"}]
+        },
+        "options": {"timeout": 120000}
+      },
+      "id": "wf08-0002-4000-8000-000000000002",
+      "name": "Fare Watch Check",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const r = $input.item.json;\nconst data = r.data || r;\nconst alerts = data.alerts || data.price_drops || data.changes || [];\nconst hasChanges = alerts.length > 0;\n\nlet body = '';\nif (hasChanges) {\n  const ts = new Date().toLocaleString('en-US', {timeZone: 'America/Denver', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'});\n  const lines = alerts.map(a => {\n    const drop = a.drop_pct ? ` (↓${a.drop_pct}%)` : '';\n    const price = a.new_price ? ` — $${a.new_price}` : '';\n    return `• ${a.route || a.flight || a.label}${price}${drop}`;\n  });\n  body = `*D2M Fare Watch — ${ts}*\\n\\n*Price Drops Detected:*\\n${lines.join('\\n')}`;\n  if (data.total_watched) body += `\\n\\n_Monitoring ${data.total_watched} fares_`;\n}\n\nreturn [{ json: { hasChanges, message: body, count: alerts.length } }];"
+      },
+      "id": "wf08-0003-4000-8000-000000000003",
+      "name": "Format Fare Alert",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {"caseSensitive": true, "leftValue": "", "typeValidation": "strict"},
+          "conditions": [{"id": "c1", "leftValue": "={{ $json.hasChanges }}", "rightValue": true, "operator": {"type": "boolean", "operation": "true"}}],
+          "combinator": "and"
+        }
+      },
+      "id": "wf08-0004-4000-8000-000000000004",
+      "name": "Any Price Drops?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "chatId": "={{$env.TELEGRAM_COMMANDER_ID}}",
+        "text": "={{ $json.message }}",
+        "additionalFields": {"parse_mode": "Markdown"}
+      },
+      "id": "wf08-0005-4000-8000-000000000005",
+      "name": "Telegram — Fare Alert",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [1120, 200],
+      "credentials": {"telegramApi": {"id": "1", "name": "D2MC2C Bot"}}
+    }
+  ],
+  "connections": {
+    "Schedule — 8AM + 4PM MDT": {"main": [[{"node": "Fare Watch Check", "type": "main", "index": 0}]]},
+    "Fare Watch Check": {"main": [[{"node": "Format Fare Alert", "type": "main", "index": 0}]]},
+    "Format Fare Alert": {"main": [[{"node": "Any Price Drops?", "type": "main", "index": 0}]]},
+    "Any Price Drops?": {"main": [[{"node": "Telegram — Fare Alert", "type": "main", "index": 0}], []]}
+  },
+  "active": false,
+  "settings": {"executionOrder": "v1"},
+  "tags": ["d2m", "fare-watch", "pricing"]
+}

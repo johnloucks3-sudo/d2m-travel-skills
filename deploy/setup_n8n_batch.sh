@@ -12,6 +12,7 @@ echo "=== Installing systemd services ==="
 cp $DEPLOY/n8n.service /etc/systemd/system/n8n.service
 cp $DEPLOY/thunderbird-batch.service /etc/systemd/system/thunderbird-batch.service
 cp $DEPLOY/thunderbird-batch.timer /etc/systemd/system/thunderbird-batch.timer
+cp $DEPLOY/d2m-portal.service /etc/systemd/system/d2m-portal.service 2>/dev/null || echo "  (portal service not found, skipping)"
 
 echo "=== Reloading systemd ==="
 systemctl daemon-reload
@@ -29,10 +30,20 @@ systemctl restart d2m-tunnel.service 2>/dev/null || echo "  (tunnel service not 
 echo "=== Enabling batch timer ==="
 systemctl enable --now thunderbird-batch.timer
 
+echo "=== Starting portal ==="
+systemctl enable --now d2m-portal.service 2>/dev/null || echo "  (portal service not available)"
+
+echo "=== Importing n8n workflows ==="
+if command -v n8n &>/dev/null; then
+    bash $DEPLOY/n8n/import_all_workflows.sh --dry-run
+    echo "  Run without --dry-run to import: bash $DEPLOY/n8n/import_all_workflows.sh"
+fi
+
 echo ""
 echo "=== DONE ==="
 echo "  n8n URL:      https://n8n.d2mluxury.quest"
-echo "  Batch timer:  Mon-Fri 12:05 PM MDT (18:05 UTC)"
+echo "  Portal URL:   https://portal.d2mluxury.quest"
+echo "  Batch timer:  5 off-peak windows (see thunderbird-batch.timer)"
 echo ""
 echo "  Paste into claude.ai → Settings → Integrations → n8n:"
 echo "  https://n8n.d2mluxury.quest"

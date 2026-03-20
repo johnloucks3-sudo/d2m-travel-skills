@@ -287,6 +287,23 @@ def check_dissent(proposal: str) -> Dict[str, Any]:
         deep_result = call_persona(pid, deep_prompt, max_tokens=400)
         deep_consultations[pid] = deep_result.get("answer", deep_result.get("error", ""))
 
+    # If any persona DISSENTs, create SSS for formal resolution
+    if dissents:
+        try:
+            from thunderbird_sss import create_sss, coordinate_sss
+            dissent_names = ", ".join(d["persona"] for d in dissents)
+            sss = create_sss(
+                action_officer="COS",
+                purpose=f"Dissent detected: {dissent_names} DISSENT on: {proposal[:100]}",
+                background=f"During sentience check on '{proposal}', {len(dissents)} persona(s) registered DISSENT.",
+                discussion="\n".join(f"- {v['persona']}: {v.get('response', 'No rationale')}" for v in dissents),
+                recommendation="Route to Commander for decision via Staff Summary Sheet.",
+                scope="ioc",
+            )
+            coordinate_sss(sss.sss_id)
+        except Exception:
+            pass
+
     # Determine recommended action
     dissent_count = len(dissents)
     concern_count = len(concerns)

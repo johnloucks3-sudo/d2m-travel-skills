@@ -67,8 +67,10 @@ from thunderbird_overwatch import run_sentinel_sweep, run_judge_assessment
 from thunderbird_switchblade import run_switchblade
 from thunderbird_sms_monitor import check_inbound_sms as run_sms_monitor
 from thunderbird_dani_email import dani_email_sweep as run_dani_email_sweep
+from thunderbird_commander_inbox import run_commander_inbox_sweep as run_commander_inbox_sweep
 from thunderbird_concierge_monitor import poll_once as run_concierge_monitor
 from thunderbird_concierge_monitor import poll_commander_directives as run_commander_directives
+from thunderbird_fare_watch import list_watches as fw_list_watches
 from thunderbird_outside_agents import (
     _connect_cdp, _find_portal_tab, _notify_commander,
     _load_state, _save_state, _screenshot_path,
@@ -95,8 +97,10 @@ LOG_FILE = THUNDERBIRD_DIR / "scheduler.log"
 DRIVE_INTEL = "1joXoapQQjnGsKzxxvpDhZnO6czlCQGqj"        # Thunderbird_Intel
 DRIVE_FINANCE = "1k2-DOzj5GEN6hjIlMND19hk4fQhUq-Tm"       # Thunderbird_Finance
 
-# John's email for draft delivery
+# Commander's personal inbox — drafts and reports delivered here
 OWNER_EMAIL = "johnloucks3@gmail.com"
+# D2M ops account — authenticated sender (gmail_token.json authenticates as d2mconcierge)
+OPS_EMAIL = "d2mconcierge@gmail.com"
 
 # Timezone
 TZ = "America/Denver"  # Mountain Time
@@ -153,7 +157,7 @@ def _create_draft(subject: str, body: str, attachment_paths: list = None):
 
         message = MIMEMultipart()
         message["to"] = OWNER_EMAIL
-        message["from"] = OWNER_EMAIL
+        message["from"] = OPS_EMAIL
         message["subject"] = subject
         message.attach(MIMEText(body, "plain"))
 
@@ -782,6 +786,14 @@ async def consolidated_morning_brief():
         errors.append(f"Branded morning email: {e}")
         logger.error(f"Morning Brief — branded email FAILED: {e}")
 
+    # ── Commander Inbox Status ────────────────────────────────────────────
+    try:
+        from thunderbird_commander_inbox import get_inbox_briefing_line
+        inbox_line = get_inbox_briefing_line()
+        sections.append(f"## COMMANDER INBOX (johnloucks3)\n  {inbox_line}\n")
+    except Exception as e:
+        logger.debug(f"Morning Brief — Commander inbox status skipped: {e}")
+
     # ── Compose consolidated summary draft ───────────────────────────────
     if errors:
         error_section = "## ERRORS\n" + "\n".join(f"  ! {e}" for e in errors) + "\n"
@@ -1165,9 +1177,20 @@ def build_scheduler() -> AsyncIOScheduler:
                       CronTrigger(minute="*/10", timezone=TZ),
                       id="concierge_monitor", name="Concierge Email Monitor (every 10m, 24/7)")
 
+    # 0b1. Session Auto-Save Checkpoint: every 10 min, active hours (0800-2300 MT)
+    #      Standing Order 2026-03-16 — COS writes session_autosave_latest.md every 10 min.
+    #      Captures: recent git commits, uncommitted files, SSS pending decisions,
+    #      learning rules pending validation, recent Telegram C2 log tail, open TODOs,
+    #      recently touched dossiers. Prevents continuity loss from battery/power flux.
+    from thunderbird_session_checkpoint import job_session_checkpoint
+
+    scheduler.add_job(job_session_checkpoint,
+                      CronTrigger(minute="*/10", hour="8-23", timezone=TZ),
+                      id="session_checkpoint", name="Session Auto-Save Checkpoint (every 10m, 0800-2300 MT)")
+
     # 0b2. Dani Email Sweep: every 30 min, 24/7
     #       FIX 2026-03-16: Dani email responder was never scheduled.
-    #       Scans johnloucks3@gmail.com inbox for client emails (not just
+    #       Scans d2mconcierge@gmail.com inbox for client emails (not just
     #       concierge@), drafts Dani responses via COS review, notifies Commander.
     async def job_dani_email_sweep():
         logger.info("Dani Email Sweep: scanning inbox for client emails...")
@@ -1185,6 +1208,23 @@ def build_scheduler() -> AsyncIOScheduler:
     scheduler.add_job(job_dani_email_sweep,
                       CronTrigger(minute="*/30", timezone=TZ),
                       id="dani_email_sweep", name="Dani Email Sweep (every 30m, 24/7)")
+
+    # 0b3. Commander Inbox Scanner: every 2 hours, business hours (0800–2000 MT)
+    #       Scans johnloucks3@gmail.com for D2M-relevant emails (client inquiries,
+    #       vendor comms, booking confirmations, financial, intel). Tasks to Wing
+    #       personas, creates reply drafts in d2mconcierge, notifies COS via Telegram.
+    #       Personal / noise emails are silently skipped.
+    #       No-ops gracefully if gmail_token_commander.json doesn't exist.
+    async def job_commander_inbox():
+        """Sweep Commander's personal inbox for D2M-relevant emails."""
+        from thunderbird_commander_inbox import run_commander_inbox_sweep
+        loop = asyncio.get_event_loop()
+        result = await loop.run_in_executor(None, run_commander_inbox_sweep)
+        logger.info(f"Commander inbox sweep: {result}")
+
+    scheduler.add_job(job_commander_inbox,
+                      CronTrigger(hour="8,10,12,14,16,18,20", minute=15, timezone=TZ),
+                      id="commander_inbox", name="Commander Inbox Scanner (every 2h, 0800-2000 MT)")
 
     # 0c. Concierge Big Picture: every 6 hours, 24/7
     #     Reviews full thread context, unresolved directives, pending tasks
@@ -1443,6 +1483,67 @@ def build_scheduler() -> AsyncIOScheduler:
     scheduler.add_job(job_airline_alert_scan,
                       CronTrigger(hour="7-21/2", minute=30, timezone=TZ),
                       id="airline_alert_scan", name="Airline Alert Scan (every 2h, biz hours)")
+
+    # 12. Learning Extraction: daily at 6:30AM MT
+    #     Processes recent Commander corrections and extracts voice/style principles.
+    #     Feeds the "Capture the Diff → Extract the Principle → Apply Forward" loop.
+    async def job_learning_extraction():
+        logger.info("=" * 60)
+        logger.info("SCHEDULED: Learning Extraction")
+        logger.info("=" * 60)
+        try:
+            from thunderbird_learning import extract_principles
+            results = extract_principles()
+            logger.info(f"Learning Extraction complete: {len(results)} principles extracted")
+        except Exception as e:
+            logger.error(f"Learning Extraction FAILED: {e}", exc_info=True)
+
+    scheduler.add_job(job_learning_extraction,
+                      CronTrigger(hour=6, minute=30, timezone=TZ),
+                      id="learning_extraction", name="Learning Extraction (daily 0630)")
+
+    # 13. Dossier Scanner: daily at 6:45AM MT
+    #     Scans all client dossiers for gaps, stale data, missing fields.
+    #     Logs alert count for COS morning brief.
+    async def job_dossier_scanner():
+        logger.info("=" * 60)
+        logger.info("SCHEDULED: Dossier Scanner")
+        logger.info("=" * 60)
+        try:
+            from thunderbird_dossier_scanner import scan_all_dossiers, generate_alert_digest
+            alerts = scan_all_dossiers()
+            logger.info(f"Dossier Scanner complete: {len(alerts)} alerts found")
+            if alerts:
+                digest = generate_alert_digest()
+                logger.info(f"Dossier alert digest:\n{digest}")
+        except Exception as e:
+            logger.error(f"Dossier Scanner FAILED: {e}", exc_info=True)
+
+    scheduler.add_job(job_dossier_scanner,
+                      CronTrigger(hour=6, minute=45, timezone=TZ),
+                      id="dossier_scanner", name="Dossier Scanner (daily 0645)")
+
+    # 14. Intel Crew: daily at 5:45AM MT — runs BEFORE the 6:31 morning brief
+    #     A2 Dembe (COLLECT) → A2 Dembe (ANALYZE) → A1 Radar (AUDIT) → COS Hale (REVIEW)
+    #     Produces intel_package saved to output/intel_crew/ for consolidated_morning_brief.
+    async def job_intel_crew():
+        """Daily intel crew run — A2 analysis + COS synthesis."""
+        logger.info("=" * 60)
+        logger.info("SCHEDULED: Intel Crew Pipeline (A2→A1→COS)")
+        logger.info("=" * 60)
+        try:
+            from thunderbird_intel_crew import IntelCrew
+            loop = asyncio.get_event_loop()
+            result = await loop.run_in_executor(None, IntelCrew().run)
+            counts = result.get("raw_item_counts", {})
+            status = result.get("status", "UNKNOWN")
+            logger.info(f"Intel crew complete: status={status}, counts={counts}")
+        except Exception as e:
+            logger.error(f"Intel Crew FAILED: {e}", exc_info=True)
+
+    scheduler.add_job(job_intel_crew,
+                      CronTrigger(hour=5, minute=45, timezone=TZ),
+                      id="intel_crew_daily", name="Intel Crew Pipeline (daily 0545)")
 
     return scheduler
 
@@ -1851,6 +1952,93 @@ def _send_flight_report(results: list, watches: list):
         logger.error(f"Flight Tracker Gmail draft failed: {e}")
 
 
+async def job_fare_watch_check():
+    """Fare Watch — runs 2x daily (8AM + 4PM MT). Logs all active watches; alerts on price drops/spikes."""
+    logger.info("=" * 60)
+    logger.info("SCHEDULED: Fare Watch Check")
+    logger.info("=" * 60)
+    try:
+        result = fw_list_watches(active_only=True)
+        watches = result.get("watches", [])
+        count = result.get("count", 0)
+
+        if count == 0:
+            logger.info("Fare Watch: no active watches, skipping")
+            return
+
+        logger.info(f"Fare Watch: checking {count} active watch(es)")
+
+        # Collect any watches with triggered alerts (price vs alert thresholds)
+        alert_lines = []
+        for w in watches:
+            label = w.get("label", w.get("id", "unknown"))
+            vs_baseline = w.get("vs_baseline", "")
+            last_checked = w.get("last_checked", "never")
+            logger.info(
+                f"  {label} | {w.get('price_pp', '?')}/pp | {w.get('total', '?')} | "
+                f"vs baseline: {vs_baseline} | last checked: {last_checked}"
+            )
+            # Flag any watch that has moved negatively vs baseline (price up = bad for client)
+            if vs_baseline.startswith("+"):
+                alert_lines.append(f"  SPIKE  {label}: {w.get('price_pp')} ({vs_baseline} vs baseline)")
+            elif vs_baseline.startswith("-"):
+                alert_lines.append(f"  DROP   {label}: {w.get('price_pp')} ({vs_baseline} vs baseline)")
+
+        ts = datetime.now().strftime("%Y%m%d_%H%M")
+
+        # Always save a snapshot log
+        report_path = _save_report(
+            json.dumps(result, indent=2),
+            f"Fare_Watch_{ts}.json",
+            subfolder="fare_watch"
+        )
+
+        # Telegram alert if any price movement detected
+        if alert_lines:
+            try:
+                bot_token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
+                commander_id = os.environ.get("TELEGRAM_COMMANDER_ID", "")
+                if bot_token and commander_id:
+                    import requests as _req
+                    tg_body = (
+                        f"*Fare Watch Alert* — {datetime.now().strftime('%b %d %I:%M %p MT')}\n"
+                        f"{count} active watch(es)\n\n"
+                        + "\n".join(alert_lines)
+                    )
+                    _req.post(
+                        f"https://api.telegram.org/bot{bot_token}/sendMessage",
+                        json={"chat_id": commander_id, "text": tg_body, "parse_mode": "Markdown"},
+                        timeout=15,
+                    )
+                    logger.info(f"Fare Watch: Telegram alert sent ({len(alert_lines)} movement(s))")
+                else:
+                    logger.warning("Fare Watch: Telegram env vars not set, skipping notification")
+            except Exception as e:
+                logger.error(f"Fare Watch Telegram failed: {e}")
+
+            # Gmail draft on alerts
+            try:
+                _create_draft(
+                    subject=f"Fare Watch Alert — {len(alert_lines)} price movement(s) ({datetime.now().strftime('%b %d')})",
+                    body=(
+                        f"Fare Watch automated check completed.\n\n"
+                        f"Active watches: {count}\n"
+                        f"Price movements detected: {len(alert_lines)}\n\n"
+                        + "\n".join(alert_lines)
+                        + f"\n\nFull snapshot attached."
+                    ),
+                    attachment_paths=[str(report_path)],
+                )
+                logger.info("Fare Watch: Gmail alert draft created")
+            except Exception as e:
+                logger.error(f"Fare Watch Gmail draft failed: {e}")
+        else:
+            logger.info(f"Fare Watch: {count} watch(es) checked — no price movements vs baseline")
+
+    except Exception as e:
+        logger.error(f"Fare Watch FAILED: {e}", exc_info=True)
+
+
 # ============================================================================
 # LEGACY SCHEDULER (18 jobs — preserved for rollback)
 # ============================================================================
@@ -1934,6 +2122,49 @@ def build_scheduler_legacy() -> AsyncIOScheduler:
                       id="rsync_dv7_hourly", name="Rsync to dv7 (hourly)")
     scheduler.add_job(job_rsync_to_dv7, CronTrigger(hour=22, minute=50, timezone=TZ),
                       id="rsync_dv7_nightly", name="Rsync to dv7 (pre-mirror)")
+
+    # Fare Watch: 8AM + 4PM MT — check all active watches, alert on price movement
+    scheduler.add_job(job_fare_watch_check, CronTrigger(hour=8, minute=0, timezone=TZ),
+                      id="fare_watch_morning", name="Fare Watch (8AM)")
+    scheduler.add_job(job_fare_watch_check, CronTrigger(hour=16, minute=0, timezone=TZ),
+                      id="fare_watch_afternoon", name="Fare Watch (4PM)")
+
+    # Product Intake: 9AM MT daily — scan vendor emails for new cruise/hotel/tour offers
+    async def job_product_intake():
+        try:
+            from thunderbird_product_intake import scan_vendor_emails
+            products = scan_vendor_emails(days=3)
+            logger.info(f"Product intake: {len(products) if products else 0} new products found")
+        except Exception as e:
+            logger.error(f"Product intake failed: {e}", exc_info=True)
+
+    scheduler.add_job(job_product_intake, CronTrigger(hour=9, minute=0, timezone=TZ),
+                      id="product_intake_daily", name="Product Intake Scan (9AM)")
+
+    # Guest Forms: weekly Monday 9:30 AM MT — send pending guest profile forms
+    async def job_guest_forms():
+        try:
+            from thunderbird_guest_forms import send_all_pending_guest_forms
+            result = send_all_pending_guest_forms(window_days=60)
+            logger.info(f"Guest forms: {result.get('total_drafts_created', 0)} drafts created")
+        except Exception as e:
+            logger.error(f"Guest forms failed: {e}", exc_info=True)
+
+    scheduler.add_job(job_guest_forms, CronTrigger(day_of_week="mon", hour=9, minute=30, timezone=TZ),
+                      id="guest_forms_weekly", name="Guest Profile Forms (Mon 9:30AM)")
+
+    # Booking Reconciliation: weekly Sunday 8PM MT — full cross-check
+    async def job_reconciliation():
+        try:
+            from thunderbird_reconciliation import reconcile_all_bookings, reconciliation_briefing_line
+            reports = reconcile_all_bookings()
+            line = reconciliation_briefing_line(reports)
+            logger.info(f"Reconciliation: {line}")
+        except Exception as e:
+            logger.error(f"Reconciliation failed: {e}", exc_info=True)
+
+    scheduler.add_job(job_reconciliation, CronTrigger(day_of_week="sun", hour=20, minute=30, timezone=TZ),
+                      id="reconciliation_weekly", name="Booking Reconciliation (Sun 8:30PM)")
 
     return scheduler
 

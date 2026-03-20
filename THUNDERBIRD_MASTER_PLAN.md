@@ -1431,17 +1431,24 @@ The personas were redesigned THREE times. Capabilities were gained and lost at e
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
-| IOC-1 | **Claude Code Channels** — evaluate as replacement for custom Telegram C2 bot | `[~]` EVALUATE FURTHER | Session-bound only — dies when terminal closes. Cannot replace always-on python-telegram-bot. May supplement for CI alerts. Keep Telegram bot. |
-| IOC-2 | **Claude Code Scheduled Tasks** — test as alternative to systemd timers | `[✗]` NOT READY | 3-day auto-expiry, session-bound, no persistence across reboots. Unsuitable for production. Keep systemd timers on Yoga. |
-| IOC-3 | **Claude Code Remote Control** — mobile/web CLI access | `[x]` ADOPT Mar 20 | Stable, fully supported. `claude --remote-control` + QR scan from Chromebook/phone. Complements mosh for quick C2 commands. Keep mosh for deep terminal work. |
+| IOC-1 | **Claude Code Channels** — Telegram plugin for freeform CLI access | `[x]` IMPLEMENTED Mar 20 | Research preview (v2.1.80+). Launcher: `scripts/thunderbird-channels.sh`. Uses SEPARATE bot token from D2MC2C. Session-bound — supplements C2 bot, does not replace it. |
+| IOC-2 | **Claude Code Scheduled Tasks** — test as alternative to systemd timers | `[P]` PARKED | 3-day auto-expiry, session-bound, no persistence across reboots. Unsuitable for production. Keep systemd timers on Yoga. Revisit when feature matures. |
+| IOC-3 | **Claude Code Remote Control** — mobile/web CLI access | `[x]` IMPLEMENTED Mar 20 | Launcher: `scripts/thunderbird-remote.sh` (4 modes: interactive, server, headless, daemon). `claude remote-control --name "Thunderbird OS"` + QR code. Daemon mode via tmux. |
 | IOC-4 | **Verify 1M context on Max plan** | `[x]` CONFIRMED Mar 20 | 1M context GA for Opus 4.6 & Sonnet 4.6 as of Mar 13, 2026. No extra cost on Max. Use `--model opus` for long sessions. Reduces compaction significantly. |
 | IOC-5 | **Staff Learning Loop (Skills 1-3)** — build feedback compiler | `[x]` DONE Mar 20 | `thunderbird_learning.py` — SQLite rule store, capture/extract/validate/apply pipeline. 5 MCP tools. Injected into every call_persona(). |
-| IOC-5a | **Staff Summary Sheet (Skill 5)** — formal debate + coordination | `[x]` DONE Mar 20 | `thunderbird_sss.py` — USAF AF1768 model, 3-mode routing (IOC/client/hybrid), CONCUR/NON-CONCUR workflow. 6 MCP tools. |
+| IOC-5a | **Staff Summary Sheet (Skill 5)** — formal debate + coordination | `[x]` DONE Mar 20 | `thunderbird_sss.py` — USAF AF1768 model, 3-mode routing (IOC/client/hybrid), CONCUR/NON-CONCUR workflow. 6 MCP tools. Wired into: Telegram C2 (`/sss` + "STAFF SUMMARY" keyword + persona checkbox UI), morning briefing (pending decisions), Dani email (auto-SSS on COS block). |
 | IOC-5b | **Proactive Dossier Scanner** — remove Commander as safety net | `[x]` DONE Mar 20 | `thunderbird_dossier_scanner.py` — scans all dossiers for FPDs, seats, passports, insurance. 2 MCP tools. Integrated into morning briefing. |
 | IOC-6 | **Dani Role Separation** — wire aggregator/artist/advocate workflow | `[x]` DONE Mar 20 | Persona definition updated. CLAUDE.md updated. Handoff format TBD with A2/A9. |
 | IOC-7 | **Staff Communication Channels** — all personas can reach Commander | `[x]` DONE Mar 20 | Email (d2mconcierge → johnloucks3) + Telegram C2. Any medium Commander uses. |
 | IOC-8 | **Voice Ledger** — living doc fed by Commander edits | `[x]` DONE Mar 20 | `thunderbird_voice_ledger.py` — JSON ledger, 5 tiers (paying/friend/prospect/vendor/staff), per-client rules. 6 MCP tools. Seeded with 9 rules from Mar 19-20 emails. Injected into A3/EXEC/A6 prompts. |
 | IOC-9 | **A2 Intel Expansion** — all regions, ISW, defense, politics | `[x]` DONE Mar 20 | Standing order updated. Broader scope than A2 thinks needed. |
+
+### PARKING LOT — Deferred / Revisit Later
+
+| # | Item | Reason | Revisit When |
+|---|------|--------|--------------|
+| P-1 | **IOC-2: Claude Code Scheduled Tasks** | 3-day auto-expiry, session-bound, no persistence. Unsuitable for production timers. | Feature adds persistence + survives reboots |
+| P-2 | **Client Portal — Outside Agents integration** | TESS write API scoped but OA portal needs more study | After IOC declared, consultant engagement |
 
 ### WEEK 3 (Mar 24-30) — Polish + Cleanup
 

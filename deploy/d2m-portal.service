@@ -1,0 +1,18 @@
+[Unit]
+Description=D2M Client Portal
+After=network.target
+
+[Service]
+Type=simple
+User=john
+WorkingDirectory=/home/john/Thunderbird
+ExecStart=/home/john/Thunderbird/.venv/bin/python /home/john/Thunderbird/portal/server.py
+Restart=on-failure
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+Environment=HOME=/home/john
+Environment=PORTAL_SECRET_KEY=change-me-in-production
+
+[Install]
+WantedBy=multi-user.target

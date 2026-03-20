@@ -1,0 +1,64 @@
+{
+  "name": "D2M — Tech Industry Monitor",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [{"field": "cronExpression", "expression": "15 12 * * *"}]
+        }
+      },
+      "id": "wf14-0001-4000-8000-000000000001",
+      "name": "Schedule — 6:15AM MDT",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.d2mluxury.quest/api/tool/run_tech_monitor",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [{"name": "x-api-key", "value": "={{$env.D2M_API_KEY}}"}]
+        },
+        "options": {"timeout": 120000}
+      },
+      "id": "wf14-0002-4000-8000-000000000002",
+      "name": "Tech Monitor",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const r = $input.item.json;\nconst data = r.data || r;\nconst ts = new Date().toLocaleString('en-US', {timeZone: 'America/Denver', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'});\n\nconst stories = data.stories || data.articles || data.items || [];\nconst travelTech = data.travel_tech || [];\nconst aiNews = data.ai_news || data.ai_stories || [];\n\nlet body = '';\nif (stories.length) {\n  const top = stories.slice(0,5).map(s => {\n    const source = s.source ? ` (${s.source})` : '';\n    return `• ${s.title || s.headline}${source}`;\n  });\n  body = top.join('\\n');\n} else if (data.summary || data.result) {\n  body = data.summary || data.result;\n} else {\n  body = JSON.stringify(data).slice(0, 600);\n}\n\nlet travelBlock = '';\nif (travelTech.length) {\n  travelBlock = '\\n\\n*Travel Tech:*\\n' + travelTech.slice(0,3).map(t => `• ${t.title || t}`).join('\\n');\n}\n\nlet aiBlock = '';\nif (aiNews.length) {\n  aiBlock = '\\n\\n*AI / Automation:*\\n' + aiNews.slice(0,3).map(a => `• ${a.title || a}`).join('\\n');\n}\n\nconst message = `*D2M Tech Monitor — ${ts}*\\n\\n${body}${travelBlock}${aiBlock}`;\nreturn [{ json: { message } }];"
+      },
+      "id": "wf14-0003-4000-8000-000000000003",
+      "name": "Format Tech Digest",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "chatId": "={{$env.TELEGRAM_COMMANDER_ID}}",
+        "text": "={{ $json.message }}",
+        "additionalFields": {"parse_mode": "Markdown"}
+      },
+      "id": "wf14-0004-4000-8000-000000000004",
+      "name": "Telegram — Tech Digest",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [900, 300],
+      "credentials": {"telegramApi": {"id": "1", "name": "D2MC2C Bot"}}
+    }
+  ],
+  "connections": {
+    "Schedule — 6:15AM MDT": {"main": [[{"node": "Tech Monitor", "type": "main", "index": 0}]]},
+    "Tech Monitor": {"main": [[{"node": "Format Tech Digest", "type": "main", "index": 0}]]},
+    "Format Tech Digest": {"main": [[{"node": "Telegram — Tech Digest", "type": "main", "index": 0}]]}
+  },
+  "active": false,
+  "settings": {"executionOrder": "v1"},
+  "tags": ["d2m", "tech", "intel", "morning"]
+}

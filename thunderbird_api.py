@@ -22,6 +22,7 @@ Usage:
 
 import json
 import logging
+import os
 import secrets
 import sys
 import asyncio
@@ -1108,11 +1109,186 @@ async def list_personas(x_api_key: str = Header(None)):
 
 
 # ============================================================================
+# LEARNING COMPILER ENDPOINTS
+# ============================================================================
+
+@app.get("/api/learning/rules")
+async def api_learning_rules(persona: str = None, domain: str = None, x_api_key: str = Header(None)):
+    """Get applicable learning rules, optionally filtered by persona and domain."""
+    _verify_key(x_api_key)
+    from thunderbird_learning import get_applicable_rules
+    rules = get_applicable_rules(persona_id=persona, domain=domain)
+    return {"rules": rules}
+
+
+@app.get("/api/learning/digest")
+async def api_learning_digest(x_api_key: str = Header(None)):
+    """Get a digest of all captured learning rules."""
+    _verify_key(x_api_key)
+    from thunderbird_learning import get_learning_digest
+    return {"digest": get_learning_digest()}
+
+
+@app.post("/api/learning/capture")
+async def api_learning_capture(request: Request, x_api_key: str = Header(None)):
+    """Capture an email diff for learning. Body: {"original": "...", "edited": "...", "context": "...", "source": "..."}"""
+    _verify_key(x_api_key)
+    data = await request.json()
+    from thunderbird_learning import capture_email_diff
+    capture_email_diff(data["original"], data["edited"], context=data.get("context", ""), source=data.get("source", "api"))
+    return {"status": "captured"}
+
+
+# ============================================================================
+# SSS (STAFF SYNC SHEET) ENDPOINTS
+# ============================================================================
+
+@app.post("/api/sss/create")
+async def api_sss_create(request: Request, x_api_key: str = Header(None)):
+    """Create a new SSS. Body: SSS creation parameters."""
+    _verify_key(x_api_key)
+    data = await request.json()
+    from thunderbird_sss import create_sss
+    sss = create_sss(**data)
+    return {"sss_id": sss.sss_id, "status": sss.status}
+
+
+@app.post("/api/sss/{sss_id}/coordinate")
+async def api_sss_coordinate(sss_id: str, x_api_key: str = Header(None)):
+    """Coordinate staff responses for an SSS."""
+    _verify_key(x_api_key)
+    from thunderbird_sss import coordinate_sss
+    result = coordinate_sss(sss_id)
+    return {"sss_id": result.sss_id, "status": result.status, "coordination": [{"persona": c.persona_id, "status": c.status, "comment": c.comment} for c in result.coordination]}
+
+
+@app.get("/api/sss/list")
+async def api_sss_list(status: str = None, x_api_key: str = Header(None)):
+    """List SSS items, optionally filtered by status."""
+    _verify_key(x_api_key)
+    from thunderbird_sss import list_sss
+    items = list_sss(status_filter=status)
+    return {"items": [{"sss_id": s.sss_id, "purpose": s.purpose, "status": s.status, "action_officer": s.action_officer} for s in items]}
+
+
+@app.get("/api/sss/{sss_id}")
+async def api_sss_detail(sss_id: str, x_api_key: str = Header(None)):
+    """Get SSS detail presentation for Commander."""
+    _verify_key(x_api_key)
+    from thunderbird_sss import present_to_commander
+    return {"presentation": present_to_commander(sss_id)}
+
+
+@app.post("/api/sss/{sss_id}/decide")
+async def api_sss_decide(sss_id: str, request: Request, x_api_key: str = Header(None)):
+    """Record Commander's decision on an SSS. Body: {"decision": "..."}"""
+    _verify_key(x_api_key)
+    data = await request.json()
+    from thunderbird_sss import record_decision
+    record_decision(sss_id, data["decision"])
+    return {"status": "decided"}
+
+
+# ============================================================================
+# DOSSIER SCANNER ENDPOINTS
+# ============================================================================
+
+@app.get("/api/dossier-scanner/scan")
+async def api_dossier_scan(x_api_key: str = Header(None)):
+    """Scan all dossiers for missing/stale data and return alerts."""
+    _verify_key(x_api_key)
+    from thunderbird_dossier_scanner import scan_all_dossiers
+    alerts = scan_all_dossiers()
+    return {"alerts": [{"client": a.client, "severity": a.severity, "message": a.message, "field": a.field} for a in alerts]}
+
+
+@app.get("/api/dossier-scanner/digest")
+async def api_dossier_digest(x_api_key: str = Header(None)):
+    """Get a formatted digest of all dossier alerts."""
+    _verify_key(x_api_key)
+    from thunderbird_dossier_scanner import generate_alert_digest
+    return {"digest": generate_alert_digest()}
+
+
+# ============================================================================
+# VOICE LEDGER ENDPOINTS
+# ============================================================================
+
+@app.get("/api/voice-ledger/rules")
+async def api_voice_rules(client: str = None, tier: str = None, x_api_key: str = Header(None)):
+    """Get voice rules, optionally filtered by client name and relationship tier."""
+    _verify_key(x_api_key)
+    from thunderbird_voice_ledger import get_voice_rules
+    return {"rules": get_voice_rules(client_name=client, tier=tier)}
+
+
+@app.get("/api/voice-ledger/summary")
+async def api_voice_summary(x_api_key: str = Header(None)):
+    """Get a summary of the voice ledger."""
+    _verify_key(x_api_key)
+    from thunderbird_voice_ledger import get_ledger_summary
+    return {"summary": get_ledger_summary()}
+
+
+# ============================================================================
+# COMMANDER INBOX ENDPOINTS
+# ============================================================================
+
+@app.post("/api/commander-inbox/sweep")
+async def api_commander_inbox_sweep(x_api_key: str = Header(None)):
+    """Run a sweep of Commander's personal inbox for D2M-relevant emails."""
+    _verify_key(x_api_key)
+    from thunderbird_commander_inbox import run_commander_inbox_sweep
+    result = run_commander_inbox_sweep()
+    return result
+
+
+@app.get("/api/commander-inbox/status")
+async def api_commander_inbox_status(x_api_key: str = Header(None)):
+    """Check if Commander inbox scanner is configured and ready."""
+    _verify_key(x_api_key)
+    token_exists = Path.home().joinpath("Thunderbird/gmail_token_commander.json").exists()
+    briefing_line = None
+    if token_exists:
+        try:
+            from thunderbird_commander_inbox import get_inbox_briefing_line
+            briefing_line = get_inbox_briefing_line()
+        except Exception:
+            pass
+    return {
+        "configured": token_exists,
+        "token_file": "gmail_token_commander.json",
+        "briefing": briefing_line,
+    }
+
+
+# ============================================================================
+# HEALTH DASHBOARD
+# ============================================================================
+
+@app.get("/api/health/full")
+async def api_health_full(x_api_key: str = Header(None)):
+    """Full Thunderbird OS health dashboard — services, data freshness, resources."""
+    _verify_key(x_api_key)
+    from thunderbird_health import get_full_health
+    return get_full_health()
+
+
+@app.get("/api/health/summary")
+async def api_health_summary(x_api_key: str = Header(None)):
+    """Health dashboard as a formatted text SITREP."""
+    _verify_key(x_api_key)
+    from thunderbird_health import get_full_health, get_health_summary
+    health = get_full_health()
+    return {"status": health["overall"], "summary": get_health_summary(health)}
+
+
+# ============================================================================
 # MAIN
 # ============================================================================
 
 if __name__ == "__main__":
-    port = 8766
+    port = int(os.environ.get("PORT", 8766))
     host = "0.0.0.0"
 
     for arg in sys.argv[1:]:

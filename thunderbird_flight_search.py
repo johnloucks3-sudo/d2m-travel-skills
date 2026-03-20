@@ -856,14 +856,14 @@ def register_flight_search_tools(mcp: FastMCP):
             credentials = service_account.Credentials.from_service_account_file(
                 str(creds_path), scopes=scopes
             )
-            # Delegate to John's Gmail account
-            delegated = credentials.with_subject("johnloucks3@gmail.com")
+            # Delegate to D2M ops account (not Commander personal)
+            delegated = credentials.with_subject("d2mconcierge@gmail.com")
             gmail_service = build("gmail", "v1", credentials=delegated)
 
             # Build MIME message
             msg = MIMEMultipart()
             msg["to"] = to_email
-            msg["from"] = "johnloucks3@gmail.com"
+            msg["from"] = "d2mconcierge@gmail.com"
             msg["subject"] = subject
             msg.attach(MIMEText(html_body, "html"))
 

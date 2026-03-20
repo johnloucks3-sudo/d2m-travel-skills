@@ -44,7 +44,10 @@ logger = logging.getLogger(__name__)
 THUNDERBIRD_DIR = Path.home() / "Thunderbird"
 SWEEP_LOG = THUNDERBIRD_DIR / "star_protocol_log.json"
 
+# Commander's personal inbox — used to search for self-addressed command emails
 YODA_EMAIL = "johnloucks3@gmail.com"
+# D2M ops account — all draft From headers use this (gmail_token.json is d2mconcierge)
+OPS_EMAIL = "d2mconcierge@gmail.com"
 
 # Star -> Action mapping (3 stars only — Green Star retired)
 STAR_ACTIONS = {
@@ -234,7 +237,7 @@ def _create_draft_reply(service, msg: Dict, to_email: str, subject: str, reply_b
     """Create a Gmail draft reply on a thread."""
     mime_msg = MIMEText(reply_body, "plain")
     mime_msg["to"] = to_email
-    mime_msg["from"] = YODA_EMAIL
+    mime_msg["from"] = OPS_EMAIL  # D2M ops sends drafts — not Commander personal
     mime_msg["subject"] = f"Re: {subject}" if not subject.startswith("Re:") else subject
 
     raw = base64.urlsafe_b64encode(mime_msg.as_bytes()).decode("utf-8")

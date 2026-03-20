@@ -1260,12 +1260,12 @@ def register_hotel_search_tools(mcp: FastMCP):
             credentials = service_account.Credentials.from_service_account_file(
                 str(creds_path), scopes=scopes
             )
-            delegated = credentials.with_subject("johnloucks3@gmail.com")
+            delegated = credentials.with_subject("d2mconcierge@gmail.com")
             gmail_service = build("gmail", "v1", credentials=delegated)
 
             msg = MIMEMultipart()
             msg["to"] = to_email
-            msg["from"] = "johnloucks3@gmail.com"
+            msg["from"] = "d2mconcierge@gmail.com"
             msg["subject"] = subject
             msg.attach(MIMEText(html_body, "html"))
 

@@ -70,7 +70,8 @@ BOOKING_MASTER_TAB = "Booking Master"
 ACTION_TRACKER_TAB = "Action_Tracker"
 
 # Gmail
-YODA_EMAIL = "johnloucks3@gmail.com"
+YODA_EMAIL = "johnloucks3@gmail.com"       # Commander's personal inbox — recipient for staff reports
+OPS_EMAIL = "d2mconcierge@gmail.com"       # D2M ops sender — all draft From headers (gmail_token.json)
 CONCIERGE_EMAIL = "concierge@d2mluxury.quest"
 
 # Claude Opus via CLI subprocess (Max plan, $0)
@@ -783,7 +784,7 @@ def _create_gmail_draft(service, to: str, subject: str, body: str,
 
     mime_msg = MIMEText(body, "plain")
     mime_msg["to"] = to
-    mime_msg["from"] = YODA_EMAIL
+    mime_msg["from"] = OPS_EMAIL  # D2M ops sends drafts — not Commander personal
     mime_msg["subject"] = f"Re: {subject}" if not subject.startswith("Re:") else subject
 
     raw = base64.urlsafe_b64encode(mime_msg.as_bytes()).decode("utf-8")

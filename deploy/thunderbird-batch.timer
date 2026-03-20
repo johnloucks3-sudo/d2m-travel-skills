@@ -1,11 +1,21 @@
 [Unit]
-Description=Thunderbird Batch Runner — 12:05 PM MDT (18:05 UTC) Mon-Fri
+Description=Thunderbird Batch Runner — all off-peak windows (2X promotion active thru Mar 28)
 
 [Timer]
-# 18:05 UTC = 12:05 PM MDT — safely in off-peak window (peak ends 8 AM-2 PM ET = ends 18:00 UTC)
-OnCalendar=Mon-Fri 18:05 UTC
+# WEEKDAY off-peak windows (outside 8 AM–2 PM ET = 13:00-19:00 UTC)
+# Morning run: 5:00 AM MT = 11:00 UTC (well before ET peak starts)
+OnCalendar=Mon-Fri *-*-* 11:00:00 UTC
+# Afternoon run: 12:05 PM MT = 18:05 UTC (just after ET peak ends at 2 PM)
+OnCalendar=Mon-Fri *-*-* 18:05:00 UTC
+# Evening run: 8:00 PM MT = 02:00 UTC (deep off-peak)
+OnCalendar=Mon-Fri *-*-* 02:00:00 UTC
+
+# WEEKEND: 2X all day — run morning and evening
+OnCalendar=Sat,Sun *-*-* 14:00:00 UTC
+OnCalendar=Sat,Sun *-*-* 02:00:00 UTC
+
 Persistent=true
-RandomizedDelaySec=60
+RandomizedDelaySec=120
 
 [Install]
 WantedBy=timers.target

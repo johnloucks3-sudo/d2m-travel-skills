@@ -1,0 +1,64 @@
+{
+  "name": "D2M — Booking Anchor Date Sync",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [{"field": "cronExpression", "expression": "0 3 * * *"}]
+        }
+      },
+      "id": "wf12-0001-4000-8000-000000000001",
+      "name": "Schedule — 9PM MDT",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.d2mluxury.quest/api/tool/sync_anchors_to_calendar",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [{"name": "x-api-key", "value": "={{$env.D2M_API_KEY}}"}]
+        },
+        "options": {"timeout": 120000}
+      },
+      "id": "wf12-0002-4000-8000-000000000002",
+      "name": "Sync Anchors to Calendar",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const r = $input.item.json;\nconst data = r.data || r;\nconst upcoming = data.upcoming_fpds || data.fpds_within_14_days || data.upcoming || [];\nconst synced = data.anchors_synced || data.events_updated || 0;\nconst hasUrgent = upcoming.length > 0;\n\nconst ts = new Date().toLocaleString('en-US', {timeZone: 'America/Denver', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'});\n\nlet message = `*D2M Booking Anchors — ${ts}*\\n\\n${synced} anchor(s) synced to calendar.`;\n\nif (hasUrgent) {\n  const lines = upcoming.map(fpd => {\n    const days = fpd.days_remaining !== undefined ? ` — ${fpd.days_remaining}d remaining` : '';\n    const client = fpd.client || fpd.client_name || '';\n    const clientStr = client ? ` (${client})` : '';\n    return `• ${fpd.type || 'FPD'}: ${fpd.date || fpd.due_date}${clientStr}${days}`;\n  });\n  message += `\\n\\n*Upcoming Deadlines (≤14 days):*\\n${lines.join('\\n')}`;\n}\n\nreturn [{ json: { hasUrgent, message, upcomingCount: upcoming.length, synced } }];"
+      },
+      "id": "wf12-0003-4000-8000-000000000003",
+      "name": "Format Anchor Report",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "chatId": "={{$env.TELEGRAM_COMMANDER_ID}}",
+        "text": "={{ $json.message }}",
+        "additionalFields": {"parse_mode": "Markdown"}
+      },
+      "id": "wf12-0004-4000-8000-000000000004",
+      "name": "Telegram — Anchor Sync",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [900, 300],
+      "credentials": {"telegramApi": {"id": "1", "name": "D2MC2C Bot"}}
+    }
+  ],
+  "connections": {
+    "Schedule — 9PM MDT": {"main": [[{"node": "Sync Anchors to Calendar", "type": "main", "index": 0}]]},
+    "Sync Anchors to Calendar": {"main": [[{"node": "Format Anchor Report", "type": "main", "index": 0}]]},
+    "Format Anchor Report": {"main": [[{"node": "Telegram — Anchor Sync", "type": "main", "index": 0}]]}
+  },
+  "active": false,
+  "settings": {"executionOrder": "v1"},
+  "tags": ["d2m", "booking", "anchor-dates", "fpd"]
+}

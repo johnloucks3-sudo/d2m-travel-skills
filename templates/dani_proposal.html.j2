@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ meta.client_name }} — {{ meta.destination }} Travel Proposal</title>
+  <style>
+    {% include "d2m_base.css.j2" %}
+
+    /* ── Proposal-Specific Styles ──────────────────────────────────── */
+
+    /* Cover — full-bleed hero with overlay */
+    .proposal-cover {
+      position: relative;
+      min-height: 480px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0;
+      margin-bottom: 40px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: none;
+      background: var(--navy2);
+    }
+
+    .proposal-cover .hero-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 0;
+    }
+
+    .proposal-cover .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(13, 27, 46, 0.15) 0%,
+        rgba(13, 27, 46, 0.55) 50%,
+        rgba(13, 27, 46, 0.92) 100%
+      );
+      z-index: 1;
+    }
+
+    .proposal-cover .cover-content {
+      position: relative;
+      z-index: 2;
+      padding: 48px 48px 40px;
+    }
+
+    .cover-label {
+      font-size: 10px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      margin-bottom: 16px;
+      font-family: Georgia, serif;
+    }
+
+    .cover-client-name {
+      font-size: 40px;
+      color: var(--cream);
+      font-family: Georgia, serif;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      line-height: 1.15;
+      margin-bottom: 6px;
+    }
+
+    .cover-destination {
+      font-size: 22px;
+      color: var(--gold);
+      font-family: Georgia, serif;
+      font-style: italic;
+      margin-bottom: 24px;
+    }
+
+    .cover-tagline {
+      font-size: 15px;
+      color: var(--text-light);
+      font-style: italic;
+      opacity: 0.85;
+      margin-bottom: 28px;
+    }
+
+    .cover-meta-strip {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .cover-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .cover-meta-item .meta-label {
+      font-size: 9px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .cover-meta-item .meta-value {
+      font-size: 13px;
+      color: var(--cream);
+    }
+
+    .cover-gold-rule {
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light), transparent);
+      border: none;
+      margin: 0;
+      border-radius: 2px 0 0 0;
+    }
+
+    /* ── Executive Summary ─────────────────────────────────────────── */
+    .exec-summary {
+      background: linear-gradient(135deg, rgba(201, 168, 76, 0.08), var(--navy2));
+      border: 1px solid rgba(201, 168, 76, 0.3);
+      border-left: 4px solid var(--gold);
+      border-radius: 8px;
+      padding: 28px 32px;
+      margin-bottom: 24px;
+    }
+
+    .exec-summary p {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text-light);
+      font-style: italic;
+      margin-bottom: 0;
+    }
+
+    .exec-summary .dani-sig {
+      margin-top: 16px;
+      font-size: 12px;
+      color: var(--gold);
+      font-style: normal;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Destination Overview ──────────────────────────────────────── */
+    .destination-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .dest-highlight-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .dest-highlight-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--navy3);
+      font-size: 13px;
+      color: var(--text-light);
+    }
+
+    .dest-highlight-list li:last-child {
+      border-bottom: none;
+    }
+
+    .dest-highlight-list li::before {
+      content: "◆";
+      color: var(--gold);
+      font-size: 8px;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    .season-box {
+      background: var(--navy3);
+      border-radius: 8px;
+      padding: 16px 20px;
+      border-top: 2px solid var(--gold);
+    }
+
+    .season-box .season-label {
+      font-size: 10px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+
+    .season-box .season-value {
+      font-size: 15px;
+      color: var(--cream);
+    }
+
+    .season-box .weather-note {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── Accommodation Cards ───────────────────────────────────────── */
+    .accommodation-card {
+      background: var(--navy2);
+      border: 1px solid var(--navy3);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+
+    .accommodation-card.is-recommended {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 1px rgba(201, 168, 76, 0.2);
+    }
+
+    .accommodation-card .hotel-photos {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .accommodation-card .hotel-photo-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 3px;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .accommodation-card .hotel-photo-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .accommodation-card .hotel-photo-grid .photo-main {
+      grid-row: 1;
+    }
+
+    .accommodation-card .hotel-photo-side {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .accommodation-card .hotel-photo-side img {
+      flex: 1;
+      min-height: 0;
+    }
+
+    .accommodation-card .hotel-body {
+      padding: 20px 24px;
+    }
+
+    .hotel-name-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+      gap: 16px;
+    }
+
+    .hotel-name-row h3 {
+      font-size: 18px;
+      color: var(--cream);
+      margin-bottom: 0;
+    }
+
+    .recommended-ribbon {
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 4px 10px;
+      border-radius: 4px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .hotel-description {
+      font-size: 13px;
+      color: var(--text-light);
+      line-height: 1.65;
+      margin-bottom: 12px;
+    }
+
+    .hotel-recommendation-note {
+      background: rgba(201, 168, 76, 0.08);
+      border-left: 3px solid var(--gold);
+      padding: 10px 14px;
+      border-radius: 0 6px 6px 0;
+      font-size: 12px;
+      color: var(--gold-pale);
+      font-style: italic;
+      margin-top: 12px;
+    }
+
+    .hotel-recommendation-note::before {
+      content: "Dani's Note: ";
+      font-style: normal;
+      font-weight: 600;
+      color: var(--gold);
+    }
+
+    /* ── Excursion Cards ───────────────────────────────────────────── */
+    .excursion-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .excursion-card {
+      background: var(--navy3);
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .excursion-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .excursion-card .exc-placeholder {
+      width: 100%;
+      height: 150px;
+      background: linear-gradient(135deg, var(--navy2), var(--navy3));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+    }
+
+    .excursion-card .exc-body {
+      padding: 14px 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .exc-category {
+      font-size: 9px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 6px;
+    }
+
+    .exc-name {
+      font-size: 14px;
+      color: var(--cream);
+      font-family: Georgia, serif;
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+
+    .exc-description {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.55;
+      flex: 1;
+      margin-bottom: 12px;
+    }
+
+    .exc-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--navy2);
+      padding-top: 10px;
+      margin-top: auto;
+    }
+
+    .exc-duration {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .exc-price {
+      font-size: 14px;
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+
+    /* ── Itinerary ─────────────────────────────────────────────────── */
+    .itinerary-timeline {
+      position: relative;
+      padding-left: 32px;
+      margin-top: 16px;
+    }
+
+    .itinerary-timeline::before {
+      content: "";
+      position: absolute;
+      left: 12px;
+      top: 8px;
+      bottom: 8px;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--gold), rgba(201, 168, 76, 0.15));
+    }
+
+    .itinerary-day {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .itinerary-day::before {
+      content: "";
+      position: absolute;
+      left: -26px;
+      top: 8px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 2px solid var(--navy);
+      box-shadow: 0 0 0 2px rgba(201, 168, 76, 0.3);
+    }
+
+    .day-header {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+
+    .day-number {
+      font-size: 10px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      white-space: nowrap;
+    }
+
+    .day-title {
+      font-size: 15px;
+      color: var(--cream);
+      font-family: Georgia, serif;
+    }
+
+    .day-description {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+
+    .day-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .day-highlight-pill {
+      background: var(--navy3);
+      border: 1px solid var(--navy2);
+      color: var(--text-light);
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 12px;
+    }
+
+    /* ── Pricing Summary ───────────────────────────────────────────── */
+    .pricing-section {
+      background: var(--navy2);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 24px;
+      border: 1px solid var(--navy3);
+    }
+
+    .pricing-header {
+      background: linear-gradient(135deg, var(--navy3), rgba(201, 168, 76, 0.12));
+      padding: 20px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--navy3);
+    }
+
+    .pricing-header .per-person-label {
+      font-size: 11px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .pricing-header .per-person-amount {
+      font-size: 36px;
+      color: var(--gold-light);
+      font-weight: 700;
+      font-family: Georgia, serif;
+    }
+
+    .pricing-header .total-label {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .pricing-header .total-amount {
+      font-size: 20px;
+      color: var(--cream);
+      font-weight: 600;
+      text-align: right;
+    }
+
+    .pricing-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .pricing-col {
+      padding: 20px 28px;
+    }
+
+    .pricing-col:first-child {
+      border-right: 1px solid var(--navy3);
+    }
+
+    .pricing-col-label {
+      font-size: 10px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 12px;
+    }
+
+    .pricing-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .pricing-col ul li {
+      font-size: 13px;
+      padding: 5px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pricing-col ul li:last-child {
+      border-bottom: none;
+    }
+
+    .check-included { color: var(--success); font-size: 11px; }
+    .check-excluded { color: var(--danger); font-size: 11px; }
+
+    /* ── CTA / Next Steps ──────────────────────────────────────────── */
+    .cta-section {
+      text-align: center;
+      padding: 40px 32px;
+      background: linear-gradient(135deg, rgba(201, 168, 76, 0.1), var(--navy2));
+      border: 2px solid rgba(201, 168, 76, 0.35);
+      border-radius: 12px;
+      margin-bottom: 24px;
+    }
+
+    .cta-section h2 {
+      font-size: 26px;
+      color: var(--cream);
+      border: none;
+      padding: 0;
+      margin-bottom: 12px;
+    }
+
+    .cta-section .cta-subtitle {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 28px;
+      font-style: italic;
+    }
+
+    .cta-steps {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .cta-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      max-width: 160px;
+    }
+
+    .cta-step-number {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 15px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cta-step-label {
+      font-size: 12px;
+      color: var(--text-light);
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    .cta-contact-row {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .cta-contact-item {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .cta-contact-item a,
+    .cta-contact-item span.highlight {
+      color: var(--gold);
+    }
+
+    /* ── Prepared by line above footer ────────────────────────────── */
+    .prepared-by-bar {
+      background: var(--navy3);
+      border-top: 1px solid var(--navy2);
+      border-bottom: 1px solid var(--navy2);
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .prepared-by-bar .preparer {
+      color: var(--text-light);
+    }
+
+    .prepared-by-bar .doc-date {
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  {# ── COVER ──────────────────────────────────────────────────────── #}
+  <div class="proposal-cover">
+    {% if meta.hero_image %}
+    <img class="hero-image" src="{{ meta.hero_image }}" alt="{{ meta.destination }}">
+    <div class="hero-overlay"></div>
+    {% else %}
+    <div style="position:absolute;inset:0;background:linear-gradient(160deg, var(--navy) 0%, var(--navy2) 50%, rgba(201,168,76,0.12) 100%);z-index:0;"></div>
+    {% endif %}
+
+    <div class="cover-content">
+      <div class="cover-label">Dreams2Memories Travel, LLC · Private Journey Proposal</div>
+      <div class="cover-client-name">{{ meta.client_name }}</div>
+      <div class="cover-destination">{{ meta.destination }}</div>
+      {% if meta.tagline %}
+      <div class="cover-tagline">"{{ meta.tagline }}"</div>
+      {% else %}
+      <div class="cover-tagline">"Your journey awaits."</div>
+      {% endif %}
+
+      <div class="cover-meta-strip">
+        {% if meta.travel_dates %}
+        <div class="cover-meta-item">
+          <span class="meta-label">Travel Dates</span>
+          <span class="meta-value">{{ meta.travel_dates }}</span>
+        </div>
+        {% endif %}
+        {% if meta.nights %}
+        <div class="cover-meta-item">
+          <span class="meta-label">Nights</span>
+          <span class="meta-value">{{ meta.nights }}</span>
+        </div>
+        {% endif %}
+        {% if meta.guests %}
+        <div class="cover-meta-item">
+          <span class="meta-label">Guests</span>
+          <span class="meta-value">{{ meta.guests }}</span>
+        </div>
+        {% endif %}
+        {% if meta.prepared_date %}
+        <div class="cover-meta-item">
+          <span class="meta-label">Prepared</span>
+          <span class="meta-value">{{ meta.prepared_date }}</span>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    <div class="cover-gold-rule"></div>
+  </div>
+
+  {# ── EXECUTIVE SUMMARY ──────────────────────────────────────────── #}
+  {% if summary %}
+  <div class="exec-summary">
+    <p>{{ summary }}</p>
+    <div class="dani-sig">— Dani Moreau, D2M Luxury Travel Concierge</div>
+  </div>
+  {% endif %}
+
+  {# ── DESTINATION OVERVIEW ───────────────────────────────────────── #}
+  {% if destination %}
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:rgba(201,168,76,0.15);color:var(--gold);font-size:16px;">✦</div>
+      <h2 style="border:none;padding:0;margin:0;">{{ meta.destination }}</h2>
+    </div>
+
+    <p style="font-size:14px;color:var(--text-light);line-height:1.7;">{{ destination.description }}</p>
+
+    <div class="destination-grid">
+      {% if destination.highlights %}
+      <div>
+        <h3 style="margin-bottom:12px;">Why You'll Love It</h3>
+        <ul class="dest-highlight-list">
+          {% for highlight in destination.highlights %}
+          <li>{{ highlight }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        {% if destination.best_season %}
+        <div class="season-box">
+          <div class="season-label">Best Time to Visit</div>
+          <div class="season-value">{{ destination.best_season }}</div>
+          {% if destination.weather_note %}
+          <div class="weather-note">{{ destination.weather_note }}</div>
+          {% endif %}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  {# ── ACCOMMODATION OPTIONS ───────────────────────────────────────── #}
+  {% if accommodations %}
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:rgba(201,168,76,0.15);color:var(--gold);font-size:16px;">⌂</div>
+      <div>
+        <h2 style="border:none;padding:0;margin:0;">Where You'll Stay</h2>
+        <div style="font-size:12px;color:var(--muted);margin-top:2px;">Curated selections, personally vetted</div>
+      </div>
+    </div>
+
+    {% for acc in accommodations %}
+    <div class="accommodation-card {{ 'is-recommended' if acc.recommendation_note else '' }}">
+
+      {# Photos #}
+      {% if acc.photos %}
+        {% if acc.photos | length >= 3 %}
+        <div class="hotel-photo-grid">
+          <img class="photo-main" src="{{ acc.photos[0] }}" alt="{{ acc.name }}">
+          <div class="hotel-photo-side">
+            <img src="{{ acc.photos[1] }}" alt="{{ acc.name }} detail">
+            <img src="{{ acc.photos[2] }}" alt="{{ acc.name }} detail">
+          </div>
+        </div>
+        {% elif acc.photos | length == 2 %}
+        <div class="hotel-photo-grid">
+          <img class="photo-main" src="{{ acc.photos[0] }}" alt="{{ acc.name }}">
+          <img src="{{ acc.photos[1] }}" alt="{{ acc.name }} detail">
+        </div>
+        {% else %}
+        <img class="hotel-photos" src="{{ acc.photos[0] }}" alt="{{ acc.name }}">
+        {% endif %}
+      {% endif %}
+
+      <div class="hotel-body">
+        <div class="hotel-name-row">
+          <h3>{{ acc.name }}</h3>
+          {% if acc.recommendation_note %}
+          <span class="recommended-ribbon">Our Pick</span>
+          {% endif %}
+        </div>
+
+        <p class="hotel-description">{{ acc.description }}</p>
+
+        {# Price Box #}
+        {% if acc.price_box %}
+        <div class="price-box {{ 'prestige' if acc.price_box.prestige else '' }}" style="margin-bottom:12px;">
+          <div class="price-label">{{ acc.price_box.label or 'From' }}</div>
+          <div class="price-amount">{{ acc.price_box.amount }}</div>
+          {% if acc.price_box.per_night %}
+          <div style="font-size:11px;color:var(--muted);margin-top:4px;">{{ acc.price_box.per_night }}</div>
+          {% endif %}
+        </div>
+        {% endif %}
+
+        {% if acc.recommendation_note %}
+        <div class="hotel-recommendation-note">{{ acc.recommendation_note }}</div>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {# ── EXCURSION HIGHLIGHTS ────────────────────────────────────────── #}
+  {% if excursions %}
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:rgba(201,168,76,0.15);color:var(--gold);font-size:16px;">◎</div>
+      <div>
+        <h2 style="border:none;padding:0;margin:0;">Curated Experiences</h2>
+        <div style="font-size:12px;color:var(--muted);margin-top:2px;">Handpicked to make this journey unforgettable</div>
+      </div>
+    </div>
+
+    <div class="excursion-grid">
+      {% for exc in excursions %}
+      <div class="excursion-card">
+        {% if exc.photo %}
+        <img src="{{ exc.photo }}" alt="{{ exc.name }}">
+        {% else %}
+        <div class="exc-placeholder">{{ exc.category_icon or '✦' }}</div>
+        {% endif %}
+
+        <div class="exc-body">
+          {% if exc.category %}
+          <div class="exc-category">{{ exc.category }}</div>
+          {% endif %}
+          <div class="exc-name">{{ exc.name }}</div>
+          <div class="exc-description">{{ exc.description }}</div>
+
+          <div class="exc-meta-row">
+            <span class="exc-duration">{% if exc.duration %}{{ exc.duration }}{% endif %}</span>
+            <span class="exc-price">{% if exc.price %}{{ exc.price }}{% endif %}</span>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  {# ── DAY-BY-DAY ITINERARY ────────────────────────────────────────── #}
+  {% if itinerary %}
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:rgba(201,168,76,0.15);color:var(--gold);font-size:16px;">▷</div>
+      <div>
+        <h2 style="border:none;padding:0;margin:0;">Your Journey, Day by Day</h2>
+        <div style="font-size:12px;color:var(--muted);margin-top:2px;">A preview — the magic is in the details</div>
+      </div>
+    </div>
+
+    <div class="itinerary-timeline">
+      {% for day in itinerary %}
+      <div class="itinerary-day">
+        <div class="day-header">
+          <span class="day-number">Day {{ day.day_number }}</span>
+          <span class="day-title">{{ day.title }}</span>
+        </div>
+        {% if day.description %}
+        <div class="day-description">{{ day.description }}</div>
+        {% endif %}
+        {% if day.highlights %}
+        <div class="day-highlights">
+          {% for h in day.highlights %}
+          <span class="day-highlight-pill">{{ h }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  {# ── PRICING SUMMARY ─────────────────────────────────────────────── #}
+  {% if pricing %}
+  <div class="section" style="padding:0;overflow:hidden;">
+    <div style="padding:20px 24px 16px;">
+      <div class="section-header" style="margin-bottom:0;">
+        <div class="section-icon" style="background:rgba(201,168,76,0.15);color:var(--gold);font-size:16px;">$</div>
+        <h2 style="border:none;padding:0;margin:0;">Investment Summary</h2>
+      </div>
+    </div>
+
+    <div class="pricing-section" style="margin-bottom:0;border:none;border-radius:0;">
+      <div class="pricing-header">
+        <div>
+          <div class="per-person-label">Per Person</div>
+          <div class="per-person-amount">{{ pricing.per_person }}</div>
+        </div>
+        {% if pricing.total %}
+        <div style="text-align:right;">
+          <div class="total-label">Total Investment</div>
+          <div class="total-amount">{{ pricing.total }}</div>
+        </div>
+        {% endif %}
+      </div>
+
+      <div class="pricing-columns">
+        {% if pricing.included %}
+        <div class="pricing-col">
+          <div class="pricing-col-label">What's Included</div>
+          <ul>
+            {% for item in pricing.included %}
+            <li><span class="check-included">✓</span> {{ item }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+
+        {% if pricing.not_included %}
+        <div class="pricing-col">
+          <div class="pricing-col-label">Not Included</div>
+          <ul>
+            {% for item in pricing.not_included %}
+            <li><span class="check-excluded">✗</span> {{ item }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  {# ── NEXT STEPS / CTA ────────────────────────────────────────────── #}
+  <div class="cta-section">
+    <h2>Ready to Make This Dream a Reality?</h2>
+    <div class="cta-subtitle">
+      Every detail above has been curated with you in mind. When you're ready, here's what happens next.
+    </div>
+
+    <div class="cta-steps">
+      <div class="cta-step">
+        <div class="cta-step-number">1</div>
+        <div class="cta-step-label">Tell us you're in — or share any changes you'd like</div>
+      </div>
+      <div class="cta-step">
+        <div class="cta-step-number">2</div>
+        <div class="cta-step-label">We secure your accommodations and priority experiences</div>
+      </div>
+      <div class="cta-step">
+        <div class="cta-step-number">3</div>
+        <div class="cta-step-label">We handle every detail — you simply arrive and enjoy</div>
+      </div>
+    </div>
+
+    <div class="cta-contact-row">
+      <div class="cta-contact-item">
+        Email: <a href="mailto:concierge@d2mluxury.quest">concierge@d2mluxury.quest</a>
+      </div>
+      <div class="cta-contact-item">
+        Web: <a href="https://portal.d2mluxury.quest">portal.d2mluxury.quest</a>
+      </div>
+    </div>
+  </div>
+
+  {# ── FOOTER ──────────────────────────────────────────────────────── #}
+  <div class="footer">
+    <div class="footer-brand">Dreams2Memories Travel, LLC</div>
+    <div>Dani Moreau · D2M Luxury Travel Concierge · concierge@d2mluxury.quest</div>
+    <div style="margin-top:6px;font-size:10px;color:var(--navy3);font-style:italic;">
+      Rates and availability subject to change until deposit is received. This proposal is prepared exclusively for {{ meta.client_name }}.
+    </div>
+    <div style="margin-top:8px;font-size:10px;">Curating the experience of a lifetime</div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -43,7 +43,7 @@ for email in emails:
     msg["to"] = email["to"]
     msg["cc"] = email["cc"]
     msg["subject"] = email["subject"]
-    msg["from"] = "johnloucks3@gmail.com"
+    msg["from"] = "d2mconcierge@gmail.com"  # D2M ops account — not Commander personal
 
     raw = base64.urlsafe_b64encode(msg.as_bytes()).decode("utf-8")
     draft = service.users().drafts().create(

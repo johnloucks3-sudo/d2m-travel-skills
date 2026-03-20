@@ -820,6 +820,25 @@ def run_staff_meeting(query: str, persona_ids: Optional[List[str]] = None) -> Di
         result = call_persona(pid, query)
         results.append(result)
 
+    # Detect disagreement — if responses contain opposing recommendations, trigger SSS
+    try:
+        from thunderbird_sss import create_sss, coordinate_sss
+        # Simple heuristic: if any response contains "disagree", "however", "alternatively", "I would not" etc.
+        disagreement_signals = ["disagree", "however, i recommend", "alternatively", "i would not", "strongly oppose"]
+        responses_text = "\n".join(str(r.get("answer", "")) for r in results)
+        if any(signal in responses_text.lower() for signal in disagreement_signals):
+            sss = create_sss(
+                action_officer="COS",
+                purpose=f"Staff disagreement detected during meeting on: {query[:100]}",
+                background=f"Staff meeting on '{query}' produced conflicting recommendations.",
+                discussion=responses_text[:2000],
+                recommendation="Present conflicting views to Commander for decision.",
+                scope="ioc",
+            )
+            coordinate_sss(sss.sss_id)
+    except Exception:
+        pass
+
     # Build consolidated report
     report_lines = []
     for r in results:

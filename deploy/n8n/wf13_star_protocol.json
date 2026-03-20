@@ -1,0 +1,68 @@
+{
+  "name": "D2M — STAR Protocol Sweep",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {"field": "cronExpression", "expression": "0 12 * * 1"},
+            {"field": "cronExpression", "expression": "0 12 * * 3"},
+            {"field": "cronExpression", "expression": "0 12 * * 5"}
+          ]
+        }
+      },
+      "id": "wf13-0001-4000-8000-000000000001",
+      "name": "Schedule — MWF 6AM MDT",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.d2mluxury.quest/api/tool/run_star_sweep",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [{"name": "x-api-key", "value": "={{$env.D2M_API_KEY}}"}]
+        },
+        "options": {"timeout": 180000}
+      },
+      "id": "wf13-0002-4000-8000-000000000002",
+      "name": "STAR Sweep",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const r = $input.item.json;\nconst data = r.data || r;\nconst ts = new Date().toLocaleString('en-US', {timeZone: 'America/Denver', weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'});\n\nconst findings = data.findings || data.star_findings || data.results || [];\nconst flagged = data.flagged || data.items_flagged || findings.length;\nconst categories = data.categories || {};\n\nlet body = '';\nif (findings.length) {\n  const lines = findings.slice(0,6).map(f => {\n    const cat = f.category ? ` [${f.category}]` : '';\n    const client = f.client ? ` — ${f.client}` : '';\n    return `• ${f.finding || f.title || f.summary}${cat}${client}`;\n  });\n  body = lines.join('\\n');\n  if (findings.length > 6) body += `\\n_...${findings.length - 6} more findings_`;\n} else {\n  body = '_No STAR findings this sweep_';\n}\n\nconst catSummary = Object.entries(categories).map(([k,v]) => `${k}: ${v}`).join(' · ');\nconst statLine = catSummary ? `\\n\\n_${catSummary}_` : '';\n\nconst message = `*D2M STAR Sweep — ${ts}*\\n\\n*${flagged} item(s) flagged:*\\n${body}${statLine}`;\nreturn [{ json: { message } }];"
+      },
+      "id": "wf13-0003-4000-8000-000000000003",
+      "name": "Format STAR Report",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "chatId": "={{$env.TELEGRAM_COMMANDER_ID}}",
+        "text": "={{ $json.message }}",
+        "additionalFields": {"parse_mode": "Markdown"}
+      },
+      "id": "wf13-0004-4000-8000-000000000004",
+      "name": "Telegram — STAR Report",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [900, 300],
+      "credentials": {"telegramApi": {"id": "1", "name": "D2MC2C Bot"}}
+    }
+  ],
+  "connections": {
+    "Schedule — MWF 6AM MDT": {"main": [[{"node": "STAR Sweep", "type": "main", "index": 0}]]},
+    "STAR Sweep": {"main": [[{"node": "Format STAR Report", "type": "main", "index": 0}]]},
+    "Format STAR Report": {"main": [[{"node": "Telegram — STAR Report", "type": "main", "index": 0}]]}
+  },
+  "active": false,
+  "settings": {"executionOrder": "v1"},
+  "tags": ["d2m", "star-protocol", "operations"]
+}

@@ -43,6 +43,7 @@ THUNDERBIRD_DIR = Path.home() / "Thunderbird"
 OAUTH_CREDENTIALS_FILE = THUNDERBIRD_DIR / "gmail_oauth_credentials.json"
 TOKEN_FILE = THUNDERBIRD_DIR / "gmail_token.json"
 EMAIL_SENT_LOG = THUNDERBIRD_DIR / "logs" / "email_sent.log"
+DRAFT_BODY_CACHE = THUNDERBIRD_DIR / "logs" / "draft_body_cache.json"
 SCOPES = ["https://www.googleapis.com/auth/gmail.modify"]
 USER_EMAIL = "d2mconcierge@gmail.com"
 D2M_FROM_ADDRESS = "concierge@d2mluxury.quest"
@@ -674,6 +675,17 @@ def register_gmail_tools(mcp):
         """
         try:
             service = _get_gmail_service()
+
+            # Fetch the draft body before sending for diff capture
+            sent_body = None
+            try:
+                draft_data = service.users().drafts().get(
+                    userId="me", id=draft_id, format="full"
+                ).execute()
+                sent_body = _decode_body(draft_data.get("message", {}).get("payload", {}))
+            except Exception:
+                pass  # Non-critical — diff capture is best-effort
+
             sent = (
                 service.users()
                 .drafts()
@@ -687,6 +699,19 @@ def register_gmail_tools(mcp):
                 to="(from draft)", subject="(from draft)",
                 persona_id="APPROVED", auto_send=True, ref_id=msg_id,
             )
+
+            # After successful send, capture diff for learning compiler
+            try:
+                from thunderbird_learning import capture_email_diff
+                original_body = _pop_cached_draft_body(draft_id)
+                if original_body and sent_body and original_body != sent_body:
+                    capture_email_diff(
+                        original_body, sent_body,
+                        context="Commander edited draft before sending",
+                        source="gmail_send",
+                    )
+            except Exception:
+                pass  # Learning capture is non-critical — never block sends
 
             return json.dumps({
                 "status": "success",
@@ -825,6 +850,9 @@ def register_gmail_tools(mcp):
                         _tag_commander_review(service, draft_msg_id)
                 except Exception as e:
                     logger.warning(f"Failed to tag draft with review label: {e}")
+
+                # Cache original AI-generated body for learning diff at send time
+                _cache_draft_body(draft_id, body)
 
                 pid_used = (from_persona or "CONCIERGE").upper()
                 _log_email_action(
@@ -1242,6 +1270,9 @@ async def _send_or_draft_as_persona(
             except Exception as e:
                 logger.warning(f"Failed to tag draft with review label: {e}")
 
+            # Cache original AI-generated body for learning diff at send time
+            _cache_draft_body(ref_id, body)
+
             # WF17 — push Telegram notification so Commander doesn't need to poll /drafts
             try:
                 _push_telegram_draft_alert(
@@ -1421,6 +1452,42 @@ def _log_email_action(to: str, subject: str, persona_id: str, auto_send: bool, r
         logger.warning(f"Failed to write email log: {e}")
 
 
+def _cache_draft_body(draft_id: str, body: str) -> None:
+    """Store the AI-generated original body for a draft, keyed by draft_id.
+
+    Used by the learning compiler: when Commander edits a draft before sending,
+    we diff the original AI body vs the sent body to extract voice principles.
+    """
+    try:
+        DRAFT_BODY_CACHE.parent.mkdir(parents=True, exist_ok=True)
+        cache: dict = {}
+        if DRAFT_BODY_CACHE.exists():
+            cache = json.loads(DRAFT_BODY_CACHE.read_text(encoding="utf-8"))
+        cache[draft_id] = body
+        # Keep cache bounded — prune entries older than 200
+        if len(cache) > 200:
+            keys = list(cache.keys())
+            for k in keys[:-200]:
+                del cache[k]
+        DRAFT_BODY_CACHE.write_text(json.dumps(cache, ensure_ascii=False), encoding="utf-8")
+    except Exception as e:
+        logger.debug(f"Draft body cache write failed (non-critical): {e}")
+
+
+def _pop_cached_draft_body(draft_id: str) -> Optional[str]:
+    """Retrieve and remove the original AI-generated body for a draft."""
+    try:
+        if not DRAFT_BODY_CACHE.exists():
+            return None
+        cache = json.loads(DRAFT_BODY_CACHE.read_text(encoding="utf-8"))
+        body = cache.pop(draft_id, None)
+        if body is not None:
+            DRAFT_BODY_CACHE.write_text(json.dumps(cache, ensure_ascii=False), encoding="utf-8")
+        return body
+    except Exception:
+        return None
+
+
 # ============================================================================
 # Standalone convenience functions (importable without MCP)
 # ============================================================================
@@ -1560,6 +1627,8 @@ def gmail_send_with_approval(
         result = service.users().drafts().create(userId="me", body={"message": {"raw": raw}}).execute()
         action = "draft_created"
         ref_id = result.get("id", "unknown")
+        # Cache original AI-generated body for learning diff at send time
+        _cache_draft_body(ref_id, body)
 
     _log_email_action(to=to, subject=subject, persona_id=pid, auto_send=auto_send, ref_id=ref_id)
 
@@ -1590,6 +1659,7 @@ def gmail_send_draft_sync(draft_id: str) -> dict:
 
     Used by the Telegram approval flow: Commander approves → COS calls this → draft sent.
     Returns dict with message ID and confirmation.
+    Includes diff capture for learning compiler (Staff Skill #1-3).
     """
     if SEND_LOCKOUT:
         return {
@@ -1600,6 +1670,16 @@ def gmail_send_draft_sync(draft_id: str) -> dict:
         }
 
     service = _get_gmail_service()
+
+    # Fetch the draft body before sending — this is the version Commander approved
+    # (may have been edited from the AI-generated original)
+    sent_body = None
+    try:
+        draft_data = service.users().drafts().get(userId="me", id=draft_id, format="full").execute()
+        sent_body = _decode_body(draft_data.get("message", {}).get("payload", {}))
+    except Exception:
+        pass  # Non-critical — diff capture is best-effort
+
     sent = service.users().drafts().send(userId="me", body={"id": draft_id}).execute()
 
     msg_id = sent.get("id", "unknown")
@@ -1607,6 +1687,20 @@ def gmail_send_draft_sync(draft_id: str) -> dict:
         to="(from draft)", subject="(from draft)",
         persona_id="APPROVED", auto_send=True, ref_id=msg_id,
     )
+
+    # After successful send, capture diff for learning compiler
+    try:
+        from thunderbird_learning import capture_email_diff
+        original_body = _pop_cached_draft_body(draft_id)
+        if original_body and sent_body and original_body != sent_body:
+            capture_email_diff(
+                original_body, sent_body,
+                context="Commander edited draft before sending",
+                source="gmail_send",
+            )
+    except Exception:
+        pass  # Learning capture is non-critical — never block sends
+
     return {
         "status": "success",
         "action": "draft_sent",
