@@ -1158,11 +1158,12 @@ async def list_personas(x_api_key: str = Header(None)):
 # ============================================================================
 
 @app.get("/api/learning/rules")
-async def api_learning_rules(persona: str = None, domain: str = None, x_api_key: str = Header(None)):
-    """Get applicable learning rules, optionally filtered by persona and domain."""
+async def api_learning_rules(persona: str = None, domain: str = None, context: str = None, x_api_key: str = Header(None)):
+    """Get applicable learning rules, optionally filtered by persona, domain, and context.
+    When context is provided, CIPHER similarity search merges relevant principles."""
     _verify_key(x_api_key)
     from thunderbird_learning import get_applicable_rules
-    rules = get_applicable_rules(persona_id=persona, domain=domain)
+    rules = get_applicable_rules(persona_id=persona, domain=domain, context=context)
     return {"rules": rules}
 
 
@@ -1182,6 +1183,24 @@ async def api_learning_capture(request: Request, x_api_key: str = Header(None)):
     from thunderbird_learning import capture_email_diff
     capture_email_diff(data["original"], data["edited"], context=data.get("context", ""), source=data.get("source", "api"))
     return {"status": "captured"}
+
+
+@app.post("/api/learning/similar")
+async def api_learning_similar(request: Request, x_api_key: str = Header(None)):
+    """CIPHER similarity search. Body: {"context": "...", "top_k": 5}"""
+    _verify_key(x_api_key)
+    data = await request.json()
+    from thunderbird_learning import get_similar_principles
+    results = get_similar_principles(data.get("context", ""), top_k=data.get("top_k", 5))
+    return {"count": len(results), "principles": results}
+
+
+@app.get("/api/learning/cipher/stats")
+async def api_learning_cipher_stats(x_api_key: str = Header(None)):
+    """Get CIPHER embedding index statistics."""
+    _verify_key(x_api_key)
+    from thunderbird_learning import get_cipher_stats
+    return get_cipher_stats()
 
 
 # ============================================================================

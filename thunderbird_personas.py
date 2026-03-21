@@ -510,22 +510,38 @@ def recall_persona_memory(
 def inject_memory_context(persona_id: str, system_prompt: str) -> str:
     """Enrich a persona system prompt with recent memories.
 
-    Retrieves the last 5 memories and appends them as a
-    '## Your Recent Memory' section.  Returns prompt unchanged
-    if no memories exist.
+    Two memory layers:
+      1. Persistent file-based memory (~/Thunderbird/Personas/memory/<SLOT>/)
+         — persona_context.md, session_notes.md, etc.  Survives across sessions.
+      2. Session JSONL memory (~/Thunderbird/persona_memory/<SLOT>.jsonl)
+         — auto-classified interaction memories from the current and past sessions.
+
+    Returns prompt unchanged if no memories exist in either layer.
     """
+    pid = resolve_id(persona_id)
+
+    # --- Layer 1: Persistent file-based memory (subagent directories) ---
+    try:
+        from thunderbird_persona_memory import get_persona_context_for_injection
+        persistent_context = get_persona_context_for_injection(pid)
+        if persistent_context:
+            system_prompt += "\n\n" + persistent_context
+    except Exception as e:
+        logger.debug(f"Persistent memory injection skipped for {pid}: {e}")
+
+    # --- Layer 2: Session JSONL memory (recent interactions) ---
     memories = recall_persona_memory(persona_id, limit=5)
-    if not memories:
-        return system_prompt
+    if memories:
+        lines = []
+        for m in memories:
+            ts = m.get("timestamp", "")[:19].replace("T", " ")
+            cat = m.get("category", "general")
+            lines.append(f"- [{cat}] ({ts}) {m['content']}")
 
-    lines = []
-    for m in memories:
-        ts = m.get("timestamp", "")[:19].replace("T", " ")
-        cat = m.get("category", "general")
-        lines.append(f"- [{cat}] ({ts}) {m['content']}")
+        memory_block = "\n\n## Your Recent Session Memory\n" + "\n".join(lines)
+        system_prompt += memory_block
 
-    memory_block = "\n\n## Your Recent Memory\n" + "\n".join(lines)
-    return system_prompt + memory_block
+    return system_prompt
 
 
 def _classify_memory(persona_id: str, response_text: str) -> tuple:
@@ -759,10 +775,10 @@ def call_persona(persona_id: str, query: str, max_tokens: int = 2000,
     # --- Memory: inject recent context into system prompt ---
     system_prompt = inject_memory_context(pid, system_prompt)
 
-    # --- Learning: inject Commander-validated rules ---
+    # --- Learning: inject Commander-validated rules (with CIPHER context) ---
     try:
         from thunderbird_learning import get_applicable_rules
-        rules_block = get_applicable_rules(persona_id=pid)
+        rules_block = get_applicable_rules(persona_id=pid, context=query)
         if rules_block:
             system_prompt += rules_block
     except Exception as _lr_err:
@@ -922,6 +938,10 @@ def register_persona_tools(mcp_server):
     ) -> str:
         """Explicitly store a memory for a D2M staff persona.
 
+        Writes to both layers:
+          1. Session JSONL memory (auto-injected into prompts)
+          2. Persistent file-based memory (survives across sessions)
+
         Categories: research, client_context, decision, insight, preference.
         Memories persist across sessions and are auto-injected into persona prompts.
 
@@ -929,7 +949,16 @@ def register_persona_tools(mcp_server):
           store_persona_memory('A3', 'client_context', 'Furlow party prefers ocean-view suites')
           store_persona_memory('A2', 'research', 'Silversea Silver Nova repositioning May 2026 Naples→Barcelona')
         """
+        # Layer 1: Session JSONL
         entry = store_persona_memory(persona_id, category, content)
+
+        # Layer 2: Persistent file-based memory
+        try:
+            from thunderbird_persona_memory import append_persona_memory
+            append_persona_memory(persona_id, f"[{category}] {content}")
+        except Exception as e:
+            logger.debug(f"Persistent memory append skipped: {e}")
+
         return json.dumps(entry, indent=2)
 
     @mcp_server.tool(
@@ -943,13 +972,28 @@ def register_persona_tools(mcp_server):
     ) -> str:
         """Retrieve stored memories for a D2M staff persona.
 
-        Optional keyword query filters by content match.
+        Returns both session JSONL memories and persistent file-based context.
+        Optional keyword query filters session memories by content match.
         Returns most recent entries first (up to limit).
 
         Examples:
-          recall_persona_memory('A3')  — last 10 memories for Moreau
+          recall_persona_memory('A3')  — all memories for Moreau
           recall_persona_memory('A9', query='commission')  — Harlan's commission-related memories
         """
+        # Layer 1: Session JSONL memories
         memories = recall_persona_memory(persona_id, query=query, limit=limit)
-        return json.dumps(memories, indent=2)
+
+        # Layer 2: Persistent file-based context
+        persistent_files = []
+        try:
+            from thunderbird_persona_memory import list_persona_memory_files
+            persistent_files = list_persona_memory_files(persona_id)
+        except Exception:
+            pass
+
+        result = {
+            "session_memories": memories,
+            "persistent_files": persistent_files,
+        }
+        return json.dumps(result, indent=2, default=str)
 

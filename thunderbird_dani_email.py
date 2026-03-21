@@ -338,6 +338,18 @@ def _phase_artist(aggregated_data: Dict[str, Any]) -> Optional[str]:
     except Exception:
         pass
 
+    # --- Recipient voice profile: per-person communication patterns ---
+    try:
+        from thunderbird_recipient_profiles import get_injection_block
+        recipient_block = get_injection_block(
+            aggregated_data.get("sender_email")
+            or sender_name
+        )
+        if recipient_block:
+            context += f"\n\n{recipient_block}"
+    except Exception:
+        pass
+
     if voice_rules:
         context += f"\n\n{voice_rules}"
 
