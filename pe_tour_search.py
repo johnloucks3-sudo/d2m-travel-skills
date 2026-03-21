@@ -157,7 +157,7 @@ async def search_tours(country="Japan", location=None, attraction=None, tour_typ
                 // Find rating
                 let rating = '';
                 for (const line of lines) {
-                    if (line.match(/^[0-9]\.[0-9]$/)) { rating = line; break; }
+                    if (line.match(/^[0-9]\\.[0-9]$/)) { rating = line; break; }
                 }
                 // Find review info
                 let reviews = '';
@@ -176,7 +176,7 @@ async def search_tours(country="Japan", location=None, attraction=None, tour_typ
                 // Find duration
                 let duration = '';
                 for (const line of lines) {
-                    if (line.match(/\d+ (Hour|Minute|Day)/i)) { duration = line; break; }
+                    if (line.match(/\\d+ (Hour|Minute|Day)/i)) { duration = line; break; }
                 }
                 // Find type
                 let tourType = '';

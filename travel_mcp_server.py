@@ -56,6 +56,7 @@ from thunderbird_crewai import register_crewai_tools
 from thunderbird_a2a import register_a2a_tools
 from thunderbird_airline_monitor import register_airline_monitor_tools
 from thunderbird_intel_crew import register_intel_crew_tools
+from thunderbird_innovation_scanner import register_innovation_tools
 from thunderbird_tasks import register_tasks_tools
 from thunderbird_files_api import register_files_api_tools
 from thunderbird_skills_api import register_skills_tools
@@ -470,6 +471,7 @@ register_crewai_tools(mcp)
 register_a2a_tools(mcp)
 register_airline_monitor_tools(mcp)
 register_intel_crew_tools(mcp)
+register_innovation_tools(mcp)
 register_tasks_tools(mcp)
 register_files_api_tools(mcp)
 register_skills_tools(mcp)

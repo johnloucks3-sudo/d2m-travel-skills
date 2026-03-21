@@ -1,0 +1,90 @@
+{
+  "meta": {
+    "created": "2026-03-20T20:53:06.267501+00:00",
+    "last_updated": "2026-03-20T20:53:06.273112+00:00",
+    "version": 1
+  },
+  "global_rules": [
+    {
+      "domain": "signoff",
+      "text": "Sign-off: \"Thanks, John\" — never \"Best,\" never \"Warm regards,\" never a paragraph.",
+      "source": "mar20_email_analysis",
+      "example": "Thanks,\nJohn",
+      "created": "2026-03-20T20:53:06.267506+00:00",
+      "applied_count": 2
+    },
+    {
+      "domain": "tone",
+      "text": "Mirror warmth, be shorter and more certain. Client uncertain → John is steady.",
+      "source": "mar20_email_analysis",
+      "example": null,
+      "created": "2026-03-20T20:53:06.267816+00:00",
+      "applied_count": 2
+    },
+    {
+      "domain": "anti_pattern",
+      "text": "Never upsell, add extras, or pad with filler in routine replies.",
+      "source": "mar20_email_analysis",
+      "example": null,
+      "created": "2026-03-20T20:53:06.267969+00:00",
+      "applied_count": 2
+    }
+  ],
+  "tier_rules": {
+    "paying": [
+      {
+        "domain": "length",
+        "text": "Four sentences max for routine replies. Confirm action, confirm ask, close.",
+        "source": "mar20_email_analysis",
+        "example": null,
+        "created": "2026-03-20T20:53:06.268105+00:00",
+        "applied_count": 0
+      },
+      {
+        "domain": "structure",
+        "text": "Length is appropriate when the letter does several things (payment + portal + relationship). Don't shorten multi-purpose letters.",
+        "source": "mar20_email_analysis",
+        "example": null,
+        "created": "2026-03-20T20:53:06.268241+00:00",
+        "applied_count": 0
+      }
+    ],
+    "vendor": [
+      {
+        "domain": "tone",
+        "text": "Transactional but personal. Correct the record matter-of-factly, don't make it a production.",
+        "source": "mar20_email_analysis",
+        "example": "\"Thanks for sending.\"",
+        "created": "2026-03-20T20:53:06.268372+00:00",
+        "applied_count": 0
+      }
+    ],
+    "staff": [
+      {
+        "domain": "structure",
+        "text": "Short tasking with confirmation request. Task + how to acknowledge.",
+        "source": "mar20_email_analysis",
+        "example": "\"Scan this into dossier. Report complete or ask questions.\"",
+        "created": "2026-03-20T20:53:06.268594+00:00",
+        "applied_count": 1
+      },
+      {
+        "domain": "structure",
+        "text": "Credit + next action, one line each.",
+        "source": "mar20_email_analysis",
+        "example": "\"Excellent analysis. Develop a deeper paper on this.\"",
+        "created": "2026-03-20T20:53:06.272296+00:00",
+        "applied_count": 1
+      },
+      {
+        "domain": "phrasing",
+        "text": "Embedded directives in operational replies are standing orders. Staff must catch them.",
+        "source": "mar20_email_analysis",
+        "example": "\"COS, add flights from IAD NON SOUTHWEST from now on.\"",
+        "created": "2026-03-20T20:53:06.272528+00:00",
+        "applied_count": 1
+      }
+    ]
+  },
+  "client_rules": {}
+}
