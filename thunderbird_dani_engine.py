@@ -1020,6 +1020,38 @@ def build_dani_context(query: str, client_scope: Optional[str] = None,
     )
 
     # ---------------------------------------------------------------------------
+    # DATA CONFIDENCE MODULE — per-field confidence tagging (Phase 1 inline wiring)
+    # thunderbird_data_confidence.build_confidence_report() produces a richer block
+    # with per-field HIGH/MED/LOW/ZERO tags so Dani knows exactly what she can state.
+    # Supplements (does not replace) the summary block above.
+    # ---------------------------------------------------------------------------
+    try:
+        from thunderbird_data_confidence import build_confidence_report
+        _booking_data = None
+        _dossier_sections = None
+        if bookings and len(bookings) > 50:
+            # Pass the raw booking dict for the first matched client if available
+            try:
+                from thunderbird_anchor_dates import KNOWN_BOOKINGS
+                for _bk_key, _bk in KNOWN_BOOKINGS.items():
+                    if not clients or any(f in _bk["client"].lower() for f in clients):
+                        _booking_data = _bk
+                        break
+            except Exception:
+                pass
+        _conf_report = build_confidence_report(
+            query=query,
+            client=clients[0] if clients else "unknown",
+            booking_data=_booking_data,
+            dossier_sections=_dossier_sections,
+        )
+        _conf_block = _conf_report.to_injection_block()
+        if _conf_block:
+            sections.append(_conf_block)
+    except Exception as _e:
+        logger.debug(f"Data confidence module injection skipped: {_e}")
+
+    # ---------------------------------------------------------------------------
     # Brand Voice Card — Luna's standardized voice DNA (d2m_brand_voice.json)
     # Loads once, injects before all rules so tone/voice colors everything.
     # ---------------------------------------------------------------------------
@@ -1176,6 +1208,20 @@ def build_dani_context(query: str, client_scope: Optional[str] = None,
         "- Carry forward any commitments made earlier. If you said you'd check on something, "
         "acknowledge that status.\n"
     )
+
+    # ---------------------------------------------------------------------------
+    # RESPONSE LIBRARY — Phase 2 (Artist) template injection
+    # thunderbird_response_library.select_template() picks the best structural
+    # template for this query so Dani writes from a skeleton, not from scratch.
+    # Injected after rules so the template shapes HOW she uses everything above.
+    # ---------------------------------------------------------------------------
+    try:
+        from thunderbird_response_library import select_template
+        _tmpl = select_template(query=query)
+        if _tmpl:
+            sections.append(_tmpl.to_injection_block())
+    except Exception as _e:
+        logger.debug(f"Response library template injection skipped: {_e}")
 
     # --- Auto-enrichment: inject client context from dossiers/Gmail/Drive ---
     try:

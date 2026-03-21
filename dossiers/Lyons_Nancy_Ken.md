@@ -42,14 +42,15 @@
 
 ---
 
-### PRE-CRUISE (Athens — Aug 10)
+### PRE-CRUISE (Athens — Aug 10–11)
 | Item | Details | Status |
 |------|---------|--------|
-| Hotel | **Hotel Grande Bretagne** (Marriott Luxury Collection) — Syntagma Square, Athens | Confirm if booked |
-| Check-in | August 10, 2026 (night before embarkation) | TBD |
-| Dinner reservation | Grande Bretagne restaurant (GB Roof Garden or GB Corner) — Aug 10 evening | **OPEN — to be arranged** |
-| Transfer in | ATH airport → Hotel Grande Bretagne | **OPEN** |
-| Transfer out | Hotel Grande Bretagne → Piraeus port (embarkation Aug 11) | **OPEN** |
+| Hotel | **Hotel Grande Bretagne** (Marriott Luxury Collection) — Syntagma Square, Athens | Confirmed by Commander |
+| Check-in | August 10, 2026 | Confirmed |
+| Check-out | August 11, 2026 (embarkation day — Piraeus) | Confirmed |
+| Dinner reservation | Hotel Grande Bretagne — Aug 10 evening | **OPEN — to be arranged** |
+| Transfer in | ATH airport → Hotel Grande Bretagne (Aug 10) | **OPEN** |
+| Transfer out | Hotel Grande Bretagne → Piraeus port (Aug 11) | **OPEN** |
 
 ---
 
@@ -64,15 +65,16 @@
 
 ### OPEN ACTION ITEMS
 1. [ ] **Dinner reservation — Hotel Grande Bretagne, Athens** — Aug 10 evening (GB Roof Garden preferred — views of Acropolis). Research, recommend, assist with booking.
-2. [ ] **Transfer: ATH airport → Hotel Grande Bretagne** (Aug 10, arrival time unknown — confirm with Nancy)
-3. [ ] **Transfer: Hotel Grande Bretagne → Piraeus port** (Aug 11, embarkation day)
+2. [ ] **Transfer: ATH airport → Hotel Grande Bretagne** — Aug 10 arrival. Book private car. *(Arrival time: confirm with Nancy/Ken.)*
+3. [ ] **Transfer: Hotel Grande Bretagne → Piraeus port** — Aug 11, embarkation day
 4. [ ] Confirm exact Splendor two-leg sailing dates and ports of call
-5. [ ] Confirm if Nancy/Ken have suite assignments for either leg
-6. [ ] Offer Lisbon turnaround activities/dining if there's a port day or overnight between legs
+5. [ ] Confirm suite assignments for either leg
+6. [ ] Offer Lisbon turnaround activities/dining (Sintra already planned — don't suggest; offer transport/restaurant support only)
 
 ---
 
 ### NOTES
 - Friend Service model applies (see project_friend_service_model.md)
 - No commission tracked — courtesy service only
+- **Flight itinerary REMOVED 21 MAR 2026** — prior entry was fabricated/misinterpreted. DO NOT re-enter flight data without direct Commander confirmation.
 - Dani may reach out mentioning she heard from John with latest updates

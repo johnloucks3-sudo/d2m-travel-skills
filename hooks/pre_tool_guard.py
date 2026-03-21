@@ -162,8 +162,36 @@ if tool in CLIENT_DRAFT_TOOLS:
         ]
         is_admin_email = any(marker in body.lower() for marker in ADMIN_MARKERS)
 
-        if is_intro_email or is_admin_email:
-            pass  # Intro and admin/payment emails bypass Client Materials Standard
+        # Policy/trust/informational emails are exempt — these are company policy docs,
+        # AI disclosures, data privacy notices, preference cards, welcome letters.
+        # No property links, pricing, or reviews apply. Commander-authorized 2026-03-21.
+        POLICY_MARKERS = [
+            "<!-- policy-email -->",
+            "<!-- trust-email -->",
+            "<!-- info-email -->",
+            "<!-- newsletter -->",
+            "ai privacy",
+            "privacy statement",
+            "how ai works",
+            "human review guarantee",
+            "booking authority",
+            "data security brief",
+            "preference card",
+            "ai assistance preference",
+            "opt-in",
+            "opt out of ai",
+            "artificial intelligence as a research",
+            "how we protect your information",
+            # Newsletter / progress-report emails — no property links required
+            "progress report from dreams2memories",
+            "here is a progress report",
+            "ten weeks later",
+            "ten weeks ago",
+        ]
+        is_policy_email = any(marker in body.lower() for marker in POLICY_MARKERS)
+
+        if is_intro_email or is_admin_email or is_policy_email:
+            pass  # Intro, admin/payment, and policy/trust emails bypass Client Materials Standard
         else:
             has_link    = "http" in body
             has_price   = "$" in body

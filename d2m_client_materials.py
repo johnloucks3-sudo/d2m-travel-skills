@@ -785,7 +785,7 @@ def generate_oa_supplement_email(client_name: str, oa_portal_link: str,
         f"Supplementary materials attached: {materials_list}. "
         f"Write a warm, personal email (not corporate) that: "
         f"1) Thanks them for choosing D2M, "
-        f"2) Shares the booking portal link for payments/documents, "
+        f"2) Shares the OA/TESS booking portal link ({oa_portal_link}) for documents — NOTE: CC payments go through OA Client Portal Activation email, NOT this link, "
         f"3) Introduces the attached guides as 'because travel starts before you leave home', "
         f"4) Invites them to reach out with any questions. "
         f"Sign off as John Loucks, Dreams2Memories Travel. "

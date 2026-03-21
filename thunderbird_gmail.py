@@ -95,6 +95,23 @@ PERSONA_DISPLAY_NAMES = {
 # Restored to #0000ff per Commander directive 2026-03-16.
 D2M_INK_COLOR = "#0000ff"
 
+# Commander directive 2026-03-21: ALL outbound correspondence — Dani or not — must include
+# Commander's signature and logo.  Logo is in the banner; this block is the signature footer,
+# appended inside the paper card below the body text.
+COMMANDER_SIGNATURE_HTML = (
+    '<hr style="border: none; border-top: 1px solid rgba(201,168,76,0.45); margin: 28px 0 18px 0;" />'
+    '<div style="color: #0000ff; font-family: Georgia, \'Times New Roman\', serif; '
+    'font-size: 9.5pt; line-height: 1.7;">'
+    '<strong>John Loucks</strong><br>'
+    'Owner &amp; Founder, Dreams2Memories Travel, LLC<br>'
+    '<a href="mailto:concierge@d2mluxury.quest" '
+    'style="color: #0000ff; text-decoration: none;">concierge@d2mluxury.quest</a>'
+    '&nbsp;&middot;&nbsp;'
+    '<a href="https://d2mluxury.quest" '
+    'style="color: #0000ff; text-decoration: none;">d2mluxury.quest</a>'
+    '</div>'
+)
+
 logger = logging.getLogger(__name__)
 
 # Cached service instance
@@ -298,6 +315,7 @@ def _wrap_body_html(plain_text: str) -> str:
         f'">'
         f'{html_body}'
         f'</div>'
+        f'{COMMANDER_SIGNATURE_HTML}'
         f'</div>'
         f'</div>'
         f'</div>'

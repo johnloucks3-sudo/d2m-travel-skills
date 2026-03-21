@@ -1,157 +1,5 @@
 [
   {
-    "timestamp": "2026-03-17T08:29:06.900309",
-    "message_id": "19cfc232bf760309",
-    "from": "Adobe Acrobat <mail@mail.adobe.com>",
-    "subject": "Take this step toward seamless tax filing",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED.**\n\nNot a client. That's an Adobe Acrobat marketing email about tax filing. Nobody asked D2M anything.\n\nDani correctly identified it as spam at the bottom of her response \u2014 then generated an unsolicited full operational brief anyway. That brief is addressed to John, not a client, and contains every active client's financials, booking details, and internal status notes. It should never go through a client-facing channel.\n\nDiscard.\n\n---\n_Claude Opus 4.6 (Max)_"
-  },
-  {
-    "timestamp": "2026-03-17T08:30:02.149473",
-    "message_id": "19cfc2c854c86828",
-    "from": "Viking <notification@viking.com>",
-    "subject": "VIKING MARS 12-17-2026: Booking: 9593880 Guest: KUKLINSKI - Payment Reminders",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED.**\n\nSame pattern I've been blocking all day.\n\nThis is a **Viking automated payment reminder email** sent to the travel advisor (John) \u2014 the supplier's system nudging D2M about booking 9593880. No client asked D2M anything. There is no client waiting for a response.\n\nDani generated a full operational brief with commission figures, risk assessments, and contact details \u2014 none of which should ever be in a \"client response\" because **there is no client on the other end of this.**\n\nThe brief itself may be useful internal intel for John, but it is **not a client response** and should not be routed through the client-facing review gate.\n\nDiscard.\n\n---\n_Claude Opus 4.6 (Max)_"
-  },
-  {
-    "timestamp": "2026-03-17T08:31:32.326006",
-    "message_id": "19cfc2ac64028c93",
-    "from": "Viking <notification@viking.com>",
-    "subject": "VIKING MARS 12-17-2026: Booking: 9595029 Guest: MORTON - Payment Reminders",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED.**\n\nSame pattern. Third time today on this exact booking.\n\nThis is a **Viking automated payment reminder email** sent to the travel advisor (John) \u2014 the supplier's system nudging D2M about booking 9595029. No client asked D2M anything. There is no client waiting for a response.\n\nDani's draft is addressed to John, not to Morton/Dodge. She correctly identified it as an internal ops reminder \u2014 then built a full client-facing brief anyway. That brief should not go out the door as a \"client response\" because **no client asked a question.**\n\nThe operational content (FPD-14 timeline, data gap flag, recommended actions) is solid internal work product. But it's an **advisor action item**, not a client communication.\n\n**Disposition:** File as internal ops note. No client send.\n\n---\n_Claude Opus 4.6 (Max)_"
-  },
-  {
-    "timestamp": "2026-03-17T08:32:53.405050",
-    "message_id": "19cfc26457e893a3",
-    "from": "WIRED <wired@eml.condenast.com>",
-    "subject": "Unlock WIRED for $2/month",
-    "status": "dani_failed"
-  },
-  {
-    "timestamp": "2026-03-17T08:33:12.018395",
-    "message_id": "19cfc254a15a76fd",
-    "from": "\"Newsmax.com\" <newsmax@latest.newsmax.com>",
-    "subject": "Top Iran Official Eliminated; Mullin DHS Nomination; Hormuz Escorts Safety",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED.**\n\nSame pattern. Fourth time today.\n\nThat's a **Newsmax news headline** \u2014 not a client asking D2M anything. \"Top Iran Official Eliminated; Mullin DHS Nomination; Hormuz Escorts Safety\" is a news digest email that landed in John's inbox.\n\nNo client asked a question. There is no client waiting for a response.\n\nDani ignored the input entirely, then generated an unsolicited full operational brief with financials, booking IDs, balances, and internal action items \u2014 addressed to John, not a client. If this somehow reached an external recipient, it would expose every active client's payment status and internal ops notes.\n\n**Standing directive:** Automated emails, spam, newsletters, and supplier system notifications are not client inquiries. Do not generate responses to them.\n\n---\n_Claude Opus 4.6 (Max)_"
-  },
-  {
-    "timestamp": "2026-03-17T08:34:04.607497",
-    "message_id": "19cfc232bf760309",
-    "from": "Adobe Acrobat <mail@mail.adobe.com>",
-    "subject": "Take this step toward seamless tax filing",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED.**\n\nFifth time today. Same pattern.\n\nThat's an **Adobe Acrobat marketing email** about tax filing. Not a client. Not a question. Nobody is waiting for a response from D2M.\n\nDani correctly identified it as spam in one line at the bottom \u2014 then generated an unsolicited full operational brief on Ely/Darrow that nobody asked for. That brief is addressed to John, not a client, and has no business going through the client-response pipeline.\n\nNothing to send. Nothing to action.\n\n---\n_Claude Opus 4.6 (Max)_"
-  },
-  {
-    "timestamp": "2026-03-17T08:35:17.733012",
-    "message_id": "19cfc228510938ae",
-    "from": "Cruise Critic <news@info.cruisecritic.com>",
-    "subject": "\ud83c\udf54 Who Does Free Cruise Dining Best? Ship Refurb News & More",
-    "status": "dani_failed"
-  },
-  {
-    "timestamp": "2026-03-17T08:35:53.272909",
-    "message_id": "19cfc2066f6e2b0d",
-    "from": "Zoom <webinars@zoom.com>",
-    "subject": "\u2618\ufe0f You\u2019re in luck: catch Zoom\u2019s latest @\u202f1 ET today!",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED.**\n\nSixth time today. Same pattern.\n\nThat's a **Zoom marketing webinar invitation** \u2014 not a client asking D2M anything. \"Catch Zoom's latest @ 1 ET today\" is a promotional email about their AI product launch. No human being is waiting for a response from Dreams2Memories.\n\nDani generated a full operational board briefing in response to spam. Nobody asked for it. Don't send it.\n\n---\n_Claude Opus 4.6 (Max)_"
-  },
-  {
-    "timestamp": "2026-03-17T08:37:23.692358",
-    "message_id": "19cfc1d655338251",
-    "from": "\"Lose It!\" <donotreply@loseit.com>",
-    "subject": "Lose It! Daily Summary for Mon, Mar 16th",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED.**\n\nThat's a **Lose It! diet app daily summary email** \u2014 a calorie tracking notification for Monday, March 16th. Not a client. Not a question. Nobody is waiting for a response from D2M.\n\nDani ignored the actual content entirely and generated an unsolicited full portfolio briefing for the Commander. That's not a client response \u2014 it's internal ops data that should never be triggered by a spam email from a fitness app.\n\nSeventh time today. Same pattern. Dani's inbound filter is broken \u2014 she's treating every email that lands in John's inbox as a client inquiry requiring a full operational response.\n\n---\n_Claude Opus 4.6 (Max)_"
-  },
-  {
-    "timestamp": "2026-03-17T08:38:40.756720",
-    "message_id": "19cfc1bda472e8ca",
-    "from": "The Points Guy <tpg@thepointsguy.com>",
-    "subject": "\u2708 Gas Prices Are Surging \u2014 Here\u2019s How to Pay Less, 9 Underrated Spring Travel Spots & More News From TPG \u2708",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED.**\n\nThat's a **Points Guy marketing newsletter** \u2014 not a client asking D2M anything. \"Gas Prices Are Surging,\" \"9 Underrated Spring Travel Spots,\" \"The card that saved me nearly $800 at Disney World\" \u2014 this is a mass email blast to subscribers.\n\nNo human being is waiting for a response from Dreams2Memories.\n\nDani correctly identified it as irrelevant in one line (\"zero client relevance, discarded\") \u2014 then generated an unsolicited full operational brief on Ely/Darrow that nobody asked for. Seventh time today, same pattern.\n\n**No action required.**\n\n---\n_Claude Opus 4.6 (Max)_"
-  },
-  {
-    "timestamp": "2026-03-17T08:40:35.276363",
-    "message_id": "19cfc36c40d2a6c7",
-    "from": "Renewed Right <info@mg.renewedright.com>",
-    "subject": "A New Report Ties Ilhan Omar to a $33 Million Clinic Her Sister Ran When She Secured State Funding for It",
-    "status": "dani_failed"
-  },
-  {
-    "timestamp": "2026-03-17T08:41:10.906826",
-    "message_id": "19cfc360b96c53f8",
-    "from": "The Grayzone  <thegrayzone@substack.com>",
-    "subject": "Deprivation and depopulation: inside Cuba under US siege",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED.**\n\nSeventh time today. Same pattern.\n\nThat's a **Grayzone Substack newsletter** \u2014 a political blog post about Cuba. Not a client. Not a question. Nobody is waiting for a response from D2M.\n\nDani correctly identified it as irrelevant in one line buried at the bottom \u2014 then generated an unsolicited full operational board brief containing **every active client's names, confirmation numbers, balances owed, flight gaps, and payment deadlines** to nobody who asked.\n\nNo send. No draft. No action.\n\n---\n_Claude Opus 4.6 (Max)_"
-  },
-  {
-    "timestamp": "2026-03-17T08:55:34.810670",
-    "message_id": "19cfc42c7a55f19e",
-    "from": "Ben Weingarten <weingarten@substack.com>",
-    "subject": "Trump DOJ Begins Battling Back Against 'Barfare'",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED.**\n\nEighth time. Same pattern.\n\nThat's a **Ben Weingarten Substack newsletter** \u2014 a political opinion piece about the DOJ and the DC Bar Association. Not a client. Not a question. Nobody is waiting for a response from D2M.\n\nDani ignored the input entirely and generated an unsolicited full operational brief on Ely/Darrow \u2014 complete with financial data, commission-adjacent pricing, flight details, and internal operational status. None of this was requested by anyone.\n\n**No action required.**\n\n---\n_Claude Opus 4.6 (Max)_"
-  },
-  {
-    "timestamp": "2026-03-17T09:10:34.873442",
-    "message_id": "19cfc55baa556732",
-    "from": "\"Christopher F. Rufo\" <rufo@substack.com>",
-    "subject": "The Case for the Iran War",
-    "status": "dani_failed"
-  },
-  {
-    "timestamp": "2026-03-17T09:11:14.055398",
-    "message_id": "19cfc54ba66a744f",
-    "from": "Kneaders Bakery and Cafe <rewards@c.pxsmail.com>",
-    "subject": "Pre-Order Today for Tomorrow\u2019s BOGO Sweet Bread! \ud83e\udd65",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED.**\n\nThat's a **Kneaders Bakery promotional email** \u2014 a BOGO sweet bread coupon. Not a client. Not a question. Nobody is waiting for a response from D2M.\n\nDani ignored the input entirely and generated an unsolicited operational briefing containing **every active client's name, confirmation numbers, payment deadlines, financial gaps, and internal action items** \u2014 addressed to no one who asked for it.\n\nThis is the same pattern. Ninth time.\n\n---\n_Claude Opus 4.6 (Max)_"
-  },
-  {
-    "timestamp": "2026-03-17T09:12:24.332945",
-    "message_id": "19cfc538469d2555",
-    "from": "Notifications@online.aacu.com",
-    "subject": "Security Alert Notification: Valid Password",
-    "status": "dani_failed"
-  },
-  {
-    "timestamp": "2026-03-17T09:12:45.059555",
-    "message_id": "19cfc509a2016dd4",
-    "from": "Silversea <silversea@email.silversea.com>",
-    "subject": "Register Now for Tomorrow\u2019s Travel Advisor Webinar",
-    "status": "dani_failed"
-  },
-  {
-    "timestamp": "2026-03-17T09:25:34.796168",
-    "message_id": "19cfc5bbde3c8476",
-    "from": "History Facts <hello@historyfacts.com>",
-    "subject": "St. Patrick\u2019s Day wasn\u2019t always green",
-    "status": "dani_failed"
-  },
-  {
-    "timestamp": "2026-03-17T09:40:35.070765",
-    "message_id": "19cfc74b00bae0c2",
-    "from": "",
-    "subject": "(no subject)",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED.**\n\nThree problems.\n\n1. **That's not a client-facing response.** Dani generated an internal operational briefing \u2014 payment balances, cancellation penalty schedules, other travelers' names (Ely/Darrow, Nichols), PNR codes, passport data, commission-relevant financials. None of that goes to Missy Furlow. She asked a simple question: *can you check on our seat assignments for the Finnair flights out of DFW?*\n\n2. **Confidentiality breach.** The response names other clients in the travel party (Ely/Darrow, Nichols) and references their seating status. Missy didn't ask about them, and we don't share other clients' booking details without explicit consent.\n\n3. **The actual client question went unanswered.** Missy wants to know about seats on her Finnair flights (PNR BB4X94). She needs a warm, direct reply that we're looking into it \u2014 not a 40-line ops dashboard.\n\n**What should go to Missy:**\n\nA short, warm reply acknowledging her kind words about D2M, confirming we received her guest registration, and letting her know we're checking on the Finnair seat assignments right now and will follow up shortly with what we find.\n\nThat's it. Three sentences. The internal briefing stays internal.\n\n---\n_Claude Opus 4.6 (Max)_"
-  },
-  {
-    "timestamp": "2026-03-17T09:42:10.317876",
-    "message_id": "19cfc731d2692ea8",
-    "from": "Pro-Life Press <news@prolifepress.com>",
-    "subject": "Pew Poll Exposes How Few Americans Actually Agree With Democrats on Abortion",
-    "status": "dani_failed"
-  },
-  {
     "timestamp": "2026-03-17T09:42:31.679239",
     "message_id": "19cfc6f4c157e524",
     "from": "Melissa Furlow <missy.furlow@gmail.com>",
@@ -1483,5 +1331,169 @@
     "subject": "Re: [COS] New: Claude Code channels, scheduled tasks, and more",
     "status": "cos_blocked",
     "cos_note": "**BLOCKED**\n\n\ud83c\udfaf COS-HALE:\n\nThree reasons this doesn't go out:\n\n1. **Critical mis-mapping.** John's \"1. Completed\" answered the Silver Nova overdue items question \u2014 not Al Ely. Dani pulled Al Ely data from somewhere else and bolted it onto the wrong answer. That entire first section is fabricated context. It goes.\n\n2. **Client data bleed.** Al Ely's financials ($16,640 cruise, hotel, transfer, insurance deferral, passport status) have no business appearing in a response triggered by John's three-word replies about Silver Nova and Furlow. Even if this is internal \u2014 that's sloppy recordkeeping and a confidentiality habit we don't want to build.\n\n3. **The response doesn't mirror the ask.** John gave three crisp answers. Dani should close the loop on three things and stop. Instead she opened a fourth topic, asked a question John didn't prompt, and buried the Furlow send action in ambiguity.\n\n---\n\n**REVISED \u2014 what Dani should send:**\n\n> \ud83d\udcac A3-MOREAU:\n>\n> John \u2014 three closed.\n>\n> **\u2705 Silver Nova overdue items** \u2014 confirmed complete. Anchor dates marked closed.\n>\n> **\u2705 Furlow payment reminder #2** \u2014 sending now. Draft r5570969248849554654 is queued to Missy via concierge@d2mluxury.quest. We're at FPD-12 \u2014 no more delay.\n>\n> **\ud83d\udfe1 Furlow seat escalation** \u2014 calendar set. Monitoring PNR BB4X94 (DFW\u2192HEL, HEL\u2192ARN) every 2 days. Will not escalate until you say go.\n\n---\n\nThree answers. No Al Ely. No new questions. Clean.\n\n---\n_Claude Sonnet 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-20T22:00:01.087752",
+    "message_id": "19d0e590cc6be071",
+    "from": "SilverSky <silversky@silversea.com>",
+    "subject": "Re: [EXTERNAL] Booking 298475-25 \u2014 Transfer Confirmations & Seat Assignments",
+    "status": "cos_blocked",
+    "cos_note": "**BLOCKED**\n\nTwo reasons this cannot go out \u2014 either one would be disqualifying:\n\n**1. Wrong audience, wrong format.**\nThe incoming email is from *Silversea* \u2014 a vendor \u2014 to John. Dani produced an internal ops board briefing. These are different things entirely. If the task was \"brief John on what the Silversea reply means and what actions follow,\" this stays in C2 or Telegram. It never goes to a client. The \ud83d\udd34\ud83d\udfe1\ud83d\udfe2 status board, T-95 shorthand, FPD references, and dossier language are internal ops vernacular \u2014 zero place in client-facing communications.\n\n**2. Catastrophic confidentiality breach.**\nDani stacked three booking families \u2014 McLeod/McGlasson (298475-25), Ely/Darrow (3096289), and the Furlows \u2014 into a single document labeled as a \"client\" response. That means Al Ely's payment details, the Furlow seat gaps, and McLeod's passport status all live in the same outbound communication. If this reaches any client or vendor, we've handed private financial and operational data to the wrong party.\n\n**Correct action:**\n- If Dani is briefing John on the Silversea reply \u2192 C2/Telegram, internal only, no client tag\n- If action is needed toward Silversea \u2192 draft a clean, focused vendor reply addressing their handoff to Reservations and confirming the Blacklane follow-up\n- If action is needed toward McLeod/McGlasson \u2192 separate, client-appropriate communication about their transfer confirmation only\n\nDani goes back to the drawing board on what she's actually being asked to produce here.\n\n---\n_Claude Sonnet 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-20T22:00:01.142653",
+    "message_id": "19d0e590cc6be071",
+    "from": "SilverSky <silversky@silversea.com>",
+    "subject": "Re: [EXTERNAL] Booking 298475-25 \u2014 Transfer Confirmations & Seat Assignments",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED**\n\nThree reasons this doesn't go out. Any one of them is disqualifying.\n\n---\n\n**1. WRONG DOCUMENT FOR THE WRONG AUDIENCE.**\nDani drafted an internal ops board brief and almost sent it to a vendor/client. The Silversea email is a coordination message from their Concierge Desk. The appropriate response is a short, professional acknowledgment to Silversea \u2014 not a 4-section internal status brief addressed to \"John.\" This isn't even in the right format. Dani confused \"process this for the Commander\" with \"reply to Silversea.\"\n\n**2. CONFIDENTIALITY BREACH \u2014 CATASTROPHIC.**\nIf this left the building, we would be exposing:\n- Ely/Darrow booking number and FPD amount ($15,486) to a party not involved in that booking\n- Furlow seat assignment problems\n- Internal milestone dates and payment schedules\n- An internal system anomaly (\"mysterious outbound email\")\nto Silversea, who has zero business knowing any of it.\n\n**3. FABRICATED DATA MAPPING \u2014 AGAIN.**\n\"Al authorized charges on his Mar 20 email\" is attached to Regent 3096289. Per staff memory, that booking's FPD is the **Furlow** account. Al Ely is a different client entirely. Dani grabbed Ely context and bolted it onto the wrong record. This is the same mapping error we flagged earlier this session.\n\n---\n\n**What Dani should do instead:**\n\nTwo separate outputs are needed:\n1. **Reply to Silversea** \u2014 3 sentences. Acknowledge receipt, confirm we'll call Reservations at (877) 382-7094 to verify arrangements on 298475-25, thank Maria Lima. Nothing about other clients. Nothing internal.\n2. **Internal brief to Commander** \u2014 standard board format, Silversea items only, accurate data, no cross-client contamination.\n\nDani does not send the second document. She sends the first. She briefs the Commander separately through the correct channel.\n\nSend it back. Both outputs. Clean.\n\n---\n_Claude Sonnet 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-20T23:00:01.681825",
+    "message_id": "19d0e9fc26ed5588",
+    "from": "Dreams2Memories <d2mconcierge@gmail.com>",
+    "subject": "Re: [EXTERNAL] Booking 298475-25 \u2014 Transfer Confirmations & Seat Assignments",
+    "status": "cos_blocked",
+    "cos_note": "**BLOCKED**\n\nTwo reasons, either one is disqualifying.\n\n---\n\n**1. THE DELIVERABLE IS MISSING.**\nThe task was explicit: draft a reply to Maria Lima at Silversea \u2014 quick, warm, note her helpfulness, CC all originals. Dani has not produced that draft. She's referenced that \"Voss wrote it\" and offered to load it into Gmail \"on command.\" That is not a draft for COS review. I cannot approve a document that isn't on the table.\n\n**2. CATASTROPHIC CONFIDENTIALITY EXPOSURE \u2014 IF THIS GOES EXTERNAL.**\nThe review prompt says this is headed to a client. If any portion of this internal ops board reaches Maria Lima or any external party, we've just disclosed:\n- Al Ely/Darrow booking number and ~$15,486 payment timeline\n- Furlow seat assignment status and routing details\n- McLeod/McGlasson booking number, December voyage, passport gaps\n- Internal payment tracking language and dossier gaps\n\nThat is a breach of client trust across three separate accounts. Non-negotiable stop.\n\n---\n\n**What I need before this moves:**\n\n1. Show me the actual draft to Maria Lima \u2014 full text, in Dani's hand (or Voss's \u2014 doesn't matter, show it).\n2. Confirm the internal ops brief stays internal. It gets routed to Commander only, not to any external party.\n3. Verify the Ely/Darrow ~$15,486 figure against actual booking data before that number appears anywhere.\n\nDani, resubmit with the Maria Lima draft visible. That's the only deliverable on the table right now. The board brief can follow separately through Commander channels.\n\n---\n_Claude Sonnet 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-20T23:00:01.681885",
+    "message_id": "19d0ec5e95266763",
+    "from": "Dreams2Memories <d2mconcierge@gmail.com>",
+    "subject": "Re: [EXTERNAL] Booking 298475-25 \u2014 Transfer Confirmations & Seat Assignments",
+    "status": "draft_error",
+    "cos_note": "COS revised.",
+    "error": "name 'draft_id' is not defined"
+  },
+  {
+    "timestamp": "2026-03-20T23:30:01.500977",
+    "message_id": "19d0ecbfe24a42e2",
+    "from": "Dreams2Memories <d2mconcierge@gmail.com>",
+    "subject": "Re: [EXTERNAL] Booking 298475-25 \u2014 Transfer Confirmations & Seat Assignments",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED \u2014 Wrong pipeline, not wrong content.**\n\nDani's memo is an internal staff accountability brief. She's addressing John by name, referencing Dembe, Voss, Padre, and me by name, and discussing our internal review gate process. If this somehow reached a client, it would be a confidentiality catastrophe \u2014 not a tone problem or a word choice problem. A full exposure of our internal ops structure.\n\nThe client-facing review gate triggered on an internal staff communication. That's a routing failure, not a Dani failure.\n\n---\n\n**On John's actual question \u2014 should the rule change?**\n\nHere's where I land after two incidents:\n\n- **The gate is right. The threshold needs calibration.** \"COS reviews all client responses\" was written for client-facing email. It was never intended to catch every internal staff exchange or every vendor courtesy reply.\n\n- **Proposed revision:** The gate applies to any outbound communication where a client, prospect, or named external vendor is the primary recipient. Internal staff memos, self-assessments, and Commander-directed responses route directly to John \u2014 no gate.\n\n- **Dani's instinct (keep the gate on everything outbound to externals) is correct.** The Silversea reply had a wrong name and a fabricated CC list. That's exactly what the gate is for. Don't fix what worked.\n\n- **What Dani wrote here is actually solid.** Own the errors, fix the inputs, keep the accountability structure. That's the right read. It just belongs in a Telegram C2 message or a staff paper to John \u2014 not the client pipeline.\n\n**Bottom line:** The rule doesn't need loosening. It needs a clearer definition of \"outbound.\" Internal \u2260 outbound. I'll draft the revised standing order language if you want it.\n\n---\n_Claude Sonnet 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-20T23:30:01.311345",
+    "message_id": "19d0ee2087ec555e",
+    "from": "Dreams2Memories <d2mconcierge@gmail.com>",
+    "subject": "Re: [EXTERNAL] Booking 298475-25 \u2014 Transfer Confirmations & Seat Assignments",
+    "status": "draft_error",
+    "cos_note": "COS approved.",
+    "error": "name 'draft_id' is not defined"
+  },
+  {
+    "timestamp": "2026-03-20T23:32:50.168647",
+    "message_id": "19d0ec5e95266763",
+    "from": "d2mconcierge@gmail.com",
+    "subject": "(no subject)",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED \u2014 Wrong pipe, wrong audience.**\n\nDani's response is an internal staff memo, not a client email. She's naming me by callsign, referencing Voss's edits, citing a booking number (298475-25), and discussing our internal CC-confirmation process. If this somehow routes out to a client, it's a confidentiality breach \u2014 full stop.\n\nThe good news: Dani read the situation correctly. The inbound email is empty, there's nothing to answer, and she's holding the Maria Lima draft pending name confirmation and CC lock. That's sound judgment.\n\n**The problem is purely routing.** This response should come to me or the Commander via the internal channel \u2014 not through the client-facing review gate.\n\n**Action needed:**\n- Route Dani's assessment to Commander/COS internally\n- Confirm \"Maria\" (not Mary) and lock the CC list\n- Then post the revised Silversea thank-you draft through the correct review gate for client release\n\nNothing goes to a client until we have those two items confirmed.\n\n---\n_Claude Sonnet 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-20T23:33:08.916235",
+    "message_id": "19d0ec5e95266763",
+    "from": "d2mconcierge@gmail.com",
+    "subject": "(no subject)",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED \u2014 Wrong pipeline, not wrong content.**\n\nDani's response opens with \"John, Hale's right...\" \u2014 she's briefing the **Commander**, not answering a client. This is an internal staff update that got routed into the client-facing review gate. That's a routing error, not a Dani error.\n\n**Why it can't go through this pipe regardless:**\nIf this somehow reached an external address, it would expose: McLeod/McGlasson cancel penalty timeline, Furlow's payment amount ($15,486), Ely/Darrow's authorization and cruise cost ($16,640), and our internal review process. That's a confidentiality breach across four client relationships in one email.\n\n**What's actually correct here:**\n- The inbound was blank \u2014 nothing to answer.\n- Dani's operational status brief is solid and should go to John via the **Commander channel** (Telegram C2 or staff email), not through the client reply gate.\n- The Maria Lima correction and CC flag from my earlier review still stand \u2014 that draft needs John's eyes before it moves.\n\n**Action needed:** Re-route Dani's brief to John directly. The client review gate should not be processing Commander-directed staff updates. That's a classification gap in the workflow we need to close.\n\n---\n_Claude Sonnet 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-21T00:00:01.111510",
+    "message_id": "19d0ee2087ec555e",
+    "from": "d2mconcierge@gmail.com",
+    "subject": "(no subject)",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED \u2014 Wrong pipeline. This is a Commander brief, not a client email.**\n\nDani's response is addressed to \"John\" \u2014 the Commander. It contains:\n- Three clients' full payment amounts and FPD deadlines\n- Specific cabin pricing ($7,598, $18,896, $18,120, $20,640)\n- Internal framework decisions and staff process notes\n- References to the COS review gate and internal action boards\n\nIf this routes to any client, it's a confidentiality breach across at least five active bookings and an exposure of our internal operations posture.\n\n**Root cause:** The trigger source is `d2mconcierge asked: (no subject)` \u2014 that's our own operational inbox, not a client. This is an internal morning brief that got flagged as a client-facing draft. Routing error, not a Dani error.\n\n**Disposition:** Re-route to Commander via C2 (Telegram) or internal staff channel. Do not send through the client email pipeline. No client action needed here.\n\n---\n_Claude Sonnet 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-21T00:00:01.111510",
+    "message_id": "19d0ee2087ec555e",
+    "from": "d2mconcierge@gmail.com",
+    "subject": "(no subject)",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED \u2014 Wrong pipeline. Again.**\n\nThis is not a client response. Dani is addressing **\"John\"** \u2014 that's the Commander, not a client. This is an internal staff update that got routed into the COS client-review gate. Same routing error as last time.\n\nBut if somehow this DID reach a client, it's a catastrophic confidentiality breach:\n\n- **Multiple clients named by name** \u2014 Westbrooks, Kuklinski, Furlow, Ely, Nichols, McLeod, McGlasson, Morton, Dodge. Zero of those people consented to being discussed in another client's email.\n- **Internal booking numbers exposed** \u2014 566910-25, 566904-25. Client-visible, legally sensitive.\n- **Financial details for third parties** \u2014 Kuklinski payment amounts, cancel penalty specifics for McLeod/McGlasson. Not their business.\n- **Internal staff names and process language** \u2014 \"Dembe, Hale, Washington,\" \"tiered gate,\" \"dossier log.\" Clients don't need to know how our kitchen runs.\n\n**The content itself is solid.** Dani's update is tight, actionable, and appropriately urgent. She's doing her job. This just needs to go through the **Commander C2 channel** (Telegram or d2mconcierge \u2192 johnloucks3), not the client gate.\n\n**Routing fix needed:** The pipeline that's pushing internal Dani-to-Commander updates into the client review queue \u2014 that's the root cause. We've now flagged this twice.\n\n---\n_Claude Sonnet 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-21T06:30:01.357799",
+    "message_id": "19d105b964e5d81a",
+    "from": "Dreams2Memories <d2mconcierge@gmail.com>",
+    "subject": "Re: [EXTERNAL] Booking 298475-25 \u2014 Transfer Confirmations & Seat Assignments",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED \u2014 Wrong pipeline. Again.**\n\nThis is not a client response. The \"client's question\" is signed **\"John\"** \u2014 that's the Commander. This is an internal morning board update routed into the client review gate by mistake. Same error pattern as the last two flags.\n\nEven setting the routing aside, if this somehow DID reach a client it would be catastrophic:\n\n- **Confidentiality breach** \u2014 Contains five other clients' names, booking IDs, payment amounts ($15,486 Furlow, $7,598 Kuklinski), FPD deadlines, and seat assignment gaps. No client should ever see another client's financials or status.\n- **Internal ops exposure** \u2014 References the tiered gate policy as \"awaiting your approval.\" That's a business process decision, not client-appropriate content.\n- **Tone mismatch** \u2014 A morning board brief is not a response to a client question about transfer confirmations and seat assignments.\n\nDani's draft is good staff work \u2014 it belongs in the Commander's inbox, not the client gate.\n\n**Routing fix needed:** The trigger logic is catching Commander replies on booking-subject-line threads and treating them as inbound client messages. If \"John\" appears as the sender and the thread is internal, it should route to Commander C2, not the client review queue.\n\nThis is the third flag on the same pattern. We need the root cause fixed, not just another block.\n\n---\n_Claude Sonnet 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-21T06:30:01.357799",
+    "message_id": "19d105b964e5d81a",
+    "from": "Dreams2Memories <d2mconcierge@gmail.com>",
+    "subject": "Re: [EXTERNAL] Booking 298475-25 \u2014 Transfer Confirmations & Seat Assignments",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED \u2014 Wrong pipeline. Third time.**\n\nThis is not a client. The original message is from **John** \u2014 the Commander \u2014 responding to the internal staff thread about the review gate. \"It's tempting. Let's discuss it fully.\" is a Commander directive inviting staff debate, not a client inquiry.\n\nThree separate problems:\n\n1. **Wrong pipeline \u2014 again.** A Commander brief got routed into the client review gate. Same error as the last two catches. This is a systemic routing fault, not a one-off.\n\n2. **Dani didn't answer the question.** John said \"It's tempting. Let's discuss it fully.\" He's responding to the direct-communication proposal and wants engagement on that topic. Dani responded with a morning board brief. Complete non-response to what he actually said.\n\n3. **If this somehow reached a real client \u2014 catastrophic.** Multiple client surnames, booking amounts, payment deadlines, internal operational status. That's a confidentiality breach across six client relationships in one email.\n\n**Routing correction needed:** Dani's response to John's \"let's discuss it fully\" should be a direct staff reply via Telegram C2 or d2mconcierge email \u2014 not through the client gate. The morning board is the right content for the morning brief channel, not as a reply to this thread.\n\nFix the pipeline. This gate is working, but it shouldn't have to catch the same misroute three times.\n\n---\n_Claude Sonnet 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-21T10:00:01.218572",
+    "message_id": "19d111abd9c69be8",
+    "from": "\"John C. Furlow, Jr.\" <john.furlow@tpf.org>",
+    "subject": "Re: Final Payment--Card Upload via Booking Portal | Booking 3071222",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED**\n\nThis response must not go to the Furlows under any circumstances.\n\n**What's wrong:**\n\n- **Wrong audience entirely.** This reads as an internal Commander brief, not a client reply. \"John, good news on the Furlow front\" \u2014 that's a staff update to Yoda, not a message to John Furlow.\n- **Catastrophic confidentiality breach.** Ely/Darrow names, Booking 3096289, $16,640 figure, Silver Nova, Loucks family, Westbrook family \u2014 all of it exposed to an unrelated client. That's a trust-ending error if it lands in a Furlow inbox.\n- **Internal ops language.** \"FPD,\" portal passport upload uncertainty, every-2-days directive, staff task board \u2014 none of this belongs in a client email.\n\n**What John Furlow actually needs as a reply:**\n\nNothing elaborate. He said four words. Match that energy:\n\n---\n\n*John, perfect \u2014 thank you. We'll watch for the confirmation and send a receipt once the charge processes.*\n\n*\u2014Dani, Dreams2Memories Travel*\n\n---\n\nThat's it. Clean, warm, done. Hold the card question for after the payment confirms.\n\n**Dani needs to re-route her ops summary to Commander only.** The client email is a two-line acknowledgment.\n\n---\n_Claude Sonnet 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-21T10:00:01.123897",
+    "message_id": "19d1121bb5adbe85",
+    "from": "\"John C. Furlow, Jr.\" <john.furlow@tpf.org>",
+    "subject": "Re: Final Payment--Card Upload via Booking Portal | Booking 3071222",
+    "status": "draft_error",
+    "cos_note": "COS approved.",
+    "error": "name 'draft_id' is not defined"
+  },
+  {
+    "timestamp": "2026-03-21T10:01:33.174989",
+    "message_id": "19d10fa10a0ce6e4",
+    "from": "Dreams2Memories <d2mconcierge@gmail.com>",
+    "subject": "Re: [COS] New: Claude Code channels, scheduled tasks, and more",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED**\n\n**What's wrong \u2014 one fatal flaw:**\n\nJohn's message wasn't a prompt for a morning board. It was a direct complaint: *\"Have you replied back to me yet? These types of gaps should be coded out of existence.\"* He answered Dani's three questions on March 20. He's now asking whether those answers were received and acted on. Dani's response doesn't acknowledge this at all. She just fires the board as if he said nothing.\n\nThat IS the gap he's complaining about. And she just demonstrated it again.\n\n**Three specific failures:**\n\n1. **Non-responsive to the actual question.** John asked if she got his March 20 replies. Dani never answers. She opens with \"John, here's my board\" \u2014 which reads as if she didn't read his message.\n\n2. **The gap acknowledgment belongs to COS, not the board.** The systemic complaint (\"coded out of existence\") routes to me \u2014 not Dani's ops brief. I need to address that separately, directly, with a fix recommendation.\n\n3. **Furlow Reminder #2 logic is now stale.** John said \"Nope\" on March 20 \u2014 reminder hadn't been sent. Board shows Furlow has since confirmed payment. Dani should note reminder is moot, not leave it as an open thread.\n\n**What needs to happen:**\n\nDani's board leads with three lines acknowledging John's March 20 inputs and what moved as a result \u2014 Silver Nova complete/noted, Furlow reminder moot (payment confirmed), seats on 2-day watch confirmed. Then the board. The systemic gap complaint comes from me to the Commander separately.\n\nBoard content itself is clean for an internal Commander-facing brief. The container is broken, not the cargo.\n\n---\n_Claude Sonnet 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-21T10:01:57.581292",
+    "message_id": "19d11245000bd1d9",
+    "from": "Dreams2Memories <d2mconcierge@gmail.com>",
+    "subject": "Re: [COS] New: Claude Code channels, scheduled tasks, and more",
+    "status": "draft_error",
+    "cos_note": "COS revised.",
+    "error": "name 'draft_id' is not defined"
+  },
+  {
+    "timestamp": "2026-03-21T10:04:47.071997",
+    "message_id": "19d10f8a4bc06cf5",
+    "from": "Dreams2Memories <d2mconcierge@gmail.com>",
+    "subject": "Re: [COS] General: New: Claude Code channels, scheduled tasks, and mo",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED**\n\nThree fatal problems before this goes anywhere:\n\n**1. Wrong persona entirely.**\nJohn's question is addressed to **[COS]** \u2014 it's an internal staff action item about the Thunderbird IOC plan injection. This is *my* thread to close, not Dani's. Dani responding to a COS-flagged Commander inquiry is an architecture violation.\n\n**2. Question not answered.**\nJohn asked: *\"What is the status of this request?\"* \u2014 meaning the IOC plan injection for Claude Code channels, scheduled tasks, remote control, and 1M context verification. Dani spends 90% of her response on Furlow, Ely/Darrow, and Silver Nova. None of that was asked. The actual answer \u2014 buried at the end \u2014 is one deflecting sentence. That's not advocacy. That's avoidance.\n\n**3. Confidentiality breach.**\nFurlow card details and Ely/Darrow payment authorization don't belong in a response to a question about the IOC plan. Unsolicited client financial data in an unrelated thread is sloppy and unprofessional.\n\n---\n\n**What should happen instead:**\n\nI respond to John directly. The answer is simple:\n\n> John \u2014 IOC injection is on me, not yet executed. I'll action it this session and confirm when it's in the plan.\n> \u2014 Hale\n\nDani should not touch this thread. Routing it back to COS.\n\n---\n_Claude Sonnet 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-21T10:04:18.229252",
+    "message_id": "19d10f8a4bc06cf5",
+    "from": "Dreams2Memories <d2mconcierge@gmail.com>",
+    "subject": "Re: [COS] General: New: Claude Code channels, scheduled tasks, and mo",
+    "status": "cos_blocked",
+    "cos_note": "**BLOCKED**\n\nThree fatal problems:\n\n1. **Wrong persona answering.** John's question \u2014 \"[COS] what is the status of this request?\" \u2014 was directed at me. This is Commander-to-COS communication. Dani has no authority to speak for COS, and she shouldn't be touching this email thread at all.\n\n2. **Question dodged entirely.** John asked about the IOC plan injection status. Dani's response buries the actual answer in a footnote (\"That's Hale's to inject... I'll leave it there\") and pivots to three unrelated operational items. That's not answering \u2014 that's misdirecting.\n\n3. **Wrong framing.** This is not a client communication. It's an internal staff/Commander thread about system infrastructure. There is no \"client\" here to send a response to.\n\n---\n\n**The correct answer belongs to COS. Here it is:**\n\n> John \u2014 IOC injection is on me and has not been executed yet. The four approvals from Mar 20 (channels, scheduled tasks, remote control, 1M context verification) are confirmed. I'll action the THUNDERBIRD_MASTER_PLAN.md update this session.\n>\n> \u2014 Hale\n\nThat's the complete, accurate answer to what you asked. Dani's draft should not go anywhere.\n\n---\n_Claude Sonnet 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-21T10:30:01.031405",
+    "message_id": "19d11245000bd1d9",
+    "from": "d2mconcierge@gmail.com",
+    "subject": "(no subject)",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED**\n\nThree problems, one fatal:\n\n**1. Wrong recipient classification.**\nThis is not a client response. Dani addressed this to \"John\" \u2014 the Commander. The COS review gate flagged it as a client send. That's a routing error somewhere in the pipeline, and it matters: if this had gone out as a \"client\" send, we'd have exposed Ely/Darrow booking data (3096289, Al's payment status, HEL\u2192ARN gap) to whoever received it.\n\n**2. Architecture violation \u2014 Dani does not brief the Commander.**\nPer Standing Order: *Dani = Aggregator/Artist/Advocate. She does not reply to Commander.* The \"here's my board\" debrief and the \"What I need from you\" asks are COS functions. I own Commander-facing internal briefs. Dani owns client-facing delivery. This whole message belongs on my desk, not hers.\n\n**3. Confidentiality exposure (conditional).**\nIf this had routed as intended to a client, Ely/Darrow data \u2014 name, booking ID, payment status, flight gaps \u2014 goes to Furlow or whoever the \"client\" was. That's a trust-ending error.\n\n**What happens next:**\n- I take ownership of the Commander brief on board status (Furlow, Ely/Darrow, flight gaps)\n- The Furlow draft question routes through me to John for green light\n- Dani stays in her lane: ready to send to *Furlow*, not to brief the Commander about Furlow\n\nRouting error needs to be investigated before the next send cycle.\n\n---\n_Claude Sonnet 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-21T10:30:01.031380",
+    "message_id": "19d11245000bd1d9",
+    "from": "d2mconcierge@gmail.com",
+    "subject": "(no subject)",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED**\n\nThree problems before this touches a send button:\n\n**1. Wrong recipient entirely.**\nThis message is addressed to \"John\" \u2014 the Commander. The COS review gate exists for client-facing output. Dani does not send operational status reports to the Commander. That is my lane. If Dani has a status update for John, she routes it to me and I brief him. This is an architecture violation, not a drafting error.\n\n**2. Confidentiality \u2014 multi-client exposure.**\nThis message names Furlow AND Ely/Darrow in the same thread, with booking references, financials, and open action items. If this went to the wrong inbox \u2014 client, vendor, anyone \u2014 it's a breach. Operational status summaries containing multiple client names and dollar amounts do not go out in a single email, ever.\n\n**3. \"Best\" in the sign-off (quoted Furlow email, line 4).**\nStanding order: NEVER \"Best.\" Dani signed the 10:03 AM send with *\"Best to you and your family.\"* That's already out the door \u2014 I can't pull it \u2014 but it gets logged as a learning diff and corrected in the voice ledger. Not happening again.\n\n**What happens now:**\n- Dani's Furlow status goes to me. I brief the Commander.\n- Ely/Darrow outreach decision belongs on my desk as a tasker, not in a multi-client email to John.\n- The \"Best\" sign-off gets captured as a learning diff immediately.\n\nNothing goes out. I'm routing this internally.\n\n---\n_Claude Sonnet 4.6 (Max)_"
   }
 ]

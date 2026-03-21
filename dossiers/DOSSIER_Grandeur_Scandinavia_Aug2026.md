@@ -411,10 +411,21 @@ Dossier Version 1.0 | March 07, 2026
 **Mar 20 — Al Ely** (Cruise Payment)
 > 2026-03-20: Al emailed John authorizing charges for cruise, hotel, and transportation. Passport photo uploaded to portal (self-reported, needs verification). Insurance deferred — will activate in a couple months. John replied confirming he'll process payments this week.
 
+**Mar 21 — John C. Furlow, Jr.** (Re: Re: Final Payment--Card Upload via Booking Portal | Booking 3071222)
+> 2026-03-21 — John Furlow confirmed via email he will upload credit card to portal today. Did not answer same-card vs. split-card question for hotel/transfer. Monitor portal for card upload.
+
 ### OPEN ACTION ITEMS
 - [ ] PROCESS: Ely/Darrow payments this week — cruise ($16,640) + hotel + transport per Al's Mar 20 authorization
 - [ ] VERIFY: Al's passport photo upload to portal (he said "I think?")
 - [ ] CHECK: Gmail inbox for flight documents from heidi.nichols1@yahoo.com sent between Mar 13-16 (auto-intel Mar 16)
+
+- [ ] SEND payment receipt to Furlows after processing (auto-intel Mar 21)
+
+- [ ] FOLLOW UP on same-card-or-different-card question for Haymarket + Arlanda transfer (auto-intel Mar 21)
+
+- [ ] PROCESS $15,486 payment to Regent once card confirmed (before Apr 1 FPD) (auto-intel Mar 21)
+
+- [ ] CHECK portal for Furlow card upload — expected today Mar 21 (auto-intel Mar 21)
 
 - [ ] Furlow outbound seats — monitoring every 2 days per Commander directive (Mar 20). Next check: Mar 22.
 

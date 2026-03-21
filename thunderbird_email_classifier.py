@@ -27,6 +27,27 @@ logger = logging.getLogger(__name__)
 
 
 # ---------------------------------------------------------------------------
+# Payment Portal — CANONICAL CONSTANT (2026-03-21)
+# D2M uses the OA/TESS Client Portal for ALL credit card collection.
+# portal.d2mluxury.quest is a DIFFERENT product (post-booking materials/magic link).
+# NEVER direct clients to portal.d2mluxury.quest for CC submission.
+# ---------------------------------------------------------------------------
+OA_PAYMENT_PORTAL_INSTRUCTIONS = (
+    "To submit your credit card securely, please watch for a separate email "
+    "from our booking system with the subject 'Client Portal Activation.' "
+    "Click the *ACTIVATE NOW* button, register your account (Passkey or "
+    "one-time email code), then add your card under the secure Payments section. "
+    "Your card data is encrypted — I never see the full number in plain text. "
+    "Please do NOT email card numbers — the portal is the only safe method."
+)
+
+OA_PORTAL_CC_SHORT = (
+    "Watch for a 'Client Portal Activation' email → click ACTIVATE NOW → "
+    "add your card securely. Do NOT email card numbers."
+)
+
+
+# ---------------------------------------------------------------------------
 # Email Classes (C1-C12)
 # ---------------------------------------------------------------------------
 
@@ -155,7 +176,7 @@ def _build_templates():
         segments=[
             SegmentSpec(Segment.INTRO, "Warm greeting. Personal reference. Never open with 'your payment is due.'", "1-2 sentences", "Personal first"),
             SegmentSpec(Segment.CONTEXT, "Trip context: where, when, what to look forward to. Dream before invoice.", "2-3 sentences", "Anticipatory"),
-            SegmentSpec(Segment.BODY, "Payment details: amount, due date, method, portal link. Action box.", "structured block + 2-3 sentences", "Matter-of-fact, helpful"),
+            SegmentSpec(Segment.BODY, "Payment details: amount, due date, method. CC collection: OA/TESS Client Portal ONLY (use OA_PAYMENT_PORTAL_INSTRUCTIONS constant) — NEVER portal.d2mluxury.quest. Action box.", "structured block + 2-3 sentences", "Matter-of-fact, helpful"),
             SegmentSpec(Segment.CLOSE, "'Let me know if you have any questions.' Personal sign-off.", "1-2 sentences", "Steady, available"),
         ],
         voice=VoiceParams(2, True, "Family, trip anticipation", "Thanks", "Never", "medium-long", (300, 500), False),

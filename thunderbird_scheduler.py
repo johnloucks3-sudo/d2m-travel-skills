@@ -1447,6 +1447,13 @@ def build_scheduler() -> AsyncIOScheduler:
                       CronTrigger(hour=7, minute=0, timezone=TZ),
                       id="switchblade_daily", name="SWITCHBLADE-4 Dani Test (daily 0700)")
 
+    # 9b. SWITCHBLADE-4 overnight run: 3:00AM MT (0900 UTC)
+    #     Docstring-specified early-morning run to catch overnight data drift.
+    #     Same job function as the 0700 run — separate ID for independent tracking.
+    scheduler.add_job(job_switchblade,
+                      CronTrigger(hour=3, minute=0, timezone=TZ),
+                      id="switchblade_0300", name="SWITCHBLADE-4 Dani Test (0300 MT)")
+
     # 10. Flight Price Tracker: daily at 9:00AM MT
     #    Searches Google Flights via Playwright for configured routes.
     #    Compares to previous best price, sends Telegram + Gmail on changes.

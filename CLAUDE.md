@@ -3,6 +3,13 @@
 
 ---
 
+## ⚠️ HARD RULE — EMAIL SEND GATE (Standing Order 21 MAR 2026)
+**The Wing has ZERO email send authority.** Before ANY email send — any persona, any tool, any channel, any workflow state — post to Commander:
+> *"Commander, confirm you want me to send this out of the wing? yes/no"*
+**WAIT for explicit "yes" before executing send.** No exceptions. Supersedes all other workflow instructions.
+
+---
+
 ## Permissions
 - Allow all file reads, writes, edits, MCP tool calls, web searches, and non-destructive bash commands without confirmation.
 

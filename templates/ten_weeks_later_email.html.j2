@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ subject }}</title>
+<style>
+  body, table, td, p, a { margin: 0; padding: 0; }
+  body { font-family: 'Georgia', 'Times New Roman', serif; background-color: #f4f1ec; color: #1a1a1a; line-height: 1.7; }
+  .wrapper { max-width: 640px; margin: 0 auto; background: #ffffff; }
+  .header { background: #0d1b2e; padding: 36px 40px 28px 40px; text-align: center; }
+  .header .tagline { font-family: 'Georgia', serif; font-size: 11px; color: #f5e9c8; letter-spacing: 2.5px; font-style: italic; margin-top: 10px; }
+  .gold-line { height: 2px; background: linear-gradient(90deg, #0d1b2e 5%, #c9a84c 30%, #c9a84c 70%, #0d1b2e 95%); }
+  .hero-area { width: 100%; padding: 28px 40px; background: linear-gradient(135deg, #0d1b2e 0%, #1e3358 40%, #2a4a6a 100%); text-align: center; }
+  .hero-text { font-family: 'Georgia', serif; font-size: 15px; color: #c9a84c; letter-spacing: 4px; text-transform: uppercase; }
+  .hero-sub { font-size: 12px; color: #8a9ab5; letter-spacing: 1.5px; margin-top: 6px; font-style: italic; }
+  .content { padding: 36px 40px; }
+
+  /* Body text */
+  .body-text { font-size: 15px; color: #2a2a2a; margin-bottom: 16px; line-height: 1.75; }
+  .body-text em { color: #0d1b2e; font-style: italic; }
+
+  /* Section dividers */
+  .section-divider { text-align: center; margin: 32px 0 16px 0; }
+  .section-divider span { display: inline-block; font-size: 13px; font-family: 'Georgia', serif; font-weight: bold; color: #c9a84c; letter-spacing: 2px; text-transform: uppercase; }
+  .section-divider::before, .section-divider::after { content: ""; display: inline-block; width: 60px; height: 1px; background: #e8d9b8; vertical-align: middle; margin: 0 12px; }
+
+  /* John sign-off line */
+  .john-em { font-family: 'Georgia', serif; font-size: 15px; color: #0d1b2e; font-style: italic; margin: 20px 0 8px 0; }
+
+  /* Voice transition — John to Dani */
+  .voice-transition { text-align: center; margin: 36px 0 28px 0; }
+  .voice-transition::before { content: ""; display: block; width: 100%; height: 1px; background: linear-gradient(90deg, #ffffff 0%, #c9a84c 30%, #c9a84c 70%, #ffffff 100%); margin-bottom: 14px; }
+  .voice-transition::after { content: ""; display: block; width: 100%; height: 1px; background: linear-gradient(90deg, #ffffff 0%, #c9a84c 30%, #c9a84c 70%, #ffffff 100%); margin-top: 14px; }
+  .voice-transition-label { font-size: 11px; color: #c9a84c; letter-spacing: 2px; text-transform: uppercase; font-family: 'Georgia', serif; }
+
+  /* Avatar at voice transition */
+  .dani-intro-block { display: flex; align-items: flex-start; margin-bottom: 24px; }
+  .dani-avatar-wrap { flex-shrink: 0; margin-right: 18px; }
+  .dani-avatar-wrap img { width: 72px; height: 72px; border-radius: 50%; border: 2px solid #c9a84c; display: block; }
+  .dani-id { vertical-align: top; }
+  .dani-id .dani-name { font-family: 'Georgia', serif; font-size: 16px; color: #1a3a5a; font-weight: bold; margin-bottom: 2px; }
+  .dani-id .dani-title-label { font-size: 11px; color: #c9a84c; letter-spacing: 1.5px; text-transform: uppercase; }
+
+  /* Dani section styling */
+  .dani-section { border-left: 3px solid #2a4a6a; padding-left: 20px; }
+  .dani-section .body-text { color: #1a2a3a; }
+  .dani-section .body-text em { color: #1a3a5a; }
+  .dani-section .section-divider span { color: #2a4a6a; }
+  .dani-section .section-divider::before,
+  .dani-section .section-divider::after { background: #c0d0e0; }
+
+  /* Dani greeting */
+  .dani-greeting { font-size: 15px; color: #1a3a5a; font-style: italic; line-height: 1.75; margin-bottom: 20px; padding: 14px 20px; background: #f2f6fa; border-left: 3px solid #2a4a6a; border-radius: 0 4px 4px 0; }
+
+  /* Lettered list */
+  .lettered-list { margin: 12px 0 20px 0; padding: 0; list-style: none; }
+  .lettered-list li { font-size: 14px; color: #1a2a3a; line-height: 1.7; margin-bottom: 12px; padding-left: 4px; }
+  .lettered-list li strong { color: #0d1b2e; }
+
+  /* Staff table */
+  .staff-table { width: 100%; border-collapse: collapse; margin: 16px 0 20px 0; font-size: 13px; }
+  .staff-table th { background: #152540; color: #c9a84c; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; padding: 10px; text-align: left; font-weight: normal; }
+  .staff-table td { padding: 8px 10px; border-bottom: 1px solid #f0ebe3; color: #1a2a3a; vertical-align: top; }
+  .staff-table tr:nth-child(even) td { background: #f6f9fa; }
+  .staff-table .role-col { color: #0d1b2e; font-weight: bold; white-space: nowrap; }
+  .staff-table .name-col { color: #c9a84c; font-weight: bold; white-space: nowrap; }
+
+  /* Voice return — Dani back to John */
+  .voice-return { text-align: center; margin: 36px 0 28px 0; }
+  .voice-return::before { content: ""; display: block; width: 100%; height: 1px; background: linear-gradient(90deg, #ffffff 0%, #c9a84c 30%, #c9a84c 70%, #ffffff 100%); margin-bottom: 14px; }
+  .voice-return::after { content: ""; display: block; width: 100%; height: 1px; background: linear-gradient(90deg, #ffffff 0%, #c9a84c 30%, #c9a84c 70%, #ffffff 100%); margin-top: 14px; }
+  .voice-return-label { font-size: 11px; color: #c9a84c; letter-spacing: 2px; text-transform: uppercase; font-family: 'Georgia', serif; }
+
+  /* Closing invitation box */
+  .closing-box { background: #f9f7f3; border: 1px solid #e8e0d0; border-radius: 4px; padding: 22px 26px; margin: 8px 0 24px 0; }
+  .closing-box .body-text { color: #2a2a2a; }
+
+  /* Referral line */
+  .referral-line { font-size: 13px; color: #5a6a85; font-style: italic; text-align: center; line-height: 1.6; margin: 20px 0; padding: 12px 20px; border-top: 1px solid #e8e0d0; }
+
+  /* Signatures */
+  .sig-area { margin-top: 32px; }
+  .sig-divider { width: 60px; height: 1px; background: #c9a84c; margin: 24px 0 18px 0; }
+  .sig-name { font-family: 'Georgia', serif; font-size: 17px; color: #0d1b2e; font-weight: bold; }
+  .sig-title { font-size: 12px; color: #c9a84c; letter-spacing: 1.5px; text-transform: uppercase; font-style: italic; margin-top: 2px; }
+  .sig-company { font-size: 12px; color: #8a9ab5; letter-spacing: 1px; margin-top: 2px; }
+  .sig-contact { font-size: 12px; color: #2a2a2a; margin-top: 4px; }
+  .sig-contact a { color: #c9a84c; text-decoration: none; }
+  .ai-disclosure { margin-top: 18px; padding: 14px 18px; background: #f9f7f3; border-radius: 4px; border: 1px solid #e8e0d0; }
+  .ai-disclosure p { font-size: 12px; color: #5a6a85; line-height: 1.6; font-style: italic; }
+  .john-sig { margin-top: 24px; padding-top: 20px; border-top: 1px solid #e8e0d0; }
+
+  /* IP + Footer */
+  .ip-statement { margin-top: 16px; padding: 12px 20px; text-align: center; }
+  .ip-statement p { font-size: 10px; color: #8a9ab5; line-height: 1.5; font-style: italic; }
+  .footer { background: #0d1b2e; padding: 28px 40px; text-align: center; }
+  .footer-brand { font-size: 14px; color: #c9a84c; letter-spacing: 3px; margin-bottom: 4px; }
+  .footer-tagline { font-size: 10px; color: #f5e9c8; letter-spacing: 2px; font-style: italic; margin-bottom: 10px; }
+  .footer-contact { font-size: 12px; color: #d0d8e8; margin-top: 4px; }
+  .footer-contact a { color: #c9a84c; text-decoration: none; }
+  .footer-legal { font-size: 10px; color: #5a6a85; margin-top: 14px; line-height: 1.5; }
+</style>
+</head>
+<body>
+<center>
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#f4f1ec;">
+<tr><td align="center" style="padding:20px 10px;">
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <div class="header">
+    {% if logo_b64 %}
+    <img src="data:image/png;base64,{{ logo_b64 }}" alt="Dreams2Memories Travel" style="max-width:300px;height:auto;" />
+    {% else %}
+    <div style="font-family:'Georgia',serif;font-size:22px;color:#c9a84c;letter-spacing:2px;">DREAMS2MEMORIES</div>
+    <div style="font-family:'Georgia',serif;font-size:11px;color:#8a9ab5;letter-spacing:3px;text-transform:uppercase;margin-top:4px;">Travel, LLC</div>
+    {% endif %}
+    <div class="tagline">Curating the voyage of your lifetime</div>
+  </div>
+  <div class="gold-line"></div>
+  <div class="hero-area">
+    <div class="hero-text">{{ hero_text }}</div>
+    <div class="hero-sub">{{ hero_sub }}</div>
+  </div>
+  <div class="gold-line"></div>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <!-- ══════════════════════════════════════ -->
+    <!-- JOHN'S SECTION                         -->
+    <!-- ══════════════════════════════════════ -->
+
+    <p class="body-text">{{ opening }}</p>
+
+    <!-- Section 1: What D2M Is -->
+    <div class="section-divider"><span>What D2M Is</span></div>
+    <p class="body-text">{{ section_1_p1 }}</p>
+    <p class="body-text">{{ section_1_p2 }}</p>
+
+    <!-- Section 2: No Fees. Ever. -->
+    <div class="section-divider"><span>No Fees. Ever.</span></div>
+    <p class="body-text">{{ section_2_p1 }}</p>
+    <p class="body-text">{{ section_2_p2 }}</p>
+    <p class="body-text">{{ section_2_p3 }}</p>
+
+    <!-- John's bridge to Dani -->
+    <p class="body-text">{{ johns_bridge }}</p>
+
+    <!-- ══════════════════════════════════════ -->
+    <!-- VOICE TRANSITION → DANI               -->
+    <!-- ══════════════════════════════════════ -->
+    <div class="voice-transition">
+      <span class="voice-transition-label">Dani Moreau &nbsp;&middot;&nbsp; Luxury Travel Concierge</span>
+    </div>
+
+    <!-- Dani avatar + name block -->
+    <table cellpadding="0" cellspacing="0" border="0" style="margin-bottom:20px;">
+      <tr>
+        {% if avatar_b64 %}
+        <td style="padding-right:16px;vertical-align:top;">
+          <img src="data:image/png;base64,{{ avatar_b64 }}" alt="Dani Moreau" width="72" height="72"
+               style="width:72px;height:72px;border-radius:50%;border:2px solid #c9a84c;display:block;" />
+        </td>
+        {% endif %}
+        <td style="vertical-align:middle;">
+          <div class="dani-id">
+            <div class="dani-name">Dani Moreau</div>
+            <div class="dani-title-label">Luxury Travel Concierge &nbsp;&middot;&nbsp; Dreams2Memories Travel</div>
+          </div>
+        </td>
+      </tr>
+    </table>
+
+    <!-- Dani's greeting -->
+    <div class="dani-greeting">{{ dani_intro }}</div>
+
+    <!-- ══════════════════════════════════════ -->
+    <!-- DANI'S SECTION                         -->
+    <!-- ══════════════════════════════════════ -->
+    <div class="dani-section">
+
+      <!-- Section 3: The AI Advantage -->
+      <div class="section-divider"><span>The AI Advantage &mdash; What It Actually Does</span></div>
+      <p class="body-text">{{ section_3_intro }}</p>
+      <ul class="lettered-list">
+        {% for item in section_3_items %}
+        <li><strong>{{ item.label }}.</strong> {{ item.text }}</li>
+        {% endfor %}
+      </ul>
+
+      <!-- Section 4: The Wing -->
+      <div class="section-divider"><span>The Wing &mdash; Nine Specialists, One Mission</span></div>
+      <p class="body-text">{{ section_4_intro }}</p>
+      <table class="staff-table">
+        <thead>
+          <tr><th>Role</th><th>Name</th><th>What They Do</th></tr>
+        </thead>
+        <tbody>
+          {% for s in staff_roster %}
+          <tr>
+            <td class="role-col">{{ s.role }}</td>
+            <td class="name-col">{{ s.name }}</td>
+            <td>{{ s.desc }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <p class="body-text">{{ section_4_kicker }}</p>
+
+      <!-- Section 5: Proof — Voyage -->
+      <div class="section-divider"><span>Proof &mdash; John&rsquo;s 32-Day Voyage</span></div>
+      <p class="body-text">{{ section_5_p1 }}</p>
+      <p class="body-text">{{ section_5_p2 }}</p>
+
+      <!-- Section 6: Proof — Friend Service -->
+      <div class="section-divider"><span>Proof &mdash; Friend Service, Full Rigor</span></div>
+      <p class="body-text">{{ section_6_p1 }}</p>
+      <p class="body-text">{{ section_6_p2 }}</p>
+      <p class="body-text">{{ section_6_p3 }}</p>
+      <p class="body-text">{{ section_6_p4 }}</p>
+      <p class="body-text">{{ section_6_p5 }}</p>
+      <p class="body-text">{{ section_6_p6 }}</p>
+
+      <!-- Section 7: Portfolio -->
+      <div class="section-divider"><span>The Portfolio</span></div>
+      <p class="body-text">{{ section_7 }}</p>
+
+      <!-- Section 8: Service, Not Sales -->
+      <div class="section-divider"><span>Service, Not Sales</span></div>
+      <p class="body-text">{{ section_8_intro }}</p>
+      <ul class="lettered-list">
+        {% for item in section_8_items %}
+        <li><strong>{{ item.label }}.</strong> {{ item.text }}</li>
+        {% endfor %}
+      </ul>
+      <p class="body-text">{{ section_8_close }}</p>
+
+    </div><!-- end .dani-section -->
+
+    <!-- ══════════════════════════════════════ -->
+    <!-- VOICE RETURN → JOHN                   -->
+    <!-- ══════════════════════════════════════ -->
+    <div class="voice-return">
+      <span class="voice-return-label">John Loucks &nbsp;&middot;&nbsp; Founder &amp; Travel Advisor</span>
+    </div>
+
+    <!-- Section 9: If Something's on Your List -->
+    <div class="section-divider"><span>If Something&rsquo;s on Your List</span></div>
+    <div class="closing-box">
+      <p class="body-text">{{ section_9_p1 }}</p>
+      <p class="body-text">{{ section_9_p2 }}</p>
+      <p class="body-text">{{ section_9_p3 }}</p>
+      <p class="body-text">{{ section_9_p4 }}</p>
+    </div>
+
+    <p class="john-em">&mdash; John</p>
+
+    <!-- Referral line -->
+    <div class="referral-line">{{ referral_line }}</div>
+
+    <!-- ══════════════════════════════════════ -->
+    <!-- SIGNATURES                             -->
+    <!-- ══════════════════════════════════════ -->
+    <div class="sig-area">
+
+      <!-- DANI'S SIGNATURE -->
+      <div class="sig-divider"></div>
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          {% if avatar_b64 %}
+          <td style="padding-right:16px;vertical-align:top;">
+            <img src="data:image/png;base64,{{ avatar_b64 }}" alt="Dani Moreau" width="56" height="56"
+                 style="width:56px;height:56px;border-radius:50%;border:2px solid #c9a84c;" />
+          </td>
+          {% endif %}
+          <td style="vertical-align:top;">
+            <div class="sig-name">Dani Moreau</div>
+            <div class="sig-title">Luxury Travel Concierge</div>
+            <div class="sig-company">DREAMS2MEMORIES TRAVEL</div>
+            <div class="sig-contact">
+              <a href="mailto:concierge@d2mluxury.quest">concierge@d2mluxury.quest</a>
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <!-- AI Disclosure -->
+      <div class="ai-disclosure">
+        <p>{{ ai_disclosure }}</p>
+      </div>
+
+      <!-- JOHN'S SIGNATURE -->
+      <div class="john-sig">
+        <div class="sig-name">John Loucks</div>
+        <div class="sig-title">Founder &amp; Travel Advisor</div>
+        <div class="sig-company">DREAMS2MEMORIES TRAVEL, LLC</div>
+        <div class="sig-contact">
+          <a href="mailto:johnloucks3@gmail.com">johnloucks3@gmail.com</a> &nbsp;&middot;&nbsp;
+          <a href="mailto:concierge@d2mluxury.quest">concierge@d2mluxury.quest</a> &nbsp;&middot;&nbsp;
+          (719) 291-0742
+        </div>
+      </div>
+
+    </div><!-- end .sig-area -->
+
+    <!-- IP Statement -->
+    <div class="ip-statement">
+      <p>{{ ip_statement }}</p>
+    </div>
+
+  </div><!-- end .content -->
+
+  <!-- FOOTER -->
+  <div class="gold-line"></div>
+  <div class="footer">
+    <div class="footer-brand">DREAMS2MEMORIES</div>
+    <div class="footer-tagline">Curating the voyage of your lifetime</div>
+    <div class="footer-contact">
+      <a href="mailto:concierge@d2mluxury.quest">concierge@d2mluxury.quest</a>
+    </div>
+    <div class="footer-legal">
+      Florida Seller of Travel # ST1578 &nbsp;&middot;&nbsp; California Seller of Travel No. 2090937-50<br>
+      Washington UBID No. 603189022 &nbsp;&middot;&nbsp; Iowa Registered Agency # 1202
+    </div>
+  </div>
+
+</div>
+</td></tr>
+</table>
+</center>
+</body>
+</html>
