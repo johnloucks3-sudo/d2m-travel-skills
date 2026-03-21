@@ -1,22 +1,22 @@
 """
-Thunderbird Telegram Tools — Groq + Full MCP Access
-=====================================================
+Thunderbird Telegram Tools — Claude Anthropic SDK + Full MCP Access
+====================================================================
 
-Gives the Telegram bot REAL operational capability via Groq Llama 4 Scout
-function calling, backed by ALL 143 MCP tools plus local bonus tools.
+Gives the Telegram bot REAL operational capability via Claude Sonnet
+tool use, backed by ALL 143 MCP tools plus local bonus tools.
 
 Architecture:
   1. On load: auto-discovers all tools from the running MCP server
-  2. Converts MCP inputSchemas → OpenAI-compatible tool format (Groq)
+  2. Converts MCP inputSchemas → Claude-compatible tool format
   3. Adds local "bonus" tools (file access, web search, persona consult)
-  4. Commander messages → Groq with tools → execute via MCP or local
+  4. Commander messages → Claude with tools → execute via MCP or local
   5. Multi-round tool calling loop until model has enough data to respond
 
 Tool execution:
   - MCP tools → HTTP POST to localhost:8765/mcp (tools/call)
   - Local tools → direct Python execution (faster, no HTTP)
 
-Cost: Free (Groq) — fast inference, generous rate limits
+Cost: $0 (Max plan covers all Anthropic SDK usage)
 """
 
 import glob
@@ -33,9 +33,7 @@ from typing import Any
 logger = logging.getLogger("thunderbird_telegram_tools")
 
 # ── Config ──
-GROQ_API_KEY = "***REMOVED-SECRET***"
-GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
-GROQ_MODEL = "meta-llama/llama-4-scout-17b-16e-instruct"
+# Groq ELIMINATED — all calls route through Claude via Anthropic SDK ($0 on Max plan)
 MCP_URL = "http://localhost:8765/mcp"
 THUNDERBIRD_DIR = os.path.expanduser("~/Thunderbird")
 MAX_TOOL_ROUNDS = 8  # generous for complex multi-step operations
@@ -139,10 +137,10 @@ def _fetch_mcp_tools() -> list[dict]:
 
 
 def _clean_schema_for_groq(schema: dict) -> dict:
-    """Clean MCP inputSchema for Groq (OpenAI-compatible).
+    """Clean MCP inputSchema for Claude tool use.
 
-    Groq uses standard JSON Schema but chokes on some MCP extensions.
     Simplify anyOf/oneOf patterns and strip extra fields.
+    Name kept for backward compat.
     """
     if not schema:
         return {"type": "object", "properties": {}}
@@ -182,7 +180,7 @@ def _clean_schema_for_groq(schema: dict) -> dict:
 
 
 def _mcp_to_groq_tools(mcp_tools: list[dict]) -> list[dict]:
-    """Convert MCP tool list → OpenAI/Groq tools format. Only includes curated tools."""
+    """Convert MCP tool list → Claude tool format. Only includes curated tools. Name kept for backward compat."""
     tools = []
     for tool in mcp_tools:
         name = tool.get("name", "")
@@ -546,20 +544,30 @@ def _execute_tool(tool_name: str, tool_args: dict) -> str:
 
 
 # ====================================================================
-# Groq Function-Calling Loop (OpenAI-compatible)
+# Claude Tool-Calling Loop (Anthropic SDK)
 # ====================================================================
 
 def call_cos_with_tools(query: str, conversation_history: list[dict] = None) -> str:
-    """Send a Commander query to Groq with ALL tools. Returns final text response.
+    """Send a Commander query to Claude with ALL tools. Returns final text response.
 
     Main entry point called from thunderbird_telegram.py.
     Handles the full tool-calling loop: send → execute tools → return results → repeat.
+    Groq ELIMINATED — uses Anthropic SDK ($0 on Max plan).
     """
-    if not GROQ_API_KEY:
-        return "ERROR: Groq API key not configured."
+    import anthropic
+
+    # Convert OpenAI-style tool declarations to Claude tool format
+    claude_tools = []
+    for t in ALL_TOOLS:
+        func = t.get("function", {})
+        claude_tools.append({
+            "name": func["name"],
+            "description": func.get("description", ""),
+            "input_schema": func.get("parameters", {"type": "object", "properties": {}}),
+        })
 
     # Build messages
-    messages = [{"role": "system", "content": COS_SYSTEM_PROMPT}]
+    messages = []
 
     if conversation_history:
         for msg in conversation_history:
@@ -568,65 +576,45 @@ def call_cos_with_tools(query: str, conversation_history: list[dict] = None) -> 
 
     messages.append({"role": "user", "content": query})
 
+    client = anthropic.Anthropic()
+
     for round_num in range(MAX_TOOL_ROUNDS):
         try:
-            resp = requests.post(
-                GROQ_URL,
-                json={
-                    "model": GROQ_MODEL,
-                    "messages": messages,
-                    "tools": ALL_TOOLS,
-                    "tool_choice": "auto",
-                    "max_tokens": 4000,
-                    "temperature": 0.3,
-                },
-                headers={
-                    "Authorization": f"Bearer {GROQ_API_KEY}",
-                    "Content-Type": "application/json",
-                },
-                timeout=90,
+            resp = client.messages.create(
+                model="claude-sonnet-4-20250514",
+                max_tokens=4000,
+                system=COS_SYSTEM_PROMPT,
+                messages=messages,
+                tools=claude_tools,
+                temperature=0.3,
             )
-            if resp.status_code == 429:
-                logger.warning("Groq 429 — waiting 5s")
-                time.sleep(5)
-                continue
-            resp.raise_for_status()
-            data = resp.json()
-        except requests.exceptions.HTTPError as e:
-            logger.error(f"Groq API error: {e}")
-            return f"COS reporting: API error — {e}"
         except Exception as e:
-            logger.error(f"Groq request failed: {e}")
-            return f"COS reporting: Request failed — {e}"
+            logger.error(f"Anthropic SDK error: {e}")
+            return f"COS reporting: API error — {e}"
 
-        choice = data.get("choices", [{}])[0]
-        message = choice.get("message", {})
-        finish = choice.get("finish_reason", "")
+        # Check if we got tool use blocks
+        tool_use_blocks = [b for b in resp.content if b.type == "tool_use"]
+        text_blocks = [b for b in resp.content if b.type == "text"]
 
-        # Check for tool calls
-        tool_calls = message.get("tool_calls", [])
-
-        if not tool_calls or finish == "stop":
+        if not tool_use_blocks or resp.stop_reason == "end_turn":
             # Final text response
-            final = message.get("content", "").strip()
+            final = " ".join(b.text for b in text_blocks).strip()
             if not final:
                 return "COS reporting: No text in response."
             logger.info(f"COS response ready (round {round_num + 1})")
             return final
 
         # Execute tool calls
-        logger.info(f"Round {round_num + 1}: {len(tool_calls)} tool call(s)")
+        logger.info(f"Round {round_num + 1}: {len(tool_use_blocks)} tool call(s)")
 
-        # Add assistant message with tool calls to conversation
-        messages.append(message)
+        # Add assistant message to conversation
+        messages.append({"role": "assistant", "content": resp.content})
 
         # Execute each tool and add results
-        for tc in tool_calls:
-            tool_name = tc["function"]["name"]
-            try:
-                tool_args = json.loads(tc["function"].get("arguments", "{}"))
-            except json.JSONDecodeError:
-                tool_args = {}
+        tool_results = []
+        for block in tool_use_blocks:
+            tool_name = block.name
+            tool_args = block.input or {}
 
             logger.info(f"  Tool: {tool_name}({json.dumps(tool_args)[:120]})")
             result = _execute_tool(tool_name, tool_args)
@@ -635,11 +623,13 @@ def call_cos_with_tools(query: str, conversation_history: list[dict] = None) -> 
             if len(result) > 8000:
                 result = result[:8000] + "\n\n[TRUNCATED]"
 
-            messages.append({
-                "role": "tool",
-                "tool_call_id": tc["id"],
+            tool_results.append({
+                "type": "tool_result",
+                "tool_use_id": block.id,
                 "content": result,
             })
+
+        messages.append({"role": "user", "content": tool_results})
 
     return "COS reporting: Max tool rounds reached."
 

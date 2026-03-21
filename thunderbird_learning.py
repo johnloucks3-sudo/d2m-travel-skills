@@ -49,6 +49,8 @@ CREATE TABLE IF NOT EXISTS corrections (
     source          TEXT NOT NULL DEFAULT 'email_diff',
     context         TEXT,
     timestamp       TEXT NOT NULL,
+    recipient       TEXT,
+    topic           TEXT,
     FOREIGN KEY (principle_id) REFERENCES principles(rule_id)
 );
 
@@ -61,13 +63,40 @@ CREATE TABLE IF NOT EXISTS principles (
     confidence          REAL NOT NULL DEFAULT 0.8,
     validation_status   TEXT NOT NULL DEFAULT 'pending',
     created_date        TEXT NOT NULL,
-    applied_count       INTEGER NOT NULL DEFAULT 0
+    applied_count       INTEGER NOT NULL DEFAULT 0,
+    valid_from          TEXT,
+    valid_to            TEXT,
+    superseded_by       INTEGER,
+    priority_tier       TEXT NOT NULL DEFAULT 'contextual',
+    FOREIGN KEY (superseded_by) REFERENCES principles(rule_id)
 );
 
 CREATE INDEX IF NOT EXISTS idx_principles_persona ON principles(persona_id);
 CREATE INDEX IF NOT EXISTS idx_principles_status  ON principles(validation_status);
 CREATE INDEX IF NOT EXISTS idx_corrections_ts     ON corrections(timestamp);
+CREATE INDEX IF NOT EXISTS idx_principles_valid   ON principles(valid_from, valid_to);
+CREATE INDEX IF NOT EXISTS idx_principles_tier    ON principles(priority_tier);
+
+CREATE TABLE IF NOT EXISTS episodes (
+    episode_id   INTEGER PRIMARY KEY AUTOINCREMENT,
+    client_key   TEXT NOT NULL,
+    context_type TEXT NOT NULL,
+    what_worked  TEXT NOT NULL,
+    what_failed  TEXT,
+    outcome      TEXT,
+    persona_id   TEXT,
+    timestamp    TEXT NOT NULL,
+    valid_from   TEXT,
+    valid_to     TEXT
+);
+CREATE INDEX IF NOT EXISTS idx_episodes_client ON episodes(client_key);
 """
+
+# Priority tiers per Inverse Constitutional AI research:
+# - inviolable: Never violate (e.g., "Never sign 'Best'", "Never use 'Hey'")
+# - strong: Follow unless context demands otherwise (e.g., "Lead with connection for prospects")
+# - contextual: Situational guidance (e.g., "Include personal cell for high-trust clients")
+PRIORITY_TIERS = ("inviolable", "strong", "contextual")
 
 
 def _get_db() -> sqlite3.Connection:
@@ -344,6 +373,99 @@ def validate_principle(
         conn.close()
 
 
+def supersede_principle(
+    old_rule_id: int,
+    new_principle_text: str,
+    reason: Optional[str] = None,
+) -> Dict[str, Any]:
+    """Create a new principle that supersedes an existing one (temporal versioning).
+
+    Layer 3: Instead of overwriting, we archive the old principle with valid_to
+    and create a new one with valid_from = now. This preserves preference history.
+    """
+    now = datetime.now(timezone.utc).isoformat()
+    conn = _get_db()
+    try:
+        old = conn.execute(
+            "SELECT * FROM principles WHERE rule_id = ?", (old_rule_id,)
+        ).fetchone()
+        if not old:
+            return {"error": f"Principle #{old_rule_id} not found"}
+
+        # Create the new principle
+        cur = conn.execute(
+            "INSERT INTO principles (persona_id, domain, client_tier, principle_text, "
+            "confidence, validation_status, created_date, valid_from, priority_tier) "
+            "VALUES (?, ?, ?, ?, ?, 'pending', ?, ?, ?)",
+            (
+                old["persona_id"],
+                old["domain"],
+                old["client_tier"],
+                new_principle_text,
+                old["confidence"],
+                now,
+                now,
+                old["priority_tier"] if old["priority_tier"] else "contextual",
+            ),
+        )
+        new_rule_id = cur.lastrowid
+
+        # Archive the old principle
+        conn.execute(
+            "UPDATE principles SET valid_to = ?, superseded_by = ? WHERE rule_id = ?",
+            (now, new_rule_id, old_rule_id),
+        )
+
+        conn.commit()
+        logger.info(
+            f"Principle #{old_rule_id} superseded by #{new_rule_id}"
+            + (f" (reason: {reason})" if reason else "")
+        )
+
+        new = conn.execute(
+            "SELECT * FROM principles WHERE rule_id = ?", (new_rule_id,)
+        ).fetchone()
+        return {
+            "old_rule_id": old_rule_id,
+            "new_rule_id": new_rule_id,
+            "old_principle": dict(old),
+            "new_principle": dict(new),
+        }
+    finally:
+        conn.close()
+
+
+def get_principle_history(
+    persona_id: Optional[str] = None,
+    domain: Optional[str] = None,
+) -> List[Dict[str, Any]]:
+    """Get the temporal history of principles, including superseded ones.
+
+    Layer 3: Shows how preferences evolved over time.
+    """
+    conn = _get_db()
+    try:
+        conditions = []
+        params: List[Any] = []
+
+        if persona_id:
+            conditions.append("(persona_id = ? OR persona_id IS NULL)")
+            params.append(persona_id)
+        if domain:
+            conditions.append("domain = ?")
+            params.append(domain)
+
+        where = " AND ".join(conditions) if conditions else "1=1"
+        rows = conn.execute(
+            f"SELECT * FROM principles WHERE {where} "
+            f"ORDER BY created_date DESC LIMIT 100",
+            params,
+        ).fetchall()
+        return [dict(r) for r in rows]
+    finally:
+        conn.close()
+
+
 # ---------------------------------------------------------------------------
 # D. Apply — fetch approved rules and format for injection
 # ---------------------------------------------------------------------------
@@ -353,9 +475,11 @@ def get_applicable_rules(
     client_tier: Optional[str] = None,
     domain: Optional[str] = None,
 ) -> str:
-    """Fetch approved principles and format as an injection block for system prompts.
+    """Fetch approved, temporally-valid principles and format for system prompt injection.
 
-    Filters by persona (or global), client_tier, and domain.
+    Filters by persona (or global), client_tier, domain.
+    Respects temporal validity (valid_from/valid_to) — Layer 3.
+    Orders by priority tier (inviolable > strong > contextual) — Layer 1 upgrade.
     Returns empty string if no rules match.
     """
     conn = _get_db()
@@ -374,11 +498,21 @@ def get_applicable_rules(
             conditions.append("domain = ?")
             params.append(domain)
 
+        # Layer 3: Only return temporally valid principles
+        conditions.append("(valid_to IS NULL OR valid_to > datetime('now'))")
+
         where = " AND ".join(conditions)
+        # Order: inviolable first, then strong, then contextual, then by usage
         rows = conn.execute(
-            f"SELECT rule_id, persona_id, domain, client_tier, principle_text "
+            f"SELECT rule_id, persona_id, domain, client_tier, principle_text, priority_tier "
             f"FROM principles WHERE {where} "
-            f"ORDER BY applied_count DESC, created_date DESC LIMIT 15",
+            f"ORDER BY "
+            f"  CASE priority_tier "
+            f"    WHEN 'inviolable' THEN 1 "
+            f"    WHEN 'strong' THEN 2 "
+            f"    WHEN 'contextual' THEN 3 "
+            f"    ELSE 4 END, "
+            f"  applied_count DESC, created_date DESC LIMIT 20",
             params,
         ).fetchall()
 
@@ -397,20 +531,162 @@ def get_applicable_rules(
     finally:
         conn.close()
 
-    # Format injection block
-    lines = []
+    # Format injection block — grouped by priority tier
+    tier_labels = {
+        "inviolable": "INVIOLABLE (never violate these)",
+        "strong": "STRONG PREFERENCES (follow unless context demands otherwise)",
+        "contextual": "CONTEXTUAL GUIDELINES (situational)",
+    }
+    lines_by_tier: Dict[str, List[str]] = {"inviolable": [], "strong": [], "contextual": []}
+
     for r in rows:
+        tier = r["priority_tier"] if r["priority_tier"] in tier_labels else "contextual"
         tag_parts = [f"[{r['domain']}]"]
         if r["client_tier"]:
             tag_parts.append(f"({r['client_tier']} tier)")
         if r["persona_id"]:
             tag_parts.append(f"@{r['persona_id']}")
-        lines.append(f"- {' '.join(tag_parts)} {r['principle_text']}")
+        lines_by_tier[tier].append(f"- {' '.join(tag_parts)} {r['principle_text']}")
+
+    lines = []
+    for tier, label in tier_labels.items():
+        if lines_by_tier[tier]:
+            lines.append(f"\n### {label}")
+            lines.extend(lines_by_tier[tier])
 
     return (
         "\n\nLEARNED PRINCIPLES (apply these — Commander-validated rules):\n"
         + "\n".join(lines)
     )
+
+
+# ---------------------------------------------------------------------------
+# D2. Episodic Memory — record and recall what worked/failed per client
+# ---------------------------------------------------------------------------
+
+def record_episode(
+    client_key: str,
+    context_type: str,
+    what_worked: str,
+    what_failed: Optional[str] = None,
+    outcome: Optional[str] = None,
+    persona_id: Optional[str] = None,
+    valid_from: Optional[str] = None,
+    valid_to: Optional[str] = None,
+) -> int:
+    """Record a client interaction episode — what worked, what failed, and outcome.
+
+    context_type examples: 'email_draft', 'booking_query', 'excursion_rec',
+                           'dining_suggestion', 'complaint_resolution', 'upsell'
+
+    Returns episode_id.
+    """
+    now = datetime.now(timezone.utc).isoformat()
+    conn = _get_db()
+    try:
+        cur = conn.execute(
+            "INSERT INTO episodes "
+            "(client_key, context_type, what_worked, what_failed, outcome, "
+            " persona_id, timestamp, valid_from, valid_to) "
+            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+            (
+                client_key, context_type, what_worked, what_failed,
+                outcome, persona_id, now,
+                valid_from or now, valid_to,
+            ),
+        )
+        conn.commit()
+        eid = cur.lastrowid
+        logger.info(f"Recorded episode #{eid} for {client_key} ({context_type})")
+        return eid
+    finally:
+        conn.close()
+
+
+def get_relevant_episodes(
+    client_key: Optional[str] = None,
+    context_type: Optional[str] = None,
+    persona_id: Optional[str] = None,
+    limit: int = 20,
+) -> List[Dict[str, Any]]:
+    """Retrieve episodes filtered by client, context type, and/or persona.
+
+    Only returns temporally valid episodes (valid_to is NULL or in the future).
+    Ordered by most recent first.
+    """
+    conn = _get_db()
+    try:
+        conditions = ["(valid_to IS NULL OR valid_to > datetime('now'))"]
+        params: List[Any] = []
+
+        if client_key:
+            conditions.append("client_key = ?")
+            params.append(client_key)
+        if context_type:
+            conditions.append("context_type = ?")
+            params.append(context_type)
+        if persona_id:
+            conditions.append("(persona_id = ? OR persona_id IS NULL)")
+            params.append(persona_id)
+
+        where = " AND ".join(conditions)
+        rows = conn.execute(
+            f"SELECT * FROM episodes WHERE {where} "
+            f"ORDER BY timestamp DESC LIMIT ?",
+            params + [limit],
+        ).fetchall()
+        return [dict(r) for r in rows]
+    finally:
+        conn.close()
+
+
+def format_episodes_for_injection(
+    episodes: List[Dict[str, Any]],
+    max_chars: int = 2000,
+) -> str:
+    """Format episode records for injection into persona system prompts.
+
+    Groups by context_type and presents what_worked / what_failed
+    so the persona can learn from past interactions.
+    Returns empty string if no episodes.
+    """
+    if not episodes:
+        return ""
+
+    # Group by context_type
+    by_type: Dict[str, List[Dict[str, Any]]] = {}
+    for ep in episodes:
+        ct = ep.get("context_type", "general")
+        by_type.setdefault(ct, []).append(ep)
+
+    lines = ["\n\nEPISODIC MEMORY (past interactions — learn from these):"]
+    total_len = len(lines[0])
+
+    for ct, eps in by_type.items():
+        header = f"\n### {ct.replace('_', ' ').title()}"
+        lines.append(header)
+        total_len += len(header)
+
+        for ep in eps:
+            client = ep.get("client_key", "unknown")
+            worked = ep.get("what_worked", "")
+            failed = ep.get("what_failed", "")
+            outcome = ep.get("outcome", "")
+
+            entry = f"- [{client}] Worked: {worked}"
+            if failed:
+                entry += f" | Failed: {failed}"
+            if outcome:
+                entry += f" | Outcome: {outcome}"
+
+            if total_len + len(entry) > max_chars:
+                lines.append("- ... (more episodes available)")
+                return "\n".join(lines)
+
+            lines.append(entry)
+            total_len += len(entry)
+
+    return "\n".join(lines)
 
 
 # ---------------------------------------------------------------------------
@@ -604,4 +880,53 @@ def register_learning_tools(mcp_server):
             return json.dumps({"status": "empty", "message": "No applicable rules found"})
         return json.dumps({"status": "ok", "injection_block": block})
 
-    logger.info("Learning compiler tools registered (5 tools)")
+    # ------------------------------------------------------------------
+    # Episodic Memory MCP tools
+    # ------------------------------------------------------------------
+
+    @mcp_server.tool(
+        name="record_episode",
+        annotations={"title": "Record Client Interaction Episode"},
+    )
+    async def record_episode_tool(
+        client_key: str,
+        context_type: str,
+        what_worked: str,
+        what_failed: str = "",
+        outcome: str = "",
+        persona_id: str = "",
+    ) -> str:
+        """Record what worked/failed in a client interaction for future learning."""
+        eid = record_episode(
+            client_key=client_key,
+            context_type=context_type,
+            what_worked=what_worked,
+            what_failed=what_failed or None,
+            outcome=outcome or None,
+            persona_id=persona_id or None,
+        )
+        return json.dumps({"status": "recorded", "episode_id": eid})
+
+    @mcp_server.tool(
+        name="get_episodes",
+        annotations={"title": "Get Client Episodes", "readOnlyHint": True},
+    )
+    async def get_episodes_tool(
+        client_key: str = "",
+        context_type: str = "",
+        persona_id: str = "",
+        limit: int = 20,
+    ) -> str:
+        """Retrieve episodic memory for a client, context type, or persona."""
+        episodes = get_relevant_episodes(
+            client_key=client_key or None,
+            context_type=context_type or None,
+            persona_id=persona_id or None,
+            limit=limit,
+        )
+        return json.dumps({
+            "count": len(episodes),
+            "episodes": episodes,
+        }, indent=2)
+
+    logger.info("Learning compiler tools registered (7 tools)")

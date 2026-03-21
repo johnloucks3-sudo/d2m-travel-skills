@@ -325,6 +325,19 @@ def _phase_artist(aggregated_data: Dict[str, Any]) -> Optional[str]:
     # Build the full prompt: aggregated data block + voice rules + email format rules
     context = aggregated_data["context"]
 
+    # --- Auto-enrichment: inject client context from dossiers/Gmail/Drive ---
+    try:
+        from thunderbird_auto_enrich import enrich_client_context
+        client_context = enrich_client_context(
+            aggregated_data.get("sender_email")
+            or aggregated_data.get("subject")
+            or ""
+        )
+        if client_context:
+            context = client_context + "\n\n" + context
+    except Exception:
+        pass
+
     if voice_rules:
         context += f"\n\n{voice_rules}"
 
@@ -487,17 +500,34 @@ def _phase_advocate(crafted_response: str, aggregated_data: Dict[str, Any],
     final_response = cos_result.get("revised") or crafted_response
 
     # --- Learning diff capture (Skill 1: Capture the Diff) ---
+    # Layer 2: Semantic info delta analysis enriches the learning compiler
     if final_response != crafted_response:
         try:
-            from thunderbird_learning import capture_email_diff
-            capture_email_diff(
+            from thunderbird_info_delta import analyze_and_feed
+            delta_result = analyze_and_feed(
                 crafted_response, final_response,
-                context=f"COS review of Dani reply to {sender_name} re: {subject}",
-                source="cos_review",
+                recipient=sender_name,
+                topic=subject,
             )
-            logger.debug(f"[ADVOCATE] Learning diff captured for {sender_name}")
-        except Exception as _learn_err:
-            logger.debug(f"[ADVOCATE] Learning capture skipped: {_learn_err}")
+            logger.info(
+                f"[ADVOCATE] Info delta captured for {sender_name}: "
+                f"{delta_result['delta_count']} deltas, "
+                f"categories={delta_result['categories']}, "
+                f"correction_id={delta_result['correction_id']}"
+            )
+        except Exception as _delta_err:
+            # Fallback to plain capture if info delta fails
+            logger.debug(f"[ADVOCATE] Info delta failed ({_delta_err}), falling back to plain capture")
+            try:
+                from thunderbird_learning import capture_email_diff
+                capture_email_diff(
+                    crafted_response, final_response,
+                    context=f"COS review of Dani reply to {sender_name} re: {subject}",
+                    source="cos_review",
+                )
+                logger.debug(f"[ADVOCATE] Learning diff captured for {sender_name}")
+            except Exception as _learn_err:
+                logger.debug(f"[ADVOCATE] Learning capture skipped: {_learn_err}")
 
     # --- Draft creation ---
     try:

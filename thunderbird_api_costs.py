@@ -1,13 +1,13 @@
 """
 Thunderbird API Cost Tracker
 ==============================
-Logs all API calls (Groq, Claude, Gemini, Hotelbeds, Amadeus) with token counts
+Logs all API calls (Claude, Gemini, Hotelbeds, Amadeus) with token counts
 and estimated costs. Writes to Google Sheets API_Cost_Log tab.
 
 Usage:
     from thunderbird_api_costs import log_api_call, get_daily_summary
 
-    log_api_call("groq", "llama-3.3-70b-versatile", input_tokens=500, output_tokens=200,
+    log_api_call("anthropic", "claude-sonnet-4-20250514", input_tokens=500, output_tokens=200,
                  caller="A3", task="booking_status")
 
     summary = get_daily_summary()  # Returns today's costs by provider
@@ -32,10 +32,10 @@ LOCAL_LOG = THUNDERBIRD_DIR / "api_cost_log.jsonl"
 
 # ── Pricing per 1M tokens (USD) ──
 PRICING = {
-    # Groq
+    # Groq ELIMINATED — pricing retained for historical cost analysis only
     "llama-3.3-70b-versatile":   {"input": 0.59,  "output": 0.79},
     "llama-3.1-8b-instant":      {"input": 0.05,  "output": 0.08},
-    # Anthropic Claude
+    # Anthropic Claude (primary engine — $0 on Max plan)
     "claude-sonnet-4-20250514":  {"input": 3.00,  "output": 15.00},
     "claude-opus-4-20250514":    {"input": 15.00, "output": 75.00},
     "claude-haiku-4-5-20251001": {"input": 0.80,  "output": 4.00},
@@ -100,7 +100,7 @@ def log_api_call(provider: str, model: str,
     """Log an API call and return estimated cost.
 
     Args:
-        provider: groq, anthropic, gemini, hotelbeds, amadeus
+        provider: anthropic, gemini, hotelbeds, amadeus
         model: model ID string
         input_tokens: input token count
         output_tokens: output token count
@@ -190,7 +190,7 @@ if __name__ == "__main__":
     setup_sheet()
     # Log a test entry
     cost = log_api_call(
-        "groq", "llama-3.3-70b-versatile",
+        "anthropic", "claude-sonnet-4-20250514",
         input_tokens=500, output_tokens=200,
         caller="test", task="router_test", notes="Initial test entry"
     )

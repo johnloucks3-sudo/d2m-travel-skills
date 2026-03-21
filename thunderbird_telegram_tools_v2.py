@@ -2,19 +2,18 @@
 Thunderbird Telegram Tools v2 — Claude Opus via CLI (Max Plan = $0)
 ====================================================================
 
-Replaces the Groq-based tool-calling loop with Claude CLI subprocess.
 COS (Opus) handles ALL reasoning — every persona is a prompt, not an API call.
 
 Architecture:
-  1. Telegram message arrives, classified by Groq (free)
+  1. Telegram message arrives, classified by Claude Sonnet (Anthropic SDK, $0)
   2. This module calls `claude --print` with the appropriate persona prompt
   3. Claude Opus runs in ~/Thunderbird/ with full MCP tool access
   4. Response returned to Telegram
 
-Cost: $0 (Max plan covers all CLI usage)
+Cost: $0 (Max plan covers all SDK + CLI usage)
 Quality: S-tier (Opus 4.6) for every persona
 
-Replaces: thunderbird_telegram_tools.py (Groq + MCP HTTP loop)
+Replaces: thunderbird_telegram_tools.py (legacy Groq + MCP HTTP loop)
 """
 
 import json
@@ -33,10 +32,7 @@ CLAUDE_CMD = os.path.expanduser("~/.local/bin/claude")
 MAX_RESPONSE_TIME = 180  # seconds — Opus can take a while on complex tasks
 DEFAULT_MODEL = "opus"  # Max plan model
 
-# ── Groq for classifier only (FREE) ──
-GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "***REMOVED-SECRET***")
-GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
-GROQ_CLASSIFIER_MODEL = "meta-llama/llama-4-scout-17b-16e-instruct"
+# Groq ELIMINATED — classifier now uses Claude Sonnet via Anthropic SDK ($0 on Max plan)
 
 # ── Persona System Prompts ──
 # COS embodies each persona by loading their system prompt.
@@ -109,20 +105,13 @@ def classify_intent(message: str) -> dict:
     Returns: {"type": "TASK|ORDER|PRIORITY|APPROVE|SITREP",
               "target": "COS|A2|A3|...", "subject": "..."}
 
-    Uses Groq Llama Scout (free tier). If Groq fails, defaults to
-    TASK → COS (safe fallback).
+    Uses Claude Sonnet via Anthropic SDK ($0 on Max plan).
+    If SDK call fails, defaults to TASK -> COS (safe fallback).
     """
-    if not GROQ_API_KEY:
-        return {"type": "TASK", "target": "COS", "subject": message[:100]}
-
     try:
-        import requests
-        resp = requests.post(
-            GROQ_URL,
-            json={
-                "model": GROQ_CLASSIFIER_MODEL,
-                "messages": [
-                    {"role": "system", "content": """Classify this Telegram message from the Commander.
+        import anthropic
+
+        classifier_system = """Classify this Telegram message from the Commander.
 Return JSON only, no other text:
 {"type": "TASK|ORDER|PRIORITY|APPROVE|SITREP", "target": "COS|A2|A3|A5|A6|A9|CH|A12|EXEC", "subject": "brief description"}
 
@@ -133,20 +122,17 @@ APPROVE = approving/denying a pending item
 SITREP = status request
 
 If unclear, default to: {"type": "TASK", "target": "COS", "subject": "..."}
-Target mapping: hale/cos=COS, dembe=A2, dani=A3, castillo=A5, voss/luna=A6, harlan=A9, washington=CH, elon=A12, naia=EXEC"""},
-                    {"role": "user", "content": message},
-                ],
-                "max_tokens": 150,
-                "temperature": 0,
-            },
-            headers={
-                "Authorization": f"Bearer {GROQ_API_KEY}",
-                "Content-Type": "application/json",
-            },
-            timeout=10,
+Target mapping: hale/cos=COS, dembe=A2, dani=A3, castillo=A5, voss/luna=A6, harlan=A9, washington=CH, elon=A12, naia=EXEC"""
+
+        client = anthropic.Anthropic()
+        resp = client.messages.create(
+            model="claude-sonnet-4-20250514",
+            max_tokens=150,
+            system=classifier_system,
+            messages=[{"role": "user", "content": message}],
+            temperature=0,
         )
-        resp.raise_for_status()
-        content = resp.json()["choices"][0]["message"]["content"].strip()
+        content = resp.content[0].text.strip()
         # Parse JSON from response (handle markdown code blocks)
         if "```" in content:
             content = content.split("```")[1].strip()
@@ -154,7 +140,7 @@ Target mapping: hale/cos=COS, dembe=A2, dani=A3, castillo=A5, voss/luna=A6, harl
                 content = content[4:].strip()
         return json.loads(content)
     except Exception as e:
-        logger.warning(f"Groq classifier failed ({e}), defaulting to COS TASK")
+        logger.warning(f"Claude classifier failed ({e}), defaulting to COS TASK")
         return {"type": "TASK", "target": "COS", "subject": message[:100]}
 
 

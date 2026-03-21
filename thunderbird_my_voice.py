@@ -23,12 +23,9 @@ Outputs:
 import json
 import logging
 import re
-import base64
 from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Dict, Any, List, Optional
-
-import requests
 
 from thunderbird_gmail import _get_gmail_service, _decode_body, _extract_headers
 
@@ -43,14 +40,12 @@ COMMANDER_REVIEW_DIR = THUNDERBIRD_DIR / "Commander_Review"
 PROFILE_JSON = THUNDERBIRD_DIR / "my_voice_profile.json"
 PROFILE_MD = THUNDERBIRD_DIR / "my_voice_profile.md"
 
-GROQ_API_KEY = "***REMOVED-SECRET***"
-GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
-GROQ_MODEL = "llama-3.3-70b-versatile"
+CLAUDE_MODEL = "claude-sonnet-4-20250514"
 
-USER_EMAIL = "johnloucks3@gmail.com"
+USER_EMAIL = "d2mconcierge@gmail.com"  # D2M operational Gmail per standing order
 SAMPLE_MONTHS = 3
 MAX_GMAIL_SAMPLES = 30
-MAX_BODY_CHARS = 8000  # per email — raised from 3000 (Groq 128K can handle more; Claude 1M is GA)
+MAX_BODY_CHARS = 8000  # per email — Claude's 200K context handles this easily
 
 
 # ============================================================================
@@ -185,31 +180,20 @@ def _collect_draft_samples() -> List[Dict[str, str]]:
 
 
 # ============================================================================
-# GROQ ANALYSIS
+# CLAUDE ANALYSIS (replaced Groq — standing order: eliminate all Groq)
 # ============================================================================
 
-def _call_groq(system_prompt: str, user_prompt: str, max_tokens: int = 2000) -> str:
-    """Call Groq LLM and return the response text."""
-    try:
-        resp = requests.post(
-            GROQ_URL,
-            json={
-                "model": GROQ_MODEL,
-                "messages": [
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": user_prompt},
-                ],
-                "max_tokens": max_tokens,
-                "temperature": 0.3,
-            },
-            headers={"Authorization": f"Bearer {GROQ_API_KEY}"},
-            timeout=60,
-        )
-        resp.raise_for_status()
-        return resp.json()["choices"][0]["message"]["content"]
-    except Exception as e:
-        logger.error(f"Groq call failed: {e}")
-        raise
+def _call_claude(system_prompt: str, user_prompt: str, max_tokens: int = 2000) -> str:
+    """Call Claude Sonnet via Anthropic SDK. Max plan = $0 cost."""
+    import anthropic
+    client = anthropic.Anthropic()
+    resp = client.messages.create(
+        model=CLAUDE_MODEL,
+        max_tokens=max_tokens,
+        system=system_prompt,
+        messages=[{"role": "user", "content": user_prompt}],
+    )
+    return resp.content[0].text
 
 
 def _analyze_writing_style(gmail_samples: List[Dict], draft_samples: List[Dict]) -> Dict[str, Any]:
@@ -292,7 +276,7 @@ WRITING SAMPLES:
 
 {all_samples}"""
 
-    raw = _call_groq(system_prompt, user_prompt, max_tokens=3000)
+    raw = _call_claude(system_prompt, user_prompt, max_tokens=3000)
 
     # Parse JSON — strip any markdown fences if present
     cleaned = raw.strip()
@@ -303,9 +287,9 @@ WRITING SAMPLES:
     try:
         profile = json.loads(cleaned)
     except json.JSONDecodeError as e:
-        logger.error(f"Failed to parse Groq JSON response: {e}")
+        logger.error(f"Failed to parse Claude JSON response: {e}")
         logger.error(f"Raw response: {raw[:500]}")
-        raise ValueError(f"Groq returned invalid JSON: {e}")
+        raise ValueError(f"Claude returned invalid JSON: {e}")
 
     return profile
 
@@ -339,7 +323,7 @@ Format with these sections:
 (1-2 sentences that nail the essence)
 """
 
-    return _call_groq(system_prompt, user_prompt, max_tokens=1500)
+    return _call_claude(system_prompt, user_prompt, max_tokens=1500)
 
 
 def _generate_prompt_fragment(profile: Dict[str, Any]) -> str:
@@ -369,7 +353,7 @@ Voice analysis:
 
 Write the fragment as direct instructions starting with "COMMANDER'S VOICE PROFILE —" """
 
-    return _call_groq(system_prompt, user_prompt, max_tokens=1200)
+    return _call_claude(system_prompt, user_prompt, max_tokens=1200)
 
 
 # ============================================================================
@@ -412,7 +396,7 @@ def build_voice_profile(
     logger.info(f"Total samples: {len(gmail_samples)} Gmail + {len(draft_samples)} drafts = {total}")
 
     # 2. Analyze with Groq
-    logger.info("Analyzing writing patterns with Groq...")
+    logger.info("Analyzing writing patterns with Claude...")
     analysis = _analyze_writing_style(gmail_samples, draft_samples)
 
     # 3. Generate readable summary
@@ -429,7 +413,7 @@ def build_voice_profile(
             "generated": datetime.now().isoformat(),
             "gmail_samples": len(gmail_samples),
             "draft_samples": len(draft_samples),
-            "model": GROQ_MODEL,
+            "model": CLAUDE_MODEL,
             "email": USER_EMAIL,
         },
         "analysis": analysis,
@@ -458,7 +442,7 @@ def build_voice_profile(
 
 *Generated: {datetime.now().strftime('%Y-%m-%d %H:%M')} |
 {len(gmail_samples)} sent emails + {len(draft_samples)} edited drafts |
-Model: {GROQ_MODEL}*
+Model: {CLAUDE_MODEL}*
 """
 
     PROFILE_MD.write_text(md_content, encoding="utf-8")
@@ -511,6 +495,115 @@ def inject_voice_into_persona(persona_system_prompt: str) -> str:
         return persona_system_prompt
 
     return f"{persona_system_prompt}\n\n{fragment}"
+
+
+# ============================================================================
+# LEARNING COMPILER INTEGRATION (Layer 2: Passive Observation)
+# ============================================================================
+
+def feed_learning_compiler(profile: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+    """Feed voice profile analysis into the learning compiler as passive observations.
+
+    This bridges Layer 2 (passive observation from sent emails) into Layer 1
+    (the learning compiler's corrections/principles pipeline).
+
+    Extracts voice patterns from the profile and stores them as 'passive_voice'
+    source corrections, which the learning compiler can then extract principles from.
+    """
+    from thunderbird_learning import capture_email_diff, extract_principles
+
+    if profile is None:
+        profile = get_voice_profile()
+
+    analysis = profile.get("analysis", {})
+    if not analysis:
+        return {"status": "error", "message": "No analysis data in profile"}
+
+    captured = 0
+
+    # Feed signature moves as directives (things Commander DOES)
+    for move in analysis.get("signature_moves", []):
+        capture_email_diff(
+            original_body="",
+            sent_body=f"VOICE PATTERN (positive): {move}",
+            context="passive_voice_observation",
+            source="voice_profile",
+        )
+        captured += 1
+
+    # Feed anti-patterns (things Commander NEVER does)
+    for anti in analysis.get("things_he_never_does", []):
+        capture_email_diff(
+            original_body=f"ANTI-PATTERN: {anti}",
+            sent_body="",
+            context="passive_voice_observation",
+            source="voice_profile",
+        )
+        captured += 1
+
+    # Feed favorite phrases as positive patterns
+    for phrase in analysis.get("favorite_phrases", []):
+        capture_email_diff(
+            original_body="",
+            sent_body=f"PREFERRED PHRASE: {phrase}",
+            context="passive_voice_observation",
+            source="voice_profile",
+        )
+        captured += 1
+
+    # Feed tone markers as contextual rules
+    tone = analysis.get("tone_markers", {})
+    if tone:
+        tone_summary = (
+            f"Primary tone: {tone.get('primary_tone', 'unknown')}. "
+            f"Formality: {tone.get('formality_level', 'unknown')}. "
+            f"Warmth: {tone.get('warmth_level', 'unknown')}. "
+            f"Directness: {tone.get('directness_level', 'unknown')}."
+        )
+        capture_email_diff(
+            original_body="",
+            sent_body=f"VOICE TONE PROFILE: {tone_summary}",
+            context="passive_voice_observation",
+            source="voice_profile",
+        )
+        captured += 1
+
+    # Feed greeting and signoff patterns
+    for greeting in analysis.get("greeting_patterns", []):
+        capture_email_diff(
+            original_body="",
+            sent_body=f"GREETING PATTERN: {greeting}",
+            context="passive_voice_observation",
+            source="voice_profile",
+        )
+        captured += 1
+
+    for signoff in analysis.get("signoff_patterns", []):
+        capture_email_diff(
+            original_body="",
+            sent_body=f"SIGNOFF PATTERN: {signoff}",
+            context="passive_voice_observation",
+            source="voice_profile",
+        )
+        captured += 1
+
+    logger.info(f"Fed {captured} voice observations into learning compiler")
+
+    # Extract principles from the newly captured observations
+    principles = []
+    if captured > 0:
+        try:
+            principles = extract_principles(limit=captured)
+            logger.info(f"Extracted {len(principles)} principles from voice observations")
+        except Exception as e:
+            logger.warning(f"Principle extraction failed (will retry later): {e}")
+
+    return {
+        "status": "ok",
+        "observations_captured": captured,
+        "principles_extracted": len(principles),
+        "principles": principles,
+    }
 
 
 # ============================================================================

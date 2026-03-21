@@ -1262,10 +1262,48 @@ def render_briefing_html(
 
     # ── SECTION 7: LEARNING DIGEST + DOSSIER ALERTS (IOC) ──
     try:
-        from thunderbird_learning import get_learning_digest
+        from thunderbird_learning import get_learning_digest, list_rules
         learning_digest = get_learning_digest()
     except Exception:
         learning_digest = ""
+
+    # Pending principles for Commander approve/reject
+    pending_principles_html = ""
+    try:
+        from thunderbird_learning import list_rules as _lr
+        pending = _lr(status="pending", limit=10)
+        if pending:
+            p_lines = [
+                '<div style="color:#ff8888;font-weight:600;margin-bottom:6px;">'
+                f'ACTION: {len(pending)} principle(s) awaiting Commander validation</div>'
+            ]
+            for p in pending:
+                tier_badge = {
+                    "inviolable": '<span style="color:#ff4444;font-weight:700;">[INVIOL]</span>',
+                    "strong": '<span style="color:#e8c97a;font-weight:600;">[STRONG]</span>',
+                    "contextual": '<span style="color:#8a9ab5;">[CTX]</span>',
+                }.get(p.get("priority_tier", "contextual"), '<span style="color:#8a9ab5;">[CTX]</span>')
+                domain = p.get("domain", "voice")
+                persona_tag = f' @{p["persona_id"]}' if p.get("persona_id") else ""
+                p_lines.append(
+                    f'<div style="padding:4px 0 4px 12px;">'
+                    f'{tier_badge} <span style="color:#7eb8ff;">#{p["rule_id"]}</span> '
+                    f'[{domain}]{persona_tag} — {p["principle_text"][:120]}'
+                    f'<br><span style="font-size:11px;color:#5a6a85;">'
+                    f'Use /learn approve {p["rule_id"]} or /learn reject {p["rule_id"]} in C2</span>'
+                    f'</div>'
+                )
+            pending_principles_html = "\n".join(p_lines)
+    except Exception:
+        pass
+
+    # Innovation digest from daily scanner
+    innovation_digest = ""
+    try:
+        from thunderbird_innovation_scanner import get_digest_for_briefing
+        innovation_digest = get_digest_for_briefing(max_items=5)
+    except Exception:
+        pass
 
     try:
         from thunderbird_dossier_scanner import generate_alert_digest
@@ -1288,7 +1326,7 @@ def render_briefing_html(
     except Exception:
         pass
 
-    if learning_digest or dossier_digest or sss_pending:
+    if learning_digest or dossier_digest or sss_pending or pending_principles_html or innovation_digest:
         html += """
   <div class="section">
     <div class="section-header">
@@ -1331,6 +1369,22 @@ def render_briefing_html(
                     html += f'      <div style="padding-left:12px;">{line}</div>\n'
                 elif line.strip():
                     html += f'      <div>{line}</div>\n'
+            html += '    </div>\n'
+
+        if pending_principles_html:
+            html += '    <div style="padding:12px 16px;font-size:13px;line-height:1.7;color:#e0e6ed;border-top:1px solid #1e3358;">\n'
+            html += f'      <div style="color:#c9a84c;font-weight:600;margin-bottom:4px;">PENDING PRINCIPLES — Quick Approve/Reject</div>\n'
+            html += f'      {pending_principles_html}\n'
+            html += '    </div>\n'
+
+        if innovation_digest:
+            html += '    <div style="padding:12px 16px;font-size:13px;line-height:1.7;color:#e0e6ed;border-top:1px solid #1e3358;">\n'
+            html += f'      <div style="color:#c9a84c;font-weight:600;margin-bottom:4px;">INNOVATION SCANNER</div>\n'
+            for line in innovation_digest.split("\n"):
+                if line.startswith("INNOVATION INTEL"):
+                    continue  # Skip the header — we have our own
+                elif line.strip():
+                    html += f'      <div style="padding-left:12px;">{line}</div>\n'
             html += '    </div>\n'
 
         html += "  </div>\n"

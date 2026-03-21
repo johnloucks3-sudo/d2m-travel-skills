@@ -226,6 +226,46 @@ def get_voice_rules(
     return "\n".join(lines)
 
 
+def get_recipient_voice_rules(recipient: str) -> str:
+    """Get voice rules specific to this recipient.
+
+    Looks up client_rules in the ledger for this recipient using fuzzy
+    matching (recipient name or email substring match against client keys).
+    Returns a formatted injection block, or empty string if no rules found.
+
+    This is a convenience wrapper over get_voice_rules() that resolves the
+    recipient to a client key and tier automatically.
+    """
+    if not recipient:
+        return ""
+
+    ledger = _load_ledger()
+    recipient_lower = recipient.lower()
+    matched_rules: List[Dict] = []
+
+    # Check client-specific rules: fuzzy match recipient against client keys
+    for key, client_rules in ledger.get("client_rules", {}).items():
+        if (recipient_lower in key.lower()
+                or key.lower() in recipient_lower):
+            matched_rules.extend(client_rules)
+
+    if not matched_rules:
+        return ""
+
+    # Increment applied counts
+    _increment_applied(ledger, matched_rules)
+
+    # Format injection block
+    lines = [f"\nRECIPIENT-SPECIFIC VOICE RULES for '{recipient}':"]
+    for r in matched_rules:
+        prefix = f"[{r['domain']}]"
+        lines.append(f"- {prefix} {r['text']}")
+        if r.get("example"):
+            lines.append(f"  Example: {r['example']}")
+
+    return "\n".join(lines)
+
+
 def _increment_applied(ledger: Dict, rules: List[Dict]):
     """Increment applied_count for matched rules and save."""
     for r in rules:

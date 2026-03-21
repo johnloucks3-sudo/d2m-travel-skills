@@ -912,6 +912,23 @@ def build_dani_context(query: str, client_scope: Optional[str] = None,
         pass  # shared memory is optional — don't break Dani if it fails
 
     # ---------------------------------------------------------------------------
+    # Episodic Memory — inject past interaction lessons for this client
+    # Phase 2 wiring: Dani sees what worked/failed before she crafts her response
+    # ---------------------------------------------------------------------------
+    try:
+        from thunderbird_learning import get_relevant_episodes, format_episodes_for_injection
+        ep_client_key = clients[0] if clients else None
+        if ep_client_key:
+            episodes = get_relevant_episodes(client_key=ep_client_key, persona_id="A3", limit=10)
+            if not episodes:
+                episodes = get_relevant_episodes(client_key=ep_client_key, limit=10)
+            ep_block = format_episodes_for_injection(episodes, max_chars=1500)
+            if ep_block:
+                sections.append(ep_block)
+    except Exception as e:
+        logger.debug(f"Episodic memory injection skipped: {e}")
+
+    # ---------------------------------------------------------------------------
     # DATA CONFIDENCE CLASSIFIER (2.6) — injected before rules
     # Tells Dani exactly how much verified data she has for this query.
     # Kills hallucination at the architectural level — she knows before she speaks.
@@ -1050,5 +1067,23 @@ def build_dani_context(query: str, client_scope: Optional[str] = None,
         "- Carry forward any commitments made earlier. If you said you'd check on something, "
         "acknowledge that status.\n"
     )
+
+    # --- Auto-enrichment: inject client context from dossiers/Gmail/Drive ---
+    try:
+        from thunderbird_auto_enrich import enrich_client_context
+        client_context = enrich_client_context(query)
+        if client_context:
+            sections_prefix = client_context + "\n\n" + sections_prefix
+    except Exception:
+        pass
+
+    # --- Voice profile: inject Commander's voice rules for tone calibration ---
+    try:
+        from thunderbird_my_voice import get_voice_prompt_fragment
+        voice_fragment = get_voice_prompt_fragment()
+        if voice_fragment:
+            sections_prefix = voice_fragment + "\n\n" + sections_prefix
+    except Exception:
+        pass
 
     return sections_prefix + "\n\n".join(sections)

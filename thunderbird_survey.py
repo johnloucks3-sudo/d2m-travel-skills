@@ -7,7 +7,7 @@ Client satisfaction surveys for Dreams2Memories Travel, LLC.
 Features:
 - Generate personalized survey emails in EXEC (Naia) voice
 - Batch draft creation for Commander review
-- Parse freeform survey responses via Groq
+- Parse freeform survey responses via Claude (Anthropic SDK)
 - Compile NPS scores and preference tallies
 
 Integrates with: travel_mcp_server.py, thunderbird_gmail.py, thunderbird_personas.py
@@ -146,11 +146,11 @@ def send_survey_batch(clients: List[Dict[str, str]]) -> Dict[str, Any]:
 
 
 # ============================================================================
-# RESPONSE PARSING — Groq LLM extraction
+# RESPONSE PARSING — Claude LLM extraction (Groq ELIMINATED)
 # ============================================================================
 
 def parse_survey_response(email_text: str) -> Dict[str, Any]:
-    """Parse a freeform survey reply into structured answers using Groq.
+    """Parse a freeform survey reply into structured answers using Claude Sonnet.
 
     Returns:
         dict with q1_value, q2_nps (int), q3_portal_prefs (list),
@@ -306,7 +306,7 @@ def _calculate_nps(scores: List[int]) -> Dict[str, Any]:
 
 
 def _extract_themes(responses: List[Dict[str, Any]]) -> Dict[str, Any]:
-    """Use Groq to summarize key themes from q1 (value) and q5 (improvement)."""
+    """Use Claude to summarize key themes from q1 (value) and q5 (improvement). Groq ELIMINATED."""
     values = [r["q1_value"] for r in responses if r.get("q1_value")]
     improvements = [r["q5_improvement"] for r in responses if r.get("q5_improvement")]
 

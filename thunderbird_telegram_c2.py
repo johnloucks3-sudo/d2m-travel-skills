@@ -22,7 +22,7 @@ Commands:
   /sss          — Staff Summary Sheet (formal coordination)
   /drafts       — Pending email drafts for approval
   /scan         — Scan all dossiers for gaps and issues
-  /learn        — Learning compiler digest and pending rules
+  /learn        — Learning compiler: digest, approve/reject/edit/supersede/history
   /voice        — Voice ledger summary
   /inbox        — Sweep Commander's personal inbox for D2M emails
 
@@ -292,7 +292,7 @@ async def cmd_help(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
         "*IOC Commands*",
         "/scan — Scan all dossiers for gaps and issues",
-        "/learn — Learning compiler digest and pending rules",
+        "/learn — Learning: digest, approve/reject/edit/supersede/history",
         "/voice — Voice ledger summary",
         "/inbox — Sweep Commander's personal inbox for D2M emails",
         "",
@@ -404,10 +404,164 @@ async def cmd_scan(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 @commander_only
 async def cmd_learn(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Show learning compiler digest."""
-    from thunderbird_learning import get_learning_digest
-    digest = get_learning_digest()
-    await send_long_message(update, f"🧠 *Learning Compiler*\n\n{digest or 'No corrections captured yet.'}")
+    """Learning compiler — full subcommand handler.
+
+    /learn              — digest + pending principles
+    /learn approve <id> — approve a principle
+    /learn reject <id>  — reject a principle
+    /learn edit <id> <new_text> — edit and approve
+    /learn history      — principle history
+    /learn supersede <id> <new_text> — supersede with temporal versioning
+    """
+    from thunderbird_learning import (
+        get_learning_digest,
+        validate_principle,
+        list_rules,
+        get_principle_history,
+        supersede_principle,
+    )
+
+    args = context.args or []
+    subcmd = args[0].lower() if args else ""
+
+    # ── /learn (no args) — digest + pending ──
+    if not subcmd:
+        digest = get_learning_digest()
+        pending = list_rules(status="pending", limit=10)
+        text = f"*Learning Compiler*\n\n{digest or 'No corrections captured yet.'}"
+        if pending:
+            text += f"\n\n*{len(pending)} Pending Principles:*\n"
+            for p in pending:
+                tier = p.get("priority_tier", "ctx")[:3].upper()
+                domain = p.get("domain", "voice")
+                pid = p.get("persona_id") or "ALL"
+                text += (
+                    f"\n`#{p['rule_id']}` [{tier}] [{domain}] @{pid}\n"
+                    f"  {p['principle_text'][:150]}\n"
+                )
+            text += (
+                "\n_Commands:_\n"
+                "`/learn approve <id>` — approve\n"
+                "`/learn reject <id>` — reject\n"
+                "`/learn edit <id> <text>` — edit & approve\n"
+                "`/learn supersede <id> <text>` — replace with versioning\n"
+                "`/learn history` — full history"
+            )
+        await send_long_message(update, text)
+        return
+
+    # ── /learn approve <id> ──
+    if subcmd == "approve":
+        if len(args) < 2 or not args[1].isdigit():
+            await update.message.reply_text("Usage: `/learn approve <id>`", parse_mode=ParseMode.MARKDOWN)
+            return
+        rule_id = int(args[1])
+        result = validate_principle(rule_id, action="approve")
+        if "error" in result:
+            await update.message.reply_text(f"Error: {result['error']}")
+        else:
+            text = result.get("principle_text", "")[:200]
+            await update.message.reply_text(
+                f"Principle `#{rule_id}` *APPROVED*\n\n_{text}_",
+                parse_mode=ParseMode.MARKDOWN,
+            )
+            _log_command("LEARN_APPROVE", "LEARNING", f"rule_id={rule_id}", f"approved: {text[:80]}")
+        return
+
+    # ── /learn reject <id> ──
+    if subcmd == "reject":
+        if len(args) < 2 or not args[1].isdigit():
+            await update.message.reply_text("Usage: `/learn reject <id>`", parse_mode=ParseMode.MARKDOWN)
+            return
+        rule_id = int(args[1])
+        result = validate_principle(rule_id, action="reject")
+        if "error" in result:
+            await update.message.reply_text(f"Error: {result['error']}")
+        else:
+            await update.message.reply_text(
+                f"Principle `#{rule_id}` *REJECTED*",
+                parse_mode=ParseMode.MARKDOWN,
+            )
+            _log_command("LEARN_REJECT", "LEARNING", f"rule_id={rule_id}", "rejected")
+        return
+
+    # ── /learn edit <id> <new_text> ──
+    if subcmd == "edit":
+        if len(args) < 3 or not args[1].isdigit():
+            await update.message.reply_text(
+                "Usage: `/learn edit <id> <new principle text>`",
+                parse_mode=ParseMode.MARKDOWN,
+            )
+            return
+        rule_id = int(args[1])
+        new_text = " ".join(args[2:])
+        result = validate_principle(rule_id, action="edit", edited_text=new_text)
+        if "error" in result:
+            await update.message.reply_text(f"Error: {result['error']}")
+        else:
+            await update.message.reply_text(
+                f"Principle `#{rule_id}` *EDITED & APPROVED*\n\n_{new_text[:200]}_",
+                parse_mode=ParseMode.MARKDOWN,
+            )
+            _log_command("LEARN_EDIT", "LEARNING", f"rule_id={rule_id}", f"edited: {new_text[:80]}")
+        return
+
+    # ── /learn history ──
+    if subcmd == "history":
+        history = get_principle_history()
+        if not history:
+            await update.message.reply_text("No principle history found.")
+            return
+        text = f"*Principle History* ({len(history)} entries)\n"
+        for h in history[:15]:
+            status_icon = {"approved": "+", "rejected": "x", "pending": "?"}.get(
+                h.get("validation_status", ""), "?"
+            )
+            superseded = f" -> #{h['superseded_by']}" if h.get("superseded_by") else ""
+            text += (
+                f"\n`#{h['rule_id']}` [{status_icon}] [{h.get('domain', '')}] "
+                f"{h.get('principle_text', '')[:100]}{superseded}\n"
+                f"  _Created: {h.get('created_date', 'unknown')[:10]}_\n"
+            )
+        await send_long_message(update, text)
+        return
+
+    # ── /learn supersede <id> <new_text> ──
+    if subcmd == "supersede":
+        if len(args) < 3 or not args[1].isdigit():
+            await update.message.reply_text(
+                "Usage: `/learn supersede <id> <new principle text>`",
+                parse_mode=ParseMode.MARKDOWN,
+            )
+            return
+        old_id = int(args[1])
+        new_text = " ".join(args[2:])
+        result = supersede_principle(old_id, new_text, reason="Commander C2 supersede")
+        if "error" in result:
+            await update.message.reply_text(f"Error: {result['error']}")
+        else:
+            new_id = result.get("new_rule_id", "?")
+            await update.message.reply_text(
+                f"Principle `#{old_id}` *SUPERSEDED* by `#{new_id}`\n\n"
+                f"_Old:_ {result.get('old_principle', {}).get('principle_text', '')[:100]}\n"
+                f"_New:_ {new_text[:150]}\n\n"
+                f"_New principle is pending — use `/learn approve {new_id}` to activate._",
+                parse_mode=ParseMode.MARKDOWN,
+            )
+            _log_command("LEARN_SUPERSEDE", "LEARNING", f"old={old_id} new={new_id}", new_text[:80])
+        return
+
+    # Unknown subcommand
+    await update.message.reply_text(
+        "*Learning Compiler Commands:*\n\n"
+        "`/learn` — digest + pending\n"
+        "`/learn approve <id>`\n"
+        "`/learn reject <id>`\n"
+        "`/learn edit <id> <text>`\n"
+        "`/learn history`\n"
+        "`/learn supersede <id> <text>`",
+        parse_mode=ParseMode.MARKDOWN,
+    )
 
 
 @commander_only

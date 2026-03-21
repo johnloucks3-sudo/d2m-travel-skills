@@ -827,6 +827,40 @@ def run_commander_inbox_sweep(hours_back: int = 4) -> Dict[str, Any]:
             else:
                 stats["skipped"] += 1
 
+            # ── Learning capture: Commander-originated and forwarded emails ──
+            try:
+                from thunderbird_learning import capture_email_diff
+
+                sender_lower = email["sender"].lower()
+                subject_lower = email["subject"].lower()
+
+                # Commander-originated: emails FROM johnloucks3 (Commander
+                # sending from personal inbox — capture his voice/patterns)
+                if "johnloucks3" in sender_lower:
+                    capture_email_diff(
+                        original_body="",
+                        sent_body=email["body"][:4000],
+                        context=f"Commander original to: {email.get('subject', '')} | "
+                                f"classification: {classification}",
+                        source="commander_original",
+                    )
+                    logger.info(f"Learning capture: commander_original — {email['subject'][:50]}")
+
+                # Forward pattern: Commander forwarded an email (Fwd:/FW:)
+                elif subject_lower.startswith(("fwd:", "fw:")):
+                    capture_email_diff(
+                        original_body="",
+                        sent_body=email["body"][:4000],
+                        context=f"Commander forward from {email['sender']} | "
+                                f"subject: {email['subject']} | "
+                                f"classification: {classification}",
+                        source="forward_pattern",
+                    )
+                    logger.info(f"Learning capture: forward_pattern — {email['subject'][:50]}")
+
+            except Exception as learn_err:
+                logger.warning(f"Learning capture failed for {msg_id}: {learn_err}")
+
             # Log the action
             _log_action({
                 "timestamp": datetime.now(timezone.utc).isoformat(),

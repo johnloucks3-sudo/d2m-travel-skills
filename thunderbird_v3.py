@@ -37,7 +37,7 @@ def extract_master_data(text):
     cost_match = re.search(r"(?:Total Fare|TOTAL CHARGE|Grand Total|Booking Total|Invoice Total)[^\d\$]*\$?([\d,]+\.\d{2})", text, re.I)
     baseline["Total_Cost"] = float(cost_match.group(1).replace(",", "")) if cost_match else 0.0
 
-    url = "https://api.groq.com/openai/v1/chat/completions"
+    # Groq ELIMINATED — using Claude Sonnet via Anthropic SDK ($0 on Max plan)
     prompt = f"""
     We already know: Supplier={baseline['Supplier']}, ID={baseline['Confirmation_Number']}, Cost={baseline['Total_Cost']}.
     Extract the REST of the MASTER BOOKING DATA from this text. Scrub "NEXION LLC" from names.
@@ -56,8 +56,15 @@ def extract_master_data(text):
     TEXT: {text[:20000]}
     """
     try:
-        res = requests.post(url, json={"model": "llama-3.3-70b-versatile", "messages": [{"role": "user", "content": prompt}], "response_format": {"type": "json_object"}}, headers={"Authorization": f"Bearer {Config.GROQ_KEY}"}).json()
-        ai_data = json.loads(res['choices'][0]['message']['content'])
+        import anthropic
+        client = anthropic.Anthropic()
+        resp = client.messages.create(
+            model="claude-sonnet-4-20250514",
+            max_tokens=600,
+            system="You are a data extraction assistant. Return ONLY valid JSON, no explanation.",
+            messages=[{"role": "user", "content": prompt}],
+        )
+        ai_data = json.loads(resp.content[0].text)
 
         ai_data["Supplier"] = baseline["Supplier"]
         ai_data["Confirmation_Number"] = baseline["Confirmation_Number"] if baseline["Confirmation_Number"] != "Unknown" else ai_data.get("Booking_ID", "Unknown")
@@ -71,7 +78,7 @@ def extract_master_data(text):
 # 3. THE ITINERARY & VISION ENGINES
 # ============================================================================
 def extract_daily_itinerary(text, ship_name):
-    url = "https://api.groq.com/openai/v1/chat/completions"
+    # Groq ELIMINATED — using Claude Sonnet via Anthropic SDK ($0 on Max plan)
     prompt = f"""
     Extract the FULL daily itinerary. Ship Name is {ship_name}.
     CRITICAL INSTRUCTIONS:
@@ -89,10 +96,17 @@ def extract_daily_itinerary(text, ship_name):
     TEXT: {text[:25000]}
     """
     try:
-        res = requests.post(url, json={"model": "llama-3.3-70b-versatile", "messages": [{"role": "user", "content": prompt}], "response_format": {"type": "json_object"}}, headers={"Authorization": f"Bearer {Config.GROQ_KEY}"}).json()
-        return json.loads(res['choices'][0]['message']['content']).get("schedule", [])
+        import anthropic
+        client = anthropic.Anthropic()
+        resp = client.messages.create(
+            model="claude-sonnet-4-20250514",
+            max_tokens=2000,
+            system="You are a data extraction assistant. Return ONLY valid JSON, no explanation.",
+            messages=[{"role": "user", "content": prompt}],
+        )
+        return json.loads(resp.content[0].text).get("schedule", [])
     except Exception as e:
-        logging.error(f"⚠️ Itinerary Extraction failed: {e}")
+        logging.error(f"Itinerary Extraction failed: {e}")
         return []
 
 def fetch_ship_sniper_photo(ship_name):

@@ -61,11 +61,7 @@ logger = logging.getLogger(__name__)
 
 THUNDERBIRD_DIR = Path(__file__).parent
 API_KEY_FILE = THUNDERBIRD_DIR / "api_key.txt"
-# Groq ELIMINATED — all AI calls removed from intel pipeline (2026-03-16)
-# Constants retained as comments for reference only:
-# GROQ_API_KEY = "..."
-# GROQ_MODEL = "llama-3.3-70b-versatile"
-# GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
+# Groq ELIMINATED — all AI calls route through Claude via Anthropic SDK ($0 on Max plan)
 EVERNOTE_EMAIL = "yodainva.5d9fc@m.evernote.com"
 
 VOICE_PROFILE = {
@@ -102,6 +98,17 @@ def _get_api_key() -> str:
 API_KEY = _get_api_key()
 HUD_MEMORY = HudMemory()
 
+# Bearer token auth (Authorization: Bearer <token>)
+BEARER_TOKEN_FILE = THUNDERBIRD_DIR / ".api_token"
+
+def _get_bearer_token() -> str:
+    """Load bearer token from .api_token file."""
+    if BEARER_TOKEN_FILE.exists():
+        return BEARER_TOKEN_FILE.read_text(encoding="utf-8").strip()
+    raise RuntimeError(f"Bearer token file missing: {BEARER_TOKEN_FILE}")
+
+BEARER_TOKEN = _get_bearer_token()
+
 # ============================================================================
 # FASTAPI APP
 # ============================================================================
@@ -111,6 +118,35 @@ app = FastAPI(
     description="REST gateway for Dreams2Memories Thunderbird OS tools",
     version="1.0.0",
 )
+
+from starlette.middleware.base import BaseHTTPMiddleware
+from starlette.responses import JSONResponse as StarletteJSONResponse
+
+class BearerTokenMiddleware(BaseHTTPMiddleware):
+    """Enforce Authorization: Bearer <token> on all endpoints except /health."""
+
+    EXEMPT_PATHS = {"/api/health", "/docs", "/openapi.json", "/redoc"}
+
+    async def dispatch(self, request: Request, call_next):
+        path = request.url.path.rstrip("/")
+        if path in self.EXEMPT_PATHS:
+            return await call_next(request)
+
+        auth_header = request.headers.get("authorization", "")
+        if not auth_header.startswith("Bearer "):
+            return StarletteJSONResponse(
+                status_code=401,
+                content={"detail": "Missing Authorization: Bearer <token> header"},
+            )
+        token = auth_header[7:]  # strip "Bearer "
+        if not secrets.compare_digest(token, BEARER_TOKEN):
+            return StarletteJSONResponse(
+                status_code=403,
+                content={"detail": "Invalid bearer token"},
+            )
+        return await call_next(request)
+
+app.add_middleware(BearerTokenMiddleware)
 
 
 def _verify_key(x_api_key: Optional[str] = None):
@@ -412,18 +448,27 @@ async def list_tools(x_api_key: str = Header(None)):
 
 
 # ============================================================================
-# AI ENGINE — Groq ELIMINATED (2026-03-16)
-# Pass-through: returns original content without LLM summarization.
-# Full content is what we want — no lossy summarization layer.
+# AI ENGINE — Claude via Anthropic SDK ($0 on Max plan)
+# Groq ELIMINATED. All AI calls route through Claude Sonnet.
 # ============================================================================
 
 def _groq_complete(system_prompt: str, user_content: str, max_tokens: int = 2000) -> str:
-    """Pass-through stub — Groq eliminated from intel pipeline.
+    """AI completion via Anthropic SDK. Name kept for backward compat — Groq is ELIMINATED."""
+    import anthropic
 
-    Returns the user content as-is. Callers that previously relied on
-    Groq for summarization/drafting now get the raw text instead.
-    """
-    return user_content
+    try:
+        client = anthropic.Anthropic()
+        resp = client.messages.create(
+            model="claude-sonnet-4-20250514",
+            max_tokens=max_tokens,
+            system=system_prompt,
+            messages=[{"role": "user", "content": user_content}],
+        )
+        return resp.content[0].text
+    except Exception as e:
+        logger.error(f"Anthropic SDK error in _groq_complete: {e}")
+        # Fallback: return raw content so caller still gets something useful
+        return user_content
 
 
 VOICE_SYSTEM_PROMPT = f"""You are writing as John Loucks, owner of Dreams2Memories Travel, LLC.
@@ -573,7 +618,7 @@ Respond with ONLY valid JSON (no markdown, no explanation):
 
 
 def _classify_intent(query: str) -> dict:
-    """Classify query intent and extract tool params (Groq eliminated — pass-through)."""
+    """Classify query intent and extract tool params via Claude Sonnet."""
     raw = _groq_complete(TOOL_INTENT_PROMPT, query, max_tokens=300)
     # Strip markdown code fences if present
     raw = raw.strip()
@@ -1289,7 +1334,7 @@ async def api_health_summary(x_api_key: str = Header(None)):
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8766))
-    host = "0.0.0.0"
+    host = "127.0.0.1"  # SECURITY: localhost only — cloudflared handles external access
 
     for arg in sys.argv[1:]:
         if arg.startswith("--port="):
@@ -1298,6 +1343,7 @@ if __name__ == "__main__":
             host = arg.split("=", 1)[1]
 
     logger.info(f"API Key: {API_KEY[:8]}...{API_KEY[-4:]}")
+    logger.info(f"Bearer Token: {BEARER_TOKEN[:8]}...{BEARER_TOKEN[-4:]}")
     logger.info(f"Tools available: {len(TOOL_REGISTRY)}")
     logger.info(f"Starting Thunderbird API on {host}:{port}")
 

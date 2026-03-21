@@ -95,7 +95,7 @@ def run_morning_standup(agenda: str, save: bool = True) -> str:
     """Run a full morning stand-up with all 10 personas.
 
     COS (Hale) opens and closes. Each persona gives 2-3 sentence perspective.
-    Uses Groq for speed (sequential calls through call_persona).
+    Uses Claude Sonnet via Anthropic SDK (sequential calls through call_persona).
 
     Args:
         agenda: The day's agenda/topics
@@ -514,7 +514,7 @@ def _run_extended_consultation(event_type: SentienceEventType, context: str,
                 resp = call_persona(pid, prompt)
                 result["responses"][pid] = {
                     "response": resp.get("answer", str(resp)),
-                    "engine": "groq",
+                    "engine": "claude",
                     "model": resp.get("model", "unknown"),
                     "success": "answer" in resp,
                 }
@@ -581,7 +581,7 @@ def check_persona_health(timeout_sec: float = 15.0) -> Dict[str, Any]:
     """Call each persona with a status check and verify all 10 respond.
 
     Args:
-        timeout_sec: Max seconds to wait per persona (Groq calls are fast)
+        timeout_sec: Max seconds to wait per persona
 
     Returns:
         Health report with status of each persona and overall health

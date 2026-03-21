@@ -56,7 +56,8 @@ from thunderbird_crewai import register_crewai_tools
 from thunderbird_a2a import register_a2a_tools
 from thunderbird_airline_monitor import register_airline_monitor_tools
 from thunderbird_intel_crew import register_intel_crew_tools
-from thunderbird_innovation_scanner import register_innovation_tools
+from thunderbird_innovation_scanner import register_innovation_tools, run_daily_scan, run_weekly_scan, get_digest_for_briefing
+from thunderbird_auto_enrich import register_auto_enrich_tools
 from thunderbird_tasks import register_tasks_tools
 from thunderbird_files_api import register_files_api_tools
 from thunderbird_skills_api import register_skills_tools
@@ -66,6 +67,7 @@ from thunderbird_opentable import register_opentable_tools
 from thunderbird_expedia_taap import register_taap_tools
 from thunderbird_worldfactbook import register_worldfactbook_tools
 from thunderbird_learning import register_learning_tools
+from thunderbird_conversation_learner import register_conversation_learner_tools
 from thunderbird_sss import register_sss_tools
 from thunderbird_dossier_scanner import register_dossier_scanner_tools
 from thunderbird_voice_ledger import register_voice_ledger_tools
@@ -73,6 +75,7 @@ from thunderbird_commander_inbox import register_commander_inbox_tools
 from thunderbird_health import register_health_tools
 from thunderbird_session_checkpoint import register_checkpoint_tools
 from thunderbird_bulletin import register_bulletin_tools
+from thunderbird_info_delta import register_info_delta_tools
 import json
 import logging
 import asyncio
@@ -472,6 +475,7 @@ register_a2a_tools(mcp)
 register_airline_monitor_tools(mcp)
 register_intel_crew_tools(mcp)
 register_innovation_tools(mcp)
+register_auto_enrich_tools(mcp)
 register_tasks_tools(mcp)
 register_files_api_tools(mcp)
 register_skills_tools(mcp)
@@ -481,6 +485,7 @@ register_opentable_tools(mcp)
 register_taap_tools(mcp)
 register_worldfactbook_tools(mcp)
 register_learning_tools(mcp)
+register_conversation_learner_tools(mcp)
 register_sss_tools(mcp)
 register_dossier_scanner_tools(mcp)
 register_voice_ledger_tools(mcp)
@@ -488,6 +493,7 @@ register_commander_inbox_tools(mcp)
 register_health_tools(mcp)
 register_checkpoint_tools(mcp)
 register_bulletin_tools(mcp)
+register_info_delta_tools(mcp)
 
 try:
     from thunderbird_guest_forms import register_guest_form_tools
@@ -661,56 +667,119 @@ async def render_hotel_guide_pdf(
 
 
 # ============================================================================
+# INNOVATION SCANNER — INLINE MCP TOOLS
+# ============================================================================
+
+@mcp.tool(
+    name="innovation_daily_scan",
+    annotations={"title": "Innovation Daily Scan", "readOnlyHint": False},
+)
+async def innovation_daily_scan() -> str:
+    """Run a quick daily innovation scan across Reddit, GitHub, HN, and tech blogs.
+    Scans hot/trending posts and returns top findings with D2M relevance scoring."""
+    result = run_daily_scan()
+    return json.dumps({
+        "status": "complete",
+        "scan_type": "daily",
+        "findings": len(result.findings),
+        "sources_scanned": result.sources_scanned,
+        "top_5": [
+            {"title": f.title, "source": f.source, "url": f.url,
+             "category": f.category, "relevance": f.relevance, "score": f.score}
+            for f in result.top_findings[:5]
+        ],
+        "digest_path": str(Path.home() / "Thunderbird" / "intel" / "daily_innovation_digest.md"),
+    }, indent=2)
+
+
+@mcp.tool(
+    name="innovation_weekly_scan",
+    annotations={"title": "Innovation Weekly Deep Scan", "readOnlyHint": False},
+)
+async def innovation_weekly_scan() -> str:
+    """Run a deep weekly innovation scan — all sources, full competitor analysis.
+    Typically scheduled Sunday mornings but can be triggered on demand."""
+    result = run_weekly_scan()
+    return json.dumps({
+        "status": "complete",
+        "scan_type": "weekly",
+        "findings": len(result.findings),
+        "sources_scanned": result.sources_scanned,
+        "top_10": [
+            {"title": f.title, "source": f.source, "url": f.url,
+             "category": f.category, "relevance": f.relevance,
+             "priority": f.priority, "score": f.score}
+            for f in result.top_findings[:10]
+        ],
+        "report_path": str(Path.home() / "Thunderbird" / "intel" / "weekly_innovation_report.md"),
+    }, indent=2)
+
+
+@mcp.tool(
+    name="innovation_briefing_digest",
+    annotations={"title": "Innovation Briefing Digest", "readOnlyHint": True},
+)
+async def innovation_briefing_digest(max_items: int = 5) -> str:
+    """Get a compact innovation digest for injection into the morning briefing.
+    Returns top findings formatted for COS morning brief consumption."""
+    digest = get_digest_for_briefing(max_items=max_items)
+    if not digest:
+        return json.dumps({"status": "empty", "message": "No innovation digest available. Run daily scan first."})
+    return json.dumps({"status": "ok", "digest": digest})
+
+
+# ============================================================================
 # SHELL EXEC TOOL
 # ============================================================================
 
 import subprocess
 import os
 
-SHELL_LOG = os.path.expanduser("~/Thunderbird/logs/shell_exec.log")
-
-@mcp.tool(
-    name="shell_exec",
-    annotations={
-        "title": "Execute Shell Command",
-        "readOnlyHint": False,
-        "destructiveHint": True,
-        "idempotentHint": False,
-        "openWorldHint": True,
-    },
-)
-async def shell_exec(
-    command: str = Field(..., description="Bash command to execute on the local machine"),
-    working_dir: Optional[str] = Field(None, description="Working directory (default: ~/Thunderbird)"),
-    timeout: int = Field(30, description="Timeout in seconds (1-300)", ge=1, le=300),
-) -> str:
-    """Execute an arbitrary bash command on the local machine.
-    Logs every invocation to ~/Thunderbird/logs/shell_exec.log."""
-    cwd = os.path.expanduser(working_dir or "~/Thunderbird")
-    start = datetime.now()
-
-    os.makedirs(os.path.dirname(SHELL_LOG), exist_ok=True)
-    with open(SHELL_LOG, "a", encoding="utf-8") as log_file:
-        log_file.write(f"[{start.isoformat()}] CWD={cwd} CMD={command}\n")
-
-    try:
-        result = subprocess.run(
-            command, shell=True, cwd=cwd,
-            capture_output=True, text=True, timeout=timeout,
-        )
-        elapsed = (datetime.now() - start).total_seconds()
-        return json.dumps({
-            "stdout": result.stdout,
-            "stderr": result.stderr,
-            "exit_code": result.returncode,
-            "elapsed_seconds": elapsed,
-            "command": command,
-            "cwd": cwd,
-        }, indent=2)
-    except subprocess.TimeoutExpired:
-        return json.dumps({"error": f"Command timed out after {timeout}s", "command": command, "cwd": cwd}, indent=2)
-    except Exception as e:
-        return json.dumps({"error": str(e), "command": command, "cwd": cwd}, indent=2)
+# SECURITY: Disabled 2026-03-20 — arbitrary command execution exposed via unauthenticated endpoint
+# SHELL_LOG = os.path.expanduser("~/Thunderbird/logs/shell_exec.log")
+#
+# @mcp.tool(
+#     name="shell_exec",
+#     annotations={
+#         "title": "Execute Shell Command",
+#         "readOnlyHint": False,
+#         "destructiveHint": True,
+#         "idempotentHint": False,
+#         "openWorldHint": True,
+#     },
+# )
+# async def shell_exec(
+#     command: str = Field(..., description="Bash command to execute on the local machine"),
+#     working_dir: Optional[str] = Field(None, description="Working directory (default: ~/Thunderbird)"),
+#     timeout: int = Field(30, description="Timeout in seconds (1-300)", ge=1, le=300),
+# ) -> str:
+#     """Execute an arbitrary bash command on the local machine.
+#     Logs every invocation to ~/Thunderbird/logs/shell_exec.log."""
+#     cwd = os.path.expanduser(working_dir or "~/Thunderbird")
+#     start = datetime.now()
+#
+#     os.makedirs(os.path.dirname(SHELL_LOG), exist_ok=True)
+#     with open(SHELL_LOG, "a", encoding="utf-8") as log_file:
+#         log_file.write(f"[{start.isoformat()}] CWD={cwd} CMD={command}\n")
+#
+#     try:
+#         result = subprocess.run(
+#             command, shell=True, cwd=cwd,
+#             capture_output=True, text=True, timeout=timeout,
+#         )
+#         elapsed = (datetime.now() - start).total_seconds()
+#         return json.dumps({
+#             "stdout": result.stdout,
+#             "stderr": result.stderr,
+#             "exit_code": result.returncode,
+#             "elapsed_seconds": elapsed,
+#             "command": command,
+#             "cwd": cwd,
+#         }, indent=2)
+#     except subprocess.TimeoutExpired:
+#         return json.dumps({"error": f"Command timed out after {timeout}s", "command": command, "cwd": cwd}, indent=2)
+#     except Exception as e:
+#         return json.dumps({"error": str(e), "command": command, "cwd": cwd}, indent=2)
 
 
 # ============================================================================
@@ -793,7 +862,7 @@ if __name__ == "__main__":
     # --sse                      → Legacy SSE (deprecated April 2026)
     # (default)                  → stdio (Claude CLI local)
     transport = "stdio"
-    host = "0.0.0.0"
+    host = "127.0.0.1"  # SECURITY: localhost only — cloudflared handles external access
     port = int(os.environ.get("PORT", 8765))
     for arg in sys.argv[1:]:
         if arg in ("--http", "--streamable-http"):

@@ -53,11 +53,7 @@ MODEL_TAGS = {
 _MODEL_USAGE_LOG = Path(__file__).parent / "logs" / "model_usage.log"
 
 # ── API Keys ──
-# Groq ELIMINATED — all fast/premium calls route to Claude Opus via Max plan ($0)
-GROQ_API_KEY = ""  # DEPRECATED — retained for backward compatibility only
-GROQ_URL = ""      # DEPRECATED — retained for backward compatibility only
-ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
-ANTHROPIC_URL = "https://api.anthropic.com/v1/messages"
+# Groq ELIMINATED — all calls route to Claude via Anthropic SDK ($0 on Max plan)
 TOGETHER_API_KEY = os.environ.get("TOGETHER_API_KEY", "")
 TOGETHER_URL = "https://api.together.xyz/v1"
 HF_API_KEY = os.environ.get("HF_API_KEY", "***REMOVED-SECRET***")
@@ -209,69 +205,48 @@ def should_escalate(persona_id: str, task_type: Optional[TaskType] = None) -> bo
 
 def _call_groq(system_prompt: str, query: str, model: str = "fast",
                max_tokens: int = 600, temperature: float = 0.7) -> str:
-    """Route to Claude Sonnet via CLI subprocess (Max plan, $0).
+    """Route to Claude Sonnet via Anthropic SDK (Max plan, $0).
 
-    Function name retained for backward compatibility — Groq is ELIMINATED.
-    All calls now go through Claude Sonnet via the CLI.
+    Name kept for backward compat — Groq is ELIMINATED.
+    All calls now go through Claude Sonnet via the Anthropic Python SDK.
     """
-    combined_prompt = f"{system_prompt}\n\n{query}"
+    import anthropic
 
-    # Strip ANTHROPIC_API_KEY so CLI uses Max plan OAuth ($0)
-    clean_env = {k: v for k, v in os.environ.items() if k != "ANTHROPIC_API_KEY"}
-
-    cmd = [
-        os.path.expanduser("~/.local/bin/claude"),
-        "--print",
-        "--model", "sonnet",
-        "--dangerously-skip-permissions",
-        "--output-format", "text",
-        "-p", combined_prompt,
-    ]
-
+    client = anthropic.Anthropic()
     try:
-        result = subprocess.run(
-            cmd,
-            capture_output=True,
-            text=True,
-            timeout=120,
-            env=clean_env,
+        resp = client.messages.create(
+            model="claude-sonnet-4-20250514",
+            max_tokens=max_tokens,
+            system=system_prompt,
+            messages=[{"role": "user", "content": query}],
+            temperature=temperature,
         )
-        if result.returncode == 0 and result.stdout.strip():
-            return result.stdout.strip()
-        else:
-            stderr = result.stderr.strip()[:200] if result.stderr else "No stderr"
-            raise RuntimeError(f"Claude CLI exit {result.returncode}: {stderr}")
-    except subprocess.TimeoutExpired:
-        raise RuntimeError("Claude CLI timed out after 120s")
+        return resp.content[0].text
+    except Exception as e:
+        raise RuntimeError(f"Anthropic SDK error: {e}")
 
 
 def _call_claude(system_prompt: str, query: str,
                  max_tokens: int = None, temperature: float = 0.7) -> str:
-    """Call Anthropic Claude API.
+    """Call Anthropic Claude API via SDK.
 
-    Claude now supports 1M context window at GA pricing (no beta header needed).
+    Claude now supports 1M context window at GA pricing.
     Default max_tokens raised to CLAUDE_DEFAULT_MAX_OUTPUT (16,384).
     """
+    import anthropic
+
     if max_tokens is None:
         max_tokens = CLAUDE_DEFAULT_MAX_OUTPUT
-    resp = requests.post(
-        ANTHROPIC_URL,
-        json={
-            "model": CLAUDE_MODEL,
-            "max_tokens": max_tokens,
-            "system": system_prompt,
-            "messages": [{"role": "user", "content": query}],
-            "temperature": temperature,
-        },
-        headers={
-            "x-api-key": ANTHROPIC_API_KEY,
-            "anthropic-version": "2023-06-01",
-            "content-type": "application/json",
-        },
-        timeout=120,
+
+    client = anthropic.Anthropic()
+    resp = client.messages.create(
+        model=CLAUDE_MODEL,
+        max_tokens=max_tokens,
+        system=system_prompt,
+        messages=[{"role": "user", "content": query}],
+        temperature=temperature,
     )
-    resp.raise_for_status()
-    return resp.json()["content"][0]["text"]
+    return resp.content[0].text
 
 
 def _call_gemini(system_prompt: str, query: str,

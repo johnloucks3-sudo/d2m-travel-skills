@@ -273,11 +273,11 @@ def search_payment_emails(days_back: int = 90) -> list[dict]:
 
 
 # ---------------------------------------------------------------------------
-# GROQ — Parse Payment Amounts from Email Text
+# Claude — Parse Payment Amounts from Email Text (Groq ELIMINATED)
 # ---------------------------------------------------------------------------
 
 def parse_payment_amount(email_text: str) -> dict:
-    """Use Groq (fast model) to extract structured payment data from email text.
+    """Use Claude Sonnet (via model_router) to extract structured payment data from email text.
 
     Returns dict with: supplier_name, amount_paid, currency, booking_reference,
                        payment_date, notes
