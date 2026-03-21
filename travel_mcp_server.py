@@ -77,6 +77,9 @@ from thunderbird_health import register_health_tools
 from thunderbird_session_checkpoint import register_checkpoint_tools
 from thunderbird_bulletin import register_bulletin_tools
 from thunderbird_info_delta import register_info_delta_tools
+from thunderbird_temporal_memory import register_temporal_tools
+from thunderbird_dani_voice import register_dani_voice_tools
+from thunderbird_model_router import register_router_tools
 import json
 import logging
 import asyncio
@@ -496,6 +499,9 @@ register_health_tools(mcp)
 register_checkpoint_tools(mcp)
 register_bulletin_tools(mcp)
 register_info_delta_tools(mcp)
+register_temporal_tools(mcp)
+register_dani_voice_tools(mcp)
+register_router_tools(mcp)
 
 try:
     from thunderbird_guest_forms import register_guest_form_tools
