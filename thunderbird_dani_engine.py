@@ -929,6 +929,38 @@ def build_dani_context(query: str, client_scope: Optional[str] = None,
         logger.debug(f"Episodic memory injection skipped: {e}")
 
     # ---------------------------------------------------------------------------
+    # Temporal Knowledge Graph — preference history + trajectory
+    # Gives Dani awareness of how client preferences have evolved over time
+    # ---------------------------------------------------------------------------
+    try:
+        from thunderbird_temporal_memory import get_backend
+
+        t_client = clients[0] if clients else None
+        if t_client:
+            t_backend = get_backend()
+            t_facts = t_backend.get_fact_history(entity=t_client, limit=15)
+            active_facts = [f for f in t_facts if f.get("valid_to") is None]
+            if active_facts:
+                t_lines = [f"- {f['attribute']}: {f['value']}" for f in active_facts]
+                sections.append(
+                    "[TEMPORAL FACTS]\n" + "\n".join(t_lines)
+                )
+
+            t_shifts = t_backend.detect_preference_shifts(entity=t_client, window_days=90)
+            if t_shifts:
+                s_lines = [
+                    f"- {s['attribute']}: {s.get('old_value', '?')} → "
+                    f"{s.get('new_value', '?')} ({s.get('changed_at', '?')[:10]})"
+                    for s in t_shifts
+                ]
+                sections.append(
+                    "[PREFERENCE TRAJECTORY — Client shifted preferences]\n"
+                    + "\n".join(s_lines)
+                )
+    except Exception as e:
+        logger.debug(f"Temporal context injection skipped: {e}")
+
+    # ---------------------------------------------------------------------------
     # DATA CONFIDENCE CLASSIFIER (2.6) — injected before rules
     # Tells Dani exactly how much verified data she has for this query.
     # Kills hallucination at the architectural level — she knows before she speaks.
@@ -1085,5 +1117,7 @@ def build_dani_context(query: str, client_scope: Optional[str] = None,
             sections_prefix = voice_fragment + "\n\n" + sections_prefix
     except Exception:
         pass
+
+    # (Temporal intelligence injected earlier in build_dani_context via agent wiring)
 
     return sections_prefix + "\n\n".join(sections)

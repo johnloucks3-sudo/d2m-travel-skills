@@ -279,6 +279,49 @@ def _gather_drive_context(client_key: str) -> str:
         return ""
 
 
+def _gather_temporal_context(client_key: str) -> str:
+    """Pull temporal knowledge graph facts and preference shifts for a client."""
+    try:
+        from thunderbird_temporal_memory import get_backend
+
+        backend = get_backend()
+        now_iso = datetime.now().isoformat()
+
+        # Current facts snapshot
+        facts = backend.get_fact_history(entity=client_key.lower(), limit=20)
+        if not facts:
+            return ""
+
+        lines = []
+        for f in facts:
+            if f.get("valid_to") is None:  # active facts only
+                lines.append(f"- **{f['attribute']}**: {f['value']} "
+                             f"(since {f['valid_from'][:10]}, conf {f.get('confidence', '?')})")
+
+        # Preference shifts in last 90 days
+        shifts = backend.detect_preference_shifts(entity=client_key.lower(), window_days=90)
+        shift_lines = []
+        for s in shifts:
+            shift_lines.append(
+                f"- {s['attribute']}: {s.get('old_value', '?')} → {s.get('new_value', '?')} "
+                f"({s.get('changed_at', '?')[:10]})"
+            )
+
+        if not lines and not shift_lines:
+            return ""
+
+        result = f"## TEMPORAL INTELLIGENCE ({client_key})\n"
+        if lines:
+            result += "### Active Facts\n" + "\n".join(lines) + "\n"
+        if shift_lines:
+            result += "### Preference Shifts (90d)\n" + "\n".join(shift_lines) + "\n"
+        return result
+
+    except Exception as e:
+        logger.debug(f"Temporal context failed for {client_key}: {e}")
+        return ""
+
+
 def _gather_learning_context(client_key: str) -> str:
     """Pull learned principles related to this client."""
     try:
@@ -427,6 +470,9 @@ def enrich_client_context(
 
         # Always include learning context
         context["learning"] = _gather_learning_context(client_key)
+
+        # Temporal knowledge graph — preference shifts, milestones
+        context["temporal"] = _gather_temporal_context(client_key)
 
         # Cache the results
         _write_cache(client_key, context)

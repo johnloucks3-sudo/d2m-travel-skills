@@ -861,6 +861,39 @@ def run_commander_inbox_sweep(hours_back: int = 4) -> Dict[str, Any]:
             except Exception as learn_err:
                 logger.warning(f"Learning capture failed for {msg_id}: {learn_err}")
 
+            # ── Temporal fact capture: auto-store preference/fact changes ──
+            try:
+                from thunderbird_temporal_memory import get_backend
+                from thunderbird_auto_enrich import detect_client_names
+
+                body_text = email.get("body", "")[:2000]
+                detected = detect_client_names(email["subject"] + " " + body_text)
+
+                if detected and classification not in ("personal",):
+                    import re as _re
+                    _pref_patterns = [
+                        (_re.compile(r'(?:now\s+prefer|switched\s+to|changed\s+to|upgraded?\s+to)\s+(.{5,60})', _re.IGNORECASE), "preference_change"),
+                        (_re.compile(r'(?:allergic|allergy|dietary|diet)\s*(?:to|restriction)?[:\s]+(.{3,60})', _re.IGNORECASE), "dietary_restriction"),
+                        (_re.compile(r'(?:cabin|suite|stateroom)\s*(?:type|preference)?[:\s]+(.{3,60})', _re.IGNORECASE), "cabin_preference"),
+                        (_re.compile(r'(?:birthday|anniversary|born)\s*(?:is|on)?[:\s]+(.{5,40})', _re.IGNORECASE), "milestone"),
+                    ]
+                    t_backend = get_backend()
+                    for pattern, attr in _pref_patterns:
+                        m = pattern.search(body_text)
+                        if m:
+                            for client_key in detected:
+                                t_backend.add_temporal_fact(
+                                    entity=client_key.lower(),
+                                    attribute=attr,
+                                    value=m.group(1).strip(),
+                                    valid_from=datetime.now(timezone.utc).isoformat(),
+                                    source=f"commander_inbox:{email['subject'][:50]}",
+                                    confidence=0.75,
+                                )
+                            logger.info(f"Temporal capture: {attr} for {detected} from '{email['subject'][:40]}'")
+            except Exception as temporal_err:
+                logger.debug(f"Temporal fact capture skipped for {msg_id}: {temporal_err}")
+
             # Log the action
             _log_action({
                 "timestamp": datetime.now(timezone.utc).isoformat(),

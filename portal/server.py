@@ -657,7 +657,7 @@ async def spa_fallback(full_path: str):
 if __name__ == "__main__":
     uvicorn.run(
         "server:app",
-        host="0.0.0.0",
+        host="127.0.0.1",  # SECURITY: localhost only — cloudflared handles external access
         port=8780,
         log_level="info",
         reload=False,

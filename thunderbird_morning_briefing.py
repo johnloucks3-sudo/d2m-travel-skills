@@ -463,6 +463,7 @@ def render_briefing_html(
     completed_actions: set = None,
     rss_direct: list = None,
     intel_crew_report: dict = None,
+    temporal_intel: str = "",
 ) -> str:
     """Render the full briefing as branded HTML email."""
 
@@ -984,6 +985,22 @@ def render_briefing_html(
 """
         html += "  </div>\n  <div class='divider'></div>\n"
 
+    # ── SECTION 1b: TEMPORAL INTELLIGENCE ──
+    if temporal_intel:
+        html += """
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:rgba(168,85,247,0.15);">&#128337;</div>
+      <div class="section-title">Temporal Intelligence</div>
+      <div class="section-count">preference shifts &amp; milestones</div>
+    </div>
+    <div style="font-size:13px;color:#c8d0dc;line-height:1.7;padding:8px 16px;">
+""" + temporal_intel + """
+    </div>
+  </div>
+  <div class='divider'></div>
+"""
+
     # ── SECTION 2: WORLD INTELLIGENCE (Commander_Log) ──
     if commander_log:
         html += """
@@ -1389,6 +1406,8 @@ def render_briefing_html(
 
         html += "  </div>\n"
 
+    # (Temporal Intelligence rendered via temporal_intel parameter — see Section 1b above)
+
     # ── FOOTER ──
     html += f"""
   <div class="footer">
@@ -1593,6 +1612,61 @@ def run_briefing(preview: bool = False, weekly: bool = False):
     except Exception as e:
         logger.warning(f"Intel Crew failed, falling back to raw RSS only: {e}")
 
+    # ── Temporal Intelligence: preference shifts + upcoming milestones ─────
+    temporal_intel = ""
+    try:
+        from thunderbird_temporal_memory import get_backend
+        from thunderbird_anchor_dates import KNOWN_BOOKINGS
+
+        backend = get_backend()
+        t_lines = []
+
+        # Gather active client keys from bookings
+        active_clients = set()
+        for bk_key, bk in KNOWN_BOOKINGS.items():
+            name = bk_key.split("_")[0].lower()
+            active_clients.add(name)
+
+        # Detect preference shifts across all active clients (90-day window)
+        for client_key in sorted(active_clients):
+            shifts = backend.detect_preference_shifts(entity=client_key, window_days=90)
+            for s in shifts:
+                t_lines.append(
+                    f"<li><strong>{client_key.title()}</strong> — "
+                    f"{s['attribute']}: {s.get('old_value', '?')} &rarr; "
+                    f"{s.get('new_value', '?')} ({s.get('changed_at', '?')[:10]})</li>"
+                )
+
+        # Upcoming milestones: birthdays/anniversaries within 30 days
+        milestone_attrs = ("birthday", "anniversary")
+        for client_key in sorted(active_clients):
+            for attr in milestone_attrs:
+                facts = backend.get_fact_history(entity=client_key, limit=5)
+                for f in facts:
+                    if f.get("attribute") != attr or f.get("valid_to") is not None:
+                        continue
+                    val = f.get("value", "")
+                    # Try to detect month-day proximity
+                    try:
+                        date_str = val.split(":")[-1].strip() if ":" in val else val
+                        md = datetime.strptime(date_str, "%Y-%m-%d")
+                        this_year = md.replace(year=today.year)
+                        delta = (this_year - datetime.combine(today, datetime.min.time())).days
+                        if 0 <= delta <= 30:
+                            t_lines.append(
+                                f"<li><strong>{client_key.title()}</strong> — "
+                                f"{attr}: {val} (in {delta} days)</li>"
+                            )
+                    except Exception:
+                        pass
+
+        if t_lines:
+            temporal_intel = "<ul>" + "\n".join(t_lines) + "</ul>"
+            logger.info(f"  Temporal intelligence: {len(t_lines)} items")
+
+    except Exception as e:
+        logger.debug(f"Temporal intelligence skipped: {e}")
+
     # Build executive summary
     summary = build_executive_summary(
         commander_log, intel_log, pricing, tech_news, fare_log, anchor_report, today,
@@ -1609,6 +1683,7 @@ def run_briefing(preview: bool = False, weekly: bool = False):
         completed_actions=completed_actions,
         rss_direct=rss_direct,
         intel_crew_report=intel_crew_report,
+        temporal_intel=temporal_intel,
     )
 
     # Save dedup cache

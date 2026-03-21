@@ -80,6 +80,9 @@ from thunderbird_info_delta import register_info_delta_tools
 from thunderbird_temporal_memory import register_temporal_tools
 from thunderbird_dani_voice import register_dani_voice_tools
 from thunderbird_model_router import register_router_tools
+from thunderbird_a2a_protocol import register_a2a_protocol_tools
+from thunderbird_grant_compiler import register_grant_tools
+from thunderbird_mcp_connector import register_connector_tools
 import json
 import logging
 import asyncio
@@ -502,6 +505,25 @@ register_info_delta_tools(mcp)
 register_temporal_tools(mcp)
 register_dani_voice_tools(mcp)
 register_router_tools(mcp)
+
+# Wave 4 modules
+try:
+    register_a2a_protocol_tools(mcp)
+    logger.info("A2A protocol tools registered")
+except Exception as e:
+    logger.warning(f"A2A protocol tools not available: {e}")
+
+try:
+    register_grant_tools(mcp)
+    logger.info("Grant compiler tools registered")
+except Exception as e:
+    logger.warning(f"Grant compiler tools not available: {e}")
+
+try:
+    register_connector_tools(mcp)
+    logger.info("MCP connector tools registered")
+except Exception as e:
+    logger.warning(f"MCP connector tools not available: {e}")
 
 try:
     from thunderbird_guest_forms import register_guest_form_tools
