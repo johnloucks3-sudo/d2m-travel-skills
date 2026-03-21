@@ -1408,6 +1408,14 @@ def render_briefing_html(
 
     # (Temporal Intelligence rendered via temporal_intel parameter — see Section 1b above)
 
+    # ── SECTION 8: REVENUE PIPELINE (per Harlan Dashboard Analysis) ──
+    try:
+        pipeline_html = _build_revenue_pipeline_section()
+        if pipeline_html:
+            html += pipeline_html
+    except Exception as e:
+        logger.debug(f"Revenue pipeline section skipped: {e}")
+
     # ── FOOTER ──
     html += f"""
   <div class="footer">
@@ -1422,6 +1430,140 @@ def render_briefing_html(
 </body>
 </html>"""
 
+    return html
+
+
+# ---------------------------------------------------------------------------
+# Revenue Pipeline — FPD countdowns + pipeline value (per Harlan rec)
+# ---------------------------------------------------------------------------
+
+def _build_revenue_pipeline_section() -> str:
+    """Build revenue pipeline digest from dossiers and anchor dates.
+
+    Returns HTML section showing:
+    - FPDs within 30 days with countdown
+    - Total pipeline value (all active bookings)
+    - Bookings by status
+    """
+    from datetime import datetime, timedelta
+    from pathlib import Path
+    import re
+
+    import os as _os
+    dossier_dir = Path(_os.path.expanduser("~/Thunderbird/dossiers"))
+    today = datetime.now().date()
+    fpd_alerts = []
+    total_value = 0.0
+    booking_count = 0
+    skip_files = {"CLAUDE.md", "DANI_TESTER_BRIEFINGS.md", "DOSSIER_Regent_Tips_Guide.md"}
+
+    if not dossier_dir.exists():
+        return ""
+
+    for fpath in sorted(dossier_dir.glob("*.md")):
+        if fpath.name in skip_files:
+            continue
+
+        try:
+            content = fpath.read_text(encoding="utf-8", errors="replace")
+        except Exception:
+            continue
+
+        # Extract client name from filename
+        stem = fpath.stem
+        client_name = stem.replace("_", " ").replace("DOSSIER ", "")
+
+        # Find Final Payment Date
+        fpd_match = re.search(
+            r'(?:Final\s+Payment|FPD)[:\s]+(\w+\s+\d{1,2},?\s*\d{4}|\d{4}-\d{2}-\d{2})',
+            content, re.IGNORECASE
+        )
+        if fpd_match:
+            date_str = fpd_match.group(1).strip().rstrip(",")
+            fpd_date = None
+            for fmt in ["%B %d, %Y", "%B %d %Y", "%b %d, %Y", "%b %d %Y", "%Y-%m-%d",
+                        "%B %d,%Y", "%b %d,%Y"]:
+                try:
+                    fpd_date = datetime.strptime(date_str, fmt).date()
+                    break
+                except ValueError:
+                    continue
+
+            if fpd_date:
+                days_until = (fpd_date - today).days
+                if 0 <= days_until <= 30:
+                    urgency = "CRITICAL" if days_until <= 7 else "WARNING" if days_until <= 14 else "INFO"
+                    fpd_alerts.append({
+                        "client": client_name,
+                        "fpd_date": fpd_date.strftime("%b %d"),
+                        "days": days_until,
+                        "urgency": urgency,
+                    })
+                elif days_until < 0 and days_until >= -7:
+                    fpd_alerts.append({
+                        "client": client_name,
+                        "fpd_date": fpd_date.strftime("%b %d"),
+                        "days": days_until,
+                        "urgency": "OVERDUE",
+                    })
+
+        # Extract booking value (look for total/price/amount patterns)
+        value_match = re.search(
+            r'(?:Total|Price|Amount|Cost|Value)[:\s]*\$?([\d,]+(?:\.\d{2})?)',
+            content, re.IGNORECASE
+        )
+        if value_match:
+            try:
+                val = float(value_match.group(1).replace(",", ""))
+                if 100 < val < 500000:  # sanity check
+                    total_value += val
+                    booking_count += 1
+            except ValueError:
+                pass
+
+    # Build HTML
+    if not fpd_alerts and booking_count == 0:
+        return ""
+
+    # Sort FPD alerts by urgency then days
+    urgency_order = {"OVERDUE": 0, "CRITICAL": 1, "WARNING": 2, "INFO": 3}
+    fpd_alerts.sort(key=lambda x: (urgency_order.get(x["urgency"], 9), x["days"]))
+
+    html = """
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:rgba(126,184,255,0.15);">&#128176;</div>
+      <div class="section-title">Revenue Pipeline</div>
+    </div>
+    <div style="padding:12px 16px;font-size:13px;line-height:1.7;color:#e0e6ed;">
+"""
+
+    if booking_count > 0:
+        html += (
+            f'      <div style="color:#c9a84c;font-weight:600;margin-bottom:8px;">'
+            f'Pipeline: ${total_value:,.0f} across {booking_count} active booking(s)</div>\n'
+        )
+
+    if fpd_alerts:
+        html += '      <div style="color:#7eb8ff;font-weight:600;margin-bottom:4px;">Final Payment Deadlines</div>\n'
+        for alert in fpd_alerts:
+            color_map = {"OVERDUE": "#ff4444", "CRITICAL": "#ff6666", "WARNING": "#e8c97a", "INFO": "#7eb8ff"}
+            color = color_map.get(alert["urgency"], "#e0e6ed")
+            if alert["days"] < 0:
+                countdown = f'{abs(alert["days"])}d OVERDUE'
+            elif alert["days"] == 0:
+                countdown = "TODAY"
+            else:
+                countdown = f'{alert["days"]}d'
+            html += (
+                f'      <div style="padding:2px 0 2px 12px;">'
+                f'<span style="color:{color};font-weight:600;">[{alert["urgency"]}]</span> '
+                f'{alert["client"]} — {alert["fpd_date"]} '
+                f'<span style="color:{color};">({countdown})</span>'
+                f'</div>\n'
+            )
+
+    html += "    </div>\n  </div>\n"
     return html
 
 

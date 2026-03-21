@@ -353,6 +353,33 @@ def _phase_artist(aggregated_data: Dict[str, Any]) -> Optional[str]:
     if voice_rules:
         context += f"\n\n{voice_rules}"
 
+    # --- Brand Voice Card: D2M standard voice DNA (d2m_brand_voice.json) ---
+    try:
+        import json as _json
+        _bvc_path = Path(os.path.expanduser("~/Thunderbird/d2m_brand_voice.json"))
+        if _bvc_path.exists():
+            with open(_bvc_path, "r") as _bvf:
+                _bvc = _json.load(_bvf)
+            _bvc_block = ["[BRAND VOICE CARD — D2M Standard]"]
+            _bvc_block.append(f"Opening: {_bvc.get('opening_register', '')}")
+            _bvc_block.append(f"Specificity: {_bvc.get('specificity_standard', '')}")
+            _bvc_block.append(f"Screenshot Test: {_bvc.get('screenshot_test', '')}")
+            _bvc_block.append(f"Forbidden Words: {', '.join(_bvc.get('forbidden_words', []))}")
+            _bvc_block.append(f"Closing Prohibition: {_bvc.get('closing_prohibition', '')}")
+            vp = _bvc.get("voice_principles", {})
+            if vp:
+                _bvc_block.append("Voice Principles:")
+                for k, v in vp.items():
+                    _bvc_block.append(f"  - {k}: {v}")
+            dr = _bvc.get("dani_rules", {})
+            if dr:
+                _bvc_block.append("Dani Voice:")
+                for k, v in dr.items():
+                    _bvc_block.append(f"  - {k}: {v}")
+            context += "\n\n" + "\n".join(_bvc_block)
+    except Exception:
+        pass  # brand voice card is enhancement — don't break email flow
+
     # Conversation state machine — detect phase, inject guidance
     try:
         from thunderbird_conversation_state import detect_and_guide

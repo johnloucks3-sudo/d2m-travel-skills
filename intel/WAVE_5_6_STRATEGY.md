@@ -16,7 +16,7 @@ The competitive landscape says this clearly: ChatGPT abandoned direct bookings, 
 Three vectors define these waves:
 
 1. **Revenue Generation** -- Every feature must either create new revenue or protect existing margin
-2. **Data Moat** -- Every client interaction should make the system smarter in ways competitors cannot replicate
+2. **institutional memory advantage** -- Every client interaction should make the system smarter in ways competitors cannot replicate
 3. **Commander Liberation** -- Remove John from every routine task so he can focus exclusively on relationship-building and closing
 
 ---
@@ -135,7 +135,7 @@ Three vectors define these waves:
 
 ---
 
-## WAVE 6: WEEKS 4-7 (MAY 2026) — "DATA MOAT"
+## WAVE 6: WEEKS 4-7 (MAY 2026) — "institutional memory advantage"
 
 **Theme:** Build capabilities that get stronger with every client interaction. Create switching costs so high that clients could never get the same experience elsewhere. Turn Thunderbird from a tool into a platform.
 
@@ -149,7 +149,7 @@ Three vectors define these waves:
 - **Build vs Buy vs Integrate:** BUILD with open-source components. sqlite-vec keeps it local and free. Cohere embeddings for production quality.
 - **Estimated LOE:** 5-7 days. Document ingestion pipeline (2 days), embedding generation (1 day), vector search API (1 day), query interface via MCP tool (1 day), initial corpus indexing (1-2 days).
 - **Dependencies:** sqlite-vec (already referenced in master inventory as READY), `thunderbird_shared_memory.py`, all dossier files, email archives, booking PDFs
-- **Revenue impact:** This is the data moat. Every email, every dossier update, every client interaction makes the search smarter. After 50 clients, no competitor can match the institutional knowledge locked in this system.
+- **Revenue impact:** This is the institutional memory advantage. Every email, every dossier update, every client interaction makes the search smarter. After 50 clients, no competitor can match the institutional knowledge locked in this system.
 - **Key files:** `thunderbird_shared_memory.py`, `thunderbird_hud_memory.py`, `thunderbird_temporal_memory.py`, `dossiers/`
 
 ---
@@ -384,7 +384,7 @@ Wave 6.6 (Dashboard) ----------> Independent (can start immediately)
 The competitive landscape is converging fast. Every major AI company is building multi-agent systems. Every travel company is experimenting with AI. D2M's advantage is that we are already operational -- not experimenting, not piloting, operating. 120+ MCP tools, 8 personas, 16 n8n workflows, client portal, Telegram C2. That is a 6-month lead.
 
 Wave 5 widens the lead by turning the infrastructure into revenue-generating capabilities.
-Wave 6 makes the lead permanent by building a data moat that deepens with every client interaction.
+Wave 6 makes the lead permanent by building a institutional memory advantage that deepens with every client interaction.
 
 The single highest-leverage item across both waves is **6.3 Trip Architect Pro** -- the integration play that wires together trip architect, auto-enrich, real-time pricing, Canva visuals, audio briefings, and portal delivery. It is the full-stack client experience: inquiry to stunning, audio-narrated, visually rich proposal in under an hour. No solo travel advisor on earth can match that speed and quality. That is the kill shot.
 

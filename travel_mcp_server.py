@@ -70,6 +70,7 @@ from thunderbird_learning import register_learning_tools
 from thunderbird_conversation_learner import register_conversation_learner_tools
 from thunderbird_sss import register_sss_tools
 from thunderbird_dossier_scanner import register_dossier_scanner_tools
+from thunderbird_email_classifier import register_email_classifier_tools
 from thunderbird_voice_ledger import register_voice_ledger_tools
 from thunderbird_recipient_profiles import register_recipient_profile_tools
 from thunderbird_commander_inbox import register_commander_inbox_tools
@@ -495,6 +496,7 @@ register_learning_tools(mcp)
 register_conversation_learner_tools(mcp)
 register_sss_tools(mcp)
 register_dossier_scanner_tools(mcp)
+register_email_classifier_tools(mcp)
 register_voice_ledger_tools(mcp)
 register_recipient_profile_tools(mcp)
 register_commander_inbox_tools(mcp)

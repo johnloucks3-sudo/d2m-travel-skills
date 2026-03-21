@@ -34,6 +34,27 @@ from typing import Optional
 logger = logging.getLogger("thunderbird_dani_engine")
 
 # ---------------------------------------------------------------------------
+# Brand Voice Card — loaded once, cached for session
+# ---------------------------------------------------------------------------
+_BRAND_VOICE_CACHE: dict = {}
+
+def _load_brand_voice_card() -> dict:
+    """Load d2m_brand_voice.json once, cache for session."""
+    if _BRAND_VOICE_CACHE:
+        return _BRAND_VOICE_CACHE
+    try:
+        import json
+        card_path = Path(os.path.expanduser("~/Thunderbird/d2m_brand_voice.json"))
+        if card_path.exists():
+            with open(card_path, "r") as f:
+                data = json.load(f)
+            _BRAND_VOICE_CACHE.update(data)
+            return _BRAND_VOICE_CACHE
+    except Exception as e:
+        logger.debug(f"Brand voice card load failed: {e}")
+    return {}
+
+# ---------------------------------------------------------------------------
 # Constants
 # ---------------------------------------------------------------------------
 
@@ -997,6 +1018,62 @@ def build_dani_context(query: str, client_scope: Optional[str] = None,
     sections.append(
         f"[DATA CONFIDENCE: {_confidence}]\n{_conf_note}"
     )
+
+    # ---------------------------------------------------------------------------
+    # Brand Voice Card — Luna's standardized voice DNA (d2m_brand_voice.json)
+    # Loads once, injects before all rules so tone/voice colors everything.
+    # ---------------------------------------------------------------------------
+    try:
+        _voice_card = _load_brand_voice_card()
+        if _voice_card:
+            _vc_lines = ["[BRAND VOICE — D2M Standard]"]
+            _vc_lines.append(f"Opening: {_voice_card.get('opening_register', '')}")
+            _vc_lines.append(f"Specificity: {_voice_card.get('specificity_standard', '')}")
+            _vc_lines.append(f"Screenshot Test: {_voice_card.get('screenshot_test', '')}")
+            _vc_lines.append(f"Personal Cadence: {_voice_card.get('personal_reference_cadence', '')}")
+            _vc_lines.append(f"Human Thread: {_voice_card.get('human_thread', '')}")
+            # Tense rules
+            tense = _voice_card.get("tense_rules", {})
+            if tense:
+                _vc_lines.append("Tense Rules:")
+                for k, v in tense.items():
+                    _vc_lines.append(f"  - {k}: {v}")
+            # Voice principles
+            vp = _voice_card.get("voice_principles", {})
+            if vp:
+                _vc_lines.append("Voice Principles:")
+                for k, v in vp.items():
+                    _vc_lines.append(f"  - {k}: {v}")
+            # Required qualities
+            rq = _voice_card.get("required_qualities", [])
+            if rq:
+                _vc_lines.append("Required Qualities:")
+                for q in rq:
+                    _vc_lines.append(f"  - {q}")
+            # Forbidden words
+            fw = _voice_card.get("forbidden_words", [])
+            if fw:
+                _vc_lines.append(f"Forbidden Words: {', '.join(fw)}")
+            # Closings
+            closing = _voice_card.get("closing_variants", [])
+            if closing:
+                _vc_lines.append("Closings: " + " | ".join(c.get("text", "") for c in closing))
+            _vc_lines.append(f"Closing Prohibition: {_voice_card.get('closing_prohibition', '')}")
+            # Dani-specific rules from card
+            dr = _voice_card.get("dani_rules", {})
+            if dr:
+                _vc_lines.append("Dani Voice (from Brand Card):")
+                for k, v in dr.items():
+                    _vc_lines.append(f"  - {k}: {v}")
+            # Length rules
+            lr = _voice_card.get("length_rules", {})
+            if lr:
+                _vc_lines.append("Length Rules:")
+                for k, v in lr.items():
+                    _vc_lines.append(f"  - {k}: {v}")
+            sections.append("\n".join(_vc_lines))
+    except Exception as e:
+        logger.debug(f"Brand voice card injection skipped: {e}")
 
     # Rules for Dani
     sections.append(

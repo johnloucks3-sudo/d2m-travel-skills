@@ -49,7 +49,7 @@
 
 - Anthropic Max plan pricing stability through Q3 2026
 - Single-executor LOE (58-77 days assumes one person full-time -- who?)
-- YOGA home server reliability for production-grade data moat infrastructure
+- YOGA home server reliability for production-grade institutional memory advantage infrastructure
 
 ---
 
@@ -89,7 +89,7 @@ The plan buries it: "on Max plan, less relevant for Claude usage." That is the t
 2. **5.1 Dani Voice Agent** -- Every unanswered call is a walk-out. Only item with known daily revenue bleed.
 3. **5.6 Client Bulletin Engine** -- 1,042 lines built, needs wiring. Highest ROI-per-hour on the board.
 4. **6.3 Trip Architect Pro** -- The kill shot. But dependencies (5.2, 5.4) must pull forward or accept partial build.
-5. **6.7 Auto-CRM Pipeline** -- Data moat does not exist until this runs. Start the compound clock now.
+5. **6.7 Auto-CRM Pipeline** -- institutional memory advantage does not exist until this runs. Start the compound clock now.
 
 **WHERE HE SANDBAGGED LOE:**
 
@@ -232,7 +232,7 @@ The line between "concierge who remembers everything" and "surveillance system w
 
 - **The gap is the origin story.** "AI-powered concierge with human trust at the close" is a product description, not a narrative. John's story -- USAFA, 60% disabled, building this from Monument with a staff of AI agents because he cannot hire a team of humans yet -- that is the story. Grant reviewers and partners are betting on him, not on an AI platform.
 
-- **"Data Moat" is not John's voice.** That is a16z language. John wins clients by making them feel known, not by owning their data. The real moat is trust. Rename it. It cannot appear in any client-facing or grant-facing narrative.
+- **"institutional memory advantage" is not John's voice.** That is a16z language. John wins clients by making them feel known, not by owning their data. The real moat is trust. Rename it. It cannot appear in any client-facing or grant-facing narrative.
 
 - **14 items for under 10 bookings is getting ahead of the mission.** The narrative frame should be "proving the model" not "scaling the platform."
 
@@ -246,7 +246,7 @@ The line between "concierge who remembers everything" and "surveillance system w
 
 The following points had consensus across multiple personas:
 
-1. **The strategic frame is sound.** Revenue Engine to Data Moat to Commander Liberation is the right sequence. Nobody challenged the three vectors. (All 8)
+1. **The strategic frame is sound.** Revenue Engine to institutional memory advantage to Commander Liberation is the right sequence. Nobody challenged the three vectors. (All 8)
 
 2. **The scope is too large for the current client base and executor capacity.** 14 items for under 10 clients, one executor, 58-77 days -- the staff unanimously agrees this needs to be cut to 5-7 items maximum. (A2, A5, A9, A12, EXEC)
 
@@ -277,7 +277,7 @@ These are genuine debate points where the staff does not align:
 
 ### 2. Auto-CRM Pipeline -- Build New or Fix TESS?
 
-- **BUILD NEW:** A5 (Castillo) -- Data moat does not exist without it. Start the compound clock.
+- **BUILD NEW:** A5 (Castillo) -- institutional memory advantage does not exist without it. Start the compound clock.
 - **BUILD NEW:** A9 (Harlan) -- Ranked #1 ROI. Closes commission leakage.
 - **FIX TESS INSTEAD:** A12 (ELON) -- TESS exists, has write API, has MCP tools. Building another CRM layer on an existing CRM is complexity addiction.
 
@@ -290,7 +290,7 @@ These are genuine debate points where the staff does not align:
 ### 4. Semantic Search -- Foundation or Premature Scale?
 
 - **BUILD:** A9 (Harlan) -- Ranked #4 ROI. Compounds value of everything else. $0 cost.
-- **BUILD:** A5 (Castillo) -- Data moat prerequisite.
+- **BUILD:** A5 (Castillo) -- institutional memory advantage prerequisite.
 - **BURN IT:** A12 (ELON) -- Search over 10 dossiers? John knows every client from memory. Scale solution to a problem that does not exist.
 
 ### 5. Priority Order -- Four Different Rankings
@@ -362,7 +362,7 @@ These are the items only you can decide, Yoda.
 
 6. **Brand Voice Card -- approve Luna drafting it.** One day, one page, machine-readable. Gates everything client-facing. Permission to proceed?
 
-7. **"Data Moat" language.** Naia says it is a16z language that signals extraction, not care. Do you want to rename this internally? Externally it must never appear -- that is not a question, that is a directive from EXEC and COS jointly.
+7. **"institutional memory advantage" language.** Naia says it is a16z language that signals extraction, not care. Do you want to rename this internally? Externally it must never appear -- that is not a question, that is a directive from EXEC and COS jointly.
 
 8. **Grant narrative bifurcation.** The grant story (R&D technology company) and the client story (attentive luxury advisor) cannot be the same document. Do you concur with maintaining two separate narrative tracks?
 
