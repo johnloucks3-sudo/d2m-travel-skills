@@ -1416,6 +1416,15 @@ def render_briefing_html(
     except Exception as e:
         logger.debug(f"Revenue pipeline section skipped: {e}")
 
+    # ── SECTION 9: ELON ACADEMIC RADAR ──
+    try:
+        from thunderbird_academic_scanner import get_academic_digest_for_briefing
+        academic_html = get_academic_digest_for_briefing(max_papers=4)
+        if academic_html:
+            html += academic_html
+    except Exception as e:
+        logger.debug(f"Academic scanner briefing section skipped: {e}")
+
     # ── FOOTER ──
     html += f"""
   <div class="footer">
