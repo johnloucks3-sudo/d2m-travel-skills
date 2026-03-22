@@ -1,0 +1,39 @@
+# Turabian — No Nominalization (also T&Q)
+# Turabian: "Use verbs, not noun-clusters."
+# Nominalization buries the action. "Make a decision" → "decide". "Give consideration" → "consider".
+extends: substitution
+message: "Turabian: '%s' nominalizes the verb. Use '%s' instead."
+level: warning
+scope: sentence
+swap:
+  'make a decision': 'decide'
+  'make a recommendation': 'recommend'
+  'make a request': 'request'
+  'make an effort': 'try'
+  'make arrangements': 'arrange'
+  'give consideration to': 'consider'
+  'give approval': 'approve'
+  'give assistance': 'help'
+  'take action': 'act'
+  'take steps': 'act'
+  'take into consideration': 'consider'
+  'be in agreement': 'agree'
+  'be in receipt of': 'have received'
+  'conduct an investigation': 'investigate'
+  'conduct a review': 'review'
+  'provide assistance': 'help'
+  'provide support': 'support'
+  'reach a conclusion': 'conclude'
+  'reach an agreement': 'agree'
+  'have knowledge of': 'know'
+  'have the ability to': 'can'
+  'have the opportunity to': 'can'
+  'in the event that': 'if'
+  'due to the fact that': 'because'
+  'for the purpose of': 'to'
+  'with regard to': 'about'
+  'in order to': 'to'
+  'at this point in time': 'now'
+  'at this time': 'now'
+  'prior to': 'before'
+  'subsequent to': 'after'

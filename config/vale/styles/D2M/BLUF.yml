@@ -1,0 +1,17 @@
+# Tongue & Quill — BLUF: Bottom Line Up Front
+# The purpose must be clear in the first sentence.
+# Flags emails that open with throat-clearing phrases instead of the main point.
+extends: existence
+message: "T&Q BLUF: Opens with filler instead of the main point. State your purpose first."
+level: error
+scope: raw
+tokens:
+  - 'I hope this (email|message|note|letter) finds you'
+  - 'I wanted to (reach out|follow up|touch base|check in)'
+  - 'Just (wanted to|checking|following up|reaching out)'
+  - 'As per (our|my|the|your)'
+  - 'Per (our|my|the|your) (conversation|discussion|call|email)'
+  - 'I am writing (to|regarding|about|in regards)'
+  - 'Thank you for (taking the time|your time|reaching out) to'
+  - 'I hope you(''re| are) (doing well|having a great)'
+  - 'It was (great|wonderful|lovely|nice) (talking|speaking|chatting) with you'

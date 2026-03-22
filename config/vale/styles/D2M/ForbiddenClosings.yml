@@ -1,0 +1,19 @@
+# D2M — Forbidden Closings
+# Commander's standing order: close with "Thanks, John" or "Thank you, John" only.
+# These closings are permanently banned.
+extends: existence
+message: "D2M Voice: '%s' is a prohibited closing. Use 'Thanks, John' or 'Thank you, John'."
+level: error
+scope: sentence
+tokens:
+  - '\bBest,?\s*\n'
+  - '\bBest regards,?\s*\n'
+  - '\bWarm regards,?\s*\n'
+  - '\bWarmly,?\s*\n'
+  - '\bCheers,?\s*\n'
+  - '\bSincerely,?\s*\n'
+  - '\bRespectfully,?\s*\n'
+  - '\bYours (truly|sincerely),?\s*\n'
+  - '\bKind regards,?\s*\n'
+  - '\bWith (appreciation|gratitude),?\s*\n'
+  - '\bTake care,?\s*\n'

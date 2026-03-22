@@ -280,8 +280,14 @@ def _wrap_body_html(plain_text: str) -> str:
         return plain_text
 
     import html as html_mod
-    escaped = html_mod.escape(plain_text)
-    html_body = escaped.replace('\n', '<br>\n')
+    import re as _re
+    # If body already contains HTML tags (partial HTML), don't escape — use directly.
+    # Only escape if it's truly plain text with no markup.
+    if _re.search(r'<[a-zA-Z][^>]*>', plain_text):
+        html_body = plain_text
+    else:
+        escaped = html_mod.escape(plain_text)
+        html_body = escaped.replace('\n', '<br>\n')
 
     # Logo banner — omitted gracefully if logo file is missing
     logo_uri = _get_logo_data_uri()
@@ -890,7 +896,34 @@ def register_gmail_tools(mcp):
                             "Commander must approve via Telegram /drafts flow.",
                 }, indent=2)
 
-            # ── COMMANDER APPROVED — send immediately ───────────────────
+            # ── COMMANDER APPROVED — internal addresses only ─────────────
+            # Extract bare email from "Display Name <email>" format if needed
+            _to_bare = to.strip().lower()
+            _m = __import__("re").search(r"<([^>]+)>", _to_bare)
+            if _m:
+                _to_bare = _m.group(1).strip()
+            if _to_bare not in {a.lower() for a in COMMANDER_ADDRS}:
+                # External send permanently blocked — stage as draft instead
+                logger.warning("EXT SEND GUARD: blocking send to %s — staging as draft", to)
+                draft_body = {"message": {"raw": raw}}
+                if thread_id_for_msg:
+                    draft_body["message"]["threadId"] = thread_id_for_msg
+                draft = (
+                    service.users().drafts().create(userId="me", body=draft_body).execute()
+                )
+                draft_id = draft.get("id", "unknown")
+                return json.dumps({
+                    "status": "blocked",
+                    "action": "draft_created",
+                    "draft_id": draft_id,
+                    "to": to,
+                    "subject": subject,
+                    "note": "External send permanently prohibited. Only Commander addresses "
+                            "(johnloucks3/johnloucks75/d2mluxury.quest) may receive direct sends. "
+                            "Draft staged in d2mconcierge for review.",
+                }, indent=2)
+
+            # All clear — send immediately ───────────────────────────────
             send_body = {"raw": raw}
             if thread_id_for_msg:
                 send_body["threadId"] = thread_id_for_msg

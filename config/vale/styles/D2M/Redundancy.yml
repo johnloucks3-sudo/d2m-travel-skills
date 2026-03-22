@@ -1,0 +1,42 @@
+# Tongue & Quill + Turabian — Redundancy
+# T&Q: "Say it once, say it right." Turabian: cut every word that doesn't add meaning.
+extends: substitution
+message: "T&Q/Turabian: '%s' is redundant. Use '%s'."
+level: suggestion
+scope: sentence
+swap:
+  'absolutely essential': 'essential'
+  'advance planning': 'planning'
+  'advance warning': 'warning'
+  'added bonus': 'bonus'
+  'basic fundamentals': 'fundamentals'
+  'close proximity': 'proximity'
+  'completely eliminate': 'eliminate'
+  'completely finish': 'finish'
+  'completely full': 'full'
+  'completely unique': 'unique'
+  'currently pending': 'pending'
+  'each and every': 'every'
+  'end result': 'result'
+  'exact same': 'same'
+  'final outcome': 'outcome'
+  'first and foremost': 'first'
+  'for your information': ''
+  'free gift': 'gift'
+  'future plans': 'plans'
+  'general consensus': 'consensus'
+  'I myself': 'I'
+  'joint collaboration': 'collaboration'
+  'new innovation': 'innovation'
+  'please note that': ''
+  'past history': 'history'
+  'personal opinion': 'opinion'
+  'PIN number': 'PIN'
+  'please be advised that': ''
+  'positive benefits': 'benefits'
+  'pre-planned': 'planned'
+  'sum total': 'total'
+  'true fact': 'fact'
+  'unexpected surprise': 'surprise'
+  'very unique': 'unique'
+  'whether or not': 'whether'

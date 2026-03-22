@@ -458,6 +458,496 @@ def _load_mcp_config() -> Optional[dict]:
 
 
 # ====================================================================
+# Option 1 helper — probe SDK options class for thinking support
+# ====================================================================
+
+def _sdk_supports_thinking() -> bool:
+    """Return True if the SDK options class accepts a 'thinking' parameter."""
+    if not _sdk_options_cls:
+        return False
+    try:
+        import dataclasses
+        if dataclasses.is_dataclass(_sdk_options_cls):
+            return "thinking" in {f.name for f in dataclasses.fields(_sdk_options_cls)}
+        # Fallback: inspect __init__ signature
+        import inspect
+        sig = inspect.signature(_sdk_options_cls.__init__)
+        return "thinking" in sig.parameters
+    except Exception:
+        return False
+
+_SDK_HAS_THINKING: Optional[bool] = None  # cached after first probe
+
+
+# ====================================================================
+# Options 2+3 — Direct Anthropic client: caching + Files API + thinking
+# ====================================================================
+
+# Drafting keywords — if message contains any, activate draft_mode
+_DRAFT_KEYWORDS = frozenset({
+    "draft", "write", "email", "compose", "proposal", "letter",
+    "message", "reply", "respond", "itinerary", "document", "memo",
+    "subject", "dear", "hi ", "hello ", "warm regards",
+})
+
+
+def _is_draft_request(text: str) -> bool:
+    """Return True if the message is a drafting request."""
+    low = text.lower()
+    return any(kw in low for kw in _DRAFT_KEYWORDS)
+
+
+def _get_direct_client():
+    """Get a direct Anthropic Python client using the global API key.
+
+    Works in Max plan mode because ANTHROPIC_API_KEY is in the global env
+    even though it's stripped from subprocess env for the claude CLI.
+    Returns None if no API key is available.
+    """
+    if not os.environ.get("ANTHROPIC_API_KEY"):
+        return None
+    try:
+        import anthropic
+        return anthropic.Anthropic()
+    except Exception as e:
+        logger.warning("Direct Anthropic client init failed: %s", e)
+        return None
+
+
+def _load_voice_card() -> str:
+    """Load d2m_brand_voice.json as a formatted system-prompt block.
+
+    Returns a compact but complete voice guide string, or "" on failure.
+    Cached in memory after first load — file rarely changes.
+    """
+    if hasattr(_load_voice_card, "_cached"):
+        return _load_voice_card._cached  # type: ignore[attr-defined]
+    try:
+        import json as _json
+        voice_path = Path(os.path.dirname(os.path.abspath(__file__))) / "d2m_brand_voice.json"
+        if not voice_path.exists():
+            _load_voice_card._cached = ""
+            return ""
+        vc = _json.loads(voice_path.read_text())
+
+        lines = ["# Commander Voice Card — John Loucks, Dreams2Memories Travel", ""]
+
+        lines.append(f"**Opening:** {vc.get('opening_register', '')}")
+        lines.append("")
+
+        tr = vc.get("tense_rules", {})
+        lines.append("**Tense rules:**")
+        for k, v in tr.items():
+            if k != "prohibition":
+                lines.append(f"- {v}")
+        if tr.get("prohibition"):
+            lines.append(f"- NEVER: {tr['prohibition']}")
+        lines.append("")
+
+        lines.append(f"**Specificity:** {vc.get('specificity_standard', '')}")
+        lines.append("")
+
+        closers = vc.get("closing_variants", [])
+        if closers:
+            lines.append("**Closings:** " + " | ".join(c["text"] for c in closers))
+        if vc.get("closing_prohibition"):
+            lines.append(f"**Never close with:** {vc['closing_prohibition']}")
+        lines.append("")
+
+        forbidden = vc.get("forbidden_words", [])
+        if forbidden:
+            lines.append(f"**Forbidden words:** {', '.join(forbidden)}")
+        lines.append("")
+
+        lr = vc.get("length_rules", {})
+        lines.append("**Length rules:**")
+        for k, v in lr.items():
+            lines.append(f"- {k.replace('_', ' ')}: {v}")
+        lines.append("")
+
+        rq = vc.get("required_qualities", [])
+        if rq:
+            lines.append("**Required qualities:**")
+            for q in rq:
+                lines.append(f"- {q}")
+        lines.append("")
+
+        vp = vc.get("voice_principles", {})
+        if vp:
+            lines.append("**Voice principles:**")
+            for k, v in vp.items():
+                lines.append(f"- {v}")
+        lines.append("")
+
+        lines.append(f"**Screenshot test:** {vc.get('screenshot_test', '')}")
+        lines.append(f"**Human thread:** {vc.get('human_thread', '')}")
+
+        result = "\n".join(lines)
+        _load_voice_card._cached = result
+        return result
+    except Exception as e:
+        logger.warning("Voice card load failed: %s", e)
+        _load_voice_card._cached = ""
+        return ""
+
+
+_FORBIDDEN_VOICE_WORDS = [
+    "automated", "system", "alert", "update", "platform", "portal",
+    "algorithm", "AI", "bot", "notification", "generate", "process",
+    "template", "workflow", "pipeline", "optimize", "leverage",
+    "utilize", "facilitate", "stakeholder", "scalable", "synergy",
+    "I hope this email finds you", "please don't hesitate",
+    "as per", "please be advised", "kindly", "circling back",
+]
+
+_JUDGE_CRITERIA = """You are a strict voice editor for John Loucks, owner of Dreams2Memories Travel.
+
+VOICE CRITERIA — every draft must pass all of these:
+1. Opens with client's first name: "Hi [Name]," — never "Dear", "Hello there", or unnamed
+2. 3–5 sentences for routine emails; earns more length only when combining payment + portal + relationship
+3. At least one specific detail unique to THIS client (their name, a date, an amount, a place, a trip detail)
+4. Closes with "Thanks, John" or "Thank you, John" — never "Best", "Warm regards", "Cheers", or "Sincerely"
+5. Zero forbidden words/phrases: automated, system, alert, platform, portal, algorithm, AI, bot,
+   notification, generate, process, template, workflow, optimize, leverage, utilize, facilitate,
+   stakeholder, scalable, synergy, "I hope this email finds you", "please don't hesitate",
+   "as per", "please be advised", "kindly", "circling back"
+6. Warm and certain — NOT corporate, NOT verbose, NOT gushing
+
+TASK:
+Review the draft below. List each failing criterion (if any). Then rewrite the email fixing ONLY
+the failures — keep all correct content intact. Return the rewritten email only, no explanation,
+no preamble."""
+
+
+_VALE_INI = Path(os.path.dirname(os.path.abspath(__file__))) / "config" / "vale" / ".vale.ini"
+_VALE_BIN = Path.home() / ".local" / "bin" / "vale"
+
+
+def _run_vale(draft: str) -> list[str]:
+    """Run vale linter on draft text, return list of violation strings.
+
+    Uses D2M style package (Tongue & Quill + Turabian rules).
+    Returns [] if vale not installed or config missing — graceful degradation.
+    """
+    if not _VALE_BIN.exists() or not _VALE_INI.exists():
+        return []
+    try:
+        import subprocess, tempfile, json as _json
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".txt", delete=False) as f:
+            f.write(draft)
+            tmp_path = f.name
+        result = subprocess.run(
+            [str(_VALE_BIN), "--config", str(_VALE_INI), "--output", "JSON", tmp_path],
+            capture_output=True, text=True, timeout=10,
+        )
+        Path(tmp_path).unlink(missing_ok=True)
+        if result.stdout:
+            data = _json.loads(result.stdout)
+            violations = []
+            for file_violations in data.values():
+                for v in file_violations:
+                    msg = v.get("Message", "")
+                    line = v.get("Line", "?")
+                    sev = v.get("Severity", "warning").upper()
+                    violations.append(f"[{sev}] Line {line}: {msg}")
+            return violations
+    except Exception as e:
+        logger.debug("vale lint failed: %s", e)
+    return []
+
+
+def _quick_voice_check(draft: str) -> list[str]:
+    """Fast heuristic + vale lint check — returns list of failure strings, empty if passes."""
+    failures = []
+    stripped = draft.strip()
+
+    if not re.match(r"^Hi \w", stripped, re.IGNORECASE):
+        failures.append("Does not open with 'Hi [Name],'")
+
+    word_count = len(stripped.split())
+    if word_count > 150:
+        failures.append(f"Too long ({word_count} words — target 3-5 sentences)")
+
+    has_close = bool(re.search(r"\b(Thanks|Thank you),?\s*John\b", stripped, re.IGNORECASE))
+    if not has_close:
+        failures.append("Missing 'Thanks, John' or 'Thank you, John' close")
+
+    draft_lower = stripped.lower()
+    for word in _FORBIDDEN_VOICE_WORDS:
+        if word.lower() in draft_lower:
+            failures.append(f"Forbidden word/phrase: '{word}'")
+
+    # Vale lint — Tongue & Quill + Turabian rules (line-level violations)
+    vale_violations = _run_vale(draft)
+    failures.extend(vale_violations)
+
+    return failures
+
+
+def _judge_revise_draft(draft: str, client: object) -> str:
+    """Run judge-revisor pass on a draft. Returns revised draft if it fails voice check.
+
+    1. Quick heuristic check — if passes, return draft unchanged (no API call)
+    2. If fails, call direct Anthropic client with specific failure list + revision request
+    3. Returns revised draft, or original if revision call fails
+    """
+    failures = _quick_voice_check(draft)
+    if not failures:
+        logger.debug("Voice check passed — no revision needed")
+        return draft
+
+    logger.info("Voice check failed (%d issues) — running revisor: %s", len(failures), failures)
+
+    direct = _get_direct_client()
+    if not direct:
+        logger.debug("No direct client for revisor — returning original draft")
+        return draft
+
+    failure_list = "\n".join(f"- {f}" for f in failures)
+    prompt = (
+        f"{_JUDGE_CRITERIA}\n\n"
+        f"ISSUES FOUND:\n{failure_list}\n\n"
+        f"DRAFT TO REVISE:\n{draft}"
+    )
+
+    def _sync_revise() -> str:
+        import anthropic
+        try:
+            resp = direct.messages.create(
+                model="claude-haiku-4-5-20251001",  # Haiku — fast + cheap for revision
+                max_tokens=1024,
+                messages=[{"role": "user", "content": prompt}],
+            )
+            return resp.content[0].text.strip() if resp.content else draft
+        except Exception:
+            # Fall back to main model if Haiku unavailable
+            try:
+                resp = direct.messages.create(
+                    model="claude-sonnet-4-6",
+                    max_tokens=1024,
+                    messages=[{"role": "user", "content": prompt}],
+                )
+                return resp.content[0].text.strip() if resp.content else draft
+            except Exception as e2:
+                logger.warning("Revisor call failed: %s", e2)
+                return draft
+
+    import asyncio
+    loop = asyncio.get_event_loop()
+    try:
+        revised = loop.run_in_executor(None, _sync_revise)
+        # run_in_executor returns a future — we need to run it synchronously here
+        # since this is called from within an already-async context
+        import concurrent.futures
+        with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
+            future = executor.submit(_sync_revise)
+            revised = future.result(timeout=30)
+        logger.info("Revisor complete — %d chars → %d chars", len(draft), len(revised))
+        return revised
+    except Exception as e:
+        logger.warning("Revisor execution failed: %s", e)
+        return draft
+
+
+def _build_voice_examples_block(context: str, persona: str) -> str:
+    """Return a few-shot system block with 5 real John emails matched to context.
+
+    Pulls from config/voice_examples.json (built by thunderbird_voice_harvest.py).
+    Returns "" if the library doesn't exist yet — graceful degradation.
+    """
+    try:
+        from thunderbird_voice_harvest import get_voice_examples, format_few_shot_block
+        # Client-facing personas use client tier; internal use internal
+        tier = "client" if persona in ("A3", "EXEC", "A6", "CONCIERGE") else "internal"
+        examples = get_voice_examples(context, tier=tier, n=5)
+        if not examples:
+            return ""
+        return format_few_shot_block(examples)
+    except Exception as e:
+        logger.debug("Voice examples unavailable: %s", e)
+        return ""
+
+
+def _detect_client_dossiers(text: str) -> list[str]:
+    """Detect client dossier names referenced in a message.
+
+    Scans the Files API registry for dossiers whose names partially
+    match words in the text. Returns list of dossier stems.
+    """
+    try:
+        from thunderbird_files_api import list_registry
+        registry = list_registry()
+        text_lower = text.lower()
+        found = []
+        for entry in registry:
+            dossier_name = entry.get("dossier", "")
+            # Each word segment of the dossier name (e.g. "Furlow", "Westbrook")
+            segments = [s for s in dossier_name.replace("_", " ").split() if len(s) > 3]
+            if any(seg.lower() in text_lower for seg in segments):
+                if dossier_name not in found:
+                    found.append(dossier_name)
+        return found
+    except Exception as e:
+        logger.debug("Dossier detection failed: %s", e)
+        return []
+
+
+def _build_dossier_blocks(dossier_names: list[str]) -> list[dict]:
+    """Return Files API document blocks for a list of dossier names.
+
+    Falls back to inline text if a dossier hasn't been synced to Files API.
+    """
+    try:
+        from thunderbird_files_api import get_dossier_block_or_inline
+        blocks = []
+        for name in dossier_names:
+            block = get_dossier_block_or_inline(name)
+            if block:
+                blocks.append(block)
+                logger.info("Dossier injected for direct call: %s", name)
+        return blocks
+    except Exception as e:
+        logger.debug("Dossier block build failed: %s", e)
+        return []
+
+
+async def _call_via_anthropic_direct(
+    prompt: str,
+    system_prompt: str,
+    persona: str,
+    client_context: str = "",
+    on_progress: Optional[Callable] = None,
+    model: str = DEFAULT_MODEL,
+) -> str:
+    """Direct Anthropic client call: adaptive thinking + prompt caching + Files API.
+
+    Used for drafting tasks (email, proposals, documents) where deep comprehension
+    matters more than live MCP tool calls.
+
+    Features activated:
+    - Option 1: Adaptive thinking (effort=high) — reasons before drafting
+    - Option 2: Cache_control on system prompt (1h TTL) — ~90% savings on repeats
+    - Option 3: Files API dossier injection for detected clients
+
+    Falls back to _call_via_sdk on any failure.
+    """
+    client = _get_direct_client()
+    if not client:
+        logger.info("No direct client available — SDK path")
+        return await _call_via_sdk(prompt, system_prompt, persona,
+                                   on_progress=on_progress, model=model)
+
+    if on_progress:
+        await on_progress("Analyzing context for drafting...")
+
+    # Option 3: detect and inject client dossiers
+    full_context = f"{client_context} {prompt}"
+    dossier_names = _detect_client_dossiers(full_context)
+    dossier_blocks = _build_dossier_blocks(dossier_names)
+    if dossier_blocks and on_progress:
+        n = len(dossier_blocks)
+        await on_progress(f"Loading {n} client dossier{'s' if n > 1 else ''}...")
+
+    # Option 2: cached system prompt (1h TTL — persona prompts are stable)
+    system = [
+        {
+            "type": "text",
+            "text": system_prompt,
+            "cache_control": {"type": "ephemeral", "ttl": "1h"},
+        }
+    ]
+
+    # Voice card — inject Commander's writing style for all drafting tasks
+    voice_card = _load_voice_card()
+    if voice_card:
+        system.append({
+            "type": "text",
+            "text": voice_card,
+            "cache_control": {"type": "ephemeral", "ttl": "1h"},
+        })
+
+    # Few-shot voice examples — 5 real John emails matched to this context
+    voice_block = _build_voice_examples_block(full_context, persona)
+    if voice_block:
+        system.append({
+            "type": "text",
+            "text": voice_block,
+            "cache_control": {"type": "ephemeral", "ttl": "1h"},
+        })
+
+    # User message: dossier blocks first (context), then the request
+    user_content: list[dict] = []
+    user_content.extend(dossier_blocks)
+    user_content.append({"type": "text", "text": prompt})
+
+    if on_progress:
+        await on_progress("Drafting with extended reasoning...")
+
+    def _sync_call() -> str:
+        import anthropic
+
+        # Option 1: adaptive thinking + Option 3: Files API beta
+        try:
+            response = client.beta.messages.create(
+                model=model,
+                max_tokens=8192,
+                thinking={"type": "adaptive", "effort": "high"},
+                system=system,
+                messages=[{"role": "user", "content": user_content}],
+                betas=["files-api-2025-04-14"],
+            )
+        except anthropic.BadRequestError as e:
+            # Thinking not supported for this model — retry without it
+            logger.warning("Thinking not supported (%s), retrying without", e)
+            response = client.beta.messages.create(
+                model=model,
+                max_tokens=8192,
+                system=system,
+                messages=[{"role": "user", "content": user_content}],
+                betas=["files-api-2025-04-14"],
+            )
+
+        # Log cache usage for diagnostics
+        usage = getattr(response, "usage", None)
+        if usage:
+            logger.info(
+                "Direct client cache — write: %s, read: %s, input: %s, output: %s",
+                getattr(usage, "cache_creation_input_tokens", 0),
+                getattr(usage, "cache_read_input_tokens", 0),
+                getattr(usage, "input_tokens", 0),
+                getattr(usage, "output_tokens", 0),
+            )
+
+        parts = [
+            getattr(block, "text", "")
+            for block in response.content
+            if hasattr(block, "text")
+        ]
+        return "\n".join(parts).strip()
+
+    loop = asyncio.get_event_loop()
+    try:
+        result = await asyncio.wait_for(
+            loop.run_in_executor(None, _sync_call),
+            timeout=MAX_RESPONSE_TIME,
+        )
+        result = result or "No response generated."
+
+        # Judge-revisor: check voice criteria, auto-revise if needed (Haiku, fast)
+        if on_progress:
+            await on_progress("Reviewing voice alignment...")
+        result = _judge_revise_draft(result, client=None)
+
+        return result
+    except asyncio.TimeoutError:
+        raise
+    except Exception as e:
+        logger.warning("Direct client failed (%s) — falling back to SDK", e)
+        return await _call_via_sdk(prompt, system_prompt, persona,
+                                   on_progress=on_progress, model=model)
+
+
+# ====================================================================
 # Core: SDK-based Agent Call
 # ====================================================================
 
@@ -468,12 +958,17 @@ async def call_cos_via_sdk(
     conversation_history: Optional[list[dict]] = None,
     session_id: Optional[str] = None,
     on_progress: Optional[Callable] = None,
+    draft_mode: bool = False,
 ) -> dict:
-    """Call Claude Opus via the Agent SDK. Cost: $0 (Max plan).
+    """Call Claude via Agent SDK (tool use) or direct client (drafting).
 
-    This is the primary entry point for all Telegram -> Claude communication
-    in Phase 2. Supports streaming progress, safety hooks, and session
-    persistence.
+    draft_mode=True activates the direct Anthropic client path with:
+      - Adaptive thinking (Option 1)
+      - Prompt caching on system prompt (Option 2)
+      - Files API dossier injection for detected clients (Option 3)
+
+    draft_mode=False (default) uses the Agent SDK path with full MCP tool
+    access — appropriate for research, sitrep, and agentic tasks.
 
     Args:
         message: Commander's raw message
@@ -482,7 +977,7 @@ async def call_cos_via_sdk(
         conversation_history: Recent conversation for context
         session_id: Session ID for multi-turn conversations (None = new)
         on_progress: Async callback for streaming progress to Telegram.
-                     Called with (str) progress messages as the agent works.
+        draft_mode: Use direct client with thinking+caching+Files API.
 
     Returns:
         {"response": str, "session_id": str}
@@ -512,7 +1007,25 @@ async def call_cos_via_sdk(
     if not session_id:
         session_id = str(uuid.uuid4())
 
-    # Try SDK first, fall back to CLI subprocess
+    # ── Draft mode: direct Anthropic client with thinking+caching+Files API ──
+    # Activated when draft_mode=True and an API key is available.
+    # Falls back to SDK path automatically on any failure.
+    if draft_mode and os.environ.get("ANTHROPIC_API_KEY"):
+        logger.info("Draft mode: using direct Anthropic client (thinking+caching+Files API)")
+        try:
+            result = await _call_via_anthropic_direct(
+                full_prompt, system_prompt, persona,
+                client_context=message,
+                on_progress=on_progress,
+                model=DEFAULT_MODEL,
+            )
+            return {"response": result, "session_id": session_id}
+        except asyncio.TimeoutError:
+            logger.warning("Direct client timed out — falling through to SDK")
+        except Exception as e:
+            logger.warning("Direct client error (%s) — falling through to SDK", e)
+
+    # ── Standard SDK path — full MCP tool access ──
     if _SDK_AVAILABLE:
         try:
             result = await _call_via_sdk(
@@ -537,15 +1050,13 @@ async def call_cos_via_sdk(
                 return {"response": result, "session_id": session_id}
             except Exception as e:
                 logger.error("SDK fallback also failed: %s", e)
-                # Fall through to CLI fallback
 
         except Exception as e:
             logger.error("SDK call failed: %s", e)
             if on_progress:
                 await on_progress("SDK error, falling back to CLI...")
-            # Fall through to CLI fallback
 
-    # CLI fallback — always available
+    # ── CLI fallback — always available ──
     logger.info("Using CLI subprocess fallback")
     result = await _call_via_cli_async(
         full_prompt, system_prompt, persona, model=DEFAULT_MODEL
@@ -579,6 +1090,14 @@ async def _call_via_sdk(
 
     # Build mode-aware env for SDK subprocess
     options_kwargs["env"] = build_api_env()
+
+    # Option 1: Adaptive thinking — probe SDK support once, then apply
+    global _SDK_HAS_THINKING
+    if _SDK_HAS_THINKING is None:
+        _SDK_HAS_THINKING = _sdk_supports_thinking()
+        logger.info("SDK thinking support: %s", _SDK_HAS_THINKING)
+    if _SDK_HAS_THINKING:
+        options_kwargs["thinking"] = {"type": "adaptive", "effort": "high"}
 
     # MCP config — let the SDK pick up from mcp.json automatically
     # The SDK inherits the user's ~/.claude/mcp.json when running
@@ -726,6 +1245,88 @@ async def _call_via_sdk(
     return response
 
 
+_MCP_TOOL_LABELS: dict[str, str] = {
+    # Gmail
+    "gmail_search_messages": "Searching Gmail",
+    "gmail_read_message": "Reading email",
+    "gmail_read_thread": "Reading email thread",
+    "gmail_create_draft": "Drafting email",
+    "gmail_update_draft": "Updating draft",
+    "gmail_list_drafts": "Loading drafts",
+    "gmail_list_labels": "Loading labels",
+    "run_dani_email_sweep": "Running email sweep",
+    "run_commander_inbox_sweep_tool": "Sweeping Commander inbox",
+    "scan_commander_inbox_tool": "Scanning Commander inbox",
+    "draft_client_email": "Drafting client email",
+    # Drive
+    "drive_list_files": "Scanning Drive",
+    "drive_search": "Searching Drive",
+    "drive_read_document": "Reading document",
+    "drive_upload_file": "Uploading to Drive",
+    "drive_create_folder": "Creating Drive folder",
+    # Dossiers & booking
+    "list_trip_dossiers": "Loading dossiers",
+    "scan_dossiers": "Scanning dossiers",
+    "list_dossier_files": "Loading dossier files",
+    "extract_booking_from_pdf": "Reading booking PDF",
+    "extract_pdf_booking_details": "Parsing booking PDF",
+    "extract_master_booking_data": "Extracting booking data",
+    "reconcile_booking_tool": "Reconciling booking",
+    "reconcile_all_bookings_tool": "Reconciling all bookings",
+    "sync_booking_to_excel": "Syncing to Booking Master",
+    "compute_booking_anchors": "Computing booking anchors",
+    "sync_anchors_to_calendar": "Syncing to calendar",
+    # TESS
+    "tess_get_booking": "Fetching booking from TESS",
+    "tess_search_bookings": "Searching TESS bookings",
+    "tess_list_clients": "Loading TESS client list",
+    "tess_get_client": "Fetching client from TESS",
+    "tess_get_trip": "Fetching trip from TESS",
+    "tess_get_commissions": "Fetching commissions",
+    "tess_list_trips": "Loading trips from TESS",
+    # Travel search
+    "search_flights": "Searching flights",
+    "search_hotels": "Searching hotels",
+    "search_tours": "Searching tours",
+    "search_shore_excursions_group": "Searching excursions",
+    "search_live_cruise_voyages": "Searching cruise voyages",
+    "check_hotel_rates": "Checking hotel rates",
+    "check_departure_prices": "Checking departure prices",
+    "compare_flights": "Comparing flights",
+    "compare_hotels": "Comparing hotels",
+    # Intel & research
+    "get_innovation_digest": "Loading innovation digest",
+    "run_innovation_scan": "Running innovation scan",
+    "innovation_daily_scan": "Running daily intel scan",
+    "get_tech_news": "Fetching tech news",
+    "academic_scan": "Running academic scan",
+    "get_country_intel": "Gathering country intel",
+    "get_port_city_intel": "Gathering port intel",
+    "run_world_intelligence_sweep": "Running world intel sweep",
+    "run_ship_intelligence_sweep": "Running ship intel sweep",
+    "run_competitive_surveillance": "Running competitive scan",
+    "run_intel_crew": "Running intel crew",
+    # Keep / calendar
+    "keep_list_notes": "Checking Keep notes",
+    "keep_create_note": "Writing Keep note",
+    "keep_search_notes": "Searching Keep",
+    "gcal_list_events": "Checking calendar",
+    "gcal_create_event": "Creating calendar event",
+    # Learning / voice
+    "learning_capture_diff": "Capturing learning diff",
+    "learning_extract": "Extracting principles",
+    "voice_ledger_get": "Loading voice ledger",
+    "recall_persona_memory": "Recalling persona memory",
+    # Misc
+    "session_checkpoint": "Writing session checkpoint",
+    "system_health_check": "Running health check",
+    "mcp_connector_status": "Checking MCP status",
+    "generate_weekly_report": "Generating weekly report",
+    "run_staff_meeting": "Convening staff meeting",
+    "consult_persona": "Consulting persona",
+}
+
+
 def _format_tool_progress(tool_name: str, tool_input: dict) -> str:
     """Format a tool use event into a human-readable progress string."""
     if tool_name == "Bash":
@@ -746,10 +1347,9 @@ def _format_tool_progress(tool_name: str, tool_input: dict) -> str:
         pattern = tool_input.get("pattern", "")
         return f"Searching: {pattern[:40]}"
     elif tool_name.startswith("mcp__"):
-        # MCP tool — extract the tool name part
         parts = tool_name.split("__")
         short_name = parts[-1] if len(parts) > 1 else tool_name
-        return f"MCP tool: {short_name}"
+        return _MCP_TOOL_LABELS.get(short_name, f"MCP: {short_name}")
     else:
         return f"Using tool: {tool_name}"
 

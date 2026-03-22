@@ -1,0 +1,28 @@
+# Tongue & Quill — No Hedging
+# T&Q: Be direct. Hedging language undermines authority and clarity.
+# Turabian echoes this: concrete claims, not approximations.
+extends: existence
+message: "T&Q/Turabian: '%s' is hedging language. Be direct and certain."
+level: warning
+scope: sentence
+tokens:
+  - '\bsomewhat\b'
+  - '\brather\b'
+  - '\bperhaps\b'
+  - '\bmaybe\b'
+  - '\bI think\b'
+  - '\bI believe\b'
+  - '\bI feel (like|that)\b'
+  - '\bit seems\b'
+  - '\bit appears\b'
+  - '\bI guess\b'
+  - '\bkind of\b'
+  - '\bsort of\b'
+  - '\balong the lines of\b'
+  - '\bmore or less\b'
+  - '\bif possible\b'
+  - '\bif (you|it) (could|would|can|will) be possible\b'
+  - '\bplease don.t hesitate\b'
+  - '\bfeel free to\b'
+  - '\bat your (earliest )?convenience\b'
+  - '\bwhenever you (get a chance|have time|are able)\b'

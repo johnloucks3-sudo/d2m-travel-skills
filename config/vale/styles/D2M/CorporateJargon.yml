@@ -1,0 +1,41 @@
+# D2M + Turabian — Forbidden Corporate Jargon
+# Turabian: words that "sound important but say nothing" must go.
+# D2M brand voice: these words never appear in Commander correspondence.
+extends: existence
+message: "D2M Voice: '%s' is corporate jargon — prohibited in Commander correspondence."
+level: error
+scope: sentence
+tokens:
+  - '\bautomated\b'
+  - '\balgorithm\b'
+  - '\bbot\b'
+  - '\bAI\b'
+  - '\bnotification\b'
+  - '\bplatform\b'
+  - '\bportal\b'
+  - '\bworkflow\b'
+  - '\bpipeline\b'
+  - '\btemplate\b'
+  - '\boptimize\b'
+  - '\bleverage\b'
+  - '\butilize\b'
+  - '\bfacilitate\b'
+  - '\bstakeholder\b'
+  - '\bscalable\b'
+  - '\bsynergy\b'
+  - '\bproactive\b'
+  - '\bseamless\b'
+  - '\brobust\b'
+  - '\bparadigm\b'
+  - '\bsolution(s)?\b'
+  - '\bcircling back\b'
+  - '\btouching base\b'
+  - '\bpivot\b'
+  - '\bgranular\b'
+  - '\bbandwidth\b'
+  - '\bgoing forward\b'
+  - '\bmove the needle\b'
+  - '\blow[- ]hanging fruit\b'
+  - '\bvalue[- ]add\b'
+  - '\bdeep[- ]dive\b'
+  - '\btake (this )?offline\b'

@@ -1,0 +1,12 @@
+# Tongue & Quill — Active Voice
+# T&Q mandates active voice. Passive constructions weaken military and professional writing.
+extends: existence
+message: "T&Q Active Voice: '%s' is passive construction. Rewrite with active voice."
+level: warning
+scope: sentence
+tokens:
+  - '\b(will be|has been|have been|was|were|is|are|am) (being )?\w+ed\b'
+  - '\bit (has been|was) (decided|determined|noted|found|agreed)\b'
+  - '\bplease be (advised|informed|aware)\b'
+  - '\byou (will be|are being|have been) (contacted|notified|informed|updated|sent)\b'
+  - '\bthis (will be|has been|was) (handled|processed|completed|reviewed|sent)\b'
