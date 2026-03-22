@@ -10,3 +10,6 @@ Running log of session insights, observations, and context.
 
 Goal: codify into autonomous send pipeline. Queue discipline: all pending docs send FIRST, then new drafts.
 Commander callsign: Yoda. Established via Telegram C2 2026-03-21.
+
+### 2026-03-22 14:26 UTC
+[decision] STANDING PRINCIPLE (Commander, 2026-03-22): D2M does NOT take credit for what it did not do. The accurate framing of D2M's value: "Once the direction is clear or the decision is made, we provide options." Applied to Furlow group — clients chose the cruise, assembled their own group, Regent chose the hotel, ports were predetermined, clients booked their own flights. D2M contributed: port/excursion research, options presentation, data recording and organization, itinerary image downloads. All final decisions were the clients'. This principle applies to ALL future AI capability descriptions and client-facing materials.

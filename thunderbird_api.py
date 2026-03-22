@@ -148,6 +148,10 @@ class BearerTokenMiddleware(BaseHTTPMiddleware):
 
 app.add_middleware(BearerTokenMiddleware)
 
+# MCP Connector — unified proxy to all backend MCP servers
+from thunderbird_mcp_connector import get_connector_router
+app.include_router(get_connector_router())
+
 
 def _verify_key(x_api_key: Optional[str] = None):
     if x_api_key != API_KEY:

@@ -38,6 +38,7 @@ import json
 import logging
 import os
 import sys
+import time
 from datetime import datetime, timezone
 from functools import wraps
 from pathlib import Path
@@ -62,7 +63,19 @@ from thunderbird_personas import (
 from thunderbird_telegram_tools_sdk import (
     call_cos_with_tools,
     call_cos_via_cli,
+    call_cos_via_sdk,
     classify_intent,
+    _is_draft_request,
+)
+from thunderbird_telegram_fmt import (
+    md_to_telegram,
+    send_claude_response,
+    send_telegram,
+    split_message,
+    escape_md2,
+    sitrep_to_telegram,
+    SitrepBrief,
+    _PYDANTIC_AVAILABLE,
 )
 
 # ---------------------------------------------------------------------------
@@ -179,15 +192,14 @@ def _log_command(cmd_type: str, target: str, query: str, response: str,
         logger.error(f"C2 log failed: {e}")
 
 # ---------------------------------------------------------------------------
-# Typing heartbeat — keeps "typing..." indicator alive during long ops
+# Progress infrastructure — replaces silent "typing..." for long ops
 # ---------------------------------------------------------------------------
 
-async def _typing_heartbeat(update: Update, stop_event: asyncio.Event) -> None:
-    """Send typing action every 4s until stop_event fires.
+_PROGRESS_RATE_LIMIT = 1.5  # min seconds between status message edits
 
-    Telegram's typing indicator expires after ~5s. For ops that take 30-120s,
-    this keeps Commander informed that work is in progress.
-    """
+
+async def _typing_heartbeat(update: Update, stop_event: asyncio.Event) -> None:
+    """Send typing action every 4s until stop_event fires."""
     while not stop_event.is_set():
         try:
             await update.message.chat.send_action(ChatAction.TYPING)
@@ -196,13 +208,62 @@ async def _typing_heartbeat(update: Update, stop_event: asyncio.Event) -> None:
         try:
             await asyncio.wait_for(stop_event.wait(), timeout=4.0)
         except asyncio.TimeoutError:
-            pass  # Normal — 4s elapsed, loop and send typing again
+            pass
+
+
+async def _make_progress_updater(msg, stop_event: asyncio.Event, update: Update):
+    """Create a live progress updater for long-running agent calls.
+
+    Returns (on_progress, heartbeat_task, typing_task).
+
+    on_progress(text): edits msg with current tool activity (rate-limited 3s).
+    heartbeat_task: edits msg every 60s with elapsed time + last activity.
+    typing_task: sends Telegram typing indicator every 4s.
+
+    Caller must set stop_event and cancel both tasks when done.
+    """
+    start_time = time.monotonic()
+    _last_edit: list[float] = [0.0]
+    _last_activity: list[str] = ["Working..."]
+
+    async def on_progress(text: str) -> None:
+        _last_activity[0] = text[:60]
+        now = time.monotonic()
+        if now - _last_edit[0] < _PROGRESS_RATE_LIMIT:
+            return
+        _last_edit[0] = now
+        try:
+            await msg.edit_text(f"⚙️ {text[:200]}")
+        except Exception:
+            pass
+
+    async def _heartbeat() -> None:
+        while not stop_event.is_set():
+            try:
+                await asyncio.wait_for(stop_event.wait(), timeout=8.0)
+            except asyncio.TimeoutError:
+                pass
+            if stop_event.is_set():
+                break
+            elapsed = int(time.monotonic() - start_time)
+            mins, secs = divmod(elapsed, 60)
+            elapsed_str = f"{mins}m {secs}s" if mins else f"{secs}s"
+            activity = _last_activity[0]
+            try:
+                await msg.edit_text(f"⏳ {elapsed_str} — {activity}")
+                await update.message.chat.send_action(ChatAction.TYPING)
+            except Exception:
+                pass
+
+    hb_task = asyncio.create_task(_heartbeat())
+    typing_task = asyncio.create_task(_typing_heartbeat(update, stop_event))
+    return on_progress, hb_task, typing_task
 
 
 async def _run_with_typing(update: Update, coro_or_callable, loop=None):
-    """Run a blocking callable in executor while keeping typing indicator alive.
+    """Legacy: run a blocking callable in executor with typing indicator.
 
-    Returns the result of the callable.
+    Used by commands that haven't been upgraded to _make_progress_updater yet.
     """
     stop_typing = asyncio.Event()
     typing_task = asyncio.create_task(_typing_heartbeat(update, stop_typing))
@@ -223,23 +284,8 @@ async def _run_with_typing(update: Update, coro_or_callable, loop=None):
 # ---------------------------------------------------------------------------
 
 async def send_long_message(update: Update, text: str):
-    """Send message, splitting if over Telegram's 4096 char limit."""
-    if len(text) <= MAX_MESSAGE_LENGTH:
-        try:
-            await update.message.reply_text(text, parse_mode=ParseMode.MARKDOWN)
-        except Exception:
-            await update.message.reply_text(
-                text.replace("*", "").replace("_", "").replace("`", "")
-            )
-    else:
-        chunks = [text[i:i+MAX_MESSAGE_LENGTH] for i in range(0, len(text), MAX_MESSAGE_LENGTH)]
-        for chunk in chunks:
-            try:
-                await update.message.reply_text(chunk, parse_mode=ParseMode.MARKDOWN)
-            except Exception:
-                await update.message.reply_text(
-                    chunk.replace("*", "").replace("_", "").replace("`", "")
-                )
+    """Send Claude's markdown response with MarkdownV2 conversion and smart splitting."""
+    await send_claude_response(update, text)
 
 def format_persona_header(persona_id: str) -> str:
     """Format persona attribution header."""
@@ -263,7 +309,7 @@ async def cmd_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "Type /help for the full command list.\n\n"
         f"_{datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}_"
     )
-    await update.message.reply_text(welcome, parse_mode=ParseMode.MARKDOWN)
+    await update.message.reply_text(welcome, parse_mode=ParseMode.MARKDOWN_V2)
 
 
 @commander_only
@@ -299,15 +345,67 @@ async def cmd_help(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "_Type \"STAFF SUMMARY\" to start an SSS._",
         "_Plain text goes to COS (Opus via Agent SDK)._",
     ])
-    await update.message.reply_text("\n".join(lines), parse_mode=ParseMode.MARKDOWN)
+    await update.message.reply_text("\n".join(lines), parse_mode=ParseMode.MARKDOWN_V2)
 
 
 @commander_only
 async def cmd_sitrep(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Quick status report — COS assembles from all sources."""
+    """Quick status report — structured output (Pydantic) or markdown fallback."""
+    ack_msg = await update.message.reply_text("📊 Assembling SITREP...")
+
+    # Structured output path (Pydantic + direct Anthropic client)
+    if _PYDANTIC_AVAILABLE and SitrepBrief and os.environ.get("ANTHROPIC_API_KEY"):
+        loop = asyncio.get_event_loop()
+        try:
+            def _structured_sitrep():
+                import anthropic
+                client = anthropic.Anthropic()
+                response = client.messages.parse(
+                    model="claude-sonnet-4-6",
+                    max_tokens=1024,
+                    system=(
+                        "You are COS Hale assembling a SITREP for Commander Loucks at "
+                        "Dreams2Memories Travel. Pull real booking data from your knowledge. "
+                        "Be precise: client names, dates, amounts, deadlines. "
+                        "Status: GREEN=all nominal, AMBER=attention needed, RED=urgent."
+                    ),
+                    messages=[{"role": "user", "content":
+                        "SITREP: status of all active bookings, pending actions, flags."}],
+                    output_format=SitrepBrief,
+                )
+                return response.parsed_output
+
+            brief = await loop.run_in_executor(None, _structured_sitrep)
+            await ack_msg.delete()
+            _log_command("SITREP", "COS", "structured", str(brief))
+            header = format_persona_header("COS")
+            body = sitrep_to_telegram(brief)
+            await send_long_message(update, f"{header}\n\n{body}")
+            return
+        except Exception as e:
+            logger.warning("Structured SITREP failed (%s) — falling back to SDK", e)
+
+    # SDK fallback
     query = "SITREP: Give me a quick status on all active bookings, pending actions, and system health."
-    loop = asyncio.get_event_loop()
-    answer = await _run_with_typing(update, lambda: call_cos_with_tools(query), loop)
+    stop_event = asyncio.Event()
+    on_progress, hb_task, typing_task = await _make_progress_updater(ack_msg, stop_event, update)
+    try:
+        result = await call_cos_via_sdk(
+            message=query, persona="COS", intent_type="SITREP", on_progress=on_progress
+        )
+        answer = result.get("response", "COS reporting: No response generated.")
+    except Exception as e:
+        logger.error(f"SITREP failed: {e}")
+        answer = f"SITREP error: {e}"
+    finally:
+        stop_event.set()
+        hb_task.cancel()
+        typing_task.cancel()
+
+    try:
+        await ack_msg.delete()
+    except Exception:
+        pass
 
     _log_command("SITREP", "COS", query, answer)
     header = format_persona_header("COS")
@@ -333,8 +431,27 @@ async def cmd_staff(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "Use subagents if needed for parallel consultation."
     )
 
-    loop = asyncio.get_event_loop()
-    answer = await _run_with_typing(update, lambda: call_cos_with_tools(staff_query), loop)
+    ack_msg = await update.message.reply_text("🪖 Convening staff...")
+
+    stop_event = asyncio.Event()
+    on_progress, hb_task, typing_task = await _make_progress_updater(ack_msg, stop_event, update)
+    try:
+        result = await call_cos_via_sdk(
+            message=staff_query, persona="COS", intent_type="TASK", on_progress=on_progress
+        )
+        answer = result.get("response", "COS reporting: No response generated.")
+    except Exception as e:
+        logger.error(f"Staff meeting failed: {e}")
+        answer = f"Staff meeting error: {e}"
+    finally:
+        stop_event.set()
+        hb_task.cancel()
+        typing_task.cancel()
+
+    try:
+        await ack_msg.delete()
+    except Exception:
+        pass
 
     _log_command("TASK", "STAFF", query, answer)
     header = format_persona_header("COS")
@@ -372,10 +489,32 @@ async def cmd_persona(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     _add_to_history(user_id, "user", f"[/{command}] {query}")
 
-    loop = asyncio.get_event_loop()
-    answer = await _run_with_typing(
-        update, lambda: call_cos_via_cli(query, persona=persona_id, intent_type="TASK"), loop
-    )
+    # Drafting personas always use direct client (thinking+caching+Files API)
+    # For other personas, activate draft mode if message is a drafting request
+    _DRAFTING_PERSONAS = {"A3", "EXEC", "A6"}
+    is_draft = persona_id in _DRAFTING_PERSONAS or _is_draft_request(query)
+
+    ack_msg = await update.message.reply_text("⚙️ Working...")
+    stop_event = asyncio.Event()
+    on_progress, hb_task, typing_task = await _make_progress_updater(ack_msg, stop_event, update)
+    try:
+        result = await call_cos_via_sdk(
+            message=query, persona=persona_id, intent_type="TASK",
+            on_progress=on_progress, draft_mode=is_draft,
+        )
+        answer = result.get("response", "COS reporting: No response generated.")
+    except Exception as e:
+        logger.error(f"C2 persona call failed: {e}")
+        answer = f"Error: {e}"
+    finally:
+        stop_event.set()
+        hb_task.cancel()
+        typing_task.cancel()
+
+    try:
+        await ack_msg.delete()
+    except Exception:
+        pass
 
     _add_to_history(user_id, "assistant", answer)
     _log_command("TASK", persona_id, query, answer)
@@ -387,7 +526,7 @@ async def cmd_persona(update: Update, context: ContextTypes.DEFAULT_TYPE):
 @commander_only
 async def cmd_scan(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Scan all dossiers for gaps and issues."""
-    ack = await update.message.reply_text("🔍 _Scanning dossiers..._", parse_mode=ParseMode.MARKDOWN)
+    ack = await update.message.reply_text("🔍 Scanning dossiers...")
     loop = asyncio.get_event_loop()
     try:
         from thunderbird_dossier_scanner import scan_all_dossiers, generate_alert_digest
@@ -453,7 +592,7 @@ async def cmd_learn(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # ── /learn approve <id> ──
     if subcmd == "approve":
         if len(args) < 2 or not args[1].isdigit():
-            await update.message.reply_text("Usage: `/learn approve <id>`", parse_mode=ParseMode.MARKDOWN)
+            await update.message.reply_text("Usage: `/learn approve <id>`", parse_mode=ParseMode.MARKDOWN_V2)
             return
         rule_id = int(args[1])
         result = validate_principle(rule_id, action="approve")
@@ -471,7 +610,7 @@ async def cmd_learn(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # ── /learn reject <id> ──
     if subcmd == "reject":
         if len(args) < 2 or not args[1].isdigit():
-            await update.message.reply_text("Usage: `/learn reject <id>`", parse_mode=ParseMode.MARKDOWN)
+            await update.message.reply_text("Usage: `/learn reject <id>`", parse_mode=ParseMode.MARKDOWN_V2)
             return
         rule_id = int(args[1])
         result = validate_principle(rule_id, action="reject")
@@ -575,7 +714,7 @@ async def cmd_voice(update: Update, context: ContextTypes.DEFAULT_TYPE):
 @commander_only
 async def cmd_inbox(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Sweep Commander's personal inbox for D2M emails."""
-    ack = await update.message.reply_text("📬 _Sweeping inbox..._", parse_mode=ParseMode.MARKDOWN)
+    ack = await update.message.reply_text("📬 Sweeping inbox...")
     loop = asyncio.get_event_loop()
     try:
         from thunderbird_commander_inbox import run_commander_inbox_sweep
@@ -589,7 +728,7 @@ async def cmd_inbox(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 @commander_only
 async def handle_plain_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Plain text from Commander → COS via Opus Agent SDK."""
+    """Plain text from Commander → COS via Opus Agent SDK with live progress."""
     query = update.message.text
     if not query or not query.strip():
         return
@@ -603,8 +742,7 @@ async def handle_plain_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
 
     user_id = update.effective_user.id
-    # Immediate ACK so Commander knows we received the message
-    ack_msg = await update.message.reply_text("⚙️ _Working..._", parse_mode=ParseMode.MARKDOWN)
+    ack_msg = await update.message.reply_text("⚙️ Working...")
     _add_to_history(user_id, "user", query)
 
     logger.info(f"C2 Commander msg -> COS (Opus): {query}")
@@ -612,22 +750,28 @@ async def handle_plain_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
     history = _get_history(user_id)
     conv_hist = [{"role": h["role"], "text": h["text"]} for h in history[:-1]]
 
-    loop = asyncio.get_event_loop()
+    is_draft = _is_draft_request(query)
+    stop_event = asyncio.Event()
+    on_progress, hb_task, typing_task = await _make_progress_updater(ack_msg, stop_event, update)
+
     try:
-        answer = await _run_with_typing(
-            update, lambda: call_cos_with_tools(query, conv_hist or None), loop
+        result = await call_cos_via_sdk(
+            message=query,
+            persona="COS",
+            intent_type="TASK",
+            conversation_history=conv_hist or None,
+            on_progress=on_progress,
+            draft_mode=is_draft,
         )
+        answer = result.get("response", "COS reporting: No response generated.")
     except Exception as e:
         logger.error(f"C2 Opus call failed: {e}")
-        answer = f"C2 error: {e}\n\nFalling back..."
-        try:
-            answer = await _run_with_typing(
-                update, lambda: call_cos_via_cli(query, intent_type="TASK"), loop
-            )
-        except Exception as e2:
-            answer = f"Both SDK and CLI failed.\nSDK: {e}\nCLI: {e2}"
+        answer = f"C2 error: {e}"
+    finally:
+        stop_event.set()
+        hb_task.cancel()
+        typing_task.cancel()
 
-    # Delete the ACK message now that we have the real answer
     try:
         await ack_msg.delete()
     except Exception:
@@ -1010,7 +1154,7 @@ async def _launch_sss(query, user_id: int, draft: dict):
             chunks = [result_text[i:i+MAX_MESSAGE_LENGTH] for i in range(0, len(result_text), MAX_MESSAGE_LENGTH)]
             for chunk in chunks[:-1]:
                 try:
-                    await query.message.reply_text(chunk, parse_mode=ParseMode.MARKDOWN)
+                    await query.message.reply_text(chunk, parse_mode=ParseMode.MARKDOWN_V2)
                 except Exception:
                     await query.message.reply_text(chunk.replace("*", "").replace("_", ""))
             # Last chunk gets the decision buttons

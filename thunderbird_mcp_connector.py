@@ -152,7 +152,10 @@ class MCPBackendClient:
             resp = await client.post(
                 self.mcp_url,
                 json=payload,
-                headers={"Content-Type": "application/json"},
+                headers={
+                    "Content-Type": "application/json",
+                    "Accept": "application/json, text/event-stream",
+                },
             )
             resp.raise_for_status()
             data = resp.json()
@@ -182,7 +185,10 @@ class MCPBackendClient:
                             },
                         },
                     },
-                    headers={"Content-Type": "application/json"},
+                    headers={
+                        "Content-Type": "application/json",
+                        "Accept": "application/json, text/event-stream",
+                    },
                 )
                 self.healthy = resp.status_code == 200
                 self.last_error = None if self.healthy else f"HTTP {resp.status_code}"

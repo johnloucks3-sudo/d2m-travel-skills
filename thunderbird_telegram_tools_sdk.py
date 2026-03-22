@@ -883,6 +883,35 @@ async def _call_via_anthropic_direct(
     if on_progress:
         await on_progress("Drafting with extended reasoning...")
 
+    # Background ticker — fires every 12s during the blocking API call
+    # so Telegram shows activity instead of silence
+    _api_done = asyncio.Event()
+    _api_start = time.monotonic()
+    _thinking_labels = [
+        "Reading the dossier...", "Thinking through the approach...",
+        "Drafting...", "Refining tone...", "Checking voice...",
+    ]
+
+    async def _api_ticker() -> None:
+        tick = 0
+        while not _api_done.is_set():
+            try:
+                await asyncio.wait_for(_api_done.wait(), timeout=8.0)
+            except asyncio.TimeoutError:
+                pass
+            if _api_done.is_set():
+                break
+            label = _thinking_labels[tick % len(_thinking_labels)]
+            elapsed = int(time.monotonic() - _api_start)
+            if on_progress:
+                try:
+                    await on_progress(f"{label} ({elapsed}s)")
+                except Exception:
+                    pass
+            tick += 1
+
+    ticker_task = asyncio.create_task(_api_ticker())
+
     def _sync_call() -> str:
         import anthropic
 
@@ -931,6 +960,13 @@ async def _call_via_anthropic_direct(
             loop.run_in_executor(None, _sync_call),
             timeout=MAX_RESPONSE_TIME,
         )
+        _api_done.set()
+        ticker_task.cancel()
+        try:
+            await ticker_task
+        except asyncio.CancelledError:
+            pass
+
         result = result or "No response generated."
 
         # Judge-revisor: check voice criteria, auto-revise if needed (Haiku, fast)
@@ -940,8 +976,12 @@ async def _call_via_anthropic_direct(
 
         return result
     except asyncio.TimeoutError:
+        _api_done.set()
+        ticker_task.cancel()
         raise
     except Exception as e:
+        _api_done.set()
+        ticker_task.cancel()
         logger.warning("Direct client failed (%s) — falling back to SDK", e)
         return await _call_via_sdk(prompt, system_prompt, persona,
                                    on_progress=on_progress, model=model)
@@ -1052,7 +1092,22 @@ async def call_cos_via_sdk(
                 logger.error("SDK fallback also failed: %s", e)
 
         except Exception as e:
-            logger.error("SDK call failed: %s", e)
+            # rate_limit_event is a notification, not a real failure — retry once
+            if "rate_limit_event" in str(e) or "Unknown message type" in str(e):
+                logger.warning("SDK rate_limit_event — retrying once after 3s")
+                if on_progress:
+                    await on_progress("Rate limit signal — retrying...")
+                await asyncio.sleep(3)
+                try:
+                    result = await _call_via_sdk(
+                        full_prompt, system_prompt, persona,
+                        on_progress=on_progress, model=DEFAULT_MODEL,
+                    )
+                    return {"response": result, "session_id": session_id}
+                except Exception as e2:
+                    logger.error("SDK retry also failed: %s", e2)
+            else:
+                logger.error("SDK call failed: %s", e)
             if on_progress:
                 await on_progress("SDK error, falling back to CLI...")
 
@@ -1085,8 +1140,6 @@ async def _call_via_sdk(
 
     # Set model and fallback
     options_kwargs["model"] = model
-    if model == DEFAULT_MODEL:
-        options_kwargs["fallback_model"] = FALLBACK_MODEL
 
     # Build mode-aware env for SDK subprocess
     options_kwargs["env"] = build_api_env()
@@ -1139,11 +1192,20 @@ async def _call_via_sdk(
     try:
         async with asyncio.timeout(MAX_RESPONSE_TIME):
             async for msg in _sdk_query(prompt=prompt, options=options):
+                if msg is None:  # skip rate_limit_event and other unknown types
+                    continue
                 # Process AssistantMessage — contains text and tool use blocks
                 if AssistantMessage and isinstance(msg, AssistantMessage):
                     content_list = getattr(msg, "content", [])
                     if not isinstance(content_list, (list, tuple)):
                         content_list = [content_list]
+
+                    # Fire progress when COS starts writing the response
+                    if on_progress and not _got_assistant_text:
+                        try:
+                            await on_progress("COS is writing the response...")
+                        except Exception:
+                            pass
 
                     for block in content_list:
                         # Text content — accumulate for final response

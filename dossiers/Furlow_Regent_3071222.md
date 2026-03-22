@@ -5,6 +5,14 @@
 
 ### STATUS: ACTIVE — ⚠️ PAYMENT DUE | Suite 827, Deck 8 | **CC: NOT YET RECEIVED**
 
+### ✅ AI DISCLOSURE EMAIL — v9 COMMANDER-APPROVED (2026-03-22)
+- **Status:** Approved as D2M standard — "this will be what we send every client"
+- **File (local):** `dossiers/AI_Pitch_Furlow_v9_2026-03-22.md` + `.html`
+- **Drive:** `AI_Pitch_Furlow_v9_2026-03-22.html` (ID: 1Zldj0pXKRGlzmBvdLGQe2fr0n-3Nwq40)
+- **Master Template:** `templates/AI_Disclosure_Master_Template.html`
+- **Subject:** Your AI Travel Team — What We Built for Your Scandinavia Voyage
+- **Awaiting:** Commander send authorization
+
 ### RSSC PORTAL DATA (Scraped Mar 12, 2026 | Updated Mar 20, 2026)
 - **Total Booking Amount:** $19,236.00
 - **Paid to Date:** $3,750.00 (deposit — Sep 15, 2025)

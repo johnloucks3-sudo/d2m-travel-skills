@@ -16,7 +16,8 @@
 | PE164714008 | Mt. Fuji & Hakone Bus Tour, 7:50 AM | Apr 22 | **CONFIRMED** | $365.62 |
 | PE151557101 / HL855855 / PREXP-27443260 | Hilton Odaiba → Harumi Port transfer, 4 pax, Private Minibus (40 min, tolls incl) | Apr 23, **10:30 AM** | **CONFIRMED** — voucher received, fully paid, cancel free before Apr 21 10:30 AM local | $0 due (fully paid) |
 | 3740314183 | SmartEX Shinkansen membership | — | **ACTIVE** — PW: Tokyo26! | — |
-| 566910-25 | Silversea Silver Nova, Tokyo Harumi → Seattle | Apr 23 – May 11 | **CONFIRMED** | $10,800 |
+| 566910-25 | Silversea Silver Nova, Tokyo Harumi → Seattle | Apr 23 – May 11 | **CONFIRMED — PAID IN FULL** | $10,800 |
+|  | Embarkation: Tokyo Harumi Terminal — 11:00 AM–4:00 PM (updated Feb 25, 2026; was 2:00 PM) | Apr 23 | NOTE: suites ready later afternoon | — |
 | Plusgrade | Upgrade bids: Premium Medallion $2,305 + Medallion $1,600 | — | **SUBMITTED Mar 12** — current suite: Superior Veranda | TBD |
 | ASC3LX | Southwest, SEA → DEN return flight | May 11 | **CONFIRMED** | TBD |
 
@@ -27,7 +28,7 @@
 | Person | Ticket/Passport | Loyalty | Notes |
 |--------|----------------|---------|-------|
 | John Aldon Loucks | Delta: 0067351667609 / JAL: 1312144232753 | SkyMiles ******0736, JAL 410144268, Hilton Honors 916429084 | Passport *****6260 exp 02/01/2030 |
-| Susan Dee Loucks | Delta: 0067351667610 | AA M3180T8 | Passport *****0180 exp 04/10/2031 |
+| Susan Dee Loucks | Delta: 0067351667610 | AA M3180T8 | Passport *****0180 exp 04/10/2031 | Email: susanna.loucks@gmail.com |
 
 ### FINANCIAL SUMMARY
 | Item | Cost |

@@ -25,7 +25,7 @@
 | 73268402723830 | NRT Transfer, Transferz private sedan, Meet & Greet T1 | Apr 22, timed for UA143 arrival ~3:00 PM | **CONFIRMED** | $209.55 |
 | 33S2013960 | Hilton Tokyo Odaiba, King Hilton Guest Room, AP Honors Bfast | Apr 22-23 (1 night) | **CONFIRMED** | ¥73,364 (~$480) |
 | ~~PE146862609~~ | ~~Blacklane, Hilton Odaiba → Yokohama~~ | ~~Apr 23~~ | **CANCELLED Mar 12** — wrong port (Yokohama, not Harumi) | ~~$156~~ refunded |
-| PE151557101 | Shared transfer, Hilton Odaiba → Harumi Port, 4 pax (Loucks+Westbrook) | Apr 23, 10:30 AM (requested) | **CONFIRMED — time change PENDING** | paid |
+| PE151557101 | Shared transfer, Hilton Odaiba → Harumi Port, 4 pax (Loucks+Westbrook) | Apr 23, 10:30 AM | **CONFIRMED — 10:30 AM CONFIRMED Mar 20** | paid |
 | 566904-25 | Silversea Silver Nova, Cabin 7031 Superior Veranda Suite | Apr 23 – May 11 | **CONFIRMED — PAID IN FULL** | $10,800 |
 | I0Y9VG | United UA 757, SEA → DEN, Economy | May 11, 12:46pm → 4:30pm | **CONFIRMED** | incl. in SkyLux booking |
 | — | Seattle Terminal → SEA-TAC transfer | May 11, ~9:30-10:00 AM | **NOT BOOKED** | TBD |
@@ -138,6 +138,12 @@ Commander has designated the Westbrooks as the test case for itinerary improveme
 **Mar 8 — John to Ron, Lindy, Susie** updated itinerary: "html is for phone, pdf is for printing out"
 **Mar 10 — Portal draft created** "Your New Travel Portal — Silver Nova Pacific & Trip Details" — IN DRAFTS, not sent
 
+**Mar 16 — John to Ron** "Mobility Scooter Rentals for Your Silver Nova Voyage — A Helpful Resource" — Scootaround & Special Needs Group info sent
+
+**Mar 18 — John to Ron** "Silver Nova Pacific — Dani Moreau, Your D2M Concierge" — Dani formally introduced as point of contact for all pre-trip coordination
+
+**Mar 20 — PE (Kyra)** PE151557101 updated voucher received — 10:30 AM pickup CONFIRMED. Operator: Heycars-Asia. Fully paid, $0 due. Driver locator: checkpickup.com/3AG7KZ. Cancel free before Apr 21 10:30 AM local. NOTE: Voucher shows agent as 'Love Group Travel' — on hold per Commander
+
 **Mar 13 — Ronald Westbrook** (Re: Re: Westbrook: Pacific (Silver Nova) Pre-Departure Validation)
 > Email from Ronald Westbrook received, confirming details of upcoming Silver Nova cruise. Outstanding items: Seattle terminal to SEA-TAC transfer and Visit Japan Web registration.
 
@@ -183,7 +189,7 @@ Commander has designated the Westbrooks as the test case for itinerary improveme
 ### OPEN ACTION ITEMS
 1. [x] ~~Verify embarkation port~~ — **HARUMI confirmed** (Silversea notice Nov 26, 2025)
 2. [x] ~~Cancel Blacklane PE146862609~~ — **CANCELLED Mar 12**, $156 refunded
-3. [ ] **Follow up PE151557101 time change** — 11:00→10:30 AM, Kyra ack'd Mar 10 (ticket HL855855), no update yet
+3. [x] ~~Follow up PE151557101 time change~~ — **10:30 AM CONFIRMED Mar 20, 2026** ✅ (Kyra updated voucher)
 4. [ ] **Book Seattle terminal → SEA-TAC transfer** (May 11, need by ~10:00 AM for 12:46 PM flight)
 5. [ ] **Visit Japan Web registration** — vjw.digital.go.jp — both Ron and Lindy before Apr 21
 6. [ ] **Send portal activation email** — draft exists in Gmail (Mar 10), not yet sent
