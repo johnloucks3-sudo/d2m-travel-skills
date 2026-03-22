@@ -196,6 +196,7 @@ async def task_claude_code_batch(prompt: str, name: str = 'batch'):
     import subprocess, os
     cmd = [
         'claude', '-p', prompt,
+        '--bare',  # v2.1.81: skips hooks, LSP, plugin sync, skill walks — faster batch
         '--allowedTools', 'Read,Edit,Write,Bash,Grep,Glob,mcp__dreams2memories__*',
         '--output-format', 'json',
         '--max-turns', '30',
@@ -204,7 +205,7 @@ async def task_claude_code_batch(prompt: str, name: str = 'batch'):
     result = subprocess.run(
         cmd, capture_output=True, text=True, timeout=3600,
         cwd=str(THUNDERBIRD_DIR),
-        env={**os.environ, 'CLAUDE_BATCH_MODE': '1'},
+        env={**os.environ, 'CLAUDE_BATCH_MODE': '1', 'ANTHROPIC_API_KEY': os.environ.get('ANTHROPIC_API_KEY', '')},
     )
     try:
         parsed = json.loads(result.stdout)
