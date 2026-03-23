@@ -8,15 +8,15 @@
       "d2mconcierge@gmail.com"
     ],
     "days_back": 400,
-    "total_examples": 795,
+    "total_examples": 802,
     "by_tier": {
-      "personal": 190,
-      "client": 166,
+      "personal": 195,
+      "client": 167,
       "vendor": 38,
-      "internal": 396,
+      "internal": 397,
       "family": 5
     },
-    "last_sync": "2026-03-22T11:36:34.323520"
+    "last_sync": "2026-03-23T02:33:46.150082"
   },
   "examples": [
     {
@@ -804,6 +804,15 @@
     },
     {
       "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "Re: 10 weeks ago I sent you a letter. Here's what happened.",
+      "to": "Melissa Furlow <missy.furlow@gmail.com>",
+      "date": "Sun, 22 Mar 2026 20:11:52 -0600",
+      "body": "Missy, I will send you a new link for security reasons\nThanks\nJohn\n\nOn Sun, Mar 22, 2026 at 8:01 PM Melissa Furlow <missy.furlow@gmail.com>\nwrote:",
+      "score": 6
+    },
+    {
+      "account": "johnloucks3@gmail.com",
       "tier": "vendor",
       "subject": "Notes from my chat with Al Ely",
       "to": "Dani Moreau A3 <concierge@d2mluxury.quest>",
@@ -1169,6 +1178,24 @@
       "to": "Kyle Kuklinski <kyle.kuklinski@gmail.com>",
       "date": "Sun, 22 Feb 2026 07:17:36 -0700",
       "body": "Morning Kyle, hope you are recovered from your quick trip to London - - how\nwas it? I have a client information form I would like to send to each\nperson. Can you provide me with Joshua and Erica's email/contact\ninformation? Or would you rather I send all the forms to you? It is a\nGoogle form and you can do it online. And, by the way, have you gotten\nJoshua and Erica's information to Viking? If not I can assist.\nThanks, John\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 5
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: 10 weeks ago I sent you a letter. Here's what happened.",
+      "to": "Melissa Furlow <missy.furlow@gmail.com>",
+      "date": "Sun, 22 Mar 2026 20:27:17 -0600",
+      "body": "Hi Missy, I sent you a new link. Please let me know once it works.  The \"My\nProfile\" Page or the \"Trip\" page work equally well.\nJohn",
+      "score": 5
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Sorry I missed your call",
+      "to": "\"josh@jerichopix.com\" <josh@jerichopix.com>",
+      "date": "Sun, 22 Mar 2026 18:17:56 -0600",
+      "body": "Hi Josh, sorry I missed your call.  I can talk you through the form or I\ncan send step by step instructions. Are you having problem getting in and\nentering your email? I think Erica had a similar problem and it was a\ncapital letter in her email that I put in that shouldn't have been there -\n- sent to me by Kyle I think.\nJohn\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
       "score": 5
     },
     {
@@ -2339,6 +2366,15 @@
       "to": "Ron Westbrook And LINDA <rwestbrook3@gmail.com>, Linda Westbrook <lindywestbrook77@gmail.com>",
       "date": "Sun, 22 Feb 2026 22:50:11 -0700",
       "body": "Rondo,\n\nI've got an exciting project underway—creating fully customized itineraries\nfor you, Lindy, Susie, and me for the Silver Nova voyage.\n\nThink of it like this: instead of the standard cruise line information,\nyou'll get a beautifully formatted, personalized document that tells YOUR\nstory—from the moment you leave Denver through every port on the ship to\nwhen you get home. It includes daily breakdowns with practical info (times,\nprocedures, packing tips), personalized excursion suggestions, restaurant\nrecommendations, and everything you need for the best possible experience.\n\nIt's the kind of thing luxury travel agencies deliver to their VIP clients,\nand I'm putting it together for our group.\n\nHere's what I need from you ASAP:\n\n**FLIGHT CONFIRMATIONS:**\n- Denver to Tokyo, April 22 arrival (airline, flight #, times, seats)\n- Tokyo/Seattle back to Denver, May 11+ (same info)\n\n**TOKYO HOTEL (April 22-23):**\n- confirmation code, room type\n\n**SILVER NOVA CRUISE:**\n- Booking reference number\n- Cabin number & cabin category if assigned\n\n**GROUND TRANSFERS:**\n- Airport to hotel, April 22\n- Hotel to ship (with me), April 23\n\nJust forward me those confirmation emails or copy/paste the details to\njohnloucks3@gmail.com. Doesn't need to be perfect—I'll extract what I need.\n\nThe sooner you send it, the sooner your itinerary is ready. I'm aiming to\nhave everything delivered by April 8.\n\n---\n\n**BONUS THOUGHT:** As we've discussed, I'm also building a software system\nthat automates all of this—flight parsing, hotel data, ship intel,\nnarrative generation, and PDF output. Once you install it on your computer,\nbeing a travel planner will be as easy as \"flight plan to destination,\nexecute, file, and hit the bar.\"\n\nWith your research background and aviation experience, you already know how\nto gather intelligence, cross-check data sources, and spot patterns. That's\nexactly what this system does—but at machine speed. We should talk more\nabout how we might collaborate on this once it's operational.\n\nThanks,\nJohn\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Fwd: trip details Nancy Lyons",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 23 Mar 2026 13:00:29 +0900",
+      "body": "ISSUE:\nCommander orders immediate Lyons dossier update with forwarded flight and hotel details; expects confirmation reply.\n\nDISCUSSION:\nCommander forwards Nancy Lyons' trip details — AA flights to Athens (Aug 9), Grande Bretagne hotel (Aug 10-11), Delta return (Sep 6) — with direct order to update dossier and reply when done.\n\nACTIONS I RECOMMEND TAKING:\n1. Update Lyons dossier with: AA1061 JAX→DFW 11:37a-1:12p seats 3A/3B, AA216 DFW→ATH 4:00p-11:40a seats 2A/3A (Aug 9)\n2. Update Lyons dossier with: Hotel Grande Bretagne Aug 10-11 (Marriott points rate 72,800 pts)\n3. Update Lyons dossier with: Delta 5613 LGA→JAX 12:00p-2:41p seats 3C/3D (Sep 6)\n4. Cross-reference Grande Bretagne reservation with existing Athens dinner reservation (~Aug 10) already in dossier\n5. Reply to Commander confirming dossier update complete\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-03-22 22:00 MT\nThunderbird Email Intelligence Officer",
       "score": 4
     },
     {
@@ -6344,6 +6380,33 @@
       "to": "yana@businessclassguru.com",
       "date": "Fri, 20 Feb 2026 11:43:08 -0700",
       "body": "Thanks Yana, nothing is scheduled overseas at this time. Keep me on your\nfollow-up list, however.\nJohn",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: 10 weeks ago I sent you a letter. Here's what happened.",
+      "to": "Melissa Furlow <missy.furlow@gmail.com>",
+      "date": "Sun, 22 Mar 2026 21:16:59 -0600",
+      "body": "Missy there a way is but if you want to just take a picture of your\npassport I can enter it as well. Yes, you probably should contact Finnair\nand ask them, did you get the policy information and passenger comments I\nsent you? If not I can send it to you again before you call.  Or we can\nwrite them on your behalf to get it on record.\nJohn",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: 10 weeks ago I sent you a letter. Here's what happened.",
+      "to": "Melissa Furlow <missy.furlow@gmail.com>",
+      "date": "Sun, 22 Mar 2026 19:49:55 -0600",
+      "body": "I'll check it out Missy. Are you talking about logging into the Regent\nportal? Yeah they will not let you pay, but if you log into the outside\nagents portal that I sent you the link, you should be able to add both\ncredit cards. Let me know which portal you are trying to log into and if it\nis the outside agents portal and you cannot log in I will try to send you\nanother link.",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "SIlversea SIlver Nova vids",
+      "to": "\"RWESTBROOK3@gmail.com\" <RWESTBROOK3@gmail.com>, \"Susanna.Loucks@gmail.com\" <Susanna.Loucks@gmail.com>",
+      "date": "Sun, 22 Mar 2026 12:37:06 -0600",
+      "body": "⦁ First Look at Silversea's New Silver Nova | Discover by Silversea (\nhttps://www.silversea.com/blog/ships/silver-nova/first-look-at-silver-nova)\n⦁ Suite Innovation on Silver Nova | Discover by Silversea (\nhttps://discover.silversea.com/ships/silver-nova/suites-design-architecture/\n)\n⦁ Silver Nova Cabin & Stateroom Reviews | Cruise Critic (\nhttps://www.cruisecritic.com/cruise/silversea/silver-nova/cabins)",
       "score": 3
     },
     {
