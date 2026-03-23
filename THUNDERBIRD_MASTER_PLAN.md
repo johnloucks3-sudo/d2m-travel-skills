@@ -686,9 +686,17 @@ Then the AI reshapes. Commander reviews the result, not every word.
 | 1 — Instant | Z2 (NotebookLM), Z9 (Continue.dev) | 0h | Ready to activate |
 | 2 — Quick | Z5 (AnythingLLM), Z6 (Fabric), Z3 (Obsidian) | 1–2h each | Deploy this week on YOGA |
 | 3 — Medium | Z4 (Open WebUI + Ollama), Z7 (Flowise) | 2–3h each | Next build window |
-| 4 — Custom | Z8 (LibreOffice Macro + Claude API) | 4h | After pilot UX confirmed |
+| 4 — Custom | Z8 (LibreOffice Macro + Claude API) | 4h | ✅ BUILT 23 MAR 2026 |
 
-**Status:** 🟡 Selection locked — awaiting execution order (23 MAR 2026)
+**Status:** 🟢 Z8 BUILT · Remaining: Z2, Z3, Z4, Z5, Z6, Z7, Z9
+
+**Z8 Build Notes (23 MAR 2026):**
+- File: `~/.config/libreoffice/4/user/Scripts/python/d2m_sculptor.py`
+- 8 public macro functions: sculpt_client, sculpt_friends_family, sculpt_vendor, sculpt_prospect, sculpt_shorten, sculpt_fix_tone, sculpt_interactive, sculpt_undo
+- Uses urllib (stdlib) → Anthropic API — no external package dependency
+- Loads D2M voice examples + sculptor principles automatically
+- In-place text replacement with one-level undo
+- Suggested shortcuts: Alt+Shift+C (client), Alt+Shift+F (F&F), Alt+Shift+S (shorten), Alt+Shift+I (interactive)
 
 ---
 

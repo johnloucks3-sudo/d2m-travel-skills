@@ -1092,8 +1092,9 @@ async def call_cos_via_sdk(
                 logger.error("SDK fallback also failed: %s", e)
 
         except Exception as e:
+            err_str = str(e)
             # rate_limit_event is a notification, not a real failure — retry once
-            if "rate_limit_event" in str(e) or "Unknown message type" in str(e):
+            if "rate_limit_event" in err_str or "Unknown message type" in err_str:
                 logger.warning("SDK rate_limit_event — retrying once after 3s")
                 if on_progress:
                     await on_progress("Rate limit signal — retrying...")
@@ -1106,6 +1107,21 @@ async def call_cos_via_sdk(
                     return {"response": result, "session_id": session_id}
                 except Exception as e2:
                     logger.error("SDK retry also failed: %s", e2)
+            # Exit code 143 = SIGTERM — Claude CLI process was killed externally.
+            # Retry once after a brief pause instead of crashing.
+            elif "exit code 143" in err_str or "exit code: 143" in err_str:
+                logger.warning("SDK subprocess SIGTERM (143) — retrying once after 5s")
+                if on_progress:
+                    await on_progress("SDK process interrupted — retrying...")
+                await asyncio.sleep(5)
+                try:
+                    result = await _call_via_sdk(
+                        full_prompt, system_prompt, persona,
+                        on_progress=on_progress, model=DEFAULT_MODEL,
+                    )
+                    return {"response": result, "session_id": session_id}
+                except Exception as e2:
+                    logger.error("SDK SIGTERM retry also failed: %s", e2)
             else:
                 logger.error("SDK call failed: %s", e)
             if on_progress:

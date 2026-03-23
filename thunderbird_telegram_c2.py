@@ -341,6 +341,7 @@ async def cmd_help(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "/learn — Learning: digest, approve/reject/edit/supersede/history",
         "/voice — Voice ledger summary",
         "/inbox — Sweep Commander's personal inbox for D2M emails",
+        "/usage — Claude Code usage meter (tokens, cost, block, monthly)",
         "",
         "_Type \"STAFF SUMMARY\" to start an SSS._",
         "_Plain text goes to COS (Opus via Agent SDK)._",
@@ -709,6 +710,153 @@ async def cmd_voice(update: Update, context: ContextTypes.DEFAULT_TYPE):
     from thunderbird_voice_ledger import get_ledger_summary
     summary = get_ledger_summary()
     await send_long_message(update, f"🎙 *Voice Ledger*\n\n{summary or 'Voice ledger empty.'}")
+
+
+@commander_only
+async def cmd_usage(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Claude Code usage meter — token costs, current block, daily and monthly totals."""
+    import subprocess, json as _json
+    from datetime import date as _date
+
+    ack = await update.message.reply_text("⚡ Pulling usage data...")
+
+    def _bar(fraction: float, width: int = 12) -> str:
+        """Return a Unicode block progress bar."""
+        filled = int(round(fraction * width))
+        filled = max(0, min(width, filled))
+        return "█" * filled + "░" * (width - filled)
+
+    def _fmt(n: int) -> str:
+        """Format token count with K/M suffix."""
+        if n >= 1_000_000:
+            return f"{n/1_000_000:.1f}M"
+        if n >= 1_000:
+            return f"{n/1_000:.0f}K"
+        return str(n)
+
+    try:
+        # --- fetch data via ccusage --json ---
+        today_str = _date.today().strftime("%Y%m%d")
+        month_str = _date.today().strftime("%Y%m")
+
+        daily_raw = subprocess.run(
+            ["ccusage", "daily", "--json", "--since", today_str],
+            capture_output=True, text=True, timeout=20
+        )
+        monthly_raw = subprocess.run(
+            ["ccusage", "monthly", "--json"],
+            capture_output=True, text=True, timeout=20
+        )
+        blocks_raw = subprocess.run(
+            ["ccusage", "blocks", "--json"],
+            capture_output=True, text=True, timeout=20
+        )
+
+        daily_data   = _json.loads(daily_raw.stdout)   if daily_raw.returncode == 0 else {}
+        monthly_data = _json.loads(monthly_raw.stdout) if monthly_raw.returncode == 0 else {}
+        blocks_data  = _json.loads(blocks_raw.stdout)  if blocks_raw.returncode == 0 else {}
+
+        # --- today ---
+        today_entries = daily_data.get("daily", [])
+        today_cost    = sum(e.get("totalCost", 0) for e in today_entries)
+        today_tokens  = sum(e.get("totalTokens", 0) for e in today_entries)
+
+        # --- monthly ---
+        month_entries = monthly_data.get("monthly", [])
+        month_entry   = next((m for m in month_entries if m.get("month", "").startswith(month_str[:7])), None)
+        month_cost    = month_entry.get("totalCost", 0) if month_entry else 0
+        month_tokens  = month_entry.get("totalTokens", 0) if month_entry else 0
+
+        # Max plan = $100/month; value multiplier
+        MAX_PLAN_COST = 100.0
+        multiplier    = month_cost / MAX_PLAN_COST if MAX_PLAN_COST else 0
+
+        # --- active block ---
+        blocks     = blocks_data.get("blocks", [])
+        active_blk = next((b for b in blocks if b.get("isActive") and not b.get("isGap")), None)
+
+        # --- build message ---
+        now_utc = datetime.now(timezone.utc).strftime("%H:%M UTC")
+        lines = [
+            "⚡ *CLAUDE CODE — USAGE METER*",
+            f"_{_date.today().strftime('%d %b %Y')} · {now_utc}_",
+            "━━━━━━━━━━━━━━━━━━━━━━",
+        ]
+
+        # Active billing block
+        if active_blk:
+            blk_cost     = active_blk.get("costUSD", 0)
+            blk_tokens   = active_blk.get("totalTokens", 0)
+            burn         = active_blk.get("burnRate", {}) or {}
+            proj         = active_blk.get("projection", {}) or {}
+            blk_proj_cost = proj.get("totalCost", 0)
+            blk_rem_min   = proj.get("remainingMinutes", 0)
+            cost_per_hr   = burn.get("costPerHour", 0)
+
+            # Block window: 5-hour = 300 min; calc elapsed fraction
+            start_t = active_blk.get("startTime", "")
+            end_t   = active_blk.get("endTime", "")
+            blk_frac = 0.0
+            try:
+                from datetime import datetime as _dt
+                st  = _dt.fromisoformat(start_t.replace("Z", "+00:00"))
+                et  = _dt.fromisoformat(end_t.replace("Z", "+00:00"))
+                now_dt = _dt.now(timezone.utc)
+                blk_frac = min(1.0, (now_dt - st).total_seconds() / (et - st).total_seconds())
+            except Exception:
+                pass
+
+            blk_bar = _bar(blk_frac)
+            lines += [
+                "",
+                "*🟢 CURRENT BLOCK (5-hr window)*",
+                f"`{blk_bar}` {blk_frac*100:.0f}%",
+                f"  Cost:    *${blk_cost:.2f}*  →  proj *${blk_proj_cost:.2f}*",
+                f"  Tokens:  {_fmt(blk_tokens)}",
+                f"  Burn:    ${cost_per_hr:.2f}/hr",
+                f"  Rem:     {blk_rem_min:.0f} min",
+            ]
+        else:
+            lines += ["", "*🔵 No active block*"]
+
+        # Today
+        lines += [
+            "",
+            "*📅 TODAY*",
+            f"  Cost:    *${today_cost:.2f}*",
+            f"  Tokens:  {_fmt(today_tokens)}",
+        ]
+
+        # Monthly
+        month_bar = _bar(min(1.0, month_cost / (MAX_PLAN_COST * 12)))  # visual vs $1200/yr
+        lines += [
+            "",
+            "*📆 MARCH 2026*",
+            f"`{month_bar}` ${month_cost:.2f} API-equiv",
+            f"  Max plan cost: *$100.00*",
+            f"  *Value multiplier: {multiplier:.1f}x* 🔥",
+            f"  Tokens: {_fmt(month_tokens)}",
+        ]
+
+        # Model breakdown (monthly)
+        if month_entry:
+            breakdowns = month_entry.get("modelBreakdowns", [])
+            if breakdowns:
+                lines.append("")
+                lines.append("*Model Split:*")
+                for bd in sorted(breakdowns, key=lambda x: x.get("cost", 0), reverse=True):
+                    model_short = bd["modelName"].replace("claude-", "").replace("-4-5-20251001", "").replace("-4-6", "")
+                    lines.append(f"  {model_short}: ${bd['cost']:.2f}")
+
+        lines.append("\n━━━━━━━━━━━━━━━━━━━━━━")
+        lines.append("_Source: ccusage (local Claude Code logs)_")
+        lines.append("_claude.ai/settings/usage blocked by Cloudflare_")
+
+        await ack.delete()
+        await send_long_message(update, "\n".join(lines))
+
+    except Exception as e:
+        await ack.edit_text(f"Usage meter failed: {e}")
 
 
 @commander_only
@@ -1485,6 +1633,7 @@ def main():
     app.add_handler(CommandHandler("learn", cmd_learn))
     app.add_handler(CommandHandler("voice", cmd_voice))
     app.add_handler(CommandHandler("inbox", cmd_inbox))
+    app.add_handler(CommandHandler("usage", cmd_usage))
 
     # Draft approval inline buttons (approve/preview/reject)
     app.add_handler(CallbackQueryHandler(handle_draft_callback, pattern=r"^draft_"))
@@ -1501,6 +1650,7 @@ def main():
     app.run_polling(
         allowed_updates=Update.ALL_TYPES,
         drop_pending_updates=True,
+        bootstrap_retries=5,
     )
 
 
