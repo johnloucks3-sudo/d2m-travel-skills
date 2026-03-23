@@ -1,0 +1,12 @@
+[Unit]
+Description=D2M Git Uncommitted Changes Watchdog
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=john
+WorkingDirectory=/home/john/Thunderbird
+ExecStart=/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/git_commit_alert.py
+StandardOutput=journal
+StandardError=journal

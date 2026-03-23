@@ -1,52 +1,40 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-03-20 16:21:28 MT
+## Generated: 2026-03-22 19:09:47 MT
 
 ---
 
 ### Recent Commits
-- 6d5ef33 Multi-session buildout: new modules, deploy infra, dossier migration, grant work
-- 95242e3 Email stationery template + three root cause fixes
-- d48e479 Thunderbird OS — initial commit after system repair
+- e58681a feat: session 22 MAR 2026 — SDK fixes, Telegram latency, MCP validation, Furlow AI pitch
+- 7bafe7d feat: session 22 MAR 2026 — voice harvest, vale linter, draft pipeline upgrades
+- 0d9af57 feat: session 22 MAR 2026 — tech harvest deep scan, skills install, channels server
+- 7e22615 feat: session close — Group3 cold email, Dani engine upgrades, learning compiler, n8n prep
+- 2d8769c feat: wire academic scanner into morning briefing + MCP server
 
 ### Uncommitted Changes
-- THUNDERBIRD_MASTER_PLAN.md (modified)
-- dani_email_log.json (modified)
-- dossiers/DOSSIER_Grandeur_Scandinavia_Aug2026.md (modified)
-- dossiers/Ely_Darrow_Regent_3096289.md (modified)
-- dossiers/Furlow_Regent_3071222.md (modified)
-- dossiers/Kuklinski_Viking_Panama.md (modified)
+- CLAUDE.md (modified)
+- Personas/memory/COS/session_notes.md (modified)
+- dossiers/DOSSIER_SilverNova_Pacific_Apr2026.md (modified)
 - dossiers/Loucks_Personal_SilverNova_Japan.md (modified)
-- dossiers/Nichols_Regent_3078056.md (modified)
-- hooks/pre_tool_guard.py (modified)
-- oa_state/bookings_latest.json (modified)
-- payment_alerts_sent.json (modified)
-- portal/index.html (modified)
-- portal/style.css (modified)
-- star_protocol_log.json (modified)
-- thunderbird_concierge_monitor.py (modified)
-- thunderbird_dani_email.py (modified)
-- thunderbird_outside_agents.py (modified)
-- thunderbird_star_protocol.py (modified)
-- thunderbird_telegram.py (modified)
+- thunderbird_channels_server.py (modified)
+- thunderbird_gmail.py (modified)
 - thunderbird_telegram_c2.py (modified)
-- Commander_Review/D2M_4WEEK_ACCOMPLISHMENTS_2026-03.md (new)
-- Commander_Review/render_accomplishments.py (new)
-- Personas/D2M_Extended_Personas.md (new)
-- hooks/post_stop_git_check.sh (new)
-- learning_rules.db (new)
-- oa_state/clients_monitor.json (new)
-- voice_ledger.json (new)
+- temp/AI_Pitch_Furlow_v12_2026-03-22.html (new)
+- thunderbird-c2.service (new)
+- thunderbird-dani.service (new)
+- tmp/AI_Pitch_Ely_v1_2026-03-22.html (new)
+- tmp/AI_Pitch_Furlow_v12.html (new)
+- tmp/AI_Pitch_Nichols_v1_2026-03-22.html (new)
 
 ### Active Work
 - SSS: 0 pending decision(s)
-- Learning: 0 rules pending validation
+- Learning: 20 rules pending validation
 
 ### Recently Touched Dossiers
-- Ely_Darrow_Regent_3096289.md
-- DOSSIER_Grandeur_Scandinavia_Aug2026.md
-- Nichols_Regent_3078056.md
+- Loucks_Personal_SilverNova_Japan.md
+- DOSSIER_SilverNova_Pacific_Apr2026.md
+- Westbrook_SilverNova_Personal.md
 - Furlow_Regent_3071222.md
-- Kuklinski_Viking_Panama.md
+- AI_Pitch_Furlow_v9_2026-03-22.md
 
 ### Open TODOs
 - [tool_validation_plan.md] - [ ] list files in TITAN_BOOKINGS_VAULT

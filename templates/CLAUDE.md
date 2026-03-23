@@ -48,3 +48,23 @@ render_to_pdf(ctx, 'output/ClientName_Destination_MonYYYY.pdf')
 - Navy logo banner, cream paper (#f7f3ea), bright blue ink (#0000ff), Georgia serif
 - Baked into `_wrap_body_html()` in `thunderbird_gmail.py` — auto-applied to all outbound email
 - Never override per-email — stationery is brand standard
+
+## Context Engineering (Wired 23 MAR 2026)
+All documents generated from context packs — never raw prompts.
+See `../context_engineering/CONTEXT_ENGINEERING.md` for full framework.
+See `../context_engineering/context_packs.py` for all 4 doc type schemas.
+
+### Document Workflow (MD → Drive → Google Doc → Final)
+1. Generate draft as `.md` → save to Google Drive `/D2M Trip Dossiers/[Client]/`
+2. Telegram Commander with link
+3. Commander edits in Google Doc
+4. COS captures diff → Learning Compiler extracts principles
+5. Format final → PDF (WeasyPrint) or HTML → deliver via Gmail/Telegram
+
+### Context Pack → Template Mapping
+| Context Pack | Template | Renderer |
+|--------------|----------|----------|
+| `ProposalContextPack` | `dani_proposal.html.j2` | `d2m_proposal_schema.render_to_pdf()` |
+| `ItineraryContextPack` | `dreams2memories_itinerary.html` | WeasyPrint direct |
+| `TripValidationContextPack` | `dani_validation_email.html.j2` | Gmail stationery |
+| `EmailContextPack` | `tier1_correspondence.html.j2` | `_wrap_body_html()` |

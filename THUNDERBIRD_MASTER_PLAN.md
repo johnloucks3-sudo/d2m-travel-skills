@@ -644,6 +644,54 @@ task_type: "strategic" → Claude
 
 ---
 
+### INITIATIVE 8: DOCUMENT SCULPTOR — Semantic Paragraph Shaping
+**Initiated:** 23 MAR 2026 | *Commander directive via Telegram C2*
+
+**Problem:** Commander edits documents word-by-word. High friction, high time cost. What he actually wants is to *shape and mold* at the paragraph or section level — giving semantic directives like:
+- *"Paragraph 1 — focus on the process more than the outcome"*
+- *"Paragraph 2 — too aggressive, soften it"*
+- *"Paragraph 3 — needs to sound more confident"*
+
+Then the AI reshapes. Commander reviews the result, not every word.
+
+**CONSTRAINT (23 MAR 2026):** *Zero-cost only.* Commercial path unknown — no paid platform lock-in. All options must be free, open source, or existing assets. This protects future commercialization rights.
+
+**Options Landscape — Zero-Cost Only:**
+
+*Removed (cost-bearing):* ~~Notion AI ($10/mo)~~ · ~~Grammarly ($12–30/mo)~~ · ~~Wordtune ($10/mo)~~ · ~~Microsoft Copilot (M365)~~ · ~~Google Gemini AI (Google One plan)~~
+
+| # | Option | Type | Capability | Build | License |
+|---|--------|------|-----------|-------|---------|
+| Z1 | **Claude Max (existing)** | Existing asset | Structured prompt templates — paste doc + directives → reshaped output. Zero incremental cost. | 0 | Ours |
+| Z2 | **Google NotebookLM** | Free SaaS | Upload doc → conversational reshaping. "Make section 2 less aggressive" works natively. Free. | 0 | Google (free, may change) |
+| Z3 | **Obsidian + Plugins** | Free desktop app | Smart Connections + TextTransform community plugins. Paragraph-level AI directives. Free core. | Low | Free core |
+| Z4 | **Open WebUI + Ollama** | Self-hosted OSS | Local LLM interface on YOGA. Upload doc → chat → reshape. Fully private, zero ongoing cost. | 2h setup | MIT |
+| Z5 | **AnythingLLM** | Self-hosted OSS | Document workspace. Upload DOCX/PDF → workspace chat → issue directives. Docker on YOGA. | 1h setup | MIT |
+| Z6 | **Fabric** (D. Miessler) | OSS CLI | Pattern-based prompt framework. Pre-built doc transformation patterns. Extensible. | 1h setup | MIT |
+| Z7 | **Flowise** | Self-hosted OSS | Visual LangChain builder. Build "document sculptor" pipeline drag/drop. Local. | 3h setup | Apache 2.0 |
+| Z8 | **LibreOffice + Python Macro + Claude API** | OSS + API | Free office suite + macro: select ¶ → sends to Claude → replaces in-doc. In-document UX. | 4h build | MPL |
+| Z9 | **Continue.dev (VS Code)** | Free OSS extension | Select paragraph → right-click → "Focus this on process." Uses our Claude Max. | 0 setup | Apache 2.0 |
+| Z10 | **Thunderbird Document Studio** | Custom build | Native module. Doc + directives → Hale/EXEC pipeline → shaped output. Maximum D2M integration. | 6–8h build | Ours — full commercial rights |
+
+**Pilot Recommendation:**
+- *Test today:* Z2 (NotebookLM) — zero build, real capability, 10 minutes
+- *Deploy this week:* Z5 (AnythingLLM) on YOGA — best UX for this use case
+- *Build when pattern is confirmed:* Z10 (Thunderbird Document Studio)
+
+**Commander Selection (23 MAR 2026):** Z2, Z3, Z4, Z5, Z6, Z7, Z8, Z9 — build all eight. Z1 held (already in use). Z10 held in reserve.
+
+**Build Sequence — COS Recommended:**
+| Wave | Options | Effort | Status |
+|------|---------|--------|--------|
+| 1 — Instant | Z2 (NotebookLM), Z9 (Continue.dev) | 0h | Ready to activate |
+| 2 — Quick | Z5 (AnythingLLM), Z6 (Fabric), Z3 (Obsidian) | 1–2h each | Deploy this week on YOGA |
+| 3 — Medium | Z4 (Open WebUI + Ollama), Z7 (Flowise) | 2–3h each | Next build window |
+| 4 — Custom | Z8 (LibreOffice Macro + Claude API) | 4h | After pilot UX confirmed |
+
+**Status:** 🟡 Selection locked — awaiting execution order (23 MAR 2026)
+
+---
+
 ## PART 4: MONETIZATION & COMMERCIAL STRATEGY
 
 > Absorbed from: `Commander_Review/09_Commercial_Assessment.md`, `Commander_Review/18_Monetization_Research.md`,

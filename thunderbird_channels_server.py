@@ -40,7 +40,7 @@ if _ENV.exists():
             _k, _v = _line.strip().split("=", 1)
             os.environ.setdefault(_k.strip(), _v.strip())
 
-BOT_TOKEN       = os.environ.get("TELEGRAM_C2_BOT_TOKEN", "")
+BOT_TOKEN       = os.environ.get("TELEGRAM_CHANNELS_BOT_TOKEN", "")
 COMMANDER_ID    = int(os.environ.get("TELEGRAM_COMMANDER_ID", "0"))
 TIMEOUT_SECS    = int(os.environ.get("CHANNELS_TIMEOUT_SECS", "120"))
 THUNDERBIRD_DIR = Path(__file__).parent

@@ -1,0 +1,11 @@
+[Unit]
+Description=D2M FPD Alert — Daily 07:03 MDT
+Requires=thunderbird-fpd-alert.service
+
+[Timer]
+# 07:03 MDT = 13:03 UTC (MDT = UTC-6)
+OnCalendar=*-*-* 13:03:00 UTC
+Persistent=true
+
+[Install]
+WantedBy=timers.target

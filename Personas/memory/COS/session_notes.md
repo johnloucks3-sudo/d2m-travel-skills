@@ -13,3 +13,6 @@ Commander callsign: Yoda. Established via Telegram C2 2026-03-21.
 
 ### 2026-03-22 14:26 UTC
 [decision] STANDING PRINCIPLE (Commander, 2026-03-22): D2M does NOT take credit for what it did not do. The accurate framing of D2M's value: "Once the direction is clear or the decision is made, we provide options." Applied to Furlow group — clients chose the cruise, assembled their own group, Regent chose the hotel, ports were predetermined, clients booked their own flights. D2M contributed: port/excursion research, options presentation, data recording and organization, itinerary image downloads. All final decisions were the clients'. This principle applies to ALL future AI capability descriptions and client-facing materials.
+
+### 2026-03-22 23:05 UTC
+[decision] STANDING ORDER AMENDMENT — EMAIL SEND GATE (22 MAR 2026): Commander amended the send gate. The Wing MAY send to johnloucks3@gmail.com — this address is considered internal/within the wing, no vulnerability. Prohibition on sending to ANY other outside address remains fully in force. Original order issued 21 MAR 2026.

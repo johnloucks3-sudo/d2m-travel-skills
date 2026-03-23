@@ -274,9 +274,15 @@ def _wrap_body_html(plain_text: str) -> str:
       - Gold top-rule accent, subtle box-shadow for depth
       - Bright blue ink (#0000ff), Georgia serif, 1.6 line-height, 640px max-width
     """
-    # If caller already passed a full HTML document, use it directly — don't double-wrap.
+    # If caller already passed a full HTML document, inline CSS so Gmail renders it correctly.
+    # Gmail strips <style> blocks — premailer converts them to inline styles.
     stripped = plain_text.strip()
     if stripped.lower().startswith("<!doctype") or stripped.lower().startswith("<html"):
+        try:
+            import premailer
+            return premailer.transform(plain_text, remove_classes=False, strip_important=False)
+        except Exception:
+            pass  # Fall through and return as-is if premailer unavailable
         return plain_text
 
     import html as html_mod
@@ -564,9 +570,17 @@ def register_gmail_tools(mcp):
             service = _get_gmail_service()
 
             # Build body part: plain text + HTML with Commander's blue ink
+            # _wrap_body_html inlines CSS via premailer when given a full HTML doc
+            html_part = _wrap_body_html(body)
+            # Plain text: strip HTML tags if body is an HTML document; otherwise use as-is
+            stripped = body.strip()
+            if stripped.lower().startswith("<!doctype") or stripped.lower().startswith("<html"):
+                plain_part = _strip_html(stripped)
+            else:
+                plain_part = body
             body_part = MIMEMultipart("alternative")
-            body_part.attach(MIMEText(body, "plain"))
-            body_part.attach(MIMEText(_wrap_body_html(body), "html"))
+            body_part.attach(MIMEText(plain_part, "plain"))
+            body_part.attach(MIMEText(html_part, "html"))
 
             # If attachments, wrap in mixed; otherwise alternative is the root
             attached_files = []
@@ -1443,7 +1457,7 @@ def _push_telegram_draft_alert(
     # Gmail compose deep-link
     gmail_link = ""
     if message_id:
-        gmail_link = f"\n<a href=\"https://mail.google.com/mail/u/0/#drafts?compose={message_id}\">Open in Gmail ↗</a>"
+        gmail_link = f"\n<a href=\"https://mail.google.com/mail/b/{USER_EMAIL}/#drafts/{message_id}\">Open in Gmail ↗</a>"
 
     header = (
         f"📧 <b>Draft Staged for Approval</b> — WF17\n"
@@ -1455,7 +1469,7 @@ def _push_telegram_draft_alert(
         f"━━━━━━━━━━━━━━━━━━━━\n"
     )
 
-    keyboard = {
+    keyboard: dict = {
         "inline_keyboard": [
             [
                 {"text": "👁 Preview",         "callback_data": f"draft_preview:{draft_id}"},
@@ -1463,9 +1477,14 @@ def _push_telegram_draft_alert(
             ],
             [
                 {"text": "❌ Reject & Delete",  "callback_data": f"draft_reject:{draft_id}"},
+                {"text": "💬 Comment",          "callback_data": f"draft_comment:{draft_id}"},
             ],
         ]
     }
+    if message_id:
+        keyboard["inline_keyboard"].append([
+            {"text": "📝 Edit in Gmail", "url": f"https://mail.google.com/mail/b/{USER_EMAIL}/#drafts/{message_id}"},
+        ])
 
     TG_LIMIT = 4096
 
@@ -1722,12 +1741,18 @@ def gmail_send_draft_sync(draft_id: str) -> dict:
 
     service = _get_gmail_service()
 
-    # Fetch the draft body before sending — this is the version Commander approved
+    # Fetch the draft body + headers before sending — captures the Commander-approved version
     # (may have been edited from the AI-generated original)
     sent_body = None
+    sent_to = "(unknown)"
+    sent_subject = "(unknown)"
     try:
         draft_data = service.users().drafts().get(userId="me", id=draft_id, format="full").execute()
-        sent_body = _decode_body(draft_data.get("message", {}).get("payload", {}))
+        msg_payload = draft_data.get("message", {}).get("payload", {})
+        sent_body = _decode_body(msg_payload)
+        hdr = _extract_headers(msg_payload.get("headers", []))
+        sent_to = hdr.get("To", "(unknown)")
+        sent_subject = hdr.get("Subject", "(unknown)")
     except Exception:
         pass  # Non-critical — diff capture is best-effort
 
@@ -1735,7 +1760,7 @@ def gmail_send_draft_sync(draft_id: str) -> dict:
 
     msg_id = sent.get("id", "unknown")
     _log_email_action(
-        to="(from draft)", subject="(from draft)",
+        to=sent_to, subject=sent_subject,
         persona_id="APPROVED", auto_send=True, ref_id=msg_id,
     )
 
@@ -1757,6 +1782,8 @@ def gmail_send_draft_sync(draft_id: str) -> dict:
         "action": "draft_sent",
         "message_id": msg_id,
         "draft_id": draft_id,
+        "sent_to": sent_to,
+        "sent_subject": sent_subject,
     }
 
 

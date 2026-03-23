@@ -1,0 +1,11 @@
+[Unit]
+Description=D2M Git Commit Alert — Daily 21:47 MDT
+Requires=thunderbird-git-commit-alert.service
+
+[Timer]
+# 21:47 MDT = 03:47 UTC next day (MDT = UTC-6)
+OnCalendar=*-*-* 03:47:00 UTC
+Persistent=true
+
+[Install]
+WantedBy=timers.target

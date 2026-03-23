@@ -1,0 +1,19 @@
+[Unit]
+Description=Thunderbird Telegram C2 — Commander-Only Control Bot
+After=network.target d2m-mcp.service
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+User=john
+WorkingDirectory=/home/john/Thunderbird
+ExecStart=/usr/bin/python3 /home/john/Thunderbird/thunderbird_telegram_c2.py
+Restart=always
+RestartSec=5
+EnvironmentFile=/home/john/Thunderbird/.env.telegram
+Environment=PYTHONPATH=/home/john/Thunderbird:/home/john/Thunderbird/.venv/lib/python3.13/site-packages:/home/john/Thunderbird/.venv/lib64/python3.13/site-packages
+Environment=VIRTUAL_ENV=/home/john/Thunderbird/.venv
+Environment=PATH=/home/john/Thunderbird/.venv/bin:/usr/bin:/bin
+
+[Install]
+WantedBy=multi-user.target

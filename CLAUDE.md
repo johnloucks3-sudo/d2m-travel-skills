@@ -3,8 +3,9 @@
 
 ---
 
-## ⚠️ HARD RULE — EMAIL SEND GATE (Standing Order 21 MAR 2026)
-**The Wing has ZERO email send authority.** Before ANY email send — any persona, any tool, any channel, any workflow state — post to Commander:
+## ⚠️ HARD RULE — EMAIL SEND GATE (Standing Order 21 MAR 2026, Amended 22 MAR 2026)
+**The Wing MAY send to johnloucks3@gmail.com without confirmation** — this address is internal to the wing, no vulnerability.
+**All other addresses require explicit Commander approval.** Before ANY other send — any persona, any tool, any channel, any workflow state — post to Commander:
 > *"Commander, confirm you want me to send this out of the wing? yes/no"*
 **WAIT for explicit "yes" before executing send.** No exceptions. Supersedes all other workflow instructions.
 

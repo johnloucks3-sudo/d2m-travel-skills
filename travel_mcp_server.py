@@ -611,6 +611,183 @@ async def data_confidence_report(client: str, query: str = "") -> str:
     return report.to_injection_block()
 
 
+# ── Context Engineering Tools (Week 2 · 23 MAR 2026) ────────────────────────
+
+@mcp.tool(
+    name="load_context_pack",
+    annotations={"title": "Load Context Pack for Document Generation", "readOnlyHint": True},
+)
+async def load_context_pack(
+    client_tier: str,
+    context_keywords: str = "",
+    voice_count: int = 5,
+    doc_type: str = "email",
+) -> str:
+    """Load the full context pack for a client document — voice examples + learning principles.
+
+    Call this BEFORE drafting any client-facing document (email, proposal, itinerary,
+    trip validation). The returned context block should be injected into your draft.
+
+    Args:
+        client_tier: Relationship tier — "personal" | "client" | "vendor" | "internal" | "family" | "friend"
+        context_keywords: Comma-separated keywords matching the document context
+                          e.g. "proposal, friend tier, opening paragraph"
+                          e.g. "payment reminder, final payment"
+                          e.g. "itinerary, narrative, day-by-day"
+        voice_count: Number of voice examples to load (default 5)
+        doc_type: Document type for context filtering — "email" | "proposal" | "itinerary" | "validation"
+    """
+    import json
+    from pathlib import Path
+    import sys as _sys
+
+    context_dir = Path(__file__).parent / "context_engineering"
+    if str(context_dir) not in _sys.path:
+        _sys.path.insert(0, str(context_dir))
+
+    try:
+        from context_packs import load_voice_examples, load_learning_principles
+
+        # Map "friend" tier to "personal" for voice_examples lookup
+        tier_map = {"friend": "personal", "vip": "client", "standard": "client",
+                    "prospect": "client", "family": "personal"}
+        lookup_tier = tier_map.get(client_tier.lower(), client_tier.lower())
+
+        voice_examples = load_voice_examples(tier=lookup_tier, count=voice_count)
+        keywords = [k.strip() for k in context_keywords.split(",") if k.strip()]
+        if not keywords:
+            keywords = [doc_type, client_tier]
+        principles = load_learning_principles(context_keywords=keywords)
+
+        lines = [
+            f"== CONTEXT PACK — {doc_type.upper()} / {client_tier.upper()} TIER ==",
+            f"Loaded: {len(voice_examples)} voice examples, {len(principles)} learning principles",
+            "",
+        ]
+
+        if voice_examples:
+            lines.append("== COMMANDER'S ACTUAL VOICE (match this style exactly) ==")
+            for i, ex in enumerate(voice_examples, 1):
+                lines += [
+                    f"[Example {i} — {ex.tier} tier, score {ex.score}]",
+                    f"Subject: {ex.subject}",
+                    ex.body[:350] + ("..." if len(ex.body) > 350 else ""),
+                    "",
+                ]
+
+        if principles:
+            lines.append("== EDIT PRINCIPLES (apply BEFORE you write — not after) ==")
+            for p in principles:
+                lines.append(f"• [{p.context}] {p.principle}")
+                if p.example_before and p.example_after:
+                    lines.append(f"  Before: {p.example_before}")
+                    lines.append(f"  After:  {p.example_after}")
+            lines.append("")
+
+        lines += [
+            "== BRAND RULES (non-negotiable) ==",
+            "• Company: Dreams2Memories Travel, LLC — NEVER 'Love Group Travel'",
+            "• Sign-off: 'Thanks' or 'Thank you' — NEVER 'Best'",
+            "• Stationery: cream paper (#f7f3ea), bright blue ink (#0000ff), Georgia serif",
+            "• One CTA per email. Lead with the destination, not the transaction.",
+        ]
+
+        return "\n".join(lines)
+
+    except Exception as e:
+        return f"Context pack load failed: {e}. Fallback: use Commander voice (short, warm, certain). Sign off: Thanks."
+
+
+@mcp.tool(
+    name="capture_edit_diff",
+    annotations={"title": "Capture Commander Edit — Learning Compiler", "readOnlyHint": False},
+)
+async def capture_edit_diff(
+    original: str,
+    edited: str,
+    context: str,
+    doc_type: str = "email",
+) -> str:
+    """Capture the diff between a generated document and Commander's edit. Injects a new learning principle.
+
+    Call this whenever Commander edits a draft before sending. The learning compiler
+    extracts the principle and adds it to learning_principles.json so the next draft
+    is better before Commander sees it.
+
+    Args:
+        original: The AI-generated text (before Commander's edit)
+        edited: The Commander's edited version (what was actually sent)
+        context: Context description — e.g., "friend tier, proposal narrative, opening paragraph"
+        doc_type: "email" | "proposal" | "itinerary" | "validation"
+    """
+    import json
+    import difflib
+    from pathlib import Path
+    from datetime import datetime
+
+    principles_file = Path(__file__).parent / "config" / "learning_principles.json"
+
+    try:
+        # Compute a human-readable diff
+        orig_lines = original.splitlines()
+        edit_lines = edited.splitlines()
+        diff = list(difflib.unified_diff(orig_lines, edit_lines, lineterm="", n=1))
+        diff_summary = "\n".join(diff[:20]) if diff else "No structural diff — minor wording change"
+
+        # Load existing principles
+        data = json.loads(principles_file.read_text()) if principles_file.exists() else {"meta": {}, "principles": []}
+        existing = data.get("principles", [])
+        next_id = f"LP{len(existing) + 1:03d}"
+
+        # Build new principle entry (direction heuristic from diff)
+        removed = [l[1:] for l in diff if l.startswith("-") and not l.startswith("---")]
+        added   = [l[1:] for l in diff if l.startswith("+") and not l.startswith("+++")]
+
+        if len(added) < len(removed):
+            direction = "tighten"
+        elif any(word in " ".join(added).lower() for word in ["warm", "feel", "love", "excited", "looking forward"]):
+            direction = "soften"
+        elif any(word in " ".join(added).lower() for word in ["you", "your", name_word := context.split(",")[0].strip().lower()]):
+            direction = "personalize"
+        else:
+            direction = "adjust"
+
+        example_before = " ".join(removed[:1]).strip()[:200] if removed else original[:120]
+        example_after  = " ".join(added[:1]).strip()[:200] if added else edited[:120]
+
+        new_principle = {
+            "id": next_id,
+            "context": context,
+            "principle": f"[Auto-captured {datetime.utcnow().strftime('%d %b %Y')}] Commander edited this {doc_type}. "
+                         f"Direction: {direction}. See before/after for the pattern.",
+            "direction": direction,
+            "example_before": example_before,
+            "example_after": example_after,
+            "extracted_from": f"Commander edit — {datetime.utcnow().strftime('%d %b %Y')}",
+            "confidence": 0.75,
+            "auto_captured": True,
+        }
+
+        existing.append(new_principle)
+        data["principles"] = existing
+        data.setdefault("meta", {})["total_principles"] = len(existing)
+        data["meta"]["last_updated"] = datetime.utcnow().isoformat()
+
+        principles_file.write_text(json.dumps(data, indent=2))
+
+        return json.dumps({
+            "status": "captured",
+            "principle_id": next_id,
+            "direction": direction,
+            "context": context,
+            "total_principles": len(existing),
+            "message": f"Learning compiler: principle {next_id} added. Next similar {doc_type} will reflect this before Commander sees it.",
+        })
+
+    except Exception as e:
+        return json.dumps({"status": "error", "error": str(e)})
+
+
 # ── Hotel Guide PDF Render ─────────────────────────────────────────────────
 
 @mcp.tool(

@@ -18,7 +18,7 @@
 | 3740314183 | SmartEX Shinkansen membership | — | **ACTIVE** — PW: Tokyo26! | — |
 | 566910-25 | Silversea Silver Nova, Tokyo Harumi → Seattle | Apr 23 – May 11 | **CONFIRMED — PAID IN FULL** | $10,800 |
 |  | Embarkation: Tokyo Harumi Terminal — 11:00 AM–4:00 PM (updated Feb 25, 2026; was 2:00 PM) | Apr 23 | NOTE: suites ready later afternoon | — |
-| Plusgrade | Upgrade bids: Premium Medallion $2,305 + Medallion $1,600 | — | **SUBMITTED Mar 12** — current suite: Superior Veranda | TBD |
+| Plusgrade | Upgrade bids: Premium Medallion $2,305 + Medallion $1,600 | — | **SUBMITTED Mar 12** — current suite: Superior Veranda, *Cabin 8075* (confirmed Feb 2 — Jenna Woodcock/Perx) | TBD |
 | ASC3LX | Southwest, SEA → DEN return flight | May 11 | **CONFIRMED** | TBD |
 
 ### INSURANCE
@@ -128,7 +128,7 @@
 | 12 | Excursions | Kyoto Food Tour | Optional | **CONFIRMED** | PE164717508 Apr 21 10AM, Hiro guide |
 | 13 | Excursions | Mt. Fuji & Hakone Tour | Optional | **CONFIRMED** | PE164714008 Apr 22 7:50AM |
 | 14 | Transfers | Hotel → port transfer | YES | **CONFIRMED** | PE151557101 / PREXP-27443260, 4 pax, **10:30 AM**, voucher received, fully paid, cancel before Apr 21 |
-| 15 | Cruise | Booking confirmed | YES | **CONFIRMED** | 566910-25, Silver Nova |
+| 15 | Cruise | Booking confirmed | YES | **CONFIRMED** | 566910-25, Silver Nova — *Cabin 8075* Superior Veranda |
 | 16 | Cruise | Payment status | YES | **CONFIRMED** | $10,800 — PAID IN FULL (Commander confirmed Mar 18) |
 | 17 | Cruise | Embarkation details | YES | **CONFIRMED** | Tokyo Harumi, Apr 23, 7:00 PM |
 | 17a | Excursions | Shore excursions | Optional | **BOOKED** | 6 booked (1 waitlisted — Sitka) |

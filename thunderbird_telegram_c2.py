@@ -309,7 +309,7 @@ async def cmd_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "Type /help for the full command list.\n\n"
         f"_{datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}_"
     )
-    await update.message.reply_text(welcome, parse_mode=ParseMode.MARKDOWN_V2)
+    await update.message.reply_text(welcome, parse_mode=ParseMode.MARKDOWN)
 
 
 @commander_only
@@ -742,6 +742,49 @@ async def handle_plain_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
 
     user_id = update.effective_user.id
+
+    # Draft comment intercept — Commander typed a comment after pressing 💬
+    if user_id in _draft_comment_pending:
+        draft_id = _draft_comment_pending.pop(user_id)
+        comment_text = query.strip()
+        try:
+            from thunderbird_gmail import gmail_get_draft_sync
+            loop = asyncio.get_event_loop()
+            draft_meta = await loop.run_in_executor(None, lambda: gmail_get_draft_sync(draft_id))
+            subject = draft_meta.get("subject", "(unknown subject)")
+            to_addr  = draft_meta.get("to", "?")
+        except Exception:
+            subject = "(unknown subject)"
+            to_addr  = "?"
+        keep_note = (
+            f"📝 Draft Comment — {subject}\n"
+            f"To: {to_addr}\n"
+            f"Draft ID: {draft_id}\n\n"
+            f"{comment_text}"
+        )
+        try:
+            from thunderbird_keep import create_note as keep_create_note
+            loop_k = asyncio.get_event_loop()
+            await loop_k.run_in_executor(
+                None,
+                lambda: keep_create_note(
+                    title=f"Draft Comment: {subject[:60]}",
+                    body=keep_note,
+                    color="YELLOW",
+                )
+            )
+            await update.message.reply_text(
+                f"💬 *Comment saved to Keep.*\n"
+                f"_{subject[:80]}_",
+                parse_mode=ParseMode.MARKDOWN,
+            )
+        except Exception as e:
+            await update.message.reply_text(
+                f"💬 Comment noted (Keep save failed: {e}):\n_{comment_text[:300]}_",
+                parse_mode=ParseMode.MARKDOWN,
+            )
+        _log_command("DRAFT_COMMENT", "KEEP", f"draft_id={draft_id}", comment_text[:80])
+        return
     ack_msg = await update.message.reply_text("⚙️ Working...")
     _add_to_history(user_id, "user", query)
 
@@ -815,6 +858,7 @@ SSS_CATEGORIES = ["payment", "flights", "excursions", "insurance", "pricing", "c
 
 # In-memory state for SSS creation flow per user
 _sss_drafts: dict[int, dict] = {}
+_draft_comment_pending: dict[int, str] = {}  # user_id → draft_id awaiting comment text
 
 
 def _build_persona_keyboard(selected: set[str]) -> InlineKeyboardMarkup:
@@ -1252,7 +1296,7 @@ async def cmd_drafts(update: Update, context: ContextTypes.DEFAULT_TYPE):
         # Gmail deep link for viewing/editing in browser
         gmail_link = ""
         if message_id:
-            gmail_link = f"\n[Open in Gmail](https://mail.google.com/mail/u/0/#drafts?compose={message_id})"
+            gmail_link = f"\n[Open in Gmail](https://mail.google.com/mail/?authuser=d2mconcierge@gmail.com#drafts/{message_id})"
 
         text = (
             f"📧 *Draft*\n"
@@ -1269,13 +1313,14 @@ async def cmd_drafts(update: Update, context: ContextTypes.DEFAULT_TYPE):
             ],
             [
                 InlineKeyboardButton("❌ Reject & Delete", callback_data=f"draft_reject:{draft_id}"),
+                InlineKeyboardButton("💬 Comment", callback_data=f"draft_comment:{draft_id}"),
             ],
         ]
         # Add "Edit in Gmail" button if we have a message_id for the deep link
         if message_id:
-            keyboard[1].append(
-                InlineKeyboardButton("📝 Edit in Gmail", url=f"https://mail.google.com/mail/u/0/#drafts?compose={message_id}")
-            )
+            keyboard.append([
+                InlineKeyboardButton("📝 Edit in Gmail", url=f"https://mail.google.com/mail/?authuser=d2mconcierge@gmail.com#drafts/{message_id}"),
+            ])
 
         try:
             await update.message.reply_text(
@@ -1330,7 +1375,7 @@ async def handle_draft_callback(update: Update, context: ContextTypes.DEFAULT_TY
             # Gmail deep link for viewing/editing in browser
             gmail_link = ""
             if message_id:
-                gmail_link = f"\n[Open in Gmail](https://mail.google.com/mail/u/0/#drafts?compose={message_id})\n"
+                gmail_link = f"\n[Open in Gmail](https://mail.google.com/mail/?authuser=d2mconcierge@gmail.com#drafts/{message_id})\n"
 
             header = (
                 f"📧 *Full Draft Preview*\n"
@@ -1346,11 +1391,14 @@ async def handle_draft_callback(update: Update, context: ContextTypes.DEFAULT_TY
                     InlineKeyboardButton("✅ Approve & Send", callback_data=f"draft_approve:{draft_id}"),
                     InlineKeyboardButton("❌ Reject", callback_data=f"draft_reject:{draft_id}"),
                 ],
+                [
+                    InlineKeyboardButton("💬 Comment", callback_data=f"draft_comment:{draft_id}"),
+                ],
             ]
             # Add "Edit in Gmail" button if we have a message_id for the deep link
             if message_id:
                 keyboard.append([
-                    InlineKeyboardButton("📝 Edit in Gmail", url=f"https://mail.google.com/mail/u/0/#drafts?compose={message_id}"),
+                    InlineKeyboardButton("📝 Edit in Gmail", url=f"https://mail.google.com/mail/?authuser=d2mconcierge@gmail.com#drafts/{message_id}"),
                 ])
 
             # Split long drafts across multiple messages, attach buttons to the last one
@@ -1400,6 +1448,15 @@ async def handle_draft_callback(update: Update, context: ContextTypes.DEFAULT_TY
             _log_command("DRAFT_REJECTED", "GMAIL", f"draft_id={draft_id}", "deleted")
         except Exception as e:
             await query.message.reply_text(f"Failed to delete draft: {e}")
+
+    elif action == "draft_comment":
+        _draft_comment_pending[user_id] = draft_id
+        await query.message.reply_text(
+            f"💬 *Add your comment for this draft:*\n"
+            f"Draft: `{draft_id}`\n\n"
+            f"Type your note — I'll save it to Google Keep.",
+            parse_mode=ParseMode.MARKDOWN,
+        )
 
 
 # ---------------------------------------------------------------------------

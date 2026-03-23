@@ -11,7 +11,7 @@ Embarkation: April 23, 2026 — Tokyo Harumi Terminal, 5-7-1 Harumi, Chuo-ku, To
   Embarkation window: 11:00 AM – 4:00 PM (updated Feb 25, 2026 — was 2:00 PM)
 Disembarkation: May 11, 2026 — Seattle, Washington — 7:00 AM
 Duration: 18 nights
-Last Updated: March 22, 2026
+Last Updated: March 22, 2026 (cabin 8075 added)
 
 ────────────────────────────────────────────────────────────
 1. GENERAL TRIP NOTES
@@ -107,7 +107,7 @@ LOGISTICS & TRANSPORT
   Apr 21 | Kyoto Food Tour, City Unscripted, Guide: Hiro | 10:00 AM, 3 hrs | Conf PE164717508 / HL857174 / CIT-T123798325 | $484.96 | CONFIRMED — cancel free before Apr 20 10:00 AM local
   Apr 22 | Mt. Fuji & Hakone Bus Tour | 7:50 AM | Conf PE164714008 | $365.62 | CONFIRMED
   Apr 23 | Hilton Odaiba → Harumi Port | 10:30 AM | 4 pax (w/ Westbrooks) | Conf PE151557101 / PREXP-27443260 | FULLY PAID $0 due | CONFIRMED Mar 20 — cancel free before Apr 21 10:30 AM local
-  Apr 23 – May 11 | Silver Nova Cruise | Conf 566910-25 | Voyage SN260423019 | Suite: Superior Veranda | Upgrade bids PENDING (Plusgrade) | $10,800 PAID IN FULL | CONFIRMED
+  Apr 23 – May 11 | Silver Nova Cruise | Conf 566910-25 | Voyage SN260423019 | Suite: Superior Veranda | *Cabin 8075* (confirmed Feb 2, 2026 — Jenna Woodcock/Perx) | Upgrade bids PENDING (Plusgrade) | $10,800 PAID IN FULL | CONFIRMED
   May 11 | Southwest SEA → DEN | Conf ASC3LX | CONFIRMED (booked Mar 20, 2026)
   May 11 | Seattle Terminal → SEA-TAC | ⚠ NOT BOOKED — needed for SW departure
 

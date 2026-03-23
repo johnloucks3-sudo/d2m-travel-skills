@@ -1,0 +1,130 @@
+{
+  "meta": {
+    "generated": "2026-03-23T03:00:00.000000",
+    "version": "1.0",
+    "total_principles": 12,
+    "note": "Seeded from observed Commander edits and stated preferences. Grows via Learning Compiler."
+  },
+  "principles": [
+    {
+      "id": "LP001",
+      "context": "friend tier, proposal narrative, opening paragraph",
+      "principle": "Use first name only in the opening. No 'Dear Mr./Mrs.' — start with the name or go straight into the narrative.",
+      "direction": "personalize",
+      "example_before": "Dear Nancy and Ken,",
+      "example_after": "Nancy,",
+      "extracted_from": "Lyons Athens proposal — Commander edit 22 MAR 2026",
+      "confidence": 0.95
+    },
+    {
+      "id": "LP002",
+      "context": "all tiers, email sign-off",
+      "principle": "Always sign off with 'Thanks' or 'Thank you'. NEVER 'Best' or 'Best regards' or 'Warm regards'.",
+      "direction": "remove",
+      "example_before": "Best regards, John",
+      "example_after": "Thanks, John",
+      "extracted_from": "Standing order — Commander preference",
+      "confidence": 1.0
+    },
+    {
+      "id": "LP003",
+      "context": "client tier, payment reminder email",
+      "principle": "Keep payment reminders warm and informational, not transactional. Lead with where they're going, not what they owe.",
+      "direction": "soften",
+      "example_before": "Your final payment of $15,486 is due April 1.",
+      "example_after": "You're 40 days from Scandinavia — just a quick note that your final payment of $15,486 is due April 1.",
+      "extracted_from": "Furlow payment email pattern",
+      "confidence": 0.85
+    },
+    {
+      "id": "LP004",
+      "context": "all tiers, email length",
+      "principle": "Commander writes short. Client emails are rarely more than 4-5 sentences. Proposals are the exception.",
+      "direction": "tighten",
+      "example_before": "I wanted to reach out to follow up on...",
+      "example_after": "Quick follow-up —",
+      "extracted_from": "Voice harvest analysis — 795 emails scored",
+      "confidence": 0.9
+    },
+    {
+      "id": "LP005",
+      "context": "friend tier, proposal pricing section",
+      "principle": "Frame pricing as 'investment' not 'cost'. Never lead the pricing section with numbers — lead with what's included.",
+      "direction": "personalize",
+      "example_before": "Total cost: $8,500",
+      "example_after": "Your Investment — what's included...",
+      "extracted_from": "Lyons Athens proposal feedback",
+      "confidence": 0.8
+    },
+    {
+      "id": "LP006",
+      "context": "all tiers, action items in emails",
+      "principle": "One call to action per email. Never ask the client to do more than one thing.",
+      "direction": "tighten",
+      "example_before": "Please review the attached, confirm your passport info, and let me know your seat preferences.",
+      "example_after": "When you get a moment, can you confirm your passport expiration dates?",
+      "extracted_from": "Cold email principles — 21 MAR 2026",
+      "confidence": 0.9
+    },
+    {
+      "id": "LP007",
+      "context": "vendor tier, inquiry emails",
+      "principle": "Vendor emails are transactional and efficient. No narrative, no warmth preamble. Lead with the ask.",
+      "direction": "tighten",
+      "example_before": "Hi team, I hope you're doing well! I'm reaching out because...",
+      "example_after": "Hi [Name], requesting rates for...",
+      "extracted_from": "Voice harvest — vendor tier pattern",
+      "confidence": 0.88
+    },
+    {
+      "id": "LP008",
+      "context": "proposal narrative, destination description",
+      "principle": "Destination descriptions should be evocative and specific — not generic tourism copy. Reference time of day, sensory details, what the CLIENT specifically will appreciate.",
+      "direction": "personalize",
+      "example_before": "Athens is a beautiful city with a rich history and vibrant culture.",
+      "example_after": "Athens is one of those rare cities that rewards the unhurried traveler — and Nancy, I have a feeling you and Ken are exactly that.",
+      "extracted_from": "Lyons proposal example — d2m_proposal_schema.py",
+      "confidence": 0.92
+    },
+    {
+      "id": "LP009",
+      "context": "client tier, follow-up emails after no response",
+      "principle": "Follow-ups are light and warm, not pressuring. A single sentence with a clear escape valve ('just wanted you to know I'm here').",
+      "direction": "soften",
+      "example_before": "I haven't heard back from you — please confirm by...",
+      "example_after": "Haven't heard from you in about 16 hours — just wanted you to know I'm here if you have questions.",
+      "extracted_from": "Kuklinski follow-up email — voice harvest",
+      "confidence": 0.87
+    },
+    {
+      "id": "LP010",
+      "context": "all tiers, relationship privacy in group examples",
+      "principle": "Never name specific clients as examples in cold/broadcast emails. Protect relationship privacy.",
+      "direction": "remove",
+      "example_before": "Recently, I helped the Smith family book a...  ",
+      "example_after": "Recently, I helped a Colorado family book a...",
+      "extracted_from": "Cold email principles — 21 MAR 2026",
+      "confidence": 0.95
+    },
+    {
+      "id": "LP011",
+      "context": "all tiers, timeline precision",
+      "principle": "Be precise about timelines — not 'recently' or 'soon'. If you mean April 1, say April 1.",
+      "direction": "tighten",
+      "example_before": "Your payment is coming up soon.",
+      "example_after": "Your final payment is due April 1.",
+      "extracted_from": "Cold email principles — 21 MAR 2026",
+      "confidence": 0.93
+    },
+    {
+      "id": "LP012",
+      "context": "all tiers, company name",
+      "principle": "ALWAYS 'Dreams2Memories Travel, LLC'. NEVER 'Love Group Travel' or any variation.",
+      "direction": "remove",
+      "example_before": "Love Group Travel",
+      "example_after": "Dreams2Memories Travel, LLC",
+      "extracted_from": "Standing order — brand identity",
+      "confidence": 1.0
+    }
+  ]
+}
