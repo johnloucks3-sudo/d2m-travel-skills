@@ -13,7 +13,8 @@ fpd_amount: 6148
 status: active
 relationship: client
 group: Kuklinski Viking Panama
-cc_on_file: false
+cc_on_file: true
+cc_note: Kyle Kuklinski paying on behalf of Morton — confirmed 23 MAR 2026
 ---
 
 # CLIENT DOSSIER — Joshua Morton & Erica Dodge
@@ -21,7 +22,7 @@ cc_on_file: false
 
 ---
 
-⚠️ **CRITICAL — CC NOT ON FILE — FPD MAR 31 ($6,148 DUE)**
+✅ **CC RESOLVED — Kyle Kuklinski paying FPD MAR 31 ($6,148) — confirmed 23 MAR 2026**
 Contact: Josh 818-317-9843 / josh@jerichopix.com
 
 ---

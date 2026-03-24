@@ -1,0 +1,22 @@
+[Unit]
+Description=Flowise — Z7 Visual LangChain Builder (:3011)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStartPre=-/usr/bin/docker rm -f flowise
+ExecStart=/usr/bin/docker run \
+    --name flowise \
+    --rm \
+    -p 3011:3000 \
+    -e FLOWISE_USERNAME=john \
+    -e FLOWISE_PASSWORD=D2Mflowise2026 \
+    -e DATABASE_PATH=/root/.flowise \
+    -v flowise-data:/root/.flowise \
+    flowiseai/flowise:latest
+Restart=on-failure
+RestartSec=15
+
+[Install]
+WantedBy=default.target

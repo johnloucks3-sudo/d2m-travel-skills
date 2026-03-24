@@ -1,40 +1,67 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-03-22 19:09:47 MT
+## Generated: 2026-03-23 22:50:00 MT
 
 ---
 
 ### Recent Commits
-- e58681a feat: session 22 MAR 2026 — SDK fixes, Telegram latency, MCP validation, Furlow AI pitch
-- 7bafe7d feat: session 22 MAR 2026 — voice harvest, vale linter, draft pipeline upgrades
-- 0d9af57 feat: session 22 MAR 2026 — tech harvest deep scan, skills install, channels server
-- 7e22615 feat: session close — Group3 cold email, Dani engine upgrades, learning compiler, n8n prep
-- 2d8769c feat: wire academic scanner into morning briefing + MCP server
+- 92f557c feat: session 23 MAR 2026 — template unification, Commander Review docs
+- 4c4f17e fix: brief → C2 channel (TELEGRAM_C2_BOT_TOKEN, not Dani bot fallback)
+- 5ddb826 feat: session 23 MAR 2026 — Tier 2 automation: morning brief, PDF ingest, booking monitor
+- 41a066b feat: session 23 MAR 2026 — Morton dossier, Ely/Nichols frontmatter, AnythingLLM sync
+- 07f772e feat: session 23 MAR 2026 — Tier 1 automation: FPD alert, voice Dani, AnythingLLM dossiers
 
 ### Uncommitted Changes
-- CLAUDE.md (modified)
-- Personas/memory/COS/session_notes.md (modified)
-- dossiers/DOSSIER_SilverNova_Pacific_Apr2026.md (modified)
-- dossiers/Loucks_Personal_SilverNova_Japan.md (modified)
-- thunderbird_channels_server.py (modified)
-- thunderbird_gmail.py (modified)
+- dani_email_log.json (modified)
+- dossiers/AI_Pitch_Furlow_v12_2026-03-22.html (modified)
+- dossiers/AI_Pitch_Furlow_v4_2026-03-22.md (modified)
+- dossiers/AI_Pitch_Furlow_v6_2026-03-22.md (modified)
+- dossiers/AI_Pitch_Furlow_v7_2026-03-22.md (modified)
+- dossiers/AI_Pitch_Furlow_v9_2026-03-22.html (modified)
+- dossiers/AI_Pitch_Furlow_v9_2026-03-22.md (modified)
+- dossiers/CLAUDE.md (modified)
+- dossiers/DANI_TESTER_BRIEFINGS.md (modified)
+- dossiers/Furlow_Capability_Brief_v3.md (modified)
+- dossiers/Furlow_Capability_Brief_v5.md (modified)
+- dossiers/Morton_Joshua_Erica_Viking_Panama.md (modified)
+- grant_narrative_v2_temp.md (modified)
+- intel/daily_innovation_digest.md (modified)
+- learning_rules.db (modified)
+- session_autosave_latest.md (modified)
+- thunderbird_auto_enrich.py (modified)
+- thunderbird_concierge_monitor.py (modified)
+- thunderbird_scheduler.py (modified)
 - thunderbird_telegram_c2.py (modified)
-- temp/AI_Pitch_Furlow_v12_2026-03-22.html (new)
-- thunderbird-c2.service (new)
-- thunderbird-dani.service (new)
-- tmp/AI_Pitch_Ely_v1_2026-03-22.html (new)
-- tmp/AI_Pitch_Furlow_v12.html (new)
-- tmp/AI_Pitch_Nichols_v1_2026-03-22.html (new)
+- .smart-env/embedding_models/embedding_models.ajson (new)
+- .smart-env/event_logs/event_logs.ajson (new)
+- .smart-env/multi/CLAUDE_md.ajson (new)
+- .smart-env/multi/COS_OPORD_2026-0313_DANI_LAUNCH_md.ajson (new)
+- .smart-env/multi/Commander_Review_00_COMMANDER_BRIEFING_md.ajson (new)
+- .smart-env/multi/Commander_Review_00_DAILY_ROUTINE_md.ajson (new)
+- .smart-env/multi/Commander_Review_01_Kyle_Payment_Email_DRAFT_md.ajson (new)
+- .smart-env/multi/Commander_Review_02_Furlow_Passport_Email_DRAFT_md.ajson (new)
+- .smart-env/multi/Commander_Review_03_Action_Tracker_md.ajson (new)
+- .smart-env/multi/Commander_Review_04_Nichols_CFAR_Briefing_md.ajson (new)
+- .smart-env/multi/Commander_Review_04_Tom_Little_Search_Report_md.ajson (new)
+- .smart-env/multi/Commander_Review_05_Email_DRAFT_Nichols_Insurance_md.ajson (new)
+- .smart-env/multi/Commander_Review_06_Email_DRAFT_Nichols_PostCruise_md.ajson (new)
+- .smart-env/multi/Commander_Review_06_Erik_Melissa_Rome_Email_DRAFT_md.ajson (new)
+- .smart-env/multi/Commander_Review_07_Commission_Summary_md.ajson (new)
+- .smart-env/multi/Commander_Review_08_Persona_Email_DRAFT_md.ajson (new)
+- .smart-env/multi/Commander_Review_08_Publicity_Strategy_md.ajson (new)
+- .smart-env/multi/Commander_Review_09_Commercial_Assessment_md.ajson (new)
+- .smart-env/multi/Commander_Review_10_Client_Portal_Email_DRAFT_md.ajson (new)
+- .smart-env/multi/Commander_Review_11_Morton_Joshua_Portal_Email_md.ajson (new)
 
 ### Active Work
 - SSS: 0 pending decision(s)
-- Learning: 20 rules pending validation
+- Learning: 33 rules pending validation
 
 ### Recently Touched Dossiers
+- Morton_Joshua_Erica_Viking_Panama.md
+- Nichols_Regent_3078056.md
+- Ely_Darrow_Regent_3096289.md
 - Loucks_Personal_SilverNova_Japan.md
-- DOSSIER_SilverNova_Pacific_Apr2026.md
-- Westbrook_SilverNova_Personal.md
-- Furlow_Regent_3071222.md
-- AI_Pitch_Furlow_v9_2026-03-22.md
+- DOSSIER_VikingMars_PanamaCanal_Dec2026.md
 
 ### Open TODOs
 - [tool_validation_plan.md] - [ ] list files in TITAN_BOOKINGS_VAULT

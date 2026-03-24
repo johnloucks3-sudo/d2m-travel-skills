@@ -74,8 +74,24 @@ def _get_known_clients() -> Dict[str, Dict]:
     if not DOSSIER_DIR.exists():
         return clients
 
+    # CLIENT DOSSIER FILTER (2026-03-24):
+    # Only load actual client dossiers — exclude all C2/operational/internal docs.
+    # Client files start with a proper last name: uppercase letter followed by lowercase
+    # (e.g., "Furlow_", "McLeod_", "Lyons_"). This excludes:
+    #   - All-caps names: CLAUDE.md, DANI_TESTER_BRIEFINGS.md, DOSSIER_*.md
+    #   - Acronym prefixes: AI_Pitch_*.md
+    #   - Internal briefings: *_Capability_Brief_*.md, *_Pitch_*.md, *_BRIEFINGS*.md
+    _CLIENT_NAME_RE = re.compile(r'^[A-Z][a-z]')
+    _INTERNAL_FRAGMENTS = ("_Capability_Brief", "_Pitch_", "_BRIEFINGS", "_Brief_")
+
     for dossier_file in DOSSIER_DIR.glob("*.md"):
         name = dossier_file.stem
+        # Skip any file that doesn't start with a proper client last name
+        if not _CLIENT_NAME_RE.match(name):
+            continue
+        # Skip internal/operational documents mixed into the dossier directory
+        if any(frag in name for frag in _INTERNAL_FRAGMENTS):
+            continue
         # Parse dossier filenames like "Furlow_Missy_John" or "Lyons_Nancy_Ken"
         parts = name.replace("_", " ").split()
         if not parts:

@@ -343,6 +343,11 @@ async def cmd_help(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "/inbox — Sweep Commander's personal inbox for D2M emails",
         "/usage — Claude Code usage meter (tokens, cost, block, monthly)",
         "/restart — Restart both Telegram bots (C2 + Dani)",
+        "/intel — Push morning intel brief now (A2→A1→COS chain)",
+        "/brief — Push FPD/departure/CC brief now",
+        "/fpd — FPD alert scan",
+        "/dossier <name> — Quick dossier lookup by client name",
+        "/ask <query> — Search intel archives for D2M-applicable insights",
         "",
         "_Type \"STAFF SUMMARY\" to start an SSS._",
         "_Plain text goes to COS (Opus via Agent SDK)._",
@@ -874,6 +879,167 @@ async def cmd_restart(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await ack.edit_text(f"🔄 *Restart complete*\n\n```\n{output[-800:]}\n```", parse_mode="Markdown")
     except Exception as e:
         await ack.edit_text(f"⚠️ Restart failed: {e}")
+
+
+@commander_only
+async def cmd_intel(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Run the morning intel pipeline (A2→A1→COS) on demand and push to C2."""
+    ack = await update.message.reply_text("🔵 Running intel pipeline (A2→A1→COS)…")
+    loop = asyncio.get_event_loop()
+    try:
+        import subprocess
+        result = await loop.run_in_executor(None, lambda: subprocess.run(
+            ["/home/john/Thunderbird/.venv/bin/python3",
+             "/home/john/Thunderbird/thunderbird_intel_telegram.py"],
+            capture_output=True, text=True, timeout=540,
+            env={**os.environ, "PYTHONPATH": "/home/john/Thunderbird"}
+        ))
+        out = (result.stdout + result.stderr).strip()[-300:]
+        await ack.edit_text(f"🔵 *Intel pipeline complete*\n\n`{out}`", parse_mode="Markdown")
+    except Exception as e:
+        await ack.edit_text(f"⚠️ Intel pipeline error: {e}")
+
+
+@commander_only
+async def cmd_brief(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Fire the FPD/departure morning brief on demand."""
+    ack = await update.message.reply_text("🌅 Running morning brief…")
+    loop = asyncio.get_event_loop()
+    try:
+        import subprocess
+        result = await loop.run_in_executor(None, lambda: subprocess.run(
+            ["/usr/bin/python3",
+             "/home/john/Thunderbird/thunderbird_brief_telegram.py"],
+            capture_output=True, text=True, timeout=60,
+            env={**os.environ, "PYTHONPATH": "/home/john/Thunderbird"}
+        ))
+        await ack.edit_text("✅ Morning brief sent." if result.returncode == 0
+                             else f"⚠️ Brief error:\n`{result.stderr[-200:]}`",
+                             parse_mode="Markdown")
+    except Exception as e:
+        await ack.edit_text(f"⚠️ Brief error: {e}")
+
+
+@commander_only
+async def cmd_fpd(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Run FPD alert check on demand."""
+    ack = await update.message.reply_text("📋 Checking FPDs…")
+    loop = asyncio.get_event_loop()
+    try:
+        import subprocess
+        result = await loop.run_in_executor(None, lambda: subprocess.run(
+            ["/usr/bin/python3",
+             "/home/john/Thunderbird/thunderbird_fpd_alert.py"],
+            capture_output=True, text=True, timeout=30,
+            env={**os.environ, "PYTHONPATH": "/home/john/Thunderbird"}
+        ))
+        await ack.edit_text("✅ FPD alert sent." if result.returncode == 0
+                             else f"⚠️ FPD error:\n`{result.stderr[-200:]}`",
+                             parse_mode="Markdown")
+    except Exception as e:
+        await ack.edit_text(f"⚠️ FPD error: {e}")
+
+
+@commander_only
+async def cmd_dossier(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Quick dossier lookup — /dossier <client name or keyword>"""
+    from pathlib import Path
+    import re
+    args = context.args
+    if not args:
+        await update.message.reply_text("Usage: `/dossier <name>`\nExample: `/dossier Morton`",
+                                         parse_mode="Markdown")
+        return
+    query = " ".join(args).lower()
+    dossier_dir = Path("/home/john/Thunderbird/dossiers")
+    matches = []
+    for f in sorted(dossier_dir.glob("*.md")):
+        if f.name == "CLAUDE.md":
+            continue
+        if query in f.stem.lower():
+            matches.append(f)
+        elif query in f.read_text(errors="ignore")[:500].lower():
+            matches.append(f)
+
+    if not matches:
+        await update.message.reply_text(f"No dossier found matching `{query}`.",
+                                         parse_mode="Markdown")
+        return
+
+    # Return first 3 matches summary (first 600 chars each)
+    lines = [f"*📂 Dossier — {query.title()}*\n"]
+    for f in matches[:3]:
+        text = f.read_text(errors="ignore")
+        # Strip frontmatter
+        body = re.sub(r"^---.*?---\s*", "", text, flags=re.DOTALL).strip()
+        preview = body[:500].strip()
+        lines.append(f"*{f.stem}*\n{preview}\n")
+
+    await send_long_message(update, "\n".join(lines))
+
+
+@commander_only
+async def cmd_ask(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Search intel archives for a D2M-applicable insight. /ask <query>"""
+    query = " ".join(context.args) if context.args else ""
+    if not query:
+        await update.message.reply_text(
+            "Usage: `/ask <query>`\nExample: `/ask real estate post-sale lifecycle`",
+            parse_mode="Markdown",
+        )
+        return
+
+    ack = await update.message.reply_text(
+        f"🔍 Searching archives for: `{query}`…", parse_mode="Markdown"
+    )
+    try:
+        from pathlib import Path as _Path
+        intel_dir = _Path("/home/john/Thunderbird/intel")
+        query_lower = query.lower()
+        query_terms = [t for t in query_lower.split() if len(t) > 2]
+        results = []
+
+        for f in sorted(intel_dir.glob("*.md"), key=lambda x: x.stat().st_mtime, reverse=True):
+            try:
+                content = f.read_text(encoding="utf-8", errors="replace")
+                content_lower = content.lower()
+                score = sum(content_lower.count(t) for t in query_terms)
+                if score == 0:
+                    continue
+                lines = content.split("\n")
+                best = []
+                for i, line in enumerate(lines):
+                    if any(t in line.lower() for t in query_terms):
+                        start = max(0, i - 1)
+                        end = min(len(lines), i + 3)
+                        best.extend(lines[start:end])
+                        if len(best) >= 8:
+                            break
+                if best:
+                    results.append((score, f.name, "\n".join(best[:8])))
+            except Exception:
+                pass
+
+        if not results:
+            await ack.edit_text(
+                f"🔍 Nothing in archives for: `{query}`\nTry `/ask` with different terms.",
+                parse_mode="Markdown",
+            )
+            return
+
+        results.sort(key=lambda x: x[0], reverse=True)
+        out = [f"🗂 *Archive: {query}* — {len(results)} file(s)\n"]
+        for _, fname, excerpt in results[:2]:
+            out.append(f"📄 `{fname}`")
+            safe = excerpt[:400].replace("*", "").replace("`", "").replace("_", " ")
+            out.append(safe)
+            out.append("")
+        if len(results) > 2:
+            out.append(f"_{len(results) - 2} more files. Refine query to narrow._")
+
+        await ack.edit_text("\n".join(out), parse_mode="Markdown")
+    except Exception as e:
+        await ack.edit_text(f"⚠️ Search error: {e}")
 
 
 @commander_only
@@ -1652,6 +1818,11 @@ def main():
     app.add_handler(CommandHandler("inbox", cmd_inbox))
     app.add_handler(CommandHandler("usage", cmd_usage))
     app.add_handler(CommandHandler("restart", cmd_restart))
+    app.add_handler(CommandHandler("intel", cmd_intel))
+    app.add_handler(CommandHandler("brief", cmd_brief))
+    app.add_handler(CommandHandler("fpd", cmd_fpd))
+    app.add_handler(CommandHandler("dossier", cmd_dossier))
+    app.add_handler(CommandHandler("ask", cmd_ask))
 
     # Draft approval inline buttons (approve/preview/reject)
     app.add_handler(CallbackQueryHandler(handle_draft_callback, pattern=r"^draft_"))

@@ -52,7 +52,7 @@ from thunderbird_gmail import _get_gmail_service
 from thunderbird_morning_briefing import run_briefing as run_morning_email_briefing
 from thunderbird_payment_alerts import check_and_alert as check_payment_alerts
 from thunderbird_sync import sync as run_drive_sync
-from thunderbird_email_classifier import classify_and_route as run_email_classifier
+from thunderbird_email_classifier import classify_email as run_email_classifier
 from thunderbird_email_intel import run_email_intel_sweep, refresh_voice_profile
 from thunderbird_calendar_sync import sync_bookings_to_calendar as run_calendar_sync
 from thunderbird_followup_reminders import scan_and_remind as run_followup_scan
@@ -1551,6 +1551,108 @@ def build_scheduler() -> AsyncIOScheduler:
     scheduler.add_job(job_intel_crew,
                       CronTrigger(hour=5, minute=45, timezone=TZ),
                       id="intel_crew_daily", name="Intel Crew Pipeline (daily 0545)")
+
+    # 15. Flash Intel Card: daily at 7:15AM MT
+    #     Picks one D2M-applicable insight from the intel folder.
+    #     Sends to Commander's C2 channel as a one-tap actionable brief.
+    #     Non-repeating: tracks last 10 sent files, rotates through intel/.
+    async def job_flash_intel_card():
+        """Daily flash intel card — one insight, one D2M action, sent to C2."""
+        logger.info("Flash Intel Card: picking today's insight...")
+        try:
+            import random
+            import requests as _req
+
+            intel_dir = THUNDERBIRD_DIR / "intel"
+            if not intel_dir.exists():
+                logger.warning("Flash Intel Card: intel/ dir not found")
+                return
+
+            files = sorted(intel_dir.glob("*.md"),
+                           key=lambda x: x.stat().st_mtime, reverse=True)
+            if not files:
+                return
+
+            # Rotate through top 15 most recent, avoid repeating last 10
+            state_file = OUTPUT_DIR / "flash_card_state.json"
+            state_file.parent.mkdir(parents=True, exist_ok=True)
+            recent: list = []
+            if state_file.exists():
+                try:
+                    recent = json.loads(state_file.read_text())
+                except Exception:
+                    recent = []
+
+            candidates = [f for f in files[:15] if f.name not in recent]
+            if not candidates:
+                recent = []
+                candidates = files[:15]
+
+            chosen = random.choice(candidates)
+            recent.append(chosen.name)
+            state_file.write_text(json.dumps(recent[-10:]))
+
+            content = chosen.read_text(encoding="utf-8", errors="replace")
+            raw_lines = [l.strip() for l in content.split("\n") if l.strip()]
+
+            # Find a D2M Apply/Analog block
+            signal = None
+            action = None
+            for i, line in enumerate(raw_lines):
+                ll = line.lower()
+                if "d2m apply:" in ll or "d2m analog:" in ll:
+                    action = line.replace("**D2M Apply:**", "").replace(
+                        "**D2M Analog:**", "").replace("D2M Apply:", "").replace(
+                        "D2M Analog:", "").strip()[:200]
+                    for j in range(i - 1, max(0, i - 5), -1):
+                        prev = raw_lines[j]
+                        if len(prev) > 30 and not prev.startswith("|") and not prev.startswith("#"):
+                            signal = prev[:180]
+                            break
+                    if action:
+                        break
+
+            # Fallback: first substantive line
+            if not signal:
+                for line in raw_lines:
+                    if (len(line) > 60 and not line.startswith("#")
+                            and not line.startswith("|") and not line.startswith("-")):
+                        signal = line[:180]
+                        break
+
+            if not signal:
+                logger.info("Flash Intel Card: no suitable insight found, skipping")
+                return
+
+            source = chosen.stem.replace("_", " ").replace("-", " ")[:50]
+            first_word = (signal.split()[0] if signal.split() else "intel").lower().strip("*_:")
+            card = (
+                f"⚡ *FLASH INTEL CARD*\n"
+                f"_{source}_\n\n"
+                f"*Signal:* {signal}\n"
+            )
+            if action:
+                card += f"\n*D2M:* {action}\n"
+            card += f"\n_/ask {first_word} to dig deeper_"
+
+            token = os.environ.get("TELEGRAM_C2_BOT_TOKEN", "")
+            chat_id = os.environ.get("TELEGRAM_COMMANDER_ID", "")
+            if not token or not chat_id:
+                logger.warning("Flash Intel Card: C2 credentials not set — skipping Telegram send")
+                return
+
+            _req.post(
+                f"https://api.telegram.org/bot{token}/sendMessage",
+                json={"chat_id": chat_id, "text": card, "parse_mode": "Markdown"},
+                timeout=10,
+            )
+            logger.info(f"Flash Intel Card sent: {chosen.name}")
+        except Exception as e:
+            logger.error(f"Flash Intel Card FAILED: {e}", exc_info=True)
+
+    scheduler.add_job(job_flash_intel_card,
+                      CronTrigger(hour=7, minute=15, timezone=TZ),
+                      id="flash_intel_card", name="Flash Intel Card (daily 0715 MT)")
 
     return scheduler
 

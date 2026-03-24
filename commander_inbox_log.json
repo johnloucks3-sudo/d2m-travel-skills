@@ -1,0 +1,22 @@
+[
+  {
+    "timestamp": "2026-03-24T04:10:36.465259+00:00",
+    "msg_id": "19d1d55ac9245090",
+    "subject": "Where will our next Mystery Cruise sail?",
+    "sender": "specials@e.windstarcruises.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T04:11:04.619184+00:00",
+    "msg_id": "19d1d484c454833f",
+    "subject": "BREAKING:  Senate confirms Markwayne Mullin as new DHS secretary",
+    "sender": "info@justthenews.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  }
+]

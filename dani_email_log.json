@@ -1,35 +1,5 @@
 [
   {
-    "timestamp": "2026-03-17T09:42:31.679239",
-    "message_id": "19cfc6f4c157e524",
-    "from": "Melissa Furlow <missy.furlow@gmail.com>",
-    "subject": "Re: What Organized Travel Actually Looks Like",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED.**\n\nThat's not a client response. That's an internal operational briefing to the Commander.\n\nMissy asked a simple question. She needs a simple answer \u2014 directed to *her*, not to John.\n\n**Three problems:**\n\n1. **Wrong audience.** Dani addressed John (\"Good evening, John\") with an ops dashboard. Missy is the one waiting for a reply.\n2. **Exposed internals.** Balance due ($15,486), payment schedules, FPD countdowns, suite category, confirmation numbers, AA PNR \u2014 none of that belongs in a client-facing email. Missy asked about seat assignments, not her invoice.\n3. **Didn't answer the question.** Missy asked if she has seat assignments on Finnair. The answer is: we don't have confirmed seats on the outbound legs yet, and we're checking. That's a 3-sentence response.\n\n---\n\n**REVISED** \u2014 here's what should go to Missy:\n\n---\n\nHi Missy,\n\nThank you \u2014 we're excited to build this relationship with you too. And glad to hear your guest registration is all set.\n\nI'm checking on your Finnair seat assignments for the outbound flights from DFW to Stockholm right now. I want to make sure everything is confirmed in business class before I send you specifics, so give me a little time to verify with the airline. I'll follow up as soon as I have your seat numbers in hand.\n\nThanks,\nDani Moreau\nDreams2Memories Travel, LLC\nconcierge@d2mluxury.quest\n\n---\n\n**Separately to John (internal, not client-facing):** Dani's ops briefing on the seat gap, FPD reminder, and Finnair PNR pull is useful \u2014 route that to the Commander as an internal note, not to the client.\n\n---\n_Claude Opus 4.6 (Max)_"
-  },
-  {
-    "timestamp": "2026-03-17T09:44:40.116049",
-    "message_id": "19cfc6eb7978f84c",
-    "from": "Lawn Doctor <group333@lawndoctor.com>",
-    "subject": "Give Your Lawn the Luck of the Irish This Spring",
-    "status": "dani_failed"
-  },
-  {
-    "timestamp": "2026-03-17T09:55:34.865847",
-    "message_id": "19cfc80be089317a",
-    "from": "Erik McLeod <emcleod@gmail.com>",
-    "subject": "Re: Silver Muse Med \u2014 Where Everything Stands",
-    "status": "cos_blocked",
-    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED.**\n\nTwo problems.\n\n1. **Fabricated specifics.** \"E-28\" and \"late May\" for Blacklane timing \u2014 we don't have data confirming that's Silversea's standard. If Erik calls Silversea and they say something different, we lose credibility. The four transfer line items (Jun 22 private, Jun 23 group, Jul 3 group, Jul 3 private) \u2014 are those confirmed in our dossier or is Dani reconstructing them from John's previous email? If they came from John's note, fine, but Dani needs to be working from verified booking data, not inference.\n\n2. **Audience confusion \u2014 again.** The draft itself is solid client-facing copy. But Dani wrapped it in an internal briefing to John (\"Good evening, John. Here's Erik's email...\"), tactical flags, and \"your call on this one.\" That entire wrapper cannot go to the client. If the workflow is Dani drafts \u2192 COS reviews \u2192 Commander approves \u2192 client receives, then the **draft reply section only** is what gets sent. The wrapper is internal. Make sure the pipeline separates those cleanly.\n\n**What's good:** The tone is warm without being sycophantic. The transfer breakdown is clear. Leaving Venice dining soft was the right call. Not volunteering to contact the air desk directly \u2014 smart, gives John room.\n\n**Before I approve the draft portion:**\n- Confirm the four Silversea transfer line items against actual booking data, not John's previous email language\n- Strike the \"E-28\" specificity \u2014 replace with \"Blacklane details typically arrive a few weeks before sailing\" unless we can source that timeline from Silversea's documentation\n- Strip the internal wrapper entirely from whatever goes to the client\n\nFix those two items in the draft, confirm the transfer data source, and resubmit.\n\n---\n_Claude Opus 4.6 (Max)_"
-  },
-  {
-    "timestamp": "2026-03-17T09:57:51.675687",
-    "message_id": "19cfc7c6a134b8ec",
-    "from": "Huckabee Post  <huckabeepost@substack.com>",
-    "subject": "Trump predicts Cuba may be next",
-    "status": "dani_failed"
-  },
-  {
     "timestamp": "2026-03-17T09:58:33.101836",
     "message_id": "19cfc7971e35e0ff",
     "from": "",
@@ -1495,5 +1465,40 @@
     "subject": "(no subject)",
     "status": "cos_blocked",
     "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED**\n\nThree problems before this touches a send button:\n\n**1. Wrong recipient entirely.**\nThis message is addressed to \"John\" \u2014 the Commander. The COS review gate exists for client-facing output. Dani does not send operational status reports to the Commander. That is my lane. If Dani has a status update for John, she routes it to me and I brief him. This is an architecture violation, not a drafting error.\n\n**2. Confidentiality \u2014 multi-client exposure.**\nThis message names Furlow AND Ely/Darrow in the same thread, with booking references, financials, and open action items. If this went to the wrong inbox \u2014 client, vendor, anyone \u2014 it's a breach. Operational status summaries containing multiple client names and dollar amounts do not go out in a single email, ever.\n\n**3. \"Best\" in the sign-off (quoted Furlow email, line 4).**\nStanding order: NEVER \"Best.\" Dani signed the 10:03 AM send with *\"Best to you and your family.\"* That's already out the door \u2014 I can't pull it \u2014 but it gets logged as a learning diff and corrected in the voice ledger. Not happening again.\n\n**What happens now:**\n- Dani's Furlow status goes to me. I brief the Commander.\n- Ely/Darrow outreach decision belongs on my desk as a tasker, not in a multi-client email to John.\n- The \"Best\" sign-off gets captured as a learning diff immediately.\n\nNothing goes out. I'm routing this internally.\n\n---\n_Claude Sonnet 4.6 (Max)_"
+  },
+  {
+    "timestamp": "2026-03-23T22:00:01.647767",
+    "message_id": "19d1c5b6e047ceb4",
+    "from": "Silversea Trade Reservations <tradereservations@silversea.com>",
+    "subject": "Re: [EXTERNAL] Booking 298475-25 \u2014 Transfer Confirmations & Seat Assignments",
+    "status": "presend_blocked",
+    "cos_note": "PRE-SEND EVALUATION: FAIL \u2014 1 BLOCK violations\n\n  [BLOCK] JARGON-04 (line 2): Internal 'dossier' term (use 'trip file' or 'booking details')"
+  },
+  {
+    "timestamp": "2026-03-23T22:00:01.639103",
+    "message_id": "19d1c5b6e047ceb4",
+    "from": "Silversea Trade Reservations <tradereservations@silversea.com>",
+    "subject": "Re: [EXTERNAL] Booking 298475-25 \u2014 Transfer Confirmations & Seat Assignments",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED**\n\nThree hard stops before this touches a send button.\n\n**1. Wrong recipient entirely.**\nThe inbound email is from **Elaine Buenviaje at Silversea Trade Reservations** \u2014 a vendor. Dani wrote an internal status brief to John. These are two completely different documents. The one Dani drafted was never a reply to Silversea.\n\n**2. Catastrophic confidentiality breach if sent as-is.**\nDani's response contains Kuklinski CC upload status and payment risk, Furlow payment timeline and portal activity, Ely/Darrow authorization details, and Westbrook/Loucks embark data. If this goes to Elaine at Silversea \u2014 even accidentally \u2014 we've just handed a vendor a full financial and operational picture of five unrelated client groups. That is not recoverable.\n\n**3. The actual Silversea email was never answered.**\nElaine confirmed two things: Blacklane transfer removal approved, and non-serviced area credit will be applied. She asked if we have questions. A proper reply to her is three sentences: acknowledge, ask for the credit amount once applied, thank her. Dani didn't write that.\n\n---\n\n**What needs to happen:**\n\n- Dani's internal status board (the content she drafted) may be useful \u2014 route it to John as a Telegram C2 brief, NOT as an email reply.\n- Draft a separate, clean reply to Elaine confirming we have no further questions and requesting credit amount confirmation once applied.\n\nDani goes back to the drawing board on both documents. Send neither until I see them.\n\n---\n_Claude Sonnet 4.6 (Max)_",
+    "sss_id": "SSS-5BE99B24"
+  },
+  {
+    "timestamp": "2026-03-23T22:01:19.195034",
+    "message_id": "19d1b0b66a0fead6",
+    "from": "Silversea Trade Reservations <tradereservations@silversea.com>",
+    "subject": "Re: [EXTERNAL] Booking 298475-25 \u2014 Transfer Confirmations & Seat Assignments",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED**\n\nThree hard stops. None negotiable.\n\n**1. Wrong document entirely.**\nSilversea Trade Reservations sent a vendor confirmation about Booking 298475-25 transfers. Dani produced an internal Commander status board. These are two different documents for two different audiences. There is no version of this draft that goes to Silversea.\n\n**2. Confidentiality catastrophe.**\nThis draft exposes five client groups \u2014 Kuklinski, McLeod, Ely/Darrow, Furlow, Loucks/Westbrook \u2014 including FPD amounts, CC upload statuses, cancellation penalty dates, and insurance deferrals. Sending this to a vendor contact would be a fundamental breach of client trust and privacy across every active engagement we have.\n\n**3. Didn't answer the question.**\nSilversea asked for confirmation of four listed transfers and noted no hotel transfers apply. A proper reply is: acknowledge receipt, confirm the transfers are correct or flag any discrepancy, and follow up on the outstanding credit amount for the Blacklane removal. That's it. Two or three sentences.\n\n**What Dani should send to Silversea instead:**\n\n> *Thank you, Elaine. The four transfers are confirmed as listed. Could you please specify the credit amount applied for the Door-to-Door non-serviced area under the legacy fare? We want to ensure our records reflect the correct figure.*\n\n**The internal status board** \u2014 if the content is accurate \u2014 can go to John separately as the Monday evening brief. That's a different send, different channel, different audience.\n\nNothing goes to Silversea until Dani has the right document in hand.\n\n---\n_Claude Sonnet 4.6 (Max)_",
+    "sss_id": "SSS-28E58101"
+  },
+  {
+    "timestamp": "2026-03-23T22:02:40.492054",
+    "message_id": "19d1b0b66a0fead6",
+    "from": "Silversea Trade Reservations <tradereservations@silversea.com>",
+    "subject": "Re: [EXTERNAL] Booking 298475-25 \u2014 Transfer Confirmations & Seat Assignments",
+    "status": "cos_blocked",
+    "cos_note": "\ud83c\udfaf COS-HALE:\n\n**BLOCKED**\n\nThree hard stops. None negotiable.\n\n**1. Wrong document entirely.**\nThe inbound email is from **Silversea Trade Reservations** \u2014 a vendor. Dani produced an internal Commander status board. Two different documents, two different audiences. This response should never have been written against this inbound.\n\n**2. Catastrophic confidentiality failure.**\nIf this draft were sent as a reply to Silversea, it exposes \u2014 to a cruise line vendor \u2014 the names, payment deadlines, and outstanding balances of the Kuklinski group, Furlow, Ely, Nichols, and Loucks/Westbrook. None of those clients have any relationship to Booking 298475-25. This is a multi-client data breach in a single reply.\n\n**3. Zero responsiveness to the actual question.**\nSilversea asked for acknowledgment of four confirmed transfers and whether further clarification is needed. Dani said nothing about transfers. The vendor got a status board about people they've never heard of.\n\n---\n\n**What actually needs to happen:**\n\nThe correct response to Silversea is a two-line acknowledgment:\n\n> *\"Thank you, Elaine \u2014 transfers received and noted. We'll follow up if any clarification is needed.\"*\n\nThat's it. No client financials, no internal ops, no other booking groups. Dani needs to rebuild this from scratch against the right audience and the right question.\n\n**This draft does not go out.**\n\n---\n_Claude Sonnet 4.6 (Max)_",
+    "sss_id": "SSS-9E5F44DC"
   }
 ]

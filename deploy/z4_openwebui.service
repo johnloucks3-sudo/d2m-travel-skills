@@ -1,0 +1,21 @@
+[Unit]
+Description=Open WebUI — Z4 Local LLM Interface (:3010)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStartPre=-/usr/bin/docker rm -f openwebui
+ExecStart=/usr/bin/docker run \
+    --name openwebui \
+    --rm \
+    -p 3010:8080 \
+    -e OLLAMA_BASE_URL=http://host-gateway:11434 \
+    --add-host=host-gateway:host-gateway \
+    -v openwebui-data:/app/backend/data \
+    ghcr.io/open-webui/open-webui:main
+Restart=on-failure
+RestartSec=15
+
+[Install]
+WantedBy=default.target

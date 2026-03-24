@@ -1,4 +1,4 @@
-# Innovation Scan — Daily
+# Innovation Scan — Weekly
 **Generated:** 2026-03-23T22:23:25.198153
 **Sources:** 24 scanned, 0 failed
 **Findings:** 134 total

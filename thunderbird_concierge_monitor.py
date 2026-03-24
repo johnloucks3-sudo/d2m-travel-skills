@@ -19,6 +19,7 @@ Architecture (per COS review):
 
 import json
 import logging
+import os
 import re
 import sys
 import time
@@ -340,6 +341,31 @@ OUTPUT ONLY THE EMAIL BODY TEXT. No subject line, no headers."""
         log.error(f"Persona consultation failed: {e}")
         return _draft_simple(classification)
 
+    # ── PRE-SEND BRAND ENFORCEMENT ──────────────────────────────
+    # Zero-cost regex scan — catches leaks before A9 review or Commander eyes.
+    try:
+        from thunderbird_dani_engine import pre_send_evaluate
+        _scan = pre_send_evaluate(reply_text)
+        if _scan["blocked"]:
+            _flags = "; ".join(f"{f['type']}:{f['match'][:30]}" for f in _scan["flags"])
+            reply_text = (
+                f"🚨 BRAND ENFORCEMENT BLOCK — HIGH RISK DETECTED\n"
+                f"Flags: {_flags}\n"
+                f"━━━ DO NOT SEND — fix issues below ━━━\n\n"
+                f"{reply_text}"
+            )
+            log.error(f"Pre-send BLOCKED: {_flags}")
+        elif not _scan["clean"]:
+            _flags = "; ".join(f"{f['type']}:{f['match'][:30]}" for f in _scan["flags"])
+            reply_text = (
+                f"⚠ BRAND SCAN: {_scan['risk']} risk — {_flags}\n"
+                f"━━━ Review before sending ━━━\n\n"
+                f"{reply_text}"
+            )
+            log.warning(f"Pre-send flagged: {_flags}")
+    except Exception as _be:
+        log.debug(f"Pre-send evaluate skipped: {_be}")
+
     # ── A9 QUALITY GATE (post-draft review) ─────────────────
     # FIX 2026-03-16: Harlan reviews Dani's completed draft for accuracy,
     # confidentiality leaks, and commitment overreach before it reaches
@@ -591,6 +617,58 @@ def alert_commander(classification: dict, draft_id: Optional[str]):
 
 
 # ══════════════════════════════════════════════════════════════
+# AUTO-TASK ENGINE
+# Every client message that contains an action signal creates a
+# task entry in logs/auto_tasks.jsonl — the Dani conversation-to-
+# completion layer (from virtual meetings / Zoom Agentic AI model).
+# ══════════════════════════════════════════════════════════════
+
+_ACTION_KW = [
+    "please", "can you", "could you", "would you", "need",
+    "book", "reserve", "confirm", "check", "find", "schedule",
+    "arrange", "help with", "question about", "wondering if",
+    "follow up", "callback", "call me", "let me know", "send me",
+    "looking for", "interested in", "want to", "hope to",
+]
+
+
+def _auto_create_task(classification: dict, draft_id: Optional[str]) -> None:
+    """Extract action items from a client message and write to auto_tasks.jsonl.
+
+    Called for every processed message. Non-blocking — failures are logged only.
+    """
+    msg = (
+        classification.get("body_full", "") + " " + classification.get("subject", "")
+    ).lower()
+    if not any(kw in msg for kw in _ACTION_KW):
+        return
+
+    sender = classification.get("sender_name", "Unknown")
+    party = classification.get("party", "")
+    subject_text = classification.get("subject", "No subject")
+    preview = classification.get("body_preview", "")[:200]
+
+    entry = {
+        "ts": datetime.now().isoformat(),
+        "source": "concierge_email",
+        "client": sender,
+        "party": party,
+        "task": f"Respond: {subject_text[:80]}",
+        "preview": preview,
+        "draft_id": draft_id or "none",
+        "status": "OPEN",
+    }
+    try:
+        tasks_file = Path.home() / "Thunderbird" / "logs" / "auto_tasks.jsonl"
+        tasks_file.parent.mkdir(exist_ok=True)
+        with open(tasks_file, "a", encoding="utf-8") as f:
+            f.write(json.dumps(entry) + "\n")
+        log.info(f"Auto-task created: {entry['task']}")
+    except Exception as e:
+        log.debug(f"Auto-task write failed: {e}")
+
+
+# ══════════════════════════════════════════════════════════════
 # PIPELINE ORCHESTRATOR (testable independently)
 # ══════════════════════════════════════════════════════════════
 
@@ -623,12 +701,46 @@ def process_message(message: dict, thread_messages: list, registry: dict, state:
                 state["drafts_this_hour"].append(datetime.now().isoformat())
         else:
             log.warning("Rate limit reached — skipping draft creation")
+    else:
+        # Unknown sender — check if this is a genuine prospect inquiry
+        # If so, create a Dani intake draft + save prospect stub
+        try:
+            from thunderbird_guest_intake import (
+                is_intake_candidate,
+                build_prospect_intake_draft,
+                parse_intake_response,
+                save_intake_data,
+            )
+            if is_intake_candidate(classification):
+                intake_body = build_prospect_intake_draft(classification)
+                # Save intake data (parse what we can from their first message)
+                parsed = parse_intake_response(classification.get("body_full", ""))
+                save_intake_data(
+                    sender_email=classification.get("sender_email", ""),
+                    sender_name=classification.get("sender_name", "Unknown"),
+                    raw_body=classification.get("body_full", ""),
+                    parsed_fields=parsed,
+                    intake_type="prospect",
+                )
+                # Create intake draft — still goes to Commander review
+                draft_id = _create_gmail_draft(
+                    classification, intake_body
+                )
+                if draft_id:
+                    log.info(
+                        f"Prospect intake draft created for {classification.get('sender_email')}"
+                    )
+        except Exception as _ie:
+            log.debug(f"Guest intake skipped: {_ie}")
 
     # Alert Commander (always, for every inbound)
     alert_commander(classification, draft_id)
 
     # Persistent log — every client contact
     _log_client_email_interaction(classification, draft_id)
+
+    # Auto-task: extract action items, write to logs/auto_tasks.jsonl
+    _auto_create_task(classification, draft_id)
 
     return True
 

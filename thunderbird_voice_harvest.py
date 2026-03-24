@@ -479,6 +479,9 @@ def get_voice_examples(context: str, tier: str = "client", n: int = 5) -> list[d
     """Return n voice examples most relevant to context and tier.
 
     Called by _call_via_anthropic_direct at draft time.
+    Tuned 2026-03-23: recency boost, min score 3, diversity across tiers,
+    body capped at 600 chars to keep few-shot block token-efficient.
+
     context: the draft prompt (used for keyword matching)
     tier: "client" | "vendor" | "internal" | "family" | "personal"
     n: number of examples to return (default 5)
@@ -490,22 +493,54 @@ def get_voice_examples(context: str, tier: str = "client", n: int = 5) -> list[d
     except Exception:
         return []
 
+    from datetime import datetime, timedelta, timezone
     examples = data.get("examples", [])
-    # Filter to requested tier first, fall back to all
-    tier_examples = [e for e in examples if e.get("tier") == tier]
-    if len(tier_examples) < n:
-        tier_examples = examples  # fall back to all tiers
 
-    # Keyword match: score by how many words from context appear in example
+    # Quality gate — raise minimum voice score from 2 → 3
+    examples = [e for e in examples if e.get("score", 0) >= 3]
+
+    # Keyword match: score by overlap with context
     ctx_words = set(re.findall(r"\b\w{4,}\b", context.lower()))
+    now = datetime.now(tz=timezone.utc)
 
     def relevance(ex: dict) -> float:
         body_words = set(re.findall(r"\b\w{4,}\b", (ex.get("body", "") + ex.get("subject", "")).lower()))
         overlap = len(ctx_words & body_words)
-        return ex.get("score", 0) * 0.6 + overlap * 0.4
+        # Recency boost: emails from last 90 days get +1.5
+        try:
+            from email.utils import parsedate_to_datetime
+            sent = parsedate_to_datetime(ex.get("date", ""))
+            sent_utc = sent.astimezone(timezone.utc)
+            age_days = (now - sent_utc).days
+            recency = 1.5 if age_days <= 90 else (0.75 if age_days <= 365 else 0.0)
+        except Exception:
+            recency = 0.0
+        # Voice score 50%, context overlap 30%, recency 20%
+        return ex.get("score", 0) * 0.5 + overlap * 0.3 + recency * 0.2
 
-    scored = sorted(tier_examples, key=relevance, reverse=True)
-    return scored[:n]
+    # Primary tier
+    tier_pool = [e for e in examples if e.get("tier") == tier]
+    if len(tier_pool) < n:
+        tier_pool = examples  # widen to all tiers
+
+    scored = sorted(tier_pool, key=relevance, reverse=True)
+
+    # Diversity: ensure at most 3 from same tier in final n
+    selected, tier_counts = [], {}
+    for ex in scored:
+        t = ex.get("tier", "other")
+        if tier_counts.get(t, 0) >= 3:
+            continue
+        # Cap body at 600 chars — keeps few-shot block token-efficient
+        ex_trimmed = dict(ex)
+        if len(ex_trimmed.get("body", "")) > 600:
+            ex_trimmed["body"] = ex_trimmed["body"][:597] + "..."
+        selected.append(ex_trimmed)
+        tier_counts[t] = tier_counts.get(t, 0) + 1
+        if len(selected) >= n:
+            break
+
+    return selected
 
 
 def format_few_shot_block(examples: list[dict]) -> str:
