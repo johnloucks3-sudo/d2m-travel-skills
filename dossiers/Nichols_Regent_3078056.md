@@ -20,16 +20,17 @@ relationship: client
 
 ### STATUS: ACTIVE — Final Payment Apr 1, 2026 ($14,986) | Suite 939, Deck 9 | **CC: NOT YET RECEIVED**
 
-### RSSC PORTAL DATA (Scraped Mar 12, 2026)
+### RSSC PORTAL DATA (Scraped Mar 24, 2026)
 - **Total Booking Amount:** $18,896.00
-- **Paid to Date:** $3,910.00
-- **Balance Due:** $14,986.00 (Apr 1, 2026)
+- **Paid to Date:** $3,910.00 (deposit Oct 1, 2025)
+- **Balance Due:** $14,986.00 — **DUE APR 1, 2026**
 - **Guest Registration:** Larry Nichols COMPLETE, Heidi Nichols COMPLETE
+- **Shipboard Credits:** None
 - **Deposit Received:** Oct 1, 2025
-- **Excursions open since:** Jan 31, 2026
+- **Shore Excursions Booked:** Jan 31, 2026 ✅
 - **Dining reservations open:** May 31, 2026 (8pm ET)
 - **Culinary Arts Kitchen Classes open:** May 1, 2026 (8pm ET)
-- **Online Check-in:** Aug 8, 2026
+- **Online Check-in opens:** Aug 8, 2026
 
 ### KEY DATES
 | Date | Milestone |
@@ -130,19 +131,19 @@ relationship: client
 
 **Coverage: ~83%** | **Critical Gaps:** Insurance clarity, passport verification, final payment, 3 of 4 seat legs unassigned
 
-### SHORE EXCURSIONS (from RSSC Portal — Mar 12, 2026)
-All included (Regent Choice — $0.00). Both guests on all excursions.
+### SHORE EXCURSIONS (Confirmed RSSC Portal — Mar 24, 2026)
+All included (Regent Choice — $0.00). Both Larry & Heidi confirmed on all excursions.
 
-| Port | Excursion | Date | Time |
-|------|-----------|------|------|
-| Stockholm (2 days) | Highlights of Stockholm & Vasa Museum | Aug 30 | 09:00 |
-| Berlin/Warnemunde (2 days) | SG-The Berlin Experience | Sep 01 | 07:30 |
-| Berlin/Warnemunde | Amazing Rostock | Sep 02 | 09:00 |
-| Berlin/Warnemunde | Medieval Flavors of Rostock | Sep 02 | 02:30 |
-| Copenhagen (2 days) | A Tour of Two Kingdoms - Denmark to Sweden | Sep 03 | 08:45 |
-| Copenhagen | Tivoli Gardens & Canal Cruise | Sep 04 | 10:15 |
-| Kristiansand | *None selected* | — | — |
-| Oslo (2 days) | Panoramic Oslo | Sep 07 | 09:15 |
+| Port | Excursion | Date | Time | Status |
+|------|-----------|------|------|--------|
+| Stockholm | Highlights of Stockholm & Vasa Museum | Aug 30 | 09:00 | ✅ |
+| Berlin/Warnemunde | SG-The Berlin Experience | Sep 01 | 07:30 | ✅ |
+| Berlin/Warnemunde | Amazing Rostock | Sep 02 | 09:00 | ✅ |
+| Berlin/Warnemunde | Medieval Flavors of Rostock | Sep 02 | 14:30 | ✅ |
+| Copenhagen | A Tour of Two Kingdoms - Denmark to Sweden | Sep 03 | 08:45 | ✅ |
+| Copenhagen | Tivoli Gardens & Canal Cruise | Sep 04 | 10:15 | ✅ |
+| Kristiansand | None selected | — | — | — |
+| Oslo | Panoramic Oslo | Sep 07 | 09:15 | ✅ |
 
 ---
 

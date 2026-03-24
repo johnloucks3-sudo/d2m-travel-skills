@@ -27,16 +27,17 @@ relationship: client
 - **Subject:** Your AI Travel Team — What We Built for Your Scandinavia Voyage
 - **Awaiting:** Commander send authorization
 
-### RSSC PORTAL DATA (Scraped Mar 12, 2026 | Updated Mar 20, 2026)
+### RSSC PORTAL DATA (Scraped Mar 24, 2026)
 - **Total Booking Amount:** $19,236.00
-- **Paid to Date:** $3,750.00 (deposit — Sep 15, 2025)
+- **Paid to Date:** $3,750.00 (deposit Sep 15, 2025)
 - **Balance Due:** $15,486.00 — **DUE APR 1, 2026**
 - **Guest Registration:** John Furlow COMPLETE, **Melissa Furlow COMPLETE** ✓ (confirmed Mar 18, 2026)
+- **Shipboard Credits:** None
 - **Deposit Received:** Sep 15, 2025
-- **Excursions open since:** Jan 31, 2026
+- **Shore Excursions Booked:** Jan 31, 2026 ✅
 - **Dining reservations open:** May 31, 2026 (8pm ET)
 - **Culinary Arts Kitchen Classes open:** May 1, 2026 (8pm ET)
-- **Online Check-in:** Aug 8, 2026
+- **Online Check-in opens:** Aug 8, 2026
 
 **✓ RESOLVED: Both guests fully registered in Regent portal (confirmed Mar 18)**
 **⚠️ OPEN: Travel insurance — not booked. COS to track; do not lead with in client-facing comms.**
@@ -130,18 +131,18 @@ relationship: client
 
 **Coverage: ~90%** | **Critical Gaps:** Insurance (tracking only), outbound seat assignments (BB4X94 — HEL→ARN unassigned)
 
-### SHORE EXCURSIONS (from RSSC Portal — Mar 12, 2026)
-All included (Regent Choice — $0.00). Both guests on all excursions.
+### SHORE EXCURSIONS (Confirmed RSSC Portal — Mar 24, 2026)
+All included (Regent Choice — $0.00). Both John & Missy confirmed on all excursions.
 
-| Port | Excursion | Date | Time |
-|------|-----------|------|------|
-| Stockholm (2 days) | Highlights of Stockholm & Vasa Museum | Aug 30 | 09:00 |
-| Berlin/Warnemunde (2 days) | SG-The Berlin Experience | Sep 01 | 07:30 |
-| Berlin/Warnemunde | Amazing Rostock | Sep 02 | 09:00 |
-| Copenhagen (2 days) | A Tour of Two Kingdoms - Denmark to Sweden | Sep 03 | 08:45 |
-| Copenhagen | Tivoli Gardens & Canal Cruise | Sep 04 | 08:45 |
-| Kristiansand | Explore Kristiansand on Foot | Sep 06 | 10:00 |
-| Oslo (2 days) | Hadeland Glass Works & Fram Museum | Sep 07 | 09:30 |
+| Port | Excursion | Date | Time | Status |
+|------|-----------|------|------|--------|
+| Stockholm (2 days) | Highlights of Stockholm & Vasa Museum | Aug 30 | 09:00 | ✅ |
+| Berlin/Warnemunde | SG-The Berlin Experience | Sep 01 | 07:30 | ✅ |
+| Berlin/Warnemunde | Amazing Rostock | Sep 02 | 09:00 | ✅ |
+| Copenhagen | A Tour of Two Kingdoms - Denmark to Sweden | Sep 03 | 08:45 | ✅ |
+| Copenhagen (Day 2) | **NONE BOOKED** — dossier previously had Tivoli Gardens & Canal Cruise Sep 04 08:45 but NOT showing in portal Mar 24 | Sep 04 | — | ⚠️ VERIFY |
+| Kristiansand | Explore Kristiansand on Foot | Sep 06 | 10:00 | ✅ |
+| Oslo | Hadeland Glass Works & Fram Museum | Sep 07 | 09:30 | ✅ |
 
 ---
 

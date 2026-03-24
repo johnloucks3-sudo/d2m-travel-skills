@@ -20,14 +20,17 @@ relationship: client
 
 ### STATUS: ACTIVE — ⚠️ PAYMENT AUTHORIZED | Suite 1212, Deck 12 | **CC on portal ✓ | Al authorized cruise + hotel + transport charges Mar 20 | Insurance DEFERRED**
 
-### RSSC PORTAL DATA (Scraped Mar 12, 2026)
+### RSSC PORTAL DATA (Scraped Mar 24, 2026)
 - **Guest Registration:** Al Ely COMPLETE, Amy Darrow COMPLETE
-- **Shipboard Credits:** $1,100 total / $574 remaining
+- **Shipboard Credits:** $1,100 total / **$574 remaining** (Regent Choice excursions SBC-eligible)
+- **Total Booking Amount:** $20,640.00
+- **Paid to Date:** $4,000.00 (deposit Nov 18, 2025)
+- **Balance Due:** $16,640.00 — **DUE APR 1, 2026**
 - **Deposit Received:** Nov 18, 2025
-- **Excursions open since:** Jan 31, 2026
+- **Shore Excursions Booked:** Jan 31, 2026 ✅
 - **Dining reservations open:** May 31, 2026 (8pm ET)
 - **Culinary Arts Kitchen Classes open:** May 1, 2026 (8pm ET)
-- **Online Check-in:** Aug 8, 2026
+- **Online Check-in opens:** Aug 8, 2026
 
 ### KEY DATES
 | Date | Milestone |
@@ -126,18 +129,18 @@ relationship: client
 
 **Coverage: ~90%** | **Critical Gaps:** Insurance (deferred), passport verification (Al self-reported upload — verify), HEL→ARN seats
 
-### SHORE EXCURSIONS (from RSSC Portal — Mar 12, 2026)
-All included (Regent Choice — $0.00). Both guests on all excursions.
+### SHORE EXCURSIONS (Confirmed RSSC Portal — Mar 24, 2026)
+All included (Regent Choice — $0.00). Both Al & Amy confirmed on all excursions. SBC-eligible.
 
-| Port | Excursion | Date | Time |
-|------|-----------|------|------|
-| Stockholm (2 days) | GG-Swedish Nature Experience | Aug 30 | 10:30 |
-| Berlin/Warnemunde (2 days) | Amazing Rostock | Sep 01 | 09:00 |
-| Berlin/Warnemunde | Medieval Flavors of Rostock | Sep 02 | 02:30 |
-| Copenhagen (2 days) | A Tour of Two Kingdoms - Denmark to Sweden | Sep 04 | 09:00 |
-| Copenhagen | Christiansborg Palace & Tivoli Gardens | Sep 03 | 01:30 |
-| Kristiansand | *None selected* | — | — |
-| Oslo (2 days) | Oslo During World War II | Sep 07 | 09:00 |
+| Port | Excursion | Date | Time | Status |
+|------|-----------|------|------|--------|
+| Stockholm (2 days) | GG-Swedish Nature Experience | Aug 30 | 10:30 | ✅ |
+| Berlin/Warnemunde | Amazing Rostock | Sep 01 | 09:00 | ✅ |
+| Berlin/Warnemunde | Medieval Flavors of Rostock | Sep 02 | 14:30 | ✅ |
+| Copenhagen | Christiansborg Palace & Tivoli Gardens | Sep 03 | 13:30 | ✅ |
+| Copenhagen | A Tour of Two Kingdoms - Denmark to Sweden | Sep 04 | 09:00 | ✅ |
+| Kristiansand | None selected | — | — | — |
+| Oslo | Oslo During World War II | Sep 07 | 09:00 | ✅ |
 
 ---
 
