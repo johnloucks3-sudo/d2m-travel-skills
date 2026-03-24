@@ -19,9 +19,12 @@ ACTIVE_DOSSIERS = [
     "Loucks_Personal_SilverNova_Japan.md",
     "DOSSIER_SilverNova_Pacific_Apr2026.md",
     "Furlow_Regent_3071222.md",
+    "Ely_Darrow_Regent_3096289.md",
+    "Nichols_Regent_3078056.md",
     "DOSSIER_Grandeur_Scandinavia_Aug2026.md",
     "DOSSIER_VikingMars_PanamaCanal_Dec2026.md",
     "Kuklinski_Viking_Panama.md",
+    "Morton_Joshua_Erica_Viking_Panama.md",
     "Lyons_Nancy_Ken.md",
 ]
 

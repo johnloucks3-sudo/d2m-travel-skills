@@ -1,3 +1,18 @@
+---
+client: Nichols
+full_name: Larry & Heidi Nichols
+cruise_line: Regent
+ship: Grandeur
+voyage: Scandinavia
+booking: "3078056"
+departure: 2026-08-29
+return: 2026-09-08
+fpd: 2026-04-01
+fpd_amount: 14986
+status: active
+relationship: client
+---
+
 # CLIENT DOSSIER — Larry & Heidi Nichols
 ## Regent SS Grandeur | Booking 3078056 | Scandinavia Aug 29 – Sep 8, 2026
 

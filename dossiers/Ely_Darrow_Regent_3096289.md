@@ -1,3 +1,18 @@
+---
+client: Ely
+full_name: Al Ely & Amy Darrow
+cruise_line: Regent
+ship: Grandeur
+voyage: Scandinavia
+booking: "3096289"
+departure: 2026-08-29
+return: 2026-09-08
+fpd: 2026-04-01
+fpd_amount: 16640
+status: active
+relationship: client
+---
+
 # CLIENT DOSSIER — Al Ely & Amy Darrow
 ## Regent SS Grandeur | Booking 3096289 | Scandinavia Aug 29 – Sep 8, 2026
 
