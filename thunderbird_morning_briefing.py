@@ -19,6 +19,7 @@ import json
 import hashlib
 import logging
 import sys
+import os
 import base64
 import argparse
 import urllib.parse
@@ -407,6 +408,90 @@ def build_executive_summary(
 
 
 # ---------------------------------------------------------------------------
+# TELEGRAM DIGEST SENDER
+# ---------------------------------------------------------------------------
+
+def send_telegram_digest(rss_direct: list, anchor_report: dict, summary: dict):
+    """Send a condensed digest to Telegram C2 (@D2MC2C_bot)."""
+    import urllib.request as _urlreq
+
+    BOT_TOKEN = os.environ.get("D2M_TELEGRAM_TOKEN", "***REMOVED-SECRET***")
+    CHAT_ID   = os.environ.get("D2M_TELEGRAM_CHAT_ID", "@D2MC2C_bot")
+    MAX_CHUNK = 3800
+
+    def _tg_send(text: str):
+        url  = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
+        data = json.dumps({"chat_id": CHAT_ID, "text": text,
+                           "parse_mode": "Markdown",
+                           "disable_web_page_preview": True}).encode()
+        req  = _urlreq.Request(url, data=data,
+                                headers={"Content-Type": "application/json"})
+        try:
+            _urlreq.urlopen(req, timeout=15)
+        except Exception as e:
+            logger.warning(f"Telegram send failed: {e}")
+
+    def _chunk_send(text: str):
+        lines, buf = text.split("\n"), ""
+        for line in lines:
+            if len(buf) + len(line) + 1 > MAX_CHUNK:
+                if buf.strip():
+                    _tg_send(buf)
+                buf = line + "\n"
+            else:
+                buf += line + "\n"
+        if buf.strip():
+            _tg_send(buf)
+
+    today = datetime.now().strftime("%a %b %d")
+    alert_emoji = {"RED": "🔴", "GOLD": "🟡", "GREEN": "🟢"}.get(summary["alert_level"], "")
+    header = (
+        f"*THUNDERBIRD BRIEF — {today}*\n"
+        f"{alert_emoji} {summary['alert_text']}\n"
+        f"_{summary['total_rss_direct']} live intel items across 18 sources_\n"
+        f"{'─' * 30}"
+    )
+    _tg_send(header)
+
+    # Action items
+    urgent = anchor_report.get("overdue", []) + anchor_report.get("due_today", [])
+    if urgent:
+        lines = ["*⚠️ ACTION ITEMS*"]
+        for item in urgent[:5]:
+            lines.append(f"• {item.get('label','')} — _{item.get('booking','')}_")
+        _chunk_send("\n".join(lines))
+
+    # Top headlines by category
+    cat_order = ["War/Geopolitics", "Politics", "Cruise", "Airline", "Maritime", "Markets", "Travel"]
+    by_cat: dict[str, list] = {}
+    for art in (rss_direct or []):
+        by_cat.setdefault(art.get("category", "Other"), []).append(art)
+
+    cat_icons = {
+        "War/Geopolitics": "🌍", "Politics": "🏛", "Cruise": "🚢",
+        "Airline": "✈️", "Maritime": "⚓", "Markets": "📈", "Travel": "🧳",
+    }
+    for cat in cat_order:
+        items = by_cat.get(cat, [])
+        if not items:
+            continue
+        icon = cat_icons.get(cat, "•")
+        lines = [f"*{icon} {cat.upper()}*"]
+        for art in items[:4]:
+            title = art.get("title", "")[:90]
+            url   = art.get("url", "")
+            src   = art.get("source", "")
+            if url:
+                lines.append(f"• [{title}]({url}) _{src}_")
+            else:
+                lines.append(f"• {title} _{src}_")
+        _chunk_send("\n".join(lines))
+
+    _tg_send("_End of brief — full detail in inbox_")
+    logger.info(f"Telegram digest sent to {CHAT_ID}")
+
+
+# ---------------------------------------------------------------------------
 # HTML TEMPLATE
 # ---------------------------------------------------------------------------
 
@@ -451,6 +536,42 @@ def _parse_commander_content(content: str) -> list[dict]:
     return sources
 
 
+def _render_card_section(icon: str, title: str, card_id: str,
+                          bullets: list[str], expanded_html: str,
+                          accent: str = "#c9a84c") -> str:
+    """Render a single collapsible intel card."""
+    bullets_html = "".join(
+        f'<li style="margin:3px 0;font-size:12px;color:#a0aec0;">{b}</li>'
+        for b in bullets[:4]
+    )
+    return f"""
+<div style="margin:0 0 10px 0;border-radius:10px;overflow:hidden;
+            border:1px solid rgba(201,168,76,0.18);background:#111c2e;">
+  <!-- Card header — always visible -->
+  <div onclick="toggle('{card_id}')"
+       style="display:flex;align-items:center;gap:12px;padding:14px 18px;
+              cursor:pointer;background:#152540;border-left:4px solid {accent};
+              user-select:none;">
+    <span style="font-size:20px;">{icon}</span>
+    <span style="font-size:13px;font-weight:700;text-transform:uppercase;
+                 letter-spacing:1.5px;color:#c9a84c;flex:1;">{title}</span>
+    <span id="arr-{card_id}"
+          style="font-size:18px;color:#c9a84c;transition:transform .25s;">▸</span>
+  </div>
+  <!-- Collapsed bullet summary -->
+  <div id="sum-{card_id}" style="padding:8px 18px 10px 54px;background:#0f1a2e;">
+    <ul style="margin:0;padding:0;list-style:disc;">{bullets_html}</ul>
+  </div>
+  <!-- Expanded full content (hidden by default) -->
+  <div id="exp-{card_id}"
+       style="display:none;padding:16px 18px;background:#0d1525;
+              border-top:1px solid rgba(201,168,76,0.12);">
+    {expanded_html}
+  </div>
+</div>
+"""
+
+
 def render_briefing_html(
     summary: dict,
     commander_log: list,
@@ -465,21 +586,86 @@ def render_briefing_html(
     intel_crew_report: dict = None,
     temporal_intel: str = "",
 ) -> str:
-    """Render the full briefing as branded HTML email."""
+    """Render the full briefing as branded expandable-card HTML email."""
 
     logo_uri = _img_base64(LOGO_FILE)
-    headshot_uri = _img_base64(HEADSHOT_FILE)
     today = datetime.now()
-
-    # Alert color mapping
-    alert_colors = {
-        "RED": ("#ff4444", "#2a0a0a", "#ff6666"),
-        "GOLD": ("#c9a84c", "#1a1400", "#e8c97a"),
-        "GREEN": ("#44aa44", "#0a1a0a", "#66cc66"),
-    }
-    ac = alert_colors.get(summary["alert_level"], alert_colors["GREEN"])
-
+    alert_emoji = {"RED": "🔴", "GOLD": "🟡", "GREEN": "🟢"}.get(summary["alert_level"], "")
     briefing_type = "WEEKLY INTELLIGENCE DIGEST" if is_weekly else "MORNING BRIEFING"
+
+    # ── Group RSS by category ──
+    by_cat: dict[str, list] = {}
+    for art in (rss_direct or []):
+        by_cat.setdefault(art.get("category", "Other"), []).append(art)
+
+    cat_order = ["War/Geopolitics", "Politics", "Cruise", "Airline",
+                 "Maritime", "Markets", "Travel", "Other"]
+    cat_icons = {
+        "War/Geopolitics": "🌍", "Politics": "🏛️", "Cruise": "🚢",
+        "Airline": "✈️", "Maritime": "⚓", "Markets": "📈",
+        "Travel": "🧳", "Other": "📰",
+    }
+
+    # ── Build expanded HTML per card ──
+    def _story_list(items: list, max_items: int = 15) -> str:
+        out = []
+        for art in items[:max_items]:
+            title = art.get("title", "")
+            url   = art.get("url", "")
+            src   = art.get("source", "")
+            pub   = art.get("published", "")[:16]
+            summ  = art.get("summary", "")[:300]
+            rel   = art.get("relevance_score", 1)
+            border = "border-left:3px solid #c9a84c;padding-left:10px;" if rel >= 3 else ""
+            link  = f'<a href="{url}" style="color:#7eb8ff;text-decoration:none;">{title}</a>' if url else f'<span style="color:#c8d0dc;">{title}</span>'
+            summ_html = (f'<div style="font-size:12px;color:#8a9ab5;margin-top:3px;line-height:1.5;">{summ}</div>'
+                         if summ else "")
+            out.append(
+                f'<div style="padding:6px 0 6px 0;{border}border-bottom:1px solid rgba(255,255,255,0.04);">'
+                f'{link}'
+                f'<div style="font-size:11px;color:#4a5a75;margin-top:2px;">{src} // {pub}</div>'
+                f'{summ_html}'
+                f'</div>'
+            )
+        return "\n".join(out)
+
+    def _anchor_expanded() -> str:
+        if completed_actions is None:
+            ca = set()
+        else:
+            ca = completed_actions
+        items_html = []
+        for bucket in ["overdue", "due_today", "due_this_week"]:
+            for item in anchor_report.get(bucket, []):
+                bkey  = item.get("booking", "").strip()
+                label = item.get("label", "").strip()
+                if (bkey, label) in ca:
+                    continue
+                cat   = item.get("category", "")
+                dt    = item.get("date", "")
+                color = "#ff4444" if bucket == "overdue" else ("#ff8800" if bucket == "due_today" else "#c9a84c")
+                items_html.append(
+                    f'<div style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);">'
+                    f'<span style="color:{color};font-weight:700;">{dt}</span> — '
+                    f'<span style="color:#c8d0dc;">{label}</span> '
+                    f'<span style="color:#6b7c99;font-size:11px;">({bkey}) [{cat}]</span>'
+                    f'</div>'
+                )
+        return "\n".join(items_html) if items_html else '<p style="color:#6b7c99;">No active items.</p>'
+
+    # ── Anchor bullets ──
+    anchor_bullets = []
+    for bucket in ["overdue", "due_today", "due_this_week"]:
+        for item in anchor_report.get(bucket, [])[:2]:
+            prefix = "🔴" if bucket == "overdue" else ("🟠" if bucket == "due_today" else "🟡")
+            anchor_bullets.append(f'{prefix} {item.get("label","")} — {item.get("booking","")}')
+
+    # ── Intel Crew summary ──
+    crew_expanded = ""
+    if intel_crew_report:
+        cos = intel_crew_report.get("cos_review", "")
+        if cos:
+            crew_expanded = f'<div style="font-size:13px;color:#c8d0dc;line-height:1.7;">{cos.replace(chr(10),"<br>")}</div>'
 
     html = f"""<!DOCTYPE html>
 <html>
@@ -487,954 +673,99 @@ def render_briefing_html(
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
-  * {{ margin: 0; padding: 0; box-sizing: border-box; }}
-
-  body {{
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: #080d14;
-    color: #e0e6ed;
-    line-height: 1.6;
-  }}
-
-  .container {{
-    max-width: 700px;
-    margin: 0 auto;
-    background: #0d1b2e;
-  }}
-
-  /* HEADER */
-  .header {{
-    background: linear-gradient(135deg, #0d1b2e 0%, #152540 50%, #1e3358 100%);
-    padding: 32px 28px 20px;
-    border-bottom: 3px solid #c9a84c;
-    position: relative;
-    overflow: hidden;
-  }}
-
-  .header::before {{
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -20%;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
-    border-radius: 50%;
-  }}
-
-  .header-top {{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 16px;
-  }}
-
-  .logo-block {{
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }}
-
-  .logo-block img {{
-    height: 50px;
-    border-radius: 6px;
-  }}
-
-  .brand-text {{
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: #c9a84c;
-    font-weight: 600;
-  }}
-
-  .briefing-title {{
-    font-size: 28px;
-    font-weight: 700;
-    color: #ffffff;
-    letter-spacing: -0.5px;
-    margin: 8px 0 4px;
-  }}
-
-  .briefing-date {{
-    font-size: 14px;
-    color: #8a9ab5;
-    font-weight: 400;
-  }}
-
-  .briefing-tag {{
-    display: inline-block;
-    background: rgba(201,168,76,0.15);
-    color: #e8c97a;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    padding: 4px 12px;
-    border-radius: 20px;
-    border: 1px solid rgba(201,168,76,0.3);
-    margin-top: 4px;
-  }}
-
-  /* ALERT BANNER */
-  .alert-banner {{
-    background: {ac[1]};
-    border-left: 4px solid {ac[0]};
-    padding: 16px 24px;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }}
-
-  .alert-icon {{
-    font-size: 24px;
-    color: {ac[0]};
-  }}
-
-  .alert-text {{
-    font-size: 14px;
-    font-weight: 600;
-    color: {ac[2]};
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }}
-
-  /* STATS BAR */
-  .stats-bar {{
-    display: flex;
-    background: #152540;
-    border-bottom: 1px solid rgba(201,168,76,0.2);
-  }}
-
-  .stat-item {{
-    flex: 1;
-    text-align: center;
-    padding: 14px 8px;
-    border-right: 1px solid rgba(201,168,76,0.1);
-  }}
-
-  .stat-item:last-child {{ border-right: none; }}
-
-  .stat-number {{
-    font-size: 22px;
-    font-weight: 700;
-    color: #e8c97a;
-    display: block;
-  }}
-
-  .stat-label {{
-    font-size: 9px;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: #6b7c99;
-    margin-top: 2px;
-  }}
-
-  /* SECTIONS */
-  .section {{
-    padding: 24px 28px;
-    border-bottom: 1px solid rgba(201,168,76,0.12);
-  }}
-
-  .section-header {{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 16px;
-  }}
-
-  .section-icon {{
-    width: 32px;
-    height: 32px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    flex-shrink: 0;
-  }}
-
-  .section-title {{
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #c9a84c;
-  }}
-
-  .section-count {{
-    font-size: 11px;
-    color: #6b7c99;
-    margin-left: auto;
-  }}
-
-  /* ANCHOR DATE CARDS */
-  .anchor-card {{
-    background: #152540;
-    border-radius: 8px;
-    padding: 12px 16px;
-    margin-bottom: 8px;
-    border-left: 3px solid #c9a84c;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }}
-
-  .anchor-card.overdue {{
-    border-left-color: #ff4444;
-    background: #1a0f0f;
-  }}
-
-  .anchor-card.today {{
-    border-left-color: #ff8800;
-    background: #1a1508;
-  }}
-
-  .anchor-date {{
-    font-size: 12px;
-    font-weight: 600;
-    color: #e8c97a;
-    white-space: nowrap;
-    min-width: 80px;
-  }}
-
-  .anchor-label {{
-    font-size: 13px;
-    color: #c8d0dc;
-  }}
-
-  .anchor-booking {{
-    font-size: 11px;
-    color: #6b7c99;
-    display: block;
-  }}
-
-  .anchor-category {{
-    font-size: 9px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 2px 8px;
-    border-radius: 10px;
-    margin-left: auto;
-    white-space: nowrap;
-  }}
-
-  .cat-payment {{ background: rgba(255,68,68,0.2); color: #ff6666; }}
-  .cat-milestone {{ background: rgba(201,168,76,0.2); color: #e8c97a; }}
-  .cat-documents {{ background: rgba(68,170,255,0.2); color: #66aaff; }}
-  .cat-insurance {{ background: rgba(170,68,255,0.2); color: #aa88ff; }}
-  .cat-client_care {{ background: rgba(68,255,170,0.2); color: #66ffaa; }}
-  .cat-deliverable {{ background: rgba(255,170,68,0.2); color: #ffaa66; }}
-  .cat-operations {{ background: rgba(255,255,68,0.2); color: #dddd66; }}
-  .cat-business {{ background: rgba(68,200,200,0.2); color: #66cccc; }}
-  .cat-supplier {{ background: rgba(200,100,100,0.2); color: #dd8888; }}
-
-  /* INTEL SOURCE BLOCKS */
-  .source-block {{
-    margin-bottom: 16px;
-  }}
-
-  .source-name {{
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: #8a9ab5;
-    padding-bottom: 6px;
-    border-bottom: 1px solid rgba(138,154,181,0.2);
-    margin-bottom: 8px;
-  }}
-
-  .intel-item {{
-    padding: 6px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.04);
-  }}
-
-  .intel-item:last-child {{ border-bottom: none; }}
-
-  .intel-item a {{
-    color: #c8d0dc;
-    text-decoration: none;
-    font-size: 13px;
-    line-height: 1.5;
-    transition: color 0.2s;
-  }}
-
-  .intel-item a:hover {{ color: #e8c97a; }}
-
-  .intel-meta {{
-    font-size: 10px;
-    color: #4a5a75;
-    margin-top: 2px;
-  }}
-
-  /* PRICING TABLE */
-  .price-table {{
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 8px;
-  }}
-
-  .price-table th {{
-    text-align: left;
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #6b7c99;
-    padding: 8px 10px;
-    border-bottom: 1px solid rgba(201,168,76,0.2);
-  }}
-
-  .price-table td {{
-    font-size: 13px;
-    padding: 10px;
-    border-bottom: 1px solid rgba(255,255,255,0.04);
-    color: #c8d0dc;
-  }}
-
-  .price-amount {{
-    color: #e8c97a;
-    font-weight: 600;
-  }}
-
-  .price-change-up {{ color: #ff6666; }}
-  .price-change-down {{ color: #66ff66; }}
-
-  /* TECH NEWS */
-  .tech-item {{
-    display: flex;
-    gap: 10px;
-    padding: 8px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.04);
-    align-items: baseline;
-  }}
-
-  .tech-badge {{
-    font-size: 8px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 2px 8px;
-    border-radius: 10px;
-    background: rgba(100,100,255,0.15);
-    color: #8888ff;
-    white-space: nowrap;
-  }}
-
-  .tech-title {{
-    font-size: 13px;
-    color: #c8d0dc;
-  }}
-
-  .tech-source {{
-    font-size: 10px;
-    color: #4a5a75;
-  }}
-
-  /* FOOTER */
-  .footer {{
-    background: #080d14;
-    padding: 24px 28px;
-    text-align: center;
-  }}
-
-  .footer-brand {{
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: #4a5a75;
-    margin-bottom: 8px;
-  }}
-
-  .footer-line {{
-    font-size: 11px;
-    color: #3a4a65;
-    font-style: italic;
-  }}
-
-  .divider {{
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.3), transparent);
-    margin: 0 28px;
-  }}
-
-  .new-badge {{
-    display: inline-block;
-    font-size: 8px;
-    font-weight: 700;
-    background: rgba(68,255,68,0.2);
-    color: #66ff66;
-    padding: 1px 6px;
-    border-radius: 8px;
-    margin-left: 6px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    vertical-align: middle;
-  }}
+  * {{ margin:0; padding:0; box-sizing:border-box; }}
+  body {{ font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif;
+          background:#080d14; color:#e0e6ed; line-height:1.6; }}
+  .wrap {{ max-width:700px; margin:0 auto; background:#0d1b2e; }}
+  .hdr  {{ background:#0d1b2e; padding:28px 24px 18px;
+           border-bottom:3px solid #c9a84c; }}
+  .stat-bar {{ display:flex; background:#152540;
+               border-bottom:1px solid rgba(201,168,76,0.2); }}
+  .stat {{ flex:1; text-align:center; padding:12px 6px;
+           border-right:1px solid rgba(201,168,76,0.1); }}
+  .stat:last-child {{ border-right:none; }}
+  .sn   {{ font-size:20px; font-weight:700; color:#e8c97a; display:block; }}
+  .sl   {{ font-size:9px; text-transform:uppercase; letter-spacing:1.5px; color:#6b7c99; }}
+  .cards {{ padding:16px; }}
+  a     {{ color:#7eb8ff; }}
 </style>
+<script>
+function toggle(id) {{
+  var s = document.getElementById('sum-'+id);
+  var e = document.getElementById('exp-'+id);
+  var a = document.getElementById('arr-'+id);
+  if (e.style.display === 'none') {{
+    e.style.display = 'block';
+    s.style.display = 'none';
+    a.style.transform = 'rotate(90deg)';
+  }} else {{
+    e.style.display = 'none';
+    s.style.display = 'block';
+    a.style.transform = 'rotate(0deg)';
+  }}
+}}
+</script>
 </head>
 <body>
-<div class="container">
-
-  <!-- HEADER -->
-  <div class="header">
-    <div class="header-top">
-      <div class="logo-block">
-        {"<img src='" + logo_uri + "' alt='D2M'>" if logo_uri else ""}
-        <div>
-          <div class="brand-text">Dreams2Memories Travel</div>
-          <div class="briefing-title">THUNDERBIRD {briefing_type}</div>
-          <div class="briefing-date">{summary['date_display']}</div>
-        </div>
-      </div>
-    </div>
-    <div class="briefing-tag">CLASSIFIED // COMMANDER EYES ONLY</div>
-  </div>
-
-  <!-- ALERT BANNER -->
-  <div class="alert-banner">
-    <span class="alert-icon">{summary['alert_icon']}</span>
-    <span class="alert-text">{summary['alert_text']}</span>
-  </div>
-
-  <!-- STATS BAR -->
-  <div class="stats-bar">
-    <div class="stat-item">
-      <span class="stat-number">{summary['overdue'] + summary['due_today']}</span>
-      <div class="stat-label">Action Items</div>
-    </div>
-    <div class="stat-item">
-      <span class="stat-number">{summary['due_week']}</span>
-      <div class="stat-label">This Week</div>
-    </div>
-    <div class="stat-item">
-      <span class="stat-number">{summary['total_commander']}</span>
-      <div class="stat-label">World Intel</div>
-    </div>
-    <div class="stat-item">
-      <span class="stat-number">{summary['total_intel']}</span>
-      <div class="stat-label">RSS Items</div>
-    </div>
-    <div class="stat-item">
-      <span class="stat-number">{summary.get('total_rss_direct', 0)}</span>
-      <div class="stat-label">Live Feeds</div>
-    </div>
-    <div class="stat-item">
-      <span class="stat-number">{summary['total_pricing']}</span>
-      <div class="stat-label">Fares Tracked</div>
+<div class="wrap">
+  <div class="hdr">
+    {"<img src='" + logo_uri + "' style='height:48px;margin-bottom:10px;display:block;'>" if logo_uri else ""}
+    <div style="font-size:10px;text-transform:uppercase;letter-spacing:3px;color:#c9a84c;">Dreams2Memories Travel</div>
+    <div style="font-size:26px;font-weight:700;color:#fff;margin:4px 0 2px;">THUNDERBIRD {briefing_type}</div>
+    <div style="font-size:13px;color:#8a9ab5;">{summary["date_display"]}</div>
+    <div style="margin-top:8px;display:inline-block;background:rgba(201,168,76,0.15);
+                color:#e8c97a;font-size:10px;font-weight:700;letter-spacing:2px;
+                padding:4px 12px;border-radius:20px;border:1px solid rgba(201,168,76,0.3);">
+      {alert_emoji} {summary["alert_text"]}
     </div>
   </div>
-"""
 
-    # ── RECONCILIATION BANNER ──
-    if summary.get("recon_line"):
-        recon_color = "#cc0000" if "mismatch" in summary["recon_line"] else ("#b8860b" if "missing" in summary["recon_line"] else "#2e7d32")
-        html += (
-            f'<div style="background:#fff8f0;border-left:4px solid {recon_color};'
-            f'padding:8px 16px;margin:8px 0 4px 0;font-family:Georgia,serif;'
-            f'font-size:13px;color:{recon_color};">'
-            f'<strong>&#9634; {summary["recon_line"]}</strong></div>\n'
-        )
-
-    # ── SECTION 1: ANCHOR DATES ──
-    if completed_actions is None:
-        completed_actions = set()
-    done_count = 0
-    anchor_items = []
-    for bucket, css_class in [("overdue", "overdue"), ("due_today", "today"), ("due_this_week", ""), ("due_next_week", "")]:
-        for item in anchor_report.get(bucket, []):
-            bkey = item.get("booking", "").strip()
-            label = item.get("label", "").strip()
-            if (bkey, label) in completed_actions:
-                done_count += 1
-                continue
-            anchor_items.append((item, css_class, bucket))
-
-    if anchor_items or done_count > 0:
-        done_badge = f' <span style="font-size:10px;color:#66ff66;margin-left:8px;">({done_count} completed)</span>' if done_count > 0 else ""
-        html += """
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon" style="background:rgba(255,136,0,0.15);">&#128197;</div>
-      <div class="section-title">Anchor Date Pipeline""" + done_badge + """</div>
-      <div class="section-count">""" + str(len(anchor_items)) + """ active</div>
-    </div>
-"""
-        for item, css_class, bucket in anchor_items:
-            cat = item.get("category", "")
-            cat_css = f"cat-{cat}" if cat else ""
-            booking_key = item.get("booking", "").strip()
-            anchor_label = item.get("label", "").strip()
-            booking_short = booking_key.replace("_", " ").split("|")[0].strip()
-            done_link = _mailto_done_link(booking_key, anchor_label)
-            snooze_link = _mailto_snooze_link(booking_key, anchor_label)
-            html += f"""
-    <div class="anchor-card {css_class}">
-      <div class="anchor-date">{item.get('date', '')}</div>
-      <div style="flex:1;">
-        <div class="anchor-label">{anchor_label}</div>
-        <span class="anchor-booking">{booking_short}</span>
-      </div>
-      <span class="anchor-category {cat_css}">{cat}</span>
-      <a href="{done_link}" style="display:inline-block;background:rgba(68,255,68,0.15);color:#66ff66;font-size:10px;font-weight:700;padding:4px 10px;border-radius:12px;text-decoration:none;margin-left:6px;border:1px solid rgba(68,255,68,0.3);" title="Mark Done">&#10004; DONE</a>
-      <a href="{snooze_link}" style="display:inline-block;background:rgba(255,170,68,0.15);color:#ffaa66;font-size:10px;font-weight:700;padding:4px 10px;border-radius:12px;text-decoration:none;margin-left:4px;border:1px solid rgba(255,170,68,0.3);" title="Snooze 7 days">&#128164; SNOOZE</a>
-    </div>
-"""
-        html += "  </div>\n  <div class='divider'></div>\n"
-
-    # ── SECTION 1b: TEMPORAL INTELLIGENCE ──
-    if temporal_intel:
-        html += """
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon" style="background:rgba(168,85,247,0.15);">&#128337;</div>
-      <div class="section-title">Temporal Intelligence</div>
-      <div class="section-count">preference shifts &amp; milestones</div>
-    </div>
-    <div style="font-size:13px;color:#c8d0dc;line-height:1.7;padding:8px 16px;">
-""" + temporal_intel + """
-    </div>
+  <div class="stat-bar">
+    <div class="stat"><span class="sn">{summary["overdue"] + summary["due_today"]}</span><div class="sl">Actions</div></div>
+    <div class="stat"><span class="sn">{summary["due_week"]}</span><div class="sl">This Week</div></div>
+    <div class="stat"><span class="sn">{len(rss_direct) if rss_direct else 0}</span><div class="sl">Live Intel</div></div>
+    <div class="stat"><span class="sn">{len(by_cat)}</span><div class="sl">Categories</div></div>
+    <div class="stat"><span class="sn">{summary["total_pricing"]}</span><div class="sl">Fares</div></div>
   </div>
-  <div class='divider'></div>
+
+  <div class="cards">
 """
 
-    # ── SECTION 2: WORLD INTELLIGENCE (Commander_Log) ──
-    if commander_log:
-        html += """
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon" style="background:rgba(68,170,255,0.15);">&#127758;</div>
-      <div class="section-title">World Intelligence</div>
-      <div class="section-count">""" + str(len(commander_log)) + """ dispatches</div>
-    </div>
-"""
-        # Show only new items (deduped), newest first
-        for entry in reversed(commander_log):
-            content = entry.get("content", "")
-            sources = _parse_commander_content(content)
-            ts = entry.get("timestamp", "")
+    # ── Anchor Dates Card ──
+    html += _render_card_section(
+        "📅", "Action Items & Deadlines", "anchors",
+        anchor_bullets or ["All clear — no urgent items"],
+        _anchor_expanded(),
+        accent="#ff8800"
+    )
 
-            for src in sources:
-                if not src["items"]:
-                    continue
-                html += f'    <div class="source-block">\n'
-                html += f'      <div class="source-name">{src["source"]} <span style="font-weight:400;color:#3a4a65">// {ts[:10]}</span></div>\n'
-                for item in src["items"][:5]:  # Top 5 per source
-                    title = item["title"]
-                    url = item["url"]
-                    if url:
-                        html += f'      <div class="intel-item"><a href="{url}">{title}</a></div>\n'
-                    else:
-                        html += f'      <div class="intel-item"><span style="color:#c8d0dc">{title}</span></div>\n'
-                html += '    </div>\n'
+    # ── Intel Crew card (if available) ──
+    if intel_crew_report and crew_expanded:
+        crew_bullets = ["COS Hale synthesis available", "A2 Dembe analysis complete"]
+        html += _render_card_section("🎯", "Intel Crew Analysis", "crew",
+                                      crew_bullets, crew_expanded, accent="#44c8c8")
 
-        html += "  </div>\n  <div class='divider'></div>\n"
+    # ── RSS category cards ──
+    for cat in cat_order:
+        items = by_cat.get(cat, [])
+        if not items:
+            continue
+        icon    = cat_icons.get(cat, "📰")
+        bullets = [f'{a.get("source","")}: {a.get("title","")[:70]}' for a in items[:4]]
+        html   += _render_card_section(icon, cat, f"cat-{cat.replace('/','-').replace(' ','-').lower()}",
+                                        bullets, _story_list(items), accent="#c9a84c")
 
-    # ── SECTION 3: CRUISE PRICING TRACKER ──
-    if pricing:
-        html += """
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon" style="background:rgba(201,168,76,0.15);">&#128176;</div>
-      <div class="section-title">Cruise Pricing Tracker</div>
-      <div class="section-count">""" + str(len(pricing)) + """ voyages</div>
-    </div>
-    <table class="price-table">
-      <tr>
-        <th>Cruise Line</th>
-        <th>Voyage</th>
-        <th>Price</th>
-        <th>Change</th>
-      </tr>
-"""
-        for p in pricing:
-            line = p.get("Cruise Line", "")
-            voyage = p.get("Voyage ID", p.get("Ship", ""))
-            price = p.get("New Price", p.get("Price", ""))
-            change = p.get("Change %", "")
-            change_css = ""
-            if change:
-                try:
-                    val = float(change.replace("%", "").replace("+", ""))
-                    change_css = "price-change-up" if val > 0 else "price-change-down"
-                except ValueError:
-                    pass
-
-            html += f"""      <tr>
-        <td>{line}</td>
-        <td>{voyage[:50]}</td>
-        <td class="price-amount">{price}</td>
-        <td class="{change_css}">{change or '—'}</td>
-      </tr>
-"""
-        html += "    </table>\n  </div>\n  <div class='divider'></div>\n"
-
-    # ── SECTION 4: TECH NEWS ──
-    if tech_news:
-        html += """
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon" style="background:rgba(100,100,255,0.15);">&#128187;</div>
-      <div class="section-title">Tech Monitor</div>
-      <div class="section-count">""" + str(len(tech_news)) + """ articles</div>
-    </div>
-"""
-        seen_titles = set()
-        for t in tech_news:
-            title = t.get("Title", "")
-            if title in seen_titles:
-                continue
-            seen_titles.add(title)
-            source = t.get("Source", "")
-            category = t.get("Category", "")
-            html += f"""    <div class="tech-item">
-      <span class="tech-badge">{category}</span>
-      <div>
-        <div class="tech-title">{title}</div>
-        <div class="tech-source">{source}</div>
-      </div>
-    </div>
-"""
-        html += "  </div>\n  <div class='divider'></div>\n"
-
-    # ── SECTION 5: FARE LOG ──
-    if fare_log:
-        html += """
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon" style="background:rgba(68,255,170,0.15);">&#128200;</div>
-      <div class="section-title">Fare Watch Log</div>
-      <div class="section-count">""" + str(len(fare_log)) + """ entries</div>
-    </div>
-    <table class="price-table">
-      <tr>
-"""
-        if fare_log:
-            for key in list(fare_log[0].keys())[:5]:
-                html += f"        <th>{key}</th>\n"
-            html += "      </tr>\n"
-            for f in fare_log[-10:]:  # Last 10
-                html += "      <tr>\n"
-                for key in list(fare_log[0].keys())[:5]:
-                    html += f"        <td>{f.get(key, '')}</td>\n"
-                html += "      </tr>\n"
-        html += "    </table>\n  </div>\n"
-
-    # ── SECTION 5a: INTEL CREW ANALYSIS (A2 Dembe → A1 Radar → COS Hale) ──
-    if intel_crew_report:
-        cos_review = intel_crew_report.get("cos_review", "")
-        analysis = intel_crew_report.get("analysis", "")
-        crew_status = intel_crew_report.get("status", "")
-        raw_counts = intel_crew_report.get("raw_item_counts", {})
-        airline_impacts = intel_crew_report.get("airline_impacts", [])
-        counts_str = (
-            f"{raw_counts.get('news', 0)} news · "
-            f"{raw_counts.get('airline', 0)} airline · "
-            f"{raw_counts.get('advisories', 0)} advisories"
-        )
-        status_color = "#44c8c8" if "APPROVED" in crew_status else "#c9a84c"
-        html += f"""
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon" style="background:rgba(68,200,200,0.18);">&#127942;</div>
-      <div class="section-title">Intelligence Analysis — A2/COS Pipeline</div>
-      <div class="section-count" style="color:{status_color};">{crew_status} // {counts_str}</div>
-    </div>
-"""
-        if cos_review:
-            # Escape any stray HTML and render COS synthesis first
-            cos_escaped = (
-                cos_review
-                .replace("&", "&amp;")
-                .replace("<", "&lt;")
-                .replace(">", "&gt;")
-                .replace("\n\n", "</p><p>")
-                .replace("\n", "<br>")
-            )
-            html += f"""    <div class="source-block">
-      <div class="source-name">COS Hale — Synthesis &amp; Quality Gate</div>
-      <div style="font-size:13px;color:#c8d0dc;line-height:1.7;padding:8px 0;"><p>{cos_escaped}</p></div>
-    </div>
-"""
-        if analysis:
-            analysis_escaped = (
-                analysis
-                .replace("&", "&amp;")
-                .replace("<", "&lt;")
-                .replace(">", "&gt;")
-                .replace("\n\n", "</p><p>")
-                .replace("\n", "<br>")
-            )
-            html += f"""    <div class="source-block">
-      <div class="source-name">A2 Dembe — Full Domain Analysis</div>
-      <div style="font-size:13px;color:#c8d0dc;line-height:1.7;padding:8px 0;"><p>{analysis_escaped}</p></div>
-    </div>
-"""
-        # Client impact alerts from airline monitor
-        if airline_impacts:
-            html += '    <div class="source-block">\n'
-            html += '      <div class="source-name">CLIENT IMPACT FLAGS</div>\n'
-            for impact in airline_impacts:
-                client = impact.get("client", "")
-                severity = impact.get("severity", "")
-                headline = impact.get("headline", impact.get("title", ""))
-                url = impact.get("url", "")
-                sev_color = {"CRITICAL": "#ff4444", "HIGH": "#c9a84c", "MEDIUM": "#44aa44"}.get(severity, "#8a9ab5")
-                if url:
-                    html += f'      <div class="intel-item" style="border-left:3px solid {sev_color};padding-left:10px;"><a href="{url}">{headline}</a>'
-                else:
-                    html += f'      <div class="intel-item" style="border-left:3px solid {sev_color};padding-left:10px;"><span style="color:#c8d0dc">{headline}</span>'
-                html += f'<div class="intel-meta">{severity} // {client}</div></div>\n'
-            html += '    </div>\n'
-
-        html += "  </div>\n  <div class='divider'></div>\n"
-
-    # ── SECTION 5b: LIVE INTELLIGENCE FEEDS (direct RSS) ──
-    if rss_direct:
-        # Group articles by category
-        by_cat: dict[str, list] = {}
-        for art in rss_direct:
-            cat = art.get("category", "Other")
-            by_cat.setdefault(cat, []).append(art)
-
-        # Desired display order
-        cat_order = ["Cruise", "War/Geopolitics", "Politics", "Airline",
-                      "Maritime", "Markets", "Travel", "Other"]
-        sorted_cats = [c for c in cat_order if c in by_cat]
-        # Append any categories not in the order list
-        for c in by_cat:
-            if c not in sorted_cats:
-                sorted_cats.append(c)
-
-        html += """
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon" style="background:rgba(68,200,200,0.15);">&#128752;</div>
-      <div class="section-title">Live Intelligence Feeds</div>
-      <div class="section-count">""" + str(len(rss_direct)) + """ articles (direct RSS)</div>
-    </div>
-"""
-        for cat in sorted_cats:
-            items = by_cat[cat]
-            html += f'    <div class="source-block">\n'
-            html += f'      <div class="source-name">{cat} <span style="font-weight:400;color:#3a4a65">// {len(items)} articles</span></div>\n'
-            for art in items:
-                title = art.get("title", "")
-                url = art.get("url", "")
-                src = art.get("source", "")
-                pub = art.get("published", "")
-                summary_snip = art.get("summary", "")[:500]
-                rel = art.get("relevance_score", 1)
-                border_style = "border-left:3px solid #c9a84c;padding-left:10px;" if rel >= 3 else ""
-                if url:
-                    html += f'      <div class="intel-item" style="{border_style}"><a href="{url}">{title}</a>'
-                else:
-                    html += f'      <div class="intel-item" style="{border_style}"><span style="color:#c8d0dc">{title}</span>'
-                html += f'<div class="intel-meta">{src} // {pub}</div>\n'
-                if summary_snip:
-                    html += f'        <div style="font-size:12px;color:#8a9ab5;margin-top:4px;line-height:1.5;">{summary_snip}</div>\n'
-                html += '      </div>\n'
-            html += '    </div>\n'
-
-        html += "  </div>\n  <div class='divider'></div>\n"
-
-    # ── SECTION 6: RSS INTEL (sampled) ──
-    if intel_log:
-        # Group by source, show latest unique items
-        by_source = {}
-        for item in reversed(intel_log):
-            src = item.get("source", "Unknown")
-            if src not in by_source:
-                by_source[src] = []
-            if len(by_source[src]) < 5:
-                headline = item.get("headline", item.get("line", ""))
-                if headline and headline not in [x["headline"] for x in by_source[src]]:
-                    by_source[src].append(item)
-
-        html += """
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon" style="background:rgba(255,170,68,0.15);">&#128225;</div>
-      <div class="section-title">RSS Intelligence Feed</div>
-      <div class="section-count">""" + str(len(intel_log)) + """ items (top per source)</div>
-    </div>
-"""
-        for src, items in by_source.items():
-            html += f'    <div class="source-block">\n'
-            html += f'      <div class="source-name">{src}</div>\n'
-            for item in items:
-                headline = item.get("headline", item.get("line", ""))
-                url = item.get("url", "")
-                ts = item.get("timestamp", "")
-                if url:
-                    html += f'      <div class="intel-item"><a href="{url}">{headline}</a><div class="intel-meta">{ts}</div></div>\n'
-                else:
-                    html += f'      <div class="intel-item"><span style="color:#c8d0dc">{headline}</span><div class="intel-meta">{ts}</div></div>\n'
-            html += '    </div>\n'
-
-        html += "  </div>\n"
-
-    # ── SECTION 7: LEARNING DIGEST + DOSSIER ALERTS (IOC) ──
-    try:
-        from thunderbird_learning import get_learning_digest, list_rules
-        learning_digest = get_learning_digest()
-    except Exception:
-        learning_digest = ""
-
-    # Pending principles for Commander approve/reject
-    pending_principles_html = ""
-    try:
-        from thunderbird_learning import list_rules as _lr
-        pending = _lr(status="pending", limit=10)
-        if pending:
-            p_lines = [
-                '<div style="color:#ff8888;font-weight:600;margin-bottom:6px;">'
-                f'ACTION: {len(pending)} principle(s) awaiting Commander validation</div>'
-            ]
-            for p in pending:
-                tier_badge = {
-                    "inviolable": '<span style="color:#ff4444;font-weight:700;">[INVIOL]</span>',
-                    "strong": '<span style="color:#e8c97a;font-weight:600;">[STRONG]</span>',
-                    "contextual": '<span style="color:#8a9ab5;">[CTX]</span>',
-                }.get(p.get("priority_tier", "contextual"), '<span style="color:#8a9ab5;">[CTX]</span>')
-                domain = p.get("domain", "voice")
-                persona_tag = f' @{p["persona_id"]}' if p.get("persona_id") else ""
-                p_lines.append(
-                    f'<div style="padding:4px 0 4px 12px;">'
-                    f'{tier_badge} <span style="color:#7eb8ff;">#{p["rule_id"]}</span> '
-                    f'[{domain}]{persona_tag} — {p["principle_text"][:120]}'
-                    f'<br><span style="font-size:11px;color:#5a6a85;">'
-                    f'Use /learn approve {p["rule_id"]} or /learn reject {p["rule_id"]} in C2</span>'
-                    f'</div>'
-                )
-            pending_principles_html = "\n".join(p_lines)
-    except Exception:
-        pass
-
-    # Innovation digest from daily scanner
-    innovation_digest = ""
-    try:
-        from thunderbird_innovation_scanner import get_digest_for_briefing
-        innovation_digest = get_digest_for_briefing(max_items=5)
-    except Exception:
-        pass
-
-    try:
-        from thunderbird_dossier_scanner import generate_alert_digest
-        dossier_digest = generate_alert_digest()
-    except Exception:
-        dossier_digest = ""
-
-    # Pending SSS decisions
-    sss_pending = ""
-    try:
-        from thunderbird_sss import list_sss
-        active = list_sss(status_filter="coordinating") + list_sss(status_filter="ready")
-        if active:
-            sss_lines = [f"**{len(active)} Staff Summary Sheet(s) awaiting decision:**"]
-            for s in active:
-                sss_lines.append(
-                    f"- **{s.sss_id}** ({s.status}) — AO: {s.action_officer} | {s.purpose[:80]}"
-                )
-            sss_pending = "\n".join(sss_lines)
-    except Exception:
-        pass
-
-    if learning_digest or dossier_digest or sss_pending or pending_principles_html or innovation_digest:
-        html += """
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon" style="background:rgba(255,68,68,0.15);">&#9888;</div>
-      <div class="section-title">IOC Operations</div>
-    </div>
-"""
-        if dossier_digest:
-            html += f'    <div style="padding:12px 16px;font-size:13px;line-height:1.7;color:#e0e6ed;">\n'
-            for line in dossier_digest.split("\n"):
-                if line.startswith("**CRITICAL"):
-                    html += f'      <div style="color:#ff6666;font-weight:600;margin-top:8px;">{line}</div>\n'
-                elif line.startswith("**WARNING"):
-                    html += f'      <div style="color:#e8c97a;font-weight:600;margin-top:8px;">{line}</div>\n'
-                elif line.startswith("- **"):
-                    html += f'      <div style="color:#ff8888;padding-left:12px;">{line}</div>\n'
-                elif line.startswith("- "):
-                    html += f'      <div style="padding-left:12px;">{line}</div>\n'
-                elif line.strip():
-                    html += f'      <div>{line}</div>\n'
-            html += '    </div>\n'
-
-        if sss_pending:
-            html += '    <div style="padding:12px 16px;font-size:13px;line-height:1.7;color:#e0e6ed;border-top:1px solid #1e3358;">\n'
-            for line in sss_pending.split("\n"):
-                if line.startswith("**"):
-                    html += f'      <div style="color:#7eb8ff;font-weight:600;margin-top:8px;">{line}</div>\n'
-                elif line.startswith("- **"):
-                    html += f'      <div style="padding-left:12px;color:#a0c4ff;">{line}</div>\n'
-                elif line.strip():
-                    html += f'      <div style="padding-left:12px;">{line}</div>\n'
-            html += '    </div>\n'
-
-        if learning_digest:
-            html += f'    <div style="padding:12px 16px;font-size:13px;line-height:1.7;color:#e0e6ed;border-top:1px solid #1e3358;">\n'
-            for line in learning_digest.split("\n"):
-                if line.startswith("**ACTION"):
-                    html += f'      <div style="color:#ff8888;font-weight:600;">{line}</div>\n'
-                elif line.startswith("- "):
-                    html += f'      <div style="padding-left:12px;">{line}</div>\n'
-                elif line.strip():
-                    html += f'      <div>{line}</div>\n'
-            html += '    </div>\n'
-
-        if pending_principles_html:
-            html += '    <div style="padding:12px 16px;font-size:13px;line-height:1.7;color:#e0e6ed;border-top:1px solid #1e3358;">\n'
-            html += f'      <div style="color:#c9a84c;font-weight:600;margin-bottom:4px;">PENDING PRINCIPLES — Quick Approve/Reject</div>\n'
-            html += f'      {pending_principles_html}\n'
-            html += '    </div>\n'
-
-        if innovation_digest:
-            html += '    <div style="padding:12px 16px;font-size:13px;line-height:1.7;color:#e0e6ed;border-top:1px solid #1e3358;">\n'
-            html += f'      <div style="color:#c9a84c;font-weight:600;margin-bottom:4px;">INNOVATION SCANNER</div>\n'
-            for line in innovation_digest.split("\n"):
-                if line.startswith("INNOVATION INTEL"):
-                    continue  # Skip the header — we have our own
-                elif line.strip():
-                    html += f'      <div style="padding-left:12px;">{line}</div>\n'
-            html += '    </div>\n'
-
-        html += "  </div>\n"
-
-    # (Temporal Intelligence rendered via temporal_intel parameter — see Section 1b above)
-
-    # ── SECTION 8: REVENUE PIPELINE (per Harlan Dashboard Analysis) ──
-    try:
-        pipeline_html = _build_revenue_pipeline_section()
-        if pipeline_html:
-            html += pipeline_html
-    except Exception as e:
-        logger.debug(f"Revenue pipeline section skipped: {e}")
-
-    # ── SECTION 9: ELON ACADEMIC RADAR ──
-    try:
-        from thunderbird_academic_scanner import get_academic_digest_for_briefing
-        academic_html = get_academic_digest_for_briefing(max_papers=4)
-        if academic_html:
-            html += academic_html
-    except Exception as e:
-        logger.debug(f"Academic scanner briefing section skipped: {e}")
-
-    # ── FOOTER ──
+    # ── Close cards div + footer ──
     html += f"""
-  <div class="footer">
-    <div class="footer-brand">Thunderbird OS // Dreams2Memories Travel, LLC</div>
-    <div class="footer-line">Generated {today.strftime('%Y-%m-%d %H:%M:%S')} MT</div>
-    <div class="footer-line" style="margin-top:4px;font-size:10px;color:#2a3a55;">
-      Curating the experience of a lifetime
+  </div>
+  <div style="background:#080d14;padding:20px;text-align:center;">
+    <div style="font-size:10px;text-transform:uppercase;letter-spacing:3px;color:#4a5a75;">
+      Thunderbird OS // Dreams2Memories Travel, LLC
+    </div>
+    <div style="font-size:11px;color:#3a4a65;font-style:italic;margin-top:4px;">
+      Generated {today.strftime('%Y-%m-%d %H:%M')} MT
     </div>
   </div>
-
 </div>
 </body>
 </html>"""
@@ -1854,6 +1185,11 @@ def run_briefing(preview: bool = False, weekly: bool = False):
             emoji = {"RED": "🔴", "GOLD": "🟡", "GREEN": "🟢"}.get(summary["alert_level"], "")
             subject = f"{emoji} THUNDERBIRD BRIEFING // {today.strftime('%b %d')} — {summary['alert_text']}"
         send_briefing_email(html, subject)
+        # ── Telegram C2 digest ──
+        try:
+            send_telegram_digest(rss_direct or [], anchor_report, summary)
+        except Exception as e:
+            logger.warning(f"Telegram digest failed (non-fatal): {e}")
         return subject
 
 

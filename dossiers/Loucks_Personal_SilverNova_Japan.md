@@ -22,7 +22,8 @@ relationship: commander
 | Booking | Item | Dates | Status | Cost |
 |---------|------|-------|--------|------|
 | P5F8XF | Allegiant G4 3212, COS → SNA | Apr 10, 2:37pm MDT | **CONFIRMED** | ~$200 |
-| 79802952 | Newport Beach Marriott Bayview, 3 nights | Apr 10-13 | **CONFIRMED** | $1,008.35 |
+| 79802952 | Newport Beach Marriott Bayview, 3 nights — **⚠ REQUEST WEST-FACING ROOM** (avoid Jamboree/Bristol traffic noise; possible ocean view if high floor — per Greg Loucks Mar 24) | Apr 10-13 | **CONFIRMED** | $1,008.35 |
+| — | SNA → LAX transfer | Apr 13, Elias pickup at Gregory's house **2:30 PM** for LAX (DL 443 6:55 PM) | **CONFIRMED** — Elias (Gregory's driver); 2 large suitcases + 2 carry-ons. Subaru available at Marriott from Karen. | Family arranged |
 | GW4ZHW / AmEx 7316-2633 | Delta DL 443, LAX → HNL, 6:55pm→9:45pm, Seats 2C/3A | Apr 13 | **CONFIRMED** | $1,395.72 |
 | 10421237 (mod from 59018SF737412) | Hale Koa Hotel, Waikiki, Ocean View, 5 nights, $309/night | Apr 13-18 | **CONFIRMED** | ~$1,545 |
 | FJHPYY | JAL JL 73, HNL → HND, Business Sky Suite III, Seats 6G/6D, 12:15pm→3:55pm+1 | Apr 18-19 | **CONFIRMED** | $4,093.60 |
@@ -32,9 +33,9 @@ relationship: commander
 | PE151557101 / HL855855 / PREXP-27443260 | Hilton Odaiba → Harumi Port transfer, 4 pax, Private Minibus (40 min, tolls incl) | Apr 23, **10:30 AM** | **CONFIRMED** — voucher received, fully paid, cancel free before Apr 21 10:30 AM local | $0 due (fully paid) |
 | 3740314183 | SmartEX Shinkansen membership | — | **ACTIVE** — PW: Tokyo26! | — |
 | 566910-25 | Silversea Silver Nova, Tokyo Harumi → Seattle | Apr 23 – May 11 | **CONFIRMED — PAID IN FULL** | $10,800 |
-|  | Embarkation: Tokyo Harumi Terminal — 11:00 AM–4:00 PM (updated Feb 25, 2026; was 2:00 PM) | Apr 23 | NOTE: suites ready later afternoon | — |
+|  | Embarkation: Tokyo Harumi Terminal — **2:00–4:00 PM per final cruise ticket** (was 11:00 AM–4:00 PM per Feb 25 update) | Apr 23 | NOTE: Transfer arrives ~11:10 AM; terminal may accept luggage/check-in early | — |
 | Plusgrade | Upgrade bids: Premium Medallion $2,305 + Medallion $1,600 | — | **SUBMITTED Mar 12** — current suite: Superior Veranda, *Cabin 8075* (confirmed Feb 2 — Jenna Woodcock/Perx) | TBD |
-| ASC3LX | Southwest, SEA → DEN return flight | May 11 | **CONFIRMED** | TBD |
+| ASC3LX | Southwest WN 4195, SEA → DEN, 1:55 PM → 5:40 PM, Seats 06E/06F Preferred | May 11 | **CONFIRMED** | 12,000 RR pts + $147.80 (Visa 3053) |
 
 ### INSURANCE
 - **Allianz Annual Premier $15K** — coverage active
@@ -42,8 +43,8 @@ relationship: commander
 ### TRAVELERS
 | Person | Ticket/Passport | Loyalty | Notes |
 |--------|----------------|---------|-------|
-| John Aldon Loucks | Delta: 0067351667609 / JAL: 1312144232753 | SkyMiles ******0736, JAL 410144268, Hilton Honors 916429084 | Passport *****6260 exp 02/01/2030 |
-| Susan Dee Loucks | Delta: 0067351667610 | AA M3180T8 | Passport *****0180 exp 04/10/2031 | Email: susanna.loucks@gmail.com |
+| John Aldon Loucks | Delta: 0067351667609 / JAL: 1312144232753 | SkyMiles ******0736, JAL 410144268, Hilton Honors 916429084 | Passport *****6260 exp 02/01/2030 | DOB: July 22 |
+| Susan Dee Loucks | Delta: 0067351667610 | AA M3180T8 | Passport *****0180 exp 04/10/2031 | Email: susanna.loucks@gmail.com | DOB: September 6 |
 
 ### FINANCIAL SUMMARY
 | Item | Cost |
@@ -58,7 +59,7 @@ relationship: commander
 | Mt. Fuji Tour (2 pax) | $365.62 |
 | Harumi Port Transfer (4 pax shared) | paid |
 | Silver Nova Cruise | $10,800.00 |
-| Southwest SEA → DEN return flight | TBD |
+| Southwest WN 4195 SEA→DEN (12K RR pts + $147.80) | $147.80 cash |
 | **TOTAL (confirmed)** | **~$22,663** |
 
 ---
@@ -67,8 +68,9 @@ relationship: commander
 - **PE151557101** — Port transfer covers all 4 (Loucks + Westbrook)
 - **Westbrook Hilton Odaiba:** Conf #33S2013960, 1 night (Apr 22-23), ¥73,364 (~$480)
 - **Westbrook NRT transfer:** Expedia TAAP #73268402723830, Transferz, $209.55, picks up United 143 arriving 2:45pm Apr 22
-- **Westbrook Blacklane (PE146862609):** Goes to Yokohama — WRONG PORT. Needs rebooking or cancellation.
+- **Westbrook transfer PE146862609:** Original booking to Yokohama (wrong port) — **REISSUED as PE151557101** (Harumi Port, 4 pax, 10:30 AM). Not cancelled.
 - Dining companions: all 4 together throughout voyage
+- **SEA-TAC Transfer (May 11):** John & Ron Westbrook will arrange jointly onboard Silver Nova — confirmed Mar 24
 
 ---
 
@@ -83,6 +85,11 @@ relationship: commander
 | Heycars - Asia (driver) | +86 2882075832, WhatsApp +86 18030751797 | Day-of driver contact |
 | Driver locator | checkpickup.com/3AG7KZ | If can't find driver Apr 23 |
 | Silversea | — | Voyage SN260423019, booking 566910-25 |
+| Silversea Emergency 24/7 | +1-855-278-7881 | Day-of-travel emergencies |
+| Silver Nova (direct) | +1 786 605 5635 | Ship direct dial (1, 011, 99 + number) |
+| JTB Tokyo (Silversea local) | +81 3 5796 5426 / After hrs: +81 70 7771 4469 | Tokyo embarkation local contact |
+| Intercruises Seattle | +1.206.484.8839 | Seattle debarkation local contact, 2001 West Garfield St |
+| Interline Travel & Tour (Perx) | 512-691-4501 / Ms Jenna Woodcock | Agent: 12708 Riata Vista Cir, Ste A-125, Austin TX 78727 |
 
 ---
 
@@ -119,6 +126,12 @@ relationship: commander
 **Mar 18 — Caitlynn** (Re: PE164717508 - HL857174)
 > **Mar 18, 2026 — PE (Caitlynn)** Kyoto Food Tour voucher received, PE164717508, ticket HL857174, City Unscripted conf CIT-T123798325. Hiro phone: +817043638092. Meeting: Matsumoto Kiyoshi Shijo Kawaramachi 10:00 AM. Fully paid $484.96. Cancel free before Apr 20 10:00 AM local. NOTE: Voucher lists agent as 'Love Group Travel, LLC' — correction pending Commander decision.
 
+**Mar 24 — Jenna Woodcock / PERX** (Final Silversea Cruise Documents for 566910-25)
+> **Mar 24, 2026** — Final cruise electronic ticket received from Jenna Woodcock (jwoodcock@perx.com) via Interline Travel & Tour. Sent to YODAINVA@gmail.com, CC johnloucks3@gmail.com. PDF archived to dossiers/ElectronicTicket_566910-25.pdf. Key data confirmed: Cabin 8075 Superior Veranda, voyage SN260423019, 19 days. ⚠ **EMBARKATION WINDOW per ticket: 2:00–4:00 PM** (narrower than Feb 25 update of 11 AM–4 PM). New contacts added: JTB Tokyo local, Intercruises Seattle, Silversea 24/7 emergency, Silver Nova direct line.
+
+**Mar 24 — John Loucks** (Re: Fwd: Your visit)
+> 2026-03-24 — Commander forwarded family email re: OC logistics. (1) ROOM REQUEST: West-facing room at Marriott Bayview to avoid Jamboree/Bristol traffic noise — high floor preferred (per Gregory Loucks, local). (2) TRANSPORT UPDATE: Uber from SNA to Marriott on Apr 10; Karen Loucks will deliver family Subaru at hotel; Elias (Gregory's driver) will pick up John & Susan at Gregory's house at 2:30 PM Apr 13 for LAX. (3) FAMILY CONTACTS: Gregory Loucks <greg.loucks@me.com>, Karen Loucks <karen.loucks@me.com> — OC-based.
+
 ---
 
 ---
@@ -133,7 +146,7 @@ relationship: commander
 | 2 | Documents | Visit Japan Web registration | YES | **NOT DONE** | vjw.digital.go.jp — both travelers before Apr 21 |
 | 3 | Insurance | Travel insurance | YES | **CONFIRMED** | Allianz Annual Premier $15K — active |
 | 4 | Flights | COS → SNA (leg 1) | YES | **CONFIRMED** | Allegiant G4 3212 Apr 10 2:37PM |
-| 5 | Hotel | Newport Beach (3 nights) | YES | **CONFIRMED** | Marriott Bayview #79802952, Apr 10-13, $1,008.35 |
+| 5 | Hotel | Newport Beach (3 nights) | YES | **CONFIRMED** | Marriott Bayview #79802952, Apr 10-13, $1,008.35 — **REQUEST WEST-FACING ROOM** |
 | 6 | Flights | LAX → HNL (leg 2) | YES | **CONFIRMED** | Delta DL 443 Apr 13 6:55PM, seats 2C/3A |
 | 7 | Flights | LAX→HNL PNR | YES | **CONFIRMED** | GW4ZHW / AmEx 7316-2633 |
 | 8 | Hotel | Hale Koa Waikiki (5 nights) | YES | **CONFIRMED** | #10421237, Apr 13-18, $309/night |
@@ -145,15 +158,35 @@ relationship: commander
 | 14 | Transfers | Hotel → port transfer | YES | **CONFIRMED** | PE151557101 / PREXP-27443260, 4 pax, **10:30 AM**, voucher received, fully paid, cancel before Apr 21 |
 | 15 | Cruise | Booking confirmed | YES | **CONFIRMED** | 566910-25, Silver Nova — *Cabin 8075* Superior Veranda |
 | 16 | Cruise | Payment status | YES | **CONFIRMED** | $10,800 — PAID IN FULL (Commander confirmed Mar 18) |
-| 17 | Cruise | Embarkation details | YES | **CONFIRMED** | Tokyo Harumi, Apr 23, 7:00 PM |
-| 17a | Excursions | Shore excursions | Optional | **BOOKED** | 6 booked (1 waitlisted — Sitka) |
-| 17b | Dining | Specialty dining | Optional | **BOOKED** | 16 reservations (1 waitlisted — Grill Apr 24) |
+| 17 | Cruise | Embarkation details | YES | **CONFIRMED** | Tokyo Harumi, Apr 23, **2:00–4:00 PM** (per final e-ticket Mar 24) |
+| 17a-1 | Excursion | Apr 25 Miyako — Jodogahama & Ryusendo | Optional | **CONFIRMED** | 08:45, 4h, $0 |
+| 17a-2 | Excursion | May 05 Sitka — Culinary Adventure SIT-007B | Optional | **CONFIRMED** | 10:30, 3h, $0 (waitlist cleared Mar 24) |
+| 17a-3 | Excursion | May 06 Juneau — Whale Watching & Wildlife Quest | Optional | **CONFIRMED** | 11:00, 4h, $0 |
+| 17a-4 | Excursion | May 07 Wrangell — John Muir Hike | Optional | **CONFIRMED** | 14:30, 1h 45m, $0 |
+| 17a-5 | Excursion | May 08 Ketchikan — By Land & Sea | Optional | **CONFIRMED** | 12:00, 1h 30m, $0 |
+| 17a-6 | Excursion | May 10 Victoria — Horse-Drawn Trolley | Optional | **CONFIRMED** | 10:00, 1h, $0 |
+| 17b-1 | Dining | Apr 23 — La Terrazza 18:30 | Optional | **CONFIRMED** | $0 (4 pax w/ Westbrooks) |
+| 17b-2 | Dining | Apr 24 — The Grill 18:30 | Optional | **WAITLISTED** | $0 |
+| 17b-3 | Dining | Apr 27 — Kaiseki 18:30 | Optional | **CONFIRMED** | $160 |
+| 17b-4 | Dining | Apr 28 — S.A.L.T. Chef's Table 18:30 | Optional | **CONFIRMED** | $360 |
+| 17b-5 | Dining | Apr 29 — La Terrazza 18:30 | Optional | **CONFIRMED** | $0 |
+| 17b-6 | Dining | Apr 30 — The Grill 18:30 | Optional | **CONFIRMED** | $0 |
+| 17b-7 | Dining | May 01 — La Dame 18:30 | Optional | **CONFIRMED** | $200 |
+| 17b-8 | Dining | May 02 — Silver Note 18:30 | Optional | **CONFIRMED** | $0 |
+| 17b-9 | Dining | May 03 — The Grill 18:30 | Optional | **CONFIRMED** | $0 |
+| 17b-10 | Dining | May 04 — La Terrazza 18:30 | Optional | **CONFIRMED** | $0 |
+| 17b-11 | Dining | May 05 — La Terrazza 19:30 | Optional | **CONFIRMED** | $0 |
+| 17b-12 | Dining | May 06 — La Terrazza 19:30 | Optional | **CONFIRMED** | $0 |
+| 17b-13 | Dining | May 07 — Kaiseki 19:30 | Optional | **CONFIRMED** | $160 |
+| 17b-14 | Dining | May 08 — La Terrazza 19:30 | Optional | **CONFIRMED** | $0 |
+| 17b-15 | Dining | May 09 — The Grill 18:30 | Optional | **CONFIRMED** | $0 |
+| 17b-16 | Dining | May 10 — La Terrazza 19:30 | Optional | **CONFIRMED** | $0 |
 | 18 | Cruise | Disembarkation | Optional | **CONFIRMED** | Seattle, May 11, 7:00 AM |
-| 19 | Transfers | Port → airport transfer | YES | **NOT BOOKED** | Seattle terminal→SEA-TAC for May 11 |
+| 19 | Transfers | Port → airport transfer | YES | **WILL BOOK ONBOARD** | John & Ron Westbrook securing transfer ship→SEA-TAC onboard Silver Nova — Mar 24 |
 | 20 | Flights | Return flight (SEA→DEN) | YES | **CONFIRMED** — Southwest *ASC3LX* | May 11 |
-| 21 | Admin | Dossier current | YES | **YES** | Updated Mar 18, 2026 |
+| 21 | Admin | Dossier current | YES | **YES** | Updated Mar 24, 2026 |
 
-**Coverage: ~93%** | **Critical Gaps:** Visit Japan Web, Seattle port→SEA-TAC transfer | **RESOLVED:** SEA→DEN return flight (Southwest, May 11)
+**Coverage: ~97%** | **Critical Gaps:** Visit Japan Web (item 8) | **Open:** SNA→LAX Apr 13 (Karen/Uber), Plusgrade result pending | **RESOLVED:** Embarkation window; SEA→DEN Southwest; SEA-TAC transfer (onboard); Sitka waitlist
 
 ### SILVERSEA PORTAL — SHORE EXCURSIONS (Scraped Mar 12, 2026)
 All $0 unless noted. Both guests on all excursions.
@@ -161,7 +194,7 @@ All $0 unless noted. Both guests on all excursions.
 | Date | Port | Excursion | Time | Duration | Status |
 |------|------|-----------|------|----------|--------|
 | Apr 25 | Miyako, Iwate | Jodogahama & Ryusendo | 08:45 | 4h | Confirmed |
-| May 05 | Sitka | Sitka's Culinary Adventure | 11:30 | 3h | **WAITLISTED** |
+| May 05 | Sitka | Sitka's Culinary Adventure (SIT-007B) | 10:30 | 3h | **CONFIRMED** ✓ (was waitlisted 11:30 — sold out; Silversea added 10:30 departure, auto-booked Mar 24) |
 | May 06 | Juneau | Whale Watching & Wildlife Quest | 11:00 | 4h | Confirmed |
 | May 07 | Wrangell | John Muir Hike | 14:30 | 1h 45m | Confirmed |
 | May 08 | Ketchikan | Ketchikan by Land & Sea | 12:00 | 1h 30m | Confirmed |
@@ -196,12 +229,22 @@ All $0 unless noted. Both guests on all excursions.
 2. [x] ~~Follow up PE on transfer time change~~ — **10:30 AM CONFIRMED Mar 20** ✅
 3. [x] ~~Find/book Hilton Tokyo Odaiba~~ — **FOUND** Conf #3337550400, Twin Superior Deluxe, ¥424,373 (~$2,770)
 4. [x] ~~Book SEA → DEN return flight~~ — **Southwest SEA→DEN CONFIRMED May 11** — conf# *ASC3LX*
-5. [x] ~~Cancel Westbrook Blacklane PE146862609~~ — **CANCELLED Mar 12**
+5. [x] ~~Westbrook transfer PE146862609~~ — **REISSUED as PE151557101** (Harumi Port, 4 pax) — not cancelled, no refund
 6. [ ] Save Mt. Fuji meeting point file to dossier (PE164714008 attachment)
 7. [ ] Confirm Silversea upgrade bid results when Plusgrade responds
 8. [ ] Visit Japan Web registration — complete before Apr 21 at vjw.digital.go.jp (both travelers)
 
+- [ ] Update dossier: Gregory Loucks (greg.loucks@me.com) and Karen Loucks (karen.loucks@me.com) as OC family contacts (auto-intel Mar 24)
+
+- [ ] Update dossier: LAX departure plan = Elias pickup at Gregory's house 2:30 PM Apr 13 for DL 443 at 6:55 PM (auto-intel Mar 24)
+
+- [ ] Update dossier: SNA arrival plan = Uber to Marriott, Karen Loucks delivers Subaru at hotel (auto-intel Mar 24)
+
+- [ ] Contact Newport Beach Marriott Bayview — request west-facing room, high floor preferred, Conf #79802952, Apr 10-13 (auto-intel Mar 24)
+
 - [x] ~~Update dossier EMAIL LOG with Mar 18 voucher receipt~~ — DONE Mar 18
+- [x] ~~Receive final Silversea cruise documents~~ — **RECEIVED Mar 24** (ElectronicTicket_566910-25.pdf from Jenna Woodcock/Perx)
+- [x] ~~VERIFY: Embarkation window discrepancy~~ — **RESOLVED 2026-03-24**: 2:00–4:00 PM is NLT (no later than) per Commander. Transfer departs 10:30 AM, arrives ~11:10 AM — board on arrival, no conflict.
 - [ ] Email PE to change agent name from 'Love Group Travel, LLC' to 'Dreams2Memories Travel, LLC' — **ON HOLD per Commander directive**
 - [x] ~~Update dossier: add ticket ref HL857174 and City Unscripted conf CIT-T123798325~~ — DONE Mar 18
 - [x] ~~Update dossier KEY CONTACTS: add Hiro phone +817043638092~~ — DONE Mar 18

@@ -3,11 +3,17 @@
 
 ---
 
-## ⚠️ HARD RULE — EMAIL SEND GATE (Standing Order 21 MAR 2026, Amended 22 MAR 2026)
+## ⚠️ HARD RULE — EMAIL SEND GATE (Standing Order 21 MAR 2026, Amended 24 MAR 2026)
 **The Wing MAY send to johnloucks3@gmail.com without confirmation** — this address is internal to the wing, no vulnerability.
 **All other addresses require explicit Commander approval.** Before ANY other send — any persona, any tool, any channel, any workflow state — post to Commander:
 > *"Commander, confirm you want me to send this out of the wing? yes/no"*
 **WAIT for explicit "yes" before executing send.** No exceptions. Supersedes all other workflow instructions.
+
+## ⚠️ HARD RULE — EMAIL ACCOUNT SEPARATION (Standing Order 24 MAR 2026)
+- **d2mconcierge@gmail.com** = SOLE D2M ops account. ALL drafts created here. ALL business conducted here. MCP gmail_token.json authenticates here.
+- **johnloucks3@gmail.com** = Commander's RECEIVE-ONLY inbox. Wing sends reports/products TO this address. **ZERO drafts ever created here.** Only real incoming emails live here.
+- **Send FROM d2mconcierge always.** Client-facing emails use concierge@d2mluxury.quest as Send-As alias on d2mconcierge.
+- When Commander closes a transaction, it stays in d2mconcierge. Never pollute johnloucks3 with drafts or operational debris.
 
 ---
 

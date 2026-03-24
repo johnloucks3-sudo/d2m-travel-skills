@@ -14,7 +14,7 @@ status: active
 relationship: client
 group: Kuklinski Viking Panama
 cc_on_file: true
-cc_note: Kyle Kuklinski paying on behalf of Morton — confirmed 23 MAR 2026
+cc_note: Kyle Kuklinski paying ALL THREE bookings (his, Roger's, and Morton/Dodge) — confirmed 24 MAR 2026
 ---
 
 # CLIENT DOSSIER — Joshua Morton & Erica Dodge

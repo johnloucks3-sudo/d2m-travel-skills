@@ -16,3 +16,8 @@ Commander callsign: Yoda. Established via Telegram C2 2026-03-21.
 
 ### 2026-03-22 23:05 UTC
 [decision] STANDING ORDER AMENDMENT — EMAIL SEND GATE (22 MAR 2026): Commander amended the send gate. The Wing MAY send to johnloucks3@gmail.com — this address is considered internal/within the wing, no vulnerability. Prohibition on sending to ANY other outside address remains fully in force. Original order issued 21 MAR 2026.
+
+### 2026-03-24 13:55 UTC
+[decision] STANDING ORDER 2026-03-24: Morning Intelligence Brief — two permanent changes ordered by Commander:
+1. LINKS STANDARD — every article, source, and data point in the morning brief MUST include a clickable hyperlink. No exceptions. This is not optional formatting — it is required content.
+2. REGENT + VIKING ADDED — Regent Seven Seas and Viking (river + ocean) are now explicitly tracked in the daily intel sweep alongside Silversea, Cunard, Oceania, Seabourn, AmaWaterways, and Ponant. Route changes, deployments, promotions, and news for both lines must appear in the CRUISE INTEL section of every brief.

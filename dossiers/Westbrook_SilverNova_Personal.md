@@ -24,11 +24,10 @@
 | I0Y9VG / GQLRAF | United UA 143, DEN → NRT, Premium Economy, Seats 21A/21C | Apr 21, 11:35am → Apr 22, 2:45pm | **CONFIRMED** | $4,190 ($2,095/pax) |
 | 73268402723830 | NRT Transfer, Transferz private sedan, Meet & Greet T1 | Apr 22, timed for UA143 arrival ~3:00 PM | **CONFIRMED** | $209.55 |
 | 33S2013960 | Hilton Tokyo Odaiba, King Hilton Guest Room, AP Honors Bfast | Apr 22-23 (1 night) | **CONFIRMED** | ¥73,364 (~$480) |
-| ~~PE146862609~~ | ~~Blacklane, Hilton Odaiba → Yokohama~~ | ~~Apr 23~~ | **CANCELLED Mar 12** — wrong port (Yokohama, not Harumi) | ~~$156~~ refunded |
-| PE151557101 | Shared transfer, Hilton Odaiba → Harumi Port, 4 pax (Loucks+Westbrook) | Apr 23, 10:30 AM | **CONFIRMED — 10:30 AM CONFIRMED Mar 20** | paid |
+| PE146862609 → PE151557101 | Transfer, Hilton Odaiba → Harumi Port, 4 pax (Loucks+Westbrook) | Apr 23, 10:30 AM | **CONFIRMED** — reissued from Yokohama to Harumi (correct port), 10:30 AM confirmed Mar 20 | paid |
 | 566904-25 | Silversea Silver Nova, Cabin 7031 Superior Veranda Suite | Apr 23 – May 11 | **CONFIRMED — PAID IN FULL** | $10,800 |
 | I0Y9VG | United UA 757, SEA → DEN, Economy | May 11, 12:46pm → 4:30pm | **CONFIRMED** | incl. in SkyLux booking |
-| — | Seattle Terminal → SEA-TAC transfer | May 11, ~9:30-10:00 AM | **NOT BOOKED** | TBD |
+| — | Seattle Terminal → SEA-TAC transfer | May 11, ~9:30-10:00 AM | **NOT BOOKED — deadline Apr 15** | TBD |
 
 ### INSURANCE
 - **Allianz Annual Premier $15K** — Conf E2549991663, $1,530, coverage Mar 1, 2026 – Mar 1, 2027
@@ -42,8 +41,7 @@ Official notice: "Instead of Yokohama, we will now embark in Tokyo" — Harumi T
 
 | Transfer | Destination | Resolution |
 |----------|------------|------------|
-| ~~Blacklane PE146862609~~ | ~~Yokohama~~ | **CANCELLED Mar 12** — wrong port, $156 refunded |
-| **PE151557101** (shared, 4 pax) | **Harumi Port** | **CORRECT** — time change 11:00→10:30 AM pending with Kyra (HL855855) |
+| PE146862609 → PE151557101 | Harumi Port | **REISSUED** — original booked to Yokohama (wrong port), reissued to Harumi, 4 pax, 10:30 AM confirmed |
 
 **Discovery:** Ron booked the Blacklane (Nov 4, 2025) BEFORE the Silversea port change (Nov 26, 2025). The Westbrook itinerary sent Feb 28/Mar 8 still showed Yokohama — Ron needs updated itinerary showing Harumi. Caught by Thunderbird validation sweep Mar 12.
 
@@ -92,6 +90,18 @@ All confirmed, all 4 pax (Westbrooks + Loucks), all $0 included.
 | May 09 | The Grill | 18:30/19:30 |
 
 **Total outstanding: $0** — all included
+
+---
+
+### OPEN ITEMS — ACTION REQUIRED (as of 2026-03-24)
+
+| # | Item | Owner | Deadline | Status |
+|---|------|-------|----------|--------|
+| 1 | **Wrangell timing conflict** — Itinerary shows ship departs 3:00 PM; Tongass Botanicals Nature Walk is at 4:00 PM. Verify actual departure time with Silversea (Jenna Woodcock). If conflict confirmed, Ron needs to reschedule or cancel the excursion. | Dani / COS | Before May 7 | **OPEN** |
+| 2 | **Seattle terminal → SEA-TAC transfer** — Not booked. Party of 4 (Westbrooks + Loucks), May 11 ~9:30-10:00 AM debark. Research options (Blacklane, shuttle, Uber XL) and present to Ron. | Dani | **Apr 15** | **OPEN** |
+
+**Resolved:**
+- ✓ Visit Japan Web registration — Ron & Lindy both completed (2026-03-24)
 
 ---
 

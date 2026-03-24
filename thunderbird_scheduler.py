@@ -857,14 +857,14 @@ async def consolidated_midday_pulse():
         errors.append(f"Follow-up scan: {e}")
         logger.error(f"Midday Pulse — follow-up scan FAILED: {e}")
 
-    # ── SMS inbound check ────────────────────────────────────────────────
-    logger.info("[Midday Pulse] SMS inbound monitor...")
-    try:
-        sms_result = run_sms_monitor()
-        logger.info(f"SMS monitor: {sms_result.get('processed', 0)} messages processed")
-    except Exception as e:
-        errors.append(f"SMS monitor: {e}")
-        logger.error(f"Midday Pulse — SMS monitor FAILED: {e}")
+    # ── SMS inbound check — DISABLED 2026-03-24 (Commander's Order) ──────
+    # logger.info("[Midday Pulse] SMS inbound monitor...")
+    # try:
+    #     sms_result = run_sms_monitor()
+    #     logger.info(f"SMS monitor: {sms_result.get('processed', 0)} messages processed")
+    # except Exception as e:
+    #     errors.append(f"SMS monitor: {e}")
+    #     logger.error(f"Midday Pulse — SMS monitor FAILED: {e}")
 
     # ── COS-EXEC midday heartbeat ────────────────────────────────────────
     logger.info("[Midday Pulse] COS-EXEC midday heartbeat...")
@@ -1146,9 +1146,10 @@ def build_scheduler() -> AsyncIOScheduler:
         except Exception as e:
             logger.error(f"SMS Monitor FAILED: {e}")
 
-    scheduler.add_job(job_sms_monitor,
-                      CronTrigger(minute="*/10", timezone=TZ),
-                      id="sms_monitor", name="SMS Inbound Monitor (every 10m, 24/7)")
+    # SMS CHANNEL DISABLED — 2026-03-24 Commander's Order (T-Mobile gateway not working)
+    # scheduler.add_job(job_sms_monitor,
+    #                   CronTrigger(minute="*/10", timezone=TZ),
+    #                   id="sms_monitor", name="SMS Inbound Monitor (every 10m, 24/7)")
 
     # 0b. Concierge Email Monitor: every 10 min, 24/7
     #     Polls for inbound replies to concierge@d2mluxury.quest,

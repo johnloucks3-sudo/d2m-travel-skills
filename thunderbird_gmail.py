@@ -307,6 +307,14 @@ def _wrap_body_html(plain_text: str) -> str:
     else:
         banner = ''
 
+    # Logo footer — centered below signature, smaller than banner logo
+    logo_footer = (
+        f'<div style="margin-top: 24px; text-align: center;">'
+        f'<img src="{logo_uri}" alt="Dreams2Memories Travel" '
+        f'style="height: 72px; width: auto; display: inline-block; opacity: 0.88;" />'
+        f'</div>'
+    ) if logo_uri else ''
+
     return (
         f'<div style="background-color: #eee8db; padding: 0; margin: 0;">'
         f'{banner}'
@@ -328,6 +336,7 @@ def _wrap_body_html(plain_text: str) -> str:
         f'{html_body}'
         f'</div>'
         f'{COMMANDER_SIGNATURE_HTML}'
+        f'{logo_footer}'
         f'</div>'
         f'</div>'
         f'</div>'
