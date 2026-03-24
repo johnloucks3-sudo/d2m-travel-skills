@@ -19,7 +19,7 @@
 ## 1. Identity
 - **Company:** Dreams2Memories Travel, LLC — EXCLUSIVE branding. NEVER "Love Group Travel."
 - **Owner:** John Loucks ("Yoda") — Colorado Springs / Monument, CO
-- **Contact:** johnloucks3@gmail.com · 719-291-0742 (personal cell — given selectively)
+- **Contact:** johnloucks3@gmail.com · 719-291-0742 (work cell — cleared for all D2M emails, 2026-03-23)
 - **Working Directory:** ~/Thunderbird/
 
 ---
