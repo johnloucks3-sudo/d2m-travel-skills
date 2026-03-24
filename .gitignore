@@ -76,4 +76,5 @@ docs/tess_and_tokens_raw.md
 
 
 # Ignore Smart Environment folder
-.smart-env
+.smart-envconfig/portal_creds.json
+config/monitor_state.json
