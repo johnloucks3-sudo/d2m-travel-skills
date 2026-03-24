@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>D2M — Client Trip Lifecycle</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Georgia', serif;
+    background: #f5f3ee;
+    padding: 28px 20px 40px;
+    min-width: 1500px;
+  }
+  h1 {
+    text-align: center;
+    color: #1e3a5f;
+    font-size: 26px;
+    letter-spacing: 1.5px;
+    margin-bottom: 4px;
+  }
+  .subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 12px;
+    font-style: italic;
+    margin-bottom: 18px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── TIMING SPINE ── */
+  .timing-spine {
+    display: flex;
+    align-items: stretch;
+    margin-bottom: 8px;
+    gap: 0;
+  }
+  .timing-spine .t-spacer {
+    flex: 0 0 22px; /* matches connector width */
+  }
+  .timing-cell {
+    flex: 1;
+    text-align: center;
+    font-size: 9.5px;
+    color: #555;
+    padding: 5px 4px 4px;
+    border-bottom: 2px solid #6c8ebf;
+    position: relative;
+  }
+  .timing-cell::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 6px;
+    background: #6c8ebf;
+  }
+  .timing-cell .t-label {
+    font-weight: bold;
+    color: #1e3a5f;
+    font-size: 10px;
+    display: block;
+  }
+  .timing-cell .t-sub {
+    font-size: 8.5px;
+    color: #888;
+    font-style: italic;
+  }
+  .timing-spine-label {
+    font-size: 9px;
+    color: #888;
+    letter-spacing: 0.5px;
+    text-align: right;
+    margin-bottom: 10px;
+    padding-right: 4px;
+  }
+
+  /* ── TIMELINE ROW ── */
+  .timeline {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    margin-bottom: 14px;
+  }
+  .phase {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .connector {
+    flex: 0 0 22px;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 27px;
+    color: #6c8ebf;
+    font-size: 22px;
+    justify-content: center;
+    line-height: 1;
+  }
+
+  /* ── PHASE HEADER ── */
+  .phase-header {
+    border-radius: 8px 8px 0 0;
+    padding: 10px 8px;
+    text-align: center;
+    font-size: 13.5px;
+    font-weight: bold;
+    color: #1e3a5f;
+    line-height: 1.3;
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid;
+    border-bottom: none;
+  }
+
+  /* ── CONTENT AREA ── */
+  .phase-body {
+    border: 2px solid #ccc;
+    border-top: 1px solid #ddd;
+    background: #fafaf6;
+    border-radius: 0 0 6px 6px;
+    padding: 10px 8px 12px;
+    flex: 1;
+  }
+  .phase-body ul {
+    list-style: none;
+    padding: 0;
+  }
+  .phase-body li {
+    font-size: 10.5px;
+    color: #333;
+    padding: 3px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    line-height: 1.3;
+  }
+  .phase-body li:last-child { border-bottom: none; }
+  .phase-body li::before { content: "• "; color: #888; }
+  .staff-line {
+    font-size: 9.5px;
+    color: #888;
+    font-style: italic;
+    margin-top: 6px;
+    padding-top: 4px;
+    border-top: 1px solid #ddd;
+  }
+
+  /* ── CRITICAL GATE ITEMS ── */
+  .gate-warn {
+    color: #b85450 !important;
+    font-weight: bold;
+  }
+  .gate-warn::before { content: "⚠ " !important; color: #d79b00 !important; }
+
+  .gate-hot {
+    background: #fff3cd;
+    border-radius: 3px;
+    padding: 2px 4px !important;
+    margin: 2px 0;
+    border-bottom: none !important;
+    color: #7d4e00 !important;
+    font-weight: bold;
+  }
+  .gate-hot::before { content: "🔴 " !important; }
+
+  /* ── PHASE COLORS ── */
+  .p1 .phase-header { background: #dae8fc; border-color: #6c8ebf; }
+  .p2 .phase-header { background: #d5e8d4; border-color: #82b366; }
+  .p3 .phase-header { background: #fff2cc; border-color: #d6b656; }
+  .p4 .phase-header { background: #ffe6cc; border-color: #d79b00; }
+  .p5 .phase-header { background: #e1d5e7; border-color: #9673a6; }
+  .p6 .phase-header { background: #f8cecc; border-color: #b85450; }
+  .p7 .phase-header { background: #cce5ff; border-color: #004085; }
+
+  /* ── ACTIVE CLIENT OVERLAY ── */
+  .clients-bar {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    margin-bottom: 20px;
+  }
+  .clients-bar .c-spacer {
+    flex: 0 0 22px;
+  }
+  .client-cell {
+    flex: 1;
+    min-height: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 4px 2px;
+  }
+  .client-chip {
+    border-radius: 10px;
+    padding: 2px 8px;
+    font-size: 9px;
+    font-weight: bold;
+    white-space: nowrap;
+    color: #fff;
+    letter-spacing: 0.3px;
+  }
+  .chip-payment { background: #d79b00; }
+  .chip-planning { background: #82b366; }
+  .chip-prospect { background: #6c8ebf; }
+  .chip-final   { background: #9673a6; }
+  .clients-header {
+    font-size: 10px;
+    color: #1e3a5f;
+    letter-spacing: 0.8px;
+    font-weight: bold;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #c0c0c0;
+    padding-bottom: 4px;
+  }
+  .clients-wrap {
+    background: #f0ede4;
+    border: 1.5px solid #c8c2b4;
+    border-radius: 6px;
+    padding: 8px 16px 10px;
+    margin-bottom: 16px;
+  }
+
+  /* ── FORMS BAR ── */
+  .forms-bar {
+    background: #f0f0eb;
+    border: 1.5px solid #bbb;
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin-bottom: 18px;
+  }
+  .forms-bar h3 {
+    font-size: 12px;
+    color: #1e3a5f;
+    letter-spacing: 0.8px;
+    margin-bottom: 8px;
+  }
+  .forms-flow {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .form-pill {
+    background: #fff;
+    border: 1.5px solid #9673a6;
+    border-radius: 16px;
+    padding: 4px 12px;
+    font-size: 10.5px;
+    color: #1e3a5f;
+    white-space: nowrap;
+  }
+  .form-arrow { color: #9673a6; font-size: 16px; font-weight: bold; }
+
+  /* ── RULES BAR ── */
+  .rules-bar {
+    background: #eef2f7;
+    border: 1.5px solid #6c8ebf;
+    border-radius: 6px;
+    padding: 10px 16px;
+  }
+  .rules-bar h3 {
+    font-size: 11px;
+    color: #1e3a5f;
+    letter-spacing: 0.8px;
+    margin-bottom: 6px;
+  }
+  .rules-bar ul {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+    flex-wrap: wrap;
+  }
+  .rules-bar li {
+    font-size: 10px;
+    color: #444;
+  }
+  .rules-bar li::before { content: "⚡ "; }
+  .rules-bar li.rule-hot {
+    color: #b85450;
+    font-weight: bold;
+  }
+  .rules-bar li.rule-hot::before { content: "🔴 "; }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    font-size: 9.5px;
+    color: #aaa;
+    margin-top: 16px;
+    font-style: italic;
+  }
+
+  @media print {
+    body { background: #fff; padding: 12px; min-width: unset; }
+    .phase-body { background: #fff; }
+  }
+</style>
+</head>
+<body>
+
+<h1>D2M — CLIENT TRIP LIFECYCLE</h1>
+<p class="subtitle">Dreams2Memories Travel, LLC &nbsp;·&nbsp; Suspense Dates · Forms · Staff · Products to Client</p>
+
+<!-- ── TIMING SPINE ── -->
+<div class="timing-spine-label">T-MINUS TIMELINE →</div>
+<div class="timing-spine">
+  <div class="timing-cell">
+    <span class="t-label">PROSPECT</span>
+    <span class="t-sub">No fixed clock</span>
+  </div>
+  <div class="t-spacer"></div>
+  <div class="timing-cell">
+    <span class="t-label">DAY 0 – 7</span>
+    <span class="t-sub">Post-booking</span>
+  </div>
+  <div class="t-spacer"></div>
+  <div class="timing-cell">
+    <span class="t-label">T-12mo → T-3mo</span>
+    <span class="t-sub">Long horizon</span>
+  </div>
+  <div class="t-spacer"></div>
+  <div class="timing-cell">
+    <span class="t-label">FPD −30 → FPD</span>
+    <span class="t-sub">⚠ Critical gate</span>
+  </div>
+  <div class="t-spacer"></div>
+  <div class="timing-cell">
+    <span class="t-label">T-30 → T-0</span>
+    <span class="t-sub">Final approach</span>
+  </div>
+  <div class="t-spacer"></div>
+  <div class="timing-cell">
+    <span class="t-label">WHEELS UP</span>
+    <span class="t-sub">Trip active</span>
+  </div>
+  <div class="t-spacer"></div>
+  <div class="timing-cell">
+    <span class="t-label">T+1 → T+30</span>
+    <span class="t-sub">Post-return</span>
+  </div>
+</div>
+
+<div class="timeline">
+
+  <!-- P1: PROSPECT -->
+  <div class="phase p1">
+    <div class="phase-header">🔍 PROSPECT</div>
+    <div class="phase-body">
+      <ul>
+        <li>Lead / inquiry received</li>
+        <li>A2 research brief drafted</li>
+        <li>Qualifier conversation</li>
+        <li>Cruise line / destination match</li>
+      </ul>
+      <div class="staff-line">Staff: Commander + A2</div>
+    </div>
+  </div>
+
+  <div class="connector">→</div>
+
+  <!-- P2: INTAKE -->
+  <div class="phase p2">
+    <div class="phase-header">📋 INTAKE<br><small style="font-size:10px;font-weight:normal">Day 0 – 7</small></div>
+    <div class="phase-body">
+      <ul>
+        <li>Booking confirmed w/ supplier</li>
+        <li>Dossier created ≤ 24h</li>
+        <li>Booking Master GSheet updated</li>
+        <li>Google Drive mirrored</li>
+        <li>THUNDERBIRD_MASTER_PLAN updated</li>
+        <li>Schedule of Events drafted</li>
+        <li>Welcome email → client</li>
+        <li><strong>Form #1: INTRO</strong> sent</li>
+      </ul>
+      <div class="staff-line">Staff: Dani + COS</div>
+    </div>
+  </div>
+
+  <div class="connector">→</div>
+
+  <!-- P3: PLANNING -->
+  <div class="phase p3">
+    <div class="phase-header">🗺️ PLANNING<br><small style="font-size:10px;font-weight:normal">Long Horizon</small></div>
+    <div class="phase-body">
+      <ul>
+        <li>Flights researched + booked</li>
+        <li>Hotels pre / post cruise</li>
+        <li>Transfers + excursions</li>
+        <li>Quote built (25% markup)</li>
+        <li><strong>Form #2: PROFILE</strong> sent</li>
+        <li><strong>Form #3: PREFERENCES</strong> sent</li>
+        <li>TESS docs uploaded</li>
+        <li>Monthly validations run</li>
+        <li>Seat assignment check</li>
+      </ul>
+      <div class="staff-line">Staff: A2 + Dani + A9</div>
+    </div>
+  </div>
+
+  <div class="connector">→</div>
+
+  <!-- P4: PAYMENT GATES -->
+  <div class="phase p4">
+    <div class="phase-header">💰 PAYMENT<br><small style="font-size:10px;font-weight:normal">GATES</small></div>
+    <div class="phase-body">
+      <ul>
+        <li>Deposit due (Day 0 – 30)</li>
+        <li class="gate-warn">FPD−30: Alert → Commander</li>
+        <li class="gate-hot">FPD: Final payment DUE</li>
+        <li>TESS payment status pull</li>
+        <li>Commission logged</li>
+        <li>Client confirmation sent</li>
+      </ul>
+      <div class="staff-line">Staff: A9 + Commander</div>
+    </div>
+  </div>
+
+  <div class="connector">→</div>
+
+  <!-- P5: FINAL APPROACH -->
+  <div class="phase p5">
+    <div class="phase-header">✈️ FINAL APPROACH<br><small style="font-size:10px;font-weight:normal">T-30 → T-0</small></div>
+    <div class="phase-body">
+      <ul>
+        <li>T-30: Itinerary delivered</li>
+        <li><strong>Form #4: FINAL profile</strong></li>
+        <li class="gate-warn">T-14: FINAL validation</li>
+        <li>Seat assignments confirmed</li>
+        <li>Portal magic link activated</li>
+        <li>Pre-departure packet sent</li>
+        <li>Emergency contacts confirmed</li>
+      </ul>
+      <div class="staff-line">Staff: Dani + COS</div>
+    </div>
+  </div>
+
+  <div class="connector">→</div>
+
+  <!-- P6: EXECUTION -->
+  <div class="phase p6">
+    <div class="phase-header">🚢 EXECUTION</div>
+    <div class="phase-body">
+      <ul>
+        <li>Trip underway</li>
+        <li>Dani on standby (Telegram)</li>
+        <li>Crisis routing → COS</li>
+        <li>Silent watch monitoring</li>
+        <li>Real-time issue response</li>
+      </ul>
+      <div class="staff-line">Staff: Dani + COS</div>
+    </div>
+  </div>
+
+  <div class="connector">→</div>
+
+  <!-- P7: POST-TRIP -->
+  <div class="phase p7">
+    <div class="phase-header">🏆 POST-TRIP</div>
+    <div class="phase-body">
+      <ul>
+        <li><strong>Form #5: FEEDBACK</strong></li>
+        <li>Commission reconcile</li>
+        <li>Dossier closed + archived</li>
+        <li>Next trip seeding</li>
+        <li>Lessons → Voice Ledger</li>
+        <li>Referral ask (if appropriate)</li>
+      </ul>
+      <div class="staff-line">Staff: A9 + Dani</div>
+    </div>
+  </div>
+
+</div><!-- end timeline -->
+
+<!-- ── ACTIVE CLIENT OVERLAY ── -->
+<div class="clients-wrap">
+  <div class="clients-header">📍 WHERE ARE THEY NOW — ACTIVE ROSTER (23 MAR 2026)</div>
+  <div class="clients-bar">
+    <div class="client-cell">
+      <!-- P1 Prospect -->
+      <span class="client-chip chip-prospect">Westbrook</span>
+      <span class="client-chip chip-prospect">Joe Britan</span>
+    </div>
+    <div class="c-spacer"></div>
+    <div class="client-cell">
+      <!-- P2 Intake -->
+      <span class="client-chip chip-planning">Ryan Loucks</span>
+      <span class="client-chip chip-planning">Justin Loucks</span>
+    </div>
+    <div class="c-spacer"></div>
+    <div class="client-cell">
+      <!-- P3 Planning -->
+      <span class="client-chip chip-planning">Lyons (RSSC)</span>
+    </div>
+    <div class="c-spacer"></div>
+    <div class="client-cell">
+      <!-- P4 Payment Gates — HOT -->
+      <span class="client-chip chip-payment">🔴 FURLOWS</span>
+      <span style="font-size:8.5px;color:#b85450;font-weight:bold;text-align:center;">FPD: APR 1 · $15,486</span>
+    </div>
+    <div class="c-spacer"></div>
+    <div class="client-cell">
+      <!-- P5 Final Approach — empty -->
+    </div>
+    <div class="c-spacer"></div>
+    <div class="client-cell">
+      <!-- P6 Execution — empty -->
+    </div>
+    <div class="c-spacer"></div>
+    <div class="client-cell">
+      <!-- P7 Post-trip — empty -->
+    </div>
+  </div>
+</div>
+
+<!-- FORMS BAR -->
+<div class="forms-bar">
+  <h3>GUEST PROFILE FORM SEQUENCE</h3>
+  <div class="forms-flow">
+    <div class="form-pill">📋 Form #1 — INTRO<br><span style="font-size:9px;color:#888">Intake / Day 0</span></div>
+    <div class="form-arrow">→</div>
+    <div class="form-pill">👤 Form #2 — PROFILE<br><span style="font-size:9px;color:#888">Planning phase</span></div>
+    <div class="form-arrow">→</div>
+    <div class="form-pill">⭐ Form #3 — PREFERENCES<br><span style="font-size:9px;color:#888">Planning phase</span></div>
+    <div class="form-arrow">→</div>
+    <div class="form-pill">✅ Form #4 — FINAL<br><span style="font-size:9px;color:#888">T-30 days out</span></div>
+    <div class="form-arrow">→</div>
+    <div class="form-pill">🏆 Form #5 — FEEDBACK<br><span style="font-size:9px;color:#888">Post-trip</span></div>
+  </div>
+</div>
+
+<!-- RULES BAR -->
+<div class="rules-bar">
+  <h3>KEY RULES &amp; SUSPENSE TRIGGERS</h3>
+  <ul>
+    <li class="rule-hot">FPD Alert fires at exactly −30 days from Final Payment Deadline</li>
+    <li>Booking Master Google Sheet = source of truth for all deadlines</li>
+    <li>TESS integration = live payment &amp; invoice status</li>
+    <li>Dossier = canonical client record (created ≤ 24h of booking)</li>
+    <li class="rule-hot">Itinerary delivered T-30 · FINAL validation T-14</li>
+    <li>Commission default: 25% markup on net (22% premium / SLH)</li>
+    <li>EUR → USD default: 1.09 (verify live for quotes &gt; $5,000)</li>
+  </ul>
+</div>
+
+<div class="footer">
+  Dreams2Memories Travel, LLC &nbsp;·&nbsp; THUNDERBIRD OS &nbsp;·&nbsp; Generated by COS Hale &nbsp;·&nbsp; 23 MAR 2026
+</div>
+
+</body>
+</html>

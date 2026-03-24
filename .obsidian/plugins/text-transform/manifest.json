@@ -1,0 +1,11 @@
+{
+    "id": "text-transform",
+    "name": "Text Transform",
+    "version": "1.4.1",
+    "minAppVersion": "1.0.0",
+    "description": "Transform text to different cases using the command palette or keyboard shortcuts.",
+    "author": "ipshing",
+    "authorUrl": "https://github.com/ipshing",
+    "isDesktopOnly": false,
+    "fundingUrl": "https://ko-fi.com/ipshing"
+}

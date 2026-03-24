@@ -44,9 +44,17 @@ ctx = HotelGuideContext(doc=..., hotels=[...], comparison=[...], ...)
 render_to_pdf(ctx, 'output/ClientName_Destination_MonYYYY.pdf')
 ```
 
-## Email Stationery
-- Navy logo banner, cream paper (#f7f3ea), bright blue ink (#0000ff), Georgia serif
-- Baked into `_wrap_body_html()` in `thunderbird_gmail.py` — auto-applied to all outbound email
+## Email Stationery — BRAND STANDARD (updated 2026-03-23)
+- **Ink:** `#0000ff` bright blue — Commander's pen. ALL templates. NEVER substitute.
+- **Paper:** `#f7f3ea` cream — email-wrapper / content area background
+- **Surround:** `#eee8db` warm linen — body/outer background
+- **Banner:** `#0d1b2e` navy — header background, logo area, bottom bar
+- **Gold accent:** `#c9a84c` — rules, labels, agent title, bottom bar text
+- **Font:** Georgia, 'Times New Roman', serif — NO Google Fonts (stripped by Gmail)
+- Baked into `_wrap_body_html()` in `thunderbird_gmail.py` — auto-applied to plain-text wrapping
+- `tier1_correspondence.html.j2` — canonical Jinja2 template for all client correspondence
+- `dani_validation_email.html.j2` — Dani's rich trip validation template
+- All templates synced to same brand tokens as of 2026-03-23
 - Never override per-email — stationery is brand standard
 
 ## Context Engineering (Wired 23 MAR 2026)

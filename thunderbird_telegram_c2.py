@@ -342,6 +342,7 @@ async def cmd_help(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "/voice — Voice ledger summary",
         "/inbox — Sweep Commander's personal inbox for D2M emails",
         "/usage — Claude Code usage meter (tokens, cost, block, monthly)",
+        "/restart — Restart both Telegram bots (C2 + Dani)",
         "",
         "_Type \"STAFF SUMMARY\" to start an SSS._",
         "_Plain text goes to COS (Opus via Agent SDK)._",
@@ -857,6 +858,22 @@ async def cmd_usage(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     except Exception as e:
         await ack.edit_text(f"Usage meter failed: {e}")
+
+
+@commander_only
+async def cmd_restart(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Restart both Telegram bots via systemd."""
+    ack = await update.message.reply_text("🔄 Restarting Telegram bots...")
+    try:
+        import subprocess
+        result = subprocess.run(
+            ["/home/john/restart-telegram.sh"],
+            capture_output=True, text=True, timeout=30
+        )
+        output = result.stdout.strip() or result.stderr.strip() or "Done"
+        await ack.edit_text(f"🔄 *Restart complete*\n\n```\n{output[-800:]}\n```", parse_mode="Markdown")
+    except Exception as e:
+        await ack.edit_text(f"⚠️ Restart failed: {e}")
 
 
 @commander_only
@@ -1634,6 +1651,7 @@ def main():
     app.add_handler(CommandHandler("voice", cmd_voice))
     app.add_handler(CommandHandler("inbox", cmd_inbox))
     app.add_handler(CommandHandler("usage", cmd_usage))
+    app.add_handler(CommandHandler("restart", cmd_restart))
 
     # Draft approval inline buttons (approve/preview/reject)
     app.add_handler(CallbackQueryHandler(handle_draft_callback, pattern=r"^draft_"))

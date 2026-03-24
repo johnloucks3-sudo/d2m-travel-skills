@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dreams2Memories Travel</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Lora:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- NO external font imports — Georgia only, Gmail-compatible -->
     <style>
         /* ===== RESET & BASE ===== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -15,19 +15,19 @@
             --gold-pale: #f5e9c8;
             --navy: #0d1b2e;
             --navy-light: #1e3358;
-            --ink-blue: #2b6cb0;      /* Commander's light blue ink */
+            --ink: #0000ff;           /* Commander's bright blue pen — NEVER substitute */
             --text-dark: #2d3748;
             --text-muted: #718096;
-            --warm-cream: #faf8f3;
+            --cream: #f7f3ea;         /* Crane's Ecru — email content area */
+            --linen: #eee8db;         /* Warm linen desk surround */
             --sand: #e8dcc8;
             --border-gold: #d4c5a0;
-            --white: #ffffff;
         }
 
         body {
-            font-family: 'Lora', Georgia, serif;
-            color: var(--ink-blue);
-            background: var(--white);
+            font-family: Georgia, 'Times New Roman', serif;
+            color: #0000ff;
+            background: #eee8db;
             line-height: 1.7;
             font-size: 15px;
             -webkit-font-smoothing: antialiased;
@@ -58,31 +58,34 @@
         .email-wrapper {
             max-width: 680px;
             margin: 0 auto;
-            background: var(--white);
-            border: 1px solid #e2e0db;
+            background: #f7f3ea;
+            border: 1px solid #e8dcc8;
             border-radius: 4px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
         }
 
-        /* ===== HEADER ===== */
+        /* ===== HEADER — NAVY LOGO BANNER ===== */
         .header {
             padding: 28px 40px 20px;
             text-align: center;
-            background: var(--white);
+            background: #0d1b2e;
+            border-radius: 4px 4px 0 0;
         }
 
         .logo {
-            max-height: 60px;
+            max-height: 90px;
             width: auto;
             margin-bottom: 6px;
         }
 
         .tagline {
-            font-family: 'Montserrat', sans-serif;
+            font-family: Georgia, 'Times New Roman', serif;
             font-size: 10px;
-            letter-spacing: 3px;
+            letter-spacing: 2.5px;
             text-transform: uppercase;
-            color: var(--gold);
-            font-weight: 500;
+            color: #f5e9c8;
+            font-style: italic;
+            margin-top: 6px;
         }
 
         /* ===== GOLD RULE ===== */
@@ -95,10 +98,11 @@
 
         /* ===== DATE LINE ===== */
         .date-line {
-            font-family: 'Montserrat', sans-serif;
+            font-family: Georgia, 'Times New Roman', serif;
             font-size: 11px;
-            color: var(--text-muted);
+            color: #718096;
             letter-spacing: 0.5px;
+            font-style: italic;
             text-align: right;
             padding: 14px 40px 0;
         }
@@ -109,41 +113,42 @@
         }
 
         .greeting {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 22px;
-            font-weight: 600;
-            color: var(--navy);
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 20px;
+            font-weight: bold;
+            color: #0d1b2e;
             margin-bottom: 18px;
         }
 
         .content p {
             margin-bottom: 14px;
-            color: var(--ink-blue);
+            color: #0000ff;
         }
 
         .content ul, .content ol {
             margin: 10px 0 14px 24px;
-            color: var(--ink-blue);
+            color: #0000ff;
         }
 
         .content li {
             margin-bottom: 6px;
+            color: #0000ff;
         }
 
         .content strong {
-            color: var(--navy);
-            font-weight: 600;
+            color: #0d1b2e;
+            font-weight: bold;
         }
 
         .content a {
-            color: var(--gold);
+            color: #c9a84c;
             text-decoration: underline;
-            text-decoration-color: var(--gold-pale);
+            text-decoration-color: #f5e9c8;
             text-underline-offset: 2px;
         }
 
         .content a:hover {
-            color: var(--navy);
+            color: #0d1b2e;
         }
 
         /* ===== HIGHLIGHT BOX ===== */
@@ -181,26 +186,26 @@
 
         .sign-off .closing {
             margin-bottom: 4px;
-            color: var(--ink-blue);
+            color: #0000ff;
         }
 
         .sign-off .name {
-            font-weight: 600;
-            color: var(--navy);
+            font-weight: bold;
+            color: #0d1b2e;
             font-size: 16px;
         }
 
         .sign-off .title {
-            font-family: 'Montserrat', sans-serif;
+            font-family: Georgia, 'Times New Roman', serif;
             font-size: 12px;
-            color: var(--text-muted);
+            color: #718096;
             letter-spacing: 0.3px;
         }
 
         /* ===== FOOTER ===== */
         .footer {
-            background: var(--warm-cream);
-            border-top: 1px solid var(--sand);
+            background: #faf8f3;
+            border-top: 1px solid #e8dcc8;
             padding: 22px 40px;
         }
 
@@ -215,7 +220,7 @@
             height: 56px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid var(--gold-pale);
+            border: 2px solid #f5e9c8;
             flex-shrink: 0;
         }
 
@@ -224,31 +229,31 @@
         }
 
         .agent-name {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: Georgia, 'Times New Roman', serif;
             font-size: 17px;
-            font-weight: 600;
-            color: var(--navy);
+            font-weight: bold;
+            color: #0d1b2e;
         }
 
         .agent-title {
-            font-family: 'Montserrat', sans-serif;
+            font-family: Georgia, 'Times New Roman', serif;
             font-size: 10px;
             letter-spacing: 1px;
             text-transform: uppercase;
-            color: var(--gold);
-            font-weight: 500;
+            color: #c9a84c;
+            font-style: italic;
         }
 
         .contact-line {
-            font-family: 'Montserrat', sans-serif;
+            font-family: Georgia, 'Times New Roman', serif;
             font-size: 12px;
-            color: var(--text-muted);
+            color: #718096;
             margin-top: 6px;
             line-height: 1.6;
         }
 
         .contact-line a {
-            color: var(--ink-blue);
+            color: #0000ff;
             text-decoration: none;
         }
 
@@ -257,7 +262,7 @@
         }
 
         .contact-separator {
-            color: var(--sand);
+            color: #e8dcc8;
             margin: 0 6px;
         }
 
@@ -265,15 +270,16 @@
         .bottom-bar {
             text-align: center;
             padding: 10px 40px;
-            background: var(--navy);
+            background: #0d1b2e;
+            border-radius: 0 0 4px 4px;
         }
 
         .bottom-bar span {
-            font-family: 'Montserrat', sans-serif;
+            font-family: Georgia, 'Times New Roman', serif;
             font-size: 9px;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: var(--gold);
+            color: #c9a84c;
         }
     </style>
 </head>

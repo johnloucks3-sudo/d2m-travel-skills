@@ -1,3 +1,17 @@
+---
+client: Furlow
+full_name: John & Melissa Furlow
+cruise_line: Regent Seven Seas
+ship: SS Grandeur
+voyage: Storied Scandinavia
+booking: "3071222"
+departure: 2026-08-29
+return: 2026-09-08
+fpd: 2026-04-01
+fpd_amount: 15486
+status: active
+relationship: client
+---
 # CLIENT DOSSIER — John & Melissa Furlow
 ## Regent SS Grandeur | Booking 3071222 | Scandinavia Aug 29 – Sep 8, 2026
 
@@ -134,8 +148,19 @@ All included (Regent Choice — $0.00). Both guests on all excursions.
 **Mar 20 — Commander → John & Missy Furlow** (DRAFT — not yet sent)
 > Payment confirmation email drafted. Itemized: Cruise $15,486 + Hotel ~$494 + Transfer TBD. Asking: cruise only or all 3? CC info needed to process. Draft ID: r8097692406753326321
 
+### PASSPORT DATA — RECEIVED 2026-03-23
+| Person | File | Size | Storage | Notes |
+|--------|------|------|---------|-------|
+| John Furlow | `John PP.jpg` | 205 KB | Google Drive — D2M Trip Dossiers/Furlow/Passports/ | Image only — expiration confirmed 2035 (per Mar 8 email) |
+| Missy Furlow | `Missy PP.jpg` | 217 KB | Google Drive — D2M Trip Dossiers/Furlow/Passports/ | Image only |
+
+**Storage protocol:** Images → Google Drive restricted folder only. Metadata (expiration, holder name) → dossier. Full passport numbers NOT stored in plain text or Sheets. TESS passport field gap flagged.
+Commander replied to Missy at 15:13 MT: "Thanks Missy, got it — John" ✅
+
+---
+
 ### OPEN ACTION ITEMS
-1. [x] Passport verified — expires 2035
+1. [x] Passport verified — expires 2035 (John confirmed Mar 8; images received Mar 23)
 2. [x] Follow up after Mar 16 — back from Costa Rica, follow-up complete Mar 20
 3. [ ] Discuss insurance options (no response yet on insurance) — COS tracking
 4. [ ] **FINAL PAYMENT DUE APR 1** — $15,486 — Regent cruise 3071222
@@ -143,4 +168,5 @@ All included (Regent Choice — $0.00). Both guests on all excursions.
 6. [ ] **PAYMENT DUE** — Arlanda transfer — #1095074 / JF693870
 7. [x] ~~Melissa Furlow Guest Registration~~ — **COMPLETE** (confirmed Mar 18)
 8. [ ] Travel insurance — not yet booked. COS tracking only, do not raise in client email.
-9. [ ] Outbound seat assignments — BB4X94 (HEL→ARN) still unassigned
+9. [ ] Outbound seat assignments — BB4X94 (DFW→HEL and HEL→ARN) still unassigned
+10. [ ] **Store passport images** to Google Drive — D2M Trip Dossiers/Furlow/Passports/ (pending Drive upload)

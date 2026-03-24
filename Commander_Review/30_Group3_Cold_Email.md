@@ -3,7 +3,7 @@
 
 **Version:** v4
 **Date:** 2026-03-21
-**Status:** Draft — Awaiting Commander Review
+**Status:** APPROVED — Ready to Send
 **Audience:** General / Cold / New Contacts
 **Changes from v2:** AI section fully rebuilt. Real client examples: Louisiana→Nebraska relocation + Japan/Pacific 32-day voyage with exact verified numbers. 14 clients / 8 itineraries enumerated. "We log it all" throughline added.
 
@@ -144,9 +144,9 @@ That's what I'm here for.
 - Total: $22,663 per dossier financial summary
 - 14 clients, 8 itineraries: verified from list_trip_dossiers + client dossier files
 
-**COMMANDER DECISIONS NEEDED:**
-1. "Susie and I" — correct nickname? Dossier says "Susan" — is "Susie" accurate?
-2. Relocation example: Ryan Loucks is family (Commander's son). Use it? Or anonymize to "a family..."? Draft uses anonymized version.
-3. 8 itineraries vs. Commander's "7" — dossiers show 8 distinct booked voyages. Use 8 (accurate) or 7?
-4. Phone 719-291-0742 — Commander's personal cell, confirmed for use per standing order
+**COMMANDER DECISIONS — RESOLVED 2026-03-23:**
+1. ✅ "Susie" — confirmed correct nickname
+2. ✅ Ryan Loucks — keep anonymous ("a family...") — already done in draft
+3. ✅ 8 itineraries — use 8 (accurate per dossiers)
+4. ✅ Phone 719-291-0742 — OK for clients and friends (confirmed by Commander)
 

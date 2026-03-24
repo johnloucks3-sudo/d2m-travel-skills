@@ -1,0 +1,68 @@
+{
+  "nodes": [
+    {
+      "id": "hub",
+      "type": "text",
+      "text": "# ✈️ Silver Nova — Pacific Journey\n**Apr 10 – May 11, 2026 | 32 Days**\nJohn & Susie Loucks\nBooking 566910-25 | $22,663 total",
+      "x": 0, "y": 0, "width": 320, "height": 140,
+      "color": "1"
+    },
+    {
+      "id": "flights",
+      "type": "text",
+      "text": "## ✈️ Flights\n- Allegiant COS→SNA (P5F8XF)\n- Delta LAX→HNL (GW4ZHW)\n- **JAL Business HNL→NRT (FJHPYY)**\n- Southwest SEA→DEN (ASC3LX)",
+      "x": -420, "y": -200, "width": 280, "height": 160,
+      "color": "3"
+    },
+    {
+      "id": "hotels",
+      "type": "text",
+      "text": "## 🏨 Hotels (Pre-Cruise)\n- Newport Beach — 3 nights\n  Marriott Bayview #79802952\n- Waikiki — 5 nights\n  Hale Koa #10421237\n- Tokyo Odaiba — 4 nights\n  Hilton #3337550400",
+      "x": -420, "y": 60, "width": 280, "height": 180,
+      "color": "5"
+    },
+    {
+      "id": "japan",
+      "type": "text",
+      "text": "## 🗾 Japan Pre-Cruise\n- Kyoto food tour (PE164717508)\n  Hiro confirmed — private guide\n- Mt Fuji & Hakone (PE164714008)\n- SmartEX Shinkansen #3740314183\n- Visit Japan Web ✓ both travelers\n- Transfer to pier 10:30 AM\n  Heycars minibus (PE151557101)",
+      "x": -420, "y": 280, "width": 280, "height": 220,
+      "color": "4"
+    },
+    {
+      "id": "cruise",
+      "type": "text",
+      "text": "## 🚢 Silver Nova\nApr 23 Tokyo Harumi → May 11 Seattle\n18 nights | Cabin 8075\n\n**Shore Excursions (6)**\nMiyako · Sitka · Juneau\nWrangell · Ketchikan · Victoria\n\n**Dining (16 reservations)**\nChef's Table · Kaiseki + more",
+      "x": 360, "y": -100, "width": 300, "height": 260,
+      "color": "6"
+    },
+    {
+      "id": "docs",
+      "type": "text",
+      "text": "## 📋 Documents & Tracking\n- Visit Japan Web ✓\n- Passports — check expiry\n- Travel insurance ✓\n- 30+ vendor comms logged\n- All confirmations in dossier",
+      "x": 360, "y": 220, "width": 280, "height": 160,
+      "color": "2"
+    },
+    {
+      "id": "dossier",
+      "type": "file",
+      "file": "dossiers/Loucks_Personal_SilverNova_Japan.md",
+      "x": 0, "y": 260, "width": 300, "height": 60
+    },
+    {
+      "id": "weather",
+      "type": "text",
+      "text": "## 🌤️ Weather / Packing\n- Japan spring (Apr) — layers\n- North Pacific at sea — cold\n- Pacific NW May — rain gear\nPacking list by week in dossier",
+      "x": 0, "y": -280, "width": 280, "height": 160,
+      "color": "2"
+    }
+  ],
+  "edges": [
+    {"id": "e1", "fromNode": "hub", "fromSide": "left", "toNode": "flights", "toSide": "right"},
+    {"id": "e2", "fromNode": "hub", "fromSide": "left", "toNode": "hotels", "toSide": "right"},
+    {"id": "e3", "fromNode": "hub", "fromSide": "left", "toNode": "japan", "toSide": "right"},
+    {"id": "e4", "fromNode": "hub", "fromSide": "right", "toNode": "cruise", "toSide": "left"},
+    {"id": "e5", "fromNode": "hub", "fromSide": "right", "toNode": "docs", "toSide": "left"},
+    {"id": "e6", "fromNode": "hub", "fromSide": "bottom", "toNode": "dossier", "toSide": "top"},
+    {"id": "e7", "fromNode": "hub", "fromSide": "top", "toNode": "weather", "toSide": "bottom"}
+  ]
+}

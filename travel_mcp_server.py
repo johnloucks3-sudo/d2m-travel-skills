@@ -747,7 +747,7 @@ async def capture_edit_diff(
             direction = "tighten"
         elif any(word in " ".join(added).lower() for word in ["warm", "feel", "love", "excited", "looking forward"]):
             direction = "soften"
-        elif any(word in " ".join(added).lower() for word in ["you", "your", name_word := context.split(",")[0].strip().lower()]):
+        elif any(word in " ".join(added).lower() for word in ["you", "your", context.split(",")[0].strip().lower()]):
             direction = "personalize"
         else:
             direction = "adjust"

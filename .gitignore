@@ -71,3 +71,9 @@ Thunderbird/
 # Claude internals
 .claude/
 docs/tess_and_tokens_raw.md
+
+
+
+
+# Ignore Smart Environment folder
+.smart-env

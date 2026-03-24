@@ -1,3 +1,18 @@
+---
+client: Loucks Personal
+full_name: John & Susan Loucks
+cruise_line: Silversea
+ship: Silver Nova
+voyage: Tokyo to Seattle — Pacific Crossing
+booking: "566910-25"
+departure: 2026-04-10
+embarkation: 2026-04-23
+return: 2026-05-11
+fpd: 2026-02-01
+fpd_amount: 22663
+status: active
+relationship: commander
+---
 # PERSONAL DOSSIER — John & Susan Loucks
 ## 32-Day Pacific Luxury Journey (Apr 10 – May 11, 2026)
 

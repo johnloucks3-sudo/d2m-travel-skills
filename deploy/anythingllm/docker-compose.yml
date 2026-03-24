@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  anythingllm:
+    image: mintplexlabs/anythingllm:latest
+    container_name: anythingllm
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    environment:
+      - STORAGE_DIR=/app/server/storage
+      - JWT_SECRET=d2m-thunderbird-anythingllm-2026
+      - LLM_PROVIDER=together
+      - TOGETHER_API_KEY=${TOGETHER_API_KEY:-}
+      - TOGETHER_MODEL_PREF=meta-llama/Llama-3.3-70B-Instruct-Turbo
+      - EMBEDDING_ENGINE=native
+      - VECTOR_DB=lancedb
+    volumes:
+      - ./storage:/app/server/storage
+      - ./hotdir:/app/collector/hotdir
+      - ./logs:/app/server/logs
+      - /home/john/Thunderbird/Commander_Review:/app/collector/hotdir/Commander_Review:ro
+      - /home/john/Thunderbird/dossiers:/app/collector/hotdir/dossiers:ro

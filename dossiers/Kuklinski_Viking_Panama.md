@@ -1,3 +1,16 @@
+---
+client: Kuklinski
+full_name: Kuklinski Group (3 couples)
+cruise_line: Viking
+ship: Viking Mars
+voyage: Panama Canal
+departure: 2026-12-17
+return: 2026-12-27
+fpd: 2026-10-18
+fpd_amount: 21244
+status: active
+relationship: client
+---
 # CLIENT DOSSIER — Kuklinski Group (3 bookings)
 ## Viking Mars | Panama Canal | Dec 17–27, 2026
 

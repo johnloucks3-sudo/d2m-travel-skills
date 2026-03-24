@@ -1,3 +1,16 @@
+---
+client: Grandeur Scandinavia Group
+full_name: Furlow / Ely-Darrow / Nichols
+cruise_line: Regent Seven Seas
+ship: SS Grandeur
+voyage: Storied Scandinavia
+departure: 2026-08-29
+return: 2026-09-08
+fpd: 2026-04-01
+fpd_amount: 46458
+status: active
+relationship: client
+---
 ════════════════════════════════════════════════════════════
 DREAMS2MEMORIES TRAVEL, LLC
 TRIP DOSSIER

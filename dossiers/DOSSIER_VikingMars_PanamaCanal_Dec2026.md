@@ -1,3 +1,16 @@
+---
+client: Kuklinski Group
+full_name: Kyle/Rosalie + Roger/Nicholas + Josh/Erica Kuklinski
+cruise_line: Viking
+ship: Viking Mars
+voyage: Panama Canal
+departure: 2026-12-17
+return: 2026-12-27
+fpd: 2026-03-31
+fpd_amount: 21244
+status: active
+relationship: client
+---
 ════════════════════════════════════════════════════════════
 DREAMS2MEMORIES TRAVEL, LLC
 TRIP DOSSIER

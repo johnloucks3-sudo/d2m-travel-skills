@@ -763,6 +763,21 @@ async def handle_plain_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     answer = result.get("answer", FALLBACK_MSG)
 
+    # Sculptor Gate — Z1 three-pass polish (Tone → Format → Voice) before send gates
+    if not is_cmdr:
+        try:
+            from thunderbird_doc_sculptor import sculpt_for_dani
+            polished, _changes = sculpt_for_dani(answer, {
+                "name": user_name,
+                "tier": "client",
+                "context": query
+            })
+            if polished and polished.strip():
+                answer = polished
+                logger.info(f"Sculptor polished response for {user_name} ({len(_changes)} changes)")
+        except Exception as _e:
+            logger.debug(f"Sculptor skipped: {_e}")
+
     # Pre-Send Evaluator Gate — fast regex, zero API cost, runs first
     cos_note = ""
     if not is_cmdr:
