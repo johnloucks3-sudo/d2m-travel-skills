@@ -12,7 +12,7 @@ from pathlib import Path
 from datetime import date
 
 DOSSIER_DIR = Path(__file__).parent / "dossiers"
-BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "***REMOVED-SECRET***")
+BOT_TOKEN = os.environ.get("TELEGRAM_C2_BOT_TOKEN", "***REMOVED-SECRET***")
 COMMANDER_ID = os.environ.get("TELEGRAM_COMMANDER_ID", "7554895206")
 
 
