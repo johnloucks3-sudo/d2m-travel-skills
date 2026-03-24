@@ -715,6 +715,62 @@ async def handle_button_callback(update: Update, context: ContextTypes.DEFAULT_T
         )
 
 
+async def handle_voice_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Transcribe voice messages via Groq Whisper then route to Dani/COS."""
+    import tempfile, os, urllib.request, urllib.error
+
+    ack = await update.message.reply_text("🎙 Transcribing...")
+    try:
+        voice = update.message.voice
+        file = await context.bot.get_file(voice.file_id)
+        with tempfile.NamedTemporaryFile(suffix=".ogg", delete=False) as tmp:
+            tmp_path = tmp.name
+        await file.download_to_drive(tmp_path)
+
+        groq_key = os.environ.get("GROQ_API_KEY", "***REMOVED-SECRET***")
+        with open(tmp_path, "rb") as f:
+            audio_data = f.read()
+        os.unlink(tmp_path)
+
+        # Multipart form upload to Groq Whisper
+        boundary = "----ThunderbirdBoundary"
+        body = (
+            f"--{boundary}\r\n"
+            f'Content-Disposition: form-data; name="file"; filename="voice.ogg"\r\n'
+            f"Content-Type: audio/ogg\r\n\r\n"
+        ).encode() + audio_data + (
+            f"\r\n--{boundary}\r\n"
+            f'Content-Disposition: form-data; name="model"\r\n\r\nwhisper-large-v3-turbo\r\n'
+            f"--{boundary}--\r\n"
+        ).encode()
+
+        req = urllib.request.Request(
+            "https://api.groq.com/openai/v1/audio/transcriptions",
+            data=body,
+            headers={
+                "Authorization": f"Bearer {groq_key}",
+                "Content-Type": f"multipart/form-data; boundary={boundary}",
+            }
+        )
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            result = json.loads(resp.read())
+        transcript = result.get("text", "").strip()
+
+        if not transcript:
+            await ack.edit_text("🎙 Could not transcribe — please try again.")
+            return
+
+        await ack.edit_text(f"🎙 *Transcribed:* _{transcript}_", parse_mode="Markdown")
+
+        # Inject transcript as a plain text message into the normal flow
+        update.message.text = transcript
+        await handle_plain_text(update, context)
+
+    except Exception as e:
+        logger.error(f"Voice transcription failed: {e}")
+        await ack.edit_text("🎙 Transcription failed — please type your message.")
+
+
 async def handle_plain_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Handle plain text messages.
 
@@ -1018,6 +1074,9 @@ def main():
 
     # Plain text fallback — route to Dani
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_plain_text))
+
+    # Voice messages — transcribe via Groq Whisper then route to Dani
+    app.add_handler(MessageHandler(filters.VOICE, handle_voice_message))
 
     # Error handler
     app.add_error_handler(error_handler)
