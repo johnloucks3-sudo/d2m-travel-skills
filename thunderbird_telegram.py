@@ -91,6 +91,12 @@ logger = logging.getLogger("thunderbird_telegram")
 # Constants
 # ---------------------------------------------------------------------------
 
+# ⚠️ COMMANDER KILL SWITCH — Standing Order 2026-03-25
+# Dani bot is LOCKED. She does NOT respond to any incoming Telegram messages until
+# COS re-enables after supplier audit + token waste investigation.
+# To re-enable: set DANI_BOT_ENABLED = True below.
+DANI_BOT_ENABLED = False  # LOCKED by COS 2026-03-25 per Commander directive
+
 DEFAULT_PERSONA = "A3"      # Dani handles all client messages
 COMMANDER_PERSONA = "COS"   # COS handles Commander plain-text messages
 
@@ -777,6 +783,14 @@ async def handle_plain_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
     Commander: direct to COS (Hale), no review gate.
     Client: Dani answers → COS reviews → send → notify Commander always.
     """
+    # ⚠️ COMMANDER KILL SWITCH — Standing Order 2026-03-25
+    if not DANI_BOT_ENABLED:
+        logger.warning(
+            f"[DANI-BOT-LOCKED] Incoming message from {update.effective_user.id} ignored. "
+            "DANI_BOT_ENABLED=False. Re-enable after supplier audit."
+        )
+        return  # Silent lock — no response to client, no tokens consumed
+
     query = update.message.text
     if not query or not query.strip():
         return

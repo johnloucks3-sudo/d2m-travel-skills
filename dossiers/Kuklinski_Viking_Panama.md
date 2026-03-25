@@ -6,7 +6,7 @@ ship: Viking Mars
 voyage: Panama Canal
 departure: 2026-12-17
 return: 2026-12-27
-fpd: 2026-10-18
+fpd: 2026-03-31
 fpd_amount: 21244
 status: active
 relationship: client
@@ -21,18 +21,22 @@ relationship: client
 |---------|-------------|--------|-----------|------|-------------|
 | 9593880 | 1TSWFQR | Kyle & Rosalie Kuklinski | 4122 (DV1) | 4 | **$7,548** |
 | 9593873 | LJ2O4YG | Roger & Dr Nicholas Kuklinski | 8012 (DV1) | 8 | **$7,548** |
-| 9595029 | CUW88R8 | Joshua Morton & Erica Dodge | Guarantee (V1) | TBA | **$6,148** |
+| 9595029 | CUW88R8 | Joshua Morton & Erica Dodge | 3015 (V1-Veranda) | 3 | **$6,148** |
 | | | | **TOTAL** | | **$21,244** |
 
 Fares: Kyle/Roger = OMAFSV26-3 (DV1 $3,799pp) | Josh/Erica = OMAPSF26-3 (V1 $3,099pp) | $50 deposit each
+**Shipboard Credits:**
+- Kyle/Rosalie (9593880) — $200 Viking SBC ($100/guest) + **$600 D2M SBC = $800 total**
+- Roger/Nick (9593873) — $200 Viking SBC ($100/guest)
+- Josh/Erica (9595029) — $200 Viking SBC ($100/guest)
 
-### STATUS: ACTIVE — ⚠️ FULL PAYMENT PENDING Mar 25 ($21,244) | CC on File (Kyle ✓ · Roger ✓) | Josh/Erica CC still needed
+### STATUS: ACTIVE — ✅ CVC RECEIVED (7435, Mar 25) — READY TO CHARGE $21,244 | CC on file for Kyle, Roger | **Cruise only — flights/hotel/transfers/insurance NOT booked** | ⚠️ Josh guest form still missing
 
 ### KEY DATES
 | Date | Milestone |
 |------|-----------|
-| **Mar 25** | **🔴 PROCESS PAYMENT — $21,244 ($7,548 + $7,548 + $6,148) — 5 DAYS OUT — Kyle CC ✓ · Roger CC ✓ · Josh CC still needed** |
-| Mar 25 | Travel protection discussion (same call as payment) |
+| **Mar 25** | ✅ **CVC RECEIVED (7435) — READY TO CHARGE $21,244** |
+| Mar 25 | Travel protection discussion (planned with payment call) |
 | Dec 17 | EMBARKATION — Panama City, 3:00 PM |
 | Dec 27 | Disembarkation — Ft. Lauderdale (Port Everglades), 5:00 AM |
 
@@ -93,6 +97,18 @@ Fares: Kyle/Roger = OMAFSV26-3 (DV1 $3,799pp) | Josh/Erica = OMAPSF26-3 (V1 $3,0
 - Al Ely also uploaded CC to Regent portal ✓
 - Furlow and Nichols CC upload status — not yet checked
 
+**Mar 25 — Commander email to Kyle** (Re: One small thing...)
+- John asked Kyle for CVC — host agency portal doesn't store it
+- Noted guest form info received from everyone **except Josh**
+- Mentioned sending a validation email in a few days confirming all data
+- Asked if all guests can access their individual trip portals
+
+**Mar 25 — Kyle Kuklinski reply** (Re: One small thing...)
+> "No problem. Is 7435. Let me know if you think Josh's problem is something on his end and I can work to help him resolve it."
+- **CVC: 7435** — received ✓
+- Kyle willing to help Josh resolve portal/form access issue
+- **PAYMENT UNBLOCKED** — CC + CVC now on file for all 3 bookings
+
 ---
 
 ---
@@ -112,8 +128,8 @@ Fares: Kyle/Roger = OMAFSV26-3 (DV1 $3,799pp) | Josh/Erica = OMAPSF26-3 (V1 $3,0
 | 7 | Hotel | Pre-cruise hotel | Optional | **NOT PLANNED** | TBD if needed |
 | 8 | Cruise | Booking 9593880 (Kyle/Rosalie) | YES | **CONFIRMED** | Stateroom 4122, DV1 |
 | 9 | Cruise | Booking 9593873 (Roger/Nick) | YES | **CONFIRMED** | Stateroom 8012, DV1 |
-| 10 | Cruise | Booking 9595029 (Josh/Erica) | YES | **CONFIRMED** | Guarantee V1, stateroom TBA |
-| 11 | Cruise | Payment status | YES | **🔴 PENDING — Mar 25** | $21,244 due Mar 31 · Kyle CC ✓ · Roger CC ✓ · Josh CC STILL NEEDED |
+| 10 | Cruise | Booking 9595029 (Josh/Erica) | YES | **CONFIRMED** | Stateroom 3015, V1-Veranda, Deck 3 |
+| 11 | Cruise | Payment status | YES | ⚠️ **READY TO CHARGE** | $21,244 due Mar 31 — CC on portal ✓, CVC 7435 received Mar 25. CHARGE NOW. |
 | 12 | Cruise | Embarkation details | YES | **CONFIRMED** | Panama City, Dec 17, 3:00 PM |
 | 13 | Cruise | Disembarkation | Optional | **CONFIRMED** | Ft. Lauderdale (Port Everglades), Dec 27, 5:00 AM |
 | 14 | Transfers | Port → airport (Ft. Lauderdale) | YES | **NOT BOOKED** | FLL |
@@ -122,22 +138,28 @@ Fares: Kyle/Roger = OMAFSV26-3 (DV1 $3,799pp) | Josh/Erica = OMAPSF26-3 (V1 $3,0
 | 17 | Admin | TESS CRM entry | Nice-to-have | **⚠️ BLOCKED** | TESS auth down Mar 20 · Queued |
 | 18 | Admin | Dossier current | YES | **YES** | Updated Mar 20, 2026 |
 
-**Coverage: ~37%** | **Critical Gaps:** Full payment (Mar 25), insurance, flights, transfers, passports · Portal activations queued (CDP blocked)
+**Coverage: ~40%** | **Critical Gaps:** Flights, transfers, hotel, insurance, passports, guest forms · Portal activations queued (CDP blocked)
 
 ---
 
 ### OPEN ACTION ITEMS
-1. [ ] **🔴 PROCESS 3 FINAL PAYMENTS — $21,244 total** — *TARGET: Mar 25 (5 days)*
-   - 9593880 (Kyle/Rosalie) — $7,548 · CC ✓ confirmed
-   - 9593873 (Roger/Nick) — $7,548 · CC ✓ confirmed (updated Mar 20)
-   - 9595029 (Josh/Erica) — $6,148 · **CC STILL NEEDED** — contact Josh: 818-317-9843 / Josh@jerichopix.com
-   - Travel protection discussion same call Mar 25
-2. [ ] **SEND portal activation emails to all 6 guests** — Kyle gave green light · CDP offline Mar 20 · **Queued**
-3. [x] Josh/Erica booking info corrected in dossier — 188 Cays Dr, Naples FL 34114 ✓
-4. [ ] Guest Info Forms — **OVERDUE (due Mar 15)** — follow up with Kyle
-5. [ ] Travel protection discussion — Mar 25 (with payment call)
-6. [ ] Confirm stateroom for Morton/Dodge (9595029) — Guarantee V1, TBA
-7. [x] Kyle's booking info corrected in dossier — kyle.kuklinski@gmail.com / 804-801-4762 ✓
-8. [ ] Enter all 3 Viking bookings into TESS CRM — **BLOCKED (TESS auth down Mar 20)** · Queued
+1. [ ] **✅ PROCESS 3 FINAL PAYMENTS — $21,244** — CC on file ✓ · CVC 7435 received Mar 25. **CHARGE NOW.** FPD Mar 31.
+   - 9593880 (Kyle/Rosalie) — $7,548 · Kyle CC ✓ · CVC ✅
+   - 9593873 (Roger/Nick) — $7,548 · Kyle CC ✓ · CVC ✅
+   - 9595029 (Josh/Erica) — $6,148 · Kyle CC ✓ · CVC ✅
+2. [ ] **SEND portal activation emails to all 6 guests** — Kyle gave green light · CDP offline Mar 20 · Queued
+3. [x] Josh/Erica booking info corrected — 188 Cays Dr, Naples FL 34114 ✓
+4. [ ] **Guest Info Forms — 5 of 6 RECEIVED** — Josh Morton still missing (Mar 25). Kyle offered to help Josh resolve. Follow up with Kyle on Josh's issue.
+5. [ ] **Insurance — NOT BOOKED** — discussion was planned Mar 25 with payment. Confirm status with Kyle. Pre-existing window closed Feb 23.
+6. [ ] **Flights — NOT BOOKED** — all 3 couples need outbound (to Panama City, Dec 17) + return (FLL, Dec 27)
+7. [ ] **Transfers — NOT BOOKED** — Panama City airport → pier; FLL pier → airport
+8. [ ] **Hotel — TBD** — pre-cruise Panama City hotel not planned
+9. [ ] **Passports — NOT VERIFIED** — all 6 guests needed
+10. [x] ~~Confirm stateroom for Morton/Dodge~~ — **Stateroom 3015, V1-Veranda, Deck 3** (confirmed Viking Agency Statement Feb 16)
+11. [x] Kyle's booking info corrected — kyle.kuklinski@gmail.com / 804-801-4762 ✓
+12. [ ] Enter all 3 Viking bookings into TESS CRM — BLOCKED (TESS auth down Mar 20) · Queued
+13. [ ] **VALIDATION EMAIL (Touch 1)** — send to all 3 couples; cruise confirmed + all gaps flagged
 
-*Last updated: Mar 20, 2026*
+14. [ ] **Josh Morton portal/form issue** — Kyle says Josh is having problems. Diagnose (portal access? email? form link?) and report back to Kyle so he can assist.
+
+*Last updated: Mar 25, 2026 16:30 UTC — CVC received, payment unblocked*

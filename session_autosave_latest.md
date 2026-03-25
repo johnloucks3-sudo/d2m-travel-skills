@@ -1,36 +1,36 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-03-24 15:35:20 MT
+## Generated: 2026-03-25 17:50:00 MT
 
 ---
 
 ### Recent Commits
-- eb0218d feat: session 23 MAR 2026 (evening) — grant evidence update, 6 new features, cross-industry sweep
-- baa12a9 feat: session 24 MAR 2026 — live availability plan, intel sweeps, Z4/Z7 deploy, voice harvest, concierge monitor upgrades
-- 92f557c feat: session 23 MAR 2026 — template unification, Commander Review docs
-- 4c4f17e fix: brief → C2 channel (TELEGRAM_C2_BOT_TOKEN, not Dani bot fallback)
-- 5ddb826 feat: session 23 MAR 2026 — Tier 2 automation: morning brief, PDF ingest, booking monitor
+- 7b2429d fix: C2 resilience, CLI --print Max plan fix, Dani lockdown, IP migration
+- c942bc5 feat: full backup trinity — weekly Evernote, monthly archive, verify
+- d620c17 fix: use label.messagesTotal for accurate queue count in inbox cleanup
+- 78c64ce feat: daily inbox cleanup pipeline — label-only, no deletes
+- be22547 docs: wire incubator into CLAUDE.md + grant narrative (v4 → Section 5C)
 
 ### Uncommitted Changes
-- CLAUDE.md (modified)
-- Personas/memory/COS/session_notes.md (modified)
+- Commander_Review/26_McLeod_Validation_Email.html (modified)
+- Commander_Review/27_Westbrook_Validation_Email.html (modified)
 - briefing_sent.json (modified)
+- claude_code_digest_seen.json (modified)
 - commander_inbox_log.json (modified)
-- config/voice_examples.json (modified)
-- dani_email_log.json (modified)
 - dossiers/DOSSIER_SilverNova_Pacific_Apr2026.md (modified)
+- dossiers/Ely_Darrow_Regent_3096289.md (modified)
+- dossiers/Furlow_Regent_3071222.md (modified)
 - dossiers/Kuklinski_Viking_Panama.md (modified)
-- dossiers/Loucks_Personal_SilverNova_Japan.md (modified)
 - dossiers/McLeod_McGlasson_Multi.md (modified)
 - dossiers/Morton_Joshua_Erica_Viking_Panama.md (modified)
-- dossiers/Westbrook_SilverNova_Personal.md (modified)
 - grant_narrative_v2_temp.md (modified)
 - intel/daily_innovation_digest.md (modified)
 - intel/grant_evidence_package.md (modified)
 - learning_rules.db (modified)
 - payment_alerts_sent.json (modified)
+- scripts/render_dani_validation_emails.py (modified)
 - session_autosave_latest.md (modified)
-- thunderbird_gmail.py (modified)
-- thunderbird_morning_briefing.py (modified)
+- thunderbird_commander_inbox.py (modified)
+- thunderbird_dining.py (modified)
 - MORNING_BRIEF_CONTINUATION.md (new)
 - Personas/memory/A3/session_notes.md (new)
 - _new_body.txt (new)
@@ -48,20 +48,20 @@
 - cache/client_context/mcleod_context.json (new)
 - cache/client_context/mcleran_context.json (new)
 - cache/client_context/morton_context.json (new)
+- cache/client_context/nichols_context.json (new)
+- cache/client_context/olivia_context.json (new)
 - cache/client_context/westbrook_context.json (new)
-- config/portal_creds.json (new)
-- data/product_catalog.db (new)
 
 ### Active Work
 - SSS: 0 pending decision(s)
 - Learning: 33 rules pending validation
 
 ### Recently Touched Dossiers
-- Loucks_Personal_SilverNova_Japan.md
 - Kuklinski_Viking_Panama.md
 - Morton_Joshua_Erica_Viking_Panama.md
-- Westbrook_SilverNova_Personal.md
-- McLeod_McGlasson_Multi.md
+- Ely_Darrow_Regent_3096289.md
+- Furlow_Regent_3071222.md
+- Nichols_Regent_3078056.md
 
 ### Open TODOs
 - [tool_validation_plan.md] - [ ] list files in TITAN_BOOKINGS_VAULT

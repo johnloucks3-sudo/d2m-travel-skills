@@ -18,5 +18,1285 @@
     "persona": "A2",
     "draft_id": null,
     "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T14:16:31.703950+00:00",
+    "msg_id": "19d2029bb8956ebd",
+    "subject": "BREAKING:  Grassley releases Jack Smith subpoenas of Patel's phone records",
+    "sender": "info@justthenews.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T14:16:32.641206+00:00",
+    "msg_id": "19d2029bb8956ebd",
+    "subject": "BREAKING:  Grassley releases Jack Smith subpoenas of Patel's phone records",
+    "sender": "info@justthenews.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T14:16:56.588940+00:00",
+    "msg_id": "19d2028e55840d3b",
+    "subject": "VIKING MARS 12-17-2026: Booking: 9595029 Guest: MORTON - Payment Reminders",
+    "sender": "notification@viking.com",
+    "classification": "financial",
+    "persona": "A9",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T14:16:58.122001+00:00",
+    "msg_id": "19d2028e55840d3b",
+    "subject": "VIKING MARS 12-17-2026: Booking: 9595029 Guest: MORTON - Payment Reminders",
+    "sender": "notification@viking.com",
+    "classification": "financial",
+    "persona": "A9",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T14:17:19.626594+00:00",
+    "msg_id": "19d202719d751cdc",
+    "subject": "VIKING MARS 12-17-2026: Booking: 9593880 Guest: KUKLINSKI - Payment Reminders",
+    "sender": "notification@viking.com",
+    "classification": "financial",
+    "persona": "A9",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T14:17:29.456129+00:00",
+    "msg_id": "19d202719d751cdc",
+    "subject": "VIKING MARS 12-17-2026: Booking: 9593880 Guest: KUKLINSKI - Payment Reminders",
+    "sender": "notification@viking.com",
+    "classification": "financial",
+    "persona": "A9",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T14:17:44.406401+00:00",
+    "msg_id": "19d1ffd0b1323a81",
+    "subject": "[COS] General: Re: [COS] General: Re: \ud83d\udd34 THUNDERBIRD BRIEFING // M",
+    "sender": "d2mconcierge@gmail.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T14:17:55.361572+00:00",
+    "msg_id": "19d1ffd0b1323a81",
+    "subject": "[COS] General: Re: [COS] General: Re: \ud83d\udd34 THUNDERBIRD BRIEFING // M",
+    "sender": "d2mconcierge@gmail.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T14:18:10.614943+00:00",
+    "msg_id": "19d1ffa6ee38bca3",
+    "subject": "VIKING MARS 12-17-2026: Booking: 9593873 Guest: KUKLINSKI - Payment Reminders",
+    "sender": "notification@viking.com",
+    "classification": "financial",
+    "persona": "A9",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T14:18:27.724277+00:00",
+    "msg_id": "19d1ffa6ee38bca3",
+    "subject": "VIKING MARS 12-17-2026: Booking: 9593873 Guest: KUKLINSKI - Payment Reminders",
+    "sender": "notification@viking.com",
+    "classification": "financial",
+    "persona": "A9",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T14:18:41.238136+00:00",
+    "msg_id": "19d1ffa624dc7b7e",
+    "subject": "Internal Distribution: Supplier Partner Webinars",
+    "sender": "mail@tln.messages2.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T14:18:54.859189+00:00",
+    "msg_id": "19d1ffa624dc7b7e",
+    "subject": "Internal Distribution: Supplier Partner Webinars",
+    "sender": "mail@tln.messages2.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T14:19:10.608940+00:00",
+    "msg_id": "19d1ff3aa3499578",
+    "subject": "Internal Distribution: Supplier Partner Webinars",
+    "sender": "mail@tln.messages2.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T14:19:24.758024+00:00",
+    "msg_id": "19d1ff3aa3499578",
+    "subject": "Internal Distribution: Supplier Partner Webinars",
+    "sender": "mail@tln.messages2.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T16:17:32.409105+00:00",
+    "msg_id": "19d209d8097947c5",
+    "subject": "566910-25 / John Loucks, Susan Loucks / SN260423019 / 05/05/2026 / United States of America / Sitka, Alaska / SIT-007 \u2013 Sitka's Culinary Adventure",
+    "sender": "jwoodcock@perx.com",
+    "classification": "booking_confirmation",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T16:18:28.437621+00:00",
+    "msg_id": "19d209434ba9da31",
+    "subject": "[COS] General: Fwd: Final Silversea Cruise Documents for 566910-2",
+    "sender": "d2mconcierge@gmail.com",
+    "classification": "booking_confirmation",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T16:18:41.558573+00:00",
+    "msg_id": "19d209d8097947c5",
+    "subject": "566910-25 / John Loucks, Susan Loucks / SN260423019 / 05/05/2026 / United States of America / Sitka, Alaska / SIT-007 \u2013 Sitka's Culinary Adventure",
+    "sender": "jwoodcock@perx.com",
+    "classification": "booking_confirmation",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T16:24:11.794909+00:00",
+    "msg_id": "19d209434ba9da31",
+    "subject": "[COS] General: Fwd: Final Silversea Cruise Documents for 566910-2",
+    "sender": "d2mconcierge@gmail.com",
+    "classification": "booking_confirmation",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T16:24:31.382531+00:00",
+    "msg_id": "19d206bd5bd9714b",
+    "subject": "Joe Kent Says He Would Testify In Trial Of Charlie Kirk\u2019s Alleged Assassin",
+    "sender": "public@substack.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T18:16:49.635660+00:00",
+    "msg_id": "19d20d3d20712500",
+    "subject": "Honeymoon & Destination Wedding Newsletter",
+    "sender": "mail@tln.messages2.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T18:16:59.997898+00:00",
+    "msg_id": "19d20b8d276759d5",
+    "subject": "What Comes Next with Iran?",
+    "sender": "rufo@substack.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T18:17:07.149046+00:00",
+    "msg_id": "19d20ce81793595a",
+    "subject": "Honeymoon & Destination Wedding Newsletter",
+    "sender": "mail@tln.messages2.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T18:17:36.855810+00:00",
+    "msg_id": "19d20b8d276759d5",
+    "subject": "What Comes Next with Iran?",
+    "sender": "rufo@substack.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T18:17:51.943930+00:00",
+    "msg_id": "19d20afee8960387",
+    "subject": "[COS] Client: McGlasson \u2014 Transfers",
+    "sender": "d2mconcierge@gmail.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T18:19:30.052912+00:00",
+    "msg_id": "19d20afee8960387",
+    "subject": "[COS] Client: McGlasson \u2014 Transfers",
+    "sender": "d2mconcierge@gmail.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T20:16:53.221020+00:00",
+    "msg_id": "19d21786aff5f99a",
+    "subject": "Excursion Sales Tip: Luxury & River Cruisers",
+    "sender": "info@shoreex.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T20:16:59.943193+00:00",
+    "msg_id": "19d21786aff5f99a",
+    "subject": "Excursion Sales Tip: Luxury & River Cruisers",
+    "sender": "info@shoreex.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T20:17:16.368619+00:00",
+    "msg_id": "19d2176f9c7960c1",
+    "subject": "Airelles Palladio, Venice",
+    "sender": "mail@tln.messages2.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T20:17:27.119570+00:00",
+    "msg_id": "19d2176f9c7960c1",
+    "subject": "Airelles Palladio, Venice",
+    "sender": "mail@tln.messages2.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T20:17:40.534998+00:00",
+    "msg_id": "19d21622e6ffe5da",
+    "subject": "[COS] General: Re: [COS] General: Fwd: 566910-25 / John Loucks, S",
+    "sender": "d2mconcierge@gmail.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T20:17:51.610390+00:00",
+    "msg_id": "19d21622e6ffe5da",
+    "subject": "[COS] General: Re: [COS] General: Fwd: 566910-25 / John Loucks, S",
+    "sender": "d2mconcierge@gmail.com",
+    "classification": "financial",
+    "persona": "A9",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T20:18:07.672056+00:00",
+    "msg_id": "19d215d0bee39e1f",
+    "subject": "Be First to Book: Budapest to Bucharest in 2028",
+    "sender": "celebritycommitmentpresents@celebritysales.celebrity.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T20:18:18.881178+00:00",
+    "msg_id": "19d215d0bee39e1f",
+    "subject": "Be First to Book: Budapest to Bucharest in 2028",
+    "sender": "celebritycommitmentpresents@celebritysales.celebrity.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T20:19:26.017178+00:00",
+    "msg_id": "19d2154703e4a19f",
+    "subject": "[COS] General: Fwd: 566910-25 / John Loucks, Susan Loucks / SN260",
+    "sender": "d2mconcierge@gmail.com",
+    "classification": "booking_confirmation",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T20:19:55.810873+00:00",
+    "msg_id": "19d2142c9cedc521",
+    "subject": "Auditor General slams Carney government over student visa fraud (with Brian Lilley)",
+    "sender": "junonews+the-candice-malcolm-show@substack.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T20:20:02.672066+00:00",
+    "msg_id": "19d2154703e4a19f",
+    "subject": "[COS] General: Fwd: 566910-25 / John Loucks, Susan Loucks / SN260",
+    "sender": "d2mconcierge@gmail.com",
+    "classification": "booking_confirmation",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T20:20:22.936768+00:00",
+    "msg_id": "19d2138e74abf412",
+    "subject": "Trump buys time for a new escalation",
+    "sender": "mate@substack.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T20:20:34.514060+00:00",
+    "msg_id": "19d2142c9cedc521",
+    "subject": "Auditor General slams Carney government over student visa fraud (with Brian Lilley)",
+    "sender": "junonews+the-candice-malcolm-show@substack.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T20:20:57.454815+00:00",
+    "msg_id": "19d2138e74abf412",
+    "subject": "Trump buys time for a new escalation",
+    "sender": "mate@substack.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T22:16:18.214745+00:00",
+    "msg_id": "19d21e1766fc74b9",
+    "subject": "Smith, Ford, others want more say in appointing judges",
+    "sender": "thecountersignal@substack.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T22:16:52.532563+00:00",
+    "msg_id": "19d218b4edb89dda",
+    "subject": "[A3] Client: John & Susan Loucks \u2014 Fwd: Your visit",
+    "sender": "d2mconcierge@gmail.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T22:17:16.268621+00:00",
+    "msg_id": "19d218a1dfa67986",
+    "subject": "Where to Stay in the Rockies this Spring",
+    "sender": "thebroadmoor@info.broadmoor.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T22:17:46.888772+00:00",
+    "msg_id": "19d217ebb9821a83",
+    "subject": "Airelles Palladio, Venice",
+    "sender": "mail@tln.messages2.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T22:18:03.065483+00:00",
+    "msg_id": "19d212ea6653b29b",
+    "subject": "[A3] DONE: Nichols_Regent_3078056 \u2014 E-270: Passport validity check (6-month rule)",
+    "sender": "d2mconcierge@gmail.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T22:18:23.332993+00:00",
+    "msg_id": "19d212e8949df03b",
+    "subject": "[A3] DONE: ***REMOVED-SECRET*** \u2014 Payment reminder #2 (FPD-14)",
+    "sender": "d2mconcierge@gmail.com",
+    "classification": "financial",
+    "persona": "A9",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T22:18:27.913448+00:00",
+    "msg_id": "19d218b4edb89dda",
+    "subject": "[A3] Client: John & Susan Loucks \u2014 Fwd: Your visit",
+    "sender": "d2mconcierge@gmail.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T22:18:45.351655+00:00",
+    "msg_id": "19d218a1dfa67986",
+    "subject": "Where to Stay in the Rockies this Spring",
+    "sender": "thebroadmoor@info.broadmoor.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T22:19:00.057977+00:00",
+    "msg_id": "19d212e7ac261b67",
+    "subject": "[A3] DONE: Furlow_Regent_3071222 \u2014 Payment reminder #2 (FPD-14)",
+    "sender": "d2mconcierge@gmail.com",
+    "classification": "financial",
+    "persona": "A9",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T22:19:15.550270+00:00",
+    "msg_id": "19d212e6b7cfa901",
+    "subject": "[A3] DONE: Furlow_Regent_3071222 \u2014 E-270: Passport validity check (6-month rule)",
+    "sender": "d2mconcierge@gmail.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T22:19:30.927278+00:00",
+    "msg_id": "19d212ea6653b29b",
+    "subject": "[A3] DONE: Nichols_Regent_3078056 \u2014 E-270: Passport validity check (6-month rule)",
+    "sender": "d2mconcierge@gmail.com",
+    "classification": "booking_confirmation",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T22:19:54.982329+00:00",
+    "msg_id": "19d212e8949df03b",
+    "subject": "[A3] DONE: ***REMOVED-SECRET*** \u2014 Payment reminder #2 (FPD-14)",
+    "sender": "d2mconcierge@gmail.com",
+    "classification": "financial",
+    "persona": "A9",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T22:20:24.999002+00:00",
+    "msg_id": "19d212e7ac261b67",
+    "subject": "[A3] DONE: Furlow_Regent_3071222 \u2014 Payment reminder #2 (FPD-14)",
+    "sender": "d2mconcierge@gmail.com",
+    "classification": "financial",
+    "persona": "A9",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-24T22:20:39.350594+00:00",
+    "msg_id": "19d212e6b7cfa901",
+    "subject": "[A3] DONE: Furlow_Regent_3071222 \u2014 E-270: Passport validity check (6-month rule)",
+    "sender": "d2mconcierge@gmail.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T00:18:26.222517+00:00",
+    "msg_id": "19d2243fd47d31a0",
+    "subject": "Re: Client Portal Activation from Dreams2Memories Travel",
+    "sender": "missy.furlow@gmail.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "cos_rejected"
+  },
+  {
+    "timestamp": "2026-03-25T00:18:44.736031+00:00",
+    "msg_id": "19d2243fd47d31a0",
+    "subject": "Re: Client Portal Activation from Dreams2Memories Travel",
+    "sender": "missy.furlow@gmail.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "cos_rejected"
+  },
+  {
+    "timestamp": "2026-03-25T00:18:54.792066+00:00",
+    "msg_id": "19d2230b164c95a8",
+    "subject": "Let the Mediterranean Unfold Under Sail",
+    "sender": "specials@e.windstarcruises.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T00:19:11.284464+00:00",
+    "msg_id": "19d2230b164c95a8",
+    "subject": "Let the Mediterranean Unfold Under Sail",
+    "sender": "specials@e.windstarcruises.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T00:19:55.645232+00:00",
+    "msg_id": "19d222d79492bbd5",
+    "subject": "Regent Cruise final payment and cruise insurance",
+    "sender": "heidi.nichols1@yahoo.com",
+    "classification": "financial",
+    "persona": "A9",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T00:20:18.450614+00:00",
+    "msg_id": "19d222d79492bbd5",
+    "subject": "Regent Cruise final payment and cruise insurance",
+    "sender": "heidi.nichols1@yahoo.com",
+    "classification": "financial",
+    "persona": "A9",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T00:20:23.581126+00:00",
+    "msg_id": "19d21eccd55477c7",
+    "subject": "Shakedown, 1979? Evaluating the Oil Shock",
+    "sender": "hooverwebmaster@stanford.edu",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T00:20:47.434255+00:00",
+    "msg_id": "19d21eccd55477c7",
+    "subject": "Shakedown, 1979? Evaluating the Oil Shock",
+    "sender": "hooverwebmaster@stanford.edu",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T00:20:48.131988+00:00",
+    "msg_id": "19d21eb17754c123",
+    "subject": "[COS] General: Fwd: Regent Seven Seas Cruises Invoice: 3096289 Gu",
+    "sender": "d2mconcierge@gmail.com",
+    "classification": "financial",
+    "persona": "A9",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T00:21:12.550640+00:00",
+    "msg_id": "19d21eb17754c123",
+    "subject": "[COS] General: Fwd: Regent Seven Seas Cruises Invoice: 3096289 Gu",
+    "sender": "d2mconcierge@gmail.com",
+    "classification": "financial",
+    "persona": "A9",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T02:18:30.487057+00:00",
+    "msg_id": "19d2289a4a8ea560",
+    "subject": "Re: Client Portal Activation from Dreams2Memories Travel",
+    "sender": "missy.furlow@gmail.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "cos_rejected"
+  },
+  {
+    "timestamp": "2026-03-25T02:18:44.657136+00:00",
+    "msg_id": "19d2289a4a8ea560",
+    "subject": "Re: Client Portal Activation from Dreams2Memories Travel",
+    "sender": "missy.furlow@gmail.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "cos_rejected"
+  },
+  {
+    "timestamp": "2026-03-25T02:18:53.874690+00:00",
+    "msg_id": "19d2264ff1fcf940",
+    "subject": "Picasso Travel Newsletter - 75 - AA, ACx2, CIx2, DL, EK, H2, NHx3, UAx3 - (ALL)",
+    "sender": "news@news.picassotravel.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T02:18:59.404365+00:00",
+    "msg_id": "19d2284f2aaddd4d",
+    "subject": "Check out these top-rated stays",
+    "sender": "mail@eg.expedia.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T02:19:28.710006+00:00",
+    "msg_id": "19d225decfd6fa46",
+    "subject": "Re: Regent Cruise final payment and cruise insurance",
+    "sender": "heidi.nichols1@yahoo.com",
+    "classification": "financial",
+    "persona": "A9",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T02:19:29.100705+00:00",
+    "msg_id": "19d2264ff1fcf940",
+    "subject": "Picasso Travel Newsletter - 75 - AA, ACx2, CIx2, DL, EK, H2, NHx3, UAx3 - (ALL)",
+    "sender": "news@news.picassotravel.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T02:20:03.099044+00:00",
+    "msg_id": "19d225decfd6fa46",
+    "subject": "Re: Regent Cruise final payment and cruise insurance",
+    "sender": "heidi.nichols1@yahoo.com",
+    "classification": "financial",
+    "persona": "A9",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T16:18:25.051394+00:00",
+    "msg_id": "19d25bde2417cd11",
+    "subject": "The World\u2019s Most In-Demand Cruise Ships, Compared; TSA Updates & More",
+    "sender": "news@info.cruisecritic.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T16:18:35.713243+00:00",
+    "msg_id": "19d25bde2417cd11",
+    "subject": "The World\u2019s Most In-Demand Cruise Ships, Compared; TSA Updates & More",
+    "sender": "news@info.cruisecritic.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T16:19:29.654077+00:00",
+    "msg_id": "19d25baf1ebde080",
+    "subject": "Business Class Bliss: Save Big on Premium Travel!",
+    "sender": "specials-businessclassguru.com@shared1.ccsend.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T16:19:34.182697+00:00",
+    "msg_id": "19d25baf1ebde080",
+    "subject": "Business Class Bliss: Save Big on Premium Travel!",
+    "sender": "specials-businessclassguru.com@shared1.ccsend.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T16:19:41.636401+00:00",
+    "msg_id": "19d25baa35c48226",
+    "subject": "Radical oyster farmer vs. election integrity",
+    "sender": "editor@alerts.americanfreedomreport.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T16:19:46.028462+00:00",
+    "msg_id": "19d25baa35c48226",
+    "subject": "Radical oyster farmer vs. election integrity",
+    "sender": "editor@alerts.americanfreedomreport.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T16:19:57.819187+00:00",
+    "msg_id": "19d25b732ed61e69",
+    "subject": "Airlifting Urgent Relief to Lebanon",
+    "sender": "updates@e.samaritan.org",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T16:20:09.489953+00:00",
+    "msg_id": "19d25b732ed61e69",
+    "subject": "Airlifting Urgent Relief to Lebanon",
+    "sender": "updates@e.samaritan.org",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T16:21:50.874396+00:00",
+    "msg_id": "19d25a164b12e413",
+    "subject": "The final Room-Res Island Mission (& it's a big one!)",
+    "sender": "updates@room-res.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T16:21:54.053779+00:00",
+    "msg_id": "19d25a164b12e413",
+    "subject": "The final Room-Res Island Mission (& it's a big one!)",
+    "sender": "updates@room-res.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T16:23:02.327788+00:00",
+    "msg_id": "19d258cde46443eb",
+    "subject": "Las Vegas",
+    "sender": "mail@tln.messages2.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T16:23:21.958354+00:00",
+    "msg_id": "19d258cde46443eb",
+    "subject": "Las Vegas",
+    "sender": "mail@tln.messages2.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T16:23:53.523310+00:00",
+    "msg_id": "19d258c4ea8330c5",
+    "subject": "Experience Business Class with Emirates \u2014 A New Level of Comfort",
+    "sender": "olivia@ceoflights.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T16:24:26.012326+00:00",
+    "msg_id": "19d258c4ea8330c5",
+    "subject": "Experience Business Class with Emirates \u2014 A New Level of Comfort",
+    "sender": "olivia@ceoflights.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T16:25:10.251806+00:00",
+    "msg_id": "19d258842389f68c",
+    "subject": "Las Vegas",
+    "sender": "mail@tln.messages2.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T16:25:47.230827+00:00",
+    "msg_id": "19d25817209c9288",
+    "subject": "2029 World Cruise \u2013 Priority Registration Now Open",
+    "sender": "regent@cruise.rssc.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T16:25:49.690113+00:00",
+    "msg_id": "19d258842389f68c",
+    "subject": "Las Vegas",
+    "sender": "mail@tln.messages2.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T16:26:26.333913+00:00",
+    "msg_id": "19d25817209c9288",
+    "subject": "2029 World Cruise \u2013 Priority Registration Now Open",
+    "sender": "regent@cruise.rssc.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T18:19:13.501316+00:00",
+    "msg_id": "19d262deb1b4abda",
+    "subject": "Emergency Update from Juno News",
+    "sender": "junonews@substack.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T18:19:34.637144+00:00",
+    "msg_id": "19d262deb1b4abda",
+    "subject": "Emergency Update from Juno News",
+    "sender": "junonews@substack.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T18:19:37.708108+00:00",
+    "msg_id": "19d26134f68aa26c",
+    "subject": "Last-minute 2026 Alaska cruises",
+    "sender": "hello@marketing.cruisebound.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T18:20:07.059947+00:00",
+    "msg_id": "19d26134f68aa26c",
+    "subject": "Last-minute 2026 Alaska cruises",
+    "sender": "hello@marketing.cruisebound.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T18:22:57.659916+00:00",
+    "msg_id": "19d25ee70ec214f6",
+    "subject": "Webinar invitation - Euro Rail + Car + Island Ferry Webinar",
+    "sender": "insidesales@tbo.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T18:28:28.616267+00:00",
+    "msg_id": "19d25ee70ec214f6",
+    "subject": "Webinar invitation - Euro Rail + Car + Island Ferry Webinar",
+    "sender": "insidesales@tbo.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T20:16:57.003183+00:00",
+    "msg_id": "19d269fd15a1e581",
+    "subject": "March Highlights - WORLDWIDE Hotels & Resorts by INTERNOVA",
+    "sender": "mail@tln.messages2.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T20:16:59.779264+00:00",
+    "msg_id": "19d269fd15a1e581",
+    "subject": "March Highlights - WORLDWIDE Hotels & Resorts by INTERNOVA",
+    "sender": "mail@tln.messages2.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T20:17:27.103433+00:00",
+    "msg_id": "19d2697ed9a35fc2",
+    "subject": "March Highlights - WORLDWIDE Hotels & Resorts by INTERNOVA",
+    "sender": "mail@tln.messages2.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T20:17:30.892686+00:00",
+    "msg_id": "19d2697ed9a35fc2",
+    "subject": "March Highlights - WORLDWIDE Hotels & Resorts by INTERNOVA",
+    "sender": "mail@tln.messages2.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T20:18:42.910034+00:00",
+    "msg_id": "19d2697daaaffd07",
+    "subject": "Complete Princess Academy Refreshers by Apr 1",
+    "sender": "contact@princesspartners.princess.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T20:18:51.761628+00:00",
+    "msg_id": "19d2697daaaffd07",
+    "subject": "Complete Princess Academy Refreshers by Apr 1",
+    "sender": "contact@princesspartners.princess.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T20:18:58.436378+00:00",
+    "msg_id": "19d2658ddcaecd40",
+    "subject": "PM NEWS ALERT: Melania's surreal robot that walks like Joe Biden",
+    "sender": "news@bosnerdley.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T20:19:07.762241+00:00",
+    "msg_id": "19d2658ddcaecd40",
+    "subject": "PM NEWS ALERT: Melania's surreal robot that walks like Joe Biden",
+    "sender": "news@bosnerdley.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T20:19:14.385928+00:00",
+    "msg_id": "19d2650af1455084",
+    "subject": "Under $50: Air Fryers, Nonstick Cookware, and More Kitchen Essentials",
+    "sender": "email@email.allrecipes.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T20:19:19.179051+00:00",
+    "msg_id": "19d2650af1455084",
+    "subject": "Under $50: Air Fryers, Nonstick Cookware, and More Kitchen Essentials",
+    "sender": "email@email.allrecipes.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T20:19:52.660416+00:00",
+    "msg_id": "19d26441a69988d9",
+    "subject": "Reminder: Exclusive Deals Expiring Soon!",
+    "sender": "specials-businessclassguru.com@shared1.ccsend.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T20:19:56.416462+00:00",
+    "msg_id": "19d26441a69988d9",
+    "subject": "Reminder: Exclusive Deals Expiring Soon!",
+    "sender": "specials-businessclassguru.com@shared1.ccsend.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T22:17:32.782794+00:00",
+    "msg_id": "19d26f2eff6e3365",
+    "subject": "Weekly Message from Lindsay Pearlman",
+    "sender": "mail@tln.messages2.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T22:17:33.745266+00:00",
+    "msg_id": "19d26f2eff6e3365",
+    "subject": "Weekly Message from Lindsay Pearlman",
+    "sender": "mail@tln.messages2.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T22:18:28.048710+00:00",
+    "msg_id": "19d26f139fa1b423",
+    "subject": "Weekly Message from Lindsay Pearlman",
+    "sender": "mail@tln.messages2.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T22:18:30.817216+00:00",
+    "msg_id": "19d26f139fa1b423",
+    "subject": "Weekly Message from Lindsay Pearlman",
+    "sender": "mail@tln.messages2.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T22:18:39.643013+00:00",
+    "msg_id": "19d26eb2c1c71c91",
+    "subject": "It's Live! Amazon's Big Spring Sale Has Deals Up to 86% Off",
+    "sender": "email@email.allrecipes.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T22:18:44.272651+00:00",
+    "msg_id": "19d26eb2c1c71c91",
+    "subject": "It's Live! Amazon's Big Spring Sale Has Deals Up to 86% Off",
+    "sender": "email@email.allrecipes.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T22:21:02.413667+00:00",
+    "msg_id": "19d26eab4db9935f",
+    "subject": "Re: One small thing...",
+    "sender": "kyle.kuklinski@gmail.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T22:21:25.569132+00:00",
+    "msg_id": "19d26ddfcb2535db",
+    "subject": "AmaMax Commission Update - New Promo Code!",
+    "sender": "mail@tln.messages2.com",
+    "classification": "financial",
+    "persona": "A9",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T22:21:55.964626+00:00",
+    "msg_id": "19d26eab4db9935f",
+    "subject": "Re: One small thing...",
+    "sender": "kyle.kuklinski@gmail.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T22:22:13.082450+00:00",
+    "msg_id": "19d26da0c889d92c",
+    "subject": "This Charger Replaces Everything",
+    "sender": "support@pwrmobile.shop",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T22:22:16.512467+00:00",
+    "msg_id": "19d26ddfcb2535db",
+    "subject": "AmaMax Commission Update - New Promo Code!",
+    "sender": "mail@tln.messages2.com",
+    "classification": "financial",
+    "persona": "A9",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T22:22:35.722953+00:00",
+    "msg_id": "19d26d94b26f6d10",
+    "subject": "AmaMax Commission Update - New Promo Code!",
+    "sender": "mail@tln.messages2.com",
+    "classification": "financial",
+    "persona": "A9",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T22:22:54.577390+00:00",
+    "msg_id": "19d26da0c889d92c",
+    "subject": "This Charger Replaces Everything",
+    "sender": "support@pwrmobile.shop",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T22:22:58.476132+00:00",
+    "msg_id": "19d26d502cae4c7b",
+    "subject": "Debates Commission cancels post-debate scrums (with Ezra Levant)",
+    "sender": "junonews+the-candice-malcolm-show@substack.com",
+    "classification": "financial",
+    "persona": "A9",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T22:23:03.492394+00:00",
+    "msg_id": "19d26d94b26f6d10",
+    "subject": "AmaMax Commission Update - New Promo Code!",
+    "sender": "mail@tln.messages2.com",
+    "classification": "financial",
+    "persona": "A9",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T22:23:03.565796+00:00",
+    "msg_id": "19d26d00c21b9595",
+    "subject": "This Week in American History: Forged Letters, Fake Prisoners, and a High-Value Target",
+    "sender": "bariweiss+the-big-read@substack.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T22:23:09.537383+00:00",
+    "msg_id": "19d26bf42262f470",
+    "subject": "Oceania Insider Weekly - March 25, 2026",
+    "sender": "oceaniainsider@oceaniacruises.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T22:23:09.553487+00:00",
+    "msg_id": "19d26d502cae4c7b",
+    "subject": "Debates Commission cancels post-debate scrums (with Ezra Levant)",
+    "sender": "junonews+the-candice-malcolm-show@substack.com",
+    "classification": "financial",
+    "persona": "A9",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T22:23:21.029854+00:00",
+    "msg_id": "19d26d00c21b9595",
+    "subject": "This Week in American History: Forged Letters, Fake Prisoners, and a High-Value Target",
+    "sender": "bariweiss+the-big-read@substack.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T22:23:46.976915+00:00",
+    "msg_id": "19d26bf42262f470",
+    "subject": "Oceania Insider Weekly - March 25, 2026",
+    "sender": "oceaniainsider@oceaniacruises.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T22:24:17.696035+00:00",
+    "msg_id": "19d26bebe952466d",
+    "subject": "Coming Up: Free All-Inclusive Package\u2014Up to $1,300 Value",
+    "sender": "specials@e.windstarcruises.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-25T22:24:55.048779+00:00",
+    "msg_id": "19d26bebe952466d",
+    "subject": "Coming Up: Free All-Inclusive Package\u2014Up to $1,300 Value",
+    "sender": "specials@e.windstarcruises.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
   }
 ]

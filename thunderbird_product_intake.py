@@ -404,7 +404,7 @@ def _load_dossier_clients() -> List[Dict[str, Any]]:
             suppliers = [
                 s for s in (
                     "Regent", "Viking", "Silversea", "Ponant", "Oceania",
-                    "Seabourn", "Cunard", "AmaWaterways", "Princess",
+                    "Seabourn", "Cunard", "AmaWaterways",
                     "Four Seasons", "SLH", "Marriott", "Hyatt",
                 )
                 if s.lower() in text.lower()

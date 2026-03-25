@@ -49,7 +49,7 @@ def _groq_call(system: str, user: str, max_tokens: int = 2000) -> str:
     import anthropic
     client = anthropic.Anthropic()
     resp = client.messages.create(
-        model="claude-sonnet-4-20250514",
+        model="claude-haiku-4-5-20251001",  # Haiku — dining research/lookup (SO-2026-03-25)
         max_tokens=max_tokens,
         system=system,
         messages=[{"role": "user", "content": user}],

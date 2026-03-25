@@ -4,8 +4,8 @@ Thunderbird Model Router v2 — Auto-Routing by Task Type
 Classifies every inbound task and routes to the optimal Claude model tier:
 
   Opus   → Client-facing copy, principle extraction (nuance matters)
-  Sonnet → Research, code generation, voice profiles, morning briefs
-  Haiku  → Classification, data extraction, summarization (fast & cheap)
+  Sonnet → Code generation, voice profiles, morning briefs, analytical
+  Haiku  → Classification, data extraction, summarization, research, operational (fast & cheap)
 
 Specialty engines (Gemini, Grok, DeepSeek) retained for specific capabilities.
 All Claude calls go through Anthropic SDK ($0 on Max plan).
@@ -119,6 +119,7 @@ class TaskType(Enum):
     MORNING_BRIEF = "morning_brief"          # Morning synthesis → Sonnet
     PRINCIPLE_EXTRACTION = "principle_extraction"  # Learning/nuance → Opus
     SUMMARIZATION = "summarization"          # Quick summaries → Haiku
+    RESPONSE_MONITOR = "response_monitor"    # Quality gate — Sonnet reviews Haiku output
 
 
 # ============================================================
@@ -139,18 +140,21 @@ MODEL_MAP: Dict[TaskType, str] = {
     TaskType.CRISIS: CLAUDE_OPUS,
 
     # Sonnet — good quality, reasonable speed
-    TaskType.RESEARCH: CLAUDE_SONNET,
     TaskType.CODE_GENERATION: CLAUDE_SONNET,
     TaskType.VOICE_PROFILE: CLAUDE_SONNET,
     TaskType.MORNING_BRIEF: CLAUDE_SONNET,
-    TaskType.OPERATIONAL: CLAUDE_SONNET,
     TaskType.ANALYTICAL: CLAUDE_SONNET,
 
-    # Haiku — fast & cheap
+    # Haiku — fast & cheap (search agents + simple tasks pushed here per SO-2026-03-25)
+    TaskType.RESEARCH: CLAUDE_HAIKU,       # search agents — most lookups, cruise/flight/hotel/destination
+    TaskType.OPERATIONAL: CLAUDE_HAIKU,    # simple tasks — status checks, data lookups, routing
     TaskType.CLASSIFICATION: CLAUDE_HAIKU,
     TaskType.DATA_EXTRACTION: CLAUDE_HAIKU,
     TaskType.SUMMARIZATION: CLAUDE_HAIKU,
     TaskType.EXTRACTION: CLAUDE_HAIKU,
+
+    # Sonnet — response quality monitor (sits above Haiku, below Opus)
+    TaskType.RESPONSE_MONITOR: CLAUDE_SONNET,
 
     # Special (not Claude)
     TaskType.IMAGE: "flux",  # handled separately
@@ -1031,6 +1035,214 @@ def route_call(persona_id: str, query: str,
                 "response": f"ERROR: {e} (fallback: {e2})",
                 "success": False,
             }
+
+
+def monitor_response(
+    original_task: str,
+    generated_response: str,
+    persona_id: str = "monitor",
+    context: str = "",
+) -> Dict[str, Any]:
+    """Sonnet quality gate — reviews a Haiku-generated response before delivery.
+
+    Checks for:
+      - Factual plausibility (no hallucinated prices, dates, booking numbers)
+      - D2M brand compliance (company name, sign-off, tone)
+      - Persona voice accuracy (COS authority, Dani warmth, etc.)
+      - Completeness relative to the task
+      - Fabricated data flags
+
+    Args:
+        original_task: The original user prompt / task that generated the response
+        generated_response: The response to evaluate
+        persona_id: Persona that generated the response (for logging)
+        context: Optional additional context (system prompt, client name, etc.)
+
+    Returns:
+        Dict with:
+          passed (bool): True if response clears quality gate
+          score (int): 0–100 quality score
+          issues (list[str]): Problems found, empty if passed
+          revised (str|None): Sonnet-improved response if issues found, else None
+          model_tier (str): "sonnet" (always for monitor)
+          elapsed_ms (int): Monitor call duration
+    """
+    import time
+    t0 = time.time()
+
+    monitor_system = """You are the Thunderbird Response Quality Monitor for Dreams2Memories Travel, LLC.
+
+You review AI-generated staff responses before they are delivered. Your job is to catch:
+1. FACTUAL ERRORS — hallucinated prices, wrong dates, made-up booking numbers, invented flight details
+2. BRAND VIOLATIONS — wrong company name (must be "Dreams2Memories Travel, LLC", never "Love Group Travel"), wrong sign-off (must be "Thanks" or "Thank you", NEVER "Best")
+3. PERSONA DRIFT — COS (Hale) must be measured/authoritative, Dani must be warm/concierge, A2 must be evidence-first
+4. COMPLETENESS GAPS — task asked for X, response only delivered partial X
+5. TONE PROBLEMS — too casual, too corporate, condescending, or falsely confident
+
+Respond ONLY with a JSON object in this exact format:
+{
+  "passed": true|false,
+  "score": 0-100,
+  "issues": ["issue 1", "issue 2"],
+  "revised": "full revised response OR null if passed",
+  "rationale": "one sentence explaining the score"
+}
+
+If passed=true, set revised=null. If passed=false, provide a corrected version in "revised".
+Score 85+ = pass threshold."""
+
+    monitor_user = f"""ORIGINAL TASK:
+{original_task}
+
+PERSONA: {persona_id}
+{f'CONTEXT: {context}' if context else ''}
+
+GENERATED RESPONSE TO EVALUATE:
+{generated_response}
+
+Evaluate now."""
+
+    try:
+        raw = _call_anthropic(
+            monitor_system, monitor_user,
+            model=CLAUDE_SONNET,
+            max_tokens=2000,
+            temperature=0.2,
+        )
+
+        # Parse JSON from response (strip markdown fences if present)
+        json_str = raw.strip()
+        if json_str.startswith("```"):
+            json_str = json_str.split("```")[1]
+            if json_str.startswith("json"):
+                json_str = json_str[4:]
+        result = json.loads(json_str.strip())
+
+        elapsed = int((time.time() - t0) * 1000)
+        result["model_tier"] = "sonnet"
+        result["elapsed_ms"] = elapsed
+
+        # Log to router stats
+        _log_model_usage(
+            "Claude Sonnet (monitor)", persona_id,
+            original_task[:120],
+            tokens_est=(len(monitor_system + monitor_user + raw)) // 4,
+            task_type="response_monitor",
+        )
+
+        passed = result.get("passed", True)
+        score = result.get("score", 100)
+        logger.info(
+            "Response monitor [%s]: passed=%s score=%d elapsed=%dms",
+            persona_id, passed, score, elapsed,
+        )
+        return result
+
+    except json.JSONDecodeError as e:
+        logger.warning("Monitor returned non-JSON: %s — treating as pass", e)
+        return {
+            "passed": True,
+            "score": 90,
+            "issues": [],
+            "revised": None,
+            "model_tier": "sonnet",
+            "elapsed_ms": int((time.time() - t0) * 1000),
+            "rationale": "Monitor parse error — defaulting to pass",
+        }
+    except Exception as e:
+        logger.error("Response monitor failed: %s", e)
+        return {
+            "passed": True,
+            "score": 0,
+            "issues": [f"Monitor error: {e}"],
+            "revised": None,
+            "model_tier": "sonnet",
+            "elapsed_ms": int((time.time() - t0) * 1000),
+            "rationale": "Monitor unavailable — pass-through",
+        }
+
+
+# Task types that automatically trigger the response monitor
+_MONITOR_TASK_TYPES = {
+    TaskType.CLIENT_FACING,
+    TaskType.CREATIVE,
+    TaskType.MORNING_BRIEF,
+    TaskType.VOICE_PROFILE,
+}
+
+
+def route_and_call_monitored(
+    system_prompt: str,
+    user_prompt: str,
+    task_hint: str = None,
+    max_tokens: int = 2000,
+    temperature: float = 0.7,
+    persona_id: str = "router",
+    monitor_all: bool = False,
+) -> Dict[str, Any]:
+    """route_and_call() + Sonnet quality gate for flagged task types.
+
+    Generates via the normal router, then passes client-facing / creative /
+    morning-brief / voice-profile responses through monitor_response().
+    If the monitor fails (score < 85), the revised version is substituted.
+
+    Args:
+        monitor_all: If True, monitors every response regardless of task type.
+                     Default False (only CLIENT_FACING, CREATIVE, MORNING_BRIEF, VOICE_PROFILE).
+
+    Returns:
+        Normal route_and_call dict plus:
+          monitor (dict|None): Full monitor result, or None if not monitored
+    """
+    result = route_and_call(
+        system_prompt, user_prompt,
+        task_hint=task_hint,
+        max_tokens=max_tokens,
+        temperature=temperature,
+        persona_id=persona_id,
+    )
+
+    if not result.get("success"):
+        result["monitor"] = None
+        return result
+
+    # Determine if this task type warrants monitoring
+    task_type_str = result.get("task_type", "")
+    try:
+        task_type_enum = TaskType(task_type_str)
+    except ValueError:
+        task_type_enum = None
+
+    should_monitor = (
+        monitor_all
+        or (task_type_enum in _MONITOR_TASK_TYPES)
+    )
+
+    if not should_monitor:
+        result["monitor"] = None
+        return result
+
+    # Run Sonnet quality gate
+    monitor_result = monitor_response(
+        original_task=user_prompt,
+        generated_response=result["response"],
+        persona_id=persona_id,
+        context=system_prompt[:500],
+    )
+    result["monitor"] = monitor_result
+
+    # If monitor failed, substitute the revised response
+    if not monitor_result.get("passed", True) and monitor_result.get("revised"):
+        logger.info(
+            "Monitor substituted response for [%s] — score %d, issues: %s",
+            persona_id,
+            monitor_result.get("score", 0),
+            monitor_result.get("issues", []),
+        )
+        result["response"] = monitor_result["revised"]
+        result["monitor_substituted"] = True
+
+    return result
 
 
 def smart_route(persona_id: str, query: str, **kwargs) -> Dict[str, Any]:

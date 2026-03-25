@@ -192,7 +192,7 @@ def _load_dossier_data() -> List[Dict[str, Any]]:
                 # Extract suppliers
                 suppliers = []
                 for s in ["Regent", "Viking", "Silversea", "Ponant", "Oceania",
-                          "Seabourn", "Cunard", "AmaWaterways", "Princess"]:
+                          "Seabourn", "Cunard", "AmaWaterways"]:
                     if s.lower() in text.lower():
                         suppliers.append(s)
 

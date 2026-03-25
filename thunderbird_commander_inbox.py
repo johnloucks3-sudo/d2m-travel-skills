@@ -69,9 +69,9 @@ PROCESSED_LABEL = "THUNDERBIRD-Scanned"
 # Max emails per sweep
 MAX_PER_SWEEP = 15
 
-# Telegram — mirrors thunderbird_concierge_monitor.py pattern
-TELEGRAM_BOT_TOKEN = "***REMOVED-SECRET***"
-TELEGRAM_COMMANDER_ID = 7554895206
+# Telegram — use C2 bot token from environment (never hardcode Dani bot token)
+TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_C2_BOT_TOKEN", os.environ.get("TELEGRAM_BOT_TOKEN", ""))
+TELEGRAM_COMMANDER_ID = int(os.environ.get("TELEGRAM_COMMANDER_ID", "7554895206"))
 
 # Classification categories and their routing
 CLASSIFICATION_ROUTING: Dict[str, Dict[str, str]] = {
@@ -82,6 +82,12 @@ CLASSIFICATION_ROUTING: Dict[str, Dict[str, str]] = {
     "intel":                 {"persona": "A2",  "label": "INTEL"},
     "personal":              {"persona": None,  "label": "SKIP"},
 }
+
+# ⚠️ DANI AUTO-DRAFT KILL SWITCH — Standing Order 2026-03-25
+# Commander directive: Dani was consuming 10%+ tokens/2h auto-drafting supplier
+# and unsolicited Commander-inbox responses. LOCKED until COS audit complete.
+# Re-enable by setting DANI_AUTO_DRAFT_ENABLED = True after supplier filter audit.
+DANI_AUTO_DRAFT_ENABLED = False  # LOCKED by COS 2026-03-25 per Commander directive
 
 # Noise patterns — fast-path skip before any LLM call
 _NOISE_PATTERNS = re.compile(
@@ -400,6 +406,17 @@ def _task_to_persona(classification: str, sender_name: str, sender_email: str,
 
     Returns the draft reply text, or None if no draft needed (e.g. intel routing).
     """
+    # ⚠️ DANI AUTO-DRAFT KILL SWITCH — Standing Order 2026-03-25
+    # Block all Dani auto-drafting until COS completes supplier filter audit.
+    if not DANI_AUTO_DRAFT_ENABLED:
+        routing = CLASSIFICATION_ROUTING.get(classification, {})
+        if routing.get("persona") == "A3":
+            logger.info(
+                f"[DANI LOCKED] Skipped auto-draft for {sender_email} — {subject[:60]} "
+                f"(classification: {classification}). DANI_AUTO_DRAFT_ENABLED=False"
+            )
+            return None
+
     routing = CLASSIFICATION_ROUTING.get(classification, {})
     persona_id = routing.get("persona")
 

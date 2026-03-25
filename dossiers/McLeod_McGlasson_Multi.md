@@ -79,6 +79,10 @@
 > Melissa (memcglas@gmail.com) to be included on all future emails.
 > **ACTION:** Contact Silversea re: Blacklane transfers ASAP. Update seat assignments in SS system. Coordinate on Baglioni FCO transfer. Begin Venice dining research.
 
+**Mar 24 — Melissa McGlasson** (Re: Transfers)
+> **Mar 24 — Melissa McGlasson** (Transfers — FRUSTRATED)
+> Client explicitly frustrated. Believes deviation payment should have covered transfers; recent Silversea correspondence suggests otherwise. Feels 'assured it was taken care of' — perceived broken promise. Demands clarity on Rome→Civitavecchia and disembarkation transfers. Also: do NOT let Silversea touch airline seat assignments (already booked directly). Sentiment: frustrated, trust eroding. **URGENCY: HIGH — resolve same day.** Pavlus competitive risk elevated.
+
 ---
 
 ### SILVER MUSE — TRAVEL DETAILS (from CruisingPower Mar 10)
@@ -340,6 +344,16 @@ All $0 unless noted. Both guests on all excursions.
 3. [x] Silversea PAID IN FULL — $27,813.32, commission $2,594.54 (confirmed CruisingPower Mar 10)
 4. [x] Regent Lesser Antilles FPD CONFIRMED — $12,393.15 due Jul 22, 2026 (from portal Mar 10)
 5. [ ] Confirm Princess Mexico FPD date
+
+- [ ] Update dossier with frustration flag and Pavlus defection risk assessment (auto-intel Mar 24)
+
+- [ ] Review what was originally communicated to clients about deviation and transfer coverage — find the 'assurance' Melissa references (auto-intel Mar 24)
+
+- [ ] If transfers not covered: price Rome→Civitavecchia private transfer (Jun 23) and disembarkation transfer (Jul 3) (auto-intel Mar 24)
+
+- [ ] URGENT: Instruct Silversea in writing to NOT request or modify airline seat assignments (auto-intel Mar 24)
+
+- [ ] URGENT: Contact Silversea re: transfer coverage under deviation for booking 298475-25 — get written confirmation (auto-intel Mar 24)
 
 - [ ] CC Melissa (memcglas@gmail.com) on all future correspondence (auto-intel Mar 17)
 

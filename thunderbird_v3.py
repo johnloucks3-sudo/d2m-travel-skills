@@ -59,7 +59,7 @@ def extract_master_data(text):
         import anthropic
         client = anthropic.Anthropic()
         resp = client.messages.create(
-            model="claude-sonnet-4-20250514",
+            model="claude-haiku-4-5-20251001",  # Haiku — JSON data extraction (SO-2026-03-25)
             max_tokens=600,
             system="You are a data extraction assistant. Return ONLY valid JSON, no explanation.",
             messages=[{"role": "user", "content": prompt}],

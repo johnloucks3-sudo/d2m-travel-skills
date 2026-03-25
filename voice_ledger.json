@@ -1,7 +1,7 @@
 {
   "meta": {
     "created": "2026-03-20T20:53:06.267501+00:00",
-    "last_updated": "2026-03-24T04:04:30.805232+00:00",
+    "last_updated": "2026-03-25T22:24:44.214873+00:00",
     "version": 1
   },
   "global_rules": [
@@ -11,7 +11,7 @@
       "source": "mar20_email_analysis",
       "example": "Thanks,\nJohn",
       "created": "2026-03-20T20:53:06.267506+00:00",
-      "applied_count": 38
+      "applied_count": 148
     },
     {
       "domain": "tone",
@@ -19,7 +19,7 @@
       "source": "mar20_email_analysis",
       "example": null,
       "created": "2026-03-20T20:53:06.267816+00:00",
-      "applied_count": 38
+      "applied_count": 148
     },
     {
       "domain": "anti_pattern",
@@ -27,7 +27,7 @@
       "source": "mar20_email_analysis",
       "example": null,
       "created": "2026-03-20T20:53:06.267969+00:00",
-      "applied_count": 38
+      "applied_count": 148
     }
   ],
   "tier_rules": {
@@ -38,7 +38,7 @@
         "source": "mar20_email_analysis",
         "example": null,
         "created": "2026-03-20T20:53:06.268105+00:00",
-        "applied_count": 0
+        "applied_count": 1
       },
       {
         "domain": "structure",
@@ -46,7 +46,7 @@
         "source": "mar20_email_analysis",
         "example": null,
         "created": "2026-03-20T20:53:06.268241+00:00",
-        "applied_count": 0
+        "applied_count": 1
       }
     ],
     "vendor": [

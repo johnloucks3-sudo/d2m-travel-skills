@@ -8,10 +8,10 @@ Ship: Silver Nova (Silversea)
 Route: Tokyo Harumi → Pacific → Seattle
 Embarkation: April 23, 2026 — Tokyo Harumi Terminal, 5-7-1 Harumi, Chuo-ku, Tokyo
   ⚠ PORT CHANGED Nov 26, 2025: Yokohama → Harumi (Silversea notice confirmed)
-  Embarkation window: 11:00 AM – 4:00 PM (updated Feb 25, 2026 — was 2:00 PM)
+  Embarkation window: **2:00–4:00 PM** (per final e-ticket Mar 24; was 11:00 AM–4:00 PM per Feb 25 update)
 Disembarkation: May 11, 2026 — Seattle, Washington — 7:00 AM
-Duration: 18 nights
-Last Updated: March 22, 2026 (cabin 8075 added)
+Duration: 19 days / 18 nights
+Last Updated: March 24, 2026 (final cruise documents received)
 
 ────────────────────────────────────────────────────────────
 1. GENERAL TRIP NOTES
@@ -72,7 +72,7 @@ Date         Status Category     Milestone
 
 TOURS & EXCURSIONS
   Apr 25 | Miyako, Iwate    | Jodogahama & Ryusendo          | 08:45 | 4h      | CONFIRMED
-  May 05 | Sitka            | Sitka's Culinary Adventure      | 11:30 | 3h      | ⚠ WAITLISTED
+  May 05 | Sitka            | Sitka's Culinary Adventure (SIT-007B) | 10:30 | 3h | ✓ CONFIRMED (waitlist cleared Mar 24 — new 10:30 departure)
   May 06 | Juneau           | Whale Watching & Wildlife Quest | 11:00 | 4h      | CONFIRMED
   May 07 | Wrangell         | John Muir Hike                  | 14:30 | 1h 45m  | CONFIRMED
   May 08 | Ketchikan        | Ketchikan by Land & Sea         | 12:00 | 1h 30m  | CONFIRMED
@@ -107,7 +107,7 @@ LOGISTICS & TRANSPORT
   Apr 21 | Kyoto Food Tour, City Unscripted, Guide: Hiro | 10:00 AM, 3 hrs | Conf PE164717508 / HL857174 / CIT-T123798325 | $484.96 | CONFIRMED — cancel free before Apr 20 10:00 AM local
   Apr 22 | Mt. Fuji & Hakone Bus Tour | 7:50 AM | Conf PE164714008 | $365.62 | CONFIRMED
   Apr 23 | Hilton Odaiba → Harumi Port | 10:30 AM | 4 pax (w/ Westbrooks) | Conf PE151557101 / PREXP-27443260 | FULLY PAID $0 due | CONFIRMED Mar 20 — cancel free before Apr 21 10:30 AM local
-  Apr 23 – May 11 | Silver Nova Cruise | Conf 566910-25 | Voyage SN260423019 | Suite: Superior Veranda | *Cabin 8075* (confirmed Feb 2, 2026 — Jenna Woodcock/Perx) | Upgrade bids PENDING (Plusgrade) | $10,800 PAID IN FULL | CONFIRMED
+  Apr 23 – May 11 | Silver Nova Cruise | Conf 566910-25 | Voyage SN260423019 | Suite: Superior Veranda | *Cabin 8075* (confirmed Feb 2, 2026 — Jenna Woodcock/Perx) | Upgrade bids PENDING (Plusgrade) | $10,800 PAID IN FULL | CONFIRMED | **Final e-ticket received Mar 24** | Embark 2:00–4:00 PM
   May 11 | Southwest SEA → DEN | Conf ASC3LX | CONFIRMED (booked Mar 20, 2026)
   May 11 | Seattle Terminal → SEA-TAC | ⚠ NOT BOOKED — needed for SW departure
 
@@ -123,7 +123,7 @@ DOCUMENTS CHECKLIST
   [ ] Emergency contact provided
   [x] Final payment received — PAID IN FULL (Commander confirmed Mar 18)
   [x] Dining selections made — 16 reservations, 1 waitlisted (Grill Apr 24)
-  [x] Excursion selections made — 6 booked, 1 waitlisted (Sitka)
+  [x] Excursion selections made — 6 booked, all confirmed (Sitka waitlist cleared Mar 24)
   [ ] Final itinerary delivered
   [x] Southwest SEA→DEN return flight booked — ASC3LX (Mar 20, 2026)
   [x] Tokyo port transfer confirmed — PE151557101, 10:30 AM (Mar 20, 2026)
@@ -265,6 +265,7 @@ Mar 18, 2026 | EMAIL (John→Ron) | Dani Moreau introduction — "Silver Nova Pa
 Mar 20, 2026 | ACTION | Southwest SEA→DEN return flight booked — Conf ASC3LX
 Mar 20, 2026 | EMAIL (Kyra/PE→John) | PE151557101 updated voucher received — 10:30 AM pickup CONFIRMED
 Mar 22, 2026 | EMAIL (John→johnloucks3) | Complete trip dossier sent (ID: 19d1636ed0f0f518)
+Mar 24, 2026 | EMAIL (Jenna Woodcock/Perx→yodainva, cc johnloucks3) | **Final cruise documents received** — ElectronicTicket_566910-25.pdf. Cabin 8075 Superior Veranda confirmed. Embarkation 2:00–4:00 PM. New contacts: JTB Tokyo +81 3 5796 5426, Intercruises Seattle +1.206.484.8839, Silversea Emergency +1-855-278-7881, Silver Nova direct +1 786 605 5635
 
 ════════════════════════════════════════════════════════════
 8. REFERRAL TRACKING
@@ -295,11 +296,14 @@ CRITICAL (P1):
 
 PENDING/WATCH:
 - [ ] Silversea Plusgrade upgrade bid results — PENDING (Plusgrade will notify)
-- [ ] Sitka Culinary Adventure (May 5) — WAITLISTED
+- [x] Sitka Culinary Adventure (May 5) — CONFIRMED (SIT-007B, 10:30 AM — 11:30 sold out, new departure added, auto-booked by Silversea Mar 24)
 - [ ] The Grill Apr 24 — WAITLISTED
 - [ ] Westbrook portal activation email — draft in Gmail since Mar 10, NOT YET SENT
 - [ ] Westbrook itinerary update — send updated version showing Harumi (not Yokohama)
 - [ ] Final itinerary PDF delivery (E-30 due Mar 24) — both bookings
+- [x] Loucks final cruise documents (566910-25) — **RECEIVED Mar 24** from Jenna Woodcock/Perx, archived to dossier
+- [ ] ⚠ VERIFY embarkation window: e-ticket says 2:00–4:00 PM vs Feb 25 notice 11:00 AM–4:00 PM. Transfer at 10:30 AM — confirm early check-in available
+- [ ] Westbrook final cruise documents (566904-25) — NOT YET RECEIVED. Should arrive from Perx shortly.
 
 RESOLVED:
 - [x] Embarkation port: Harumi CONFIRMED (Silversea Nov 26, 2025)

@@ -1,0 +1,487 @@
+- generic [ref=e9]:
+  - generic [ref=e12]:
+    - button "Toggle Menu" [ref=e13] [cursor=pointer]:
+      - generic [ref=e14]:
+        - img
+    - img "myAgentGenie" [ref=e15]
+    - generic [ref=e17]:
+      - button "Quick Links" [ref=e18] [cursor=pointer]:
+        - generic [ref=e19]: 
+      - text:   
+    - button "Notifications" [ref=e22] [cursor=pointer]:
+      - generic [ref=e23]: 
+    - generic [ref=e24]:
+      - button "Agent menu" [ref=e25] [cursor=pointer]:
+        - generic [ref=e26]:
+          - img [ref=e27]
+          - text: John Loucks
+          - generic [ref=e28]: 
+      - text:   
+  - generic [ref=e29]:
+    - navigation [ref=e31]:
+      - generic [ref=e33]:
+        - list:
+          - listitem [ref=e34]:
+            - generic [ref=e35]:
+              - generic [ref=e37]:
+                - generic [ref=e38]: John Loucks
+                - generic [ref=e39]: Dreams2Memories Travel
+              - generic:
+                - link "" [ref=e40] [cursor=pointer]:
+                  - /url: ""
+                  - generic [ref=e41]: 
+                - link "" [ref=e42] [cursor=pointer]:
+                  - /url: ""
+                  - generic [ref=e43]: 
+          - listitem [ref=e44]:
+            - link " Dashboard Updated" [ref=e45] [cursor=pointer]:
+              - /url: ""
+              - generic [ref=e46]: 
+              - text: Dashboard
+              - generic [ref=e47]: Updated
+            - list
+          - listitem [ref=e48]:
+            - link " Inbox" [ref=e49] [cursor=pointer]:
+              - /url: ""
+              - generic [ref=e50]: 
+              - text: Inbox
+            - list
+          - listitem [ref=e51]:
+            - link " Calendar" [ref=e52] [cursor=pointer]:
+              - /url: ""
+              - generic [ref=e53]: 
+              - text: Calendar
+            - list
+          - listitem [ref=e54]:
+            - link " My Tasks" [ref=e55] [cursor=pointer]:
+              - /url: ""
+              - generic [ref=e56]: 
+              - text: My Tasks
+            - list
+          - listitem [ref=e57]:
+            - link "  Client Management Updated" [ref=e58] [cursor=pointer]:
+              - /url: ""
+              - text: 
+              - generic [ref=e59]: 
+              - text: Client Management
+              - generic [ref=e60]: Updated
+            - list [ref=e61]:
+              - listitem [ref=e62]:
+                - link "Clients" [ref=e63] [cursor=pointer]:
+                  - /url: ""
+              - listitem [ref=e64]:
+                - link "Client Leads New" [ref=e65] [cursor=pointer]:
+                  - /url: ""
+                  - text: Client Leads
+                  - generic [ref=e66]: New
+          - listitem [ref=e67]:
+            - link "  Trip Management" [ref=e68] [cursor=pointer]:
+              - /url: ""
+              - text: 
+              - generic [ref=e69]: 
+              - text: Trip Management
+          - listitem [ref=e70]:
+            - link "  Commission" [ref=e71] [cursor=pointer]:
+              - /url: ""
+              - text: 
+              - generic [ref=e72]: 
+              - text: Commission
+          - listitem [ref=e73]:
+            - link "  Suppliers" [ref=e74] [cursor=pointer]:
+              - /url: ""
+              - text: 
+              - generic [ref=e75]: 
+              - text: Suppliers
+          - listitem [ref=e76]:
+            - link "  Reports" [ref=e77] [cursor=pointer]:
+              - /url: ""
+              - text: 
+              - generic [ref=e78]: 
+              - text: Reports
+          - listitem [ref=e79]:
+            - link "  My Account Updated" [ref=e80] [cursor=pointer]:
+              - /url: ""
+              - text: 
+              - generic [ref=e81]: 
+              - text: My Account
+              - generic [ref=e82]: Updated
+          - listitem [ref=e83]:
+            - link "  Templates" [ref=e84] [cursor=pointer]:
+              - /url: ""
+              - text: 
+              - generic [ref=e85]: 
+              - text: Templates
+          - listitem [ref=e86]:
+            - link "  Marketing New" [ref=e87] [cursor=pointer]:
+              - /url: ""
+              - text: 
+              - generic [ref=e88]: 
+              - text: Marketing
+              - generic [ref=e89]: New
+          - listitem [ref=e90]:
+            - link " Documentation" [ref=e91] [cursor=pointer]:
+              - /url: https://travelesolutions.com/documentation
+              - generic [ref=e92]: 
+              - text: Documentation
+    - generic [ref=e98]:
+      - generic [ref=e99]:
+        - generic [ref=e100]:
+          - generic [ref=e101]: Clients
+          - generic [ref=e102]: Manage clients under your organization
+        - list [ref=e104]:
+          - listitem [ref=e105]:
+            - link "Trips Workspace" [ref=e106] [cursor=pointer]:
+              - /url: /app/views/dashboard
+          - listitem [ref=e107]: My Clients
+      - generic [ref=e109]:
+        - generic [ref=e110]:
+          - heading " Clients" [level=2] [ref=e111]:
+            - generic [ref=e112]: 
+            - text: Clients
+          - list [ref=e113]:
+            - listitem [ref=e114]:
+              - link " Add Client" [ref=e115] [cursor=pointer]:
+                - /url: ""
+                - generic [ref=e116]: 
+                - text: Add Client
+            - listitem [ref=e117]:
+              - link "" [ref=e118] [cursor=pointer]:
+                - /url: ""
+                - generic [ref=e119]: 
+              - text:       
+            - listitem [ref=e120]:
+              - link "" [ref=e121] [cursor=pointer]:
+                - /url: ""
+                - generic [ref=e122]: 
+        - generic [ref=e123]:
+          - form [ref=e126]:
+            - table [ref=e127]:
+              - rowgroup [ref=e128]:
+                - 'row "First Name Last Name  Address Telephone Email Address # Trips Agent/ Created On Status" [ref=e129]':
+                  - columnheader "First Name" [ref=e130]:
+                    - generic "First Name" [ref=e131]:
+                      - link "First Name" [ref=e132] [cursor=pointer]:
+                        - /url: ""
+                        - text: First Name
+                  - columnheader "Last Name " [ref=e133]:
+                    - generic "Last Name" [ref=e134]:
+                      - link "Last Name " [ref=e135] [cursor=pointer]:
+                        - /url: ""
+                        - text: Last Name
+                        - generic [ref=e137]: 
+                  - columnheader "Address" [ref=e138]
+                  - columnheader "Telephone" [ref=e139]
+                  - columnheader "Email Address" [ref=e140]
+                  - columnheader "# Trips" [ref=e141]
+                  - columnheader "Agent/ Created On" [ref=e142]:
+                    - generic "Agent/ Created On" [ref=e143]:
+                      - link "Agent/ Created On" [ref=e144] [cursor=pointer]:
+                        - /url: ""
+                        - text: Agent/ Created On
+                  - columnheader "Status" [ref=e145]
+                  - columnheader [ref=e146]
+                - row "Show All" [ref=e147]:
+                  - columnheader [ref=e148]:
+                    - textbox "First Name" [ref=e149]
+                  - columnheader [ref=e150]:
+                    - textbox "Last Name" [ref=e151]
+                  - columnheader [ref=e152]
+                  - columnheader [ref=e153]:
+                    - textbox "Telephone Number" [ref=e154]
+                  - columnheader [ref=e155]:
+                    - textbox "Email Address" [ref=e156]
+                  - columnheader [ref=e157]
+                  - columnheader [ref=e158]:
+                    - generic [ref=e160]:
+                      - combobox "Search Agent" [ref=e162]
+                      - status [ref=e163]
+                  - columnheader "Show All" [ref=e164]:
+                    - combobox [ref=e165]:
+                      - option "Show All" [selected]
+                      - option "Active"
+                      - option "Inactive"
+                  - columnheader [ref=e166]
+              - rowgroup [ref=e167]:
+                - row "Amy (Amy) Darrow  5904 Kensington Drive, Plano, Texas, 75093, United States of America +1 (214) 356-7591 /+0 additional amy.darrow@me.com /+0 additional 1 John Loucks Feb 6, 2026 11:49 AM MST ACTIVE  ADD TRIP" [ref=e168]:
+                  - cell "Amy (Amy)" [ref=e169]:
+                    - link "Amy" [ref=e170] [cursor=pointer]:
+                      - /url: /app/views/client/3787974/general
+                    - text: (Amy)
+                  - cell "Darrow" [ref=e171]:
+                    - link "Darrow" [ref=e172] [cursor=pointer]:
+                      - /url: /app/views/client/3787974/general
+                  - cell " 5904 Kensington Drive, Plano, Texas, 75093, United States of America" [ref=e173]:
+                    - generic [ref=e174]: 
+                    - text: 5904 Kensington Drive, Plano, Texas, 75093, United States of America
+                  - cell "+1 (214) 356-7591 /+0 additional" [ref=e175]
+                  - cell "amy.darrow@me.com /+0 additional" [ref=e176]:
+                    - link "amy.darrow@me.com" [ref=e177] [cursor=pointer]:
+                      - /url: mailto:amy.darrow@me.com
+                    - text: /+0 additional
+                  - cell "1" [ref=e178]
+                  - cell "John Loucks Feb 6, 2026 11:49 AM MST" [ref=e179]:
+                    - link "John Loucks" [ref=e180] [cursor=pointer]:
+                      - /url: /app/views/user/3720865/general
+                    - generic [ref=e181]: Feb 6, 2026 11:49 AM MST
+                  - cell "ACTIVE" [ref=e182]:
+                    - generic [ref=e184]: ACTIVE
+                  - cell " ADD TRIP" [ref=e185]:
+                    - button " ADD TRIP" [ref=e187] [cursor=pointer]:
+                      - generic [ref=e188]: 
+                      - text: ADD TRIP  
+                - row "Erica (Erica) Dodge  188 Cays Drive, Naples, Florida, 34114, United States of America /+0 additional Buzzerica@gmail.com /+0 additional 1 John Loucks Feb 11, 2026 09:14 AM MST ACTIVE  ADD TRIP" [ref=e189]:
+                  - cell "Erica (Erica)" [ref=e190]:
+                    - link "Erica" [ref=e191] [cursor=pointer]:
+                      - /url: /app/views/client/3792045/general
+                    - text: (Erica)
+                  - cell "Dodge" [ref=e192]:
+                    - link "Dodge" [ref=e193] [cursor=pointer]:
+                      - /url: /app/views/client/3792045/general
+                  - cell " 188 Cays Drive, Naples, Florida, 34114, United States of America" [ref=e194]:
+                    - generic [ref=e195]: 
+                    - text: 188 Cays Drive, Naples, Florida, 34114, United States of America
+                  - cell "/+0 additional" [ref=e196]
+                  - cell "Buzzerica@gmail.com /+0 additional" [ref=e197]:
+                    - link "Buzzerica@gmail.com" [ref=e198] [cursor=pointer]:
+                      - /url: mailto:Buzzerica@gmail.com
+                    - text: /+0 additional
+                  - cell "1" [ref=e199]
+                  - cell "John Loucks Feb 11, 2026 09:14 AM MST" [ref=e200]:
+                    - link "John Loucks" [ref=e201] [cursor=pointer]:
+                      - /url: /app/views/user/3720865/general
+                    - generic [ref=e202]: Feb 11, 2026 09:14 AM MST
+                  - cell "ACTIVE" [ref=e203]:
+                    - generic [ref=e205]: ACTIVE
+                  - cell " ADD TRIP" [ref=e206]:
+                    - button " ADD TRIP" [ref=e208] [cursor=pointer]:
+                      - generic [ref=e209]: 
+                      - text: ADD TRIP  
+                - row "Alfred (Al) Ely  5904 Kensington Drive, Plano, Texas, 75093, United States of America +1 (213) 394-7137 /+0 additional al.ely58@gmail.com /+0 additional 1 John Loucks Feb 6, 2026 11:56 AM MST ACTIVE  ADD TRIP" [ref=e210]:
+                  - cell "Alfred (Al)" [ref=e211]:
+                    - link "Alfred" [ref=e212] [cursor=pointer]:
+                      - /url: /app/views/client/3787980/general
+                    - text: (Al)
+                  - cell "Ely" [ref=e213]:
+                    - link "Ely" [ref=e214] [cursor=pointer]:
+                      - /url: /app/views/client/3787980/general
+                  - cell " 5904 Kensington Drive, Plano, Texas, 75093, United States of America" [ref=e215]:
+                    - generic [ref=e216]: 
+                    - text: 5904 Kensington Drive, Plano, Texas, 75093, United States of America
+                  - cell "+1 (213) 394-7137 /+0 additional" [ref=e217]
+                  - cell "al.ely58@gmail.com /+0 additional" [ref=e218]:
+                    - link "al.ely58@gmail.com" [ref=e219] [cursor=pointer]:
+                      - /url: mailto:al.ely58@gmail.com
+                    - text: /+0 additional
+                  - cell "1" [ref=e220]
+                  - cell "John Loucks Feb 6, 2026 11:56 AM MST" [ref=e221]:
+                    - link "John Loucks" [ref=e222] [cursor=pointer]:
+                      - /url: /app/views/user/3720865/general
+                    - generic [ref=e223]: Feb 6, 2026 11:56 AM MST
+                  - cell "ACTIVE" [ref=e224]:
+                    - generic [ref=e226]: ACTIVE
+                  - cell " ADD TRIP" [ref=e227]:
+                    - button " ADD TRIP" [ref=e229] [cursor=pointer]:
+                      - generic [ref=e230]: 
+                      - text: ADD TRIP  
+                - row "John (John) Furlow  7771 Verbena Court, Dallas, Texas, 75230, United States of America /+0 additional john.furlow@tpf.org /+0 additional 1 John Loucks Feb 5, 2026 09:40 PM MST ACTIVE  ADD TRIP" [ref=e231]:
+                  - cell "John (John)" [ref=e232]:
+                    - link "John" [ref=e233] [cursor=pointer]:
+                      - /url: /app/views/client/3787641/general
+                    - text: (John)
+                  - cell "Furlow" [ref=e234]:
+                    - link "Furlow" [ref=e235] [cursor=pointer]:
+                      - /url: /app/views/client/3787641/general
+                  - cell " 7771 Verbena Court, Dallas, Texas, 75230, United States of America" [ref=e236]:
+                    - generic [ref=e237]: 
+                    - text: 7771 Verbena Court, Dallas, Texas, 75230, United States of America
+                  - cell "/+0 additional" [ref=e238]
+                  - cell "john.furlow@tpf.org /+0 additional" [ref=e239]:
+                    - link "john.furlow@tpf.org" [ref=e240] [cursor=pointer]:
+                      - /url: mailto:john.furlow@tpf.org
+                    - text: /+0 additional
+                  - cell "1" [ref=e241]
+                  - cell "John Loucks Feb 5, 2026 09:40 PM MST" [ref=e242]:
+                    - link "John Loucks" [ref=e243] [cursor=pointer]:
+                      - /url: /app/views/user/3720865/general
+                    - generic [ref=e244]: Feb 5, 2026 09:40 PM MST
+                  - cell "ACTIVE" [ref=e245]:
+                    - generic [ref=e247]: ACTIVE
+                  - cell " ADD TRIP" [ref=e248]:
+                    - button " ADD TRIP" [ref=e250] [cursor=pointer]:
+                      - generic [ref=e251]: 
+                      - text: ADD TRIP  
+                - row "Melissa (Missy) Furlow  7771 Verbena Court, Dallas, Texas, 75230, United States of America +1 (469) 767-8009 /+0 additional missy.furlow@gmail.com /+0 additional 1 John Loucks Feb 6, 2026 12:02 PM MST ACTIVE  ADD TRIP" [ref=e252]:
+                  - cell "Melissa (Missy)" [ref=e253]:
+                    - link "Melissa" [ref=e254] [cursor=pointer]:
+                      - /url: /app/views/client/3787988/general
+                    - text: (Missy)
+                  - cell "Furlow" [ref=e255]:
+                    - link "Furlow" [ref=e256] [cursor=pointer]:
+                      - /url: /app/views/client/3787988/general
+                  - cell " 7771 Verbena Court, Dallas, Texas, 75230, United States of America" [ref=e257]:
+                    - generic [ref=e258]: 
+                    - text: 7771 Verbena Court, Dallas, Texas, 75230, United States of America
+                  - cell "+1 (469) 767-8009 /+0 additional" [ref=e259]
+                  - cell "missy.furlow@gmail.com /+0 additional" [ref=e260]:
+                    - link "missy.furlow@gmail.com" [ref=e261] [cursor=pointer]:
+                      - /url: mailto:missy.furlow@gmail.com
+                    - text: /+0 additional
+                  - cell "1" [ref=e262]
+                  - cell "John Loucks Feb 6, 2026 12:02 PM MST" [ref=e263]:
+                    - link "John Loucks" [ref=e264] [cursor=pointer]:
+                      - /url: /app/views/user/3720865/general
+                    - generic [ref=e265]: Feb 6, 2026 12:02 PM MST
+                  - cell "ACTIVE" [ref=e266]:
+                    - generic [ref=e268]: ACTIVE
+                  - cell " ADD TRIP" [ref=e269]:
+                    - button " ADD TRIP" [ref=e271] [cursor=pointer]:
+                      - generic [ref=e272]: 
+                      - text: ADD TRIP  
+                - row "Kyle (Kyle) Kuklinski  3128 Floyd Avenue, Apt 1, Richmond, Virginia, 23221, United States of America +1 (804) 801-4762 /+0 additional kyle.kuklinski@gmail.com /+0 additional 1 John Loucks Feb 11, 2026 09:06 AM MST ACTIVE  ADD TRIP" [ref=e273]:
+                  - cell "Kyle (Kyle)" [ref=e274]:
+                    - link "Kyle" [ref=e275] [cursor=pointer]:
+                      - /url: /app/views/client/3792028/general
+                    - text: (Kyle)
+                  - cell "Kuklinski" [ref=e276]:
+                    - link "Kuklinski" [ref=e277] [cursor=pointer]:
+                      - /url: /app/views/client/3792028/general
+                  - cell " 3128 Floyd Avenue, Apt 1, Richmond, Virginia, 23221, United States of America" [ref=e278]:
+                    - generic [ref=e279]: 
+                    - text: 3128 Floyd Avenue, Apt 1, Richmond, Virginia, 23221, United States of America
+                  - cell "+1 (804) 801-4762 /+0 additional" [ref=e280]
+                  - cell "kyle.kuklinski@gmail.com /+0 additional" [ref=e281]:
+                    - link "kyle.kuklinski@gmail.com" [ref=e282] [cursor=pointer]:
+                      - /url: mailto:kyle.kuklinski@gmail.com
+                    - text: /+0 additional
+                  - cell "1" [ref=e283]
+                  - cell "John Loucks Feb 11, 2026 09:06 AM MST" [ref=e284]:
+                    - link "John Loucks" [ref=e285] [cursor=pointer]:
+                      - /url: /app/views/user/3720865/general
+                    - generic [ref=e286]: Feb 11, 2026 09:06 AM MST
+                  - cell "ACTIVE" [ref=e287]:
+                    - generic [ref=e289]: ACTIVE
+                  - cell " ADD TRIP" [ref=e290]:
+                    - button " ADD TRIP" [ref=e292] [cursor=pointer]:
+                      - generic [ref=e293]: 
+                      - text: ADD TRIP  
+                - row "Nicholas (Nick) Kuklinski  3128 Floyd Avenue, Apt 2, Richmond, Virginia, 23221, United States of America +1 (804) 801-4762 /+0 additional nikpack@gmail.com /+0 additional 1 John Loucks Feb 11, 2026 09:09 AM MST ACTIVE  ADD TRIP" [ref=e294]:
+                  - cell "Nicholas (Nick)" [ref=e295]:
+                    - link "Nicholas" [ref=e296] [cursor=pointer]:
+                      - /url: /app/views/client/3792039/general
+                    - text: (Nick)
+                  - cell "Kuklinski" [ref=e297]:
+                    - link "Kuklinski" [ref=e298] [cursor=pointer]:
+                      - /url: /app/views/client/3792039/general
+                  - cell " 3128 Floyd Avenue, Apt 2, Richmond, Virginia, 23221, United States of America" [ref=e299]:
+                    - generic [ref=e300]: 
+                    - text: 3128 Floyd Avenue, Apt 2, Richmond, Virginia, 23221, United States of America
+                  - cell "+1 (804) 801-4762 /+0 additional" [ref=e301]
+                  - cell "nikpack@gmail.com /+0 additional" [ref=e302]:
+                    - link "nikpack@gmail.com" [ref=e303] [cursor=pointer]:
+                      - /url: mailto:nikpack@gmail.com
+                    - text: /+0 additional
+                  - cell "1" [ref=e304]
+                  - cell "John Loucks Feb 11, 2026 09:09 AM MST" [ref=e305]:
+                    - link "John Loucks" [ref=e306] [cursor=pointer]:
+                      - /url: /app/views/user/3720865/general
+                    - generic [ref=e307]: Feb 11, 2026 09:09 AM MST
+                  - cell "ACTIVE" [ref=e308]:
+                    - generic [ref=e310]: ACTIVE
+                  - cell " ADD TRIP" [ref=e311]:
+                    - button " ADD TRIP" [ref=e313] [cursor=pointer]:
+                      - generic [ref=e314]: 
+                      - text: ADD TRIP  
+                - row "Roger (Roger) Kuklinski  3128 Floyd Avenue, Apt 2, Richmond, Virginia, 23221, United States of America +1 (804) 801-4762 /+0 additional roger.kuklinski@gmail.com /+0 additional 1 John Loucks Feb 11, 2026 09:13 AM MST ACTIVE  ADD TRIP" [ref=e315]:
+                  - cell "Roger (Roger)" [ref=e316]:
+                    - link "Roger" [ref=e317] [cursor=pointer]:
+                      - /url: /app/views/client/3792042/general
+                    - text: (Roger)
+                  - cell "Kuklinski" [ref=e318]:
+                    - link "Kuklinski" [ref=e319] [cursor=pointer]:
+                      - /url: /app/views/client/3792042/general
+                  - cell " 3128 Floyd Avenue, Apt 2, Richmond, Virginia, 23221, United States of America" [ref=e320]:
+                    - generic [ref=e321]: 
+                    - text: 3128 Floyd Avenue, Apt 2, Richmond, Virginia, 23221, United States of America
+                  - cell "+1 (804) 801-4762 /+0 additional" [ref=e322]
+                  - cell "roger.kuklinski@gmail.com /+0 additional" [ref=e323]:
+                    - link "roger.kuklinski@gmail.com" [ref=e324] [cursor=pointer]:
+                      - /url: mailto:roger.kuklinski@gmail.com
+                    - text: /+0 additional
+                  - cell "1" [ref=e325]
+                  - cell "John Loucks Feb 11, 2026 09:13 AM MST" [ref=e326]:
+                    - link "John Loucks" [ref=e327] [cursor=pointer]:
+                      - /url: /app/views/user/3720865/general
+                    - generic [ref=e328]: Feb 11, 2026 09:13 AM MST
+                  - cell "ACTIVE" [ref=e329]:
+                    - generic [ref=e331]: ACTIVE
+                  - cell " ADD TRIP" [ref=e332]:
+                    - button " ADD TRIP" [ref=e334] [cursor=pointer]:
+                      - generic [ref=e335]: 
+                      - text: ADD TRIP  
+                - row "Rosalie (Rosalie) Kuklinski  3128 Floyd Avenue, Apt 2, Richmond, Virginia, 23221, United States of America +1 (804) 801-4762 /+0 additional rosalie.kuklinski@gmail.com /+0 additional 1 John Loucks Feb 11, 2026 09:11 AM MST ACTIVE  ADD TRIP" [ref=e336]:
+                  - cell "Rosalie (Rosalie)" [ref=e337]:
+                    - link "Rosalie" [ref=e338] [cursor=pointer]:
+                      - /url: /app/views/client/3792041/general
+                    - text: (Rosalie)
+                  - cell "Kuklinski" [ref=e339]:
+                    - link "Kuklinski" [ref=e340] [cursor=pointer]:
+                      - /url: /app/views/client/3792041/general
+                  - cell " 3128 Floyd Avenue, Apt 2, Richmond, Virginia, 23221, United States of America" [ref=e341]:
+                    - generic [ref=e342]: 
+                    - text: 3128 Floyd Avenue, Apt 2, Richmond, Virginia, 23221, United States of America
+                  - cell "+1 (804) 801-4762 /+0 additional" [ref=e343]
+                  - cell "rosalie.kuklinski@gmail.com /+0 additional" [ref=e344]:
+                    - link "rosalie.kuklinski@gmail.com" [ref=e345] [cursor=pointer]:
+                      - /url: mailto:rosalie.kuklinski@gmail.com
+                    - text: /+0 additional
+                  - cell "1" [ref=e346]
+                  - cell "John Loucks Feb 11, 2026 09:11 AM MST" [ref=e347]:
+                    - link "John Loucks" [ref=e348] [cursor=pointer]:
+                      - /url: /app/views/user/3720865/general
+                    - generic [ref=e349]: Feb 11, 2026 09:11 AM MST
+                  - cell "ACTIVE" [ref=e350]:
+                    - generic [ref=e352]: ACTIVE
+                  - cell " ADD TRIP" [ref=e353]:
+                    - button " ADD TRIP" [ref=e355] [cursor=pointer]:
+                      - generic [ref=e356]: 
+                      - text: ADD TRIP  
+                - row "John (John) Loucks  1655 Goldpeak Court, Colorado Springs, Colorado, 80921, United States of America +1 (719) 291-0742 /+0 additional johnloucks3@gmail.com /+0 additional 1 John Loucks Feb 26, 2026 08:31 AM MST ACTIVE  ADD TRIP" [ref=e357]:
+                  - cell "John (John)" [ref=e358]:
+                    - link "John" [ref=e359] [cursor=pointer]:
+                      - /url: /app/views/client/3821991/general
+                    - text: (John)
+                  - cell "Loucks" [ref=e360]:
+                    - link "Loucks" [ref=e361] [cursor=pointer]:
+                      - /url: /app/views/client/3821991/general
+                  - cell " 1655 Goldpeak Court, Colorado Springs, Colorado, 80921, United States of America" [ref=e362]:
+                    - generic [ref=e363]: 
+                    - text: 1655 Goldpeak Court, Colorado Springs, Colorado, 80921, United States of America
+                  - cell "+1 (719) 291-0742 /+0 additional" [ref=e364]
+                  - cell "johnloucks3@gmail.com /+0 additional" [ref=e365]:
+                    - link "johnloucks3@gmail.com" [ref=e366] [cursor=pointer]:
+                      - /url: mailto:johnloucks3@gmail.com
+                    - text: /+0 additional
+                  - cell "1" [ref=e367]
+                  - cell "John Loucks Feb 26, 2026 08:31 AM MST" [ref=e368]:
+                    - link "John Loucks" [ref=e369] [cursor=pointer]:
+                      - /url: /app/views/user/3720865/general
+                    - generic [ref=e370]: Feb 26, 2026 08:31 AM MST
+                  - cell "ACTIVE" [ref=e371]:
+                    - generic [ref=e373]: ACTIVE
+                  - cell " ADD TRIP" [ref=e374]:
+                    - button " ADD TRIP" [ref=e376] [cursor=pointer]:
+                      - generic [ref=e377]: 
+                      - text: ADD TRIP  
+          - list [ref=e379]:
+            - listitem [ref=e380]:
+              - link "« First" [ref=e381]:
+                - /url: ""
+            - listitem [ref=e382]:
+              - link "‹ Previous" [ref=e383]:
+                - /url: ""
+            - listitem [ref=e384]: "10"
+            - listitem [ref=e385]: of
+            - listitem [ref=e386]: "17"
+            - listitem [ref=e387]:
+              - link "Next ›" [ref=e388] [cursor=pointer]:
+                - /url: ""

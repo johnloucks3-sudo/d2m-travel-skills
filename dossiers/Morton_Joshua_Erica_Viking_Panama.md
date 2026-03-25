@@ -22,7 +22,7 @@ cc_note: Kyle Kuklinski paying ALL THREE bookings (his, Roger's, and Morton/Dodg
 
 ---
 
-✅ **CC RESOLVED — Kyle Kuklinski paying FPD MAR 31 ($6,148) — confirmed 23 MAR 2026**
+⚠️ **PAYMENT PENDING — Kyle Kuklinski paying $6,148 — CC on file, CVC missing. FPD Mar 31.**
 Contact: Josh 818-317-9843 / josh@jerichopix.com
 
 ---
@@ -52,10 +52,12 @@ Contact: Josh 818-317-9843 / josh@jerichopix.com
 | Booking Date | February 08, 2026 |
 | Embarkation | December 17, 2026 — Panama |
 | Disembarkation | December 27, 2026 |
-| Stateroom | Guarantee V1 — TBA |
+| Stateroom | **3015 — V1-Veranda, Deck 3** |
 | Fare Code | OMAPSF26-3 (V1 $3,099pp) |
-| Deposit Paid | $50 |
+| Deposit Paid | $50 (Kyle Kuklinski AmEx, Feb 10) |
 | Balance Due | **$6,148** — DUE MAR 31, 2026 |
+| Shipboard Credit | **$200 total** ($100/guest — SBC Vouchers, not yet applied) |
+| Travel Protection | Declined — pre-existing window closed Feb 23 |
 
 ---
 
@@ -72,11 +74,14 @@ Total group FPD: $21,244 — all due Mar 31, 2026
 
 ## ACTION ITEMS
 
-- [ ] **🔴 COLLECT CC — call Josh 818-317-9843 before Mar 31**
-- [ ] Confirm stateroom assignment (Guarantee V1 → TBA)
-- [ ] Confirm stateroom for Morton/Dodge once assigned
-- [ ] Guest profile form — passport details needed
-- [ ] Insurance — pre-existing window closed Feb 23
+- [x] ~~COLLECT CC~~ — Kyle paying $6,148 on Josh/Erica's behalf ✓
+- [ ] **⚠️ GET CVC from Kyle — needed to process $21,244 total payment before Mar 31**
+- [x] ~~Confirm stateroom~~ — **3015, V1-Veranda, Deck 3** ✓
+- [ ] Guest profile form — passport details needed for both Josh & Erica
+- [ ] Insurance — pre-existing window closed Feb 23. Needs separate policy. Discuss with Kyle/Josh.
+- [ ] Flights — not booked (outbound to Panama City Dec 17, return from FLL Dec 27)
+- [ ] Transfers — not booked (Panama City airport → pier; FLL pier → airport)
+- [ ] **VALIDATION EMAIL (Touch 1)** — cruise confirmed, all gaps flagged
 
 ---
 
@@ -88,9 +93,9 @@ Total group FPD: $21,244 — all due Mar 31, 2026
 | Mar 10, 2026 | PAST | Payment reminder #1 (FPD-21) |
 | Mar 17, 2026 | PAST | Payment reminder #2 (FPD-14) |
 | Mar 22, 2026 | PAST | Passport validity check |
-| **Mar 24, 2026** | **⚠️ TODAY+1** | **Goal: payment in hand (FPD-7)** |
-| **Mar 31, 2026** | **🔴 FPD** | **FINAL PAYMENT DUE — $6,148** |
-| Apr 7, 2026 | | Confirm payment received |
+| **Mar 25, 2026** | ⚠️ | **PAYMENT PENDING — CVC missing** |
+| **Mar 31, 2026** | 🔴 | **FPD — $6,148 DUE — need CVC to process** |
+| Apr 7, 2026 | | Confirm payment received / Viking confirmation |
 | Sep 17, 2026 | | E-90: All docs confirmed |
 | Dec 10, 2026 | | E-7: Final excursion/dining close |
 | Dec 17, 2026 | | EMBARKATION — Viking Mars |

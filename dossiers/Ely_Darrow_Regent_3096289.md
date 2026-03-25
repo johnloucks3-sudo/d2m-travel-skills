@@ -18,7 +18,7 @@ relationship: client
 
 ---
 
-### STATUS: ACTIVE — ⚠️ PAYMENT AUTHORIZED | Suite 1212, Deck 12 | **CC on portal ✓ | Al authorized cruise + hotel + transport charges Mar 20 | Insurance DEFERRED**
+### STATUS: ACTIVE — ⚠️ PAYMENT NOT YET PROCESSED | Suite 1212, Deck 12 | **CC on portal ✓ | CVV 883 received Mar 24 | Al authorized cruise + hotel + transport Mar 20 | Charge must be run | Insurance DEFERRED**
 
 ### RSSC PORTAL DATA (Scraped Mar 24, 2026)
 - **Guest Registration:** Al Ely COMPLETE, Amy Darrow COMPLETE
@@ -63,9 +63,9 @@ relationship: client
 ### HOTEL & TRANSFERS
 | Booking | Item | Dates | Status | Cost |
 |---------|------|-------|--------|------|
-| Bedsonline 131-2656351 | Haymarket By Scandic (on Furlow group booking, 3x Grande King) | Aug 27-28 | **CONFIRMED** | incl. |
+| Bedsonline 131-2656351 | Haymarket By Scandic (on Furlow group booking, 3x Grande King) | Aug 27-28 | ⚠️ **PAYMENT DUE** | TBD (confirm per-client amount) |
 | — | Regent included hotel night | Aug 28 | Included | — |
-| #1095091 / AE693884 | Transfer — Book Now Pay Later | — | **CONFIRMED** | — |
+| #1095091 / AE693884 | Royal Transfer — Book Now Pay Later | Aug 27 | ⚠️ **PAYMENT DUE** | ~$176 |
 | — | Regent transport hotel → ship | Aug 29 | Included | — |
 | — | Regent transport ship → Oslo airport | Sep 8 | Included | — |
 
@@ -115,7 +115,7 @@ relationship: client
 | 11 | Transfers | Hotel → port transfer | YES | **CONFIRMED** | Regent transport, Aug 29 |
 | 12 | Cruise | Booking confirmed | YES | **CONFIRMED** | 3096289, Suite 1212 |
 | 13 | Cruise | Suite assignment | YES | **CONFIRMED** | 1212 |
-| 14 | Cruise | Payment status | YES | **AUTHORIZED** | $16,640 due Apr 1 — Al authorized charge Mar 20. Commander confirmed processing this week. |
+| 14 | Cruise | Payment status | YES | ⚠️ **AUTHORIZED — NOT YET CHARGED** | $16,640 due Apr 1 — Al authorized Mar 20, CVV 883 received Mar 24. Charge NOT yet run. FPD Apr 1. |
 | 15 | Cruise | Embarkation details | YES | **CONFIRMED** | Stockholm, Aug 29 |
 | 16 | Dining | Specialty dining | Optional | **NOT YET** | Opens May 31, 8pm ET |
 | 17 | Excursions | Shore excursions | Optional | **BOOKED** | 6 excursions confirmed (see below) |
@@ -149,8 +149,20 @@ All included (Regent Choice — $0.00). Both Al & Amy confirmed on all excursion
 2. [ ] Verify Allianz Premier $15K annual pricing — $450 quote suspicious
 3. [ ] Send Regent experience / what-to-expect guide
 4. [x] Confirm transport from Stockholm is booked — Bedsonline #1095091
-5. [ ] Process payments this week — Al authorized cruise ($16,640) + hotel + transport (Mar 20 email)
-6. [ ] **VALIDATION:** Verify passports for Al and Amy
-7. [ ] Verify Al's passport photo uploaded correctly to portal (he said "I think?")
-8. [ ] Process hotel and transfer charges per Al's authorization (Mar 20)
+5. [ ] **⚠️ PROCESS REGENT CRUISE PAYMENT — $16,640** — Al authorized Mar 20, CVV 883 received Mar 24. FPD Apr 1. **NOT YET CHARGED.**
+6. [ ] **⚠️ PROCESS HOTEL PAYMENT** — Haymarket By Scandic, Bedsonline 131-2656351 — confirm per-client amount (Furlow's share is $418 — Ely amount TBD)
+7. [ ] **⚠️ PROCESS TRANSFER PAYMENT** — Royal Transfer Arlanda, #1095091/AE693884 — ~$176
+8. [ ] **VALIDATION:** Verify passports for Al and Amy — Al self-reported upload "I think?" — needs manual portal check
 9. [ ] Insurance — Al deferring activation. Follow up in ~2 months (May timeframe)
+10. [ ] Guest profile forms — NOT received from Al or Amy as of Mar 25
+
+### EMAIL LOG ADDENDUM (Mar 24, 2026)
+**Mar 24 — Regent Invoice received (forwarded by Commander)**
+- From: noreply@rssc.com → Commander → d2mconcierge
+- Subject: "Regent Seven Seas Cruises Invoice: 3096289 Guest: ELY"
+- Content: Official invoice for MR ALFRED ELY / MRS AMY DARROW, 7 PDF attachments (GIF1, Pre-Selected Tours, Shore Excursions, Ticket Contract, etc.)
+
+**Mar 24 — Al Ely CVV reply (CRITICAL)**
+- From: al.ely58@gmail.com → d2mconcierge
+- Subject: "Re: One quick thing before April 1 — Regent final payment"
+- Content: **"883"** — CVV for Mastercard on portal. Authorization complete. Waiting on D2M to run the charge.

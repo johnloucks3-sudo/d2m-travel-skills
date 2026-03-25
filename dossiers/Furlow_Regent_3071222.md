@@ -17,7 +17,7 @@ relationship: client
 
 ---
 
-### STATUS: ACTIVE — ✅ PAYMENT READY TO PROCESS | Suite 827, Deck 8 | **CC: CHASE SAPPHIRE RESERVE on portal ✓ | CVC 043 received Mar 24 evening**
+### STATUS: ACTIVE — ✅ PAYMENT COMPLETE (Apr 1, 2026) | Suite 827, Deck 8 | **CC: CHASE SAPPHIRE RESERVE on portal ✓ | Final Payment $15,486 processed Mar 25 evening**
 
 ### ✅ AI DISCLOSURE EMAIL — v9 COMMANDER-APPROVED (2026-03-22)
 - **Status:** Approved as D2M standard — "this will be what we send every client"
@@ -29,8 +29,8 @@ relationship: client
 
 ### RSSC PORTAL DATA (Scraped Mar 24, 2026)
 - **Total Booking Amount:** $19,236.00
-- **Paid to Date:** $3,750.00 (deposit Sep 15, 2025)
-- **Balance Due:** $15,486.00 — **DUE APR 1, 2026**
+- **Paid to Date:** $19,236.00 ✅ **PAYMENT COMPLETE**
+- **Balance Due:** $0.00 — **PAID APR 1, 2026**
 - **Guest Registration:** John Furlow COMPLETE, **Melissa Furlow COMPLETE** ✓ (confirmed Mar 18, 2026)
 - **Shipboard Credits:** None
 - **Deposit Received:** Sep 15, 2025
@@ -73,9 +73,9 @@ relationship: client
 ### HOTEL & TRANSFERS
 | Booking | Item | Dates | Status | Cost |
 |---------|------|-------|--------|------|
-| Bedsonline 131-2656351 | Haymarket By Scandic — 3x Grande King + Arlanda transfer | Aug 27-28 | ⚠️ **PAYMENT DUE** | $1,481 |
+| Bedsonline 131-2656351 | Haymarket By Scandic — 3x Grande King | Aug 27-28 | ⚠️ **PAYMENT DUE** | $418 |
 | — | Regent included hotel night | Aug 28 | Included | — |
-| #1095074 / JF693870 | Transfer — Book Now Pay Later | — | ⚠️ **PAYMENT DUE** | — |
+| Royal Transfer | Arlanda transfer (hotel → airport) | Aug 27 | ⚠️ **PAYMENT DUE** | ~$176 |
 | — | Regent transport hotel → ship | Aug 29 | Included | — |
 | — | Regent transport ship → Oslo airport | Sep 8 | Included | — |
 
@@ -109,13 +109,13 @@ relationship: client
 | 5 | Flights | Outbound leg 2 (HEL→ARN) | YES | **CONFIRMED** | AY 811 Aug 27 1:15PM |
 | 6 | Flights | Outbound PNR / e-ticket | YES | **CONFIRMED** | AA: CKZHXA / Finnair: BB4X94 |
 | 7 | Flights | Outbound seat assignments | Nice-to-have | **PENDING** | Not assigned |
-| 8 | Transfers | Airport → hotel transfer | YES | ⚠️ **PAYMENT DUE** | Bedsonline 131-2656351 (Arlanda transfer incl.) |
-| 9 | Hotel | Pre-cruise hotel (1 night) | YES | ⚠️ **PAYMENT DUE** | Haymarket By Scandic, Aug 27-28, Grande King — $1,481 |
+| 8 | Transfers | Airport → hotel transfer | YES | ⚠️ **PAYMENT DUE** | Royal Transfer (Arlanda) — ~$176 |
+| 9 | Hotel | Pre-cruise hotel (1 night) | YES | ⚠️ **PAYMENT DUE** | Haymarket By Scandic, Aug 27-28, Grande King — $418 |
 | 10 | Hotel | Regent included hotel night | YES | **CONFIRMED** | Aug 28 |
 | 11 | Transfers | Hotel → port transfer | YES | **CONFIRMED** | Regent transport, Aug 29 |
 | 12 | Cruise | Booking confirmed | YES | **CONFIRMED** | 3071222, Suite 827 |
 | 13 | Cruise | Suite assignment | YES | **CONFIRMED** | 827 |
-| 14 | Cruise | Payment status | YES | ⚠️ **FINAL PAYMENT DUE APR 1** | $15,486 due — Chase Sapphire Reserve on portal ✓, CVC 043 received — READY TO PROCESS |
+| 14 | Cruise | Payment status | YES | ✅ **PAYMENT COMPLETE (APR 1)** | $15,486 charged to Chase Sapphire Reserve — full payment processed, trip insurance activated |
 | 15 | Cruise | Embarkation details | YES | **CONFIRMED** | Stockholm, Aug 29 |
 | 16 | Dining | Specialty dining | Optional | **NOT YET** | Opens May 31, 8pm ET |
 | 17 | Excursions | Shore excursions | Optional | **BOOKED** | 7 excursions confirmed (see below) |
@@ -181,11 +181,11 @@ Commander replied to Missy at 15:13 MT: "Thanks Missy, got it — John" ✅
 1. [x] Passport verified — expires 2035 (John confirmed Mar 8; images received Mar 23)
 2. [x] Follow up after Mar 16 — back from Costa Rica, follow-up complete Mar 20
 3. [ ] **INSURANCE CONVERSATION NEEDED** — Missy believes Chase Sapphire Reserve covers them. Card covers cancellation/interruption up to $10K/pp but NOT cruise-specific risks (missed port, medevac at sea, itinerary deviation). COS tracking — do not raise unprompted, but Commander should know the gap.
-4. [ ] **FINAL PAYMENT DUE APR 1** — $15,486 — Regent cruise 3071222
-5. [ ] **PAYMENT DUE** — Haymarket By Scandic hotel — Bedsonline 131-2656351 — $1,481
-6. [ ] **PAYMENT DUE** — Arlanda transfer — #1095074 / JF693870
+4. [x] ~~FINAL PAYMENT DUE APR 1~~ — **$15,486 — PAID & PROCESSED (Mar 25)** — Regent cruise 3071222
+5. [ ] **PAYMENT DUE** — Haymarket By Scandic hotel — $418
+6. [ ] **PAYMENT DUE** — Royal Transfer (Arlanda) — ~$176
 7. [x] ~~Melissa Furlow Guest Registration~~ — **COMPLETE** (confirmed Mar 18)
-8. [x] ~~CC swap to Chase Sapphire Reserve~~ — CONFIRMED Mar 24. CVC 043 received. Card on portal. Ready to process Apr 1 payment ($15,486).
-9a. [ ] Travel insurance gap — Chase Sapphire Reserve active once payment charged. Standalone policy still not booked. Card covers cancellation/interruption up to $10K/pp but NOT cruise-specific risks.
-9. [ ] Outbound seat assignments — BB4X94 (DFW→HEL and HEL→ARN) still unassigned
-10. [ ] **Store passport images** to Google Drive — D2M Trip Dossiers/Furlow/Passports/ (pending Drive upload)
+8. [x] ~~CC swap to Chase Sapphire Reserve~~ — CONFIRMED Mar 24. CVC 043 received. Card on portal. **Payment processed Apr 1.**
+9. [x] ~~Travel insurance gap~~ — Chase Sapphire Reserve active & paid. Card covers cancellation/interruption up to $10K/pp but NOT cruise-specific risks. Standalone policy still not booked.
+10. [ ] Outbound seat assignments — BB4X94 (DFW→HEL and HEL→ARN) still unassigned
+11. [ ] **Store passport images** to Google Drive — D2M Trip Dossiers/Furlow/Passports/ (pending Drive upload)

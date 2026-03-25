@@ -199,7 +199,7 @@ def check_current_prices(departures: List[Dict[str, Any]]) -> List[Dict[str, Any
                 import anthropic
                 client = anthropic.Anthropic()
                 resp = client.messages.create(
-                    model="claude-sonnet-4-20250514",
+                    model="claude-haiku-4-5-20251001",  # Haiku — price extraction fallback (SO-2026-03-25)
                     max_tokens=300,
                     system=system_prompt,
                     messages=[{"role": "user", "content": price_query}],

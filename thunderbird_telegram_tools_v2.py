@@ -126,7 +126,7 @@ Target mapping: hale/cos=COS, dembe=A2, dani=A3, castillo=A5, voss/luna=A6, harl
 
         client = anthropic.Anthropic()
         resp = client.messages.create(
-            model="claude-sonnet-4-20250514",
+            model="claude-haiku-4-5-20251001",  # Haiku — message type classification (SO-2026-03-25)
             max_tokens=150,
             system=classifier_system,
             messages=[{"role": "user", "content": message}],

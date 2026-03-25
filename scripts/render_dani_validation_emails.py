@@ -61,6 +61,18 @@ CLIENTS = {
         "to": "rwestbrook3@gmail.com, lindywestbrook77@gmail.com",
         "filename": "Westbrook_Validation_Mar2026.html",
     },
+    "Kyle": {
+        "to": "kyle.kuklinski@gmail.com",
+        "filename": "Kyle_Validation_Mar2026.html",
+    },
+    "Roger": {
+        "to": "Roger.kuklinski@gmail.com, nikpack@gmail.com",
+        "filename": "Roger_Validation_Mar2026.html",
+    },
+    "Morton": {
+        "to": "josh@jerichopix.com, Buzzerica@gmail.com",
+        "filename": "Morton_Validation_Mar2026.html",
+    },
 }
 
 # ── SHARED CONTEXT ───────────────────────────────────────────
@@ -69,89 +81,87 @@ shared = dict(
     avatar_b64=avatar_b64,
     ship_name="Regent Seven Seas Grandeur",
     voyage_description="Scandinavia \u00b7 Aug 29 \u2013 Sep 8, 2026",
-    payment_date="April 1",
     hero_text="Scandinavia Awaits",
-    personal_note=JOHNS_NOTE,
 )
 
-# ── FURLOW ──────────────────────────────────────────────────
+# ── FURLOW (Touch 2 — Fully Paid, Validation Focus) ─────────
 furlow = template.render(
     **shared,
-    subject="Your Scandinavia Voyage \u2014 Quick Review Before Final Payment",
+    personal_note="",
+    subject="Your Scandinavia Voyage \u2014 Everything We Have in Place",
     greeting="Hi John and Missy,",
     intro_text=(
-        "Welcome back from Costa Rica! With final payment coming up on April 1, "
-        "I wanted to run through everything we have in place and make sure it all "
-        "looks right before we move forward."
+        "You\u2019re fully paid and confirmed on the Seven Seas Grandeur. "
+        "Here\u2019s a complete picture of everything in place and a few small items still to nail down."
     ),
     suite_number="827",
     deck_number="8",
-    balance_due="15,486",
+    balance_due="0 \u2014 Paid in Full",
     flights=[
         "Aug 26: AA 9018 (Finnair) DFW \u2192 Helsinki, 4:50 PM \u2014 Confirmed",
         "Aug 27: AY 811 Helsinki \u2192 Stockholm, 1:15 PM \u2014 Confirmed",
         "Sep 8: BA 6776 Oslo \u2192 London, 11:15 AM \u2014 Seats 4C / 4A",
         "Sep 8: AA 79 London \u2192 Dallas, 2:25 PM \u2014 Seats 7D / 7G",
     ],
-    flight_notes="AA Record Locator: CKZHXA \u00b7 Finnair/BA: BB4X94. Outbound seats (DFW\u2192Helsinki and Helsinki\u2192Stockholm) are not yet assigned \u2014 AA says you're guaranteed Business Class. Worth checking with them to get specific seats when you get a chance.",
+    flight_notes="AA Record Locator: CKZHXA \u00b7 Finnair/BA: BB4X94. Outbound seats on DFW\u2192Helsinki and Helsinki\u2192Stockholm are not yet assigned \u2014 Business Class is guaranteed. Please contact Finnair with record locator BB4X94 \u2014 we will be glad to help with that.",
     hotel_transfers=[
-        "Haymarket By Scandic, Stockholm \u2014 Aug 27-28 (Grande King) \u2014 Confirmed",
-        "Regent included hotel night \u2014 Aug 28 \u2014 Confirmed",
-        "Airport transfer from Arlanda \u2014 Confirmed",
+        "\u26a0 Haymarket By Scandic, Stockholm \u2014 Aug 27-28 (Grande King) \u2014 Confirmed \u00b7 ~$418 NOT YET PAID",
+        "Regent included hotel night \u2014 Aug 28 \u2014 Confirmed (included)",
+        "\u26a0 Airport transfer from Arlanda \u2014 Confirmed \u00b7 ~$176 NOT YET PAID",
         "Hotel \u2192 ship transport Aug 29 \u2014 Included by Regent",
         "Ship \u2192 Oslo airport transport Sep 8 \u2014 Included by Regent",
     ],
-    excursion_count="7",
+    excursion_count="6",
     excursions=[
         {"date": "Aug 30", "port": "Stockholm", "name": "Highlights of Stockholm & Vasa Museum"},
         {"date": "Sep 1", "port": "Berlin/Warnem\u00fcnde", "name": "The Berlin Experience"},
         {"date": "Sep 2", "port": "Berlin/Warnem\u00fcnde", "name": "Amazing Rostock"},
         {"date": "Sep 3", "port": "Copenhagen", "name": "A Tour of Two Kingdoms \u2014 Denmark to Sweden"},
-        {"date": "Sep 4", "port": "Copenhagen", "name": "Tivoli Gardens & Canal Cruise"},
         {"date": "Sep 6", "port": "Kristiansand", "name": "Explore Kristiansand on Foot"},
         {"date": "Sep 7", "port": "Oslo", "name": "Hadeland Glass Works & Fram Museum"},
     ],
     upcoming=[
-        {"date": "Apr 1", "description": "Final payment due ($15,486)"},
         {"date": "May 1", "description": "Culinary Arts Kitchen Classes booking opens (8pm ET)"},
         {"date": "May 31", "description": "Specialty dining reservations open (8pm ET)"},
         {"date": "Aug 8", "description": "Online check-in opens"},
+        {"date": "Aug 29", "description": "Embarkation \u2014 Stockholm"},
     ],
     action_items=[
-        "Missy's Guest Registration \u2014 John, yours is complete, but Missy's registration and ticket contract still need to be finished on the Regent site. It's quick and straightforward.",
-        "Passport info \u2014 John, you mentioned yours was renewed last fall (expires 2035) \u2014 perfect. If you're comfortable sharing details for both of you at some point, it helps me keep everything organized. Completely optional.",
+        "Outbound seat assignments \u2014 DFW\u2192Helsinki and Helsinki\u2192Stockholm not yet assigned. Please contact Finnair with record locator BB4X94 \u2014 we will be glad to help coordinate that.",
+        "Passport details \u2014 John\u2019s confirmed through 2035. Missy\u2019s details not yet on file \u2014 whenever you\u2019re comfortable sharing, it helps with pre-registration.",
+        "Travel insurance \u2014 Chase Sapphire Reserve is active and covers trip cancellation up to $10K/person. A dedicated policy would cover missed ports and medical evacuation at sea \u2014 happy to pull options if you\u2019d like to compare.",
     ],
     closing_text=(
-        "Everything else is in great shape. If anything looks off or you have questions, "
-        "just let me know. Otherwise, I'll follow up closer to April 1 on final payment. "
-        "Looking forward to this trip for you two."
+        "Cruise confirmed, flights set, six excursions locked in \u2014 this trip is going to be extraordinary. "
+        "Looking forward to every detail of it with you."
     ),
 )
 (output_dir / "Furlow_Validation_Mar2026.html").write_text(furlow, encoding="utf-8")
 
-# ── ELY ─────────────────────────────────────────────────────
+# ── ELY (Touch 2 — Fully Paid, Validation Focus) ────────────
 ely = template.render(
     **shared,
-    subject="Your Scandinavia Voyage \u2014 Quick Review Before Final Payment",
+    personal_note="",
+    subject="Your Scandinavia Voyage \u2014 Everything We Have in Place",
     greeting="Hi Al and Amy,",
     intro_text=(
-        "With final payment coming up on April 1, I wanted to make sure we have "
-        "everything squared away. Here's the full picture of where your booking stands."
+        "You\u2019re fully paid and confirmed on the Seven Seas Grandeur. "
+        "Here\u2019s a complete picture of everything in place and a few items still to sort out."
     ),
     suite_number="1212",
     deck_number="12",
-    balance_due="16,640",
+    balance_due="0 \u2014 Paid in Full",
     flights=[
         "Aug 26: AA 9018 (Finnair) DFW \u2192 Helsinki, 4:50 PM \u2014 Seats 2H / 2D",
-        "Aug 27: AY 811 Helsinki \u2192 Stockholm, 1:15 PM \u2014 Seats 3A / 3C (confirmed by AA)",
+        "Aug 27: AY 811 Helsinki \u2192 Stockholm, 1:15 PM \u2014 Confirmed",
         "Sep 8: BA 6776 Oslo \u2192 London, 11:15 AM \u2014 Seats 2C / 2A",
         "Sep 8: AA 79 London \u2192 Dallas, 2:25 PM \u2014 Seats 3G / 3D",
     ],
-    flight_notes="All four legs have confirmed seat assignments. You're all set.",
+    flight_notes="AA Record Locator: UXVXZP. DFW\u2192Helsinki seats confirmed (2H/2D). Helsinki\u2192Stockholm (AY 811) seats not yet assigned \u2014 please contact Finnair, and we will be glad to help with that.",
     hotel_transfers=[
-        "Haymarket By Scandic, Stockholm \u2014 Aug 27-28 (Grande King) \u2014 Confirmed",
-        "Regent included hotel night \u2014 Aug 28 \u2014 Confirmed",
-        "Airport transfer from Arlanda \u2014 Confirmed",
+        "\u26a0 Haymarket By Scandic, Stockholm \u2014 Aug 27-28 (Grande King) \u2014 Confirmed \u00b7 Amount TBD \u2014 NOT YET PAID",
+        "Regent included hotel night \u2014 Aug 28 \u2014 Confirmed (included)",
+        "\u26a0 Airport transfer from Arlanda \u2014 Confirmed \u00b7 ~$176 NOT YET PAID",
         "Hotel \u2192 ship transport Aug 29 \u2014 Included by Regent",
         "Ship \u2192 Oslo airport transport Sep 8 \u2014 Included by Regent",
     ],
@@ -165,21 +175,22 @@ ely = template.render(
         {"date": "Sep 7", "port": "Oslo", "name": "Oslo During World War II"},
     ],
     upcoming=[
-        {"date": "Apr 1", "description": "Final payment due ($16,640)"},
         {"date": "May 1", "description": "Culinary Arts Kitchen Classes booking opens (8pm ET)"},
         {"date": "May 31", "description": "Specialty dining reservations open (8pm ET)"},
         {"date": "Aug 8", "description": "Online check-in opens"},
+        {"date": "Aug 29", "description": "Embarkation \u2014 Stockholm"},
     ],
     action_items=[
-        "Insurance \u2014 I know you've been looking at the Allianz Premier $15K annual plan and the $450 quote seemed low. I'm pulling the current pricing so we can compare apples to apples before finalizing.",
-        "Kristiansand \u2014 You don't have anything booked here yet. It's a lovely port to explore on your own, or I can look into options if you'd like.",
-        "Passport info \u2014 I don't have passport details on file for either of you yet. If you're comfortable sharing at some point, it helps with pre-registration. No pressure at all.",
-        "Shipboard credits \u2014 You have $574 remaining of your $1,100 onboard credit. Guest registration is complete for both of you \u2014 thank you for getting that done.",
+        "Helsinki\u2192Stockholm seat assignments \u2014 AY 811 seats not yet assigned. Please contact Finnair with record locator UXVXZP \u2014 we will be glad to help with that.",
+        "Kristiansand \u2014 No excursion booked for this port. Easy to explore on your own, or I can look into options.",
+        "Travel insurance \u2014 Worth revisiting when you\u2019re ready. The Allianz $450 quote for two on a $15K annual plan does seem low \u2014 happy to verify the coverage details.",
+        "Passport details \u2014 Not yet on file for either of you. No rush \u2014 whenever you\u2019re comfortable sharing, it helps with pre-registration.",
+        "Shipboard credits \u2014 You have $574 remaining of your $1,100 onboard credit. Guest registration is complete for both \u2014 thank you.",
     ],
     closing_text=(
-        "Al \u2014 John has your call on the books for tomorrow, March 13 at 11:00 AM CT, "
-        "to walk through insurance, final payment, and any remaining details. He's looking "
-        "forward to it. In the meantime, if anything above doesn't look right, just let me know."
+        "Cruise confirmed, flights set, six excursions locked in. "
+        "This is going to be a magnificent journey \u2014 I\u2019m so glad to be part of it. "
+        "Reach out anytime, I\u2019m here for you."
     ),
 )
 (output_dir / "Ely_Validation_Mar2026.html").write_text(ely, encoding="utf-8")
@@ -187,7 +198,8 @@ ely = template.render(
 # ── NICHOLS ─────────────────────────────────────────────────
 nichols = template.render(
     **shared,
-    subject="Your Scandinavia Voyage \u2014 Quick Review Before Final Payment",
+    personal_note="",
+    subject="Your Scandinavia Voyage \u2014 Everything We Have in Place",
     greeting="Hi Larry and Heidi,",
     intro_text=(
         "With final payment approaching on April 1, I wanted to run through everything "
@@ -202,11 +214,11 @@ nichols = template.render(
         "Sep 8: BA 6776 Oslo \u2192 London, 11:15 AM \u2014 Ticketed, no seats yet",
         "Sep 8: AA 79 London \u2192 Dallas, 2:25 PM \u2014 Ticketed, no seats yet",
     ],
-    flight_notes="AA Record Locator: DSTAGH \u00b7 Finnair: BERJYH. All flights are ticketed and confirmed in Business Class, but no seat assignments are showing on any leg yet. Calling AA directly is the fastest way to get those locked in.",
+    flight_notes="AA Record Locator: DSTAGH \u00b7 Finnair: BERJYH. All flights are ticketed and confirmed in Business Class, but no seat assignments are showing on any leg yet. Please contact Finnair or British Airways with your record locators \u2014 we will be glad to help coordinate that.",
     hotel_transfers=[
-        "Haymarket By Scandic, Stockholm \u2014 Aug 27-28 (Grande King) \u2014 Confirmed",
-        "Regent included hotel night \u2014 Aug 28 \u2014 Confirmed",
-        "Airport transfer from Arlanda \u2014 Confirmed",
+        "\u26a0 Haymarket By Scandic, Stockholm \u2014 Aug 27-28 (Grande King) \u2014 Confirmed \u00b7 NOT YET PAID",
+        "Regent included hotel night \u2014 Aug 28 \u2014 Confirmed (included)",
+        "\u26a0 Airport transfer from Arlanda \u2014 Confirmed \u00b7 NOT YET PAID",
         "Hotel \u2192 ship transport Aug 29 \u2014 Included by Regent",
         "Ship \u2192 Oslo airport transport Sep 8 \u2014 Included by Regent",
     ],
@@ -228,13 +240,13 @@ nichols = template.render(
     ],
     action_items=[
         "Insurance \u2014 Larry, I know this has been a moving target. You mentioned paying about $700 to Allianz but weren't sure what it covers, and you also have Amex Platinum benefits. I'm going to get clarity on what your current policy includes and how it compares to the CFAR coverage you want. No more guesswork \u2014 I'll come back with a clear picture.",
-        "Seat assignments \u2014 No seats on any of your four flights right now. Calling AA directly is usually the fastest way. Happy to help coordinate if needed.",
+        "Seat assignments \u2014 No seats on any of your four flights right now. Please contact Finnair or British Airways with your record locators \u2014 we will be glad to help coordinate that.",
         "Passport info \u2014 I don't have passport details for either of you on file yet. Whenever you're comfortable, sharing those helps me keep everything organized for pre-registration. Totally optional.",
     ],
     closing_text=(
-        "We're in really good shape overall. If anything above doesn't look right, "
-        "or if you have questions, just let me know. I'll follow up as we get closer to April 1. "
-        "Hope you're enjoying this week's cruise!"
+        "You're in wonderful shape overall, and I'm genuinely looking forward to following "
+        "every detail all the way through to embarkation day \u2014 Heidi's birthday, no less. "
+        "Please don't hesitate to reach out \u2014 I'm here for you. And enjoy that cruise this week!"
     ),
 )
 (output_dir / "Nichols_Validation_Mar2026.html").write_text(nichols, encoding="utf-8")
@@ -384,6 +396,143 @@ westbrook = template.render(
 )
 (output_dir / "Westbrook_Validation_Mar2026.html").write_text(westbrook, encoding="utf-8")
 
+# ── VIKING MARS SHARED CONTEXT ──────────────────────────────
+viking_shared = dict(
+    logo_b64=logo_b64,
+    avatar_b64=avatar_b64,
+    ship_name="Viking Mars",
+    voyage_description="Panama Canal \u00b7 Dec 17\u201327, 2026",
+    hero_text="The Panama Canal Awaits",
+)
+
+VIKING_FLIGHTS_NOTE = (
+    "Flights are not yet booked for this voyage. Panama City (PTY) is the embarkation port \u2014 "
+    "departure day is December 17. Disembarkation is Ft. Lauderdale (FLL) on December 27. "
+    "I\u2019ll be in touch as we get closer to put together flight options."
+)
+
+VIKING_HOTEL_NOTE = [
+    "\u26a0 Flights \u2014 NOT YET BOOKED (outbound to Panama City Dec 17, return from Ft. Lauderdale Dec 27)",
+    "\u26a0 Pre-cruise hotel \u2014 NOT YET PLANNED (Panama City, night of Dec 16 if needed)",
+    "\u26a0 Transfers \u2014 NOT YET BOOKED (Panama City airport \u2192 pier; FLL pier \u2192 airport)",
+]
+
+# ── KYLE KUKLINSKI (Touch 1 — Validation Focus) ──────────────
+kyle = template.render(
+    **viking_shared,
+    personal_note="",
+    subject="Your Panama Canal Voyage \u2014 Here\u2019s Where We Stand",
+    greeting="Hi Kyle and Rosalie,",
+    intro_text=(
+        "Your Viking Mars booking is confirmed and fully paid. Here\u2019s a complete picture "
+        "of what\u2019s in place and what still needs to be built around the cruise. "
+        "We will be happy to help search for flights, transfers, hotels, and excursions."
+    ),
+    suite_number="4122",
+    deck_number="4",
+    balance_due="0 \u2014 Paid in Full",
+    flights=["\u26a0 Flights \u2014 Not yet booked"],
+    flight_notes=VIKING_FLIGHTS_NOTE,
+    hotel_transfers=VIKING_HOTEL_NOTE,
+    excursion_count="0",
+    excursions=[],
+    upcoming=[
+        {"date": "Aug 19", "description": "Cancel penalty 20% begins (E-120) \u2014 insurance should be in place before this"},
+        {"date": "Dec 10", "description": "Excursion & dining selections close (E-7)"},
+        {"date": "Dec 17", "description": "Embarkation \u2014 Panama City (Fuerte Amador), 3:00 PM"},
+        {"date": "Dec 27", "description": "Disembarkation \u2014 Ft. Lauderdale (Port Everglades), 5:00 AM"},
+    ],
+    action_items=[
+        "Flights \u2014 Not yet booked for any of the three couples. I\u2019ll be in touch with options \u2014 Panama City (PTY) out Dec 17, Ft. Lauderdale (FLL) back Dec 27.",
+        "Travel insurance \u2014 Not yet in place. Worth getting this sorted before the cancel penalty window opens in August.",
+        "Transfers \u2014 Panama City airport to pier and Ft. Lauderdale pier to airport both need to be arranged.",
+        "Guest profile forms \u2014 I\u2019ll send those along for all six guests \u2014 passport details and contact info help with pre-registration.",
+        "Shipboard credits \u2014 You have $800 in onboard credit ($200 Viking + $600 from D2M). Use it toward shore excursions, specialty dining, or onboard purchases.",
+    ],
+    closing_text=(
+        "Cruise confirmed and paid. Now it\u2019s about building the trip around it \u2014 "
+        "flights, insurance, transfers. I\u2019ll be in touch as we work through each piece."
+    ),
+)
+(output_dir / "Kyle_Validation_Mar2026.html").write_text(kyle, encoding="utf-8")
+
+# ── ROGER KUKLINSKI (Touch 1 — Validation Focus) ─────────────
+roger = template.render(
+    **viking_shared,
+    personal_note="",
+    subject="Your Panama Canal Voyage \u2014 Here\u2019s Where We Stand",
+    greeting="Hi Roger and Nick,",
+    intro_text=(
+        "Your Viking Mars booking is confirmed and fully paid. Here\u2019s a complete picture "
+        "of what\u2019s in place and what still needs to be built around the cruise. "
+        "We will be happy to help search for flights, transfers, hotels, and excursions."
+    ),
+    suite_number="8012",
+    deck_number="8",
+    balance_due="0 \u2014 Paid in Full",
+    flights=["\u26a0 Flights \u2014 Not yet booked"],
+    flight_notes=VIKING_FLIGHTS_NOTE,
+    hotel_transfers=VIKING_HOTEL_NOTE,
+    excursion_count="0",
+    excursions=[],
+    upcoming=[
+        {"date": "Aug 19", "description": "Cancel penalty 20% begins (E-120) \u2014 insurance should be in place before this"},
+        {"date": "Dec 10", "description": "Excursion & dining selections close (E-7)"},
+        {"date": "Dec 17", "description": "Embarkation \u2014 Panama City (Fuerte Amador), 3:00 PM"},
+        {"date": "Dec 27", "description": "Disembarkation \u2014 Ft. Lauderdale (Port Everglades), 5:00 AM"},
+    ],
+    action_items=[
+        "Flights \u2014 Not yet booked. Panama City (PTY) out Dec 17, Ft. Lauderdale (FLL) back Dec 27. I\u2019ll coordinate options with the group.",
+        "Travel insurance \u2014 Not yet in place. Worth sorting before the cancel penalty window opens in August.",
+        "Transfers \u2014 Panama City airport to pier and Ft. Lauderdale pier to airport both need to be arranged.",
+        "Guest profile forms \u2014 I\u2019ll send those along for you and Nick \u2014 passport details help with pre-registration.",
+        "Shipboard credits \u2014 You have $200 in onboard credit ($100/person) for shore excursions, dining, or onboard purchases.",
+    ],
+    closing_text=(
+        "Cruise confirmed and paid. I\u2019ll be in touch as we work through flights, insurance, and transfers."
+    ),
+)
+(output_dir / "Roger_Validation_Mar2026.html").write_text(roger, encoding="utf-8")
+
+# ── MORTON / DODGE (Touch 1 — Validation Focus) ──────────────
+morton = template.render(
+    **viking_shared,
+    personal_note="",
+    subject="Your Panama Canal Voyage \u2014 Here\u2019s Where We Stand",
+    greeting="Hi Josh and Erica,",
+    intro_text=(
+        "Your Viking Mars booking is confirmed and fully paid. Here\u2019s a complete picture "
+        "of what\u2019s in place and what still needs to be built around the cruise. "
+        "We will be happy to help search for flights, transfers, hotels, and excursions."
+    ),
+    suite_number="3015",
+    deck_number="3",
+    balance_due="0 \u2014 Paid in Full",
+    flights=["\u26a0 Flights \u2014 Not yet booked"],
+    flight_notes=VIKING_FLIGHTS_NOTE,
+    hotel_transfers=VIKING_HOTEL_NOTE,
+    excursion_count="0",
+    excursions=[],
+    upcoming=[
+        {"date": "Aug 19", "description": "Cancel penalty 20% begins (E-120) \u2014 insurance should be in place before this"},
+        {"date": "Dec 10", "description": "Excursion & dining selections close (E-7)"},
+        {"date": "Dec 17", "description": "Embarkation \u2014 Panama City (Fuerte Amador), 3:00 PM"},
+        {"date": "Dec 27", "description": "Disembarkation \u2014 Ft. Lauderdale (Port Everglades), 5:00 AM"},
+    ],
+    action_items=[
+        "Flights \u2014 Not yet booked. Panama City (PTY) out Dec 17, Ft. Lauderdale (FLL) back Dec 27. I\u2019ll coordinate options with the group.",
+        "Travel insurance \u2014 The pre-existing condition window has closed (Feb 23), but a standard policy is still available and worth having before the cancel penalty begins in August.",
+        "Transfers \u2014 Panama City airport to pier and Ft. Lauderdale pier to airport both need to be arranged.",
+        "Guest profile forms \u2014 I\u2019ll send those along for you and Erica \u2014 passport details help with pre-registration.",
+        "Shipboard credits \u2014 You have $200 in onboard credit ($100/person) for shore excursions, dining, or onboard purchases.",
+    ],
+    closing_text=(
+        "Kyle and the group are all confirmed on the same sailing. "
+        "Cruise is paid \u2014 I\u2019ll be in touch as we work through flights, insurance, and transfers."
+    ),
+)
+(output_dir / "Morton_Validation_Mar2026.html").write_text(morton, encoding="utf-8")
+
 # ── SAVE TO COMMANDER REVIEW ────────────────────────────────
 cr_dir = ROOT / "Commander_Review"
 cr_dir.mkdir(parents=True, exist_ok=True)
@@ -405,7 +554,13 @@ rendered = {
     "Nichols": nichols,
     "McLeod": mcleod,
     "Westbrook": westbrook,
+    "Kyle": kyle,
+    "Roger": roger,
+    "Morton": morton,
 }
+
+# Current batch — preview only these 5 to Commander
+PREVIEW_BATCH = ["Furlow", "Ely", "Nichols", "Kyle", "Roger", "Morton"]
 
 
 # ── SEND FUNCTIONS ───────────────────────────────────────────
@@ -415,27 +570,31 @@ def _get_service():
 
 
 def send_to_commander():
-    """Send all 3 as preview to Commander."""
+    """Send current batch as preview to Commander only."""
     service = _get_service()
-    for name, html in rendered.items():
+    for name in PREVIEW_BATCH:
+        html = rendered[name]
         client = CLIENTS[name]
         msg = MIMEMultipart("alternative")
         msg["to"] = "johnloucks3@gmail.com"
         msg["from"] = '"Dani Moreau \u2014 Concierge Intelligence" <concierge@d2mluxury.quest>'
         msg["reply-to"] = "johnloucks3@gmail.com"
         trip_label = {
-            "Furlow": "Scandinavia", "Ely": "Scandinavia", "Nichols": "Scandinavia",
-            "McLeod": "Mediterranean (Silver Muse)", "Westbrook": "Pacific (Silver Nova)",
+            "Furlow": "Scandinavia (Touch 2)", "Ely": "Scandinavia (Touch 1)",
+            "Kyle": "Panama Canal \u2014 Kyle & Rosalie", "Roger": "Panama Canal \u2014 Roger & Nick",
+            "Morton": "Panama Canal \u2014 Josh & Erica",
+            "Nichols": "Scandinavia", "McLeod": "Mediterranean (Silver Muse)",
+            "Westbrook": "Pacific (Silver Nova)",
         }.get(name, "Voyage")
-        msg["subject"] = f"[PREVIEW] {name}: {trip_label} \u2014 Pre-Departure Validation"
+        msg["subject"] = f"[PREVIEW] {name}: {trip_label} \u2014 Validation Email"
 
         plain = f"Preview of {name} validation email. Client To: {client['to']}. View in HTML."
         msg.attach(MIMEText(plain, "plain"))
         msg.attach(MIMEText(html, "html"))
 
         raw = base64.urlsafe_b64encode(msg.as_bytes()).decode("utf-8")
-        sent = service.users().messages().send(userId="me", body={"raw": raw}).execute()
-        print(f"\u2713 SENT {name} preview to Commander (ID: {sent.get('id')})")
+        draft = service.users().drafts().create(userId="me", body={"message": {"raw": raw}}).execute()
+        print(f"\u2713 DRAFT created for {name} (ID: {draft.get('id')})")
         print(f"  Client To: {client['to']}")
 
 
