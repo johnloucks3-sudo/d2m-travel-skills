@@ -344,10 +344,10 @@ def scan_account(service, account_label: str, rules: list, dry_run: bool) -> dic
                 pass
         rule_results.append(("Duplicate drafts", len(dupe_msg_ids), 0))
 
-    # Count total messages currently carrying the label
+    # Count total messages carrying the label (exact from label metadata)
     try:
-        currently_labeled = search_messages(service, f"label:{LABEL_NAME}", max_results=500)
-        total_labeled_count = len(currently_labeled)
+        label_info = service.users().labels().get(userId="me", id=label_id).execute()
+        total_labeled_count = label_info.get("messagesTotal", total_new + total_already)
     except Exception:
         total_labeled_count = total_new + total_already
 
