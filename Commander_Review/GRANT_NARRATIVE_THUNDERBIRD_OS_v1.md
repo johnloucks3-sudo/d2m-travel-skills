@@ -195,7 +195,7 @@ No commercial travel agency management tool offers anything comparable. Sabre's 
 
 ### 4. The YOGA Infrastructure Model
 
-Thunderbird OS runs on a single Linux node ("YOGA" — 10.0.0.53, openSUSE Tumbleweed) in the founder's home office. The entire production stack — MCP server on port 8765, REST API on port 8766, client portal on port 8780, Cloudflare tunnel for global access, systemd service management — runs on consumer hardware.
+Thunderbird OS runs on a single Linux node ("YOGA" — 192.168.1.198, openSUSE Tumbleweed) in the founder's home office. The entire production stack — MCP server on port 8765, REST API on port 8766, client portal on port 8780, Cloudflare tunnel for global access, systemd service management — runs on consumer hardware.
 
 This is not a limitation. It is a proof of concept: **enterprise-grade AI infrastructure at indie-developer cost.** The marginal AI cost to run 14 Claude Opus 4.6 personas is $100/month (the Claude Max plan). The infrastructure cost is a home internet bill.
 

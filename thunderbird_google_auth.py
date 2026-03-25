@@ -233,7 +233,7 @@ def authorize_headless() -> Credentials:
     Step-by-step:
       1. Keep this terminal open (it's waiting for the callback)
       2. In a NEW terminal on your Chromebook:
-             ssh -L 8085:localhost:8085 john@10.0.0.53
+             ssh -L 8085:localhost:8085 john@192.168.1.198
       3. Open http://localhost:8085 in your Chromebook browser
       4. Sign in to Google and grant all permissions
       5. Browser shows "The authentication flow has completed" — done
@@ -251,7 +251,7 @@ def authorize_headless() -> Credentials:
     print("=" * 60)
     print(f"\nStep 1: Keep this terminal open (waiting on port {HEADLESS_PORT})")
     print("\nStep 2: Open a NEW terminal on your Chromebook and run:")
-    print(f"          ssh -L {HEADLESS_PORT}:localhost:{HEADLESS_PORT} john@10.0.0.53")
+    print(f"          ssh -L {HEADLESS_PORT}:localhost:{HEADLESS_PORT} john@192.168.1.198")
     print(f"\nStep 3: Open in Chromebook browser: http://localhost:{HEADLESS_PORT}")
     print("\nStep 4: Sign in to Google, grant all permissions")
     print("         (browser will show 'authentication flow completed')")

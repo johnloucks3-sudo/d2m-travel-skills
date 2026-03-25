@@ -469,7 +469,7 @@ Current: JSON files on disk + dossier markdown parsing at request time. This wor
 
 ### Hosting
 
-**YOGA (10.0.0.53) + Cloudflare Tunnel. No changes needed.**
+**YOGA (192.168.1.198) + Cloudflare Tunnel. No changes needed.**
 
 - Current setup: uvicorn on localhost:8780, cloudflared tunnels to portal.d2mluxury.quest
 - SSL: Cloudflare handles it. Free. Automatic.

@@ -57,7 +57,7 @@ I issued a `tools/list` JSON-RPC call to `https://mcp.d2mluxury.quest/mcp` with 
 **Business System Manipulation:**
 - `tess_create_booking`, `tess_update_booking`, `tess_create_client`, `tess_update_client` -- can create or modify records in the TESS booking system.
 
-**The FastMCP server has DNS rebinding protection enabled**, which allowlists `mcp.d2mluxury.quest`, `10.0.0.53`, and the Tailscale IP. This is a defense against browser-based DNS rebinding attacks but provides **zero protection against direct HTTP requests** to the tunnel endpoint. It is not authentication.
+**The FastMCP server has DNS rebinding protection enabled**, which allowlists `mcp.d2mluxury.quest`, `192.168.1.198`, and the Tailscale IP. This is a defense against browser-based DNS rebinding attacks but provides **zero protection against direct HTTP requests** to the tunnel endpoint. It is not authentication.
 
 ### 3. REST API Authentication
 

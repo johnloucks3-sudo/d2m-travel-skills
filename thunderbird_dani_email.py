@@ -48,6 +48,8 @@ SWEEP_LOG = THUNDERBIRD_DIR / "dani_email_log.json"
 # ---------------------------------------------------------------------------
 COMMANDER_EMAILS = {
     "johnloucks3@gmail.com",
+    "yodainva@gmail.com",  # Yoda personal
+    "jl3lovegrouptravel@gmail.com",  # Legacy LGT address
     "john@d2mluxury.quest",
     "johnloucks@d2mluxury.quest",
 }
@@ -57,6 +59,69 @@ MAX_PER_SWEEP = 10
 
 # Gmail label for tracking processed messages
 DANI_PROCESSED_LABEL = "DANI-Processed"
+
+# ---------------------------------------------------------------------------
+# ⚠️  COMMANDER KILL SWITCH — Standing Order 2026-03-25
+# ---------------------------------------------------------------------------
+# DANI_EMAIL_SWEEP_ENABLED = False → Dani will NOT auto-reply to ANY email.
+# Only COS can re-enable this. Must be explicitly set True after audit.
+#
+# Reason: Dani was drafting replies to supplier messages, consuming tokens.
+# Fix required before re-enabling: full supplier domain audit + COS gate hardening.
+# ---------------------------------------------------------------------------
+DANI_EMAIL_SWEEP_ENABLED = False  # LOCKED by COS 2026-03-25 per Commander directive
+
+# ---------------------------------------------------------------------------
+# SUPPLIER DOMAIN BLOCKLIST — Standing Order 2026-03-25
+# Dani NEVER replies to any address from these domains or matching these patterns.
+# Expand this list — never shrink it without Commander approval.
+# ---------------------------------------------------------------------------
+SUPPLIER_DOMAINS = {
+    # Cruise lines
+    "silversea.com", "rssc.com", "regentsevenseas.com", "seabourn.com",
+    "cunard.com", "oceaniacruises.com", "vikingcruises.com", "vikingrivercruises.com",
+    "ponant.com", "amawaterways.com", "crystalcruises.com", "windstarcruises.com",
+    "hollandamerica.com", "princess.com", "celebrity.com", "rcl.com", "ncl.com",
+    "carnival.com", "msccruises.com", "costariviera.com",
+    # Airlines
+    "aa.com", "delta.com", "united.com", "southwest.com", "alaskaair.com",
+    "lufthansa.com", "britishairways.com", "airfrance.com", "finnair.com",
+    "emirates.com", "qatarairways.com", "singaporeair.com", "ana.co.jp",
+    "klm.com", "iberia.com", "swiss.com", "austrian.com",
+    # Hotels / luxury chains
+    "fourseasons.com", "ritzcarlton.com", "marriott.com", "hilton.com",
+    "hyatt.com", "ihg.com", "accor.com", "peninsula.com", "aman.com",
+    "belmond.com", "rosewoodhotels.com", "aubergeresorts.com", "sixsenses.com",
+    "slh.com", "lhw.com",
+    # Booking / OTA
+    "booking.com", "expedia.com", "hotelbeds.com", "bedsonline.com",
+    "magoa.net", "outsideagents.com", "travelport.com", "sabre.com", "amadeus.com",
+    # Insurance / misc travel
+    "travelguard.com", "allianztravel.com", "csatravelprotection.com",
+    "insuremytrip.com", "travelinsured.com",
+    # Ground / transfers
+    "blacklane.com", "mozio.com", "welcomepickups.com",
+    # Tours / excursions
+    "viator.com", "getyourguide.com", "musement.com",
+    # Consortia / industry
+    "virtuoso.com", "asta.org", "clia.org", "travelweekly.com",
+}
+
+# Supplier keywords — if ANY of these appear in the sender domain or name, skip.
+SUPPLIER_KEYWORDS = {
+    "cruise", "cruises", "cruiseline", "regent", "silversea", "seabourn",
+    "ponant", "cunard", "oceania", "viking", "amawaterways",
+    "airlines", "airways", "air.com", "lufthansa", "finnair",
+    "reservations@", "bookings@", "groups@", "noreply@", "no-reply@",
+    "donotreply@", "do-not-reply@", "mailer@", "notification@",
+    "newsletter@", "marketing@", "promotions@", "alerts@",
+    "hotel", "resorts", "resort", "marriott", "hilton", "hyatt",
+    "fourseasons", "ritzcarlton", "belmond",
+    "travelport", "amadeus", "sabre", "bedsonline", "hotelbeds",
+    "virtuoso", "viator", "getyourguide", "musement",
+    "insurance", "travelguard", "allianz",
+    "blacklane", "mozio",
+}
 
 
 # ---------------------------------------------------------------------------
@@ -691,6 +756,7 @@ def dani_email_sweep() -> Dict[str, Any]:
       - Emails from Commander's addresses
       - Already-processed messages (by ID state + DANI-Processed label)
       - Newsletters / marketing (no-reply senders)
+      - Supplier / vendor / cruise-line / airline / hotel addresses
       - Emails already in DANI-Processed label
 
     For each client email:
@@ -701,6 +767,19 @@ def dani_email_sweep() -> Dict[str, Any]:
       5. Label as DANI-Processed
       6. Notify Commander via Telegram
     """
+    # ⚠️ COMMANDER KILL SWITCH — Standing Order 2026-03-25
+    # Dani is locked until supplier audit is complete and COS re-enables.
+    if not DANI_EMAIL_SWEEP_ENABLED:
+        msg = (
+            "⛔ DANI EMAIL SWEEP LOCKED — Standing Order 2026-03-25.\n"
+            "Dani will not auto-reply to any email until COS re-enables the sweep.\n"
+            "Reason: supplier reply contamination + token waste.\n"
+            "To re-enable: set DANI_EMAIL_SWEEP_ENABLED = True in thunderbird_dani_email.py "
+            "after completing supplier domain audit."
+        )
+        logger.warning(msg)
+        return {"status": "LOCKED", "message": msg, "drafted": 0, "skipped": 0}
+
     service = _get_gmail_service()
     state = _load_state()
     processed_ids = set(state.get("processed_ids", []))
@@ -757,6 +836,30 @@ def dani_email_sweep() -> Dict[str, Any]:
         sender_email = _extract_email_address(from_field)
         if any(skip in sender_email for skip in ["noreply", "no-reply", "newsletter", "mailer-daemon", "postmaster"]):
             processed_ids.add(msg_id)
+            continue
+
+        # ⚠️ Standing Order 2026-03-25 — Skip ALL supplier / vendor emails.
+        # Dani NEVER auto-replies to cruise lines, airlines, hotels, OTAs, consortia.
+        # Dani is client-facing ONLY. Supplier comms go to COS or Commander directly.
+        sender_domain = sender_email.split("@")[-1].lower() if "@" in sender_email else ""
+        sender_lower = sender_email.lower()
+        from_lower = from_field.lower()
+        is_supplier = (
+            sender_domain in SUPPLIER_DOMAINS
+            or any(kw in sender_lower for kw in SUPPLIER_KEYWORDS)
+            or any(kw in from_lower for kw in SUPPLIER_KEYWORDS)
+        )
+        if is_supplier:
+            logger.info(f"  [SUPPLIER-SKIP] {from_field[:60]} — Dani does not reply to suppliers.")
+            processed_ids.add(msg_id)
+            actions.append({
+                "timestamp": datetime.now().isoformat(),
+                "message_id": msg_id,
+                "from": from_field,
+                "subject": subject,
+                "status": "supplier_skipped",
+                "cos_note": "Standing Order 2026-03-25: Dani does not reply to supplier emails.",
+            })
             continue
 
         sender_name = _extract_sender_name(from_field)

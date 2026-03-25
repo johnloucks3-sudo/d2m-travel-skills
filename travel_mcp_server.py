@@ -1107,13 +1107,13 @@ if __name__ == "__main__":
             allowed_hosts=[
                 "127.0.0.1:*", "localhost:*", "[::1]:*",
                 "mcp.d2mluxury.quest",       # cloudflared tunnel
-                "10.0.0.53:*",               # LAN IP
+                "192.168.1.198:*",               # LAN IP
                 "100.69.222.124:*",          # Tailscale IP
             ],
             allowed_origins=[
                 "http://127.0.0.1:*", "http://localhost:*", "http://[::1]:*",
                 "https://mcp.d2mluxury.quest",
-                "http://10.0.0.53:*",        # LAN
+                "http://192.168.1.198:*",        # LAN
                 "http://100.69.222.124:*",   # Tailscale
             ],
         )

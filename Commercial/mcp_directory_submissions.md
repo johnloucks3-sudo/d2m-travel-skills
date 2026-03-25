@@ -251,7 +251,7 @@ python travel_mcp_server.py
 ```
 
 ### Infrastructure (D2M Production)
-- **Host:** YOGA (10.0.0.53) — openSUSE Tumbleweed
+- **Host:** YOGA (192.168.1.198) — openSUSE Tumbleweed
 - **Tunnel:** Cloudflare → `mcp.d2mluxury.quest` → localhost:8765
 - **Endpoint:** `https://mcp.d2mluxury.quest/mcp`
 - **DNS Rebinding:** Configured for tunnel hostname, LAN, and Tailscale IPs

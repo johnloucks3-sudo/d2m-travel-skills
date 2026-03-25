@@ -141,7 +141,7 @@ Formula: `client_price = net_usd * (1 + markup)` — code: `_apply_markup()` in 
 | n8n Workflows | `deploy/n8n/` — 16 automation workflows, scheduled triggers → API → Telegram |
 | D2M Drive Vault | TITAN_BOOKINGS_VAULT — canonical booking archive |
 
-**YOGA** (10.0.0.53) is primary — runs all services, Claude CLI, MCP :8765, REST :8766, cloudflared.
+**YOGA** (192.168.1.198) is primary — runs all services, Claude CLI, MCP :8765, REST :8766, cloudflared.
 **Domains:** `mcp.d2mluxury.quest` · `api.d2mluxury.quest` · `portal.d2mluxury.quest` (:8780)
 **Service account:** `dreams2memories@d2m-python-pipeline.iam.gserviceaccount.com`
 

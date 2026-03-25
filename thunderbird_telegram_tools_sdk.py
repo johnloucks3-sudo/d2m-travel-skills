@@ -1454,13 +1454,47 @@ async def _call_via_cli_async(
     )
 
 
+def _parse_stream_json_response(raw_output: str) -> str:
+    """Extract assistant text from stream-json output.
+
+    Claude CLI v2.1.83 on Max plan: --output-format text returns empty
+    because the 'result' field is blank. But the assistant message in
+    stream-json contains the actual response text. Parse it out.
+    """
+    import json as _json
+    text_parts: list[str] = []
+    for line in raw_output.splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        try:
+            obj = _json.loads(line)
+        except (ValueError, _json.JSONDecodeError):
+            continue
+        # Check assistant message for text blocks
+        if obj.get("type") == "assistant":
+            content = obj.get("message", {}).get("content", [])
+            for block in content:
+                if isinstance(block, dict) and block.get("type") == "text":
+                    text_parts.append(block["text"])
+        # Also check result field as fallback (may work in future CLI versions)
+        if obj.get("type") == "result" and obj.get("result"):
+            return obj["result"].strip()
+    return "\n".join(text_parts).strip()
+
+
 def _call_via_cli_sync(
     prompt: str,
     system_prompt: str,
     persona: str,
     model: str = DEFAULT_MODEL,
 ) -> str:
-    """Synchronous CLI subprocess call — the original v2 approach."""
+    """Synchronous CLI subprocess call — the original v2 approach.
+
+    Uses stream-json output and parses assistant text blocks, because
+    --output-format text returns empty on Max plan (CLI v2.1.83 bug:
+    the 'result' field is blank even though Claude responds).
+    """
     import subprocess
 
     cmd = [
@@ -1469,7 +1503,8 @@ def _call_via_cli_sync(
         "--system-prompt", system_prompt,
         "--model", model,
         "--dangerously-skip-permissions",
-        "--output-format", "text",
+        "--output-format", "stream-json",
+        "--verbose",
         "-p", "-",  # read prompt from stdin to avoid ARG_MAX on large emails
     ]
 
@@ -1505,7 +1540,9 @@ def _call_via_cli_sync(
                 )
             return f"COS reporting: CLI execution failed. Error: {stderr[:200]}"
 
-        response = result.stdout.strip()
+        # Parse stream-json: extract text from assistant messages
+        # Fallback to result field if available
+        response = _parse_stream_json_response(result.stdout)
         if not response:
             return "COS reporting: Claude returned empty response. Retrying may help."
 

@@ -21,7 +21,7 @@ import requests
 # YOGA connection options (tried in order)
 YOGA_ENDPOINTS = [
     "http://100.69.222.124:8765/mcp",      # Tailscale (fastest, Japan-ready)
-    "http://10.0.0.53:8765/mcp",           # LAN
+    "http://192.168.1.198:8765/mcp",           # LAN
     "https://mcp.d2mluxury.quest/mcp",     # Cloudflare tunnel (fallback)
 ]
 
@@ -165,7 +165,7 @@ def main():
         print("\nCould not connect to YOGA MCP server.")
         print("Make sure YOGA is running and reachable:")
         print("  - Tailscale: tailscale ping 100.69.222.124")
-        print("  - LAN: ping 10.0.0.53")
+        print("  - LAN: ping 192.168.1.198")
         print("  - Tunnel: curl https://mcp.d2mluxury.quest/mcp")
         sys.exit(1)
 

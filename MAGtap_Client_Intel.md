@@ -710,4 +710,4 @@ Industry-leading speaker series for business growth. Hosted by OA / OutsideAgent
 
 ---
 
-*Source data scraped via CDP-authenticated Chrome session on YOGA (10.0.0.53). All supplier data reflects MAGtap as of 2026-03-18. Commission rates are MAGtap/OA standard — verify overrides with BDM for group/preferred pricing.*
+*Source data scraped via CDP-authenticated Chrome session on YOGA (192.168.1.198). All supplier data reflects MAGtap as of 2026-03-18. Commission rates are MAGtap/OA standard — verify overrides with BDM for group/preferred pricing.*

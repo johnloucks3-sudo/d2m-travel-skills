@@ -1264,7 +1264,7 @@ agent.model_fields_set  # Which fields were explicitly set
 ### Service Stack
 
 ```
-YOGA (10.0.0.53)
+YOGA (192.168.1.198)
 ├── thunderbird_api.py          :8766  (existing REST API)
 ├── dani_retell_server.py       :8780  (NEW — Retell WebSocket handler)
 ├── travel_mcp_server.py        :8765  (existing MCP server)

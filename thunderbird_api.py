@@ -167,6 +167,47 @@ async def health():
     return {"status": "ok", "service": "thunderbird-api", "timestamp": datetime.now().isoformat()}
 
 
+@app.post("/api/system/restart-telegram-c2")
+async def restart_telegram_c2(x_api_key: str = Header(None)):
+    """Remote restart of Telegram C2 service. For use when remote (e.g., in Japan)."""
+    _verify_key(x_api_key)
+
+    try:
+        import subprocess
+        result = subprocess.run(
+            ["systemctl", "--user", "restart", "thunderbird-telegram-c2.service"],
+            capture_output=True,
+            text=True,
+            timeout=10
+        )
+
+        if result.returncode == 0:
+            # Verify it came back up
+            status_result = subprocess.run(
+                ["systemctl", "--user", "is-active", "thunderbird-telegram-c2.service"],
+                capture_output=True,
+                text=True,
+                timeout=5
+            )
+            is_running = status_result.returncode == 0
+
+            return {
+                "success": True,
+                "message": "Telegram C2 restarted",
+                "running": is_running,
+                "timestamp": datetime.now().isoformat()
+            }
+        else:
+            return {
+                "success": False,
+                "message": "Restart command failed",
+                "error": result.stderr,
+                "timestamp": datetime.now().isoformat()
+            }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Restart failed: {str(e)}")
+
+
 # ============================================================================
 # GMAIL ENDPOINTS
 # ============================================================================

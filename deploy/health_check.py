@@ -166,7 +166,7 @@ def main():
                 f"[THUNDERBIRD] Service Alert — {len(failures)} check(s) FAILED",
                 f"Health check at {now.strftime('%Y-%m-%d %H:%M')} detected failures:\n\n"
                 f"{failed_list}\n\n"
-                f"Machine: YOGA (10.0.0.53)\n"
+                f"Machine: YOGA (192.168.1.198)\n"
                 f"Action: Check systemctl --user status on YOGA\n"
             )
             state["last_alert"] = now.isoformat()
@@ -177,7 +177,7 @@ def main():
             send_alert(
                 "[THUNDERBIRD] All Clear — Services Recovered",
                 f"All services healthy as of {now.strftime('%Y-%m-%d %H:%M')}.\n\n"
-                f"Machine: YOGA (10.0.0.53)\n"
+                f"Machine: YOGA (192.168.1.198)\n"
             )
         state["healthy"] = True
         state["failures"] = {}

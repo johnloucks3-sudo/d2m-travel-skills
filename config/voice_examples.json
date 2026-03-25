@@ -8,15 +8,15 @@
       "d2mconcierge@gmail.com"
     ],
     "days_back": 400,
-    "total_examples": 802,
+    "total_examples": 837,
     "by_tier": {
-      "personal": 195,
-      "client": 167,
-      "vendor": 38,
-      "internal": 397,
+      "personal": 205,
+      "client": 170,
+      "vendor": 40,
+      "internal": 417,
       "family": 5
     },
-    "last_sync": "2026-03-23T02:33:46.150082"
+    "last_sync": "2026-03-25T02:35:03.348460"
   },
   "examples": [
     {
@@ -813,6 +813,15 @@
     },
     {
       "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Regent Cruise final payment and cruise insurance",
+      "to": "Heidi Nichols <heidi.nichols1@yahoo.com>",
+      "date": "Tue, 24 Mar 2026 17:46:43 -0600",
+      "body": "Hi Heidi, give me about a couple of hours I will send you another link for\nthe portal. I'm assuming you have 10K per trip AMEX insurance...one card or\n2?  If it's one, you just need a small policy to cover the remainder.  I\nwill be happy to send you a quote, might be tomorrow or late tonight.\nJohn\n\nOn Tue, Mar 24, 2026 at 5:28 PM Heidi Nichols <heidi.nichols1@yahoo.com>\nwrote:",
+      "score": 6
+    },
+    {
+      "account": "johnloucks3@gmail.com",
       "tier": "vendor",
       "subject": "Notes from my chat with Al Ely",
       "to": "Dani Moreau A3 <concierge@d2mluxury.quest>",
@@ -1196,6 +1205,24 @@
       "to": "\"josh@jerichopix.com\" <josh@jerichopix.com>",
       "date": "Sun, 22 Mar 2026 18:17:56 -0600",
       "body": "Hi Josh, sorry I missed your call.  I can talk you through the form or I\ncan send step by step instructions. Are you having problem getting in and\nentering your email? I think Erica had a similar problem and it was a\ncapital letter in her email that I put in that shouldn't have been there -\n- sent to me by Kyle I think.\nJohn\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 5
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "One quick thing before April 1 — Regent final payment",
+      "to": "\"missy.furlow@gmail.com\" <missy.furlow@gmail.com>",
+      "date": "Tue, 24 Mar 2026 15:13:31 -0600",
+      "body": "[image: Dreams2Memories Travel]\nMissy,\n\nYour final payment for the Scandinavia voyage is due April 1 — one week\naway.\n\nBooking: 3071222 | Suite 827, Deck 8\nBalance: $15,486.00\n\nI had your Amex on file and was ready to run it — but I realized I'm\nmissing the CVV. Regent requires it to process the payment, but our portal\ndoes not ask for it. It's the 4-digit code on the front of the card (above\nthe card number, right side).\n\nJust reply or text me at 719-291-0742 with that number and I'll take care\nof everything right away.\n\nThanks,\nJohn\n\nJohn Loucks\nOwner & Founder, Dreams2Memories Travel, LLC\nconcierge@d2mluxury.quest · d2mluxury.quest",
+      "score": 5
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "One quick thing before April 1 — Regent final payment",
+      "to": "al.ely58@gmail.com",
+      "date": "Tue, 24 Mar 2026 15:11:31 -0600",
+      "body": "[image: Dreams2Memories Travel]\nAl,\n\nYour final payment for the Scandinavia voyage is due April 1 — one week\naway.\n\nBooking: 3096289 | Suite 1212, Deck 12\nBalance: $16,640.00\n\nI have your Mastercard on file and was ready to run it — but I  forgot that\nRegent requires the CVV to process the payment. It's the 3-digit code on\nthe back of the card--and our portal had no way to save it.  And per our\ndiscussions, I am also in the process of drafting a written request to\nRegent Reservations for a suite switch from 12th deck to 8th/9th.   Just\nreply or text me at 719-291-0742 with that number and I'll handle\neverything right away.\n\nThanks,\nJohn\n\nJohn Loucks\nOwner & Founder, Dreams2Memories Travel, LLC\nconcierge@d2mluxury.quest · d2mluxury.quest",
       "score": 5
     },
     {
@@ -2379,6 +2406,78 @@
     },
     {
       "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Easter Brunch Base Access",
+      "to": "\"GARCIA, BRANDY W CIV USAF USAFA 10 FSS/FSWC\" <brandy.garcia@us.af.mil>",
+      "date": "Mon, 23 Mar 2026 15:14:02 -0600",
+      "body": "Got the QR code, thanks Brandy.\nJohn\n\nOn Mon, Mar 23, 2026 at 1:44 PM GARCIA, BRANDY W CIV USAF USAFA 10 FSS/FSWC\n<brandy.garcia@us.af.mil> wrote:",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "Re: Client Portal Activation from Dreams2Memories Travel",
+      "to": "Melissa Furlow <missy.furlow@gmail.com>",
+      "date": "Mon, 23 Mar 2026 15:13:31 -0600",
+      "body": "Thanks Missy, got it\nJohn\n\nOn Mon, Mar 23, 2026 at 2:09 PM Melissa Furlow <missy.furlow@gmail.com>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "vendor",
+      "subject": "Re: [EXTERNAL] Booking 298475-25 — Transfer Confirmations & Seat Assignments",
+      "to": "Silversea Trade Reservations <tradereservations@silversea.com>",
+      "date": "Mon, 23 Mar 2026 08:32:54 -0600",
+      "body": "Thank you. My clients will not be using the airport transfers, is it\npossible for them to receive a credit for unused transportation?\nJohn\n\nOn Mon, Mar 23, 2026, 08:13 Silversea Trade Reservations <\ntradereservations@silversea.com> wrote:",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "Re: Client Portal Activation from Dreams2Memories Travel",
+      "to": "Melissa Furlow <missy.furlow@gmail.com>",
+      "date": "Tue, 24 Mar 2026 19:12:14 -0600",
+      "body": "Thanks,\n\nOn Tue, Mar 24, 2026 at 7:08 PM Melissa Furlow <missy.furlow@gmail.com>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "Re: FLYING HORSE DINNER",
+      "to": "Ronald Westbrook <rwestbrook3@gmail.com>",
+      "date": "Tue, 24 Mar 2026 13:39:06 -0600",
+      "body": "Rondo, we discussed it Sunday so YES.\nJohn\n\nOn Tue, Mar 24, 2026 at 1:24 PM Ronald Westbrook <rwestbrook3@gmail.com>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Your Silver Nova Trans-Pacific Itinerary — Japan to Alaska, Ready to Go",
+      "to": "Dreams2Memories <d2mconcierge@gmail.com>",
+      "date": "Tue, 24 Mar 2026 12:53:29 -0600",
+      "body": "STAFF- BEST OUTPUT EVER!! I did not change one word. Make this a template\nfor every itinerary.\nJL\n\nOn Tue, Mar 24, 2026 at 12:52 PM Dreams2Memories <d2mconcierge@gmail.com>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Transfers",
+      "to": "Melissa McGlasson <memcglas@gmail.com>",
+      "date": "Tue, 24 Mar 2026 12:48:02 -0600",
+      "body": "Melissa, I was surprised as you were. I reengaged and copied you.  In\nrelated news, we've examined transport from ship to Stucky and Stucky to\nthe airport and would be happy to give you some proposals in comparison to\nSilvesea's plan.\nJohn\n\nOn Tue, Mar 24, 2026 at 10:30 AM Melissa McGlasson <memcglas@gmail.com>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "vendor",
+      "subject": "Re: [EXTERNAL] Booking 298475-25 — Transfer Confirmations & Seat Assignments",
+      "to": "Silversea Trade Reservations <tradereservations@silversea.com>",
+      "date": "Tue, 24 Mar 2026 12:44:47 -0600",
+      "body": "Dear Elaine, I appreciate your response but my previous request for airport\ntransfer credit may have been misconstrued.  So, back to the original\nrequest--below in italics:  My clients are expecting (and I am requesting)\nALL these transfers to be covered based upon phone commitments made to me\nmonths ago that I passed on.  Can you please reply with a yes or no\nregarding each one? Each one you deny means we need to secure our own\ntransport at this late date. Also, please do nothing to change airline\nseats.  Thanks\n\nJohn\n\n*1. TRANSFER CONFIRMATIONS — BLACKLANE AND GROUP TRANSFERSThe [online]\nbooking reflects 4, not 6 Silversea-arranged transfers.  However,  in\nearly Sep 2025, an agent indicated to me all the transfers below would be\nhonored.  Up to now, our clients have not received any Blacklane\nnotification or written confirmation for these services. Please confirm the\nstatus and expected confirmation timeline for each.  The policies we see\npoint to late May notification by Blacklane, which is only about 3 weeks\nbefore departure.  We are willing to wait, but my clients would like some\nofficial confirmation that what they are asking for would be approved, or\nthey will have to obtain private transfers. You can understand, they do not\nwant to be getting last-minute transfers for summer in Italy.  Their\nrequested transfers are below.  - June 18: Private Executive Home Transfer\n(Blacklane, pre-cruise) — Longmont, CO to DEN (see below)*\n\n*- June 19: Transportation from the FCO airport to hotel Baglioni Luna,\nRome- June 23: Hotel-to-Pier group transfer (embarkation, Civitavecchia)-\nJuly 3: Pier-to-Hotel group transfer (disembarkation, Fusina/Venice  to\nHilton Molino Stucky, Giudecca)*\n\n*- July 6: Hotel to Airport water taxi (Hilton Molino Stucky, Giudecca to\nVenice airport) (see below)- July 3: Executive Home Transfer (Blacklane,\npost-cruise) — DEN to Longmont, COOur clients' question whether these\ntransfers are fully confirmed and when Blacklane will reach out. Nothing\nshows current in their booking documents or flight reservations.  Please\nadvise.*\n*----------------------------------------*\n\nOn Mon, Mar 23, 2026 at 2:20 PM Silversea Trade Reservations <\ntradereservations@silversea.com> wrote:",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
       "tier": "family",
       "subject": "#Intel HUD open on incognito",
       "to": "trigger@applet.ifttt.com",
@@ -3283,7 +3382,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 12 Mar 2026 06:05:39 -0700",
-      "body": "Health check at 2026-03-12 07:05 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 07:05 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -3292,7 +3391,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 12 Mar 2026 05:50:34 -0700",
-      "body": "Health check at 2026-03-12 06:50 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 06:50 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -3310,7 +3409,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 12 Mar 2026 05:20:28 -0700",
-      "body": "Health check at 2026-03-12 06:20 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 06:20 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -3328,7 +3427,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 12 Mar 2026 04:50:20 -0700",
-      "body": "Health check at 2026-03-12 05:50 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 05:50 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -3346,7 +3445,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 12 Mar 2026 04:20:15 -0700",
-      "body": "Health check at 2026-03-12 05:20 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 05:20 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -3355,7 +3454,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 12 Mar 2026 04:10:14 -0700",
-      "body": "Health check at 2026-03-12 05:10 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 05:10 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -3373,7 +3472,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 12 Mar 2026 03:55:09 -0700",
-      "body": "Health check at 2026-03-12 04:54 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 04:54 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -3391,7 +3490,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 12 Mar 2026 03:25:05 -0700",
-      "body": "Health check at 2026-03-12 04:24 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 04:24 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -3409,7 +3508,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 12 Mar 2026 02:49:55 -0700",
-      "body": "Health check at 2026-03-12 03:49 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 03:49 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -3427,7 +3526,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 12 Mar 2026 02:24:49 -0700",
-      "body": "Health check at 2026-03-12 03:24 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 03:24 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -3436,7 +3535,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 12 Mar 2026 02:09:47 -0700",
-      "body": "Health check at 2026-03-12 03:09 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 03:09 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -3445,7 +3544,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 12 Mar 2026 01:59:45 -0700",
-      "body": "Health check at 2026-03-12 02:59 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 02:59 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -3463,7 +3562,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 12 Mar 2026 01:34:38 -0700",
-      "body": "Health check at 2026-03-12 02:34 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 02:34 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -3481,7 +3580,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 12 Mar 2026 01:14:35 -0700",
-      "body": "Health check at 2026-03-12 02:14 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 02:14 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -3499,7 +3598,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 12 Mar 2026 00:44:25 -0700",
-      "body": "Health check at 2026-03-12 01:44 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 01:44 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -3508,7 +3607,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 12 Mar 2026 00:19:18 -0700",
-      "body": "Health check at 2026-03-12 01:19 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 01:19 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -3526,7 +3625,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 12 Mar 2026 00:04:13 -0700",
-      "body": "Health check at 2026-03-12 01:04 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 01:04 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -3544,7 +3643,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Wed, 11 Mar 2026 23:29:04 -0700",
-      "body": "Health check at 2026-03-12 00:28 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 00:28 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -3553,7 +3652,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Wed, 11 Mar 2026 23:14:01 -0700",
-      "body": "Health check at 2026-03-12 00:13 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 00:13 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -3571,7 +3670,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Wed, 11 Mar 2026 23:03:57 -0700",
-      "body": "Health check at 2026-03-12 00:03 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 00:03 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -3589,7 +3688,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Wed, 11 Mar 2026 22:33:53 -0700",
-      "body": "Health check at 2026-03-11 23:33 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-11 23:33 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -3607,7 +3706,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Wed, 11 Mar 2026 21:58:45 -0700",
-      "body": "Health check at 2026-03-11 22:58 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-11 22:58 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -3616,7 +3715,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Wed, 11 Mar 2026 21:48:44 -0700",
-      "body": "Health check at 2026-03-11 22:48 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-11 22:48 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -3643,7 +3742,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Wed, 11 Mar 2026 21:28:40 -0700",
-      "body": "Health check at 2026-03-11 22:28 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-11 22:28 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -3652,7 +3751,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Wed, 11 Mar 2026 21:03:35 -0700",
-      "body": "Health check at 2026-03-11 22:03 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-11 22:03 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -3679,7 +3778,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Wed, 11 Mar 2026 19:57:29 -0700",
-      "body": "Health check at 2026-03-11 20:57 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-11 20:57 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -3697,7 +3796,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Wed, 11 Mar 2026 19:17:18 -0700",
-      "body": "Health check at 2026-03-11 20:17 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-11 20:17 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -3715,7 +3814,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Wed, 11 Mar 2026 18:47:10 -0700",
-      "body": "Health check at 2026-03-11 19:46 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-11 19:46 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -3733,7 +3832,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Wed, 11 Mar 2026 18:32:08 -0700",
-      "body": "Health check at 2026-03-11 19:31 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-11 19:31 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -3751,7 +3850,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Wed, 11 Mar 2026 18:07:01 -0700",
-      "body": "Health check at 2026-03-11 19:06 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-11 19:06 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -3778,7 +3877,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Wed, 11 Mar 2026 16:37:47 -0700",
-      "body": "Health check at 2026-03-11 17:37 detected failures:\n\n  - api_roundtrip\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-11 17:37 detected failures:\n\n  - api_roundtrip\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -3814,7 +3913,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Wed, 11 Mar 2026 15:15:17 -0700",
-      "body": "Health check at 2026-03-11 16:15 detected failures:\n\n  - tunnel_roundtrip\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-11 16:15 detected failures:\n\n  - tunnel_roundtrip\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -5263,7 +5362,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 12 Mar 2026 06:05:39 -0700",
-      "body": "Health check at 2026-03-12 07:05 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 07:05 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -5272,7 +5371,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 12 Mar 2026 05:50:34 -0700",
-      "body": "Health check at 2026-03-12 06:50 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 06:50 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -5290,7 +5389,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 12 Mar 2026 05:20:28 -0700",
-      "body": "Health check at 2026-03-12 06:20 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 06:20 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -5308,7 +5407,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 12 Mar 2026 04:50:20 -0700",
-      "body": "Health check at 2026-03-12 05:50 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 05:50 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -5326,7 +5425,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 12 Mar 2026 04:20:15 -0700",
-      "body": "Health check at 2026-03-12 05:20 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 05:20 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -5335,7 +5434,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 12 Mar 2026 04:10:14 -0700",
-      "body": "Health check at 2026-03-12 05:10 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 05:10 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -5353,7 +5452,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 12 Mar 2026 03:55:09 -0700",
-      "body": "Health check at 2026-03-12 04:54 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 04:54 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -5371,7 +5470,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 12 Mar 2026 03:25:05 -0700",
-      "body": "Health check at 2026-03-12 04:24 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 04:24 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -5389,7 +5488,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 12 Mar 2026 02:49:55 -0700",
-      "body": "Health check at 2026-03-12 03:49 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 03:49 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -5407,7 +5506,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 12 Mar 2026 02:24:49 -0700",
-      "body": "Health check at 2026-03-12 03:24 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 03:24 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -5416,7 +5515,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 12 Mar 2026 02:09:47 -0700",
-      "body": "Health check at 2026-03-12 03:09 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 03:09 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -5425,7 +5524,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 12 Mar 2026 01:59:45 -0700",
-      "body": "Health check at 2026-03-12 02:59 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 02:59 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -5443,7 +5542,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 12 Mar 2026 01:34:38 -0700",
-      "body": "Health check at 2026-03-12 02:34 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 02:34 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -5461,7 +5560,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 12 Mar 2026 01:14:35 -0700",
-      "body": "Health check at 2026-03-12 02:14 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 02:14 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -5479,7 +5578,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 12 Mar 2026 00:44:25 -0700",
-      "body": "Health check at 2026-03-12 01:44 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 01:44 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -5488,7 +5587,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 12 Mar 2026 00:19:18 -0700",
-      "body": "Health check at 2026-03-12 01:19 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 01:19 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -5506,7 +5605,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 12 Mar 2026 00:04:13 -0700",
-      "body": "Health check at 2026-03-12 01:04 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 01:04 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -5524,7 +5623,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Wed, 11 Mar 2026 23:29:04 -0700",
-      "body": "Health check at 2026-03-12 00:28 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 00:28 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -5533,7 +5632,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Wed, 11 Mar 2026 23:14:01 -0700",
-      "body": "Health check at 2026-03-12 00:13 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 00:13 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -5551,7 +5650,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Wed, 11 Mar 2026 23:03:57 -0700",
-      "body": "Health check at 2026-03-12 00:03 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-12 00:03 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -5569,7 +5668,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Wed, 11 Mar 2026 22:33:53 -0700",
-      "body": "Health check at 2026-03-11 23:33 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-11 23:33 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -5587,7 +5686,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Wed, 11 Mar 2026 21:58:45 -0700",
-      "body": "Health check at 2026-03-11 22:58 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-11 22:58 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -5596,7 +5695,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Wed, 11 Mar 2026 21:48:44 -0700",
-      "body": "Health check at 2026-03-11 22:48 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-11 22:48 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -5623,7 +5722,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Wed, 11 Mar 2026 21:28:40 -0700",
-      "body": "Health check at 2026-03-11 22:28 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-11 22:28 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -5632,7 +5731,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Wed, 11 Mar 2026 21:03:35 -0700",
-      "body": "Health check at 2026-03-11 22:03 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-11 22:03 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -5659,7 +5758,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Wed, 11 Mar 2026 19:57:29 -0700",
-      "body": "Health check at 2026-03-11 20:57 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-11 20:57 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -5677,7 +5776,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Wed, 11 Mar 2026 19:17:18 -0700",
-      "body": "Health check at 2026-03-11 20:17 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-11 20:17 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -5695,7 +5794,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Wed, 11 Mar 2026 18:47:10 -0700",
-      "body": "Health check at 2026-03-11 19:46 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-11 19:46 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -5713,7 +5812,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Wed, 11 Mar 2026 18:32:08 -0700",
-      "body": "Health check at 2026-03-11 19:31 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-11 19:31 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -5731,7 +5830,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Wed, 11 Mar 2026 18:07:01 -0700",
-      "body": "Health check at 2026-03-11 19:06 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-11 19:06 detected failures:\n\n  - d2m-api.service\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -5758,7 +5857,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Wed, 11 Mar 2026 16:37:47 -0700",
-      "body": "Health check at 2026-03-11 17:37 detected failures:\n\n  - api_roundtrip\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-11 17:37 detected failures:\n\n  - api_roundtrip\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -5794,7 +5893,7 @@
       "subject": "[THUNDERBIRD] Service Alert — 1 check(s) FAILED",
       "to": "johnloucks3@gmail.com",
       "date": "Wed, 11 Mar 2026 15:15:17 -0700",
-      "body": "Health check at 2026-03-11 16:15 detected failures:\n\n  - tunnel_roundtrip\n\nMachine: YOGA (10.0.0.53)\nAction: Check systemctl --user status on YOGA",
+      "body": "Health check at 2026-03-11 16:15 detected failures:\n\n  - tunnel_roundtrip\n\nMachine: YOGA (192.168.1.198)\nAction: Check systemctl --user status on YOGA",
       "score": 3
     },
     {
@@ -6411,6 +6510,132 @@
     },
     {
       "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Access issues",
+      "to": "\"josh@jerichopix.com\" <josh@jerichopix.com>",
+      "date": "Mon, 23 Mar 2026 23:06:27 -0600",
+      "body": "Good evening Josh, sorry I did not get back to you today to follow up. I'm\nwondering if you are still experiencing access issues. If you are trying to\nget into the personalized portal, I will need to send you a new link - -\nbecause that link expires after 24 hours. That's a security measure from my\nhost agency. If you were trying to get into fill out the form and you are\nhaving problems let me know I can send you instructions. Again sorry I did\nnot check back earlier today.\n\nJohn\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "Re: [COS] General: Fwd: 566910-25 / John Loucks, Susan Loucks / SN260",
+      "to": "d2mconcierge@gmail.com",
+      "date": "Tue, 24 Mar 2026 13:40:11 -0600",
+      "body": "COS, from now on, amend \"Actions I recommend\" to \"Actions I have taken\";\nassume approval\nJL",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "Re: [COS] General: Fwd: Final Silversea Cruise Documents for 566910-2",
+      "to": "d2mconcierge@gmail.com",
+      "date": "Tue, 24 Mar 2026 13:16:38 -0600",
+      "body": "[COS] From now on, if I direct an action, accomplish the action and send me\nan email sayting it has been done.  No staff paper needed and no permission\nneeded.\nJL",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: 🔴 THUNDERBIRD BRIEFING // Mar 24 — 49 ACTION ITEMS NEED ATTENTION",
+      "to": "D2M Concierge <d2mconcierge@gmail.com>",
+      "date": "Tue, 24 Mar 2026 06:58:08 -0600",
+      "body": "This input needs standard formatting, sections illegible due to color\nchoices. Many selections have no links. Changing overdue dates is\ncumbersome. All activity to change or delete should be in the background.\nUNSATISFACTORY update.\nJL",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Thunderbird Products Archive — March 2026 @Thunderbird Backups #thunderbird #backup #products #monthly",
+      "to": "yodainva.5d9fc@m.evernote.com",
+      "date": "Tue, 24 Mar 2026 21:25:10 -0700",
+      "body": "Thunderbird Monthly Products Archive\nMonth: March 2026\nGenerated: 2026-03-24 22:24 MT\n\nFile counts:\n  PDFs:   19\n  HTML:   30\n  MD:     96\n  JSON:   27\n  Other:  18\n  Total:  190\n\nArchive size: 70175 KB compressed (78753 KB raw)\nAttached: thunderbird_products_202603.zip",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Thunderbird Code Backup — 2026-03-24 @Thunderbird Backups #thunderbird #backup #code",
+      "to": "yodainva.5d9fc@m.evernote.com",
+      "date": "Tue, 24 Mar 2026 23:24:13 -0500",
+      "body": "Thunderbird Code Backup\nDate: 2026-03-24\nFiles: 322 (319 .py, 3 .md)\nTotal size: 7374 KB\nZip size: 2088 KB\n\nAttached: thunderbird_code_20260324.zip",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[A3] Client: John & Susan Loucks — Fwd: Your visit",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 24 Mar 2026 13:31:09 -0700",
+      "body": "ISSUE:\nCommander wants a west-facing room at Newport Beach Marriott Bayview (Conf #79802952, Apr 10-13) to avoid street noise from Jamboree and Bristol.\n\nDISCUSSION:\nGregory Loucks (Commander's brother, OC local) flagged that the Marriott Bayview has significant traffic noise on the east side facing Jamboree and Bristol streets. West-facing rooms are quieter and higher floors may even offer ocean views. The reservation (Conf #79802952, 3 nights Apr 10-13, $1,008.35) is already confirmed — this is a room preference request to add. The email thread also reveals logistics updates: Karen Loucks will deliver the family Subaru to the hotel, and Elias will drive John & Susan to LAX on Apr 13 at 2:30 PM for the DL 443 departure at 6:55 PM.\n\nOPTIONS:\n1. Call or email Newport Beach Marriott Bayview to request a west-facing room, high floor if possible, referencing Conf #79802952 (Apr 10-13, 2 adults)\n2. Update dossier with SNA→hotel transport plan (Uber from SNA, Karen delivers Subaru at hotel) and LAX transport (Elias pickup from Gregory's house at 2:30 PM Apr 13)\n\nACTIONS I RECOMMEND TAKING:\n1. Call or email Newport Beach Marriott Bayview to request a west-facing room, high floor if possible, referencing Conf #79802952 (Apr 10-13, 2 adults)\n2. Update dossier with SNA→hotel transport plan (Uber from SNA, Karen delivers Subaru at hotel) and LAX transport (Elias pickup from Gregory's house at 2:30 PM Apr 13)\n\n---\nStaff Paper from Dani Moreau, D2M Travel\nGenerated: 2026-03-24 14:31 MT\nThunderbird Email Intelligence Officer",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[A3] DONE: Nichols_Regent_3078056 — E-270: Passport validity check (6-month rule)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 24 Mar 2026 12:49:46 -0600",
+      "body": "Mark complete:\nBooking: Nichols_Regent_3078056\nMilestone: E-270: Passport validity check (6-month rule)\n\n(Sent from Thunderbird Briefing — Star Protocol will process)",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[A3] DONE: ***REMOVED-SECRET*** — Payment reminder #2 (FPD-14)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 24 Mar 2026 12:49:39 -0600",
+      "body": "Mark complete:\nBooking: ***REMOVED-SECRET***\nMilestone: Payment reminder #2 (FPD-14)\n\n(Sent from Thunderbird Briefing — Star Protocol will process)",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[A3] DONE: Furlow_Regent_3071222 — Payment reminder #2 (FPD-14)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 24 Mar 2026 12:49:35 -0600",
+      "body": "Mark complete:\nBooking: Furlow_Regent_3071222\nMilestone: Payment reminder #2 (FPD-14)\n\n(Sent from Thunderbird Briefing — Star Protocol will process)",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[A3] DONE: McLeod_Silversea_298475 — E-150: Guest Info Forms due",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 24 Mar 2026 12:49:19 -0600",
+      "body": "Mark complete:\nBooking: McLeod_Silversea_298475\nMilestone: E-150: Guest Info Forms due\n\n(Sent from Thunderbird Briefing — Star Protocol will process)",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[A3] DONE: McLeod_Silversea_298475 — Goal: payment in hand (FPD-7)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 24 Mar 2026 12:49:10 -0600",
+      "body": "Mark complete:\nBooking: McLeod_Silversea_298475\nMilestone: Goal: payment in hand (FPD-7)\n\n(Sent from Thunderbird Briefing — Star Protocol will process)",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Re: [COS] General: Re: 🔴 THUNDERBIRD BRIEFING // M",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 24 Mar 2026 08:16:08 -0500",
+      "body": "ISSUE:\nCommander directs immediate implementation of 6 briefing template fixes after rating Mar 24 Morning Briefing UNSATISFACTORY\n\nDISCUSSION:\nCommander rates Mar 24 Morning Briefing UNSATISFACTORY and orders immediate implementation of all 6 COS-recommended fixes: root-cause formatting, audit missing links, redesign overdue-date UX, background change/delete ops, apply D2M brand stationery, send corrected briefing for approval.\n\nACTIONS I RECOMMEND TAKING:\n1. COS: Root-cause briefing template formatting — fix illegible color choices immediately\n2. Audit all briefing action items for missing links — every item must be one-click actionable\n3. Redesign overdue date change UX for minimal Commander effort\n4. Move all change/delete operations to background processing\n5. Apply D2M brand stationery standards (cream #f7f3ea, blue ink #0000ff, Georgia serif) to briefing template\n6. Send corrected briefing to Commander for approval before next morning run\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-03-24 07:16 MT\nThunderbird Email Intelligence Officer",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Re: 🔴 THUNDERBIRD BRIEFING // Mar 24 — 49 ACTION I",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 24 Mar 2026 06:01:22 -0700",
+      "body": "ISSUE:\nThunderbird Morning Briefing email rated UNSATISFACTORY by Commander — formatting, colors, links, and UX all need immediate overhaul.\n\nDISCUSSION:\nCommander rates the Mar 24 Thunderbird Morning Briefing as UNSATISFACTORY — standard formatting broken, sections illegible due to color choices, many action items lack links, and changing overdue dates is too cumbersome. Demands all change/delete activity happen in the background.\n\nACTIONS I RECOMMEND TAKING:\n1. COS: Root-cause the briefing template formatting — identify which color choices make sections illegible and fix immediately\n2. Audit all action items in the briefing for missing links — every item must be actionable with one click\n3. Redesign overdue date change UX so Commander can update dates without cumbersome steps\n4. Move all change/delete operations to background processing so they don't clutter the briefing\n5. Apply D2M brand stationery standards (cream paper #f7f3ea, blue ink #0000ff, Georgia serif) to the briefing template\n6. Send corrected briefing to Commander for approval before next morning run\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-03-24 07:01 MT\nThunderbird Email Intelligence Officer",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
       "tier": "internal",
       "subject": "[COS] General: BREAKING:  Most Americans say war in Iran is going",
       "to": "johnloucks3@gmail.com",
@@ -6460,7 +6685,7 @@
       "subject": "[COS] General: Security alert",
       "to": "johnloucks3@gmail.com",
       "date": "Sat, 21 Mar 2026 21:46:16 -0700",
-      "body": "ISSUE:\nLegacy 'Love Group Travel' Gmail account still active and receiving sign-ins — branding and account consolidation review needed.\n\nDISCUSSION:\nGoogle security alert: new Linux sign-in on the legacy jl3lovegrouptravel@gmail.com account. If this was Commander on Yoga, no action needed — but the account's continued existence under the old 'Love Group Travel' name is a branding hygiene item.\n\nACTIONS I RECOMMEND TAKING:\n1. Confirm the Linux sign-in was Commander on Yoga (10.0.0.53 / openSUSE) — if not, secure the account immediately\n2. Add jl3lovegrouptravel@gmail.com to the account consolidation/decommission list — 'Love Group Travel' branding violates standing D2M-exclusive directive\n3. Audit what services or forwarding rules still depend on this legacy account before any shutdown\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-03-21 22:46 MT\nThunderbird Email Intelligence Officer",
+      "body": "ISSUE:\nLegacy 'Love Group Travel' Gmail account still active and receiving sign-ins — branding and account consolidation review needed.\n\nDISCUSSION:\nGoogle security alert: new Linux sign-in on the legacy jl3lovegrouptravel@gmail.com account. If this was Commander on Yoga, no action needed — but the account's continued existence under the old 'Love Group Travel' name is a branding hygiene item.\n\nACTIONS I RECOMMEND TAKING:\n1. Confirm the Linux sign-in was Commander on Yoga (192.168.1.198 / openSUSE) — if not, secure the account immediately\n2. Add jl3lovegrouptravel@gmail.com to the account consolidation/decommission list — 'Love Group Travel' branding violates standing D2M-exclusive directive\n3. Audit what services or forwarding rules still depend on this legacy account before any shutdown\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-03-21 22:46 MT\nThunderbird Email Intelligence Officer",
       "score": 2
     },
     {
@@ -6874,7 +7099,7 @@
       "subject": "[COS] General: Security alert",
       "to": "johnloucks3@gmail.com",
       "date": "Sat, 21 Mar 2026 21:46:16 -0700",
-      "body": "ISSUE:\nLegacy 'Love Group Travel' Gmail account still active and receiving sign-ins — branding and account consolidation review needed.\n\nDISCUSSION:\nGoogle security alert: new Linux sign-in on the legacy jl3lovegrouptravel@gmail.com account. If this was Commander on Yoga, no action needed — but the account's continued existence under the old 'Love Group Travel' name is a branding hygiene item.\n\nACTIONS I RECOMMEND TAKING:\n1. Confirm the Linux sign-in was Commander on Yoga (10.0.0.53 / openSUSE) — if not, secure the account immediately\n2. Add jl3lovegrouptravel@gmail.com to the account consolidation/decommission list — 'Love Group Travel' branding violates standing D2M-exclusive directive\n3. Audit what services or forwarding rules still depend on this legacy account before any shutdown\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-03-21 22:46 MT\nThunderbird Email Intelligence Officer",
+      "body": "ISSUE:\nLegacy 'Love Group Travel' Gmail account still active and receiving sign-ins — branding and account consolidation review needed.\n\nDISCUSSION:\nGoogle security alert: new Linux sign-in on the legacy jl3lovegrouptravel@gmail.com account. If this was Commander on Yoga, no action needed — but the account's continued existence under the old 'Love Group Travel' name is a branding hygiene item.\n\nACTIONS I RECOMMEND TAKING:\n1. Confirm the Linux sign-in was Commander on Yoga (192.168.1.198 / openSUSE) — if not, secure the account immediately\n2. Add jl3lovegrouptravel@gmail.com to the account consolidation/decommission list — 'Love Group Travel' branding violates standing D2M-exclusive directive\n3. Audit what services or forwarding rules still depend on this legacy account before any shutdown\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-03-21 22:46 MT\nThunderbird Email Intelligence Officer",
       "score": 2
     },
     {
@@ -7235,6 +7460,96 @@
       "to": "Ronald Westbrook <rwestbrook3@gmail.com>",
       "date": "Tue, 24 Feb 2026 15:40:44 -0700",
       "body": "Rondo, up here at Park Meadows Mall today because I have a back disability\nincrease appointment with the VA tomorrow morning at 0800, then we're going\nto perfect landing for breakfast, and then home. I really would like to get\nyour documents, I can't don't think I can enter all the stuff you've given\nme by hand, but I have developed a piece of software that takes all your\ninformation from your PDFs and scans it into a small database, and then\nspits it back out to make itineraries like the one I showed you. So\ntomorrow, call me on WhatsApp video point your phone at your computer and I\ncan talk you through how to get the documents. By the way we made dinner\nreservations for silver sea today and I can see the problem where you can't\nreally share so let's compare notes we'll take the best of what each of us\nwere able to snag. Okay chat soon bye.\nJohn",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Fwd: [Action Required] Migrate to newly available",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 23 Mar 2026 16:00:48 -0700",
+      "body": "ISSUE:\nGoogle Cloud AI image/video endpoints used by eara-titan-01 will be retired June 30, 2026 — migration required to avoid service disruption\n\nDISCUSSION:\nGoogle Cloud is discontinuing legacy Imagen and Veo endpoints on June 30, 2026. The affected project 'eara-titan-01' must migrate to new GA endpoints (gemini-2.5-flash-image for images, veo-3.1 for video) before the deadline.\n\nACTIONS I RECOMMEND TAKING:\n1. Audit eara-titan-01 codebase for references to deprecated endpoints (imagegeneration@002-006, imagen-3.0/4.0-*, veo-2.0/3.0-*)\n2. Update API calls to new GA endpoints: gemini-2.5-flash-image (images) and veo-3.1-generate-001 / veo-3.1-fast-generate-001 (video)\n3. Review pricing changes for new endpoints before migration\n4. Test migrated endpoints in staging before June 30 deadline\n5. Check if any Provisioned Throughput orders exist on deprecated models and reassign\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-03-23 17:00 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Fwd: Client Portal Activation from Dreams2Memories",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 23 Mar 2026 14:15:27 -0700",
+      "body": "ISSUE:\nCommander requests COS recommendation on passport data storage — dossier vs. sheets — for Furlow client passport submission.\n\nDISCUSSION:\nMissy Furlow replied to her Client Portal activation email with passport information. Commander is asking COS to recommend whether passport data should be stored in client dossiers or in the booking sheets, and to send that recommendation via email.\n\nACTIONS I RECOMMEND TAKING:\n1. COS drafts staff paper with recommendation on passport storage (dossier vs. sheets) weighing security, accessibility, and operational workflow\n2. Extract Furlow passport details from the forwarded email and stage for storage pending architecture decision\n3. Update Furlow dossier to note passport info received 2026-03-23\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-03-23 15:15 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Re: [COS] General: Fwd: 566910-25 / John Loucks, S",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 24 Mar 2026 12:46:13 -0700",
+      "body": "ISSUE:\nCommander standing order: staff papers on directed actions should use 'Actions I have taken' (not 'recommend'), assume approval.\n\nDISCUSSION:\nCommander orders staff to change staff paper language from 'Actions I recommend taking' to 'Actions I have taken' and assume approval on directed actions, effective immediately.\n\nACTIONS I RECOMMEND TAKING:\n1. Update all staff paper templates to use 'Actions I have taken' instead of 'Actions I recommend taking' when Commander has directed the action\n2. Record as standing order — when Commander directs an action, execute it and report completion, do not request approval\n3. Update CLAUDE.md and persona instructions to reflect this protocol change\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-03-24 13:46 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Fwd: 566910-25 / John Loucks, Susan Loucks / SN260",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 24 Mar 2026 12:31:13 -0700",
+      "body": "ISSUE:\nCommander directed 'Add to dossier' — Silversea shore excursion booking confirmation for Loucks Silver Nova voyage needs to be recorded.\n\nDISCUSSION:\nSilversea confirmed John & Susan Loucks are now booked on SIT-007B Sitka's Culinary Adventure (10:30AM departure, 05/05/2026) after the 11:30AM departure sold out. Commander directive: add to dossier.\n\nACTIONS I RECOMMEND TAKING:\n1. Update Loucks Silver Nova dossier with SIT-007B Sitka's Culinary Adventure, 05/05/2026 10:30AM departure, Sitka AK\n2. Note original 11:30AM departure (SIT-007) was sold out — auto-moved to new 10:30AM departure (SIT-007B)\n3. Record Silversea booking reference 566910-25 and voyage SN260423019\n4. Note Jenna Woodcock (jwoodcock@perx.com) as Silversea shore concierge contact for this booking\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-03-24 13:31 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] Client: McGlasson — Transfers",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 24 Mar 2026 09:31:32 -0700",
+      "body": "ISSUE:\nVIP client Melissa McGlasson is frustrated that Silver Muse transfers she believed were covered via deviation payment now appear excluded, and she needs immediate clarification on Rome→Civitavecchia embarkation and disembarkation transfer logistics.\n\nDISCUSSION:\nThis is the SECOND time transfers have surfaced as the #1 pain point — Erik flagged transfer confusion on Mar 17 noting Silversea/Blacklane confirmations were not received. The issue was not resolved in the intervening week, and Melissa's frustration has escalated from confusion to explicit disappointment and anger. The phrase 'assured it was taken care of' signals a perceived broken promise — this is a trust issue, not just a logistics question. Given the Pavlus Travel competitive flag in the dossier, unresolved frustration with D2M service quality creates real defection risk. The seat assignment issue is secondary but compounds the feeling that coordination is breaking down.\n\nOPTIONS:\n1. IMMEDIATE: Call or email Silversea rep to get definitive written answer on what transfers are included with the deviation payment for booking 298475-25 (Suite 617, Voyage SM260623010)\n2. Clarify specifically: (a) FCO/Rome hotel → Civitavecchia port transfer, (b) disembarkation transfer at cruise end, (c) any other included transfers\n3. Tell Silversea in writing to NOT touch seat assignments — clients have already selected UA 177 (3D/3F), AC 817 (3A/4A), AC 1041 (2A/2C) directly with airlines\n4. If Silversea confirms transfers are NOT covered: immediately research and price private transfer options (Blacklane or local operators) for Rome→Civitavecchia and disembarkation — present to client as 'we handle this' not 'you figure it out'\n5. COS should review response before send — this is a trust-repair moment with a VIP who has a competitor relationship\n\nACTIONS I RECOMMEND TAKING:\n1. IMMEDIATE: Call or email Silversea rep to get definitive written answer on what transfers are included with the deviation payment for booking 298475-25 (Suite 617, Voyage SM260623010)\n2. Clarify specifically: (a) FCO/Rome hotel → Civitavecchia port transfer, (b) disembarkation transfer at cruise end, (c) any other included transfers\n3. Tell Silversea in writing to NOT touch seat assignments — clients have already selected UA 177 (3D/3F), AC 817 (3A/4A), AC 1041 (2A/2C) directly with airlines\n4. If Silversea confirms transfers are NOT covered: immediately research and price private transfer options (Blacklane or local operators) for Rome→Civitavecchia and disembarkation — present to client as 'we handle this' not 'you figure it out'\n5. COS should review response before send — this is a trust-repair moment with a VIP who has a competitor relationship\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-03-24 10:31 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Fwd: Final Silversea Cruise Documents for 566910-2",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 24 Mar 2026 09:01:14 -0700",
+      "body": "ISSUE:\nCommander directs final Silversea cruise documents (566910-25) be added to the Loucks client dossier.\n\nDISCUSSION:\nCommander forwards final Silversea cruise documents for booking 566910-25 (COL JOHN LOUCKS) from Jenna Woodcock at PERX, with directive to add to Loucks dossier.\n\nACTIONS I RECOMMEND TAKING:\n1. Add booking 566910-25 details to Loucks dossier in ~/Thunderbird/dossiers/\n2. Note supplier contact Jenna Woodcock (jwoodcock@perx.com) as Silversea document source\n3. Check if full cruise document attachments need to be downloaded and archived to D2M Drive Vault\n4. Cross-reference booking 566910-25 against existing Loucks/Westbrook Silversea bookings (566904 is Westbrook)\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-03-24 10:01 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Delivery Status Notification (Failure)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 24 Mar 2026 08:46:58 -0400",
+      "body": "ISSUE:\nD2M ops email bounce — SMS gateway delivery to Commander's phone (719-291-0742) is failing, and d2mconcierge@gmail.com may have a temporary deliverability issue.\n\nDISCUSSION:\nEmail to 7192910742@tmomail.net (Commander's phone SMS gateway) bounced with address-not-found error. The remote server also flagged d2mconcierge@gmail.com as temporarily unavailable.\n\nACTIONS I RECOMMEND TAKING:\n1. Verify d2mconcierge@gmail.com sending reputation and account status — the AUP#MXRT error may indicate a T-Mobile policy block\n2. Confirm whether any automated workflow is still trying to send via SMS gateway (tmomail.net) — standing order says SMS/WhatsApp are dead channels\n3. Identify and disable the process that triggered this send to align with current comms policy (Telegram C2 + email only)\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-03-24 06:46 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Delivery Status Notification (Failure)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 24 Mar 2026 05:46:42 -0700",
+      "body": "ISSUE:\nT-Mobile SMS gateway is rejecting email-to-SMS messages sent from d2mconcierge@gmail.com to Commander's phone, potentially breaking SMS notification workflows.\n\nDISCUSSION:\nEmail to Commander's T-Mobile SMS gateway (7192910742@tmomail.net) bounced with a 550 error citing 'server temporarily unavailable AUP#MXRT', suggesting the carrier gateway is blocking or rate-limiting messages from d2mconcierge@gmail.com.\n\nACTIONS I RECOMMEND TAKING:\n1. Verify whether any D2M automation is sending emails to 7192910742@tmomail.net and disable if unintended\n2. Check if T-Mobile AUP (Acceptable Use Policy) flagged d2mconcierge@gmail.com as bulk sender — the AUP#MXRT code suggests policy violation\n3. Switch SMS notifications to Telegram C2 channel instead of email-to-SMS gateway\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-03-24 06:46 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Delivery Status Notification (Failure)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 24 Mar 2026 05:46:26 -0700",
+      "body": "ISSUE:\nT-Mobile SMS gateway is rejecting email-to-SMS from d2mconcierge@gmail.com to Commander's phone, possibly due to AUP filtering.\n\nDISCUSSION:\nEmail to Commander's phone via T-Mobile SMS gateway (7192910742@tmomail.net) bounced with a 550 error citing 'server temporarily unavailable AUP#MXRT', suggesting a T-Mobile acceptable use policy block on the d2mconcierge sender.\n\nACTIONS I RECOMMEND TAKING:\n1. Identify which workflow or automation sent the email to 7192910742@tmomail.net and disable email-to-SMS for that path\n2. Use Telegram C2 instead of email-to-SMS for Commander notifications\n3. Check if any client-facing workflows also use email-to-SMS that could be similarly affected\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-03-24 06:46 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Delivery Status Notification (Failure)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 24 Mar 2026 05:46:11 -0700",
+      "body": "ISSUE:\nD2M concierge email to Commander's T-Mobile SMS gateway is bouncing — SMS notifications from d2mconcierge@gmail.com may be broken.\n\nDISCUSSION:\nEmail to Commander's T-Mobile SMS gateway (7192910742@tmomail.net) bounced with a 550 error citing 'server temporarily unavailable AUP#MXRT'. This may indicate T-Mobile is blocking d2mconcierge@gmail.com or the SMS gateway is down.\n\nACTIONS I RECOMMEND TAKING:\n1. Investigate what workflow is sending to 7192910742@tmomail.net and whether it's intentional or misconfigured\n2. Check if T-Mobile AUP (Acceptable Use Policy) is blocking bulk or automated email-to-SMS — the AUP#MXRT error suggests policy enforcement\n3. Consider using Telegram C2 instead of email-to-SMS for Commander notifications, which is already the primary channel\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-03-24 06:46 MT\nThunderbird Email Intelligence Officer",
       "score": 2
     }
   ]
