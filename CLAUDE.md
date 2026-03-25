@@ -1,5 +1,5 @@
 # THUNDERBIRD OS — CLAUDE AI OPERATING MANUAL
-## Dreams2Memories Travel, LLC · v2.3.0 · Updated 2026-03-20
+## Dreams2Memories Travel, LLC · v2.4.0 · Updated 2026-03-24
 
 ---
 
@@ -151,7 +151,32 @@ Google API quota: wait 60s, retry once, then alert.
 
 ---
 
-## 6. Intel Standards (Standing Order 2026-03-17, expanded 2026-03-20)
+## 6. AI Incubator Pipeline (Standing Order 2026-03-24)
+
+**Thunderbird is an AI capability incubator and demonstrator.** Not defensive. Not competitive. Integration-focused.
+
+**Lens:** World-renowned AI integration specialist. Question is always: "What can't we do yet? How do we build it in?" Never: "We already do that."
+
+**Daily cadence — fully automated (`thunderbird_incubator.py`):**
+
+| Time | Phase | Who | What |
+|------|-------|-----|------|
+| 18:30 | Prompt | COS | Generates tonight's sector/gap question → Telegram |
+| 19:00 | Execute | System | Full tool stack research |
+| 19:30 | Review | COS | Synthesizes gaps → **sets tomorrow's AM categories** |
+| 07:00 | AM Scrape | System | Deep-dives on last night's categories |
+| 07:30 | A2 Intake | A2 Dembe | INTEGRATE / WATCH / REJECT classification |
+| 07:45 | ELON Queue | ELON+A5+A9+COS | Tickets → staff review → Commander brief |
+
+**Evening drives morning.** Previous night sets next morning's categories. Hurricane feeds itself.
+
+**Build queue:** `intel/elon_build_queue.md` — persistent. ELON executes LOW/no-SSS under SO-1. High-risk → SSS → Commander.
+
+**Crew:** A2 (intake) → ELON (tickets) → A5 (strategic fit) → A9 (cost) → COS (brief) → Commander.
+
+---
+
+## 6b. Intel Standards (Standing Order 2026-03-17, expanded 2026-03-20)
 
 Every intel report structure — no exceptions:
 1. **D2M RELEVANCE SUMMARY** — 3-5 bullets: what matters to us, right now, and why
