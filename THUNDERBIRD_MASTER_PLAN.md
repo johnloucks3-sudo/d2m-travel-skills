@@ -2094,6 +2094,109 @@ Full character sheets: `Personas/D2M_Extended_Personas.md`
 
 ---
 
-**Document Version:** 7.1 — Thunderbird Master Project Plan. Keeper: EXEC (Naia Solberg-Vega). v7.1 adds: Part 13 — Extended Wing Persona Registry (20 Mar 2026). v7.0 adds: Part 12 — IOC Deep Feasibility Brief. Previous: v6.0 Part 11 Grant Program. Backup: Google Drive (Doc ID: `18WjwXBuxeDpJl4VIspx9dOlTq9TNh3S4OGVoFCieSOw`).
+## PART 14: THUNDERBIRD AS AI CAPABILITY INCUBATOR & DEMONSTRATOR
+### Standing Order — Commander John "Yoda" Loucks, 24 March 2026
+
+---
+
+### THE PARADIGM SHIFT
+
+**Effective 24 March 2026, Thunderbird's identity expands:**
+
+Thunderbird is a travel enterprise that focuses numerous AI tools on a small set of clients. That is the cover story. The deeper truth — now made explicit — is that **Thunderbird is an AI capability incubator and demonstrator.**
+
+Every tool we run, every workflow we build, every client interaction we handle is also a proof-of-concept for AI enterprise patterns at scale. The travel domain is the proving ground. The architecture is the product.
+
+---
+
+### THE OLD LENS (RETIRED)
+
+Prior to this date, innovation research was conducted through a competitive/defensive lens:
+- Scan the world → find overlap with our tools → say "Thunderbird does that too"
+- Treat tech innovations as threats to our MCP toolset
+- Validate ourselves against others
+
+**This posture ends now.**
+
+---
+
+### THE NEW LENS
+
+**Role:** World-renowned AI integration specialist — self-critical, honest about limitations, integration-focused.
+
+**The Question Changes:**
+- Old: *"Do we already do this?"*
+- New: *"What are our gaps? How do we build this INTO Thunderbird?"*
+
+**The Mandate:**
+1. Look at ALL innovations across the world — not just AI, not just travel
+2. Integrate the ones that close real gaps into Thunderbird
+3. Demonstrate what enterprise AI actually looks like when it runs on real client money, real decisions, real stakes
+
+**The Honest Starting Point:**
+AI across the world is gyrating, pulsating, and spinning wildly in search of something. We don't know what it's searching for. Our job is to be the place where it lands — to absorb, test, and deploy the patterns that matter before anyone else proves they work.
+
+---
+
+### DAILY INNOVATION CADENCE
+
+| Time (MDT) | Step | Description |
+|-----------|------|-------------|
+| **18:30** | **Research Prompt** | COS generates tonight's sector/question — new territory, unheralded industries, open gaps. Sends to Commander via Telegram. |
+| **19:00** | **Execute** | Run research using ALL available tools (see stack below). Never default to generic web search alone. |
+| **19:30** | **Review + Set AM Categories** | COS synthesizes findings. What did we find? What can be integrated? **Sets tomorrow morning's AM scrape categories based on what the evening surfaced.** Sends to Commander. |
+
+**Evening → Morning Cycle:** The evening search DRIVES the next morning's AM scrape. Evening is the scout — identifies new sectors, surfaces signals, selects categories. Morning is the excavation — deep-dives into what the evening found. The evening prompt sets tomorrow's AM categories. Not the reverse. The hurricane feeds itself forward.
+
+---
+
+### RESEARCH TOOL STACK (Priority Order)
+
+Never default to web search alone. Rotate through the full stack:
+
+| Priority | Tool | Domain |
+|----------|------|--------|
+| 1 | `academic_scan` | ArXiv, HuggingFace, Papers With Code — frontier research |
+| 2 | `run_innovation_scan` | Reddit, GitHub, Hacker News — what's shipping now |
+| 3 | `run_competitive_surveillance` | Named competitors, specific verticals |
+| 4 | `product_scan_vendors` | Vendor ecosystem mapping |
+| 5 | `scrape_x_osint_feed` + `summarize_x_osint` | Social + industry chatter |
+| 6 | `run_intel_crew` / `crew_research` | Multi-domain parallel research |
+| 7 | `get_tech_news` | Curated headlines |
+| 8 | `innovation_daily_scan` / `innovation_weekly_scan` | Scheduled scans |
+| 9 | `WebSearch` | Last resort only |
+
+**Sector Rotation:** Deliberately seek unheralded sectors — industries where AI adoption is quiet but deep. Journalism, construction, law enforcement, agriculture, logistics, elder care, municipal government, behavioral health. The next Thunderbird integration idea is more likely to come from an industry we've never looked at than from our usual sources.
+
+---
+
+### INTEGRATION FILTER — "BUILD IT IN"
+
+Every research session produces a 3-column output:
+
+| Finding | Gap It Closes | Integration Path |
+|---------|--------------|-----------------|
+| What was found | What Thunderbird currently cannot do | How to add the capability |
+
+No finding is logged as "we do that." Every finding is logged as either:
+- **INTEGRATE** — build it in, assign to staff
+- **WATCH** — not ready, monitor quarterly
+- **REJECT** — not relevant to our architecture
+
+---
+
+### WHY THUNDERBIRD IS THE RIGHT TEST BED
+
+- Small client base = low blast radius for experiments
+- Real money, real decisions, real stakes = honest signal
+- 21-persona AI wing = full capability surface area
+- Existing MCP stack = integration substrate already in place
+- Commander with domain expertise = human judgment at every gate
+
+No corporate lab, no startup, no grant program has this combination. We do. We use it.
+
+---
+
+**Document Version:** 7.2 — Adds Part 14: Thunderbird AI Incubator & Demonstrator (24 Mar 2026). v7.1 adds: Part 13 — Extended Wing Persona Registry (20 Mar 2026). v7.0 adds: Part 12 — IOC Deep Feasibility Brief. Previous: v6.0 Part 11 Grant Program. Backup: Google Drive (Doc ID: `18WjwXBuxeDpJl4VIspx9dOlTq9TNh3S4OGVoFCieSOw`).
 **Prepared for:** Commander John "Yoda" Loucks
 **Classification:** THUNDERBIRD INTERNAL

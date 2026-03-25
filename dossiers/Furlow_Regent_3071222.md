@@ -17,7 +17,7 @@ relationship: client
 
 ---
 
-### STATUS: ACTIVE — ⚠️ PAYMENT DUE | Suite 827, Deck 8 | **CC: NOT YET RECEIVED**
+### STATUS: ACTIVE — ✅ PAYMENT READY TO PROCESS | Suite 827, Deck 8 | **CC: CHASE SAPPHIRE RESERVE on portal ✓ | CVC 043 received Mar 24 evening**
 
 ### ✅ AI DISCLOSURE EMAIL — v9 COMMANDER-APPROVED (2026-03-22)
 - **Status:** Approved as D2M standard — "this will be what we send every client"
@@ -40,7 +40,7 @@ relationship: client
 - **Online Check-in opens:** Aug 8, 2026
 
 **✓ RESOLVED: Both guests fully registered in Regent portal (confirmed Mar 18)**
-**⚠️ OPEN: Travel insurance — not booked. COS to track; do not lead with in client-facing comms.**
+**⚠️ INSURANCE UPDATE (Mar 23):** Missy switching to Chase Sapphire Reserve for travel insurance benefits. Chase Sapphire Reserve covers trip cancellation/interruption up to $10K/person and emergency evac up to $100K — **but the card MUST be used to pay for the trip to activate coverage.** Ensure Apr 1 final payment ($15,486) goes on the Chase card. Separate Allianz-style policy still not booked — COS tracking.
 
 ### KEY DATES
 | Date | Milestone |
@@ -104,7 +104,7 @@ relationship: client
 |---|----------|---------|----------|--------|---------|
 | 1 | Documents | Passports valid 6+ months | YES | **CONFIRMED** | Renewed fall 2025, expires 2035 |
 | 2 | Documents | Visa / entry requirements | YES | **PENDING** | Sweden/Norway — US passport OK for Schengen |
-| 3 | Insurance | Travel insurance policy | YES | **NOT BOOKED** | No response yet |
+| 3 | Insurance | Travel insurance policy | YES | **PARTIAL** | Switching to Chase Sapphire Reserve CC coverage (Mar 23) — must charge final payment to Chase card. Standalone policy NOT booked. |
 | 4 | Flights | Outbound leg 1 (DFW→HEL) | YES | **CONFIRMED** | AA 9018 (Finnair) Aug 26 4:50PM |
 | 5 | Flights | Outbound leg 2 (HEL→ARN) | YES | **CONFIRMED** | AY 811 Aug 27 1:15PM |
 | 6 | Flights | Outbound PNR / e-ticket | YES | **CONFIRMED** | AA: CKZHXA / Finnair: BB4X94 |
@@ -115,12 +115,12 @@ relationship: client
 | 11 | Transfers | Hotel → port transfer | YES | **CONFIRMED** | Regent transport, Aug 29 |
 | 12 | Cruise | Booking confirmed | YES | **CONFIRMED** | 3071222, Suite 827 |
 | 13 | Cruise | Suite assignment | YES | **CONFIRMED** | 827 |
-| 14 | Cruise | Payment status | YES | ⚠️ **FINAL PAYMENT DUE APR 1** | $15,486 due — Balance $15,486.00 |
+| 14 | Cruise | Payment status | YES | ⚠️ **FINAL PAYMENT DUE APR 1** | $15,486 due — Chase Sapphire Reserve on portal ✓, CVC 043 received — READY TO PROCESS |
 | 15 | Cruise | Embarkation details | YES | **CONFIRMED** | Stockholm, Aug 29 |
 | 16 | Dining | Specialty dining | Optional | **NOT YET** | Opens May 31, 8pm ET |
 | 17 | Excursions | Shore excursions | Optional | **BOOKED** | 7 excursions confirmed (see below) |
 | 17a | Excursions | Culinary Arts Kitchen | Optional | **NOT YET** | Opens May 1, 8pm ET |
-| 17b | Registration | Guest Registration | YES | **PARTIAL** | John COMPLETE, **Melissa NOT COMPLETE** |
+| 17b | Registration | Guest Registration | YES | **COMPLETE** | John COMPLETE, Melissa COMPLETE (confirmed Mar 18) |
 | 18 | Cruise | Disembarkation | Optional | **CONFIRMED** | Oslo, Sep 8 |
 | 19 | Transfers | Port → airport transfer | YES | **CONFIRMED** | Regent transport ship→Oslo airport |
 | 20 | Flights | Return leg 1 (OSL→LHR) | YES | **CONFIRMED** | BA 6776 Sep 8 11:15AM, seats 4C/4A |
@@ -158,16 +158,34 @@ All included (Regent Choice — $0.00). Both John & Missy confirmed on all excur
 **Storage protocol:** Images → Google Drive restricted folder only. Metadata (expiration, holder name) → dossier. Full passport numbers NOT stored in plain text or Sheets. TESS passport field gap flagged.
 Commander replied to Missy at 15:13 MT: "Thanks Missy, got it — John" ✅
 
+**Mar 23 — Melissa Furlow** (Re: Client Portal Activation)
+> Missy confirmed they already added a CC to the Regent portal profile but are switching to Chase Sapphire Reserve for better travel insurance. "We'll do that tonight." Commander acknowledged.
+- **CC SWAP:** ✅ **COMPLETE** — Chase Sapphire Reserve now on portal. CVC **043** received from Missy (Mar 24 email). Ready to process.
+
+**Mar 24 — Melissa Furlow** (Re: Client Portal Activation — CVC)
+> Missy replied "043" — CVC for Chase Sapphire Reserve. Commander had asked "send me the CVC." Card swap to Chase Sapphire Reserve confirmed complete.
+- **PAYMENT STATUS:** ✅ All components in hand — Chase Sapphire Reserve on portal, CVC 043, booking 3071222, balance $15,486. Ready to run.
+- **INSURANCE NOTE:** Charging $15,486 to Chase Sapphire Reserve activates trip cancellation/interruption ($10K/person) and emergency evac ($100K). This was Missy's stated reason for the card swap.
+
+**Mar 24 — Melissa Furlow** (Re: Client Portal Activation)
+> Missy sent CVC: "043" in reply to Commander's request. Card swap to Chase Sapphire Reserve confirmed complete.
+- **CVC RECEIVED:** 043 — Chase Sapphire Reserve (Visa, 3-digit)
+- **READY TO PROCESS:** Booking 3071222, $15,486 balance, FPD Apr 1
+- **⚠️ CRITICAL:** Chase Sapphire Reserve trip insurance requires the card be used for payment. Final payment Apr 1 ($15,486) MUST go on the Chase card to activate coverage.
+- **⚠️ INSURANCE GAP (A2 assessment Mar 24):** Chase Sapphire Reserve covers trip cancellation/interruption up to $10K/person — but does NOT cover cruise-specific risks: missed port, itinerary deviation, medical evacuation at sea. Card insurance is supplemental, not a replacement for dedicated travel insurance. With Regent penalty at 15% starting Apr 1 and escalating, moderate risk if Furlows rely solely on card coverage.
+- **Note:** Missy originally booked AA flights for 5x AmEx points — different strategy for cruise payment.
+
 ---
 
 ### OPEN ACTION ITEMS
 1. [x] Passport verified — expires 2035 (John confirmed Mar 8; images received Mar 23)
 2. [x] Follow up after Mar 16 — back from Costa Rica, follow-up complete Mar 20
-3. [ ] Discuss insurance options (no response yet on insurance) — COS tracking
+3. [ ] **INSURANCE CONVERSATION NEEDED** — Missy believes Chase Sapphire Reserve covers them. Card covers cancellation/interruption up to $10K/pp but NOT cruise-specific risks (missed port, medevac at sea, itinerary deviation). COS tracking — do not raise unprompted, but Commander should know the gap.
 4. [ ] **FINAL PAYMENT DUE APR 1** — $15,486 — Regent cruise 3071222
 5. [ ] **PAYMENT DUE** — Haymarket By Scandic hotel — Bedsonline 131-2656351 — $1,481
 6. [ ] **PAYMENT DUE** — Arlanda transfer — #1095074 / JF693870
 7. [x] ~~Melissa Furlow Guest Registration~~ — **COMPLETE** (confirmed Mar 18)
-8. [ ] Travel insurance — not yet booked. COS tracking only, do not raise in client email.
+8. [x] ~~CC swap to Chase Sapphire Reserve~~ — CONFIRMED Mar 24. CVC 043 received. Card on portal. Ready to process Apr 1 payment ($15,486).
+9a. [ ] Travel insurance gap — Chase Sapphire Reserve active once payment charged. Standalone policy still not booked. Card covers cancellation/interruption up to $10K/pp but NOT cruise-specific risks.
 9. [ ] Outbound seat assignments — BB4X94 (DFW→HEL and HEL→ARN) still unassigned
 10. [ ] **Store passport images** to Google Drive — D2M Trip Dossiers/Furlow/Passports/ (pending Drive upload)

@@ -18,7 +18,7 @@ relationship: client
 
 ---
 
-### STATUS: ACTIVE — Final Payment Apr 1, 2026 ($14,986) | Suite 939, Deck 9 | **CC: NOT YET RECEIVED**
+### STATUS: ACTIVE — Final Payment Apr 1, 2026 ($14,986) | Suite 939, Deck 9 | **CC: PORTAL INVITE PENDING — Heidi waiting, Commander sending new invite via OA (Mar 24)**
 
 ### RSSC PORTAL DATA (Scraped Mar 24, 2026)
 - **Total Booking Amount:** $18,896.00
