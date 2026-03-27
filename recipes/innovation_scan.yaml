@@ -1,0 +1,8 @@
+version: "1.0"
+title: Innovation Scanner
+description: Scan Reddit (r/ClaudeAI, r/LocalLLaMA, r/MachineLearning), GitHub trending, and Hacker News for AI/MCP/agent innovations relevant to D2M.
+steps:
+  - type: tool
+    name: "run_innovation_scan"
+    args:
+      scan_type: "daily"

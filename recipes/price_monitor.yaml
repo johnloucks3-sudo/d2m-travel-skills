@@ -1,0 +1,6 @@
+version: "1.0"
+title: Price Monitor
+description: Check current prices on all watched cruise departures. AI fallback (Haiku) routes through Poe when Goose is the caller.
+steps:
+  - type: tool
+    name: "check_departure_prices"

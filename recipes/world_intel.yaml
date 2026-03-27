@@ -1,0 +1,6 @@
+version: "1.0"
+title: World Intelligence Sweep
+description: Aggregate State Dept travel advisories, NOAA port weather, and cruise industry RSS feeds. Writes to Google Sheets World Intel tab.
+steps:
+  - type: tool
+    name: "tool_run_world_intel_sweep"

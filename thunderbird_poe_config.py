@@ -280,7 +280,8 @@ def build_api_env(base_env: dict | None = None) -> dict[str, str]:
             env.pop("ANTHROPIC_BASE_URL", None)
         else:
             env["ANTHROPIC_API_KEY"]  = key
-            env["ANTHROPIC_BASE_URL"] = url
+            env["ANTHROPIC_BASE_URL"] = url   # Claude SDK / MCP
+            env["ANTHROPIC_HOST"]     = url   # Goose uses HOST not BASE_URL
             logger.debug("Poe mode: routing via %s", url)
     else:
         # Max plan OAuth — strip key so CLI finds the OAuth credentials

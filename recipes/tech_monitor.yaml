@@ -1,0 +1,6 @@
+version: "1.0"
+title: Tech Monitor
+description: Daily scan of AI/LLM/MCP advancements (Claude, Goose, LangChain, Playwright). Writes to Google Sheets Tech News tab.
+steps:
+  - type: tool
+    name: "run_tech_monitor"

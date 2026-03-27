@@ -1,0 +1,8 @@
+version: "1.0"
+title: X/Twitter OSINT Sweep
+description: Scrape X/Twitter OSINT follow list then summarize with AI via Poe (not Max plan). Delivers briefing to Telegram.
+steps:
+  - type: tool
+    name: "scrape_x_osint_feed"
+  - type: tool
+    name: "summarize_x_osint"

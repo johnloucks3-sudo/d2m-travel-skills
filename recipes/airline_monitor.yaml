@@ -1,0 +1,8 @@
+version: "1.0"
+title: Airline Route Monitor
+description: Scan airline news for route changes. Cross-reference against client dossier airports. Alert Commander on any impacts to active clients.
+steps:
+  - type: tool
+    name: "tool_scan_route_changes"
+  - type: tool
+    name: "tool_check_impact"

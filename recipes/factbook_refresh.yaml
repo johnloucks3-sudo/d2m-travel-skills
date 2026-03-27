@@ -1,0 +1,32 @@
+version: "1.0"
+title: World Factbook — Client Destination Refresh
+description: Weekly refresh of CIA World Factbook intel for all active client cruise destinations. Builds pre-trip briefing context.
+steps:
+  - type: tool
+    name: "get_country_intel"
+    args:
+      country: "Norway"
+  - type: tool
+    name: "get_country_intel"
+    args:
+      country: "Iceland"
+  - type: tool
+    name: "get_country_intel"
+    args:
+      country: "Denmark"
+  - type: tool
+    name: "get_country_intel"
+    args:
+      country: "Finland"
+  - type: tool
+    name: "get_country_intel"
+    args:
+      country: "Japan"
+  - type: tool
+    name: "get_country_intel"
+    args:
+      country: "Hawaii"
+  - type: tool
+    name: "get_country_intel"
+    args:
+      country: "Greece"

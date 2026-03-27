@@ -1,0 +1,6 @@
+version: "1.0"
+title: Ship Intelligence Sweep
+description: Scrape Regent/Silversea/Viking/Seabourn for pricing, suite availability, itinerary changes. Alerts fire to Telegram on thresholds.
+steps:
+  - type: tool
+    name: "tool_run_ship_intelligence_sweep"

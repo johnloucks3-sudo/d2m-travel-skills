@@ -1,0 +1,6 @@
+version: "1.0"
+title: Dossier Gap Scanner
+description: Scan all client dossiers for FPDs within 14 days, unpaid balances, missing passport/seat data. Sends alert digest to Telegram.
+steps:
+  - type: tool
+    name: "scan_dossiers_tool"

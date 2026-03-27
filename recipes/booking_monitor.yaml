@@ -1,0 +1,6 @@
+version: "1.0"
+title: Booking Monitor
+description: Scrape Regent and Viking booking portals for status changes. Alert Commander on any change detected.
+steps:
+  - type: shell
+    command: "cd /home/john/Thunderbird && /home/john/Thunderbird/.venv/bin/python thunderbird_booking_monitor.py"

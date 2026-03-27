@@ -1,0 +1,13 @@
+[Unit]
+Description=D2M World Factbook Weekly Refresh
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=john
+WorkingDirectory=/home/john/Thunderbird
+ExecStart=/home/john/bin/goose-d2m run --no-session --recipe /home/john/Thunderbird/recipes/factbook_refresh.yaml
+StandardOutput=append:/home/john/Thunderbird/logs/goose/factbook_refresh.log
+StandardError=append:/home/john/Thunderbird/logs/goose/factbook_refresh.log
+TimeoutStartSec=300

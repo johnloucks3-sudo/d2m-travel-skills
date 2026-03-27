@@ -1,0 +1,6 @@
+version: "1.0"
+title: Fare Watch Check
+description: Check all active flight and cruise price watches. Alert Commander on drops or spikes beyond threshold.
+steps:
+  - type: tool
+    name: "tool_fare_watch_check"

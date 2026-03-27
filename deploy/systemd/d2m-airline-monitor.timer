@@ -1,0 +1,11 @@
+[Unit]
+Description=D2M Airline Monitor — Daily 06:00 MDT
+Requires=d2m-airline-monitor.service
+
+[Timer]
+# 06:00 MDT = 12:00 UTC (MDT = UTC-6)
+OnCalendar=*-*-* 12:00:00 UTC
+Persistent=true
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,11 @@
+[Unit]
+Description=D2M World Factbook — Weekly Monday 08:00 MDT
+Requires=d2m-factbook-refresh.service
+
+[Timer]
+# Monday 08:00 MDT = 14:00 UTC
+OnCalendar=Mon *-*-* 14:00:00 UTC
+Persistent=true
+
+[Install]
+WantedBy=timers.target
