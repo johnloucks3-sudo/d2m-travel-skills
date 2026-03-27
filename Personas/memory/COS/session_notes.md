@@ -21,3 +21,6 @@ Commander callsign: Yoda. Established via Telegram C2 2026-03-21.
 [decision] STANDING ORDER 2026-03-24: Morning Intelligence Brief — two permanent changes ordered by Commander:
 1. LINKS STANDARD — every article, source, and data point in the morning brief MUST include a clickable hyperlink. No exceptions. This is not optional formatting — it is required content.
 2. REGENT + VIKING ADDED — Regent Seven Seas and Viking (river + ocean) are now explicitly tracked in the daily intel sweep alongside Silversea, Cunard, Oceania, Seabourn, AmaWaterways, and Ponant. Route changes, deployments, promotions, and news for both lines must appear in the CRUISE INTEL section of every brief.
+
+### 2026-03-27 13:27 UTC
+[preference] STANDING ORDER 27 MAR 2026 — Report Format Standard: JSON format used in World Intel and Tech Intel briefs is now the standard for ALL reports. Commander confirmed "well done" on that format. Apply to: morning briefs, intel sweeps, incubator digests, sitreps, innovation briefings, world intel reports, tech monitor outputs. Full send to johnloucks3@gmail.com (no drafts in d2mconcierge for intel/briefs).

@@ -296,7 +296,7 @@ BOOKING SUMMARY
   Booking Date:    September 26, 2025
   Embarkation:     August 29, 2026
   Disembarkation:  September 08, 2026
-  Final Payment:   April 01, 2026 — PENDING
+  Final Payment:   April 01, 2026 — ✅ PAID IN FULL (Mar 27, Commander directive)
 
 ANCHOR DATE TIMELINE
 Date         Status Category     Milestone
@@ -308,7 +308,7 @@ Date         Status Category     Milestone
 2026-03-11   PAST   [payment   ]   Payment reminder #1 (FPD-21)
 2026-03-18   PAST   [payment   ]   Payment reminder #2 (FPD-14)
 2026-03-25   PAST   [payment   ]   Goal: payment in hand (FPD-7)
-2026-04-01          [payment   ]   FINAL PAYMENT DUE — $14,986 STILL OUTSTANDING (Nichols only)
+2026-04-01   DONE   [payment   ] ✅ PAID IN FULL — $14,986 processed Mar 27 (Commander directive)
 2026-04-01          [documents ]   E-150: Guest Info Forms due
 2026-04-01          [supplier  ] ★ HARD: Cancel penalty 15% begins
 2026-04-08          [payment   ]   Confirm payment received (FPD+7)
@@ -374,7 +374,7 @@ DOCUMENTS CHECKLIST
   [ ] Guest Information Form submitted
   [ ] Travel insurance decision (CFAR — Allianz $700 policy exists, clarity needed)
   [ ] Emergency contact provided
-  [ ] Final payment received — ⚠️ $14,986 DUE APR 1 — UNPAID
+  [x] Final payment received — ✅ $14,986 PAID IN FULL Mar 27 (Commander directive)
   [ ] Dining selections made
   [ ] Excursion selections made
   [ ] Final itinerary delivered

@@ -1,67 +1,52 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-03-26 22:56:08 MT
+## Generated: 2026-03-27 11:00:00 MT
 
 ---
 
 ### Recent Commits
+- 0e0ee2b feat: session 26 MAR 2026 — REVERIE emotional architecture, C2 Poe/Max hot-switch, Ely/Darrow paid
 - 7148ad9 feat: validation email diff capture, Gmail re-auth, Josh Morton guest form draft
 - 7b2429d fix: C2 resilience, CLI --print Max plan fix, Dani lockdown, IP migration
 - c942bc5 feat: full backup trinity — weekly Evernote, monthly archive, verify
 - d620c17 fix: use label.messagesTotal for accurate queue count in inbox cleanup
-- 78c64ce feat: daily inbox cleanup pipeline — label-only, no deletes
 
 ### Uncommitted Changes
-- .obsidian/community-plugins.json (modified)
-- .smart-env/event_logs/event_logs.ajson (modified)
-- .smart-env/multi/deploy_tunnel_url_txt.ajson (modified)
-- .smart-env/multi/dossiers_DOSSIER_Grandeur_Scandinavia_Aug2026_md.ajson (modified)
-- .smart-env/multi/dossiers_DOSSIER_VikingMars_PanamaCanal_Dec2026_md.ajson (modified)
-- .smart-env/multi/dossiers_Furlow_Regent_3071222_md.ajson (modified)
-- .smart-env/multi/dossiers_Kuklinski_Viking_Panama_md.ajson (modified)
-- .smart-env/multi/dossiers_Loucks_Personal_SilverNova_Japan_md.ajson (modified)
-- .smart-env/multi/fb_cruise_groups_txt.ajson (modified)
-- .smart-env/multi/logs_batch_20260318_165648_MAGtap_Supplier_Intel_Sweep_txt.ajson (modified)
-- .smart-env/multi/logs_batch_20260318_165652_Ship_Intelligence_Sweep_txt.ajson (modified)
-- .smart-env/multi/logs_batch_20260318_165655_World_Intelligence_+_Airline_Route__txt.ajson (modified)
-- .smart-env/multi/logs_batch_20260318_165658_Active_Dossier_Review_Pass_txt.ajson (modified)
-- .smart-env/multi/logs_batch_20260318_165701_Dani_Email_Sweep_txt.ajson (modified)
-- .smart-env/multi/logs_batch_20260318_165704_Star_Protocol_Sweep_txt.ajson (modified)
-- .smart-env/multi/logs_batch_20260318_165707_Competitive_Surveillance_txt.ajson (modified)
-- .smart-env/multi/logs_batch_20260318_165710_Tier_1_Tool_Health_Check_txt.ajson (modified)
-- .smart-env/multi/logs_session_log_txt.ajson (modified)
-- .smart-env/multi/x_osint_follow_list_txt.ajson (modified)
-- a2a_tasks.db (modified)
-- MORNING_BRIEF_CONTINUATION.md (new)
-- _new_body.txt (new)
-- _patch_briefing.py (new)
-- cache/client_context/ai_context.json (new)
-- cache/client_context/britan_context.json (new)
-- cache/client_context/claude_context.json (new)
-- cache/client_context/dani_context.json (new)
-- cache/client_context/dossier_context.json (new)
-- cache/client_context/ely_context.json (new)
-- cache/client_context/furlow_context.json (new)
-- cache/client_context/giudecca_context.json (new)
-- cache/client_context/haymarket_context.json (new)
-- cache/client_context/hi_context.json (new)
-- cache/client_context/how_context.json (new)
-- cache/client_context/kuklinski_context.json (new)
-- cache/client_context/loucks_context.json (new)
-- cache/client_context/lyons_context.json (new)
-- cache/client_context/mcleod_context.json (new)
-- cache/client_context/mcleran_context.json (new)
-- cache/client_context/morton_context.json (new)
+- CLAUDE.md (modified)
+- Personas/memory/COS/session_notes.md (modified)
+- cache/client_context/ely_context.json (modified)
+- cache/client_context/furlow_context.json (modified)
+- cache/client_context/how_context.json (modified)
+- cache/client_context/mcleran_context.json (modified)
+- cache/client_context/quick_context.json (modified)
+- cache/client_context/thanks_context.json (modified)
+- cache/client_context/wait_context.json (modified)
+- cache/client_context/westbrook_context.json (modified)
+- cache/client_context/what_context.json (modified)
+- commander_inbox_log.json (modified)
+- config/voice_examples.json (modified)
+- deploy/n8n/wf1_morning_brief.json (modified)
+- dossiers/DOSSIER_Grandeur_Scandinavia_Aug2026.md (modified)
+- dossiers/DOSSIER_VikingMars_PanamaCanal_Dec2026.md (modified)
+- dossiers/Furlow_Regent_3071222_TIMELINE.md (modified)
+- dossiers/Kuklinski_Viking_Panama.md (modified)
+- dossiers/McLeod_McGlasson_Multi.md (modified)
+- dossiers/Morton_Joshua_Erica_Viking_Panama.md (modified)
+- Personas/memory/A2/session_notes.md (new)
+- intel/incubator_am_raw_2026-03-27.json (new)
+- reverie/ (new)
+- reverie_susan_intro.py (new)
+- thunderbird_email_intel.py.tmp.75859.1774630800802 (new)
 
 ### Active Work
 - SSS: 0 pending decision(s)
-- Learning: 33 rules pending validation
+- Learning: 43 rules pending validation
 
 ### Recently Touched Dossiers
-- Ely_Darrow_Regent_3096289.md
-- Furlow_Regent_3071222.md
-- Nichols_Regent_3078056.md
-- DOSSIER_SilverMuse_Mediterranean_Jun2026.md
-- Lyons_Nancy_Ken.md
+- McLeod_McGlasson_Multi.md
+- Kuklinski_Viking_Panama.md
+- DOSSIER_VikingMars_PanamaCanal_Dec2026.md
+- Furlow_Regent_3071222_TIMELINE.md
+- DOSSIER_Grandeur_Scandinavia_Aug2026.md
 
 ### Open TODOs
 - [tool_validation_plan.md] - [ ] list files in TITAN_BOOKINGS_VAULT
@@ -80,6 +65,3 @@
 
 ---
 *Auto-generated by COS · Thunderbird OS · Auto-Save Protocol 2026-03-16*
-
-### Session Notes (Manual)
-Commander-directed end-of-day capture: save all activity from 2026-03-26 Telegram session.

@@ -74,7 +74,7 @@ YODA_EMAIL = "johnloucks3@gmail.com"       # Commander's personal inbox — reci
 OPS_EMAIL = "d2mconcierge@gmail.com"       # D2M ops sender — all draft From headers (gmail_token.json)
 CONCIERGE_EMAIL = "concierge@d2mluxury.quest"
 
-# Claude Opus via CLI subprocess (Max plan, $0)
+# Claude Haiku via CLI subprocess (Max plan, $0) — switched from Opus 2026-03-27 to reduce session quota burn
 CLAUDE_CLI = os.path.expanduser("~/.local/bin/claude")
 
 # Sweep config
@@ -448,7 +448,7 @@ def _call_opus(system_prompt: str, user_prompt: str,
     cmd = [
         CLAUDE_CLI,
         "--print",
-        "--model", "opus",
+        "--model", "haiku",
         "--dangerously-skip-permissions",
         "--output-format", "text",
         "-p", combined_prompt,
@@ -1239,14 +1239,8 @@ def run_email_intel_sweep(
     state = _load_state()
     processed_ids = set(state.get("processed_ids", []))
 
-    # Build registries
-    logger.info("Building client registry (3-source merge)...")
-    client_registry = build_client_registry()
-    logger.info("Building supplier lookup...")
-    supplier_lookup = build_supplier_lookup()
-    context_summary = _build_context_summary(client_registry)
-
-    # Connect to Gmail
+    # --- FAST PATH: Connect to Gmail and check for new emails FIRST ---
+    # Skip expensive registry builds if there is nothing new to process.
     service = _get_gmail_service()
 
     # Search for recent unread emails (broad scan)
@@ -1274,17 +1268,31 @@ def run_email_intel_sweep(
     message_stubs = results.get("messages", [])
     logger.info(f"Found {len(message_stubs)} unread emails in last {lookback_hours}h")
 
+    # Early exit: no new emails or all already processed — skip registry builds
+    new_stubs = [s for s in message_stubs if s["id"] not in processed_ids]
+    if not new_stubs:
+        logger.info("No new emails to process — exiting early (skipping registry builds).")
+        return {
+            "status": "ok",
+            "emails_found": len(message_stubs),
+            "new_to_process": 0,
+            "skipped": len(message_stubs),
+            "results": [],
+        }
+
+    # Build registries (only when there are new emails to process)
+    logger.info("Building client registry (3-source merge)...")
+    client_registry = build_client_registry()
+    logger.info("Building supplier lookup...")
+    supplier_lookup = build_supplier_lookup()
+    context_summary = _build_context_summary(client_registry)
+
     sweep_results = []
-    stats = {"supplier": 0, "client": 0, "general": 0, "skipped": 0,
+    stats = {"supplier": 0, "client": 0, "general": 0, "skipped": len(message_stubs) - len(new_stubs),
              "drafts": 0, "papers": 0}
 
-    for stub in message_stubs:
+    for stub in new_stubs:
         msg_id = stub["id"]
-
-        # Skip already processed
-        if msg_id in processed_ids:
-            stats["skipped"] += 1
-            continue
 
         # Read full message
         try:

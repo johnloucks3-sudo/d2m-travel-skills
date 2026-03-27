@@ -59,7 +59,7 @@ BOOKING SUMMARY
   Booking Date:    February 07, 2026
   Embarkation:     December 17, 2026
   Disembarkation:  December 27, 2026
-  Final Payment:   March 31, 2026 — PENDING
+  Final Payment:   March 31, 2026 — ✅ PAID IN FULL (Mar 27, Commander directive)
 
 ANCHOR DATE TIMELINE
 Date         Status Category     Milestone
@@ -69,7 +69,7 @@ Date         Status Category     Milestone
 2026-03-17          [payment   ]   Payment reminder #2 (FPD-14)
 2026-03-22          [documents ]   E-270: Passport validity check (6-month rule)
 2026-03-24          [payment   ]   Goal: payment in hand (FPD-7)
-2026-03-31          [payment   ]   FINAL PAYMENT DUE
+2026-03-31   DONE   [payment   ] ✅ PAID IN FULL — processed Mar 27 (Commander directive)
 2026-04-07          [payment   ]   Confirm payment received (FPD+7)
 2026-06-20          [insurance ]   E-180: Insurance decision deadline
 2026-07-20          [documents ]   E-150: Guest Info Forms due
@@ -115,7 +115,7 @@ DOCUMENTS CHECKLIST
   [ ] Guest Information Form submitted
   [ ] Travel insurance decision
   [ ] Emergency contact provided
-  [ ] Final payment received
+  [x] Final payment received — ✅ PAID IN FULL Mar 27 (Commander directive)
   [ ] Dining selections made
   [ ] Excursion selections made
   [ ] Final itinerary delivered
@@ -143,7 +143,7 @@ BOOKING SUMMARY
   Booking Date:    February 07, 2026
   Embarkation:     December 17, 2026
   Disembarkation:  December 27, 2026
-  Final Payment:   March 31, 2026 — PENDING
+  Final Payment:   March 31, 2026 — ✅ PAID IN FULL (Mar 27, Commander directive)
 
 ANCHOR DATE TIMELINE
 Date         Status Category     Milestone
@@ -153,7 +153,7 @@ Date         Status Category     Milestone
 2026-03-17          [payment   ]   Payment reminder #2 (FPD-14)
 2026-03-22          [documents ]   E-270: Passport validity check (6-month rule)
 2026-03-24          [payment   ]   Goal: payment in hand (FPD-7)
-2026-03-31          [payment   ]   FINAL PAYMENT DUE
+2026-03-31   DONE   [payment   ] ✅ PAID IN FULL — processed Mar 27 (Commander directive)
 2026-04-07          [payment   ]   Confirm payment received (FPD+7)
 2026-06-20          [insurance ]   E-180: Insurance decision deadline
 2026-07-20          [documents ]   E-150: Guest Info Forms due
@@ -199,7 +199,7 @@ DOCUMENTS CHECKLIST
   [ ] Guest Information Form submitted
   [ ] Travel insurance decision
   [ ] Emergency contact provided
-  [ ] Final payment received
+  [x] Final payment received — ✅ PAID IN FULL Mar 27 (Commander directive)
   [ ] Dining selections made
   [ ] Excursion selections made
   [ ] Final itinerary delivered
@@ -227,7 +227,7 @@ BOOKING SUMMARY
   Booking Date:    February 08, 2026
   Embarkation:     December 17, 2026
   Disembarkation:  December 27, 2026
-  Final Payment:   March 31, 2026 — PENDING
+  Final Payment:   March 31, 2026 — ✅ PAID IN FULL (Mar 27, Commander directive)
 
 ANCHOR DATE TIMELINE
 Date         Status Category     Milestone
@@ -237,7 +237,7 @@ Date         Status Category     Milestone
 2026-03-17          [payment   ]   Payment reminder #2 (FPD-14)
 2026-03-22          [documents ]   E-270: Passport validity check (6-month rule)
 2026-03-24          [payment   ]   Goal: payment in hand (FPD-7)
-2026-03-31          [payment   ]   FINAL PAYMENT DUE
+2026-03-31   DONE   [payment   ] ✅ PAID IN FULL — processed Mar 27 (Commander directive)
 2026-04-07          [payment   ]   Confirm payment received (FPD+7)
 2026-06-20          [insurance ]   E-180: Insurance decision deadline
 2026-07-20          [documents ]   E-150: Guest Info Forms due
@@ -283,7 +283,7 @@ DOCUMENTS CHECKLIST
   [ ] Guest Information Form submitted
   [ ] Travel insurance decision
   [ ] Emergency contact provided
-  [ ] Final payment received
+  [x] Final payment received — ✅ PAID IN FULL Mar 27 (Commander directive)
   [ ] Dining selections made
   [ ] Excursion selections made
   [ ] Final itinerary delivered

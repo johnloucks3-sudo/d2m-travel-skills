@@ -115,11 +115,12 @@
 - **Mar 12, 2026** — RSSC portal scraped · 7 excursions confirmed · Daily Itinerary sheet populated
 - **Mar 16, 2026** — John & Missy returned from Costa Rica
 - **Mar 18, 2026** — Melissa Furlow guest registration: COMPLETE ✓
-- **Mar 20, 2026** — Payment/CC request email drafted · Draft ID r8097692406753326321 · *NOT YET SENT — AWAITING SEND APPROVAL*
+- **Mar 20, 2026** — Payment/CC request email drafted · Draft ID r8097692406753326321
+- **Mar 25, 2026** — ✅ **FINAL PAYMENT $15,486 PROCESSED** — Chase Sapphire Reserve (Commander directive)
 
 ### ⚠️ UPCOMING SUSPENSE DATES
 
-- **APR 1, 2026** — ⚠️ **FINAL PAYMENT $15,486** to Regent · CC info needed NOW
+- **APR 1, 2026** — ✅ ~~FINAL PAYMENT $15,486~~ PAID IN FULL (Mar 25)
 - **APR 1, 2026** — ⚠️ Monthly Validation #1 (D2M internal)
 - **APR TBD** — ⚠️ Hotel payment — Haymarket By Scandic — $801.74 net (Bedsonline 1095075)
 - **APR TBD** — ⚠️ Transfer payment — ARN→Haymarket — $117.56 net (Bedsonline 1095074)

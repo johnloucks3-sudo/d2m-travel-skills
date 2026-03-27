@@ -2248,5 +2248,65 @@
     "persona": "A2",
     "draft_id": null,
     "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-27T16:17:17.219290+00:00",
+    "msg_id": "19d2fd9780dddbf3",
+    "subject": "Women of TLN Webinar: Elevate Your Digital Presence",
+    "sender": "mail@tln.messages2.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-27T16:17:22.815961+00:00",
+    "msg_id": "19d2fd9780dddbf3",
+    "subject": "Women of TLN Webinar: Elevate Your Digital Presence",
+    "sender": "mail@tln.messages2.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-27T16:17:42.796170+00:00",
+    "msg_id": "19d2fd7c18cc2603",
+    "subject": "Women of TLN Webinar: Elevate Your Digital Presence",
+    "sender": "mail@tln.messages2.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-27T16:17:43.834993+00:00",
+    "msg_id": "19d2fd7c18cc2603",
+    "subject": "Women of TLN Webinar: Elevate Your Digital Presence",
+    "sender": "mail@tln.messages2.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-27T16:18:23.686002+00:00",
+    "msg_id": "19d2fcce48300984",
+    "subject": "BREAKING:  Iran-linked group hacks Kash Patel's personal email: report",
+    "sender": "info@justthenews.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-27T16:18:24.662386+00:00",
+    "msg_id": "19d2fcce48300984",
+    "subject": "BREAKING:  Iran-linked group hacks Kash Patel's personal email: report",
+    "sender": "info@justthenews.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
   }
 ]

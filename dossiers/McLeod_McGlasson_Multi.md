@@ -89,6 +89,19 @@
 > **Mar 24 — Melissa McGlasson** (Transfers — FRUSTRATED)
 > Client explicitly frustrated. Believes deviation payment should have covered transfers; recent Silversea correspondence suggests otherwise. Feels 'assured it was taken care of' — perceived broken promise. Demands clarity on Rome→Civitavecchia and disembarkation transfers. Also: do NOT let Silversea touch airline seat assignments (already booked directly). Sentiment: frustrated, trust eroding. **URGENCY: HIGH — resolve same day.** Pavlus competitive risk elevated.
 
+**Mar 27 — D2M → Silversea (Elaine Buenviaje)** *(sent by Dani — Commander: "Excellent email")*
+> Provided UA177 flight details (DEN→FCO, Jun 18→19, Seats 3D/3F, PNR NFBDP6) + return flights (AC817 VCE→YYZ + AC1041 YYZ→DEN, Jul 6, PNR CXNT6Q). Respectfully asked for goodwill exception on June 19 FCO→Baglioni transfer, noting the Sep 2025 verbal commitment. Erik said "fine waiting until Monday" per WhatsApp.
+
+**Mar 27 — Silversea (Elaine Buenviaje) REPLY** *(received 13:43 UTC)*
+> Silversea transfer status clarified:
+> - **Jun 18 Private Executive Home Transfer** — ✅ CONFIRMED (Longmont→DEN, Blacklane)
+> - **Jun 19 FCO → Baglioni Hotel Luna** — ⚠️ NOT COMPLIMENTARY. Baglioni not a contracted Silversea hotel; at additional cost. Flight info received (UA177). Awaiting goodwill decision.
+> - **Jun 23 Airport → Pier Group Transfer** — ✅ CONFIRMED
+> - **Jul 3 Pier → Hilton Molino Stucky** — ✅ **ADDED**. Hilton is a contracted hotel; Elaine requested complimentary pier→hotel + hotel→pier transfers.
+> - **Jul 6 Transfer** — Available; post-cruise flight details required (already provided: AC817/AC1041, Jul 6)
+> - **Blacklane** — Will communicate directly to guest email 30 days prior to sailing (~May 24)
+> Erik McLeod confirmed "fine waiting until Monday" for Silversea's goodwill decision on Jun 19.
+
 ---
 
 ### SILVER MUSE — TRAVEL DETAILS (from CruisingPower Mar 10)
@@ -122,11 +135,16 @@
 | RET | AC817 | Venice → Toronto | Jul 6, 12:20 PM | Jul 6, 3:45 PM | CXNT6Q |
 | RET | AC1041 | Toronto → Denver | Jul 6, 6:40 PM | Jul 6, 8:22 PM | CXNT6Q |
 
-**Transfers (Silversea-arranged):**
-- Jun 22: Private Executive Home Transfer (pre-cruise)
-- Jun 23: Promo Hotel-to-Pier group transfer → embark
-- Jul 3: Promo Pier-to-Hotel group transfer → disembark
-- Jul 3: Private Executive Home Transfer (post-cruise)
+**Transfers (Silversea-arranged) — Updated Mar 27:**
+| Date | Transfer | Status |
+|------|----------|--------|
+| Jun 18 | Private Executive Home Transfer (Longmont→DEN, Blacklane pre-cruise) | ✅ CONFIRMED |
+| Jun 19 | FCO Airport → Baglioni Hotel Luna | ⚠️ AT COST — Baglioni not contracted. Flight info provided. Awaiting goodwill decision (by Mon Mar 30). |
+| Jun 23 | Airport → Pier Group Transfer (embarkation, Civitavecchia) | ✅ CONFIRMED |
+| Jul 3 | Pier → Hilton Molino Stucky (disembarkation, Fusina→Venice) | ✅ ADDED — complimentary (Hilton is contracted) |
+| Jul 6 | Hilton Molino Stucky → VCE Airport | ✅ AVAILABLE — post-cruise flight details provided (AC817/AC1041, Jul 6) |
+| Jul 6 | Private Executive Home Transfer (DEN→Longmont, Blacklane post-cruise) | ✅ CONFIRMED |
+| TBD | Blacklane confirmations to client | ⏳ 30 days prior to sailing (~May 24, 2026) |
 
 **Free Shore Excursion:** Jun 23 (included)
 
@@ -359,7 +377,7 @@ All $0 unless noted. Both guests on all excursions.
 
 - [ ] URGENT: Instruct Silversea in writing to NOT request or modify airline seat assignments (auto-intel Mar 24)
 
-- [ ] URGENT: Contact Silversea re: transfer coverage under deviation for booking 298475-25 — get written confirmation (auto-intel Mar 24)
+- [x] ~~URGENT: Contact Silversea re: transfer coverage~~ — **COMPLETE Mar 27.** Written reply received. Jun 19 FCO transfer at-cost (goodwill request pending); Jul 3 Hilton transfers added ✅; Jul 6 transfer available ✅.
 
 - [ ] CC Melissa (memcglas@gmail.com) on all future correspondence (auto-intel Mar 17)
 
@@ -373,7 +391,9 @@ All $0 unless noted. Both guests on all excursions.
 
 - [ ] Contact Silversea to update seat assignments in their system (UA 177: 3D/3F, AC 817: 3A/4A, AC 1041: 2A/2C) (auto-intel Mar 17)
 
-- [ ] Call/email Silversea re: Blacklane transfer confirmations for booking 298475-25 — URGENT, client's #1 priority (auto-intel Mar 17)
+- [x] ~~Call/email Silversea re: Blacklane transfers~~ — **COMPLETE Mar 27.** Elaine confirmed Blacklane will contact client directly ~30 days prior to sailing (~May 24). No action needed until then.
+- [ ] **⚠️ MONITOR: Jun 19 FCO transfer goodwill decision** — Follow up with Elaine by Mon Mar 30 if no response. If denied, source alternative transfer (Commander noted he can beat Baglioni's quoted price: €143 E-class / €209 Minivan).
+- [ ] **Inform McLeod/McGlasson of Silversea reply** — Confirm Jul 3 Hilton transfers added; explain Jun 19 transfer status; advise Blacklane timeline. Draft per WF-17. Erik waiting until Monday.
 
 ### REGENT LESSER ANTILLES — RSSC PORTAL DATA (Scraped Mar 12, 2026)
 - **Voyage:** Miami to Miami — LESSER ANTILLES JOURNEY

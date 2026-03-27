@@ -7,13 +7,13 @@
           "interval": [
             {
               "field": "cronExpression",
-              "expression": "0 13 * * 1-5"
+              "expression": "0 7 * * *"
             }
           ]
         }
       },
       "id": "a1b2c3d4-0001-4000-8000-000000000001",
-      "name": "Schedule \u2014 7AM MDT",
+      "name": "Schedule \u2014 1AM MDT Daily",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
@@ -75,7 +75,7 @@
     },
     {
       "parameters": {
-        "jsCode": "const world = $('World Intel').item.json;\nconst ship = $('Ship Intel').item.json;\nconst ts = new Date().toLocaleString('en-US', {timeZone: 'America/Denver', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'});\n\n// Extract from nested .data if present\nconst wData = world.data || world;\nconst sData = ship.data || ship;\n\n// World Intel \u2014 format stats + top alerts\nlet wText = '';\nif (wData.news_articles !== undefined) {\n  wText = `${wData.news_articles} articles \u00b7 ${wData.urgent_news || 0} urgent`;\n  if (wData.travel_advisories_total > 0) wText += ` \u00b7 ${wData.travel_advisories_total} advisories`;\n  if (wData.weather_alerts > 0) wText += ` \u00b7 ${wData.weather_alerts} weather alerts`;\n  const alerts = wData.top_alerts || [];\n  if (alerts.length) wText += '\\n' + alerts.slice(0,3).map(a => `\u2022 ${a}`).join('\\n');\n} else {\n  wText = wData.summary || wData.result || wData.message || JSON.stringify(wData).slice(0,500);\n}\n\n// Ship Intel \u2014 format stats\nlet sText = '';\nif (sData.voyages_scraped !== undefined) {\n  sText = `${sData.cruise_lines_monitored || 'Cruise lines'} \u00b7 ${sData.voyages_scraped} voyages \u00b7 ${sData.pricing_alerts || 0} price alerts \u00b7 ${sData.availability_alerts || 0} availability alerts`;\n} else {\n  sText = sData.summary || sData.result || sData.message || JSON.stringify(sData).slice(0,500);\n}\n\nconst msg = `*D2M Morning Brief \u2014 ${ts}*\\n\\n*World Intel*\\n${wText}\\n\\n*Ship Intel*\\n${sText}`;\nreturn [{ json: { message: msg } }];"
+        "jsCode": "// D2M Morning Brief — JSON format with clickable links (SO 27 MAR 2026)\nconst world = $('World Intel').item.json;\nconst ship = $('Ship Intel').item.json;\nconst ts = new Date().toLocaleString('en-US', {timeZone: 'America/Denver',\n  month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit', hour12: true});\n\nconst wData = world.data || world;\nconst sData = ship.data || ship;\n\n// Smart section formatter — renders articles with inline hyperlinks\nfunction fmtSection(data, label, limit) {\n  const items = data.articles || data.items || data.top_alerts || data.alerts || data.results || [];\n  if (!items.length) {\n    const raw = data.summary || data.result || data.message || '';\n    return `*${label}*\\n${raw.slice(0, 600)}`;\n  }\n  const stats = data.news_articles\n    ? `_${data.news_articles} articles \\u00b7 ${data.urgent_news||0} urgent${data.travel_advisories_total ? ' \\u00b7 ' + data.travel_advisories_total + ' advisories' : ''}_\\n`\n    : '';\n  const lines = items.slice(0, limit).map(item => {\n    if (typeof item === 'string') return `\\u2022 ${item.slice(0,200)}`;\n    const title = (item.headline || item.title || item.alert || item.name || '').slice(0, 120);\n    const url   = item.url || item.link || '';\n    const blurb = (item.summary || item.body || item.relevance || '').slice(0, 160);\n    const bullet = url ? `\\u2022 [${title}](${url})` : `\\u2022 ${title}`;\n    return blurb ? `${bullet}\\n  _${blurb}_` : bullet;\n  });\n  return `*${label}*\\n${stats}${lines.join('\\n')}`;\n}\n\nconst wSection = fmtSection(wData, '\\ud83c\\udf0d WORLD INTEL', 5);\nconst sSection = fmtSection(sData, '\\ud83d\\udea2 SHIP INTEL', 4);\n\nconst msg = `*\\ud83d\\udcca D2M MORNING BRIEF \\u2014 ${ts}*\\n_Dreams2Memories Travel \\u00b7 Thunderbird OS_\\n\\n${wSection}\\n\\n${sSection}`;\n\n// Telegram cap at 4096 chars\nconst trimmed = msg.length > 4000 ? msg.slice(0, 3997) + '\\u2026' : msg;\n\nreturn [{ json: { message: trimmed, full_world: JSON.stringify(wData), full_ship: JSON.stringify(sData) } }];"
       },
       "id": "a1b2c3d4-0004-4000-8000-000000000004",
       "name": "Format Brief",
@@ -111,7 +111,7 @@
     }
   ],
   "connections": {
-    "Schedule \u2014 7AM MDT": {
+    "Schedule \u2014 1AM MDT Daily": {
       "main": [
         [
           {

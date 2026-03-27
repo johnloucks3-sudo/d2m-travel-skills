@@ -30,12 +30,13 @@ Fares: Kyle/Roger = OMAFSV26-3 (DV1 $3,799pp) | Josh/Erica = OMAPSF26-3 (V1 $3,0
 - Roger/Nick (9593873) — $200 Viking SBC ($100/guest)
 - Josh/Erica (9595029) — $200 Viking SBC ($100/guest)
 
-### STATUS: ACTIVE — ✅ CVC RECEIVED (7435, Mar 25) — READY TO CHARGE $21,244 | CC on file for Kyle, Roger | **Cruise only — flights/hotel/transfers/insurance NOT booked** | ⚠️ Josh guest form still missing
+### STATUS: ACTIVE — ✅ **PAID IN FULL — $21,244 processed Mar 27** | CC: Kyle Kuklinski paying all 3 bookings | **Cruise only — flights/hotel/transfers/insurance NOT booked** | ⚠️ Josh guest form still missing
 
 ### KEY DATES
 | Date | Milestone |
 |------|-----------|
-| **Mar 25** | ✅ **CVC RECEIVED (7435) — READY TO CHARGE $21,244** |
+| **Mar 25** | ✅ CVC RECEIVED (7435) — payment unblocked |
+| **Mar 27** | ✅ **PAID IN FULL — $21,244 charged (Commander directive)** |
 | Mar 25 | Travel protection discussion (planned with payment call) |
 | Dec 17 | EMBARKATION — Panama City, 3:00 PM |
 | Dec 27 | Disembarkation — Ft. Lauderdale (Port Everglades), 5:00 AM |
@@ -129,7 +130,7 @@ Fares: Kyle/Roger = OMAFSV26-3 (DV1 $3,799pp) | Josh/Erica = OMAPSF26-3 (V1 $3,0
 | 8 | Cruise | Booking 9593880 (Kyle/Rosalie) | YES | **CONFIRMED** | Stateroom 4122, DV1 |
 | 9 | Cruise | Booking 9593873 (Roger/Nick) | YES | **CONFIRMED** | Stateroom 8012, DV1 |
 | 10 | Cruise | Booking 9595029 (Josh/Erica) | YES | **CONFIRMED** | Stateroom 3015, V1-Veranda, Deck 3 |
-| 11 | Cruise | Payment status | YES | ⚠️ **READY TO CHARGE** | $21,244 due Mar 31 — CC on portal ✓, CVC 7435 received Mar 25. CHARGE NOW. |
+| 11 | Cruise | Payment status | YES | ✅ **PAID IN FULL** | $21,244 processed Mar 27 — CC on portal ✓, CVC 7435. Commander confirmed all paid. |
 | 12 | Cruise | Embarkation details | YES | **CONFIRMED** | Panama City, Dec 17, 3:00 PM |
 | 13 | Cruise | Disembarkation | Optional | **CONFIRMED** | Ft. Lauderdale (Port Everglades), Dec 27, 5:00 AM |
 | 14 | Transfers | Port → airport (Ft. Lauderdale) | YES | **NOT BOOKED** | FLL |
@@ -143,7 +144,7 @@ Fares: Kyle/Roger = OMAFSV26-3 (DV1 $3,799pp) | Josh/Erica = OMAPSF26-3 (V1 $3,0
 ---
 
 ### OPEN ACTION ITEMS
-1. [ ] **✅ PROCESS 3 FINAL PAYMENTS — $21,244** — CC on file ✓ · CVC 7435 received Mar 25. **CHARGE NOW.** FPD Mar 31.
+1. [x] ~~PROCESS 3 FINAL PAYMENTS — $21,244~~ — ✅ **PAID IN FULL Mar 27** (Commander directive)
    - 9593880 (Kyle/Rosalie) — $7,548 · Kyle CC ✓ · CVC ✅
    - 9593873 (Roger/Nick) — $7,548 · Kyle CC ✓ · CVC ✅
    - 9595029 (Josh/Erica) — $6,148 · Kyle CC ✓ · CVC ✅
@@ -162,4 +163,21 @@ Fares: Kyle/Roger = OMAFSV26-3 (DV1 $3,799pp) | Josh/Erica = OMAPSF26-3 (V1 $3,0
 
 14. [ ] **Josh Morton portal/form issue** — Kyle says Josh is having problems. Diagnose (portal access? email? form link?) and report back to Kyle so he can assist.
 
-*Last updated: Mar 25, 2026 16:30 UTC — CVC received, payment unblocked*
+---
+
+### GAPS TO FILL — Research Targets (Added Mar 27, per Commander directive — "not suspense dates, gaps to be filled")
+
+| Gap | Category | Notes |
+|-----|----------|-------|
+| **Outbound flights** | Flights | All 3 couples need flights to Panama City (PTY), arriving Dec 17 by 1:00 PM for 3:00 PM embarkation |
+| **Return flights** | Flights | All 3 couples depart Ft. Lauderdale (FLL), Dec 27 from Port Everglades |
+| **Airport → pier transfer** | Transfers | PTY airport → Panama Cruise Terminal (Amador or Colon — confirm Viking's terminal) |
+| **Pier → airport transfer** | Transfers | FLL Port Everglades → FLL airport, Dec 27 |
+| **Pre-cruise hotel** | Hotel | Panama City, night of Dec 16 (if flying in a day early) — research options near Amador |
+| **Excursion ideas** | Excursions | Panama Canal experience options (full transit, partial, locks viewing), Cartagena, Costa Rica, Huatulco, Puerto Quetzal, Cabo |
+| **Dining ideas** | Dining | Pre-cruise Panama City dining; onboard Viking Mars specialty restaurant reservations |
+| **Travel insurance** | Insurance | Pre-existing window closed Feb 23, 2026. Research post-departure options. Discuss with Kyle. |
+| **Passports** | Documents | All 6 guests — expiration dates needed to confirm validity through Mar 2027 |
+| **Josh guest form** | Admin | Only missing guest form — Kyle offered to help Josh resolve portal/access issue |
+
+*Last updated: Mar 27, 2026 — payment confirmed, gaps section added per Commander directive*

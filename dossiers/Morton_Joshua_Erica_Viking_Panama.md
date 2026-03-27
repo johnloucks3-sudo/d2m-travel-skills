@@ -22,7 +22,7 @@ cc_note: Kyle Kuklinski paying ALL THREE bookings (his, Roger's, and Morton/Dodg
 
 ---
 
-⚠️ **PAYMENT PENDING — Kyle Kuklinski paying $6,148 — CC on file, CVC missing. FPD Mar 31.**
+✅ **PAID IN FULL — $6,148 processed Mar 27. Kyle Kuklinski paid all 3 bookings (CVC 7435).**
 Contact: Josh 818-317-9843 / josh@jerichopix.com
 
 ---
