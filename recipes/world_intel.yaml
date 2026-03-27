@@ -1,6 +1,6 @@
-version: "1.0"
+version: "1.0.0"
 title: World Intelligence Sweep
 description: Aggregate State Dept travel advisories, NOAA port weather, and cruise industry RSS feeds. Writes to Google Sheets World Intel tab.
-steps:
-  - type: tool
-    name: "tool_run_world_intel_sweep"
+
+prompt: |
+  Call the tool_run_world_intel_sweep MCP tool. This aggregates State Department travel advisories, NOAA port weather, and cruise industry RSS feeds, then writes results to the Google Sheets World Intel tab. Return the complete sweep output.

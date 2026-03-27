@@ -1,6 +1,6 @@
-version: "1.0"
+version: "1.0.0"
 title: Academic Scanner
 description: ELON's frontier research radar. Scans ArXiv cs.AI/cs.LG, HuggingFace Daily Papers, Papers With Code for research relevant to D2M/Thunderbird.
-steps:
-  - type: tool
-    name: "academic_scan_save"
+
+prompt: |
+  Call the academic_scan_save MCP tool. This scans ArXiv (cs.AI, cs.LG), HuggingFace Daily Papers, and Papers With Code for frontier AI research relevant to D2M Thunderbird. Return the full results including any papers saved.

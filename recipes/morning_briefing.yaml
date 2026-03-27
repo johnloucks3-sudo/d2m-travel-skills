@@ -1,9 +1,6 @@
-version: "1.0"
+version: "1.0.0"
 title: Morning Briefing
 description: Send the Thunderbird Morning Briefing email to Commander (0630 MDT daily)
-steps:
-  - type: tool
-    name: "send_morning_briefing"
-    args:
-      preview: false
-      weekly: false
+
+prompt: |
+  Call the send_morning_briefing MCP tool with parameters preview=false and weekly=false. This generates and sends the full morning briefing email to Commander. Return the tool output confirming the send status.

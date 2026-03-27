@@ -88,6 +88,7 @@ from thunderbird_mcp_connector import register_connector_tools
 import json
 import logging
 import asyncio
+import os
 from pathlib import Path
 from datetime import datetime
 import re

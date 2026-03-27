@@ -1,6 +1,6 @@
-version: "1.0"
+version: "1.0.0"
 title: Price Monitor
-description: Check current prices on all watched cruise departures. AI fallback (Haiku) routes through Poe when Goose is the caller.
-steps:
-  - type: tool
-    name: "check_departure_prices"
+description: Check current prices on all watched cruise departures. AI fallback routes through Poe when Goose is the caller.
+
+prompt: |
+  Call the check_departure_prices MCP tool. This checks current pricing on all active D2M cruise departure price watches and compares against baseline. Return the full results including any alerts triggered.

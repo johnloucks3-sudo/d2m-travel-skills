@@ -1,6 +1,6 @@
-version: "1.0"
+version: "1.0.0"
 title: Ship Intelligence Sweep
 description: Scrape Regent/Silversea/Viking/Seabourn for pricing, suite availability, itinerary changes. Alerts fire to Telegram on thresholds.
-steps:
-  - type: tool
-    name: "tool_run_ship_intelligence_sweep"
+
+prompt: |
+  Call the tool_run_ship_intelligence_sweep MCP tool. This scrapes targeted luxury cruise lines for pricing, suite availability, and itinerary changes. Return the full sweep results including any threshold alerts that were sent to Telegram.

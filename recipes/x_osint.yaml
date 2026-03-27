@@ -1,8 +1,9 @@
-version: "1.0"
+version: "1.0.0"
 title: X/Twitter OSINT Sweep
 description: Scrape X/Twitter OSINT follow list then summarize with AI via Poe (not Max plan). Delivers briefing to Telegram.
-steps:
-  - type: tool
-    name: "scrape_x_osint_feed"
-  - type: tool
-    name: "summarize_x_osint"
+
+prompt: |
+  Execute the X/Twitter OSINT sweep in two steps:
+  1. Call the scrape_x_osint_feed MCP tool to collect the latest posts from the D2M OSINT follow list.
+  2. Call the summarize_x_osint MCP tool to generate an AI-powered summary of the collected intelligence.
+  Return the full results from both steps including the final Telegram briefing that was delivered.

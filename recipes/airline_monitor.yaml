@@ -1,8 +1,9 @@
-version: "1.0"
+version: "1.0.0"
 title: Airline Route Monitor
 description: Scan airline news for route changes. Cross-reference against client dossier airports. Alert Commander on any impacts to active clients.
-steps:
-  - type: tool
-    name: "tool_scan_route_changes"
-  - type: tool
-    name: "tool_check_impact"
+
+prompt: |
+  Execute a two-step airline route monitoring sweep:
+  1. Call the tool_scan_route_changes MCP tool to scan for recent airline route changes across all major carriers.
+  2. Call the tool_check_impact MCP tool to cross-reference those changes against all active D2M client dossier airports and booking data.
+  Return the complete results from both tools, including any Telegram alerts that were sent to Commander.

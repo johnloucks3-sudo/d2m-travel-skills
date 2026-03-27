@@ -1,6 +1,6 @@
-version: "1.0"
+version: "1.0.0"
 title: Tech Monitor
 description: Daily scan of AI/LLM/MCP advancements (Claude, Goose, LangChain, Playwright). Writes to Google Sheets Tech News tab.
-steps:
-  - type: tool
-    name: "run_tech_monitor"
+
+prompt: |
+  Call the run_tech_monitor MCP tool. This scans AI, LLM, and MCP ecosystem news (Claude, Goose, LangChain, Playwright, etc.) and writes findings to the Google Sheets Tech News tab. Return the full results including any D2M-relevant items flagged.
