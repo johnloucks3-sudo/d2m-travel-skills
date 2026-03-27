@@ -1,18 +1,16 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-03-27 11:00:00 MT
+## Generated: 2026-03-27 14:30:00 MT
 
 ---
 
 ### Recent Commits
+- 310b0b4 feat: 27 MAR 2026 — token leak fix, 43 learning rules approved, SO enforcement
 - 0e0ee2b feat: session 26 MAR 2026 — REVERIE emotional architecture, C2 Poe/Max hot-switch, Ely/Darrow paid
 - 7148ad9 feat: validation email diff capture, Gmail re-auth, Josh Morton guest form draft
 - 7b2429d fix: C2 resilience, CLI --print Max plan fix, Dani lockdown, IP migration
 - c942bc5 feat: full backup trinity — weekly Evernote, monthly archive, verify
-- d620c17 fix: use label.messagesTotal for accurate queue count in inbox cleanup
 
 ### Uncommitted Changes
-- CLAUDE.md (modified)
-- Personas/memory/COS/session_notes.md (modified)
 - cache/client_context/ely_context.json (modified)
 - cache/client_context/furlow_context.json (modified)
 - cache/client_context/how_context.json (modified)
@@ -23,23 +21,30 @@
 - cache/client_context/westbrook_context.json (modified)
 - cache/client_context/what_context.json (modified)
 - commander_inbox_log.json (modified)
-- config/voice_examples.json (modified)
-- deploy/n8n/wf1_morning_brief.json (modified)
-- dossiers/DOSSIER_Grandeur_Scandinavia_Aug2026.md (modified)
-- dossiers/DOSSIER_VikingMars_PanamaCanal_Dec2026.md (modified)
-- dossiers/Furlow_Regent_3071222_TIMELINE.md (modified)
-- dossiers/Kuklinski_Viking_Panama.md (modified)
-- dossiers/McLeod_McGlasson_Multi.md (modified)
-- dossiers/Morton_Joshua_Erica_Viking_Panama.md (modified)
-- Personas/memory/A2/session_notes.md (new)
-- intel/incubator_am_raw_2026-03-27.json (new)
+- learning_rules.db (modified)
+- session_autosave_latest.md (modified)
+- thunderbird_bulletin.py (modified)
+- thunderbird_commander_inbox.py (modified)
+- thunderbird_concierge_monitor.py (modified)
+- thunderbird_crewai.py (modified)
+- thunderbird_dani_email.py (modified)
+- thunderbird_intel_digest.py (modified)
+- thunderbird_learning.py (modified)
+- thunderbird_model_router.py (modified)
+- agent_docs/architecture.md (new)
+- agent_docs/incubator.md (new)
+- docs/cache_reduction_plan.md (new)
+- mcp_launcher_core.sh (new)
+- mcp_launcher_intel.sh (new)
+- mcp_launcher_ops.sh (new)
+- mcp_launcher_travel.sh (new)
 - reverie/ (new)
 - reverie_susan_intro.py (new)
-- thunderbird_email_intel.py.tmp.75859.1774630800802 (new)
+- thunderbird_mcp_gateway.py (new)
 
 ### Active Work
 - SSS: 0 pending decision(s)
-- Learning: 43 rules pending validation
+- Learning: 0 rules pending validation
 
 ### Recently Touched Dossiers
 - McLeod_McGlasson_Multi.md

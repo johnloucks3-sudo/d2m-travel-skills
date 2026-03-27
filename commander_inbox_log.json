@@ -2308,5 +2308,55 @@
     "persona": "A2",
     "draft_id": null,
     "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-27T18:17:34.296583+00:00",
+    "msg_id": "19d3043f219f7bc3",
+    "subject": "Score these data-backed cruise deals now! \ud83c\udf34",
+    "sender": "hello@marketing.cruisebound.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-27T20:17:20.853983+00:00",
+    "msg_id": "19d30e9df57b44c8",
+    "subject": "Last-Minute Offers - Internova Hotels, Resorts & In-Country Partners",
+    "sender": "mail@tln.messages2.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-27T20:17:25.688428+00:00",
+    "msg_id": "19d30e9df57b44c8",
+    "subject": "Last-Minute Offers - Internova Hotels, Resorts & In-Country Partners",
+    "sender": "mail@tln.messages2.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-27T20:17:39.852681+00:00",
+    "msg_id": "19d30e9044aa46b0",
+    "subject": "Last-Minute Offers - Internova Hotels, Resorts & In-Country Partners",
+    "sender": "mail@tln.messages2.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-27T20:17:43.141235+00:00",
+    "msg_id": "19d30e9044aa46b0",
+    "subject": "Last-Minute Offers - Internova Hotels, Resorts & In-Country Partners",
+    "sender": "mail@tln.messages2.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
   }
 ]

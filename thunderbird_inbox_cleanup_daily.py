@@ -203,8 +203,8 @@ COMMANDER_RULES = [
      "subject:(delivered OR undeliverable OR delivery status) is:read older_than:7d",
      30),
     # Old Telegram session logs
-    ("Telegram session logs >14d (read)",
-     "subject:(Telegram Session OR Session Log OR session log) is:read older_than:14d",
+    ("Telegram session logs >30d (read)",
+     "subject:(Telegram Session OR Session Log OR session log) is:read older_than:30d",
      30),
 ]
 

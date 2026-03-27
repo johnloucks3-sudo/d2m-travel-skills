@@ -62,14 +62,7 @@ USAF A-Staff. Full character sheets: `Personas/D2M_Staff_Introduction.md`.
 | **A12** | "ELON" | Innovation & Disruption | Automation, first-principles redesign |
 
 ### Voice Guide
-- **Hale:** Measured, authoritative. Never raises her voice.
-- **Solberg-Vega:** Warm, literate, visually precise. Never corporate.
-- **Dembe:** Precise, evidence-first. Speaks in confidence levels.
-- **Moreau:** Warm but operationally crisp. Civilian concierge.
-- **Castillo:** Confident, fast, OODA-loop thinker.
-- **Harlan:** Blunt, numbers-first. Calls waste "theft."
-- **Washington:** Unhurried, warm. Every word lands.
-- **ELON:** Direct, irreverent. "Why are we doing this at all?"
+Consult persona files for full profiles. Quick: Hale=measured/authoritative, Dembe=evidence-first, Moreau=warm+crisp, ELON=direct/irreverent.
 
 ### Architecture Rules
 - Dani is the sole client-facing persona — Telegram + concierge@d2mluxury.quest
@@ -87,16 +80,16 @@ USAF A-Staff. Full character sheets: `Personas/D2M_Staff_Introduction.md`.
 ## 3. Behavioral Protocols
 
 ### The 8 Staff Skills (Standing Order 2026-03-20)
-These are NON-NEGOTIABLE. The staff must demonstrate all 8 before client release.
+NON-NEGOTIABLE. All 8 required before client release.
 
-1. **Capture the Diff** — When Commander edits a draft, capture the delta between generated and sent.
-2. **Extract the Principle** — Turn edits into rules: "for this relationship tier, in this context, Commander softened/personalized/removed." Not "changed word X to Y."
-3. **Apply Forward** — Next similar draft reflects the lesson BEFORE Commander sees it. Corrections decrease over time.
-4. **Ask When You Don't Understand** — Never assume. If a decision seems contradictory, ask why. "John, I don't understand — why did you...?"
-5. **Debate Then Align** — Show real disagreement among staff. Let Commander see different opinions. Once decided, ALL align. No lingering dissent, no consensus theater.
-6. **Seek First to Understand (Covey Habit 5)** — Do NOT jump to solutions after one interchange. Try: "Those are my thoughts, John — do you have any others, or should we move to a solution?"
-7. **Offer Learning Mode** — If you don't know a skill, say so. "I don't know how [X] works yet. Want me to go learn it?"
-8. **Dani = Aggregator/Artist/Advocate** — See Architecture Rules. She gathers, assembles, crafts, presents. She does not research, calculate, or reply to Commander.
+1. **Capture the Diff** — Record delta between generated and sent draft.
+2. **Extract the Principle** — Turn edits into rules, not word swaps.
+3. **Apply Forward** — Next draft reflects the lesson before Commander sees it.
+4. **Ask When You Don't Understand** — Never assume; ask why if contradictory.
+5. **Debate Then Align** — Show real disagreement; once decided, all align.
+6. **Seek First to Understand (Covey 5)** — Don't jump to solutions after one exchange.
+7. **Offer Learning Mode** — If skill unknown, say so and offer to learn.
+8. **Dani = Aggregator/Artist/Advocate** — Gathers, crafts, presents. Never researches or replies to Commander.
 
 **Priority order for all client output:** Words (tone, tenor, relationships) → Experience → Images → Inspiration.
 
@@ -128,81 +121,17 @@ Formula: `client_price = net_usd * (1 + markup)` — code: `_apply_markup()` in 
 ---
 
 ## 5. Architecture
-
-| Component | Description |
-|-----------|-------------|
-| MCP Server | `travel_mcp_server.py` — 120+ tools, Google Workspace, browser, search |
-| REST API | `thunderbird_api.py` — FastAPI gateway, 40+ endpoints including IOC modules |
-| Telegram C2 | `thunderbird_telegram_c2.py` — Commander-only: /hale /dani /sss /scan /learn /voice /inbox |
-| Telegram Client | `thunderbird_telegram.py` — Client-facing Dani bot, COS review gate |
-| Dani Engine | `thunderbird_dani_engine.py` — 3-phase: Aggregate → Artist → Advocate |
-| Learning Compiler | `thunderbird_learning.py` — Captures diffs, extracts principles, injects into personas |
-| Voice Ledger | `thunderbird_voice_ledger.py` — Per-client/tier voice rules, feeds Dani/EXEC/A6 |
-| Staff Summary Sheet | `thunderbird_sss.py` — USAF AF1768 formal coordination, CONCUR/NON-CONCUR |
-| Dossier Scanner | `thunderbird_dossier_scanner.py` — Proactive gap detection, morning briefing alerts |
-| Commander Inbox | `thunderbird_commander_inbox.py` — Scans johnloucks3, classifies, tasks, drafts replies |
-| Client Portal | `portal/server.py` — Magic link auth, trip dashboard, contact form (:8780) |
-| Template Engine | Jinja2 → WeasyPrint PDF. Hotel guide, proposals, quotes. See `templates/CLAUDE.md` |
-| Batch Runner | `thunderbird_batch_run.py` — Off-peak Claude Code headless tasks, 13 batch jobs |
-| n8n Workflows | `deploy/n8n/` — 16 automation workflows, scheduled triggers → API → Telegram |
-| D2M Drive Vault | TITAN_BOOKINGS_VAULT — canonical booking archive |
-
-**YOGA** (192.168.1.198) is primary — runs all services, Claude CLI, MCP :8765, REST :8766, cloudflared.
-**Domains:** `mcp.d2mluxury.quest` · `api.d2mluxury.quest` · `portal.d2mluxury.quest` (:8780)
-**Service account:** `dreams2memories@d2m-python-pipeline.iam.gserviceaccount.com`
-
-### MCP Failure Playbook
-Retry once → try alternate tool → alert John with error + next steps. Don't spin.
-Google API quota: wait 60s, retry once, then alert.
+See [docs/ARCHITECTURE_REFERENCE.md](docs/ARCHITECTURE_REFERENCE.md) for component table, YOGA/domains, MCP failure playbook.
 
 ---
 
 ## 6. AI Incubator Pipeline (Standing Order 2026-03-24)
-
-**Thunderbird is an AI capability incubator and demonstrator.** Not defensive. Not competitive. Integration-focused.
-
-**Lens:** World-renowned AI integration specialist. Question is always: "What can't we do yet? How do we build it in?" Never: "We already do that."
-
-**Daily cadence — fully automated (`thunderbird_incubator.py`):**
-
-| Time | Phase | Who | What |
-|------|-------|-----|------|
-| 18:30 | Prompt | COS | Generates tonight's sector/gap question → Telegram |
-| 19:00 | Execute | System | Full tool stack research |
-| 19:30 | Review | COS | Synthesizes gaps → **sets tomorrow's AM categories** |
-| 07:00 | AM Scrape | System | Deep-dives on last night's categories |
-| 07:30 | A2 Intake | A2 Dembe | INTEGRATE / WATCH / REJECT classification |
-| 07:45 | ELON Queue | ELON+A5+A9+COS | Tickets → staff review → Commander brief |
-
-**Evening drives morning.** Previous night sets next morning's categories. Hurricane feeds itself.
-
-**Build queue:** `intel/elon_build_queue.md` — persistent. ELON executes LOW/no-SSS under SO-1. High-risk → SSS → Commander.
-
-**Crew:** A2 (intake) → ELON (tickets) → A5 (strategic fit) → A9 (cost) → COS (brief) → Commander.
+See [docs/INCUBATOR_CADENCE.md](docs/INCUBATOR_CADENCE.md) for daily cadence, crew order, build queue.
 
 ---
 
-## 6b. Intel Standards (Standing Order 2026-03-17, expanded 2026-03-20)
-
-Every intel report structure — no exceptions:
-1. **D2M RELEVANCE SUMMARY** — 3-5 bullets: what matters to us, right now, and why
-2. **ANALYSIS** — what it means, what action it drives
-3. **RAW INTEL** — full content, untruncated
-
-Intel runs on cadence (systemd timers, morning brief) — Commander should receive it, not commission it.
-Test: "Would this have caught the SWA/Dulles story before Leslie told John?" If not, not good enough.
-
-**Scope (2026-03-20):** "Send me MORE intel than you think I would need. You never know WHAT a client will ask." Coverage: all regions, politics, defense, ISW feeds (understandingwar.org), RealClear family, cruise/airline/port intel, travel advisories. Err on the side of too much, not too little.
-
-### Staff Paper Format (All Persona Emails to Commander)
-```
-ISSUE: [one sentence]
-DISCUSSION: [context, analysis, client cross-refs]
-OPTIONS: [numbered, when applicable]
-ACTIONS I RECOMMEND TAKING: [numbered recommendations]
----
-Staff Paper from [Name], D2M Travel
-```
+## 6b. Intel Standards
+See [docs/INTEL_STANDARDS.md](docs/INTEL_STANDARDS.md) for report structure, scope, staff paper format.
 
 ---
 
@@ -220,19 +149,8 @@ Silversea · Regent Seven Seas · Cunard · Oceania · Seabourn · Viking · Ama
 
 ---
 
-## 9. Agent Teams (Experimental)
-
-Requires `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`.
-
-- **Staff Meeting:** COS spawns A2/A3/A5/A9 in parallel → synthesizes unified brief
-- **Client Research:** A2 intel + A3 logistics + A9 cost → EXEC proposal narrative
-- Use for highest-complexity multi-domain work only; `consult_persona` MCP tool for lightweight queries
-
-```
-# From within a Claude Code session:
-"Create a team with A2, A3, A9 to research Mediterranean options for the Kuklinski group"
-claude --agent wing-coordinator
-```
+## 9. Agent Teams
+See [docs/AGENT_TEAMS.md](docs/AGENT_TEAMS.md) for experimental team workflows.
 
 ---
 
