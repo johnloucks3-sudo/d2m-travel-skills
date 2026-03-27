@@ -1,10 +1,9 @@
 [Unit]
-Description=D2M X/Twitter OSINT — Daily 07:45 MDT
+Description=D2M X/Twitter OSINT — Daily 02:00 MDT
 Requires=d2m-x-osint.service
 
 [Timer]
-# 07:45 MDT = 13:45 UTC
-OnCalendar=*-*-* 13:45:00 UTC
+OnCalendar=*-*-* 02:00:00 America/Denver
 Persistent=true
 
 [Install]
