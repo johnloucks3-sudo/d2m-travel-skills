@@ -299,7 +299,7 @@ def _run_conversation(scenario: dict) -> dict:
 
         # Call persona with the full enriched query — same as Telegram bot
         try:
-            response = call_persona("A3", enriched_query, max_tokens=800, model_override="opus")  # client-facing portal
+            response = call_persona("A3", enriched_query, max_tokens=800)  # client-facing portal — Sonnet (SO 2026-03-27)
             dani_text = response.get("answer", "") if isinstance(response, dict) else str(response)
         except Exception as e:
             dani_text = f"[ERROR: {e}]"

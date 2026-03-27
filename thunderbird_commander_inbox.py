@@ -467,7 +467,7 @@ def _task_to_persona(classification: str, sender_name: str, sender_email: str,
                     "- No emojis. If referencing John, say 'John Loucks, our owner' or 'John'.\n"
                     "- This draft goes through COS review before Commander sees it.\n"
                 )
-                result = call_persona("A3", context, max_tokens=800, model_override="opus")
+                result = call_persona("A3", context, max_tokens=800)
             except Exception:
                 # Fallback: direct Dani call without full engine context
                 query = (
@@ -477,7 +477,7 @@ def _task_to_persona(classification: str, sender_name: str, sender_email: str,
                     f"{body[:2000]}\n\n"
                     "Sign as: Dani Moreau, Luxury Travel Concierge, Dreams2Memories Travel"
                 )
-                result = call_persona("A3", query, max_tokens=800, model_override="opus")
+                result = call_persona("A3", query, max_tokens=800)
 
         elif persona_id == "COS":
             query = (

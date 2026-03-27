@@ -476,8 +476,8 @@ def _phase_artist(aggregated_data: Dict[str, Any]) -> Optional[str]:
     context += email_format_rules
 
     try:
-        # A3 = Dani. model_override=opus for all client-facing email (quality floor).
-        result = call_persona("A3", context, max_tokens=800, model_override="opus")
+        # A3 = Dani. Sonnet — all client-facing email (SO 2026-03-27: Opus retired).
+        result = call_persona("A3", context, max_tokens=800)
         answer = result.get("answer", "")
 
         # Strip the model attribution tag that call_persona appends

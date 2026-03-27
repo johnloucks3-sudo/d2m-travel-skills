@@ -8,11 +8,16 @@ Reads poe.env and provides:
   - build_api_env() — drop-in for all subprocess env construction
   - log_usage()     — tracks token consumption and estimated point cost
   - usage_summary() — daily/monthly point burn report
+  - set_poe_model() — Commander-selectable model profiles
+  - list_profiles() — enumerate available named profiles
 
 Point cost model (approximated from Poe pricing):
-  Sonnet 4.5/4.6: ~1,042 points per 1,000 tokens (blended input+output)
-  Opus 4.5/4.6:   ~1,750 points per 1,000 tokens (blended)
-  Haiku 3.5:      ~200 points per 1,000 tokens (blended)
+  Sonnet 4.5/4.6:   ~1,042 points per 1,000 tokens (blended input+output)
+  Opus 4.5/4.6:     ~1,750 points per 1,000 tokens (blended)
+  Haiku 3.5:        ~200  points per 1,000 tokens (blended)
+  Kimi K2:          ~800  points per 1,000 tokens (estimated, verify on Poe)
+  Kimi K2 Thinking: ~1,200 points per 1,000 tokens (estimated, extended CoT)
+  nano-banana:      ~150  points per 1,000 tokens (estimated, small/fast)
 
 Usage log: ~/Thunderbird/logs/poe_usage.jsonl (one JSON line per call)
 """
@@ -63,6 +68,122 @@ def poe_base_url() -> str:
 def poe_model() -> str:
     return _cfg_val("POE_MODEL", "claude-sonnet-4-6")
 
+# ── Commander-selectable model profiles ───────────────────────────────────────
+#
+# Keys   = short names usable in C2 commands (/poe gemini, /poe kimi-think, etc.)
+# Values = exact Poe bot/model strings (verify these against poe.com/explore/bots)
+#
+# NOTE: nano-banana and kimi-k2-thinking Poe bot names should be verified at
+#       poe.com/explore/bots — community bot names can change.
+#
+MODEL_PROFILES: dict[str, dict] = {
+    # ── Claude (current default) ─────────────────────────────────────────────
+    "claude":        {"poe_model": "claude-sonnet-4-6",          "label": "Claude Sonnet 4.6 (default)",       "tier": "sonnet"},
+
+    # ── Kimi ─────────────────────────────────────────────────────────────────
+    "kimi":          {"poe_model": "Kimi-K2",                    "label": "Kimi K2 (standard)",                "tier": "kimi"},
+    "kimi-think":    {"poe_model": "Kimi-K2-Thinking",           "label": "Kimi K2 Thinking (extended CoT)",   "tier": "kimi-think"},
+
+    # ── Claude variants on Poe ──────────────────────────────────────────────
+    "claude-code":   {"poe_model": "Claude-Code",                "label": "Claude Code (Poe bot)",             "tier": "sonnet"},
+    "claude-haiku":  {"poe_model": "Claude-Haiku-4.5",           "label": "Claude Haiku 4.5 (Poe bot)",        "tier": "haiku"},
+
+    # ── nano-banana family ───────────────────────────────────────────────────
+    "nano-banana":   {"poe_model": "nano-banana",                "label": "nano-banana (original)",            "tier": "nano"},
+    "nano-banana-2": {"poe_model": "Nano-Banana-2",              "label": "Nano-Banana-2",                     "tier": "nano"},
+    "nano-webui":    {"poe_model": "NanoBananaWebUI",            "label": "NanoBananaWebUI",                   "tier": "nano"},
+
+    # ── Google ───────────────────────────────────────────────────────────────
+    "gemini":        {"poe_model": "Gemini-2.0-Flash",           "label": "Gemini 2.0 Flash",                  "tier": "flash"},
+    "gemini-pro":    {"poe_model": "Gemini-2.0-Pro",             "label": "Gemini 2.0 Pro",                    "tier": "pro"},
+
+    # ── OpenAI ───────────────────────────────────────────────────────────────
+    "gpt4":          {"poe_model": "GPT-4o",                     "label": "GPT-4o",                            "tier": "gpt4"},
+    "gpt4-mini":     {"poe_model": "GPT-4o-Mini",                "label": "GPT-4o Mini (cheap)",               "tier": "gpt4-mini"},
+
+    # ── Speed alias (Groq-class fast) ────────────────────────────────────────
+    "speed":         {"poe_model": "Llama-3.3-70B-Groq",         "label": "Llama 3.3 70B via Groq (fast)",    "tier": "llama"},
+
+    # ── xAI ──────────────────────────────────────────────────────────────────
+    "grok":          {"poe_model": "Grok-3",                     "label": "Grok 3",                            "tier": "grok"},
+    "grok-imagine":  {"poe_model": "Grok-3-Imagine",             "label": "Grok 3 Imagine (image gen)",        "tier": "grok"},
+}
+
+# Aliases (shorthand → profile key)
+_ALIASES: dict[str, str] = {
+    "default":  "claude",
+    "sonnet":   "claude",
+    "k2":       "kimi",
+    "k2-think": "kimi-think",
+    "flash":    "gemini",
+    "4o":       "gpt4",
+    "mini":     "gpt4-mini",
+    "haiku":    "claude-haiku",
+    "banana":   "nano-banana",
+    "banana2":  "nano-banana-2",
+    "webui":    "nano-webui",
+    "code":     "claude-code",
+    "cc":       "claude-code",
+    "fast":     "speed",
+}
+
+
+def resolve_profile(name: str) -> dict | None:
+    """Return profile dict for a given name or alias, or None if not found."""
+    key = _ALIASES.get(name.lower(), name.lower())
+    return MODEL_PROFILES.get(key)
+
+
+def list_profiles() -> list[dict]:
+    """Return all profiles with key, label, and current-selection marker."""
+    current = poe_model()
+    result = []
+    for key, p in MODEL_PROFILES.items():
+        result.append({
+            "key":     key,
+            "label":   p["label"],
+            "model":   p["poe_model"],
+            "active":  p["poe_model"] == current,
+        })
+    return result
+
+
+def set_poe_model(profile_name: str) -> dict:
+    """Switch the active Poe model by profile name. Writes poe.env atomically.
+
+    Returns {"ok": True, "model": ..., "label": ...} on success,
+            {"ok": False, "error": ...} on failure.
+    """
+    profile = resolve_profile(profile_name)
+    if not profile:
+        keys = list(MODEL_PROFILES.keys()) + list(_ALIASES.keys())
+        return {"ok": False, "error": f"Unknown profile '{profile_name}'. Valid: {sorted(keys)}"}
+
+    model_str = profile["poe_model"]
+
+    # Read current poe.env, update or insert POE_MODEL line
+    lines: list[str] = []
+    if POE_ENV_FILE.exists():
+        lines = POE_ENV_FILE.read_text().splitlines()
+
+    found = False
+    for i, line in enumerate(lines):
+        if line.strip().startswith("POE_MODEL"):
+            lines[i] = f"POE_MODEL={model_str}"
+            found = True
+            break
+    if not found:
+        lines.append(f"POE_MODEL={model_str}")
+
+    POE_ENV_FILE.write_text("\n".join(lines) + "\n")
+
+    # Invalidate cache so next call to poe_model() picks up the new value
+    global _cfg
+    _cfg = {}
+
+    logger.info("Poe model switched to: %s (%s)", model_str, profile["label"])
+    return {"ok": True, "model": model_str, "label": profile["label"]}
+
 # ── Model Router ──────────────────────────────────────────────────────────────
 #
 # Strategy: default Sonnet (separate weekly quota, ~0% used), escalate to Opus
@@ -86,7 +207,7 @@ TASK_MODEL_MAP: dict[str, str] = {
     "intel_classify":    "claude-haiku-4-5-20251001",
 
     # ── Opus: Dani client-facing responses only ──────────────────────────────
-    "dani_response":     "claude-opus-4-6",     # Dani → client (only external-facing)
+    "dani_response":     "claude-sonnet-4-6",    # Dani → client — Sonnet (SO 2026-03-27: Opus retired)
 
     # ── Sonnet: everything else — C2, internal, drafts, proposals ────────────
     "default":           "claude-sonnet-4-6",
@@ -128,10 +249,17 @@ def route_model(task_type: str) -> str:
 
 
 def model_tier(model: str) -> str:
-    """Return 'haiku', 'sonnet', or 'opus' for a given model ID."""
+    """Return a tier string for a given model ID."""
     m = model.lower()
-    if "opus"  in m: return "opus"
-    if "haiku" in m: return "haiku"
+    if "opus"    in m: return "opus"
+    if "haiku"   in m: return "haiku"
+    if "thinking" in m and "kimi" in m: return "kimi-think"
+    if "kimi"    in m: return "kimi"
+    if "nano"    in m or "banana" in m: return "nano"
+    if "grok"    in m: return "grok"
+    if "gemini"  in m: return "flash"
+    if "gpt"     in m: return "gpt4"
+    if "llama"   in m: return "llama"
     return "sonnet"
 
 # ── Env builder ───────────────────────────────────────────────────────────────
@@ -164,19 +292,24 @@ def build_api_env(base_env: dict | None = None) -> dict[str, str]:
 
 # ── Usage logging ─────────────────────────────────────────────────────────────
 
-# Approximate points per 1K tokens by model family
-_POINTS_PER_1K = {
-    "sonnet": 1042,
-    "opus":   1750,
-    "haiku":  200,
+# Approximate points per 1K tokens by tier (verify against poe.com/pricing)
+_POINTS_PER_1K: dict[str, int] = {
+    "opus":       1750,
+    "sonnet":     1042,
+    "haiku":      200,
+    "kimi-think": 1200,  # estimated — extended CoT burns more
+    "kimi":       800,   # estimated
+    "nano":       150,   # estimated — small/fast model
+    "grok":       1000,  # estimated
+    "flash":      300,   # Gemini Flash
+    "gpt4":       1100,  # GPT-4o approximate
+    "gpt4-mini":  250,
+    "llama":      100,   # Groq-hosted Llama, very cheap
 }
 
 def _points_per_1k(model: str) -> int:
-    model_lower = model.lower()
-    for key, rate in _POINTS_PER_1K.items():
-        if key in model_lower:
-            return rate
-    return 1042  # default to Sonnet rate
+    tier = model_tier(model)
+    return _POINTS_PER_1K.get(tier, 1042)  # default to Sonnet rate
 
 def log_usage(
     persona: str,
@@ -265,15 +398,38 @@ def usage_summary(days: int = 30) -> dict:
 if __name__ == "__main__":
     import sys
     cfg = _load_env()
-    print(f"POE_MODE  : {poe_mode()}")
-    print(f"POE_MODEL : {poe_model()}")
+    args = sys.argv[1:]
+
+    if "--model" in args:
+        # python thunderbird_poe_config.py --model kimi-think
+        idx = args.index("--model")
+        if idx + 1 < len(args):
+            result = set_poe_model(args[idx + 1])
+            if result["ok"]:
+                print(f"✓ Poe model set: {result['label']} ({result['model']})")
+            else:
+                print(f"✗ {result['error']}")
+        else:
+            print("Usage: --model <profile>")
+        sys.exit(0)
+
+    if "--profiles" in args:
+        print(f"{'KEY':<16} {'ACTIVE':<8} {'LABEL'}")
+        print("-" * 60)
+        for p in list_profiles():
+            marker = "◀ active" if p["active"] else ""
+            print(f"{p['key']:<16} {marker:<8} {p['label']}")
+        sys.exit(0)
+
+    print(f"POE_MODE    : {poe_mode()}")
+    print(f"POE_MODEL   : {poe_model()}")
     print(f"POE_BASE_URL: {poe_base_url()}")
     key = poe_api_key()
     print(f"POE_API_KEY : {'SET (' + key[:8] + '...)' if key else 'NOT SET'}")
     print()
-    if "--summary" in sys.argv:
+    if "--summary" in args:
         summary = usage_summary(30)
         print(json.dumps(summary, indent=2))
-    elif "--test" in sys.argv:
+    elif "--test" in args:
         env = build_api_env()
         print("Env keys set:", [k for k in env if "ANTHROPIC" in k])

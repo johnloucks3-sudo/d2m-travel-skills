@@ -35,7 +35,7 @@ logger = logging.getLogger("thunderbird_crewai")
 
 # CrewAI uses LiteLLM format for model strings
 # Claude Opus via Max plan ($0)
-CREWAI_LLM = "anthropic/claude-opus-4-6"
+CREWAI_LLM = "anthropic/claude-sonnet-4-6"
 
 # ============================================================================
 # PERSONA → AGENT MAPPING

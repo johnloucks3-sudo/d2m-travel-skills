@@ -559,7 +559,7 @@ def extract_principles(limit: int = 20) -> List[Dict[str, Any]]:
     cmd = [
         claude_cmd, "--print",
         "--system-prompt", EXTRACT_SYSTEM_PROMPT,
-        "--model", "opus",
+        "--model", "sonnet",
         "--dangerously-skip-permissions",
         "--output-format", "text",
         "-p", "-",

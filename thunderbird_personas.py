@@ -756,21 +756,10 @@ def call_persona(persona_id: str, query: str, max_tokens: int = 2000,
     persona = get_persona(pid)
     system_prompt = build_system_prompt(pid)
 
-    # --- COS Opus keyword escalation ---
-    # Commander can say "COS Opus" anywhere in the query to force Opus for that call.
-    # The keyword is stripped before sending to the model.
-    import re as _re_kw
-    cos_opus_escalation = False
-    if _re_kw.search(r'\bCOS\s+Opus\b', query, _re_kw.IGNORECASE):
-        query = _re_kw.sub(r'\bCOS\s+Opus\b', '', query, flags=_re_kw.IGNORECASE).strip()
-        if pid == "COS":
-            cos_opus_escalation = True
-
-    # --- Model selection: per-persona map → explicit override → keyword escalation → sonnet default ---
-    if cos_opus_escalation:
-        model = "opus"
-    else:
-        model = model_override or PERSONA_MODEL_MAP.get(pid, "sonnet")
+    # --- Model selection: per-persona map → explicit override → sonnet default ---
+    # (SO 2026-03-27: Opus retired. No COS Opus escalation. Opus only when Commander
+    #  explicitly authorizes via code change.)
+    model = model_override or PERSONA_MODEL_MAP.get(pid, "sonnet")
 
     # --- Memory: inject recent context into system prompt ---
     system_prompt = inject_memory_context(pid, system_prompt)

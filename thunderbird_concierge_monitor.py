@@ -978,8 +978,8 @@ def process_commander_directive(message: dict) -> bool:
             f"Do NOT repeat the directive back verbatim. Summarize and act."
         )
 
-        # Opus — client-facing concierge channel (Commander directive 2026-03-18)
-        result = call_persona("A3", prompt, model_override="opus")
+        # Sonnet — client-facing concierge channel (SO 2026-03-27: Opus retired)
+        result = call_persona("A3", prompt)
         reply_text = result.get("answer", "") if isinstance(result, dict) else str(result)
 
     except Exception as e:

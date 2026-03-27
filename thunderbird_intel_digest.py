@@ -289,7 +289,7 @@ RAW FEEDS:
     cmd = [
         os.path.expanduser("~/.local/bin/claude"),
         "--print",
-        "--model", "opus",
+        "--model", "sonnet",
         "--dangerously-skip-permissions",
         "--output-format", "text",
         "-p", prompt,

@@ -3,8 +3,7 @@ Thunderbird Model Router v2 — Auto-Routing by Task Type
 =========================================================
 Classifies every inbound task and routes to the optimal Claude model tier:
 
-  Opus   → Client-facing copy, principle extraction (nuance matters)
-  Sonnet → Code generation, voice profiles, morning briefs, analytical
+  Sonnet → All AI tasks — client copy, code, voice profiles, briefs, analytical
   Haiku  → Classification, data extraction, summarization, research, operational (fast & cheap)
 
 Specialty engines (Gemini, Grok, DeepSeek) retained for specific capabilities.
@@ -111,13 +110,13 @@ class TaskType(Enum):
     EXTRACTION = "extraction"           # Data extraction, parsing
 
     # New granular types for auto-routing
-    CLIENT_FACING = "client_facing"          # Client emails, proposals → Opus
+    CLIENT_FACING = "client_facing"          # Client emails, proposals → Sonnet (SO 2026-03-27)
     RESEARCH = "research"                    # Destination/market research → Sonnet
     DATA_EXTRACTION = "data_extraction"      # Structured extraction → Haiku
     CODE_GENERATION = "code_generation"      # Code writing → Sonnet
     VOICE_PROFILE = "voice_profile"          # Voice/tone analysis → Sonnet
     MORNING_BRIEF = "morning_brief"          # Morning synthesis → Sonnet
-    PRINCIPLE_EXTRACTION = "principle_extraction"  # Learning/nuance → Opus
+    PRINCIPLE_EXTRACTION = "principle_extraction"  # Learning/nuance → Sonnet
     SUMMARIZATION = "summarization"          # Quick summaries → Haiku
     RESPONSE_MONITOR = "response_monitor"    # Quality gate — Sonnet reviews Haiku output
 
@@ -132,14 +131,14 @@ CLAUDE_SONNET = "claude-sonnet-4-20250514"
 CLAUDE_HAIKU = "claude-haiku-3-20250307"
 
 MODEL_MAP: Dict[TaskType, str] = {
-    # Opus — highest quality, nuance matters
-    TaskType.CLIENT_FACING: CLAUDE_OPUS,
-    TaskType.CREATIVE: CLAUDE_OPUS,
-    TaskType.PRINCIPLE_EXTRACTION: CLAUDE_OPUS,
-    TaskType.STRATEGIC: CLAUDE_OPUS,
-    TaskType.CRISIS: CLAUDE_OPUS,
+    # Opus — NOT USED. No task routes to Opus. (SO 2026-03-27)
 
-    # Sonnet — good quality, reasonable speed
+    # Sonnet — all task types (SO 2026-03-27: Opus retired)
+    TaskType.PRINCIPLE_EXTRACTION: CLAUDE_SONNET,
+    TaskType.CRISIS: CLAUDE_SONNET,
+    TaskType.STRATEGIC: CLAUDE_SONNET,
+    TaskType.CLIENT_FACING: CLAUDE_SONNET,
+    TaskType.CREATIVE: CLAUDE_SONNET,
     TaskType.CODE_GENERATION: CLAUDE_SONNET,
     TaskType.VOICE_PROFILE: CLAUDE_SONNET,
     TaskType.MORNING_BRIEF: CLAUDE_SONNET,
@@ -153,7 +152,7 @@ MODEL_MAP: Dict[TaskType, str] = {
     TaskType.SUMMARIZATION: CLAUDE_HAIKU,
     TaskType.EXTRACTION: CLAUDE_HAIKU,
 
-    # Sonnet — response quality monitor (sits above Haiku, below Opus)
+    # Sonnet — response quality monitor (sits above Haiku)
     TaskType.RESPONSE_MONITOR: CLAUDE_SONNET,
 
     # Special (not Claude)
@@ -170,11 +169,11 @@ MODEL_TIER = {
 # Legacy model map — backward compatibility for callers referencing GROQ_MODELS
 GROQ_MODELS = {
     "fast": CLAUDE_SONNET,
-    "premium": CLAUDE_OPUS,
+    "premium": CLAUDE_SONNET,
     "light": CLAUDE_HAIKU,
     "kimi": CLAUDE_SONNET,
     "detail": CLAUDE_SONNET,
-    "visionary": CLAUDE_OPUS,
+    "visionary": CLAUDE_SONNET,
 }
 
 # Claude model — PRIMARY ENGINE
@@ -205,7 +204,7 @@ _CLASSIFICATION_RULES: List[tuple] = [
         "which category", "is this a", "type of",
     ]),
 
-    # Priority 3: Client-facing (Opus quality)
+    # Priority 3: Client-facing (Sonnet)
     (TaskType.CLIENT_FACING, [
         "client email", "email to client", "dear ", "email for ",
         "welcome email", "follow up email", "thank you note",
@@ -213,7 +212,7 @@ _CLASSIFICATION_RULES: List[tuple] = [
         "concierge email", "concierge response",
     ]),
 
-    # Priority 4: Principle extraction (Opus nuance) — before data_extraction
+    # Priority 4: Principle extraction (Sonnet) — before data_extraction
     (TaskType.PRINCIPLE_EXTRACTION, [
         "extract principle", "extract the principle", "learning rule",
         "capture the diff", "voice rule", "tone principle",
@@ -242,14 +241,14 @@ _CLASSIFICATION_RULES: List[tuple] = [
         "overnight summary", "morning intel", "daily summary",
     ]),
 
-    # Priority 7: Creative (Opus quality)
+    # Priority 7: Creative (Sonnet)
     (TaskType.CREATIVE, [
         "write", "draft", "proposal", "narrative", "story", "copy",
         "describe", "paint a picture", "itinerary narrative", "poetic",
         "compose", "craft",
     ]),
 
-    # Priority 8: Strategic (Opus quality)
+    # Priority 8: Strategic (Sonnet)
     (TaskType.STRATEGIC, [
         "pricing", "strategy", "growth", "compete", "position",
         "should we", "business case", "roi", "market analysis",
@@ -355,15 +354,9 @@ def _check_pii_fence(text: str) -> bool:
 
 
 # ── Routing Rules ──
-# Personas that benefit from Claude Opus for certain task types
+# Opus retired — no task routes to Opus (SO 2026-03-27)
 ESCALATION_MAP = {
-    # EXEC always escalate creative tasks — that's their core value
-    "EXEC": {TaskType.CREATIVE, TaskType.CLIENT_FACING},
-    # A5 (Castillo) escalates strategic analysis
-    "A5":   {TaskType.STRATEGIC},
-    # CH (Washington) escalates anything — wisdom needs depth
-    "CH":   {TaskType.CREATIVE, TaskType.STRATEGIC, TaskType.OPERATIONAL,
-             TaskType.CLIENT_FACING, TaskType.PRINCIPLE_EXTRACTION},
+    # Empty. Opus is not used. No authorization path exists.
 }
 
 
@@ -472,10 +465,8 @@ def get_router_stats(days: int = 7) -> Dict[str, Any]:
 
 
 def should_escalate(persona_id: str, task_type: Optional[TaskType] = None) -> bool:
-    """Decide if a task should escalate to Opus based on persona + task type."""
-    if task_type is None:
-        return False
-    return task_type in ESCALATION_MAP.get(persona_id, set())
+    """Opus retired (SO 2026-03-27). Always returns False."""
+    return False
 
 
 # ============================================================
@@ -488,8 +479,7 @@ def _call_anthropic(system_prompt: str, query: str,
                     temperature: float = 0.7) -> str:
     """Call any Claude model via Anthropic SDK (Max plan, $0).
 
-    This is the unified Claude caller. All tiers (Opus/Sonnet/Haiku)
-    go through here.
+    Unified Claude caller. Sonnet/Haiku only — Opus retired (SO 2026-03-27).
     """
     import anthropic
 
@@ -926,14 +916,9 @@ def route_call(persona_id: str, query: str,
     if task_type is None:
         task_type = classify_task(query)
 
-    # Check for persona-based escalation to Opus
-    escalate = should_escalate(pid, task_type)
-
-    # Determine model: escalation forces Opus, otherwise use MODEL_MAP
-    if escalate:
-        model_id = CLAUDE_OPUS
-    else:
-        model_id = MODEL_MAP.get(task_type, CLAUDE_SONNET)
+    # No escalation — Opus retired (SO 2026-03-27)
+    escalate = False
+    model_id = MODEL_MAP.get(task_type, CLAUDE_SONNET)
 
     tier = MODEL_TIER.get(model_id, "sonnet")
     engine = "claude"

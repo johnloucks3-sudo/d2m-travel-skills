@@ -30,7 +30,7 @@ logger = logging.getLogger("thunderbird_telegram_tools")
 THUNDERBIRD_DIR = os.path.expanduser("~/Thunderbird")
 CLAUDE_CMD = os.path.expanduser("~/.local/bin/claude")
 MAX_RESPONSE_TIME = 180  # seconds — Opus can take a while on complex tasks
-DEFAULT_MODEL = "opus"  # Max plan model
+DEFAULT_MODEL = "sonnet"  # Max plan model — Sonnet (SO 2026-03-27: Opus retired)
 
 # Groq ELIMINATED — classifier now uses Claude Sonnet via Anthropic SDK ($0 on Max plan)
 

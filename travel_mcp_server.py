@@ -440,115 +440,136 @@ async def check_cabin_availability(
         logger.error(f"Playwright error: {str(e)}")
         return json.dumps({"error": str(e), "type": "scraping_error"})
 # ============================================================================
-# REGISTER THUNDERBIRD INTELLIGENCE TOOLS
+# REGISTER THUNDERBIRD INTELLIGENCE TOOLS — Profile-Aware Loader
 # ============================================================================
-register_ship_intel_tools(mcp)
-register_world_intel_tools(mcp)
-register_comparison_tools(mcp)
-register_drive_tools(mcp)
-register_browser_tools(mcp)
-register_weekly_report_tools(mcp)
-register_tech_monitor_tools(mcp)
-register_v3_tools(mcp)
-register_itinerary_pipeline_tools(mcp)
-register_hotel_search_tools(mcp)
-register_flight_search_tools(mcp)
-register_gmail_tools(mcp)
-register_tour_search_tools(mcp)
-register_fare_watch_tools(mcp)
-register_persona_tools(mcp)
-register_sms_tools(mcp)
-register_evernote_tools(mcp)
-register_whatsapp_tools(mcp)
-register_quote_tools(mcp)
-register_star_protocol_tools(mcp)
-register_dani_email_tools(mcp)
-register_keep_tools(mcp)
-register_dining_tools(mcp)
-register_outside_agents_tools(mcp)
-register_anchor_date_tools(mcp)
-register_dossier_tools(mcp)
-register_briefing_tools(mcp)
-register_x_osint_tools(mcp)
-register_trip_architect_tools(mcp)
-register_commission_recon_tools(mcp)
-register_client_materials_tools(mcp)
-register_survey_tools(mcp)
-register_surveillance_tools(mcp)
-register_price_monitor_tools(mcp)
-register_email_intel_tools(mcp)
-register_tess_tools(mcp)
-register_memory_tools(mcp)
-register_crewai_tools(mcp)
-register_a2a_tools(mcp)
-register_airline_monitor_tools(mcp)
-register_intel_crew_tools(mcp)
-register_innovation_tools(mcp)
-register_auto_enrich_tools(mcp)
-register_tasks_tools(mcp)
-register_files_api_tools(mcp)
-register_skills_tools(mcp)
-register_excursion_tools(mcp)
-register_transfer_tools(mcp)
-register_opentable_tools(mcp)
-register_taap_tools(mcp)
-register_worldfactbook_tools(mcp)
-register_learning_tools(mcp)
-register_conversation_learner_tools(mcp)
-register_sss_tools(mcp)
-register_dossier_scanner_tools(mcp)
-register_email_classifier_tools(mcp)
-register_academic_scanner_tools(mcp)
-register_voice_ledger_tools(mcp)
-register_recipient_profile_tools(mcp)
-register_commander_inbox_tools(mcp)
-register_health_tools(mcp)
-register_checkpoint_tools(mcp)
-register_bulletin_tools(mcp)
-register_info_delta_tools(mcp)
-register_temporal_tools(mcp)
-register_dani_voice_tools(mcp)
-register_router_tools(mcp)
+#
+# MCP_PROFILE env var controls which tool groups load. This directly controls
+# how many tool schemas Claude sees per turn — the primary driver of cache reads.
+#
+# Profiles:
+#   core   — ~25 essential tools. Comms, dossiers, personas, learning, inbox.
+#   intel  — core + all research/monitoring tools (~40 tools)
+#   travel — core + all booking/search/excursion tools (~50 tools)
+#   ops    — core + reporting, billing, reconciliation, automation (~45 tools)
+#   full   — everything (default, backward-compatible)
+#
+# Usage: MCP_PROFILE=intel claude  OR use the `cc` wrapper: cc intel
+# ============================================================================
 
-# Wave 4 modules
-try:
-    register_a2a_protocol_tools(mcp)
-    logger.info("A2A protocol tools registered")
-except Exception as e:
-    logger.warning(f"A2A protocol tools not available: {e}")
+MCP_PROFILE = os.environ.get("MCP_PROFILE", "full").lower()
+_VALID_PROFILES = {"core", "intel", "travel", "ops", "full"}
+if MCP_PROFILE not in _VALID_PROFILES:
+    logger.warning(f"Unknown MCP_PROFILE={MCP_PROFILE!r} — defaulting to 'full'")
+    MCP_PROFILE = "full"
 
-try:
-    register_grant_tools(mcp)
-    logger.info("Grant compiler tools registered")
-except Exception as e:
-    logger.warning(f"Grant compiler tools not available: {e}")
+logger.info(f"MCP profile: {MCP_PROFILE}")
 
+# ── CORE — always loaded (every profile) ─────────────────────────────────────
+_CORE_LOADERS = [
+    register_drive_tools, register_gmail_tools, register_keep_tools,
+    register_dossier_tools, register_tasks_tools, register_memory_tools,
+    register_sss_tools, register_persona_tools, register_learning_tools,
+    register_commander_inbox_tools, register_checkpoint_tools, register_router_tools,
+    register_dani_email_tools, register_quote_tools, register_dani_voice_tools,
+    register_voice_ledger_tools, register_health_tools, register_info_delta_tools,
+    register_temporal_tools, register_conversation_learner_tools,
+    register_recipient_profile_tools, register_email_classifier_tools,
+    register_dossier_scanner_tools, register_bulletin_tools, register_anchor_date_tools,
+    register_briefing_tools,
+]
+
+# ── INTEL additions ───────────────────────────────────────────────────────────
+_INTEL_LOADERS = [
+    register_ship_intel_tools, register_world_intel_tools, register_tech_monitor_tools,
+    register_x_osint_tools, register_academic_scanner_tools, register_surveillance_tools,
+    register_price_monitor_tools, register_email_intel_tools, register_airline_monitor_tools,
+    register_intel_crew_tools, register_innovation_tools, register_a2a_tools,
+    register_crewai_tools,
+]
+
+# ── TRAVEL additions ──────────────────────────────────────────────────────────
+_TRAVEL_LOADERS = [
+    register_hotel_search_tools, register_flight_search_tools, register_tour_search_tools,
+    register_fare_watch_tools, register_excursion_tools, register_transfer_tools,
+    register_opentable_tools, register_dining_tools, register_taap_tools,
+    register_tess_tools, register_trip_architect_tools, register_worldfactbook_tools,
+    register_outside_agents_tools, register_comparison_tools,
+    register_itinerary_pipeline_tools, register_auto_enrich_tools,
+    register_client_materials_tools, register_v3_tools,
+]
+
+# ── OPS additions ─────────────────────────────────────────────────────────────
+_OPS_LOADERS = [
+    register_commission_recon_tools, register_survey_tools, register_weekly_report_tools,
+    register_files_api_tools, register_skills_tools, register_evernote_tools,
+    register_star_protocol_tools, register_browser_tools, register_sms_tools,
+    register_whatsapp_tools,
+]
+
+# ── Build active loader list ──────────────────────────────────────────────────
+_active_loaders = list(_CORE_LOADERS)
+if MCP_PROFILE in ("intel", "full"):
+    _active_loaders += _INTEL_LOADERS
+if MCP_PROFILE in ("travel", "full"):
+    _active_loaders += _TRAVEL_LOADERS
+if MCP_PROFILE in ("ops", "full"):
+    _active_loaders += _OPS_LOADERS
+
+# Deduplicate (some loaders may appear in multiple groups)
+_seen = set()
+_deduped = []
+for _fn in _active_loaders:
+    if _fn not in _seen:
+        _seen.add(_fn)
+        _deduped.append(_fn)
+
+for _fn in _deduped:
+    try:
+        _fn(mcp)
+    except Exception as _e:
+        logger.warning(f"Tool loader {_fn.__name__} failed: {_e}")
+
+logger.info(f"Profile '{MCP_PROFILE}': {len(_deduped)} tool modules loaded")
+
+# ── Wave 4 — try-block modules ────────────────────────────────────────────────
+# connector always loaded (MCP connector infra — core need)
 try:
     register_connector_tools(mcp)
-    logger.info("MCP connector tools registered")
 except Exception as e:
     logger.warning(f"MCP connector tools not available: {e}")
 
-try:
-    from thunderbird_guest_forms import register_guest_form_tools
-    register_guest_form_tools(mcp)
-    logger.info("Guest form tools registered")
-except Exception as e:
-    logger.warning(f"Guest form tools not available: {e}")
+# remaining wave 4 based on profile
+if MCP_PROFILE in ("intel", "full"):
+    try:
+        register_a2a_protocol_tools(mcp)
+    except Exception as e:
+        logger.warning(f"A2A protocol tools not available: {e}")
 
-try:
-    from thunderbird_reconciliation import register_reconciliation_tools
-    register_reconciliation_tools(mcp)
-    logger.info("Reconciliation tools registered")
-except Exception as e:
-    logger.warning(f"Reconciliation tools not available: {e}")
+if MCP_PROFILE in ("ops", "full"):
+    try:
+        register_grant_tools(mcp)
+    except Exception as e:
+        logger.warning(f"Grant compiler tools not available: {e}")
 
-try:
-    from thunderbird_product_intake import register_product_intake_tools
-    register_product_intake_tools(mcp)
-    logger.info("Product intake tools registered")
-except Exception as e:
-    logger.warning(f"Product intake tools not available: {e}")
+if MCP_PROFILE in ("travel", "full"):
+    try:
+        from thunderbird_guest_forms import register_guest_form_tools
+        register_guest_form_tools(mcp)
+    except Exception as e:
+        logger.warning(f"Guest form tools not available: {e}")
+
+if MCP_PROFILE in ("ops", "full"):
+    try:
+        from thunderbird_reconciliation import register_reconciliation_tools
+        register_reconciliation_tools(mcp)
+    except Exception as e:
+        logger.warning(f"Reconciliation tools not available: {e}")
+
+    try:
+        from thunderbird_product_intake import register_product_intake_tools
+        register_product_intake_tools(mcp)
+    except Exception as e:
+        logger.warning(f"Product intake tools not available: {e}")
 
 # thunderbird_bulletin: registered above (hard import — line 74)
 

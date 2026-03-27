@@ -835,7 +835,7 @@ def _enrich_with_claude(bulletin: BulletinContent) -> BulletinContent:
         )
 
         resp = client.messages.create(
-            model="claude-opus-4-5",
+            model="claude-sonnet-4-5-20251001",  # Sonnet (SO 2026-03-27: Opus retired)
             max_tokens=800,
             messages=[{"role": "user", "content": prompt}],
         )
