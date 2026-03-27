@@ -541,18 +541,17 @@ def register_calendar_tools(mcp):
     )
     async def calendar_list_events(
         days_ahead: int = Field(30, description="How many days ahead to look (default 30)"),
+        days_back: int = Field(0, description="How many days back to look (default 0 = today onward)"),
         max_results: int = Field(25, description="Max events to return (default 25)"),
     ) -> str:
-        """List upcoming Google Calendar events."""
-        import json
-        from datetime import timezone
+        """List Google Calendar events — past or future. Use days_back to look backward."""
         try:
             service = _get_calendar_service()
-            now = datetime.utcnow().isoformat() + "Z"
+            start = (datetime.utcnow() - timedelta(days=days_back)).isoformat() + "Z"
             end = (datetime.utcnow() + timedelta(days=days_ahead)).isoformat() + "Z"
             result = service.events().list(
                 calendarId="primary",
-                timeMin=now,
+                timeMin=start,
                 timeMax=end,
                 maxResults=max_results,
                 singleEvents=True,
@@ -560,8 +559,9 @@ def register_calendar_tools(mcp):
             ).execute()
             events = result.get("items", [])
             if not events:
-                return "No upcoming events found."
-            lines = [f"Upcoming events (next {days_ahead} days):\n"]
+                return f"No events found in range (-{days_back}d / +{days_ahead}d)."
+            label = f"Events ({'-' + str(days_back) + 'd to ' if days_back else ''} +{days_ahead}d):"
+            lines = [label + "\n"]
             for e in events:
                 start = e["start"].get("dateTime", e["start"].get("date", "?"))
                 lines.append(f"  {start[:10]}  {e.get('summary', '(no title)')}")
