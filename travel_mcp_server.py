@@ -37,6 +37,7 @@ from thunderbird_quote_render import register_quote_tools
 from thunderbird_star_protocol import register_star_protocol_tools
 from thunderbird_dani_email import register_dani_email_tools
 from thunderbird_keep import register_keep_tools
+from thunderbird_calendar_sync import register_calendar_tools
 from thunderbird_dining import register_dining_tools
 from thunderbird_anchor_dates import register_anchor_date_tools
 from thunderbird_dossier import register_dossier_tools
@@ -467,7 +468,7 @@ logger.info(f"MCP profile: {MCP_PROFILE}")
 
 # ── CORE — always loaded (every profile) ─────────────────────────────────────
 _CORE_LOADERS = [
-    register_drive_tools, register_gmail_tools, register_keep_tools,
+    register_drive_tools, register_gmail_tools, register_keep_tools, register_calendar_tools,
     register_dossier_tools, register_tasks_tools, register_memory_tools,
     register_sss_tools, register_persona_tools, register_learning_tools,
     register_commander_inbox_tools, register_checkpoint_tools, register_router_tools,

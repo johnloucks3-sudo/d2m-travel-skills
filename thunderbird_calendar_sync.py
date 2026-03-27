@@ -528,6 +528,80 @@ def show_sync_status():
 
 
 # ---------------------------------------------------------------------------
+# MCP TOOLS
+# ---------------------------------------------------------------------------
+
+def register_calendar_tools(mcp):
+    """Register Google Calendar tools with the MCP server."""
+    from pydantic import Field
+
+    @mcp.tool(
+        name="calendar_list_events",
+        annotations={"title": "List Upcoming Calendar Events", "readOnlyHint": True},
+    )
+    async def calendar_list_events(
+        days_ahead: int = Field(30, description="How many days ahead to look (default 30)"),
+        max_results: int = Field(25, description="Max events to return (default 25)"),
+    ) -> str:
+        """List upcoming Google Calendar events."""
+        import json
+        from datetime import timezone
+        try:
+            service = _get_calendar_service()
+            now = datetime.utcnow().isoformat() + "Z"
+            end = (datetime.utcnow() + timedelta(days=days_ahead)).isoformat() + "Z"
+            result = service.events().list(
+                calendarId="primary",
+                timeMin=now,
+                timeMax=end,
+                maxResults=max_results,
+                singleEvents=True,
+                orderBy="startTime",
+            ).execute()
+            events = result.get("items", [])
+            if not events:
+                return "No upcoming events found."
+            lines = [f"Upcoming events (next {days_ahead} days):\n"]
+            for e in events:
+                start = e["start"].get("dateTime", e["start"].get("date", "?"))
+                lines.append(f"  {start[:10]}  {e.get('summary', '(no title)')}")
+            return "\n".join(lines)
+        except Exception as exc:
+            return f"Calendar error: {exc}"
+
+    @mcp.tool(
+        name="calendar_sync_bookings",
+        annotations={"title": "Sync Booking Milestones to Calendar"},
+    )
+    async def calendar_sync_bookings(
+        dry_run: bool = Field(False, description="If true, preview without creating events"),
+    ) -> str:
+        """Sync D2M booking milestones (FPDs, embarkation, disembarkation) to Google Calendar."""
+        import json
+        result = sync_bookings_to_calendar(dry_run=dry_run)
+        return json.dumps(result, indent=2, default=str)
+
+    @mcp.tool(
+        name="calendar_sync_status",
+        annotations={"title": "Show Calendar Sync State", "readOnlyHint": True},
+    )
+    async def calendar_sync_status() -> str:
+        """Show which booking milestones have already been synced to Google Calendar."""
+        import json
+        state = _load_sync_state()
+        if not state:
+            return "No events synced yet. Run calendar_sync_bookings to populate."
+        lines = [f"Calendar sync state — {len(state)} events tracked:\n"]
+        for key, info in sorted(state.items(), key=lambda x: x[1].get("date", "")):
+            lines.append(
+                f"  {info.get('date', '?'):12s}  {info.get('summary', key)[:60]}"
+            )
+        return "\n".join(lines)
+
+    logger.info("Google Calendar tools registered (list_events, sync_bookings, sync_status)")
+
+
+# ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
 
