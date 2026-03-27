@@ -882,6 +882,61 @@ async def cmd_restart(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 @commander_only
+async def cmd_poe(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Switch Telegram bot to Poe gateway (burns Poe points, uses Sonnet)."""
+    ack = await update.message.reply_text("🔀 Switching to POE mode...")
+    try:
+        import subprocess, re as _re
+        env_path = "/home/john/Thunderbird/config/poe.env"
+        with open(env_path) as f:
+            content = f.read()
+        content = _re.sub(r"POE_MODE=\d", "POE_MODE=1", content)
+        with open(env_path, "w") as f:
+            f.write(content)
+        # Restart this service so it picks up the new env
+        subprocess.run(["systemctl", "--user", "restart", "d2m-telegram.service"],
+                       timeout=15, check=False)
+        await ack.edit_text(
+            "🔀 *POE MODE ACTIVE*\n\n"
+            "• Backend: Poe gateway (Sonnet)\n"
+            "• Cost: Burns Poe points\n"
+            "• Scope: *Telegram bot only*\n"
+            "• CLI + Desktop unaffected\n\n"
+            "Use `/max` to return to Max plan ($0).",
+            parse_mode="Markdown"
+        )
+    except Exception as e:
+        await ack.edit_text(f"⚠️ POE switch failed: {e}")
+
+
+@commander_only
+async def cmd_max(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Switch Telegram bot back to Max plan OAuth ($0, Opus)."""
+    ack = await update.message.reply_text("🔀 Switching to MAX mode...")
+    try:
+        import subprocess, re as _re
+        env_path = "/home/john/Thunderbird/config/poe.env"
+        with open(env_path) as f:
+            content = f.read()
+        content = _re.sub(r"POE_MODE=\d", "POE_MODE=0", content)
+        with open(env_path, "w") as f:
+            f.write(content)
+        subprocess.run(["systemctl", "--user", "restart", "d2m-telegram.service"],
+                       timeout=15, check=False)
+        await ack.edit_text(
+            "✅ *MAX MODE ACTIVE*\n\n"
+            "• Backend: Max plan OAuth (Opus)\n"
+            "• Cost: $0 (subscription)\n"
+            "• Scope: *Telegram bot only*\n"
+            "• CLI + Desktop unaffected\n\n"
+            "Use `/poe` to switch to Poe gateway.",
+            parse_mode="Markdown"
+        )
+    except Exception as e:
+        await ack.edit_text(f"⚠️ MAX switch failed: {e}")
+
+
+@commander_only
 async def cmd_intel(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Run the morning intel pipeline (A2→A1→COS) on demand and push to C2."""
     ack = await update.message.reply_text("🔵 Running intel pipeline (A2→A1→COS)…")
@@ -1159,6 +1214,12 @@ async def handle_plain_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 async def error_handler(update: object, context: ContextTypes.DEFAULT_TYPE):
+    from telegram.error import Conflict
+    import os, signal
+    if isinstance(context.error, Conflict):
+        logger.critical("409 Conflict — duplicate C2 instance detected. Exiting for clean systemd restart.")
+        os.kill(os.getpid(), signal.SIGTERM)
+        return
     logger.error(f"C2 bot error: {context.error}", exc_info=context.error)
 
 
@@ -1818,6 +1879,8 @@ def main():
     app.add_handler(CommandHandler("inbox", cmd_inbox))
     app.add_handler(CommandHandler("usage", cmd_usage))
     app.add_handler(CommandHandler("restart", cmd_restart))
+    app.add_handler(CommandHandler("poe", cmd_poe))
+    app.add_handler(CommandHandler("max", cmd_max))
     app.add_handler(CommandHandler("intel", cmd_intel))
     app.add_handler(CommandHandler("brief", cmd_brief))
     app.add_handler(CommandHandler("fpd", cmd_fpd))

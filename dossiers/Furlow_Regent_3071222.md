@@ -59,8 +59,8 @@ relationship: client
 ### FLIGHTS — Business Class (Client-booked via AA, all 3 couples same flights)
 | Leg | Flight | Route | Depart | Arrive | Seats |
 |-----|--------|-------|--------|--------|-------|
-| OUT 1 | AA 9018 (Finnair) | DFW → HEL | Aug 26, 4:50 PM | Aug 27, 10:45 AM | — |
-| OUT 2 | AY 811 | HEL → ARN | Aug 27, 1:15 PM | Aug 27, 1:15 PM | — |
+| OUT 1 | AA 9018 (Finnair) | DFW → HEL | Aug 26, 4:50 PM | Aug 27, 10:45 AM | ✅ ASSIGNED (seat #s TBD — confirm with AA/CKZHXA) |
+| OUT 2 | AY 811 | HEL → ARN | Aug 27, 1:15 PM | Aug 27, 1:15 PM | ⚠️ UNASSIGNED — ONLY REMAINING GAP (PNR BB4X94) |
 | RET 1 | BA 6776 (AA) | OSL → LHR | Sep 8, 11:15 AM | Sep 8, 12:45 PM | John 4C, Missy 4A |
 | RET 2 | AA 79 | LHR → DFW | Sep 8, 2:25 PM | Sep 8, 6:35 PM | John 7D, Missy 7G |
 
@@ -74,7 +74,7 @@ relationship: client
 | Booking | Item | Dates | Status | Cost |
 |---------|------|-------|--------|------|
 | Bedsonline 131-2656351 | Haymarket By Scandic — 3x Grande King | Aug 27-28 | ⚠️ **PAYMENT DUE** | $418 |
-| — | Regent included hotel night | Aug 28 | Included | — |
+| — | Haymarket By Scandic — Regent included hotel night | Aug 28-29 | Included | — |
 | Royal Transfer | Arlanda transfer (hotel → airport) | Aug 27 | ⚠️ **PAYMENT DUE** | ~$176 |
 | — | Regent transport hotel → ship | Aug 29 | Included | — |
 | — | Regent transport ship → Oslo airport | Sep 8 | Included | — |
@@ -108,10 +108,10 @@ relationship: client
 | 4 | Flights | Outbound leg 1 (DFW→HEL) | YES | **CONFIRMED** | AA 9018 (Finnair) Aug 26 4:50PM |
 | 5 | Flights | Outbound leg 2 (HEL→ARN) | YES | **CONFIRMED** | AY 811 Aug 27 1:15PM |
 | 6 | Flights | Outbound PNR / e-ticket | YES | **CONFIRMED** | AA: CKZHXA / Finnair: BB4X94 |
-| 7 | Flights | Outbound seat assignments | Nice-to-have | **PENDING** | Not assigned |
+| 7 | Flights | Outbound seat assignments | Nice-to-have | **PARTIAL** | DFW→HEL: ✅ assigned (seat #s TBD); HEL→ARN: ⚠️ still unassigned (BB4X94) |
 | 8 | Transfers | Airport → hotel transfer | YES | ⚠️ **PAYMENT DUE** | Royal Transfer (Arlanda) — ~$176 |
 | 9 | Hotel | Pre-cruise hotel (1 night) | YES | ⚠️ **PAYMENT DUE** | Haymarket By Scandic, Aug 27-28, Grande King — $418 |
-| 10 | Hotel | Regent included hotel night | YES | **CONFIRMED** | Aug 28 |
+| 10 | Hotel | Regent included hotel night | YES | **CONFIRMED** | Haymarket By Scandic, Aug 28-29 |
 | 11 | Transfers | Hotel → port transfer | YES | **CONFIRMED** | Regent transport, Aug 29 |
 | 12 | Cruise | Booking confirmed | YES | **CONFIRMED** | 3071222, Suite 827 |
 | 13 | Cruise | Suite assignment | YES | **CONFIRMED** | 827 |
@@ -129,7 +129,7 @@ relationship: client
 | 23 | Admin | Portal activated | Nice-to-have | **SENT** | Activation sent |
 | 24 | Admin | Dossier current | YES | **YES** | Updated Mar 12, 2026 |
 
-**Coverage: ~90%** | **Critical Gaps:** Insurance (tracking only), outbound seat assignments (BB4X94 — HEL→ARN unassigned)
+**Coverage: ~95%** | **Critical Gaps:** Insurance (Chase Sapphire covers partial — no dedicated policy), HEL→ARN seats (BB4X94 — only open gap)
 
 ### SHORE EXCURSIONS (Confirmed RSSC Portal — Mar 24, 2026)
 All included (Regent Choice — $0.00). Both John & Missy confirmed on all excursions.

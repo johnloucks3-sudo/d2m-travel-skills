@@ -62,7 +62,8 @@ from thunderbird_telegram_tools_sdk import call_cos_with_tools
 # ---------------------------------------------------------------------------
 
 TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
-TELEGRAM_COMMANDER_ID = os.environ.get("TELEGRAM_COMMANDER_ID", "")
+TELEGRAM_C2_BOT_TOKEN = os.environ.get("TELEGRAM_C2_BOT_TOKEN", "***REMOVED-SECRET***")
+TELEGRAM_COMMANDER_ID = os.environ.get("TELEGRAM_COMMANDER_ID", "7554895206")
 
 if not TELEGRAM_BOT_TOKEN:
     print("FATAL: Set TELEGRAM_BOT_TOKEN environment variable.")
@@ -95,7 +96,7 @@ logger = logging.getLogger("thunderbird_telegram")
 # Dani bot is LOCKED. She does NOT respond to any incoming Telegram messages until
 # COS re-enables after supplier audit + token waste investigation.
 # To re-enable: set DANI_BOT_ENABLED = True below.
-DANI_BOT_ENABLED = False  # LOCKED by COS 2026-03-25 per Commander directive
+DANI_BOT_ENABLED = True   # RE-ENABLED by COS 2026-03-26 — supplier audit complete
 
 DEFAULT_PERSONA = "A3"      # Dani handles all client messages
 COMMANDER_PERSONA = "COS"   # COS handles Commander plain-text messages
@@ -428,11 +429,13 @@ async def cmd_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not _is_commander(user_id) and update.effective_chat.type != "private":
         return
     if _is_commander(user_id):
-        # Commander's channel is @D2MC2C_bot — this bot is clients only
+        # Commander testing Dani's channel — give him the client experience
         await update.message.reply_text(
-            "⚠️ *Wrong channel, Commander.*\n\n"
-            "This bot is reserved for clients only.\n"
-            "Use @D2MC2C\\_bot for Wing access, staff commands, and ops.",
+            "🎭 *Commander Mode — Dani Channel*\n\n"
+            "You're connected as a client-side observer. Dani will respond to you "
+            "with full client voice. COS review gate is bypassed (you're the approver). "
+            "Use this to test, coach, or audit Dani's responses.\n\n"
+            "_To access Wing ops, use @D2MC2C\\_bot._",
             parse_mode=ParseMode.MARKDOWN,
         )
         return
@@ -670,12 +673,9 @@ async def handle_button_callback(update: Update, context: ContextTypes.DEFAULT_T
     user_id = query.from_user.id
     user_name = query.from_user.full_name or "Client"
 
-    # Commander belongs on @D2MC2C_bot — redirect
+    # Commander on Dani's channel — let him use the buttons (client experience for testing/coaching)
     if _is_commander(user_id):
-        await query.message.reply_text(
-            "⚠️ *Wrong channel, Commander.* Use @D2MC2C\\_bot.",
-            parse_mode=ParseMode.MARKDOWN,
-        )
+        pass  # Fall through — Commander sees Dani's responses like a client
         return
 
     # Clients can only use buttons in private DMs
@@ -815,14 +815,12 @@ async def handle_plain_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     loop = asyncio.get_event_loop()
     if is_cmdr:
-        # Commander's channel is @D2MC2C_bot — this bot is clients only
-        await update.message.reply_text(
-            "⚠️ *Wrong channel, Commander.*\n\n"
-            "This bot is reserved for clients only.\n"
-            "Use @D2MC2C\\_bot for Wing access, staff commands, and ops.",
-            parse_mode=ParseMode.MARKDOWN,
+        # Commander testing Dani's channel — route through client path so he hears her voice
+        logger.info(f"Commander msg on Dani channel -> A3 (Dani) client path: {query[:80]}...")
+        enriched_query = await loop.run_in_executor(
+            None, lambda: _build_dani_query_client(query, user_id)
         )
-        return
+        result = await loop.run_in_executor(None, _call_persona_safe, DEFAULT_PERSONA, enriched_query)
     else:
         # Client → Dani with filtered context
         logger.info(f"Client msg -> A3 (Dani): {query[:80]}...")
@@ -1008,6 +1006,29 @@ def _log_followup(query: str, answer: str, user_name: str = "Commander"):
         logger.error(f"Failed to log follow-up: {e}")
 
 
+def _dm_commander_c2(text: str):
+    """Send an internal Commander DM via the C2 bot (D2MC2C). Non-client traffic only."""
+    import requests as _requests
+    for commander_id in AUTHORIZED_IDS:
+        try:
+            _requests.post(
+                f"https://api.telegram.org/bot{TELEGRAM_C2_BOT_TOKEN}/sendMessage",
+                json={"chat_id": commander_id, "text": text, "parse_mode": "Markdown"},
+                timeout=10,
+            )
+        except Exception as e:
+            logger.error(f"C2 Commander notify failed (ID {commander_id}): {e}")
+            try:
+                plain = text.replace("*", "").replace("_", "")
+                _requests.post(
+                    f"https://api.telegram.org/bot{TELEGRAM_C2_BOT_TOKEN}/sendMessage",
+                    json={"chat_id": commander_id, "text": plain},
+                    timeout=10,
+                )
+            except Exception as e2:
+                logger.error(f"C2 fallback notify also failed: {e2}")
+
+
 async def _notify_commander_followup(bot, query: str, user_name: str = "Client"):
     """DM the Commander about a question Dani couldn't answer. Action required."""
     ts = datetime.now(timezone.utc).strftime("%H:%M UTC")
@@ -1018,7 +1039,7 @@ async def _notify_commander_followup(bot, query: str, user_name: str = "Client")
         "Dani could not answer from available data.\n"
         "*Action required.*"
     )
-    await _dm_commander(bot, notice)
+    _dm_commander_c2(notice)
 
 
 async def _notify_commander_client_msg(bot, query: str, answer: str,
@@ -1035,7 +1056,7 @@ async def _notify_commander_client_msg(bot, query: str, answer: str,
         f"*Question:* _{query}_\n\n"
         f"*Dani's response:* {answer}{cos_line}"
     )
-    await _dm_commander(bot, notice)
+    _dm_commander_c2(notice)
 
 
 async def _dm_commander(bot, text: str):
@@ -1060,6 +1081,12 @@ async def _dm_commander(bot, text: str):
 
 async def error_handler(update: object, context: ContextTypes.DEFAULT_TYPE):
     """Log errors from the telegram bot."""
+    from telegram.error import Conflict
+    import os, signal
+    if isinstance(context.error, Conflict):
+        logger.critical("409 Conflict — duplicate Dani instance detected. Exiting for clean systemd restart.")
+        os.kill(os.getpid(), signal.SIGTERM)
+        return
     logger.error(f"Telegram bot error: {context.error}", exc_info=context.error)
 
 

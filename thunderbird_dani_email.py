@@ -714,8 +714,8 @@ def _notify_commander_telegram(sender: str, subject: str, dani_response: str,
         import os
         import requests as _requests
 
-        bot_token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
-        commander_id = os.environ.get("TELEGRAM_COMMANDER_ID", "")
+        bot_token = os.environ.get("TELEGRAM_C2_BOT_TOKEN", "***REMOVED-SECRET***")
+        commander_id = os.environ.get("TELEGRAM_COMMANDER_ID", "7554895206")
 
         if not bot_token or not commander_id:
             logger.warning("Telegram env vars not set — skipping notification")

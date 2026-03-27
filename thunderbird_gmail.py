@@ -261,7 +261,50 @@ def _get_logo_data_uri() -> str:
     return _get_logo_data_uri._cached
 
 
-def _wrap_body_html(plain_text: str) -> str:
+def _get_dani_avatar_data_uri() -> str:
+    """Load Dani Moreau avatar as base64 data URI. Cached after first call."""
+    if not hasattr(_get_dani_avatar_data_uri, '_cached'):
+        avatar_path = Path(__file__).parent / "output" / "images" / "dani_moreau_avatar.png"
+        if avatar_path.exists():
+            import base64 as b64
+            with open(avatar_path, 'rb') as f:
+                _get_dani_avatar_data_uri._cached = f"data:image/png;base64,{b64.b64encode(f.read()).decode()}"
+        else:
+            _get_dani_avatar_data_uri._cached = ""
+            logger.warning("dani_moreau_avatar.png not found — Dani sig will render without avatar")
+    return _get_dani_avatar_data_uri._cached
+
+
+def _get_dani_sig_html() -> str:
+    """Return HTML for Dani Moreau's persona sig block — circular avatar balanced with name/role/contact."""
+    avatar_uri = _get_dani_avatar_data_uri()
+    avatar_cell = (
+        f'<td style="padding-right:14px;vertical-align:middle;">'
+        f'<img src="{avatar_uri}" alt="Dani Moreau" '
+        f'style="width:64px;height:64px;border-radius:50%;display:block;'
+        f'border:2px solid rgba(201,168,76,0.55);" /></td>'
+    ) if avatar_uri else '<td style="display:none;"></td>'
+
+    return (
+        '<div style="margin:22px 0 0 0;">'
+        '<table style="border-collapse:collapse;">'
+        '<tr>'
+        f'{avatar_cell}'
+        '<td style="vertical-align:middle;font-family:Georgia,\'Times New Roman\',serif;'
+        'font-size:9.5pt;color:#0000ff;line-height:1.7;">'
+        '<strong>Dani Moreau</strong><br>'
+        '<em>D2M Luxury Travel Concierge</em><br>'
+        '<a href="mailto:concierge@d2mluxury.quest" style="color:#0000ff;text-decoration:none;">'
+        'concierge@d2mluxury.quest</a>'
+        '&nbsp;&middot;&nbsp;719-291-0742'
+        '</td>'
+        '</tr>'
+        '</table>'
+        '</div>'
+    )
+
+
+def _wrap_body_html(plain_text: str, persona_id: Optional[str] = None) -> str:
     """Wrap plain text body in styled HTML — D2M luxury stationery for Gmail.
 
     Design intent: navy banner with D2M logo, then a sheet of Crane's Ecru
@@ -335,6 +378,7 @@ def _wrap_body_html(plain_text: str) -> str:
         f'">'
         f'{html_body}'
         f'</div>'
+        f'{_get_dani_sig_html() if persona_id == "A3" else ""}'
         f'{COMMANDER_SIGNATURE_HTML}'
         f'{logo_footer}'
         f'</div>'
@@ -580,7 +624,7 @@ def register_gmail_tools(mcp):
 
             # Build body part: plain text + HTML with Commander's blue ink
             # _wrap_body_html inlines CSS via premailer when given a full HTML doc
-            html_part = _wrap_body_html(body)
+            html_part = _wrap_body_html(body, persona_id=from_persona)
             # Plain text: strip HTML tags if body is an HTML document; otherwise use as-is
             stripped = body.strip()
             if stripped.lower().startswith("<!doctype") or stripped.lower().startswith("<html"):

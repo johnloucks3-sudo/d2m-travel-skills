@@ -1,0 +1,182 @@
+
+    logo_uri = _img_base64(LOGO_FILE)
+    today = datetime.now()
+    alert_emoji = {"RED": "🔴", "GOLD": "🟡", "GREEN": "🟢"}.get(summary["alert_level"], "")
+    briefing_type = "WEEKLY INTELLIGENCE DIGEST" if is_weekly else "MORNING BRIEFING"
+
+    # ── Group RSS by category ──
+    by_cat: dict[str, list] = {}
+    for art in (rss_direct or []):
+        by_cat.setdefault(art.get("category", "Other"), []).append(art)
+
+    cat_order = ["War/Geopolitics", "Politics", "Cruise", "Airline",
+                 "Maritime", "Markets", "Travel", "Other"]
+    cat_icons = {
+        "War/Geopolitics": "🌍", "Politics": "🏛️", "Cruise": "🚢",
+        "Airline": "✈️", "Maritime": "⚓", "Markets": "📈",
+        "Travel": "🧳", "Other": "📰",
+    }
+
+    # ── Build expanded HTML per card ──
+    def _story_list(items: list, max_items: int = 15) -> str:
+        out = []
+        for art in items[:max_items]:
+            title = art.get("title", "")
+            url   = art.get("url", "")
+            src   = art.get("source", "")
+            pub   = art.get("published", "")[:16]
+            summ  = art.get("summary", "")[:300]
+            rel   = art.get("relevance_score", 1)
+            border = "border-left:3px solid #c9a84c;padding-left:10px;" if rel >= 3 else ""
+            link  = f'<a href="{url}" style="color:#7eb8ff;text-decoration:none;">{title}</a>' if url else f'<span style="color:#c8d0dc;">{title}</span>'
+            out.append(
+                f'<div style="padding:6px 0 6px 0;{border}border-bottom:1px solid rgba(255,255,255,0.04);">'
+                f'{link}'
+                f'<div style="font-size:11px;color:#4a5a75;margin-top:2px;">{src} // {pub}</div>'
+                f'{"<div style=\\"font-size:12px;color:#8a9ab5;margin-top:3px;line-height:1.5;\\">" + summ + "</div>" if summ else ""}'
+                f'</div>'
+            )
+        return "\n".join(out)
+
+    def _anchor_expanded() -> str:
+        if completed_actions is None:
+            ca = set()
+        else:
+            ca = completed_actions
+        items_html = []
+        for bucket in ["overdue", "due_today", "due_this_week"]:
+            for item in anchor_report.get(bucket, []):
+                bkey  = item.get("booking", "").strip()
+                label = item.get("label", "").strip()
+                if (bkey, label) in ca:
+                    continue
+                cat   = item.get("category", "")
+                dt    = item.get("date", "")
+                color = "#ff4444" if bucket == "overdue" else ("#ff8800" if bucket == "due_today" else "#c9a84c")
+                items_html.append(
+                    f'<div style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);">'
+                    f'<span style="color:{color};font-weight:700;">{dt}</span> — '
+                    f'<span style="color:#c8d0dc;">{label}</span> '
+                    f'<span style="color:#6b7c99;font-size:11px;">({bkey}) [{cat}]</span>'
+                    f'</div>'
+                )
+        return "\n".join(items_html) if items_html else '<p style="color:#6b7c99;">No active items.</p>'
+
+    # ── Anchor bullets ──
+    anchor_bullets = []
+    for bucket in ["overdue", "due_today", "due_this_week"]:
+        for item in anchor_report.get(bucket, [])[:2]:
+            prefix = "🔴" if bucket == "overdue" else ("🟠" if bucket == "due_today" else "🟡")
+            anchor_bullets.append(f'{prefix} {item.get("label","")} — {item.get("booking","")}')
+
+    # ── Intel Crew summary ──
+    crew_expanded = ""
+    if intel_crew_report:
+        cos = intel_crew_report.get("cos_review", "")
+        if cos:
+            crew_expanded = f'<div style="font-size:13px;color:#c8d0dc;line-height:1.7;">{cos.replace(chr(10),"<br>")}</div>'
+
+    html = f"""<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  * {{ margin:0; padding:0; box-sizing:border-box; }}
+  body {{ font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif;
+          background:#080d14; color:#e0e6ed; line-height:1.6; }}
+  .wrap {{ max-width:700px; margin:0 auto; background:#0d1b2e; }}
+  .hdr  {{ background:#0d1b2e; padding:28px 24px 18px;
+           border-bottom:3px solid #c9a84c; }}
+  .stat-bar {{ display:flex; background:#152540;
+               border-bottom:1px solid rgba(201,168,76,0.2); }}
+  .stat {{ flex:1; text-align:center; padding:12px 6px;
+           border-right:1px solid rgba(201,168,76,0.1); }}
+  .stat:last-child {{ border-right:none; }}
+  .sn   {{ font-size:20px; font-weight:700; color:#e8c97a; display:block; }}
+  .sl   {{ font-size:9px; text-transform:uppercase; letter-spacing:1.5px; color:#6b7c99; }}
+  .cards {{ padding:16px; }}
+  a     {{ color:#7eb8ff; }}
+</style>
+<script>
+function toggle(id) {{
+  var s = document.getElementById('sum-'+id);
+  var e = document.getElementById('exp-'+id);
+  var a = document.getElementById('arr-'+id);
+  if (e.style.display === 'none') {{
+    e.style.display = 'block';
+    s.style.display = 'none';
+    a.style.transform = 'rotate(90deg)';
+  }} else {{
+    e.style.display = 'none';
+    s.style.display = 'block';
+    a.style.transform = 'rotate(0deg)';
+  }}
+}}
+</script>
+</head>
+<body>
+<div class="wrap">
+  <div class="hdr">
+    {"<img src='" + logo_uri + "' style='height:48px;margin-bottom:10px;display:block;'>" if logo_uri else ""}
+    <div style="font-size:10px;text-transform:uppercase;letter-spacing:3px;color:#c9a84c;">Dreams2Memories Travel</div>
+    <div style="font-size:26px;font-weight:700;color:#fff;margin:4px 0 2px;">THUNDERBIRD {briefing_type}</div>
+    <div style="font-size:13px;color:#8a9ab5;">{summary["date_display"]}</div>
+    <div style="margin-top:8px;display:inline-block;background:rgba(201,168,76,0.15);
+                color:#e8c97a;font-size:10px;font-weight:700;letter-spacing:2px;
+                padding:4px 12px;border-radius:20px;border:1px solid rgba(201,168,76,0.3);">
+      {alert_emoji} {summary["alert_text"]}
+    </div>
+  </div>
+
+  <div class="stat-bar">
+    <div class="stat"><span class="sn">{summary["overdue"] + summary["due_today"]}</span><div class="sl">Actions</div></div>
+    <div class="stat"><span class="sn">{summary["due_week"]}</span><div class="sl">This Week</div></div>
+    <div class="stat"><span class="sn">{len(rss_direct) if rss_direct else 0}</span><div class="sl">Live Intel</div></div>
+    <div class="stat"><span class="sn">{len(by_cat)}</span><div class="sl">Categories</div></div>
+    <div class="stat"><span class="sn">{summary["total_pricing"]}</span><div class="sl">Fares</div></div>
+  </div>
+
+  <div class="cards">
+"""
+
+    # ── Anchor Dates Card ──
+    html += _render_card_section(
+        "📅", "Action Items & Deadlines", "anchors",
+        anchor_bullets or ["All clear — no urgent items"],
+        _anchor_expanded(),
+        accent="#ff8800"
+    )
+
+    # ── Intel Crew card (if available) ──
+    if intel_crew_report and crew_expanded:
+        crew_bullets = ["COS Hale synthesis available", "A2 Dembe analysis complete"]
+        html += _render_card_section("🎯", "Intel Crew Analysis", "crew",
+                                      crew_bullets, crew_expanded, accent="#44c8c8")
+
+    # ── RSS category cards ──
+    for cat in cat_order:
+        items = by_cat.get(cat, [])
+        if not items:
+            continue
+        icon    = cat_icons.get(cat, "📰")
+        bullets = [f'{a.get("source","")}: {a.get("title","")[:70]}' for a in items[:4]]
+        html   += _render_card_section(icon, cat, f"cat-{cat.replace('/','-').replace(' ','-').lower()}",
+                                        bullets, _story_list(items), accent="#c9a84c")
+
+    # ── Close cards div + footer ──
+    html += f"""
+  </div>
+  <div style="background:#080d14;padding:20px;text-align:center;">
+    <div style="font-size:10px;text-transform:uppercase;letter-spacing:3px;color:#4a5a75;">
+      Thunderbird OS // Dreams2Memories Travel, LLC
+    </div>
+    <div style="font-size:11px;color:#3a4a65;font-style:italic;margin-top:4px;">
+      Generated {today.strftime('%Y-%m-%d %H:%M')} MT
+    </div>
+  </div>
+</div>
+</body>
+</html>"""
+
+    return html

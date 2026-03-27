@@ -214,26 +214,37 @@ async def task_claude_code_batch(prompt: str, name: str = 'batch'):
         return {'stdout': result.stdout[:500], 'stderr': result.stderr[:200], 'exit_code': result.returncode}
 
 
+# ── STANDING ORDER 2026-03-26 (AMENDED) — Commander selected 1,2,4,6,10-16 ──
+# First pass killed all intel. Commander reviewed full manifest and restored
+# World Intel, Ship Intel, Competitive Surveillance, Tech Monitor.
+# Permanently killed: Star Protocol, Email Intel Sweep, Airline Route Scan,
+#                     Commander Inbox Sweep, Dani Email Sweep.
+# Full numbered manifest reference:
+#   1=World Intel  2=Ship Intel  3=Star Protocol(KILL)  4=Competitive
+#   5=Email Intel(KILL)  6=Tech Monitor  7=Airline Scan(KILL)
+#   8=Cmd Inbox(KILL)  9=Dani Email(KILL)  10=Learning  11=Dossier
+#   12=Fare Watch  13=Voice Ledger  14=Reconciliation  15=Product  16=Guest Forms
+
 TASKS = [
-    {'name': 'World Intelligence Sweep',        'weight': 'heavy',  'fn': task_world_intel},
-    {'name': 'Ship Intelligence Sweep',         'weight': 'heavy',  'fn': task_ship_intel},
-    {'name': 'Star Protocol Sweep',             'weight': 'medium', 'fn': task_star_sweep},
-    {'name': 'Competitive Surveillance',        'weight': 'medium', 'fn': task_competitive},
-    {'name': 'Email Intel Sweep',               'weight': 'medium', 'fn': task_email_intel},
-    {'name': 'Dani Email Sweep',                'weight': 'medium', 'fn': task_dani_email},
-    {'name': 'Tech Monitor',                    'weight': 'light',  'fn': task_tech_monitor},
-    {'name': 'Airline Route Scan',              'weight': 'light',  'fn': task_airline_scan},
-    # IOC tasks (Mar 20)
-    {'name': 'Learning Extraction',             'weight': 'medium', 'fn': task_learning_extraction},
-    {'name': 'Dossier Gap Scanner',             'weight': 'light',  'fn': task_dossier_scan},
-    {'name': 'Commander Inbox Sweep',           'weight': 'medium', 'fn': task_commander_inbox},
-    {'name': 'Fare Watch Check',                'weight': 'light',  'fn': task_fare_watch},
-    {'name': 'Voice Ledger Update',             'weight': 'light',  'fn': task_voice_ledger_update},
-    # Weekly reconciliation (runs every batch cycle but logs weekly summary)
-    {'name': 'Booking Reconciliation',          'weight': 'light',  'fn': task_booking_reconciliation},
-    # Product & client management
-    {'name': 'Product Intake Scan',             'weight': 'medium', 'fn': task_product_intake},
-    {'name': 'Guest Profile Forms',             'weight': 'light',  'fn': task_guest_forms},
+    # ── INTEL — Commander-selected (1, 2, 4, 6) ────────────────────────────────
+    {'name': 'World Intelligence Sweep',        'weight': 'heavy',  'fn': task_world_intel},       # 1 ✅
+    {'name': 'Ship Intelligence Sweep',         'weight': 'heavy',  'fn': task_ship_intel},        # 2 ✅
+    # {'name': 'Star Protocol Sweep',           'weight': 'medium', 'fn': task_star_sweep},        # 3 ❌ KILLED
+    {'name': 'Competitive Surveillance',        'weight': 'medium', 'fn': task_competitive},       # 4 ✅
+    # {'name': 'Email Intel Sweep',             'weight': 'medium', 'fn': task_email_intel},       # 5 ❌ KILLED
+    {'name': 'Tech Monitor',                    'weight': 'light',  'fn': task_tech_monitor},      # 6 ✅
+    # {'name': 'Airline Route Scan',            'weight': 'light',  'fn': task_airline_scan},      # 7 ❌ KILLED
+    # {'name': 'Commander Inbox Sweep',         'weight': 'medium', 'fn': task_commander_inbox},   # 8 ❌ KILLED
+    # {'name': 'Dani Email Sweep',              'weight': 'medium', 'fn': task_dani_email},        # 9 ❌ KILLED
+
+    # ── OPERATIONAL — retained (10-16) ─────────────────────────────────────────
+    {'name': 'Learning Extraction',             'weight': 'medium', 'fn': task_learning_extraction}, # 10 ✅
+    {'name': 'Dossier Gap Scanner',             'weight': 'light',  'fn': task_dossier_scan},      # 11 ✅
+    {'name': 'Fare Watch Check',                'weight': 'light',  'fn': task_fare_watch},        # 12 ✅
+    {'name': 'Voice Ledger Update',             'weight': 'light',  'fn': task_voice_ledger_update}, # 13 ✅
+    {'name': 'Booking Reconciliation',          'weight': 'light',  'fn': task_booking_reconciliation}, # 14 ✅
+    {'name': 'Product Intake Scan',             'weight': 'medium', 'fn': task_product_intake},    # 15 ✅
+    {'name': 'Guest Profile Forms',             'weight': 'light',  'fn': task_guest_forms},       # 16 ✅
 ]
 
 

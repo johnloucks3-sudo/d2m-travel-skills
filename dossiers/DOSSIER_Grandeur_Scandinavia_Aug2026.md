@@ -22,7 +22,7 @@ Route: Stockholm → Berlin → Copenhagen → Kristiansand → Oslo
 Embarkation: August 29, 2026 — Stockholm, Sweden
 Disembarkation: September 08, 2026 — Oslo, Norway
 Duration: 10 nights
-Last Updated: March 16, 2026
+Last Updated: March 26, 2026
 
 ────────────────────────────────────────────────────────────
 1. GENERAL TRIP NOTES
@@ -46,17 +46,18 @@ Transfers: Private car ARN airport → Haymarket (Bedsonline)
 3. FLIGHT SEAT ASSIGNMENT MATRIX — ALL COUPLES (Updated 2026-03-16)
 ════════════════════════════════════════════════════════════
 
-Flight           Route           Date     Furlow (John/Missy)  Ely/Darrow (Al/Amy)  Nichols (Larry/Heidi)
-─────────────────────────────────────────────────────────────────────────────────────────────────────────
-AA 9018 (Finnair) DFW → HEL     Aug 26   ❌ / ❌              2H / 2D              5D / 5H
-AY 811            HEL → ARN     Aug 27   ❌ / ❌              ❌ / ❌              2D / 2F
-BA 6776 (AA)      OSL → LHR     Sep 8    4C / 4A              2C / 2A              3C / 3A
-AA 79             LHR → DFW     Sep 8    7D / 7G              3G / 3D              8D / 8G
+Flight           Route           Date     Furlow (John/Missy)       Ely/Darrow (Al/Amy)       Nichols (Larry/Heidi)
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+AA 9018 (Finnair) DFW → HEL     Aug 26   ✅ / ✅ (seats TBD)       2H / 2D                   5D / 5H
+AY 811            HEL → ARN     Aug 27   ❌ / ❌ ⚠ ONLY OPEN GAP   ✅ / ✅ (seats TBD)       2D / 2F
+BA 6776 (AA)      OSL → LHR     Sep 8    4C / 4A                   2C / 2A                   3C / 3A
+AA 79             LHR → DFW     Sep 8    7D / 7G                   3G / 3D                   8D / 8G
 
-⚠ CRITICAL GAPS:
-  • FURLOW: ZERO outbound seats — both DFW→HEL and HEL→ARN unassigned
-  • ELY/DARROW: HEL→ARN unassigned
-  • All return legs (OSL→LHR→DFW) confirmed for all three couples
+⚠ REMAINING GAP — Updated 2026-03-26:
+  • FURLOW ONLY: HEL→ARN (AY 811, Aug 27) — 2 seats still unassigned (PNR BB4X94)
+  • ALL other legs confirmed for all three couples
+  • DFW→HEL (Furlow) assigned per Commander 2026-03-26 — seat numbers pending documentation
+  • HEL→ARN (Ely/Darrow) assigned per Commander 2026-03-26 — seat numbers pending documentation
 
 Source: Nichols PNRs DSTAGH / BERJYH (confirmed by Heidi 2026-03-16)
 Matrix compiled by A3-Moreau 2026-03-16
@@ -84,7 +85,7 @@ BOOKING SUMMARY
   Booking Date:    September 10, 2025
   Embarkation:     August 29, 2026
   Disembarkation:  September 08, 2026
-  Final Payment:   April 01, 2026 — PENDING
+  Final Payment:   April 01, 2026 — ✅ PAID (processed Mar 25)
 
 ANCHOR DATE TIMELINE
 Date         Status Category     Milestone
@@ -93,10 +94,10 @@ Date         Status Category     Milestone
 2025-12-02   PAST   [documents ]   E-270: Passport validity check (6-month rule)
 2026-01-31   PAST   [supplier  ] ★ HARD: Shore Excursions Open
 2026-03-02   PAST   [insurance ]   E-180: Insurance decision deadline
-2026-03-11          [payment   ]   Payment reminder #1 (FPD-21)
-2026-03-18          [payment   ]   Payment reminder #2 (FPD-14)
-2026-03-25          [payment   ]   Goal: payment in hand (FPD-7)
-2026-04-01          [payment   ]   FINAL PAYMENT DUE
+2026-03-11   PAST   [payment   ]   Payment reminder #1 (FPD-21)
+2026-03-18   PAST   [payment   ]   Payment reminder #2 (FPD-14)
+2026-03-25   PAST   [payment   ]   Goal: payment in hand (FPD-7)
+2026-03-26   PAST   [payment   ] ✅ PAID — $15,486 processed (Chase Sapphire Reserve)
 2026-04-01          [documents ]   E-150: Guest Info Forms due
 2026-04-01          [supplier  ] ★ HARD: Cancel penalty 15% begins
 2026-04-08          [payment   ]   Confirm payment received (FPD+7)
@@ -144,22 +145,22 @@ DINING PLANNER
   [To be populated — specialty dining reservations pending]
 
 LOGISTICS & TRANSPORT — FLIGHTS
-  AA 9018 (Finnair) DFW → HEL  Aug 26  ⚠ NO SEATS ASSIGNED
-  AY 811            HEL → ARN  Aug 27  ⚠ NO SEATS ASSIGNED
+  AA 9018 (Finnair) DFW → HEL  Aug 26  ✅ ASSIGNED (seat #s TBD — confirm with AA/BB4X94)
+  AY 811            HEL → ARN  Aug 27  ⚠ UNASSIGNED — ONLY REMAINING GAP (PNR BB4X94)
   BA 6776 (AA)      OSL → LHR  Sep 8   John: 4C / Missy: 4A ✅
   AA 79             LHR → DFW  Sep 8   John: 7D / Missy: 7G ✅
 
-  ⚠ ACTION REQUIRED: Contact AA/Finnair for outbound seat assignments
+  ⚠ ACTION REQUIRED: HEL→ARN seat assignments only — contact AA/Finnair re PNR BB4X94
 
 INSURANCE STATUS
   Status: PENDING
 
 DOCUMENTS CHECKLIST
-  [ ] Passport verified (6-month validity)
+  [x] Passport verified (6-month validity) — CONFIRMED valid (Commander 2026-03-26)
   [ ] Guest Information Form submitted
   [ ] Travel insurance decision
   [ ] Emergency contact provided
-  [ ] Final payment received
+  [x] Final payment received — $15,486 processed Mar 25
   [ ] Dining selections made
   [ ] Excursion selections made
   [ ] Final itinerary delivered
@@ -188,7 +189,7 @@ BOOKING SUMMARY
   Booking Date:    November 13, 2025
   Embarkation:     August 29, 2026
   Disembarkation:  September 08, 2026
-  Final Payment:   April 01, 2026 — PENDING
+  Final Payment:   April 01, 2026 — ✅ PAID (processed Mar 26)
 
 ANCHOR DATE TIMELINE
 Date         Status Category     Milestone
@@ -197,10 +198,10 @@ Date         Status Category     Milestone
 2025-12-02   PAST   [documents ]   E-270: Passport validity check (6-month rule)
 2026-01-31   PAST   [supplier  ] ★ HARD: Shore Excursions Open
 2026-03-02   PAST   [insurance ]   E-180: Insurance decision deadline
-2026-03-11          [payment   ]   Payment reminder #1 (FPD-21)
-2026-03-18          [payment   ]   Payment reminder #2 (FPD-14)
-2026-03-25          [payment   ]   Goal: payment in hand (FPD-7)
-2026-04-01          [payment   ]   FINAL PAYMENT DUE
+2026-03-11   PAST   [payment   ]   Payment reminder #1 (FPD-21)
+2026-03-18   PAST   [payment   ]   Payment reminder #2 (FPD-14)
+2026-03-25   PAST   [payment   ]   Goal: payment in hand (FPD-7)
+2026-03-26   PAST   [payment   ] ✅ PAID — $16,640 processed (Mastercard, CVV 883)
 2026-04-01          [documents ]   E-150: Guest Info Forms due
 2026-04-01          [supplier  ] ★ HARD: Cancel penalty 15% begins
 2026-04-08          [payment   ]   Confirm payment received (FPD+7)
@@ -253,21 +254,21 @@ DINING PLANNER
 
 LOGISTICS & TRANSPORT — FLIGHTS
   AA 9018 (Finnair) DFW → HEL  Aug 26  Al: 2H / Amy: 2D ✅
-  AY 811            HEL → ARN  Aug 27  ⚠ NO SEATS ASSIGNED
+  AY 811            HEL → ARN  Aug 27  ✅ ASSIGNED (seat #s TBD — confirm with Al/AA, PNR UXVXZP)
   BA 6776 (AA)      OSL → LHR  Sep 8   Al: 2C / Amy: 2A ✅
   AA 79             LHR → DFW  Sep 8   Al: 3G / Amy: 3D ✅
 
-  ⚠ ACTION REQUIRED: HEL→ARN seats still unassigned
+  ✅ ALL LEGS CONFIRMED — seat #s for HEL→ARN pending documentation (per Commander 2026-03-26)
 
 INSURANCE STATUS
   Status: PENDING
 
 DOCUMENTS CHECKLIST
-  [ ] Passport verified (6-month validity)
+  [x] Passport verified (6-month validity) — CONFIRMED valid (Commander 2026-03-26)
   [ ] Guest Information Form submitted
   [ ] Travel insurance decision
   [ ] Emergency contact provided
-  [ ] Final payment received
+  [x] Final payment received — $16,640 processed Mar 26
   [ ] Dining selections made
   [ ] Excursion selections made
   [ ] Final itinerary delivered
@@ -304,10 +305,10 @@ Date         Status Category     Milestone
 2025-12-02   PAST   [documents ]   E-270: Passport validity check (6-month rule)
 2026-01-31   PAST   [supplier  ] ★ HARD: Shore Excursions Open
 2026-03-02   PAST   [insurance ]   E-180: Insurance decision deadline
-2026-03-11          [payment   ]   Payment reminder #1 (FPD-21)
-2026-03-18          [payment   ]   Payment reminder #2 (FPD-14)
-2026-03-25          [payment   ]   Goal: payment in hand (FPD-7)
-2026-04-01          [payment   ]   FINAL PAYMENT DUE
+2026-03-11   PAST   [payment   ]   Payment reminder #1 (FPD-21)
+2026-03-18   PAST   [payment   ]   Payment reminder #2 (FPD-14)
+2026-03-25   PAST   [payment   ]   Goal: payment in hand (FPD-7)
+2026-04-01          [payment   ]   FINAL PAYMENT DUE — $14,986 STILL OUTSTANDING (Nichols only)
 2026-04-01          [documents ]   E-150: Guest Info Forms due
 2026-04-01          [supplier  ] ★ HARD: Cancel penalty 15% begins
 2026-04-08          [payment   ]   Confirm payment received (FPD+7)
@@ -369,11 +370,11 @@ INSURANCE STATUS
   Status: PENDING
 
 DOCUMENTS CHECKLIST
-  [ ] Passport verified (6-month validity)
+  [x] Passport verified (6-month validity) — CONFIRMED valid (Commander 2026-03-26)
   [ ] Guest Information Form submitted
-  [ ] Travel insurance decision
+  [ ] Travel insurance decision (CFAR — Allianz $700 policy exists, clarity needed)
   [ ] Emergency contact provided
-  [ ] Final payment received
+  [ ] Final payment received — ⚠️ $14,986 DUE APR 1 — UNPAID
   [ ] Dining selections made
   [ ] Excursion selections made
   [ ] Final itinerary delivered

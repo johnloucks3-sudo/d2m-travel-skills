@@ -30,7 +30,7 @@ except ImportError:
 BASE = Path(__file__).parent
 STATE_FILE = BASE / "config" / "monitor_state.json"
 CREDS_FILE = BASE / "config" / "portal_creds.json"
-BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "***REMOVED-SECRET***")
+BOT_TOKEN = os.environ.get("TELEGRAM_C2_BOT_TOKEN", "***REMOVED-SECRET***")  # D2MC2C_bot — Commander C2 channel
 COMMANDER_ID = os.environ.get("TELEGRAM_COMMANDER_ID", "7554895206")
 
 # Regent booking numbers to monitor (pull from dossier frontmatter or hardcode)

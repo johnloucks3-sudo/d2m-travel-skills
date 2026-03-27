@@ -89,11 +89,22 @@ CLASSIFICATION_ROUTING: Dict[str, Dict[str, str]] = {
 # Re-enable by setting DANI_AUTO_DRAFT_ENABLED = True after supplier filter audit.
 DANI_AUTO_DRAFT_ENABLED = False  # LOCKED by COS 2026-03-25 per Commander directive
 
+# Wing's own addresses — any email FROM these is self-send, never inbound client
+# Fast-path: return "personal" immediately before any LLM call
+_SELF_ADDRESSES = re.compile(
+    r"(d2mconcierge@gmail\.com|concierge@d2mluxury\.quest|johnloucks3@gmail\.com"
+    r"|d2m\.concierge@|dreams2memories@d2m-python-pipeline\.iam\.gserviceaccount\.com)",
+    re.IGNORECASE,
+)
+
 # Noise patterns — fast-path skip before any LLM call
 _NOISE_PATTERNS = re.compile(
     r"(no-?reply|noreply|newsletter|unsubscribe|@notification|"
     r"@mailer|donotreply|do-not-reply|@bounce|marketing@|"
-    r"promotions?@|alerts?@|support@.*\.com$)",
+    r"promotions?@|alerts?@|support@.*\.com$"
+    r"|group\d+@|@lawndoctor|@homedepot|@lowes|@bestbuy|@amazon"
+    r"|@target|@walmart|@costco|@cvs|@walgreens|@fedex|@ups\.com"
+    r"|@usps\.com|@irs\.gov|@dmv\.|deals@|offers@|savings@|coupons?@)",
     re.IGNORECASE,
 )
 
@@ -315,8 +326,14 @@ def classify_email(subject: str, sender: str, body_preview: str) -> str:
 
     Falls back to heuristics if Claude unavailable.
     """
-    # Fast-path: obvious noise → personal
     sender_lower = sender.lower()
+
+    # Fast-path: self-send — our own outbound replies showing in inbox thread
+    # These are NEVER inbound; skip immediately, no LLM waste
+    if _SELF_ADDRESSES.search(sender_lower):
+        return "personal"
+
+    # Fast-path: obvious noise/commercial → personal
     if _NOISE_PATTERNS.search(sender_lower):
         return "personal"
 
@@ -352,12 +369,17 @@ def classify_email(subject: str, sender: str, body_preview: str) -> str:
         system = (
             "You are an email classification engine for Dreams2Memories Travel, LLC, "
             "a luxury travel agency. Classify the email into EXACTLY ONE of these categories:\n"
-            "  client_inquiry     — A client or prospect asking about travel, trips, bookings, quotes\n"
-            "  booking_confirmation — A confirmation, itinerary, e-ticket, or document from a vendor/cruise/airline\n"
-            "  vendor_comm        — Correspondence from cruise lines, hotels, airlines, vendors (not confirmations)\n"
-            "  financial          — Commissions, invoices, payments, overrides, financial statements\n"
-            "  intel              — Travel news, advisories, market intel, industry updates\n"
-            "  personal           — Personal, unrelated to travel business, spam, newsletters\n\n"
+            "  client_inquiry     — A client or prospect asking about travel, trips, bookings, or quotes\n"
+            "  booking_confirmation — A confirmation, itinerary, e-ticket, or travel document from a TRAVEL vendor\n"
+            "  vendor_comm        — Correspondence from TRAVEL INDUSTRY contacts ONLY: cruise lines, hotels, "
+            "airlines, GDS systems, tour operators, excursion providers, transfer companies. "
+            "NON-TRAVEL vendors (lawn care, retail, utilities, food delivery, home services, etc.) = personal\n"
+            "  financial          — Commissions, invoices, payments, overrides, financial statements from travel vendors\n"
+            "  intel              — Travel news, port advisories, visa alerts, industry updates, geopolitical events\n"
+            "  personal           — Anything unrelated to the TRAVEL business: spam, retail, home services, "
+            "newsletters from non-travel companies, automated commercial emails, lawn care, etc.\n\n"
+            "IMPORTANT: If the sender is a non-travel business or the email is commercial/promotional "
+            "with no travel relevance, ALWAYS classify as 'personal'.\n\n"
             "Reply with ONLY the category name — no explanation, no punctuation."
         )
 

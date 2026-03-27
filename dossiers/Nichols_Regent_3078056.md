@@ -9,6 +9,7 @@ departure: 2026-08-29
 return: 2026-09-08
 fpd: 2026-04-01
 fpd_amount: 14986
+payment_status: paid_in_full
 status: active
 relationship: client
 ---
@@ -18,15 +19,16 @@ relationship: client
 
 ---
 
-### STATUS: ACTIVE — Final Payment Apr 1, 2026 ($14,986) | Suite 939, Deck 9 | **CC: PORTAL INVITE PENDING — Heidi waiting, Commander sending new invite via OA (Mar 24)**
+### STATUS: ACTIVE — **✅ PAID IN FULL** | Suite 939, Deck 9 | Portal activation resent 2026-03-26.
 
-### RSSC PORTAL DATA (Scraped Mar 24, 2026)
+### RSSC PORTAL DATA (Scraped Mar 26, 2026)
 - **Total Booking Amount:** $18,896.00
-- **Paid to Date:** $3,910.00 (deposit Oct 1, 2025)
-- **Balance Due:** $14,986.00 — **DUE APR 1, 2026**
+- **Paid to Date:** $18,896.00 ✅ PAID IN FULL
+- **Balance Due:** $0.00
 - **Guest Registration:** Larry Nichols COMPLETE, Heidi Nichols COMPLETE
 - **Shipboard Credits:** None
 - **Deposit Received:** Oct 1, 2025
+- **Final Payment Received:** Confirmed Mar 26, 2026 (portal scrape)
 - **Shore Excursions Booked:** Jan 31, 2026 ✅
 - **Dining reservations open:** May 31, 2026 (8pm ET)
 - **Culinary Arts Kitchen Classes open:** May 1, 2026 (8pm ET)
@@ -47,10 +49,10 @@ relationship: client
 ### FLIGHTS — Business Class (Client-booked via AA, all 3 couples same flights)
 | Leg | Flight | Route | Depart | Arrive | Seats |
 |-----|--------|-------|--------|--------|-------|
-| OUT 1 | AA 9018 (Finnair) | DFW → HEL | Aug 26, 4:50 PM | Aug 27, 10:45 AM | Not assigned |
+| OUT 1 | AA 9018 (Finnair) | DFW → HEL | Aug 26, 4:50 PM | Aug 27, 10:45 AM | Larry: 5D / Heidi: 5H ✅ |
 | OUT 2 | AY 811 | HEL → ARN | Aug 27, 1:15 PM | Aug 27, 1:15 PM | **2D (Larry) · 2F (Heidi)** ✓ |
-| RET 1 | BA 6776 (AA) | OSL → LHR | Sep 8, 11:15 AM | Sep 8, 12:45 PM | Not assigned |
-| RET 2 | AA 79 | LHR → DFW | Sep 8, 2:25 PM | Sep 8, 6:35 PM | Not assigned |
+| RET 1 | BA 6776 (AA) | OSL → LHR | Sep 8, 11:15 AM | Sep 8, 12:45 PM | Larry: 3C / Heidi: 3A ✅ |
+| RET 2 | AA 79 | LHR → DFW | Sep 8, 2:25 PM | Sep 8, 6:35 PM | Larry: 8D / Heidi: 8G ✅ |
 
 **PNRs:** AA: DSTAGH | Finnair: BERJYH
 **Ticketed:** Jan 8, 2026 (Heidi booked directly, price was fluctuating)
@@ -62,13 +64,50 @@ relationship: client
 | Booking | Item | Dates | Status | Cost |
 |---------|------|-------|--------|------|
 | Bedsonline 131-2656351 | Haymarket By Scandic (on Furlow group booking, 3x Grande King) | Aug 27-28 | **CONFIRMED** | incl. |
-| — | Regent included hotel night | Aug 28 | Included | — |
+| — | Regent included hotel night (name TBD — NOT Hotel At Six) | Aug 28-29 | Included | — |
 | #1095089 / LN693883 | Transfer — Book Now Pay Later | — | **CONFIRMED** | — |
 | — | Regent transport hotel → ship | Aug 29 | Included | — |
 | — | Regent transport ship → Oslo airport | Sep 8 | Included | — |
 
 **Heidi confirmed (Jan 27):** "We will need private transportation to the hotel from the airport and the Regent transportation from the Hotel to the ship. The same as Missy and John."
 **Heidi confirmed (Jan 27):** "We are not staying overnight in Oslo. We will come home the day we dock."
+
+---
+
+### GUEST DETAILS (from RSSC Portal — Scraped Mar 26, 2026)
+
+#### Larry W. Nichols
+| Field | Value |
+|-------|-------|
+| Email | larry.nichols4811@gmail.com |
+| DOB | March 23, 1957 |
+| Address | 4811 Heatherbrook Dr, Dallas TX 75244 |
+| Passport # | 654918129 |
+| Passport Issued | Feb 20, 2020 |
+| Passport Expires | Feb 19, 2030 ✅ |
+| Citizenship | United States |
+| Birthplace | Houston, TX |
+| Seven Seas Society # | 300254739001 |
+| Emergency Contact | Heidi Nichols — 972-741-1055 (day/night) |
+
+#### Heidi Ann Nichols
+| Field | Value |
+|-------|-------|
+| Email | heidi.nichols1@yahoo.com |
+| DOB | August 29, 1959 (🎂 Embarkation Day!) |
+| Address | 4811 Heatherbrook Dr, Dallas TX 75244 |
+| Passport # | 654918130 |
+| Passport Issued | Feb 20, 2020 |
+| Passport Expires | Feb 19, 2030 ✅ |
+| Citizenship | United States |
+| Birthplace | Dallas, TX |
+| Seven Seas Society # | 300254740001 |
+| Emergency Contact | Larry Nichols — 214-460-6892 (day/night) |
+
+#### Suite Details
+- **Category:** Concierge Suite D | **Deck:** 9 | **Suite:** 939
+- **Size:** 415 sq ft / 38.5 sq m
+- **WiFi:** Unlimited (up to 4 logins / 4 devices)
 
 ---
 
@@ -103,20 +142,20 @@ relationship: client
 
 | # | Category | Segment | Required | Status | Details |
 |---|----------|---------|----------|--------|---------|
-| 1 | Documents | Passports valid 6+ months | YES | **PENDING** | Not verified |
+| 1 | Documents | Passports valid 6+ months | YES | **✅ CONFIRMED** | Valid — Commander confirmed 2026-03-26 |
 | 2 | Documents | Visa / entry requirements | YES | **PENDING** | Sweden/Norway Schengen |
 | 3 | Insurance | Travel insurance policy | YES | **PARTIAL** | Paid $700 to Allianz but unclear what's covered. Wants CFAR. Also has Amex Platinum. |
 | 4 | Flights | Outbound leg 1 (DFW→HEL) | YES | **CONFIRMED** | AA 9018 (Finnair) Aug 26 4:50PM |
 | 5 | Flights | Outbound leg 2 (HEL→ARN) | YES | **CONFIRMED** | AY 811 Aug 27 1:15PM |
 | 6 | Flights | Outbound PNR / e-ticket | YES | **CONFIRMED** | AA: DSTAGH / Finnair: BERJYH |
-| 7 | Flights | Outbound seat assignments | Nice-to-have | **PARTIAL** | HEL→ARN: 2D/2F confirmed (Heidi Mar 16). DFW→HEL: none assigned |
+| 7 | Flights | Outbound seat assignments | Nice-to-have | **✅ ALL CONFIRMED** | DFW→HEL: 5D/5H; HEL→ARN: 2D/2F (Heidi confirmed Mar 16) |
 | 8 | Transfers | Airport → hotel transfer | YES | **CONFIRMED** | Bedsonline #1095089/LN693883 |
 | 9 | Hotel | Pre-cruise hotel (1 night) | YES | **CONFIRMED** | Haymarket By Scandic, Aug 27-28 (Furlow group) |
 | 10 | Hotel | Regent included hotel night | YES | **CONFIRMED** | Aug 28 |
 | 11 | Transfers | Hotel → port transfer | YES | **CONFIRMED** | Regent transport, Aug 29 |
 | 12 | Cruise | Booking confirmed | YES | **CONFIRMED** | 3078056, Suite 939 |
 | 13 | Cruise | Suite assignment | YES | **CONFIRMED** | 939 |
-| 14 | Cruise | Payment status | YES | **PENDING** | $14,986 due Apr 1 |
+| 14 | Cruise | Payment status | YES | **✅ PAID IN FULL** | $18,896.00 received — confirmed Mar 26, 2026 (portal scrape) |
 | 15 | Cruise | Embarkation details | YES | **CONFIRMED** | Stockholm, Aug 29 (Heidi's birthday!) |
 | 16 | Dining | Specialty dining | Optional | **NOT YET** | Opens May 31, 8pm ET |
 | 17 | Excursions | Shore excursions | Optional | **BOOKED** | 7 excursions confirmed (see below) |
@@ -126,10 +165,10 @@ relationship: client
 | 20 | Flights | Return leg 2 (LHR→DFW) | YES | **CONFIRMED** | AA 79 Sep 8 2:25PM |
 | 21 | Flights | Return PNR / e-ticket | YES | **CONFIRMED** | AA: DSTAGH / Finnair: BERJYH |
 | 22 | Flights | Return seat assignments | Nice-to-have | **MISSING** | No seats on any flight |
-| 23 | Admin | Portal activated | Nice-to-have | **SENT** | Activation sent |
+| 23 | Admin | Portal activated | Nice-to-have | **RESENT** | Portal activation resent 2026-03-26 — awaiting client response |
 | 24 | Admin | Dossier current | YES | **YES** | Updated Mar 12, 2026 |
 
-**Coverage: ~83%** | **Critical Gaps:** Insurance clarity, passport verification, final payment, 3 of 4 seat legs unassigned
+**Coverage: ~94%** | **Critical Gaps:** Insurance clarity (CFAR — $700 Allianz exists, needs review). Payment CLEARED. Return seat assignments still missing.
 
 ### SHORE EXCURSIONS (Confirmed RSSC Portal — Mar 24, 2026)
 All included (Regent Choice — $0.00). Both Larry & Heidi confirmed on all excursions.
@@ -151,10 +190,19 @@ All included (Regent Choice — $0.00). Both Larry & Heidi confirmed on all excu
 > Payment confirmation email drafted. Itemized: Cruise $14,986 + Hotel ~$494 + Transfer TBD. Asking: cruise only or all 3? CC info needed to process. Draft ID: r8933170342867443181
 
 ### OPEN ACTION ITEMS
-1. [ ] **URGENT:** Clarify what the $700 Allianz policy covers — pull policy details
+1. [ ] **Insurance:** Clarify what the $700 Allianz policy covers — pull policy details for Nichols review
 2. [ ] Review Amex Platinum travel protection benefits for them
 3. [ ] Provide CFAR upgrade options if current policy doesn't include it
-4. [ ] Follow up week of Mar 16 per Larry's request
-5. [ ] Process final payment $14,986 by Apr 1
-6. [ ] **VALIDATION:** Verify passports for Larry and Heidi
-7. [ ] **VALIDATION:** Get seat assignments on all 4 flights (no seats on any leg)
+4. [x] ~~Follow up week of Mar 16~~ — multiple touchpoints completed
+5. [x] ~~**PAYMENT DUE APR 1 — $14,986**~~ — ✅ PAID IN FULL. $18,896.00 confirmed Mar 26, 2026 (RSSC portal scrape)
+6. [x] ~~Verify passports~~ — ✅ CONFIRMED valid (both expire Feb 19, 2030; well within 6-month rule)
+7. [x] ~~Seat assignments (outbound)~~ — ✅ ALL 4 LEGS CONFIRMED (DFW→HEL: 5D/5H; HEL→ARN: 2D/2F; OSL→LHR: 3C/3A; LHR→DFW: 8D/8G)
+8. [ ] Confirm dining reservation strategy (opens May 31, 8pm ET)
+9. [ ] Culinary Arts Kitchen — present options when booking opens May 1, 8pm ET
+
+### COMMUNICATION LOG ADDENDUM
+| Date | Type | Summary |
+|------|------|---------|
+| 2026-03-26 | ACTION | Portal activation resent to Nichols via OA — awaiting client response. |
+| 2026-03-26 | UPDATE | RSSC portal scrape confirmed payment PAID IN FULL — $18,896.00 received, $0 balance. Dossier updated with guest PII (DOBs, passports, emails, emergency contacts, SSS numbers, suite details). |
+| 2026-03-26 | CORRECTION | Hotel At Six REMOVED — per Commander. Nichols pre-cruise hotel is Scandic Haymarket (Bedsonline 131-2656351, Aug 27-28). Regent included hotel night (Aug 28-29) name to be confirmed — NOT Hotel At Six. |

@@ -18,7 +18,7 @@ relationship: client
 
 ---
 
-### STATUS: ACTIVE — ⚠️ PAYMENT NOT YET PROCESSED | Suite 1212, Deck 12 | **CC on portal ✓ | CVV 883 received Mar 24 | Al authorized cruise + hotel + transport Mar 20 | Charge must be run | Insurance DEFERRED**
+### STATUS: ACTIVE — ✅ PAYMENT COMPLETE | Suite 1212, Deck 12 | **CC on portal ✓ | $16,640 processed Mar 26 | Insurance DEFERRED (follow up May)**
 
 ### RSSC PORTAL DATA (Scraped Mar 24, 2026)
 - **Guest Registration:** Al Ely COMPLETE, Amy Darrow COMPLETE
@@ -50,7 +50,7 @@ relationship: client
 | Leg | Flight | Route | Depart | Arrive | Seats |
 |-----|--------|-------|--------|--------|-------|
 | OUT 1 | AA 9018 (Finnair) | DFW → HEL | Aug 26, 4:50 PM | Aug 27, 10:45 AM | Al 2H, Amy 2D |
-| OUT 2 | AY 811 | HEL → ARN | Aug 27, 1:15 PM | Aug 27, 1:15 PM | — |
+| OUT 2 | AY 811 | HEL → ARN | Aug 27, 1:15 PM | Aug 27, 1:15 PM | ✅ ASSIGNED (seat #s TBD) |
 | RET 1 | BA 6776 (AA) | OSL → LHR | Sep 8, 11:15 AM | Sep 8, 12:45 PM | Al 2C, Amy 2A |
 | RET 2 | AA 79 | LHR → DFW | Sep 8, 2:25 PM | Sep 8, 6:35 PM | Al 3G, Amy 3D |
 
@@ -64,7 +64,7 @@ relationship: client
 | Booking | Item | Dates | Status | Cost |
 |---------|------|-------|--------|------|
 | Bedsonline 131-2656351 | Haymarket By Scandic (on Furlow group booking, 3x Grande King) | Aug 27-28 | ⚠️ **PAYMENT DUE** | TBD (confirm per-client amount) |
-| — | Regent included hotel night | Aug 28 | Included | — |
+| — | Haymarket By Scandic — Regent included hotel night | Aug 28-29 | Included | — |
 | #1095091 / AE693884 | Royal Transfer — Book Now Pay Later | Aug 27 | ⚠️ **PAYMENT DUE** | ~$176 |
 | — | Regent transport hotel → ship | Aug 29 | Included | — |
 | — | Regent transport ship → Oslo airport | Sep 8 | Included | — |
@@ -102,20 +102,20 @@ relationship: client
 
 | # | Category | Segment | Required | Status | Details |
 |---|----------|---------|----------|--------|---------|
-| 1 | Documents | Passports valid 6+ months | YES | **SELF-REPORTED** | Al uploaded passport photo to portal Mar 20 (said "I think?" — needs manual verification) |
+| 1 | Documents | Passports valid 6+ months | YES | **✅ CONFIRMED** | Valid — Commander confirmed 2026-03-26 |
 | 2 | Documents | Visa / entry requirements | YES | **PENDING** | Sweden/Norway Schengen |
 | 3 | Insurance | Travel insurance policy | YES | **DEFERRED** | Al holding off ~2 months (per Mar 20 email). Allianz Premier $15K quote still suspicious — follow up May. |
 | 4 | Flights | Outbound leg 1 (DFW→HEL) | YES | **CONFIRMED** | AA 9018 Aug 26 4:50PM, seats 2H/2D |
 | 5 | Flights | Outbound leg 2 (HEL→ARN) | YES | **CONFIRMED** | AY 811 Aug 27 1:15PM |
 | 6 | Flights | Outbound PNR / e-ticket | YES | **CONFIRMED** | PNR: UXVXZP |
-| 7 | Flights | Outbound seat assignments | Nice-to-have | **PARTIAL** | DFW→HEL: 2H/2D; HEL→ARN: not assigned |
+| 7 | Flights | Outbound seat assignments | Nice-to-have | **✅ ASSIGNED** | DFW→HEL: 2H/2D; HEL→ARN: assigned per Commander 2026-03-26 (seat #s TBD) |
 | 8 | Transfers | Airport → hotel transfer | YES | **CONFIRMED** | Bedsonline #1095091/AE693884 |
 | 9 | Hotel | Pre-cruise hotel (1 night) | YES | **CONFIRMED** | Haymarket By Scandic, Aug 27-28 (Furlow group) |
-| 10 | Hotel | Regent included hotel night | YES | **CONFIRMED** | Aug 28 |
+| 10 | Hotel | Regent included hotel night | YES | **CONFIRMED** | Haymarket By Scandic, Aug 28-29 |
 | 11 | Transfers | Hotel → port transfer | YES | **CONFIRMED** | Regent transport, Aug 29 |
 | 12 | Cruise | Booking confirmed | YES | **CONFIRMED** | 3096289, Suite 1212 |
 | 13 | Cruise | Suite assignment | YES | **CONFIRMED** | 1212 |
-| 14 | Cruise | Payment status | YES | ⚠️ **AUTHORIZED — NOT YET CHARGED** | $16,640 due Apr 1 — Al authorized Mar 20, CVV 883 received Mar 24. Charge NOT yet run. FPD Apr 1. |
+| 14 | Cruise | Payment status | YES | ✅ **PAYMENT COMPLETE** | $16,640 charged Mar 26 — Al authorized Mar 20, CVV 883 used. |
 | 15 | Cruise | Embarkation details | YES | **CONFIRMED** | Stockholm, Aug 29 |
 | 16 | Dining | Specialty dining | Optional | **NOT YET** | Opens May 31, 8pm ET |
 | 17 | Excursions | Shore excursions | Optional | **BOOKED** | 6 excursions confirmed (see below) |
@@ -127,7 +127,7 @@ relationship: client
 | 22 | Admin | Portal activated | Nice-to-have | **SENT** | Activation sent |
 | 23 | Admin | Dossier current | YES | **YES** | Updated Mar 12, 2026 |
 
-**Coverage: ~90%** | **Critical Gaps:** Insurance (deferred), passport verification (Al self-reported upload — verify), HEL→ARN seats
+**Coverage: ~93%** | **Critical Gaps:** Insurance (deferred — follow up May), guest profile forms not received
 
 ### SHORE EXCURSIONS (Confirmed RSSC Portal — Mar 24, 2026)
 All included (Regent Choice — $0.00). Both Al & Amy confirmed on all excursions. SBC-eligible.
@@ -146,15 +146,15 @@ All included (Regent Choice — $0.00). Both Al & Amy confirmed on all excursion
 
 ### OPEN ACTION ITEMS
 1. [x] ~~Schedule Mar 13 call with Al to finalize payments~~ — resolved via email Mar 20: Al authorized all charges
-2. [ ] Verify Allianz Premier $15K annual pricing — $450 quote suspicious
+2. [ ] Verify Allianz Premier $15K annual pricing — $450 quote suspicious (follow up May)
 3. [ ] Send Regent experience / what-to-expect guide
 4. [x] Confirm transport from Stockholm is booked — Bedsonline #1095091
-5. [ ] **⚠️ PROCESS REGENT CRUISE PAYMENT — $16,640** — Al authorized Mar 20, CVV 883 received Mar 24. FPD Apr 1. **NOT YET CHARGED.**
-6. [ ] **⚠️ PROCESS HOTEL PAYMENT** — Haymarket By Scandic, Bedsonline 131-2656351 — confirm per-client amount (Furlow's share is $418 — Ely amount TBD)
-7. [ ] **⚠️ PROCESS TRANSFER PAYMENT** — Royal Transfer Arlanda, #1095091/AE693884 — ~$176
-8. [ ] **VALIDATION:** Verify passports for Al and Amy — Al self-reported upload "I think?" — needs manual portal check
-9. [ ] Insurance — Al deferring activation. Follow up in ~2 months (May timeframe)
-10. [ ] Guest profile forms — NOT received from Al or Amy as of Mar 25
+5. [x] ~~PROCESS REGENT CRUISE PAYMENT — $16,640~~ — ✅ PROCESSED Mar 26 (Mastercard, CVV 883)
+6. [ ] PROCESS HOTEL PAYMENT — Haymarket By Scandic, Bedsonline 131-2656351 — confirm per-client amount
+7. [ ] PROCESS TRANSFER PAYMENT — Royal Transfer Arlanda, #1095091/AE693884 — ~$176
+8. [x] ~~Verify passports~~ — ✅ CONFIRMED valid (Commander 2026-03-26)
+9. [ ] Insurance — Al deferring. Follow up May timeframe
+10. [ ] Guest profile forms — NOT received from Al or Amy — PENDING
 
 ### EMAIL LOG ADDENDUM (Mar 24, 2026)
 **Mar 24 — Regent Invoice received (forwarded by Commander)**

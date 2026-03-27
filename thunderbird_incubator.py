@@ -55,8 +55,13 @@ load_dotenv(BASE_DIR / ".env")
 
 TELEGRAM_TOKEN = os.getenv("TELEGRAM_C2_BOT_TOKEN") or os.getenv("TELEGRAM_BOT_TOKEN")
 TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_COMMANDER_ID") or os.getenv("TELEGRAM_CHAT_ID")
-ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
+# NOTE: ANTHROPIC_API_KEY is NOT used for Claude calls — the incubator routes
+# through the Claude CLI subprocess (Max plan, $0). Direct SDK calls were causing
+# 401 errors when the key expired. Fixed 2026-03-27 per COS Root Cause Imperative.
+ANTHROPIC_API_KEY = None  # DO NOT use — see _call_claude() below
 REST_API_URL = os.getenv("REST_API_URL", "http://localhost:8766")
+REST_API_KEY = os.getenv("THUNDERBIRD_API_KEY", "***REMOVED-SECRET***")
+CLAUDE_CMD = os.path.expanduser("~/.local/bin/claude")
 
 AM_CATEGORIES_FILE = INTEL_DIR / "incubator_am_categories.json"
 BUILD_QUEUE_FILE = INTEL_DIR / "elon_build_queue.md"
@@ -88,15 +93,38 @@ def _send_telegram(message: str, parse_mode: str = "Markdown"):
 
 
 def _call_claude(prompt: str, system: str, max_tokens: int = 2000) -> str:
-    import anthropic
-    client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
-    response = client.messages.create(
-        model="claude-haiku-4-5-20251001",  # Haiku — incubator classification/research (SO-2026-03-25)
-        max_tokens=max_tokens,
-        system=system,
-        messages=[{"role": "user", "content": prompt}],
-    )
-    return response.content[0].text
+    """Call Claude via CLI subprocess (Max plan, $0). Replaced direct SDK call
+    which was failing with 401 when the API key expired. 2026-03-27 COS fix."""
+    import subprocess
+    full_prompt = f"{system}\n\n---\n\n{prompt}"
+    # Strip the dead API key so the CLI uses Max plan OAuth
+    env = os.environ.copy()
+    env.pop("ANTHROPIC_API_KEY", None)
+    env["CLAUDE_CODE_ENTRYPOINT"] = "cli"
+    cmd = [
+        CLAUDE_CMD,
+        "--print",
+        "--model", "haiku",
+        "--dangerously-skip-permissions",
+        "--output-format", "text",
+        "-p", "-",
+    ]
+    try:
+        result = subprocess.run(
+            cmd,
+            input=full_prompt,
+            capture_output=True,
+            text=True,
+            timeout=120,
+            env=env,
+        )
+        if result.returncode != 0:
+            log.error(f"Claude CLI failed (exit {result.returncode}): {result.stderr[:300]}")
+            return f"[Claude CLI error: exit {result.returncode}]"
+        return result.stdout.strip()
+    except Exception as e:
+        log.error(f"Claude subprocess error: {e}")
+        return f"[Error calling Claude: {e}]"
 
 
 def _load_am_categories() -> list:
@@ -135,33 +163,40 @@ def _yesterday_review_file() -> Path:
 
 
 def _web_search(query: str, n: int = 5) -> list:
-    """Search via REST API or fallback to DuckDuckGo-style scrape."""
+    """Search using duckduckgo_search library (real web results, no API key needed).
+    Replaced broken DDG Instant Answer API + missing REST /search endpoint.
+    2026-03-27 COS fix — Root Cause Imperative."""
     results = []
     try:
-        r = requests.get(
-            f"{REST_API_URL}/search",
-            params={"q": query, "n": n},
-            timeout=15,
-        )
-        if r.ok:
-            return r.json().get("results", [])
-    except Exception:
-        pass
-    # Fallback: DuckDuckGo Instant Answer API (no key needed)
+        from duckduckgo_search import DDGS
+        with DDGS() as ddgs:
+            for r in ddgs.text(query, max_results=n):
+                results.append({
+                    "title": r.get("title", "")[:120],
+                    "snippet": r.get("body", "")[:300],
+                    "url": r.get("href", ""),
+                    "source": "ddg_web",
+                })
+        return results
+    except Exception as e:
+        log.warning(f"DDGS search failed: {e}")
+    # Hard fallback: HN Algolia search (no key, reliable)
     try:
         r = requests.get(
-            "https://api.duckduckgo.com/",
-            params={"q": query, "format": "json", "no_html": 1, "skip_disambig": 1},
+            "https://hn.algolia.com/api/v1/search",
+            params={"query": query, "hitsPerPage": n, "tags": "story"},
             timeout=10,
-            headers={"User-Agent": "ThunderbirdOS/1.0"},
         )
         if r.ok:
-            data = r.json()
-            for topic in data.get("RelatedTopics", [])[:n]:
-                if isinstance(topic, dict) and topic.get("Text"):
-                    results.append({"title": topic.get("Text", "")[:80], "snippet": topic.get("Text", ""), "url": topic.get("FirstURL", ""), "source": "ddg"})
+            for hit in r.json().get("hits", []):
+                results.append({
+                    "title": hit.get("title", "")[:120],
+                    "snippet": hit.get("story_text", "")[:200] or hit.get("title", ""),
+                    "url": hit.get("url", f"https://news.ycombinator.com/item?id={hit.get('objectID','')}"),
+                    "source": "hackernews",
+                })
     except Exception as e:
-        log.warning(f"DDG search failed: {e}")
+        log.warning(f"HN fallback search failed: {e}")
     return results
 
 
@@ -329,16 +364,18 @@ def phase_execute():
             results.append(item)
         log.info(f"  '{q}' → {len(found)} results")
 
-    # Innovation scan via REST API
+    # Innovation scan via REST API tool endpoint (fixed: was /innovation/scan which doesn't exist)
     try:
         r = requests.post(
-            f"{REST_API_URL}/innovation/scan",
-            json={"scan_type": "daily"},
+            f"{REST_API_URL}/api/tool/innovation_daily_scan",
+            headers={"x-api-key": REST_API_KEY},
+            json={},
             timeout=90,
         )
         if r.ok:
             data = r.json()
-            for item in data.get("findings", [])[:25]:
+            findings = data.get("findings", []) if isinstance(data, dict) else []
+            for item in findings[:25]:
                 results.append({
                     "title": item.get("title", ""),
                     "snippet": item.get("description", ""),
@@ -347,7 +384,9 @@ def phase_execute():
                     "score": item.get("score", 0),
                     "query": "innovation_scan",
                 })
-            log.info(f"  Innovation scan → {len(data.get('findings', []))} findings")
+            log.info(f"  Innovation scan → {len(findings)} findings")
+        else:
+            log.warning(f"Innovation scan API returned {r.status_code}")
     except Exception as e:
         log.warning(f"Innovation scan REST call failed: {e}")
 
@@ -478,14 +517,22 @@ def phase_am_scrape():
                 results.append(item)
         log.info(f"  Category '{cat}' → {len([r for r in results if r.get('category') == cat])} results")
 
-    # Academic scan via REST API
+    # Academic scan via REST API tool endpoint (fixed: was /academic/scan which doesn't exist)
     try:
-        r = requests.post(f"{REST_API_URL}/academic/scan", json={"topics": am_cats, "max": 10}, timeout=90)
+        r = requests.post(
+            f"{REST_API_URL}/api/tool/academic_scan",
+            headers={"x-api-key": REST_API_KEY},
+            json={"topics": am_cats, "max": 10},
+            timeout=90,
+        )
         if r.ok:
-            papers = r.json().get("papers", [])
+            data = r.json()
+            papers = data.get("papers", []) if isinstance(data, dict) else []
             for p in papers:
                 results.append({"title": p.get("title", ""), "snippet": p.get("abstract", "")[:200], "url": p.get("url", ""), "source": "academic", "category": "academic"})
             log.info(f"  Academic scan → {len(papers)} papers")
+        else:
+            log.warning(f"Academic scan API returned {r.status_code}")
     except Exception as e:
         log.warning(f"Academic scan failed: {e}")
 
