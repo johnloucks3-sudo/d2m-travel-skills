@@ -1,0 +1,46 @@
+# Thunderbird Drive Sync — rclone filter rules
+# Order matters: exclusions first for security
+
+# --- EXCLUDE: sensitive credentials ---
+- credentials.json
+- gmail_token.json
+- gmail_oauth_credentials.json
+- drive_token.json
+- *_token.json
+- *_credentials.json
+- *.env
+
+# --- EXCLUDE: file types ---
+- *.json
+- *.pyc
+- *.db
+- *.sqlite
+- *.sqlite3
+
+# --- EXCLUDE: directories ---
+- .venv/**
+- venv/**
+- __pycache__/**
+- node_modules/**
+- .git/**
+- output/scheduled_reports/**
+- thunderbird_sync_state.json
+
+# --- INCLUDE: priority directories (all remaining types) ---
++ Dossiers/**
++ Personas/**
++ Commander_Review/**
++ memory/**
++ docs/**
+
+# --- INCLUDE: by extension ---
++ *.py
++ *.md
++ *.html
++ *.css
++ *.sh
++ *.j2
++ *.txt
+
+# --- EXCLUDE: everything else ---
+- **

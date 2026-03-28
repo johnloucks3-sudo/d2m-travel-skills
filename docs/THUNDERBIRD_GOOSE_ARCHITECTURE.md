@@ -2,7 +2,7 @@
 **Dreams2Memories Travel Intelligence Suite**  
 **Version:** 4.0 (Python Migration from AppScript)  
 **Target Platform:** Goose AI Agent Framework  
-**Owner:** John Loucks | Love Group Travel
+**Owner:** John Loucks | Dreams2Memories
 
 ---
 

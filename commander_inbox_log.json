@@ -2358,5 +2358,45 @@
     "persona": "COS",
     "draft_id": null,
     "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-28T00:16:41.594125+00:00",
+    "msg_id": "19d31be266e05473",
+    "subject": "Enjoy up to $1,000 Shipboard Credit on Top Trending Voyages",
+    "sender": "seabourn@m.seabourn.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-28T00:16:44.026942+00:00",
+    "msg_id": "19d31be266e05473",
+    "subject": "Enjoy up to $1,000 Shipboard Credit on Top Trending Voyages",
+    "sender": "seabourn@m.seabourn.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-28T00:17:20.448464+00:00",
+    "msg_id": "19d319ad356df055",
+    "subject": "Picasso Travel Newsletter - 78 - AR, BR, EI, JL, LY, QF, QR, RJx2, SA, VN, XE, S4, TN - (ALL)",
+    "sender": "news@news.picassotravel.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-28T00:17:22.245426+00:00",
+    "msg_id": "19d319ad356df055",
+    "subject": "Picasso Travel Newsletter - 78 - AR, BR, EI, JL, LY, QF, QR, RJx2, SA, VN, XE, S4, TN - (ALL)",
+    "sender": "news@news.picassotravel.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
   }
 ]

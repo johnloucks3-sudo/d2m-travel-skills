@@ -1,46 +1,36 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-03-27 14:30:00 MT
+## Generated: 2026-03-27 22:30:00 MT
 
 ---
 
 ### Recent Commits
-- 310b0b4 feat: 27 MAR 2026 — token leak fix, 43 learning rules approved, SO enforcement
-- 0e0ee2b feat: session 26 MAR 2026 — REVERIE emotional architecture, C2 Poe/Max hot-switch, Ely/Darrow paid
-- 7148ad9 feat: validation email diff capture, Gmail re-auth, Josh Morton guest form draft
-- 7b2429d fix: C2 resilience, CLI --print Max plan fix, Dani lockdown, IP migration
-- c942bc5 feat: full backup trinity — weekly Evernote, monthly archive, verify
+- ebcced7 fix: calendar_list_events — add days_back param for historical lookup
+- 00fe4f3 feat: register Google Calendar tools in MCP server
+- 9b8eabe feat: shift all morning intel timers to 01:30-02:30 MDT block
+- 653c3d9 fix: correct Goose recipe schema — prompt: format, MCP server os import
+- d9b0c35 feat: Goose integration — all 13 Tier 1 intel modules
 
 ### Uncommitted Changes
-- cache/client_context/ely_context.json (modified)
-- cache/client_context/furlow_context.json (modified)
-- cache/client_context/how_context.json (modified)
-- cache/client_context/mcleran_context.json (modified)
-- cache/client_context/quick_context.json (modified)
-- cache/client_context/thanks_context.json (modified)
-- cache/client_context/wait_context.json (modified)
-- cache/client_context/westbrook_context.json (modified)
-- cache/client_context/what_context.json (modified)
+- claude_code_digest_seen.json (modified)
 - commander_inbox_log.json (modified)
+- docs/THUNDERBIRD_GOOSE_ARCHITECTURE.md (modified)
+- intel/incubator_am_categories.json (modified)
 - learning_rules.db (modified)
 - session_autosave_latest.md (modified)
-- thunderbird_bulletin.py (modified)
-- thunderbird_commander_inbox.py (modified)
-- thunderbird_concierge_monitor.py (modified)
-- thunderbird_crewai.py (modified)
-- thunderbird_dani_email.py (modified)
-- thunderbird_intel_digest.py (modified)
-- thunderbird_learning.py (modified)
 - thunderbird_model_router.py (modified)
+- Text File.txt (new)
+- Thunderbird Models 260327.txt (new)
 - agent_docs/architecture.md (new)
 - agent_docs/incubator.md (new)
-- docs/cache_reduction_plan.md (new)
-- mcp_launcher_core.sh (new)
-- mcp_launcher_intel.sh (new)
-- mcp_launcher_ops.sh (new)
-- mcp_launcher_travel.sh (new)
+- intel/incubator_last_review.md (new)
+- intel/incubator_raw_2026-03-27.json (new)
+- intel/incubator_review_2026-03-27.md (new)
+- learning_rules.db-shm (new)
+- learning_rules.db-wal (new)
 - reverie/ (new)
 - reverie_susan_intro.py (new)
-- thunderbird_mcp_gateway.py (new)
+- scripts/thunderbird-rclone-sync.sh (new)
+- scripts/thunderbird_sync_filters.txt (new)
 
 ### Active Work
 - SSS: 0 pending decision(s)
