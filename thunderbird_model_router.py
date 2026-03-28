@@ -65,8 +65,8 @@ _ROUTER_STATS_LOG = Path(__file__).parent / "logs" / "router_stats.jsonl"
 # ── API Keys ──
 # Groq ELIMINATED — all calls route to Claude via Anthropic SDK ($0 on Max plan)
 # Backward-compat stubs: callers may import these even though Groq is dead
-GROQ_API_KEY = ""   # ELIMINATED — stub for backward compat
-GROQ_URL = ""       # ELIMINATED — stub for backward compat
+GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
+GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 
 TOGETHER_API_KEY = os.environ.get("TOGETHER_API_KEY", "")
@@ -166,13 +166,15 @@ MODEL_TIER = {
     CLAUDE_HAIKU: "haiku",
 }
 
-# Legacy model map — backward compatibility for callers referencing GROQ_MODELS
+# Groq model map — fast/light/image route to Groq; others fall back to Claude
 GROQ_MODELS = {
-    "fast": CLAUDE_SONNET,
-    "premium": CLAUDE_SONNET,
-    "light": CLAUDE_HAIKU,
-    "kimi": CLAUDE_SONNET,
-    "detail": CLAUDE_SONNET,
+    "fast":      "llama-3.1-8b-instant",                        # ~200 tok/s, cheapest
+    "light":     "llama-3.3-70b-versatile",                     # balanced quality/speed
+    "image":     "meta-llama/llama-4-scout-17b-16e-instruct",   # vision-capable
+    # Claude fallbacks for tags Groq doesn't cover
+    "premium":   CLAUDE_SONNET,
+    "kimi":      CLAUDE_SONNET,
+    "detail":    CLAUDE_SONNET,
     "visionary": CLAUDE_SONNET,
 }
 
@@ -498,16 +500,60 @@ def _call_anthropic(system_prompt: str, query: str,
 
 
 def _call_groq(system_prompt: str, query: str, model: str = "fast",
-               max_tokens: int = 600, temperature: float = 0.7) -> str:
-    """Route to Claude via Anthropic SDK (Max plan, $0).
+               max_tokens: int = 600, temperature: float = 0.7,
+               image_b64: str = None, image_mime: str = "image/jpeg") -> str:
+    """Call Groq API for fast/light/image tasks.
 
-    Name kept for backward compat — Groq is ELIMINATED.
-    Now uses route_and_call() internally to auto-select the right model tier.
+    Routes fast/light/image to Groq; all other model tags fall back to Claude.
+    Pass image_b64 (base64-encoded bytes) with model="image" for vision tasks.
+    Falls back to Claude Sonnet if GROQ_API_KEY is not set.
     """
-    # Map legacy model keys to Claude models
-    claude_model = GROQ_MODELS.get(model, CLAUDE_SONNET)
-    return _call_anthropic(system_prompt, query, model=claude_model,
-                           max_tokens=max_tokens, temperature=temperature)
+    groq_model = GROQ_MODELS.get(model)
+
+    # Non-Groq tags (premium, kimi, detail, visionary) → Claude directly
+    if groq_model in (CLAUDE_SONNET, CLAUDE_HAIKU, CLAUDE_OPUS, None):
+        claude_model = groq_model or CLAUDE_SONNET
+        return _call_anthropic(system_prompt, query, model=claude_model,
+                               max_tokens=max_tokens, temperature=temperature)
+
+    # Groq tags but no key → fall back to Claude Sonnet
+    if not GROQ_API_KEY:
+        logger.warning("GROQ_API_KEY not set — falling back to Claude Sonnet for model=%s", model)
+        return _call_anthropic(system_prompt, query, model=CLAUDE_SONNET,
+                               max_tokens=max_tokens, temperature=temperature)
+
+    # Build user message — support vision for image model
+    if image_b64 and model == "image":
+        user_content = [
+            {"type": "text", "text": query},
+            {"type": "image_url", "image_url": {
+                "url": f"data:{image_mime};base64,{image_b64}"
+            }},
+        ]
+    else:
+        user_content = query
+
+    payload = {
+        "model": groq_model,
+        "messages": [
+            {"role": "system", "content": system_prompt},
+            {"role": "user",   "content": user_content},
+        ],
+        "max_tokens": max_tokens,
+        "temperature": temperature,
+    }
+    headers = {
+        "Authorization": f"Bearer {GROQ_API_KEY}",
+        "Content-Type": "application/json",
+    }
+    try:
+        resp = requests.post(GROQ_URL, json=payload, headers=headers, timeout=60)
+        resp.raise_for_status()
+        return resp.json()["choices"][0]["message"]["content"]
+    except Exception as e:
+        logger.warning("Groq call failed (%s), falling back to Claude Sonnet: %s", model, e)
+        return _call_anthropic(system_prompt, query, model=CLAUDE_SONNET,
+                               max_tokens=max_tokens, temperature=temperature)
 
 
 def _call_claude(system_prompt: str, query: str,

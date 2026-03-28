@@ -45,17 +45,15 @@ HARVEST_LATEST   = LOG_DIR / "tech_harvest_latest.json"
 POE_ENV_FILE     = THUNDERBIRD_DIR / "config" / "poe.env"
 TELEGRAM_BOT_ENV = THUNDERBIRD_DIR / "config" / "d2mc2c_bot.env"
 
-# Anthropic client — NOTE: Python SDK requires API key (pay-as-you-go).
-# Max plan works via Claude CLI OAuth only. If no API key, classification/synthesis
-# gracefully degrades — URL fetching still works and raw content is saved.
+# Groq client — fast/light classification and synthesis via Groq API ($0 / fast)
 try:
-    import anthropic
-    import os as _os
-    _client = anthropic.Anthropic() if _os.environ.get("ANTHROPIC_API_KEY") else None
-    if not _client:
-        logger.info("No ANTHROPIC_API_KEY — running in fetch-only mode (raw content saved, no LLM classification)")
+    from thunderbird_model_router import _call_groq, GROQ_API_KEY as _GROQ_KEY
+    _groq_ok = bool(_GROQ_KEY)
+    if not _groq_ok:
+        logger.info("No GROQ_API_KEY — running in fetch-only mode (raw content saved, no LLM classification)")
 except ImportError:
-    _client = None
+    _groq_ok = False
+    logger.warning("thunderbird_model_router not found — fetch-only mode")
 
 # ── Source definitions ────────────────────────────────────────────────────────
 
@@ -128,28 +126,9 @@ def _fetch_url(url: str, timeout: int = 20) -> str:
 
 
 def _web_search(query: str) -> str:
-    """Use Anthropic Claude to web search (via tool use)."""
-    if not _client:
-        return ""
-    try:
-        from thunderbird_poe_config import route_model
-        response = _client.messages.create(
-            model=route_model("classify"),
-            max_tokens=1000,
-            tools=[{
-                "type": "web_search_20250305",
-                "name": "web_search",
-            }],
-            messages=[{"role": "user", "content": f"Search: {query}. Return the top 5 results as a brief summary."}],
-        )
-        # Extract text from response
-        for block in response.content:
-            if hasattr(block, "text"):
-                return block.text[:3000]
-        return ""
-    except Exception as e:
-        logger.warning("web_search(%s): %s", query, e)
-        return ""
+    """Web search placeholder — Anthropic tool-use not available on Groq. Returns empty."""
+    logger.debug("_web_search skipped (Groq provider, no tool-use): %s", query)
+    return ""
 
 # ── Classify ──────────────────────────────────────────────────────────────────
 
@@ -168,21 +147,11 @@ Content:
 
 
 def _classify(text: str) -> dict:
-    """Classify content relevance using Haiku (cheap)."""
-    if not _client or not text:
+    """Classify content relevance using Groq llama-3.1-8b-instant (fast, $0)."""
+    if not _groq_ok or not text:
         return {"priority": "MED", "reason": "classification unavailable"}
     try:
-        from thunderbird_poe_config import route_model
-        response = _client.messages.create(
-            model=route_model("intel_classify"),
-            max_tokens=100,
-            messages=[{
-                "role": "user",
-                "content": CLASSIFY_PROMPT + text[:1500],
-            }],
-        )
-        text_out = response.content[0].text if response.content else ""
-        # Extract JSON
+        text_out = _call_groq(CLASSIFY_PROMPT, text[:1500], model="fast", max_tokens=100)
         start = text_out.find("{")
         end   = text_out.rfind("}") + 1
         if start >= 0 and end > start:
@@ -218,8 +187,8 @@ Raw intel:
 
 
 def _synthesize(findings: list[dict], date_str: str) -> str:
-    """Use Sonnet to synthesize findings into morning brief section."""
-    if not _client or not findings:
+    """Synthesize findings into morning brief section using Groq llama-3.3-70b-versatile."""
+    if not _groq_ok or not findings:
         return ""
     raw = "\n\n".join([
         f"[{f['source']}] {f['priority']} — {f.get('summary', f.get('content', '')[:300])}"
@@ -229,16 +198,13 @@ def _synthesize(findings: list[dict], date_str: str) -> str:
     if not raw:
         return f"## TECH SIGNAL — {date_str}\n\nNo HIGH or MED signals today."
     try:
-        from thunderbird_poe_config import route_model
-        response = _client.messages.create(
-            model=route_model("intel_analysis"),
+        result = _call_groq(
+            SYNTHESIS_PROMPT.replace("{date}", date_str),
+            raw,
+            model="light",
             max_tokens=1500,
-            messages=[{
-                "role": "user",
-                "content": SYNTHESIS_PROMPT.replace("{date}", date_str) + raw,
-            }],
         )
-        return response.content[0].text if response.content else ""
+        return result
     except Exception as e:
         logger.error("synthesize: %s", e)
         return f"## TECH SIGNAL — {date_str}\n\nSynthesis failed: {e}"
