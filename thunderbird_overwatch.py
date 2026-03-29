@@ -641,19 +641,41 @@ def run_sentinel_sweep(use_llm: bool = False) -> SweepReport:
     state = OverwatchState()
     state.last_sentinel_sweep = now.isoformat()
 
-    # Escalate to Judge if red flags
+    # Escalate to Judge if red flags — with 4-hour cooldown to prevent token burn.
+    # Sentinel runs every 5 min; without cooldown a persistent RED = 48 Judge calls/day.
+    JUDGE_COOLDOWN_HOURS = 4
+    JUDGE_COOLDOWN_FILE = Path("/tmp/thunderbird_judge_last_escalation")
     if escalate:
-        logger.warning(
-            "Sentinel sweep %s: %d RED flag(s) — escalating to The Judge.",
-            sweep_id, red_flags,
-        )
-        try:
-            run_judge_assessment(
-                trigger="sentinel_escalation",
-                sentinel_report=report,
+        _should_escalate = True
+        if JUDGE_COOLDOWN_FILE.exists():
+            try:
+                import time as _time
+                last_ts = float(JUDGE_COOLDOWN_FILE.read_text().strip())
+                hours_since = (_time.time() - last_ts) / 3600
+                if hours_since < JUDGE_COOLDOWN_HOURS:
+                    logger.info(
+                        "Sentinel: %d RED flag(s) but Judge cooldown active "
+                        "(%.1fh since last call, cooldown=4h) — skipping escalation.",
+                        red_flags, hours_since,
+                    )
+                    _should_escalate = False
+            except Exception:
+                pass  # stale/corrupt cooldown file — escalate anyway
+
+        if _should_escalate:
+            logger.warning(
+                "Sentinel sweep %s: %d RED flag(s) — escalating to The Judge.",
+                sweep_id, red_flags,
             )
-        except Exception as e:
-            logger.error("Judge escalation failed: %s", e)
+            try:
+                import time as _time
+                JUDGE_COOLDOWN_FILE.write_text(str(_time.time()))
+                run_judge_assessment(
+                    trigger="sentinel_escalation",
+                    sentinel_report=report,
+                )
+            except Exception as e:
+                logger.error("Judge escalation failed: %s", e)
 
     return report
 

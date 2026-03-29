@@ -28,6 +28,7 @@ import asyncio
 import os
 import sys
 import signal
+import fcntl
 from pathlib import Path
 from datetime import datetime
 from typing import Optional, Dict
@@ -2295,6 +2296,44 @@ async def run_all_now():
 # ============================================================================
 
 def main():
+    # PID + flock guard — bullet-proof duplicate prevention.
+    # Two-layer: (1) PID file checked against /proc, (2) flock on same fd.
+    # Survives lock-file deletion, stale locks, and race conditions.
+    PID_FILE = Path("/tmp/thunderbird_scheduler.pid")
+    LOCK_FILE = Path("/tmp/thunderbird_scheduler.lock")
+
+    # Layer 1: PID file — check if an existing PID is alive
+    if PID_FILE.exists():
+        try:
+            existing_pid = int(PID_FILE.read_text().strip())
+            # Check if process is actually running
+            Path(f"/proc/{existing_pid}").stat()
+            # Process is alive — check it's actually this script
+            cmdline = Path(f"/proc/{existing_pid}/cmdline").read_text()
+            if "thunderbird_scheduler" in cmdline:
+                print(f"Scheduler already running as PID {existing_pid} — exiting.")
+                sys.exit(0)
+        except (ValueError, FileNotFoundError, OSError):
+            # Stale PID file — process is gone, continue
+            PID_FILE.unlink(missing_ok=True)
+
+    # Layer 2: flock for atomicity
+    lock_fd = open(str(LOCK_FILE), "w")
+    try:
+        fcntl.flock(lock_fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except OSError:
+        print("Scheduler lock held by another process — exiting.")
+        sys.exit(0)
+
+    # Write PID file — we own the lock
+    PID_FILE.write_text(str(os.getpid()))
+
+    import atexit
+    def _cleanup():
+        PID_FILE.unlink(missing_ok=True)
+        LOCK_FILE.unlink(missing_ok=True)
+    atexit.register(_cleanup)
+
     if "--run-now" in sys.argv:
         asyncio.run(run_all_now())
         return

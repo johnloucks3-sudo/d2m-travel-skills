@@ -8,15 +8,15 @@
       "d2mconcierge@gmail.com"
     ],
     "days_back": 400,
-    "total_examples": 877,
+    "total_examples": 890,
     "by_tier": {
-      "personal": 216,
+      "personal": 222,
       "client": 173,
-      "vendor": 40,
-      "internal": 443,
+      "vendor": 42,
+      "internal": 448,
       "family": 5
     },
-    "last_sync": "2026-03-27T02:35:48.352849"
+    "last_sync": "2026-03-29T02:32:51.784376"
   },
   "examples": [
     {
@@ -1268,6 +1268,24 @@
       "to": "Heidi Nichols <heidi.nichols1@yahoo.com>",
       "date": "Thu, 26 Mar 2026 07:31:38 -0600",
       "body": "Heidi and Larry, I sent the Portal Activation email for credit card upload\ninto our secure vault.  Please email me your CVC after uploading. 4-digit\nPIN\nThanks\nJohn",
+      "score": 5
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "ONE document, showing all your charges paid in full",
+      "to": "Heidi Nichols <heidi.nichols1@yahoo.com>, Larry Nichols <larry.nichols4811@gmail.com>",
+      "date": "Fri, 27 Mar 2026 10:51:42 -0600",
+      "body": "Heid and Larry, sorry for the confusion, here is one document with NO\nRegent propaganda.  It adds up all your charges so far, and shows all your\ncredit card payments, resulting in a zero balance.  In about a week, I will\nsend out a trip validation listing all your information: flights,\ntransfers, rooms, excursions, and other charges, just to ensure we have\ncaptured everything.  And I will include an informal tips guide for Regent\nSeven Seas.\n\nThanks,\nJohn\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 5
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "vendor",
+      "subject": "Re: [EXTERNAL] Booking 298475-25 — Transfer Confirmations & Seat Assignments",
+      "to": "Silversea Trade Reservations <tradereservations@silversea.com>",
+      "date": "Fri, 27 Mar 2026 12:53:59 -0600",
+      "body": "Elaine, one other detail I have been searching for, and just found.  I\ncalled in early February and spoke with an agent and recorded the call,\nhere is my AI parsing of the call. You can see it was not at all ambiguous\nat the time that Blacklane would honor my clients' requests.  Here are\nnotes I had and passed along:\n\n   -\n\n   “Silversea 2 Feb 2026: Recorded// Ron”\n   -\n\n   “Transfers: Depends on the Gateway. Free extension, Blacklane will reach\n   out with a link. Basically be able to put the pickup and drop-off according\n   to the itinerary.”\n   Related transfer/transport details mentioned in the same note:\n   -\n\n   “Free extension, Blacklane will reach out with a link”\n   -\n\n   “advise clients to put the pickup and drop-off according to desired\n   itinerary”\n   -\n\n   “Home pickup 18 June / Airport 6 Jul Home is also assured”\n   -\n\n   “Add 19 June airport to hotel and 23 June hotel to port..”\n\nso you can see there were high expectations set.\n\nThanks\nJohn Loucks\n\nOn Fri, Mar 27, 2026 at 9:25 AM Dreams2Memories <d2mconcierge@gmail.com>\nwrote:",
       "score": 5
     },
     {
@@ -2564,6 +2582,33 @@
       "to": "johnloucks3@gmail.com, \"Susanna.Loucks@gmail.com\" <Susanna.Loucks@gmail.com>",
       "date": "Thu, 26 Mar 2026 08:33:52 -0600",
       "body": "[image: Dreams2Memories Travel]\nCommander,\n\nYour 32-day Pacific Journey validation proof is attached — PDF and ready\nfor review.\n\nPlease check every line and flag any corrections before we begin the full\nillustrated itinerary build. Once you confirm, we move to image sourcing\n(Step 3).\n\nWhat's inside:\n• Travelers (passports, loyalty numbers)\n• All flights with PNRs, seats, fares\n• All hotels with confirmation numbers, dates, room types\n• All transfers (including the Harumi Port transfer with Westbrooks)\n• All shore excursions (6 confirmed)\n• Full specialty dining grid (16 reservations, $880 total)\n• Insurance status\n• Financial summary (~$23,691 confirmed)\n• 5 open items flagged\n\nTwo items need your attention before departure:\n1. Visit Japan Web — both travelers must register at vjw.digital.go.jp\nbefore Apr 21\n2. Plusgrade upgrade bid result — still pending\n\nConfirm all clear and we'll start the image pull.\n\nThanks,\nDani Moreau\nD2M Luxury Travel Concierge\nconcierge@d2mluxury.quest\n\n*John Loucks*\nOwner & Founder, Dreams2Memories Travel, LLC\nconcierge@d2mluxury.quest · d2mluxury.quest\n[image: Dreams2Memories Travel]",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "Re: [A2 Research] McLeod/McGlasson — Silversea Air Savings Analysis",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 28 Mar 2026 09:06:51 -0500",
+      "body": "Commander — Here's the breakdown on Erik & Melissa's Silversea all-in-one savings vs. open market. ──────────────────────────────────────── WHAT THEY PAID (Door-to-Door package) ──────────────────────────────────────── Total charged: $27,813.32 (2 pax) Includes: cruise + Business Promo air (DEN↔FCO) + Blacklane home transfers + airport/pier transfers ──────────────────────────────────────── OPEN MARKET EQUIVALENT (today's pricing) ──────────────────────────────────────── Cruise-only — Classic Veranda Suite, SM260623010 All-Inclusive Plus (standard rate): $11,200/pp → $22,400 All-Inclusive (standard rate): $10,700/pp → $21,400 (Indulgent Savings promo active now: $8,200-8,700/pp — not available at Feb 2025 booking) Business class air — 2 pax, one-way each leg: DEN → FCO Jun 18 (cheapest Business, Turkish via IST): $7,909 VCE → DEN Jul 6 (cheapest Business, Turkish via IST): $4,864 ────────────────────────────────────────────────────────────── Market air total (2 pax): $12,773 OPEN MARKET TOTAL (cruise All-Inclusive + cheapest air): $21,400 + $12,773 = $34,173 ──────────────────────────────────────── SAVINGS SUMMARY ──────────────────────────────────────── Package vs. open market (cheapest Business class): $6,360 saved Plus transfers included in D2D (Blacklane est.): ~$400 value Total estimated savings: ~$6,760 Per person: ~$3,380/each ──────────────────────────────────────── IMPORTANT CAVEAT — UA177 NONSTOP PREMIUM ──────────────────────────────────────── The cheapest Business class above is Turkish Airlines via Istanbul — NOT comparable to their actual routing. Their flights are: Out: UA177 DEN→FCO nonstop, Polaris Business (787-9) Ret: AC817/AC1041 VCE→YYZ→DEN, Business UA Polaris nonstop DEN-FCO typically runs $4,000–6,000/person one-way at current peak summer pricing. The GDS didn't return UA177 specifically, but Amadeus showed the cheapest United-operated option at $11,251 for 2 pax via BOS/ITA. If priced for COMPARABLE routing (nonstop/premium carriers): Market air estimate: $16,000–22,000+ (2 pax RT) Open market total: $37,400–43,400 Savings vs. package: $9,600–15,600+ ──────────────────────────────────────── BOTTOM LINE ──────────────────────────────────────── Conservative (cheapest available Business): ~$6,760 saved Realistic (comparable carrier/routing): ~$10,000–15,000+ saved Silversea's \"Business Promo\" class is bulk-negotiated inventory they buy from airlines at rates not available to the public. For a Colorado-based couple flying Business to Rome and back from Venice, the all-in-one was a strong value play — especially on the outbound where UA177 nonstop from DEN is a premium product. Note: Cruise-only rate cited is current (Mar 2026). Feb 2025 booking rate may have differed slightly; no historical rate available without CruisingPower login. — COS / Thunderbird Wing John Loucks Owner & Founder, Dreams2Memories Travel, LLC concierge@d2mluxury.quest · d2mluxury.quest",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "vendor",
+      "subject": "Re: [EXTERNAL] Booking 298475-25 — Transfer Confirmations & Seat Assignments",
+      "to": "Silversea Trade Reservations <tradereservations@silversea.com>",
+      "date": "Sat, 28 Mar 2026 07:25:51 -0600",
+      "body": "Thanks Elaine, I will get back to you on Venice transportation.\nJohn\n\nOn Sat, Mar 28, 2026, 06:59 Silversea Trade Reservations <\ntradereservations@silversea.com> wrote:",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Re: [EXTERNAL] Booking 298475-25 — Transfer Confirmations & Seat Assignments",
+      "to": "Dreams2Memories <d2mconcierge@gmail.com>",
+      "date": "Sat, 28 Mar 2026 07:24:22 -0600",
+      "body": "Draft an email to Erik and Melissa explaining how there may be still room\nto negotiate with Black Lane for the pickup on the 19th and the transfer to\nthe ship on the 23rd.  We won't find out until 1 month prior. Best not to\nask Silversea the question since it seems to be a Blacklane prerogative.\n\nAs for Venice, do they have any thoughts on how they'd like to proceed?\n\nIt appears the answer from Silversea is final.  However, I do owe them a\nreply in a reasonable amount of time.\n\nOn Sat, Mar 28, 2026, 06:59 Silversea Trade Reservations <\ntradereservations@silversea.com> wrote:",
       "score": 4
     },
     {
@@ -6897,6 +6942,60 @@
     },
     {
       "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: 🔴 THUNDERBIRD BRIEFING // Mar 27 — 51 ACTION ITEMS NEED ATTENTION",
+      "to": "D2M Concierge <d2mconcierge@gmail.com>",
+      "date": "Fri, 27 Mar 2026 07:40:41 -0600",
+      "body": "COS, This report doesn't help me. No links, not enough info. Make like the\nworld Intel, a . json\nYoda",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Ten Must-Have Skills for Claude Code! - by Meng Li",
+      "to": "Dreams2Memories <d2mconcierge@gmail.com>",
+      "date": "Fri, 27 Mar 2026 07:08:16 -0600",
+      "body": "https://aidisruption.ai/p/ten-must-have-skills-for-claude-code\n\nA12, Analyze this email. Summarize.\nYoda",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "I Stopped Re-Explaining Everything to Claude Code. This CLAUDE.md File Does It for Me",
+      "to": "Dreams2Memories <d2mconcierge@gmail.com>",
+      "date": "Fri, 27 Mar 2026 06:57:40 -0600",
+      "body": "https://artificialcorner.com/p/claude-md?utm_campaign=post&utm_medium=web\n\nCOS, A12 read this article, recommend changes to Thunderbird's claude.md.\nThis IS a problem for me.\nYoda",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: [COS] General: Re: [A10] Supplier Intel: Re: [EXTERNAL] Booking 2",
+      "to": "D2M Concierge <d2mconcierge@gmail.com>",
+      "date": "Sat, 28 Mar 2026 07:39:56 -0600",
+      "body": "Do research, try to find out how much Erik and Melissa saved by booking the\nall-in-one program with Silversea on airfare. Price their itinerary as if\nit were purchased on the open market and not as part of a travel package,\nand then price Silver Sea Cruise only fare and compare the two ask me if\nyou have any questions. You will have to research email, you'll have to\nresearch current fares.\nJL",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[D2M YELLOW] Preflight Check",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 28 Mar 2026 14:37:32 -0500",
+      "body": "Thunderbird Preflight — YELLOW\nTime: 2026-03-28 13:37 MT\n\n✅ MCP Server: Running (PID 4233)\n✅ Scheduler: Running (PID 1626)\n✅ Telegram C2: Running (PID 163484)\n✅ Gmail Token: Valid (has refresh token)\n✅ Persona Token: Valid (has refresh token)\n✅ Disk Space: 847.4 GB free\n✅ TELEGRAM_BOT_TOKEN: Set\n✅ TELEGRAM_COMMANDER_ID: Set\n✅ GROQ_API_KEY: Set\n✅ Internet: Connected\n⚠️ Gemini API: Skipped (--quick)\n✅ MCP Port 8765: Listening",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Re: [A10] Supplier Intel: Re: [EXTERNAL] Booking 2",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 28 Mar 2026 06:31:32 -0700",
+      "body": "ISSUE:\nSilversea refusing complimentary transfers for McLeod/McGlasson June 2026 booking (independent hotel Baglioni Luna not covered by policy)—goodwill exception decision pending.\n\nDISCUSSION:\nTransfer policy conflict with Silversea regarding complimentary transfers for McLeod/McGlasson booking. Commander reports engagement with Elaine Buenviaje (Trade Sales). A2 assessment identifies competitive weakness vs. Regent/Viking.\n\nACTIONS I RECOMMEND TAKING:\n1. Follow up with Elaine Buenviaje (Silversea Trade Sales) within 48h for goodwill decision\n2. Document Sept 2025 verbal assurance conversation to strengthen case\n3. Prepare backup transfer quotes ($180–270 pp pier-to-hotel) for client notification if Silversea declines\n4. Queue Dani for client call once Silversea responds with decision\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-03-28 07:31 MT\nThunderbird Email Intelligence Officer",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
       "tier": "internal",
       "subject": "[COS] General: BREAKING:  Most Americans say war in Iran is going",
       "to": "johnloucks3@gmail.com",
@@ -7910,6 +8009,24 @@
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 26 Mar 2026 06:30:59 -0700",
       "body": "ISSUE:\nSMS gateway delivery to Commander's cell (719-291-0742) via tmomail.net is failing — carrier may have changed or T-Mobile gateway is temporarily down.\n\nDISCUSSION:\nEmail to 7192910742@tmomail.net (Commander's cell via T-Mobile SMS gateway) bounced with 'address not found' and a temporary server unavailable error from the remote server.\n\nACTIONS I RECOMMEND TAKING:\n1. Verify Commander's current cell carrier — if no longer T-Mobile, update SMS gateway address (e.g., vtext.com for Verizon, txt.att.net for AT&T)\n2. Check if any automated workflows are sending to this SMS gateway and update or disable them\n3. Retry in a few hours — the error mentions 'temporarily unavailable' so it may be transient\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-03-26 07:30 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Re: 🔴 THUNDERBIRD BRIEFING // Mar 27 — 51 ACTION I",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 27 Mar 2026 06:47:13 -0700",
+      "body": "ISSUE:\nCommander rejected the morning briefing format and directed COS to rebuild it with links, more info, and .json structure matching the world intel report.\n\nDISCUSSION:\nCommander rejected the morning briefing format as unhelpful — no links, insufficient info. Directed COS to restructure it like the world intel product, output as .json.\n\nACTIONS I RECOMMEND TAKING:\n1. COS must redesign the morning briefing to include clickable links for every intel item, fuller summaries, and output as .json matching the world intel report format\n2. Review the world intel .json format as the gold standard template for the morning brief\n3. Capture this as a learning rule / feedback memory: morning briefings must have links, sufficient context, and .json output format\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-03-27 07:47 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Delivery Status Notification (Delay)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 28 Mar 2026 06:01:28 -0700",
+      "body": "ISSUE:\nEmail delivery to SMS gateway failed with temporary server error (AUP#MXRT). May indicate T-Mobile MX outage or rate-limiting issue.\n\nDISCUSSION:\nTemporary delivery failure from d2mconcierge@gmail.com to T-Mobile SMS gateway (7192910742@tmomail.net). Server temporarily unavailable; Gmail will retry for 47 hours.\n\nACTIONS I RECOMMEND TAKING:\n1. Verify if SMS integration via T-Mobile gateway is active and needed\n2. Monitor retry status over next 47 hours\n3. Check for other failed delivery attempts to D2M infrastructure\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-03-28 07:01 MT\nThunderbird Email Intelligence Officer",
       "score": 2
     }
   ]

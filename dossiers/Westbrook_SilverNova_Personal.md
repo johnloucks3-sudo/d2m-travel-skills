@@ -160,6 +160,9 @@ Commander has designated the Westbrooks as the test case for itinerary improveme
 **Mar 13 — Ronald Westbrook** (Re: Re: Westbrook: Pacific (Silver Nova) Pre-Departure Validation)
 > Mar 13, 2026 — Ron replied to pre-departure validation email. Brief, positive acknowledgment. Explicitly approved Dani Moreau as concierge contact going forward. Signed as 'Rondo.' No questions or concerns raised. Open items remain on D2M side: Harumi transfer time confirmation (HL855855), Seattle terminal transfer (book by Apr 15), Visit Japan Web reminder (due Mar 25).
 
+**Mar 29 — Ronald Westbrook** (Re: Re: Your Silver Nova Itinerary — A Fresh Look, Ron & Lindy)
+> Mar 29, 4:18 PM — Ron replied with confirmation that the corrected Victoria photo (Empress Hotel) matches his memory and expectation. Itinerary APPROVED. No further changes requested. Next open item: Seattle terminal transfer booking (deadline Apr 15).
+
 ---
 
 ---
@@ -205,6 +208,10 @@ Commander has designated the Westbrooks as the test case for itinerary improveme
 6. [ ] **Send portal activation email** — draft exists in Gmail (Mar 10), not yet sent
 7. [ ] **Update Westbrook itinerary** — change Yokohama to Harumi, remove Blacklane, show PE151557101 as port transfer
 8. [ ] BUILD: First prototype itinerary using new D2M brand/template direction
+
+- [ ] Set reminder: Seattle terminal → SEA-TAC transfer booking deadline is Apr 15 (currently NOT BOOKED) (auto-intel Mar 29)
+
+- [ ] Update Westbrook dossier EMAIL LOG: 'Ron confirmed satisfaction with corrected itinerary (Empress Hotel photo) on Mar 29, 2026 — itinerary approved' (auto-intel Mar 29)
 
 - [ ] Update dossier: Ron has approved Dani as concierge contact — no opt-out needed (auto-intel Mar 13)
 

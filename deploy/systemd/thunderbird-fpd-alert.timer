@@ -4,7 +4,7 @@ Requires=thunderbird-fpd-alert.service
 
 [Timer]
 # 07:03 MDT = 13:03 UTC (MDT = UTC-6)
-OnCalendar=*-*-* 13:03:00 UTC
+OnCalendar=*-*-* 02:30:00 America/Denver
 Persistent=true
 
 [Install]

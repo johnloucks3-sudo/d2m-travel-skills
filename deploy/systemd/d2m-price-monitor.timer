@@ -1,0 +1,10 @@
+[Unit]
+Description=D2M Price Monitor — Daily 02:40 MDT
+Requires=d2m-price-monitor.service
+
+[Timer]
+OnCalendar=*-*-* 02:40:00 America/Denver
+Persistent=true
+
+[Install]
+WantedBy=timers.target

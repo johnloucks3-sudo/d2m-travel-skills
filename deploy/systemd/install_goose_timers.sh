@@ -23,6 +23,8 @@ NEW_UNITS=(
     "d2m-x-osint.timer"
     "d2m-factbook-refresh.service"
     "d2m-factbook-refresh.timer"
+    "d2m-price-monitor.service"
+    "d2m-price-monitor.timer"
 )
 
 mkdir -p "$SYSTEMD_USER_DIR"
@@ -42,14 +44,14 @@ done
 systemctl --user daemon-reload
 echo "  ✓ daemon-reload"
 
-for timer in d2m-airline-monitor.timer d2m-x-osint.timer d2m-factbook-refresh.timer; do
+for timer in d2m-airline-monitor.timer d2m-x-osint.timer d2m-factbook-refresh.timer d2m-price-monitor.timer; do
     systemctl --user enable --now "$timer"
     echo "  ✓ Enabled + started: $timer"
 done
 
 echo ""
 echo "Active Goose timers:"
-systemctl --user list-timers | grep -E "airline|osint|factbook" || echo "  (none found — check systemctl --user list-timers)"
+systemctl --user list-timers | grep -E "airline|osint|factbook|price" || echo "  (none found — check systemctl --user list-timers)"
 
 echo ""
 echo "Next: verify with 'goose-d2m run --no-session --recipe recipes/airline_monitor.yaml'"

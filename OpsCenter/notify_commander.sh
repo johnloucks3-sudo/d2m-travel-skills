@@ -1,0 +1,16 @@
+#!/bin/bash
+echo -e "\e[1;36m"
+echo "      ___"
+echo "     /   \ "
+echo "    |  o  |   HONK! COMMANDER, ASSISTANCE REQUIRED!"
+echo "     \___/    ====================================="
+echo "      | |"
+echo "     /   \"
+echo "    /     \"
+echo "   |       |"
+echo "   |_______|"
+echo "    |     |"
+echo "   _|_   _|_"
+echo -e "\e[0m"
+echo -e "\a" # Terminal bell
+echo "Message: $1"

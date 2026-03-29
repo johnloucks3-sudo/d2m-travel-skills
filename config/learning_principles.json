@@ -2,18 +2,19 @@
   "meta": {
     "generated": "2026-03-23T03:00:00.000000",
     "version": "1.0",
-    "total_principles": 12,
-    "note": "Seeded from observed Commander edits and stated preferences. Grows via Learning Compiler."
+    "total_principles": 14,
+    "note": "Seeded from observed Commander edits and stated preferences. Grows via Learning Compiler.",
+    "last_updated": "2026-03-28T22:26:06.365811"
   },
   "principles": [
     {
       "id": "LP001",
       "context": "friend tier, proposal narrative, opening paragraph",
-      "principle": "Use first name only in the opening. No 'Dear Mr./Mrs.' — start with the name or go straight into the narrative.",
+      "principle": "Use first name only in the opening. No 'Dear Mr./Mrs.' \u2014 start with the name or go straight into the narrative.",
       "direction": "personalize",
       "example_before": "Dear Nancy and Ken,",
       "example_after": "Nancy,",
-      "extracted_from": "Lyons Athens proposal — Commander edit 22 MAR 2026",
+      "extracted_from": "Lyons Athens proposal \u2014 Commander edit 22 MAR 2026",
       "confidence": 0.95
     },
     {
@@ -23,7 +24,7 @@
       "direction": "remove",
       "example_before": "Best regards, John",
       "example_after": "Thanks, John",
-      "extracted_from": "Standing order — Commander preference",
+      "extracted_from": "Standing order \u2014 Commander preference",
       "confidence": 1.0
     },
     {
@@ -32,7 +33,7 @@
       "principle": "Keep payment reminders warm and informational, not transactional. Lead with where they're going, not what they owe.",
       "direction": "soften",
       "example_before": "Your final payment of $15,486 is due April 1.",
-      "example_after": "You're 40 days from Scandinavia — just a quick note that your final payment of $15,486 is due April 1.",
+      "example_after": "You're 40 days from Scandinavia \u2014 just a quick note that your final payment of $15,486 is due April 1.",
       "extracted_from": "Furlow payment email pattern",
       "confidence": 0.85
     },
@@ -42,17 +43,17 @@
       "principle": "Commander writes short. Client emails are rarely more than 4-5 sentences. Proposals are the exception.",
       "direction": "tighten",
       "example_before": "I wanted to reach out to follow up on...",
-      "example_after": "Quick follow-up —",
-      "extracted_from": "Voice harvest analysis — 795 emails scored",
+      "example_after": "Quick follow-up \u2014",
+      "extracted_from": "Voice harvest analysis \u2014 795 emails scored",
       "confidence": 0.9
     },
     {
       "id": "LP005",
       "context": "friend tier, proposal pricing section",
-      "principle": "Frame pricing as 'investment' not 'cost'. Never lead the pricing section with numbers — lead with what's included.",
+      "principle": "Frame pricing as 'investment' not 'cost'. Never lead the pricing section with numbers \u2014 lead with what's included.",
       "direction": "personalize",
       "example_before": "Total cost: $8,500",
-      "example_after": "Your Investment — what's included...",
+      "example_after": "Your Investment \u2014 what's included...",
       "extracted_from": "Lyons Athens proposal feedback",
       "confidence": 0.8
     },
@@ -63,7 +64,7 @@
       "direction": "tighten",
       "example_before": "Please review the attached, confirm your passport info, and let me know your seat preferences.",
       "example_after": "When you get a moment, can you confirm your passport expiration dates?",
-      "extracted_from": "Cold email principles — 21 MAR 2026",
+      "extracted_from": "Cold email principles \u2014 21 MAR 2026",
       "confidence": 0.9
     },
     {
@@ -73,17 +74,17 @@
       "direction": "tighten",
       "example_before": "Hi team, I hope you're doing well! I'm reaching out because...",
       "example_after": "Hi [Name], requesting rates for...",
-      "extracted_from": "Voice harvest — vendor tier pattern",
+      "extracted_from": "Voice harvest \u2014 vendor tier pattern",
       "confidence": 0.88
     },
     {
       "id": "LP008",
       "context": "proposal narrative, destination description",
-      "principle": "Destination descriptions should be evocative and specific — not generic tourism copy. Reference time of day, sensory details, what the CLIENT specifically will appreciate.",
+      "principle": "Destination descriptions should be evocative and specific \u2014 not generic tourism copy. Reference time of day, sensory details, what the CLIENT specifically will appreciate.",
       "direction": "personalize",
       "example_before": "Athens is a beautiful city with a rich history and vibrant culture.",
-      "example_after": "Athens is one of those rare cities that rewards the unhurried traveler — and Nancy, I have a feeling you and Ken are exactly that.",
-      "extracted_from": "Lyons proposal example — d2m_proposal_schema.py",
+      "example_after": "Athens is one of those rare cities that rewards the unhurried traveler \u2014 and Nancy, I have a feeling you and Ken are exactly that.",
+      "extracted_from": "Lyons proposal example \u2014 d2m_proposal_schema.py",
       "confidence": 0.92
     },
     {
@@ -91,9 +92,9 @@
       "context": "client tier, follow-up emails after no response",
       "principle": "Follow-ups are light and warm, not pressuring. A single sentence with a clear escape valve ('just wanted you to know I'm here').",
       "direction": "soften",
-      "example_before": "I haven't heard back from you — please confirm by...",
-      "example_after": "Haven't heard from you in about 16 hours — just wanted you to know I'm here if you have questions.",
-      "extracted_from": "Kuklinski follow-up email — voice harvest",
+      "example_before": "I haven't heard back from you \u2014 please confirm by...",
+      "example_after": "Haven't heard from you in about 16 hours \u2014 just wanted you to know I'm here if you have questions.",
+      "extracted_from": "Kuklinski follow-up email \u2014 voice harvest",
       "confidence": 0.87
     },
     {
@@ -103,17 +104,17 @@
       "direction": "remove",
       "example_before": "Recently, I helped the Smith family book a...  ",
       "example_after": "Recently, I helped a Colorado family book a...",
-      "extracted_from": "Cold email principles — 21 MAR 2026",
+      "extracted_from": "Cold email principles \u2014 21 MAR 2026",
       "confidence": 0.95
     },
     {
       "id": "LP011",
       "context": "all tiers, timeline precision",
-      "principle": "Be precise about timelines — not 'recently' or 'soon'. If you mean April 1, say April 1.",
+      "principle": "Be precise about timelines \u2014 not 'recently' or 'soon'. If you mean April 1, say April 1.",
       "direction": "tighten",
       "example_before": "Your payment is coming up soon.",
       "example_after": "Your final payment is due April 1.",
-      "extracted_from": "Cold email principles — 21 MAR 2026",
+      "extracted_from": "Cold email principles \u2014 21 MAR 2026",
       "confidence": 0.93
     },
     {
@@ -123,8 +124,30 @@
       "direction": "remove",
       "example_before": "Love Group Travel",
       "example_after": "Dreams2Memories Travel, LLC",
-      "extracted_from": "Standing order — brand identity",
+      "extracted_from": "Standing order \u2014 brand identity",
       "confidence": 1.0
+    },
+    {
+      "id": "LP013",
+      "context": "McLeod Venice transfer update email \u2014 client-facing, luxury tier. Commander directed upgrade from plain text to full HTML with proper tables, bold/italic hierarchy, and positive-framing status language.",
+      "principle": "[Auto-captured 28 Mar 2026] Commander edited this email. Direction: personalize. See before/after for the pattern.",
+      "direction": "personalize",
+      "example_before": "Plain text email with asterisk-bold (*bold*), emoji caution symbols (\u26a0 Decision needed), and space-aligned pseudo-tables. No HTML structure, no visual hierarchy, no stationery.",
+      "example_after": "Full HTML email with D2M stationery (navy header #1a2744, cream body #f7f3ea, blue ink #0000ff, Georgia serif). All data sets rendered as proper HTML tables with alternating row shading. Section heade",
+      "extracted_from": "Commander edit \u2014 28 Mar 2026",
+      "confidence": 0.75,
+      "auto_captured": true
+    },
+    {
+      "id": "LP014",
+      "context": "McLeod Venice transfer status column. Status label should echo the section header \"Venice Transfers \u2014 You Have Options\" \u2014 consistent language across the email. \"Options\" is the D2M framing word, not \"alternatives.\"",
+      "principle": "[Auto-captured 28 Mar 2026] Commander edited this email. Direction: personalize. See before/after for the pattern.",
+      "direction": "personalize",
+      "example_before": "\u2726 You have alternatives",
+      "example_after": "\u2726 You have options",
+      "extracted_from": "Commander edit \u2014 28 Mar 2026",
+      "confidence": 0.75,
+      "auto_captured": true
     }
   ]
 }

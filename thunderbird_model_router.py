@@ -595,11 +595,22 @@ def _call_gemini(system_prompt: str, query: str,
             "temperature": temperature,
         },
     }
-    resp = requests.post(url, json=payload, timeout=60,
-                         headers={"Content-Type": "application/json"})
-    resp.raise_for_status()
-    data = resp.json()
-    return data["candidates"][0]["content"]["parts"][0]["text"]
+    try:
+        resp = requests.post(url, json=payload, timeout=60,
+                             headers={"Content-Type": "application/json"})
+        resp.raise_for_status() # Raise HTTPError for bad responses (4xx or 5xx)
+        data = resp.json()
+        return data["candidates"][0]["content"]["parts"][0]["text"]
+    except requests.exceptions.RequestException as e:
+        logger.error(f"Gemini API call failed: {e}")
+        logger.warning("Gemini API call failed — falling back to Claude Sonnet")
+        return _call_anthropic(system_prompt, query, model=CLAUDE_SONNET,
+                               max_tokens=max_tokens, temperature=temperature)
+    except KeyError as e:
+        logger.error(f"Unexpected Gemini API response structure: {e}. Response: {data}")
+        logger.warning("Gemini response parsing failed — falling back to Claude Sonnet")
+        return _call_anthropic(system_prompt, query, model=CLAUDE_SONNET,
+                               max_tokens=max_tokens, temperature=temperature)
 
 
 def _call_grok(system_prompt: str, query: str,

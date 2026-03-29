@@ -2398,5 +2398,295 @@
     "persona": "A2",
     "draft_id": null,
     "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-28T14:16:54.545088+00:00",
+    "msg_id": "19d34c7b2c5ecffe",
+    "subject": "\ud83d\udef3\ufe0fJohn ENDS TUESDAY! AmaWaterways 2026 Exclusive!",
+    "sender": "harold@createyourcruise.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-28T14:16:56.331919+00:00",
+    "msg_id": "19d34c7b2c5ecffe",
+    "subject": "\ud83d\udef3\ufe0fJohn ENDS TUESDAY! AmaWaterways 2026 Exclusive!",
+    "sender": "harold@createyourcruise.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-28T14:17:21.248741+00:00",
+    "msg_id": "19d34a68a7401417",
+    "subject": "3 DAYS LEFT \u2013 Book by March 31",
+    "sender": "learnmore@atlasoceanvoyages.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-28T14:17:26.551147+00:00",
+    "msg_id": "19d34a68a7401417",
+    "subject": "3 DAYS LEFT \u2013 Book by March 31",
+    "sender": "learnmore@atlasoceanvoyages.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-28T14:18:05.264704+00:00",
+    "msg_id": "19d34910695c8955",
+    "subject": "President Trump extends his hold on strikes against Iranian power-generating facilities",
+    "sender": "huckabeepost@substack.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-28T14:18:12.000142+00:00",
+    "msg_id": "19d34910695c8955",
+    "subject": "President Trump extends his hold on strikes against Iranian power-generating facilities",
+    "sender": "huckabeepost@substack.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-28T16:17:35.753439+00:00",
+    "msg_id": "19d352cadf40d410",
+    "subject": "Introducing the Ruby Collection",
+    "sender": "seabourn@m.seabourn.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-28T16:17:44.097551+00:00",
+    "msg_id": "19d352cadf40d410",
+    "subject": "Introducing the Ruby Collection",
+    "sender": "seabourn@m.seabourn.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-28T18:17:05.061120+00:00",
+    "msg_id": "19d353d2be9cc4c7",
+    "subject": "BREAKING:  Iran war will continue at least two to four more weeks, no ground troops necessary, Rubio says",
+    "sender": "info@justthenews.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-28T18:17:11.429026+00:00",
+    "msg_id": "19d353d2be9cc4c7",
+    "subject": "BREAKING:  Iran war will continue at least two to four more weeks, no ground troops necessary, Rubio says",
+    "sender": "info@justthenews.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-28T18:17:45.898716+00:00",
+    "msg_id": "19d34d45b967c7a7",
+    "subject": "Book For 2027! Ultimate All-Inclusive Antarctica & South America Voyage, Iguazu Falls & Machu Picchu",
+    "sender": "news@info.cruisecritic.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-28T18:17:47.494711+00:00",
+    "msg_id": "19d34d45b967c7a7",
+    "subject": "Book For 2027! Ultimate All-Inclusive Antarctica & South America Voyage, Iguazu Falls & Machu Picchu",
+    "sender": "news@info.cruisecritic.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-28T20:16:33.209475+00:00",
+    "msg_id": "19d35f3a806c2ab0",
+    "subject": "[D2M YELLOW] Preflight Check",
+    "sender": "",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-28T20:16:36.909650+00:00",
+    "msg_id": "19d35f3a806c2ab0",
+    "subject": "[D2M YELLOW] Preflight Check",
+    "sender": "",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-28T20:17:22.012597+00:00",
+    "msg_id": "19d35b8fdd400fab",
+    "subject": "Iran is a world war and America must win it",
+    "sender": "theracketnews@substack.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-28T20:17:24.788892+00:00",
+    "msg_id": "19d35b8fdd400fab",
+    "subject": "Iran is a world war and America must win it",
+    "sender": "theracketnews@substack.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-28T20:17:57.226926+00:00",
+    "msg_id": "19d35b6f5fc865e8",
+    "subject": "Afternoon BS Alert: At least 12 US service members injured as Iran lashes out with regional strikes",
+    "sender": "news@bosnerdley.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-28T20:18:04.756343+00:00",
+    "msg_id": "19d35b6f5fc865e8",
+    "subject": "Afternoon BS Alert: At least 12 US service members injured as Iran lashes out with regional strikes",
+    "sender": "news@bosnerdley.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-29T14:16:59.197078+00:00",
+    "msg_id": "19d39e88deb1b095",
+    "subject": "\u2708 News You Need to Know, Best Waldorf Astoria Hotels & More From TPG \u2708",
+    "sender": "tpg@thepointsguy.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-29T14:17:30.378661+00:00",
+    "msg_id": "19d39b1fdccb6cca",
+    "subject": "Morning BS Alert: At least 12 US service members injured as Iran lashes out with regional strikes",
+    "sender": "news@bosnerdley.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-29T14:17:35.631433+00:00",
+    "msg_id": "19d39e88deb1b095",
+    "subject": "\u2708 News You Need to Know, Best Waldorf Astoria Hotels & More From TPG \u2708",
+    "sender": "tpg@thepointsguy.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-29T14:18:12.773146+00:00",
+    "msg_id": "19d39b1fdccb6cca",
+    "subject": "Morning BS Alert: At least 12 US service members injured as Iran lashes out with regional strikes",
+    "sender": "news@bosnerdley.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-29T16:16:40.902716+00:00",
+    "msg_id": "19d3a5cc7a76e59f",
+    "subject": "Shore Excursion Mistakes to Avoid; Holland America or Celebrity: Which Is Better? & More",
+    "sender": "news@info.cruisecritic.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-29T16:16:44.836336+00:00",
+    "msg_id": "19d3a5cc7a76e59f",
+    "subject": "Shore Excursion Mistakes to Avoid; Holland America or Celebrity: Which Is Better? & More",
+    "sender": "news@info.cruisecritic.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-29T16:17:10.005046+00:00",
+    "msg_id": "19d3a1d631f7b6cd",
+    "subject": "Your Challenge update is here (JLOUCKS1)",
+    "sender": "d.almaraz@bedsonline.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-29T16:17:14.712720+00:00",
+    "msg_id": "19d3a1d631f7b6cd",
+    "subject": "Your Challenge update is here (JLOUCKS1)",
+    "sender": "d.almaraz@bedsonline.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-29T18:16:53.243156+00:00",
+    "msg_id": "19d3a7361e73b33a",
+    "subject": "BREAKING:  Netanyahu says Israel is expanding its military operation against Hezbollah in Lebanon",
+    "sender": "info@justthenews.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-29T20:16:21.989296+00:00",
+    "msg_id": "19d3b33fc0b8a869",
+    "subject": "BREAKING:  Pakistan set to host talks between U.S. and Iran, foreign minister says",
+    "sender": "info@justthenews.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-29T20:16:22.813145+00:00",
+    "msg_id": "19d3b33fc0b8a869",
+    "subject": "BREAKING:  Pakistan set to host talks between U.S. and Iran, foreign minister says",
+    "sender": "info@justthenews.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
   }
 ]

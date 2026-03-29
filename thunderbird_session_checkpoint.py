@@ -32,6 +32,7 @@ logger = logging.getLogger(__name__)
 
 THUNDERBIRD_DIR = Path(os.path.expanduser("~/Thunderbird"))
 CHECKPOINT_FILE = THUNDERBIRD_DIR / "session_autosave_latest.md"
+HTML_CHECKPOINT_FILE = THUNDERBIRD_DIR / "session_autosave_latest.html"
 TELEGRAM_LOG_DIR = THUNDERBIRD_DIR / "memory"
 DOSSIER_DIR = THUNDERBIRD_DIR / "dossiers"
 LEARNING_DB = THUNDERBIRD_DIR / "learning_rules.db"
@@ -288,6 +289,148 @@ def render_checkpoint_md(data: Dict[str, Any]) -> str:
 
 
 # ---------------------------------------------------------------------------
+# HTML renderer — Midnight Galaxy theme
+# ---------------------------------------------------------------------------
+
+def render_checkpoint_html(data: Dict[str, Any]) -> str:
+    """Render checkpoint dict to Midnight Galaxy HTML report."""
+    ts = data["generated_at"]
+    commits = data["commits"]
+    modified = data["uncommitted"].get("modified", [])
+    new_files = data["uncommitted"].get("new", [])
+    todos = data["todos"]
+    dossiers = data["recent_dossiers"]
+    sss = data["sss_pending"]
+    learning = data["learning_pending"]
+    total_uncommitted = len(modified) + len(new_files)
+
+    def _commit_row(c: str) -> str:
+        parts = c.split(" ", 1)
+        h = parts[0] if parts else ""
+        msg = parts[1] if len(parts) > 1 else c
+        ctype = "feat"
+        label = "feat"
+        for t in ("fix", "chore", "docs", "refactor", "test"):
+            if msg.lower().startswith(t):
+                ctype = t if t in ("fix", "chore") else "feat"
+                label = t
+                break
+        return (
+            f'<div class="commit">'
+            f'<span class="commit-hash">{h}</span>'
+            f'<span class="commit-type type-{ctype}">{label}</span>'
+            f'<span class="commit-msg">{msg}</span>'
+            f'</div>'
+        )
+
+    def _file_rows(files: List[str], badge: str) -> str:
+        cls = "badge-new" if badge == "new" else "badge-mod"
+        return "".join(
+            f'<li><span>{f}</span><span class="badge {cls}">{badge}</span></li>'
+            for f in files[:10]
+        )
+
+    def _todo_rows(todos: List[str]) -> str:
+        return "".join(
+            f'<div class="todo"><span class="todo-box"></span><span>{t.split("] ", 1)[-1]}</span></div>'
+            for t in todos
+        )
+
+    def _dossier_rows(ds: List[str]) -> str:
+        return "".join(f'<div class="dossier">{d}</div>' for d in ds)
+
+    commits_html = "".join(_commit_row(c) for c in commits) or '<span style="color:#4a4e8f">No commits found</span>'
+    files_html = _file_rows(modified, "mod") + _file_rows(new_files, "new") or '<li style="color:#4a4e8f">Clean working tree</li>'
+    todos_html = _todo_rows(todos) or '<div style="color:#4a4e8f;font-size:12px">No open TODOs</div>'
+    dossiers_html = _dossier_rows(dossiers) or '<div style="color:#4a4e8f;font-size:12px">None</div>'
+
+    return f"""<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8">
+<style>
+  *{{box-sizing:border-box;margin:0;padding:0}}
+  body{{font-family:FreeSans,-apple-system,'Segoe UI',sans-serif;background:#2b1e3e;color:#e6e6fa;padding:28px;min-height:100vh}}
+  .header{{margin-bottom:24px;border-bottom:1px solid #4a4e8f;padding-bottom:16px;display:flex;justify-content:space-between;align-items:flex-end}}
+  .header h1{{font-size:22px;font-weight:700;color:#e6e6fa;letter-spacing:1px}}
+  .header .sub{{font-size:11px;color:#a490c2;letter-spacing:2px;text-transform:uppercase;margin-top:3px}}
+  .header-right{{text-align:right;font-size:11px;color:#4a4e8f}}
+  .header-right .ts{{color:#a490c2;font-size:12px}}
+  .grid{{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}}
+  .grid-3{{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:14px}}
+  .card{{background:rgba(74,78,143,.12);border:1px solid rgba(164,144,194,.18);border-radius:10px;padding:16px 18px}}
+  .card-title{{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#a490c2;margin-bottom:12px;display:flex;align-items:center;gap:8px}}
+  .card-title .dot{{width:6px;height:6px;border-radius:50%;background:#a490c2;display:inline-block}}
+  .stat{{text-align:center;padding:14px 10px}}
+  .stat-num{{font-size:28px;font-weight:700;color:#a490c2;line-height:1}}
+  .stat-label{{font-size:10px;color:#4a4e8f;letter-spacing:1px;text-transform:uppercase;margin-top:5px}}
+  .commit{{display:flex;gap:10px;margin-bottom:8px;align-items:flex-start;font-size:12px}}
+  .commit-hash{{color:#4a4e8f;font-family:monospace;font-size:11px;min-width:58px;padding-top:1px}}
+  .commit-type{{font-size:9px;padding:2px 7px;border-radius:10px;font-weight:700;letter-spacing:.5px;white-space:nowrap;margin-top:1px}}
+  .type-feat{{background:rgba(164,144,194,.25);color:#a490c2}}
+  .type-fix{{background:rgba(74,78,143,.4);color:#8890d4}}
+  .type-chore{{background:rgba(74,78,143,.2);color:#6668a0}}
+  .commit-msg{{color:#c8c8e8;line-height:1.4}}
+  .file-list{{list-style:none}}
+  .file-list li{{font-size:11px;font-family:monospace;color:#8890d4;padding:3px 0;border-bottom:1px solid rgba(74,78,143,.2);display:flex;justify-content:space-between;align-items:center}}
+  .file-list li:last-child{{border-bottom:none}}
+  .badge{{font-size:9px;padding:1px 6px;border-radius:8px;font-family:sans-serif;font-weight:700}}
+  .badge-mod{{background:rgba(74,78,143,.4);color:#8890d4}}
+  .badge-new{{background:rgba(164,144,194,.25);color:#a490c2}}
+  .dossier{{font-size:12px;color:#c8c8e8;padding:6px 0;border-bottom:1px solid rgba(74,78,143,.2);display:flex;align-items:center;gap:8px}}
+  .dossier::before{{content:'◆';font-size:8px;color:#4a4e8f}}
+  .dossier:last-child{{border-bottom:none}}
+  .todo{{font-size:12px;color:#8890d4;padding:5px 0;border-bottom:1px solid rgba(74,78,143,.15);display:flex;align-items:center;gap:8px}}
+  .todo:last-child{{border-bottom:none}}
+  .todo-box{{width:11px;height:11px;border:1px solid #4a4e8f;border-radius:2px;display:inline-block;flex-shrink:0}}
+  .footer{{margin-top:20px;border-top:1px solid #4a4e8f;padding-top:12px;display:flex;justify-content:space-between;font-size:10px;color:#4a4e8f}}
+  .footer .theme-badge{{color:#a490c2}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div>
+    <h1>Thunderbird OS — Session Report</h1>
+    <div class="sub">Dreams2Memories Travel, LLC · COS Auto-Save</div>
+  </div>
+  <div class="header-right">
+    <div class="ts">{ts}</div>
+    <div>Auto-Save Checkpoint</div>
+  </div>
+</div>
+<div class="grid-3">
+  <div class="card stat"><div class="stat-num">{len(commits)}</div><div class="stat-label">Recent Commits</div></div>
+  <div class="card stat"><div class="stat-num">{total_uncommitted}</div><div class="stat-label">Uncommitted Files</div></div>
+  <div class="card stat"><div class="stat-num">{len(todos)}</div><div class="stat-label">Open TODOs</div></div>
+</div>
+<div class="grid">
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>Recent Commits</div>
+    {commits_html}
+  </div>
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>Recently Touched Dossiers</div>
+    {dossiers_html}
+  </div>
+</div>
+<div class="grid">
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>Uncommitted Changes</div>
+    <ul class="file-list">{files_html}</ul>
+  </div>
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>Open TODOs</div>
+    {todos_html}
+    <div style="margin-top:10px;font-size:10px;color:#4a4e8f">SSS: {sss} pending · Learning: {learning} pending</div>
+  </div>
+</div>
+<div class="footer">
+  <span>Auto-generated by COS · Thunderbird OS · Auto-Save Protocol</span>
+  <span class="theme-badge">◆ Midnight Galaxy</span>
+</div>
+</body></html>"""
+
+
+# ---------------------------------------------------------------------------
 # Main entry point
 # ---------------------------------------------------------------------------
 
@@ -313,6 +456,10 @@ def run_session_checkpoint(notes: str = "") -> Dict[str, Any]:
 
         CHECKPOINT_FILE.parent.mkdir(parents=True, exist_ok=True)
         CHECKPOINT_FILE.write_text(md, encoding="utf-8")
+
+        # Also write Midnight Galaxy HTML report
+        html = render_checkpoint_html(data)
+        HTML_CHECKPOINT_FILE.write_text(html, encoding="utf-8")
 
         uncommitted_count = (
             len(data["uncommitted"].get("modified", []))
