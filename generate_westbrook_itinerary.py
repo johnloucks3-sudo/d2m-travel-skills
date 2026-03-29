@@ -7,13 +7,14 @@ Luna (A6) Creative Lead | COS Orchestration | EXEC Brand Polish
 Produces: output/Westbrook_SilverNova_Final.html + .pdf
 """
 
-import subprocess, json, sys, os
+import subprocess, json, sys, os, base64
 from pathlib import Path
 from datetime import datetime
 
 # ── CONFIG ────────────────────────────────────────────────────────────────────
 PEXELS_KEY   = "***REMOVED-SECRET***"
 OUTPUT_DIR   = Path("/home/john/Thunderbird/output")
+SN_IMGS_DIR  = OUTPUT_DIR / "silver_nova_imgs"   # real Silver Nova photos from iCruise
 LOGO_B64_FILE= Path("/home/john/Thunderbird/output/logo_small_b64.txt")
 HTML_OUT     = OUTPUT_DIR / "Westbrook_SilverNova_Final.html"
 PDF_OUT      = OUTPUT_DIR / "Westbrook_SilverNova_Final.pdf"
@@ -92,33 +93,39 @@ DINING = {
 }
 
 # ── 20-DAY ITINERARY DATA ─────────────────────────────────────────────────────
-# (day, date_str, port, is_sea, pexels_id, dock, depart, excursion)
+# img src types:
+#   ("pexels", id)              → fetch from Pexels API
+#   ("local", "filename.jpg")   → load from SN_IMGS_DIR (iCruise Silver Nova)
+#   ("file", "/abs/path.jpg")   → load from absolute path (e.g. cropped image)
+#   ("split", src_a, src_b)     → two images side-by-side (each src is a tuple above)
+#
+# (day, date_str, port, is_sea, img_src, dock, depart, excursion)
 DAYS = [
-    (1,  "2026-04-23", "Tokyo (Harumi), Japan",          False, 23023919, "10:30 AM transfer", "7:00 PM",   ""),
-    (2,  "2026-04-24", "Day at Sea",                     True,  12422952, "", "",               ""),
-    (3,  "2026-04-25", "Miyako, Iwate, Japan",            False, 7833735,  "8:00 AM",           "5:00 PM",   "Jodogahama & Ryusendo — 8:45 AM · ~4 hrs · Moderate"),
-    (4,  "2026-04-26", "Aomori, Japan",                  False, 15925248, "7:00 AM",           "6:00 PM",   "Free to Explore"),
-    (5,  "2026-04-27", "Day at Sea",                     True,  20199321, "", "",               ""),
-    (6,  "2026-04-28", "Day at Sea",                     True,  5769594,  "", "",               ""),
-    (7,  "2026-04-29", "Day at Sea",                     True,  813011,   "", "",               ""),
-    (8,  "2026-04-30", "Date Line — Gain a Day",         True,  30037143, "", "",               ""),
-    (9,  "2026-04-30", "Day at Sea",                     True,  5802999,  "", "",               ""),
-    (10, "2026-05-01", "Day at Sea",                     True,  8932585,  "", "",               ""),
-    (11, "2026-05-02", "Day at Sea",                     True,  4573211,  "", "",               ""),
-    (12, "2026-05-03", "Kodiak Island, Alaska",          False, 17444649, "12:00 PM",          "7:00 PM",   "Free to Explore"),
-    (13, "2026-05-04", "Day at Sea",                     True,  13048487, "", "",               ""),
-    (14, "2026-05-05", "Sitka, Alaska",                  False, 34145844, "9:00 AM",           "5:00 PM",   "Free to Explore"),
-    (15, "2026-05-06", "Juneau, Alaska",                 False, 12897647, "7:00 AM",           "4:00 PM",   "Gold — Underground Mining Heritage · 10:00 AM · ~2h 15m · Minimal"),
-    (16, "2026-05-07", "Wrangell, Alaska",               False, 36075386, "8:00 AM",           "3:00 PM",   "Tongass Botanicals Nature Walk · 4:00 PM · ~1h 30m · Extensive"),
-    (17, "2026-05-08", "Ketchikan, Alaska",              False, 12761922, "8:00 AM",           "3:00 PM",   "By Land & Sea · 10:00 AM · ~1h 30m · Minimal"),
-    (18, "2026-05-09", "Day at Sea",                     True,  12530456, "", "",               ""),
-    (19, "2026-05-10", "Victoria, British Columbia",     False, 35380038, "9:00 AM",           "7:00 PM",   "Free to Explore"),
-    (20, "2026-05-11", "Seattle, Washington",            False, 28933961, "7:00 AM",           "",          "Disembarkation — Seattle Cruise Terminal"),
+    (1,  "2026-04-23", "Tokyo (Harumi), Japan",      False, ("pexels", 34022255),                                                   "10:30 AM transfer", "7:00 PM",  ""),
+    (2,  "2026-04-24", "Day at Sea",                  True,  ("local",  "exterior.jpg"),                                             "", "",               ""),
+    (3,  "2026-04-25", "Miyako, Iwate, Japan",        False, ("pexels", 33146820),                                                   "8:00 AM",  "5:00 PM",  "Jodogahama & Ryusendo — 8:45 AM · ~4 hrs · Moderate"),
+    (4,  "2026-04-26", "Aomori, Japan",               False, ("split", ("pexels", 15925248), ("pexels", 34720608)),                  "7:00 AM",  "6:00 PM",  "Free to Explore"),
+    (5,  "2026-04-27", "Day at Sea",                  True,  ("split", ("pexels", 32882810),                                    ("local", "pool_deck.jpg")),            "", "",               ""),
+    (6,  "2026-04-28", "Day at Sea",                  True,  ("split", ("pexels", 5769594),                                     ("local", "la_terrazza.jpg")),          "", "",               ""),
+    (7,  "2026-04-29", "Day at Sea",                  True,  ("local",  "silver_note.jpg"),                                                                             "", "",               ""),
+    (8,  "2026-04-30", "Date Line — Gain a Day",      True,  ("local",  "veranda_suite.jpg"),                                                                           "", "",               ""),
+    (9,  "2026-04-30", "Day at Sea",                  True,  ("split", ("pexels", 11253381),                                    ("local", "observation_lounge.jpg")),   "", "",               ""),
+    (10, "2026-05-01", "Day at Sea",                  True,  ("split", ("pexels", 28556860),                                    ("local", "panorama_lounge.jpg")),      "", "",               ""),
+    (11, "2026-05-02", "Day at Sea",                  True,  ("split", ("pexels", 13819293),                                    ("local", "the_shelter.jpg")),          "", "",               ""),
+    (12, "2026-05-03", "Kodiak Island, Alaska",       False, ("pexels", 27566576),                                                   "12:00 PM", "7:00 PM",  "Free to Explore"),
+    (13, "2026-05-04", "Day at Sea",                  True,  ("local",  "otium_spa.jpg"),                                            "", "",               ""),
+    (14, "2026-05-05", "Sitka, Alaska",               False, ("pexels", 5874047),                                                    "9:00 AM",  "5:00 PM",  "Free to Explore"),
+    (15, "2026-05-06", "Juneau, Alaska",              False, ("pexels", 27450973),                                                   "7:00 AM",  "4:00 PM",  "Gold — Underground Mining Heritage · 10:00 AM · ~2h 15m · Minimal"),
+    (16, "2026-05-07", "Wrangell, Alaska",            False, ("pexels", 36075363),                                                   "8:00 AM",  "3:00 PM",  "Tongass Botanicals Nature Walk · 4:00 PM · ~1h 30m · Extensive · ⚠ Timing: excursion departs 4 PM / ship departs 3 PM — confirm with Silversea"),
+    (17, "2026-05-08", "Ketchikan, Alaska",           False, ("pexels", 12761922),                                                   "8:00 AM",  "3:00 PM",  "By Land & Sea · 10:00 AM · ~1h 30m · Minimal"),
+    (18, "2026-05-09", "Day at Sea",                  True,  ("split", ("pexels", 12847692),                                    ("local", "connoisseur_corner.jpg")),   "", "",               ""),
+    (19, "2026-05-10", "Victoria, British Columbia",  False, ("split", ("pexels", 14778867), ("pexels", 13244381)),                  "9:00 AM",  "7:00 PM",  "Free to Explore"),
+    (20, "2026-05-11", "Seattle, Washington",         False, ("pexels", 28933961),                                                   "7:00 AM",  "",         "Disembarkation — Seattle Cruise Terminal"),
 ]
 
-# ── PEXELS IMAGE FETCHER ──────────────────────────────────────────────────────
+# ── IMAGE LOADERS ─────────────────────────────────────────────────────────────
 def get_pexels_photo(photo_id: int) -> dict:
-    """Return {url, photographer, page_url} for a Pexels photo ID."""
+    """Return {url, photographer, credit, is_b64=False} for a Pexels photo ID."""
     r = subprocess.run(
         ["curl", "-s", "-H", f"Authorization: {PEXELS_KEY}",
          f"https://api.pexels.com/v1/photos/{photo_id}"],
@@ -127,13 +134,48 @@ def get_pexels_photo(photo_id: int) -> dict:
     try:
         d = json.loads(r.stdout)
         return {
-            "url":          d["src"]["large2x"],
-            "photographer": d.get("photographer", "Pexels"),
-            "page_url":     d.get("url", ""),
+            "url":   d["src"]["large2x"],
+            "credit": d.get("photographer", "Pexels"),
+            "is_b64": False,
         }
     except Exception as e:
         print(f"  ⚠ Pexels {photo_id}: {e}")
-        return {"url": "", "photographer": "", "page_url": ""}
+        return {"url": "", "credit": "", "is_b64": False}
+
+
+def load_local_photo(filename: str) -> dict:
+    """Load a Silver Nova iCruise image from local disk as base64 data URI."""
+    path = SN_IMGS_DIR / filename
+    try:
+        data = base64.b64encode(path.read_bytes()).decode()
+        return {"url": f"data:image/jpeg;base64,{data}", "credit": "Silver Nova · Silversea / iCruise", "is_b64": True}
+    except Exception as e:
+        print(f"  ⚠ local {filename}: {e}")
+        return {"url": "", "credit": "", "is_b64": True}
+
+
+def load_file_photo(abs_path: str) -> dict:
+    """Load any local file as base64 data URI."""
+    path = Path(abs_path)
+    try:
+        data = base64.b64encode(path.read_bytes()).decode()
+        return {"url": f"data:image/jpeg;base64,{data}", "credit": "Pexels", "is_b64": True}
+    except Exception as e:
+        print(f"  ⚠ file {abs_path}: {e}")
+        return {"url": "", "credit": "", "is_b64": True}
+
+
+def resolve_src(src: tuple) -> dict:
+    """Resolve any image source tuple to {url, credit, is_b64}."""
+    kind = src[0]
+    if kind == "pexels":
+        return get_pexels_photo(src[1])
+    elif kind == "local":
+        return load_local_photo(src[1])
+    elif kind == "file":
+        return load_file_photo(src[1])
+    else:
+        return {"url": "", "credit": "", "is_b64": False}
 
 
 def get_logo_b64() -> str:
@@ -210,11 +252,27 @@ def render_html(days_data: list, logo_b64: str) -> str:
             </div>'''
 
         # Photo credit
-        credit_html = f'<div class="photo-credit">Photo: {photo_cred} · Pexels</div>' if photo_cred else ""
+        credit_html = f'<div class="photo-credit">Photo: {photo_cred}</div>' if photo_cred else ""
 
-        # Image block
+        # Image block — supports single or split (two side-by-side)
         img_html = ""
-        if img_url:
+        split_data = d.get("split_imgs")
+        if split_data:
+            # Two images side by side
+            left_url, left_cred = split_data[0]["url"], split_data[0]["credit"]
+            right_url, right_cred = split_data[1]["url"], split_data[1]["credit"]
+            img_html = f'''
+            <div class="photo-split">
+              <div class="photo-half">
+                <img src="{left_url}" alt="{port}" class="port-photo" />
+                <div class="photo-credit">Photo: {left_cred}</div>
+              </div>
+              <div class="photo-half">
+                <img src="{right_url}" alt="{port}" class="port-photo" />
+                <div class="photo-credit">Photo: {right_cred}</div>
+              </div>
+            </div>'''
+        elif img_url:
             img_html = f'''
             <div class="photo-wrap">
               <img src="{img_url}" alt="{port}" class="port-photo" />
@@ -464,6 +522,23 @@ body {{
   font-style: italic;
 }}
 
+/* ─── SPLIT PHOTO ───────────────────────────────────────── */
+.photo-split {{
+  display: flex;
+  gap: 6px;
+  margin: 0 0 20px;
+}}
+.photo-half {{
+  flex: 1;
+  min-width: 0;
+}}
+.photo-half .port-photo {{
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 3px;
+}}
+
 /* ─── NARRATIVE ─────────────────────────────────────────── */
 .narrative {{
   font-size: 1em;
@@ -656,24 +731,37 @@ body {{
 # ── MAIN ──────────────────────────────────────────────────────────────────────
 def main():
     print("── Silver Nova Itinerary Generator ──────────────────────")
-    print("Fetching Pexels images…")
 
-    # Collect unique photo IDs
-    all_ids = list({d[4] for d in DAYS if d[4]})
-    photos  = {}
-    for pid in all_ids:
-        print(f"  {pid}…", end=" ", flush=True)
-        photos[pid] = get_pexels_photo(pid)
-        print(photos[pid]["photographer"])
+    # Collect unique Pexels IDs from all source tuples (including split sub-sources)
+    print("Fetching Pexels images…")
+    pexels_ids = set()
+    for row in DAYS:
+        src = row[4]
+        if src[0] == "pexels":
+            pexels_ids.add(src[1])
+        elif src[0] == "split":
+            for sub in src[1:]:
+                if sub[0] == "pexels":
+                    pexels_ids.add(sub[1])
+
+    pexels_cache = {}
+    for pid in sorted(pexels_ids):
+        print(f"  pexels:{pid}…", end=" ", flush=True)
+        pexels_cache[pid] = get_pexels_photo(pid)
+        print(pexels_cache[pid].get("credit", "?"))
+
+    def _resolve(s: tuple) -> dict:
+        """Resolve a single source tuple, using pexels_cache when available."""
+        if s[0] == "pexels":
+            return pexels_cache.get(s[1], {"url": "", "credit": "", "is_b64": False})
+        return resolve_src(s)
 
     # Build day data dicts
     print("\nAssembling day data…")
     days_data = []
-    for (day, date, port, is_sea, pid, dock, depart, excursion) in DAYS:
-        p = photos.get(pid, {})
+    for (day, date, port, is_sea, src, dock, depart, excursion) in DAYS:
         narrative = SEA_NARRATIVES.get(day, ("", ""))[1] if is_sea else ""
 
-        # Embarkation day narrative
         if day == 1 and not is_sea:
             narrative = (
                 "Welcome aboard Silver Nova. Your Superior Veranda Suite awaits — "
@@ -688,19 +776,33 @@ def main():
                 "You have crossed the Pacific and touched the edges of Japan and Alaska — you are home."
             )
 
-        days_data.append({
+        day_dict = {
             "day":          day,
             "date":         date,
             "port":         port,
             "is_sea":       is_sea,
-            "img_url":      p.get("url", ""),
-            "photographer": p.get("photographer", ""),
+            "img_url":      "",
+            "photographer": "",
             "narrative":    narrative,
             "dock":         dock,
             "depart":       depart,
             "excursion":    excursion,
             "dining":       DINING.get(date, ""),
-        })
+        }
+
+        if src[0] == "split":
+            left  = _resolve(src[1])
+            right = _resolve(src[2])
+            day_dict["split_imgs"] = [
+                {"url": left["url"],  "credit": left.get("credit", "")},
+                {"url": right["url"], "credit": right.get("credit", "")},
+            ]
+        else:
+            p = _resolve(src)
+            day_dict["img_url"]      = p.get("url", "")
+            day_dict["photographer"] = p.get("credit", "")
+
+        days_data.append(day_dict)
 
     print("\nLoading logo…")
     logo_b64 = get_logo_b64()

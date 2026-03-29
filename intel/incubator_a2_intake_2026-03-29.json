@@ -1,0 +1,24 @@
+[
+  {
+    "id": "A2-2026-03-29-001",
+    "title": "LEO.org German-English Translation",
+    "source_signal": "agentic/agent/behavior translations",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "Dictionary/translation service. Zero D2M or travel-tech relevance. Archive."
+  },
+  {
+    "id": "A2-2026-03-29-002",
+    "title": "Merriam-Webster/Cambridge/Dictionary.com 'STANDING' Definition",
+    "source_signal": "STANDING definitions (reputation/status/timber)",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "Lexical definitions. No tech, no market signal, no architecture fit. Contaminated scrape output."
+  }
+]

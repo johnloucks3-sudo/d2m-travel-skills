@@ -1,7 +1,7 @@
-# Innovation Scan — Daily
-**Generated:** 2026-03-29T01:45:39.951485
+# Innovation Scan — Weekly
+**Generated:** 2026-03-29T01:30:39.960698
 **Sources:** 24 scanned, 0 failed
-**Findings:** 152 total
+**Findings:** 149 total
 
 ---
 
@@ -9,15 +9,15 @@
 
 | # | Score | Source | Title | Category |
 |---|-------|--------|-------|----------|
-| 1 | 54542 | github/trending | [garrytan/gstack](https://github.com/garrytan/gstack) | claude |
-| 2 | 3239 | github/trending | [nidhinjs/prompt-master](https://github.com/nidhinjs/prompt-master) | knowledge |
+| 1 | 54528 | github/trending | [garrytan/gstack](https://github.com/garrytan/gstack) | claude |
+| 2 | 3232 | github/trending | [nidhinjs/prompt-master](https://github.com/nidhinjs/prompt-master) | knowledge |
 | 3 | 3228 | github/trending | [twostraws/SwiftUI-Agent-Skill](https://github.com/twostraws/SwiftUI-Agent-Skill) | agents |
-| 4 | 2274 | reddit/r/ClaudeAI | [I've been "gaslighting" my AI models and it's producing insa...](https://reddit.com/r/ClaudeAI/comments/1s5wp0g/ive_been_gaslighting_my_ai_models_and_its/) | security |
-| 5 | 1741 | github/trending | [knowsuchagency/mcp2cli](https://github.com/knowsuchagency/mcp2cli) | mcp |
-| 6 | 1486 | reddit/r/ClaudeAI | [An open letter to Anthropic: Want to free up compute during ...](https://reddit.com/r/ClaudeAI/comments/1s5nxwe/an_open_letter_to_anthropic_want_to_free_up/) | claude |
-| 7 | 1235 | github/trending | [CoderLuii/HolyClaude](https://github.com/CoderLuii/HolyClaude) | claude |
-| 8 | 1089 | reddit/r/LocalLLaMA | [A simple explanation of the key idea behind TurboQuant](https://reddit.com/r/LocalLLaMA/comments/1s62g5v/a_simple_explanation_of_the_key_idea_behind/) | knowledge |
-| 9 | 1056 | github/trending | [fjb040911/ai-rules](https://github.com/fjb040911/ai-rules) | agents |
+| 4 | 2264 | reddit/r/ClaudeAI | [I've been "gaslighting" my AI models and it's producing insa...](https://reddit.com/r/ClaudeAI/comments/1s5wp0g/ive_been_gaslighting_my_ai_models_and_its/) | security |
+| 5 | 1740 | github/trending | [knowsuchagency/mcp2cli](https://github.com/knowsuchagency/mcp2cli) | mcp |
+| 6 | 1491 | reddit/r/ClaudeAI | [An open letter to Anthropic: Want to free up compute during ...](https://reddit.com/r/ClaudeAI/comments/1s5nxwe/an_open_letter_to_anthropic_want_to_free_up/) | claude |
+| 7 | 1233 | github/trending | [CoderLuii/HolyClaude](https://github.com/CoderLuii/HolyClaude) | claude |
+| 8 | 1080 | reddit/r/LocalLLaMA | [A simple explanation of the key idea behind TurboQuant](https://reddit.com/r/LocalLLaMA/comments/1s62g5v/a_simple_explanation_of_the_key_idea_behind/) | knowledge |
+| 9 | 1055 | github/trending | [fjb040911/ai-rules](https://github.com/fjb040911/ai-rules) | agents |
 | 10 | 979 | reddit/r/ChatGPT | [An AI agent trolled a scammer for 4 hours straight](https://reddit.com/r/ChatGPT/comments/1s5uj4p/an_ai_agent_trolled_a_scammer_for_4_hours_straight/) | agents |
 
 ## Agents (53 findings)
@@ -28,7 +28,7 @@
 - SwiftUI agent skill for Claude Code, Codex, and other AI tools.
 
 ### [fjb040911/ai-rules](https://github.com/fjb040911/ai-rules)
-- **Source:** github/trending | **Score:** 1056
+- **Source:** github/trending | **Score:** 1055
 - **Relevance:** Direct | **Difficulty:** Medium
 - ai-rules is a governance framework designed to solve "Architectural Decay" in AI-driven development. It forces AI Agents (Cursor, Windsurf, Copilot) to respect your project's boundaries, UI libraries,
 
@@ -40,12 +40,12 @@
 It spent hours "driving" to the store, send
 
 ### [At least write the advertisement post yourself](https://reddit.com/r/selfhosted/comments/1s5o2dp/at_least_write_the_advertisement_post_yourself/)
-- **Source:** reddit/r/selfhosted | **Score:** 713
+- **Source:** reddit/r/selfhosted | **Score:** 709
 - **Relevance:** Direct | **Difficulty:** Medium
 - Using AI as a help for coding is one thing, okay I do that too for private projects, but its extremely disrespectful to even generate the advertisement post with AI. If you don’t take your time to TEL
 
 ### [Go hard on agents, not on your filesystem](https://jai.scs.stanford.edu/)
-- **Source:** hackernews | **Score:** 592
+- **Source:** hackernews | **Score:** 591
 - **Relevance:** Indirect | **Difficulty:** Medium
 
 ### [xingkongliang/skills-manager](https://github.com/xingkongliang/skills-manager)
@@ -59,7 +59,7 @@ It spent hours "driving" to the store, send
 - Lightweight, clear, and fully extensible AI agent infrastructure — learn easily, customize anything 🐉
 
 ### [Anthropic shares how to make Claude code better with a harness](https://reddit.com/r/ClaudeAI/comments/1s6jouf/anthropic_shares_how_to_make_claude_code_better/)
-- **Source:** reddit/r/ClaudeAI | **Score:** 366
+- **Source:** reddit/r/ClaudeAI | **Score:** 348
 - **Relevance:** Direct | **Difficulty:** Medium
 - I just read Anthropic's new blog post about harness design for Claude. The author addresses two main problems Claude faces when working for extended periods:
 
@@ -100,10 +100,106 @@ It spent hours "driving" to the store, send
 - **Relevance:** Direct | **Difficulty:** Medium
 - A universal git-native AI agent framework. Your agent lives inside a git repo — identity, rules, memory, tools, and skills are all version-controlled files.
 
-## Mcp (29 findings)
+## Claude (28 findings)
+
+### [garrytan/gstack](https://github.com/garrytan/gstack)
+- **Source:** github/trending | **Score:** 54528
+- **Relevance:** Indirect | **Difficulty:** Medium
+- Use Garry Tan's exact Claude Code setup: 15 opinionated tools that serve as CEO, Designer, Eng Manager, Release Manager, Doc Engineer, and QA
+
+### [An open letter to Anthropic: Want to free up compute during peak hours? How abou](https://reddit.com/r/ClaudeAI/comments/1s5nxwe/an_open_letter_to_anthropic_want_to_free_up/)
+- **Source:** reddit/r/ClaudeAI | **Score:** 1491
+- **Relevance:** Direct | **Difficulty:** Medium
+- A few weeks ago, millions of people left ChatGPT on principle and chose Claude. You hit #1 on the App Store. Your revenue surged. You 'thanked' us with a 2x usage promotion.
+
+Now that promotion ends t
+
+### [CoderLuii/HolyClaude](https://github.com/CoderLuii/HolyClaude)
+- **Source:** github/trending | **Score:** 1233
+- **Relevance:** Indirect | **Difficulty:** Medium
+- AI coding workstation: Claude Code + web UI + 5 AI CLIs + headless browser + 50+ tools
+
+### [Andrew Curran: Anthropic May Have Had An Architectural Breakthrough!](https://reddit.com/r/singularity/comments/1s6hj0n/andrew_curran_anthropic_may_have_had_an/)
+- **Source:** reddit/r/singularity | **Score:** 521
+- **Relevance:** Indirect | **Difficulty:** Medium
+- &gt;Three weeks ago there were rumors that **one of the labs had completed its largest ever successful training run, and that the model that emerged from it performed far above both internal expectati
+
+### [kamranahmedse/diffity](https://github.com/kamranahmedse/diffity)
+- **Source:** github/trending | **Score:** 440
+- **Relevance:** Indirect | **Difficulty:** Medium
+- GitHub-style diff viewer for reviewing code changes. Works with Claude Code, Cursor and other AI tools.
+
+### [Dario Amodei: OpenAI President Brockman's $25 Million Dollar Donation To Pro-Tru](https://reddit.com/r/singularity/comments/1s6e3y3/dario_amodei_openai_president_brockmans_25/)
+- **Source:** reddit/r/singularity | **Score:** 392
+- **Relevance:** Indirect | **Difficulty:** Medium
+- Lots of shocking details from this WSJ article: 
+
+https://www.wsj.com/tech/ai/the-decadelong-feud-shaping-the-future-of-ai-7075acde?st=7WRXF6
+
+Interesting snippets from the article, but I recommend re
+
+### [I will never give Anthropic another red cent](https://reddit.com/r/Anthropic/comments/1s4zc6p/i_will_never_give_anthropic_another_red_cent/)
+- **Source:** reddit/r/anthropic | **Score:** 280
+- **Relevance:** Indirect | **Difficulty:** Medium
+- I will use them at work, because I have to.
+
+But I’m done with the gaslighting.
+
+Apparently they think they’re a lot smarter than us and can toss that word salad BS up in the air and we’re too dumb to
+
+### [Claude can control your computer now, openclaw and zenmux updated same day](https://reddit.com/r/singularity/comments/1s62oms/claude_can_control_your_computer_now_openclaw_and/)
+- **Source:** reddit/r/singularity | **Score:** 245
+- **Relevance:** Direct | **Difficulty:** Medium
+- Anthropic just dropped computer use for claude. not just api calls anymore, it literally opens apps, clicks buttons, scrolls pages, types stuff. mac only for now which sucks for windows people but the
+
+### [aspi6246/Claude-Code-Presentation](https://github.com/aspi6246/Claude-Code-Presentation)
+- **Source:** github/trending | **Score:** 238
+- **Relevance:** Indirect | **Difficulty:** Medium
+- My collection of Claude Code tools
+
+### [New Model Leak, and more…](https://reddit.com/r/Anthropic/comments/1s518u8/new_model_leak_and_more/)
+- **Source:** reddit/r/anthropic | **Score:** 230
+- **Relevance:** Direct | **Difficulty:** Medium
+- A new tier above Opus
+
+The leaked draft describes Claude Mythos under the product name “Capybara”. It would represent a new model tier that sits above Anthropic’s current flagship Opus line. “Capybara
+
+### [My 10 Pro Tips for Claude Code users](https://reddit.com/r/ClaudeAI/comments/1s65ymk/my_10_pro_tips_for_claude_code_users/)
+- **Source:** reddit/r/ClaudeAI | **Score:** 208
+- **Relevance:** Direct | **Difficulty:** Medium
+- My "cheat sheet" for Claude code, sharing here with y'all and hoping to get your cheat sheets in return! Ty!
+
+**1/10**  
+Use /effort high then include “ultrathink” in your prompt. This forces full ext
+
+### [Anthropic reportedly views itself as the antidote to OpenAI's "tobacco industry"](https://reddit.com/r/Anthropic/comments/1s65oab/anthropic_reportedly_views_itself_as_the_antidote/)
+- **Source:** reddit/r/anthropic | **Score:** 143
+- **Relevance:** Indirect | **Difficulty:** Medium
+
+### [OpenAI is merging ChatGPT, Codex, and Atlas into one superapp and Anthropic is t](https://reddit.com/r/ChatGPT/comments/1s66akr/openai_is_merging_chatgpt_codex_and_atlas_into/)
+- **Source:** reddit/r/ChatGPT | **Score:** 104
+- **Relevance:** Indirect | **Difficulty:** Medium
+- OpenAI just confirmed they're combining ChatGPT, their Codex coding platform, and the Atlas browser into a single desktop superapp.
+
+
+
+On the surface, it's a product consolidation move. But dig deeper
+
+### [Claude is the least bullshit-y AI](https://reddit.com/r/artificial/comments/1s67buc/claude_is_the_least_bullshity_ai/)
+- **Source:** reddit/r/artificial | **Score:** 84
+- **Relevance:** Direct | **Difficulty:** Medium
+- Just found this “bullshit benchmark,” and sort of shocked by the divergence of Anthropic’s models from other major models (ChatGPT and Gemini).
+
+IMO this alone is reason to use Claude over others.
+
+### [Anthropic's secret "Claude Mythos" model just leaked through an unsecured databa](https://reddit.com/r/Anthropic/comments/1s5xwjp/anthropics_secret_claude_mythos_model_just_leaked/)
+- **Source:** reddit/r/anthropic | **Score:** 71
+- **Relevance:** Direct | **Difficulty:** Medium
+
+## Mcp (28 findings)
 
 ### [knowsuchagency/mcp2cli](https://github.com/knowsuchagency/mcp2cli)
-- **Source:** github/trending | **Score:** 1741
+- **Source:** github/trending | **Score:** 1740
 - **Relevance:** Direct | **Difficulty:** Medium
 - Turn any MCP, OpenAPI, or GraphQL server into a CLI — at runtime, with zero codegen
 
@@ -163,7 +259,7 @@ It spent hours "driving" to the store, send
 - AI-powered threat hunting and incident response MCP server for Elasticsearch/OpenSearch
 
 ### [Awesome MCP Servers – A curated list of awesome Model Context Protocol (MCP) ser](https://reddit.com/r/mcp/comments/1h7pl2v/awesome_mcp_servers_a_curated_list_of_awesome/)
-- **Source:** reddit/r/MCP | **Score:** 142
+- **Source:** reddit/r/MCP | **Score:** 144
 - **Relevance:** Direct | **Difficulty:** Medium
 
 ### [MCP is so back. LOL](https://reddit.com/r/mcp/comments/1s65lbc/mcp_is_so_back_lol/)
@@ -184,116 +280,20 @@ repeat indefinitely.
 - **Relevance:** Direct | **Difficulty:** Medium
 - Playwright-style MCP server for Windows desktop, system, and browser automation. 59 tools for WPF, WinForms, Win32, Chrome/Edge via Model Context Protocol.
 
-## Claude (28 findings)
-
-### [garrytan/gstack](https://github.com/garrytan/gstack)
-- **Source:** github/trending | **Score:** 54542
-- **Relevance:** Indirect | **Difficulty:** Medium
-- Use Garry Tan's exact Claude Code setup: 15 opinionated tools that serve as CEO, Designer, Eng Manager, Release Manager, Doc Engineer, and QA
-
-### [An open letter to Anthropic: Want to free up compute during peak hours? How abou](https://reddit.com/r/ClaudeAI/comments/1s5nxwe/an_open_letter_to_anthropic_want_to_free_up/)
-- **Source:** reddit/r/ClaudeAI | **Score:** 1486
-- **Relevance:** Direct | **Difficulty:** Medium
-- A few weeks ago, millions of people left ChatGPT on principle and chose Claude. You hit #1 on the App Store. Your revenue surged. You 'thanked' us with a 2x usage promotion.
-
-Now that promotion ends t
-
-### [CoderLuii/HolyClaude](https://github.com/CoderLuii/HolyClaude)
-- **Source:** github/trending | **Score:** 1235
-- **Relevance:** Indirect | **Difficulty:** Medium
-- AI coding workstation: Claude Code + web UI + 5 AI CLIs + headless browser + 50+ tools
-
-### [Andrew Curran: Anthropic May Have Had An Architectural Breakthrough!](https://reddit.com/r/singularity/comments/1s6hj0n/andrew_curran_anthropic_may_have_had_an/)
-- **Source:** reddit/r/singularity | **Score:** 544
-- **Relevance:** Indirect | **Difficulty:** Medium
-- &gt;Three weeks ago there were rumors that **one of the labs had completed its largest ever successful training run, and that the model that emerged from it performed far above both internal expectati
-
-### [kamranahmedse/diffity](https://github.com/kamranahmedse/diffity)
-- **Source:** github/trending | **Score:** 440
-- **Relevance:** Indirect | **Difficulty:** Medium
-- GitHub-style diff viewer for reviewing code changes. Works with Claude Code, Cursor and other AI tools.
-
-### [Dario Amodei: OpenAI President Brockman's $25 Million Dollar Donation To Pro-Tru](https://reddit.com/r/singularity/comments/1s6e3y3/dario_amodei_openai_president_brockmans_25/)
-- **Source:** reddit/r/singularity | **Score:** 391
-- **Relevance:** Indirect | **Difficulty:** Medium
-- Lots of shocking details from this WSJ article: 
-
-https://www.wsj.com/tech/ai/the-decadelong-feud-shaping-the-future-of-ai-7075acde?st=7WRXF6
-
-Interesting snippets from the article, but I recommend re
-
-### [I will never give Anthropic another red cent](https://reddit.com/r/Anthropic/comments/1s4zc6p/i_will_never_give_anthropic_another_red_cent/)
-- **Source:** reddit/r/anthropic | **Score:** 278
-- **Relevance:** Indirect | **Difficulty:** Medium
-- I will use them at work, because I have to.
-
-But I’m done with the gaslighting.
-
-Apparently they think they’re a lot smarter than us and can toss that word salad BS up in the air and we’re too dumb to
-
-### [Claude can control your computer now, openclaw and zenmux updated same day](https://reddit.com/r/singularity/comments/1s62oms/claude_can_control_your_computer_now_openclaw_and/)
-- **Source:** reddit/r/singularity | **Score:** 245
-- **Relevance:** Direct | **Difficulty:** Medium
-- Anthropic just dropped computer use for claude. not just api calls anymore, it literally opens apps, clicks buttons, scrolls pages, types stuff. mac only for now which sucks for windows people but the
-
-### [aspi6246/Claude-Code-Presentation](https://github.com/aspi6246/Claude-Code-Presentation)
-- **Source:** github/trending | **Score:** 238
-- **Relevance:** Indirect | **Difficulty:** Medium
-- My collection of Claude Code tools
-
-### [New Model Leak, and more…](https://reddit.com/r/Anthropic/comments/1s518u8/new_model_leak_and_more/)
-- **Source:** reddit/r/anthropic | **Score:** 233
-- **Relevance:** Direct | **Difficulty:** Medium
-- A new tier above Opus
-
-The leaked draft describes Claude Mythos under the product name “Capybara”. It would represent a new model tier that sits above Anthropic’s current flagship Opus line. “Capybara
-
-### [My 10 Pro Tips for Claude Code users](https://reddit.com/r/ClaudeAI/comments/1s65ymk/my_10_pro_tips_for_claude_code_users/)
-- **Source:** reddit/r/ClaudeAI | **Score:** 213
-- **Relevance:** Direct | **Difficulty:** Medium
-- My "cheat sheet" for Claude code, sharing here with y'all and hoping to get your cheat sheets in return! Ty!
-
-**1/10**  
-Use /effort high then include “ultrathink” in your prompt. This forces full ext
-
-### [Anthropic reportedly views itself as the antidote to OpenAI's "tobacco industry"](https://reddit.com/r/Anthropic/comments/1s65oab/anthropic_reportedly_views_itself_as_the_antidote/)
-- **Source:** reddit/r/anthropic | **Score:** 143
-- **Relevance:** Indirect | **Difficulty:** Medium
-
-### [OpenAI is merging ChatGPT, Codex, and Atlas into one superapp and Anthropic is t](https://reddit.com/r/ChatGPT/comments/1s66akr/openai_is_merging_chatgpt_codex_and_atlas_into/)
-- **Source:** reddit/r/ChatGPT | **Score:** 103
-- **Relevance:** Indirect | **Difficulty:** Medium
-- OpenAI just confirmed they're combining ChatGPT, their Codex coding platform, and the Atlas browser into a single desktop superapp.
-
-
-
-On the surface, it's a product consolidation move. But dig deeper
-
-### [Claude is the least bullshit-y AI](https://reddit.com/r/artificial/comments/1s67buc/claude_is_the_least_bullshity_ai/)
-- **Source:** reddit/r/artificial | **Score:** 88
-- **Relevance:** Direct | **Difficulty:** Medium
-- Just found this “bullshit benchmark,” and sort of shocked by the divergence of Anthropic’s models from other major models (ChatGPT and Gemini).
-
-IMO this alone is reason to use Claude over others.
-
-### [Anthropic's secret "Claude Mythos" model just leaked through an unsecured databa](https://reddit.com/r/Anthropic/comments/1s5xwjp/anthropics_secret_claude_mythos_model_just_leaked/)
-- **Source:** reddit/r/anthropic | **Score:** 69
-- **Relevance:** Direct | **Difficulty:** Medium
-
-## Knowledge (19 findings)
+## Knowledge (16 findings)
 
 ### [nidhinjs/prompt-master](https://github.com/nidhinjs/prompt-master)
-- **Source:** github/trending | **Score:** 3239
+- **Source:** github/trending | **Score:** 3232
 - **Relevance:** Indirect | **Difficulty:** Medium
 - A Claude skill that writes the accurate prompts for any AI tool. Zero tokens or credits wasted. Full context and memory retention
 
 ### [A simple explanation of the key idea behind TurboQuant](https://reddit.com/r/LocalLLaMA/comments/1s62g5v/a_simple_explanation_of_the_key_idea_behind/)
-- **Source:** reddit/r/LocalLLaMA | **Score:** 1089
+- **Source:** reddit/r/LocalLLaMA | **Score:** 1080
 - **Relevance:** Indirect | **Difficulty:** Medium
 - TurboQuant ([Zandieh et al. 2025](https://arxiv.org/abs/2504.19874)) has been all the rage in the past two days, and I've seen lots of comments here attempting to explain the magic behind it. Many of 
 
 ### [Same $100/month. 10% of my income in Brazil. Degraded during my entire workday. ](https://reddit.com/r/Anthropic/comments/1s63cj7/same_100month_10_of_my_income_in_brazil_degraded/)
-- **Source:** reddit/r/anthropic | **Score:** 324
+- **Source:** reddit/r/anthropic | **Score:** 319
 - **Relevance:** Indirect | **Difficulty:** Medium
 - Max 5x. $100/month.
 
@@ -306,7 +306,7 @@ In India, it's 43%.
 Same price. Same service. Except now the serv
 
 ### [Everything old is new again: memory optimization](https://nibblestew.blogspot.com/2026/03/everything-old-is-new-again-memory.html)
-- **Source:** hackernews | **Score:** 225
+- **Source:** hackernews | **Score:** 224
 - **Relevance:** Indirect | **Difficulty:** Medium
 
 ### [Nashville library launches Memory Lab for digitizing home movies](https://www.axios.com/local/nashville/2026/03/16/nashville-library-digitize-home-movies)
@@ -319,19 +319,19 @@ Same price. Same service. Except now the serv
 - Dynamic-memory-first collaborative AI framework for long-form story generation, chapter planning, and coherent narrative writing
 
 ### [Is intelligence optimality bounded? Francois Chollet thinks so](https://reddit.com/r/singularity/comments/1s6lh72/is_intelligence_optimality_bounded_francois/)
-- **Source:** reddit/r/singularity | **Score:** 105
+- **Source:** reddit/r/singularity | **Score:** 101
 - **Relevance:** Indirect | **Difficulty:** Medium
 - [https://x.com/fchollet/status/2038069289643806957](https://x.com/fchollet/status/2038069289643806957)
 
 I think there's definitely some hard ceiling placed on intelligence just from the limits of phys
 
 ### [[D] We audited LoCoMo: 6.4% of the answer key is wrong and the judge accepts up ](https://reddit.com/r/MachineLearning/comments/1s54cvg/d_we_audited_locomo_64_of_the_answer_key_is_wrong/)
-- **Source:** reddit/r/MachineLearning | **Score:** 67
+- **Source:** reddit/r/MachineLearning | **Score:** 68
 - **Relevance:** Indirect | **Difficulty:** Medium
 - [Projects are still submitting new scores on LoCoMo as of March 2026.](https://github.com/snap-research/locomo/issues/34) We audited it and found 6.4% of the answer key is wrong, and the LLM judge acc
 
 ### [[P] TurboQuant for weights: near‑optimal 4‑bit LLM quantization with lossless 8‑](https://reddit.com/r/MachineLearning/comments/1s634wk/p_turboquant_for_weights_nearoptimal_4bit_llm/)
-- **Source:** reddit/r/MachineLearning | **Score:** 60
+- **Source:** reddit/r/MachineLearning | **Score:** 57
 - **Relevance:** Indirect | **Difficulty:** Medium
 - An adaptation of the recent **TurboQuant** algorithm (Zandieh et al., 2025) from **KV‑cache quantization to model weight compression**. It gives you a **drop‑in replacement for** `nn.Linear` with near
 
@@ -358,12 +358,12 @@ Updated packages
 - **Relevance:** Indirect | **Difficulty:** Medium
 
 ### [Do not use mixed KV cache quantization](https://reddit.com/r/LocalLLaMA/comments/1s6a488/do_not_use_mixed_kv_cache_quantization/)
-- **Source:** reddit/r/LocalLLaMA | **Score:** 29
+- **Source:** reddit/r/LocalLLaMA | **Score:** 31
 - **Relevance:** Indirect | **Difficulty:** Medium
 - I've seen a few people in the comments on here and the other AI subs suggest mixing quantization for the KV cache to retain higher accuracy and still saving memory. I was running that for a while unti
 
 ### [Persistent memory changes how people interact with AI — here's what I'm observin](https://reddit.com/r/artificial/comments/1s6jvog/persistent_memory_changes_how_people_interact/)
-- **Source:** reddit/r/artificial | **Score:** 21
+- **Source:** reddit/r/artificial | **Score:** 18
 - **Relevance:** Indirect | **Difficulty:** Medium
 - I run a small AI companion platform and wanted to share some interesting behavioral data from users who've been using persistent cross-session memory for 2-3 months now.
 
@@ -381,7 +381,7 @@ Please do not post li
 ## Automation (9 findings)
 
 ### [I've built 30+ automations. The ones making clients $10k+/month would get laughe](https://reddit.com/r/n8n/comments/1s5qquo/ive_built_30_automations_the_ones_making_clients/)
-- **Source:** reddit/r/n8n | **Score:** 172
+- **Source:** reddit/r/n8n | **Score:** 169
 - **Relevance:** Indirect | **Difficulty:** Medium
 - I've shipped 30+ automations. The pattern is always the same. The simpler the build the more money it makes.
 
@@ -404,34 +404,34 @@ Project one. A fancy AI system where multiple AI bots talk to ea
 - **Relevance:** Indirect | **Difficulty:** Medium
 - A client came to me doing the same thing every single day for three hours. Google Maps to find fertility clinics. LinkedIn to find the owner. Apollo to pull emails. Copy paste into a spreadsheet. Next
 
-### [[D] Thinking about augmentation as invariance assumptions](https://reddit.com/r/MachineLearning/comments/1s5nxwc/d_thinking_about_augmentation_as_invariance/)
-- **Source:** reddit/r/MachineLearning | **Score:** 17
-- **Relevance:** Indirect | **Difficulty:** Medium
-- Data augmentation is still used much more heuristically than it should be.
-
-A training pipeline can easily turn into a stack of intuition, older project defaults, and transforms borrowed from papers o
-
 ### [Testing Qwen 3.5 for OCR and redaction tasks](https://reddit.com/r/LocalLLaMA/comments/1s6cmll/testing_qwen_35_for_ocr_and_redaction_tasks/)
 - **Source:** reddit/r/LocalLLaMA | **Score:** 16
 - **Relevance:** Indirect | **Difficulty:** Medium
 - OCR for redaction tasks are more difficult for VLMs in that accurate bounding boxes for every word on a page are essential to correctly obscure words on a page. Until recently, most VLMs (particularly
 
+### [[D] Thinking about augmentation as invariance assumptions](https://reddit.com/r/MachineLearning/comments/1s5nxwc/d_thinking_about_augmentation_as_invariance/)
+- **Source:** reddit/r/MachineLearning | **Score:** 16
+- **Relevance:** Indirect | **Difficulty:** Medium
+- Data augmentation is still used much more heuristically than it should be.
+
+A training pipeline can easily turn into a stack of intuition, older project defaults, and transforms borrowed from papers o
+
 ### [Looking for automation engineer | $60/hr](https://reddit.com/r/n8n/comments/1s6gf3y/looking_for_automation_engineer_60hr/)
-- **Source:** reddit/r/n8n | **Score:** 13
+- **Source:** reddit/r/n8n | **Score:** 15
 - **Relevance:** Indirect | **Difficulty:** Medium
 - Company : [https://expl.one/](https://expl.one/)  
   
 I’m building an AI-based lead automation system for service businesses (starting with solar companies), and I’m looking for a developer who has ex
 
 ### [n8n use case I didn't expect to build: automated compliance-aware voicemail camp](https://reddit.com/r/n8n/comments/1s6bw39/n8n_use_case_i_didnt_expect_to_build_automated/)
-- **Source:** reddit/r/n8n | **Score:** 11
+- **Source:** reddit/r/n8n | **Score:** 10
 - **Relevance:** Indirect | **Difficulty:** Medium
 - Wanted to post this because honestly n8n keeps funding my freelance work in ways I didn't plan - this one's going straight into my portfolio.
 
 Started as a "can you automate our reminders" request. Tu
 
 ### [[Request] Any self hosted service to handle comics (with automation)?](https://reddit.com/r/selfhosted/comments/1s6eiub/request_any_self_hosted_service_to_handle_comics/)
-- **Source:** reddit/r/selfhosted | **Score:** 10
+- **Source:** reddit/r/selfhosted | **Score:** 8
 - **Relevance:** Indirect | **Difficulty:** Medium
 - Hear me out.
 
@@ -440,12 +440,12 @@ I'd like a service where I could just scroll through available comics, preferabl
 ## General (7 findings)
 
 ### [How to tell a 'Karen' client that her 2-hour late arrival means her non-refundab](https://reddit.com/r/travelagents/comments/1s272wz/how_to_tell_a_karen_client_that_her_2hour_late/)
-- **Source:** reddit/r/TravelAgents | **Score:** 759
+- **Source:** reddit/r/TravelAgents | **Score:** 763
 - **Relevance:** Direct | **Difficulty:** Medium
 - I need to vent and also get advice before I lose my mind. I’m a travel advisor in my early 30s, mostly handling custom Europe trips for couples and families. I’m usually calm, patient, all that… but t
 
 ### [Agibot just announced they produced 10,000 humanoid robots - actually, 5,000 jus](https://reddit.com/r/singularity/comments/1s6d3iy/agibot_just_announced_they_produced_10000/)
-- **Source:** reddit/r/singularity | **Score:** 108
+- **Source:** reddit/r/singularity | **Score:** 106
 - **Relevance:** Indirect | **Difficulty:** Medium
 - Called it progress... images from Barcelona 
 
@@ -458,7 +458,7 @@ Added rate_limits field to statusline scripts for displaying Claude.ai rate limi
 Added source: 'settings' plugin ma
 
 ### [[Project] PentaNet: Pushing beyond BitNet with Native Pentanary {-2, -1, 0, 1, 2](https://reddit.com/r/MachineLearning/comments/1s5l5l2/project_pentanet_pushing_beyond_bitnet_with/)
-- **Source:** reddit/r/MachineLearning | **Score:** 32
+- **Source:** reddit/r/MachineLearning | **Score:** 30
 - **Relevance:** Indirect | **Difficulty:** Medium
 - Hey everyone,
 
@@ -470,7 +470,7 @@ I've been experimenting with extreme LLM quantization following the BitNet 1.58b
 - I was long juggling separate monthly subscriptions for Claude, Gemini, and GPT-4 until the costs and tab-switching became a total mess and I started paying over 100 bucks each mont. Then, I tried cons
 
 ### [Why does no one mention haiku?](https://reddit.com/r/ClaudeAI/comments/1s6hhrt/why_does_no_one_mention_haiku/)
-- **Source:** reddit/r/ClaudeAI | **Score:** 8
+- **Source:** reddit/r/ClaudeAI | **Score:** 7
 - **Relevance:** Direct | **Difficulty:** Medium
 - hey! ik i'm new with Claude and first Time buy in any ai sub, while I do agree that the limit is still kinda harsh , I found out that haiku 4.5 even with skills/tools isn't consuming that much, and as
 
@@ -482,7 +482,7 @@ I've been experimenting with extreme LLM quantization following the BitNet 1.58b
 ## Security (4 findings)
 
 ### [I've been "gaslighting" my AI models and it's producing insanely better results ](https://reddit.com/r/ClaudeAI/comments/1s5wp0g/ive_been_gaslighting_my_ai_models_and_its/)
-- **Source:** reddit/r/ClaudeAI | **Score:** 2274
+- **Source:** reddit/r/ClaudeAI | **Score:** 2264
 - **Relevance:** Indirect | **Difficulty:** Medium
 - *Okay this sounds unhinged but hear me out. I accidentally found these prompt techniques that feel like actual exploits:*
 
@@ -498,11 +498,6 @@ I've been experimenting with extreme LLM quantization following the BitNet 1.58b
 Added StopFailure hook event that fires when the turn ends due to an API error (rate limit, auth failure, etc.)
 Added ${CLAUDE_PLUGIN_DATA} variable for plugin persistent state that su
 
-### ["nobody can stop me"](https://reddit.com/r/LocalLLaMA/comments/1s6njds/nobody_can_stop_me/)
-- **Source:** reddit/r/LocalLLaMA | **Score:** 31
-- **Relevance:** Indirect | **Difficulty:** Medium
-- credits to the author
-
 ### [KoShelf - A reading companion for the KOReader users among you](https://reddit.com/r/selfhosted/comments/1s62cmg/koshelf_a_reading_companion_for_the_koreader/)
 - **Source:** reddit/r/selfhosted | **Score:** 30
 - **Relevance:** Indirect | **Difficulty:** Medium
@@ -512,26 +507,40 @@ I just published one of the biggest feature update to KoShelf in a while so I th
 
 [KoShelf](https://github.com/paviro/koshelf/) is an open source single bi
 
+### ["nobody can stop me"](https://reddit.com/r/LocalLLaMA/comments/1s6njds/nobody_can_stop_me/)
+- **Source:** reddit/r/LocalLLaMA | **Score:** 27
+- **Relevance:** Indirect | **Difficulty:** Medium
+- credits to the author
+
 ## Infrastructure (3 findings)
 
 ### [Taalas rumoured to etch Qwen 3.5 27B into silicon. Which price would you buy the](https://reddit.com/r/singularity/comments/1s6bs6r/taalas_rumoured_to_etch_qwen_35_27b_into_silicon/)
-- **Source:** reddit/r/singularity | **Score:** 375
+- **Source:** reddit/r/singularity | **Score:** 372
 - **Relevance:** Indirect | **Difficulty:** Medium
 - I posted about them before because of their incredible 17.000 tokens/second for Llama 3.1 8B.
 
 With production costs rumoured to be $300 to $400, would you buy a PCIe card for $600 to $800 enabling yo
 
 ### [New Project Roundup](https://reddit.com/r/selfhosted/comments/1s638z4/new_project_roundup/)
-- **Source:** reddit/r/selfhosted | **Score:** 73
+- **Source:** reddit/r/selfhosted | **Score:** 76
 - **Relevance:** Indirect | **Difficulty:** Medium
 - Top 10 posts in markdown format:
 
 1. [Free 750-page guide to self-hosting production apps - NO AI SLOP](https://reddit.com/r/selfhosted/comments/1s51bg1/free_750page_guide_to_selfhosting_production_ap
 
 ### [Where do you store passwords for compose files?](https://reddit.com/r/selfhosted/comments/1s6aeld/where_do_you_store_passwords_for_compose_files/)
-- **Source:** reddit/r/selfhosted | **Score:** 70
+- **Source:** reddit/r/selfhosted | **Score:** 72
 - **Relevance:** Indirect | **Difficulty:** Medium
 - As the title says.  
 A few services require passwords inside the docker-compose files. do you store them in .env or directly in the respective docker compose.yml and also why?
 
 What do you think is th
+
+## Devtools (1 findings)
+
+### [Antigravity vs Cursor](https://reddit.com/r/cursor/comments/1s6ank0/antigravity_vs_cursor/)
+- **Source:** reddit/r/Cursor | **Score:** 6
+- **Relevance:** Indirect | **Difficulty:** Medium
+- Hello everyone!
+
+I am active user of Antigravity and i have pro plan. But nowadays, they changed quotas and limits. Now im trying to find a new alternative for coding. Will you recommend cursor instea

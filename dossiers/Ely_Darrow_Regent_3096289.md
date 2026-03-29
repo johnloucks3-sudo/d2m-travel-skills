@@ -63,9 +63,9 @@ relationship: client
 ### HOTEL & TRANSFERS
 | Booking | Item | Dates | Status | Cost |
 |---------|------|-------|--------|------|
-| Bedsonline 131-2656351 | Haymarket By Scandic (on Furlow group booking, 3x Grande King) | Aug 27-28 | ⚠️ **PAYMENT DUE** | TBD (confirm per-client amount) |
+| Bedsonline 131-2656351 | Haymarket By Scandic (on Furlow group booking, 3x Grande King) | Aug 27-28 | ✅ **PAID** | TBD (confirm per-client amount) |
 | — | Haymarket By Scandic — Regent included hotel night | Aug 28-29 | Included | — |
-| #1095091 / AE693884 | Royal Transfer — Book Now Pay Later | Aug 27 | ⚠️ **PAYMENT DUE** | ~$176 |
+| #1095091 / AE693884 | Royal Transfer — Book Now Pay Later | Aug 27 | ✅ **PAID** | ~$176 |
 | — | Regent transport hotel → ship | Aug 29 | Included | — |
 | — | Regent transport ship → Oslo airport | Sep 8 | Included | — |
 
@@ -150,8 +150,8 @@ All included (Regent Choice — $0.00). Both Al & Amy confirmed on all excursion
 3. [ ] Send Regent experience / what-to-expect guide
 4. [x] Confirm transport from Stockholm is booked — Bedsonline #1095091
 5. [x] ~~PROCESS REGENT CRUISE PAYMENT — $16,640~~ — ✅ PROCESSED Mar 26 (Mastercard, CVV 883)
-6. [ ] PROCESS HOTEL PAYMENT — Haymarket By Scandic, Bedsonline 131-2656351 — confirm per-client amount
-7. [ ] PROCESS TRANSFER PAYMENT — Royal Transfer Arlanda, #1095091/AE693884 — ~$176
+6. [x] ~~PROCESS HOTEL PAYMENT~~ — Haymarket By Scandic, Bedsonline 131-2656351 — ✅ **PAID** (confirmed Mar 28, Commander directive)
+7. [x] ~~PROCESS TRANSFER PAYMENT~~ — Royal Transfer Arlanda, #1095091/AE693884 — ✅ **PAID** ~$176 (confirmed Mar 28, Commander directive)
 8. [x] ~~Verify passports~~ — ✅ CONFIRMED valid (Commander 2026-03-26)
 9. [ ] Insurance — Al deferring. Follow up May timeframe
 10. [ ] Guest profile forms — NOT received from Al or Amy — PENDING

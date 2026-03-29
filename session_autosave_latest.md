@@ -1,47 +1,63 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-03-27 22:30:00 MT
+## Generated: 2026-03-28 23:50:00 MT
 
 ---
 
 ### Recent Commits
+- 46b488a chore: session checkpoint 27 MAR 2026 — new scripts, intel, docs
+- 2a281d0 feat: re-enable Groq routing, switch power harvest to Groq
 - ebcced7 fix: calendar_list_events — add days_back param for historical lookup
 - 00fe4f3 feat: register Google Calendar tools in MCP server
 - 9b8eabe feat: shift all morning intel timers to 01:30-02:30 MDT block
-- 653c3d9 fix: correct Goose recipe schema — prompt: format, MCP server os import
-- d9b0c35 feat: Goose integration — all 13 Tier 1 intel modules
 
 ### Uncommitted Changes
-- claude_code_digest_seen.json (modified)
+- .smart-env/event_logs/event_logs.ajson (modified)
+- cache/client_context/ely_context.json (modified)
+- cache/client_context/furlow_context.json (modified)
+- cache/client_context/how_context.json (modified)
+- cache/client_context/mcleran_context.json (modified)
+- cache/client_context/quick_context.json (modified)
+- cache/client_context/thanks_context.json (modified)
+- cache/client_context/wait_context.json (modified)
+- cache/client_context/westbrook_context.json (modified)
+- cache/client_context/what_context.json (modified)
 - commander_inbox_log.json (modified)
-- docs/THUNDERBIRD_GOOSE_ARCHITECTURE.md (modified)
-- intel/incubator_am_categories.json (modified)
-- learning_rules.db (modified)
-- session_autosave_latest.md (modified)
-- thunderbird_model_router.py (modified)
+- config/learning_principles.json (modified)
+- config/voice_examples.json (modified)
+- data/mem0_qdrant/collection/d2m_wing_memory/storage.sqlite (modified)
+- dossiers/DOSSIER_Grandeur_Scandinavia_Aug2026.md (modified)
+- dossiers/Ely_Darrow_Regent_3096289.md (modified)
+- dossiers/Furlow_Regent_3071222.md (modified)
+- dossiers/Westbrook_SilverNova_Personal.md (modified)
+- generate_westbrook_itinerary.py (modified)
+- intel/daily_innovation_digest.md (modified)
+- DO NOT DELETE API Keys.txt (new)
+- Personas/memory/reference_itinerary_image_rules.md (new)
 - Text File.txt (new)
 - Thunderbird Models 260327.txt (new)
-- agent_docs/architecture.md (new)
-- agent_docs/incubator.md (new)
-- intel/incubator_last_review.md (new)
-- intel/incubator_raw_2026-03-27.json (new)
-- intel/incubator_review_2026-03-27.md (new)
-- learning_rules.db-shm (new)
-- learning_rules.db-wal (new)
+- config/logrotate.conf (new)
+- docs/OPERATIONS_RUNBOOK.md (new)
+- intel/incubator_am_raw_2026-03-28.json (new)
+- intel/incubator_am_raw_2026-03-29.json (new)
+- intel/incubator_raw_2026-03-28.json (new)
+- intel/incubator_review_2026-03-28.md (new)
+- intel/incubator_review_2026-03-29.md (new)
+- preflight_last.json (new)
 - reverie/ (new)
-- reverie_susan_intro.py (new)
-- scripts/thunderbird-rclone-sync.sh (new)
-- scripts/thunderbird_sync_filters.txt (new)
+- session_autosave_latest.html (new)
+- thunderbird_preflight.py (new)
+- thunderbird_zfold_test.py (new)
 
 ### Active Work
 - SSS: 0 pending decision(s)
 - Learning: 0 rules pending validation
 
 ### Recently Touched Dossiers
-- McLeod_McGlasson_Multi.md
-- Kuklinski_Viking_Panama.md
-- DOSSIER_VikingMars_PanamaCanal_Dec2026.md
-- Furlow_Regent_3071222_TIMELINE.md
+- Westbrook_SilverNova_Personal.md
 - DOSSIER_Grandeur_Scandinavia_Aug2026.md
+- Ely_Darrow_Regent_3096289.md
+- Furlow_Regent_3071222.md
+- McLeod_McGlasson_Multi.md
 
 ### Open TODOs
 - [tool_validation_plan.md] - [ ] list files in TITAN_BOOKINGS_VAULT

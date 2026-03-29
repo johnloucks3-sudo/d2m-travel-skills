@@ -220,6 +220,31 @@ Commander has designated the Westbrooks as the test case for itinerary improveme
 
 ---
 
+---
+
+### ITINERARY IMAGE ARCHIVE — 2026-03-28
+**Final itinerary produced:** `output/Westbrook_SilverNova_Final.html` + `.pdf` (6.3MB)
+**Generator:** `generate_westbrook_itinerary.py`
+
+**Google Drive image archive:**
+- Parent folder: [Westbrook_SilverNova_Itinerary_Images](https://drive.google.com/drive/folders/1RVRI8jCI-WjJPVxa4nhWkDEXtswUk-Me) (in Itinerary_Art)
+  - `pexels_port_seaday/` — 18 Pexels port + sea day images at large2x resolution
+  - `silver_nova_ship_icruise/` — 16 real Silver Nova ship photos from iCruise (ship_745 CDN)
+  - `MANIFEST.md` — full photo-to-day mapping with credits
+
+**Local image archive:** `output/westbrook_final_images/`
+
+**Silver Nova ship photos (iCruise ship_745) — reuse for 32-day Susie Loucks itinerary:**
+All 16 images apply: exterior, pool_deck, pool_deck2, la_terrazza, silver_note, veranda_suite,
+observation_lounge, panorama_lounge, the_shelter, otium_spa, connoisseur_corner,
+atrium, dusk_bar, the_grill, salt_lab, owner_suite
+
+**Key photo notes:**
+- Day 16 Wrangell: ⚠ excursion 4PM / ship departs 3PM — confirm with Silversea before sending
+- Day 10 Northern Lights (Pexels 28556860): do NOT label as "Lofoten" — credit photographer name only
+
+---
+
 ### TIMELINE
 | Date | Event |
 |------|-------|

@@ -73,9 +73,9 @@ relationship: client
 ### HOTEL & TRANSFERS
 | Booking | Item | Dates | Status | Cost |
 |---------|------|-------|--------|------|
-| Bedsonline 131-2656351 | Haymarket By Scandic — 3x Grande King | Aug 27-28 | ⚠️ **PAYMENT DUE** | $418 |
+| Bedsonline 131-2656351 | Haymarket By Scandic — 3x Grande King | Aug 27-28 | ✅ **PAID** | $418 |
 | — | Haymarket By Scandic — Regent included hotel night | Aug 28-29 | Included | — |
-| Royal Transfer | Arlanda transfer (hotel → airport) | Aug 27 | ⚠️ **PAYMENT DUE** | ~$176 |
+| Royal Transfer | Arlanda transfer (hotel → airport) | Aug 27 | ✅ **PAID** | ~$176 |
 | — | Regent transport hotel → ship | Aug 29 | Included | — |
 | — | Regent transport ship → Oslo airport | Sep 8 | Included | — |
 
@@ -109,8 +109,8 @@ relationship: client
 | 5 | Flights | Outbound leg 2 (HEL→ARN) | YES | **CONFIRMED** | AY 811 Aug 27 1:15PM |
 | 6 | Flights | Outbound PNR / e-ticket | YES | **CONFIRMED** | AA: CKZHXA / Finnair: BB4X94 |
 | 7 | Flights | Outbound seat assignments | Nice-to-have | **PARTIAL** | DFW→HEL: ✅ assigned (seat #s TBD); HEL→ARN: ⚠️ still unassigned (BB4X94) |
-| 8 | Transfers | Airport → hotel transfer | YES | ⚠️ **PAYMENT DUE** | Royal Transfer (Arlanda) — ~$176 |
-| 9 | Hotel | Pre-cruise hotel (1 night) | YES | ⚠️ **PAYMENT DUE** | Haymarket By Scandic, Aug 27-28, Grande King — $418 |
+| 8 | Transfers | Airport → hotel transfer | YES | ✅ **PAID** | Royal Transfer (Arlanda) — ~$176 |
+| 9 | Hotel | Pre-cruise hotel (1 night) | YES | ✅ **PAID** | Haymarket By Scandic, Aug 27-28, Grande King — $418 |
 | 10 | Hotel | Regent included hotel night | YES | **CONFIRMED** | Haymarket By Scandic, Aug 28-29 |
 | 11 | Transfers | Hotel → port transfer | YES | **CONFIRMED** | Regent transport, Aug 29 |
 | 12 | Cruise | Booking confirmed | YES | **CONFIRMED** | 3071222, Suite 827 |
@@ -182,8 +182,8 @@ Commander replied to Missy at 15:13 MT: "Thanks Missy, got it — John" ✅
 2. [x] Follow up after Mar 16 — back from Costa Rica, follow-up complete Mar 20
 3. [ ] **INSURANCE CONVERSATION NEEDED** — Missy believes Chase Sapphire Reserve covers them. Card covers cancellation/interruption up to $10K/pp but NOT cruise-specific risks (missed port, medevac at sea, itinerary deviation). COS tracking — do not raise unprompted, but Commander should know the gap.
 4. [x] ~~FINAL PAYMENT DUE APR 1~~ — **$15,486 — PAID & PROCESSED (Mar 25)** — Regent cruise 3071222
-5. [ ] **PAYMENT DUE** — Haymarket By Scandic hotel — $418
-6. [ ] **PAYMENT DUE** — Royal Transfer (Arlanda) — ~$176
+5. [x] ~~**PAYMENT DUE**~~ — Haymarket By Scandic hotel — ✅ **PAID** $418 (confirmed Mar 28, Commander directive)
+6. [x] ~~**PAYMENT DUE**~~ — Royal Transfer (Arlanda) — ✅ **PAID** ~$176 (confirmed Mar 28, Commander directive)
 7. [x] ~~Melissa Furlow Guest Registration~~ — **COMPLETE** (confirmed Mar 18)
 8. [x] ~~CC swap to Chase Sapphire Reserve~~ — CONFIRMED Mar 24. CVC 043 received. Card on portal. **Payment processed Apr 1.**
 9. [x] ~~Travel insurance gap~~ — Chase Sapphire Reserve active & paid. Card covers cancellation/interruption up to $10K/pp but NOT cruise-specific risks. Standalone policy still not booked.
