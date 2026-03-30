@@ -5,6 +5,7 @@ import asyncio
 import json
 import os
 import sys
+from datetime import datetime, timezone
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, MessageHandler, CallbackQueryHandler, filters, ContextTypes
 from dotenv import load_dotenv
@@ -56,7 +57,8 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "content": text,
         "source_bot": "c2",
         "chat_id": update.effective_chat.id,
-        "assigned_to": "Hale"
+        "assigned_to": "Hale",
+        "queued_at": datetime.now(timezone.utc).isoformat(),
     }
     
     await write_to_queue(task)
@@ -81,7 +83,8 @@ async def handle_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             "draft_id": draft_id,
             "assigned_to": "A3",
             "source_bot": "c2",
-            "chat_id": update.effective_chat.id
+            "chat_id": update.effective_chat.id,
+            "queued_at": datetime.now(timezone.utc).isoformat(),
         }
         await write_to_queue(task)
         

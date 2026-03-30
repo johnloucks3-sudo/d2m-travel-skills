@@ -30,6 +30,7 @@ import logging
 import requests
 import subprocess
 import base64
+import time
 from collections import defaultdict
 from datetime import datetime
 from enum import Enum
@@ -68,6 +69,11 @@ _ROUTER_STATS_LOG = Path(__file__).parent / "logs" / "router_stats.jsonl"
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
 GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
+
+# Gemini Flash rate limiter — Goose batches hit 10 RPM free tier limit
+# Set GEMINI_INTER_CALL_DELAY=6 in env for Goose sessions, 0 for interactive
+_GEMINI_LAST_CALL: float = 0.0
+GEMINI_INTER_CALL_DELAY = float(os.environ.get("GEMINI_INTER_CALL_DELAY", "0"))
 
 TOGETHER_API_KEY = os.environ.get("TOGETHER_API_KEY", "")
 TOGETHER_URL = "https://api.together.xyz/v1"
@@ -482,6 +488,7 @@ def _call_anthropic(system_prompt: str, query: str,
     """Call any Claude model via Anthropic SDK (Max plan, $0).
 
     Unified Claude caller. Sonnet/Haiku only — Opus retired (SO 2026-03-27).
+    On 401/auth/depleted errors, falls back to Gemini 2.5 Flash automatically.
     """
     import anthropic
 
@@ -496,6 +503,12 @@ def _call_anthropic(system_prompt: str, query: str,
         )
         return resp.content[0].text
     except Exception as e:
+        err_str = str(e).lower()
+        # 401 = depleted API key, 529 = overloaded — fall back to Gemini Flash
+        if any(code in err_str for code in ("401", "403", "529", "authentication", "api_key", "credit")):
+            logger.warning("Anthropic SDK error (%s): %s — falling back to Gemini Flash", model, e)
+            return _call_gemini(system_prompt, query,
+                                max_tokens=max_tokens, temperature=temperature)
         raise RuntimeError(f"Anthropic SDK error ({model}): {e}")
 
 
@@ -516,11 +529,11 @@ def _call_groq(system_prompt: str, query: str, model: str = "fast",
         return _call_anthropic(system_prompt, query, model=claude_model,
                                max_tokens=max_tokens, temperature=temperature)
 
-    # Groq tags but no key → fall back to Claude Sonnet
+    # Groq tags but no key → fall back to Gemini Flash (not Claude — avoids API key dependency)
     if not GROQ_API_KEY:
-        logger.warning("GROQ_API_KEY not set — falling back to Claude Sonnet for model=%s", model)
-        return _call_anthropic(system_prompt, query, model=CLAUDE_SONNET,
-                               max_tokens=max_tokens, temperature=temperature)
+        logger.warning("GROQ_API_KEY not set — falling back to Gemini Flash for model=%s", model)
+        return _call_gemini(system_prompt, query,
+                            max_tokens=max_tokens, temperature=temperature)
 
     # Build user message — support vision for image model
     if image_b64 and model == "image":
@@ -551,9 +564,9 @@ def _call_groq(system_prompt: str, query: str, model: str = "fast",
         resp.raise_for_status()
         return resp.json()["choices"][0]["message"]["content"]
     except Exception as e:
-        logger.warning("Groq call failed (%s), falling back to Claude Sonnet: %s", model, e)
-        return _call_anthropic(system_prompt, query, model=CLAUDE_SONNET,
-                               max_tokens=max_tokens, temperature=temperature)
+        logger.warning("Groq call failed (%s), falling back to Gemini Flash: %s", model, e)
+        return _call_gemini(system_prompt, query,
+                            max_tokens=max_tokens, temperature=temperature)
 
 
 def _call_claude(system_prompt: str, query: str,
@@ -575,12 +588,22 @@ def _call_gemini(system_prompt: str, query: str,
     """Call Google Gemini 2.5 Flash API.
 
     Cost: $0.30/$2.50 per 1M tokens — cheap, native Google Workspace affinity.
-    Falls back to Claude Sonnet if GOOGLE_AI_API_KEY is not set.
+    Rate limiter: respects GEMINI_INTER_CALL_DELAY (default 0s, set to 6s for
+    Goose batch sessions to stay under 10 RPM free tier limit).
+    No circular fallback — raises cleanly on failure.
     """
+    global _GEMINI_LAST_CALL
+
     if not GOOGLE_AI_API_KEY:
-        logger.warning("GOOGLE_AI_API_KEY not set — falling back to Claude Sonnet")
-        return _call_anthropic(system_prompt, query, model=CLAUDE_SONNET,
-                               max_tokens=max_tokens, temperature=temperature)
+        raise RuntimeError("GOOGLE_AI_API_KEY not set — cannot call Gemini Flash")
+
+    # Rate limiting — enforce minimum gap between calls
+    if GEMINI_INTER_CALL_DELAY > 0:
+        elapsed = time.time() - _GEMINI_LAST_CALL
+        if elapsed < GEMINI_INTER_CALL_DELAY:
+            wait = GEMINI_INTER_CALL_DELAY - elapsed
+            logger.debug("Gemini rate limiter: sleeping %.1fs", wait)
+            time.sleep(wait)
 
     url = f"{GEMINI_URL}?key={GOOGLE_AI_API_KEY}"
     payload = {
@@ -596,21 +619,34 @@ def _call_gemini(system_prompt: str, query: str,
         },
     }
     try:
+        _GEMINI_LAST_CALL = time.time()
         resp = requests.post(url, json=payload, timeout=60,
                              headers={"Content-Type": "application/json"})
-        resp.raise_for_status() # Raise HTTPError for bad responses (4xx or 5xx)
+        resp.raise_for_status()
         data = resp.json()
-        return data["candidates"][0]["content"]["parts"][0]["text"]
-    except requests.exceptions.RequestException as e:
-        logger.error(f"Gemini API call failed: {e}")
-        logger.warning("Gemini API call failed — falling back to Claude Sonnet")
-        return _call_anthropic(system_prompt, query, model=CLAUDE_SONNET,
-                               max_tokens=max_tokens, temperature=temperature)
-    except KeyError as e:
-        logger.error(f"Unexpected Gemini API response structure: {e}. Response: {data}")
-        logger.warning("Gemini response parsing failed — falling back to Claude Sonnet")
-        return _call_anthropic(system_prompt, query, model=CLAUDE_SONNET,
-                               max_tokens=max_tokens, temperature=temperature)
+        candidate = data.get("candidates", [{}])[0]
+        finish = candidate.get("finishReason", "UNKNOWN")
+        # Safely extract text — content/parts may be absent on MAX_TOKENS truncation
+        parts = candidate.get("content", {}).get("parts", [])
+        text = parts[0].get("text", "") if parts else ""
+        if not text:
+            # Retry once with doubled token budget
+            if max_tokens < 4096:
+                logger.warning("Gemini empty response (finishReason=%s), retrying with 2x tokens", finish)
+                payload["generationConfig"]["maxOutputTokens"] = min(max_tokens * 2, 8192)
+                _GEMINI_LAST_CALL = time.time()
+                resp2 = requests.post(url, json=payload, timeout=60,
+                                      headers={"Content-Type": "application/json"})
+                resp2.raise_for_status()
+                data2 = resp2.json()
+                parts2 = data2.get("candidates", [{}])[0].get("content", {}).get("parts", [])
+                text = parts2[0].get("text", "") if parts2 else ""
+            if not text:
+                raise RuntimeError(f"Gemini returned empty text after retry (finishReason={finish})")
+        return text
+    except (requests.exceptions.RequestException, RuntimeError) as e:
+        logger.error("Gemini Flash failed: %s", e)
+        raise RuntimeError(f"Gemini Flash error: {e}")
 
 
 def _call_grok(system_prompt: str, query: str,

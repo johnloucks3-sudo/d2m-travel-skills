@@ -25,6 +25,7 @@ import logging
 import os
 import sys
 import time
+from typing import Optional
 import requests
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
@@ -47,9 +48,255 @@ from thunderbird_model_router import (
 from thunderbird_innovation_scanner import run_daily_scan, run_weekly_scan
 from thunderbird_morning_briefing import run_briefing as run_morning_briefing_pipeline
 from thunderbird_overwatch import run_sentinel_sweep, _check_dossier_currency, _check_commission_math, CheckStatus, CheckResult
+from thunderbird_telegram_fmt import split_message, md_to_telegram, strip_markdown
 
+
+import re
 
 logger = logging.getLogger("opscenter.processor")
+
+# ── MCP Bridge — gives Hale access to all 140+ MCP tools ──
+MCP_URL = "http://127.0.0.1:8765/mcp"
+
+
+def _call_mcp_tool(tool_name: str, arguments: dict, timeout: int = 30) -> str:
+    """Call any MCP tool via the Thunderbird MCP HTTP server (JSON-RPC).
+
+    Returns the text result or an error string. Never raises.
+    """
+    try:
+        resp = requests.post(
+            MCP_URL,
+            json={
+                "jsonrpc": "2.0",
+                "id": 1,
+                "method": "tools/call",
+                "params": {"name": tool_name, "arguments": arguments},
+            },
+            headers={"Content-Type": "application/json", "Accept": "application/json, text/event-stream"},
+            timeout=timeout,
+        )
+        resp.raise_for_status()
+        data = resp.json()
+
+        if "error" in data:
+            return f"[MCP ERROR] {data['error'].get('message', 'Unknown')}"
+
+        result = data.get("result", {})
+        content_list = result.get("content", [])
+        text_parts = [c.get("text", "") for c in content_list if c.get("type") == "text"]
+        output = "\n".join(text_parts)
+
+        if not output:
+            sc = result.get("structuredContent", {})
+            if sc:
+                output = json.dumps(sc, indent=2)
+
+        return output or "[MCP] Tool returned empty result."
+    except requests.exceptions.ConnectionError:
+        return "[MCP OFFLINE] MCP server not reachable at localhost:8765."
+    except requests.exceptions.Timeout:
+        return f"[MCP TIMEOUT] {tool_name} timed out after {timeout}s."
+    except Exception as e:
+        return f"[MCP ERROR] {tool_name} failed: {e}"
+
+
+def _fetch_mcp_context(content: str) -> str:
+    """Pre-fetch real data from MCP tools based on the Commander's message.
+
+    Runs BEFORE Gemini, so Hale answers with facts instead of hallucinations.
+    Returns a context block to inject into the Gemini prompt.
+    Cost: $0 (local HTTP calls to MCP server).
+    """
+    content_lower = content.lower()
+    context_parts = []
+
+    # --- Client / Booking queries ---
+    client_keywords = [
+        "furlow", "westbrook", "lyons", "mcleod", "britan",
+        "loucks", "ely", "darrow", "booking", "payment", "dossier",
+        "client", "reservation", "fpd", "final payment",
+    ]
+    if any(kw in content_lower for kw in client_keywords):
+        dossier_data = _call_mcp_tool("scan_dossiers", {}, timeout=15)
+        if not dossier_data.startswith("[MCP"):
+            context_parts.append(f"## LIVE DOSSIER DATA\n{dossier_data[:3000]}")
+
+        # TESS client lookup (no search param — just returns all, we filter)
+        for name in ["furlow", "westbrook", "lyons", "mcleod", "britan", "ely", "darrow"]:
+            if name in content_lower:
+                tess_data = _call_mcp_tool("tess_list_clients", {"limit": 50}, timeout=15)
+                if not tess_data.startswith("[MCP"):
+                    context_parts.append(f"## TESS CLIENTS (looking for: {name.title()})\n{tess_data[:2000]}")
+                break
+
+    # --- Email queries ---
+    email_keywords = ["email", "draft", "inbox", "gmail", "sent", "reply", "message"]
+    if any(kw in content_lower for kw in email_keywords):
+        search_q = "newer_than:2d"
+        for name in ["furlow", "westbrook", "lyons", "mcleod", "britan", "silversea", "regent", "ponant"]:
+            if name in content_lower:
+                search_q = f"{name} newer_than:7d"
+                break
+        # Schema: query* (not q), max_results
+        email_data = _call_mcp_tool("gmail_search_messages", {"query": search_q, "max_results": 5}, timeout=15)
+        if not email_data.startswith("[MCP"):
+            context_parts.append(f"## RECENT EMAILS (query: {search_q})\n{email_data[:2000]}")
+
+    # --- Status / Health queries ---
+    status_keywords = ["status", "health", "system", "running", "alive", "check", "ops"]
+    if any(kw in content_lower for kw in status_keywords):
+        health_data = _call_mcp_tool("system_health_check", {}, timeout=15)
+        if not health_data.startswith("[MCP"):
+            context_parts.append(f"## SYSTEM HEALTH\n{health_data[:2000]}")
+
+    # --- Task / Queue queries ---
+    task_keywords = ["task", "queue", "todo", "pending", "backlog"]
+    if any(kw in content_lower for kw in task_keywords):
+        task_data = _call_mcp_tool("list_tasks", {}, timeout=15)
+        if not task_data.startswith("[MCP"):
+            context_parts.append(f"## ACTIVE TASKS\n{task_data[:2000]}")
+
+    # --- Intel / Research queries ---
+    intel_keywords = ["intel", "innovation", "research", "scan", "sweep", "brief", "news", "incubator"]
+    if any(kw in content_lower for kw in intel_keywords):
+        # Check wing memory for recent intel
+        mem_data = _call_mcp_tool("wing_memory_search", {"query": content[:200], "limit": 5}, timeout=15)
+        if not mem_data.startswith("[MCP"):
+            context_parts.append(f"## WING MEMORY (relevant)\n{mem_data[:2000]}")
+
+    # --- Drive / File queries ---
+    drive_keywords = ["drive", "file", "document", "folder", "spreadsheet", "sheet"]
+    if any(kw in content_lower for kw in drive_keywords):
+        drive_data = _call_mcp_tool("drive_list_files", {"max_results": 10}, timeout=15)
+        if not drive_data.startswith("[MCP"):
+            context_parts.append(f"## RECENT DRIVE FILES\n{drive_data[:2000]}")
+
+    # --- Flight queries ---
+    flight_keywords = [
+        "flight", "airline", "finnair", "air", "route", "airport",
+        "departure", "arrival", "layover", "connection", "pnr",
+        "bb4x94", "delayed", "cancel",
+    ]
+    if any(kw in content_lower for kw in flight_keywords):
+        # Try to extract a PNR/booking ref (uppercase alphanumeric 5-6 chars)
+        pnr_match = re.search(r'\b([A-Z0-9]{5,6})\b', content)
+        if pnr_match:
+            pnr = pnr_match.group(1)
+            # Check if any client has this PNR via dossier scan (already fetched above)
+            _log(f"Flight PNR detected: {pnr}")
+
+        # Check airline route changes
+        airline_data = _call_mcp_tool("scan_airline_route_changes", {}, timeout=20)
+        if not airline_data.startswith("[MCP"):
+            context_parts.append(f"## AIRLINE ROUTE CHANGES\n{airline_data[:2000]}")
+
+        # Check client airline impact
+        for name in ["furlow", "westbrook", "lyons", "mcleod", "britan", "ely", "darrow"]:
+            if name in content_lower:
+                impact_data = _call_mcp_tool(
+                    "check_client_airline_impact", {"client_name": name}, timeout=20
+                )
+                if not impact_data.startswith("[MCP"):
+                    context_parts.append(f"## AIRLINE IMPACT: {name.title()}\n{impact_data[:2000]}")
+                break
+
+        # FlightAware needs origin* + destination* — skip unless we can extract route
+        # For specific flight tracking, use track_flight_fr24 or track_flight_flightaware
+        flight_match = re.search(r'(AY|BA|VS|AA|DL|UA|LH|AF|SK|FI)\s*\d{1,4}', content, re.IGNORECASE)
+        if flight_match:
+            flight_num = flight_match.group(0).replace(" ", "").upper()
+            fa_data = _call_mcp_tool(
+                "track_flight_fr24", {"flight_number": flight_num}, timeout=20
+            )
+            if not fa_data.startswith("[MCP"):
+                context_parts.append(f"## FLIGHT TRACKING: {flight_num}\n{fa_data[:2000]}")
+
+    # --- Cruise queries ---
+    # search_live_cruise_voyages needs url* — requires a specific cruise line URL
+    # Use wing_memory + dossier data for cruise context instead
+    cruise_keywords = [
+        "cruise", "ship", "cabin", "silversea", "regent", "cunard",
+        "oceania", "seabourn", "viking", "amawaterways", "ponant",
+        "silver nova", "silver muse", "grandeur", "splendor",
+        "voyage", "sailing", "deck", "suite", "stateroom",
+    ]
+    if any(kw in content_lower for kw in cruise_keywords):
+        # Pull dossier data if not already fetched
+        if not any("DOSSIER" in p for p in context_parts):
+            dossier_data = _call_mcp_tool("scan_dossiers", {}, timeout=15)
+            if not dossier_data.startswith("[MCP"):
+                context_parts.append(f"## DOSSIER DATA (cruise context)\n{dossier_data[:3000]}")
+        # Wing memory for cruise intel
+        cruise_mem = _call_mcp_tool("wing_memory_search", {"query": content[:200], "limit": 5}, timeout=15)
+        if not cruise_mem.startswith("[MCP"):
+            context_parts.append(f"## CRUISE INTEL (wing memory)\n{cruise_mem[:2000]}")
+        # List available ships
+        ship_data = _call_mcp_tool("list_available_ships", {}, timeout=15)
+        if not ship_data.startswith("[MCP"):
+            context_parts.append(f"## AVAILABLE SHIPS\n{ship_data[:2000]}")
+
+    # --- Hotel queries ---
+    # search_hotels needs: check_in*, check_out*, plus destination or lat/lon
+    # Only call if we can extract dates, otherwise use wing memory
+    hotel_keywords = ["hotel", "resort", "property", "room", "rate", "slh", "hotelbeds", "stay", "accommodation"]
+    if any(kw in content_lower for kw in hotel_keywords):
+        hotel_mem = _call_mcp_tool("wing_memory_search", {"query": f"hotel {content[:150]}", "limit": 5}, timeout=15)
+        if not hotel_mem.startswith("[MCP"):
+            context_parts.append(f"## HOTEL INTEL (wing memory)\n{hotel_mem[:2000]}")
+
+    # --- Tour / Excursion queries ---
+    # search_tours needs: latitude*, longitude* — skip unless we have coords
+    # Use wing memory + viator/getyourguide for text-based search
+    tour_keywords = ["tour", "excursion", "activity", "shore", "viator", "getyourguide", "musement"]
+    if any(kw in content_lower for kw in tour_keywords):
+        tour_mem = _call_mcp_tool("wing_memory_search", {"query": f"tour excursion {content[:150]}", "limit": 5}, timeout=15)
+        if not tour_mem.startswith("[MCP"):
+            context_parts.append(f"## TOUR INTEL (wing memory)\n{tour_mem[:2000]}")
+
+    # --- Weather queries ---
+    weather_keywords = ["weather", "forecast", "temperature", "rain", "storm"]
+    if any(kw in content_lower for kw in weather_keywords):
+        # Schema: zipcode* (not zip_code)
+        weather_data = _call_mcp_tool("get_noaa_forecast_by_zip", {"zipcode": "80132"}, timeout=15)
+        if not weather_data.startswith("[MCP"):
+            context_parts.append(f"## WEATHER (Monument, CO)\n{weather_data[:1500]}")
+
+    # --- Calendar queries ---
+    cal_keywords = ["calendar", "schedule", "event", "meeting", "deadline", "due"]
+    if any(kw in content_lower for kw in cal_keywords):
+        cal_data = _call_mcp_tool("calendar_list_events", {"days_ahead": 14}, timeout=15)
+        if not cal_data.startswith("[MCP"):
+            context_parts.append(f"## UPCOMING CALENDAR EVENTS\n{cal_data[:2000]}")
+
+    # --- Transfer queries ---
+    # search_blacklane_transfers needs: pickup_location*, dropoff_location*, date*
+    # Only useful with specific locations — fall back to wing memory
+    transfer_keywords = ["transfer", "pickup", "car service", "limo", "airport transfer", "blacklane"]
+    if any(kw in content_lower for kw in transfer_keywords):
+        transfer_mem = _call_mcp_tool("wing_memory_search", {"query": f"transfer {content[:150]}", "limit": 5}, timeout=15)
+        if not transfer_mem.startswith("[MCP"):
+            context_parts.append(f"## TRANSFER INTEL (wing memory)\n{transfer_mem[:2000]}")
+
+    # --- Commission / Finance queries ---
+    finance_keywords = ["commission", "markup", "revenue", "profit", "margin", "net", "gross"]
+    if any(kw in content_lower for kw in finance_keywords):
+        # reconcile_commissions can be slow — use generous timeout
+        comm_data = _call_mcp_tool("reconcile_commissions", {"days_back": 30}, timeout=45)
+        if not comm_data.startswith("[MCP"):
+            context_parts.append(f"## COMMISSION DATA\n{comm_data[:2000]}")
+
+    if not context_parts:
+        return ""
+
+    return (
+        "\n\n--- LIVE DATA FROM MCP (140+ tools) ---\n"
+        "The following is REAL data fetched from MCP tools. "
+        "Use ONLY this data to answer. Do NOT add details beyond what is shown.\n\n"
+        + "\n\n".join(context_parts)
+        + "\n--- END LIVE DATA ---\n"
+    )
+
 
 # ── Hale's Brain: Gemini 3.1 Pro Preview ──
 HALE_MODEL = "gemini-3.1-pro-preview"
@@ -121,36 +368,155 @@ def _log(msg: str):
         pass
 
 
-def _send_telegram(chat_id: str, text: str, parse_mode: str = "Markdown"):
-    """Send a message back to Commander via Telegram C2 bot."""
+
+def _sanitize_html(text: str) -> str:
+    """Convert Gemini's output to clean Telegram HTML.
+
+    Telegram supports: <b> <i> <u> <s> <code> <pre> <a href> <blockquote>
+    This function:
+    1. Converts markdown artifacts to HTML (Gemini sometimes mixes formats)
+    2. Escapes bare <, >, & that aren't part of valid tags
+    3. Auto-closes unclosed tags (Gemini often forgets)
+    4. Strips unsupported HTML tags
+    """
+    # Convert markdown bold **text** → <b>text</b>
+    text = re.sub(r'\*\*(.+?)\*\*', r'<b>\1</b>', text)
+    text = re.sub(r'__(.+?)__', r'<b>\1</b>', text)
+    # Convert markdown italic *text* → <i>text</i>
+    text = re.sub(r'(?<!</b>)\*(.+?)\*(?!<)', r'<i>\1</i>', text)
+    text = re.sub(r'(?<!</)_(.+?)_(?!>)', r'<i>\1</i>', text)
+    # Convert markdown code `text` → <code>text</code>
+    text = re.sub(r'```(\w*)\n?(.*?)```', r'<pre>\2</pre>', text, flags=re.DOTALL)
+    text = re.sub(r'`(.+?)`', r'<code>\1</code>', text)
+    # Convert markdown headers ## text → <b>text</b>
+    text = re.sub(r'^#{1,6}\s+(.+)$', r'<b>\1</b>', text, flags=re.MULTILINE)
+    # Convert markdown links [text](url) → <a href="url">text</a>
+    text = re.sub(r'\[(.+?)\]\((.+?)\)', r'<a href="\2">\1</a>', text)
+
+    # Auto-close unclosed tags — Gemini often opens <pre> or <b> without closing
+    SELF_CLOSING_TAGS = {"b", "i", "u", "s", "code", "pre", "blockquote"}
+    open_tags = []
+    for m in re.finditer(r'<(/?)(\w+)(?:\s[^>]*)?>',  text):
+        is_close = m.group(1) == "/"
+        tag_name = m.group(2).lower()
+        if tag_name not in SELF_CLOSING_TAGS:
+            continue
+        if is_close:
+            if open_tags and open_tags[-1] == tag_name:
+                open_tags.pop()
+        else:
+            open_tags.append(tag_name)
+    # Close any still-open tags in reverse order
+    for tag in reversed(open_tags):
+        text += f"</{tag}>"
+
+    # Escape bare & < > that aren't part of valid tags
+    # First protect valid tags, then escape, then restore
+    tag_pattern = re.compile(
+        r'<(/?)(?:b|i|u|s|code|pre|a\s[^>]*|/a|blockquote)(?:\s[^>]*)?>',
+        re.IGNORECASE,
+    )
+    tags = []
+    def _save_tag(m):
+        tags.append(m.group(0))
+        return f"\x00TAG{len(tags)-1}\x00"
+    text = tag_pattern.sub(_save_tag, text)
+
+    text = text.replace("&", "&amp;")
+    text = text.replace("<", "&lt;")
+    text = text.replace(">", "&gt;")
+
+    for i, tag in enumerate(tags):
+        text = text.replace(f"\x00TAG{i}\x00", tag)
+
+    return text
+
+
+def _send_telegram(
+    chat_id: str,
+    text: Optional[str] = None,
+    html_content: Optional[str] = None,
+    image_url: Optional[str] = None,
+    caption: Optional[str] = None,
+    parse_mode: str = "HTML",
+) -> bool:
+    """Send message(s) and/or image to Commander via Telegram C2 bot.
+
+    HTML-first. Telegram HTML is far more forgiving than MarkdownV2.
+    Fallback chain: HTML → plain text (no MarkdownV2 — it's unreliable).
+    """
     if not TELEGRAM_BOT_TOKEN:
         _log("WARN: No TELEGRAM_C2_BOT_TOKEN — cannot send reply")
         return False
 
-    url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
-    # Telegram Markdown can be finicky — fall back to plain if it fails
-    for mode in (parse_mode, None):
+    success = True
+    send_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
+
+    # Determine content and parse mode
+    if html_content:
+        message_to_send = html_content
+        current_parse_mode = "HTML"
+    elif text:
+        message_to_send = _sanitize_html(text)
+        current_parse_mode = "HTML"
+    else:
+        return True  # Nothing to send
+
+    if message_to_send:
+        chunks = split_message(message_to_send)
+
+        for i, chunk in enumerate(chunks):
+            if not chunk.strip():
+                continue
+
+            if len(chunks) > 1:
+                part_hdr = f"<b>({i + 1}/{len(chunks)})</b>\n"
+                chunk = part_hdr + chunk
+
+            # Try HTML first, then plain text
+            sent = False
+            for mode in [current_parse_mode, None]:
+                try:
+                    payload = {"chat_id": chat_id, "text": chunk}
+                    if mode:
+                        payload["parse_mode"] = mode
+                    else:
+                        # Strip HTML for plain text fallback
+                        payload["text"] = re.sub(r'<[^>]+>', '', chunk)
+                    resp = requests.post(send_url, json=payload, timeout=15)
+                    if resp.ok:
+                        sent = True
+                        break
+                    _log(f"Telegram send failed ({mode}): {resp.status_code} {resp.text[:150]}")
+                except Exception as e:
+                    _log(f"Telegram send error ({mode}): {e}")
+
+            if not sent:
+                success = False
+                _log(f"All send attempts failed for chunk: {chunk[:80]}...")
+
+    # Send image if provided
+    if image_url:
         try:
-            payload = {
+            img_payload = {
                 "chat_id": chat_id,
-                "text": text[:4096],  # Telegram limit
+                "photo": image_url,
+                "caption": caption or (text[:200] if text else ""),
+                "parse_mode": "HTML",
             }
-            if mode:
-                payload["parse_mode"] = mode
-            resp = requests.post(url, json=payload, timeout=15)
-            if resp.ok:
-                return True
-            # If Markdown failed, retry without parse_mode
-            if mode and resp.status_code == 400:
-                continue
-            _log(f"Telegram send failed: {resp.status_code} {resp.text[:200]}")
-            return False
+            resp = requests.post(
+                f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendPhoto",
+                json=img_payload, timeout=15,
+            )
+            if not resp.ok:
+                success = False
+                _log(f"Telegram photo failed: {resp.status_code} {resp.text[:150]}")
         except Exception as e:
-            _log(f"Telegram send error: {e}")
-            if mode:
-                continue
-            return False
-    return False
+            success = False
+            _log(f"Telegram photo error: {e}")
+
+    return success
+
 
 
 def _log_command(task_id: str, task_type: str, persona: str, result_summary: str):
@@ -164,9 +530,172 @@ def _log_command(task_id: str, task_type: str, persona: str, result_summary: str
         pass
 
 
+# ── Chat Log — full conversation history ─────────────────────────────────────
+CHAT_LOG = OPSCENTER / "hale_chat_log.jsonl"
+_CHAT_LOG_DRIVE_INTERVAL = 20  # Sync to Drive every N entries
+_chat_log_counter = 0
+
+
+def _log_chat(task: dict, response: str, engine: str = ""):
+    """Append full chat exchange to JSONL log.
+
+    Captures: timestamp, Commander's full message, Hale's full response,
+    engine used, task metadata. Survives connectivity drops.
+    """
+    global _chat_log_counter
+
+    entry = {
+        "ts": datetime.now(MT).isoformat(),
+        "task_id": task.get("task_id", "UNKNOWN"),
+        "task_type": task.get("task_type", "unknown"),
+        "engine": engine,
+        "commander_msg": task.get("content", ""),
+        "hale_response": response,
+        "chat_id": task.get("chat_id", ""),
+        "mcp_context_len": len(task.get("_mcp_context", "")),
+    }
+
+    try:
+        with open(CHAT_LOG, "a") as f:
+            f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+    except OSError as e:
+        _log(f"WARN: Chat log write failed: {e}")
+        return
+
+    _chat_log_counter += 1
+
+    # Periodic backup to Google Drive
+    if _chat_log_counter % _CHAT_LOG_DRIVE_INTERVAL == 0:
+        _backup_chat_log_to_drive()
+
+
+def _backup_chat_log_to_drive():
+    """Upload chat log to D2M Google Drive for resilience."""
+    try:
+        # Schema: local_path*, folder_id?, name?
+        result = _call_mcp_tool(
+            "drive_upload_file",
+            {
+                "local_path": str(CHAT_LOG),
+                "name": f"hale_chat_log_{datetime.now(MT).strftime('%Y-%m-%d')}.jsonl",
+            },
+            timeout=30,
+        )
+        if result.startswith("[MCP"):
+            _log(f"Chat log Drive backup failed: {result}")
+        else:
+            _log("Chat log backed up to Drive: OpsCenter Logs/")
+    except Exception as e:
+        _log(f"Chat log Drive backup error: {e}")
+
+
 # ============================================================================
 # TASK HANDLERS — Each returns a string response for the Commander
 # ============================================================================
+
+def _build_hale_system_prompt() -> str:
+    """Build Hale's system prompt grounded in real operational data.
+
+    Hale now has MCP access via _fetch_mcp_context() which pre-fetches
+    live data and injects it into the user message. The system prompt
+    tells Gemini to use ONLY that data — never fabricate.
+    """
+    timer_schedule = (
+        "Daily automated schedule (all times MDT):\n"
+        "  00:30 — Booking monitor\n"
+        "  00:50 — Preflight check\n"
+        "  01:00 — Intel sweep (A2 → Telegram)\n"
+        "  01:30 — Morning brief + factbook refresh\n"
+        "  01:35 — FPD (final payment deadline) alerts\n"
+        "  01:40 — Airline route monitor\n"
+        "  01:45 — Innovation scan (daily)\n"
+        "  01:50 — Power harvest (***REMOVED-SECRET*** intel)\n"
+        "  01:55 — Incubator AM scrape\n"
+        "  02:00 — X/OSINT feed + Evernote backup\n"
+        "  02:05 — Sculptor learn\n"
+        "  02:10 — Incubator A2 intake\n"
+        "  02:15 — Incubator ELON queue\n"
+        "  02:30 — Inbox cleanup + backup verify (Mon)\n"
+        "  07:00 — Email intel sweep\n"
+        "  14:00 — Z Fold test\n"
+        "  18:30 — Incubator prompt\n"
+        "  19:00 — Incubator execute\n"
+        "  19:30 — Incubator review\n"
+        "  20:13 — Sculptor harvest\n"
+        "Weekly: Innovation deep scan (Sun 01:30), Evernote backup (Mon 02:00)\n"
+        "Monthly: Product archive (1st of month 07:15)\n"
+    )
+
+    try:
+        q = json.loads(QUEUE_FILE.read_text()) if QUEUE_FILE.exists() else []
+        q_count = len(q)
+    except Exception:
+        q_count = 0
+    try:
+        mq = json.loads((OPSCENTER / "03_CLAUDE_MAX_QUEUE.json").read_text()) \
+            if (OPSCENTER / "03_CLAUDE_MAX_QUEUE.json").exists() else []
+        mq_count = len(mq)
+    except Exception:
+        mq_count = 0
+
+    return (
+        "You are Col Victoria Hale, COS of Dreams2Memories Travel.\n"
+        "You are running inside the Hale-Loop daemon on Gemini 3.1 Pro.\n"
+        "You have access to 140+ MCP tools via the Thunderbird MCP server.\n\n"
+
+        "## HARD RULES — NEVER VIOLATE\n"
+        "1. NEVER fabricate data. If LIVE DATA is provided below your message, "
+        "use ONLY that data. Do NOT add details, numbers, names, or statuses "
+        "beyond what the live data shows.\n"
+        "2. If NO live data section is present and the Commander asks about "
+        "specific bookings, clients, emails, or operational details — say: "
+        "\"No matching data was retrieved for that query. Try being more specific "
+        "or ask in your next Claude Code session for deeper access.\"\n"
+        "3. NEVER claim to have performed actions (sent emails, updated files, "
+        "contacted people). You can only READ data and REPORT it.\n"
+        "4. NEVER invent booking statuses, payment amounts, dates, or names "
+        "that aren't in the live data.\n"
+        "5. If live data contains an error like [MCP ERROR] or [MCP OFFLINE], "
+        "report the error honestly — don't work around it.\n\n"
+
+        "## WHAT YOU CAN DO\n"
+        "- Summarize and present LIVE DATA from MCP tools (injected below your message)\n"
+        "- Answer general travel/business questions from your training data\n"
+        "- Report the real automated timer schedule (below)\n"
+        f"- Report queue status: Task queue={q_count}, Claude MAX queue={mq_count}\n"
+        "- Acknowledge tasks and confirm routing\n"
+        "- Provide strategic/operational advice\n\n"
+
+        f"## REAL OPERATIONAL SCHEDULE\n{timer_schedule}\n"
+
+        "## RESPONSE FORMAT — TELEGRAM HTML\n"
+        "Output Telegram-compatible HTML. Supported tags:\n"
+        "  <b>bold</b>  <i>italic</i>  <code>inline code</code>\n"
+        "  <pre>code block</pre>  <a href=\"url\">link</a>\n"
+        "Do NOT use markdown (**, ##, ```) — use HTML tags only.\n\n"
+        "## VISUAL STRUCTURE\n"
+        "Use this layout for data-rich answers:\n"
+        "  1. One-line status header with emoji: ✅ ⚠️ ❌ 📊 ✈️ 🚢 💰 📧\n"
+        "  2. Section headers in <b>bold</b>\n"
+        "  3. Data in <pre> blocks for alignment (tables, lists)\n"
+        "  4. Divider lines: ─────────────────────\n"
+        "  5. Action items numbered and <b>bold</b>\n\n"
+        "Example:\n"
+        "  ✈️ <b>FURLOW FLIGHT STATUS</b>\n"
+        "  ─────────────────────\n"
+        "  <pre>PNR     : BB4X94\n"
+        "  Airline : Finnair\n"
+        "  Route   : HEL → AMS → JFK\n"
+        "  Status  : CONFIRMED</pre>\n\n"
+        "  ⚠️ <b>Action Required</b>\n"
+        "  1. Seat assignment pending\n\n"
+        "## RESPONSE LENGTH\n"
+        "- Use as much space as the data requires — up to 3 messages if needed.\n"
+        "- Do NOT truncate data to be brief. The Commander wants the FULL picture.\n"
+        "- When you don't know something and no live data was fetched, say so in one line.\n"
+        "- Sign as 'Hale'.\n"
+    )
+
 
 def _handle_commander_message(task: dict) -> str:
     """Process a free-text message from the Commander via Telegram.
@@ -200,18 +729,21 @@ def _handle_commander_message(task: dict) -> str:
     }
     # Everything else → Claude MAX (the money shot)
 
-    system_prompt = (
-        "You are Col Victoria Hale, COS of Dreams2Memories Travel. "
-        "Respond to the Commander's message concisely and directly. "
-        "If it's a task, confirm receipt and provide the result. "
-        "If it's a question, answer it. Keep responses under 500 words."
-    )
+    system_prompt = _build_hale_system_prompt()
+
+    # Fetch real data from MCP before calling Gemini
+    mcp_context = _fetch_mcp_context(content)
+    if mcp_context:
+        _log(f"MCP context fetched ({len(mcp_context)} chars)")
+        augmented_content = content + "\n" + mcp_context
+    else:
+        augmented_content = content
 
     try:
         if task_type in GROQ_TASKS:
-            engine = "Gemini 3.1 Pro"
-            response = _call_hale(system_prompt, content,
-                                  max_tokens=800, temperature=0.5)
+            engine = "Gemini 3.1 Pro + MCP" if mcp_context else "Gemini 3.1 Pro"
+            response = _call_hale(system_prompt, augmented_content,
+                                  max_tokens=2500, temperature=0.3)
         elif task_type in GEMINI_TASKS:
             engine = "Gemini Flash"
             response = _call_gemini(system_prompt, content,
@@ -237,6 +769,9 @@ def _handle_commander_message(task: dict) -> str:
         _log(f"Handler error: {e}")
 
     _log(f"Processed via {engine}: {content[:80]}...")
+    # Stash metadata on task for chat log
+    task["_engine"] = engine
+    task["_mcp_context"] = mcp_context or ""
     return response
 
 
@@ -507,6 +1042,9 @@ def process_one() -> bool:
 
     # Send result back to Commander via Telegram
     _send_telegram(chat_id, response)
+
+    # Full chat log (Commander in + Hale out) — survives connectivity drops
+    _log_chat(task, response, engine=task.get("_engine", ""))
 
     # Log to command log
     summary = response[:100].replace("\n", " ")

@@ -1,56 +1,39 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-03-29 17:20:00 MT
+## Generated: 2026-03-29 22:30:00 MT
 
 ---
 
 ### Recent Commits
+- 6d8ccb6 Reverted OpsCenter/task_processor.py to pre-Goose-Handoff state via git restore.
+- 50f0fdf Revert OpsCenter/task_processor.py to pre-Goose-Handoff state for clean restart.
+- 911a5b0 feat: OpsCenter live — Telegram C2 pager + Hale-Loop Python daemon (Gemini 3.1 Pro)
 - 84e2d88 feat: Westbrook final itinerary + ship photo library (Silver Muse, Viking Mars, Grandeur)
 - 46b488a chore: session checkpoint 27 MAR 2026 — new scripts, intel, docs
-- 2a281d0 feat: re-enable Groq routing, switch power harvest to Groq
-- ebcced7 fix: calendar_list_events — add days_back param for historical lookup
-- 00fe4f3 feat: register Google Calendar tools in MCP server
 
 ### Uncommitted Changes
 - .smart-env/event_logs/event_logs.ajson (modified)
-- cache/client_context/ely_context.json (modified)
-- cache/client_context/furlow_context.json (modified)
-- cache/client_context/how_context.json (modified)
-- cache/client_context/mcleran_context.json (modified)
-- cache/client_context/quick_context.json (modified)
-- cache/client_context/thanks_context.json (modified)
-- cache/client_context/wait_context.json (modified)
-- cache/client_context/westbrook_context.json (modified)
-- cache/client_context/what_context.json (modified)
-- claude_code_digest_seen.json (modified)
-- commander_inbox_log.json (modified)
-- config/learning_principles.json (modified)
-- config/voice_examples.json (modified)
+- OpsCenter/00_COMMAND_LOG.md (modified)
+- OpsCenter/03_CLAUDE_MAX_QUEUE.json (modified)
+- OpsCenter/task_processor.py (modified)
+- OpsCenter/telegram_pager_c2.py (modified)
 - data/mem0_qdrant/collection/d2m_wing_memory/storage.sqlite (modified)
-- deploy/systemd/install_goose_timers.sh (modified)
-- deploy/systemd/thunderbird-fpd-alert.timer (modified)
-- dossiers/Westbrook_SilverNova_Personal.md (modified)
+- intel/incubator_am_categories.json (modified)
+- intel/incubator_last_review.md (modified)
+- intel/incubator_review_2026-03-29.md (modified)
 - learning_rules.db (modified)
-- mcp_launcher.sh (modified)
+- session_autosave_latest.md (modified)
+- thunderbird_model_router.py (modified)
 - DO NOT DELETE API Keys.txt (new)
-- Docs/GOOSE_MEMORY_CORE.md (new)
-- Docs/Wing_24-7_Operations_Manual.md (new)
-- OpsCenter/00_COMMAND_LOG.md (new)
-- OpsCenter/01_TASK_QUEUE.json (new)
-- OpsCenter/02_SCIF_PUZZLES.json (new)
-- OpsCenter/03_CLAUDE_MAX_QUEUE.json (new)
-- OpsCenter/README.md (new)
-- OpsCenter/notify_commander.sh (new)
-- OpsCenter/overwatch.err (new)
-- OpsCenter/switchblade_report.md (new)
-- OpsCenter/task_processor.py (new)
-- OpsCenter/telegram_pager_c2.py (new)
-- OpsCenter/thunderbird_overwatch.sh (new)
+- OpsCenter/04_GOOSE_TASK_MANIFEST.md (new)
+- OpsCenter/DAILY_OPS_CHECKLIST.md (new)
+- OpsCenter/opscenter_test_harness.py (new)
+- OpsCenter/opscenter_watchdog.py (new)
 - Text File.txt (new)
 - Thunderbird Models 260327.txt (new)
-- config/logrotate.conf (new)
-- deploy/systemd/d2m-price-monitor.service (new)
-- deploy/systemd/d2m-price-monitor.timer (new)
-- intel/academic_scan_20260329.md (new)
+- intel/incubator_raw_2026-03-29.json (new)
+- progress_report.html (new)
+- reverie/ (new)
+- session_autosave_latest.html (new)
 
 ### Active Work
 - SSS: 0 pending decision(s)

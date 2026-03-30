@@ -1,0 +1,309 @@
+"""
+OpsCenter Self-Healing Watchdog
+===============================
+Runs every 2 minutes. Checks services, MCP, queues.
+Auto-restarts crashed services. Detects crash loops.
+Alerts Commander via direct Telegram HTTP (independent of C2 bot).
+
+Author: Col Victoria "Iron Vic" Hale (COS)
+"""
+
+import json
+import os
+import socket
+import subprocess
+import sys
+import time
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
+
+# ── Paths ──
+ROOT = Path(__file__).resolve().parent.parent
+OPSCENTER = ROOT / "OpsCenter"
+QUEUE_FILE = OPSCENTER / "01_TASK_QUEUE.json"
+STATE_FILE = ROOT / "logs" / "watchdog_state.json"
+WATCHDOG_LOG = ROOT / "logs" / "watchdog.log"
+MCP_URL = "http://127.0.0.1:8765/mcp"
+
+# ── Thresholds ──
+STUCK_THRESHOLD_SECONDS = 300   # 5 min
+CRASH_LOOP_THRESHOLD = 3        # restarts in window
+CRASH_LOOP_WINDOW = 600         # 10 min
+NETWORK_BACKOFF_MIN = 10
+
+# ── Services to monitor ──
+SERVICES = {
+    "thunderbird-telegram-c2": "Pager Bot",
+    "thunderbird-overwatch": "Hale-Loop Daemon",
+    "thunderbird-mcp": "MCP Server",
+}
+
+# ── Mountain Time ──
+MT = timezone(timedelta(hours=-6))
+
+# ── Telegram (direct, independent of C2 bot) ──
+TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_C2_BOT_TOKEN", "")
+TELEGRAM_COMMANDER_ID = os.environ.get("TELEGRAM_COMMANDER_ID", "")
+
+
+def _log(msg: str):
+    ts = datetime.now(MT).strftime("%Y-%m-%d %H:%M:%S MT")
+    line = f"[{ts}] {msg}"
+    print(line)
+    try:
+        with open(WATCHDOG_LOG, "a") as f:
+            f.write(line + "\n")
+    except OSError:
+        pass
+
+
+def _load_state() -> dict:
+    try:
+        return json.loads(STATE_FILE.read_text())
+    except Exception:
+        return {
+            "restart_history": {},
+            "network_down_since": None,
+            "last_alert_sent": {},
+        }
+
+
+def _save_state(state: dict):
+    tmp = STATE_FILE.with_suffix(".tmp")
+    try:
+        tmp.write_text(json.dumps(state, indent=2))
+        tmp.rename(STATE_FILE)
+    except OSError as e:
+        _log(f"State save failed: {e}")
+
+
+def _send_alert(text: str) -> bool:
+    """Send Telegram alert directly (NOT through C2 bot pipeline)."""
+    if not TELEGRAM_BOT_TOKEN or not TELEGRAM_COMMANDER_ID:
+        _log("Cannot send alert — no Telegram credentials")
+        return False
+    try:
+        import requests
+        resp = requests.post(
+            f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage",
+            json={
+                "chat_id": TELEGRAM_COMMANDER_ID,
+                "text": text,
+                "parse_mode": "HTML",
+            },
+            timeout=10,
+        )
+        if resp.ok:
+            return True
+        # Fallback to plain text
+        resp = requests.post(
+            f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage",
+            json={"chat_id": TELEGRAM_COMMANDER_ID, "text": text.replace("<b>", "").replace("</b>", "").replace("<i>", "").replace("</i>", "")},
+            timeout=10,
+        )
+        return resp.ok
+    except Exception as e:
+        _log(f"Alert send failed: {e}")
+        return False
+
+
+def _check_network() -> bool:
+    """Quick TCP check to Google DNS — is the internet reachable?"""
+    try:
+        sock = socket.create_connection(("8.8.8.8", 53), timeout=5)
+        sock.close()
+        return True
+    except (socket.timeout, OSError):
+        return False
+
+
+def _is_service_active(name: str) -> bool:
+    try:
+        result = subprocess.run(
+            ["systemctl", "--user", "is-active", name],
+            capture_output=True, text=True, timeout=10,
+        )
+        return result.stdout.strip() == "active"
+    except Exception:
+        return False
+
+
+def _restart_service(name: str) -> tuple[bool, str]:
+    try:
+        result = subprocess.run(
+            ["systemctl", "--user", "restart", name],
+            capture_output=True, text=True, timeout=30,
+        )
+        success = result.returncode == 0
+        output = result.stderr.strip() or result.stdout.strip() or "OK"
+        return success, output
+    except Exception as e:
+        return False, str(e)
+
+
+def _check_mcp_responding() -> bool:
+    """Verify MCP server answers JSON-RPC, not just has a port open."""
+    try:
+        import requests
+        resp = requests.post(
+            MCP_URL,
+            json={"jsonrpc": "2.0", "id": 1, "method": "tools/list"},
+            headers={"Content-Type": "application/json", "Accept": "application/json, text/event-stream"},
+            timeout=10,
+        )
+        data = resp.json()
+        tools = data.get("result", {}).get("tools", [])
+        return len(tools) > 50  # we expect 140+
+    except Exception:
+        return False
+
+
+def _check_queue_stuck() -> tuple[bool, list]:
+    """Check if any tasks have been in queue longer than threshold."""
+    try:
+        if not QUEUE_FILE.exists():
+            return False, []
+        queue = json.loads(QUEUE_FILE.read_text())
+        if not queue:
+            return False, []
+    except Exception:
+        return False, []
+
+    now = datetime.now(timezone.utc)
+    stuck = []
+    for task in queue:
+        queued_at = task.get("queued_at")
+        if not queued_at:
+            continue
+        try:
+            ts = datetime.fromisoformat(queued_at)
+            age = (now - ts).total_seconds()
+            if age > STUCK_THRESHOLD_SECONDS:
+                stuck.append(task)
+        except (ValueError, TypeError):
+            continue
+
+    return bool(stuck), stuck
+
+
+def _is_crash_looping(name: str, state: dict) -> bool:
+    history = state.get("restart_history", {}).get(name, [])
+    cutoff = (datetime.now(timezone.utc) - timedelta(seconds=CRASH_LOOP_WINDOW)).isoformat()
+    recent = [r for r in history if r.get("timestamp", "") > cutoff]
+    return len(recent) >= CRASH_LOOP_THRESHOLD
+
+
+def run_watchdog():
+    _log("Watchdog run started")
+    state = _load_state()
+    now_iso = datetime.now(timezone.utc).isoformat()
+    actions = []
+    alerts = []
+
+    # ── Step 0: Network check ──
+    if not _check_network():
+        if state.get("network_down_since") is None:
+            state["network_down_since"] = now_iso
+            _log("Network DOWN — entering backoff")
+        else:
+            _log("Network still down — skipping all checks")
+        _save_state(state)
+        return
+
+    if state.get("network_down_since"):
+        _log("Network recovered")
+        actions.append("Network recovered after outage")
+        state["network_down_since"] = None
+
+    # ── Step 1: Service health ──
+    for svc_name, svc_desc in SERVICES.items():
+        if _is_service_active(svc_name):
+            continue
+
+        _log(f"{svc_desc} ({svc_name}) is DOWN")
+
+        if _is_crash_looping(svc_name, state):
+            msg = f"CRASH LOOP: {svc_desc} restarted >{CRASH_LOOP_THRESHOLD}x in {CRASH_LOOP_WINDOW // 60} min. NOT restarting."
+            _log(msg)
+            alerts.append(msg)
+            continue
+
+        success, output = _restart_service(svc_name)
+        state.setdefault("restart_history", {}).setdefault(svc_name, []).append({
+            "timestamp": now_iso,
+            "reason": "service_dead",
+            "success": success,
+        })
+
+        if success:
+            msg = f"AUTO-HEALED: {svc_desc} restarted"
+            _log(msg)
+            actions.append(msg)
+        else:
+            msg = f"RESTART FAILED: {svc_desc} — {output[:100]}"
+            _log(msg)
+            alerts.append(msg)
+
+    # ── Step 2: MCP deep check ──
+    if _is_service_active("thunderbird-mcp") and not _check_mcp_responding():
+        _log("MCP server alive but not responding to JSON-RPC")
+
+        if not _is_crash_looping("thunderbird-mcp", state):
+            success, output = _restart_service("thunderbird-mcp")
+            state.setdefault("restart_history", {}).setdefault("thunderbird-mcp", []).append({
+                "timestamp": now_iso,
+                "reason": "mcp_unresponsive",
+                "success": success,
+            })
+            if success:
+                actions.append("MCP server restarted (unresponsive)")
+            else:
+                alerts.append(f"MCP restart failed: {output[:100]}")
+
+    # ── Step 3: Queue stuck detection ──
+    stuck, stuck_tasks = _check_queue_stuck()
+    if stuck:
+        task_ids = [t.get("task_id", "?") for t in stuck_tasks[:5]]
+        msg = f"STUCK QUEUE: {len(stuck_tasks)} task(s) >5 min old: {task_ids}"
+        _log(msg)
+        alerts.append(msg)
+
+        if _is_service_active("thunderbird-overwatch"):
+            _log("Overwatch alive but queue stuck — restarting processor")
+            _restart_service("thunderbird-overwatch")
+            state.setdefault("restart_history", {}).setdefault("thunderbird-overwatch", []).append({
+                "timestamp": now_iso,
+                "reason": "queue_stuck",
+                "success": True,
+            })
+            actions.append("Restarted Hale-Loop (stuck queue)")
+
+    # ── Step 4: Clean old history (keep 24h) ──
+    cutoff = (datetime.now(timezone.utc) - timedelta(hours=24)).isoformat()
+    for svc in list(state.get("restart_history", {}).keys()):
+        state["restart_history"][svc] = [
+            r for r in state["restart_history"][svc]
+            if r.get("timestamp", "") > cutoff
+        ]
+
+    # ── Step 5: Alert Commander ──
+    if actions or alerts:
+        ts = datetime.now(MT).strftime("%H:%M MT")
+        lines = [f"<b>WATCHDOG {ts}</b>"]
+        if actions:
+            lines.append("")
+            for a in actions:
+                lines.append(f"  {a}")
+        if alerts:
+            lines.append("")
+            lines.append("<b>NEEDS ATTENTION:</b>")
+            for a in alerts:
+                lines.append(f"  {a}")
+        _send_alert("\n".join(lines))
+
+    _save_state(state)
+    _log(f"Watchdog complete — {len(actions)} actions, {len(alerts)} alerts")
+
+
+if __name__ == "__main__":
+    run_watchdog()
