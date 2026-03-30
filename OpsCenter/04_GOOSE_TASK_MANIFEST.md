@@ -164,3 +164,11 @@ Goose: After completing each task, add an entry here:
 [TIMESTAMP] G7 — DONE/BLOCKED/PARTIAL — Notes
 [TIMESTAMP] G8 — DONE/BLOCKED/PARTIAL — Notes (deep innovation scan, target 01:30 MDT Mon 30 MAR)
 ```
+
+[2026-03-29 22:54 MT] G1 — DONE — Fixed Gemini 3.1 Pro MAX_TOKENS retry logic and doubling tokens
+[2026-03-29 22:54 MT] G3 — DONE — Replaced manual logging with RotatingFileHandler for both process and chat logs
+[2026-03-29 22:55 MT] G8 — DONE — Scheduled weekly scan via systemd-run for 01:30 MDT tonight
+[2026-03-29 22:55 MT] G4 — DONE — Ran daily innovation scan and emailed digest
+[2026-03-29 22:56 MT] G5 — DONE — Ran world intelligence sweep and full-sent email
+[2026-03-29 22:56 MT] G6 — DONE — Ran tech monitor and full-sent email
+[2026-03-29 22:56 MT] G7 — DONE — Ran ship intelligence sweep and full-sent email

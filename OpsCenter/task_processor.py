@@ -27,6 +27,7 @@ import sys
 import time
 from typing import Optional
 import requests
+from logging.handlers import RotatingFileHandler
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
@@ -334,7 +335,33 @@ def _call_hale(system_prompt: str, query: str,
                              headers={"Content-Type": "application/json"})
         resp.raise_for_status()
         data = resp.json()
-        return data["candidates"][0]["content"]["parts"][0]["text"]
+        
+        candidate = data.get("candidates", [{}])[0]
+        finish_reason = candidate.get("finishReason", "")
+        
+        try:
+            text = candidate["content"]["parts"][0]["text"]
+        except (KeyError, IndexError):
+            text = ""
+            
+        if not text or finish_reason == "MAX_TOKENS":
+            logger.warning("Gemini 3.1 Pro returned empty or MAX_TOKENS. Retrying with doubled tokens.")
+            new_max_tokens = min(max_tokens * 2, 8192)
+            payload["generationConfig"]["maxOutputTokens"] = new_max_tokens
+            resp = requests.post(url, json=payload, timeout=60,
+                                 headers={"Content-Type": "application/json"})
+            resp.raise_for_status()
+            data = resp.json()
+            candidate = data.get("candidates", [{}])[0]
+            try:
+                text = candidate["content"]["parts"][0]["text"]
+            except (KeyError, IndexError):
+                text = ""
+                
+            if not text:
+                raise ValueError("Response empty after retry.")
+                
+        return text
     except Exception as e:
         logger.warning("Gemini 3.1 Pro failed (%s), falling back to Flash", e)
         return _call_gemini(system_prompt, query, max_tokens=max_tokens,
@@ -347,6 +374,14 @@ OPSCENTER = ROOT / "OpsCenter"
 QUEUE_FILE = OPSCENTER / "01_TASK_QUEUE.json"
 COMMAND_LOG = OPSCENTER / "00_COMMAND_LOG.md"
 PROCESS_LOG = OPSCENTER / "process.log"
+
+_file_handler = RotatingFileHandler(
+    str(PROCESS_LOG), maxBytes=5*1024*1024, backupCount=5
+)
+_file_handler.setFormatter(logging.Formatter("%(message)s"))
+_process_logger = logging.getLogger("opscenter.process_log")
+_process_logger.addHandler(_file_handler)
+_process_logger.propagate = False
 
 # ── Telegram ──
 TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_C2_BOT_TOKEN", "")
@@ -362,8 +397,7 @@ def _log(msg: str):
     line = f"[{ts}] {msg}"
     print(line)
     try:
-        with open(PROCESS_LOG, "a") as f:
-            f.write(line + "\n")
+        _process_logger.info(line)
     except OSError:
         pass
 
@@ -535,6 +569,14 @@ CHAT_LOG = OPSCENTER / "hale_chat_log.jsonl"
 _CHAT_LOG_DRIVE_INTERVAL = 20  # Sync to Drive every N entries
 _chat_log_counter = 0
 
+_chat_file_handler = RotatingFileHandler(
+    str(CHAT_LOG), maxBytes=10*1024*1024, backupCount=3
+)
+_chat_file_handler.setFormatter(logging.Formatter("%(message)s"))
+_chat_logger = logging.getLogger("opscenter.chat_log")
+_chat_logger.addHandler(_chat_file_handler)
+_chat_logger.propagate = False
+
 
 def _log_chat(task: dict, response: str, engine: str = ""):
     """Append full chat exchange to JSONL log.
@@ -556,8 +598,7 @@ def _log_chat(task: dict, response: str, engine: str = ""):
     }
 
     try:
-        with open(CHAT_LOG, "a") as f:
-            f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+        _chat_logger.info(json.dumps(entry, ensure_ascii=False))
     except OSError as e:
         _log(f"WARN: Chat log write failed: {e}")
         return
