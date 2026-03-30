@@ -43,6 +43,7 @@ load_dotenv(str(_ROOT / ".env.telegram"))
 from thunderbird_model_router import (
     _call_groq,
     _call_gemini,
+    _call_claude,
     classify_task,
     TaskType,
 )
@@ -344,22 +345,34 @@ def _call_hale(system_prompt: str, query: str,
         except (KeyError, IndexError):
             text = ""
             
-        if not text or finish_reason == "MAX_TOKENS":
-            logger.warning("Gemini 3.1 Pro returned empty or MAX_TOKENS. Retrying with doubled tokens.")
-            new_max_tokens = min(max_tokens * 2, 8192)
-            payload["generationConfig"]["maxOutputTokens"] = new_max_tokens
+        retry_count = 0
+        MAX_RETRIES = 2  # Initial attempt + 2 retries = 3 attempts total
+
+        while (not text or finish_reason == "MAX_TOKENS") and retry_count < MAX_RETRIES:
+            retry_count += 1
+            logger.warning(
+                "Gemini 3.1 Pro returned empty or MAX_TOKENS (attempt %d/%d). Retrying with doubled tokens.",
+                retry_count, MAX_RETRIES
+            )
+            
+            # Double max_tokens, but do not exceed 8192
+            max_tokens = min(max_tokens * 2, 8192)
+            payload["generationConfig"]["maxOutputTokens"] = max_tokens
+            
             resp = requests.post(url, json=payload, timeout=60,
                                  headers={"Content-Type": "application/json"})
             resp.raise_for_status()
             data = resp.json()
+            
             candidate = data.get("candidates", [{}])[0]
+            finish_reason = candidate.get("finishReason", "") # Update finish_reason for next loop iteration
             try:
                 text = candidate["content"]["parts"][0]["text"]
             except (KeyError, IndexError):
                 text = ""
-                
-            if not text:
-                raise ValueError("Response empty after retry.")
+
+        if not text and (retry_count == MAX_RETRIES or finish_reason == "MAX_TOKENS"):
+            raise ValueError("Response empty or MAX_TOKENS after multiple retries.")
                 
         return text
     except Exception as e:
@@ -634,6 +647,18 @@ def _backup_chat_log_to_drive():
 # TASK HANDLERS — Each returns a string response for the Commander
 # ============================================================================
 
+def _get_blackboard_context() -> str:
+    """Read current blackboard state — injected into Hale's system prompt."""
+    summary_path = OPSCENTER / "collaboration" / "blackboard_summary.txt"
+    try:
+        content = summary_path.read_text(encoding="utf-8").strip()
+        if content:
+            return f"\n\n## CURRENT BLACKBOARD STATE\n{content}\n"
+    except Exception:
+        pass
+    return ""
+
+
 def _build_hale_system_prompt() -> str:
     """Build Hale's system prompt grounded in real operational data.
 
@@ -689,9 +714,11 @@ def _build_hale_system_prompt() -> str:
         "use ONLY that data. Do NOT add details, numbers, names, or statuses "
         "beyond what the live data shows.\n"
         "2. If NO live data section is present and the Commander asks about "
-        "specific bookings, clients, emails, or operational details — say: "
-        "\"No matching data was retrieved for that query. Try being more specific "
-        "or ask in your next Claude Code session for deeper access.\"\n"
+        "specific bookings, clients, emails, or operational details (names, amounts, "
+        "confirmation numbers) — say: \"No matching data was retrieved. Try being "
+        "more specific.\"\n"
+        "   BUT: for general research questions (hotels, destinations, experiences, "
+        "travel info) — answer fully from your training knowledge. Do NOT refuse.\n"
         "3. NEVER claim to have performed actions (sent emails, updated files, "
         "contacted people). You can only READ data and REPORT it.\n"
         "4. NEVER invent booking statuses, payment amounts, dates, or names "
@@ -735,6 +762,9 @@ def _build_hale_system_prompt() -> str:
         "- Do NOT truncate data to be brief. The Commander wants the FULL picture.\n"
         "- When you don't know something and no live data was fetched, say so in one line.\n"
         "- Sign as 'Hale'.\n"
+
+        # ── Blackboard State (injected automatically by blackboard_sync.py) ──
+        + _get_blackboard_context()
     )
 
 
@@ -790,19 +820,10 @@ def _handle_commander_message(task: dict) -> str:
             response = _call_gemini(system_prompt, content,
                                    max_tokens=800, temperature=0.5)
         else:
-            # Client-facing, creative, strategic, crisis, code, voice → Claude MAX
-            # But we DON'T call Claude directly from the daemon — that burns MAX tokens.
-            # Instead, we queue it for the next Claude Code session and notify Commander.
-            engine = "QUEUED for Claude MAX"
-            response = (
-                f"*Task classified as: {task_type.value}*\n\n"
-                f"This requires Claude MAX (voice-matched output). "
-                f"Queued for next Claude Code session.\n\n"
-                f"Message: _{content[:200]}_"
-            )
-            # Write to a separate high-priority queue for Claude Code to pick up
-            _queue_for_claude_max(task)
-            _log(f"Queued for Claude MAX: {task_type.value}")
+            # TEMPORARY: Claude limit active — route all tasks to Gemini instead of queuing
+            engine = "Gemini 3.1 Pro (Claude limit — temp)"
+            response = _call_hale(system_prompt, augmented_content,
+                                  max_tokens=2500, temperature=0.3)
 
     except Exception as e:
         engine = "ERROR"

@@ -182,3 +182,20 @@ See [docs/AGENT_TEAMS.md](docs/AGENT_TEAMS.md) for experimental team workflows.
 - **NEVER** amend a previous commit — always create new commits.
 - **NEVER** skip git hooks or force-push to main.
 - **NEVER** take credit for what D2M did not do (SO 22 MAR 2026).
+
+
+# BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
+<!-- Last sync: 2026-03-30 17:28 MT -->
+```
+=== THUNDERBIRD BLACKBOARD [2026-03-30 17:28 MT] ===
+Budget: Claude YELLOW — rate-limited, 28hr recovery window as of 0100 MT | Goose (Gemini): GREEN — primary model during Commander operational hours | Groq GREEN — available, high RPM, no PII | Deepseek GREEN — available, arbitration only, no PII
+Active tasks: 0
+Last Deepseek ruling: NONE
+Open items: none logged
+Next priority: check session_autosave_latest.md
+Standing: Goose=Commander authority | Deepseek=arbitrator | PII fence: Deepseek/Groq
+Session checkpoint: /home/john/Thunderbird/session_autosave_latest.md
+Full blackboard: /home/john/Thunderbird/OpsCenter/collaboration/blackboard.md
+================================================
+```
+# BLACKBOARD_END

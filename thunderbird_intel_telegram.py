@@ -27,17 +27,31 @@ COMMANDER_ID = os.environ.get("TELEGRAM_COMMANDER_ID", "7554895206")
 MAX_CHUNK = 3800  # Telegram 4096 limit, with headroom
 
 
-def send_telegram(msg: str, parse_mode: str = "Markdown"):
+def send_telegram(msg: str, parse_mode: str = "HTML"):
+    """Send message — tries HTML first, falls back to plain text on 400."""
+    import re
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
-    data = json.dumps({
-        "chat_id": COMMANDER_ID,
-        "text": msg,
-        "parse_mode": parse_mode,
-    }).encode()
-    req = urllib.request.Request(
-        url, data=data, headers={"Content-Type": "application/json"}
-    )
-    urllib.request.urlopen(req, timeout=15)
+    # Convert markdown bold/italic to HTML for legacy callers
+    if parse_mode == "Markdown":
+        parse_mode = "HTML"
+        msg = re.sub(r'\*\*(.+?)\*\*', r'<b>\1</b>', msg)
+        msg = re.sub(r'\*(.+?)\*', r'<b>\1</b>', msg)
+        msg = re.sub(r'_(.+?)_', r'<i>\1</i>', msg)
+        msg = re.sub(r'`(.+?)`', r'<code>\1</code>', msg)
+    for mode in [parse_mode, None]:
+        payload = {"chat_id": COMMANDER_ID, "text": msg}
+        if mode:
+            payload["parse_mode"] = mode
+        data = json.dumps(payload).encode()
+        req = urllib.request.Request(
+            url, data=data, headers={"Content-Type": "application/json"}
+        )
+        try:
+            urllib.request.urlopen(req, timeout=15)
+            return
+        except Exception:
+            if mode is None:
+                raise
 
 
 def chunk_and_send(text: str, header: str = ""):

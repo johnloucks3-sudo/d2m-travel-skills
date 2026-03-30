@@ -1,21 +1,21 @@
 {
-  "timestamp": "2026-03-29T06:50:42.894876",
-  "overall": "RED",
+  "timestamp": "2026-03-30T17:03:44.897225",
+  "overall": "YELLOW",
   "checks": [
     {
       "name": "MCP Server",
       "status": "GREEN",
-      "message": "Running (PID 4233)"
+      "message": "Running (PID 625682)"
     },
     {
       "name": "Scheduler",
       "status": "GREEN",
-      "message": "Running (PID 1626)"
+      "message": "Running (PID 1808)"
     },
     {
       "name": "Telegram C2",
       "status": "GREEN",
-      "message": "Running (PID 441779)"
+      "message": "Running (PID 470221)"
     },
     {
       "name": "Gmail Token",
@@ -30,7 +30,7 @@
     {
       "name": "Disk Space",
       "status": "GREEN",
-      "message": "847.1 GB free"
+      "message": "844.5 GB free"
     },
     {
       "name": "TELEGRAM_BOT_TOKEN",
@@ -54,8 +54,8 @@
     },
     {
       "name": "Gemini API",
-      "status": "RED",
-      "message": "Failed: No module named 'google.generativeai'"
+      "status": "YELLOW",
+      "message": "Skipped (--quick)"
     },
     {
       "name": "MCP Port 8765",

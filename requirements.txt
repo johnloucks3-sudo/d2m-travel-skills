@@ -110,8 +110,9 @@ urllib3==2.6.3
 uvicorn==0.41.0
 weasyprint==68.1
 webencodings==0.5.1
-websockets==16.0
+websockets==15.0.1  # downgraded from 16.0 by google-adk==1.28.0 install 2026-03-30
 Werkzeug==3.1.6
 wheel==0.46.3
 yarl==1.23.0
 zopfli==0.4.1
+google-adk==1.28.0  # added 2026-03-30 — base install only, no [extensions] or [eval]

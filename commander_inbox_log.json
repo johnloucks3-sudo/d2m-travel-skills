@@ -2688,5 +2688,155 @@
     "persona": "A2",
     "draft_id": null,
     "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-30T16:19:07.472398+00:00",
+    "msg_id": "19d3f6c1dbb40079",
+    "subject": "Iran strikes injure US troops",
+    "sender": "huckabeepost@substack.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-30T16:19:40.762056+00:00",
+    "msg_id": "19d3f47d38fe3faf",
+    "subject": "Final days \u2014 Fares increase April 1",
+    "sender": "learnmore@atlasoceanvoyages.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-30T18:23:35.356824+00:00",
+    "msg_id": "19d3fed9a25dfc78",
+    "subject": "Advance Notice: Anniversary Sale Opens April 2",
+    "sender": "reply@halpartners.hollandamerica.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-30T18:24:54.834233+00:00",
+    "msg_id": "19d3fb0621838777",
+    "subject": "Explore The World, Your Way",
+    "sender": "seabourn@m.seabourn.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-30T18:24:57.387121+00:00",
+    "msg_id": "19d3fa75de925ee7",
+    "subject": "Re: WHat do you guys think of this itinerary?",
+    "sender": "greg.loucks@icloud.com",
+    "classification": "booking_confirmation",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-30T18:24:59.481373+00:00",
+    "msg_id": "19d3f9e671d216b0",
+    "subject": "Re: WHat do you guys think of this itinerary?",
+    "sender": "greg.loucks@me.com",
+    "classification": "booking_confirmation",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-30T20:16:49.062567+00:00",
+    "msg_id": "19d403972022c3ef",
+    "subject": "Re: WHat do you guys think of this itinerary?",
+    "sender": "karen.loucks@me.com",
+    "classification": "booking_confirmation",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-30T20:16:50.646967+00:00",
+    "msg_id": "19d4034169eebb26",
+    "subject": "Silver Nova: Travel Documents Reminder - Silver Nova - Yokohama (Tokyo) to  Seattle (Washington) - 2026-04-23",
+    "sender": "jwoodcock@perx.com",
+    "classification": "booking_confirmation",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-30T20:17:05.890651+00:00",
+    "msg_id": "19d402e333d794c0",
+    "subject": "Upcoming Connect with Princess\u00ae Webinar Apr 2!",
+    "sender": "contact@princesspartners.princess.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-30T20:17:07.761924+00:00",
+    "msg_id": "19d4026b1a74bba8",
+    "subject": "Silver Nova: Travel Documents Reminder | Rappel concernant les documents de voyage - Col John Loucks | Mrs Susan Loucks - Silver Nova - Yokohama (Tokyo) to  Seattle (Washington) - 2026-04-23",
+    "sender": "sma_outbound@silversea.com",
+    "classification": "booking_confirmation",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-30T20:17:47.409604+00:00",
+    "msg_id": "19d4022b8d1dfc60",
+    "subject": "FINAL REMINDER: Offers Ending Tomorrow",
+    "sender": "regent@cruise.rssc.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-30T22:16:58.560261+00:00",
+    "msg_id": "19d40c90441e90ff",
+    "subject": "Resort Collection Newsletter",
+    "sender": "mail@tln.messages2.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-30T22:17:22.444791+00:00",
+    "msg_id": "19d40c6b2fdbaa0b",
+    "subject": "Resort Collection Newsletter",
+    "sender": "mail@tln.messages2.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-30T22:17:39.753934+00:00",
+    "msg_id": "19d409a04df58e53",
+    "subject": "The Crown Jewel Has Arrived to Punta Cana",
+    "sender": "mail@tln.messages2.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-30T22:17:58.211340+00:00",
+    "msg_id": "19d408dde5c2b04e",
+    "subject": "A Message From Windstar\u2019s President \u2014 March 2026",
+    "sender": "180fromordinary@e.windstarcruises.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
   }
 ]

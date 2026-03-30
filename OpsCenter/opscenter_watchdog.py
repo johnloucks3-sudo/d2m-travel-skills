@@ -36,7 +36,12 @@ SERVICES = {
     "thunderbird-telegram-c2": "Pager Bot",
     "thunderbird-overwatch": "Hale-Loop Daemon",
     "thunderbird-mcp": "MCP Server",
+    "thunderbird-blackboard-sync": "Blackboard Sync",
 }
+
+# ── Heartbeat config ──
+HEARTBEAT_HOUR_MT = 8   # 0800 MT daily
+DISK_WARN_PCT = 85      # alert if disk > 85% full
 
 # ── Mountain Time ──
 MT = timezone(timedelta(hours=-6))
@@ -193,6 +198,31 @@ def _is_crash_looping(name: str, state: dict) -> bool:
     return len(recent) >= CRASH_LOOP_THRESHOLD
 
 
+
+def _check_disk() -> tuple[bool, str]:
+    """Check disk usage — alert if over threshold."""
+    import shutil
+    try:
+        usage = shutil.disk_usage("/home")
+        pct = (usage.used / usage.total) * 100
+        free_gb = usage.free / (1024 ** 3)
+        if pct > DISK_WARN_PCT:
+            return True, f"DISK {pct:.0f}% full — only {free_gb:.1f} GB free"
+        return False, f"Disk OK ({pct:.0f}% used, {free_gb:.0f} GB free)"
+    except Exception as e:
+        return False, f"Disk check error: {e}"
+
+
+def _should_send_heartbeat(state: dict) -> bool:
+    """Return True if daily heartbeat is due (once per day at HEARTBEAT_HOUR_MT)."""
+    now = datetime.now(MT)
+    if now.hour != HEARTBEAT_HOUR_MT:
+        return False
+    last = state.get("last_heartbeat_date", "")
+    today = now.strftime("%Y-%m-%d")
+    return last != today
+
+
 def run_watchdog():
     _log("Watchdog run started")
     state = _load_state()
@@ -278,7 +308,27 @@ def run_watchdog():
             })
             actions.append("Restarted Hale-Loop (stuck queue)")
 
-    # ── Step 4: Clean old history (keep 24h) ──
+    # ── Step 4: Disk space check ──
+    disk_warn, disk_msg = _check_disk()
+    if disk_warn:
+        alerts.append(disk_msg)
+        _log(f"DISK WARNING: {disk_msg}")
+
+    # ── Step 4b: Daily heartbeat ──
+    if _should_send_heartbeat(state):
+        ts = datetime.now(MT).strftime("%Y-%m-%d %H:%M MT")
+        heartbeat = (
+            f"💚 <b>YOGA ALIVE — {ts}</b>
+"
+            f"All services running. Watchdog active.
+"
+            f"{disk_msg}"
+        )
+        _send_alert(heartbeat)
+        state["last_heartbeat_date"] = datetime.now(MT).strftime("%Y-%m-%d")
+        _log("Heartbeat sent")
+
+    # ── Step 5: Clean old history (keep 24h) ──
     cutoff = (datetime.now(timezone.utc) - timedelta(hours=24)).isoformat()
     for svc in list(state.get("restart_history", {}).keys()):
         state["restart_history"][svc] = [
@@ -286,7 +336,7 @@ def run_watchdog():
             if r.get("timestamp", "") > cutoff
         ]
 
-    # ── Step 5: Alert Commander ──
+    # ── Step 6: Alert Commander ──
     if actions or alerts:
         ts = datetime.now(MT).strftime("%H:%M MT")
         lines = [f"<b>WATCHDOG {ts}</b>"]

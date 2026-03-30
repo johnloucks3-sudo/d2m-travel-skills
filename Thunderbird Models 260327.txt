@@ -1,0 +1,98 @@
+## 🟢 $0 — Anthropic Max Plan (Claude CLI OAuth)
+
+| Model           | Tag                            | Used For                             |
+|-----------------|--------------------------------|--------------------------------------|
+| Claude Sonnet 4 | `sonnet`, `fast`*, `premium`*, | Client copy, code, strategy, crisis, |
+|                 | `kimi`, `detail`, `claude`     | voice, briefs                        |
+| Claude Haiku 3  | `light`*, `haiku`              | Research lookups, classification,    |
+|                 |                                | extraction, summarization            |
+| Claude Opus 4   | `opus`, `visionary`*           | **Retired** — no tasks route here    |
+|                 |                                | (SO 2026-03-27)                      |
+*These tags formerly mapped to Claude — now route to Groq (see below)
+
+---
+
+### 🟡 Groq — Pay-per-use (key in `.env`)
+
+| Model                     | Tag     | Speed      | Notes                     |
+|---------------------------|---------|------------|---------------------------|
+| `llama-3.1-8b-instant`    | `fast`  | ~200 tok/s | Cheapest, fastest         |
+| `llama-3.3-70b-versatile` | `light` | Fast       | Balanced quality          |
+| `llama-4-scout-17b`       | `image` | Fast       | Vision/multimodal capable |
+**Fallback:** Any Groq failure → Claude Sonnet automatically.
+
+---
+
+### 🟡 Pay-per-use — Other Providers
+
+| Model            | Tag                    | Cost               | Status                 |
+|------------------|------------------------|--------------------|------------------------|
+| Gemini 2.5 Flash | `gemini`, `workspace`  | $0.30/$2.50 per 1M | Active (needs          |
+|                  |                        |                    | `GOOGLE_AI_API_KEY`)   |
+| Grok 4.1 Fast    | `research`, `grok`     | $0.20/$0.50 per 1M | Active (needs          |
+|                  |                        |                    | `XAI_API_KEY`)         |
+| DeepSeek V3      | `extraction`,          | $0.14/$0.28 per 1M | Active, PII-fenced     |
+|                  | `deepseek`             |                    | (needs                 |
+|                  |                        |                    | `DEEPSEEK_API_KEY`)    |
+---
+
+### 🟡 Image Generation
+
+| Model          | Tag                | Cost         | Notes                           |
+|----------------|--------------------|--------------|---------------------------------|
+| FLUX.1-schnell | `image` (TaskType) | Free         | HuggingFace Inference           |
+| FLUX.1.1-pro   | manual call        | Pay-per-use  | Together AI                     |
+| Llama-4-Scout  | `image` (Groq tag) | Groq pricing | Vision/analysis, not generation |
+---
+
+**Bottom line:** 99% of your workload runs at $0 on Max plan. Groq `fast`/`light` are fractions of a cent. The only real spend exposure is if Gemini/Grok/DeepSeek keys are set and tasks hit those routes.
+  ⏱ 19.11s
+## 🟢 $0 — Anthropic Max Plan (Claude CLI OAuth)
+
+| Model           | Tag                            | Used For                             |
+|-----------------|--------------------------------|--------------------------------------|
+| Claude Sonnet 4 | `sonnet`, `fast`*, `premium`*, | Client copy, code, strategy, crisis, |
+|                 | `kimi`, `detail`, `claude`     | voice, briefs                        |
+| Claude Haiku 3  | `light`*, `haiku`              | Research lookups, classification,    |
+|                 |                                | extraction, summarization            |
+| Claude Opus 4   | `opus`, `visionary`*           | **Retired** — no tasks route here    |
+|                 |                                | (SO 2026-03-27)                      |
+*These tags formerly mapped to Claude — now route to Groq (see below)
+
+---
+
+### 🟡 Groq — Pay-per-use (key in `.env`)
+
+| Model                     | Tag     | Speed      | Notes                     |
+|---------------------------|---------|------------|---------------------------|
+| `llama-3.1-8b-instant`    | `fast`  | ~200 tok/s | Cheapest, fastest         |
+| `llama-3.3-70b-versatile` | `light` | Fast       | Balanced quality          |
+| `llama-4-scout-17b`       | `image` | Fast       | Vision/multimodal capable |
+**Fallback:** Any Groq failure → Claude Sonnet automatically.
+
+---
+
+### 🟡 Pay-per-use — Other Providers
+
+| Model            | Tag                    | Cost               | Status                 |
+|------------------|------------------------|--------------------|------------------------|
+| Gemini 2.5 Flash | `gemini`, `workspace`  | $0.30/$2.50 per 1M | Active (needs          |
+|                  |                        |                    | `GOOGLE_AI_API_KEY`)   |
+| Grok 4.1 Fast    | `research`, `grok`     | $0.20/$0.50 per 1M | Active (needs          |
+|                  |                        |                    | `XAI_API_KEY`)         |
+| DeepSeek V3      | `extraction`,          | $0.14/$0.28 per 1M | Active, PII-fenced     |
+|                  | `deepseek`             |                    | (needs                 |
+|                  |                        |                    | `DEEPSEEK_API_KEY`)    |
+---
+
+### 🟡 Image Generation
+
+| Model          | Tag                | Cost         | Notes                           |
+|----------------|--------------------|--------------|---------------------------------|
+| FLUX.1-schnell | `image` (TaskType) | Free         | HuggingFace Inference           |
+| FLUX.1.1-pro   | manual call        | Pay-per-use  | Together AI                     |
+| Llama-4-Scout  | `image` (Groq tag) | Groq pricing | Vision/analysis, not generation |
+---
+
+**Bottom line:** 99% of your workload runs at $0 on Max plan. Groq `fast`/`light` are fractions of a cent. The only real spend exposure is if Gemini/Grok/DeepSeek keys are set and tasks hit those routes.
+  ⏱ 19.11s

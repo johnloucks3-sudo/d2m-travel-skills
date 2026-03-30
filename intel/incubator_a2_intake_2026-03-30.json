@@ -1,0 +1,46 @@
+[
+  {
+    "id": "A2-2026-03-30-001",
+    "title": "Umamusume Forum Discussion",
+    "source_signal": "[1] Something Awful Forums: Umamusume/Haru Urara thread",
+    "classification": "REJECT",
+    "gap_closed": "N/A",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Anime/gaming discussion. Zero relevance to luxury travel, client management, or cruise operations."
+  },
+  {
+    "id": "A2-2026-03-30-002",
+    "title": "DIY/Home Improvement Forum",
+    "source_signal": "[2] Something Awful Forums: Hobbies, Crafts & Houses section",
+    "classification": "REJECT",
+    "gap_closed": "N/A",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Home renovation/hobby board. Not applicable to travel concierge, ship intelligence, or destination research."
+  },
+  {
+    "id": "A2-2026-03-30-003",
+    "title": "Archive Thread (2014)",
+    "source_signal": "[3] Something Awful Forums: YOSPOS thread from Mar 18, 2014",
+    "classification": "REJECT",
+    "gap_closed": "N/A",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Stale archive content (12 years old). No business intelligence or actionable signal."
+  },
+  {
+    "id": "A2-2026-03-30-004",
+    "title": "25 Years of Something Awful Retrospective",
+    "source_signal": "[4] Something Awful Forums: 25 Years retrospective (Nov 23, 2024)",
+    "classification": "REJECT",
+    "gap_closed": "N/A",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Internet culture retrospective. No relevance to cruise lines, client intelligence, competitor analysis, or travel operations."
+  }
+]

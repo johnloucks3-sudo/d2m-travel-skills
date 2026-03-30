@@ -55,7 +55,7 @@ def check_services() -> List[Tuple[str, str, str]]:
     checks = {
         "MCP Server": "travel_mcp_server",
         "Scheduler": "thunderbird_scheduler",
-        "Telegram C2": "thunderbird_telegram_c2",
+        "Telegram C2": "telegram_pager_c2",
     }
     for name, proc_name in checks.items():
         try:
@@ -138,22 +138,22 @@ def check_gemini_api(quick: bool = False) -> Tuple[str, str, str]:
     if quick:
         return ("Gemini API", "YELLOW", "Skipped (--quick)")
     try:
-        import google.generativeai as genai
+        from google import genai as new_genai
         key = os.environ.get("GOOGLE_API_KEY") or os.environ.get("GEMINI_API_KEY")
         if not key:
-            # Try loading from .env
             env_file = THUNDERBIRD_DIR / ".env"
             if env_file.exists():
                 for line in env_file.read_text().splitlines():
-                    if line.startswith("GOOGLE_API_KEY="):
+                    if line.startswith("GOOGLE_API_KEY=") or line.startswith("GEMINI_API_KEY="):
                         key = line.split("=", 1)[1].strip()
                         break
         if not key:
-            return ("Gemini API", "YELLOW", "No GOOGLE_API_KEY found")
-        genai.configure(api_key=key)
-        model = genai.GenerativeModel("gemini-2.5-flash")
-        response = model.generate_content("Say OK",
-            generation_config={"max_output_tokens": 5})
+            return ("Gemini API", "YELLOW", "No API key found")
+        client = new_genai.Client(api_key=key)
+        client.models.generate_content(
+            model="gemini-2.0-flash",
+            contents="Say OK"
+        )
         return ("Gemini API", "GREEN", "Responding")
     except Exception as e:
         return ("Gemini API", "RED", f"Failed: {e}")
