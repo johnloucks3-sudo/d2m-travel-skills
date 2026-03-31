@@ -140,3 +140,75 @@ Task complete. Here's what was done:
 **Lead item for Commander's attention:** `knowsuchagency/mcp2cli` — turns any MCP/OpenAPI/GraphQL server into a CLI at runtime with zero codegen. Direct relevance to Thunderbird's MCP stack and OpsCenter. Recommend Goose evaluate next session.
 
 **Also notable:** `garrytan/gstack` (score 58K) — Garry Tan's 23-tool Claude Code setup. Mirrors Thunderbird's A-Staff model. Worth a scan for adaptable skill patterns.
+
+---
+AGENT: Claude Sonnet 4.6
+TASK_ID: GT-20260330-2236-STRA
+COMPLETED_AT: 2026-03-30T22:36:00 MT
+SUBMITTED_BY: GOOSE (on behalf of Commander)
+CONFIDENCE: HIGH
+---
+
+## SWITCHBLADE ANALYSIS — DIP PROPOSAL
+
+**Task received:** GT-20260330-2236-STRA
+**Output written to:** `OpsCenter/collaboration/dip_switchblade_analysis.md`
+
+### VERDICT: Conditionally viable — 3 blocking gaps
+
+**FM-1 (HIGH): Blackboard Desync** — DIP has no task registration. Blackboard shows `Active tasks: 0` while DIP runs. Duplicate dispatch risk on every retry cycle.
+
+**FM-2 (HIGH): Safe-CLI Gate SPOF** — Gate crash = total pipeline stoppage. No graceful fallback to blackboard mediation. Partial results orphaned with no audit trail.
+
+**FM-3 (HIGH): Token Runaway** — No hard cap on synthesis LLM calls. Retry logic without exit conditions can compound spend. Critical risk on current YELLOW budget.
+
+**Dead-Man's Switch — Non-Negotiable Trio (DMS-1/2/3):**
+1. **DMS-1:** Blackboard heartbeat at START/COMPLETE/ABORT — eliminates FM-1
+2. **DMS-2:** Token budget hard cap — read budget state before every synthesis call; halt at YELLOW if uncapped; 30K token/session ceiling
+3. **DMS-3:** Write-scope lock — DIP writes ONLY to `/intel/`, blocked from `dossiers/` and `output/`
+
+**Additional controls (DMS-4–7):** PII pre-filter at synthesis boundary, 5-min watchdog timer, synthesis confidence gate, star-log migration to passive tail-monitor.
+
+**Recommended first live run:** `runInnovationScan` only — lowest PII risk, bounded output.
+
+**Full analysis:** `OpsCenter/collaboration/dip_switchblade_analysis.md`
+
+---
+*Task GT-20260330-2236-STRA complete. Awaiting Commander review.*
+
+---
+AGENT: Claude Sonnet (auto-triggered by inbox_watcher)
+TASK_ID: GT-20260330-2236-STRA
+COMPLETED_AT: 2026-03-30T22:39:11 MT
+---
+Both files written. Summary for Commander:
+
+---
+
+**SWITCHBLADE ANALYSIS — GT-20260330-2236-STRA — COMPLETE**
+
+Full analysis: `OpsCenter/collaboration/dip_switchblade_analysis.md`
+
+**Bottom line:** DIP is architecturally sound but has **three blocking failure modes** before it can go live:
+
+| # | Failure Mode | Risk |
+|---|---|---|
+| FM-1 | Blackboard Desync — no task registration | HIGH |
+| FM-2 | Safe-CLI Gate SPOF — no graceful fallback | HIGH |
+| FM-3 | Token Runaway — no cap on synthesis LLM calls | HIGH (especially on YELLOW budget) |
+
+**Dead-Man's Switch non-negotiable trio:**
+- **DMS-1** — Blackboard heartbeat at START/COMPLETE/ABORT
+- **DMS-2** — Token budget hard cap (read blackboard state before every synthesis call; 30K/session ceiling)
+- **DMS-3** — Write-scope lock hardcoded to `/intel/` only — blocks any drift into `dossiers/` or `output/`
+
+Four additional controls (PII pre-filter, watchdog timer, confidence gate, log migration) are recommended but not blocking.
+
+The Safe-CLI gate is the strongest existing safety control and the right choke point. DIP doesn't need to abandon the blackboard entirely — it just needs to register state to it. That fix is cheap (~100 tokens, no LLM call) and eliminates the most dangerous gap.
+
+---
+AGENT: Claude Sonnet (auto-triggered by inbox_watcher)
+TASK_ID: GT-20260330-2241-SYST
+COMPLETED_AT: 2026-03-30T22:44:06 MT
+---
+[ERROR] Claude CLI timed out after 180s

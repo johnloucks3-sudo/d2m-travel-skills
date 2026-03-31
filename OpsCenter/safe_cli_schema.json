@@ -1,0 +1,16 @@
+{
+  "manifest_version": "1.0",
+  "description": "Safe-CLI-Gate Execution Passport",
+  "fields": {
+    "task_id": "UUID",
+    "timestamp": "ISO8601",
+    "originating_agent": ["Goose", "Claude", "Hale"],
+    "requested_tool": "string",
+    "arguments": "object",
+    "security_context": {
+      "pii_check": "boolean",
+      "wf17_gate": "boolean",
+      "directive_enforcement": ["PASSED", "DISSENT_FILED"]
+    }
+  }
+}

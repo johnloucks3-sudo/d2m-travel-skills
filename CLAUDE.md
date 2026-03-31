@@ -185,9 +185,9 @@ See [docs/AGENT_TEAMS.md](docs/AGENT_TEAMS.md) for experimental team workflows.
 
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-03-30 21:55 MT -->
+<!-- Last sync: 2026-03-30 23:02 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-03-30 21:55 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-03-30 23:02 MT] ===
 Budget: Claude YELLOW — rate-limited, 28hr recovery window as of 0100 MT | Goose (Gemini): GREEN — primary model during Commander operational hours | Groq GREEN — available, high RPM, no PII | Deepseek GREEN — available, arbitration only, no PII
 Active tasks: 0
 Last Deepseek ruling: NONE

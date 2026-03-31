@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@knowsuchagency/mcp2cli": "^0.0.1"
+  }
+}

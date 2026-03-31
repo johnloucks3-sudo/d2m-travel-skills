@@ -1,0 +1,12 @@
+{
+  "task_id": "string (UUID)",
+  "timestamp": "ISO8601",
+  "originating_agent": "enum (Goose, Claude, Hale)",
+  "requested_tool": "string (The mcp2cli command)",
+  "arguments": "object (Tool-specific params)",
+  "security_context": {
+    "pii_check": "boolean",
+    "wf17_gate": "boolean",
+    "directive_enforcement": "string (e.g., 'PASSED')"
+  }
+}

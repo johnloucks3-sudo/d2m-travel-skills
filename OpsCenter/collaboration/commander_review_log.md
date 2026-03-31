@@ -50,3 +50,30 @@ INSTRUCTIONS: Perform an 'incubator scan' (using Thunderbirdmcp.runInnovationSca
 OUTPUT_DEST: /home/john/Thunderbird/OpsCenter/collaboration/claude_output.md
 DISSENT_FILED: NO
 STATUS: QUEUED → claude_inbox.md
+
+---
+TASK_ID: GT-20260330-2215-SYST | 2026-03-30T22:15:40 MT
+SUBMITTED_BY: GOOSE (on behalf of Commander)
+TASK_TYPE: system_ops
+INSTRUCTIONS: Read safe_cli_architecture.md and claude_gate_spec.md, then implement safe_cli_gate.py.
+OUTPUT_DEST: /home/john/Thunderbird/OpsCenter/safe_cli_gate.py
+DISSENT_FILED: NO
+STATUS: QUEUED → claude_inbox.md
+
+---
+TASK_ID: GT-20260330-2236-STRA | 2026-03-30T22:36:45 MT
+SUBMITTED_BY: GOOSE (on behalf of Commander)
+TASK_TYPE: strategic
+INSTRUCTIONS: Review the 'Direct-Intelligence Pipeline (DIP)' proposal. Perform a formal SWITCHBLADE analysis: identify failure modes, assess risks of bypassing the blackboard, and propose a 'Dead-Man's Switch' for this autonomous pipeline. Output to OpsCenter/collaboration/dip_switchblade_analysis.md
+OUTPUT_DEST: /home/john/Thunderbird/OpsCenter/collaboration/claude_output.md
+DISSENT_FILED: NO
+STATUS: QUEUED → claude_inbox.md
+
+---
+TASK_ID: GT-20260330-2241-SYST | 2026-03-30T22:41:04 MT
+SUBMITTED_BY: GOOSE (on behalf of Commander)
+TASK_TYPE: system_ops
+INSTRUCTIONS: Implement dossier_intelligence_bot.py following the attached Guarded Implementation Plan. You MUST include the 5 mandatory Dead-Man Switch (DMS) controls (Heartbeat, Budget Cap, Write-Scope, PII Filter, Watchdog Timer). Use safe_cli_gate.py for all tool calls. Output to /home/john/Thunderbird/OpsCen
+OUTPUT_DEST: /home/john/Thunderbird/OpsCenter/collaboration/claude_output.md
+DISSENT_FILED: NO
+STATUS: QUEUED → claude_inbox.md
