@@ -2888,5 +2888,175 @@
     "persona": "A2",
     "draft_id": null,
     "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-31T14:16:19.426984+00:00",
+    "msg_id": "19d4436f69b6f235",
+    "subject": "\u2708 Never Check a Bag Again With These Tips, Flyers Face Surging Fuel Charges & More From TPG \u2708",
+    "sender": "tpg@thepointsguy.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-31T14:16:28.373236+00:00",
+    "msg_id": "19d44354483e0607",
+    "subject": "Your clients can save up to $7,000 on their next adventure",
+    "sender": "silversea@email.silversea.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-31T14:16:38.042146+00:00",
+    "msg_id": "19d442080a2a38c9",
+    "subject": "Regent New & Noteworthy: NEW OFFER- Spring Savings & World Cruise 2029 Information. PLUS Current and Ending Soon Offers",
+    "sender": "rarmelin@rssc.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-31T14:16:46.227374+00:00",
+    "msg_id": "19d441588a07175c",
+    "subject": "Make your everyday checking work harder for you",
+    "sender": "americanexpress@member.americanexpress.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-31T14:16:54.348147+00:00",
+    "msg_id": "19d4414aee24cb0b",
+    "subject": "Regent New & Noteworthy: NEW OFFER- Spring Savings & World Cruise 2029 Information. PLUS Current and Ending Soon Offers",
+    "sender": "rarmelin@rssc.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-31T14:17:05.533856+00:00",
+    "msg_id": "19d4405b44b1b299",
+    "subject": "Psst! Amazon's Spring Sale Includes Hidden Members-Only Kitchen Deals",
+    "sender": "email@email.allrecipes.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-31T16:16:24.265936+00:00",
+    "msg_id": "19d44aaa3d5cfa66",
+    "subject": "Your skin cells are SUFFOCATING (here's the weird fix)",
+    "sender": "news@bosnerdley.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-31T16:16:25.916842+00:00",
+    "msg_id": "19d44a908584a2f7",
+    "subject": "Unforgettable Italy: Sordevolo Passion Play, Italian Lakes & Mediterranean Cruise",
+    "sender": "news@info.cruisecritic.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-31T16:16:32.888140+00:00",
+    "msg_id": "19d447876b56c1bd",
+    "subject": "Today: Windstar launches on Approach Guides \ud83d\ude80",
+    "sender": "jenn@approachguides.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-31T18:15:25.612496+00:00",
+    "msg_id": "19d45179b1fda9d2",
+    "subject": "Disney Destinations - Discover the Magic",
+    "sender": "mail@tln.messages2.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-31T18:15:40.048404+00:00",
+    "msg_id": "19d450f58ed46c60",
+    "subject": "I called your name because",
+    "sender": "editor@alerts.americanfreedomreport.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-31T20:16:45.836120+00:00",
+    "msg_id": "19d457c3e6f9f147",
+    "subject": "Extraordinary Voyages, Departing Soon",
+    "sender": "seabourn@m.seabourn.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-31T20:16:56.609515+00:00",
+    "msg_id": "19d4553fe0cee972",
+    "subject": "We\u2019ve got just what you need",
+    "sender": "mail@eg.hotels.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-31T20:16:59.278757+00:00",
+    "msg_id": "19d45406d0a7ceb1",
+    "subject": "I Went Undercover in France\u2019s Anti-Israel Movement",
+    "sender": "bariweiss+the-big-read@substack.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-31T20:17:01.043466+00:00",
+    "msg_id": "19d4532c4b01f16e",
+    "subject": "ENDS TODAY: Complimentary Beyond Inclusive Package",
+    "sender": "specials@e.windstarcruises.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-31T20:17:02.905897+00:00",
+    "msg_id": "19d453116051fd37",
+    "subject": "ENDS TODAY: Complimentary Beyond Inclusive Package",
+    "sender": "specials@e.windstarcruises.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-31T22:16:19.869452+00:00",
+    "msg_id": "19d45bac46543957",
+    "subject": "Schumer Faces Mutiny, Birthright Citizenship Case Heads to SCOTUS",
+    "sender": "editor@alerts.americanfreedomreport.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
   }
 ]

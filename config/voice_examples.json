@@ -8,15 +8,15 @@
       "d2mconcierge@gmail.com"
     ],
     "days_back": 400,
-    "total_examples": 905,
+    "total_examples": 911,
     "by_tier": {
-      "personal": 224,
-      "client": 174,
+      "personal": 226,
+      "client": 176,
       "vendor": 42,
-      "internal": 460,
+      "internal": 462,
       "family": 5
     },
-    "last_sync": "2026-03-30T02:31:57.132297"
+    "last_sync": "2026-03-31T02:31:22.438597"
   },
   "examples": [
     {
@@ -2618,6 +2618,33 @@
       "to": "Ronald Westbrook <rwestbrook3@gmail.com>",
       "date": "Sun, 29 Mar 2026 15:55:01 -0600",
       "body": "I thought so but here is the exact picture\n\nOn Sun, Mar 29, 2026 at 3:50 PM Ronald Westbrook <rwestbrook3@gmail.com>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "Re: WHat do you guys think of this itinerary?",
+      "to": "gregory loucks <greg.loucks@icloud.com>",
+      "date": "Mon, 30 Mar 2026 11:28:22 -0600",
+      "body": "MUCH better! We'll do that.\nJohn\n\nOn Mon, Mar 30, 2026 at 10:50 AM gregory loucks <greg.loucks@icloud.com>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "WHat do you guys think of this itinerary?",
+      "to": "Karen Loucks <karen.loucks@me.com>, gregory loucks <greg.loucks@me.com>",
+      "date": "Mon, 30 Mar 2026 09:43:09 -0600",
+      "body": "Hi guys, I asked my AI staff to suggest a romantic Saturday drive, they\ncame up with this. Any thoughts?\n\nJohn\n\n🌊 The Laguna Coast Romantic Drive (10:00 AM – 4:00 PM)\n\n10:00 AM — Depart the Marriott & Hit PCH\n\n   - Head south from the hotel toward the coast and catch the Pacific Coast\n   Highway (PCH / Hwy 1) heading south through Corona del Mar.\n   - *The Drive:* Once you pass Corona del Mar, the landscape opens up into\n   rolling coastal hills on your left and the vast Pacific on your right. Roll\n   the windows down—it’s a stunning stretch of road.\n\n10:30 AM — Morning Stroll at Crystal Cove\n\n   - Stop: Crystal Cove State Park Historic District.\n   - Park in the Los Trancos lot (across PCH) and take the $2 shuttle (or a\n   quick walk) down to the beach. This is a beautifully preserved slice of\n   1930s coastal California with vintage beach cottages right on the sand.\n   It’s incredibly romantic and a great spot for a morning photo.\n\n11:45 AM — Drive into Laguna Beach & Crescent Bay Point\n\n   - Continue south on PCH into Laguna Beach.\n   - Quick Detour: Turn right onto Crescent Bay Drive and park near Crescent\n   Bay Point Park. It’s a tiny, hidden panoramic park perched on a cliff\n   looking down at the coves and crashing waves. Often very quiet and\n   breathtaking.\n\n12:30 PM — A Romantic Oceanfront Lunch\nLaguna Beach is famous for restaurants perched directly over the surf. Here\nare the top three romantic options (I highly recommend making a reservation\nin advance for a Saturday!):\n\n   1. Splashes (at the Surf & Sand Resort): You are seated literally 25\n   feet above the crashing waves. If the tide is high, the ocean spray\n   sometimes hits the glass. Incredible Mediterranean/Californian food.\n   2. The Deck on Laguna Beach: A bit more casual but still highly\n   romantic. It is built on the sand, offering fantastic seafood, oysters, and\n   great cocktails with an unobstructed view of the horizon.\n   3. Las Brisas: A Laguna classic perched on the cliff above Heisler Park.\n   They serve upscale coastal Mexican cuisine with a legendary view of the\n   coastline.\n\n2:30 PM — Post-Lunch: Heisler Park or Art Galleries\n\n   - If you eat at Las Brisas, simply walk out the front door into Heisler\n   Park. It’s a paved, cliffside walking path lined with flowers,\n   sculptures, and tide pools below.\n   - Alternatively, wander through the downtown Laguna village to pop into\n   a few of the famous local art galleries.\n\n3:15 PM — The Drive Back via Shady Canyon\n\n   - Instead of taking PCH back the exact same way, head inland on CA-133\n   North through the Laguna Canyon. The canyon road is winding, shaded by\n   eucalyptus trees, and offers a completely different, rustic California vibe.\n   - Connect to the 73 North (toll road, but very fast and scenic) which\n   will drop you right back by the Marriott Bayview.\n\n4:00 PM — Arrive back at the Bayview Marriott\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "client",
+      "subject": "D2M COS-EXEC Alert",
+      "to": "7192910742@tmomail.net",
+      "date": "Mon, 30 Mar 2026 05:41:14 -0700",
+      "body": "PAY TOMORROW: Kuklinski (Kyle & Rosalie) $7,548 | PAY TOMORROW: Kuklinski (Roger & Nick) $7,548 | PAY TOMORROW: Morton (Josh & Erica) $6,148",
       "score": 4
     },
     {
@@ -7073,6 +7100,33 @@
       "to": "johnloucks3@gmail.com",
       "date": "Sun, 29 Mar 2026 05:50:42 -0700",
       "body": "Thunderbird Preflight — RED\nTime: 2026-03-29 06:50 MT\n\n✅ MCP Server: Running (PID 4233)\n✅ Scheduler: Running (PID 1626)\n✅ Telegram C2: Running (PID 441779)\n✅ Gmail Token: Valid (has refresh token)\n✅ Persona Token: Valid (has refresh token)\n✅ Disk Space: 847.1 GB free\n✅ TELEGRAM_BOT_TOKEN: Set\n✅ TELEGRAM_COMMANDER_ID: Set\n✅ GROQ_API_KEY: Set\n✅ Internet: Connected\n🔴 Gemini API: Failed: No module named 'google.generativeai'\n✅ MCP Port 8765: Listening",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[D2M YELLOW] Preflight Check",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 30 Mar 2026 23:03:44 +0000",
+      "body": "Thunderbird Preflight — YELLOW\nTime: 2026-03-30 17:03 MT\n\n✅ MCP Server: Running (PID 625682)\n✅ Scheduler: Running (PID 1808)\n✅ Telegram C2: Running (PID 470221)\n✅ Gmail Token: Valid (has refresh token)\n✅ Persona Token: Valid (has refresh token)\n✅ Disk Space: 844.5 GB free\n✅ TELEGRAM_BOT_TOKEN: Set\n✅ TELEGRAM_COMMANDER_ID: Set\n✅ GROQ_API_KEY: Set\n✅ Internet: Connected\n⚠️ Gemini API: Skipped (--quick)\n✅ MCP Port 8765: Listening",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "D2M ALERT",
+      "to": "7192910742@tmomail.net",
+      "date": "Mon, 30 Mar 2026 07:50:17 -0500",
+      "body": "Preflight Check: Thunderbird Preflight — RED\nTime: 2026-03-30 06:50 MT\n\n✅ MCP Server: Running (PID 7042)\n✅ Scheduler: Running (PID 1808)",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[D2M RED] Preflight Check",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 30 Mar 2026 05:50:16 -0700",
+      "body": "Thunderbird Preflight — RED\nTime: 2026-03-30 06:50 MT\n\n✅ MCP Server: Running (PID 7042)\n✅ Scheduler: Running (PID 1808)\n🔴 Telegram C2: NOT RUNNING\n✅ Gmail Token: Valid (has refresh token)\n✅ Persona Token: Valid (has refresh token)\n✅ Disk Space: 846.4 GB free\n✅ TELEGRAM_BOT_TOKEN: Set\n✅ TELEGRAM_COMMANDER_ID: Set\n✅ GROQ_API_KEY: Set\n✅ Internet: Connected\n🔴 Gemini API: Failed: No module named 'google.generativeai'\n✅ MCP Port 8765: Listening",
       "score": 3
     },
     {

@@ -1,41 +1,50 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-03-30 23:00:00 MT
+## Generated: 2026-03-31 16:20:00 MT
 
 ---
 
 ### Recent Commits
+- 37e22db feat: collaboration protocol history, session init, Safe-CLI gate, DIP Switchblade analysis
 - 2147536 chore: add .vite/ to .gitignore
 - 1ab3991 chore: session state updates — blackboard sync, routing log, voice ledger
 - 3682c0c chore: update reverie submodule ref
 - d0904ad feat: OpsCenter Goose tasking session — collaboration logs, intel refresh, inbox watcher updates
-- d3f5591 feat: claude_inbox_watcher — auto-execute Goose tasks without Commander trigger
 
 ### Uncommitted Changes
 - CLAUDE.md (modified)
+- Docs/GOOSE_MEMORY_CORE.md (modified)
+- OpsCenter/00_COMMAND_LOG.md (modified)
 - OpsCenter/CLAUDE_DESKTOP_INIT.md (modified)
 - OpsCenter/GOOSE_INIT.md (modified)
+- OpsCenter/claude_inbox_watcher.py (modified)
 - OpsCenter/collaboration/blackboard_summary.txt (modified)
 - OpsCenter/collaboration/claude_inbox.md (modified)
 - OpsCenter/collaboration/claude_output.md (modified)
 - OpsCenter/collaboration/commander_review_log.md (modified)
+- OpsCenter/collaboration/rate_limit_status.md (modified)
 - OpsCenter/collaboration/routing_log.md (modified)
-- learning_rules.db (modified)
-- session_autosave_latest.html (modified)
-- session_autosave_latest.md (modified)
-- OpsCenter/CLAUDE_SESSION_INIT_20260331.md (new)
-- OpsCenter/collaboration/WING_INITIATIVE_HISTORY_2026-03-30.md (new)
-- OpsCenter/collaboration/claude_gate_spec.md (new)
-- OpsCenter/collaboration/dip_guarded_implementation_plan.md (new)
-- OpsCenter/collaboration/dip_proposal.md (new)
-- OpsCenter/collaboration/dip_switchblade_analysis.md (new)
-- OpsCenter/collaboration/safe_cli_architecture.md (new)
-- OpsCenter/collaboration/safe_cli_permissions.md (new)
-- OpsCenter/collaboration/safe_cli_schema.json (new)
-- OpsCenter/package-lock.json (new)
-- OpsCenter/package.json (new)
-- OpsCenter/policy_engine_rules.md (new)
-- OpsCenter/safe_cli_gate.py (new)
-- OpsCenter/safe_cli_schema.json (new)
+- cache/client_context/ely_context.json (modified)
+- cache/client_context/furlow_context.json (modified)
+- cache/client_context/how_context.json (modified)
+- cache/client_context/mcleran_context.json (modified)
+- cache/client_context/quick_context.json (modified)
+- cache/client_context/thanks_context.json (modified)
+- cache/client_context/wait_context.json (modified)
+- cache/client_context/westbrook_context.json (modified)
+- OpsCenter/.directory (new)
+- OpsCenter/claude_max_usage_meter.html (new)
+- OpsCenter/claude_usage_status.json (new)
+- OpsCenter/claude_usage_tracker.py (new)
+- claude_coordination_task.txt (new)
+- claude_inbox.md (new)
+- conceptual_plan_summary.md (new)
+- docs/CLINE_CLI_USER_MANUAL.md (new)
+- gdrive_tool.py (new)
+- intel/incubator_a2_intake_2026-03-31.json (new)
+- intel/incubator_am_raw_2026-03-31.json (new)
+- src/tools/llm_query.ts (new)
+- temp_reset_sonnet.sh (new)
+- thunderbird_groq_connectors.py (new)
 
 ### Active Work
 - SSS: 0 pending decision(s)

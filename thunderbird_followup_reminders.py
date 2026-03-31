@@ -4,7 +4,7 @@ Thunderbird Client Follow-Up Reminders
 Scans dossiers for client inactivity and generates follow-up suggestions.
 Dani (A3) drafts the suggestion, Harlan (A9) flags overdue financials.
 
-Run daily after morning briefing. Sends SMS summary of clients needing attention.
+Run daily after morning briefing. Sends Telegram alert summary of clients needing attention.
 
 Usage:
     from thunderbird_followup_reminders import scan_and_remind
@@ -13,10 +13,9 @@ Usage:
 
 import json
 import logging
+import os
 import re
-import base64
 from datetime import datetime, date, timedelta
-from email.mime.text import MIMEText
 from pathlib import Path
 from typing import Optional
 
@@ -26,7 +25,6 @@ logger = logging.getLogger(__name__)
 THUNDERBIRD_DIR = Path.home() / "Thunderbird"
 DOSSIERS_DIR = THUNDERBIRD_DIR / "Dossiers"
 STATE_FILE = THUNDERBIRD_DIR / "followup_state.json"
-SMS_GATEWAY = "7192910742@tmomail.net"
 
 # Inactivity thresholds
 WARN_DAYS = 7       # Flag at 7 days
@@ -140,17 +138,42 @@ def scan_dossiers() -> list[dict]:
     return results
 
 
-def _send_sms(message: str, subject: str = "D2M Follow-Up"):
-    """Send SMS via T-Mobile gateway."""
-    from thunderbird_gmail import _get_gmail_service, USER_EMAIL
-    service = _get_gmail_service()
-    msg = MIMEText(message[:160])
-    msg["to"] = SMS_GATEWAY
-    msg["from"] = USER_EMAIL
-    msg["subject"] = subject
-    raw = base64.urlsafe_b64encode(msg.as_bytes()).decode()
-    service.users().messages().send(userId="me", body={"raw": raw}).execute()
-    logger.info(f"SMS sent: {message[:80]}")
+def _load_env() -> dict:
+    """Load .env file into a dict."""
+    env = {}
+    env_file = THUNDERBIRD_DIR / ".env"
+    if env_file.exists():
+        for line in env_file.read_text().splitlines():
+            line = line.strip()
+            if line and not line.startswith("#") and "=" in line:
+                k, v = line.split("=", 1)
+                env[k.strip()] = v.strip()
+    return env
+
+
+def _send_telegram_alert(message: str, subject: str = "D2M Follow-Up"):
+    """Send alert via Telegram C2 bot (replaced tmomail SMS 2026-03-31)."""
+    import requests
+    env = _load_env()
+    token = os.environ.get("TELEGRAM_BOT_TOKEN") or os.environ.get("TELEGRAM_C2_BOT_TOKEN") or env.get("TELEGRAM_BOT_TOKEN") or env.get("TELEGRAM_C2_BOT_TOKEN")
+    chat_id = os.environ.get("TELEGRAM_COMMANDER_ID") or env.get("TELEGRAM_COMMANDER_ID")
+    if not token or not chat_id:
+        logger.error("Telegram credentials not configured — alert not sent")
+        return
+    text = f"<b>{subject}</b>\n{message}" if subject else message
+    url = f"https://api.telegram.org/bot{token}/sendMessage"
+    try:
+        resp = requests.post(url, json={
+            "chat_id": chat_id,
+            "text": text,
+            "parse_mode": "HTML",
+        }, timeout=10)
+        if resp.status_code == 200:
+            logger.info(f"Telegram alert sent: {message[:80]}")
+        else:
+            logger.error(f"Telegram alert failed: {resp.status_code} {resp.text[:200]}")
+    except Exception as e:
+        logger.error(f"Telegram alert failed: {e}")
 
 
 def scan_and_remind() -> dict:
@@ -159,10 +182,10 @@ def scan_and_remind() -> dict:
     state = _load_state()
     today_str = date.today().isoformat()
 
-    # Don't send more than one SMS summary per day
+    # Don't send more than one alert summary per day
     if state.get("last_summary_date") == today_str:
-        logger.info("Already sent today's follow-up summary. Skipping SMS.")
-        return {"scanned": len(results), "sms_sent": False, "clients": results}
+        logger.info("Already sent today's follow-up summary. Skipping alert.")
+        return {"scanned": len(results), "alert_sent": False, "clients": results}
 
     if not results:
         logger.info("No clients need follow-up. All clear.")
@@ -183,20 +206,20 @@ def scan_and_remind() -> dict:
     if warn:
         parts.append(f"WARN: {len(warn)} clients")
 
-    sms = f"D2M Follow-Up: {' | '.join(parts)}"
+    alert_msg = f"D2M Follow-Up: {' | '.join(parts)}"
 
     try:
-        _send_sms(sms)
+        _send_telegram_alert(alert_msg)
         state["last_summary_date"] = today_str
         state["last_results"] = [
             {"client": r["client"], "days": r["days_silent"], "priority": r["priority"]}
             for r in results
         ]
         _save_state(state)
-        return {"scanned": len(results), "sms_sent": True, "clients": results}
+        return {"scanned": len(results), "alert_sent": True, "clients": results}
     except Exception as e:
-        logger.error(f"Failed to send follow-up SMS: {e}")
-        return {"scanned": len(results), "sms_sent": False, "error": str(e), "clients": results}
+        logger.error(f"Failed to send follow-up alert: {e}")
+        return {"scanned": len(results), "alert_sent": False, "error": str(e), "clients": results}
 
 
 def _load_state() -> dict:

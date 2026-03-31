@@ -157,10 +157,10 @@ Append to `OpsCenter/04_GOOSE_TASK_MANIFEST.md` completion log:
 
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-03-30 23:02 MT -->
+<!-- Last sync: 2026-03-31 16:25 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-03-30 23:02 MT] ===
-Budget: Claude YELLOW — rate-limited, 28hr recovery window as of 0100 MT | Goose (Gemini): GREEN — primary model during Commander operational hours | Groq GREEN — available, high RPM, no PII | Deepseek GREEN — available, arbitration only, no PII
+=== THUNDERBIRD BLACKBOARD [2026-03-31 16:25 MT] ===
+Budget: Claude UNKNOWN | Goose GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE
 Open items: none logged

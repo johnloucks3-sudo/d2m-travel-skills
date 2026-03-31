@@ -86,6 +86,7 @@ from thunderbird_model_router import register_router_tools
 from thunderbird_a2a_protocol import register_a2a_protocol_tools
 from thunderbird_grant_compiler import register_grant_tools
 from thunderbird_mcp_connector import register_connector_tools
+from thunderbird_groq_connectors import register_groq_connector_tools
 import json
 import logging
 import asyncio
@@ -539,6 +540,12 @@ try:
     register_connector_tools(mcp)
 except Exception as e:
     logger.warning(f"MCP connector tools not available: {e}")
+
+# Groq Remote MCP Connectors (Gmail/Calendar/Drive via Groq Responses API)
+try:
+    register_groq_connector_tools(mcp)
+except Exception as e:
+    logger.warning(f"Groq connector tools not available: {e}")
 
 # remaining wave 4 based on profile
 if MCP_PROFILE in ("intel", "full"):

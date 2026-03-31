@@ -26,6 +26,13 @@ from pathlib import Path
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
+# Usage tracker integration
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+try:
+    from claude_usage_tracker import log_message as _track_usage
+except ImportError:
+    def _track_usage(**kw): pass
+
 # ── Paths ──
 ROOT       = Path(__file__).resolve().parent.parent
 OPSCENTER  = ROOT / "OpsCenter"
@@ -148,14 +155,14 @@ def _call_claude(task_block: str, blackboard_context: str) -> str:
         result = subprocess.run(
             ["claude", "-p", prompt, "--output-format", "text",
              "--dangerously-skip-permissions", "--max-turns", "10"],
-            capture_output=True, text=True, timeout=180,
+            capture_output=True, text=True, timeout=480,
             cwd=str(ROOT), env=env,
         )
         if result.returncode != 0 and result.stderr:
             return f"[ERROR] Claude CLI failed: {result.stderr[:300]}"
         return result.stdout.strip() or "[ERROR] Claude CLI returned empty output"
     except subprocess.TimeoutExpired:
-        return "[ERROR] Claude CLI timed out after 180s"
+        return "[ERROR] Claude CLI timed out after 480s"
     except Exception as e:
         return f"[ERROR] Claude CLI call failed: {e}"
 
@@ -230,6 +237,9 @@ def process_inbox():
     output_dest = _extract_output_dest(task_block)
 
     response = _call_claude(task_block, blackboard)
+
+    # Track usage
+    _track_usage(source="watcher", model="sonnet")
 
     _write_output(task_id, response, output_dest)
     _log_routing(task_id, "COMPLETE")

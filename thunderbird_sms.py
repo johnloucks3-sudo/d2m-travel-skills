@@ -1,55 +1,69 @@
 """
-Dreams2Memories SMS Notification MCP Module
-============================================
-Sends SMS via T-Mobile email-to-SMS gateway using Gmail OAuth.
+Dreams2Memories Notification MCP Module
+========================================
+Sends alerts via Telegram C2 bot (replaced tmomail SMS gateway 2026-03-31).
 """
 import json
 import logging
-import base64
+import os
 import asyncio
-from email.mime.text import MIMEText
+from pathlib import Path
 
 from pydantic import Field
 from mcp.server.fastmcp import FastMCP
-from thunderbird_gmail import _get_gmail_service, USER_EMAIL
 
 logger = logging.getLogger(__name__)
-SMS_GATEWAY = "17192910742@tmomail.net"
-SMS_MAX_LEN = 160
+
+THUNDERBIRD_DIR = Path(__file__).parent
+
+
+def _load_env() -> dict:
+    """Load .env file into a dict."""
+    env = {}
+    env_file = THUNDERBIRD_DIR / ".env"
+    if env_file.exists():
+        for line in env_file.read_text().splitlines():
+            line = line.strip()
+            if line and not line.startswith("#") and "=" in line:
+                k, v = line.split("=", 1)
+                env[k.strip()] = v.strip()
+    return env
+
 
 def _sync_send(message: str, subject: str) -> dict:
-    service = _get_gmail_service()
-    truncated = len(message) > SMS_MAX_LEN
-    msg_text = message[:SMS_MAX_LEN] if truncated else message
-    
-    msg = MIMEText(msg_text, 'plain')
-    msg["to"] = SMS_GATEWAY
-    msg["from"] = USER_EMAIL
-    if subject:
-        msg["subject"] = subject
-        
-    raw = base64.urlsafe_b64encode(msg.as_bytes()).decode()
-    service.users().messages().send(userId="me", body={"raw": raw}).execute()
-    
-    return {
-        "status": "sent",
-        "to": SMS_GATEWAY,
-        "chars": len(msg_text),
-        "truncated": truncated
-    }
+    """Send alert via Telegram C2 bot."""
+    import requests
+    env = _load_env()
+    token = os.environ.get("TELEGRAM_BOT_TOKEN") or os.environ.get("TELEGRAM_C2_BOT_TOKEN") or env.get("TELEGRAM_BOT_TOKEN") or env.get("TELEGRAM_C2_BOT_TOKEN")
+    chat_id = os.environ.get("TELEGRAM_COMMANDER_ID") or env.get("TELEGRAM_COMMANDER_ID")
+    if not token or not chat_id:
+        return {"status": "error", "error": "TELEGRAM_BOT_TOKEN or TELEGRAM_COMMANDER_ID not set"}
+
+    text = f"<b>{subject}</b>\n{message}" if subject else message
+    url = f"https://api.telegram.org/bot{token}/sendMessage"
+    resp = requests.post(url, json={
+        "chat_id": chat_id,
+        "text": text,
+        "parse_mode": "HTML",
+    }, timeout=10)
+
+    if resp.status_code == 200:
+        return {"status": "sent", "channel": "telegram", "chars": len(text)}
+    else:
+        return {"status": "error", "error": f"Telegram API {resp.status_code}: {resp.text[:200]}"}
+
 
 def register_sms_tools(mcp: FastMCP):
 
     @mcp.tool(name="send_sms_notification", annotations={"title": "Send SMS Notification", "readOnlyHint": False})
     async def send_sms_notification(
-        message: str = Field(..., description="SMS message text (160 char max recommended)"),
-        subject: str = Field("D2M Alert", description="SMS subject/header"),
+        message: str = Field(..., description="Alert message text"),
+        subject: str = Field("D2M Alert", description="Alert subject/header"),
     ) -> str:
-        """Send an SMS notification to John's phone via T-Mobile email gateway."""
+        """Send a notification to John's phone via Telegram C2 bot."""
         try:
-            # Run the blocking Google API call in a separate thread so it doesn't crash the Starlette event loop
             result = await asyncio.to_thread(_sync_send, message, subject)
             return json.dumps(result)
         except Exception as e:
-            logger.error(f"SMS send error: {e}")
-            return json.dumps({"error": str(e), "type": "sms_error"})
+            logger.error(f"Telegram send error: {e}")
+            return json.dumps({"error": str(e), "type": "telegram_error"})

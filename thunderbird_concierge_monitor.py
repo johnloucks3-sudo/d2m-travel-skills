@@ -49,7 +49,6 @@ log = logging.getLogger("concierge_monitor")
 # ── CONSTANTS ────────────────────────────────────────────────
 CONCIERGE_ADDR = "concierge@d2mluxury.quest"
 COMMANDER_EMAIL = "johnloucks3@gmail.com"
-COMMANDER_SMS = "7192910742@tmomail.net"
 TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "***REMOVED-SECRET***")  # D2MC2C_bot — Commander C2 channel
 TELEGRAM_COMMANDER_ID = 7554895206
 MAX_DRAFTS_PER_HOUR = 5
@@ -598,19 +597,16 @@ def alert_commander(classification: dict, draft_id: Optional[str]):
             service.users().messages().send(userId="me", body={"raw": raw}).execute()
             log.info(f"Commander alerted: {classification['sender_email']}")
 
-            # SMS alert for urgent items
+            # Telegram alert for urgent items (replaced tmomail SMS 2026-03-31)
             if classification["is_urgent"]:
-                sms_body = (
-                    f"URGENT concierge email from {classification['sender_name']}. "
-                    f"Subject: {classification['subject'][:50]}. Check Gmail drafts."
+                tg_body = (
+                    f"<b>URGENT concierge email</b>\n"
+                    f"From: {classification['sender_name']}\n"
+                    f"Subject: {classification['subject'][:80]}\n"
+                    f"Check Gmail drafts."
                 )
-                sms_msg = MIMEText(sms_body, "plain")
-                sms_msg["to"] = COMMANDER_SMS
-                sms_msg["from"] = CONCIERGE_ADDR
-                sms_msg["subject"] = ""
-                raw_sms = base64.urlsafe_b64encode(sms_msg.as_bytes()).decode("utf-8")
-                service.users().messages().send(userId="me", body={"raw": raw_sms}).execute()
-                log.info(f"SMS alert sent for urgent email from {classification['sender_email']}")
+                _telegram_alert(tg_body)
+                log.info(f"Telegram alert sent for urgent email from {classification['sender_email']}")
 
         except Exception as e:
             log.error(f"Failed to alert Commander: {e}")

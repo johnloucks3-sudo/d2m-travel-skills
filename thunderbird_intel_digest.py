@@ -17,6 +17,7 @@ Usage:
 import json
 import asyncio
 import logging
+import os
 import sys
 import base64
 import argparse
@@ -742,22 +743,44 @@ def send_digest_email(html_content, subject):
 
 
 # ---------------------------------------------------------------------------
-# SMS PING (short alert to phone)
+# TELEGRAM PING (replaced tmomail SMS 2026-03-31)
 # ---------------------------------------------------------------------------
 
-def send_sms_ping():
-    """Send a short SMS that the digest has been emailed."""
+def _load_env() -> dict:
+    """Load .env file into a dict."""
+    env = {}
+    env_file = THUNDERBIRD_DIR / ".env"
+    if env_file.exists():
+        for line in env_file.read_text().splitlines():
+            line = line.strip()
+            if line and not line.startswith("#") and "=" in line:
+                k, v = line.split("=", 1)
+                env[k.strip()] = v.strip()
+    return env
+
+
+def send_telegram_ping():
+    """Send a Telegram alert that the intel digest has been emailed."""
     try:
-        service = _get_gmail_service()
-        sms_msg = MIMEText("Intel Digest delivered. Check email.")
-        sms_msg["to"] = "7192910742@tmomail.net"
-        sms_msg["from"] = OPS_EMAIL
-        sms_msg["subject"] = "THUNDERBIRD"
-        raw = base64.urlsafe_b64encode(sms_msg.as_bytes()).decode()
-        service.users().messages().send(userId="me", body={"raw": raw}).execute()
-        logger.info("SMS ping sent")
+        import requests
+        env = _load_env()
+        token = os.environ.get("TELEGRAM_BOT_TOKEN") or os.environ.get("TELEGRAM_C2_BOT_TOKEN") or env.get("TELEGRAM_BOT_TOKEN") or env.get("TELEGRAM_C2_BOT_TOKEN")
+        chat_id = os.environ.get("TELEGRAM_COMMANDER_ID") or env.get("TELEGRAM_COMMANDER_ID")
+        if not token or not chat_id:
+            logger.error("Telegram credentials not configured — ping not sent")
+            return
+        url = f"https://api.telegram.org/bot{token}/sendMessage"
+        resp = requests.post(url, json={
+            "chat_id": chat_id,
+            "text": "<b>THUNDERBIRD</b>\nIntel Digest delivered. Check email.",
+            "parse_mode": "HTML",
+        }, timeout=10)
+        if resp.status_code == 200:
+            logger.info("Telegram ping sent")
+        else:
+            logger.error(f"Telegram ping failed: {resp.status_code} {resp.text[:200]}")
     except Exception as e:
-        logger.error(f"SMS ping failed: {e}")
+        logger.error(f"Telegram ping failed: {e}")
 
 
 # ---------------------------------------------------------------------------
@@ -830,7 +853,7 @@ async def run_digest(preview=False, scrape_only=False):
         ok_count = sum(1 for f in x_feeds if f["status"] == "ok")
         subject = f"THUNDERBIRD INTEL DIGEST // {now.strftime('%b %d')} {period} — {ok_count} feeds"
         send_digest_email(html, subject)
-        send_sms_ping()
+        send_telegram_ping()
         logger.info("Digest complete.")
 
 

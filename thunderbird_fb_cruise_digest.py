@@ -24,6 +24,8 @@ from pathlib import Path
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
+import requests as _requests
+
 
 # ---------------------------------------------------------------------------
 # CONFIG
@@ -450,17 +452,40 @@ def send_digest_email(html_content, subject):
     logger.info(f"Digest SENT to {COMMANDER_EMAIL}: {subject}")
 
 
-def send_sms_ping():
+def _load_env() -> dict:
+    """Load .env file into a dict."""
+    env = {}
+    env_file = THUNDERBIRD_DIR / ".env"
+    if env_file.exists():
+        for line in env_file.read_text().splitlines():
+            line = line.strip()
+            if line and not line.startswith("#") and "=" in line:
+                k, v = line.split("=", 1)
+                env[k.strip()] = v.strip()
+    return env
+
+
+def send_telegram_ping():
+    """Send Telegram alert that cruise digest has been emailed (replaced tmomail SMS 2026-03-31)."""
     try:
-        service = _get_gmail_service()
-        sms_msg = MIMEText("Cruise Community Digest delivered. Check email.")
-        sms_msg["to"] = "7192910742@tmomail.net"
-        sms_msg["from"] = OPS_EMAIL
-        sms_msg["subject"] = "THUNDERBIRD"
-        raw = base64.urlsafe_b64encode(sms_msg.as_bytes()).decode()
-        service.users().messages().send(userId="me", body={"raw": raw}).execute()
+        env = _load_env()
+        token = os.environ.get("TELEGRAM_BOT_TOKEN") or os.environ.get("TELEGRAM_C2_BOT_TOKEN") or env.get("TELEGRAM_BOT_TOKEN") or env.get("TELEGRAM_C2_BOT_TOKEN")
+        chat_id = os.environ.get("TELEGRAM_COMMANDER_ID") or env.get("TELEGRAM_COMMANDER_ID")
+        if not token or not chat_id:
+            logger.error("Telegram credentials not configured — ping not sent")
+            return
+        url = f"https://api.telegram.org/bot{token}/sendMessage"
+        resp = _requests.post(url, json={
+            "chat_id": chat_id,
+            "text": "<b>THUNDERBIRD</b>\nCruise Community Digest delivered. Check email.",
+            "parse_mode": "HTML",
+        }, timeout=10)
+        if resp.status_code == 200:
+            logger.info("Telegram ping sent")
+        else:
+            logger.error(f"Telegram ping failed: {resp.status_code} {resp.text[:200]}")
     except Exception as e:
-        logger.error(f"SMS ping failed: {e}")
+        logger.error(f"Telegram ping failed: {e}")
 
 
 # ---------------------------------------------------------------------------
@@ -495,7 +520,7 @@ async def run_digest(preview=False):
         ok_count = sum(1 for g in group_results if g["status"] == "ok")
         subject = f"CRUISE COMMUNITY DIGEST // {now.strftime('%b %d')} — {ok_count} groups"
         send_digest_email(html, subject)
-        send_sms_ping()
+        send_telegram_ping()
         logger.info("Digest complete.")
 
 

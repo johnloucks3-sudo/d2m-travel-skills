@@ -26,9 +26,7 @@ Dependencies: thunderbird_gmail.py (OAuth Gmail), thunderbird_personas.py,
 import json
 import logging
 import re
-import base64
 from datetime import datetime
-from email.mime.text import MIMEText
 from pathlib import Path
 from typing import Dict, List, Any, Optional, Tuple
 
@@ -46,10 +44,8 @@ STATE_FILE = THUNDERBIRD_DIR / "sms_monitor_state.json"
 LOG_DIR = THUNDERBIRD_DIR / "logs"
 LOG_FILE = LOG_DIR / "sms_inbound.log"
 
-# T-Mobile SMS gateway
+# T-Mobile SMS gateway (inbound parsing only — outbound via Telegram C2 since 2026-03-31)
 JOHN_PHONE = "7192910742"
-SMS_GATEWAY = f"{JOHN_PHONE}@tmomail.net"
-SMS_MAX_LEN = 160
 
 # Gmail labels for SMS tracking
 SMS_DONE_LABEL = "THUNDERBIRD-SMS-Processed"
@@ -220,48 +216,67 @@ def _parse_prefix(body: str) -> Tuple[Optional[str], str]:
 # SMS outbound — reply via gateway
 # ---------------------------------------------------------------------------
 
+def _load_env() -> dict:
+    """Load .env file into a dict."""
+    env = {}
+    env_file = THUNDERBIRD_DIR / ".env"
+    if env_file.exists():
+        for line in env_file.read_text().splitlines():
+            line = line.strip()
+            if line and not line.startswith("#") and "=" in line:
+                k, v = line.split("=", 1)
+                env[k.strip()] = v.strip()
+    return env
+
+
 def reply_via_sms(message: str, persona_id: Optional[str] = None) -> Dict[str, Any]:
-    """Send a response back to John via SMS gateway.
+    """Send a response back to John via Telegram C2 bot.
+    (Replaced tmomail SMS gateway 2026-03-31.)
 
     Args:
-        message: Response text (will be truncated to SMS_MAX_LEN)
+        message: Response text
         persona_id: If set, prefix response with [PERSONA]
 
     Returns:
         Status dict with send result
     """
     try:
-        service = _get_gmail_service()
+        import os
+        import requests
+        env = _load_env()
+        token = os.environ.get("TELEGRAM_BOT_TOKEN") or os.environ.get("TELEGRAM_C2_BOT_TOKEN") or env.get("TELEGRAM_BOT_TOKEN") or env.get("TELEGRAM_C2_BOT_TOKEN")
+        chat_id = os.environ.get("TELEGRAM_COMMANDER_ID") or env.get("TELEGRAM_COMMANDER_ID")
+        if not token or not chat_id:
+            logger.error("Telegram credentials not configured — reply not sent")
+            return {"status": "error", "error": "Telegram credentials not configured"}
 
         # Format: "[A3] response text"
         if persona_id:
-            prefix = f"[{persona_id}] "
-            max_body = SMS_MAX_LEN - len(prefix)
-            body_text = prefix + message[:max_body]
+            body_text = f"<b>[{persona_id}]</b> {message}"
         else:
-            body_text = message[:SMS_MAX_LEN]
+            body_text = message
 
-        truncated = len(message) > (SMS_MAX_LEN - (len(f"[{persona_id}] ") if persona_id else 0))
+        url = f"https://api.telegram.org/bot{token}/sendMessage"
+        resp = requests.post(url, json={
+            "chat_id": chat_id,
+            "text": body_text,
+            "parse_mode": "HTML",
+        }, timeout=10)
 
-        msg = MIMEText(body_text)
-        msg["to"] = SMS_GATEWAY
-        msg["from"] = USER_EMAIL
-        msg["subject"] = "D2M"
-
-        raw = base64.urlsafe_b64encode(msg.as_bytes()).decode()
-        service.users().messages().send(userId="me", body={"raw": raw}).execute()
-
-        logger.info(f"SMS reply sent: {body_text[:80]}...")
-        return {
-            "status": "sent",
-            "to": SMS_GATEWAY,
-            "chars": len(body_text),
-            "truncated": truncated,
-            "persona": persona_id,
-        }
+        if resp.status_code == 200:
+            logger.info(f"Telegram reply sent: {body_text[:80]}...")
+            return {
+                "status": "sent",
+                "channel": "telegram",
+                "chars": len(body_text),
+                "persona": persona_id,
+            }
+        else:
+            logger.error(f"Telegram reply failed: {resp.status_code} {resp.text[:200]}")
+            return {"status": "error", "error": f"Telegram API {resp.status_code}"}
 
     except Exception as e:
-        logger.error(f"SMS reply failed: {e}")
+        logger.error(f"Telegram reply failed: {e}")
         return {"status": "error", "error": str(e)}
 
 

@@ -127,3 +127,14 @@ COS Morning Brief
 *ELON Tickets: A12 ELON*
 *COS Review: Col Victoria "Iron Vic" Hale*
 *Pipeline: LIVE — first real queue population after 5-day repair cycle*
+
+### ELON-2026-03-31-001 — Vision Concept Explainability for Itinerary Image Selection
+- **Status:** 🟡 PENDING
+- **Date:** 2026-03-31
+- **What:** Add human-readable concept explanations to image asset selection in itinerary generation, showing COS/Dani why each port photo was chosen.
+- **Why:** Current image pipeline opaque — system selects photos with no audit trail. COS cannot validate asset reasoning. Concept extraction enables audit without compromising UX.
+- **How:** Add `image_concept_explainer.py` module. Use CLIP embeddings (OSS, lightweight) to extract concepts from selected ship photos. Store concept explanations alongside image refs in itinerary JSON. Pipe output to COS audit log in `output/itinerary_concept_audit.json`. Integrate into `_generate_itinerary()` in `itinerary_generator.py` via `explain_image_selection()` call.
+- **Effort:** MED · **SSS:** NO
+- **A5 Fit:** ACCELERATES — Zero client-facing value, but explainability + audit trail on vision assets is foundational incubator pattern—proves Thunderbird can make AI decisions auditable at scale, low effort, low risk, fits light client load window.
+- **A9:** APPROVED — NO. CLIP is OSS (OpenAI), runs locally, no subscription. · ROI: COS audit transparency (eliminates ~2-3 hrs/month manual verification). Risk mitigation on image selection. Zero client UX impact. Scalable process insight as volume grows.
+- **ELON:** _Real gap: COS blindfolded on asset picks. CLIP adds ~100ms per itinerary. Advisory only = zero client risk. Worth it. Ship it._

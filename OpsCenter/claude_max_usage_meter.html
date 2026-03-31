@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Claude MAX Usage Meter — Thunderbird OpsCenter</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; padding: 20px; background: #0d1117; color: #e6edf3; min-height: 100vh; }
+.header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+.header h1 { font-size: 18px; font-weight: 600; color: #e6edf3; }
+.badge { padding: 3px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+.badge-green { background: #0d3320; color: #3fb950; border: 1px solid #238636; }
+.badge-yellow { background: #3d2e00; color: #d29922; border: 1px solid #9e6a03; }
+.badge-red { background: #3d1012; color: #f85149; border: 1px solid #da3633; }
+.peak-badge { background: #3d2e00; color: #d29922; border: 1px solid #9e6a03; font-size: 11px; padding: 2px 8px; border-radius: 12px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>Claude MAX Usage Meter</h1>
+  <span class="badge badge-green" id="budgetBadge">GREEN</span>
+  <span class="peak-badge" id="peakBadge" style="display:none;">PEAK HOURS</span>
+</div>
+
+<style>
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+.card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 16px; }
+.card-label { font-size: 12px; color: #8b949e; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+.card-value { font-size: 28px; font-weight: 600; color: #e6edf3; }
+.card-sub { font-size: 12px; color: #8b949e; margin-top: 4px; }
+.meter-section { margin-bottom: 24px; }
+.meter-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+.meter-title { font-size: 14px; font-weight: 500; color: #e6edf3; }
+.meter-pct { font-size: 14px; font-weight: 600; }
+.meter-track { height: 12px; background: #21262d; border-radius: 6px; overflow: hidden; }
+.meter-fill { height: 100%; border-radius: 6px; transition: width 0.5s ease; }
+.meter-fill-green { background: linear-gradient(90deg, #238636, #3fb950); }
+.meter-fill-yellow { background: linear-gradient(90deg, #9e6a03, #d29922); }
+.meter-fill-red { background: linear-gradient(90deg, #da3633, #f85149); }
+.meter-marks { display: flex; justify-content: space-between; margin-top: 4px; font-size: 10px; color: #484f58; }
+.sources { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 24px; }
+.source { background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 10px; text-align: center; }
+.source-count { font-size: 20px; font-weight: 600; color: #e6edf3; }
+.source-label { font-size: 11px; color: #8b949e; margin-top: 2px; }
+.thresholds { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 12px 16px; }
+.threshold-row { display: flex; align-items: center; gap: 8px; padding: 4px 0; font-size: 12px; color: #8b949e; }
+.dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.dot-green { background: #3fb950; }
+.dot-yellow { background: #d29922; }
+.dot-red { background: #f85149; }
+.footer { margin-top: 16px; font-size: 11px; color: #484f58; text-align: center; }
+.session-timer { font-size: 13px; color: #8b949e; }
+.refresh-btn { background: #21262d; border: 1px solid #30363d; color: #8b949e; padding: 6px 14px; border-radius: 6px; cursor: pointer; font-size: 12px; margin-top: 12px; }
+.refresh-btn:hover { background: #30363d; color: #e6edf3; }
+</style>
+
+<div class="grid">
+  <div class="card">
+    <div class="card-label">Session messages</div>
+    <div class="card-value" id="sessionCount">--</div>
+    <div class="card-sub">of <span id="sessionLimit">225</span> limit</div>
+  </div>
+  <div class="card">
+    <div class="card-label">Effective (peak-adjusted)</div>
+    <div class="card-value" id="effectiveCount">--</div>
+    <div class="card-sub">Peak msgs cost 1.5x</div>
+  </div>
+</div>
+
+<div class="meter-section">
+  <div class="meter-header">
+    <span class="meter-title">Session usage</span>
+    <span class="meter-pct" id="sessionPct">--%</span>
+  </div>
+  <div class="meter-track">
+    <div class="meter-fill meter-fill-green" id="sessionBar" style="width:0%"></div>
+  </div>
+  <div class="meter-marks">
+    <span>0</span>
+    <span style="color:#d29922;">60% YELLOW</span>
+    <span style="color:#f85149;">80% RED</span>
+    <span id="limitLabel">225</span>
+  </div>
+</div>
+
+<div class="meter-section">
+  <div class="meter-header">
+    <span class="meter-title">Weekly usage</span>
+    <span class="meter-pct" id="weeklyPct">--%</span>
+  </div>
+  <div class="meter-track">
+    <div class="meter-fill meter-fill-green" id="weeklyBar" style="width:0%"></div>
+  </div>
+  <div class="meter-marks">
+    <span>0</span>
+    <span id="weeklyLimitLabel">1500</span>
+  </div>
+</div>
+
+<div style="text-align:center; margin-bottom:16px;">
+  <span class="session-timer" id="timerDisplay">Session resets in: calculating...</span>
+</div>
+
+<div class="sources">
+  <div class="source">
+    <div class="source-count" id="srcDesktop">--</div>
+    <div class="source-label">Desktop</div>
+  </div>
+  <div class="source">
+    <div class="source-count" id="srcCode">--</div>
+    <div class="source-label">Code CLI</div>
+  </div>
+  <div class="source">
+    <div class="source-count" id="srcWatcher">--</div>
+    <div class="source-label">Watcher</div>
+  </div>
+</div>
+
+<div class="thresholds">
+  <div class="threshold-row"><span class="dot dot-green"></span> GREEN &lt;60% — route freely to Claude</div>
+  <div class="threshold-row"><span class="dot dot-yellow"></span> YELLOW 60-80% — route to Goose where possible</div>
+  <div class="threshold-row"><span class="dot dot-red"></span> RED &gt;80% — mandatory Goose-first, Claude only on /use claude</div>
+</div>
+
+<div style="text-align:center;">
+  <button class="refresh-btn" onclick="loadData()">Refresh from status file</button>
+</div>
+
+<div class="footer">
+  Dreams2Memories Travel, LLC — Thunderbird OpsCenter<br>
+  Source: OpsCenter/claude_usage_status.json | Writer: claude_usage_tracker.py<br>
+  Shared with: COS (blackboard sync) · Goose (TOM injection) · Commander (this meter)<br>
+  <span id="lastUpdate">--</span>
+</div>
+
+<script>
+function update(d) {
+  const eff = d.effective_messages || 0;
+  const limit = d.session_limit || 225;
+  const pct = (eff / limit * 100).toFixed(1);
+  const weeklyPct = ((d.weekly_messages || 0) / (d.weekly_limit || 1500) * 100).toFixed(1);
+  const status = pct >= 80 ? 'RED' : pct >= 60 ? 'YELLOW' : 'GREEN';
+  const color = status === 'RED' ? '#f85149' : status === 'YELLOW' ? '#d29922' : '#3fb950';
+
+  document.getElementById('budgetBadge').className = 'badge badge-' + status.toLowerCase();
+  document.getElementById('budgetBadge').textContent = status;
+  document.getElementById('sessionCount').textContent = d.session_messages || 0;
+  document.getElementById('sessionLimit').textContent = limit;
+  document.getElementById('effectiveCount').textContent = eff.toFixed(1);
+  document.getElementById('sessionPct').textContent = pct + '%';
+  document.getElementById('sessionPct').style.color = color;
+  document.getElementById('sessionBar').className = 'meter-fill meter-fill-' + status.toLowerCase();
+  document.getElementById('sessionBar').style.width = Math.min(pct, 100) + '%';
+  document.getElementById('weeklyPct').textContent = weeklyPct + '%';
+  document.getElementById('weeklyPct').style.color = weeklyPct >= 80 ? '#f85149' : weeklyPct >= 60 ? '#d29922' : '#3fb950';
+  document.getElementById('weeklyBar').style.width = Math.min(weeklyPct, 100) + '%';
+  document.getElementById('weeklyBar').className = 'meter-fill meter-fill-' + (weeklyPct >= 80 ? 'red' : weeklyPct >= 60 ? 'yellow' : 'green');
+  document.getElementById('srcDesktop').textContent = (d.sources || {}).desktop || 0;
+  document.getElementById('srcCode').textContent = (d.sources || {}).code || 0;
+  document.getElementById('srcWatcher').textContent = (d.sources || {}).watcher || 0;
+  document.getElementById('limitLabel').textContent = limit;
+  document.getElementById('weeklyLimitLabel').textContent = d.weekly_limit || 1500;
+
+  // Peak hours check (MT = America/Denver)
+  var now = new Date();
+  var mt = new Date(now.toLocaleString('en-US', {timeZone: 'America/Denver'}));
+  var hour = mt.getHours();
+  var day = mt.getDay();
+  var isPeak = day >= 1 && day <= 5 && hour >= 6 && hour < 12;
+  document.getElementById('peakBadge').style.display = isPeak ? 'inline' : 'none';
+
+  // Session timer
+  if (d.session_start) {
+    var sessionStart = new Date(d.session_start);
+    var elapsed = (now - sessionStart) / 1000;
+    var remaining = Math.max(0, 5 * 3600 - elapsed);
+    var h = Math.floor(remaining / 3600);
+    var m = Math.floor((remaining % 3600) / 60);
+    document.getElementById('timerDisplay').textContent = remaining > 0
+      ? 'Session resets in: ' + h + 'h ' + m + 'm'
+      : 'Session window expired — next message starts fresh';
+  }
+  document.getElementById('lastUpdate').textContent = 'Last refresh: ' + now.toLocaleTimeString('en-US', {timeZone: 'America/Denver'});
+}
+
+// Load from local file (works when opened from YOGA filesystem)
+function loadData() {
+  fetch('claude_usage_status.json')
+    .then(function(r) { return r.json(); })
+    .then(function(d) { update(d); })
+    .catch(function(e) {
+      console.log('Fetch failed, using embedded data:', e);
+      update(window._fallbackData || {});
+    });
+}
+
+// Fallback embedded data (updated by tracker)
+window._fallbackData = {
+  session_start: "2026-03-31T10:55:13.713639-06:00",
+  session_messages: 15, session_limit: 225,
+  weekly_messages: 15, weekly_limit: 1500,
+  effective_messages: 22.5, budget_status: "GREEN",
+  sources: { desktop: 15, code: 0, watcher: 0 },
+  peak_messages: 15, offpeak_messages: 0
+};
+
+// Auto-refresh every 30 seconds
+loadData();
+setInterval(loadData, 30000);
+</script>
+</body>
+</html>

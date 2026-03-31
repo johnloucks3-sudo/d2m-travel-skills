@@ -4,7 +4,7 @@ Thunderbird OS — Daily Preflight Check
 Dreams2Memories Travel, LLC
 
 Runs at 00:50 MDT daily. Verifies all systems before AM intel cycle.
-Three-tier alerting: Telegram -> Email -> SMS
+Two-tier alerting: Telegram -> Email
 
 Usage:
   python3 thunderbird_preflight.py           # Run all checks
@@ -217,31 +217,10 @@ def send_email_alert(subject: str, body: str) -> bool:
         return False
 
 
-def send_sms_alert(message: str) -> bool:
-    """Send SMS via T-Mobile email gateway."""
-    try:
-        sys.path.insert(0, str(THUNDERBIRD_DIR))
-        from thunderbird_google_auth import get_credentials
-        from googleapiclient.discovery import build
-        import base64
-        from email.mime.text import MIMEText
-
-        creds = get_credentials()
-        service = build("gmail", "v1", credentials=creds)
-        msg = MIMEText(message[:160])
-        msg["to"] = "7192910742@tmomail.net"
-        msg["from"] = "d2mconcierge@gmail.com"
-        msg["subject"] = "D2M ALERT"
-        raw = base64.urlsafe_b64encode(msg.as_bytes()).decode()
-        service.users().messages().send(userId="me", body={"raw": raw}).execute()
-        return True
-    except Exception as e:
-        logger.error(f"SMS alert failed: {e}")
-        return False
-
-
 def alert_multi_channel(subject: str, message: str, severity: str = "GREEN"):
-    """Three-tier alerting: Telegram -> Email -> SMS based on severity."""
+    """Two-tier alerting: Telegram -> Email based on severity.
+    (tmomail SMS removed 2026-03-31 — unreliable/bouncing.)
+    """
     # Always try Telegram
     tg_ok = send_telegram_alert(f"<b>{subject}</b>\n\n{message}")
 
@@ -249,15 +228,9 @@ def alert_multi_channel(subject: str, message: str, severity: str = "GREEN"):
         # Add email for YELLOW+
         send_email_alert(f"[D2M {severity}] {subject}", message)
 
-    if severity == "RED":
-        # Add SMS for RED
-        short = f"{subject}: {message[:120]}"
-        send_sms_alert(short)
-
     if not tg_ok:
-        logger.warning("Telegram failed — escalating to email+SMS")
+        logger.warning("Telegram failed — escalating to email")
         send_email_alert(f"[D2M ALERT] {subject}", message)
-        send_sms_alert(f"TG DOWN: {subject}")
 
 
 def _load_env() -> dict:
