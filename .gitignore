@@ -57,6 +57,7 @@ logs/
 
 # Node
 node_modules/
+.vite/
 
 # Credentials (catch-all)
 *credentials*.json
