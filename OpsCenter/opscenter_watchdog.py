@@ -37,6 +37,7 @@ SERVICES = {
     "thunderbird-overwatch": "Hale-Loop Daemon",
     "thunderbird-mcp": "MCP Server",
     "thunderbird-blackboard-sync": "Blackboard Sync",
+    "thunderbird-inbox-watcher": "Claude Inbox Watcher",
 }
 
 # ── Heartbeat config ──

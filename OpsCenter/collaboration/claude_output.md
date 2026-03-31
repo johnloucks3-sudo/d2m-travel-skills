@@ -52,3 +52,10 @@ Goose's review predates that decision — no conflict, just timing.
 
 ---
 *Output complete. Routing to Commander via claude_output.md.*
+
+---
+AGENT: Claude Sonnet (auto-triggered by inbox_watcher)
+TASK_ID: GT-20260330-1731-PROC
+COMPLETED_AT: 2026-03-30T18:03:09 MT
+---
+[ERROR] Claude API call failed: 401 Client Error: Unauthorized for url: https://api.anthropic.com/v1/messages
