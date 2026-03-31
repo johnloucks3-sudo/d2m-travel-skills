@@ -9,28 +9,14 @@ INBOX EMPTY — ready for tasks.
 
 ---
 ## GOOSE TASK — ON BEHALF OF COMMANDER
-task_id: GT-20260330-1727-RESE
+task_id: GT-20260330-2137-TECH
 submitted_by: GOOSE
 authority: ON BEHALF OF COMMANDER
-submitted_at: 2026-03-30T17:27:41 MT
-task_type: research
-priority: NORMAL
+submitted_at: 2026-03-30T21:37:00 MT
+task_type: tech_opportunity
+priority: HIGH
 pii: false
-context_files: [OpsCenter/collaboration/goose_output.md]
-instructions: Research the top 3 luxury cruise lines competing with Silversea in the ultra-luxury segment. Focus on pricing, new ships launching 2026-2027, and any loyalty program changes. Write findings to goose_output.md context for Claude to synthesize.
-output_destination: /home/john/Thunderbird/OpsCenter/collaboration/claude_output.md
-deadline: ASAP
-
----
-## GOOSE TASK — ON BEHALF OF COMMANDER
-task_id: GT-20260330-1731-PROC
-submitted_by: GOOSE
-authority: ON BEHALF OF COMMANDER
-submitted_at: 2026-03-30T17:31:00 MT
-task_type: process_analysis
-priority: NORMAL
-pii: false
-context_files: [/home/john/Thunderbird/OpsCenter/collaboration/blackboard_implementation_plan.md]
-instructions: Review the  and summarize the 'Blackboard Operating Cycle' (Part 3) in a concise, step-by-step format for quick reference by AI agents. Also, identify any potential areas where Goose's (Gemini's) direct tool access or multi-modal capabilities could streamline or enhance a specific step in that cycle.
+context_files: [none]
+instructions: Perform an 'incubator scan' (using Thunderbirdmcp.runInnovationScan). Document the results in . Include a confirmation of your receipt of this task, the action taken, and the posting of the results in that file.
 output_destination: /home/john/Thunderbird/OpsCenter/collaboration/claude_output.md
 deadline: ASAP

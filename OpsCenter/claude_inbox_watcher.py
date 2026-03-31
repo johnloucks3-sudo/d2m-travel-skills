@@ -16,6 +16,7 @@ Author: Claude Sonnet 4.6 | Date: 2026-03-30
 
 import json
 import os
+import subprocess
 import sys
 import time
 import hashlib
@@ -122,11 +123,8 @@ def _extract_latest_task(inbox_text: str) -> tuple[str, str]:
 
 
 def _call_claude(task_block: str, blackboard_context: str) -> str:
-    """Call Claude API with the task. Returns Claude's response text."""
-    if not ANTHROPIC_API_KEY:
-        return "[ERROR] ANTHROPIC_API_KEY not set — cannot call Claude API"
-
-    system = (
+    """Call Claude via CLI (Max OAuth — $0, no API key needed)."""
+    prompt = (
         "You are Claude Sonnet, AI consultant to the Thunderbird Wing of "
         "Dreams2Memories Travel, LLC. You are receiving a task submitted by "
         "Goose (Gemini) ON BEHALF OF COMMANDER John Loucks. "
@@ -136,12 +134,8 @@ def _call_claude(task_block: str, blackboard_context: str) -> str:
         "- Never send email outside the wing without Commander approval\n"
         "- Never use Love Group Travel branding\n"
         "- Never route PII to Deepseek or Groq\n"
-        "- WF-17 gate required before any client output leaves the wing\n"
-        "- Deepseek is arbitrator for inter-agent disputes\n\n"
-        f"Current blackboard state:\n{blackboard_context}"
-    )
-
-    user = (
+        "- WF-17 gate required before any client output leaves the wing\n\n"
+        f"Current blackboard state:\n{blackboard_context}\n\n"
         f"Execute the following task from Goose (on behalf of Commander):\n\n"
         f"{task_block}\n\n"
         f"Write your complete output. If you have a dissent or concern about "
@@ -150,26 +144,20 @@ def _call_claude(task_block: str, blackboard_context: str) -> str:
     )
 
     try:
-        resp = requests.post(
-            "https://api.anthropic.com/v1/messages",
-            headers={
-                "x-api-key": ANTHROPIC_API_KEY,
-                "anthropic-version": "2023-06-01",
-                "content-type": "application/json",
-            },
-            json={
-                "model": CLAUDE_MODEL,
-                "max_tokens": CLAUDE_MAX_TOKENS,
-                "system": system,
-                "messages": [{"role": "user", "content": user}],
-            },
-            timeout=120,
+        env = {**os.environ, "ANTHROPIC_API_KEY": ""}  # force Max OAuth
+        result = subprocess.run(
+            ["claude", "-p", prompt, "--output-format", "text",
+             "--dangerously-skip-permissions", "--max-turns", "10"],
+            capture_output=True, text=True, timeout=180,
+            cwd=str(ROOT), env=env,
         )
-        resp.raise_for_status()
-        data = resp.json()
-        return data["content"][0]["text"]
+        if result.returncode != 0 and result.stderr:
+            return f"[ERROR] Claude CLI failed: {result.stderr[:300]}"
+        return result.stdout.strip() or "[ERROR] Claude CLI returned empty output"
+    except subprocess.TimeoutExpired:
+        return "[ERROR] Claude CLI timed out after 180s"
     except Exception as e:
-        return f"[ERROR] Claude API call failed: {e}"
+        return f"[ERROR] Claude CLI call failed: {e}"
 
 def _write_output(task_id: str, response: str, output_dest: str):
     """Write Claude's response to the specified output destination."""

@@ -1,12 +1,1 @@
-[
-  {
-    "task_id": "msg_3490",
-    "task_type": "commander_message",
-    "content": "ELON. A12, the current shackles on COS length of response lack of graphics lack of tables are a coding problem. Fix it. If you need to interview me ahead go ahead.",
-    "source_bot": "c2",
-    "chat_id": 7554895206,
-    "assigned_to": "Hale",
-    "queued_at": "2026-03-29T17:57:06.143531-06:00",
-    "requires": "claude_max"
-  }
-]
+[]

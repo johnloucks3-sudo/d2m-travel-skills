@@ -2838,5 +2838,55 @@
     "persona": "COS",
     "draft_id": null,
     "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-31T00:16:09.014510+00:00",
+    "msg_id": "19d413c8dab49d5f",
+    "subject": "Say Cheese \ud83e\uddc0 $5 Triple Double Cheese Melts Tomorrow Only! Pre-Order Easter Live!",
+    "sender": "rewards@c.pxsmail.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-31T00:16:20.297778+00:00",
+    "msg_id": "19d4136aeb589cf2",
+    "subject": "Did you like The Madison? There\u2019s more to love on Paramount+!",
+    "sender": "contact@email.paramountplus.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-31T00:16:29.659202+00:00",
+    "msg_id": "19d4103660cfa200",
+    "subject": "No Kings Turns Violent, Trump Demands Congress Get Back to Work",
+    "sender": "editor@alerts.americanfreedomreport.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-31T00:16:31.687616+00:00",
+    "msg_id": "19d40fd2ad823f19",
+    "subject": "[D2M YELLOW] Preflight Check",
+    "sender": "",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-03-31T02:16:00.287147+00:00",
+    "msg_id": "19d41536c3f20500",
+    "subject": "Picasso Travel Newsletter - 79 - AAx2, BF, CZ, DLx3, LY - (ALL)",
+    "sender": "news@news.picassotravel.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
   }
 ]
