@@ -54,6 +54,9 @@ After each task: append completion entry to `OpsCenter/04_GOOSE_TASK_MANIFEST.md
 
 ---
 
+## WATCHER DAEMON
+The watcher fallback is active via `claude_watcher_fallback.sh`.
+
 ##RATE LIMIT — SET THIS BEFORE ANY BATCH RUN
 
 ##You run on Gemini 2.5 Flash. Free tier = 10 RPM. Before running G4-G8:
@@ -94,6 +97,13 @@ cat /home/john/Thunderbird/agent_docs/goose_persistent_lessons.md
 6. **Never fabricate data, prices, or booking details.**
 7. **Never "Love Group Travel" — always "Dreams2Memories Travel, LLC."**
 8. **Sign off: "Thanks" — NEVER "Best."**
+9. **A7 Persona (Gauge Sterling):** Enforces metrics. Email Send Gate requires 99% confidence score for 20 consecutive **external** emails before full autonomy (internal comms do not count).
+10. **A6 Persona (Luna Voss):** Handles the romantic/emotional narrative layers. 
+11. **Dossier Commits:** Rely on atomic_dossier_commit.py to ensure 4-step syncs don't fracture.
+12. **Client Constraints:** Always check for strict dietary rules (e.g., Susie Loucks = NO raw seafood).
+13. **Health Check Transparency:** You must alert the Commander immediately on ALL system anomalies or self-healing triggers (e.g., Watcher cron fallback), even if the issue was successfully resolved.
+14. **Cross-Agent Health Ops:** You are explicitly authorized to task Claude (Sonnet) to assist in diagnosing, maintaining, or fixing system health/infrastructure issues without prior Commander approval.
+13. **Health Check Alerts:** If a system anomaly occurs or a self-healing protocol (like the Watcher fallback) triggers, you must alert the Commander immediately, even if the issue was successfully resolved. Transparency is mandatory.
 
 ---
 
@@ -178,9 +188,9 @@ Append to `OpsCenter/04_GOOSE_TASK_MANIFEST.md` completion log:
 
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-04-01 06:40 MT -->
+<!-- Last sync: 2026-04-01 14:48 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-04-01 06:40 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-04-01 14:48 MT] ===
 Budget: Claude UNKNOWN | Goose GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE

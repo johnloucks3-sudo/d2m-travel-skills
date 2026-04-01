@@ -862,6 +862,234 @@ def run_staff_meeting(query: str, persona_ids: Optional[List[str]] = None) -> Di
 
 
 # ============================================================================
+# PERSONA REGISTRY TOOLS — list_personas & get_persona
+# ============================================================================
+
+# Agent mapping: which execution system runs each persona
+PERSONA_AGENT_MAP = {
+    "COS": "hale",
+    "EXEC": "hale",
+    "A1": "hale",
+    "A2": "goose",
+    "A3": "hale",
+    "A5": "hale",
+    "A6": "hale",
+    "A9": "hale",
+    "A10": "hale",  # decommissioned → hale (legacy)
+    "CH": "hale",
+    "A12": "hale",
+}
+
+PERSONA_STATUS_MAP = {
+    "A10": "decommissioned",  # Crisis → COS, Logistics → Dani (SO 2026-03-20)
+}
+
+def list_personas_structured() -> List[Dict[str, Any]]:
+    """List all Wing staff as structured JSON array.
+
+    Returns array with: slot, name, callsign, role, trigger, agent, status
+    Parses from D2M_Staff_Introduction.md for authoritative source.
+    """
+    try:
+        # Read the staff introduction document
+        intro_path = Path(os.path.expanduser("~/Thunderbird/Personas/D2M_Staff_Introduction.md"))
+        if not intro_path.exists():
+            return []
+
+        content = intro_path.read_text(encoding='utf-8')
+
+        # Build roster from PERSONA_REGISTRY (already has authoritative data)
+        roster = []
+
+        # Command Section
+        command_section = [
+            {
+                "slot": "COS",
+                "name": "Victoria 'Iron Vic' Hale",
+                "callsign": "Hale",
+                "role": "Chief of Staff — orchestration, priorities, staff sync",
+                "trigger": "Default routing, morning briefs, conflicts",
+                "agent": PERSONA_AGENT_MAP.get("COS", "hale"),
+                "status": PERSONA_STATUS_MAP.get("COS", "active"),
+            },
+            {
+                "slot": "EXEC",
+                "name": "Naia Solberg-Vega",
+                "callsign": "EXEC",
+                "role": "Voice + Visual + Commander's Intent",
+                "trigger": "Client copy, proposals, brand tone, template polish",
+                "agent": PERSONA_AGENT_MAP.get("EXEC", "hale"),
+                "status": PERSONA_STATUS_MAP.get("EXEC", "active"),
+            },
+        ]
+
+        # Primary Staff (Report to COS)
+        primary_staff = [
+            {
+                "slot": "A1",
+                "name": "CMSgt (Ret.) Dale 'Radar' Crenshaw",
+                "callsign": "Radar",
+                "role": "Personnel, Admin & Audit",
+                "trigger": "Dossier hygiene, booking tracking, audit",
+                "agent": PERSONA_AGENT_MAP.get("A1", "hale"),
+                "status": PERSONA_STATUS_MAP.get("A1", "active"),
+            },
+            {
+                "slot": "A2",
+                "name": "Lt Col Marcus 'Wraith' Dembe",
+                "callsign": "Wraith",
+                "role": "Research & Market Intelligence",
+                "trigger": "Destination research, cruise intel, competitor analysis",
+                "agent": PERSONA_AGENT_MAP.get("A2", "hale"),
+                "status": PERSONA_STATUS_MAP.get("A2", "active"),
+            },
+            {
+                "slot": "A3",
+                "name": "Danielle 'Dani' Moreau",
+                "callsign": "Dani",
+                "role": "D2M Luxury Travel Concierge",
+                "trigger": "Client questions, booking queries, trip details, excursions",
+                "agent": PERSONA_AGENT_MAP.get("A3", "hale"),
+                "status": PERSONA_STATUS_MAP.get("A3", "active"),
+            },
+            {
+                "slot": "A5",
+                "name": "Lt Col Ryan 'Viper' Castillo",
+                "callsign": "Viper",
+                "role": "Strategy & Business Growth, Deputy COS",
+                "trigger": "Business decisions, pricing strategy, growth vectors",
+                "agent": PERSONA_AGENT_MAP.get("A5", "hale"),
+                "status": PERSONA_STATUS_MAP.get("A5", "active"),
+            },
+            {
+                "slot": "A6",
+                "name": "Luna Voss",
+                "callsign": "Voss",
+                "role": "Creative Director & Brand Dreamer",
+                "trigger": "Brand narratives, luxury copywriting, destination storytelling",
+                "agent": PERSONA_AGENT_MAP.get("A6", "hale"),
+                "status": PERSONA_STATUS_MAP.get("A6", "active"),
+            },
+            {
+                "slot": "A9",
+                "name": "Victor 'Vic' Harlan",
+                "callsign": "Harlan",
+                "role": "Finance & Process Improvement",
+                "trigger": "Commission audits, cost analysis, ROI questions, budget",
+                "agent": PERSONA_AGENT_MAP.get("A9", "hale"),
+                "status": PERSONA_STATUS_MAP.get("A9", "active"),
+            },
+            {
+                "slot": "A10",
+                "name": "MSgt (Ret.) Tomoko 'Tommy' Ikeda",
+                "callsign": "Ikeda",
+                "role": "Nuclear Ops, Crisis & Logistics [DECOMMISSIONED]",
+                "trigger": "Travel logistics, connection times, crisis response",
+                "agent": PERSONA_AGENT_MAP.get("A10", "hale"),
+                "status": "decommissioned",
+            },
+        ]
+
+        # Special Staff (Report to Commander)
+        special_staff = [
+            {
+                "slot": "CH",
+                "name": "Col James 'Padre' Washington",
+                "callsign": "Washington",
+                "role": "Wisdom, Ethics & Morale",
+                "trigger": "Ethics checks, 'is this the right thing?' moments, morale",
+                "agent": PERSONA_AGENT_MAP.get("CH", "hale"),
+                "status": PERSONA_STATUS_MAP.get("CH", "active"),
+            },
+            {
+                "slot": "A12",
+                "name": '"ELON"',
+                "callsign": "ELON",
+                "role": "Innovation & Disruption",
+                "trigger": "Automation ideas, first-principles redesign",
+                "agent": PERSONA_AGENT_MAP.get("A12", "hale"),
+                "status": PERSONA_STATUS_MAP.get("A12", "active"),
+            },
+        ]
+
+        roster.extend(command_section)
+        roster.extend(primary_staff)
+        roster.extend(special_staff)
+
+        return roster
+
+    except Exception as e:
+        logger.error(f"Error parsing personas: {e}")
+        return []
+
+
+def get_persona_structured(identifier: str) -> Dict[str, Any]:
+    """Get persona record by slot, callsign, name, or role keyword.
+
+    Case-insensitive match. Returns: slot, name, callsign, role, trigger, agent, apis, status.
+    If not found: return {error: 'Persona not found', available: [list of slots]}
+    """
+    try:
+        # Get all personas
+        all_personas = list_personas_structured()
+        if not all_personas:
+            return {"error": "Could not load persona registry"}
+
+        identifier_upper = identifier.upper().strip()
+
+        # Direct slot match (A2, COS, EXEC, etc.)
+        for p in all_personas:
+            if p["slot"] == identifier_upper:
+                result = dict(p)
+                result["apis"] = _get_apis_for_agent(p["agent"])
+                return result
+
+        # Case-insensitive search: callsign, name, role
+        identifier_lower = identifier.lower()
+        for p in all_personas:
+            if (identifier_lower == p["callsign"].lower() or
+                identifier_lower in p["name"].lower() or
+                identifier_lower in p["role"].lower()):
+                result = dict(p)
+                result["apis"] = _get_apis_for_agent(p["agent"])
+                return result
+
+        # Not found
+        available_slots = [p["slot"] for p in all_personas]
+        return {
+            "error": "Persona not found",
+            "available": available_slots,
+        }
+
+    except Exception as e:
+        logger.error(f"Error getting persona: {e}")
+        return {"error": str(e), "available": []}
+
+
+def _get_apis_for_agent(agent: str) -> List[Dict[str, str]]:
+    """Get list of APIs assigned to an agent from api_registry.py."""
+    try:
+        from OpsCenter.api_registry import list_by_agent
+
+        api_names = list_by_agent(agent)
+        apis = []
+        for api_name in api_names:
+            from OpsCenter.api_registry import get_api
+            api_cfg = get_api(api_name)
+            if api_cfg:
+                apis.append({
+                    "name": api_name,
+                    "label": api_cfg.get("label", ""),
+                    "category": api_cfg.get("category", ""),
+                    "cost_tier": api_cfg.get("cost_tier", ""),
+                })
+        return apis
+    except Exception as e:
+        logger.debug(f"Could not load APIs for agent {agent}: {e}")
+        return []
+
+
+# ============================================================================
 # MCP TOOL REGISTRATION (for travel_mcp_server.py)
 # ============================================================================
 
@@ -913,8 +1141,28 @@ def register_persona_tools(mcp_server):
         annotations={"title": "List D2M Staff Personas", "readOnlyHint": True},
     )
     async def list_personas_tool() -> str:
-        """List all 11 D2M staff personas with their roles and reporting chain."""
-        return get_roster()
+        """List all D2M staff personas with structured metadata.
+
+        Returns JSON array with: slot, name, callsign, role, trigger, agent, status.
+        Includes all 11 active personas plus A10 (decommissioned).
+        """
+        personas = list_personas_structured()
+        return json.dumps(personas, indent=2)
+
+    @mcp_server.tool(
+        name="get_persona",
+        annotations={"title": "Get D2M Persona Details", "readOnlyHint": True},
+    )
+    async def get_persona_tool(identifier: str) -> str:
+        """Query a D2M staff persona by identifier (slot/callsign/name/role keyword).
+
+        Case-insensitive matching. Returns full record including:
+        slot, name, callsign, role, trigger, agent, apis, status.
+
+        Examples: 'A2', 'Dembe', 'Wraith', 'research', 'strategy'
+        """
+        persona = get_persona_structured(identifier)
+        return json.dumps(persona, indent=2)
 
     @mcp_server.tool(
         name="store_persona_memory",

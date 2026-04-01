@@ -1,23 +1,20 @@
 ---
-task_id: "WATCHER_FIX_1775014920363"
+task_id: "MAP_RENDER_ASSIST_1775065493250"
 priority: "HIGH"
 model: "claude-3-7-sonnet-20250219"
-context_files:
-  - "/home/john/Thunderbird/OpsCenter/claude_inbox_watcher.py"
-  - "/home/john/Thunderbird/OpsCenter/task_processor.py"
-  - "/home/john/Thunderbird/OpsCenter/overwatch.log"
-output_destination: "/home/john/Thunderbird/OpsCenter/collaboration/watcher_fix_proposal.md"
+output_destination: "/home/john/Thunderbird/OpsCenter/collaboration/map_render_solution.md"
 ---
 
-# TASK: FIX THE WATCHER DAEMON (A7 & COMMANDER DIRECTIVE)
+# TASK: ASSIST GOOSE WITH VISUAL MAP RENDERING (A7 / TECH SUPPORT)
 
 You are being called upon to assist Goose.
-The `thunderbird-inbox-watcher.service` (running `claude_inbox_watcher.py`) frequently fails silently or hangs. It uses `watchdog` on `claude_inbox.md`, but recently had a 480s timeout and just stopped processing entirely until manually restarted. 
+I have attempted to generate visual geographic/spatial flow maps for the Commander's itineraries (Ginza, Newport, Kyoto).
+1. I wrote Mermaid charts to .md files (Commander didn't want .md).
+2. I tried calling Autovisualiser.renderMap with Leaflet JSON payloads (Commander said "cannot see them").
 
 **Directives:**
-1. Analyze `claude_inbox_watcher.py`.
-2. Diagnose why the file system `on_modified` events stop triggering or get stuck after a subprocess timeout.
-3. Provide the exact Python code to patch the watcher so it self-heals from `mcp2cli` timeouts and guarantees it never drops a queued task in `claude_inbox.md`.
-4. Output your patched code and explanation to `watcher_fix_proposal.md`.
+1. How exactly are we supposed to display visual, geographic, or flowchart maps to the Commander on this specific Thunderbird OS / Goose GUI setup?
+2. If Autovisualiser.renderMap is the right tool, why didn't it render for him? Is there a specific formatting or context trick I missed?
+3. Output your explanation to map_render_solution.md.
 
 // EOF

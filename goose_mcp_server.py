@@ -148,8 +148,18 @@ for group_name, registrars in TOOL_GROUPS:
 register_goose_gmail_extras(mcp)
 log.info("Registered Goose-specific Gmail extra tools.")
 
-log.info(f"Goose Slim MCP ready — stdio transport")
-
-
 if __name__ == "__main__":
-    mcp.run(transport="stdio")
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--http", action="store_true", help="Run as streamable-HTTP server (port 8766)")
+    parser.add_argument("--port", type=int, default=8766)
+    args, _ = parser.parse_known_args()
+
+    if args.http:
+        mcp.settings.host = "127.0.0.1"
+        mcp.settings.port = args.port
+        log.info(f"Goose Slim MCP ready — streamable-HTTP on 127.0.0.1:{args.port}/mcp")
+        mcp.run(transport="streamable-http")
+    else:
+        log.info("Goose Slim MCP ready — stdio transport")
+        mcp.run(transport="stdio")

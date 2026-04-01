@@ -29,7 +29,7 @@ We are relying on filesystem modification events to trigger Claude, which recent
 ## ACTIONS
 **Immediate Directives to Implement Tomorrow:**
 
-1. **Establish a Confidence-Score Send Gate:** Implement a pre-flight tool (email_score_draft) that evaluates PII, brand voice compliance, and destination accuracy. **COMMANDER OVERRIDE:** If the confidence score is >=99%, A3 is cleared to send *without* manual authorization. This requires a proving ground of 20 consecutive emails hitting 99% before autonomy goes live., copying the Commander for visibility. Track the false-positive rate.
+1. **Establish a Confidence-Score Send Gate:** Implement a pre-flight tool (email_score_draft) that evaluates PII, brand voice compliance, and destination accuracy. **COMMANDER OVERRIDE:** If the confidence score is >=99%, A3 is cleared to send *without* manual authorization. This requires a proving ground of 20 consecutive **external client-facing** emails hitting 99% before autonomy goes live. (Internal emails to johnloucks3 do not count toward this score)., copying the Commander for visibility. Track the false-positive rate.
 2. **Atomic Dossier Commits:** Refactor the 4-step dossier process into a single, transactional MCP tool call. It must either succeed on all 4 steps or roll back entirely. Track the transaction success rate.
 3. **Watcher Service Redundancy:** Deploy a secondary cron-based fallback to the filesystem watcher. If claude_inbox.md has a modified timestamp older than 300 seconds and is not empty, force-execute. Track queue latency times.
 
