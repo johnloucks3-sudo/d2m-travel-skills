@@ -4,7 +4,7 @@ Thunderbird OS — Z Fold6 Daily Connectivity Test
 Dreams2Memories Travel, LLC
 
 Runs at 08:00 MDT daily. Verifies Commander's phone is reachable.
-3-tier escalation: Telegram → Email → Conservation Mode (SMS/tmomail removed 2026-04-01)
+4-tier escalation: Telegram → Email → SMS (Twilio) → Conservation Mode
 
 Usage:
   python3 thunderbird_zfold_test.py          # Run test
@@ -104,11 +104,20 @@ def test_email() -> bool:
 
 
 def test_sms() -> bool:
-    """SMS via tmomail removed 2026-04-01 — T-Mobile gateway bounces.
-    Kept as stub so callers don't break. Always returns False to signal
-    channel unavailable and trigger conservation mode."""
-    logger.info("SMS tier removed — tmomail.net gateway decommissioned.")
-    return False
+    """Send SMS via Twilio (replaced tmomail.net 2026-04-01)."""
+    try:
+        from twilio.rest import Client
+        client = Client("ACdc4e7b2beacb84b18c8b49ab8c8369cb", "***REMOVED-SECRET***")
+        msg = client.messages.create(
+            from_="+18776118189",
+            to="+17192910742",
+            body="D2M ALERT: TG+Email down. Check YOGA. -Thunderbird",
+        )
+        logger.info("SMS fallback (Twilio): SENT sid=%s", msg.sid)
+        return True
+    except Exception as e:
+        logger.error("SMS fallback (Twilio) failed: %s", e)
+        return False
 
 
 def enter_conservation_mode():
@@ -133,6 +142,7 @@ def run_connectivity_test(force_all: bool = False) -> dict:
         "timestamp": datetime.now().isoformat(),
         "telegram": None,
         "email": None,
+        "sms": None,
         "overall": "UNKNOWN",
     }
 
@@ -143,6 +153,7 @@ def run_connectivity_test(force_all: bool = False) -> dict:
     if tg_ok and not force_all:
         result["overall"] = "GREEN"
         result["email"] = "SKIPPED"
+        result["sms"] = "SKIPPED"
         _save_state(result)
         return result
 
@@ -153,10 +164,21 @@ def run_connectivity_test(force_all: bool = False) -> dict:
 
     if email_ok and not force_all:
         result["overall"] = "YELLOW"
+        result["sms"] = "SKIPPED"
         _save_state(result)
         return result
 
-    # Tier 3: All channels failed — conservation mode
+    # Tier 3: SMS via Twilio (Email also failed)
+    logger.warning("Email failed — escalating to SMS")
+    sms_ok = test_sms()
+    result["sms"] = "PASS" if sms_ok else "FAIL"
+
+    if sms_ok:
+        result["overall"] = "YELLOW"
+        _save_state(result)
+        return result
+
+    # Tier 4: All failed — conservation mode
     result["overall"] = "RED"
     enter_conservation_mode()
     _save_state(result)
