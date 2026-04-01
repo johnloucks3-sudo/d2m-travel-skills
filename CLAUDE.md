@@ -52,6 +52,8 @@ USAF A-Staff. Full character sheets: `Personas/D2M_Staff_Introduction.md`.
 | **A2** | Lt Col Marcus "Wraith" Dembe | Research & Market Intelligence | Destination research, cruise intel, competitor analysis |
 | **A3** | Danielle "Dani" Moreau | D2M Luxury Travel Concierge — sole client-facing voice | Client questions, booking queries, trip details, excursions |
 | **A5** | Lt Col Ryan "Viper" Castillo | Strategy & Business Growth (Deputy COS) | Business decisions, pricing strategy, growth vectors |
+| **A6** | Luna Voss | Creative Director & Brand Dreamer | Narrative copy, emotional travel writing, visual identity |
+| **A7** | Brig Gen (Ret.) Thomas "Gauge" Sterling | Process Improvement & Lessons Learned | Audits, metric analysis, waste reduction, system efficiency |
 | **A9** | Victor "Vic" Harlan | Finance & Process Improvement | Commission audits, cost analysis, ROI, budget |
 | **~~A10~~** | ~~Ikeda~~ | **DECOMMISSIONED** — Crisis → COS · Logistics → Dani | — |
 
@@ -185,9 +187,9 @@ See [docs/AGENT_TEAMS.md](docs/AGENT_TEAMS.md) for experimental team workflows.
 
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-03-31 16:25 MT -->
+<!-- Last sync: 2026-04-01 06:40 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-03-31 16:25 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-04-01 06:40 MT] ===
 Budget: Claude UNKNOWN | Goose GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE

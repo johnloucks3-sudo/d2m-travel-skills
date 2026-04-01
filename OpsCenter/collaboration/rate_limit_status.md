@@ -1,10 +1,10 @@
 # CLAUDE USAGE STATUS — AUTO-GENERATED
-Updated: 2026-03-31T13:39:22 MT
+Updated: 2026-03-31T20:37:33 MT
 
 ## 🟥 Overall Status: RED
 ### Session
-`[█░░░░░░░░░] 16.0%` (27/225 effective)
+`[░░░░░░░░░░] 3.1%` (7/225 effective)
 ### Weekly
-`[█░░░░░░░░░] 15.6%` (234/1500)
+`[█░░░░░░░░░] 16.1%` (242/1500)
 ### Sonnet Daily
-`[██████████] 104.0%` (26/25)
+`[█████████████] 136.0%` (34/25)

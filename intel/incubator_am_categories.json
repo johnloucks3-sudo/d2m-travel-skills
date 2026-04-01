@@ -1,12 +1,12 @@
 {
-  "set_by": "incubator_review_2026-03-30",
+  "set_by": "incubator_review_2026-03-31",
   "categories": [
-    "AI Integration Gaps** \u2014 tooling, API flows, cost optimization",
-    "Behavioral Preference Inference** \u2014 what we can't predict about clients yet",
-    "Life Event Signaling** \u2014 how we detect high-intent moments (anniversaries, milestones, transitions)",
-    "D2M Operational Blind Spots** \u2014 where the Wing lacks data or process",
-    "Revenue Leakage Detection** \u2014 pricing, commission, bundling anomalies"
+    "Luxury Cruise Route Announcements** (new itineraries, ship deployments, cancellations)",
+    "High-Net-Worth Transition Events** (acquisitions, executive moves, wealth signals in news)",
+    "Premium Hospitality Openings** (SLH hotels, Rosewood, Belmond launches, renovation completions)",
+    "Port City Intelligence** (infrastructure, events, travel restrictions, currency shifts)",
+    "Competitive Intelligence** (Virtuoso/Ensemble agent moves, rival ship charters, bundling shifts)"
   ],
-  "rationale": "Set by incubator review 2026-03-30",
-  "timestamp": "2026-03-30T19:30:33.152085"
+  "rationale": "Set by incubator review 2026-03-31",
+  "timestamp": "2026-03-31T19:31:07.054203"
 }

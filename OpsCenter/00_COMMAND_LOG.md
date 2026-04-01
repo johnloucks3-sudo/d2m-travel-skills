@@ -65,3 +65,8 @@ Hale Routing: Task 'null' assigned to claude-3-opus-20240229
 - **[Mon Mar 30 07:34:06 AM MT 2026]** HALE routed `commander_message` (msg_3573) → **COS** — 🫖 <b>FAIRMONT EMPRESS AFTERNOON TEA INTEL</b> ───────────────────── Commander, the live data sweep d
 - **[Mon Mar 30 10:02:00 AM MT 2026]** HALE routed `commander_message` (msg_3581) → **COS** — 📧 <b>EMAIL STATUS REPORT</b> ───────────────────── Confirmed, Commander. I see the sent itinerary in
 - **[Tue Mar 31 01:47:14 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — *A12 Innovation Scan Complete (Daily)*  **Top 10 Findings:** 1. [github/trending] garrytan/gstack (S
+- **[Tue Mar 31 05:22:49 PM MT 2026]** HALE routed `generic` (UNKNOWN) → **COS** — Unknown task type: `generic` Raw: {"timestamp": "2026-03-31T23:22:43.560Z", "agent": "Goose", "type"
+- **[Tue Mar 31 08:03:48 PM MT 2026]** HALE routed `process_claude_max_queue` (GOOSE-20260331-1775009025272-CLAUDEMAXPROCESS) → **COS** — Claude MAX queue is empty.
+- **[Tue Mar 31 08:09:53 PM MT 2026]** HALE routed `commander_message` (GOOSE-TELEGRAM-RESEARCH-1775009386773) → **COS** — Engine failure: name 'task_id' is not defined Original message: ✅ **Research Report Completed**  Her
+- **[Tue Mar 31 08:19:29 PM MT 2026]** HALE routed `process_claude_max_queue` (GOOSE-20260331-1775009967252-CLAUDEMAXPROCESS) → **COS** — Claude MAX queue is empty.
+- **[Wed Apr 01 01:46:57 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — *A12 Innovation Scan Complete (Daily)*  **Top 10 Findings:** 1. [github/trending] garrytan/gstack (S

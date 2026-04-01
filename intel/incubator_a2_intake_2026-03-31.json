@@ -1,0 +1,68 @@
+[
+  {
+    "id": "A2-2026-03-31-001",
+    "title": "Vision Model Explainability via Concept Transformation",
+    "source_signal": "[4] Improving AI models' ability to explain their predictions",
+    "classification": "INTEGRATE",
+    "gap_closed": "Lack of interpretability in image asset selection for itineraries \u2014 currently opaque why system selects certain photos",
+    "thunderbird_component": "Itinerary Image Pipeline / Destination Guide Curation",
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "Current tech (Mar 2026), non-critical path, advisory layer only. Enables COS/Dani audit of asset choices via human-readable concept explanations. Zero client-facing dependency."
+  },
+  {
+    "id": "A2-2026-03-31-002",
+    "title": "Hybrid Autoregressive Transformer for Image Generation",
+    "source_signal": "[2] AI tool generates high-quality images faster than state-of-the-art",
+    "classification": "WATCH",
+    "gap_closed": "Potential speedup/cost reduction in itinerary image generation vs Stability AI",
+    "thunderbird_component": "Itinerary Generation Pipeline",
+    "risk": "MED",
+    "sss_required": true,
+    "rationale": "Signal lacks benchmarks, cost data, API availability, reliability on travel photography. Revisit when concrete comparison metrics surface. Cost/vendor shift requires SSS."
+  },
+  {
+    "id": "A2-2026-03-31-003",
+    "title": "MIT/HPI AI + Creativity Collaboration Hub",
+    "source_signal": "[1] MIT and Hasso Plattner Institute establish collaborative hub",
+    "classification": "WATCH",
+    "gap_closed": "Potential partnership for travel-specific creative AI tools (unspecified)",
+    "thunderbird_component": "TBD (no technical detail)",
+    "risk": "HIGH",
+    "sss_required": false,
+    "rationale": "Too vague. No architecture, tooling, or integration path disclosed. Archive until specific research deliverable emerges."
+  },
+  {
+    "id": "A2-2026-03-31-004",
+    "title": "MIT Generative AI for Databases (2024)",
+    "source_signal": "[3] MIT researchers introduce generative AI for databases",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 stale signal (Jul 2024), unclear fit to travel/booking domain",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Outdated, likely database query optimization or synthetic data generation. We don't generate missing booking data; we work with confirmed supplier records."
+  },
+  {
+    "id": "A2-2026-03-31-005",
+    "title": "Search Scraper Poison \u2014 Behavioral/LIFE Magazine Archive Results",
+    "source_signal": "[5\u201312] BEHAVIORAL definitions + LIFE magazine archives",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 noise from search crawler",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Zero relevance. Scraper captured dictionary/archive results. Recommend query hygiene fix in AM scraper (excludes dictionary.com, merriam-webster.com, LIFE magazine)."
+  },
+  {
+    "id": "A2-2026-03-31-006",
+    "title": "Search Scraper Poison \u2014 Claude Monet Art Historical Results",
+    "source_signal": "[13\u201316] Claude Monet biography + Wikipedia + Met Museum",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 noise from search crawler",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Zero relevance. Scraper name collision (Claude = painter, not AI). Recommend keyword filtering in AM scraper to exclude art history results."
+  }
+]

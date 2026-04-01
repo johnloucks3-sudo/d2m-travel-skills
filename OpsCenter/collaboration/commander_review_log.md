@@ -194,3 +194,70 @@ INSTRUCTIONS: COMMANDER DIRECTS OPUS: SHOW GOOSE HOW TO OBTAIN EQUAL ACCESS TO A
 OUTPUT_DEST: /home/john/claude_response_temp.txt
 DISSENT_FILED: NO
 STATUS: QUEUED → claude_inbox.md
+
+---
+TASK_ID: GT-20260331-1721-CLIE | 2026-03-31T17:21:22 MT
+SUBMITTED_BY: GOOSE (on behalf of Commander)
+TASK_TYPE: client_writing
+INSTRUCTIONS: Write an email to Julie Ruiz (julie@lovegrouptravel.com) with booking information for clients Furlow, Ely, and Nichols. Retrieve their full names, addresses, voyage dates, and booking number from available client dossiers. State that the bookings were made with NEXION and that her commission will be
+OUTPUT_DEST: /home/john/Thunderbird/OpsCenter/collaboration/claude_output.md
+DISSENT_FILED: YES — see dissent_log.md
+STATUS: QUEUED → claude_inbox.md
+
+---
+TASK_ID: GT-20260331-1932-SYST | 2026-03-31T19:32:53 MT
+SUBMITTED_BY: GOOSE (on behalf of Commander)
+TASK_TYPE: system_ops
+INSTRUCTIONS: Modify the /home/john/Thunderbird/goose_mcp_server.py file. The objective is to expose additional Google-related functions/tools from thunderbird_gmail.py to the Goose Slim MCP server. Specifically, prioritize adding the 'gmail_get_message_sync' tool so Goose can retrieve the full content of sent Gm
+OUTPUT_DEST: /home/john/Thunderbird/OpsCenter/collaboration/claude_output.md
+DISSENT_FILED: NO
+STATUS: QUEUED → claude_inbox.md
+
+---
+TASK_ID: GT-20260331-2001-RESE | 2026-03-31T20:01:31 MT
+SUBMITTED_BY: GOOSE (on behalf of Commander)
+TASK_TYPE: research
+INSTRUCTIONS: Perform a world-wide tech search for the terms: "claude code", "claude", "goose", and "goose alternatives". Go beyond previous search topics. I am especially interested in what we call collaboration within these search results.
+OUTPUT_DEST: /home/john/Thunderbird/OpsCenter/collaboration/claude_research_output.md
+DISSENT_FILED: NO
+STATUS: QUEUED → claude_inbox.md
+
+---
+TASK_ID: GT-20260331-2002-SYST | 2026-03-31T20:02:55 MT
+SUBMITTED_BY: GOOSE (on behalf of Commander)
+TASK_TYPE: system_ops
+INSTRUCTIONS: From now on, all results from any research or tech search tasks you complete must also be sent to Commander's Telegram (johnloucks3@gmail.com). You should integrate this into your output process for research tasks.
+OUTPUT_DEST: /home/john/Thunderbird/OpsCenter/collaboration/claude_output.md
+DISSENT_FILED: NO
+STATUS: QUEUED → claude_inbox.md
+
+---
+TASK_ID: GT-20260331-2019-STRA | 2026-03-31T20:19:23 MT
+SUBMITTED_BY: GOOSE (on behalf of Commander)
+TASK_TYPE: strategic
+INSTRUCTIONS: Generate detailed implementation ideas for the following advanced AI agent collaboration concepts, drawing from the provided tech search report and expanding with practical, actionable steps:
+1. Claude Code Agent Teams (Native Multi-Agent)
+2. Oh-My-ClaudeCode (Community Orchestration Layer)
+3. Anthr
+OUTPUT_DEST: /home/john/Thunderbird/OpsCenter/collaboration/claude_output.md
+DISSENT_FILED: NO
+STATUS: QUEUED → claude_inbox.md
+
+---
+TASK_ID: GT-20260331-2025-STRA | 2026-03-31T20:25:38 MT
+SUBMITTED_BY: GOOSE (on behalf of Commander)
+TASK_TYPE: strategic
+INSTRUCTIONS: Generate detailed implementation ideas for the following advanced AI agent collaboration concepts, drawing from available knowledge and expanding with practical, actionable steps:
+1. Gemini CLI + Claude Code Collaboration (Cross-agent experiment, using both tools on the same codebase with complement
+OUTPUT_DEST: /home/john/Thunderbird/OpsCenter/collaboration/claude_output.md
+DISSENT_FILED: NO
+STATUS: QUEUED → claude_inbox.md
+
+---
+TASK_ID: GT-20260331-2031-SYST | 2026-03-31T20:31:25 MT
+SUBMITTED_BY: GOOSE (on behalf of Commander)
+TASK_TYPE: system_ops
+INSTRUCTIONS: Build the "Claude as CLI Provider (MCP Bridge)" functionality within Goose. This involves creating an `mcp_bridge.sh` wrapper script that allows Goose to access the full suite of 120+ Thunderbird MCP tools. The implementation should focus on providing a seamless interface for Goose to invoke these t
+OUTPUT_DEST: /home/john/Thunderbird/OpsCenter/collaboration/claude_output.md
+DISSENT_FILED: NO
+STATUS: QUEUED → claude_inbox.md

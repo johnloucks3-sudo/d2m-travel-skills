@@ -820,10 +820,16 @@ def _handle_commander_message(task: dict) -> str:
             response = _call_gemini(system_prompt, content,
                                    max_tokens=800, temperature=0.5)
         else:
-            # TEMPORARY: Claude limit active — route all tasks to Gemini instead of queuing
-            engine = "Gemini 3.1 Pro (Claude limit — temp)"
-            response = _call_hale(system_prompt, augmented_content,
-                                  max_tokens=2500, temperature=0.3)
+            # Route to Claude MAX queue
+            _queue_for_claude_max({
+                "task_id": task_id,
+                "task_type": task_type.value,
+                "content": content,
+                "chat_id": chat_id,
+                "_mcp_context": mcp_context # Pass MCP context to Claude if available
+            })
+            engine = "Claude MAX (queued)"
+            response = f"Task {task_id} (type: {task_type.value}) queued for Claude MAX. Commander will be notified when processed."
 
     except Exception as e:
         engine = "ERROR"

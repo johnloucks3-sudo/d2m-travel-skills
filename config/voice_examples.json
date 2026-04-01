@@ -8,15 +8,15 @@
       "d2mconcierge@gmail.com"
     ],
     "days_back": 400,
-    "total_examples": 911,
+    "total_examples": 933,
     "by_tier": {
-      "personal": 226,
-      "client": 176,
+      "personal": 227,
+      "client": 179,
       "vendor": 42,
-      "internal": 462,
+      "internal": 480,
       "family": 5
     },
-    "last_sync": "2026-03-31T02:31:22.438597"
+    "last_sync": "2026-04-01T02:33:15.337215"
   },
   "examples": [
     {
@@ -2645,6 +2645,24 @@
       "to": "7192910742@tmomail.net",
       "date": "Mon, 30 Mar 2026 05:41:14 -0700",
       "body": "PAY TOMORROW: Kuklinski (Kyle & Rosalie) $7,548 | PAY TOMORROW: Kuklinski (Roger & Nick) $7,548 | PAY TOMORROW: Morton (Josh & Erica) $6,148",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "Re: WHat do you guys think of this itinerary?",
+      "to": "gregory loucks <greg.loucks@icloud.com>",
+      "date": "Tue, 31 Mar 2026 13:52:24 -0600",
+      "body": "Thanks, I will try to remember all that great advice.\n\nOn Tue, Mar 31, 2026 at 9:14 AM gregory loucks <greg.loucks@icloud.com>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "client",
+      "subject": "D2M COS-EXEC Alert",
+      "to": "7192910742@tmomail.net",
+      "date": "Tue, 31 Mar 2026 07:34:06 -0500",
+      "body": "PAY TODAY: Kuklinski (Kyle & Rosalie) $7,548 | PAY TODAY: Kuklinski (Roger & Nick) $7,548 | PAY TODAY: Morton (Josh & Erica) $6,148 | PAY TOMORROW: Furlow (John",
       "score": 4
     },
     {
@@ -7130,6 +7148,33 @@
       "score": 3
     },
     {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Delivery Status Notification (Delay)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 31 Mar 2026 11:04:09 -0700",
+      "body": "ISSUE:\nSomeone attempted to reach John at SMS-to-email gateway; temporary delivery failure — Gmail retrying automatically\n\nDISCUSSION:\nTemporary delivery failure to 719-291-0742@tmomail.net. Gmail will retry for 45 hours. Remote T-Mobile server momentarily unavailable.\n\nACTIONS I RECOMMEND TAKING:\n1. Monitor for permanent delivery failure over next 45 hours\n2. If critical message was intended, consider resending via alternate channel after retry window expires\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-03-31 12:04 MT\nThunderbird Email Intelligence Officer",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Delivery Status Notification (Failure)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 31 Mar 2026 11:01:07 -0700",
+      "body": "ISSUE:\nDelivery failure from d2mconcierge@gmail.com — temporary server unavailability (452 error), likely to self-resolve on retry.\n\nDISCUSSION:\nGmail bounce notification. Message from d2mconcierge@gmail.com to 7192910742@tmomail.net (T-Mobile) was temporarily rejected by remote server.\n\nACTIONS I RECOMMEND TAKING:\n1. Verify the attempted send was intentional\n2. Monitor for successful retry\n3. Check d2mconcierge account status if pattern of failures emerges\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-03-31 12:01 MT\nThunderbird Email Intelligence Officer",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "D2M ALERT",
+      "to": "7192910742@tmomail.net",
+      "date": "Tue, 31 Mar 2026 07:50:18 -0500",
+      "body": "Preflight Check: Thunderbird Preflight — RED\nTime: 2026-03-31 06:50 MT\n\n✅ MCP Server: Running (PID 698954)\n✅ Scheduler: Running (PID 1808",
+      "score": 3
+    },
+    {
       "account": "johnloucks3@gmail.com",
       "tier": "internal",
       "subject": "[COS] General: BREAKING:  Most Americans say war in Iran is going",
@@ -8216,6 +8261,159 @@
       "to": "johnloucks3@gmail.com",
       "date": "Sun, 29 Mar 2026 20:00:27 +0200",
       "body": "ISSUE:\nd2mconcierge@gmail.com SMS/email gateway to Commander's phone (719-291-0742) is temporarily unavailable—may block urgent alerts.\n\nDISCUSSION:\nGmail delivery system reports temporary failure sending to 7192910742@tmomail.net (Commander's phone email). Remote server temporarily unavailable; Gmail retrying for 45 hours.\n\nACTIONS I RECOMMEND TAKING:\n1. Confirm which message failed (check d2mconcierge sent folder for recent SMS-bound sends)\n2. If critical alert was being sent, consider alternate delivery method (Telegram, direct phone call)\n3. Monitor for resolution; Gmail will retry automatically for 45 hours\n4. Flag if this happens again—may indicate recurring SMS gateway issues\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-03-29 12:00 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "client",
+      "subject": "Regent Seven Seas Grandeur 29 August 2026 — Booking Information for Furlow, Ely/Darrow, and Nichols and...we wanna go with you on MAGNA!",
+      "to": "julie@lovegrouptravel.com",
+      "date": "Tue, 31 Mar 2026 18:44:57 -0600",
+      "body": "[image: Dreams2Memories Travel]\n\n*Hi Julie, I hope this finds you and your lovely family well.  First, Susie\nand I wanted to make sure you put our names on your list for a top deck or\n2nd deck suite on AMA Magna in Sep 2027.  We had a great time with your\nfamily and your crazy friends and we'd like to also go on any AMA\nPre-Cruise tours, because that's where you get to know folks better.  So\nplease keep us in the loop.  We'll be watching for your videos.  We have a\ncouple of friends interested, but because they are so fickle, we'll let you\nknow about them later.  *\n\n*Now, for the bookings:  All three bookings were made through NEXION, and\nrecorded in AgentMate in late fall.  So the commission will be routed\nthrough NEXION accordingly.  I apologize that I don't have the NEXION\nreference number handy at the moment but here are the details:\n———————————————————————————— BOOKING 1 — FURLOW Guests: John Furlow &\nMelissa Furlow Address: 7771 Verbena Court, Dallas, TX 75230 Ship: Seven\nSeas Grandeur Voyage: Storied Scandinavia Dates: August 29 – September 8,\n2026 Booking #: 3071222 ———————————————————————————— BOOKING 2 — ELY /\nDARROW Guests: Alfred Ely & Amy Darrow Address: 5904 Kensington Drive,\nPlano, TX 75093 Ship: Seven Seas Grandeur Voyage: Storied Scandinavia\nDates: August 29 – September 8, 2026 Booking #: 3096289\n———————————————————————————— BOOKING 3 — NICHOLS Guests: Larry Nichols &\nHeidi Nichols Address: 4811 Heatherbrook Drive, Dallas, TX 75244 Ship:\nSeven Seas Grandeur Voyage: Storied Scandinavia Dates: August 29 –\nSeptember 8, 2026 Booking #: 3078056 ———————————————————————————— All three\ncouples are on the same sailing and same flights. If you need anything else\nfrom my end, just let me know. Thanks, looking forward to seeing you all\nagain John *\n\n*John LoucksOwner & Founder, Dreams2Memories Travel, LLC719.291.0742*\n[image: Dreams2Memories Travel]",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Delivery Status Notification (Delay)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 31 Mar 2026 14:01:41 -0700",
+      "body": "ISSUE:\nDelivery failure from D2M ops email to Commander's T-Mobile gateway — investigate what triggered the send attempt.\n\nDISCUSSION:\nFailed delivery attempt from d2mconcierge@gmail.com to 7192910742@tmomail.net (T-Mobile email-to-SMS gateway). Remote server temporarily unavailable; Gmail will retry for 21 hours.\n\nACTIONS I RECOMMEND TAKING:\n1. Check logs/scripts for automated SMS/text send triggers\n2. Verify if T-Mobile gateway is intended recipient or if endpoint misconfigured\n3. Monitor for permanent delivery failure if retries exhaust after 21 hours\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-03-31 15:01 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Delivery Status Notification (Delay)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 31 Mar 2026 11:08:10 -0700",
+      "body": "ISSUE:\nOutbound email from d2mconcierge blocked by recipient server — investigate why phone relay is rejecting D2M mail (code 452 4.1.0 AUP). Monitor if retry succeeds.\n\nDISCUSSION:\nGmail delivery retry notification. Temporary failure sending to 7192910742@tmomail.net (T-Mobile phone relay) due to remote server AUP rejection. Auto-retry in progress (23 hours remaining).\n\nACTIONS I RECOMMEND TAKING:\n1. COS: Verify who was sending to 7192910742@tmomail.net — likely a text notification to a client's phone\n2. Check if recipient's carrier (T-Mobile) has flagged d2mconcierge as suspicious\n3. Monitor delivery status — Gmail will retry automatically for 23 hours\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-03-31 12:08 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Delivery Status Notification (Failure)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 31 Mar 2026 11:07:45 -0700",
+      "body": "ISSUE:\nEmail delivery to 7192910742@tmomail.net failed with temporary server error (452 AUP#MXRT); if critical communication was intended, retry or use alternate contact method.\n\nDISCUSSION:\nD2M email delivery failed to Commander's T-Mobile SMS gateway due to temporary remote server error. Likely an attempt to send critical message via SMS.\n\nACTIONS I RECOMMEND TAKING:\n1. Identify what message failed to deliver and whether it was time-sensitive\n2. Retry delivery—452 is a temporary error, not permanent rejection\n3. Check d2mconcierge@gmail.com reputation with T-Mobile (possible AUP flag)\n4. Alert Commander if the message was operationally critical\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-03-31 12:07 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Delivery Status Notification (Delay)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 31 Mar 2026 11:07:23 -0700",
+      "body": "ISSUE:\nD2M email delivery to Commander's SMS notification gateway temporarily failed; investigate if alerts/critical messages were blocked.\n\nDISCUSSION:\nGmail bounce notification: temporary delivery failure from d2mconcierge to T-Mobile SMS gateway. Remote server temporarily unavailable (452 4.1.0 error).\n\nACTIONS I RECOMMEND TAKING:\n1. Verify no critical D2M alerts or notifications were lost\n2. Check if T-Mobile SMS gateway delivery has recovered\n3. Confirm d2mconcierge@gmail.com sending reputation with T-Mobile\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-03-31 12:07 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Delivery Status Notification (Delay)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 31 Mar 2026 11:06:45 -0700",
+      "body": "ISSUE:\nOutbound email delivery to Commander's phone number failed due to remote server unavailability (AUP#MXRT); Gmail retrying automatically.\n\nDISCUSSION:\nT-Mobile mail gateway temporarily rejected email to 7192910742@tmomail.net. Gmail will retry for 22 hours.\n\nACTIONS I RECOMMEND TAKING:\n1. Monitor for permanent delivery failure notification (watch for next 22 hours)\n2. If delivery fails, verify alternative contact methods for Commander\n3. Check if d2mconcierge sending through correct relay or if T-Mobile carrier is flagging mail as spam\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-03-31 12:06 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Delivery Status Notification (Delay)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 31 Mar 2026 11:06:03 -0700",
+      "body": "ISSUE:\nDelivery to Commander's T-Mobile SMS-to-email address temporarily failed; Gmail retrying. Error: server temporarily unavailable (AUP#MXRT) — possible T-Mobile AUP (Abuse Prevention) trigger.\n\nDISCUSSION:\nGmail delivery to 7192910742@tmomail.net (Commander's T-Mobile SMS-to-email) temporarily failed. Gmail will retry for 46 more hours; server returned temporary unavailable error (AUP#MXRT).\n\nACTIONS I RECOMMEND TAKING:\n1. Monitor for permanent delivery failure notification\n2. If critical time-sensitive messages are being routed to Commander's phone, verify alternative contact method (call 719-291-0742 directly or use primary d2mconcierge account)\n3. Check if T-Mobile AUP filter is blocking d2mconcierge@gmail.com; may need to whitelist or switch to alternative notification channel\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-03-31 12:06 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Delivery Status Notification (Delay)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 31 Mar 2026 11:05:42 -0700",
+      "body": "ISSUE:\nD2M outbound email to Commander failed temporarily — verify message was received or resend critical notification via alternate channel.\n\nDISCUSSION:\nGmail reports temporary delivery delay for a message sent from D2M ops to the Commander's phone number email (7192910742@tmomail.net). Remote server briefly unavailable; Gmail will retry for 46 hours.\n\nACTIONS I RECOMMEND TAKING:\n1. Check d2mconcierge sent folder to identify what message failed to deliver\n2. Verify Commander received notification via Telegram C2 or direct phone call\n3. If message was critical/time-sensitive, resend via alternative channel\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-03-31 12:05 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Delivery Status Notification (Delay)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 31 Mar 2026 11:05:17 -0700",
+      "body": "ISSUE:\nD2M email delivery to Commander's cell SMS gateway (7192910742@tmomail.net) is degraded — investigate T-Mobile gateway status and test alternative alert channels.\n\nDISCUSSION:\nGoogle Mail is temporarily unable to deliver messages from D2M's d2mconcierge account to T-Mobile's SMS gateway. Gmail will retry for 45 hours before permanent failure.\n\nACTIONS I RECOMMEND TAKING:\n1. Verify T-Mobile mail gateway status (ismtp.msg.t-mobile.com or equivalent)\n2. Check d2mconcierge Gmail reputation / bounce rate\n3. Test delivery to alternate contact method (email, Telegram, Slack)\n4. Review recent Gmail sends for other AUP violations\n5. Monitor for permanent delivery failure in next 45 hours\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-03-31 12:05 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Delivery Status Notification (Delay)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 31 Mar 2026 11:03:25 -0700",
+      "body": "ISSUE:\nD2M ops account experiencing temporary delivery delays to Commander's T-Mobile email address; monitor for permanent failure.\n\nDISCUSSION:\nTemporary delivery delay to 7192910742@tmomail.net (Commander's T-Mobile email). Gmail retrying for 45 hours; no permanent failure yet.\n\nACTIONS I RECOMMEND TAKING:\n1. Monitor for permanent delivery failure notification in next 45 hours\n2. If messages to Commander's T-Mobile consistently fail, switch to johnloucks3@gmail.com or alternative contact channel\n3. Log in OpsCenter collaboration system for infrastructure tracking\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-03-31 12:03 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Delivery Status Notification (Failure)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 31 Mar 2026 11:03:07 -0700",
+      "body": "ISSUE:\nD2M email delivery from d2mconcierge@gmail.com to 7192910742@tmomail.net failed; remote server temporarily unavailable\n\nDISCUSSION:\nMail delivery failure notification. Email from d2mconcierge@gmail.com to 7192910742@tmomail.net failed; T-Mobile server temporarily unavailable (AUP#MXRT error).\n\nACTIONS I RECOMMEND TAKING:\n1. Identify what D2M email was sent to 7192910742@tmomail.net and retry if critical\n2. Monitor for persistent T-Mobile/SMS gateway delivery issues\n3. Check d2mconcierge account health if failures continue\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-03-31 12:03 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Delivery Status Notification (Delay)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 31 Mar 2026 11:01:56 -0700",
+      "body": "ISSUE:\nOutbound email delivery to 7192910742@tmomail.net (likely SMS-to-email route) is temporarily blocked; auto-retry in progress.\n\nDISCUSSION:\nTemporary delivery failure to T-Mobile SMS gateway (7192910742@tmomail.net). Gmail will retry for 47 more hours. Remote server reported temporary unavailability.\n\nACTIONS I RECOMMEND TAKING:\n1. Monitor: Gmail will retry automatically. Notify Commander if this recurs after 47 hours.\n2. Verify: Confirm whether d2mconcierge was intentionally sending to T-Mobile SMS gateway or if this is a forwarding loop.\n3. Check queue: Verify no critical client emails are queued for T-Mobile addresses.\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-03-31 12:01 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Delivery Status Notification (Delay)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 31 Mar 2026 11:00:47 -0700",
+      "body": "ISSUE:\nT-Mobile gateway temporarily unavailable for email delivery to Commander's phone number; Gmail will auto-retry.\n\nDISCUSSION:\nGmail delivery notification: temporary failure sending to 7192910742@tmomail.net (Commander's T-Mobile number). Remote server returned 452 error. Auto-retry active for 19 more hours.\n\nACTIONS I RECOMMEND TAKING:\n1. Monitor for delivery success in next 19 hours\n2. If failures persist, verify T-Mobile gateway status or check if alternative notification method needed\n3. Verify d2mconcierge@gmail.com reputation/AUP standing if retries continue to fail\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-03-31 12:00 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Delivery Status Notification (Delay)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 31 Mar 2026 08:01:45 -0500",
+      "body": "ISSUE:\nTemporary delivery failure on D2M outbound SMS notification to Commander's phone — Gmail auto-retrying\n\nDISCUSSION:\nGmail failed to temporarily deliver a message from d2mconcierge to Commander's T-Mobile SMS gateway (7192910742@tmomail.net) due to remote server error. Gmail auto-retry in progress for 23 hours.\n\nACTIONS I RECOMMEND TAKING:\n1. Monitor for delivery completion notification\n2. If persistent after 24h window, verify d2mconcierge SMTP relay settings or SMS gateway configuration\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-03-31 07:01 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[D2M RED] Preflight Check",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 31 Mar 2026 07:50:18 -0500",
+      "body": "Thunderbird Preflight — RED\nTime: 2026-03-31 06:50 MT\n\n✅ MCP Server: Running (PID 698954)\n✅ Scheduler: Running (PID 1808)\n✅ Telegram C2: Running (PID 923939)\n✅ Gmail Token: Valid (has refresh token)\n✅ Persona Token: Valid (has refresh token)\n✅ Disk Space: 844.3 GB free\n✅ TELEGRAM_BOT_TOKEN: Set\n✅ TELEGRAM_COMMANDER_ID: Set\n✅ GROQ_API_KEY: Set\n✅ Internet: Connected\n🔴 Gemini API: Failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available to new users. Please update your code to use a newer model for the latest features and improvements.', 'status': 'NOT_FOUND'}}\n✅ MCP Port 8765: Listening",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "A12 ELON: Goose Replacement — Cline CLI Recommended",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 31 Mar 2026 07:41:40 -0500",
+      "body": "A12 ELON: GOOSE REPLACEMENT #1 CLINE CLI 2.0 (9/10) RECOMMENDED YOLO headless mode, native MCP, model-agnostic (Gemini/Anthropic/Ollama), Apache 2.0, npm install -g cline #2 GEMINI CLI (7/10) Google official, free Gemini 2.5 Pro, headless + web grounding. Risk: single-provider. #3 OPENHANDS (5/10) Full MCP + Python SDK but Docker-heavy, overkill. Eliminated Plandex (dead), Devon (locked), Aider (no daemon), Sweep (cloud-only) Wildcard: Claude Code Agent SDK Headless + Agent SDK + Junior daemon. If MAX limits loosen, collapses entire Goose layer. One agent. Plan Install Cline CLI, port G4-G8, systemd + Gemini Flash If MCP works, kill Goose Watch Claude Agent SDK. Endgame = one agent. Thanks — ELON, A12 Dreams2Memories Travel, LLC John Loucks Owner & Founder, Dreams2Memories Travel, LLC concierge@d2mluxury.quest · d2mluxury.quest",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "A12 ELON Assessment: xingkongliang/skills-manager",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 31 Mar 2026 08:37:00 -0400",
+      "body": "A12 ELON ASSESSMENT: xingkongliang/skills-manager GitHub | Score: 437 | Stars: 489 | Rust+Tauri | MIT 1. WHAT IT ACTUALLY DOES GUI file manager for ~/.claude/skills/ and 14 other AI tools. Symlink orchestrator with SQLite metadata, Git backup, scenarios, and a marketplace. 2. RELEVANCE: LOW We have 58 skills, /skill-creator, Skills API, CC Profiles. Single-tool shop. Multi-tool sync is irrelevant. 3. VERDICT: IGNORE Build? No Buy? Adds complexity Adopt? Only if multi-tool 4. GAPS EXPOSED a) Skill versioning — no rollback. Git-track skills dir. 5 min. b) Skill usage audit — 58 skills, zero metrics c) Portability — matters if Goose needs skills. Q3. 5. ACTION Git-track skills dir Build skill usage tracker 489 stars/28 days = devs have this pain. We dont. Validates our architecture. Thanks — ELON, A12 Dreams2Memories Travel, LLC John Loucks Owner & Founder, Dreams2Memories Travel, LLC concierge@d2mluxury.quest · d2mluxury.quest",
       "score": 2
     }
   ]

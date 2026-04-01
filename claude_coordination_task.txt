@@ -1,0 +1,31 @@
+Hello Claude, this is a coordination task from goose, initiated by the Commander.
+
+**Context:** Goose experienced a 30-minute delay attempting to delegate a task to you due to repeated tool-use errors (trying to call you as a direct source, which failed). This caused significant frustration.
+
+In response, goose has proposed a corrective action plan and a permanent solution. The Commander would like your expert opinion on this proposal.
+
+**Please review the following proposal from goose and provide your feedback:**
+
+---
+### **Goose's Proposal**
+
+**1. Immediate Corrective Actions:**
+   - **Pre-computation Validation:** Validate tool parameters against known valid sources before execution.
+   - **Aggressive Fallback Hierarchy:** If a complex tool fails, immediately fall back to the simplest method (e.g., plain text) instead of trying another complex tool.
+   - **Reduced Timeouts:** Implement a short internal timeout (15s) for tool calls to fail faster.
+
+**2. The Easiest/Quickest IMMEDIATE Method (Manual Hand-off):**
+   - **Step 1 (Goose):** Write the full prompt for Claude into a `.txt` file.
+   - **Step 2 (Commander):** Manually copy the prompt from the file and paste it into the Claude UI. Then, copy Claude's response back into a separate response file for goose to read.
+
+**3. The BEST Long-Term Solution (Code Change):**
+   - **New Tool:** Create a new tool called `LLM.query`.
+   - **Functionality:** This tool would accept a `model` name and a `prompt` as input. It would handle the API call to the specified model (like you, Claude Opus) and return the text response directly. This would make inter-model communication a single, fast, and reliable action.
+
+---
+
+**Your Task:**
+Please provide your comments on this three-part proposal. Do you agree with the analysis? Is the proposed `LLM.query` tool the correct architectural solution? Are there any potential pitfalls or improvements you would suggest?
+
+Thank you,
+Goose & The Commander

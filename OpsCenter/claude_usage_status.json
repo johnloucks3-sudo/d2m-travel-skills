@@ -1,22 +1,22 @@
 {
-  "session_start": "2026-03-31T17:56:27.316Z",
-  "session_messages": 27,
+  "session_start": "2026-03-31T17:24:35.805702-06:00",
+  "session_messages": 7,
   "session_limit": 225,
   "weekly_start": "2026-03-31T17:56:27.316Z",
-  "weekly_messages": 234,
+  "weekly_messages": 242,
   "weekly_limit": 1500,
   "sonnet_day_start": "2026-03-31T17:56:27.316Z",
-  "sonnet_messages_today": 26,
+  "sonnet_messages_today": 34,
   "sonnet_daily_limit": 25,
-  "effective_messages": 36,
-  "last_message_at": "2026-03-31T13:39:22.051064-06:00",
+  "effective_messages": 7,
+  "last_message_at": "2026-03-31T20:37:33.759092-06:00",
   "budget_status": "RED",
   "sources": {
     "desktop": 0,
     "code": 0,
-    "watcher": 9,
+    "watcher": 7,
     "unknown": 0
   },
   "peak_messages": 0,
-  "offpeak_messages": 9
+  "offpeak_messages": 7
 }

@@ -1,0 +1,57 @@
+[
+  {
+    "id": "A2-2026-04-01-001",
+    "title": "Dictionary definitions of 'high'",
+    "source_signal": "Signals 1-4: Merriam-Webster, Free Dictionary, Dictionary.com, Collins",
+    "classification": "REJECT",
+    "gap_closed": "None",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Lexicographic content. Zero relevance to D2M cruise, hospitality, or travel advisory."
+  },
+  {
+    "id": "A2-2026-04-01-002",
+    "title": "Spotify Premium tier information",
+    "source_signal": "Signals 5-8: Spotify pricing pages (EN, ES, ZH-HK)",
+    "classification": "REJECT",
+    "gap_closed": "None",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Music streaming service. Outside D2M vertical entirely."
+  },
+  {
+    "id": "A2-2026-04-01-003",
+    "title": "Microsoft Xbox/Surface hardware issues",
+    "source_signal": "Signals 9-12: Xbox port rumors, Surface USB failure reports",
+    "classification": "REJECT",
+    "gap_closed": "None",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Consumer electronics support. Not relevant to luxury travel or cruise operations."
+  },
+  {
+    "id": "A2-2026-04-01-004",
+    "title": "Dictionary definitions of 'competitive'",
+    "source_signal": "Signals 13-16: Merriam-Webster, Cambridge, Collins, pronunciation guide",
+    "classification": "REJECT",
+    "gap_closed": "None",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Lexicographic content. Zero business intelligence value for D2M."
+  },
+  {
+    "id": "A2-2026-04-01-005",
+    "title": "LIFE magazine cultural photography archive",
+    "source_signal": "Signals 17-21: 20th century icons, arts/entertainment, Carol Burnett features",
+    "classification": "REJECT",
+    "gap_closed": "None",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Cultural history archive. No relevance to cruise routes, HNW intelligence, hospitality openings, or competitive travel advisory."
+  }
+]

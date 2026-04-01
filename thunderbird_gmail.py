@@ -1840,6 +1840,40 @@ def gmail_send_draft_sync(draft_id: str) -> dict:
     }
 
 
+def gmail_get_message_sync(message_id: str) -> dict:
+    """Synchronous wrapper: fetch a sent/received message's full content by ID.
+
+    Returns dict with id, threadId, labels, headers, body, and attachment list.
+    Used by Goose for email content comparison after sends.
+    """
+    service = _get_gmail_service()
+    msg = service.users().messages().get(userId="me", id=message_id, format="full").execute()
+    payload = msg.get("payload", {})
+    headers = _extract_headers(payload.get("headers", []))
+    body = _decode_body(payload)
+
+    if len(body) > 30000:
+        body = body[:30000] + "\n\n... [TRUNCATED — exceeds 30K chars]"
+
+    attachments = []
+    for part in payload.get("parts", []):
+        if part.get("filename"):
+            attachments.append({
+                "filename": part["filename"],
+                "mimeType": part.get("mimeType", "unknown"),
+                "size": part.get("body", {}).get("size", 0),
+            })
+
+    return {
+        "id": msg["id"],
+        "threadId": msg["threadId"],
+        "labels": msg.get("labelIds", []),
+        **headers,
+        "body": body,
+        "attachments": attachments,
+    }
+
+
 def gmail_get_draft_sync(draft_id: str) -> dict:
     """Synchronous wrapper: fetch a draft's metadata and full body.
 
