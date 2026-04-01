@@ -4,7 +4,7 @@ Thunderbird OS — Z Fold6 Daily Connectivity Test
 Dreams2Memories Travel, LLC
 
 Runs at 08:00 MDT daily. Verifies Commander's phone is reachable.
-4-tier escalation: Telegram → Email → SMS → Conservation Mode
+3-tier escalation: Telegram → Email → Conservation Mode (SMS/tmomail removed 2026-04-01)
 
 Usage:
   python3 thunderbird_zfold_test.py          # Run test
@@ -104,26 +104,11 @@ def test_email() -> bool:
 
 
 def test_sms() -> bool:
-    """Send SMS via T-Mobile email gateway."""
-    try:
-        sys.path.insert(0, str(THUNDERBIRD_DIR))
-        from thunderbird_google_auth import get_credentials
-        from googleapiclient.discovery import build
-
-        creds = get_credentials()
-        service = build("gmail", "v1", credentials=creds)
-
-        msg = MIMEText("D2M ALERT: TG+Email down. Check YOGA. -Thunderbird")
-        msg["to"] = "7192910742@tmomail.net"
-        msg["from"] = "d2mconcierge@gmail.com"
-        msg["subject"] = "D2M CONNECTIVITY ALERT"
-        raw = base64.urlsafe_b64encode(msg.as_bytes()).decode()
-        service.users().messages().send(userId="me", body={"raw": raw}).execute()
-        logger.info("SMS fallback: SENT")
-        return True
-    except Exception as e:
-        logger.error(f"SMS fallback failed: {e}")
-        return False
+    """SMS via tmomail removed 2026-04-01 — T-Mobile gateway bounces.
+    Kept as stub so callers don't break. Always returns False to signal
+    channel unavailable and trigger conservation mode."""
+    logger.info("SMS tier removed — tmomail.net gateway decommissioned.")
+    return False
 
 
 def enter_conservation_mode():
@@ -148,7 +133,6 @@ def run_connectivity_test(force_all: bool = False) -> dict:
         "timestamp": datetime.now().isoformat(),
         "telegram": None,
         "email": None,
-        "sms": None,
         "overall": "UNKNOWN",
     }
 
@@ -159,7 +143,6 @@ def run_connectivity_test(force_all: bool = False) -> dict:
     if tg_ok and not force_all:
         result["overall"] = "GREEN"
         result["email"] = "SKIPPED"
-        result["sms"] = "SKIPPED"
         _save_state(result)
         return result
 
@@ -170,21 +153,10 @@ def run_connectivity_test(force_all: bool = False) -> dict:
 
     if email_ok and not force_all:
         result["overall"] = "YELLOW"
-        result["sms"] = "SKIPPED"
         _save_state(result)
         return result
 
-    # Tier 3: SMS (Email also failed or force mode)
-    logger.warning("Email failed — escalating to SMS")
-    sms_ok = test_sms()
-    result["sms"] = "PASS" if sms_ok else "FAIL"
-
-    if sms_ok:
-        result["overall"] = "YELLOW"
-        _save_state(result)
-        return result
-
-    # Tier 4: All failed — conservation mode
+    # Tier 3: All channels failed — conservation mode
     result["overall"] = "RED"
     enter_conservation_mode()
     _save_state(result)
