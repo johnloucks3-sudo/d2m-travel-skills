@@ -21,11 +21,11 @@ Based on the API vault, the Wing has access to:
 | Slot | Persona | Role | Assigned API (Team Member) | Rationale |
 |------|---------|------|---------------------------|-----------|
 | **COS** | Hale | Orchestrator | **Claude 3.7 Sonnet** | Highest instruction-following and context management. Needs to organize the whole board. |
-| **A2** | Dembe | Research & Intel | **DeepSeek (V3/R1)** | Exceptional at data extraction, logic parsing, and deep web research without heavy token cost. (Backup: Perplexity via OpenRouter). |
+| **A2** | Dembe | Research & Intel | **Perplexity (via OpenRouter)** | *[ROUTED AWAY FROM DEEPSEEK DUE TO 402 INSUFFICIENT BALANCE 2026-04-01]* Unmatched at live web research and source citation. |
 | **A3** | Dani | Client Concierge | **Claude 3.7 Sonnet** | The undisputed best at warm, human, nuanced luxury travel copy. No other model writes emails like Dani. |
 | **A5** | Castillo | Strategy & Growth | **OpenAI o1 / DeepSeek R1** | Requires step-by-step business logic, margin analysis, and strategic forecasting. |
 | **A6** | Luna | Romance & Narrative | **Kimi (Moonshot) / AI21** | Kimi is highly creative with massive context. AI21 excels at narrative generation. Used specifically for dream-layer writing. |
-| **A7** | Sterling | Metrics & Audits | **Groq (Llama-3)** | Needs to instantly rip through log files, JSON payloads, and code to find inefficiencies. Groq's 800+ tokens/sec is perfect for high-speed auditing. |
+| **A7** | Sterling | Metrics & Audits | **Groq (Llama-3.3-70b-versatile)** | Needs to instantly rip through log files, JSON payloads, and code to find inefficiencies. Groq's 800+ tokens/sec is perfect for high-speed auditing. |
 | **A9** | Harlan | Finance & TESS | **Gemini 2.5 Pro** | Excellent native JSON handling, massive context window for reading massive TESS commission reports or PDFs. |
 | **EXEC**| Naia | Visuals & Formats | **Imagen / Nano-Banana** | Generates the visual assets, formatting, and design elements. |
 | **A12** | ELON | Innovation | **OpenRouter (Wildcards)** | Routed to experimental models (Mixtral, Cohere) to find non-standard solutions. |

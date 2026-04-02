@@ -81,3 +81,5 @@ Hale Routing: Task 'null' assigned to claude-3-opus-20240229
 - **[Wed Apr 01 12:52:57 PM MT 2026]** HALE routed `commander_message` (msg_3786) → **COS** — ⚙️ <b>SYSTEM CAPABILITIES</b> ───────────────────── Commander, I operate via the Thunderbird MCP ser
 - **[Wed Apr 01 02:27:39 PM MT 2026]** HALE routed `generic` (EMAIL_19d4aa954797ed6c) → **COS** — Unknown task type: `generic` Raw: {"task_id": "EMAIL_19d4aa954797ed6c", "source": "EMAIL", "assigned
 - **[Wed Apr 01 02:46:29 PM MT 2026]** HALE routed `generic` (EMAIL_19d4aa954797ed6c) → **COS** — Unknown task type: `generic` Raw: {"task_id": "EMAIL_19d4aa954797ed6c", "source": "EMAIL", "assigned
+- **[Wed Apr 01 03:48:51 PM MT 2026]** HALE routed `generic` (EMAIL_19d4aa954797ed6c) → **COS** — Unknown task type: `generic` Raw: {"task_id": "EMAIL_19d4aa954797ed6c", "source": "EMAIL", "assigned
+- **[Wed Apr 01 03:50:11 PM MT 2026]** HALE routed `generic` (EMAIL_19d4aa954797ed6c) → **COS** — Unknown task type: `generic` Raw: {"task_id": "EMAIL_19d4aa954797ed6c", "source": "EMAIL", "assigned

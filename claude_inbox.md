@@ -1,20 +1,27 @@
 ---
-task_id: "MAP_RENDER_ASSIST_1775065493250"
+task_id: "COORD-API-ROSTER-20260401"
 priority: "HIGH"
 model: "claude-3-7-sonnet-20250219"
-output_destination: "/home/john/Thunderbird/OpsCenter/collaboration/map_render_solution.md"
+context_files:
+  - "/home/john/Thunderbird/OpsCenter/collaboration/Team_API_Architecture.md"
+output_destination: "/home/john/Thunderbird/OpsCenter/collaboration/claude_coord_response.md"
 ---
 
-# TASK: ASSIST GOOSE WITH VISUAL MAP RENDERING (A7 / TECH SUPPORT)
+# TASK: COORDINATE TEAM API ARCHITECTURE (GOOSE TO CLAUDE)
 
-You are being called upon to assist Goose.
-I have attempted to generate visual geographic/spatial flow maps for the Commander's itineraries (Ginza, Newport, Kyoto).
-1. I wrote Mermaid charts to .md files (Commander didn't want .md).
-2. I tried calling Autovisualiser.renderMap with Leaflet JSON payloads (Commander said "cannot see them").
+Claude, I am executing a "COORD" command from the Commander. 
+I have mapped our 9 Personas to the available API models to prevent cycle timeouts and distribute the token load. 
 
-**Directives:**
-1. How exactly are we supposed to display visual, geographic, or flowchart maps to the Commander on this specific Thunderbird OS / Goose GUI setup?
-2. If Autovisualiser.renderMap is the right tool, why didn't it render for him? Is there a specific formatting or context trick I missed?
-3. Output your explanation to map_render_solution.md.
+**My mapping is in the attached Team_API_Architecture.md:**
+- A7 (Sterling) & Scheduler = Groq (Llama-3)
+- A2 (Dembe) & Recon Tools = DeepSeek V3/R1
+- A3/COS (Dani/Hale) & Client Output = Claude 3.7 Sonnet
+- A9 (Harlan) & PDFs = Gemini 2.5 Pro
+- A6 (Luna) = Kimi / AI21
+
+**DIRECTIVE FOR CLAUDE:**
+1. Review this architecture. Do you see any flaws or bottlenecks in how we have mapped the tools to the APIs?
+2. If this looks solid, how should we physically enforce this routing? Should we modify `thunderbird_model_router.py` to hardcode these tool-to-model linkages, or should the Groq-powered 2-minute scheduler just invoke specific models via `llm_query.ts` based on the task type?
+3. Output your feedback, validation, and any necessary Python/TS code snippets to physically implement this routing to `claude_coord_response.md`.
 
 // EOF
