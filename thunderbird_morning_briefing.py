@@ -23,6 +23,7 @@ import os
 import base64
 import argparse
 import urllib.parse
+import subprocess
 from datetime import datetime, date, timedelta
 from pathlib import Path
 from email.mime.text import MIMEText
@@ -975,6 +976,85 @@ def _wrap_briefing_in_stationery(html_content: str) -> str:
         return f'<div style="background-color:#eee8db;margin:0;padding:0;">{banner_html}{html_content}</div>'
 
 
+def send_briefing_json(intel_log: list, pricing: dict, tech_news: list, subject: str):
+    """Send briefing as JSON with clickable links. Format: D2M Relevance → Source Links."""
+    import subprocess
+    import json as json_module
+
+    brief_json = {
+        "timestamp": datetime.now().isoformat(),
+        "subject": subject,
+        "sections": []
+    }
+
+    # D2M RELEVANCE SUMMARY
+    if intel_log:
+        relevance_section = {
+            "id": "d2m-relevance",
+            "title": "D2M RELEVANCE SUMMARY",
+            "items": []
+        }
+        for item in intel_log[:5]:  # Top 5
+            relevance_section["items"].append({
+                "title": item.get("title", ""),
+                "source": item.get("source", ""),
+                "link": item.get("link", ""),
+                "relevance": item.get("relevance", "MEDIUM"),
+                "rationale": item.get("rationale", "")
+            })
+        brief_json["sections"].append(relevance_section)
+
+    # PRICING INTELLIGENCE
+    if pricing:
+        price_section = {
+            "id": "pricing",
+            "title": "PRICING INTELLIGENCE",
+            "items": []
+        }
+        for key, val in list(pricing.items())[:5]:
+            price_section["items"].append({
+                "route": key,
+                "price_usd": val.get("price_usd", ""),
+                "trend": val.get("trend", ""),
+                "link": val.get("link", "")
+            })
+        brief_json["sections"].append(price_section)
+
+    # TECH NEWS
+    if tech_news:
+        tech_section = {
+            "id": "tech-news",
+            "title": "TECHNOLOGY & INNOVATION",
+            "items": []
+        }
+        for item in tech_news[:5]:
+            tech_section["items"].append({
+                "title": item.get("title", ""),
+                "source": item.get("source", ""),
+                "link": item.get("link", ""),
+                "category": item.get("category", "")
+            })
+        brief_json["sections"].append(tech_section)
+
+    # Write to file instead of email
+    json_path = f"/home/john/Thunderbird/output/briefing_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+    with open(json_path, 'w') as f:
+        json_module.dump(brief_json, f, indent=2)
+
+    logger.info(f"Briefing JSON saved: {json_path}")
+
+    # Send to Commander via Telegram
+    try:
+        cmd = [
+            "/home/john/Thunderbird/mcp_bridge.sh",
+            "telegram_send",
+            json_module.dumps({"chat_id": "COMMANDER", "text": f"📊 Briefing JSON ready: {json_path}"})
+        ]
+        subprocess.run(cmd, capture_output=True)
+    except Exception as e:
+        logger.warning(f"Telegram alert failed: {e}")
+
+
 def send_briefing_email(html_content: str, subject: str):
     """Send the briefing as an HTML email to Commander."""
     service = _get_gmail_service()
@@ -1178,13 +1258,16 @@ def run_briefing(preview: bool = False, weekly: bool = False):
         logger.info(f"Preview saved: {out_path}")
         return str(out_path)
     else:
-        # Send email
+        # Send JSON briefing with links
         if weekly:
             subject = f"THUNDERBIRD WEEKLY DIGEST // {today.strftime('%B %d, %Y')}"
         else:
             emoji = {"RED": "🔴", "GOLD": "🟡", "GREEN": "🟢"}.get(summary["alert_level"], "")
             subject = f"{emoji} THUNDERBIRD BRIEFING // {today.strftime('%b %d')} — {summary['alert_text']}"
-        send_briefing_email(html, subject)
+
+        # CHANGE: Send as JSON, not HTML
+        send_briefing_json(intel_log, pricing, tech_news, subject)
+
         # ── Telegram C2 digest ──
         try:
             send_telegram_digest(rss_direct or [], anchor_report, summary)

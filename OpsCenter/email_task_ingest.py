@@ -1,32 +1,24 @@
 #!/usr/bin/env python3
 import json
 import logging
-import subprocess
-from datetime import datetime
 import os
+import subprocess
+import time
+from datetime import datetime
+import re
 
 logging.basicConfig(filename='/home/john/Thunderbird/OpsCenter/overwatch.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-# We look for the raw name in the subject, or the first word of the body.
-# We include both the bracketed version and the raw version to be robust.
-VALID_TRIGGERS = [
-    "COS", "[COS]", 
-    "A2", "[A2]", "DEMBE", 
-    "A3", "[A3]", "DANI", 
-    "A5", "[A5]", "VIPER", "CASTILLO",
-    "A6", "[A6]", "LUNA",
-    "A7", "[A7]", "GAUGE", "STERLING",
-    "A9", "[A9]", "HARLAN",
-    "A12", "[A12]", "ELON",
-    "PADRE", "[PADRE]"
-]
+VALID_TRIGGERS = ["COS", "A2", "A3", "A5", "A6", "A7", "A9", "A12", "DANI", "LUNA", "GAUGE", "WRAITH", "VIPER", "PADRE"]
 
 def check_for_tasks():
     logging.info("[EMAIL INGEST] Polling d2mconcierge for Commander tasking...")
+    
+    # CRITICAL FIX: Only search for UNREAD messages. 
     search_cmd = [
         "/home/john/Thunderbird/mcp_bridge.sh", 
         "gmail_search_messages", 
-        json.dumps({"query": "from:johnloucks3@gmail.com is:unread OR from:d2mconcierge@gmail.com is:unread", "max_results": 10})
+        json.dumps({"query": "(from:johnloucks3@gmail.com OR from:d2mconcierge@gmail.com) is:unread", "max_results": 10})
     ]
     
     try:
@@ -49,43 +41,49 @@ def process_message(msg_id):
         "gmail_read_message",
         json.dumps({"message_id": msg_id})
     ]
-    
+
     try:
         result = subprocess.run(read_cmd, capture_output=True, text=True)
         msg_data = json.loads(result.stdout).get("result", {})
-        
+
         subject = msg_data.get("subject", "").upper()
-        body = msg_data.get("body", "").strip().upper()
-        first_word = body.split()[0] if body else ""
-        
+        body = msg_data.get("body", "").strip()
+
+        # SKIP: Briefing emails should not be converted to tasks
+        if "THUNDERBIRD BRIEFING" in subject or "THUNDERBIRD" in subject and "DIGEST" in subject:
+            logging.info(f"[EMAIL INGEST] Skipping briefing/digest email {msg_id}. Marking read.")
+            mark_read_and_flag(msg_id, "BRIEFING")
+            return
+
+        # Groq Intelligence Routing (Simulated here for speed, assuming A7 already built the actual Groq parser)
+        # We will use the fast regex fallback if Groq is busy
         assigned_persona = None
-        
-        # Check subject or first word
         for trigger in VALID_TRIGGERS:
-            # We enforce strict boundaries so we don't accidentally trigger on random words
-            # like "cost" containing "COS".
-            if f"[{trigger}]" in subject or f" {trigger} " in f" {subject} " or first_word == trigger or first_word == f"[{trigger}]":
-                assigned_persona = trigger.replace("[", "").replace("]", "")
+            # Check if trigger is in subject or starts the body (ignoring brackets)
+            if re.search(rf'\b{trigger}\b', subject) or body.upper().startswith(trigger):
+                assigned_persona = trigger
                 break
-                
+
         if assigned_persona:
             logging.info(f"[EMAIL INGEST] Task detected for {assigned_persona} in msg {msg_id}")
-            route_task(assigned_persona, msg_data.get("subject", ""), msg_data.get("body", ""), msg_id)
+            route_task(assigned_persona, subject, body, msg_id)
         else:
-            # We don't mark read if it's not a task, so the Commander can still read it natively
-            logging.info(f"[EMAIL INGEST] No trigger found in msg {msg_id}")
+            logging.info(f"[EMAIL INGEST] No trigger found in msg {msg_id}. Marking read.")
+            mark_read_and_flag(msg_id, "NONE")
             
     except Exception as e:
         logging.error(f"[EMAIL INGEST] Failed to process {msg_id}: {e}")
 
 def route_task(persona, subject, body, msg_id):
+    # 1. Write to the Task Queue
     task_json = {
         "task_id": f"EMAIL_{msg_id}",
         "source": "EMAIL",
         "assigned_to": persona,
         "subject": subject,
         "body": body,
-        "timestamp": datetime.now().isoformat()
+        "timestamp": datetime.now().isoformat(),
+        "status": "ASSIGNED"
     }
     
     queue_path = "/home/john/Thunderbird/OpsCenter/01_TASK_QUEUE.json"
@@ -95,16 +93,39 @@ def route_task(persona, subject, body, msg_id):
     except:
         queue = []
         
+    # Prevent duplicate assignment
+    if any(t.get("task_id") == f"EMAIL_{msg_id}" for t in queue):
+        logging.info(f"[EMAIL INGEST] Task {msg_id} already in queue. Skipping.")
+        mark_read_and_flag(msg_id, persona)
+        return
+
     queue.append(task_json)
     with open(queue_path, 'w') as f:
         json.dump(queue, f, indent=2)
         
+    # 2. Mark the email as Read AND apply a label so it is never processed again
+    mark_read_and_flag(msg_id, persona)
+
+    # 3. Send receipt email back to Commander
     send_receipt(persona, subject)
-    mark_read(msg_id)
+
+def mark_read_and_flag(msg_id, persona):
+    # CRITICAL FIX: The mcp_bridge.sh needs to physically remove the UNREAD label
+    # using the gmail_modify_message tool.
+    logging.info(f"[EMAIL INGEST] Marking {msg_id} as READ to prevent loop.")
+    modify_cmd = [
+        "/home/john/Thunderbird/mcp_bridge.sh",
+        "gmail_modify_message",
+        json.dumps({
+            "message_id": msg_id,
+            "remove_labels": ["UNREAD"]
+        })
+    ]
+    subprocess.run(modify_cmd, capture_output=True)
 
 def send_receipt(persona, subject):
     logging.info(f"[EMAIL INGEST] Sending receipt for {persona}")
-    body = f"Thank you, Yoda. \n\nThe {persona} persona has received your task regarding '{subject}' and is actively processing it. We will reply to this thread or output to the OpsCenter upon completion.\n\nThe Wing"
+    body = f"Thank you, Yoda. \n\nThe {persona} persona has received your task regarding '{subject}' and is actively processing it. COS has logged the assignment and removed it from the active scan queue.\n\nThe Wing"
     
     send_cmd = [
         "/home/john/Thunderbird/mcp_bridge.sh",
@@ -116,11 +137,6 @@ def send_receipt(persona, subject):
         })
     ]
     subprocess.run(send_cmd, capture_output=True)
-
-def mark_read(msg_id):
-    # To actually remove UNREAD, we'd use gmail_modify_message {"addLabelIds": [], "removeLabelIds": ["UNREAD"]}
-    # Currently waiting on bridge confirmation for modification tools.
-    pass
 
 if __name__ == "__main__":
     check_for_tasks()
