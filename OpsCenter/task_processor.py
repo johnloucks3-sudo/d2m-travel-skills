@@ -726,11 +726,36 @@ def _handle_commander_message(task: dict) -> str:
         2. Route to appropriate engine based on classification
         3. Only use Claude MAX for client-facing output
     """
+    task_id = task.get("task_id", "UNKNOWN")
     content = task.get("content", "").strip()
     chat_id = task.get("chat_id", TELEGRAM_COMMANDER_ID)
 
     if not content:
         return "Empty message received. Standing by."
+
+    # ── Hale Brain Override — Commander prefix detection ──
+    # "OPUS: [task]"   → force Brain 2 with Claude Opus headless
+    # "Sonnet: [task]" → force Brain 2 with Claude Sonnet headless
+    brain_override = None
+    if content.upper().startswith("OPUS:"):
+        brain_override = "opus"
+        content = content[5:].strip()
+        _log("Brain override: OPUS (Commander prefix)")
+    elif content.lower().startswith("sonnet:"):
+        brain_override = "sonnet"
+        content = content[7:].strip()
+        _log("Brain override: Sonnet (Commander prefix)")
+
+    # If brain override set, dispatch directly via HaleDispatcher and return
+    if brain_override:
+        try:
+            sys.path.insert(0, str(Path(__file__).resolve().parent))
+            from hale_dispatcher import HaleDispatcher
+            hale = HaleDispatcher()
+            return hale.dispatch(content, brain_override=brain_override)
+        except Exception as e:
+            _log(f"HaleDispatcher override failed: {e} — falling through to standard routing")
+            # Fall through to standard routing with stripped content
 
     # Step 1: Classify with local keyword matcher (zero API cost)
     task_type = classify_task(content)
@@ -847,24 +872,34 @@ def _handle_innovation_scan(task: dict) -> str:
         else:
             result = run_daily_scan()
 
-        response_lines = [f"*A12 Innovation Scan Complete ({scan_type.title()})*", ""]
+        raw_lines = [f"*A12 Innovation Scan Complete ({scan_type.title()})*", ""]
         if result.findings:
-            response_lines.append(f"**Top {len(result.top_findings)} Findings:**")
+            raw_lines.append(f"**Top {len(result.top_findings)} Findings:**")
             for i, f in enumerate(result.top_findings[:5], 1):
-                response_lines.append(f"{i}. [{f.source}] {f.title} (Score: {f.score})")
-                response_lines.append(f"   URL: {f.url}")
+                raw_lines.append(f"{i}. [{f.source}] {f.title} (Score: {f.score})")
+                raw_lines.append(f"   URL: {f.url}")
             if len(result.findings) > 5:
-                response_lines.append(f"  ...and {len(result.findings) - 5} more. See digest for full details.")
+                raw_lines.append(f"  ...and {len(result.findings) - 5} more. See digest for full details.")
         else:
-            response_lines.append("No significant innovation findings today.")
+            raw_lines.append("No significant innovation findings today.")
 
         if result.errors:
-            response_lines.append("\n**Errors during scan:**")
-            for error_msg in result.errors:
-                response_lines.append(f"- {error_msg}")
+            raw_lines.append("\n**Errors during scan:**")
+            for err in result.errors:
+                raw_lines.append(f"- {err}")
 
-        response_lines.append(f"\nFull digest: `~/Thunderbird/intel/daily_innovation_digest.md`")
-        return "\n".join(response_lines)
+        raw_lines.append(f"\nFull digest: `~/Thunderbird/intel/daily_innovation_digest.md`")
+        raw_output = "\n".join(raw_lines)
+
+        # ── Hale synthesis layer ──
+        try:
+            sys.path.insert(0, str(OPSCENTER))
+            from hale_scan_wrapper import wrap_and_send
+            return wrap_and_send(raw_output, scan_type="innovation", send_telegram=False)
+        except Exception as synth_err:
+            _log(f"Hale synthesis failed (returning raw): {synth_err}")
+            return raw_output
+
     except Exception as e:
         return f"Innovation scan failed: {e}"
 
