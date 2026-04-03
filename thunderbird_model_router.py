@@ -57,6 +57,11 @@ MODEL_TAGS = {
     "extraction": "DeepSeek (fenced)",
     "deepseek": "DeepSeek (fenced)",
     "claude": "Claude Sonnet",
+    "qwen_plus": "Qwen3.6 Plus (OpenRouter, free)",
+    "qwen_flash": "Qwen 3.5 Flash (OpenRouter)",
+    "gemini_lite": "Gemini 2.5 Flash-Lite",
+    "perplexity": "Perplexity Sonar (Web Search)",
+    "perplexity_reasoning": "Perplexity Reasoning Pro",
 }
 
 # ── Log Paths ──
@@ -95,6 +100,34 @@ DEEPSEEK_API_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
 DEEPSEEK_MODEL = "deepseek-chat"
 DEEPSEEK_URL = "https://api.deepseek.com/chat/completions"
 
+# OpenRouter — multi-model API gateway (used for Qwen, etc.)
+# Cost varies by model. Qwen 3.5 Flash: $0.065/$0.26 per 1M tokens, 1M context.
+OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
+OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
+
+# Qwen3.6 Plus (free) via OpenRouter — primary AI engine, $0/month, 1M context
+# Lead model for all operational/non-classification tasks (SO 2026-04-03)
+QWEN_PLUS_FREE_MODEL = "qwen/qwen3.6-plus:free"
+QWEN_PLUS_FREE_CONTEXT = 1_000_000  # 1M token context window
+
+# Qwen 3.5 Flash via OpenRouter — bulk context dumps, large codebase reviews
+QWEN_FLASH_MODEL = "qwen/qwen3.5-flash-02-23"
+QWEN_FLASH_CONTEXT = 1_000_000  # 1M token context window
+
+# Perplexity Sonar via OpenRouter — web-grounded research with citations
+# $1/$1 per 1M tokens + $5/1K search requests. Built-in web search.
+PERPLEXITY_SONAR_MODEL = "perplexity/sonar"
+PERPLEXITY_SONAR_CONTEXT = 127_000
+# Sonar Reasoning Pro — CoT + web search, $2/$8 per 1M tokens
+PERPLEXITY_REASONING_MODEL = "perplexity/sonar-reasoning-pro"
+PERPLEXITY_REASONING_CONTEXT = 128_000
+
+# Gemini 2.5 Flash-Lite — $0.10/$0.40 per 1M tokens, 1M context
+# Cheaper than full Flash for simple analysis, classification
+GEMINI_LITE_MODEL = "gemini-2.5-flash-lite"
+GEMINI_LITE_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent"
+GEMINI_LITE_CONTEXT = 1_000_000
+
 # Together AI image models
 FLUX_MODEL = "black-forest-labs/FLUX.1-schnell-Free"
 FLUX_PRO_MODEL = "black-forest-labs/FLUX.1.1-pro"
@@ -126,6 +159,15 @@ class TaskType(Enum):
     SUMMARIZATION = "summarization"          # Quick summaries → Haiku
     RESPONSE_MONITOR = "response_monitor"    # Quality gate — Sonnet reviews Haiku output
 
+    # Bulk context tiers — large payloads, 1M context window models
+    CONTEXT_DUMP = "context_dump"            # Bulk context ingestion → Qwen 3.5 Flash (OpenRouter)
+    BULK_REVIEW = "bulk_review"              # Large codebase/doc review → Qwen 3.5 Flash (OpenRouter)
+    SIMPLE_ANALYSIS = "simple_analysis"      # Simple classification/analysis → Gemini 2.5 Flash-Lite
+
+    # Web-grounded research — Perplexity Sonar via OpenRouter (built-in search + citations)
+    WEB_RESEARCH = "web_research"            # Live web search + grounded answers → Perplexity Sonar
+    DEEP_RESEARCH = "deep_research"          # Complex analytical web research → Perplexity Reasoning Pro
+
 
 # ============================================================
 # MODEL SELECTION MAP — Task Type → Claude Model
@@ -150,12 +192,14 @@ MODEL_MAP: Dict[TaskType, str] = {
     TaskType.MORNING_BRIEF: CLAUDE_SONNET,
     TaskType.ANALYTICAL: CLAUDE_SONNET,
 
-    # Haiku — fast & cheap (search agents + simple tasks pushed here per SO-2026-03-25)
-    TaskType.RESEARCH: CLAUDE_HAIKU,       # search agents — most lookups, cruise/flight/hotel/destination
-    TaskType.OPERATIONAL: CLAUDE_HAIKU,    # simple tasks — status checks, data lookups, routing
+    # OpenRouter (free) — Qwen3.6 Plus primary operational engine ($0/month, SO 2026-04-03)
+    TaskType.RESEARCH: "qwen_plus",        # lookups, cruise/flight/hotel/destination
+    TaskType.OPERATIONAL: "qwen_plus",     # status checks, data lookups, routing
+    TaskType.SUMMARIZATION: "qwen_plus",   # quick summaries
+
+    # Haiku — kept for fast classification and extraction (low latency priority)
     TaskType.CLASSIFICATION: CLAUDE_HAIKU,
     TaskType.DATA_EXTRACTION: CLAUDE_HAIKU,
-    TaskType.SUMMARIZATION: CLAUDE_HAIKU,
     TaskType.EXTRACTION: CLAUDE_HAIKU,
 
     # Sonnet — response quality monitor (sits above Haiku)
@@ -163,6 +207,15 @@ MODEL_MAP: Dict[TaskType, str] = {
 
     # Special (not Claude)
     TaskType.IMAGE: "flux",  # handled separately
+
+    # Bulk context tiers — 1M context window, cheap per-token
+    TaskType.CONTEXT_DUMP: "qwen_flash",       # Qwen 3.5 Flash via OpenRouter ($0.065/$0.26/1M)
+    TaskType.BULK_REVIEW: "qwen_flash",        # Qwen 3.5 Flash via OpenRouter ($0.065/$0.26/1M)
+    TaskType.SIMPLE_ANALYSIS: "gemini_lite",   # Gemini 2.5 Flash-Lite ($0.10/$0.40/1M)
+
+    # Web-grounded research — Perplexity via OpenRouter (uses same OPENROUTER_API_KEY)
+    TaskType.WEB_RESEARCH: "perplexity",       # Perplexity Sonar ($1/$1/1M + $5/1K search)
+    TaskType.DEEP_RESEARCH: "perplexity_reasoning",  # Perplexity Reasoning Pro ($2/$8/1M + $5/1K search)
 }
 
 # Human-readable tier names for logging
@@ -170,6 +223,11 @@ MODEL_TIER = {
     CLAUDE_OPUS: "opus",
     CLAUDE_SONNET: "sonnet",
     CLAUDE_HAIKU: "haiku",
+    "qwen_plus": "qwen_plus",
+    "qwen_flash": "qwen_flash",
+    "gemini_lite": "gemini_lite",
+    "perplexity": "perplexity",
+    "perplexity_reasoning": "perplexity_reasoning",
 }
 
 # Groq model map — fast/light/image route to Groq; others fall back to Claude
@@ -281,6 +339,37 @@ _CLASSIFICATION_RULES: List[tuple] = [
     (TaskType.SUMMARIZATION, [
         "summarize", "summary", "tldr", "bullet points",
         "key takeaways", "quick recap", "condense", "brief overview",
+    ]),
+
+    # Priority 13: Bulk context / large payload tasks → Qwen 3.5 Flash (1M context)
+    (TaskType.CONTEXT_DUMP, [
+        "context dump", "bulk context", "ingest this", "blackboard payload",
+        "full codebase", "entire repo", "large payload", "dump all",
+        "context load", "context injection", "full context",
+    ]),
+    (TaskType.BULK_REVIEW, [
+        "bulk review", "codebase review", "review all files", "full audit",
+        "review everything", "large review", "system-wide review",
+        "review the entire", "review all of",
+    ]),
+
+    # Priority 14: Simple analysis → Gemini 2.5 Flash-Lite (cheapest)
+    (TaskType.SIMPLE_ANALYSIS, [
+        "simple analysis", "quick classify", "simple classification",
+        "basic analysis", "quick check", "simple check", "lightweight analysis",
+    ]),
+
+    # Priority 15: Web-grounded research → Perplexity Sonar (built-in search + citations)
+    (TaskType.WEB_RESEARCH, [
+        "web search", "search the web", "search online", "live search",
+        "current news", "latest on", "what's happening with",
+        "find online", "web intel", "live intel", "breaking news",
+        "search for news", "google for", "perplexity",
+    ]),
+    (TaskType.DEEP_RESEARCH, [
+        "deep research", "comprehensive research", "thorough investigation",
+        "analyze and research", "deep dive research", "research report on",
+        "full analysis of", "competitive analysis", "market research",
     ]),
 ]
 
@@ -488,7 +577,8 @@ def _call_anthropic(system_prompt: str, query: str,
     """Call any Claude model via Anthropic SDK (Max plan, $0).
 
     Unified Claude caller. Sonnet/Haiku only — Opus retired (SO 2026-03-27).
-    On 401/auth/depleted errors, falls back to Gemini 2.5 Flash automatically.
+    Fallback chain on auth/depleted/overload errors (SO 2026-04-03):
+      Claude → OpenRouter (Qwen 3.6 Plus free) → Groq (Llama 3.3) → Gemini Flash
     """
     import anthropic
 
@@ -504,9 +594,25 @@ def _call_anthropic(system_prompt: str, query: str,
         return resp.content[0].text
     except Exception as e:
         err_str = str(e).lower()
-        # 401 = depleted API key, 529 = overloaded — fall back to Gemini Flash
         if any(code in err_str for code in ("401", "403", "529", "authentication", "api_key", "credit")):
-            logger.warning("Anthropic SDK error (%s): %s — falling back to Gemini Flash", model, e)
+            logger.warning("Anthropic SDK error (%s): %s — trying free fallback chain", model, e)
+            # Fallback 1: OpenRouter Qwen 3.6 Plus (free)
+            if OPENROUTER_API_KEY:
+                try:
+                    return _call_openrouter(system_prompt, query,
+                                           model=QWEN_PLUS_FREE_MODEL,
+                                           max_tokens=max_tokens,
+                                           temperature=temperature)
+                except Exception as e2:
+                    logger.warning("OpenRouter fallback failed: %s — trying Groq", e2)
+            # Fallback 2: Groq Llama 3.3 70B (free)
+            if GROQ_API_KEY:
+                try:
+                    return _call_groq(system_prompt, query, model="light",
+                                      max_tokens=max_tokens, temperature=temperature)
+                except Exception as e3:
+                    logger.warning("Groq fallback failed: %s — trying Gemini Flash", e3)
+            # Fallback 3: Gemini Flash (last resort)
             return _call_gemini(system_prompt, query,
                                 max_tokens=max_tokens, temperature=temperature)
         raise RuntimeError(f"Anthropic SDK error ({model}): {e}")
@@ -717,6 +823,102 @@ def _call_deepseek(system_prompt: str, query: str,
     return resp.json()["choices"][0]["message"]["content"]
 
 
+def _call_openrouter(system_prompt: str, query: str,
+                     model: str = None,
+                     max_tokens: int = 4096,
+                     temperature: float = 0.7) -> str:
+    """Call OpenRouter API (OpenAI-compatible) for Qwen and other models.
+
+    Cost varies by model. Qwen 3.5 Flash: $0.065/$0.26 per 1M tokens.
+    1M token context window — ideal for bulk context dumps.
+    Falls back to Gemini Flash if OPENROUTER_API_KEY is not set.
+    """
+    if model is None:
+        model = QWEN_PLUS_FREE_MODEL  # Primary: Qwen3.6 Plus free (SO 2026-04-03)
+
+    if not OPENROUTER_API_KEY:
+        logger.warning("OPENROUTER_API_KEY not set — falling back to Gemini Flash")
+        return _call_gemini(system_prompt, query,
+                            max_tokens=max_tokens, temperature=temperature)
+
+    resp = requests.post(
+        OPENROUTER_URL,
+        json={
+            "model": model,
+            "messages": [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": query},
+            ],
+            "max_tokens": max_tokens,
+            "temperature": temperature,
+        },
+        headers={
+            "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+            "Content-Type": "application/json",
+            "HTTP-Referer": "https://d2mluxury.quest",
+            "X-Title": "Thunderbird OS",
+        },
+        timeout=120,
+    )
+    resp.raise_for_status()
+    return resp.json()["choices"][0]["message"]["content"]
+
+
+def _call_gemini_lite(system_prompt: str, query: str,
+                      max_tokens: int = 2000,
+                      temperature: float = 0.7) -> str:
+    """Call Gemini 2.5 Flash-Lite API — cheapest Gemini tier.
+
+    Cost: $0.10/$0.40 per 1M tokens. 1M context window.
+    Use for simple analysis, classification, tasks that don't need full Flash reasoning.
+    Respects the same rate limiter as full Flash (shared Google AI quota).
+    Falls back to full Gemini Flash if Lite endpoint fails.
+    """
+    global _GEMINI_LAST_CALL
+
+    if not GOOGLE_AI_API_KEY:
+        raise RuntimeError("GOOGLE_AI_API_KEY not set — cannot call Gemini Flash-Lite")
+
+    # Rate limiting — shared with full Flash
+    if GEMINI_INTER_CALL_DELAY > 0:
+        elapsed = time.time() - _GEMINI_LAST_CALL
+        if elapsed < GEMINI_INTER_CALL_DELAY:
+            wait = GEMINI_INTER_CALL_DELAY - elapsed
+            logger.debug("Gemini rate limiter: sleeping %.1fs", wait)
+            time.sleep(wait)
+
+    url = f"{GEMINI_LITE_URL}?key={GOOGLE_AI_API_KEY}"
+    payload = {
+        "systemInstruction": {
+            "parts": [{"text": system_prompt}]
+        },
+        "contents": [
+            {"role": "user", "parts": [{"text": query}]}
+        ],
+        "generationConfig": {
+            "maxOutputTokens": max_tokens,
+            "temperature": temperature,
+        },
+    }
+    try:
+        _GEMINI_LAST_CALL = time.time()
+        resp = requests.post(url, json=payload, timeout=60,
+                             headers={"Content-Type": "application/json"})
+        resp.raise_for_status()
+        data = resp.json()
+        parts = data.get("candidates", [{}])[0].get("content", {}).get("parts", [])
+        text = parts[0].get("text", "") if parts else ""
+        if not text:
+            logger.warning("Gemini Flash-Lite empty response, falling back to full Flash")
+            return _call_gemini(system_prompt, query, max_tokens=max_tokens,
+                                temperature=temperature)
+        return text
+    except Exception as e:
+        logger.warning("Gemini Flash-Lite failed, falling back to full Flash: %s", e)
+        return _call_gemini(system_prompt, query, max_tokens=max_tokens,
+                            temperature=temperature)
+
+
 def call_deepseek(system_prompt: str, query: str,
                   max_tokens: int = 600, temperature: float = 0.7) -> Dict[str, Any]:
     """Public DeepSeek call with mandatory PII fence.
@@ -842,6 +1044,125 @@ def route_and_call(system_prompt: str, user_prompt: str,
                 logger.warning("DeepSeek extraction failed, falling to Haiku: %s", e)
                 model_id = CLAUDE_HAIKU
                 tier = "haiku"
+
+    # 3b. Handle OpenRouter models — Qwen3.6 Plus (primary), Qwen Flash (bulk), Gemini Lite
+
+    # Qwen3.6 Plus Free — primary operational engine ($0/month, SO 2026-04-03)
+    if model_id == "qwen_plus":
+        logger.info("Auto-routing [%s] → Qwen3.6 Plus (OpenRouter, free)", task_type.value)
+        try:
+            response = _call_openrouter(system_prompt, user_prompt,
+                                        model=QWEN_PLUS_FREE_MODEL,
+                                        max_tokens=max_tokens,
+                                        temperature=temperature)
+            _log_model_usage("Qwen3.6 Plus (OpenRouter, free)", persona_id, user_prompt,
+                             tokens_est=(len(system_prompt + user_prompt) + len(response)) // 4,
+                             task_type=task_type.value)
+            return {
+                "task_type": task_type.value,
+                "model": QWEN_PLUS_FREE_MODEL,
+                "model_tier": "qwen_plus",
+                "engine": "openrouter",
+                "response": response,
+                "success": True,
+            }
+        except Exception as e:
+            logger.warning("Qwen3.6 Plus failed, falling back to Haiku: %s", e)
+            model_id = CLAUDE_HAIKU
+            tier = "haiku"
+
+    # Qwen 3.5 Flash — bulk context dumps (1M context window)
+    if model_id == "qwen_flash":
+        logger.info("Auto-routing [%s] → Qwen 3.5 Flash (OpenRouter)", task_type.value)
+        try:
+            response = _call_openrouter(system_prompt, user_prompt,
+                                        model=QWEN_FLASH_MODEL,
+                                        max_tokens=max_tokens,
+                                        temperature=temperature)
+            _log_model_usage("Qwen 3.5 Flash (OpenRouter)", persona_id, user_prompt,
+                             tokens_est=(len(system_prompt + user_prompt) + len(response)) // 4,
+                             task_type=task_type.value)
+            return {
+                "task_type": task_type.value,
+                "model": QWEN_FLASH_MODEL,
+                "model_tier": "qwen_flash",
+                "engine": "openrouter",
+                "response": response,
+                "success": True,
+            }
+        except Exception as e:
+            logger.warning("Qwen Flash failed, falling back to Gemini Flash: %s", e)
+            model_id = CLAUDE_HAIKU
+            tier = "haiku"
+
+    # 3c. Handle Perplexity web research — Sonar and Reasoning Pro via OpenRouter
+    if model_id == "perplexity":
+        logger.info("Auto-routing [%s] → Perplexity Sonar (web search)", task_type.value)
+        try:
+            response = _call_openrouter(system_prompt, user_prompt,
+                                        model=PERPLEXITY_SONAR_MODEL,
+                                        max_tokens=max_tokens,
+                                        temperature=temperature)
+            _log_model_usage("Perplexity Sonar", persona_id, user_prompt,
+                             tokens_est=(len(system_prompt + user_prompt) + len(response)) // 4,
+                             task_type=task_type.value)
+            return {
+                "task_type": task_type.value,
+                "model": PERPLEXITY_SONAR_MODEL,
+                "model_tier": "perplexity",
+                "engine": "openrouter",
+                "response": response,
+                "success": True,
+            }
+        except Exception as e:
+            logger.warning("Perplexity Sonar failed, falling back to Gemini Flash: %s", e)
+            model_id = CLAUDE_HAIKU
+            tier = "haiku"
+
+    if model_id == "perplexity_reasoning":
+        logger.info("Auto-routing [%s] → Perplexity Reasoning Pro (web search + CoT)", task_type.value)
+        try:
+            response = _call_openrouter(system_prompt, user_prompt,
+                                        model=PERPLEXITY_REASONING_MODEL,
+                                        max_tokens=max_tokens,
+                                        temperature=temperature)
+            _log_model_usage("Perplexity Reasoning Pro", persona_id, user_prompt,
+                             tokens_est=(len(system_prompt + user_prompt) + len(response)) // 4,
+                             task_type=task_type.value)
+            return {
+                "task_type": task_type.value,
+                "model": PERPLEXITY_REASONING_MODEL,
+                "model_tier": "perplexity_reasoning",
+                "engine": "openrouter",
+                "response": response,
+                "success": True,
+            }
+        except Exception as e:
+            logger.warning("Perplexity Reasoning failed, falling back to Haiku: %s", e)
+            model_id = CLAUDE_HAIKU
+            tier = "haiku"
+
+    if model_id == "gemini_lite":
+        logger.info("Auto-routing [%s] → Gemini 2.5 Flash-Lite", task_type.value)
+        try:
+            response = _call_gemini_lite(system_prompt, user_prompt,
+                                         max_tokens=max_tokens,
+                                         temperature=temperature)
+            _log_model_usage("Gemini 2.5 Flash-Lite", persona_id, user_prompt,
+                             tokens_est=(len(system_prompt + user_prompt) + len(response)) // 4,
+                             task_type=task_type.value)
+            return {
+                "task_type": task_type.value,
+                "model": GEMINI_LITE_MODEL,
+                "model_tier": "gemini_lite",
+                "engine": "gemini_lite",
+                "response": response,
+                "success": True,
+            }
+        except Exception as e:
+            logger.warning("Gemini Flash-Lite failed, falling back to Haiku: %s", e)
+            model_id = CLAUDE_HAIKU
+            tier = "haiku"
 
     # 4. Make the Claude call
     logger.info("Auto-routing [%s] → %s (%s)", task_type.value, tier, model_id)

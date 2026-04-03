@@ -5,8 +5,8 @@ Pops tasks from the JSON queue, classifies them, routes to the
 correct engine, and sends results back via Telegram.
 
 Division of Labor:
-    Gemini 3.1 Pro   → Hale's primary brain. All operational tasks, summaries, routing.
-    Gemini Flash ($)  → Research synthesis, bulk text, workspace tasks
+    Qwen3.6 Plus (free, OpenRouter) → Hale's primary brain. All operational tasks, summaries, routing. $0/month.
+    Gemini Flash ($)  → Morning brief synthesis, fallback when OpenRouter unavailable
     Claude MAX ($0)   → Client-facing emails, proposals, voice-matched copy, complex reasoning
     DeepSeek (cheap)  → Data extraction, analytics (PII-fenced)
     Local Python      → Queue mechanics, deadline checks, format checks (no LLM)
@@ -44,8 +44,11 @@ from thunderbird_model_router import (
     _call_groq,
     _call_gemini,
     _call_claude,
+    _call_openrouter,
     classify_task,
     TaskType,
+    QWEN_PLUS_FREE_MODEL,
+    OPENROUTER_API_KEY,
 )
 from thunderbird_innovation_scanner import run_daily_scan, run_weekly_scan
 from thunderbird_morning_briefing import run_briefing as run_morning_briefing_pipeline
@@ -300,83 +303,30 @@ def _fetch_mcp_context(content: str) -> str:
     )
 
 
-# ── Hale's Brain: Gemini 3.1 Pro Preview ──
-HALE_MODEL = "gemini-3.1-pro-preview"
-HALE_URL = f"https://generativelanguage.googleapis.com/v1beta/models/{HALE_MODEL}:generateContent"
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
+# ── Hale's Brain: Qwen3.6 Plus (free) via OpenRouter — $0/month (SO 2026-04-03) ──
+HALE_MODEL = QWEN_PLUS_FREE_MODEL  # "qwen/qwen3.6-plus:free"
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")  # retained for fallback
 
 
 def _call_hale(system_prompt: str, query: str,
                max_tokens: int = 800, temperature: float = 0.5) -> str:
-    """Call Gemini 3.1 Pro Preview — Hale's primary engine.
+    """Call Qwen3.6 Plus (free) via OpenRouter — Hale's primary engine.
 
-    Truthful, capable, free-tier eligible. Falls back to _call_gemini (Flash)
-    if the key is missing or the call fails.
+    $0/month operational cost. 1M context window. Falls back to _call_gemini
+    if OPENROUTER_API_KEY is missing or the call fails.
     """
-    if not GEMINI_API_KEY:
-        logger.warning("GEMINI_API_KEY not set — falling back to Gemini Flash")
+    if not OPENROUTER_API_KEY:
+        logger.warning("OPENROUTER_API_KEY not set — falling back to Gemini Flash")
         return _call_gemini(system_prompt, query, max_tokens=max_tokens,
                             temperature=temperature)
 
-    url = f"{HALE_URL}?key={GEMINI_API_KEY}"
-    payload = {
-        "systemInstruction": {
-            "parts": [{"text": system_prompt}]
-        },
-        "contents": [
-            {"role": "user", "parts": [{"text": query}]}
-        ],
-        "generationConfig": {
-            "maxOutputTokens": max_tokens,
-            "temperature": temperature,
-        },
-    }
     try:
-        resp = requests.post(url, json=payload, timeout=60,
-                             headers={"Content-Type": "application/json"})
-        resp.raise_for_status()
-        data = resp.json()
-        
-        candidate = data.get("candidates", [{}])[0]
-        finish_reason = candidate.get("finishReason", "")
-        
-        try:
-            text = candidate["content"]["parts"][0]["text"]
-        except (KeyError, IndexError):
-            text = ""
-            
-        retry_count = 0
-        MAX_RETRIES = 2  # Initial attempt + 2 retries = 3 attempts total
-
-        while (not text or finish_reason == "MAX_TOKENS") and retry_count < MAX_RETRIES:
-            retry_count += 1
-            logger.warning(
-                "Gemini 3.1 Pro returned empty or MAX_TOKENS (attempt %d/%d). Retrying with doubled tokens.",
-                retry_count, MAX_RETRIES
-            )
-            
-            # Double max_tokens, but do not exceed 8192
-            max_tokens = min(max_tokens * 2, 8192)
-            payload["generationConfig"]["maxOutputTokens"] = max_tokens
-            
-            resp = requests.post(url, json=payload, timeout=60,
-                                 headers={"Content-Type": "application/json"})
-            resp.raise_for_status()
-            data = resp.json()
-            
-            candidate = data.get("candidates", [{}])[0]
-            finish_reason = candidate.get("finishReason", "") # Update finish_reason for next loop iteration
-            try:
-                text = candidate["content"]["parts"][0]["text"]
-            except (KeyError, IndexError):
-                text = ""
-
-        if not text and (retry_count == MAX_RETRIES or finish_reason == "MAX_TOKENS"):
-            raise ValueError("Response empty or MAX_TOKENS after multiple retries.")
-                
-        return text
+        return _call_openrouter(system_prompt, query,
+                                model=HALE_MODEL,
+                                max_tokens=max_tokens,
+                                temperature=temperature)
     except Exception as e:
-        logger.warning("Gemini 3.1 Pro failed (%s), falling back to Flash", e)
+        logger.warning("Qwen3.6 Plus failed (%s), falling back to Gemini Flash", e)
         return _call_gemini(system_prompt, query, max_tokens=max_tokens,
                             temperature=temperature)
 
@@ -706,7 +656,7 @@ def _build_hale_system_prompt() -> str:
 
     return (
         "You are Col Victoria Hale, COS of Dreams2Memories Travel.\n"
-        "You are running inside the Hale-Loop daemon on Gemini 3.1 Pro.\n"
+        "You are running inside the Hale-Loop daemon on Qwen 3.6 Plus (OpenRouter, free tier).\n"
         "You have access to 140+ MCP tools via the Thunderbird MCP server.\n\n"
 
         "## HARD RULES — NEVER VIOLATE\n"
@@ -812,13 +762,27 @@ def _handle_commander_message(task: dict) -> str:
 
     try:
         if task_type in GROQ_TASKS:
-            engine = "Gemini 3.1 Pro + MCP" if mcp_context else "Gemini 3.1 Pro"
-            response = _call_hale(system_prompt, augmented_content,
-                                  max_tokens=2500, temperature=0.3)
+            engine = "Qwen 3.6 Plus (OpenRouter) + MCP" if mcp_context else "Qwen 3.6 Plus (OpenRouter)"
+            try:
+                response = _call_openrouter(system_prompt, augmented_content,
+                                            model=QWEN_PLUS_FREE_MODEL,
+                                            max_tokens=2500, temperature=0.3)
+            except Exception as _qwen_err:
+                _log(f"Qwen primary failed, falling back to Gemini: {_qwen_err}")
+                engine = "Gemini 2.5 Flash (fallback)"
+                response = _call_hale(system_prompt, augmented_content,
+                                      max_tokens=2500, temperature=0.3)
         elif task_type in GEMINI_TASKS:
-            engine = "Gemini Flash"
-            response = _call_gemini(system_prompt, content,
-                                   max_tokens=800, temperature=0.5)
+            engine = "Qwen 3.6 Plus (OpenRouter)"
+            try:
+                response = _call_openrouter(system_prompt, content,
+                                            model=QWEN_PLUS_FREE_MODEL,
+                                            max_tokens=2000, temperature=0.5)
+            except Exception as _qwen_err:
+                _log(f"Qwen primary failed, falling back to Gemini Flash: {_qwen_err}")
+                engine = "Gemini Flash (fallback)"
+                response = _call_gemini(system_prompt, content,
+                                        max_tokens=800, temperature=0.5)
         else:
             # Route to Claude MAX queue
             _queue_for_claude_max({
