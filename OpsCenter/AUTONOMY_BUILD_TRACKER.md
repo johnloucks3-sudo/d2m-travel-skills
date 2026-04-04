@@ -87,10 +87,10 @@
 ## PHASE 3 — CLIENT AUTONOMY
 | Task | Status | Fixed |
 |------|--------|-------|
-| Email ingest → Dani auto-draft | ⬜ | |
-| Dossier auto-update on booking emails | ⬜ | |
-| Telegram `/approve [id]` command wired | ⬜ | |
-| Full overnight cycle simulation | ⬜ | |
+| Email ingest → Dani auto-draft | ✅ Partial | `d2m-email-ingest` timer running; classifier working (scanned=3, tasked=2); draft creation needs gmail_token refresh |
+| Dossier auto-update on booking emails | ⬜ | (email intel pipeline classifies, but auto-dossier-write not wired) |
+| Telegram `/approve [id]` command wired | ✅ Done | 2026-04-04 — `/drafts`, `/approve`, `/reject` added to gateway |
+| Full overnight cycle simulation | ⬜ | Overnight starts ~01:30 MDT — morning brief + FPD alert + heartbeat will run |
 
 ---
 
@@ -103,4 +103,4 @@
 | 2026-04-04 | Phase 2 complete — Wing alive heartbeat (0600 MT), inbox sweep (every 4h), 16 additional service files fixed |
 
 ---
-*Last updated: 2026-04-04 17:30 MDT*
+*Last updated: 2026-04-04 17:45 MDT*
