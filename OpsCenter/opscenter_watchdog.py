@@ -37,7 +37,7 @@ SERVICES = {
     "thunderbird-overwatch": "Hale-Loop Daemon",
     "thunderbird-mcp": "MCP Server",
     "thunderbird-blackboard-sync": "Blackboard Sync",
-    "thunderbird-inbox-watcher": "Claude Inbox Watcher",
+    "d2m-tasking-watcher": "Tasking Watcher",
 }
 
 # ── Heartbeat config ──
@@ -319,10 +319,8 @@ def run_watchdog():
     if _should_send_heartbeat(state):
         ts = datetime.now(MT).strftime("%Y-%m-%d %H:%M MT")
         heartbeat = (
-            f"💚 <b>YOGA ALIVE — {ts}</b>
-"
-            f"All services running. Watchdog active.
-"
+            f"💚 <b>YOGA ALIVE — {ts}</b>\n"
+            f"All services running. Watchdog active.\n"
             f"{disk_msg}"
         )
         _send_alert(heartbeat)
