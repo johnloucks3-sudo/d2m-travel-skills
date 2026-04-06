@@ -104,7 +104,8 @@ CONTEXT_TURNS = int(os.environ.get('TELEGRAM_GW_CONTEXT_TURNS', '10'))
 
 SONNET_MODEL  = 'claude-sonnet-4-6'
 OPUS_MODEL    = 'claude-opus-4-6'
-GOOSE_BIN     = Path('/home/john/.local/bin/goose')
+OPENCODE_BIN  = Path('/home/john/.opencode/bin/opencode')
+OPENCODE_MODEL = 'openrouter/qwen/qwen3-235b-a22b-07-25'
 MCP_HTTP_URL  = 'http://localhost:8767'
 
 # ── Persona cache (loaded once at startup) ────────────────────────────────────
@@ -360,69 +361,45 @@ def call_claude_engine(prompt: str, model: str = SONNET_MODEL) -> str:
         return f'[Engine error — {e}]'
 
 
-# ── Engine: Goose headless ────────────────────────────────────────────────────
+# ── Engine: OpenCode headless (replaces Goose) ────────────────────────────────
 
-def call_goose_engine(system_prompt: str, text_prompt: str, use_mcp: bool = True) -> str:
+def call_opencode_engine(system_prompt: str, text_prompt: str, use_mcp: bool = True) -> str:
     """
-    Invoke Goose headless via `goose run`.
-    system_prompt: persona/identity instructions
+    Invoke OpenCode headless via `opencode run`.
+    Replaces call_goose_engine — same interface, no rate limits, paid Qwen3-235B.
+    system_prompt: persona/identity instructions (prepended to prompt)
     text_prompt:   context + user message
-    use_mcp:       if True, connect to Thunderbird MCP via HTTP (port 8767)
+    use_mcp:       reserved for compat (OpenCode uses .opencode.json MCP config)
     """
-    # Write text_prompt to temp file to avoid command-line length limits
-    with tempfile.NamedTemporaryFile(
-        mode='w', suffix='.md', delete=False, encoding='utf-8'
-    ) as f:
-        f.write(text_prompt)
-        instructions_file = f.name
+    full_prompt = f"{system_prompt[:2000]}\n\n{text_prompt}" if system_prompt else text_prompt
+
+    env = dict(os.environ)
+    env['PATH'] = f'/home/john/.opencode/bin:{env.get("PATH", "")}'
 
     try:
-        cmd = [
-            str(GOOSE_BIN), 'run',
-            '--instructions', instructions_file,
-            '--no-session',
-            '--quiet',
-            '--max-turns', '15',
-        ]
-
-        # Inject persona as system instructions
-        if system_prompt:
-            # Truncate to avoid arg length issues
-            cmd += ['--system', system_prompt[:2000]]
-
-        # MCP access for GooseD2M
-        if use_mcp:
-            cmd += ['--with-streamable-http-extension', MCP_HTTP_URL]
-
-        env = dict(os.environ)
-        env['GOOSE_WORKING_DIR'] = str(THUNDERBIRD)
-
         result = subprocess.run(
-            cmd,
+            [str(OPENCODE_BIN), 'run', '-m', OPENCODE_MODEL, full_prompt],
             capture_output=True,
             text=True,
             timeout=ENGINE_TIMEOUT,
             cwd=str(THUNDERBIRD),
             env=env,
         )
-
         output = result.stdout.strip()
         if not output and result.returncode != 0:
-            log.error('Goose headless rc=%d: %s', result.returncode, result.stderr[:300])
-            return f'[Engine error — Goose rc={result.returncode}]'
+            log.error('OpenCode headless rc=%d: %s', result.returncode, result.stderr[:300])
+            return f'[Engine error — OpenCode rc={result.returncode}]'
         return output or '[Engine returned empty response]'
 
     except subprocess.TimeoutExpired:
-        return '[Engine timeout — Goose exceeded limit]'
+        return '[Engine timeout — OpenCode exceeded limit]'
     except FileNotFoundError:
-        return '[Engine error — goose binary not found]'
+        return '[Engine error — opencode binary not found at ~/.opencode/bin/opencode]'
     except Exception as e:
         return f'[Engine error — {e}]'
-    finally:
-        try:
-            os.unlink(instructions_file)
-        except Exception:
-            pass
+
+# Legacy alias — keeps any remaining call_goose_engine references working
+call_goose_engine = call_opencode_engine
 
 
 # ── Slash Command Handlers ────────────────────────────────────────────────────
@@ -490,9 +467,9 @@ def handle_help(token: str, chat_id: int, bot_name: str) -> None:
 
 
 def handle_brief(token: str, chat_id: int) -> None:
-    """GooseD2M /brief — trigger morning brief via Goose."""
+    """OpenCode /brief — trigger morning brief via OpenCode/Hale."""
     tg_typing(token, chat_id)
-    tg_send(token, chat_id, '⌛ Pulling brief from Goose/Hale...')
+    tg_send(token, chat_id, '⌛ Pulling brief from OpenCode/Hale...')
 
     system = _PERSONA_CACHE.get('hale_system', '')
     brief_path = str(HALE_BRIEF)
@@ -654,8 +631,8 @@ def _handle_forward(
 
     tg_typing(token, chat_id)
     if target == 'goose':
-        engine_fn = hale_goose_engine
-        engine_label = 'GooseD2M'
+        engine_fn = hale_goose_engine   # now OpenCode under the hood
+        engine_label = 'OpenCode'
     elif target == 'dani':
         engine_fn = dani_claude_engine
         engine_label = 'Dani'
@@ -802,13 +779,14 @@ def hale_claude_engine(context_text: str, message: str, model_override: str | No
 
 
 def hale_goose_engine(context_text: str, message: str, model_override: str | None) -> str:
+    """OpenCode (Qwen3-235B) as Hale — replaces Goose engine, same persona."""
     system = _PERSONA_CACHE.get('hale_system', '')
     text = (
         (f'{context_text}\n\n' if context_text else '')
         + f'Commander: {message}\n\n'
         + 'Respond as Hale. Brief-first. No preamble. No trailing summary.'
     )
-    return call_goose_engine(system, text, use_mcp=True)
+    return call_opencode_engine(system, text, use_mcp=True)
 
 
 def dani_claude_engine(context_text: str, message: str, model_override: str | None) -> str:

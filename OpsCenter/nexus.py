@@ -224,18 +224,41 @@ def _route(task_text: str, mission_id: str) -> str:
     return "claude" if CLAUDE_DEFAULT else "qwen"
 
 
-def dispatch_to_qwen(task_text: str, mission_id: str) -> str:
-    """Append task to Goose inbox (append-only, never overwrite)."""
-    entry = (
-        f"\n---\n"
-        f"**NEXUS TASK** | Mission: {mission_id} | {datetime.now(timezone.utc).isoformat()[:19]}\n"
-        f"{task_text}\n"
-        f"status:PENDING\n"
-    )
-    with open(GOOSE_INBOX, "a") as f:
-        f.write(entry)
-    audit("DISPATCH_QWEN", f"task={task_text[:80]}", mission_id)
-    return f"[WRITE OK: goose_inbox.md] Task queued for Qwen/Goose"
+OPENCODE_BIN = Path('/home/john/.opencode/bin/opencode')
+OPENCODE_MODEL = 'openrouter/qwen/qwen3-235b-a22b-07-25'
+OPENCODE_TIMEOUT_SECS = 180
+
+def dispatch_to_opencode(task_text: str, mission_id: str) -> str:
+    """Run OpenCode headless (Qwen3-235B via OpenRouter) for ops/bulk tasks.
+    Replaces Goose — no rate limits, paid lane, full MCP access."""
+    env = dict(os.environ)
+    env['PATH'] = f'/home/john/.opencode/bin:{env.get("PATH", "")}'
+    try:
+        r = subprocess.run(
+            [str(OPENCODE_BIN), 'run', '-m', OPENCODE_MODEL,
+             f'[{mission_id}] {task_text}'],
+            capture_output=True, text=True,
+            timeout=OPENCODE_TIMEOUT_SECS,
+            cwd=str(BASE_DIR.parent),
+            env=env,
+        )
+        output = r.stdout.strip() or r.stderr.strip()
+        if output:
+            audit("DISPATCH_OPENCODE", f"task={task_text[:80]} | chars={len(output)}", mission_id)
+            return output[:2000]
+        return '[OpenCode returned empty response]'
+    except FileNotFoundError:
+        audit("DISPATCH_OPENCODE_FAIL", "opencode binary not found", mission_id)
+        return "ERROR: opencode binary not found at ~/.opencode/bin/opencode"
+    except subprocess.TimeoutExpired:
+        audit("DISPATCH_OPENCODE_TIMEOUT", f"{OPENCODE_TIMEOUT_SECS}s exceeded", mission_id)
+        return f"TIMEOUT: OpenCode did not respond within {OPENCODE_TIMEOUT_SECS}s"
+    except Exception as e:
+        audit("DISPATCH_OPENCODE_ERROR", f"Unexpected: {e}", mission_id)
+        return f"ERROR: OpenCode dispatch failed: {e}"
+
+# Legacy alias — keeps any external callers working
+dispatch_to_qwen = dispatch_to_opencode
 
 
 CLAUDE_MAX_RETRIES = 2
@@ -268,8 +291,8 @@ def dispatch_to_claude(task_text: str, mission_id: str) -> str:
             time.sleep(2 * (attempt + 1))  # Exponential backoff
         except FileNotFoundError:
             queue_dec("claude")
-            audit("DISPATCH_CLAUDE_FAIL", "claude CLI not found — falling back to Qwen", mission_id)
-            return dispatch_to_qwen(task_text, mission_id)
+            audit("DISPATCH_CLAUDE_FAIL", "claude CLI not found — falling back to OpenCode", mission_id)
+            return dispatch_to_opencode(task_text, mission_id)
         except subprocess.TimeoutExpired:
             attempt += 1
             audit("DISPATCH_CLAUDE_TIMEOUT", f"{CLAUDE_TIMEOUT_SECS}s exceeded, attempt {attempt}/{CLAUDE_MAX_RETRIES+1}", mission_id)
@@ -282,8 +305,8 @@ def dispatch_to_claude(task_text: str, mission_id: str) -> str:
             return f"ERROR: Claude dispatch failed unexpectedly: {e}"
     
     queue_dec("claude")
-    audit("DISPATCH_CLAUDE_FINAL_FAIL", "All retries exhausted", mission_id)
-    return dispatch_to_qwen(task_text, mission_id)
+    audit("DISPATCH_CLAUDE_FINAL_FAIL", "All retries exhausted — falling back to OpenCode", mission_id)
+    return dispatch_to_opencode(task_text, mission_id)
 
 
 def route_and_dispatch(task_text: str, mission_id: str) -> tuple[str, str]:
