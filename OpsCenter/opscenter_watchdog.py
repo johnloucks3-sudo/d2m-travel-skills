@@ -32,13 +32,23 @@ CRASH_LOOP_WINDOW = 600         # 10 min
 NETWORK_BACKOFF_MIN = 10
 
 # ── Services to monitor ──
+# IMPORTANT: Only long-running daemons here. Oneshot timer-triggered services
+# (e.g. thunderbird-blackboard-sync) must NOT be listed — systemctl is-active
+# returns "inactive" after a successful oneshot run, which triggers false crash
+# loop alerts. Monitor those by checking their timer status instead.
+# NOTE: thunderbird-telegram-c2 removed 2026-04-04 — gateway owns that bot now.
 SERVICES = {
-    "thunderbird-telegram-c2": "Pager Bot",
+    "thunderbird-telegram-gw": "Telegram Gateway",
     "thunderbird-overwatch": "Hale-Loop Daemon",
     "thunderbird-mcp": "MCP Server",
-    "thunderbird-blackboard-sync": "Blackboard Sync",
     "d2m-tasking-watcher": "Tasking Watcher",
 }
+
+# ── System mode (graceful degradation) ──
+# GREEN: All systems nominal
+# YELLOW: 1-2 services down / MCP unresponsive / disk > 75%
+# RED: 3+ services down OR (MCP dead AND Chrome dead) OR disk > 85%
+MODE_FILE = ROOT / "logs" / "system_mode.json"
 
 # ── Heartbeat config ──
 HEARTBEAT_HOUR_MT = 8   # 0800 MT daily
@@ -214,6 +224,41 @@ def _check_disk() -> tuple[bool, str]:
         return False, f"Disk check error: {e}"
 
 
+def _compute_system_mode(down_services: list[str], mcp_ok: bool, disk_warn: bool) -> str:
+    """
+    Compute GREEN / YELLOW / RED based on current system health.
+
+    GREEN  — All daemons up, MCP responding, disk OK
+    YELLOW — 1 service down, or MCP unresponsive, or disk approaching limit
+    RED    — 2+ services down, or critical combo (no MCP + no Chrome), or disk critical
+    """
+    chrome_ok = _is_service_active("chrome-debug")
+    n_down = len(down_services)
+
+    if n_down >= 2:
+        return "RED"
+    if not mcp_ok and not chrome_ok:
+        return "RED"
+    if disk_warn:
+        return "RED"
+    if n_down == 1 or not mcp_ok:
+        return "YELLOW"
+    return "GREEN"
+
+
+def _write_system_mode(mode: str, details: dict) -> None:
+    """Write current system mode to logs/system_mode.json for other services to read."""
+    try:
+        MODE_FILE.parent.mkdir(parents=True, exist_ok=True)
+        MODE_FILE.write_text(json.dumps({
+            "mode": mode,
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "details": details,
+        }, indent=2))
+    except Exception as e:
+        _log(f"Failed to write system mode: {e}")
+
+
 def _should_send_heartbeat(state: dict) -> bool:
     """Return True if daily heartbeat is due (once per day at HEARTBEAT_HOUR_MT)."""
     now = datetime.now(MT)
@@ -230,12 +275,15 @@ def run_watchdog():
     now_iso = datetime.now(timezone.utc).isoformat()
     actions = []
     alerts = []
+    down_services: list[str] = []   # track for graceful degradation
+    mcp_ok = True                   # track for graceful degradation
 
     # ── Step 0: Network check ──
     if not _check_network():
         if state.get("network_down_since") is None:
             state["network_down_since"] = now_iso
             _log("Network DOWN — entering backoff")
+            _write_system_mode("RED", {"reason": "network_down"})
         else:
             _log("Network still down — skipping all checks")
         _save_state(state)
@@ -251,6 +299,7 @@ def run_watchdog():
         if _is_service_active(svc_name):
             continue
 
+        down_services.append(svc_name)
         _log(f"{svc_desc} ({svc_name}) is DOWN")
 
         if _is_crash_looping(svc_name, state):
@@ -277,6 +326,7 @@ def run_watchdog():
 
     # ── Step 2: MCP deep check ──
     if _is_service_active("thunderbird-mcp") and not _check_mcp_responding():
+        mcp_ok = False
         _log("MCP server alive but not responding to JSON-RPC")
 
         if not _is_crash_looping("thunderbird-mcp", state):
@@ -290,6 +340,8 @@ def run_watchdog():
                 actions.append("MCP server restarted (unresponsive)")
             else:
                 alerts.append(f"MCP restart failed: {output[:100]}")
+    elif not _is_service_active("thunderbird-mcp"):
+        mcp_ok = False
 
     # ── Step 3: Queue stuck detection ──
     stuck, stuck_tasks = _check_queue_stuck()
@@ -315,13 +367,39 @@ def run_watchdog():
         alerts.append(disk_msg)
         _log(f"DISK WARNING: {disk_msg}")
 
-    # ── Step 4b: Daily heartbeat ──
+    # ── Step 4b: Compute + publish system mode (graceful degradation) ──
+    mode = _compute_system_mode(down_services, mcp_ok, disk_warn)
+    prev_mode = state.get("system_mode", "GREEN")
+    _write_system_mode(mode, {
+        "down_services": down_services,
+        "mcp_ok": mcp_ok,
+        "disk_warn": disk_warn,
+        "alerts": alerts,
+    })
+    state["system_mode"] = mode
+
+    if mode != prev_mode:
+        _log(f"System mode changed: {prev_mode} → {mode}")
+        mode_emoji = {"GREEN": "✅", "YELLOW": "⚠️", "RED": "🔴"}.get(mode, "❓")
+        if mode == "GREEN":
+            actions.append(f"{mode_emoji} System recovered → GREEN")
+        elif mode == "YELLOW":
+            alerts.insert(0, f"{mode_emoji} System degraded → YELLOW mode. Reduced ops.")
+        elif mode == "RED":
+            alerts.insert(0, (
+                f"{mode_emoji} <b>SYSTEM RED</b> — Multiple failures detected.\n"
+                f"Wing in SAFE MODE: expensive AI ops suspended. Recovery in progress."
+            ))
+
+    # ── Step 4c: Daily heartbeat (include mode) ──
     if _should_send_heartbeat(state):
         ts = datetime.now(MT).strftime("%Y-%m-%d %H:%M MT")
+        mode_emoji = {"GREEN": "✅", "YELLOW": "⚠️", "RED": "🔴"}.get(mode, "❓")
         heartbeat = (
             f"💚 <b>YOGA ALIVE — {ts}</b>\n"
-            f"All services running. Watchdog active.\n"
-            f"{disk_msg}"
+            f"Mode: {mode_emoji} {mode}\n"
+            f"{disk_msg}\n"
+            f"Services down: {len(down_services)} | MCP: {'OK' if mcp_ok else 'DOWN'}"
         )
         _send_alert(heartbeat)
         state["last_heartbeat_date"] = datetime.now(MT).strftime("%Y-%m-%d")
@@ -338,7 +416,8 @@ def run_watchdog():
     # ── Step 6: Alert Commander ──
     if actions or alerts:
         ts = datetime.now(MT).strftime("%H:%M MT")
-        lines = [f"<b>WATCHDOG {ts}</b>"]
+        mode_emoji = {"GREEN": "✅", "YELLOW": "⚠️", "RED": "🔴"}.get(mode, "❓")
+        lines = [f"<b>WATCHDOG {ts}</b> {mode_emoji} {mode}"]
         if actions:
             lines.append("")
             for a in actions:
@@ -351,7 +430,7 @@ def run_watchdog():
         _send_alert("\n".join(lines))
 
     _save_state(state)
-    _log(f"Watchdog complete — {len(actions)} actions, {len(alerts)} alerts")
+    _log(f"Watchdog complete — mode={mode} {len(actions)} actions, {len(alerts)} alerts")
 
 
 if __name__ == "__main__":

@@ -27,7 +27,7 @@
 | PE146862609 → PE151557101 | Transfer, Hilton Odaiba → Harumi Port, 4 pax (Loucks+Westbrook) | Apr 23, 10:30 AM | **CONFIRMED** — reissued from Yokohama to Harumi (correct port), 10:30 AM confirmed Mar 20 | paid |
 | 566904-25 | Silversea Silver Nova, Cabin 7031 Superior Veranda Suite | Apr 23 – May 11 | **CONFIRMED — PAID IN FULL** | $10,800 |
 | I0Y9VG | United UA 757, SEA → DEN, Economy | May 11, 12:46pm → 4:30pm | **CONFIRMED** | incl. in SkyLux booking |
-| — | Seattle Terminal → SEA-TAC transfer | May 11, ~9:30-10:00 AM | **NOT BOOKED — deadline Apr 15** | TBD |
+| — | Seattle Terminal → SEA-TAC transfer | May 11 | **RESOLVED — will arrange onboard Silver Nova** (Commander confirmed 2026-04-06) | N/A |
 
 ### INSURANCE
 - **Allianz Annual Premier $15K** — Conf E2549991663, $1,530, coverage Mar 1, 2026 – Mar 1, 2027
@@ -219,7 +219,7 @@ Commander has designated the Westbrooks as the test case for itinerary improveme
 
 - [ ] Book Seattle cruise terminal → SEA-TAC transfer for May 11 before Apr 15 (auto-intel Mar 13)
 
-- [ ] Follow up on Blacklane ticket HL855855 — confirm 10:30 AM Harumi transfer time for Apr 23 (auto-intel Mar 13)
+- [x] ~~Follow up on Blacklane ticket HL855855~~ — **1030 pickup confirmed by Blacklane, Apr 4, 2026** ✅ (Commander confirmed)
 
 - [ ] Complete Visit Japan Web registration for Ronald and Lindy Westbrook (auto-intel Mar 13)
 

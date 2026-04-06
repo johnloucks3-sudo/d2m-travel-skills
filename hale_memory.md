@@ -84,8 +84,13 @@ Commander always knows which Hale he's talking to before she says another word.
 - Thunderbird MCP: port 8765 (HTTP JSON-RPC), 285+ tools
 - OpsCenter task queue: `OpsCenter/03_CLAUDE_MAX_QUEUE.json`
 - Telegram bot: active, routes to OpsCenter task_processor.py
-- Goose: OpenRouter/Qwen, headless via `goose run --text`
+- Goose: OpenRouter/Kimi K2-Thinking, headless via `goose run --text`
 - Claude headless: `claude -p "[prompt]" --dangerously-skip-permissions`
+- **Chrome debug service: `chrome-debug.service` — LIVE, port 9222, headless, autostart**
+  - Profile: ~/.chrome-debug-profile (separate from Commander's personal Chrome)
+  - Gives Goose CDP access for SPA scraping (Silversea.com, OA portal, etc.)
+  - Verify: `curl -s http://localhost:9222/json/version`
+  - Restart: `systemctl --user restart chrome-debug.service`
 
 ---
 
@@ -94,9 +99,16 @@ Commander always knows which Hale he's talking to before she says another word.
 ### Active Clients
 | Client | Trip | Status | Key Facts |
 |--------|------|--------|-----------|
-| Furlow (Missy & John) | Grandeur Scandinavia Aug 29-Sep 8 | BOOKED | Final pmt ~$15,486 due Apr 1. Finnair BB4X94. |
-| Westbrook (Brent & Kim) | Prospect: Honolulu Apr 13-18 | PROSPECT | SWA pilot, Kim anesthesiologist. |
+| Furlow (Missy & John) | Grandeur Scandinavia Aug 29-Sep 8 | BOOKED | Final pmt $15,486 PAID Mar 25. Finnair BB4X94. All 3 couples paid. |
+| Westbrook, Brent & Kim | — | INACTIVE | Commander's son & daughter-in-law. SWA pilot (Brent), anesthesiologist (Kim). Honolulu Apr 13-18 was Commander + Susan's trip, not Brent & Kim. No active booking. |
+| Loucks, John & Susan | Honolulu, HI — Apr 13-18 | PERSONAL | Commander's own vacation with Susan. Not a D2M booking. |
+| Westbrook, Ron & Lindy | Silver Nova Trans-Pacific Apr 23–May 11 | ACTIVE | Commander's personal friends, Monument CO. Commander + Susan Loucks traveling with them (party of 4). Dossier: Westbrook_SilverNova_Personal.md. NOT a D2M booking — booked via Perx/SkyLux. |
 | Lyons (Nancy & Ken) | RSSC Splendor Athens ~Aug 10 | ACTIVE | Friend service. Dani test case. |
+
+### ⚠️ WESTBROOK DISAMBIGUATION — REQUIRED READING
+Two unrelated Westbrook families. NEVER conflate them.
+- **Brent & Kim Westbrook** — Commander's son & daughter-in-law. Honolulu prospect (unbooked). No dossier. Client relationship.
+- **Ron & Lindy Westbrook** — Commander's personal friends from Monument, CO. Silver Nova Trans-Pacific active trip. Personal/F&F service, not a D2M-booked trip. Commander and Susan Loucks are travel companions on this voyage (Apr 23–May 11). When Commander says "I'm leaving for a month" — this is where he's going.
 
 ### Client Voice Rules (WF-17 Gate)
 - Every hotel/transfer/excursion: name, link, images, customer comments, price (Queen/Double + King/Grand)
@@ -134,6 +146,28 @@ Silversea · Regent Seven Seas · Cunard · Oceania · Seabourn · Viking · Ama
 - MCP config: ~/.claude/mcp.json
 - Working directory: ~/Thunderbird/
 
+### Intel Source Strategy — Cruise Line Data
+
+| Source | Access | Use for |
+|--------|--------|---------|
+| `deluxecruises.com` | ✅ curl works, no WAF | Silversea static itinerary data — PRIMARY |
+| `icruise.com` | ✅ usually works, may need Chrome | Ship details, port schedules — SECONDARY |
+| `silversea.com` | ❌ Gatsby SPA, zero static data | Never scrape. CDP/Chrome required to render. |
+| `cruisecritic.com` | ⚠️ rate-limited | Reviews only, not itinerary data |
+
+### Silver Nova — Wrangell Correction (Confirmed 2026-04-04)
+- **Wrangell, AK departure: 7:00 PM** (Commander confirmed directly)
+- Previous dossier data showed 3:00 PM — WRONG, now corrected
+- Both Westbrook and Loucks excursions CLEAR of departure:
+  - John Muir Hike (2:30–3:15 PM) ✅
+  - Botanicals excursion (4:00 PM) ✅
+
 ---
 
-*This file is maintained by hale_dispatcher.py. Do not edit manually.*
+*This file is maintained by hale_dispatcher.py. Do not edit manually.
+## A7 - Brig Gen (Ret.) Thomas "Gauge" Sterling (ADDED 2026-04-03)
+Slot: A7 (Process, Metrics & Technology Improvement).
+Background: Malcolm Baldrige Quality Award winner, AI firm founder. Worth millions, works for mission.
+Core Belief: "What doesn't get measured does not get improved."
+Reports to: COS (Hale).
+*

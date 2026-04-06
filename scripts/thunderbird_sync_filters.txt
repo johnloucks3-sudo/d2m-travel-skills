@@ -1,7 +1,9 @@
 # Thunderbird Drive Sync — rclone filter rules
-# Order matters: exclusions first for security
+# FULL MIRROR — everything except secrets and cache
+# Updated 2026-04-06 — expanded from selective to full mirror
 
-# --- EXCLUDE: sensitive credentials ---
+# --- EXCLUDE: credentials & secrets (NEVER sync) ---
+- creds/**
 - credentials.json
 - gmail_token.json
 - gmail_oauth_credentials.json
@@ -9,38 +11,29 @@
 - *_token.json
 - *_credentials.json
 - *.env
+- .env*
+- *.pem
+- *.key
+- .api_token
 
-# --- EXCLUDE: file types ---
-- *.json
-- *.pyc
-- *.db
-- *.sqlite
-- *.sqlite3
-
-# --- EXCLUDE: directories ---
+# --- EXCLUDE: large cache & build dirs ---
 - .venv/**
 - venv/**
 - __pycache__/**
 - node_modules/**
 - .git/**
-- output/scheduled_reports/**
-- thunderbird_sync_state.json
+- .playwright-mcp/**
+- .rtk/**
+- storage/backups/**
+- storage/browser_profiles/**
 
-# --- INCLUDE: priority directories (all remaining types) ---
-+ Dossiers/**
-+ Personas/**
-+ Commander_Review/**
-+ memory/**
-+ docs/**
+# --- EXCLUDE: compiled/temp ---
+- *.pyc
+- *.pyo
+- *.swp
+- *.swo
+- *~
+- .DS_Store
 
-# --- INCLUDE: by extension ---
-+ *.py
-+ *.md
-+ *.html
-+ *.css
-+ *.sh
-+ *.j2
-+ *.txt
-
-# --- EXCLUDE: everything else ---
-- **
+# --- INCLUDE: everything else ---
++ **

@@ -3,8 +3,8 @@
 
 ---
 
-## What This Is
-`mcp_bridge.sh` gives Goose CLI access to **all 292 Thunderbird MCP tools** — the same tools Claude uses natively. One-shot CLI calls, JSON in/JSON out.
+## What This Is (ARCHITECTURE V3)
+Goose now possesses the 60 core D2M tools natively via Streamable HTTP (Port 8766). `mcp_bridge.sh` is now exclusively a fallback wrapper to give Goose CLI access to the remaining **heavy TESS and database tools** — the same tools Claude uses natively. One-shot CLI calls, JSON in/JSON out.
 
 ## Location
 ```

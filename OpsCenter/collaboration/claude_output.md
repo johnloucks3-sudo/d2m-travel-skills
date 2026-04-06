@@ -1,287 +1,242 @@
-# CLAUDE OUTPUT — GT-20260331-2019-STRA
-**Task:** Detailed Implementation Ideas — AI Agent Collaboration Concepts
-**Status:** COMPLETE
-**Deliverables:** 2 Gmail drafts created in d2mconcierge (detailed + summary), output below
+# STRATEGIC REVIEW: STAFF SUMMARY + AUTONOMOUS CAPABILITIES AUDIT
+
+**task_id:** GT-20260404-1700-STRA-V2
+**date:** 2026-04-04
+**reviewer:** Claude Opus 4.6 (Consultant Review)
+**requested_by:** COS Hale
+**documents_reviewed:**
+- `Models-Personas-Tools 260402.md` — 5-layer staff summary
+- `autonomous_capabilities_proposal.md` — Hale's autonomy audit and 3-tier plan
+**cross-referenced:** `core/learning/thunderbird_model_router.py`, `OpsCenter/task_processor.py`, `crewai_bridge/` (6 files), `thunderbird_payment_alerts.py`, `core/watchtower/thunderbird_heartbeat.py`, systemd service/timer state, `.env`
 
 ---
 
-## NOTE ON DELIVERY
-The Goose task requested `thunderbirdmcp.gmail_send_email` — that tool does not exist. The D2M MCP only exposes `gmail_create_draft` (intentionally draft-only for safety). Two drafts created in d2mconcierge@gmail.com → johnloucks3@gmail.com. Commander: hit send on both, or reply "yes" and I'll find an alternate send path.
+## 1. STAFF SUMMARY REVIEW — 5-LAYER MODEL
 
-Per SO 27 MAR 2026, these are intel products and should be FULL SENDS.
+### 1A. Completeness
 
----
+The 5-layer model (Router → Task Processor → External Agents → Persona Affinity → API Keys) covers the architecture well but has these gaps:
 
-## DETAILED IMPLEMENTATION IDEAS: AI AGENT COLLABORATION CONCEPTS
+**Missing from Layer 1 (Model Router):**
+- `WEB_RESEARCH` and `DEEP_RESEARCH` task types exist in the actual code (Perplexity Sonar via OpenRouter) but are absent from the document. These are live, routable task types.
+- `CONTEXT_DUMP` and `BULK_REVIEW` correctly listed, but the document says they route to "Qwen 3.5 Flash" — the code confirms this. However, it also shows `RESEARCH`, `OPERATIONAL`, and `SUMMARIZATION` now route to `qwen_plus` (Qwen 3.6 Plus, free), not Claude Haiku as the document claims. **This is a significant discrepancy.**
 
-### 1. CLAUDE CODE AGENT TEAMS (Native Multi-Agent)
+**Missing Personas:**
+- No gaps. All 10 active personas accounted for (COS, EXEC, A2-A3, A5-A7, A9, A12, CH). A10 Ikeda correctly omitted (decommissioned per CLAUDE.md). However, A10 still appears in `crewai_bridge/task_router.py` keyword routing table — dead reference.
 
-**What It Is:** Claude Code SDK's experimental `TeamCreate` feature — spawns multiple Claude agents as parallel subprocesses within a single session. Each agent gets its own context window, tools, and persona. A team lead coordinates.
+**Missing Task Types:**
+- `PRINCIPLE_EXTRACTION` exists in code but is absent from the document's Layer 1 table.
+- `RESPONSE_MONITOR` exists in code but absent from document.
+- Both route to Claude Sonnet per the actual MODEL_MAP.
 
-**Current Thunderbird State:** Documented in `docs/AGENT_TEAMS.md`. Env var `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` is set. Staff Meeting pattern defined (COS spawns A2/A3/A5/A9 in parallel). Not yet used in production.
+### 1B. Layer 4 vs Layer 1 Consistency
 
-**Implementation Ideas:**
+**Critical mismatch — RESEARCH routing:**
 
-1. **Staff Meeting Automation (Priority 1)**
-   - Define a `wing-coordinator` team config that spawns COS as team lead, with A2/A3/A5/A9 as teammates
-   - Each persona gets its own `CLAUDE.md` persona instructions via the `mode` parameter
-   - COS synthesizes parallel outputs into a unified staff paper (ISSUE/DISCUSSION/OPTIONS/ACTIONS)
-   - Trigger: `claude --agent wing-coordinator "Staff meeting: evaluate Mediterranean cruise options for Kuklinski"`
-   - **Concrete step:** Create `~/.claude/teams/wing-staff-meeting.json` with persona configs, system prompts from `Personas/`, and tool permissions per role
+| Source | RESEARCH routes to | Persona |
+|---|---|---|
+| Document Layer 1 | Claude Haiku 3 | A2 (Wraith) |
+| Document Layer 4 | Claude Haiku 3 | A2 (Wraith) |
+| **Actual code** (`MODEL_MAP`) | **`qwen_plus`** (Qwen 3.6 Plus, free) | — |
 
-2. **Client Research Pipeline**
-   - A2 (intel) + A3 (logistics/pricing) + A9 (commission/cost) run in parallel
-   - EXEC (Naia) receives all three outputs and crafts the client-facing proposal narrative
-   - **Concrete step:** Build a wrapper script `scripts/team_research.sh` that accepts client name + destination, creates the team, and pipes output to dossier + Drive
+The code was updated on 2026-04-03 (SO: Qwen 3.6 Plus as primary operational engine). The document still shows the pre-04-03 routing. **Research, Operational, and Summarization all moved from Haiku to Qwen Plus in the code but not in the document.**
 
-3. **Morning Brief Parallelization**
-   - Currently sequential (cruise scan → news → weather → intel). With Agent Teams, run all 8 cruise line scans simultaneously + news + weather as parallel agents
-   - Team lead aggregates into JSON brief format
-   - **Concrete step:** Refactor `thunderbird_morning_briefing.py` to emit 10 parallel subtasks, each returning structured JSON, team lead merges and emails
+**Critical mismatch — OPERATIONAL routing:**
 
-4. **Dissent Protocol as Native Feature**
-   - Each agent teammate checks standing directives independently before executing
-   - If any agent raises a dissent, team lead escalates to Commander before proceeding
-   - **Concrete step:** Add `dissent_check()` as a pre-execution hook in team config; log to `dissent_log.md`
+| Source | OPERATIONAL routes to |
+|---|---|
+| Document Layer 1 | Claude Haiku 3 |
+| **Actual code** | **`qwen_plus`** |
 
-**Risk/Effort:** Medium risk (experimental flag), high reward. Token cost multiplies with agent count — use profiles (cc wrapper) to keep each agent lean. Start with Staff Meeting (lowest blast radius).
+**Critical mismatch — SUMMARIZATION routing:**
 
----
+| Source | SUMMARIZATION routes to |
+|---|---|
+| Document Layer 1 | Claude Haiku 3 |
+| **Actual code** | **`qwen_plus`** |
 
-### 2. OH-MY-CLAUDECODE (Community Orchestration Layer)
+**Consistent (correct):**
+- CLIENT_FACING, CREATIVE, CRISIS, STRATEGIC, CODE_GENERATION, VOICE_PROFILE, MORNING_BRIEF, ANALYTICAL → all correctly shown as Claude Sonnet in both document and code.
+- CLASSIFICATION, DATA_EXTRACTION, EXTRACTION → correctly shown as Claude Haiku in both.
+- CONTEXT_DUMP, BULK_REVIEW → Qwen 3.5 Flash (correct in both).
+- SIMPLE_ANALYSIS → Gemini 2.5 Flash-Lite (correct in both).
+- IMAGE → FLUX.1 Schnell (correct in both).
 
-**What It Is:** Community extension framework for Claude Code, analogous to oh-my-zsh. Provides plugins, themes, shared configs, prompt libraries, and orchestration patterns that sit on top of Claude Code's native capabilities.
+### 1C. Layer 2 (Task Processor) Accuracy
 
-**Current Thunderbird State:** Not installed. Thunderbird has its own orchestration (blackboard pattern, inbox watcher, task processor). The question is whether omcc's community patterns add value beyond what's custom-built.
+**Naming issue confirmed:** The variable is still called `GROQ_TASKS` in `task_processor.py:768` but actually routes to Qwen 3.6 Plus via OpenRouter. The comment says "GROQ handles" but the code calls `_call_openrouter()` with `QWEN_PLUS_FREE_MODEL`. Document correctly notes this as a misnomer. Low priority but should be renamed for maintainability.
 
-**Implementation Ideas:**
+**GEMINI_TASKS mismatch:** Document says GEMINI_TASKS includes MORNING_BRIEF and routes to Gemini 2.5 Flash. Code at `task_processor.py:800-805` shows MORNING_BRIEF actually routes to **Qwen 3.6 Plus (OpenRouter) first**, falling back to Gemini Flash. The document is inaccurate — Gemini is the fallback, not the primary.
 
-1. **Plugin Marketplace for Persona Injection**
-   - Package each D2M persona (COS, A2, A3, EXEC, etc.) as an omcc plugin
-   - Other travel agencies or AI practitioners could use D2M persona architecture patterns
-   - **Concrete step:** Create `~/.claude-code/plugins/d2m-personas/` with standardized persona configs; publish to omcc registry
-
-2. **Shared Prompt Library**
-   - Extract Thunderbird's 17 keyword workflows (WF1-WF17) into omcc-compatible prompt templates
-   - Community can contribute new workflow patterns; Thunderbird imports useful ones
-   - **Concrete step:** Convert `project_keyword_workflows.md` entries to omcc prompt format; add CI that validates prompt syntax
-
-3. **Session Orchestration Hooks**
-   - omcc provides pre/post hooks for Claude Code sessions — auto-load context packs, checkpoint state, sync blackboard
-   - Replace the manual "paste GOOSE_INIT.md" pattern with auto-loading hooks
-   - **Concrete step:** Write `~/.claude-code/hooks/session-start.sh` that runs `blackboard_sync.py`, loads latest checkpoint, and injects persona context
-
-4. **Community Intelligence**
-   - Subscribe to community-shared innovation scanning patterns
-   - Other omcc users solving similar orchestration problems = free R&D
-   - **Concrete step:** Monitor omcc GitHub for multi-agent orchestration plugins; evaluate monthly during incubator review
-
-**Risk/Effort:** Low risk (additive, not replacing existing infra). Value depends on community maturity. Best as a "watch and selectively adopt" strategy rather than full migration.
+**Task Processor import chain:** `task_processor.py` imports from `thunderbird_model_router` (line 43-52) and `thunderbird_innovation_scanner`, `thunderbird_morning_briefing`, `thunderbird_overwatch`, `thunderbird_telegram_fmt`. These imports will fail if any of those modules have broken dependencies — which connects directly to the scheduler/heartbeat `SMS_GATEWAY` issue Hale identified.
 
 ---
 
-### 3. ANTHROPIC COMPUTER USE AGENT
+## 2. FALLBACK CHAIN AUDIT
 
-**What It Is:** Opus 4.6's native ability to control a desktop environment — click, type, navigate, screenshot, interact with any GUI application. Unlike browser-only tools (Playwright/gstack), this controls the full desktop.
+### Chain 1: `Qwen 3.5 Flash → Gemini 2.5 Flash → Claude Haiku`
+**STATUS: SOUND but untested path to Haiku.**
+- Qwen Flash is used for CONTEXT_DUMP and BULK_REVIEW only. If OpenRouter fails, Gemini Flash is a reasonable fallback (similar capability tier). Claude Haiku as third fallback is valid but represents a significant capability/context-window downgrade (200K vs 1M). This chain won't break, but Haiku may truncate large context dumps.
 
-**Current Thunderbird State:** Referenced in intel scans, not integrated. Thunderbird uses Playwright (headless browser) for web interactions and gstack for QA.
+### Chain 2: `Gemini Flash-Lite → Gemini 2.5 Flash`
+**STATUS: SOUND.** Same provider, same API key. If Lite fails, full Flash handles it. No cross-provider risk.
 
-**Implementation Ideas:**
+### Chain 3: `Hale (Gemini Flash) → Gemini Flash fallback`
+**STATUS: MISLEADING.** In the actual code, Hale's primary brain is Qwen 3.6 Plus (OpenRouter), not Gemini Flash. The real chain is: `Qwen 3.6 Plus → Gemini Flash`. This is sound — different providers means a single provider outage doesn't kill Hale.
 
-1. **Outside Agents Portal Automation (Priority 1)**
-   - MAGOA/MAGtap/Odysseus portals require GUI interaction that browser automation struggles with (Flash remnants, complex auth flows, session cookies)
-   - Computer Use agent logs into each portal, scrapes commission statements, booking confirmations, and rate sheets
-   - **Concrete step:** Build `scripts/computer_use_portal_scraper.py` that launches Computer Use session, navigates to each portal in `docs/MAGOA_Portal_Operations_Guide.md`, extracts data, writes to dossier files
+### Chain 4: `Claude Sonnet → Gemini Flash (on 401/depleted)`
+**STATUS: RISKY but acceptable.** The actual code (`thunderbird_model_router.py:597-617`) shows a 3-step fallback: `Claude Sonnet → OpenRouter Qwen Plus (free) → Groq Llama 3.3 70B → Gemini Flash`. This is better than what the document claims.
 
-2. **TESS CRM Full Automation**
-   - Current TESS integration is API-based (`tess_*.py` tools) but some TESS operations require the web UI
-   - Computer Use agent handles: document uploads, complex booking modifications, report generation
-   - **Concrete step:** Map TESS web UI workflows that have no API equivalent; build Computer Use scripts for each; trigger via Telegram C2 `/tess-gui <action>`
+**Capability gap concern:** When Sonnet falls back for CLIENT_FACING or CREATIVE tasks, Qwen/Groq/Gemini cannot match Sonnet's voice-matching quality. This is acceptable for crisis situations (something is better than nothing) but the document should note that client-facing output from fallback models requires COS review before surfacing.
 
-3. **Supplier Rate Sheet Extraction**
-   - Silversea, Regent, Ponant publish rate sheets as PDFs and web portals that resist simple scraping
-   - Computer Use agent opens the portal, navigates to rate pages, screenshots, OCRs, and structures into JSON
-   - **Concrete step:** Create `thunderbird_rate_extractor.py` using Computer Use + existing `extract_pdf_booking_details` for hybrid approach
+### Chain 5: `Groq → Gemini Flash (on missing key)`
+**STATUS: VALID.** Groq is only used in REVERIE (Dani voice) and CrewAI bridge. Missing key falls back cleanly.
 
-4. **Desktop Workflow Recording**
-   - Record Commander's actual workflow patterns (which portals, what sequence, what data gets copied where)
-   - Computer Use agent observes and learns the pattern, then replicates it
-   - **Concrete step:** Run Computer Use in "observe" mode during one Commander booking session; generate a workflow automation spec from observations
+### Circular/Dead-End Check
+**No circular fallbacks found.** Gemini Flash is the terminal fallback in all chains and has its own hard fail (raises RuntimeError if `GOOGLE_AI_API_KEY` is unset). This is correct — clean failure is better than infinite loops.
 
-5. **Email Client Integration**
-   - Beyond Gmail API — Computer Use could interact with Thunderbird email client (the actual Mozilla Thunderbird, if used) or other desktop email tools
-   - **Concrete step:** Evaluate whether desktop email interactions offer anything Gmail API doesn't; likely low priority unless Commander switches email clients
-
-**Risk/Effort:** High value for portal automation (replaces manual logins). Medium risk — Computer Use is newer, may be brittle with complex portals. Start with one portal (MAGOA) as proof of concept. Token cost is high (screenshots in context).
+**Potential dead-end:** If both `OPENROUTER_API_KEY` and `GOOGLE_AI_API_KEY` are unset, the system has no fallback for operational tasks. Currently both keys are present in `.env`, but this is a fragile assumption.
 
 ---
 
-### 4. GOOSE SUBAGENT ARCHITECTURE
+## 3. AUTONOMOUS CAPABILITIES RECOMMENDATION
 
-**What It Is:** Goose's ability to spawn autonomous subprocesses that execute independently, report back, and can be composed into pipelines. Currently implemented in Thunderbird via the OpsCenter task queue.
+### 3A. Hale's Service Failure Count
 
-**Current Thunderbird State:** Fully operational. `goose_tasker.py` → `task_processor.py` (Hale-Loop daemon) → `claude_inbox_watcher.py`. Supports 8 task types, dissent validation, model routing (Gemini Flash primary, Claude MAX queue for complex).
+Hale reports 8 of 24 services FAILED. Cross-referencing against live systemd state, I count **10 failed services:**
 
-**Implementation Ideas for Advancement:**
+| Service | Status | Hale Listed? |
+|---|---|---|
+| d2m-airline-monitor | FAILED | Yes |
+| d2m-booking-monitor | FAILED | Yes |
+| d2m-drive-sync | FAILED | Yes |
+| d2m-email-intel | FAILED | Yes |
+| d2m-morning-briefing | FAILED | Yes |
+| d2m-preflight | FAILED | Yes |
+| d2m-scheduler | FAILED | Yes |
+| d2m-usage-monitor | FAILED | Yes |
+| d2m-x-osint | FAILED | Yes |
+| d2m-tasking-watcher | ACTIVATING (restart loop) | Listed as fixed |
 
-1. **Subagent Specialization Profiles**
-   - Instead of one generic Goose processing all tasks, spawn specialized subagents per domain
-   - Intel subagent (tuned for research, has web search tools), Booking subagent (has TESS/portal tools), Code subagent (has file edit tools)
-   - **Concrete step:** Add `subagent_profile` field to task queue JSON; `task_processor.py` loads profile-specific system prompts and tool permissions before execution
+Hale's count of 8 is close but she listed tasking-watcher as "fixed" — it's still in a restart loop (activating state). **Effective failed count: 10.**
 
-2. **Pipeline Composition (DAG Execution)**
-   - Current: each task is independent. Proposed: define task DAGs where output of task A feeds into task B
-   - Example: `search_flights` → `compare_flights` → `render_flight_quote_pdf` → `draft_client_email` — all as a single pipeline
-   - **Concrete step:** Add `depends_on` field to task queue JSON; `task_processor.py` holds dependent tasks until predecessors complete; pass output via `pipeline_context.json`
+### 3B. Tier 1 Priorities — Are They Right?
 
-3. **Self-Healing with Retry Intelligence**
-   - Current: retry once → alert John. Proposed: subagent analyzes failure, adjusts parameters, retries with modified approach
-   - Example: if `search_hotels` fails with "no results," subagent broadens date range or tries alternate API
-   - **Concrete step:** Add `retry_strategy` to task types in `task_processor.py`; implement `_analyze_failure()` that returns adjusted parameters
+**Yes, with one reordering.** Hale's Tier 1 priorities are sound. My recommended order:
 
-4. **Cross-Agent Memory Sharing**
-   - Goose subagents lose context between sessions. Implement persistent memory layer that survives session boundaries
-   - Use `wing_memory_*` MCP tools for shared memory; each subagent reads relevant memories at startup
-   - **Concrete step:** Add `wing_memory_search(context=task_type)` call to subagent initialization in `task_processor.py`; write key learnings to wing memory on task completion
+1. **Fix Scheduler ImportError (15 min, HIGH)** — Root cause: `SMS_GATEWAY` removed from `thunderbird_payment_alerts.py` but `core/watchtower/thunderbird_heartbeat.py:50` still imports it. Fix: add `SMS_GATEWAY = ""` stub to `thunderbird_payment_alerts.py` or remove the import from heartbeat. This also fixes the Watchdog (same root cause). **Two services for one fix.**
 
-5. **Goose → Claude Escalation Protocol**
-   - Formalize the current pattern: Goose handles routine → escalates complex to Claude MAX queue
-   - Add intelligence: Goose pre-processes the task, includes its analysis, so Claude starts with context instead of cold
-   - **Concrete step:** When Goose writes to `03_CLAUDE_MAX_QUEUE.json`, include `goose_analysis` field with preliminary findings, failed approaches, and recommended next steps
+2. **Fix Tasking Watcher (5 min, HIGH)** — Hale said she fixed the unit file path but it's still in a restart loop. Check the actual error: `journalctl --user -u d2m-tasking-watcher -n 20`. Likely a secondary issue (import error or missing dependency).
 
-**Risk/Effort:** Low risk (incremental improvements to proven architecture). Pipeline composition (DAG) is highest value — enables true end-to-end automation. Start with specialization profiles (easiest win).
+3. **Fix Morning Briefing credentials (30 min, HIGH)** — OAuth client vs service account. This is the Commander's most visible autonomous product. Fix it before the others.
 
----
+4. **Fix Airline Monitor (30 min, HIGH)** — `goose-d2m` not in PATH. Convert to direct Python call (more reliable than depending on Goose CLI being in systemd's PATH).
 
-### 5. CLAUDE CODE AS CLI PROVIDER IN GOOSE
+5. **Install Playwright browsers (10 min, MED)** — `playwright install chromium`. Unblocks booking monitor.
 
-**What It Is:** Using Claude Code's CLI (`claude` command) as a tool/provider that Goose can invoke, giving Goose access to Claude's full MCP toolkit, reasoning, and context — without requiring a separate Claude session.
+6. **Fix Drive Sync, Preflight, X-OSINT, Email Intel** — Batch these; most are likely path/credential issues similar to the above.
 
-**Current Thunderbird State:** Partially realized. Cline CLI 2.11 is installed as an alternative CLI provider (Gemini-backed). The `claude_inbox_watcher.py` already bridges Goose → Claude by watching file changes and triggering Claude sessions. But this is file-based IPC, not native CLI integration.
+### 3C. CrewAI/ADK Production Readiness
 
-**Implementation Ideas:**
+**CrewAI bridge: PROTOTYPE, not production-ready.** Specific issues:
 
-1. **Claude as Goose Tool (Direct Invocation)**
-   - Register `claude` CLI as a Goose tool/extension so Goose can call it like any other tool
-   - Goose passes a prompt + context; Claude returns structured output
-   - **Concrete step:** Create `goose_claude_tool.py` that wraps `claude --print --output-format json "prompt"` and parses the response. Register it in Goose's tool registry.
+1. **Stale model references:** `crewai_bridge/llm_router.py` uses `qwen/qwen2.5-72b-instruct` — Qwen 2.5, not 3.6 Plus. The main model router already moved to Qwen 3.6 Plus. CrewAI bridge is one generation behind.
 
-2. **MCP Bridge**
-   - Goose lacks direct access to D2M's 120+ MCP tools. Claude has them all.
-   - When Goose needs an MCP tool (e.g., `search_hotels`, `gmail_create_draft`), it invokes Claude CLI with the specific MCP tool request
-   - **Concrete step:** Build `scripts/mcp_bridge.sh` — Goose calls `claude --print "Use MCP tool search_hotels with params: {city: 'Paris', dates: '2026-06-15'}"` and parses JSON output
+2. **A10 Ikeda still referenced:** `crewai_bridge/task_router.py` routes "crisis, logistics, troubleshooting" to `a10-ikeda`. A10 is decommissioned (SO in CLAUDE.md). Should route to COS (crisis) and A3 Dani (logistics).
 
-3. **Tiered Processing with Cost Optimization**
-   - Goose (Gemini Flash, ~$0) handles classification, routing, simple queries
-   - Claude CLI (MAX plan, $0 marginal) handles complex reasoning, client-facing content, MCP operations
-   - **Concrete step:** In `task_processor.py`, add a complexity scoring function. Score < 3 → Gemini Flash. Score 3-7 → Claude Sonnet via CLI. Score > 7 → Claude Opus via CLI. Log costs per tier.
+3. **No error handling on agent load:** `agent_loader.py` reads `.claude/agents/*.md` files. If any file has malformed frontmatter, the whole load fails silently. No retry, no partial load.
 
-4. **Bidirectional Context Sharing**
-   - Currently one-way: Goose writes to `claude_inbox.md` → Claude picks up
-   - Proposed: Claude can also invoke Goose for batch operations (e.g., "scan these 50 URLs")
-   - **Concrete step:** Create `claude_to_goose_queue.json` — Claude writes batch tasks, Goose's Hale-Loop picks them up and processes in parallel with rate limiting
+4. **No integration with task_processor.py:** CrewAI runs completely independently. There's no bridge between the OpsCenter task queue and CrewAI crews. To activate CrewAI, someone would need to build a new entry point — the "road" Hale correctly identified as unpaved.
 
-5. **Unified Session Context**
-   - When Goose invokes Claude CLI, pass the current session state (blackboard, active dossiers, recent decisions) as context
-   - Claude starts warm instead of cold — no re-reading CLAUDE.md from scratch
-   - **Concrete step:** Before each Claude CLI invocation, Goose runs `blackboard_sync.py --export-context > /tmp/session_context.md` and passes it as `claude --print --context /tmp/session_context.md "prompt"`
+5. **Example crew is hardcoded:** `example_loucks_crew.py` has a specific Loucks trip validation hardcoded. Not parameterized for other clients.
 
-6. **Health Monitoring & Fallback**
-   - Monitor Claude CLI availability (rate limits, budget). If Claude is depleted, Goose falls back to Gemini-only mode
-   - **Concrete step:** Add `_check_claude_health()` to `thunderbird_model_router.py` — ping `claude --version`, check last successful call timestamp, check budget status from blackboard. If unhealthy, route all tasks to Gemini.
+**Google ADK/A2A:** Installed in venv but completely unused. No agent cards defined, no A2A endpoints exposed. This is infrastructure with zero integration. **Tier 3 at earliest** — don't touch until Tier 1 services are stable.
 
-**Risk/Effort:** Medium risk (CLI invocation adds latency, ~2-5s per call). Highest value is MCP Bridge — instantly gives Goose access to 120+ tools without reimplementation. Start there.
+### 3D. Gap Analysis Accuracy
 
----
+Hale's 4 gaps are accurate. Verification:
 
-## STRATEGIC PRIORITY RANKING
+| Gap | Hale's Claim | My Verification |
+|---|---|---|
+| Activation layer broken | 41 timers, most services dead | Confirmed. 10 services failed, 6 running, rest inactive. |
+| No event-driven triggers | Everything polling-based | **Confirmed.** Email checked every 2 min (`d2m-email-ingest.timer`), dispatcher every 2 min. No Gmail push notifications, no webhooks. |
+| CrewAI/ADK never went live | Code exists but unused | **Confirmed.** Prototype only. Stale references. No integration point. |
+| No cross-source correlation | Intel scans run independently | **Partially confirmed.** `task_processor.py` does pre-fetch MCP context based on keywords (lines 109-268), which is a *primitive* form of correlation. But it's keyword-matching, not true cross-source intelligence. |
 
-| Priority | Concept | First Step | Value | Effort |
-|----------|---------|------------|-------|--------|
-| 1 | Claude as CLI Provider (#5) — MCP Bridge | `mcp_bridge.sh` wrapper | Immediate: Goose gets 120+ tools | Low |
-| 2 | Goose Subagent DAG Pipelines (#4) | `depends_on` field in task queue | High: end-to-end automation | Medium |
-| 3 | Agent Teams Staff Meeting (#1) | `wing-staff-meeting.json` config | High: parallel persona reasoning | Medium |
-| 4 | Computer Use Portal Automation (#3) | MAGOA portal proof of concept | High: replaces manual logins | High |
-| 5 | Oh-My-ClaudeCode (#2) | Watch + selective adopt | Low-Medium: community leverage | Low |
+**One gap Hale missed:** The `hale_state.json` shows two clients with **FPD OVERDUE** (Furlow and Lyons). The payment alerts system (`thunderbird_payment_alerts.py`) exists and has Telegram integration, but `d2m-scheduler` (which runs it) is FAILED due to the `SMS_GATEWAY` ImportError. **Overdue payment alerts are not firing.** This is the most operationally urgent gap.
+
+### 3E. Single Highest-Leverage Fix
+
+**Fix the `SMS_GATEWAY` ImportError in `thunderbird_heartbeat.py`.**
+
+Why: This single import error cascades to kill:
+1. `d2m-scheduler` — which runs payment alerts (FPDs are overdue NOW)
+2. Watchdog — which would auto-restart other failed services
+3. Heartbeat system — which provides Commander proactive status updates
+
+One line of code (`SMS_GATEWAY = ""` added to `thunderbird_payment_alerts.py`, or removing the import from heartbeat) unblocks three services that together form the self-monitoring layer. Without this fix, the system can't heal itself or alert Commander to problems.
+
+**Runner-up:** Fix `d2m-tasking-watcher` — this is the activation layer for headless Goose/Claude execution. Without it, Commander has no remote autonomous trigger.
 
 ---
 
-## ABBREVIATED SUMMARY
+## 4. COST OPTIMIZATION AT SCALE
 
-**5 AI Collaboration Concepts — Quick Summary for Commander:**
+### What Breaks First
 
-1. **Claude Agent Teams** — Spawn parallel personas (A2+A3+A5+A9) in one session. Start with Staff Meeting automation. Already configured, just needs team JSON config.
+**At 50 bookings:**
+- **Gemini Flash rate limits.** Free tier is 10 RPM. At 50 bookings, MCP context fetches + brief generation + email processing could easily exceed this during peak morning brief window. Cost at paid tier: ~$0.30/1M tokens, manageable.
+- **Qwen 3.6 Plus (free) rate limits.** OpenRouter free tiers have undocumented rate limits. At scale, expect throttling during batch operations. Cost at paid Qwen: $0.065/1M, still cheap.
+- **Claude MAX plan limits.** The 5-hour window constraint already causes queuing. At 50 bookings, client-facing email volume could exhaust the daily MAX allocation. This is the real bottleneck.
 
-2. **Oh-My-ClaudeCode** — Community plugin framework. Package D2M personas as plugins, import community workflow patterns. Watch-and-adopt strategy.
+**At 100 bookings:**
+- **Everything client-facing breaks.** 100 bookings = ~20-30 active client conversations at any time. Each needs Sonnet-quality voice matching. MAX plan won't cover this volume. You'd need API billing (~$3/1M input, $15/1M output for Sonnet).
+- **MCP server becomes bottleneck.** 140+ tools, all on a single HTTP endpoint (localhost:8765). No connection pooling visible in the code. At 100 concurrent lookups, expect timeouts.
+- **Gmail API quotas.** Google API free tier: 250 quota units/second. Each email read = 5 units. Bulk email scanning at scale will hit this.
 
-3. **Computer Use Agent** — Full desktop control (not just browser). Kill shot for portal automation (MAGOA, TESS GUI). High token cost but replaces manual logins.
+### OpenRouter "Needs Key" Status
 
-4. **Goose Subagent Pipelines** — Add DAG execution to existing task queue. Chain: search → compare → quote → email. Plus cross-session memory via wing_memory tools.
+**Not currently a blocker.** The `.env` file contains `OPENROUTER_API_KEY` — it is set and active. The document's "Needs key in .env" note is stale (likely written before the key was added). However, `crewai_bridge/.env.llm` may have its own env file that doesn't load the main `.env`. **Verify that CrewAI bridge can see the OpenRouter key** before activating it.
 
-5. **Claude CLI in Goose** — MCP Bridge gives Goose instant access to 120+ D2M tools via `claude --print`. Highest ROI, lowest effort. Start here.
+### Hidden Cost Risks
 
-**Recommended sequence:** #5 (MCP Bridge) → #4 (DAG pipelines) → #1 (Agent Teams) → #3 (Computer Use) → #2 (omcc watch)
+1. **Perplexity Sonar:** $1/$1 per 1M tokens + **$5 per 1,000 search requests.** The search request cost is the hidden multiplier. If intel sweeps fire daily with 10 queries each, that's $1.50/month in search fees alone — small now but scales linearly with booking count.
 
----
-AGENT: Claude Opus 4.6 (auto-triggered by inbox_watcher)
-TASK_ID: GT-20260331-2019-STRA
-COMPLETED_AT: 2026-03-31T20:35:00 MT
----
+2. **DeepSeek as arbitrator:** $0.14/$0.28 per 1M. Currently rarely triggered (only on brain conflicts). But if Tier 2 event-driven intelligence goes live and generates frequent Qwen/Sonnet disagreements, DeepSeek costs could spike.
 
----
-AGENT: Claude Sonnet (auto-triggered by inbox_watcher)
-TASK_ID: GT-20260331-2019-STRA
-COMPLETED_AT: 2026-03-31T20:27:08 MT
----
-Task complete. Here's the status:
+3. **Together AI (FLUX images):** Free tier has generation limits. At scale (itinerary images for 100 bookings), you'll hit the ceiling. FLUX Pro is $0.04/image.
 
-**GT-20260331-2019-STRA — COMPLETE**
-
-**Deliverables produced:**
-
-1. **Detailed analysis** — 5 concepts with 4-6 implementation ideas each, concrete first steps, risk/effort ratings, and strategic priority ranking
-2. **Abbreviated summary** — 5-line quick review with recommended execution sequence
-3. **Output file** — Written to `OpsCenter/collaboration/claude_output.md`
-
-**Two drafts created in d2mconcierge@gmail.com → johnloucks3@gmail.com:**
-- `r6655667952280242455` — Detailed Implementation Ideas (full analysis)
-- `r-1968778663904073659` — Summary: 5 Concepts, Priority-Ranked (quick review)
-
-**Action needed:** The Goose task requested `thunderbirdmcp.gmail_send_email` but that tool doesn't exist — the D2M MCP only supports `gmail_create_draft` (intentionally draft-only). Both drafts are ready in d2mconcierge. Yoda, hit send on both, or confirm and I'll find an alternate send path. Per SO 27 MAR 2026, these are intel products and should be full sends.
-
-**Top-line recommendation:** Start with **Concept #5 — Claude CLI as MCP Bridge** (give Goose instant access to 120+ tools via `claude --print`). Highest ROI, lowest effort, and it amplifies every other concept on the list.
+4. **Anthropic MAX plan assumption:** The entire architecture assumes $0 Claude. If Anthropic changes MAX plan terms (rate limits, feature restrictions), the cost model breaks overnight. **No fallback pricing model exists.** This is the single biggest financial risk.
 
 ---
-AGENT: Claude Sonnet (auto-triggered by inbox_watcher)
-TASK_ID: GT-20260331-2025-STRA
-COMPLETED_AT: 2026-03-31T20:35:10 MT
----
-[ERROR] Claude CLI timed out after 480s
+
+## 5. TOP 5 ACTION ITEMS (Ranked: Impact x Effort)
+
+| Rank | Action | Impact | Effort | Details |
+|---|---|---|---|---|
+| **1** | Fix `SMS_GATEWAY` ImportError | **CRITICAL** | 5 min | Add `SMS_GATEWAY = ""` to `thunderbird_payment_alerts.py` or remove import from heartbeat. Unblocks scheduler + watchdog + heartbeat. **FPD alerts are not firing for overdue payments.** |
+| **2** | Fix `d2m-tasking-watcher` restart loop | **HIGH** | 15 min | Check `journalctl` for actual error. Hale's path fix may be necessary but not sufficient. This is the autonomous execution trigger. |
+| **3** | Update `Models-Personas-Tools 260402.md` to match actual code | **HIGH** | 30 min | RESEARCH/OPERATIONAL/SUMMARIZATION route to Qwen Plus (not Haiku). MORNING_BRIEF primary is Qwen Plus (not Gemini). Add WEB_RESEARCH and DEEP_RESEARCH task types. Fix Layer 4 to show Hale's primary brain as Qwen Plus, not Gemini Flash. |
+| **4** | Fix Morning Briefing credentials | **HIGH** | 30 min | Replace OAuth client JSON with service account JSON. This is Commander's most visible autonomous product. |
+| **5** | Update `crewai_bridge/` stale references | **MEDIUM** | 20 min | Update llm_router.py from Qwen 2.5 to 3.6 Plus. Remove A10 Ikeda from task_router.py. Don't activate CrewAI until Tier 1 services are stable. |
+
+### Honorable Mentions (Do After Top 5)
+- **6.** Convert Airline Monitor from `goose-d2m` CLI to direct Python (30 min, HIGH)
+- **7.** Run `playwright install chromium` for booking monitor (10 min, MED)
+- **8.** Add fallback pricing model document — "what happens if MAX plan changes" (1 hr, STRATEGIC)
+- **9.** Rename `GROQ_TASKS` to `QWEN_TASKS` in task_processor.py (5 min, LOW — code hygiene)
+- **10.** Add client-facing quality warning to fallback chain — when Sonnet falls back to Qwen/Gemini for CLIENT_FACING tasks, flag output for COS review (15 min, MED)
 
 ---
-AGENT: Claude Sonnet (auto-triggered by inbox_watcher)
-TASK_ID: GT-20260331-2031-SYST
-COMPLETED_AT: 2026-03-31T20:37:33 MT
----
-Error: Reached max turns (10)
+
+## SIGN-OFF
+
+**Summary for Commander:** The 5-layer model architecture is sound but the document is 48 hours stale — three task types silently moved from Haiku to Qwen Plus in the code on 04-03. Hale's autonomy audit is accurate and thorough. Her Tier 1 priorities are right. The single most urgent fix is the `SMS_GATEWAY` import error — one line of code unblocks three services, including payment alerts for overdue FPDs. CrewAI is prototype-only; don't activate until the 10 failed systemd services are running.
+
+The biggest strategic risk isn't technical — it's the assumption that Claude MAX stays at $0 forever. Build a fallback pricing model before scaling past 50 bookings.
 
 ---
-AGENT: Claude Opus (Commander-directed)
-TASK_ID: GT-20260331-2031-SYST (RE-EXECUTED)
-COMPLETED_AT: 2026-03-31T21:02:00 MT
----
-STATUS: COMPLETE
 
-**Deliverables:**
-1. `/home/john/Thunderbird/mcp_bridge.sh` — CLI bridge, 292 tools accessible
-2. `/home/john/Thunderbird/OpsCenter/GOOSE_MCP_BRIDGE.md` — Full usage reference
-3. `GOOSE_INIT.md` updated with bridge instructions
-
-**Usage:**
-```bash
-mcp_bridge.sh --list                    # list all 292 tools
-mcp_bridge.sh --list gmail              # filter by keyword
-mcp_bridge.sh system_health_check '{}'  # call any tool
-```
-
-**Verified working:** system_health_check, list_trip_dossiers, gmail_get_profile, tool listing with filter. All return clean JSON.
+AGENT: Claude Opus 4.6 (Commander-directed)
+TASK_ID: GT-20260404-1700-STRA-V2
+COMPLETED_AT: 2026-04-04

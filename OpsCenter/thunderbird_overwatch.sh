@@ -22,6 +22,9 @@ set +a
 
 # Force OAuth for Claude CLI — unset any API key that would hijack it
 unset ANTHROPIC_API_KEY
+
+# PYTHONPATH — core/ reorg requires all subdirs on path
+export PYTHONPATH="/home/john/Thunderbird:/home/john/Thunderbird/api:/home/john/Thunderbird/OpsCenter:/home/john/Thunderbird/agents:/home/john/Thunderbird/business:/home/john/Thunderbird/comms:/home/john/Thunderbird/intel:/home/john/Thunderbird/itinerary:/home/john/Thunderbird/media:/home/john/Thunderbird/ops:/home/john/Thunderbird/core/ai_infra:/home/john/Thunderbird/core/booking:/home/john/Thunderbird/core/client:/home/john/Thunderbird/core/communication:/home/john/Thunderbird/core/crewai:/home/john/Thunderbird/core/email:/home/john/Thunderbird/core/intel:/home/john/Thunderbird/core/learning:/home/john/Thunderbird/core/mcp:/home/john/Thunderbird/core/ops:/home/john/Thunderbird/core/scheduling:/home/john/Thunderbird/core/travel:/home/john/Thunderbird/core/watchtower"
 # ---------------------------------------------------------------
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"

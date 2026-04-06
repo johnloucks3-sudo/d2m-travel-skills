@@ -1,60 +1,82 @@
-# Session Checkpoint — 2026-04-01 ~15:15 MDT
+# Thunderbird Session Checkpoint
+## Generated: 2026-04-06 14:50:00 MT
 
-## What Was Built Today
+---
 
-### Dispatcher Stack (replaces thunderbird-inbox-watcher)
-- `OpsCenter/dispatcher.py` — systemd oneshot, 2-min cadence, dormant when queue empty
-- `OpsCenter/task_queue.py` — SQLite WAL queue, priority/retry/api_target fields
-- `OpsCenter/agent_runner.py` — routes to Claude CLI, Goose CLI, or direct API
-- `OpsCenter/submit_task.py` — universal CLI + library
-- `OpsCenter/api_registry.py` — 30+ APIs with persona/agent assignments
-- systemd: `thunderbird-dispatcher.timer` + `thunderbird-dispatcher.service` — ACTIVE since 13:30 MDT
+### Recent Commits
+- 63e6084 feat: add fare watch registry — 15 active watches across all 2026 D2M itineraries
+- 3b0cea2 Update tracker — Phase 3 progress
+- a230bf4 Phase 3 — Telegram /approve /reject /drafts commands
+- 8fbf148 Autonomy Build Phase 1+2 — fix all crashed services, add proactive push
+- 21c3b4f feat: build Thunderbird Email Maintenance Engine — full implementation per design spec
 
-### Notifications (all working)
-- Telegram paginated (`_notify_paginated`, 3900-char chunks) on dispatch + complete + fail
-- Email to johnloucks3 via `_send_email_direct()` — HTTP direct to MCP port 8765, bypasses safe_cli_gate
-- Draft/approval detection → `📋 APPROVAL NEEDED` Telegram + email to johnloucks3
+### Uncommitted Changes
+- .gitignore (modified)
+- Agency_Logo.png (modified)
+- Agency_Logo_email.png (modified)
+- CLAUDE.md (modified)
+- DRIVE_FOR_DELETION_CATALOGUE.md (modified)
+- Docs/GOOSE_MEMORY_CORE.md (modified)
+- Docs/Wing_24-7_Operations_Manual.md (modified)
+- OpsCenter/00_COMMAND_LOG.md (modified)
+- OpsCenter/03_CLAUDE_MAX_QUEUE.json (modified)
+- OpsCenter/AUTONOMY_BUILD_TRACKER.md (modified)
+- OpsCenter/CLAUDE_DESKTOP_INIT.md (modified)
+- OpsCenter/GOOSE_INIT.md (modified)
+- OpsCenter/GOOSE_MCP_BRIDGE.md (modified)
+- OpsCenter/api_registry.py (modified)
+- OpsCenter/collaboration/D2M_Lifecycle_SOP_Draft.md (modified)
+- OpsCenter/collaboration/WATCHER_REPLACEMENT_PLAN.md (modified)
+- OpsCenter/collaboration/adk_poc_test.py (modified)
+- OpsCenter/collaboration/blackboard_summary.txt (modified)
+- OpsCenter/collaboration/claude_inbox.md (modified)
+- OpsCenter/collaboration/claude_output.md (modified)
+- .opencode.json (new)
+- .rtk/filters.toml (new)
+- Commander_Review/00_COMMAND_LOG.md (new)
+- Commander_Review/04_GOOSE_TASK_MANIFEST.md (new)
+- Commander_Review/CLAUDE_DESKTOP_INIT.md (new)
+- Commander_Review/CLAUDE_INIT.md (new)
+- Commander_Review/CLAUDE_SESSION_INIT_20260331.md (new)
+- Commander_Review/DAILY_OPS_CHECKLIST.md (new)
+- Commander_Review/DRIVE_REORG_V2_FULL_REPORT.md (new)
+- Commander_Review/EMAIL_ENGINE_DESIGN.md (new)
+- Commander_Review/GET_WELL_PLAN_v1.md (new)
+- Commander_Review/GOOSE_INIT.md (new)
+- Commander_Review/GOOSE_MCP_BRIDGE.md (new)
+- Commander_Review/GOOSE_OVERWATCH_GUIDE.md (new)
+- Commander_Review/README.md (new)
+- Commander_Review/RULE_AUTO_APPROVAL.md (new)
+- Commander_Review/claude_context_injection.md (new)
+- Commander_Review/goose_context_injection.md (new)
+- Commander_Review/hale_tom_context.md (new)
+- Commander_Review/policy_engine_rules.md (new)
 
-### Goose Integration
-- `goose-gateway.service` — Telegram bot `8774569956:AAE6...`, `Restart=always`
-- `goose-mcp-http.service` — persistent MCP HTTP on port 8767
-- `goose_mcp_proxy.py` — stdio↔HTTP proxy
-- Goose oriented on full architecture, scheduler, API registry
-- Goose self-assessed as A2/Wraith, tested serper api_call
+### Active Work
+- SSS: 0 pending decision(s)
+- Learning: 0 rules pending validation
 
-### MCP Tools Added
-- `list_personas` / `get_persona` — built by Hale (task 8b715927), goose-mcp-http restarted
-- Fixed Goose's -32002 listPersonas error
+### Recently Touched Dossiers
+- Loucks_Personal_SilverNova_Japan.md
+- Westbrook_SilverNova_Personal.md
+- CLAUDE.md
+- Nichols_Allianz_Coverage_Brief.md
+- Scandi_Group_Monthly_Brief.md
 
-### SMS / WhatsApp
-- tmomail.net removed — was bouncing
-- Twilio SMS restored via `+18776118189` → `+17192910742` (verified)
-- WhatsApp sandbox: `+14155238886`, keyword `join know-rubber` (send + receive)
-- All saved to `.env`
+### Open TODOs
+- [tool_validation_plan.md] - [ ] list files in TITAN_BOOKINGS_VAULT
+- [tool_validation_plan.md] - [ ] search files by name
+- [tool_validation_plan.md] - [ ] read file contents
+- [tool_validation_plan.md] - [ ] upload a test file
+- [tool_validation_plan.md] - [ ] download a file
+- [tool_validation_plan.md] - [ ] move file between folders
+- [tool_validation_plan.md] - [ ] create folder
+- [tool_validation_plan.md] - [ ] create Google Doc
+- [tool_validation_plan.md] - [ ] update Google Doc
+- [tool_validation_plan.md] - [ ] list folders
 
-### GitHub
-- Repo: https://github.com/johnloucks3-sudo/thunderbird-os (private)
-- Remote: `origin` configured
-- Last commit: `a1efefb` — Twilio SMS fix
-- `git push` works directly from ~/Thunderbird
+### Recent Telegram C2 Log (last 5 lines)
+  (no Telegram session logs found)
 
-## Current System Status
-- `thunderbird-dispatcher.timer` — ACTIVE ✅
-- `goose-gateway.service` — ACTIVE ✅  
-- `goose-mcp-http.service` — ACTIVE port 8767 ✅
-- `thunderbird-telegram-c2.service` — ACTIVE ✅
-- Telegram notifications — paginated, working ✅
-- Email to johnloucks3 — direct MCP HTTP, working ✅
-
-## Pending / Watch Items
-- Task `8b715927` (listPersonas/getPersona build) — check if complete
-- Goose's serper api_call test — should self-complete via dispatcher
-- WhatsApp activation — Commander needs to send `join know-rubber` to +14155238886
-
-## Key Facts for Next Session
-- Goose = A2/Wraith, Gemini 2.5 Flash free tier, zero cost
-- Claude headless = Max OAuth, counts against weekly % but no API $
-- Dispatcher routes: intel/research → Goose, judgment/MCP/client → Hale
-- `submit_task.py` is the universal entry point for all tasking
-- `.env` has all Twilio vars: TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_SMS_NUMBER, TWILIO_WHATSAPP_SANDBOX, TWILIO_WHATSAPP_JOIN_KEYWORD
-- GitHub remote configured, `git push` works
+---
+*Auto-generated by COS · Thunderbird OS · Auto-Save Protocol 2026-03-16*

@@ -1,0 +1,15 @@
+[Unit]
+Description=Thunderbird Evernote Weekly Backup
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /home/john/Thunderbird/thunderbird_evernote_backup.py
+User=john
+Environment=HOME=/home/john
+Environment=PATH=/home/john/.local/bin:/usr/local/bin:/usr/bin:/bin
+Environment=USER=john
+
+[Install]
+WantedBy=multi-user.target

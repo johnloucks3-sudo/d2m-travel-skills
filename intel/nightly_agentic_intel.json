@@ -1,0 +1,939 @@
+[
+  {
+    "title": "block/goose (37966 stars)",
+    "source": "github",
+    "url": "https://github.com/block/goose",
+    "summary": "an open source, extensible AI agent that goes beyond code suggestions - install, execute, edit, and test with any LLM",
+    "keywords_matched": [
+      "block/goose",
+      "open source"
+    ],
+    "score": 37966,
+    "tier": "CRITICAL",
+    "discovered": "2026-04-06T13:57:35.826086-06:00"
+  },
+  {
+    "title": "iOfficeAI/AionUi (21112 stars)",
+    "source": "github",
+    "url": "https://github.com/iOfficeAI/AionUi",
+    "summary": "Free, local, open-source 24/7 Cowork app and OpenClaw for Gemini CLI, Claude Code, Codex, OpenCode, Qwen Code, Goose CLI, Auggie, and more | \ud83c\udf1f Star if you like it!",
+    "keywords_matched": [
+      "claude code",
+      "goose cli"
+    ],
+    "score": 21112,
+    "tier": "CRITICAL",
+    "discovered": "2026-04-06T13:57:35.826128-06:00"
+  },
+  {
+    "title": "I built an AI job search system with Claude Code that scored 740+ offers and landed me a job. Just open sourced it.",
+    "source": "reddit/r/ClaudeAI",
+    "url": "https://reddit.com/r/ClaudeAI/comments/1sd2f37/i_built_an_ai_job_search_system_with_claude_code/",
+    "summary": "`Edit: title should say \"scored 740+ listings\" not \"offers\": it evaluated 740+ job postings, not 740 actual job offers. my bad on the wording.`  \n  \nA few weeks ago I shared a video of this system on r/SideProject (534 upvotes). A lot of people asked for the code, so I cleaned it up and open sourced",
+    "keywords_matched": [
+      "claude code",
+      "open source"
+    ],
+    "score": 2196,
+    "tier": "CRITICAL",
+    "discovered": "2026-04-06T13:54:56.114438-06:00"
+  },
+  {
+    "title": "Tell HN: Anthropic no longer allowing Claude Code subscriptions to use OpenClaw",
+    "source": "hn/topstories",
+    "url": "https://news.ycombinator.com/item?id=47633396",
+    "summary": "HN score: 1086, comments: 826",
+    "keywords_matched": [
+      "claude code"
+    ],
+    "score": 1086,
+    "tier": "CRITICAL",
+    "discovered": "2026-04-06T13:55:50.386671-06:00"
+  },
+  {
+    "title": "Claude Code can now submit your app to App Store Connect and help you pass review",
+    "source": "reddit/r/ClaudeAI",
+    "url": "https://reddit.com/r/ClaudeAI/comments/1sdot1s/claude_code_can_now_submit_your_app_to_app_store/",
+    "summary": "I built a native macOS app called Blitz that gives Claude Code (or any MCP client) full control over App Store Connect. Built most of it with Claude Code.\n\nThe problem was simple: every time I needed to submit to ASC, the entire agentic workflow broke. Metadata, screenshots, builds, localization, re",
+    "keywords_matched": [
+      "claude code",
+      "agentic workflow"
+    ],
+    "score": 538,
+    "tier": "CRITICAL",
+    "discovered": "2026-04-06T13:54:56.114129-06:00"
+  },
+  {
+    "title": "Claude Code is unusable for complex engineering tasks with the Feb updates",
+    "source": "hn/topstories",
+    "url": "https://github.com/anthropics/claude-code/issues/42796",
+    "summary": "HN score: 488, comments: 333",
+    "keywords_matched": [
+      "claude code"
+    ],
+    "score": 488,
+    "tier": "CRITICAL",
+    "discovered": "2026-04-06T13:55:25.365382-06:00"
+  },
+  {
+    "title": "After months with Claude Code, the biggest time sink isn't bugs \u2014 it's silent fake success",
+    "source": "reddit/r/ClaudeAI",
+    "url": "https://reddit.com/r/ClaudeAI/comments/1sdmohb/after_months_with_claude_code_the_biggest_time/",
+    "summary": "I've been using Claude Code daily for months and there's a pattern that has cost me more debugging time than actual bugs: the agent making things *look* like they work when they don't.\n\nHere's what happens. You ask it to build something that fetches data from an API. It writes the code, you run it, ",
+    "keywords_matched": [
+      "claude code"
+    ],
+    "score": 455,
+    "tier": "CRITICAL",
+    "discovered": "2026-04-06T13:54:56.114289-06:00"
+  },
+  {
+    "title": "Running Gemma 4 locally with LM Studio's new headless CLI and Claude Code",
+    "source": "hn/topstories",
+    "url": "https://ai.georgeliu.com/p/running-google-gemma-4-locally-with",
+    "summary": "HN score: 382, comments: 95",
+    "keywords_matched": [
+      "claude code"
+    ],
+    "score": 382,
+    "tier": "CRITICAL",
+    "discovered": "2026-04-06T13:55:32.957145-06:00"
+  },
+  {
+    "title": "Claude Code v2.1.92 introduces Ultraplan \u2014 draft plans in the cloud, review in your browser, execute anywhere",
+    "source": "reddit/r/ClaudeAI",
+    "url": "https://reddit.com/r/ClaudeAI/comments/1se1kpr/claude_code_v2192_introduces_ultraplan_draft/",
+    "summary": "Claude Code just shipped /ultraplan (beta) \u2014 you run it in your terminal, review the plan in your browser with inline comments, then execute remotely or send it back to your CLI. It shipped alongside Claude Code Web at [claude.ai/code](http://claude.ai/code), pushing toward cloud-first workflows whi",
+    "keywords_matched": [
+      "claude code"
+    ],
+    "score": 275,
+    "tier": "CRITICAL",
+    "discovered": "2026-04-06T13:54:56.114005-06:00"
+  },
+  {
+    "title": "I built 6 iOS apps in 3 months using Claude Code and they\u2019re already making money",
+    "source": "reddit/r/ClaudeAI",
+    "url": "https://reddit.com/r/ClaudeAI/comments/1sdw589/i_built_6_ios_apps_in_3_months_using_claude_code/",
+    "summary": "A couple of months ago, I decided to stop overthinking ideas and just start shipping.\n\nNo perfection. No endless polishing. Just simple and useful apps.\n\nI set myself a small challenge to build and publish consistently no matter what.\n\nIn the last 3 months, I ended up launching 6 iOS apps on the App",
+    "keywords_matched": [
+      "claude code"
+    ],
+    "score": 217,
+    "tier": "CRITICAL",
+    "discovered": "2026-04-06T13:54:56.114090-06:00"
+  },
+  {
+    "title": "Nanocode: The best Claude Code that $200 can buy in pure JAX on TPUs",
+    "source": "hn/topstories",
+    "url": "https://github.com/salmanmohammadi/nanocode/discussions/1",
+    "summary": "HN score: 203, comments: 27",
+    "keywords_matched": [
+      "claude code"
+    ],
+    "score": 203,
+    "tier": "CRITICAL",
+    "discovered": "2026-04-06T13:55:39.316033-06:00"
+  },
+  {
+    "title": "Senior engineer best practice for scaling yourself with Claude Code",
+    "source": "reddit/r/ClaudeAI",
+    "url": "https://reddit.com/r/ClaudeAI/comments/1sdne02/senior_engineer_best_practice_for_scaling/",
+    "summary": "Hey everyone- been a designer and full-stack engineer since the days of cgi, perl etc. I've shipped mobile, desktop, web, professionally and independently. Without AI, and with the assistance of AI. Many of the most senior engineers I know are very heavy on Claude code usage - when you know what you",
+    "keywords_matched": [
+      "claude code"
+    ],
+    "score": 187,
+    "tier": "CRITICAL",
+    "discovered": "2026-04-06T13:54:56.114405-06:00"
+  },
+  {
+    "title": "Launch HN: Freestyle: Sandboxes for AI Coding Agents",
+    "source": "hn/topstories",
+    "url": "https://www.freestyle.sh",
+    "summary": "HN score: 116, comments: 65",
+    "keywords_matched": [
+      "coding agent"
+    ],
+    "score": 116,
+    "tier": "CRITICAL",
+    "discovered": "2026-04-06T13:55:24.008711-06:00"
+  },
+  {
+    "title": "I built a tool that converts MCP servers into CLI + Skill files \u2014 cut ~97% token overhead!",
+    "source": "reddit/r/MCP",
+    "url": "https://reddit.com/r/mcp/comments/1sd0cuf/i_built_a_tool_that_converts_mcp_servers_into_cli/",
+    "summary": "I have 10+ MCP servers configured in Claude Code. Every request sends all tool schemas into context \u2014 gitlab-mcp alone has 122 tools eating \\~28K tokens per turn. Most of them are never used.                                   \n\nSo I built mcp2cli. Two core ideas:                                     ",
+    "keywords_matched": [
+      "claude code"
+    ],
+    "score": 114,
+    "tier": "CRITICAL",
+    "discovered": "2026-04-06T13:55:02.275201-06:00"
+  },
+  {
+    "title": "One Opus prompt in Claude code eats through an entire pro plan session",
+    "source": "reddit/r/anthropic",
+    "url": "https://reddit.com/r/Anthropic/comments/1sdarjy/one_opus_prompt_in_claude_code_eats_through_an/",
+    "summary": "One Opus prompt in Claude code eats through an entire pro plan session",
+    "keywords_matched": [
+      "claude code"
+    ],
+    "score": 103,
+    "tier": "CRITICAL",
+    "discovered": "2026-04-06T13:54:58.223163-06:00"
+  },
+  {
+    "title": "We aren\u2019t even close to AGI",
+    "source": "reddit/r/LocalLLaMA",
+    "url": "https://reddit.com/r/LocalLLaMA/comments/1se1cbk/we_arent_even_close_to_agi/",
+    "summary": "Supposedly we\u2019ve reached AGI according to Jensen Huang and Marc Andreessen.\n\nWhat a load of shit. I tried to get Claude code with Opus 4.6 max plan to play Elden Ring. Couldn\u2019t even get past the first room. It made it past the character creator, but couldn\u2019t leave the original chapel.\n\nIf it can\u2019t p",
+    "keywords_matched": [
+      "claude code"
+    ],
+    "score": 91,
+    "tier": "CRITICAL",
+    "discovered": "2026-04-06T13:55:00.020569-06:00"
+  },
+  {
+    "title": "Claude Code heavy users \u2014 biggest game-changer and most frustrating moment?",
+    "source": "reddit/r/ClaudeAI",
+    "url": "https://reddit.com/r/ClaudeAI/comments/1sdqttp/claude_code_heavy_users_biggest_gamechanger_and/",
+    "summary": "Been using Claude Code daily for a while now.\n\nCurious how other heavy users feel.\n\nI'll go first.\n\nGame-changer:\n\nStopped prompting one thing at a time and started feeding\n\nfull design docs. Same feature, 10x better output.\n\nClaude Code with a spec vs without is like two different tools.\n\nMost frus",
+    "keywords_matched": [
+      "claude code"
+    ],
+    "score": 63,
+    "tier": "CRITICAL",
+    "discovered": "2026-04-06T13:54:56.114509-06:00"
+  },
+  {
+    "title": "stablyai/orca (482 stars)",
+    "source": "github",
+    "url": "https://github.com/stablyai/orca",
+    "summary": "Orca is the next-gen IDE for building with coding agents",
+    "keywords_matched": [
+      "coding agent"
+    ],
+    "score": 482,
+    "tier": "HIGH",
+    "discovered": "2026-04-06T13:57:52.402156-06:00"
+  },
+  {
+    "title": "bradAGI/awesome-cli-coding-agents (122 stars)",
+    "source": "github",
+    "url": "https://github.com/bradAGI/awesome-cli-coding-agents",
+    "summary": "Curated directory of terminal-native AI coding agents and the harnesses that orchestrate them. Covers open-source tools (Pi, OpenCode, Aider, Goose), platform agents (Claude Code, Codex, Gemini CLI), parallel runners, autonomous loops, and agent infrastructure. ",
+    "keywords_matched": [
+      "claude code",
+      "coding agent",
+      "aider"
+    ],
+    "score": 122,
+    "tier": "HIGH",
+    "discovered": "2026-04-06T13:57:35.826213-06:00"
+  },
+  {
+    "title": "Claude Code Down",
+    "source": "hn/beststories",
+    "url": "https://news.ycombinator.com/item?id=47662112",
+    "summary": "HN score: 79, comments: 71",
+    "keywords_matched": [
+      "claude code"
+    ],
+    "score": 79,
+    "tier": "HIGH",
+    "discovered": "2026-04-06T13:57:12.883897-06:00"
+  },
+  {
+    "title": "TechNickAI/openclaw-config (49 stars)",
+    "source": "github",
+    "url": "https://github.com/TechNickAI/openclaw-config",
+    "summary": "Give your AI assistant memory, skills, and autonomy. Persistent memory, 11 integration skills, and 4 autonomous workflows \u2014 all in markdown and Python scripts. Built for Claude Code.",
+    "keywords_matched": [
+      "claude code",
+      "kills"
+    ],
+    "score": 49,
+    "tier": "HIGH",
+    "discovered": "2026-04-06T13:57:55.524714-06:00"
+  },
+  {
+    "title": "Connected Claude code and created my own MD files\ud83d\ude42",
+    "source": "reddit/r/n8n",
+    "url": "https://reddit.com/r/n8n/comments/1sde1kc/connected_claude_code_and_created_my_own_md_files/",
+    "summary": "Just that, I connected Claude code via mcp and instead of jumping into making workflows I decided to make several Md files every future build follows. I have a Claude.md with a directory feature that points Claude code to specific parts of the other files based on task to avoid context bloat, a work",
+    "keywords_matched": [
+      "claude code"
+    ],
+    "score": 32,
+    "tier": "HIGH",
+    "discovered": "2026-04-06T13:55:16.458190-06:00"
+  },
+  {
+    "title": "leapmux/leapmux (30 stars)",
+    "source": "github",
+    "url": "https://github.com/leapmux/leapmux",
+    "summary": "AI Coding Agent Multiplexer",
+    "keywords_matched": [
+      "coding agent"
+    ],
+    "score": 30,
+    "tier": "HIGH",
+    "discovered": "2026-04-06T13:57:35.826143-06:00"
+  },
+  {
+    "title": "\"Advice for Beginners on n8n and Claude Code Workflows\"",
+    "source": "reddit/r/n8n",
+    "url": "https://reddit.com/r/n8n/comments/1sdqwbx/advice_for_beginners_on_n8n_and_claude_code/",
+    "summary": "I have been using ChatGPT in study mode to understand n8n. I\u2019ve watched several tutorial videos, and when it comes to practical application, I find that ChatGPT's study mode has helped me in many situations by explaining concepts step by step. The reasoning provided is clear, flexible, and dynamic, ",
+    "keywords_matched": [
+      "claude code"
+    ],
+    "score": 27,
+    "tier": "HIGH",
+    "discovered": "2026-04-06T13:55:16.458104-06:00"
+  },
+  {
+    "title": "monaccode/astromesh (25 stars)",
+    "source": "github",
+    "url": "https://github.com/monaccode/astromesh",
+    "summary": "Multi-model AI agent runtime. Define agents in YAML, connect 6 LLM providers, orchestrate with ReAct/Plan&Execute/Fan-Out/Pipeline/Supervisor/Swarm patterns, and deploy    as REST/WebSocket API with RAG, memory, MCP tools, guardrails, and OpenTelemetry observability. ",
+    "keywords_matched": [
+      "multi-model"
+    ],
+    "score": 25,
+    "tier": "HIGH",
+    "discovered": "2026-04-06T13:57:38.557153-06:00"
+  },
+  {
+    "title": "phj1081/EJClaw (17 stars)",
+    "source": "github",
+    "url": "https://github.com/phj1081/EJClaw",
+    "summary": "Tribunal multi-agent AI assistant (Owner + Reviewer + Arbiter) over Discord with autonomous paired review, Mixture of Agents, and Discord-independent inter-agent communication",
+    "keywords_matched": [
+      "inter-agent"
+    ],
+    "score": 17,
+    "tier": "HIGH",
+    "discovered": "2026-04-06T13:57:58.622512-06:00"
+  },
+  {
+    "title": "sleepy claude code",
+    "source": "reddit/r/anthropic",
+    "url": "https://reddit.com/r/Anthropic/comments/1se0h4s/sleepy_claude_code/",
+    "summary": "what happened since saturday? I am doing zero progress, claude code just think for minutes after minutes without doing anything, just wasting my usage, now I can't use claude code for the whole week, 3 days, 6 questions and I'm out of usage for a week, what is this? seriously im fucking gone",
+    "keywords_matched": [
+      "claude code"
+    ],
+    "score": 13,
+    "tier": "HIGH",
+    "discovered": "2026-04-06T13:54:58.223068-06:00"
+  },
+  {
+    "title": "I don't understand you guys issues and am curious",
+    "source": "reddit/r/anthropic",
+    "url": "https://reddit.com/r/Anthropic/comments/1se5jjl/i_dont_understand_you_guys_issues_and_am_curious/",
+    "summary": "I am working 8 hours a day with Claude code on fairly complex tasks which include simultaneous work on Terraform infrastructure and backend tasks. I never reached limits.\n\nsetup: default settings Claude code in webstorm, sonnet 4.6 exclusively, 5x max plan.\n\nI let it plan throughly, my complete cont",
+    "keywords_matched": [
+      "claude code"
+    ],
+    "score": 12,
+    "tier": "HIGH",
+    "discovered": "2026-04-06T13:54:58.223001-06:00"
+  },
+  {
+    "title": "4 days on gemma 4 26b quantized, honest notes",
+    "source": "reddit/r/LocalLLaMA",
+    "url": "https://reddit.com/r/LocalLLaMA/comments/1se5jr9/4_days_on_gemma_4_26b_quantized_honest_notes/",
+    "summary": "running it on a mac mini m4 24gb via ollama\n\nlegitimately good for: structured tasks, code generation, json formatting, following specific instructions. the apache 2.0 license means you can actually ship commercial products on it\n\nwhere it falls apart: multi-step reasoning and self correction. tried",
+    "keywords_matched": [
+      "agentic workflow"
+    ],
+    "score": 11,
+    "tier": "HIGH",
+    "discovered": "2026-04-06T13:55:00.020872-06:00"
+  },
+  {
+    "title": "Just survived layoffs, but still afraid because im super traditional. I have a super simple question with regards to n8n automation",
+    "source": "reddit/r/n8n",
+    "url": "https://reddit.com/r/n8n/comments/1sdo6q0/just_survived_layoffs_but_still_afraid_because_im/",
+    "summary": "bit overwhelmed trying to ask Claude Code what to do\n\n1. basically i identified the 3 best websites\n2. I have written down my criteria for what it should scrape\n3. I have prepared my google sheet format to receive that criteria\n\nbut\n\na. I have zero background using n8n\n\nb. what would the final produ",
+    "keywords_matched": [
+      "claude code"
+    ],
+    "score": 11,
+    "tier": "HIGH",
+    "discovered": "2026-04-06T13:55:16.458153-06:00"
+  },
+  {
+    "title": "nick-pape/grackle (11 stars)",
+    "source": "github",
+    "url": "https://github.com/nick-pape/grackle",
+    "summary": "Manage and orchestrate AI coding agents (Claude Code, Copilot, Goose, etc.) on remote machines \u2014 task decomposition, multi-agent coordination, and real-time visibility across environments.",
+    "keywords_matched": [
+      "claude code",
+      "coding agent"
+    ],
+    "score": 11,
+    "tier": "HIGH",
+    "discovered": "2026-04-06T13:57:35.826184-06:00"
+  },
+  {
+    "title": "Claude Code is unusable for complex engineering tasks with the Feb updates (hackernews discussion)",
+    "source": "reddit/r/anthropic",
+    "url": "https://reddit.com/r/Anthropic/comments/1se50d8/claude_code_is_unusable_for_complex_engineering/",
+    "summary": "Claude Code is unusable for complex engineering tasks with the Feb updates (hackernews discussion)",
+    "keywords_matched": [
+      "claude code"
+    ],
+    "score": 10,
+    "tier": "HIGH",
+    "discovered": "2026-04-06T13:54:58.223014-06:00"
+  },
+  {
+    "title": "viche-ai/viche (10 stars)",
+    "source": "github",
+    "url": "https://github.com/viche-ai/viche",
+    "summary": "Bespoke agent-to-agent discovery and communication protocol",
+    "keywords_matched": [
+      "agent-to-agent"
+    ],
+    "score": 10,
+    "tier": "HIGH",
+    "discovered": "2026-04-06T13:57:43.731937-06:00"
+  },
+  {
+    "title": "hummer98/cmux-team (9 stars)",
+    "source": "github",
+    "url": "https://github.com/hummer98/cmux-team",
+    "summary": "Claude Code + cmux multi-agent orchestration",
+    "keywords_matched": [
+      "claude code",
+      "multi-agent orchestration"
+    ],
+    "score": 9,
+    "tier": "HIGH",
+    "discovered": "2026-04-06T13:57:33.042709-06:00"
+  },
+  {
+    "title": "Claude ignores its own plans, memory, and guardrails \u2014 22 documented failures in 19 days. What are you doing to prevent this?",
+    "source": "reddit/r/anthropic",
+    "url": "https://reddit.com/r/Anthropic/comments/1se1pwg/claude_ignores_its_own_plans_memory_and/",
+    "summary": "I use Claude Code Opus as my primary development partner on a complex full-stack project, often for 8-12 hour sessions. I've been meticulously documenting every time Claude goes off-script, hallucinates, or ignores its own plans. After 19 days, I have 22 documented incidents and I need help.\n\nThe Co",
+    "keywords_matched": [
+      "claude code"
+    ],
+    "score": 7,
+    "tier": "HIGH",
+    "discovered": "2026-04-06T13:54:58.223138-06:00"
+  },
+  {
+    "title": "maddada/VSmux (7 stars)",
+    "source": "github",
+    "url": "https://github.com/maddada/VSmux",
+    "summary": "Manage all your CLI & T3code coding agent sessions without leaving your IDE. Supports splits, groups, session persistence, running/done indicators, and much more. Contributions very welcome!",
+    "keywords_matched": [
+      "coding agent"
+    ],
+    "score": 7,
+    "tier": "HIGH",
+    "discovered": "2026-04-06T13:57:52.402254-06:00"
+  },
+  {
+    "title": "WhitehatD/crag (6 stars)",
+    "source": "github",
+    "url": "https://github.com/WhitehatD/crag",
+    "summary": "The bedrock layer for AI coding agents. One governance.md. Any project. Never stale. Universal skills + cross-agent compilation (Claude, Cursor, Codex, Gemini, Aider).",
+    "keywords_matched": [
+      "coding agent",
+      "aider",
+      "kills"
+    ],
+    "score": 6,
+    "tier": "HIGH",
+    "discovered": "2026-04-06T13:57:33.042667-06:00"
+  },
+  {
+    "title": "yulonglin/dotfiles (6 stars)",
+    "source": "github",
+    "url": "https://github.com/yulonglin/dotfiles",
+    "summary": "Highly-opinionated setup for AI safety research with coding agents (Claude Code, Codex, Gemini CLI)",
+    "keywords_matched": [
+      "claude code",
+      "coding agent"
+    ],
+    "score": 6,
+    "tier": "HIGH",
+    "discovered": "2026-04-06T13:57:52.402181-06:00"
+  },
+  {
+    "title": "oktsec/oktsec (5 stars)",
+    "source": "github",
+    "url": "https://github.com/oktsec/oktsec",
+    "summary": "Security layer for AI agent-to-agent communication. Every message is signed, inspected, and logged. If it doesn't comply, it doesn't pass. No LLM. No cloud. Single binary. Your infra, your data.",
+    "keywords_matched": [
+      "agent-to-agent"
+    ],
+    "score": 5,
+    "tier": "HIGH",
+    "discovered": "2026-04-06T13:57:58.622624-06:00"
+  },
+  {
+    "title": "Cleanup Claude Code Paste",
+    "source": "rss/Simon Willison",
+    "url": "https://simonwillison.net/2026/Apr/6/cleanup-claude-code-paste/#atom-everything",
+    "summary": "<p><strong>Tool:</strong> <a href=\"https://tools.simonwillison.net/cleanup-claude-code-paste\">Cleanup Claude Code Paste</a></p>\n    <p>Super-niche tool this. I sometimes copy prompts out of the Claude Code terminal app and they come out with a bunch of weird additional whitespace. This tool cleans t",
+    "keywords_matched": [
+      "claude code"
+    ],
+    "score": 5,
+    "tier": "HIGH",
+    "discovered": "2026-04-06T13:58:02.065896-06:00"
+  },
+  {
+    "title": "scan-for-secrets 0.1",
+    "source": "rss/Simon Willison",
+    "url": "https://simonwillison.net/2026/Apr/5/scan-for-secrets-3/#atom-everything",
+    "summary": "<p><strong>Release:</strong> <a href=\"https://github.com/simonw/scan-for-secrets/releases/tag/0.1\">scan-for-secrets 0.1</a></p>\n    <p>I like publishing transcripts of local Claude Code sessions using my <a href=\"https://github.com/simonw/claude-code-transcripts\">claude-code-transcripts</a> tool but",
+    "keywords_matched": [
+      "claude code"
+    ],
+    "score": 5,
+    "tier": "HIGH",
+    "discovered": "2026-04-06T13:58:02.066100-06:00"
+  },
+  {
+    "title": "Vulnerability Research Is Cooked",
+    "source": "rss/Simon Willison",
+    "url": "https://simonwillison.net/2026/Apr/3/vulnerability-research-is-cooked/#atom-everything",
+    "summary": "<p><strong><a href=\"https://sockpuppet.org/blog/2026/03/30/vulnerability-research-is-cooked/\">Vulnerability Research Is Cooked</a></strong></p>\nThomas Ptacek's take on the sudden and enormous impact the latest frontier models are having on the field of vulnerability research.</p>\n<blockquote>\n<p>Wit",
+    "keywords_matched": [
+      "coding agent"
+    ],
+    "score": 5,
+    "tier": "HIGH",
+    "discovered": "2026-04-06T13:58:02.066191-06:00"
+  },
+  {
+    "title": "The cognitive impact of coding agents",
+    "source": "rss/Simon Willison",
+    "url": "https://simonwillison.net/2026/Apr/3/cognitive-cost/#atom-everything",
+    "summary": "<p>A fun thing about <a href=\"https://simonwillison.net/2026/Apr/2/lennys-podcast/\">recording a podcast</a> with a professional like Lenny Rachitsky is that his team know how to slice the resulting video up into TikTok-sized short form vertical videos. Here's <a href=\"https://x.com/lennysan/status/2",
+    "keywords_matched": [
+      "coding agent"
+    ],
+    "score": 5,
+    "tier": "HIGH",
+    "discovered": "2026-04-06T13:58:02.066229-06:00"
+  },
+  {
+    "title": "Claude Code Found a Linux Vulnerability Hidden for 23 Years",
+    "source": "rss/Hacker News RSS",
+    "url": "https://mtlynch.io/claude-code-found-linux-vulnerability/",
+    "summary": "<p>Article URL: <a href=\"https://mtlynch.io/claude-code-found-linux-vulnerability/\">https://mtlynch.io/claude-code-found-linux-vulnerability/</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=47633855\">https://news.ycombinator.com/item?id=47633855</a></p>\n<p>Points: 420</p>\n<p>#",
+    "keywords_matched": [
+      "claude code"
+    ],
+    "score": 5,
+    "tier": "HIGH",
+    "discovered": "2026-04-06T13:58:04.436247-06:00"
+  },
+  {
+    "title": "A Rave Review of Superpowers (For Claude Code)",
+    "source": "rss/Hacker News RSS",
+    "url": "https://emschwartz.me/a-rave-review-of-superpowers-for-claude-code/",
+    "summary": "<p>Article URL: <a href=\"https://emschwartz.me/a-rave-review-of-superpowers-for-claude-code/\">https://emschwartz.me/a-rave-review-of-superpowers-for-claude-code/</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=47623101\">https://news.ycombinator.com/item?id=47623101</a></p>\n<p>",
+    "keywords_matched": [
+      "claude code"
+    ],
+    "score": 5,
+    "tier": "HIGH",
+    "discovered": "2026-04-06T13:58:04.436339-06:00"
+  },
+  {
+    "title": "Claude Code users hitting usage limits 'way faster than expected'",
+    "source": "rss/Hacker News RSS",
+    "url": "https://www.bbc.com/news/articles/ce8l2q5yq51o",
+    "summary": "<p>Article URL: <a href=\"https://www.bbc.com/news/articles/ce8l2q5yq51o\">https://www.bbc.com/news/articles/ce8l2q5yq51o</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=47610943\">https://news.ycombinator.com/item?id=47610943</a></p>\n<p>Points: 22</p>\n<p># Comments: 16</p>",
+    "keywords_matched": [
+      "claude code"
+    ],
+    "score": 5,
+    "tier": "HIGH",
+    "discovered": "2026-04-06T13:58:04.436358-06:00"
+  },
+  {
+    "title": "The Claude Code Leak",
+    "source": "rss/Hacker News RSS",
+    "url": "https://build.ms/2026/4/1/the-claude-code-leak/",
+    "summary": "<p>Article URL: <a href=\"https://build.ms/2026/4/1/the-claude-code-leak/\">https://build.ms/2026/4/1/the-claude-code-leak/</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=47609294\">https://news.ycombinator.com/item?id=47609294</a></p>\n<p>Points: 199</p>\n<p># Comments: 182</p>",
+    "keywords_matched": [
+      "claude code"
+    ],
+    "score": 5,
+    "tier": "HIGH",
+    "discovered": "2026-04-06T13:58:04.436375-06:00"
+  },
+  {
+    "title": "Claude Code v2.1.92 introduces Ultraplan \u2014 draft plans in the cloud, review in your browser, execute anywhere",
+    "source": "reddit/r/anthropic",
+    "url": "https://reddit.com/r/Anthropic/comments/1se33jw/claude_code_v2192_introduces_ultraplan_draft/",
+    "summary": "Claude Code v2.1.92 introduces Ultraplan \u2014 draft plans in the cloud, review in your browser, execute anywhere",
+    "keywords_matched": [
+      "claude code"
+    ],
+    "score": 3,
+    "tier": "HIGH",
+    "discovered": "2026-04-06T13:54:58.223152-06:00"
+  },
+  {
+    "title": "Improving OpenAI Codex with Repo-Specific Context",
+    "source": "reddit/r/OpenAI",
+    "url": "https://reddit.com/r/OpenAI/comments/1sdzymz/improving_openai_codex_with_repospecific_context/",
+    "summary": "We're the team behind Codeset. A few weeks ago we published results showing that giving Claude Code structured context from your repo's git history improved task resolution by 7\u201310pp. We just ran the same eval on OpenAI Codex (GPT-5.4).\n\n**The numbers:**\n\n- codeset-gym-python (150 tasks, same subset",
+    "keywords_matched": [
+      "claude code"
+    ],
+    "score": 3,
+    "tier": "HIGH",
+    "discovered": "2026-04-06T13:55:21.944608-06:00"
+  },
+  {
+    "title": "I built a tool that tracks how many times someone posts a Claude usage limit tracker",
+    "source": "reddit/r/ClaudeAI",
+    "url": "https://reddit.com/r/ClaudeAI/comments/1sdee3e/i_built_a_tool_that_tracks_how_many_times_someone/",
+    "summary": "Hey everyone! Long-time lurker, first-time builder \ud83d\ude4c\n\nI noticed a pattern. Every. Single. Day. Someone posts \u201cI built a widget that shows your Claude usage limits at a glance.\u201d So naturally, I spent 47 hours building a real-time dashboard that monitors r/ClaudeAI for new Claude usage limit tracker p",
+    "keywords_matched": [
+      "open source"
+    ],
+    "score": 1492,
+    "tier": "WATCH",
+    "discovered": "2026-04-06T13:54:56.114224-06:00"
+  },
+  {
+    "title": "agentic-community/mcp-gateway-registry (556 stars)",
+    "source": "github",
+    "url": "https://github.com/agentic-community/mcp-gateway-registry",
+    "summary": "Enterprise-ready MCP Gateway & Registry that centralizes AI development tools with secure OAuth authentication, dynamic tool discovery, and unified access for both autonomous AI agents and AI coding assistants. Transform scattered MCP server chaos into governed, auditable tool access with Keycloak/E",
+    "keywords_matched": [
+      "ai coding assistant",
+      "enterprise"
+    ],
+    "score": 556,
+    "tier": "WATCH",
+    "discovered": "2026-04-06T13:57:55.524677-06:00"
+  },
+  {
+    "title": "Nomad Mk3: Offline, Open-source, low-power self-hosted media server",
+    "source": "reddit/r/selfhosted",
+    "url": "https://reddit.com/r/selfhosted/comments/1sdd5ny/nomad_mk3_offline_opensource_lowpower_selfhosted/",
+    "summary": "Howdy!\n\nI\u2019m back with **Nomad Mk3**, a pocket-sized, fully self-hosted media server that runs on an ESP32-S3. The goal is simple: a *super cheap, ultra low-power* way to host your own media without needing the internet, cloud services, or a full server setup.\n\nOnce configured, Nomad creates its own ",
+    "keywords_matched": [
+      "self-hosted"
+    ],
+    "score": 454,
+    "tier": "WATCH",
+    "discovered": "2026-04-06T13:55:14.432062-06:00"
+  },
+  {
+    "title": "AI breakthrough cuts energy use by 100x while boosting accuracy",
+    "source": "reddit/r/singularity",
+    "url": "https://reddit.com/r/singularity/comments/1sdxdn6/ai_breakthrough_cuts_energy_use_by_100x_while/",
+    "summary": "AI breakthrough cuts energy use by 100x while boosting accuracy",
+    "keywords_matched": [
+      "breakthrough"
+    ],
+    "score": 382,
+    "tier": "WATCH",
+    "discovered": "2026-04-06T13:55:12.659398-06:00"
+  },
+  {
+    "title": "[D] How to break free from LLM's chains as a PhD student?",
+    "source": "reddit/r/MachineLearning",
+    "url": "https://reddit.com/r/MachineLearning/comments/1sdmn97/d_how_to_break_free_from_llms_chains_as_a_phd/",
+    "summary": "I didn't realize but over a period of one year i have become overreliant on ChatGPT to write code, I am a second year PhD student and don't want to end up as someone with fake \"coding skills\" after I graduate. I hear people talk about it all the time that use LLM to write boring parts of the code, a",
+    "keywords_matched": [
+      "kills"
+    ],
+    "score": 163,
+    "tier": "WATCH",
+    "discovered": "2026-04-06T13:55:08.731348-06:00"
+  },
+  {
+    "title": "Announcing LocalLlama discord server &amp; bot!",
+    "source": "reddit/r/LocalLLaMA",
+    "url": "https://reddit.com/r/LocalLLaMA/comments/1mpk2va/announcing_localllama_discord_server_bot/",
+    "summary": "INVITE: https://discord.gg/rC922KfEwj\n\nThere used to be one old discord server for the subreddit but it was deleted by the previous mod.\n\nWhy?\nThe subreddit has grown to 500k users - inevitably, some users like a niche community with more technical discussion and fewer memes (even if relevant).\n\nWe ",
+    "keywords_matched": [
+      "open source"
+    ],
+    "score": 148,
+    "tier": "WATCH",
+    "discovered": "2026-04-06T13:55:00.020443-06:00"
+  },
+  {
+    "title": "Awesome MCP Servers \u2013\u00a0A curated list of awesome Model Context Protocol (MCP) servers",
+    "source": "reddit/r/MCP",
+    "url": "https://reddit.com/r/mcp/comments/1h7pl2v/awesome_mcp_servers_a_curated_list_of_awesome/",
+    "summary": "Awesome MCP Servers \u2013\u00a0A curated list of awesome Model Context Protocol (MCP) servers",
+    "keywords_matched": [
+      "model context protocol"
+    ],
+    "score": 147,
+    "tier": "WATCH",
+    "discovered": "2026-04-06T13:55:02.275047-06:00"
+  },
+  {
+    "title": "Show HN: Modo \u2013 I built an open-source alternative to Kiro, Cursor, and Windsurf",
+    "source": "hn/topstories",
+    "url": "https://github.com/mohshomis/modo",
+    "summary": "HN score: 91, comments: 18",
+    "keywords_matched": [
+      "windsurf"
+    ],
+    "score": 91,
+    "tier": "WATCH",
+    "discovered": "2026-04-06T13:55:35.719734-06:00"
+  },
+  {
+    "title": "I thought my VPS was hardened, but it was compromised and I can't figure out how. Please help!",
+    "source": "reddit/r/selfhosted",
+    "url": "https://reddit.com/r/selfhosted/comments/1se8ara/i_thought_my_vps_was_hardened_but_it_was/",
+    "summary": "I have a VPS that I use to reverse proxy incoming web requests to my self-hosted services at home over wireguard. I got an alert recently that CPU usage was spiking, so I logged in to see a newly-created user running masscan.\n\nThe VPS runs 3 publicly-exposed services: nginx, ssh, and wireguard.\n\nIt ",
+    "keywords_matched": [
+      "self-hosted"
+    ],
+    "score": 74,
+    "tier": "WATCH",
+    "discovered": "2026-04-06T13:55:14.431893-06:00"
+  },
+  {
+    "title": "Top AI Productivity Tools",
+    "source": "reddit/r/anthropic",
+    "url": "https://reddit.com/r/Anthropic/comments/1orkcqt/top_ai_productivity_tools/",
+    "summary": "Here are the top productivity tools for finance professionals:\n\n|**Tool**|**Description**|\n|:-|:-|\n|[**Claude Enterprise**](https://www.claude.com/solutions/financial-services/)|Claude for Financial Services is an enterprise-grade AI platform tailored for investment banks, asset managers, and adviso",
+    "keywords_matched": [
+      "enterprise"
+    ],
+    "score": 55,
+    "tier": "WATCH",
+    "discovered": "2026-04-06T13:54:58.222884-06:00"
+  },
+  {
+    "title": "Meta to open source versions of its next AI models",
+    "source": "reddit/r/LocalLLaMA",
+    "url": "https://reddit.com/r/LocalLLaMA/comments/1se65ul/meta_to_open_source_versions_of_its_next_ai_models/",
+    "summary": "Meta to open source versions of its next AI models",
+    "keywords_matched": [
+      "open source"
+    ],
+    "score": 53,
+    "tier": "WATCH",
+    "discovered": "2026-04-06T13:55:00.020583-06:00"
+  },
+  {
+    "title": "Bartowski vs Unsloth for Gemma 4",
+    "source": "reddit/r/LocalLLaMA",
+    "url": "https://reddit.com/r/LocalLLaMA/comments/1sdu8oz/bartowski_vs_unsloth_for_gemma_4/",
+    "summary": "Hello everyone,\n\n  \nI have noticed there is no data yet what quants are better for 26B A4B and 31b. Personally, in my experience testing 26b a4b q4\\_k\\_m from Bartowski and the full version on openrouter and AI Studio, I have found this quant to perform exceptionally well. But I'm curious about your",
+    "keywords_matched": [
+      "openrouter"
+    ],
+    "score": 48,
+    "tier": "WATCH",
+    "discovered": "2026-04-06T13:55:00.020894-06:00"
+  },
+  {
+    "title": "Voice-based AI gets FDA breakthrough status for detecting heart failure in 5 seconds",
+    "source": "reddit/r/singularity",
+    "url": "https://reddit.com/r/singularity/comments/1se4a26/voicebased_ai_gets_fda_breakthrough_status_for/",
+    "summary": "Noah Labs Vox uses vocal biomarkers to screen for heart failure from a short voice clip. Trained on over 3 million samples, validated at major medical centers. The idea that your voice carries signatures of cardiac health is fascinating.",
+    "keywords_matched": [
+      "breakthrough"
+    ],
+    "score": 44,
+    "tier": "WATCH",
+    "discovered": "2026-04-06T13:55:12.659525-06:00"
+  },
+  {
+    "title": "AI Contributions to Open Source (cURL, Linux) are now genuinely useful and no longer considered 'slop'.",
+    "source": "reddit/r/singularity",
+    "url": "https://reddit.com/r/singularity/comments/1se6gx5/ai_contributions_to_open_source_curl_linux_are/",
+    "summary": "And Spud and Mythos haven't even gotten released yet.",
+    "keywords_matched": [
+      "open source"
+    ],
+    "score": 35,
+    "tier": "WATCH",
+    "discovered": "2026-04-06T13:55:12.659502-06:00"
+  },
+  {
+    "title": "Join the Model Context Protocol Discord Server!",
+    "source": "reddit/r/MCP",
+    "url": "https://reddit.com/r/mcp/comments/1h7qe88/join_the_model_context_protocol_discord_server/",
+    "summary": "Join the Model Context Protocol Discord Server!",
+    "keywords_matched": [
+      "model context protocol"
+    ],
+    "score": 25,
+    "tier": "WATCH",
+    "discovered": "2026-04-06T13:55:02.275018-06:00"
+  },
+  {
+    "title": "Cursor 3 doesn't seem like that big of an improvement; the only thing Cursor the platform I wish they can do is performance like Zed",
+    "source": "reddit/r/Cursor",
+    "url": "https://reddit.com/r/cursor/comments/1sdswic/cursor_3_doesnt_seem_like_that_big_of_an/",
+    "summary": "I feel like personally trying this it doesn't warrant calling it a big update Cursor \"3\" cause most commenting here seem to have same view as me that we chose Cursor cause it's an IDE that you can edit stuff in and all ...\n\n\nLike right now the only big advantages Cursor has is Composer (no matter wh",
+    "keywords_matched": [
+      "better than"
+    ],
+    "score": 17,
+    "tier": "WATCH",
+    "discovered": "2026-04-06T13:55:04.260989-06:00"
+  },
+  {
+    "title": "The app i made with Cursor got 1000+ downloads in 2 weeks!",
+    "source": "reddit/r/Cursor",
+    "url": "https://reddit.com/r/cursor/comments/1sdxmis/the_app_i_made_with_cursor_got_1000_downloads_in/",
+    "summary": "Hey everyone!\n\nI launched this app about a month back, and the initial traction was better than expected but nothing crazy, about \\~100 downloads.\n\nThen something flipped, and tbh im not sure what. I saw a huge spike in downloads and my app was even ranking Top 150 in its category. Fast forward 2 we",
+    "keywords_matched": [
+      "better than"
+    ],
+    "score": 16,
+    "tier": "WATCH",
+    "discovered": "2026-04-06T13:55:04.260915-06:00"
+  },
+  {
+    "title": "Dynacat needs testers!",
+    "source": "reddit/r/selfhosted",
+    "url": "https://reddit.com/r/selfhosted/comments/1se1ld7/dynacat_needs_testers/",
+    "summary": "Hello everyone, \n\n&gt;Probably some of you already know about this app, but if not here's a quick explanation: Dynacat is a self-hosted dashboard built for people who want their information in one place. Forked from\u00a0**Glance**, it focuses on\u00a0dynamic content updates\u00a0and\u00a0seamless integration with exte",
+    "keywords_matched": [
+      "self-hosted"
+    ],
+    "score": 11,
+    "tier": "WATCH",
+    "discovered": "2026-04-06T13:55:14.432102-06:00"
+  },
+  {
+    "title": "1m Context Window actually useful?",
+    "source": "reddit/r/ClaudeAI",
+    "url": "https://reddit.com/r/ClaudeAI/comments/1se2egb/1m_context_window_actually_useful/",
+    "summary": "I'm around since Claude Sonnet 3.5 (v1) and back then once the context blew past 100k, the session performance was degrading fast. \n\nNowadays Opus 4.6 comes with a 1m context window by default. Is that even any useful? I've the feeling it stays quite accurate up to maybe 250k tokens, but then it als",
+    "keywords_matched": [
+      "claude sonnet"
+    ],
+    "score": 8,
+    "tier": "WATCH",
+    "discovered": "2026-04-06T13:54:56.114587-06:00"
+  },
+  {
+    "title": "Spent $40 in 20 minutes on Claude Opus 4.6 high thinking",
+    "source": "reddit/r/singularity",
+    "url": "https://reddit.com/r/singularity/comments/1se7e0x/spent_40_in_20_minutes_on_claude_opus_46_high/",
+    "summary": "https://preview.redd.it/yn734hop6mtg1.jpg?width=1396&amp;format=pjpg&amp;auto=webp&amp;s=f7da2aff33ff8cdf22705a9659d63143cd41341f\n\nTested it last night out of curiosity and dropped close to $40 in like 20 minutes\n\nGranted I know its one of the most expensive models out there and I did feed it my ent",
+    "keywords_matched": [
+      "claude opus"
+    ],
+    "score": 6,
+    "tier": "WATCH",
+    "discovered": "2026-04-06T13:55:12.659564-06:00"
+  },
+  {
+    "title": "scan-for-secrets 0.3",
+    "source": "rss/Simon Willison",
+    "url": "https://simonwillison.net/2026/Apr/6/scan-for-secrets/#atom-everything",
+    "summary": "<p><strong>Release:</strong> <a href=\"https://github.com/simonw/scan-for-secrets/releases/tag/0.3\">scan-for-secrets 0.3</a></p>\n    <blockquote>\n<ul>\n<li>New <code>-r/--redact</code> option which shows the list of matches, asks for confirmation and then replaces every match with <code>REDACTED</code",
+    "keywords_matched": [
+      "replaces"
+    ],
+    "score": 5,
+    "tier": "WATCH",
+    "discovered": "2026-04-06T13:58:02.065842-06:00"
+  },
+  {
+    "title": "Quoting Daniel Stenberg",
+    "source": "rss/Simon Willison",
+    "url": "https://simonwillison.net/2026/Apr/3/daniel-stenberg/#atom-everything",
+    "summary": "<blockquote cite=\"https://mastodon.social/@bagder/116336957584445742\"><p>The challenge with AI in open source security has transitioned from an AI slop tsunami into more of a ... plain security report tsunami. Less slop but lots of reports. Many of them really good.</p>\n<p>I'm spending hours per day",
+    "keywords_matched": [
+      "open source"
+    ],
+    "score": 5,
+    "tier": "WATCH",
+    "discovered": "2026-04-06T13:58:02.066286-06:00"
+  },
+  {
+    "title": "Quoting Greg Kroah-Hartman",
+    "source": "rss/Simon Willison",
+    "url": "https://simonwillison.net/2026/Apr/3/greg-kroah-hartman/#atom-everything",
+    "summary": "<blockquote cite=\"https://www.theregister.com/2026/03/26/greg_kroahhartman_ai_kernel/\"><p>Months ago, we were getting what we called 'AI slop,' AI-generated security reports that were obviously wrong or low quality. It was kind of funny. It didn't really worry us.</p>\n<p>Something happened a month a",
+    "keywords_matched": [
+      "open source"
+    ],
+    "score": 5,
+    "tier": "WATCH",
+    "discovered": "2026-04-06T13:58:02.066314-06:00"
+  },
+  {
+    "title": "Self-propagating malware poisons open source software and wipes Iran-based machines",
+    "source": "rss/AI News (Ars)",
+    "url": "https://arstechnica.com/security/2026/03/self-propagating-malware-poisons-open-source-software-and-wipes-iran-based-machines/",
+    "summary": "Development houses: It's time to check your networks for infections.",
+    "keywords_matched": [
+      "open source"
+    ],
+    "score": 5,
+    "tier": "WATCH",
+    "discovered": "2026-04-06T13:58:03.770248-06:00"
+  },
+  {
+    "title": "New AirSnitch attack bypasses Wi-Fi encryption in homes, offices, and enterprises",
+    "source": "rss/AI News (Ars)",
+    "url": "https://arstechnica.com/security/2026/02/new-airsnitch-attack-breaks-wi-fi-encryption-in-homes-offices-and-enterprises/",
+    "summary": "That guest network you set up for your neighbors may not be as secure as you think.",
+    "keywords_matched": [
+      "enterprise"
+    ],
+    "score": 5,
+    "tier": "WATCH",
+    "discovered": "2026-04-06T13:58:03.770400-06:00"
+  },
+  {
+    "title": "Qwen-3.6-Plus is the first model to break 1T tokens processed in a day",
+    "source": "rss/Hacker News RSS",
+    "url": "https://twitter.com/openrouter/status/2040239467865489874",
+    "summary": "<p>Article URL: <a href=\"https://twitter.com/openrouter/status/2040239467865489874\">https://twitter.com/openrouter/status/2040239467865489874</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=47653975\">https://news.ycombinator.com/item?id=47653975</a></p>\n<p>Points: 56</p>\n<p># ",
+    "keywords_matched": [
+      "openrouter"
+    ],
+    "score": 5,
+    "tier": "WATCH",
+    "discovered": "2026-04-06T13:58:04.436197-06:00"
+  },
+  {
+    "title": "Archestra.AI 1.2.0 OSS goes beyond just the MCP Gateway, bringing MCP Apps support now \ud83c\udf89",
+    "source": "reddit/r/MCP",
+    "url": "https://reddit.com/r/mcp/comments/1se4uqb/archestraai_120_oss_goes_beyond_just_the_mcp/",
+    "summary": "[https://github.com/archestra-ai/archestra](https://github.com/archestra-ai/archestra) \n\nThe biggest themes since v1.1 are:\n\n1. **Knowledge Base / RAG** \u2014 connectors for Notion, GitHub, GitLab, ServiceNow, Confluence, and Jira with document ingestion, embeddings, and semantic search. Model-driven em",
+    "keywords_matched": [
+      "enterprise"
+    ],
+    "score": 4,
+    "tier": "WATCH",
+    "discovered": "2026-04-06T13:55:02.275113-06:00"
+  },
+  {
+    "title": "skillful-mcp: MCP middleware that turns your existing MCP servers into Skills in an MCP-native way.",
+    "source": "reddit/r/MCP",
+    "url": "https://reddit.com/r/mcp/comments/1se3k8a/skillfulmcp_mcp_middleware_that_turns_your/",
+    "summary": "Inspired from several conversations I had during the MCP Dev Summit last week, I built **skillful-mcp** \u2014 MCP middleware that turns your existing MCP servers into Skills in an MCP-native way. Instead of loading 80+ tool schemas upfront, the agent starts with just 4 tools and discovers more as needed",
+    "keywords_matched": [
+      "kills"
+    ],
+    "score": 4,
+    "tier": "WATCH",
+    "discovered": "2026-04-06T13:55:02.275155-06:00"
+  }
+]

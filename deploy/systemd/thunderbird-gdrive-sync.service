@@ -1,0 +1,14 @@
+[Unit]
+Description=Thunderbird Google Drive Sync (rclone)
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/john/.local/bin/rclone copy /home/john/Thunderbird/ d2mconcierge:Thunderbird_Mirror/ --filter-from /home/john/Thunderbird/scripts/thunderbird_sync_filters.txt --transfers 4 --checkers 8 --log-file /home/john/Thunderbird/.rclone_sync.log --log-level INFO --tpslimit 10
+User=john
+Environment=HOME=/home/john
+Environment=PATH=/home/john/.local/bin:/usr/local/bin:/usr/bin:/bin
+
+[Install]
+WantedBy=multi-user.target

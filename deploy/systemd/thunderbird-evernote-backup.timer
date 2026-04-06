@@ -1,0 +1,10 @@
+[Unit]
+Description=Thunderbird Evernote Backup Timer — Weekly Monday 02:00 MDT
+
+[Timer]
+OnCalendar=Mon *-*-* 02:00:00
+Persistent=true
+RandomizedDelaySec=600
+
+[Install]
+WantedBy=timers.target

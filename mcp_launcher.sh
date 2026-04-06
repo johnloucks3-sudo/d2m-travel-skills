@@ -8,12 +8,6 @@ source /home/john/Thunderbird/.env
 set +a
 cd /home/john/Thunderbird
 
-if curl -sf --max-time 2 http://127.0.0.1:8767/mcp -X POST \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json, text/event-stream" \
-    -d '{"jsonrpc":"2.0","id":0,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"probe","version":"1.0"}}}' \
-    > /dev/null 2>&1; then
-    exec /home/john/Thunderbird/.venv/bin/python /home/john/Thunderbird/goose_mcp_proxy.py "$@"
-else
-    exec /home/john/Thunderbird/.venv/bin/python /home/john/Thunderbird/travel_mcp_server.py "$@"
-fi
+export PYTHONPATH="/home/john/Thunderbird:/home/john/Thunderbird/core/ai_infra:/home/john/Thunderbird/core/booking:/home/john/Thunderbird/core/client:/home/john/Thunderbird/core/communication:/home/john/Thunderbird/core/email:/home/john/Thunderbird/core/intel:/home/john/Thunderbird/core/learning:/home/john/Thunderbird/core/mcp:/home/john/Thunderbird/core/ops:/home/john/Thunderbird/core/scheduling:/home/john/Thunderbird/core/travel:/home/john/Thunderbird/core/watchtower"
+
+exec /home/john/Thunderbird/.venv/bin/python /home/john/Thunderbird/core/mcp/travel_mcp_server.py "$@"

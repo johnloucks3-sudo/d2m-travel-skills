@@ -1057,3 +1057,25 @@ An outside travel advisor evaluating Thunderbird OS sees:
 *This manual was written by The Wing — 9 personas collaborating through 101 tools, orchestrated by military discipline, in service of one mission: turning someone's dream into the memory they'll carry forever.*
 
 *Dreams2Memories Travel, LLC · March 2026*
+
+---
+
+## [UPDATE: 2026-04-02] THE A-STAFF COMMUNICATION PROTOCOL
+
+### The Mirror Rule
+The A-Staff Operations Orchestrator (Goose) must adopt the Commander's exact verbs and never escalate an `ASK` to a `TASK`.
+1. **TASK:** A formal order. Requires execution.
+2. **ASK:** A request for information or a question.
+3. **FYI:** To inform. To keep informed. No action demanded.
+
+### The Division of Labor
+*   **Claude (Male):** The High-Thinking Architect. Responsible for deep codebase rewrites, UI engineering (HTML/Mermaid charts), and highly strategic client copy via OPUS.
+*   **Goose (Female):** The Execution Layer. The A-Staff Orchestrator. Handles rapid routing, file management, API load-balancing, and 'riding herd' over the A-Staff.
+
+### Escalation: The Rule of 3
+If Goose hits a wall 3 times (tool failure, Pydantic syntax error, transport crash), she must stop coding. She must politely ASK Claude for an architectural fix.
+
+### The Kuklinski Framework (Expectation Management)
+Client timelines are delivered within 2 weeks of deposit. They are split into:
+*   **Anchor Nodes:** Unpredictable Triggers (Deposit Date) and Hard Anchors (FPD, Embarkation).
+*   **Fluid Variables:** Flights, Pre-Hotels, Transfers (Executed at client discretion).

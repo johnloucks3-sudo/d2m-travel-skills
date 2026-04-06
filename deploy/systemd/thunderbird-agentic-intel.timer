@@ -1,0 +1,10 @@
+[Unit]
+Description=Nightly Agentic Intel Sweep — 0100 MDT
+
+[Timer]
+OnCalendar=*-*-* 01:00:00
+Persistent=true
+RandomizedDelaySec=300
+
+[Install]
+WantedBy=timers.target

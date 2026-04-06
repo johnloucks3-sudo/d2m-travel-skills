@@ -12,7 +12,7 @@ set -uo pipefail
 
 THUNDERBIRD_DIR="${HOME}/Thunderbird"
 MCP_SERVER="${THUNDERBIRD_DIR}/travel_mcp_server.py"
-API_SERVER="${THUNDERBIRD_DIR}/thunderbird_api.py"
+API_SERVER="${THUNDERBIRD_DIR}/api/thunderbird_api.py"
 TOKEN_FILE="${THUNDERBIRD_DIR}/.api_token"
 CF_CONFIG="${HOME}/.cloudflared/config.yml"
 

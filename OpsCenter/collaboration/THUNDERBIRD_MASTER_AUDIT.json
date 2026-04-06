@@ -1,0 +1,57 @@
+{
+  "last_updated": "2024-04-03T14:30:00",
+   "system_summary": "Thunderbird OS is a sophisticated travel operations platform with advanced automation, AI-powered personas, and a military-inspired command and control architecture.",
+   "active_personas": [
+       {
+           "name": "COS",
+           "role": "Chief of Staff, orchestration and staff synchronization"
+       },
+       {
+           "name": "EXEC",
+           "role": "Brand voice, client-facing communications"
+       },
+       {
+           "name": "A2",
+           "role": "Research & market intelligence"
+       },
+       {
+           "name": "A3",
+           "role": "Booking operations and client journey"
+       },
+       {
+           "name": "A5",
+           "role": "Strategy and business growth"
+       },
+       {
+           "name": "A6",
+           "role": "Creative, destination storytelling"
+       },
+       {
+           "name": "A9",
+           "role": "Finance and process improvement"
+       },
+       {
+           "name": "A10",
+           "role": "Crisis response and logistics"
+       }
+   ],
+   "core_protocols": [
+       "A2A (Agent-to-Agent)",
+       "Zero-Paste",
+       "15s Watcher"
+   ],
+   "detected_conflicts": [
+       {
+           "conflict_description": "Inconsistent monitoring interval (15s watcher vs 2-minute crontab)",
+           "proposed_remedy": "Standardize on the 15s watcher"
+       },
+       {
+           "conflict_description": "Unclear division of labor between Claude and Goose",
+           "proposed_remedy": "Clarify the division of labor"
+       },
+       {
+           "conflict_description": "Insufficient documentation of Kuklinski 18-month framework and 99% email rule",
+           "proposed_remedy": "Document the frameworks more extensively"
+       }
+   ]
+}

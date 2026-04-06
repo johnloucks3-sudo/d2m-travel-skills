@@ -1,0 +1,260 @@
+# Erik McLeod & Melissa McGlasson — Complete Trip Data
+## Silver Muse Mediterranean | June 18 – July 6, 2026
+
+---
+
+## TRIP SUMMARY
+
+| Field | Value |
+|-------|-------|
+| **Client Names** | Erik McLeod & Melissa McGlasson |
+| **Trip Type** | Luxury Cruise + Pre/Post Hotels |
+| **Primary Supplier** | Silversea Cruises |
+| **Ship** | Silver Muse |
+| **Overall Duration** | June 18 – July 6, 2026 (19 days) |
+| **Trip Status** | Payment Complete (Jan 24, 2026) |
+| **Confirmation #** | 298475-25 |
+
+---
+
+## FLIGHT SEGMENT — DENVER ↔ ROME/VENICE
+
+### Outbound: Denver → Rome (June 18, 2026)
+- **Route:** DEN → FCO (Rome)
+- **Class:** Business Class
+- **Status:** Booked
+- **Notes:** Arrive Rome June 18 PM, transfer to Baglioni Hotel Regina
+
+### Return: Venice → Denver (July 6, 2026)
+- **Route:** VCE → YYZ (Toronto) → DEN
+- **Class:** Business Class
+- **Status:** Booked
+- **Notes:** Depart Venice July 6 AM via private water taxi (€140)
+
+**CRITICAL:** Multiple PNRs need consolidation. Airline record locators tracking in progress.
+
+---
+
+## PRE-CRUISE: ROME (JUNE 18–23)
+
+### Hotel: Baglioni Hotel Regina, Rome
+- **Address:** Rome, Italy (5-star luxury property)
+- **Check-in:** June 18, 2026
+- **Check-out:** June 23, 2026
+- **Duration:** 5 nights
+- **Arrangement:** Client-sourced
+- **Notes:** Airport transfer via Baglioni concierge limo FCO→hotel (~€100)
+
+### Ground Transport — Rome
+| Leg | Method | Cost | Status |
+|-----|--------|------|--------|
+| FCO Airport → Baglioni | Concierge Limo | ~€100 | Included w/ hotel |
+| Baglioni → Civitavecchia Port | FreeNow App | €140–160 | Client to arrange |
+| **Estimated Total** | — | €240–260 | — |
+
+---
+
+## CRUISE SEGMENT — SILVERSEA SILVER MUSE
+
+### Itinerary
+| Day | Port | Arrival | Departure | Notes |
+|-----|------|---------|-----------|-------|
+| June 23 | Civitavecchia (Rome) | — | Evening | **EMBARKATION** |
+| June 24 | Naples | AM | PM | Italian Riviera |
+| June 25 | Giardini Naxos (Sicily) | AM | PM | Gateway to Mount Etna |
+| June 26 | Valletta (Malta) | AM | PM | Walled capital, UNESCO |
+| June 27 | Kotor (Montenegro) | AM | PM | Bay of Kotor, Adriatic gem |
+| June 28 | Bari (Italy) | AM | PM | Puglia region |
+| June 29 | Dubrovnik (Croatia) | AM | PM | "Pearl of the Adriatic" |
+| June 30 | Split (Croatia) | AM | PM | Dalmatian Coast |
+| July 1 | Zadar (Croatia) | AM | PM | Roman Forum, sea organs |
+| July 2 | At Sea | — | — | Leisurely transit |
+| July 3 | Fusina/Venice | AM | — | **DISEMBARKATION** |
+
+### Ship Details
+- **Ship:** Silver Muse (Silversea)
+- **Tonnage:** 40,700 GT
+- **Passengers:** ~596 (ultra-luxury all-suite)
+- **Crew Ratio:** 1:1.4 (highest in luxury segment)
+- **Inclusions:** All meals, premium beverages, shore excursions, gratuities
+- **Specialty Dining:** Available from Feb 23 onward (pending selections)
+- **Guest Amenities:** Butler service, multiple restaurants, spa, fitness, casino
+
+### Booking Details
+- **Booking Date:** March 4, 2025
+- **Embarkation:** June 23, 2026
+- **Disembarkation:** July 3, 2026
+- **Duration:** 10 nights
+- **Final Payment:** January 24, 2026 — **PAID IN FULL**
+- **Insurance:** PAID
+
+### Deviation Note
+- **Independent Arrival:** June 18 (4 days early)
+- **Silversea Non-Use Credit:** ~$100/pp
+- **Impact on Group Transfers:** TBD — Under discussion w/ Silversea (see ACTION ITEMS)
+
+---
+
+## POST-CRUISE: VENICE (JULY 3–6)
+
+### Hotel: PENDING DECISION
+Three options presented to client:
+
+| Hotel | Type | Location | Status |
+|-------|------|----------|--------|
+| Sina Centurion Palace | 5-star | Giudecca Island | Under review |
+| JW Marriott | 5-star | Riva degli Schiavoni | Under review |
+| NH Palazzo dei Dogi | 4-star | Riva dei Schiavoni | Under review |
+
+**Recommendation:** Giudecca Island hotels offer quieter, more local experience vs. San Marco corridor.
+
+### Ground Transport — Venice
+| Leg | Method | Cost | Status |
+|-----|--------|------|--------|
+| Ship (Fusina) → Hotel | Private Water Taxi | ~€140 | To arrange post-hotel selection |
+| Hotel → VCE Airport | Private Water Taxi | ~€140 | Confirmed |
+| **Estimated Total** | — | €280 | — |
+
+### Venice Dining Recommendations (Giudecca Island)
+*Researched for post-cruise experience. Pair with hotel selection for reservations.*
+
+**La Palanca** — Quintessential Giudecca stop
+- Canal-side, mostly locals, very reasonable by Venice standards
+- Lunch only for full meals; view across to Zattere is worth an afternoon
+- Link: https://www.tripadvisor.com/Restaurant_Review-g187870-d1087324-Reviews-La_Palanca-Venice_Veneto.html
+
+**Trattoria Altanella** — Old-school Venetian, family-run
+- Fritto misto is legendary
+- Cash only, reserve ahead
+- Link: https://www.tripadvisor.com/Restaurant_Review-g187870-d1490920-Reviews-Trattoria_Altanella-Venice_Veneto.html
+
+**Skyline Rooftop Bar (Molino Stucky Hilton)** — For aperitivo, not dinner
+- Spritz with panoramic views of Venice
+- Converted flour mill, genuinely stunning rooftop
+- Link: https://www.hilton.com/en/hotels/vcemshi-hilton-molino-stucky-venice/
+
+**Il Palato** — Quieter, more intimate
+- Good for longer lunch, local wine list
+- Link: https://www.tripadvisor.com/Restaurant_Review-g187870-d6754823-Reviews-Il_Palato-Venice_Veneto.html
+
+**Getting There:** Vaporetto Line 2 from San Marco or Zattere (Palanca stop for La Palanca/Altanella; Redentore stop for western end/Il Palato)
+
+---
+
+## CONTACT INFORMATION
+
+### Erik McLeod
+- **Email:** emcleod@gmail.com
+- **Phone:** ⚠ NEEDED
+- **Address:** ⚠ NEEDED
+
+### Melissa McGlasson
+- **Email:** memcglas@gmail.com
+- **Phone:** ⚠ NEEDED
+- **Address:** ⚠ NEEDED
+
+---
+
+## KEY DATES & MILESTONES
+
+| Date | Milestone | Status | Notes |
+|------|-----------|--------|-------|
+| 2026-01-24 | Final Payment Due | ✅ PAID | Confirmation received |
+| 2026-01-31 | Shore Excursions Available | ✅ OPEN | Awaiting client selections |
+| 2026-02-23 | Specialty Dining Opens | ✅ OPEN | Awaiting client reservations |
+| 2026-03-25 | Cancellation Penalty 50% | — | 89 days out |
+| 2026-04-24 | Cancellation Penalty 75% | — | 60 days out |
+| 2026-05-24 | Cancellation Penalty 100% | — | 30 days out |
+| 2026-05-24 | Final Itinerary PDF Delivery | — | Expected |
+| 2026-06-09 | Bon Voyage Package / Final Check-in | — | E-14 |
+| 2026-06-18 | Transfer Cancellation Deadline 100% | — | Travel begins |
+| 2026-06-23 | Embarkation Day | — | Rome → Ship |
+| 2026-07-03 | Disembarkation Day | — | Ship → Venice |
+| 2026-07-06 | Return to Denver | — | End of trip |
+| 2026-07-10 | Welcome Home Email | — | D+7 |
+| 2026-07-17 | Review Request (TripAdvisor, Google) | — | D+14 |
+| 2026-08-02 | Next Trip Conversation + Commission Audit | — | D+30 |
+
+---
+
+## CURRENT ACTION ITEMS
+
+🔴 **CRITICAL - PENDING RESOLUTION:**
+- [ ] Contact Silversea re: booking 298475-25 — get written confirmation of all 4 Door-to-Door transfer legs for deviated passengers
+  - **Status:** Under discussion since Mar 26
+  - **Items:** (1) Correct Jun 22 departure date to Jun 18, (2) Confirm airport↔pier group transfer coverage despite deviation, (3) Confirm Jul 6 home dropoff booking
+  - **Context:** Erik was frustrated (Mar 26) due to Silversea's failure to disclose coverage gaps post-deviation. Tone cooled after D2M acknowledged responsibility. Expects follow-up by Monday Mar 30 if no Silversea response.
+
+🟡 **OPERATIONAL:**
+- [ ] Confirm post-cruise Venice hotel selection (choose from 3 options)
+- [ ] Book Venice hotel once decision made
+- [ ] Arrange Hotel → Civitavecchia transport (FreeNow, €140–160)
+- [ ] Arrange Fusina → Venice Hotel water taxi (€140)
+- [ ] Consolidate airline PNRs (multiple record locators in play)
+- [ ] Verify Guest Information Form completed on my.silversea.com
+- [ ] Request/confirm emergency contact information
+- [ ] Obtain missing phone numbers and home addresses for both clients
+
+🟢 **ON HOLD PENDING TRANSFER RESOLUTION:**
+- [ ] Do NOT send Giudecca intel or Venice hotel recommendations until transfer dispute is resolved
+  - **Reason:** Erik not in 'planning fun stuff' mode; trust needs rebuilding
+  - **Release trigger:** Silversea written confirmation of all transfer coverage
+
+---
+
+## DINING & EXCURSIONS STATUS
+
+| Category | Status | Notes |
+|----------|--------|-------|
+| **Specialty Dining** | Awaiting selections | Opens Feb 23; multiple restaurants available |
+| **Shore Excursions** | Awaiting selections | Opens Jan 31; 10-port itinerary |
+| **Private Dining** | Not yet discussed | Optional butler-arranged options available |
+
+---
+
+## INSURANCE & DOCUMENTS
+
+| Item | Status | Notes |
+|------|--------|-------|
+| **Travel Insurance** | ✅ PAID | Confirms medical/trip interruption coverage |
+| **Passport Validity** | ⚠ TO VERIFY | 6-month rule from July 6 → expires after Jan 2027 |
+| **Guest Info Form** | ⚠ VERIFY COMPLETED | Due Jan 24; should be on my.silversea.com |
+| **Emergency Contact** | ⚠ NEEDED | Missing from dossier |
+
+---
+
+## NOTES & CONTEXT
+
+### Client Profile
+- **Travel Style:** Luxury, discerning, preference for Silversea
+- **Communication Preference:** Email primary (direct responses expected)
+- **Relationship Status:** Established client, slight friction over transfer planning (resolved but trust-building in progress)
+
+### Silversea Relationship
+- **Deviation Premium:** Taken (early arrival June 18 vs June 23 embark)
+- **Non-Use Credit:** ~$100/pp for early arrival
+- **Door-to-Door Package:** Includes 4 transfer legs; coverage ambiguous post-deviation
+- **Communication Quality:** Mixed — failed to disclose coverage gaps upfront
+
+### D2M Delivery Status
+- ✅ All supplier bookings confirmed
+- ✅ Final payment collected
+- ⚠ Venice hotel decision pending
+- ⚠ Transfer logistics finalization pending Silversea clarification
+- 🟡 Dining/excursion selections awaited
+- 🟡 Final itinerary PDF delivery (due May 24)
+
+---
+
+## REFERENCE DOCUMENTS
+
+- **Silversea Confirmation:** 298475-25
+- **Invoice:** Contains all hard dates (cancellation penalties, transfer deadlines)
+- **Email Thread:** Full Mar 26 exchange re: transfer dispute and client frustrations
+- **Dining/Excursion Portal:** my.silversea.com (password-protected, client access)
+
+---
+
+*Generated by Thunderbird OS — Dreams2Memories Travel, LLC*
+*Document Version 1.0 | April 4, 2026*
+*Last Updated: March 26, 2026 (client communications log)*

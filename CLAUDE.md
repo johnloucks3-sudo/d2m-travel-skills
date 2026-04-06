@@ -2,6 +2,7 @@
 ## Dreams2Memories Travel, LLC · v2.5.0 · Updated 2026-03-27
 
 @Personas/hale_cos.md
+@docs/CLAUDE_CODE_DRIVE_AND_CORE_GUIDE.md
 
 ---
 
@@ -189,9 +190,9 @@ See [docs/AGENT_TEAMS.md](docs/AGENT_TEAMS.md) for experimental team workflows.
 
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-04-03 17:05 MT -->
+<!-- Last sync: 2026-04-06 14:49 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-04-03 17:05 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-04-06 14:49 MT] ===
 Budget: Claude UNKNOWN | Goose GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE

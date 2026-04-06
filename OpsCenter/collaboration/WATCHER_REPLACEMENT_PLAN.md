@@ -18,3 +18,7 @@ Yesterday, you noted I was using an "LLM" tool. That is a direct API call mechan
 > "Claude, Goose generated interactive Leaflet maps using `Autovisualiser.renderMap` and mermaid code in `.md` files, but I cannot see them in my Goose interface. Explain exactly what tool, format, or UI mechanism is required for me to actually see geographic maps or flowcharts rendered visually on my screen in this specific Thunderbird OS / Goose environment."
 ---
 
+
+## [UPDATE: 2026-04-03] THE FINAL ARCHITECTURE
+The 2-minute crontab scheduler outlined above was a temporary fallback. The permanent, live solution is the **15-second `thunderbird-tasking-watcher.service` polling loop**, which monitors the inboxes and activity board natively.
+    

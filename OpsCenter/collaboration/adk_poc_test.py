@@ -71,7 +71,7 @@ print("\n[TEST 4] Create ADK agent with Gemini model...")
 try:
     goose_agent = Agent(
         name="goose_blackboard_agent",
-        model="gemini-2.0-flash",
+        model="gemini-2.5-flash",
         description="Goose — D2M research and intel agent with blackboard access",
         instruction=(
             "You are Goose, the research and intel agent for Dreams2Memories Travel. "

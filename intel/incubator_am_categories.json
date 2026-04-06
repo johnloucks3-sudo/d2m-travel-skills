@@ -1,12 +1,12 @@
 {
-  "set_by": "incubator_review_2026-03-31",
+  "set_by": "incubator_review_2026-04-03",
   "categories": [
-    "Luxury Cruise Route Announcements** (new itineraries, ship deployments, cancellations)",
-    "High-Net-Worth Transition Events** (acquisitions, executive moves, wealth signals in news)",
-    "Premium Hospitality Openings** (SLH hotels, Rosewood, Belmond launches, renovation completions)",
-    "Port City Intelligence** (infrastructure, events, travel restrictions, currency shifts)",
-    "Competitive Intelligence** (Virtuoso/Ensemble agent moves, rival ship charters, bundling shifts)"
+    "AI onboarding & preference learning (cruise lines)",
+    "Booking engine optimization (Amadeus, Sabre, competitor moves)",
+    "Concierge chatbot voice & personalization (luxury segment)",
+    "Generative itinerary design (competitor benchmarking)",
+    "Guest profile intelligence (privacy-first, GDPR patterns)"
   ],
-  "rationale": "Set by incubator review 2026-03-31",
-  "timestamp": "2026-03-31T19:31:07.054203"
+  "rationale": "Set by incubator review 2026-04-03",
+  "timestamp": "2026-04-03T19:30:41.883170"
 }

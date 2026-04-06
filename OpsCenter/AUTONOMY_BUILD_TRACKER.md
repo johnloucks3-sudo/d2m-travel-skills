@@ -94,6 +94,43 @@
 
 ---
 
+## PHASE 4 — TOTAL AUTONOMY (10 CAPABILITIES AUDIT)
+**Goal:** Wing operates unattended for 18 days (Apr 23 – May 11). Assessed 2026-04-04.
+
+| # | Capability | Status | Notes |
+|---|-----------|--------|-------|
+| 1 | Persistent Scheduled Execution | ✅ **DONE** | 39 timers running. Linger=yes. All cadences covered (2-min watchdog, 5-min blackboard, 4h inbox sweep, daily brief at 01:30 MDT, 0600 heartbeat). |
+| 2 | Headless Auto-Start on Boot | ✅ **DONE** | Linger=yes confirmed. All critical services WantedBy=default.target. Chrome runs --headless=new (no display needed). MCP, gateway, overwatch, watchdog all start on boot without a human session. |
+| 3 | Self-Healing / Exception Recovery Loop | ✅ **DONE** | thunderbird-watchdog (2-min) + thunderbird-overwatch. Auto-restart failed daemons. Crash loop detection (3x/10min). Telegram alerts. Fixed false-positive oneshot bug today. |
+| 4 | Autonomous Telegram C2 Listener Daemon | ✅ **DONE** | thunderbird-telegram-gw.service (Restart=always) owns all 3 bots. Old thunderbird-telegram-c2 DISABLED today — was conflicting on same token (getUpdates Conflict error killed). Gateway is sole owner. |
+| 5 | State Persistence Between Sessions | ✅ **DONE** | hale_state.json (live state), session_autosave_latest.md (context). **NEW: sweep_tracker.py** — per-job idempotency guard prevents double-execution across restarts. Services call `SweepTracker("job").already_ran_today()`. |
+| 6 | Escalation-Only Decision Engine | ✅ **DONE** | **NEW: wing_decision_engine.py** — callable module with full action registry (AUTO/FYI/WAIT). Standing orders SO 21/24/27 MAR 2026 encoded. All services can `from OpsCenter.wing_decision_engine import decide`. Tested. |
+| 7 | Automated Morning Briefing Pipeline | ✅ **DONE** | d2m-morning-briefing.timer → thunderbird_morning_briefing.py. Fires 01:30 MDT. 30-min timeout. Full send to johnloucks3@gmail.com (SO 27 MAR 2026). First live test tonight. |
+| 8 | Email Tasking + Reply Automation | ⚠️ **PARTIAL** | Inbox sweep 4x/day working. Email classify working. **BLOCKED: gmail_token 404** — d2mconcierge token expired or scope issue. Draft creation broken until Commander does oauth reauth. `/approve` also blocked. |
+| 9 | Monitoring + Alert Dashboard | ✅ **DONE** | Watchdog: service health, MCP deep-check, disk >85%, queue stuck, Telegram alerts. Daily heartbeat at 0600 MT (wing_heartbeat.py). **NEW: system_mode.json** — real-time GREEN/YELLOW/RED published every 2-min cycle. |
+| 10 | Graceful Degradation / Safe Mode | ✅ **DONE** | **NEW: added to opscenter_watchdog.py** — `_compute_system_mode()` evaluates: services down count, MCP status, disk. Writes GREEN/YELLOW/RED to logs/system_mode.json. Mode transitions alert Commander. Decision engine reads mode (RED→holds FYI for approval). |
+
+### Cap 8 Blocker — Gmail Token Reauth (MUST DO BEFORE APR 23)
+```bash
+cd ~/Thunderbird
+.venv/bin/python3 -c "
+import os; os.environ['GOOGLE_CREDENTIALS_FILE']='credentials.json'
+from core.email.thunderbird_gmail import get_gmail_service
+svc = get_gmail_service()
+print('Token OK:', svc.users().getProfile(userId='me').execute()['emailAddress'])
+"
+```
+If it prompts for OAuth, complete the browser flow. This unblocks:
+- `/drafts` / `/approve` / `/reject` via Telegram (Phase 3)
+- `d2m-email-ingest` draft creation
+- Dani auto-draft pipeline
+
+### Cap 1 open: UptimeRobot External Monitor
+Sign up at uptimerobot.com → Monitor Type: HTTP → URL: `https://api.d2mluxury.quest/health`
+Alert contacts: SMS to 719-291-0742. **CRITICAL**: only way to know YOGA is down from the ship.
+
+---
+
 ## SESSION LOG
 | Date | What Was Done |
 |------|--------------|
@@ -101,6 +138,12 @@
 | 2026-04-04 | Phase 1 diagnosis started — 15 failed services identified |
 | 2026-04-04 | Phase 1 complete — 0 failed services. Pager bot path fixed, usage monitor doubled-path fixed, watchdog service name corrected |
 | 2026-04-04 | Phase 2 complete — Wing alive heartbeat (0600 MT), inbox sweep (every 4h), 16 additional service files fixed |
+| 2026-04-04 | Blackboard sync false-positive fixed — removed oneshot service from SERVICES dict |
+| 2026-04-04 | Cap 4 fixed — disabled thunderbird-telegram-c2 (getUpdates conflict with gateway on same bot token) |
+| 2026-04-04 | Cap 6 built — wing_decision_engine.py (AUTO/FYI/WAIT with SO encoding) |
+| 2026-04-04 | Cap 5 built — sweep_tracker.py (per-job idempotency guard) |
+| 2026-04-04 | Cap 10 built — graceful degradation added to watchdog (GREEN/YELLOW/RED → system_mode.json) |
+| 2026-04-04 | Phase 4 audit complete — 9/10 capabilities DONE; Cap 8 blocked on gmail_token reauth |
 
 ---
-*Last updated: 2026-04-04 17:45 MDT*
+*Last updated: 2026-04-04 18:30 MDT*

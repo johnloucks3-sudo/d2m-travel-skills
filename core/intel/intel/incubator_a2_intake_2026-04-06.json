@@ -1,0 +1,46 @@
+[
+  {
+    "id": "A2-2026-04-06-001",
+    "title": "SAP ABAP LLM Integration",
+    "source_signal": "[1] SAP Help Portal",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 SAP is enterprise ERP, not relevant to travel ops",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Thunderbird is travel concierge, not enterprise finance. No D2M value."
+  },
+  {
+    "id": "A2-2026-04-06-002",
+    "title": "Prompt Flow \u2014 Workflow Composition Tool",
+    "source_signal": "[2,5,6,7,8] Prompt Flow docs + Azure integration + OSS Microsoft/promptflow",
+    "classification": "WATCH",
+    "gap_closed": "Workflow orchestration abstraction \u2014 but Thunderbird already has Python daemon + Telegram C2",
+    "thunderbird_component": "OpsCenter orchestration layer",
+    "risk": "MED",
+    "sss_required": false,
+    "rationale": "Low-code DAG composition is interesting for RAG chains, but we achieve same via Python + Claude API. Adds vendor lock-in (Azure) or dependency (OSS) without closing known gaps (behavioral inference, proactive engagement, CRM). Revisit if workflow complexity grows beyond current Python daemon pattern."
+  },
+  {
+    "id": "A2-2026-04-06-003",
+    "title": "OpenAI Prompt Versioning & Templating API",
+    "source_signal": "[3] OpenAI API",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 Thunderbird uses Anthropic Claude API, not OpenAI",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Prompt versioning feature is OpenAI-native. Anthropic SDK doesn't expose equivalent. Not applicable to our vendor choice."
+  },
+  {
+    "id": "A2-2026-04-06-004",
+    "title": "System Error (Yahoo Finance 503)",
+    "source_signal": "[4] Will be right back",
+    "classification": "REJECT",
+    "gap_closed": "N/A \u2014 no signal",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Service outage, not a research finding. Archive."
+  }
+]

@@ -1,0 +1,101 @@
+[
+  {
+    "id": "A2-2026-04-02-001",
+    "title": "Virtuoso HNW Advisor Network",
+    "source_signal": "World's Best Luxury Travel Advisors and Hotels | Virtuoso",
+    "classification": "WATCH",
+    "gap_closed": "Competitive positioning on HNW advisor bundling (known gap: Virtuoso/Ensemble Agent Moves)",
+    "thunderbird_component": "Market Intelligence / Competitive Positioning",
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "Travel-relevant but lacks actionable intelligence on bundling shifts, partnerships, or rate wars. Generic marketing snippet. Needs deeper competitive research to close the gap."
+  },
+  {
+    "id": "A2-2026-04-02-002",
+    "title": "Virtuoso Definition (Merriam-Webster)",
+    "source_signal": "VIRTUOSO Definition & Meaning - Merriam-Webster",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "Dictionary entry. Not actionable research. Signal source corrupted per COS memo."
+  },
+  {
+    "id": "A2-2026-04-02-003",
+    "title": "Virtuoso Definition (Cambridge)",
+    "source_signal": "VIRTUOSO | definition in the Cambridge English Dictionary",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "Dictionary entry. Not actionable research. Signal source corrupted per COS memo."
+  },
+  {
+    "id": "A2-2026-04-02-004",
+    "title": "Virtuoso Definition (Vocabulary.com)",
+    "source_signal": "Virtuoso - Definition, Meaning & Synonyms | Vocabulary.com",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "Dictionary entry. Not actionable research. Signal source corrupted per COS memo."
+  },
+  {
+    "id": "A2-2026-04-02-005",
+    "title": "Spotify Premium Individual",
+    "source_signal": "Premium Individual - Spotify",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "Music streaming service. Zero relevance to travel advisory, luxury hospitality, or D2M architecture. Smoking gun of source corruption."
+  },
+  {
+    "id": "A2-2026-04-02-006",
+    "title": "Spotify Premium Individual (ES)",
+    "source_signal": "Premium Individual - Spotify (Spanish)",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "Music streaming service in Spanish. Zero relevance to travel advisory. Evidence of upstream scraper misconfiguration."
+  },
+  {
+    "id": "A2-2026-04-02-007",
+    "title": "Spotify Premium Plans",
+    "source_signal": "Premium plans - Spotify",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "Music streaming service. Zero relevance to travel advisory. Clear source corruption \u2014 incubator pulling Spotify marketing instead of travel intelligence."
+  },
+  {
+    "id": "A2-2026-04-02-008",
+    "title": "Spotify Premium (ZH-HK)",
+    "source_signal": "Spotify Premium - Spotify (\u9999\u6e2f\uff08\u4e2d\u6587\uff09)",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "Music streaming service in Chinese. Zero relevance to travel advisory. Evidence of multilingual Spotify scrape \u2014 not travel domain."
+  },
+  {
+    "id": "A2-2026-04-02-009",
+    "title": "Spotify Premium (ES)",
+    "source_signal": "Spotify Premium - Spotify (Espa\u00f1a)",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "Music streaming service in Spanish. Zero relevance to travel advisory. Confirms incubator source misconfiguration \u2014 requires semantic validation gate."
+  }
+]

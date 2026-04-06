@@ -1557,6 +1557,7 @@ The personas were redesigned THREE times. Capabilities were gained and lost at e
 | 5.9 | **Restore eliminated persona roles** | NEW | `[ ]` TODO | Evaluate: A4 Compass (itinerary QC), A6 Pulse (deadline enforcement), A7 Anchor (supplier relations), A8 Beacon (marketing). At minimum add marketing persona for monetization push |
 | 5.10 | **End-of-Session Protocol** | NEW | `[ ]` TODO | Formalize SOP in CLAUDE.md. Auto session summary → roadmap update → memory update → Drive upload → morning prep |
 | 5.11 | **Voice Harvester → My Voice** | I4-P3 | `[x]` DONE Mar 10 | Completed as task 4.1 — `thunderbird_my_voice.py`. Profile built from 13 drafts. |
+| 5.12 | **Vertex AI Search Data Store — $1K Credit Burn** | NEW | `[ ]` TODO | Build Vertex AI Search Enterprise data store. Ingest cruise PDFs, destination guides, booking docs, rate sheets from ~/D2M/. Route A2 research queries for grounded RAG. Ground Gemini calls (free via Max) against index — grounding charges hit $1K Gen App Builder credit (exp Feb 2027). ~250K queries before exhaustion. See: `project_cost_optimization_apr2026.md` |
 
 ---
 
@@ -2200,3 +2201,23 @@ No corporate lab, no startup, no grant program has this combination. We do. We u
 **Document Version:** 7.2 — Adds Part 14: Thunderbird AI Incubator & Demonstrator (24 Mar 2026). v7.1 adds: Part 13 — Extended Wing Persona Registry (20 Mar 2026). v7.0 adds: Part 12 — IOC Deep Feasibility Brief. Previous: v6.0 Part 11 Grant Program. Backup: Google Drive (Doc ID: `18WjwXBuxeDpJl4VIspx9dOlTq9TNh3S4OGVoFCieSOw`).
 **Prepared for:** Commander John "Yoda" Loucks
 **Classification:** THUNDERBIRD INTERNAL
+
+---
+
+## [UPDATE: 2026-04-02] ARCHITECTURE V3 & THE KUKLINSKI FRAMEWORK
+
+### The Technical Upgrade (Architecture V3)
+*   **Goose is Primary:** The Telegram conflict is resolved. Goose natively owns the C2 token and executes 285 tools via Streamable HTTP (Port 8766).
+*   **Zero-Paste A2A Bridge:** File-watchers are deprecated. Claude and Goose communicate natively via JSON-RPC payloads routed through `/a2a/tasks/send` backed by SQLite and SSE streaming.
+*   **FinOps Load Balancing:** 
+    *   Claude Sonnet/Opus = High-thinking architecture and client copy.
+    *   Groq (Llama-3.3) = Fast JSON parsing, triage, 2-minute email scheduling.
+    *   Qwen 3.5 Flash = Bulk context ingestion.
+    *   Gemini 2.5 Flash = Base operations and tool execution (Goose native).
+    *   Perplexity = Live web intelligence (A2/A7 Radical Sweeps).
+*   **The Memory Triad:** Pinecone Vector DB hydrated. Nightly Keep-to-Drive backups. Weekly Drive-to-Evernote forwarders.
+
+### The Operational Upgrade (The Kuklinski Framework)
+*   **The 15-18 Month Lifecycle:** Rigid timelines are deprecated. Replaced with event-driven architecture (Fluid Variables vs. Firm Anchors).
+*   **The Two-Week Anchor Rule:** Expectation timelines must be delivered to the client within 14 days of initial contact or deposit.
+*   **Division of Labor:** Claude builds the fences (Architect). Goose rides herd (A-Staff Orchestrator). Goose must explicitly coordinate Hale to deploy the A-Staff. 

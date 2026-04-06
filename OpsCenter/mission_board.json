@@ -1,0 +1,78 @@
+{
+  "version": "1.0",
+  "created": "2026-04-04T22:58:00Z",
+  "commander_id": 7554895206,
+  "active_missions": [
+    {
+      "id": "MISSION-002",
+      "title": "CLIENT LIFECYCLE CHART",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "BUILD \u2014 Read lifecycle audit (20260405_4), rebuild all HTML charts with current dates, fix Morton guest form gap, create Westbrook dashboard, standardize phase naming -- PRIORITY: Regenerate all lifecycle HTMLs with current TODAY date. Fix Group 2 Morton missing guest form. Flag Loucks Silver Nova depart Apr 10. Create Group 5 Lyon companions. Promote spec prompt to formal SOP. Standardize Dream\u2192Craft\u2192Execute\u2192Polish\u2192Voyage\u2192Return phases. Set up calendar alerts. 8 issues found (4 HIGH, 3 MEDIUM, 2 LOW).",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        {
+          "time": "2026-04-05T14:27:29.558Z",
+          "entry": "MISSION-002 resumed by Hale via claude_inbox.md handoff. Brief delivered to Claude MAX for execution."
+        }
+      ],
+      "created_at": "2026-04-05T05:08:27.345642+00:00",
+      "updated_at": "2026-04-05T14:27:29.558Z"
+    },
+    {
+      "id": "MISSION-003",
+      "title": "lifecycle-2026-04-05 18-Month Client",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "Lifecycle Charts and Analysis \u2014 Delegates reading lifecycle docs and lifecycle_timelines.html to produce visual timeline charts for Kuklinski_Morton and Furlow_Nichols_Ely clients",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        {
+          "time": "2026-04-05T14:27:29.558Z",
+          "entry": "MISSION-003 resumed by Hale via claude_mission003.md handoff. Brief delivered to Claude MAX for execution."
+        }
+      ],
+      "created_at": "2026-04-05T05:08:53.073568+00:00",
+      "updated_at": "2026-04-05T14:27:29.558Z"
+    }
+  ],
+  "completed_missions": [
+    {
+      "id": "MISSION-001",
+      "title": "NEXUS Architecture Build",
+      "status": "completed",
+      "priority": "P0",
+      "assigned_to": "Goose (design/routing) + Claude (engineering)",
+      "description": "Build full NEXUS state machine, keyword router, Mission Board sync, and integrate Email Engine into the autonomous loop",
+      "deliverables": [
+        "nexus.py (state machine with 6 hard stops)",
+        "keyword_router.py (Qwen Free vs Claude Sonnet routing)",
+        "mission_board_sync.py (EXEC interface)",
+        "mission_board.json (shared state)",
+        "Gmail \u2192 EXEC poller",
+        "thunderbird_email_maintenance.py (functional email engine)"
+      ],
+      "dependencies": [
+        "EMAIL_ENGINE_DESIGN.md",
+        "NEXUS_SPEC.md",
+        "Models-Personas-Tools 260402.md"
+      ],
+      "suspense_date": "2026-04-05T05:00:00Z",
+      "escalation_rule": "If blocking >2h, escalate to Claude Sonnet MAX",
+      "logs": [],
+      "created_at": "2026-04-04T22:58:00Z",
+      "updated_at": "2026-04-05T14:27:29.558Z"
+    }
+  ],
+  "suspended_missions": [],
+  "exec_inbox": [],
+  "suspense_watch": []
+}

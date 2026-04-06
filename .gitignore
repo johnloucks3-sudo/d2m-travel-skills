@@ -62,9 +62,11 @@ node_modules/
 # Credentials (catch-all)
 *credentials*.json
 *client_secret*.json
+creds/
 
 # Browser automation profiles
 browser_profiles/
+.playwright-mcp/
 
 # Nested Thunderbird copy
 Thunderbird/
@@ -73,7 +75,22 @@ Thunderbird/
 .claude/
 docs/tess_and_tokens_raw.md
 
+# Databases
+*.db
+*.sqlite
+*.sqlite3
 
+# Storage (large backups)
+storage/
+
+# Archives
+*.zip
+
+# OAuth symlinks at root
+gmail_token.json
+gmail_oauth_credentials.json
+credentials.json
+drive_token.json
 
 
 # Ignore Smart Environment folder

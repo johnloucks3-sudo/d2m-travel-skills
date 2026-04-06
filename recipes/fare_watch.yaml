@@ -1,6 +1,30 @@
 version: "1.0.0"
-title: Fare Watch Check
-description: Check all active flight and cruise price watches. Alert Commander on drops or spikes beyond threshold.
+title: Fare Watch Daily Check
+description: Check all active fare watches, fetch current prices, alert Commander on price changes.
 
 prompt: |
-  Call the tool_fare_watch_check MCP tool. This checks all active flight and cruise price watches for the D2M client roster and alerts Commander via Telegram on any drops or spikes that cross the configured threshold. Return the complete results.
+  You are running the D2M daily fare watch check. Your job:
+
+  1. Call the fare_watch_list MCP tool to get all 15 active watches.
+
+  2. For each watch, attempt to get the current market price:
+     - CRUISE watches: use search_live_cruise_voyages (for Silversea/RSSC/Ponant) or check the cruise line's public fare using browse_url. Look for the lowest available cabin in the same category as the watch.
+     - FLIGHT watches (BOOKED): use search_flights for the same route and date. Compare to the baseline to detect drops.
+     - FLIGHT watches (NOT BOOKED, alert_above set): use search_flights — alert if price is above urgency threshold.
+
+  3. For each watch where you successfully find a current price, call fare_watch_check with the new price.
+
+  4. Collect all results. If any watch triggered an alert (alert_triggered field is set), send a Telegram message via send_sms_notification or the Telegram direct API to Commander at chat ID 7554895206 using bot token from env var TELEGRAM_C2_BOT_TOKEN. Format alerts as:
+     🚨 FARE ALERT — [label]
+     Was: $[baseline] | Now: $[new_price]
+     Change: [pct]%
+     Action: [refare opportunity / BOOK NOW]
+
+  5. Write a summary to /home/john/Thunderbird/OpsCenter/fare_watches/last_check.json:
+     {"last_run": "[ISO timestamp]", "watches_checked": N, "alerts_fired": N, "results": [...]}
+
+  6. Append a one-line summary to /home/john/Thunderbird/OpsCenter/fare_watches/fare_watch.log:
+     [timestamp] Checked N watches | M alerts | [watch_ids with changes]
+
+  If a price cannot be determined for a watch, skip it (do not call fare_watch_check with a guess).
+  If no alerts fire, send one short Telegram message: "✅ Fare Watch — [date] — N checked, no alerts."

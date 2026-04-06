@@ -195,7 +195,7 @@ MCP_TOOLS = [
 def _test_gemini_api():
     if not GEMINI_API_KEY:
         return False, "No GEMINI_API_KEY"
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-pro-preview:generateContent?key={GEMINI_API_KEY}"
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={GEMINI_API_KEY}"
     try:
         resp = requests.post(url, json={
             "contents": [{"role": "user", "parts": [{"text": "Reply with exactly: OPERATIONAL"}]}],
@@ -459,7 +459,7 @@ def main():
 
     # Phase 3: Gemini
     if 3 in run_phases:
-        results.append(run_test(3, "Gemini 3.1 Pro", _test_gemini_api, "critical"))
+        results.append(run_test(3, "Gemini 2.5 Flash", _test_gemini_api, "critical"))
 
     # Phase 4: Telegram
     if 4 in run_phases:

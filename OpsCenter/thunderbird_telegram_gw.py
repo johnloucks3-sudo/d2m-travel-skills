@@ -478,6 +478,13 @@ def handle_help(token: str, chat_id: int, bot_name: str) -> None:
 """
     if bot_name == 'GooseD2M':
         msg += '/brief — Trigger Hale morning brief\n'
+    msg += '\n<b>🔄 Both Ways Cross-Bot:</b>\n'
+    if bot_name == 'D2MC2C':
+        msg += '<code>@goose [msg]</code> — Task Goose\n<code>@dani [msg]</code> — Task Dani\n'
+    elif bot_name == 'GooseD2M':
+        msg += '<code>@claude [msg]</code> — Task Claude\n<code>@dani [msg]</code> — Task Dani\n'
+    elif bot_name == 'Dani':
+        msg += '<code>@goose [msg]</code> — Task Goose\n<code>@claude [msg]</code> — Task Claude\n'
     msg += '\n<b>Overrides (D2MC2C only):</b>\n<code>OPUS: [task]</code> — Route to Claude Opus\n<code>Sonnet: [task]</code> — Route to Claude Sonnet'
     tg_send(token, chat_id, msg)
 
@@ -603,6 +610,78 @@ def handle_reject(token: str, chat_id: int, args: list) -> None:
         tg_send(token, chat_id, f'❌ Reject failed: {e}')
 
 
+# ── Both Ways Router ──────────────────────────────────────────────────────────
+
+def _detect_forward(msg: str, bot_name: str) -> str | None:
+    """Return 'goose', 'claude', or 'dani' if msg targets them. Works with typed @ or voice 'at'."""
+    lower = msg.lower().strip()
+    
+    # Regex catches:
+    # 1. Typed: "@goose do this" 
+    # 2. Voice: "at goose do this" 
+    # 3. Short: "goose, do this" (Name as imperative)
+    
+    p_goose = re.compile(r'^(@|at\s+)?goose[,\s:].*')
+    p_claude = re.compile(r'^(@|at\s+)?(claude|hale)[,\s:].*')
+    p_dani = re.compile(r'^(@|at\s+)?dani[,\s:].*')
+
+    if bot_name == 'D2MC2C':
+        # Currently talking to Claude. Forward others.
+        if p_goose.match(lower): return 'goose'
+        if p_dani.match(lower): return 'dani'
+    elif bot_name == 'GooseD2M':
+        # Currently talking to Goose. Forward others.
+        if p_claude.match(lower): return 'claude'
+        if p_dani.match(lower): return 'dani'
+    elif bot_name == 'Dani':
+        # Currently talking to Dani. Forward others.
+        if p_goose.match(lower): return 'goose'
+        if p_claude.match(lower): return 'claude'
+        
+    return None
+
+
+def _handle_forward(
+    token: str, chat_id: int, msg: str,
+    bot_name: str, ctx_file: Path, target: str,
+) -> None:
+    """Strip @prefix, call the other engine, return response to source chat."""
+    parts = msg.split(None, 1)
+    stripped = parts[1].strip() if len(parts) > 1 else ''
+    if not stripped:
+        tg_send(token, chat_id, 'Both Ways: no message after @prefix.')
+        return
+
+    tg_typing(token, chat_id)
+    if target == 'goose':
+        engine_fn = hale_goose_engine
+        engine_label = 'GooseD2M'
+    elif target == 'dani':
+        engine_fn = dani_claude_engine
+        engine_label = 'Dani'
+    else:
+        engine_fn = hale_claude_engine
+        engine_label = 'Sonnet'
+
+    log.info('[%s] Both Ways → %s: %s...', bot_name, engine_label, stripped[:80])
+    try:
+        raw_response = engine_fn('', stripped, None)
+    except Exception as e:
+        log.error('[%s] Both Ways engine error: %s', bot_name, e)
+        raw_response = f'[Both Ways error: {e}]'
+
+    chunks = fmt_process(f'🔄 <b>Both Ways via {engine_label}</b>\n\n{raw_response}', CHUNK_SIZE)
+    tg_send_chunks(token, chat_id, chunks)
+
+    _append_exchange(
+        ctx_file,
+        user_msg=stripped,
+        assistant_msg=raw_response[:800],
+        user_label='Commander',
+        assistant_label=f'{engine_label} (via Both Ways)',
+    )
+
+
 # ── Message Handler ───────────────────────────────────────────────────────────
 
 def handle_message(
@@ -671,6 +750,12 @@ def handle_message(
         log.info('Sonnet override activated')
 
     if not msg:
+        return
+
+    # ── Both Ways forward check ────────────────────────────────────────────────
+    forward_target = _detect_forward(msg, bot_name)
+    if forward_target:
+        _handle_forward(token, chat_id, msg, bot_name, ctx_file, forward_target)
         return
 
     # ── Typing indicator ──────────────────────────────────────────────────────
@@ -791,7 +876,7 @@ def bot_poll_loop(
 
 def main() -> None:
     log.info('═══════════════════════════════════════')
-    log.info('Thunderbird Telegram Gateway v1.0')
+    log.info('Thunderbird Telegram Gateway v1.5 — Both Ways Enabled')
     log.info('Three bots. One process. Clean output.')
     log.info('═══════════════════════════════════════')
 

@@ -5,4 +5,4 @@ set -a
 source /home/john/Thunderbird/.env
 set +a
 export MCP_PROFILE=core
-exec /home/john/Thunderbird/.venv/bin/python travel_mcp_server.py "$@"
+exec python3 /home/john/Thunderbird/core/mcp/travel_mcp_server.py "$@"

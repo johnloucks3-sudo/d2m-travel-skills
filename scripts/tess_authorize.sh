@@ -12,7 +12,7 @@ set -euo pipefail
 THUNDERBIRD_DIR="$HOME/Thunderbird"
 TOKEN_FILE="$THUNDERBIRD_DIR/tess_token.json"
 CONFIG_FILE="$THUNDERBIRD_DIR/tess_config.json"
-TESS_PY="$THUNDERBIRD_DIR/thunderbird_tess.py"
+TESS_PY="$THUNDERBIRD_DIR/core/communication/thunderbird_tess.py"
 
 # ── Banner ──────────────────────────────────────────────────────────────────
 

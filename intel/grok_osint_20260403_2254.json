@@ -1,0 +1,128 @@
+{
+  "timestamp": "2026-04-03T22:54:03.737446",
+  "sweep_type": "grok_osint",
+  "domains_queried": 10,
+  "successful": 0,
+  "results": [
+    {
+      "domain_id": "autonomous_coding",
+      "domain_name": "Autonomous Coding Agents",
+      "status": "ERROR",
+      "error": "Error code: 403 - {'code': 'The caller does not have permission to execute the specified operation', 'error': \"Your newly created team doesn't have any credits or licenses yet. You can purchase those on https://console.x.ai/team/e1b2ed82-83c9-483e-ba63-c7b596040200.\"}",
+      "timestamp": "2026-04-03T22:54:03.395633",
+      "key_findings": [],
+      "d2m_relevance": "UNKNOWN",
+      "tools_or_products": [],
+      "sources": [],
+      "action_item": "Retry manually."
+    },
+    {
+      "domain_id": "claude_alternatives",
+      "domain_name": "Claude Alternatives / LLM Landscape",
+      "status": "ERROR",
+      "error": "Error code: 403 - {'code': 'The caller does not have permission to execute the specified operation', 'error': \"Your newly created team doesn't have any credits or licenses yet. You can purchase those on https://console.x.ai/team/e1b2ed82-83c9-483e-ba63-c7b596040200.\"}",
+      "timestamp": "2026-04-03T22:54:03.435151",
+      "key_findings": [],
+      "d2m_relevance": "UNKNOWN",
+      "tools_or_products": [],
+      "sources": [],
+      "action_item": "Retry manually."
+    },
+    {
+      "domain_id": "cruise_industry_ai",
+      "domain_name": "Cruise Industry Digital + AI",
+      "status": "ERROR",
+      "error": "Error code: 403 - {'code': 'The caller does not have permission to execute the specified operation', 'error': \"Your newly created team doesn't have any credits or licenses yet. You can purchase those on https://console.x.ai/team/e1b2ed82-83c9-483e-ba63-c7b596040200.\"}",
+      "timestamp": "2026-04-03T22:54:03.538163",
+      "key_findings": [],
+      "d2m_relevance": "UNKNOWN",
+      "tools_or_products": [],
+      "sources": [],
+      "action_item": "Retry manually."
+    },
+    {
+      "domain_id": "ai_agents_frameworks",
+      "domain_name": "AI Agent Frameworks & Multi-Agent",
+      "status": "ERROR",
+      "error": "Error code: 403 - {'code': 'The caller does not have permission to execute the specified operation', 'error': \"Your newly created team doesn't have any credits or licenses yet. You can purchase those on https://console.x.ai/team/e1b2ed82-83c9-483e-ba63-c7b596040200.\"}",
+      "timestamp": "2026-04-03T22:54:03.567254",
+      "key_findings": [],
+      "d2m_relevance": "UNKNOWN",
+      "tools_or_products": [],
+      "sources": [],
+      "action_item": "Retry manually."
+    },
+    {
+      "domain_id": "travel_tech_agentic",
+      "domain_name": "Travel Tech + AI Agents",
+      "status": "ERROR",
+      "error": "Error code: 403 - {'code': 'The caller does not have permission to execute the specified operation', 'error': \"Your newly created team doesn't have any credits or licenses yet. You can purchase those on https://console.x.ai/team/e1b2ed82-83c9-483e-ba63-c7b596040200.\"}",
+      "timestamp": "2026-04-03T22:54:03.576845",
+      "key_findings": [],
+      "d2m_relevance": "UNKNOWN",
+      "tools_or_products": [],
+      "sources": [],
+      "action_item": "Retry manually."
+    },
+    {
+      "domain_id": "open_source_llm",
+      "domain_name": "Open Source LLM Breakthroughs",
+      "status": "ERROR",
+      "error": "Error code: 403 - {'code': 'The caller does not have permission to execute the specified operation', 'error': \"Your newly created team doesn't have any credits or licenses yet. You can purchase those on https://console.x.ai/team/e1b2ed82-83c9-483e-ba63-c7b596040200.\"}",
+      "timestamp": "2026-04-03T22:54:03.615287",
+      "key_findings": [],
+      "d2m_relevance": "UNKNOWN",
+      "tools_or_products": [],
+      "sources": [],
+      "action_item": "Retry manually."
+    },
+    {
+      "domain_id": "ai_memory_systems",
+      "domain_name": "AI Agent Memory & Cross-Session",
+      "status": "ERROR",
+      "error": "Error code: 403 - {'code': 'The caller does not have permission to execute the specified operation', 'error': \"Your newly created team doesn't have any credits or licenses yet. You can purchase those on https://console.x.ai/team/e1b2ed82-83c9-483e-ba63-c7b596040200.\"}",
+      "timestamp": "2026-04-03T22:54:03.647656",
+      "key_findings": [],
+      "d2m_relevance": "UNKNOWN",
+      "tools_or_products": [],
+      "sources": [],
+      "action_item": "Retry manually."
+    },
+    {
+      "domain_id": "inference_hardware",
+      "domain_name": "Inference Speed & Hardware",
+      "status": "ERROR",
+      "error": "Error code: 403 - {'code': 'The caller does not have permission to execute the specified operation', 'error': \"Your newly created team doesn't have any credits or licenses yet. You can purchase those on https://console.x.ai/team/e1b2ed82-83c9-483e-ba63-c7b596040200.\"}",
+      "timestamp": "2026-04-03T22:54:03.649041",
+      "key_findings": [],
+      "d2m_relevance": "UNKNOWN",
+      "tools_or_products": [],
+      "sources": [],
+      "action_item": "Retry manually."
+    },
+    {
+      "domain_id": "enterprise_ai_deployment",
+      "domain_name": "Enterprise AI Deployment Patterns",
+      "status": "ERROR",
+      "error": "Error code: 403 - {'code': 'The caller does not have permission to execute the specified operation', 'error': \"Your newly created team doesn't have any credits or licenses yet. You can purchase those on https://console.x.ai/team/e1b2ed82-83c9-483e-ba63-c7b596040200.\"}",
+      "timestamp": "2026-04-03T22:54:03.685071",
+      "key_findings": [],
+      "d2m_relevance": "UNKNOWN",
+      "tools_or_products": [],
+      "sources": [],
+      "action_item": "Retry manually."
+    },
+    {
+      "domain_id": "reasoning_models",
+      "domain_name": "Reasoning Models & Benchmarks",
+      "status": "ERROR",
+      "error": "Error code: 403 - {'code': 'The caller does not have permission to execute the specified operation', 'error': \"Your newly created team doesn't have any credits or licenses yet. You can purchase those on https://console.x.ai/team/e1b2ed82-83c9-483e-ba63-c7b596040200.\"}",
+      "timestamp": "2026-04-03T22:54:03.737082",
+      "key_findings": [],
+      "d2m_relevance": "UNKNOWN",
+      "tools_or_products": [],
+      "sources": [],
+      "action_item": "Retry manually."
+    }
+  ]
+}

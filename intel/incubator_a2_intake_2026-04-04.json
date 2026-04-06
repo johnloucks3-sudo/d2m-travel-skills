@@ -1,0 +1,200 @@
+[
+  {
+    "id": "A2-2026-04-04-001",
+    "title": "OpenAI AGI Vision Statement",
+    "source_signal": "OpenAI: We believe our research will eventually lead to artificial general intelligence...",
+    "classification": "REJECT",
+    "gap_closed": "None",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Philosophical statement with zero travel/hospitality domain application. Does not address concierge chatbot voice, booking optimization, or itinerary design gaps."
+  },
+  {
+    "id": "A2-2026-04-04-002",
+    "title": "DeepAI: What is AI",
+    "source_signal": "What is AI - DeepAI: What is AI, and how does it enable machines to perform tasks requiring human intelligence...",
+    "classification": "REJECT",
+    "gap_closed": "None",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Definitional content, not research. Zero actionability for D2M's guest personalization, booking engine, or itinerary generation gaps."
+  },
+  {
+    "id": "A2-2026-04-04-003",
+    "title": "Wikipedia AI Definition",
+    "source_signal": "Artificial intelligence - Wikipedia: Artificial intelligence (AI) is the capability of computational systems...",
+    "classification": "REJECT",
+    "gap_closed": "None",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Encyclopedic background only. No travel-specific innovation, no D2M capability gap closed."
+  },
+  {
+    "id": "A2-2026-04-04-004",
+    "title": "Google AI Helpful Statement",
+    "source_signal": "Google AI - How we're making AI helpful for everyone: Discover how Google AI is committed to enriching knowledge...",
+    "classification": "REJECT",
+    "gap_closed": "None",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Generic brand narrative without travel domain relevance or implementation guidance for luxury concierge personalization."
+  },
+  {
+    "id": "A2-2026-04-04-005",
+    "title": "OpenAI AGI (Duplicate of Signal 1)",
+    "source_signal": "OpenAI: We believe our research will eventually lead to artificial general intelligence...",
+    "classification": "REJECT",
+    "gap_closed": "None",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Duplicate of signal 1. Incubator source query returning duplicates \u2014 quality issue upstream."
+  },
+  {
+    "id": "A2-2026-04-04-006",
+    "title": "DeepAI: What is AI (Duplicate of Signal 2)",
+    "source_signal": "What is AI - DeepAI: What is AI, and how does it enable machines to perform tasks requiring human intelligence...",
+    "classification": "REJECT",
+    "gap_closed": "None",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Duplicate of signal 2."
+  },
+  {
+    "id": "A2-2026-04-04-007",
+    "title": "Wikipedia AI (Duplicate of Signal 3)",
+    "source_signal": "Artificial intelligence - Wikipedia: Artificial intelligence (AI) is the capability of computational systems...",
+    "classification": "REJECT",
+    "gap_closed": "None",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Duplicate of signal 3."
+  },
+  {
+    "id": "A2-2026-04-04-008",
+    "title": "Google AI (Duplicate of Signal 4)",
+    "source_signal": "Google AI - How we're making AI helpful for everyone...",
+    "classification": "REJECT",
+    "gap_closed": "None",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Duplicate of signal 4."
+  },
+  {
+    "id": "A2-2026-04-04-009",
+    "title": "Concierge Definition \u2014 Wikipedia",
+    "source_signal": "Concierge - Wikipedia: A concierge (French pronunciation...) is an employee of a multi-tenant building...",
+    "classification": "REJECT",
+    "gap_closed": "None",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Definitional only. Does not address D2M gap: concierge chatbot voice, personalization, or luxury segment positioning."
+  },
+  {
+    "id": "A2-2026-04-04-010",
+    "title": "Concierge Definition \u2014 Merriam-Webster",
+    "source_signal": "CONCIERGE Definition & Meaning - Merriam-Webster: The meaning of CONCIERGE is a usually multilingual hotel staff member...",
+    "classification": "REJECT",
+    "gap_closed": "None",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Lexical definition, not research. Zero bearing on Dani chatbot voice/personalization gap."
+  },
+  {
+    "id": "A2-2026-04-04-011",
+    "title": "Concierge Service Definition",
+    "source_signal": "What is Concierge Service? Meaning, Examples & How it Works: A concierge is a person or a firm specializes in providing personal assistance...",
+    "classification": "REJECT",
+    "gap_closed": "None",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Generic service definition, not AI research. Misaligned with actual gap (AI-driven concierge voice, guest preference learning)."
+  },
+  {
+    "id": "A2-2026-04-04-012",
+    "title": "Concierge Definition \u2014 Dictionary.com",
+    "source_signal": "CONCIERGE Definition & Meaning | Dictionary.com: CONCIERGE definition: (especially in France) a person who has charge of the entrance...",
+    "classification": "REJECT",
+    "gap_closed": "None",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Lexical definition. Not research. Unrelated to D2M chatbot personalization or luxury guest profile intelligence gaps."
+  },
+  {
+    "id": "A2-2026-04-04-013",
+    "title": "Deloitte: State of AI in Enterprise 2026",
+    "source_signal": "The State of AI in the Enterprise - 2026 AI report | Deloitte US: Explore the Deloitte AI Institute's State of AI in the Enterprise report...",
+    "classification": "REJECT",
+    "gap_closed": "None",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Enterprise-wide AI adoption framework \u2014 zero travel/hospitality domain specialization. Generic CTO guidance does not address booking engine optimization or itinerary design gaps."
+  },
+  {
+    "id": "A2-2026-04-04-014",
+    "title": "Enterprise AI Integration Strategy \u2014 CTO 2026",
+    "source_signal": "Enterprise AI Integration Strategy for CTOs in 2026: Jan 12, 2026 \u00b7 This blog explores the key challenges of enterprise AI integration...",
+    "classification": "REJECT",
+    "gap_closed": "None",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Generic enterprise scalability guidance. No travel domain relevance. Does not close Amadeus/Sabre booking optimization or itinerary generation gaps."
+  },
+  {
+    "id": "A2-2026-04-04-015",
+    "title": "Enterprise AI Strategy Blueprint 2026",
+    "source_signal": "Enterprise AI Strategy: A Complete Blueprint for 2026: Dec 24, 2025 \u00b7 An enterprise AI strategy is a real, enterprise-grade plan...",
+    "classification": "REJECT",
+    "gap_closed": "None",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Business governance framework for enterprises \u2014 not travel-specific. Does not address D2M's guest profile intelligence or cruise-line preference learning gaps."
+  },
+  {
+    "id": "A2-2026-04-04-016",
+    "title": "AI Integration Roadmap \u2014 Enterprises 2026",
+    "source_signal": "AI Integration Roadmap for Enterprises in 2026 | AI21: Nov 27, 2025 \u00b7 The rest of this article walks through a practical AI integration roadmap...",
+    "classification": "REJECT",
+    "gap_closed": "None",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Generic enterprise readiness and adoption roadmap. No hospitality/travel domain context. Does not address itinerary generation or concierge chatbot voice gaps."
+  },
+  {
+    "id": "A2-2026-04-04-017",
+    "title": "Enterprise AI 2026 \u2014 Microsoft Customers",
+    "source_signal": "Enterprise AI in 2026: A practical guide for Microsoft customers: Jan 30, 2026 \u00b7 Explore how Microsoft customers should prepare for enterprise AI...",
+    "classification": "REJECT",
+    "gap_closed": "None",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Microsoft Copilot/platform guidance for enterprises. Not travel-focused. Zero relevance to luxury concierge personalization or cruise-line booking gaps."
+  },
+  {
+    "id": "A2-2026-04-04-018",
+    "title": "CIOs and AI Integration Tool Complexity 2026",
+    "source_signal": "As CIOs focus on AI integration, new tools complicate the agenda: Jan 26, 2026 \u00b7 As CIOs pivot from AI pilots to production, new embedded AI tools...",
+    "classification": "REJECT",
+    "gap_closed": "None",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Enterprise AI tooling complexity discussion. No travel domain application. Does not address Thunderbird's booking engine, itinerary, or guest intelligence gaps."
+  }
+]

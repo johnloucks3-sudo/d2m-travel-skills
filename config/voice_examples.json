@@ -8,15 +8,15 @@
       "d2mconcierge@gmail.com"
     ],
     "days_back": 400,
-    "total_examples": 933,
+    "total_examples": 957,
     "by_tier": {
-      "personal": 227,
-      "client": 179,
+      "personal": 235,
+      "client": 188,
       "vendor": 42,
-      "internal": 480,
+      "internal": 487,
       "family": 5
     },
-    "last_sync": "2026-04-01T02:33:15.337215"
+    "last_sync": "2026-04-06T02:33:14.612298"
   },
   "examples": [
     {
@@ -431,6 +431,15 @@
       "to": "Erik McLeod <emcleod@gmail.com>",
       "date": "Thu, 26 Mar 2026 19:04:00 -0600",
       "body": "Hi folks, thanks for being candid.  I propose we huddle once Silversea gets\nback to us. Is that OK?\nThanks,\nJohn",
+      "score": 7
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "Request for mobility aids for Ronald Westbrook",
+      "to": "Jenna Woodcock <jwoodcock@perx.com>, Ronald Westbrook <rwestbrook3@gmail.com>",
+      "date": "Fri, 3 Apr 2026 19:20:59 -0600",
+      "body": "Hi Jenna, I am writing on behalf of my fellow traveler, Ron Westbrook.  Is\nit possible at this late date for Ron to have access to a walker in his\nsuite and when he goes ashore?  He has recently experienced increased\nmobility issues.  I'm writing on his behalf  and he is cced. Thanks,\nJohn\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
       "score": 7
     },
     {
@@ -854,6 +863,15 @@
       "to": "josh@jerichopix.com",
       "date": "Wed, 25 Mar 2026 17:47:50 -0600",
       "body": "[image: Dreams2Memories Travel]\nHi Joshua,\n\nWe sent over a quick guest profile form back in March — just circling back\nin case it got buried. Erica's already in, so this one's just for you.  I\nwill also be sending you an Outside Agents Client Portal Activation\nlink--it is good for only 24hrs.\n\nThis survey takes about 3 minutes, and it makes a real difference when\nwe're setting up your experience aboard Viking Mars.\n\nYour personal link:\nhttps://docs.google.com/forms/d/e/1FAIpQLSe5ZtjOl-yju-V64fEtzwtQczp0jJYjww_engGz8e_fdpEAmw/viewform?entry.003f2b81=9595029&entry.4dceff5c=Viking+Mars&entry.7ab69543=Mr.&entry.35c9c22d=Joshua&entry.1eebd431=Morton&entry.5413ce1f_year=1948&entry.5413ce1f_month=3&entry.5413ce1f_day=4&entry.7cb3f73d=188+Cays+Dr.%2C+Naples%2C+FL+34114&entry.59bf8417=818-317-9843&entry.0d5d53b8=josh%40jerichopix.com\n\nThis Panama Canal Voyage is going to be incredible — We're looking forward\nto making it perfect for you all.\n\nThanks,\nJohn Loucks\nDreams2Memories Travel, LLC\n719-291-0742\n\n[image: Dreams2Memories Travel]",
+      "score": 6
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "Re: BASE ACCESS FOR EASTER BRUNCH",
+      "to": "\"GARCIA, BRANDY W CIV USAF USAFA 10 FSS/FSWC\" <brandy.garcia@us.af.mil>",
+      "date": "Sat, 4 Apr 2026 16:41:23 -0600",
+      "body": "Hi Brandy, all 4 of us have Gov't ID with photo and chip.  That is\nsufficient isn't it?  Thanks for being so conscientious!!\nJohn Loucks\n\nOn Sat, Apr 4, 2026 at 4:10 PM GARCIA, BRANDY W CIV USAF USAFA 10 FSS/FSWC <\nbrandy.garcia@us.af.mil> wrote:",
       "score": 6
     },
     {
@@ -1286,6 +1304,15 @@
       "to": "Silversea Trade Reservations <tradereservations@silversea.com>",
       "date": "Fri, 27 Mar 2026 12:53:59 -0600",
       "body": "Elaine, one other detail I have been searching for, and just found.  I\ncalled in early February and spoke with an agent and recorded the call,\nhere is my AI parsing of the call. You can see it was not at all ambiguous\nat the time that Blacklane would honor my clients' requests.  Here are\nnotes I had and passed along:\n\n   -\n\n   “Silversea 2 Feb 2026: Recorded// Ron”\n   -\n\n   “Transfers: Depends on the Gateway. Free extension, Blacklane will reach\n   out with a link. Basically be able to put the pickup and drop-off according\n   to the itinerary.”\n   Related transfer/transport details mentioned in the same note:\n   -\n\n   “Free extension, Blacklane will reach out with a link”\n   -\n\n   “advise clients to put the pickup and drop-off according to desired\n   itinerary”\n   -\n\n   “Home pickup 18 June / Airport 6 Jul Home is also assured”\n   -\n\n   “Add 19 June airport to hotel and 23 June hotel to port..”\n\nso you can see there were high expectations set.\n\nThanks\nJohn Loucks\n\nOn Fri, Mar 27, 2026 at 9:25 AM Dreams2Memories <d2mconcierge@gmail.com>\nwrote:",
+      "score": 5
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: WHat do you guys think of this itinerary?",
+      "to": "KAREN LOUCKS <karen.loucks@me.com>, Susan Loucks <susanna.loucks@gmail.com>",
+      "date": "Wed, 1 Apr 2026 12:46:52 -0600",
+      "body": "Hi Karen, we get up at 5:30 (well Susie does) so like I told Greg (you were\nnot cc'ed), we can come as soon as...we'll coord on Friday night and can\ncome whenever. Church casual? sure, nothing fancy from us.",
       "score": 5
     },
     {
@@ -2663,6 +2690,69 @@
       "to": "7192910742@tmomail.net",
       "date": "Tue, 31 Mar 2026 07:34:06 -0500",
       "body": "PAY TODAY: Kuklinski (Kyle & Rosalie) $7,548 | PAY TODAY: Kuklinski (Roger & Nick) $7,548 | PAY TODAY: Morton (Josh & Erica) $6,148 | PAY TOMORROW: Furlow (John",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "Re: WHat do you guys think of this itinerary?",
+      "to": "gregory loucks <greg.loucks@icloud.com>",
+      "date": "Wed, 1 Apr 2026 07:33:28 -0600",
+      "body": "ok, we get up at 0530, so whatever works for you is great.\nJ\n\nOn Wed, Apr 1, 2026 at 7:27 AM gregory loucks <greg.loucks@icloud.com>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Re: I Stopped Re-Explaining Everything to Claude Code. This CLAUDE.md File Does It for Me",
+      "to": "Dreams2Memories <d2mconcierge@gmail.com>",
+      "date": "Wed, 1 Apr 2026 15:51:12 -0600",
+      "body": "[COS,A12] read and summarize\n\nOn Fri, Mar 27, 2026 at 6:57 AM Dreams2Memories <d2mconcierge@gmail.com>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Documentation - Evernote Developers",
+      "to": "Dreams2Memories <d2mconcierge@gmail.com>",
+      "date": "Wed, 1 Apr 2026 15:50:38 -0600",
+      "body": "[cos] Read and summarize\n\nOn Fri, Mar 27, 2026 at 7:52 AM Dreams2Memories <d2mconcierge@gmail.com>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "Re: Hotel Saturnia & International — Venice Research Brief",
+      "to": "d2mconcierge@gmail.com",
+      "date": "Thu, 2 Apr 2026 20:22:56 -0600",
+      "body": "[A3] place this website and writeup in the McLeod's dossier\n\nOn Thu, Apr 2, 2026 at 8:19 PM Victoria Hale, D2M Travel <\nd2mconcierge@gmail.com> wrote:",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Leaked Claude Code: Vibe Coding Isn't All That",
+      "to": "Dreams2Memories <d2mconcierge@gmail.com>",
+      "date": "Fri, 3 Apr 2026 22:25:17 -0600",
+      "body": "[COO] Use for our searches JL\n\nOn Thu, Apr 2, 2026 at 6:10 AM Meng Li from AI Disruption <\naidisruption@substack.com> wrote:",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "Request to switch account gmail",
+      "to": "Kyra <support@projectexpedition.com>",
+      "date": "Sun, 5 Apr 2026 17:49:42 -0600",
+      "body": "*Hello, Kyra, I was previously logged in with johnloucks3@gmail.com\n<johnloucks3@gmail.com> as a travel advisor under  CLIA 00409065  as\nan  \"Agent\" with Cruises and Tours/Outsideagents as the HOST.  However, I\nalso have an account under the same email as an individual, and am not able\nto get net rates, nor am I able to get commission.. Therefore, to eliminate\nconfusion, would you please reissue me an authorization using\nd2mconcierge@gmail.com <d2mconcierge@gmail.com>? Would you also remove my\njohnloucks3@gmail.com <johnloucks3@gmail.com>? But keep my original account\nunder jl3lovegrouptravel@gmail.com <jl3lovegrouptravel@gmail.com> as I\nstill have bookings there. Thanks--JL  *\n\nThanks\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\n*d2mconcierge@gmail.com <d2mconcierge@gmail.com>*\n\nwww.d2mluxury.quest",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "Re: Request for you",
+      "to": "Ronald Westbrook <rwestbrook3@gmail.com>",
+      "date": "Sun, 5 Apr 2026 14:28:01 -0600",
+      "body": "k\n\nOn Sun, Apr 5, 2026 at 2:18 PM Ronald Westbrook <rwestbrook3@gmail.com>\nwrote:",
       "score": 4
     },
     {
@@ -7176,6 +7266,87 @@
     },
     {
       "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: D2M 9-Month Client Lifecycle SOP — Priority 3 Complete",
+      "to": "Dreams2Memories <d2mconcierge@gmail.com>",
+      "date": "Wed, 1 Apr 2026 16:57:44 -0600",
+      "body": "[COS] I think the time line is too short. Adjust the start to be\n15-18-months out and have it be flexible. Need another attempt.  Look at\nactual client dossiers.\nYoda",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "Re: NEW: StormNet App 🌪️",
+      "to": "Brent Westbrook <westy737@gmail.com>",
+      "date": "Wed, 1 Apr 2026 12:47:30 -0600",
+      "body": "😃\n\nJohn Loucks3 reacted via Gmail\n<https://www.google.com/gmail/about/?utm_source=gmail-in-product&utm_medium=et&utm_campaign=emojireactionemail#app>",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "Re: NEW: StormNet App 🌪️",
+      "to": "Brent Westbrook <westy737@gmail.com>",
+      "date": "Wed, 1 Apr 2026 12:47:25 -0600",
+      "body": "🙃\n\nJohn Loucks3 reacted via Gmail\n<https://www.google.com/gmail/about/?utm_source=gmail-in-product&utm_medium=et&utm_campaign=emojireactionemail#app>",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "client",
+      "subject": "Re: One small thing...",
+      "to": "Dreams2Memories <d2mconcierge@gmail.com>",
+      "date": "Wed, 1 Apr 2026 15:51:59 -0600",
+      "body": "[COS] see below for action  Add all the tasks I referred to into the\nKuklinski dossier not as suspense dates but as gaps to be filled.",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[D2M RED] Preflight Check",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 3 Apr 2026 05:50:04 -0700",
+      "body": "Thunderbird Preflight — RED\nTime: 2026-04-03 06:50 MT\n\n✅ MCP Server: Running (PID 1643)\n🔴 Scheduler: NOT RUNNING\n✅ Telegram C2: Running (PID 3822)\n✅ Gmail Token: Valid (has refresh token)\n✅ Persona Token: Valid (has refresh token)\n✅ Disk Space: 844.7 GB free\n✅ TELEGRAM_BOT_TOKEN: Set\n✅ TELEGRAM_COMMANDER_ID: Set\n✅ GROQ_API_KEY: Set\n✅ Internet: Connected\n✅ Gemini API: Responding\n✅ MCP Port 8765: Listening",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Thunderbird Code Backup — 2026-04-04 @Thunderbird Backups #thunderbird #backup #code",
+      "to": "yodainva.5d9fc@m.evernote.com",
+      "date": "Sat, 4 Apr 2026 12:21:32 -0400",
+      "body": "Thunderbird Code Backup\nDate: 2026-04-04\nFiles: 425 (422 .py, 3 .md)\nTotal size: 8112 KB\nZip size: 2352 KB\n\nAttached: thunderbird_code_20260404.zip",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Thunderbird Code Backup — 2026-04-04 @Thunderbird Backups #thunderbird #backup #code",
+      "to": "yodainva.5d9fc@m.evernote.com",
+      "date": "Sat, 4 Apr 2026 09:15:04 -0700",
+      "body": "Thunderbird Code Backup\nDate: 2026-04-04\nFiles: 425 (422 .py, 3 .md)\nTotal size: 8112 KB\nZip size: 2352 KB\n\nAttached: thunderbird_code_20260404.zip",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[D2M RED] Preflight Check",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 4 Apr 2026 05:50:04 -0700",
+      "body": "Thunderbird Preflight — RED\nTime: 2026-04-04 06:50 MT\n\n✅ MCP Server: Running (PID 1631)\n🔴 Scheduler: NOT RUNNING\n✅ Telegram C2: Running (PID 3858)\n✅ Gmail Token: Valid (has refresh token)\n✅ Persona Token: Valid (has refresh token)\n✅ Disk Space: 843.9 GB free\n✅ TELEGRAM_BOT_TOKEN: Set\n✅ TELEGRAM_COMMANDER_ID: Set\n✅ GROQ_API_KEY: Set\n✅ Internet: Connected\n✅ Gemini API: Responding\n✅ MCP Port 8765: Listening",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "Request for you",
+      "to": "Ronald Westbrook <rwestbrook3@gmail.com>",
+      "date": "Sun, 5 Apr 2026 14:07:34 -0600",
+      "body": "Rondo, do you happen to have a nebulizer around for me to borrow for Susie.\nCannot find ours and new ones require a prescription now. 🤬🤬🤬\n\nJohn\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
       "tier": "internal",
       "subject": "[COS] General: BREAKING:  Most Americans say war in Iran is going",
       "to": "johnloucks3@gmail.com",
@@ -8414,6 +8585,51 @@
       "to": "johnloucks3@gmail.com",
       "date": "Tue, 31 Mar 2026 08:37:00 -0400",
       "body": "A12 ELON ASSESSMENT: xingkongliang/skills-manager GitHub | Score: 437 | Stars: 489 | Rust+Tauri | MIT 1. WHAT IT ACTUALLY DOES GUI file manager for ~/.claude/skills/ and 14 other AI tools. Symlink orchestrator with SQLite metadata, Git backup, scenarios, and a marketplace. 2. RELEVANCE: LOW We have 58 skills, /skill-creator, Skills API, CC Profiles. Single-tool shop. Multi-tool sync is irrelevant. 3. VERDICT: IGNORE Build? No Buy? Adds complexity Adopt? Only if multi-tool 4. GAPS EXPOSED a) Skill versioning — no rollback. Git-track skills dir. 5 min. b) Skill usage audit — 58 skills, zero metrics c) Portability — matters if Goose needs skills. Q3. 5. ACTION Git-track skills dir Build skill usage tracker 489 stars/28 days = devs have this pain. We dont. Validates our architecture. Thanks — ELON, A12 Dreams2Memories Travel, LLC John Loucks Owner & Founder, Dreams2Memories Travel, LLC concierge@d2mluxury.quest · d2mluxury.quest",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "D2M 9-Month Client Lifecycle SOP — Priority 3 Complete",
+      "to": "johnloucks3@gmail.com",
+      "date": "Wed, 1 Apr 2026 16:54:39 -0600",
+      "body": "[image: Dreams2Memories Travel]\nCommander,\n\nPriority 3 (9-Month Lifecycle Recon) is complete.\n\nA2 (Dembe) scraped the elite concierge industry. A5 (Castillo) synthesized\nit into the attached D2M 9-Month Client Lifecycle framework — 5 phases,\neach persona mapped to specific touchpoints.\n\nSOP structure:\n- Phase 1 (Discovery, 9mo out): A3/A5/A6 — onboard, plan, craft journal\n- Phase 2 (Exploration, 6-9mo): A5/A7/A3 — itinerary, logistics, check-ins\n- Phase 3 (Finalization, 3-6mo): A7/A6/A3 — white-glove ops, travel kit,\nvisas\n- Phase 4 (Immersion, during trip): A7/A6/A5 — on-site, surprises, concierge\n- Phase 5 (Reflection, post-trip): A5/A6/A3 — debrief, journal, future plans\n\nAwaiting your review and coord decision on phase assignments and scope.\n\nThanks,\nCOS Hale\n\n*John Loucks*\nOwner & Founder, Dreams2Memories Travel, LLC\nconcierge@d2mluxury.quest · d2mluxury.quest\n[image: Dreams2Memories Travel]",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[D2M RED] Preflight Check",
+      "to": "johnloucks3@gmail.com",
+      "date": "Wed, 1 Apr 2026 08:50:05 -0400",
+      "body": "Thunderbird Preflight — RED\nTime: 2026-04-01 06:50 MT\n\n✅ MCP Server: Running (PID 5189)\n🔴 Scheduler: NOT RUNNING\n✅ Telegram C2: Running (PID 5677)\n✅ Gmail Token: Valid (has refresh token)\n✅ Persona Token: Valid (has refresh token)\n✅ Disk Space: 842.8 GB free\n✅ TELEGRAM_BOT_TOKEN: Set\n✅ TELEGRAM_COMMANDER_ID: Set\n✅ GROQ_API_KEY: Set\n✅ Internet: Connected\n🔴 Gemini API: Failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available to new users. Please update your code to use a newer model for the latest features and improvements.', 'status': 'NOT_FOUND'}}\n✅ MCP Port 8765: Listening",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "Hotel Saturnia & International — Venice Research Brief",
+      "to": "johnloucks3@gmail.com",
+      "date": "Thu, 2 Apr 2026 19:19:18 -0700",
+      "body": "Hotel Saturnia & International 4-Star Historic Property · San Marco, Venice Address Calle Larga XXII Marzo 2398, San Marco, Venice 30124 Phone +39 041 5208377 Website hotelsaturnia.it Size 87 rooms — no two alike Check-in/out 3:00 PM / 12:00 PM Agoda Ratings — 2,834 Verified Reviews Overall 9.2 / 10 — Exceptional Location 9.7 Service 9.5 Cleanliness 9.3 Value for Money 8.9 Property 14th-century palazzo in the heart of San Marco. Owned and operated by the Serandrei family since 1908 — five generations of Venetian hospitality. On Calle Larga XXII Marzo, Venice's most prestigious shopping street, steps from luxury boutiques. Sustainability certified. Location Teatro La Fenice (opera) 100 m Peggy Guggenheim Collection 310 m Piazza San Marco 360 m Doge's Palace 470 m Venice Santa Lucia Train Station 1.4 km Room Types Type Size Max Notes Single 9 m² 1 Full bed Minimum Double 12 m² 2 Queen or 2 twins Double Classic 16 m² 2 Queen or 2 twins Superior Double 20 m² 2–3 Larger, Art Deco or classic style Junior Suite 25 m² 2–3 Frescoed ceilings, marble/mosaic baths — the showpiece Triple 22 m² 3 Flexible bed configuration Family Room 30 m² 4 Queen + 2 twins, or 4 twins Pricing Average ~$309/night (Venice 4-star avg: $260/night). September peak season: estimate $350–600+ depending on room type. Direct booking: 11% off with code Welcome · 15% off La Caravella Restaurant. Best rates at hotelsaturnia.it Dining & Wellness La Caravella Restaurant — Traditional Venetian cuisine, gourmet. Repeatedly praised in reviews. Il Caravellino Bar — Signature spritz, sweet and savory snacks Spa: Jacuzzi mini pool (dual massage), Turkish bath (silver leaf glass mosaics), Solarium (rooftop with Venetian dome views), Gym Breakfast buffet, room service, dry cleaning, luggage storage, fireplace in select rooms, laundry Guest Voice \"The room was perfect and the staff were even more amazing.\" \"Great location near all the amenities and major sights.\" \"Bar staff were not only friendly but also entertaining.\" \"Breakfast was excellent with many items to choose from.\" \"Great hotel with very warm hospitality!\" Quick Links Official Website + Direct Booking All Room Types La Caravella Restaurant Spa & Wellness Agoda — 9.2/10 · 2,834 reviews Google Maps John Loucks Owner & Founder, Dreams2Memories Travel, LLC concierge@d2mluxury.quest · d2mluxury.quest",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[D2M RED] Preflight Check",
+      "to": "johnloucks3@gmail.com",
+      "date": "Thu, 2 Apr 2026 07:50:04 -0500",
+      "body": "Thunderbird Preflight — RED\nTime: 2026-04-02 06:50 MT\n\n✅ MCP Server: Running (PID 675215)\n🔴 Scheduler: NOT RUNNING\n✅ Telegram C2: Running (PID 651518)\n✅ Gmail Token: Valid (has refresh token)\n✅ Persona Token: Valid (has refresh token)\n✅ Disk Space: 843.9 GB free\n✅ TELEGRAM_BOT_TOKEN: Set\n✅ TELEGRAM_COMMANDER_ID: Set\n✅ GROQ_API_KEY: Set\n✅ Internet: Connected\n🔴 Gemini API: Failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available to new users. Please update your code to use a newer model for the latest features and improvements.', 'status': 'NOT_FOUND'}}\n✅ MCP Port 8765: Listening",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Google Open-Sources Gemma 4, Beats 13x Larger Qwen3.5",
+      "to": "Dreams2Memories <d2mconcierge@gmail.com>",
+      "date": "Fri, 3 Apr 2026 22:24:33 -0600",
+      "body": "[COO] add this email list, we cannot access it but we can use the things\nshe talks about as search criteria. JL\n\nForwarded this email? Subscribe here\n<https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly9haWRpc3J1cHRpb24uYWkvc3Vic2NyaWJlP3V0bV9zb3VyY2U9ZW1haWwmdXRtX2NhbXBhaWduPWVtYWlsLXN1YnNjcmliZSZyPTgya2R2NSZuZXh0PWh0dHBzJTNBJTJGJTJGYWlkaXNydXB0aW9uLmFpJTJGcCUyRmdvb2dsZS1vcGVuLXNvdXJjZXMtZ2VtbWEtNC1iZWF0cyIsInAiOjE5MzA2NDY4MiwicyI6MjU1NzUzOCwiZiI6dHJ1ZSwidSI6NDg4MDM5NzI5LCJpYXQiOjE3NzUyMjAyNTUsImV4cCI6MjA5MDc5NjI1NSwiaXNzIjoicHViLTAiLCJzdWIiOiJsaW5rLXJlZGlyZWN0In0.FBBHVFDll8Zb9K_ZO_hVX_DlcXXOOP99nmT4IxwxQKI?>\nfor\nmore\n\nYou received this email because you subscribed to AI Disruption\n<https://substack.com/redirect/b6428c0f-384a-4f6f-8a02-3756199c6951?j=eyJ1IjoiODJrZHY1In0.76DWxvMLUFzDbaEpN9HY8SnHCKkuq5g0-vxUcp3GAzk>,\na newsletter about AI Insights.\n\nA heartfelt thank you to everyone who has supported my newsletter this\nmonth.\n\nYour encouragement keeps me moving forward, and I’m truly grateful for it.\n\nWith the AI wave accelerating, we will publish 2 articles daily this year\nto help our readers stay ahead of the AI trend.\n\nMost of the publication's content is paid.\n\nPlease consider subscribing.\n<https://substack.com/redirect/06c24e79-67ae-4328-935d-95313dc25f70?j=eyJ1IjoiODJrZHY1In0.76DWxvMLUFzDbaEpN9HY8SnHCKkuq5g0-vxUcp3GAzk>\n\nGoogle Open-Sources Gemma 4, Beats 13x Larger Qwen3.5\n<https://substack.com/app-link/post?publication_id=2557538&post_id=193064682&utm_source=post-email-title&utm_campaign=email-post-title&isFreemail=true&r=82kdv5&token=eyJ1c2VyX2lkIjo0ODgwMzk3MjksInBvc3RfaWQiOjE5MzA2NDY4MiwiaWF0IjoxNzc1MjIwMjU1LCJleHAiOjE3Nzc4MTIyNTUsImlzcyI6InB1Yi0yNTU3NTM4Iiwic3ViIjoicG9zdC1yZWFjdGlvbiJ9.1s_Y2QPzxTS7wKR4UpHWxv1vnEVrtA4wSg0SmCvtjMQ>\n\nOn Fri, Apr 3, 2026 at 6:44 AM Meng Li from AI Disruption <\naidisruption@substack.com> wrote:",
       "score": 2
     }
   ]

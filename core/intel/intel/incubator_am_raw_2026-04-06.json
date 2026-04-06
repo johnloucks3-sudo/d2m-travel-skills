@@ -1,0 +1,66 @@
+[
+  {
+    "title": "Prompt Execution | SAP Help Portal",
+    "snippet": "Open the ABAP object where you want to consume the LLM response. Create an instance of your intelligent scenario. Create an instance of message container to execute multiple prompts at once. \u2026",
+    "url": "https://help.sap.com/docs/ABAP_PLATFORM_NEW/7989a582039547ae91d8f483e487058d/10c10173f5ef41dfbd97168946c554a8.html",
+    "source": "ddg_web",
+    "category": "Incubator prompt + output logs** \u2014 execution summary from 19:00-19:30 cycle",
+    "query_type": "enterprise implementation case study 2026"
+  },
+  {
+    "title": "Prompt flow \u2014 Prompt flow documentation - GitHub Pages",
+    "snippet": "Create flows that link LLMs, prompts, Python code and other tools together in a executable workflow. Debug and iterate your flows, especially tracing interaction with LLMs with ease. Evaluate your flows, \u2026",
+    "url": "https://microsoft.github.io/promptflow/index.html",
+    "source": "ddg_web",
+    "category": "Incubator prompt + output logs** \u2014 execution summary from 19:00-19:30 cycle",
+    "query_type": "enterprise implementation case study 2026"
+  },
+  {
+    "title": "Prompting | OpenAI API",
+    "snippet": "OpenAI provides a long-lived prompt object, with versioning and templating shared by all users in a project. This design lets you manage, test, and reuse prompts across your team, with one central \u2026",
+    "url": "https://developers.openai.com/api/docs/guides/prompting",
+    "source": "ddg_web",
+    "category": "Incubator prompt + output logs** \u2014 execution summary from 19:00-19:30 cycle",
+    "query_type": "enterprise implementation case study 2026"
+  },
+  {
+    "title": "Will be right back... - Yahoo Finance",
+    "snippet": "Thank you for your patience. Our engineers are working quickly to resolve the issue.",
+    "url": "https://finance.yahoo.com/quote/PROMPT+ENGINEERING+INCUBATOR+KUBERNETES+VECTOR+EMBEDDING/",
+    "source": "ddg_web",
+    "category": "Incubator prompt + output logs** \u2014 execution summary from 19:00-19:30 cycle",
+    "query_type": "enterprise implementation case study 2026"
+  },
+  {
+    "title": "Demo cheat sheet - Production LLM apps with Azure AI, Prompt Flow, \u2026",
+    "snippet": "Prompt Flow is a low code/no code approach to building RAG applications. Azure Prompt Flow simplifies the process of prototyping, experimenting, and deploying AI applications powered by Large \u2026",
+    "url": "https://gloveboxes.github.io/prompt_flow_workshop/cheat_sheet/",
+    "source": "ddg_web",
+    "category": "Incubator prompt + output logs** \u2014 execution summary from 19:00-19:30 cycle",
+    "query_type": "open source tool github 2026"
+  },
+  {
+    "title": "Prompt flow \u2014 Prompt flow documentation - GitHub Pages",
+    "snippet": "Create flows that link LLMs, prompts, Python code and other tools together in a executable workflow. Debug and iterate your flows, especially tracing interaction with LLMs with ease. Evaluate your flows, \u2026",
+    "url": "https://microsoft.github.io/promptflow/index.html",
+    "source": "ddg_web",
+    "category": "Incubator prompt + output logs** \u2014 execution summary from 19:00-19:30 cycle",
+    "query_type": "open source tool github 2026"
+  },
+  {
+    "title": "microsoft/promptflow: Build high-quality LLM apps - GitHub",
+    "snippet": "Prompt flow is a suite of development tools designed to streamline the end-to-end development cycle of LLM-based AI applications, from ideation, prototyping, testing, evaluation to production deployment \u2026",
+    "url": "https://github.com/microsoft/promptflow",
+    "source": "ddg_web",
+    "category": "Incubator prompt + output logs** \u2014 execution summary from 19:00-19:30 cycle",
+    "query_type": "open source tool github 2026"
+  },
+  {
+    "title": "Build, benchmark, evaluate and deploy real-time inference endpoint \u2026",
+    "snippet": "Feb 14, 2024 \u00b7 In this article, I\u2019ll be covering some of the capabilities of Prompt Flow, a development tool designed to streamline the entire development cycle of AI applications powered by Large Language \u2026",
+    "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/build-benchmark-evaluate-and-deploy-real-time-inference-endpoint-with-prompt-flo/4056330",
+    "source": "ddg_web",
+    "category": "Incubator prompt + output logs** \u2014 execution summary from 19:00-19:30 cycle",
+    "query_type": "open source tool github 2026"
+  }
+]

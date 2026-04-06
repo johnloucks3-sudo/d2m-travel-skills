@@ -91,6 +91,16 @@ APIS = {
         "notes":     "Local RAG + LLM. $0 always. Use for document ingestion and offline queries.",
         "mcp_tool":  None,
     },
+    "openrouter": {
+        "category":  "llm",
+        "label":     "OpenRouter (Multi-Model Gateway)",
+        "env_key":   "OPENROUTER_API_KEY",
+        "base_url":  "https://openrouter.ai/api/v1",
+        "cost_tier": "cheap",
+        "agent":     "auto",
+        "notes":     "Multi-model gateway. Models: Qwen 3.5 Flash ($0.065/$0.26/1M, 1M ctx — bulk context), Perplexity Sonar ($1/$1/1M + $5/1K search — web research with citations), Perplexity Reasoning Pro ($2/$8/1M — CoT + web search).",
+        "mcp_tool":  None,
+    },
 
     # ── Search & Data ─────────────────────────────────────────────────────────
     "serper": {
