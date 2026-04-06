@@ -111,7 +111,7 @@ python3 thunderbird_google_auth.py --authorize-persona    # Persona token
 ### Goose won't connect to Gemini
 ```bash
 # Verify key works
-curl -s "https://generativelanguage.googleapis.com/v1beta/models?key=***REMOVED-SECRET***" | head -5
+curl -s "https://generativelanguage.googleapis.com/v1beta/models?key=REDACTED_USE_ENV_VAR" | head -5
 # Switch to Claude fallback
 goose-d2m-claude session
 ```

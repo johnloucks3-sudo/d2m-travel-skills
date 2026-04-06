@@ -214,10 +214,10 @@ google:
   drive_folder_id: "1V_iUoy5oXs8RxY5S4-2QSHTXueGircnQ"  # Titan Art
 
 api_keys:
-  gemini: "***REMOVED-SECRET***"
+  gemini: "REDACTED_USE_ENV_VAR"
   groq: "***REMOVED-SECRET***"
   pexels: "***REMOVED-SECRET***"
-  google_search_api: "***REMOVED-SECRET***"
+  google_search_api: "REDACTED_USE_ENV_VAR"
   google_cx_id: "c521728142cd34117"
 
 ship_intel:

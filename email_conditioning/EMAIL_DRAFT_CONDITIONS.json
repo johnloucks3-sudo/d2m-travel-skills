@@ -1,0 +1,59 @@
+{
+  "description": "Conditions for when to generate a draft email vs send immediately",
+  "enabled": true,
+  "draft_rules": {
+    "client_facing": {
+      "condition": "recipient_is_client",
+      "action": "GENERATE_DRAFT_GMAIL",
+      "draft_label": "d2m_concierge_drafts",
+      "workflow": "WF-17",
+      "approval_required": true,
+      "approver": "commander_telegram",
+      "cc_commander": true,
+      "description": "All client emails go to drafts first. Commander approves via Telegram or Gmail."
+    },
+    "commander_review": {
+      "condition": "commander_requested_review OR contains_client_data OR contains_booking_info",
+      "action": "GENERATE_DRAFT_GMAIL",
+      "draft_label": "commander_review_queue",
+      "recipient": "johnloucks3@gmail.com",
+      "workflow": "DRAFT_TO_COMMANDER",
+      "description": "Drafts sent to johnloucks3 for Commander to review/edit/send manually."
+    },
+    "staff_internal": {
+      "condition": "recipient_is_internal_staff AND not_client_facing",
+      "action": "GENERATE_DRAFT_GMAIL",
+      "draft_label": "internal_communication",
+      "recipient": "johnloucks3@gmail.com",
+      "description": "Internal staff comms go to Commander drafts for awareness."
+    }
+  },
+  "draft_structure": {
+    "subject_format": "[DRAFT-{task_id}] {original_subject|generated_subject}",
+    "required_headers": {
+      "X-Draft-Source": "thunderbird_email_maintenance",
+      "X-Task-ID": "{task_id}",
+      "X-Workflow": "{workflow_name}",
+      "X-Persona": "{authoring_persona}"
+    },
+    "body_template": {
+      "greeting": "natural_persona_greeting",
+      "main_content": "task_response_body",
+      "signature": "persona_signature_block"
+    }
+  },
+  "luna_write_flow": {
+    "step_1": {"actor": "A7_Luna", "action": "compose_email_draft", "notes": "Natural, conversational tone"},
+    "step_2": {"actor": "A2_Dembe", "action": "compliance_checklist", "checklist": [
+      "Client name correct",
+      "Booking/reference numbers verified",
+      "No placeholder text remaining",
+      "Tone matches persona profile",
+      "Dates/times accurate",
+      "No sensitive data exposure",
+      "Attachments referenced correctly"
+    ]},
+    "step_3": {"actor": "COS", "action": "review_and_approve", "notes": "Final quality gate before Commander"},
+    "step_4": {"actor": "system", "action": "place_in_draft_for_commander", "destination": "johnloucks3@gmail.com"}
+  }
+}

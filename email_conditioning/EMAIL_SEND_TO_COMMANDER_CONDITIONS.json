@@ -1,0 +1,50 @@
+{
+  "comment": "This is for sending TO the Commander's inbox (johnloucks3@gmail.com).",
+  "enabled": true,
+  "trigger_conditions": {
+    "task_complete_notify": {
+      "condition": "task_state == COMPLETE AND task_assigned_by_commander",
+      "action": "SEND_EMAIL_SUMMARY",
+      "subject_format": "[TASK COMPLETE] {task_id_short} — {task_summary}",
+      "body_includes": ["task_result", "key_decisions", "next_steps_if_any"],
+      "priority": "NORMAL"
+    },
+    "action_required": {
+      "condition": "task_requires_commander_decision OR budget_exceeded OR sss_required",
+      "action": "SEND_EMAIL_ALERT",
+      "subject_format": "[ACTION REQUIRED] {task_id_short} — {brief_description}",
+      "body_includes": ["situation", "options", "COS_recommendation", "deadline_if_urgent"],
+      "priority": "HIGH"
+    },
+    "draft_review_ready": {
+      "condition": "draft_generated AND luna_wrote AND dembe_checked AND cos_reviewed",
+      "action": "SEND_DRAFT_FOR_REVIEW",
+      "recipient": "johnloucks3@gmail.com",
+      "subject_format": "[REVIEW REQUIRED] Draft for {client_name} — {subject_line}",
+      "body_includes": ["draft_preview", "checklist_results", "cos_notes"],
+      "priority": "NORMAL"
+    },
+    "escalation": {
+      "condition": "task_blocked > 24h OR client_escalation_detected OR error_state",
+      "action": "SEND_EMAIL_ESCALATION",
+      "subject_format": "[ESCALATION] {source} — {issue_type}",
+      "body_includes": ["issue_description", "timeline", "attempted_fixes", "what_commander_can_do"],
+      "priority": "CRITICAL"
+    },
+    "daily_brief": {
+      "condition": "time == 07:30 AND state == MORNING_CYCLE_START",
+      "action": "SEND_DAILY_BRIEF",
+      "subject_format": "[D2M DAILY BRIEF] {date}",
+      "body_includes": ["overnight_intake", "pending_drafts", "active_tasks", "incubator_findings", "commander_calendar"],
+      "priority": "NORMAL"
+    }
+  },
+  "do_not_send_to_commander": [
+    "internal_hale_notes",
+    "routine_log_entries",
+    "heartbeat_pings",
+    "successful_no_change_sweeps"
+  ],
+  "cc_always": [],
+  "bcc_always": ["concierge@d2mluxury.quest"]
+}

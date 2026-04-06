@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[CLIENT NAME] — Trip Validation Report</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #f7f3ea;
+            color: #1a1a2e;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border: 4px solid #1a1a2e;
+            border-radius: 8px;
+            padding: 40px;
+        }
+        header {
+            text-align: center;
+            border-bottom: 2px solid #c5a77e;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        header h1 { color: #1a1a2e; font-size: 28px; margin-bottom: 5px; }
+        header h2 { color: #c5a77e; font-size: 20px; font-weight: normal; }
+
+        /* Status Colors */
+        .confirm { color: #1b7a2b; font-weight: bold; }
+        .pending { color: #b26a0a; font-weight: bold; }
+        .open { color: #c0392b; font-weight: bold; }
+        .waitlist { color: #8e44ad; font-weight: bold; }
+
+        /* Tables */
+        table { width: 100%; border-collapse: collapse; margin: 15px 0 30px; font-size: 13px; }
+        th { background: #1a1a2e; color: white; padding: 10px 8px; text-align: left; }
+        td { padding: 8px 8px; border-bottom: 1px solid #e0d8cc; }
+        tr:nth-child(even) { background-color: #fafaf7; }
+
+        /* Section Headers */
+        .section-title {
+            background: #1a1a2e; color: white; padding: 12px 20px;
+            font-size: 18px; margin: 30px 0 15px; border-radius: 4px;
+        }
+        .sub-section { 
+            background: #c5a77e; color: white; padding: 8px 15px;
+            font-size: 15px; margin: 20px 0 10px; border-radius: 4px;
+        }
+
+        /* Summary Box */
+        .summary-box { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px; margin-bottom: 30px; 
+        }
+        .summary-box .item {
+            background: #1a1a2e; color: white; padding: 15px;
+            text-align: center; border-radius: 4px;
+        }
+        .summary-box .item .number { font-size: 28px; font-weight: bold; display: block; }
+        .summary-box .item .label { font-size: 12px; text-transform: uppercase; opacity: 0.8; }
+        .summary-box .item.highlight { background: #c5a77e; }
+
+        /* Alert Boxes */
+        .alert {
+            border-left: 4px solid #c0392b; background: #fef5f3;
+            padding: 15px; margin: 10px 0; border-radius: 0 4px 4px 0;
+        }
+        .alert-title { font-weight: bold; color: #c0392b; margin-bottom: 5px; }
+        .alert-note { border-left-color: #b26a0a; background: #fff9f0; }
+        .alert-note .alert-title { color: #b26a0a; }
+        .alert-ok { border-left-color: #1b7a2b; background: #f0fdf4; }
+        .alert-ok .alert-title { color: #1b7a2b; }
+
+        /* SVG Chart Containers */
+        .chart-container {
+            background: #fafaf7; border: 1px solid #e0d8cc;
+            padding: 20px; margin: 20px 0; border-radius: 4px;
+        }
+        .chart-title { font-size: 14px; font-weight: bold; margin-bottom: 10px; color: #1a1a2e; }
+
+        footer {
+            text-align: center; margin-top: 40px; padding-top: 20px;
+            border-top: 1px solid #e0d8cc; color: #666; font-size: 12px;
+        }
+        @media print { body { background: white; padding: 0; } .container { border: none; } }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>DREAMS2MEMORIES TRAVEL, LLC — TRIP VALIDATION</h1>
+        <h2>[CLIENT NAME] | [TRIP TITLE] | [DATES]</h2>
+        <p>Validation Date: [DATE] | Prepared by: Hale / D2M OpsCenter</p>
+    </header>
+
+    <!-- ========== SUMMARY STATS ========== -->
+    <div class="summary-box">
+        <div class="item"><span class="number">[N]</span><span class="label">Total Days</span></div>
+        <div class="item"><span class="number">$[AMOUNT]</span><span class="label">Total Confirmed Cost</span></div>
+        <div class="item"><span class="number">[N]</span><span class="label">Bookings Tracked</span></div>
+        <div class="item"><span class="number">[N]</span><span class="label">Countries</span></div>
+        <div class="item highlight"><span class="number">[N%]</span><span class="label">Validation Coverage</span></div>
+    </div>
+
+    <!-- ========== CHART 1: PHASE TIMELINE ========== -->
+    <div class="chart-container">
+        <div class="chart-title">TRIP PHASE TIMELINE</div>
+        <svg width="100%" height="80" viewBox="0 0 1000 80" preserveAspectRatio="xMidYMid meet">
+            <!-- Phase bars inserted here — each phase = colored rect with dates -->
+        </svg>
+    </div>
+
+    <!-- ========== CHART 2: COST BREAKDOWN ========== -->
+    <div class="chart-container">
+        <div class="chart-title">COST BREAKDOWN BY CATEGORY</div>
+        <svg width="100%" height="300" viewBox="0 0 800 300" preserveAspectRatio="xMidYMid meet">
+            <!-- Horizontal bar chart — category name, cost bar, $ amount -->
+        </svg>
+    </div>
+
+    <!-- ========== CHART 3: DAILY ACTIVITY HEATMAP ========== -->
+    <div class="chart-container">
+        <div class="chart-title">DAILY ACTIVITY DENSITY</div>
+        <svg width="100%" height="100" viewBox="0 0 1000 100" preserveAspectRatio="xMidYMid meet">
+            <!-- Each day = color-coded block by activity count -->
+        </svg>
+    </div>
+
+    <!-- ========== BOOKED ITEMS BY TYPE ========== -->
+    <div class="section-title">✈️  FLIGHTS</div>
+    <table>
+        <tr><th>Date</th><th>Route</th><th>Airline / Flight</th><th>Seat</th><th>Cost</th><th>Status</th></tr>
+        <!-- INSERT ROWS -->
+    </table>
+
+    <div class="section-title">🏨  HOTELS & LODGING</div>
+    <table>
+        <tr><th>Dates</th><th>Hotel</th><th>Confirmation</th><th>Rate</th><th>Status</th></tr>
+        <!-- INSERT ROWS -->
+    </table>
+
+    <div class="section-title">🚌  TRANSFERS</div>
+    <table>
+        <tr><th>Date</th><th>Route</th><th>Provider</th><th>Cost</th><th>Status</th></tr>
+        <!-- INSERT ROWS -->
+    </table>
+
+    <div class="section-title">🎯  TOURS & EXCURSIONS</div>
+    <table>
+        <tr><th>Date</th><th>Port/Location</th><th>Tour</th><th>Time</th><th>Cost</th><th>Status</th></tr>
+        <!-- INSERT ROWS -->
+    </table>
+
+    <div class="section-title">🍽️  DINING RESERVATIONS</div>
+    <table>
+        <tr><th>Date</th><th>Restaurant</th><th>Time</th><th>Cost</th><th>Status</th></tr>
+        <!-- INSERT ROWS -->
+    </table>
+
+    <!-- ========== VALIDATION CROSS-REFERENCE ========== -->
+    <div class="section-title">✅  VALIDATION MATRIX</div>
+    <table>
+        <tr><th>Category</th><th>Count</th><th>Confirmed</th><th>Pending</th><th>Issues</th></tr>
+        <tr><td>Flights</td><td>[N]</td><td>[N]</td><td>[N]</td><td>[N]</td></tr>
+        <tr><td>Hotels</td><td>[N]</td><td>[N]</td><td>[N]</td><td>[N]</td></tr>
+        <tr><td>Transfers</td><td>[N]</td><td>[N]</td><td>[N]</td><td>[N]</td></tr>
+        <tr><td>Excursions</td><td>[N]</td><td>[N]</td><td>[N]</td><td>[N]</td></tr>
+        <tr><td>Dining</td><td>[N]</td><td>[N]</td><td>[N]</td><td>[N]</td></tr>
+    </table>
+
+    <!-- ========== ALERTS / OPEN ITEMS ========== -->
+    <div class="section-title">⚠️  ALERTS & OPEN ITEMS</div>
+    <!-- Copy this block per alert:
+    <div class="alert">
+        <div class="alert-title">[TITLE]</div>
+        <p>[Description]</p>
+        <p><strong>Owner:</strong> [Name] | <strong>Deadline:</strong> [Date]</p>
+    </div>
+    -->
+
+    <!-- ========== DOCUMENT STATUS ========== -->
+    <div class="section-title">📄  DOCUMENT STATUS</div>
+    <table>
+        <tr><th>Document</th><th>Holder</th><th>Expiration</th><th>6-Month Rule</th><th>Status</th></tr>
+        <!-- INSERT ROWS per traveler -->
+    </table>
+
+    <!-- ========== FINANCIAL SUMMARY ========== -->
+    <div class="section-title">💰  FINANCIAL SUMMARY</div>
+    <table>
+        <tr><th>Category</th><th>Amount</th><th>Notes</th></tr>
+        <!-- INSERT ROWS -->
+        <tr style="font-weight: bold;"><td>TOTAL</td><td>$[TOTAL]</td><td></td></tr>
+    </table>
+
+    <!-- ========== COMPANION CROSS-REFERENCE ========== -->
+    <div class="section-title">👥  COMPANION CROSS-REFERENCE (if applicable)</div>
+    <table>
+        <tr><th>Item</th><th>Primary Client</th><th>Companion</th><th>Shared?</th><th>Notes</th></tr>
+        <!-- INSERT ROWS -->
+    </table>
+
+    <!-- ========== DAILY ITINERARY ========== -->
+    <div class="section-title">📅  COMPLETE DAILY ITINERARY</div>
+    <table>
+        <tr><th>Day #</th><th>Date</th><th>Location</th><th>Activity</th><th>Booking Ref</th><th>Status</th></tr>
+        <!-- INSERT ONE ROW PER DAY -->
+    </table>
+
+    <footer>
+        <p><strong>DREAMS2MEMORIES TRAVEL, LLC</strong> — Trip Validation Report Template v1.0</p>
+        <p>Generated: [DATE] | Source Dossier: [DOSSIER PATH] | Next Validation: [DATE]</p>
+    </footer>
+</div>
+</body>
+</html>

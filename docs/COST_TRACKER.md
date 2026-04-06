@@ -20,7 +20,7 @@
 | **Amadeus** (flights) | Test/Free | $0 | amadeus_credentials.json | 500 calls/month |
 | **Hotelbeds** (hotels) | Test/Free | $0 | hotelbeds_credentials.json | Test tier — limited |
 | **Twilio** (WhatsApp/SMS) | Trial | $0* | thunderbird_whatsapp.py:16 | *Trial credit ~$15, verified numbers only |
-| **Google Gemini** | Free tier | $0 | itinerary_finishing_pipeline.py:39 | Key: AIzaSyC2aU... |
+| **Google Gemini** | Free tier | $0 | itinerary_finishing_pipeline.py:39 | Key: REDACTED... |
 | **Google Custom Search** | Free tier | $0 | Phase1_MVP.py:29 | 100 queries/day free |
 | **Unsplash** | Free | $0 | itinerary_finishing_pipeline.py:64 | 50 req/hour |
 
@@ -49,8 +49,8 @@
 | Key | File:Line | Service |
 |-----|-----------|---------|
 | gsk_Ipik... | thunderbird_api.py:62 | Groq |
-| AIzaSyC2aU... | itinerary_finishing_pipeline.py:39 | Google Gemini |
-| AIzaSyD0Yr... | Phase1_MVP.py:29 | Google Custom Search |
+| REDACTED... | itinerary_finishing_pipeline.py:39 | Google Gemini |
+| REDACTED... | Phase1_MVP.py:29 | Google Custom Search |
 | c521728142... | Phase1_MVP.py:30 | Google Search Engine CX |
 | H2Uq72fU... | itinerary_finishing_pipeline.py:64 | Unsplash |
 | ACdc4e7b... | thunderbird_whatsapp.py:16 | Twilio Account SID |

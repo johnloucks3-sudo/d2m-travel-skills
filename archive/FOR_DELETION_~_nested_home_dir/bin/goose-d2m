@@ -1,0 +1,6 @@
+#!/bin/bash
+# Launch Goose with Poe credentials pre-loaded from poe.env
+source /home/john/Thunderbird/config/poe.env
+export ANTHROPIC_API_KEY="$POE_API_KEY"
+# IMPORTANT: ANTHROPIC_HOST is NOT set here for Goose, to preserve existing mcp routing.
+exec goose "$@"

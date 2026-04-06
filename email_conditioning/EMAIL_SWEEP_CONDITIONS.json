@@ -1,0 +1,40 @@
+{
+  "description": "Rules for sweeping d2mconcierge and commander_inbox for actionable unread emails",
+  "enabled": true,
+  "targets": {
+    "d2m_concierge": {
+      "email": "d2mconcierge@gmail.com",
+      "label": "INBOX",
+      "action_on_match": "PROCESS_AND_TASK",
+      "max_age_hours": 24,
+      "archive_after_process": true
+    },
+    "commander_inbox": {
+      "email": "johnloucks3@gmail.com",
+      "label": "INBOX",
+      "action_on_match": "READ_ONLY",
+      "max_age_hours": 24,
+      "flag_unseen_only": true
+    }
+  },
+  "sweep_criteria": {
+    "sender_is_commander": true,
+    "subject_has_tag": true,
+    "body_has_task_keywords": true,
+    "is_reply_to_existing_task": true,
+    "is_forward_with_context": true
+  },
+  "keywords_trigger_sweep": [
+    "do this", "handle this", "look into", "research", "draft",
+    "build", "create", "fix", "update", "add to", "note this",
+    "schedule", "remind", "check", "verify"
+  ],
+  "persona_tags": ["[COS]", "[COO]", "[EXEC]", "[A2]", "[A3]", "[A5]", "[A7]", "[A9]", "[A12]", "[CLIENT]"],
+  "skip_patterns": [
+    "no-reply@",
+    "newsletter@",
+    "unsubscribe"
+  ],
+  "sweep_interval_minutes": 5,
+  "dedup_window_seconds": 600
+}

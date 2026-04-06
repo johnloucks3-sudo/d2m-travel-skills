@@ -1,0 +1,61 @@
+{
+  "description": "Auto-tasking rules for inbound emails to d2mconcierge",
+  "enabled": true,
+  "trigger_sources": {
+    "commander_direct": {
+      "from_pattern": "johnloucks3@gmail.com|john\\.a\\.loucks3@gmail\\.com",
+      "action": "ROUTE_TO_HALE",
+      "priority": "HIGH",
+      "description": "Commander emails here = direct tasking. Treat as if writing in chat."
+    },
+    "auto_forward": {
+      "from_pattern": ".*",
+      "headers_contains": ["X-Forwarded-For", "Forwarded message"],
+      "action": "CLASSIFY_AND_ROUTE",
+      "priority": "NORMAL",
+      "description": "Forwarded email. Extract original sender, classify, route."
+    },
+    "reply_chain": {
+      "subject_prefix": "Re:",
+      "action": "THREAD_RESUME",
+      "priority": "NORMAL",
+      "description": "Continuation of existing task chain. Append to thread, re-route."
+    }
+  },
+  "routing_tags": {
+    "[COS]": {"route_to": "hale", "persona": "COS", "priority": "HIGH"},
+    "[COO]": {"route_to": "hale", "persona": "COO", "priority": "HIGH"},
+    "[EXEC]": {"route_to": "hale", "persona": "EXEC", "notify_naia": true, "priority": "HIGH"},
+    "[A2]": {"route_to": "dembe", "persona": "A2_Dembe", "priority": "NORMAL"},
+    "[A3]": {"route_to": "dani", "persona": "A3_Dani", "priority": "NORMAL"},
+    "[A5]": {"route_to": "castillo", "persona": "A5_Castillo", "priority": "NORMAL"},
+    "[A7]": {"route_to": "luna", "persona": "A7_Luna", "write_task": true, "priority": "NORMAL"},
+    "[A9]": {"route_to": "harlan", "persona": "A9_Harlan", "priority": "NORMAL"},
+    "[A12]": {"route_to": "elon", "persona": "A12_ELON", "priority": "NORMAL"},
+    "[CLIENT]": {"route_to": "dani", "persona": "A3_Dani", "write_draft": true, "priority": "NORMAL"}
+  },
+  "no_tag_behavior": {
+    "action": "INFER_AND_ROUTE",
+    "description": "No tag found. Hale (COS) auto-classifies based on content.",
+    "default_route": "hale",
+    "infer_rules": {
+      "client_name_match": "route_to_dani",
+      "booking_number_match": "route_to_dani",
+      "build_or_code_or_tech": "route_to_elon",
+      "research_or_intelligence": "route_to_hale",
+      "finance_or_cost_or_budget": "route_to_harlan",
+      "marketing_or_brand_or_visual": "route_to_naia",
+      "write_or_draft_or_compose": "route_to_luna_a7",
+      "compliance_or_checklist_or_audit": "route_to_dembe_a2"
+    }
+  },
+  "multi_step_tasks": {
+    "luna_writes": {"role": "A7_Luna", "action": "generate_draft", "then": "compliance_check"},
+    "compliance_check": {"role": "A2_Dembe", "action": "verify_checklist", "then": "cos_review"},
+    "cos_review": {"role": "COS", "action": "review_and_route_to_commander", "then": "wf17_approval"}
+  },
+  "response_channel": "email_reply",
+  "reply_to_original_sender": true,
+  "cc_commander_on_response": true,
+  "archive_after_response": true
+}

@@ -1,0 +1,65 @@
+{
+  "description": "Conditions for sending directly to johnloucks3@gmail.com (Commander's personal inbox).",
+  "enabled": true,
+  "inbox_owner": "Hale (auto-managed)",
+  "auto_organize": true,
+  "send_conditions": {
+    "daily_briefing": {
+      "condition": "time >= 07:30 AND state == MORNING_CYCLE",
+      "action": "SEND",
+      "subject_format": "[D2M DAILY BRIEF] {date}",
+      "priority": "NORMAL",
+      "labels_apply": ["D2M/Briefs/Daily"]
+    },
+    "task_completion_report": {
+      "condition": "task_completed_since_last_report",
+      "action": "SEND",
+      "subject_format": "[TASK COMPLETE] {task_id} — {summary}",
+      "priority": "NORMAL",
+      "labels_apply": ["D2M/Tasks/Completed"],
+      "body_includes": ["result", "artifacts", "next_actions"]
+    },
+    "draft_for_commander_review": {
+      "condition": "draft_ready_for_review",
+      "action": "SEND_AS_GMAIL_DRAFT",
+      "subject_format": "[DRAFT] {client_name} — {subject}",
+      "labels_apply": ["D2M/Drafts/Pending Review"],
+      "notes": "Goes to johnloucks3 drafts, not sent. Commander edits/sends manually."
+    },
+    "intelligence_digest": {
+      "condition": "new_intel_available",
+      "action": "SEND",
+      "subject_format": "[INTEL] {topic} — {source}",
+      "priority": "LOW",
+      "labels_apply": ["D2M/Intel"],
+      "body_includes": ["summary", "source_link", "COS_recommendation"]
+    },
+    "urgent_action": {
+      "condition": "urgent_flag_set_by_COS_OR_client_escalation",
+      "action": "SEND",
+      "subject_format": "[URGENT] {description}",
+      "priority": "CRITICAL",
+      "labels_apply": ["D2M/Urgent"]
+    },
+    "email_reply_from_staff": {
+      "condition": "staff_officer_completed_task_requiring_email_response",
+      "action": "SEND_REPLY_TO_ORIGINAL_SENDER",
+      "also_send_summary_to": "johnloucks3@gmail.com",
+      "labels_apply": ["D2M/Staff Replies"],
+      "notes": "Reply goes to the email Commander originally sent FROM. Summary copy to Commander inbox."
+    }
+  },
+  "inbox_maintenance": {
+    "archive_read_emails_older_than_hours": 48,
+    "never_delete": true,
+    "apply_labels_on_archive": true,
+    "star_flagged_tasks": true,
+    "organize_by_prefix": {
+      "[TASK]": "D2M/Tasks/Active",
+      "[DRAFT]": "D2M/Drafts",
+      "[INTEL]": "D2M/Intel",
+      "[DAILY BRIEF]": "D2M/Briefs/Daily",
+      "[URGENT]": "D2M/Urgent"
+    }
+  }
+}
