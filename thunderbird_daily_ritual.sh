@@ -23,11 +23,11 @@ run_briefing() {
 
     log "Sending morning briefing email..."
     cd "$SCRIPT_DIR"
-    python3 thunderbird_morning_briefing.py 2>>"$LOG_FILE"
+    python3 /home/john/Thunderbird/agents/thunderbird_morning_briefing.py 2>>"$LOG_FILE"
     log "Morning briefing: DONE"
 
     log "Checking payment alerts..."
-    python3 thunderbird_payment_alerts.py 2>>"$LOG_FILE"
+    python3 /home/john/Thunderbird/agents/thunderbird_payment_alerts.py 2>>"$LOG_FILE"
     log "Payment alerts: DONE"
 }
 
@@ -37,10 +37,10 @@ run_tech_digest() {
 
     log "Running tech monitor sweep..."
     cd "$SCRIPT_DIR"
-    python3 thunderbird_tech_monitor.py --run 2>>"$LOG_FILE" || log "Tech monitor: FAILED (non-fatal)"
+    python3 core/ops/thunderbird_tech_monitor.py --run 2>>"$LOG_FILE" || log "Tech monitor: FAILED (non-fatal)"
 
     log "Refreshing Claude Code articles page..."
-    python3 thunderbird_claude_code_digest.py 2>>"$LOG_FILE" || log "Claude Code digest: FAILED (non-fatal)"
+    python3 /home/john/Thunderbird/agents/thunderbird_claude_code_digest.py 2>>"$LOG_FILE" || log "Claude Code digest: FAILED (non-fatal)"
 
     log "Phase 2: DONE"
 }
