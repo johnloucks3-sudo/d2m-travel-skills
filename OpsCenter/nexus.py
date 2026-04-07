@@ -225,37 +225,67 @@ def _route(task_text: str, mission_id: str) -> str:
 
 
 OPENCODE_BIN = Path('/home/john/.opencode/bin/opencode')
-OPENCODE_MODEL = 'openrouter/qwen/qwen3-235b-a22b-07-25'
 OPENCODE_TIMEOUT_SECS = 180
 
+# Free-first fallback chain — paid Qwen only if all three free tiers rate-limit
+OPENCODE_MODEL_CHAIN = [
+    'openrouter/deepseek/deepseek-chat:free',             # DeepSeek V3 — own infra, no Venice/Alibaba
+    'openrouter/deepseek/deepseek-r1:free',               # DeepSeek R1 — own infra, reasoning backup
+    'openrouter/mistralai/mistral-7b-instruct:free',      # Mistral — French infra, independent
+    'openrouter/google/gemma-3-27b-it:free',              # Gemma — Google infra, independent
+    'openrouter/qwen/qwen3-235b-a22b-07-25',             # Paid Qwen (Alibaba) — absolute last resort
+]
+_RATE_LIMIT_MARKERS = ('rate limit', 'rate_limit', '429', 'too many requests',
+                        'quota exceeded', 'ratelimit',
+                        'upstream error from alibaba',  # Alibaba/Qwen upstream throttle
+                        'rate increased too quickly',   # Alibaba specific phrasing
+                        'scale requests more smoothly', # Alibaba specific phrasing
+                        'upstream error from venice',   # Venice/Llama upstream throttle
+                        'venice',                       # Venice catch-all
+                        'provider is currently unavailable',  # Generic upstream down
+                        'no endpoints available')       # OpenRouter exhausted all providers
+
+def _is_rate_limited(output: str) -> bool:
+    low = output.lower()
+    return any(m in low for m in _RATE_LIMIT_MARKERS)
+
 def dispatch_to_opencode(task_text: str, mission_id: str) -> str:
-    """Run OpenCode headless (Qwen3-235B via OpenRouter) for ops/bulk tasks.
-    Replaces Goose — no rate limits, paid lane, full MCP access."""
+    """Run OpenCode headless with free-first model fallback chain.
+    Order: free Qwen3 → free Llama → free DeepSeek → paid Qwen3 (last resort).
+    Paid model only fires if all three free tiers return rate-limit errors."""
     env = dict(os.environ)
     env['PATH'] = f'/home/john/.opencode/bin:{env.get("PATH", "")}'
-    try:
-        r = subprocess.run(
-            [str(OPENCODE_BIN), 'run', '-m', OPENCODE_MODEL,
-             f'[{mission_id}] {task_text}'],
-            capture_output=True, text=True,
-            timeout=OPENCODE_TIMEOUT_SECS,
-            cwd=str(BASE_DIR.parent),
-            env=env,
-        )
-        output = r.stdout.strip() or r.stderr.strip()
-        if output:
-            audit("DISPATCH_OPENCODE", f"task={task_text[:80]} | chars={len(output)}", mission_id)
+
+    for model in OPENCODE_MODEL_CHAIN:
+        is_paid = not model.endswith(':free')
+        try:
+            r = subprocess.run(
+                [str(OPENCODE_BIN), 'run', '-m', model,
+                 f'[{mission_id}] {task_text}'],
+                capture_output=True, text=True,
+                timeout=OPENCODE_TIMEOUT_SECS,
+                cwd=str(BASE_DIR.parent),
+                env=env,
+            )
+            output = r.stdout.strip() or r.stderr.strip()
+            if not output or _is_rate_limited(output):
+                audit("DISPATCH_OPENCODE_RATELIMIT", f"model={model} rc={r.returncode} — trying next", mission_id)
+                continue
+            tier = 'PAID' if is_paid else 'FREE'
+            audit("DISPATCH_OPENCODE", f"model={model} [{tier}] | task={task_text[:60]} | chars={len(output)}", mission_id)
             return output[:2000]
-        return '[OpenCode returned empty response]'
-    except FileNotFoundError:
-        audit("DISPATCH_OPENCODE_FAIL", "opencode binary not found", mission_id)
-        return "ERROR: opencode binary not found at ~/.opencode/bin/opencode"
-    except subprocess.TimeoutExpired:
-        audit("DISPATCH_OPENCODE_TIMEOUT", f"{OPENCODE_TIMEOUT_SECS}s exceeded", mission_id)
-        return f"TIMEOUT: OpenCode did not respond within {OPENCODE_TIMEOUT_SECS}s"
-    except Exception as e:
-        audit("DISPATCH_OPENCODE_ERROR", f"Unexpected: {e}", mission_id)
-        return f"ERROR: OpenCode dispatch failed: {e}"
+        except FileNotFoundError:
+            audit("DISPATCH_OPENCODE_FAIL", "opencode binary not found", mission_id)
+            return "ERROR: opencode binary not found at ~/.opencode/bin/opencode"
+        except subprocess.TimeoutExpired:
+            audit("DISPATCH_OPENCODE_TIMEOUT", f"model={model} | {OPENCODE_TIMEOUT_SECS}s exceeded — trying next", mission_id)
+            continue
+        except Exception as e:
+            audit("DISPATCH_OPENCODE_ERROR", f"model={model} | {e}", mission_id)
+            continue
+
+    audit("DISPATCH_OPENCODE_CHAIN_EXHAUSTED", "All models failed", mission_id)
+    return "ERROR: All OpenCode models exhausted (rate limits + timeouts)"
 
 # Legacy alias — keeps any external callers working
 dispatch_to_qwen = dispatch_to_opencode

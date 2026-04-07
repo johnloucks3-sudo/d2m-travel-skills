@@ -105,7 +105,22 @@ CONTEXT_TURNS = int(os.environ.get('TELEGRAM_GW_CONTEXT_TURNS', '10'))
 SONNET_MODEL  = 'claude-sonnet-4-6'
 OPUS_MODEL    = 'claude-opus-4-6'
 OPENCODE_BIN  = Path('/home/john/.opencode/bin/opencode')
-OPENCODE_MODEL = 'openrouter/qwen/qwen3-235b-a22b-07-25'
+# Free-first fallback chain — paid only if all three free tiers rate-limit
+OPENCODE_MODEL_CHAIN = [
+    'openrouter/deepseek/deepseek-chat:free',             # DeepSeek V3 — own infra, no Venice/Alibaba
+    'openrouter/deepseek/deepseek-r1:free',               # DeepSeek R1 — own infra, reasoning backup
+    'openrouter/mistralai/mistral-7b-instruct:free',      # Mistral — French infra, independent
+    'openrouter/google/gemma-3-27b-it:free',              # Gemma — Google infra, independent
+    'openrouter/qwen/qwen3-235b-a22b-07-25',             # Paid Qwen (Alibaba) — absolute last resort
+]
+_OC_RATE_MARKERS = ('rate limit', 'rate_limit', '429', 'too many requests', 'quota exceeded',
+                    'upstream error from alibaba',        # Alibaba/Qwen upstream throttle
+                    'rate increased too quickly',         # Alibaba specific phrasing
+                    'scale requests more smoothly',       # Alibaba specific phrasing
+                    'upstream error from venice',         # Venice/Llama upstream throttle
+                    'venice',                             # Venice catch-all
+                    'provider is currently unavailable',  # Generic upstream down
+                    'no endpoints available')             # OpenRouter exhausted all providers
 MCP_HTTP_URL  = 'http://localhost:8767'
 
 # ── Persona cache (loaded once at startup) ────────────────────────────────────
@@ -361,12 +376,12 @@ def call_claude_engine(prompt: str, model: str = SONNET_MODEL) -> str:
         return f'[Engine error — {e}]'
 
 
-# ── Engine: OpenCode headless (replaces Goose) ────────────────────────────────
+# ── Engine: OpenCode headless — free-first fallback chain ────────────────────
 
 def call_opencode_engine(system_prompt: str, text_prompt: str, use_mcp: bool = True) -> str:
     """
-    Invoke OpenCode headless via `opencode run`.
-    Replaces call_goose_engine — same interface, no rate limits, paid Qwen3-235B.
+    Invoke OpenCode headless via `opencode run` with free-first model fallback.
+    Chain: free Qwen3 → free Llama → free DeepSeek → paid Qwen3 (last resort).
     system_prompt: persona/identity instructions (prepended to prompt)
     text_prompt:   context + user message
     use_mcp:       reserved for compat (OpenCode uses .opencode.json MCP config)
@@ -376,27 +391,37 @@ def call_opencode_engine(system_prompt: str, text_prompt: str, use_mcp: bool = T
     env = dict(os.environ)
     env['PATH'] = f'/home/john/.opencode/bin:{env.get("PATH", "")}'
 
-    try:
-        result = subprocess.run(
-            [str(OPENCODE_BIN), 'run', '-m', OPENCODE_MODEL, full_prompt],
-            capture_output=True,
-            text=True,
-            timeout=ENGINE_TIMEOUT,
-            cwd=str(THUNDERBIRD),
-            env=env,
-        )
-        output = result.stdout.strip()
-        if not output and result.returncode != 0:
-            log.error('OpenCode headless rc=%d: %s', result.returncode, result.stderr[:300])
-            return f'[Engine error — OpenCode rc={result.returncode}]'
-        return output or '[Engine returned empty response]'
+    for model in OPENCODE_MODEL_CHAIN:
+        try:
+            result = subprocess.run(
+                [str(OPENCODE_BIN), 'run', '-m', model, full_prompt],
+                capture_output=True,
+                text=True,
+                timeout=ENGINE_TIMEOUT,
+                cwd=str(THUNDERBIRD),
+                env=env,
+            )
+            output = result.stdout.strip() or result.stderr.strip()
+            if output and any(m in output.lower() for m in _OC_RATE_MARKERS):
+                log.warning('OpenCode rate-limited on %s — trying next model', model)
+                continue
+            if not output and result.returncode != 0:
+                log.error('OpenCode rc=%d on %s: %s', result.returncode, model, result.stderr[:200])
+                continue
+            tier = 'FREE' if model.endswith(':free') else 'PAID'
+            log.info('OpenCode engine: %s [%s]', model, tier)
+            return output or '[Engine returned empty response]'
 
-    except subprocess.TimeoutExpired:
-        return '[Engine timeout — OpenCode exceeded limit]'
-    except FileNotFoundError:
-        return '[Engine error — opencode binary not found at ~/.opencode/bin/opencode]'
-    except Exception as e:
-        return f'[Engine error — {e}]'
+        except subprocess.TimeoutExpired:
+            log.warning('OpenCode timeout on %s — trying next model', model)
+            continue
+        except FileNotFoundError:
+            return '[Engine error — opencode binary not found at ~/.opencode/bin/opencode]'
+        except Exception as e:
+            log.error('OpenCode error on %s: %s', model, e)
+            continue
+
+    return '[Engine error — all models exhausted (rate limits + timeouts)]'
 
 # Legacy alias — keeps any remaining call_goose_engine references working
 call_goose_engine = call_opencode_engine

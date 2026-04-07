@@ -1,24 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "provider": "anthropic",
-  "model": "anthropic/claude-sonnet-4-6",
-  "providers": {
-    "anthropic": {
-      "models": {
-        "anthropic/claude-opus-4-6": { "name": "Claude Opus 4.6" },
-        "anthropic/claude-sonnet-4-6": { "name": "Claude Sonnet 4.6" },
-        "anthropic/claude-haiku-4-5-20251001": { "name": "Claude Haiku 4.5" }
-      }
-    },
-    "openrouter": {
-      "models": {
-        "google/gemini-2.5-pro-preview": { "name": "Gemini 2.5 Pro" },
-        "deepseek/deepseek-chat": { "name": "DeepSeek V3" },
-        "meta-llama/llama-3.3-70b-instruct": { "name": "Llama 3.3 70B" },
-        "qwen/qwen-2.5-coder-32b-instruct": { "name": "Qwen 2.5 Coder" }
-      }
-    }
-  },
+  "model": "openrouter/deepseek/deepseek-chat:free",
   "mcpServers": {
     "dreams2memories": {
       "command": "/home/john/Thunderbird/mcp_launcher_core.sh"
