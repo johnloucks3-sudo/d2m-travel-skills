@@ -76,7 +76,7 @@ Commander always knows which Hale he's talking to before she says another word.
 | File | Role |
 |------|------|
 | `OpsCenter/collaboration/claude_inbox.md` | Tasks FROM wing TO Claude |
-| `OpsCenter/collaboration/goose_inbox.md` | Tasks FROM wing TO Goose |
+| `OpsCenter/collaboration/opencode_inbox.md` | Tasks FROM wing TO OpenCode |
 | `OpsCenter/collaboration/claude_outbox.md` | Results FROM Claude |
 | `OpsCenter/collaboration/wing_comms.md` | FYI/REQUEST between agents |
 
@@ -84,11 +84,11 @@ Commander always knows which Hale he's talking to before she says another word.
 - Thunderbird MCP: port 8765 (HTTP JSON-RPC), 285+ tools
 - OpsCenter task queue: `OpsCenter/03_CLAUDE_MAX_QUEUE.json`
 - Telegram bot: active, routes to OpsCenter task_processor.py
-- Goose: OpenRouter/Kimi K2-Thinking, headless via `goose run --text`
+- **OpenCode** v1.3.17: DeepSeek V3.1 via OpenRouter, headless via `opencode run -m openrouter/deepseek/deepseek-chat-v3.1 "task"`
 - Claude headless: `claude -p "[prompt]" --dangerously-skip-permissions`
 - **Chrome debug service: `chrome-debug.service` — LIVE, port 9222, headless, autostart**
   - Profile: ~/.chrome-debug-profile (separate from Commander's personal Chrome)
-  - Gives Goose CDP access for SPA scraping (Silversea.com, OA portal, etc.)
+  - Gives OpenCode CDP access for SPA scraping (Silversea.com, OA portal, etc.)
   - Verify: `curl -s http://localhost:9222/json/version`
   - Restart: `systemctl --user restart chrome-debug.service`
 

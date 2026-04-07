@@ -227,13 +227,13 @@ def _route(task_text: str, mission_id: str) -> str:
 OPENCODE_BIN = Path('/home/john/.opencode/bin/opencode')
 OPENCODE_TIMEOUT_SECS = 180
 
-# Free-first fallback chain — paid Qwen only if all three free tiers rate-limit
+# Claude-first chain — OpenRouter free models as distant fallback only
 OPENCODE_MODEL_CHAIN = [
-    'openrouter/deepseek/deepseek-chat:free',             # DeepSeek V3 — own infra, no Venice/Alibaba
-    'openrouter/deepseek/deepseek-r1:free',               # DeepSeek R1 — own infra, reasoning backup
-    'openrouter/mistralai/mistral-7b-instruct:free',      # Mistral — French infra, independent
-    'openrouter/google/gemma-3-27b-it:free',              # Gemma — Google infra, independent
-    'openrouter/qwen/qwen3-235b-a22b-07-25',             # Paid Qwen (Alibaba) — absolute last resort
+    'openrouter/anthropic/claude-sonnet-4.6',             # Claude MAX via OpenRouter — primary
+    'openrouter/deepseek/deepseek-chat-v3.1',             # DeepSeek V3.1 — first fallback
+    'openrouter/deepseek/deepseek-chat:free',             # DeepSeek V3 free
+    'openrouter/deepseek/deepseek-r1:free',               # DeepSeek R1 free
+    'openrouter/mistralai/mistral-7b-instruct:free',      # Mistral — last resort
 ]
 _RATE_LIMIT_MARKERS = ('rate limit', 'rate_limit', '429', 'too many requests',
                         'quota exceeded', 'ratelimit',
@@ -243,7 +243,10 @@ _RATE_LIMIT_MARKERS = ('rate limit', 'rate_limit', '429', 'too many requests',
                         'upstream error from venice',   # Venice/Llama upstream throttle
                         'venice',                       # Venice catch-all
                         'provider is currently unavailable',  # Generic upstream down
-                        'no endpoints available')       # OpenRouter exhausted all providers
+                        'no endpoints available',       # OpenRouter exhausted all providers
+                        'provider_unavailable',         # DeepSeek 502 JSON error type
+                        'network connection lost',      # DeepSeek 502 message
+                        '"code":502', '502')            # HTTP 502 bad gateway
 
 def _is_rate_limited(output: str) -> bool:
     low = output.lower()
@@ -303,12 +306,19 @@ def dispatch_to_claude(task_text: str, mission_id: str) -> str:
         return f"BLOCKED: Claude queue full ({queue_depth('claude')}/{_QUEUE['max_depth']}). Retry later."
     
     queue_inc("claude")
+    # Strip proxy env vars — ANTHROPIC_BASE_URL points at Claude Code proxy
+    # which rejects headless calls without a key. Pop both so Max OAuth kicks in.
+    claude_env = dict(os.environ)
+    claude_env.pop('ANTHROPIC_API_KEY', None)
+    claude_env.pop('ANTHROPIC_BASE_URL', None)
+
     attempt = 0
     while attempt <= CLAUDE_MAX_RETRIES:
         try:
             r = subprocess.run(
                 ["claude", "-p", f"[{mission_id}] {task_text}"],
-                capture_output=True, text=True, timeout=CLAUDE_TIMEOUT_SECS
+                capture_output=True, text=True, timeout=CLAUDE_TIMEOUT_SECS,
+                env=claude_env,
             )
             output = r.stdout.strip() or r.stderr.strip()
             if output:
@@ -555,11 +565,27 @@ def _escalate_to_commander(mission_id: str, stop_reason: StopReason, results: li
 
 
 # ── Suspense Watch ────────────────────────────────────────────────────────────
+_SUSPENSE_ALERTED_FILE = BASE_DIR / "state" / "suspense_alerted.json"
+_SUSPENSE_COOLDOWN_HOURS = 9999  # alert ONCE per mission — never repeat until mission resets
+
+def _load_suspense_alerted() -> dict:
+    """Load {mission_id: last_alerted_iso} from disk."""
+    try:
+        return json.loads(_SUSPENSE_ALERTED_FILE.read_text())
+    except Exception:
+        return {}
+
+def _save_suspense_alerted(data: dict):
+    _SUSPENSE_ALERTED_FILE.parent.mkdir(parents=True, exist_ok=True)
+    _SUSPENSE_ALERTED_FILE.write_text(json.dumps(data, indent=2))
+
 def check_suspense_alerts():
-    """Page Commander for missions within 24h of suspense deadline."""
+    """Page Commander for missions within 24h of suspense deadline.
+    Each mission is only paged once per _SUSPENSE_COOLDOWN_HOURS hours."""
     board = load_board()
     now = datetime.now(timezone.utc)
     threshold = now + timedelta(hours=24)
+    alerted = _load_suspense_alerted()
     alerts = []
 
     for m in board.get("active_missions", []):
@@ -571,10 +597,25 @@ def check_suspense_alerts():
         except ValueError:
             continue
 
-        if suspense <= threshold and m.get("status") != "completed":
-            alerts.append(m)
+        if suspense > threshold or m.get("status") == "completed":
+            continue
+
+        # Cooldown: skip if already alerted within the window
+        mid = m["id"]
+        last_str = alerted.get(mid)
+        if last_str:
+            try:
+                last_dt = datetime.fromisoformat(last_str)
+                if (now - last_dt).total_seconds() < _SUSPENSE_COOLDOWN_HOURS * 3600:
+                    continue
+            except Exception:
+                pass
+
+        alerts.append(m)
+        alerted[mid] = now.isoformat()
 
     if alerts:
+        _save_suspense_alerted(alerted)
         audit("SUSPENSE_ALERT", f"{len(alerts)} mission(s) within 24h of deadline")
         _write_routing_log(f"SUSPENSE ALERT: {', '.join(a['id'] for a in alerts)}")
 
@@ -680,7 +721,7 @@ def scan_inboxes() -> list:
     state = _load_inbox_state()
     all_tasks = []
 
-    for inbox_path, state_key in [(GOOSE_INBOX, "goose_last_line"), (CLAUDE_INBOX, "claude_last_line")]:
+    for inbox_path, state_key in [(OPENCODE_INBOX, "opencode_last_line"), (CLAUDE_INBOX, "claude_last_line")]:
         last_line = state.get(state_key, 0)
         new_tasks = _scan_inbox_file(inbox_path, last_line)
         all_tasks.extend(new_tasks)
@@ -695,7 +736,7 @@ def scan_inboxes() -> list:
 # ── Daemon Mode ───────────────────────────────────────────────────────────────
 def daemon_loop(poll_seconds: int = 60):
     """
-    Continuous loop: check suspense watch + drain goose_inbox for NEXUS: tasks.
+    Continuous loop: check suspense watch + drain opencode_inbox for NEXUS: tasks.
     Runs until SIGTERM.
     """
     lock = NexusLock()

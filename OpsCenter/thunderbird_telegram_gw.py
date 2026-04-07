@@ -105,13 +105,13 @@ CONTEXT_TURNS = int(os.environ.get('TELEGRAM_GW_CONTEXT_TURNS', '10'))
 SONNET_MODEL  = 'claude-sonnet-4-6'
 OPUS_MODEL    = 'claude-opus-4-6'
 OPENCODE_BIN  = Path('/home/john/.opencode/bin/opencode')
-# Free-first fallback chain — paid only if all three free tiers rate-limit
+# Claude-first chain — OpenRouter free models as distant fallback only
 OPENCODE_MODEL_CHAIN = [
-    'openrouter/deepseek/deepseek-chat:free',             # DeepSeek V3 — own infra, no Venice/Alibaba
-    'openrouter/deepseek/deepseek-r1:free',               # DeepSeek R1 — own infra, reasoning backup
-    'openrouter/mistralai/mistral-7b-instruct:free',      # Mistral — French infra, independent
-    'openrouter/google/gemma-3-27b-it:free',              # Gemma — Google infra, independent
-    'openrouter/qwen/qwen3-235b-a22b-07-25',             # Paid Qwen (Alibaba) — absolute last resort
+    'openrouter/anthropic/claude-sonnet-4.6',             # Claude MAX via OpenRouter — primary
+    'openrouter/deepseek/deepseek-chat-v3.1',             # DeepSeek V3.1 — first fallback
+    'openrouter/deepseek/deepseek-chat:free',             # DeepSeek V3 free
+    'openrouter/deepseek/deepseek-r1:free',               # DeepSeek R1 free
+    'openrouter/mistralai/mistral-7b-instruct:free',      # Mistral — last resort
 ]
 _OC_RATE_MARKERS = ('rate limit', 'rate_limit', '429', 'too many requests', 'quota exceeded',
                     'upstream error from alibaba',        # Alibaba/Qwen upstream throttle
@@ -120,7 +120,10 @@ _OC_RATE_MARKERS = ('rate limit', 'rate_limit', '429', 'too many requests', 'quo
                     'upstream error from venice',         # Venice/Llama upstream throttle
                     'venice',                             # Venice catch-all
                     'provider is currently unavailable',  # Generic upstream down
-                    'no endpoints available')             # OpenRouter exhausted all providers
+                    'no endpoints available',             # OpenRouter exhausted all providers
+                    'provider_unavailable',               # DeepSeek 502 JSON error type
+                    'network connection lost',            # DeepSeek 502 message
+                    '"code":502', '502')                  # HTTP 502 bad gateway
 MCP_HTTP_URL  = 'http://localhost:8767'
 
 # ── Persona cache (loaded once at startup) ────────────────────────────────────
@@ -351,8 +354,11 @@ def call_claude_engine(prompt: str, model: str = SONNET_MODEL) -> str:
     Uses Max OAuth (no API key needed when ANTHROPIC_API_KEY is empty).
     """
     env = dict(os.environ)
-    # Claude CLI uses Max OAuth when no API key is set
+    # Claude CLI uses Max OAuth when no API key is set.
+    # Also strip ANTHROPIC_BASE_URL — it points at the Claude Code proxy
+    # in this environment, which rejects calls without a key.
     env.pop('ANTHROPIC_API_KEY', None)
+    env.pop('ANTHROPIC_BASE_URL', None)
 
     try:
         result = subprocess.run(

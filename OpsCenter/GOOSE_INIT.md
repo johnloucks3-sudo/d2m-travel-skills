@@ -1,5 +1,9 @@
-# GOOSE INITIALIZATION — THUNDERBIRD WING v4
-**Paste this entire file at the start of every Goose session.**
+# ⚠️ DEPRECATED — GOOSE IS DECOMMISSIONED
+# Use OPENCODE_INIT.md instead: `cat /home/john/Thunderbird/OpsCenter/OPENCODE_INIT.md`
+# Goose replaced by OpenCode v1.3.17 as of 2026-04-06.
+---
+# GOOSE INITIALIZATION — THUNDERBIRD WING v4 (ARCHIVED)
+**THIS FILE IS ARCHIVED. Do not use for new sessions.**
 **Working directory:** `/home/john/Thunderbird`
 **Last rebuilt:** 2026-04-06
 
@@ -570,9 +574,9 @@ AND `OpsCenter/thunderbird_overwatch.sh` (which has its own export).
 *Brain Index: 4 tiers, 30+ reference files, full Drive map, 13 recipes, full core module registry.*
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-04-06 19:54 MT -->
+<!-- Last sync: 2026-04-06 23:09 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-04-06 19:54 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-04-06 23:09 MT] ===
 Budget: Claude UNKNOWN | Goose GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE

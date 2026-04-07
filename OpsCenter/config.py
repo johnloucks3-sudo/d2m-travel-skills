@@ -5,7 +5,7 @@ Imported by nexus.py via: from config import *
 Paths:
   BASE_DIR          — OpsCenter directory (auto-derived from config.py's __file__)
   MISSION_BOARD      — JSON state file for mission tracking
-  GOOSE_INBOX        — Qwen/Goose agent inbox (collaboration/goose_inbox.md)
+  OPENCODE_INBOX     — OpenCode agent inbox (collaboration/opencode_inbox.md)
   CLAUDE_INBOX       — Claude agent inbox (sibling dir ../claude_inbox.md)
   AUDIT_LOG          — Nexus daemon audit log (global Thunderbird/logs/)
   NEXUS_LOCK         — File lock to prevent concurrent daemon instances
@@ -29,7 +29,8 @@ BASE_DIR = Path(__file__).parent
 MISSION_BOARD = BASE_DIR / "mission_board.json"
 AUDIT_LOG = Path("/home/john/Thunderbird/logs/nexus_audit.log")
 NEXUS_LOCK = BASE_DIR / "nexus.lock"
-GOOSE_INBOX = BASE_DIR / "collaboration/goose_inbox.md"
+OPENCODE_INBOX = BASE_DIR / "collaboration/opencode_inbox.md"
+GOOSE_INBOX = OPENCODE_INBOX  # legacy alias — goose_inbox.md → opencode_inbox.md
 CLAUDE_INBOX = BASE_DIR.parent / "claude_inbox.md"
 ROUTING_LOG = BASE_DIR / "collaboration/routing_log.md"
 

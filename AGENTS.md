@@ -131,7 +131,7 @@ All automated via systemd timers (MDT):
 
 | Time (MDT) | What |
 |------------|------|
-| 01:00 | **Agentic intel sweep** → `johnloucks3@gmail.com` (Claude Code/Goose/multi-model ecosystem) |
+| 01:00 | **Agentic intel sweep** → `johnloucks3@gmail.com` (Claude Code/OpenCode/multi-model ecosystem) |
 | 01:00–02:30 | Morning intel block (incubator, world intel) |
 | 07:00 | Daily ritual — briefing + payment alerts |
 | 08:00 | Phone connectivity test |
@@ -145,18 +145,23 @@ All automated via systemd timers (MDT):
 | Tool | Model | Cost | Use |
 |------|-------|------|-----|
 | **Claude Code** (MAX) | Opus 4.6 / Sonnet 4.6 | $0 | Primary — reasoning, code, client work |
-| **OpenCode** v1.3.17 | qwen3.6-plus-free (default) | $0 | Ops, bulk tasks, scanning |
-| **OpenCode** + OpenRouter | claude-sonnet-4.6, grok-4, DeepSeek-R1 | pay/token | Heavy tasks, multi-model |
+| **OpenCode** v1.3.17 | DeepSeek V3.1 via OpenRouter (default) | ~$0.27/M | Ops, bulk tasks, scanning, interactive dev |
 | **Claude Agent SDK** | Sonnet 4.6 | $0 (MAX) | Headless: `claude -p "..."` |
-| **Nexus daemon** | Sonnet via API | ~$0.03/task | Keyword-routed task queue |
+| **Nexus daemon** | OpenCode (DeepSeek V3.1) + claude -p judgment | ~$0/task | Keyword-routed task queue |
 
 **Goose is decommissioned.** References to `goose-d2m`, `goose run`, or `~/.config/goose/` anywhere in docs are stale. Replace `goose run "X"` with `opencode run "X"`.
 
 **OpenCode model IDs** (use with `-m`):
-- `opencode/qwen3.6-plus-free` — free, good for ops/scanning
-- `openrouter/anthropic/claude-sonnet-4.6` — Claude via OpenRouter
-- `togetherai/deepseek-ai/DeepSeek-R1` — reasoning
-- `xai/grok-4` — Grok
+- `openrouter/deepseek/deepseek-chat-v3.1` — **default** — DeepSeek V3.1, reliable, cheap
+- `openrouter/deepseek/deepseek-chat:free` — DeepSeek V3 free tier (rate limited)
+- `openrouter/deepseek/deepseek-r1:free` — DeepSeek R1 reasoning (free, rate limited)
+- `openrouter/mistralai/mistral-small-3.1-24b-instruct:free` — Mistral free fallback
+- `openrouter/google/gemma-3-27b-it:free` — Gemma free fallback
+
+**To invoke OpenCode headless:**
+```bash
+opencode run -m openrouter/deepseek/deepseek-chat-v3.1 "your task here"
+```
 
 ## Key Conventions
 
