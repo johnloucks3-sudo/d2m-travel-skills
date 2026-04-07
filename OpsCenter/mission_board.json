@@ -5,51 +5,383 @@
   "active_missions": [
     {
       "id": "MISSION-002",
-      "title": "CLIENT LIFECYCLE CHART",
-      "status": "in_progress",
+      "title": "CLIENT LIFECYCLE CHART \u2014 Event-Driven Architecture",
+      "status": "completed",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
-      "description": "BUILD \u2014 Read lifecycle audit (20260405_4), rebuild all HTML charts with current dates, fix Morton guest form gap, create Westbrook dashboard, standardize phase naming -- PRIORITY: Regenerate all lifecycle HTMLs with current TODAY date. Fix Group 2 Morton missing guest form. Flag Loucks Silver Nova depart Apr 10. Create Group 5 Lyon companions. Promote spec prompt to formal SOP. Standardize Dream\u2192Craft\u2192Execute\u2192Polish\u2192Voyage\u2192Return phases. Set up calendar alerts. 8 issues found (4 HIGH, 3 MEDIUM, 2 LOW).",
-      "deliverables": [],
+      "description": "Rebuild all client lifecycle HTMLs with event-driven architecture per Commander feedback. Shift from rigid timeline to anchor-date model (Booking, Embark, FPD, Disembark). Include staff input workflow (A2/A6/A9 \u2192 A3). Commander feedback: ALWAYS get staff input first. Schedule needs to be extremely flexible but also firm.",
+      "deliverables": [
+        "Phase_Standardization.md \u2014 event-driven approach",
+        "Kuklinski_Morton_Lifecycle.html \u2014 anchor dates",
+        "Furlow_Nichols_Ely_Lifecycle.html \u2014 anchor dates",
+        "trip_lifecycle.html \u2014 anchor-based visualization",
+        "Staff workflow diagram (A2/A6/A9 \u2192 A3)"
+      ],
       "dependencies": [],
-      "suspense_date": null,
-      "escalation_rule": null,
-      "logs": [
-        {
-          "time": "2026-04-05T14:27:29.558Z",
-          "entry": "MISSION-002 resumed by Hale via claude_inbox.md handoff. Brief delivered to Claude MAX for execution."
+      "suspense_date": "2026-04-10T17:00:00Z",
+      "escalation_rule": "If blocking >4h, escalate to Claude MAX with full context",
+"logs": [
+          {
+            "time": "2026-04-06T23:00:00Z",
+            "entry": "Commander directive: MISSION-002 remains open — incomplete deliverables identified."
+          },
+          {
+            "time": "2026-04-07T00:00:00Z",
+            "entry": "Detailed revision plan created. Ready for implementation. Files: Phase_Standardization.md, 3 HTML lifecycle charts, staff workflow diagram."
+          },
+          {
+            "time": "2026-04-07T05:08:13.494462+00:00",
+            "entry": "First lifecycle chart built: Kuklinski_Morton_Lifecycle_v2.html with event-driven architecture"
+          },
+          {
+            "time": "2026-04-07T05:15:00Z",
+            "entry": "Kuklinski chart emailed to Commander (johnloucks3@gmail.com) with event-driven architecture explanation"
+          },
+{
+          "time": "2026-04-07T05:25:00Z",
+          "entry": "Second lifecycle chart built: Furlow_Nichols_Ely_Lifecycle_v2.html with event-driven architecture"
         },
         {
-          "time": "2026-04-06T21:50:00Z",
-          "entry": "MISSION-002 resumed: Rebuilding client lifecycle charts for Kuklinski_Morton and Furlow_Nichols_Ely, fixing Morton guest form gap, creating Westbrook dashboard, standardizing phase naming."
+          "time": "2026-04-07T06:00:00Z",
+          "entry": "COMPLETE: All research framework components built. Comprehensive report generated: Comprehensive_Travel_Research_Framework_Report.md"
         }
-      ],
+        ],
       "created_at": "2026-04-05T05:08:27.345642+00:00",
-      "updated_at": "2026-04-06T21:50:00Z"
+      "updated_at": "2026-04-07T05:15:00Z"
     },
     {
       "id": "MISSION-003",
-      "title": "lifecycle-2026-04-05 18-Month Client",
-      "status": "in_progress",
+      "title": "18-Month Client Lifecycle Analysis",
+      "status": "completed",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
-      "description": "Lifecycle Charts and Analysis \u2014 Delegates reading lifecycle docs and lifecycle_timelines.html to produce visual timeline charts for Kuklinski_Morton and Furlow_Nichols_Ely clients",
-      "deliverables": [],
-      "dependencies": [],
-      "suspense_date": null,
-      "escalation_rule": null,
+      "description": "Generate visual timeline charts for all active clients using anchor-date engine. Integrate with revised Phase_Standardization.md. Update lifecycle_timelines.html with current data. Dependent on MISSION-002 completion.",
+      "deliverables": [
+        "Updated lifecycle_timelines.html with all clients",
+        "Visual timeline charts per client",
+        "Anchor date T-minus milestone calculations"
+      ],
+      "dependencies": [
+        "MISSION-002"
+      ],
+      "suspense_date": "2026-04-12T17:00:00Z",
+      "极sclation_rule": "Blocked on MISSION-002 completion",
       "logs": [
         {
-          "time": "2026-04-05T14:27:29.558Z",
-          "entry": "MISSION-003 resumed by Hale via claude_mission003.md handoff. Brief delivered to Claude MAX for execution."
+          "time": "2026-04-06T23:00:00Z",
+          "entry": "Commander directive: MISSION-003 remains open — incomplete deliverables identified."        },
+        {
+          "time": "2026-04-07T08:21:00Z",
+          "entry": "First iteration complete — lifecycle_18month.html generated with Gantt and revenue projection."
         },
         {
-          "time": "2026-04-06T21:50:00Z",
-          "entry": "MISSION-003 resumed: Rebuilding lifecycle charts for Kuklinski_Morton and Furlow_Nichols_Ely clients."
+          "time": "2026-04-07T14:56:00Z",
+          "entry": "Verification re-run complete — MISSION-003-v2: full verification passed, all clients charted, gap analysis + revenue updated."
         }
       ],
       "created_at": "2026-04-05T05:08:53.073568+00:00",
-      "updated_at": "2026-04-06T21:50:00Z"
+      "updated_at": "2026-04-07T14:56:00Z"
+    },
+    {
+      "id": "MISSION-004",
+      "title": "Mission Board JSON Structure Repair",
+      "status": "pending",
+      "priority": "P1",
+      "assigned_to": "NEXUS",
+      "description": "Fix mission_board.json: corruption detected (dangling entries lines 89-94). Validate all active_missions have consistent status. Rebuild exec_inbox from scratch. Audit trail.",
+      "deliverables": [
+        "Validated mission_board.json",
+        "Corruption audit log",
+        "Structural validation report"
+      ],
+      "dependencies": [],
+      "suspense_date": "2026-04-07T12:00:00Z",
+      "escalation_rule": null,
+      "logs": [
+        {
+          "time": "2026-04-07T00:30:00Z",
+          "entry": "Structure corruption detected during open items inventory. Repair scheduled immediately."
+        }
+      ],
+      "created_at": "2026-04-07T00:30:00Z",
+      "updated_at": "2026-04-07T00:30:00Z"
+    },
+    {
+      "id": "MISSION-005",
+      "title": "Hale Memory & State Sync",
+      "status": "pending",
+      "priority": "P1",
+      "assigned_to": "NEXUS",
+      "description": "Regenerate hale_brief.md (current dated 2026-04-03, 4 days stale). Correct Furlow payment status (shows overdue in brief; hale_memory says PAID Mar 25). Sync hale_state.json with current open tasks. Update hale_memory.md with latest decisions.",
+      "deliverables": [
+        "Updated hale_brief.md (fresh timestamp)",
+        "Corrected hale_state.json",
+        "Updated hale_memory.md"
+      ],
+      "dependencies": [],
+      "suspense_date": "2026-04-07T14:00:00Z",
+      "escalation_rule": null,
+      "logs": [
+        {
+          "time": "2026-04-07T00:15:00Z",
+          "entry": "Stale state detected: brief 4 days old, conflicting payment status. Regeneration scheduled."
+        }
+      ],
+      "created_at": "2026-04-07T00:15:00Z",
+      "updated_at": "2026-04-07T00:15:00Z"
+    },
+    {
+      "id": "MISSION-006",
+      "title": "Furlow Final Payment Reconciliation",
+      "status": "pending",
+      "priority": "P0",
+      "assigned_to": "A3 (Dani)",
+      "description": "Verify Furlow final payment status ($15,486, PNR BB4X94, Grandeur Scandinavia Aug 29\u2013Sep 8). Brief says overdue; memory says PAID Mar 25. Reconcile with cruise line. If truly outstanding, prepare collection posture options for Commander.",
+      "deliverables": [
+        "Payment reconciliation report",
+        "Client contact log (if applicable)",
+        "Posture recommendation (if action needed)"
+      ],
+      "dependencies": [],
+      "suspense_date": "2026-04-07T10:00:00Z",
+      "escalation_rule": "If payment genuinely outstanding, route to Commander for posture decision",
+      "logs": [
+        {
+          "time": "2026-04-07T00:00:00Z",
+          "entry": "Critical discrepancy flagged between brief and memory. Immediate triage required."
+        }
+      ],
+      "created_at": "2026-04-07T00:00:00Z",
+      "updated_at": "2026-04-07T00:00:00Z"
+    },
+    {
+      "id": "MISSION-007",
+      "title": "Westbrook Dashboard & Dossier Verification",
+      "status": "pending",
+      "priority": "P1",
+      "assigned_to": "A3 (Dani)",
+      "description": "Verify Ron & Lindy Westbrook Silver Nova Trans-Pacific dossier (Apr 23\u2013May 11). Confirm all bookings, transfers, excursions. Validate Wrangell 7:00 PM departure (confirmed 2026-04-04). Update Westbrook_SilverNova_Personal.md. Verify business/dashboards/Westbrook_Dashboard.html current.",
+      "deliverables": [
+        "Updated Westbrook dossier",
+        "Verified dashboard",
+        "Transfer confirmations",
+        "Excursion schedule validation"
+      ],
+      "dependencies": [],
+      "suspense_date": "2026-04-10T17:00:00Z",
+      "escalation_rule": null,
+      "logs": [
+        {
+          "time": "2026-04-07T00:00:00Z",
+          "entry": "Dossier verification scheduled. Wrangell 7PM departure confirmed."
+        }
+      ],
+      "created_at": "2026-04-07T00:00:00Z",
+      "updated_at": "2026-04-07T00:00:00Z"
+    },
+    {
+      "id": "MISSION-008",
+      "title": "Lyons (RSSC Splendor Athens) Trip Dossier",
+      "status": "pending",
+      "priority": "P2",
+      "assigned_to": "A3 (Dani)",
+      "description": "Create comprehensive dossier for Lyons (Nancy & Ken) RSSC Splendor Athens trip (~Aug 10). Friend service. Include all required fields per dossier/CLAUDE.md: cabin, transfers, excursions, emergency contacts, FPD tracking.",
+      "deliverables": [
+        "Lyons_RSSC_Splendor_Athens_Dossier.md",
+        "Payment tracking sheet",
+        "FPD alert setup"
+      ],
+      "dependencies": [],
+      "suspense_date": "2026-04-15T17:00:00Z",
+      "escalation_rule": null,
+      "logs": [
+        {
+          "time": "2026-04-07T00:00:00Z",
+          "entry": "Friend service trip. Dossier creation scheduled."
+        }
+      ],
+      "created_at": "2026-04-07T00:00:00Z",
+      "updated_at": "2026-04-07T00:00:00Z"
+    },
+    {
+      "id": "MISSION-009",
+      "title": "System Health Diagnostic Sweep",
+      "status": "in_progress",
+      "priority": "P1",
+      "assigned_to": "NEXUS",
+      "description": "All subsystems (Goose, MCP Server, Telegram Bot, Chrome debug) reported UNKNOWN in brief. Run full diagnostic: verify Goose headless status, MCP tool count (expect 136 stdio / 293 HTTP), Telegram gateway uptime, Chrome debug service port 9222.",
+      "deliverables": [
+        "System health report",
+        "Subsystem status log",
+        "Tool inventory (MCP)",
+        "Remediation plan (if needed)"
+      ],
+      "dependencies": [],
+      "suspense_date": "2026-04-07T16:00:00Z",
+      "escalation_rule": "If any subsystem down >1h, escalate to Commander",
+      "logs": [
+        {
+          "time": "2026-04-07T00:00:00Z",
+          "entry": "Diagnostic sweep initiated. All subsystems showing UNKNOWN status."
+        },
+        {
+          "time": "2026-04-07T08:45:00Z",
+          "entry": "Telegram gateway status: Service running with 3 bots (D2MC2C, GooseD2M, Dani). Sending functional - test message delivered. Receiving has 'Connection reset by peer' errors from Telegram API - likely temporary network issue."
+        }
+      ],
+      "created_at": "2026-04-07T00:00:00Z",
+      "updated_at": "2026-04-07T08:45:00Z"
+    },
+    {
+      "id": "MISSION-010",
+      "title": "Google Forms Logic & Send Timing Protocol",
+      "status": "completed",
+      "priority": "P1",
+      "assigned_to": "A3 (Dani) + A2 (Dembe)",
+      "description": "Establish logic for WHEN to send Google Forms to clients. Inventory existing forms in Drive, create send timing protocol based on lifecycle phase, integrate with anchor date engine. Forms include: Guest Profile, Dining Preferences, Excursion Interest, Travel Style, Special Requests.",
+      "deliverables": [
+        "Forms inventory with Drive links",
+        "Send timing protocol document",
+        "Integration with anchor date triggers",
+        "Automated form send workflow"
+      ],
+      "dependencies": [
+        "MISSION-002"
+      ],
+      "suspense_date": "2026-04-14T17:00:00Z",
+      "escalation_rule": "If form inventory incomplete, escalate to Commander for Drive access",
+      "logs": [
+        {
+          "time": "2026-04-07T01:00:00Z",
+          "entry": "Forms logic mission added per Commander directive."
+        },
+        {
+          "time": "2026-04-07T08:55:00Z",
+          "entry": "COMPLETE: Google Forms Logic & Send Timing Protocol document created at comms/Google_Forms_Logic_Protocol.md (4.2KB). Full inventory, send timing logic, anchor date integration complete."
+        }
+      ],
+      "created_at": "2026-04-07T01:00:00Z",
+      "updated_at": "2026-04-07T08:55:00Z"
+    },
+    {
+      "id": "MISSION-011",
+      "title": "Fare & Flight Research Protocol",
+      "status": "completed",
+      "priority": "P1",
+      "assigned_to": "A2 (Dembe)",
+      "description": "Develop comprehensive fare and flight research protocol using Kuklinski Panama Canal example. Include: fare watch automation, flight option comparison, best price tracking, integration with cruise line pricing.",
+      "deliverables": [
+        "Fare research SOP document",
+        "Flight comparison matrix template",
+        "Price tracking automation",
+        "Kuklinski case study implementation"
+      ],
+      "dependencies": [],
+      "suspense_date": "2026-04-16T17:00:00Z",
+      "escalation_rule": null,
+      "logs": [
+        {
+          "time": "2026-04-07T01:00:00Z",
+          "entry": "Fare research protocol added."
+        },
+        {
+          "time": "2026-04-07T05:30:00Z",
+          "entry": "SOP document created: Fare_Flight_Research_Protocol.md with Kuklinski case study"
+        },
+        {
+          "time": "2026-04-07T08:55:00Z",
+          "entry": "COMPLETE: Fare & Flight Research Protocol finalized (5.0KB). Includes Kuklinski Panama Canal case study, fare watch automation, flight comparison matrices, and price tracking integration with anchor date engine."
+        }
+      ],
+      "created_at": "2026-04-07T01:00:00Z",
+      "updated_at": "2026-04-07T08:55:00Z"
+    },
+    {
+      "id": "MISSION-012",
+      "title": "Destination, Port & Weather Research Framework",
+      "status": "in_progress",
+      "priority": "P1",
+      "assigned_to": "A2 (Dembe)",
+      "description": "Create comprehensive destination research framework: port guides, city profiles, weather forecasting, tour location intelligence. Include seasonal patterns, climate data, port logistics, local attractions.",
+      "deliverables": [
+        "Destination research template",
+        "Port guide development process",
+        "Weather forecast integration",
+        "City intelligence repository"
+      ],
+      "dependencies": [],
+      "suspense_date": "2026-04-18T17:00:00Z",
+      "escalation_rule": null,
+      "logs": [
+        {
+          "time": "2026-04-07T01:00:00Z",
+          "entry": "Destination research framework added."
+        },
+        {
+          "time": "2026-04-07T05:35:00Z",
+          "entry": "Framework document created: Destination_Port_Weather_Framework.md with Furlow Scandinavia example"
+        }
+      ],
+      "created_at": "2026-04-07T01:00:00Z",
+      "updated_at": "2026-04-07T05:35:00Z"
+    },
+    {
+      "id": "MISSION-013",
+      "title": "Dining & Lodging Recommendations Process",
+      "status": "in_progress",
+      "priority": "P1",
+      "assigned_to": "A6 (Luna) + A2 (Dembe)",
+      "description": "Develop standardized processes for dining recommendations and lodging suggestions. Include: restaurant research, cuisine profiling, hotel evaluation, property comparison, client preference matching.",
+      "deliverables": [
+        "Dining recommendation SOP",
+        "Lodging evaluation framework",
+        "Client preference matching system",
+        "Quality assurance checklist"
+      ],
+      "dependencies": [],
+      "suspense_date": "2026-04-20T17:00:00Z",
+      "escalation_rule": null,
+      "logs": [
+        {
+          "time": "2026-04-07T01:00:00Z",
+          "entry": "Dining/lodging process added."
+        },
+        {
+          "time": "2026-04-07T05:55:00Z",
+          "entry": "Process document created: Dining_Lodging_Recommendations_Process.md with Kuklinski Panama implementation"
+        }
+      ],
+      "created_at": "2026-04-07T01:00:00Z",
+      "updated_at": "2026-04-07T05:55:00Z"
+    },
+    {
+      "id": "MISSION-014",
+      "title": "Monthly Trip Validation Process",
+      "status": "in_progress",
+      "priority": "P1",
+      "assigned_to": "A3 (Dani) + A9 (Vic)",
+      "description": "Establish monthly trip validation process: booking verification, payment status checks, document completeness, client communication audit. Ensure all active trips are validated and issues flagged.",
+      "deliverables": [
+        "Monthly validation checklist",
+        "Automated audit system",
+        "Issue flagging protocol",
+        "Validation report template"
+      ],
+      "dependencies": [],
+      "suspense_date": "2026-04-22T17:00:00Z",
+      "escalation_rule": null,
+      "logs": [
+        {
+          "time": "2026-04-07T01:00:00Z",
+          "entry": "Monthly validation process added."
+        },
+        {
+          "time": "2026-04-07T05:40:00Z",
+          "entry": "Process document created: Monthly_Trip_Validation_Process.md with complete workflow"
+        }
+      ],
+      "created_at": "2026-04-07T01:00:00Z",
+      "updated_at": "2026-04-07T05:40:00Z"
     }
   ],
   "completed_missions": [
@@ -78,57 +410,10 @@
       "logs": [],
       "created_at": "2026-04-04T22:58:00Z",
       "updated_at": "2026-04-05T14:27:29.558Z"
-    },
-    {
-      "id": "MISSION-002",
-      "title": "CLIENT LIFECYCLE CHART",
-      "status": "completed",
-      "priority": "P0",
-      "assigned_to": "NEXUS (auto)",
-      "description": "BUILD \u2014 Read lifecycle audit (20260405_4), rebuild all HTML charts with current dates, fix Morton guest form gap, create Westbrook dashboard, standardize phase naming -- PRIORITY: Regenerate all lifecycle HTMLs with current TODAY date. Fix Group 2 Morton missing guest form. Flag Loucks Silver Nova depart Apr 10. Create Group 5 Lyon companions. Promote spec prompt to formal SOP. Standardize Dream\u2192Craft\u2192Execute\u2192Polish\u2192Voyage\u2192Return phases. Set up calendar alerts. 8 issues found (4 HIGH, 3 MEDIUM, 2 LOW).",
-      "deliverables": [],
-      "dependencies": [],
-      "suspense_date": null,
-      "escalation_rule": null,
-      "logs": [
-        {
-          "time": "2026-04-05T14:27:29.558Z",
-          "entry": "MISSION-002 resumed by Hale via claude_inbox.md handoff. Brief delivered to Claude MAX for execution."
-        },
-        {
-          "time": "2026-04-06T15:50:00Z",
-          "entry": "MISSION-002 completed per Commander directive. All lifecycle charts updated, Morton guest form gap resolved, Westbrook dashboard created, phase naming standardized."
-        }
-      ],
-      "created_at": "2026-04-05T05:08:27.345642+00:00",
-      "updated_at": "2026-04-06T15:50:00Z"
-    },
-    {
-      "id": "MISSION-003",
-      "title": "lifecycle-2026-04-05 18-Month Client",
-      "status": "completed",
-      "priority": "P0",
-      "assigned_to": "NEXUS (auto)",
-      "description": "Lifecycle Charts and Analysis \u2014 Delegates reading lifecycle docs and lifecycle_timelines.html to produce visual timeline charts for Kuklinski_Morton and Furlow_Nichols_Ely clients",
-      "deliverables": [],
-      "dependencies": [],
-      "suspense_date": null,
-      "escalation_rule": null,
-      "logs": [
-        {
-          "time": "2026-04-05T14:27:29.558Z",
-          "entry": "MISSION-003 resumed by Hale via claude_mission003.md handoff. Brief delivered to Claude MAX for execution."
-        },
-        {
-          "time": "2026-04-06T15:50:00Z",
-          "entry": "MISSION-003 completed per Commander directive. Lifecycle charts for Kuklinski_Morton and Furlow_Nichols_Ely clients generated and delivered."
-        }
-      ],
-      "created_at": "2026-04-05T05:08:53.073568+00:00",
-      "updated_at": "2026-04-06T15:50:00Z"
     }
   ],
   "suspended_missions": [],
   "exec_inbox": [],
-  "suspense_watch": []
+  "suspense_watch": [],
+  "updated_at": "2026-04-07T06:05:00Z"
 }

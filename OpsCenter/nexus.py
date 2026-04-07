@@ -229,11 +229,8 @@ OPENCODE_TIMEOUT_SECS = 180
 
 # Claude-first chain — OpenRouter free models as distant fallback only
 OPENCODE_MODEL_CHAIN = [
-    'openrouter/anthropic/claude-sonnet-4.6',             # Claude MAX via OpenRouter — primary
-    'openrouter/deepseek/deepseek-chat-v3.1',             # DeepSeek V3.1 — first fallback
-    'openrouter/deepseek/deepseek-chat:free',             # DeepSeek V3 free
-    'openrouter/deepseek/deepseek-r1:free',               # DeepSeek R1 free
-    'openrouter/mistralai/mistral-7b-instruct:free',      # Mistral — last resort
+    'opencode/qwen3.6-plus-free',                         # Qwen 3.6 Plus free — primary (confirmed working)
+    'openrouter/anthropic/claude-sonnet-4.6',             # Claude MAX via OpenRouter — fallback
 ]
 _RATE_LIMIT_MARKERS = ('rate limit', 'rate_limit', '429', 'too many requests',
                         'quota exceeded', 'ratelimit',
@@ -306,11 +303,9 @@ def dispatch_to_claude(task_text: str, mission_id: str) -> str:
         return f"BLOCKED: Claude queue full ({queue_depth('claude')}/{_QUEUE['max_depth']}). Retry later."
     
     queue_inc("claude")
-    # Strip proxy env vars — ANTHROPIC_BASE_URL points at Claude Code proxy
-    # which rejects headless calls without a key. Pop both so Max OAuth kicks in.
+    # Use real API key from environment — ANTHROPIC_BASE_URL=api.anthropic.com
+    # Don't strip vars; service env already has the correct key + endpoint.
     claude_env = dict(os.environ)
-    claude_env.pop('ANTHROPIC_API_KEY', None)
-    claude_env.pop('ANTHROPIC_BASE_URL', None)
 
     attempt = 0
     while attempt <= CLAUDE_MAX_RETRIES:
@@ -791,8 +786,32 @@ def daemon_loop(poll_seconds: int = 60):
                 else:
                     mid_to_use = active[-1]["id"]
                 
-                # Route and dispatch
-                engine, result = route_and_dispatch(txt, mid_to_use)
+                # Route and dispatch — source-aware
+                # If task came from opencode_inbox → always Claude, loop result back
+                source_file = task.get("source", "")
+                from_opencode = "opencode" in source_file or "goose" in source_file
+
+                if from_opencode:
+                    # Force Claude routing — OpenCode asked, Claude answers
+                    result = dispatch_to_claude(txt, mid_to_use)
+                    engine = "claude"
+                    # Write result back to opencode_inbox so OpenCode can read it
+                    ts = datetime.now(timezone.utc).isoformat()[:16].replace('T', ' ')
+                    reply = (
+                        f"\n\n---\n## CLAUDE RESULT | {mid_to_use} | {ts}\n"
+                        f"status: UNREAD\n"
+                        f"**Task:** {txt[:100]}\n\n{result}\n---\n"
+                    )
+                    try:
+                        with open(str(OPENCODE_INBOX), 'a') as f:
+                            f.write(reply)
+                        audit("RESULT_RETURNED_TO_OPENCODE", f"chars={len(result)}", mid_to_use)
+                    except Exception as e:
+                        audit("RESULT_RETURN_FAILED", str(e), mid_to_use)
+                else:
+                    # claude_inbox or unknown source → keyword-route normally
+                    engine, result = route_and_dispatch(txt, mid_to_use)
+
                 _send_telegram_page(f"NEXUS | {mid_to_use} → {engine.upper()}\n{result[:200]}")
             
             # 2. Check suspense alerts + page if needed

@@ -1,5 +1,7 @@
-# CLAUDE DESKTOP INIT — THUNDERBIRD WING
+# REVISED: 2026-04-07 — CONFORMED TO AGENTS.md STANDARDS
+# CLAUDE DESKTOP INIT — THUNDERBIRD WING  
 ## Paste this entire block at the start of every Claude Desktop session.
+## AGENTS.md is canonical operational manual — read it first
 
 ---
 
@@ -47,19 +49,17 @@ Dani = Aggregator → Artist → Advocate. NEVER researcher, supplier-reply, or 
 
 ---
 
-## OPSCENTER STATUS (as of 2026-03-29)
+## OPSCENTER STATUS (as of 2026-04-07)
 
 Live systems:
-- Telegram C2 pager → Hale-Loop daemon (Gemini 3.1 Pro) → task queue
-- Model router: Claude depleted → auto Gemini Flash fallback (fixed tonight)
+- Telegram C2 gateway (3-bot unified) → Nexus daemon → keyword router → claude -p / OpenCode
 - Morning brief: fires at 01:30 MDT, email to johnloucks3 ✅
-- Deep innovation scan: scheduled tonight 01:30 MDT (Goose)
+- Watcher (d2m-tasking-watcher.service): inotify on claude_inbox.md + opencode_inbox.md
 
-Goose (parallel agent, Gemini 2.5 Flash) owns: all intel scans, batch code, log rotation.
-Claude Code owns: MCP/gmail, client drafts, git commits.
-
-Pending Goose tasks: G4 innovation scan · G5 world intel · G6 tech monitor · G7 ship intel · G8 deep scan 01:30
-Pending Claude Code: C2 drain MAX queue · TESS auth Monday PM (browser SSH ride-along)
+**OpenCode v1.3.17** (DeepSeek V3.1 via OpenRouter ~$0.27/M) — replaced Goose as of 2026-04-06.
+Owns: bulk ops, intel scans, file ops, research, batch code.
+**Claude Code** (MAX OAuth, Sonnet 4.6, $0) owns: client drafts, git commits, strategy, voice-matched copy.
+**Goose is decommissioned.** All `goose run` → `opencode run`. All `goose_inbox.md` → `opencode_inbox.md`.
 
 ---
 
@@ -90,7 +90,8 @@ Pending Claude Code: C2 drain MAX queue · TESS auth Monday PM (browser SSH ride
 
 YOGA: 192.168.1.198 · Cloudflare: api.d2mluxury.quest · Itinerary tunnel: itinerary.d2mluxury.quest
 Key files all under ~/Thunderbird/ on YOGA.
-Full OpsCenter: ~/Thunderbird/OpsCenter/ — CLAUDE_INIT.md, GOOSE_INIT.md, DAILY_OPS_CHECKLIST.md
+Canonical agent docs: ~/Thunderbird/AGENTS.md (OpenCode brain) · AGENTS_NEW_TASKING.md (cross-agent protocol)
+OpsCenter: GOOSE_INIT.md (ARCHIVED — historical) · opencode_memory.md (OpenCode session memory)
 
 ---
 
@@ -98,9 +99,9 @@ Acknowledge with: "Thunderbird Wing online. Sonnet 4.6. Ready, Yoda."
 
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-04-06 19:54 MT -->
+<!-- Last sync: 2026-04-07 09:54 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-04-06 19:54 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-04-07 09:54 MT] ===
 Budget: Claude UNKNOWN | Goose GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE

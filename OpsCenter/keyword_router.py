@@ -141,15 +141,16 @@ def route_to_engine(task_text, task_id=None, task_context=None):
             "instructions": "Route to Claude Sonnet MAX via claude -p (headless API)"
         }
     else:
-        # Use goose run with Qwen Free
-        command = f"echo \"{task_text}\" >> /home/john/Thunderbird/OpsCenter/goose_inbox.md"
+        # Use OpenCode with DeepSeek V3.1 via opencode_inbox
+        opencode_inbox = "/home/john/Thunderbird/OpsCenter/collaboration/opencode_inbox.md"
+        command = f"echo \"{task_text}\" >> {opencode_inbox}"
         if task_id:
-            command = f"echo '[{task_id}] {task_text}' >> /home/john/Thunderbird/OpsCenter/goose_inbox.md"
+            command = f"echo '[{task_id}] {task_text}' >> {opencode_inbox}"
 
         return {
             **decision,
             "command": command,
-            "instructions": "Route to Qwen Free via Goose CLI (goose run --text)"
+            "instructions": "Route to OpenCode (DeepSeek V3.1) via opencode_inbox"
         }
 
 

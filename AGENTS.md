@@ -54,10 +54,11 @@ export OAUTHLIB_INSECURE_TRANSPORT=1
 
 # OpenCode (multi-model agent — replaces Goose)
 export PATH=/home/john/.opencode/bin:$PATH  # already in .bashrc/.profile
-opencode                              # TUI, default model: qwen3.6-plus-free ($0)
-opencode run "task"                   # headless one-shot
-opencode run -m openrouter/anthropic/claude-sonnet-4.6 "task"  # Claude via OR
+opencode                              # TUI, default model: deepseek-chat-v3.1 (~$0.27/M)
+opencode run "task"                   # headless one-shot (uses default model)
+opencode run -m openrouter/deepseek/deepseek-chat-v3.1 "task"  # explicit model
 opencode web                          # browser UI (accessible from Chromebook/phone)
+# NOTE: To invoke Claude headless from OpenCode, use claude -p directly (see Tasking Claude section)
 ```
 
 ## Architecture Boundaries
@@ -122,7 +123,7 @@ No formal test framework (no pytest, no conftest.py). Verification:
 ## Git & Branching
 
 - No CI workflows, no pre-commit hooks, no PR requirements
-- Direct commits to `master` — 13 commits ahead of `origin/master` as of 2026-04-06
+- Direct commits to `master` — 25 commits ahead of `origin/master` as of 2026-04-07
 - `.gitignore` blocks: `creds/`, `*.db`, `*_token.json`, `*_state.json`, `storage/`, `*.zip`, `.playwright-mcp/`, archives, large binaries
 
 ## Operational Cadence
@@ -145,23 +146,50 @@ All automated via systemd timers (MDT):
 | Tool | Model | Cost | Use |
 |------|-------|------|-----|
 | **Claude Code** (MAX) | Opus 4.6 / Sonnet 4.6 | $0 | Primary — reasoning, code, client work |
-| **OpenCode** v1.3.17 | DeepSeek V3.1 via OpenRouter (default) | ~$0.27/M | Ops, bulk tasks, scanning, interactive dev |
+| **OpenCode** v1.3.17 | Qwen 3.6 Plus free (`opencode/qwen3.6-plus-free`) | $0 | Ops, bulk tasks, scanning, interactive dev |
 | **Claude Agent SDK** | Sonnet 4.6 | $0 (MAX) | Headless: `claude -p "..."` |
 | **Nexus daemon** | OpenCode (DeepSeek V3.1) + claude -p judgment | ~$0/task | Keyword-routed task queue |
 
 **Goose is decommissioned.** References to `goose-d2m`, `goose run`, or `~/.config/goose/` anywhere in docs are stale. Replace `goose run "X"` with `opencode run "X"`.
 
-**OpenCode model IDs** (use with `-m`):
-- `openrouter/deepseek/deepseek-chat-v3.1` — **default** — DeepSeek V3.1, reliable, cheap
-- `openrouter/deepseek/deepseek-chat:free` — DeepSeek V3 free tier (rate limited)
-- `openrouter/deepseek/deepseek-r1:free` — DeepSeek R1 reasoning (free, rate limited)
-- `openrouter/mistralai/mistral-small-3.1-24b-instruct:free` — Mistral free fallback
-- `openrouter/google/gemma-3-27b-it:free` — Gemma free fallback
+**OpenCode model IDs** (confirmed working — tested 2026-04-07):
+- `opencode/qwen3.6-plus-free` — **default** — Qwen 3.6 Plus, free, confirmed working
+- `opencode/nemotron-3-super-free` — Nemotron free fallback
+- `opencode/minimax-m2.5-free` — Minimax free fallback
+- `deepseek/deepseek-chat` — DeepSeek direct (requires DeepSeek API balance — currently $0)
+- `togetherai/deepseek-ai/DeepSeek-V3-1` — DeepSeek V3.1 via TogetherAI (requires TogetherAI balance)
+
+**Note:** `openrouter/deepseek/deepseek-chat-v3.1` and all `openrouter/*` IDs are INVALID in OpenCode v1.3.17 — throws `ProviderModelNotFoundError`. Do not use.
 
 **To invoke OpenCode headless:**
 ```bash
 opencode run -m openrouter/deepseek/deepseek-chat-v3.1 "your task here"
 ```
+
+---
+
+## Canonical Inbox / Outbox — File Layout
+
+| File | Owner | Purpose |
+|------|-------|---------|
+| `/home/john/Thunderbird/claude_inbox.md` | Claude | **Canonical** Claude task inbox. Watcher monitors this file. Hook auto-injects UNREAD count on every user prompt. |
+| `/home/john/Thunderbird/OpsCenter/collaboration/claude_outbox.md` | Claude | **Canonical** Claude result outbox. Write completed task results here. |
+| `/home/john/Thunderbird/OpsCenter/collaboration/opencode_inbox.md` | OpenCode | **Canonical** OpenCode task inbox. Watcher monitors this file and spawns headless OpenCode on new UNREAD content. |
+| `/home/john/Thunderbird/OpsCenter/collaboration/opencode_outbox.md` | OpenCode | **Canonical** OpenCode result outbox. Create if needed. |
+
+**Do NOT use:**
+- `OpsCenter/collaboration/claude_inbox.md` — stale, merged into canonical root on 2026-04-07
+- `OpsCenter/collaboration/goose_inbox.md` — decommissioned, content migrated to opencode_inbox.md
+- `claude_outbox.md` at root — stale, merged into canonical OpsCenter outbox on 2026-04-07
+
+### Cross-bot routing
+- OpenCode → Claude: append task to `/home/john/Thunderbird/claude_inbox.md`
+- Claude → OpenCode: append task to `/home/john/Thunderbird/OpsCenter/collaboration/opencode_inbox.md`
+- Both agents write results to their respective outbox files
+- Watcher (`thunderbird_tasking_watcher.py`) pings Commander via Telegram on any change to either inbox
+
+### Default OpenCode model
+`opencode/qwen3.6-plus-free` — free, confirmed working 2026-04-07
 
 ---
 
@@ -182,11 +210,25 @@ env -u ANTHROPIC_API_KEY -u ANTHROPIC_BASE_URL \
 
 ### 2. Via claude_inbox.md (async — fire and forget)
 ```bash
-echo "NEXUS: your task here" >> /home/john/Thunderbird/claude_inbox.md
+# Append a properly-formatted task block — watcher triggers on ^status: UNREAD
+cat >> /home/john/Thunderbird/claude_inbox.md << TASK
+
+---
+## TASK: <UNIQUE-ID>
+status: UNREAD
+from: OpenCode
+injected: $(date '+%Y-%m-%d %H:%M MT')
+priority: P1
+task: |
+  <describe what Claude should do>
+  Write result to /home/john/Thunderbird/OpsCenter/collaboration/claude_outbox.md
+TASK
 ```
-- Nexus daemon picks it up within 60 seconds and routes to Claude
-- Result lands in `/home/john/Thunderbird/claude_outbox.md`
-- Best for: background research, non-urgent analysis
+- Watcher detects `^status: UNREAD` via inotify within 2 seconds → spawns `claude -p` headless
+- Result lands in `/home/john/Thunderbird/OpsCenter/collaboration/claude_outbox.md`
+- Claude also writes an `UNREAD` entry to `opencode_inbox.md` so watcher loops back to OpenCode
+- Best for: judgment calls, client copy, strategy — any task needing Claude MAX
+- **Do NOT use `echo "NEXUS: ..."` to claude_inbox** — NEXUS: prefix belongs in opencode_inbox (for Nexus daemon routing)
 
 ### 3. Via wing_comms.md (FYI / REQUEST to Claude Code)
 ```markdown
@@ -211,9 +253,11 @@ Write to: `OpsCenter/collaboration/wing_comms.md`
 | Research, data extraction | Handle yourself (OpenCode) |
 | Arbitration / tiebreak | DeepSeek R1 (`openrouter/deepseek/deepseek-r1:free`) |
 
-**Environment note:** Always strip `ANTHROPIC_API_KEY` and `ANTHROPIC_BASE_URL` before
-calling `claude -p`. The base URL points at the Claude Code proxy which rejects
-headless calls without a matching key.
+**Environment note:** Strip `ANTHROPIC_API_KEY` and `ANTHROPIC_BASE_URL` before calling `claude -p`
+so Max OAuth kicks in. The watcher service also injects `CLAUDE_CODE_OAUTH_TOKEN` from
+`OpsCenter/.claude_oauth_cache` — refreshed automatically on every Commander message via
+`hooks/refresh_claude_oauth_cache.sh`. If `claude -p` still fails rc=1, the watcher falls
+back to `opencode run -m openrouter/deepseek/deepseek-chat-v3.1`.
 
 ---
 
@@ -247,3 +291,108 @@ headless calls without a matching key.
 - `Personas/hale_cos.md` — COS Hale 7-layer identity (full authority, brain dispatch, standing orders)
 - `Personas/D2M_Staff_Introduction.md` — Narrative bios for all primary wing staff (A1–A12, CH, EXEC)
 - `Personas/D2M_Extended_Personas.md` — Client simulation, community intel, external advisory personas
+ - `AGENTS_NEW_TASKING.md` — Complete tasking process & cross-agent coordination protocol
+
+---
+# STARTUP BRAIN JOGGER — Session Init Checklist
+
+## CRITICAL FILES TO CHECK ON EVERY SESSION START
+
+1. **`/home/john/Thunderbird/OpsCenter/collaboration/opencode_inbox.md`** — YOUR task queue (tasks assigned to you)
+2. **`/home/john/Thunderbird/OpsCenter/collaboration/opencode_outbox.md`** — YOUR completed work
+3. **`/home/john/Thunderbird/claude_inbox.md`** — Claude's inbox (write here to task Claude; do NOT treat as your own queue)
+4. **`/home/john/Thunderbird/OpsCenter/collaboration/claude_outbox.md`** — Claude's results (read here for Claude's responses to you)
+5. **`/home/john/Thunderbird/OpsCenter/mission_board.json`** — Mission status
+6. **`/home/john/Thunderbird/OpsCenter/collaboration/wing_comms.md`** — Internal coordination
+
+## QUICK STATUS CHECK COMMANDS
+```bash
+# Telegram gateway status (user-space service — requires --user flag)
+systemctl --user status thunderbird-telegram-gw.service
+# Watcher status
+systemctl --user status d2m-tasking-watcher.service
+# Active missions
+cat OpsCenter/mission_board.json | jq '.missions[] | select(.status != "complete")'
+# YOUR latest outbox entries
+tail -10 OpsCenter/collaboration/opencode_outbox.md
+# YOUR inbox UNREAD count
+grep -c "^status: UNREAD" /home/john/Thunderbird/OpsCenter/collaboration/opencode_inbox.md
+# Claude's inbox UNREAD count (tasks you've sent Claude)
+grep -c "^status: UNREAD" /home/john/Thunderbird/claude_inbox.md
+```
+
+## LATEST LEARNINGS & VERIFICATIONS (2026-04-07)
+
+### ✅ TASKING PROCESS VALIDATED
+- **Single source of truth:** `/home/john/Thunderbird/claude_inbox.md` — confirmed working
+- **Cross-verification REQUIRED:** Always check both outbox AND alternate inbox before completion
+- **Budget enforcement:** $0/month MAXIMUM — OpenCode free tier, Claude MAX OAuth
+- **Process documented:** Full 7-step protocol in `AGENTS_NEW_TASKING.md`
+
+### ✅ CURRENT MISSIONS COMPLETED
+- **MISSION-002:** Client lifecycle chart (anchor-node model, 7 clients) → `output/lifecycle_chart.html`
+- **MISSION-003:** 18-month lifecycle analysis ($40,480 revenue confirmed) → `output/lifecycle_18month.html`
+- **MISSION-009:** Telegram validation (sending works, receiving has API issues)
+
+### ✅ OPENCODE COORDINATION WORKING
+- Nexus daemon routes tasks via `OpsCenter/keyword_router.py`
+- Keyword matching: Claude (strategy/write) vs OpenCode (bulk/ops)
+- Cross-agent escalation: `ESCALATE_TO_CLAUDE:` prefix for judgment calls
+
+### 🚨 ACTIVE ALERTS & ISSUES
+- **Lyons FPD May 11 (T-34d delay)** — unpaid, requires follow-up
+- **Westbrook prospect** — awaiting Commander send approval
+- **Telegram receiving** — "Connection reset by peer" errors from Telegram API
+- **OpenCode model:** `openrouter/deepseek/deepseek-chat-v3.1` is default (~$0.27/M — NOT free tier; free = `deepseek-chat:free`)
+
+### 📁 KEY OUTPUTS FROM THIS SESSION
+- `business/client_materials/Kuklinski_Morton_Client_Timeline.html` — Client-facing Gantt
+- `business/client_lifecycle/Kuklinski_Morton_Enhanced_Timeline.html` — Enhanced internal timeline
+- `AGENTS_NEW_TASKING.md` — Complete tasking protocol with verification steps
+
+## STANDING ORDERS REINFORCED (MEMORIZE)
+1. **Send Gate (SO-2026-03-21):** No client-facing output without Commander approval
+2. **Budget Guard (SO-2026-04-06):** Minimize spend — DeepSeek V3.1 default (~$0.27/M). Use free tiers (`deepseek-chat:free`, `mistral-small:free`) for low-stakes bulk tasks. Claude MAX is $0 via OAuth.
+3. **Cross-verification (SO-2026-04-07):** Check BOTH outbox AND alternate inbox
+4. **File Safety (SO-2026-04-07):** Always append (`>>`), never overwrite (`>`)
+5. **Inbox Identity (SO-2026-04-07):** opencode_inbox = YOUR queue. claude_inbox = write-only (tasking Claude). Never treat claude_inbox as your own task queue.
+
+## CROSS-AGENT DELEGATION PATTERNS
+```bash
+# OpenCode → Claude (async — task header format, triggers watcher)
+cat >> /home/john/Thunderbird/claude_inbox.md << TASK
+
+---
+## TASK: OC-$(date +%s)
+status: UNREAD
+from: OpenCode
+injected: $(date '+%Y-%m-%d %H:%M MT')
+priority: P1
+task: |
+  <your task here>
+TASK
+
+# OpenCode → Claude (synchronous — blocks until result returned)
+env -u ANTHROPIC_API_KEY -u ANTHROPIC_BASE_URL \
+  claude --dangerously-skip-permissions -p "<your task here>"
+
+# Claude → OpenCode (append NEXUS task — Nexus daemon picks up, routes to OpenCode)
+echo "NEXUS: <task>" >> /home/john/Thunderbird/OpsCenter/collaboration/opencode_inbox.md
+
+# Direct headless Claude (synchronous, preferred for judgment calls)
+env -u ANTHROPIC_API_KEY -u ANTHROPIC_BASE_URL claude -p "task" --dangerously-skip-permissions
+```
+**Watcher trigger patterns** (what `check_inbox_has_work()` detects in claude_inbox.md):
+- `^status: UNREAD` — canonical task header ← **use this**
+- `NEXUS:` — also detected but semantically belongs in opencode_inbox
+- `priority:` — also detected if present in the block
+
+## PRE-SESSION VERIFICATION CHECKLIST
+- [ ] Read `claude_inbox.md` for new UNREAD tasks
+- [ ] Check `claude_outbox.md` for previous session completion  
+- [ ] Verify `opencode_inbox.md` for cross-agent coordination
+- [ ] Review `mission_board.json` for active missions
+- [ ] Check Telegram gateway status (`systemctl status thunderbird-telegram-gw.service`)
+- [ ] Verify OpenCode model availability (`opencode run -m openrouter/deepseek/deepseek-chat-v3.1 "test"`)
+
+**NOTE:** If Commander asks "what do you remember?" — read this section PLUS `OpsCenter/opencode_memory.md`

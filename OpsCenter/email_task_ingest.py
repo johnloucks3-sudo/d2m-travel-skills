@@ -4,13 +4,27 @@ import logging
 import os
 import subprocess
 from datetime import datetime
+from pathlib import Path
 
 logging.basicConfig(filename='/home/john/Thunderbird/OpsCenter/overwatch.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 VALID_TRIGGERS = ["COS", "A2", "A3", "A5", "A6", "A7", "A9", "A12", "DANI", "LUNA", "GAUGE", "WRAITH", "VIPER", "PADRE"]
 
-# In-session dedup: tracks msg_ids already processed this run.
-# Prevents re-processing if mark_read fails and UNREAD label persists.
+# Persistent dedup: survives across process restarts.
+# Keeps last 500 IDs so the file doesn't grow unbounded.
+_SEEN_FILE = Path('/home/john/Thunderbird/state/email_ingest_seen.json')
+
+def _load_seen() -> set:
+    try:
+        return set(json.loads(_SEEN_FILE.read_text()))
+    except Exception:
+        return set()
+
+def _save_seen(seen: set):
+    _SEEN_FILE.parent.mkdir(parents=True, exist_ok=True)
+    _SEEN_FILE.write_text(json.dumps(list(seen)[-500:]))
+
+# In-session dedup (fast path within one process lifetime)
 _processed_this_run: set = set()
 
 
@@ -31,7 +45,10 @@ def check_for_tasks():
             return
 
         messages = data["result"]["messages"]
-        new_messages = [m for m in messages if m["id"] not in _processed_this_run]
+        _seen_persistent = _load_seen()
+        new_messages = [m for m in messages
+                        if m["id"] not in _processed_this_run
+                        and m["id"] not in _seen_persistent]
 
         if not new_messages:
             logging.info("[EMAIL INGEST] All UNREAD messages already processed this run — no infinite loop.")
@@ -45,9 +62,12 @@ def check_for_tasks():
 
 
 def process_message(msg_id):
-    # Register immediately — before any API calls — so even if mark_read fails
-    # this message is skipped on the next cycle within this process lifetime.
+    # Register in both caches immediately — before any API calls.
+    # Persistent cache survives process restarts; in-session cache is fast path.
     _processed_this_run.add(msg_id)
+    _seen = _load_seen()
+    _seen.add(msg_id)
+    _save_seen(_seen)
 
     read_cmd = [
         "/home/john/Thunderbird/mcp_bridge.sh",

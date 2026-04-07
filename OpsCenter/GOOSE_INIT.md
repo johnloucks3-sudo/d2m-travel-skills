@@ -1,6 +1,8 @@
-# ⚠️ DEPRECATED — GOOSE IS DECOMMISSIONED
-# Use OPENCODE_INIT.md instead: `cat /home/john/Thunderbird/OpsCenter/OPENCODE_INIT.md`
-# Goose replaced by OpenCode v1.3.17 as of 2026-04-06.
+# ⚠️ ARCHIVED — GOOSE DECOMMISSIONED 2026-04-06. THIS FILE IS HISTORICAL ONLY.
+# If you are OpenCode and landed here: STOP. Read /home/john/Thunderbird/AGENTS.md instead.
+# Your inbox:  /home/john/Thunderbird/OpsCenter/collaboration/opencode_inbox.md
+# Your outbox: /home/john/Thunderbird/OpsCenter/collaboration/opencode_outbox.md
+# The content below is preserved Goose config — do not act on it.
 ---
 # GOOSE INITIALIZATION — THUNDERBIRD WING v4 (ARCHIVED)
 **THIS FILE IS ARCHIVED. Do not use for new sessions.**
@@ -182,7 +184,7 @@ Write to `OpsCenter/collaboration/wing_comms.md` addressed to HALE:
 ---
 msg_id: WC-<stamp>
 msg_type: REQUEST
-from: GOOSE
+from: OPENCODE
 to: HALE
 submitted_at: <timestamp>
 content: |
@@ -534,14 +536,13 @@ export GOOSE_MOIM_MESSAGE_FILE=/home/john/Thunderbird/OpsCenter/hale_tom_context
 
 ## QUICK REFERENCE
 
-**Files you maintain:**
-- `OpsCenter/collaboration/goose_inbox.md` — your task inbox
-- `OpsCenter/collaboration/wing_comms.md` — inter-agent comms
-- `OpsCenter/collaboration/claude_outbox.md` — read Claude's results here
-- `OpsCenter/goose_context_injection.md` — your session state (watcher maintains)
+**[ARCHIVED — Goose paths. OpenCode uses different paths. See AGENTS.md.]**
+- ~~`OpsCenter/collaboration/goose_inbox.md`~~ → now `OpsCenter/collaboration/opencode_inbox.md`
+- `OpsCenter/collaboration/wing_comms.md` — inter-agent comms (still valid)
+- `OpsCenter/collaboration/claude_outbox.md` — read Claude's results here (still valid)
 
-**Files Claude maintains:**
-- `OpsCenter/collaboration/claude_inbox.md` — task Claude here
+**Files Claude maintains (still valid):**
+- `claude_inbox.md` (root) — task Claude here
 - `OpsCenter/collaboration/claude_outbox.md` — Claude writes results here
 
 **Never touch:**
@@ -574,9 +575,9 @@ AND `OpsCenter/thunderbird_overwatch.sh` (which has its own export).
 *Brain Index: 4 tiers, 30+ reference files, full Drive map, 13 recipes, full core module registry.*
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-04-06 23:09 MT -->
+<!-- Last sync: 2026-04-07 09:54 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-04-06 23:09 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-04-07 09:54 MT] ===
 Budget: Claude UNKNOWN | Goose GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE

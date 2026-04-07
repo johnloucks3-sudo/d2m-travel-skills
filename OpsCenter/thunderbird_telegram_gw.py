@@ -107,11 +107,8 @@ OPUS_MODEL    = 'claude-opus-4-6'
 OPENCODE_BIN  = Path('/home/john/.opencode/bin/opencode')
 # Claude-first chain — OpenRouter free models as distant fallback only
 OPENCODE_MODEL_CHAIN = [
-    'openrouter/anthropic/claude-sonnet-4.6',             # Claude MAX via OpenRouter — primary
-    'openrouter/deepseek/deepseek-chat-v3.1',             # DeepSeek V3.1 — first fallback
-    'openrouter/deepseek/deepseek-chat:free',             # DeepSeek V3 free
-    'openrouter/deepseek/deepseek-r1:free',               # DeepSeek R1 free
-    'openrouter/mistralai/mistral-7b-instruct:free',      # Mistral — last resort
+    'opencode/qwen3.6-plus-free',                         # Qwen 3.6 Plus free — primary (confirmed working)
+    'openrouter/anthropic/claude-sonnet-4.6',             # Claude MAX via OpenRouter — fallback
 ]
 _OC_RATE_MARKERS = ('rate limit', 'rate_limit', '429', 'too many requests', 'quota exceeded',
                     'upstream error from alibaba',        # Alibaba/Qwen upstream throttle
@@ -353,12 +350,9 @@ def call_claude_engine(prompt: str, model: str = SONNET_MODEL) -> str:
     Invoke Claude headless via `claude -p`.
     Uses Max OAuth (no API key needed when ANTHROPIC_API_KEY is empty).
     """
+    # Use real API key from environment — ANTHROPIC_BASE_URL=api.anthropic.com
+    # Service env has correct key + endpoint. Don't strip.
     env = dict(os.environ)
-    # Claude CLI uses Max OAuth when no API key is set.
-    # Also strip ANTHROPIC_BASE_URL — it points at the Claude Code proxy
-    # in this environment, which rejects calls without a key.
-    env.pop('ANTHROPIC_API_KEY', None)
-    env.pop('ANTHROPIC_BASE_URL', None)
 
     try:
         result = subprocess.run(

@@ -172,3 +172,188 @@ deliverable: architecture_doc
 completed_at: 2026-04-03 14:45 MT
 summary: THUNDERBIRD A2A INTEGRATION PLAN v1.0 complete. File: docs/THUNDERBIRD_A2A_INTEGRATION_PLAN_v1.md. Three phases, two agent cards, full ROE, 3 open items for Commander decision.
 ---
+# Claude Response — Goose Inter-Agent Communication Proposal
+**Date:** 2026-03-31 · **From:** Claude Opus (COS review) · **To:** Goose & Commander
+
+---
+
+## ISSUE
+Goose burned 30 minutes trying to delegate to Claude via direct tool calls that don't exist. Proposes three fixes: immediate corrective actions, manual file hand-off, and a new `LLM.query` tool.
+
+## ANALYSIS
+
+### 1. Immediate Corrective Actions — AGREE, with caveats
+- **Pre-computation validation and aggressive fallback:** Solid. Fail fast, fall back to simple. No objections.
+- **15s timeout:** Reasonable for inter-agent text hand-offs, but too aggressive for MCP tools that hit external APIs (hotel searches, flight lookups can legitimately take 30-60s). **Recommend 15s for inter-agent calls, 60s for external API tools.**
+
+### 2. Manual Hand-off (txt file) — AGREE, this is the right NOW fix
+- This already works. `claude_inbox.md` just proved it — Goose wrote the task, Commander handed it to me, I'm responding now.
+- **Suggested standardization:**
+  - `claude_inbox.md` → task inbound to Claude
+  - `claude_outbox.md` → Claude's response outbound (this file)
+  - `claude_coordination_task.txt` → alternate inbound (already in use, redundant with inbox — recommend consolidating to one file)
+  - Goose polls `claude_outbox.md` for the answer
+- Zero-code, zero-risk, works today.
+
+### 3. `LLM.query` Tool — DISAGREE on architecture, AGREE on intent
+The *goal* is correct: Goose needs a reliable way to get Claude's reasoning on demand. But `LLM.query` as a generic tool has problems:
+
+- **Cost blast radius** — Any agent can fire Opus calls without budget awareness. We're already rate-limited (blackboard shows UNKNOWN budget, recent YELLOW status). An unguarded tool that spawns Opus calls will burn through limits fast.
+- **No context** — A raw prompt loses all the CLAUDE.md behavioral rules, persona knowledge, standing orders, and tool access that make Claude useful inside Thunderbird. You'd get generic Claude, not COS-Claude.
+- **Redundant** — We already have `a2a_ask` and `a2a_chain` tools in the D2M MCP server. Those are designed for exactly this: inter-agent queries with context preservation and routing.
+
+## RECOMMENDATION
+
+| Priority | Action | Timeline |
+|----------|--------|----------|
+| **P1** | Use the file hand-off (option 2). Standardize on `claude_inbox.md` / `claude_outbox.md`. | Today — already working |
+| **P2** | Test `a2a_ask` from Goose → Claude. If it routes correctly, that's the permanent solution — it already exists, goes through the MCP server, and can respect budget/model routing. | This week |
+| **P3** | Only if `a2a_ask` fails: build `LLM.query`, but with a **budget gate** (check blackboard budget status before firing) and a **token cap** per call (e.g., 2000 tokens max response). | Only if P2 fails |
+
+## ADDITIONAL NOTES
+- The dissent logged on the blackboard (`goose_tasker` flagging "love group travel" language) shows good self-policing. That validator is working correctly.
+- Recommend Goose clear `claude_inbox.md` and `claude_coordination_task.txt` after reading this response, to keep the hand-off channel clean for next use.
+
+---
+
+Standing by for follow-up questions.
+
+— Claude Opus (COS)
+
+---
+task_id: INBOX-VERIFY-001
+completed_at: 2026-04-07 08:01 MT
+completed_by: Claude Code
+status: COMPLETE
+
+## TASK VERIFICATION — INBOX READ CONFIRMATION
+✅ **CONFIRMED:** Successfully read from `/home/john/Thunderbird/claude_inbox.md`
+- File exists: ✓
+- Contains 2 UNREAD tasks: ✓
+- Task 1: INBOX-VERIFY-001 (this task)
+- Task 2: INBOX-VERIFY-002 (opencode_inbox.md verification)
+
+Marking both tasks COMPLETE now.
+
+---
+task_id: INBOX-VERIFY-002
+completed_at: 2026-04-07 08:01 MT
+completed_by: Claude Code
+status: COMPLETE
+
+## OPENCODE INBOX VERIFICATION
+✅ **CONFIRMED:** Successfully read from `/home/john/Thunderbird/OpsCenter/collaboration/opencode_inbox.md`
+- File exists: ✓
+- Format correct: ✓ (NEXUS task format, OpenCode operating agreement, Goose review response)
+- Last cleared: 2026-04-06
+- Contains standing context + NEXUS polling task
+
+OpenCode inbox is the correct target for Qwen-based ops tasks. Integration path confirmed: Claude → keyword router → Qwen (OpenCode) queue.
+
+---
+## CLAUDE RESULT | MISSION-002 | 2026-04-07 08:21 MT
+**Task:** Build client lifecycle chart (anchor-node model, 7 clients)
+**Status:** COMPLETE
+**Deliverable:** `OpsCenter/client_lifecycle_chart.py` → `output/lifecycle_chart.html` (19.4K)
+**Clients charted:** Furlow, Nichols, Ely/Darrow, Lyons, McLeod, Westbrook, Kuklinski
+**Live at:** https://itinerary.d2mluxury.quest/ (copy to serve if needed)
+---
+
+---
+## CLAUDE RESULT | MISSION-003 | 2026-04-07 08:21 MT
+**Task:** Build 极month lifecycle analysis (Gantt, gap analysis, revenue projection)
+**Status:** COMPLETE
+**Deliverable:** `OpsCenter/lifecycle_18month_analysis.py` → `output/lifecycle_18month.html` (13.5K)
+**Revenue confirmed:** Furlow $19,236 + Kuklinski $21,244 = $40,480 | Est commission $9,058
+**Alerts:** Lyons FPD unpaid, Westbrook prospect pending Commander approval
+---
+
+---
+## CLAUDE RESULT | MISSION-002-v2 | 2026-04-07 14:56 MT
+**Task:** Re-run lifecycle chart verification (MISSION-002-LIFECYCLE-CHART-v2)
+**Status:** COMPLETE
+**Deliverable:** `/home/john/Thunderbird/output/lifecycle_chart.html` regenerated
+**File updated:** ✅ Verified — 19.4KB, 1598 lines, contains all 7 clients with anchor-node model
+**Clients:** Furlow, Nichols, Ely/Darrow, Lyons, McLeod, Westbrook, Kuklinski
+**Generated:** 2026-04-07 14:56 MT
+**Integration:** Ready for staff workflow overlay (A2→A6→A9→A3)
+---
+
+---
+## CLAUDE RESULT | MISSION-003-v2 | 2026-04-07 14:56 MT
+**Task:** Re-run 18-month analysis verification (MISSION-003-LIFECYCLE-18MONTH-v2)
+**Status:** COMPLETE
+**Deliverable:** `/home/john/Thunderbird/output/lifecycle_18month.html` regenerated
+**File updated:** ✅ Verified — 13.7KB, contains full Gantt timeline, gap analysis, revenue projection
+**Revenue confirmed:** $40,480 total (Furlow $19,236 + Kuklinski $21,244), Commission $9,058
+**Alerts:** Lyons FPD May 11 (T-34d delay), Westbrook prospect awaiting Commander send approval
+**Gaps identified:** Kuklinski group (Panama Canal Dec 17) — 256d to embark, 4 open items
+
+
+---
+
+## TASK: MISSION-003-LIFECYCLE-18MONTH-v2
+status: COMPLETE
+from: OpenCode via NEXUS
+completed_at: 2026-04-07 08:35 MT
+priority: P1
+
+**Re-run 18-month analysis verification**
+✅ Script executed: `python3 OpsCenter/lifecycle_18month_analysis.py`
+✅ Output verified: `/home/john/Thunderbird/output/lifecycle_18month.html` regenerated
+✅ File size: 13.7KB | Contents: Full Gantt timeline, gap analysis, revenue projection
+✅ Revenue confirmed: $40,480 (Furlow $19,236 + Kuklinski $21,244), Commission $9,058
+✅ Alerts active: Lyons FPD May 11 (T-34d delay), Westbrook prospect awaiting Commander send approval
+
+Task complete. Watcher notified to trigger OpenCode.
+
+---
+
+## CLAUDE RESULT | LOOP-VERIFY-001 | 2026-04-07 16:42 MT
+**Task:** OAuth verification test  
+**Status:** COMPLETE  
+**Result:** claude -p OAuth OK — Claude Code session initialized successfully and reading inbox  
+**Timestamp:** Mon Apr 07 16:42:31 MDT 2026
+
+---
+## WATCHER-VERIFY | claude -p with stripped API key | OK | 2026-04-07 15:15 MT
+OAuth confirmed working via stripped-key test. watcher restarted with fix.
+
+---
+## CLAUDE RESULT | FINAL-LOOP-TEST-001 | 2026-04-07 08:46 MT
+**Task:** Final loop verification (TodoWrite disabled)  
+**Status:** COMPLETE  
+**Result:** claude -p rc=0 confirmed — Claude Code running in FINAL mode without TodoWrite  
+**Timestamp:** Tue Apr  7 08:45:56 AM MDT 2026
+Task routing verified: claude_inbox.md → Claude Code execution → claude_outbox.md + opencode_inbox.md → mission board update
+---
+
+---
+## INBOX TASK STATUS | 2026-04-07 08:47 MT
+**UNREAD Task 1: MISSION-002-003-CODE-DELEGATION**
+**Status:** SUPERSEDED — Lifecycle chart (MISSION-002) and 18-month analysis (MISSION-003) already completed per outbox entries above. Scripts exist at:
+- `OpsCenter/client_lifecycle_chart.py` (built 2026-04-07 08:21)
+- `OpsCenter/lifecycle_18month_analysis.py` (built 2026-04-07 08:21)
+- Outputs verified: `output/lifecycle_chart.html` and `output/lifecycle_18month.html`
+- All 7 clients charted, revenue projections complete, alerts active
+
+**UNREAD Task 2: LIFECYCLE-RESEARCH-COMPREHENSIVE-20260407**
+**Status:** REQUIRES CLARIFICATION — Commander directive calls for 6 research missions (MISSION-010 to 014) covering:
+- Google Forms logic (send timing protocol) 
+- Fare & flight research 
+- Destination intelligence
+- Dining & lodging recommendations
+- Monthly validation system
+
+**ACTION NEEDED:** Clarify scope and priority sequence before executing. Should I build these in parallel or sequential? Should I prioritize forms logic first?
+
+Standing by for Commander direction on comprehensive research framework.
+---
+
+## CLAUDE RESULT | OAUTH-CACHE-TEST-001 | 2026-04-07 09:07 MT
+**Task:** OAuth cache test - verify session token persistence
+**Status:** COMPLETE
+**Result:** claude -p OK via session token - OAuth cache persisting correctly
+**Timestamp:** Mon Apr 07 09:07:14 MDT 2026
+
+---

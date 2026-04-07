@@ -33,25 +33,32 @@ FILE_ROLES = {
         "valid_to":    ["CLAUDE"],
         "purpose":     "Inbound tasks TO Claude. NEVER write results here.",
     },
-    "goose_inbox.md": {
-        "owner":       "GOOSE",
-        "valid_types": ["TASK", "REQUEST"],
-        "valid_from":  ["CLAUDE", "COMMANDER", "WATCHER"],
-        "valid_to":    ["GOOSE"],
-        "purpose":     "Inbound tasks TO Goose. NEVER write results here.",
+    "opencode_inbox.md": {
+        "owner":       "OPENCODE",
+        "valid_types": ["TASK", "REQUEST", "RESULT"],
+        "valid_from":  ["CLAUDE", "COMMANDER", "WATCHER", "NEXUS"],
+        "valid_to":    ["OPENCODE"],
+        "purpose":     "Inbound tasks TO OpenCode. CLAUDE RESULT entries trigger OpenCode headless.",
     },
     "claude_outbox.md": {
         "owner":       "CLAUDE",
         "valid_types": ["RESULT", "FYI"],
         "valid_from":  ["CLAUDE"],
-        "valid_to":    ["GOOSE", "COMMANDER", "ALL"],
-        "purpose":     "Claude's completed work and results. NEVER write tasks here.",
+        "valid_to":    ["OPENCODE", "COMMANDER", "ALL"],
+        "purpose":     "Claude's completed work and results. Full path: OpsCenter/collaboration/claude_outbox.md. NEVER write tasks here.",
+    },
+    "opencode_outbox.md": {
+        "owner":       "OPENCODE",
+        "valid_types": ["RESULT", "FYI"],
+        "valid_from":  ["OPENCODE"],
+        "valid_to":    ["CLAUDE", "COMMANDER", "ALL"],
+        "purpose":     "OpenCode's completed work. NEVER write tasks here.",
     },
     "wing_comms.md": {
         "owner":       "ALL",
         "valid_types": ["FYI", "REQUEST"],
-        "valid_from":  ["CLAUDE", "GOOSE", "COMMANDER", "WATCHER", "HALE"],
-        "valid_to":    ["CLAUDE", "GOOSE", "COMMANDER", "ALL", "HALE"],
+        "valid_from":  ["CLAUDE", "OPENCODE", "COMMANDER", "WATCHER", "HALE"],
+        "valid_to":    ["CLAUDE", "OPENCODE", "COMMANDER", "ALL", "HALE"],
         "purpose":     "FYI and peer requests only. No tasks. No results.",
     },
 }
@@ -64,7 +71,7 @@ VIOLATION_PATTERNS = [
      "RESULT written to claude_inbox — belongs in claude_outbox"),
     # Tasks written to outbox
     ("claude_outbox.md", r"task_type:\s*TASK|priority:\s*CRITICAL|priority:\s*HIGH",
-     "TASK written to claude_outbox — belongs in claude_inbox or goose_inbox"),
+     "TASK written to claude_outbox — belongs in claude_inbox or opencode_inbox"),
     # Results/completions written to wing_comms
     ("wing_comms.md",    r"deliverable:|task_type:\s*TASK",
      "TASK or RESULT in wing_comms — belongs in an inbox or outbox"),

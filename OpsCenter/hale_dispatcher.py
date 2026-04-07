@@ -434,7 +434,7 @@ class HaleDispatcher:
         if any(g in lower for g in ("hello", "hi", "hey", "good morning")):
             return "Good morning, Sir. Standing by."
         if any(g in lower for g in ("status", "health", "alive")):
-            return "Wing operational. Thunderbird MCP: check localhost:8765. Goose: verify with `goose run --text test`. Standing by."
+            return "Wing operational. Thunderbird MCP: check localhost:8765. OpenCode: verify with `opencode run \"test\"`. Standing by."
         if "brief" in lower:
             if _BRIEF.exists():
                 return _BRIEF.read_text()

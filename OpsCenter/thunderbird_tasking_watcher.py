@@ -13,8 +13,8 @@ Changes from v5:
   - Debounce: coalesce multiple events within 2-second window
 
 Watches:
-  - claude_inbox.md → pings Commander via Telegram
-  - goose_inbox.md → pings Commander + spawns headless Goose
+  - claude_inbox.md (root canonical) → pings Commander via Telegram
+  - opencode_inbox.md → pings Commander + spawns headless OpenCode
   - activity_board.md → pings Commander with latest entry
 
 Service: d2m-tasking-watcher.service
@@ -41,8 +41,9 @@ except ImportError:
     sys.exit(1)
 
 # ── Paths ────────────────────────────────────────────────────────────────
-CLAUDE_INBOX  = "/home/john/Thunderbird/OpsCenter/collaboration/claude_inbox.md"
-GOOSE_INBOX   = "/home/john/Thunderbird/OpsCenter/collaboration/goose_inbox.md"
+CLAUDE_INBOX    = "/home/john/Thunderbird/claude_inbox.md"
+OPENCODE_INBOX  = "/home/john/Thunderbird/OpsCenter/collaboration/opencode_inbox.md"
+GOOSE_INBOX     = OPENCODE_INBOX  # legacy alias — goose_inbox.md → opencode_inbox.md
 ACTIVITY_BOARD = "/home/john/Thunderbird/OpsCenter/collaboration/activity_board.md"
 LOCK_FILE     = "/home/john/Thunderbird/OpsCenter/.goose_headless.lock"
 STATE_FILE    = "/home/john/Thunderbird/OpsCenter/inbox_watcher_state.json"
@@ -76,21 +77,26 @@ def ping_telegram(message: str):
         logging.error(f"Telegram Ping Failed: {e}")
 
 def check_inbox_has_work(filepath: str) -> bool:
-    """Check if the inbox file contains unread/pending tasks."""
+    """Check if the inbox file contains unread/pending tasks or new results."""
     try:
         with open(filepath, 'r') as f:
             content = f.read()
-            return ("UNREAD" in content or 
-                    "status: pending" in content.lower() or 
-                    "priority:" in content.lower())
+            return (
+                "UNREAD" in content or
+                "status: pending" in content.lower() or
+                "priority:" in content.lower() or
+                "NEXUS:" in content or           # Nexus-prefixed task line
+                "CLAUDE RESULT" in content or    # Claude wrote a result back
+                "## CLAUDE RESULT" in content    # markdown header variant
+            )
     except Exception as e:
         logging.error(f"Error reading {filepath}: {e}")
         return False
 
-def spawn_goose_headless():
-    """Spawn headless Goose to process inbox tasks. Uses --text flag (not --instruction)."""
+def spawn_opencode_headless():
+    """Spawn headless OpenCode to process inbox tasks."""
     if os.path.exists(LOCK_FILE):
-        logging.warning("Goose already running (lock file exists). Skipping spawn.")
+        logging.warning("OpenCode already running (lock file exists). Skipping spawn.")
         return
 
     # Atomic lock
@@ -101,40 +107,150 @@ def spawn_goose_headless():
         logging.error(f"Failed to create lock file: {e}")
         return
 
+    env = os.environ.copy()
+    env["PATH"] = "/home/john/.opencode/bin:" + env.get("PATH", "")
+
     cmd = [
-        "goose", "run",
-        "--text",
-        "Read /home/john/Thunderbird/OpsCenter/collaboration/goose_inbox.md, process ALL unread tasks, write COMPLETE to activity_board.md, and remove the lock file /home/john/Thunderbird/OpsCenter/.goose_headless.lock"
+        "opencode", "run",
+        "-m", "opencode/qwen3.6-plus-free",
+        (
+            "Read /home/john/Thunderbird/AGENTS.md — that is your operational brain. "
+            "Then check /home/john/Thunderbird/OpsCenter/collaboration/opencode_inbox.md "
+            "for tasks with status: UNREAD. Execute them per AGENTS.md standing orders. "
+            "Write results to /home/john/Thunderbird/OpsCenter/collaboration/opencode_outbox.md. "
+            "When done, delete /home/john/Thunderbird/OpsCenter/.goose_headless.lock."
+        )
     ]
 
-    logging.info(f"Spawning headless Goose: {' '.join(cmd)}")
+    logging.info(f"Spawning headless OpenCode: {' '.join(cmd)}")
     try:
         subprocess.Popen(
             cmd,
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL,
-            start_new_session=True
+            start_new_session=True,
+            env=env,
         )
-        logging.info("Headless Goose spawned successfully.")
+        logging.info("Headless OpenCode spawned successfully.")
     except Exception as e:
-        logging.error(f"Failed to spawn Goose: {e}")
+        logging.error(f"Failed to spawn OpenCode: {e}")
         if os.path.exists(LOCK_FILE):
             os.remove(LOCK_FILE)
 
-def handle_goose_spawn():
-    """Called when goose_inbox.md changes."""
-    logging.info("Goose Inbox Updated.")
-    if check_inbox_has_work(GOOSE_INBOX):
-        ping_telegram("🦢 **NEW PAYLOAD FOR GOOSE**\nA payload has dropped into `goose_inbox.md`. Auto-spawning headless execution.")
-        spawn_goose_headless()
+# Legacy alias
+spawn_goose_headless = spawn_opencode_headless
+
+# ── Claude headless spawn ─────────────────────────────────────────────────
+_claude_headless_lock = threading.Lock()
+
+def spawn_claude_headless():
+    """Spawn claude -p headless to process claude_inbox.md tasks.
+    Strips ANTHROPIC_API_KEY and ANTHROPIC_BASE_URL so Max OAuth kicks in.
+    Results written to claude_outbox.md AND opencode_inbox.md (return loop).
+    """
+    if _claude_headless_lock.locked():
+        logging.info("Claude headless already running — skipping spawn.")
+        return
+
+    def _run():
+        with _claude_headless_lock:
+            # Strip ANTHROPIC_API_KEY so Max OAuth takes over.
+            # Inject CLAUDE_CODE_OAUTH_TOKEN from cache file (written by active Claude Code session).
+            env = dict(os.environ)
+            env.pop("ANTHROPIC_API_KEY", None)
+            env.pop("ANTHROPIC_BASE_URL", None)
+            # Load fresh OAuth token if available
+            _oauth_cache = "/home/john/Thunderbird/OpsCenter/.claude_oauth_cache"
+            try:
+                with open(_oauth_cache) as _f:
+                    for _line in _f:
+                        if _line.startswith("CLAUDE_CODE_OAUTH_TOKEN="):
+                            env["CLAUDE_CODE_OAUTH_TOKEN"] = _line.strip().split("=", 1)[1]
+                            logging.info("Loaded CLAUDE_CODE_OAUTH_TOKEN from cache file.")
+                            break
+            except Exception as _e:
+                logging.warning(f"Could not load OAuth token cache: {_e}")
+            prompt = (
+                "Read /home/john/Thunderbird/claude_inbox.md. "
+                "Find all tasks NOT marked COMPLETE. "
+                "Execute each task fully. "
+                "Write results to BOTH: "
+                "(1) /home/john/Thunderbird/OpsCenter/collaboration/claude_outbox.md "
+                "(2) /home/john/Thunderbird/OpsCenter/collaboration/opencode_inbox.md "
+                "— prefix each result with 'CLAUDE RESULT | <task_id> |' so OpenCode can read it. "
+                "Update mission_board.json status to COMPLETE for each task. "
+                "Mark each task COMPLETE in claude_inbox.md when done."
+            )
+            log_path = "/home/john/Thunderbird/logs/claude_headless.log"
+            success = False
+            # Try claude -p first (Max OAuth / direct API)
+            try:
+                with open(log_path, 'a') as log_f:
+                    proc = subprocess.Popen(
+                        ['claude', '--dangerously-skip-permissions',
+                         '--disallowedTools', 'TodoWrite',
+                         '-p', prompt],
+                        env=env, cwd='/home/john/Thunderbird',
+                        stdout=log_f, stderr=subprocess.STDOUT,
+                    )
+                try:
+                    proc.wait(timeout=600)
+                    if proc.returncode == 0:
+                        success = True
+                        logging.info("Claude headless completed via claude -p (rc=0)")
+                    else:
+                        logging.warning(f"claude -p failed rc={proc.returncode} — falling back to OpenCode")
+                except subprocess.TimeoutExpired:
+                    proc.kill()
+                    logging.error("Claude headless timed out after 600s")
+            except FileNotFoundError:
+                logging.error("claude binary not found — falling back to OpenCode")
+
+            # Fallback: opencode run with Claude via OpenRouter
+            if not success:
+                opencode_env = dict(os.environ)
+                opencode_env['PATH'] = '/home/john/.opencode/bin:' + opencode_env.get('PATH', '')
+                try:
+                    with open(log_path, 'a') as log_f:
+                        proc = subprocess.Popen(
+                            ['opencode', 'run',
+                             '-m', 'opencode/qwen3.6-plus-free',
+                             prompt],
+                            env=opencode_env, cwd='/home/john/Thunderbird',
+                            stdout=log_f, stderr=subprocess.STDOUT,
+                        )
+                    try:
+                        proc.wait(timeout=600)
+                        logging.info(f"OpenCode fallback completed (rc={proc.returncode})")
+                    except subprocess.TimeoutExpired:
+                        proc.kill()
+                        logging.error("OpenCode fallback timed out")
+                except FileNotFoundError:
+                    logging.error("opencode binary not found — no fallback available")
+
+    t = threading.Thread(target=_run, daemon=True, name="claude-headless")
+    t.start()
+    logging.info("Claude headless thread launched.")
+
+
+def handle_opencode_inbox():
+    """Called when opencode_inbox.md changes."""
+    logging.info("OpenCode Inbox Updated.")
+    if check_inbox_has_work(OPENCODE_INBOX):
+        ping_telegram("**NEW TASK FOR OPENCODE**\nPayload in `opencode_inbox.md`. Auto-spawning OpenCode headless.")
+        spawn_opencode_headless()
     else:
-        logging.info("Goose Inbox modified but no unread work detected.")
+        logging.info("OpenCode Inbox modified but no unread work detected.")
+
+# Legacy alias
+handle_goose_spawn = handle_opencode_inbox
 
 def handle_claude_inbox():
-    """Called when claude_inbox.md changes."""
+    """Called when claude_inbox.md changes — ping Commander + auto-spawn headless Claude."""
     logging.info("Claude Inbox Updated.")
     if check_inbox_has_work(CLAUDE_INBOX):
-        ping_telegram("📬 **NEW TASK/ASK FOR CLAUDE**\nA payload has dropped into `claude_inbox.md`.")
+        ping_telegram("📬 **NEW TASK FOR CLAUDE**\nPayload in `claude_inbox.md`. Auto-spawning headless Claude.")
+        spawn_claude_headless()
     else:
         logging.info("Claude Inbox modified but no unread work detected.")
 
@@ -152,7 +268,7 @@ def handle_activity_board():
 
 # Dispatch map
 HANDLERS = {
-    GOOSE_INBOX:    handle_goose_spawn,
+    OPENCODE_INBOX: handle_opencode_inbox,
     CLAUDE_INBOX:   handle_claude_inbox,
     ACTIVITY_BOARD: handle_activity_board,
 }
@@ -241,13 +357,24 @@ def main():
     observer = Observer()
     event_handler = InboxEventHandler()
 
-    # Watch collaboration directory (not individual files — inotify works on dirs)
-    collab_dir = os.path.dirname(CLAUDE_INBOX)
-    if os.path.exists(collab_dir):
-        observer.schedule(event_handler, collab_dir, recursive=False)
-        logging.info(f"Watching directory: {collab_dir}")
-    else:
-        logging.error(f"Collaboration directory not found: {collab_dir}")
+    # Watch BOTH directories — inboxes live in different locations:
+    #   claude_inbox.md  → ~/Thunderbird/  (root)
+    #   opencode_inbox.md → ~/Thunderbird/OpsCenter/collaboration/
+    watch_dirs = {
+        os.path.dirname(CLAUDE_INBOX),          # ~/Thunderbird/
+        os.path.dirname(OPENCODE_INBOX),         # ~/Thunderbird/OpsCenter/collaboration/
+        os.path.dirname(ACTIVITY_BOARD),         # same as opencode dir
+    }
+    any_ok = False
+    for d in watch_dirs:
+        if os.path.exists(d):
+            observer.schedule(event_handler, d, recursive=False)
+            logging.info(f"Watching directory: {d}")
+            any_ok = True
+        else:
+            logging.warning(f"Watch directory not found: {d}")
+    if not any_ok:
+        logging.error("No valid watch directories found — exiting.")
         sys.exit(1)
 
     # Initialize state (set baselines without triggering)
@@ -258,7 +385,7 @@ def main():
     logging.info("Observer started. Watching for changes...")
 
     # Telegram startup ping
-    ping_telegram("👁️ **THUNDERBIRD WATCHER V6 ONLINE**\nSub-second inotify detection active. Headless Goose execution enabled.")
+    ping_telegram("**THUNDERBIRD WATCHER V6 ONLINE**\nSub-second inotify detection active. Headless OpenCode execution enabled.")
 
     # Save state periodically (every 60s), handle graceful shutdown
     try:
