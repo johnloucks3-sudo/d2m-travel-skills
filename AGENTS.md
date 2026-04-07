@@ -2,6 +2,16 @@
 
 > Dreams2Memories Travel, LLC · Python automation + LLM ops · openSUSE Tumbleweed (YOGA 192.168.1.198)
 
+## Session Init — Read First
+
+On every session start, read these two files before doing anything else:
+
+1. **`OpsCenter/opencode_memory.md`** — persistent session memory: what was built, what changed, operating agreement with Claude, key file locations, model stack. Append a summary of this session's work at the end when you close out.
+2. **`Personas/ROSTER.md`** — wing staff index: who does what, who to route to, who owns client comms.
+
+If Commander asks "what do you remember?" or "what happened last session?" — read `opencode_memory.md` and summarize.
+
+
 ## What This Is
 
 Thunderbird is a Python-based AI travel operations platform: MCP server (136 tools stdio / 293 HTTP), FastAPI REST gateway, Telegram bots (C2 + client-facing), email intelligence, booking management, and an AI incubator pipeline. Runs on systemd timers/services on a home server (YOGA, openSUSE Tumbleweed).
@@ -174,4 +184,7 @@ All automated via systemd timers (MDT):
 - `dossiers/CLAUDE.md` — Dossier conventions and FPD rules
 - `templates/CLAUDE.md` — Template engine documentation
 - `THUNDERBIRD_MASTER_PLAN.md` — Full project history (2200+ lines)
-- `Personas/` — Full character sheets for all AI staff personas
+- `Personas/ROSTER.md` — **Wing persona index** — all 12 staff + extended personas, roles, triggers, source files
+- `Personas/hale_cos.md` — COS Hale 7-layer identity (full authority, brain dispatch, standing orders)
+- `Personas/D2M_Staff_Introduction.md` — Narrative bios for all primary wing staff (A1–A12, CH, EXEC)
+- `Personas/D2M_Extended_Personas.md` — Client simulation, community intel, external advisory personas
