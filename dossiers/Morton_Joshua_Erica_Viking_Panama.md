@@ -75,9 +75,9 @@ Total group FPD: $21,244 — all due Mar 31, 2026
 ## ACTION ITEMS
 
 - [x] ~~COLLECT CC~~ — Kyle paying $6,148 on Josh/Erica's behalf ✓
-- [ ] **⚠️ GET CVC from Kyle — needed to process $21,244 total payment before Mar 31**
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
 - [x] ~~Confirm stateroom~~ — **3015, V1-Veranda, Deck 3** ✓
-- [ ] Guest profile form — passport details needed for both Josh & Erica
+- [x] ~~Guest profile form — passport details collected for Josh & Erica~~ ✓
 - [ ] Insurance — pre-existing window closed Feb 23. Needs separate policy. Discuss with Kyle/Josh.
 - [ ] Flights — not booked (outbound to Panama City Dec 17, return from FLL Dec 27)
 - [ ] Transfers — not booked (Panama City airport → pier; FLL pier → airport)

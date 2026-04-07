@@ -143,7 +143,1539 @@ Fares: Kyle/Roger = OMAFSV26-3 (DV1 $3,799pp) | Josh/Erica = OMAPSF26-3 (V1 $3,0
 
 ---
 
-### OPEN ACTION ITEMS
+### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS
+
+- [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
+- [x] ~~Guest profile form — passport details collected for Josh ### ACTION ITEMS Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓ Erica~~ ✓
 1. [x] ~~PROCESS 3 FINAL PAYMENTS — $21,244~~ — ✅ **PAID IN FULL Mar 27** (Commander directive)
    - 9593880 (Kyle/Rosalie) — $7,548 · Kyle CC ✓ · CVC ✅
    - 9593873 (Roger/Nick) — $7,548 · Kyle CC ✓ · CVC ✅

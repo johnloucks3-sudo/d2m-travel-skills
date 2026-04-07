@@ -1,67 +1,60 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-04-06 14:50:00 MT
+## Generated: 2026-04-06 19:50:00 MT
 
 ---
 
 ### Recent Commits
-- 63e6084 feat: add fare watch registry — 15 active watches across all 2026 D2M itineraries
-- 3b0cea2 Update tracker — Phase 3 progress
-- a230bf4 Phase 3 — Telegram /approve /reject /drafts commands
-- 8fbf148 Autonomy Build Phase 1+2 — fix all crashed services, add proactive push
-- 21c3b4f feat: build Thunderbird Email Maintenance Engine — full implementation per design spec
+- d77d7db feat: wire OpenCode (Qwen3-235B/OR) everywhere Goose was
+- 6405054 docs: AGENTS.md — fix stale Goose stack, correct post-reorg file paths
+- 449f80d fix: mcp_launcher_core.sh — add full PYTHONPATH for core/ reorg
+- 3061ddc ops: add complete systemd fix script — d2m-mcp path, agentic intel timer
+- 108d6ba chore: remove root-level Python files — all moved to core/ subdirectories
 
 ### Uncommitted Changes
-- .gitignore (modified)
-- Agency_Logo.png (modified)
-- Agency_Logo_email.png (modified)
+- .opencode.json (modified)
+- AGENTS.md (modified)
 - CLAUDE.md (modified)
-- DRIVE_FOR_DELETION_CATALOGUE.md (modified)
-- Docs/GOOSE_MEMORY_CORE.md (modified)
-- Docs/Wing_24-7_Operations_Manual.md (modified)
 - OpsCenter/00_COMMAND_LOG.md (modified)
-- OpsCenter/03_CLAUDE_MAX_QUEUE.json (modified)
-- OpsCenter/AUTONOMY_BUILD_TRACKER.md (modified)
 - OpsCenter/CLAUDE_DESKTOP_INIT.md (modified)
 - OpsCenter/GOOSE_INIT.md (modified)
-- OpsCenter/GOOSE_MCP_BRIDGE.md (modified)
-- OpsCenter/api_registry.py (modified)
-- OpsCenter/collaboration/D2M_Lifecycle_SOP_Draft.md (modified)
-- OpsCenter/collaboration/WATCHER_REPLACEMENT_PLAN.md (modified)
-- OpsCenter/collaboration/adk_poc_test.py (modified)
 - OpsCenter/collaboration/blackboard_summary.txt (modified)
-- OpsCenter/collaboration/claude_inbox.md (modified)
-- OpsCenter/collaboration/claude_output.md (modified)
-- .opencode.json (new)
+- OpsCenter/collaboration/goose_inbox.md (modified)
+- OpsCenter/collaboration/routing_log.md (modified)
+- OpsCenter/context_dani.json (modified)
+- OpsCenter/context_goose.json (modified)
+- OpsCenter/keyword_router.py (modified)
+- OpsCenter/mission_board.json (modified)
+- OpsCenter/nexus.lock (modified)
+- OpsCenter/nexus.py (modified)
+- OpsCenter/scan_outputs/incubator_review_latest.txt (modified)
+- OpsCenter/thunderbird_telegram_gw.py (modified)
+- commander_inbox_log.json (modified)
+- core/intel/intel/incubator_am_categories.json (modified)
+- core/intel/intel/incubator_last_review.md (modified)
 - .rtk/filters.toml (new)
-- Commander_Review/00_COMMAND_LOG.md (new)
-- Commander_Review/04_GOOSE_TASK_MANIFEST.md (new)
-- Commander_Review/CLAUDE_DESKTOP_INIT.md (new)
-- Commander_Review/CLAUDE_INIT.md (new)
-- Commander_Review/CLAUDE_SESSION_INIT_20260331.md (new)
-- Commander_Review/DAILY_OPS_CHECKLIST.md (new)
-- Commander_Review/DRIVE_REORG_V2_FULL_REPORT.md (new)
-- Commander_Review/EMAIL_ENGINE_DESIGN.md (new)
-- Commander_Review/GET_WELL_PLAN_v1.md (new)
-- Commander_Review/GOOSE_INIT.md (new)
-- Commander_Review/GOOSE_MCP_BRIDGE.md (new)
-- Commander_Review/GOOSE_OVERWATCH_GUIDE.md (new)
-- Commander_Review/README.md (new)
-- Commander_Review/RULE_AUTO_APPROVAL.md (new)
-- Commander_Review/claude_context_injection.md (new)
-- Commander_Review/goose_context_injection.md (new)
-- Commander_Review/hale_tom_context.md (new)
-- Commander_Review/policy_engine_rules.md (new)
+- OpsCenter/opencode_memory.md (new)
+- Personas/ROSTER.md (new)
+- business/client_lifecycle/Furlow_Nichols_Ely_Lifecycle.html (new)
+- business/client_lifecycle/Kuklinski_Morton_Lifecycle.html (new)
+- business/client_lifecycle/Phase_Standardization.md (new)
+- business/dashboards/Westbrook_Dashboard.html (new)
+- core/intel/intel/incubator_raw_2026-04-06.json (new)
+- core/intel/intel/incubator_review_2026-04-06.md (new)
+- dossiers/Loucks_32Day_Itinerary_Apr2026.md (new)
+- evernote_backup.log.2.gz (new)
+- evernote_backup.log.3.gz (new)
+- monthly_archive.log.2.gz (new)
 
 ### Active Work
 - SSS: 0 pending decision(s)
 - Learning: 0 rules pending validation
 
 ### Recently Touched Dossiers
+- Loucks_32Day_Itinerary_Apr2026.md
 - Loucks_Personal_SilverNova_Japan.md
 - Westbrook_SilverNova_Personal.md
 - CLAUDE.md
 - Nichols_Allianz_Coverage_Brief.md
-- Scandi_Group_Monthly_Brief.md
 
 ### Open TODOs
 - [tool_validation_plan.md] - [ ] list files in TITAN_BOOKINGS_VAULT

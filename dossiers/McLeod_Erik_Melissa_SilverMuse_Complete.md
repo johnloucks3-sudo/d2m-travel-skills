@@ -179,11 +179,11 @@ Three options presented to client:
 
 ## CURRENT ACTION ITEMS
 
-🔴 **CRITICAL - PENDING RESOLUTION:**
-- [ ] Contact Silversea re: booking 298475-25 — get written confirmation of all 4 Door-to-Door transfer legs for deviated passengers
-  - **Status:** Under discussion since Mar 26
-  - **Items:** (1) Correct Jun 22 departure date to Jun 18, (2) Confirm airport↔pier group transfer coverage despite deviation, (3) Confirm Jul 6 home dropoff booking
-  - **Context:** Erik was frustrated (Mar 26) due to Silversea's failure to disclose coverage gaps post-deviation. Tone cooled after D2M acknowledged responsibility. Expects follow-up by Monday Mar 30 if no Silversea response.
+✅ **RESOLVED - TRANSFER CONFIRMED:**
+- [x] Contact Silversea re: booking 298475-25 — written confirmation received of all 4 Door-to-Door transfer legs for deviated passengers
+  - **Status:** Confirmed Apr 6, 2026
+  - **Items:** (1) Jun 18 departure date confirmed, (2) airport↔pier group transfer coverage confirmed despite deviation, (3) Jul 6 home dropoff booking confirmed
+  - **Context:** Silversea provided written confirmation resolving all coverage gaps. Client informed.
 
 🟡 **OPERATIONAL:**
 - [ ] Confirm post-cruise Venice hotel selection (choose from 3 options)
@@ -195,10 +195,10 @@ Three options presented to client:
 - [ ] Request/confirm emergency contact information
 - [ ] Obtain missing phone numbers and home addresses for both clients
 
-🟢 **ON HOLD PENDING TRANSFER RESOLUTION:**
-- [ ] Do NOT send Giudecca intel or Venice hotel recommendations until transfer dispute is resolved
-  - **Reason:** Erik not in 'planning fun stuff' mode; trust needs rebuilding
-  - **Release trigger:** Silversea written confirmation of all transfer coverage
+🟢 **RELEASED - PLANNING RESUMED:**
+- [x] Send Giudecca intel and Venice hotel recommendations
+  - **Reason:** Transfer dispute resolved, trust restored
+  - **Action:** Delivered Apr 6, 2026
 
 ---
 

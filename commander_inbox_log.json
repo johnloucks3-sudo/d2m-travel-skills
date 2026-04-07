@@ -188,5 +188,85 @@
     "persona": "COS",
     "draft_id": null,
     "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-06T22:00:54.714805+00:00",
+    "msg_id": "19d64c85e4f86148",
+    "subject": "Re: Project Expedition booking still using LGT account",
+    "sender": "julie@lovegrouptravel.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-06T22:01:02.872903+00:00",
+    "msg_id": "19d64a481d01b0d6",
+    "subject": "Discover the Latest PONANT EXPLORATIONS Updates",
+    "sender": "mail@tln.messages2.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-06T22:01:04.615148+00:00",
+    "msg_id": "19d64a44aa1ef07a",
+    "subject": "Spring into Adventure with Graham Travel Marketing Updates",
+    "sender": "laureleegraham@15632907.mailchimpapp.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-06T22:01:14.124915+00:00",
+    "msg_id": "19d647d611990e05",
+    "subject": "Holland America Cruises to Alaska, Caribbean, Europe, Asia & More",
+    "sender": "news@info.cruisecritic.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-06T22:15:26.597519+00:00",
+    "msg_id": "19d64dabbf70bd0e",
+    "subject": "Aloha - We look forward to Welcoming You!",
+    "sender": "information@halekoa.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-06T22:15:28.885226+00:00",
+    "msg_id": "19d6402a433218c0",
+    "subject": "Reminder: Budget Deals for Luxury Travel!",
+    "sender": "specials-businessclassguru.com@shared1.ccsend.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-07T00:15:36.569355+00:00",
+    "msg_id": "19d6543d7203915e",
+    "subject": "1 Peter 2:24",
+    "sender": "huckabeepost+the-prayer-tree@substack.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-07T00:15:43.833809+00:00",
+    "msg_id": "19d65425516bb6a7",
+    "subject": "Donald Trump Called Out Obama by Name in Front of the Entire Country and the Crowd Went Wild",
+    "sender": "info@mg.renewedright.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
   }
 ]
