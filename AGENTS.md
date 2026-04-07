@@ -163,6 +163,60 @@ All automated via systemd timers (MDT):
 opencode run -m openrouter/deepseek/deepseek-chat-v3.1 "your task here"
 ```
 
+---
+
+## Tasking Claude FROM OpenCode
+
+Three patterns depending on whether you need the result now or later.
+
+### 1. Inline (synchronous — you need the answer now)
+```bash
+# Strip proxy vars so Max OAuth kicks in, not the Claude Code proxy
+env -u ANTHROPIC_API_KEY -u ANTHROPIC_BASE_URL \
+  claude -p "your task here" --dangerously-skip-permissions
+```
+- Returns response to stdout
+- Uses Claude MAX (free under subscription)
+- Best for: judgment calls, voice-matched copy, strategy, client emails
+- Timeout: ~3 min for complex tasks
+
+### 2. Via claude_inbox.md (async — fire and forget)
+```bash
+echo "NEXUS: your task here" >> /home/john/Thunderbird/claude_inbox.md
+```
+- Nexus daemon picks it up within 60 seconds and routes to Claude
+- Result lands in `/home/john/Thunderbird/claude_outbox.md`
+- Best for: background research, non-urgent analysis
+
+### 3. Via wing_comms.md (FYI / REQUEST to Claude Code)
+```markdown
+## REQUEST — [date]
+**From:** OpenCode
+**To:** Claude Code
+**Task:** [description]
+**File:** [output path]
+```
+Write to: `OpsCenter/collaboration/wing_comms.md`
+
+---
+
+### When to task Claude vs. handle yourself
+
+| Task type | Route to |
+|-----------|----------|
+| Client email / proposal copy | Claude (voice, brand standards) |
+| Strategy / pricing decisions | Claude (judgment) |
+| Commander-directed tasks | Claude (keyword router handles this) |
+| Code edits, file ops, bulk scanning | Handle yourself (OpenCode) |
+| Research, data extraction | Handle yourself (OpenCode) |
+| Arbitration / tiebreak | DeepSeek R1 (`openrouter/deepseek/deepseek-r1:free`) |
+
+**Environment note:** Always strip `ANTHROPIC_API_KEY` and `ANTHROPIC_BASE_URL` before
+calling `claude -p`. The base URL points at the Claude Code proxy which rejects
+headless calls without a matching key.
+
+---
+
 ## Key Conventions
 
 - **Brand:** Always "Dreams2Memories Travel, LLC" — NEVER "Love Group Travel"
