@@ -47,6 +47,10 @@ CLAUDE_KEYWORDS = [
     r'\bnegotiat(?:e|ed|es|ing)?\b',
     r'\bpropos(?:e|ed|al|als)?\b',
     r'\bclient\s+(?:email|copy|draft)\b',
+    r'\bcommander\s+directed\b',
+    r'\bcommander\s+order(?:ed|s)?\b',
+    r'\bcommander\s+task(?:ed|s)?\b',
+    r'\byoda\s+(?:directed|ordered|tasked|says|said|wants)\b',
 ]
 
 CLAUDE_KEYWORD_PATTERN = re.compile(
