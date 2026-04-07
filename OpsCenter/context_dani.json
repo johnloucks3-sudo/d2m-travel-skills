@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "role": "Commander",
+    "text": "How many suites on ama Magna"
+  },
+  {
+    "role": "Dani",
+    "text": "[Engine error — Claude rc=1]"
+  }
+]
