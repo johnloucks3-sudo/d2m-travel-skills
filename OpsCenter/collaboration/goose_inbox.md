@@ -1,3 +1,11 @@
+# ⛔ TOMBSTONE — 2026-04-07
+# This file is DEPRECATED. Do not write here.
+# See AGENTS.md for canonical paths:
+#   claude_inbox  → /home/john/Thunderbird/claude_inbox.md
+#   claude_outbox → /home/john/Thunderbird/OpsCenter/collaboration/claude_outbox.md
+#   opencode_inbox→ /home/john/Thunderbird/OpsCenter/collaboration/opencode_inbox.md
+# ─────────────────────────────────────────────
+# ARCHIVED CONTENT BELOW (read-only)
 # OpenCode Inbox
 
 ---

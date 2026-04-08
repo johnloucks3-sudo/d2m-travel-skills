@@ -129,9 +129,9 @@ CONTACT INFORMATION
   Roger Kuklinski
     Phone:   704-609-6867
     Email:   roger.kuklinski@gmail.com
-    Address: ⚠ NEEDED
+    Address: 3128 Floyd Ave Apt 2, Richmond, VA 23221
 
-  Dr Nicholas Kuklinski
+  Dr Nicholas Kuklinski  
     Phone:   704-609-4024
     Email:   nikpack@gmail.com
     Address: 3128 Floyd Ave Apt 2, Richmond, VA 23221

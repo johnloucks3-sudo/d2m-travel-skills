@@ -40,24 +40,34 @@ from apscheduler.triggers.cron import CronTrigger
 # Import sweep functions directly (not through MCP)
 # Add project root and subdirectories to import path
 _PROJECT_ROOT = Path(__file__).parent.parent.parent
-sys.path.insert(0, str(_PROJECT_ROOT))                     # root: thunderbird_drive, thunderbird_weekly_report, etc.
-sys.path.insert(0, str(_PROJECT_ROOT / "core/intel"))       # ship_intel, world_intel, tech_monitor
-sys.path.insert(0, str(_PROJECT_ROOT / "core/email"))       # gmail, email_classifier, email_intel
-sys.path.insert(0, str(_PROJECT_ROOT / "core/client"))      # followup_reminders
-sys.path.insert(0, str(_PROJECT_ROOT / "core/ops"))         # nova
-sys.path.insert(0, str(_PROJECT_ROOT / "core/ai_infra"))    # nova → personas, shared_memory
-sys.path.insert(0, str(_PROJECT_ROOT / "core/learning"))    # nova → model_router
-sys.path.insert(0, str(_PROJECT_ROOT / "core/communication")) # sms_monitor
-sys.path.insert(0, str(_PROJECT_ROOT / "core/booking"))    # concierge_monitor
-sys.path.insert(0, str(_PROJECT_ROOT / "core/travel"))      # fare_watch
+sys.path.insert(
+    0, str(_PROJECT_ROOT)
+)  # root: thunderbird_drive, thunderbird_weekly_report, etc.
+sys.path.insert(
+    0, str(_PROJECT_ROOT / "core/intel")
+)  # ship_intel, world_intel, tech_monitor
+sys.path.insert(
+    0, str(_PROJECT_ROOT / "core/email")
+)  # gmail, email_classifier, email_intel
+sys.path.insert(0, str(_PROJECT_ROOT / "core/client"))  # followup_reminders
+sys.path.insert(0, str(_PROJECT_ROOT / "core/ops"))  # nova
+sys.path.insert(
+    0, str(_PROJECT_ROOT / "core/ai_infra")
+)  # nova → personas, shared_memory
+sys.path.insert(0, str(_PROJECT_ROOT / "core/learning"))  # nova → model_router
+sys.path.insert(0, str(_PROJECT_ROOT / "core/communication"))  # sms_monitor
+sys.path.insert(0, str(_PROJECT_ROOT / "core/booking"))  # concierge_monitor
+sys.path.insert(0, str(_PROJECT_ROOT / "core/travel"))  # fare_watch
 sys.path.insert(0, str(_PROJECT_ROOT / "core/watchtower"))  # heartbeat
 sys.path.insert(0, str(_PROJECT_ROOT / "core/scheduling"))  # sync, calendar_sync
 from thunderbird_ship_intel import run_ship_intelligence_sweep
 from thunderbird_world_intel import run_world_intelligence_sweep
 from thunderbird_tech_monitor import run_daily_tech_monitor
 from thunderbird_weekly_report import (
-    ClientReportRequest, ReportConfig,
-    generate_html_report, generate_pdf_report
+    ClientReportRequest,
+    ReportConfig,
+    generate_html_report,
+    generate_pdf_report,
 )
 
 # Drive upload + Gmail draft
@@ -72,24 +82,38 @@ from thunderbird_calendar_sync import sync_bookings_to_calendar as run_calendar_
 from thunderbird_followup_reminders import scan_and_remind as run_followup_scan
 from thunderbird_nova import run_weekly_audit as run_nova_audit
 from thunderbird_heartbeat import (
-    run_cos_exec_heartbeat, run_daily_heartbeats, run_weekly_heartbeat
+    run_cos_exec_heartbeat,
+    run_daily_heartbeats,
+    run_weekly_heartbeat,
 )
 from thunderbird_evernote_backup import run_weekly_backup as run_evernote_backup
+
 # Groq eliminated — Claude Opus via Max plan ($0). Intel Crew replaces batch pre-gen
 from thunderbird_intel_crew import IntelCrew
 from thunderbird_overwatch import run_sentinel_sweep, run_judge_assessment
 from thunderbird_switchblade import run_switchblade
+
 # SMS monitor disabled (job commented out) - import causes circular dep on core/email
 # from thunderbird_sms_monitor import check_inbound_sms as run_sms_monitor
 from thunderbird_dani_email import dani_email_sweep as run_dani_email_sweep
-from thunderbird_commander_inbox import run_commander_inbox_sweep as run_commander_inbox_sweep
+from thunderbird_commander_inbox import (
+    run_commander_inbox_sweep as run_commander_inbox_sweep,
+)
 from thunderbird_concierge_monitor import poll_once as run_concierge_monitor
-from thunderbird_concierge_monitor import poll_commander_directives as run_commander_directives
-from thunderbird_fare_watch import list_watches as fw_list_watches
+from thunderbird_concierge_monitor import (
+    poll_commander_directives as run_commander_directives,
+)
+from thunderbird_fare_watch import list_watches as fw_list_watches, check_fare
 from thunderbird_outside_agents import (
-    _connect_cdp, _find_portal_tab, _notify_commander,
-    _load_state, _save_state, _screenshot_path,
-    ODY_BOOKINGS, TESS_COMMISSIONS, TESS_CLIENTS,
+    _connect_cdp,
+    _find_portal_tab,
+    _notify_commander,
+    _load_state,
+    _save_state,
+    _screenshot_path,
+    ODY_BOOKINGS,
+    TESS_COMMISSIONS,
+    TESS_CLIENTS,
 )
 
 import subprocess
@@ -109,8 +133,8 @@ OUTPUT_DIR = THUNDERBIRD_DIR / "output" / "scheduled_reports"
 LOG_FILE = THUNDERBIRD_DIR / "scheduler.log"
 
 # Drive folder IDs for report delivery
-DRIVE_INTEL = "1joXoapQQjnGsKzxxvpDhZnO6czlCQGqj"        # Thunderbird_Intel
-DRIVE_FINANCE = "1k2-DOzj5GEN6hjIlMND19hk4fQhUq-Tm"       # Thunderbird_Finance
+DRIVE_INTEL = "1joXoapQQjnGsKzxxvpDhZnO6czlCQGqj"  # Thunderbird_Intel
+DRIVE_FINANCE = "1k2-DOzj5GEN6hjIlMND19hk4fQhUq-Tm"  # Thunderbird_Finance
 
 # Commander's personal inbox — drafts and reports delivered here
 OWNER_EMAIL = "johnloucks3@gmail.com"
@@ -138,6 +162,7 @@ logger = logging.getLogger("thunderbird_scheduler")
 # HELPERS
 # ============================================================================
 
+
 def _save_report(content: str, filename: str, subfolder: str = "") -> Path:
     """Save report content to local file."""
     target_dir = OUTPUT_DIR / subfolder if subfolder else OUTPUT_DIR
@@ -151,14 +176,21 @@ def _upload_to_drive(local_path: Path, folder_id: str) -> Optional[str]:
     """Upload a file to Google Drive, return file ID or None."""
     try:
         from googleapiclient.http import MediaFileUpload
+
         service = _get_drive_service()
-        mime_type = mimetypes.guess_type(str(local_path))[0] or "application/octet-stream"
+        mime_type = (
+            mimetypes.guess_type(str(local_path))[0] or "application/octet-stream"
+        )
         metadata = {"name": local_path.name, "parents": [folder_id]}
         media = MediaFileUpload(str(local_path), mimetype=mime_type, resumable=True)
-        uploaded = service.files().create(
-            body=metadata, media_body=media, fields="id, webViewLink"
-        ).execute()
-        logger.info(f"Uploaded to Drive: {local_path.name} -> {uploaded.get('webViewLink')}")
+        uploaded = (
+            service.files()
+            .create(body=metadata, media_body=media, fields="id, webViewLink")
+            .execute()
+        )
+        logger.info(
+            f"Uploaded to Drive: {local_path.name} -> {uploaded.get('webViewLink')}"
+        )
         return uploaded.get("id")
     except Exception as e:
         logger.error(f"Drive upload failed: {e}")
@@ -181,7 +213,9 @@ def _create_draft(subject: str, body: str, attachment_paths: list = None):
                 fp = Path(file_path)
                 if not fp.exists():
                     continue
-                content_type = mimetypes.guess_type(str(fp))[0] or "application/octet-stream"
+                content_type = (
+                    mimetypes.guess_type(str(fp))[0] or "application/octet-stream"
+                )
                 main_type, sub_type = content_type.split("/", 1)
                 with open(fp, "rb") as f:
                     part = MIMEBase(main_type, sub_type)
@@ -191,9 +225,12 @@ def _create_draft(subject: str, body: str, attachment_paths: list = None):
                 message.attach(part)
 
         raw = base64.urlsafe_b64encode(message.as_bytes()).decode("utf-8")
-        draft = service.users().drafts().create(
-            userId="me", body={"message": {"raw": raw}}
-        ).execute()
+        draft = (
+            service.users()
+            .drafts()
+            .create(userId="me", body={"message": {"raw": raw}})
+            .execute()
+        )
         logger.info(f"Gmail draft created: {subject} (ID: {draft['id']})")
     except Exception as e:
         logger.error(f"Gmail draft failed: {e}")
@@ -202,6 +239,7 @@ def _create_draft(subject: str, body: str, attachment_paths: list = None):
 # ============================================================================
 # SCHEDULED JOBS
 # ============================================================================
+
 
 async def job_ship_intel():
     """Ship Intelligence Sweep — runs 2x daily."""
@@ -216,7 +254,7 @@ async def job_ship_intel():
         report_path = _save_report(
             json.dumps(result, indent=2),
             f"Ship_Intel_{ts}.json",
-            subfolder="ship_intel"
+            subfolder="ship_intel",
         )
 
         # Upload to Drive
@@ -237,7 +275,9 @@ async def job_ship_intel():
                 attachment_paths=[str(report_path)],
             )
 
-        logger.info(f"Ship Intel complete: {result.get('voyages_scraped', 0)} voyages, {alerts} alerts")
+        logger.info(
+            f"Ship Intel complete: {result.get('voyages_scraped', 0)} voyages, {alerts} alerts"
+        )
     except Exception as e:
         logger.error(f"Ship Intel FAILED: {e}", exc_info=True)
 
@@ -254,7 +294,7 @@ async def job_world_intel():
         report_path = _save_report(
             json.dumps(result, indent=2),
             f"World_Intel_{ts}.json",
-            subfolder="world_intel"
+            subfolder="world_intel",
         )
 
         _upload_to_drive(report_path, DRIVE_INTEL)
@@ -279,7 +319,9 @@ async def job_world_intel():
             attachment_paths=[str(report_path)],
         )
 
-        logger.info(f"World Intel complete: {result.get('travel_advisories_total', 0)} advisories, {news_count} news")
+        logger.info(
+            f"World Intel complete: {result.get('travel_advisories_total', 0)} advisories, {news_count} news"
+        )
     except Exception as e:
         logger.error(f"World Intel FAILED: {e}", exc_info=True)
 
@@ -357,7 +399,9 @@ async def job_weekly_report():
                 f"Regions: {', '.join(request.target_destinations)}\n\n"
                 f"PDF and HTML attached."
             ),
-            attachment_paths=[str(pdf_path), str(html_path)] if pdf_path.exists() else [str(html_path)],
+            attachment_paths=[str(pdf_path), str(html_path)]
+            if pdf_path.exists()
+            else [str(html_path)],
         )
 
         logger.info("Weekly Report complete")
@@ -396,6 +440,7 @@ async def job_claude_code_digest():
     logger.info("=" * 60)
     try:
         import importlib
+
         mod = importlib.import_module("thunderbird_claude_code_digest")
         mod.main()
         logger.info("Claude Code Digest generated")
@@ -496,22 +541,36 @@ async def job_rsync_to_dv7():
     logger.info("SYNC: rsync YOGA → dv7")
     try:
         excludes = [
-            '.venv', 'venv', '__pycache__', 'node_modules', '.git', '.claude',
-            'credentials.json', 'gmail_token.json', 'drive_token.json',
-            'calendar_token.json', 'gmail_oauth_credentials.json',
-            '*.pyc', 'output/', 'screenshots/',
+            ".venv",
+            "venv",
+            "__pycache__",
+            "node_modules",
+            ".git",
+            ".claude",
+            "credentials.json",
+            "gmail_token.json",
+            "drive_token.json",
+            "calendar_token.json",
+            "gmail_oauth_credentials.json",
+            "*.pyc",
+            "output/",
+            "screenshots/",
         ]
         cmd = [
-            'rsync', '-az', '--delete',
-            *[f'--exclude={e}' for e in excludes],
-            str(THUNDERBIRD_DIR) + '/',
-            'dv7:~/Thunderbird/',
+            "rsync",
+            "-az",
+            "--delete",
+            *[f"--exclude={e}" for e in excludes],
+            str(THUNDERBIRD_DIR) + "/",
+            "dv7:~/Thunderbird/",
         ]
         result = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
         if result.returncode == 0:
             logger.info("rsync to dv7 complete")
         else:
-            logger.error(f"rsync to dv7 failed (rc={result.returncode}): {result.stderr}")
+            logger.error(
+                f"rsync to dv7 failed (rc={result.returncode}): {result.stderr}"
+            )
     except subprocess.TimeoutExpired:
         logger.error("rsync to dv7 timed out (120s)")
     except Exception as e:
@@ -525,7 +584,9 @@ async def job_nova_audit():
     logger.info("=" * 60)
     try:
         result = run_nova_audit()
-        logger.info(f"Nova audit complete: {result.get('tickets_created', 0)} tickets created")
+        logger.info(
+            f"Nova audit complete: {result.get('tickets_created', 0)} tickets created"
+        )
     except Exception as e:
         logger.error(f"Nova Audit FAILED: {e}", exc_info=True)
 
@@ -545,7 +606,8 @@ async def job_morning_briefing():
         world_result = await run_world_intelligence_sweep()
         world_path = _save_report(
             json.dumps(world_result, indent=2),
-            f"World_Intel_{ts}.json", subfolder="morning"
+            f"World_Intel_{ts}.json",
+            subfolder="morning",
         )
         _upload_to_drive(world_path, DRIVE_INTEL)
         attachments.append(str(world_path))
@@ -555,7 +617,8 @@ async def job_morning_briefing():
         ship_result = await run_ship_intelligence_sweep()
         ship_path = _save_report(
             json.dumps(ship_result, indent=2),
-            f"Ship_Intel_{ts}.json", subfolder="morning"
+            f"Ship_Intel_{ts}.json",
+            subfolder="morning",
         )
         _upload_to_drive(ship_path, DRIVE_INTEL)
         attachments.append(str(ship_path))
@@ -602,8 +665,10 @@ async def job_morning_briefing():
             attachment_paths=attachments,
         )
 
-        logger.info(f"Morning Briefing complete: {news} news, {voyages} voyages, "
-                     f"{price_alerts + avail_alerts} total alerts")
+        logger.info(
+            f"Morning Briefing complete: {news} news, {voyages} voyages, "
+            f"{price_alerts + avail_alerts} total alerts"
+        )
     except Exception as e:
         logger.error(f"Morning Briefing FAILED: {e}", exc_info=True)
 
@@ -614,6 +679,7 @@ async def job_morning_briefing():
 # ============================================================================
 # Item #10: Consolidate heartbeat system from 18 scheduled jobs down to 5.
 # Old jobs are preserved below (commented out) in build_scheduler_legacy().
+
 
 async def consolidated_morning_brief():
     """
@@ -669,7 +735,9 @@ async def consolidated_morning_brief():
         if cos_review:
             sections.append(f"## COS SYNTHESIS (Hale)\n{cos_review}\n")
 
-        logger.info(f"Intel Crew pipeline complete — {intel_package.get('raw_item_counts', {})}")
+        logger.info(
+            f"Intel Crew pipeline complete — {intel_package.get('raw_item_counts', {})}"
+        )
     except Exception as e:
         errors.append(f"Intel Crew pipeline: {e}")
         logger.error(f"Morning Brief — Intel Crew FAILED: {e}", exc_info=True)
@@ -679,8 +747,7 @@ async def consolidated_morning_brief():
     try:
         alerts_sent = check_payment_alerts()
         sections.append(
-            f"## OPERATIONS (A3 — Moreau)\n"
-            f"  Payment alerts sent: {alerts_sent}\n"
+            f"## OPERATIONS (A3 — Moreau)\n  Payment alerts sent: {alerts_sent}\n"
         )
     except Exception as e:
         errors.append(f"A3 payment alerts: {e}")
@@ -699,12 +766,15 @@ async def consolidated_morning_brief():
 
     # ── A2 Dembe: Intelligence (standalone — only if Intel Crew failed) ──
     if intel_package is None:
-        logger.info("[Morning Brief] A2 — World & Ship intelligence sweeps (fallback)...")
+        logger.info(
+            "[Morning Brief] A2 — World & Ship intelligence sweeps (fallback)..."
+        )
         try:
             world_result = await run_world_intelligence_sweep()
             world_path = _save_report(
                 json.dumps(world_result, indent=2),
-                f"World_Intel_{ts}.json", subfolder="morning"
+                f"World_Intel_{ts}.json",
+                subfolder="morning",
             )
             _upload_to_drive(world_path, DRIVE_INTEL)
             attachments.append(str(world_path))
@@ -724,7 +794,9 @@ async def consolidated_morning_brief():
             if high_adv > 0:
                 top_alerts = world_result.get("top_alerts", [])
                 for a in top_alerts:
-                    intel_section += f"  ** {a.get('country', '?')}: Level {a.get('level', '?')}\n"
+                    intel_section += (
+                        f"  ** {a.get('country', '?')}: Level {a.get('level', '?')}\n"
+                    )
             sections.append(intel_section)
         except Exception as e:
             errors.append(f"A2 world intel: {e}")
@@ -734,7 +806,8 @@ async def consolidated_morning_brief():
             ship_result = await run_ship_intelligence_sweep()
             ship_path = _save_report(
                 json.dumps(ship_result, indent=2),
-                f"Ship_Intel_{ts}.json", subfolder="morning"
+                f"Ship_Intel_{ts}.json",
+                subfolder="morning",
             )
             _upload_to_drive(ship_path, DRIVE_INTEL)
             attachments.append(str(ship_path))
@@ -778,7 +851,9 @@ async def consolidated_morning_brief():
     logger.info("[Morning Brief] Running daily persona heartbeats...")
     try:
         run_daily_heartbeats()
-        sections.append("## PERSONA HEARTBEATS\n  All daily heartbeats complete (A2, A3, A9, A10, A6)\n")
+        sections.append(
+            "## PERSONA HEARTBEATS\n  All daily heartbeats complete (A2, A3, A9, A10, A6)\n"
+        )
     except Exception as e:
         errors.append(f"Daily heartbeats: {e}")
         logger.error(f"Morning Brief — daily heartbeats FAILED: {e}")
@@ -787,7 +862,9 @@ async def consolidated_morning_brief():
     logger.info("[Morning Brief] COS — Priority synthesis...")
     try:
         run_cos_exec_heartbeat()
-        sections.append("## PRIORITIES (COS — Hale)\n  COS-EXEC priority scan complete\n")
+        sections.append(
+            "## PRIORITIES (COS — Hale)\n  COS-EXEC priority scan complete\n"
+        )
     except Exception as e:
         errors.append(f"COS-EXEC heartbeat: {e}")
         logger.error(f"Morning Brief — COS-EXEC heartbeat FAILED: {e}")
@@ -804,6 +881,7 @@ async def consolidated_morning_brief():
     # ── Commander Inbox Status ────────────────────────────────────────────
     try:
         from thunderbird_commander_inbox import get_inbox_briefing_line
+
         inbox_line = get_inbox_briefing_line()
         sections.append(f"## COMMANDER INBOX (johnloucks3)\n  {inbox_line}\n")
     except Exception as e:
@@ -817,9 +895,7 @@ async def consolidated_morning_brief():
     cos_stamp = "COS-APPROVED" if intel_package else "FALLBACK-MODE"
     body = (
         f"THUNDERBIRD COMMAND BRIEF — {date_display} — {cos_stamp}\n"
-        f"{'=' * 60}\n\n"
-        + "\n".join(sections)
-        + "\nFull intel reports attached."
+        f"{'=' * 60}\n\n" + "\n".join(sections) + "\nFull intel reports attached."
     )
 
     _create_draft(
@@ -828,7 +904,9 @@ async def consolidated_morning_brief():
         attachment_paths=attachments if attachments else None,
     )
 
-    logger.info(f"Command Brief complete — {len(sections)} sections, {len(errors)} errors, {cos_stamp}")
+    logger.info(
+        f"Command Brief complete — {len(sections)} sections, {len(errors)} errors, {cos_stamp}"
+    )
 
 
 async def consolidated_midday_pulse():
@@ -847,9 +925,11 @@ async def consolidated_midday_pulse():
     logger.info("[Midday Pulse] Email Intelligence sweep...")
     try:
         result = run_email_intel_sweep(lookback_hours=6)
-        logger.info(f"Email Intel: {result.get('processed', 0)} processed, "
-                     f"{result.get('drafts_created', 0)} drafts, "
-                     f"{result.get('staff_papers_sent', 0)} papers")
+        logger.info(
+            f"Email Intel: {result.get('processed', 0)} processed, "
+            f"{result.get('drafts_created', 0)} drafts, "
+            f"{result.get('staff_papers_sent', 0)} papers"
+        )
     except Exception as e:
         errors.append(f"Email Intel: {e}")
         logger.error(f"Midday Pulse — Email Intel FAILED: {e}")
@@ -916,7 +996,8 @@ async def consolidated_eod_summary():
         ship_result = await run_ship_intelligence_sweep()
         ship_path = _save_report(
             json.dumps(ship_result, indent=2),
-            f"Ship_Intel_{ts}.json", subfolder="ship_intel"
+            f"Ship_Intel_{ts}.json",
+            subfolder="ship_intel",
         )
         _upload_to_drive(ship_path, DRIVE_INTEL)
         attachments.append(str(ship_path))
@@ -949,6 +1030,7 @@ async def consolidated_eod_summary():
     logger.info("[EOD Summary] Claude Code digest...")
     try:
         import importlib
+
         mod = importlib.import_module("thunderbird_claude_code_digest")
         mod.main()
         sections.append("CLAUDE CODE DIGEST\n  Generated successfully\n")
@@ -972,9 +1054,7 @@ async def consolidated_eod_summary():
     body = (
         f"THUNDERBIRD END OF DAY SUMMARY\n"
         f"{datetime.now().strftime('%A, %B %d %Y — %I:%M %p')}\n"
-        f"{'=' * 50}\n\n"
-        + "\n".join(sections)
-        + "\nReports attached."
+        f"{'=' * 50}\n\n" + "\n".join(sections) + "\nReports attached."
     )
 
     _create_draft(
@@ -983,7 +1063,9 @@ async def consolidated_eod_summary():
         attachment_paths=attachments if attachments else None,
     )
 
-    logger.info(f"EOD Summary complete — {len(sections)} sections, {len(errors)} errors")
+    logger.info(
+        f"EOD Summary complete — {len(sections)} sections, {len(errors)} errors"
+    )
 
 
 async def consolidated_evening_sync():
@@ -1031,10 +1113,13 @@ async def consolidated_evening_sync():
         if cache_file.exists():
             cache = json.loads(cache_file.read_text(encoding="utf-8"))
             # Keep only last 7 days of hashes
-            cutoff = (datetime.now() - __import__("datetime").timedelta(days=7)).isoformat()
+            cutoff = (
+                datetime.now() - __import__("datetime").timedelta(days=7)
+            ).isoformat()
             if isinstance(cache, dict):
-                cleaned = {k: v for k, v in cache.items()
-                           if isinstance(v, str) and v >= cutoff}
+                cleaned = {
+                    k: v for k, v in cache.items() if isinstance(v, str) and v >= cutoff
+                }
                 cache_file.write_text(json.dumps(cleaned, indent=2), encoding="utf-8")
                 removed = len(cache) - len(cleaned)
                 logger.info(f"Briefing cache: removed {removed} stale entries")
@@ -1046,7 +1131,7 @@ async def consolidated_evening_sync():
         _create_draft(
             subject=f"Thunderbird Evening Sync — {len(errors)} errors",
             body="Evening maintenance completed with errors:\n\n"
-                 + "\n".join(f"- {e}" for e in errors),
+            + "\n".join(f"- {e}" for e in errors),
         )
         logger.warning(f"Evening Sync finished with {len(errors)} errors")
     else:
@@ -1081,7 +1166,9 @@ async def consolidated_weekly_deep_dive():
     logger.info("[Weekly Deep Dive] CH Washington weekly wisdom...")
     try:
         run_weekly_heartbeat()
-        sections.append("CH WASHINGTON (Weekly Reflection)\n  Wisdom and morale check complete\n")
+        sections.append(
+            "CH WASHINGTON (Weekly Reflection)\n  Wisdom and morale check complete\n"
+        )
     except Exception as e:
         errors.append(f"CH Washington: {e}")
         logger.error(f"Weekly Deep Dive — CH Washington FAILED: {e}")
@@ -1091,7 +1178,9 @@ async def consolidated_weekly_deep_dive():
     try:
         result = run_nova_audit()
         tickets = result.get("tickets_created", 0) if isinstance(result, dict) else 0
-        sections.append(f"NOVA AUDIT (ELON — A12)\n  System review complete: {tickets} improvement tickets\n")
+        sections.append(
+            f"NOVA AUDIT (ELON — A12)\n  System review complete: {tickets} improvement tickets\n"
+        )
     except Exception as e:
         errors.append(f"Nova audit: {e}")
         logger.error(f"Weekly Deep Dive — Nova audit FAILED: {e}")
@@ -1125,8 +1214,7 @@ async def consolidated_weekly_deep_dive():
     body = (
         f"THUNDERBIRD WEEKLY DEEP DIVE\n"
         f"{datetime.now().strftime('%A, %B %d %Y')}\n"
-        f"{'=' * 50}\n\n"
-        + "\n".join(sections)
+        f"{'=' * 50}\n\n" + "\n".join(sections)
     )
 
     _create_draft(
@@ -1134,12 +1222,15 @@ async def consolidated_weekly_deep_dive():
         body=body,
     )
 
-    logger.info(f"Weekly Deep Dive complete — {len(sections)} sections, {len(errors)} errors")
+    logger.info(
+        f"Weekly Deep Dive complete — {len(sections)} sections, {len(errors)} errors"
+    )
 
 
 # ============================================================================
 # SCHEDULER SETUP — CONSOLIDATED (5 jobs + SMS monitor)
 # ============================================================================
+
 
 def build_scheduler() -> AsyncIOScheduler:
     """Configure and return the scheduler with 5 consolidated jobs + SMS monitor.
@@ -1155,7 +1246,7 @@ def build_scheduler() -> AsyncIOScheduler:
         logger.info("SMS Monitor: checking inbound texts...")
         try:
             result = run_sms_monitor()
-            processed = result.get('processed', 0) if isinstance(result, dict) else 0
+            processed = result.get("processed", 0) if isinstance(result, dict) else 0
             if processed > 0:
                 logger.info(f"SMS Monitor: {processed} messages processed")
         except Exception as e:
@@ -1185,13 +1276,18 @@ def build_scheduler() -> AsyncIOScheduler:
         try:
             cmd_processed = run_commander_directives()
             if cmd_processed > 0:
-                logger.info(f"Concierge Monitor: {cmd_processed} Commander directive(s) processed")
+                logger.info(
+                    f"Concierge Monitor: {cmd_processed} Commander directive(s) processed"
+                )
         except Exception as e:
             logger.error(f"Concierge Monitor (Commander directives) FAILED: {e}")
 
-    scheduler.add_job(job_concierge_monitor,
-                      CronTrigger(minute="*/10", timezone=TZ),
-                      id="concierge_monitor", name="Concierge Email Monitor (every 10m, 24/7)")
+    scheduler.add_job(
+        job_concierge_monitor,
+        CronTrigger(minute="*/10", timezone=TZ),
+        id="concierge_monitor",
+        name="Concierge Email Monitor (every 10m, 24/7)",
+    )
 
     # 0b1. Session Auto-Save Checkpoint: every 10 min, active hours (0800-2300 MT)
     #      Standing Order 2026-03-16 — COS writes session_autosave_latest.md every 10 min.
@@ -1200,9 +1296,12 @@ def build_scheduler() -> AsyncIOScheduler:
     #      recently touched dossiers. Prevents continuity loss from battery/power flux.
     from thunderbird_session_checkpoint import job_session_checkpoint
 
-    scheduler.add_job(job_session_checkpoint,
-                      CronTrigger(minute="*/10", hour="8-23", timezone=TZ),
-                      id="session_checkpoint", name="Session Auto-Save Checkpoint (every 10m, 0800-2300 MT)")
+    scheduler.add_job(
+        job_session_checkpoint,
+        CronTrigger(minute="*/10", hour="8-23", timezone=TZ),
+        id="session_checkpoint",
+        name="Session Auto-Save Checkpoint (every 10m, 0800-2300 MT)",
+    )
 
     # 0b2. Dani Email Sweep: every 30 min, 24/7
     #       FIX 2026-03-16: Dani email responder was never scheduled.
@@ -1215,15 +1314,20 @@ def build_scheduler() -> AsyncIOScheduler:
             drafted = result.get("drafts_created", 0) if isinstance(result, dict) else 0
             found = result.get("emails_found", 0) if isinstance(result, dict) else 0
             if drafted > 0:
-                logger.info(f"Dani Email Sweep: {drafted} drafts created from {found} emails")
+                logger.info(
+                    f"Dani Email Sweep: {drafted} drafts created from {found} emails"
+                )
             elif found > 0:
                 logger.info(f"Dani Email Sweep: {found} emails found, 0 new drafts")
         except Exception as e:
             logger.error(f"Dani Email Sweep FAILED: {e}")
 
-    scheduler.add_job(job_dani_email_sweep,
-                      CronTrigger(minute="*/30", timezone=TZ),
-                      id="dani_email_sweep", name="Dani Email Sweep (every 30m, 24/7)")
+    scheduler.add_job(
+        job_dani_email_sweep,
+        CronTrigger(minute="*/30", timezone=TZ),
+        id="dani_email_sweep",
+        name="Dani Email Sweep (every 30m, 24/7)",
+    )
 
     # 0b3. Commander Inbox Scanner: every 2 hours, business hours (0800–2000 MT)
     #       Scans johnloucks3@gmail.com for D2M-relevant emails (client inquiries,
@@ -1234,17 +1338,22 @@ def build_scheduler() -> AsyncIOScheduler:
     async def job_commander_inbox():
         """Sweep Commander's personal inbox for D2M-relevant emails."""
         from thunderbird_commander_inbox import run_commander_inbox_sweep
+
         loop = asyncio.get_event_loop()
         result = await loop.run_in_executor(None, run_commander_inbox_sweep)
         logger.info(f"Commander inbox sweep: {result}")
 
-    scheduler.add_job(job_commander_inbox,
-                      CronTrigger(hour="8,10,12,14,16,18,20", minute=15, timezone=TZ),
-                      id="commander_inbox", name="Commander Inbox Scanner (every 2h, 0800-2000 MT)")
+    scheduler.add_job(
+        job_commander_inbox,
+        CronTrigger(hour="8,10,12,14,16,18,20", minute=15, timezone=TZ),
+        id="commander_inbox",
+        name="Commander Inbox Scanner (every 2h, 0800-2000 MT)",
+    )
 
     # 0c. Concierge Big Picture: every 6 hours, 24/7
     #     Reviews full thread context, unresolved directives, pending tasks
     from thunderbird_concierge_monitor import poll_big_picture as run_big_picture
+
     async def job_concierge_big_picture():
         logger.info("Concierge Big Picture: 6-hour lookback review...")
         try:
@@ -1253,9 +1362,12 @@ def build_scheduler() -> AsyncIOScheduler:
         except Exception as e:
             logger.error(f"Concierge Big Picture FAILED: {e}")
 
-    scheduler.add_job(job_concierge_big_picture,
-                      CronTrigger(hour="0,6,12,18", minute=15, timezone=TZ),
-                      id="concierge_big_picture", name="Concierge Big Picture (every 6h, 24/7)")
+    scheduler.add_job(
+        job_concierge_big_picture,
+        CronTrigger(hour="0,6,12,18", minute=15, timezone=TZ),
+        id="concierge_big_picture",
+        name="Concierge Big Picture (every 6h, 24/7)",
+    )
 
     # (Groq eliminated — Claude Opus handles all model calls via Max plan)
 
@@ -1263,35 +1375,50 @@ def build_scheduler() -> AsyncIOScheduler:
     #    Replaces: morning_briefing, daily_heartbeats, branded_morning_email,
     #              payment_alerts, followup_scan, world_intel (AM), ship_intel (AM)
     #    Now also collects Claude Opus persona results (submitted at 0600).
-    scheduler.add_job(consolidated_morning_brief,
-                      CronTrigger(hour=6, minute=31, timezone=TZ),
-                      id="morning_brief", name="Morning Brief (0631)",
-                      misfire_grace_time=300)
+    scheduler.add_job(
+        consolidated_morning_brief,
+        CronTrigger(hour=6, minute=31, timezone=TZ),
+        id="morning_brief",
+        name="Morning Brief (0631)",
+        misfire_grace_time=300,
+    )
 
     # 2. Midday Pulse: 12:00PM daily
     #    Replaces: email_classifier (was every 15min), payment recheck, followup recheck
-    scheduler.add_job(consolidated_midday_pulse,
-                      CronTrigger(hour=12, minute=0, timezone=TZ),
-                      id="midday_pulse", name="Midday Pulse (1200)")
+    scheduler.add_job(
+        consolidated_midday_pulse,
+        CronTrigger(hour=12, minute=0, timezone=TZ),
+        id="midday_pulse",
+        name="Midday Pulse (1200)",
+    )
 
     # 3. End of Day Summary: 5:00PM daily
     #    Replaces: ship_intel (PM), tech_monitor, claude_code_digest
-    scheduler.add_job(consolidated_eod_summary,
-                      CronTrigger(hour=17, minute=0, timezone=TZ),
-                      id="eod_summary", name="EOD Summary (1700)")
+    scheduler.add_job(
+        consolidated_eod_summary,
+        CronTrigger(hour=17, minute=0, timezone=TZ),
+        id="eod_summary",
+        name="EOD Summary (1700)",
+    )
 
     # 4. Evening Sync: 9:00PM daily
     #    Replaces: calendar_sync, drive_sync, drive_backup, rsync_to_dv7
-    scheduler.add_job(consolidated_evening_sync,
-                      CronTrigger(hour=21, minute=0, timezone=TZ),
-                      id="evening_sync", name="Evening Sync (2100)")
+    scheduler.add_job(
+        consolidated_evening_sync,
+        CronTrigger(hour=21, minute=0, timezone=TZ),
+        id="evening_sync",
+        name="Evening Sync (2100)",
+    )
 
     # 5. Weekly Deep Dive: Monday 7:00AM
     #    Replaces: weekly_report, weekly_heartbeat (CH), nova_audit, evernote_backup
     #    Now also collects Claude Opus persona results (submitted at Mon 0630).
-    scheduler.add_job(consolidated_weekly_deep_dive,
-                      CronTrigger(day_of_week="mon", hour=7, minute=0, timezone=TZ),
-                      id="weekly_deep_dive", name="Weekly Deep Dive (Mon 0700)")
+    scheduler.add_job(
+        consolidated_weekly_deep_dive,
+        CronTrigger(day_of_week="mon", hour=7, minute=0, timezone=TZ),
+        id="weekly_deep_dive",
+        name="Weekly Deep Dive (Mon 0700)",
+    )
 
     # 6. Overwatch Sentinel: every 5 min business hours, every 60 min off-hours
     #    Layer 1 quality control — dossier currency, commission math, deadlines,
@@ -1302,25 +1429,35 @@ def build_scheduler() -> AsyncIOScheduler:
             report = run_sentinel_sweep(use_llm=False)
             reds = sum(1 for c in report.checks if c.status.value == "RED")
             if reds > 0:
-                logger.warning(f"Overwatch Sentinel: {reds} RED flag(s) — escalating to Judge")
+                logger.warning(
+                    f"Overwatch Sentinel: {reds} RED flag(s) — escalating to Judge"
+                )
                 try:
                     run_judge_assessment(trigger="sentinel_escalation")
                 except Exception as je:
                     logger.error(f"Overwatch Judge escalation FAILED: {je}")
             else:
-                logger.info(f"Overwatch Sentinel: sweep complete — {len(report.checks)} checks, 0 RED")
+                logger.info(
+                    f"Overwatch Sentinel: sweep complete — {len(report.checks)} checks, 0 RED"
+                )
         except Exception as e:
             logger.error(f"Overwatch Sentinel FAILED: {e}")
 
     # Business hours: every 5 min (0700-1900 MT)
-    scheduler.add_job(job_sentinel_sweep,
-                      CronTrigger(minute="*/5", hour="7-18", timezone=TZ),
-                      id="overwatch_sentinel_biz", name="Overwatch Sentinel (5min, biz hours)")
+    scheduler.add_job(
+        job_sentinel_sweep,
+        CronTrigger(minute="*/5", hour="7-18", timezone=TZ),
+        id="overwatch_sentinel_biz",
+        name="Overwatch Sentinel (5min, biz hours)",
+    )
 
     # Off-hours: every 60 min (1900-0659 MT)
-    scheduler.add_job(job_sentinel_sweep,
-                      CronTrigger(minute=0, hour="0-6,19-23", timezone=TZ),
-                      id="overwatch_sentinel_off", name="Overwatch Sentinel (60min, off-hours)")
+    scheduler.add_job(
+        job_sentinel_sweep,
+        CronTrigger(minute=0, hour="0-6,19-23", timezone=TZ),
+        id="overwatch_sentinel_off",
+        name="Overwatch Sentinel (60min, off-hours)",
+    )
 
     # 7. Overwatch Judge: daily at 0600 MT
     #    Layer 2 leadership judgment — tone, morale, corrective action, strategic review
@@ -1332,9 +1469,12 @@ def build_scheduler() -> AsyncIOScheduler:
         except Exception as e:
             logger.error(f"Overwatch Judge FAILED: {e}")
 
-    scheduler.add_job(job_judge_daily,
-                      CronTrigger(hour=6, minute=0, timezone=TZ),
-                      id="overwatch_judge_daily", name="Overwatch Judge (daily 0600)")
+    scheduler.add_job(
+        job_judge_daily,
+        CronTrigger(hour=6, minute=0, timezone=TZ),
+        id="overwatch_judge_daily",
+        name="Overwatch Judge (daily 0600)",
+    )
 
     # 8. OA Portal Monitor: every 30 min during business hours (7AM-9PM MT)
     #    Checks Odysseus bookings, TESS commissions, and client portal activity.
@@ -1345,6 +1485,7 @@ def build_scheduler() -> AsyncIOScheduler:
         logger.info("SCHEDULED: OA Portal Monitor")
         logger.info("=" * 60)
         import hashlib
+
         changes = []
 
         try:
@@ -1364,14 +1505,19 @@ def build_scheduler() -> AsyncIOScheduler:
                 previous = _load_state("bookings_monitor")
                 if previous.get("text_hash") and current_hash != previous["text_hash"]:
                     changes.append("📋 *Booking data changed* in Odysseus")
-                _save_state("bookings_monitor", {
-                    "text_hash": current_hash,
-                    "checked_at": datetime.now().isoformat(),
-                    "text_preview": text[:500],
-                })
+                _save_state(
+                    "bookings_monitor",
+                    {
+                        "text_hash": current_hash,
+                        "checked_at": datetime.now().isoformat(),
+                        "text_preview": text[:500],
+                    },
+                )
                 logger.info(f"OA Monitor: Bookings checked (hash={current_hash[:8]})")
             else:
-                logger.info("OA Monitor: No Odysseus tab open — skipping bookings check")
+                logger.info(
+                    "OA Monitor: No Odysseus tab open — skipping bookings check"
+                )
         except Exception as e:
             logger.error(f"OA Monitor bookings check failed: {e}")
 
@@ -1379,19 +1525,26 @@ def build_scheduler() -> AsyncIOScheduler:
         try:
             page = await _find_portal_tab(ctx, "tess")
             if page:
-                await page.goto(TESS_COMMISSIONS, wait_until="networkidle", timeout=30000)
+                await page.goto(
+                    TESS_COMMISSIONS, wait_until="networkidle", timeout=30000
+                )
                 await page.wait_for_timeout(3000)
                 text = await page.evaluate("document.body.innerText")
                 current_hash = hashlib.md5(text.encode()).hexdigest()
                 previous = _load_state("commissions_monitor")
                 if previous.get("text_hash") and current_hash != previous["text_hash"]:
                     changes.append("💰 *Commission data changed* in TESS")
-                _save_state("commissions_monitor", {
-                    "text_hash": current_hash,
-                    "checked_at": datetime.now().isoformat(),
-                    "text_preview": text[:500],
-                })
-                logger.info(f"OA Monitor: Commissions checked (hash={current_hash[:8]})")
+                _save_state(
+                    "commissions_monitor",
+                    {
+                        "text_hash": current_hash,
+                        "checked_at": datetime.now().isoformat(),
+                        "text_preview": text[:500],
+                    },
+                )
+                logger.info(
+                    f"OA Monitor: Commissions checked (hash={current_hash[:8]})"
+                )
         except Exception as e:
             logger.error(f"OA Monitor commissions check failed: {e}")
 
@@ -1420,13 +1573,20 @@ def build_scheduler() -> AsyncIOScheduler:
                     old_set = set(previous.get("clients", []))
                     new_set = set(client_data)
                     added = new_set - old_set
-                    detail = f"({len(added)} new/modified entries)" if added else "(content changed)"
+                    detail = (
+                        f"({len(added)} new/modified entries)"
+                        if added
+                        else "(content changed)"
+                    )
                     changes.append(f"👤 *Client portal activity detected* {detail}")
-                _save_state("clients_monitor", {
-                    "data_hash": current_hash,
-                    "clients": client_data,
-                    "checked_at": datetime.now().isoformat(),
-                })
+                _save_state(
+                    "clients_monitor",
+                    {
+                        "data_hash": current_hash,
+                        "clients": client_data,
+                        "checked_at": datetime.now().isoformat(),
+                    },
+                )
                 logger.info(f"OA Monitor: Clients checked (hash={current_hash[:8]})")
         except Exception as e:
             logger.error(f"OA Monitor client check failed: {e}")
@@ -1436,13 +1596,18 @@ def build_scheduler() -> AsyncIOScheduler:
             msg = "🔔 *OA Portal Changes Detected*\n\n" + "\n".join(changes)
             msg += f"\n\n_Checked at {datetime.now().strftime('%H:%M %b %d')}_"
             _notify_commander(msg)
-            logger.info(f"OA Monitor: {len(changes)} changes detected — Commander notified")
+            logger.info(
+                f"OA Monitor: {len(changes)} changes detected — Commander notified"
+            )
         else:
             logger.info("OA Monitor: No changes detected")
 
-    scheduler.add_job(job_oa_portal_monitor,
-                      CronTrigger(hour="7-21", minute="*/30", timezone=TZ),
-                      id="oa_portal_monitor", name="OA Portal Monitor (30min)")
+    scheduler.add_job(
+        job_oa_portal_monitor,
+        CronTrigger(hour="7-21", minute="*/30", timezone=TZ),
+        id="oa_portal_monitor",
+        name="OA Portal Monitor (30min)",
+    )
 
     # 9. SWITCHBLADE-4: daily at 7:00AM MT
     #    Automated Dani stress test — technical + persona + COS review + staff.
@@ -1459,16 +1624,22 @@ def build_scheduler() -> AsyncIOScheduler:
         except Exception as e:
             logger.error(f"SWITCHBLADE-4 FAILED: {e}", exc_info=True)
 
-    scheduler.add_job(job_switchblade,
-                      CronTrigger(hour=7, minute=0, timezone=TZ),
-                      id="switchblade_daily", name="SWITCHBLADE-4 Dani Test (daily 0700)")
+    scheduler.add_job(
+        job_switchblade,
+        CronTrigger(hour=7, minute=0, timezone=TZ),
+        id="switchblade_daily",
+        name="SWITCHBLADE-4 Dani Test (daily 0700)",
+    )
 
     # 9b. SWITCHBLADE-4 overnight run: 3:00AM MT (0900 UTC)
     #     Docstring-specified early-morning run to catch overnight data drift.
     #     Same job function as the 0700 run — separate ID for independent tracking.
-    scheduler.add_job(job_switchblade,
-                      CronTrigger(hour=3, minute=0, timezone=TZ),
-                      id="switchblade_0300", name="SWITCHBLADE-4 Dani Test (0300 MT)")
+    scheduler.add_job(
+        job_switchblade,
+        CronTrigger(hour=3, minute=0, timezone=TZ),
+        id="switchblade_0300",
+        name="SWITCHBLADE-4 Dani Test (0300 MT)",
+    )
 
     # 10. Flight Price Tracker: daily at 9:00AM MT
     #    Searches Google Flights via Playwright for configured routes.
@@ -1483,9 +1654,12 @@ def build_scheduler() -> AsyncIOScheduler:
         except Exception as e:
             logger.error(f"Flight Price Tracker FAILED: {e}", exc_info=True)
 
-    scheduler.add_job(job_flight_price_tracker,
-                      CronTrigger(hour=9, minute=0, timezone=TZ),
-                      id="flight_price_tracker", name="Flight Price Tracker (daily 0900)")
+    scheduler.add_job(
+        job_flight_price_tracker,
+        CronTrigger(hour=9, minute=0, timezone=TZ),
+        id="flight_price_tracker",
+        name="Flight Price Tracker (daily 0900)",
+    )
 
     # 11. Airline Alert Scan: every 2 hours during business hours
     #     Fast airline-only scan — checks for client-impacting route changes.
@@ -1494,18 +1668,26 @@ def build_scheduler() -> AsyncIOScheduler:
         logger.info("AIRLINE SCAN: Checking for client-impacting route changes...")
         try:
             from thunderbird_airline_monitor import run_airline_scan
+
             result = await run_airline_scan(alert=True)
             impacts = result.get("client_impacts", 0)
             if impacts > 0:
-                logger.warning(f"AIRLINE SCAN: {impacts} client impacts detected — alerts sent")
+                logger.warning(
+                    f"AIRLINE SCAN: {impacts} client impacts detected — alerts sent"
+                )
             else:
-                logger.info(f"AIRLINE SCAN: {result.get('articles_scanned', 0)} articles, no client impacts")
+                logger.info(
+                    f"AIRLINE SCAN: {result.get('articles_scanned', 0)} articles, no client impacts"
+                )
         except Exception as e:
             logger.error(f"AIRLINE SCAN FAILED: {e}")
 
-    scheduler.add_job(job_airline_alert_scan,
-                      CronTrigger(hour="7-21/2", minute=30, timezone=TZ),
-                      id="airline_alert_scan", name="Airline Alert Scan (every 2h, biz hours)")
+    scheduler.add_job(
+        job_airline_alert_scan,
+        CronTrigger(hour="7-21/2", minute=30, timezone=TZ),
+        id="airline_alert_scan",
+        name="Airline Alert Scan (every 2h, biz hours)",
+    )
 
     # 12. Learning Extraction: daily at 6:30AM MT
     #     Processes recent Commander corrections and extracts voice/style principles.
@@ -1516,14 +1698,20 @@ def build_scheduler() -> AsyncIOScheduler:
         logger.info("=" * 60)
         try:
             from thunderbird_learning import extract_principles
+
             results = extract_principles()
-            logger.info(f"Learning Extraction complete: {len(results)} principles extracted")
+            logger.info(
+                f"Learning Extraction complete: {len(results)} principles extracted"
+            )
         except Exception as e:
             logger.error(f"Learning Extraction FAILED: {e}", exc_info=True)
 
-    scheduler.add_job(job_learning_extraction,
-                      CronTrigger(hour=6, minute=30, timezone=TZ),
-                      id="learning_extraction", name="Learning Extraction (daily 0630)")
+    scheduler.add_job(
+        job_learning_extraction,
+        CronTrigger(hour=6, minute=30, timezone=TZ),
+        id="learning_extraction",
+        name="Learning Extraction (daily 0630)",
+    )
 
     # 13. Dossier Scanner: daily at 6:45AM MT
     #     Scans all client dossiers for gaps, stale data, missing fields.
@@ -1533,7 +1721,11 @@ def build_scheduler() -> AsyncIOScheduler:
         logger.info("SCHEDULED: Dossier Scanner")
         logger.info("=" * 60)
         try:
-            from thunderbird_dossier_scanner import scan_all_dossiers, generate_alert_digest
+            from thunderbird_dossier_scanner import (
+                scan_all_dossiers,
+                generate_alert_digest,
+            )
+
             alerts = scan_all_dossiers()
             logger.info(f"Dossier Scanner complete: {len(alerts)} alerts found")
             if alerts:
@@ -1542,9 +1734,12 @@ def build_scheduler() -> AsyncIOScheduler:
         except Exception as e:
             logger.error(f"Dossier Scanner FAILED: {e}", exc_info=True)
 
-    scheduler.add_job(job_dossier_scanner,
-                      CronTrigger(hour=6, minute=45, timezone=TZ),
-                      id="dossier_scanner", name="Dossier Scanner (daily 0645)")
+    scheduler.add_job(
+        job_dossier_scanner,
+        CronTrigger(hour=6, minute=45, timezone=TZ),
+        id="dossier_scanner",
+        name="Dossier Scanner (daily 0645)",
+    )
 
     # 14. Intel Crew: daily at 5:45AM MT — runs BEFORE the 6:31 morning brief
     #     A2 Dembe (COLLECT) → A2 Dembe (ANALYZE) → A1 Radar (AUDIT) → COS Hale (REVIEW)
@@ -1556,6 +1751,7 @@ def build_scheduler() -> AsyncIOScheduler:
         logger.info("=" * 60)
         try:
             from thunderbird_intel_crew import IntelCrew
+
             loop = asyncio.get_event_loop()
             result = await loop.run_in_executor(None, IntelCrew().run)
             counts = result.get("raw_item_counts", {})
@@ -1564,9 +1760,12 @@ def build_scheduler() -> AsyncIOScheduler:
         except Exception as e:
             logger.error(f"Intel Crew FAILED: {e}", exc_info=True)
 
-    scheduler.add_job(job_intel_crew,
-                      CronTrigger(hour=5, minute=45, timezone=TZ),
-                      id="intel_crew_daily", name="Intel Crew Pipeline (daily 0545)")
+    scheduler.add_job(
+        job_intel_crew,
+        CronTrigger(hour=5, minute=45, timezone=TZ),
+        id="intel_crew_daily",
+        name="Intel Crew Pipeline (daily 0545)",
+    )
 
     # 15. Flash Intel Card: daily at 7:15AM MT
     #     Picks one D2M-applicable insight from the intel folder.
@@ -1584,8 +1783,9 @@ def build_scheduler() -> AsyncIOScheduler:
                 logger.warning("Flash Intel Card: intel/ dir not found")
                 return
 
-            files = sorted(intel_dir.glob("*.md"),
-                           key=lambda x: x.stat().st_mtime, reverse=True)
+            files = sorted(
+                intel_dir.glob("*.md"), key=lambda x: x.stat().st_mtime, reverse=True
+            )
             if not files:
                 return
 
@@ -1617,12 +1817,20 @@ def build_scheduler() -> AsyncIOScheduler:
             for i, line in enumerate(raw_lines):
                 ll = line.lower()
                 if "d2m apply:" in ll or "d2m analog:" in ll:
-                    action = line.replace("**D2M Apply:**", "").replace(
-                        "**D2M Analog:**", "").replace("D2M Apply:", "").replace(
-                        "D2M Analog:", "").strip()[:200]
+                    action = (
+                        line.replace("**D2M Apply:**", "")
+                        .replace("**D2M Analog:**", "")
+                        .replace("D2M Apply:", "")
+                        .replace("D2M Analog:", "")
+                        .strip()[:200]
+                    )
                     for j in range(i - 1, max(0, i - 5), -1):
                         prev = raw_lines[j]
-                        if len(prev) > 30 and not prev.startswith("|") and not prev.startswith("#"):
+                        if (
+                            len(prev) > 30
+                            and not prev.startswith("|")
+                            and not prev.startswith("#")
+                        ):
                             signal = prev[:180]
                             break
                     if action:
@@ -1631,8 +1839,12 @@ def build_scheduler() -> AsyncIOScheduler:
             # Fallback: first substantive line
             if not signal:
                 for line in raw_lines:
-                    if (len(line) > 60 and not line.startswith("#")
-                            and not line.startswith("|") and not line.startswith("-")):
+                    if (
+                        len(line) > 60
+                        and not line.startswith("#")
+                        and not line.startswith("|")
+                        and not line.startswith("-")
+                    ):
                         signal = line[:180]
                         break
 
@@ -1641,12 +1853,10 @@ def build_scheduler() -> AsyncIOScheduler:
                 return
 
             source = chosen.stem.replace("_", " ").replace("-", " ")[:50]
-            first_word = (signal.split()[0] if signal.split() else "intel").lower().strip("*_:")
-            card = (
-                f"⚡ *FLASH INTEL CARD*\n"
-                f"_{source}_\n\n"
-                f"*Signal:* {signal}\n"
+            first_word = (
+                (signal.split()[0] if signal.split() else "intel").lower().strip("*_:")
             )
+            card = f"⚡ *FLASH INTEL CARD*\n_{source}_\n\n*Signal:* {signal}\n"
             if action:
                 card += f"\n*D2M:* {action}\n"
             card += f"\n_/ask {first_word} to dig deeper_"
@@ -1654,7 +1864,9 @@ def build_scheduler() -> AsyncIOScheduler:
             token = os.environ.get("TELEGRAM_C2_BOT_TOKEN", "")
             chat_id = os.environ.get("TELEGRAM_COMMANDER_ID", "")
             if not token or not chat_id:
-                logger.warning("Flash Intel Card: C2 credentials not set — skipping Telegram send")
+                logger.warning(
+                    "Flash Intel Card: C2 credentials not set — skipping Telegram send"
+                )
                 return
 
             _req.post(
@@ -1666,9 +1878,12 @@ def build_scheduler() -> AsyncIOScheduler:
         except Exception as e:
             logger.error(f"Flash Intel Card FAILED: {e}", exc_info=True)
 
-    scheduler.add_job(job_flash_intel_card,
-                      CronTrigger(hour=7, minute=15, timezone=TZ),
-                      id="flash_intel_card", name="Flash Intel Card (daily 0715 MT)")
+    scheduler.add_job(
+        job_flash_intel_card,
+        CronTrigger(hour=7, minute=15, timezone=TZ),
+        id="flash_intel_card",
+        name="Flash Intel Card (daily 0715 MT)",
+    )
 
     return scheduler
 
@@ -1679,6 +1894,7 @@ def build_scheduler() -> AsyncIOScheduler:
 
 FLIGHT_WATCH_FILE = THUNDERBIRD_DIR / "flight_watch.json"
 FLIGHT_WATCH_STATE = THUNDERBIRD_DIR / "output" / "flight_watch_state.json"
+
 
 def _load_flight_watches() -> list:
     """Load active flight watches from config."""
@@ -1691,6 +1907,7 @@ def _load_flight_watches() -> list:
         logger.error(f"Failed to load flight watches: {e}")
         return []
 
+
 def _load_flight_state() -> dict:
     """Load previous price state."""
     if not FLIGHT_WATCH_STATE.exists():
@@ -1699,6 +1916,7 @@ def _load_flight_state() -> dict:
         return json.loads(FLIGHT_WATCH_STATE.read_text(encoding="utf-8"))
     except Exception:
         return {}
+
 
 def _save_flight_state(state: dict):
     """Save price state."""
@@ -1719,22 +1937,32 @@ async def _run_flight_price_check():
 
     # Initialize MCP session for Playwright
     headers = {"Content-Type": "application/json", "Accept": "application/json"}
-    init_resp = _req.post("http://localhost:8765/mcp", json={
-        "jsonrpc": "2.0", "id": 1, "method": "initialize",
-        "params": {
-            "protocolVersion": "2025-03-26",
-            "capabilities": {},
-            "clientInfo": {"name": "flight-tracker", "version": "1.0"},
-        }
-    }, headers=headers, timeout=15)
+    init_resp = _req.post(
+        "http://localhost:8765/mcp",
+        json={
+            "jsonrpc": "2.0",
+            "id": 1,
+            "method": "initialize",
+            "params": {
+                "protocolVersion": "2025-03-26",
+                "capabilities": {},
+                "clientInfo": {"name": "flight-tracker", "version": "1.0"},
+            },
+        },
+        headers=headers,
+        timeout=15,
+    )
 
     sid = init_resp.headers.get("mcp-session-id", "")
     if sid:
         headers["mcp-session-id"] = sid
 
-    _req.post("http://localhost:8765/mcp", json={
-        "jsonrpc": "2.0", "method": "notifications/initialized"
-    }, headers=headers, timeout=10)
+    _req.post(
+        "http://localhost:8765/mcp",
+        json={"jsonrpc": "2.0", "method": "notifications/initialized"},
+        headers=headers,
+        timeout=10,
+    )
 
     results = []
 
@@ -1754,20 +1982,32 @@ async def _run_flight_price_check():
             f"%20one%20way%20{pax}%20passengers&curr=USD"
         )
 
-        logger.info(f"Flight Tracker: searching {origin}→{dest} on {date} ({pax} pax)...")
+        logger.info(
+            f"Flight Tracker: searching {origin}→{dest} on {date} ({pax} pax)..."
+        )
 
         try:
-            resp = _req.post("http://localhost:8765/mcp", json={
-                "jsonrpc": "2.0", "id": 100, "method": "tools/call",
-                "params": {"name": "browse_url", "arguments": {
-                    "url": gf_url,
-                    "extract": "text",
-                    "wait_seconds": 12,
-                    "screenshot": True,
-                    "scroll": True,
-                    "max_length": 20000,
-                }}
-            }, headers=headers, timeout=120)
+            resp = _req.post(
+                "http://localhost:8765/mcp",
+                json={
+                    "jsonrpc": "2.0",
+                    "id": 100,
+                    "method": "tools/call",
+                    "params": {
+                        "name": "browse_url",
+                        "arguments": {
+                            "url": gf_url,
+                            "extract": "text",
+                            "wait_seconds": 12,
+                            "screenshot": True,
+                            "scroll": True,
+                            "max_length": 20000,
+                        },
+                    },
+                },
+                headers=headers,
+                timeout=120,
+            )
 
             mcp_result = resp.json()
             page_text = ""
@@ -1781,11 +2021,15 @@ async def _run_flight_price_check():
                 continue
 
             # Parse flight offers from Google Flights text
-            flights = _parse_google_flights_text(page_text, min_dep_hour, max_layover_min)
+            flights = _parse_google_flights_text(
+                page_text, min_dep_hour, max_layover_min
+            )
 
             if not flights:
                 logger.info(f"Flight Tracker: no matching flights for {label}")
-                results.append({"label": label, "flights": [], "note": "No matching flights found"})
+                results.append(
+                    {"label": label, "flights": [], "note": "No matching flights found"}
+                )
                 continue
 
             # Compare to previous best
@@ -1814,14 +2058,18 @@ async def _run_flight_price_check():
                 "top_3": flights[:3],
             }
 
-            results.append({
-                "label": label,
-                "flights": flights[:5],
-                "price_change": price_change,
-                "best_price": current_best,
-            })
+            results.append(
+                {
+                    "label": label,
+                    "flights": flights[:5],
+                    "price_change": price_change,
+                    "best_price": current_best,
+                }
+            )
 
-            logger.info(f"Flight Tracker: {label} — {len(flights)} flights, best ${current_best:.0f} {price_change}")
+            logger.info(
+                f"Flight Tracker: {label} — {len(flights)} flights, best ${current_best:.0f} {price_change}"
+            )
 
         except Exception as e:
             logger.error(f"Flight Tracker: {label} search failed: {e}")
@@ -1834,7 +2082,9 @@ async def _run_flight_price_check():
         _send_flight_report(results, watches)
 
 
-def _parse_google_flights_text(text: str, min_dep_hour: int = 0, max_layover_min: int = 999) -> list:
+def _parse_google_flights_text(
+    text: str, min_dep_hour: int = 0, max_layover_min: int = 999
+) -> list:
     """Parse Google Flights page text into structured flight data.
 
     Google Flights text format (each flight is a block of lines):
@@ -1853,6 +2103,7 @@ def _parse_google_flights_text(text: str, min_dep_hour: int = 0, max_layover_min
         $190              <- price for all passengers
     """
     import re
+
     flights = []
     lines = text.split("\n")
 
@@ -1861,7 +2112,7 @@ def _parse_google_flights_text(text: str, min_dep_hour: int = 0, max_layover_min
         line = lines[i].strip()
 
         # Look for departure time line: "6:30 AM" or "11:05 AM"
-        dep_match = re.match(r'^(\d{1,2}:\d{2}\s+[AP]M)\s*$', line)
+        dep_match = re.match(r"^(\d{1,2}:\d{2}\s+[AP]M)\s*$", line)
         if not dep_match:
             i += 1
             continue
@@ -1869,7 +2120,7 @@ def _parse_google_flights_text(text: str, min_dep_hour: int = 0, max_layover_min
         dep_time = dep_match.group(1).strip()
 
         # Parse departure hour for filtering
-        dh_match = re.match(r'(\d{1,2}):(\d{2})\s+([AP]M)', dep_time)
+        dh_match = re.match(r"(\d{1,2}):(\d{2})\s+([AP]M)", dep_time)
         if dh_match:
             dep_hour = int(dh_match.group(1))
             if dh_match.group(3) == "PM" and dep_hour != 12:
@@ -1892,7 +2143,7 @@ def _parse_google_flights_text(text: str, min_dep_hour: int = 0, max_layover_min
             offset += 1
             if bl in ("–", "-", ""):
                 continue
-            arr_match = re.match(r'^(\d{1,2}:\d{2}\s+[AP]M(?:\+\d)?)\s*$', bl)
+            arr_match = re.match(r"^(\d{1,2}:\d{2}\s+[AP]M(?:\+\d)?)\s*$", bl)
             if arr_match:
                 arr_time = arr_match.group(1).strip()
                 break
@@ -1906,8 +2157,18 @@ def _parse_google_flights_text(text: str, min_dep_hour: int = 0, max_layover_min
 
         # Airline (first non-empty line after arrival)
         airline = ""
-        airline_names = ["Southwest", "United", "Delta", "American", "Alaska",
-                         "Frontier", "Spirit", "JetBlue", "Hawaiian", "Sun Country"]
+        airline_names = [
+            "Southwest",
+            "United",
+            "Delta",
+            "American",
+            "Alaska",
+            "Frontier",
+            "Spirit",
+            "JetBlue",
+            "Hawaiian",
+            "Sun Country",
+        ]
         for bl in rest:
             if not bl:
                 continue
@@ -1916,25 +2177,25 @@ def _parse_google_flights_text(text: str, min_dep_hour: int = 0, max_layover_min
                     airline = name
                     break
             if airline:
-                rest = rest[rest.index(bl) + 1:]
+                rest = rest[rest.index(bl) + 1 :]
                 break
 
         # Duration: "5 hr 15 min" or "14 hr 45 min"
         duration = ""
         for bl in rest:
-            dur_match = re.match(r'^(\d+)\s+hr\s+(\d+)\s+min$', bl)
+            dur_match = re.match(r"^(\d+)\s+hr\s+(\d+)\s+min$", bl)
             if dur_match:
                 duration = f"{dur_match.group(1)}h{dur_match.group(2)}m"
-                rest = rest[rest.index(bl) + 1:]
+                rest = rest[rest.index(bl) + 1 :]
                 break
 
         # Route: "SEA–COS"
         route = ""
         for bl in rest:
-            route_match = re.match(r'^([A-Z]{3})[–-]([A-Z]{3})$', bl)
+            route_match = re.match(r"^([A-Z]{3})[–-]([A-Z]{3})$", bl)
             if route_match:
                 route = bl
-                rest = rest[rest.index(bl) + 1:]
+                rest = rest[rest.index(bl) + 1 :]
                 break
 
         # Stops: "Nonstop", "1 stop", "2 stops"
@@ -1942,12 +2203,12 @@ def _parse_google_flights_text(text: str, min_dep_hour: int = 0, max_layover_min
         for bl in rest:
             if bl.lower() == "nonstop":
                 stops = "nonstop"
-                rest = rest[rest.index(bl) + 1:]
+                rest = rest[rest.index(bl) + 1 :]
                 break
-            stop_match = re.match(r'^(\d)\s+stops?$', bl)
+            stop_match = re.match(r"^(\d)\s+stops?$", bl)
             if stop_match:
                 stops = f"{stop_match.group(1)} stop"
-                rest = rest[rest.index(bl) + 1:]
+                rest = rest[rest.index(bl) + 1 :]
                 break
 
         # Layover info: "50 min LAS" or "2 hr 22 min DFW" or "PHX, DEN"
@@ -1956,26 +2217,26 @@ def _parse_google_flights_text(text: str, min_dep_hour: int = 0, max_layover_min
         if stops != "nonstop" and rest:
             lay_line = rest[0] if rest else ""
             # Pattern: "50 min LAS"
-            lm = re.match(r'^(\d+)\s+min\s+([A-Z]{3})$', lay_line)
+            lm = re.match(r"^(\d+)\s+min\s+([A-Z]{3})$", lay_line)
             if lm:
                 layover_min_val = int(lm.group(1))
                 layover_airport = lm.group(2)
             else:
                 # Pattern: "2 hr 22 min DFW"
-                lh = re.match(r'^(\d+)\s+hr\s+(\d+)\s+min\s+([A-Z]{3})$', lay_line)
+                lh = re.match(r"^(\d+)\s+hr\s+(\d+)\s+min\s+([A-Z]{3})$", lay_line)
                 if lh:
                     layover_min_val = int(lh.group(1)) * 60 + int(lh.group(2))
                     layover_airport = lh.group(3)
                 else:
                     # Pattern: "PHX, DEN" (multi-stop, no time given)
-                    multi = re.match(r'^([A-Z]{3}(?:,\s*[A-Z]{3})+)$', lay_line)
+                    multi = re.match(r"^([A-Z]{3}(?:,\s*[A-Z]{3})+)$", lay_line)
                     if multi:
                         layover_airport = lay_line
 
         # Price: find "$XXX" in remaining lines
         price = 0
         for bl in rest:
-            price_match = re.match(r'^\$(\d[\d,]*)$', bl)
+            price_match = re.match(r"^\$(\d[\d,]*)$", bl)
             if price_match:
                 price = float(price_match.group(1).replace(",", ""))
                 break
@@ -1989,21 +2250,27 @@ def _parse_google_flights_text(text: str, min_dep_hour: int = 0, max_layover_min
             i += 1
             continue
 
-        if max_layover_min < 999 and layover_min_val > max_layover_min and layover_min_val > 0:
+        if (
+            max_layover_min < 999
+            and layover_min_val > max_layover_min
+            and layover_min_val > 0
+        ):
             i += 1
             continue
 
-        flights.append({
-            "departure": dep_time,
-            "arrival": arr_time,
-            "airline": airline,
-            "duration": duration,
-            "stops": stops,
-            "layover_airport": layover_airport,
-            "layover_minutes": layover_min_val,
-            "route": route,
-            "price": price,
-        })
+        flights.append(
+            {
+                "departure": dep_time,
+                "arrival": arr_time,
+                "airline": airline,
+                "duration": duration,
+                "stops": stops,
+                "layover_airport": layover_airport,
+                "layover_minutes": layover_min_val,
+                "route": route,
+                "price": price,
+            }
+        )
 
         i += 1
 
@@ -2054,9 +2321,14 @@ def _send_flight_report(results: list, watches: list):
         commander_id = os.environ.get("TELEGRAM_COMMANDER_ID", "")
         if bot_token and commander_id:
             import requests as _req
+
             _req.post(
                 f"https://api.telegram.org/bot{bot_token}/sendMessage",
-                json={"chat_id": commander_id, "text": tg_msg, "parse_mode": "Markdown"},
+                json={
+                    "chat_id": commander_id,
+                    "text": tg_msg,
+                    "parse_mode": "Markdown",
+                },
                 timeout=15,
             )
             logger.info("Flight Tracker: Telegram notification sent")
@@ -2078,9 +2350,9 @@ def _send_flight_report(results: list, watches: list):
 
 
 async def job_fare_watch_check():
-    """Fare Watch — runs 2x daily (8AM + 4PM MT). Logs all active watches; alerts on price drops/spikes."""
+    """Fare Watch — runs 2x daily (8AM + 4PM MT). Actually checks current prices via AI scraping; alerts on price drops/spikes."""
     logger.info("=" * 60)
-    logger.info("SCHEDULED: Fare Watch Check")
+    logger.info("SCHEDULED: Fare Watch Price Check")
     logger.info("=" * 60)
     try:
         result = fw_list_watches(active_only=True)
@@ -2091,23 +2363,55 @@ async def job_fare_watch_check():
             logger.info("Fare Watch: no active watches, skipping")
             return
 
-        logger.info(f"Fare Watch: checking {count} active watch(es)")
+        logger.info(f"Fare Watch: checking current prices for {count} active watch(es)")
 
-        # Collect any watches with triggered alerts (price vs alert thresholds)
+        # First, actually check current prices using AI scraping
+        price_check_results = []
         alert_lines = []
+
         for w in watches:
+            watch_id = w.get("id")
             label = w.get("label", w.get("id", "unknown"))
-            vs_baseline = w.get("vs_baseline", "")
-            last_checked = w.get("last_checked", "never")
+            baseline_price = w.get("baseline_price_pp", 0)
+            travel_date = w.get("travel_date", "")
+
+            logger.info(f"  Checking current price for: {label}")
+
+            # Extract cruise info from label and use actual travel_date
+            cruise_info = extract_cruise_info_from_watch(w)
+            if cruise_info and travel_date:
+                current_price = await check_cruise_price_ai(cruise_info)
+                if current_price:
+                    # Update fare watch with current price
+                    try:
+                        check_result = check_fare(watch_id, current_price)
+                        price_check_results.append(
+                            {
+                                "watch_id": watch_id,
+                                "label": label,
+                                "current_price": current_price,
+                                "baseline": baseline_price,
+                                "change": check_result.get("change_from_baseline", ""),
+                            }
+                        )
+
+                        # Check for alerts
+                        if check_result.get("alert"):
+                            alert_lines.append(
+                                f"  ALERT  {label}: {check_result['alert']}"
+                            )
+
+                    except Exception as e:
+                        logger.error(f"Failed to update fare watch {watch_id}: {e}")
+            else:
+                logger.warning(f"  Could not extract cruise info from watch: {label}")
+
+        # Log results
+        for result in price_check_results:
             logger.info(
-                f"  {label} | {w.get('price_pp', '?')}/pp | {w.get('total', '?')} | "
-                f"vs baseline: {vs_baseline} | last checked: {last_checked}"
+                f"  {result['label']} | ${result['current_price']}/pp | "
+                f"vs baseline: {result['change']}"
             )
-            # Flag any watch that has moved negatively vs baseline (price up = bad for client)
-            if vs_baseline.startswith("+"):
-                alert_lines.append(f"  SPIKE  {label}: {w.get('price_pp')} ({vs_baseline} vs baseline)")
-            elif vs_baseline.startswith("-"):
-                alert_lines.append(f"  DROP   {label}: {w.get('price_pp')} ({vs_baseline} vs baseline)")
 
         ts = datetime.now().strftime("%Y%m%d_%H%M")
 
@@ -2115,7 +2419,7 @@ async def job_fare_watch_check():
         report_path = _save_report(
             json.dumps(result, indent=2),
             f"Fare_Watch_{ts}.json",
-            subfolder="fare_watch"
+            subfolder="fare_watch",
         )
 
         # Telegram alert if any price movement detected
@@ -2125,19 +2429,27 @@ async def job_fare_watch_check():
                 commander_id = os.environ.get("TELEGRAM_COMMANDER_ID", "")
                 if bot_token and commander_id:
                     import requests as _req
+
                     tg_body = (
                         f"*Fare Watch Alert* — {datetime.now().strftime('%b %d %I:%M %p MT')}\n"
-                        f"{count} active watch(es)\n\n"
-                        + "\n".join(alert_lines)
+                        f"{count} active watch(es)\n\n" + "\n".join(alert_lines)
                     )
                     _req.post(
                         f"https://api.telegram.org/bot{bot_token}/sendMessage",
-                        json={"chat_id": commander_id, "text": tg_body, "parse_mode": "Markdown"},
+                        json={
+                            "chat_id": commander_id,
+                            "text": tg_body,
+                            "parse_mode": "Markdown",
+                        },
                         timeout=15,
                     )
-                    logger.info(f"Fare Watch: Telegram alert sent ({len(alert_lines)} movement(s))")
+                    logger.info(
+                        f"Fare Watch: Telegram alert sent ({len(alert_lines)} movement(s))"
+                    )
                 else:
-                    logger.warning("Fare Watch: Telegram env vars not set, skipping notification")
+                    logger.warning(
+                        "Fare Watch: Telegram env vars not set, skipping notification"
+                    )
             except Exception as e:
                 logger.error(f"Fare Watch Telegram failed: {e}")
 
@@ -2158,7 +2470,9 @@ async def job_fare_watch_check():
             except Exception as e:
                 logger.error(f"Fare Watch Gmail draft failed: {e}")
         else:
-            logger.info(f"Fare Watch: {count} watch(es) checked — no price movements vs baseline")
+            logger.info(
+                f"Fare Watch: {count} watch(es) checked — no price movements vs baseline"
+            )
 
     except Exception as e:
         logger.error(f"Fare Watch FAILED: {e}", exc_info=True)
@@ -2168,6 +2482,7 @@ async def job_fare_watch_check():
 # LEGACY SCHEDULER (18 jobs — preserved for rollback)
 # ============================================================================
 
+
 def build_scheduler_legacy() -> AsyncIOScheduler:
     """Original 18-job scheduler configuration. Kept for rollback if needed.
     To revert: rename this to build_scheduler() and remove the consolidated version.
@@ -2175,121 +2490,227 @@ def build_scheduler_legacy() -> AsyncIOScheduler:
     scheduler = AsyncIOScheduler(timezone=TZ)
 
     # Branded Morning Email: 7:00AM daily — the HTML email briefing
-    scheduler.add_job(job_branded_morning_email, CronTrigger(hour=7, minute=0, timezone=TZ),
-                      id="branded_morning_email", name="Branded Morning Email (7AM)")
+    scheduler.add_job(
+        job_branded_morning_email,
+        CronTrigger(hour=7, minute=0, timezone=TZ),
+        id="branded_morning_email",
+        name="Branded Morning Email (7AM)",
+    )
 
     # Payment Alerts: 7:05AM daily — SMS deadline reminders
-    scheduler.add_job(job_payment_alerts, CronTrigger(hour=7, minute=5, timezone=TZ),
-                      id="payment_alerts", name="Payment Alerts (7:05AM)")
+    scheduler.add_job(
+        job_payment_alerts,
+        CronTrigger(hour=7, minute=5, timezone=TZ),
+        id="payment_alerts",
+        name="Payment Alerts (7:05AM)",
+    )
 
     # Morning Briefing: 6:30AM daily — combined world + ship intel
-    scheduler.add_job(job_morning_briefing, CronTrigger(hour=6, minute=30, timezone=TZ),
-                      id="morning_briefing", name="Morning Briefing (Daily)")
+    scheduler.add_job(
+        job_morning_briefing,
+        CronTrigger(hour=6, minute=30, timezone=TZ),
+        id="morning_briefing",
+        name="Morning Briefing (Daily)",
+    )
 
     # Ship Intel PM: 5PM — afternoon update
-    scheduler.add_job(job_ship_intel, CronTrigger(hour=17, minute=0, timezone=TZ),
-                      id="ship_intel_evening", name="Ship Intel (PM)")
+    scheduler.add_job(
+        job_ship_intel,
+        CronTrigger(hour=17, minute=0, timezone=TZ),
+        id="ship_intel_evening",
+        name="Ship Intel (PM)",
+    )
 
     # Tech Monitor: 8AM daily
-    scheduler.add_job(job_tech_monitor, CronTrigger(hour=8, minute=0, timezone=TZ),
-                      id="tech_monitor_daily", name="Tech Monitor (Daily)")
+    scheduler.add_job(
+        job_tech_monitor,
+        CronTrigger(hour=8, minute=0, timezone=TZ),
+        id="tech_monitor_daily",
+        name="Tech Monitor (Daily)",
+    )
 
     # Claude Code Digest: 10AM daily — articles page refresh
-    scheduler.add_job(job_claude_code_digest, CronTrigger(hour=10, minute=0, timezone=TZ),
-                      id="claude_code_digest", name="Claude Code Digest (10AM)")
+    scheduler.add_job(
+        job_claude_code_digest,
+        CronTrigger(hour=10, minute=0, timezone=TZ),
+        id="claude_code_digest",
+        name="Claude Code Digest (10AM)",
+    )
 
     # Weekly Report: Monday 7AM
-    scheduler.add_job(job_weekly_report, CronTrigger(day_of_week="mon", hour=7, minute=0, timezone=TZ),
-                      id="weekly_report", name="Weekly Report (Monday)")
+    scheduler.add_job(
+        job_weekly_report,
+        CronTrigger(day_of_week="mon", hour=7, minute=0, timezone=TZ),
+        id="weekly_report",
+        name="Weekly Report (Monday)",
+    )
 
     # Email Classifier: every 15 min during business hours (8AM-6PM)
-    scheduler.add_job(job_email_classifier, CronTrigger(hour="8-18", minute="*/15", timezone=TZ),
-                      id="email_classifier", name="Email Classifier (15min)")
+    scheduler.add_job(
+        job_email_classifier,
+        CronTrigger(hour="8-18", minute="*/15", timezone=TZ),
+        id="email_classifier",
+        name="Email Classifier (15min)",
+    )
 
     # Follow-Up Scanner: 7:10AM daily — after payment alerts
-    scheduler.add_job(job_followup_scan, CronTrigger(hour=7, minute=10, timezone=TZ),
-                      id="followup_scan", name="Follow-Up Scanner (7:10AM)")
+    scheduler.add_job(
+        job_followup_scan,
+        CronTrigger(hour=7, minute=10, timezone=TZ),
+        id="followup_scan",
+        name="Follow-Up Scanner (7:10AM)",
+    )
 
     # Calendar Sync: 9PM daily — sync booking milestones to calendar
-    scheduler.add_job(job_calendar_sync, CronTrigger(hour=21, minute=0, timezone=TZ),
-                      id="calendar_sync", name="Calendar Sync (9PM)")
+    scheduler.add_job(
+        job_calendar_sync,
+        CronTrigger(hour=21, minute=0, timezone=TZ),
+        id="calendar_sync",
+        name="Calendar Sync (9PM)",
+    )
 
     # Drive Mirror: 11PM daily — sync files to Google Drive
-    scheduler.add_job(job_drive_sync, CronTrigger(hour=23, minute=0, timezone=TZ),
-                      id="drive_sync", name="Drive Mirror (11PM)")
+    scheduler.add_job(
+        job_drive_sync,
+        CronTrigger(hour=23, minute=0, timezone=TZ),
+        id="drive_sync",
+        name="Drive Mirror (11PM)",
+    )
 
     # Drive Backup: 3AM daily — full backup mirror
-    scheduler.add_job(job_drive_sync, CronTrigger(hour=3, minute=0, timezone=TZ),
-                      id="drive_backup_3am", name="Drive Backup (3AM)")
+    scheduler.add_job(
+        job_drive_sync,
+        CronTrigger(hour=3, minute=0, timezone=TZ),
+        id="drive_backup_3am",
+        name="Drive Backup (3AM)",
+    )
 
     # COS-EXEC Heartbeat: every 30 min, 0600-2000 — proactive scan
-    scheduler.add_job(job_cos_exec_heartbeat, CronTrigger(hour="6-20", minute="*/30", timezone=TZ),
-                      id="cos_exec_heartbeat", name="COS-EXEC Heartbeat (30min)")
+    scheduler.add_job(
+        job_cos_exec_heartbeat,
+        CronTrigger(hour="6-20", minute="*/30", timezone=TZ),
+        id="cos_exec_heartbeat",
+        name="COS-EXEC Heartbeat (30min)",
+    )
 
     # Daily Persona Heartbeats: 0630 — A2, A3, A9, A10, A6 run in sequence
-    scheduler.add_job(job_daily_heartbeats, CronTrigger(hour=6, minute=30, timezone=TZ),
-                      id="daily_heartbeats", name="Daily Heartbeats (0630)")
+    scheduler.add_job(
+        job_daily_heartbeats,
+        CronTrigger(hour=6, minute=30, timezone=TZ),
+        id="daily_heartbeats",
+        name="Daily Heartbeats (0630)",
+    )
 
     # CH Washington Weekly: Friday 3PM — wisdom and morale
-    scheduler.add_job(job_weekly_heartbeat, CronTrigger(day_of_week="fri", hour=15, minute=0, timezone=TZ),
-                      id="weekly_heartbeat", name="CH Weekly Heartbeat (Fri 3PM)")
+    scheduler.add_job(
+        job_weekly_heartbeat,
+        CronTrigger(day_of_week="fri", hour=15, minute=0, timezone=TZ),
+        id="weekly_heartbeat",
+        name="CH Weekly Heartbeat (Fri 3PM)",
+    )
 
     # Evernote + USB Backup: Sunday 2AM — weekly code archive
-    scheduler.add_job(job_evernote_backup, CronTrigger(day_of_week="sun", hour=2, minute=0, timezone=TZ),
-                      id="evernote_backup", name="Evernote/USB Backup (Sun 2AM)")
+    scheduler.add_job(
+        job_evernote_backup,
+        CronTrigger(day_of_week="sun", hour=2, minute=0, timezone=TZ),
+        id="evernote_backup",
+        name="Evernote/USB Backup (Sun 2AM)",
+    )
 
     # Nova Weekly Audit: Sunday 8PM — ELON (A12) system review + improvement tickets
-    scheduler.add_job(job_nova_audit, CronTrigger(day_of_week="sun", hour=20, minute=0, timezone=TZ),
-                      id="nova_audit", name="Nova Weekly Audit (Sun 8PM)")
+    scheduler.add_job(
+        job_nova_audit,
+        CronTrigger(day_of_week="sun", hour=20, minute=0, timezone=TZ),
+        id="nova_audit",
+        name="Nova Weekly Audit (Sun 8PM)",
+    )
 
     # Rsync to dv7: hourly during work hours + 10:50PM (before Drive mirror)
-    scheduler.add_job(job_rsync_to_dv7, CronTrigger(hour="8-20", minute=50, timezone=TZ),
-                      id="rsync_dv7_hourly", name="Rsync to dv7 (hourly)")
-    scheduler.add_job(job_rsync_to_dv7, CronTrigger(hour=22, minute=50, timezone=TZ),
-                      id="rsync_dv7_nightly", name="Rsync to dv7 (pre-mirror)")
+    scheduler.add_job(
+        job_rsync_to_dv7,
+        CronTrigger(hour="8-20", minute=50, timezone=TZ),
+        id="rsync_dv7_hourly",
+        name="Rsync to dv7 (hourly)",
+    )
+    scheduler.add_job(
+        job_rsync_to_dv7,
+        CronTrigger(hour=22, minute=50, timezone=TZ),
+        id="rsync_dv7_nightly",
+        name="Rsync to dv7 (pre-mirror)",
+    )
 
     # Fare Watch: 8AM + 4PM MT — check all active watches, alert on price movement
-    scheduler.add_job(job_fare_watch_check, CronTrigger(hour=8, minute=0, timezone=TZ),
-                      id="fare_watch_morning", name="Fare Watch (8AM)")
-    scheduler.add_job(job_fare_watch_check, CronTrigger(hour=16, minute=0, timezone=TZ),
-                      id="fare_watch_afternoon", name="Fare Watch (4PM)")
+    scheduler.add_job(
+        job_fare_watch_check,
+        CronTrigger(hour=8, minute=0, timezone=TZ),
+        id="fare_watch_morning",
+        name="Fare Watch (8AM)",
+    )
+    scheduler.add_job(
+        job_fare_watch_check,
+        CronTrigger(hour=16, minute=0, timezone=TZ),
+        id="fare_watch_afternoon",
+        name="Fare Watch (4PM)",
+    )
 
     # Product Intake: 9AM MT daily — scan vendor emails for new cruise/hotel/tour offers
     async def job_product_intake():
         try:
             from thunderbird_product_intake import scan_vendor_emails
+
             products = scan_vendor_emails(days=3)
-            logger.info(f"Product intake: {len(products) if products else 0} new products found")
+            logger.info(
+                f"Product intake: {len(products) if products else 0} new products found"
+            )
         except Exception as e:
             logger.error(f"Product intake failed: {e}", exc_info=True)
 
-    scheduler.add_job(job_product_intake, CronTrigger(hour=9, minute=0, timezone=TZ),
-                      id="product_intake_daily", name="Product Intake Scan (9AM)")
+    scheduler.add_job(
+        job_product_intake,
+        CronTrigger(hour=9, minute=0, timezone=TZ),
+        id="product_intake_daily",
+        name="Product Intake Scan (9AM)",
+    )
 
     # Guest Forms: weekly Monday 9:30 AM MT — send pending guest profile forms
     async def job_guest_forms():
         try:
             from thunderbird_guest_forms import send_all_pending_guest_forms
+
             result = send_all_pending_guest_forms(window_days=60)
-            logger.info(f"Guest forms: {result.get('total_drafts_created', 0)} drafts created")
+            logger.info(
+                f"Guest forms: {result.get('total_drafts_created', 0)} drafts created"
+            )
         except Exception as e:
             logger.error(f"Guest forms failed: {e}", exc_info=True)
 
-    scheduler.add_job(job_guest_forms, CronTrigger(day_of_week="mon", hour=9, minute=30, timezone=TZ),
-                      id="guest_forms_weekly", name="Guest Profile Forms (Mon 9:30AM)")
+    scheduler.add_job(
+        job_guest_forms,
+        CronTrigger(day_of_week="mon", hour=9, minute=30, timezone=TZ),
+        id="guest_forms_weekly",
+        name="Guest Profile Forms (Mon 9:30AM)",
+    )
 
     # Booking Reconciliation: weekly Sunday 8PM MT — full cross-check
     async def job_reconciliation():
         try:
-            from thunderbird_reconciliation import reconcile_all_bookings, reconciliation_briefing_line
+            from thunderbird_reconciliation import (
+                reconcile_all_bookings,
+                reconciliation_briefing_line,
+            )
+
             reports = reconcile_all_bookings()
             line = reconciliation_briefing_line(reports)
             logger.info(f"Reconciliation: {line}")
         except Exception as e:
             logger.error(f"Reconciliation failed: {e}", exc_info=True)
 
-    scheduler.add_job(job_reconciliation, CronTrigger(day_of_week="sun", hour=20, minute=30, timezone=TZ),
-                      id="reconciliation_weekly", name="Booking Reconciliation (Sun 8:30PM)")
+    scheduler.add_job(
+        job_reconciliation,
+        CronTrigger(day_of_week="sun", hour=20, minute=30, timezone=TZ),
+        id="reconciliation_weekly",
+        name="Booking Reconciliation (Sun 8:30PM)",
+    )
 
     return scheduler
 
@@ -2308,6 +2729,7 @@ async def run_all_now():
 # ============================================================================
 # MAIN
 # ============================================================================
+
 
 def main():
     # PID + flock guard — bullet-proof duplicate prevention.
@@ -2343,9 +2765,11 @@ def main():
     PID_FILE.write_text(str(os.getpid()))
 
     import atexit
+
     def _cleanup():
         PID_FILE.unlink(missing_ok=True)
         LOCK_FILE.unlink(missing_ok=True)
+
     atexit.register(_cleanup)
 
     if "--run-now" in sys.argv:
@@ -2363,16 +2787,36 @@ def main():
         noop = lambda: None
 
         # Consolidated 5-job schedule
-        scheduler.add_job(noop, CronTrigger(hour=6, minute=30, timezone=TZ),
-                          id="morning_brief", name="Morning Brief (0630)")
-        scheduler.add_job(noop, CronTrigger(hour=12, minute=0, timezone=TZ),
-                          id="midday_pulse", name="Midday Pulse (1200)")
-        scheduler.add_job(noop, CronTrigger(hour=17, minute=0, timezone=TZ),
-                          id="eod_summary", name="EOD Summary (1700)")
-        scheduler.add_job(noop, CronTrigger(hour=21, minute=0, timezone=TZ),
-                          id="evening_sync", name="Evening Sync (2100)")
-        scheduler.add_job(noop, CronTrigger(day_of_week="mon", hour=7, minute=0, timezone=TZ),
-                          id="weekly_deep_dive", name="Weekly Deep Dive (Mon 0700)")
+        scheduler.add_job(
+            noop,
+            CronTrigger(hour=6, minute=30, timezone=TZ),
+            id="morning_brief",
+            name="Morning Brief (0630)",
+        )
+        scheduler.add_job(
+            noop,
+            CronTrigger(hour=12, minute=0, timezone=TZ),
+            id="midday_pulse",
+            name="Midday Pulse (1200)",
+        )
+        scheduler.add_job(
+            noop,
+            CronTrigger(hour=17, minute=0, timezone=TZ),
+            id="eod_summary",
+            name="EOD Summary (1700)",
+        )
+        scheduler.add_job(
+            noop,
+            CronTrigger(hour=21, minute=0, timezone=TZ),
+            id="evening_sync",
+            name="Evening Sync (2100)",
+        )
+        scheduler.add_job(
+            noop,
+            CronTrigger(day_of_week="mon", hour=7, minute=0, timezone=TZ),
+            id="weekly_deep_dive",
+            name="Weekly Deep Dive (Mon 0700)",
+        )
 
         scheduler.start()
         print("\nThunderbird Consolidated Schedule (5 jobs):")
@@ -2413,6 +2857,116 @@ def main():
         logger.info("Scheduler stopped.")
 
     asyncio.run(run_daemon())
+
+
+def extract_cruise_info_from_watch(watch: dict) -> dict:
+    """Extract cruise information from fare watch data for AI price checking."""
+    label = watch.get("label", "")
+    travel_date = watch.get("travel_date", "")
+
+    cruise_line = "Unknown"
+    ship = "Unknown"
+    route = "Unknown"
+
+    # Parse common patterns from fare watch labels
+    if "Regent" in label:
+        cruise_line = "Regent Seven Seas"
+        if "Grandeur" in label:
+            ship = "SS Grandeur"
+        elif "Splendor" in label:
+            ship = "SS Splendor"
+    elif "Viking" in label:
+        cruise_line = "Viking"
+        if "Mars" in label:
+            ship = "Viking Mars"
+    elif "Silversea" in label:
+        cruise_line = "Silversea"
+        if "Nova" in label:
+            ship = "Silver Nova"
+        elif "Muse" in label:
+            ship = "Silver Muse"
+
+    # Extract route
+    if "Scandinavia" in label:
+        route = "Scandinavia"
+    elif "Panama Canal" in label:
+        route = "Panama Canal"
+    elif "Mediterranean" in label:
+        route = "Mediterranean"
+    elif "Trans-Pacific" in label:
+        route = "Trans-Pacific"
+    elif "Lesser Antilles" in label:
+        route = "Lesser Antilles"
+
+    if cruise_line != "Unknown" and ship != "Unknown" and travel_date:
+        return {
+            "cruise_line": cruise_line,
+            "ship": ship,
+            "route": route,
+            "departure_date": travel_date,
+        }
+
+    return None
+
+
+async def check_cruise_price_ai(cruise_info: dict) -> float:
+    """Use AI to check current cruise pricing."""
+    try:
+        from thunderbird_model_router import _call_grok, XAI_API_KEY
+
+        cruise_line = cruise_info.get("cruise_line", "Unknown")
+        ship = cruise_info.get("ship", "Unknown")
+        departure_date = cruise_info.get("departure_date", "Unknown")
+        route = cruise_info.get("route", "Unknown")
+
+        price_query = (
+            f"What is the current per-person price for {cruise_line} {ship} "
+            f"departing {departure_date} on the {route} route? "
+            f"Look for the starting cabin price in USD. "
+            f"Return ONLY a JSON object: "
+            f'{{"price_usd": 12345, "cabin_type": "Veranda Suite", "source": "cruise line website or travel site"}}'
+            f" If price is unavailable, return: "
+            f'{{"price_usd": null, "cabin_type": null, "source": "not found"}}'
+        )
+
+        system_prompt = (
+            "You are a cruise pricing research assistant. "
+            "Find the most current per-person pricing for the specified cruise departure. "
+            "Return ONLY valid JSON. No explanation text."
+        )
+
+        if XAI_API_KEY:
+            raw = _call_grok(
+                system_prompt, price_query, max_tokens=300, temperature=0.1
+            )
+        else:
+            import anthropic
+
+            client = anthropic.Anthropic()
+            resp = client.messages.create(
+                model="claude-haiku-4-5-20251001",
+                max_tokens=300,
+                system=system_prompt,
+                messages=[{"role": "user", "content": price_query}],
+            )
+            raw = resp.content[0].text
+
+        import re
+
+        json_match = re.search(r"\{.*\}", raw, re.DOTALL)
+        if json_match:
+            parsed = json.loads(json_match.group())
+            price = parsed.get("price_usd")
+            if price is not None:
+                try:
+                    return float(price)
+                except (ValueError, TypeError):
+                    pass
+
+    except Exception as e:
+        logger.error(f"AI price check failed: {e}")
+
+    return None
 
 
 if __name__ == "__main__":

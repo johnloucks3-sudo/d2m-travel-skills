@@ -1,3 +1,11 @@
+# ⛔ TOMBSTONE — 2026-04-07
+# This file is DEPRECATED. Do not write here.
+# See AGENTS.md for canonical paths:
+#   claude_inbox  → /home/john/Thunderbird/claude_inbox.md
+#   claude_outbox → /home/john/Thunderbird/OpsCenter/collaboration/claude_outbox.md
+#   opencode_inbox→ /home/john/Thunderbird/OpsCenter/collaboration/opencode_inbox.md
+# ─────────────────────────────────────────────
+# ARCHIVED CONTENT BELOW (read-only)
 # AUTOMATED LIFECYCLE DELIVERY ARCHITECTURE (ALDA) — GOOSE SCAN
 **Date:** 2026-04-02 MT
 **Task:** HALE-20260402-ALDA-001
@@ -25,4 +33,3 @@
 
 ## NEXT ACTIONS FOR COMMANDER REVIEW
 The ALDA loop successfully scanned the dossiers. Based on the triggers above, the system is primed to auto-draft the **McLeod Pre-Trip Brief** and the **Loucks Final Checklist**. 
-

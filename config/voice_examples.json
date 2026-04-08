@@ -8,15 +8,15 @@
       "d2mconcierge@gmail.com"
     ],
     "days_back": 400,
-    "total_examples": 957,
+    "total_examples": 962,
     "by_tier": {
-      "personal": 235,
+      "personal": 237,
       "client": 188,
       "vendor": 42,
-      "internal": 487,
+      "internal": 490,
       "family": 5
     },
-    "last_sync": "2026-04-06T02:33:14.612298"
+    "last_sync": "2026-04-07T02:35:28.437803"
   },
   "examples": [
     {
@@ -7347,6 +7347,42 @@
     },
     {
       "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Possible end to TSA/customs at Sanctuary city airports",
+      "to": "Bill Groves <alredigon2@hotmail.com>",
+      "date": "Mon, 6 Apr 2026 22:11:30 -0600",
+      "body": "Now he tells me!  HAHA. ALL our US ports are sanctuary cities\n(LAX,HNL,SEA,COS)  !!!",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Project Expedition booking still using LGT account",
+      "to": "Julie Ruiz <Julie@lovegrouptravel.com>",
+      "date": "Mon, 6 Apr 2026 08:45:43 -0600",
+      "body": "Good morning, Julie. I imagine you're still digging in to your workload and\nclient load. I sent a \"raised hand, include us\" request for the Sep 2027\nAMA Magna cruise and pre-cruise last week. Susie and I are excited to join\nyou all. Saw your recent video and know it must have been a challenging few\nweeks/months with your friend.  But I'm writing now to let you know I am\nhaving trouble establishing my NEW Project Expedition account. It took\nseveral emails to support, and required another email change from me, but I\nthink we will work it out. Because we are travelling in April/May you will\nsee several bookings in LGT's account.  Sorry, I will get it squared\nsoonest.\n\nThanks--Best to Steve and all your family\nJohn",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "⚠ Concierge Monitor — Heartbeat Failure",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 6 Apr 2026 20:00:00 -0700",
+      "body": "Concierge Monitor heartbeat failure.\nLast successful poll: 2026-04-06T20:30:00.483865\nCurrent time: 2026-04-06T21:00:00.658588\nCheck logs: /home/john/Thunderbird/logs/concierge_monitor.log",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "Your 32-Day Pacific Journey — Loucks Silver Nova Itinerary (Apr 10 – May 11, 2026)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 6 Apr 2026 21:20:20 +0000",
+      "body": "Commander,\n\nYour complete 32-day Pacific Journey itinerary is attached. This document consolidates all confirmed bookings, transportation gaps, shore excursions, dining reservations, and your pre-departure checklist.\n\nKey highlights:\n- 11 confirmed bookings totaling ~2,663\n- 10 transportation gaps identified and costed (~25-,035)\n- 6 shore excursions confirmed\n- 16 specialty dining reservations (1 waitlisted: The Grill Apr 24)\n\nCritical deadline: Kyoto timing conflict needs resolution by April 12. Contact Hiro at +817043638092.\n\nAll gaps are mapped with owners, deadlines, and booking methods.\n\n— Dani\nDreams2Memories Travel, LLC",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
       "tier": "internal",
       "subject": "[COS] General: BREAKING:  Most Americans say war in Iran is going",
       "to": "johnloucks3@gmail.com",
@@ -8630,6 +8666,15 @@
       "to": "Dreams2Memories <d2mconcierge@gmail.com>",
       "date": "Fri, 3 Apr 2026 22:24:33 -0600",
       "body": "[COO] add this email list, we cannot access it but we can use the things\nshe talks about as search criteria. JL\n\nForwarded this email? Subscribe here\n<https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly9haWRpc3J1cHRpb24uYWkvc3Vic2NyaWJlP3V0bV9zb3VyY2U9ZW1haWwmdXRtX2NhbXBhaWduPWVtYWlsLXN1YnNjcmliZSZyPTgya2R2NSZuZXh0PWh0dHBzJTNBJTJGJTJGYWlkaXNydXB0aW9uLmFpJTJGcCUyRmdvb2dsZS1vcGVuLXNvdXJjZXMtZ2VtbWEtNC1iZWF0cyIsInAiOjE5MzA2NDY4MiwicyI6MjU1NzUzOCwiZiI6dHJ1ZSwidSI6NDg4MDM5NzI5LCJpYXQiOjE3NzUyMjAyNTUsImV4cCI6MjA5MDc5NjI1NSwiaXNzIjoicHViLTAiLCJzdWIiOiJsaW5rLXJlZGlyZWN0In0.FBBHVFDll8Zb9K_ZO_hVX_DlcXXOOP99nmT4IxwxQKI?>\nfor\nmore\n\nYou received this email because you subscribed to AI Disruption\n<https://substack.com/redirect/b6428c0f-384a-4f6f-8a02-3756199c6951?j=eyJ1IjoiODJrZHY1In0.76DWxvMLUFzDbaEpN9HY8SnHCKkuq5g0-vxUcp3GAzk>,\na newsletter about AI Insights.\n\nA heartfelt thank you to everyone who has supported my newsletter this\nmonth.\n\nYour encouragement keeps me moving forward, and I’m truly grateful for it.\n\nWith the AI wave accelerating, we will publish 2 articles daily this year\nto help our readers stay ahead of the AI trend.\n\nMost of the publication's content is paid.\n\nPlease consider subscribing.\n<https://substack.com/redirect/06c24e79-67ae-4328-935d-95313dc25f70?j=eyJ1IjoiODJrZHY1In0.76DWxvMLUFzDbaEpN9HY8SnHCKkuq5g0-vxUcp3GAzk>\n\nGoogle Open-Sources Gemma 4, Beats 13x Larger Qwen3.5\n<https://substack.com/app-link/post?publication_id=2557538&post_id=193064682&utm_source=post-email-title&utm_campaign=email-post-title&isFreemail=true&r=82kdv5&token=eyJ1c2VyX2lkIjo0ODgwMzk3MjksInBvc3RfaWQiOjE5MzA2NDY4MiwiaWF0IjoxNzc1MjIwMjU1LCJleHAiOjE3Nzc4MTIyNTUsImlzcyI6InB1Yi0yNTU3NTM4Iiwic3ViIjoicG9zdC1yZWFjdGlvbiJ9.1s_Y2QPzxTS7wKR4UpHWxv1vnEVrtA4wSg0SmCvtjMQ>\n\nOn Fri, Apr 3, 2026 at 6:44 AM Meng Li from AI Disruption <\naidisruption@substack.com> wrote:",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "Goose CLI Recipe Commands + Claude Code Brain Setup",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 6 Apr 2026 16:36:58 +0000",
+      "body": "Goose CLI — How to Load the Hale Recipe Commander — the recipe flag is on goose run , NOT goose session . That is why it failed yesterday. On Chromebook (or YOGA terminal): # Hale session with Gemini goose-d2m run --recipe /home/john/.config/goose/recipes/hale.yaml # Hale session with Claude MAX ($0) goose-d2m-claude run --recipe /home/john/.config/goose/recipes/hale.yaml # Shorthand (if recipe is synced) goose-d2m run --recipe hale What happens on startup (updated today): Recipe prompt loads — identity, clients, authority, standing orders TOM context injects every turn Step 1: Reads GOOSE_INIT.md — full brain (Drive map, core registry, 30+ reference files, Claude tasking) Steps 2-7: Live state, inbox, blackboard, checkpoint, memory, brief Step 8: Leads with the brief If Chromebook does not have the recipe yet: rsync -avz john@192.168.1.198:~/.config/goose/recipes/ ~/.config/goose/recipes/ Claude Code — Already Wired Claude Code auto-loads the brain every session. No action needed. CLAUDE.md is read automatically when you run claude in ~/Thunderbird/ CLAUDE.md now includes: @docs/CLAUDE_CODE_DRIVE_AND_CORE_GUIDE.md That @ directive auto-injects the Drive map + core module registry into every session Nothing to type. Just cd ~/Thunderbird && claude and it is all there. claude.ai (Browser Sessions) For claude.ai sessions without file access, upload this doc at conversation start: Thunderbird Claude AI Session Brain (Google Doc) Download as .md or .txt, drag into claude.ai. Self-contained: identity, Drive map, codebase, standing orders, commissions. All 4 Brain Docs on Drive Document Link Goose Brain v4 Open Claude Code Guide Open claude.ai Brain (upload this) Open Headless Claude MAX Guide Open Thanks, Hale Thunderbird Wing, Dreams2Memories Travel, LLC",
       "score": 2
     }
   ]

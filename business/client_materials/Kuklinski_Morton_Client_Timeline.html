@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Panama Canal Journey Timeline</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        body { 
+            font-family: 'Georgia', serif; 
+            background-color: #f7f3ea; 
+            padding: 40px; 
+            color: #333; 
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .header { 
+            text-align: center; 
+            margin-bottom: 30px;
+        }
+        h1 { 
+            color: #0000ff; 
+            border-bottom: 2px solid #ccc; 
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .subtitle {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .mermaid { 
+            background: white; 
+            padding: 30px; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+            margin: 30px 0;
+        }
+        .key-dates {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin: 30px 0;
+        }
+        .date-category {
+            margin-bottom: 20px;
+        }
+        .date-category h3 {
+            color: #0000ff;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            margin-bottom: 12px;
+        }
+        .date-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+        .date-label {
+            font-weight: 500;
+        }
+        .date-value {
+            color: #0000ff;
+            font-weight: 600;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        .status-complete {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        .status-upcoming {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+        .status-action {
+            background: #fff8e1;
+            color: #f57f17;
+        }
+        .status-critical {
+            background: #ffebee;
+            color: #c62828;
+        }
+        .contact-box {
+            background: #e8f4f8;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid #0000ff;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Your Panama Canal Journey Timeline</h1>
+        <p class="subtitle">Kuklinski & Morton Parties · Viking Mars · December 17-27, 2026</p>
+    </div>
+
+    <div class="mermaid">
+    gantt
+        title Your Panama Canal Journey Timeline
+        dateFormat  YYYY-MM-DD
+        axisFormat  %b '%y
+        
+        section Initial Planning
+        Booking Confirmation & Deposit :done, book1, 2026-02-08, 2d
+        Travel Insurance Decision :done, insur1, 2026-02-23, 7d
+        
+        section Preparation Phase
+        Final Payment Due :crit, pay1, 2026-04-08, 3d
+        Passport & Document Check :doc1, 2026-05-01, 14d
+        Flight Preferences Survey :survey1, 2026-06-01, 7d
+        
+        section Customization Phase  
+        Dining Preferences Form :dine1, 2026-09-17, 7d
+        Excursion Interest Survey :tour1, 2026-10-17, 14d
+        Special Requests Submission :special1, 2026-11-16, 7d
+        
+        section Pre-Departure
+        Online Check-in Available :checkin1, 2026-08-08, 30d
+        Final Documents Delivery :docs2, 2026-12-01, 5d
+        Pre-Cruise Hotel Confirmation :hotel1, 2026-12-10, 3d
+        
+        section Your Journey
+        Embarkation Day! :crit, cruise1, 2026-12-17, 1d
+        Panama Canal Experience :cruise2, 2026-12-17, 2026-12-27
+        Disembarkation & Return :crit, end1, 2026-12-27, 1d
+    </div>
+
+    <div class="key-dates">
+        <h2>Key Dates & Actions</h2>
+        
+        <div class="date-category">
+            <h3>✅ Completed</h3>
+            <div class="date-item">
+                <span class="date-label">Booking Deposit Paid</span>
+                <span class="date-value">February 10, 2026</span>
+                <span class="status-badge status-complete">COMPLETE</span>
+            </div>
+            <div class="date-item">
+                <span class="date-label">Insurance Decision</span>
+                <span class="date-value">February 23, 2026</span>
+                <span class="status-badge status-complete">COMPLETE</span>
+            </div>
+        </div>
+
+        <div class="date-category">
+            <h3>⏰ Upcoming Deadlines</h3>
+            <div class="date-item">
+                <span class="date-label">Final Payment Due</span>
+                <span class="date-value">April 8, 2026</span>
+                <span class="status-badge status-critical">CRITICAL</span>
+            </div>
+            <div class="date-item">
+                <span class="date-label">Passport Verification</span>
+                <span class="date-value">By May 15, 2026</span>
+                <span class="status-badge status-upcoming">UPCOMING</span>
+            </div>
+        </div>
+
+        <div class="date-category">
+            <h3>📋 Action Required</h3>
+            <div class="date-item">
+                <span class="date-label">Dining Preferences</span>
+                <span class="date-value">Due September 2026</span>
+                <span class="status-badge status-action">ACTION NEEDED</span>
+            </div>
+            <div class="date-item">
+                <span class="date-label">Excursion Interests</span>
+                <span class="date-value">Due October 2026</span>
+                <span class="status-badge status-action">ACTION NEEDED</span>
+            </div>
+            <div class="date-item">
+                <span class="date-label">Special Requests</span>
+                <span class="date-value">Due November 2026</span>
+                <span class="status-badge status-action">ACTION NEEDED</span>
+            </div>
+        </div>
+
+        <div class="date-category">
+            <h3>✈️ Travel Dates</h3>
+            <div class="date-item">
+                <span class="date-label">Pre-Cruise Hotel</span>
+                <span class="date-value">December 16, 2026</span>
+                <span class="status-badge status-upcoming">CONFIRMED</span>
+            </div>
+            <div class="date-item">
+                <span class="date-label">Embarkation Day</span>
+                <span class="date-value">December 17, 2026</span>
+                <span class="status-badge status-upcoming">CONFIRMED</span>
+            </div>
+            <div class="date-item">
+                <span class="date-label">Disembarkation</span>
+                <span class="date-value">December 27, 2026</span>
+                <span class="status-badge status-upcoming">CONFIRMED</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact-box">
+        <h3>Need Assistance?</h3>
+        <p>Your dedicated travel advisor is available to help with any questions:</p>
+        <p><strong>Email:</strong> concierge@d2mluxury.quest</p>
+        <p><strong>Phone:</strong> 719-291-0742 (Text Preferred)</p>
+        <p><strong>Hours:</strong> Monday-Friday 9AM-5PM MT</p>
+        <p><em>Urgent matters will be addressed within 2 business hours</em></p>
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'neutral',
+            gantt: {
+                barHeight: 20,
+                fontSize: 14,
+                sectionFontSize: 16
+            }
+        });
+    </script>
+</body>
+</html>

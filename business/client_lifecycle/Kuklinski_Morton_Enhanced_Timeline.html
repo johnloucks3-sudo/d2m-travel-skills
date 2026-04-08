@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kuklinski_Morton Enhanced Timeline — Event-Driven Architecture</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        body { font-family: 'Georgia', serif; background-color: #f7f3ea; padding: 40px; color: #333; }
+        h1 { color: #0000ff; text-align: center; border-bottom: 2px solid #ccc; padding-bottom: 10px; }
+        .mermaid { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-top: 30px; }
+        .notes { margin-top: 40px; background: white; padding: 20px; border-left: 5px solid #0000ff; }
+        .event-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 30px; }
+        .event-card { background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 4px solid; }
+        .event-card.node-1 { border-left-color: #7a5a9a; }
+        .event-card.node-2 { border-left-color: #c9a84c; }
+        .event-card.node-3 { border-left-color: #1565c0; }
+        .event-card.node-4 { border-left-color: #2e7d32; }
+        .event-date { font-size: 12px; color: #666; font-weight: bold; }
+        .event-desc { font-size: 14px; margin: 5px 0; }
+        .event-status { font-size: 11px; padding: 3px 8px; border-radius: 10px; display: inline-block; }
+        .status-complete { background: #e8f5e9; color: #2e7d32; }
+        .status-pending { background: #fff8e1; color: #f57f17; }
+        .status-future { background: #e3f2fd; color: #1565c0; }
+    </style>
+</head>
+<body>
+    <h1>Kuklinski_Morton Enhanced Timeline — Event-Driven Architecture</h1>
+    <p style="text-align:center;"><i>Combined: Traditional Gantt + Event-Driven Nodes + All Events</i></p>
+    
+    <div class="mermaid">
+    gantt
+        title Kuklinski_Morton Panama Canal Journey — Comprehensive Timeline
+        dateFormat  YYYY-MM-DD
+        axisFormat  %b '%y
+        
+        section 1. UNPREDICTABLE TRIGGERS (Node 1)
+        Booking Created :done,    trig1, 2026-02-08, 1d
+        Deposit Paid ($50) :done,    trig2, 2026-02-10, 1d
+        Insurance Window Closed :done, trig3, 2026-02-23, 1d
+        Google Forms Logic Established :done, trig4, 2026-03-31, 1d
+        
+        section 2. HARD ANCHORS (Node 2)
+        FINAL PAYMENT DUE :crit,    anchor1, 2026-04-08, 1d
+        Culinary Arts Kitchen Classes Open :anchor2, 2026-05-01, 1d
+        Dining Reservations Open :anchor3, 2026-05-31, 1d
+        Online Check-in Opens :anchor4, 2026-08-08, 1d
+        Pre-Cruise Hotel :anchor5, 2026-12-16, 1d
+        Embarkation — Viking Mars :crit, anchor6, 2026-12-17, 1d
+        Disembarkation :crit, anchor7, 2026-12-27, 1d
+        
+        section 3. FLUID TASKS (Node 3)
+        Research Panama Culinary Options :active, fluid1, 2026-04-07, 25d
+        Dining Strategy Research :fluid2, 2026-04-07, 54d
+        Excursion Review & Recommendations :fluid3, 2026-04-07, 123d
+        Google Forms: Guest Profile :fluid4, 2026-04-08, 1d
+        Google Forms: Dining Preferences :fluid5, 2026-09-17, 1d
+        Google Forms: Excursion Interest :fluid6, 2026-10-17, 1d
+        Google Forms: Special Requests :fluid7, 2026-11-16, 1d
+        
+        section 4. STAFF REVIEW (Node 4)
+        Weekly Payment Reconciliation :active, staff1, 2026-04-07, 265d
+        Monthly Trip Validation Audit :staff2, 2026-04-07, 265d
+        Culinary Arts Options Review :staff3, 2026-05-01, 1d
+        Dining Strategy Approval :staff4, 2026-05-31, 1d
+        Insurance Final Review :staff5, 2026-11-01, 1d
+        Final Travel Documents Review :staff6, 2026-12-03, 1d
+    </div>
+
+    <div class="event-grid">
+        <div class="event-card node-1">
+            <div class="event-date">Feb 8, 2026</div>
+            <div class="event-desc">Booking Created</div>
+            <span class="event-status status-complete">✓ Complete</span>
+        </div>
+        <div class="event-card node-1">
+            <div class="event-date">Feb 10, 2026</div>
+            <div class="event-desc">Deposit Paid ($50)</div>
+            <span class="event-status status-complete">✓ Complete</span>
+        </div>
+        <div class="event-card node-1">
+            <div class="event-date">Feb 23, 2026</div>
+            <div class="event-desc">Insurance Window Closed</div>
+            <span class="event-status status-complete">✓ Complete</span>
+        </div>
+        <div class="event-card node-1">
+            <div class="event-date">Mar 31, 2026</div>
+            <div class="event-desc">Google Forms Logic Protocol Established</div>
+            <span class="event-status status-complete">✓ Complete</span>
+        </div>
+        
+        <div class="event-card node-2">
+            <div class="event-date">Apr 8, 2026</div>
+            <div class="event-desc">FINAL PAYMENT DUE</div>
+            <span class="event-status status-pending">↑ 1 day</span>
+        </div>
+        <div class="event-card node-2">
+            <div class="event-date">May 1, 2026</div>
+            <div class="event-desc">Culinary Arts Kitchen Classes Open</div>
+            <span class="event-status status-future">↑ 24 days</span>
+        </div>
+        <div class="event-card node-2">
+            <div class="event-date">May 31, 2026</div>
+            <div class="event-desc">Dining Reservations Open</div>
+            <span class="event-status status-future">↑ 54 days</span>
+        </div>
+        
+        <div class="event-card node-3">
+            <div class="event-date">Now → May 1</div>
+            <div class="event-desc">Research Panama Culinary Options</div>
+            <span class="event-status status-pending">A2 Research</span>
+        </div>
+        <div class="event-card node-3">
+            <div class="event-date">Now → May 31</div>
+            <div class="event-desc">Dining Strategy Research</div>
+            <span class="event-status status-pending">A2 Research</span>
+        </div>
+        <div class="event-card node-3">
+            <div class="event-date">T-90 days (Sep 17)</div>
+            <div class="event-desc">Google Forms: Dining Preferences</div>
+            <span class="event-status status-pending">System Trigger</span>
+        </div>
+        
+        <div class="event-card node-4">
+            <div class="event-date">Weekly</div>
+            <div class="event-desc">Payment Status Reconciliation</div>
+            <span class="event-status status-pending">A9 Finance</span>
+        </div>
+        <div class="event-card node-4">
+            <div class="event-date">Monthly</div>
+            <div class="event-desc">Trip Validation Audit</div>
+            <span class="event-status status-pending">A3 + A9</span>
+        </div>
+        <div class="event-card node-4">
+            <div class="event-date">May 1 Review</div>
+            <div class="event-desc">Culinary Arts Options Review</div>
+            <span class="event-status status-pending">A2 → A3</span>
+        </div>
+    </div>
+
+    <div class="notes">
+        <h3>Event-Driven Architecture Integration</h3>
+        <p><b>Node 1 (Purple):</b> Unpredictable Triggers — Booking events, deposits, protocol changes</p>
+        <p><b>Node 2 (Gold):</b> Hard Anchors — Fixed dates from cruise line (FPD, embarkation, activity windows)</p>
+        <p><b>Node 3 (Blue):</b> Fluid Tasks — Client discretion items with flexible timing</p>
+        <p><b>Node 4 (Green):</b> Staff Review — Quality gates and approval workflows</p>
+        
+        <h3>Staff Workflow — A2 → A6 → A9 → A3</h3>
+        <p><b>A2 Dembe:</b> Research execution, intelligence gathering</p>
+        <p><b>A6 Luna:</b> Experience design, narrative crafting</p>
+        <p><b>A9 Vic:</b> Financial validation, commission tracking</p>
+        <p><b>A3 Dani:</b> Final client delivery, relationship management</p>
+        
+        <p style="color: #666; font-style: italic;">
+            Combined traditional Gantt timeline with event-driven node architecture. 
+            All events from both old and new charts integrated into comprehensive timeline.
+        </p>
+    </div>
+
+    <script>mermaid.initialize({startOnLoad:true});</script>
+</body>
+</html>

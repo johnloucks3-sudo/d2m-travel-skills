@@ -7,47 +7,47 @@
 <style>
   /* Reset */
   body, table, td, p, a { margin: 0; padding: 0; }
-  body { font-family: 'Georgia', 'Times New Roman', serif; background-color: #eee8db; color: #0000ff; line-height: 1.7; }
+  body { font-family: 'Georgia', 'Times New Roman', serif; background-color: #1a1a2e; color: #0000ff; line-height: 1.7; }
 
   /* Container */
-  .wrapper { max-width: 640px; margin: 0 auto; background: #f7f3ea; }
+  .wrapper { max-width: 640px; margin: 0 auto; background: #ffffff; border: 2px solid #A9B0B7; box-shadow: 0 8px 40px rgba(0,0,0,0.5); }
 
-  /* Header Bar */
-  .header { background: #0d1b2e; padding: 36px 40px 28px 40px; text-align: center; }
-  .header .tagline { font-family: 'Georgia', serif; font-size: 11px; color: #f5e9c8; letter-spacing: 2.5px; font-style: italic; margin-top: 10px; }
+  /* Header Bar — AFA Blue */
+  .header { background: linear-gradient(135deg, #001a5c 0%, #003087 100%); padding: 36px 40px 28px 40px; text-align: center; }
+  .header .tagline { font-family: 'Georgia', serif; font-size: 11px; color: rgba(255,255,255,0.75); letter-spacing: 2.5px; font-style: italic; margin-top: 10px; }
 
-  /* Gold accent line */
-  .gold-line { height: 2px; background: linear-gradient(90deg, #0d1b2e 5%, #c9a84c 30%, #c9a84c 70%, #0d1b2e 95%); }
+  /* Silver accent line */
+  .silver-line { height: 3px; background: linear-gradient(90deg, #003087, #A9B0B7, #ffffff, #A9B0B7, #003087); }
 
-  /* Hero gradient (Scandinavia-inspired) */
+  /* Hero gradient — AFA blue cinematic */
   .hero-area {
     width: 100%;
     height: 180px;
-    background: linear-gradient(135deg, #0d1b2e 0%, #1e3358 30%, #2a5a6a 60%, #4a8a7a 80%, #8ab4a0 100%);
+    background: linear-gradient(135deg, #000d3a 0%, #001a5c 30%, #003087 60%, #1a4a8a 80%, #2a6ab0 100%);
     text-align: center;
     line-height: 180px;
   }
   .hero-text {
     font-family: 'Georgia', serif;
     font-size: 16px;
-    color: #c9a84c;
+    color: #A9B0B7;
     letter-spacing: 4px;
     text-transform: uppercase;
   }
 
   /* Body content */
-  .content { padding: 36px 40px; background-color: #f7f3ea; }
-  .greeting { font-size: 19px; color: #0d1b2e; margin-bottom: 20px; }
+  .content { padding: 36px 40px; background-color: #ffffff; }
+  .greeting { font-size: 19px; color: #003087; margin-bottom: 20px; }
   .body-text { font-size: 15px; color: #0000ff; margin-bottom: 16px; }
 
-  /* Section divider — gold diamond */
+  /* Section divider — silver stripe */
   .section-divider { text-align: center; margin: 28px 0 14px 0; }
   .section-divider span {
     display: inline-block;
     font-size: 13px;
     font-family: 'Georgia', serif;
     font-weight: bold;
-    color: #c9a84c;
+    color: #003087;
     letter-spacing: 2px;
     text-transform: uppercase;
   }
@@ -57,46 +57,47 @@
     display: inline-block;
     width: 60px;
     height: 1px;
-    background: #e8d9b8;
+    background: #A9B0B7;
     vertical-align: middle;
     margin: 0 12px;
   }
 
   /* Info box — cruise summary */
   .cruise-box {
-    background: #0d1b2e;
-    border-left: 4px solid #c9a84c;
+    background: linear-gradient(135deg, #001a5c 0%, #003087 100%);
+    border-left: 4px solid #A9B0B7;
     padding: 22px 26px;
     margin: 20px 0;
     border-radius: 0 4px 4px 0;
-    box-shadow: inset 0 0 20px rgba(201, 168, 76, 0.05);
+    box-shadow: inset 0 0 20px rgba(169,176,183,0.08);
   }
-  .cruise-box .ship-name { font-family: 'Georgia', serif; font-size: 20px; color: #c9a84c; text-shadow: 0 1px 2px rgba(0,0,0,0.3); }
-  .cruise-box .voyage-detail { font-size: 14px; color: #d0d8e8; margin-top: 4px; }
-  .cruise-box .suite-detail { font-size: 14px; color: #e8c97a; margin-top: 8px; }
+  .cruise-box .ship-name { font-family: 'Georgia', serif; font-size: 20px; color: #A9B0B7; text-shadow: 0 1px 2px rgba(0,0,0,0.3); }
+  .cruise-box .voyage-detail { font-size: 14px; color: rgba(255,255,255,0.85); margin-top: 4px; }
+  .cruise-box .suite-detail { font-size: 14px; color: #d4d8de; margin-top: 8px; }
   .cruise-box .payment-detail { font-size: 14px; color: #ffffff; margin-top: 10px; font-weight: bold; }
-  .cruise-box .payment-amount { color: #e8c97a; }
+  .cruise-box .payment-amount { color: #d4d8de; }
 
   /* Detail list items */
   .detail-item { font-size: 14px; color: #0000ff; padding: 5px 0 5px 16px; position: relative; }
-  .detail-item::before { content: "\25C6"; color: #c9a84c; position: absolute; left: 0; font-size: 8px; top: 9px; }
+  .detail-item::before { content: "\25C6"; color: #A9B0B7; position: absolute; left: 0; font-size: 8px; top: 9px; }
 
   /* Excursion table */
   .exc-table { width: 100%; border-collapse: collapse; margin: 10px 0 20px 0; font-size: 13px; }
   .exc-table th {
-    background: #152540;
-    color: #c9a84c;
+    background: linear-gradient(90deg, #003087, #001a5c);
+    color: #ffffff;
     font-size: 11px;
     letter-spacing: 1px;
     text-transform: uppercase;
     padding: 10px 10px;
     text-align: left;
-    font-weight: normal;
+    font-weight: 600;
   }
-  .exc-table td { padding: 8px 10px; border-bottom: 1px solid #f0ebe3; color: #2a2a2a; }
-  .exc-table tr:nth-child(even) td { background: #faf8f4; }
+  .exc-table td { padding: 8px 10px; border-bottom: 1px solid #dde2ee; color: #2c2c2c; }
+  .exc-table tr:nth-child(even) td { background: #f5f7fc; }
+  .exc-table tr:odd td { background: #ffffff; }
   .exc-table tr:last-child td { border-bottom: none; }
-  .exc-table .port-name { color: #0d1b2e; font-weight: bold; }
+  .exc-table .port-name { color: #003087; font-weight: bold; }
   .exc-table .included-pill {
     display: inline-block;
     background: #2a6e3f;
@@ -110,9 +111,9 @@
 
   /* Action items box */
   .action-box {
-    background: #faf6ef;
-    border: 1px solid #e8d9b8;
-    border-left: 4px solid #c9a84c;
+    background: #f5f7fc;
+    border: 1px solid #dde2ee;
+    border-left: 4px solid #003087;
     padding: 20px 24px;
     margin: 24px 0;
     border-radius: 0 4px 4px 0;
@@ -120,51 +121,52 @@
   .action-box .action-title {
     font-family: 'Georgia', serif;
     font-size: 13px;
-    color: #0d1b2e;
+    color: #003087;
     font-weight: bold;
     letter-spacing: 1px;
     text-transform: uppercase;
     margin-bottom: 12px;
   }
-  .action-item { font-size: 14px; color: #2a2a2a; padding: 4px 0 4px 20px; position: relative; }
-  .action-item::before { content: "\2192"; color: #e8c97a; position: absolute; left: 0; font-weight: bold; }
+  .action-item { font-size: 14px; color: #2c2c2c; padding: 4px 0 4px 20px; position: relative; }
+  .action-item::before { content: "\2192"; color: #A9B0B7; position: absolute; left: 0; font-weight: bold; }
 
   /* Coming up next */
-  .timeline-item { font-size: 14px; color: #2a2a2a; padding: 4px 0; }
-  .timeline-date { color: #0d1b2e; font-weight: bold; }
+  .timeline-item { font-size: 14px; color: #2c2c2c; padding: 4px 0; }
+  .timeline-date { color: #003087; font-weight: bold; }
 
   /* Signature block */
-  .sig-divider { width: 60px; height: 1px; background: #c9a84c; margin: 28px 0 20px 0; }
+  .sig-divider { width: 60px; height: 2px; background: linear-gradient(90deg, #003087, #A9B0B7); margin: 28px 0 20px 0; }
   .sig-block { display: flex; align-items: center; gap: 16px; }
-  .sig-avatar { width: 64px; height: 64px; border-radius: 50%; border: 2px solid #c9a84c; }
-  .sig-name { font-family: 'Georgia', serif; font-size: 17px; color: #0d1b2e; font-weight: bold; letter-spacing: 0.5px; }
-  .sig-title { font-size: 12px; color: #c9a84c; letter-spacing: 1.5px; text-transform: uppercase; font-style: italic; margin-top: 2px; }
-  .sig-company { font-size: 12px; color: #8a9ab5; letter-spacing: 1px; margin-top: 2px; }
-  .sig-contact { font-size: 12px; color: #2a2a2a; margin-top: 4px; }
-  .sig-contact a { color: #c9a84c; text-decoration: none; }
+  .sig-avatar { width: 64px; height: 64px; border-radius: 50%; border: 2px solid #A9B0B7; }
+  .sig-name { font-family: 'Georgia', serif; font-size: 17px; color: #003087; font-weight: bold; letter-spacing: 0.5px; }
+  .sig-title { font-size: 12px; color: #A9B0B7; letter-spacing: 1.5px; text-transform: uppercase; font-style: italic; margin-top: 2px; }
+  .sig-company { font-size: 12px; color: #666666; letter-spacing: 1px; margin-top: 2px; }
+  .sig-contact { font-size: 12px; color: #2c2c2c; margin-top: 4px; }
+  .sig-contact a { color: #003087; text-decoration: none; }
 
   /* AI Disclosure */
   .ai-disclosure {
     margin-top: 20px;
     padding: 16px 20px;
-    background: #f9f7f3;
+    background: #f5f7fc;
     border-radius: 4px;
-    border: 1px solid #e8e0d0;
+    border: 1px solid #dde2ee;
   }
-  .ai-disclosure p { font-size: 12px; color: #9a7d2e; line-height: 1.6; font-style: italic; font-weight: 700; }
+  .ai-disclosure p { font-size: 12px; color: #5a6a85; line-height: 1.6; font-style: italic; font-weight: 700; }
 
-  /* Footer */
-  .footer { background: #0d1b2e; padding: 28px 40px; text-align: center; }
-  .footer-brand { font-size: 14px; color: #c9a84c; letter-spacing: 3px; margin-bottom: 4px; }
-  .footer-tagline { font-size: 10px; color: #f5e9c8; letter-spacing: 2px; font-style: italic; margin-bottom: 10px; }
-  .footer-contact { font-size: 12px; color: #d0d8e8; margin-top: 4px; }
-  .footer-contact a { color: #c9a84c; text-decoration: none; }
-  .footer-legal { font-size: 10px; color: #5a6a85; margin-top: 14px; line-height: 1.5; }
+  /* Footer — AFA Blue gradient */
+  .footer { background: linear-gradient(135deg, #001a5c 0%, #003087 100%); padding: 28px 40px; text-align: center; }
+  .footer-brand { font-size: 14px; color: #A9B0B7; letter-spacing: 3px; margin-bottom: 4px; }
+  .footer-tagline { font-size: 10px; color: rgba(255,255,255,0.7); letter-spacing: 2px; font-style: italic; margin-bottom: 10px; }
+  .footer-contact { font-size: 12px; color: rgba(255,255,255,0.8); margin-top: 4px; }
+  .footer-contact a { color: #A9B0B7; text-decoration: none; }
+  .footer-legal { font-size: 10px; color: rgba(169,176,183,0.6); margin-top: 14px; line-height: 1.5; }
+  .footer-legal-bar { background-color: #000d3a; text-align: center; padding: 8px; color: rgba(169,176,183,0.5); font-size: 10px; font-family: Georgia, serif; }
 </style>
 </head>
 <body>
 <center>
-<table cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color: #eee8db;">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color: #1a1a2e;">
 <tr><td align="center" style="padding: 20px 10px;">
 
 <div class="wrapper">
@@ -174,12 +176,12 @@
     {% if logo_b64 %}
     <img src="data:image/png;base64,{{ logo_b64 }}" alt="Dreams2Memories Travel" style="max-width: 300px; height: auto;" />
     {% else %}
-    <div style="font-family: 'Georgia', serif; font-size: 22px; color: #c9a84c; letter-spacing: 2px;">DREAMS2MEMORIES</div>
-    <div style="font-family: 'Georgia', serif; font-size: 11px; color: #8a9ab5; letter-spacing: 3px; text-transform: uppercase; margin-top: 4px;">Travel, LLC</div>
+    <div style="font-family: 'Georgia', serif; font-size: 22px; color: #A9B0B7; letter-spacing: 2px;">DREAMS2MEMORIES</div>
+    <div style="font-family: 'Georgia', serif; font-size: 11px; color: rgba(255,255,255,0.6); letter-spacing: 3px; text-transform: uppercase; margin-top: 4px;">Travel, LLC</div>
     {% endif %}
     <div class="tagline">Curating the voyage of your lifetime</div>
   </div>
-  <div class="gold-line"></div>
+  <div class="silver-line"></div>
 
   <!-- HERO AREA -->
   {% if hero_image_b64 %}
@@ -191,16 +193,16 @@
     <span class="hero-text">{{ hero_text | default('Your Voyage Awaits') }}</span>
   </div>
   {% endif %}
-  <div class="gold-line"></div>
+  <div class="silver-line"></div>
 
   <!-- CONTENT -->
   <div class="content">
 
     {% if personal_note %}
     <!-- PERSONAL NOTE FROM JOHN -->
-    <div style="background: #f9f7f3; border: 1px solid #e8e0d0; border-radius: 4px; padding: 18px 22px; margin-bottom: 24px;">
-      <p style="font-size: 14px; color: #0d1b2e; font-weight: bold; margin-bottom: 8px;">A quick note from John:</p>
-      <p style="font-size: 14px; color: #2a2a2a; line-height: 1.6; font-style: italic;">{{ personal_note }}</p>
+    <div style="background: #f5f7fc; border: 1px solid #dde2ee; border-radius: 4px; padding: 18px 22px; margin-bottom: 24px;">
+      <p style="font-size: 14px; color: #003087; font-weight: bold; margin-bottom: 8px;">A quick note from John:</p>
+      <p style="font-size: 14px; color: #2c2c2c; line-height: 1.6; font-style: italic;">{{ personal_note }}</p>
     </div>
     {% endif %}
 
@@ -222,7 +224,7 @@
     <div class="detail-item">{{ flight }}</div>
     {% endfor %}
     {% if flight_notes %}
-    <p class="body-text" style="margin-top: 10px; font-size: 13px; color: #8a9ab5;">{{ flight_notes }}</p>
+    <p class="body-text" style="margin-top: 10px; font-size: 13px; color: #666666;">{{ flight_notes }}</p>
     {% endif %}
 
     <!-- HOTEL & TRANSFERS -->
@@ -303,15 +305,17 @@
         <tr>
           {% if avatar_b64 %}
           <td style="padding-right: 16px; vertical-align: top;">
-            <img src="data:image/png;base64,{{ avatar_b64 }}" alt="Dani Moreau" class="sig-avatar" width="64" height="64" style="width: 64px; height: 64px; border-radius: 50%; border: 2px solid #c9a84c;" />
+            <img src="data:image/png;base64,{{ avatar_b64 }}" alt="Dani Moreau" class="sig-avatar" width="64" height="64" style="width: 64px; height: 64px; border-radius: 50%; border: 2px solid #A9B0B7;" />
           </td>
           {% endif %}
           <td style="vertical-align: top;">
             <div class="sig-name">Dani Moreau</div>
-            <div class="sig-title">Concierge Intelligence</div>
-            <div class="sig-company">DREAMS2MEMORIES TRAVEL</div>
+            <div class="sig-title">Luxury Travel Concierge</div>
+            <div class="sig-company">DREAMS2MEMORIES TRAVEL, LLC</div>
             <div class="sig-contact">
-              <a href="mailto:concierge@d2mluxury.quest" style="color: #c9a84c; text-decoration: none;">concierge@d2mluxury.quest</a>
+              <a href="mailto:concierge@d2mluxury.quest" style="color: #003087; text-decoration: none;">concierge@d2mluxury.quest</a>
+              &nbsp;&middot;&nbsp;
+              <a href="https://d2mluxury.quest" style="color: #003087; text-decoration: none;">d2mluxury.quest</a>
             </div>
           </td>
         </tr>
@@ -326,16 +330,17 @@
   </div><!-- /content -->
 
   <!-- FOOTER -->
-  <div class="gold-line"></div>
+  <div class="silver-line"></div>
   <div class="footer">
-    <div class="footer-brand">DREAMS2MEMORIES</div>
+    <div class="footer-brand">DREAMS2MEMORIES TRAVEL, LLC</div>
     <div class="footer-tagline">Curating the voyage of your lifetime</div>
-    <div class="footer-contact"><a href="mailto:concierge@d2mluxury.quest" style="color: #c9a84c; text-decoration: none;">concierge@d2mluxury.quest</a></div>
+    <div class="footer-contact"><a href="mailto:concierge@d2mluxury.quest">concierge@d2mluxury.quest</a></div>
     <div class="footer-legal">
       Florida Seller of Travel # ST1578 &middot; California Seller of Travel No. 2090937-50<br>
       Washington UBID No. 603189022 &middot; Iowa Registered Agency # 1202
     </div>
   </div>
+  <div class="footer-legal-bar">&copy; 2026 Dreams2Memories Travel, LLC &middot; All rights reserved &middot; Monument, CO</div>
 
 </div><!-- /wrapper -->
 

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>D2M Lifecycle — Furlow/Nichols/Ely (Event-Driven)</title>
+    <style>
+        :root {
+            --navy: #0a1628;
+            --cream: #f7f3ea;
+            --green: #2e7d32;
+            --red: #c62828;
+            --gold: #c9a84c;
+            --muted: #78909c;
+            --purple: #7a5a9a;
+            --blue: #1565c0;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Georgia, serif; background: var(--cream); color: var(--navy); padding: 24px 32px; }
+        
+        .header { border-bottom: 3px solid var(--navy); padding-bottom: 14px; margin-bottom: 24px; }
+        .header h1 { font-size: 22px; color: var(--navy); }
+        .meta { font-size: 11px; color: var(--muted); font-style: italic; margin-top: 3px; }
+        
+        .nodes-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
+        .node { background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 2px 12px rgba(10,22,40,.1); }
+        .node h3 { font-size: 14px; margin-bottom: 12px; color: var(--navy); border-bottom: 2px solid; padding-bottom: 6px; }
+        .node-1 h3 { border-color: var(--purple); }
+        .node-2 h3 { border-color: var(--gold); }
+        .node-3 h3 { border-color: var(--blue); }
+        .node-4 h3 { border-color: var(--green); }
+        
+        .event { margin-bottom: 10px; padding: 8px 12px; border-left: 4px solid; border-radius: 4px; background: #f8f9fa; }
+        .event.node-1 { border-left-color: var(--purple); }
+        .event.node-2 { border-left-color: var(--gold); }
+        .event.node-3 { border-left-color: var(--blue); }
+        .event.node-4 { border-left-color: var(--green); }
+        
+        .event .date { font-size: 11px; color: var(--muted); font-weight: bold; }
+        .event .desc { font-size: 13px; margin-top: 2px; }
+        .event .status { font-size: 10px; padding: 2px 8px; border-radius: 10px; display: inline-block; margin-top: 4px; }
+        .status-complete { background: #e8f5e9; color: var(--green); }
+        .status-pending { background: #fff8e1; color: #f57f17; }
+        .status-overdue { background: #ffebee; color: var(--red); }
+        .status-future { background: #e3f2fd; color: var(--blue); }
+        
+        .staff-flow { background: #fff; border-radius: 12px; padding: 20px; margin-bottom: 24px; border: 1px solid #e0e0e0; }
+        .staff-flow h3 { font-size: 16px; margin-bottom: 16px; color: var(--navy); }
+        .flow-diagram { display: flex; justify-content: space-between; align-items: center; margin: 20px 0; }
+        .staff-member { text-align: center; padding: 12px; background: #f5f5f5; border-radius: 8px; width: 100px; }
+        .staff-name { font-weight: bold; font-size: 12px; color: var(--navy); }
+        .staff-role { font-size: 10px; color: var(--muted); margin-top: 4px; }
+        .arrow { font-size: 18px; color: var(--navy); padding: 0 10px; }
+        
+        .today-marker { background: var(--red); color: white; padding: 4px 12px; border-radius: 12px; font-size: 11px; margin: 16px 0; display: inline-block; }
+        
+        .legend { display: flex; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; font-size: 11px; }
+        .legend-item { display: flex; align-items: center; gap: 6px; }
+        .legend-color { width: 12px; height: 12px; border-radius: 2px; }
+        
+        .client-group { display: flex; gap: 20px; margin-bottom: 24px; }
+        .client-card { background: #fff; border-radius: 8px; padding: 16px; box-shadow: 0 1px 8px rgba(0,0,0,0.05); width: 200px; }
+        .client-name { font-weight: bold; font-size: 13px; color: var(--navy); margin-bottom: 8px; }
+        .client-detail { font-size: 11px; color: var(--muted); margin-bottom: 4px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>GROUP 2 — Regent SS Grandeur · Scandinavia · Aug 29–Sep 8, 2026</h1>
+        <div class="meta">Furlow/Nichols/Ely Combined Group · Dreams2Memories Travel, LLC</div>
+    </div>
+
+    <div class="today-marker">TODAY: April 7, 2026</div>
+
+    <div class="client-group">
+        <div class="client-card">
+            <div class="client-name">Furlow</div>
+            <div class="client-detail">John & Melissa</div>
+            <div class="client-detail">💳 Chase Sapphire Reserve</div>
+            <div class="client-detail">Suite 827, Deck 8</div>
+            <div class="client-detail">✅ Payment Complete ($19,236)</div>
+        </div>
+        <div class="client-card">
+            <div class="client-name">Nichols</div>
+            <div class="client-detail">Larry & Heidi</div>
+            <div class="client-detail">💳 Amex Platinum</div>
+            <div class="client-detail">Suite TBD</div>
+            <div class="client-detail">✅ Payment Complete</div>
+        </div>
+        <div class="client-card">
+            <div class="client-name">Ely</div>
+            <div class="client-detail">Al & Amy (+ Darrow)</div>
+            <div class="client-detail">💳 TBD</div>
+            <div class="client-detail">Suite TBD</div>
+            <div class="client-detail">✅ Payment Complete</div>
+        </div>
+    </div>
+
+    <div class="legend">
+        <div class="legend-item"><div class="legend-color" style="background: var(--purple);"></div> Unpredictable Triggers</div>
+        <div class="legend-item"><div class="legend-color" style="background: var(--gold);"></div> Hard Anchors</div>
+        <div class="legend-item"><div class="legend-color" style="background: var(--blue);"></div> Fluid Tasks</div>
+        <div class="legend-item"><div class="legend-color" style="background: var(--green);"></div> Staff Review</div>
+    </div>
+
+    <div class="nodes-grid">
+        <!-- Node 1: Unpredictable Triggers -->
+        <div class="node node-1">
+            <h3>Unpredictable Triggers</h3>
+            <div class="event">
+                <div class="date">Sep 15, 2025</div>
+                <div class="desc">Furlow Deposit Received</div>
+                <span class="status status-complete">✓ Complete</span>
+            </div>
+            <div class="event">
+                <div class="date">Oct 1, 2025</div>
+                <div class="desc">Nichols/Ely Deposit Received</div>
+                <span class="status status-complete">✓ Complete</span>
+            </div>
+            <div class="event">
+                <div class="date">Mar 18, 2026</div>
+                <div class="desc">All Guest Registration Complete</div>
+                <span class="status status-complete">✓ Complete</span>
+            </div>
+            <div class="event">
+                <div class="date">Mar 25, 2026</div>
+                <div class="desc">Furlow Final Payment Processed</div>
+                <span class="status status-complete">✓ Complete</span>
+            </div>
+            <div class="event">
+                <div class="date">Mar 31, 2026</div>
+                <div class="desc">Google Forms Logic Protocol Established</div>
+                <span class="status status-complete">✓ Complete</span>
+            </div>
+        </div>
+
+        <!-- Node 2: Hard Anchors -->
+        <div class="node node-2">
+            <h3>Hard Anchors</h3>
+            <div class="event">
+                <div class="date">Apr 1, 2026</div>
+                <div class="desc">FINAL PAYMENT DUE (All Clients)</div>
+                <span class="status status-complete">✓ Complete</span>
+            </div>
+            <div class="event">
+                <div class="date">May 1, 2026</div>
+                <div class="desc">Culinary Arts Kitchen Classes Open (8pm ET)</div>
+                <span class="status status-future">↑ 24 days</span>
+            </div>
+            <div class="event">
+                <div class="date">May 31, 2026</div>
+                <div class="desc">Dining Reservations Open (8pm ET)</div>
+                <span class="status status-future">↑ 54 days</span>
+            </div>
+            <div class="event">
+                <div class="date">Aug 8, 2026</div>
+                <div class="desc">Online Check-in Opens</div>
+                <span class="status status-future">↑ 123 days</span>
+            </div>
+            <div class="event">
+                <div class="date">Aug 27, 2026</div>
+                <div class="desc">Pre-Cruise Hotel (Haymarket By Scandic)</div>
+                <span class="status status-future">↑ 142 days</span>
+            </div>
+            <div class="event">
+                <div class="date">Aug 28, 2026</div>
+                <div class="desc">Regent Included Hotel Night</div>
+                <span class="status status-future">↑ 143 days</span>
+            </div>
+        </div>
+
+        <!-- Node 3: Fluid Tasks -->
+        <div class="node node-3">
+            <h3>Fluid Tasks</h3>
+            <div class="event">
+                <div class="date">Now → May 1</div>
+                <div class="desc">Research Scandinavian Culinary Arts Options</div>
+                <span class="status status-pending">A2 Research</span>
+            </div>
+            <div class="event">
+                <div class="date">Now → May 31</div>
+                <div class="desc">Dining Strategy Research (Scandinavian cuisine)</div>
+                <span class="status status-pending">A2 Research</span>
+            </div>
+            <div class="event">
+                <div class="date">Now → Aug 8</div>
+                <div class="desc">Excursion Review & Recommendations</div>
+                <span class="status status-pending">A6 Planning</span>
+            </div>
+            <div class="event">
+                <div class="date">T-90 days (May 31)</div>
+                <div class="desc">Google Forms: Guest Profile + Preferences</div>
+                <span class="status status-pending">System Trigger</span>
+            </div>
+            <div class="event">
+                <div class="date">T-60 days (Jun 29)</div>
+                <div class="desc">Google Forms: Dining + Excursion Interest</div>
+                <span class="status status-pending">System Trigger</span>
+            </div>
+            <div class="event">
+                <div class="date">T-30 days (Jul 29)</div>
+                <div class="desc">Google Forms: Final Special Requests</div>
+                <span class="status status-pending">System Trigger</span>
+            </div>
+        </div>
+
+        <!-- Node 4: Staff Review -->
+        <div class="node node-4">
+            <h3>Staff Review</h3>
+            <div class="event">
+                <div class="date">Weekly</div>
+                <div class="desc">Payment Status Reconciliation</div>
+                <span class="status status-pending">A9 Finance</span>
+            </div>
+            <div class="event">
+                <div class="date">Monthly</div>
+                <div class="desc">Trip Validation Audit</div>
+                <span class="status status-pending">A3 + A9</span>
+            </div>
+            <div class="event">
+                <div class="date">May 1 Review</div>
+                <div class="desc">Culinary Arts Options Review</div>
+                <span class="status status-pending">A2 → A3</span>
+            </div>
+            <div class="event">
+                <div class="date">May 31 Review</div>
+                <div class="desc">Dining Strategy Approval</div>
+                <span class="status status-pending">A2 → A3</span>
+            </div>
+            <div class="event">
+                <div class="date">T-45 days (Jul 15)</div>
+                <div class="desc">Insurance & Protection Final Review</div>
+                <span class="status status-pending">A9 → A3</span>
+            </div>
+            <div class="event">
+                <div class="date">T-14 days (Aug 15)</div>
+                <div class="desc">Final Travel Documents Review</div>
+                <span class="status status-pending">A3 Final</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="staff-flow">
+        <h3>Staff Workflow — Event-Driven Architecture</h3>
+        <div class="flow-diagram">
+            <div class="staff-member">
+                <div class="staff-name">A2 Dembe</div>
+                <div class="staff-role">Research</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="staff-member">
+                <div class="staff-name">A6 Luna</div>
+                <div class="staff-role">Planning</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="staff-member">
+                <div class="staff-name">A9 Vic</div>
+                <div class="staff-role">Finance</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="staff-member">
+                <div class="staff-name">A3 Dani</div>
+                <div class="staff-role">Final Review</div>
+            </div>
+        </div>
+        <p style="font-size: 12px; color: var(--muted); margin-top: 10px; text-align: center;">
+            ALWAYS get staff input first. Schedule is "flexible but firm" — events trigger actions, not rigid dates.
+        </p>
+    </div>
+
+    <div style="font-size: 10px; color: var(--muted); text-align: center; margin-top: 40px; border-top: 1px solid #e0e0e0; padding-top: 16px;">
+        Generated: April 7, 2026 · Dreams2Memories Travel, LLC<br>
+        Event-Driven Architecture v2 · Anchor Date Model: Booking, Embark, FPD, Disembark
+    </div>
+</body>
+</html>

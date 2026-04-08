@@ -10,27 +10,28 @@
         /* ===== RESET ===== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* ===== DESIGN TOKENS ===== */
+        /* ===== DESIGN TOKENS — AFA Edition ===== */
         :root {
-            --gold:        #c9a84c;
-            --gold-light:  #e8c97a;
-            --gold-pale:   #f5e9c8;
-            --navy:        #0d1b2e;
-            --navy-light:  #1e3358;
+            --afa-blue:    #003087;
+            --afa-dark:    #001a5c;
+            --afa-deep:    #000d3a;
+            --silver:      #A9B0B7;
+            --silver-light:#d4d8de;
+            --silver-pale: #f0f2f5;
             --ink:         #0000ff;   /* Commander's bright blue pen — NEVER substitute */
-            --text-dark:   #2d3748;
-            --text-muted:  #718096;
-            --cream:       #f7f3ea;   /* Crane's Ecru card stock — email content area */
-            --linen:       #eee8db;   /* Warm linen desk surround */
-            --sand:        #e8dcc8;
-            --border-light:#e2e0db;
+            --text-dark:   #2c2c2c;
+            --text-muted:  #666666;
+            --white:       #ffffff;
+            --content-bg:  #ffffff;
+            --table-alt:   #f5f7fc;
+            --border:      #dde2ee;
         }
 
         /* ===== BASE ===== */
         body {
             font-family: Georgia, 'Times New Roman', serif;
             color: #0000ff;
-            background: #eee8db;
+            background: #1a1a2e;
             line-height: 1.75;
             font-size: 15px;
             -webkit-font-smoothing: antialiased;
@@ -65,28 +66,36 @@
             padding: 0 12px;
         }
 
-        /* ===== EMAIL WRAPPER — CREAM PAPER ===== */
+        /* ===== EMAIL WRAPPER — WHITE PAPER ===== */
         .email-wrapper {
             max-width: 680px;
             margin: 0 auto;
-            background: #f7f3ea;
-            border: 1px solid #e8dcc8;
+            background: #ffffff;
+            border: 2px solid #A9B0B7;
             border-radius: 4px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.5);
         }
 
-        /* ===== HEADER — NAVY LOGO BANNER ===== */
+        /* ===== HEADER — AFA BLUE LOGO BANNER ===== */
         .header {
-            padding: 28px 44px 20px;
+            padding: 0;
             text-align: center;
-            background: #0d1b2e;
+            background: linear-gradient(135deg, #001a5c 0%, #003087 100%);
             border-radius: 4px 4px 0 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .header-inner {
+            padding: 28px 44px 22px;
+            position: relative;
+            z-index: 1;
         }
 
         .logo {
-            max-height: 90px;
+            max-height: 110px;
             width: auto;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
 
         /* Fallback when no logo image provided */
@@ -94,7 +103,7 @@
             font-family: Georgia, 'Times New Roman', serif;
             font-size: 24px;
             font-weight: bold;
-            color: #c9a84c;
+            color: #A9B0B7;
             letter-spacing: 3px;
             text-transform: uppercase;
         }
@@ -102,7 +111,7 @@
         .logo-sub {
             font-family: Georgia, 'Times New Roman', serif;
             font-size: 9px;
-            color: #f5e9c8;
+            color: rgba(255,255,255,0.7);
             letter-spacing: 4px;
             text-transform: uppercase;
             margin-top: 2px;
@@ -110,18 +119,18 @@
 
         .tagline {
             font-family: Georgia, 'Times New Roman', serif;
-            font-size: 10px;
-            letter-spacing: 2.5px;
+            font-size: 11px;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            color: #f5e9c8;
+            color: rgba(255,255,255,0.75);
             font-style: italic;
             margin-top: 8px;
         }
 
-        /* ===== GOLD RULE ===== */
-        .gold-rule {
-            height: 2.5px;
-            background: linear-gradient(90deg, #0d1b2e 5%, #c9a84c 30%, #c9a84c 70%, #0d1b2e 95%);
+        /* ===== SILVER DIVIDER STRIPE ===== */
+        .silver-rule {
+            height: 3px;
+            background: linear-gradient(90deg, #003087, #A9B0B7, #ffffff, #A9B0B7, #003087);
             margin: 0;
             border: none;
         }
@@ -134,12 +143,13 @@
             padding: 14px 44px 0;
             flex-wrap: wrap;
             gap: 6px;
+            background: #ffffff;
         }
 
         .meta-date {
             font-family: Georgia, 'Times New Roman', serif;
             font-size: 11px;
-            color: #718096;
+            color: #666666;
             letter-spacing: 0.5px;
             font-style: italic;
         }
@@ -147,14 +157,15 @@
         .meta-ref {
             font-family: Georgia, 'Times New Roman', serif;
             font-size: 11px;
-            color: #718096;
+            color: #666666;
             letter-spacing: 0.5px;
             font-style: italic;
         }
 
-        /* ===== SUBJECT LINE (optional, e.g. Trip Validation) ===== */
+        /* ===== SUBJECT LINE ===== */
         .subject-line {
             padding: 10px 44px 0;
+            background: #ffffff;
         }
 
         .subject-line p {
@@ -163,21 +174,22 @@
             font-weight: bold;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            color: #0d1b2e;
-            border-bottom: 1px solid #e8dcc8;
+            color: #003087;
+            border-bottom: 1px solid #dde2ee;
             padding-bottom: 8px;
         }
 
         /* ===== CONTENT ===== */
         .content {
             padding: 12px 44px 32px;
+            background: #ffffff;
         }
 
         .greeting {
             font-family: Georgia, 'Times New Roman', serif;
             font-size: 20px;
             font-weight: bold;
-            color: #0d1b2e;
+            color: #003087;
             margin-bottom: 18px;
             margin-top: 14px;
         }
@@ -199,21 +211,21 @@
         }
 
         .content strong {
-            color: #0d1b2e;
+            color: #003087;
             font-weight: bold;
         }
 
         .content a {
-            color: #c9a84c;
+            color: #A9B0B7;
             text-decoration: underline;
-            text-decoration-color: #f5e9c8;
+            text-decoration-color: #d4d8de;
             text-underline-offset: 3px;
         }
 
-        /* ===== HIGHLIGHT BOX — key details, booking summaries ===== */
+        /* ===== HIGHLIGHT BOX ===== */
         .highlight-box {
-            background: #faf8f3;
-            border-left: 3px solid #c9a84c;
+            background: linear-gradient(135deg, #f0f4ff, #e8ecf8);
+            border-left: 3px solid #003087;
             padding: 16px 22px;
             margin: 20px 0;
             border-radius: 0 4px 4px 0;
@@ -225,23 +237,23 @@
             font-weight: bold;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            color: #c9a84c;
+            color: #003087;
             margin-bottom: 10px;
         }
 
         .highlight-box p {
             margin-bottom: 7px;
             font-size: 14px;
-            color: #2d3748;
+            color: #2c2c2c;
         }
 
         .highlight-box p:last-child { margin-bottom: 0; }
 
-        /* ===== ACTION BOX — next steps, items needed ===== */
+        /* ===== ACTION BOX ===== */
         .action-box {
-            background: #faf8f3;
-            border: 1px solid #e8dcc8;
-            border-left: 3px solid #0d1b2e;
+            background: #f5f7fc;
+            border: 1px solid #dde2ee;
+            border-left: 3px solid #003087;
             padding: 16px 22px;
             margin: 20px 0;
             border-radius: 0 4px 4px 0;
@@ -253,20 +265,20 @@
             font-weight: bold;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            color: #0d1b2e;
+            color: #003087;
             margin-bottom: 10px;
         }
 
         .action-item {
             font-size: 14px;
-            color: #2d3748;
+            color: #2c2c2c;
             padding: 4px 0 4px 18px;
             position: relative;
         }
 
         .action-item::before {
             content: "→";
-            color: #c9a84c;
+            color: #A9B0B7;
             position: absolute;
             left: 0;
             font-weight: bold;
@@ -285,7 +297,7 @@
 
         .sign-off .sig-name {
             font-weight: bold;
-            color: #0d1b2e;
+            color: #003087;
             font-size: 16px;
             font-family: Georgia, 'Times New Roman', serif;
             letter-spacing: 0.3px;
@@ -294,7 +306,7 @@
         .sign-off .sig-title {
             font-family: Georgia, 'Times New Roman', serif;
             font-size: 11px;
-            color: #718096;
+            color: #666666;
             letter-spacing: 0.5px;
         }
 
@@ -302,9 +314,9 @@
         .ai-disclosure {
             margin-top: 20px;
             padding: 14px 18px;
-            background: #f9f7f3;
+            background: #f5f7fc;
             border-radius: 4px;
-            border: 1px solid #e8dcc8;
+            border: 1px solid #dde2ee;
         }
 
         .ai-disclosure p {
@@ -317,8 +329,8 @@
 
         /* ===== FOOTER — AGENT CONTACT BLOCK ===== */
         .footer-agent {
-            background: #faf8f3;
-            border-top: 1px solid #e8dcc8;
+            background: #f5f7fc;
+            border-top: 1px solid #dde2ee;
             padding: 22px 44px;
         }
 
@@ -333,7 +345,7 @@
             height: 58px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid #f5e9c8;
+            border: 2px solid #A9B0B7;
             flex-shrink: 0;
         }
 
@@ -341,15 +353,15 @@
             width: 58px;
             height: 58px;
             border-radius: 50%;
-            background: #1e3358;
-            border: 2px solid #f5e9c8;
+            background: #001a5c;
+            border: 2px solid #A9B0B7;
             flex-shrink: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: Georgia, 'Times New Roman', serif;
             font-size: 22px;
-            color: #c9a84c;
+            color: #A9B0B7;
         }
 
         .agent-info { flex: 1; }
@@ -358,7 +370,7 @@
             font-family: Georgia, 'Times New Roman', serif;
             font-size: 17px;
             font-weight: bold;
-            color: #0d1b2e;
+            color: #003087;
         }
 
         .agent-title {
@@ -366,7 +378,7 @@
             font-size: 10px;
             letter-spacing: 1px;
             text-transform: uppercase;
-            color: #c9a84c;
+            color: #A9B0B7;
             font-style: italic;
             margin-top: 1px;
         }
@@ -374,7 +386,7 @@
         .contact-line {
             font-family: Georgia, 'Times New Roman', serif;
             font-size: 12px;
-            color: #718096;
+            color: #666666;
             margin-top: 5px;
             line-height: 1.7;
         }
@@ -386,13 +398,13 @@
 
         .contact-line a:hover { text-decoration: underline; }
 
-        .sep { color: #e8dcc8; margin: 0 5px; }
+        .sep { color: #dde2ee; margin: 0 5px; }
 
         /* ===== BOTTOM BAR ===== */
         .bottom-bar {
             text-align: center;
-            padding: 10px 44px 11px;
-            background: #0d1b2e;
+            padding: 14px 44px 15px;
+            background: linear-gradient(135deg, #001a5c 0%, #003087 100%);
             border-radius: 0 0 4px 4px;
         }
 
@@ -401,14 +413,14 @@
             font-size: 9px;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: #c9a84c;
+            color: #A9B0B7;
         }
 
         .bottom-bar .legal {
             font-size: 9px;
             letter-spacing: 0.5px;
-            color: #5a6a85;
-            margin-top: 3px;
+            color: rgba(169,176,183,0.6);
+            margin-top: 4px;
             display: block;
         }
 
@@ -419,23 +431,25 @@
 <div class="email-wrapper">
 
     <!-- ═══════════════════════════════════════
-         HEADER — NAVY LOGO BANNER
-         Brand standard: full-width navy (#0d1b2e) with centered D2M logo.
-         Logo: max-height 90px. Fallback text in gold if no image.
+         HEADER — AFA BLUE LOGO BANNER
+         D2M AFA stationery: USAFA Blue (#003087) gradient with centered logo.
+         Logo: max-height 110px. Fallback text in silver if no image.
     ═══════════════════════════════════════ -->
     <div class="header">
-        {% if logo_b64 %}
-        <img src="data:image/png;base64,{{ logo_b64 }}" alt="Dreams2Memories Travel" class="logo">
-        {% elif logo_url %}
-        <img src="{{ logo_url }}" alt="Dreams2Memories Travel" class="logo">
-        {% else %}
-        <div class="logo-text">Dreams2Memories</div>
-        <div class="logo-sub">Travel, LLC</div>
-        {% endif %}
-        <div class="tagline">Luxury Travel, Personally Crafted</div>
+        <div class="header-inner">
+            {% if logo_b64 %}
+            <img src="data:image/png;base64,{{ logo_b64 }}" alt="Dreams2Memories Travel" class="logo">
+            {% elif logo_url %}
+            <img src="{{ logo_url }}" alt="Dreams2Memories Travel" class="logo">
+            {% else %}
+            <div class="logo-text">Dreams2Memories</div>
+            <div class="logo-sub">Travel, LLC</div>
+            {% endif %}
+            <div class="tagline">Curating the voyage of your lifetime</div>
+        </div>
     </div>
 
-    <hr class="gold-rule">
+    <hr class="silver-rule">
 
     <!-- ═══════════════════════════════════════
          META: DATE + REFERENCE
@@ -449,7 +463,6 @@
 
     <!-- ═══════════════════════════════════════
          OPTIONAL SUBJECT / DOCUMENT TITLE
-         (use for Trip Validation, Proposals, Booking Confirmations)
     ═══════════════════════════════════════ -->
     {% if subject_display %}
     <div class="subject-line">
@@ -460,7 +473,7 @@
     <!-- ═══════════════════════════════════════
          BODY CONTENT
          All text: bright blue (#0000ff), Georgia serif.
-         Cream paper area (#f7f3ea) set on .email-wrapper.
+         White paper area (#ffffff) set on .content.
     ═══════════════════════════════════════ -->
     <div class="content">
 

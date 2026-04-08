@@ -1,43 +1,42 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-04-07 09:50:00 MT
+## Generated: 2026-04-07 19:50:00 MT
 
 ---
 
 ### Recent Commits
+- 2ceb428 chore: session init — hale_brief current, CLAUDE.md auto-includes brief+state
+- 229c9d3 feat: OpenCode integration — model fix, OAuth loop, bidirectional tasking
 - ac4d382 docs: add Claude tasking patterns to AGENTS.md
 - 0412d8a feat: migrate Goose → OpenCode across all operational docs
 - e896f47 chore: remaining session state — commander inbox, logs, nexus lock
-- ddaaec5 chore: intel outputs, dossier, business structure — session artifacts
-- 099120c chore: ops state files — blackboard, inboxes, routing log, mission board
 
 ### Uncommitted Changes
-- .opencode.json (modified)
 - AGENT.md (modified)
-- AGENTS.md (modified)
 - CLAUDE.md (modified)
 - OpsCenter/.goose_headless.lock (modified)
-- OpsCenter/00_COMMAND_LOG.md (modified)
 - OpsCenter/CLAUDE_DESKTOP_INIT.md (modified)
 - OpsCenter/GOOSE_INIT.md (modified)
-- OpsCenter/collaboration/activity_board.md (modified)
 - OpsCenter/collaboration/blackboard_summary.txt (modified)
 - OpsCenter/collaboration/claude_inbox.md (modified)
 - OpsCenter/collaboration/claude_outbox.md (modified)
 - OpsCenter/collaboration/goose_inbox.md (modified)
 - OpsCenter/collaboration/goose_output.md (modified)
 - OpsCenter/collaboration/opencode_inbox.md (modified)
+- OpsCenter/collaboration/opencode_outbox.md (modified)
 - OpsCenter/collaboration/routing_log.md (modified)
 - OpsCenter/collaboration/wing_comms.md (modified)
-- OpsCenter/config.py (modified)
 - OpsCenter/context_d2mc2c.json (modified)
 - OpsCenter/context_goose.json (modified)
-- AGENTS_NEW_TASKING.md (new)
+- OpsCenter/mission_board.json (modified)
+- OpsCenter/nexus.lock (modified)
+- OpsCenter/opencode_memory.md (modified)
+- OpsCenter/scan_outputs/incubator_review_latest.txt (modified)
 - Commander_Update_Research_Framework_Complete.md (new)
 - OpsCenter/.claude_oauth_cache (new)
 - OpsCenter/client_lifecycle_chart.py (new)
 - OpsCenter/client_lifecycle_revision_init.md (new)
+- OpsCenter/collaboration/Claude Tasks.txt (new)
 - OpsCenter/collaboration/inbox_consolidation_report.md (new)
-- OpsCenter/collaboration/opencode_outbox.md (new)
 - OpsCenter/lifecycle_18month_analysis.py (new)
 - OpsCenter/max_proxy.py (new)
 - OpsCenter/state/suspense_alerted.json (new)
@@ -51,17 +50,18 @@
 - business/client_research/Dining_Lodging_Recommendations_Process.md (new)
 - business/client_research/Fare_Flight_Research_Protocol.md (new)
 - business/client_research/Monthly_Trip_Validation_Process.md (new)
+- comms/Google_Forms_Logic_Protocol.md (new)
 
 ### Active Work
 - SSS: 0 pending decision(s)
 - Learning: 0 rules pending validation
 
 ### Recently Touched Dossiers
+- DOSSIER_VikingMars_PanamaCanal_Dec2026.md
 - Loucks_32Day_Itinerary_Apr2026.md
 - Loucks_Personal_SilverNova_Japan.md
 - Westbrook_SilverNova_Personal.md
 - CLAUDE.md
-- Nichols_Allianz_Coverage_Brief.md
 
 ### Open TODOs
 - [tool_validation_plan.md] - [ ] list files in TITAN_BOOKINGS_VAULT

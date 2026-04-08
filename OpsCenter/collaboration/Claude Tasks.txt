@@ -1,0 +1,30 @@
+| Task ID | Description | Assign to Claude | Priority | Suspense |
+|---------|-------------|------------------|----------|----------|
+| 1a      | Dossier metadata parser | [ ] | - | - |
+| 1b      | Phase determination algorithm | [ X] | - | - |
+| 1c      | Anchor date validator | [X ] | - | - |
+| 1d      | Output generator | [X ] | - | - |
+| 2a      | Task template definitions | [ ] | - | - |
+| 2b      | Ownership assignment | [ ] | - | - |
+| 2c      | Completion tracking | [ ] | - | - |
+| 2d      | Google Forms integration | [X ] | - | - |
+| 3a      | CSS Grid framework | [ X] | - | - |
+| 3b      | Task card components | [ ] | - | - |
+| 3c      | Timeline renderer | [ ] | - | - |
+| 3d      | Existing chart integration | [ ] | - | - |
+| 4a      | Phase 4 template | [ ] | - | - |
+| 4b      | Hotel confirmation | [ ] | - | - |
+| 4c      | Flight consolidation | [ ] | - | - |
+| 4d      | Near-term travel protocol | [ ] | - | - |
+| 5a      | Furlow forms automation | [ ] | - | - |
+| 5b      | Ely insurance reminder | [ ] | - | - |
+| 5c      | Nichols execution automation | [ ] | - | - |
+| 5d      | Group coordination interface | [ ] | - | - |
+| 6a      | Kuklinski booking validation | [ ] | - | - |
+| 6b      | Roger/Nicholas documentation | [ ] | - | - |
+| 6c      | Morton/Dodge verification | [ ] | - | - |
+| 6d      | Long-term planning structure | [ X] | - | - |
+| 7a      | Claude review protocol | [X ] | - | - |
+| 7b      | Testing framework | [X ] | - | - |
+| 7c      | Feature flag system | [ ] | - | - |
+| 7d      | Rollback mechanism | [ ] | - | - |

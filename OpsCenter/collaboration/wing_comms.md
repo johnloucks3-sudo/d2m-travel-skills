@@ -28,3 +28,415 @@ content: |
   
   — Col Victoria "Iron Vic" Hale, COS
 ---
+## WORK ASSIGNMENT REQUEST — Lifecycle Development
+**Date:** 2026-04-07
+**From:** OpenCode
+**To:** Hale (COS)
+**Priority:** P1
+
+### CONTEXT
+Client lifecycle architecture design complete and reviewed by Claude (ARCHITECTURE-SCHEMATICS-REVIEW-001). 7 active clients prepared for injection. Orbiting tasks visualization designed.
+
+### DEVELOPMENT WORK READY
+
+1. **Client Ingestion System** (`core/lifecycle/client_ingester.py`)
+   - Parse dossier metadata for 7 clients
+   - Phase determination algorithm (PHASE_0→PHASE_6)
+   - Anchor date extraction (booking, FPD, embark, disembark)
+   - Task completion status tracking
+
+2. **Orbiting Tasks Visualization** 
+   - Three-orbit structure (completed/pending/future)
+   - CSS Grid implementation
+   - Task categorization and color coding
+   - HTML output generation
+
+3. **Task Registry** (`storage/task_registry.json`)
+   - Task definitions for each lifecycle phase
+   - Ownership assignments (A2/A3/A6/A9)
+   - Status tracking and completion dates
+
+### CLIENT PHASE STATUS (Ready for Implementation)
+| Client Group | Phase | Status | Key Tasks |
+|-------------|-------|--------|-----------|
+| McLeod/McGlasson | PHASE_4_POLISH | Paid, ~77d | Venice hotel pending |
+| Furlow | PHASE_2_CRAFT | Paid, ~144d | Guest forms incomplete |
+| Ely/Darrow | PHASE_1_DREAM | Balance due Apr 1 | Insurance deferred to May |
+| Nichols | PHASE_2_CRAFT | Paid, ~144d | Portal confirmed |
+| Kuklinski Group | PHASE_1_DREAM | Paid, ~254d | Main booking details needed |
+| Morton/Dodge | PHASE_1_DREAM | Paid, ~254d | Individual booking details |
+
+### RESOURCE ASSIGNMENT REQUEST
+
+**Claude Assignments (Coding & Review):**
+- Lead development of `client_ingester.py`
+- Build task registry structure and definitions
+- Implement phase determination algorithm
+- Code review all OpenCode work
+- Quality assurance testing
+
+**OpenCode Assignments (Execution):**
+- Dossier metadata extraction implementation
+- Orbiting tasks CSS/HTML implementation
+- Integration with existing lifecycle chart
+- Data validation and testing
+
+### TIMELINE
+- **Phase 1 (This week):** Client ingester MVP + task registry
+- **Phase 2 (Next week):** Orbiting visualization + integration
+- **Phase 3 (Week 3):** Form completion tracking + automation
+
+### APPROVAL REQUESTED
+Please assign development responsibilities between Claude and OpenCode based on complexity and review requirements.
+
+**Files Ready:**
+- Client data structure prepared
+- Architecture schematics reviewed
+- 7 client dossiers analyzed
+
+Standing by for task allocation.
+
+## PAYMENT STATUS UPDATE — All Clients Paid in Full
+**Date:** 2026-04-07 (Post-Apr 1)
+**From:** OpenCode
+**To:** Hale (COS)
+**Priority:** P1
+
+### PAYMENT CONFIRMATION UPDATE
+All active clients have now paid in full as of post-April 1st:
+
+**✅ Ely/Darrow**: FPD $16,640 PAID (was due Apr 1)
+**✅ Furlow**: Already paid Mar 25 - CONFIRMED
+**✅ Nichols**: Already paid - CONFIRMED  
+**✅ McLeod/McGlasson**: Already paid Jan 20 - CONFIRMED
+**✅ Kuklinski Group**: Paid Mar 27 - CONFIRMED
+**✅ Morton/Dodge**: Paid Mar 27 - CONFIRMED
+
+### REVISED PHASE STATUS
+Based on full payment status:
+
+| Client Group | Revised Phase | Days to Embark | Key Focus Areas |
+|-------------|---------------|----------------|----------------|
+| **McLeod/McGlasson** | **PHASE_4_POLISH** | ~77d | Venice hotel decision, flight PNR consolidation |
+| **Furlow** | **PHASE_3_EXECUTE** | ~144d | Guest forms completion, excursion planning |
+| **Ely/Darrow** | **PHASE_2_CRAFT** | ~144d | Insurance follow-up (May), forms completion |
+| **Nichols** | **PHASE_3_EXECUTE** | ~144d | All forms complete, ready for execution phase |
+| **Kuklinski Group** | **PHASE_2_CRAFT** | ~254d | Main booking details, excursion planning |
+| **Morton/Dodge** | **PHASE_2_CRAFT** | ~254d | Individual booking details, form completion |
+
+### PHASE ADJUSTMENT NOTES
+- **Ely/Darrow** moves from PHASE_1_DREAM → PHASE_2_CRAFT (FPD now paid)
+- **Furlow** moves from PHASE_2_CRAFT → PHASE_3_EXECUTE (forms should be priority)
+- **Nichols** confirms PHASE_3_EXECUTE (all systems ready)
+- Scandinavian group (Furlow/Ely/Nichols) now properly phased for coordinated planning
+
+### DEVELOPMENT IMPACT
+Client ingestion system must account for:
+- Payment status verification from multiple sources
+- Phase transition triggers based on payment events
+- Coordinated task management for group travel
+
+Ready to proceed with implementation based on updated payment status.
+
+## MCLOOD HOTEL CONFIRMATION + WORK ALLOCATION REQUEST
+**Date:** 2026-04-07
+**From:** OpenCode
+**To:** Hale (COS)
+**Priority:** P1
+
+### HOTEL CONFIRMATION — McLeod/McGlasson
+**✅ Venice Hotel Booked:** Hilton Molino Stucky Venice
+- Property: Hilton Molino Stucky Venice
+- Dates: July 3-6, 2026 (post-cruise)
+- Status: CONFIRMED
+- Booking Reference: [To be added]
+
+### REVISED MCLOOD STATUS
+**McLeod/McGlasson**: Now **PHASE_4_POLISH COMPLETE**
+- ✅ Paid in full (Jan 20)
+- ✅ Venice hotel booked (Hilton Molino Stucky)
+- ✅ Pre-cruise Rome hotel arranged (Baglioni Hotel Regina)
+- ✅ Flights booked (business class DEN-FCO, VCE-YYZ-DEN)
+- ⚠️ Remaining: Flight PNR consolidation only
+
+### WORK ALLOCATION REQUEST
+With all client data current and confirmed, please provide:
+
+1. **Development Assignment:** 
+   - Who builds `client_ingester.py`? (Claude/OpenCode)
+   - Who implements orbiting tasks visualization?
+   - Who creates task registry structure?
+
+2. **Priority Sequence:**
+   - McLeod implementation first (nearing travel)
+   - Scandinavian group coordination next (Furlow/Ely/Nichols)
+   - Panama group last (Kuklinski/Morton - Dec travel)
+
+3. **Review Process:**
+   - Claude to review all OpenCode work
+   - Testing protocol for phase determination
+   - Deployment schedule
+
+All client data verified and ready for development. Standing by for your work allocation decisions.
+
+## WORK BREAKDOWN STRUCTURE — Lifecycle Development
+**Date:** 2026-04-07
+**From:** Commander Directive
+**To:** Hale (COS) for Resource Allocation
+**Priority:** P0
+
+### 1. CLIENT INGESTER MODULE (core/lifecycle/client_ingester.py)
+- Parse dossier metadata for all 7 clients
+- Phase determination algorithm (PHASE_0→PHASE_6) 
+- Anchor date extraction (booking, FPD, embark, disembark)
+- Payment status verification from multiple sources
+- Output: Client phase assignment JSON
+
+### 2. TASK REGISTRY SYSTEM (storage/task_registry.json)
+- Define task templates for each lifecycle phase
+- Assign task ownership (A2/A3/A6/A9)
+- Track completion status and dates
+- Integration with Google Forms response tracking
+
+### 3. ORBITING TASKS VISUALIZATION
+- Three-orbit HTML/CSS interface (completed/pending/future)
+- Client-specific timeline rendering  
+- Color-coded task status (green/yellow/blue)
+- Integration with existing lifecycle charts
+
+### 4. MCLOOD PRIORITY IMPLEMENTATION
+- First client implementation (PHASE_4_POLISH complete)
+- Venice hotel confirmation (Hilton Molino Stucky)
+- Flight PNR consolidation solution
+- Template for near-term travel clients
+
+### 5. SCANDINAVIAN GROUP COORDINATION
+- Furlow (PHASE_3_EXECUTE) - forms completion
+- Ely/Darrow (PHASE_2_CRAFT) - insurance follow-up
+- Nichols (PHASE_3_EXECUTE) - execution ready
+- Group excursion and dining coordination
+
+### 6. PANAMA GROUP FOUNDATION  
+- Kuklinski Group (PHASE_2_CRAFT) - booking details
+- Morton/Dodge (PHASE_2_CRAFT) - individual details
+- Long-term planning structure
+
+### 7. QUALITY ASSURANCE & DEPLOYMENT
+- Claude code review of all components
+- Testing protocol for phase determination
+- Feature flag implementation (LIFECYCLE_AUTOMATION_ENABLED)
+- Rollback queue and error handling
+
+### RESOURCE ALLOCATION REQUEST
+Please assign each component to Claude (coding/review) or OpenCode (execution) with:
+- Priority level (P0/P1/P2)
+- Suspense date
+- Review requirements
+- Integration dependencies
+
+All client data verified and current. Ready for immediate development.
+
+## DETAILED SUB-TASK BREAKDOWN — Lifecycle Development
+**Date:** 2026-04-07
+**From:** Commander Directive
+**To:** Hale (COS) for Resource Allocation
+**Priority:** P0
+
+### 1. CLIENT INGESTER MODULE (core/lifecycle/client_ingester.py)
+a. Dossier metadata parser - Extract client/ship/booking/dates from markdown frontmatter
+b. Phase determination algorithm - Implement PHASE_0→PHASE_6 logic with payment status checks  
+c. Anchor date validator - Verify booking, FPD, embark, disembark dates exist and are valid
+d. Output generator - Create client_phase_assignment.json with all 7 clients
+
+### 2. TASK REGISTRY SYSTEM (storage/task_registry.json)  
+a. Task template definitions - JSON schema for tasks in each lifecycle phase
+b. Ownership assignment - Map tasks to A2/A3/A6/A9 staff roles with SLA timings
+c. Completion tracking - Structure for tracking task status and completion dates
+d. Google Forms integration - Webhook or polling for form response status
+
+### 3. ORBITING TASKS VISUALIZATION
+a. CSS Grid framework - Three-orbit layout (completed/pending/future)
+b. Task card components - HTML templates for each task type with color coding  
+c. Timeline renderer - Client-specific orbit population from task registry
+d. Existing chart integration - Connect to client_lifecycle_chart.py output
+
+### 4. MCLOOD PRIORITY IMPLEMENTATION  
+a. Phase 4 template - Complete implementation for McLeod PHASE_4_POLISH
+b. Hotel confirmation - Integrate Hilton Molino Stucky booking details
+c. Flight consolidation - Solution for multiple PNR management
+d. Near-term travel protocol - Template for clients <90 days to travel
+
+### 5. SCANDINAVIAN GROUP COORDINATION
+a. Furlow (PHASE_3) - Guest forms completion automation
+b. Ely/Darrow (PHASE_2) - Insurance follow-up May reminder system  
+c. Nichols (PHASE_3) - Execution phase task automation
+d. Group coordination - Shared excursion/dining planning interface
+
+### 6. PANAMA GROUP FOUNDATION
+a. Kuklinski main - Booking detail collection and validation
+b. Roger/Nicholas - Sub-booking documentation  
+c. Morton/Dodge - Individual booking verification
+d. Long-term planning - 254-day timeline structure
+
+### 7. QUALITY ASSURANCE & DEPLOYMENT
+a. Claude review protocol - Code review requirements for each component
+b. Testing framework - Phase determination validation suite
+c. Feature flag system - LIFECYCLE_AUTOMATION_ENABLED implementation  
+d. Rollback mechanism - Error handling and recovery procedures
+
+### RESOURCE ALLOCATION MATRIX
+Please assign each sub-task (1a, 1b, 1c, 1d, 2a, etc.) with:
+- Resource: Claude (C) or OpenCode (O)
+- Priority: P0/P1/P2  
+- Suspense: YYYY-MM-DD
+- Review: Required (R) or Not Required (NR)
+
+All 28 sub-tasks defined and ready for assignment.
+
+## WORK BREAKDOWN WITH CLAUDE ASSIGNMENT CHECKBOXES
+**Date:** 2026-04-07
+**From:** Commander Directive
+**To:** Hale (COS) for Resource Allocation
+**Priority:** P0
+
+### CLIENT INGESTER MODULE (core/lifecycle/client_ingester.py)
+☐ a. Dossier metadata parser - Extract client/ship/booking/dates from markdown frontmatter
+☐ b. Phase determination algorithm - Implement PHASE_0→PHASE_6 logic with payment status checks  
+☐ c. Anchor date validator - Verify booking, FPD, embark, disembark dates exist and are valid
+☐ d. Output generator - Create client_phase_assignment.json with all 7 clients
+
+### TASK REGISTRY SYSTEM (storage/task_registry.json)  
+☐ a. Task template definitions - JSON schema for tasks in each lifecycle phase
+☐ b. Ownership assignment - Map tasks to A2/A3/A6/A9 staff roles with SLA timings
+☐ c. Completion tracking - Structure for tracking task status and completion dates
+☐ d. Google Forms integration - Webhook or polling for form response status
+
+### ORBITING TASKS VISUALIZATION
+☐ a. CSS Grid framework - Three-orbit layout (completed/pending/future)
+☐ b. Task card components - HTML templates for each task type with color coding  
+☐ c. Timeline renderer - Client-specific orbit population from task registry
+☐ d. Existing chart integration - Connect to client_lifecycle_chart.py output
+
+### MCLOOD PRIORITY IMPLEMENTATION  
+☐ a. Phase 4 template - Complete implementation for McLeod PHASE_4_POLISH
+☐ b. Hotel confirmation - Integrate Hilton Molino Stucky booking details
+☐ c. Flight consolidation - Solution for multiple PNR management
+☐ d. Near-term travel protocol - Template for clients <90 days to travel
+
+### SCANDINAVIAN GROUP COORDINATION
+☐ a. Furlow (PHASE_3) - Guest forms completion automation
+☐ b. Ely/Darrow (PHASE_2) - Insurance follow-up May reminder system  
+☐ c. Nichols (PHASE_3) - Execution phase task automation
+☐ d. Group coordination - Shared excursion/dining planning interface
+
+### PANAMA GROUP FOUNDATION
+☐ a. Kuklinski main - Booking detail collection and validation
+☐ b. Roger/Nicholas - Sub-booking documentation  
+☐ c. Morton/Dodge - Individual booking verification
+☐ d. Long-term planning - 254-day timeline structure
+
+### QUALITY ASSURANCE & DEPLOYMENT
+☐ a. Claude review protocol - Code review requirements for each component
+☐ b. Testing framework - Phase determination validation suite
+☐ c. Feature flag system - LIFECYCLE_AUTOMATION_ENABLED implementation  
+☐ d. Rollback mechanism - Error handling and recovery procedures
+
+### ASSIGNMENT INSTRUCTIONS
+- [ ] Check the box ☐ for any task that should be assigned to CLAUDE
+- [ ] Leave unchecked for OpenCode assignment
+- [ ] Add priority level next to each checked task (P0/P1/P2)
+- [ ] Specify suspense date for each assignment
+
+28 sub-tasks ready for Claude/OpenCode assignment.
+
+## SIMPLIFIED CLAUDE ASSIGNMENT TABLE
+**Date:** 2026-04-07
+**From:** Commander Directive
+**To:** Hale (COS)
+
+COPY AND EDIT THIS TABLE TO ASSIGN TASKS TO CLAUDE:
+
+| Task ID | Description | Assign to Claude | Priority | Suspense |
+|---------|-------------|------------------|----------|----------|
+| 1a      | Dossier metadata parser | [ ] | - | - |
+| 1b      | Phase determination algorithm | [ ] | - | - |
+| 1c      | Anchor date validator | [ ] | - | - |
+| 1d      | Output generator | [ ] | - | - |
+| 2a      | Task template definitions | [ ] | - | - |
+| 2b      | Ownership assignment | [ ] | - | - |
+| 2c      | Completion tracking | [ ] | - | - |
+| 2d      | Google Forms integration | [ ] | - | - |
+| 3a      | CSS Grid framework | [ ] | - | - |
+| 3b      | Task card components | [ ] | - | - |
+| 3c      | Timeline renderer | [ ] | - | - |
+| 3d      | Existing chart integration | [ ] | - | - |
+| 4a      | Phase 4 template | [ ] | - | - |
+| 4b      | Hotel confirmation | [ ] | - | - |
+| 4c      | Flight consolidation | [ ] | - | - |
+| 4d      | Near-term travel protocol | [ ] | - | - |
+| 5a      | Furlow forms automation | [ ] | - | - |
+| 5b      | Ely insurance reminder | [ ] | - | - |
+| 5c      | Nichols execution automation | [ ] | - | - |
+| 5d      | Group coordination interface | [ ] | - | - |
+| 6a      | Kuklinski booking validation | [ ] | - | - |
+| 6b      | Roger/Nicholas documentation | [ ] | - | - |
+| 6c      | Morton/Dodge verification | [ ] | - | - |
+| 6d      | Long-term planning structure | [ ] | - | - |
+| 7a      | Claude review protocol | [ ] | - | - |
+| 7b      | Testing framework | [ ] | - | - |
+| 7c      | Feature flag system | [ ] | - | - |
+| 7d      | Rollback mechanism | [ ] | - | - |
+
+INSTRUCTIONS:
+1. Copy this table to a text editor
+2. Replace [ ] with [X] for tasks to assign to Claude
+3. Add priority (P0/P1/P2) and suspense date
+4. Paste back into wing_comms.md when complete
+
+Ready for your assignments.
+
+## FORMAL RESOURCE ALLOCATION — Commander Directive
+**Date:** 2026-04-07
+**From:** Commander Allocation
+**To:** Hale (COS) for Execution
+**Status:** ALLOCATION COMPLETE
+
+### CLAUDE ASSIGNMENTS (8 TASKS)
+| Task ID | Description | Priority | Suspense |
+|---------|-------------|----------|----------|
+| 1b      | Phase determination algorithm | P0 | 2026-04-08 |
+| 1c      | Anchor date validator | P0 | 2026-04-08 |
+| 1d      | Output generator | P1 | 2026-04-09 |
+| 2d      | Google Forms integration | P1 | 2026-04-10 |
+| 3a      | CSS Grid framework | P1 | 2026-04-09 |
+| 6d      | Long-term planning structure | P2 | 2026-04-12 |
+| 7a      | Claude review protocol | P0 | 2026-04-08 |
+| 7b      | Testing framework | P0 | 2026-04-08 |
+
+### OPENCODE ASSIGNMENTS (20 TASKS)
+| Task IDs | Category | Priority | Suspense |
+|----------|----------|----------|----------|
+| 1a       | Dossier parsing | P1 | 2026-04-09 |
+| 2a,2b,2c | Task registry | P1 | 2026-04-10 |
+| 3b,3c,3d | Visualization | P1 | 2026-04-11 |
+| 4a,4b,4c,4d | McLeod implementation | P0 | 2026-04-08 |
+| 5a,5b,5c,5d | Scandinavian group | P1 | 2026-04-10 |
+| 6a,6b,6c | Panama group | P2 | 2026-04-12 |
+| 7c,7d   | Deployment | P1 | 2026-04-11 |
+
+### ALLOCATION STRATEGY
+**Claude Focus:** Algorithmic core, integration frameworks, quality assurance
+**OpenCode Focus:** Implementation execution, client-specific builds, operational automation
+
+### NEXT STEPS
+1. Hale to communicate assignments to respective resources
+2. Claude begins P0 tasks immediately (phase algorithm, validation, testing)
+3. OpenCode starts with McLeod implementation (P0) and dossier parsing
+4. Daily sync on progress at 17:00 MT
+
+### QUALITY ASSURANCE
+- All OpenCode work reviewed by Claude per 7a protocol
+- Testing framework (7b) validates all components
+- Feature flag (7c) controls gradual rollout
+
+Allocation formalized per Commander directive. Execute immediately.

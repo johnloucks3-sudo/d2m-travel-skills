@@ -248,16 +248,24 @@ def _find_mime_part(payload, mime_type: str) -> str | None:
 
 
 def _get_logo_data_uri() -> str:
-    """Load the D2M email logo as a base64 data URI. Cached after first call."""
+    """Load the D2M email logo as a base64 data URI. Cached after first call.
+
+    Looks for Agency_Logo_email.png in media/ (email-optimised, ~54KB).
+    Falls back to Agency_Logo.png (full cinematic, ~623KB) if email version absent.
+    """
     if not hasattr(_get_logo_data_uri, '_cached'):
-        logo_path = Path(__file__).parent / "Agency_Logo_email.png"
-        if logo_path.exists():
-            import base64 as b64
-            with open(logo_path, 'rb') as f:
-                _get_logo_data_uri._cached = f"data:image/png;base64,{b64.b64encode(f.read()).decode()}"
+        import base64 as b64
+        # Canonical location: ~/Thunderbird/media/
+        base = Path(__file__).resolve().parent.parent.parent  # ~/Thunderbird/
+        for candidate in ("media/Agency_Logo_email.png", "media/Agency_Logo.png"):
+            logo_path = base / candidate
+            if logo_path.exists():
+                with open(logo_path, 'rb') as f:
+                    _get_logo_data_uri._cached = f"data:image/png;base64,{b64.b64encode(f.read()).decode()}"
+                break
         else:
             _get_logo_data_uri._cached = ""
-            logger.warning("Agency_Logo_email.png not found — email banner will be omitted")
+            logger.warning("Agency_Logo_email.png not found in media/ — email banner will be omitted")
     return _get_logo_data_uri._cached
 
 
@@ -305,17 +313,18 @@ def _get_dani_sig_html() -> str:
 
 
 def _wrap_body_html(plain_text: str, persona_id: Optional[str] = None) -> str:
-    """Wrap plain text body in styled HTML — D2M luxury stationery for Gmail.
+    """Wrap plain text body in styled HTML — D2M AFA stationery for Gmail.
 
-    Design intent: navy banner with D2M logo, then a sheet of Crane's Ecru
-    cotton card stock with bright blue ink.  Inline-only for Gmail compatibility.
+    Design intent: Air Force Academy blue (#003087) hero with cinematic D2M logo,
+    clean white content area, silver (#A9B0B7) accents. All styles inline for Gmail.
 
     Layout:
-      - Full-width navy banner (#0d1b2e) with centered D2M logo (180px)
-      - Warm linen surround (#eee8db) — the desk beneath the stationery
-      - Cream paper card (#f7f3ea) — warm ivory cotton stock
-      - Gold top-rule accent, subtle box-shadow for depth
-      - Bright blue ink (#0000ff), Georgia serif, 1.6 line-height, 640px max-width
+      - Full-width hero: D2M cinematic logo image over AFA blue gradient overlay
+      - Silver divider stripe (3px gradient)
+      - White content card (640px), dark body text (#2c2c2c), Georgia serif
+      - AFA blue headings (#003087), silver accent borders
+      - Logo thumbnail beside sig block
+      - Navy gradient footer with D2M branding
     """
     # If caller already passed a full HTML document, inline CSS so Gmail renders it correctly.
     # Gmail strips <style> blocks — premailer converts them to inline styles.
@@ -338,50 +347,107 @@ def _wrap_body_html(plain_text: str, persona_id: Optional[str] = None) -> str:
         escaped = html_mod.escape(plain_text)
         html_body = escaped.replace('\n', '<br>\n')
 
-    # Logo banner — omitted gracefully if logo file is missing
     logo_uri = _get_logo_data_uri()
+
+    # ── HERO HEADER ──────────────────────────────────────────────────────────
     if logo_uri:
-        banner = (
-            f'<div style="background-color: #0d1b2e; padding: 28px 0; text-align: center; margin: 0;">'
+        hero = (
+            f'<div style="position:relative;width:100%;max-height:200px;overflow:hidden;'
+            f'background:linear-gradient(135deg,#003087 0%,#000d3a 100%);">'
             f'<img src="{logo_uri}" alt="Dreams2Memories Travel" '
-            f'style="height: 180px; width: auto; display: inline-block;" />'
+            f'style="width:100%;max-height:200px;object-fit:cover;object-position:center 35%;display:block;" />'
+            f'<div style="position:absolute;top:0;left:0;right:0;bottom:0;'
+            f'background:linear-gradient(to bottom,rgba(0,0,0,0.05) 0%,'
+            f'rgba(0,48,135,0.35) 55%,rgba(0,13,58,0.82) 100%);"></div>'
+            f'<div style="position:absolute;bottom:0;left:0;right:0;padding:14px 28px;text-align:center;">'
+            f'<div style="color:#ffffff;font-family:Georgia,serif;font-size:18px;font-weight:bold;'
+            f'letter-spacing:3px;text-transform:uppercase;text-shadow:0 2px 8px rgba(0,0,0,0.6);">'
+            f'Dreams2Memories Travel</div>'
+            f'<div style="color:#A9B0B7;font-family:Georgia,serif;font-size:10px;'
+            f'letter-spacing:2px;text-transform:uppercase;margin-top:3px;font-style:italic;">'
+            f'Curating the voyage of your lifetime</div>'
+            f'</div>'
             f'</div>'
         )
     else:
-        banner = ''
+        hero = (
+            f'<div style="background:linear-gradient(135deg,#003087 0%,#001a5c 100%);'
+            f'padding:36px 28px;text-align:center;">'
+            f'<div style="color:#ffffff;font-family:Georgia,serif;font-size:20px;font-weight:bold;'
+            f'letter-spacing:4px;text-transform:uppercase;">Dreams2Memories Travel</div>'
+            f'<div style="color:#A9B0B7;font-family:Georgia,serif;font-size:10px;'
+            f'letter-spacing:2px;text-transform:uppercase;margin-top:6px;font-style:italic;">'
+            f'Curating the voyage of your lifetime</div>'
+            f'</div>'
+        )
 
-    # Logo footer — centered below signature, smaller than banner logo
-    logo_footer = (
-        f'<div style="margin-top: 24px; text-align: center;">'
-        f'<img src="{logo_uri}" alt="Dreams2Memories Travel" '
-        f'style="height: 72px; width: auto; display: inline-block; opacity: 0.88;" />'
-        f'</div>'
+    # ── SILVER DIVIDER ────────────────────────────────────────────────────────
+    divider = (
+        '<div style="height:3px;background:linear-gradient('
+        '90deg,#003087,#A9B0B7,#ffffff,#A9B0B7,#003087);"></div>'
+    )
+
+    # ── LOGO SIG THUMBNAIL ────────────────────────────────────────────────────
+    logo_sig = (
+        f'<table cellpadding="0" cellspacing="0" border="0" style="margin-top:20px;'
+        f'padding-top:18px;border-top:2px solid #A9B0B7;width:100%;">'
+        f'<tr><td style="width:90px;vertical-align:top;padding-right:14px;">'
+        f'<img src="{logo_uri}" alt="D2M" style="width:80px;height:80px;'
+        f'object-fit:cover;object-position:center;border-radius:6px;'
+        f'border:2px solid #A9B0B7;display:block;" /></td>'
+        f'<td style="vertical-align:middle;">'
+        f'<div style="font-family:Georgia,serif;font-size:13px;font-weight:bold;'
+        f'color:#003087;letter-spacing:2px;text-transform:uppercase;">D2M</div>'
+        f'<div style="font-family:Georgia,serif;font-size:10px;color:#A9B0B7;'
+        f'letter-spacing:1.5px;text-transform:uppercase;margin-top:2px;">'
+        f'Dreams2Memories Travel, LLC</div>'
+        f'</td></tr></table>'
     ) if logo_uri else ''
 
+    # ── FOOTER ────────────────────────────────────────────────────────────────
+    footer = (
+        '<div style="height:3px;background:linear-gradient('
+        '90deg,#003087,#A9B0B7,#ffffff,#A9B0B7,#003087);"></div>'
+        '<table cellpadding="0" cellspacing="0" border="0" width="100%" '
+        'style="background:linear-gradient(135deg,#001a5c 0%,#003087 100%);">'
+        '<tr>'
+        '<td style="padding:14px 28px;vertical-align:middle;">'
+        '<span style="color:#ffffff;font-family:Georgia,serif;font-size:18px;'
+        'font-weight:bold;letter-spacing:4px;">D<span style="color:#A9B0B7;">2</span>M</span>'
+        '<br><span style="color:#A9B0B7;font-family:Georgia,serif;font-size:9px;'
+        'letter-spacing:2px;text-transform:uppercase;">Dreams2Memories Travel, LLC</span>'
+        '</td>'
+        '<td style="padding:14px 28px;vertical-align:middle;text-align:right;">'
+        '<a href="mailto:concierge@d2mluxury.quest" style="color:#ffffff;font-family:Georgia,serif;'
+        'font-size:11px;text-decoration:none;letter-spacing:1px;">concierge@d2mluxury.quest</a>'
+        '<br><span style="color:#A9B0B7;font-family:Georgia,serif;font-size:10px;">d2mluxury.quest</span>'
+        '</td>'
+        '</tr>'
+        '</table>'
+        '<div style="background:#000d3a;text-align:center;padding:6px;">'
+        '<span style="color:rgba(169,176,183,0.6);font-family:Georgia,serif;font-size:9px;">'
+        '&copy; 2026 Dreams2Memories Travel, LLC &nbsp;&middot;&nbsp; Colorado Springs, CO'
+        '</span></div>'
+        '<div style="height:3px;background:linear-gradient('
+        '90deg,#A9B0B7,#ffffff,#A9B0B7,#ffffff,#A9B0B7);"></div>'
+    )
+
     return (
-        f'<div style="background-color: #eee8db; padding: 0; margin: 0;">'
-        f'{banner}'
-        f'<div style="padding: 24px 16px 32px 16px; margin: 0;">'
-        f'<div style="'
-        f'max-width: 640px; '
-        f'margin: 0 auto; '
-        f'padding: 36px 40px; '
-        f'background-color: #f7f3ea; '
-        f'border-top: 2.5px solid rgba(201, 168, 76, 0.50); '
-        f'box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08), 0 0 1px rgba(0, 0, 0, 0.05); '
-        f'">'
-        f'<div style="'
-        f'color: {D2M_INK_COLOR}; '
-        f'font-family: Georgia, \'Times New Roman\', serif; '
-        f'font-size: 10.5pt; '
-        f'line-height: 1.6; '
-        f'">'
+        f'<div style="background-color:#1a1a2e;padding:0;margin:0;">'
+        f'<div style="max-width:640px;margin:0 auto;">'
+        f'{hero}'
+        f'{divider}'
+        f'<div style="background-color:#ffffff;border-left:2px solid #A9B0B7;'
+        f'border-right:2px solid #A9B0B7;padding:32px 40px;">'
+        f'<div style="color:#2c2c2c;font-family:Georgia,\'Times New Roman\',serif;'
+        f'font-size:10.5pt;line-height:1.75;">'
         f'{html_body}'
         f'</div>'
         f'{_get_dani_sig_html() if persona_id == "A3" else ""}'
         f'{COMMANDER_SIGNATURE_HTML}'
-        f'{logo_footer}'
+        f'{logo_sig}'
         f'</div>'
+        f'{footer}'
         f'</div>'
         f'</div>'
     )

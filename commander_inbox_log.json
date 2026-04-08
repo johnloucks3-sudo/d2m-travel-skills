@@ -268,5 +268,295 @@
     "persona": "COS",
     "draft_id": null,
     "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-07T14:01:11.004449+00:00",
+    "msg_id": "19d6832c161f528c",
+    "subject": "Your OpenRouter, Inc receipt [#1955-7971]",
+    "sender": "receipts@openrouter.ai",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-07T14:01:16.133730+00:00",
+    "msg_id": "19d67fe72074d6cb",
+    "subject": "[D2M RED] Preflight Check",
+    "sender": "",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-07T14:15:56.776445+00:00",
+    "msg_id": "19d6841eac4f164d",
+    "subject": "\u2708 Don\u2019t Wait: Book These Hyatt Awards Now, 10 Tools That Get You the Best Price on Flights & More From TPG \u2708",
+    "sender": "tpg@thepointsguy.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-07T14:15:59.102817+00:00",
+    "msg_id": "19d67d3c37f4d532",
+    "subject": "Doxxing Conviction, Park Fire Closure, and a Powwow",
+    "sender": "news@editor.thecoloradoflyover.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-07T14:16:06.617477+00:00",
+    "msg_id": "19d67d069d9d044d",
+    "subject": "Morning Insurrection: Trump on Rescue Mission in Iran: \u2018In the United States Military, We Leave No American Behind\u201d",
+    "sender": "info@legalinsurrection.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-07T14:16:09.398070+00:00",
+    "msg_id": "19d67b60b88eae3d",
+    "subject": "Today on WAR ROOM",
+    "sender": "warroomeditors@75039530.mailchimpapp.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-07T16:16:04.457102+00:00",
+    "msg_id": "19d68b69eba9a8bc",
+    "subject": "The ultimate Alaska cruise guide",
+    "sender": "hello@marketing.cruisebound.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-07T16:16:07.747455+00:00",
+    "msg_id": "19d68b26be3c863d",
+    "subject": "\ud83d\udd25 Business Class Deals! Save Big, Book Now!",
+    "sender": "sales@business-tickets.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-07T16:16:16.585936+00:00",
+    "msg_id": "19d68ab0a2cbe974",
+    "subject": "For a limited time, save your clients up to $7,000 on their next voyage",
+    "sender": "silversea@email.silversea.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-07T16:16:18.257964+00:00",
+    "msg_id": "19d68aa06d1ebfde",
+    "subject": "Senior BBC Iran reporter exposed as opposition activist",
+    "sender": "thegrayzone@substack.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-07T16:16:20.019525+00:00",
+    "msg_id": "19d68a0a5f270945",
+    "subject": "Your OpenRouter, Inc receipt [#1726-6855]",
+    "sender": "receipts@openrouter.ai",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-07T16:16:22.641502+00:00",
+    "msg_id": "19d68977e8bae0e4",
+    "subject": "Spring Into Savings",
+    "sender": "cs@fineairportparking.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-07T18:00:50.371555+00:00",
+    "msg_id": "19d68f9a88e8049c",
+    "subject": "Save up to $2,000* New Year in Hong Kong, Ultra-Luxury All-Inclusive Asia Voyage & Bali Retreat",
+    "sender": "news@info.cruisecritic.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-07T18:00:57.506734+00:00",
+    "msg_id": "19d68e33b6c9b4aa",
+    "subject": "Five American Documents All Students Should Read",
+    "sender": "ayaanhirsiali+education@substack.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-07T18:15:44.198466+00:00",
+    "msg_id": "19d691bf9d8e62ab",
+    "subject": "EXCLUSIVE CZ Multi Passengers Incentive \u2013 Earn EXTRA Commission!!",
+    "sender": "news@news.picassotravel.com",
+    "classification": "financial",
+    "persona": "A9",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-07T18:15:47.801744+00:00",
+    "msg_id": "19d68c4e610f5777",
+    "subject": "A smarter way to tax prep is here",
+    "sender": "mail@mail.adobe.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-07T18:15:49.490561+00:00",
+    "msg_id": "19d6883bcae155f9",
+    "subject": "Dominican Republic: Authentic Experiences Beyond the Beach",
+    "sender": "mail@tln.messages2.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-07T20:16:05.928488+00:00",
+    "msg_id": "19d6987eb8608c3f",
+    "subject": "Your Voyage, Upgraded",
+    "sender": "seabourn@m.seabourn.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-07T20:16:14.310165+00:00",
+    "msg_id": "19d695cac7a10f8f",
+    "subject": "Hyatt Inclusive Collection Confidant Collective",
+    "sender": "mail@tln.messages2.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-07T20:16:21.477009+00:00",
+    "msg_id": "19d69558349f5873",
+    "subject": "NEW: Up to 45% Savings + A Gift Card for You",
+    "sender": "regent@cruise.rssc.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-07T20:16:23.473390+00:00",
+    "msg_id": "19d69422bffffe04",
+    "subject": "RE: Request for mobility aids for Ronald Westbrook",
+    "sender": "jwoodcock@perx.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-07T20:16:29.983974+00:00",
+    "msg_id": "19d6927e3b7524d7",
+    "subject": "Spring Savings and Solsice Alaskan Sailings Are Here!",
+    "sender": "celebritycommitmentpresents@celebritysales.celebrity.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-07T22:00:22.187852+00:00",
+    "msg_id": "19d69cc4ab227c89",
+    "subject": "Spring updates from around the world with Graham Travel Marketing.",
+    "sender": "laureleegraham@15632907.mailchimpapp.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-07T22:00:24.139115+00:00",
+    "msg_id": "19d69c1502d0bf86",
+    "subject": "Honor Flight",
+    "sender": "herlik@aol.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-07T22:00:30.179351+00:00",
+    "msg_id": "19d69abad65a285a",
+    "subject": "Flynn\u2019s Rules of Diplomacy for American Officials",
+    "sender": "genflynn@substack.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-08T00:16:10.300689+00:00",
+    "msg_id": "19d6a5d987dee777",
+    "subject": "John, confirm your income",
+    "sender": "americanexpress@member.americanexpress.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-08T00:16:16.271947+00:00",
+    "msg_id": "19d6a5c07cc9283e",
+    "subject": "The 25th Amendment: Not Just for Keifer Sutherland Shows Anymore!",
+    "sender": "thekingdude+the-mike-church-show@substack.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-08T00:16:24.749981+00:00",
+    "msg_id": "19d6a26184dba519",
+    "subject": "Re: [EXTERNAL] Booking 298475-25 \u2014 Transfer Confirmations & Seat Assignments",
+    "sender": "tradereservations@silversea.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-08T02:01:05.010568+00:00",
+    "msg_id": "19d6a87f09605fb5",
+    "subject": "Your OpenRouter, Inc receipt [#1536-1986]",
+    "sender": "receipts@openrouter.ai",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
   }
 ]

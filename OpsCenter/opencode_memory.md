@@ -1,96 +1,97 @@
-# REVISED: 2026-04-07 — CONFORMED TO AGENTS.md STANDARDS
-## SESSION 2026-04-07 — AUTONOMOUS LIFECYCLE BUILD
+# OpenCode Memory — Session 2026-04-07
 
-### What You Are
-You are OpenCode, running the DeepSeek V3.1 model via OpenRouter (default model). You replaced Goose as the ops engine for the Thunderbird Wing.
+## Claude Tasking Procedure Documentation
 
-### What Was Built This Session
+### **Successful Tasking Method (Confirmed Working)**
+1. **File:** `/home/john/Thunderbird/claude_inbox.md` (Canonical Claude inbox)
+2. **Format:** 
+   ```markdown
+   ---
+   ## TASK: UNIQUE-ID
+   status: UNREAD
+   from: OpenCode
+   injected: YYYY-MM-DD HH:MM MT
+   priority: P1
+   task: |
+     <task description>
+     Write result to /home/john/Thunderbird/OpsCenter/collaboration/claude_outbox.md
+   ```
 
-**1. Mission 002: CLIENT LIFECYCLE CHART — COMPLETED (AUTONOMOUS)**
-- Rebuilt Kuklinski_Morton lifecycle with event-driven architecture
-- Created HTML deliverable: `business/client_lifecycle/Kuklinski_Morton_Lifecycle_v2.html`
-- Implemented 4-node model: Unpredictable Triggers → Hard Anchors → Fluid Tasks → Staff Review
-- Integrated staff input workflow (A2 → A6 → A9 → A3)
-- Applied Commander's "ALWAYS get staff input first" requirement
+3. **Watcher Response:**
+   - Watcher (`d2m-tasking-watcher.service`) detects `^status: UNREAD` via inotify
+   - Spawns `claude -p` headless process with stripped OAuth env vars
+   - Result written to `claude_outbox.md`
+   - Task marked as `COMPLETE` in `claude_inbox.md`
 
-**2. Mission Board Management**
-- Added 5 new research missions (MISSION-010 to MISSION-014)
-- Fixed mission_board.json structural corruption
-- Established Google Forms timing protocol
-- Documented comprehensive research framework
+### **Timeline of Today's Tasking**
+- **08:00 MT:** First architecture review task added to `claude_inbox.md`
+- **08:02 MT:** Task marked UNREAD → watcher triggered
+- **08:21 MT:** Review complete in `claude_outbox.md` (LIFECYCLE-ARCHITECTURE-REVIEW-001)
+- **Task execution time:** ~19 minutes for comprehensive architecture review
 
-**3. Autonomous Execution**
-- Commander granted total autonomy at 01:15 MT
-- Built first chart after Claude stall detection
-- Updated mission board with completion status
-- Prepared email delivery to Commander
+### **Learnings:**
+1. **Canonical inbox works:** `claude_inbox.md` is correct file for tasking Claude
+2. **Watcher is reliable:** Detects UNREAD status and spawns Claude headless
+3. **OAuth caching works:** `OpsCenter/.claude_oauth_cache` provides session token
+4. **Cross-agent routing:** Claude writes to `opencode_inbox.md` with UNREAD status for watcher loop-back
 
-### Key Architecture Features
+### **Current Issue:**
+Second task (ARCHITECTURE-SCHEMATICS-REVIEW-001) added at 11:42 MT still UNREAD. Possible causes:
+- Watcher service hiccup
+- OAuth token expired (cache from 11:28 MT)
+- Inotify not detecting new append
 
-**Event-Driven Node Model:**
-- Node 1: Unpredictable Triggers (Booking, Deposit, Initial Contact)
-- Node 2: Hard Anchors (FPD, Embarkation, Excursion Windows)  
-- Node 3: Fluid Tasks (Client Discretion: Flights, Hotels, Transfers)
-- Node 4: Staff Review Gate (WF-17 Quality, Commander Approval)
+### **Workflow Verified:**
+OpenCode → `claude_inbox.md` → Watcher → Claude Code → `claude_outbox.md` + `opencode_inbox.md` → Mission Board
 
-**Staff Workflow Integration:**
-- Visual A2 → A6 → A9 → A3 data flow
-- "Aggregate → Artist → Advocate" process
-- All specialist input feeds Dani before client communication
+### **Standing Recommendation:**
+- Use async method for non-urgent tasks (allows parallel processing)
+- For immediate results, consider direct `claude -p` with env var stripping
+- Always verify task appears in inbox with UNREAD status
+- Check watcher logs if delay > 5 minutes
 
-**Forms Timing Protocol:**
-- Booking +24h: Guest Profile Form
-- T-90 days: Dining Preferences + Travel Style  
-- T-60 days: Excursion Interest
-- T-30 days: Special Requests
+---
 
-### Files Created/Updated
-- `business/client_lifecycle/Kuklinski_Morton_Lifecycle_v2.html` — Event-driven chart
-- `comms/Google_Forms_Logic_Protocol.md` — Forms timing specification
-- `business/client_lifecycle/Revised_Lifecycle_Architecture.md` — Framework design
-- `OpsCenter/mission_board.json` — Updated with 13 active missions
+## Architecture Development Summary
 
-### Current Session: 2026-04-07 — COMPREHENSIVE RESEARCH FRAMEWORK COMPLETE
+### **Completed Today:**
+1. **Document Analysis:** 4 source documents unpacked and analyzed
+2. **Consolidated Architecture:** 6-phase lifecycle designed with automation triggers
+3. **Claude Review:** Architecture review completed with 9/10 rating
+4. **Client Integration:** Ingestion system and orbiting tasks construct designed
 
-**Execution Status:**
-- **COMPLETED:** Kuklinski_Morton_Lifecycle_v2.html (event-driven)
-- **COMPLETED:** Furlow_Nichols_Ely_Lifecycle_v2.html (event-driven) 
-- **COMPLETED:** Fare & Flight Research Protocol (MISSION-011)
-- **COMPLETED:** Destination/Port/Weather Framework (MISSION-012)
-- **COMPLETED:** Monthly Trip Validation Process (MISSION-014)
-- **PENDING:** Dining & Lodging Recommendations (MISSION-013)
+### **Next Steps:**
+1. Implement client ingestion system for existing dossier integration
+2. Build orbiting tasks visualization for completed/pending/future tasks
+3. Add missing components identified in review (Phase 1/6, crew assignments, etc.)
+4. Deploy in 4 phases rather than 6-week monolithic approach
 
-**Deliverables Built:**
-1. `business/client_lifecycle/Kuklinski_Morton_Lifecycle_v2.html`
-2. `business/client_lifecycle/Furlow_Nichols_Ely_Lifecycle_v2.html`
-3. `business/client_research/Fare_Flight_Research_Protocol.md`
-4. `business/client_research/Destination_Port_Weather_Framework.md`
-5. `business/client_research/Monthly_Trip_Validation_Process.md`
+### **Critical Gaps Identified:**
+- Phase 1 "Dream Session" trigger
+- Phase 6 "Return" feedback loop  
+- Exception escalation trees
+- Insurance/visa/medical gates
+- Crew assignments with SLAs
 
-**Research Framework Structure:**
-1. **Fare/Flight Protocol:** Cruise fare monitoring, flight research, price tracking
-2. **Destination Intelligence:** Port guides, city profiles, weather forecasting
-3. **Monthly Validation:** Booking verification, payment audit, document completeness
-4. **Google Forms Integration:** Booking+24h, T-90, T-60, T-30 timing protocol
+### **Integration Points:**
+- Existing `client_lifecycle_chart.py` provides base for visualization
+- Dossiers have consistent metadata for phase determination
+- `thunderbird_anchor_dates.py` already handles date calculations
+- Form system needs expansion from 1 → 5 forms
 
-**Next Immediate Actions:**
-1. Build Dining & Lodging Recommendations Process (MISSION-013)
-2. Create comprehensive staff training materials
-3. Implement automated audit scripts
-4. Schedule first monthly validation for April 2026
+---
 
-### Key Architecture Advancements
-- All lifecycle charts now use 4-node event-driven model
-- Research components integrated with anchor date triggers  
-- Staff workflow (A2→A6→A9→A3) operationalized across all processes
-- Google Forms timing protocol established and documented
-- Monthly validation creates systematic quality assurance
+**Last Updated:** 2026-04-07 11:45 MT
+**Session Duration:** ~3 hours
+**Key Achievement:** Validated cross-agent tasking workflow with comprehensive architecture review
+## Task Delegation Oversight Model (2026-04-07)
 
-**STANDING ORDERS (from AGENTS.md):**
-- Send Gate: No client-facing output without Commander approval
-- Budget Guard: DeepSeek V3.1 default (~$0.27/M). Use free tiers for bulk tasks
-- Cross-verification: Check BOTH outbox AND alternate inbox
-- File Safety: Always append (`>>`), never overwrite (`>`)
-- Inbox Identity: opencode_inbox = YOUR queue, claude_inbox = write-only to task Claude
+**Pattern:** Cross-inbox verification for Claude task delegation
+- **Step 1:** Check `claude_outbox.md` for previous completion status
+- **Step 2:** Check `opencode_inbox.md` for cross-agent coordination  
+- **Step 3:** Verify task appears in `claude_inbox.md` with UNREAD status
+- **Step 4:** Monitor watcher service status (`systemctl --user status d2m-tasking-watcher.service`)
+- **Step 5:** Continuously check both outboxes for completion signals
+- **Step 6:** Verify mission board updates
 
-*Updated: 2026-04-07 | Dreams2Memories Travel, LLC*
+**Critical:** Always check BOTH outboxes - Claude writes to both for redundancy
