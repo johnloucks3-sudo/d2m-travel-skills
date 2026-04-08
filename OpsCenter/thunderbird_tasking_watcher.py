@@ -58,6 +58,11 @@ CHAT_ID   = "7554895206"
 DEBOUNCE_SECS = 2.0
 debounce_timers = {}  # path → (timestamp, threading.Timer)
 
+# ── Task Timeout Tracking ──────────────────────────────────────────────────
+# Track UNREAD tasks to detect if they get stuck (spawned process doesn't mark COMPLETE)
+TASK_TIMEOUT_SECS = 300  # 5 minutes
+stuck_tasks = {}  # filepath → (first_seen_ts, last_unread_count)
+
 # ── Setup logging ────────────────────────────────────────────────────────
 os.makedirs(os.path.dirname(LOG_FILE), exist_ok=True)
 logging.basicConfig(
@@ -109,6 +114,18 @@ def spawn_opencode_headless():
 
     env = os.environ.copy()
     env["PATH"] = "/home/john/.opencode/bin:" + env.get("PATH", "")
+    
+    # Load CLAUDE_CODE_OAUTH_TOKEN from cache so OpenCode can dispatch to Claude headless
+    _oauth_cache = "/home/john/Thunderbird/OpsCenter/.claude_oauth_cache"
+    try:
+        with open(_oauth_cache) as _f:
+            for _line in _f:
+                if _line.startswith("CLAUDE_CODE_OAUTH_TOKEN="):
+                    env["CLAUDE_CODE_OAUTH_TOKEN"] = _line.strip().split("=", 1)[1]
+                    logging.info("Loaded CLAUDE_CODE_OAUTH_TOKEN from cache file for OpenCode.")
+                    break
+    except Exception as _e:
+        logging.warning(f"Could not load OAuth token cache for OpenCode: {_e}")
 
     cmd = [
         "opencode", "run",
@@ -242,6 +259,38 @@ def handle_opencode_inbox():
     else:
         logging.info("OpenCode Inbox modified but no unread work detected.")
 
+def validate_status_completion(filepath: str, check_interval: int = 300) -> bool:
+    """
+    Validate that spawned processes actually marked tasks COMPLETE.
+    Returns True if all tasks marked complete or no work present.
+    Returns False if tasks remain UNREAD after timeout.
+
+    Logs status desync alerts for investigation.
+
+    Args:
+      filepath: inbox file to check
+      check_interval: timeout in seconds before alerting (default 300s = 5min)
+    """
+    if not check_inbox_has_work(filepath):
+        return True  # No work = success
+
+    # Count UNREAD tasks
+    try:
+        with open(filepath, 'r') as f:
+            content = f.read()
+            unread_count = content.count("status: UNREAD")
+            if unread_count > 0:
+                logging.warning(
+                    f"STATUS SYNC ALERT: {unread_count} tasks still UNREAD in {filepath} "
+                    f"after spawn (expected COMPLETE within {check_interval}s)"
+                )
+                return False
+    except Exception as e:
+        logging.error(f"Error validating status in {filepath}: {e}")
+        return False
+
+    return True
+
 # Legacy alias
 handle_goose_spawn = handle_opencode_inbox
 
@@ -329,6 +378,59 @@ def save_state(state: dict):
     except Exception as e:
         logging.error(f"Failed to save state: {e}")
 
+def check_stuck_tasks():
+    """
+    Periodic check for stuck tasks (UNREAD for too long).
+    Alerts Commander if a task hasn't been marked COMPLETE within TASK_TIMEOUT_SECS.
+    """
+    global stuck_tasks
+    now = time.time()
+
+    for filepath in [CLAUDE_INBOX, OPENCODE_INBOX]:
+        try:
+            with open(filepath, 'r') as f:
+                content = f.read()
+                unread_count = content.count("status: UNREAD")
+
+            if unread_count > 0:
+                if filepath not in stuck_tasks:
+                    # First time we see this task as UNREAD
+                    stuck_tasks[filepath] = (now, unread_count)
+                    logging.warning(
+                        f"Task work detected in {filepath} ({unread_count} UNREAD). "
+                        f"Monitoring completion (timeout {TASK_TIMEOUT_SECS}s)."
+                    )
+                else:
+                    first_seen_ts, last_count = stuck_tasks[filepath]
+                    elapsed = now - first_seen_ts
+
+                    if elapsed > TASK_TIMEOUT_SECS:
+                        # Task has been stuck
+                        logging.error(
+                            f"TASK TIMEOUT ALERT: {filepath} has {unread_count} UNREAD tasks "
+                            f"stuck for {int(elapsed)}s (timeout: {TASK_TIMEOUT_SECS}s)"
+                        )
+                        ping_telegram(
+                            f"⚠️ **TASK TIMEOUT DETECTED**\n"
+                            f"File: `{os.path.basename(filepath)}`\n"
+                            f"Stuck tasks: {unread_count}\n"
+                            f"Duration: {int(elapsed)}s\n"
+                            f"Action: Check watcher logs and manually verify task status."
+                        )
+                        # Reset timer after alerting (don't spam)
+                        stuck_tasks[filepath] = (now, unread_count)
+                    else:
+                        # Update count
+                        stuck_tasks[filepath] = (first_seen_ts, unread_count)
+            else:
+                # No more UNREAD tasks — clear from tracking
+                if filepath in stuck_tasks:
+                    logging.info(f"Tasks in {filepath} cleared. Resuming normal monitoring.")
+                    del stuck_tasks[filepath]
+
+        except Exception as e:
+            logging.error(f"Error checking stuck tasks in {filepath}: {e}")
+
 def initialize_state(observer: Observer, state: dict):
     """Set initial mtimes without triggering events, save state."""
     init_state = {}
@@ -387,11 +489,19 @@ def main():
     # Telegram startup ping
     ping_telegram("**THUNDERBIRD WATCHER V6 ONLINE**\nSub-second inotify detection active. Headless OpenCode execution enabled.")
 
-    # Save state periodically (every 60s), handle graceful shutdown
+    # Save state periodically (every 60s), check stuck tasks (every 30s), handle graceful shutdown
     try:
+        tick = 0
         while True:
-            time.sleep(60)
-            save_state(state)
+            time.sleep(30)
+            tick += 1
+
+            # Check stuck tasks every tick (every 30s)
+            check_stuck_tasks()
+
+            # Save state every 2 ticks (every 60s)
+            if tick % 2 == 0:
+                save_state(state)
     except KeyboardInterrupt:
         logging.info("Watcher shutting down (Ctrl+C).")
     except Exception as e:
