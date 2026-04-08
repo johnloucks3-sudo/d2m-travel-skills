@@ -154,7 +154,7 @@ body {
     <div class="si"><div class="sd" style="background:#e63946"></div>Insurance NOT Booked</div>
     <div class="si"><div class="sd" style="background:#e09858"></div>Guest Forms Partial (Josh missing)</div>
     <div class="si"><div class="sd" style="background:#e63946"></div>Validation Email Overdue</div>
-    <div class="si"><div class="sd" style="background:#d4502a"></div>Excursion Window Open — Act Now</div>
+    <div class="si"><div class="sd" style="background:#d4502a"></div>Excursion Window Opens Aug 2</div>
     <div class="si"><div class="sd" style="background:#5a5a8a"></div>Flights / Hotels / Transfers: None</div>
     <div class="today-badge">TODAY: Apr 7, 2026</div>
   </div>
@@ -236,24 +236,24 @@ const PHASES = [
 // n = note shown on hover, dd = draft due date
 const TASKS = [
   // ── Phase 0 ──
-  { p:0, name:'Booking Confirmed',         ow:'Commander',    ty:'point',   dt:'2026-03-10', st:'done'           },
-  { p:0, name:'Dossier Created',           ow:'COS',          ty:'point',   dt:'2026-03-10', st:'done'           },
+  { p:0, name:'Booking Confirmed',         ow:'Commander',    ty:'point',   dt:'2026-02-07', st:'done'           },
+  { p:0, name:'Dossier Created',           ow:'COS',          ty:'point',   dt:'2026-02-10', st:'done'           },
   { p:0, name:'FPD Paid — $21,244',        ow:'Kyle Kuklinski',ty:'point',  dt:'2026-03-27', st:'done',          n:'Paid 4 days early — $21,244 all 3 bookings'},
   { p:0, name:'Insurance Email ⚠',        ow:'A9→A3',        ty:'point',   dt:'2026-03-17', st:'overdue', dd:'2026-03-10', n:'CRITICAL: Pre-existing waiver window closes D+21. NOT SENT.'},
-  { p:0, name:'Guest Profile Forms',       ow:'A3',           ty:'point',   dt:'2026-03-17', st:'partial',        n:'5/6 complete — Josh Morton form still missing'},
-  { p:0, name:'Welcome/Validation Email',  ow:'A2→A6→A9→A3', ty:'point',   dt:'2026-03-24', st:'overdue', dd:'2026-03-10', n:'Not sent as of Apr 7. 3 couples need full cruise validation.'},
+  { p:0, name:'Guest Profile Forms',       ow:'A3',           ty:'point',   dt:'2026-02-21', st:'partial',        n:'5/6 complete — Josh Morton form still missing'},
+  { p:0, name:'Welcome/Validation Email',  ow:'极→A6→A9→A3', ty:'point',   dt:'2026-02-21', st:'overdue', dd:'2026-02-14', n:'Not sent as of Apr 7. 3 couples need full cruise validation.'},
 
   // ── Phase 1 ──
-  { p:1, name:'Air Fare Watch (6 guests)', ow:'A2',           ty:'bar',   s:'2026-03-27', e:'2026-07-17', st:'active',      n:'International fares — RIC→PTY and RSW/MHT→FLL return routes'},
-  { p:1, name:'Hotel Fare Watch (3+3)',    ow:'A2',           ty:'bar',   s:'2026-03-27', e:'2026-09-17', st:'active',      n:'3 nights Panama City (pre) + 3 nights FLL (post) per couple'},
+  { p:1, name:'Air Fare Watch (6 guests)', ow:'A2',           ty:'bar',   s:'2026-02-14', e:'2026-07-17', st:'active',      n:'International fares — RIC→PTY and RSW/MHT→FLL return routes'},
+  { p:1, name:'Hotel Fare Watch (3+3)',    ow:'A2',           ty:'bar',   s:'2026-02-14', e:'2026-09-17', st:'active',      n:'3 nights Panama City (pre) + 3 nights FLL (post) per couple'},
   { p:1, name:'A2 Destination Research',  ow:'A2',           ty:'bar',   s:'2026-04-07', e:'2026-05-01', st:'in_progress', n:'Panama Canal transit intel, excursion landscape, shore operators'},
   { p:1, name:'Voyage Preview Email',     ow:'A6→A3',        ty:'point', dt:'2026-05-07', st:'upcoming_near', dd:'2026-04-23', n:'Light touch — destination preview, build anticipation'},
   { p:1, name:'Air: Fare Watch Delivery', ow:'A2→A3',        ty:'point', dt:'2026-06-17', st:'upcoming_mid',  dd:'2026-06-03', n:'Where fares stand — RIC and RSW markets. Rec with rationale.'},
   { p:1, name:'Hotel: 3+3 Search Delivery',ow:'A2→A6→A3',   ty:'point', dt:'2026-06-17', st:'upcoming_mid',  dd:'2026-06-03', n:'3 curated Panama City + 3 FLL options. Name/link/images/price/comments.'},
 
   // ── Phase 2 ──
-  { p:2, name:'⚡ Excursion Research',    ow:'A2',           ty:'bar',   s:'2026-04-07', e:'2026-04-21', st:'urgent',       n:'WINDOW OPEN FROM BOOKING. Viking opens day of booking. Already 4 weeks late.'},
-  { p:2, name:'⚡ Excursion Rec Email',   ow:'A2→A6→A3',    ty:'point', dt:'2026-04-21', st:'urgent', dd:'2026-04-07',    n:'DRAFT DUE TODAY Apr 7. Panama Canal transit + port excursions for 3 couples.'},
+   { p:2, name:'⚡ Excursion Research',    ow:'A2',           ty:'bar',   s:'2026-07-15', e:'2026-08-01', st:'upcoming_later', n:'Viking excursions open Aug 2, 2026. Research begins 2 weeks prior.'},
+  { p:2, name:'⚡ Excursion Rec Email',   ow:'A2→A6→A3',    ty:'point', dt:'2026-08-01', st:'upcoming_later', dd:'2026-07-25',    n:'DRAFT DUE TODAY Apr 7. Panama Canal transit + port excursions for 3 couples.'},
   { p:2, name:'Air Booking Decision',     ow:'A2→A3',        ty:'point', dt:'2026-07-17', st:'upcoming_later', dd:'2026-07-03', n:'International fares usually lock 5-6 months out. Dec travel competes with holidays.'},
   { p:2, name:'Pre/Post Hotel Booking',   ow:'A2→A6→A3',    ty:'point', dt:'2026-08-17', st:'upcoming_later', dd:'2026-08-03', n:'Panama City 3+3 and FLL 3+3. Luxury props fill in holiday season.'},
   { p:2, name:'Monthly Validations ×8',  ow:'A3',           ty:'series', dates:['2026-04-15','2026-05-15','2026-06-15','2026-07-15','2026-08-15','2026-09-15','2026-10-15','2026-11-15'] },
