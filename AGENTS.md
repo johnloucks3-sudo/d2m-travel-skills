@@ -4,10 +4,12 @@
 
 ## Session Init — Read First
 
-On every session start, read these two files before doing anything else:
+On every session start, read these files before doing anything else:
 
 1. **`OpsCenter/opencode_memory.md`** — persistent session memory: what was built, what changed, operating agreement with Claude, key file locations, model stack. Append a summary of this session's work at the end when you close out.
-2. **`Personas/ROSTER.md`** — wing staff index: who does what, who to route to, who owns client comms.
+2. **`AGENTS_NEW_READ_FIRST.md`** — **MASTER REFERENCE MANUAL** — D2M company overview, wing staff, model stack, protocols, exhaustive "For X see Y" index. Read this if you are new or re-orienting.
+3. **`Personas/ROSTER.md`** — wing staff index: who does what, who to route to, who owns client comms.
+4. **`OpsCenter/opencode_knowledge/INDEX.md`** — curated vault of all key reference docs, grouped by category.
 
 If Commander asks "what do you remember?" or "what happened last session?" — read `opencode_memory.md` and summarize.
 
@@ -54,7 +56,7 @@ export OAUTHLIB_INSECURE_TRANSPORT=1
 
 # OpenCode (multi-model agent — replaces Goose)
 export PATH=/home/john/.opencode/bin:$PATH  # already in .bashrc/.profile
-opencode                              # TUI, default model: deepseek-chat-v3.1 (~$0.27/M)
+opencode                              # TUI, default model: deepseek-chat-v3.1 ($0)
 opencode run "task"                   # headless one-shot (uses default model)
 opencode run -m openrouter/deepseek/deepseek-chat-v3.1 "task"  # explicit model
 opencode web                          # browser UI (accessible from Chromebook/phone)
@@ -146,20 +148,20 @@ All automated via systemd timers (MDT):
 | Tool | Model | Cost | Use |
 |------|-------|------|-----|
 | **Claude Code** (MAX) | Opus 4.6 / Sonnet 4.6 | $0 | Primary — reasoning, code, client work |
-| **OpenCode** v1.3.17 | Qwen 3.6 Plus free (`opencode/qwen3.6-plus-free`) | $0 | Ops, bulk tasks, scanning, interactive dev |
+| **OpenCode** v1.3.17 | DeepSeek V3.1 (`openrouter/deepseek/deepseek-chat-v3.1`) | ~$0.27/M | Ops, bulk tasks, scanning, interactive dev |
 | **Claude Agent SDK** | Sonnet 4.6 | $0 (MAX) | Headless: `claude -p "..."` |
 | **Nexus daemon** | OpenCode (DeepSeek V3.1) + claude -p judgment | ~$0/task | Keyword-routed task queue |
 
 **Goose is decommissioned.** References to `goose-d2m`, `goose run`, or `~/.config/goose/` anywhere in docs are stale. Replace `goose run "X"` with `opencode run "X"`.
 
 **OpenCode model IDs** (confirmed working — tested 2026-04-07):
-- `opencode/qwen3.6-plus-free` — **default** — Qwen 3.6 Plus, free, confirmed working
+- `openrouter/deepseek/deepseek-chat-v3.1` — **default** — DeepSeek V3.1, ~$0.27/M tokens, confirmed working
 - `opencode/nemotron-3-super-free` — Nemotron free fallback
 - `opencode/minimax-m2.5-free` — Minimax free fallback
-- `deepseek/deepseek-chat` — DeepSeek direct (requires DeepSeek API balance — currently $0)
+- `deepseek/deepseek-chat-v3.1` — DeepSeek direct (requires DeepSeek API balance — currently $0)
 - `togetherai/deepseek-ai/DeepSeek-V3-1` — DeepSeek V3.1 via TogetherAI (requires TogetherAI balance)
 
-**Note:** `openrouter/deepseek/deepseek-chat-v3.1` and all `openrouter/*` IDs are INVALID in OpenCode v1.3.17 — throws `ProviderModelNotFoundError`. Do not use.
+**Note:** `deepseek/deepseek-chat:free` and `opencode/qwen3.6-plus-free` are **decommissioned** — they throw `ProviderModelNotFoundError`. Use `openrouter/deepseek/deepseek-chat-v3.1` as the primary model.
 
 **To invoke OpenCode headless:**
 ```bash
@@ -189,7 +191,7 @@ opencode run -m openrouter/deepseek/deepseek-chat-v3.1 "your task here"
 - Watcher (`thunderbird_tasking_watcher.py`) pings Commander via Telegram on any change to either inbox
 
 ### Default OpenCode model
-`opencode/qwen3.6-plus-free` — free, confirmed working 2026-04-07
+`openrouter/deepseek/deepseek-chat-v3.1` — ~$0.27/M tokens, confirmed working 2026-04-08
 
 ---
 
@@ -343,7 +345,7 @@ grep -c "^status: UNREAD" /home/john/Thunderbird/claude_inbox.md
 - **Lyons FPD May 11 (T-34d delay)** — unpaid, requires follow-up
 - **Westbrook prospect** — awaiting Commander send approval
 - **Telegram receiving** — "Connection reset by peer" errors from Telegram API
-- **OpenCode model:** `openrouter/deepseek/deepseek-chat-v3.1` is default (~$0.27/M — NOT free tier; free = `deepseek-chat:free`)
+- **OpenCode model:** `openrouter/deepseek/deepseek-chat-v3.1` is default (~$0.27/M tokens)
 
 ### 📁 KEY OUTPUTS FROM THIS SESSION
 - `business/client_materials/Kuklinski_Morton_Client_Timeline.html` — Client-facing Gantt
@@ -352,7 +354,7 @@ grep -c "^status: UNREAD" /home/john/Thunderbird/claude_inbox.md
 
 ## STANDING ORDERS REINFORCED (MEMORIZE)
 1. **Send Gate (SO-2026-03-21):** No client-facing output without Commander approval
-2. **Budget Guard (SO-2026-04-06):** Minimize spend — DeepSeek V3.1 default (~$0.27/M). Use free tiers (`deepseek-chat:free`, `mistral-small:free`) for low-stakes bulk tasks. Claude MAX is $0 via OAuth.
+2. **Budget Guard (SO-2026-04-06):** Minimize spend — DeepSeek V3.1 default (~$0.27/M). Use free tiers (`mistral-small:free`) for low-stakes bulk tasks. Claude MAX is $0 via OAuth.
 3. **Cross-verification (SO-2026-04-07):** Check BOTH outbox AND alternate inbox
 4. **File Safety (SO-2026-04-07):** Always append (`>>`), never overwrite (`>`)
 5. **Inbox Identity (SO-2026-04-07):** opencode_inbox = YOUR queue. claude_inbox = write-only (tasking Claude). Never treat claude_inbox as your own task queue.
@@ -387,6 +389,53 @@ env -u ANTHROPIC_API_KEY -u ANTHROPIC_BASE_URL claude -p "task" --dangerously-sk
 - `NEXUS:` — also detected but semantically belongs in opencode_inbox
 - `priority:` — also detected if present in the block
 
+## WATCHER OVERSIGHT PROCEDURES (V6 inotify)
+
+**Service:** `d2m-tasking-watcher.service` (user-level systemd)
+
+**Functionality:**
+- Monitors `claude_inbox.md` and `opencode_inbox.md` for changes (sub-second detection via inotify)
+- Auto-spawns `claude -p` or `opencode run` when new UNREAD tasks detected
+- Pings Commander via Telegram on task arrival and completion timeouts
+
+**Health Checks:**
+```bash
+# Status
+systemctl --user status d2m-tasking-watcher.service
+
+# View logs (last 50 lines)
+tail -50 /home/john/Thunderbird/logs/inbox_watcher.log
+
+# Check for stuck tasks (watcher will auto-alert after 5 min of UNREAD)
+grep "TIMEOUT\|ALERT" /home/john/Thunderbird/logs/inbox_watcher.log
+
+# Lock file (indicates OpenCode is currently running)
+ls -la /home/john/Thunderbird/OpsCenter/.goose_headless.lock
+```
+
+**Common Issues & Fixes:**
+
+| Issue | Symptom | Fix |
+|-------|---------|-----|
+| **Tasks stay UNREAD** | Spawned process didn't mark COMPLETE | Check `/logs/claude_headless.log`. If rc≠0, run manually: `claude -p "Read claude_inbox.md..."` |
+| **Task timeout alerts** | Watcher sends ⚠️ every 5 min | Manual status check: `grep "status: UNREAD" /home/john/Thunderbird/claude_inbox.md`. Mark COMPLETE manually if stuck. |
+| **Duplicate spawns** | Multiple Claude/OpenCode running | Check lock file exists: `/OpsCenter/.goose_headless.lock`. If stale, remove: `rm /OpsCenter/.goose_headless.lock && systemctl --user restart d2m-tasking-watcher.service` |
+| **Watcher not detecting changes** | Inbox modified but no Telegram ping | Check file permissions: `stat /home/john/Thunderbird/claude_inbox.md`. If watch directory is wrong, verify inotify: `ls -la /proc/sys/fs/inotify/` |
+| **Telegram pings not arriving** | Watcher logs show "Telegram Ping Failed" | Check network: `curl -s https://api.telegram.org/bot<token>/getMe`. If token expired, update BOT_TOKEN in `thunderbird_tasking_watcher.py`. |
+
+**Status Validation Logic (Added 2026-04-07):**
+- Watcher now checks for stuck tasks every 30s
+- If task remains UNREAD for >5 min after spawn, alerts Commander
+- Tracks first-seen timestamp to prevent alert spam
+- Clears tracking when tasks finally marked COMPLETE
+
+**Incident Protocol:**
+1. Watcher detects UNREAD → spawns Claude/OpenCode
+2. Process should mark task COMPLETE within 2 minutes
+3. If not: watcher alerts after 5 min with ⚠️ TASK TIMEOUT message
+4. Commander manually checks logs and marks task COMPLETE if needed
+5. Document root cause in `opencode_memory.md`
+
 ## PRE-SESSION VERIFICATION CHECKLIST
 - [ ] Read `claude_inbox.md` for new UNREAD tasks
 - [ ] Check `claude_outbox.md` for previous session completion  
@@ -394,5 +443,6 @@ env -u ANTHROPIC_API_KEY -u ANTHROPIC_BASE_URL claude -p "task" --dangerously-sk
 - [ ] Review `mission_board.json` for active missions
 - [ ] Check Telegram gateway status (`systemctl status thunderbird-telegram-gw.service`)
 - [ ] Verify OpenCode model availability (`opencode run -m openrouter/deepseek/deepseek-chat-v3.1 "test"`)
+- [ ] Check watcher logs for timeout alerts: `grep TIMEOUT /logs/inbox_watcher.log | tail -5`
 
 **NOTE:** If Commander asks "what do you remember?" — read this section PLUS `OpsCenter/opencode_memory.md`

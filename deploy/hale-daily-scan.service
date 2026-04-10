@@ -1,0 +1,13 @@
+[Unit]
+Description=Hale Daily Proactive 5-Point Scan
+After=network.target
+
+[Service]
+Type=oneshot
+User=john
+WorkingDirectory=/home/john/Thunderbird
+ExecStart=/home/john/Thunderbird/scripts/hale_proactive_scan.py
+Environment=PYTHONPATH=/home/john/Thunderbird
+
+[Install]
+WantedBy=multi-user.target

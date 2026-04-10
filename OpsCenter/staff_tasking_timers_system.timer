@@ -1,0 +1,20 @@
+[Unit]
+Description=D2M Staff Tasking Timers System
+Documentation=file:///home/john/Thunderbird/docs/STAFF_TASKING_TIMERS_SYSTEM.md
+
+[Timer]
+# Run daily at 06:00 AM MT to queue all tasks for that calendar day
+OnCalendar=daily
+OnCalendar=*-*-* 06:00:00
+
+# Randomize start by 5 minutes to avoid thundering herd
+RandomizedDelaySec=300
+
+# Accuracy—must complete within 1 hour
+AccuracySec=60s
+
+# Persist across reboots
+Persistent=true
+
+[Install]
+WantedBy=timers.target

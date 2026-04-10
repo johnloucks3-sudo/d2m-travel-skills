@@ -5,9 +5,9 @@
 
 ## Executive Summary
 
-NEXUS v1.0 demonstrates solid architectural foundations with proper file-locking and six hard-stop enforcement. However, **two spec violations in the keyword router** prevent autonomous operation: missing critical HIGH keywords (`assess`, `why`, `propose`) and incorrect zero-keyword fallback (Qwen instead of Claude).
+NEXUS v1.0 demonstrates solid architectural foundations with proper file-locking and six hard-stop enforcement. However, **two spec violations in the keyword router** prevent autonomous operation: missing critical HIGH keywords (`assess`, `why`, `propose`) and incorrect zero-keyword fallback (DeepSeek instead of Claude).
 
-Additionally, **six integration risks** threaten operational reliability: untested Claude dispatch path, unknown Qwen rate limits, empty Telegram credentials, stale lock file potential, race conditions between email poller and daemon, and inbox scanner fragility.
+Additionally, **six integration risks** threaten operational reliability: untested Claude dispatch path, unknown DeepSeek rate limits, empty Telegram credentials, stale lock file potential, race conditions between email poller and daemon, and inbox scanner fragility.
 
 **This plan prioritizes fixes by impact, grouping related items for efficient implementation. Estimated total effort: 12-16 hours across 3 sessions.**
 
@@ -21,22 +21,22 @@ All fixes maintain $0 cost constraint and preserve existing hard-stop enforcemen
 
 **The Finding:**
 - **Location:** `keyword_router.py:105-110`
-- **Current behavior:** When a task contains zero Claude keywords, the router defaults to Qwen Free
+- **Current behavior:** When a task contains zero Claude keywords, the router defaults to DeepSeek V3.1
 - **Spec requirement:** Tasks with no recognized keywords should route to Claude (Sonnet) because unknown → requires Hale's judgment
 - **Impact:** Vague but potentially critical requests ("figure this out", "I need help", "what should I do?") get routed to the cheaper, lower-judgment model
 - **Test evidence:** Test #10 ("figure this out for me") failed — expected CLAUDE, got QWEN
 
 **Why it matters:**
 - Violates explicit spec rule in NEXUS_SPEC.md Section 3: "UNKNOWN: Zero recognized keywords → Claude (Sonnet)"
-- Economic: False economy — better to over-route to Claude (no cost) than under-route to Qwen and get wrong answer
+- Economic: False economy — better to over-route to Claude (no cost) than under-route to DeepSeek and get wrong answer
 - Operational: Commander's vague follow-up tasks (common in async mode) get lowest-judgment routing
 
 **Proposed Fix (Plain English):**
 1. In `keyword_router.py`, change the fallback logic in the `classify_task()` function (around line 105)
 2. When `CLAUDE_KEYWORD_PATTERN.search(combined)` returns no match, add a secondary heuristic:
    - If task is ≥15 characters AND contains no explicit action verbs from a small list (list, check, update, extract, verify, file, add, search, compare), route to Claude
-   - Otherwise, default to Qwen
-3. This preserves direct "list X" and "check Y" commands to Qwen, but catches ambiguous requests
+   - Otherwise, default to DeepSeek
+3. This preserves direct "list X" and "check Y" commands to DeepSeek, but catches ambiguous requests
 4. Document the heuristic in comments (e.g., "Unknown + vague = Claude judgment")
 
 **Estimated Effort:** Quick (15 minutes)
@@ -70,7 +70,7 @@ All fixes maintain $0 cost constraint and preserve existing hard-stop enforcemen
 
 **Why it matters:**
 - Spec violation: These are **explicitly listed** as HIGH keywords in the routing spec
-- Operational incidents: Any failure analysis ("why did X happen?") gets routed to Qwen instead of Claude for judgment
+- Operational incidents: Any failure analysis ("why did X happen?") gets routed to DeepSeek instead of Claude for judgment
 - Fragility: "propose" only worked in test #8 because "strategy" was also present; next "propose X" without "strategy" will fail
 
 **Proposed Fix (Plain English):**
@@ -103,7 +103,7 @@ All fixes maintain $0 cost constraint and preserve existing hard-stop enforcemen
 - **Location:** `keyword_router.py` CLAUDE_KEYWORDS list
 - **Issue:** "propose" is **not** in the keyword list at all
 - **Why it matters:** Test #8 only routed correctly because the input was "propose a pricing **strategy**" — the word "strategy" triggered Claude routing
-- **Risk:** If user says "propose a timeline" (no "strategy" present), router incorrectly sends to Qwen
+- **Risk:** If user says "propose a timeline" (no "strategy" present), router incorrectly sends to DeepSeek
 - **This is separate from CRITICAL #2 because:** It's both a missing keyword AND a fragility pattern (test #8 passed due to accident)
 
 **Proposed Fix (Plain English):**
@@ -119,19 +119,19 @@ All fixes maintain $0 cost constraint and preserve existing hard-stop enforcemen
 
 ---
 
-### HIGH #4: No Rate Limit Monitoring for Qwen
+### HIGH #4: No Rate Limit Monitoring for DeepSeek
 
 **The Finding:**
 - **Location:** `nexus.py:202-213` (dispatch_to_qwen function)
 - **Current behavior:** `dispatch_to_qwen` blindly appends tasks to `goose_inbox.md` with no queue depth check
-- **Qwen Free tier constraints:** Unknown RPM/token-per-minute limits (API documentation not provided)
+- **DeepSeek V3.1 tier constraints:** Unknown RPM/token-per-minute limits (API documentation not provided)
 - **Risk scenario:** Rapid task submitter could queue 6+ missions before any complete, overwhelming free tier
-- **Impact:** Tasks disappear into inbox with no feedback; Qwen starts dropping work silently
+- **Impact:** Tasks disappear into inbox with no feedback; DeepSeek starts dropping work silently
 
 **Why it matters:**
 - Operational reliability: System appears healthy but tasks actually fail silently
-- Scale risk: During peak hours, daemon could queue 10 tasks in 60 seconds (once per iteration); Qwen may only process 2-3
-- $0 cost: If rate-limited, Qwen starts failing, forcing fallback to Claude; loses cost advantage
+- Scale risk: During peak hours, daemon could queue 10 tasks in 60 seconds (once per iteration); DeepSeek may only process 2-3
+- Low cost: If rate-limited, DeepSeek starts failing, forcing fallback to Claude; loses cost advantage
 
 **Proposed Fix (Plain English):**
 1. Before appending to `goose_inbox.md` in `dispatch_to_qwen`, count active PENDING tasks:
@@ -153,7 +153,7 @@ All fixes maintain $0 cost constraint and preserve existing hard-stop enforcemen
 
 **Risk Level of Fix:** Low-Medium
 - Queue rejection doesn't break missions; just blocks new ones until space opens
-- Threshold is conservative (3 tasks) — can be tuned based on real Qwen performance
+- Threshold is conservative (3 tasks) — can be tuned based on real DeepSeek performance
 - Easy to revert: remove queue check and go back to unlimited
 
 ---
@@ -234,7 +234,7 @@ All fixes maintain $0 cost constraint and preserve existing hard-stop enforcemen
    - Try 1: Execute Claude via `claude -p`
    - On subprocess.TimeoutExpired: Wait 5 seconds, try again (1 retry)
    - On second timeout: Give up, return "TIMEOUT: Claude did not respond" (which triggers escalation)
-   - On FileNotFoundError (Claude not installed): Fall back to Qwen immediately (no retry)
+   - On FileNotFoundError (Claude not installed): Fall back to DeepSeek immediately (no retry)
 2. Log retries to audit log: `audit("DISPATCH_CLAUDE_RETRY", "attempt 2")`
 3. Keep max timeout at 120s per attempt (no increase)
 
@@ -260,14 +260,14 @@ All fixes maintain $0 cost constraint and preserve existing hard-stop enforcemen
 
 **The Risk:**
 - **Status:** The Claude execution path via `claude -p` has **never been exercised** in audit logs
-- **Only Qwen dispatches recorded** — suggests no CLAUDE-routed task has been executed end-to-end
+- **Only DeepSeek dispatches recorded** — suggests no CLAUDE-routed task has been executed end-to-end
 - **Scenario:** If Claude Desktop isn't running or MAX OAuth token expired:
   - `subprocess.run(["claude", "-p", ...])` raises FileNotFoundError or hangs
-  - Fallback to Qwen happens silently (audit log records DISPATCH_CLAUDE_FAIL)
+  - Fallback to DeepSeek happens silently (audit log records DISPATCH_CLAUDE_FAIL)
   - High-judgment task gets processed by lower-capability model
 
 **Impact:**
-- Silent degradation: Commander doesn't know strategic task was demoted to Qwen
+- Silent degradation: Commander doesn't know strategic task was demoted to DeepSeek
 - Quality risk: Proposal drafting, risk assessment, strategy calls all fail silently
 
 **Mitigation:**
@@ -275,7 +275,7 @@ All fixes maintain $0 cost constraint and preserve existing hard-stop enforcemen
    - `nexus.py run MISSION-TEST-1 "assess the risk of overbooking in Q2"`
    - `nexus.py run MISSION-TEST-2 "draft a proposal for new pricing strategy"`
    - `nexus.py run MISSION-TEST-3 "why did the Kuklinski booking fail?"`
-2. Verify via audit log that all three show `DISPATCH_CLAUDE` (not fallback to Qwen)
+2. Verify via audit log that all three show `DISPATCH_CLAUDE` (not fallback to DeepSeek)
 3. Check Claude Desktop is running: `ps aux | grep "Claude"`
 4. Verify MAX OAuth is active: `echo "test" | claude -p` should return text, not error
 
@@ -290,25 +290,25 @@ All fixes maintain $0 cost constraint and preserve existing hard-stop enforcemen
 - Once verified, risk goes away (until Claude Desktop crashes or OAuth lapses)
 - Recommend adding health check (see below)
 
-**Rollback Plan:** If Claude dispatch fails, manually force tasks to Qwen in keyword_router (change CLAUDE_KEYWORDS to empty list)
+**Rollback Plan:** If Claude dispatch fails, manually force tasks to DeepSeek in keyword_router (change CLAUDE_KEYWORDS to empty list)
 
 ---
 
-### Risk #2: Qwen Rate Limits — UNKNOWN
+### Risk #2: DeepSeek Rate Limits — UNKNOWN
 
 **The Risk:**
-- **Status:** No rate limit testing performed against `qwen/qwen3.6-plus:free`
-- **API provider:** OpenRouter (qwen3.6-plus:free is their free tier)
+- **Status:** No rate limit testing performed against `deepseek/deepseek-chat-v3.1`
+- **API provider:** OpenRouter (deepseek-chat-v3.1 is their free tier)
 - **Unknown limits:** RPM (requests per minute), tokens per minute, concurrent requests
-- **Scenario:** Under burst load (5+ concurrent missions), Qwen silently drops tasks or returns errors
+- **Scenario:** Under burst load (5+ concurrent missions), DeepSeek silently drops tasks or returns errors
 
 **Impact:**
 - Silent failures: Tasks queue in goose_inbox but never complete
-- No alerting: Daemon logs appends but Qwen never processes
+- No alerting: Daemon logs appends but DeepSeek never processes
 - Cascading: Missions stack up, suspense deadlines pass, escalation doesn't trigger
 
 **Mitigation:**
-1. **Burst test:** Execute 5 sequential Qwen tasks in 1 minute via goose_inbox:
+1. **Burst test:** Execute 5 sequential DeepSeek tasks in 1 minute via goose_inbox:
    - Task 1: "list all active missions" (light)
    - Task 2: "extract vendor details from PDF" (medium)
    - Task 3: "calculate margin analysis" (light)
@@ -332,7 +332,7 @@ All fixes maintain $0 cost constraint and preserve existing hard-stop enforcemen
 - Results inform HIGH #4 (queue depth threshold)
 - Risk remains unknown until testing done
 
-**Rollback Plan:** If Qwen rate limits are too low, adjust HIGH #4 queue threshold from 3 to 1 (only allow 1 pending task at a time)
+**Rollback Plan:** If DeepSeek rate limits are too low, adjust HIGH #4 queue threshold from 3 to 1 (only allow 1 pending task at a time)
 
 ---
 
@@ -564,7 +564,7 @@ All fixes maintain $0 cost constraint and preserve existing hard-stop enforcemen
 | 2 | Add queue depth monitoring (HIGH #4) | 1 hour | Low-Med | None |
 | 3 | Add retry logic to Claude dispatch (MEDIUM #6) | 1.5 hours | Low | None |
 | 4 | Implement stale lock recovery (Risk #4) | 1 hour | Low | None |
-| 5 | Measure Qwen rate limits (Risk #2) | 1.5 hours | Med | None |
+| 5 | Measure DeepSeek rate limits (Risk #2) | 1.5 hours | Med | None |
 | **Session 2 Total** | **5.5 hours** | | |
 
 ---
@@ -584,22 +584,22 @@ All fixes maintain $0 cost constraint and preserve existing hard-stop enforcemen
 ## Cost Impact
 
 **Before Fixes:**
-- Qwen Free (unbounded queue): $0
+- DeepSeek V3.1 (unbounded queue): ~$0.27/M
 - Claude Sonnet MAX (OAuth): $0
 - Telegram API (free tier): $0
 - **Total: $0/month**
 
 **After Fixes:**
-- Qwen Free (queue depth ≤ 3): $0 (no change)
+- DeepSeek V3.1 (queue depth ≤ 3): ~$0.27/M (no change)
 - Claude Sonnet MAX (with retry): $0 (no change; retries are billable only if successful, within same MAX budget)
 - Telegram API: $0 (no change)
 - Shared lock file I/O: $0 (local file operations)
 - **Total: $0/month (CONFIRMED)**
 
-**Caveat:** If Qwen rate limits measured in Risk #2 prove lower than expected (e.g., < 1 task/min), recommend:
+**Caveat:** If DeepSeek rate limits measured in Risk #2 prove lower than expected (e.g., < 1 task/min), recommend:
 - Reduce queue depth threshold from 3 to 1
 - Or shift more tasks to Claude (already $0, just quota-limited)
-- OR use stratified queuing: Qwen for light tasks, Claude for heavy
+- OR use stratified queuing: DeepSeek for light tasks, Claude for heavy
 
 ---
 
@@ -609,12 +609,12 @@ NEXUS is ready for autonomous operation when **ALL** of the following are met:
 
 ### Specification Compliance (🔴 CRITICAL must pass)
 - [ ] Keyword router matches 100% of spec-defined keywords (draft, why, assess, propose, strategy, creative, etc.)
-- [ ] Zero-keyword fallback routes to Claude (not Qwen)
+- [ ] Zero-keyword fallback routes to Claude (not DeepSeek)
 - [ ] Test suite: 22/22 tests pass (was 20/22, now 22/22 after fixes)
 
 ### Integration Testing (Risk items must pass)
 - [ ] Claude dispatch tested end-to-end: 3 missions routed to Claude, audit log shows DISPATCH_CLAUDE success
-- [ ] Qwen rate limits documented: "Max X tasks/min, recommend queue depth ≤ Y"
+- [ ] DeepSeek rate limits documented: "Max X tasks/min, recommend queue depth ≤ Y"
 - [ ] Telegram credentials verified: Suspense alert page received successfully
 - [ ] Stale lock recovery tested: Daemon killed with SIGKILL, next start succeeds without manual intervention
 - [ ] Race condition mitigated: Concurrent writes to mission_board.json result in valid JSON (automated test)
@@ -628,7 +628,7 @@ NEXUS is ready for autonomous operation when **ALL** of the following are met:
 
 ### Cost Verification
 - [ ] $0/month cost confirmed after all changes
-- [ ] Qwen free tier limits documented and respected
+- [ ] DeepSeek tier limits documented and respected
 - [ ] Claude MAX OAuth confirmed active
 - [ ] No Gemini or Deepseek calls in any code path
 
@@ -646,12 +646,12 @@ NEXUS is ready for autonomous operation when **ALL** of the following are met:
 ### Safe Rollback Sequence
 | Fix | Rollback Command | Impact | Recovery Time |
 |-----|------------------|--------|----------------|
-| CRITICAL #1 (zero-keyword) | Restore keyword_router.py from git | Tasks route to Qwen; quality risk | 5 min |
+| CRITICAL #1 (zero-keyword) | Restore keyword_router.py from git | Tasks route to DeepSeek; quality risk | 5 min |
 | CRITICAL #2 (missing keywords) | Restore keyword_router.py | Same as above; breaks "why" tasks | 5 min |
-| HIGH #4 (queue depth) | Remove queue check in nexus.py | Queue can overflow; Qwen may rate-limit | 5 min |
+| HIGH #4 (queue depth) | Remove queue check in nexus.py | Queue can overflow; DeepSeek may rate-limit | 5 min |
 | MEDIUM #6 (retry logic) | Remove retry wrapper | Transient failures kill missions | 5 min |
 | MEDIUM #5 (hardcoded paths) | Restore original path definitions | Works only from /home/john/Thunderbird | 10 min |
-| Risk #1 (Claude dispatch) | Force all tasks to Qwen | All missions run via Qwen; quality loss | 5 min |
+| Risk #1 (Claude dispatch) | Force all tasks to DeepSeek | All missions run via DeepSeek; quality loss | 5 min |
 | Risk #4 (stale lock) | Remove heartbeat check | Stale locks require manual cleanup | 5 min |
 | Risk #5 (race condition) | Revert to separate locks | JSON corruption possible (rare) | 10 min |
 

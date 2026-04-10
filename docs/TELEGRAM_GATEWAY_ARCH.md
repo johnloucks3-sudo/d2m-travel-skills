@@ -12,7 +12,7 @@
 | **GooseD2M** | @GooseD2M_bot | `***REMOVED-SECRET***` | Goose headless | **Hale** — ops, dossiers, MCP tools, daily watch | Commander only |
 | **Dani** | @d2m_dani_bot | `***REMOVED-SECRET***` | Goose headless | **Dani Moreau** — warm, crisp, concierge voice | Clients + Commander |
 
-**Commander always talks to Hale.** D2MC2C = Hale backed by Claude. GooseD2M = Hale backed by Goose/Qwen. Same officer, different brain depending on task complexity.
+**Commander always talks to Hale.** D2MC2C = Hale backed by Claude. GooseD2M = Hale backed by OpenCode/DeepSeek V3.1. Same officer, different brain depending on task complexity.
 
 ---
 

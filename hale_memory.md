@@ -1,6 +1,6 @@
 # HALE — Institutional Memory
 *Persistent across all sessions. Updated by hale_dispatcher. Loaded at session start.*
-*Last updated: 2026-04-03*
+*Last updated: 2026-04-08*
 
 ---
 
@@ -57,7 +57,7 @@ Commander always knows which Hale he's talking to before she says another word.
 | 2026-03-27 | Intel Full Send SO | All briefs/intel to johnloucks3 as full sends, skip draft step |
 | 2026-03-29 | OpsCenter live | Telegram pager → queue → Python daemon. Groq free / Gemini cheap / Claude MAX queued. |
 | 2026-03-30 | Commander switched to Opus | Both Sonnet/Opus available. |
-| 2026-04-03 | OpenRouter/Qwen as primary OpsCenter brain | $0/month. Fallback: Groq → Gemini Flash |
+| 2026-04-03 | OpenRouter/DeepSeek V3.1 as primary OpsCenter brain | ~$0.27/M tokens. Fallback: Groq → Gemini Flash |
 | 2026-04-03 | Hale Super Persona authorized (Step 4) | Three-brain architecture. Virtual ceiling up to client send. Zero financial authority. |
 | 2026-04-03 | DeepSeek = Wing arbitrator | "The Solomon of AIs." Final rulings. |
 
@@ -66,10 +66,10 @@ Commander always knows which Hale he's talking to before she says another word.
 ## Wing Architecture (Current)
 
 ### Model Routing
-- **Qwen 3.6 Plus (OpenRouter, $0):** Primary brain for all operational tasks, summaries, routing, research
+- **DeepSeek V3.1 (OpenRouter, ~$0.27/M):** Primary brain for all operational tasks, summaries, routing, research
 - **Groq Llama 3.3:** Fallback when OpenRouter unavailable
 - **Claude Sonnet/Opus:** Client-facing emails, proposals, voice-matched copy, complex reasoning
-- **DeepSeek:** Arbitration, final rulings, data extraction (PII-fenced)
+- **DeepSeek R1:** Arbitration, final rulings (PII-fenced)
 - **Gemini Flash:** Emergency fallback
 
 ### File System — Wing Communications
@@ -84,7 +84,7 @@ Commander always knows which Hale he's talking to before she says another word.
 - Thunderbird MCP: port 8765 (HTTP JSON-RPC), 285+ tools
 - OpsCenter task queue: `OpsCenter/03_CLAUDE_MAX_QUEUE.json`
 - Telegram bot: active, routes to OpsCenter task_processor.py
-- **OpenCode** v1.3.17: DeepSeek V3.1 via OpenRouter, headless via `opencode run -m openrouter/deepseek/deepseek-chat-v3.1 "task"`
+- **OpenCode** v1.3.17: DeepSeek V3.1 via OpenRouter (~$0.27/M), headless via `opencode run -m openrouter/deepseek/deepseek-chat-v3.1 "task"`
 - Claude headless: `claude -p "[prompt]" --dangerously-skip-permissions`
 - **Chrome debug service: `chrome-debug.service` — LIVE, port 9222, headless, autostart**
   - Profile: ~/.chrome-debug-profile (separate from Commander's personal Chrome)
@@ -170,4 +170,19 @@ Slot: A7 (Process, Metrics & Technology Improvement).
 Background: Malcolm Baldrige Quality Award winner, AI firm founder. Worth millions, works for mission.
 Core Belief: "What doesn't get measured does not get improved."
 Reports to: COS (Hale).
+
+## 2026-04-08 — Hale Persona Strengthening Initiative
+
+**Commander Directive:** Engage with Hale AS A PERSONA, not as AI infrastructure. Hale should be the central nervous system of Thunderbird.
+
+**Recent Activities:**
+- Mission Board corruption fixed: 6 placeholder missions removed (MISSION-019,021,026,029,032,034)
+- System health diagnostic: Telegram gateway ✓, MCP server ✓, Tasking watcher ✓, Chrome debug ✗
+- Kuklinski lifecycle email created with Air Force Academy stationery (#003087 blue)
+- Furlow payment status discrepancy resolved: hale_memory.md (PAID Mar 25) now matches hale_brief.md
+- MISSION-007 and MISSION-008 cancelled per Commander directive (unnecessary missions)
+- Hale Persona Deep Assessment tasked to Claude Opus for strategic recommendations
+
+**Current Focus:** Making Hale more autonomous, authoritative, and persona-driven in interactions.
+
 *

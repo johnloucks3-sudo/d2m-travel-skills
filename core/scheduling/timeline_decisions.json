@@ -1,0 +1,268 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Timeline Decisions Schema",
+  "description": "Tracks every client decision point and rationale, including all timeline versions and adjustments",
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "type": "string",
+      "description": "Unique client identifier"
+    },
+    "client_name": {
+      "type": "string"
+    },
+    "cruise_departure": {
+      "type": "string",
+      "format": "date"
+    },
+    "decisions": {
+      "type": "array",
+      "description": "Chronological log of all client decisions",
+      "items": {
+        "type": "object",
+        "properties": {
+          "decision_id": {
+            "type": "string",
+            "description": "Unique identifier (e.g., 'W001-2026-04-07')"
+          },
+          "decision_type": {
+            "type": "string",
+            "enum": [
+              "initial_booking",
+              "flight_strategy",
+              "hotel_strategy",
+              "excursion_strategy",
+              "dining_strategy",
+              "transfer_strategy",
+              "final_confirmation",
+              "mid_journey_adjustment",
+              "client_request_change"
+            ]
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When decision was made"
+          },
+          "decision_summary": {
+            "type": "string",
+            "description": "What decision was made (e.g., 'Flight booking window set to T-150')"
+          },
+          "context": {
+            "type": "object",
+            "properties": {
+              "client_request": {
+                "type": "string",
+                "description": "What client asked for or preferred"
+              },
+              "commander_approval": {
+                "type": "boolean",
+                "description": "Was this decision approved by Commander?"
+              },
+              "commander_rationale": {
+                "type": "string",
+                "description": "Commander's reasoning for the decision"
+              },
+              "alt_options_reviewed": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Alternative options that were considered"
+              },
+              "notes": {
+                "type": "string",
+                "description": "Any additional context"
+              }
+            }
+          }
+        },
+        "required": ["decision_id", "decision_type", "timestamp", "decision_summary"]
+      }
+    },
+    "timeline_versions": {
+      "type": "array",
+      "description": "Versioned snapshots of the full timeline (everytime it changes)",
+      "items": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "integer",
+            "description": "Version number (1, 2, 3...)"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created_by": {
+            "type": "string",
+            "description": "Who approved this version (e.g., 'John Loucks (Commander)')"
+          },
+          "approved": {
+            "type": "boolean"
+          },
+          "approval_timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When approved (if approved)"
+          },
+          "decisions": {
+            "type": "object",
+            "description": "Timeline snapshot for this version",
+            "additionalProperties": {
+              "type": "integer",
+              "description": "T-minus days for each decision"
+            }
+          },
+          "change_summary": {
+            "type": "string",
+            "description": "What changed from previous version"
+          }
+        },
+        "required": ["version", "created", "decisions"]
+      }
+    },
+    "timeline_change_log": {
+      "type": "array",
+      "description": "Audit trail of all timeline modifications",
+      "items": {
+        "type": "object",
+        "properties": {
+          "change_id": {
+            "type": "string",
+            "description": "Unique identifier (e.g., 'RES-20260408-001')"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "triggered_by": {
+            "type": "string",
+            "description": "What caused the change (decision gate, client request, etc)"
+          },
+          "change": {
+            "type": "string",
+            "description": "What changed (e.g., 'flight_research_shifted from T-180 to T-150')"
+          },
+          "cascading_impacts": {
+            "type": "object",
+            "description": "Other decisions affected by this change",
+            "additionalProperties": {
+              "type": "string",
+              "description": "Impact description"
+            }
+          },
+          "timers_affected": {
+            "type": "integer",
+            "description": "How many systemd timers were affected"
+          },
+          "timers_created": {
+            "type": "integer"
+          },
+          "timers_cancelled": {
+            "type": "integer"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["PENDING", "APPROVED", "EXECUTED", "ROLLED_BACK"],
+            "description": "Implementation status"
+          },
+          "notes": {
+            "type": "string"
+          }
+        },
+        "required": ["change_id", "timestamp", "change", "status"]
+      }
+    },
+    "current_state": {
+      "type": "object",
+      "description": "Current active timeline (shorthand for latest version)",
+      "properties": {
+        "version": {
+          "type": "integer"
+        },
+        "approved": {
+          "type": "boolean"
+        },
+        "timeline": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer"
+          }
+        },
+        "last_modified": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  },
+  "required": ["client_id", "client_name", "cruise_departure"],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "client_id": "westbrook_brent_kim",
+      "client_name": "Brent & Kim Westbrook",
+      "cruise_departure": "2026-04-23",
+      "decisions": [
+        {
+          "decision_id": "W001-2026-04-07",
+          "decision_type": "initial_booking",
+          "timestamp": "2026-04-07T09:30:00Z",
+          "decision_summary": "Book Silver Nova Trans-Pacific Apr 23–May 11",
+          "context": {
+            "client_request": "Dream cruise + Alaska scenery",
+            "commander_approval": true,
+            "notes": "Ron is SWA pilot, wants premium experience"
+          }
+        },
+        {
+          "decision_id": "W002-2026-04-08",
+          "decision_type": "flight_strategy",
+          "timestamp": "2026-04-08T03:45:00Z",
+          "decision_summary": "Flight booking window set to T-150",
+          "context": {
+            "commander_rationale": "Early planner profile; premium tier",
+            "alt_options_reviewed": [
+              "T-180 (safest but more research time)",
+              "T-120 (faster but fewer options)"
+            ],
+            "commander_approval": true
+          }
+        }
+      ],
+      "timeline_versions": [
+        {
+          "version": 1,
+          "created": "2026-04-08T03:45:00Z",
+          "created_by": "John Loucks (Commander)",
+          "approved": true,
+          "approval_timestamp": "2026-04-08T03:45:00Z",
+          "decisions": {
+            "flight_research": 150,
+            "hotel_research": 180,
+            "excursion_research": 120,
+            "dining_research": 60,
+            "transfer_coordination": 45,
+            "final_confirmations": 14
+          },
+          "change_summary": "Initial timeline set based on early planner profile"
+        }
+      ],
+      "timeline_change_log": [],
+      "current_state": {
+        "version": 1,
+        "approved": true,
+        "timeline": {
+          "flight_research": 150,
+          "hotel_research": 180,
+          "excursion_research": 120,
+          "dining_research": 60,
+          "transfer_coordination": 45,
+          "final_confirmations": 14
+        },
+        "last_modified": "2026-04-08T03:45:00Z"
+      }
+    }
+  ]
+}

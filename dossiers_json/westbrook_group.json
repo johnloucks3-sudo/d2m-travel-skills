@@ -1,0 +1,49 @@
+{
+  "client_name": "Westbrook Group",
+  "full_name": "Chad/Mary Westbrook",
+  "cruise_line": "Silversea",
+  "ship": "Silver Nova",
+  "voyage": "Pacific Coastal",
+  "booking_date": "2026-04-01",
+  "embark_date": "2026-04-23",
+  "disembark_date": "2026-05-03",
+  "fpd_date": "2026-03-15",
+  "status": "active",
+  "relationship": "client",
+  "guests": 2,
+  "phase": "PHASE_4",
+  "booking_confirmation": "TEST-12345",
+  "insurance_status": "purchased",
+  "guest_forms_status": "complete",
+  "notes": "Test case for immediate validation (15 days to departure). All critical deadlines imminent or passed. Good test for timer system validation.",
+  "payment_status": "paid_in_full",
+  "client_profile": "experienced_traveler",
+  "risk_tolerance": "low",
+  "booking_pattern": "late_planner",
+  "date_flexibility": {
+    "flight_booking_window": {
+      "earliest": "T-180",
+      "latest": "T-14",
+      "commander_set": "T-30",
+      "recommendation": "Immediate (T-15 or sooner)"
+    },
+    "hotel_booking_window": {
+      "earliest": "T-210",
+      "latest": "T-7",
+      "commander_set": "T-21",
+      "recommendation": "Immediate (T-15 or sooner)"
+    },
+    "excursion_window": {
+      "earliest": "T-180",
+      "latest": "T-3",
+      "commander_set": "Immediate",
+      "recommendation": "Immediate (final selection)"
+    },
+    "dining_window": {
+      "earliest": "T-120",
+      "latest": "T-1",
+      "commander_set": "Immediate",
+      "recommendation": "Immediate"
+    }
+  }
+}

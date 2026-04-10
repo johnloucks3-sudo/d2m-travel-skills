@@ -8,15 +8,15 @@
       "d2mconcierge@gmail.com"
     ],
     "days_back": 400,
-    "total_examples": 962,
+    "total_examples": 976,
     "by_tier": {
-      "personal": 237,
-      "client": 188,
-      "vendor": 42,
-      "internal": 490,
+      "personal": 239,
+      "client": 189,
+      "vendor": 43,
+      "internal": 500,
       "family": 5
     },
-    "last_sync": "2026-04-07T02:35:28.437803"
+    "last_sync": "2026-04-09T02:32:53.949746"
   },
   "examples": [
     {
@@ -872,6 +872,24 @@
       "to": "\"GARCIA, BRANDY W CIV USAF USAFA 10 FSS/FSWC\" <brandy.garcia@us.af.mil>",
       "date": "Sat, 4 Apr 2026 16:41:23 -0600",
       "body": "Hi Brandy, all 4 of us have Gov't ID with photo and chip.  That is\nsufficient isn't it?  Thanks for being so conscientious!!\nJohn Loucks\n\nOn Sat, Apr 4, 2026 at 4:10 PM GARCIA, BRANDY W CIV USAF USAFA 10 FSS/FSWC <\nbrandy.garcia@us.af.mil> wrote:",
+      "score": 6
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "vendor",
+      "subject": "Re: [EXTERNAL] Booking 298475-25 — Transfer Confirmations & Seat Assignments",
+      "to": "Silversea Trade Reservations <tradereservations@silversea.com>",
+      "date": "Tue, 7 Apr 2026 21:30:26 -0600",
+      "body": "Hi ELaine, I will ask my clients, they work long hours during the week, but\nI will ask them this weekend.  I do not expect them to make any decisions,\nhowever.  Thank for you follow-up\n\nJohn\n\nOn Tue, Apr 7, 2026 at 4:52 PM Silversea Trade Reservations <\ntradereservations@silversea.com> wrote:",
+      "score": 6
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Your offer to upgrade has been accepted!",
+      "to": "jwoodcock@perx.com",
+      "date": "Wed, 8 Apr 2026 09:46:59 -0600",
+      "body": "Hi Jenna, great news! I assume you need a cc?\nJohn\n\nOn Wed, Apr 8, 2026 at 9:31 AM silverseaupgrade <\nsilverseaupgrade@silversea.com> wrote:",
       "score": 6
     },
     {
@@ -7379,6 +7397,114 @@
       "to": "johnloucks3@gmail.com",
       "date": "Mon, 6 Apr 2026 21:20:20 +0000",
       "body": "Commander,\n\nYour complete 32-day Pacific Journey itinerary is attached. This document consolidates all confirmed bookings, transportation gaps, shore excursions, dining reservations, and your pre-departure checklist.\n\nKey highlights:\n- 11 confirmed bookings totaling ~2,663\n- 10 transportation gaps identified and costed (~25-,035)\n- 6 shore excursions confirmed\n- 16 specialty dining reservations (1 waitlisted: The Grill Apr 24)\n\nCritical deadline: Kyoto timing conflict needs resolution by April 12. Contact Hiro at +817043638092.\n\nAll gaps are mapped with owners, deadlines, and booking methods.\n\n— Dani\nDreams2Memories Travel, LLC",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "D2M Email Processing Confirmation",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 7 Apr 2026 20:44:06 -0700",
+      "body": "Email received and assigned to D2M staff for review.\nStatus: Processing\nCheck /home/john/Thunderbird/OpsCenter/collaboration/goose_inbox.md for task details.",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "D2M Email Processing Confirmation",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 7 Apr 2026 20:44:04 -0700",
+      "body": "Email received and assigned to D2M staff for review.\nStatus: Processing\nCheck /home/john/Thunderbird/OpsCenter/collaboration/goose_inbox.md for task details.",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "D2M Email Processing Confirmation",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 7 Apr 2026 20:44:02 -0700",
+      "body": "Email received and assigned to D2M staff for review.\nStatus: Processing\nCheck /home/john/Thunderbird/OpsCenter/collaboration/goose_inbox.md for task details.",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "D2M Email Processing Confirmation",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 7 Apr 2026 20:44:00 -0700",
+      "body": "Email received and assigned to D2M staff for review.\nStatus: Processing\nCheck /home/john/Thunderbird/OpsCenter/collaboration/goose_inbox.md for task details.",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "D2M Email Processing Confirmation",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 7 Apr 2026 20:43:57 -0700",
+      "body": "Email received and assigned to D2M staff for review.\nStatus: Processing\nCheck /home/john/Thunderbird/OpsCenter/collaboration/goose_inbox.md for task details.",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "D2M Email Processing Confirmation",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 7 Apr 2026 20:43:54 -0700",
+      "body": "Email received and assigned to D2M staff for review.\nStatus: Processing\nCheck /home/john/Thunderbird/OpsCenter/collaboration/goose_inbox.md for task details.",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "D2M Email Processing Confirmation",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 7 Apr 2026 20:43:52 -0700",
+      "body": "Email received and assigned to D2M staff for review.\nStatus: Processing\nCheck /home/john/Thunderbird/OpsCenter/collaboration/goose_inbox.md for task details.",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "D2M Email Processing Confirmation",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 7 Apr 2026 20:43:51 -0700",
+      "body": "Email received and assigned to D2M staff for review.\nStatus: Processing\nCheck /home/john/Thunderbird/OpsCenter/collaboration/goose_inbox.md for task details.",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Booking 298475-25 — Transfer Confirmations & Seat Assignments [COS]",
+      "to": "Dreams2Memories <d2mconcierge@gmail.com>",
+      "date": "Tue, 7 Apr 2026 21:32:56 -0600",
+      "body": "COS, Remind me  to send an email to Erik about this. Prepare a draft for me\nto send on Friday at 1000.  Be aware this whole issue has been a sensitive\none between Melissa and Siversea.  Be understanding if they do not want to\nmake any commitments before they hear from Blacklane in May.\nJohn",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[D2M RED] Preflight Check",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 7 Apr 2026 07:32:38 -0700",
+      "body": "Thunderbird Preflight — RED\nTime: 2026-04-07 08:32 MT\n\n✅ MCP Server: Running (PID 1641)\n✅ Scheduler: Running (PID 1635)\n🔴 Telegram C2: NOT RUNNING\n✅ Gmail Token: Valid (has refresh token)\n✅ Persona Token: Valid (has refresh token)\n✅ Disk Space: 842.2 GB free\n✅ TELEGRAM_BOT_TOKEN: Set\n✅ TELEGRAM_COMMANDER_ID: Set\n✅ GROQ_API_KEY: Set\n✅ Internet: Connected\n⚠️ Gemini API: No API key found\n✅ MCP Port 8765: Listening",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[D2M RED] Preflight Check",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 7 Apr 2026 07:50:21 -0500",
+      "body": "Thunderbird Preflight — RED\nTime: 2026-04-07 06:50 MT\n\n✅ MCP Server: Running (PID 1641)\n✅ Scheduler: Running (PID 1635)\n🔴 Telegram C2: NOT RUNNING\n✅ Gmail Token: Valid (has refresh token)\n✅ Persona Token: Valid (has refresh token)\n✅ Disk Space: 842.4 GB free\n✅ TELEGRAM_BOT_TOKEN: Set\n✅ TELEGRAM_COMMANDER_ID: Set\n✅ GROQ_API_KEY: Set\n✅ Internet: Connected\n⚠️ Gemini API: No API key found\n✅ MCP Port 8765: Listening",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "Medallion",
+      "to": "Susan Loucks <susanna.loucks@gmail.com>",
+      "date": "Wed, 8 Apr 2026 14:53:57 -0600",
+      "body": "https://www.silversea.com/life-onboard/luxury-ocean-view-suites/medallion-suite.html\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
       "score": 3
     },
     {

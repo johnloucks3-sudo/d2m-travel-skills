@@ -1,0 +1,31 @@
+{
+  "generated_at": "2026-04-09T06:03:40.114805",
+  "total_tasks": 2,
+  "critical_count": 0,
+  "tasks": [
+    {
+      "task_id": "TASK-0.5-kuklinski_group",
+      "client": "kuklinski_group",
+      "phase": 0,
+      "touchpoint": "0.5",
+      "deliverable": "Welcome email",
+      "owners": "A2\u2192A6\u2192A9\u2192A3",
+      "draft_due": "2026-04-08T00:00:00",
+      "send_date": "2026-04-15T00:00:00",
+      "status": "PENDING",
+      "critical": false
+    },
+    {
+      "task_id": "TASK-0.5-westbrook_group",
+      "client": "westbrook_group",
+      "phase": 0,
+      "touchpoint": "0.5",
+      "deliverable": "Welcome email",
+      "owners": "A2\u2192A6\u2192A9\u2192A3",
+      "draft_due": "2026-04-08T00:00:00",
+      "send_date": "2026-04-15T00:00:00",
+      "status": "PENDING",
+      "critical": false
+    }
+  ]
+}

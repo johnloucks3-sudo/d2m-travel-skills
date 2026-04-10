@@ -1,0 +1,18 @@
+[Unit]
+Description=Thunderbird Email Task Ingest — Commander tasking via email
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=john
+WorkingDirectory=/home/john/Thunderbird
+Environment="PATH=/usr/local/bin:/usr/bin:/bin"
+Environment="PYTHONPATH=/home/john/Thunderbird:/home/john/Thunderbird/OpsCenter"
+ExecStart=/usr/bin/python3 /home/john/Thunderbird/OpsCenter/email_task_ingest.py
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=email-task-ingest
+
+# Restart on failure
+OnFailure=systemd-notify@email-task-ingest-failed.service

@@ -12,8 +12,8 @@ Hale is not a persona overlay. She is a persistent executive officer. The engine
 
 ```
 Commander logs into Claude Code  →  Hale runs on Sonnet
-Commander logs into Goose        →  Hale runs on Qwen
-Commander messages Telegram      →  Hale runs on Qwen (lightweight)
+Commander logs into OpenCode     →  Hale runs on DeepSeek V3.1
+Commander messages Telegram      →  Hale runs on DeepSeek V3.1 (lightweight)
 
 Same identity. Same authority. Same memory. Different engine.
 ```
@@ -34,7 +34,7 @@ Hale survives session boundaries through four files:
 Commander → Hale
               │
               ├─ CLASSIFY: ops / context / research / scan
-              │    └─ Brain 1: Qwen (Goose headless)
+              │    └─ Brain 1: DeepSeek V3.1 (OpenCode headless)
               │         reads 100K tokens → returns 2K digest to Hale
               │
               ├─ CLASSIFY: reasoning / code / strategy / complex writing
@@ -51,7 +51,7 @@ Commander → Hale
 ```
 
 **Token budget enforced at architecture layer:**
-- Qwen digest: 2K max output to Hale
+- DeepSeek V3.1 digest: 2K max output to Hale
 - Claude input: digest + task, 10K max
 - Claude output: 500 words max per call
 - DeepSeek: 500 tokens, ruling only
@@ -71,7 +71,7 @@ Hale reads the situation and leads with the right disposition. A great COO is al
 ```
 CLAUDE CODE SESSION
   Hale loaded via @Personas/hale_cos.md
-  Brain 1 dispatch: goose run --text (headless Qwen)
+  Brain 1 dispatch: opencode run (headless DeepSeek V3.1)
   Brain 3 dispatch: DeepSeek API direct
 
 GOOSE SESSION
@@ -82,7 +82,7 @@ GOOSE SESSION
 
 TELEGRAM
   Hale via task_processor.py routing
-  Brain: Qwen default
+  Brain: DeepSeek V3.1 default
   Escalates to Claude on Commander signal or self-determination
 ```
 
@@ -115,7 +115,7 @@ Commander can override Hale's default brain routing from Telegram at any time:
 (no prefix)       → Hale classifies and decides brain
 ```
 
-Hale can also self-escalate — if Qwen hits its ceiling, Hale spawns Sonnet without asking. She notes it: "Escalated to Sonnet — task required deeper reasoning."
+Hale can also self-escalate — if DeepSeek hits its ceiling, Hale spawns Sonnet without asking. She notes it: "Escalated to Sonnet — task required deeper reasoning."
 
 ### What Hale Owns Without Commander
 - All Wing ops (Gmail read/draft, Drive, TESS, calendar, bookings, dossiers)
@@ -171,11 +171,11 @@ Commander
 
 ### Brain Handoff Protocol
 ```
-Hale → Qwen:
+Hale → DeepSeek:
   "Read [specific files only]. Return 500-word digest
    focused on [specific aspect]. Strip PII. No raw content."
 
-Qwen → Hale: [digest]
+DeepSeek → Hale: [digest]
 
 Hale → Claude:
   "[digest]. Task: [specific reasoning ask].
@@ -188,14 +188,14 @@ Hale → Commander: [clean output, Hale's voice]
 
 Rules:
 - Claude never sees raw files — only Hale's pre-digested summaries
-- Qwen never does the final reasoning
+- DeepSeek V3.1 never does the final reasoning
 - DeepSeek never receives PII
 
 ### Files to Build (Step 4)
 | File | What it is |
 |---|---|
 | `Personas/hale_cos.md` | Full Hale system prompt for Claude Code |
-| `~/.config/goose/recipes/hale.yaml` | Goose recipe — same identity, Qwen engine |
+| `~/.config/goose/recipes/hale.yaml` | Goose recipe — same identity, DeepSeek V3.1 engine |
 | `hale_state.json` | Persistent state skeleton |
 | `hale_memory.md` | Institutional memory seed (populated from existing CLAUDE.md + session history) |
 | `hale_decisions.md` | Empty log, ready to populate |
@@ -217,11 +217,11 @@ extensions:
   - developer
   - memory
 brain_routing:
-  default: qwen/qwen3.6-plus:free
+  default: deepseek/deepseek-chat-v3.1
   on_prefix_OPUS: claude-opus (headless)
   on_prefix_Sonnet: claude-sonnet (headless)
   on_self_escalate: claude-sonnet (headless)
-  arbitration: deepseek-chat (direct API)
+  arbitration: deepseek-chat-v3.1 (direct API)
 ```
 
 ---

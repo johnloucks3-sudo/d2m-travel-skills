@@ -1,0 +1,20 @@
+[Unit]
+Description=Commander 120-Second Status Update Timer
+Documentation=file:///home/john/Thunderbird/docs/COMMANDER_UPDATE_TIMER.md
+
+[Timer]
+# Start immediately and run every 120 seconds
+OnBootSec=30s
+OnUnitActiveSec=120s
+
+# Randomize start by 10 seconds to avoid thundering herd
+RandomizedDelaySec=10
+
+# Accuracy—must complete within 30 seconds
+AccuracySec=30s
+
+# Persist across reboots
+Persistent=true
+
+[Install]
+WantedBy=timers.target

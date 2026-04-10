@@ -2,10 +2,10 @@
 """
 KEYWORD ROUTER — Dual-Brain Traffic Control
 D2M Thunderbird OS · 2026-04-06 (updated)
-Goose/Qwen-first routing — Claude reserved for high-value tasks only
+OpenCode/DeepSeek-first routing — Claude reserved for high-value tasks only
 
 Routing Table:
-  Goose/Qwen 3.6 Plus (default): All tasks not explicitly matched to Claude.
+  OpenCode/DeepSeek V3.1 (default): All tasks not explicitly matched to Claude.
     Research, scans, summaries, file ops, classifications, extractions, lists.
   Claude Sonnet MAX (reserved): Creative writing, client copy, strategy,
     architecture decisions, conflict resolution, escalation, voice-matched drafts.
@@ -17,8 +17,8 @@ Keywords → Claude (reserved):
   "escalat", "voice", "diplomat", "negotiat", "propose", "client email",
   "client copy", "client draft"
 
-Default: Goose/Qwen 3.6 Plus (free, unlimited turns)
-Tiebreak: If both Qwen and Claude have touched a task → Claude precedent wins.
+Default: OpenCode/DeepSeek V3.1 (free, unlimited turns)
+Tiebreak: If both DeepSeek and Claude have touched a task → Claude precedent wins.
 """
 
 import json
@@ -74,13 +74,13 @@ CLAUDE_PRECEDENCE_PATTERN = re.compile(
 def classify_task(task_text, task_context=None):
     """
     Classify a task text and return routing decision.
-    Returns: {"engine": "qwen"|"claude", "confidence": 0.0-1.0, "reason": str}
+    Returns: {"engine": "deepseek"|"claude", "confidence": 0.0-1.0, "reason": str}
     """
     if not task_text:
         return {
             "engine": "goose",
             "confidence": 0.7,
-            "reason": "Empty task, default to Goose/Qwen (cost-aware fallback)"
+            "reason": "Empty task, default to OpenCode/DeepSeek (cost-aware fallback)"
         }
 
     # 1. Check for Claude precedence (override)
@@ -108,11 +108,11 @@ def classify_task(task_text, task_context=None):
             "reason": f"Claude keywords detected: {', '.join(keywords_found)}"
         }
 
-    # 3. Default: Goose/Qwen 3.6 Plus (cost-aware fallback for unknown/generic tasks)
+    # 3. Default: OpenCode/DeepSeek V3.1 (cost-aware fallback for unknown/generic tasks)
     return {
         "engine": "goose",
         "confidence": 0.7,
-        "reason": "No Claude keywords detected. Goose/Qwen default (cost-aware)."
+        "reason": "No Claude keywords detected. OpenCode/DeepSeek default (cost-aware)."
     }
 
 
@@ -121,7 +121,7 @@ def route_to_engine(task_text, task_id=None, task_context=None):
     Route a task and return execution instructions.
 
     Returns: {
-        "engine": "qwen"|"claude",
+        "engine": "deepseek"|"claude",
         "command": str,  # The actual CLI command to run
         "confidence": float,
         "reason": str
@@ -163,7 +163,7 @@ def validate_routing(routing_decision, budget_remaining=0.0):
     if routing_decision["engine"] == "claude" and budget_remaining <= 0:
         return {
             "allowed": False,
-            "reason": f"Claude blocked: Budget exhausted (${budget_remaining:.2f}). Fallback to Qwen."
+            "reason": f"Claude blocked: Budget exhausted (${budget_remaining:.2f}). Fallback to DeepSeek."
         }
     return {"allowed": True, "reason": "Budget check passed"}
 

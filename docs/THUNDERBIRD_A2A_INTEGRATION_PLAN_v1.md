@@ -141,7 +141,7 @@ Telegram C2 unchanged. Commander does not touch A2A endpoints directly.
 - Goose A2A listener is localhost only — never Cloudflare-exposed
 - PII fence: `pii: true` in task metadata blocks non-Claude routing
 - Apache 2.0 / Linux Foundation — no vendor lock-in
-- Free model preference preserved — Goose (Qwen) handles 80%, Claude MAX for specialist 20%
+- Free model preference preserved — OpenCode (DeepSeek V3.1) handles 80%, Claude MAX for specialist 20%
 
 ---
 

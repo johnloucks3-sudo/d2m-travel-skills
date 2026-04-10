@@ -1,6 +1,12 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "opencode/qwen3.6-plus-free",
+  "model": "openrouter/deepseek/deepseek-chat-v3.1",
+  "fallbackModels": [
+    "opencode/nemotron-3-super-free",
+    "opencode/minimax-m2.5-free", 
+    "mistral-small:free",
+    "deepseek/deepseek-r1:free"
+  ],
   "mcpServers": {
     "dreams2memories": {
       "command": "/home/john/Thunderbird/mcp_launcher_core.sh"

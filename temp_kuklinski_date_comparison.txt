@@ -1,0 +1,53 @@
+=== DATE COMPARISON: VIKING INVOICE vs. DOSSIER ===
+
+1. BOOKING DATE:
+   Invoice: Feb 07-08, 2026 (actual booking: Kyle/Rosalie/Roger/Nick Feb 07, Josh/Erica Feb 08)
+   Dossier: Apr 01, 2026 (INCORRECT - off by ~52 days)
+
+2. INVOICE ISSUE DATE:
+   All invoices: Feb 10, 2026 (2-3 days after booking)
+
+3. EMBARKATION DATE:
+   Invoice: Dec 17, 2026 ✓
+   Dossier: Dec 17, 2026 ✓
+
+4. DISEMBARKATION DATE:
+   Invoice: Dec 27, 2026 ✓
+   Dossier: Dec 27, 2026 ✓
+
+5. FINAL PAYMENT DATE:
+   Invoice: Mar 31, 2026 ✓
+   Dossier: Mar 31, 2026 ✓
+
+6. SHORE EXCURSION OPENING:
+   Invoice: Aug 02, 2026 (Kyle/Rosalie, Roger/Nick)
+            Aug 09, 2026 (Josh/Erica) - 7-day difference
+   Dossier: Not recorded (should be Aug 02 & Aug 09)
+
+7. TRAVEL PROTECTION WAIVER:
+   Invoice: Must purchase by Mar 31, 2026 (aligned with FPD)
+   Dossier: "waiver_expired" (INCORRECT - still valid until Mar 31)
+
+=== TIMELINE CALCULATIONS ===
+From actual booking date (Feb 08, 2026):
+- T-0 (booking): Feb 08, 2026
+- T-180 (flight window opens): Aug 08, 2026
+- T-150 (hotel window opens): Sep 08, 2026
+- T-120 (excursion opens): Aug 02/09, 2026 (Viking-specific, not T-minus driven)
+- T-90 (dining window opens): Nov 08, 2026
+- T-60 (transfers window opens): Dec 08, 2026
+- Embarkation: Dec 17, 2026 (T-313 from booking)
+
+=== FILE LINKS ===
+Invoice 9593880 (Kyle/Rosalie): /home/john/Thunderbird/storage/output/Travel_Agent_KUKLINSKI9593880.pdf
+Invoice 9593873 (Roger/Nick): /home/john/Thunderbird/storage/output/Travel_Agent_KUKLINSKI9593873.pdf
+Invoice 9595029 (Josh/Erica): /home/john/Thunderbird/storage/output/Travel_Agent_MORTON9595029.pdf
+
+=== RECOMMENDED DOSSIER UPDATE ===
+Update dossiers_json/kuklinski_group.json:
+- booking_date: 2026-02-08 (should be actual booking date, not placeholder)
+- fpd_date: 2026-03-31 ✓
+- payment_date: 2026-03-27 ✓
+- Add field: shore_excursion_open_date_1: 2026-08-02 (K/R, R/N)
+- Add field: shore_excursion_open_date_2: 2026-08-09 (J/E)
+- Update insurance_status: available_until_2026-03-31

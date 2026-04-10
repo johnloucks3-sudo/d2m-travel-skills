@@ -5,7 +5,7 @@ Pops tasks from the JSON queue, classifies them, routes to the
 correct engine, and sends results back via Telegram.
 
 Division of Labor:
-    Qwen3.6 Plus (free, OpenRouter) → Hale's primary brain. All operational tasks, summaries, routing. $0/month.
+    DeepSeek V3.1 (OpenRouter) → Hale's primary brain. All operational tasks, summaries, routing. $0/month.
     Gemini Flash ($)  → Morning brief synthesis, fallback when OpenRouter unavailable
     Claude MAX ($0)   → Client-facing emails, proposals, voice-matched copy, complex reasoning
     DeepSeek (cheap)  → Data extraction, analytics (PII-fenced)
@@ -47,7 +47,8 @@ from thunderbird_model_router import (
     _call_openrouter,
     classify_task,
     TaskType,
-    QWEN_PLUS_FREE_MODEL,
+    DEEPSEEK_PRIMARY_MODEL,
+    QWEN_PLUS_FREE_MODEL,  # Legacy alias → DEEPSEEK_PRIMARY_MODEL
     OPENROUTER_API_KEY,
 )
 from thunderbird_innovation_scanner import run_daily_scan, run_weekly_scan
@@ -303,16 +304,16 @@ def _fetch_mcp_context(content: str) -> str:
     )
 
 
-# ── Hale's Brain: Qwen3.6 Plus (free) via OpenRouter — $0/month (SO 2026-04-03) ──
-HALE_MODEL = QWEN_PLUS_FREE_MODEL  # "qwen/qwen3.6-plus:free"
+# ── Hale's Brain: DeepSeek V3.1 via OpenRouter — $0/month ──
+HALE_MODEL = QWEN_PLUS_FREE_MODEL  # "deepseek/deepseek-chat-v3.1" (aliased in model_router)
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")  # retained for fallback
 
 
 def _call_hale(system_prompt: str, query: str,
                max_tokens: int = 800, temperature: float = 0.5) -> str:
-    """Call Qwen3.6 Plus (free) via OpenRouter — Hale's primary engine.
+    """Call DeepSeek V3.1 via OpenRouter — Hale's primary engine.
 
-    $0/month operational cost. 1M context window. Falls back to _call_gemini
+    $0/month operational cost. Falls back to _call_gemini
     if OPENROUTER_API_KEY is missing or the call fails.
     """
     if not OPENROUTER_API_KEY:
@@ -326,7 +327,7 @@ def _call_hale(system_prompt: str, query: str,
                                 max_tokens=max_tokens,
                                 temperature=temperature)
     except Exception as e:
-        logger.warning("Qwen3.6 Plus failed (%s), falling back to Gemini Flash", e)
+        logger.warning("DeepSeek V3.1 failed (%s), falling back to Gemini Flash", e)
         return _call_gemini(system_prompt, query, max_tokens=max_tokens,
                             temperature=temperature)
 
@@ -656,7 +657,7 @@ def _build_hale_system_prompt() -> str:
 
     return (
         "You are Col Victoria Hale, COS of Dreams2Memories Travel.\n"
-        "You are running inside the Hale-Loop daemon on Qwen 3.6 Plus (OpenRouter, free tier).\n"
+        "You are running inside the Hale-Loop daemon on DeepSeek V3.1 (OpenRouter).\n"
         "You have access to 140+ MCP tools via the Thunderbird MCP server.\n\n"
 
         "## HARD RULES — NEVER VIOLATE\n"
@@ -787,24 +788,24 @@ def _handle_commander_message(task: dict) -> str:
 
     try:
         if task_type in GROQ_TASKS:
-            engine = "Qwen 3.6 Plus (OpenRouter) + MCP" if mcp_context else "Qwen 3.6 Plus (OpenRouter)"
+            engine = "DeepSeek V3.1 (OpenRouter) + MCP" if mcp_context else "DeepSeek V3.1 (OpenRouter)"
             try:
                 response = _call_openrouter(system_prompt, augmented_content,
                                             model=QWEN_PLUS_FREE_MODEL,
                                             max_tokens=2500, temperature=0.3)
-            except Exception as _qwen_err:
-                _log(f"Qwen primary failed, falling back to Gemini: {_qwen_err}")
+            except Exception as _ds_err:
+                _log(f"DeepSeek primary failed, falling back to Gemini: {_ds_err}")
                 engine = "Gemini 2.5 Flash (fallback)"
                 response = _call_hale(system_prompt, augmented_content,
                                       max_tokens=2500, temperature=0.3)
         elif task_type in GEMINI_TASKS:
-            engine = "Qwen 3.6 Plus (OpenRouter)"
+            engine = "DeepSeek V3.1 (OpenRouter)"
             try:
                 response = _call_openrouter(system_prompt, content,
                                             model=QWEN_PLUS_FREE_MODEL,
                                             max_tokens=2000, temperature=0.5)
-            except Exception as _qwen_err:
-                _log(f"Qwen primary failed, falling back to Gemini Flash: {_qwen_err}")
+            except Exception as _ds_err:
+                _log(f"DeepSeek primary failed, falling back to Gemini Flash: {_ds_err}")
                 engine = "Gemini Flash (fallback)"
                 response = _call_gemini(system_prompt, content,
                                         max_tokens=800, temperature=0.5)

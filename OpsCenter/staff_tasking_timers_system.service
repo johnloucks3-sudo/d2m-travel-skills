@@ -1,0 +1,33 @@
+[Unit]
+Description=D2M Staff Tasking Timers System — Task Dispatch Service
+Documentation=file:///home/john/Thunderbird/docs/STAFF_TASKING_TIMERS_SYSTEM.md
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=john
+WorkingDirectory=/home/john/Thunderbird
+Environment="PYTHONUNBUFFERED=1"
+
+# Main execution
+ExecStart=/usr/bin/python3 /home/john/Thunderbird/OpsCenter/staff_tasking_timers_system.py
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=staff-tasking-timers
+
+# Resource limits
+MemoryLimit=512M
+TimeoutStartSec=300
+TimeoutStopSec=30
+
+# Restart on failure
+Restart=on-failure
+RestartSec=60
+StartLimitInterval=3600
+StartLimitBurst=3
+
+[Install]
+WantedBy=multi-user.target

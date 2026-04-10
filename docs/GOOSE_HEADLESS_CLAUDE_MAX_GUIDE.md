@@ -7,7 +7,7 @@
 
 | Task Type | Use Claude MAX Headless? | Reason |
 |-----------|--------------------------|--------|
-| File reads / summaries / digests | ❌ No — use Qwen via OpenRouter | Free tier sufficient. Save Claude for reasoning. |
+| File reads / summaries / digests | ❌ No — use DeepSeek V3.1 via OpenRouter | Free tier sufficient. Save Claude for reasoning. |
 | Code review / architecture / conflict resolution | ✅ YES — Claude MAX | Requires judgment, subjective weighting |
 | Strategic analysis / decision support / synthesis | ✅ YES — Claude MAX | Multi-source reasoning |
 | Simple ops task (grep, ls, parse) | ❌ No — run directly | No thinking needed |
@@ -92,7 +92,7 @@ WRITE TO: /home/john/Thunderbird/output/csv_analysis.json"
 - **Log all dispatches** — audit trail in `/home/john/Thunderbird/logs/headless/`
 
 If a task requires massive context:
-1. Pre-filter locally (use Qwen for summarization first)
+1. Pre-filter locally (use DeepSeek V3.1 for summarization first)
 2. Pass only the essential 30-40% to Claude
 3. Save the full context in drive for human review
 
@@ -259,7 +259,7 @@ wait $PID && echo "Success" || echo "Failed with exit code $?"
 | Error | Cause | Fix |
 |-------|-------|-----|
 | `Error: API key not found` | ANTHROPIC_API_KEY not in environment | Export: `export ANTHROPIC_API_KEY="sk-..."` |
-| `Connection timeout` | API overloaded or network issue | Retry in 5 min, or queue to Qwen fallback |
+| `Connection timeout` | API overloaded or network issue | Retry in 5 min, or queue to DeepSeek fallback |
 | `Rate limited (429)` | Too many requests | Stagger tasks: max 3-4 concurrent headless Claude |
 | Empty output file | Prompt was incomplete or Claude failed silently | Check log for errors, re-run with better context |
 | JSON parse error | Output was malformed | Ask Claude to use verbose JSON with comments |
@@ -290,14 +290,14 @@ fi
 ```
 
 ### Stay Under Budget
-- **Qwen (free):** Use for summaries, context reduction, routine analysis
+- **DeepSeek V3.1 (~$0.27/M):** Use for summaries, context reduction, routine analysis
 - **Claude MAX (paid):** Use only for judgment, voice, decision-making
-- **Batch mode:** If 10+ similar tasks, ask Hale to batch with Qwen first
+- **Batch mode:** If 10+ similar tasks, ask Hale to batch with DeepSeek first
 
 ### Alert Threshold
 If weekly Claude spend exceeds 70% of budget ($70 / $100):
 ```bash
-echo "⚠️  Claude MAX spend at 70%. Recommend Qwen for next 5 tasks." | \
+echo "⚠️  Claude MAX spend at 70%. Recommend DeepSeek for next 5 tasks." | \
   mail -s "Token Budget Alert" johnloucks3@gmail.com
 ```
 
@@ -305,7 +305,7 @@ echo "⚠️  Claude MAX spend at 70%. Recommend Qwen for next 5 tasks." | \
 
 ## TASK DISPATCH CHECKLIST (Before You Run)
 
-- [ ] **Is this a judgment task?** (If "no," use Qwen instead)
+- [ ] **Is this a judgment task?** (If "no," use DeepSeek instead)
 - [ ] **Context complete?** (All data inline, no file reads)
 - [ ] **Output path specified?** (Absolute path, not relative)
 - [ ] **Output format clear?** (JSON, Markdown, etc.)
@@ -349,7 +349,7 @@ tail -5 $LOG
 If Claude MAX headless dispatch fails:
 1. Check the log file for the exact error
 2. Alert Hale in Telegram with the task ID + error
-3. Hale decides: retry, fallback to Qwen, or ask Commander
+3. Hale decides: retry, fallback to DeepSeek, or ask Commander
 
 **Hale's contact:** Telegram / d2mconcierge@gmail.com
 

@@ -4,7 +4,7 @@ Here's the full linkage:
 
 # ⚠️ COMMANDER DIRECTIVE 2026-04-05: $0 COST TARGET
 # Gemini burned $100 unexpectedly. NO Gemini in any autonomous loop.
-# Deepseek is gone. Groq conditional. Qwen 3.6 Plus Free is the Goose engine.
+# Groq conditional. DeepSeek V3.1 is the OpenCode engine.
 # Goose covers EXEC (Blackboard interface).
 
 ## THUNDERBIRD MODEL / PERSONA / TOOL LINKAGE
@@ -30,8 +30,8 @@ Here's the full linkage:
 | `DATA_EXTRACTION` | Claude Haiku 3 | $0 (Max) | — | Parsing structured data |
 | `SUMMARIZATION` | Claude Haiku 3 | $0 (Max) | — | Quick summaries |
 | `EXTRACTION` | Claude Haiku 3 | $0 (Max) | — | Data extraction |
-| `CONTEXT_DUMP` | **Qwen 3.5 Flash** | $0.065 | — | Bulk context ingestion |
-| `BULK_REVIEW` | **Qwen 3.5 Flash** | $0.065 | — | Codebase/doc review |
+| `CONTEXT_DUMP` | **DeepSeek V3.1** | $0.065 | — | Bulk context ingestion |
+| `BULK_REVIEW` | **DeepSeek V3.1** | $0.065 | — | Codebase/doc review |
 | `SIMPLE_ANALYSIS` | **Gemini 2.5 Flash-Lite** | $0.10 | — | Simple classification |
 | `IMAGE` | FLUX.1 Schnell | $0 (free) | Luna (A6) | Destination art |
 
@@ -73,7 +73,7 @@ Here's the full linkage:
 |---|---|---|---|
 | Anthropic (Max) | `ANTHROPIC_API_KEY` | $0 (Max plan) | Active |
 | Google AI Studio | `GOOGLE_AI_API_KEY` | $0.30/1M (Flash) | Active |
-| OpenRouter | `OPENROUTER_API_KEY` | $0.065/1M (Qwen) | **Needs key in .env** |
+| OpenRouter | `OPENROUTER_API_KEY` | ~$0.27/1M (DeepSeek V3.1) | Active |
 | Groq | `GROQ_API_KEY` | $0.05/1M (Llama) | Active (REVERIE) |
 | xAI (Grok) | `XAI_API_KEY` | $0.20/1M | Active (OSINT) |
 | DeepSeek | `DEEPSEEK_API_KEY` | $0.14/1M | Active (PII-fenced) |
@@ -83,7 +83,7 @@ Here's the full linkage:
 ### Fallback Chains (Post-Commander Directive)
 
 ```
-Qwen 3.6 Plus Free → Claude Haiku 3 (MAX) → STOP (no escalation)
+DeepSeek V3.1 → Claude Haiku 3 (MAX) → STOP (no escalation)
 Claude Sonnet → STOP (fail gracefully, alert Commander)
 Groq → STOP (conditional, alert Commander if unavailable)
 NEVER → Gemini (explicitly excluded per Commander directive)
@@ -92,6 +92,6 @@ NEVER → Gemini (explicitly excluded per Commander directive)
 ### Cost Targets
 | Agent | Model | Cost/1M Input | Monthly Target |
 |-------|-------|---------------|----------------|
-| Goose | Qwen 3.6 Plus Free | $0 | $0 |
+| OpenCode | DeepSeek V3.1 | ~$0.27/M | Low |
 | Claude | Sonnet 4 (MAX OAuth) | $0 | $0 |
 | Groq | Llama (conditional) | $0.05 | Monitor only |

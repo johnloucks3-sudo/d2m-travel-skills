@@ -1,67 +1,67 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-04-07 19:50:00 MT
+## Generated: 2026-04-09 20:50:00 MT
 
 ---
 
 ### Recent Commits
+- 7084045 feat: Kuklinski date correction project completion
+- 485d909 fix: inject CLAUDE_CODE_OAUTH_TOKEN into OpenCode subprocess environment
+- e264504 chore: complete inbox task sweep — mark all pending tasks COMPLETE
 - 2ceb428 chore: session init — hale_brief current, CLAUDE.md auto-includes brief+state
 - 229c9d3 feat: OpenCode integration — model fix, OAuth loop, bidirectional tasking
-- ac4d382 docs: add Claude tasking patterns to AGENTS.md
-- 0412d8a feat: migrate Goose → OpenCode across all operational docs
-- e896f47 chore: remaining session state — commander inbox, logs, nexus lock
 
 ### Uncommitted Changes
-- AGENT.md (modified)
+- .opencode.json (modified)
+- AGENTS.md (modified)
+- AGENTS_NEW_TASKING.md (modified)
 - CLAUDE.md (modified)
 - OpsCenter/.goose_headless.lock (modified)
+- OpsCenter/00_COMMAND_LOG.md (modified)
+- OpsCenter/03_CLAUDE_MAX_QUEUE.json (modified)
 - OpsCenter/CLAUDE_DESKTOP_INIT.md (modified)
 - OpsCenter/GOOSE_INIT.md (modified)
+- OpsCenter/OPENCODE_INIT.md (modified)
+- OpsCenter/api_registry.py (modified)
+- OpsCenter/client_lifecycle_revision_init.md (modified)
+- OpsCenter/collaboration/Models-Personas-Tools 260402.md (modified)
+- OpsCenter/collaboration/NEXUS_AUDIT_REPORT.md (modified)
+- OpsCenter/collaboration/NEXUS_MITIGATION_PLAN.md (modified)
+- OpsCenter/collaboration/NEXUS_SPEC.md (modified)
 - OpsCenter/collaboration/blackboard_summary.txt (modified)
-- OpsCenter/collaboration/claude_inbox.md (modified)
 - OpsCenter/collaboration/claude_outbox.md (modified)
+- OpsCenter/collaboration/claude_output.md (modified)
 - OpsCenter/collaboration/goose_inbox.md (modified)
-- OpsCenter/collaboration/goose_output.md (modified)
-- OpsCenter/collaboration/opencode_inbox.md (modified)
-- OpsCenter/collaboration/opencode_outbox.md (modified)
-- OpsCenter/collaboration/routing_log.md (modified)
-- OpsCenter/collaboration/wing_comms.md (modified)
-- OpsCenter/context_d2mc2c.json (modified)
-- OpsCenter/context_goose.json (modified)
-- OpsCenter/mission_board.json (modified)
-- OpsCenter/nexus.lock (modified)
-- OpsCenter/opencode_memory.md (modified)
-- OpsCenter/scan_outputs/incubator_review_latest.txt (modified)
-- Commander_Update_Research_Framework_Complete.md (new)
-- OpsCenter/.claude_oauth_cache (new)
-- OpsCenter/client_lifecycle_chart.py (new)
-- OpsCenter/client_lifecycle_revision_init.md (new)
-- OpsCenter/collaboration/Claude Tasks.txt (new)
-- OpsCenter/collaboration/inbox_consolidation_report.md (new)
-- OpsCenter/lifecycle_18month_analysis.py (new)
-- OpsCenter/max_proxy.py (new)
-- OpsCenter/state/suspense_alerted.json (new)
-- business/Comprehensive_Travel_Research_Framework_Report.md (new)
-- business/client_lifecycle/Furlow_Nichols_Ely_Lifecycle_v2.html (new)
-- business/client_lifecycle/Kuklinski_Morton_Enhanced_Timeline.html (new)
-- business/client_lifecycle/Kuklinski_Morton_Lifecycle_v2.html (new)
-- business/client_lifecycle/Revised_Lifecycle_Architecture.md (new)
-- business/client_materials/Kuklinski_Morton_Client_Timeline.html (new)
-- business/client_research/Destination_Port_Weather_Framework.md (new)
-- business/client_research/Dining_Lodging_Recommendations_Process.md (new)
-- business/client_research/Fare_Flight_Research_Protocol.md (new)
-- business/client_research/Monthly_Trip_Validation_Process.md (new)
-- comms/Google_Forms_Logic_Protocol.md (new)
+- .directory (new)
+- AGENTS_NEW_READ_FIRST.md (new)
+- HALE_ASSESSMENT_SUMMARY.md (new)
+- HALE_IMPLEMENTATION_WBS.md (new)
+- OpsCenter/collaboration/CLAUDE_HEADLESS_TOKEN_GUIDE.md (new)
+- OpsCenter/collaboration/OPENCODE_OAUTH_TOKEN_FIX.md (new)
+- OpsCenter/collaboration/THREE_ATTEMPT_RULE_PROTOCOL.md (new)
+- OpsCenter/collaboration/hale_decisions.md (new)
+- OpsCenter/email-task-ingest.service (new)
+- OpsCenter/email-task-ingest.timer (new)
+- OpsCenter/log_scanner.py (new)
+- OpsCenter/mission_board.json.backup (new)
+- OpsCenter/mission_board_audit.json (new)
+- OpsCenter/opencode_knowledge/INDEX.md (new)
+- OpsCenter/staff_tasking_schedule.json (new)
+- OpsCenter/staff_tasking_timers_system.py (new)
+- OpsCenter/staff_tasking_timers_system.service (new)
+- OpsCenter/staff_tasking_timers_system.timer (new)
+- OpsCenter/telegram_health_check.py (new)
+- OpsCenter/timer_output/claude_inbox.md (new)
 
 ### Active Work
 - SSS: 0 pending decision(s)
 - Learning: 0 rules pending validation
 
 ### Recently Touched Dossiers
+- spencer_bill_family_voyage_2027.md
+- spencer_bill_family_voyayge_2027.md
 - DOSSIER_VikingMars_PanamaCanal_Dec2026.md
 - Loucks_32Day_Itinerary_Apr2026.md
 - Loucks_Personal_SilverNova_Japan.md
-- Westbrook_SilverNova_Personal.md
-- CLAUDE.md
 
 ### Open TODOs
 - [tool_validation_plan.md] - [ ] list files in TITAN_BOOKINGS_VAULT

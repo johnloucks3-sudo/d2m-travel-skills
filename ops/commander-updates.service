@@ -1,0 +1,34 @@
+[Unit]
+Description=Commander 120-Second Status Updates
+Documentation=file:///home/john/Thunderbird/docs/COMMANDER_UPDATE_TIMER.md
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=john
+WorkingDirectory=/home/john/Thunderbird
+Environment="PYTHONUNBUFFERED=1"
+EnvironmentFile=/home/john/Thunderbird/.env
+
+# Main execution
+ExecStart=/usr/bin/python3 /home/john/Thunderbird/ops/commander_updates_enhanced.py
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=commander-updates
+
+# Resource limits
+MemoryLimit=256M
+TimeoutStartSec=60
+TimeoutStopSec=30
+
+# Restart on failure
+Restart=on-failure
+RestartSec=30
+StartLimitInterval=3600
+StartLimitBurst=3
+
+[Install]
+WantedBy=multi-user.target

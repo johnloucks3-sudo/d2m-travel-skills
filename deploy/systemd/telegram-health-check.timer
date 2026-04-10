@@ -1,0 +1,10 @@
+[Unit]
+Description=Telegram Gateway Health Check (Every 2 minutes)
+Documentation=https://github.com/d2m/thunderbird
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=2min
+
+[Install]
+WantedBy=timers.target

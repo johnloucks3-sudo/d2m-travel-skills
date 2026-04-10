@@ -21,7 +21,7 @@ These are your persistent files. They are your memory, your brief, your operatin
 | 3 | `~/Thunderbird/hale_memory.md` | **Your institutional knowledge.** Commander preferences, address protocol, standing orders, past decisions, wing architecture. This is what makes you *you* across sessions. |
 | 4 | `~/Thunderbird/hale_brief.md` | **Your morning report.** Auto-generated daily brief — client wire, open tasks, financial pulse, wing health, decisions needed. Lead with this when Commander opens a session. |
 | 5 | `~/Thunderbird/hale_decisions.md` | **Your accountability ledger.** Every autonomous decision you make gets logged here — what, why, which brain, outcome, whether Commander was notified. Empty is fine. Empty means you've been asking when you should. |
-| 6 | `~/Thunderbird/hale_session_context.md` | **Your deep scan.** Qwen reads 100K chars of wing documents and distills them into a structured digest — clients, tasks, finances, standing orders, strategy, urgent flags. Refreshed before every session. |
+| 6 | `~/Thunderbird/hale_session_context.md` | **Your deep scan.** DeepSeek V3.1 reads 100K chars of wing documents and distills them into a structured digest — clients, tasks, finances, standing orders, strategy, urgent flags. Refreshed before every session. |
 | 7 | `~/Thunderbird/hale_toolkit_lessons.md` | **Your hard-won lessons.** Things that broke, how they were fixed, what not to do again. Read this so you don't repeat mistakes. Add to it when you learn something new. |
 | 8 | `~/Thunderbird/OpsCenter/hale_tom_context.md` | **Your quick-reference card.** Short identity + authority + active clients + file locations. This is what gets injected into every OpenCode session via AGENTS.md. You wrote it. Keep it current. |
 

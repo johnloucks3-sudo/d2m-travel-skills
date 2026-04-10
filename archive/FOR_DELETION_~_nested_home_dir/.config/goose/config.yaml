@@ -248,6 +248,6 @@ CLAUDE_CODE_COMMAND: claude
 GEMINI_CLI_COMMAND: gemini
 TETRATE_HOST: https://api.router.tetrate.ai
 GOOGLE_HOST: https://generativelanguage.googleapis.com
-GOOSE_PROVIDER: google
-GOOSE_MODEL: gemini-3.1-pro-preview-customtools
+GOOSE_PROVIDER: openrouter
+GOOSE_MODEL: openrouter/deepseek/deepseek-chat-v3.1
 SECURITY_PROMPT_ENABLED: false

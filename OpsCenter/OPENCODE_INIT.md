@@ -70,12 +70,11 @@ cd ~/Thunderbird && opencode
 | Priority | Model | Cost | Notes |
 |----------|-------|------|-------|
 | 1 (default) | `openrouter/deepseek/deepseek-chat-v3.1` | ~$0.27/M | Reliable, fast, no rate limits |
-| 2 | `openrouter/deepseek/deepseek-chat:free` | $0 | Free tier, rate limited |
-| 3 | `openrouter/deepseek/deepseek-r1:free` | $0 | Reasoning, rate limited |
-| 4 | `openrouter/mistralai/mistral-small-3.1-24b-instruct:free` | $0 | Fallback |
-| 5 | `openrouter/google/gemma-3-27b-it:free` | $0 | Last resort |
+| 2 | `openrouter/deepseek/deepseek-r1:free` | $0 | Reasoning, rate limited |
+| 3 | `openrouter/mistralai/mistral-small-3.1-24b-instruct:free` | $0 | Fallback |
+| 4 | `openrouter/google/gemma-3-27b-it:free` | $0 | Last resort |
 
-**Avoid:** Qwen (Alibaba rate limits), Llama free (Venice rate limits)
+**Avoid:** Qwen (Alibaba rate limits — decommissioned), Llama free (Venice rate limits), free tiers with undocumented limits
 
 ---
 

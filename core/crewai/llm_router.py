@@ -17,12 +17,12 @@ OPENROUTER_API_KEY = os.environ.get('OPENROUTER_API_KEY', '')
 GROQ_BASE = "https://api.groq.com/openai/v1"
 GROQ_MODEL = "llama-3.3-70b-versatile"
 
-DEEPSEEK_BASE = "https://api.deepseek.com"
-DEEPSEEK_MODEL = "deepseek-chat"
+DEEPSEEK_BASE = "https://openrouter.ai/api/v1"
+DEEPSEEK_MODEL = "deepseek/deepseek-chat-v3.1"
 
 OPENROUTER_BASE = "https://openrouter.ai/api/v1"
-OPENROUTER_MODEL = "qwen/qwen-2.5-72b-instruct"
-OPENROUTER_FREE = "qwen/qwen3.6-plus:free"
+OPENROUTER_MODEL = "deepseek/deepseek-chat-v3.1"
+OPENROUTER_FREE = "deepseek/deepseek-chat-v3.1"
 
 # NEVER use these for actual API calls
 _ANTHROPIC_KEY = os.environ.get('ANTHROPIC_API_KEY', '')  # DECOY — DO NOT TOUCH
@@ -56,7 +56,7 @@ def get_reasoning_llm():
         return get_router_llm()
 
 def get_router_llm():
-    """Quick routing — OpenRouter Qwen 2.5"""
+    """Quick routing — OpenRouter DeepSeek V3.1"""
     try:
         from crewai.llm import LLM
         return LLM(
@@ -88,7 +88,7 @@ def cost_estimate(tokens_used: int, model: str = "groq") -> float:
     rates = {
         "groq": (0.00, 0.00),          # Free tier currently
         "deepseek": (0.14, 0.28),       # $0.14/M prompt, $0.28/M completion
-        "openrouter": (0.13, 0.39),     # Qwen 2.5 72B
+        "openrouter": (0.14, 0.28),     # DeepSeek V3.1
         "free": (0.00, 0.00),
     }
     prompt_rate, comp_rate = rates.get(model, (0.50, 1.50))

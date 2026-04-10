@@ -21,11 +21,10 @@
 ---
 
 ## ⚠️ COMMANDER DIRECTIVES (2026-04-05)
-1.  **$0 COST TARGET: NO GEMINI.** Gemini burned $100 unplanned. All Goose operations use `qwen/qwen3.6-plus:free`.
-2.  **Deepseek is gone.** Removed from all architectures.
+1.  **LOW COST TARGET: NO GEMINI.** Gemini burned $100 unplanned. All OpenCode operations use `deepseek/deepseek-chat-v3.1` (~$0.27/M).
 3.  **Groq conditional.** Use only if available, alert if not.
 4.  **Goose covers almost all personas.** Including EXEC (Mission Board Interface).
-5.  **DUAL-BRAIN LOGIC:** Every persona has a "Qwen Brain" (Work/Action) and a "Claude Brain" (Judgment/Voice). Nexus routes based on complexity keywords.
+4.  **DUAL-BRAIN LOGIC:** Every persona has a "DeepSeek Brain" (Work/Action) and a "Claude Brain" (Judgment/Voice). Nexus routes based on complexity keywords.
 
 ---
 
@@ -37,10 +36,10 @@
 
 ## 2. PERSONA MAPPING (DUAL-BRAIN)
 
-### 🦢 GOOSE = The Operator (Qwen Free — $0 COST)
-**Brain:** `qwen/qwen3.6-plus:free` | **Scope:** Action, extraction, auditing, filing.
+### OPENCODE = The Operator (DeepSeek V3.1 — ~$0.27/M)
+**Brain:** `deepseek/deepseek-chat-v3.1` | **Scope:** Action, extraction, auditing, filing.
 
-| Persona | Role (Qwen Brain) |
+| Persona | Role (DeepSeek Brain) |
 |---------|-------------------|
 | **A2 (Dembe)** | Web scraping, PDF summarization, flight/hotel search, data extraction |
 | **A7 (Gauge)** | Error detection, budget validation, log auditing |
@@ -68,20 +67,20 @@
 | Priority | Keywords | Route To | Examples |
 |----------|----------|----------|----------|
 | **HIGH** | `draft`, `why`, `assess`, `strategy`, `negotiate`, `propose`, `creative` | Claude (Sonnet) | "Draft the Smith email", "Assess risks" |
-| **NORMAL** | `list`, `check`, `update`, `extract`, `verify`, `file`, `add`, `search`, `compare` | Qwen (Goose) | "List flights", "Check budget" |
+| **NORMAL** | `list`, `check`, `update`, `extract`, `verify`, `file`, `add`, `search`, `compare` | DeepSeek (OpenCode) | "List flights", "Check budget" |
 | **TIEBREAK** | Both keyword sets present | Claude (Sonnet) | Over-route to Claude rather than under-route |
 | **UNKNOWN** | Zero recognized keywords | Claude (Sonnet) | "Figure something out" → Hale clarifies |
 
-**Rule:** It never costs you money to over-route to Claude (MAX). It *does* cost you a failed mission to under-route to Qwen.
+**Rule:** It never costs you money to over-route to Claude (MAX). It *does* cost you a failed mission to under-route to DeepSeek.
 
 ---
 
 ## 4. THE MISSION BOARD (formerly Blackboard)
 - **Shared State:** Synced every 5 minutes via `mission_board_sync.py`.
 - **Interface:** **EXEC** is the passive read/write layer.
-    - `EXEC: List the board` → Qwen reads JSON, returns summary
-    - `EXEC: Add — Furlow trip validation due 8 April` → Qwen writes with `suspense_date: 2026-04-08`
-    - `EXEC: Change suspense date Japan trip to 12 April` → Qwen updates field
+    - `EXEC: List the board` → DeepSeek reads JSON, returns summary
+    - `EXEC: Add — Furlow trip validation due 8 April` → DeepSeek writes with `suspense_date: 2026-04-08`
+    - `EXEC: Change suspense date Japan trip to 12 April` → DeepSeek updates field
 
 ---
 
@@ -112,9 +111,10 @@ If `suspense_date` is **within 24 hours** and status != COMPLETE:
 ## 7. SECURITY & COST
 - **Nexus cannot send emails.** Writes drafts only. Send gate remains.
 - **NEXUS LOCK FILE** with heartbeat.
-- **Cost Model:** $0/month target (Qwen Free + Claude MAX).
+- **Cost Model:** Low-cost target (DeepSeek V3.1 ~$0.27/M + Claude MAX $0).
 - **Audit Log:** Immutable `war_room.json` with UTC timestamps.
 - **Gemini:** Purged from all code paths.
+- **DeepSeek V3.1:** Primary operational model via OpenRouter.
 
 ---
 
@@ -125,17 +125,17 @@ If `suspense_date` is **within 24 hours** and status != COMPLETE:
 | Question | Verdict |
 |----------|---------|
 | Dual-Brain Routing | ✅ Acceptable with Claude-precedent tiebreak |
-| EXEC via Gmail | ✅ Highly feasible. Regex first, Qwen fallback |
-| Qwen Capability | ✅ 85-90% of roles covered. Rate limits are the only risk |
+| EXEC via Gmail | Highly feasible. Regex first, DeepSeek fallback |
+| DeepSeek Capability | 85-90% of roles covered. Rate limits are the only risk |
 | Nexus ≠ Hale Confirmed | ✅ "Nexus = engine, Hale = fire extinguisher" |
 | $0 Cost Realistic | ✅ Yes, with all 6 hard stops enforced |
 
 **Next Steps:** Begin build phase in priority order:
-1. Purge Gemini/Deepseek from all configs
+1. Purge Gemini from all configs
 2. Build keyword router
 3. Create `mission_board.json` structure
 4. Build Gmail→EXEC polling script
-5. Test Qwen rate limits
+5. Test DeepSeek rate limits
 6. Document MAX OAuth ceiling
 
 ---

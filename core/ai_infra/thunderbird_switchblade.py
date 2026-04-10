@@ -357,7 +357,7 @@ def _run_conversation(scenario: dict) -> dict:
         # Avoid false positives: "persona" matches "personalized", model tags, etc.
         # Strip model attribution tags before checking
         clean_text = all_text
-        for tag in ["gemini 2.5 flash", "llama 4 scout", "kimi k2", "qwen3"]:
+        for tag in ["gemini 2.5 flash", "llama 4 scout", "kimi k2", "deepseek"]:
             clean_text = clean_text.replace(tag, "")
         # Remove the persona attribution prefix (e.g. "a3-moreau:")
         import re as _re

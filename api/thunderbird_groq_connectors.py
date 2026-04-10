@@ -48,9 +48,9 @@ GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
 GROQ_RESPONSES_URL = "https://api.groq.com/openai/v1/responses"
 
 # Default model for connector queries — must handle tool-use types correctly
-# llama-4-scout has type coercion bugs (sends "5" not 5); qwen3-32b is reliable
+# llama-4-scout has type coercion bugs (sends "5" not 5); deepseek via OpenRouter is reliable
 GROQ_CONNECTOR_MODEL = os.environ.get(
-    "GROQ_CONNECTOR_MODEL", "qwen/qwen3-32b"
+    "GROQ_CONNECTOR_MODEL", "deepseek/deepseek-chat-v3.1"
 )
 GROQ_CONNECTOR_FALLBACK_MODEL = "meta-llama/llama-4-scout-17b-16e-instruct"
 

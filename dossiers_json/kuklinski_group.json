@@ -1,0 +1,52 @@
+{
+  "client_name": "Kuklinski Group",
+  "full_name": "Kyle/Rosalie + Roger/Nicholas + Josh/Erica Kuklinski",
+  "cruise_line": "Viking",
+  "ship": "Viking Mars",
+  "voyage": "Panama Canal",
+  "booking_date": "2026-04-01",
+  "embark_date": "2026-12-17",
+  "disembark_date": "2026-12-27",
+  "fpd_date": "2026-03-31",
+  "fpd_amount": 21244,
+  "status": "active",
+  "relationship": "client",
+  "guests": 6,
+  "suites": 3,
+  "phase": "PHASE_2",
+  "booking_confirmation": "9593880",
+  "insurance_status": "waiver_expired",
+  "guest_forms_status": "5_of_6_complete",
+  "notes": "First-time cruisers, need maximum guidance. Insurance waiver window expired 2026-02-22. Excursions available now via MyVikingJourney.",
+  "payment_status": "paid_in_full",
+  "payment_date": "2026-03-27",
+  "client_profile": "first_time_cruiser",
+  "risk_tolerance": "medium",
+  "booking_pattern": "mid_planner",
+  "date_flexibility": {
+    "flight_booking_window": {
+      "earliest": "T-180",
+      "latest": "T-60",
+      "commander_set": null,
+      "recommendation": "T-120 (mid-range for first-timers)"
+    },
+    "hotel_booking_window": {
+      "earliest": "T-210",
+      "latest": "T-30",
+      "commander_set": null,
+      "recommendation": "T-90 (balance of selection and price)"
+    },
+    "excursion_window": {
+      "earliest": "booking_date",
+      "latest": "T-30",
+      "commander_set": null,
+      "recommendation": "T-120 (optimal selection)"
+    },
+    "dining_window": {
+      "earliest": "T-120",
+      "latest": "T-7",
+      "commander_set": null,
+      "recommendation": "T-60 (standard)"
+    }
+  }
+}

@@ -2212,7 +2212,7 @@ No corporate lab, no startup, no grant program has this combination. We do. We u
 *   **FinOps Load Balancing:** 
     *   Claude Sonnet/Opus = High-thinking architecture and client copy.
     *   Groq (Llama-3.3) = Fast JSON parsing, triage, 2-minute email scheduling.
-    *   Qwen 3.5 Flash = Bulk context ingestion.
+    *   DeepSeek V3.1 = Bulk context ingestion.
     *   Gemini 2.5 Flash = Base operations and tool execution (Goose native).
     *   Perplexity = Live web intelligence (A2/A7 Radical Sweeps).
 *   **The Memory Triad:** Pinecone Vector DB hydrated. Nightly Keep-to-Drive backups. Weekly Drive-to-Evernote forwarders.

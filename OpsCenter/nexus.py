@@ -5,7 +5,7 @@ D2M Thunderbird OS · v1.1 · 2026-04-05
 Commander: John Loucks | Author: Hale/COS
 
 State machine with 6 hard stops. Routes tasks to:
-  Qwen Free (Goose)  → Action/extraction/ops ($0)
+  DeepSeek V3.1 (OpenCode)  → Action/extraction/ops ($0)
   Claude MAX (Sonnet) → Judgment/voice/strategy ($0 via MAX OAuth)
 
 Hard Stops:
@@ -16,8 +16,8 @@ Hard Stops:
   5. Explicit COMPLETE: agent writes rationale
   6. No blind pass-through: next action from whitelist
 
-Cost: $0/month (Qwen Free + Claude MAX OAuth)
-Gemini: PURGED. DeepSeek: PURGED.
+Cost: $0/month (DeepSeek V3.1 + Claude MAX OAuth)
+Gemini: PURGED.
 
 ┌─ Changelog ──────────────────────────────────────────────────────────┐
 │ [2026-04-05] Extract all config to config.py; from config import *    │
@@ -185,7 +185,7 @@ def append_mission_log(board: dict, mission_id: str, message: str):
 
 
 # ── Queue Tracking ────────────────────────────────────────────────────────────
-_QUEUE = {"qwen": 0, "claude": 0, "max_depth": 20}
+_QUEUE = {"deepseek": 0, "claude": 0, "max_depth": 20}
 
 def queue_depth(engine: str) -> int:
     """Return current queue depth for an engine."""
@@ -207,7 +207,7 @@ def queue_check(engine: str) -> bool:
 CLAUDE_DEFAULT = True  # With Session 1, all unknown tasks route to Claude
 
 def _route(task_text: str, mission_id: str) -> str:
-    """Return 'qwen' or 'claude' via keyword_router.py. Default to Claude (safe)."""
+    """Return 'deepseek' or 'claude' via keyword_router.py. Default to Claude (safe)."""
     router = BASE_DIR / "keyword_router.py"
     try:
         r = subprocess.run(
@@ -217,11 +217,11 @@ def _route(task_text: str, mission_id: str) -> str:
         output = r.stdout.lower()
         if "engine: claude" in output:
             return "claude"
-        if "engine: qwen" in output:
-            return "qwen"
+        if "engine: deepseek" in output or "engine: goose" in output:
+            return "deepseek"
     except Exception as e:
-        audit("ROUTE_ERROR", f"{e} — defaulting to {'claude' if CLAUDE_DEFAULT else 'qwen'}", mission_id)
-    return "claude" if CLAUDE_DEFAULT else "qwen"
+        audit("ROUTE_ERROR", f"{e} — defaulting to {'claude' if CLAUDE_DEFAULT else 'deepseek'}", mission_id)
+    return "claude" if CLAUDE_DEFAULT else "deepseek"
 
 
 OPENCODE_BIN = Path('/home/john/.opencode/bin/opencode')
@@ -229,14 +229,11 @@ OPENCODE_TIMEOUT_SECS = 180
 
 # Claude-first chain — OpenRouter free models as distant fallback only
 OPENCODE_MODEL_CHAIN = [
-    'opencode/qwen3.6-plus-free',                         # Qwen 3.6 Plus free — primary (confirmed working)
+    'openrouter/deepseek/deepseek-chat-v3.1',              # DeepSeek V3.1 — primary (confirmed working)
     'openrouter/anthropic/claude-sonnet-4.6',             # Claude MAX via OpenRouter — fallback
 ]
 _RATE_LIMIT_MARKERS = ('rate limit', 'rate_limit', '429', 'too many requests',
                         'quota exceeded', 'ratelimit',
-                        'upstream error from alibaba',  # Alibaba/Qwen upstream throttle
-                        'rate increased too quickly',   # Alibaba specific phrasing
-                        'scale requests more smoothly', # Alibaba specific phrasing
                         'upstream error from venice',   # Venice/Llama upstream throttle
                         'venice',                       # Venice catch-all
                         'provider is currently unavailable',  # Generic upstream down
@@ -250,9 +247,8 @@ def _is_rate_limited(output: str) -> bool:
     return any(m in low for m in _RATE_LIMIT_MARKERS)
 
 def dispatch_to_opencode(task_text: str, mission_id: str) -> str:
-    """Run OpenCode headless with free-first model fallback chain.
-    Order: free Qwen3 → free Llama → free DeepSeek → paid Qwen3 (last resort).
-    Paid model only fires if all three free tiers return rate-limit errors."""
+    """Run OpenCode headless with model fallback chain.
+    Order: DeepSeek V3.1 → Claude via OpenRouter (last resort)."""
     env = dict(os.environ)
     env['PATH'] = f'/home/john/.opencode/bin:{env.get("PATH", "")}'
 
@@ -288,7 +284,9 @@ def dispatch_to_opencode(task_text: str, mission_id: str) -> str:
     return "ERROR: All OpenCode models exhausted (rate limits + timeouts)"
 
 # Legacy alias — keeps any external callers working
-dispatch_to_qwen = dispatch_to_opencode
+dispatch_to_deepseek = dispatch_to_opencode
+# Legacy alias — keeps any external callers working (was dispatch_to_qwen)
+dispatch_to_qwen = dispatch_to_opencode  # kept for backward compat
 
 
 CLAUDE_MAX_RETRIES = 2
@@ -297,7 +295,7 @@ CLAUDE_TIMEOUT_SECS = 180  # Extended from 120s for complex tasks
 def dispatch_to_claude(task_text: str, mission_id: str) -> str:
     """Run claude -p headless for judgment tasks.
     Retry up to CLAUDE_MAX_RETRIES on timeout.
-    Falls back to Qwen if Claude CLI not found."""
+    Falls back to DeepSeek if Claude CLI not found."""
     if not queue_check("claude"):
         audit("DISPATCH_CLAUDE_BLOCKED", f"Queue depth={queue_depth('claude')} >= {_QUEUE['max_depth']}", mission_id)
         return f"BLOCKED: Claude queue full ({queue_depth('claude')}/{_QUEUE['max_depth']}). Retry later."
@@ -333,7 +331,7 @@ def dispatch_to_claude(task_text: str, mission_id: str) -> str:
             audit("DISPATCH_CLAUDE_TIMEOUT", f"{CLAUDE_TIMEOUT_SECS}s exceeded, attempt {attempt}/{CLAUDE_MAX_RETRIES+1}", mission_id)
             if attempt > CLAUDE_MAX_RETRIES:
                 queue_dec("claude")
-                return f"TIMEOUT: Claude did not respond after {CLAUDE_MAX_RETRIES+1} attempts ({CLAUDE_TIMEOUT_SECS}s each). Fallback to Qwen."
+                return f"TIMEOUT: Claude did not respond after {CLAUDE_MAX_RETRIES+1} attempts ({CLAUDE_TIMEOUT_SECS}s each). Fallback to DeepSeek."
         except Exception as e:
             queue_dec("claude")
             audit("DISPATCH_CLAUDE_ERROR", f"Unexpected: {e}", mission_id)
@@ -350,7 +348,7 @@ def route_and_dispatch(task_text: str, mission_id: str) -> tuple[str, str]:
     if engine == "claude":
         result = dispatch_to_claude(task_text, mission_id)
     else:
-        result = dispatch_to_qwen(task_text, mission_id)
+        result = dispatch_to_deepseek(task_text, mission_id)
     return engine, result
 
 
@@ -435,7 +433,7 @@ def run_mission(mission_id: str, task_text: str) -> dict:
     # ── State Machine Loop ────────────────────────────────────────────────────
     current_task = task_text
     explicit_complete = False
-    next_action = "route_to_qwen"  # default first action
+    next_action = "route_to_deepseek"  # default first action
 
     while True:
         iterations += 1
@@ -472,7 +470,7 @@ def run_mission(mission_id: str, task_text: str) -> dict:
             next_action = "escalate_commander"
         else:
             # Continue iterating — route again
-            next_action = "route_to_claude" if engine == "qwen" else "route_to_qwen"
+            next_action = "route_to_claude" if engine == "deepseek" else "route_to_deepseek"
 
         # ── Track status for deadlock detection ───────────────────────────
         last_statuses.append(next_action)

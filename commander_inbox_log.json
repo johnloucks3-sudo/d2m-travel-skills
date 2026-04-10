@@ -558,5 +558,645 @@
     "persona": "A3",
     "draft_id": null,
     "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-08T14:01:22.033267+00:00",
+    "msg_id": "19d6d4ed90a87fbf",
+    "subject": "Need your tax receipts + invoices? \ud83d\udcc5",
+    "sender": "marketing.emails@cloudhq.net",
+    "classification": "financial",
+    "persona": "A9",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-08T14:01:28.067359+00:00",
+    "msg_id": "19d6d3ddaa7e749e",
+    "subject": "You\u2019re pre-approved for an Amex\u00ae Business Line of Credit",
+    "sender": "americanexpress@member.americanexpress.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-08T14:01:30.738253+00:00",
+    "msg_id": "19d6d334b226f2a8",
+    "subject": "Save 10% on Spring & Summer Parking \ud83c\udf3a \u2014 Limited Time Offer",
+    "sender": "info@parkdia.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-08T14:01:38.622403+00:00",
+    "msg_id": "19d6d2e20f9720ce",
+    "subject": "What You Can Look Forward To On Your Flight",
+    "sender": "deltaairlines@o.delta.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-08T14:01:44.614803+00:00",
+    "msg_id": "19d6d167821d5c8b",
+    "subject": "Morning Insurrection: Trump on Rescue Mission in Iran: \u2018In the United States Military, We Leave No American Behind\u201d",
+    "sender": "info@legalinsurrection.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-08T14:01:47.839096+00:00",
+    "msg_id": "19d6cf8a6df2401b",
+    "subject": "CoCo Rail Line, Whataburger, and 'The Pirates of Penzance'",
+    "sender": "news@editor.thecoloradoflyover.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-08T14:15:38.276369+00:00",
+    "msg_id": "19d6d71ae331d355",
+    "subject": "Your OpenRouter, Inc receipt [#1632-9480]",
+    "sender": "receipts@openrouter.ai",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-08T14:15:40.091107+00:00",
+    "msg_id": "19d6d6c7f75b1096",
+    "subject": "\u2708 Last Chance: Turn $95 Into at Least $1,000 in Travel, Fly to Europe From 6,000 Miles & More From TPG \u2708",
+    "sender": "tpg@thepointsguy.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-08T16:16:03.979227+00:00",
+    "msg_id": "19d6dd5a3ec5659b",
+    "subject": "And the Room-Res Island Winner is... (+ some sweet updates)",
+    "sender": "updates@room-res.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-08T16:16:05.705488+00:00",
+    "msg_id": "19d6dd32568480ee",
+    "subject": "9 Cruise Experiences That May Not Be Worth It; 10 Ships That Redefined Cruising & More",
+    "sender": "news@info.cruisecritic.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-08T16:16:07.742793+00:00",
+    "msg_id": "19d6dc93b5f4e885",
+    "subject": "RE: Your offer to upgrade has been accepted!",
+    "sender": "jwoodcock@perx.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-08T16:16:15.094365+00:00",
+    "msg_id": "19d6db8bee986bb2",
+    "subject": "Your offer to upgrade has been accepted!",
+    "sender": "silverseaupgrade@silversea.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-08T18:01:41.531024+00:00",
+    "msg_id": "19d6e13d8d504986",
+    "subject": "Caribbean: Let your clients Enjoy with More onboard Cunard",
+    "sender": "mail@tln.messages2.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-08T18:01:45.290486+00:00",
+    "msg_id": "19d6e053c83c8755",
+    "subject": "Kanye Isn\u2019t a Threat to British Jews",
+    "sender": "bariweiss+the-big-read@substack.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-08T18:01:52.255673+00:00",
+    "msg_id": "19d6e025a5d6848b",
+    "subject": "Join the Leaders Club\u2014and Help Save the American Family",
+    "sender": "info@heritage.org",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-08T18:15:50.495433+00:00",
+    "msg_id": "19d6e45d1237028f",
+    "subject": "Oceania Insider Weekly - April 8, 2026",
+    "sender": "oceaniainsider@oceaniacruises.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-08T18:15:56.910706+00:00",
+    "msg_id": "19d6e42332b79c82",
+    "subject": "TAP Air Portugal - ECONOMY PR\u0130ME CLASS",
+    "sender": "news@news.picassotravel.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-08T18:15:59.284651+00:00",
+    "msg_id": "19d6e1b77c1ea72e",
+    "subject": "Last chance: 2x Trip Cash on experiences",
+    "sender": "rewards@mp1.tripadvisor.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-08T18:16:01.021305+00:00",
+    "msg_id": "19d6de41fb2f61e6",
+    "subject": "\u26a1 Flight Flash Sale! Up to 60% off all Flights",
+    "sender": "specials-businessclassguru.com@shared1.ccsend.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-08T18:16:02.788976+00:00",
+    "msg_id": "19d6de2c778b4d09",
+    "subject": "Your PayPal verification code",
+    "sender": "service@paypal.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-08T20:16:06.064302+00:00",
+    "msg_id": "19d6eb8280a0a006",
+    "subject": "This Month\u2019s Highlights \u2013 CURATED Hotels & Resorts by Internova",
+    "sender": "mail@tln.messages2.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-08T20:16:07.821790+00:00",
+    "msg_id": "19d6eb5f50e8da84",
+    "subject": "Your OpenRouter, Inc receipt [#1042-9216]",
+    "sender": "receipts@openrouter.ai",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-08T20:16:10.040822+00:00",
+    "msg_id": "19d6ea53dc0e21f6",
+    "subject": "Client Promo Launches Today\u2014Tahiti 2028",
+    "sender": "specials@e.windstarcruises.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-08T20:16:17.015637+00:00",
+    "msg_id": "19d6e993d108cb12",
+    "subject": "Venetian Society enhancements coming soon",
+    "sender": "silversea@email.silversea.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-08T20:16:20.376744+00:00",
+    "msg_id": "19d6e850b20cc62d",
+    "subject": "Your OpenRouter, Inc receipt [#1952-6922]",
+    "sender": "receipts@openrouter.ai",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-08T22:01:25.848554+00:00",
+    "msg_id": "19d6eee109dd3166",
+    "subject": "New Member Update - Santa Monica Travel & Tourism",
+    "sender": "mail@tln.messages2.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-08T22:01:28.683654+00:00",
+    "msg_id": "19d6ebbf41e9f98d",
+    "subject": "This charger doesn\u2019t sleep \ud83d\udd0b",
+    "sender": "support@pwrmobile.shop",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-08T22:01:31.047413+00:00",
+    "msg_id": "19d6e73b8be6dff2",
+    "subject": "Which weekend cruise would you take this spring?",
+    "sender": "hello@marketing.cruisebound.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-08T22:01:33.376887+00:00",
+    "msg_id": "19d6e6bfb91c4b65",
+    "subject": "Fw: Honor Flight",
+    "sender": "shambachsm@msn.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-09T00:16:01.074780+00:00",
+    "msg_id": "19d6f34c2dc631e4",
+    "subject": "Your OpenRouter, Inc receipt [#1355-0413]",
+    "sender": "receipts@openrouter.ai",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-09T02:00:25.130566+00:00",
+    "msg_id": "19d6fc1bd433ce48",
+    "subject": "STARTING SOON: BC Conservative leadership debate",
+    "sender": "junonews@substack.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-09T14:01:49.019990+00:00",
+    "msg_id": "19d72589d34ebdf0",
+    "subject": "Air Supplier Partner News",
+    "sender": "mail@tln.messages2.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-09T14:01:50.650997+00:00",
+    "msg_id": "19d724b870eaffd1",
+    "subject": "[D2M RED] Preflight Check",
+    "sender": "",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-09T14:01:55.052927+00:00",
+    "msg_id": "19d721eb1c2cbd49",
+    "subject": "Drought Water Pricing, Museum Theft, and Bison Restoration",
+    "sender": "news@editor.thecoloradoflyover.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-09T14:01:56.868049+00:00",
+    "msg_id": "19d7202e85541959",
+    "subject": "Today on WAR ROOM",
+    "sender": "warroomeditors@75039530.mailchimpapp.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-09T14:15:59.450575+00:00",
+    "msg_id": "19d7297c72642a83",
+    "subject": "Subscribe for $1/month for one year",
+    "sender": "condenasttraveler@eml.condenast.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-09T14:16:01.191827+00:00",
+    "msg_id": "19d72952d8df582a",
+    "subject": "Your OpenRouter, Inc receipt [#1531-0454]",
+    "sender": "receipts@openrouter.ai",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-09T14:16:03.669440+00:00",
+    "msg_id": "19d7290702f49b96",
+    "subject": "\u2708 The New Reality of Airfare (And It\u2019s Not Pretty), 10 Hacks From Very Frequent Flyers & More From TPG \u2708",
+    "sender": "tpg@thepointsguy.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-09T14:16:10.108485+00:00",
+    "msg_id": "19d728ce03fdebe2",
+    "subject": "Make Silversea your romance recommendation",
+    "sender": "silversea@email.silversea.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-09T14:16:12.305891+00:00",
+    "msg_id": "19d71ea3b2891a13",
+    "subject": "Weekly Land Update for Cruises & Tours, Unlimited",
+    "sender": "mail@tln.messages2.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-09T16:16:06.027016+00:00",
+    "msg_id": "19d72fe4122bfc2b",
+    "subject": "Webinar invitation - Hilton Luxury Portfolio Showcase",
+    "sender": "insidesales@tbo.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-09T16:16:08.987156+00:00",
+    "msg_id": "19d72f05f07862ab",
+    "subject": "Your OpenRouter, Inc receipt [#1327-6092]",
+    "sender": "receipts@openrouter.ai",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-09T16:16:11.443999+00:00",
+    "msg_id": "19d72d905b5a682a",
+    "subject": "[D2M RED] Preflight Check",
+    "sender": "",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-09T16:16:13.394636+00:00",
+    "msg_id": "19d72d16071d6caa",
+    "subject": "On Pace with Cruise Space - April Edition",
+    "sender": "mail@tln.messages2.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-09T16:16:20.353929+00:00",
+    "msg_id": "19d72c4124770ef0",
+    "subject": "Enjoy Oceania Cruises\u2019 Spring Sale: Up to 50% Off Cruise Fares",
+    "sender": "news@info.cruisecritic.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-09T18:01:39.759508+00:00",
+    "msg_id": "19d735e4b7239a1d",
+    "subject": "7-For-7: Sail Away & Save With These Cruise Savings",
+    "sender": "specials@e.windstarcruises.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-09T18:01:42.753422+00:00",
+    "msg_id": "19d733d7f077bb7f",
+    "subject": "On bread and circuses",
+    "sender": "alexberenson@substack.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-09T18:01:44.541527+00:00",
+    "msg_id": "19d733cb7569abbb",
+    "subject": "Cruises & Tours, Unlimited: Supplier Partner Webinars",
+    "sender": "mail@tln.messages2.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-09T18:01:46.896984+00:00",
+    "msg_id": "19d7332ad3a6ca17",
+    "subject": "Choose Life, Save the West",
+    "sender": "ayaanhirsiali+nation-and-citizenship@substack.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-09T18:01:49.466388+00:00",
+    "msg_id": "19d7320d0be78588",
+    "subject": "Cruise Confirmation",
+    "sender": "jwoodcock@perx.com",
+    "classification": "booking_confirmation",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-09T18:01:51.692575+00:00",
+    "msg_id": "19d7306d9a1fadde",
+    "subject": "Business Class Travel at Exceptional Value",
+    "sender": "olivia@ceoflights.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-09T18:16:04.642183+00:00",
+    "msg_id": "19d736b4f7911b9a",
+    "subject": "Final day to invest at $7.77/share",
+    "sender": "news@editor.jointheflyover.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-09T18:16:07.245869+00:00",
+    "msg_id": "19d736b4a2888fba",
+    "subject": "2027-28 Japan & Southeast Asia groups now open; Weekend Waves offer tomorrow thru Monday!",
+    "sender": "contact@princesspartners.princess.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-09T18:16:14.996183+00:00",
+    "msg_id": "19d72bc360a27e3d",
+    "subject": "Your Card may not have been present for a purchase",
+    "sender": "americanexpress@welcome.americanexpress.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-09T18:16:16.948991+00:00",
+    "msg_id": "19d72b8da6580472",
+    "subject": "Priority Pass password reset confirmation",
+    "sender": "info@email.prioritypass.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-09T18:16:19.353986+00:00",
+    "msg_id": "19d72abfa66b100c",
+    "subject": "Exclusive Deals Expiring Soon!",
+    "sender": "specials-businessclassguru.com@shared1.ccsend.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-09T20:16:08.181429+00:00",
+    "msg_id": "19d73c8b05390532",
+    "subject": "We processed your payment",
+    "sender": "americanexpress@welcome.americanexpress.com",
+    "classification": "financial",
+    "persona": "A9",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-09T20:16:10.573397+00:00",
+    "msg_id": "19d73ae871d41ac9",
+    "subject": "Trump v. Affirmative Action",
+    "sender": "tom@tomklingenstein.ccsend.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-09T20:16:19.140492+00:00",
+    "msg_id": "19d7389b5ef7ea84",
+    "subject": "Don't miss balconies as low as $289",
+    "sender": "unitedcruises@email.cruises.united.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-09T22:02:15.988302+00:00",
+    "msg_id": "19d740b969b61a39",
+    "subject": "NYC hotels for MDW. Up to 29% less. \ud83d\uddfd",
+    "sender": "kayak@msg.kayak.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-09T22:02:23.535550+00:00",
+    "msg_id": "19d73f4140f97690",
+    "subject": "It\u2019s go-time: check in to your flight to SNA.",
+    "sender": "trip@notify.kayak.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-10T00:16:06.867416+00:00",
+    "msg_id": "19d74a619c69fadb",
+    "subject": "Antifa-Linked Militant Busted in Italy for Terror Plot, Ran Explosives Guide on Instagram",
+    "sender": "ngocomment@substack.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-10T00:16:11.082733+00:00",
+    "msg_id": "19d74632357cc6bb",
+    "subject": "Weekly Message from Lindsay Pearlman",
+    "sender": "mail@tln.messages2.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-10T02:00:43.527607+00:00",
+    "msg_id": "19d74f50791f9309",
+    "subject": "Your Card may not have been present for a purchase",
+    "sender": "americanexpress@welcome.americanexpress.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
   }
 ]

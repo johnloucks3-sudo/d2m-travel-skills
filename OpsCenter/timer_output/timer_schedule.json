@@ -1,0 +1,501 @@
+{
+  "generated_at": "2026-04-07T22:06:02.506751",
+  "total_timers": 21,
+  "total_tasks": 27,
+  "timers": {
+    "kuklinski-group-0.3": {
+      "client_id": "kuklinski-group",
+      "client_name": "Kuklinski Group (3 bookings)",
+      "task_id": "0.3",
+      "trigger_date": "2026-02-23T00:00:00",
+      "task_name": "Insurance email",
+      "priority": "P0"
+    },
+    "kuklinski-group-0.4": {
+      "client_id": "kuklinski-group",
+      "client_name": "Kuklinski Group (3 bookings)",
+      "task_id": "0.4",
+      "trigger_date": "2026-02-23T00:00:00",
+      "task_name": "Guest profile forms",
+      "priority": "P0"
+    },
+    "kuklinski-group-0.5": {
+      "client_id": "kuklinski-group",
+      "client_name": "Kuklinski Group (3 bookings)",
+      "task_id": "0.5",
+      "trigger_date": "2026-02-27T00:00:00",
+      "task_name": "Welcome email",
+      "priority": "P1"
+    },
+    "kuklinski-group-1.4": {
+      "client_id": "kuklinski-group",
+      "client_name": "Kuklinski Group (3 bookings)",
+      "task_id": "1.4",
+      "trigger_date": "2026-05-21T00:00:00",
+      "task_name": "Voyage preview",
+      "priority": "P1"
+    },
+    "kuklinski-group-1.5": {
+      "client_id": "kuklinski-group",
+      "client_name": "Kuklinski Group (3 bookings)",
+      "task_id": "1.5",
+      "trigger_date": "2025-12-03T00:00:00",
+      "task_name": "Air fare delivery",
+      "priority": "P0"
+    },
+    "kuklinski-group-1.6": {
+      "client_id": "kuklinski-group",
+      "client_name": "Kuklinski Group (3 bookings)",
+      "task_id": "1.6",
+      "trigger_date": "2025-12-03T00:00:00",
+      "task_name": "Hotel delivery",
+      "priority": "P0"
+    },
+    "kuklinski-group-2.1": {
+      "client_id": "kuklinski-group",
+      "client_name": "Kuklinski Group (3 bookings)",
+      "task_id": "2.1",
+      "trigger_date": "2026-01-17T00:00:00",
+      "task_name": "Air booking decision",
+      "priority": "P0"
+    },
+    "kuklinski-group-2.3": {
+      "client_id": "kuklinski-group",
+      "client_name": "Kuklinski Group (3 bookings)",
+      "task_id": "2.3",
+      "trigger_date": "2026-02-16T00:00:00",
+      "task_name": "Hotel booking rec",
+      "priority": "P0"
+    },
+    "kuklinski-group-2.6": {
+      "client_id": "kuklinski-group",
+      "client_name": "Kuklinski Group (3 bookings)",
+      "task_id": "2.6",
+      "trigger_date": "2026-06-06T00:00:00",
+      "task_name": "Excursion rec",
+      "priority": "P1"
+    },
+    "kuklinski-group-2.8": {
+      "client_id": "kuklinski-group",
+      "client_name": "Kuklinski Group (3 bookings)",
+      "task_id": "2.8",
+      "trigger_date": "2026-06-23T00:00:00",
+      "task_name": "Excursion confirm",
+      "priority": "P1"
+    },
+    "kuklinski-group-2.9": {
+      "client_id": "kuklinski-group",
+      "client_name": "Kuklinski Group (3 bookings)",
+      "task_id": "2.9",
+      "trigger_date": "2026-02-15T00:00:00",
+      "task_name": "FPD reminder",
+      "priority": "P0"
+    },
+    "kuklinski-group-2.12": {
+      "client_id": "kuklinski-group",
+      "client_name": "Kuklinski Group (3 bookings)",
+      "task_id": "2.12",
+      "trigger_date": "2026-09-04T00:00:00",
+      "task_name": "Dining rec",
+      "priority": "P1"
+    },
+    "kuklinski-group-2.14": {
+      "client_id": "kuklinski-group",
+      "client_name": "Kuklinski Group (3 bookings)",
+      "task_id": "2.14",
+      "trigger_date": "2026-03-31T00:00:00",
+      "task_name": "FPD confirmation",
+      "priority": "P0"
+    },
+    "kuklinski-group-3.1": {
+      "client_id": "kuklinski-group",
+      "client_name": "Kuklinski Group (3 bookings)",
+      "task_id": "3.1",
+      "trigger_date": "2026-09-04T00:00:00",
+      "task_name": "Document audit",
+      "priority": "P0"
+    },
+    "kuklinski-group-3.3": {
+      "client_id": "kuklinski-group",
+      "client_name": "Kuklinski Group (3 bookings)",
+      "task_id": "3.3",
+      "trigger_date": "2026-11-12T00:00:00",
+      "task_name": "Pre-voyage brief",
+      "priority": "P1"
+    },
+    "kuklinski-group-3.5": {
+      "client_id": "kuklinski-group",
+      "client_name": "Kuklinski Group (3 bookings)",
+      "task_id": "3.5",
+      "trigger_date": "2026-12-07T00:00:00",
+      "task_name": "Final confirmation",
+      "priority": "P1"
+    },
+    "kuklinski-group-3.6": {
+      "client_id": "kuklinski-group",
+      "client_name": "Kuklinski Group (3 bookings)",
+      "task_id": "3.6",
+      "trigger_date": "2026-12-14T00:00:00",
+      "task_name": "Send-off email",
+      "priority": "P1"
+    },
+    "kuklinski-group-5.1": {
+      "client_id": "kuklinski-group",
+      "client_name": "Kuklinski Group (3 bookings)",
+      "task_id": "5.1",
+      "trigger_date": "2026-12-24T00:00:00",
+      "task_name": "Welcome home",
+      "priority": "P1"
+    },
+    "kuklinski-group-5.2": {
+      "client_id": "kuklinski-group",
+      "client_name": "Kuklinski Group (3 bookings)",
+      "task_id": "5.2",
+      "trigger_date": "2026-12-24T00:00:00",
+      "task_name": "Post-voyage survey",
+      "priority": "P2"
+    },
+    "kuklinski-group-5.3": {
+      "client_id": "kuklinski-group",
+      "client_name": "Kuklinski Group (3 bookings)",
+      "task_id": "5.3",
+      "trigger_date": "2027-01-08T00:00:00",
+      "task_name": "Thank you + referral",
+      "priority": "P1"
+    },
+    "kuklinski-group-5.4": {
+      "client_id": "kuklinski-group",
+      "client_name": "Kuklinski Group (3 bookings)",
+      "task_id": "5.4",
+      "trigger_date": "2027-01-24T00:00:00",
+      "task_name": "Next voyage plant",
+      "priority": "P2"
+    }
+  },
+  "staff_tasks": [
+    {
+      "task_id": "1.4",
+      "client": "Kuklinski Group (3 bookings)",
+      "client_id": "kuklinski-group",
+      "assigned_to": "A2",
+      "task_name": "Voyage preview",
+      "scheduled_date": "2026-05-14T00:00:00",
+      "send_date": "2026-06-04T00:00:00",
+      "priority": "P1",
+      "inbox": "opencode_inbox.md",
+      "description": "Task 1.4: Voyage preview for Kuklinski Group (3 bookings)"
+    },
+    {
+      "task_id": "1.4",
+      "client": "Kuklinski Group (3 bookings)",
+      "client_id": "kuklinski-group",
+      "assigned_to": "A6",
+      "task_name": "Voyage preview",
+      "scheduled_date": "2026-05-17T00:00:00",
+      "send_date": "2026-06-04T00:00:00",
+      "priority": "P1",
+      "inbox": "claude_inbox.md",
+      "description": "Task 1.4: Voyage preview for Kuklinski Group (3 bookings)"
+    },
+    {
+      "task_id": "1.4",
+      "client": "Kuklinski Group (3 bookings)",
+      "client_id": "kuklinski-group",
+      "assigned_to": "A3",
+      "task_name": "Voyage preview",
+      "scheduled_date": "2026-05-21T00:00:00",
+      "send_date": "2026-06-04T00:00:00",
+      "priority": "P1",
+      "inbox": "claude_inbox.md",
+      "description": "Task 1.4: Voyage preview for Kuklinski Group (3 bookings)"
+    },
+    {
+      "task_id": "2.6",
+      "client": "Kuklinski Group (3 bookings)",
+      "client_id": "kuklinski-group",
+      "assigned_to": "A2",
+      "task_name": "Excursion rec",
+      "scheduled_date": "2026-05-30T00:00:00",
+      "send_date": "2026-06-20T00:00:00",
+      "priority": "P1",
+      "inbox": "opencode_inbox.md",
+      "description": "Task 2.6: Excursion rec for Kuklinski Group (3 bookings)"
+    },
+    {
+      "task_id": "2.6",
+      "client": "Kuklinski Group (3 bookings)",
+      "client_id": "kuklinski-group",
+      "assigned_to": "A6",
+      "task_name": "Excursion rec",
+      "scheduled_date": "2026-06-02T00:00:00",
+      "send_date": "2026-06-20T00:00:00",
+      "priority": "P1",
+      "inbox": "claude_inbox.md",
+      "description": "Task 2.6: Excursion rec for Kuklinski Group (3 bookings)"
+    },
+    {
+      "task_id": "2.6",
+      "client": "Kuklinski Group (3 bookings)",
+      "client_id": "kuklinski-group",
+      "assigned_to": "A3",
+      "task_name": "Excursion rec",
+      "scheduled_date": "2026-06-06T00:00:00",
+      "send_date": "2026-06-20T00:00:00",
+      "priority": "P1",
+      "inbox": "claude_inbox.md",
+      "description": "Task 2.6: Excursion rec for Kuklinski Group (3 bookings)"
+    },
+    {
+      "task_id": "2.8",
+      "client": "Kuklinski Group (3 bookings)",
+      "client_id": "kuklinski-group",
+      "assigned_to": "A3",
+      "task_name": "Excursion confirm",
+      "scheduled_date": "2026-06-13T00:00:00",
+      "send_date": "2026-06-27T00:00:00",
+      "priority": "P1",
+      "inbox": "claude_inbox.md",
+      "description": "Task 2.8: Excursion confirm for Kuklinski Group (3 bookings)"
+    },
+    {
+      "task_id": "2.12",
+      "client": "Kuklinski Group (3 bookings)",
+      "client_id": "kuklinski-group",
+      "assigned_to": "A2",
+      "task_name": "Dining rec",
+      "scheduled_date": "2026-08-28T00:00:00",
+      "send_date": "2026-09-18T00:00:00",
+      "priority": "P1",
+      "inbox": "opencode_inbox.md",
+      "description": "Task 2.12: Dining rec for Kuklinski Group (3 bookings)"
+    },
+    {
+      "task_id": "2.12",
+      "client": "Kuklinski Group (3 bookings)",
+      "client_id": "kuklinski-group",
+      "assigned_to": "A6",
+      "task_name": "Dining rec",
+      "scheduled_date": "2026-08-31T00:00:00",
+      "send_date": "2026-09-18T00:00:00",
+      "priority": "P1",
+      "inbox": "claude_inbox.md",
+      "description": "Task 2.12: Dining rec for Kuklinski Group (3 bookings)"
+    },
+    {
+      "task_id": "2.12",
+      "client": "Kuklinski Group (3 bookings)",
+      "client_id": "kuklinski-group",
+      "assigned_to": "A3",
+      "task_name": "Dining rec",
+      "scheduled_date": "2026-09-04T00:00:00",
+      "send_date": "2026-09-18T00:00:00",
+      "priority": "P1",
+      "inbox": "claude_inbox.md",
+      "description": "Task 2.12: Dining rec for Kuklinski Group (3 bookings)"
+    },
+    {
+      "task_id": "3.1",
+      "client": "Kuklinski Group (3 bookings)",
+      "client_id": "kuklinski-group",
+      "assigned_to": "COS",
+      "task_name": "Document audit",
+      "scheduled_date": "2026-09-11T00:00:00",
+      "send_date": "2026-09-18T00:00:00",
+      "priority": "P0",
+      "inbox": "claude_inbox.md",
+      "description": "Task 3.1: Document audit for Kuklinski Group (3 bookings)"
+    },
+    {
+      "task_id": "3.1",
+      "client": "Kuklinski Group (3 bookings)",
+      "client_id": "kuklinski-group",
+      "assigned_to": "A3",
+      "task_name": "Document audit",
+      "scheduled_date": "2026-09-04T00:00:00",
+      "send_date": "2026-09-18T00:00:00",
+      "priority": "P0",
+      "inbox": "claude_inbox.md",
+      "description": "Task 3.1: Document audit for Kuklinski Group (3 bookings)"
+    },
+    {
+      "task_id": "3.3",
+      "client": "Kuklinski Group (3 bookings)",
+      "client_id": "kuklinski-group",
+      "assigned_to": "A2",
+      "task_name": "Pre-voyage brief",
+      "scheduled_date": "2026-11-05T00:00:00",
+      "send_date": "2026-11-26T00:00:00",
+      "priority": "P1",
+      "inbox": "opencode_inbox.md",
+      "description": "Task 3.3: Pre-voyage brief for Kuklinski Group (3 bookings)"
+    },
+    {
+      "task_id": "3.3",
+      "client": "Kuklinski Group (3 bookings)",
+      "client_id": "kuklinski-group",
+      "assigned_to": "A6",
+      "task_name": "Pre-voyage brief",
+      "scheduled_date": "2026-11-08T00:00:00",
+      "send_date": "2026-11-26T00:00:00",
+      "priority": "P1",
+      "inbox": "claude_inbox.md",
+      "description": "Task 3.3: Pre-voyage brief for Kuklinski Group (3 bookings)"
+    },
+    {
+      "task_id": "3.3",
+      "client": "Kuklinski Group (3 bookings)",
+      "client_id": "kuklinski-group",
+      "assigned_to": "A9",
+      "task_name": "Pre-voyage brief",
+      "scheduled_date": "2026-11-10T00:00:00",
+      "send_date": "2026-11-26T00:00:00",
+      "priority": "P1",
+      "inbox": "claude_inbox.md",
+      "description": "Task 3.3: Pre-voyage brief for Kuklinski Group (3 bookings)"
+    },
+    {
+      "task_id": "3.3",
+      "client": "Kuklinski Group (3 bookings)",
+      "client_id": "kuklinski-group",
+      "assigned_to": "A3",
+      "task_name": "Pre-voyage brief",
+      "scheduled_date": "2026-11-12T00:00:00",
+      "send_date": "2026-11-26T00:00:00",
+      "priority": "P1",
+      "inbox": "claude_inbox.md",
+      "description": "Task 3.3: Pre-voyage brief for Kuklinski Group (3 bookings)"
+    },
+    {
+      "task_id": "3.5",
+      "client": "Kuklinski Group (3 bookings)",
+      "client_id": "kuklinski-group",
+      "assigned_to": "A3",
+      "task_name": "Final confirmation",
+      "scheduled_date": "2026-11-26T00:00:00",
+      "send_date": "2026-12-10T00:00:00",
+      "priority": "P1",
+      "inbox": "claude_inbox.md",
+      "description": "Task 3.5: Final confirmation for Kuklinski Group (3 bookings)"
+    },
+    {
+      "task_id": "3.6",
+      "client": "Kuklinski Group (3 bookings)",
+      "client_id": "kuklinski-group",
+      "assigned_to": "A6",
+      "task_name": "Send-off email",
+      "scheduled_date": "2026-11-29T00:00:00",
+      "send_date": "2026-12-17T00:00:00",
+      "priority": "P1",
+      "inbox": "claude_inbox.md",
+      "description": "Task 3.6: Send-off email for Kuklinski Group (3 bookings)"
+    },
+    {
+      "task_id": "3.6",
+      "client": "Kuklinski Group (3 bookings)",
+      "client_id": "kuklinski-group",
+      "assigned_to": "A3",
+      "task_name": "Send-off email",
+      "scheduled_date": "2026-12-03T00:00:00",
+      "send_date": "2026-12-17T00:00:00",
+      "priority": "P1",
+      "inbox": "claude_inbox.md",
+      "description": "Task 3.6: Send-off email for Kuklinski Group (3 bookings)"
+    },
+    {
+      "task_id": "5.1",
+      "client": "Kuklinski Group (3 bookings)",
+      "client_id": "kuklinski-group",
+      "assigned_to": "A6",
+      "task_name": "Welcome home",
+      "scheduled_date": "2026-12-12T00:00:00",
+      "send_date": "2026-12-30T00:00:00",
+      "priority": "P1",
+      "inbox": "claude_inbox.md",
+      "description": "Task 5.1: Welcome home for Kuklinski Group (3 bookings)"
+    },
+    {
+      "task_id": "5.1",
+      "client": "Kuklinski Group (3 bookings)",
+      "client_id": "kuklinski-group",
+      "assigned_to": "A3",
+      "task_name": "Welcome home",
+      "scheduled_date": "2026-12-16T00:00:00",
+      "send_date": "2026-12-30T00:00:00",
+      "priority": "P1",
+      "inbox": "claude_inbox.md",
+      "description": "Task 5.1: Welcome home for Kuklinski Group (3 bookings)"
+    },
+    {
+      "task_id": "5.2",
+      "client": "Kuklinski Group (3 bookings)",
+      "client_id": "kuklinski-group",
+      "assigned_to": "A3",
+      "task_name": "Post-voyage survey",
+      "scheduled_date": "2026-12-20T00:00:00",
+      "send_date": "2027-01-03T00:00:00",
+      "priority": "P2",
+      "inbox": "claude_inbox.md",
+      "description": "Task 5.2: Post-voyage survey for Kuklinski Group (3 bookings)"
+    },
+    {
+      "task_id": "5.3",
+      "client": "Kuklinski Group (3 bookings)",
+      "client_id": "kuklinski-group",
+      "assigned_to": "A6",
+      "task_name": "Thank you + referral",
+      "scheduled_date": "2026-12-23T00:00:00",
+      "send_date": "2027-01-10T00:00:00",
+      "priority": "P1",
+      "inbox": "claude_inbox.md",
+      "description": "Task 5.3: Thank you + referral for Kuklinski Group (3 bookings)"
+    },
+    {
+      "task_id": "5.3",
+      "client": "Kuklinski Group (3 bookings)",
+      "client_id": "kuklinski-group",
+      "assigned_to": "A3",
+      "task_name": "Thank you + referral",
+      "scheduled_date": "2026-12-27T00:00:00",
+      "send_date": "2027-01-10T00:00:00",
+      "priority": "P1",
+      "inbox": "claude_inbox.md",
+      "description": "Task 5.3: Thank you + referral for Kuklinski Group (3 bookings)"
+    },
+    {
+      "task_id": "5.4",
+      "client": "Kuklinski Group (3 bookings)",
+      "client_id": "kuklinski-group",
+      "assigned_to": "A2",
+      "task_name": "Next voyage plant",
+      "scheduled_date": "2027-01-05T00:00:00",
+      "send_date": "2027-01-26T00:00:00",
+      "priority": "P2",
+      "inbox": "opencode_inbox.md",
+      "description": "Task 5.4: Next voyage plant for Kuklinski Group (3 bookings)"
+    },
+    {
+      "task_id": "5.4",
+      "client": "Kuklinski Group (3 bookings)",
+      "client_id": "kuklinski-group",
+      "assigned_to": "A6",
+      "task_name": "Next voyage plant",
+      "scheduled_date": "2027-01-08T00:00:00",
+      "send_date": "2027-01-26T00:00:00",
+      "priority": "P2",
+      "inbox": "claude_inbox.md",
+      "description": "Task 5.4: Next voyage plant for Kuklinski Group (3 bookings)"
+    },
+    {
+      "task_id": "5.4",
+      "client": "Kuklinski Group (3 bookings)",
+      "client_id": "kuklinski-group",
+      "assigned_to": "A3",
+      "task_name": "Next voyage plant",
+      "scheduled_date": "2027-01-12T00:00:00",
+      "send_date": "2027-01-26T00:00:00",
+      "priority": "P2",
+      "inbox": "claude_inbox.md",
+      "description": "Task 5.4: Next voyage plant for Kuklinski Group (3 bookings)"
+    }
+  ]
+}

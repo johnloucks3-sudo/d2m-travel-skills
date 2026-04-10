@@ -1,0 +1,16 @@
+{
+  "total_timers": 21,
+  "total_tasks": 27,
+  "priority_breakdown": {
+    "P0": 9,
+    "P1": 10,
+    "P2": 2
+  },
+  "upcoming_30d": 0,
+  "critical_path_coverage": {
+    "insurance": true,
+    "air_fares": true,
+    "hotels": true,
+    "fpd_reminder": true
+  }
+}

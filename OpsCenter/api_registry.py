@@ -98,7 +98,7 @@ APIS = {
         "base_url":  "https://openrouter.ai/api/v1",
         "cost_tier": "cheap",
         "agent":     "auto",
-        "notes":     "Multi-model gateway. Models: Qwen 3.5 Flash ($0.065/$0.26/1M, 1M ctx — bulk context), Perplexity Sonar ($1/$1/1M + $5/1K search — web research with citations), Perplexity Reasoning Pro ($2/$8/1M — CoT + web search).",
+        "notes":     "Multi-model gateway. Models: DeepSeek V3.1 (primary operational engine), Perplexity Sonar ($1/$1/1M + $5/1K search — web research with citations), Perplexity Reasoning Pro ($2/$8/1M — CoT + web search).",
         "mcp_tool":  None,
     },
 

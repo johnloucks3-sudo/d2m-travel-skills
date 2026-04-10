@@ -8,7 +8,7 @@
 | Tool | Role | Models | Cost |
 |------|------|--------|------|
 | **Claude Code** (MAX) | Primary agent — reasoning, code, strategy, client work | Opus 4.6, Sonnet 4.6 | $0 (MAX subscription) |
-| **OpenCode** | Multi-model agent — ops, scanning, bulk tasks, non-Anthropic work | 75+ providers: Gemini, DeepSeek, Llama, Qwen, Grok, OpenRouter | Free tier + pay-per-token |
+| **OpenCode** | Multi-model agent — ops, scanning, bulk tasks, non-Anthropic work | Default: DeepSeek V3.1 + 75+ providers via OpenRouter | ~$0.27/M (default) + free/paid tiers |
 | **Claude Agent SDK** | Programmatic dispatch — headless tasks, Nexus integration | Same as Claude Code | $0 (MAX) |
 
 ## WHEN TO USE WHAT
@@ -18,7 +18,7 @@
 | Client emails, proposals, voice work | Claude Code (MAX) | Best reasoning, D2M voice, $0 |
 | Code architecture, complex debugging | Claude Code (MAX) | Strongest multi-step reasoning |
 | Bulk file scanning, data processing | OpenCode (free models) | Zero cost, good enough |
-| Quick research, summarization | OpenCode (Qwen/Gemini free) | Zero cost |
+| Quick research, summarization | OpenCode (DeepSeek V3.1) | Low cost (~$0.27/M) |
 | Intel sweeps, web scraping | OpenCode or dedicated scripts | Doesn't need Opus |
 | Arbitration between conflicting outputs | Claude Code (MAX) | Judgment calls stay with Claude |
 
@@ -35,7 +35,7 @@ cd ~/Thunderbird && opencode
 opencode run "scan all Python files for deprecated imports"
 
 # OpenCode with specific model
-opencode --model opencode/qwen3.6-plus-free run "summarize this file"
+opencode --model openrouter/deepseek/deepseek-chat-v3.1 run "summarize this file"
 
 # OpenCode web UI (access from browser/phone)
 opencode web
@@ -46,7 +46,10 @@ opencode web
 Press `/model` inside OpenCode to switch models mid-session.
 
 Free models (no API key needed):
-- `opencode/qwen3.6-plus-free` — Qwen 3.6 Plus (replaces Goose's Qwen)
+Default (low-cost, ~$0.27/M):
+- `openrouter/deepseek/deepseek-chat-v3.1` — DeepSeek V3.1 (primary model)
+
+Free fallbacks (no API key needed):
 - `opencode/minimax-m2.5-free` — MiniMax M2.5
 - `opencode/nemotron-3-super-free` — Nemotron 3 Super
 
@@ -84,7 +87,7 @@ Removes OpenCode binary, config, PATH entries. Claude Code unaffected.
 
 Goose remains installed but is no longer the primary ops engine. OpenCode replaces its role:
 - Multi-model routing → OpenCode native
-- Free ops brain (Qwen) → OpenCode free tier
+- Ops brain (DeepSeek V3.1) → OpenCode default model
 - MCP tools → OpenCode MCP config
 - Headless dispatch → `opencode run` replaces `goose run`
 - Recipes → OpenCode agents/plugins

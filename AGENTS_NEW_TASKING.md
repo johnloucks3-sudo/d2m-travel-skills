@@ -75,10 +75,32 @@ Before marking any task complete, verify:
 ### 7. BUDGET ENFORCEMENT
 - **Minimize spend** — use cheapest capable model for each task
 - **Claude:** MAX OAuth — $0 (token-rate limited, not billed per-use)
-- **OpenCode default:** `opencode/qwen3.6-plus-free` — free, confirmed working 2026-04-07
+- **OpenCode default:** `openrouter/deepseek/deepseek-chat-v3.1` — ~$0.27/M tokens, confirmed working 2026-04-08
 - **Free alternatives:** `opencode/nemotron-3-super-free`, `opencode/minimax-m2.5-free`
 - **Purged:** Gemini, Groq (removed from routing — use DeepSeek or Claude)
 - **Hard stop:** Escalate to Commander if unexpected spend detected
+
+### 8. AUTHENTICATION TROUBLESHOOTING
+- **OAuth Refresh:** Run `/home/john/Thunderbird/hooks/refresh_claude_oauth_cache.sh` when `401 authentication_error` occurs
+- **Token Validation:** Check `/home/john/Thunderbird/OpsCenter/.claude_oauth_cache` exists and contains valid token
+- **Token Injection:** Watcher automatically injects OAuth token into OpenCode environment (already implemented)
+- **Fallback Procedure:** If Claude OAuth fails, use OpenCode fallback:
+  ```bash
+  opencode run -m openrouter/deepseek/deepseek-chat-v3.1 "task description"
+  ```
+- **Watcher Health:** Verify `d2m-tasking-watcher.service` is running and monitoring logs
+- **Manual Recovery:** If automated systems fail, manually invoke agents with proper environment stripping
+
+### 9. MEMORY COMMIT — OAuth Token Injection Fix (2026-04-08)
+**Issue:** OpenCode spawned by thunderbird_tasking_watcher.py could not dispatch to claude -p headless because CLAUDE_CODE_OAUTH_TOKEN was not in subprocess environment.
+
+**Fix Applied:** Modified `spawn_opencode_headless()` function in `/home/john/Thunderbird/OpsCenter/thunderbird_tasking_watcher.py` to:
+- Load fresh OAuth token from cache file before subprocess.Popen()
+- Inject token into OpenCode's environment variables
+- Log successful token loading
+- Handle cache file exceptions gracefully
+
+**Production Status:** ✅ Fix implemented and running in production watcher service
 
 ## CROSS-AGENT DELEGATION PATTERNS
 

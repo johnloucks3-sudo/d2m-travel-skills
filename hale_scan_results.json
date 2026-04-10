@@ -1,0 +1,25 @@
+{
+  "timestamp": "2026-04-09T20:57:36.835313",
+  "scans": {
+    "deadline_radar": [
+      {
+        "type": "deadline",
+        "client": "Westbrook",
+        "deadline": "2026-04-15",
+        "days_out": 7,
+        "status": "UPCOMING",
+        "priority": "HIGH"
+      }
+    ],
+    "stale_tasks": [],
+    "staff_gaps": [
+      {
+        "type": "system_gap",
+        "issue": "staff_load tracking not implemented - using inbox activity fallback",
+        "priority": "MEDIUM"
+      }
+    ],
+    "data_consistency": [],
+    "conflict_detection": []
+  }
+}

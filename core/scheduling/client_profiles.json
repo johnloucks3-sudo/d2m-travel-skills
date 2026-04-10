@@ -1,0 +1,178 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Client Profile Schema for Date Flexibility Engine",
+  "description": "Stores client booking behavior pattern to inform timeline window recommendations",
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "type": "string",
+      "description": "Unique client identifier (e.g., 'westbrook_brent_kim')"
+    },
+    "client_name": {
+      "type": "string",
+      "description": "Human-readable client name"
+    },
+    "booking_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Initial booking timestamp"
+    },
+    "cruise_departure": {
+      "type": "string",
+      "format": "date",
+      "description": "Cruise departure date (YYYY-MM-DD)"
+    },
+    "days_until_departure": {
+      "type": "integer",
+      "description": "Calculated days from today to departure"
+    },
+    "profile": {
+      "type": "object",
+      "properties": {
+        "is_first_time_cruiser": {
+          "type": "boolean",
+          "description": "True if client has never cruised before"
+        },
+        "prior_bookings_count": {
+          "type": "integer",
+          "description": "Number of previous cruise bookings"
+        },
+        "booking_behavior_pattern": {
+          "type": "string",
+          "enum": ["early_planner", "mid_planner", "late_planner", "unknown"],
+          "description": "Client's typical booking window preference"
+        },
+        "risk_tolerance": {
+          "type": "string",
+          "enum": ["low", "medium", "high"],
+          "description": "Client's comfort with booking window timing"
+        },
+        "budget_tier": {
+          "type": "string",
+          "enum": ["budget", "mid-range", "premium", "luxury"],
+          "description": "Financial tier (impacts research depth & timing)"
+        },
+        "stated_preference": {
+          "type": "string",
+          "description": "Client's explicit preference from initial call (e.g., 'want to book flights early')"
+        },
+        "special_requirements": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Any special constraints (e.g., 'must finalize flights before school starts')"
+        }
+      },
+      "required": ["is_first_time_cruiser", "budget_tier"],
+      "additionalProperties": false
+    },
+    "timeline_windows": {
+      "type": "object",
+      "description": "Window recommendations for each decision point",
+      "properties": {
+        "flight_booking": {
+          "$ref": "#/definitions/decision_window"
+        },
+        "hotel_research": {
+          "$ref": "#/definitions/decision_window"
+        },
+        "excursion_research": {
+          "$ref": "#/definitions/decision_window"
+        },
+        "dining_research": {
+          "$ref": "#/definitions/decision_window"
+        },
+        "transfer_coordination": {
+          "$ref": "#/definitions/decision_window"
+        },
+        "final_confirmations": {
+          "$ref": "#/definitions/decision_window"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "decision_window": {
+      "type": "object",
+      "properties": {
+        "window_start_days": {
+          "type": "integer",
+          "description": "T-minus: earliest reasonable date for this decision"
+        },
+        "window_end_days": {
+          "type": "integer",
+          "description": "T-minus: latest acceptable date for this decision"
+        },
+        "system_recommendation_days": {
+          "type": "integer",
+          "description": "T-minus: recommended trigger date (calculated from profile)"
+        },
+        "rationale": {
+          "type": "string",
+          "description": "Why this recommendation for this client"
+        }
+      },
+      "required": ["window_start_days", "window_end_days", "system_recommendation_days"],
+      "additionalProperties": false
+    }
+  },
+  "required": ["client_id", "client_name", "cruise_departure", "profile"],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "client_id": "westbrook_brent_kim",
+      "client_name": "Brent & Kim Westbrook",
+      "booking_date": "2026-04-07T09:30:00Z",
+      "cruise_departure": "2026-04-23",
+      "days_until_departure": 16,
+      "profile": {
+        "is_first_time_cruiser": false,
+        "prior_bookings_count": 1,
+        "booking_behavior_pattern": "early_planner",
+        "risk_tolerance": "medium",
+        "budget_tier": "premium",
+        "stated_preference": "want best flight options, willing to book early",
+        "special_requirements": []
+      },
+      "timeline_windows": {
+        "flight_booking": {
+          "window_start_days": 180,
+          "window_end_days": 60,
+          "system_recommendation_days": 150,
+          "rationale": "Early planner + premium = book at T-150 for best options"
+        },
+        "hotel_research": {
+          "window_start_days": 210,
+          "window_end_days": 90,
+          "system_recommendation_days": 180,
+          "rationale": "Premium tier wants advanced planning"
+        },
+        "excursion_research": {
+          "window_start_days": 150,
+          "window_end_days": 20,
+          "system_recommendation_days": 120,
+          "rationale": "Premium tier wants choices; start research early"
+        },
+        "dining_research": {
+          "window_start_days": 120,
+          "window_end_days": 30,
+          "system_recommendation_days": 60,
+          "rationale": "Premium tier; timing gives 2 weeks for confirmations"
+        },
+        "transfer_coordination": {
+          "window_start_days": 90,
+          "window_end_days": 15,
+          "system_recommendation_days": 45,
+          "rationale": "Coordinated with flight booking; 1 month buffer"
+        },
+        "final_confirmations": {
+          "window_start_days": 30,
+          "window_end_days": 7,
+          "system_recommendation_days": 14,
+          "rationale": "Standard 2-week final confirmation window"
+        }
+      }
+    }
+  ]
+}

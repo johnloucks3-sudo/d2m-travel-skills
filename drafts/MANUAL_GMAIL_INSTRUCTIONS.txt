@@ -1,0 +1,35 @@
+# MANUAL GMAIL DRAFT CREATION - IMMEDIATE SOLUTION
+
+Since automated draft creation failed after 3 attempts, here's how to manually create the draft:
+
+## STEP 1: Open Gmail
+1. Go to https://mail.google.com
+2. Click COMPOSE
+
+## STEP 2: Copy/Paste Email Content
+From file: /home/john/Thunderbird/drafts/commander_to_kyle_lifecycle_explanation.html
+
+Copy the entire HTML content and paste into Gmail compose window.
+
+## STEP 3: Set Email Details
+- TO: kyle.kuklinski@gmail.com
+- FROM: d2mconcierge@gmail.com (use Send As if needed)
+- SUBJECT: Your Panama Canal Cruise Planning Timeline & D2M Service Process
+
+## STEP 4: Save as Draft
+Click the X in compose window and choose "Save draft"
+
+## STEP 5: WF-17 Review
+Review the draft for:
+✅ Logo renders in header/footer
+✅ Signature: concierge@d2mluxury.quest  
+✅ Stationery: cream #f7f3ea, blue #0000ff, Georgia
+✅ Sign-off: "Thanks" (not "Best")
+✅ No unpaid markers or "happy to help"
+
+## STEP 6: Send After Approval
+Once reviewed and approved, open draft and click SEND.
+
+---
+This manual process is provided because automated draft creation failed after 3 attempts.
+Claude has been tasked to fix the automated system (GMAIL-DRAFT-CREATION-FAILURE-001).

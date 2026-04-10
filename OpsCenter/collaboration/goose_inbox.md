@@ -129,3 +129,59 @@ NEXUS: Test — verify daemon picked this up
 **NEXUS TASK** | Mission: MISSION-003 | 2026-04-06T00:42:30
 Test — verify daemon picked this up
 status:PENDING
+
+## TASK: EMAIL-SCAN-20260408034357
+status: UNREAD
+from: Email Scanner
+priority: P1
+task: |
+  **Staff Mention Detected: MOREAU**
+  From: john loucks3 <johnloucks3@gmail.com>
+  Subject: here is the plan
+  Message ID: 19d493ee4c4e23e0
+
+  Email detected and flagged for MOREAU.
+  Please review and task out as appropriate.
+
+
+## TASK: EMAIL-SCAN-20260408034400
+status: UNREAD
+from: Email Scanner
+priority: P1
+task: |
+  **Staff Mention Detected: MOREAU**
+  From: john loucks3 <johnloucks3@gmail.com>
+  Subject: re: silver muse mediterranean — your complete transfer plan
+  Message ID: 19d2cd202a995f3d
+
+  Email detected and flagged for MOREAU.
+  Please review and task out as appropriate.
+
+
+## TASK: EMAIL-SCAN-20260408034402
+status: UNREAD
+from: Email Scanner
+priority: P1
+task: |
+  **Staff Mention Detected: HARLAN**
+  From: john loucks3 <johnloucks3@gmail.com>
+  Subject: [a9] client: loucks — the points guy: why you might want to ge
+  Message ID: 19d0bdc945ad6d25
+
+  Email detected and flagged for HARLAN.
+  Please review and task out as appropriate.
+
+
+## TASK: EMAIL-SCAN-20260408034404
+status: UNREAD
+from: Email Scanner
+priority: P1
+task: |
+  **Staff Mention Detected: HARLAN**
+  From: john loucks3 <johnloucks3@gmail.com>
+  Subject: fwd: the points guy: why you might want to get a premium credit card instead of purchasing travel insurance [a9]
+  Message ID: 19d0bdb7b85a945b
+
+  Email detected and flagged for HARLAN.
+  Please review and task out as appropriate.
+

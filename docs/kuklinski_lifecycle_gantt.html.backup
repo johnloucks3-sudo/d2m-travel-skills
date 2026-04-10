@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kuklinski Group · Production Lifecycle · Viking Mars Panama Canal</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  background: #1a1a2e;
+  color: #2c2c2c;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.page {
+  max-width: 1380px;
+  margin: 0 auto;
+  background: white;
+  border: 2px solid #A9B0B7;
+  border-radius: 6px;
+  box-shadow: 0 12px 60px rgba(0,0,0,0.6);
+  overflow: hidden;
+}
+
+/* ── HEADER ── */
+.header {
+  background: linear-gradient(135deg, #000d3a 0%, #001a5c 45%, #003087 100%);
+  padding: 24px 36px 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.header img { height: 72px; width: auto; flex-shrink: 0; }
+.header-logo-fallback {
+  height: 72px; width: 120px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; color: #A9B0B7; letter-spacing: 2px; text-align: center;
+}
+.header-text { flex: 1; }
+.header-text h1 {
+  font-size: 20px; color: #A9B0B7; letter-spacing: 2.5px; font-weight: bold;
+}
+.header-text .sub {
+  font-size: 11px; color: rgba(255,255,255,0.65); letter-spacing: 2.5px;
+  text-transform: uppercase; margin-top: 5px; font-style: italic;
+}
+.header-badges { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; flex-shrink: 0; }
+.badge {
+  padding: 4px 12px; border-radius: 12px; font-size: 10px;
+  letter-spacing: 1px; text-transform: uppercase; font-weight: bold; white-space: nowrap;
+}
+.b-green  { background: #2d6a4f; color: white; }
+.b-blue   { background: rgba(0,48,135,0.8); color: #d4d8de; border: 1px solid #A9B0B7; }
+.b-red    { background: rgba(230,57,70,0.85); color: white; }
+
+/* ── SILVER RULE ── */
+.silver-rule {
+  height: 3px;
+  background: linear-gradient(90deg, #000d3a, #A9B0B7 30%, #ffffff 50%, #A9B0B7 70%, #000d3a);
+}
+
+/* ── STATUS BAR ── */
+.status-bar {
+  background: #f5f7fc;
+  border-bottom: 1px solid #dde2ee;
+  padding: 10px 28px;
+  display: flex; gap: 18px; align-items: center; flex-wrap: wrap;
+}
+.si { display: flex; align-items: center; gap: 6px; font-size: 11.5px; color: #333; }
+.sd { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+.today-badge {
+  margin-left: auto; font-size: 11px; color: #003087; font-weight: bold;
+  letter-spacing: 1px; border: 1.5px solid #003087; padding: 3px 10px; border-radius: 10px;
+}
+
+/* ── LEGEND ── */
+.legend {
+  padding: 9px 28px; border-bottom: 2px solid #dde2ee;
+  display: flex; gap: 14px; flex-wrap: wrap; align-items: center; background: white;
+}
+.ll { font-size: 10px; color: #003087; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; margin-right: 4px; }
+.li { display: flex; align-items: center; gap: 5px; font-size: 10.5px; color: #444; }
+.ls { width: 18px; height: 11px; border-radius: 3px; flex-shrink: 0; }
+.ld { width: 8px; height: 8px; transform: rotate(45deg); flex-shrink: 0; background: rgba(169,176,183,0.7); }
+
+/* ── GANTT LAYOUT ── */
+.gantt-wrap { display: flex; overflow-x: auto; }
+
+/* Label column */
+#labelCol {
+  flex-shrink: 0;
+  width: 272px;
+  border-right: 2px solid #dde2ee;
+  background: white;
+}
+.lh {
+  height: 44px; background: #f0f4ff;
+  border-bottom: 2px solid #dde2ee;
+  display: flex; align-items: center; padding: 0 14px;
+  font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: #003087; font-weight: bold;
+}
+.lr {
+  display: flex; align-items: center;
+  border-bottom: 1px solid #eef1f8;
+  padding: 0 12px; gap: 7px; overflow: hidden;
+}
+.lr.ph {
+  font-weight: bold; font-size: 10px; letter-spacing: 1.5px;
+  text-transform: uppercase; color: #003087;
+}
+.lr.tr { font-size: 11.5px; color: #2c2c2c; }
+.ln { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lo { font-size: 9px; color: #A9B0B7; letter-spacing: 0.5px; white-space: nowrap; margin-left: auto; }
+
+/* SVG area */
+#svgWrap { flex: 1; overflow-x: auto; min-width: 0; }
+
+/* ── FOOTER ── */
+.footer {
+  background: linear-gradient(135deg, #001a5c 0%, #003087 100%);
+  padding: 13px 36px; text-align: center;
+}
+.footer span { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #A9B0B7; }
+.footer .leg { display: block; font-size: 9px; color: rgba(169,176,183,0.5); margin-top: 3px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <img src="d2m_logo_email.png" alt="D2M" onerror="this.style.display='none';document.getElementById('logoFallback').style.display='flex';">
+    <div id="logoFallback" class="header-logo-fallback" style="display:none">DREAMS2<br>MEMORIES</div>
+    <div class="header-text">
+      <h1>KUKLINSKI GROUP · PRODUCTION LIFECYCLE</h1>
+      <div class="sub">Viking Mars · Panama Canal · December 17–27, 2026 · 3 Bookings · 6 Guests · Panama City → Fort Lauderdale</div>
+    </div>
+    <div class="header-badges">
+      <span class="badge b-green">✅ PAID IN FULL — $21,244</span>
+      <span class="badge b-blue">T-254 DAYS · ZONE 1 — COMMITMENT</span>
+      <span class="badge b-red">⚡ EXCURSION WINDOW OPEN NOW</span>
+    </div>
+  </div>
+  <div class="silver-rule"></div>
+
+  <!-- STATUS BAR -->
+  <div class="status-bar">
+    <div class="si"><div class="sd" style="background:#2d6a4f"></div>3 Bookings Confirmed</div>
+    <div class="si"><div class="sd" style="background:#2d6a4f"></div>$21,244 Paid Mar 27</div>
+    <div class="si"><div class="sd" style="background:#e63946"></div>Insurance NOT Booked</div>
+    <div class="si"><div class="sd" style="background:#e09858"></div>Guest Forms Partial (Josh missing)</div>
+    <div class="si"><div class="sd" style="background:#e63946"></div>Validation Email Overdue</div>
+    <div class="si"><div class="sd" style="background:#d4502a"></div>Excursion Window Open — Act Now</div>
+    <div class="si"><div class="sd" style="background:#5a5a8a"></div>Flights / Hotels / Transfers: None</div>
+    <div class="today-badge">TODAY: Apr 7, 2026</div>
+  </div>
+
+  <!-- LEGEND -->
+  <div class="legend">
+    <span class="ll">Status →</span>
+    <div class="li"><div class="ls" style="background:#2d6a4f"></div>Done</div>
+    <div class="li"><div class="ls" style="background:#e63946"></div>Overdue</div>
+    <div class="li"><div class="ls" style="background:#e09858"></div>Partial</div>
+    <div class="li"><div class="ls" style="background:#d4502a"></div>Urgent</div>
+    <div class="li"><div class="ls" style="background:#003087;background:repeating-linear-gradient(45deg,#003087,#003087 4px,#1a4a8a 4px,#1a4a8a 8px)"></div>Active</div>
+    <div class="li"><div class="ls" style="background:#5fa8d3"></div>Next 30d</div>
+    <div class="li"><div class="ls" style="background:#93c5e8"></div>1–3 mo</div>
+    <div class="li"><div class="ls" style="background:#b8daf0"></div>3–6 mo</div>
+    <div class="li"><div class="ls" style="background:#daeef8"></div>6+ mo</div>
+    <div class="li"><div class="ls" style="background:#1a1a5c"></div>Voyage</div>
+    <div class="li"><div class="ls" style="background:#c9b1d9"></div>Post-Voyage</div>
+    <div class="li" style="margin-left:8px"><span style="color:#e63946;font-size:14px;font-weight:bold;line-height:1">┆</span>&nbsp;Today</div>
+    <div class="li"><div class="ls" style="background:#1a1a5c;opacity:0.4"></div>Embark</div>
+    <div class="li"><div class="ld"></div>Draft Due</div>
+    <div class="li"><span style="font-size:13px;color:#666;">◆</span>&nbsp;Milestone</div>
+  </div>
+
+  <!-- GANTT -->
+  <div class="gantt-wrap">
+    <div id="labelCol"><div class="lh">Task / Deliverable</div></div>
+    <div id="svgWrap"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>Dreams2Memories Travel, LLC · Monument, CO · Kuklinski Production Lifecycle v1.0 · Generated Apr 7, 2026</span>
+    <span class="leg">FL ST1578 · CA 2090937-50 · WA UBID 603189022 · IA 1202 · Viking Mars #9593880 / #9593873 / #9595029</span>
+  </div>
+
+</div><!-- /page -->
+
+<script>
+// ═══════════════════════════════════════════════
+// KUKLINSKI LIFECYCLE GANTT ENGINE
+// ═══════════════════════════════════════════════
+
+const TL_START = new Date('2026-02-20');
+const TL_END   = new Date('2027-03-01');
+const TODAY    = new Date('2026-04-07');
+const CW       = 1060; // chart pixel width
+const ROW_H    = 31;
+const PH_H     = 26;   // phase header height
+const HDR_H    = 44;   // month header height
+const BAR_H    = 13;
+const DOT_R    = 7;
+
+const STATUS_COLOR = {
+  done:           '#2d6a4f',
+  overdue:        '#e63946',
+  partial:        '#e09858',
+  urgent:         '#d4502a',
+  active:         '#003087',
+  in_progress:    '#1a6bb5',
+  upcoming_near:  '#5fa8d3',
+  upcoming_mid:   '#93c5e8',
+  upcoming_later: '#b8daf0',
+  upcoming_far:   '#daeef8',
+  voyage:         '#1a1a5c',
+  post_voyage:    '#c9b1d9',
+  milestone_open: '#4a90d9',
+};
+
+const PHASES = [
+  { id:0, label:'00 // ONBOARDING',     bg:'rgba(255,245,180,0.3)'  },
+  { id:1, label:'01 // DISCOVERY',      bg:'rgba(200,185,255,0.22)' },
+  { id:2, label:'02 // MOMENTUM',       bg:'rgba(180,255,210,0.2)'  },
+  { id:3, label:'03 // PRE-DEPARTURE',  bg:'rgba(255,220,130,0.22)' },
+  { id:4, label:'04 // VOYAGE',         bg:'rgba(20,20,80,0.1)'     },
+  { id:5, label:'05 // POST-VOYAGE',    bg:'rgba(210,180,255,0.22)' },
+];
+
+// n = note shown on hover, dd = draft due date
+const TASKS = [
+  // ── Phase 0 ──
+  { p:0, name:'Booking Confirmed',         ow:'Commander',    ty:'point',   dt:'2026-02-07', st:'done'           },
+  { p:0, name:'Dossier Created',           ow:'COS',          ty:'point',   dt:'2026-02-10', st:'done'           },
+  { p:0, name:'FPD Paid — $21,244',        ow:'Kyle Kuklinski',ty:'point',  dt:'2026-03-27', st:'done',          n:'Paid 4 days early — $21,244 all 3 bookings'},
+  { p:0, name:'Insurance Email ⚠',        ow:'A9→A3',        ty:'point',   dt:'2026-03-17', st:'overdue', dd:'2026-03-10', n:'CRITICAL: Pre-existing waiver window closes D+21. NOT SENT.'},
+  { p:0, name:'Guest Profile Forms',       ow:'A3',           ty:'point',   dt:'2026-02-21', st:'partial',        n:'5/6 complete — Josh Morton form still missing'},
+  { p:0, name:'Welcome/Validation Email',  ow:'极→A6→A9→A3', ty:'point',   dt:'2026-02-21', st:'overdue', dd:'2026-02-14', n:'Not sent as of Apr 7. 3 couples need full cruise validation.'},
+
+  // ── Phase 1 ──
+  { p:1, name:'Air Fare Watch (6 guests)', ow:'A2',           ty:'bar',   s:'2026-03-27', e:'2026-07-17', st:'active',      n:'International fares — RIC→PTY and RSW/MHT→FLL return routes'},
+  { p:1, name:'Hotel Fare Watch (3+3)',    ow:'A2',           ty:'bar',   s:'2026-03-27', e:'2026-09-17', st:'active',      n:'3 nights Panama City (pre) + 3 nights FLL (post) per couple'},
+  { p:1, name:'A2 Destination Research',  ow:'A2',           ty:'bar',   s:'2026-04-07', e:'2026-05-01', st:'in_progress', n:'Panama Canal transit intel, excursion landscape, shore operators'},
+  { p:1, name:'Voyage Preview Email',     ow:'A6→A3',        ty:'point', dt:'2026-05-07', st:'upcoming_near', dd:'2026-04-23', n:'Light touch — destination preview, build anticipation'},
+  { p:1, name:'Air: Fare Watch Delivery', ow:'A2→A3',        ty:'point', dt:'2026-06-17', st:'upcoming_mid',  dd:'2026-06-03', n:'Where fares stand — RIC and RSW markets. Rec with rationale.'},
+  { p:1, name:'Hotel: 3+3 Search Delivery',ow:'A2→A6→A3',   ty:'point', dt:'2026-06-17', st:'upcoming_mid',  dd:'2026-06-03', n:'3 curated Panama City + 3 FLL options. Name/link/images/price/comments.'},
+
+  // ── Phase 2 ──
+  { p:2, name:'⚡ Excursion Research',    ow:'A2',           ty:'bar',   s:'2026-04-07', e:'2026-04-21', st:'urgent',       n:'WINDOW OPEN FROM BOOKING. Viking opens day of booking. Already 4 weeks late.'},
+  { p:2, name:'⚡ Excursion Rec Email',   ow:'A2→A6→A3',    ty:'point', dt:'2026-08-01', st:'upcoming_later', dd:'2026-07-25',    n:'DRAFT DUE TODAY Apr 7. Panama Canal transit + port excursions for 3 couples.'},
+  { p:2, name:'Air Booking Decision',     ow:'A2→A3',        ty:'point', dt:'2026-07-17', st:'upcoming_later', dd:'2026-07-03', n:'International fares usually lock 5-6 months out. Dec travel competes with holidays.'},
+  { p:2, name:'Pre/Post Hotel Booking',   ow:'A2→A6→A3',    ty:'point', dt:'2026-08-17', st:'upcoming_later', dd:'2026-08-03', n:'Panama City 3+3 and FLL 3+3. Luxury props fill in holiday season.'},
+  { p:2, name:'Monthly Validations ×8',  ow:'A3',           ty:'series', dates:['2026-04-15','2026-05-15','2026-06-15','2026-07-15','2026-08-15','2026-09-15','2026-10-15','2026-11-15'] },
+  { p:2, name:'Dining Research',          ow:'A2',           ty:'bar',   s:'2026-08-18', e:'2026-09-04', st:'upcoming_later', n:'Viking specialty restaurants — research opens, identify top bookings per couple'},
+  { p:2, name:'Dining Window (T−90) ◆',  ow:'COS',          ty:'mlst',  dt:'2026-09-18', st:'milestone_open',    n:'Viking dining reservations open T-90. Have recs ready day-of.'},
+  { p:2, name:'Dining Reservations Email',ow:'A3',           ty:'point', dt:'2026-09-18', st:'upcoming_later', dd:'2026-09-04', n:'Confirmed specialty dining for 3 couples + options still open'},
+  { p:2, name:'Online Check-in Opens ◆', ow:'COS→A3',       ty:'mlst',  dt:'2026-09-18', st:'milestone_open',    n:'Viking online check-in opens T-90 days'},
+  { p:2, name:'Document Audit Email',     ow:'A3',           ty:'point', dt:'2026-09-18', st:'upcoming_later', dd:'2026-09-04', n:'Passport validity (6 guests), visa check (US/Panama), travel insurance confirmation #s'},
+
+  // ── Phase 3 ──
+  { p:3, name:'Pre-Voyage Brief',         ow:'A2→A6→A9→A3', ty:'point', dt:'2026-11-26', st:'upcoming_far', dd:'2026-11-12', n:'Full production: flights, hotels, embark logistics, excursion recap, dining, packing, ship intel, emergency contacts. 3 couples.'},
+  { p:3, name:'Final Confirmation',       ow:'A3',           ty:'point', dt:'2026-12-10', st:'upcoming_far', dd:'2026-11-26', n:'Flight reconfirmation, hotel check-in times, transfer confirmed, concierge contacts'},
+  { p:3, name:'Send-Off Email',           ow:'A6→A3',        ty:'point', dt:'2026-12-14', st:'upcoming_far', dd:'2026-11-30', n:'Short. Warm. Specific. Not logistics — a human moment.'},
+
+  // ── Phase 4 ──
+  { p:4, name:'VOYAGE — Viking Mars',     ow:'D2M Active',   ty:'bar',   s:'2026-12-17', e:'2026-12-27', st:'voyage', n:'Panama City (PCL/Fuerte Amador) → Transit → Fort Lauderdale (Port Everglades)'},
+
+  // ── Phase 5 ──
+  { p:5, name:'Welcome Home Email',       ow:'A6→A3',        ty:'point', dt:'2026-12-28', st:'post_voyage', dd:'2026-12-14', n:'Warm, personal. References something specific if possible.'},
+  { p:5, name:'Post-Voyage Survey',       ow:'A3',           ty:'point', dt:'2027-01-03', st:'post_voyage', dd:'2026-12-20', n:'5 questions max. Google Form. Specific to their Panama Canal experience.'},
+  { p:5, name:'Thank You + Referral',     ow:'A6→A3',        ty:'point', dt:'2027-01-10', st:'post_voyage', dd:'2026-12-27', n:'Genuine. Soft referral language only.'},
+  { p:5, name:'Next Voyage Plant',        ow:'A2→A6→A3',     ty:'point', dt:'2027-01-27', st:'post_voyage', dd:'2027-01-13', n:'One idea. Relevant. No pressure. E.g. Amazon River, Galapagos, Norwegian Fjords.'},
+];
+
+// ─── Build row list (interleave phase headers) ───
+const rows = [];
+let curPhase = -1;
+for (const t of TASKS) {
+  if (t.p !== curPhase) {
+    rows.push({ type:'phase', phase: t.p });
+    curPhase = t.p;
+  }
+  rows.push({ type:'task', task: t });
+}
+
+// ─── Calculate heights ───
+let totalH = HDR_H;
+const rowMeta = [];
+for (const r of rows) {
+  const h = r.type === 'phase' ? PH_H : ROW_H;
+  rowMeta.push({ ...r, y: totalH, h });
+  totalH += h;
+}
+
+// ─── date → x pixel ───
+function dx(dateStr) {
+  const d = new Date(dateStr);
+  const total = TL_END - TL_START;
+  const off = d - TL_START;
+  return Math.round(Math.max(0, Math.min(CW, (off / total) * CW)));
+}
+
+// ─── Populate label column ───
+const labelCol = document.getElementById('labelCol');
+for (const rm of rowMeta) {
+  const div = document.createElement('div');
+  if (rm.type === 'phase') {
+    div.className = 'lr ph';
+    div.style.height = PH_H + 'px';
+    div.style.background = PHASES[rm.phase].bg;
+    div.textContent = PHASES[rm.phase].label;
+  } else {
+    const t = rm.task;
+    div.className = 'lr tr';
+    div.style.height = ROW_H + 'px';
+    const dot = document.createElement('span');
+    dot.style.cssText = `width:7px;height:7px;border-radius:50%;background:${STATUS_COLOR[t.st]||'#ccc'};flex-shrink:0;display:inline-block;`;
+    div.appendChild(dot);
+    const name = document.createElement('span');
+    name.className = 'ln';
+    name.textContent = t.name;
+    if (t.n) { name.title = t.n; name.style.cursor = 'help'; }
+    div.appendChild(name);
+    const ow = document.createElement('span');
+    ow.className = 'lo';
+    ow.textContent = t.ow;
+    div.appendChild(ow);
+  }
+  labelCol.appendChild(div);
+}
+
+// ─── Build SVG ───
+const NS = 'http://www.w3.org/2000/svg';
+const svg = document.createElementNS(NS, 'svg');
+const SVG_W = CW + 60;
+svg.setAttribute('width', SVG_W);
+svg.setAttribute('height', totalH);
+svg.setAttribute('style', 'font-family: Georgia, serif; display:block;');
+document.getElementById('svgWrap').appendChild(svg);
+
+function el(tag, attrs, parent) {
+  const e = document.createElementNS(NS, tag);
+  for (const [k,v] of Object.entries(attrs)) e.setAttribute(k, v);
+  if (parent) parent.appendChild(e);
+  return e;
+}
+
+const gBg   = el('g', {}, svg);   // phase bands
+const gGrid = el('g', {}, svg);   // gridlines
+const gTask = el('g', {}, svg);   // task elements
+const gOver = el('g', {}, svg);   // overlay lines (today, embark)
+const gHdr  = el('g', {}, svg);   // month headers (on top)
+
+// ─── Month header background ───
+el('rect', { x:0, y:0, width:SVG_W, height:HDR_H, fill:'#f0f4ff' }, gHdr);
+
+// ─── Month columns ───
+const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+let md = new Date(TL_START);
+while (md < TL_END) {
+  const x = dx(md.toISOString().slice(0,10)) + 20;
+  // Grid line
+  el('line', { x1:x, x2:x, y1:HDR_H, y2:totalH, stroke:'#e8eef8', 'stroke-width':1 }, gGrid);
+  // Month label
+  el('text', { x:x+4, y:18, 'font-size':11, fill:'#003087', 'font-weight':'bold', 'letter-spacing':0.5 }, gHdr).textContent = MONTHS[md.getMonth()];
+  el('text', { x:x+4, y:32, 'font-size':8, fill:'#A9B0B7' }, gHdr).textContent = md.getFullYear();
+  md.setMonth(md.getMonth() + 1);
+}
+
+// ─── Phase bands ───
+for (const rm of rowMeta) {
+  if (rm.type === 'phase') {
+    el('rect', { x:0, y:rm.y, width:SVG_W, height:PH_H, fill:PHASES[rm.phase].bg }, gBg);
+    el('line', { x1:0, x2:SVG_W, y1:rm.y, y2:rm.y, stroke:'rgba(0,48,135,0.1)', 'stroke-width':1 }, gBg);
+  }
+}
+
+// ─── Helper: stripe pattern for active bars ───
+let patCount = 0;
+function stripePattern(color, parent) {
+  const id = 'stripe' + (patCount++);
+  const p = el('pattern', { id, patternUnits:'userSpaceOnUse', width:8, height:8, patternTransform:'rotate(45)' }, svg.querySelector('defs') || el('defs', {}, svg));
+  el('rect', { x:0, y:0, width:4, height:8, fill:color }, p);
+  el('rect', { x:4, y:0, width:4, height:8, fill:'rgba(255,255,255,0.15)' }, p);
+  return `url(#${id})`;
+}
+
+// ─── Render task rows ───
+for (const rm of rowMeta) {
+  if (rm.type !== 'task') continue;
+  const t = rm.task;
+  const cy = rm.y + ROW_H / 2;
+  const col = STATUS_COLOR[t.st] || '#ccc';
+
+  // Row zebra
+  if (rowMeta.indexOf(rm) % 2 === 0) {
+    el('rect', { x:0, y:rm.y, width:SVG_W, height:ROW_H, fill:'rgba(248,250,255,0.5)' }, gTask);
+  }
+
+  // ── BAR ──
+  if (t.ty === 'bar') {
+    const x1 = dx(t.s) + 20;
+    const x2 = dx(t.e) + 20;
+    const bw = Math.max(x2 - x1, 6);
+    // shadow
+    el('rect', { x:x1+1, y:cy-BAR_H/2+1, width:bw, height:BAR_H, rx:3, fill:'rgba(0,0,0,0.10)' }, gTask);
+    // bar
+    const bar = el('rect', { x:x1, y:cy-BAR_H/2, width:bw, height:BAR_H, rx:3, fill:col }, gTask);
+    if (t.n) { el('title', {}, bar).textContent = t.n; }
+    // stripe for active
+    if (t.st === 'active') {
+      const pid = stripePattern(col);
+      el('rect', { x:x1, y:cy-BAR_H/2, width:bw, height:BAR_H, rx:3, fill:pid }, gTask);
+    }
+    // voyage label — only if bar is wide enough
+    if (t.st === 'voyage' && bw > 50) {
+      const lx = x1 + bw/2;
+      const lt = el('text', { x:lx, y:cy+1, 'text-anchor':'middle', 'font-size':8, fill:'#d4d8de', 'font-weight':'bold' }, gTask);
+      lt.textContent = 'DEC 17–27';
+    }
+
+  // ── POINT ──
+  } else if (t.ty === 'point') {
+    const x = dx(t.dt) + 20;
+    // Draft due marker
+    if (t.dd) {
+      const ddx = dx(t.dd) + 20;
+      if (ddx < x - 4) {
+        el('polygon', { points:`${ddx},${cy-5} ${ddx+5},${cy} ${ddx},${cy+5} ${ddx-5},${cy}`, fill:'rgba(169,176,183,0.55)' }, gTask);
+        el('line', { x1:ddx+5, x2:x-DOT_R, y1:cy, y2:cy, stroke:'rgba(169,176,183,0.35)', 'stroke-width':1, 'stroke-dasharray':'3,2' }, gTask);
+      }
+    }
+    // shadow
+    el('circle', { cx:x+1, cy:cy+1, r:DOT_R, fill:'rgba(0,0,0,0.12)' }, gTask);
+    // dot
+    const circ = el('circle', { cx:x, cy, r:DOT_R, fill:col }, gTask);
+    if (t.n) { el('title', {}, circ).textContent = t.name + ' — ' + t.n; }
+    // icon
+    if (t.st === 'done') {
+      el('text', { x, y:cy+3.5, 'text-anchor':'middle', 'font-size':8, fill:'white', 'font-weight':'bold' }, gTask).textContent = '✓';
+    } else if (t.st === 'overdue' || t.st === 'urgent') {
+      el('text', { x, y:cy+3.5, 'text-anchor':'middle', 'font-size':9, fill:'white', 'font-weight':'bold' }, gTask).textContent = '!';
+    }
+
+  // ── MILESTONE ──
+  } else if (t.ty === 'mlst') {
+    const x = dx(t.dt) + 20;
+    const s = 9;
+    el('polygon', { points:`${x},${cy-s} ${x+s},${cy} ${x},${cy+s} ${x-s},${cy}`, fill:col, stroke:'white', 'stroke-width':1.5 }, gTask);
+
+  // ── SERIES (monthly validations) ──
+  } else if (t.ty === 'series') {
+    const firstFuture = t.dates.findIndex(d => new Date(d) > TODAY);
+    t.dates.forEach((dateStr, i) => {
+      const x = dx(dateStr) + 20;
+      const isPast = new Date(dateStr) <= TODAY;
+      const isNext = i === firstFuture;
+      const c = isPast ? STATUS_COLOR.done : (isNext ? STATUS_COLOR.upcoming_near : STATUS_COLOR.upcoming_later);
+      if (i < t.dates.length - 1) {
+        const nx = dx(t.dates[i+1]) + 20;
+        el('line', { x1:x+5, x2:nx-5, y1:cy, y2:cy, stroke:'rgba(169,176,183,0.45)', 'stroke-width':1, 'stroke-dasharray':'2,3' }, gTask);
+      }
+      el('circle', { cx:x, cy, r:5.5, fill:c }, gTask);
+      if (isPast) el('text', { x, y:cy+3, 'text-anchor':'middle', 'font-size':7, fill:'white', 'font-weight':'bold' }, gTask).textContent = '✓';
+    });
+  }
+}
+
+// ─── TODAY line ───
+const todayX = dx('2026-04-07') + 20;
+el('rect', { x:todayX-2, y:HDR_H, width:4, height:totalH-HDR_H, fill:'rgba(230,57,70,0.08)' }, gOver);
+el('line', { x1:todayX, x2:todayX, y1:HDR_H, y2:totalH, stroke:'#e63946', 'stroke-width':2, 'stroke-dasharray':'5,3' }, gOver);
+// Today header highlight
+el('rect', { x:todayX-22, y:1, width:44, height:HDR_H-2, fill:'rgba(230,57,70,0.12)', rx:3 }, gHdr);
+el('text', { x:todayX, y:16, 'text-anchor':'middle', 'font-size':8.5, fill:'#e63946', 'font-weight':'bold', 'letter-spacing':0.5 }, gHdr).textContent = 'TODAY';
+el('text', { x:todayX, y:30, 'text-anchor':'middle', 'font-size':7.5, fill:'#e63946' }, gHdr).textContent = 'Apr 7';
+
+// ─── EMBARKATION line ───
+const embX = dx('2026-12-17') + 20;
+el('line', { x1:embX, x2:embX, y1:HDR_H, y2:totalH, stroke:'#1a1a5c', 'stroke-width':2, opacity:0.6 }, gOver);
+el('rect', { x:embX-28, y:1, width:56, height:HDR_H-2, fill:'rgba(26,26,92,0.1)', rx:3 }, gHdr);
+el('text', { x:embX, y:16, 'text-anchor':'middle', 'font-size':8, fill:'#1a1a5c', 'font-weight':'bold' }, gHdr).textContent = 'EMBARK';
+el('text', { x:embX, y:29, 'text-anchor':'middle', 'font-size':7, fill:'#1a1a5c' }, gHdr).textContent = 'Dec 17';
+
+// ─── DISEMBARKATION marker ───
+const disX = dx('2026-12-27') + 20;
+el('line', { x1:disX, x2:disX, y1:HDR_H, y2:totalH, stroke:'#4a4a9c', 'stroke-width':1.5, opacity:0.4, 'stroke-dasharray':'4,3' }, gOver);
+
+// ─── Month separator on header (final right edge) ───
+el('line', { x1:0, x2:SVG_W, y1:HDR_H, y2:HDR_H, stroke:'#dde2ee', 'stroke-width':2 }, gHdr);
+
+</script>
+</body>
+</html>

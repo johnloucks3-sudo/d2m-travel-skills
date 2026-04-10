@@ -9,7 +9,7 @@
 
 ## Executive Summary
 
-NEXUS v1.0 implements a dual-brain autonomous orchestration architecture that routes tasks between Qwen Free ($0) and Claude Sonnet MAX ($0 via MAX OAuth) using a regex-based keyword router. The system demonstrates solid foundational design with proper file-locking, hard-stop enforcement, and audit logging. However, **2 critical spec violations** in the keyword router (missing "assess"/unknown-case handling), untested Claude dispatch path, and a $0-cost assumption on Telegram API dependencies prevent autonomous readiness.
+NEXUS v1.0 implements a dual-brain autonomous orchestration architecture that routes tasks between DeepSeek V3.1 (~$0.27/M) and Claude Sonnet MAX ($0 via MAX OAuth) using a regex-based keyword router. The system demonstrates solid foundational design with proper file-locking, hard-stop enforcement, and audit logging. However, **2 critical spec violations** in the keyword router (missing "assess"/unknown-case handling), untested Claude dispatch path, and a $0-cost assumption on Telegram API dependencies prevent autonomous readiness.
 
 ---
 
@@ -20,8 +20,8 @@ NEXUS v1.0 implements a dual-brain autonomous orchestration architecture that ro
 | State Machine Design | 8/10 | Six hard stops well-implemented; deadlock detection functional |
 | Routing Logic | 5/10 | Regex-based but misses spec-defined keywords; zero-keyword fallback wrong |
 | File Safety | 7/10 | Lock files with heartbeat; inbox append-only enforced post-incident |
-| Cost Discipline | 9/10 | $0 target achievable: Qwen Free + Claude MAX are both free tiers |
-| Error Resilience | 4/10 | Claude → Qwen fallback exists but no retry, no rate-limit handling for Qwen |
+| Cost Discipline | 9/10 | Low-cost target achievable: DeepSeek V3.1 (~$0.27/M) + Claude MAX ($0) |
+| Error Resilience | 4/10 | Claude → DeepSeek fallback exists but no retry, no rate-limit handling for DeepSeek |
 | Test Coverage | 3/10 | Only 3 log entries; no unit tests; daemon tested once with trivial task |
 
 ---
@@ -61,8 +61,8 @@ NEXUS v1.0 implements a dual-brain autonomous orchestration architecture that ro
 
 ### 🔴 CRITICAL — #1: Zero-Keyword Fallback Violates Spec
 **Location:** `keyword_router.py:55`  
-**Issue:** The spec states: *"Zero recognized keywords → Claude (Sonnet)"* because unknown tasks require Hale's judgment. The code defaults to Qwen for any unrecognized input. This means vague but potentially critical requests ("figure this out", "I need help", "what should I do?") are routed to the cheapest model instead of the strategist.  
-**Fix:** Change default route from `qwen` to `claude` when confidence is low and no keywords match, OR add a minimum-length heuristic.
+**Issue:** The spec states: *"Zero recognized keywords → Claude (Sonnet)"* because unknown tasks require Hale's judgment. The code defaults to DeepSeek for any unrecognized input. This means vague but potentially critical requests ("figure this out", "I need help", "what should I do?") are routed to the cheapest model instead of the strategist.  
+**Fix:** Change default route from `deepseek` to `claude` when confidence is low and no keywords match, OR add a minimum-length heuristic.
 
 ### 🔴 CRITICAL — #2: Missing Keywords in Spec vs Implementation
 **Location:** `keyword_router.py:16-32` vs NEXUS_SPEC.md Section 3  
@@ -79,9 +79,9 @@ NEXUS v1.0 implements a dual-brain autonomous orchestration architecture that ro
 **Issue:** "propose" is **not** in the CLAUDE_KEYWORDS regex list at all. Test #8 only routed to CLAUDE because "strategy" also appeared. If the input were "propose a timeline" (no "strategy"), it would incorrectly route to QWEN.  
 **Fix:** Add `propose` to the keyword list.
 
-### 🟠 HIGH — #4: No Rate Limit Monitoring for Qwen
+### HIGH — #4: No Rate Limit Monitoring for DeepSeek
 **Location:** `nexus.py:147-160`  
-**Issue:** The `dispatch_to_qwen` function blindly appends to `goose_inbox.md` with no check on how many tasks are outstanding. Qwen Free (via Goose) has unstated rate limits. Without a queue depth check, the system could schedule 6 rapid missions before any complete, overwhelming the free tier.  
+**Issue:** The `dispatch_to_qwen` function blindly appends to `goose_inbox.md` with no check on how many tasks are outstanding. DeepSeek V3.1 (via OpenCode) has unstated rate limits. Without a queue depth check, the system could schedule 6 rapid missions before any complete, overwhelming the free tier.  
 **Fix:** Add a queue depth check in `dispatch_to_qwen`; refuse new tasks if >3 pending in goose_inbox.
 
 ### 🟡 MEDIUM — #5: Hardcoded Paths
@@ -96,14 +96,14 @@ NEXUS v1.0 implements a dual-brain autonomous orchestration architecture that ro
 
 ## Integration Risks
 
-### 1. Claude Dispatch — ⚠️ UNTESTED
-- **Status:** The Claude execution path via `claude -p` has **never been exercised** based on audit logs (only QWEN dispatches recorded).
-- **Risk:** If Claude Desktop isn't running or MAX OAuth token expired, fallback to Qwen happens silently (Test #5, #9, #10 already routing to Qwen when they shouldn't).
+### 1. Claude Dispatch — UNTESTED
+- **Status:** The Claude execution path via `claude -p` has **never been exercised** based on audit logs (only DeepSeek dispatches recorded).
+- **Risk:** If Claude Desktop isn't running or MAX OAuth token expired, fallback to DeepSeek happens silently (Test #5, #9, #10 already routing to DeepSeek when they shouldn't).
 - **Impact:** High-judgment tasks get processed by lower-capability model without alerting the Commander.
 - **Verification:** Requires running `claude -p "test"` manually and checking OAuth status.
 
-### 2. Qwen Rate Limits — ⚠️ UNKNOWN
-- **Status:** No rate limit testing has been performed against `qwen/qwen3.6-plus:free`.
+### 2. DeepSeek Rate Limits — UNKNOWN
+- **Status:** No rate limit testing has been performed against `deepseek/deepseek-chat-v3.1`.
 - **Risk:** Free tier likely has RPM/token-per-minute caps that could cause silent task drops.
 - **Impact:** Under burst load, tasks disappear into the inbox with no feedback loop.
 - **Verification:** Send 10 concurrent tasks to goose_inbox and measure completion rate.
@@ -141,7 +141,7 @@ NEXUS v1.0 implements a dual-brain autonomous orchestration architecture that ro
 
 | Component | Cost | Condition |
 |-----------|------|-----------|
-| Qwen (Goose) | $0 | Confirmed free tier: `qwen/qwen3.6-plus:free` |
+| DeepSeek V3.1 (OpenCode) | $0 | Confirmed free tier: `deepseek/deepseek-chat-v3.1` |
 | Claude (Sonnet) | $0 | Requires MAX OAuth active; Claude Desktop must be running |
 | Telegram API | $0 | Free tier, but requires valid bot token (currently empty) |
 | Gmail IMAP | $0 | IMAP is free, but requires App Password |
@@ -158,7 +158,7 @@ NEXUS v1.0 implements a dual-brain autonomous orchestration architecture that ro
 1. **❌ Keyword router must match spec:** Add missing keywords (`assess`, `why`, `propose`) and fix zero-keyword default to Claude.
 2. **❌ Telegram credentials must be populated:** Verify and test commander paging end-to-end.
 3. **❌ Claude dispatch path must be tested:** Run at least 3 end-to-end missions through `claude -p` to verify MAX OAuth works.
-4. **❌ Qwen rate limits must be measured:** Execute burst test (≥5 concurrent tasks) to determine free-tier capacity.
+4. **DeepSeek rate limits must be measured:** Execute burst test (>=5 concurrent tasks) to determine capacity.
 5. **⚠️ Gmail poller locking must be added:** Add mission_board.lock acquisition before calling mission_board_sync.py.
 6. **⚠️ Audit log rotation needed:** Currently appends forever; needs size-based rotation.
 
@@ -175,7 +175,7 @@ r'\bwhy\b',
 r'\bpropose(?:d|s|ing)?\b',
 r'\bfigure\s+this\s+out\b',
 
-# Change default from "qwen" to "claude" for zero-match cases:
+# Change default from "deepseek" to "claude" for zero-match cases:
 # When no keywords match AND task is >10 chars, route to Claude (unknown = judgment needed)
 ```
 

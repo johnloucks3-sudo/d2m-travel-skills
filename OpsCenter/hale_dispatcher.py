@@ -3,7 +3,7 @@ Hale Brain Dispatcher
 =====================
 Three-brain routing for Col Victoria "Iron Vic" Hale, COO — Thunderbird Wing.
 
-Brain 1: Qwen 3.6 Plus (OpenRouter, $0)   — ops, context, research, scan, summarize
+Brain 1: DeepSeek V3.1 (OpenRouter, $0)   — ops, context, research, scan, summarize
 Brain 2: Claude Sonnet (headless)         — reasoning, code, strategy, complex writing
 Brain 3: DeepSeek (direct or OpenRouter)  — arbitration, high-stakes, brain disagreement
 Self:    Hale handles directly             — simple, within institutional knowledge
@@ -37,7 +37,7 @@ _MEMORY  = _ROOT / "hale_memory.md"
 _DECISIONS = _ROOT / "hale_decisions.md"
 _BRIEF   = _ROOT / "hale_brief.md"
 _PERSONA = _ROOT / "Personas" / "hale_cos.md"
-_CONTEXT = _ROOT / "hale_session_context.md"  # Qwen deep scan output
+_CONTEXT = _ROOT / "hale_session_context.md"  # DeepSeek deep scan output
 
 # ── Env ──
 load_dotenv(str(_ROOT / ".env"))
@@ -47,11 +47,12 @@ OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
 DEEPSEEK_API_KEY   = os.getenv("DEEPSEEK_API_KEY", "")
 ANTHROPIC_API_KEY  = os.getenv("ANTHROPIC_API_KEY", "")
 
-QWEN_MODEL         = "qwen/qwen3.6-plus:free"
+DEEPSEEK_V3_MODEL  = "deepseek/deepseek-chat-v3.1"
+QWEN_MODEL         = DEEPSEEK_V3_MODEL  # Legacy alias
 SONNET_MODEL       = "claude-sonnet-4-6"
 OPUS_MODEL         = "claude-opus-4-6"
-DEEPSEEK_MODEL     = "deepseek-chat"
-DEEPSEEK_OR_MODEL  = "deepseek/deepseek-chat"  # OpenRouter proxy
+DEEPSEEK_MODEL     = "deepseek-chat-v3.1"
+DEEPSEEK_OR_MODEL  = "deepseek/deepseek-chat-v3.1"  # OpenRouter proxy
 
 MT = timezone(timedelta(hours=-6))
 
@@ -126,16 +127,16 @@ def classify_task(content: str) -> str:
     return "brain1"
 
 
-# ── Brain 1: Qwen via OpenRouter ──
+# ── Brain 1: DeepSeek V3.1 via OpenRouter ──
 
 def _call_brain1(system: str, task: str, max_tokens: int = 2000) -> str:
-    """Brain 1: Qwen 3.6 Plus via OpenRouter. $0/month."""
+    """Brain 1: DeepSeek V3.1 via OpenRouter. $0/month."""
     if not OPENROUTER_API_KEY:
         return "[BRAIN1 ERROR] OPENROUTER_API_KEY not set."
 
     try:
         payload = json.dumps({
-            "model": QWEN_MODEL,
+            "model": DEEPSEEK_V3_MODEL,
             "messages": [
                 {"role": "system", "content": system},
                 {"role": "user",   "content": task},
@@ -158,7 +159,7 @@ def _call_brain1(system: str, task: str, max_tokens: int = 2000) -> str:
         data = resp.json()
         return data["choices"][0]["message"]["content"].strip()
     except Exception as e:
-        return f"[BRAIN1 ERROR] Qwen failed: {e}"
+        return f"[BRAIN1 ERROR] DeepSeek failed: {e}"
 
 
 # ── Brain 2: Claude headless (Sonnet or Opus) ──
@@ -310,7 +311,7 @@ def log_decision(decision: str, rationale: str, brain: str, outcome: str = "pend
 # ── Hale system prompt builder ──
 
 def _build_hale_system() -> str:
-    """Load Hale's persona + memory + Qwen deep scan context."""
+    """Load Hale's persona + memory + DeepSeek deep scan context."""
     base = ""
     if _PERSONA.exists():
         base = _PERSONA.read_text()
@@ -320,10 +321,10 @@ def _build_hale_system() -> str:
     if _MEMORY.exists():
         mem_snippet = "\n\n---\n## LIVE MEMORY\n" + _MEMORY.read_text()[:2000]
 
-    # Inject Qwen deep scan context (institutional knowledge)
+    # Inject DeepSeek deep scan context (institutional knowledge)
     context_snippet = ""
     if _CONTEXT.exists():
-        context_snippet = "\n\n---\n## WING CONTEXT (Qwen scan)\n" + _CONTEXT.read_text()[:4000]
+        context_snippet = "\n\n---\n## WING CONTEXT (DeepSeek scan)\n" + _CONTEXT.read_text()[:4000]
 
     return base + mem_snippet + context_snippet
 
@@ -378,18 +379,18 @@ class HaleDispatcher:
 
         elif brain == "brain1":
             result    = _call_brain1(self.system, task)
-            brain_tag = "Brain 1 (Qwen)"
+            brain_tag = "Brain 1 (DeepSeek)"
             # Self-escalate on error
             if result.startswith("[BRAIN1 ERROR]"):
                 result    = _call_brain2(f"{self.system}\n\nTASK: {task}", model=SONNET_MODEL)
-                brain_tag = "Brain 2 (Sonnet — Qwen error escalation)"
+                brain_tag = "Brain 2 (Sonnet — DeepSeek error escalation)"
                 log_decision(
-                    f"Escalated Qwen→Sonnet on: {task[:80]}",
-                    "Qwen returned an error; task required reliable response.",
+                    f"Escalated DeepSeek→Sonnet on: {task[:80]}",
+                    "DeepSeek returned an error; task required reliable response.",
                     "Brain 2 (Sonnet)"
                 )
                 # Notify Commander of escalation (Padre's recommendation)
-                self._escalation_note = f"Escalated to Sonnet — Qwen failed on: {task[:60]}"
+                self._escalation_note = f"Escalated to Sonnet — DeepSeek failed on: {task[:60]}"
 
         elif brain == "brain2":
             digest = f"{self.system[:500]}\n\nTASK: {task}"
@@ -443,7 +444,7 @@ class HaleDispatcher:
 
     def _strip_pii(self, text: str) -> str:
         """
-        Remove client PII before sending to DeepSeek/Qwen.
+        Remove client PII before sending to DeepSeek.
         Strips: full names, booking refs, dollar amounts, email addresses.
         """
         # Email addresses
@@ -474,7 +475,7 @@ class HaleDispatcher:
         }
         focus = TYPE_PROMPTS.get(scan_type, TYPE_PROMPTS["general"])
 
-        # Strip PII before sending to Qwen if it's an intel/tech scan
+        # Strip PII before sending to DeepSeek if it's an intel/tech scan
         clean_output = raw_output if scan_type in ("booking", "commission") else self._strip_pii(raw_output)
         # Cap input to avoid token overflow
         if len(clean_output) > 8000:
@@ -507,7 +508,7 @@ SCAN OUTPUT:
     def generate_brief(self) -> str:
         """
         Generate today's daily brief and write it to hale_brief.md.
-        Pre-loads state files and injects as context — Qwen gets data, not tool calls.
+        Pre-loads state files and injects as context — DeepSeek gets data, not tool calls.
         """
         # Pre-load all context files
         state_json = _STATE.read_text() if _STATE.exists() else "{}"

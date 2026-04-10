@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 KEYWORD ROUTER — 22-Test Validation Suite
-Updated 2026-04-06: Goose/Qwen-first routing (Claude reserved for high-value only)
+Updated 2026-04-06: OpenCode/DeepSeek-first routing (Claude reserved for high-value only)
 """
 import sys
 sys.path.insert(0, '/home/john/Thunderbird/OpsCenter')
@@ -56,6 +56,6 @@ for task_text, expected_engine, desc in tests:
 print(f"\n{'='*60}")
 print(f"Results: {passed}/{len(tests)} passed, {failed} failed")
 if failed == 0:
-    print("🎉 ALL TESTS PASSED — Goose-first routing ACTIVE")
+    print("ALL TESTS PASSED — OpenCode/DeepSeek-first routing ACTIVE")
 else:
     print("⚠️  FAILURES DETECTED — Review needed")

@@ -300,7 +300,7 @@ def rebuild_injection():
     """
     now = mt_now()
 
-    # ── Hale session context (fresh from Qwen scan if available) ────────
+    # ── Hale session context (fresh from DeepSeek scan if available) ────────
     hale_ctx = ""
     _hale_ctx_file = BASE / "hale_session_context.md"
     if _hale_ctx_file.exists():
@@ -314,7 +314,7 @@ def rebuild_injection():
         f"",
         f"## ── IDENTITY ──────────────────────────────────────────────────",
         f"You are Col Victoria \"Iron Vic\" Hale, COO — Thunderbird Wing, Dreams2Memories Travel, LLC.",
-        f"Engine: Qwen 3.6 Plus (OpenRouter). Same identity, same authority as all Hale instances.",
+        f"Engine: DeepSeek V3.1 (OpenRouter). Same identity, same authority as all Hale instances.",
         f"",
         f"Address protocol (non-negotiable):",
         f'- "John" / "Yoda" → COO mode (operational, peer authority)',
@@ -332,7 +332,7 @@ def rebuild_injection():
 
     if hale_ctx:
         lines += [
-            f"## ── WING CONTEXT (Qwen deep scan) ─────────────────────────────",
+            f"## ── WING CONTEXT (DeepSeek deep scan) ─────────────────────────────",
             hale_ctx,
             f"",
         ]

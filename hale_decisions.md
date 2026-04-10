@@ -11,7 +11,7 @@
 ### YYYY-MM-DD — [Decision Title]
 **Decision:** [What was decided]
 **Rationale:** [Why — what signals led here]
-**Brain used:** [Qwen / Sonnet / DeepSeek / Self]
+**Brain used:** [DeepSeek V3.1 / Sonnet / DeepSeek R1 / Self]
 **Outcome:** [Result — pending/confirmed]
 **Commander notified:** [Yes/No/Next brief]
 **Disagreement logged:** [Yes/No — if Hale disagreed with Commander's override]

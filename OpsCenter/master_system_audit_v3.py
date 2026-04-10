@@ -43,8 +43,8 @@ def gather_markdown_files():
             
     return massive_context, len(all_md_files)
 
-async def qwen_summarize(massive_context):
-    logging.info("Qwen 3.5 Flash via OpenRouter executing deep context summarization and conflict detection...")
+async def deepseek_summarize(massive_context):
+    logging.info("DeepSeek V3.1 via OpenRouter executing deep context summarization and conflict detection...")
     
     prompt = f"""
     You are Vic Harlan (A9). You are tasked with analyzing the entire Thunderbird OS documentation stack.
@@ -68,7 +68,7 @@ async def qwen_summarize(massive_context):
     """
     
     response = await openrouter_client.chat.completions.create(
-        model="qwen/qwen-turbo",  # Using Qwen Turbo on OpenRouter for massive context
+        model="deepseek/deepseek-chat-v3.1",  # Using DeepSeek V3.1 on OpenRouter for massive context
         messages=[{"role": "user", "content": prompt}]
     )
     return response.choices[0].message.content
@@ -100,8 +100,8 @@ async def run_master_audit():
     try:
         context, file_count = gather_markdown_files()
         
-        # 1. Qwen generates the deep markdown analysis
-        md_report = await qwen_summarize(context)
+        # 1. DeepSeek generates the deep markdown analysis
+        md_report = await deepseek_summarize(context)
         
         # We will write a brand new master audit file
         audit_path = "/home/john/Thunderbird/OpsCenter/collaboration/THUNDERBIRD_MASTER_AUDIT.md"
@@ -119,7 +119,7 @@ async def run_master_audit():
         # Ping Telegram
         import requests
         import urllib.parse
-        msg_text = f"🦢 **THUNDERBIRD MASTER AUDIT COMPLETE**\n\nQwen (via OpenRouter) successfully scanned {file_count} system files. The master summary and conflict resolution report is ready.\nA7 (Groq) generated the corresponding JSON payload.\n\nFiles located at: OpsCenter/collaboration/THUNDERBIRD_MASTER_AUDIT.md"
+        msg_text = f"**THUNDERBIRD MASTER AUDIT COMPLETE**\n\nDeepSeek V3.1 (via OpenRouter) successfully scanned {file_count} system files. The master summary and conflict resolution report is ready.\nA7 (Groq) generated the corresponding JSON payload.\n\nFiles located at: OpsCenter/collaboration/THUNDERBIRD_MASTER_AUDIT.md"
         msg = urllib.parse.quote(msg_text)
         requests.get(f"https://api.telegram.org/bot***REMOVED-SECRET***/sendMessage?chat_id=7554895206&text={msg}&parse_mode=Markdown")
         

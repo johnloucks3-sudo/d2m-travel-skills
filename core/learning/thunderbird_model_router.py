@@ -57,8 +57,8 @@ MODEL_TAGS = {
     "extraction": "DeepSeek (fenced)",
     "deepseek": "DeepSeek (fenced)",
     "claude": "Claude Sonnet",
-    "qwen_plus": "Qwen3.6 Plus (OpenRouter, free)",
-    "qwen_flash": "Qwen 3.5 Flash (OpenRouter)",
+    "deepseek_primary": "DeepSeek V3.1 (OpenRouter)",
+    "deepseek_bulk": "DeepSeek V3.1 Bulk (OpenRouter)",
     "gemini_lite": "Gemini 2.5 Flash-Lite",
     "perplexity": "Perplexity Sonar (Web Search)",
     "perplexity_reasoning": "Perplexity Reasoning Pro",
@@ -95,24 +95,25 @@ XAI_API_KEY = os.environ.get("XAI_API_KEY", "")
 GROK_MODEL = "grok-4-1-fast"
 GROK_URL = "https://api.x.ai/v1/chat/completions"
 
-# DeepSeek V3 — $0.14/$0.28 per 1M tokens (OpenAI-compatible)
-DEEPSEEK_API_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
-DEEPSEEK_MODEL = "deepseek-chat"
-DEEPSEEK_URL = "https://api.deepseek.com/chat/completions"
+# DeepSeek V3.1 — ~$0.27/M tokens via OpenRouter (primary OpenCode model)
+DEEPSEEK_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
+DEEPSEEK_MODEL = "deepseek/deepseek-chat-v3.1"
+DEEPSEEK_URL = "https://openrouter.ai/api/v1/chat/completions"
 
-# OpenRouter — multi-model API gateway (used for Qwen, etc.)
-# Cost varies by model. Qwen 3.5 Flash: $0.065/$0.26 per 1M tokens, 1M context.
+# OpenRouter — multi-model API gateway
+# DeepSeek V3.1: ~$0.27/M tokens, 128K context.
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 
-# Qwen3.6 Plus (free) via OpenRouter — primary AI engine, $0/month, 1M context
-# Lead model for all operational/non-classification tasks (SO 2026-04-03)
-QWEN_PLUS_FREE_MODEL = "qwen/qwen3.6-plus:free"
-QWEN_PLUS_FREE_CONTEXT = 1_000_000  # 1M token context window
+# DeepSeek V3.1 via OpenRouter — primary AI engine, ~$0.27/M tokens
+# Lead model for all operational/non-classification tasks (SO 2026-04-07)
+DEEPSEEK_PRIMARY_MODEL = "deepseek/deepseek-chat-v3.1"
+QWEN_PLUS_FREE_MODEL = DEEPSEEK_PRIMARY_MODEL  # Legacy alias for backward compat
+DEEPSEEK_PRIMARY_CONTEXT = 128_000  # 128K token context window
 
-# Qwen 3.5 Flash via OpenRouter — bulk context dumps, large codebase reviews
-QWEN_FLASH_MODEL = "qwen/qwen3.5-flash-02-23"
-QWEN_FLASH_CONTEXT = 1_000_000  # 1M token context window
+# DeepSeek V3.1 via OpenRouter — also used for bulk context tasks
+DEEPSEEK_BULK_MODEL = "deepseek/deepseek-chat-v3.1"
+DEEPSEEK_BULK_CONTEXT = 128_000  # 128K token context window
 
 # Perplexity Sonar via OpenRouter — web-grounded research with citations
 # $1/$1 per 1M tokens + $5/1K search requests. Built-in web search.
@@ -160,8 +161,8 @@ class TaskType(Enum):
     RESPONSE_MONITOR = "response_monitor"    # Quality gate — Sonnet reviews Haiku output
 
     # Bulk context tiers — large payloads, 1M context window models
-    CONTEXT_DUMP = "context_dump"            # Bulk context ingestion → Qwen 3.5 Flash (OpenRouter)
-    BULK_REVIEW = "bulk_review"              # Large codebase/doc review → Qwen 3.5 Flash (OpenRouter)
+    CONTEXT_DUMP = "context_dump"            # Bulk context ingestion → DeepSeek V3.1 (OpenRouter)
+    BULK_REVIEW = "bulk_review"              # Large codebase/doc review → DeepSeek V3.1 (OpenRouter)
     SIMPLE_ANALYSIS = "simple_analysis"      # Simple classification/analysis → Gemini 2.5 Flash-Lite
 
     # Web-grounded research — Perplexity Sonar via OpenRouter (built-in search + citations)
@@ -192,10 +193,10 @@ MODEL_MAP: Dict[TaskType, str] = {
     TaskType.MORNING_BRIEF: CLAUDE_SONNET,
     TaskType.ANALYTICAL: CLAUDE_SONNET,
 
-    # OpenRouter (free) — Qwen3.6 Plus primary operational engine ($0/month, SO 2026-04-03)
-    TaskType.RESEARCH: "qwen_plus",        # lookups, cruise/flight/hotel/destination
-    TaskType.OPERATIONAL: "qwen_plus",     # status checks, data lookups, routing
-    TaskType.SUMMARIZATION: "qwen_plus",   # quick summaries
+    # OpenRouter (free) — DeepSeek V3.1 primary operational engine ($0/month, SO 2026-04-03)
+    TaskType.RESEARCH: "deepseek_primary",        # lookups, cruise/flight/hotel/destination
+    TaskType.OPERATIONAL: "deepseek_primary",     # status checks, data lookups, routing
+    TaskType.SUMMARIZATION: "deepseek_primary",   # quick summaries
 
     # Haiku — kept for fast classification and extraction (low latency priority)
     TaskType.CLASSIFICATION: CLAUDE_HAIKU,
@@ -209,8 +210,8 @@ MODEL_MAP: Dict[TaskType, str] = {
     TaskType.IMAGE: "flux",  # handled separately
 
     # Bulk context tiers — 1M context window, cheap per-token
-    TaskType.CONTEXT_DUMP: "qwen_flash",       # Qwen 3.5 Flash via OpenRouter ($0.065/$0.26/1M)
-    TaskType.BULK_REVIEW: "qwen_flash",        # Qwen 3.5 Flash via OpenRouter ($0.065/$0.26/1M)
+    TaskType.CONTEXT_DUMP: "deepseek_bulk",       # DeepSeek V3.1 via OpenRouter ($0.065/$0.26/1M)
+    TaskType.BULK_REVIEW: "deepseek_bulk",        # DeepSeek V3.1 via OpenRouter ($0.065/$0.26/1M)
     TaskType.SIMPLE_ANALYSIS: "gemini_lite",   # Gemini 2.5 Flash-Lite ($0.10/$0.40/1M)
 
     # Web-grounded research — Perplexity via OpenRouter (uses same OPENROUTER_API_KEY)
@@ -223,8 +224,8 @@ MODEL_TIER = {
     CLAUDE_OPUS: "opus",
     CLAUDE_SONNET: "sonnet",
     CLAUDE_HAIKU: "haiku",
-    "qwen_plus": "qwen_plus",
-    "qwen_flash": "qwen_flash",
+    "deepseek_primary": "deepseek_primary",
+    "deepseek_bulk": "deepseek_bulk",
     "gemini_lite": "gemini_lite",
     "perplexity": "perplexity",
     "perplexity_reasoning": "perplexity_reasoning",
@@ -341,7 +342,7 @@ _CLASSIFICATION_RULES: List[tuple] = [
         "key takeaways", "quick recap", "condense", "brief overview",
     ]),
 
-    # Priority 13: Bulk context / large payload tasks → Qwen 3.5 Flash (1M context)
+    # Priority 13: Bulk context / large payload tasks → DeepSeek V3.1 (1M context)
     (TaskType.CONTEXT_DUMP, [
         "context dump", "bulk context", "ingest this", "blackboard payload",
         "full codebase", "entire repo", "large payload", "dump all",
@@ -578,7 +579,7 @@ def _call_anthropic(system_prompt: str, query: str,
 
     Unified Claude caller. Sonnet/Haiku only — Opus retired (SO 2026-03-27).
     Fallback chain on auth/depleted/overload errors (SO 2026-04-03):
-      Claude → OpenRouter (Qwen 3.6 Plus free) → Groq (Llama 3.3) → Gemini Flash
+      Claude → OpenRouter (DeepSeek V3.1 free) → Groq (Llama 3.3) → Gemini Flash
     """
     import anthropic
 
@@ -596,11 +597,11 @@ def _call_anthropic(system_prompt: str, query: str,
         err_str = str(e).lower()
         if any(code in err_str for code in ("401", "403", "529", "authentication", "api_key", "credit")):
             logger.warning("Anthropic SDK error (%s): %s — trying free fallback chain", model, e)
-            # Fallback 1: OpenRouter Qwen 3.6 Plus (free)
+            # Fallback 1: OpenRouter DeepSeek V3.1 (free)
             if OPENROUTER_API_KEY:
                 try:
                     return _call_openrouter(system_prompt, query,
-                                           model=QWEN_PLUS_FREE_MODEL,
+                                           model=DEEPSEEK_PRIMARY_MODEL,
                                            max_tokens=max_tokens,
                                            temperature=temperature)
                 except Exception as e2:
@@ -827,14 +828,14 @@ def _call_openrouter(system_prompt: str, query: str,
                      model: str = None,
                      max_tokens: int = 4096,
                      temperature: float = 0.7) -> str:
-    """Call OpenRouter API (OpenAI-compatible) for Qwen and other models.
+    """Call OpenRouter API (OpenAI-compatible) for DeepSeek and other models.
 
-    Cost varies by model. Qwen 3.5 Flash: $0.065/$0.26 per 1M tokens.
+    Cost varies by model. DeepSeek V3.1: $0.065/$0.26 per 1M tokens.
     1M token context window — ideal for bulk context dumps.
     Falls back to Gemini Flash if OPENROUTER_API_KEY is not set.
     """
     if model is None:
-        model = QWEN_PLUS_FREE_MODEL  # Primary: Qwen3.6 Plus free (SO 2026-04-03)
+        model = DEEPSEEK_PRIMARY_MODEL  # Primary: DeepSeek V3.1 free (SO 2026-04-03)
 
     if not OPENROUTER_API_KEY:
         logger.warning("OPENROUTER_API_KEY not set — falling back to Gemini Flash")
@@ -1045,53 +1046,53 @@ def route_and_call(system_prompt: str, user_prompt: str,
                 model_id = CLAUDE_HAIKU
                 tier = "haiku"
 
-    # 3b. Handle OpenRouter models — Qwen3.6 Plus (primary), Qwen Flash (bulk), Gemini Lite
+    # 3b. Handle OpenRouter models — DeepSeek V3.1 (primary), DeepSeek Bulk (bulk), Gemini Lite
 
-    # Qwen3.6 Plus Free — primary operational engine ($0/month, SO 2026-04-03)
-    if model_id == "qwen_plus":
-        logger.info("Auto-routing [%s] → Qwen3.6 Plus (OpenRouter, free)", task_type.value)
+    # DeepSeek V3.1 Free — primary operational engine ($0/month, SO 2026-04-03)
+    if model_id == "deepseek_primary":
+        logger.info("Auto-routing [%s] → DeepSeek V3.1 (OpenRouter, free)", task_type.value)
         try:
             response = _call_openrouter(system_prompt, user_prompt,
-                                        model=QWEN_PLUS_FREE_MODEL,
+                                        model=DEEPSEEK_PRIMARY_MODEL,
                                         max_tokens=max_tokens,
                                         temperature=temperature)
-            _log_model_usage("Qwen3.6 Plus (OpenRouter, free)", persona_id, user_prompt,
+            _log_model_usage("DeepSeek V3.1 (OpenRouter, free)", persona_id, user_prompt,
                              tokens_est=(len(system_prompt + user_prompt) + len(response)) // 4,
                              task_type=task_type.value)
             return {
                 "task_type": task_type.value,
-                "model": QWEN_PLUS_FREE_MODEL,
-                "model_tier": "qwen_plus",
+                "model": DEEPSEEK_PRIMARY_MODEL,
+                "model_tier": "deepseek_primary",
                 "engine": "openrouter",
                 "response": response,
                 "success": True,
             }
         except Exception as e:
-            logger.warning("Qwen3.6 Plus failed, falling back to Haiku: %s", e)
+            logger.warning("DeepSeek V3.1 failed, falling back to Haiku: %s", e)
             model_id = CLAUDE_HAIKU
             tier = "haiku"
 
-    # Qwen 3.5 Flash — bulk context dumps (1M context window)
-    if model_id == "qwen_flash":
-        logger.info("Auto-routing [%s] → Qwen 3.5 Flash (OpenRouter)", task_type.value)
+    # DeepSeek V3.1 — bulk context dumps (1M context window)
+    if model_id == "deepseek_bulk":
+        logger.info("Auto-routing [%s] → DeepSeek V3.1 (OpenRouter)", task_type.value)
         try:
             response = _call_openrouter(system_prompt, user_prompt,
-                                        model=QWEN_FLASH_MODEL,
+                                        model=DEEPSEEK_BULK_MODEL,
                                         max_tokens=max_tokens,
                                         temperature=temperature)
-            _log_model_usage("Qwen 3.5 Flash (OpenRouter)", persona_id, user_prompt,
+            _log_model_usage("DeepSeek V3.1 (OpenRouter)", persona_id, user_prompt,
                              tokens_est=(len(system_prompt + user_prompt) + len(response)) // 4,
                              task_type=task_type.value)
             return {
                 "task_type": task_type.value,
-                "model": QWEN_FLASH_MODEL,
-                "model_tier": "qwen_flash",
+                "model": DEEPSEEK_BULK_MODEL,
+                "model_tier": "deepseek_bulk",
                 "engine": "openrouter",
                 "response": response,
                 "success": True,
             }
         except Exception as e:
-            logger.warning("Qwen Flash failed, falling back to Gemini Flash: %s", e)
+            logger.warning("DeepSeek Bulk failed, falling back to Gemini Flash: %s", e)
             model_id = CLAUDE_HAIKU
             tier = "haiku"
 
