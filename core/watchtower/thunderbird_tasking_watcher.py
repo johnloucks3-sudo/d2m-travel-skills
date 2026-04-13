@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 thunderbird_tasking_watcher.py — Thunderbird Tasking Watcher v3
-================================================================
+===============================================================
 FAST: inotify (watchdog) for instant file-change detection (<10ms).
 PROD: tasks sitting DETECTED/UNREAD longer than PROD_AFTER_SECS get a
       Telegram nudge to the target agent. Escalates to Commander after
@@ -9,7 +9,7 @@ PROD: tasks sitting DETECTED/UNREAD longer than PROD_AFTER_SECS get a
 
 Architecture:
   watchdog Observer  — watches collab dir, fires handlers on file write
-  main loop (1s)     — Telegram getUpdates + prod timer + heartbeat
+  main loop (1s)     — prod timer + heartbeat (Telegram inbound handled by gateway)
   state.json         — persists seen tasks, prod counts, hashes
 
 Telegram C2 commands (Commander types):
@@ -26,7 +26,7 @@ INJECTION: Also writes OpsCenter/goose_context_injection.md on every
   is never blind to pending tasks.
 """
 
-import os, re, json, time, logging, hashlib, threading, requests, subprocess
+import os, re, json, time, logging, hashlib, threading, requests, subprocess, sys
 from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -34,41 +34,47 @@ from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
 # ── Config ─────────────────────────────────────────────────────────────────
-PROD_AFTER_SECS = 90        # prod if DETECTED and no CLAIMED after this long
-MAX_PRODS       = 3         # escalate to Commander after this many prods
-TG_POLL_SECS    = 1         # Telegram getUpdates interval
-HEARTBEAT_SECS  = 1800      # 30-min status ping
+PROD_AFTER_SECS = 90  # prod if DETECTED and no CLAIMED after this long
+MAX_PRODS = 3  # escalate to Commander after this many prods
+TG_POLL_SECS = 1  # Deprecated: Telegram polling disabled (conflict avoided)
+HEARTBEAT_SECS = 1800  # 30-min status ping
 
 # ── Paths ──────────────────────────────────────────────────────────────────
-BASE         = Path("/home/john/Thunderbird")
-COLLAB       = BASE / "OpsCenter/collaboration"
+BASE = Path("/home/john/Thunderbird")
+COLLAB = BASE / "OpsCenter/collaboration"
 CLAUDE_INBOX = COLLAB / "claude_inbox.md"
-GOOSE_INBOX  = COLLAB / "goose_inbox.md"
-WING_COMMS   = COLLAB / "wing_comms.md"
-ACTIVITY     = COLLAB / "activity_board.md"
-STATE_FILE   = BASE / "OpsCenter/watcher_state.json"
-INJECTION       = BASE / "OpsCenter/goose_context_injection.md"
+GOOSE_INBOX = COLLAB / "goose_inbox.md"
+WING_COMMS = COLLAB / "wing_comms.md"
+ACTIVITY = COLLAB / "activity_board.md"
+STATE_FILE = BASE / "OpsCenter/watcher_state.json"
+INJECTION = BASE / "OpsCenter/goose_context_injection.md"
 CLAUDE_INJECTION = BASE / "OpsCenter/claude_context_injection.md"
-CLAUDE_OUTBOX   = COLLAB / "claude_outbox.md"
-ENV_FILE        = BASE / ".env"
+CLAUDE_OUTBOX = COLLAB / "claude_outbox.md"
+ENV_FILE = BASE / ".env"
 
 MT = ZoneInfo("America/Denver")
 log = logging.getLogger("watcher")
-logging.basicConfig(level=logging.INFO,
+logging.basicConfig(
+    level=logging.INFO,
     format="%(asctime)s [WATCHER] %(levelname)s %(message)s",
-    datefmt="%Y-%m-%d %H:%M:%S")
+    datefmt="%Y-%m-%d %H:%M:%S",
+)
 
 # Also mirror to overwatch.log for crash post-mortems
 _overwatch_log = Path("/home/john/Thunderbird/OpsCenter/overwatch.log")
 _overwatch_log.parent.mkdir(parents=True, exist_ok=True)
 _fh = logging.FileHandler(str(_overwatch_log))
-_fh.setFormatter(logging.Formatter("%(asctime)s [WATCHER] %(levelname)s %(message)s",
-                                    datefmt="%Y-%m-%d %H:%M:%S"))
+_fh.setFormatter(
+    logging.Formatter(
+        "%(asctime)s [WATCHER] %(levelname)s %(message)s", datefmt="%Y-%m-%d %H:%M:%S"
+    )
+)
 log.addHandler(_fh)
 
 # ── Headless Claude trigger ─────────────────────────────────────────────────
-_headless_lock   = threading.Lock()
+_headless_lock = threading.Lock()
 _headless_active = False
+
 
 def trigger_claude_headless(task_count: int) -> None:
     """Spawn a headless `claude -p` session to process UNREAD inbox tasks.
@@ -95,15 +101,17 @@ def trigger_claude_headless(task_count: int) -> None:
         )
         log.info(f"Spawning headless Claude — {task_count} task(s)")
         try:
-            result = subprocess.run(
-                ["claude", "-p", prompt, "--dangerously-skip-permissions"],
-                cwd=str(BASE),
-                capture_output=True,
-                text=True,
-                timeout=300,
-            )
+        result = subprocess.run(
+            [sys.executable, "agents/thunderbird_model_dispatcher.py", prompt],
+            cwd=str(BASE),
+            capture_output=True,
+            text=True,
+            timeout=300,
+        )
             if result.returncode != 0:
-                log.warning(f"Headless Claude exit {result.returncode}: {result.stderr[:300]}")
+                log.warning(
+                    f"Headless Claude exit {result.returncode}: {result.stderr[:300]}"
+                )
             else:
                 log.info("Headless Claude session completed")
         except subprocess.TimeoutExpired:
@@ -120,8 +128,9 @@ def trigger_claude_headless(task_count: int) -> None:
 
 
 # ── Headless Goose trigger ──────────────────────────────────────────────────
-_goose_headless_lock   = threading.Lock()
+_goose_headless_lock = threading.Lock()
 _goose_headless_active = False
+
 
 def trigger_goose_headless() -> None:
     """Spawn a headless `goose run` session to process UNREAD goose_inbox tasks.
@@ -147,7 +156,14 @@ def trigger_goose_headless() -> None:
         # fail on keychain lookup in non-interactive systemd context.
         spawn_env = {**os.environ, **ENV}
         proc = subprocess.Popen(
-            ["goose", "run", "--recipe", "/home/john/.config/goose/recipes/hale.yaml", "--text", instruction],
+            [
+                "goose",
+                "run",
+                "--recipe",
+                "/home/john/.config/goose/recipes/hale.yaml",
+                "--text",
+                instruction,
+            ],
             cwd=str(BASE),
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL,
@@ -168,7 +184,9 @@ def trigger_goose_headless() -> None:
                 with _goose_headless_lock:
                     _goose_headless_active = False
 
-        threading.Thread(target=_watch, daemon=True, name="goose-headless-watcher").start()
+        threading.Thread(
+            target=_watch, daemon=True, name="goose-headless-watcher"
+        ).start()
 
     except FileNotFoundError:
         log.error("goose CLI not found — is it in PATH?")
@@ -192,10 +210,11 @@ def _load_env() -> dict:
     env.update(os.environ)
     return env
 
-ENV          = _load_env()
-BOT_TOKEN    = ENV.get("TELEGRAM_BOT_TOKEN", "")
+
+ENV = _load_env()
+BOT_TOKEN = ENV.get("TELEGRAM_BOT_TOKEN", "")
 COMMANDER_ID = str(ENV.get("TELEGRAM_COMMANDER_ID", ""))
-TG_BASE      = f"https://api.telegram.org/bot{BOT_TOKEN}"
+TG_BASE = f"https://api.telegram.org/bot{BOT_TOKEN}"
 
 
 # ── Telegram ───────────────────────────────────────────────────────────────
@@ -204,13 +223,21 @@ def tg_send(text: str, parse_mode="Markdown") -> bool:
         log.info(f"[TG-OFF] {text[:60]}")
         return False
     try:
-        r = requests.post(f"{TG_BASE}/sendMessage", timeout=10, json={
-            "chat_id": COMMANDER_ID, "text": text,
-            "parse_mode": parse_mode, "disable_web_page_preview": True})
+        r = requests.post(
+            f"{TG_BASE}/sendMessage",
+            timeout=10,
+            json={
+                "chat_id": COMMANDER_ID,
+                "text": text,
+                "parse_mode": parse_mode,
+                "disable_web_page_preview": True,
+            },
+        )
         return r.ok
     except Exception as e:
         log.warning(f"tg_send: {e}")
         return False
+
 
 def hale(text: str):
     tg_send(f"🔔 *COS HALE*\n{text}\n`{mt_now()}`")
@@ -219,11 +246,13 @@ def hale(text: str):
 def dispatch_to_hale(task: str, brain_override: str = None) -> str:
     """Call HaleDispatcher inline and return result. No inbox write needed."""
     import sys as _sys
+
     _ops = str(BASE / "OpsCenter")
     if _ops not in _sys.path:
         _sys.path.insert(0, _ops)
     try:
         from hale_dispatcher import HaleDispatcher
+
         h = HaleDispatcher()
         result = h.dispatch(task, brain_override=brain_override)
         # Surface escalation note if set
@@ -235,17 +264,9 @@ def dispatch_to_hale(task: str, brain_override: str = None) -> str:
         log.error(f"HaleDispatcher error: {e}")
         return f"[HALE ERROR] Dispatcher failed: {e}"
 
+
 def tg_updates(offset: int) -> list[dict]:
-    if not BOT_TOKEN:
-        return []
-    try:
-        r = requests.get(f"{TG_BASE}/getUpdates",
-            params={"offset": offset, "timeout": 0, "allowed_updates": ["message"]},
-            timeout=5)
-        if r.ok:
-            return r.json().get("result", [])
-    except Exception as e:
-        log.warning(f"getUpdates: {e}")
+    """DEPRECATED: Telegram polling disabled — inbound routing handled by thunderbird-telegram-gw.py"""
     return []
 
 
@@ -253,14 +274,19 @@ def tg_updates(offset: int) -> list[dict]:
 def mt_now() -> str:
     return datetime.now(tz=MT).strftime("%Y-%m-%d %H:%M MT")
 
+
 def mt_stamp() -> str:
     return datetime.now(tz=MT).strftime("%Y%m%d-%H%M")
 
+
 def fhash(path: Path) -> str:
-    if not path.exists(): return ""
+    if not path.exists():
+        return ""
     return hashlib.sha256(path.read_bytes()).hexdigest()[:16]
 
+
 _state_lock = threading.Lock()
+
 
 def load_state() -> dict:
     if STATE_FILE.exists():
@@ -269,22 +295,31 @@ def load_state() -> dict:
         except Exception:
             pass
     return {
-        "seen_tasks": {}, "seen_comms": [], "conflict_ids": [],
+        "seen_tasks": {},
+        "seen_comms": [],
+        "conflict_ids": [],
         "inbox_hashes": {"claude": "", "goose": ""},
-        "comms_hash": "", "board_hash": "",
-        "claude_outbox_hash": "", "seen_outbox_results": [],
-        "tg_offset": 0, "last_heartbeat_epoch": 0, "_seq": 0,
+        "comms_hash": "",
+        "board_hash": "",
+        "claude_outbox_hash": "",
+        "seen_outbox_results": [],
+        "tg_offset": 0,
+        "last_heartbeat_epoch": 0,
+        "_seq": 0,
     }
+
 
 def save_state(state: dict):
     STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
     with _state_lock:
         STATE_FILE.write_text(json.dumps(state, indent=2))
 
+
 def seq(state: dict) -> str:
     n = state.get("_seq", 0) + 1
     state["_seq"] = n
     return f"{n:03d}"
+
 
 def write_board(agent: str, task_id: str, state_str: str, note: str):
     line = f"[{mt_now()}] | {agent} | {task_id} | {state_str} | {note.strip()}\n"
@@ -313,7 +348,7 @@ def rebuild_injection():
         f"# YOU ARE HALE. READ THIS FILE FIRST. BEFORE ANYTHING ELSE.",
         f"",
         f"## ── IDENTITY ──────────────────────────────────────────────────",
-        f"You are Col Victoria \"Iron Vic\" Hale, COO — Thunderbird Wing, Dreams2Memories Travel, LLC.",
+        f'You are Col Victoria "Iron Vic" Hale, COO — Thunderbird Wing, Dreams2Memories Travel, LLC.',
         f"Engine: DeepSeek V3.1 (OpenRouter). Same identity, same authority as all Hale instances.",
         f"",
         f"Address protocol (non-negotiable):",
@@ -336,11 +371,15 @@ def rebuild_injection():
             hale_ctx,
             f"",
         ]
-    lines += [f"## ── TASKING ────────────────────────────────────────────────────", f""]
+    lines += [
+        f"## ── TASKING ────────────────────────────────────────────────────",
+        f"",
+    ]
 
     # ── Pending tasks from goose_inbox ─────────────────────────────────
     pending = [
-        (tid, info) for tid, info in _state.get("seen_tasks", {}).items()
+        (tid, info)
+        for tid, info in _state.get("seen_tasks", {}).items()
         if info.get("inbox") == "GOOSE"
         and info.get("state") not in ("COMPLETE", "CANCELLED")
     ]
@@ -351,10 +390,10 @@ def rebuild_injection():
             prod_str = f" — PRODDED {prods}x" if prods else ""
             lines += [
                 f"### {tid}{prod_str}",
-                f"- State: {info.get('state','UNREAD')}",
-                f"- From: {info.get('agent','?')} | Priority: {info.get('priority','?')}",
-                f"- Type: {info.get('msg_type','TASK')}",
-                f"- Detected: {info.get('first_seen','?')}",
+                f"- State: {info.get('state', 'UNREAD')}",
+                f"- From: {info.get('agent', '?')} | Priority: {info.get('priority', '?')}",
+                f"- Type: {info.get('msg_type', 'TASK')}",
+                f"- Detected: {info.get('first_seen', '?')}",
                 f"",
                 f"Full task in: /home/john/Thunderbird/OpsCenter/collaboration/goose_inbox.md",
                 f"",
@@ -393,13 +432,18 @@ def rebuild_injection():
 
     # ── Activity board snapshot ─────────────────────────────────────────
     if ACTIVITY.exists():
-        active = [e for e in parse_board(ACTIVITY.read_text())
-                  if e["state"] in ("CLAIMED", "WORKING", "BLOCKED")
-                  and e["agent"] != "WATCHER"]
+        active = [
+            e
+            for e in parse_board(ACTIVITY.read_text())
+            if e["state"] in ("CLAIMED", "WORKING", "BLOCKED")
+            and e["agent"] != "WATCHER"
+        ]
         if active:
             lines += ["## 🟡 ACTIVE BOARD ENTRIES (other agents)", ""]
             for e in active:
-                lines.append(f"- `{e['task_id']}` → {e['agent']} [{e['state']}] {e.get('note','')[:60]}")
+                lines.append(
+                    f"- `{e['task_id']}` → {e['agent']} [{e['state']}] {e.get('note', '')[:60]}"
+                )
             lines.append("")
 
     lines += [
@@ -421,6 +465,7 @@ def rebuild_claude_injection():
     Claude reads this file FIRST at the top of every session.
     """
     import sqlite3 as _sqlite3
+
     now = mt_now()
     lines = [
         f"=== CLAUDE CONTEXT INJECTION [{now}] ===",
@@ -430,7 +475,8 @@ def rebuild_claude_injection():
 
     # ── Pending tasks from claude_inbox ──────────────────────────────────
     pending_claude = [
-        (tid, info) for tid, info in _state.get("seen_tasks", {}).items()
+        (tid, info)
+        for tid, info in _state.get("seen_tasks", {}).items()
         if info.get("inbox") == "CLAUDE"
         and info.get("state") not in ("COMPLETE", "CANCELLED")
     ]
@@ -442,6 +488,7 @@ def rebuild_claude_injection():
             if CLAUDE_INBOX.exists():
                 text = CLAUDE_INBOX.read_text()
                 import re as _re
+
                 pat = _re.compile(
                     rf"task_id:\s*{_re.escape(tid)}.*?content:\s*\|\n((?:  .+\n?)*)",
                     _re.DOTALL,
@@ -449,7 +496,9 @@ def rebuild_claude_injection():
                 m = pat.search(text)
                 if m:
                     content_preview = " — " + m.group(1).strip()[:60]
-            lines.append(f"  {tid} [{info.get('state','UNREAD')}] pri={info.get('priority','?')}{content_preview}")
+            lines.append(
+                f"  {tid} [{info.get('state', 'UNREAD')}] pri={info.get('priority', '?')}{content_preview}"
+            )
     else:
         lines.append("  (none)")
     lines.append("")
@@ -468,7 +517,9 @@ def rebuild_claude_injection():
             if rows:
                 lines.append(f"PENDING A2A TASKS (from a2a_tasks.db): {len(rows)}")
                 for row in rows:
-                    lines.append(f"  {row['task_id']} → {row['target_persona']} [{row['state']}] {row['created_at'][:16]}")
+                    lines.append(
+                        f"  {row['task_id']} → {row['target_persona']} [{row['state']}] {row['created_at'][:16]}"
+                    )
                 lines.append("")
         except Exception as e:
             log.warning(f"rebuild_claude_injection: a2a_tasks.db read failed: {e}")
@@ -479,7 +530,9 @@ def rebuild_claude_injection():
         entries = parse_board(ACTIVITY.read_text())
         recent_board = entries[-5:]
         for e in recent_board:
-            lines.append(f"  [{e['ts']}] {e['agent']} | {e['task_id']} | {e['state']} | {e.get('note','')[:60]}")
+            lines.append(
+                f"  [{e['ts']}] {e['agent']} | {e['task_id']} | {e['state']} | {e.get('note', '')[:60]}"
+            )
     else:
         lines.append("  (board empty)")
     lines.append("")
@@ -489,9 +542,13 @@ def rebuild_claude_injection():
     lines.append("  Watcher: active")
     if GOOSE_INBOX.exists():
         import os as _os
+
         mtime = _os.path.getmtime(str(GOOSE_INBOX))
         from datetime import datetime as _dt2
-        lines.append(f"  Last Goose inbox write: {_dt2.fromtimestamp(mtime).strftime('%Y-%m-%d %H:%M')}")
+
+        lines.append(
+            f"  Last Goose inbox write: {_dt2.fromtimestamp(mtime).strftime('%Y-%m-%d %H:%M')}"
+        )
     lines.append("")
     lines.append("===")
 
@@ -500,56 +557,71 @@ def rebuild_claude_injection():
 
 
 # ── Parsers ────────────────────────────────────────────────────────────────
-TASK_ID_RE   = re.compile(r"^task_id:\s*(\S+)", re.MULTILINE)
+TASK_ID_RE = re.compile(r"^task_id:\s*(\S+)", re.MULTILINE)
 SUBMITTED_RE = re.compile(r"^submitted_by:\s*(\S+)", re.MULTILINE)
-PRIORITY_RE  = re.compile(r"^priority:\s*(\S+)", re.MULTILINE)
-ITYPE_RE     = re.compile(r"^task_type:\s*(\S+)", re.MULTILINE)
-MSGTYPE_RE   = re.compile(r"^msg_type:\s*(\S+)", re.MULTILINE)
-BOARD_RE     = re.compile(
+PRIORITY_RE = re.compile(r"^priority:\s*(\S+)", re.MULTILINE)
+ITYPE_RE = re.compile(r"^task_type:\s*(\S+)", re.MULTILINE)
+MSGTYPE_RE = re.compile(r"^msg_type:\s*(\S+)", re.MULTILINE)
+BOARD_RE = re.compile(
     r"\[(?P<ts>[^\]]+)\]\s*\|\s*(?P<agent>\w+)\s*\|\s*(?P<task_id>\S+)"
-    r"\s*\|\s*(?P<state>\w+)\s*\|(?P<note>.*)")
-MSG_ID_RE    = re.compile(r"^msg_id:\s*(\S+)", re.MULTILINE)
-FROM_RE      = re.compile(r"^from:\s*(\S+)", re.MULTILINE)
-TO_RE        = re.compile(r"^to:\s*(\S+)", re.MULTILINE)
-CONTENT_RE   = re.compile(r"^content:\s*\|\n((?:  .+\n?)*)", re.MULTILINE)
+    r"\s*\|\s*(?P<state>\w+)\s*\|(?P<note>.*)"
+)
+MSG_ID_RE = re.compile(r"^msg_id:\s*(\S+)", re.MULTILINE)
+FROM_RE = re.compile(r"^from:\s*(\S+)", re.MULTILINE)
+TO_RE = re.compile(r"^to:\s*(\S+)", re.MULTILINE)
+CONTENT_RE = re.compile(r"^content:\s*\|\n((?:  .+\n?)*)", re.MULTILINE)
+
 
 def parse_inbox(text: str, label: str) -> list[dict]:
     tasks = []
     for block in re.split(r"\n---\n|\n##\s+", text):
         m = TASK_ID_RE.search(block)
-        if not m: continue
-        sub  = SUBMITTED_RE.search(block)
-        pri  = PRIORITY_RE.search(block)
-        it   = ITYPE_RE.search(block)
-        mt   = MSGTYPE_RE.search(block)
-        tasks.append({
-            "task_id":      m.group(1),
-            "submitted_by": sub.group(1) if sub else "?",
-            "priority":     pri.group(1) if pri else "NORMAL",
-            "task_type":    it.group(1)  if it  else "unspecified",
-            "msg_type":     mt.group(1)  if mt  else "TASK",
-            "inbox":        label,
-        })
+        if not m:
+            continue
+        sub = SUBMITTED_RE.search(block)
+        pri = PRIORITY_RE.search(block)
+        it = ITYPE_RE.search(block)
+        mt = MSGTYPE_RE.search(block)
+        tasks.append(
+            {
+                "task_id": m.group(1),
+                "submitted_by": sub.group(1) if sub else "?",
+                "priority": pri.group(1) if pri else "NORMAL",
+                "task_type": it.group(1) if it else "unspecified",
+                "msg_type": mt.group(1) if mt else "TASK",
+                "inbox": label,
+            }
+        )
     return tasks
 
+
 def parse_board(text: str) -> list[dict]:
-    return [m.groupdict() for line in text.splitlines()
-            if (m := BOARD_RE.match(line.strip()))]
+    return [
+        m.groupdict()
+        for line in text.splitlines()
+        if (m := BOARD_RE.match(line.strip()))
+    ]
+
 
 def parse_comms(text: str) -> list[dict]:
     msgs = []
     for block in re.split(r"\n---\n", text):
         m = MSG_ID_RE.search(block)
-        if not m: continue
-        fm = FROM_RE.search(block); to = TO_RE.search(block)
-        tm = MSGTYPE_RE.search(block); cm = CONTENT_RE.search(block)
-        msgs.append({
-            "msg_id":   m.group(1),
-            "from":     fm.group(1) if fm else "?",
-            "to":       to.group(1) if to else "ALL",
-            "msg_type": tm.group(1) if tm else "FYI",
-            "content":  cm.group(1).strip() if cm else "",
-        })
+        if not m:
+            continue
+        fm = FROM_RE.search(block)
+        to = TO_RE.search(block)
+        tm = MSGTYPE_RE.search(block)
+        cm = CONTENT_RE.search(block)
+        msgs.append(
+            {
+                "msg_id": m.group(1),
+                "from": fm.group(1) if fm else "?",
+                "to": to.group(1) if to else "ALL",
+                "msg_type": tm.group(1) if tm else "FYI",
+                "content": cm.group(1).strip() if cm else "",
+            }
+        )
     return msgs
 
 
@@ -558,8 +630,16 @@ _state: dict = {}
 
 
 # ── Inbox handlers ─────────────────────────────────────────────────────────
-PRI_EMOJI = {"TASK": "🔴", "REQUEST": "🟡", "FYI": "🔵",
-             "CRITICAL": "🚨", "HIGH": "🔴", "MEDIUM": "🟡", "NORMAL": "🟢"}
+PRI_EMOJI = {
+    "TASK": "🔴",
+    "REQUEST": "🟡",
+    "FYI": "🔵",
+    "CRITICAL": "🚨",
+    "HIGH": "🔴",
+    "MEDIUM": "🟡",
+    "NORMAL": "🟢",
+}
+
 
 def _check_inbox(path: Path, label: str):
     global _state
@@ -570,27 +650,33 @@ def _check_inbox(path: Path, label: str):
     _state["inbox_hashes"][key] = new_h
     now_epoch = time.time()
     new_claude_tasks = 0
-    new_goose_tasks  = 0
+    new_goose_tasks = 0
     for t in parse_inbox(path.read_text(), label):
         tid = t["task_id"]
         if tid in _state["seen_tasks"]:
             continue
         _state["seen_tasks"][tid] = {
-            "agent":       t["submitted_by"],
-            "state":       "UNREAD",
-            "inbox":       label,
-            "first_seen":  mt_now(),
+            "agent": t["submitted_by"],
+            "state": "UNREAD",
+            "inbox": label,
+            "first_seen": mt_now(),
             "detected_at": now_epoch,
-            "prod_count":  0,
-            "priority":    t["priority"],
-            "msg_type":    t["msg_type"],
+            "prod_count": 0,
+            "priority": t["priority"],
+            "msg_type": t["msg_type"],
         }
         emoji = PRI_EMOJI.get(t["msg_type"], "🔵")
-        write_board("WATCHER", tid, "DETECTED",
-            f"New {t['msg_type']} in {label} inbox from {t['submitted_by']}")
-        hale(f"{emoji} *{t['msg_type']} → {label}*\n"
-             f"`{tid}`\n"
-             f"From: {t['submitted_by']} · {t['priority']} · {t['task_type']}")
+        write_board(
+            "WATCHER",
+            tid,
+            "DETECTED",
+            f"New {t['msg_type']} in {label} inbox from {t['submitted_by']}",
+        )
+        hale(
+            f"{emoji} *{t['msg_type']} → {label}*\n"
+            f"`{tid}`\n"
+            f"From: {t['submitted_by']} · {t['priority']} · {t['task_type']}"
+        )
         log.info(f"NEW {t['msg_type']} in {label}: {tid}")
         if label == "CLAUDE":
             new_claude_tasks += 1
@@ -601,8 +687,10 @@ def _check_inbox(path: Path, label: str):
     # Auto-trigger headless Claude for new CLAUDE inbox tasks — no paste needed
     if new_claude_tasks:
         unread_total = sum(
-            1 for v in _state["seen_tasks"].values()
-            if v.get("inbox") == "CLAUDE" and v.get("state") in ("UNREAD", "DETECTED", "PENDING")
+            1
+            for v in _state["seen_tasks"].values()
+            if v.get("inbox") == "CLAUDE"
+            and v.get("state") in ("UNREAD", "DETECTED", "PENDING")
         )
         trigger_claude_headless(unread_total)
     # Auto-trigger headless Goose for new GOOSE inbox tasks — no paste needed
@@ -610,11 +698,14 @@ def _check_inbox(path: Path, label: str):
         trigger_goose_headless()
     save_state(_state)
 
+
 def check_claude_inbox():
     _check_inbox(CLAUDE_INBOX, "CLAUDE")
     rebuild_claude_injection()
 
-def check_goose_inbox():  _check_inbox(GOOSE_INBOX,  "GOOSE")
+
+def check_goose_inbox():
+    _check_inbox(GOOSE_INBOX, "GOOSE")
 
 
 def check_claude_outbox():
@@ -629,6 +720,7 @@ def check_claude_outbox():
 
     # Parse any new result blocks (look for task_id: lines)
     import re as _re
+
     text = CLAUDE_OUTBOX.read_text()
     result_blocks = _re.split(r"\n---\n", text)
     seen_results = _state.setdefault("seen_outbox_results", [])
@@ -644,11 +736,20 @@ def check_claude_outbox():
         deliv_m = _re.search(r"deliverable:\s*(\S+)", block)
         deliv = deliv_m.group(1) if deliv_m else "result"
         # Notify via wing_comms
-        write_comms("FYI", "CLAUDE", "GOOSE",
-            f"Claude COMPLETE: {task_id} — deliverable={deliv}. Check claude_outbox.md.")
+        write_comms(
+            "FYI",
+            "CLAUDE",
+            "GOOSE",
+            f"Claude COMPLETE: {task_id} — deliverable={deliv}. Check claude_outbox.md.",
+        )
         # Telegram notification
         tg_send(f"✅ *Claude COMPLETE*\n`{task_id}`\n{deliv}")
-        write_board("CLAUDE", task_id, "COMPLETE", f"Result in claude_outbox.md deliverable={deliv}")
+        write_board(
+            "CLAUDE",
+            task_id,
+            "COMPLETE",
+            f"Result in claude_outbox.md deliverable={deliv}",
+        )
         log.info(f"Claude outbox result detected: {task_id} ({deliv})")
 
     save_state(_state)
@@ -678,8 +779,10 @@ def check_wing_comms():
             result = dispatch_to_hale(msg["content"])
             tg_send(f"🦅 *HALE* (re: `{mid}`)\n\n{result[:3800]}")
         else:
-            hale(f"{emoji} *Wing Comms — {msg['msg_type']}*\n"
-                 f"*{msg['from']}* → {msg['to']}\n`{mid}`\n{snippet}")
+            hale(
+                f"{emoji} *Wing Comms — {msg['msg_type']}*\n"
+                f"*{msg['from']}* → {msg['to']}\n`{mid}`\n{snippet}"
+            )
         log.info(f"Wing comms: {mid} {msg['from']}→{msg['to']}")
     rebuild_injection()
     save_state(_state)
@@ -697,13 +800,15 @@ def check_activity_board():
     # Conflict detection
     claims: dict[str, set] = {}
     for e in entries:
-        if e["state"] in ("CLAIMED","WORKING") and e["agent"] != "WATCHER":
+        if e["state"] in ("CLAIMED", "WORKING") and e["agent"] != "WATCHER":
             claims.setdefault(e["task_id"], set()).add(e["agent"])
     for tid, agents in claims.items():
         if len(agents) > 1 and tid not in _state["conflict_ids"]:
             _state["conflict_ids"].append(tid)
             write_board("WATCHER", tid, "CONFLICT", "Claimed by multiple agents")
-            hale(f"⚠️ *CONFLICT: `{tid}`*\nClaimed by: {', '.join(agents)}\nCommander: assign ownership.")
+            hale(
+                f"⚠️ *CONFLICT: `{tid}`*\nClaimed by: {', '.join(agents)}\nCommander: assign ownership."
+            )
 
     # State transitions
     for e in entries:
@@ -718,16 +823,25 @@ def check_activity_board():
                 if ns == "CLAIMED":
                     hale(f"✅ *CLAIMED: `{tid}`* → {e['agent']}")
                 elif ns == "COMPLETE":
-                    hale(f"🏁 *COMPLETE: `{tid}`* — {e['agent']}\n_{e.get('note','')[:80]}_")
+                    hale(
+                        f"🏁 *COMPLETE: `{tid}`* — {e['agent']}\n_{e.get('note', '')[:80]}_"
+                    )
                 elif ns == "BLOCKED":
-                    hale(f"🚧 *BLOCKED: `{tid}`* — {e['agent']}\n_{e.get('note','')[:80]}_")
+                    hale(
+                        f"🚧 *BLOCKED: `{tid}`* — {e['agent']}\n_{e.get('note', '')[:80]}_"
+                    )
                 log.info(f"Board: {tid} → {ns} by {e['agent']}")
         else:
             if ns not in ("WATCHING", "DETECTED"):
                 _state["seen_tasks"][tid] = {
-                    "agent": e["agent"], "state": ns, "inbox": "BOARD",
-                    "first_seen": mt_now(), "detected_at": time.time(),
-                    "prod_count": 0, "priority": "?", "msg_type": "TASK",
+                    "agent": e["agent"],
+                    "state": ns,
+                    "inbox": "BOARD",
+                    "first_seen": mt_now(),
+                    "detected_at": time.time(),
+                    "prod_count": 0,
+                    "priority": "?",
+                    "msg_type": "TASK",
                 }
     rebuild_injection()
     save_state(_state)
@@ -735,6 +849,7 @@ def check_activity_board():
 
 # ── Prod engine ────────────────────────────────────────────────────────────
 TARGET_LABEL = {"CLAUDE": "Claude", "GOOSE": "Goose"}
+
 
 def prod_check():
     """Called every second. Prods stale UNREAD/DETECTED tasks."""
@@ -744,8 +859,8 @@ def prod_check():
     for tid, info in _state["seen_tasks"].items():
         if info.get("state") not in ("UNREAD", "DETECTED", "PENDING"):
             continue
-        age      = now - info.get("detected_at", now)
-        prods    = info.get("prod_count", 0)
+        age = now - info.get("detected_at", now)
+        prods = info.get("prod_count", 0)
         if age < PROD_AFTER_SECS:
             continue
         # Only prod every PROD_AFTER_SECS interval per prod cycle
@@ -755,23 +870,31 @@ def prod_check():
         if prods >= MAX_PRODS:
             if not info.get("escalated"):
                 info["escalated"] = True
-                hale(f"🚨 *ESCALATION: `{tid}`*\n"
-                     f"Unacknowledged after {MAX_PRODS} prods.\n"
-                     f"Target: {info.get('inbox','?')} | Age: {int(age)}s\n"
-                     f"Commander: manual intervention needed.")
+                hale(
+                    f"🚨 *ESCALATION: `{tid}`*\n"
+                    f"Unacknowledged after {MAX_PRODS} prods.\n"
+                    f"Target: {info.get('inbox', '?')} | Age: {int(age)}s\n"
+                    f"Commander: manual intervention needed."
+                )
                 log.warning(f"ESCALATED: {tid}")
             changed = True
             continue
         # Fire a prod
         info["prod_count"] = prods + 1
         target = info.get("inbox", "GOOSE")
-        name   = TARGET_LABEL.get(target, target)
-        hale(f"🫡 *PROD #{prods+1}: {name}*\n"
-             f"`{tid}` has been UNREAD for {int(age)}s.\n"
-             f"Pick it up — write CLAIMED to activity board.")
-        write_board("WATCHER", tid, "PRODDED",
-            f"Prod #{prods+1} sent to {name} — unread {int(age)}s")
-        log.info(f"PROD #{prods+1} sent for {tid} (age {int(age)}s)")
+        name = TARGET_LABEL.get(target, target)
+        hale(
+            f"🫡 *PROD #{prods + 1}: {name}*\n"
+            f"`{tid}` has been UNREAD for {int(age)}s.\n"
+            f"Pick it up — write CLAIMED to activity board."
+        )
+        write_board(
+            "WATCHER",
+            tid,
+            "PRODDED",
+            f"Prod #{prods + 1} sent to {name} — unread {int(age)}s",
+        )
+        log.info(f"PROD #{prods + 1} sent for {tid} (age {int(age)}s)")
         changed = True
     if changed:
         save_state(_state)
@@ -779,59 +902,68 @@ def prod_check():
 
 # ── Telegram C2 ────────────────────────────────────────────────────────────
 ROUTE_TABLE = [
-    (r"^task\s+claude[:\s]+(.+)",  "CLAUDE", "TASK"),
-    (r"^task\s+goose[:\s]+(.+)",   "GOOSE",  "TASK"),
+    (r"^task\s+claude[:\s]+(.+)", "CLAUDE", "TASK"),
+    (r"^task\s+goose[:\s]+(.+)", "GOOSE", "TASK"),
     # Hale direct dispatch — responds immediately via dispatcher
-    (r"^task\s+hale[:\s]+(.+)",    "HALE",   "TASK"),
-    (r"^ask\s+hale[:\s]+(.+)",     "HALE",   "REQUEST"),
-    (r"^hale[:\s]+(.+)",           "HALE",   "TASK"),
+    (r"^task\s+hale[:\s]+(.+)", "HALE", "TASK"),
+    (r"^ask\s+hale[:\s]+(.+)", "HALE", "REQUEST"),
+    (r"^hale[:\s]+(.+)", "HALE", "TASK"),
     # OPUS/Sonnet brain overrides for Hale via Telegram
-    (r"^(opus[:\s]+.+)",           "HALE",   "BRAIN_OPUS"),
-    (r"^(sonnet[:\s]+.+)",         "HALE",   "BRAIN_SONNET"),
-    (r"^ask\s+claude[:\s]+(.+)",   "CLAUDE", "REQUEST"),
-    (r"^ask\s+goose[:\s]+(.+)",    "GOOSE",  "REQUEST"),
-    (r"^tell\s+claude[:\s]+(.+)",  "CLAUDE", "FYI"),
-    (r"^tell\s+goose[:\s]+(.+)",   "GOOSE",  "FYI"),
-    (r"^fyi\s+claude[:\s]+(.+)",   "CLAUDE", "FYI"),
-    (r"^fyi\s+goose[:\s]+(.+)",    "GOOSE",  "FYI"),
-    (r"^fyi\s+hale[:\s]+(.+)",     "HALE",   "FYI"),
-    (r"^fyi\s+all[:\s]+(.+)",      "ALL",    "FYI"),
-    (r"^tell\s+all[:\s]+(.+)",     "ALL",    "FYI"),
-    (r"^/board",   None, "CMD_BOARD"),
-    (r"^/status",  None, "CMD_STATUS"),
-    (r"^/tasks",   None, "CMD_TASKS"),
-    (r"^/help",    None, "CMD_HELP"),
-    (r"^/hale",    None, "CMD_HALE"),
-    (r"^/brief",   None, "CMD_BRIEF"),
+    (r"^(opus[:\s]+.+)", "HALE", "BRAIN_OPUS"),
+    (r"^(sonnet[:\s]+.+)", "HALE", "BRAIN_SONNET"),
+    (r"^ask\s+claude[:\s]+(.+)", "CLAUDE", "REQUEST"),
+    (r"^ask\s+goose[:\s]+(.+)", "GOOSE", "REQUEST"),
+    (r"^tell\s+claude[:\s]+(.+)", "CLAUDE", "FYI"),
+    (r"^tell\s+goose[:\s]+(.+)", "GOOSE", "FYI"),
+    (r"^fyi\s+claude[:\s]+(.+)", "CLAUDE", "FYI"),
+    (r"^fyi\s+goose[:\s]+(.+)", "GOOSE", "FYI"),
+    (r"^fyi\s+hale[:\s]+(.+)", "HALE", "FYI"),
+    (r"^fyi\s+all[:\s]+(.+)", "ALL", "FYI"),
+    (r"^tell\s+all[:\s]+(.+)", "ALL", "FYI"),
+    (r"^/board", None, "CMD_BOARD"),
+    (r"^/status", None, "CMD_STATUS"),
+    (r"^/tasks", None, "CMD_TASKS"),
+    (r"^/help", None, "CMD_HELP"),
+    (r"^/hale", None, "CMD_HALE"),
+    (r"^/brief", None, "CMD_BRIEF"),
 ]
 PRI_MAP = {"TASK": "HIGH", "REQUEST": "NORMAL", "FYI": "LOW"}
 
-def write_inbox(target: str, msg_type: str, content: str,
-                from_agent: str = "COMMANDER") -> str:
+
+def write_inbox(
+    target: str, msg_type: str, content: str, from_agent: str = "COMMANDER"
+) -> str:
     path = CLAUDE_INBOX if target == "CLAUDE" else GOOSE_INBOX
-    tid  = f"CG-{mt_stamp()}-{seq(_state)}"
-    entry = (f"\n---\n## {from_agent} {msg_type} — Telegram\n"
-             f"task_id: {tid}\nmsg_type: {msg_type}\n"
-             f"submitted_by: {from_agent}\n"
-             f"authority: {'COMMANDER' if from_agent=='COMMANDER' else 'PEER'}\n"
-             f"submitted_at: {mt_now()}\ntask_type: telegram_routed\n"
-             f"priority: {PRI_MAP.get(msg_type,'NORMAL')}\n"
-             f"pii: false\nstatus: UNREAD\ncontent: |\n  {content.strip()}\n")
+    tid = f"CG-{mt_stamp()}-{seq(_state)}"
+    entry = (
+        f"\n---\n## {from_agent} {msg_type} — Telegram\n"
+        f"task_id: {tid}\nmsg_type: {msg_type}\n"
+        f"submitted_by: {from_agent}\n"
+        f"authority: {'COMMANDER' if from_agent == 'COMMANDER' else 'PEER'}\n"
+        f"submitted_at: {mt_now()}\ntask_type: telegram_routed\n"
+        f"priority: {PRI_MAP.get(msg_type, 'NORMAL')}\n"
+        f"pii: false\nstatus: UNREAD\ncontent: |\n  {content.strip()}\n"
+    )
     with open(path, "a") as f:
         f.write(entry)
     log.info(f"Wrote {msg_type}→{target}: {tid}")
     return tid
 
+
 def write_comms(msg_type: str, from_a: str, to: str, content: str) -> str:
     mid = f"WC-{mt_stamp()}-{seq(_state)}"
-    entry = (f"\n---\nmsg_id: {mid}\nmsg_type: {msg_type}\n"
-             f"from: {from_a}\nto: {to}\nsubmitted_at: {mt_now()}\n"
-             f"content: |\n  {content.strip()}\n")
+    entry = (
+        f"\n---\nmsg_id: {mid}\nmsg_type: {msg_type}\n"
+        f"from: {from_a}\nto: {to}\nsubmitted_at: {mt_now()}\n"
+        f"content: |\n  {content.strip()}\n"
+    )
     with open(WING_COMMS, "a") as f:
         f.write(entry)
     return mid
 
-HELP_TEXT = ("🦅 *THUNDERBIRD C2*\n\n"
+
+HELP_TEXT = (
+    "🦅 *THUNDERBIRD C2*\n\n"
     "*Talk to Hale (default):*\n"
     "`Hale: [anything]` — direct dispatch\n"
     "`OPUS: [task]` — force Brain 2 Opus\n"
@@ -841,18 +973,23 @@ HELP_TEXT = ("🦅 *THUNDERBIRD C2*\n\n"
     "`Ask Claude/Goose: ...`\n"
     "`FYI All: ...` — broadcast\n\n"
     "*Commands:*\n"
-    "`/hale` `/brief` `/board` `/tasks` `/status` `/help`")
+    "`/hale` `/brief` `/board` `/tasks` `/status` `/help`"
+)
+
 
 def board_summary() -> str:
-    if not ACTIVITY.exists(): return "📋 Board empty."
+    if not ACTIVITY.exists():
+        return "📋 Board empty."
     entries = parse_board(ACTIVITY.read_text())
-    active  = [e for e in entries if e["state"] in ("CLAIMED","WORKING","BLOCKED")]
-    done    = [e for e in entries if e["state"] == "COMPLETE"][-5:]
-    lines   = ["📋 *ACTIVITY BOARD*"]
+    active = [e for e in entries if e["state"] in ("CLAIMED", "WORKING", "BLOCKED")]
+    done = [e for e in entries if e["state"] == "COMPLETE"][-5:]
+    lines = ["📋 *ACTIVITY BOARD*"]
     if active:
         lines.append("*Active:*")
         for e in active:
-            icon = {"CLAIMED":"🟡","WORKING":"🔵","BLOCKED":"🚧"}.get(e["state"],"⚪")
+            icon = {"CLAIMED": "🟡", "WORKING": "🔵", "BLOCKED": "🚧"}.get(
+                e["state"], "⚪"
+            )
             lines.append(f"{icon} `{e['task_id']}` → {e['agent']}")
     else:
         lines.append("_No active tasks_")
@@ -862,54 +999,89 @@ def board_summary() -> str:
             lines.append(f"✅ `{e['task_id']}` — {e['agent']}")
     return "\n".join(lines)
 
+
 def status_summary() -> str:
     total = len(_state.get("seen_tasks", {}))
-    open_ = sum(1 for v in _state.get("seen_tasks",{}).values()
-                if v.get("state") not in ("COMPLETE","CANCELLED"))
-    stale = sum(1 for v in _state.get("seen_tasks",{}).values()
-                if v.get("state") in ("UNREAD","DETECTED","PENDING")
-                and time.time() - v.get("detected_at", time.time()) > PROD_AFTER_SECS)
-    return (f"📡 *WING STATUS*\nTasks: {total} tracked · {open_} open"
-            + (f" · ⚠️ {stale} stale" if stale else "")
-            + f"\nWatcher: running ✓  Poll: inotify")
+    open_ = sum(
+        1
+        for v in _state.get("seen_tasks", {}).values()
+        if v.get("state") not in ("COMPLETE", "CANCELLED")
+    )
+    stale = sum(
+        1
+        for v in _state.get("seen_tasks", {}).values()
+        if v.get("state") in ("UNREAD", "DETECTED", "PENDING")
+        and time.time() - v.get("detected_at", time.time()) > PROD_AFTER_SECS
+    )
+    return (
+        f"📡 *WING STATUS*\nTasks: {total} tracked · {open_} open"
+        + (f" · ⚠️ {stale} stale" if stale else "")
+        + f"\nWatcher: running ✓  Poll: inotify"
+    )
+
 
 def task_list() -> str:
     tasks = _state.get("seen_tasks", {})
-    if not tasks: return "📭 No tasks yet."
-    icons = {"COMPLETE":"✅","WORKING":"🔵","CLAIMED":"🟡","BLOCKED":"🚧",
-             "UNREAD":"🔔","PENDING":"⏳","PRODDED":"🫡","DETECTED":"👁"}
+    if not tasks:
+        return "📭 No tasks yet."
+    icons = {
+        "COMPLETE": "✅",
+        "WORKING": "🔵",
+        "CLAIMED": "🟡",
+        "BLOCKED": "🚧",
+        "UNREAD": "🔔",
+        "PENDING": "⏳",
+        "PRODDED": "🫡",
+        "DETECTED": "👁",
+    }
     lines = ["📋 *TASKS*"]
     for tid, info in list(tasks.items())[-20:]:
-        icon = icons.get(info.get("state",""), "⚪")
-        lines.append(f"{icon} `{tid}` [{info.get('inbox','?')}] {info.get('state','?')}")
+        icon = icons.get(info.get("state", ""), "⚪")
+        lines.append(
+            f"{icon} `{tid}` [{info.get('inbox', '?')}] {info.get('state', '?')}"
+        )
     return "\n".join(lines)
+
 
 def route_tg(text: str) -> str:
     tl = text.strip().lower()
     for pattern, target, msg_type in ROUTE_TABLE:
         m = re.match(pattern, tl, re.DOTALL | re.IGNORECASE)
-        if not m: continue
-        if msg_type == "CMD_BOARD":   return board_summary()
-        if msg_type == "CMD_STATUS":  return status_summary()
-        if msg_type == "CMD_TASKS":   return task_list()
-        if msg_type == "CMD_HELP":    return HELP_TEXT
+        if not m:
+            continue
+        if msg_type == "CMD_BOARD":
+            return board_summary()
+        if msg_type == "CMD_STATUS":
+            return status_summary()
+        if msg_type == "CMD_TASKS":
+            return task_list()
+        if msg_type == "CMD_HELP":
+            return HELP_TEXT
         if msg_type == "CMD_HALE":
             # Return Hale's current state summary
             from pathlib import Path as _P
+
             sf = _P("/home/john/Thunderbird/hale_state.json")
             try:
                 import json as _j
+
                 s = _j.loads(sf.read_text())
                 reminders = s.get("pending_reminders", [])
-                coord = s.get("coord_status", {}).get("hale_blueprint_v1", {}).get("status", "UNKNOWN")
+                coord = (
+                    s.get("coord_status", {})
+                    .get("hale_blueprint_v1", {})
+                    .get("status", "UNKNOWN")
+                )
                 tasks = len(s.get("open_tasks", []))
                 r_text = "\n".join(f"• {r['item']}" for r in reminders) or "None"
-                return (f"🦅 *HALE STATUS*\n"
-                        f"*COORD:* {coord}\n"
-                        f"*Open tasks:* {tasks}\n"
-                        f"*Reminders:* {r_text}\n"
-                        f"*Brief:* `hale_brief.md`\n"
-                        f"*Context:* `hale_session_context.md`")
+                return (
+                    f"🦅 *HALE STATUS*\n"
+                    f"*COORD:* {coord}\n"
+                    f"*Open tasks:* {tasks}\n"
+                    f"*Reminders:* {r_text}\n"
+                    f"*Brief:* `hale_brief.md`\n"
+                    f"*Context:* `hale_session_context.md`"
+                )
             except Exception as e:
                 return f"[HALE STATUS ERROR] {e}"
         if msg_type == "CMD_BRIEF":
@@ -925,14 +1097,23 @@ def route_tg(text: str) -> str:
         emoji = PRI_EMOJI.get(msg_type, "🔵")
 
         # ── Hale direct dispatch ──
-        if target == "HALE" and msg_type in ("TASK", "REQUEST", "BRAIN_OPUS", "BRAIN_SONNET"):
+        if target == "HALE" and msg_type in (
+            "TASK",
+            "REQUEST",
+            "BRAIN_OPUS",
+            "BRAIN_SONNET",
+        ):
             override = None
             if msg_type == "BRAIN_OPUS":
                 override = "opus"
-                content = re.sub(r'^opus[:\s]+', '', content, flags=re.IGNORECASE).strip()
+                content = re.sub(
+                    r"^opus[:\s]+", "", content, flags=re.IGNORECASE
+                ).strip()
             elif msg_type == "BRAIN_SONNET":
                 override = "sonnet"
-                content = re.sub(r'^sonnet[:\s]+', '', content, flags=re.IGNORECASE).strip()
+                content = re.sub(
+                    r"^sonnet[:\s]+", "", content, flags=re.IGNORECASE
+                ).strip()
             tg_send(f"⚙️ *Hale thinking...*\n`{content[:60]}`")
             result = dispatch_to_hale(content, brain_override=override)
             return f"🦅 *HALE*\n\n{result}"
@@ -940,15 +1121,19 @@ def route_tg(text: str) -> str:
         if msg_type in ("TASK", "REQUEST"):
             tid = write_inbox(target, msg_type, content)
             write_board("COMMANDER", tid, "PENDING", f"{msg_type}→{target}")
-            hale(f"{emoji} *Commander routed {msg_type}→{target}*\n`{tid}`: {content[:80]}")
+            hale(
+                f"{emoji} *Commander routed {msg_type}→{target}*\n`{tid}`: {content[:80]}"
+            )
             return f"{emoji} *{msg_type}→{target}*\n`{tid}`\n{content[:100]}"
         else:
             mid = write_comms("FYI", "COMMANDER", target, content)
             if target not in ("HALE", "ALL"):
                 hale(f"{emoji} *FYI for {target}*\n`{mid}`: {content[:80]}")
             return f"{emoji} *FYI→{target}*\n`{mid}`"
-    return ("❓ Unknown. Try:\n`Hale: ...` `Task Hale: ...` `Ask Hale: ...`\n"
-            "`Task Claude/Goose: ...` `FYI All: ...`\n`/hale` `/brief` `/help`")
+    return (
+        "❓ Unknown. Try:\n`Hale: ...` `Task Hale: ...` `Ask Hale: ...`\n"
+        "`Task Claude/Goose: ...` `FYI All: ...`\n`/hale` `/brief` `/help`"
+    )
 
 
 # ── Inbox validator integration ────────────────────────────────────────────
@@ -956,16 +1141,20 @@ def _validate_and_alert(path: Path):
     """Run inbox_validator on a changed file. Alert Commander if errors found."""
     try:
         import sys as _sys
+
         _vmod_path = str(BASE / "OpsCenter")
         if _vmod_path not in _sys.path:
             _sys.path.insert(0, _vmod_path)
         from inbox_validator import check_file, FILE_ROLES
+
         violations = check_file(path)
         errors = [v for v in violations if v["severity"] == "ERROR"]
         if errors:
             summary = "; ".join(v["message"] for v in errors[:3])
             log.warning(f"ROUTING VIOLATION in {path.name}: {summary}")
-            tg_send(f"⚠️ *ROUTING VIOLATION*\n`{path.name}`\n{summary}\nCheck overwatch.log")
+            tg_send(
+                f"⚠️ *ROUTING VIOLATION*\n`{path.name}`\n{summary}\nCheck overwatch.log"
+            )
     except Exception as e:
         log.warning(f"Validator error on {path.name}: {e}")
 
@@ -974,22 +1163,35 @@ def _validate_and_alert(path: Path):
 _debounce: dict[str, float] = {}
 DEBOUNCE_MS = 0.05  # 50ms — ignore duplicate inotify events
 
+
 class CollabHandler(FileSystemEventHandler):
     def on_modified(self, event):
-        if event.is_directory: return
+        if event.is_directory:
+            return
         path = Path(event.src_path)
         # Debounce
         now = time.time()
         last = _debounce.get(str(path), 0)
-        if now - last < DEBOUNCE_MS: return
+        if now - last < DEBOUNCE_MS:
+            return
         _debounce[str(path)] = now
 
         name = path.name
-        if name == "claude_inbox.md":     check_claude_inbox();    _validate_and_alert(path)
-        elif name == "goose_inbox.md":    check_goose_inbox();     _validate_and_alert(path)
-        elif name == "wing_comms.md":     check_wing_comms();      rebuild_claude_injection()
-        elif name == "activity_board.md": check_activity_board();  rebuild_claude_injection()
-        elif name == "claude_outbox.md":  check_claude_outbox();   _validate_and_alert(path)
+        if name == "claude_inbox.md":
+            check_claude_inbox()
+            _validate_and_alert(path)
+        elif name == "goose_inbox.md":
+            check_goose_inbox()
+            _validate_and_alert(path)
+        elif name == "wing_comms.md":
+            check_wing_comms()
+            rebuild_claude_injection()
+        elif name == "activity_board.md":
+            check_activity_board()
+            rebuild_claude_injection()
+        elif name == "claude_outbox.md":
+            check_claude_outbox()
+            _validate_and_alert(path)
 
 
 # ── Main ───────────────────────────────────────────────────────────────────
@@ -1002,14 +1204,15 @@ def main():
     if not _state["inbox_hashes"]["claude"]:
         _state["inbox_hashes"]["claude"] = fhash(CLAUDE_INBOX)
     if not _state["inbox_hashes"]["goose"]:
-        _state["inbox_hashes"]["goose"]  = fhash(GOOSE_INBOX)
+        _state["inbox_hashes"]["goose"] = fhash(GOOSE_INBOX)
     if not _state.get("comms_hash"):
         _state["comms_hash"] = fhash(WING_COMMS)
     if not _state["board_hash"]:
         _state["board_hash"] = fhash(ACTIVITY)
 
     for p in (CLAUDE_INBOX, GOOSE_INBOX, WING_COMMS, ACTIVITY, CLAUDE_OUTBOX):
-        if not p.exists(): p.touch()
+        if not p.exists():
+            p.touch()
     if not _state.get("claude_outbox_hash"):
         _state["claude_outbox_hash"] = fhash(CLAUDE_OUTBOX)
 
@@ -1019,12 +1222,15 @@ def main():
     observer.start()
     log.info(f"inotify observer watching {COLLAB}")
 
-    write_board("WATCHER", "SYSTEM", "WATCHING",
-        "v3 online — inotify + prod engine active")
-    hale(f"🦅 *TASKING WATCHER v3 ONLINE*\n"
-         f"inotify: instant detection\n"
-         f"Prod: {PROD_AFTER_SECS}s timeout · {MAX_PRODS} prods then escalate\n"
-         f"C2: `Task/Ask/Tell/FYI` + `/board /tasks /status /help`")
+    write_board(
+        "WATCHER", "SYSTEM", "WATCHING", "v3 online — inotify + prod engine active"
+    )
+    hale(
+        f"🦅 *TASKING WATCHER v3 ONLINE*\n"
+        f"inotify: instant detection\n"
+        f"Prod: {PROD_AFTER_SECS}s timeout · {MAX_PRODS} prods then escalate\n"
+        f"C2: `Task/Ask/Tell/FYI` + `/board /tasks /status /help`"
+    )
     save_state(_state)
     log.info("v3 running.")
 
@@ -1038,7 +1244,10 @@ def main():
                 prod_check()
 
                 # Heartbeat
-                if time.time() - _state.get("last_heartbeat_epoch", 0) >= HEARTBEAT_SECS:
+                if (
+                    time.time() - _state.get("last_heartbeat_epoch", 0)
+                    >= HEARTBEAT_SECS
+                ):
                     _state["last_heartbeat_epoch"] = time.time()
                     hale(f"💫 *HEARTBEAT*\n{status_summary()}")
 

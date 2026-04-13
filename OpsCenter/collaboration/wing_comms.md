@@ -652,3 +652,24 @@ Allocation formalized per Commander directive. Execute immediately.
 
 **Recommendation:** Draft ready for Commander review and send authorization (scheduled Apr 15).
 
+---
+msg_id: EMAIL-HALE-20260412222206
+msg_type: EMAIL_SCAN
+from: Email Scanner
+priority: P1
+to: HALE
+submitted_at: 2026-04-12 22:22 MT
+content: |
+  Staff mention detected in email.
+  
+  **Details:**
+  - Staff: HALE
+  - From: 
+  - Subject: 
+  - Message ID: 19d62cc9c14a8315
+  
+  Email flagged for HALE review.
+  Please review and task out as appropriate.
+
+---
+

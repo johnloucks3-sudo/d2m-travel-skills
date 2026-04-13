@@ -454,6 +454,11 @@ class TimerEngine:
         client_id = client_data.get("id", "unknown")
         client_name = client_data.get("name", "unknown")
 
+        # Skip F&F / non-commercial clients — no lifecycle timers for friends/family
+        if client_data.get("exclude_from_timers") or client_data.get("service_type") == "F&F":
+            logger.info(f"Skipping {client_name} — F&F service, no lifecycle timers.")
+            return
+
         # Parse dates
         booking_date = datetime.fromisoformat(client_data["booking_date"])
         embark_date = datetime.fromisoformat(client_data["embark_date"])

@@ -1198,5 +1198,515 @@
     "persona": "COS",
     "draft_id": null,
     "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-10T14:01:01.503420+00:00",
+    "msg_id": "19d77715f3cc8aa0",
+    "subject": "[D2M RED] Preflight Check",
+    "sender": "",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-10T14:01:07.796990+00:00",
+    "msg_id": "19d7759f9f87a249",
+    "subject": "Amazon \u2018Bullish\u2019 On Middle East",
+    "sender": "dailydozen@email.forbes.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-10T14:01:10.272349+00:00",
+    "msg_id": "19d77455a242e579",
+    "subject": "Tunnel Fire Training, Haunted Apartments, and Glizzilla",
+    "sender": "news@editor.thecoloradoflyover.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-10T14:15:44.361800+00:00",
+    "msg_id": "19d77b469a62922f",
+    "subject": "Sneak Peeks, Suite Secrets & Generational Cruise Surprises \ud83d\udc40",
+    "sender": "news@info.cruisecritic.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-10T16:16:10.377439+00:00",
+    "msg_id": "19d780d774c3f8bd",
+    "subject": "Curated for John: premium lounges and hotel experiences",
+    "sender": "americanexpress@member.americanexpress.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-10T16:16:18.774748+00:00",
+    "msg_id": "19d78051dca4eea8",
+    "subject": "A remarkable and historic public statement",
+    "sender": "huckabeepost@substack.com",
+    "classification": "financial",
+    "persona": "A9",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-10T16:16:21.747337+00:00",
+    "msg_id": "19d77e47558e62bf",
+    "subject": "Your OpenRouter, Inc receipt [#1541-2235]",
+    "sender": "receipts@openrouter.ai",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-10T18:15:59.017033+00:00",
+    "msg_id": "19d789a110bcdf0b",
+    "subject": "Your Card may not have been present for a purchase",
+    "sender": "americanexpress@welcome.americanexpress.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-10T18:16:08.032844+00:00",
+    "msg_id": "19d788d97293c77e",
+    "subject": "Your LAX > HNL Trip Details",
+    "sender": "deltaairlines@t.delta.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-10T18:16:10.067413+00:00",
+    "msg_id": "19d788c0ec7ea425",
+    "subject": "Birthright Citizenship: your thoughts?",
+    "sender": "updates@cosaction.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-10T18:16:11.815345+00:00",
+    "msg_id": "19d78785a3aafe81",
+    "subject": "\ud83d\udfe2 Here\u2019s an update on your flight to SNA.",
+    "sender": "trip@notify.kayak.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-10T18:16:18.878220+00:00",
+    "msg_id": "19d7869bcaf01aac",
+    "subject": "Plant the seed about shore excursions...and grow your commission!",
+    "sender": "info@shoreex.com",
+    "classification": "financial",
+    "persona": "A9",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-10T18:16:20.511192+00:00",
+    "msg_id": "19d78685077dbf1a",
+    "subject": "20 Vintage Recipes From Church Cookbooks",
+    "sender": "email@email.allrecipes.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-10T18:16:22.159184+00:00",
+    "msg_id": "19d786794d242257",
+    "subject": "New this week! Price drops on your favorite cruise lines",
+    "sender": "hello@marketing.cruisebound.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-10T20:16:05.056701+00:00",
+    "msg_id": "19d78fa5ec600bce",
+    "subject": "Hotels that offer more for less",
+    "sender": "mail@eg.hotels.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-10T20:16:08.365981+00:00",
+    "msg_id": "19d78e13e0698495",
+    "subject": "Re: Possible end to TSA/customs at Sanctuary city airports",
+    "sender": "alredigon2@hotmail.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-10T20:16:14.476181+00:00",
+    "msg_id": "19d78c1aa62cb82d",
+    "subject": "New Savings on All-Inclusive Alaska Voyages",
+    "sender": "regent@cruise.rssc.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-10T20:16:16.430325+00:00",
+    "msg_id": "19d78b9300b98e92",
+    "subject": "Priority Pass password reset confirmation",
+    "sender": "info@email.prioritypass.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-10T20:16:24.147731+00:00",
+    "msg_id": "19d78a8cb2daddc9",
+    "subject": "Booking 3096289 - ELY",
+    "sender": "enava@rssc.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-10T20:16:25.947649+00:00",
+    "msg_id": "19d789d5fc4b0913",
+    "subject": "\ud83d\udea8 Last Chance: Earn At Least $1,000 in Travel",
+    "sender": "tpg@thepointsguy.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-10T22:00:26.608881+00:00",
+    "msg_id": "19d79246b904fcad",
+    "subject": "Re: Booking 3096289 - ELY",
+    "sender": "enava@rssc.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-10T22:15:17.649330+00:00",
+    "msg_id": "19d7950ae340995e",
+    "subject": "The best trips are the ones you share",
+    "sender": "specials@e.windstarcruises.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-11T00:15:53.399761+00:00",
+    "msg_id": "19d79a6474222075",
+    "subject": "Get up to 30% more Aeroplan points!",
+    "sender": "communications@mail.aircanada.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-11T00:15:55.196399+00:00",
+    "msg_id": "19d79924ef850f04",
+    "subject": "Siblings Day BOGO Is Live",
+    "sender": "support@pwrmobile.shop",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-11T14:00:42.306506+00:00",
+    "msg_id": "19d7ca44e269d8bf",
+    "subject": "Must Reads: This detox may erase 10 years of social media brain damage, researchers say",
+    "sender": "email@washingtonpost.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-11T14:15:53.760020+00:00",
+    "msg_id": "19d7ce4948f22dc6",
+    "subject": "US, Iran Talks Begin; Oil Tankers Head to US; Britons Don't Like US",
+    "sender": "newsmax@latest.newsmax.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-11T14:15:56.053048+00:00",
+    "msg_id": "19d7cdb2a3680045",
+    "subject": "\u2708 How to (Still) Get Free Checked Bags, Where Do Your Points Go When You Die? & More From TPG \u2708",
+    "sender": "tpg@thepointsguy.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-11T14:16:02.068618+00:00",
+    "msg_id": "19d7cd4ffcba40b0",
+    "subject": "Democrats sure do seem to hate fair and honest elections",
+    "sender": "huckabeepost@substack.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-11T14:16:09.441028+00:00",
+    "msg_id": "19d7ca107bf04b7e",
+    "subject": "Your Card may not have been present for a purchase",
+    "sender": "americanexpress@welcome.americanexpress.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-11T16:15:52.095344+00:00",
+    "msg_id": "19d7d4966870d7bc",
+    "subject": "Last chance: Don\u2019t miss this offer worth $1,000 in travel!",
+    "sender": "askbk@thepointsguy.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-11T16:15:57.796484+00:00",
+    "msg_id": "19d7d076bd8a9c1b",
+    "subject": "Your OpenRouter, Inc receipt [#1073-5292]",
+    "sender": "receipts@openrouter.ai",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-11T16:16:03.498337+00:00",
+    "msg_id": "19d7cf56e0cfa822",
+    "subject": "New York Police Pulled a Man Out of His Chair and Brought Him Back to Life",
+    "sender": "info@mg.renewedright.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-11T16:16:05.233783+00:00",
+    "msg_id": "19d7ce5d29917485",
+    "subject": "Monsters will be coming!  Breakfast time with our French Toaste Casserole",
+    "sender": "donna@tasteoflifestores.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-11T18:15:30.997934+00:00",
+    "msg_id": "19d7db48476cccf5",
+    "subject": "Reset in the Mediterranean",
+    "sender": "seabourn@m.seabourn.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-11T20:16:05.437862+00:00",
+    "msg_id": "19d7e2b46ecb49a5",
+    "subject": "Your OpenRouter, Inc receipt [#1813-7201]",
+    "sender": "receipts@openrouter.ai",
+    "classification": "financial",
+    "persona": "A9",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-11T20:16:08.306274+00:00",
+    "msg_id": "19d7e0b8c9a2dc52",
+    "subject": "Just confirming your 05/11 trip to Denver awaits!",
+    "sender": "southwestairlines@iluv.southwest.com",
+    "classification": "booking_confirmation",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-11T22:16:12.228206+00:00",
+    "msg_id": "19d7e7472cc0c370",
+    "subject": "BREAKING:  Pope Leo XIV says 'delusion of omnipotence' is fueling war in Iran: 'Enough of war'",
+    "sender": "info@justthenews.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-12T00:16:02.773817+00:00",
+    "msg_id": "19d7ea4d294a9b6a",
+    "subject": "[Shinkansen Reservation Service] Membership Information Registration/Change Complete",
+    "sender": "yoyaku@expy.jp",
+    "classification": "booking_confirmation",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-12T02:00:48.028734+00:00",
+    "msg_id": "19d7f214b7c553fa",
+    "subject": "[D2M RED] Preflight Check",
+    "sender": "",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-12T02:16:06.031215+00:00",
+    "msg_id": "19d7f68b7869182c",
+    "subject": "BREAKING: JD Vance leaves Pakistan without an Iran deal, says Tehran has final offer from U.S.",
+    "sender": "info@justthenews.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-12T02:16:26.633753+00:00",
+    "msg_id": "19d7f62d9f3dd984",
+    "subject": "Your OpenRouter, Inc receipt [#1507-5429]",
+    "sender": "receipts@openrouter.ai",
+    "classification": "financial",
+    "persona": "A9",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-12T14:01:50.465411+00:00",
+    "msg_id": "19d81f5a47673949",
+    "subject": "Trump: US Will Blockade Strait of Hormuz; Dick Morris Questions Vance \u201928; Wall Street Braces for War News",
+    "sender": "newsmax@latest.newsmax.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-12T14:02:07.661742+00:00",
+    "msg_id": "19d81bdfa9e202f9",
+    "subject": "[D2M RED] Preflight Check",
+    "sender": "",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-12T14:16:55.698138+00:00",
+    "msg_id": "19d8200e667ad147",
+    "subject": "\u2708 News You Need to Know, Best Cards for Lounge Access & More From TPG \u2708",
+    "sender": "tpg@thepointsguy.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-12T14:17:38.658629+00:00",
+    "msg_id": "19d81cd822f49812",
+    "subject": "BREAKING:  Trump says US will block \u2018any and all ships trying to enter, or leave, the Strait of Hormuz\u2019",
+    "sender": "info@justthenews.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-12T18:16:31.432412+00:00",
+    "msg_id": "19d82c8069645fb1",
+    "subject": "BREAKING:  Iran threatens forceful response to any military vessels approaching Strait of Hormuz",
+    "sender": "info@justthenews.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-12T18:17:12.671636+00:00",
+    "msg_id": "19d82a70136b1982",
+    "subject": "BREAKING:  Orb\u00e1n's Fidesz faces off against opposition Magyar\u2019s Tisza in Hungary election",
+    "sender": "info@justthenews.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-12T18:17:45.539065+00:00",
+    "msg_id": "19d8297b8d615dee",
+    "subject": "You Might Not Need to Fly for Your Next Cruise; Too Many Sea Days? & More",
+    "sender": "news@info.cruisecritic.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-12T20:16:18.815326+00:00",
+    "msg_id": "19d833298cfe7749",
+    "subject": "BREAKING:  Orb\u00e1n concedes defeat to Magyar in Hungary election",
+    "sender": "info@justthenews.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-12T22:16:39.586223+00:00",
+    "msg_id": "19d83a259aeee5ff",
+    "subject": "BREAKING:  CENTCOM to begin blockade of Iranian ports on Monday",
+    "sender": "info@justthenews.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-13T02:15:58.730813+00:00",
+    "msg_id": "19d8491e65dc4de4",
+    "subject": "[D2M RED] Preflight Check",
+    "sender": "",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
   }
 ]

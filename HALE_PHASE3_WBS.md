@@ -1,0 +1,1 @@
+# HALE PHASE 3 WBS\n[Full plan from general agent here]\n---\n*2026-04-12*

@@ -1,0 +1,1 @@
+# Sonnet Critique Summary\n[Structured critique from dispatcher]\n---\n*2026-04-12*

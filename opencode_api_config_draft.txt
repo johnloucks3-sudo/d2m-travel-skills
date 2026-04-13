@@ -1,0 +1,136 @@
+
+Thunderbird Wing — OpenCode Claude via OpenRouter
+Two artifacts below: (1) OpenCode API config and (2) Python wrapper script. Hand to Deepseek for integration into existing Thunderbird Wing architecture.
+1. OpenCode API Configuration
+File location suggestion: ~/.config/opencode/config.json or wherever OpenCode stores its provider config.
+{
+  "providers": {
+    "anthropic": {
+      "name": "Anthropic via OpenRouter",
+      "base_url": "https://openrouter.ai/api/v1",
+      "api_key_env": "OPENROUTER_API_KEY",
+      "models": {
+        "default": "anthropic/claude-sonnet-4-6",
+        "fallback": "anthropic/claude-haiku-4-5"
+      },
+      "headers": {
+        "HTTP-Referer": "https://dreams2memories.com",
+        "X-Title": "Thunderbird Wing"
+      }
+    }
+  },
+  "default_provider": "anthropic",
+  "default_model": "anthropic/claude-sonnet-4-6"
+}
+Note: Add your OpenRouter key to /home/john/Thunderbird/.env:
+OPENROUTER_API_KEY=sk-or-YOUR_KEY_HERE
+2. Python Wrapper Script
+File location suggestion: /home/john/Thunderbird/OpsCenter/claude_openrouter.py
+"""
+claude_openrouter.py
+Thunderbird Wing — Headless Claude client via OpenRouter
+Drop-in wrapper for use by Hale, Blackboard, or any agent needing Claude inference.
+"""
+import os
+import requests
+from pathlib import Path
+from dotenv import load_dotenv
+# Load from Thunderbird .env
+load_dotenv(Path("/home/john/Thunderbird/.env"))
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+BASE_URL = "https://openrouter.ai/api/v1/chat/completions"
+HEADERS = {
+    "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+    "HTTP-Referer": "https://dreams2memories.com",
+    "X-Title": "Thunderbird Wing",
+    "Content-Type": "application/json",
+}
+def ask_claude(
+    prompt: str,
+    system: str = "You are a helpful AI assistant integrated into the Thunderbird Wing multi-agent system.",
+    model: str = "anthropic/claude-sonnet-4-6",
+    max_tokens: int = 2048,
+    temperature: float = 0.7,
+) -> str:
+    """
+    Send a prompt to Claude via OpenRouter and return the response text.
+    Args:
+        prompt:     User message / task
+        system:     System prompt (override per agent as needed)
+        model:      OpenRouter model string
+        max_tokens: Max response tokens
+        temperature: Sampling temperature
+    Returns:
+        Response string from Claude, or error message.
+    """
+    if not OPENROUTER_API_KEY:
+        return "[ERROR] OPENROUTER_API_KEY not set in /home/john/Thunderbird/.env"
+    payload = {
+        "model": model,
+        "max_tokens": max_tokens,
+        "temperature": temperature,
+        "messages": [
+            {"role": "system", "content": system},
+            {"role": "user", "content": prompt},
+        ],
+    }
+    try:
+        response = requests.post(BASE_URL, headers=HEADERS, json=payload, timeout=60)
+        response.raise_for_status()
+        data = response.json()
+        return data["choices"][0]["message"]["content"]
+    except requests.exceptions.Timeout:
+        return "[ERROR] Request timed out after 60 seconds."
+    except requests.exceptions.HTTPError as e:
+        return f"[ERROR] HTTP {response.status_code}: {response.text}"
+    except Exception as e:
+        return f"[ERROR] Unexpected error: {str(e)}"
+def ask_claude_with_history(
+    messages: list,
+    system: str = "You are a helpful AI assistant integrated into the Thunderbird Wing multi-agent system.",
+    model: str = "anthropic/claude-sonnet-4-6",
+    max_tokens: int = 2048,
+) -> str:
+    """
+    Multi-turn version — pass full message history for conversational agents.
+    Args:
+        messages:  List of {"role": "user"|"assistant", "content": "..."} dicts
+        system:    System prompt
+        model:     OpenRouter model string
+        max_tokens: Max response tokens
+    Returns:
+        Response string from Claude.
+    """
+    if not OPENROUTER_API_KEY:
+        return "[ERROR] OPENROUTER_API_KEY not set in /home/john/Thunderbird/.env"
+    payload = {
+        "model": model,
+        "max_tokens": max_tokens,
+        "messages": [{"role": "system", "content": system}] + messages,
+    }
+    try:
+        response = requests.post(BASE_URL, headers=HEADERS, json=payload, timeout=60)
+        response.raise_for_status()
+        data = response.json()
+        return data["choices"][0]["message"]["content"]
+    except requests.exceptions.HTTPError as e:
+        return f"[ERROR] HTTP {response.status_code}: {response.text}"
+    except Exception as e:
+        return f"[ERROR] Unexpected error: {str(e)}"
+# --- Quick test when run directly ---
+if __name__ == "__main__":
+    print("Testing Claude via OpenRouter...")
+    result = ask_claude(
+        prompt="Respond with exactly: THUNDERBIRD WING ONLINE",
+        system="You are a system test responder.",
+        max_tokens=20,
+    )
+    print(f"Response: {result}")
+Integration Notes for Deepseek
+  Replace any existing anthropic.Anthropic() client calls with ask_claude() from this wrapper
+  For multi-turn agent conversations (Hale/Blackboard loops), use ask_claude_with_history()
+  System prompt per agent — override the system= param with each agent's persona (e.g. Iron Vic's COS prompt)
+  Model fallback — swap to anthropic/claude-haiku-4-5-20251001 for lightweight tasks to preserve OpenRouter balance
+  Key lives in /home/john/Thunderbird/.env — do NOT hardcode
+  Install dependency if not present: pip install requests python-dotenv --break-system-packages
+Generated by Claude MAX — Thunderbird Wing OpsCenter

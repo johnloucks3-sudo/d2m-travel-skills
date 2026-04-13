@@ -37,37 +37,51 @@ def load_text_file(path):
 
 def scan_deadline_radar():
     """1. Deadline Radar - Client milestones within 14 days"""
+    import re
     results = []
 
-    # Scan dossiers for deadlines
-    dossier_path = "/home/john/Thunderbird/dossiers"
-    import glob
+    dossier_dir = Path('/home/john/Thunderbird/dossiers')
+    client_deadlines = []
 
-    # Sample client deadlines - will be replaced with dynamic dossier reading
-    # For now using hardcoded but will implement proper dossier parsing
-    client_deadlines = [
-        {
-            "client": "Lyons",
-            "deadline": "2026-05-11",
-            "type": "FPD",
-            "days_out": 33,
-            "status": "OVERDUE",
-        },
-        {
-            "client": "Westbrook",
-            "deadline": "2026-04-15",
-            "type": "Proposal Send",
-            "days_out": 7,
-            "status": "UPCOMING",
-        },
-        {
-            "client": "Kuklinski",
-            "deadline": "2026-08-02",
-            "type": "Excursion Window",
-            "days_out": 116,
-            "status": "FUTURE",
-        },
-    ]
+    for dossier_file in dossier_dir.glob('*.md'):
+        if not dossier_file.exists():
+            continue
+        try:
+            content = dossier_file.read_text()
+        except:
+            continue
+
+        # Parse FPD/EMB patterns
+        fpd_match = re.search(r'FPD[:\-]?\s*(\d{4}-\d{2}-\d{2})', content)
+        emb_match = re.search(r'EMB[:\-]?\s*(\d{4}-\d{2}-\d{2})', content)
+
+        if fpd_match:
+            try:
+                fpd_date = datetime.fromisoformat(fpd_match.group(1))
+                days_out = (fpd_date.date() - datetime.now().date()).days
+                client_deadlines.append({
+                    'client': dossier_file.stem,
+                    'deadline': fpd_match.group(1),
+                    'type': 'FPD',
+                    'days_out': days_out,
+                    'status': 'OVERDUE' if days_out < 0 else 'UPCOMING' if days_out <= 14 else 'FUTURE'
+                })
+            except:
+                pass
+
+        if emb_match:
+            try:
+                emb_date = datetime.fromisoformat(emb_match.group(1))
+                days_out = (emb_date.date() - datetime.now().date()).days
+                client_deadlines.append({
+                    'client': dossier_file.stem,
+                    'deadline': emb_match.group(1),
+                    'type': 'EMB',
+                    'days_out': days_out,
+                    'status': 'OVERDUE' if days_out < 0 else 'UPCOMING' if days_out <= 14 else 'FUTURE'
+                })
+            except:
+                pass
 
     for deadline in client_deadlines:
         if deadline["days_out"] <= 14:
@@ -143,15 +157,17 @@ def scan_staff_gaps():
                         )
                 except ValueError:
                     continue
-    else:
-        # Fallback: Scan inbox activity for staff tasking patterns
-        results.append(
-            {
-                "type": "system_gap",
-                "issue": "staff_load tracking not implemented - using inbox activity fallback",
-                "priority": "MEDIUM",
-            }
-        )
+    # Add staff_load from inboxes
+    opencode_inbox = Path('/home/john/Thunderbird/OpsCenter/collaboration/opencode_inbox.md').read_text()
+    claude_inbox = Path('/home/john/Thunderbird/claude_inbox.md').read_text()
+    staff_activity = {}
+    for staff in ['HALE', 'DEM', 'DAN', 'VIP', 'LUN', 'GAU', 'VIC', 'PAD', 'ELON']:
+        count = opencode_inbox.count(staff) + claude_inbox.count(staff)
+        staff_activity[staff] = {'last_seen': count > 0, 'active': count}
+    hale_state = load_json_file(HALE_STATE_PATH)
+    hale_state['staff_load'] = staff_activity
+    with open(HALE_STATE_PATH, 'w') as f:
+        json.dump(hale_state, f, indent=2)
 
     return results
 

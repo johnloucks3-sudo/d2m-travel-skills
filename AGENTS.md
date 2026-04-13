@@ -202,8 +202,7 @@ Three patterns depending on whether you need the result now or later.
 ### 1. Inline (synchronous — you need the answer now)
 ```bash
 # Strip proxy vars so Max OAuth kicks in, not the Claude Code proxy
-env -u ANTHROPIC_API_KEY -u ANTHROPIC_BASE_URL \
-  claude -p "your task here" --dangerously-skip-permissions
+.venv/bin/python agents/thunderbird_model_dispatcher.py "your task here"
 ```
 - Returns response to stdout
 - Uses Claude MAX (free under subscription)
@@ -382,7 +381,7 @@ env -u ANTHROPIC_API_KEY -u ANTHROPIC_BASE_URL \
 echo "NEXUS: <task>" >> /home/john/Thunderbird/OpsCenter/collaboration/opencode_inbox.md
 
 # Direct headless Claude (synchronous, preferred for judgment calls)
-env -u ANTHROPIC_API_KEY -u ANTHROPIC_BASE_URL claude -p "task" --dangerously-skip-permissions
+.venv/bin/python agents/thunderbird_model_dispatcher.py "task"
 ```
 **Watcher trigger patterns** (what `check_inbox_has_work()` detects in claude_inbox.md):
 - `^status: UNREAD` — canonical task header ← **use this**

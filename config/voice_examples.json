@@ -8,15 +8,15 @@
       "d2mconcierge@gmail.com"
     ],
     "days_back": 400,
-    "total_examples": 976,
+    "total_examples": 995,
     "by_tier": {
-      "personal": 239,
-      "client": 189,
-      "vendor": 43,
-      "internal": 500,
+      "personal": 246,
+      "client": 191,
+      "vendor": 46,
+      "internal": 507,
       "family": 5
     },
-    "last_sync": "2026-04-09T02:32:53.949746"
+    "last_sync": "2026-04-12T02:31:55.599995"
   },
   "examples": [
     {
@@ -1331,6 +1331,33 @@
       "to": "KAREN LOUCKS <karen.loucks@me.com>, Susan Loucks <susanna.loucks@gmail.com>",
       "date": "Wed, 1 Apr 2026 12:46:52 -0600",
       "body": "Hi Karen, we get up at 5:30 (well Susie does) so like I told Greg (you were\nnot cc'ed), we can come as soon as...we'll coord on Friday night and can\ncome whenever. Church casual? sure, nothing fancy from us.",
+      "score": 5
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Your offer to upgrade has been accepted!",
+      "to": "Jenna Woodcock <jwoodcock@perx.com>",
+      "date": "Thu, 9 Apr 2026 08:36:11 -0600",
+      "body": "Hi Jenna, I am ready to give my credit card information. Cannot call right\nnow do you have a WhatsApp or Telegram account? Otherwise I could take my\ncard and split it into two sections, sending you a text for one and an\nemail for the other. But I would prefer a more secure method over just text\nor email - - like WhatsApp or Telegram? Another thought - - My host agency\nhas a client portal, I am wondering if you have one?\nJohn",
+      "score": 5
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Can you stop by the house?",
+      "to": "Ronald Westbrook <rwestbrook3@gmail.com>",
+      "date": "Fri, 10 Apr 2026 17:41:50 -0700",
+      "body": "Ron, when and if you stop by the house, would you please open the garage\ndoor (5277) and head for the back workbench, next to the backpacks, on the\nright is a bright blue cane sad because its stupid owner forgot it. So\nplease bring it along and we'll be reunited.  :)\n\nThanks\nJohn\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 5
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Our absence this month",
+      "to": "ann heer <iamheer@outlook.com>, Terry Webb <webbsdaddy@gmail.com>, Linda Schleicher <lmschleich@icloud.com>",
+      "date": "Fri, 10 Apr 2026 08:25:49 -0600",
+      "body": "Hi neighbors, just a neighborhood watch note: We will be gone from today\nthe 10th of April to the 11th of May in the evening. Heading to Japan and\ncruising to WA, with initial stops in CA and Hawaii prior.  So please feel\nfree to have parties in the court and park in the driveway. :)\n\nJohn and Susie\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
       "score": 5
     },
     {
@@ -2771,6 +2798,24 @@
       "to": "Ronald Westbrook <rwestbrook3@gmail.com>",
       "date": "Sun, 5 Apr 2026 14:28:01 -0600",
       "body": "k\n\nOn Sun, Apr 5, 2026 at 2:18 PM Ronald Westbrook <rwestbrook3@gmail.com>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "Kuklinski Group Panama Canal Cruise Planning Timeline (All Payments Complete)",
+      "to": "Kyle Kuklinski <kyle.kuklinski@gmail.com>",
+      "date": "Thu, 9 Apr 2026 15:51:25 -0600",
+      "body": "DREAMS2MEMORIES TRAVEL\n\nLuxury Travel Planning & Concierge Services\n\nHi Kyle,\n\nI wanted to share how Dreams2Memories manages your Panama Canal cruise\npreparation from now through embarkation—now that *all payments are\ncomplete as of March 27, 2026*.\n*Our service timeline ensures every detail is handled at the right moment:*\n🔄 Your Complete Service Lifecycle\n✅ COMPLETE: Phase 1 & 2 (January – April 8)\n\n*Booking Preparation & Payment Processing*\n\n   - All 3 suite assignments confirmed with Viking\n   - Detailed invoice review complete\n   - *FINAL PAYMENT: $21,244 total for 3 suites processed and verified*\n   - Booking confirmation received from Viking\n   - Initial guest information gathered for your group of 6\n\n📋 Phase 3: Guest Documentation (April – May)\n\n   - Online check-in completion for all 6 guests\n   - Dietary preferences and special requests documented\n   - Emergency contact information verified\n   - Travel insurance confirmation (if applicable)\n\n✈️ Phase 4: Travel Planning (June – November)\n\n   - Flight research and booking recommendations\n   - Panama City hotel options for pre-cruise stay\n   - Shore excursion planning and reservations\n   - Specialty dining reservations aboard Viking Mars\n   - Port transportation and transfers coordination\n\n📄 Phase 5: Final Preparation (December)\n\n   - Final documents and e-tickets delivered\n   - Embarkation day logistics confirmed\n   - Weather and packing guidance provided\n   - Last-minute details and reminders\n\n📊 Executive Timeline View\n\nI've prepared several visualizations that show your complete planning\ntimeline:\n\n   - *Executive Gantt Chart* – Full 12-month planning overview, from our\n   perspective\n   - *Timeline Proposal* – Key decision points and milestones for you to\n   mark on your calendar\n\nThese are available for review whenever you'd like to see the full picture.\n\nThe goal remains seamless preparation—you focus on anticipating the Panama\nCanal transit while our team handles the operational details.\n\n*Next step:* Would you like to schedule a brief call to review the guest\ndocumentation phase and answer any questions about the timeline?\n\nThanks--John\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "Re: Can you stop by the house?",
+      "to": "Ronald Westbrook <rwestbrook3@gmail.com>",
+      "date": "Sat, 11 Apr 2026 14:04:07 -0700",
+      "body": "OK!! Well maybe I will rent out the new one.  But, If you want to\npreserve the space, just take it out. Your call.\n\nOn Sat, Apr 11, 2026 at 1:21 PM Ronald Westbrook <rwestbrook3@gmail.com>\nwrote:",
       "score": 4
     },
     {
@@ -7509,6 +7554,114 @@
     },
     {
       "account": "johnloucks3@gmail.com",
+      "tier": "vendor",
+      "subject": "Re: AL ELY SUITE CHANGE REQUEST - REGENT SEVEN SEAS",
+      "to": "reservations@rssc.com, Guest Relations - RSSC <guestrelations@rssc.com>",
+      "date": "Thu, 9 Apr 2026 21:47:41 -0600",
+      "body": "*Hello, I just noticed suite 854 is open. Please assign Mr. Ely and Mrs\nDarrow to that suite and send a new invoice. *\n*I will be happy to call as well.  If need be.  *\n*John Loucks*",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Spencer Family Grand Celebration",
+      "to": "bkspencer381@gmail.com",
+      "date": "Thu, 9 Apr 2026 17:22:51 -0600",
+      "body": "DREAMS2MEMORIES TRAVEL\n\nLuxury Travel Planning & Concierge Services\n\nBill & Kathleen - it was great to hear from you!\n\nI've put together a comprehensive proposal for your family's Grand Tour\nnext June. This captures all the incredible destinations you mentioned:\nRome, Florence, Milan, the Swiss Alps, Zurich, and even that Iceland\nextension you were curious about.\n\nWhat's particularly special about this itinerary is how it weaves together\nyour family's celebrations: the 50th anniversary, your grand-daughter's\ngraduation, and that milestone 50th birthday. Each destination offers\nsomething unique for every generation.\n\nThe proposal includes three pricing tiers so you can choose the experience\nlevel that best fits your family's preferences. I've kept everyone in\nPremium Economy for the long flights - essential comfort when traveling\nwith the little ones.\n\nTake a look through the attached proposal and let me know which aspects\nresonate most. I'm particularly excited about the Swiss Alps portion and\nthose Italian high-speed trains that will make moving between cities\neffortless for your group of 12.\n\nEMail response is great, and I am happy to schedule a call next week (via\nWhatsApp) to walk through any questions and start turning this into\nreality.  WE DO have time, but it is best to get some things done early.\n\nThanks,\nJohn\n\n*Reply-to:* d2mconcierge@gmail.com\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[D2M RED] Preflight Check",
+      "to": "johnloucks3@gmail.com",
+      "date": "Thu, 9 Apr 2026 11:25:16 -0400",
+      "body": "Thunderbird Preflight — RED\nTime: 2026-04-09 09:25 MT\n\n✅ MCP Server: Running (PID 1644)\n✅ Scheduler: Running (PID 1638)\n🔴 Telegram C2: NOT RUNNING\n✅ Gmail Token: Valid (has refresh token)\n✅ Persona Token: Valid (has refresh token)\n✅ Disk Space: 840.8 GB free\n✅ TELEGRAM_BOT_TOKEN: Set\n✅ TELEGRAM_COMMANDER_ID: Set\n✅ GROQ_API_KEY: Set\n✅ Internet: Connected\n⚠️ Gemini API: No API key found\n✅ MCP Port 8765: Listening",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[D2M RED] Preflight Check",
+      "to": "johnloucks3@gmail.com",
+      "date": "Thu, 9 Apr 2026 07:50:43 -0500",
+      "body": "Thunderbird Preflight — RED\nTime: 2026-04-09 06:50 MT\n\n✅ MCP Server: Running (PID 1644)\n✅ Scheduler: Running (PID 1638)\n🔴 Telegram C2: NOT RUNNING\n✅ Gmail Token: Valid (has refresh token)\n✅ Persona Token: Valid (has refresh token)\n✅ Disk Space: 841.0 GB free\n✅ TELEGRAM_BOT_TOKEN: Set\n✅ TELEGRAM_COMMANDER_ID: Set\n✅ GROQ_API_KEY: Set\n✅ Internet: Connected\n⚠️ Gemini API: No API key found\n✅ MCP Port 8765: Listening",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Booking 3096289 - ELY",
+      "to": "Al Ely <al.ely58@gmail.com>",
+      "date": "Fri, 10 Apr 2026 14:49:02 -0600",
+      "body": "I think you got it Al. Will Send invoice this evening. En route our 32 day\ntrip.\nJohn",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "vendor",
+      "subject": "Re: Booking 3096289 - ELY",
+      "to": "\"Nava, Estefani\" <enava@rssc.com>",
+      "date": "Fri, 10 Apr 2026 14:39:54 -0600",
+      "body": "Estefani, please grab 961. Unless my clients who are copied prefer\naccessible suite 823. Deferring to them.\nJohn",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[D2M RED] Preflight Check",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 10 Apr 2026 07:50:07 -0500",
+      "body": "Thunderbird Preflight — RED\nTime: 2026-04-10 06:50 MT\n\n✅ MCP Server: Running (PID 1808)\n✅ Scheduler: Running (PID 1794)\n🔴 Telegram C2: NOT RUNNING\n✅ Gmail Token: Valid (has refresh token)\n✅ Persona Token: Valid (has refresh token)\n✅ Disk Space: 841.4 GB free\n✅ TELEGRAM_BOT_TOKEN: Set\n✅ TELEGRAM_COMMANDER_ID: Set\n✅ GROQ_API_KEY: Set\n✅ Internet: Connected\n⚠️ Gemini API: No API key found\n✅ MCP Port 8765: Listening",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Travel Reservation Center Trip ID # 1012884566",
+      "to": "Erik McLeod <emcleod@gmail.com>",
+      "date": "Fri, 10 Apr 2026 05:53:42 -0600",
+      "body": "Thanks. Do you have time to send me your Florence info and train\ninformation?  And Stucky reservation. Promise you'll like the results. Just\ndid a 32 day itinerary for Susie and I and it's pretty cool.\nJohn",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Can you stop by the house?",
+      "to": "rwestbrook3@gmail.com",
+      "date": "Sat, 11 Apr 2026 16:04:20 -0700",
+      "body": "👍\n\nJohn reacted via Gmail\n<https://www.google.com/gmail/about/?utm_source=gmail-in-product&utm_medium=et&utm_campaign=emojireactionemail#app>",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[D2M RED] Preflight Check",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 11 Apr 2026 22:53:09 -0500",
+      "body": "Thunderbird Preflight — RED\nTime: 2026-04-11 21:53 MT\n\n✅ MCP Server: Running (PID 1808)\n✅ Scheduler: Running (PID 1794)\n🔴 Telegram C2: NOT RUNNING\n✅ Gmail Token: Valid (has refresh token)\n✅ Persona Token: Valid (has refresh token)\n✅ Disk Space: 841.1 GB free\n✅ TELEGRAM_BOT_TOKEN: Set\n✅ TELEGRAM_COMMANDER_ID: Set\n✅ GROQ_API_KEY: Set\n✅ Internet: Connected\n⚠️ Gemini API: No API key found\n✅ MCP Port 8765: Listening",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[D2M RED] Preflight Check",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 11 Apr 2026 17:39:39 -0700",
+      "body": "Thunderbird Preflight — RED\nTime: 2026-04-11 18:39 MT\n\n✅ MCP Server: Running (PID 1808)\n✅ Scheduler: Running (PID 1794)\n🔴 Telegram C2: NOT RUNNING\n✅ Gmail Token: Valid (has refresh token)\n✅ Persona Token: Valid (has refresh token)\n✅ Disk Space: 841.1 GB free\n✅ TELEGRAM_BOT_TOKEN: Set\n✅ TELEGRAM_COMMANDER_ID: Set\n✅ GROQ_API_KEY: Set\n✅ Internet: Connected\n⚠️ Gemini API: No API key found\n✅ MCP Port 8765: Listening",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[D2M RED] Preflight Check",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 11 Apr 2026 05:50:03 -0700",
+      "body": "Thunderbird Preflight — RED\nTime: 2026-04-11 06:50 MT\n\n✅ MCP Server: Running (PID 1808)\n✅ Scheduler: Running (PID 1794)\n🔴 Telegram C2: NOT RUNNING\n✅ Gmail Token: Valid (has refresh token)\n✅ Persona Token: Valid (has refresh token)\n✅ Disk Space: 841.3 GB free\n✅ TELEGRAM_BOT_TOKEN: Set\n✅ TELEGRAM_COMMANDER_ID: Set\n✅ GROQ_API_KEY: Set\n✅ Internet: Connected\n⚠️ Gemini API: No API key found\n✅ MCP Port 8765: Listening",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
       "tier": "internal",
       "subject": "[COS] General: BREAKING:  Most Americans say war in Iran is going",
       "to": "johnloucks3@gmail.com",
@@ -8801,6 +8954,24 @@
       "to": "johnloucks3@gmail.com",
       "date": "Mon, 6 Apr 2026 16:36:58 +0000",
       "body": "Goose CLI — How to Load the Hale Recipe Commander — the recipe flag is on goose run , NOT goose session . That is why it failed yesterday. On Chromebook (or YOGA terminal): # Hale session with Gemini goose-d2m run --recipe /home/john/.config/goose/recipes/hale.yaml # Hale session with Claude MAX ($0) goose-d2m-claude run --recipe /home/john/.config/goose/recipes/hale.yaml # Shorthand (if recipe is synced) goose-d2m run --recipe hale What happens on startup (updated today): Recipe prompt loads — identity, clients, authority, standing orders TOM context injects every turn Step 1: Reads GOOSE_INIT.md — full brain (Drive map, core registry, 30+ reference files, Claude tasking) Steps 2-7: Live state, inbox, blackboard, checkpoint, memory, brief Step 8: Leads with the brief If Chromebook does not have the recipe yet: rsync -avz john@192.168.1.198:~/.config/goose/recipes/ ~/.config/goose/recipes/ Claude Code — Already Wired Claude Code auto-loads the brain every session. No action needed. CLAUDE.md is read automatically when you run claude in ~/Thunderbird/ CLAUDE.md now includes: @docs/CLAUDE_CODE_DRIVE_AND_CORE_GUIDE.md That @ directive auto-injects the Drive map + core module registry into every session Nothing to type. Just cd ~/Thunderbird && claude and it is all there. claude.ai (Browser Sessions) For claude.ai sessions without file access, upload this doc at conversation start: Thunderbird Claude AI Session Brain (Google Doc) Download as .md or .txt, drag into claude.ai. Self-contained: identity, Drive map, codebase, standing orders, commissions. All 4 Brain Docs on Drive Document Link Goose Brain v4 Open Claude Code Guide Open claude.ai Brain (upload this) Open Headless Claude MAX Guide Open Thanks, Hale Thunderbird Wing, Dreams2Memories Travel, LLC",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "vendor",
+      "subject": "AL ELY SUITE CHANGE REQUEST - REGENT SEVEN SEAS",
+      "to": "reservations@rssc.com, Guest Relations - RSSC <guestrelations@rssc.com>",
+      "date": "Thu, 9 Apr 2026 20:46:41 -0600",
+      "body": "DREAMS2MEMORIES TRAVEL\n\nLuxury Travel Planning & Concierge Services\n\n*REQUEST:  *\n\n*Move assigned suite to a lower-deck suite in the same Concierge D Category*\n\n*RATIONALE:*\n\n*- Preference for lower deck location- Potentially better stability/motion\ncomfort- Same category amenities and benefits- Improved experience in rough\nseasCLIENT DETAILS:- Name: Al Ely & Amy Darrow- Booking: 3096289- Current\nSuite: 1212, Deck 12- Suite Class: Concierge D- Ship: Seven Seas Grandeur-\nVoyage: Scandinavia, Aug 29 – Sep 8, 2026*\n\n*Dear Regent Seven Seas Reservations Team,I am writing on behalf of my\nclients Al Ely and Amy Darrow (Booking #3096289) aboard Seven Seas Grandeur\nfor the August 29 – September 8, 2026 Scandinavia voyage.  They are\ncurrently assigned to Suite 1212 on Deck 12 (Concierge D category). We\nwould like to request a move to a lower deck suite within the same\nConcierge category .  The clients would prefer a suite on a lower deck for\nadditional comfort during the voyage while maintaining all Concierge-level\namenities and benefits.  Could you please let us know the available suite\nchoices for Concierge suites on lower decks and the process for making this\nchange. Both guests have completed all registration requirements and their\nfinal payment has been processed.Thank you for your assistance with this\nrequest.Sincerely,John Loucks*\n\n*John A Loucks IIIOwner, Dreams2Memories, LLC*\n*719-291-0742*\n*j*ohnloucks3@gmail.com <johnloucks3@gmail.com>\nwww.d2mluxury.quest",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "Thunderbird — Road Kit & YOGA Departure Checklist",
+      "to": "johnloucks3@gmail.com",
+      "date": "Thu, 9 Apr 2026 23:20:50 -0400",
+      "body": "DREAMS2MEMORIES TRAVEL — THUNDERBIRD OS DEPARTURE BRIEF · APRIL 2026 · SILVER NOVA Yoda — everything you need before you walk out the door. Silver Nova departs April 23. You have 14 days. 🔴 CRITICAL — DO BEFORE LEAVING (in order) 1. Enable d2m-tasking-watcher Running but DISABLED — won't survive a YOGA reboot. systemctl --user enable d2m-tasking-watcher.service 2. Git commit everything 30+ commits ahead, ~100 modified files. cd ~/Thunderbird && git add -A && git commit -m \"Pre-departure: all Apr 2026 changes\" 3. Designate a YOGA guardian Someone who can walk to the machine and reboot it. One instruction: \"If it goes dark, unplug and replug.\" 4. Tailscale on Chromebook Z Fold 6 is already on Tailscale ✓. Chromebook Linux container needs it too. Test before departure: ssh john@100.69.222.124 5. Send Kuklinski welcome email Timer will keep generating duplicate tasks until this touchpoint is marked sent. Draft is ready — you just need to approve it. ✅ YOGA SERVICE STATUS (Apr 9) Service Status Auto-restart? nexus.service RUNNING YES thunderbird-mcp.service RUNNING YES thunderbird-telegram-gw.service RUNNING YES thunderbird-overwatch.service RUNNING YES d2m-tunnel.service (Cloudflare) RUNNING YES d2m-tasking-watcher.service RUNNING ⚠ DISABLED — fix before leaving 14 systemd timers ALL FIRING YES ANTHROPIC_API_KEY UPDATED ✓ YES 📱 WHAT TO TAKE (besides Chromebook) Item Why Z Fold 6 Primary C2. On Tailscale. Telegram works on low bandwidth. 65W USB-C brick Charges Chromebook. Don't rely on ship USB alone. USB-C cables ×2 One for Chromebook, one for phone. One always dies. Power bank Port days, excursion buses — no outlets. Universal travel adapter Tokyo embarkation = Japan power (Type A, same as US — verify ship outlets). Google 2FA backup codes If phone dies, you need these to access Gmail/Drive. 🔐 OFFLINE CREDENTIALS (keep on phone, encrypted) Item Value YOGA Tailscale IP 100.69.222.124 SSH login john@100.69.222.124 Cloudflare tunnel api.d2mluxury.quest D2M ops email d2mconcierge@gmail.com 📡 SHIP COMMS PRIORITY ORDER Telegram — low bandwidth, always on. Commands: /status /hale /approve Gmail — daily brief fires to johnloucks3 at 01:30 MDT automatically. SSH into YOGA — full Claude Code sessions. Needs decent wifi. Claude Desktop — last resort, no tools. See init script email. 📋 BEFORE-YOU-SAIL SENDS Action Priority Status Kuklinski welcome email Send before Apr 23 Draft ready, WF-17 passed — awaiting your approval Westbrook (Ron & Lindy) Your call Personal gesture only — not a D2M obligation Lyons FPD follow-up Before Apr 23 33 days overdue DREAMS2MEMORIES TRAVEL Col Victoria “Iron Vic” Hale — Chief of Staff, Thunderbird Wing Thanks",
       "score": 2
     }
   ]

@@ -70,17 +70,19 @@ PROCESSED_LABEL = "THUNDERBIRD-Scanned"
 MAX_PER_SWEEP = 15
 
 # Telegram — use C2 bot token from environment (never hardcode Dani bot token)
-TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_C2_BOT_TOKEN", os.environ.get("TELEGRAM_BOT_TOKEN", ""))
+TELEGRAM_BOT_TOKEN = os.environ.get(
+    "TELEGRAM_C2_BOT_TOKEN", os.environ.get("TELEGRAM_BOT_TOKEN", "")
+)
 TELEGRAM_COMMANDER_ID = int(os.environ.get("TELEGRAM_COMMANDER_ID", "7554895206"))
 
 # Classification categories and their routing
 CLASSIFICATION_ROUTING: Dict[str, Dict[str, str]] = {
-    "client_inquiry":        {"persona": "A3",  "label": "CLIENT"},
-    "booking_confirmation":  {"persona": "A3",  "label": "BOOKING"},
-    "vendor_comm":           {"persona": "COS", "label": "VENDOR"},
-    "financial":             {"persona": "A9",  "label": "FINANCE"},
-    "intel":                 {"persona": "A2",  "label": "INTEL"},
-    "personal":              {"persona": None,  "label": "SKIP"},
+    "client_inquiry": {"persona": "A3", "label": "CLIENT"},
+    "booking_confirmation": {"persona": "A3", "label": "BOOKING"},
+    "vendor_comm": {"persona": "COS", "label": "VENDOR"},
+    "financial": {"persona": "A9", "label": "FINANCE"},
+    "intel": {"persona": "A2", "label": "INTEL"},
+    "personal": {"persona": None, "label": "SKIP"},
 }
 
 # ⚠️ DANI AUTO-DRAFT KILL SWITCH — Standing Order 2026-03-25
@@ -101,10 +103,22 @@ _SELF_ADDRESSES = re.compile(
 _NOISE_PATTERNS = re.compile(
     r"(no-?reply|noreply|newsletter|unsubscribe|@notification|"
     r"@mailer|donotreply|do-not-reply|@bounce|marketing@|"
-    r"promotions?@|alerts?@|support@.*\.com$"
-    r"|group\d+@|@lawndoctor|@homedepot|@lowes|@bestbuy|@amazon"
-    r"|@target|@walmart|@costco|@cvs|@walgreens|@fedex|@ups\.com"
-    r"|@usps\.com|@irs\.gov|@dmv\.|deals@|offers@|savings@|coupons?@)",
+    r"promotions?@|alerts?@|support@.*\.com$|receipts@|"
+    r"group\d+@|@lawndoctor|@homedepot|@lowes|@bestbuy|@amazon|"
+    r"@target|@walmart|@costco|@cvs|@walgreens|@fedex|@ups\.com|"
+    r"@usps\.com|@irs\.gov|@dmv\.|deals@|offers@|savings@|coupons?@|"
+    r"@cruisecritic|news@|info@|updates@|announcements@|media@|"
+    r"@editor\.|@shared\d+\.ccsend\.com|@mailchimpapp\.com|@substack\.com|"
+    r"@ccsend\.com|@messages\d+\.com|@notify\.|@email\.|"
+    r"@eml\.|@editor\.thecoloradoflyover|@editor\.jointheflyover|"
+    r"mail@tln\.messages2\.com|receipts@openrouter\.ai|"
+    r"specials-businessclassguru\.com@|tpg@thepointsguy\.com|"
+    r"jwoodcock@perx\.com|info@legalinsurrection\.com|"
+    r"americanexpress@welcome\.americanexpress\.com|"
+    r"warroomeditors@\d+\.mailchimpapp\.com|unitedcruises@email\.cruises\.united\.com|"
+    r"trip@notify\.kayak\.com|specials@e\.windstarcruises\.com|"
+    r"olivia@ceoflights\.com|news@news\.picassotravel\.com|"
+    r"laureleegraham@\d+\.mailchimpapp\.com|hello@marketing\.cruisebound\.com)",
     re.IGNORECASE,
 )
 
@@ -202,11 +216,15 @@ def authorize_commander_gmail() -> bool:
 # Gmail helpers
 # ---------------------------------------------------------------------------
 
+
 def _decode_body(payload) -> str:
     """Extract body text from a Gmail message payload. Prefers text/plain."""
+
     def _find_part(p, mime_type):
         if p.get("mimeType") == mime_type and p.get("body", {}).get("data"):
-            return base64.urlsafe_b64decode(p["body"]["data"]).decode("utf-8", errors="replace")
+            return base64.urlsafe_b64decode(p["body"]["data"]).decode(
+                "utf-8", errors="replace"
+            )
         for part in p.get("parts", []):
             result = _find_part(part, mime_type)
             if result:
@@ -220,12 +238,13 @@ def _decode_body(payload) -> str:
     html = _find_part(payload, "text/html")
     if html:
         # Strip HTML tags for preview
-        text = re.sub(r'<br\s*/?>', '\n', html, flags=re.IGNORECASE)
-        text = re.sub(r'</(?:p|div|tr|li|h[1-6])>', '\n', text, flags=re.IGNORECASE)
-        text = re.sub(r'<[^>]+>', '', text)
+        text = re.sub(r"<br\s*/?>", "\n", html, flags=re.IGNORECASE)
+        text = re.sub(r"</(?:p|div|tr|li|h[1-6])>", "\n", text, flags=re.IGNORECASE)
+        text = re.sub(r"<[^>]+>", "", text)
         import html as html_mod
+
         text = html_mod.unescape(text)
-        text = re.sub(r'\n{3,}', '\n\n', text)
+        text = re.sub(r"\n{3,}", "\n\n", text)
         return text.strip()
     return ""
 
@@ -236,7 +255,7 @@ def _extract_headers(headers: list) -> Dict[str, str]:
 
 
 def _extract_email_address(from_field: str) -> str:
-    match = re.search(r'<([^>]+)>', from_field)
+    match = re.search(r"<([^>]+)>", from_field)
     return match.group(1).lower() if match else from_field.strip().lower()
 
 
@@ -281,6 +300,7 @@ def _apply_label(service, msg_id: str, label_id: str):
 # State management
 # ---------------------------------------------------------------------------
 
+
 def _load_state() -> Dict[str, Any]:
     if STATE_FILE.exists():
         try:
@@ -317,6 +337,7 @@ def _log_action(entry: Dict):
 # Email classification — Claude Sonnet (fast, cheap)
 # ---------------------------------------------------------------------------
 
+
 def classify_email(subject: str, sender: str, body_preview: str) -> str:
     """Classify an email into a D2M routing category using Claude.
 
@@ -344,22 +365,48 @@ def classify_email(subject: str, sender: str, body_preview: str) -> str:
     subject_lower = subject.lower()
     body_lower = body_preview.lower()
 
-    if any(kw in subject_lower for kw in (
-        "booking confirmation", "reservation confirmed", "itinerary",
-        "e-ticket", "e-document", "final documents", "cruise confirmation"
-    )):
+    if any(
+        kw in subject_lower
+        for kw in (
+            "booking confirmation",
+            "reservation confirmed",
+            "itinerary",
+            "e-ticket",
+            "e-document",
+            "final documents",
+            "cruise confirmation",
+        )
+    ):
         return "booking_confirmation"
 
-    if any(kw in subject_lower for kw in (
-        "commission", "invoice", "payment", "remittance", "statement",
-        "override", "net rate", "override check"
-    )):
+    if any(
+        kw in subject_lower
+        for kw in (
+            "commission",
+            "invoice",
+            "payment",
+            "remittance",
+            "statement",
+            "override",
+            "net rate",
+            "override check",
+        )
+    ):
         return "financial"
 
-    if any(kw in subject_lower for kw in (
-        "travel advisory", "port closure", "hurricane", "strike",
-        "visa", "entry requirement", "isw", "intel"
-    )):
+    if any(
+        kw in subject_lower
+        for kw in (
+            "travel advisory",
+            "port closure",
+            "hurricane",
+            "strike",
+            "visa",
+            "entry requirement",
+            "isw",
+            "intel",
+        )
+    ):
         return "intel"
 
     # For ambiguous emails, call Claude
@@ -384,9 +431,7 @@ def classify_email(subject: str, sender: str, body_preview: str) -> str:
         )
 
         prompt = (
-            f"From: {sender}\n"
-            f"Subject: {subject}\n\n"
-            f"Body preview:\n{body_preview[:800]}"
+            f"From: {sender}\nSubject: {subject}\n\nBody preview:\n{body_preview[:800]}"
         )
 
         raw = _call_claude(system, prompt, max_tokens=20, model="sonnet")
@@ -398,7 +443,9 @@ def classify_email(subject: str, sender: str, body_preview: str) -> str:
             return category
 
         # If Claude returned something unrecognized, fall through to heuristic
-        logger.warning(f"Claude returned unknown category '{category}' — using heuristic")
+        logger.warning(
+            f"Claude returned unknown category '{category}' — using heuristic"
+        )
 
     except Exception as e:
         logger.warning(f"Claude classification failed ({e}) — using heuristic")
@@ -408,12 +455,97 @@ def classify_email(subject: str, sender: str, body_preview: str) -> str:
         return "vendor_comm"
 
     # Check body for client signals
-    client_signals = any(kw in body_lower for kw in (
-        "book", "trip", "cruise", "travel", "quote", "availability",
-        "flight", "hotel", "excursion", "passport", "visa"
-    ))
-    if client_signals:
+    # Check if this is ACTUALLY a client inquiry vs promotional email
+    # Look for client inquiry signals (direct questions, requests, personal details)
+    client_inquiry_signals = any(
+        kw in body_lower
+        for kw in (
+            "i want to book",
+            "we are interested in",
+            "looking for a quote",
+            "can you help with",
+            "do you have availability",
+            "please send me",
+            "i need a hotel",
+            "we need flights",
+            "our family wants to",
+            "hello dani",
+            "dear dani",
+            "hi john",
+            "dear john",
+            "questions about",
+            "can you recommend",
+            "looking for recommendations",
+            "what options",
+            "would like to discuss",
+            "can we schedule a call",
+            "schedule a time",
+        )
+    )
+
+    # Look for promotional/noise signals (newsletter, marketing, announcements)
+    promotional_signals = any(
+        kw in body_lower
+        for kw in (
+            "newsletter",
+            "unsubscribe",
+            "sneak peek",
+            "suite secrets",
+            "generational cruise",
+            "sign up",
+            "click here",
+            "read more",
+            "limited time",
+            "special offer",
+            "promotion",
+            "sale",
+            "discount",
+            "announcement",
+            "check out",
+            "see what's new",
+            "just announced",
+            "introducing",
+            "new product",
+            "latest news",
+            "exclusive access",
+            "you're invited",
+            "join us",
+            "register now",
+            "webinar",
+            "event",
+            "forward to a friend",
+            "share with",
+            "sponsored",
+            "partner",
+            "advertisement",
+            "marketing email",
+            "commercial message",
+        )
+    )
+
+    # Only classify as client_inquiry if there are strong client signals AND no promotional signals
+    if client_inquiry_signals and not promotional_signals:
         return "client_inquiry"
+
+    # If it has travel keywords but also promotional signals, it's likely vendor_comm at best
+    travel_keywords = any(
+        kw in body_lower
+        for kw in (
+            "book",
+            "trip",
+            "cruise",
+            "travel",
+            "quote",
+            "availability",
+            "flight",
+            "hotel",
+            "excursion",
+            "passport",
+            "visa",
+        )
+    )
+    if travel_keywords and not promotional_signals and is_d2m_domain:
+        return "vendor_comm"
 
     return "personal"
 
@@ -422,8 +554,10 @@ def classify_email(subject: str, sender: str, body_preview: str) -> str:
 # Persona tasking — route to appropriate Wing member
 # ---------------------------------------------------------------------------
 
-def _task_to_persona(classification: str, sender_name: str, sender_email: str,
-                      subject: str, body: str) -> Optional[str]:
+
+def _task_to_persona(
+    classification: str, sender_name: str, sender_email: str, subject: str, body: str
+) -> Optional[str]:
     """Call the appropriate persona to analyze the email and produce a draft reply.
 
     Returns the draft reply text, or None if no draft needed (e.g. intel routing).
@@ -449,10 +583,27 @@ def _task_to_persona(classification: str, sender_name: str, sender_email: str,
         from thunderbird_personas import call_persona
 
         if persona_id == "A3":
-            # Dani: Aggregator → Artist → Advocate
-            # She gets specialist context first, then crafts the reply
+            # Step 1: Get analysis from A3
+            analysis_query = (
+                f"Analyze this client email and provide your professional assessment:\n\n"
+                f"From: {sender_name} ({sender_email})\n"
+                f"Subject: {subject}\n\n"
+                f"{body[:3000]}\n\n"
+                "ANALYSIS INSTRUCTIONS:\n"
+                "- Assess the client's needs, urgency, and emotional state\n"
+                "- Identify any immediate action required\n"
+                "- Note any booking references or trip details mentioned\n"
+                "- Evaluate if this requires COS or Commander attention\n"
+                "- Keep analysis concise (3-5 bullet points)\n"
+                "- Your analysis will be reviewed by COS before you draft a reply"
+            )
+            analysis_result = call_persona("A3", analysis_query, max_tokens=400)
+            analysis_text = analysis_result.get("answer", "").strip()
+
+            # Step 2: Draft the reply using Dani engine with context
             try:
                 from thunderbird_dani_engine import build_dani_context
+
                 context_query = (
                     f"EMAIL from {sender_name} ({sender_email}):\n"
                     f"Subject: {subject}\n\n"
@@ -460,14 +611,19 @@ def _task_to_persona(classification: str, sender_name: str, sender_email: str,
                 )
                 context = build_dani_context(context_query, is_commander=False)
                 context += (
-                    "\n\nEMAIL RESPONSE RULES:\n"
+                    f"\n\nANALYSIS FROM A3:\n{analysis_text}\n\n"
+                    "EMAIL RESPONSE RULES:\n"
                     "- You are responding to a client email. Use proper email formatting.\n"
                     "- Greeting, warm body, professional close.\n"
                     "- Sign as: Dani Moreau, Luxury Travel Concierge, Dreams2Memories Travel\n"
                     "- No emojis. If referencing John, say 'John Loucks, our owner' or 'John'.\n"
                     "- This draft goes through COS review before Commander sees it.\n"
                 )
-                result = call_persona("A3", context, max_tokens=800)
+                draft_result = call_persona("A3", context, max_tokens=800)
+                result = {
+                    "answer": draft_result.get("answer", ""),
+                    "analysis": analysis_text,
+                }
             except Exception:
                 # Fallback: direct Dani call without full engine context
                 query = (
@@ -477,19 +633,37 @@ def _task_to_persona(classification: str, sender_name: str, sender_email: str,
                     f"{body[:2000]}\n\n"
                     "Sign as: Dani Moreau, Luxury Travel Concierge, Dreams2Memories Travel"
                 )
-                result = call_persona("A3", query, max_tokens=800)
+                draft_result = call_persona("A3", query, max_tokens=800)
+                result = {
+                    "answer": draft_result.get("answer", ""),
+                    "analysis": analysis_text,
+                }
 
         elif persona_id == "COS":
             query = (
-                f"Review this email from Commander's personal inbox for D2M relevance "
-                f"and draft an appropriate reply or action recommendation.\n\n"
+                f"Analyze this email from Commander's personal inbox and provide both analysis and draft reply:\n\n"
                 f"From: {sender_name} ({sender_email})\n"
                 f"Subject: {subject}\n\n"
                 f"{body[:2500]}\n\n"
-                "If a reply is warranted, draft it. Sign as: John Loucks, Dreams2Memories Travel. "
-                "If no reply is needed, say so and recommend the action."
+                "FORMAT YOUR RESPONSE AS:\n"
+                "ANALYSIS: [Your professional assessment of D2M relevance, urgency, and recommended action]\n"
+                "DRAFT: [The actual draft reply if warranted, signed as John Loucks, Dreams2Memories Travel]\n"
+                "If no reply is needed, say so in the ANALYSIS section and omit DRAFT."
             )
-            result = call_persona("COS", query, max_tokens=600, model_override="sonnet")
+            cos_result = call_persona(
+                "COS", query, max_tokens=600, model_override="sonnet"
+            )
+            # Extract analysis and draft from COS response
+            cos_answer = cos_result.get("answer", "")
+            if "ANALYSIS:" in cos_answer and "DRAFT:" in cos_answer:
+                analysis_part = (
+                    cos_answer.split("ANALYSIS:")[1].split("DRAFT:")[0].strip()
+                )
+                draft_part = cos_answer.split("DRAFT:")[1].strip()
+                result = {"answer": draft_part, "analysis": analysis_part}
+            else:
+                # Fallback: treat entire response as draft
+                result = {"answer": cos_answer, "analysis": "No analysis provided"}
 
         elif persona_id == "A9":
             query = (
@@ -512,10 +686,27 @@ def _task_to_persona(classification: str, sender_name: str, sender_email: str,
         else:
             return None
 
-        answer = result.get("answer", "")
-        # Strip model attribution tag
-        answer = re.sub(r"\n\n---\n_.*?_$", "", answer).strip()
-        return answer if answer else None
+        # Handle different return formats
+        if isinstance(result, dict) and "analysis" in result:
+            # A3 returns both analysis and draft
+            analysis = result.get("analysis", "")
+            draft = result.get("answer", "")
+            # Strip model attribution tags
+            analysis = re.sub(r"\n\n---\n_.*?_$", "", analysis).strip()
+            draft = re.sub(r"\n\n---\n_.*?_$", "", draft).strip()
+            return (
+                f"ANALYSIS:\n{analysis}\n\nDRAFT:\n{draft}"
+                if analysis and draft
+                else draft or analysis
+            )
+        else:
+            # Other personas return just the answer
+            answer = (
+                result.get("answer", "") if isinstance(result, dict) else str(result)
+            )
+            # Strip model attribution tag
+            answer = re.sub(r"\n\n---\n_.*?_$", "", answer).strip()
+            return answer if answer else None
 
     except Exception as e:
         logger.error(f"Persona tasking failed ({persona_id}, {subject[:50]}): {e}")
@@ -526,8 +717,10 @@ def _task_to_persona(classification: str, sender_name: str, sender_email: str,
 # Draft creation — in d2mconcierge, FROM concierge@d2mluxury.quest
 # ---------------------------------------------------------------------------
 
-def _create_reply_draft(to_email: str, subject: str, body: str,
-                         thread_id: Optional[str] = None) -> Optional[str]:
+
+def _create_reply_draft(
+    to_email: str, subject: str, body: str, thread_id: Optional[str] = None
+) -> Optional[str]:
     """Create a draft reply in d2mconcierge (FROM concierge@d2mluxury.quest).
 
     NEVER sends from johnloucks3 — this draft lands in d2mconcierge for review.
@@ -541,7 +734,9 @@ def _create_reply_draft(to_email: str, subject: str, body: str,
         msg = MIMEMultipart("alternative")
         msg["To"] = to_email
         msg["From"] = D2M_FROM_ADDRESS
-        msg["Subject"] = f"Re: {subject}" if not subject.lower().startswith("re:") else subject
+        msg["Subject"] = (
+            f"Re: {subject}" if not subject.lower().startswith("re:") else subject
+        )
 
         msg.attach(MIMEText(body, "plain"))
 
@@ -550,12 +745,12 @@ def _create_reply_draft(to_email: str, subject: str, body: str,
         if thread_id:
             draft_body["message"]["threadId"] = thread_id
 
-        draft = service.users().drafts().create(
-            userId="me", body=draft_body
-        ).execute()
+        draft = service.users().drafts().create(userId="me", body=draft_body).execute()
 
         draft_id = draft.get("id", "unknown")
-        logger.info(f"Draft created in d2mconcierge (FROM concierge@): draft={draft_id}")
+        logger.info(
+            f"Draft created in d2mconcierge (FROM concierge@): draft={draft_id}"
+        )
         return draft_id
 
     except Exception as e:
@@ -567,9 +762,15 @@ def _create_reply_draft(to_email: str, subject: str, body: str,
 # COS Telegram notification
 # ---------------------------------------------------------------------------
 
-def _notify_cos(classification: str, sender: str, subject: str,
-                persona_id: Optional[str], draft_id: Optional[str],
-                persona_note: str):
+
+def _notify_cos(
+    classification: str,
+    sender: str,
+    subject: str,
+    persona_id: Optional[str],
+    draft_id: Optional[str],
+    persona_note: str,
+):
     """Notify Commander/COS via Telegram about every tasked email."""
     try:
         import requests as _req
@@ -583,7 +784,11 @@ def _notify_cos(classification: str, sender: str, subject: str,
             "personal": "⬛",
         }.get(classification, "📧")
 
-        persona_line = f"Tasked to: *{persona_id}*\n" if persona_id else "Persona: SKIP (personal)\n"
+        persona_line = (
+            f"Tasked to: *{persona_id}*\n"
+            if persona_id
+            else "Persona: SKIP (personal)\n"
+        )
         draft_line = f"Draft ID: `{draft_id}`\n" if draft_id else "Draft: none\n"
         note_preview = persona_note[:300] if persona_note else "(no analysis)"
 
@@ -615,9 +820,16 @@ def _notify_cos(classification: str, sender: str, subject: str,
 # Task a single email
 # ---------------------------------------------------------------------------
 
-def task_email(msg_id: str, classification: str, subject: str,
-               sender: str, sender_name: str, body: str,
-               thread_id: Optional[str] = None) -> Dict[str, Any]:
+
+def task_email(
+    msg_id: str,
+    classification: str,
+    subject: str,
+    sender: str,
+    sender_name: str,
+    body: str,
+    thread_id: Optional[str] = None,
+) -> Dict[str, Any]:
     """Process a classified email end-to-end.
 
     Steps:
@@ -654,31 +866,48 @@ def task_email(msg_id: str, classification: str, subject: str,
     # Create draft reply if this classification warrants one
     draft_id = None
     if classification in ("client_inquiry", "booking_confirmation") and persona_note:
+        # For A3 responses, extract just the DRAFT part (after "DRAFT:" marker)
+        draft_text = persona_note
+        if persona_id == "A3" and "DRAFT:" in persona_note:
+            draft_parts = persona_note.split("DRAFT:")
+            if len(draft_parts) > 1:
+                draft_text = draft_parts[1].strip()
+
         # COS review: quick sanity check before drafting
         try:
             from thunderbird_dani_engine import cos_review
+
             review = cos_review(
                 f"From: {sender}\nSubject: {subject}\n\n{body[:1500]}",
-                persona_note,
+                draft_text,  # Use just the draft text for COS review
                 is_client=(classification == "client_inquiry"),
             )
             approved = review.get("approved", True)
             if not approved:
-                logger.info(f"COS rejected draft for '{subject[:50]}' — skipping draft creation")
-                result["status"] = "cos_rejected"
                 result["persona_note"] = review.get("note", persona_note)
-                _notify_cos(classification, sender, subject, persona_id, None,
-                            f"COS REJECTED: {review.get('note', 'No note')}")
+                _notify_cos(
+                    classification,
+                    sender,
+                    subject,
+                    persona_id,
+                    None,
+                    f"COS REJECTED: {review.get('note', 'No note')}",
+                )
                 return result
         except Exception as e:
             logger.warning(f"COS review failed ({e}) — proceeding with draft")
 
-        draft_id = _create_reply_draft(sender, subject, persona_note, thread_id)
+        draft_id = _create_reply_draft(sender, subject, draft_text, thread_id)
         result["draft_id"] = draft_id
 
     elif classification in ("vendor_comm",) and persona_note:
         # For vendor comms, COS drafts a reply
-        draft_id = _create_reply_draft(sender, subject, persona_note, thread_id)
+        draft_text = persona_note
+        if persona_id == "COS" and "DRAFT:" in persona_note:
+            draft_parts = persona_note.split("DRAFT:")
+            if len(draft_parts) > 1:
+                draft_text = draft_parts[1].strip()
+        draft_id = _create_reply_draft(sender, subject, draft_text, thread_id)
         result["draft_id"] = draft_id
 
     result["status"] = "tasked"
@@ -699,6 +928,7 @@ def task_email(msg_id: str, classification: str, subject: str,
 # ---------------------------------------------------------------------------
 # Scan — read-only, returns classified emails
 # ---------------------------------------------------------------------------
+
 
 def scan_commander_inbox(hours_back: int = 4) -> List[Dict[str, Any]]:
     """Scan Commander's personal inbox for D2M-relevant emails.
@@ -729,9 +959,12 @@ def scan_commander_inbox(hours_back: int = 4) -> List[Dict[str, Any]]:
     )
 
     try:
-        results = service.users().messages().list(
-            userId="me", q=query, maxResults=MAX_PER_SWEEP
-        ).execute()
+        results = (
+            service.users()
+            .messages()
+            .list(userId="me", q=query, maxResults=MAX_PER_SWEEP)
+            .execute()
+        )
     except Exception as e:
         logger.error(f"Gmail search failed (johnloucks3): {e}")
         return []
@@ -741,7 +974,9 @@ def scan_commander_inbox(hours_back: int = 4) -> List[Dict[str, Any]]:
         logger.info("Commander inbox scan: no new messages found.")
         return []
 
-    logger.info(f"Commander inbox: {len(messages)} candidate messages in last {hours_back}h")
+    logger.info(
+        f"Commander inbox: {len(messages)} candidate messages in last {hours_back}h"
+    )
 
     found: List[Dict[str, Any]] = []
 
@@ -752,9 +987,12 @@ def scan_commander_inbox(hours_back: int = 4) -> List[Dict[str, Any]]:
             continue
 
         try:
-            msg = service.users().messages().get(
-                userId="me", id=msg_id, format="full"
-            ).execute()
+            msg = (
+                service.users()
+                .messages()
+                .get(userId="me", id=msg_id, format="full")
+                .execute()
+            )
         except Exception as e:
             logger.warning(f"Message fetch failed ({msg_id}): {e}")
             continue
@@ -776,17 +1014,19 @@ def scan_commander_inbox(hours_back: int = 4) -> List[Dict[str, Any]]:
 
         classification = classify_email(subject, sender_addr, body_preview)
 
-        found.append({
-            "msg_id": msg_id,
-            "thread_id": thread_id,
-            "subject": subject,
-            "sender": sender_addr,
-            "sender_name": sender_name,
-            "from_raw": from_raw,
-            "classification": classification,
-            "body": body,
-            "body_preview": body_preview,
-        })
+        found.append(
+            {
+                "msg_id": msg_id,
+                "thread_id": thread_id,
+                "subject": subject,
+                "sender": sender_addr,
+                "sender_name": sender_name,
+                "from_raw": from_raw,
+                "classification": classification,
+                "body": body,
+                "body_preview": body_preview,
+            }
+        )
 
         logger.info(f"[{classification.upper():<22}] {sender_addr} — {subject[:60]}")
 
@@ -796,6 +1036,7 @@ def scan_commander_inbox(hours_back: int = 4) -> List[Dict[str, Any]]:
 # ---------------------------------------------------------------------------
 # Full sweep — scan + task + draft + notify
 # ---------------------------------------------------------------------------
+
 
 def run_commander_inbox_sweep(hours_back: int = 4) -> Dict[str, Any]:
     """Full Commander inbox sweep: scan → classify → task → draft → notify COS.
@@ -880,10 +1121,12 @@ def run_commander_inbox_sweep(hours_back: int = 4) -> Dict[str, Any]:
                         original_body="",
                         sent_body=email["body"][:4000],
                         context=f"Commander original to: {email.get('subject', '')} | "
-                                f"classification: {classification}",
+                        f"classification: {classification}",
                         source="commander_original",
                     )
-                    logger.info(f"Learning capture: commander_original — {email['subject'][:50]}")
+                    logger.info(
+                        f"Learning capture: commander_original — {email['subject'][:50]}"
+                    )
 
                 # Forward pattern: Commander forwarded an email (Fwd:/FW:)
                 elif subject_lower.startswith(("fwd:", "fw:")):
@@ -891,11 +1134,13 @@ def run_commander_inbox_sweep(hours_back: int = 4) -> Dict[str, Any]:
                         original_body="",
                         sent_body=email["body"][:4000],
                         context=f"Commander forward from {email['sender']} | "
-                                f"subject: {email['subject']} | "
-                                f"classification: {classification}",
+                        f"subject: {email['subject']} | "
+                        f"classification: {classification}",
                         source="forward_pattern",
                     )
-                    logger.info(f"Learning capture: forward_pattern — {email['subject'][:50]}")
+                    logger.info(
+                        f"Learning capture: forward_pattern — {email['subject'][:50]}"
+                    )
 
             except Exception as learn_err:
                 logger.warning(f"Learning capture failed for {msg_id}: {learn_err}")
@@ -910,11 +1155,36 @@ def run_commander_inbox_sweep(hours_back: int = 4) -> Dict[str, Any]:
 
                 if detected and classification not in ("personal",):
                     import re as _re
+
                     _pref_patterns = [
-                        (_re.compile(r'(?:now\s+prefer|switched\s+to|changed\s+to|upgraded?\s+to)\s+(.{5,60})', _re.IGNORECASE), "preference_change"),
-                        (_re.compile(r'(?:allergic|allergy|dietary|diet)\s*(?:to|restriction)?[:\s]+(.{3,60})', _re.IGNORECASE), "dietary_restriction"),
-                        (_re.compile(r'(?:cabin|suite|stateroom)\s*(?:type|preference)?[:\s]+(.{3,60})', _re.IGNORECASE), "cabin_preference"),
-                        (_re.compile(r'(?:birthday|anniversary|born)\s*(?:is|on)?[:\s]+(.{5,40})', _re.IGNORECASE), "milestone"),
+                        (
+                            _re.compile(
+                                r"(?:now\s+prefer|switched\s+to|changed\s+to|upgraded?\s+to)\s+(.{5,60})",
+                                _re.IGNORECASE,
+                            ),
+                            "preference_change",
+                        ),
+                        (
+                            _re.compile(
+                                r"(?:allergic|allergy|dietary|diet)\s*(?:to|restriction)?[:\s]+(.{3,60})",
+                                _re.IGNORECASE,
+                            ),
+                            "dietary_restriction",
+                        ),
+                        (
+                            _re.compile(
+                                r"(?:cabin|suite|stateroom)\s*(?:type|preference)?[:\s]+(.{3,60})",
+                                _re.IGNORECASE,
+                            ),
+                            "cabin_preference",
+                        ),
+                        (
+                            _re.compile(
+                                r"(?:birthday|anniversary|born)\s*(?:is|on)?[:\s]+(.{5,40})",
+                                _re.IGNORECASE,
+                            ),
+                            "milestone",
+                        ),
                     ]
                     t_backend = get_backend()
                     for pattern, attr in _pref_patterns:
@@ -929,21 +1199,27 @@ def run_commander_inbox_sweep(hours_back: int = 4) -> Dict[str, Any]:
                                     source=f"commander_inbox:{email['subject'][:50]}",
                                     confidence=0.75,
                                 )
-                            logger.info(f"Temporal capture: {attr} for {detected} from '{email['subject'][:40]}'")
+                            logger.info(
+                                f"Temporal capture: {attr} for {detected} from '{email['subject'][:40]}'"
+                            )
             except Exception as temporal_err:
-                logger.debug(f"Temporal fact capture skipped for {msg_id}: {temporal_err}")
+                logger.debug(
+                    f"Temporal fact capture skipped for {msg_id}: {temporal_err}"
+                )
 
             # Log the action
-            _log_action({
-                "timestamp": datetime.now(timezone.utc).isoformat(),
-                "msg_id": msg_id,
-                "subject": email["subject"],
-                "sender": email["sender"],
-                "classification": classification,
-                "persona": result.get("persona"),
-                "draft_id": result.get("draft_id"),
-                "status": result["status"],
-            })
+            _log_action(
+                {
+                    "timestamp": datetime.now(timezone.utc).isoformat(),
+                    "msg_id": msg_id,
+                    "subject": email["subject"],
+                    "sender": email["sender"],
+                    "classification": classification,
+                    "persona": result.get("persona"),
+                    "draft_id": result.get("draft_id"),
+                    "status": result["status"],
+                }
+            )
 
             actions.append(result)
 
@@ -991,6 +1267,7 @@ def run_commander_inbox_sweep(hours_back: int = 4) -> Dict[str, Any]:
 # MCP tool registration
 # ---------------------------------------------------------------------------
 
+
 def register_commander_inbox_tools(mcp):
     """Register Commander inbox scanner MCP tools."""
     import json as _json
@@ -1008,19 +1285,22 @@ def register_commander_inbox_tools(mcp):
             hours_back: How many hours back to search (default 4)
         """
         results = scan_commander_inbox(hours_back=hours_back)
-        return _json.dumps({
-            "emails_found": len(results),
-            "emails": [
-                {
-                    "msg_id": e["msg_id"],
-                    "subject": e["subject"],
-                    "sender": e["sender"],
-                    "classification": e["classification"],
-                    "body_preview": e["body_preview"][:300],
-                }
-                for e in results
-            ],
-        }, indent=2)
+        return _json.dumps(
+            {
+                "emails_found": len(results),
+                "emails": [
+                    {
+                        "msg_id": e["msg_id"],
+                        "subject": e["subject"],
+                        "sender": e["sender"],
+                        "classification": e["classification"],
+                        "body_preview": e["body_preview"][:300],
+                    }
+                    for e in results
+                ],
+            },
+            indent=2,
+        )
 
     @mcp.tool()
     async def run_commander_inbox_sweep_tool(
@@ -1044,6 +1324,7 @@ def register_commander_inbox_tools(mcp):
 # ---------------------------------------------------------------------------
 # Briefing integration helper
 # ---------------------------------------------------------------------------
+
 
 def get_inbox_briefing_line() -> str:
     """Return a one-line summary for inclusion in the morning briefing.
@@ -1088,26 +1369,36 @@ if __name__ == "__main__":
         sys.exit(0 if success else 1)
 
     elif "--scan" in sys.argv:
-        hours = int(sys.argv[sys.argv.index("--scan") + 1]) if (
-            sys.argv.index("--scan") + 1 < len(sys.argv)
-            and sys.argv[sys.argv.index("--scan") + 1].isdigit()
-        ) else 4
+        hours = (
+            int(sys.argv[sys.argv.index("--scan") + 1])
+            if (
+                sys.argv.index("--scan") + 1 < len(sys.argv)
+                and sys.argv[sys.argv.index("--scan") + 1].isdigit()
+            )
+            else 4
+        )
         emails = scan_commander_inbox(hours_back=hours)
         print(f"\nFound {len(emails)} D2M-relevant emails in last {hours}h:\n")
         for e in emails:
             print(f"  [{e['classification']:<22}] {e['sender']} — {e['subject'][:60]}")
 
     elif "--sweep" in sys.argv:
-        hours = int(sys.argv[sys.argv.index("--sweep") + 1]) if (
-            sys.argv.index("--sweep") + 1 < len(sys.argv)
-            and sys.argv[sys.argv.index("--sweep") + 1].isdigit()
-        ) else 4
+        hours = (
+            int(sys.argv[sys.argv.index("--sweep") + 1])
+            if (
+                sys.argv.index("--sweep") + 1 < len(sys.argv)
+                and sys.argv[sys.argv.index("--sweep") + 1].isdigit()
+            )
+            else 4
+        )
         result = run_commander_inbox_sweep(hours_back=hours)
         print(json.dumps(result, indent=2))
 
     else:
         print(__doc__)
         print("\nUsage:")
-        print("  python3 thunderbird_commander_inbox.py --authorize      # First-time OAuth")
+        print(
+            "  python3 thunderbird_commander_inbox.py --authorize      # First-time OAuth"
+        )
         print("  python3 thunderbird_commander_inbox.py --scan [hours]   # Scan only")
         print("  python3 thunderbird_commander_inbox.py --sweep [hours]  # Full sweep")

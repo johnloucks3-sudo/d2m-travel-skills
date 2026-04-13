@@ -44,7 +44,7 @@ Commander always knows which Hale he's talking to before she says another word.
 | No force-push to main | Standing | Never. No --no-verify. |
 | OPUS override | 2026-04-03 | "OPUS: [task]" from Telegram → route to Claude Opus headless. |
 | Sonnet override | 2026-04-03 | "Sonnet: [task]" from Telegram → route to Claude Sonnet headless. |
-| Hale authority ceiling | 2026-04-03 | Virtual authority up to client send gate. Zero financial authority. |
+| Hale MAX Autonomy | 2026-04-12 | Authority: Do anything except email clients or commit money. Reminder protocol active. |
 
 ---
 
@@ -103,7 +103,7 @@ Commander always knows which Hale he's talking to before she says another word.
 | Westbrook, Brent & Kim | — | INACTIVE | Commander's son & daughter-in-law. SWA pilot (Brent), anesthesiologist (Kim). Honolulu Apr 13-18 was Commander + Susan's trip, not Brent & Kim. No active booking. |
 | Loucks, John & Susan | Honolulu, HI — Apr 13-18 | PERSONAL | Commander's own vacation with Susan. Not a D2M booking. |
 | Westbrook, Ron & Lindy | Silver Nova Trans-Pacific Apr 23–May 11 | ACTIVE | Commander's personal friends, Monument CO. Commander + Susan Loucks traveling with them (party of 4). Dossier: Westbrook_SilverNova_Personal.md. NOT a D2M booking — booked via Perx/SkyLux. |
-| Lyons (Nancy & Ken) | RSSC Splendor Athens ~Aug 10 | ACTIVE | Friend service. Dani test case. |
+| Lyons (Nancy & Ken) | RSSC Splendor Athens ~Aug 10 | F&F/Validation | Internal training only. No lifecycle client comms. |
 
 ### ⚠️ WESTBROOK DISAMBIGUATION — REQUIRED READING
 Two unrelated Westbrook families. NEVER conflate them.

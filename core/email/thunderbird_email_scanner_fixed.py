@@ -46,7 +46,9 @@ EMAIL_CONDITIONING_DIR = THUNDERBIRD_DIR / "email_conditioning"
 # State and logging
 STATE_FILE = OPSCENTER_DIR / "email_scanner_state.json"
 LOG_FILE = OPSCENTER_DIR / "logs" / "email_scanner.log"
+ROUTING_LOG = OPSCENTER_DIR / "logs" / "email_routing.log"
 LOG_FILE.parent.mkdir(parents=True, exist_ok=True)
+ROUTING_LOG.parent.mkdir(parents=True, exist_ok=True)
 
 # Gmail accounts
 D2M_CONCIERGE_EMAIL = "d2mconcierge@gmail.com"
@@ -54,7 +56,7 @@ COMMANDER_EMAIL = "johnloucks3@gmail.com"
 CONCIERGE_SEND_AS = "concierge@d2mluxury.quest"
 
 # Inbox destinations
-GOOSE_INBOX = THUNDERBIRD_DIR / "OpsCenter" / "collaboration" / "goose_inbox.md"
+WING_COMMS = THUNDERBIRD_DIR / "OpsCenter" / "collaboration" / "wing_comms.md"
 CLAUDE_INBOX = THUNDERBIRD_DIR / "claude_inbox.md"
 OPENCODE_INBOX = THUNDERBIRD_DIR / "OpsCenter" / "collaboration" / "opencode_inbox.md"
 
@@ -86,6 +88,7 @@ logger = logging.getLogger(__name__)
 # STATE MANAGEMENT
 # ============================================================================
 
+
 def load_state() -> Dict[str, Any]:
     """Load dedup state from JSON file."""
     if not STATE_FILE.exists():
@@ -101,7 +104,9 @@ def load_state() -> Dict[str, Any]:
 def save_state(state: Dict[str, Any]) -> None:
     """Save dedup state to JSON file. Prune if needed."""
     if len(state["processed_message_ids"]) > STATE_PRUNE_SIZE:
-        state["processed_message_ids"] = state["processed_message_ids"][-STATE_PRUNE_SIZE:]
+        state["processed_message_ids"] = state["processed_message_ids"][
+            -STATE_PRUNE_SIZE:
+        ]
         logger.info(f"Pruned processed_message_ids to {STATE_PRUNE_SIZE}")
 
     state["last_run"] = datetime.utcnow().isoformat()
@@ -122,9 +127,11 @@ def mark_processed(message_id: str, state: Dict[str, Any]) -> None:
     if message_id not in state["processed_message_ids"]:
         state["processed_message_ids"].append(message_id)
 
+
 # ============================================================================
 # GMAIL API AUTH & INTEGRATION
 # ============================================================================
+
 
 def get_gmail_service():
     """
@@ -164,11 +171,12 @@ def get_gmail_service():
 def gmail_search(service, query: str, max_results: int = 50) -> List[str]:
     """Search Gmail for messages matching query."""
     try:
-        results = service.users().messages().list(
-            userId="me",
-            q=query,
-            maxResults=max_results
-        ).execute()
+        results = (
+            service.users()
+            .messages()
+            .list(userId="me", q=query, maxResults=max_results)
+            .execute()
+        )
 
         messages = results.get("messages", [])
         message_ids = [m["id"] for m in messages]
@@ -182,11 +190,12 @@ def gmail_search(service, query: str, max_results: int = 50) -> List[str]:
 def gmail_read_message(service, message_id: str) -> Optional[Dict[str, Any]]:
     """Read full message content."""
     try:
-        message = service.users().messages().get(
-            userId="me",
-            id=message_id,
-            format="full"
-        ).execute()
+        message = (
+            service.users()
+            .messages()
+            .get(userId="me", id=message_id, format="full")
+            .execute()
+        )
 
         headers = message["payload"].get("headers", [])
         header_dict = {h["name"]: h["value"] for h in headers}
@@ -223,9 +232,7 @@ def archive_email(service, message_id: str) -> bool:
     """Archive email by removing from INBOX."""
     try:
         service.users().messages().modify(
-            userId="me",
-            id=message_id,
-            body={"removeLabelIds": ["INBOX"]}
+            userId="me", id=message_id, body={"removeLabelIds": ["INBOX"]}
         ).execute()
         logger.info(f"Archived message {message_id}")
         return True
@@ -233,12 +240,22 @@ def archive_email(service, message_id: str) -> bool:
         logger.error(f"Failed to archive message {message_id}: {e}")
         return False
 
+
 # ============================================================================
 # EMAIL CLASSIFICATION
 # ============================================================================
 
 STAFF_NAMES = {
-    "HALE": ["victoria", "hale", "cos", "iron vic"],
+    "HALE": [
+        "victoria",
+        "hale",
+        "cos",
+        "iron vic",
+        r"\[cos\]",
+        "coo",
+        r"\[coo\]",
+        "a3",
+    ],
     "DEMBE": ["marcus", "dembe", "a2", "wraith"],
     "MOREAU": ["dani", "moreau", "a3", "echo"],
     "VIPER": ["ryan", "castillo", "a5", "viper"],
@@ -250,6 +267,7 @@ STAFF_NAMES = {
     "NAIA": ["naia", "solberg", "exec", "commander's intent"],
 }
 
+
 def extract_staff_mention(email_body: str, email_subject: str) -> Optional[str]:
     """
     Extract staff mention from email.
@@ -259,7 +277,15 @@ def extract_staff_mention(email_body: str, email_subject: str) -> Optional[str]:
 
     for staff_key, names in STAFF_NAMES.items():
         for name in names:
-            if re.search(r"\b" + re.escape(name) + r"\b", combined):
+            # Special handling for bracketed terms like [cos] or [coo]
+            if name.startswith("[") and name.endswith("]"):
+                # For bracketed terms, look for exact match with brackets
+                pattern = r"\[" + re.escape(name[1:-1]) + r"\]"
+            else:
+                # For regular terms, use word boundaries
+                pattern = r"\b" + re.escape(name) + r"\b"
+
+            if re.search(pattern, combined, re.IGNORECASE):
                 logger.info(f"Detected staff mention: {staff_key}")
                 return staff_key
 
@@ -269,7 +295,7 @@ def extract_staff_mention(email_body: str, email_subject: str) -> Optional[str]:
 def classify_email(email_data: Dict[str, Any]) -> Dict[str, Any]:
     """
     Classify email and determine routing.
-    Returns: {"action": "task"|"draft"|"skip", "target_inbox": "claude"|"goose", "staff": "HALE"|...}
+    Returns: {"action": "task"|"draft"|"skip", "target_inbox": "wing_comms"|"claude"|"opencode", "staff": "HALE"|...}
     """
     subject = email_data.get("subject", "").lower()
     body = email_data.get("body", "").lower()
@@ -285,8 +311,11 @@ def classify_email(email_data: Dict[str, Any]) -> Dict[str, Any]:
     if not staff:
         return {"action": "skip", "reason": "no staff mention found"}
 
-    # Route to appropriate inbox
-    target_inbox = "claude" if staff in ["HALE", "NAIA"] else "goose"
+    # Route to appropriate inbox - HALE/NAIA go to wing_comms, others to opencode
+    if staff in ["HALE", "NAIA"]:
+        target_inbox = "wing_comms"
+    else:
+        target_inbox = "opencode"
 
     return {
         "action": "task",
@@ -295,43 +324,200 @@ def classify_email(email_data: Dict[str, Any]) -> Dict[str, Any]:
         "sender": sender,
         "subject": subject,
         "message_id": email_data.get("message_id"),
+        "body_preview": body[:500] if body else "",
     }
 
 
 # ============================================================================
-# INBOX WRITING
+# DEDUPLICATION & INBOX WRITING
 # ============================================================================
 
-def write_task_to_inbox(inbox_path: Path, classification: Dict[str, Any]) -> bool:
-    """Write task to appropriate inbox file."""
+
+def check_duplicate_task(sender: str, subject: str, staff: str) -> bool:
+    """
+    Check if a similar task already exists in claude_inbox.md
+    Returns True if duplicate found, False otherwise.
+    """
+    try:
+        if not CLAUDE_INBOX.exists():
+            return False
+
+        with open(CLAUDE_INBOX, "r") as f:
+            content = f.read()
+
+        # Check for similar email tasks in claude_inbox
+        search_patterns = [
+            f"Subject: {subject[:100]}",  # First 100 chars of subject
+            f"Message ID: {staff}",
+            f"From: {sender}",
+        ]
+
+        # If any of these patterns exist in claude_inbox, it's likely a duplicate
+        for pattern in search_patterns:
+            if pattern in content:
+                logger.info(f"Duplicate task detected for pattern: {pattern[:50]}...")
+                return True
+
+        return False
+    except Exception as e:
+        logger.error(f"Deduplication check failed: {e}")
+        return False
+
+
+def write_wing_comms_task(classification: Dict[str, Any]) -> bool:
+    """Write task to wing_comms.md file with proper format."""
+    try:
+        task_id = f"WC-{datetime.utcnow().strftime('%Y%m%d-%H%M%S')}-EMAIL-{classification['staff']}"
+
+        task_entry = f"""
+---
+msg_id: {task_id}
+msg_type: ALERT
+from: Email Scanner
+priority: P1
+to: {classification["staff"]}
+submitted_at: {datetime.utcnow().strftime("%Y-%m-%d %H:%M MT")}
+content: |
+  **Email Detected — Staff Mention: {classification["staff"]}**
+  
+  **From:** {classification["sender"]}
+  **Subject:** {classification["subject"]}
+  **Message ID:** {classification["message_id"]}
+  
+  **Body Preview:**
+  {classification["body_preview"][:300]}...
+  
+  **Action Required:** Email flagged for {classification["staff"]}. Please review and task out as appropriate.
+  **Scanner Status:** Processed & Routed to wing_comms
+
+---
+"""
+        with open(WING_COMMS, "a") as f:
+            f.write(task_entry)
+        logger.info(f"Wrote task to wing_comms.md for {classification['staff']}")
+        return True
+    except Exception as e:
+        logger.error(f"Failed to write to wing_comms: {e}")
+        return False
+
+
+def write_opencode_task(classification: Dict[str, Any]) -> bool:
+    """Write task to opencode_inbox.md file."""
     try:
         task_entry = f"""
-## TASK: EMAIL-SCAN-{datetime.utcnow().strftime('%Y%m%d%H%M%S')}
+---
+## TASK: EMAIL-SCAN-{datetime.utcnow().strftime("%Y%m%d%H%M%S")}
 status: UNREAD
 from: Email Scanner
 priority: P1
 task: |
-  **Staff Mention Detected: {classification['staff']}**
-  From: {classification['sender']}
-  Subject: {classification['subject']}
-  Message ID: {classification['message_id']}
+  **Staff Mention Detected: {classification["staff"]}**
+  From: {classification["sender"]}
+  Subject: {classification["subject"]}
+  Message ID: {classification["message_id"]}
+  Body Preview: {classification["body_preview"][:200]}...
 
-  Email detected and flagged for {classification['staff']}.
+  Email detected and flagged for {classification["staff"]}.
   Please review and task out as appropriate.
 
+---
 """
-        with open(inbox_path, "a") as f:
+        with open(OPENCODE_INBOX, "a") as f:
             f.write(task_entry)
-        logger.info(f"Wrote task to {inbox_path.name}")
+        logger.info(f"Wrote task to opencode_inbox.md for {classification['staff']}")
         return True
     except Exception as e:
-        logger.error(f"Failed to write task: {e}")
+        logger.error(f"Failed to write task to opencode: {e}")
+        return False
+
+
+def write_claude_task(classification: Dict[str, Any]) -> bool:
+    """Write task to claude_inbox.md file with deduplication check."""
+    # First check for duplicates
+    if check_duplicate_task(
+        classification["sender"], classification["subject"], classification["staff"]
+    ):
+        logger.info(
+            f"Duplicate task skipped for {classification['staff']} - {classification['subject'][:50]}..."
+        )
+        return False
+
+    try:
+        task_entry = f"""
+---
+## TASK: EMAIL-SCAN-{datetime.utcnow().strftime("%Y%m%d%H%M%S")}
+status: UNREAD
+from: Email Scanner
+priority: P1
+task: |
+  **Staff Mention Detected: {classification["staff"]}**
+  From: {classification["sender"]}
+  Subject: {classification["subject"]}
+  Message ID: {classification["message_id"]}
+  Body Preview: {classification["body_preview"][:200]}...
+
+  Email detected and flagged for {classification["staff"]}.
+  Please review and task out as appropriate.
+
+---
+"""
+        with open(CLAUDE_INBOX, "a") as f:
+            f.write(task_entry)
+        logger.info(f"Wrote task to claude_inbox.md for {classification['staff']}")
+        return True
+    except Exception as e:
+        logger.error(f"Failed to write task to claude: {e}")
+        return False
+
+
+def log_routing_decision(
+    classification: Dict[str, Any], success: bool, action: str
+) -> None:
+    """Log routing decision to routing log file."""
+    try:
+        log_entry = f"{datetime.utcnow().isoformat()} | {classification['staff']} | {classification['target_inbox']} | {classification['subject'][:100]}... | {action} | {'SUCCESS' if success else 'FAILED'}\n"
+
+        with open(ROUTING_LOG, "a") as f:
+            f.write(log_entry)
+
+        logger.debug(
+            f"Routing logged: {classification['staff']} → {classification['target_inbox']}"
+        )
+    except Exception as e:
+        logger.error(f"Failed to log routing decision: {e}")
+
+    try:
+        task_entry = f"""
+---
+## TASK: EMAIL-SCAN-{datetime.utcnow().strftime("%Y%m%d%H%M%S")}
+status: UNREAD
+from: Email Scanner
+priority: P1
+task: |
+  **Staff Mention Detected: {classification["staff"]}**
+  From: {classification["sender"]}
+  Subject: {classification["subject"]}
+  Message ID: {classification["message_id"]}
+  Body Preview: {classification["body_preview"][:200]}...
+
+  Email detected and flagged for {classification["staff"]}.
+  Please review and task out as appropriate.
+
+---
+"""
+        with open(CLAUDE_INBOX, "a") as f:
+            f.write(task_entry)
+        logger.info(f"Wrote task to claude_inbox.md for {classification['staff']}")
+        return True
+    except Exception as e:
+        logger.error(f"Failed to write task to claude: {e}")
         return False
 
 
 # ============================================================================
 # REPLY NOTIFICATION
 # ============================================================================
+
 
 def send_reply_notification(service, reply_to_email: str) -> bool:
     """Send notification to Commander that email was received and assigned."""
@@ -348,8 +534,7 @@ def send_reply_notification(service, reply_to_email: str) -> bool:
         raw_message = base64.urlsafe_b64encode(message.as_bytes()).decode()
 
         service.users().messages().send(
-            userId="me",
-            body={"raw": raw_message}
+            userId="me", body={"raw": raw_message}
         ).execute()
 
         logger.info(f"Sent reply notification to {reply_to_email}")
@@ -363,21 +548,33 @@ def send_reply_notification(service, reply_to_email: str) -> bool:
 # MAIN SWEEP LOGIC
 # ============================================================================
 
-def process_email_sweep(service, state: Dict[str, Any]) -> Dict[str, int]:
+
+def process_email_sweep(
+    service, state: Dict[str, Any], search_all: bool = False
+) -> Dict[str, int]:
     """Main sweep logic."""
     stats = {"processed": 0, "skipped": 0, "archived": 0, "errors": 0}
 
-    logger.info("Starting email sweep...")
+    logger.info(
+        "Starting email sweep..."
+        + (" (ALL emails since March 31)" if search_all else " (unread only)")
+    )
 
-    # Search for unread emails
-    query = "is:unread"
-    message_ids = gmail_search(service, query)
+    # Search for emails
+    query = "after:2026/03/31"
+    if not search_all:
+        query += " is:unread"
+
+    message_ids = gmail_search(service, query, max_results=100 if search_all else 50)
 
     if not message_ids:
-        logger.info("No unread emails found.")
+        logger.info("No emails found.")
         return stats
 
-    logger.info(f"Found {len(message_ids)} unread emails")
+    logger.info(
+        f"Found {len(message_ids)} emails"
+        + (" since March 31" if search_all else " (unread)")
+    )
 
     for message_id in message_ids:
         # Check dedup
@@ -402,18 +599,37 @@ def process_email_sweep(service, state: Dict[str, Any]) -> Dict[str, int]:
             mark_processed(message_id, state)
             continue
 
-        # Write to inbox
-        inbox_path = CLAUDE_INBOX if classification["target_inbox"] == "claude" else GOOSE_INBOX
-        if write_task_to_inbox(inbox_path, classification):
-            # Send reply notification to Commander
-            send_reply_notification(service, COMMANDER_EMAIL)
+        # Route to appropriate inbox with logging
+        success = False
+        action = "skipped"
 
-            # Archive the email
-            if archive_email(service, message_id):
-                stats["archived"] += 1
+        if classification["action"] == "task":
+            if classification["target_inbox"] == "wing_comms":
+                success = write_wing_comms_task(classification)
+                action = "wing_comms"
+            elif classification["target_inbox"] == "claude":
+                success = write_claude_task(classification)
+                action = "claude"
+            elif classification["target_inbox"] == "opencode":
+                success = write_opencode_task(classification)
+                action = "opencode"
+
+            # Log routing decision
+            log_routing_decision(classification, success, action)
+
+            if success:
+                # Send reply notification to Commander
+                send_reply_notification(service, COMMANDER_EMAIL)
+
+                # Archive the email
+                if archive_email(service, message_id):
+                    stats["archived"] += 1
+
+                stats["processed"] += 1
+            else:
+                stats["errors"] += 1
 
         mark_processed(message_id, state)
-        stats["processed"] += 1
 
     # Save state
     save_state(state)
@@ -426,10 +642,14 @@ def process_email_sweep(service, state: Dict[str, Any]) -> Dict[str, int]:
 # ENTRY POINTS
 # ============================================================================
 
-def sweep_once() -> None:
+
+def sweep_once(search_all: bool = False) -> None:
     """Run a single email sweep."""
     logger.info("=" * 70)
-    logger.info("EMAIL SCANNER — SINGLE SWEEP")
+    logger.info(
+        "EMAIL SCANNER — SINGLE SWEEP"
+        + (" (ALL emails since March 31)" if search_all else "")
+    )
     logger.info("=" * 70)
 
     service = get_gmail_service()
@@ -438,7 +658,7 @@ def sweep_once() -> None:
         return
 
     state = load_state()
-    stats = process_email_sweep(service, state)
+    stats = process_email_sweep(service, state, search_all=search_all)
 
     logger.info(f"Scan complete: {json.dumps(stats)}")
 
@@ -479,11 +699,13 @@ USAGE:
   python thunderbird_email_scanner_fixed.py [MODE]
 
 MODES:
-  --sweep       Run a single email sweep (default)
+  --sweep       Run a single email sweep (unread only, default)
+  --sweep-all   Run sweep on ALL emails since March 31
   --loop        Run continuous sweep loop (5-minute intervals)
 
 EXAMPLES:
   python thunderbird_email_scanner_fixed.py --sweep
+  python thunderbird_email_scanner_fixed.py --sweep-all
   python thunderbird_email_scanner_fixed.py --loop
 """)
         sys.exit(0)
@@ -491,7 +713,9 @@ EXAMPLES:
     mode = sys.argv[1]
 
     if mode == "--sweep":
-        sweep_once()
+        sweep_once(search_all=False)
+    elif mode == "--sweep-all":
+        sweep_once(search_all=True)
     elif mode == "--loop":
         sweep_loop()
     else:

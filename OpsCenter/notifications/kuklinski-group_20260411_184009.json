@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-04-11T18:40:09.718756",
+  "to": "johnloucks3@gmail.com",
+  "client": "Kuklinski Group",
+  "client_id": "kuklinski-group",
+  "priority": "INFO",
+  "subject": "[INFO] Deliverable Ready: Kuklinski Group",
+  "body": "\n## THUNDERBIRD STAFF DELIVERY PIPELINE READY\n\n**Client:** Kuklinski Group\n**Client ID:** kuklinski-group\n**Priority:** INFO\n**Generated:** 2026-04-11 18:40 MT\n\n### Upcoming Deliverables\n\n- **Insurance email** (Task 0.3) \u2014 Due 2026-04-16\n- **Air fare delivery** (Task 1.5) \u2014 Due 2026-04-21\n\n### What You're Getting\n\n\u2705 **Draft Quality:** All drafts pass WF-17 compliance (logo, stationery, tone)\n\u2705 **Staff Processed:** Researched \u2192 Narratived \u2192 Validated \u2192 Polished by Dani\n\u2705 **Ready to Send:** No edits needed unless you choose to customize\n\n### Timeline\n\n- **Drafts ready:** 14 days before send (COS reviews 7 days before)\n- **Send approval:** You approve on send day\n- **Post-send:** Archive + satisfaction tracking\n\n### Next Action\n\nReview first draft when COS surfaces it in the inbox. All staff inputs pre-loaded.\n\n---\n*Sent from Thunderbird Timer Engine \u2014 Staff automation complete* \u2708\ufe0f\n",
+  "tasks": [
+    {
+      "task_id": "0.3",
+      "name": "Insurance email",
+      "scheduled": "2026-04-16T18:40:09.718732",
+      "send_date": "2026-04-23T18:40:09.718746"
+    },
+    {
+      "task_id": "1.5",
+      "name": "Air fare delivery",
+      "scheduled": "2026-04-21T18:40:09.718751",
+      "send_date": "2026-04-28T18:40:09.718754"
+    }
+  ]
+}

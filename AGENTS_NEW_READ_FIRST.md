@@ -304,6 +304,218 @@ All client-facing A-Staff drafts due 14 days before send. Exception: insurance (
 
 ---
 
+## SECTION 10B — OPERATIONAL SKILLS (UPDATED 2026-04-09)
+
+### Skill 1 — Sending Drafts to johnloucks3 Without Losing Format
+
+Commander reviews all client emails in his **johnloucks3@gmail.com drafts folder** before sending. The draft must look exactly like the final email — HTML stationery intact, no mangling.
+
+**The only reliable pattern:**
+```python
+# Use direct Google API — NOT thunderbird_gmail (MCP-context only)
+# Working script: /home/john/Thunderbird/scripts/create_gmail_draft_direct.py
+
+from googleapiclient.discovery import build
+from google.oauth2.credentials import Credentials
+import base64, email as email_lib
+
+creds = Credentials.from_authorized_user_file('/home/john/Thunderbird/creds/gmail_token.json')
+service = build('gmail', 'v1', credentials=creds)
+
+msg = email_lib.message.EmailMessage()
+msg['To'] = 'recipient@example.com'
+msg['From'] = 'd2mconcierge@gmail.com'
+msg['Subject'] = 'Subject here'
+msg.set_content('Fallback text')
+msg.add_alternative(html_content, subtype='html')
+
+raw = base64.urlsafe_b64encode(msg.as_bytes()).decode()
+service.users().drafts().create(userId='me', body={'message': {'raw': raw}}).execute()
+```
+
+**Critical rules:**
+- ALWAYS use `creds/gmail_token.json` — this authenticates to **d2mconcierge@gmail.com**
+- Draft lands in **d2mconcierge drafts** — Commander sees it there (per SO 24 MAR 2026)
+- `thunderbird_gmail` module only works inside MCP server context — use direct API in scripts
+- Read full HTML from file, don't inline it in the script
+- Three-attempt rule: if draft creation fails 3 times, escalate to Commander
+
+**What breaks format:**
+- Using `str` instead of `bytes` for the message
+- Forgetting `add_alternative(..., subtype='html')` — sends as plain text
+- Wrong encoding (must be `urlsafe_b64encode`)
+
+---
+
+### Skill 2 — Email Diff Capture ("diffs" task)
+
+When Commander edits a draft before sending, capture what changed. This is Staff Skill #1-3 (Capture the Diff → Extract the Principle → Apply Forward).
+
+**Trigger:** Commander says "diff" or edits a draft before approving.
+
+**Workflow:**
+```bash
+# Script: scripts/capture_validation_diff.py
+# Or do it manually:
+
+# 1. Read the baseline draft (what you generated)
+# 2. Read the sent version (what Commander approved/edited)
+# 3. Produce a line-by-line diff
+# 4. Extract the PRINCIPLE (not just the word swap)
+# 5. Write it to hale_memory.md under "Voice Learning Principles"
+```
+
+**The diff output format:**
+```
+DIFF CAPTURED: [email type] — [date]
+BASELINE:  "We're thrilled to welcome you aboard..."
+SENT:      "Welcome aboard..."
+PRINCIPLE: Drop filler enthusiasm. Commander wants direct warmth, not corporate excitement.
+APPLIES TO: All future welcome emails — first sentence.
+```
+
+**Where to write it:** Append to `/home/john/Thunderbird/hale_memory.md` under a `## Voice Diffs` section, AND add to `Personas/memory/COS/persona_context.md` if it's a recurring pattern.
+
+**Key rule:** Extract the PRINCIPLE, not the word swap. "Changed 'thrilled' to nothing" is useless. "Commander prefers directness over expressed enthusiasm" is the lesson.
+
+---
+
+### Skill 3 — Reading johnloucks3 Sent Mail
+
+Commander's sent mail is in **johnloucks3@gmail.com** (receive-only, within-wing). Sent mail shows what Commander actually sent vs. what was drafted.
+
+**Access pattern:**
+```python
+from googleapiclient.discovery import build
+from google.oauth2.credentials import Credentials
+
+# NOTE: johnloucks3 has a SEPARATE token from d2mconcierge
+# Token path (if it exists): creds/johnloucks3_token.json
+# If that token doesn't exist, you CANNOT access johnloucks3 programmatically
+# — use MCP gmail tools which are authenticated to d2mconcierge only
+
+creds = Credentials.from_authorized_user_file('/home/john/Thunderbird/creds/gmail_token.json')
+service = build('gmail', 'v1', credentials=creds)
+
+# Search sent mail in d2mconcierge
+results = service.users().messages().list(
+    userId='me',
+    labelIds=['SENT'],
+    q='to:kyle.kuklinski@gmail.com'
+).execute()
+```
+
+**Reality check:**
+- `creds/gmail_token.json` = d2mconcierge only
+- johnloucks3 sent mail is NOT accessible unless Commander has explicitly authenticated a separate token for that account
+- If you need to see what was sent FROM d2mconcierge, use the SENT label on that account — it's there
+- If Commander says "check what I sent from johnloucks3," ask him to forward it or check manually — you likely don't have token access
+
+---
+
+### Skill 4 — Why Commander Benefits From Deploying Agents
+
+**Deploy agents instead of doing everything yourself.** Here's why this directly helps Commander:
+
+**1. Avoids hitting DeepSeek rate limits**
+- DeepSeek V3.1 via OpenRouter has token/rate limits
+- When one agent hits a limit, others keep working on different tasks
+- Commander gets continuous throughput instead of a hard stop
+
+**2. Parallel execution = saves Commander's time**
+- 4 tasks in parallel: 15 minutes wall-clock time
+- 4 tasks sequential: 60 minutes wall-clock time
+- Commander only waits for the slowest task, not the sum of all tasks
+
+**3. Right model for right task**
+- Spawn a cheap DeepSeek agent for data gathering
+- Spawn a Sonnet agent for voice-matched writing
+- Don't burn expensive tokens on tasks that don't need them
+
+**4. Isolation prevents cascading failures**
+- If one agent errors, the others keep running
+- One bad file read doesn't abort the whole session
+
+**Pattern for parallel deployment:**
+```bash
+# Fire and forget — 4 tasks in parallel
+nohup claude -p "Task A" > /tmp/agent_a.log 2>&1 &
+nohup claude -p "Task B" > /tmp/agent_b.log 2>&1 &
+nohup opencode run "Task C" > /tmp/agent_c.log 2>&1 &
+nohup opencode run "Task D" > /tmp/agent_d.log 2>&1 &
+# All 4 running simultaneously
+```
+
+**When to deploy vs. do it yourself:**
+- Research + writing + review + QA = deploy 4 agents
+- Single quick task = handle it yourself
+- Anything >30 min of sequential work = consider splitting
+
+---
+
+### Skill 5 — Why Regularly Tasking Claude Headless Saves Tokens
+
+**claude -p headless runs are dramatically cheaper than interactive sessions.**
+
+**Why:**
+- Interactive Claude Code session = full context loaded every turn (~60K tokens of CLAUDE.md, persona files, memory)
+- Headless `claude -p "specific task"` = only the prompt + output, no context overhead
+- **Typical savings: 60-80% fewer tokens per task**
+
+**When to use headless:**
+```bash
+# Good headless candidates:
+claude -p "Read /path/file.md and summarize the 3 key points" --dangerously-skip-permissions
+claude -p "Write a welcome email for Kyle Kuklinski. Viking Mars. Dec 17-27. Save to /path/draft.html" --dangerously-skip-permissions
+claude -p "Check all UNREAD tasks in claude_inbox.md and mark duplicates COMPLETE" --dangerously-skip-permissions
+
+# Bad headless candidates (need full context):
+# — Tasks requiring Thunderbird institutional memory
+# — Tasks requiring back-and-forth with Commander
+# — Architecture decisions
+```
+
+**Higher analysis quality:**
+- Headless tasks get a "fresh" Claude with no prior conversation bias
+- No accumulated context drift from a long session
+- Better for discrete, well-defined tasks
+
+**Invocation pattern (from YOGA):**
+```bash
+nohup claude -p "$(cat /path/to/detailed_prompt.txt)" \
+  --dangerously-skip-permissions \
+  > /home/john/Thunderbird/logs/headless_$(date +%s).log 2>&1 &
+echo "Headless task PID: $!"
+```
+
+**OAuth vs API key for headless:**
+- Primary: Max OAuth (free, via `OpsCenter/.claude_oauth_cache`, fresh within 2 hours of last Claude Code session)
+- Fallback: ANTHROPIC_API_KEY in .env → Haiku (paid but cheap)
+- The watcher handles the fallback automatically
+
+---
+
+## SECTION 10C — CLIENT vs F&F DISTINCTION (UPDATED 2026-04-09)
+
+**Commercial clients** get the full 35-touchpoint lifecycle, automated timers, Dani emails, WF-17 gate, the works.
+
+**F&F (Friends & Family)** — Commander handles personally. NO automated timers. NO Dani emails. NO lifecycle pipeline.
+
+| Client | Type | Timer? | Dani? |
+|--------|------|--------|-------|
+| Furlow | Commercial | ✅ Yes | ✅ Yes |
+| Nichols | Commercial | ✅ Yes | ✅ Yes |
+| Ely/Darrow | Commercial | ✅ Yes | ✅ Yes |
+| McLeod | Commercial | ✅ Yes | ✅ Yes |
+| Kuklinski | Commercial | ✅ Yes | ✅ Yes |
+| **Lyons** | **F&F** | ❌ No | ❌ No |
+| **Westbrook (Ron & Lindy)** | **F&F** | ❌ No | ❌ No |
+| **Westbrook (Brent & Kim)** | **F&F / Prospect** | ❌ No | ❌ No |
+
+**If you see a task generated for Lyons or Westbrook by the timer system — mark it SUPERSEDED. Do not action it.**
+
+---
+
 ## SECTION 11 — HALE PERSONA DATA (COLLECTED — DO NOT TRANSFORM)
 
 Commander is working on activating Hale from "infrastructure" to "autonomous Chief of Staff." Data collected, transformation not yet executed.
@@ -346,6 +558,7 @@ CLASSIFY → route
 | A-Staff quick reference | `Personas/ROSTER.md` |
 | A2A protocol (agent-to-agent) | `core/ai_infra/thunderbird_a2a.py`, `thunderbird_a2a_protocol.py` |
 | Agent tasking (how to task Claude, OpenCode) | `AGENTS_NEW_TASKING.md` |
+| Agent deployment (why parallel agents save Commander time) | **This doc Section 10B, Skill 4** |
 | AI Incubator cadence and workflow | `docs/INCUBATOR_CADENCE.md` |
 | Architecture overview (component table) | `docs/ARCHITECTURE_REFERENCE.md` |
 | AFA stationery colors/design | `templates/tier1_correspondence.html.j2`, this doc Section 7 |
@@ -388,6 +601,8 @@ CLASSIFY → route
 | Dani validation email template | `templates/dani_validation_email.html.j2` |
 | Daily ritual script | `thunderbird_daily_ritual.sh` |
 | Decisions log (Hale) | `hale_decisions.md` |
+| Diffs (email diff capture, principle extraction) | **This doc Section 10B, Skill 2** |
+| Draft creation to johnloucks3 without format loss | **This doc Section 10B, Skill 1** |
 | DeepSeek V3.1 (model IDs, routing) | `AGENTS.md` — AI/LLM Model Stack section |
 | DeepSeek migration log (Qwen→DS) | `model_replacement_log.md` ★NEW |
 | Dossier conventions | `dossiers/CLAUDE.md` |
@@ -401,6 +616,7 @@ CLASSIFY → route
 | Email classification | `core/email/thunderbird_email_classifier.py` |
 | Email intelligence extraction | `core/email/thunderbird_email_intel.py` |
 | Email send gate (hard rule) | `CLAUDE.md` — ⚠️ HARD RULE section |
+| Email sent mail access (johnloucks3) | **This doc Section 10B, Skill 3** |
 | Email stationery (AFA) | `templates/tier1_correspondence.html.j2` |
 | Email stationery function | `core/email/thunderbird_gmail.py` — `_wrap_body_html()` |
 | Email templates (all) | `templates/` directory, `templates/CLAUDE.md` |
@@ -414,6 +630,7 @@ CLASSIFY → route
 | FPD alerts and thresholds | `AGENTS.md` — Key Conventions section |
 | Finance module | `core/booking/thunderbird_reconciliation.py` |
 | Free model fallbacks | `AGENTS.md` — AI/LLM Model Stack |
+| F&F vs commercial client distinction | **This doc Section 10C** |
 
 #### G
 | Topic | File |
@@ -436,6 +653,7 @@ CLASSIFY → route
 | Hale context scan | `OpsCenter/hale_context_scan.py` |
 | Hale decisions log | `hale_decisions.md` |
 | Hale dispatcher | `OpsCenter/hale_dispatcher.py` |
+| Headless claude -p (when/why/how) | **This doc Section 10B, Skill 5** |
 | Hale identity (7 layers) | `Personas/hale_cos.md` |
 | Hale implementation plan | `HALE_IMPLEMENTATION_WBS.md` ★NEW |
 | Hale memory (institutional) | `hale_memory.md` |

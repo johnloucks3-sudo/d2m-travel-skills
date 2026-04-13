@@ -580,17 +580,96 @@
     },
     {
       "id": "MISSION-030",
-      "title": "|",
-      "status": "running",
-      "priority": "P1",
+      "title": "CORRUPTED GARBAGE ENTRY — PURGED",
+      "status": "cancelled",
+      "priority": "P3",
       "assigned_to": "NEXUS (auto)",
-      "description": "|",
+      "description": "Auto-created from garbage inbox entries ('Invalid API key' messages). No actual mission content. Purged and cleaned by Hale on 2026-04-10. Kept for audit trail only.",
       "created_at": "2026-04-09T02:12:03.256164+00:00",
-      "updated_at": "2026-04-09T02:12:03.256173+00:00",
+      "updated_at": "2026-04-10T21:30:00Z",
       "logs": [
-        "[2026-04-09T02:12:03] Auto-created from inbox"
+        "[2026-04-09T02:12:03] Auto-created from inbox (garbage content)",
+        "[2026-04-10T21:30:00Z] Marked CANCELLED: Corrupted garbage entry with no actual mission content",
+        "[2026-04-10T21:30:00Z] Root cause: Inbox had 'Invalid API key' messages triggering false mission creation"
       ]
     }
+  ],
+  "active_missions": [
+    {
+      "id": "MISSION1-013",
+      "title": "WF‑17 Gate — Kuklinski Welcome Email Send",
+      "status": "pending",
+      "priority": "P1",
+      "assigned_to": "COS (Hale)",
+      "description": "Execute WF‑17 quality gate and send Kuklinski Group welcome email draft (created Apr 8, 19:08 MT). Final Commander approval required before Apr 15 target send date. Deliver to d2mconcierge@gmail.com drafts queue.",
+      "deliverables": [
+        "Welcome email draft available: TASK-0.5-kuklinski_group_welcome_draft.html",
+        "Commander review + approval",
+        "Gmail send execution via d2mconcierge@gmail.com",
+        "Delivery confirmation receipt"
+      ],
+      "dependencies": [],
+      "suspense_date": "2026-04-15T17:00:00Z",
+      "escalation_rule": "If Commander not reviewed by Apr 13, ping 24h reminder",
+      "logs": [
+        {
+          "time": "2026-04-10T21:45:00Z",
+          "entry": "Mission created by Hale COO. Draft complete, awaiting WF‑17 gate approval."
+        }
+      ],
+      "created_at": "2026-04-10T21:45:00Z",
+      "updated_at": "2026-04-10T21:45:00Z"
+    },
+    {
+      "id": "MISSION1-014",
+      "title": "WF‑17 Gate — Westbrook Welcome Email Send",
+      "status": "pending",
+      "priority": "P1",
+      "assigned_to": "COS (Hale)",
+      "description": "Execute WF‑17 quality gate and send Westbrook Group welcome email draft (created Apr 8, 19:08 MT). Final Commander approval required before Apr 15 target send date. Deliver to d2mconcierge@gmail.com drafts queue.",
+      "deliverables": [
+        "Welcome email draft available: TASK-0.5-westbrook_group_welcome_draft.html",
+        "Commander review + approval",
+        "Gmail send execution via d2mconcierge@gmail.com",
+        "Delivery confirmation receipt"
+      ],
+      "dependencies": [],
+      "suspense_date": "2026-04-15T17:00:00Z",
+      "escalation_rule": "If Commander not reviewed by Apr 13, ping 24h reminder",
+      "logs": [
+        {
+          "time": "2026-04-10T21:45:00Z",
+          "entry": "Mission created by Hale COO. Draft complete, awaiting WF‑17 gate approval."
+        }
+      ],
+      "created_at": "2026-04-10T21:45:00Z",
+      "updated_at": "2026-04-10T21:45:00Z"
+    },
+    {
+      "id": "MISSION1-015",
+      "title": "Travelzoo Voucher Assignment (Celebrity Constellation Dec 2026)",
+      "status": "pending",
+      "priority": "P3",
+      "assigned_to": "A3 (Dani)",
+      "description": "Assign unused Travelzoo voucher (6-night Caribbean sailing, Celebrity Constellation Dec 14, 2026 start window) to appropriate client group. Determine assignment logic (client match, timing alignment) and activate.",
+      "deliverables": [
+        "Voucher analysis with assignment criteria",
+        "Client matching recommendation",
+        "Activation instructions",
+        "Revenue tracking setup"
+      ],
+      "dependencies": [],
+      "suspense_date": "2026-06-01T17:00:00Z",
+      "escalation_rule": null,
+      "logs": [
+        {
+          "time": "2026-04-10T21:45:00Z",
+          "entry": "Mission created by Hale COO. Voucher currently unused, unassigned."
+        }
+      ],
+      "created_at": "2026-04-10T21:45:00Z",
+      "updated_at": "2026-04-10T21:45:00Z"
+    },
   ],
   "completed_missions": [
     {
@@ -888,5 +967,5 @@
   "suspended_missions": [],
   "exec_inbox": [],
   "suspense_watch": [],
-  "updated_at": "2026-04-08T06:55:00Z"
+  "updated_at": "2026-04-10T21:30:00Z"
 }

@@ -185,3 +185,171 @@ task: |
   Email detected and flagged for HARLAN.
   Please review and task out as appropriate.
 
+
+## TASK: EMAIL-SCAN-20260410142233
+status: UNREAD
+from: Email Scanner
+priority: P1
+task: |
+  **Staff Mention Detected: HARLAN**
+  From: 
+  Subject: 
+  Message ID: 19d77639b9b1ae04
+
+  Email detected and flagged for HARLAN.
+  Please review and task out as appropriate.
+
+
+## TASK: EMAIL-SCAN-20260410142235
+status: UNREAD
+from: Email Scanner
+priority: P1
+task: |
+  **Staff Mention Detected: DEMBE**
+  From: 
+  Subject: 
+  Message ID: 19d776381bc4b0fa
+
+  Email detected and flagged for DEMBE.
+  Please review and task out as appropriate.
+
+
+## TASK: EMAIL-SCAN-20260410142236
+status: UNREAD
+from: Email Scanner
+priority: P1
+task: |
+  **Staff Mention Detected: PADRE**
+  From: dreams2memories <d2mconcierge@gmail.com>
+  Subject: re: travel reservation center trip id # 1012884566
+  Message ID: 19d773da82887978
+
+  Email detected and flagged for PADRE.
+  Please review and task out as appropriate.
+
+
+## TASK: EMAIL-SCAN-20260410142242
+status: UNREAD
+from: Email Scanner
+priority: P1
+task: |
+  **Staff Mention Detected: HARLAN**
+  From: 
+  Subject: 
+  Message ID: 19d723d674fe150b
+
+  Email detected and flagged for HARLAN.
+  Please review and task out as appropriate.
+
+
+## TASK: EMAIL-SCAN-20260410142244
+status: UNREAD
+from: Email Scanner
+priority: P1
+task: |
+  **Staff Mention Detected: DEMBE**
+  From: 
+  Subject: 
+  Message ID: 19d723d5877054d9
+
+  Email detected and flagged for DEMBE.
+  Please review and task out as appropriate.
+
+
+## TASK: EMAIL-SCAN-20260410142253
+status: UNREAD
+from: Email Scanner
+priority: P1
+task: |
+  **Staff Mention Detected: HARLAN**
+  From: 
+  Subject: 
+  Message ID: 19d6d1583df39ac0
+
+  Email detected and flagged for HARLAN.
+  Please review and task out as appropriate.
+
+
+## TASK: EMAIL-SCAN-20260410142255
+status: UNREAD
+from: Email Scanner
+priority: P1
+task: |
+  **Staff Mention Detected: DEMBE**
+  From: 
+  Subject: 
+  Message ID: 19d6d1576167ec5d
+
+  Email detected and flagged for DEMBE.
+  Please review and task out as appropriate.
+
+
+## TASK: EMAIL-SCAN-20260410142259
+status: UNREAD
+from: Email Scanner
+priority: P1
+task: |
+  **Staff Mention Detected: HARLAN**
+  From: 
+  Subject: 
+  Message ID: 19d67ef187335054
+
+  Email detected and flagged for HARLAN.
+  Please review and task out as appropriate.
+
+
+## TASK: EMAIL-SCAN-20260410142301
+status: UNREAD
+from: Email Scanner
+priority: P1
+task: |
+  **Staff Mention Detected: DEMBE**
+  From: 
+  Subject: 
+  Message ID: 19d67ef0a7a0108a
+
+  Email detected and flagged for DEMBE.
+  Please review and task out as appropriate.
+
+
+## TASK: EMAIL-SCAN-20260410142303
+status: UNREAD
+from: Email Scanner
+priority: P1
+task: |
+  **Staff Mention Detected: MOREAU**
+  From: d2mconcierge@gmail.com
+  Subject: 
+  Message ID: 19d64aafb87d1125
+
+  Email detected and flagged for MOREAU.
+  Please review and task out as appropriate.
+
+
+## TASK: EMAIL-SCAN-20260410142306
+status: UNREAD
+from: Email Scanner
+priority: P1
+task: |
+  **Staff Mention Detected: HARLAN**
+  From: 
+  Subject: 
+  Message ID: 19d62cca42c4ab5f
+
+  Email detected and flagged for HARLAN.
+  Please review and task out as appropriate.
+
+
+## TASK: EMAIL-SCAN-20260410142308
+status: UNREAD
+from: Email Scanner
+priority: P1
+task: |
+  **Staff Mention Detected: DEMBE**
+  From: 
+  Subject: 
+  Message ID: 19d62cc985280798
+
+  Email detected and flagged for DEMBE.
+  Please review and task out as appropriate.
+
