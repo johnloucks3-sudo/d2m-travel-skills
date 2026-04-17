@@ -133,6 +133,70 @@ opencode run -m openrouter/deepseek/deepseek-chat-v3.1 "task"
 
 ---
 
+## SECTION 4B — BRAIN LOADING & SESSION STARTUP
+*Added 2026-04-15 — sourced from Hale email re: Goose CLI recipe + Claude Code wiring*
+
+### Goose CLI — Loading the Hale Recipe
+The `--recipe` flag belongs on `goose run`, **NOT** `goose session`. That is why it failed.
+
+**On Chromebook or YOGA terminal:**
+```bash
+# Hale session with Gemini
+goose-d2m run --recipe /home/john/.config/goose/recipes/hale.yaml
+
+# Hale session with Claude MAX ($0)
+goose-d2m-claude run --recipe /home/john/.config/goose/recipes/hale.yaml
+
+# Shorthand (if recipe is synced to Chromebook)
+goose-d2m run --recipe hale
+```
+
+**If Chromebook does not have the recipe yet:**
+```bash
+rsync -avz john@192.168.1.198:~/.config/goose/recipes/ ~/.config/goose/recipes/
+```
+
+**Goose startup sequence (after recipe loads):**
+1. Recipe prompt loads — identity, clients, authority, standing orders
+2. TOM context injects every turn
+3. Step 1: Reads `GOOSE_INIT.md` — full brain (Drive map, core registry, 30+ reference files, Claude tasking)
+4. Steps 2–7: Live state, inbox, blackboard, checkpoint, memory, brief
+5. Step 8: Leads with the brief
+
+---
+
+### Claude Code — Already Wired (No Action Needed)
+Auto-loads the brain every session.
+
+1. `CLAUDE.md` is read automatically when you run `claude` in `~/Thunderbird/`
+2. `CLAUDE.md` includes `@docs/CLAUDE_CODE_DRIVE_AND_CORE_GUIDE.md`
+3. That `@` directive auto-injects the Drive map + core module registry into every session
+
+**Just `cd ~/Thunderbird && claude` — it's all there.**
+
+---
+
+### claude.ai (Browser Sessions — No File Access)
+For `claude.ai` sessions without local file access, upload this doc at conversation start:
+
+**Thunderbird Claude AI Session Brain (Google Doc):**
+https://docs.google.com/document/d/1mamEg_2PDZuGwc6mLyxRttFPmnRLrcdDI11ngW0wuWg/edit
+
+Download as `.md` or `.txt`, drag into claude.ai. Self-contained: identity, Drive map, codebase, standing orders, commissions.
+
+---
+
+### All 4 Brain Docs on Drive
+
+| Document | Link |
+|----------|------|
+| Goose Brain v4 | https://docs.google.com/document/d/1-9kovRAwup_ATILfi8x-LUREiqX9oiLoTNeMTqwBHBw/edit |
+| Claude Code Guide | https://docs.google.com/document/d/1_YJqU-E25Si_UaYQf5PYf0KOHEom0apK7TcXYiIq1zw/edit |
+| claude.ai Brain (upload this) | https://docs.google.com/document/d/1mamEg_2PDZuGwc6mLyxRttFPmnRLrcdDI11ngW0wuWg/edit |
+| Headless Claude MAX Guide | https://docs.google.com/document/d/1cM3LKwKKwZ-SejeSY0gFmpmFYqgAmspK56I_8hi7RBg/edit |
+
+---
+
 ## SECTION 5 — COMMUNICATION PROTOCOLS
 
 ### Inbox / Outbox Layout

@@ -142,7 +142,7 @@
     {
       "id": "MISSION-006",
       "title": "Furlow Final Payment Reconciliation",
-      "status": "pending",
+      "status": "active",
       "priority": "P0",
       "assigned_to": "A3 (Dani)",
       "description": "Verify Furlow final payment status ($15,486, PNR BB4X94, Grandeur Scandinavia Aug 29\u2013Sep 8). Brief says overdue; memory says PAID Mar 25. Reconcile with cruise line. If truly outstanding, prepare collection posture options for Commander.",
@@ -598,7 +598,7 @@
     {
       "id": "MISSION1-013",
       "title": "WF‑17 Gate — Kuklinski Welcome Email Send",
-      "status": "pending",
+      "status": "active",
       "priority": "P1",
       "assigned_to": "COS (Hale)",
       "description": "Execute WF‑17 quality gate and send Kuklinski Group welcome email draft (created Apr 8, 19:08 MT). Final Commander approval required before Apr 15 target send date. Deliver to d2mconcierge@gmail.com drafts queue.",
@@ -623,7 +623,7 @@
     {
       "id": "MISSION1-014",
       "title": "WF‑17 Gate — Westbrook Welcome Email Send",
-      "status": "pending",
+      "status": "active",
       "priority": "P1",
       "assigned_to": "COS (Hale)",
       "description": "Execute WF‑17 quality gate and send Westbrook Group welcome email draft (created Apr 8, 19:08 MT). Final Commander approval required before Apr 15 target send date. Deliver to d2mconcierge@gmail.com drafts queue.",
@@ -648,7 +648,7 @@
     {
       "id": "MISSION1-015",
       "title": "Travelzoo Voucher Assignment (Celebrity Constellation Dec 2026)",
-      "status": "pending",
+      "status": "active",
       "priority": "P3",
       "assigned_to": "A3 (Dani)",
       "description": "Assign unused Travelzoo voucher (6-night Caribbean sailing, Celebrity Constellation Dec 14, 2026 start window) to appropriate client group. Determine assignment logic (client match, timing alignment) and activate.",
@@ -669,7 +669,7 @@
       ],
       "created_at": "2026-04-10T21:45:00Z",
       "updated_at": "2026-04-10T21:45:00Z"
-    },
+    }
   ],
   "completed_missions": [
     {

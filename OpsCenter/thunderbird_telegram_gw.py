@@ -31,6 +31,18 @@ Slash commands (all bots):
 Telegram overrides (D2MC2C only):
     OPUS: [task]   → route to claude-opus-4-6
     Sonnet: [task] → route to claude-sonnet-4-6
+
+Model prefixes (any bot — direct OpenRouter):
+    GROK: [task]     → xAI Grok 4.1 Fast
+    DEEPSEEK: [task] → DeepSeek V3.1
+    GEMINI: [task]   → Gemini 3.1 Flash Lite
+    LLAMA: [task]    → Llama 4 Maverick
+    GPT: [task]      → GPT-4.1 Mini
+    HAIKU: [task]    → Claude Haiku 4.5
+    MISTRAL: [task]  → Mistral Small
+
+Both Ways auto-upgrade:
+    Keywords (strategy, architect, draft, etc.) auto-route to Opus/Sonnet.
 """
 
 import json
@@ -53,6 +65,7 @@ sys.path.insert(0, "/home/john/Thunderbird/OpsCenter")
 sys.path.insert(0, "/home/john/Thunderbird/core/email")
 
 from thunderbird_tg_formatter import process as fmt_process
+from keyword_router import classify_task, CLAUDE_KEYWORD_PATTERN
 
 # ── Logging ───────────────────────────────────────────────────────────────────
 logging.basicConfig(
@@ -106,14 +119,50 @@ CONTEXT_TURNS = int(os.environ.get("TELEGRAM_GW_CONTEXT_TURNS", "10"))
 
 SONNET_MODEL = "claude-sonnet-4-6"
 OPUS_MODEL = "claude-opus-4-6"
+HAIKU_MODEL = "claude-haiku-4-5"
 OPENCODE_BIN = Path("/home/john/.opencode/bin/opencode")
-# DeepSeek-first with free fallbacks — optimized for cost efficiency
+
+# ── OpenRouter model aliases — prefix routing (e.g. "GROK: task") ────────────
+# Maps short prefix → OpenRouter model ID.  Used by model override detection
+# and keyword-based Both Ways routing.
+# Synced with scripts/openrouter_call.py — 2026-04-17
+OPENROUTER_MODEL_ALIASES: dict[str, str] = {
+    # ── FREE ──────────────────────────────────────────────────────────────────
+    "NEMOTRON":         "nvidia/nemotron-3-super-120b-a12b:free",   # 120B, 262K ctx, FREE
+    "GPTOSS":           "openai/gpt-oss-120b:free",                  # 120B, 131K ctx, FREE
+    "ELEPHANT":         "openrouter/elephant-alpha",                  # 262K ctx, FREE
+    # ── ULTRA-CHEAP (<$0.15/M) ────────────────────────────────────────────────
+    "QWEN":             "qwen/qwen3-235b-a22b-2507",                 # 235B, $0.07/M
+    "GPTNANO":          "openai/gpt-4.1-nano",                       # 1M ctx, $0.10/M
+    "GEMLITE":          "google/gemini-2.5-flash-lite",              # 1M ctx, $0.10/M
+    "LLAMA":            "meta-llama/llama-4-maverick",               # 1M ctx, $0.15/M
+    "DEEPSEEK":         "deepseek/deepseek-chat-v3.1",               # $0.15/M
+    "QWQ":              "qwen/qwq-32b",                              # reasoning, $0.15/M
+    # ── VALUE ($0.15–$0.50/M) ────────────────────────────────────────────────
+    "GROK":             "x-ai/grok-4.1-fast",                        # 2M ctx, $0.20/M
+    "GEMINI":           "google/gemini-3.1-flash-lite-preview",      # 1M ctx, $0.25/M
+    "DEEPSEEKV32":      "deepseek/deepseek-v3.2",                    # $0.26/M
+    "GPT5MINI":         "openai/gpt-5-mini",                         # 400K ctx, $0.25/M
+    "GPT":              "openai/gpt-4.1-mini",                       # 1M ctx, $0.40/M
+    "MISTRAL":          "mistralai/mistral-small-3.2-24b-instruct",  # 128K ctx, $0.07/M
+    # ── REASONING ─────────────────────────────────────────────────────────────
+    "R1":               "deepseek/deepseek-r1-0528",                 # CoT, $0.50/M
+    # ── PREMIUM ───────────────────────────────────────────────────────────────
+    "PERPLEXITY":       "perplexity/sonar-reasoning-pro",            # web search, $2/M
+    "HAIKU":            "anthropic/claude-haiku-4.5",                # $1/M
+}
+
+# Reverse: OpenRouter model ID → short display label
+_OR_DISPLAY_LABELS = {v: k.title() for k, v in OPENROUTER_MODEL_ALIASES.items()}
+
+# DeepSeek-first with confirmed-working free fallbacks (updated 2026-04-17)
+# Removed: nemotron-3-super-free, minimax-m2.5-free, mistral-small:free, deepseek-r1:free (all 429)
 OPENCODE_MODEL_CHAIN = [
-    "openrouter/deepseek/deepseek-chat-v3.1",  # DeepSeek V3.1 — primary (~$0.27/M)
-    "opencode/nemotron-3-super-free",  # Nemotron free tier — fallback 1
-    "opencode/minimax-m2.5-free",  # Minimax free tier — fallback 2
-    "mistral-small:free",  # Mistral free tier — fallback 3
-    "deepseek/deepseek-r1:free",  # DeepSeek R1 free — emergency fallback
+    "openrouter/deepseek/deepseek-chat-v3.1",              # DeepSeek V3.1 — primary (~$0.15/M)
+    "openrouter/nvidia/nemotron-3-super-120b-a12b:free",   # Nemotron 120B — free fallback 1
+    "openrouter/openai/gpt-oss-120b:free",                 # GPT-OSS 120B — free fallback 2
+    "openrouter/openrouter/elephant-alpha",                 # Elephant Alpha — free fallback 3
+    "openrouter/qwen/qwen3-235b-a22b-2507",                # Qwen3 235B — ultra-cheap fallback
 ]
 _OC_RATE_MARKERS = (
     "rate limit",
@@ -464,6 +513,83 @@ def call_opencode_engine(
 call_goose_engine = call_opencode_engine
 
 
+# ── Engine: Direct OpenRouter API — call any model by ID ─────────────────────
+
+def call_openrouter_engine(
+    model_id: str, prompt: str, system_prompt: str = ""
+) -> str:
+    """Call any OpenRouter model directly via API.
+
+    Used by Both Ways when Commander specifies a model prefix (GROK:, DEEPSEEK:, etc.)
+    or when keyword auto-routing selects an OpenRouter model.
+    """
+    api_key = os.environ.get("OPENROUTER_API_KEY", "")
+    if not api_key:
+        return "[Engine error — OPENROUTER_API_KEY not set]"
+
+    messages = []
+    if system_prompt:
+        messages.append({"role": "system", "content": system_prompt[:3000]})
+    messages.append({"role": "user", "content": prompt})
+
+    label = _OR_DISPLAY_LABELS.get(model_id, model_id)
+    log.info("OpenRouter direct call: %s (%s)", label, model_id)
+
+    try:
+        resp = requests.post(
+            "https://openrouter.ai/api/v1/chat/completions",
+            headers={
+                "Authorization": f"Bearer {api_key}",
+                "Content-Type": "application/json",
+                "X-Title": "Thunderbird Telegram GW",
+            },
+            json={
+                "model": model_id,
+                "max_tokens": 4096,
+                "messages": messages,
+            },
+            timeout=ENGINE_TIMEOUT,
+        )
+
+        if resp.status_code == 429:
+            log.warning("OpenRouter rate-limited on %s", model_id)
+            return f"[Rate limited on {label} — try again shortly]"
+        if resp.status_code >= 500:
+            log.error("OpenRouter %d on %s", resp.status_code, model_id)
+            return f"[OpenRouter server error {resp.status_code} on {label}]"
+
+        resp.raise_for_status()
+        data = resp.json()
+
+        # OpenAI-compatible chat completions format
+        choices = data.get("choices", [])
+        if choices:
+            content = choices[0].get("message", {}).get("content", "")
+            if content:
+                log.info("OpenRouter %s returned %d chars", label, len(content))
+                return content.strip()
+
+        # Fallback: Anthropic messages format (some models)
+        content_blocks = data.get("content", [])
+        parts = []
+        for block in content_blocks:
+            if isinstance(block, dict) and block.get("type") == "text":
+                parts.append(block["text"])
+        if parts:
+            result = "\n".join(parts).strip()
+            log.info("OpenRouter %s returned %d chars (messages fmt)", label, len(result))
+            return result
+
+        log.error("OpenRouter %s — empty response: %s", model_id, str(data)[:300])
+        return f"[{label} returned empty response]"
+
+    except requests.Timeout:
+        return f"[{label} timed out after {ENGINE_TIMEOUT}s]"
+    except Exception as e:
+        log.error("OpenRouter %s error: %s", model_id, e)
+        return f"[Engine error — {label}: {e}]"
+
+
 # ── Slash Command Handlers ────────────────────────────────────────────────────
 
 
@@ -531,7 +657,17 @@ def handle_help(token: str, chat_id: int, bot_name: str) -> None:
         msg += "<code>@claude [msg]</code> — Task Claude\n<code>@dani [msg]</code> — Task Dani\n"
     elif bot_name == "Dani":
         msg += "<code>@goose [msg]</code> — Task Goose\n<code>@claude [msg]</code> — Task Claude\n"
-    msg += "\n<b>Overrides (D2MC2C only):</b>\n<code>OPUS: [task]</code> — Route to Claude Opus\n<code>Sonnet: [task]</code> — Route to Claude Sonnet"
+    msg += "\n<b>Model Overrides:</b>\n"
+    msg += "<code>OPUS: [task]</code> — Claude Opus\n"
+    msg += "<code>Sonnet: [task]</code> — Claude Sonnet\n"
+    msg += "<code>GROK: [task]</code> — xAI Grok 4.1\n"
+    msg += "<code>DEEPSEEK: [task]</code> — DeepSeek V3.1\n"
+    msg += "<code>GEMINI: [task]</code> — Gemini 3.1 Flash\n"
+    msg += "<code>LLAMA: [task]</code> — Llama 4 Maverick\n"
+    msg += "<code>GPT: [task]</code> — GPT-4.1 Mini\n"
+    msg += "<code>HAIKU: [task]</code> — Claude Haiku\n"
+    msg += "<code>MISTRAL: [task]</code> — Mistral Small\n"
+    msg += "\n<b>🧠 Auto-Upgrade:</b>\nBoth Ways detects keywords (strategy, architect, draft, etc.) and auto-upgrades to Opus/Sonnet when needed."
     tg_send(token, chat_id, msg)
 
 
@@ -732,6 +868,24 @@ def _detect_forward(msg: str, bot_name: str) -> str | None:
     return None
 
 
+def _select_model_by_keywords(text: str) -> tuple[str | None, str]:
+    """Use keyword_router to pick the best model for a Both Ways task.
+
+    Returns (model_override, reason).
+    - High-confidence Claude keywords (>=0.7) → Opus (complex reasoning)
+    - Moderate Claude keywords (0.5-0.69)    → Sonnet (creative/voice)
+    - No Claude keywords                     → None (use target default)
+    """
+    decision = classify_task(text)
+    if decision["engine"] == "claude":
+        conf = decision["confidence"]
+        if conf >= 0.7:
+            return OPUS_MODEL, f"keywords→Opus ({conf:.0%}): {decision['reason']}"
+        else:
+            return SONNET_MODEL, f"keywords→Sonnet ({conf:.0%}): {decision['reason']}"
+    return None, "no upgrade keywords — using target default"
+
+
 def _handle_forward(
     token: str,
     chat_id: int,
@@ -739,8 +893,13 @@ def _handle_forward(
     bot_name: str,
     ctx_file: Path,
     target: str,
+    model_override: str | None = None,
+    openrouter_override: str | None = None,
 ) -> None:
-    """Strip @prefix, call the other engine, return response to source chat."""
+    """Strip @prefix, classify task via keyword router, call the best engine.
+
+    Priority: explicit openrouter_override > explicit model_override > keyword auto-upgrade > target default.
+    """
     parts = msg.split(None, 1)
     stripped = parts[1].strip() if len(parts) > 1 else ""
     if not stripped:
@@ -748,25 +907,74 @@ def _handle_forward(
         return
 
     tg_typing(token, chat_id)
+
+    # ── Direct OpenRouter override (GROK:, DEEPSEEK:, GEMINI:, etc.) ────
+    if openrouter_override:
+        or_label = _OR_DISPLAY_LABELS.get(openrouter_override, openrouter_override)
+        log.info("[%s] Both Ways → %s (OpenRouter direct): %s...", bot_name, or_label, stripped[:80])
+        system = _PERSONA_CACHE.get("hale_system", "")
+        try:
+            raw_response = call_openrouter_engine(openrouter_override, stripped, system)
+        except Exception as e:
+            log.error("[%s] Both Ways OpenRouter error: %s", bot_name, e)
+            raw_response = f"[Both Ways error: {e}]"
+
+        chunks = fmt_process(
+            f"🔄 <b>Both Ways via {or_label}</b> 🌐\n\n{raw_response}", CHUNK_SIZE
+        )
+        tg_send_chunks(token, chat_id, chunks)
+        _append_exchange(
+            ctx_file,
+            user_msg=stripped,
+            assistant_msg=raw_response[:800],
+            user_label="Commander",
+            assistant_label=f"{or_label} (via Both Ways)",
+        )
+        return
+
+    # ── Keyword-based model upgrade ──────────────────────────────────────
+    # If Commander already set OPUS:/Sonnet: prefix, honour that.
+    # Otherwise, scan the task text for keyword-router patterns.
+    kw_model = None
+    kw_reason = ""
+    if not model_override:
+        kw_model, kw_reason = _select_model_by_keywords(stripped)
+
+    effective_override = model_override or kw_model
+
+    # ── Pick engine + apply upgrade ──────────────────────────────────────
     if target == "goose":
-        engine_fn = hale_goose_engine  # now OpenCode under the hood
-        engine_label = "OpenCode"
+        if effective_override:
+            # Keywords say this needs Claude — upgrade from OpenCode → Claude
+            engine_fn = hale_claude_engine
+            engine_label = "Opus" if effective_override == OPUS_MODEL else "Sonnet"
+            log.info("[%s] Both Ways UPGRADE goose→%s (%s)", bot_name, engine_label, kw_reason)
+        else:
+            engine_fn = hale_goose_engine
+            engine_label = "OpenCode"
     elif target == "dani":
         engine_fn = dani_claude_engine
         engine_label = "Dani"
+        # Dani always uses Sonnet — no model override applied
+        effective_override = None
     else:
         engine_fn = hale_claude_engine
-        engine_label = "Sonnet"
+        engine_label = "Opus" if effective_override == OPUS_MODEL else "Sonnet"
 
     log.info("[%s] Both Ways → %s: %s...", bot_name, engine_label, stripped[:80])
     try:
-        raw_response = engine_fn("", stripped, None)
+        raw_response = engine_fn("", stripped, effective_override)
     except Exception as e:
         log.error("[%s] Both Ways engine error: %s", bot_name, e)
         raw_response = f"[Both Ways error: {e}]"
 
+    # Show upgrade badge if keywords triggered a model change
+    upgrade_badge = ""
+    if kw_model and not model_override:
+        upgrade_badge = f"⬆️ <i>Auto-upgraded via keywords</i>\n"
+
     chunks = fmt_process(
-        f"🔄 <b>Both Ways via {engine_label}</b>\n\n{raw_response}", CHUNK_SIZE
+        f"🔄 <b>Both Ways via {engine_label}</b>\n{upgrade_badge}\n{raw_response}", CHUNK_SIZE
     )
     tg_send_chunks(token, chat_id, chunks)
 
@@ -837,8 +1045,12 @@ def handle_message(
             tg_send(token, chat_id, f"Unknown command. Type /help.")
             return
 
-    # ── Model override detection (D2MC2C / Claude only) ──────────────────────
+    # ── Model override detection ────────────────────────────────────────────
+    # Supports: OPUS: / SONNET: (Claude models via claude -p)
+    #           GROK: / DEEPSEEK: / GEMINI: / LLAMA: / GPT: / HAIKU: / MISTRAL:
+    #           (OpenRouter models via direct API)
     model_override = None
+    openrouter_override = None  # set when targeting an OpenRouter model directly
     msg_upper = msg.upper()
     if msg_upper.startswith("OPUS:"):
         model_override = OPUS_MODEL
@@ -848,6 +1060,14 @@ def handle_message(
         model_override = SONNET_MODEL
         msg = msg[7:].strip()
         log.info("Sonnet override activated")
+    else:
+        # Check OpenRouter model aliases (GROK:, DEEPSEEK:, GEMINI:, etc.)
+        for prefix, or_model_id in OPENROUTER_MODEL_ALIASES.items():
+            if msg_upper.startswith(prefix + ":"):
+                openrouter_override = or_model_id
+                msg = msg[len(prefix) + 1:].strip()
+                log.info("%s override activated → %s", prefix, or_model_id)
+                break
 
     if not msg:
         return
@@ -855,7 +1075,8 @@ def handle_message(
     # ── Both Ways forward check ────────────────────────────────────────────────
     forward_target = _detect_forward(msg, bot_name)
     if forward_target:
-        _handle_forward(token, chat_id, msg, bot_name, ctx_file, forward_target)
+        _handle_forward(token, chat_id, msg, bot_name, ctx_file, forward_target,
+                        model_override, openrouter_override)
         return
 
     # ── Typing indicator ──────────────────────────────────────────────────────
@@ -869,7 +1090,13 @@ def handle_message(
     start_t = time.time()
 
     try:
-        raw_response = engine_fn(context_text, msg, model_override)
+        if openrouter_override:
+            # Direct OpenRouter model call (GROK:, DEEPSEEK:, GEMINI:, etc.)
+            system = _PERSONA_CACHE.get("hale_system", "")
+            full_prompt = f"{context_text}\n\nCommander: {msg}" if context_text else msg
+            raw_response = call_openrouter_engine(openrouter_override, full_prompt, system)
+        else:
+            raw_response = engine_fn(context_text, msg, model_override)
     except Exception as e:
         log.error("[%s] Engine exception: %s", bot_name, e)
         raw_response = f"[Internal error: {e}]"
@@ -879,7 +1106,30 @@ def handle_message(
         "[%s] Engine returned %d chars in %.1fs", bot_name, len(raw_response), elapsed
     )
 
-    # ── Format and send ───────────────────────────────────────────────────────
+    # ── Determine model label — ALWAYS visible in response ─────────────────
+    if openrouter_override:
+        or_label = _OR_DISPLAY_LABELS.get(openrouter_override, openrouter_override)
+        model_label = or_label
+        assistant_label = f"{assistant_label}, {or_label}"
+    elif model_override == OPUS_MODEL:
+        model_label = "Opus"
+        assistant_label = f"{assistant_label}, Opus"
+    elif model_override == SONNET_MODEL:
+        model_label = "Sonnet"
+        assistant_label = f"{assistant_label}, Sonnet"
+    elif bot_name == "GooseD2M":
+        model_label = "DeepSeek V3.1"
+        assistant_label = f"{assistant_label}, DeepSeek V3.1"
+    elif bot_name == "Dani":
+        model_label = "Sonnet"
+        assistant_label = f"{assistant_label}, Sonnet"
+    else:
+        model_label = "Sonnet"
+        assistant_label = f"{assistant_label}, Sonnet"
+
+    # ── Format and send — model attribution always shown ──────────────────
+    raw_response = f"<b>{assistant_label}</b>\n\n{raw_response}"
+
     chunks = fmt_process(raw_response, CHUNK_SIZE)
     tg_send_chunks(token, chat_id, chunks)
 

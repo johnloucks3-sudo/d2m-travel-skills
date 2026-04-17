@@ -1,29 +1,17 @@
 {
-  "generated_at": "2026-04-12T06:01:20.465785",
-  "total_tasks": 2,
+  "generated_at": "2026-04-15T06:01:46.580964",
+  "total_tasks": 1,
   "critical_count": 0,
   "tasks": [
     {
-      "task_id": "TASK-0.5-kuklinski_group",
-      "client": "kuklinski_group",
-      "phase": 0,
-      "touchpoint": "0.5",
-      "deliverable": "Welcome email",
-      "owners": "A2\u2192A6\u2192A9\u2192A3",
-      "draft_due": "2026-04-08T00:00:00",
-      "send_date": "2026-04-15T00:00:00",
-      "status": "PENDING",
-      "critical": false
-    },
-    {
-      "task_id": "TASK-0.5-westbrook_group",
+      "task_id": "TASK-3.5-westbrook_group",
       "client": "westbrook_group",
-      "phase": 0,
-      "touchpoint": "0.5",
-      "deliverable": "Welcome email",
-      "owners": "A2\u2192A6\u2192A9\u2192A3",
-      "draft_due": "2026-04-08T00:00:00",
-      "send_date": "2026-04-15T00:00:00",
+      "phase": 3,
+      "touchpoint": "3.5",
+      "deliverable": "Final logistics check",
+      "owners": "A3",
+      "draft_due": "2026-04-13T00:00:00",
+      "send_date": "2026-04-16T00:00:00",
       "status": "PENDING",
       "critical": false
     }

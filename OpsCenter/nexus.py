@@ -157,8 +157,26 @@ class NexusLock:
 
 # ── Mission Board I/O ─────────────────────────────────────────────────────────
 def load_board() -> dict:
-    with open(MISSION_BOARD, "r") as f:
-        return json.load(f)
+    try:
+        with open(MISSION_BOARD, "r") as f:
+            return json.load(f)
+    except json.JSONDecodeError as e:
+        # Attempt auto-repair: strip trailing commas before ] and }
+        audit("BOARD_JSON_ERROR", f"Attempting auto-repair: {e}")
+        import re
+        with open(MISSION_BOARD, "r") as f:
+            raw = f.read()
+        fixed = re.sub(r',\s*([}\]])', r'\1', raw)
+        try:
+            board = json.loads(fixed)
+            # Write the repaired version back
+            with open(MISSION_BOARD, "w") as f:
+                f.write(fixed)
+            audit("BOARD_JSON_REPAIRED", "Trailing commas removed, board saved")
+            return board
+        except json.JSONDecodeError as e2:
+            audit("BOARD_JSON_UNRECOVERABLE", f"Auto-repair failed: {e2}")
+            return {"active_missions": [], "suspended_missions": [], "completed_missions": []}
 
 
 def save_board(board: dict):
@@ -290,65 +308,149 @@ dispatch_to_qwen = dispatch_to_opencode  # kept for backward compat
 
 
 CLAUDE_MAX_RETRIES = 2
-CLAUDE_TIMEOUT_SECS = 180  # Extended from 120s for complex tasks
 
-def dispatch_to_claude(task_text: str, mission_id: str) -> str:
-    """Run claude -p headless for judgment tasks.
-    Retry up to CLAUDE_MAX_RETRIES on timeout.
-    Falls back to DeepSeek if Claude CLI not found."""
+# ── Claude dispatch via OpenRouter API (replaces broken claude -p subprocess) ──
+# Previous approach: subprocess.run(["claude", "-p", ...]) → NEVER worked in prod
+#   because ANTHROPIC_API_KEY has zero credits and claude -p ignores Max OAuth.
+# New approach: direct API call via OpenRouter. Reliable, model-selectable, $5 budget.
+
+OPENROUTER_API_URL = "https://openrouter.ai/api/v1/messages"
+OPENROUTER_CLAUDE_DEFAULT = "anthropic/claude-sonnet-4.6"
+OPENROUTER_CLAUDE_MODELS = {
+    "sonnet": "anthropic/claude-sonnet-4.6",
+    "opus": "anthropic/claude-opus-4.7",
+    "haiku": "anthropic/claude-haiku-4.5",
+}
+
+
+def _get_openrouter_key() -> str:
+    key = os.environ.get("OPENROUTER_API_KEY", "")
+    if not key:
+        raise RuntimeError("OPENROUTER_API_KEY not set in environment")
+    return key
+
+
+def dispatch_to_claude(task_text: str, mission_id: str, model: str = None) -> str:
+    """Dispatch judgment tasks to Claude via OpenRouter API.
+
+    Args:
+        task_text: The task prompt.
+        mission_id: Mission tracking ID.
+        model: Optional model shorthand ("sonnet", "opus", "haiku") or full
+               OpenRouter model ID. Defaults to Sonnet 4.6.
+
+    Falls back to dispatch_to_opencode on failure.
+    """
+    import requests as _requests
+
     if not queue_check("claude"):
         audit("DISPATCH_CLAUDE_BLOCKED", f"Queue depth={queue_depth('claude')} >= {_QUEUE['max_depth']}", mission_id)
         return f"BLOCKED: Claude queue full ({queue_depth('claude')}/{_QUEUE['max_depth']}). Retry later."
-    
+
     queue_inc("claude")
-    # Use real API key from environment — ANTHROPIC_BASE_URL=api.anthropic.com
-    # Don't strip vars; service env already has the correct key + endpoint.
-    claude_env = dict(os.environ)
+
+    # Resolve model ID
+    if model and model in OPENROUTER_CLAUDE_MODELS:
+        resolved_model = OPENROUTER_CLAUDE_MODELS[model]
+    elif model and "/" in model:
+        resolved_model = model  # Full OpenRouter model ID passed directly
+    else:
+        resolved_model = OPENROUTER_CLAUDE_DEFAULT
+
+    try:
+        api_key = _get_openrouter_key()
+    except RuntimeError as e:
+        queue_dec("claude")
+        audit("DISPATCH_CLAUDE_FAIL", str(e), mission_id)
+        return dispatch_to_opencode(task_text, mission_id)
 
     attempt = 0
     while attempt <= CLAUDE_MAX_RETRIES:
         try:
-            r = subprocess.run(
-                ["claude", "-p", f"[{mission_id}] {task_text}"],
-                capture_output=True, text=True, timeout=CLAUDE_TIMEOUT_SECS,
-                env=claude_env,
+            resp = _requests.post(
+                OPENROUTER_API_URL,
+                headers={
+                    "Authorization": f"Bearer {api_key}",
+                    "Content-Type": "application/json",
+                    "X-Title": "Thunderbird NEXUS",
+                },
+                json={
+                    "model": resolved_model,
+                    "max_tokens": 2048,
+                    "messages": [
+                        {"role": "user", "content": f"[{mission_id}] {task_text}"}
+                    ],
+                },
+                timeout=180,
             )
-            output = r.stdout.strip() or r.stderr.strip()
-            if output:
-                audit("DISPATCH_CLAUDE", f"task={task_text[:80]} | chars={len(output)} | attempt={attempt+1}", mission_id)
-                queue_dec("claude")
-                return output[:2000]  # cap at 2K per spec
-            # Empty output is treated as failure
-            attempt += 1
-            audit("DISPATCH_CLAUDE_RETRY", f"Empty output, attempt {attempt}/{CLAUDE_MAX_RETRIES+1}", mission_id)
-            time.sleep(2 * (attempt + 1))  # Exponential backoff
-        except FileNotFoundError:
+
+            if resp.status_code == 429 or (resp.status_code >= 500):
+                attempt += 1
+                audit("DISPATCH_CLAUDE_RETRY",
+                      f"HTTP {resp.status_code}, model={resolved_model}, "
+                      f"attempt {attempt}/{CLAUDE_MAX_RETRIES+1}", mission_id)
+                time.sleep(3 * attempt)
+                continue
+
+            resp.raise_for_status()
+            data = resp.json()
+
+            # Anthropic messages format — extract text from content blocks
+            content = data.get("content", [])
+            output_parts = []
+            for block in content:
+                if isinstance(block, dict) and block.get("type") == "text":
+                    output_parts.append(block["text"])
+            output = "\n".join(output_parts).strip()
+
+            if not output:
+                attempt += 1
+                audit("DISPATCH_CLAUDE_RETRY",
+                      f"Empty output, model={resolved_model}, "
+                      f"attempt {attempt}/{CLAUDE_MAX_RETRIES+1}", mission_id)
+                time.sleep(2 * attempt)
+                continue
+
+            audit("DISPATCH_CLAUDE",
+                  f"model={resolved_model} | task={task_text[:60]} | "
+                  f"chars={len(output)} | attempt={attempt+1}", mission_id)
             queue_dec("claude")
-            audit("DISPATCH_CLAUDE_FAIL", "claude CLI not found — falling back to OpenCode", mission_id)
-            return dispatch_to_opencode(task_text, mission_id)
-        except subprocess.TimeoutExpired:
+            return output[:2000]
+
+        except _requests.Timeout:
             attempt += 1
-            audit("DISPATCH_CLAUDE_TIMEOUT", f"{CLAUDE_TIMEOUT_SECS}s exceeded, attempt {attempt}/{CLAUDE_MAX_RETRIES+1}", mission_id)
-            if attempt > CLAUDE_MAX_RETRIES:
-                queue_dec("claude")
-                return f"TIMEOUT: Claude did not respond after {CLAUDE_MAX_RETRIES+1} attempts ({CLAUDE_TIMEOUT_SECS}s each). Fallback to DeepSeek."
+            audit("DISPATCH_CLAUDE_TIMEOUT",
+                  f"180s exceeded, model={resolved_model}, "
+                  f"attempt {attempt}/{CLAUDE_MAX_RETRIES+1}", mission_id)
         except Exception as e:
             queue_dec("claude")
-            audit("DISPATCH_CLAUDE_ERROR", f"Unexpected: {e}", mission_id)
-            return f"ERROR: Claude dispatch failed unexpectedly: {e}"
-    
+            audit("DISPATCH_CLAUDE_ERROR", f"model={resolved_model} | {e}", mission_id)
+            return dispatch_to_opencode(task_text, mission_id)
+
     queue_dec("claude")
-    audit("DISPATCH_CLAUDE_FINAL_FAIL", "All retries exhausted — falling back to OpenCode", mission_id)
+    audit("DISPATCH_CLAUDE_FINAL_FAIL",
+          f"All retries exhausted for {resolved_model} — falling back to OpenCode", mission_id)
     return dispatch_to_opencode(task_text, mission_id)
 
 
-def route_and_dispatch(task_text: str, mission_id: str) -> tuple[str, str]:
-    """Route task and dispatch. Returns (engine, result)."""
-    engine = _route(task_text, mission_id)
-    if engine == "claude":
-        result = dispatch_to_claude(task_text, mission_id)
+def route_and_dispatch(task_text: str, mission_id: str, model: str = None) -> tuple[str, str]:
+    """Route task and dispatch. Returns (engine, result).
+
+    Args:
+        model: Optional model override. If set, forces Claude dispatch with
+               this model ("sonnet", "opus", "haiku", or full OpenRouter ID).
+               Parsed from `model:` field in inbox task entries.
+    """
+    if model:
+        # Explicit model requested — always route to Claude via OpenRouter
+        engine = "claude"
+        result = dispatch_to_claude(task_text, mission_id, model=model)
     else:
-        result = dispatch_to_deepseek(task_text, mission_id)
+        engine = _route(task_text, mission_id)
+        if engine == "claude":
+            result = dispatch_to_claude(task_text, mission_id)
+        else:
+            result = dispatch_to_deepseek(task_text, mission_id)
     return engine, result
 
 

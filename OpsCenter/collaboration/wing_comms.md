@@ -1,4 +1,51 @@
 ---
+msg_id: WC-20260412-HALE-MISSION1015-TRAVELZOO
+msg_type: MISSION-REPORT
+from: HALE (Claude Code)
+priority: P3
+to: COMMANDER
+assigned_to: A3 (Dani)
+submitted_at: 2026-04-12 22:28 MT
+content: |
+  Commander — MISSION1-015 (Travelzoo Voucher) analyzed and assignment recommended.
+  
+  ## VOUCHER DETAILS
+  - **Cruise:** Celebrity Constellation (Caribbean)
+  - **Departure:** December 14, 2026 (6-night sailing)
+  - **Status:** Active, unassigned as of Apr 10
+  - **Suspense:** June 1, 2026
+
+  ## CLIENT MATCHING ANALYSIS
+  
+  **RECOMMENDED: Furlow (Missy & John)**
+  - Current booking: Grandeur Scandinavia Aug 29–Sep 8 ($15,486 confirmed)
+  - Dec 2026 availability: ✅ OPEN (post-Grandeur return + pre-holiday)
+  - Profile fit: Premium client, established cruise satisfaction, Caribbean preference
+  - Cross-sell opportunity: Secondary trip (Aug + Dec double-cruise year)
+  
+  Eliminated candidates:
+  - McLeod (Melissa & Erik): Regent Lesser Antilles Dec 19-29 — *direct conflict*
+  - Loucks (John & Susan): Regent Holiday Dec 29–Jan 14 — *direct conflict*
+
+  ## ACTIVATION STEPS
+  1. Retrieve voucher details from Travelzoo (terms, blackout dates, ship assignment)
+  2. Validate compatibility: Celebrity Constellation + Dec 14 window vs Furlow availability
+  3. Create dossier: `DOSSIER_Celebrity_Constellation_Furlow_Dec2026.md`
+  4. Contact Furlow (via Dani): Present voucher as exclusive secondary cruise option
+  5. If accepted: Process through TESS, generate booking confirmation, link to master dossier
+  6. Update Booking Master Sheet + D2M Trip Dossiers Drive folder
+
+  ## REVENUE TRACKING
+  - Booking status: PENDING (awaiting Furlow interest confirmation)
+  - Commission tracking: TBD (depends on voucher structure — gift vs. bookable rate)
+  - Estimated booking value: $8K–$12K (6-night Caribbean typical rate × occupancy)
+  - Link to financial tracking: See `core/booking/thunderbird_commission_recon.py`
+
+  **Next action:** A3 Dani to reach out to Furlow with voucher offer by Apr 15. Report response to COS.
+
+  — Hale COS
+
+---
 msg_id: WC-20260412-HALE-TELEGRAM-AUDIT
 msg_type: AUDIT-FINDINGS
 from: HALE (Claude Code)
@@ -673,3 +720,212 @@ content: |
 
 ---
 
+
+============================================================
+# EMAIL SCANNER MIGRATION - 2026-04-12 22:25
+# Migrated 1 tasks from claude_inbox.md
+============================================================
+
+---
+msg_id: WC-EMAIL-20260412-222542-HALE
+msg_type: EMAIL_SCAN
+from: Email Scanner (Migrated)
+priority: P1
+to: HALE
+submitted_at: 2026-04-12 22:25 MT
+content: |
+  **Email Detected — Staff Mention: HALE**
+  
+  **From:** 
+  **Subject:** 
+  **Message ID:** 19d62cc9c14a8315
+  
+  **Action Required:** Email flagged for HALE. Please review and task out as appropriate.
+  **Migration Note:** This task was migrated from claude_inbox.md during email scanner repair.
+
+---
+
+
+---
+msg_id: WC-20260412-HALE-MISSION009-HEALTH
+msg_type: SYSTEM-HEALTH-REPORT
+from: HALE (Col Victoria Hale)
+priority: P0
+to: COMMANDER
+timestamp: 2026-04-12 22:30 MT
+subject: MISSION-009 System Health Diagnostic Complete
+content: |
+  **HEALTH SCORE: 2/10 — CRITICAL SYSTEM FAILURE**
+  
+  ## EXECUTIVE SUMMARY
+  MCP infrastructure DOWN. Telegram C2/Dani INACTIVE. Chrome debug OFFLINE. 
+  Root cause: Module import path corruption in travel_mcp_server.py.
+  
+  ## DETAILED FINDINGS
+  
+  ### 1. MCP SERVER — CRITICAL FAILURE ❌
+  **Status:** OFFLINE | Port 8765 not listening
+  **Root Cause:** Import path error in core/mcp/travel_mcp_server.py
+  
+  **Error Chain:**
+  - Line 18: `from thunderbird_ship_intel import ...`
+  - Module exists: `core/intel/thunderbird_ship_intel.py` (19KB, present)
+  - Import fails: Python cannot resolve relative module path
+  - MCP server never starts
+  
+  **Affected Modules (cannot load):**
+  - thunderbird_ship_intel (line 18)
+  - thunderbird_world_intel (line 19)
+  - thunderbird_ship_compare (line 20)
+  - And 20+ additional intel/ops modules
+  
+  **Impact:** 
+  - MCP tool endpoint unreachable
+  - Tool count: UNKNOWN (estimated 0/293)
+  - Claude Code MCP integration: BROKEN
+  
+  **Remediation:** 
+  Fix sys.path in travel_mcp_server.py to include `core/intel/`, `core/ops/`, etc.
+  OR relocate modules to top-level for direct import.
+  
+  ### 2. TELEGRAM GATEWAY — OFFLINE ❌
+  **C2 Service Status:** INACTIVE (disabled)
+  **Dani Service Status:** INACTIVE (disabled)
+  **Last Activity:** Unknown (check systemd journal)
+  
+  **Status:** `systemctl status thunderbird-c2.service` returns:
+  ```
+  ○ thunderbird-c2.service - Thunderbird Telegram C2 — Commander-Only Control Bot
+  Active: inactive (dead)
+  ```
+  
+  **Issue:** Services disabled OR crashed without auto-restart.
+  **Impact:** Commander cannot receive Telegram briefs. AI incubator cannot page.
+  
+  **Remediation:** Enable and start services:
+  ```bash
+  sudo systemctl enable --now thunderbird-c2.service
+  sudo systemctl enable --now thunderbird-dani.service
+  systemctl status thunderbird-c2 -l  # verify
+  ```
+  
+  ### 3. CHROME DEBUG — OFFLINE ❌
+  **Port 9222:** Not listening
+  **Status:** OFFLINE
+  **Last Known:** hale_state.json reports "port 9222 not responding"
+  
+  **Impact:** Headless Chrome integration unavailable for QA, screenshot capture, RPA.
+  
+  **Remediation:** Start Chrome with remote-debugging-port:
+  ```bash
+  google-chrome --headless --disable-gpu --remote-debugging-port=9222 &
+  ```
+  
+  ## SERVICE HEALTH MATRIX
+  
+  | Service | Port | Status | Healthy | Last Seen |
+  |---------|------|--------|---------|-----------|
+  | MCP | 8765 | ❌ OFFLINE | NO | Unknown |
+  | Telegram C2 | systemd | ❌ INACTIVE | NO | Unknown |
+  | Telegram Dani | systemd | ❌ INACTIVE | NO | Unknown |
+  | Chrome Debug | 9222 | ❌ OFFLINE | NO | Unknown |
+  | Itinerary Tunnel | 8900 | ⚠️ UNTESTED | UNKNOWN | Unknown |
+  | OAuth Cache | ✓ | ⚠️ RUNNING | MAYBE | 2026-04-12 active |
+  
+  ## ROOT CAUSE ANALYSIS
+  
+  **PRIMARY ISSUE:** Module import path corruption
+  - MCP server can't find core/intel modules
+  - Service never starts
+  - Cascading failure: everything depending on MCP is DOWN
+  
+  **SECONDARY ISSUE:** Services disabled or unmanaged
+  - C2 and Dani have disabled=true in systemd
+  - No auto-restart configured
+  - Manual intervention required to restore
+  
+  **TERTIARY ISSUE:** Chrome debugging not initialized
+  - Port 9222 not in use
+  - No startup script present in systemd
+  
+  ## RECOMMENDED ACTIONS (PRIORITY ORDER)
+  
+  1. **URGENT (Next 30 min):** Fix MCP import paths
+     - Verify all modules in core/intel exist
+     - Add sys.path.insert logic OR move modules
+     - Test: `python3 -c "from core.mcp.travel_mcp_server import *"`
+  
+  2. **HIGH (Within 1 hour):** Enable Telegram services
+     ```bash
+     sudo systemctl enable thunderbird-c2.service
+     sudo systemctl start thunderbird-c2.service
+     systemctl status thunderbird-c2.service -l
+     ```
+  
+  3. **MEDIUM (Within 2 hours):** Restore Chrome debugging
+     - Start Chrome or verify running
+     - Test: `curl http://localhost:9222/json`
+  
+  4. **FOLLOW-UP:** Post-mortem on service degradation
+     - When did services disable?
+     - Root cause: manual intervention, package update, or untracked change?
+     - Implement monitoring/alerts to catch future outages
+  
+  ## HEALTH SCORE BREAKDOWN
+  
+  - MCP infrastructure: 0/10 (offline, import error)
+  - Telegram C2: 0/10 (disabled)
+  - Telegram Dani: 0/10 (disabled)
+  - Chrome debug: 0/10 (offline)
+  - OAuth cache: 4/10 (possibly running but untested)
+  
+  **Weighted Average: 2/10 — CRITICAL**
+  
+  ## NEXT STEPS (FOR COMMANDER)
+  
+  Hale can execute remediation once you approve. Estimated timeline:
+  - MCP fix: 15–30 minutes
+  - Service restart: 5 minutes
+  - Chrome startup: 5 minutes
+  - Full restoration: ~45 minutes
+  
+  **Approval needed?** YES — MCP fix may require code changes.
+  
+  Recommend immediate triage. Wing is blind without Telegram. MCP is the nervous system.
+  
+  —Hale
+
+
+
+---
+msg_id: WC-EMAIL-MIGRATION-20260412222728
+msg_type: SYSTEM_ALERT
+from: Email Scanner Repair Bot
+priority: P1
+to: HALE, NAIA, Claude, OpenCode
+submitted_at: 2026-04-12 22:27 MT
+content: |
+  **EMAIL SCANNER REPAIR COMPLETE**
+  
+  **Summary:**
+  - Removed 28 duplicate EMAIL-SCAN tasks from claude_inbox.md
+  - HALE tasks: 22
+  - NAIA tasks: 5
+  
+  **Problem Fixed:**
+  Email scanner was creating duplicate tasks in claude_inbox.md for HALE/NAIA mentions.
+  These should be routed to wing_comms.md instead.
+  
+  **Repair Actions:**
+  1. Removed all EMAIL-SCAN-* tasks from claude_inbox.md
+  2. Added this summary to wing_comms.md
+  3. Email scanner code needs update to route HALE/NAIA to wing_comms
+  
+  **Manual Fix Required:**
+  Update `core/email/thunderbird_email_scanner_fixed.py`:
+  - Ensure HALE/NAIA classification returns target_inbox = "wing_comms"
+  - Ensure main sweep routes to write_wing_comms_task() not write_claude_task()
+  
+  **Timestamp:** 2026-04-12 22:27:28
+  
+---

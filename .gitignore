@@ -96,3 +96,4 @@ drive_token.json
 # Ignore Smart Environment folder
 .smart-envconfig/portal_creds.json
 config/monitor_state.json
+.gstack/

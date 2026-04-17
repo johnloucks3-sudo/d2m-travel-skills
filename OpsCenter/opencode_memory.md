@@ -117,3 +117,10 @@ OpenCode → `claude_inbox.md` → Watcher → Claude Code → `claude_outbox.md
 
 **Status:** Hale transformation oversight protocol active. Awaiting Commander review of Phase 2.
 
+
+## STANDING ORDER 2026-04-14 — FILE VISIBILITY (YOGA ACCESS BLOCKED UNTIL 12 May 2026)
+When citing/creating HDD files:
+1. Show onscreen (read tool/output)
+2. Gmail drafts (johnloucks3)
+3. rclone Drive if non-urgent (d2mconcierge/D2M/)
+

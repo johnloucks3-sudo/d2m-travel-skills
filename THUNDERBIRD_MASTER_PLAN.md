@@ -1006,6 +1006,7 @@ When ANY booking is created, confirmed, or significantly updated, the following 
 | E3 | Process Regent final payment | PENDING | Apr 1 |
 | E4-E5 | Dining + excursion selections | NOT STARTED | Apr 15 |
 | E6 | Upgrade watch after April 1 | TRACK | Post Apr 1 |
+| E7 | **Cabin changed 1212 → 961** | ✅ DOSSIER UPDATED | 10 APR 2026 (RSSC Invoice) |
 
 **LARRY & HEIDI NICHOLS — Regent Grandeur (Aug 29, 2026)**
 

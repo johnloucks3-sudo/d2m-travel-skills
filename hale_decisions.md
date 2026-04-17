@@ -1,3 +1,20 @@
+### 2026-04-12 — MISSION1-015 Travelzoo Voucher Assignment (Operational Decision)
+
+**Decision:** Travelzoo voucher (Celebrity Constellation, Dec 14, 2026, 6-night Caribbean) assigned to **Furlow** as secondary cruise booking opportunity. Analysis:
+- Furlow: Dec 2026 open; high-value client ($15,486 Grandeur confirmed); Caribbean preference fit
+- McLeod: Conflict (Regent Lesser Antilles Dec 19-29)
+- Loucks: Conflict (Regent Holiday Dec 29–Jan 14)
+
+**Action:** Task A3 Dani to contact Furlow with voucher offer by Apr 15. Report decision to wing_comms.md.
+
+**Authority:** COS operational (Email Classification domain, mastery level 97%). No Commander escalation needed.
+
+**Domain:** Email Classification + Staff Task Routing (Dani assignment). Trust score: +1 routine decision.
+
+**Brain:** Self (COS decision authority)
+
+---
+
 ### 2026-04-12 — Phase 2/3 Transformation Completion & Deployment
 
 **Decision:** Phase 2 transformation review complete, approved, and Layer 8 self-governance enforced. Phase 3 deployment initiated per transformation timeline.

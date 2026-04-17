@@ -4538,3 +4538,52 @@ Welcome email draft for Ron & Lindy Westbrook (Silver Nova Tokyo/Japan/Alaska, A
 
 ## STAFF-TASKING-TIMERS | 2026-04-12 06:01 MT
 **2 tasks queued** for next 90 days
+
+## STAFF-TASKING-TIMERS | 2026-04-13 00:03 MT
+**3 tasks queued** for next 90 days
+
+## STAFF-TASKING-TIMERS | 2026-04-13 06:03 MT
+**3 tasks queued** for next 90 days
+
+---
+## TASK-COMPLETE: HALE-CLIENT-LIFECYCLE-VOICE-DRAFTS-002
+completed: 2026-04-13T14:30:00-06:00
+output: /home/john/Thunderbird/output/Drafts_for_Client_Lifecycle_Engagement.md
+summary: 16 email drafts written across 5 phases (0, 1, 2, 3, 5) for Kuklinski Group (Viking Mars Panama Canal Dec 17-27, 2026). WF-17 voice applied. Ready for COS review.
+
+## STAFF-TASKING-TIMERS | 2026-04-14 00:02 MT
+**3 tasks queued** for next 90 days
+
+## STAFF-TASKING-TIMERS | 2026-04-14 06:04 MT
+**3 tasks queued** for next 90 days
+
+
+## TASK: OC-GANT-CLIENT-CONTACTS-2
+**STATUS: COMPLETE**
+
+### Kuklinski Lifecycle Email Drafts
+
+**3 Sample Emails Created (Dani Voice, WF-17 Compliant)**
+
+- **Insurance Email**
+  - Draft ID: `r8546114849097574444`
+  - To: kyle.kuklinski@gmail.com
+  - Subject: Travel Insurance — Pre-Existing Waiver Window (Important)
+
+- **Welcome/Validation Email**
+  - Draft ID: `r-4076040793265609352`
+  - To: kyle.kuklinski@gmail.com
+  - Subject: Welcome to Your Viking Mars Adventure — Panama Canal Awaits
+
+- **Guest Forms Reminder**
+  - Draft ID: `r5412554322719766692`
+  - To: kyle.kuklinski@gmail.com
+  - Subject: Josh Morton Guest Profile — Quick Request
+
+**All drafts created in johnloucks3@gmail.com — Ready for Commander review.**
+
+## STAFF-TASKING-TIMERS | 2026-04-15 00:02 MT
+**1 tasks queued** for next 90 days
+
+## STAFF-TASKING-TIMERS | 2026-04-15 06:01 MT
+**1 tasks queued** for next 90 days
