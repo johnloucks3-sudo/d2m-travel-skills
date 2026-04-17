@@ -1,0 +1,17 @@
+{
+  "client_id": "kuklinski",
+  "client_name": "Kyle Kuklinski",
+  "client_email": "kyle.kuklinski@gmail.com",
+  "booking_date": "2026-02-07",
+  "embarkation_date": "2026-12-17",
+  "disembarkation_date": "2026-12-27",
+  "cruise_line": "Viking",
+  "style_template": "VIKING",
+  "ship": "Viking Mars",
+  "itinerary": "Panama Canal",
+  "booking_ids": ["9593880", "9593873", "9595029"],
+  "guests": 6,
+  "suites": 3,
+  "total_paid": 21244,
+  "notes": "First-time cruisers. 3 couples. Josh Morton form outstanding. Insurance unresolved."
+}
