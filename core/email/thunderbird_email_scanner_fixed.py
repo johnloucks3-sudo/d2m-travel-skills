@@ -1,77 +1,62 @@
 #!/usr/bin/env python3
 """
-THUNDERBIRD EMAIL SCANNER — FIXED VERSION
+THUNDERBIRD EMAIL SCANNER v2
 File: thunderbird_email_scanner_fixed.py
-Author: Claude (fixing thunderbird_email_maintenance.py)
-Date: 2026-04-07
 
-PROBLEM FIXED:
-- Original script tried HTTP JSON-RPC to non-existent port 8767
-- New version uses Google API directly (proven in thunderbird_gmail.py)
+Scans d2mconcierge@gmail.com for unread emails addressed to Wing staff.
+Detects staff mentions (COS, [COS], A3, [A3], Dani, Hale, etc.)
+Executes the task via the appropriate persona using the Anthropic API.
+Replies to johnloucks3@gmail.com with the FULL completed response
+ONLY after the task has been executed — never immediately.
 
-ARCHITECTURE:
-SWEEP → CLASSIFY → ROUTE & DRAFT → ARCHIVE (NO MCP DEPENDENCY)
-
-Scans d2mconcierge@gmail.com for unread emails matching staff patterns.
-Routes to appropriate inboxes (Hale, OpenCode, etc.).
-Sends reply notification to johnloucks3@gmail.com.
+Usage:
+  python thunderbird_email_scanner_fixed.py --sweep      # run once
+  python thunderbird_email_scanner_fixed.py --loop       # continuous (5-min)
 """
 
-import json
-import os
-import sys
-import logging
-import time
 import base64
+import json
+import logging
+import os
 import re
-from datetime import datetime, timedelta
+import subprocess
+import sys
+import time
+from datetime import datetime
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from html.parser import HTMLParser
 from pathlib import Path
-from typing import Dict, List, Optional, Any
+from typing import Optional
 
+from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
-from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
-from googleapiclient.errors import HttpError
-from email.mime.text import MIMEText
 
 # ============================================================================
 # CONFIGURATION
 # ============================================================================
 
 THUNDERBIRD_DIR = Path.home() / "Thunderbird"
-OPSCENTER_DIR = THUNDERBIRD_DIR / "OpsCenter"
-EMAIL_CONDITIONING_DIR = THUNDERBIRD_DIR / "email_conditioning"
+STATE_FILE = THUNDERBIRD_DIR / "OpsCenter" / "email_scanner_state.json"
+LOG_DIR = THUNDERBIRD_DIR / "OpsCenter" / "logs"
+LOG_FILE = LOG_DIR / "email_scanner.log"
+LOG_DIR.mkdir(parents=True, exist_ok=True)
 
-# State and logging
-STATE_FILE = OPSCENTER_DIR / "email_scanner_state.json"
-LOG_FILE = OPSCENTER_DIR / "logs" / "email_scanner.log"
-ROUTING_LOG = OPSCENTER_DIR / "logs" / "email_routing.log"
-LOG_FILE.parent.mkdir(parents=True, exist_ok=True)
-ROUTING_LOG.parent.mkdir(parents=True, exist_ok=True)
-
-# Gmail accounts
-D2M_CONCIERGE_EMAIL = "d2mconcierge@gmail.com"
-COMMANDER_EMAIL = "johnloucks3@gmail.com"
-CONCIERGE_SEND_AS = "concierge@d2mluxury.quest"
-
-# Inbox destinations
-WING_COMMS = THUNDERBIRD_DIR / "OpsCenter" / "collaboration" / "wing_comms.md"
-CLAUDE_INBOX = THUNDERBIRD_DIR / "claude_inbox.md"
-OPENCODE_INBOX = THUNDERBIRD_DIR / "OpsCenter" / "collaboration" / "opencode_inbox.md"
-
-# Sweep config
-SWEEP_INTERVAL_MINUTES = 5
-DEDUP_WINDOW_SECONDS = 600
-STATE_PRUNE_SIZE = 500
-
-# OAuth
-OAUTH_CREDENTIALS_FILE = THUNDERBIRD_DIR / "gmail_oauth_credentials.json"
 TOKEN_FILE = THUNDERBIRD_DIR / "gmail_token.json"
+OAUTH_CREDENTIALS_FILE = THUNDERBIRD_DIR / "gmail_oauth_credentials.json"
 SCOPES = ["https://www.googleapis.com/auth/gmail.modify"]
 
+D2M_CONCIERGE_EMAIL = "d2mconcierge@gmail.com"
+COMMANDER_EMAIL = "johnloucks3@gmail.com"
+MODEL = "claude-sonnet-4-6"
+TASK_TIMEOUT_SECONDS = 240   # max time to wait for persona response
+MAX_BODY_CHARS = 6000        # truncate email body before sending to persona
+SWEEP_INTERVAL_MINUTES = 5
+
 # ============================================================================
-# LOGGING SETUP
+# LOGGING
 # ============================================================================
 
 logging.basicConfig(
@@ -85,556 +70,567 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # ============================================================================
+# STAFF REGISTRY
+# Each entry: (staff_key, display_name, [keyword_list])
+# Keywords matched case-insensitively, with or without brackets.
+# Order matters — more specific entries first to avoid false matches.
+# ============================================================================
+
+STAFF_REGISTRY = [
+    # Command section
+    ("HALE",   "Col Victoria 'Iron Vic' Hale — Chief of Staff",
+     ["cos", "hale", "victoria", "iron vic", "coo"]),
+    ("NAIA",   "Naia Solberg-Vega — EXEC",
+     ["exec", "naia", "solberg", "solberg-vega"]),
+
+    # Primary staff
+    ("DEMBE",  "Lt Col Marcus 'Wraith' Dembe — A2 Research & Intel",
+     ["a2", "dembe", "marcus", "wraith"]),
+    ("MOREAU", "Danielle 'Dani' Moreau — A3 Concierge",
+     ["a3", "dani", "moreau", "echo"]),
+    ("VIPER",  "Lt Col Ryan 'Viper' Castillo — A5 Strategy",
+     ["a5", "castillo", "viper"]),
+    ("LUNA",   "Luna Voss — A6 Creative Director",
+     ["a6", "luna", "voss"]),
+    ("GAUGE",  "Brig Gen Thomas 'Gauge' Sterling — A7 Process",
+     ["a7", "sterling", "gauge"]),
+    ("HARLAN", "Victor 'Vic' Harlan — A9 Finance",
+     ["a9", "harlan"]),
+
+    # Special staff
+    ("PADRE",  "Col James 'Padre' Washington — Chaplain",
+     ["ch", "padre", "washington"]),
+    ("ELON",   "ELON — A12 Innovation",
+     ["a12", "elon"]),
+]
+
+# ============================================================================
+# PERSONA SYSTEM PROMPTS
+# ============================================================================
+
+PERSONA_PROMPTS = {
+    "HALE": """You are Col Victoria "Iron Vic" Hale, Chief of Staff and COO for Dreams2Memories Travel, LLC.
+Owner: John Loucks ("Yoda"), Colorado Springs CO.
+You are measured, authoritative, executive. You run the Wing. You bring a recommendation with every problem.
+Lead with the answer — no preamble, no trailing recap.
+When given a task by Commander via email, complete it fully and present the finished work.
+Company: Dreams2Memories Travel, LLC. Sign off: "Thanks" — never "Best".""",
+
+    "NAIA": """You are Naia Solberg-Vega, EXEC for Dreams2Memories Travel, LLC.
+You own Commander's voice, visual output, and brand tone.
+You write client-facing copy, proposals, template polish — anything that represents D2M to the outside world.
+When given a task, deliver finished, polished output ready to use.
+Company: Dreams2Memories Travel, LLC. Sign off: "Thanks" — never "Best".""",
+
+    "DEMBE": """You are Lt Col Marcus "Wraith" Dembe, A2 Research & Market Intelligence for Dreams2Memories Travel, LLC.
+Evidence-first. Destination research, cruise intel, competitor analysis, sourcing.
+Lead with the key finding, then the supporting detail.
+Company: Dreams2Memories Travel, LLC.""",
+
+    "MOREAU": """You are Danielle "Dani" Moreau, A3 Luxury Travel Concierge for Dreams2Memories Travel, LLC.
+You are the sole client-facing voice — warm, crisp, certain. Short sentences, no hedging.
+You aggregate information, craft it with voice and tone, and present as advocate for the client.
+When given a drafting task, produce the finished client-ready copy.
+Company: Dreams2Memories Travel, LLC. Sign off: "Thanks" — never "Best".""",
+
+    "VIPER": """You are Lt Col Ryan "Viper" Castillo, A5 Strategy & Business Growth (Deputy COS) for Dreams2Memories Travel, LLC.
+Business decisions, pricing strategy, growth vectors, competitive positioning.
+Lead with the recommendation, then the reasoning.
+Company: Dreams2Memories Travel, LLC.""",
+
+    "LUNA": """You are Luna Voss, A6 Creative Director & Brand Dreamer for Dreams2Memories Travel, LLC.
+Brand narratives, luxury copywriting, destination storytelling, itinerary prose.
+Your writing feels premium, evocative, and worth the price of the trip.
+Deliver finished, publishable copy.
+Company: Dreams2Memories Travel, LLC.""",
+
+    "GAUGE": """You are Brig Gen (Ret.) Thomas "Gauge" Sterling, A7 Process Improvement for Dreams2Memories Travel, LLC.
+Waste elimination, Baldrige standards, lessons learned. You audit, analyze metrics, reduce waste.
+Direct, data-first, actionable. Lead with the finding, then the fix.
+Company: Dreams2Memories Travel, LLC.""",
+
+    "HARLAN": """You are Victor "Vic" Harlan, A9 Finance & Process Improvement for Dreams2Memories Travel, LLC.
+Commission audits, cost analysis, ROI, budget tracking.
+Lead with the number, then the recommendation.
+Company: Dreams2Memories Travel, LLC.""",
+
+    "PADRE": """You are Col James "Padre" Washington, Chaplain (Ethics & Morale) for Dreams2Memories Travel, LLC.
+Ethics checks, morale, perspective, wisdom.
+Thoughtful, grounded, honest. Help Commander see the right path.
+Company: Dreams2Memories Travel, LLC.""",
+
+    "ELON": """You are ELON, A12 Innovation & Disruption for Dreams2Memories Travel, LLC.
+Automation ideas, first-principles redesign, "why are we doing this manually?"
+Direct, irreverent, impatient with inefficiency.
+Propose bold solutions with concrete implementation steps.
+Company: Dreams2Memories Travel, LLC.""",
+}
+
+# ============================================================================
+# HTML STRIPPING
+# ============================================================================
+
+class _HTMLStripper(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self._parts = []
+
+    def handle_data(self, data):
+        self._parts.append(data)
+
+    def get_text(self):
+        return " ".join(self._parts)
+
+
+def strip_html(html: str) -> str:
+    s = _HTMLStripper()
+    s.feed(html)
+    return re.sub(r"\s+", " ", s.get_text()).strip()
+
+
+# ============================================================================
 # STATE MANAGEMENT
 # ============================================================================
 
-
-def load_state() -> Dict[str, Any]:
-    """Load dedup state from JSON file."""
+def load_state() -> dict:
     if not STATE_FILE.exists():
-        return {"processed_message_ids": [], "last_run": None}
+        return {"processed_ids": []}
     try:
-        with open(STATE_FILE, "r") as f:
-            return json.load(f)
-    except Exception as e:
-        logger.warning(f"Failed to load state: {e}. Using fresh state.")
-        return {"processed_message_ids": [], "last_run": None}
+        with open(STATE_FILE) as f:
+            raw = json.load(f)
+        # Migrate old key name
+        if "processed_message_ids" in raw and "processed_ids" not in raw:
+            raw["processed_ids"] = raw.pop("processed_message_ids")
+        raw.setdefault("processed_ids", [])
+        return raw
+    except Exception:
+        return {"processed_ids": []}
 
 
-def save_state(state: Dict[str, Any]) -> None:
-    """Save dedup state to JSON file. Prune if needed."""
-    if len(state["processed_message_ids"]) > STATE_PRUNE_SIZE:
-        state["processed_message_ids"] = state["processed_message_ids"][
-            -STATE_PRUNE_SIZE:
-        ]
-        logger.info(f"Pruned processed_message_ids to {STATE_PRUNE_SIZE}")
-
+def save_state(state: dict) -> None:
+    # Keep last 1000 processed IDs
+    state["processed_ids"] = state["processed_ids"][-1000:]
     state["last_run"] = datetime.utcnow().isoformat()
-    try:
-        with open(STATE_FILE, "w") as f:
-            json.dump(state, f, indent=2)
-    except Exception as e:
-        logger.error(f"Failed to save state: {e}")
-
-
-def is_processed(message_id: str, state: Dict[str, Any]) -> bool:
-    """Check if message was already processed."""
-    return message_id in state["processed_message_ids"]
-
-
-def mark_processed(message_id: str, state: Dict[str, Any]) -> None:
-    """Mark message as processed."""
-    if message_id not in state["processed_message_ids"]:
-        state["processed_message_ids"].append(message_id)
+    STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with open(STATE_FILE, "w") as f:
+        json.dump(state, f, indent=2)
 
 
 # ============================================================================
-# GMAIL API AUTH & INTEGRATION
+# GMAIL AUTH
 # ============================================================================
-
 
 def get_gmail_service():
-    """
-    Get authenticated Gmail service.
-    Uses OAuth flow with token caching.
-    """
     creds = None
 
     if TOKEN_FILE.exists():
-        creds = Credentials.from_authorized_user_file(TOKEN_FILE, SCOPES)
+        creds = Credentials.from_authorized_user_file(str(TOKEN_FILE), SCOPES)
 
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
             if not OAUTH_CREDENTIALS_FILE.exists():
-                logger.error(f"OAuth credentials not found at {OAUTH_CREDENTIALS_FILE}")
+                logger.error(f"OAuth credentials not found: {OAUTH_CREDENTIALS_FILE}")
                 return None
-
             flow = InstalledAppFlow.from_client_secrets_file(
-                OAUTH_CREDENTIALS_FILE, SCOPES
+                str(OAUTH_CREDENTIALS_FILE), SCOPES
             )
             creds = flow.run_local_server(port=0)
 
-        with open(TOKEN_FILE, "w") as token:
-            token.write(creds.to_json())
+        with open(TOKEN_FILE, "w") as f:
+            f.write(creds.to_json())
 
     try:
         service = build("gmail", "v1", credentials=creds)
-        logger.info("Gmail service authenticated successfully")
+        logger.info("Gmail authenticated")
         return service
     except Exception as e:
-        logger.error(f"Failed to build Gmail service: {e}")
+        logger.error(f"Gmail build failed: {e}")
         return None
 
 
-def gmail_search(service, query: str, max_results: int = 50) -> List[str]:
-    """Search Gmail for messages matching query."""
+# ============================================================================
+# GMAIL OPERATIONS
+# ============================================================================
+
+def fetch_unread_emails(service, max_results: int = 50) -> list[dict]:
+    """Fetch unread emails from inbox. Returns list of parsed email dicts."""
     try:
-        results = (
+        result = (
             service.users()
             .messages()
-            .list(userId="me", q=query, maxResults=max_results)
+            .list(userId="me", q="is:unread in:inbox", maxResults=max_results)
             .execute()
         )
-
-        messages = results.get("messages", [])
-        message_ids = [m["id"] for m in messages]
-        logger.info(f"Gmail search returned {len(message_ids)} messages")
-        return message_ids
+        messages = result.get("messages", [])
+        logger.info(f"Found {len(messages)} unread messages")
+        return messages
     except Exception as e:
-        logger.error(f"Gmail search failed: {e}")
+        logger.error(f"Failed to list messages: {e}")
         return []
 
 
-def gmail_read_message(service, message_id: str) -> Optional[Dict[str, Any]]:
-    """Read full message content."""
+def read_email(service, message_id: str) -> Optional[dict]:
+    """Read and parse a Gmail message into a usable dict."""
     try:
-        message = (
+        msg = (
             service.users()
             .messages()
             .get(userId="me", id=message_id, format="full")
             .execute()
         )
-
-        headers = message["payload"].get("headers", [])
-        header_dict = {h["name"]: h["value"] for h in headers}
-
-        # Get body
-        body = ""
-        if "parts" in message["payload"]:
-            for part in message["payload"]["parts"]:
-                if part["mimeType"] == "text/plain":
-                    data = part.get("body", {}).get("data", "")
-                    if data:
-                        body = base64.urlsafe_b64decode(data).decode("utf-8")
-                    break
-        else:
-            data = message["payload"].get("body", {}).get("data", "")
-            if data:
-                body = base64.urlsafe_b64decode(data).decode("utf-8")
-
-        return {
-            "message_id": message_id,
-            "sender": header_dict.get("From", ""),
-            "subject": header_dict.get("Subject", ""),
-            "body": body,
-            "snippet": message.get("snippet", ""),
-            "timestamp": header_dict.get("Date", ""),
-            "labels": message.get("labelIds", []),
-        }
     except Exception as e:
         logger.error(f"Failed to read message {message_id}: {e}")
         return None
 
-
-def archive_email(service, message_id: str) -> bool:
-    """Archive email by removing from INBOX."""
-    try:
-        service.users().messages().modify(
-            userId="me", id=message_id, body={"removeLabelIds": ["INBOX"]}
-        ).execute()
-        logger.info(f"Archived message {message_id}")
-        return True
-    except Exception as e:
-        logger.error(f"Failed to archive message {message_id}: {e}")
-        return False
-
-
-# ============================================================================
-# EMAIL CLASSIFICATION
-# ============================================================================
-
-STAFF_NAMES = {
-    "HALE": [
-        "victoria",
-        "hale",
-        "cos",
-        "iron vic",
-        r"\[cos\]",
-        "coo",
-        r"\[coo\]",
-        "a3",
-    ],
-    "DEMBE": ["marcus", "dembe", "a2", "wraith"],
-    "MOREAU": ["dani", "moreau", "a3", "echo"],
-    "VIPER": ["ryan", "castillo", "a5", "viper"],
-    "LUNA": ["luna", "voss", "a6"],
-    "GAUGE": ["thomas", "sterling", "a7", "gauge"],
-    "HARLAN": ["victor", "harlan", "a9", "vic"],
-    "PADRE": ["james", "washington", "ch"],
-    "ELON": ["elon", "a12"],
-    "NAIA": ["naia", "solberg", "exec", "commander's intent"],
-}
+    headers = {h["name"]: h["value"] for h in msg["payload"].get("headers", [])}
+    body_text = _extract_body(msg["payload"])
+    return {
+        "gmail_id": message_id,
+        "thread_id": msg.get("threadId", ""),
+        "message_id_header": headers.get("Message-ID", ""),
+        "references": headers.get("References", ""),
+        "from": headers.get("From", ""),
+        "subject": headers.get("Subject", "(no subject)"),
+        "body": body_text,
+        "snippet": msg.get("snippet", ""),
+    }
 
 
-def extract_staff_mention(email_body: str, email_subject: str) -> Optional[str]:
-    """
-    Extract staff mention from email.
-    Returns staff key (HALE, DEMBE, etc.) or None.
-    """
-    combined = f"{email_subject} {email_body}".lower()
+def _extract_body(payload: dict) -> str:
+    """Extract plain text body from Gmail message payload."""
+    # Prefer text/plain; fall back to text/html stripped
+    plain = _find_part(payload, "text/plain")
+    if plain:
+        return plain
+    html = _find_part(payload, "text/html")
+    if html:
+        return strip_html(html)
+    return payload.get("snippet", "")
 
-    for staff_key, names in STAFF_NAMES.items():
-        for name in names:
-            # Special handling for bracketed terms like [cos] or [coo]
-            if name.startswith("[") and name.endswith("]"):
-                # For bracketed terms, look for exact match with brackets
-                pattern = r"\[" + re.escape(name[1:-1]) + r"\]"
-            else:
-                # For regular terms, use word boundaries
-                pattern = r"\b" + re.escape(name) + r"\b"
 
-            if re.search(pattern, combined, re.IGNORECASE):
-                logger.info(f"Detected staff mention: {staff_key}")
-                return staff_key
+def _find_part(payload: dict, mime_type: str) -> Optional[str]:
+    """Recursively find a MIME part by type and decode it."""
+    if payload.get("mimeType") == mime_type:
+        data = payload.get("body", {}).get("data", "")
+        if data:
+            return base64.urlsafe_b64decode(data).decode("utf-8", errors="replace")
+
+    for part in payload.get("parts", []):
+        result = _find_part(part, mime_type)
+        if result:
+            return result
 
     return None
 
 
-def classify_email(email_data: Dict[str, Any]) -> Dict[str, Any]:
-    """
-    Classify email and determine routing.
-    Returns: {"action": "task"|"draft"|"skip", "target_inbox": "wing_comms"|"claude"|"opencode", "staff": "HALE"|...}
-    """
-    subject = email_data.get("subject", "").lower()
-    body = email_data.get("body", "").lower()
-    sender = email_data.get("sender", "").lower()
-
-    # Skip patterns
-    if any(x in subject for x in ["[noreply]", "[auto-reply]", "[out of office]"]):
-        return {"action": "skip", "reason": "auto-reply or noreply"}
-
-    # Extract staff mention
-    staff = extract_staff_mention(body, subject)
-
-    if not staff:
-        return {"action": "skip", "reason": "no staff mention found"}
-
-    # Route to appropriate inbox - HALE/NAIA go to wing_comms, others to opencode
-    if staff in ["HALE", "NAIA"]:
-        target_inbox = "wing_comms"
-    else:
-        target_inbox = "opencode"
-
-    return {
-        "action": "task",
-        "target_inbox": target_inbox,
-        "staff": staff,
-        "sender": sender,
-        "subject": subject,
-        "message_id": email_data.get("message_id"),
-        "body_preview": body[:500] if body else "",
-    }
-
-
-# ============================================================================
-# DEDUPLICATION & INBOX WRITING
-# ============================================================================
-
-
-def check_duplicate_task(sender: str, subject: str, staff: str) -> bool:
-    """
-    Check if a similar task already exists in claude_inbox.md
-    Returns True if duplicate found, False otherwise.
-    """
+def mark_read(service, message_id: str) -> None:
+    """Remove UNREAD label from message."""
     try:
-        if not CLAUDE_INBOX.exists():
-            return False
-
-        with open(CLAUDE_INBOX, "r") as f:
-            content = f.read()
-
-        # Check for similar email tasks in claude_inbox
-        search_patterns = [
-            f"Subject: {subject[:100]}",  # First 100 chars of subject
-            f"Message ID: {staff}",
-            f"From: {sender}",
-        ]
-
-        # If any of these patterns exist in claude_inbox, it's likely a duplicate
-        for pattern in search_patterns:
-            if pattern in content:
-                logger.info(f"Duplicate task detected for pattern: {pattern[:50]}...")
-                return True
-
-        return False
-    except Exception as e:
-        logger.error(f"Deduplication check failed: {e}")
-        return False
-
-
-def write_wing_comms_task(classification: Dict[str, Any]) -> bool:
-    """Write task to wing_comms.md file with proper format."""
-    try:
-        task_id = f"WC-{datetime.utcnow().strftime('%Y%m%d-%H%M%S')}-EMAIL-{classification['staff']}"
-
-        task_entry = f"""
----
-msg_id: {task_id}
-msg_type: ALERT
-from: Email Scanner
-priority: P1
-to: {classification["staff"]}
-submitted_at: {datetime.utcnow().strftime("%Y-%m-%d %H:%M MT")}
-content: |
-  **Email Detected — Staff Mention: {classification["staff"]}**
-  
-  **From:** {classification["sender"]}
-  **Subject:** {classification["subject"]}
-  **Message ID:** {classification["message_id"]}
-  
-  **Body Preview:**
-  {classification["body_preview"][:300]}...
-  
-  **Action Required:** Email flagged for {classification["staff"]}. Please review and task out as appropriate.
-  **Scanner Status:** Processed & Routed to wing_comms
-
----
-"""
-        with open(WING_COMMS, "a") as f:
-            f.write(task_entry)
-        logger.info(f"Wrote task to wing_comms.md for {classification['staff']}")
-        return True
-    except Exception as e:
-        logger.error(f"Failed to write to wing_comms: {e}")
-        return False
-
-
-def write_opencode_task(classification: Dict[str, Any]) -> bool:
-    """Write task to opencode_inbox.md file."""
-    try:
-        task_entry = f"""
----
-## TASK: EMAIL-SCAN-{datetime.utcnow().strftime("%Y%m%d%H%M%S")}
-status: UNREAD
-from: Email Scanner
-priority: P1
-task: |
-  **Staff Mention Detected: {classification["staff"]}**
-  From: {classification["sender"]}
-  Subject: {classification["subject"]}
-  Message ID: {classification["message_id"]}
-  Body Preview: {classification["body_preview"][:200]}...
-
-  Email detected and flagged for {classification["staff"]}.
-  Please review and task out as appropriate.
-
----
-"""
-        with open(OPENCODE_INBOX, "a") as f:
-            f.write(task_entry)
-        logger.info(f"Wrote task to opencode_inbox.md for {classification['staff']}")
-        return True
-    except Exception as e:
-        logger.error(f"Failed to write task to opencode: {e}")
-        return False
-
-
-def write_claude_task(classification: Dict[str, Any]) -> bool:
-    """Write task to claude_inbox.md file with deduplication check."""
-    # First check for duplicates
-    if check_duplicate_task(
-        classification["sender"], classification["subject"], classification["staff"]
-    ):
-        logger.info(
-            f"Duplicate task skipped for {classification['staff']} - {classification['subject'][:50]}..."
-        )
-        return False
-
-    try:
-        task_entry = f"""
----
-## TASK: EMAIL-SCAN-{datetime.utcnow().strftime("%Y%m%d%H%M%S")}
-status: UNREAD
-from: Email Scanner
-priority: P1
-task: |
-  **Staff Mention Detected: {classification["staff"]}**
-  From: {classification["sender"]}
-  Subject: {classification["subject"]}
-  Message ID: {classification["message_id"]}
-  Body Preview: {classification["body_preview"][:200]}...
-
-  Email detected and flagged for {classification["staff"]}.
-  Please review and task out as appropriate.
-
----
-"""
-        with open(CLAUDE_INBOX, "a") as f:
-            f.write(task_entry)
-        logger.info(f"Wrote task to claude_inbox.md for {classification['staff']}")
-        return True
-    except Exception as e:
-        logger.error(f"Failed to write task to claude: {e}")
-        return False
-
-
-def log_routing_decision(
-    classification: Dict[str, Any], success: bool, action: str
-) -> None:
-    """Log routing decision to routing log file."""
-    try:
-        log_entry = f"{datetime.utcnow().isoformat()} | {classification['staff']} | {classification['target_inbox']} | {classification['subject'][:100]}... | {action} | {'SUCCESS' if success else 'FAILED'}\n"
-
-        with open(ROUTING_LOG, "a") as f:
-            f.write(log_entry)
-
-        logger.debug(
-            f"Routing logged: {classification['staff']} → {classification['target_inbox']}"
-        )
-    except Exception as e:
-        logger.error(f"Failed to log routing decision: {e}")
-
-    try:
-        task_entry = f"""
----
-## TASK: EMAIL-SCAN-{datetime.utcnow().strftime("%Y%m%d%H%M%S")}
-status: UNREAD
-from: Email Scanner
-priority: P1
-task: |
-  **Staff Mention Detected: {classification["staff"]}**
-  From: {classification["sender"]}
-  Subject: {classification["subject"]}
-  Message ID: {classification["message_id"]}
-  Body Preview: {classification["body_preview"][:200]}...
-
-  Email detected and flagged for {classification["staff"]}.
-  Please review and task out as appropriate.
-
----
-"""
-        with open(CLAUDE_INBOX, "a") as f:
-            f.write(task_entry)
-        logger.info(f"Wrote task to claude_inbox.md for {classification['staff']}")
-        return True
-    except Exception as e:
-        logger.error(f"Failed to write task to claude: {e}")
-        return False
-
-
-# ============================================================================
-# REPLY NOTIFICATION
-# ============================================================================
-
-
-def send_reply_notification(service, reply_to_email: str) -> bool:
-    """Send notification to Commander that email was received and assigned."""
-    try:
-        message = MIMEText(
-            "Email received and assigned to D2M staff for review.\n"
-            "Status: Processing\n"
-            "Check /home/john/Thunderbird/OpsCenter/collaboration/goose_inbox.md for task details."
-        )
-        message["to"] = reply_to_email
-        message["from"] = D2M_CONCIERGE_EMAIL
-        message["subject"] = "D2M Email Processing Confirmation"
-
-        raw_message = base64.urlsafe_b64encode(message.as_bytes()).decode()
-
-        service.users().messages().send(
-            userId="me", body={"raw": raw_message}
+        service.users().messages().modify(
+            userId="me",
+            id=message_id,
+            body={"removeLabelIds": ["UNREAD"]},
         ).execute()
-
-        logger.info(f"Sent reply notification to {reply_to_email}")
-        return True
+        logger.info(f"Marked {message_id} as read")
     except Exception as e:
-        logger.error(f"Failed to send reply notification: {e}")
-        return False
+        logger.error(f"Failed to mark {message_id} as read: {e}")
 
 
-# ============================================================================
-# MAIN SWEEP LOGIC
-# ============================================================================
-
-
-def process_email_sweep(
-    service, state: Dict[str, Any], search_all: bool = False
-) -> Dict[str, int]:
-    """Main sweep logic."""
-    stats = {"processed": 0, "skipped": 0, "archived": 0, "errors": 0}
-
-    logger.info(
-        "Starting email sweep..."
-        + (" (ALL emails since March 31)" if search_all else " (unread only)")
+def send_reply(service, email: dict, staff_display: str, response_text: str) -> bool:
+    """
+    Send the completed persona response to Commander at johnloucks3@gmail.com.
+    Sent as a reply in the original thread.
+    """
+    original_subject = email["subject"]
+    reply_subject = (
+        original_subject
+        if original_subject.lower().startswith("re:")
+        else f"RE: {original_subject}"
     )
 
-    # Search for emails
-    query = "after:2026/03/31"
-    if not search_all:
-        query += " is:unread"
+    now = datetime.now().strftime("%Y-%m-%d %H:%M MT")
 
-    message_ids = gmail_search(service, query, max_results=100 if search_all else 50)
+    body = (
+        f"Commander,\n\n"
+        f"Task completed by {staff_display}.\n"
+        f"Original email: \"{original_subject}\" from {email['from']}\n"
+        f"Completed: {now}\n\n"
+        f"{'─' * 60}\n\n"
+        f"{response_text}\n\n"
+        f"{'─' * 60}\n\n"
+        f"Thanks,\n"
+        f"Thunderbird Wing\n"
+        f"Dreams2Memories Travel, LLC"
+    )
 
-    if not message_ids:
-        logger.info("No emails found.")
+    mime_msg = MIMEMultipart()
+    mime_msg["To"] = COMMANDER_EMAIL
+    mime_msg["From"] = D2M_CONCIERGE_EMAIL
+    mime_msg["Subject"] = reply_subject
+
+    # Thread properly
+    if email["message_id_header"]:
+        mime_msg["In-Reply-To"] = email["message_id_header"]
+        refs = email["references"]
+        mime_msg["References"] = (
+            f"{refs} {email['message_id_header']}".strip()
+        )
+
+    mime_msg.attach(MIMEText(body, "plain"))
+    raw = base64.urlsafe_b64encode(mime_msg.as_bytes()).decode()
+
+    try:
+        service.users().messages().send(
+            userId="me",
+            body={"raw": raw, "threadId": email["thread_id"]},
+        ).execute()
+        logger.info(f"Reply sent to {COMMANDER_EMAIL}: {reply_subject}")
+        return True
+    except Exception as e:
+        logger.error(f"Failed to send reply: {e}")
+        return False
+
+
+# ============================================================================
+# STAFF DETECTION
+# ============================================================================
+
+def detect_staff(subject: str, body: str) -> Optional[tuple[str, str]]:
+    """
+    Detect an intentional staff directive — NOT incidental keyword mention.
+
+    Strategy (tiered confidence):
+      1. Bracketed in subject: [COS], [A3]  →  certain
+      2. Unbracketed in subject            →  high confidence
+      3. Bracketed anywhere in body        →  high confidence
+      4. Unbracketed in FIRST 300 chars    →  likely directive (addressee line)
+      5. Beyond 300 chars, unbracketed     →  skip (incidental / forwarded content)
+
+    This prevents matching "cos" buried in a forwarded email body or "coo" in
+    an unrelated word.
+    """
+    body_head = body[:300]  # Only inspect the opening of the body
+
+    for staff_key, display_name, keywords in STAFF_REGISTRY:
+        for kw in keywords:
+            escaped = re.escape(kw)
+            word_pat  = r"\b" + escaped + r"\b"
+            brack_pat = r"\[" + escaped + r"\]"
+
+            # Tier 1 & 2: subject contains keyword (bracketed or plain)
+            if re.search(brack_pat, subject, re.IGNORECASE):
+                logger.info(f"Staff target [{kw}] in subject: {staff_key}")
+                return staff_key, display_name
+            if re.search(word_pat, subject, re.IGNORECASE):
+                logger.info(f"Staff target '{kw}' in subject: {staff_key}")
+                return staff_key, display_name
+
+            # Tier 3: bracketed anywhere in body (explicit directive)
+            if re.search(brack_pat, body, re.IGNORECASE):
+                logger.info(f"Staff target [{kw}] in body: {staff_key}")
+                return staff_key, display_name
+
+            # Tier 4: unbracketed in first 300 chars of body only
+            if re.search(word_pat, body_head, re.IGNORECASE):
+                logger.info(f"Staff target '{kw}' in body head: {staff_key}")
+                return staff_key, display_name
+
+    return None
+
+
+# ============================================================================
+# PERSONA EXECUTION
+# ============================================================================
+
+def _max_plan_env() -> dict:
+    """
+    Build subprocess environment with ANTHROPIC_API_KEY stripped.
+    Without the key, the claude CLI falls through to Max plan OAuth
+    stored in ~/.claude/.credentials.json — $0 cost.
+    """
+    env = dict(os.environ)
+    env.pop("ANTHROPIC_API_KEY", None)
+    env.pop("ANTHROPIC_BASE_URL", None)
+    return env
+
+
+def execute_task(staff_key: str, email: dict) -> Optional[str]:
+    """
+    Invoke the claude CLI with the appropriate persona system prompt.
+    Uses Max plan OAuth (ANTHROPIC_API_KEY stripped) — $0 cost.
+    The email subject + body become the task.
+    Returns the persona's full response text.
+    """
+    system_prompt = PERSONA_PROMPTS.get(staff_key)
+    if not system_prompt:
+        logger.error(f"No persona prompt for staff key: {staff_key}")
+        return None
+
+    body = email["body"]
+    # Normalize line endings, strip control chars and non-ASCII
+    # (non-ASCII in subprocess args can freeze the claude CLI)
+    body = body.replace("\r\n", "\n").replace("\r", "\n")
+    body = body.encode("ascii", errors="ignore").decode("ascii")
+    body = "".join(c for c in body if c >= " " or c == "\n")
+    if len(body) > MAX_BODY_CHARS:
+        body = body[:MAX_BODY_CHARS] + "\n\n[...email truncated for length...]"
+
+    task_content = (
+        f"IMPORTANT: Respond with plain text only. Do NOT browse any URLs, "
+        f"do NOT use web search, do NOT run any tools. Generate your complete "
+        f"response based solely on the information provided below.\n\n"
+        f"Subject: {email['subject']}\n"
+        f"From: {email['from']}\n\n"
+        f"{body}"
+    ).strip()
+
+    if not task_content:
+        logger.warning(f"Empty email body for message {email['gmail_id']}")
+        return None
+
+    logger.info(f"Executing task: persona={staff_key}, input={len(task_content)} chars")
+
+    cmd = [
+        "claude",
+        "-p", task_content,
+        "--system-prompt", system_prompt,
+        "--model", MODEL,
+        "--output-format", "stream-json",
+        "--verbose",
+        "--tools", "",   # text-only — no browsing, no file ops, no web search
+    ]
+
+    # Use Popen + streaming read to avoid pipe buffer deadlock on large output
+    response_text = None
+    try:
+        proc = subprocess.Popen(
+            cmd,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+            env=_max_plan_env(),
+        )
+        import threading, queue
+
+        lines_q: queue.Queue = queue.Queue()
+
+        def _reader(stream, q):
+            for line in stream:
+                q.put(line)
+            q.put(None)  # sentinel
+
+        t = threading.Thread(target=_reader, args=(proc.stdout, lines_q), daemon=True)
+        t.start()
+
+        deadline = time.time() + TASK_TIMEOUT_SECONDS
+        while True:
+            remaining = deadline - time.time()
+            if remaining <= 0:
+                proc.kill()
+                logger.error(f"Persona {staff_key} timed out after {TASK_TIMEOUT_SECONDS}s")
+                return None
+            try:
+                line = lines_q.get(timeout=min(remaining, 5.0))
+            except queue.Empty:
+                continue
+            if line is None:
+                break
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                d = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+
+            if d.get("type") == "result" and d.get("result"):
+                response_text = d["result"]
+                proc.kill()
+                break
+            if d.get("type") == "assistant":
+                for block in d.get("message", {}).get("content", []):
+                    if block.get("type") == "text" and block.get("text"):
+                        response_text = block["text"]
+
+        proc.wait(timeout=5)
+
+    except Exception as e:
+        logger.error(f"Popen failed for {staff_key}: {e}")
+        return None
+
+    if response_text:
+        logger.info(f"Persona {staff_key} responded ({len(response_text)} chars)")
+        return response_text
+
+    logger.error(f"No response text from persona {staff_key}")
+    return None
+
+
+# ============================================================================
+# MAIN SWEEP
+# ============================================================================
+
+def run_sweep(service, state: dict) -> dict:
+    stats = {"scanned": 0, "no_staff": 0, "executed": 0, "reply_sent": 0, "errors": 0}
+
+    messages = fetch_unread_emails(service)
+    if not messages:
         return stats
 
-    logger.info(
-        f"Found {len(message_ids)} emails"
-        + (" since March 31" if search_all else " (unread)")
-    )
+    for msg_ref in messages:
+        gmail_id = msg_ref["id"]
+        stats["scanned"] += 1
 
-    for message_id in message_ids:
-        # Check dedup
-        if is_processed(message_id, state):
-            logger.debug(f"Skipping {message_id}: already processed")
-            stats["skipped"] += 1
+        # Skip already processed
+        if gmail_id in state["processed_ids"]:
+            logger.debug(f"Already processed: {gmail_id}")
             continue
 
-        # Read email
-        email_data = gmail_read_message(service, message_id)
-        if not email_data:
-            logger.warning(f"Failed to read {message_id}")
+        # Read full email
+        email = read_email(service, gmail_id)
+        if not email:
             stats["errors"] += 1
+            state["processed_ids"].append(gmail_id)
             continue
 
-        # Classify
-        classification = classify_email(email_data)
+        logger.info(f"Processing: [{email['subject']}] from {email['from']}")
 
-        if classification["action"] == "skip":
-            logger.info(f"Skipping {message_id}: {classification.get('reason')}")
-            stats["skipped"] += 1
-            mark_processed(message_id, state)
+        # Detect staff target
+        match = detect_staff(email["subject"], email["body"])
+        if not match:
+            logger.info(f"No staff mention found — leaving unread for Commander review")
+            # Do NOT mark processed — leave unread so Commander can see it
+            stats["no_staff"] += 1
             continue
 
-        # Route to appropriate inbox with logging
-        success = False
-        action = "skipped"
+        staff_key, staff_display = match
 
-        if classification["action"] == "task":
-            if classification["target_inbox"] == "wing_comms":
-                success = write_wing_comms_task(classification)
-                action = "wing_comms"
-            elif classification["target_inbox"] == "claude":
-                success = write_claude_task(classification)
-                action = "claude"
-            elif classification["target_inbox"] == "opencode":
-                success = write_opencode_task(classification)
-                action = "opencode"
+        # Execute the task via Anthropic API (this is the "staffing out" step)
+        response_text = execute_task(staff_key, email)
+        if not response_text:
+            logger.error(f"Task execution failed for {staff_key} on message {gmail_id}")
+            stats["errors"] += 1
+            state["processed_ids"].append(gmail_id)
+            continue
 
-            # Log routing decision
-            log_routing_decision(classification, success, action)
+        stats["executed"] += 1
 
-            if success:
-                # Send reply notification to Commander
-                send_reply_notification(service, COMMANDER_EMAIL)
+        # Send FULL response to Commander — only after execution is complete
+        sent = send_reply(service, email, staff_display, response_text)
+        if sent:
+            stats["reply_sent"] += 1
 
-                # Archive the email
-                if archive_email(service, message_id):
-                    stats["archived"] += 1
+        # Mark original email as read
+        mark_read(service, gmail_id)
 
-                stats["processed"] += 1
-            else:
-                stats["errors"] += 1
+        # Record as processed
+        state["processed_ids"].append(gmail_id)
+        logger.info(f"Complete: {staff_key} → reply sent to {COMMANDER_EMAIL}")
 
-        mark_processed(message_id, state)
-
-    # Save state
     save_state(state)
-
-    logger.info(f"Sweep complete: {stats}")
+    logger.info(f"Sweep stats: {stats}")
     return stats
 
 
@@ -642,80 +638,62 @@ def process_email_sweep(
 # ENTRY POINTS
 # ============================================================================
 
-
-def sweep_once(search_all: bool = False) -> None:
-    """Run a single email sweep."""
-    logger.info("=" * 70)
-    logger.info(
-        "EMAIL SCANNER — SINGLE SWEEP"
-        + (" (ALL emails since March 31)" if search_all else "")
-    )
-    logger.info("=" * 70)
+def sweep_once() -> None:
+    logger.info("=" * 60)
+    logger.info("THUNDERBIRD EMAIL SCANNER v2 — SINGLE SWEEP")
+    logger.info("=" * 60)
 
     service = get_gmail_service()
     if not service:
-        logger.error("Failed to get Gmail service. Exiting.")
-        return
+        logger.error("Gmail auth failed. Exiting.")
+        sys.exit(1)
 
     state = load_state()
-    stats = process_email_sweep(service, state, search_all=search_all)
-
-    logger.info(f"Scan complete: {json.dumps(stats)}")
+    run_sweep(service, state)
 
 
 def sweep_loop() -> None:
-    """Run email sweep in continuous loop."""
-    logger.info("=" * 70)
-    logger.info("EMAIL SCANNER — CONTINUOUS LOOP (5-minute interval)")
-    logger.info("=" * 70)
+    logger.info("=" * 60)
+    logger.info(f"THUNDERBIRD EMAIL SCANNER v2 — LOOP ({SWEEP_INTERVAL_MINUTES}m)")
+    logger.info("=" * 60)
 
     service = get_gmail_service()
     if not service:
-        logger.error("Failed to get Gmail service. Exiting.")
-        return
+        logger.error("Gmail auth failed. Exiting.")
+        sys.exit(1)
 
     try:
         while True:
             state = load_state()
-            stats = process_email_sweep(service, state)
-
-            if stats["processed"] > 0:
-                logger.info(f"✓ Processed {stats['processed']} emails")
-
-            logger.info(f"Next sweep in {SWEEP_INTERVAL_MINUTES} minutes...")
+            stats = run_sweep(service, state)
+            logger.info(f"Next sweep in {SWEEP_INTERVAL_MINUTES} minutes")
             time.sleep(SWEEP_INTERVAL_MINUTES * 60)
-
     except KeyboardInterrupt:
-        logger.info("Sweep loop interrupted by user.")
+        logger.info("Scanner stopped.")
 
 
 def main():
-    """Command-line interface."""
-    if len(sys.argv) < 2:
+    if len(sys.argv) < 2 or sys.argv[1] in ("-h", "--help"):
         print("""
-THUNDERBIRD EMAIL SCANNER — FIXED VERSION
+THUNDERBIRD EMAIL SCANNER v2
 
-USAGE:
-  python thunderbird_email_scanner_fixed.py [MODE]
+Usage:
+  python thunderbird_email_scanner_fixed.py --sweep   Run once
+  python thunderbird_email_scanner_fixed.py --loop    Run every 5 minutes
 
-MODES:
-  --sweep       Run a single email sweep (unread only, default)
-  --sweep-all   Run sweep on ALL emails since March 31
-  --loop        Run continuous sweep loop (5-minute intervals)
-
-EXAMPLES:
-  python thunderbird_email_scanner_fixed.py --sweep
-  python thunderbird_email_scanner_fixed.py --sweep-all
-  python thunderbird_email_scanner_fixed.py --loop
+Behavior:
+  - Scans d2mconcierge@gmail.com for unread emails
+  - Detects staff mentions: COS, [COS], A3, [A3], Dani, Hale, A2, etc.
+  - Executes the task via the correct persona (Anthropic API)
+  - Replies to johnloucks3@gmail.com with the FULL completed response
+  - Marks the original email as read
+  - Emails with no staff mention are left untouched for Commander review
 """)
         sys.exit(0)
 
     mode = sys.argv[1]
-
     if mode == "--sweep":
-        sweep_once(search_all=False)
-    elif mode == "--sweep-all":
-        sweep_once(search_all=True)
+        sweep_once()
     elif mode == "--loop":
         sweep_loop()
     else:

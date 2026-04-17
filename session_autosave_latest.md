@@ -1,67 +1,67 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-04-12 22:20:00 MT
+## Generated: 2026-04-17 16:10:00 MT
 
 ---
 
 ### Recent Commits
-- 74a2251 Pre-departure: Qwen→DeepSeek migration, lifecycle architecture, AFA templates, AGENTS_NEW_READ_FIRST
-- 7084045 feat: Kuklinski date correction project completion
-- 485d909 fix: inject CLAUDE_CODE_OAUTH_TOKEN into OpenCode subprocess environment
-- e264504 chore: complete inbox task sweep — mark all pending tasks COMPLETE
-- 2ceb428 chore: session init — hale_brief current, CLAUDE.md auto-includes brief+state
+- c28dfff feat: Deploy full D2M lifecycle system — 3 voyages, 73 TPs, daily scheduler
+- e161611 feat: Lock canonical 23-TP client lifecycle framework — HEART of D2M business
+- d807eb8 feat: Expand OpenRouter wrapper to 18 models — 3 free, 6 ultra-cheap, validated
+- eb1928c feat: OpenRouter multi-model escalation system — CLI wrapper, proxy agents, /escalate skill, quality hook
+- edb9a15 feat: Deploy Phase 3 Layer 9 — Trust Compounding System & Autonomous Judgment Engine
 
 ### Uncommitted Changes
-- AGENTS.md (modified)
+- .gitignore (modified)
 - AGENTS_NEW_READ_FIRST.md (modified)
 - CLAUDE.md (modified)
-- OpsCenter/.claude_oauth_cache (modified)
-- OpsCenter/.goose_headless.lock (modified)
 - OpsCenter/00_COMMAND_LOG.md (modified)
 - OpsCenter/CLAUDE_DESKTOP_INIT.md (modified)
 - OpsCenter/GOOSE_INIT.md (modified)
-- OpsCenter/claude_context_injection.md (modified)
-- OpsCenter/collaboration/activity_board.md (modified)
 - OpsCenter/collaboration/blackboard_summary.txt (modified)
 - OpsCenter/collaboration/claude_outbox.md (modified)
-- OpsCenter/collaboration/goose_inbox.md (modified)
-- OpsCenter/collaboration/opencode_inbox.md (modified)
-- OpsCenter/collaboration/opencode_outbox.md (modified)
 - OpsCenter/collaboration/routing_log.md (modified)
+- OpsCenter/collaboration/wing_comms.md (modified)
 - OpsCenter/context_d2mc2c.json (modified)
 - OpsCenter/context_goose.json (modified)
-- OpsCenter/goose_context_injection.md (modified)
 - OpsCenter/mission_board.json (modified)
-- .graphify_detect.json (new)
-- AUDIT_REPORT_20260411.md (new)
-- HALE_CRITIQUE_SONNET.md (new)
-- HALE_PHASE3_WBS.md (new)
-- OpsCenter/claude_openrouter.py (new)
-- OpsCenter/notifications/kuklinski-group_20260411_184009.json (new)
-- OpsCenter/tasking_repair_report.md (new)
-- OpsCenter/thunderbird_tasking_watcher_fixed.py (new)
-- OpsCenter/thunderbird_tasking_watcher_simple.py (new)
-- agents/cost_tracker.py (new)
-- agents/thunderbird_model_dispatcher.py (new)
-- agents/thunderbird_openrouter_haiku.py (new)
-- analyze_config_draft.py (new)
-- check_draft.py (new)
-- claude_free_tier_migration_plan.md (new)
-- core/intel/intel/incubator_a2_intake_2026-04-10.json (new)
-- core/intel/intel/incubator_a2_intake_2026-04-11.json (new)
-- core/intel/intel/incubator_a2_intake_2026-04-12.json (new)
-- core/intel/intel/incubator_am_raw_2026-04-10.json (new)
-- core/intel/intel/incubator_am_raw_2026-04-11.json (new)
+- OpsCenter/nexus.py (modified)
+- OpsCenter/opencode_memory.md (modified)
+- OpsCenter/scan_outputs/incubator_review_latest.txt (modified)
+- OpsCenter/staff_tasking_schedule.json (modified)
+- OpsCenter/state/suspense_alerted.json (modified)
+- OpsCenter/thunderbird_telegram_gw.py (modified)
+- THUNDERBIRD_MASTER_PLAN.md (modified)
+- 150000 (new)
+- D2M/DEPLOYMENT_REPORT.md (new)
+- D2M/hale_draft_engine.py (new)
+- D2M/hale_touchpoint_proposer.py (new)
+- OpsCenter/advisor_test_harness.py (new)
+- OpsCenter/advisor_test_results.json (new)
+- OpsCenter/deploy_n8n_workflow.sh (new)
+- OpsCenter/n8n_client_lifecycle_migration.md (new)
+- OpsCenter/n8n_touchpoint_draft_engine.json (new)
+- OpsCenter/nexus.lock (new)
+- business/client_lifecycle/Kuklinski_Touchpoints.md (new)
+- business/client_lifecycle/Sample_Insurance_Draft.html (new)
+- claude_inbox.md.backup.20260412222542 (new)
+- claude_inbox.md.bak.20260412222728 (new)
+- core/email/thunderbird_email_scanner_fixed.py.backup.20260412223226 (new)
+- core/email/thunderbird_email_scanner_fixed.py.backup.20260412223348 (new)
+- core/intel/intel/incubator_a2_intake_2026-04-14.json (new)
+- core/intel/intel/incubator_a2_intake_2026-04-15.json (new)
+- core/intel/intel/incubator_a2_intake_2026-04-16.json (new)
+- core/intel/intel/incubator_a2_intake_2026-04-17.json (new)
 
 ### Active Work
 - SSS: 0 pending decision(s)
 - Learning: 5 rules pending validation
 
 ### Recently Touched Dossiers
+- Ely_Darrow_Regent_3096289.md
+- McLeod_Erik_Melissa_SilverMuse_Complete.md
 - spencer_bill_family_voyage_2027.md
 - spencer_bill_family_voyayge_2027.md
 - DOSSIER_VikingMars_PanamaCanal_Dec2026.md
-- Loucks_32Day_Itinerary_Apr2026.md
-- Loucks_Personal_SilverNova_Japan.md
 
 ### Open TODOs
 - [tool_validation_plan.md] - [ ] list files in TITAN_BOOKINGS_VAULT

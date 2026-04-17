@@ -8,15 +8,15 @@
       "d2mconcierge@gmail.com"
     ],
     "days_back": 400,
-    "total_examples": 995,
+    "total_examples": 1019,
     "by_tier": {
-      "personal": 246,
-      "client": 191,
+      "personal": 254,
+      "client": 192,
       "vendor": 46,
-      "internal": 507,
+      "internal": 522,
       "family": 5
     },
-    "last_sync": "2026-04-12T02:31:55.599995"
+    "last_sync": "2026-04-17T02:32:04.057365"
   },
   "examples": [
     {
@@ -1358,6 +1358,15 @@
       "to": "ann heer <iamheer@outlook.com>, Terry Webb <webbsdaddy@gmail.com>, Linda Schleicher <lmschleich@icloud.com>",
       "date": "Fri, 10 Apr 2026 08:25:49 -0600",
       "body": "Hi neighbors, just a neighborhood watch note: We will be gone from today\nthe 10th of April to the 11th of May in the evening. Heading to Japan and\ncruising to WA, with initial stops in CA and Hawaii prior.  So please feel\nfree to have parties in the court and park in the driveway. :)\n\nJohn and Susie\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 5
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "Responding about my Viator booking",
+      "to": "NOT-a868376e-0553-4ba0-876e-846424f52911@expmessaging.tripadvisor.com",
+      "date": "Thu, 16 Apr 2026 14:50:54 -1000",
+      "body": "I will be arriving at Kyoto station at 09:45 via the Shinkansen from\nTokyo.  I would like to be picked up at Kyoto Station, but can meet\nanywhere close.\nThanks\nJohn\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
       "score": 5
     },
     {
@@ -2816,6 +2825,42 @@
       "to": "Ronald Westbrook <rwestbrook3@gmail.com>",
       "date": "Sat, 11 Apr 2026 14:04:07 -0700",
       "body": "OK!! Well maybe I will rent out the new one.  But, If you want to\npreserve the space, just take it out. Your call.\n\nOn Sat, Apr 11, 2026 at 1:21 PM Ronald Westbrook <rwestbrook3@gmail.com>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Anthropic’s New Product Kills Another Batch of AI Infrastructure Teams",
+      "to": "John Loucks3 <johnloucks3@gmail.com>",
+      "date": "Thu, 16 Apr 2026 12:26:08 -1000",
+      "body": "On Thu, Apr 16, 2026 at 12:25 PM Dreams2Memories <d2mconcierge@gmail.com>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Anthropic: 5 Multi-Agent Collaboration Methods and Use Cases",
+      "to": "Dreams2Memories <d2mconcierge@gmail.com>",
+      "date": "Thu, 16 Apr 2026 08:24:39 -1000",
+      "body": "[COS], [A2], find me 10 more AI bloggers like this one, preferably on\nSubstack where I do not have to pay. Focus: Claude, CLaude-COde, Agents, MCP\n\nOn Thu, Apr 16, 2026 at 2:58 AM Meng Li from AI Disruption <\naidisruption@substack.com> wrote:",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Anthropic’s New Product Kills Another Batch of AI Infrastructure Teams",
+      "to": "Dreams2Memories <d2mconcierge@gmail.com>",
+      "date": "Thu, 16 Apr 2026 08:20:48 -1000",
+      "body": "[COS] examine this construct in light of all the other ideas I sent you\n\nhttps://www.anthropic.com/engineering/managed-agents\n\nOn Fri, Apr 10, 2026 at 2:25 AM Meng Li from AI Disruption <\naidisruption@substack.com> wrote:",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Get Started with Hermes Agent Right Away",
+      "to": "Dreams2Memories <d2mconcierge@gmail.com>",
+      "date": "Thu, 16 Apr 2026 08:14:40 -1000",
+      "body": "[COS], [A12]: I would like a detailed report on Hermes Agent, especially as\nit related to training agents and agents getting smarter.\nYoda\n\nOn Mon, Apr 13, 2026 at 3:02 AM Meng Li from AI Disruption <\naidisruption@substack.com> wrote:",
       "score": 4
     },
     {
@@ -7662,6 +7707,141 @@
     },
     {
       "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Boarding pass",
+      "to": "Susan Loucks <susanna.loucks@gmail.com>",
+      "date": "Sun, 12 Apr 2026 19:34:07 -0700",
+      "body": "<https://drive.google.com/file/d/1J8vHfd8HN6WKm9NkwWw1w5Y6pI00wB5s/view?usp=drivesdk>\n#2 Check In_ Delta Air Lines.pdf\n<https://drive.google.com/file/d/1J8vHfd8HN6WKm9NkwWw1w5Y6pI00wB5s/view?usp=drivesdk>\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[D2M RED] Preflight Check",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sun, 12 Apr 2026 19:00:45 -0700",
+      "body": "Thunderbird Preflight — RED\nTime: 2026-04-12 20:00 MT\n\n✅ MCP Server: Running (PID 1808)\n✅ Scheduler: Running (PID 1794)\n🔴 Telegram C2: NOT RUNNING\n✅ Gmail Token: Valid (has refresh token)\n✅ Persona Token: Valid (has refresh token)\n✅ Disk Space: 839.1 GB free\n✅ TELEGRAM_BOT_TOKEN: Set\n✅ TELEGRAM_COMMANDER_ID: Set\n✅ GROQ_API_KEY: Set\n✅ Internet: Connected\n⚠️ Gemini API: No API key found\n✅ MCP Port 8765: Listening",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[D2M RED] Preflight Check",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sun, 12 Apr 2026 05:50:02 -0700",
+      "body": "Thunderbird Preflight — RED\nTime: 2026-04-12 06:50 MT\n\n✅ MCP Server: Running (PID 1808)\n✅ Scheduler: Running (PID 1794)\n🔴 Telegram C2: NOT RUNNING\n✅ Gmail Token: Valid (has refresh token)\n✅ Persona Token: Valid (has refresh token)\n✅ Disk Space: 841.1 GB free\n✅ TELEGRAM_BOT_TOKEN: Set\n✅ TELEGRAM_COMMANDER_ID: Set\n✅ GROQ_API_KEY: Set\n✅ Internet: Connected\n⚠️ Gemini API: No API key found\n✅ MCP Port 8765: Listening",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[D2M RED] Preflight Check",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 13 Apr 2026 05:50:08 -0700",
+      "body": "Thunderbird Preflight — RED\nTime: 2026-04-13 06:50 MT\n\n✅ MCP Server: Running (PID 1808)\n✅ Scheduler: Running (PID 1794)\n🔴 Telegram C2: NOT RUNNING\n✅ Gmail Token: Valid (has refresh token)\n✅ Persona Token: Valid (has refresh token)\n✅ Disk Space: 838.9 GB free\n✅ TELEGRAM_BOT_TOKEN: Set\n✅ TELEGRAM_COMMANDER_ID: Set\n✅ GROQ_API_KEY: Set\n✅ Internet: Connected\n⚠️ Gemini API: No API key found\n✅ MCP Port 8765: Listening",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[D2M RED] Preflight Check",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 14 Apr 2026 05:50:06 -0700",
+      "body": "Thunderbird Preflight — RED\nTime: 2026-04-14 06:50 MT\n\n✅ MCP Server: Running (PID 1808)\n✅ Scheduler: Running (PID 1794)\n🔴 Telegram C2: NOT RUNNING\n✅ Gmail Token: Valid (has refresh token)\n✅ Persona Token: Valid (has refresh token)\n✅ Disk Space: 839.0 GB free\n✅ TELEGRAM_BOT_TOKEN: Set\n✅ TELEGRAM_COMMANDER_ID: Set\n✅ GROQ_API_KEY: Set\n✅ Internet: Connected\n⚠️ Gemini API: No API key found\n✅ MCP Port 8765: Listening",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "RE: Fwd: Travel Reservation Center Trip ID # 1012884566",
+      "to": "johnloucks3@gmail.com",
+      "date": "Wed, 15 Apr 2026 10:27:03 -0700",
+      "body": "Commander,\n\nTask completed by Col Victoria 'Iron Vic' Hale — Chief of Staff.\nOriginal email: \"Fwd: Travel Reservation Center Trip ID # 1012884566\" from Dreams2Memories <d2mconcierge@gmail.com>\nCompleted: 2026-04-15 11:27 MT\n\n────────────────────────────────────────────────────────────\n\nDone. McLeod dossier updated with the Rome hotel confirmation.\n\n**What I filed:**\n- **Baglioni Hotel Regina** — Conf# **6851SF075162-** | Chase Trip ID 1012884566\n- Check-in **Jun 19** / Check-out Jun 23 | 4 nights | 1 Double/Twin\n- Total $4,943.16 ($303.16 card + 232K Chase pts at 2x)\n- Free cancellation until Jun 18 midnight\n- Cardmember benefits logged: $100 credit, breakfast for 2, Wi-Fi, Prosecco/fruit plate, upgrade/early-late if available\n- Airport transfer: €110 each way via hotel concierge\n\n**Flag for Commander:** Prior dossier had June 18 check-in; Chase confirmation shows **June 19**. Their flight arrives Rome June 18 PM — that's a night with no hotel coverage on record. Need to confirm with Erik whether June 19 is intentional or if there's a missing booking for June 18.\n\nThanks\n\n────────────────────────────────────────────────────────────\n\nThanks,\nThunderbird Wing\nDreams2Memories Travel, LLC",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[D2M RED] Preflight Check",
+      "to": "johnloucks3@gmail.com",
+      "date": "Wed, 15 Apr 2026 05:50:09 -0700",
+      "body": "Thunderbird Preflight — RED\nTime: 2026-04-15 06:50 MT\n\n✅ MCP Server: Running (PID 1808)\n✅ Scheduler: Running (PID 1794)\n🔴 Telegram C2: NOT RUNNING\n✅ Gmail Token: Valid (has refresh token)\n✅ Persona Token: Valid (has refresh token)\n✅ Disk Space: 839.1 GB free\n✅ TELEGRAM_BOT_TOKEN: Set\n✅ TELEGRAM_COMMANDER_ID: Set\n✅ GROQ_API_KEY: Set\n✅ Internet: Connected\n⚠️ Gemini API: No API key found\n✅ MCP Port 8765: Listening",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "Re: AI IQ Soars and Costs Drop with Just One Line of Code!",
+      "to": "d2mconcierge@gmail.com",
+      "date": "Thu, 16 Apr 2026 12:44:47 -1000",
+      "body": "[COO] Approved:\nBuild a 48-hour test in OpsCenter: route two existing agentic task\ntypes (one research sweep, one financial reconciliation) through the\nAdvisor pattern. Compare token counts and output quality against\nbaseline. If BrowseComp results hold in our environment, Dembe's intel\nsweeps drop 80%+ in cost overnight.",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Anthropic’s New Product Kills Another Batch of AI Infrastructure Teams",
+      "to": "Dreams2Memories <d2mconcierge@gmail.com>",
+      "date": "Thu, 16 Apr 2026 12:27:08 -1000",
+      "body": "[COO} see the conversation below\n\nNot willing to do that. Instead, I want to INCREASE the interaction of the",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "Re: Anthropic: 5 Multi-Agent Collaboration Methods and Use Cases",
+      "to": "d2mconcierge@gmail.com",
+      "date": "Thu, 16 Apr 2026 08:35:01 -1000",
+      "body": "start scanning, summarizing, and synthesizing ALL these add them to the\nintel evening scan.",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "Re: Anthropic’s New Product Kills Another Batch of AI Infrastructure Teams",
+      "to": "d2mconcierge@gmail.com",
+      "date": "Thu, 16 Apr 2026 08:33:30 -1000",
+      "body": "Not willing to do that. Instead, I want to INCREASE the interaction of the\npersonas and yes, increase your autonomy.  Sadly, the other models\n(Deepseek and Grok 4.1) do not hold a candle to even Claude Sonnet.  I had\nto go to claude-code to develop the touchpoint lifecyle emails for the\nKuklinskis. With opencode, there does not seem to be a way to keep it\n\"awake\".  Let's have this discussion on autonomy and personas truly\nweighing in and adding value, cause right now it is limited. Ideas? Further\ninsights? If you can reply we are truly mastering email chatting.",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "RE: Fwd: Confirmed: Viator Booking 1385997893",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 17 Apr 2026 00:32:13 -0400",
+      "body": "Commander,\n\nTask completed by Danielle 'Dani' Moreau — A3 Concierge.\nOriginal email: \"Fwd: Confirmed: Viator Booking 1385997893\" from John Loucks3 <johnloucks3@gmail.com>\nCompleted: 2026-04-16 22:32 MT\n\n────────────────────────────────────────────────────────────\n\nGot it, Yoda. Here's what I've captured:\n\n---\n\n**DOSSIER ENTRY — Viator Excursion**\n**Client:** Loucks, John A III (pre-cruise Kyoto, Apr 21)\n\n| Field | Detail |\n|---|---|\n| **Booking Ref** | 1385997893 |\n| **Activity** | Kyoto 4hr Private Tour — Government-Licensed Guide |\n| **Date/Time** | Tuesday, April 21, 2026 · 10:00 AM |\n| **Meet Point** | DoubleTree by Hilton Kyoto Station, 15 Higashi Kujo Nishi Iwamotocho, Minami-ku, Kyoto 601-8005 |\n| **Hotel Phone** | +81 1181756061320 |\n| **Travelers** | 2 Adults |\n| **Price** | USD $212.24 |\n| **Status** | ✅ Paid & Confirmed |\n| **Source** | Viator |\n\n---\n\nNote: I can log the details, but file writes require tools — flagging for the next Claude Code session to commit this to `/home/john/Thunderbird/dossiers/Loucks_John_A_III/` and mirror to Drive (`Thunderbird_Client_Files/Loucks, John A III`).\n\nConfirm this is your own pre-Silver Nova day in Kyoto, or should I attribute to a different client?\n\nThanks\n\n────────────────────────────────────────────────────────────\n\nThanks,\nThunderbird Wing\nDreams2Memories Travel, LLC",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Re: New: Opus 4.7, Claude Code on desktop redesigned, routines",
+      "to": "Dreams2Memories <d2mconcierge@gmail.com>",
+      "date": "Thu, 16 Apr 2026 12:47:23 -1000",
+      "body": "[COO] research a claude-code in the lead supported by openrouter or tetrate\nor poe.com.  Adding the OPUS 4.7 as the consultant as we discussed in the\nprevious posts. Let me know the feasibility of a clause-code-using-max in\nthe lead, supported by another application/bot.",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Re: AI IQ Soars and Costs Drop with Just One Line of Code!",
+      "to": "Dreams2Memories <d2mconcierge@gmail.com>",
+      "date": "Thu, 16 Apr 2026 08:18:07 -1000",
+      "body": "[COS], see this strategy, it MAY be time for us to bring Claude OPUS back\nin a very limited capacity, and make claude primary, with Open Code, Goose,\nor some other variant as the sub-agents.\nAnthropic has introduced an \"Advisor Strategy\".\n\nKey Features of the Claude Advisor Strategy\n\n   - Architecture:.\n   - Implementation: Developers can activate this in beta by adding the .\n   - Single Request Processing:.\n   - Contextual Understanding:.\n\nPerformance and Cost Benefits\n\n   - Improved Intelligence:.\n   - Cost Savings:.\n   - High-Volume Efficiency:.\n\nWhen to Use\n\nThe Advisor Strategy is beneficial for scenarios requiring:\n\n   1. High-stakes decision-making: Where a cheaper model flags an issue it\n   cannot handle.\n   2. Strategic planning: Setting up complex workflows.\n   3. Quality gates:.\n\nThis feature is currently available in beta.\n\n*AI responses may include mistakes.*\n\nOn Sun, Apr 12, 2026 at 1:08 AM Meng Li from AI Disruption <\naidisruption@substack.com> wrote:",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[D2M RED] Preflight Check",
+      "to": "johnloucks3@gmail.com",
+      "date": "Thu, 16 Apr 2026 08:50:09 -0400",
+      "body": "Thunderbird Preflight — RED\nTime: 2026-04-16 06:50 MT\n\n✅ MCP Server: Running (PID 1808)\n✅ Scheduler: Running (PID 1794)\n🔴 Telegram C2: NOT RUNNING\n✅ Gmail Token: Valid (has refresh token)\n✅ Persona Token: Valid (has refresh token)\n✅ Disk Space: 839.3 GB free\n✅ TELEGRAM_BOT_TOKEN: Set\n✅ TELEGRAM_COMMANDER_ID: Set\n✅ GROQ_API_KEY: Set\n✅ Internet: Connected\n⚠️ Gemini API: No API key found\n✅ MCP Port 8765: Listening",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
       "tier": "internal",
       "subject": "[COS] General: BREAKING:  Most Americans say war in Iran is going",
       "to": "johnloucks3@gmail.com",
@@ -8972,6 +9152,42 @@
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 9 Apr 2026 23:20:50 -0400",
       "body": "DREAMS2MEMORIES TRAVEL — THUNDERBIRD OS DEPARTURE BRIEF · APRIL 2026 · SILVER NOVA Yoda — everything you need before you walk out the door. Silver Nova departs April 23. You have 14 days. 🔴 CRITICAL — DO BEFORE LEAVING (in order) 1. Enable d2m-tasking-watcher Running but DISABLED — won't survive a YOGA reboot. systemctl --user enable d2m-tasking-watcher.service 2. Git commit everything 30+ commits ahead, ~100 modified files. cd ~/Thunderbird && git add -A && git commit -m \"Pre-departure: all Apr 2026 changes\" 3. Designate a YOGA guardian Someone who can walk to the machine and reboot it. One instruction: \"If it goes dark, unplug and replug.\" 4. Tailscale on Chromebook Z Fold 6 is already on Tailscale ✓. Chromebook Linux container needs it too. Test before departure: ssh john@100.69.222.124 5. Send Kuklinski welcome email Timer will keep generating duplicate tasks until this touchpoint is marked sent. Draft is ready — you just need to approve it. ✅ YOGA SERVICE STATUS (Apr 9) Service Status Auto-restart? nexus.service RUNNING YES thunderbird-mcp.service RUNNING YES thunderbird-telegram-gw.service RUNNING YES thunderbird-overwatch.service RUNNING YES d2m-tunnel.service (Cloudflare) RUNNING YES d2m-tasking-watcher.service RUNNING ⚠ DISABLED — fix before leaving 14 systemd timers ALL FIRING YES ANTHROPIC_API_KEY UPDATED ✓ YES 📱 WHAT TO TAKE (besides Chromebook) Item Why Z Fold 6 Primary C2. On Tailscale. Telegram works on low bandwidth. 65W USB-C brick Charges Chromebook. Don't rely on ship USB alone. USB-C cables ×2 One for Chromebook, one for phone. One always dies. Power bank Port days, excursion buses — no outlets. Universal travel adapter Tokyo embarkation = Japan power (Type A, same as US — verify ship outlets). Google 2FA backup codes If phone dies, you need these to access Gmail/Drive. 🔐 OFFLINE CREDENTIALS (keep on phone, encrypted) Item Value YOGA Tailscale IP 100.69.222.124 SSH login john@100.69.222.124 Cloudflare tunnel api.d2mluxury.quest D2M ops email d2mconcierge@gmail.com 📡 SHIP COMMS PRIORITY ORDER Telegram — low bandwidth, always on. Commands: /status /hale /approve Gmail — daily brief fires to johnloucks3 at 01:30 MDT automatically. SSH into YOGA — full Claude Code sessions. Needs decent wifi. Claude Desktop — last resort, no tools. See init script email. 📋 BEFORE-YOU-SAIL SENDS Action Priority Status Kuklinski welcome email Send before Apr 23 Draft ready, WF-17 passed — awaiting your approval Westbrook (Ron & Lindy) Your call Personal gesture only — not a D2M obligation Lyons FPD follow-up Before Apr 23 33 days overdue DREAMS2MEMORIES TRAVEL Col Victoria “Iron Vic” Hale — Chief of Staff, Thunderbird Wing Thanks",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "RE: Fwd: Know before you sail",
+      "to": "johnloucks3@gmail.com",
+      "date": "Wed, 15 Apr 2026 11:02:15 -0700",
+      "body": "Commander,\n\nTask completed by Col Victoria 'Iron Vic' Hale — Chief of Staff.\nOriginal email: \"Fwd: Know before you sail\" from Susan Loucks <susanna.loucks@gmail.com>\nCompleted: 2026-04-15 12:02 MT\n\n────────────────────────────────────────────────────────────\n\nCommander — tools are offline for this response (plain-text only mode). I cannot browse those URLs right now.\n\n**What I can do immediately:**\n\n1. **From the email body — captured now:**\n   - Booking ID: 566910-25 | Ship: Silver Nova | Sail: Apr 23, 2026\n   - Terminal address: In your Cruise Ticket — verify it; can change without notice\n   - Flight delay emergency line: **+1 855-278-7881** (24/7) — contact immediately if delayed past departure\n   - My Silversea portal: pre-cruise check-in and documentation live there\n\n2. **URLs queued for A2 Dembe:**\n   - `silversea.com/travel-informations/faq.html`\n   - `silversea.com/travel-informations/travel-requirements.html`\n\n**Recommendation:** Re-issue this tasking in a live Claude Code or Goose session where browser tools are active. I'll have Dembe pull both pages in full, strip the tracking parameters, and archive the intel to `Thunderbird_Intel/` and the Silver Nova cruise line file within the hour.\n\n**Flag:** Apr 23 is 8 days out. Travel requirements page is time-critical — passport validity, visa rules, health requirements. Dembe should prioritize that URL first.\n\nOne question: is this for your personal voyage (Booking 566910-25 = John & Susan Loucks, Silver Nova Apr 23)? If so, I'll route a clean briefing directly to you as well, not just to the intel archive.\n\nThanks\n\n— Iron Vic\n\n────────────────────────────────────────────────────────────\n\nThanks,\nThunderbird Wing\nDreams2Memories Travel, LLC",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "Re: Goose CLI Recipe Commands + Claude Code Brain Setup",
+      "to": "johnloucks3@gmail.com",
+      "date": "Wed, 15 Apr 2026 10:29:48 -0700",
+      "body": "Commander,\n\nTask completed by Col Victoria 'Iron Vic' Hale — Chief of Staff.\nOriginal email: \"Re: Goose CLI Recipe Commands + Claude Code Brain Setup\" from John Loucks3 <johnloucks3@gmail.com>\nCompleted: 2026-04-15 11:29 MT\n\n────────────────────────────────────────────────────────────\n\nDone. Added **Section 4B — Brain Loading & Session Startup** to `AGENTS_NEW_READ_FIRST.md` immediately after the Model Stack section. It covers:\n\n- Goose CLI recipe flag fix (`goose run`, not `goose session`) with all three invocation patterns\n- Chromebook rsync command for recipe sync\n- Goose 8-step startup sequence\n- Claude Code auto-load confirmation (no action needed)\n- claude.ai browser session brain doc upload procedure\n- All 4 Drive brain doc links in a table\n\nThanks,\n*Hale*\n*Thunderbird Wing, Dreams2Memories Travel, LLC*\n\n────────────────────────────────────────────────────────────\n\nThanks,\nThunderbird Wing\nDreams2Memories Travel, LLC",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "RE: Fwd: Regent Seven Seas Cruises Invoice: 3096289 Guest: ELY",
+      "to": "johnloucks3@gmail.com",
+      "date": "Wed, 15 Apr 2026 10:28:08 -0700",
+      "body": "Commander,\n\nTask completed by Col Victoria 'Iron Vic' Hale — Chief of Staff.\nOriginal email: \"Fwd: Regent Seven Seas Cruises Invoice: 3096289 Guest: ELY\" from John Loucks3 <johnloucks3@gmail.com>\nCompleted: 2026-04-15 11:28 MT\n\n────────────────────────────────────────────────────────────\n\nDone. Here's what landed:\n\n**Dossier (`Ely_Darrow_Regent_3096289.md`):**\n- STATUS line: Suite 1212 → **Suite 961, Deck 9** with a dated change note\n- RSSC Portal Data table rows 12 & 13: both updated to 961, prior cabin logged\n\n**THUNDERBIRD_MASTER_PLAN.md:**\n- E7 action added: cabin change confirmed, dated 10 APR 2026\n\n**Step 4 (Drive mirror):** Flag for your next Drive sync — the dossier is at `D2M Trip Dossiers/` folder ID `1QbbW4hapyfgG6c6Iv94OxtjhySuf2zou`.\n\nNo change to booking number, payment status, or anything else. Clean update.\n\nThanks\n\n────────────────────────────────────────────────────────────\n\nThanks,\nThunderbird Wing\nDreams2Memories Travel, LLC",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "Re: AI IQ Soars and Costs Drop with Just One Line of Code!",
+      "to": "d2mconcierge@gmail.com",
+      "date": "Thu, 16 Apr 2026 08:40:02 -1000",
+      "body": "https://www.google.com/search?q=AI+IQ+Soars+and+Costs+Drop+with+Just+One+Line+of+Code%21&rlz=1CAVNCX_enUS1205&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIKCAEQABiABBiiBDIHCAIQABjvBTIGCAMQRRg8MgYIBBBFGDzSAQkxNTE2OGowajeoAgCwAgA&sourceid=chrome&ie=UTF-8&fbs=ADc_l-aN0CWEZBOHjofHoaMMDiKpmAsnXCN5UBx17opt8eaTX831KXQgHodZqPs0p66UIH67w5GLAxoykhH3TzlDFmUxfziga1r41Xulpoxr1iM9fhFcQlw-tIIC_C9FfHifogJxwYlj63wDq3qXVPlWr6WntACXxp4UTEPlyTkmN6J16x30FPhABIxANxipuCBiUP_5r2kgyi-w3vOAj1PU2RJGJ2VsDg&ved=2ahUKEwiIuJz6gfOTAxVLIUQIHfw8M6wQ0NsOegQIAxAB&aep=10&ntc=1&mstk=AUtExfDukpQjd_JtroEXqFpM3iipM0sAedODFbUHkaa7jEoDwrlNaHvXGKYhTlz8r_S70FtXdgRjEGrr7kasbcQCeOK_shyHtw3GbZFVkuMWD-ZIktwvm1qbSMEgTIAsf9RcZOPs9TWIqPFab-bZnc-CzI4tCPV97NwDe1BtsY39YVRSDv-xNr5KQw_ZsyVDgKBVwgYylDK_yoOFg8RsMiOK9-WZ2h49nBISkFwaeNEKf6quSCO7e041shcCXcgT35qtovMm4b4-SAg5VG6K9TZwwx0lrehEJgN59Ng2bMy9cCdFBJkTs2da_yh3XYxbTzz63gSedmCEy6p72g&csuir=1&mtid=dSzhac2UIbmqur8P2Ir0wAQ&udm=50\n\nHere is alot of information to summarize and synthesize",
       "score": 2
     }
   ]

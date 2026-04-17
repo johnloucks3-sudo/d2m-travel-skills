@@ -18,7 +18,8 @@ relationship: client
 
 ---
 
-### STATUS: ACTIVE — ✅ PAYMENT COMPLETE | Suite 1212, Deck 12 | **CC on portal ✓ | $16,640 processed Mar 26 | Insurance DEFERRED (follow up May)**
+### STATUS: ACTIVE — ✅ PAYMENT COMPLETE | Suite 961, Deck 9 | **CC on portal ✓ | $16,640 processed Mar 26 | Insurance DEFERRED (follow up May)**
+> ⚠️ **CABIN CHANGE (10 APR 2026):** Suite changed from 1212 → **961** per RSSC Invoice 3096289.
 
 ### RSSC PORTAL DATA (Scraped Mar 24, 2026)
 - **Guest Registration:** Al Ely COMPLETE, Amy Darrow COMPLETE
@@ -113,8 +114,8 @@ relationship: client
 | 9 | Hotel | Pre-cruise hotel (1 night) | YES | **CONFIRMED** | Haymarket By Scandic, Aug 27-28 (Furlow group) |
 | 10 | Hotel | Regent included hotel night | YES | **CONFIRMED** | Haymarket By Scandic, Aug 28-29 |
 | 11 | Transfers | Hotel → port transfer | YES | **CONFIRMED** | Regent transport, Aug 29 |
-| 12 | Cruise | Booking confirmed | YES | **CONFIRMED** | 3096289, Suite 1212 |
-| 13 | Cruise | Suite assignment | YES | **CONFIRMED** | 1212 |
+| 12 | Cruise | Booking confirmed | YES | **CONFIRMED** | 3096289, Suite 961 |
+| 13 | Cruise | Suite assignment | YES | **CONFIRMED** | 961 (changed from 1212 — 10 APR 2026) |
 | 14 | Cruise | Payment status | YES | ✅ **PAYMENT COMPLETE** | $16,640 charged Mar 26 — Al authorized Mar 20, CVV 883 used. |
 | 15 | Cruise | Embarkation details | YES | **CONFIRMED** | Stockholm, Aug 29 |
 | 16 | Dining | Specialty dining | Optional | **NOT YET** | Opens May 31, 8pm ET |

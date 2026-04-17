@@ -61,18 +61,15 @@ def create_draft_with_token():
         sys.exit(1)
 
     # Read HTML email body
-    html_file = Path("/home/john/Thunderbird/drafts/commander_to_kyle_lifecycle_explanation.html")
-    if not html_file.exists():
-        print(f"ERROR: HTML file not found at {html_file}")
-        sys.exit(1)
-
-    with open(html_file) as f:
-        html_body = f.read()
-
-    # Email parameters
-    to_email = "kyle.kuklinski@gmail.com"
-    subject = "Your Panama Canal Cruise Planning Timeline & D2M Service Process"
-    from_email = "d2mconcierge@gmail.com"
+parser = argparse.ArgumentParser()
+parser.add_argument('--html', required=True)
+parser.add_argument('--to', required=True)
+parser.add_argument('--subject', required=True)
+args = parser.parse_args()
+html_file = Path(args.html)
+to_email = args.to
+subject = args.subject
+from_email = "d2mconcierge@gmail.com"
 
     print(f"\nCreating draft:")
     print(f"  To: {to_email}")

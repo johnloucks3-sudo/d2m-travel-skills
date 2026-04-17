@@ -294,14 +294,18 @@ def create_johnloucks3_draft(
 def main():
     """Main function to create Kuklinski lifecycle email draft"""
 
+    import argparse
+
     print("=== JOHNLOUCKS3 GMAIL DRAFT CREATOR ===\n")
 
-    # Configuration - WESTBROOK DRAFT
-    html_file = (
-        "/home/john/Thunderbird/drafts/spencer_form_usaFA.html"
-    )
-    to_email = "bkspencer381@q.com"
-    subject = "Welcome Aboard the Silver Nova - Your Luxury Voyage Details"
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--html', required=True)
+    parser.add_argument('--to', required=True)
+    parser.add_argument('--subject', required=True)
+    args = parser.parse_args()
+    html_file = args.html
+    to_email = args.to
+    subject = args.subject
     from_email = "d2mconcierge@gmail.com"
 
     # Check if HTML file exists
@@ -319,10 +323,10 @@ def main():
     print(f"\nReady to create draft...\n")
 
     # Create the draft
-    draft_id = create_johnloucks3_draft(html_file, to_email, subject, from_email)
+    draft_id_result = create_johnloucks3_draft(html_file, to_email, subject, from_email)
 
-    if draft_id:
-        print(f"\n🎯 Task completed. Draft ID: {draft_id}")
+    if draft_id_result:
+        print(f"\n🎯 Task completed. Draft ID: {draft_id_result}")
         sys.exit(0)
     else:
         print(f"\n💥 Task failed. No draft created.")
