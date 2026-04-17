@@ -1,0 +1,245 @@
+{
+  "name": "Touchpoint Draft Engine",
+  "nodes": [
+    {
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "position": [250, 300],
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "days",
+              "minutesInterval": 1
+            }
+          ]
+        },
+        "options": {}
+      },
+      "typeVersion": 2.1,
+      "continueOnFail": false
+    },
+    {
+      "name": "Get Today's Date",
+      "type": "n8n-nodes-base.dateTime",
+      "position": [450, 300],
+      "parameters": {
+        "action": "format",
+        "dateTime": "={{new Date().toISOString().split('T')[0]}}",
+        "options": {}
+      },
+      "typeVersion": 1
+    },
+    {
+      "name": "Find Client Files",
+      "type": "n8n-nodes-base.files",
+      "position": [650, 300],
+      "parameters": {
+        "operation": "listFolder",
+        "folderPath": "/home/john/Thunderbird/D2M/clients"
+      },
+      "typeVersion": 1
+    },
+    {
+      "name": "Read Client JSON",
+      "type": "n8n-nodes-base.readFile",
+      "position": [850, 200],
+      "parameters": {
+        "filePath": "={{$json.touchpoint_file}}"
+      },
+      "typeVersion": 1
+    },
+    {
+      "name": "Check Touchpoint Dates",
+      "type": "n8n-nodes-base.code",
+      "position": [1050, 300],
+      "parameters": {
+        "jsCode": "// Input: $json.touchpoints array from client JSON\n// Output: filtered list of touchpoints due within LOOKBACK_DAYS (3) to LOOKAHEAD_DAYS (0)\nconst LOOKBACK_DAYS = 3;\nconst LOOKAHEAD_DAYS = 0;\n\nconst today = new Date($input.first().json.today_date);\nconst client = $input.first().json.client_name;\nconst touchpoints = $input.first().json.touchpoints || [];\n\n// Filter touchpoints that are due\nconst dueTouchpoints = touchpoints.filter(tp => {\n    if (!tp.due_date || tp.due_date === '') return false;\n    \n    const dueDate = new Date(tp.due_date);\n    const daysDiff = Math.round((dueDate - today) / (1000 * 60 * 60 * 24));\n    \n    // Within range: -LOOKBACK_DAYS to +LOOKAHEAD_DAYS\n    return daysDiff >= -LOOKBACK_DAYS && daysDiff <= LOOKAHEAD_DAYS;\n});\n\n// Return enriched data\nreturn dueTouchpoints.map(tp => ({\n    json: {\n        client,\n        touchpoint_id: tp.id,\n        touchpoint_label: tp.label,\n        due_date: tp.due_date,\n        template_name: tp.template,\n        client_name: tp.client_name,\n        client_email: tp.client_email\n    }\n}));"
+      },
+      "typeVersion": 1
+    },
+    {
+      "name": "Read Email Template",
+      "type": "n8n-nodes-base.files",
+      "position": [1250, 300],
+      "parameters": {
+        "operation": "readFile",
+        "filePath": "={{'/home/john/Thunderbird/D2M/email_templates/' + $json.template_name + '.md'}}"
+      },
+      "typeVersion": 1
+    },
+    {
+      "name": "Format Email Draft",
+      "type": "n8n-nodes-base.code",
+      "position": [1450, 300],
+      "parameters": {
+        "jsCode": "// Format email draft from template\nconst template = $input.first().json.content;\nconst client = $input.first().json.client_name;\nconst touchpointId = $input.first().json.touchpoint_id;\nconst touchpointLabel = $input.first().json.touchpoint_label;\n\ntry {\n    // Extract template section (assuming markdown with headers)\n    const lines = template.split('\\n');\n    let inSection = false;\n    let draftLines = [];\n    \n    // Find template section for this touchpoint\n    for (const line of lines) {\n        if (line.includes(`## ${touchpointId}:`) || line.includes(`## ${touchpointLabel}`)) {\n            inSection = true;\n            continue;\n        }\n        \n        if (inSection && line.startsWith('## ')) {\n            break; // Next section\n        }\n        \n        if (inSection) {\n            draftLines.push(line);\n        }\n    }\n    \n    const draftContent = draftLines.join('\\n').trim();\n    \n    // Create subject line\n    const subject = `[D2M] ${client} — ${touchpointLabel}`;\n    \n    return [{\n        json: {\n            client,\n            touchpoint_id: touchpointId,\n            draft_subject: subject,\n            draft_body: draftContent,\n            recipient_email: $input.first().json.client_email,\n            completed: draftContent.length > 0\n        }\n    }];\n} catch (error) {\n    return [{\n        json: {\n            error: error.message,\n            client,\n            touchpoint_id: touchpointId,\n            completed: false\n        }\n    }];\n}"
+      },
+      "typeVersion": 1
+    },
+    {
+      "name": "Create Gmail Draft",
+      "type": "n8n-nodes-base.gmail",
+      "position": [1650, 300],
+      "parameters": {
+        "resource": "draft",
+        "operation": "create",
+        "senderEmail": "johnloucks3@gmail.com",
+        "toEmail": "={{$json.recipient_email}}",
+        "subject": "={{$json.draft_subject}}",
+        "body": "={{$json.draft_body}}",
+        "bodyType": "text"
+      },
+      "typeVersion": 1,
+      "credentials": {
+        "gmailApi": {
+          "id": "gmail"
+        }
+      }
+    },
+    {
+      "name": "Telegram Alert",
+      "type": "n8n-nodes-base.telegram",
+      "position": [1850, 300],
+      "parameters": {
+        "operation": "sendMessage",
+        "text": "={{'📧 Hale Draft Engine: Created draft for ' + $json.client + ' (' + $json.touchpoint_id + ')'}}"
+      },
+      "typeVersion": 1
+    },
+    {
+      "name": "Error Handler",
+      "type": "n8n-nodes-base.telegram",
+      "position": [1850, 450],
+      "parameters": {
+        "operation": "sendMessage",
+        "text": "={{'❌ Hale Draft Engine ERROR: ' + $json.client + ' - ' + $json.error}}"
+      },
+      "typeVersion": 1
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get Today's Date",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Today's Date": {
+      "main": [
+        [
+          {
+            "node": "Find Client Files",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Find Client Files": {
+      "main": [
+        [
+          {
+            "node": "Read Client JSON",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Client JSON": {
+      "main": [
+        [
+          {
+            "node": "Check Touchpoint Dates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Touchpoint Dates": {
+      "main": [
+        [
+          {
+            "node": "Read Email Template",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Email Template": {
+      "main": [
+        [
+          {
+            "node": "Format Email Draft",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Email Draft": {
+      "main": [
+        [
+          {
+            "node": "Create Gmail Draft",
+            "type": "main",
+            "index": 0,
+            "condition": {
+              "type": "when",
+              "conditions": [
+                {
+                  "leftValue": "={{$json.completed}}",
+                  "rightValue": true,
+                  "operation": "equal"
+                }
+              ]
+            }
+          },
+          {
+            "node": "Error Handler",
+            "type": "main",
+            "index": 0,
+            "condition": {
+              "type": "when",
+              "conditions": [
+                {
+                  "leftValue": "={{$json.completed}}",
+                  "rightValue": false,
+                  "operation": "equal"
+                }
+              ]
+            }
+          }
+        ]
+      ]
+    },
+    "Create Gmail Draft": {
+      "main": [
+        [
+          {
+            "node": "Telegram Alert",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {},
+  "staticData": null,
+  "pinData": {},
+  "webhookId": null,
+  "triggerCount": 1,
+  "tags": ["hale", "d2m", "automation", "touchpoints"],
+  "versionId": "1.0.0",
+  "createdAt": "2026-04-15T23:00:00.000Z",
+  "updatedAt": "2026-04-15T23:00:00.000Z"
+}

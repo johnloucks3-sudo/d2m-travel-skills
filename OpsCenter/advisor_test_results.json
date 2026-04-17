@@ -1,0 +1,135 @@
+{
+  "test_id": "advisor-test-20260416",
+  "started": "2026-04-16T23:15:13.609488",
+  "go_nogo_threshold": {
+    "track_a_cost_reduction_pct": 60,
+    "track_b_quality_score_gte_baseline": true
+  },
+  "runs": [
+    {
+      "batch_timestamp": "2026-04-16T23:15:13.609496",
+      "results": [
+        {
+          "track": "research_sweep_executor_only",
+          "status": "OK",
+          "timestamp": "2026-04-16T23:15:42.723086",
+          "elapsed_seconds": 29.11,
+          "backend": "openrouter",
+          "config": {
+            "executor": "claude-haiku-4-5-20251001",
+            "advisor": "none",
+            "max_uses": 0
+          },
+          "usage": {
+            "executor_input_tokens": 364,
+            "executor_output_tokens": 4096,
+            "advisor_input_tokens": 0,
+            "advisor_output_tokens": 0,
+            "total_tokens": 4460,
+            "advisor_calls": 0,
+            "iterations": []
+          },
+          "output_length": 14214,
+          "output_preview": "# DREAMS2MEMORIES TRAVEL LLC\n## WORLD INTELLIGENCE SWEEP\n### Lt Col Marcus \"Wraith\" Dembe | Research & Market Intelligence\n**Classification: Internal Use | Prepared: 2024 Baseline Analysis**\n\n---\n\n```json\n{\n  \"intelligence_sweep\": {\n    \"timestamp\": \"2024-current\",\n    \"classification\": \"D2M Internal\",\n    \"disclaimer\": \"This analysis is prepared from publicly available sources as of training data cutoff (April 2024). Real-time operational decisions require current official sources.\",\n    \"criti",
+          "stop_reason": "max_tokens",
+          "estimated_cost_usd": 0.016675
+        },
+        {
+          "track": "research_sweep_baseline",
+          "status": "OK",
+          "timestamp": "2026-04-16T23:16:38.212771",
+          "elapsed_seconds": 55.49,
+          "backend": "openrouter",
+          "config": {
+            "model": "claude-opus-4-7",
+            "direct": true
+          },
+          "usage": {
+            "input_tokens": 589,
+            "output_tokens": 4096,
+            "total_tokens": 4685
+          },
+          "output_length": 10452,
+          "output_preview": "```json\n{\n  \"intelligence_sweep\": {\n    \"classification\": \"D2M INTERNAL // BUSINESS SENSITIVE\",\n    \"prepared_by\": \"A2 / Lt Col Marcus 'Wraith' Dembe\",\n    \"report_date\": \"2025-01-XX\",\n    \"reporting_period\": \"Rolling 14-day forward / 7-day retrospective\",\n    \"CRITICAL_DISCLAIMER\": \"This officer cannot execute live web queries in this session. The structured intelligence below reflects KNOWN BASELINE conditions as of my training data (early 2025) and CANNOT confirm advisories, weather, or execu",
+          "stop_reason": "max_tokens",
+          "estimated_cost_usd": 0.316035
+        }
+      ]
+    },
+    {
+      "batch_timestamp": "2026-04-16T23:16:54.856872",
+      "results": [
+        {
+          "track": "financial_recon_executor_only",
+          "status": "OK",
+          "timestamp": "2026-04-16T23:17:29.416234",
+          "elapsed_seconds": 34.56,
+          "backend": "openrouter",
+          "config": {
+            "executor": "claude-sonnet-4-6",
+            "advisor": "none",
+            "max_uses": 0
+          },
+          "usage": {
+            "executor_input_tokens": 632,
+            "executor_output_tokens": 2048,
+            "advisor_input_tokens": 0,
+            "advisor_output_tokens": 0,
+            "total_tokens": 2680,
+            "advisor_calls": 0,
+            "iterations": []
+          },
+          "output_length": 5766,
+          "output_preview": "# COMMISSION RECONCILIATION REPORT\n## Dreams2Memories Travel, LLC\n**Prepared by:** A9 \u2014 Victor \"Vic\" Harlan, Finance & Process Improvement\n**Report Date:** 2026-04-14\n**Analysis Period:** Last 90 days (2026-01-14 through 2026-04-14)\n**Report Classification:** Internal Finance \u2014 Commander Review\n\n---\n\n## SECTION 1: MATCHING LOGIC & METHODOLOGY\n\n**Pass 1 \u2014 Exact Reference Match:**\nCross-reference supplier payment refs against Booking Master IDs.\n\n**Pass 2 \u2014 Fuzzy Match:**\nWhere no ref cited, match",
+          "stop_reason": "max_tokens",
+          "estimated_cost_usd": 0.032616
+        },
+        {
+          "track": "financial_recon_baseline",
+          "status": "OK",
+          "timestamp": "2026-04-16T23:17:48.574928",
+          "elapsed_seconds": 19.16,
+          "backend": "openrouter",
+          "config": {
+            "model": "claude-opus-4-7",
+            "direct": true
+          },
+          "usage": {
+            "input_tokens": 824,
+            "output_tokens": 2048,
+            "total_tokens": 2872
+          },
+          "output_length": 4360,
+          "output_preview": "# COMMISSION RECONCILIATION REPORT\n**Prepared by:** A9 \u2014 Victor \"Vic\" Harlan, Finance & Process Improvement\n**Period:** Last 90 days | **Run date:** 2026-04-15 (assumed)\n**Source systems:** Booking Master \u00d7 Supplier Remittance Inbox\n\n---\n\n## 1. EXECUTIVE SUMMARY\n\n| Metric | Amount |\n|---|---|\n| Expected commissions (all 4 bookings) | **$38,661.00** |\n| Expected commissions (FPD reached, due now) | **$20,836.00** (RG-002 + SN-001) |\n| Commissions received | **$26,550.00** |\n| Variance vs. \"due no",
+          "stop_reason": "max_tokens",
+          "estimated_cost_usd": 0.16596
+        }
+      ]
+    }
+  ],
+  "comparisons": [
+    {
+      "track": "research_sweep_executor_only",
+      "advisor_elapsed": 29.11,
+      "baseline_elapsed": 55.49,
+      "advisor_cost_usd": 0.016675,
+      "baseline_cost_usd": 0.316035,
+      "cost_savings_pct": 94.7,
+      "advisor_total_tokens": 4460,
+      "baseline_total_tokens": 4685,
+      "advisor_calls_made": 0
+    },
+    {
+      "track": "financial_recon_executor_only",
+      "advisor_elapsed": 34.56,
+      "baseline_elapsed": 19.16,
+      "advisor_cost_usd": 0.032616,
+      "baseline_cost_usd": 0.16596,
+      "cost_savings_pct": 80.3,
+      "advisor_total_tokens": 2680,
+      "baseline_total_tokens": 2872,
+      "advisor_calls_made": 0
+    }
+  ],
+  "last_updated": "2026-04-16T23:17:48.575286"
+}

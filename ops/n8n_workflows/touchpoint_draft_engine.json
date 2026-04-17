@@ -1,0 +1,137 @@
+{
+  "name": "Touchpoint Draft Engine",
+  "nodes": [
+    {
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "position": [250, 300],
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "minutesInterval": 60
+            }
+          ]
+        },
+        "options": {}
+      }
+    },
+    {
+      "name": "Read Client JSON Files",
+      "type": "n8n-nodes-base.readFile",
+      "position": [450, 300],
+      "parameters": {
+        "filePath": "/home/john/Thunderbird/D2M/clients/*.json",
+        "options": {}
+      }
+    },
+    {
+      "name": "Extract Touchpoints Due",
+      "type": "n8n-nodes-base.code",
+      "position": [650, 300],
+      "parameters": {
+        "jsCode": "// Extract touchpoints due today or within lookback/forward window\nconst now = new Date();\nconst today = new Date(now.getFullYear(), now.getMonth(), now.getDate());\nconst lookbackDays = 3;\nconst lookaheadDays = 0;\n\nconst dueItems = [];\n\nfor (const item of $input.all()) {\n  const clientData = item.json;\n  const clientName = clientData.client_name || 'Unknown';\n  const clientEmail = clientData.client_email || '';\n  \n  if (clientData.touchpoints) {\n    for (const tp of clientData.touchpoints) {\n      if (!tp.scheduled_date) continue;\n      \n      const scheduledDate = new Date(tp.scheduled_date);\n      const diffDays = Math.floor((scheduledDate - today) / (1000 * 60 * 60 * 24));\n      \n      // Check if due within window\n      if (diffDays >= -lookbackDays && diffDays <= lookaheadDays) {\n        dueItems.push({\n          client: clientName,\n          email: clientEmail,\n          touchpoint_id: tp.touchpoint_id || 'Unknown',\n          scheduled_date: tp.scheduled_date,\n          days_offset: diffDays,\n          template_name: tp.template_name || 'generic',\n          notes: tp.notes || ''\n        });\n      }\n    }\n  }\n}\n\nreturn dueItems.map(item => ({ json: item }));"
+      }
+    },
+    {
+      "name": "Load Email Template",
+      "type": "n8n-nodes-base.readFile",
+      "position": [850, 300],
+      "parameters": {
+        "filePath": "/home/john/Thunderbird/D2M/email_templates/{{$json.template_name}}.md",
+        "options": {}
+      }
+    },
+    {
+      "name": "Create Gmail Draft",
+      "type": "n8n-nodes-base.gmail",
+      "position": [1050, 300],
+      "parameters": {
+        "resource": "message",
+        "operation": "create",
+        "additionalFields": {
+          "to": "{{$json.email}}",
+          "subject": "Dreams2Memories Travel: {{$json.touchpoint_id}}",
+          "body": "{{$node['Load Email Template'].$json}}",
+          "draft": true
+        },
+        "options": {}
+      }
+    },
+    {
+      "name": "Telegram Alert",
+      "type": "n8n-nodes-base.telegram",
+      "position": [1250, 300],
+      "parameters": {
+        "resource": "message",
+        "operation": "sendMessage",
+        "chatId": "7554895206",
+        "text": "✅ Draft created for {{$json.client}} - {{$json.touchpoint_id}}",
+        "additionalFields": {},
+        "options": {}
+      }
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Read Client JSON Files",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Client JSON Files": {
+      "main": [
+        [
+          {
+            "node": "Extract Touchpoints Due",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Touchpoints Due": {
+      "main": [
+        [
+          {
+            "node": "Load Email Template",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Load Email Template": {
+      "main": [
+        [
+          {
+            "node": "Create Gmail Draft",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Gmail Draft": {
+      "main": [
+        [
+          {
+            "node": "Telegram Alert",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1
+}

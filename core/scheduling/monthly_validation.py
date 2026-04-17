@@ -1,0 +1,287 @@
+#!/usr/bin/env python3
+"""
+MISSION-014: Monthly Client Validation Audit
+Checks all 7 active clients for completeness: dossiers, payments, confirmations, FPD, comms, itineraries, guest forms.
+"""
+
+import os
+import json
+from datetime import datetime, timedelta
+from pathlib import Path
+
+# Active clients (7 total)
+ACTIVE_CLIENTS = {
+    "Lyons": {"names": "Nancy & Ken Lyons", "ship": "Friend Service", "cruise_line": "RSSC", "fpd": None},
+    "Kuklinski": {"names": "Kyle Kuklinski", "ship": "Viking Mars", "cruise_line": "Viking", "fpd": None},
+    "Westbrook": {"names": "Brent & Kim Westbrook", "ship": "Silver Nova", "cruise_line": "Silversea", "fpd": None},
+    "Furlow": {"names": "Missy & John Furlow", "ship": "Grandeur Scandinavia", "cruise_line": "RSSC", "fpd": "2026-04-01"},
+    "Ely": {"names": "Alfred Ely", "ship": "RSSC", "cruise_line": "RSSC", "fpd": None},
+    "Nichols": {"names": "Larry Nichols", "ship": "RSSC", "cruise_line": "RSSC", "fpd": None},
+    "McLeod": {"names": "Erik McLeod", "ship": "Silver Muse", "cruise_line": "Silversea", "fpd": None},
+}
+
+THUNDERBIRD_ROOT = Path("/home/john/Thunderbird")
+DOSSIERS_DIR = THUNDERBIRD_ROOT / "dossiers"
+DRAFTS_DIR = THUNDERBIRD_ROOT / "drafts"
+OUTPUT_DIR = THUNDERBIRD_ROOT / "output"
+
+def check_dossier_exists(client_key: str) -> dict:
+    """Check if dossier file exists for client."""
+    # Look for multiple naming patterns
+    patterns = [
+        f"{client_key}_*.md",
+        f"DOSSIER_{client_key}_*.md",
+        f"{client_key.lower()}_*.md",
+    ]
+
+    found_files = []
+    for pattern in patterns:
+        files = list(DOSSIERS_DIR.glob(pattern))
+        found_files.extend([f.name for f in files])
+
+    return {
+        "exists": len(found_files) > 0,
+        "files": found_files,
+        "status": "✅ COMPLETE" if found_files else "❌ MISSING"
+    }
+
+def check_payment_status(client_key: str) -> dict:
+    """Check payment status from dossier or latest notes."""
+    dossier_check = check_dossier_exists(client_key)
+    if not dossier_check["exists"]:
+        return {"status": "❓ UNKNOWN (no dossier)", "fpd": None, "paid": None}
+
+    dossier_file = DOSSIERS_DIR / dossier_check["files"][0]
+    try:
+        content = dossier_file.read_text(encoding='utf-8', errors='ignore')
+
+        # Check for payment indicators
+        paid_indicators = ["PAID", "payment received", "invoice paid", "balance cleared"]
+        pending_indicators = ["pending", "outstanding", "due", "awaiting payment", "FPD"]
+
+        is_paid = any(indicator.lower() in content.lower() for indicator in paid_indicators)
+        is_pending = any(indicator.lower() in content.lower() for indicator in pending_indicators)
+
+        status = "✅ PAID" if is_paid else ("⏳ PENDING" if is_pending else "❓ UNKNOWN")
+        return {"status": status, "file": dossier_file.name, "source": "dossier"}
+    except Exception as e:
+        return {"status": f"❓ ERROR: {str(e)}", "source": "error"}
+
+def check_booking_confirmation(client_key: str) -> dict:
+    """Check for booking confirmation files."""
+    # Look for booking PDFs or confirmation files
+    booking_patterns = [
+        f"{client_key}*booking*.pdf",
+        f"{client_key}*confirmation*.pdf",
+        f"*{client_key}*booking*.md",
+    ]
+
+    found = []
+    for pattern in booking_patterns:
+        found.extend(list(DOSSIERS_DIR.glob(pattern)))
+
+    return {
+        "exists": len(found) > 0,
+        "files": [f.name for f in found],
+        "status": "✅ CONFIRMED" if found else "❌ MISSING"
+    }
+
+def check_fpd_status(client_key: str, fpd_date: str) -> dict:
+    """Check Final Payment Due status."""
+    if not fpd_date:
+        return {"fpd_date": None, "status": "ℹ️ NO FPD SET", "days_remaining": None}
+
+    try:
+        fpd = datetime.strptime(fpd_date, "%Y-%m-%d").date()
+        today = datetime.now().date()
+        days_remaining = (fpd - today).days
+
+        if days_remaining < 0:
+            status = f"⚠️ OVERDUE ({abs(days_remaining)} days)"
+        elif days_remaining == 0:
+            status = "🔴 DUE TODAY"
+        elif days_remaining <= 7:
+            status = f"🟡 DUE SOON ({days_remaining} days)"
+        else:
+            status = f"🟢 ON TRACK ({days_remaining} days)"
+
+        return {
+            "fpd_date": fpd_date,
+            "status": status,
+            "days_remaining": days_remaining
+        }
+    except Exception as e:
+        return {"fpd_date": fpd_date, "status": f"❓ PARSE ERROR", "error": str(e)}
+
+def check_communication_status(client_key: str) -> dict:
+    """Check recent communication (Telegram, email drafts, etc)."""
+    # Look for recent drafts or correspondence
+    draft_patterns = [
+        f"*{client_key}*.html",
+        f"*{client_key.lower()}*.md",
+    ]
+
+    found_drafts = []
+    for pattern in draft_patterns:
+        found_drafts.extend(list(DRAFTS_DIR.glob(pattern)))
+
+    # Most recent
+    if found_drafts:
+        most_recent = max(found_drafts, key=lambda f: f.stat().st_mtime)
+        mod_time = datetime.fromtimestamp(most_recent.stat().st_mtime)
+        days_ago = (datetime.now() - mod_time).days
+        status = f"✅ RECENT ({days_ago}d ago)" if days_ago <= 30 else f"⏳ STALE ({days_ago}d ago)"
+        return {"status": status, "last_contact": most_recent.name, "days_ago": days_ago}
+
+    return {"status": "❓ NO RECENT COMMS", "last_contact": None, "days_ago": None}
+
+def check_itinerary_status(client_key: str) -> dict:
+    """Check if itinerary has been generated/sent."""
+    itinerary_patterns = [
+        f"*{client_key}*itinerary*.pdf",
+        f"*{client_key}*itinerary*.html",
+    ]
+
+    found = []
+    for pattern in itinerary_patterns:
+        found.extend(list(OUTPUT_DIR.glob(pattern)))
+
+    return {
+        "exists": len(found) > 0,
+        "files": [f.name for f in found],
+        "status": "✅ GENERATED" if found else "⏳ PENDING"
+    }
+
+def check_guest_forms(client_key: str) -> dict:
+    """Check if guest profile forms have been sent."""
+    # Look for guest form indicators
+    guest_patterns = [
+        f"*{client_key}*guest*.pdf",
+        f"*{client_key}*profile*.pdf",
+    ]
+
+    found = []
+    for pattern in guest_patterns:
+        found.extend(list(DOSSIERS_DIR.glob(pattern)))
+
+    return {
+        "exists": len(found) > 0,
+        "files": [f.name for f in found],
+        "status": "✅ SENT" if found else "❌ PENDING"
+    }
+
+def run_full_audit():
+    """Run complete validation audit on all 7 clients."""
+    print("\n" + "="*80)
+    print("THUNDERBIRD MONTHLY CLIENT VALIDATION AUDIT")
+    print(f"Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print("="*80 + "\n")
+
+    results = {}
+    summary = {
+        "total_clients": len(ACTIVE_CLIENTS),
+        "complete": 0,
+        "at_risk": 0,
+        "overdue": 0,
+        "issues": []
+    }
+
+    for client_key, client_info in ACTIVE_CLIENTS.items():
+        print(f"\n{'─'*80}")
+        print(f"CLIENT: {client_info['names'].upper()} | {client_info['ship']}")
+        print(f"{'─'*80}")
+
+        dossier = check_dossier_exists(client_key)
+        payment = check_payment_status(client_key)
+        booking = check_booking_confirmation(client_key)
+        fpd = check_fpd_status(client_key, client_info['fpd'])
+        comms = check_communication_status(client_key)
+        itinerary = check_itinerary_status(client_key)
+        guest_forms = check_guest_forms(client_key)
+
+        # Print findings
+        print(f"  📁 Dossier:           {dossier['status']}")
+        if dossier['files']:
+            for f in dossier['files'][:2]:
+                print(f"     └─ {f}")
+
+        print(f"  💳 Payment Status:     {payment['status']}")
+        print(f"  ✈️  Booking Confirm:    {booking['status']}")
+        print(f"  📅 Final Payment:      {fpd['status']}")
+        if fpd['fpd_date']:
+            print(f"     └─ FPD: {fpd['fpd_date']}")
+
+        print(f"  💬 Last Comms:         {comms['status']}")
+        print(f"  📋 Itinerary:          {itinerary['status']}")
+        print(f"  📝 Guest Forms:        {guest_forms['status']}")
+
+        # Store results
+        results[client_key] = {
+            "dossier": dossier,
+            "payment": payment,
+            "booking": booking,
+            "fpd": fpd,
+            "comms": comms,
+            "itinerary": itinerary,
+            "guest_forms": guest_forms
+        }
+
+        # Assess health
+        issues = []
+        if not dossier['exists']:
+            issues.append("Missing dossier")
+        if "PENDING" in payment['status']:
+            issues.append("Payment pending")
+        if "OVERDUE" in fpd['status'] or "DUE TODAY" in fpd['status']:
+            issues.append("FPD overdue/due")
+            summary["overdue"] += 1
+        if "STALE" in comms['status'] or "NO RECENT" in comms['status']:
+            issues.append("No recent comms")
+        if not itinerary['exists']:
+            issues.append("Itinerary pending")
+        if not guest_forms['exists']:
+            issues.append("Guest forms pending")
+
+        if issues:
+            summary["at_risk"] += 1
+            summary["issues"].append(f"{client_info['names']}: {', '.join(issues)}")
+            print(f"\n  ⚠️  AT RISK: {', '.join(issues)}")
+        else:
+            summary["complete"] += 1
+            print(f"\n  ✅ ALL CHECKS PASS")
+
+    # Print summary
+    print("\n" + "="*80)
+    print("AUDIT SUMMARY")
+    print("="*80)
+    print(f"  Total Clients:        {summary['total_clients']}")
+    print(f"  ✅ Complete:           {summary['complete']}/{summary['total_clients']}")
+    print(f"  ⚠️  At Risk:            {summary['at_risk']}/{summary['total_clients']}")
+    print(f"  🔴 Overdue FPD:        {summary['overdue']}/{summary['total_clients']}")
+
+    if summary["issues"]:
+        print(f"\n  FLAGGED ISSUES ({len(summary['issues'])}):")
+        for issue in summary["issues"]:
+            print(f"    • {issue}")
+
+    # Save results to JSON
+    output_file = THUNDERBIRD_ROOT / "output" / f"monthly_validation_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+    output_file.parent.mkdir(parents=True, exist_ok=True)
+
+    with open(output_file, 'w') as f:
+        json.dump({
+            "timestamp": datetime.now().isoformat(),
+            "summary": summary,
+            "details": results
+        }, f, indent=2, default=str)
+
+    print(f"\n  📊 Full audit saved: {output_file.name}")
+    print("="*80 + "\n")
+
+    return summary, results
+
+if __name__ == "__main__":
+    summary, results = run_full_audit()
+
+    # Exit with appropriate code
+    exit(0 if summary["at_risk"] == 0 else 1)
