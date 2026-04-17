@@ -1,0 +1,46 @@
+[
+  {
+    "id": "A2-2026-04-14-001",
+    "title": "PONANT Americas Marketing Landing",
+    "source_signal": "[1] PONANT Americas | Luxury Cruises",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "Promotional landing page; does not contain competitive pricing, route changes, capacity shifts, or behavioral insights. Marketing material, not intelligence."
+  },
+  {
+    "id": "A2-2026-04-14-002",
+    "title": "Cruise Critic Ponant Consumer Guide",
+    "source_signal": "[2] Ponant Cruises: Your Ultimate Guide - Cruise Critic",
+    "classification": "WATCH",
+    "gap_closed": "Aggregated consumer sentiment on Ponant FAQs and common pain points",
+    "thunderbird_component": "thunderbird_client_context / thunderbird_response_library (potential client objection patterns)",
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "Consumer Q&A may reveal client concern patterns (cabins, dining, shore excursions) for Dani voice calibration, but does not address behavioral forecasting or competitive surveillance gaps identified in review."
+  },
+  {
+    "id": "A2-2026-04-14-003",
+    "title": "PONANT International Marketing",
+    "source_signal": "[3] #1 luxury cruises | PONANT International",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "Duplicate of Signal 1; promotional material with no intelligence value. Missing: pricing moves, route timing, capacity allocation."
+  },
+  {
+    "id": "A2-2026-04-14-004",
+    "title": "Ponant Ships & Itineraries Reference Guide",
+    "source_signal": "[4] The ultimate guide to Ponant cruise ships and itineraries",
+    "classification": "WATCH",
+    "gap_closed": "Static reference on Ponant ships, itineraries, policies (already available via iCruise, booking systems)",
+    "thunderbird_component": "thunderbird_ship_intel (could enhance local ship profiles, but low priority)",
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "Reference material; Thunderbird already tracks Ponant through MCP booking integration. Does not close behavioral preference gaps (upgrade triggers, dining patterns) or reveal competitive moves (pricing, capacity, route shifts)."
+  }
+]

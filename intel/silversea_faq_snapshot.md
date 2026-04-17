@@ -1,0 +1,499 @@
+- generic [ref=e1]:
+  - generic [ref=e3]:
+    - link "Skip to main content" [ref=e4] [cursor=pointer]:
+      - /url: "#main"
+    - banner [ref=e5]:
+      - navigation "Secondary menu" [ref=e6]:
+        - generic [ref=e7]:
+          - generic [ref=e9]:
+            - generic [ref=e10]: Let our cruise experts assist you.
+            - img [ref=e12]
+            - link "call +1-888-978-4070" [ref=e557] [cursor=pointer]:
+              - /url: tel:+1-888-978-4070
+              - text: +1-888-978-4070
+          - list [ref=e14]:
+            - listitem [ref=e15]:
+              - link "Brochures" [ref=e16] [cursor=pointer]:
+                - /url: /brochures.html
+            - listitem [ref=e17]:
+              - link "Request a quote" [ref=e18] [cursor=pointer]:
+                - /url: /request-quote.html
+            - listitem [ref=e19]:
+              - link "Blog" [ref=e20] [cursor=pointer]:
+                - /url: https://www.silversea.com/blog
+            - listitem [ref=e21]:
+              - separator [ref=e22]
+            - listitem [ref=e23]:
+              - combobox [ref=e24] [cursor=pointer]:
+                - text: ENG
+                - img [ref=e26]
+            - listitem [ref=e28]:
+              - button "Search" [ref=e29] [cursor=pointer]:
+                - text: Search
+                - img [ref=e31]
+            - listitem [ref=e33]:
+              - link "My Silversea" [ref=e34] [cursor=pointer]:
+                - /url: /my-silversea.html
+                - text: My Silversea
+                - img [ref=e36]
+      - navigation [ref=e38]:
+        - generic [ref=e39]:
+          - link "Silversea" [ref=e41] [cursor=pointer]:
+            - /url: /
+            - img [ref=e44]
+          - menubar "Primary menu" [ref=e48]:
+            - menuitem "Find A Cruise" [ref=e49] [cursor=pointer]
+            - menuitem "Our cruises" [ref=e50] [cursor=pointer]: Our cruises
+            - menuitem "Destinations" [ref=e51] [cursor=pointer]: Destinations
+            - menuitem "The Silversea Experience" [ref=e52] [cursor=pointer]: The Silversea Experience
+            - menuitem "Our Ships" [ref=e53] [cursor=pointer]: Our Ships
+            - menuitem "Offers & Fares" [ref=e54] [cursor=pointer]: Offers & Fares
+    - main [ref=e55]:
+      - generic [ref=e56]:
+        - generic [ref=e58]:
+          - img "Frequently Asked Questions (FAQs)" [ref=e60]
+          - heading "Frequently Asked Questions (FAQs)" [level=1] [ref=e64]
+        - paragraph [ref=e69]:
+          - text: Frequently Asked Questions (FAQs) below are basic answers to some common questions. For a more comprehensive reference, this website’s
+          - link "General Information pages" [ref=e70] [cursor=pointer]:
+            - /url: https://www.silversea.com/travel-informations/general-information.html
+            - strong [ref=e71]: General Information pages
+          - text: contain details on pre-cruise preparations as well as what to expect once on board. And, of course, you should always feel free to
+          - link "Contact Silversea" [ref=e72] [cursor=pointer]:
+            - /url: https://www.silversea.com/other-resources/contact-us.html
+            - strong [ref=e73]: Contact Silversea
+          - text: to speak with a helpful sales associate.
+        - generic [ref=e77]:
+          - button "About Silversea" [ref=e79] [cursor=pointer]:
+            - heading "About Silversea" [level=3] [ref=e80]
+            - img [ref=e83]
+          - button "Bon voyage Gift" [ref=e86] [cursor=pointer]:
+            - heading "Bon voyage Gift" [level=3] [ref=e87]
+            - img [ref=e90]
+          - button "Clothing Suggestions" [ref=e93] [cursor=pointer]:
+            - heading "Clothing Suggestions" [level=3] [ref=e94]
+            - img [ref=e97]
+          - button "Embarkation, Disembarkation & Visitors" [ref=e100] [cursor=pointer]:
+            - heading "Embarkation, Disembarkation & Visitors" [level=3] [ref=e101]
+            - img [ref=e104]
+          - button "Fares & Savings" [ref=e107] [cursor=pointer]:
+            - heading "Fares & Savings" [level=3] [ref=e108]
+            - img [ref=e111]
+          - button "Health and Medical" [ref=e114] [cursor=pointer]:
+            - heading "Health and Medical" [level=3] [ref=e115]
+            - img [ref=e118]
+          - button "Insurance Programs" [ref=e121] [cursor=pointer]:
+            - heading "Insurance Programs" [level=3] [ref=e122]
+            - img [ref=e125]
+          - button "Miscellaneous" [ref=e128] [cursor=pointer]:
+            - heading "Miscellaneous" [level=3] [ref=e129]
+            - img [ref=e132]
+          - button "Money Matters" [ref=e135] [cursor=pointer]:
+            - heading "Money Matters" [level=3] [ref=e136]
+            - img [ref=e139]
+          - button "On Board" [ref=e142] [cursor=pointer]:
+            - heading "On Board" [level=3] [ref=e143]
+            - img [ref=e146]
+          - button "Port Information" [ref=e149] [cursor=pointer]:
+            - heading "Port Information" [level=3] [ref=e150]
+            - img [ref=e153]
+          - button "Post-cruise Guest Support" [ref=e156] [cursor=pointer]:
+            - heading "Post-cruise Guest Support" [level=3] [ref=e157]
+            - img [ref=e160]
+          - button "Pre-book Salon/spa Appointments" [ref=e163] [cursor=pointer]:
+            - heading "Pre-book Salon/spa Appointments" [level=3] [ref=e164]
+            - img [ref=e167]
+          - button "Pre-cruise" [ref=e170] [cursor=pointer]:
+            - heading "Pre-cruise" [level=3] [ref=e171]
+            - img [ref=e174]
+          - button "Prohibited Items Onboard" [ref=e177] [cursor=pointer]:
+            - heading "Prohibited Items Onboard" [level=3] [ref=e178]
+            - img [ref=e181]
+          - button "Ship Details" [ref=e184] [cursor=pointer]:
+            - heading "Ship Details" [level=3] [ref=e185]
+            - img [ref=e188]
+          - button "Shore Excursions" [ref=e191] [cursor=pointer]:
+            - heading "Shore Excursions" [level=3] [ref=e192]
+            - img [ref=e195]
+          - button "Silversea Expeditions" [ref=e198] [cursor=pointer]:
+            - heading "Silversea Expeditions" [level=3] [ref=e199]
+            - img [ref=e202]
+          - button "Smoking Policy" [ref=e205] [cursor=pointer]:
+            - heading "Smoking Policy" [level=3] [ref=e206]
+            - img [ref=e209]
+          - button "Wheelchair accessibility & mobility assistance" [ref=e212] [cursor=pointer]:
+            - heading "Wheelchair accessibility & mobility assistance" [level=3] [ref=e213]
+            - img [ref=e216]
+        - generic [ref=e220]:
+          - generic [ref=e221]:
+            - heading "FIND A CRUISE" [level=2] [ref=e223]
+            - paragraph [ref=e226]: With our small luxury ships you can explore the seven continents discovering the world’s most intriguing destinations
+          - generic [ref=e227]:
+            - generic [ref=e230]:
+              - article [ref=e233] [cursor=pointer]:
+                - link [ref=e234]:
+                  - /url: /destinations/africa-indian-ocean-cruise.html
+                - generic:
+                  - generic:
+                    - img
+                    - img
+                - generic [ref=e235]:
+                  - heading "Africa & Indian Ocean" [level=3] [ref=e237]
+                  - list "Details" [ref=e238]:
+                    - listitem [ref=e239]: 6 Expedition Cruises •
+                    - listitem [ref=e240]: 10 Classic Cruises
+                - generic [ref=e243]: Discover more
+              - article [ref=e246] [cursor=pointer]:
+                - link [ref=e247]:
+                  - /url: /destinations/alaska-cruise.html
+                - generic:
+                  - generic:
+                    - img
+                    - img
+                - generic [ref=e248]:
+                  - heading "Alaska" [level=3] [ref=e250]
+                  - list "Details" [ref=e251]:
+                    - listitem [ref=e252]: 66 Classic Cruises
+                - generic [ref=e255]: Discover more
+              - article [ref=e258] [cursor=pointer]:
+                - link [ref=e259]:
+                  - /url: /destinations/antarctica-cruise.html
+                - generic:
+                  - generic:
+                    - img
+                    - img
+                - generic [ref=e260]:
+                  - heading "Antarctica" [level=3] [ref=e262]
+                  - list "Details" [ref=e263]:
+                    - listitem [ref=e264]: 83 Expedition Cruises
+                - generic [ref=e267]: Discover more
+              - article [ref=e270] [cursor=pointer]:
+                - link [ref=e271]:
+                  - /url: /destinations/cruises-arctic-greenland.html
+                - generic:
+                  - generic:
+                    - img
+                    - img
+                - generic [ref=e272]:
+                  - heading "Arctic & Greenland" [level=3] [ref=e274]
+                  - list "Details" [ref=e275]:
+                    - listitem [ref=e276]: 40 Expedition Cruises
+                - generic [ref=e279]: Discover more
+              - article [ref=e282] [cursor=pointer]:
+                - link [ref=e283]:
+                  - /url: /destinations/asia-cruise.html
+                - generic:
+                  - generic:
+                    - img
+                    - img
+                - generic [ref=e284]:
+                  - heading "Asia" [level=3] [ref=e286]
+                  - list "Details" [ref=e287]:
+                    - listitem [ref=e288]: 6 Expedition Cruises •
+                    - listitem [ref=e289]: 73 Classic Cruises
+                - generic [ref=e292]: Discover more
+              - article [ref=e295] [cursor=pointer]:
+                - link [ref=e296]:
+                  - /url: /destinations/australia-new-zealand-cruise.html
+                - generic:
+                  - generic:
+                    - img
+                    - img
+                - generic [ref=e297]:
+                  - heading "Australia & New Zealand" [level=3] [ref=e299]
+                  - list "Details" [ref=e300]:
+                    - listitem [ref=e301]: 21 Classic Cruises
+                - generic [ref=e304]: Discover more
+              - article [ref=e307] [cursor=pointer]:
+                - link [ref=e308]:
+                  - /url: /destinations/canada-new-england-cruise.html
+                - generic:
+                  - generic:
+                    - img
+                    - img
+                - generic [ref=e309]:
+                  - heading "Canada & New England" [level=3] [ref=e311]
+                  - list "Details" [ref=e312]:
+                    - listitem [ref=e313]: 11 Classic Cruises
+                - generic [ref=e316]: Discover more
+              - article [ref=e319] [cursor=pointer]:
+                - link [ref=e320]:
+                  - /url: /destinations/central-america-caribbean-cruise.html
+                - generic:
+                  - generic:
+                    - img
+                    - img
+                - generic [ref=e321]:
+                  - heading "Caribbean & Central America" [level=3] [ref=e323]
+                  - list "Details" [ref=e324]:
+                    - listitem [ref=e325]: 82 Classic Cruises
+                - generic [ref=e328]: Discover more
+              - article [ref=e331] [cursor=pointer]:
+                - link [ref=e332]:
+                  - /url: /destinations/french-polynesia-pacific-cruise.html
+                - generic:
+                  - generic:
+                    - img
+                    - img
+                - generic [ref=e333]:
+                  - heading "French Polynesia & Pacific" [level=3] [ref=e335]
+                  - list "Details" [ref=e336]:
+                    - listitem [ref=e337]: 12 Expedition Cruises •
+                    - listitem [ref=e338]: 60 Classic Cruises
+                - generic [ref=e341]: Discover more
+              - article [ref=e344] [cursor=pointer]:
+                - link [ref=e345]:
+                  - /url: /destinations/galapagos-islands-cruise.html
+                - generic:
+                  - generic:
+                    - img
+                    - img
+                - generic [ref=e346]:
+                  - heading "Galápagos Islands" [level=3] [ref=e348]
+                  - list "Details" [ref=e349]:
+                    - listitem [ref=e350]: 117 Expedition Cruises
+                - generic [ref=e353]: Discover more
+              - article [ref=e356] [cursor=pointer]:
+                - link [ref=e357]:
+                  - /url: /destinations/kimberley-cruise.html
+                - generic:
+                  - generic:
+                    - img
+                    - img
+                - generic [ref=e358]:
+                  - heading "Kimberley" [level=3] [ref=e360]
+                  - list "Details" [ref=e361]:
+                    - listitem [ref=e362]: 16 Expedition Cruises
+                - generic [ref=e365]: Discover more
+              - article [ref=e368] [cursor=pointer]:
+                - link [ref=e369]:
+                  - /url: /destinations/mediterranean-cruise.html
+                - generic:
+                  - generic:
+                    - img
+                    - img
+                - generic [ref=e370]:
+                  - heading "Mediterranean" [level=3] [ref=e372]
+                  - list "Details" [ref=e373]:
+                    - listitem [ref=e374]: 2 Expedition Cruises •
+                    - listitem [ref=e375]: 230 Classic Cruises
+                - generic [ref=e378]: Discover more
+              - article [ref=e381] [cursor=pointer]:
+                - link [ref=e382]:
+                  - /url: /destinations/northern-europe-british-isles-cruise.html
+                - generic:
+                  - generic:
+                    - img
+                    - img
+                - generic [ref=e383]:
+                  - heading "Northern Europe & The British Isles" [level=3] [ref=e385]
+                  - list "Details" [ref=e386]:
+                    - listitem [ref=e387]: 10 Expedition Cruises •
+                    - listitem [ref=e388]: 63 Classic Cruises
+                - generic [ref=e391]: Discover more
+              - article [ref=e394] [cursor=pointer]:
+                - link [ref=e395]:
+                  - /url: /destinations/south-america-cruise.html
+                - generic:
+                  - generic:
+                    - img
+                    - img
+                - generic [ref=e396]:
+                  - heading "South America" [level=3] [ref=e398]
+                  - list "Details" [ref=e399]:
+                    - listitem [ref=e400]: 1 Expedition Cruise •
+                    - listitem [ref=e401]: 13 Classic Cruises
+                - generic [ref=e404]: Discover more
+              - article [ref=e407] [cursor=pointer]:
+                - link [ref=e408]:
+                  - /url: /destinations/transoceanic-cruise.html
+                - generic:
+                  - generic:
+                    - img
+                    - img
+                - generic [ref=e409]:
+                  - heading "Transoceanic" [level=3] [ref=e411]
+                  - list "Details" [ref=e412]:
+                    - listitem [ref=e413]: 1 Expedition Cruise •
+                    - listitem [ref=e414]: 31 Classic Cruises
+                - generic [ref=e417]: Discover more
+            - generic [ref=e558]:
+              - generic [ref=e563]: 1 of 5
+              - generic [ref=e564]:
+                - button "Previous" [disabled]:
+                  - generic:
+                    - img
+                - button "Next" [ref=e565] [cursor=pointer]:
+                  - img [ref=e567]
+      - iframe [ref=e570]:
+        - generic [ref=f12e3]:
+          - main [ref=f12e4]:
+            - generic [ref=f12e5]:
+              - paragraph [ref=f12e7]:
+                - text: Was this content helpful?
+                - paragraph [ref=f12e8]:
+                  - text: "*"
+                  - generic [ref=f12e9]: Required
+              - group "Was this content helpful? Required" [ref=f12e11]:
+                - generic [ref=f12e12]:
+                  - radio "Helpful" [ref=f12e13]
+                  - generic [ref=f12e15]: Helpful
+                - generic [ref=f12e16]:
+                  - radio "Not helpful" [ref=f12e17]
+                  - generic [ref=f12e19]: Not helpful
+          - contentinfo [ref=f12e20]:
+            - button "Submit" [ref=f12e23] [cursor=pointer]
+            - link "Powered by Medallia (opens in a new tab)" [ref=f12e25] [cursor=pointer]:
+              - /url: https://www.medallia.com/
+              - generic [ref=f12e26]: Powered by
+              - img [ref=f12e27]
+    - contentinfo [ref=e418]:
+      - generic [ref=e420]:
+        - generic [ref=e421]:
+          - generic [ref=e422]:
+            - generic [ref=e423]:
+              - generic [ref=e424]: FOLLOW US
+              - list [ref=e425]:
+                - listitem [ref=e426]:
+                  - link "Facebook" [ref=e427] [cursor=pointer]:
+                    - /url: https://www.facebook.com/silversea
+                    - img [ref=e429]
+                - listitem [ref=e431]:
+                  - link "Instagram" [ref=e432] [cursor=pointer]:
+                    - /url: https://www.instagram.com/silversea/
+                    - img [ref=e434]
+                - listitem [ref=e436]:
+                  - link "YouTube" [ref=e437] [cursor=pointer]:
+                    - /url: https://www.youtube.com/user/SilverseaOfficial
+                    - img [ref=e439]
+                - listitem [ref=e441]:
+                  - link "Threads" [ref=e442] [cursor=pointer]:
+                    - /url: https://www.threads.com/@silversea
+                    - img [ref=e444]
+            - generic [ref=e446]:
+              - generic [ref=e572]:
+                - generic [ref=e573]:
+                  - generic [ref=e574]: Call our Reservation Team
+                  - link "+1-888-978-4070" [ref=e576] [cursor=pointer]:
+                    - /url: tel:+1-888-978-4070
+                    - img [ref=e578]
+                    - text: +1-888-978-4070
+                - generic [ref=e580]: or Contact your Professional Travel Advisor
+              - generic [ref=e448]:
+                - generic [ref=e449]: Subscribe for exclusive offers and news
+                - generic [ref=e450]:
+                  - textbox "Subscribe for exclusive offers and news" [ref=e451]:
+                    - /placeholder: Your email address
+                  - button "Your email address" [ref=e452] [cursor=pointer]:
+                    - img [ref=e454]
+            - generic [ref=e456]:
+              - link "Request a Quote" [ref=e457] [cursor=pointer]:
+                - /url: /request-quote.html
+                - generic [ref=e458]: Request a Quote
+              - link "View the Brochures" [ref=e459] [cursor=pointer]:
+                - /url: /brochures.html
+                - generic [ref=e460]: View the Brochures
+          - generic [ref=e461]:
+            - generic [ref=e462]:
+              - button "About Silversea" [ref=e463]: About Silversea
+              - menu "About Silversea" [ref=e466]:
+                - menuitem "About Us" [ref=e467] [cursor=pointer]
+                - menuitem "The Silversea Experience" [ref=e468] [cursor=pointer]
+                - menuitem "30 Years of Silversea" [ref=e469] [cursor=pointer]
+                - menuitem "Investor Relations" [ref=e470] [cursor=pointer]
+                - menuitem "Awards" [ref=e471] [cursor=pointer]
+                - menuitem "Our Partners in Luxury" [ref=e472] [cursor=pointer]
+                - menuitem "Silversea Careers" [ref=e473] [cursor=pointer]
+                - menuitem "Press Releases" [ref=e474] [cursor=pointer]
+                - menuitem "Modern Slavery Statement" [ref=e475] [cursor=pointer]
+                - menuitem "Sign up for offers" [ref=e476] [cursor=pointer]
+            - generic [ref=e477]:
+              - button "Travel Information" [ref=e478]: Travel Information
+              - menu "Travel Information" [ref=e481]:
+                - menuitem "General Information" [ref=e482] [cursor=pointer]
+                - menuitem "Travel Insurance" [ref=e581] [cursor=pointer]
+                - menuitem "Travel Requirements" [ref=e483] [cursor=pointer]
+                - menuitem "Wi-Fi Packages" [ref=e484] [cursor=pointer]
+                - menuitem "FAQs" [ref=e485] [cursor=pointer]
+                - menuitem "What to Pack" [ref=e486] [cursor=pointer]
+                - menuitem "Silver Shore Baggage Valet" [ref=e487] [cursor=pointer]
+            - generic [ref=e488]:
+              - button "Other Resources" [ref=e489]: Other Resources
+              - menu "Other Resources" [ref=e492]:
+                - menuitem "Contact Us" [ref=e493] [cursor=pointer]
+                - menuitem "Brochures" [ref=e494] [cursor=pointer]
+                - menuitem "Venetian Society®" [ref=e495] [cursor=pointer]
+                - menuitem "Benefits & Fares" [ref=e496] [cursor=pointer]
+                - menuitem "Best Fare Guarantee" [ref=e497] [cursor=pointer]
+                - menuitem "Promotional Offer Terms" [ref=e498] [cursor=pointer]
+                - menuitem "Travel Partner Resource Centre" [ref=e499] [cursor=pointer]
+                - menuitem "Charter & Incentives Cruise" [ref=e500] [cursor=pointer]
+                - menuitem "Blog" [ref=e501] [cursor=pointer]
+                - menuitem "Store" [ref=e502] [cursor=pointer]
+                - menuitem "MY SILVERSEA" [ref=e503] [cursor=pointer]
+        - generic [ref=e506]:
+          - generic [ref=e507]:
+            - img "30 years" [ref=e509]
+            - text: © 2026 SILVERSEA CRUISES LTD.
+          - list [ref=e511]:
+            - listitem [ref=e512]:
+              - link "Imprint" [ref=e513] [cursor=pointer]:
+                - /url: /imprint.html
+            - listitem [ref=e514]:
+              - link "Terms and Conditions" [ref=e515] [cursor=pointer]:
+                - /url: /terms-and-conditions.html
+            - listitem [ref=e516]:
+              - link "Terms of Use" [ref=e517] [cursor=pointer]:
+                - /url: /digital-terms-of-use-and-end-user-license-agreement.html
+            - listitem [ref=e518]:
+              - link "Privacy Policy" [ref=e519] [cursor=pointer]:
+                - /url: /privacy-policy.html
+            - listitem [ref=e520]:
+              - link "Unsolicited Ideas Policy" [ref=e521] [cursor=pointer]:
+                - /url: /unsolicited-ideas-policy.html
+            - listitem [ref=e522]:
+              - link "Safety & Security" [ref=e523] [cursor=pointer]:
+                - /url: /safety-and-security.html
+            - listitem [ref=e524]:
+              - button "Manage Preferences" [ref=e582] [cursor=pointer]
+          - generic [ref=e526]:
+            - generic [ref=e527]: Type here to search
+            - generic [ref=e528]:
+              - searchbox "Type here to search" [ref=e529]
+              - button "Type here to search" [ref=e530] [cursor=pointer]:
+                - img [ref=e532]
+            - button "Scroll to top" [ref=e534] [cursor=pointer]:
+              - img [ref=e536]
+      - generic [ref=e584]:
+        - link "Royal Caribbean Group" [ref=e586] [cursor=pointer]:
+          - /url: https://www.royalcaribbeangroup.com/
+          - img "Royal Caribbean Group" [ref=e587]
+        - list [ref=e588]:
+          - listitem [ref=e589]:
+            - link "Royal Caribbean" [ref=e590] [cursor=pointer]:
+              - /url: https://www.royalcaribbean.com/
+              - img "Royal Caribbean" [ref=e591]
+          - listitem [ref=e592]:
+            - link "Celebrity Cuises" [ref=e593] [cursor=pointer]:
+              - /url: https://www.celebritycruises.com/
+              - img "Celebrity Cuises" [ref=e594]
+          - listitem [ref=e595]:
+            - link "Silversea Cruises" [ref=e596] [cursor=pointer]:
+              - /url: https://www.silversea.com/
+              - img [ref=e599]
+  - img [ref=e601]
+  - dialog "Privacy" [ref=e603]:
+    - generic [ref=e605]:
+      - generic [ref=e608]:
+        - text: We use cookies, pixel tags and other technologies to collect information you provide as well as information about your interactions with our site to enhance user experience. We also share information about your use of our site with our social media, advertising and analytics partners. By using this site, you consent to our use of these tracking tools in accordance with our
+        - link "Privacy Notice" [ref=e609] [cursor=pointer]:
+          - /url: https://www.silversea.com/privacy-policy.html
+        - text: and you accept our
+        - link "More information about your privacy, opens in a new tab" [ref=e610] [cursor=pointer]:
+          - /url: https://www.silversea.com/digital-terms-of-use-and-end-user-license-agreement.html
+          - text: Terms of Use.
+      - button "Manage Preferences, Opens the preference center dialog" [ref=e613] [cursor=pointer]: Manage Preferences
+    - button "Close" [ref=e615] [cursor=pointer]
+  - iframe
+  - button "Feedback" [ref=e616] [cursor=pointer]:
+    - generic [ref=e618]: Feedback

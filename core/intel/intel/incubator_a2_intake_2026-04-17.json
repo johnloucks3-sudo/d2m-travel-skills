@@ -1,0 +1,24 @@
+[
+  {
+    "id": "A2-2026-04-17-001",
+    "title": "LIFE Magazine Photo Archives",
+    "source_signal": "Signals [1-4]",
+    "classification": "REJECT",
+    "gap_closed": "none",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "20th century photo archives irrelevant to cruise/destination research; no client preference or itinerary value."
+  },
+  {
+    "id": "A2-2026-04-17-002",
+    "title": "Iowa Behavioral Health Services",
+    "source_signal": "Signals [5-9]",
+    "classification": "REJECT",
+    "gap_closed": "none",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Healthcare provider directory unrelated to luxury cruise/destination intelligence; domain mismatch with D2M architecture."
+  }
+]
