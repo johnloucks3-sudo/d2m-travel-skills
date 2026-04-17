@@ -97,3 +97,9 @@ drive_token.json
 .smart-envconfig/portal_creds.json
 config/monitor_state.json
 .gstack/
+
+# Backup and temp files
+*.backup.*
+*.bak.*
+intel/tmp_*
+150000
