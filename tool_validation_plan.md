@@ -11,18 +11,18 @@ Systematically test all 97 MCP tools over 7 days to establish confidence before 
 
 ## Daily Schedule
 
-### Day 1 — Google Drive & Docs (Est. 12-15 tools)
-- [ ] list files in TITAN_BOOKINGS_VAULT
-- [ ] search files by name
-- [ ] read file contents
-- [ ] upload a test file
-- [ ] download a file
-- [ ] move file between folders
-- [ ] create folder
-- [ ] create Google Doc
-- [ ] update Google Doc
-- [ ] list folders
-- **Validation:** Round-trip test — upload → list → read → download → verify contents match
+### Day 1 — Google Drive & Docs (Est. 12-15 tools) ✅ COMPLETE 2026-04-17
+- [x] list files in TITAN_BOOKINGS_VAULT — PASS (4 files found)
+- [x] search files by name — PASS ("Furlow" → 5 results)
+- [x] read file contents — PASS (round-trip verified)
+- [x] upload a test file — PASS (upload → list → read → delete)
+- [x] download a file — PASS (46 bytes, content match)
+- [x] move file between folders — PASS (VAULT ↔ D2M root)
+- [x] create folder — PASS (created + deleted)
+- [x] create Google Doc — PASS (Docs API)
+- [x] update Google Doc — PASS (batchUpdate, text verified)
+- [x] list folders — PASS (5 folders returned)
+- **Validation:** Round-trip PASS — upload → list → read → download → contents match ✅
 
 ### Day 2 — Google Sheets (Est. 8-10 tools)
 - [ ] read Booking Master tab
