@@ -1,17 +1,41 @@
 {
-  "generated_at": "2026-04-15T06:01:46.580964",
-  "total_tasks": 1,
+  "generated_at": "2026-04-22T06:03:56.339128",
+  "total_tasks": 3,
   "critical_count": 0,
   "tasks": [
     {
-      "task_id": "TASK-3.5-westbrook_group",
+      "task_id": "TASK-3.6-westbrook_group",
       "client": "westbrook_group",
       "phase": 3,
-      "touchpoint": "3.5",
-      "deliverable": "Final logistics check",
-      "owners": "A3",
-      "draft_due": "2026-04-13T00:00:00",
-      "send_date": "2026-04-16T00:00:00",
+      "touchpoint": "3.6",
+      "deliverable": "Embarkation day send-off",
+      "owners": "A6\u2192A3",
+      "draft_due": "2026-04-20T00:00:00",
+      "send_date": "2026-04-23T00:00:00",
+      "status": "PENDING",
+      "critical": false
+    },
+    {
+      "task_id": "TASK-5.3-westbrook_group",
+      "client": "westbrook_group",
+      "phase": 5,
+      "touchpoint": "5.3",
+      "deliverable": "Thank you + referral",
+      "owners": "A6\u2192A3",
+      "draft_due": "2026-04-21T00:00:00",
+      "send_date": "2026-04-23T00:00:00",
+      "status": "PENDING",
+      "critical": false
+    },
+    {
+      "task_id": "TASK-5.4-westbrook_group",
+      "client": "westbrook_group",
+      "phase": 5,
+      "touchpoint": "5.4",
+      "deliverable": "Next voyage plant",
+      "owners": "A2\u2192A6\u2192A3",
+      "draft_due": "2026-04-21T00:00:00",
+      "send_date": "2026-04-23T00:00:00",
       "status": "PENDING",
       "critical": false
     }

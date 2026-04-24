@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>D2M Autonomy Status — Thunderbird Wing</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0f1117; color: #e8e8e8; font-family: 'Segoe UI', system-ui, sans-serif; font-size: 15px; }
+
+  header {
+    background: #1a2744;
+    padding: 16px 20px;
+    border-bottom: 2px solid #0000ff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  header h1 { color: #f7f3ea; font-size: 17px; letter-spacing: 1px; text-transform: uppercase; }
+  header .sub { color: #6a8abf; font-size: 12px; margin-top: 3px; }
+  .ts { color: #6a8abf; font-size: 11px; text-align: right; }
+
+  .container { max-width: 900px; margin: 0 auto; padding: 20px 16px 60px; }
+
+  /* Progress bar */
+  .progress-wrap { margin: 20px 0 28px; }
+  .progress-label { display: flex; justify-content: space-between; margin-bottom: 6px; color: #aaa; font-size: 12px; }
+  .bar-bg { background: #222; border-radius: 6px; height: 14px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 6px; background: linear-gradient(90deg, #2d6a4f, #52b788); transition: width 0.4s; }
+
+  /* Layer sections */
+  .layer {
+    background: #161b2e;
+    border: 1px solid #2a3050;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .layer-header {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    cursor: pointer;
+    user-select: none;
+    gap: 12px;
+  }
+  .layer-header:hover { background: #1e2540; }
+  .layer-num { color: #6a8abf; font-size: 11px; font-weight: 700; letter-spacing: 1px; min-width: 60px; }
+  .layer-title { flex: 1; font-size: 14px; font-weight: 600; color: #e8e8e8; }
+  .layer-badge {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .badge-done    { background: #1a3d2b; color: #52b788; border: 1px solid #2d6a4f; }
+  .badge-partial { background: #3d2a0a; color: #e09858; border: 1px solid #7a5520; }
+  .badge-gap     { background: #3d0a0a; color: #e06060; border: 1px solid #7a2020; }
+  .badge-design  { background: #1a1a3d; color: #7070e0; border: 1px solid #3030a0; }
+
+  .layer-body { padding: 4px 16px 14px; display: none; }
+  .layer.open .layer-body { display: block; }
+  .layer.open .layer-header { background: #1e2540; }
+
+  /* Checklist items */
+  .item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px solid #1e2540;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  .item:last-child { border-bottom: none; }
+  .icon { font-size: 15px; min-width: 22px; margin-top: 1px; }
+  .item-text { flex: 1; color: #ccc; }
+  .item-text strong { color: #e8e8e8; }
+  .item-text .note { color: #6a8abf; font-size: 12px; margin-top: 2px; }
+  .item-text .tag {
+    display: inline-block;
+    background: #1e2540;
+    color: #8898cc;
+    font-size: 11px;
+    padding: 1px 7px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
+  /* Summary table */
+  .summary {
+    background: #161b2e;
+    border: 1px solid #2a3050;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 20px;
+  }
+  .summary h3 { color: #0000ff; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
+  .sum-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .sum-card { background: #0f1117; border-radius: 6px; padding: 12px; text-align: center; border: 1px solid #2a3050; }
+  .sum-num { font-size: 28px; font-weight: 700; }
+  .sum-lbl { font-size: 11px; color: #6a8abf; margin-top: 4px; text-transform: uppercase; letter-spacing: 1px; }
+  .num-green { color: #52b788; }
+  .num-amber { color: #e09858; }
+  .num-red   { color: #e06060; }
+
+  /* Next actions */
+  .next-actions {
+    background: #0a1a0a;
+    border: 1px solid #2d6a4f;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 20px;
+  }
+  .next-actions h3 { color: #52b788; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
+  .action-item { display: flex; gap: 10px; padding: 6px 0; border-bottom: 1px solid #1a3d2b; font-size: 14px; }
+  .action-item:last-child { border-bottom: none; }
+  .action-num { color: #52b788; font-weight: 700; min-width: 24px; }
+  .action-text { color: #c8e6c9; flex: 1; }
+  .action-tag { color: #6a8abf; font-size: 12px; white-space: nowrap; }
+
+  /* Refresh note */
+  .refresh { text-align: center; color: #444; font-size: 11px; padding: 20px 0; }
+
+  @media (max-width: 600px) {
+    .sum-grid { grid-template-columns: repeat(2, 1fr); }
+    .sum-num { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>D2M Autonomy Status</h1>
+    <div class="sub">Thunderbird Wing · Dreams2Memories Travel, LLC</div>
+  </div>
+  <div class="ts">Updated<br>2026-04-20<br>03:05 MT</div>
+</header>
+
+<div class="container">
+
+  <!-- Summary cards -->
+  <div class="summary">
+    <h3>Overall Status</h3>
+    <div class="sum-grid">
+      <div class="sum-card">
+        <div class="sum-num num-green">7</div>
+        <div class="sum-lbl">Fully Autonomous</div>
+      </div>
+      <div class="sum-card">
+        <div class="sum-num num-amber">5</div>
+        <div class="sum-lbl">Partial / Gaps</div>
+      </div>
+      <div class="sum-card">
+        <div class="sum-num num-red">3</div>
+        <div class="sum-lbl">Manual Still</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Progress bar -->
+  <div class="progress-wrap">
+    <div class="progress-label">
+      <span>Autonomy Coverage</span>
+      <span>68% — Watcher fixed + OpenCode live / McLeod + Loucks manual</span>
+    </div>
+    <div class="bar-bg"><div class="bar-fill" style="width:68%"></div></div>
+  </div>
+
+  <!-- NEXT ACTIONS -->
+  <div class="next-actions">
+    <h3>Next Build Targets</h3>
+    <div class="action-item">
+      <span class="action-num">1</span>
+      <span class="action-text"><strong>Pre-written email drafts for McLeod + Loucks</strong> — without these, TRIGGER_EMAIL falls to DeepSeek (untested) or fails silently</span>
+      <span class="action-tag">HIGH · 2hr</span>
+    </div>
+    <div class="action-item">
+      <span class="action-num">2</span>
+      <span class="action-text"><strong>ARC params for McLeod + Loucks touchpoints</strong> — currently 0 ARC TPs have params on both clients</span>
+      <span class="action-tag">HIGH · 1hr</span>
+    </div>
+    <div class="action-item">
+      <span class="action-num">3</span>
+      <span class="action-text"><strong>Test DeepSeek fallback composition</strong> — trigger a non-pre-written TP manually and verify draft lands in Gmail</span>
+      <span class="action-tag">MED · 30min</span>
+    </div>
+    <div class="action-item">
+      <span class="action-num">4</span>
+      <span class="action-text"><strong>Centrav session login</strong> — manual reCAPTCHA needed once, then auto-refreshes. Unlocks B2B fares for air search.</span>
+      <span class="action-tag">MED · 15min</span>
+    </div>
+    <div class="action-item done-action">
+      <span class="action-num">5</span>
+      <span class="action-text"><strong>✅ OpenCode daemon — DONE</strong> — Watcher V7 fixed (--print→run). inotify-based, Restart=always. Confirmed live: opencode run fires and completes tasks.</span>
+      <span class="action-tag done-tag">DONE</span>
+    </div>
+    <div class="action-item">
+      <span class="action-num">6</span>
+      <span class="action-text"><strong>Telegram /approve command</strong> — let Commander approve a Gmail draft send from Telegram without opening Gmail</span>
+      <span class="action-tag">LOW · 1hr</span>
+    </div>
+  </div>
+
+  <!-- LAYERS -->
+
+  <!-- L1 -->
+  <div class="layer open">
+    <div class="layer-header" onclick="toggle(this)">
+      <span class="layer-num">LAYER 1</span>
+      <span class="layer-title">Daily Scheduling</span>
+      <span class="layer-badge badge-done">DONE</span>
+    </div>
+    <div class="layer-body">
+      <div class="item"><span class="icon">✅</span><div class="item-text"><strong>d2m_lifecycle_scheduler.py</strong> — 05:30 MT via systemd d2m-lifecycle.timer<div class="note">Scans 73 TPs across 3 clients. Fires daily clean.</div></div></div>
+      <div class="item"><span class="icon">✅</span><div class="item-text"><strong>generate_wing_status.py</strong> — runs after scheduler<div class="note">Regenerates hale_brief.md + executive gantt. Copies to tunnel.</div></div></div>
+      <div class="item"><span class="icon">✅</span><div class="item-text"><strong>inbox_executor.py</strong> — runs after wing status<div class="note">Processes claude_inbox.md. Routes to Gmail / Telegram / wing_comms. No Claude.</div></div></div>
+    </div>
+  </div>
+
+  <!-- L2 -->
+  <div class="layer open">
+    <div class="layer-header" onclick="toggle(this)">
+      <span class="layer-num">LAYER 2</span>
+      <span class="layer-title">Touchpoint Detection</span>
+      <span class="layer-badge badge-done">DONE</span>
+    </div>
+    <div class="layer-body">
+      <div class="item"><span class="icon">✅</span><div class="item-text"><strong>OVERDUE detection</strong> — flags missed TPs, writes to inbox</div></div>
+      <div class="item"><span class="icon">✅</span><div class="item-text"><strong>SEARCH_WINDOW_OPEN</strong> — detects when research window starts</div></div>
+      <div class="item"><span class="icon">✅</span><div class="item-text"><strong>SEARCH_WINDOW_CLOSING</strong> — 3-day warning before window closes</div></div>
+      <div class="item"><span class="icon">✅</span><div class="item-text"><strong>TRIGGER_EMAIL</strong> — detects when a TP email is due</div></div>
+      <div class="item"><span class="icon">✅</span><div class="item-text"><strong>WEEKLY_REPORT_DUE</strong> — Mondays during active search windows</div></div>
+      <div class="item"><span class="icon">✅</span><div class="item-text"><strong>PORTAL / PAYMENT_CRITICAL</strong> — day-of excursion/dining/payment alerts</div></div>
+    </div>
+  </div>
+
+  <!-- L3 -->
+  <div class="layer open">
+    <div class="layer-header" onclick="toggle(this)">
+      <span class="layer-num">LAYER 3</span>
+      <span class="layer-title">Commander Alerting (Telegram)</span>
+      <span class="layer-badge badge-done">DONE</span>
+    </div>
+    <div class="layer-body">
+      <div class="item"><span class="icon">✅</span><div class="item-text"><strong>All alert types page Commander</strong> — OVERDUE, SEARCH_CLOSING, PORTAL, PAYMENT<div class="note">Tested live — McLeod search-closing paged at 03:02 MT today.</div></div></div>
+      <div class="item"><span class="icon">✅</span><div class="item-text"><strong>Draft-ready notification</strong> — Telegram page when Gmail draft created<div class="note">"Draft ready — [TP] [Client] — check d2mconcierge drafts → approve to send"</div></div></div>
+      <div class="item"><span class="icon">⚠️</span><div class="item-text"><strong>No /approve Telegram command</strong> — Commander must open Gmail to send<div class="note">Build 6 — Telegram bot command that fires gmail_send_with_approval(draft_id)</div></div></div>
+    </div>
+  </div>
+
+  <!-- L4 -->
+  <div class="layer open">
+    <div class="layer-header" onclick="toggle(this)">
+      <span class="layer-num">LAYER 4</span>
+      <span class="layer-title">Email Drafting</span>
+      <span class="layer-badge badge-partial">PARTIAL</span>
+    </div>
+    <div class="layer-body">
+      <div class="item"><span class="icon">✅</span><div class="item-text"><strong>Kuklinski — 19 pre-written TPs (TP 0.5 → TP 5.4)</strong><div class="note">Extracts by "### TP X.X" header. All phases covered: Onboarding → Discovery → Momentum → Pre-Departure → Voyage → Return.</div></div></div>
+      <div class="item"><span class="icon">✅</span><div class="item-text"><strong>gmail_create_draft_sync()</strong> — creates draft in d2mconcierge with Commander-Review label</div></div>
+      <div class="item"><span class="icon">⚠️</span><div class="item-text"><strong>DeepSeek fallback composition</strong> — wired but untested<div class="note">Fires when no pre-written email found. Needs a live trigger to verify.</div></div></div>
+      <div class="item"><span class="icon">❌</span><div class="item-text"><strong>McLeod — no pre-written drafts doc</strong><span class="tag">Build 1</span><div class="note">27 TPs. All TRIGGER_EMAIL tasks will fall to DeepSeek or fail.</div></div></div>
+      <div class="item"><span class="icon">❌</span><div class="item-text"><strong>Loucks — no pre-written drafts doc</strong><span class="tag">Build 1</span><div class="note">22 TPs. Same gap.</div></div></div>
+    </div>
+  </div>
+
+  <!-- L5 -->
+  <div class="layer open">
+    <div class="layer-header" onclick="toggle(this)">
+      <span class="layer-num">LAYER 5</span>
+      <span class="layer-title">Price Research / ARC Dispatch</span>
+      <span class="layer-badge badge-partial">PARTIAL</span>
+    </div>
+    <div class="layer-body">
+      <div class="item"><span class="icon">✅</span><div class="item-text"><strong>arc_price_dispatcher.py</strong> — 34.2K, real scraper calls (Skiplagged, Kayak, Centrav, GYG, Kiwitaxi)</div></div>
+      <div class="item"><span class="icon">✅</span><div class="item-text"><strong>Kuklinski ARC1-A + ARC1-B</strong> — air (RIC→PTY, RSW→PTY, FLL return) + Panama City + FLL hotel</div></div>
+      <div class="item"><span class="icon">✅</span><div class="item-text"><strong>Kuklinski ARC2-A + ARC2-B</strong> — 5 ports (Cartagena, Colon, Aruba, Bonaire, St. Maarten), 6 pax</div></div>
+      <div class="item"><span class="icon">✅</span><div class="item-text"><strong>Kuklinski ARC3-A + ARC3-B</strong> — 3 transfer segments (PTY airport→hotel, hotel→pier, FLL port→airport)</div></div>
+      <div class="item"><span class="icon">⚠️</span><div class="item-text"><strong>Centrav session</strong> — needs one manual reCAPTCHA login, then auto-refreshes<span class="tag">Build 4</span><div class="note">Skiplagged + Kayak run without it. Centrav unlocks B2B net fares.</div></div></div>
+      <div class="item"><span class="icon">❌</span><div class="item-text"><strong>McLeod — 0 ARC TPs have params</strong><span class="tag">Build 2</span></div></div>
+      <div class="item"><span class="icon">❌</span><div class="item-text"><strong>Loucks — 0 ARC TPs have params</strong><span class="tag">Build 2</span></div></div>
+      <div class="item"><span class="icon">❌</span><div class="item-text"><strong>ARC4 (dining) — no scraper, no params</strong><div class="note">Viking dining portal — no public API. Manual only until portal scraper built.</div></div></div>
+    </div>
+  </div>
+
+  <!-- L6 -->
+  <div class="layer open">
+    <div class="layer-header" onclick="toggle(this)">
+      <span class="layer-num">LAYER 6</span>
+      <span class="layer-title">Research Execution (async)</span>
+      <span class="layer-badge badge-gap">GAP</span>
+    </div>
+    <div class="layer-body">
+      <div class="item"><span class="icon">✅</span><div class="item-text"><strong>OpenCode daemon LIVE</strong> — Watcher V7 (inotify) watching opencode_inbox.md, Restart=always<div class="note">Fixed: changed --print to run. Confirmed: opencode run completes file write tasks. Fires within 45s of inbox change.</div></div></div>
+      <div class="item"><span class="icon">⚠️</span><div class="item-text"><strong>WEEKLY_REPORT_DUE</strong> — detected and posted to wing_comms, but nobody executes<div class="note">Resolves when OpenCode daemon is live.</div></div></div>
+      <div class="item"><span class="icon">⚠️</span><div class="item-text"><strong>RESEARCH tasks (non-ARC)</strong> — same: wing_comms only, no executor<div class="note">ARC tasks auto-dispatch. Non-ARC timeline TPs (enrichment, visa, docs) still manual.</div></div></div>
+    </div>
+  </div>
+
+  <!-- L7 -->
+  <div class="layer">
+    <div class="layer-header" onclick="toggle(this)">
+      <span class="layer-num">LAYER 7</span>
+      <span class="layer-title">Commander Approval (by design — permanent)</span>
+      <span class="layer-badge badge-design">BY DESIGN</span>
+    </div>
+    <div class="layer-body">
+      <div class="item"><span class="icon">🔒</span><div class="item-text"><strong>All client-facing sends require Commander approval</strong> — SO 21 MAR 2026 (WF-17)<div class="note">Non-negotiable. Wing drafts, Commander sends. This is correct.</div></div></div>
+      <div class="item"><span class="icon">🔒</span><div class="item-text"><strong>Financial commitments require Commander</strong> — zero financial authority<div class="note">ARC results presented as options. Commander chooses and books.</div></div></div>
+      <div class="item"><span class="icon">🔒</span><div class="item-text"><strong>New client first contact — Commander owns</strong></div></div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<div class="refresh">
+  Last updated: 2026-04-20 03:05 MT ·
+  <a href="/autonomy_status.html" style="color:#444;">Refresh</a> ·
+  Thunderbird Wing — Dreams2Memories Travel, LLC
+</div>
+
+<script>
+function toggle(header) {
+  header.parentElement.classList.toggle('open');
+}
+</script>
+</body>
+</html>

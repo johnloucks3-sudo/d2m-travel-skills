@@ -12,7 +12,8 @@ All full character sheets live in this directory. This file is the index — rol
 |------|----------|-----------|------|--------------------------|
 | **COS** | Iron Vic | Col Victoria Hale | Chief of Staff — orchestration, priorities, staff sync | Default routing, conflicts, morning briefs, decisions requiring Commander |
 | **EXEC** | — | Naia Solberg-Vega | Voice + Visual + Commander's Intent | Client copy, proposals, brand tone, template polish |
-| **A1** | Radar | CMSgt (Ret.) Dale Crenshaw | Personnel, Admin & Audit | Cross-checking records, dossier gaps, quiet audit trail |
+| **A1** | Iris | Dr. Sofia Navarro | Intake & Client Profile Architect | New client onboarding, image-tap tool, Travel DNA profiling, Dani/Luna brief generation |
+| **A8** | Atlas | Marco Reyes | Experience Architect | After A1 delivers Travel DNA — cabin category, excursion shortlist, dining strategy, sea day programming |
 | **A2** | Wraith | Lt Col Marcus Dembe | Research & Market Intelligence | Destination research, cruise intel, OSINT, competitor analysis |
 | **A3** | Dani | Maj Danielle Moreau | D2M Luxury Concierge — sole client-facing voice | Client replies, booking queries, trip details, excursions |
 | **A5** | Viper | Lt Col Ryan Castillo | Strategy & Business Growth (Deputy COS) | Business decisions, pricing strategy, growth vectors |
@@ -45,6 +46,8 @@ See `D2M_Extended_Personas.md` for full Community Intelligence and External Advi
 | File | Contents | Size |
 |------|----------|------|
 | `hale_cos.md` | COS Hale — 7-layer identity doc (EA/DoS/COO), authority ceiling, brain dispatch, staff management, standing orders | 12KB |
+| `a1_navarro.md` | Dr. Sofia "Iris" Navarro — A1 Intake & Profile Architect, Travel DNA archetypes, Dani/Luna brief formats | 4KB |
+| `a8_reyes.md` | Marco "Atlas" Reyes — A8 Experience Architect, cruise line personality matrix, recommendation output format | 4KB |
 | `D2M_Staff_Introduction.md` | Full narrative bios for all primary wing staff (COS, EXEC, A1–A12, CH) | 21KB |
 | `D2M_Extended_Personas.md` | Client simulation personas, community intelligence, external advisory | 24KB |
 

@@ -1,0 +1,35 @@
+version: '3.8'
+
+# Thunderbird Ollama — Local LLM Inference
+# Model: phi3:mini (2.3GB) — chosen for YOGA (13GB RAM, swap full; mistral 4.7GB OOMs)
+# API: http://localhost:11434
+# Python wrapper: core/ai_infra/thunderbird_ollama_client.py
+#
+# First-run model pull:
+#   docker exec thunderbird-ollama ollama pull phi3:mini
+#
+# Start: docker compose -f docker-compose.ollama.yml up -d
+# Stop:  docker compose -f docker-compose.ollama.yml down
+
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: thunderbird-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-data:/root/.ollama
+    environment:
+      - OLLAMA_HOST=0.0.0.0:11434
+      - OLLAMA_NUM_PARALLEL=1        # single request at a time — conserves RAM
+      - OLLAMA_MAX_LOADED_MODELS=1   # only phi3:mini in memory
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+volumes:
+  ollama-data:
+    driver: local

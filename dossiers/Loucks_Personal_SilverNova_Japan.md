@@ -132,6 +132,9 @@ relationship: commander
 **Mar 24 — John Loucks** (Re: Fwd: Your visit)
 > 2026-03-24 — Commander forwarded family email re: OC logistics. (1) ROOM REQUEST: West-facing room at Marriott Bayview to avoid Jamboree/Bristol traffic noise — high floor preferred (per Gregory Loucks, local). (2) TRANSPORT UPDATE: Uber from SNA to Marriott on Apr 10; Karen Loucks will deliver family Subaru at hotel; Elias (Gregory's driver) will pick up John & Susan at Gregory's house at 2:30 PM Apr 13 for LAX. (3) FAMILY CONTACTS: Gregory Loucks <greg.loucks@me.com>, Karen Loucks <karen.loucks@me.com> — OC-based.
 
+**Apr 20 — Jada** (Re: Re: Cancellation - PE151557101 / HL855855)
+> **2026-04-20 MEDICAL EMERGENCY** — Susan Loucks hospitalized 3 times in past 2 weeks. John initiated emergency cancellation of shared transfer PE151557101 (Hilton Odaiba→Harumi Port, Apr 23 10:30 AM, 4-pax, $0 cost) via Project Expedition. Refund confirmed (full refund, 5-7 day processing). **CRUISE STATUS UNKNOWN** — Silver Nova 566910-25 (Apr 23 embarkation, $10.8K) not yet confirmed cancelled or proceeding; determination drives cascade of remaining bookings. If cancelled: Hilton Tokyo Odaiba (¥424K, free cancel deadline **PASSED** Apr 18 11:59 PM), JAL HNL→HND Business ($4,093.60, seats 6G/6D), Southwest SEA→DEN ($147.80 + 12K RR pts). Allianz Annual Premier $15K policy may cover medical cancellation if rider active. NOTE: Westbrook family (shared transfer) separately cancelled Silver Nova (566904-25) Apr 20; transfer now affects only Loucks if cruise proceeds (2 pax instead of 4). **ACTION REQUIRED**: Confirm cruise status immediately with John (719-291-0742); all rebooking and cascade decisions dependent on this determination.
+
 ---
 
 ---
@@ -1887,3 +1890,17 @@ Status changes since Mar 24 validation:
 ---
 
 **Validation complete — Ready for client execution. All gaps identified, costed, and assigned to owner with deadline.**
+
+
+### OPEN ACTION ITEMS
+- [ ] Call John Loucks (719-291-0742) URGENT — confirm Silver Nova 566910-25 status (cancelled or proceeding) by EOD Apr 20 (auto-intel Apr 20)
+
+- [ ] Update dossier with medical emergency note, cascade decision tree, and refund/claim tracking (auto-intel Apr 20)
+
+- [ ] Track Project Expedition refund PE151557101 via https://www.projectexpedition.com/purchase/receipt/PE151557101?q=eb06d3d914607d72c50d4e393f5aacc6 (status ETA 5-7 days from Apr 20) (auto-intel Apr 20)
+
+- [ ] File Allianz Annual Premier medical claim (policy $15K, trip $22.6K value, issue date/effective TBD) — require hospitalisation discharge summaries or physician letter (auto-intel Apr 20)
+
+- [ ] If cruise cancelled: Initiate Hilton Tokyo cancellation (note: past free cancellation deadline Apr 18 11:59 PM local; may lose ¥424K), request JAL refund (Conf 1312144232753, policy TBD), request Southwest refund (Conf ASC3LX, policy TBD) (auto-intel Apr 20)
+
+- [ ] If cruise proceeding: Source 2-person replacement transfer Hilton→Harumi, Apr 23 10:30 AM (priority: medical case, request flexible rebooking window); confirm Hilton Tokyo Odaiba (Conf #3337550400) still active (auto-intel Apr 20)

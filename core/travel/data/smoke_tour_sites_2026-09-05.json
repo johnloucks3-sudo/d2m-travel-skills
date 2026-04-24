@@ -1,0 +1,71 @@
+{
+  "tested_at": "2026-04-17T20:40:40.546291",
+  "results": [
+    {
+      "site": "viator",
+      "url": "https://www.viator.com/Lisbon/d538-ttd",
+      "status": "ambiguous",
+      "real_results_found": false,
+      "bot_indicator_found": null,
+      "result_count_estimate": 0,
+      "screenshot": "/home/john/Thunderbird/core/travel/data/smoke_viator_2026-09-05.png",
+      "page_title": "viator.com",
+      "notes": "No bot indicators found, but no known result selectors matched. Check screenshot."
+    },
+    {
+      "site": "getyourguide",
+      "url": "https://www.getyourguide.com/lisbon-l42/",
+      "status": "ambiguous",
+      "real_results_found": false,
+      "bot_indicator_found": null,
+      "result_count_estimate": 0,
+      "screenshot": "/home/john/Thunderbird/core/travel/data/smoke_getyourguide_2026-09-05.png",
+      "page_title": "The BEST Lisbon Tours and Things to Do in 2026 - FREE Cancellation | GetYourGuide",
+      "notes": "No bot indicators found, but no known result selectors matched. Check screenshot."
+    },
+    {
+      "site": "klook",
+      "url": "https://www.klook.com/en-US/search/?query=lisbon+tours",
+      "status": "ambiguous",
+      "real_results_found": false,
+      "bot_indicator_found": null,
+      "result_count_estimate": 0,
+      "screenshot": "/home/john/Thunderbird/core/travel/data/smoke_klook_2026-09-05.png",
+      "page_title": "klook.com",
+      "notes": "No bot indicators found, but no known result selectors matched. Check screenshot."
+    },
+    {
+      "site": "tourradar",
+      "url": "https://www.tourradar.com/d/portugal",
+      "status": "ok",
+      "real_results_found": true,
+      "bot_indicator_found": null,
+      "result_count_estimate": 7,
+      "screenshot": "/home/john/Thunderbird/core/travel/data/smoke_tourradar_2026-09-05.png",
+      "page_title": "10 Best Portugal Tours & Trips 2026/2027 - TourRadar",
+      "notes": "Selector '.tour-card' matched 7 elements"
+    },
+    {
+      "site": "tiqets",
+      "url": "https://www.tiqets.com/en/lisbon-attractions-c63751/",
+      "status": "ambiguous",
+      "real_results_found": false,
+      "bot_indicator_found": null,
+      "result_count_estimate": 0,
+      "screenshot": "/home/john/Thunderbird/core/travel/data/smoke_tiqets_2026-09-05.png",
+      "page_title": "Best Things to Do in Colombia | Activities, Attractions & More",
+      "notes": "No bot indicators found, but no known result selectors matched. Check screenshot."
+    },
+    {
+      "site": "headout",
+      "url": "https://www.headout.com/lisbon/",
+      "status": "ambiguous",
+      "real_results_found": false,
+      "bot_indicator_found": null,
+      "result_count_estimate": 0,
+      "screenshot": "/home/john/Thunderbird/core/travel/data/smoke_headout_2026-09-05.png",
+      "page_title": "",
+      "notes": "No bot indicators found, but no known result selectors matched. Check screenshot."
+    }
+  ]
+}

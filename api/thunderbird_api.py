@@ -125,7 +125,8 @@ from starlette.responses import JSONResponse as StarletteJSONResponse
 class BearerTokenMiddleware(BaseHTTPMiddleware):
     """Enforce Authorization: Bearer <token> on all endpoints except /health."""
 
-    EXEMPT_PATHS = {"/api/health", "/docs", "/openapi.json", "/redoc", "/.well-known/agent.json"}
+    EXEMPT_PATHS = {"/api/health", "/docs", "/openapi.json", "/redoc", "/.well-known/agent.json",
+                    "/api/travel-dna/interpret"}
 
     async def dispatch(self, request: Request, call_next):
         path = request.url.path.rstrip("/")
@@ -1396,6 +1397,94 @@ async def api_health_summary(x_api_key: str = Header(None)):
     from thunderbird_health import get_full_health, get_health_summary
     health = get_full_health()
     return {"status": health["overall"], "summary": get_health_summary(health)}
+
+
+# ============================================================================
+# TRAVEL DNA — PUBLIC INTERPRET ENDPOINT
+# No auth required — called from browser by the onboarding tool.
+# ============================================================================
+
+@app.options("/api/travel-dna/interpret")
+async def travel_dna_preflight():
+    """CORS preflight for Travel DNA endpoint."""
+    from starlette.responses import Response
+    return Response(headers={
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type",
+    })
+
+
+@app.post("/api/travel-dna/interpret")
+async def travel_dna_interpret(request: Request):
+    """
+    Interpret free-text travel write-ins and return archetype score adjustments.
+    Public — no auth required. Called from the Travel DNA onboarding HTML tool.
+
+    Body:  { "writes": { "excursions": "text", "flight": "text", ... } }
+    Reply: { "ok": true, "adjustments": { "RE": 0.5, "CC": 1.5, ... } }
+    """
+    _CORS = {"Access-Control-Allow-Origin": "*"}
+
+    body = await request.json()
+    writes = body.get("writes", {})
+    zero = {k: 0.0 for k in ["RE", "AP", "CC", "LM", "SA", "CV", "AF", "SS"]}
+
+    active = {k: v.strip() for k, v in writes.items() if v and v.strip()}
+    if not active:
+        return JSONResponse({"ok": True, "adjustments": zero}, headers=_CORS)
+
+    categories_text = "\n".join(f"- {cat}: {text}" for cat, text in active.items())
+
+    system = """You are a luxury travel psychologist analyzing client travel preferences.
+Score how well each of 8 travel archetypes fits the client's free-text descriptions.
+
+Archetypes:
+RE (Romantic Escapist) — intimate, slow, sensory, candlelit, private, couple-focused
+AP (Adventure Purist) — physical, active, off-map, story-driven, exploratory
+CC (Cultural Connoisseur) — museums, history, local food, language, intellectual depth
+LM (Luxury Minimalist) — effortless service, precision, quiet, curated, no excess
+SA (Social Architect) — energetic, group-centered, shows, big tables, social catalyst
+CV (Contemplative Voyager) — reflective, sea days, meaning-seeking, solitude, unhurried
+AF (Aspirational First-Timer) — grand moments, first-time wonder, wants guidance, wide-eyed
+SS (Seasoned Sophisticate) — comparison-ready, insider access, particular standards, been there
+
+Return ONLY valid JSON. No text outside the JSON object.
+Format: {"RE":0,"AP":0,"CC":0,"LM":0,"SA":0,"CV":0,"AF":0,"SS":0}
+Each score 0–3: 0=no signal, 1=slight, 2=clear, 3=strong. Most should be 0–1."""
+
+    user_msg = f"Client preferences by category:\n{categories_text}\n\nReturn JSON scores only."
+
+    try:
+        import openai
+        from dotenv import load_dotenv
+        load_dotenv(THUNDERBIRD_DIR / ".env")
+        or_key = os.environ.get("OPENROUTER_API_KEY", "")
+        or_client = openai.OpenAI(
+            base_url="https://openrouter.ai/api/v1",
+            api_key=or_key,
+        )
+        resp = or_client.chat.completions.create(
+            model="deepseek/deepseek-chat-v3.1",
+            max_tokens=120,
+            messages=[
+                {"role": "system", "content": system},
+                {"role": "user", "content": user_msg},
+            ],
+        )
+        raw = resp.choices[0].message.content.strip()
+        # Strip markdown code fences if present
+        if raw.startswith("```"):
+            raw = raw.split("```", 2)[1]
+            if raw.startswith("json"):
+                raw = raw[4:]
+        adjustments = json.loads(raw.strip())
+        adjustments = {k: float(adjustments.get(k, 0.0)) for k in zero}
+    except Exception as e:
+        logger.error(f"Travel DNA interpret error: {e}")
+        adjustments = zero
+
+    return JSONResponse({"ok": True, "adjustments": adjustments}, headers=_CORS)
 
 
 # ============================================================================

@@ -96,6 +96,22 @@ class ModelDispatcher:
                 "trainable": False,
                 "status": "VALIDATED_WORKING",
             },
+            # QWEN3.6 — MoE Agentic Coding (Apache 2.0, 35B params, 3B active)
+            "qwen3_6_35b": {
+                "name": "Qwen3.6-35B-A3B (MoE Agentic FREE)",
+                "description": "35B params, only 3B active (MoE). Apache 2.0. Agentic coding on par with models 10x its active size. Added Apr 17 2026.",
+                "cost": "$0.00000008 per token ($0.08 per 1M tokens)",
+                "method": "openrouter",
+                "model_id": "qwen/qwen3-30b-a3b",
+                "priority": 5,
+                "type": "text_reasoning",
+                "context": 131072,
+                "speed": "fast",
+                "capability": "very_high",
+                "trainable": False,
+                "status": "ADDED_APR17_2026",
+                "notes": "MoE — only 3B active params. Use for agentic coding tasks as Grok fallback.",
+            },
             # TIER 3: ULTRA-FREE FALLBACK
             "gemini_2_5_flash_lite": {
                 "name": "Google Gemini 2.5 Flash Lite (ULTRA FREE)",
@@ -544,6 +560,92 @@ class ModelDispatcher:
             "tier": 0,
         }
 
+    def spectrum_analysis(self, prompt, task_id, max_cost=0.02):
+        """Run 9 free models in parallel for multi-perspective luxury travel analysis"""
+        logging.info(f"Starting spectrum analysis with 9 models for task {task_id}")
+        
+        # 5 proven working models for luxury travel multi-perspective analysis
+        expert_models = [
+            ("x-ai/grok-4.1-fast", "Strategic Visionary", "Big picture strategy and market positioning"),
+            ("anthropic/claude-3-haiku", "Data Analyst", "Market data, pricing, and metrics"),
+            ("openai/gpt-4o-mini", "Creative Director", "Innovative experiences and unique offerings"),
+            ("anthropic/claude-3-haiku", "Operations Agent", "Execution and workflow automation"),
+            ("openai/gpt-4o-mini", "Brand Specialist", "Luxury branding and client positioning")
+        ]
+        
+        results = []
+        total_cost = 0.0
+        
+        for model_id, role, specialty in expert_models:
+            expert_prompt = f"""You are {role}, specializing in {specialty} for luxury travel.
+            
+            QUESTION: {prompt}
+            
+            Provide your distinctive professional perspective. Focus on your area of expertise.
+            Be specific, actionable, and consider the 12-persona operational model."""
+            
+            result = self.process_with_openrouter(model_id, expert_prompt, task_id)
+            
+            if result["success"]:
+                cost = result.get("cost", 0)
+                total_cost += cost
+                
+                if total_cost <= max_cost:
+                    results.append({
+                        "role": role,
+                        "specialty": specialty, 
+                        "analysis": result["result"],
+                        "cost": cost,
+                        "model": model_id
+                    })
+                    logging.info(f"✓ {role} perspective complete: ${cost:.6f}")
+                else:
+                    logging.warning(f"Cost limit reached, skipping {role}")
+                    break
+            else:
+                logging.warning(f"✗ {role} failed: {result.get('error', 'Unknown error')}")
+        
+        # Return the multi-perspective results even without Claude MAX synthesis
+        if results:
+            # Create a simple synthesis using one of the working models
+            synthesis_prompt = f"""Combine these expert perspectives into a cohesive summary:
+            
+            QUESTION: {prompt}
+            
+            EXPERT PERSPECTIVES:
+            {chr(10).join([r['role'] + ': ' + r['analysis'][:500] + '...' for r in results])}
+            
+            Provide a brief executive summary combining the key insights."""
+            
+            # Use GPT-4o mini for synthesis instead of Claude MAX
+            synth_result = self.process_with_openrouter('openai/gpt-4o-mini', synthesis_prompt, task_id)
+            
+            if synth_result["success"]:
+                return {
+                    "success": True,
+                    "result": synth_result["result"],
+                    "model": "5-Model Spectrum Analysis",
+                    "total_cost": total_cost + synth_result.get("cost", 0),
+                    "perspectives": results,
+                    "synthesis_model": "GPT-4o Mini"
+                }
+            else:
+                # Return raw perspectives if synthesis fails
+                combined = "\n".join([f"## {r['role']}:\n{r['analysis']}\n" for r in results])
+                return {
+                    "success": True,
+                    "result": f"MULTI-MODEL PERSPECTIVES:\n\n{combined}",
+                    "model": "5-Model Spectrum (Raw Perspectives)",
+                    "total_cost": total_cost,
+                    "perspectives": results
+                }
+        
+        return {
+            "success": False,
+            "error": "Spectrum analysis failed - no perspectives generated",
+            "total_cost": total_cost
+        }
+
 
 import argparse
 
@@ -594,6 +696,96 @@ def main():
         print(f"Error: {result.get('error')}")
 
     return 0 if result["success"] else 1
+
+
+def spectrum_analysis(self, prompt, task_id, max_cost=0.02):
+    """Run 9 free models in parallel for multi-perspective luxury travel analysis"""
+    logging.info(f"Starting spectrum analysis with 9 models for task {task_id}")
+    
+    # 9 specialized models for luxury travel multi-perspective analysis
+    expert_models = [
+        ("x-ai/grok-4.1-fast", "Strategic Visionary", "Big picture strategy and market positioning"),
+        ("google/gemini-3.1-flash-lite", "Data Analyst", "Market data, pricing, and metrics"),
+        ("meta-llama/llama-4-maverick", "Creative Director", "Innovative experiences and unique offerings"),
+        ("qwen/qwen3-30b-a3b", "Operations Agent", "Execution and workflow automation"),
+        ("openai/gpt-4.1-mini", "Brand Specialist", "Luxury branding and client positioning"),
+        ("google/gemini-2.5-flash-lite", "Efficiency Expert", "Cost optimization and resource allocation"),
+        ("anthropic/claude-3-haiku", "Communication Coach", "Client relations and persona alignment"),
+        ("mistralai/mistral-small", "Tactical Planner", "Short-term execution and tactics"),
+        ("cohere/command-r-plus", "Narrative Architect", "Storytelling and experience design")
+    ]
+    
+    results = []
+    total_cost = 0.0
+    
+    for model_id, role, specialty in expert_models:
+        expert_prompt = f"""You are {role}, specializing in {specialty} for luxury travel.
+        
+        QUESTION: {prompt}
+        
+        Provide your distinctive professional perspective. Focus on your area of expertise.
+        Be specific, actionable, and consider the 12-persona operational model."""
+        
+        result = self.process_with_openrouter(model_id, expert_prompt, task_id)
+        
+        if result["success"]:
+            cost = result.get("cost", 0)
+            total_cost += cost
+            
+            if total_cost <= max_cost:
+                results.append({
+                    "role": role,
+                    "specialty": specialty, 
+                    "analysis": result["result"],
+                    "cost": cost,
+                    "model": model_id
+                })
+                logging.info(f"✓ {role} perspective complete: ${cost:.6f}")
+            else:
+                logging.warning(f"Cost limit reached, skipping {role}")
+                break
+        else:
+            logging.warning(f"✗ {role} failed: {result.get('error', 'Unknown error')}")
+    
+    # Synthesize with Claude MAX
+    if results:
+        synthesis_prompt = f"""SYNTHESIZE 9 EXPERT PERSPECTIVES FOR LUXURY TRAVEL
+        
+        As Chief of Staff for a luxury travel agency with 12 specialized personas, 
+        synthesize these expert analyses into one cohesive, actionable strategy.
+        
+        QUESTION: {prompt}
+        
+        EXPERT PERSPECTIVES:
+        
+        {chr(10).join([r['role'] + ' (' + r['specialty'] + '): ' + r['analysis'] for r in results])}
+        
+        Provide the ultimate refined strategy that:
+        1. Incorporates the strongest insights from each specialist
+        2. Leverages our 12-persona operational advantage  
+        3. Delivers luxury client experiences
+        4. Outperforms single-model approaches like Claude Opus
+        5. Is executable immediately
+        
+        Focus on how multiple free models create superior results versus expensive single models."""
+        
+        max_result = self.process_with_claude_max(synthesis_prompt, task_id)
+        
+        if max_result["success"]:
+            return {
+                "success": True,
+                "result": max_result["result"],
+                "model": "9-Model Spectrum + Claude MAX Synthesis",
+                "total_cost": total_cost,
+                "perspectives": results,
+                "synthesis_cost": 0.0  # Claude MAX is $0 via OAuth
+            }
+    
+    return {
+        "success": False,
+        "error": "Spectrum analysis failed",
+        "total_cost": total_cost
+    }
 
 
 if __name__ == "__main__":

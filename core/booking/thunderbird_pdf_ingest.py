@@ -15,11 +15,38 @@ import urllib.request
 from pathlib import Path
 from datetime import datetime
 
+# Docling — preferred extractor (structured markdown output, better table/layout parsing)
 try:
-    from pdfminer.high_level import extract_text
+    from docling.document_converter import DocumentConverter as _DoclingConverter
+    _DOCLING_CONVERTER = _DoclingConverter()
+    DOCLING_OK = True
+except Exception:
+    DOCLING_OK = False
+    _DOCLING_CONVERTER = None
+
+# pdfminer — fallback if Docling unavailable
+try:
+    from pdfminer.high_level import extract_text as _pdfminer_extract
     PDFMINER_OK = True
 except ImportError:
     PDFMINER_OK = False
+
+
+def extract_text(pdf_path) -> str:
+    """Extract text from a PDF. Tries Docling first, falls back to pdfminer."""
+    path_str = str(pdf_path)
+    if DOCLING_OK:
+        try:
+            result = _DOCLING_CONVERTER.convert(path_str)
+            return result.document.export_to_markdown()
+        except Exception as e:
+            pass  # fall through to pdfminer
+    if PDFMINER_OK:
+        return _pdfminer_extract(path_str) or ""
+    raise RuntimeError(
+        "No PDF extractor available. Install docling or pdfminer.six:\n"
+        "  pip install docling\n  pip install pdfminer.six"
+    )
 
 INBOX = Path(__file__).parent / "inbox"
 PROCESSED = INBOX / "processed"

@@ -1,0 +1,112 @@
+[
+  {
+    "id": "A2-2026-04-21-001",
+    "title": "Texas Health Behavioral Health Programs",
+    "source_signal": "[1] Behavioral Health Care | Texas Health Huguley Fort Worth South",
+    "classification": "REJECT",
+    "gap_closed": "none",
+    "thunderbird_component": "n/a",
+    "risk": "n/a",
+    "sss_required": false,
+    "rationale": "Mental health services irrelevant to luxury cruise client experience or enrichment."
+  },
+  {
+    "id": "A2-2026-04-21-002",
+    "title": "Dallas-Fort Worth Behavioral Health",
+    "source_signal": "[2] Behavioral Health in Dallas - Fort Worth | Texas Health Resources",
+    "classification": "REJECT",
+    "gap_closed": "none",
+    "thunderbird_component": "n/a",
+    "risk": "n/a",
+    "sss_required": false,
+    "rationale": "Psychiatric services outside D2M scope; not relevant to cruise intelligence."
+  },
+  {
+    "id": "A2-2026-04-21-003",
+    "title": "Fort Behavioral Health Addiction Treatment",
+    "source_signal": "[3] Fort Behavioral Health - Detox & Residential Addiction Treatment",
+    "classification": "REJECT",
+    "gap_closed": "none",
+    "thunderbird_component": "n/a",
+    "risk": "n/a",
+    "sss_required": false,
+    "rationale": "Addiction treatment irrelevant to client engagement or voyage enrichment."
+  },
+  {
+    "id": "A2-2026-04-21-004",
+    "title": "JPS Center for Behavioral Health Recovery",
+    "source_signal": "[4] JPS Center for Behavioral Health Recovery - | JPS Health Network",
+    "classification": "REJECT",
+    "gap_closed": "none",
+    "thunderbird_component": "n/a",
+    "risk": "n/a",
+    "sss_required": false,
+    "rationale": "Hospital district services unrelated to cruise operations."
+  },
+  {
+    "id": "A2-2026-04-21-005",
+    "title": "Commander X16 About & FAQ",
+    "source_signal": "[9] Commander X16\u2122 About & FAQ",
+    "classification": "REJECT",
+    "gap_closed": "none",
+    "thunderbird_component": "n/a",
+    "risk": "n/a",
+    "sss_required": false,
+    "rationale": "Retro computing platform. Keyword collision on 'Commander' \u2014 zero relevance to D2M."
+  },
+  {
+    "id": "A2-2026-04-21-006",
+    "title": "Commander X16 Community Forum",
+    "source_signal": "[10] Commander X16\u2122 Home - Commander X16\u2122 Community",
+    "classification": "REJECT",
+    "gap_closed": "none",
+    "thunderbird_component": "n/a",
+    "risk": "n/a",
+    "sss_required": false,
+    "rationale": "Vintage computing community; not relevant to travel or client experience."
+  },
+  {
+    "id": "A2-2026-04-21-007",
+    "title": "Commander X16 Gen-2 Hardware Update",
+    "source_signal": "[11] FAQ Update for Gen-2 aka \"CX16GS\" system - Page 4 - Commander X16",
+    "classification": "REJECT",
+    "gap_closed": "none",
+    "thunderbird_component": "n/a",
+    "risk": "n/a",
+    "sss_required": false,
+    "rationale": "Computing hardware specifications outside D2M scope."
+  },
+  {
+    "id": "A2-2026-04-21-008",
+    "title": "Commander X16 Personal Computer Intro",
+    "source_signal": "[12] Introducing Your Commander X16 Personal Computer (brief intro)",
+    "classification": "REJECT",
+    "gap_closed": "none",
+    "thunderbird_component": "n/a",
+    "risk": "n/a",
+    "sss_required": false,
+    "rationale": "Vintage computing platform introduction; not relevant to cruise/travel intelligence."
+  },
+  {
+    "id": "A2-2026-04-21-009",
+    "title": "Commander X16 Emulator Platform",
+    "source_signal": "[13] Commander X16: Experience the Commander X16 Emulator",
+    "classification": "REJECT",
+    "gap_closed": "none",
+    "thunderbird_component": "n/a",
+    "risk": "n/a",
+    "sss_required": false,
+    "rationale": "Retro computing emulator; no relevance to luxury cruise operations."
+  },
+  {
+    "id": "A2-2026-04-21-010",
+    "title": "Commander X16 Historical Computing Perspective",
+    "source_signal": "[14] The X16 (and 6502) a historical perspective - Commander X16",
+    "classification": "REJECT",
+    "gap_closed": "none",
+    "thunderbird_component": "n/a",
+    "risk": "n/a",
+    "sss_required": false,
+    "rationale": "Computing history forum discussion; completely outside travel scope."
+  }
+]

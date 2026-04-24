@@ -83,7 +83,7 @@ def _parse_rate_limits() -> dict:
         "claude":   _extract_field(text, "Claude Sonnet", "UNKNOWN"),
         "groq":     _extract_field(text, "Groq", "UNKNOWN"),
         "deepseek": _extract_field(text, "Deepseek", "UNKNOWN"),
-        "goose":    _extract_field(text, "Goose", "GREEN"),
+        "opencode": _extract_field(text, "OpenCode", "GREEN"),
     }
 
 
@@ -129,12 +129,12 @@ def _build_summary(bb: dict, rl: dict, session: dict) -> str:
     ts = datetime.now(MT).strftime("%Y-%m-%d %H:%M MT")
     lines = [
         f"=== THUNDERBIRD BLACKBOARD [{ts}] ===",
-        f"Budget: Claude {rl['claude']} | Goose {rl['goose']} | Groq {rl['groq']} | Deepseek {rl['deepseek']}",
+        f"Budget: Claude {rl['claude']} | OpenCode {rl['opencode']} | Groq {rl['groq']} | Deepseek {rl['deepseek']}",
         f"Active tasks: {bb['active_tasks']}",
         f"Last Deepseek ruling: {bb['last_ruling']}",
         f"Open items: {session['open_items']}",
         f"Next priority: {session['next_priorities']}",
-        f"Standing: Goose=Commander authority | Deepseek=arbitrator | PII fence: Deepseek/Groq",
+        f"Standing: Claude=judgment | OpenCode=ops | Deepseek=arbitrator | PII fence: Deepseek",
         f"Session checkpoint: {SESSION}",
         f"Full blackboard: {BLACKBOARD}",
         "================================================",

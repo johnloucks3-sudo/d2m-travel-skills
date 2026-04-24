@@ -1,0 +1,46 @@
+[
+  {
+    "id": "A2-2026-04-18-001",
+    "title": "arXiv Research Archive",
+    "source_signal": "[1] arXiv.org e-Print archive",
+    "classification": "REJECT",
+    "gap_closed": "N/A \u2014 meta-signal, not a research finding",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "This is a repository description, not a specific research finding. Cannot classify tool descriptions \u2014 only actionable research with clear scope."
+  },
+  {
+    "id": "A2-2026-04-18-002",
+    "title": "Google Scholar Search Tool",
+    "source_signal": "[2] Google Scholar",
+    "classification": "REJECT",
+    "gap_closed": "N/A \u2014 meta-signal, not a research finding",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Tool description only. No actionable signal extracted. Route back to incubator with full paper abstracts or research summaries, not tool names."
+  },
+  {
+    "id": "A2-2026-04-18-003",
+    "title": "Crossmodal Memory & Episodic Systems",
+    "source_signal": "[3] Crossmodal semantics in memory: Scoping review and meta-analyses",
+    "classification": "WATCH",
+    "gap_closed": "Cross-transaction memory compounding \u2014 how clients remember prior trips in relation to current options",
+    "thunderbird_component": "thunderbird_recipient_profiles.py + thunderbird_dani_voice.py \u2014 episodic memory injection for personalization",
+    "risk": "MED",
+    "sss_required": false,
+    "rationale": "30-year scoping review on memory systems has theoretical value for Dani's behavioral modeling. Incomplete snippet \u2014 needs full paper to assess applicability to booking sequences. Revisit if abstract shows concrete memory encoding patterns transferable to CRM."
+  },
+  {
+    "id": "A2-2026-04-18-004",
+    "title": "Cultural Variations in Human-AI Engagement",
+    "source_signal": "[4] Cultural Variations in Human-AI Partnership: Initial Cross-Cultural...",
+    "classification": "WATCH",
+    "gap_closed": "Behavioral preference inference \u2014 how cultural background shapes client expectations of AI concierge voice and communication style",
+    "thunderbird_component": "thunderbird_dani_voice.py + thunderbird_recipient_profiles.py \u2014 voice model diversity by client origin",
+    "risk": "MED",
+    "sss_required": true,
+    "rationale": "Recent validation of measurement tool for human-AI engagement. Strong potential for Dani voice calibration across client demographics. Truncated description \u2014 full paper needed. SSS required if we build cultural voice variants (client-facing change)."
+  }
+]

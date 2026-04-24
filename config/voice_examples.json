@@ -8,15 +8,15 @@
       "d2mconcierge@gmail.com"
     ],
     "days_back": 400,
-    "total_examples": 1019,
+    "total_examples": 1049,
     "by_tier": {
-      "personal": 254,
-      "client": 192,
+      "personal": 270,
+      "client": 193,
       "vendor": 46,
-      "internal": 522,
-      "family": 5
+      "internal": 534,
+      "family": 6
     },
-    "last_sync": "2026-04-17T02:32:04.057365"
+    "last_sync": "2026-04-23T02:33:03.394918"
   },
   "examples": [
     {
@@ -1367,6 +1367,33 @@
       "to": "NOT-a868376e-0553-4ba0-876e-846424f52911@expmessaging.tripadvisor.com",
       "date": "Thu, 16 Apr 2026 14:50:54 -1000",
       "body": "I will be arriving at Kyoto station at 09:45 via the Shinkansen from\nTokyo.  I would like to be picked up at Kyoto Station, but can meet\nanywhere close.\nThanks\nJohn\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 5
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Welcome Aboard — Your Viking Mars Panama Canal Voyage, Dec 17–27",
+      "to": "\"Kyle.Kuklinski@gmail.com\" <kyle.kuklinski@gmail.com>, Rosalie.Kuklinski@gmail.com, Roger.kuklinski@gmail.com, nikpack@gmail.com, Josh@jerichopix.com, Buzzerica@gmail.com",
+      "date": "Fri, 17 Apr 2026 07:37:16 -1000",
+      "body": "Dreams2Memories Travel\n\nLuxury Travel  ·  Personally Curated\n\nDear Kyle, Rosalie, Roger, Dr. Nick Joshua, and Erica,\n\nYour *Viking Mars Panama Canal voyage* is confirmed and fully paid. Welcome\naboard — we're glad to have your group booking with us.\n\nYour Voyage at a Glance\n\n*Ship:* Viking Mars  ·  Viking Ocean Cruises\n\n*Dates:* December 17–27, 2026\n\n*Route:* Panama Canal & Central America\n\n*Embarkation:* Panama City  ·  December 17  ·  3:00 PM\n\n*Disembarkation:* Port Everglades  ·  December 27  ·  5:00 AM\n\n*Group:* 6 guests  ·  3 suites  ·  Fully paid ($21,244)\n\nOver the coming weeks and months, we'll be sending you suggestions for\nflights, hotels, and excursions. Please contact me in the meantime if you\nhave any questions.\n\nThanks,\n\nJohn Loucks\n\nOwner  ·  Dreams2Memories Travel, LLC\n\n719-291-0742 | d2mconcierge@gmail.com\n\nDREAMS2MEMORIES TRAVEL, LLC  ·  d2mluxury.quest",
+      "score": 5
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "PE151557101 / HL855855",
+      "to": "\"support@projectexpedition.com\" <support@projectexpedition.com>",
+      "date": "Mon, 20 Apr 2026 07:14:53 +0900",
+      "body": "Good morning, please cancel the above Transfer number. Here are the details\nof the booking:\n\nHilton Odaiba → Harumi Port\n\n  - Booking: Project Expedition PE151557101\n                            - Vendor: Heycars-Asia (via HolidayTaxis/HBX\nGroup)\n  - Cancel via: https://pe.tours/manage\n                                    - Cancel policy: Full refund if\ncanceled before Apr 21 10:30 AM Tokyo time\n  - Vendor contact: support@projectexpedition.com · +1 855-782-3006\n       - Local operator: +86 2882075832\n\nI am writing to you because this booking was made from an account\npreviously discontinued.  The client's wife has been in hospital 3 times in\nthe past 2 weeks.\n\nThanks\nJohn\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 5
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Silversea Cruise",
+      "to": "Jenna Woodcock <jwoodcock@perx.com>",
+      "date": "Wed, 22 Apr 2026 06:19:58 +0900",
+      "body": "Hi Jenna, thank you for that reassurance. It is sad about Ron not being\nable to attend with us. Promise we will not reveal our particulars to\nanyone. And thank you for your discretion and consideration. John and Susie",
       "score": 5
     },
     {
@@ -2861,6 +2888,51 @@
       "to": "Dreams2Memories <d2mconcierge@gmail.com>",
       "date": "Thu, 16 Apr 2026 08:14:40 -1000",
       "body": "[COS], [A12]: I would like a detailed report on Hermes Agent, especially as\nit related to training agents and agents getting smarter.\nYoda\n\nOn Mon, Apr 13, 2026 at 3:02 AM Meng Li from AI Disruption <\naidisruption@substack.com> wrote:",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: THUNDERBIRD MASTER PLAN — Full Summary Brief",
+      "to": "D2M Concierge <d2mconcierge@gmail.com>",
+      "date": "Fri, 17 Apr 2026 21:35:04 -1000",
+      "body": "COO, PLEASE UPDATE THIS DOCUMENT. we're doing so much better now. Lots more\ngoing on.\nYoda\n\nOn Fri, Apr 17, 2026, 20:14 Victoria Hale, D2M Travel <\nd2mconcierge@gmail.com> wrote:",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: 【April 21】　Kyoto 4hr Private Tour with Government-Licensed Guide",
+      "to": "Sakura Journey Japan <sakura.journey.japan@gmail.com>",
+      "date": "Fri, 17 Apr 2026 07:28:46 -1000",
+      "body": "Hello Yuki, please see below answers: John\n\nOn Fri, Apr 17, 2026 at 3:45 AM Sakura Journey Japan <\nsakura.journey.japan@gmail.com> wrote:\n\nAll 4 of those interest Susie my wife and I\n\nPlease no raw seafood for Susie --I love sushi, ahi, and such\n\nWe would love for you to join us for lunch, I have read some guides do that\nand I would gladly buy your lunch for the enjoyment to have you wih us a\nbit longer. Can you make some suggestions? in a moderate price range Also,\ncan you suggest a rickshaw tour of Gion that is open the 21st? I cannot\nfind any for that day.",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: 【April 21】　Kyoto 4hr Private Tour with Government-Licensed Guide",
+      "to": "Sakura Journey Japan <sakura.journey.japan@gmail.com>",
+      "date": "Mon, 20 Apr 2026 06:10:05 +0900",
+      "body": "Good morning Yuki, thank you for arranging that tour it all sounds great.\nJust so that you can recognize me, I will be wearing an Indiana Jones style\nhat.\n We are very much looking forward to meeting you and seeing this beautiful\ncountry. And of course eating its food.\nJohn and Susie\n\nOn Sun, Apr 19, 2026, 22:12 Sakura Journey Japan <\nsakura.journey.japan@gmail.com> wrote:",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: 【April 21】　Kyoto 4hr Private Tour with Government-Licensed Guide",
+      "to": "Sakura Journey Japan <sakura.journey.japan@gmail.com>",
+      "date": "Tue, 21 Apr 2026 06:17:38 +0900",
+      "body": "Yuki, I changed the plan. I am not going to have the hat, because i want to\ndo some shopping in Kyoto for one. but Suisie will be dressed in a purple\ntop and white slacks. See you  soon.\n\nOn Tue, Apr 21, 2026 at 6:13 AM Sakura Journey Japan <\nsakura.journey.japan@gmail.com> wrote:",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[HALE BRIEF] Autonomy Plan + Dependency Check — 2026-04-20",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 20 Apr 2026 01:58:24 -0700",
+      "body": "Dreams2Memories Travel Curating the voyage of your lifetime Dependency check: Gmail API OK, Pre-written emails OK, OpenCode daemon OFFLINE. Revised stack: pure Python inbox_executor.py at 06:05 + DeepSeek API + Telegram. No Claude in the loop. Build 1 = inbox_executor.py. Build 2 = ARC params before Jun 17. Reply to approve. John Loucks Owner & Founder, Dreams2Memories Travel, LLC concierge@d2mluxury.quest · d2mluxury.quest D2M Dreams2Memories Travel, LLC D 2 M Dreams2Memories Travel, LLC concierge@d2mluxury.quest d2mluxury.quest © 2026 Dreams2Memories Travel, LLC · Colorado Springs, CO",
       "score": 4
     },
     {
@@ -7842,6 +7914,177 @@
     },
     {
       "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: 【April 21】　Kyoto 4hr Private Tour with Government-Licensed Guide",
+      "to": "Sakura Journey Japan <sakura.journey.japan@gmail.com>",
+      "date": "Fri, 17 Apr 2026 19:45:06 -1000",
+      "body": "Good evening Yuki, I did look on the rickshaw website that you sent and\nlooking again I do not see any availability for the 21st of April. If\nhowever you can secure a 70 minute rickshaw tour for the two of us, we\nwould take it, towards the end of our time together. That's for a\nrestaurant, as I said before Susie does not eat raw seafood, we do like\ntonkatsu and katsuda have had that before last time we were in Japan in\nGinza 6. And I read a little bit about kaiseki?  I would ask you to pick\nthe restaurant. So please let me know if there is availability for a\nrickshot tour for 70 minutes toward the end of our time and I will go to\nthe website and make a reservation.\nJohn\n\nOn Fri, Apr 17, 2026, 19:33 Sakura Journey Japan <\nsakura.journey.japan@gmail.com> wrote:",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS HALE] D2M Client Lifecycle — Canonical Framework Locked · 3 Voyages · 73 Touchpoints",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 17 Apr 2026 12:09:27 -0700",
+      "body": "D2M Client Lifecycle — HEART OF THE BUSINESS COS Report · Col Victoria Hale · 2026-04-17 Commander — Canonical lifecycle framework locked and coded. Three production voyages. 73 touchpoints. All timers armed. Summary below. Documents Produced Document Location TPs Canonical 23-TP Framework Memory: reference_canonical_lifecycle_touchpoints.md 23 KUKLINSKI — Viking Mars Panama Canal · Dec 17–27, 2026 Lifecycle Plan D2M/lifecycle/Kuklinski_Viking_Panama_Lifecycle.md 16 Touchpoints JSON D2M/clients/kuklinski_touchpoints.json 24 (incl arcs) Email Drafts (all TPs) output/Drafts_for_Client_Lifecycle_Engagement.md 16 emails LOUCKS — Regent Grandeur Panama Canal · Dec 29 – Jan 14, 2027 Lifecycle Plan D2M/lifecycle/Loucks_Grandeur_PanamaPacific_Lifecycle.md 22 Touchpoints JSON D2M/clients/loucks_regent_touchpoints.json 22 Email Drafts (all TPs) output/Loucks_Regent_Lifecycle_Engagement.md 22 emails McLEOD — Regent Grandeur Lesser Antilles · Dec 19–29, 2026 Lifecycle Plan D2M/lifecycle/McLeod_Grandeur_LesserAntilles_Lifecycle.md 27 Touchpoints JSON D2M/clients/mcleod_lesser_antilles_touchpoints.json 27 Email Drafts (all TPs) output/McLeod_LesserAntilles_Lifecycle_Engagement.md 27 emails Automation Lifecycle Scheduler: D2M/d2m_lifecycle_scheduler.py — reads all touchpoint JSONs daily Systemd Timer: d2m-lifecycle.timer — fires daily at 0530 MDT Actions: Search window initiations, weekly intel reports (Mondays), portal opening alerts, TP email placement, payment alerts, monthly validations State tracking: state/lifecycle_scheduler_state.json — prevents duplicate firings Key Dates (Next 90 Days) Date Event Client Apr 22 McLeod TP-0.5 Booking Validation McLeod Apr 24 Loucks TP-0.5 Welcome/Validation Loucks Apr 25 McLeod TP-0.6 Insurance Advisory McLeod Apr 30 Loucks TP-0.6 Insurance Review Loucks May 1 McLeod FCC Application + Kuklinski TP-2 Both May 15 Voyage Previews — Loucks + McLeod Both May 23 McLeod excursion portal opens McLeod Jun 2 Loucks excursion portal opens (8pm ET) Loucks Jun 15-17 Airfare deliveries — all 3 clients All Jul 1 McLeod payment reminder #1 McLeod Jul 11 Loucks payment reminder #1 Loucks Jul 22 McLeod FINAL PAYMENT — $12,193.15 McLeod Drive Sync All files are under ~/Thunderbird/ which mirrors nightly at 23:00 to Google Drive (d2mconcierge:Thunderbird_Mirror/). Tonight's sync will capture everything. COO Authority Acknowledged Standing Order 2026-04-17: \"From this point on, I am putting you in charge of day-to-day and week-to-week operations and staff assignments, COO.\" Saved to persistent memory. All staff tasking, search windows, weekly reports, and draft placement now run under COS authority. Financial commits and client sends still require your approval. 73 touchpoints across 3 voyages. Timer armed at 0530 daily. All artifacts in Drive sync path. The Wing is running. — Hale, COS Dreams2Memories Travel, LLC",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[D2M RED] Preflight Check",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 17 Apr 2026 05:50:05 -0700",
+      "body": "Thunderbird Preflight — RED\nTime: 2026-04-17 06:50 MT\n\n✅ MCP Server: Running (PID 1808)\n✅ Scheduler: Running (PID 1794)\n🔴 Telegram C2: NOT RUNNING\n✅ Gmail Token: Valid (has refresh token)\n✅ Persona Token: Valid (has refresh token)\n✅ Disk Space: 839.3 GB free\n✅ TELEGRAM_BOT_TOKEN: Set\n✅ TELEGRAM_COMMANDER_ID: Set\n✅ GROQ_API_KEY: Set\n✅ Internet: Connected\n⚠️ Gemini API: No API key found\n✅ MCP Port 8765: Listening",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: 【April 21】　Kyoto 4hr Private Tour with Government-Licensed Guide",
+      "to": "Sakura Journey Japan <sakura.journey.japan@gmail.com>",
+      "date": "Sat, 18 Apr 2026 07:46:11 -1000",
+      "body": "Hello Yuki, we are departing Honolulu today and will be in the air all\nday.  We will gladly wait for the rickshaw company to contact us, if that\nis what you are suggesting.  As for lunch, we are on a moderate budget so\nlet's experience the Kyoto specialties and not kaiseki.  If you would like\nto make a reservation, that is fine, I would not know where to start.\nHowever, if you have one in mind I could contact them tomorrow, Sunday or\nMonday--one day in advance.  Thank you for paying such close attention to\nthe details for us.  We are also flexible on the rickshaw and if you could\nfigure out a way to accompany us as our guide, we'd love it!\nJohn and Susie\n\nOn Sat, Apr 18, 2026 at 4:07 AM Sakura Journey Japan <\nsakura.journey.japan@gmail.com> wrote:",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[D2M RED] Preflight Check",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 18 Apr 2026 21:20:55 -0700",
+      "body": "Thunderbird Preflight — RED\nTime: 2026-04-18 22:20 MT\n\n✅ MCP Server: Running (PID 1808)\n✅ Scheduler: Running (PID 1794)\n🔴 Telegram C2: NOT RUNNING\n✅ Gmail Token: Valid (has refresh token)\n✅ Persona Token: Valid (has refresh token)\n✅ Disk Space: 822.4 GB free\n✅ TELEGRAM_BOT_TOKEN: Set\n✅ TELEGRAM_COMMANDER_ID: Set\n✅ GROQ_API_KEY: Set\n✅ Internet: Connected\n⚠️ Gemini API: No API key found\n✅ MCP Port 8765: Listening",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[D2M RED] Preflight Check",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 18 Apr 2026 20:49:31 -0700",
+      "body": "Thunderbird Preflight — RED\nTime: 2026-04-18 21:49 MT\n\n✅ MCP Server: Running (PID 1808)\n✅ Scheduler: Running (PID 1794)\n🔴 Telegram C2: NOT RUNNING\n✅ Gmail Token: Valid (has refresh token)\n✅ Persona Token: Valid (has refresh token)\n✅ Disk Space: 822.9 GB free\n✅ TELEGRAM_BOT_TOKEN: Set\n✅ TELEGRAM_COMMANDER_ID: Set\n✅ GROQ_API_KEY: Set\n✅ Internet: Connected\n⚠️ Gemini API: No API key found\n✅ MCP Port 8765: Listening",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[D2M RED] Preflight Check",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 18 Apr 2026 05:50:04 -0700",
+      "body": "Thunderbird Preflight — RED\nTime: 2026-04-18 06:50 MT\n\n✅ MCP Server: Running (PID 1808)\n✅ Scheduler: Running (PID 1794)\n🔴 Telegram C2: NOT RUNNING\n✅ Gmail Token: Valid (has refresh token)\n✅ Persona Token: Valid (has refresh token)\n✅ Disk Space: 823.2 GB free\n✅ TELEGRAM_BOT_TOKEN: Set\n✅ TELEGRAM_COMMANDER_ID: Set\n✅ GROQ_API_KEY: Set\n✅ Internet: Connected\n⚠️ Gemini API: No API key found\n✅ MCP Port 8765: Listening",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "[Shinkansen Reservation Service] QR-Ticket",
+      "to": "John Loucks3 <johnloucks3@gmail.com>",
+      "date": "Mon, 20 Apr 2026 15:06:41 +0900",
+      "body": "Thank you for using this service.\n\nAccess the URL below to obtain QR-Ticket.\n\n*QR-Ticket may not respond to the Shinkansen ticket gate when scanned from\ncertain devices. Please print your QR-Ticket beforehand.\n\nhttps://shinkansen2.jr-central.co.jp/RSV_P/ClientServiceQR-Ticket_S?_encParam\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "[Shinkansen Reservation Service] QR-Ticket",
+      "to": "Susan Loucks <susanna.loucks@gmail.com>",
+      "date": "Mon, 20 Apr 2026 15:06:02 +0900",
+      "body": "Thank you for using this service.\n\nAccess the URL below to obtain QR-Ticket.\n\n*QR-Ticket may not respond to the Shinkansen ticket gate when scanned from\ncertain devices. Please print your QR-Ticket beforehand.\n\nhttps://shinkansen2.jr-central.co.jp/RSV_P/ClientServiceQR-Ticket_S?_encParam\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Your Allianz Claim — Hilton Tokyo Odaiba | Policy E2549991663",
+      "to": "Ronald Westbrook <rwestbrook3@gmail.com>",
+      "date": "Mon, 20 Apr 2026 10:29:08 +0900",
+      "body": "Dreams2Memories Travel, LLC\nLUXURY TRAVEL · CURATED JOURNEYS\n\nRon and Lindy,\n\nI'm so sorry to hear about the medical cancellation. Let's get your Allianz\nclaim started right away — here is everything you need in one place for the\nHilton claim.  Any other claim (the cruise?) You would need to substitute\nthe cruise details.\n\n*Your Policy*\n*Policy type* *Annual Premier — $15,000 per person*\n*Confirmation #* *E2549991663*\n*Coverage period* *Mar 1, 2026 – Mar 1, 2027*\n\n*What You're Claiming*\n*Property* *Hilton Tokyo Odaiba*\n*Booking ref* *33S2013960*\n*Dates* *Apr 22–23, 2026 (1 night)*\n*Amount* *¥73,364 (~$480 USD)*\n*Reason* *Medical — trip cancellation*\n\n*Documents to Gather Before You File*\n\n   1. Hilton booking confirmation showing booking # 33S2013960 and nightly\n   rate\n   2. Proof of payment — credit card statement or receipt showing the charge\n   3. A written statement from your physician confirming the medical\n   condition and that travel was not advisable\n   4. Any cancellation confirmation or refund statement from the Hilton\n   5. Your Allianz policy confirmation (Conf E2549991663 — Allianz has this\n   on file)\n\n*How to File*\n\n*Online (fastest):*\n\nGo to allianztravelinsurance.com/file-a-claim\n<https://www.allianztravelinsurance.com/file-a-claim>, click *File a Claim*,\nand enter your confirmation number *E2549991663*. Select *Trip Cancellation*\nas the claim type and upload your documents.\n\n*By phone:*\n\nCall *1-800-284-8300* — available 24/7. Have your confirmation number and\nbooking details ready. They can open the claim on the call and guide you\nthrough document submission.\n\n*What to Expect*\n\nOnce all documents are submitted, Allianz typically reviews trip\ncancellation claims within *5–10 business days*. Reimbursement comes by\ncheck or direct deposit to the card charged.\n\nRondo, I did not have time to check these amounts, but you can do it.\nPlease don't hesitate to reach out if you hit any snags with the filing\nprocess. I'm here to help.\n\nThanks,\n\n*John*\n\nD2M Luxury Concierge · Dreams2Memories Travel, LLC\n\nconcierge@d2mluxury.quest\nDreams2Memories Travel, LLC · concierge@d2mluxury.quest",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "family",
+      "subject": "Here's a place",
+      "to": "Kim Westbrook <crnakim@yahoo.com>, BRENT WESTBROOK <WESTY737@gmail.com>",
+      "date": "Mon, 20 Apr 2026 10:21:39 +0900",
+      "body": "https://www.aplaceformom.com/community/liberty-heights-93600\n\nNot just \"a place for mom\".  but Plan ZED.  Lindy goes first, followed by\nRondo. They toured this place about 6 months ago.\nJohn\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: CRUISE CANX",
+      "to": "Ronald Westbrook <rwestbrook3@gmail.com>",
+      "date": "Mon, 20 Apr 2026 06:26:58 +0900",
+      "body": "Rondo, please do me a favor just act like Susie and I are still authorized\nto go when you talk to Jenna. Maybe even don't bring us up unless she does.\nWe already have boarding passes we have electronic documentation tickets\nand everything so we are just going to walk on board like we own the place.\nI know you have lots of other things to think about but just take a minute\nbefore you talk to Jenna and figure out how you're going to approach it.\nJohn",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: CRUISE CANX",
+      "to": "Ronald Westbrook <rwestbrook3@gmail.com>",
+      "date": "Mon, 20 Apr 2026 06:12:12 +0900",
+      "body": "Rondo,\n\nYes, I got your WA. I will handle the Japan transport and hotel\ncancellation immediately. Tell Lindy we're sorry about her fall.  The only\nsticky one is from the hotel to the ships since we are traveling with you.\nSo I will see what I can work out with the provider.\n\nJohn",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[D2M RED] Preflight Check",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sun, 19 Apr 2026 05:50:05 -0700",
+      "body": "Thunderbird Preflight — RED\nTime: 2026-04-19 06:50 MT\n\n✅ MCP Server: Running (PID 1808)\n✅ Scheduler: Running (PID 1794)\n🔴 Telegram C2: NOT RUNNING\n✅ Gmail Token: Valid (has refresh token)\n✅ Persona Token: Valid (has refresh token)\n✅ Disk Space: 810.7 GB free\n✅ TELEGRAM_BOT_TOKEN: Set\n✅ TELEGRAM_COMMANDER_ID: Set\n✅ GROQ_API_KEY: Set\n✅ Internet: Connected\n⚠️ Gemini API: No API key found\n✅ MCP Port 8765: Listening",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "Re: [COS] Client: John & Susan Loucks — Re: Cancellation - PE151557101 / HL85585",
+      "to": "D2M Concierge <d2mconcierge@gmail.com>",
+      "date": "Tue, 21 Apr 2026 05:25:48 +0900",
+      "body": "COS, Negative. John Loucks is not cancelled.  Ron Westbrook and Lindy\nWestbrook have cancelled",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[D2M RED] Preflight Check",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 20 Apr 2026 05:50:07 -0700",
+      "body": "Thunderbird Preflight — RED\nTime: 2026-04-20 06:50 MT\n\n✅ MCP Server: Running (PID 1808)\n✅ Scheduler: Running (PID 1794)\n🔴 Telegram C2: NOT RUNNING\n✅ Gmail Token: Valid (has refresh token)\n✅ Persona Token: Valid (has refresh token)\n✅ Disk Space: 809.3 GB free\n✅ TELEGRAM_BOT_TOKEN: Set\n✅ TELEGRAM_COMMANDER_ID: Set\n✅ GROQ_API_KEY: Set\n✅ Internet: Connected\n⚠️ Gemini API: No API key found\n✅ MCP Port 8765: Listening",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: CRUISE",
+      "to": "Ronald Westbrook <rwestbrook3@gmail.com>",
+      "date": "Wed, 22 Apr 2026 07:27:27 +0900",
+      "body": "Rondo, we are praying for the both of you and for the wisdom of your\nmedical team. We will certainly miss you on this trip, but we also wish you\nthe best. See you when we get back\nJohn and Susie",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[D2M RED] Preflight Check",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 21 Apr 2026 08:50:11 -0400",
+      "body": "Thunderbird Preflight — RED\nTime: 2026-04-21 06:50 MT\n\n✅ MCP Server: Running (PID 1808)\n✅ Scheduler: Running (PID 1794)\n🔴 Telegram C2: NOT RUNNING\n✅ Gmail Token: Valid (has refresh token)\n✅ Persona Token: Valid (has refresh token)\n✅ Disk Space: 808.8 GB free\n✅ TELEGRAM_BOT_TOKEN: Set\n✅ TELEGRAM_COMMANDER_ID: Set\n✅ GROQ_API_KEY: Set\n✅ Internet: Connected\n⚠️ Gemini API: No API key found\n✅ MCP Port 8765: Listening",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[D2M RED] Preflight Check",
+      "to": "johnloucks3@gmail.com",
+      "date": "Wed, 22 Apr 2026 05:50:06 -0700",
+      "body": "Thunderbird Preflight — RED\nTime: 2026-04-22 06:50 MT\n\n✅ MCP Server: Running (PID 1808)\n✅ Scheduler: Running (PID 1794)\n🔴 Telegram C2: NOT RUNNING\n✅ Gmail Token: Valid (has refresh token)\n✅ Persona Token: Valid (has refresh token)\n✅ Disk Space: 807.3 GB free\n✅ TELEGRAM_BOT_TOKEN: Set\n✅ TELEGRAM_COMMANDER_ID: Set\n✅ GROQ_API_KEY: Set\n✅ Internet: Connected\n⚠️ Gemini API: No API key found\n✅ MCP Port 8765: Listening",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
       "tier": "internal",
       "subject": "[COS] General: BREAKING:  Most Americans say war in Iran is going",
       "to": "johnloucks3@gmail.com",
@@ -9188,6 +9431,33 @@
       "to": "d2mconcierge@gmail.com",
       "date": "Thu, 16 Apr 2026 08:40:02 -1000",
       "body": "https://www.google.com/search?q=AI+IQ+Soars+and+Costs+Drop+with+Just+One+Line+of+Code%21&rlz=1CAVNCX_enUS1205&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIKCAEQABiABBiiBDIHCAIQABjvBTIGCAMQRRg8MgYIBBBFGDzSAQkxNTE2OGowajeoAgCwAgA&sourceid=chrome&ie=UTF-8&fbs=ADc_l-aN0CWEZBOHjofHoaMMDiKpmAsnXCN5UBx17opt8eaTX831KXQgHodZqPs0p66UIH67w5GLAxoykhH3TzlDFmUxfziga1r41Xulpoxr1iM9fhFcQlw-tIIC_C9FfHifogJxwYlj63wDq3qXVPlWr6WntACXxp4UTEPlyTkmN6J16x30FPhABIxANxipuCBiUP_5r2kgyi-w3vOAj1PU2RJGJ2VsDg&ved=2ahUKEwiIuJz6gfOTAxVLIUQIHfw8M6wQ0NsOegQIAxAB&aep=10&ntc=1&mstk=AUtExfDukpQjd_JtroEXqFpM3iipM0sAedODFbUHkaa7jEoDwrlNaHvXGKYhTlz8r_S70FtXdgRjEGrr7kasbcQCeOK_shyHtw3GbZFVkuMWD-ZIktwvm1qbSMEgTIAsf9RcZOPs9TWIqPFab-bZnc-CzI4tCPV97NwDe1BtsY39YVRSDv-xNr5KQw_ZsyVDgKBVwgYylDK_yoOFg8RsMiOK9-WZ2h49nBISkFwaeNEKf6quSCO7e041shcCXcgT35qtovMm4b4-SAg5VG6K9TZwwx0lrehEJgN59Ng2bMy9cCdFBJkTs2da_yh3XYxbTzz63gSedmCEy6p72g&csuir=1&mtid=dSzhac2UIbmqur8P2Ir0wAQ&udm=50\n\nHere is alot of information to summarize and synthesize",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Fwd: [Shinkansen Reservation Service] Reservation",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 17 Apr 2026 05:38:51 -0700",
+      "body": "ISSUE:\nAdd Shinkansen ground transportation to Loucks dossier: Reservation #2001-2002, April 21 departure, ¥74,560 total\n\nDISCUSSION:\nCommander's Shinkansen reservation confirmation (Tokyo-Kyoto round trip, April 21, 2026) for 2 passengers, Green class. Flagged by Commander for dossier documentation.\n\nACTIONS I RECOMMEND TAKING:\n1. Update Loucks family dossier with Shinkansen details: Tokyo (07:30) → Kyoto (09:44) outbound, Kyoto (16:22) → Tokyo (18:33) return, Green class, 2 passengers\n2. Cross-reference April 21 date with active Loucks travel itineraries to confirm if this is pre/post-cruise ground transport or standalone trip\n3. File confirmation in Thunderbird_Client_Files/Loucks_John_A_III/ground_transportation/ with reference to dossier\n4. Note in Loucks dossier: Ground transport booked independently via Shinkansen smart EX service (QR-Ticket boarding)\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-04-17 06:38 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Claude Opus 4.7 Released",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 17 Apr 2026 05:38:26 -0700",
+      "body": "ISSUE:\nEvaluate whether Claude Opus 4.7 upgrade would deliver operational benefits or cost/capability tradeoffs for D2M's infrastructure.\n\nDISCUSSION:\nAnthropic released Claude Opus 4.7 with significant improvements over Opus 4.6 in software engineering, code handling, and visual processing. Newsletter highlights advanced coding capabilities and enhanced visual task performance.\n\nACTIONS I RECOMMEND TAKING:\n1. Review Opus 4.7 benchmarks and capability improvements for relevance to D2M workflows\n2. Assess upgrade impact on current Claude API integration and cost model\n3. Surface to Commander for technology strategy decision\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-04-17 06:38 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: CRUISE CANX",
+      "to": "Ronald Westbrook <rwestbrook3@gmail.com>",
+      "date": "Tue, 21 Apr 2026 05:23:58 +0900",
+      "body": "Call whenever you decide. Just make sure she knows where we stand.\nThanks\nJohn",
       "score": 2
     }
   ]

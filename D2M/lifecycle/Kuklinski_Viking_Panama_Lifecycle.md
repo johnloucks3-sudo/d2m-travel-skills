@@ -127,8 +127,8 @@ gantt
 
     section Phase 0 — Onboarding
     TP 0.5 Welcome/Validation (SENT)          :done, tp05, 2026-04-17, 1d
-    TP 0.6 Insurance Sprint                   :crit, tp06, 2026-04-18, 2026-04-25
-    TP 0.6 Insurance SEND                     :crit, tp06s, 2026-04-28, 1d
+    TP 0.6 Insurance (Deferred — revisit)     :tp06, 2026-07-14, 2026-07-21
+    TP 0.6 Insurance SEND                     :milestone, tp06s, 2026-07-28, 0d
 
     section Phase 1 — Discovery
     TP 1.1 Voyage Preview (SENT)              :done, tp11, 2026-04-17, 1d
@@ -173,7 +173,7 @@ gantt
 | # | TP | Name | Search Window | Send Date | Status | Owner | Notes |
 |---|-----|------|---------------|-----------|--------|-------|-------|
 | 1 | **0.5** | Welcome / Validation | -- | Apr 17 | ✅ SENT | Dani | Sent to all 6 guests |
-| 2 | **0.6** | Insurance Discussion | Apr 18 - Apr 25 | **Apr 28** | 🔴 OVERDUE | Dani | Sprint window Apr 18-25. Travel protection required for 6 guests ages 41-81 |
+| 2 | **0.6** | Insurance Discussion | Jul 14 - Jul 21 | **Jul 28** | ⏸ DEFERRED | Dani | Client: no interest at this time (Apr 19). Revisit mid-July. **Arch note:** Insurance should be offered at initial post-booking gate (alongside TP0.5), then revisited mid-lifecycle if declined. |
 
 ### Phase 1 — Discovery
 
@@ -332,9 +332,10 @@ All weekly reports are **FULL SENDS to johnloucks3@gmail.com** (per Standing Ord
 | Mar 27 | **PAID IN FULL — $21,244** | ✅ |
 | Apr 17 | TP 0.5 Welcome/Validation sent | ✅ |
 | Apr 17 | TP 1.1 Voyage Preview sent | ✅ |
-| Apr 18-25 | TP 0.6 Insurance sprint | 🔴 OVERDUE |
+| Apr 19 | TP 0.6 Insurance — client declined, DEFERRED | ⏸ DEFERRED |
 | Apr 21 | Research phase begins (airfare + hotel) | 🔵 UPCOMING |
-| Apr 28 | TP 0.6 Insurance send | 🔴 OVERDUE |
+| Jul 14-21 | TP 0.6 Insurance re-sprint | ⏳ |
+| Jul 28 | TP 0.6 Insurance send (deferred) | ⏳ |
 | May 5 | Excursion research begins | ⏳ |
 | Jun 10 | Airfare + hotel search window closes | ⏳ |
 | Jun 16 | Dining research begins | ⏳ |

@@ -122,7 +122,7 @@ Fares: Kyle/Roger = OMAFSV26-3 (DV1 $3,799pp) | Josh/Erica = OMAPSF26-3 (V1 $3,0
 |---|----------|---------|----------|--------|---------|
 | 1 | Documents | Passports (6 guests) | YES | **NOT VERIFIED** | Need all 6 passport details |
 | 2 | Documents | Guest Info Forms (6 guests) | YES | **PENDING** | Due Mar 15 |
-| 3 | Insurance | Travel insurance (3 couples) | YES | **NOT BOOKED** | Discussion planned Mar 25 |
+| 3 | Insurance | Travel insurance (3 couples) | YES | **⏸ DEFERRED** | Client: no interest Apr 19. Revisit mid-July 2026 (TP0.6 rescheduled Jul 28). |
 | 4 | Flights | Outbound flights (3 bookings) | YES | **NOT BOOKED** | To Panama City, need all 3 couples |
 | 5 | Flights | Outbound PNRs | YES | **NOT BOOKED** | |
 | 6 | Transfers | Airport → hotel/port | YES | **NOT BOOKED** | Panama City |

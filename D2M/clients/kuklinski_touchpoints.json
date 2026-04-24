@@ -9,7 +9,11 @@
   "itinerary": "Panama Canal",
   "embarkation_date": "2026-12-17",
   "disembarkation_date": "2026-12-27",
-  "booking_ids": ["9593880", "9593873", "9595029"],
+  "booking_ids": [
+    "9593880",
+    "9593873",
+    "9595029"
+  ],
   "guests": 6,
   "suites": 3,
   "total_paid": 21244,
@@ -123,12 +127,43 @@
       "arc_position": "A",
       "category": "airfare_hotel",
       "trigger_date": "2026-07-01",
+      "search_start": "2026-06-24",
+      "search_end": "2026-07-01",
+      "weekly_reports": false,
       "subject": "Flight & Hotel Search Starting Now — A Few Quick Questions, Kyle",
       "template_file": "Kuklinski_Discretionary_Arc_Library.md",
       "template_anchor": "ARC 1-A",
       "status": "pending",
       "sent_date": null,
-      "notes": "Send same day as TP-3 or day after — TP-3 plants the seed, ARC1-A collects prefs"
+      "notes": "Send same day as TP-3 or day after — TP-3 plants the seed, ARC1-A collects prefs",
+      "arc_search_params": {
+        "type": "arc1",
+        "flights": [
+          {
+            "origin": "RIC",
+            "dest": "PTY",
+            "date": "2026-12-16",
+            "adults": 4,
+            "label": "Virginia group (RIC→Panama City)"
+          },
+          {
+            "origin": "RSW",
+            "dest": "PTY",
+            "date": "2026-12-16",
+            "adults": 2,
+            "label": "Florida guests (RSW→Panama City)"
+          }
+        ],
+        "hotel": {
+          "city": "Panama City",
+          "country": "PA",
+          "checkin": "2026-12-16",
+          "checkout": "2026-12-17",
+          "rooms": 3,
+          "dest_code": "PTY",
+          "notes": "Pre-cruise night Dec 16 — 3 couples, before Dec 17 Viking Mars embarkation"
+        }
+      }
     },
     {
       "id": "ARC1-B",
@@ -142,7 +177,52 @@
       "template_anchor": "ARC 1-B",
       "status": "pending",
       "sent_date": null,
-      "notes": "Fill table with live fare data before sending. Requires ARC1-A reply."
+      "notes": "Fill table with live fare data before sending. Requires ARC1-A reply.",
+      "arc_search_params": {
+        "type": "arc1",
+        "search_note": "Candidates delivery — re-run ARC1-A routes with current live fares",
+        "flights": [
+          {
+            "origin": "RIC",
+            "dest": "PTY",
+            "date": "2026-12-16",
+            "adults": 4,
+            "label": "Virginia group (RIC→Panama City)"
+          },
+          {
+            "origin": "RSW",
+            "dest": "PTY",
+            "date": "2026-12-16",
+            "adults": 2,
+            "label": "Florida guests (RSW→Panama City)"
+          },
+          {
+            "origin": "MHT",
+            "dest": "FLL",
+            "date": "2026-12-27",
+            "adults": 2,
+            "label": "Return — FLL to MHT (post-cruise Dec 27)"
+          }
+        ],
+        "hotel": {
+          "city": "Panama City",
+          "country": "PA",
+          "checkin": "2026-12-16",
+          "checkout": "2026-12-17",
+          "rooms": 3,
+          "dest_code": "PTY",
+          "notes": "Pre-cruise night Dec 16 — present 3 options (budget/mid/luxury) per couple"
+        },
+        "hotel_return": {
+          "city": "Fort Lauderdale",
+          "country": "US",
+          "checkin": "2026-12-27",
+          "checkout": "2026-12-28",
+          "rooms": 3,
+          "dest_code": "FLL",
+          "notes": "Post-cruise night Dec 27 — only if needed based on flight availability"
+        }
+      }
     },
     {
       "id": "ARC1-C",
@@ -165,12 +245,47 @@
       "arc_position": "A",
       "category": "shore_excursions",
       "trigger_date": "2026-07-28",
+      "search_start": "2026-07-14",
+      "search_end": "2026-07-28",
+      "weekly_reports": false,
       "subject": "Excursion Planning Starts Now — Your Port Preferences, Kyle",
       "template_file": "Kuklinski_Discretionary_Arc_Library.md",
       "template_anchor": "ARC 2-A",
       "status": "pending",
       "sent_date": null,
-      "notes": "Must send by Jul 28 — Viking window opens Aug 2"
+      "notes": "Must send by Jul 28 — Viking window opens Aug 2",
+      "arc_search_params": {
+        "type": "arc2",
+        "pax": 6,
+        "query": "group shore excursion",
+        "ports": [
+          {
+            "name": "Cartagena, Colombia",
+            "dest": "cartagena",
+            "date": "2026-12-21"
+          },
+          {
+            "name": "Colon / Panama Canal",
+            "dest": "colon",
+            "date": "2026-12-22"
+          },
+          {
+            "name": "Aruba",
+            "dest": "aruba",
+            "date": "2026-12-24"
+          },
+          {
+            "name": "Bonaire",
+            "dest": "bonaire",
+            "date": "2026-12-25"
+          },
+          {
+            "name": "St. Maarten",
+            "dest": "st-maarten",
+            "date": "2026-12-27"
+          }
+        ]
+      }
     },
     {
       "id": "ARC2-B",
@@ -184,7 +299,41 @@
       "template_anchor": "ARC 2-B",
       "status": "pending",
       "sent_date": null,
-      "notes": "Can send same day as ARC2-A if preferences already known from TP-2 reply"
+      "notes": "Can send same day as ARC2-A if preferences already known from TP-2 reply",
+      "arc_search_params": {
+        "type": "arc2",
+        "search_note": "Candidates delivery — run GYG searches for all 5 ports, 6 pax, present top 3 per port",
+        "pax": 6,
+        "query": "group shore excursion",
+        "result_count": 3,
+        "ports": [
+          {
+            "name": "Cartagena, Colombia",
+            "dest": "cartagena",
+            "date": "2026-12-21"
+          },
+          {
+            "name": "Colon / Panama Canal",
+            "dest": "colon",
+            "date": "2026-12-22"
+          },
+          {
+            "name": "Aruba",
+            "dest": "aruba",
+            "date": "2026-12-24"
+          },
+          {
+            "name": "Bonaire",
+            "dest": "bonaire",
+            "date": "2026-12-25"
+          },
+          {
+            "name": "St. Maarten",
+            "dest": "st-maarten",
+            "date": "2026-12-27"
+          }
+        ]
+      }
     },
     {
       "id": "TP-4",
@@ -291,12 +440,45 @@
       "arc_position": "A",
       "category": "transfers",
       "trigger_date": "2026-10-01",
+      "search_start": "2026-09-24",
+      "search_end": "2026-10-01",
+      "weekly_reports": false,
       "subject": "Transfer Planning — Airport, Hotel & Pier for Your Group of Six",
       "template_file": "Kuklinski_Discretionary_Arc_Library.md",
       "template_anchor": "ARC 3-A",
       "status": "pending",
       "sent_date": null,
-      "notes": "Send same day as TP-5"
+      "notes": "Send same day as TP-5",
+      "arc_search_params": {
+        "type": "arc3",
+        "pax": 6,
+        "routes": [
+          {
+            "route": "PTY-AIRPORT-HOTEL",
+            "label": "Panama City Airport → Pre-cruise Hotel (Dec 16)",
+            "from": "Tocumen International Airport (PTY)",
+            "to": "Panama City Hotel District",
+            "date": "2026-12-16",
+            "pax": 6
+          },
+          {
+            "route": "PTY-HOTEL-PIER",
+            "label": "Pre-cruise Hotel → Viking Terminal Colon (Dec 17)",
+            "from": "Panama City Hotel District",
+            "to": "Colon Cruise Terminal",
+            "date": "2026-12-17",
+            "pax": 6
+          },
+          {
+            "route": "FLL-PORT-AIRPORT",
+            "label": "Port Everglades → FLL Airport (Dec 27 disembarkation)",
+            "from": "Port Everglades (Fort Lauderdale)",
+            "to": "Fort Lauderdale Airport (FLL)",
+            "date": "2026-12-27",
+            "pax": 2
+          }
+        ]
+      }
     },
     {
       "id": "ARC3-B",
@@ -310,7 +492,39 @@
       "template_anchor": "ARC 3-B",
       "status": "pending",
       "sent_date": null,
-      "notes": ""
+      "notes": "",
+      "arc_search_params": {
+        "type": "arc3",
+        "search_note": "Candidates delivery — run Kiwitaxi for all 3 transfer segments, present pricing per vehicle size",
+        "pax": 6,
+        "result_count": 2,
+        "routes": [
+          {
+            "route": "PTY-AIRPORT-HOTEL",
+            "label": "Panama City Airport → Pre-cruise Hotel (Dec 16)",
+            "from": "Tocumen International Airport (PTY)",
+            "to": "Panama City Hotel District",
+            "date": "2026-12-16",
+            "pax": 6
+          },
+          {
+            "route": "PTY-HOTEL-PIER",
+            "label": "Pre-cruise Hotel → Viking Terminal Colon (Dec 17)",
+            "from": "Panama City Hotel District",
+            "to": "Colon Cruise Terminal",
+            "date": "2026-12-17",
+            "pax": 6
+          },
+          {
+            "route": "FLL-PORT-AIRPORT",
+            "label": "Port Everglades → FLL Airport (Dec 27 disembarkation)",
+            "from": "Port Everglades (Fort Lauderdale)",
+            "to": "Fort Lauderdale Airport (FLL)",
+            "date": "2026-12-27",
+            "pax": 6
+          }
+        ]
+      }
     },
     {
       "id": "ARC3-C",

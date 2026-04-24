@@ -1,0 +1,88 @@
+{
+  "route": "ATH-PIRAEUS",
+  "from": "Athens Airport",
+  "to": "Piraeus Port",
+  "date": "2026-09-05",
+  "pax": 2,
+  "scraped_at": "2026-04-17T21:04:36.660890",
+  "kiwitaxi": {
+    "source": "kiwitaxi",
+    "route": "ATH-PIRAEUS",
+    "description": "Athens Airport \u2192 Piraeus Port",
+    "url": "https://kiwitaxi.com/en/greece/athens-airport-piraeus-port",
+    "pax": 2,
+    "date": "2026-09-05",
+    "scraped_at": "2026-04-17T21:04:36.976807",
+    "duration_min": 45,
+    "transfers": [
+      {
+        "vehicle_class": "Comfort",
+        "price_usd": 78,
+        "pax_capacity": 4,
+        "bags_capacity": 3,
+        "vehicle_examples": "Toyota Camry, Volkswagen Passat, Toyota Fortuner, Chevrolet Suburban, etc.",
+        "badge": null
+      },
+      {
+        "vehicle_class": "Minivan 4PAX",
+        "price_usd": 97,
+        "pax_capacity": 4,
+        "bags_capacity": 4,
+        "vehicle_examples": "Toyota Fortuner, Honda Odyssey, Volkswagen Touran, etc.",
+        "badge": null
+      },
+      {
+        "vehicle_class": "Minibus 7PAX",
+        "price_usd": 111,
+        "pax_capacity": 7,
+        "bags_capacity": 7,
+        "vehicle_examples": "Hyundai H1, KIA Carnival, Mercedes Viano, Nissan Caravan, etc.",
+        "badge": "Best Choice"
+      },
+      {
+        "vehicle_class": "Minibus 10PAX",
+        "price_usd": 224,
+        "pax_capacity": 10,
+        "bags_capacity": 10,
+        "vehicle_examples": "Ford Transit, Mercedes Sprinter, Toyota Hiace, Toyota Coaster, etc.",
+        "badge": null
+      },
+      {
+        "vehicle_class": "Premium Minibus",
+        "price_usd": 241,
+        "pax_capacity": 6,
+        "bags_capacity": 4,
+        "vehicle_examples": "Mercedes V-class, Mercedes-Benz EQV, etc.",
+        "badge": null
+      },
+      {
+        "vehicle_class": "Minibus 16PAX",
+        "price_usd": 256,
+        "pax_capacity": 16,
+        "bags_capacity": 16,
+        "vehicle_examples": "Ford Transit, Mercedes Sprinter, Toyota Coaster, VW Crafter, etc.",
+        "badge": null
+      },
+      {
+        "vehicle_class": "Minibus 13PAX",
+        "price_usd": 272,
+        "pax_capacity": 13,
+        "bags_capacity": 13,
+        "vehicle_examples": "Ford Transit, Mercedes Sprinter, Toyota Hiace, Toyota Coaster, etc.",
+        "badge": null
+      },
+      {
+        "vehicle_class": "Minibus 19PAX",
+        "price_usd": 320,
+        "pax_capacity": 19,
+        "bags_capacity": 19,
+        "vehicle_examples": "Mercedes Sprinter, Toyota Coaster, VW Crafter, Renault Master, etc.",
+        "badge": null
+      }
+    ],
+    "screenshot": "/home/john/Thunderbird/core/travel/data/transfer_kiwitaxi_ath-piraeus_2026-09-05.png",
+    "status": "ok",
+    "notes": "Prices are per vehicle (not per person). Fixed price regardless of date."
+  },
+  "welcomepickups": {}
+}

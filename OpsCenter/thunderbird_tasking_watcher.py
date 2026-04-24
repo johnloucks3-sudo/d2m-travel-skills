@@ -1,125 +1,243 @@
 #!/usr/bin/env python3
 """
-D2M Thunderbird Tasking Watcher — COO Autonomous Operations
-============================================================
-Operates under Hale COO authority: silent self-healing, zero notifications.
-Only surfaces to Commander when SSH/Termux intervention required.
+D2M Thunderbird Tasking Watcher V7 — Autonomous Invocation
+===========================================================
+When either inbox changes with a PENDING task:
+  - opencode_inbox.md → spawns OpenCode headless
+  - claude_inbox.md   → spawns Claude headless
+
+Both agents run without human intervention. Fully headless loop.
+
+Cooldown: 45s per inbox to prevent re-fire on same write.
+Lock file: prevents concurrent duplicate invocations.
 """
 
 import os
+import re
 import sys
 import time
 import logging
+import subprocess
 from pathlib import Path
+from datetime import datetime
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
-# Configure logging
+# Logging
 logging.basicConfig(
     level=logging.INFO,
-    format="%(asctime)s - [TASK WATCHER SIMPLE] - %(message)s",
+    format="%(asctime)s - [WATCHER V7] - %(message)s",
+    handlers=[
+        logging.FileHandler("/home/john/Thunderbird/logs/inbox_watcher.log"),
+        logging.StreamHandler(sys.stdout),
+    ],
 )
 
 # Paths
-BASE = Path("/home/john/Thunderbird")
-CLAUDE_INBOX = BASE / "claude_inbox.md"
-OPENCODE_INBOX = BASE / "OpsCenter/collaboration/opencode_inbox.md"
-ACTIVITY_BOARD = BASE / "OpsCenter/collaboration/activity_board.md"
+BASE          = Path("/home/john/Thunderbird")
+CLAUDE_INBOX  = BASE / "claude_inbox.md"
+OC_INBOX      = BASE / "OpsCenter/collaboration/opencode_inbox.md"
+CLAUDE_OUTBOX = BASE / "OpsCenter/collaboration/claude_outbox.md"
+ACTIVITY      = BASE / "OpsCenter/collaboration/activity_board.md"
+OAUTH_CACHE   = BASE / "OpsCenter/.claude_oauth_cache"
+LOG_DIR       = BASE / "logs"
+LOG_DIR.mkdir(exist_ok=True)
+
+# Binaries
+CLAUDE_BIN   = "/home/john/.local/bin/claude"
+OPENCODE_BIN = "/home/john/.opencode/bin/opencode"
+
+# Model routing
+# Haiku  — tasking, simple file ops, low-cost default
+# Sonnet — reasoning, client work, judgment calls
+# Opus   — P0 only, maximum capability
+MODEL_HAIKU  = "claude-haiku-4-5-20251001"
+MODEL_SONNET = "claude-sonnet-4-6"
+MODEL_OPUS   = "claude-opus-4-6"
+
+def load_oauth_env() -> dict:
+    """Read .claude_oauth_cache and return env dict with fresh token injected."""
+    env = dict(os.environ)
+    try:
+        for line in OAUTH_CACHE.read_text().splitlines():
+            line = line.strip()
+            if '=' in line and not line.startswith('#'):
+                k, _, v = line.partition('=')
+                env[k.strip()] = v.strip()
+    except Exception:
+        pass
+    return env
 
 
-class FileChangeHandler(FileSystemEventHandler):
-    """Handle file changes"""
+def model_for_priority(content: str) -> str:
+    """Route model — explicit model: field wins, else priority, else Haiku."""
+    # Explicit override: model: opus / sonnet / haiku
+    import re
+    m = re.search(r"^model:\s*(\S+)", content, re.MULTILINE | re.IGNORECASE)
+    if m:
+        val = m.group(1).lower()
+        if "opus" in val:
+            return MODEL_OPUS
+        if "sonnet" in val:
+            return MODEL_SONNET
+        if "haiku" in val:
+            return MODEL_HAIKU
+    # Priority fallback
+    if "priority: P0" in content:
+        return MODEL_OPUS
+    if "priority: P1" in content:
+        return MODEL_SONNET
+    return MODEL_HAIKU
+
+# Cooldown: seconds between invocations per inbox
+COOLDOWN = 45
+
+# Statuses that trigger invocation
+TRIGGER_STATUSES = ["status: PENDING", "status: UNREAD", "status: ACTIVE-CRITICAL",
+                    "status: FLAGGED-OVERDUE", "NEXUS:"]
+
+
+class InboxHandler(FileSystemEventHandler):
+
+    def __init__(self):
+        self._last_fired = {}   # path -> timestamp of last invocation
 
     def on_modified(self, event):
         if event.is_directory:
             return
+        p = event.src_path
+        if p.endswith("claude_inbox.md"):
+            self._maybe_invoke(CLAUDE_INBOX, self._invoke_claude)
+        elif p.endswith("opencode_inbox.md"):
+            self._maybe_invoke(OC_INBOX, self._invoke_opencode)
+        elif p.endswith(".claude_oauth_cache"):
+            logging.info("OAuth cache updated — fresh token will be used on next Claude spawn")
 
-        file_path = event.src_path
-        logging.info(f"File modified: {file_path}")
-
-        # Check which file was modified
-        if file_path.endswith("claude_inbox.md"):
-            self.handle_claude_inbox()
-        elif file_path.endswith("opencode_inbox.md"):
-            self.handle_opencode_inbox()
-        elif file_path.endswith("activity_board.md"):
-            self.handle_activity_board()
-
-    def handle_claude_inbox(self):
-        """Handle changes to Claude inbox"""
+    # ------------------------------------------------------------------ #
+    # Cooldown gate
+    # ------------------------------------------------------------------ #
+    def _maybe_invoke(self, inbox_path, invoke_fn):
+        key = str(inbox_path)
+        now = time.time()
+        last = self._last_fired.get(key, 0)
+        if now - last < COOLDOWN:
+            logging.info(f"Cooldown active for {inbox_path.name} ({int(COOLDOWN-(now-last))}s remaining) — skip")
+            return
         try:
-            with open(CLAUDE_INBOX, "r") as f:
-                content = f.read()
-                # Check for UNREAD tasks
-                if "status: UNREAD" in content:
-                    logging.info("New UNREAD task in claude_inbox.md")
-                    # Telegram notification is handled by gateway service
+            content = inbox_path.read_text()
         except Exception as e:
-            logging.error(f"Error reading claude_inbox: {e}")
+            logging.error(f"Cannot read {inbox_path}: {e}")
+            return
+        if not any(t in content for t in TRIGGER_STATUSES):
+            logging.info(f"{inbox_path.name} changed but no actionable tasks — skip")
+            return
+        self._last_fired[key] = now
+        invoke_fn(inbox_path)
 
-    def handle_opencode_inbox(self):
-        """Handle changes to OpenCode inbox"""
+    # ------------------------------------------------------------------ #
+    # Claude headless invocation
+    # ------------------------------------------------------------------ #
+    def _invoke_claude(self, inbox_path):
+        ts      = datetime.now().strftime("%Y%m%d_%H%M%S")
+        log     = LOG_DIR / f"claude_invoke_{ts}.log"
         try:
-            with open(OPENCODE_INBOX, "r") as f:
-                content = f.read()
-                # Check for new tasks
-                if "status: UNREAD" in content or "NEXUS:" in content:
-                    logging.info("New task in opencode_inbox.md")
+            content = inbox_path.read_text()
+        except Exception:
+            content = ""
+        model   = model_for_priority(content)
+        prompt  = (
+            f"You are Hale COS running headless. "
+            f"Read {inbox_path} and process every task with status PENDING, UNREAD, "
+            f"ACTIVE-CRITICAL, or FLAGGED-OVERDUE. "
+            f"For each actionable task: execute it, mark status COMPLETE with timestamp, "
+            f"write results to {CLAUDE_OUTBOX}. "
+            f"Then post a summary to "
+            f"/home/john/Thunderbird/OpsCenter/collaboration/wing_comms.md."
+        )
+        fresh_env = load_oauth_env()
+        logging.info(f"Spawning Claude headless model={model} → log: {log}")
+        logging.info(f"OAuth token present: {'CLAUDE_CODE_OAUTH_TOKEN' in fresh_env}")
+        try:
+            subprocess.Popen(
+                [CLAUDE_BIN, "-p", prompt, "--model", model, "--output-format", "text"],
+                stdout=open(log, "w"),
+                stderr=subprocess.STDOUT,
+                env=fresh_env,
+                start_new_session=True,
+            )
+            logging.info(f"Claude headless started ({model})")
         except Exception as e:
-            logging.error(f"Error reading opencode_inbox: {e}")
+            logging.error(f"Failed to spawn Claude: {e}")
 
-    def handle_activity_board(self):
-        """Handle activity board changes"""
+    # ------------------------------------------------------------------ #
+    # OpenCode headless invocation
+    # ------------------------------------------------------------------ #
+    def _invoke_opencode(self, inbox_path):
+        ts  = datetime.now().strftime("%Y%m%d_%H%M%S")
+        log = LOG_DIR / f"opencode_invoke_{ts}.log"
+        prompt = (
+            f"Read {inbox_path}. "
+            f"Process every task with status PENDING or UNREAD. "
+            f"Execute each task. Mark status COMPLETE with timestamp. "
+            f"Write results to {CLAUDE_OUTBOX} and post summary to "
+            f"/home/john/Thunderbird/OpsCenter/collaboration/wing_comms.md."
+        )
+        logging.info(f"Spawning OpenCode headless → log: {log}")
         try:
-            logging.info("Activity board updated")
+            subprocess.Popen(
+                [OPENCODE_BIN, "run", prompt],
+                stdout=open(log, "w"),
+                stderr=subprocess.STDOUT,
+                env={**os.environ},
+                start_new_session=True,
+            )
+            logging.info("OpenCode headless process started")
         except Exception as e:
-            logging.error(f"Error with activity board: {e}")
+            logging.error(f"Failed to spawn OpenCode: {e}")
 
 
 def main():
-    """Main watcher loop"""
-    logging.info("Thunderbird Task Watcher (Simple) starting...")
+    logging.info("=" * 60)
+    logging.info("Thunderbird Tasking Watcher V7 — Autonomous Invocation")
+    logging.info("=" * 60)
 
-    # Check required files exist
-    for path in [CLAUDE_INBOX, OPENCODE_INBOX, ACTIVITY_BOARD]:
-        if not path.exists():
-            logging.warning(f"Required file not found: {path}")
-            path.touch()
-            logging.info(f"Created empty file: {path}")
+    # Ensure inbox files exist
+    for p in [CLAUDE_INBOX, OC_INBOX, ACTIVITY]:
+        if not p.exists():
+            p.touch()
+            logging.warning(f"Created missing file: {p}")
 
-    # Set up file watcher
-    observer = Observer()
-    event_handler = FileChangeHandler()
-
-    # Watch directories containing the files
-    watch_dirs = {
-        os.path.dirname(str(CLAUDE_INBOX)),  # ~/Thunderbird/
-        os.path.dirname(str(OPENCODE_INBOX)),  # ~/Thunderbird/OpsCenter/collaboration/
-        os.path.dirname(str(ACTIVITY_BOARD)),  # same as opencode dir
-    }
-
-    for d in watch_dirs:
-        if os.path.exists(d):
-            observer.schedule(event_handler, d, recursive=False)
-            logging.info(f"Watching directory: {d}")
+    # Verify binaries
+    for name, path in [("claude", CLAUDE_BIN), ("opencode", OPENCODE_BIN)]:
+        if Path(path).exists():
+            logging.info(f"Binary OK: {name} → {path}")
         else:
-            logging.warning(f"Watch directory not found: {d}")
+            logging.warning(f"Binary NOT FOUND: {name} → {path}")
 
-    # Start observer
+    handler  = InboxHandler()
+    observer = Observer()
+
+    watch_dirs = {
+        str(CLAUDE_INBOX.parent),
+        str(OC_INBOX.parent),
+        str(OAUTH_CACHE.parent),
+    }
+    for d in watch_dirs:
+        observer.schedule(handler, d, recursive=False)
+        logging.info(f"Watching: {d}")
+
     observer.start()
-    logging.info("Watcher running. Press Ctrl+C to stop.")
+    logging.info("Watcher running — both inboxes armed for autonomous invocation")
 
     try:
         while True:
-            time.sleep(30)  # Check every 30 seconds for any cleanup
+            time.sleep(30)
     except KeyboardInterrupt:
-        logging.info("Watcher shutting down (Ctrl+C).")
-    except Exception as e:
-        logging.error(f"Watcher error: {e}")
+        logging.info("Watcher shutting down")
     finally:
         observer.stop()
         observer.join()
-        logging.info("Watcher stopped.")
+        logging.info("Watcher stopped")
 
 
 if __name__ == "__main__":

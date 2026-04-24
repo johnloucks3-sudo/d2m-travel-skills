@@ -1,0 +1,64 @@
+{
+  "route": "CIVITA-FCO",
+  "from": "Civitavecchia Port",
+  "to": "Rome Airport",
+  "date": "2026-09-05",
+  "pax": 2,
+  "scraped_at": "2026-04-17T21:04:36.660890",
+  "kiwitaxi": {
+    "source": "kiwitaxi",
+    "route": "CIVITA-FCO",
+    "description": "Civitavecchia Port \u2192 Rome Airport",
+    "url": "https://kiwitaxi.com/en/italy/civitavecchia-fiumicino-airport",
+    "pax": 2,
+    "date": "2026-09-05",
+    "scraped_at": "2026-04-17T21:04:36.976677",
+    "duration_min": 50,
+    "transfers": [
+      {
+        "vehicle_class": "Comfort",
+        "price_usd": 233,
+        "pax_capacity": 4,
+        "bags_capacity": 3,
+        "vehicle_examples": "Toyota Camry, Volkswagen Passat, Toyota Fortuner, Chevrolet Suburban, etc.",
+        "badge": null
+      },
+      {
+        "vehicle_class": "Business",
+        "price_usd": 233,
+        "pax_capacity": 3,
+        "bags_capacity": 3,
+        "vehicle_examples": "Mercedes E-class, Lexus GS, Audi A6, BMW 5 Series, etc.",
+        "badge": null
+      },
+      {
+        "vehicle_class": "Minivan 4PAX",
+        "price_usd": 251,
+        "pax_capacity": 4,
+        "bags_capacity": 4,
+        "vehicle_examples": "Toyota Fortuner, Honda Odyssey, Volkswagen Touran, etc.",
+        "badge": null
+      },
+      {
+        "vehicle_class": "Minibus 7PAX",
+        "price_usd": 275,
+        "pax_capacity": 7,
+        "bags_capacity": 7,
+        "vehicle_examples": "Hyundai H1, KIA Carnival, Mercedes Viano, Nissan Caravan, etc.",
+        "badge": "Best Choice"
+      },
+      {
+        "vehicle_class": "Premium Minibus",
+        "price_usd": 300,
+        "pax_capacity": 6,
+        "bags_capacity": 4,
+        "vehicle_examples": "Mercedes V-class, Mercedes-Benz EQV, etc.",
+        "badge": null
+      }
+    ],
+    "screenshot": "/home/john/Thunderbird/core/travel/data/transfer_kiwitaxi_civita-fco_2026-09-05.png",
+    "status": "ok",
+    "notes": "Prices are per vehicle (not per person). Fixed price regardless of date."
+  },
+  "welcomepickups": {}
+}

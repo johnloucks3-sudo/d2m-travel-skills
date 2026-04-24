@@ -5,7 +5,7 @@ After=network-online.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/python3 /home/john/Thunderbird/thunderbird_evernote_backup.py
+ExecStart=/home/john/Thunderbird/.venv/bin/python /home/john/Thunderbird/api/thunderbird_evernote_backup.py
 User=john
 Environment=HOME=/home/john
 Environment=PATH=/home/john/.local/bin:/usr/local/bin:/usr/bin:/bin

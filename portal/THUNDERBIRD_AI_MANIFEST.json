@@ -1,0 +1,1277 @@
+{
+  "meta": {
+    "schema_version": "1.0",
+    "manifest_id": "D2M-MANIFEST-KUKLINSKI-2026",
+    "created": "2026-04-19",
+    "owner": "Col Victoria Hale, COS",
+    "system": "Thunderbird OS — Dreams2Memories Travel, LLC",
+    "classification": "INTERNAL — Wing Operations",
+    "voyage_id": "D2M-LC-KUKLINSKI-2026",
+    "ship": "Viking Mars",
+    "voyage_name": "Panama Canal & Central America",
+    "embarkation": "2026-12-17",
+    "disembarkation": "2026-12-27",
+    "embark_port": "Panama City, Panama",
+    "disembark_port": "Fort Lauderdale, FL, USA",
+    "guests_total": 6,
+    "suites_total": 3,
+    "nights": 10,
+    "grand_total_paid_usd": 21244,
+    "payment_status": "PAID_IN_FULL",
+    "payment_date": "2026-03-27",
+    "lifecycle_status": "ACTIVE",
+    "touchpoints_total": 16,
+    "touchpoints_complete": 2,
+    "touchpoints_overdue": 1,
+    "touchpoints_active": 2,
+    "touchpoints_pending": 11
+  },
+
+  "bookings": [
+    {
+      "booking_ref": "9593880",
+      "agency_conf": "1TSWFQR",
+      "guests": ["Kyle Stanley Kuklinski", "Rosalie Morton Kuklinski"],
+      "stateroom": "4122",
+      "category": "DV1 — Deluxe Veranda",
+      "deck": 4,
+      "fare_code": "OMAFSV26-3",
+      "fare_pp_usd": 3799,
+      "total_paid_usd": 7548,
+      "sbc_viking_usd": 200,
+      "sbc_d2m_usd": 600,
+      "sbc_total_usd": 800
+    },
+    {
+      "booking_ref": "9593873",
+      "agency_conf": "LJ2O4YG",
+      "guests": ["Roger David Kuklinski", "Dr Nicholas John Kuklinski"],
+      "stateroom": "8012",
+      "category": "DV1 — Deluxe Veranda",
+      "deck": 8,
+      "fare_code": "OMAFSV26-3",
+      "fare_pp_usd": 3799,
+      "total_paid_usd": 7548,
+      "sbc_viking_usd": 200,
+      "sbc_d2m_usd": 0,
+      "sbc_total_usd": 200
+    },
+    {
+      "booking_ref": "9595029",
+      "agency_conf": "CUW88R8",
+      "guests": ["Joshua Morton", "Erica Dodge"],
+      "stateroom": "3015",
+      "category": "V1 — Veranda",
+      "deck": 3,
+      "fare_code": "OMAPSF26-3",
+      "fare_pp_usd": 3099,
+      "total_paid_usd": 6148,
+      "sbc_viking_usd": 200,
+      "sbc_d2m_usd": 0,
+      "sbc_total_usd": 200
+    }
+  ],
+
+  "guests": [
+    {
+      "id": "G1",
+      "name": "Kyle Stanley Kuklinski",
+      "dob": "1983-02-09",
+      "email": "kyle.kuklinski@gmail.com",
+      "phone": "804-801-4762",
+      "home_base": "Richmond, VA",
+      "air_route": "RIC-PTY",
+      "guest_form_status": "COMPLETE",
+      "booking_ref": "9593880",
+      "role": "primary_contact"
+    },
+    {
+      "id": "G2",
+      "name": "Rosalie Morton Kuklinski",
+      "dob": "1985-03-04",
+      "email": "Rosalie.Kuklinski@gmail.com",
+      "phone": "626-862-7110",
+      "home_base": "Richmond, VA",
+      "air_route": "RIC-PTY",
+      "guest_form_status": "COMPLETE",
+      "booking_ref": "9593880",
+      "role": "guest"
+    },
+    {
+      "id": "G3",
+      "name": "Roger David Kuklinski",
+      "dob": "1951-09-08",
+      "email": "Roger.kuklinski@gmail.com",
+      "phone": "704-609-6867",
+      "home_base": "Richmond, VA",
+      "air_route": "RIC-PTY",
+      "guest_form_status": "COMPLETE",
+      "booking_ref": "9593873",
+      "role": "guest"
+    },
+    {
+      "id": "G4",
+      "name": "Dr Nicholas John Kuklinski",
+      "dob": "1981-06-16",
+      "email": "nikpack@gmail.com",
+      "phone": "704-609-4024",
+      "home_base": "Richmond, VA",
+      "air_route": "RIC-PTY",
+      "guest_form_status": "COMPLETE",
+      "booking_ref": "9593873",
+      "role": "guest"
+    },
+    {
+      "id": "G5",
+      "name": "Joshua Morton",
+      "dob": "1945-12-11",
+      "email": "Josh@jerichopix.com",
+      "phone": "818-317-9843",
+      "home_base": "Naples, FL",
+      "air_route": "RSW-FLL",
+      "guest_form_status": "MISSING",
+      "booking_ref": "9595029",
+      "role": "guest"
+    },
+    {
+      "id": "G6",
+      "name": "Erica Dodge",
+      "dob": "1948-03-04",
+      "email": "Buzzerica@gmail.com",
+      "phone": "603-812-5173",
+      "home_base": "Naples, FL",
+      "air_route": "RSW-FLL",
+      "guest_form_status": "MISSING",
+      "booking_ref": "9595029",
+      "role": "guest"
+    }
+  ],
+
+  "personas": {
+    "HALE": {
+      "callsign": "HALE",
+      "name": "Col Victoria 'Iron Vic' Hale",
+      "slot": "COS",
+      "role": "Chief of Staff — Orchestration, WF-17 quality gate, weekly reports, staff tasking",
+      "lifecycle_role": "Orchestrates ALL 16 touchpoints. Owns WF-17 gate. Compiles TP 3.2 Final Confirmation. Signs off before Commander sees any product.",
+      "active_window": "2026-04-17 to 2027-01-27",
+      "touchpoints_owned": ["3.2"],
+      "touchpoints_supervised": ["0.5", "0.6", "1.1", "1.2", "1.3", "2.1", "2.2", "2.3", "2.4", "3.1", "3.3", "5.1", "5.2", "5.3", "5.4"],
+      "primary_files": [
+        "core/ai_infra/thunderbird_personas.py",
+        "core/email/thunderbird_presend_evaluator.py",
+        "core/booking/thunderbird_dossier.py"
+      ],
+      "mcp_tools": ["gmail_create_draft", "gmail_list_labels"],
+      "persona_file": "Personas/hale_cos.md"
+    },
+    "A2_DEMBE": {
+      "callsign": "A2",
+      "name": "Lt Col Marcus 'Wraith' Dembe",
+      "slot": "A2",
+      "role": "Research & Market Intelligence",
+      "lifecycle_role": "Executes all research phases: airfare (RIC-PTY, RSW-FLL), hotels (Panama City pre, FLL post), excursions (Cartagena, Santa Marta, Puerto Limon), dining (onboard + port), document audit, pre-voyage destination deep-dives.",
+      "active_window": "2026-04-21 to 2026-11-19",
+      "touchpoints_owned": ["1.2", "1.3", "2.1", "2.3", "2.4", "3.1"],
+      "primary_files": [
+        "core/mcp/travel_mcp_server.py",
+        "core/intel/thunderbird_world_intel.py",
+        "core/intel/thunderbird_ship_intel.py",
+        "core/intel/thunderbird_price_monitor.py",
+        "core/booking/thunderbird_dossier_scanner.py",
+        "core/booking/thunderbird_guest_forms.py"
+      ],
+      "mcp_tools": [
+        "search_flights",
+        "search_hotels",
+        "search_tours",
+        "run_ship_intelligence_sweep",
+        "run_world_intelligence_sweep"
+      ]
+    },
+    "A3_DANI": {
+      "callsign": "A3",
+      "name": "Danielle 'Dani' Moreau",
+      "slot": "A3",
+      "role": "D2M Luxury Travel Concierge — sole client-facing voice",
+      "lifecycle_role": "Aggregator → Artist → Advocate. Receives research from A2/A6, formats all client-facing touchpoint emails, executes guest outreach, never researches independently.",
+      "active_window": "all send dates",
+      "touchpoints_owned": ["0.5", "0.6", "1.1", "2.2", "3.3", "5.1", "5.3"],
+      "primary_files": [
+        "core/email/thunderbird_dani_email.py",
+        "core/email/thunderbird_dani_engine.py",
+        "core/email/thunderbird_dani_voice.py",
+        "core/email/thunderbird_gmail.py",
+        "core/email/thunderbird_presend_evaluator.py",
+        "core/client/thunderbird_validation.py"
+      ],
+      "mcp_tools": ["gmail_create_draft", "gmail_search_threads"],
+      "send_from": "d2mconcierge@gmail.com",
+      "send_as_alias": "concierge@d2mluxury.quest"
+    },
+    "A5_VIPER": {
+      "callsign": "A5",
+      "name": "Lt Col Ryan 'Viper' Castillo",
+      "slot": "A5",
+      "role": "Strategy & Business Growth",
+      "lifecycle_role": "Fare timing strategy for TP 1.2 (optimal airfare booking window). Next-voyage planning and seed strategy for TP 5.4.",
+      "active_window": "2026-04-21 to 2026-06-17; 2027-01-11 to 2027-01-27",
+      "touchpoints_owned": ["5.4"],
+      "touchpoints_supporting": ["1.2"],
+      "primary_files": [
+        "core/intel/thunderbird_price_monitor.py",
+        "core/intel/thunderbird_ship_intel.py",
+        "core/mcp/travel_mcp_server.py"
+      ],
+      "mcp_tools": ["search_flights", "search_hotels"]
+    },
+    "A6_LUNA": {
+      "callsign": "A6",
+      "name": "Luna Voss",
+      "slot": "A6",
+      "role": "Creative Director & Brand Dreamer",
+      "lifecycle_role": "Crafts polished property/destination descriptions, emotional travel narrative, ship imagery selections for hotel options (TP 1.3), excursion copy (TP 2.1), dining descriptions (TP 2.3), and pre-voyage brief narrative (TP 3.1).",
+      "active_window": "2026-04-21 to 2026-11-26",
+      "touchpoints_owned": [],
+      "touchpoints_supporting": ["1.3", "2.1", "2.3", "3.1"],
+      "primary_files": [
+        "core/ai_infra/thunderbird_personas.py",
+        "core/intel/thunderbird_ship_intel.py"
+      ],
+      "mcp_tools": []
+    },
+    "A7_GAUGE": {
+      "callsign": "A7",
+      "name": "Brig Gen (Ret.) Thomas 'Gauge' Sterling",
+      "slot": "A7",
+      "role": "Process Improvement & Lessons Learned",
+      "lifecycle_role": "Designs and deploys post-voyage NPS + experience survey for TP 5.2.",
+      "active_window": "2026-12-29 to 2027-01-10",
+      "touchpoints_owned": ["5.2"],
+      "primary_files": [
+        "core/client/thunderbird_survey.py",
+        "core/email/thunderbird_gmail.py"
+      ],
+      "mcp_tools": ["gmail_create_draft"]
+    },
+    "A9_HARLAN": {
+      "callsign": "A9",
+      "name": "Victor 'Vic' Harlan",
+      "slot": "A9",
+      "role": "Finance & Process Improvement",
+      "lifecycle_role": "Costs all A2 research findings — airfare (TP 1.2), hotels (TP 1.3), excursions (TP 2.1), dining (TP 2.3). Applies D2M markup formula and validates commission yield.",
+      "active_window": "2026-04-21 to 2026-09-18",
+      "touchpoints_owned": [],
+      "touchpoints_supporting": ["1.2", "1.3", "2.1", "2.3"],
+      "primary_files": [
+        "core/booking/thunderbird_commission_recon.py",
+        "core/booking/thunderbird_reconciliation.py",
+        "core/client/thunderbird_quote_render.py"
+      ],
+      "mcp_tools": []
+    },
+    "EXEC_NAIA": {
+      "callsign": "EXEC",
+      "name": "Naia Solberg-Vega",
+      "slot": "EXEC",
+      "role": "Voice + Visual + Commander's Intent",
+      "lifecycle_role": "Reviews high-touch client emails for voice fidelity, tone, and brand alignment on TPs 3.1, 3.2, 3.3, 5.1, 5.3 during the Nov 19 – Jan 10 window.",
+      "active_window": "2026-11-19 to 2027-01-10",
+      "touchpoints_owned": [],
+      "touchpoints_supporting": ["3.1", "3.2", "3.3", "5.1", "5.3"],
+      "primary_files": [
+        "core/email/thunderbird_dani_voice.py",
+        "core/ai_infra/thunderbird_personas.py"
+      ],
+      "mcp_tools": []
+    },
+    "COMMANDER": {
+      "callsign": "CDR",
+      "name": "John Loucks",
+      "slot": "Commander",
+      "role": "Send approval authority — all client emails",
+      "lifecycle_role": "Final send gate on every client-facing touchpoint. Reviews drafts surfaced by Hale at 0600. Executes send after explicit approval.",
+      "active_window": "all send dates",
+      "touchpoints_owned": [],
+      "touchpoints_gating": ["0.5", "0.6", "1.1", "1.2", "1.3", "2.1", "2.2", "2.3", "2.4", "3.1", "3.2", "3.3", "5.1", "5.2", "5.3", "5.4"],
+      "send_authority": "johnloucks3@gmail.com (receive) / d2mconcierge@gmail.com (ops)",
+      "primary_files": []
+    }
+  },
+
+  "touchpoints": [
+    {
+      "id": "TP-0.5",
+      "tp_number": "0.5",
+      "phase": 0,
+      "phase_name": "Onboarding",
+      "name": "Welcome / Validation",
+      "status": "SENT",
+      "status_emoji": "✅",
+      "send_date": "2026-04-17",
+      "search_window": null,
+      "primary_owner": "A3_DANI",
+      "supporting_staff": ["HALE", "COMMANDER"],
+      "client_recipients": ["G1", "G2", "G3", "G4", "G5", "G6"],
+      "notes": "Sent to all 6 guests. Confirms booking details, welcomes group, sets service expectations.",
+      "code_modules": [
+        "core/email/thunderbird_dani_email.py",
+        "core/email/thunderbird_dani_voice.py",
+        "core/email/thunderbird_gmail.py",
+        "core/client/thunderbird_validation.py",
+        "core/email/thunderbird_presend_evaluator.py"
+      ],
+      "primary_functions": [
+        "compose_client_email",
+        "validate_booking_data",
+        "run_wf17_gate",
+        "create_gmail_draft"
+      ],
+      "mcp_tools": ["gmail_create_draft"],
+      "data_in": [
+        "dossiers/Kuklinski_Viking_Panama.md",
+        "storage/cache/client_context/kuklinski_context.json"
+      ],
+      "data_out": [
+        "d2mconcierge Gmail draft",
+        "Sent — concierge@d2mluxury.quest to all 6 guests"
+      ],
+      "wf17_required": true,
+      "commander_send_required": true
+    },
+    {
+      "id": "TP-0.6",
+      "tp_number": "0.6",
+      "phase": 0,
+      "phase_name": "Onboarding",
+      "name": "Insurance Discussion",
+      "status": "OVERDUE",
+      "status_emoji": "🔴",
+      "search_window": "2026-04-18 to 2026-04-25",
+      "send_date": "2026-04-28",
+      "primary_owner": "A3_DANI",
+      "supporting_staff": ["HALE", "COMMANDER"],
+      "client_recipients": ["G1"],
+      "notes": "Travel protection for 6 guests ages 41-81. Sprint window Apr 18-25 OVERDUE. Urgency: wide age range elevates medical risk profile.",
+      "code_modules": [
+        "core/email/thunderbird_dani_email.py",
+        "core/email/thunderbird_dani_voice.py",
+        "core/email/thunderbird_gmail.py",
+        "core/email/thunderbird_presend_evaluator.py"
+      ],
+      "primary_functions": [
+        "compose_client_email",
+        "run_wf17_gate",
+        "create_gmail_draft"
+      ],
+      "mcp_tools": ["gmail_create_draft"],
+      "data_in": [
+        "dossiers/Kuklinski_Viking_Panama.md",
+        "Guest DOB records (ages 41-81 — medical risk flag)"
+      ],
+      "data_out": [
+        "d2mconcierge Gmail draft for Commander review",
+        "Sent — concierge@d2mluxury.quest to Kyle Kuklinski (primary contact)"
+      ],
+      "wf17_required": true,
+      "commander_send_required": true
+    },
+    {
+      "id": "TP-1.1",
+      "tp_number": "1.1",
+      "phase": 1,
+      "phase_name": "Discovery",
+      "name": "Voyage Preview",
+      "status": "SENT",
+      "status_emoji": "✅",
+      "send_date": "2026-04-17",
+      "search_window": null,
+      "primary_owner": "A3_DANI",
+      "supporting_staff": ["A6_LUNA", "HALE", "COMMANDER"],
+      "client_recipients": ["G1", "G2", "G3", "G4", "G5", "G6"],
+      "notes": "Panama Canal + ports overview. Sets the emotional and experiential vision for the voyage.",
+      "code_modules": [
+        "core/email/thunderbird_dani_email.py",
+        "core/email/thunderbird_dani_voice.py",
+        "core/intel/thunderbird_ship_intel.py",
+        "core/email/thunderbird_gmail.py",
+        "core/email/thunderbird_presend_evaluator.py"
+      ],
+      "primary_functions": [
+        "compose_client_email",
+        "get_ship_intel",
+        "run_wf17_gate",
+        "create_gmail_draft"
+      ],
+      "mcp_tools": ["gmail_create_draft", "run_ship_intelligence_sweep"],
+      "data_in": [
+        "core/intel/ — Viking Mars ship data",
+        "storage/cache/client_context/kuklinski_context.json"
+      ],
+      "data_out": [
+        "Sent — concierge@d2mluxury.quest to all 6 guests"
+      ],
+      "wf17_required": true,
+      "commander_send_required": true
+    },
+    {
+      "id": "TP-1.2",
+      "tp_number": "1.2",
+      "phase": 1,
+      "phase_name": "Discovery",
+      "name": "Airfare Watch",
+      "status": "ACTIVE_SEARCH",
+      "status_emoji": "🔵",
+      "search_window": "2026-04-21 to 2026-06-10",
+      "send_date": "2026-06-17",
+      "primary_owner": "A2_DEMBE",
+      "supporting_staff": ["A5_VIPER", "A9_HARLAN", "HALE", "COMMANDER"],
+      "client_recipients": ["G1"],
+      "notes": "RIC-PTY (Kyle/Rosalie, Roger/Nick) and RSW-FLL (Josh/Erica). Two separate routing pairs. Weekly Mon AM reports to johnloucks3 during search window. A5 Viper advises on fare timing strategy.",
+      "air_routes": [
+        {"route": "RIC-PTY", "guests": ["G1", "G2", "G3", "G4"], "origin": "Richmond, VA", "destination": "Panama City, Panama"},
+        {"route": "RSW-FLL", "guests": ["G5", "G6"], "origin": "Naples, FL", "destination": "Fort Lauderdale, FL"}
+      ],
+      "code_modules": [
+        "core/mcp/travel_mcp_server.py",
+        "core/intel/thunderbird_price_monitor.py",
+        "core/booking/thunderbird_commission_recon.py",
+        "core/email/thunderbird_dani_email.py",
+        "core/email/thunderbird_presend_evaluator.py"
+      ],
+      "primary_functions": [
+        "search_flights",
+        "monitor_fare_trends",
+        "apply_markup",
+        "compose_client_email",
+        "run_wf17_gate"
+      ],
+      "mcp_tools": ["search_flights"],
+      "weekly_report": {
+        "frequency": "Mon AM",
+        "period": "2026-04-21 to 2026-06-10",
+        "destination": "johnloucks3@gmail.com",
+        "delivery": "FULL_SEND"
+      },
+      "data_in": [
+        "Guest air routes from dossier",
+        "Live fare data via Centrav B2B / travel_mcp_server.py",
+        "A5 fare timing analysis"
+      ],
+      "data_out": [
+        "Weekly fare report — full send to johnloucks3",
+        "Final airfare proposal — Gmail draft in d2mconcierge",
+        "dossiers/Kuklinski_Viking_Panama.md — airfare section updated"
+      ],
+      "wf17_required": true,
+      "commander_send_required": true
+    },
+    {
+      "id": "TP-1.3",
+      "tp_number": "1.3",
+      "phase": 1,
+      "phase_name": "Discovery",
+      "name": "Hotel Options",
+      "status": "ACTIVE_SEARCH",
+      "status_emoji": "🔵",
+      "search_window": "2026-04-21 to 2026-06-10",
+      "send_date": "2026-06-17",
+      "primary_owner": "A2_DEMBE",
+      "supporting_staff": ["A6_LUNA", "A9_HARLAN", "HALE", "COMMANDER"],
+      "client_recipients": ["G1"],
+      "notes": "Panama City pre-cruise hotel and FLL post-cruise hotel. A6 Luna crafts property descriptions. A9 Harlan costs each option with D2M markup (25% standard / 22% premium). May be sent combined with TP 1.2 on Jun 17.",
+      "hotel_search_targets": [
+        {"location": "Panama City, Panama", "timing": "Pre-cruise Dec 15-17", "purpose": "pre_cruise"},
+        {"location": "Fort Lauderdale, FL", "timing": "Post-cruise Dec 27-28", "purpose": "post_cruise"}
+      ],
+      "code_modules": [
+        "core/mcp/travel_mcp_server.py",
+        "core/intel/thunderbird_world_intel.py",
+        "core/client/thunderbird_quote_render.py",
+        "core/email/thunderbird_dani_email.py",
+        "core/email/thunderbird_presend_evaluator.py"
+      ],
+      "primary_functions": [
+        "search_hotels",
+        "render_hotel_quote_pdf",
+        "apply_markup",
+        "compose_client_email",
+        "run_wf17_gate"
+      ],
+      "mcp_tools": ["search_hotels", "render_hotel_quote_pdf"],
+      "weekly_report": {
+        "frequency": "Mon AM",
+        "period": "2026-04-21 to 2026-06-10",
+        "destination": "johnloucks3@gmail.com",
+        "delivery": "FULL_SEND",
+        "combined_with": "TP-1.2"
+      },
+      "data_in": [
+        "Itinerary port schedule from dossier",
+        "Hotel rates via travel_mcp_server.py",
+        "A6 property descriptions",
+        "A9 markup calculations"
+      ],
+      "data_out": [
+        "Weekly hotel research — full send to johnloucks3",
+        "Hotel quote PDFs — Thunderbird_Proposals Drive folder",
+        "Final hotel proposal — Gmail draft in d2mconcierge",
+        "dossiers/Kuklinski_Viking_Panama.md — hotel section updated"
+      ],
+      "wf17_required": true,
+      "commander_send_required": true
+    },
+    {
+      "id": "TP-2.1",
+      "tp_number": "2.1",
+      "phase": 2,
+      "phase_name": "Momentum",
+      "name": "Excursion Recommendations",
+      "status": "PENDING",
+      "status_emoji": "⏳",
+      "search_window": "2026-05-05 to 2026-07-25",
+      "send_date": "2026-08-01",
+      "critical_constraint": "Must deliver by Aug 1 — Viking excursion window opens Aug 2",
+      "primary_owner": "A2_DEMBE",
+      "supporting_staff": ["A6_LUNA", "A9_HARLAN", "A3_DANI", "HALE", "COMMANDER"],
+      "client_recipients": ["G1"],
+      "notes": "Port excursions for Cartagena, Santa Marta, Puerto Limon. Viking vs independent tour comparison. A6 Luna writes experiential copy per port. Must surface before Viking's own excursion portal opens Aug 2.",
+      "ports": ["Cartagena, Colombia", "Santa Marta, Colombia", "Puerto Limon, Costa Rica"],
+      "code_modules": [
+        "core/mcp/travel_mcp_server.py",
+        "core/intel/thunderbird_world_intel.py",
+        "core/email/thunderbird_dani_email.py",
+        "core/client/thunderbird_quote_render.py",
+        "core/email/thunderbird_presend_evaluator.py"
+      ],
+      "primary_functions": [
+        "search_tours",
+        "run_world_intelligence_sweep",
+        "apply_markup",
+        "compose_client_email",
+        "run_wf17_gate"
+      ],
+      "mcp_tools": ["search_tours", "run_world_intelligence_sweep"],
+      "weekly_report": {
+        "frequency": "Mon AM",
+        "period": "2026-05-05 to 2026-07-25",
+        "destination": "johnloucks3@gmail.com",
+        "delivery": "FULL_SEND"
+      },
+      "data_in": [
+        "Port schedule from dossier",
+        "GetYourGuide / Kiwitaxi scraper data",
+        "A6 port narrative descriptions"
+      ],
+      "data_out": [
+        "Weekly excursion research reports — full send to johnloucks3",
+        "Final excursion proposal — Gmail draft in d2mconcierge",
+        "dossiers/Kuklinski_Viking_Panama.md — excursions section updated"
+      ],
+      "wf17_required": true,
+      "commander_send_required": true
+    },
+    {
+      "id": "TP-2.2",
+      "tp_number": "2.2",
+      "phase": 2,
+      "phase_name": "Momentum",
+      "name": "Monthly Validation",
+      "status": "ACTIVE_SEARCH",
+      "status_emoji": "🔵",
+      "search_window": "2026-04-15 to 2026-11-15",
+      "send_dates": "15th of each month, Apr through Nov 2026 (8 total sends)",
+      "send_date": "15th monthly",
+      "primary_owner": "A3_DANI",
+      "supporting_staff": ["HALE", "COMMANDER"],
+      "client_recipients": ["G1"],
+      "notes": "8 monthly sends. Validates booking status, confirms payment, flags upcoming milestones, reports guest form completion status for Morton and Dodge.",
+      "code_modules": [
+        "core/client/thunderbird_validation.py",
+        "core/email/thunderbird_dani_email.py",
+        "core/email/thunderbird_gmail.py",
+        "core/email/thunderbird_presend_evaluator.py"
+      ],
+      "primary_functions": [
+        "validate_booking_data",
+        "check_guest_form_status",
+        "compose_client_email",
+        "run_wf17_gate",
+        "create_gmail_draft"
+      ],
+      "mcp_tools": ["gmail_create_draft"],
+      "data_in": [
+        "dossiers/Kuklinski_Viking_Panama.md",
+        "THUNDERBIRD_MASTER_PLAN.md — active bookings registry",
+        "Viking booking system / TESS status"
+      ],
+      "data_out": [
+        "Monthly validation email — Gmail draft in d2mconcierge",
+        "dossiers/Kuklinski_Viking_Panama.md — updated validation status",
+        "Sent — concierge@d2mluxury.quest to Kyle Kuklinski"
+      ],
+      "wf17_required": true,
+      "commander_send_required": true
+    },
+    {
+      "id": "TP-2.3",
+      "tp_number": "2.3",
+      "phase": 2,
+      "phase_name": "Momentum",
+      "name": "Dining Research",
+      "status": "PENDING",
+      "status_emoji": "⏳",
+      "search_window": "2026-06-16 to 2026-09-11",
+      "send_date": "2026-09-18",
+      "primary_owner": "A2_DEMBE",
+      "supporting_staff": ["A6_LUNA", "A9_HARLAN", "A3_DANI", "HALE", "COMMANDER"],
+      "client_recipients": ["G1"],
+      "notes": "Onboard Viking Mars specialty dining + port restaurant recommendations for Cartagena, Santa Marta, Puerto Limon. Holiday meal considerations (Christmas Eve and Christmas Day at sea).",
+      "dining_scope": [
+        "Viking Mars onboard specialty dining",
+        "Cartagena port dining",
+        "Santa Marta port dining",
+        "Puerto Limon port dining",
+        "Christmas Eve / Christmas Day sea day meal planning"
+      ],
+      "code_modules": [
+        "core/intel/thunderbird_world_intel.py",
+        "core/intel/thunderbird_ship_intel.py",
+        "core/email/thunderbird_dani_email.py",
+        "core/email/thunderbird_presend_evaluator.py"
+      ],
+      "primary_functions": [
+        "run_world_intelligence_sweep",
+        "get_ship_intel",
+        "compose_client_email",
+        "run_wf17_gate"
+      ],
+      "mcp_tools": ["run_world_intelligence_sweep", "run_ship_intelligence_sweep"],
+      "weekly_report": {
+        "frequency": "Mon AM",
+        "period": "2026-06-16 to 2026-09-11",
+        "destination": "johnloucks3@gmail.com",
+        "delivery": "FULL_SEND"
+      },
+      "data_in": [
+        "Viking Mars dining menus / ship intel",
+        "Port restaurant data via world intel sweep",
+        "A6 dining narrative copy"
+      ],
+      "data_out": [
+        "Weekly dining intel reports — full send to johnloucks3",
+        "Final dining guide — Gmail draft in d2mconcierge",
+        "dossiers/Kuklinski_Viking_Panama.md — dining section updated"
+      ],
+      "wf17_required": true,
+      "commander_send_required": true
+    },
+    {
+      "id": "TP-2.4",
+      "tp_number": "2.4",
+      "phase": 2,
+      "phase_name": "Momentum",
+      "name": "Document Audit",
+      "status": "PENDING",
+      "status_emoji": "⏳",
+      "search_window": "2026-07-01 to 2026-09-11",
+      "send_date": "2026-09-18",
+      "primary_owner": "A2_DEMBE",
+      "supporting_staff": ["A3_DANI", "HALE", "COMMANDER"],
+      "client_recipients": ["G1"],
+      "notes": "Passport validity, visa requirements (Colombia, Costa Rica, Panama), health documentation, and guest form completion for Morton and Dodge. Sent same day as TP 2.3.",
+      "audit_items": [
+        "Passport validity (6-month rule for all ports)",
+        "Colombia visa requirements",
+        "Costa Rica entry requirements",
+        "Panama entry requirements",
+        "Guest form completion — Joshua Morton (MISSING)",
+        "Guest form completion — Erica Dodge (MISSING)"
+      ],
+      "code_modules": [
+        "core/booking/thunderbird_dossier_scanner.py",
+        "core/booking/thunderbird_guest_forms.py",
+        "core/email/thunderbird_dani_email.py",
+        "core/email/thunderbird_presend_evaluator.py"
+      ],
+      "primary_functions": [
+        "scan_dossier_gaps",
+        "check_guest_form_status",
+        "compose_client_email",
+        "run_wf17_gate"
+      ],
+      "mcp_tools": ["gmail_create_draft"],
+      "data_in": [
+        "dossiers/Kuklinski_Viking_Panama.md — guest DOBs, nationalities",
+        "Guest form completion status — Morton/Dodge MISSING",
+        "Destination entry requirements research"
+      ],
+      "data_out": [
+        "Document audit checklist email — Gmail draft in d2mconcierge",
+        "dossiers/Kuklinski_Viking_Panama.md — document status section updated",
+        "Sent — concierge@d2mluxury.quest to Kyle Kuklinski"
+      ],
+      "wf17_required": true,
+      "commander_send_required": true
+    },
+    {
+      "id": "TP-3.1",
+      "tp_number": "3.1",
+      "phase": 3,
+      "phase_name": "Pre-Departure",
+      "name": "Pre-Voyage Brief",
+      "status": "PENDING",
+      "status_emoji": "⏳",
+      "search_window": "2026-08-25 to 2026-11-19",
+      "send_date": "2026-11-26",
+      "primary_owner": "A2_DEMBE",
+      "co_owner": "A6_LUNA",
+      "supporting_staff": ["EXEC_NAIA", "A3_DANI", "HALE", "COMMANDER"],
+      "client_recipients": ["G1", "G2", "G3", "G4", "G5", "G6"],
+      "notes": "Comprehensive destination deep-dive: packing lists, weather, health advisories, logistics, port-by-port guide. A2 compiles content; A6 Luna writes narrative. EXEC Naia voice reviews. Broadest scope of any single email.",
+      "content_scope": [
+        "Panama City embarkation logistics",
+        "Panama Canal transit guide",
+        "Cartagena destination deep-dive",
+        "Santa Marta destination deep-dive",
+        "Puerto Limon / Costa Rica guide",
+        "Holiday at sea (Christmas Eve, Christmas Day) what to expect",
+        "Fort Lauderdale disembarkation guide",
+        "Packing recommendations",
+        "Health advisories (tropical medicine, vaccinations)",
+        "Weather December forecast"
+      ],
+      "code_modules": [
+        "core/intel/thunderbird_world_intel.py",
+        "core/intel/thunderbird_ship_intel.py",
+        "core/email/thunderbird_dani_email.py",
+        "core/email/thunderbird_dani_voice.py",
+        "core/email/thunderbird_presend_evaluator.py"
+      ],
+      "primary_functions": [
+        "run_world_intelligence_sweep",
+        "run_ship_intelligence_sweep",
+        "compose_client_email",
+        "match_voice_profile",
+        "run_wf17_gate"
+      ],
+      "mcp_tools": ["run_world_intelligence_sweep", "run_ship_intelligence_sweep"],
+      "weekly_report": {
+        "frequency": "Mon AM",
+        "period": "2026-08-25 to 2026-11-19",
+        "destination": "johnloucks3@gmail.com",
+        "delivery": "FULL_SEND"
+      },
+      "data_in": [
+        "World intel sweep — all 5 ports",
+        "Viking Mars ship intel",
+        "Health advisory databases",
+        "Weather API / December climate data"
+      ],
+      "data_out": [
+        "Weekly pre-voyage assembly reports — full send to johnloucks3",
+        "Final pre-voyage brief — Gmail draft in d2mconcierge",
+        "Sent — concierge@d2mluxury.quest to all 6 guests"
+      ],
+      "wf17_required": true,
+      "naia_voice_review_required": true,
+      "commander_send_required": true
+    },
+    {
+      "id": "TP-3.2",
+      "tp_number": "3.2",
+      "phase": 3,
+      "phase_name": "Pre-Departure",
+      "name": "Final Confirmation",
+      "status": "PENDING",
+      "status_emoji": "⏳",
+      "compile_window": "2026-12-01 to 2026-12-08",
+      "send_date": "2026-12-10",
+      "primary_owner": "HALE",
+      "supporting_staff": ["EXEC_NAIA", "A3_DANI", "COMMANDER"],
+      "client_recipients": ["G1", "G2", "G3", "G4", "G5", "G6"],
+      "notes": "Hale directly owns compilation. All bookings, flights, hotels, transfers consolidated into one master confirmation. EXEC Naia voice reviews. Seven days before embarkation.",
+      "confirmation_items": [
+        "All 3 cruise booking references",
+        "Flight confirmations",
+        "Hotel confirmation(s)",
+        "Transfer details",
+        "Shipboard credit summary ($800 + $200 + $200)",
+        "Embarkation details (Panama City, 3:00 PM Dec 17)",
+        "Disembarkation details (Fort Lauderdale, 5:00 AM Dec 27)",
+        "Viking app / check-in instructions"
+      ],
+      "code_modules": [
+        "core/booking/thunderbird_dossier.py",
+        "core/client/thunderbird_validation.py",
+        "core/email/thunderbird_dani_email.py",
+        "core/email/thunderbird_presend_evaluator.py"
+      ],
+      "primary_functions": [
+        "compile_dossier_summary",
+        "validate_booking_data",
+        "compose_client_email",
+        "run_wf17_gate"
+      ],
+      "mcp_tools": ["gmail_create_draft"],
+      "data_in": [
+        "dossiers/Kuklinski_Viking_Panama.md — all sections complete",
+        "Flight confirmation records",
+        "Hotel confirmation records",
+        "Viking booking system data"
+      ],
+      "data_out": [
+        "Master confirmation email — Gmail draft in d2mconcierge",
+        "Sent — concierge@d2mluxury.quest to all 6 guests"
+      ],
+      "wf17_required": true,
+      "naia_voice_review_required": true,
+      "commander_send_required": true
+    },
+    {
+      "id": "TP-3.3",
+      "tp_number": "3.3",
+      "phase": 3,
+      "phase_name": "Pre-Departure",
+      "name": "Send-Off",
+      "status": "PENDING",
+      "status_emoji": "⏳",
+      "search_window": null,
+      "send_date": "2026-12-14",
+      "primary_owner": "A3_DANI",
+      "supporting_staff": ["EXEC_NAIA", "HALE", "COMMANDER"],
+      "client_recipients": ["G1", "G2", "G3", "G4", "G5", "G6"],
+      "notes": "Bon voyage email — 3 days before embarkation. High-emotion touchpoint. EXEC Naia voice reviews. Dani's most creative email in the lifecycle.",
+      "code_modules": [
+        "core/email/thunderbird_dani_email.py",
+        "core/email/thunderbird_dani_voice.py",
+        "core/email/thunderbird_gmail.py",
+        "core/email/thunderbird_presend_evaluator.py"
+      ],
+      "primary_functions": [
+        "compose_client_email",
+        "match_voice_profile",
+        "run_wf17_gate",
+        "create_gmail_draft"
+      ],
+      "mcp_tools": ["gmail_create_draft"],
+      "data_in": [
+        "dossiers/Kuklinski_Viking_Panama.md",
+        "Relationship history — tone calibration",
+        "Itinerary highlights for narrative"
+      ],
+      "data_out": [
+        "Send-off email — Gmail draft in d2mconcierge",
+        "Sent — concierge@d2mluxury.quest to all 6 guests"
+      ],
+      "wf17_required": true,
+      "naia_voice_review_required": true,
+      "commander_send_required": true
+    },
+    {
+      "id": "TP-5.1",
+      "tp_number": "5.1",
+      "phase": 5,
+      "phase_name": "Post-Voyage",
+      "name": "Welcome Home",
+      "status": "PENDING",
+      "status_emoji": "⏳",
+      "search_window": null,
+      "send_date": "2026-12-28",
+      "primary_owner": "A3_DANI",
+      "supporting_staff": ["EXEC_NAIA", "HALE", "COMMANDER"],
+      "client_recipients": ["G1", "G2", "G3", "G4", "G5", "G6"],
+      "notes": "Day after disembarkation. Warm, personal welcome home. Sets up post-voyage survey sequence. EXEC Naia voice reviews.",
+      "code_modules": [
+        "core/email/thunderbird_dani_email.py",
+        "core/email/thunderbird_dani_voice.py",
+        "core/email/thunderbird_gmail.py",
+        "core/email/thunderbird_presend_evaluator.py"
+      ],
+      "primary_functions": [
+        "compose_client_email",
+        "match_voice_profile",
+        "run_wf17_gate",
+        "create_gmail_draft"
+      ],
+      "mcp_tools": ["gmail_create_draft"],
+      "data_in": [
+        "dossiers/Kuklinski_Viking_Panama.md",
+        "Voyage notes and relationship context"
+      ],
+      "data_out": [
+        "Welcome home email — Gmail draft in d2mconcierge",
+        "Sent — concierge@d2mluxury.quest to all 6 guests"
+      ],
+      "wf17_required": true,
+      "naia_voice_review_required": true,
+      "commander_send_required": true
+    },
+    {
+      "id": "TP-5.2",
+      "tp_number": "5.2",
+      "phase": 5,
+      "phase_name": "Post-Voyage",
+      "name": "Post-Voyage Survey",
+      "status": "PENDING",
+      "status_emoji": "⏳",
+      "search_window": null,
+      "send_date": "2027-01-03",
+      "primary_owner": "A7_GAUGE",
+      "supporting_staff": ["HALE", "COMMANDER"],
+      "client_recipients": ["G1", "G2", "G3", "G4", "G5", "G6"],
+      "notes": "NPS + experience survey. Gauge owns design and deployment. Results feed back into D2M lessons-learned and future lifecycle calibration.",
+      "code_modules": [
+        "core/client/thunderbird_survey.py",
+        "core/email/thunderbird_gmail.py",
+        "core/email/thunderbird_presend_evaluator.py"
+      ],
+      "primary_functions": [
+        "generate_nps_survey",
+        "create_gmail_draft",
+        "run_wf17_gate"
+      ],
+      "mcp_tools": ["gmail_create_draft"],
+      "data_in": [
+        "Guest list and emails from dossier",
+        "Survey template from thunderbird_survey.py",
+        "Voyage itinerary for question context"
+      ],
+      "data_out": [
+        "Survey deployment email — Gmail draft in d2mconcierge",
+        "Sent — concierge@d2mluxury.quest to all 6 guests",
+        "Survey responses — archived in dossier and THUNDERBIRD_MASTER_PLAN.md"
+      ],
+      "wf17_required": true,
+      "commander_send_required": true
+    },
+    {
+      "id": "TP-5.3",
+      "tp_number": "5.3",
+      "phase": 5,
+      "phase_name": "Post-Voyage",
+      "name": "Thank You + Referral",
+      "status": "PENDING",
+      "status_emoji": "⏳",
+      "search_window": null,
+      "send_date": "2027-01-10",
+      "primary_owner": "A3_DANI",
+      "co_owner": "EXEC_NAIA",
+      "supporting_staff": ["HALE", "COMMANDER"],
+      "client_recipients": ["G1", "G2", "G3", "G4", "G5", "G6"],
+      "notes": "Handwritten-style personal thank you plus referral ask. Naia co-owns voice. Highest-touch post-voyage communication. Referral program details included.",
+      "code_modules": [
+        "core/email/thunderbird_dani_email.py",
+        "core/email/thunderbird_dani_voice.py",
+        "core/email/thunderbird_gmail.py",
+        "core/email/thunderbird_presend_evaluator.py"
+      ],
+      "primary_functions": [
+        "compose_client_email",
+        "match_voice_profile",
+        "run_wf17_gate",
+        "create_gmail_draft"
+      ],
+      "mcp_tools": ["gmail_create_draft"],
+      "data_in": [
+        "dossiers/Kuklinski_Viking_Panama.md",
+        "Survey responses from TP 5.2",
+        "Relationship history — full lifecycle context"
+      ],
+      "data_out": [
+        "Thank you + referral email — Gmail draft in d2mconcierge",
+        "Sent — concierge@d2mluxury.quest to all 6 guests"
+      ],
+      "wf17_required": true,
+      "naia_voice_review_required": true,
+      "commander_send_required": true
+    },
+    {
+      "id": "TP-5.4",
+      "tp_number": "5.4",
+      "phase": 5,
+      "phase_name": "Post-Voyage",
+      "name": "Next Voyage Plant",
+      "status": "PENDING",
+      "status_emoji": "⏳",
+      "search_window": "2027-01-11 to 2027-01-25",
+      "send_date": "2027-01-27",
+      "primary_owner": "A5_VIPER",
+      "supporting_staff": ["A2_DEMBE", "A3_DANI", "HALE", "COMMANDER"],
+      "client_recipients": ["G1"],
+      "notes": "Seeds next voyage based on preferences learned across the full lifecycle. Viper owns strategy. A2 researches voyage options. Closes the lifecycle loop.",
+      "code_modules": [
+        "core/intel/thunderbird_price_monitor.py",
+        "core/intel/thunderbird_ship_intel.py",
+        "core/mcp/travel_mcp_server.py",
+        "core/email/thunderbird_dani_email.py",
+        "core/email/thunderbird_presend_evaluator.py"
+      ],
+      "primary_functions": [
+        "monitor_fare_trends",
+        "run_ship_intelligence_sweep",
+        "search_flights",
+        "compose_client_email",
+        "run_wf17_gate"
+      ],
+      "mcp_tools": ["search_flights", "search_hotels", "run_ship_intelligence_sweep"],
+      "data_in": [
+        "Full lifecycle preference data from dossier",
+        "Survey results from TP 5.2",
+        "Viper strategic voyage analysis",
+        "Live cruise pricing and availability"
+      ],
+      "data_out": [
+        "Next voyage proposal — Gmail draft in d2mconcierge",
+        "dossiers/Kuklinski_Viking_Panama.md — lifecycle_closed flag set",
+        "Sent — concierge@d2mluxury.quest to Kyle Kuklinski"
+      ],
+      "wf17_required": true,
+      "commander_send_required": true
+    }
+  ],
+
+  "entry_points": {
+    "email_composition": {
+      "file": "core/email/thunderbird_dani_email.py",
+      "function": "compose_client_email",
+      "description": "Dani's primary email composition engine — aggregates research inputs, applies voice profile, formats to D2M stationery",
+      "mcp_tool": "gmail_create_draft"
+    },
+    "email_send": {
+      "file": "core/email/thunderbird_gmail.py",
+      "function": "create_gmail_draft",
+      "description": "Gmail API wrapper for draft creation and send operations",
+      "mcp_tool": "gmail_create_draft",
+      "send_from": "d2mconcierge@gmail.com",
+      "send_as": "concierge@d2mluxury.quest"
+    },
+    "wf17_quality_gate": {
+      "file": "core/email/thunderbird_presend_evaluator.py",
+      "function": "run_wf17_gate",
+      "description": "Pre-send quality gate: validates logo, sig block, stationery, sign-off. Applied to ALL client-facing touchpoints before Commander sees draft.",
+      "checks": ["logo_renders", "sig_block_correct", "stationery_compliant", "signoff_valid", "no_ai_disclaimer", "no_happy_to_help"]
+    },
+    "voice_matching": {
+      "file": "core/email/thunderbird_dani_voice.py",
+      "function": "match_voice_profile",
+      "description": "Matches Dani's output to Commander's voice profile and client relationship register",
+      "mcp_tool": null
+    },
+    "booking_validation": {
+      "file": "core/client/thunderbird_validation.py",
+      "function": "validate_booking_data",
+      "description": "Validates booking records against dossier and Viking system. Used in monthly validation and final confirmation.",
+      "mcp_tool": null
+    },
+    "flight_search": {
+      "file": "core/mcp/travel_mcp_server.py",
+      "function": "search_flights",
+      "description": "Multi-source B2B + consumer flight search. Centrav B2B primary. Routes: RIC-PTY (Group 1) and RSW-FLL (Group 2).",
+      "mcp_tool": "search_flights"
+    },
+    "hotel_search": {
+      "file": "core/mcp/travel_mcp_server.py",
+      "function": "search_hotels",
+      "description": "Hotel search via Hotelbeds/Bedsonline wholesale GDS. Targets: Panama City pre-cruise, FLL post-cruise.",
+      "mcp_tool": "search_hotels"
+    },
+    "tour_search": {
+      "file": "core/mcp/travel_mcp_server.py",
+      "function": "search_tours",
+      "description": "Day tour / excursion search via GetYourGuide. Ports: Cartagena, Santa Marta, Puerto Limon.",
+      "mcp_tool": "search_tours"
+    },
+    "hotel_quote_render": {
+      "file": "core/client/thunderbird_quote_render.py",
+      "function": "render_hotel_quote_pdf",
+      "description": "Renders hotel quote as PDF with D2M markup applied. Output → Thunderbird_Proposals Drive folder.",
+      "mcp_tool": "render_hotel_quote_pdf",
+      "drive_folder_id": "1g2AlDLEjd71cIL-T0HfIh2ytatPBCgVn"
+    },
+    "dossier_read": {
+      "file": "core/booking/thunderbird_dossier.py",
+      "function": "read_dossier",
+      "description": "Reads structured client dossier. Source of truth for all guest data, booking status, and lifecycle progress.",
+      "dossier_path": "dossiers/Kuklinski_Viking_Panama.md"
+    },
+    "dossier_update": {
+      "file": "core/booking/thunderbird_dossier.py",
+      "function": "update_dossier",
+      "description": "Updates dossier after each touchpoint completion. Triggers 4-step auto-dossier protocol.",
+      "dossier_path": "dossiers/Kuklinski_Viking_Panama.md"
+    },
+    "dossier_gap_scan": {
+      "file": "core/booking/thunderbird_dossier_scanner.py",
+      "function": "scan_dossier_gaps",
+      "description": "Proactive gap detection — flags missing guest forms (Morton, Dodge), document issues, overdue items.",
+      "mcp_tool": null
+    },
+    "guest_form_check": {
+      "file": "core/booking/thunderbird_guest_forms.py",
+      "function": "check_guest_form_status",
+      "description": "Checks guest profile form completion. Morton and Dodge currently MISSING — follow-up required.",
+      "mcp_tool": null
+    },
+    "world_intel_sweep": {
+      "file": "core/intel/thunderbird_world_intel.py",
+      "function": "run_world_intelligence_sweep",
+      "description": "Port-by-port destination research, restaurant intel, excursion data. Runs during discovery and pre-departure phases.",
+      "mcp_tool": "run_world_intelligence_sweep",
+      "drive_folder_id": "1joXoapQQjnGsKzxxvpDhZnO6czlCQGqj"
+    },
+    "ship_intel_sweep": {
+      "file": "core/intel/thunderbird_ship_intel.py",
+      "function": "run_ship_intelligence_sweep",
+      "description": "Ship-specific intelligence: Viking Mars dining, amenities, deck plans, onboard programming.",
+      "mcp_tool": "run_ship_intelligence_sweep",
+      "drive_folder_id": "1joXoapQQjnGsKzxxvpDhZnO6czlCQGqj"
+    },
+    "price_monitoring": {
+      "file": "core/intel/thunderbird_price_monitor.py",
+      "function": "monitor_fare_trends",
+      "description": "Continuous fare trend monitoring during active search windows. Weekly reports to Commander.",
+      "mcp_tool": null
+    },
+    "survey_deployment": {
+      "file": "core/client/thunderbird_survey.py",
+      "function": "generate_nps_survey",
+      "description": "NPS + experience survey generation and deployment. Owned by A7 Gauge for post-voyage phase.",
+      "mcp_tool": "gmail_create_draft"
+    },
+    "commission_analysis": {
+      "file": "core/booking/thunderbird_commission_recon.py",
+      "function": "reconcile_commission",
+      "description": "Commission reconciliation and D2M markup validation. A9 Harlan applies markup to all quoted services.",
+      "markup_rules": {
+        "standard": "25% on net",
+        "premium_slh": "22% on net",
+        "formula": "client_price = net_usd * (1 + markup)"
+      }
+    },
+    "persona_engine": {
+      "file": "core/ai_infra/thunderbird_personas.py",
+      "function": "instantiate_persona",
+      "description": "Upstream orchestration layer. Instantiates all staff personas (Hale, Dani, Dembe, Viper, Luna, Gauge, Harlan, Naia) for each touchpoint. Called before any touchpoint execution.",
+      "mcp_tool": null
+    }
+  },
+
+  "data_stores": {
+    "primary_dossier": {
+      "path": "dossiers/Kuklinski_Viking_Panama.md",
+      "description": "Single source of truth for guest data, booking status, lifecycle progress, email log, validation matrix"
+    },
+    "client_context_cache": {
+      "path": "storage/cache/client_context/kuklinski_context.json",
+      "description": "Cached client intelligence for fast persona/email composition access"
+    },
+    "master_plan": {
+      "path": "THUNDERBIRD_MASTER_PLAN.md",
+      "section": "Part 5 — Active Bookings Registry",
+      "description": "Wing-level active bookings registry. Updated on every booking change."
+    },
+    "drive_client_folder": {
+      "drive_folder_id": "13UC6D_1oq1_XgWiiHGFFHUXMdqV_4Iye",
+      "description": "Google Drive mirror — Kuklinski client folder"
+    },
+    "drive_proposals": {
+      "drive_folder_id": "1g2AlDLEjd71cIL-T0HfIh2ytatPBCgVn",
+      "description": "Hotel quote PDFs and proposals"
+    },
+    "drive_intel": {
+      "drive_folder_id": "1joXoapQQjnGsKzxxvpDhZnO6czlCQGqj",
+      "description": "Ship and world intel sweep outputs"
+    }
+  },
+
+  "wf17_gate": {
+    "description": "WF-17 Quality Gate — required for all client-facing touchpoints",
+    "file": "core/email/thunderbird_presend_evaluator.py",
+    "function": "run_wf17_gate",
+    "checks": {
+      "logo_renders": "D2M navy banner logo renders correctly",
+      "sig_block": "Sig block contains concierge@d2mluxury.quest",
+      "stationery": "Cream #f7f3ea paper, bright blue #0000ff ink, Georgia serif font",
+      "signoff": "Thanks or Thank you — never Best",
+      "no_ai_disclaimer": "No AI disclaimer unless Commander adds as PS",
+      "no_happy_to_help": "No happy to help, no concierge announce, no unpaid markers"
+    },
+    "flow": [
+      "1. Dani composes email",
+      "2. presend_evaluator.py runs WF-17 checks",
+      "3. Hale reviews — surfaces to Commander only if gate passes",
+      "4. Draft placed in d2mconcierge Gmail + copy to johnloucks3 at 0600",
+      "5. Commander reviews and approves",
+      "6. Send executed only after explicit Commander yes"
+    ]
+  },
+
+  "weekly_reports": {
+    "description": "All weekly reports are FULL SENDS to johnloucks3@gmail.com — not drafts (SO 27 MAR 2026)",
+    "streams": [
+      {
+        "name": "Airfare + Hotel Combined",
+        "period": "2026-04-21 to 2026-06-10",
+        "frequency": "Mon AM",
+        "owner": "A2_DEMBE",
+        "destination": "johnloucks3@gmail.com"
+      },
+      {
+        "name": "Excursion Research",
+        "period": "2026-05-05 to 2026-07-25",
+        "frequency": "Mon AM",
+        "owner": "A2_DEMBE",
+        "destination": "johnloucks3@gmail.com"
+      },
+      {
+        "name": "Dining Intel",
+        "period": "2026-06-16 to 2026-09-11",
+        "frequency": "Mon AM",
+        "owner": "A2_DEMBE",
+        "destination": "johnloucks3@gmail.com"
+      },
+      {
+        "name": "Monthly Validation",
+        "period": "2026-04-15 to 2026-11-15",
+        "frequency": "15th of month",
+        "owner": "A3_DANI",
+        "destination": "johnloucks3@gmail.com (draft review copy) then client"
+      },
+      {
+        "name": "Pre-Voyage Brief Assembly",
+        "period": "2026-08-25 to 2026-11-19",
+        "frequency": "Mon AM",
+        "owner": "A2_DEMBE / A6_LUNA",
+        "destination": "johnloucks3@gmail.com"
+      }
+    ]
+  },
+
+  "flags": {
+    "overdue_items": [
+      {
+        "id": "TP-0.6",
+        "name": "Insurance Discussion",
+        "overdue_since": "2026-04-28",
+        "action_required": "Immediate — Dani to draft insurance proposal for Commander approval"
+      }
+    ],
+    "missing_guest_forms": [
+      {"guest": "Joshua Morton", "email": "Josh@jerichopix.com"},
+      {"guest": "Erica Dodge", "email": "Buzzerica@gmail.com"}
+    ],
+    "ancillary_not_booked": [
+      "Flights (RIC-PTY and RSW-FLL)",
+      "Pre-cruise hotel (Panama City)",
+      "Post-cruise hotel (Fort Lauderdale)",
+      "Transfers",
+      "Travel insurance"
+    ],
+    "critical_deadline": {
+      "date": "2026-08-01",
+      "event": "TP 2.1 Excursion Recs must be sent",
+      "reason": "Viking excursion booking window opens Aug 2 — guests must have D2M recommendations in hand first"
+    }
+  }
+}

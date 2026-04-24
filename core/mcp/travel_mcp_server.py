@@ -87,6 +87,16 @@ from thunderbird_a2a_protocol import register_a2a_protocol_tools
 from thunderbird_grant_compiler import register_grant_tools
 from thunderbird_mcp_connector import register_connector_tools
 from thunderbird_groq_connectors import register_groq_connector_tools
+# Phantom self-building MCP — adds 'build_mcp_tool' and 'list_phantom_builds'
+try:
+    import sys as _sys
+    _sys.path.insert(0, str(Path(__file__).parent))
+    from phantom_mcp_builder import PhantomMCPBuilder as _PhantomBuilder
+    _phantom = _PhantomBuilder(server_path=Path(__file__))
+    _PHANTOM_OK = True
+except Exception as _e:
+    _PHANTOM_OK = False
+    _phantom = None
 import json
 import logging
 import asyncio
@@ -580,6 +590,18 @@ if MCP_PROFILE in ("ops", "full"):
     except Exception as e:
         logger.warning(f"Product intake tools not available: {e}")
 
+# ── Qdrant Semantic Memory ────────────────────────────────────────────────────
+try:
+    import sys as _sys_mem
+    _mem_path = str(Path(__file__).parent.parent / "memory")
+    if _mem_path not in _sys_mem.path:
+        _sys_mem.path.insert(0, _mem_path)
+    from qdrant_memory import register_qdrant_memory_tools
+    register_qdrant_memory_tools(mcp)
+    logger.info("Qdrant semantic memory tools registered (memory_search, memory_embed_all, memory_embed_file)")
+except Exception as _e:
+    logger.warning(f"Qdrant memory tools not available: {_e}")
+
 # thunderbird_bulletin: registered above (hard import — line 74)
 
 # ── Dani Hardening Tools (data confidence, pre-send, conversation state, response library) ──
@@ -1021,6 +1043,42 @@ import os
 #         return json.dumps({"error": f"Command timed out after {timeout}s", "command": command, "cwd": cwd}, indent=2)
 #     except Exception as e:
 #         return json.dumps({"error": str(e), "command": command, "cwd": cwd}, indent=2)
+
+
+# ============================================================================
+# PHANTOM SELF-BUILDING MCP TOOLS (Apr 17 2026)
+# ============================================================================
+
+@mcp.tool(name="build_mcp_tool")
+async def build_mcp_tool(
+    task_description: str = Field(..., description="Describe the capability gap — what tool the Wing needs that doesn't exist yet"),
+    dry_run: bool = Field(False, description="If true, generate and validate the tool stub but don't append to server"),
+) -> str:
+    """Phantom self-builder: identifies a capability gap, generates an MCP tool stub,
+    validates syntax, appends to travel_mcp_server.py, reloads the MCP service,
+    and tests the new tool. This is how the Wing grows its own toolbox."""
+    if not _PHANTOM_OK or _phantom is None:
+        return json.dumps({"error": "Phantom MCP builder not available — check core/mcp/phantom_mcp_builder.py"})
+    try:
+        builder = _PhantomBuilder(server_path=Path(__file__), dry_run=dry_run)
+        result = builder.build(task_description)
+        return json.dumps(result, indent=2)
+    except Exception as e:
+        return json.dumps({"error": str(e), "task": task_description})
+
+
+@mcp.tool(name="list_phantom_builds")
+async def list_phantom_builds() -> str:
+    """List all tools the Phantom self-builder has previously generated,
+    with timestamps, tool names, and build status."""
+    if not _PHANTOM_OK or _phantom is None:
+        return json.dumps({"error": "Phantom MCP builder not available"})
+    try:
+        builder = _PhantomBuilder(server_path=Path(__file__))
+        builds = builder.list_builds()
+        return json.dumps({"builds": builds, "count": len(builds)}, indent=2)
+    except Exception as e:
+        return json.dumps({"error": str(e)})
 
 
 # ============================================================================

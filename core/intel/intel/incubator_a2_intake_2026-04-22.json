@@ -1,0 +1,24 @@
+[
+  {
+    "id": "A2-2026-04-22-001",
+    "title": "Dictionary: COMPETITIVE definition",
+    "source_signal": "Signals 1-4 (Merriam-Webster, Cambridge, Dictionary.com, Collins)",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 generic English language definition",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Search drift \u2014 captured dictionary entries instead of cruise/pricing intelligence. Not travel-relevant."
+  },
+  {
+    "id": "A2-2026-04-22-002",
+    "title": "Mappy: French route planner / transport comparison",
+    "source_signal": "Signals 5-12 (Mappy itinerary planning, France focus)",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 B2C transport tool, not luxury cruise intelligence",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Mappy is French domestic routing; no relevance to Silversea/Regent/Viking competitive pricing, port deployments, or regulatory signals. Domain mismatch."
+  }
+]

@@ -1,0 +1,12 @@
+[
+  {
+    "name": "laravel_session",
+    "value": "VGjBB11ioucRLJ1alfrEJlKOsHG9HRObXTh3kSel",
+    "domain": "www.centrav.com",
+    "path": "/",
+    "expires": -1,
+    "httpOnly": true,
+    "secure": true,
+    "sameSite": "Lax"
+  }
+]

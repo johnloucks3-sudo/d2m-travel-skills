@@ -5,7 +5,7 @@
 
 Last updated: 2026-03-30T02:00:00MT by Claude Sonnet 4.6
 Claude budget status: YELLOW (rate-limited — 28hr recovery window)
-Active tasks: 0
+Active tasks: 2
 Last Deepseek ruling: NONE
 Standing directives:
   - Claude primary window: 0000-0500 MT

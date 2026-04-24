@@ -1,10 +1,1 @@
-[
-  {
-    "role": "Commander",
-    "text": "Count tools available"
-  },
-  {
-    "role": "Hale",
-    "text": "I'll count the available tools for you, Commander.\n•# MCP Tool Count — 84 functions across 5 files\n\n**Breakdown:**\n- **Core MCP:** 84 tool functions total\n- **Distribution:** 5 Python files containing tool implementations\n- **Server:** `/home/john/Thunderbird/core/mcp/travel_mcp_server.py` (primary entrypoint)\n\n**Operational Status:**\n- MCP server running via `mcp_launcher_core.sh` \n- PYTHONPATH configured for 18 directories\n- HTTP mode: 293 tools (all profiles)\n- Stdio mode: 136 tools (core profile)\n\nThe toolset remains stable since the 2026-04-06 reorganization. No degradation detected."
-  }
-]
+[]

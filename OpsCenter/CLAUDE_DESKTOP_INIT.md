@@ -99,15 +99,15 @@ Acknowledge with: "Thunderbird Wing online. Sonnet 4.6. Ready, Yoda."
 
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-04-17 16:08 MT -->
+<!-- Last sync: 2026-04-23 21:29 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-04-17 16:08 MT] ===
-Budget: Claude UNKNOWN | Goose GREEN | Groq UNKNOWN | Deepseek UNKNOWN
-Active tasks: 0
+=== THUNDERBIRD BLACKBOARD [2026-04-23 21:29 MT] ===
+Budget: Claude GREEN (MAX $0) | OpenCode GREEN (DeepSeek V3.1 ~$0.27/M) | Groq UNKNOWN | Deepseek GREEN
+Active tasks: 2
 Last Deepseek ruling: NONE
 Open items: none logged
 Next priority: check session_autosave_latest.md
-Standing: Goose=Commander authority | Deepseek=arbitrator | PII fence: Deepseek/Groq
+Standing: Claude=judgment | OpenCode=ops | Deepseek=arbitrator | PII fence: Deepseek
 Session checkpoint: /home/john/Thunderbird/session_autosave_latest.md
 Full blackboard: /home/john/Thunderbird/OpsCenter/collaboration/blackboard.md
 ================================================

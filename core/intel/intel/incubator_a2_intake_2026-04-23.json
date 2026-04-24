@@ -1,0 +1,101 @@
+[
+  {
+    "id": "A2-2026-04-23-001",
+    "title": "UT Southwestern Behavioral Health Hospital",
+    "source_signal": "UT Southwestern to open DFW's first state behavioral health hospital",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "Healthcare facility infrastructure. Zero relevance to luxury cruise travel planning or client engagement."
+  },
+  {
+    "id": "A2-2026-04-23-002",
+    "title": "Behavioral Health Definitions (Merriam-Webster, Dictionary.com)",
+    "source_signal": "BEHAVIORAL Definition & Meaning - Merriam-Webster; Dictionary.com",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "Dictionary definitions. No actionable intelligence for behavioral preference inference or client engagement."
+  },
+  {
+    "id": "A2-2026-04-23-003",
+    "title": "Behavioral Health Dallas Therapy Practice",
+    "source_signal": "Behavioral Health Dallas - Therapy & Counseling, Dallas TX",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "Mental health therapy practice. Confuses 'behavioral' (psychology/wellness) with 'behavioral preference inference' (travel psychology). Wrong domain."
+  },
+  {
+    "id": "A2-2026-04-23-004",
+    "title": "Jesus and the Cross - Biblical Archaeology",
+    "source_signal": "Jesus and the Cross - Biblical Archaeology Society",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "Religious history. Zero relevance to Thunderbird business."
+  },
+  {
+    "id": "A2-2026-04-23-005",
+    "title": "Machine Learning Cross-Validation Techniques",
+    "source_signal": "machine learning - Cross validation Vs. Train Validate Test",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "Generic ML methodology. Not specific to D2M's proactive engagement or preference inference use case."
+  },
+  {
+    "id": "A2-2026-04-23-006",
+    "title": "Roman Crucifixion Methods - Archaeology",
+    "source_signal": "Roman Crucifixion Methods Reveal the History of Crucifixion",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "Historical archaeology. Zero relevance to luxury cruise travel planning."
+  },
+  {
+    "id": "A2-2026-04-23-007",
+    "title": "Cross-Entropy Error Function in Neural Networks",
+    "source_signal": "The cross-entropy error function in neural networks",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "Generic ML mathematics. Not actionable for Thunderbird's specific use cases."
+  },
+  {
+    "id": "A2-2026-04-23-008",
+    "title": "Mappy French Routing & Itinerary Tool",
+    "source_signal": "Itin\u00e9raire avec Mappy, Mappy - Plans, comparateur d'itin\u00e9raires, Mappy public transit",
+    "classification": "WATCH",
+    "gap_closed": "European port-to-excursion logistics routing for shore day itinerary planning",
+    "thunderbird_component": "thunderbird_itinerary.py + excursion logistics engine",
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "Generic European routing tool with public transit integration. Potential value for Mediterranean/river cruise port logistics, but unproven fit for D2M's high-touch itinerary personalization and no clear integration cost-benefit vs. existing scrapers. Revisit if clients request specific European public transit routing."
+  },
+  {
+    "id": "A2-2026-04-23-009",
+    "title": "Mappy US & France Geographic References",
+    "source_signal": "Plan Chalon-sur-Sa\u00f4ne, Carte \u00c9tats-Unis, Dijon Lyon route comparison",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "Basic geographic reference tool. No differentiation from existing mapping integrations. Not relevant to D2M's client engagement or preference inference gaps."
+  }
+]

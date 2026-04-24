@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>D2M Wing · Executive Gantt · All Clients 2026–2027</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  background: #f2f4f8;
+  color: #2c2c2c;
+  min-height: 100vh;
+  padding: 20px;
+}
+.page {
+  max-width: 1440px;
+  margin: 0 auto;
+  background: white;
+  border: 2px solid #A9B0B7;
+  border-radius: 6px;
+  box-shadow: 0 12px 60px rgba(0,0,0,0.5);
+  overflow: hidden;
+}
+
+/* ── HEADER ── */
+.header {
+  background: linear-gradient(135deg, #000d3a 0%, #001a5c 45%, #003087 100%);
+  padding: 24px 36px 20px;
+  display: flex; align-items: center; gap: 20px;
+}
+.header img { height: 72px; width: auto; flex-shrink: 0; }
+.header-logo-fallback {
+  height: 72px; width: 120px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; color: #A9B0B7; letter-spacing: 2px; text-align: center;
+}
+.header-text { flex: 1; }
+.header-text h1 { font-size: 20px; color: #A9B0B7; letter-spacing: 2.5px; font-weight: bold; }
+.header-text .sub { font-size: 11px; color: rgba(255,255,255,0.65); letter-spacing: 2.5px; text-transform: uppercase; margin-top: 5px; font-style: italic; }
+.header-badges { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; flex-shrink: 0; }
+.badge { padding: 4px 12px; border-radius: 12px; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; font-weight: bold; white-space: nowrap; }
+.b-green  { background: #2d6a4f; color: white; }
+.b-blue   { background: rgba(0,48,135,0.8); color: #d4d8de; border: 1px solid #A9B0B7; }
+.b-red    { background: rgba(230,57,70,0.85); color: white; }
+.b-amber  { background: rgba(180,100,20,0.9); color: white; }
+
+/* ── SILVER RULE ── */
+.silver-rule {
+  height: 3px;
+  background: linear-gradient(90deg, #000d3a, #A9B0B7 30%, #ffffff 50%, #A9B0B7 70%, #000d3a);
+}
+
+/* ── ALERT BAR ── */
+.alert-bar {
+  background: rgba(230,57,70,0.07);
+  border-bottom: 1px solid rgba(230,57,70,0.22);
+  padding: 8px 28px;
+  display: flex; gap: 22px; align-items: center; flex-wrap: wrap;
+}
+.alert-label { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: bold; color: #e63946; flex-shrink: 0; }
+.alert-item { font-size: 11px; color: #c0392b; display: flex; align-items: center; gap: 5px; }
+.alert-item .dot { width: 7px; height: 7px; border-radius: 50%; background: #e63946; flex-shrink: 0; }
+
+/* ── STATUS BAR ── */
+.status-bar {
+  background: #f5f7fc;
+  border-bottom: 1px solid #dde2ee;
+  padding: 9px 28px;
+  display: flex; gap: 16px; align-items: center; flex-wrap: wrap;
+}
+.si { display: flex; align-items: center; gap: 5px; font-size: 11px; color: #333; }
+.sd { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.today-badge { margin-left: auto; font-size: 11px; color: #003087; font-weight: bold; letter-spacing: 1px; border: 1.5px solid #003087; padding: 3px 10px; border-radius: 10px; }
+
+/* ── LEGEND ── */
+.legend { padding: 9px 28px; border-bottom: 2px solid #dde2ee; display: flex; gap: 13px; flex-wrap: wrap; align-items: center; background: white; }
+.ll { font-size: 10px; color: #003087; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; margin-right: 4px; }
+.li { display: flex; align-items: center; gap: 5px; font-size: 10.5px; color: #444; }
+.ls { width: 18px; height: 11px; border-radius: 3px; flex-shrink: 0; }
+.ld { width: 8px; height: 8px; transform: rotate(45deg); flex-shrink: 0; background: #4a90d9; }
+
+/* ── GANTT LAYOUT ── */
+.gantt-wrap { display: flex; overflow-x: auto; }
+#labelCol { flex-shrink: 0; width: 304px; border-right: 2px solid #dde2ee; background: white; }
+.lh { height: 44px; background: #f0f4ff; border-bottom: 2px solid #dde2ee; display: flex; align-items: center; padding: 0 14px; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #003087; font-weight: bold; }
+.client-row {
+  border-bottom: 2px solid #dde2ee;
+  padding: 10px 12px 8px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.client-row.cancelled { opacity: 0.6; background: rgba(200,200,200,0.1); }
+.client-name { font-size: 13.5px; font-weight: bold; color: #001a5c; letter-spacing: 0.3px; }
+.client-name.cancelled { text-decoration: line-through; color: #888; }
+.client-ship { font-size: 10px; color: #555; font-style: italic; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 280px; }
+.client-meta { margin-top: 6px; display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.phase-pill { font-size: 8px; letter-spacing: 1px; text-transform: uppercase; font-weight: bold; padding: 2px 7px; border-radius: 8px; white-space: nowrap; }
+.fpd-text { font-size: 9.5px; font-weight: bold; white-space: nowrap; }
+.open-badge { font-size: 8.5px; color: #888; }
+
+#svgWrap { flex: 1; overflow-x: auto; min-width: 0; }
+
+/* ── FOOTER ── */
+.footer { background: linear-gradient(135deg, #001a5c 0%, #003087 100%); padding: 13px 36px; text-align: center; }
+.footer span { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #A9B0B7; }
+.footer .leg { display: block; font-size: 9px; color: rgba(169,176,183,0.5); margin-top: 3px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <img src="d2m_logo_email.png" alt="D2M" onerror="this.style.display='none';document.getElementById('logoFallback').style.display='flex';">
+    <div id="logoFallback" class="header-logo-fallback" style="display:none">DREAMS2<br>MEMORIES</div>
+    <div class="header-text">
+      <h1>WING EXECUTIVE GANTT — ALL ACTIVE CLIENTS</h1>
+      <div class="sub">Dreams2Memories Travel, LLC · Monument, CO · 6 Active Bookings · 2026–2027 Season</div>
+    </div>
+    <div class="header-badges">
+      <span class="badge b-red">⚡ 4 OVERDUE — ACT NOW</span>
+      <span class="badge b-amber">⚠ LYONS FPD DUE MAY 11</span>
+      <span class="badge b-blue">GENERATED: APR 23, 2026</span>
+    </div>
+  </div>
+  <div class="silver-rule"></div>
+
+  <!-- ALERT BAR -->
+  <div class="alert-bar">
+    <span class="alert-label">🔴 Overdue →</span>
+    <div class="alert-item"><div class="dot"></div>Kuklinski validation email (~58d) — A6→A9→A3</div>
+    <div class="alert-item"><div class="dot"></div>Kuklinski insurance email (~41d) — A9→A3</div>
+    <div class="alert-item"><div class="dot"></div>Kuklinski Josh Morton guest form (~58d) — A3→Josh</div>
+    <div class="alert-item"><div class="dot"></div>Westbrook Allianz claim $11,280 — contact Perx+SkyLux TODAY</div>
+  </div>
+
+  <!-- STATUS BAR -->
+  <div class="status-bar">
+    <div class="si"><div class="sd" style="background:#2d6a4f"></div>McLeod: FPD Paid · Jun 23</div>
+    <div class="si"><div class="sd" style="background:#e63946"></div>Lyons: FPD <strong>DUE MAY 11</strong> · Aug 11</div>
+    <div class="si"><div class="sd" style="background:#2d6a4f"></div>Furlow: FPD Paid $15,486 · Aug 29</div>
+    <div class="si"><div class="sd" style="background:#2d6a4f"></div>Nichols: FPD Paid · Aug 29</div>
+    <div class="si"><div class="sd" style="background:#2d6a4f"></div>Ely/Darrow: FPD Paid · Aug 29</div>
+    <div class="si"><div class="sd" style="background:#2d6a4f"></div>Kuklinski: FPD Paid $21,244 · Dec 17</div>
+    <div class="today-badge">TODAY: Apr 23, 2026</div>
+  </div>
+
+  <!-- LEGEND -->
+  <div class="legend">
+    <span class="ll">Status →</span>
+    <div class="li"><div class="ls" style="background:#2d6a4f"></div>Done / Paid</div>
+    <div class="li"><div class="ls" style="background:#e63946"></div>Overdue / Critical</div>
+    <div class="li"><div class="ls" style="background:#e09858"></div>Partial / Pending</div>
+    <div class="li"><div class="ls" style="background:#5fa8d3"></div>Next 30 days</div>
+    <div class="li"><div class="ls" style="background:#93c5e8"></div>1–3 months</div>
+    <div class="li"><div class="ls" style="background:#b8daf0"></div>3–6 months</div>
+    <div class="li"><div class="ls" style="background:#daeef8"></div>6+ months</div>
+    <div class="li"><div class="ls" style="background:#1a1a5c"></div>Voyage</div>
+    <div class="li" style="margin-left: 6px"><div class="ld"></div>Milestone</div>
+    <div class="li"><span style="color:#e63946;font-size:14px;font-weight:bold;line-height:1">┆</span>&nbsp;Today</div>
+    <div class="li"><span style="color:#1a1a5c;font-size:13px;font-weight:bold;opacity:0.5">│</span>&nbsp;Embark</div>
+  </div>
+
+  <!-- GANTT -->
+  <div class="gantt-wrap">
+    <div id="labelCol"><div class="lh">Client · Ship · Status</div></div>
+    <div id="svgWrap"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>Dreams2Memories Travel, LLC · Monument, CO · Wing Executive Gantt v1.0 · Generated Apr 23, 2026</span>
+    <span class="leg">FL ST1578 · CA 2090937-50 · WA UBID 603189022 · IA 1202 · Source: hale_brief.md · dossiers/ · Regen: scripts/generate_wing_status.py</span>
+  </div>
+
+</div><!-- /page -->
+
+<script>
+// ═══════════════════════════════════════════════════════════
+// D2M WING EXECUTIVE GANTT ENGINE
+// All clients · Single timeline view · Apr 20, 2026
+// ═══════════════════════════════════════════════════════════
+
+const TL_START = new Date('2026-01-01');
+const TL_END   = new Date('2027-03-01');
+const TODAY    = new Date('2026-04-23');
+const CW       = 1120;   // chart pixel width
+const HDR_H    = 44;     // month header height
+const ROW_H    = 82;     // per-client row height
+const CANC_H   = 52;     // cancelled row height
+const BAR_H    = 18;     // voyage bar height
+const DOT_R    = 8;      // event dot radius
+
+const STATUS_COLOR = {
+  done:           '#2d6a4f',
+  overdue:        '#e63946',
+  partial:        '#e09858',
+  urgent:         '#d4502a',
+  upcoming_near:  '#5fa8d3',
+  upcoming_mid:   '#93c5e8',
+  upcoming_later: '#b8daf0',
+  upcoming_far:   '#daeef8',
+  voyage:         '#1a1a5c',
+  milestone_open: '#4a90d9',
+  cancelled:      '#999999',
+};
+
+const PHASE_PILL = {
+  'ONBOARDING':    { bg:'rgba(255,245,150,0.85)', text:'#554400' },
+  'RESEARCH':      { bg:'rgba(190,170,255,0.95)', text:'#320070' },
+  'MOMENTUM':      { bg:'rgba(140,245,180,0.9)',  text:'#003818' },
+  'PRE-DEPARTURE': { bg:'rgba(255,195,80,0.9)',   text:'#5a3800' },
+  'VOYAGE':        { bg:'rgba(20,20,80,0.9)',     text:'#d4d8de' },
+  'CANCELLED':     { bg:'rgba(180,180,180,0.85)', text:'#444444' },
+};
+
+// Phase background tints for SVG rows
+const PHASE_ROW_BG = {
+  'ONBOARDING':    'rgba(255,245,150,0.10)',
+  'RESEARCH':      'rgba(200,185,255,0.12)',
+  'MOMENTUM':      'rgba(150,255,190,0.10)',
+  'PRE-DEPARTURE': 'rgba(255,210,110,0.12)',
+};
+
+// ── CLIENT DATA ────────────────────────────────────────────────
+// Each event: dt (date str), st (status key), label (tooltip)
+// Events sorted earliest to latest
+const CLIENTS = [
+  {
+    id: 'mcleod',
+    name: 'McLeod / McGlasson',
+    ship: 'Silver Muse · Silversea · Mediterranean · Jun 23',
+    phase: 'PRE-DEPARTURE',
+    fpd: 'PAID', fpdOk: true,
+    booking: '2026-01-10',
+    embark:  '2026-06-23',
+    disembark:'2026-07-05',
+    openItems: 2,
+    openNote: '2 open: transfer dispute, return flights TBD',
+    events: [
+      { dt:'2026-01-10', st:'done',         label:'Booking confirmed' },
+      { dt:'2026-02-10', st:'done',         label:'FPD Paid' },
+      { dt:'2026-04-20', st:'partial',      label:'Transfer dispute — open item, resolution needed (A3→supplier)' },
+      { dt:'2026-05-20', st:'upcoming_near',label:'Return flights — TBD, confirm' },
+      { dt:'2026-06-08', st:'upcoming_near',label:'Pre-Departure Brief — full production for McLeod/McGlasson' },
+    ],
+  },
+  {
+    id: 'lyons',
+    name: 'Lyons, Nancy & Ken',
+    ship: 'Regent Splendor · Athens → New York · Aug 11',
+    phase: 'MOMENTUM',
+    fpd: '⚠ DUE MAY 11', fpdOk: false,
+    booking: '2026-01-22',
+    embark:  '2026-08-11',
+    disembark:'2026-08-26',
+    openItems: 3,
+    openNote: '3 open: FPD May 11, flights TBD, Athens hotel TBD',
+    events: [
+      { dt:'2026-01-22', st:'done',         label:'Booking confirmed' },
+      { dt:'2026-05-11', st:'upcoming_near',label:'⚠ FPD DUE — Commander → Lyons — CRITICAL (amount TBD)' },
+      { dt:'2026-06-15', st:'upcoming_mid', label:'Flights confirm — TBD, Athens departure' },
+      { dt:'2026-06-25', st:'upcoming_mid', label:'Athens hotel confirm — TBD, ~Aug 10 stay' },
+      { dt:'2026-07-26', st:'upcoming_mid', label:'Pre-Departure Brief' },
+    ],
+  },
+  {
+    id: 'furlow',
+    name: 'Furlow, Missy & John',
+    ship: 'Regent Grandeur · Scandinavia · Aug 29 – Sep 8',
+    phase: 'PRE-DEPARTURE',
+    fpd: 'PAID $15,486', fpdOk: true,
+    booking: '2025-11-15',  // clamped to TL_START in dx()
+    embark:  '2026-08-29',
+    disembark:'2026-09-08',
+    openItems: 1,
+    openNote: '1 open: insurance pending | Finnair BB4X94 booked',
+    events: [
+      { dt:'2026-01-01', st:'done',          label:'Booking confirmed (Nov 2025) · Finnair BB4X94' },
+      { dt:'2026-04-01', st:'done',          label:'FPD Paid $15,486' },
+      { dt:'2026-04-20', st:'partial',       label:'Insurance — PENDING, not yet booked' },
+      { dt:'2026-08-14', st:'upcoming_later',label:'Pre-Departure Brief' },
+    ],
+  },
+  {
+    id: 'nichols',
+    name: 'Nichols, Larry',
+    ship: 'Regent Grandeur · Scandinavia · Aug 29 – Sep 8',
+    phase: 'PRE-DEPARTURE',
+    fpd: 'PAID', fpdOk: true,
+    booking: '2025-11-20',
+    embark:  '2026-08-29',
+    disembark:'2026-09-08',
+    openItems: 2,
+    openNote: '2 open: insurance on file (review status), flights TBD',
+    events: [
+      { dt:'2026-01-01', st:'done',          label:'Booking confirmed (Nov 2025)' },
+      { dt:'2026-01-20', st:'done',          label:'FPD Paid' },
+      { dt:'2026-04-20', st:'partial',       label:'Insurance on file — review status' },
+      { dt:'2026-07-01', st:'upcoming_mid',  label:'Flights confirm — TBD' },
+      { dt:'2026-08-14', st:'upcoming_later',label:'Pre-Departure Brief' },
+    ],
+  },
+  {
+    id: 'ely',
+    name: 'Ely / Darrow',
+    ship: 'Regent Grandeur · Scandinavia · Aug 29 – Sep 8',
+    phase: 'PRE-DEPARTURE',
+    fpd: 'PAID', fpdOk: true,
+    booking: '2025-12-01',
+    embark:  '2026-08-29',
+    disembark:'2026-09-08',
+    openItems: 2,
+    openNote: '2 open: flights TBD, pre/post hotel TBD',
+    events: [
+      { dt:'2026-01-01', st:'done',          label:'Booking confirmed (Dec 2025)' },
+      { dt:'2026-01-25', st:'done',          label:'FPD Paid' },
+      { dt:'2026-07-01', st:'upcoming_mid',  label:'Flights confirm — TBD' },
+      { dt:'2026-07-18', st:'upcoming_mid',  label:'Pre/Post hotel confirm — TBD' },
+      { dt:'2026-08-14', st:'upcoming_later',label:'Pre-Departure Brief' },
+    ],
+  },
+  {
+    id: 'kuklinski',
+    name: 'Kuklinski · 3 Couples',
+    ship: 'Viking Mars · Panama Canal · Dec 17–27 · 3 Bookings · 6 Guests',
+    phase: 'RESEARCH',
+    fpd: 'PAID $21,244', fpdOk: true,
+    booking: '2026-02-07',
+    embark:  '2026-12-17',
+    disembark:'2026-12-27',
+    openItems: 5,
+    openNote: '5+ open: validation email, insurance email, Josh form, air/hotel, excursions Aug 2',
+    events: [
+      { dt:'2026-02-07', st:'done',         label:'Booking confirmed · 3 bookings (9593880/9593873/9595029) · 6 guests' },
+      { dt:'2026-02-21', st:'overdue',      label:'OVERDUE ~58d: Validation/Welcome email (A6→A9→A3) + Josh Morton guest form (A3→Josh)' },
+      { dt:'2026-03-10', st:'overdue',      label:'OVERDUE ~41d: Insurance email — pre-existing waiver window concern (A9→A3)' },
+      { dt:'2026-03-27', st:'done',         label:'FPD Paid $21,244 — Mar 27, 4 days early' },
+      { dt:'2026-06-17', st:'upcoming_mid', label:'Air fare watch delivery — A2: RIC→PTY + RSW/MHT→FLL routes' },
+      { dt:'2026-06-20', st:'upcoming_mid', label:'Hotel 3+3 search delivery — A2: Panama City + FLL per couple' },
+      { dt:'2026-08-02', st:'milestone_open',label:'◆ Excursion window opens Aug 2 — Viking portal, have recs ready day-of' },
+      { dt:'2026-09-18', st:'milestone_open',label:'◆ Dining window opens Sep 18 (T-90) + Online check-in opens' },
+      { dt:'2026-12-03', st:'upcoming_far', label:'Pre-Departure Brief · Full package for 3 couples · Panama Canal logistics' },
+    ],
+  },
+];
+
+const CANCELLED_CLIENT = {
+  name: 'Westbrook, Ron & Lindy',
+  ship: 'Silver Nova · Pacific · Apr 23 — CANCELLED Medical Emergency 2026-04-20',
+  cancelDate: '2026-04-20',
+  note: 'Booking 566904-25 · Allianz Premier E2549991663 · Claim scope $11,280 · Contact Perx (Jenna Woodcock) + SkyLux (Zoro L) — awaiting Commander confirm',
+};
+
+// ── date → x pixel ─────────────────────────────────────────────
+function dx(dateStr) {
+  const d = typeof dateStr === 'string' ? new Date(dateStr) : dateStr;
+  const total = TL_END - TL_START;
+  const off   = Math.max(0, d - TL_START);
+  return Math.round(Math.min(CW, (off / total) * CW));
+}
+
+// ── Build label column ──────────────────────────────────────────
+const labelCol = document.getElementById('labelCol');
+
+for (const c of CLIENTS) {
+  const pp = PHASE_PILL[c.phase] || { bg:'#eee', text:'#333' };
+  const div = document.createElement('div');
+  div.className = 'client-row';
+  div.style.height = ROW_H + 'px';
+  div.style.background = PHASE_ROW_BG[c.phase] || 'transparent';
+  div.innerHTML = `
+    <div class="client-name">${c.name}</div>
+    <div class="client-ship">${c.ship}</div>
+    <div class="client-meta">
+      <span class="phase-pill" style="background:${pp.bg};color:${pp.text}">${c.phase}</span>
+      <span class="fpd-text" style="color:${c.fpdOk ? '#2d6a4f' : '#e63946'}">${c.fpd}</span>
+      ${c.openItems > 0 ? `<span class="open-badge" title="${c.openNote}">· ${c.openItems} open</span>` : ''}
+    </div>`;
+  labelCol.appendChild(div);
+}
+
+// Cancelled row
+const pp2 = PHASE_PILL['CANCELLED'];
+const cancDiv = document.createElement('div');
+cancDiv.className = 'client-row cancelled';
+cancDiv.style.height = CANC_H + 'px';
+cancDiv.innerHTML = `
+  <div class="client-name cancelled">${CANCELLED_CLIENT.name}</div>
+  <div class="client-ship">${CANCELLED_CLIENT.ship}</div>
+  <div class="client-meta">
+    <span class="phase-pill" style="background:${pp2.bg};color:${pp2.text}">CANCELLED</span>
+    <span class="fpd-text" style="color:#c0392b;font-size:9px">Allianz claim $11,280 pending</span>
+  </div>`;
+labelCol.appendChild(cancDiv);
+
+// ── Build SVG ───────────────────────────────────────────────────
+const totalH = HDR_H + ROW_H * CLIENTS.length + CANC_H;
+const SVG_W  = CW + 60;
+const NS = 'http://www.w3.org/2000/svg';
+
+const svg = document.createElementNS(NS, 'svg');
+svg.setAttribute('width',  SVG_W);
+svg.setAttribute('height', totalH);
+svg.setAttribute('style',  'font-family: Georgia, serif; display:block;');
+document.getElementById('svgWrap').appendChild(svg);
+
+function el(tag, attrs, parent) {
+  const e = document.createElementNS(NS, tag);
+  for (const [k,v] of Object.entries(attrs)) e.setAttribute(k, v);
+  if (parent) parent.appendChild(e);
+  return e;
+}
+
+const gBg   = el('g', {}, svg);   // row backgrounds
+const gGrid = el('g', {}, svg);   // month grid lines
+const gTask = el('g', {}, svg);   // bars / dots
+const gOver = el('g', {}, svg);   // overlay (today, embark)
+const gHdr  = el('g', {}, svg);   // month headers (top)
+
+// Month header background
+el('rect', { x:0, y:0, width:SVG_W, height:HDR_H, fill:'#f0f4ff' }, gHdr);
+el('line', { x1:0, x2:SVG_W, y1:HDR_H, y2:HDR_H, stroke:'#dde2ee', 'stroke-width':2 }, gHdr);
+
+// Month columns
+const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+let md = new Date(TL_START);
+while (md < TL_END) {
+  const x = dx(md.toISOString().slice(0,10)) + 20;
+  el('line', { x1:x, x2:x, y1:HDR_H, y2:totalH, stroke:'#e8eef8', 'stroke-width':1 }, gGrid);
+  el('text', { x:x+4, y:18, 'font-size':11, fill:'#003087', 'font-weight':'bold', 'letter-spacing':0.5 }, gHdr).textContent = MONTHS[md.getMonth()];
+  el('text', { x:x+4, y:32, 'font-size':8,  fill:'#A9B0B7' }, gHdr).textContent = md.getFullYear();
+  md.setMonth(md.getMonth() + 1);
+}
+
+// ── Render client rows ─────────────────────────────────────────
+let yOff = HDR_H;
+for (let ci = 0; ci < CLIENTS.length; ci++) {
+  const c  = CLIENTS[ci];
+  const ry = yOff;
+  const cy = ry + ROW_H / 2;
+
+  // Row background tint
+  el('rect', { x:0, y:ry, width:SVG_W, height:ROW_H,
+    fill: (PHASE_ROW_BG[c.phase] || 'rgba(248,250,255,0.4)') }, gBg);
+  // Zebra alternate
+  if (ci % 2 === 0) {
+    el('rect', { x:0, y:ry, width:SVG_W, height:ROW_H, fill:'rgba(245,248,255,0.35)' }, gBg);
+  }
+  // Row separator
+  el('line', { x1:0, x2:SVG_W, y1:ry+ROW_H, y2:ry+ROW_H, stroke:'#dde2ee', 'stroke-width':2 }, gBg);
+
+  // Lifecycle reference line (dashed, booking → a bit past disembark)
+  const bkX  = dx(c.booking) + 20;
+  const retX = dx(c.disembark) + 36;
+  el('line', { x1:Math.max(20, bkX), x2:Math.min(retX, SVG_W-10), y1:cy, y2:cy,
+    stroke:'rgba(80,100,150,0.20)', 'stroke-width':1.5, 'stroke-dasharray':'5,4' }, gTask);
+
+  // Voyage bar
+  const embX = dx(c.embark)    + 20;
+  const disX = dx(c.disembark) + 20;
+  const bw   = Math.max(disX - embX, 8);
+  // shadow
+  el('rect', { x:embX+1, y:cy-BAR_H/2+1, width:bw, height:BAR_H, rx:4, fill:'rgba(0,0,0,0.12)' }, gTask);
+  // bar
+  const voyBar = el('rect', { x:embX, y:cy-BAR_H/2, width:bw, height:BAR_H, rx:4, fill:STATUS_COLOR.voyage }, gTask);
+  el('title', {}, voyBar).textContent = `${c.name} — VOYAGE ${c.embark} → ${c.disembark}`;
+  // label inside bar
+  if (bw > 28) {
+    el('text', { x:embX+bw/2, y:cy+4.5, 'text-anchor':'middle',
+      'font-size':8, fill:'rgba(200,215,240,0.9)', 'font-weight':'bold', 'letter-spacing':0.5 }, gTask).textContent = 'VOYAGE';
+  }
+
+  // ── Event dots ──────────────────────────────────────────────
+  // Track x positions to stagger vertically if needed
+  const dotPositions = [];
+  for (const ev of c.events) {
+    const ex  = dx(ev.dt) + 20;
+    const col = STATUS_COLOR[ev.st] || '#ccc';
+
+    if (ev.st === 'milestone_open') {
+      // Diamond milestone
+      const s = 9;
+      const g = el('g', { cursor:'help' }, gTask);
+      el('polygon', { points:`${ex},${cy-BAR_H/2-2} ${ex+s},${cy-BAR_H/2-2+s} ${ex},${cy-BAR_H/2-2+s*2} ${ex-s},${cy-BAR_H/2-2+s}`,
+        fill:col, stroke:'white', 'stroke-width':1.5 }, g);
+      el('title', {}, g).textContent = ev.label;
+    } else {
+      // Check for close neighbors (within 12px)
+      let dotY = cy;
+      const nearby = dotPositions.filter(p => Math.abs(p - ex) < DOT_R * 2.2);
+      if (nearby.length > 0) {
+        dotY = cy - (nearby.length % 2 === 0 ? 14 : -14);
+      }
+      dotPositions.push(ex);
+
+      // Shadow
+      el('circle', { cx:ex+1, cy:dotY+1, r:DOT_R, fill:'rgba(0,0,0,0.10)' }, gTask);
+      // Dot
+      const circ = el('circle', { cx:ex, cy:dotY, r:DOT_R, fill:col, cursor:'help' }, gTask);
+      el('title', {}, circ).textContent = ev.label;
+
+      // Icon
+      if (ev.st === 'done') {
+        el('text', { x:ex, y:dotY+3.5, 'text-anchor':'middle',
+          'font-size':8, fill:'white', 'font-weight':'bold' }, gTask).textContent = '✓';
+      } else if (ev.st === 'overdue' || ev.st === 'urgent') {
+        el('text', { x:ex, y:dotY+4, 'text-anchor':'middle',
+          'font-size':10, fill:'white', 'font-weight':'bold' }, gTask).textContent = '!';
+      } else if (ev.st === 'partial') {
+        el('text', { x:ex, y:dotY+3.5, 'text-anchor':'middle',
+          'font-size':9, fill:'white', 'font-weight':'bold' }, gTask).textContent = '~';
+      }
+    }
+  }
+
+  yOff += ROW_H;
+}
+
+// ── Cancelled row ──────────────────────────────────────────────
+const cancY  = yOff;
+const cancCY = cancY + CANC_H / 2;
+el('rect', { x:0, y:cancY, width:SVG_W, height:CANC_H, fill:'rgba(200,200,200,0.12)' }, gBg);
+el('line', { x1:0, x2:SVG_W, y1:cancY+CANC_H, y2:cancY+CANC_H, stroke:'#dde2ee', 'stroke-width':1 }, gBg);
+
+// Would-have-been voyage: Apr 23 onward — just show a grey struck-through bar
+const cancEmbX = dx('2026-04-23') + 20;
+const cancDisX = dx('2026-05-11') + 20; // approx Silver Nova Pacific ~18 nights
+const cancBW   = Math.max(cancDisX - cancEmbX, 30);
+el('rect', { x:cancEmbX, y:cancCY-7, width:cancBW, height:14, rx:3,
+  fill:'rgba(160,160,160,0.35)' }, gTask);
+// Strikethrough
+el('line', { x1:cancEmbX-5, x2:cancEmbX+cancBW+5, y1:cancCY, y2:cancCY,
+  stroke:'#e63946', 'stroke-width':2 }, gTask);
+// Cancel X
+el('text', { x:cancEmbX+cancBW/2, y:cancCY+4.5, 'text-anchor':'middle',
+  'font-size':10, fill:'#e63946', 'font-weight':'bold' }, gTask).textContent = '✕ CANCELLED';
+// Claim note
+el('text', { x:cancEmbX+cancBW+12, y:cancCY+4, 'font-size':9, fill:'#888' }, gTask)
+  .textContent = 'Allianz claim $11,280 pending — initiate contact';
+
+// ── TODAY LINE ────────────────────────────────────────────────
+const todayX = dx('2026-04-20') + 20;
+// soft red band
+el('rect', { x:todayX-2, y:HDR_H, width:4, height:totalH-HDR_H, fill:'rgba(230,57,70,0.07)' }, gOver);
+// dashed line
+el('line', { x1:todayX, x2:todayX, y1:HDR_H, y2:totalH,
+  stroke:'#e63946', 'stroke-width':2, 'stroke-dasharray':'5,3' }, gOver);
+// Header callout
+el('rect', { x:todayX-22, y:1, width:44, height:HDR_H-2, fill:'rgba(230,57,70,0.12)', rx:3 }, gHdr);
+el('text', { x:todayX, y:16, 'text-anchor':'middle',
+  'font-size':8.5, fill:'#e63946', 'font-weight':'bold', 'letter-spacing':0.5 }, gHdr).textContent = 'TODAY';
+el('text', { x:todayX, y:30, 'text-anchor':'middle',
+  'font-size':7.5, fill:'#e63946' }, gHdr).textContent = 'Apr 20';
+
+// ── EMBARK DATE MARKERS (unique departure dates) ──────────────
+const uniqueDates = [
+  { dt:'2026-06-23', label:'Jun 23', sub:'McLeod' },
+  { dt:'2026-08-11', label:'Aug 11', sub:'Lyons' },
+  { dt:'2026-08-29', label:'Aug 29', sub:'Grandeur ×3' },
+  { dt:'2026-12-17', label:'Dec 17', sub:'Kuklinski' },
+];
+for (const ud of uniqueDates) {
+  const ex = dx(ud.dt) + 20;
+  // Faint navy vertical line spanning full chart height
+  el('line', { x1:ex, x2:ex, y1:HDR_H, y2:totalH,
+    stroke:'#1a1a5c', 'stroke-width':1.5, opacity:0.35 }, gOver);
+  // Header callout
+  el('rect', { x:ex-20, y:1, width:40, height:HDR_H-2, fill:'rgba(26,26,92,0.08)', rx:3 }, gHdr);
+  el('text', { x:ex, y:15, 'text-anchor':'middle',
+    'font-size':7.5, fill:'#1a1a5c', 'font-weight':'bold' }, gHdr).textContent = 'EMBK';
+  el('text', { x:ex, y:26, 'text-anchor':'middle',
+    'font-size':7, fill:'#1a1a5c' }, gHdr).textContent = ud.label;
+  el('text', { x:ex, y:37, 'text-anchor':'middle',
+    'font-size':6, fill:'rgba(26,26,92,0.6)', 'font-style':'italic' }, gHdr).textContent = ud.sub;
+}
+
+// ── LYONS FPD WARNING MARKER ──────────────────────────────────
+const lyonsFpdX = dx('2026-05-11') + 20;
+el('line', { x1:lyonsFpdX, x2:lyonsFpdX, y1:HDR_H, y2:HDR_H + ROW_H * 2,
+  stroke:'#e63946', 'stroke-width':1.5, opacity:0.4, 'stroke-dasharray':'3,3' }, gOver);
+
+</script>
+</body>
+</html>

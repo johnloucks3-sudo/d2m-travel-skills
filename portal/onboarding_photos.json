@@ -1,0 +1,217 @@
+{
+  "excursions": [
+    {
+      "label": "Jungle Waterfall",
+      "mood": "dreamy",
+      "pexels_url": "https://www.pexels.com/photo/waterfalls-near-green-leafed-trees-2214386/",
+      "img_src": "https://images.pexels.com/photos/2214386/pexels-photo-2214386.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    {
+      "label": "Ancient Ruins",
+      "mood": "inquisitive",
+      "pexels_url": "https://www.pexels.com/photo/ancient-ruins-of-ephesus-in-golden-light-34110400/",
+      "img_src": "https://images.pexels.com/photos/34110400/pexels-photo-34110400.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    {
+      "label": "Village Market",
+      "mood": "inquisitive",
+      "pexels_url": "https://www.pexels.com/photo/traditional-craft-and-clothing-market-in-mountain-village-5606493/",
+      "img_src": "https://images.pexels.com/photos/5606493/pexels-photo-5606493.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    {
+      "label": "Snorkeling",
+      "mood": "sharp",
+      "pexels_url": "https://www.pexels.com/photo/photo-of-a-person-snorkeling-2404370/",
+      "img_src": "https://images.pexels.com/photos/2404370/pexels-photo-2404370.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    }
+  ],
+  "flight": [
+    {
+      "label": "Business Class",
+      "mood": "inspirational",
+      "pexels_url": "https://www.pexels.com/photo/beige-leather-seats-and-wooden-trim-inside-the-plane-20562279/",
+      "img_src": "https://images.pexels.com/photos/20562279/pexels-photo-20562279.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    {
+      "label": "Window Seat",
+      "mood": "dreamy",
+      "pexels_url": "https://www.pexels.com/photo/airplane-window-opened-635052/",
+      "img_src": "https://images.pexels.com/photos/635052/pexels-photo-635052.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    {
+      "label": "Above the Clouds",
+      "mood": "dreamy",
+      "pexels_url": "https://www.pexels.com/photo/scenic-view-of-white-clouds-from-the-airplane-2817479/",
+      "img_src": "https://images.pexels.com/photos/2817479/pexels-photo-2817479.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    {
+      "label": "Airport Lounge",
+      "mood": "inspirational",
+      "pexels_url": "https://www.pexels.com/photo/white-sofa-chairs-near-tv-2612117/",
+      "img_src": "https://images.pexels.com/photos/2612117/pexels-photo-2612117.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    }
+  ],
+  "hotel": [
+    {
+      "label": "Infinity Pool Villa",
+      "mood": "inspirational",
+      "pexels_url": "https://www.pexels.com/photo/aerial-view-of-luxury-villa-infinity-pool-in-greece-34874601/",
+      "img_src": "https://images.pexels.com/photos/34874601/pexels-photo-34874601.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    {
+      "label": "Boutique & Cobblestone",
+      "mood": "romantic",
+      "pexels_url": "https://www.pexels.com/photo/charming-boutique-hotel-exterior-with-flowers-33966955/",
+      "img_src": "https://images.pexels.com/photos/33966955/pexels-photo-33966955.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    {
+      "label": "Grand Lobby",
+      "mood": "inspirational",
+      "pexels_url": "https://www.pexels.com/photo/elegant-hotel-lobby-with-grand-chandelier-29649745/",
+      "img_src": "https://images.pexels.com/photos/29649745/pexels-photo-29649745.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    {
+      "label": "Modern Minimalist",
+      "mood": "sharp",
+      "pexels_url": "https://www.pexels.com/photo/modern-hotel-room-with-king-size-bed-and-artwork-33636637/",
+      "img_src": "https://images.pexels.com/photos/33636637/pexels-photo-33636637.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    }
+  ],
+  "cabin": [
+    {
+      "label": "Suite Balcony",
+      "mood": "inspirational",
+      "pexels_url": "https://www.pexels.com/photo/cruise-ship-deck-with-ocean-view-35310684/",
+      "img_src": "https://images.pexels.com/photos/35310684/pexels-photo-35310684.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    {
+      "label": "Penthouse & Champagne",
+      "mood": "romantic",
+      "pexels_url": "https://www.pexels.com/photo/young-woman-standing-on-a-yacht-with-a-glass-of-champagne-8556567/",
+      "img_src": "https://images.pexels.com/photos/8556567/pexels-photo-8556567.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    {
+      "label": "Veranda Sunset",
+      "mood": "dreamy",
+      "pexels_url": "https://www.pexels.com/photo/serene-ocean-view-from-a-cruise-ship-at-sunset-33354899/",
+      "img_src": "https://images.pexels.com/photos/33354899/pexels-photo-33354899.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    {
+      "label": "Promenade Deck",
+      "mood": "sharp",
+      "pexels_url": "https://www.pexels.com/photo/wide-view-of-an-empty-cruise-ship-promenade-deck-with-ocean-17211672/",
+      "img_src": "https://images.pexels.com/photos/17211672/pexels-photo-17211672.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "replaced_from": 5334261
+    }
+  ],
+  "sea_day": [
+    {
+      "label": "Spa Treatment",
+      "mood": "romantic",
+      "pexels_url": "https://www.pexels.com/photo/relaxing-spa-massage-at-luxury-hotel-31234756/",
+      "img_src": "https://images.pexels.com/photos/31234756/pexels-photo-31234756.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    {
+      "label": "Pool Deck",
+      "mood": "dreamy",
+      "pexels_url": "https://www.pexels.com/photo/tropical-backyard-pool-with-lounge-chairs-32509620/",
+      "img_src": "https://images.pexels.com/photos/32509620/pexels-photo-32509620.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    {
+      "label": "Ocean Yoga",
+      "mood": "inspirational",
+      "pexels_url": "https://www.pexels.com/photo/outdoor-yoga-on-oceanfront-deck-29614929/",
+      "img_src": "https://images.pexels.com/photos/29614929/pexels-photo-29614929.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    {
+      "label": "Library Reading",
+      "mood": "inquisitive",
+      "pexels_url": "https://www.pexels.com/photo/cozy-library-with-bookshelves-and-coffee-cup-34981580/",
+      "img_src": "https://images.pexels.com/photos/34981580/pexels-photo-34981580.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    }
+  ],
+  "shore": [
+    {
+      "label": "Kayaking Adventure",
+      "mood": "sharp",
+      "pexels_url": "https://www.pexels.com/photo/two-person-riding-kayak-1320684/",
+      "img_src": "https://images.pexels.com/photos/1320684/pexels-photo-1320684.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    {
+      "label": "Art Museum",
+      "mood": "inquisitive",
+      "pexels_url": "https://www.pexels.com/photo/art-enthusiast-observing-classic-paintings-in-a-gallery-30489691/",
+      "img_src": "https://images.pexels.com/photos/30489691/pexels-photo-30489691.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    {
+      "label": "Local Food Market",
+      "mood": "inquisitive",
+      "pexels_url": "https://www.pexels.com/photo/bustling-street-food-market-in-southeast-asia-32877037/",
+      "img_src": "https://images.pexels.com/photos/32877037/pexels-photo-32877037.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    {
+      "label": "Sunset Stroll",
+      "mood": "romantic",
+      "pexels_url": "https://www.pexels.com/photo/couple-embracing-at-naxos-beach-during-a-golden-sunset-28406015/",
+      "img_src": "https://images.pexels.com/photos/28406015/pexels-photo-28406015.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "replaced_from": 33705441,
+      "note": "Replaced Archaeological Site (3rd inquisitive image, duplicate feel) with romantic shore option"
+    }
+  ],
+  "dining": [
+    {
+      "label": "Candlelit Terrace",
+      "mood": "romantic",
+      "pexels_url": "https://www.pexels.com/photo/tables-on-restaurant-terrace-18823960/",
+      "img_src": "https://images.pexels.com/photos/18823960/pexels-photo-18823960.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    {
+      "label": "Chef's Table",
+      "mood": "sharp",
+      "pexels_url": "https://www.pexels.com/photo/a-man-preparing-food-3933217/",
+      "img_src": "https://images.pexels.com/photos/3933217/pexels-photo-3933217.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    {
+      "label": "Beach Bar",
+      "mood": "sharp",
+      "pexels_url": "https://www.pexels.com/photo/a-vibrant-beachside-bar-scene-with-people-enjoying-the-sunset-14519339/",
+      "img_src": "https://images.pexels.com/photos/14519339/pexels-photo-14519339.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "replaced_from": 13114946,
+      "note": "Replaced couple-at-bar (romantic read) with vibrant beachside social scene (matches sharp/SA weights)"
+    },
+    {
+      "label": "Grand Formal Dining",
+      "mood": "inspirational",
+      "pexels_url": "https://www.pexels.com/photo/luxurious-baroque-palace-dining-room-with-chandeliers-30006706/",
+      "img_src": "https://images.pexels.com/photos/30006706/pexels-photo-30006706.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    }
+  ],
+  "evening": [
+    {
+      "label": "Stargazing",
+      "mood": "dreamy",
+      "pexels_url": "https://www.pexels.com/photo/the-milky-way-galaxy-in-the-sky-12829878/",
+      "img_src": "https://images.pexels.com/photos/12829878/pexels-photo-12829878.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    {
+      "label": "Jazz Bar & Cocktails",
+      "mood": "romantic",
+      "pexels_url": "https://www.pexels.com/photo/photo-of-a-glass-of-whiskey-on-a-black-table-9419357/",
+      "img_src": "https://images.pexels.com/photos/9419357/pexels-photo-9419357.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    {
+      "label": "Theater Performance",
+      "mood": "inspirational",
+      "pexels_url": "https://www.pexels.com/photo/people-at-theater-713149/",
+      "img_src": "https://images.pexels.com/photos/713149/pexels-photo-713149.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    {
+      "label": "Quiet Lounge",
+      "mood": "dreamy",
+      "pexels_url": "https://www.pexels.com/photo/a-dimly-lit-bar-with-a-drink-and-bar-tools-creating-a-moody-atmosphere-36107885/",
+      "img_src": "https://images.pexels.com/photos/36107885/pexels-photo-36107885.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "replaced_from": 33388717,
+      "note": "Replaced daytime library/reading nook (wrong vibe, duplicated sea_day Library Reading) with dim moody bar"
+    }
+  ]
+}

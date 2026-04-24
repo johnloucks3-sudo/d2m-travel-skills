@@ -9,7 +9,7 @@
 
 body {
   font-family: Georgia, 'Times New Roman', serif;
-  background: #1a1a2e;
+  background: #f2f4f8;
   color: #2c2c2c;
   min-height: 100vh;
   padding: 20px;
@@ -109,10 +109,10 @@ body {
   padding: 0 12px; gap: 7px; overflow: hidden;
 }
 .lr.ph {
-  font-weight: bold; font-size: 10px; letter-spacing: 1.5px;
+  font-weight: bold; font-size: 13px; letter-spacing: 1.5px;
   text-transform: uppercase; color: #003087;
 }
-.lr.tr { font-size: 11.5px; color: #2c2c2c; }
+.lr.tr { font-size: 14px; color: #2c2c2c; }
 .ln { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .lo { font-size: 9px; color: #A9B0B7; letter-spacing: 0.5px; white-space: nowrap; margin-left: auto; }
 
@@ -172,7 +172,7 @@ body {
     <div class="li"><div class="ls" style="background:#b8daf0"></div>3–6 mo</div>
     <div class="li"><div class="ls" style="background:#daeef8"></div>6+ mo</div>
     <div class="li"><div class="ls" style="background:#1a1a5c"></div>Voyage</div>
-    <div class="li"><div class="ls" style="background:#c9b1d9"></div>Post-Voyage</div>
+    <div class="li"><div class="ls" style="background:#c9b1d9"></div>Return / Discovery</div>
     <div class="li" style="margin-left:8px"><span style="color:#e63946;font-size:14px;font-weight:bold;line-height:1">┆</span>&nbsp;Today</div>
     <div class="li"><div class="ls" style="background:#1a1a5c;opacity:0.4"></div>Embark</div>
     <div class="li"><div class="ld"></div>Draft Due</div>
@@ -202,8 +202,8 @@ const TL_START = new Date('2026-02-20');
 const TL_END   = new Date('2027-03-01');
 const TODAY    = new Date('2026-04-07');
 const CW       = 1060; // chart pixel width
-const ROW_H    = 31;
-const PH_H     = 26;   // phase header height
+const ROW_H    = 40;
+const PH_H     = 32;   // phase header height
 const HDR_H    = 44;   // month header height
 const BAR_H    = 13;
 const DOT_R    = 7;
@@ -225,12 +225,13 @@ const STATUS_COLOR = {
 };
 
 const PHASES = [
-  { id:0, label:'00 // ONBOARDING',     bg:'rgba(255,245,180,0.3)'  },
-  { id:1, label:'01 // DISCOVERY',      bg:'rgba(200,185,255,0.22)' },
-  { id:2, label:'02 // MOMENTUM',       bg:'rgba(180,255,210,0.2)'  },
-  { id:3, label:'03 // PRE-DEPARTURE',  bg:'rgba(255,220,130,0.22)' },
-  { id:4, label:'04 // VOYAGE',         bg:'rgba(20,20,80,0.1)'     },
-  { id:5, label:'05 // POST-VOYAGE',    bg:'rgba(210,180,255,0.22)' },
+  { id:0, label:'00 // ONBOARDING',    bg:'rgba(255,245,180,0.3)'  },
+  { id:1, label:'01 // RESEARCH',      bg:'rgba(200,185,255,0.22)' },
+  { id:2, label:'02 // MOMENTUM',      bg:'rgba(180,255,210,0.2)'  },
+  { id:3, label:'03 // PRE-DEPARTURE', bg:'rgba(255,220,130,0.22)' },
+  { id:4, label:'04 // VOYAGE',        bg:'rgba(20,20,80,0.1)'     },
+  { id:5, label:'05 // RETURN',        bg:'rgba(210,180,255,0.22)' },
+  { id:6, label:'06 // DISCOVERY',    bg:'rgba(180,235,255,0.22)' },
 ];
 
 // n = note shown on hover, dd = draft due date
@@ -271,11 +272,12 @@ const TASKS = [
   // ── Phase 4 ──
   { p:4, name:'VOYAGE — Viking Mars',     ow:'D2M Active',   ty:'bar',   s:'2026-12-17', e:'2026-12-27', st:'voyage', n:'Panama City (PCL/Fuerte Amador) → Transit → Fort Lauderdale (Port Everglades)'},
 
-  // ── Phase 5 ──
-  { p:5, name:'Welcome Home Email',       ow:'A6→A3',        ty:'point', dt:'2026-12-28', st:'post_voyage', dd:'2026-12-14', n:'Warm, personal. References something specific if possible.'},
-  { p:5, name:'Post-Voyage Survey',       ow:'A3',           ty:'point', dt:'2027-01-03', st:'post_voyage', dd:'2026-12-20', n:'5 questions max. Google Form. Specific to their Panama Canal experience.'},
-  { p:5, name:'Thank You + Referral',     ow:'A6→A3',        ty:'point', dt:'2027-01-10', st:'post_voyage', dd:'2026-12-27', n:'Genuine. Soft referral language only.'},
-  { p:5, name:'Next Voyage Plant',        ow:'A2→A6→A3',     ty:'point', dt:'2027-01-27', st:'post_voyage', dd:'2027-01-13', n:'One idea. Relevant. No pressure. E.g. Amazon River, Galapagos, Norwegian Fjords.'},
+  // ── Phase 5 — RETURN (close the voyage warmly) ──
+  { p:5, name:'Welcome Home Email',       ow:'A6→A3',        ty:'point', dt:'2027-01-03', st:'post_voyage', dd:'2026-12-20', n:'Warm, personal. References something specific from their trip if possible.'},
+  { p:5, name:'Post-Voyage Survey',       ow:'A3',           ty:'point', dt:'2027-01-10', st:'post_voyage', dd:'2026-12-27', n:'5 questions max. Google Form. Specific to their Panama Canal experience.'},
+  { p:5, name:'Thank You + Referral',     ow:'A6→A3',        ty:'point', dt:'2027-01-17', st:'post_voyage', dd:'2027-01-03', n:'Genuine. Soft referral language only. Close the loop on this voyage.'},
+  // ── Phase 6 — DISCOVERY (seed the next voyage) ──
+  { p:6, name:'Next Voyage Plant',         ow:'A2→A6→A3',     ty:'point', dt:'2027-01-28', st:'upcoming_far', dd:'2027-01-14', n:'Seed the next voyage once the relationship is cemented post-return. One idea. Relevant. No pressure. E.g. Amazon River, Galapagos, Norwegian Fjords.'},
 ];
 
 // ─── Build row list (interleave phase headers) ───

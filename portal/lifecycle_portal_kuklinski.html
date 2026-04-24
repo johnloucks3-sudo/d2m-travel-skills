@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kuklinski · Viking Mars · Panama Canal — Thunderbird Portal</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;background:#050a14;font-family:'Georgia',serif;color:#c8d8f0}
+
+/* ── Starfield ── */
+#starfield{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
+
+/* ── Solar SVG ── */
+#solar-svg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:1}
+#solar-svg .phase-arc{opacity:0.15;stroke:#2a4a70;stroke-width:0.8;stroke-opacity:0.4;transition:opacity .3s}
+#solar-svg .phase-arc.highlighted{opacity:0.28}
+#solar-svg .orbit-ring{fill:none;stroke:#4a7faf;stroke-width:0.9;stroke-dasharray:4,6;opacity:0.32}
+#solar-svg .orbit-label{fill:#4a7faf;font-size:12px;opacity:0.65;font-family:monospace;font-weight:600}
+#solar-svg .phase-label{font-size:13px;font-weight:bold;opacity:0.7;text-anchor:middle}
+
+/* Planets */
+.planet{cursor:pointer;transition:opacity .3s}
+.planet circle.body{transition:r .2s}
+.planet:hover circle.body{r:13}
+.planet.dimmed{opacity:0.15}
+.planet.highlighted{opacity:1}
+
+/* Ship glow */
+#ship-glow{filter:url(#glow-gold)}
+#ship-ring{fill:none;stroke:#f0c060;stroke-width:1.5;opacity:0.4}
+
+/* ── Top Bar ── */
+#top-bar{
+  position:fixed;top:0;left:0;right:0;z-index:20;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 20px;
+  background:linear-gradient(to bottom,rgba(5,10,20,0.95),rgba(5,10,20,0));
+  pointer-events:none;
+}
+#top-bar .voyage-title{
+  font-size:11px;letter-spacing:3px;text-transform:uppercase;
+  color:#4a9fdf;opacity:0.9;
+}
+#top-bar .client-name{
+  font-size:16px;letter-spacing:2px;color:#c8d8f0;font-weight:bold;margin-top:2px;
+}
+#countdown-display{
+  text-align:right;
+}
+#countdown-display .count-num{font-size:32px;font-weight:bold;color:#f0c060;letter-spacing:2px}
+#countdown-display .count-label{font-size:10px;letter-spacing:3px;color:#4a9fdf;text-transform:uppercase}
+
+/* ── Left Sidebar ── */
+#sidebar{
+  position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:20;
+  width:120px;padding:12px 8px;
+  background:rgba(5,15,30,0.85);border-right:1px solid #1a3060;
+  border-radius:0 8px 8px 0;
+}
+#sidebar h4{
+  font-size:9px;letter-spacing:2px;color:#4a9fdf;text-transform:uppercase;
+  margin-bottom:10px;text-align:center;
+}
+.persona-btn{
+  display:block;width:100%;padding:6px 8px;margin-bottom:4px;
+  border:1px solid transparent;border-radius:4px;cursor:pointer;
+  font-size:10px;letter-spacing:1px;text-align:left;
+  background:rgba(255,255,255,0.04);color:#c8d8f0;
+  transition:all .2s;
+}
+.persona-btn:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2)}
+.persona-btn.active{border-color:currentColor;background:rgba(255,255,255,0.08)}
+.persona-btn .dot{
+  display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;vertical-align:middle;
+}
+#sidebar .clear-filter{
+  display:block;width:100%;padding:5px;margin-top:8px;font-size:9px;
+  letter-spacing:1px;text-align:center;color:#4a9fdf;cursor:pointer;
+  border-top:1px solid #1a3060;padding-top:8px;
+}
+#sidebar .clear-filter:hover{color:#7ad0ff}
+
+/* ── Right Panel ── */
+#right-panel{
+  position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:20;
+  width:190px;
+  background:rgba(5,15,30,0.85);border-left:1px solid #1a3060;
+  border-radius:8px 0 0 8px;overflow:hidden;
+}
+.panel-section{padding:12px 14px;border-bottom:1px solid #0d2040}
+.panel-section:last-child{border-bottom:none}
+.panel-title{font-size:9px;letter-spacing:2px;color:#4a9fdf;text-transform:uppercase;margin-bottom:8px}
+#forming-now .fn-name{font-size:12px;color:#f0c060;margin-bottom:3px}
+#forming-now .fn-date{font-size:10px;color:#4a9fdf}
+#forming-now .fn-days{font-size:20px;font-weight:bold;color:#f0c060}
+#forming-now .fn-days-label{font-size:9px;color:#4a9fdf;letter-spacing:1px}
+.milestone-item{margin-bottom:6px}
+.milestone-item .mi-name{font-size:10px;color:#c8d8f0}
+.milestone-item .mi-date{font-size:9px;color:#4a9fdf}
+.mi-status-sent{color:#4abf7a!important}
+.mi-status-overdue{color:#ff6b6b!important}
+.mi-status-forming{color:#f0c060!important}
+
+/* ── View Toggle ── */
+#view-toggle{
+  position:fixed;bottom:60px;left:50%;transform:translateX(-50%);z-index:20;
+  display:flex;gap:2px;background:rgba(5,15,30,0.9);
+  border:1px solid #1a3060;border-radius:6px;overflow:hidden;
+}
+.view-btn{
+  padding:6px 16px;font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  cursor:pointer;border:none;background:transparent;color:#4a9fdf;
+  transition:all .2s;
+}
+.view-btn:hover{background:rgba(255,255,255,0.08)}
+.view-btn.active{background:rgba(74,127,175,0.25);color:#c8d8f0}
+
+/* ── Spectrum Bar ── */
+#spectrum-bar{
+  position:fixed;bottom:0;left:130px;right:200px;z-index:20;
+  height:50px;background:rgba(5,15,30,0.9);border-top:1px solid #1a3060;
+  padding:6px 10px;
+}
+#spectrum-bar .spec-title{font-size:8px;letter-spacing:2px;color:#4a9fdf;margin-bottom:4px}
+#spectrum-track{position:relative;height:28px}
+.spec-marker{
+  position:absolute;top:0;
+  display:flex;flex-direction:column;align-items:center;
+  transform:translateX(-50%);
+  cursor:pointer;
+}
+.spec-dot{
+  width:6px;height:6px;border-radius:50%;border:1px solid currentColor;
+  flex-shrink:0;margin-bottom:2px;transition:transform .2s;
+}
+.spec-marker:hover .spec-dot{transform:scale(1.8)}
+.spec-label{
+  font-size:7px;color:#4a9fdf;letter-spacing:0;white-space:nowrap;
+  transform:rotate(-30deg);transform-origin:top center;
+}
+#spec-axis{
+  position:absolute;bottom:0;left:0;right:0;height:1px;background:#1a3060;
+}
+.spec-month-label{
+  position:absolute;bottom:0;font-size:7px;color:#2a5080;transform:translateX(-50%);
+  letter-spacing:0;
+}
+
+/* ── Tooltip ── */
+#tooltip{
+  position:fixed;z-index:30;pointer-events:none;
+  max-width:280px;min-width:220px;
+  background:#f7f3ea;border:1px solid #c8b890;border-radius:4px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.6);
+  font-family:'Georgia',serif;overflow:hidden;
+  opacity:0;transition:opacity .15s;
+}
+#tooltip .tt-header{
+  background:#1a3060;padding:8px 12px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+#tooltip .tt-id{font-size:10px;color:#7ad0ff;letter-spacing:1px}
+#tooltip .tt-phase{font-size:9px;padding:2px 6px;border-radius:3px;font-weight:bold;letter-spacing:1px}
+#tooltip .tt-body{padding:10px 12px}
+#tooltip .tt-name{font-size:13px;color:#1a1a2e;font-weight:bold;margin-bottom:4px}
+#tooltip .tt-date{font-size:10px;color:#2a5080;margin-bottom:8px}
+#tooltip .tt-teaser{font-size:11px;color:#2a3a5a;line-height:1.5;margin-bottom:8px;font-style:italic}
+#tooltip .tt-section-label{font-size:9px;letter-spacing:2px;color:#2a5080;text-transform:uppercase;margin-bottom:3px}
+#tooltip .tt-pipeline{display:flex;flex-wrap:wrap;gap:3px;margin-bottom:8px}
+#tooltip .tt-persona-chip{
+  padding:2px 6px;border-radius:3px;font-size:9px;letter-spacing:1px;
+  background:#e8e0d0;color:#1a1a2e;
+}
+#tooltip .tt-docs{font-size:10px;color:#1a1a2e;margin-bottom:6px}
+#tooltip .tt-docs li{margin-left:14px;margin-bottom:2px}
+#tooltip .tt-sys{font-family:monospace;font-size:9px;color:#1a5a3a;margin-bottom:3px;word-break:break-all}
+#tooltip .tt-status{
+  display:inline-block;padding:2px 8px;border-radius:3px;font-size:9px;font-weight:bold;
+  letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;
+}
+.status-sent{background:#d4f0e0;color:#1a6030}
+.status-overdue{background:#f0d4d4;color:#8b0000}
+.status-forming{background:#f0ecd0;color:#6b5000}
+.status-building{background:#e8eef8;color:#1a3060}
+.status-pending{background:#e8e8e8;color:#4a4a6a}
+
+/* ── Overdue alert ── */
+#overdue-alert{
+  position:fixed;top:70px;right:0;z-index:20;
+  background:rgba(140,20,20,0.9);border-left:3px solid #ff4444;
+  padding:8px 14px;border-radius:4px 0 0 4px;font-size:10px;
+  letter-spacing:1px;color:#ffc8c8;pointer-events:none;
+}
+</style>
+</head>
+<body>
+
+<!-- Starfield -->
+<canvas id="starfield"></canvas>
+
+<!-- Solar SVG -->
+<svg id="solar-svg" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <filter id="glow-gold" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow-blue" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow-red" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="ship-grad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff8e8"/>
+      <stop offset="40%" stop-color="#f0c060"/>
+      <stop offset="100%" stop-color="#a07020" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Phase arc sectors (precomputed paths) -->
+  <!-- Phase 0: Onboarding (-120° to -60°), violet #9c6bbf -->
+  <path id="arc-p0" class="phase-arc" fill="#9c6bbf"
+    d="M442,163 L384,121 A390,390,0,0,1,558,121 L500,163 A40,40,0,0,0,442,163Z"
+    data-phase="0"/>
+  <!-- Proper arc for Phase 0: r_inner=40, r_outer=390, angles -120 to -60 -->
+  <!-- Recomputed correctly below as paths -->
+
+  <!-- Phase arcs rendered as proper SVG wedges -->
+  <!-- CX=500, CY=500, r_inner=42, r_outer=392 -->
+
+  <!-- Phase 0 — Onboarding: -120° to -60° (violet) -->
+  <path class="phase-arc" fill="#9c6bbf" data-phase="0"
+    d="M 500,458 L 304,254 A392,392,0,0,1,696,254 L 521,442 A42,42,0,0,0,480,442 L 304,254"
+    id="wedge0"/>
+
+  <!-- Phase 1 — Discovery: -60° to 20° (blue) -->
+  <path class="phase-arc" fill="#4a7abf" data-phase="1"
+    id="wedge1"/>
+
+  <!-- Phase 2 — Momentum: 20° to 100° (gold) -->
+  <path class="phase-arc" fill="#c9a84c" data-phase="2"
+    id="wedge2"/>
+
+  <!-- Phase 3 — Pre-Departure: 100° to 160° (red) -->
+  <path class="phase-arc" fill="#bf4a4a" data-phase="3"
+    id="wedge3"/>
+
+  <!-- Phase 5 — Return: 160° to 240° (green) -->
+  <path class="phase-arc" fill="#4abf7a" data-phase="5"
+    id="wedge5"/>
+
+  <!-- Orbit rings -->
+  <circle class="orbit-ring" cx="500" cy="500" r="55"/>
+  <circle class="orbit-ring" cx="500" cy="500" r="80"/>
+  <circle class="orbit-ring" cx="500" cy="500" r="163"/>
+  <circle class="orbit-ring" cx="500" cy="500" r="221"/>
+  <circle class="orbit-ring" cx="500" cy="500" r="275"/>
+  <circle class="orbit-ring" cx="500" cy="500" r="350" stroke-dasharray="2,8"/>
+
+  <!-- Orbit labels -->
+  <text class="orbit-label" x="503" y="447">T-21</text>
+  <text class="orbit-label" x="503" y="419">T-30</text>
+  <text class="orbit-label" x="503" y="339">T-90</text>
+  <text class="orbit-label" x="503" y="281">T-135</text>
+  <text class="orbit-label" x="503" y="227">T-183</text>
+  <text class="orbit-label" x="503" y="152">T-270</text>
+
+  <!-- Phase labels -->
+  <text class="phase-label" fill="#9c6bbf" x="430" y="95">ONBOARDING</text>
+  <text class="phase-label" fill="#4a7abf" x="730" y="220">DISCOVERY</text>
+  <text class="phase-label" fill="#c9a84c" x="800" y="570">MOMENTUM</text>
+  <text class="phase-label" fill="#bf4a4a" x="590" y="750">PRE-DEP</text>
+  <text class="phase-label" fill="#4abf7a" x="310" y="690">RETURN</text>
+
+  <!-- Ship at center -->
+  <circle id="ship-glow" cx="500" cy="500" r="28" fill="url(#ship-grad)"/>
+  <circle id="ship-ring" cx="500" cy="500" r="34"/>
+  <circle cx="500" cy="500" r="20" fill="#f0c060" opacity="0.15"/>
+  <!-- Ship silhouette (simplified) -->
+  <text x="500" y="505" text-anchor="middle" dominant-baseline="middle"
+    font-size="18" fill="#f0c060" opacity="0.9" style="letter-spacing:0">⛵</text>
+  <text x="500" y="526" text-anchor="middle" font-size="7" fill="#f0c060"
+    opacity="0.7" letter-spacing="1" style="font-family:monospace">VIKING MARS</text>
+  <text x="500" y="536" text-anchor="middle" font-size="6" fill="#c09030"
+    opacity="0.6" style="font-family:monospace">DEC 17 · 2026</text>
+
+  <!-- Active phase indicator badge -->
+  <g id="phase-badge">
+    <circle cx="500" cy="110" r="28" fill="none" stroke="#4a7abf" stroke-width="1" opacity="0.5" style="filter:drop-shadow(0 0 8px #4a7abf)"/>
+    <text x="500" y="110" text-anchor="middle" dominant-baseline="middle"
+      font-size="10" font-weight="bold" fill="#4a7abf" opacity="0.95" letter-spacing="1" style="filter:drop-shadow(0 0 4px #4a7abf)">PHASE 1</text>
+    <text x="500" y="124" text-anchor="middle"
+      font-size="9" fill="#4a7abf" opacity="0.8">FOUNDATION</text>
+  </g>
+
+  <!-- ──────────────────────────────────────────────── -->
+  <!-- PLANETS — 16 touchpoints                         -->
+  <!-- State classes: planet-solid, planet-forming,     -->
+  <!-- planet-building, planet-pending, planet-overdue  -->
+  <!-- ──────────────────────────────────────────────── -->
+
+  <!-- Phase 0 — Onboarding ─────────────────────────── -->
+  <!-- TP0.5 | Sent | angle=-100°, r=348 → cx=440, cy=157 -->
+  <g class="planet" id="pl-tp05" data-id="TP0.5" data-phase="0" data-status="sent"
+     data-pipeline="Hale,Dani">
+    <circle cx="440" cy="157" r="10" fill="#9c6bbf" opacity="0.2"/>
+    <circle class="body" cx="440" cy="157" r="8" fill="#c8a8e0" stroke="#9c6bbf" stroke-width="1.5"/>
+    <circle cx="440" cy="157" r="4" fill="#fff" opacity="0.6"/>
+    <!-- Sent checkmark ring -->
+    <circle cx="440" cy="157" r="12" fill="none" stroke="#4abf7a" stroke-width="1.5" opacity="0.7"/>
+    <text x="440" y="141" text-anchor="middle" font-size="10" fill="#c8d8f0" opacity="1" style="paint-order:stroke;stroke:#050a14;stroke-width:0.6;stroke-linejoin:miter">0.5</text>
+  </g>
+
+  <!-- TP0.6 | OVERDUE | angle=-80°, r=335 → cx=558, cy=170 -->
+  <g class="planet" id="pl-tp06" data-id="TP0.6" data-phase="0" data-status="overdue"
+     data-pipeline="Hale,Dani">
+    <circle cx="558" cy="170" r="13" fill="#ff4444" opacity="0.15"/>
+    <circle class="body" cx="558" cy="170" r="9" fill="#d04040" stroke="#ff4444" stroke-width="2"/>
+    <circle cx="558" cy="170" r="4" fill="#ff9090" opacity="0.8"/>
+    <text x="558" y="154" text-anchor="middle" font-size="9" fill="#ff9090">0.6</text>
+    <!-- Overdue indicator -->
+    <text x="558" y="145" text-anchor="middle" font-size="8" fill="#ff4444">▲</text>
+  </g>
+
+  <!-- Phase 1 — Discovery ──────────────────────────── -->
+  <!-- TP1.1 | Sent | angle=-40°, r=348 → cx=767, cy=276 -->
+  <g class="planet" id="pl-tp11" data-id="TP1.1" data-phase="1" data-status="sent"
+     data-pipeline="Hale,Dani">
+    <circle cx="767" cy="276" r="10" fill="#4a7abf" opacity="0.2"/>
+    <circle class="body" cx="767" cy="276" r="8" fill="#8ab0e0" stroke="#4a7abf" stroke-width="1.5"/>
+    <circle cx="767" cy="276" r="4" fill="#fff" opacity="0.6"/>
+    <circle cx="767" cy="276" r="12" fill="none" stroke="#4abf7a" stroke-width="1.5" opacity="0.7"/>
+    <text x="767" y="260" text-anchor="middle" font-size="10" fill="#c8d8f0" opacity="1" style="paint-order:stroke;stroke:#050a14;stroke-width:0.6;stroke-linejoin:miter">1.1</text>
+  </g>
+
+  <!-- TP1.2 | Building | angle=-20°, r=275 → cx=758, cy=406 -->
+  <g class="planet" id="pl-tp12" data-id="TP1.2" data-phase="1" data-status="building"
+     data-pipeline="A2,A9,A5,Hale,Dani">
+    <circle cx="758" cy="406" r="11" fill="#4a7abf" opacity="0.12"/>
+    <circle class="body" cx="758" cy="406" r="8" fill="#2a5a9a" stroke="#4a7abf" stroke-width="1.5" opacity="0.85"/>
+    <circle cx="758" cy="406" r="4" fill="#7aafef" opacity="0.5"/>
+    <text x="758" y="390" text-anchor="middle" font-size="10" fill="#c8d8f0" opacity="1" style="paint-order:stroke;stroke:#050a14;stroke-width:0.6;stroke-linejoin:miter">1.2</text>
+  </g>
+
+  <!-- TP1.3 | Building | angle=0°, r=275 → cx=775, cy=500 -->
+  <g class="planet" id="pl-tp13" data-id="TP1.3" data-phase="1" data-status="building"
+     data-pipeline="A2,A6,A9,Hale,Dani">
+    <circle cx="775" cy="500" r="11" fill="#4a7abf" opacity="0.12"/>
+    <circle class="body" cx="775" cy="500" r="8" fill="#2a5a9a" stroke="#4a7abf" stroke-width="1.5" opacity="0.85"/>
+    <circle cx="775" cy="500" r="4" fill="#7aafef" opacity="0.5"/>
+    <text x="775" y="484" text-anchor="middle" font-size="10" fill="#c8d8f0" opacity="1" style="paint-order:stroke;stroke:#050a14;stroke-width:0.6;stroke-linejoin:miter">1.3</text>
+  </g>
+
+  <!-- Phase 2 — Momentum ───────────────────────────── -->
+  <!-- TP2.1 | Pending | angle=36°, r=221 → cx=679, cy=630 -->
+  <g class="planet" id="pl-tp21" data-id="TP2.1" data-phase="2" data-status="pending"
+     data-pipeline="A2,A6,A9,Hale,Dani">
+    <circle class="body" cx="679" cy="630" r="8" fill="#3a2a10" stroke="#c9a84c" stroke-width="1.2" opacity="0.6"/>
+    <circle cx="679" cy="630" r="3" fill="#c9a84c" opacity="0.4"/>
+    <text x="679" y="614" text-anchor="middle" font-size="10" fill="#c8d8f0" opacity="1" style="paint-order:stroke;stroke:#050a14;stroke-width:0.6;stroke-linejoin:miter">2.1</text>
+  </g>
+
+  <!-- TP2.2 | Forming (Monthly, next May 15) | angle=52°, r=163 → cx=600, cy=628 -->
+  <g class="planet" id="pl-tp22" data-id="TP2.2" data-phase="2" data-status="forming"
+     data-pipeline="Hale,Dani">
+    <circle cx="600" cy="628" r="12" fill="#c9a84c" opacity="0.1"/>
+    <circle class="body" cx="600" cy="628" r="8" fill="#5a4010" stroke="#f0c060" stroke-width="2"/>
+    <circle cx="600" cy="628" r="4" fill="#f0c060" opacity="0.7"/>
+    <text x="600" y="612" text-anchor="middle" font-size="10" fill="#f0d880" opacity="1" style="paint-order:stroke;stroke:#050a14;stroke-width:0.6;stroke-linejoin:miter">2.2</text>
+  </g>
+
+  <!-- TP2.3 | Pending | angle=68°, r=163 → cx=561, cy=651 -->
+  <g class="planet" id="pl-tp23" data-id="TP2.3" data-phase="2" data-status="pending"
+     data-pipeline="A2,A6,Hale,Dani">
+    <circle class="body" cx="561" cy="651" r="8" fill="#3a2a10" stroke="#c9a84c" stroke-width="1.2" opacity="0.6"/>
+    <circle cx="561" cy="651" r="3" fill="#c9a84c" opacity="0.4"/>
+    <text x="561" y="635" text-anchor="middle" font-size="10" fill="#c8d8f0" opacity="1" style="paint-order:stroke;stroke:#050a14;stroke-width:0.6;stroke-linejoin:miter">2.3</text>
+  </g>
+
+  <!-- TP2.4 | Pending | angle=84°, r=163 → cx=517, cy=662 -->
+  <g class="planet" id="pl-tp24" data-id="TP2.4" data-phase="2" data-status="pending"
+     data-pipeline="A2,Hale,Dani">
+    <circle class="body" cx="517" cy="662" r="8" fill="#3a2a10" stroke="#c9a84c" stroke-width="1.2" opacity="0.6"/>
+    <circle cx="517" cy="662" r="3" fill="#c9a84c" opacity="0.4"/>
+    <text x="517" y="646" text-anchor="middle" font-size="10" fill="#c8d8f0" opacity="1" style="paint-order:stroke;stroke:#050a14;stroke-width:0.6;stroke-linejoin:miter">2.4</text>
+  </g>
+
+  <!-- Phase 3 — Pre-Departure ─────────────────────── -->
+  <!-- TP3.1 | Pending | angle=115°, r=80 → cx=466, cy=572 -->
+  <g class="planet" id="pl-tp31" data-id="TP3.1" data-phase="3" data-status="pending"
+     data-pipeline="A2,A6,Naia,Hale,Dani">
+    <circle class="body" cx="466" cy="572" r="7" fill="#2a0a0a" stroke="#bf4a4a" stroke-width="1.2" opacity="0.55"/>
+    <circle cx="466" cy="572" r="2.5" fill="#bf4a4a" opacity="0.4"/>
+    <text x="466" y="558" text-anchor="middle" font-size="8" fill="#c8d8f0" opacity="0.65">3.1</text>
+  </g>
+
+  <!-- TP3.2 | Pending | angle=130°, r=63 → cx=460, cy=548 -->
+  <g class="planet" id="pl-tp32" data-id="TP3.2" data-phase="3" data-status="pending"
+     data-pipeline="Hale,Naia,Dani">
+    <circle class="body" cx="460" cy="548" r="7" fill="#2a0a0a" stroke="#bf4a4a" stroke-width="1.2" opacity="0.55"/>
+    <circle cx="460" cy="548" r="2.5" fill="#bf4a4a" opacity="0.4"/>
+    <text x="460" y="534" text-anchor="middle" font-size="8" fill="#c8d8f0" opacity="0.65">3.2</text>
+  </g>
+
+  <!-- TP3.3 | Pending | angle=145°, r=58 → cx=453, cy=533 -->
+  <g class="planet" id="pl-tp33" data-id="TP3.3" data-phase="3" data-status="pending"
+     data-pipeline="Hale,Dani">
+    <circle class="body" cx="453" cy="533" r="7" fill="#2a0a0a" stroke="#bf4a4a" stroke-width="1.2" opacity="0.55"/>
+    <circle cx="453" cy="533" r="2.5" fill="#bf4a4a" opacity="0.4"/>
+    <text x="453" y="519" text-anchor="middle" font-size="8" fill="#c8d8f0" opacity="0.65">3.3</text>
+  </g>
+
+  <!-- Phase 5 — Return ────────────────────────────── -->
+  <!-- TP5.1 | Pending | angle=176°, r=70 → cx=430, cy=505 -->
+  <g class="planet" id="pl-tp51" data-id="TP5.1" data-phase="5" data-status="pending"
+     data-pipeline="Hale,Dani">
+    <circle class="body" cx="430" cy="505" r="6" fill="#0a2a18" stroke="#4abf7a" stroke-width="1" opacity="0.45"/>
+    <circle cx="430" cy="505" r="2" fill="#4abf7a" opacity="0.35"/>
+    <text x="430" y="494" text-anchor="middle" font-size="8" fill="#c8d8f0" opacity="0.6">5.1</text>
+  </g>
+
+  <!-- TP5.2 | Pending | angle=192°, r=70 → cx=431, cy=485 -->
+  <g class="planet" id="pl-tp52" data-id="TP5.2" data-phase="5" data-status="pending"
+     data-pipeline="A7,Hale">
+    <circle class="body" cx="431" cy="485" r="6" fill="#0a2a18" stroke="#4abf7a" stroke-width="1" opacity="0.45"/>
+    <circle cx="431" cy="485" r="2" fill="#4abf7a" opacity="0.35"/>
+    <text x="431" y="474" text-anchor="middle" font-size="8" fill="#c8d8f0" opacity="0.6">5.2</text>
+  </g>
+
+  <!-- TP5.3 | Pending | angle=208°, r=70 → cx=438, cy=467 -->
+  <g class="planet" id="pl-tp53" data-id="TP5.3" data-phase="5" data-status="pending"
+     data-pipeline="Hale,Naia,Dani">
+    <circle class="body" cx="438" cy="467" r="6" fill="#0a2a18" stroke="#4abf7a" stroke-width="1" opacity="0.45"/>
+    <circle cx="438" cy="467" r="2" fill="#4abf7a" opacity="0.35"/>
+    <text x="438" y="456" text-anchor="middle" font-size="8" fill="#c8d8f0" opacity="0.6">5.3</text>
+  </g>
+
+  <!-- TP5.4 | Pending | angle=224°, r=70 → cx=450, cy=451 -->
+  <g class="planet" id="pl-tp54" data-id="TP5.4" data-phase="5" data-status="pending"
+     data-pipeline="A5,Hale,Dani">
+    <circle class="body" cx="450" cy="451" r="6" fill="#0a2a18" stroke="#4abf7a" stroke-width="1" opacity="0.45"/>
+    <circle cx="450" cy="451" r="2" fill="#4abf7a" opacity="0.35"/>
+    <text x="450" y="440" text-anchor="middle" font-size="8" fill="#c8d8f0" opacity="0.6">5.4</text>
+  </g>
+
+</svg>
+
+<!-- ── Top Bar ── -->
+<div id="top-bar">
+  <div>
+    <div class="voyage-title">Viking Mars · Panama Canal &amp; Central America · Dec 17–27, 2026</div>
+    <div class="client-name">KUKLINSKI GROUP · 6 GUESTS · 3 CABINS</div>
+  </div>
+  <div style="font-size:9px;letter-spacing:2px;color:#2a5080;text-transform:uppercase;text-align:center">
+    <div style="color:#4a9fdf;margin-bottom:2px">THUNDERBIRD PORTAL</div>
+    <div>Dreams2Memories Travel, LLC</div>
+  </div>
+  <div id="countdown-display">
+    <div class="count-num" id="countdown-num">242</div>
+    <div class="count-label">Days to Embarkation</div>
+  </div>
+</div>
+
+<!-- ── Overdue Alert ── -->
+<div id="overdue-alert">⚠ TP 0.6 INSURANCE OVERDUE</div>
+
+<!-- ── Left Sidebar ── -->
+<div id="sidebar">
+  <h4>Filter by Staff</h4>
+  <button class="persona-btn" data-persona="A2" style="color:#4a7abf">
+    <span class="dot" style="background:#4a7abf"></span>A2 Dembe
+  </button>
+  <button class="persona-btn" data-persona="A6" style="color:#9c6bbf">
+    <span class="dot" style="background:#9c6bbf"></span>A6 Luna
+  </button>
+  <button class="persona-btn" data-persona="A9" style="color:#6b7280">
+    <span class="dot" style="background:#6b7280"></span>A9 Harlan
+  </button>
+  <button class="persona-btn" data-persona="A5" style="color:#2a9f7a">
+    <span class="dot" style="background:#2a9f7a"></span>A5 Viper
+  </button>
+  <button class="persona-btn" data-persona="A7" style="color:#8b7355">
+    <span class="dot" style="background:#8b7355"></span>A7 Gauge
+  </button>
+  <button class="persona-btn" data-persona="Dani" style="color:#4abf7a">
+    <span class="dot" style="background:#4abf7a"></span>A3 Dani
+  </button>
+  <button class="persona-btn" data-persona="Hale" style="color:#c9a84c">
+    <span class="dot" style="background:#c9a84c"></span>Hale / COS
+  </button>
+  <button class="persona-btn" data-persona="Naia" style="color:#bf4a4a">
+    <span class="dot" style="background:#bf4a4a"></span>Naia / EXEC
+  </button>
+  <span class="clear-filter" id="clear-filter">× Clear Filter</span>
+</div>
+
+<!-- ── Right Panel ── -->
+<div id="right-panel">
+  <div class="panel-section" id="forming-now">
+    <div class="panel-title">Forming Now</div>
+    <div class="fn-name">TP0.6 — Insurance</div>
+    <div class="fn-date">Send Apr 28, 2026</div>
+    <div style="margin-top:6px">
+      <span class="fn-days" id="tp06-days">9</span>
+      <span class="fn-days-label"> DAYS</span>
+    </div>
+    <div style="margin-top:4px;font-size:9px;color:#ff6b6b">▲ OVERDUE — ACT NOW</div>
+  </div>
+  <div class="panel-section">
+    <div class="panel-title">Next Milestones</div>
+    <div class="milestone-item">
+      <div class="mi-name mi-status-forming">TP2.2 Monthly Validation</div>
+      <div class="mi-date">May 15, 2026 · 26 days</div>
+    </div>
+    <div class="milestone-item">
+      <div class="mi-name">TP1.2 Airfare Watch</div>
+      <div class="mi-date">Jun 17, 2026 · 59 days</div>
+    </div>
+    <div class="milestone-item">
+      <div class="mi-name">TP1.3 Hotel Options</div>
+      <div class="mi-date">Jun 17, 2026 · 59 days</div>
+    </div>
+    <div class="milestone-item">
+      <div class="mi-name">TP2.1 Excursion Recs</div>
+      <div class="mi-date">Aug 1, 2026 · 104 days</div>
+    </div>
+  </div>
+  <div class="panel-section">
+    <div class="panel-title">Mission Stats</div>
+    <div style="display:flex;justify-content:space-between;margin-bottom:4px">
+      <span style="font-size:10px;color:#c8d8f0">Total TPs</span>
+      <span style="font-size:12px;color:#f0c060;font-weight:bold">16</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;margin-bottom:4px">
+      <span style="font-size:10px;color:#4abf7a">Sent ✓</span>
+      <span style="font-size:12px;color:#4abf7a;font-weight:bold">2</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;margin-bottom:4px">
+      <span style="font-size:10px;color:#ff6b6b">Overdue ▲</span>
+      <span style="font-size:12px;color:#ff6b6b;font-weight:bold">1</span>
+    </div>
+    <div style="display:flex;justify-content:space-between">
+      <span style="font-size:10px;color:#c8d8f0">Pending</span>
+      <span style="font-size:12px;color:#6a8aaf;font-weight:bold">13</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── View Toggle ── -->
+<div id="view-toggle">
+  <button class="view-btn active" data-view="client">CLIENT</button>
+  <button class="view-btn" data-view="template">TEMPLATE</button>
+  <button class="view-btn" data-view="system">SYSTEM</button>
+</div>
+
+<!-- ── Spectrum Bar ── -->
+<div id="spectrum-bar">
+  <div class="spec-title">TIMELINE · APR 2026 → JAN 2027</div>
+  <div id="spectrum-track">
+    <div id="spec-axis"></div>
+    <!-- Month labels injected by JS -->
+    <!-- TP markers injected by JS -->
+  </div>
+</div>
+
+<!-- ── Tooltip ── -->
+<div id="tooltip">
+  <div class="tt-header">
+    <span class="tt-id" id="tt-id">TP0.5</span>
+    <span class="tt-phase" id="tt-phase">Phase 0</span>
+  </div>
+  <div class="tt-body">
+    <div class="tt-name" id="tt-name">Welcome &amp; Validation</div>
+    <div class="tt-date" id="tt-date">Send Date: Apr 17, 2026</div>
+    <span class="tt-status" id="tt-status">SENT</span>
+    <div class="tt-teaser" id="tt-teaser"></div>
+    <div class="tt-section-label" id="tt-section-label">Pipeline</div>
+    <div class="tt-pipeline" id="tt-pipeline"></div>
+    <div id="tt-detail"></div>
+  </div>
+</div>
+
+<!-- ── Thunderbird Manifest (Machine-Readable) ── -->
+<script type="application/json" id="thunderbird-manifest">
+{
+  "system": "Thunderbird OS — Dreams2Memories Travel, LLC",
+  "version": "1.0",
+  "generated": "2026-04-19",
+  "portal_type": "client_lifecycle",
+  "voyage": {
+    "client": "Kuklinski Group",
+    "ship": "Viking Mars",
+    "line": "Viking Ocean",
+    "route": "Panama Canal & Central America",
+    "embark_date": "2026-12-17",
+    "embark_port": "Panama City, Panama",
+    "disembark_date": "2026-12-27",
+    "disembark_port": "Fort Lauderdale, FL",
+    "nights": 10,
+    "bookings": [
+      {"ref": "9593880", "agency_conf": "1TSWFQR", "guests": ["Kyle Kuklinski","Rosalie Kuklinski"], "cabin": "4122 DV1"},
+      {"ref": "9593873", "agency_conf": "LJ2O4YG", "guests": ["Roger Kuklinski","Dr Nicholas Kuklinski"], "cabin": "8012 DV1"},
+      {"ref": "9595029", "agency_conf": "CUW88R8", "guests": ["Joshua Morton","Erica Dodge"], "cabin": "3015 V1"}
+    ],
+    "total_paid": 21244,
+    "total_sbc": 1200,
+    "payment_status": "PAID_IN_FULL"
+  },
+  "entry_points": {
+    "email_draft": "core/email/thunderbird_gmail.py → create_draft()",
+    "email_send": "core/email/thunderbird_gmail.py → send_email()",
+    "dani_compose": "core/email/thunderbird_dani_email.py → compose_email()",
+    "validation": "core/client/thunderbird_validation.py → run_validation()",
+    "search_flights": "core/mcp/travel_mcp_server.py → search_flights()",
+    "search_hotels": "core/mcp/travel_mcp_server.py → search_hotels()",
+    "search_excursions": "core/mcp/travel_mcp_server.py → search_excursions()",
+    "dossier_update": "core/booking/thunderbird_dossier.py → update_dossier()",
+    "world_intel": "core/intel/thunderbird_world_intel.py → run_sweep()",
+    "ship_intel": "core/intel/thunderbird_ship_intel.py → get_ship_data()",
+    "persona_engine": "core/ai_infra/thunderbird_personas.py → activate_persona()",
+    "send_gate": "WF-17 — manual Commander approval required before gmail_send_email()"
+  },
+  "touchpoints": [
+    {
+      "id": "TP0.5", "phase": 0, "phase_name": "Onboarding",
+      "name": "Welcome & Validation",
+      "send_date": "2026-04-17", "t_minus": 244, "status": "sent",
+      "pipeline": ["Hale","Dani"], "client_adjustable": false,
+      "py_entry": "core/email/thunderbird_validation.py",
+      "mcp_tool": "create_draft",
+      "teaser": "Your voyage officially begins — we validate every booking detail and set the tone for 10 extraordinary days.",
+      "client_docs": ["Booking confirmations (3)", "Guest profile forms (4/6 complete)"],
+      "notes": "Sent Apr 17 to all 6 guests. Joshua Morton + Erica Dodge guest forms still missing."
+    },
+    {
+      "id": "TP0.6", "phase": 0, "phase_name": "Onboarding",
+      "name": "Insurance Discussion",
+      "send_date": "2026-04-28", "t_minus": 233, "status": "overdue",
+      "pipeline": ["Hale","Dani"], "client_adjustable": false,
+      "py_entry": "core/email/thunderbird_dani_email.py",
+      "mcp_tool": "create_draft",
+      "teaser": "Six guests, three generations, ages 41–81. Travel protection is not optional — we show you why and make it easy.",
+      "client_docs": [],
+      "notes": "Sprint window Apr 18-25 OVERDUE. Send Apr 28 — requires immediate action."
+    },
+    {
+      "id": "TP1.1", "phase": 1, "phase_name": "Discovery",
+      "name": "Voyage Preview",
+      "send_date": "2026-04-17", "t_minus": 244, "status": "sent",
+      "pipeline": ["A2","Hale","Dani"], "client_adjustable": false,
+      "py_entry": "core/intel/thunderbird_ship_intel.py",
+      "mcp_tool": "get_ship_data",
+      "teaser": "Panama Canal transit, Colombian UNESCO cities, Costa Rican rainforest — your 10-day arc, port by port.",
+      "client_docs": ["Voyage preview email", "Viking Mars ship overview"],
+      "notes": "Sent Apr 17 with TP0.5 welcome batch."
+    },
+    {
+      "id": "TP1.2", "phase": 1, "phase_name": "Discovery",
+      "name": "Airfare Watch",
+      "send_date": "2026-06-17", "t_minus": 183, "status": "active",
+      "search_window": {"start": "2026-04-21", "end": "2026-06-10"},
+      "pipeline": ["A2","A9","A5","Hale","Dani"], "client_adjustable": true,
+      "py_entry": "core/mcp/travel_mcp_server.py",
+      "mcp_tool": "search_flights",
+      "teaser": "We watch 60 days of fares so you don't have to. When the price is right, we tell you exactly what to do.",
+      "client_docs": ["Flight options report", "Fare trend analysis"],
+      "routes": ["RIC→PTY (Kyle/Rosalie, Roger/Nick)", "RSW→FLL (Joshua/Erica)"],
+      "notes": "Active search Apr 21 - Jun 10. Weekly reports to Commander Mondays."
+    },
+    {
+      "id": "TP1.3", "phase": 1, "phase_name": "Discovery",
+      "name": "Hotel Options",
+      "send_date": "2026-06-17", "t_minus": 183, "status": "active",
+      "search_window": {"start": "2026-04-21", "end": "2026-06-10"},
+      "pipeline": ["A2","A6","A9","Hale","Dani"], "client_adjustable": true,
+      "py_entry": "core/mcp/travel_mcp_server.py",
+      "mcp_tool": "search_hotels",
+      "teaser": "Panama City the night before departure. A city worth arriving early for — we find you the right room.",
+      "client_docs": ["Hotel options report (Panama City pre + FLL post)"],
+      "notes": "Active search Apr 21 - Jun 10. A6 Luna writes property descriptions."
+    },
+    {
+      "id": "TP2.1", "phase": 2, "phase_name": "Momentum",
+      "name": "Excursion Recommendations",
+      "send_date": "2026-08-01", "t_minus": 138, "status": "pending",
+      "search_window": {"start": "2026-05-05", "end": "2026-07-25"},
+      "pipeline": ["A2","A6","A9","Hale","Dani"], "client_adjustable": true,
+      "py_entry": "core/mcp/travel_mcp_server.py",
+      "mcp_tool": "search_excursions",
+      "teaser": "Cartagena's fortress walls. Santa Marta's Tayrona gateway. Puerto Limon's rainforest. Three ports, three adventures — chosen for you.",
+      "client_docs": ["Excursion recommendations report", "Viking vs. independent comparison"],
+      "notes": "Must arrive before Viking excursion window opens Aug 2."
+    },
+    {
+      "id": "TP2.2", "phase": 2, "phase_name": "Momentum",
+      "name": "Monthly Validation",
+      "send_date": "2026-05-15", "t_minus": 216, "status": "forming",
+      "recurrence": "15th of each month Apr-Nov (8 sends)",
+      "pipeline": ["Hale","Dani"], "client_adjustable": false,
+      "py_entry": "core/client/thunderbird_validation.py",
+      "mcp_tool": "create_draft",
+      "teaser": "Every month, a clean status check. Booking confirmed, payments current, everything in order — peace of mind delivered.",
+      "client_docs": ["Monthly validation email"],
+      "notes": "Recurring monthly. Next: May 15, 2026 (26 days). 8 total sends Apr-Nov."
+    },
+    {
+      "id": "TP2.3", "phase": 2, "phase_name": "Momentum",
+      "name": "Dining Research",
+      "send_date": "2026-09-18", "t_minus": 90, "status": "pending",
+      "search_window": {"start": "2026-06-16", "end": "2026-09-11"},
+      "pipeline": ["A2","A6","Hale","Dani"], "client_adjustable": true,
+      "py_entry": "core/intel/thunderbird_world_intel.py",
+      "mcp_tool": "run_sweep",
+      "teaser": "Onboard specialty dining and port restaurants — holiday menus considered. We find the table worth reserving.",
+      "client_docs": ["Dining recommendations report"],
+      "notes": "Includes Christmas/holiday dining considerations (Dec 24-25 at sea)."
+    },
+    {
+      "id": "TP2.4", "phase": 2, "phase_name": "Momentum",
+      "name": "Document Audit",
+      "send_date": "2026-09-18", "t_minus": 90, "status": "pending",
+      "search_window": {"start": "2026-07-01", "end": "2026-09-11"},
+      "pipeline": ["A2","Hale","Dani"], "client_adjustable": false,
+      "py_entry": "core/booking/thunderbird_dossier.py",
+      "mcp_tool": "update_dossier",
+      "teaser": "Passports, visas, health advisories, onboard check-in forms. We audit everything so boarding is effortless.",
+      "client_docs": ["Document checklist", "Guest form status (Joshua Morton + Erica Dodge still pending)"],
+      "notes": "Priority: follow up Joshua Morton + Erica Dodge guest forms."
+    },
+    {
+      "id": "TP3.1", "phase": 3, "phase_name": "Pre-Departure",
+      "name": "Pre-Voyage Brief",
+      "send_date": "2026-11-26", "t_minus": 21, "status": "pending",
+      "search_window": {"start": "2026-08-25", "end": "2026-11-19"},
+      "pipeline": ["A2","A6","Naia","Hale","Dani"], "client_adjustable": true,
+      "py_entry": "core/email/thunderbird_dani_email.py",
+      "mcp_tool": "create_draft",
+      "teaser": "Your complete voyage briefing — packing list, port logistics, what to expect, what to savor. Naia reviews the voice.",
+      "client_docs": ["Pre-voyage brief (destination deep-dive)", "Packing recommendations", "Health advisory"],
+      "notes": "EXEC Naia reviews voice for this high-touch email."
+    },
+    {
+      "id": "TP3.2", "phase": 3, "phase_name": "Pre-Departure",
+      "name": "Final Confirmation",
+      "send_date": "2026-12-10", "t_minus": 7, "status": "pending",
+      "compile_window": {"start": "2026-12-01", "end": "2026-12-08"},
+      "pipeline": ["Hale","Naia","Dani"], "client_adjustable": false,
+      "py_entry": "core/booking/thunderbird_dossier.py",
+      "mcp_tool": "update_dossier",
+      "teaser": "One document. Every flight, hotel, transfer, cabin, and dining reservation — confirmed and ready.",
+      "client_docs": ["Final confirmation package", "All bookings consolidated"],
+      "notes": "Hale compiles Dec 1-8. Send Dec 10 (7 days before embark)."
+    },
+    {
+      "id": "TP3.3", "phase": 3, "phase_name": "Pre-Departure",
+      "name": "Send-Off",
+      "send_date": "2026-12-14", "t_minus": 3, "status": "pending",
+      "pipeline": ["Hale","Dani"], "client_adjustable": false,
+      "py_entry": "core/email/thunderbird_dani_email.py",
+      "mcp_tool": "create_draft",
+      "teaser": "Three days out. The voyage is real. Bon voyage from the entire Thunderbird team.",
+      "client_docs": ["Send-off email"],
+      "notes": "Warm, brief. Dani voice. 3 days before Panama City embarkation."
+    },
+    {
+      "id": "TP5.1", "phase": 5, "phase_name": "Return",
+      "name": "Welcome Home",
+      "send_date": "2026-12-28", "t_minus": -11, "status": "pending",
+      "pipeline": ["Hale","Dani"], "client_adjustable": false,
+      "py_entry": "core/email/thunderbird_dani_email.py",
+      "mcp_tool": "create_draft",
+      "teaser": "You're home. The Panama Canal is behind you. We hope it was everything.",
+      "client_docs": ["Welcome home email"],
+      "notes": "Day after disembarkation Fort Lauderdale."
+    },
+    {
+      "id": "TP5.2", "phase": 5, "phase_name": "Return",
+      "name": "Post-Voyage Survey",
+      "send_date": "2027-01-03", "t_minus": -17, "status": "pending",
+      "pipeline": ["A7","Hale"], "client_adjustable": false,
+      "py_entry": "core/client/thunderbird_survey.py",
+      "mcp_tool": "create_draft",
+      "teaser": "Your feedback shapes the next voyage — for your family and for every future traveler we serve.",
+      "client_docs": ["NPS survey link"],
+      "notes": "A7 Gauge designs survey. Jan 3, 2027."
+    },
+    {
+      "id": "TP5.3", "phase": 5, "phase_name": "Return",
+      "name": "Thank You + Referral",
+      "send_date": "2027-01-10", "t_minus": -24, "status": "pending",
+      "pipeline": ["Hale","Naia","Dani"], "client_adjustable": false,
+      "py_entry": "core/email/thunderbird_dani_email.py",
+      "mcp_tool": "create_draft",
+      "teaser": "A genuine thank you — and a gentle invitation to share what they discovered.",
+      "client_docs": ["Thank you letter", "Referral invitation"],
+      "notes": "Naia reviews voice. Handwritten-style warmth."
+    },
+    {
+      "id": "TP5.4", "phase": 5, "phase_name": "Return",
+      "name": "Next Voyage Plant",
+      "send_date": "2027-01-27", "t_minus": -41, "status": "pending",
+      "search_window": {"start": "2027-01-11", "end": "2027-01-25"},
+      "pipeline": ["A5","A2","Hale","Dani"], "client_adjustable": true,
+      "py_entry": "core/mcp/travel_mcp_server.py",
+      "mcp_tool": "search_cruises",
+      "teaser": "What's next? Based on everything we learned about this group, A5 Viper seeds the next dream.",
+      "client_docs": ["Next voyage teaser"],
+      "notes": "A5 Viper strategy based on learned preferences. Jan 27, 2027."
+    }
+  ]
+}
+</script>
+
+<script>
+// ── Constants ──────────────────────────────────────────
+const TODAY = new Date('2026-04-19');
+const EMBARK = new Date('2026-12-17');
+const DAYS_TO_EMBARK = Math.round((EMBARK - TODAY) / 86400000);
+
+const PHASE_COLORS = {
+  0: '#9c6bbf', 1: '#4a7abf', 2: '#c9a84c', 3: '#bf4a4a', 5: '#4abf7a'
+};
+const PHASE_NAMES = {
+  0: 'Onboarding', 1: 'Discovery', 2: 'Momentum', 3: 'Pre-Departure', 5: 'Return'
+};
+const PERSONA_COLORS = {
+  'A2': '#4a7abf', 'A3': '#4abf7a', 'Dani': '#4abf7a',
+  'A5': '#2a9f7a', 'A6': '#9c6bbf', 'A7': '#8b7355',
+  'A9': '#6b7280', 'Hale': '#c9a84c', 'Naia': '#bf4a4a',
+  'EXEC': '#bf4a4a', 'COS': '#c9a84c'
+};
+
+const STATUS_LABELS = {
+  sent: 'SENT', overdue: 'OVERDUE', forming: 'FORMING NOW',
+  building: 'IN PROGRESS', pending: 'PENDING', active: 'ACTIVE SEARCH'
+};
+const STATUS_CLASSES = {
+  sent: 'status-sent', overdue: 'status-overdue', forming: 'status-forming',
+  building: 'status-building', pending: 'status-pending', active: 'status-building'
+};
+
+// ── Parse Manifest ─────────────────────────────────────
+const manifest = JSON.parse(document.getElementById('thunderbird-manifest').textContent);
+const touchpoints = manifest.touchpoints;
+
+// ── Starfield ──────────────────────────────────────────
+(function initStarfield() {
+  const canvas = document.getElementById('starfield');
+  const ctx = canvas.getContext('2d');
+  const stars = [];
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  for (let i = 0; i < 320; i++) {
+    stars.push({
+      x: Math.random(), y: Math.random(),
+      r: Math.random() * 1.4 + 0.2,
+      speed: Math.random() * 0.025 + 0.003,
+      offset: Math.random() * Math.PI * 2
+    });
+  }
+
+  let t = 0;
+  function draw() {
+    const w = canvas.width, h = canvas.height;
+    ctx.fillStyle = '#050a14';
+    ctx.fillRect(0, 0, w, h);
+    stars.forEach(s => {
+      const alpha = 0.2 + 0.8 * (0.5 + 0.5 * Math.sin(t * s.speed + s.offset));
+      ctx.beginPath();
+      ctx.arc(s.x * w, s.y * h, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,255,255,${alpha.toFixed(2)})`;
+      ctx.fill();
+    });
+    t++;
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// ── Countdown ──────────────────────────────────────────
+document.getElementById('countdown-num').textContent = DAYS_TO_EMBARK;
+
+// ── SVG Phase Wedges (computed) ────────────────────────
+(function drawPhaseWedges() {
+  const svg = document.getElementById('solar-svg');
+  const CX = 500, CY = 500, R1 = 42, R2 = 392;
+  const DEG = Math.PI / 180;
+
+  function polarXY(r, angleDeg) {
+    return {
+      x: CX + r * Math.cos(angleDeg * DEG),
+      y: CY + r * Math.sin(angleDeg * DEG)
+    };
+  }
+
+  function wedgePath(a1, a2) {
+    const p1 = polarXY(R1, a1), p2 = polarXY(R2, a1);
+    const p3 = polarXY(R2, a2), p4 = polarXY(R1, a2);
+    const large = (a2 - a1 > 180) ? 1 : 0;
+    return `M${p1.x.toFixed(1)},${p1.y.toFixed(1)} ` +
+           `L${p2.x.toFixed(1)},${p2.y.toFixed(1)} ` +
+           `A${R2},${R2},0,${large},1,${p3.x.toFixed(1)},${p3.y.toFixed(1)} ` +
+           `L${p4.x.toFixed(1)},${p4.y.toFixed(1)} ` +
+           `A${R1},${R1},0,${large},0,${p1.x.toFixed(1)},${p1.y.toFixed(1)}Z`;
+  }
+
+  const arcs = [
+    {id:'wedge0', a1:-120, a2:-60, phase:0},
+    {id:'wedge1', a1:-60,  a2:20,  phase:1},
+    {id:'wedge2', a1:20,   a2:100, phase:2},
+    {id:'wedge3', a1:100,  a2:160, phase:3},
+    {id:'wedge5', a1:160,  a2:240, phase:5}
+  ];
+
+  arcs.forEach(arc => {
+    const el = document.getElementById(arc.id);
+    if (el) {
+      el.setAttribute('d', wedgePath(arc.a1, arc.a2));
+      el.setAttribute('fill', PHASE_COLORS[arc.phase]);
+    }
+  });
+
+  // Remove placeholder path
+  const p0 = document.getElementById('arc-p0');
+  if (p0) p0.remove();
+})();
+
+// ── Planet Animation ───────────────────────────────────
+let animT = 0;
+(function animatePlanets() {
+  const overduePlanets = document.querySelectorAll('.planet[data-status="overdue"] circle.body');
+  const formingPlanets = document.querySelectorAll('.planet[data-status="forming"] circle.body');
+
+  function step() {
+    const pulse = 0.5 + 0.5 * Math.sin(animT * 0.06);
+    const fastPulse = 0.4 + 0.6 * Math.sin(animT * 0.12);
+
+    overduePlanets.forEach(c => {
+      c.setAttribute('opacity', (0.5 + 0.5 * fastPulse).toFixed(2));
+    });
+    formingPlanets.forEach(c => {
+      const r = 7 + 2 * pulse;
+      c.setAttribute('r', r.toFixed(1));
+    });
+
+    // Ship glow pulse
+    const shipGlow = document.getElementById('ship-glow');
+    if (shipGlow) {
+      shipGlow.setAttribute('r', (25 + 4 * pulse).toFixed(1));
+    }
+    const shipRing = document.getElementById('ship-ring');
+    if (shipRing) {
+      shipRing.setAttribute('opacity', (0.25 + 0.2 * pulse).toFixed(2));
+    }
+
+    animT++;
+    requestAnimationFrame(step);
+  }
+  step();
+})();
+
+// ── Tooltip ────────────────────────────────────────────
+const tooltip = document.getElementById('tooltip');
+let currentView = 'client';
+
+function showTooltip(tp, x, y) {
+  document.getElementById('tt-id').textContent = tp.id;
+  document.getElementById('tt-name').textContent = tp.name;
+
+  const phaseEl = document.getElementById('tt-phase');
+  phaseEl.textContent = PHASE_NAMES[tp.phase] || `Phase ${tp.phase}`;
+  phaseEl.style.background = PHASE_COLORS[tp.phase] + '33';
+  phaseEl.style.color = PHASE_COLORS[tp.phase];
+
+  const status = tp.status;
+  const statusEl = document.getElementById('tt-status');
+  statusEl.textContent = STATUS_LABELS[status] || status.toUpperCase();
+  statusEl.className = 'tt-status ' + (STATUS_CLASSES[status] || 'status-pending');
+
+  // Date display
+  const sd = new Date(tp.send_date);
+  const daysAway = Math.round((sd - TODAY) / 86400000);
+  const dateStr = sd.toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'});
+  document.getElementById('tt-date').textContent =
+    status === 'sent' ? `Sent ${dateStr}` :
+    daysAway < 0 ? `Post-voyage · ${Math.abs(daysAway)} days after disembark` :
+    `Send ${dateStr} · ${daysAway} days`;
+
+  document.getElementById('tt-teaser').textContent = tp.teaser || '';
+
+  const detail = document.getElementById('tt-detail');
+  const pipeline = document.getElementById('tt-pipeline');
+  const sectionLabel = document.getElementById('tt-section-label');
+
+  if (currentView === 'system') {
+    sectionLabel.textContent = 'Code Entry';
+    pipeline.innerHTML = '';
+    detail.innerHTML =
+      `<div class="tt-sys">📄 ${tp.py_entry || '—'}</div>` +
+      `<div class="tt-sys">🔧 MCP: ${tp.mcp_tool || '—'}</div>` +
+      (tp.notes ? `<div style="font-size:9px;color:#4a4a6a;margin-top:6px">${tp.notes}</div>` : '');
+    sectionLabel.textContent = 'Pipeline';
+    pipeline.innerHTML = (tp.pipeline || []).map(p =>
+      `<span class="tt-persona-chip" style="border-left:2px solid ${PERSONA_COLORS[p]||'#666'}">${p}</span>`
+    ).join('');
+    detail.innerHTML =
+      `<div class="tt-section-label" style="margin-top:8px">Code Entry</div>` +
+      `<div class="tt-sys">📄 ${tp.py_entry || '—'}</div>` +
+      `<div class="tt-sys">🔧 MCP: ${tp.mcp_tool || '—'}</div>`;
+  } else {
+    sectionLabel.textContent = 'Pipeline';
+    pipeline.innerHTML = (tp.pipeline || []).map(p =>
+      `<span class="tt-persona-chip" style="border-left:2px solid ${PERSONA_COLORS[p]||'#666'}">${p}</span>`
+    ).join('');
+
+    if (tp.client_docs && tp.client_docs.length) {
+      detail.innerHTML = `<div class="tt-section-label">Documents</div><ul class="tt-docs">` +
+        tp.client_docs.map(d => `<li>${d}</li>`).join('') + '</ul>';
+    } else {
+      detail.innerHTML = '';
+    }
+  }
+
+  // Position tooltip
+  const pad = 16;
+  const tw = 260;
+  let tx = x + pad;
+  let ty = y - 20;
+  if (tx + tw > window.innerWidth - pad) tx = x - tw - pad;
+  if (ty < 80) ty = 80;
+  if (ty + 300 > window.innerHeight - 60) ty = window.innerHeight - 360;
+
+  tooltip.style.left = tx + 'px';
+  tooltip.style.top = ty + 'px';
+  tooltip.style.opacity = '1';
+}
+
+function hideTooltip() {
+  tooltip.style.opacity = '0';
+}
+
+// ── Planet Interaction ─────────────────────────────────
+const tpMap = {};
+touchpoints.forEach(tp => { tpMap[tp.id] = tp; });
+
+document.querySelectorAll('.planet').forEach(planet => {
+  planet.addEventListener('mouseenter', function(e) {
+    const id = this.dataset.id;
+    const tp = tpMap[id];
+    if (tp) {
+      const rect = this.getBoundingClientRect();
+      const svgRect = document.getElementById('solar-svg').getBoundingClientRect();
+      // Get planet center from SVG circle
+      const circle = this.querySelector('circle.body');
+      const cx = parseFloat(circle.getAttribute('cx'));
+      const cy = parseFloat(circle.getAttribute('cy'));
+      // Convert SVG coords to screen
+      const scaleX = svgRect.width / 1000;
+      const scaleY = svgRect.height / 1000;
+      const offsetX = svgRect.left + (svgRect.width - Math.min(svgRect.width, svgRect.height)) / 2;
+      const offsetY = svgRect.top + (svgRect.height - Math.min(svgRect.width, svgRect.height)) / 2;
+      const scale = Math.min(scaleX, scaleY);
+      const screenX = offsetX + cx * scale;
+      const screenY = offsetY + cy * scale;
+      showTooltip(tp, screenX, screenY);
+    }
+  });
+
+  planet.addEventListener('mouseleave', function() {
+    hideTooltip();
+  });
+});
+
+// ── Persona Filter ─────────────────────────────────────
+let activeFilter = null;
+
+document.querySelectorAll('.persona-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const persona = this.dataset.persona;
+    if (activeFilter === persona) {
+      // Toggle off
+      activeFilter = null;
+      this.classList.remove('active');
+      applyFilter(null);
+    } else {
+      document.querySelectorAll('.persona-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      activeFilter = persona;
+      applyFilter(persona);
+    }
+  });
+});
+
+document.getElementById('clear-filter').addEventListener('click', function() {
+  activeFilter = null;
+  document.querySelectorAll('.persona-btn').forEach(b => b.classList.remove('active'));
+  applyFilter(null);
+});
+
+function applyFilter(persona) {
+  document.querySelectorAll('.planet').forEach(planet => {
+    if (!persona) {
+      planet.classList.remove('dimmed', 'highlighted');
+    } else {
+      const pipeline = planet.dataset.pipeline || '';
+      if (pipeline.includes(persona)) {
+        planet.classList.remove('dimmed');
+        planet.classList.add('highlighted');
+      } else {
+        planet.classList.remove('highlighted');
+        planet.classList.add('dimmed');
+      }
+    }
+  });
+}
+
+// ── View Toggle ────────────────────────────────────────
+document.querySelectorAll('.view-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    currentView = this.dataset.view;
+    hideTooltip();
+    // Hide staff filter sidebar in CLIENT view
+    const staffFilter = document.getElementById('sidebar');
+    if (currentView === 'client') {
+      staffFilter.style.display = 'none';
+    } else if (currentView === 'system') {
+      staffFilter.style.display = 'flex';
+    }
+  });
+});
+
+// On page load, default CLIENT is active so hide sidebar
+document.addEventListener('DOMContentLoaded', function() {
+  const staffFilter = document.getElementById('sidebar');
+  staffFilter.style.display = 'none';
+});
+
+// ── Spectrum Bar ───────────────────────────────────────
+(function buildSpectrum() {
+  const track = document.getElementById('spectrum-track');
+  const START = new Date('2026-04-01');
+  const END = new Date('2027-02-01');
+  const totalDays = (END - START) / 86400000;
+
+  function pct(d) {
+    return Math.max(0, Math.min(100, (d - START) / 86400000 / totalDays * 100));
+  }
+
+  // Month labels
+  const months = [
+    'APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC','JAN'
+  ];
+  for (let m = 3; m <= 12; m++) {
+    const d = new Date(m <= 12 ? 2026 : 2027, m <= 12 ? m-1 : 0, 1);
+    const lbl = document.createElement('span');
+    lbl.className = 'spec-month-label';
+    lbl.style.left = pct(d) + '%';
+    lbl.textContent = months[m <= 12 ? m-4 : 9];
+    track.appendChild(lbl);
+  }
+  // Jan 2027
+  const jan = new Date(2027, 0, 1);
+  const lblJ = document.createElement('span');
+  lblJ.className = 'spec-month-label';
+  lblJ.style.left = pct(jan) + '%';
+  lblJ.textContent = 'JAN';
+  track.appendChild(lblJ);
+
+  // Embark line
+  const embarkLine = document.createElement('div');
+  embarkLine.style.cssText = `position:absolute;left:${pct(EMBARK)}%;top:0;bottom:0;width:1px;background:#f0c060;opacity:0.6`;
+  track.appendChild(embarkLine);
+
+  // TP markers
+  touchpoints.forEach(tp => {
+    const sd = new Date(tp.send_date);
+    const marker = document.createElement('div');
+    marker.className = 'spec-marker';
+    marker.style.left = pct(sd) + '%';
+    marker.title = tp.id + ': ' + tp.name;
+
+    const stColor = tp.status === 'sent' ? '#4abf7a' :
+                    tp.status === 'overdue' ? '#ff4444' :
+                    tp.status === 'forming' ? '#f0c060' :
+                    tp.status === 'building' || tp.status === 'active' ? '#4a7abf' :
+                    '#3a5070';
+
+    marker.innerHTML = `<div class="spec-dot" style="background:${stColor};border-color:${stColor}"></div>` +
+                       `<div class="spec-label" style="color:${stColor}">${tp.id}</div>`;
+
+    marker.addEventListener('mouseenter', function(e) {
+      showTooltip(tp, e.clientX, e.clientY - 180);
+    });
+    marker.addEventListener('mouseleave', hideTooltip);
+    track.appendChild(marker);
+  });
+
+  // Today marker
+  const todayMarker = document.createElement('div');
+  todayMarker.style.cssText = `position:absolute;left:${pct(TODAY)}%;top:0;bottom:0;width:2px;background:#fff;opacity:0.3`;
+  track.appendChild(todayMarker);
+})();
+
+// ── Phase Arc hover highlights ─────────────────────────
+document.querySelectorAll('.phase-arc').forEach(arc => {
+  arc.addEventListener('mouseenter', function() {
+    this.style.opacity = '0.18';
+  });
+  arc.addEventListener('mouseleave', function() {
+    this.style.opacity = '0.07';
+  });
+});
+
+console.log('Thunderbird Portal loaded — Manifest parsed:', manifest.touchpoints.length, 'touchpoints');
+console.log('Entry points:', Object.keys(manifest.entry_points));
+</script>
+</body>
+</html>

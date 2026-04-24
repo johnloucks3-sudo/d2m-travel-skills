@@ -1,0 +1,156 @@
+[
+  {
+    "id": "A2-2026-04-20-001",
+    "title": "Commander X16 Retro Computer",
+    "source_signal": "[1] Commander X16\u2122 About & FAQ",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 signal is off-domain",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Retro computing hardware unrelated to travel intelligence; keyword collision on 'Commander' pulled non-travel content."
+  },
+  {
+    "id": "A2-2026-04-20-002",
+    "title": "Commander X16 Community",
+    "source_signal": "[2] Commander X16\u2122 Home - Commander X16\u2122 Community",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 signal is off-domain",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Retro computing forum unrelated to travel; keyword collision on 'Commander'."
+  },
+  {
+    "id": "A2-2026-04-20-003",
+    "title": "Commander X16 Gen-2 FAQ",
+    "source_signal": "[3] FAQ Update for Gen-2 aka 'CX16GS' system",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 signal is off-domain",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Retro computing hardware roadmap unrelated to travel intelligence; keyword collision on 'Commander'."
+  },
+  {
+    "id": "A2-2026-04-20-004",
+    "title": "Commander X16 Introduction",
+    "source_signal": "[4] Introducing Your Commander X16 Personal Computer",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 signal is off-domain",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Retro computing hardware unrelated to travel; keyword collision on 'Commander'."
+  },
+  {
+    "id": "A2-2026-04-20-005",
+    "title": "Commander X16 Retro Computer (duplicate)",
+    "source_signal": "[5] Commander X16\u2122 About & FAQ",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 signal is off-domain",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Duplicate of [1]; keyword collision on 'Commander'."
+  },
+  {
+    "id": "A2-2026-04-20-006",
+    "title": "Commander X16 Community (duplicate)",
+    "source_signal": "[6] Commander X16\u2122 Home - Commander X16\u2122 Community",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 signal is off-domain",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Duplicate of [2]; keyword collision on 'Commander'."
+  },
+  {
+    "id": "A2-2026-04-20-007",
+    "title": "Commander X16 Gen-2 FAQ (duplicate)",
+    "source_signal": "[7] FAQ Update for Gen-2 aka 'CX16GS' system",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 signal is off-domain",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Duplicate of [3]; keyword collision on 'Commander'."
+  },
+  {
+    "id": "A2-2026-04-20-008",
+    "title": "Commander X16 Introduction (duplicate)",
+    "source_signal": "[8] Introducing Your Commander X16 Personal Computer",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 signal is off-domain",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Duplicate of [4]; keyword collision on 'Commander'."
+  },
+  {
+    "id": "A2-2026-04-20-009",
+    "title": "Jesus and the Cross \u2014 Biblical Archaeology",
+    "source_signal": "[9] Jesus and the Cross - Biblical Archaeology Society",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 signal is off-domain",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Biblical/religious history unrelated to travel intelligence; keyword collision on 'cross' produced noise."
+  },
+  {
+    "id": "A2-2026-04-20-010",
+    "title": "Cross-Validation in ML",
+    "source_signal": "[10] What is the difference between cross_validate and cross_val_score?",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 signal is off-domain",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "ML statistical methodology unrelated to travel intelligence; keyword collision on 'cross' pulled academic content."
+  },
+  {
+    "id": "A2-2026-04-20-011",
+    "title": "Cross-Entropy Loss in Neural Networks",
+    "source_signal": "[11] Cross-entropy loss explanation - Data Science Stack Exchange",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 signal is off-domain",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "ML loss function mathematics unrelated to travel intelligence; keyword collision on 'cross' produced noise."
+  },
+  {
+    "id": "A2-2026-04-20-012",
+    "title": "Cross-Attention in Transformers",
+    "source_signal": "[12] Cross-attention mask in Transformers - Data Science Stack Exchange",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 signal is off-domain",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Transformer architecture detail unrelated to travel intelligence; keyword collision on 'cross' pulled ML noise."
+  },
+  {
+    "id": "A2-2026-04-20-013",
+    "title": "Cross-Entropy Error Function",
+    "source_signal": "[13] The cross-entropy error function in neural networks",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 signal is off-domain",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Neural network mathematics unrelated to travel intelligence; keyword collision on 'cross' produced academic noise."
+  },
+  {
+    "id": "A2-2026-04-20-014",
+    "title": "Bootstrapping vs Cross-Validation",
+    "source_signal": "[14] What is the difference between bootstrapping and cross-validation?",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 signal is off-domain",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "ML resampling methodology unrelated to travel intelligence; keyword collision on 'cross' pulled academic content."
+  }
+]

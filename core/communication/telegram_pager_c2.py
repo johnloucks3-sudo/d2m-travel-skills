@@ -39,7 +39,7 @@ COMMANDER_ID = os.environ.get("TELEGRAM_COMMANDER_ID", "")
 
 COLLAB       = Path("/home/john/Thunderbird/OpsCenter/collaboration")
 CLAUDE_INBOX = COLLAB / "claude_inbox.md"
-GOOSE_INBOX  = COLLAB / "goose_inbox.md"
+OPENCODE_INBOX = COLLAB / "opencode_inbox.md"
 WING_COMMS   = COLLAB / "wing_comms.md"
 ACTIVITY     = COLLAB / "activity_board.md"
 
@@ -132,13 +132,13 @@ def _seq() -> str:
 # ── Tasking Route Table ───────────────────────────────────────────────────────
 ROUTE_TABLE = [
     (r"^task\s+claude[:\s]+(.+)",  "CLAUDE", "TASK"),
-    (r"^task\s+goose[:\s]+(.+)",   "GOOSE",  "TASK"),
+    (r"^task\s+opencode[:\s]+(.+)",   "OPENCODE",  "TASK"),
     (r"^ask\s+claude[:\s]+(.+)",   "CLAUDE", "REQUEST"),
-    (r"^ask\s+goose[:\s]+(.+)",    "GOOSE",  "REQUEST"),
+    (r"^ask\s+opencode[:\s]+(.+)",    "OPENCODE",  "REQUEST"),
     (r"^tell\s+claude[:\s]+(.+)",  "CLAUDE", "FYI"),
-    (r"^tell\s+goose[:\s]+(.+)",   "GOOSE",  "FYI"),
+    (r"^tell\s+opencode[:\s]+(.+)",   "OPENCODE",  "FYI"),
     (r"^fyi\s+claude[:\s]+(.+)",   "CLAUDE", "FYI"),
-    (r"^fyi\s+goose[:\s]+(.+)",    "GOOSE",  "FYI"),
+    (r"^fyi\s+opencode[:\s]+(.+)",    "OPENCODE",  "FYI"),
     (r"^fyi\s+hale[:\s]+(.+)",     "HALE",   "FYI"),
     (r"^fyi\s+all[:\s]+(.+)",      "ALL",    "FYI"),
     (r"^tell\s+all[:\s]+(.+)",     "ALL",    "FYI"),
@@ -165,7 +165,7 @@ HELP_TEXT = (
 
 # ── File writers ──────────────────────────────────────────────────────────────
 def write_inbox(target: str, msg_type: str, content: str) -> str:
-    path = CLAUDE_INBOX if target == "CLAUDE" else GOOSE_INBOX
+    path = CLAUDE_INBOX if target == "CLAUDE" else OPENCODE_INBOX
     tid  = f"TG-{mt_stamp()}-{_seq()}"
     entry = (
         f"\n---\n## COMMANDER {msg_type} — Telegram\n"
@@ -224,7 +224,7 @@ def status_summary() -> str:
 
 def task_list() -> str:
     tasks = []
-    for inbox, label in [(CLAUDE_INBOX, "CLAUDE"), (GOOSE_INBOX, "GOOSE")]:
+    for inbox, label in [(CLAUDE_INBOX, "CLAUDE"), (OPENCODE_INBOX, "GOOSE")]:
         if not inbox.exists():
             continue
         for block in inbox.read_text().split("---"):

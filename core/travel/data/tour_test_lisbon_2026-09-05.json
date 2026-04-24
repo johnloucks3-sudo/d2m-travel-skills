@@ -1,0 +1,322 @@
+{
+  "dest": "lisbon",
+  "query": "",
+  "date": "2026-09-05",
+  "scraped_at": "2026-04-17T20:43:33.656483",
+  "getyourguide": {
+    "source": "getyourguide",
+    "dest": "lisbon",
+    "query": "",
+    "url": "https://www.getyourguide.com/lisbon-l42/",
+    "scraped_at": "2026-04-17T20:43:33.973102",
+    "date_filter": "2026-09-05",
+    "tours": [
+      {
+        "name": "Lisbon: Sintra, Pena, Regaleira, Cabo da Roca & Cascais",
+        "duration": "9.5 - 10 hours",
+        "rating": 4.7,
+        "review_count": 20842,
+        "price_pp": 39.0,
+        "original_price_pp": 52.0,
+        "badge": "Top pick",
+        "url": "https://www.getyourguide.com/lisbon-l42/lisbon-sintra-pena-regaleira-cabo-da-roca-cascais-t440176/"
+      },
+      {
+        "name": "Lisbon: Sintra, Pena, Regaleira, Cabo Roca Coast & Cascais",
+        "duration": "9 hours \u2022 Skip the line \u2022 Private option available",
+        "rating": 4.8,
+        "review_count": 7472,
+        "price_pp": 39.0,
+        "original_price_pp": 52.0,
+        "badge": null,
+        "url": "https://www.getyourguide.com/lisbon-l42/lisbon-sintra-pena-regaleira-cabo-roca-coast-cascais-t490146/"
+      },
+      {
+        "name": "Lisbon: Arr\u00e1bida Coastal Show & Dolphin Watching Experience",
+        "duration": "8 hours \u2022 Private group \u2022 Pickup available",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 588.0,
+        "original_price_pp": null,
+        "badge": "New activity",
+        "url": "https://www.getyourguide.com/palmela-l3445/lisbon-arrabida-coastal-show-dolphin-watching-experience-t1289155/"
+      },
+      {
+        "name": "Lisbon: Sunset Boat Party Cruise with DJ and Open Bar",
+        "duration": "2 hours",
+        "rating": 4.5,
+        "review_count": 11104,
+        "price_pp": 28.0,
+        "original_price_pp": 38.0,
+        "badge": null,
+        "url": "https://www.getyourguide.com/lisbon-l42/lisbon-sunset-boat-party-cruise-with-dj-and-open-bar-t469243/"
+      },
+      {
+        "name": "Lisbon: Private Tuk-Tuk City Tour With Local Guide",
+        "duration": "1.5 - 3.5 hours \u2022 Skip the line \u2022 Private option available",
+        "rating": 5.0,
+        "review_count": 1299,
+        "price_pp": 34.0,
+        "original_price_pp": 64.0,
+        "badge": null,
+        "url": "https://www.getyourguide.com/lisbon-l42/lisbon-private-tuk-tuk-city-tour-t635520/"
+      },
+      {
+        "name": "Algarve Adventures from Lisbon + Benagil Cave Boat Tour!",
+        "duration": "10 - 12 hours \u2022 Skip the line \u2022 Private option available",
+        "rating": 4.9,
+        "review_count": 317,
+        "price_pp": 109.0,
+        "original_price_pp": 218.0,
+        "badge": null,
+        "url": "https://www.getyourguide.com/lisbon-l42/algarve-adventures-from-lisbon-benagil-cave-boat-tour-t847548/"
+      },
+      {
+        "name": "Lisbon: Tagus River Cruise with Welcome Drink",
+        "duration": "1.5 hours",
+        "rating": 4.3,
+        "review_count": 4239,
+        "price_pp": 18.0,
+        "original_price_pp": 22.0,
+        "badge": null,
+        "url": "https://www.getyourguide.com/lisbon-l42/lisbon-tagus-river-cruise-with-welcome-drink-t410732/"
+      },
+      {
+        "name": "Lisbon: Private Guided Tuk-Tuk Tour with Hotel Pickup",
+        "duration": "2 - 4 hours \u2022 Private group \u2022 Pickup available",
+        "rating": 4.9,
+        "review_count": 4799,
+        "price_pp": 153.0,
+        "original_price_pp": null,
+        "badge": null,
+        "url": "https://www.getyourguide.com/lisbon-l42/lisbon-private-guided-tuk-tuk-tour-with-hotel-pickup-t63541/"
+      },
+      {
+        "name": "Lisbon: Sintra, Pena, Cascais & Cabo Day Tour With Tickets",
+        "duration": "9 hours \u2022 Skip the line \u2022 Private option available",
+        "rating": 5.0,
+        "review_count": 1457,
+        "price_pp": 80.0,
+        "original_price_pp": 100.0,
+        "badge": "Likely to sell out",
+        "url": "https://www.getyourguide.com/lisbon-l42/lisbon-sintra-pena-cascais-cabo-day-tour-with-tickets-t683397/"
+      },
+      {
+        "name": "Lisbon: Top-Rated Authentic Fado Show & Wine",
+        "duration": "50 minutes",
+        "rating": 4.8,
+        "review_count": 4649,
+        "price_pp": 18.0,
+        "original_price_pp": 24.0,
+        "badge": null,
+        "url": "https://www.getyourguide.com/lisbon-l42/lisbon-fado-show-and-wine-inside-medieval-walls-t887435/"
+      },
+      {
+        "name": "Exclusive surf lesson at Caparica",
+        "duration": "4 hours \u2022 Private group \u2022 Pickup available",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 47.0,
+        "original_price_pp": null,
+        "badge": "New activity",
+        "url": "https://www.getyourguide.com/lisbon-l42/exclusive-surf-lesson-at-caparica-t1286769/"
+      },
+      {
+        "name": "Lisbon: Sintra, Pena, Regaleira, Cabo & Cascais Tour",
+        "duration": "9 hours \u2022 Skip the line \u2022 Small group",
+        "rating": 4.8,
+        "review_count": 4443,
+        "price_pp": 82.0,
+        "original_price_pp": 105.0,
+        "badge": "Likely to sell out",
+        "url": "https://www.getyourguide.com/sintra-l99/lisbon-sintra-pena-cabo-cascais-or-regaleira-small-group-t441296/"
+      },
+      {
+        "name": "Lisbon: Fado Show and Portuguese Dinner",
+        "duration": "2 hours",
+        "rating": 4.5,
+        "review_count": 1664,
+        "price_pp": 57.0,
+        "original_price_pp": 65.0,
+        "badge": "Likely to sell out",
+        "url": "https://www.getyourguide.com/lisbon-l42/lisbon-3-hour-fado-tour-w-dinner-t87167/"
+      },
+      {
+        "name": "Lisbon: Sintra, Pena, Regaleira, Cabo da Roca & Cascais Tour",
+        "duration": "9 hours \u2022 Pickup available",
+        "rating": 4.6,
+        "review_count": 2038,
+        "price_pp": 28.0,
+        "original_price_pp": 35.0,
+        "badge": null,
+        "url": "https://www.getyourguide.com/lisbon-l42/lisbon-sintra-pena-regaleira-cabo-da-roca-cascais-tour-t881398/"
+      },
+      {
+        "name": "Lisboa: Sintra, Pena, Regaleira, Roca Coast, & Cascais Tour",
+        "duration": "8 - 8.5 hours \u2022 Skip the line \u2022 Private option available",
+        "rating": 4.8,
+        "review_count": 2943,
+        "price_pp": 35.0,
+        "original_price_pp": 41.0,
+        "badge": null,
+        "url": "https://www.getyourguide.com/lisbon-l42/lisboa-sintra-pena-regaleira-roca-coast-cascais-tour-t774344/"
+      },
+      {
+        "name": "From Lisbon: F\u00e1tima, Nazar\u00e9, Batalha, and \u00d3bidos Guided Tour",
+        "duration": "10 hours \u2022 Skip the line \u2022 Pickup available",
+        "rating": 4.7,
+        "review_count": 3469,
+        "price_pp": 53.0,
+        "original_price_pp": 66.0,
+        "badge": null,
+        "url": "https://www.getyourguide.com/lisbon-l42/from-lisbon-fatima-nazare-batalha-and-obidos-guided-tour-t67767/"
+      },
+      {
+        "name": "Lisbon: 1-or 2-Day Hop-On Hop-Off Bus Tour",
+        "duration": "Lisbon: 1-or 2-Day Hop-On Hop-Off Bus Tour",
+        "rating": 4.1,
+        "review_count": 5002,
+        "price_pp": 23.0,
+        "original_price_pp": 26.0,
+        "badge": null,
+        "url": "https://www.getyourguide.com/lisbon-l42/lisbon-2-in-1-hop-on-hop-off-bus-tours-t59871/"
+      },
+      {
+        "name": "Lisbon: Food and Wine Small Group Walking Tour",
+        "duration": "3 hours",
+        "rating": 4.9,
+        "review_count": 4350,
+        "price_pp": 80.0,
+        "original_price_pp": null,
+        "badge": null,
+        "url": "https://www.getyourguide.com/lisbon-l42/lisbon-food-wine-tasting-walk-t603/"
+      },
+      {
+        "name": "Lisbon: Half-Day Sintra Tour with Pena Palace and Regaleira",
+        "duration": "5.5 hours \u2022 Skip the line \u2022 Private option available",
+        "rating": 4.9,
+        "review_count": 666,
+        "price_pp": 93.0,
+        "original_price_pp": null,
+        "badge": "Likely to sell out",
+        "url": "https://www.getyourguide.com/lisbon-l42/half-day-sintra-with-pena-and-regaleira-t568499/"
+      },
+      {
+        "name": "Lisbon: History, Stories and Lifestyle Walking Tour",
+        "duration": "3 hours \u2022 Private option available",
+        "rating": 4.8,
+        "review_count": 11191,
+        "price_pp": 29.0,
+        "original_price_pp": null,
+        "badge": null,
+        "url": "https://www.getyourguide.com/lisbon-l42/lisbon-essential-tour-history-stories-lifestyle-t46394/"
+      },
+      {
+        "name": "Lisbon: Sailboat Sunset Tour with a Drink",
+        "duration": "2 hours \u2022 Small group",
+        "rating": 4.9,
+        "review_count": 1092,
+        "price_pp": 40.0,
+        "original_price_pp": null,
+        "badge": "Likely to sell out",
+        "url": "https://www.getyourguide.com/lisbon-l42/small-group-sailboat-sunset-tour-in-lisbon-with-a-drink-t450015/"
+      },
+      {
+        "name": "Lisbon: F\u00e1tima, Nazar\u00e9, \u00d3bidos & Batalha Full Day",
+        "duration": "9 hours \u2022 Private option available \u2022 Pickup available",
+        "rating": 4.8,
+        "review_count": 116,
+        "price_pp": 46.0,
+        "original_price_pp": 59.0,
+        "badge": null,
+        "url": "https://www.getyourguide.com/santarem-portugal-l1441/lisbon-fatima-and-santarem-day-of-spirituality-and-history-t796161/"
+      },
+      {
+        "name": "Lisbon: Sunset Catamaran Boat Tour with Music and Drinks",
+        "duration": "1.5 hours",
+        "rating": 4.7,
+        "review_count": 3021,
+        "price_pp": 33.0,
+        "original_price_pp": null,
+        "badge": null,
+        "url": "https://www.getyourguide.com/lisbon-l42/lisbon-sunset-tour-with-music-and-a-drink-t433303/"
+      },
+      {
+        "name": "Lisbon: Private Tuk Tuk City Tour with Expert Guide",
+        "duration": "30 minutes - 3.5 hours \u2022 Skip the line \u2022 Pickup available",
+        "rating": 5.0,
+        "review_count": 164,
+        "price_pp": 14.0,
+        "original_price_pp": 24.0,
+        "badge": null,
+        "url": "https://www.getyourguide.com/lisbon-l42/discover-lisbon-city-tour-with-complimentary-souvenir-t1264659/"
+      }
+    ],
+    "total_found_estimate": "500+ results:",
+    "screenshot": "/home/john/Thunderbird/core/travel/data/tour_gyg_lisbon_2026-09-05.png",
+    "status": "ok",
+    "notes": ""
+  },
+  "tourradar": {
+    "source": "tourradar",
+    "dest": "lisbon",
+    "url": "https://www.tourradar.com/d/portugal",
+    "scraped_at": "2026-04-17T20:43:39.315000",
+    "date_filter": "2026-09-05",
+    "tours": [
+      {
+        "name": "Highlights of Portugal",
+        "duration": "7 days",
+        "rating": 4.6,
+        "price_pp": 1799.0,
+        "url": "https://www.tourradar.com/t/102811"
+      },
+      {
+        "name": "Best of the Azores: 7 days in S\u00e3o Miguel",
+        "duration": "Best of the Azores: 7 days in S\u00e3o Miguel",
+        "rating": 4.6,
+        "price_pp": 867.0,
+        "url": "https://www.tourradar.com/t/198163"
+      },
+      {
+        "name": "Portugal Best Experience - 10 Days",
+        "duration": "Portugal Best Experience - 10 Days",
+        "rating": 4.3,
+        "price_pp": 3180.0,
+        "url": "https://www.tourradar.com/t/205900"
+      },
+      {
+        "name": "Porto to Lisbon self-guided bike tour",
+        "duration": "8 days",
+        "rating": 5.0,
+        "price_pp": 2112.0,
+        "url": "https://www.tourradar.com/t/161774"
+      },
+      {
+        "name": "Lisbon, Porto And Azores",
+        "duration": "10 days",
+        "rating": 4.7,
+        "price_pp": 5299.0,
+        "url": "https://www.tourradar.com/t/245426"
+      },
+      {
+        "name": "5 Days in Lisbon: Culture, Coastlines & Charming Towns",
+        "duration": "5 Days in Lisbon: Culture, Coastlines & Charming Towns",
+        "rating": 4.0,
+        "price_pp": 846.0,
+        "url": "https://www.tourradar.com/t/313816"
+      },
+      {
+        "name": "Treasures of Portugal - 8 Days",
+        "duration": "Treasures of Portugal - 8 Days",
+        "rating": 4.5,
+        "price_pp": 350.0,
+        "url": "https://www.tourradar.com/t/260809"
+      }
+    ],
+    "total_found_estimate": "124 tours",
+    "screenshot": "/home/john/Thunderbird/core/travel/data/tour_tourradar_lisbon_2026-09-05.png",
+    "status": "ok",
+    "notes": "Multi-day guided tours (not day excursions)"
+  }
+}

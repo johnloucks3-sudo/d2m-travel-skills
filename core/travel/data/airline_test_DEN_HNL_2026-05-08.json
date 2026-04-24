@@ -1,0 +1,69 @@
+{
+  "route": "DEN-HNL",
+  "depart_date": "2026-05-08",
+  "adults": 2,
+  "scraped_at": "2026-04-17T20:13:16.992864",
+  "skiplagged": {},
+  "kayak": {},
+  "expedia": {},
+  "cheaptickets": {},
+  "centrav": {
+    "economy": {
+      "source": "centrav",
+      "cabin": "economy",
+      "url": "https://www.centrav.com/fares",
+      "adults": 2,
+      "depart_date": "2026-05-08",
+      "raw_prices": [],
+      "lowest_price_pp": null,
+      "total_lowest": null,
+      "airlines_found": [],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/centrav_search_economy_2026-05-08.png",
+      "status": "no_prices_found"
+    },
+    "premium": {
+      "source": "centrav",
+      "cabin": "premium",
+      "url": "https://www.centrav.com/fares",
+      "adults": 2,
+      "depart_date": "2026-05-08",
+      "raw_prices": [
+        "$2,251",
+        "$3,194",
+        "$3,855"
+      ],
+      "lowest_price_pp": 1125.5,
+      "total_lowest": 2251.0,
+      "airlines_found": [
+        "only"
+      ],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/centrav_search_premium_2026-05-08.png",
+      "status": "ok"
+    },
+    "first": {
+      "source": "centrav",
+      "cabin": "first",
+      "url": "https://www.centrav.com/fares",
+      "adults": 2,
+      "depart_date": "2026-05-08",
+      "raw_prices": [
+        "$1,793",
+        "$1,999",
+        "$2,067",
+        "$2,096",
+        "$3,478",
+        "$5,640",
+        "$2,837",
+        "$2,045",
+        "$4,040"
+      ],
+      "lowest_price_pp": 896.5,
+      "total_lowest": 1793.0,
+      "airlines_found": [
+        "only"
+      ],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/centrav_search_first_2026-05-08.png",
+      "status": "ok"
+    }
+  }
+}

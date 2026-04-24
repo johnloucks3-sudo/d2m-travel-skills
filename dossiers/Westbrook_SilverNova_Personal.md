@@ -22,12 +22,26 @@
 |---------|------|-------|--------|------|
 | — | Driver Marcus, home → DEN | Apr 21, 7:30 AM | **CONFIRMED** | — |
 | I0Y9VG / GQLRAF | United UA 143, DEN → NRT, Premium Economy, Seats 21A/21C | Apr 21, 11:35am → Apr 22, 2:45pm | **CONFIRMED** | $4,190 ($2,095/pax) |
-| 73268402723830 | NRT Transfer, Transferz private sedan, Meet & Greet T1 | Apr 22, timed for UA143 arrival ~3:00 PM | **CONFIRMED** | $209.55 |
-| 33S2013960 | Hilton Tokyo Odaiba, King Hilton Guest Room, AP Honors Bfast | Apr 22-23 (1 night) | **CONFIRMED** | ¥73,364 (~$480) |
-| PE146862609 → PE151557101 | Transfer, Hilton Odaiba → Harumi Port, 4 pax (Loucks+Westbrook) | Apr 23, 10:30 AM | **CONFIRMED** — reissued from Yokohama to Harumi (correct port), 10:30 AM confirmed Mar 20 | paid |
-| 566904-25 | Silversea Silver Nova, Cabin 7031 Superior Veranda Suite | Apr 23 – May 11 | **CONFIRMED — PAID IN FULL** | $10,800 |
+| 73268402723830 | NRT Transfer, Transferz private sedan, Meet & Greet T1 | Apr 22, timed for UA143 arrival ~3:00 PM | **CANCELLED** — medical 2026-04-19, refunded | ~~$209.55~~ |
+| 33S2013960 | Hilton Tokyo Odaiba, King Hilton Guest Room, AP Honors Bfast | Apr 22-23 (1 night) | **CONFIRMED** — insurance claim pending (medical) | ¥73,364 (~$480) |
+| PE146862609 → PE151557101 | Transfer, Hilton Odaiba → Harumi Port, 4 pax (Loucks+Westbrook) | Apr 23, 10:30 AM | **CANCELLED** — medical 2026-04-19, refunded | ~~paid~~ |
+| 566904-25 | Silversea Silver Nova, Cabin 7031 Superior Veranda Suite | Apr 23 – May 11 | **CANCELLED — MEDICAL EMERGENCY 2026-04-20** | $10,800 — Allianz claim pending |
 | I0Y9VG | United UA 757, SEA → DEN, Economy | May 11, 12:46pm → 4:30pm | **CONFIRMED** | incl. in SkyLux booking |
 | — | Seattle Terminal → SEA-TAC transfer | May 11 | **RESOLVED — will arrange onboard Silver Nova** (Commander confirmed 2026-04-06) | N/A |
+
+### ⚠️ FULL CANCELLATION — MEDICAL EMERGENCY (2026-04-20)
+| Field | Detail |
+|-------|--------|
+| **Status** | FULL CANCEL — medical emergency |
+| **Date declared** | 2026-04-20 |
+| **Scope** | Silver Nova cruise (booking 566904-25, $10,800) + all associated bookings |
+| **Transfers cancelled** | NRT Transfer (Transferz) + Hotel→Port (PE) — both refunded 2026-04-19 |
+| **Hilton Tokyo** | 33S2013960, ¥73,364 (~$480) — Allianz claim pending |
+| **Insurance policy** | Allianz Annual Premier, Conf E2549991663, $15K coverage — medical cancellation covered |
+| **Next action** | Contact Jenna Woodcock (Perx/SkyLux) to cancel 566904-25 — **requires Commander approval** |
+| **Claim contact** | allianz.com / 1-800-284-8300 |
+
+---
 
 ### INSURANCE
 - **Allianz Annual Premier $15K** — Conf E2549991663, $1,530, coverage Mar 1, 2026 – Mar 1, 2027
@@ -99,6 +113,10 @@ All confirmed, all 4 pax (Westbrooks + Loucks), all $0 included.
 |---|------|-------|----------|--------|
 | 1 | **Wrangell timing conflict** — Itinerary shows ship departs 3:00 PM; Tongass Botanicals Nature Walk is at 4:00 PM. Verify actual departure time with Silversea (Jenna Woodcock). If conflict confirmed, Ron needs to reschedule or cancel the excursion. | Dani / COS | Before May 7 | **RESOLVED — ship departs 4:30 PM, no conflict** |
 | 2 | **Seattle terminal → SEA-TAC transfer** — Not booked. Party of 4 (Westbrooks + Loucks), May 11 ~9:30-10:00 AM debark. Research options (Blacklane, shuttle, Uber XL) and present to Ron. | Dani | **Apr 15** | **RESOLVED — will arrange onboard Silver Nova** |
+| 3 | **MEDICAL CANCELLATION — Transfers cancelled 2026-04-19.** Both Transferz #73268402723830 (NRT→Hotel) and PE151557101 (Hotel→Port) cancelled. Reason: Westbrook medical. Both refunded. | COS | COMPLETE | **CANCELLED** |
+| 4 | **Allianz insurance claim — Hilton Tokyo Odaiba** — Booking 33S2013960, ¥73,364 (~$480), 1 night Apr 22-23. Policy: Conf E2549991663, Annual Premier $15K. Reason: medical. Westbrook needs claim assistance. Contact: allianz.com or 1-800-284-8300. | COS / Dani | URGENT | **OPEN — Silver Nova full cancellation now adds $10,800 to claim scope. Priority escalated.** |
+| 5 | **Rebook Loucks transfer: Hilton Odaiba → Harumi Port** — Apr 23, ~10:30 AM, 2 pax (John + Susan). | COS | ~~Before Apr 21~~ | **MOOT — Westbrook full cancel means Commander voyage cancelled. Loucks travel status TBD.** |
+| 6 | **Silver Nova full cancellation — Silversea booking 566904-25** — $10,800 paid in full. Contact Jenna Woodcock (Perx Interline, +1 512-691-4501, jwoodcock@perx.com) AND Zoro L (SkyLux, zoro@skyluxtravel.com) to initiate. Allianz Conf E2549991663 ($15K policy) covers medical cancellation. | COS | **URGENT — 2026-04-20** | **OPEN — awaiting Commander confirmation to contact Silversea/SkyLux** |
 
 **Resolved:**
 - ✓ Visit Japan Web registration — Ron & Lindy both completed (2026-03-24)
@@ -109,14 +127,15 @@ All confirmed, all 4 pax (Westbrooks + Loucks), all $0 included.
 | Item | Cost |
 |------|------|
 | United DEN→NRT+SEA→DEN (2 pax) | $4,190 (via SkyLux) |
-| NRT Transfer (Transferz) | $209.55 |
-| Hilton Tokyo Odaiba (1 night) | ¥73,364 (~$480) |
+| ~~NRT Transfer (Transferz)~~ | ~~$209.55~~ CANCELLED/refunded — medical |
+| Hilton Tokyo Odaiba (1 night) | ¥73,364 (~$480) — Allianz claim pending |
 | ~~Blacklane Hilton→Yokohama~~ | ~~$156.00~~ CANCELLED/refunded |
-| Shared Hilton→Port transfer (4 pax) | paid (via PE) |
-| Silver Nova Cruise (2 pax) | $10,800.00 |
+| ~~Shared Hilton→Port transfer (4 pax)~~ | ~~paid (via PE)~~ CANCELLED/refunded — medical |
+| ~~Silver Nova Cruise (2 pax)~~ | ~~$10,800.00~~ CANCELLED — Allianz claim in progress |
 | Allianz Insurance | $1,530.00 |
-| SEA Terminal → SEA-TAC | TBD |
-| **TOTAL (confirmed)** | **~$17,210** |
+| SEA Terminal → SEA-TAC | N/A (voyage cancelled) |
+| **TOTAL (confirmed, post-cancellation)** | **~$6,410** (flights + hotel + insurance, ex-cruise) |
+| **Allianz claim scope** | $10,800 (cruise) + $480 (Hilton) = **$11,280 pending** |
 
 ---
 
@@ -154,6 +173,8 @@ Commander has designated the Westbrooks as the test case for itinerary improveme
 
 **Mar 20 — PE (Kyra)** PE151557101 updated voucher received — 10:30 AM pickup CONFIRMED. Operator: Heycars-Asia. Fully paid, $0 due. Driver locator: checkpickup.com/3AG7KZ. Cancel free before Apr 21 10:30 AM local. NOTE: Voucher shows agent as 'Love Group Travel' — on hold per Commander
 
+**Apr 19 — COS** MEDICAL CANCELLATION. Both transfers cancelled by Commander: Transferz #73268402723830 (NRT→Hilton, $209.55 refunded) and PE151557101 (Hilton→Harumi Port, refunded). Reason: Westbrook medical. Hilton booking 33S2013960 still active — Allianz claim to be filed (Conf E2549991663). Loucks need replacement hotel→port transfer (2 pax, Apr 23 ~10:30 AM).
+
 **Mar 13 — Ronald Westbrook** (Re: Re: Westbrook: Pacific (Silver Nova) Pre-Departure Validation)
 > Email from Ronald Westbrook received, confirming details of upcoming Silver Nova cruise. Outstanding items: Seattle terminal to SEA-TAC transfer and Visit Japan Web registration.
 
@@ -179,10 +200,10 @@ Commander has designated the Westbrooks as the test case for itinerary improveme
 | 4 | Insurance | Travel insurance policy | YES | **CONFIRMED** | Allianz Annual Premier $15K, Conf E2549991663, $1,530 |
 | 5 | Flights | Outbound flight (DEN→NRT) | YES | **CONFIRMED** | UA 143 Apr 21 11:35AM→Apr 22 2:45PM, seats 21A/21C |
 | 6 | Flights | Outbound PNR / e-ticket | YES | **CONFIRMED** | I0Y9VG / GQLRAF, tickets 016 7337230403/404 |
-| 7 | Transfers | Airport → hotel transfer | YES | **CONFIRMED** | Transferz #73268402723830, Meet & Greet T1, $209.55 |
+| 7 | Transfers | Airport → hotel transfer | YES | **CANCELLED — REBOOK NEEDED** | Transferz #73268402723830 cancelled medical 2026-04-19 |
 | 8 | Hotel | Pre-cruise hotel (1 night) | YES | **CONFIRMED** | Hilton Tokyo Odaiba, Apr 22-23, ¥73,364 (~$480) |
 | 9 | Excursions | Pre-cruise activities | Optional | **N/A** | Arriving late, 1 night only |
-| 10 | Transfers | Hotel → port transfer | YES | **CONFIRMED** | PE151557101, 4 pax shared, 10:30 AM requested |
+| 10 | Transfers | Hotel → port transfer | YES | **CANCELLED — REBOOK NEEDED (Loucks only)** | PE151557101 cancelled medical 2026-04-19 — Westbrook not boarding; Loucks needs new transfer |
 | 11 | Cruise | Booking confirmed | YES | **CONFIRMED** | 566904-25, Cabin 7031 Superior Veranda |
 | 12 | Cruise | Payment status | YES | **PAID IN FULL** | $10,800 |
 | 13 | Cruise | Embarkation details | YES | **CONFIRMED** | Tokyo Harumi, Apr 23, 7:00 PM |

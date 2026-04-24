@@ -1,0 +1,93 @@
+{
+  "tested_at": "2026-04-17T20:52:39.561415",
+  "results": [
+    {
+      "site": "kiwitaxi",
+      "url": "https://kiwitaxi.com/Portugal/Lisbon/airport-LIS/to/Lisbon",
+      "status": "ambiguous",
+      "real_results_found": false,
+      "bot_indicator_found": null,
+      "result_count_estimate": 0,
+      "screenshot": "/home/john/Thunderbird/core/travel/data/smoke_transfer_kiwitaxi_2026-09-05.png",
+      "page_title": "Page Not Found",
+      "notes": "Global transfer aggregator \u2014 price per vehicle | No bot, no selector match \u2014 check screenshot"
+    },
+    {
+      "site": "welcomepickups",
+      "url": "https://www.welcomepickups.com/transfers/lisbon-airport-to-lisbon/",
+      "status": "ambiguous",
+      "real_results_found": false,
+      "bot_indicator_found": null,
+      "result_count_estimate": 0,
+      "screenshot": "/home/john/Thunderbird/core/travel/data/smoke_transfer_welcomepickups_2026-09-05.png",
+      "page_title": "The page you were looking for doesn't exist (404)",
+      "notes": "Premium transfers, European ports, good cruise coverage | No bot, no selector match \u2014 check screenshot"
+    },
+    {
+      "site": "blacklane",
+      "url": "https://www.blacklane.com/en/",
+      "status": "ok",
+      "real_results_found": true,
+      "bot_indicator_found": null,
+      "result_count_estimate": 2,
+      "screenshot": "/home/john/Thunderbird/core/travel/data/smoke_transfer_blacklane_2026-09-05.png",
+      "page_title": "The Global Chauffeur Service | Blacklane",
+      "notes": "Luxury chauffeur \u2014 matches D2M client profile | Selector '[class*='booking']' matched 2 elements"
+    },
+    {
+      "site": "gettransfer",
+      "url": "https://gettransfer.com/en/search?from=Lisbon+Airport+(LIS)&to=Lisbon+City+Center&passengers=2&date=2026-09-05",
+      "status": "ok",
+      "real_results_found": true,
+      "bot_indicator_found": null,
+      "result_count_estimate": 2,
+      "screenshot": "/home/john/Thunderbird/core/travel/data/smoke_transfer_gettransfer_2026-09-05.png",
+      "page_title": "GetTransfer.com",
+      "notes": "B2B-leaning aggregator, fixed-price transfers | Selector '[class*='transfer']' matched 2 elements"
+    },
+    {
+      "site": "jayride",
+      "url": "https://www.jayride.com/airport-transfers/Lisbon-Airport-LIS/",
+      "status": "ambiguous",
+      "real_results_found": false,
+      "bot_indicator_found": null,
+      "result_count_estimate": 0,
+      "screenshot": "/home/john/Thunderbird/core/travel/data/smoke_transfer_jayride_2026-09-05.png",
+      "page_title": "Page not found: Oops! The page you are looking for doesn't exist or has been moved.",
+      "notes": "Airport transfer aggregator | No bot, no selector match \u2014 check screenshot"
+    },
+    {
+      "site": "getyourguide_transfers",
+      "url": "https://www.getyourguide.com/lisbon-l42/transfers/",
+      "status": "ambiguous",
+      "real_results_found": false,
+      "bot_indicator_found": null,
+      "result_count_estimate": 0,
+      "screenshot": "/home/john/Thunderbird/core/travel/data/smoke_transfer_getyourguide_transfers_2026-09-05.png",
+      "page_title": "404 - Page not found",
+      "notes": "GYG transfer category \u2014 already confirmed accessible on main site | No bot, no selector match \u2014 check screenshot"
+    },
+    {
+      "site": "holidaytaxis",
+      "url": "https://www.holidaytaxis.com/en/",
+      "status": "ok",
+      "real_results_found": true,
+      "bot_indicator_found": null,
+      "result_count_estimate": 7,
+      "screenshot": "/home/john/Thunderbird/core/travel/data/smoke_transfer_holidaytaxis_2026-09-05.png",
+      "page_title": "Airport Transfers & Holiday Taxis | Book Hotel Transfers Worldwide",
+      "notes": "UK-based airport transfer specialist | Selector '[class*='vehicle']' matched 7 elements"
+    },
+    {
+      "site": "rome2rio",
+      "url": "https://www.rome2rio.com/s/Lisbon-Airport/Lisbon",
+      "status": "ok",
+      "real_results_found": true,
+      "bot_indicator_found": null,
+      "result_count_estimate": 1,
+      "screenshot": "/home/john/Thunderbird/core/travel/data/smoke_transfer_rome2rio_2026-09-05.png",
+      "page_title": "Metro Aeroporto Lisboa to Lisbon - 6 ways to travel via subway, bus, and taxi",
+      "notes": "Route finder \u2014 shows all transport modes including taxi/transfer | Selector '[class*='segment']' matched 1 elements"
+    }
+  ]
+}

@@ -305,30 +305,64 @@ def _fire_overdue_alert(tp_data: dict, dry_run: bool):
 
 
 def _fire_search_window_open(tp_data: dict, dry_run: bool):
-    """Initiate research tasks for a new search window."""
+    """Initiate research tasks for a new search window.
+
+    Option C — Auto-Execute (SO 2026-04-17):
+    If the touchpoint has an 'arc' field (arc1/arc2/arc3) AND arc_search_params,
+    the ARC Price Dispatcher is launched as a background subprocess.
+    Results cache to core/travel/data/ and post to wing_comms when ready.
+    Falls back to manual wing_comms task if params not configured.
+    """
     tp = tp_data["tp"]
     staff = tp.get("staff_lead", "A2 Dembe")
+    arc = tp.get("arc", "")
 
     msg = (
         f"🔍 SEARCH WINDOW OPEN: {tp_data['client_name']} — TP {tp['id']} {tp['label']}\n"
+        f"   Arc type: {arc or 'none (timeline TP)'}\n"
         f"   Staff: {staff}\n"
         f"   Window: {tp.get('search_start')} → {tp.get('search_end')}\n"
         f"   Send date: {tp.get('trigger_date')}\n"
-        f"   Weekly reports: {'Yes' if tp.get('weekly_reports') else 'No'}\n"
         f"   Notes: {tp.get('notes', '')}"
     )
     log.info(msg)
 
+    # ── Option C: ARC auto-execute ────────────────────────────────────────────
+    if arc.startswith("arc") and not dry_run:
+        try:
+            # Import here to avoid hard dependency if dispatcher not installed
+            import sys
+            dispatcher_path = Path(__file__).parent / "arc_price_dispatcher.py"
+            if dispatcher_path.exists():
+                sys.path.insert(0, str(Path(__file__).parent))
+                from arc_price_dispatcher import dispatch_arc  # type: ignore
+                results_file = dispatch_arc(tp_data, tp_data, dry_run=False)
+                if results_file:
+                    log.info(f"  ARC dispatcher launched — results → {results_file}")
+                    return  # dispatcher posted its own wing_comms notice
+                # If dispatch_arc returned empty (no params), fall through to manual task
+            else:
+                log.warning("  arc_price_dispatcher.py not found — falling back to manual task")
+        except Exception as e:
+            log.error(f"  ARC dispatcher failed: {e} — falling back to manual task")
+
+    if arc.startswith("arc") and dry_run:
+        log.info(f"  [DRY RUN] Would dispatch ARC auto-execute for {tp['id']}")
+
+    # ── Fallback / timeline TPs: manual wing_comms task ──────────────────────
     if not dry_run:
         _post_to_wing_comms(
             f"## RESEARCH TASK — {tp['id']} {tp['label']}\n"
             f"**Client:** {tp_data['client_name']}\n"
             f"**Assigned to:** {staff}\n"
+            f"**Arc type:** {arc or 'timeline (no auto-execute)'}\n"
             f"**Window:** {tp.get('search_start')} → {tp.get('search_end')}\n"
             f"**Deliverable date:** {tp.get('trigger_date')}\n"
             f"**Weekly reports to Commander:** {'Yes — every Monday' if tp.get('weekly_reports') else 'No'}\n"
             f"**Notes:** {tp.get('notes', '')}\n"
-            f"**Authority:** COS Hale (COO SO 2026-04-17)\n"
+            + (f"**Action:** Configure arc_search_params in touchpoints JSON to enable auto-execute.\n"
+               if arc.startswith("arc") else "")
+            + f"**Authority:** COS Hale (COO SO 2026-04-17)\n"
         )
 
 

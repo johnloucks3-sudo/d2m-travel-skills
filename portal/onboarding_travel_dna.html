@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Travel DNA — Dreams2Memories</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-deep: #070c18;
+            --bg-card: #0f1726;
+            --gold: #c9a44e;
+            --gold-bright: #e8c16a;
+            --cream: #f5efe0;
+            --text-muted: #7a8ba3;
+            --selected-glow: rgba(201, 164, 78, 0.4);
+        }
+
+        body {
+            background: var(--bg-deep);
+            color: var(--cream);
+            font-family: Georgia, 'Times New Roman', serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 16px 60px;
+            background-image:
+                radial-gradient(ellipse at 20% 20%, rgba(74, 122, 191, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(201, 164, 78, 0.04) 0%, transparent 50%);
+        }
+
+        .header {
+            width: 100%;
+            max-width: 760px;
+            text-align: center;
+            padding: 20px 0 8px;
+        }
+
+        .brand {
+            font-size: 10px;
+            letter-spacing: 3.5px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 6px;
+            font-family: 'Helvetica Neue', Helvetica, sans-serif;
+        }
+
+        /* Progress */
+        .progress-bar {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 18px 0 28px;
+        }
+
+        .progress-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: rgba(201, 164, 78, 0.15);
+            border: 1px solid rgba(201, 164, 78, 0.25);
+            transition: all 0.35s ease;
+        }
+
+        .progress-dot.active {
+            background: var(--gold);
+            box-shadow: 0 0 10px rgba(201, 164, 78, 0.5);
+            transform: scale(1.2);
+        }
+
+        .progress-dot.done {
+            background: rgba(201, 164, 78, 0.45);
+            border-color: rgba(201, 164, 78, 0.45);
+        }
+
+        /* Screens */
+        .screen {
+            display: none;
+            width: 100%;
+            max-width: 760px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .screen.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Intro */
+        .intro-wrap {
+            text-align: center;
+            padding: 40px 0 20px;
+        }
+
+        .intro-eyebrow {
+            font-size: 10px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-family: 'Helvetica Neue', sans-serif;
+            margin-bottom: 20px;
+        }
+
+        .intro-title {
+            font-size: 36px;
+            font-weight: normal;
+            color: var(--cream);
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+            line-height: 1.25;
+        }
+
+        .intro-subtitle {
+            font-size: 15px;
+            color: rgba(245, 239, 224, 0.65);
+            font-style: italic;
+            margin-bottom: 36px;
+            line-height: 1.75;
+            max-width: 420px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .intro-note {
+            font-size: 11px;
+            color: var(--text-muted);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-family: 'Helvetica Neue', sans-serif;
+            margin-bottom: 36px;
+        }
+
+        /* Category screen header */
+        .screen-header {
+            text-align: center;
+            margin-bottom: 22px;
+        }
+
+        .screen-number {
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(201, 164, 78, 0.7);
+            font-family: 'Helvetica Neue', sans-serif;
+            margin-bottom: 10px;
+        }
+
+        .screen-title {
+            font-size: 26px;
+            font-weight: normal;
+            color: var(--cream);
+            margin-bottom: 5px;
+        }
+
+        .screen-subtitle {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .screen-hint {
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(201, 164, 78, 0.5);
+            font-family: 'Helvetica Neue', sans-serif;
+            margin-top: 6px;
+        }
+
+        /* Image Grid */
+        .image-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 22px;
+        }
+
+        .image-card {
+            position: relative;
+            border-radius: 7px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid rgba(201, 164, 78, 0.12);
+            transition: all 0.22s ease;
+            aspect-ratio: 3 / 2;
+        }
+
+        .image-card:hover {
+            border-color: rgba(201, 164, 78, 0.45);
+            transform: translateY(-2px);
+        }
+
+        .image-card.selected {
+            border-color: var(--gold);
+            box-shadow: 0 0 22px rgba(201, 164, 78, 0.35), 0 0 50px rgba(201, 164, 78, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.72) saturate(0.85);
+            transition: filter 0.22s ease;
+        }
+
+        .image-card:hover img,
+        .image-card.selected img {
+            filter: brightness(0.82) saturate(0.95);
+        }
+
+        .image-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 22px 10px 9px;
+            background: linear-gradient(transparent, rgba(7, 12, 24, 0.88));
+            font-size: 12px;
+            letter-spacing: 0.3px;
+            color: var(--cream);
+        }
+
+        .image-card.selected .checkmark {
+            display: grid;
+        }
+
+        .checkmark {
+            display: none;
+            position: absolute;
+            top: 9px;
+            right: 9px;
+            width: 22px;
+            height: 22px;
+            background: var(--gold);
+            border-radius: 50%;
+            place-items: center;
+            font-size: 11px;
+            color: #070c18;
+            font-family: 'Helvetica Neue', sans-serif;
+            font-weight: 700;
+        }
+
+        .mood-badge {
+            position: absolute;
+            top: 7px;
+            left: 7px;
+            font-size: 8px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Helvetica Neue', sans-serif;
+            opacity: 0.75;
+        }
+
+        .mood-dreamy      { background: rgba(90,110,175,0.65); color: #c8d8ff; }
+        .mood-romantic    { background: rgba(155,70,70,0.65); color: #ffd0d0; }
+        .mood-inquisitive { background: rgba(60,130,90,0.65); color: #c0f0d0; }
+        .mood-sharp       { background: rgba(90,90,90,0.65); color: #e8e8e8; }
+        .mood-inspirational { background: rgba(170,130,50,0.65); color: #ffe0a0; }
+
+        /* Buttons */
+        .nav-row {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            margin-bottom: 12px;
+        }
+
+        .btn {
+            padding: 11px 30px;
+            border: none;
+            border-radius: 4px;
+            font-family: Georgia, serif;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: #070c18;
+        }
+
+        .btn-primary:hover:not(:disabled) { background: var(--gold-bright); }
+
+        .btn-primary:disabled {
+            background: rgba(201, 164, 78, 0.18);
+            color: rgba(201, 164, 78, 0.35);
+            cursor: not-allowed;
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--text-muted);
+            border: 1px solid rgba(122, 139, 163, 0.28);
+        }
+
+        .btn-ghost:hover {
+            color: var(--cream);
+            border-color: rgba(201, 164, 78, 0.35);
+        }
+
+        /* Results */
+        #screen-results {
+            text-align: center;
+            padding: 10px 0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .result-prelude {
+            font-size: 10px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-family: 'Helvetica Neue', sans-serif;
+            margin-bottom: 18px;
+        }
+
+        .result-archetype {
+            font-size: 36px;
+            font-weight: normal;
+            color: var(--cream);
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .result-divider {
+            width: 56px;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--gold), transparent);
+            margin: 18px auto;
+        }
+
+        .result-description {
+            font-size: 15px;
+            line-height: 1.85;
+            color: rgba(245, 239, 224, 0.82);
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .result-secondary {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+            line-height: 1.65;
+            font-family: 'Helvetica Neue', sans-serif;
+        }
+
+        .result-selections {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 7px;
+            margin-bottom: 32px;
+        }
+
+        .selection-chip {
+            padding: 4px 11px;
+            border: 1px solid rgba(201, 164, 78, 0.28);
+            border-radius: 20px;
+            font-size: 10px;
+            color: rgba(201, 164, 78, 0.85);
+            letter-spacing: 0.5px;
+            font-family: 'Helvetica Neue', sans-serif;
+        }
+
+        /* Write-in section */
+        .writein-section {
+            margin: 0 0 22px;
+            border-top: 1px solid rgba(201, 164, 78, 0.1);
+            padding-top: 16px;
+        }
+
+        .writein-prompt {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(201, 164, 78, 0.55);
+            font-family: 'Helvetica Neue', sans-serif;
+            margin-bottom: 8px;
+        }
+
+        .writein-input {
+            width: 100%;
+            background: rgba(15, 23, 38, 0.7);
+            border: 1px solid rgba(201, 164, 78, 0.15);
+            border-radius: 5px;
+            color: var(--cream);
+            font-family: Georgia, serif;
+            font-size: 13px;
+            padding: 10px 12px;
+            resize: none;
+            outline: none;
+            line-height: 1.6;
+            transition: border-color 0.22s ease;
+        }
+
+        .writein-input::placeholder {
+            color: rgba(122, 139, 163, 0.5);
+            font-style: italic;
+        }
+
+        .writein-input:focus {
+            border-color: rgba(201, 164, 78, 0.4);
+        }
+
+        /* Loading screen */
+        .loading-wrap {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .loading-spinner {
+            width: 30px;
+            height: 30px;
+            border: 2px solid rgba(201, 164, 78, 0.18);
+            border-top-color: var(--gold);
+            border-radius: 50%;
+            animation: spin 0.75s linear infinite;
+            margin: 28px auto 0;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        @media (max-width: 540px) {
+            .intro-title { font-size: 28px; }
+            .result-archetype { font-size: 26px; }
+            .screen-title { font-size: 22px; }
+            .image-grid { gap: 7px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="brand">Dreams2Memories Travel &nbsp;&middot;&nbsp; Travel DNA</div>
+</div>
+
+<div class="progress-bar" id="progress-bar">
+    <div class="progress-dot" id="dot-0"></div>
+    <div class="progress-dot" id="dot-1"></div>
+    <div class="progress-dot" id="dot-2"></div>
+    <div class="progress-dot" id="dot-3"></div>
+    <div class="progress-dot" id="dot-4"></div>
+    <div class="progress-dot" id="dot-5"></div>
+    <div class="progress-dot" id="dot-6"></div>
+    <div class="progress-dot" id="dot-7"></div>
+</div>
+
+<!-- Intro Screen -->
+<div id="screen-intro" class="screen active">
+    <div class="intro-wrap">
+        <div class="intro-eyebrow">Client Profile</div>
+        <div class="intro-title">Discover Your<br>Travel DNA</div>
+        <div class="intro-subtitle">
+            Eight categories. Your instincts.<br>
+            No right answers &mdash; only yours.
+        </div>
+        <div class="intro-note">Choose the images that speak to you &mdash; one or more per category</div>
+        <div class="nav-row">
+            <button class="btn btn-primary" onclick="startTool()">Begin</button>
+        </div>
+    </div>
+</div>
+
+<!-- Loading Screen -->
+<div id="screen-loading" class="screen">
+    <div class="loading-wrap">
+        <div class="result-prelude">Reading your instincts&hellip;</div>
+        <div class="loading-spinner"></div>
+    </div>
+</div>
+
+<!-- Results Screen -->
+<div id="screen-results" class="screen">
+    <div class="result-prelude">Your Travel DNA</div>
+    <div class="result-archetype" id="result-name"></div>
+    <div class="result-divider"></div>
+    <div class="result-description" id="result-description"></div>
+    <div class="result-secondary" id="result-secondary"></div>
+    <div class="result-selections" id="result-selections"></div>
+    <div class="nav-row">
+        <button class="btn btn-ghost" onclick="restart()">Start Over</button>
+        <button class="btn btn-primary" onclick="sendToAdvisor()">Share with My Advisor</button>
+    </div>
+</div>
+
+<script>
+// ============================================================
+// PHOTO DATA
+// ============================================================
+const PHOTOS = {
+  excursions: [
+    { label: "Jungle Waterfall",  mood: "dreamy",       img: "https://images.pexels.com/photos/2214386/pexels-photo-2214386.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" },
+    { label: "Ancient Ruins",     mood: "inquisitive",  img: "https://images.pexels.com/photos/34110400/pexels-photo-34110400.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" },
+    { label: "Village Market",    mood: "inquisitive",  img: "https://images.pexels.com/photos/5606493/pexels-photo-5606493.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" },
+    { label: "Snorkeling",        mood: "sharp",        img: "https://images.pexels.com/photos/2404370/pexels-photo-2404370.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" }
+  ],
+  flight: [
+    { label: "Economy Class",  mood: "sharp",         img: "https://images.pexels.com/photos/35220411/pexels-photo-35220411.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" },
+    { label: "Economy Plus",   mood: "dreamy",        img: "https://images.pexels.com/photos/17132675/pexels-photo-17132675.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" },
+    { label: "Business Class", mood: "inspirational", img: "https://images.pexels.com/photos/4061487/pexels-photo-4061487.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" },
+    { label: "First Class",    mood: "romantic",      img: "https://images.pexels.com/photos/5778598/pexels-photo-5778598.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" }
+  ],
+  hotel: [
+    { label: "Infinity Pool Villa",    mood: "inspirational", img: "https://images.pexels.com/photos/34874601/pexels-photo-34874601.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" },
+    { label: "Boutique & Cobblestone", mood: "romantic",      img: "https://images.pexels.com/photos/33966955/pexels-photo-33966955.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" },
+    { label: "Grand Lobby",            mood: "inspirational", img: "https://images.pexels.com/photos/29649745/pexels-photo-29649745.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" },
+    { label: "Modern Minimalist",      mood: "sharp",         img: "https://images.pexels.com/photos/33636637/pexels-photo-33636637.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" }
+  ],
+  cabin: [
+    { label: "Veranda Suite",             mood: "dreamy",        img: "https://images.pexels.com/photos/6752175/pexels-photo-6752175.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" },
+    { label: "Concierge with Amenities", mood: "romantic",      img: "https://images.pexels.com/photos/36160120/pexels-photo-36160120.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" },
+    { label: "Penthouse with Butler",    mood: "inspirational", img: "https://images.pexels.com/photos/12652920/pexels-photo-12652920.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" },
+    { label: "Owner's Suite, Stern",     mood: "sharp",         img: "https://images.pexels.com/photos/27626174/pexels-photo-27626174.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" }
+  ],
+  sea_day: [
+    { label: "Spa Treatment",  mood: "romantic",      img: "https://images.pexels.com/photos/31234756/pexels-photo-31234756.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" },
+    { label: "Pool Deck",      mood: "dreamy",        img: "https://images.pexels.com/photos/32509620/pexels-photo-32509620.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" },
+    { label: "Ocean Yoga",     mood: "inspirational", img: "https://images.pexels.com/photos/29614929/pexels-photo-29614929.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" },
+    { label: "Library Reading",mood: "inquisitive",   img: "https://images.pexels.com/photos/34981580/pexels-photo-34981580.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" }
+  ],
+  shore: [
+    { label: "Kayaking Adventure", mood: "sharp",       img: "https://images.pexels.com/photos/1320684/pexels-photo-1320684.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" },
+    { label: "Art Museum",         mood: "inquisitive", img: "https://images.pexels.com/photos/30489691/pexels-photo-30489691.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" },
+    { label: "Local Food Market",  mood: "inquisitive", img: "https://images.pexels.com/photos/32877037/pexels-photo-32877037.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" },
+    { label: "Sunset Stroll",      mood: "romantic",    img: "https://images.pexels.com/photos/28406015/pexels-photo-28406015.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" }
+  ],
+  dining: [
+    { label: "Candlelit Terrace",  mood: "romantic",      img: "https://images.pexels.com/photos/18823960/pexels-photo-18823960.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" },
+    { label: "Chef's Table",       mood: "sharp",         img: "https://images.pexels.com/photos/3933217/pexels-photo-3933217.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" },
+    { label: "Beach Bar",          mood: "sharp",         img: "https://images.pexels.com/photos/14519339/pexels-photo-14519339.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" },
+    { label: "Grand Formal Dining",mood: "inspirational", img: "https://images.pexels.com/photos/30006706/pexels-photo-30006706.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" }
+  ],
+  evening: [
+    { label: "Stargazing",          mood: "dreamy",        img: "https://images.pexels.com/photos/12829878/pexels-photo-12829878.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" },
+    { label: "Jazz Bar & Cocktails",mood: "romantic",      img: "https://images.pexels.com/photos/9419357/pexels-photo-9419357.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" },
+    { label: "Theater Performance", mood: "inspirational", img: "https://images.pexels.com/photos/713149/pexels-photo-713149.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" },
+    { label: "Quiet Lounge",        mood: "dreamy",        img: "https://images.pexels.com/photos/36107885/pexels-photo-36107885.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" }
+  ]
+};
+
+const CATEGORIES = [
+  { key: 'excursions', title: 'Shore Excursions',    subtitle: 'What calls to you when you step off the ship?' },
+  { key: 'flight',     title: 'How You Fly',          subtitle: 'Which cabin feels most like you?' },
+  { key: 'hotel',      title: 'Hotel & Home Base',   subtitle: 'Where do you feel most yourself at rest?' },
+  { key: 'cabin',      title: 'Your Stateroom',      subtitle: 'Which level of ship experience is right for you?' },
+  { key: 'sea_day',    title: 'A Day at Sea',         subtitle: 'Nothing on the schedule. What does that feel like?' },
+  { key: 'shore',      title: 'Exploring Ashore',    subtitle: 'You have the afternoon in port. Where do you go?' },
+  { key: 'dining',     title: 'Dining Vibe',          subtitle: 'The table tells a story. What\'s yours?' },
+  { key: 'evening',    title: 'Evening & Late Night', subtitle: 'The sun has set. The ship is yours.' }
+];
+
+// ============================================================
+// SCORING WEIGHTS
+// RE=Romantic Escapist  AP=Adventure Purist   CC=Cultural Connoisseur
+// LM=Luxury Minimalist  SA=Social Architect   CV=Contemplative Voyager
+// AF=Aspirational       SS=Seasoned Sophisticate
+//
+// Scoring: within each category, scores are averaged across all
+// selected images, then summed across categories. This ensures
+// each category contributes equal weight regardless of how many
+// images are chosen.
+// ============================================================
+const WEIGHTS = {
+  "excursions::Jungle Waterfall":  { RE:2, CV:2, AP:1 },
+  "excursions::Ancient Ruins":     { CC:3, CV:2 },
+  "excursions::Village Market":    { CC:3, CV:2 },
+  "excursions::Snorkeling":        { AP:3, SA:1 },
+
+  "flight::Economy Class":          { AP:1, CV:1 },
+  "flight::Economy Plus":          { SA:2, AF:2 },
+  "flight::Business Class":        { LM:3, RE:2, SS:1 },
+  "flight::First Class":           { SS:3, LM:2 },
+
+  "hotel::Infinity Pool Villa":    { AF:3, LM:2 },
+  "hotel::Boutique & Cobblestone": { RE:3, CC:2 },
+  "hotel::Grand Lobby":            { AF:3, SS:2, SA:1 },
+  "hotel::Modern Minimalist":      { LM:3, SS:1 },
+
+  "cabin::Veranda Suite":            { RE:2, CV:2, AF:1 },
+  "cabin::Concierge with Amenities": { LM:2, RE:2, AF:1 },
+  "cabin::Penthouse with Butler":    { SS:3, RE:2, LM:1 },
+  "cabin::Owner's Suite, Stern":     { SS:3, LM:2 },
+
+  "sea_day::Spa Treatment":        { RE:3, LM:2 },
+  "sea_day::Pool Deck":            { SA:3, AF:1 },
+  "sea_day::Ocean Yoga":           { AP:3, LM:1 },
+  "sea_day::Library Reading":      { CV:3, CC:2 },
+
+  "shore::Kayaking Adventure":     { AP:3, SA:1 },
+  "shore::Art Museum":             { CC:3, CV:2 },
+  "shore::Local Food Market":      { CC:3, CV:1 },
+  "shore::Sunset Stroll":          { RE:3, CV:1 },
+
+  "dining::Candlelit Terrace":     { RE:3, SS:1 },
+  "dining::Chef's Table":          { CC:3, SS:2 },
+  "dining::Beach Bar":             { SA:2, AP:1 },
+  "dining::Grand Formal Dining":   { AF:3, SA:2, SS:1 },
+
+  "evening::Stargazing":           { CV:3, RE:2 },
+  "evening::Jazz Bar & Cocktails": { LM:3, SS:2, RE:1 },
+  "evening::Theater Performance":  { SA:3, AF:2 },
+  "evening::Quiet Lounge":         { CV:3, LM:2 }
+};
+
+// ============================================================
+// ARCHETYPE PROFILES
+// ============================================================
+const ARCHETYPES = {
+  RE: {
+    name: "The Romantic Escapist",
+    description: "You travel to be fully present with the people who matter most — and with yourself. Your perfect day is slow, sensory, and intimate: a candlelit dinner in a cobblestone piazza, a quiet veranda overlooking a harbor at dusk, a spa morning that stretches into afternoon. You don't need a packed itinerary. You need the right atmosphere, and you let it do its work.",
+    secondary: "Your concierge will build your experience around the moments that linger — not the miles covered.",
+    tags: ["Veranda", "Candlelit", "Intimate", "Slow luxury"]
+  },
+  AP: {
+    name: "The Adventure Purist",
+    description: "You measure a trip by what you did, not what you saw. The kayak, the hike, the market you found by turning down the wrong street — these are your souvenirs. You're fully present when you're slightly out of your comfort zone, and you recover at the end of the day with a story, not a spa treatment.",
+    secondary: "We'll line up the excursions worth getting up for and make sure logistics never slow you down.",
+    tags: ["Active", "Story-driven", "Off-map", "Physical"]
+  },
+  CC: {
+    name: "The Cultural Connoisseur",
+    description: "You travel to understand the world a little more completely. The museum matters. The local market matters. The chef explaining the provenance of a dish matters. You move slowly through ports and quickly through a wine list when you know the region. History layers over present-day life in the best possible way for you.",
+    secondary: "Expect deep destination research, curated cultural access, and dining recommendations from someone who knows the difference.",
+    tags: ["History", "Culinary", "Layered", "Unhurried"]
+  },
+  LM: {
+    name: "The Luxury Minimalist",
+    description: "You know exactly what you want, and it's mostly the absence of everything you don't. Clean lines. Effortless service. A perfectly made drink in a quiet corner. You're not impressed by grandeur for its own sake — you're impressed by precision, taste, and the rare thing that's genuinely worth it.",
+    secondary: "We'll recommend the ship, cabin, and excursions that match your standard — and skip everything else.",
+    tags: ["Precise", "Elevated", "Curated", "Quiet luxury"]
+  },
+  SA: {
+    name: "The Social Architect",
+    description: "The trip is the people in it. You're at your best in motion, at a table, at the show — wherever energy is building. You're the one who remembers everyone's names by dinner and has three recommendations before the next port. You want options, a great main stage, and a ship that feels alive around you.",
+    secondary: "We'll put you in the middle of the action — the tables, experiences, and moments where your trip finds its own momentum.",
+    tags: ["Energetic", "Social", "Experience-first", "Main stage"]
+  },
+  CV: {
+    name: "The Contemplative Voyager",
+    description: "You go to sea to think. The ocean at 6am, a library chair in port, an unmarked village you'd have driven past anywhere else — these are the frames you keep. You're not searching for the next thing; you're paying attention to this one. The trip you come home from has changed something in you.",
+    secondary: "Sea days are not empty — they're the point. We'll build your itinerary around the quiet, and protect it.",
+    tags: ["Reflective", "Meaning-seeking", "Unhurried", "Sea days"]
+  },
+  AF: {
+    name: "The Aspirational First-Timer",
+    description: "You want to do this right. You have a picture of what luxury travel looks like and you're ready to step into it — with a little guidance and someone in your corner who knows the ropes. The grand moments matter to you because you've imagined them. Let's make sure the reality exceeds the vision.",
+    secondary: "You'll never feel like you don't know what you're doing. We handle every detail before you even think to ask.",
+    tags: ["Discovery", "Grand moments", "Well-guided", "First impressions"]
+  },
+  SS: {
+    name: "The Seasoned Sophisticate",
+    description: "You've been there. You know what a good ship feels like, what a great penthouse should include, and which tasting menu is actually worth the markup. You're not looking to be impressed — you're looking to be genuinely surprised. Standards are non-negotiable. Everything else is negotiable.",
+    secondary: "We won't waste your time with basics. Your brief leads with edge cases, insider access, and upgrades worth having.",
+    tags: ["Particular", "Comparison-ready", "Penthouse", "Curated"]
+  }
+};
+
+// ============================================================
+// STATE
+// selections[category] = array of { label, mood, key }
+// writeins[category]   = free-text string (optional)
+// ============================================================
+let currentStep = -1;
+let selections  = {};
+let writeins    = {};
+
+const DNA_API = 'https://api.d2mluxury.quest/api/travel-dna/interpret';
+
+// ============================================================
+// BUILD CATEGORY SCREENS (injected before results)
+// ============================================================
+function buildScreens() {
+  const resultsEl = document.getElementById('screen-results');
+  const body      = document.body;
+
+  CATEGORIES.forEach((cat, i) => {
+    const photos = PHOTOS[cat.key];
+    const cardsHTML = photos.map((p, j) => `
+      <div class="image-card" id="card-${i}-${j}"
+           onclick="toggleImage(${i},${j},'${cat.key}','${p.label.replace(/'/g,"\\'")}','${p.mood}')">
+        <img src="${p.img}" alt="${p.label}" loading="lazy" />
+        <span class="mood-badge mood-${p.mood}">${p.mood}</span>
+        <div class="image-label">${p.label}</div>
+        <div class="checkmark">&#10003;</div>
+      </div>`).join('');
+
+    const div = document.createElement('div');
+    div.className = 'screen';
+    div.id = `screen-${i}`;
+    div.innerHTML = `
+      <div class="screen-header">
+        <div class="screen-number">${i+1} of 8 &nbsp;&mdash;&nbsp; ${cat.title.toUpperCase()}</div>
+        <div class="screen-title">${cat.title}</div>
+        <div class="screen-subtitle">${cat.subtitle}</div>
+        <div class="screen-hint">Select one or more</div>
+      </div>
+      <div class="image-grid">${cardsHTML}</div>
+      <div class="writein-section">
+        <div class="writein-prompt">Anything else that comes to mind?</div>
+        <textarea class="writein-input" id="writein-${i}" rows="2"
+          placeholder="Optional &mdash; a word or sentence about what matters to you here&hellip;"></textarea>
+      </div>
+      <div class="nav-row">
+        ${i > 0 ? `<button class="btn btn-ghost" onclick="goBack(${i})">Back</button>` : ''}
+        <button class="btn btn-primary" id="next-${i}" onclick="goNext(${i})" disabled>
+          ${i === 7 ? 'See My Profile' : 'Next'}
+        </button>
+      </div>`;
+
+    body.insertBefore(div, resultsEl);
+  });
+}
+
+// ============================================================
+// NAVIGATION
+// ============================================================
+function startTool() {
+  document.getElementById('screen-intro').classList.remove('active');
+  currentStep = 0;
+  showScreen(0);
+}
+
+function showScreen(index) {
+  document.querySelectorAll('.screen:not(#screen-intro):not(#screen-results)')
+    .forEach(s => s.classList.remove('active'));
+
+  for (let i = 0; i < 8; i++) {
+    const d = document.getElementById(`dot-${i}`);
+    d.classList.remove('active','done');
+    if (i === index) d.classList.add('active');
+    else if (i < index) d.classList.add('done');
+  }
+
+  const screen = document.getElementById(`screen-${index}`);
+  screen.classList.add('active');
+
+  // Restore prior multi-selections when back-navigating
+  const cat = CATEGORIES[index];
+  const saved = selections[cat.key] || [];
+  const savedLabels = new Set(saved.map(s => s.label));
+  PHOTOS[cat.key].forEach((p, j) => {
+    const card = document.getElementById(`card-${index}-${j}`);
+    if (savedLabels.has(p.label)) {
+      card.classList.add('selected');
+    } else {
+      card.classList.remove('selected');
+    }
+  });
+  document.getElementById(`next-${index}`).disabled = saved.length === 0;
+
+  // Restore write-in text
+  const ta = document.getElementById(`writein-${index}`);
+  if (ta) ta.value = writeins[cat.key] || '';
+
+  window.scrollTo(0, 0);
+}
+
+function toggleImage(si, ji, category, label, mood) {
+  const card = document.getElementById(`card-${si}-${ji}`);
+  const key  = `${category}::${label}`;
+
+  if (!selections[category]) selections[category] = [];
+
+  const existingIdx = selections[category].findIndex(s => s.key === key);
+  if (existingIdx >= 0) {
+    // Deselect
+    selections[category].splice(existingIdx, 1);
+    card.classList.remove('selected');
+  } else {
+    // Select
+    selections[category].push({ label, mood, key });
+    card.classList.add('selected');
+  }
+
+  document.getElementById(`next-${si}`).disabled = selections[category].length === 0;
+}
+
+function goNext(i) {
+  // Capture write-in before leaving screen
+  const ta = document.getElementById(`writein-${i}`);
+  if (ta) writeins[CATEGORIES[i].key] = ta.value.trim();
+
+  if (i === 7) { calculateResults(); }
+  else { currentStep = i + 1; showScreen(currentStep); }
+}
+
+function showLoading() {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('progress-bar').style.display = 'none';
+  document.getElementById('screen-loading').classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function goBack(i) {
+  currentStep = i - 1;
+  showScreen(currentStep);
+}
+
+// ============================================================
+// SCORING & RESULTS
+// Image scores: each category contributes equal weight (normalized
+// by number of selections within category).
+// Write-in scores: AI interprets free text → additive adjustment.
+// ============================================================
+async function calculateResults() {
+  const scores = { RE:0, AP:0, CC:0, LM:0, SA:0, CV:0, AF:0, SS:0 };
+
+  // --- Image-based scoring ---
+  Object.entries(selections).forEach(([cat, sels]) => {
+    if (!sels || sels.length === 0) return;
+    const catScores = { RE:0, AP:0, CC:0, LM:0, SA:0, CV:0, AF:0, SS:0 };
+    sels.forEach(sel => {
+      const w = WEIGHTS[sel.key];
+      if (w) Object.entries(w).forEach(([k, v]) => { catScores[k] += v; });
+    });
+    const count = sels.length;
+    Object.entries(catScores).forEach(([k, v]) => { scores[k] += v / count; });
+  });
+
+  // --- Show loading while AI interprets write-ins ---
+  showLoading();
+
+  // --- Write-in scoring via AI ---
+  const activeWrites = {};
+  Object.entries(writeins).forEach(([k, v]) => {
+    if (v && v.trim()) activeWrites[k] = v.trim();
+  });
+
+  if (Object.keys(activeWrites).length > 0) {
+    try {
+      const resp = await fetch(DNA_API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ writes: activeWrites }),
+        signal: AbortSignal.timeout(12000)
+      });
+      if (resp.ok) {
+        const data = await resp.json();
+        if (data.adjustments) {
+          Object.entries(data.adjustments).forEach(([k, v]) => {
+            scores[k] = (scores[k] || 0) + Number(v);
+          });
+        }
+      }
+    } catch (e) {
+      // API call failed — image scores still valid, proceed
+      console.warn('Write-in interpretation unavailable:', e);
+    }
+  }
+
+  const winner = Object.entries(scores).sort((a,b) => b[1]-a[1])[0][0];
+  showResults(ARCHETYPES[winner]);
+}
+
+function showResults(profile) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('progress-bar').style.display = 'none';
+
+  document.getElementById('result-name').textContent        = profile.name;
+  document.getElementById('result-description').textContent = profile.description;
+  document.getElementById('result-secondary').textContent   = profile.secondary;
+
+  // Flatten all selections across categories into chips
+  const allSelections = Object.values(selections).flat();
+  document.getElementById('result-selections').innerHTML =
+    allSelections.map(s => `<span class="selection-chip">${s.label}</span>`).join('');
+
+  document.getElementById('screen-results').classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+// ============================================================
+// ACTIONS
+// ============================================================
+function sendToAdvisor() {
+  const name = document.getElementById('result-name').textContent;
+  const list = Object.entries(selections)
+    .map(([cat, sels]) => `${cat.replace('_',' ')}: ${sels.map(s => s.label).join(', ')}`)
+    .join('\n');
+
+  const sub  = encodeURIComponent(`My Travel DNA: ${name}`);
+  const body = encodeURIComponent(
+    `Hi — I completed the Travel DNA profile on the Dreams2Memories site.\n\n` +
+    `My archetype: ${name}\n\nMy selections:\n${list}\n\n` +
+    `I'd love to learn more about what this means for planning my trip.`
+  );
+  window.location.href = `mailto:concierge@d2mluxury.quest?subject=${sub}&body=${body}`;
+}
+
+function restart() {
+  selections = {};
+  writeins   = {};
+  document.querySelectorAll('.image-card').forEach(c => c.classList.remove('selected'));
+  document.querySelectorAll('.writein-input').forEach(ta => { ta.value = ''; });
+  document.querySelectorAll('[id^="next-"]').forEach(b => { b.disabled = true; });
+  document.getElementById('progress-bar').style.display = 'flex';
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('screen-intro').classList.add('active');
+  currentStep = -1;
+  window.scrollTo(0, 0);
+}
+
+// ============================================================
+// INIT
+// ============================================================
+buildScreens();
+</script>
+</body>
+</html>
