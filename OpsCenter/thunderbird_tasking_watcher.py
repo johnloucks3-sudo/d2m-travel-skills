@@ -256,7 +256,22 @@ class InboxHandler(FileSystemEventHandler):
 
         # PREEMPTIVE REFRESH: Check if token needs refresh before spawning Claude
         # (Required because Anthropic disabled auto-refresh for headless invocations, Feb 2026)
-        refresh_oauth_token_preemptive()
+        # CRITICAL: If token refresh fails, HALT — do not spawn Claude
+        token_ok = refresh_oauth_token_preemptive()
+
+        if not token_ok:
+            logging.critical("❌ WATCHER HALT: Token refresh FAILED — halting to prevent silent fallback to DeepSeek")
+            # Post critical alert to wing_comms
+            try:
+                alert_msg = f"\n## 🔴 [CRITICAL] Watcher Halted — Token Refresh Failed\n**Time:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n**Reason:** Token refresh returned FALSE. Watcher HALTING to prevent silent fallback to DeepSeek.\n**Action Required:** Check token state manually. Contact Commander.\n"
+                WING_COMMS = Path("/home/john/Thunderbird/OpsCenter/collaboration/wing_comms.md")
+                if WING_COMMS.exists():
+                    existing = WING_COMMS.read_text()
+                    WING_COMMS.write_text(existing.rstrip() + "\n" + alert_msg)
+            except Exception as e:
+                logging.error(f"Could not post alert: {e}")
+            # Hard halt
+            sys.exit(1)
 
         fresh_env = load_oauth_env()
         logging.info(f"Spawning Claude headless model={model} → log: {log}")

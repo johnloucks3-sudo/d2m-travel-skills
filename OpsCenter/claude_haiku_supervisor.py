@@ -108,10 +108,23 @@ def get_recent_invocations(minutes=20):
     invocations = []
 
     try:
+        # DEBUG: Verify log file exists and is readable
+        if not WATCHER_LOG.exists():
+            logging.error(f"CRITICAL: Watcher log not found at {WATCHER_LOG}")
+            return []
+
         log_text = WATCHER_LOG.read_text()
-        # Parse lines like: "2026-04-23 05:30:01,593 - [WATCHER V7] - Spawning Claude headless model=claude-opus-4-6 → log: /path/to/log"
         lines = log_text.split("\n")
 
+        # DEBUG: Log file statistics
+        log_size_kb = len(log_text) / 1024
+        logging.info(f"Watcher log: {log_size_kb:.1f} KB, {len(lines)} lines")
+
+        # DEBUG: Count raw spawn indicators (before extraction)
+        raw_spawn_count = log_text.count("Spawning Claude headless")
+        logging.info(f"Raw 'Spawning Claude headless' count: {raw_spawn_count}")
+
+        # Parse lines like: "2026-04-23 05:30:01,593 - [WATCHER V7] - Spawning Claude headless model=claude-opus-4-6 → log: /path/to/log"
         for line in lines:
             if "Spawning Claude headless" in line:
                 # Try to extract timestamp and log path
@@ -122,7 +135,7 @@ def get_recent_invocations(minutes=20):
                     ts_str = match.group(1)
                     ts = datetime.strptime(ts_str, "%Y-%m-%d %H:%M:%S")
                     if ts >= cutoff:
-                        log_match = re.search(r"→ log: (.+)$", line)
+                        log_match = re.search(r"→\s*log:\s*(.+?)(?:\s|$)", line)
                         if log_match:
                             log_path = log_match.group(1).strip()
                             invocations.append(
@@ -138,6 +151,25 @@ def get_recent_invocations(minutes=20):
                                     ),
                                 }
                             )
+                        else:
+                            logging.debug(f"Log path not extracted from: {line}")
+                    else:
+                        logging.debug(f"Timestamp outside window: {ts_str}")
+                else:
+                    logging.debug(f"Timestamp not found in: {line}")
+
+        # DEBUG: Critical validation
+        if raw_spawn_count > 0 and len(invocations) == 0:
+            logging.error(f"CRITICAL: Found {raw_spawn_count} spawn lines but extracted ZERO invocations — regex parsing is BROKEN")
+            # Log sample lines for debugging
+            sample_count = 0
+            for line in lines:
+                if "Spawning Claude headless" in line:
+                    logging.error(f"Sample spawn line: {line}")
+                    sample_count += 1
+                    if sample_count >= 3:
+                        break
+
     except Exception as e:
         logging.error(f"Could not parse watcher log: {e}")
 
