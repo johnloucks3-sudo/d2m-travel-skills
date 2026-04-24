@@ -5,5 +5,7 @@
   "credit_errors": 0,
   "timeouts": 0,
   "logic_errors": 0,
-  "last_30_min": []
+  "last_30_min": [],
+  "checkpoint_passes": 2,
+  "stale_tasks_detected": 0
 }
