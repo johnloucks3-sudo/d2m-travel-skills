@@ -1,14 +1,14 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-04-23 22:10:00 MT
+## Generated: 2026-04-23 22:20:00 MT
 
 ---
 
 ### Recent Commits
+- 3b281c2 feat: Add preemptive OAuth token refresh to headless Claude watcher
 - 749d4ed fix: Implement Claude OAuth Tier 2/3 fallback — read from official credentials, monitor for credit errors
 - a190313 refactor: Split hale_cos.md into tiered load architecture (Layers 1-3 core, 4-10 operations, 11-19 governance)
 - cecb5a7 chore: Mark Drive Day 1 validation complete — 10/10 PASS
 - e4baf7f chore: Add skills, repair scripts; gitignore backup/temp files
-- bc055ab chore: Add drafts, intel incubator runs Apr 13-16, Silversea FAQ intel
 
 ### Uncommitted Changes
 - .obsidian/workspace.json (modified)
@@ -28,7 +28,6 @@
 - OpsCenter/nexus.lock (modified)
 - reverie (modified)
 - session_autosave_latest.md (modified)
-- scripts/test_sdk_refresh.py (new)
 
 ### Active Work
 - SSS: 0 pending decision(s)

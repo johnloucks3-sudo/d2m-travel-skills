@@ -280,13 +280,12 @@ class InboxHandler(FileSystemEventHandler):
                         time.sleep(0.5)  # Give filesystem time to flush
                         try:
                             log_text = Path(log_path).read_text()
+                            # Log the failure for Haiku supervisor to detect
                             if any(err in log_text.lower() for err in ["402", "credit", "balance", "insufficient"]):
-                                logging.warning(
-                                    f"Claude hit credit/auth error (exit {returncode}) — escalating to OpenCode/DeepSeek"
-                                )
-                                self._invoke_opencode(inbox)
+                                logging.error(f"Claude hit credit/auth error (exit {returncode}) — token may have expired")
                             else:
                                 logging.error(f"Claude exited with code {returncode}")
+                            # Do NOT auto-escalate. Haiku supervisor will see this failure and alert Yoda.
                         except Exception as e:
                             logging.error(f"Error reading log: {e}")
                 except subprocess.TimeoutExpired:
@@ -303,8 +302,9 @@ class InboxHandler(FileSystemEventHandler):
 
         except Exception as e:
             logging.error(f"Failed to spawn Claude: {e}")
-            logging.info(f"Immediate escalation to OpenCode/DeepSeek fallback")
-            self._invoke_opencode(inbox_path)
+            logging.error(f"Claude invocation failed — no automatic fallback (fail gracefully)")
+            # Do NOT escalate to OpenCode/DeepSeek. Let failure be visible.
+            # Haiku supervisor will detect this and alert Yoda.
 
     # ------------------------------------------------------------------ #
     # OpenCode headless invocation
