@@ -5015,3 +5015,56 @@ task: Autonomy Service Repair Assessment
 3. **drive-sync:** Debug rclone filters/config
 
 Full report: `/home/john/Thunderbird/OpsCenter/collaboration/autonomy_service_scan.md`
+
+---
+
+## HALE_BRIEF_ANALYSIS — 2026-04-23
+
+### 🔴 CRITICAL FINDINGS
+
+**1. KUKLINSKI LIFECYCLE FAILURE — ROOT CAUSE UNKNOWN**
+- Validation email + insurance email + guest form ALL at 58/41/58 days overdue
+- This is not a scheduling slip — this is a systemic failure in the A6→A9→A3 chain
+- **Missing:** Why is Luna's copy draft stalled? Is A9 awaiting legal review of insurance language? Is Josh's spouse name missing from Dani's file?
+- **Recommendation:** Separate "lifecycle failures" section with root cause for each blocker. Current routing shows owners but not *why* each is stuck.
+
+**2. LYONS — CONFLICTING STATUS SIGNALS**
+- Table shows: "~~PROSPECT ONLY~~ — Not a D2M client"
+- But FPD section shows: "FPD payment (amount TBD)" due May 11 with owner "Commander → Lyons"
+- **Missing:** Is Lyons a customer or prospect? Affects entire lifecycle treatment.
+- **Action:** Clarify Lyons status in THUNDERBIRD_MASTER_PLAN before next brief. Either full lifecycle or remove from active clients.
+
+**3. LYONS FPD AMOUNT TBD WITH 18 DAYS TO DEADLINE**
+- Payment due May 11, amount undefined Apr 23 — execution risk
+- **Missing:** Who calculates FPD? A9? Luna for narrative?
+- **Recommendation:** Add milestone "FPD amount determined by [date]" to prevent ad-hoc payment calc.
+
+---
+
+### 🟡 STRUCTURAL IMPROVEMENTS
+
+**4. OVERDUE SECTION LACKS BLOCKER CLARITY**
+- Current: "Validation/Welcome email | Kuklinski | ~58d | A6→A9→A3"
+- Shows routing but hides *which step* is blocking. After 58 days, clearly broken.
+- **Fix:** Add "Blocker" column. Example:
+  - "Validation email | Kuklinski | 58d | A3 | Blocker: Luna copy draft OR A9 insurance decision?"
+
+**5. WESTBROOK URGENCY — TIMING UNCLEAR**
+- Marked "TODAY urgent" but brief doesn't say when Commander available
+- Brief says "Loucks Japan voyage active Apr 23–May 11" — if Commander aboard, this isn't same-day
+- **Recommendation:** Link Westbrook escalation to Commander availability window.
+
+**6. MCLEOD TRANSFER DISPUTE — OWNER MISSING**
+- Open items: "2 (transfer dispute, return flights TBD)" — no owner assigned
+- **Action:** Assign explicitly (A2? A3? A9?).
+
+---
+
+### ✅ IMMEDIATE ACTIONS
+
+1. **COS incident review on Kuklinski — TODAY** — Where is validation email stuck?
+2. **Clarify Lyons status — BY END OF DAY** — Prospect or customer?
+3. **Assign McLeod transfer dispute owner — BY END OF DAY**
+4. **Add "Blocker" column to next brief iteration** — Routing shows who; blockers show why
+
+*Analysis by Claude Opus · 2026-04-23 · Timestamp: auto*

@@ -56,16 +56,35 @@ MODEL_SONNET = "claude-sonnet-4-6"
 MODEL_OPUS   = "claude-opus-4-6"
 
 def load_oauth_env() -> dict:
-    """Read .claude_oauth_cache and return env dict with fresh token injected."""
+    """Load OAuth token from official Claude credentials file.
+
+    Tier 1: ~/.claude/.credentials.json (official Claude CLI storage)
+    Tier 2: ANTHROPIC_API_KEY from environment
+    Tier 3: Bare os.environ (fallback)
+    """
     env = dict(os.environ)
+
+    # Tier 1: Try official credentials file
     try:
-        for line in OAUTH_CACHE.read_text().splitlines():
-            line = line.strip()
-            if '=' in line and not line.startswith('#'):
-                k, _, v = line.partition('=')
-                env[k.strip()] = v.strip()
-    except Exception:
-        pass
+        import json
+        creds_path = Path.home() / ".claude" / ".credentials.json"
+        if creds_path.exists():
+            creds = json.loads(creds_path.read_text())
+            token = creds.get("claudeAiOauth", {}).get("accessToken")
+            if token:
+                env["CLAUDE_CODE_OAUTH_TOKEN"] = token
+                logging.debug(f"Loaded OAuth token from {creds_path}")
+                return env
+    except Exception as e:
+        logging.debug(f"Failed to load from credentials file: {e}")
+
+    # Tier 2: Check for API key in environment (will use as fallback)
+    if "ANTHROPIC_API_KEY" in env:
+        logging.debug("Using ANTHROPIC_API_KEY from environment")
+        return env
+
+    # Tier 3: Fall back to bare environment
+    logging.debug("Using bare environment (no OAuth or API key)")
     return env
 
 
@@ -135,9 +154,11 @@ class InboxHandler(FileSystemEventHandler):
         invoke_fn(inbox_path)
 
     # ------------------------------------------------------------------ #
-    # Claude headless invocation
+    # Claude headless invocation with error monitoring & escalation
     # ------------------------------------------------------------------ #
     def _invoke_claude(self, inbox_path):
+        import threading
+
         ts      = datetime.now().strftime("%Y%m%d_%H%M%S")
         log     = LOG_DIR / f"claude_invoke_{ts}.log"
         try:
@@ -156,18 +177,51 @@ class InboxHandler(FileSystemEventHandler):
         )
         fresh_env = load_oauth_env()
         logging.info(f"Spawning Claude headless model={model} → log: {log}")
-        logging.info(f"OAuth token present: {'CLAUDE_CODE_OAUTH_TOKEN' in fresh_env}")
+        logging.info(f"OAuth token present: {'CLAUDE_CODE_OAUTH_TOKEN' in fresh_env or 'ANTHROPIC_API_KEY' in fresh_env}")
+
         try:
-            subprocess.Popen(
+            proc = subprocess.Popen(
                 [CLAUDE_BIN, "-p", prompt, "--model", model, "--output-format", "text"],
                 stdout=open(log, "w"),
                 stderr=subprocess.STDOUT,
                 env=fresh_env,
                 start_new_session=True,
             )
-            logging.info(f"Claude headless started ({model})")
+            logging.info(f"Claude headless started (PID {proc.pid}, {model})")
+
+            # Monitor in background thread for credit errors and escalate if needed
+            def monitor_claude_errors(proc_obj, log_path, inbox):
+                try:
+                    returncode = proc_obj.wait(timeout=600)  # 10 min max
+                    if returncode != 0:
+                        time.sleep(0.5)  # Give filesystem time to flush
+                        try:
+                            log_text = Path(log_path).read_text()
+                            if any(err in log_text.lower() for err in ["402", "credit", "balance", "insufficient"]):
+                                logging.warning(
+                                    f"Claude hit credit/auth error (exit {returncode}) — escalating to OpenCode/DeepSeek"
+                                )
+                                self._invoke_opencode(inbox)
+                            else:
+                                logging.error(f"Claude exited with code {returncode}")
+                        except Exception as e:
+                            logging.error(f"Error reading log: {e}")
+                except subprocess.TimeoutExpired:
+                    logging.error(f"Claude headless timed out (>10 min)")
+                except Exception as e:
+                    logging.error(f"Monitor thread error: {e}")
+
+            monitor_thread = threading.Thread(
+                target=monitor_claude_errors,
+                args=(proc, log, inbox_path),
+                daemon=True
+            )
+            monitor_thread.start()
+
         except Exception as e:
             logging.error(f"Failed to spawn Claude: {e}")
+            logging.info(f"Immediate escalation to OpenCode/DeepSeek fallback")
+            self._invoke_opencode(inbox_path)
 
     # ------------------------------------------------------------------ #
     # OpenCode headless invocation

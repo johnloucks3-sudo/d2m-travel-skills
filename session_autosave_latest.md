@@ -1,36 +1,36 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-04-23 21:28:09 MDT
+## Generated: 2026-04-23 21:58:09 MDT
 
 ---
 
 ### Recent Commits
+- a190313 refactor: Split hale_cos.md into tiered load architecture (Layers 1-3 core, 4-10 operations, 11-19 governance)
 - cecb5a7 chore: Mark Drive Day 1 validation complete — 10/10 PASS
 - e4baf7f chore: Add skills, repair scripts; gitignore backup/temp files
 - bc055ab chore: Add drafts, intel incubator runs Apr 13-16, Silversea FAQ intel
 - f34d6d1 feat: Add D2M lifecycle tooling — draft engine, touchpoint proposer, n8n workflows, Hale package
-- 1999354 chore: Update client contexts, dossiers, intel digest, and session state
 
 ### Uncommitted Changes
- M .graphify_detect.json
  M .obsidian/workspace.json
  M .smart-env/event_logs/event_logs.ajson
  M .smart-env/multi/CLAUDE_md.ajson
- M .smart-env/multi/Personas_D2M_Staff_Introduction_md.ajson
- M .smart-env/multi/Personas_memory_COS_persona_context_md.ajson
- M .smart-env/multi/Personas_memory_COS_session_notes_md.ajson
- M .smart-env/multi/THUNDERBIRD_MASTER_PLAN_md.ajson
- M .smart-env/multi/THUNDERBIRD_USER_MANUAL_md.ajson
- M .smart-env/multi/dossiers_Britan_Joe_md.ajson
- M .smart-env/multi/dossiers_CLAUDE_md.ajson
- M .smart-env/multi/dossiers_DOSSIER_Grandeur_Scandinavia_Aug2026_md.ajson
- M .smart-env/multi/dossiers_DOSSIER_Princess_MexicoRiviera_Mar2027_md.ajson
- M .smart-env/multi/dossiers_DOSSIER_SilverMuse_Mediterranean_Jun2026_md.ajson
- M .smart-env/multi/dossiers_DOSSIER_SilverNova_Pacific_Apr2026_md.ajson
- M .smart-env/multi/dossiers_DOSSIER_VikingMars_PanamaCanal_Dec2026_md.ajson
- M .smart-env/multi/dossiers_Ely_Darrow_Regent_3096289_md.ajson
- M .smart-env/multi/dossiers_Furlow_Regent_3071222_md.ajson
- M .smart-env/multi/dossiers_Kuklinski_Viking_Panama_md.ajson
- M .smart-env/multi/dossiers_Loucks_Justin_Family_md.ajson
+ M .smart-env/multi/OpsCenter_CLAUDE_DESKTOP_INIT_md.ajson
+ M .smart-env/multi/OpsCenter_GOOSE_INIT_md.ajson
+ M .smart-env/multi/OpsCenter_collaboration_blackboard_summary_txt.ajson
+ M .smart-env/multi/OpsCenter_collaboration_claude_outbox_md.ajson
+ M .smart-env/multi/OpsCenter_collaboration_routing_log_md.ajson
+ M .smart-env/multi/logs_session_log_txt.ajson
+ M .smart-env/multi/session_autosave_latest_md.ajson
+ M CLAUDE.md
+ M OpsCenter/CLAUDE_DESKTOP_INIT.md
+ M OpsCenter/GOOSE_INIT.md
+ M OpsCenter/collaboration/blackboard_summary.txt
+ M OpsCenter/collaboration/claude_outbox.md
+ M OpsCenter/collaboration/routing_log.md
+ M OpsCenter/nexus.lock
+ m reverie
+ M session_autosave_latest.html
+ M session_autosave_latest.md
 
 ### Inbox Status
 - Claude inbox: 1 pending task(s)
