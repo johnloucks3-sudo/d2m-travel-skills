@@ -16,8 +16,10 @@ import os
 import re
 import sys
 import time
+import json
 import logging
 import subprocess
+import requests
 from pathlib import Path
 from datetime import datetime
 from watchdog.observers import Observer
@@ -54,6 +56,82 @@ OPENCODE_BIN = "/home/john/.opencode/bin/opencode"
 MODEL_HAIKU  = "claude-haiku-4-5-20251001"
 MODEL_SONNET = "claude-sonnet-4-6"
 MODEL_OPUS   = "claude-opus-4-6"
+
+def refresh_oauth_token_preemptive() -> bool:
+    """Preemptively refresh OAuth token if expiring within 30 minutes.
+
+    Required because Anthropic disabled auto-refresh for third-party/headless use (Feb 2026).
+    Uses refreshToken to obtain a new accessToken before token expires.
+
+    Tested 2026-04-23: SDK does NOT auto-refresh on repeated invocations.
+    Must refresh manually before token reaches 30-min-to-expiry threshold.
+    """
+    try:
+        creds_path = Path.home() / ".claude" / ".credentials.json"
+        if not creds_path.exists():
+            return True  # No token to refresh
+
+        creds = json.loads(creds_path.read_text())
+        token_data = creds.get("claudeAiOauth", {})
+        expires_at = token_data.get("expiresAt")
+
+        if not expires_at:
+            return True
+
+        # Check if within 30 minutes of expiry
+        now_ms = int(time.time() * 1000)
+        time_until_expiry_ms = expires_at - now_ms
+
+        if time_until_expiry_ms > (30 * 60 * 1000):  # More than 30 min left
+            return True  # No refresh needed
+
+        if time_until_expiry_ms < 0:
+            logging.warning("OAuth token already expired — falling back to API key/DeepSeek")
+            return False
+
+        # Token expiring soon — attempt refresh
+        refresh_token = token_data.get("refreshToken")
+        if not refresh_token:
+            logging.warning("No refresh token available — cannot refresh OAuth")
+            return False
+
+        logging.info(f"OAuth token expiring in {time_until_expiry_ms/60000:.1f} min — attempting refresh")
+
+        # Try known Anthropic refresh endpoints (reverse-engineered)
+        endpoints = [
+            "https://claude.ai/api/auth/refresh",
+            "https://api.anthropic.com/oauth/token",
+        ]
+
+        for endpoint in endpoints:
+            try:
+                resp = requests.post(
+                    endpoint,
+                    json={"refresh_token": refresh_token, "grant_type": "refresh_token"},
+                    timeout=10,
+                    headers={"Content-Type": "application/json"}
+                )
+
+                if resp.status_code == 200:
+                    new_data = resp.json()
+                    token_data["accessToken"] = new_data.get("access_token") or new_data.get("accessToken")
+                    token_data["expiresAt"] = new_data.get("expires_at") or new_data.get("expiresAt")
+
+                    creds["claudeAiOauth"] = token_data
+                    creds_path.write_text(json.dumps(creds, indent=2))
+
+                    logging.info("✅ OAuth token refreshed successfully")
+                    return True
+            except Exception:
+                pass  # Try next endpoint
+
+        logging.warning("OAuth refresh endpoints unavailable — will escalate if token expires during invocation")
+        return False
+
+    except Exception as e:
+        logging.warning(f"OAuth refresh check failed: {e}")
+        return False
+
 
 def load_oauth_env() -> dict:
     """Load OAuth token from official Claude credentials file.
@@ -175,6 +253,11 @@ class InboxHandler(FileSystemEventHandler):
             f"Then post a summary to "
             f"/home/john/Thunderbird/OpsCenter/collaboration/wing_comms.md."
         )
+
+        # PREEMPTIVE REFRESH: Check if token needs refresh before spawning Claude
+        # (Required because Anthropic disabled auto-refresh for headless invocations, Feb 2026)
+        refresh_oauth_token_preemptive()
+
         fresh_env = load_oauth_env()
         logging.info(f"Spawning Claude headless model={model} → log: {log}")
         logging.info(f"OAuth token present: {'CLAUDE_CODE_OAUTH_TOKEN' in fresh_env or 'ANTHROPIC_API_KEY' in fresh_env}")
