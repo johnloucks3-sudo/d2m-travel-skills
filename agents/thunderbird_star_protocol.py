@@ -866,3 +866,4 @@ if __name__ == "__main__":
         print("", file=sys.stderr)
         print("Stars: Red Bang=COMMAND, Green Check=APPROVED, Blue Star=DRAFT REPLY", file=sys.stderr)
         print("Self-Email: Send to yourself with [COS], [A2], [STAFF], etc. in subject", file=sys.stderr)
+

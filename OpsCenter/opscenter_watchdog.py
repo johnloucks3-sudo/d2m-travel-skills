@@ -31,6 +31,14 @@ CRASH_LOOP_THRESHOLD = 3        # restarts in window
 CRASH_LOOP_WINDOW = 600         # 10 min
 NETWORK_BACKOFF_MIN = 10
 
+# ── Rapid-fail detection ──
+# A service that exits within this many seconds of restart is code-broken,
+# not transiently crashing. Use per-service values where startup is slow.
+RAPID_FAIL_TIMEOUT: dict[str, int] = {
+    "thunderbird-mcp": 10,   # 68 module imports take 3-4s normally
+}
+RAPID_FAIL_DEFAULT = 5       # seconds for all other services
+
 # ── Services to monitor ──
 # IMPORTANT: Only long-running daemons here. Oneshot timer-triggered services
 # (e.g. thunderbird-blackboard-sync) must NOT be listed — systemctl is-active
@@ -209,6 +217,32 @@ def _is_crash_looping(name: str, state: dict) -> bool:
     return len(recent) >= CRASH_LOOP_THRESHOLD
 
 
+def _get_journal_tail(svc_name: str, lines: int = 15) -> str:
+    """Fetch last N journal lines for a service. Truncated to ~800 chars for Telegram."""
+    try:
+        result = subprocess.run(
+            ["journalctl", "--user", "-u", svc_name, f"-n{lines}", "--no-pager",
+             "--output=short-iso"],
+            capture_output=True, text=True, timeout=10,
+        )
+        text = (result.stdout or result.stderr or "").strip()
+        if len(text) > 800:
+            text = "..." + text[-797:]
+        return text or "(no journal output)"
+    except Exception as e:
+        return f"(journal fetch failed: {e})"
+
+
+def _reset_failed_service(svc_name: str) -> None:
+    """Clear systemd start-limit-hit state so a fresh restart is permitted."""
+    try:
+        subprocess.run(
+            ["systemctl", "--user", "reset-failed", svc_name],
+            capture_output=True, timeout=10,
+        )
+    except Exception:
+        pass
+
 
 def _check_disk() -> tuple[bool, str]:
     """Check disk usage — alert if over threshold."""
@@ -302,8 +336,17 @@ def run_watchdog():
         down_services.append(svc_name)
         _log(f"{svc_desc} ({svc_name}) is DOWN")
 
+        # Always reset-failed first so systemd's start-limit-hit doesn't silently
+        # eat our restart request (the 18-day-outage root cause).
+        _reset_failed_service(svc_name)
+
         if _is_crash_looping(svc_name, state):
-            msg = f"CRASH LOOP: {svc_desc} restarted >{CRASH_LOOP_THRESHOLD}x in {CRASH_LOOP_WINDOW // 60} min. NOT restarting."
+            journal = _get_journal_tail(svc_name)
+            msg = (
+                f"CRASH LOOP: {svc_desc} restarted >{CRASH_LOOP_THRESHOLD}x in "
+                f"{CRASH_LOOP_WINDOW // 60} min. NOT restarting.\n"
+                f"Last journal:\n{journal}"
+            )
             _log(msg)
             alerts.append(msg)
             continue
@@ -316,9 +359,24 @@ def run_watchdog():
         })
 
         if success:
-            msg = f"AUTO-HEALED: {svc_desc} restarted"
-            _log(msg)
-            actions.append(msg)
+            # Rapid-fail check: a service that dies again within seconds is
+            # code-broken (SyntaxError / ImportError), not transiently crashing.
+            rapid_timeout = RAPID_FAIL_TIMEOUT.get(svc_name, RAPID_FAIL_DEFAULT)
+            time.sleep(rapid_timeout)
+            if not _is_service_active(svc_name):
+                journal = _get_journal_tail(svc_name)
+                msg = (
+                    f"CODE BROKEN: {svc_desc} died within {rapid_timeout}s of restart. "
+                    f"Likely SyntaxError or ImportError.\n"
+                    f"Last journal:\n{journal}"
+                )
+                _log(msg)
+                alerts.append(msg)
+                down_services.append(svc_name)  # re-add; healed flag was premature
+            else:
+                msg = f"AUTO-HEALED: {svc_desc} restarted"
+                _log(msg)
+                actions.append(msg)
         else:
             msg = f"RESTART FAILED: {svc_desc} — {output[:100]}"
             _log(msg)

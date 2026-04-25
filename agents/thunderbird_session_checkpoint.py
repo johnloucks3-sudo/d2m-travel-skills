@@ -554,3 +554,4 @@ if __name__ == "__main__":
             print(f"  Commits seen: {result['commits_seen']}")
         else:
             print(f"  ERROR: {result.get('error')}")
+
