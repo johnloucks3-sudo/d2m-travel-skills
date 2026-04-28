@@ -304,6 +304,47 @@ Dashboard auto-refreshes daily at 05:30 MT via systemd timer."""
         return f"[VISUAL SYNTHESIS ERROR] {e}"
 
 
+# ── Phase 2: Weekly Strategic Visuals ──
+
+def _call_phase2_visual_synthesis() -> str:
+    """
+    Phase 2 visual synthesis: generate weekly strategic infographics.
+    Returns paths to generated data and Canva prompts.
+    Called on demand or via weekly systemd timer on Sundays 18:00 MT (SO 2026-04-28).
+
+    Generates:
+    - phase2_data.json (market opportunities, revenue timeline, capability roadmap)
+    - phase2_canva_prompts.json (three prompts for MCP Canva infographic generation)
+    """
+    try:
+        # Import phase2 generators module
+        sys.path.insert(0, str(_ROOT / "core" / "visual_synthesis"))
+        from phase2_generators import generate_phase2_data_json, generate_canva_prompts_phase2
+
+        data_path = generate_phase2_data_json()
+        prompts_path = generate_canva_prompts_phase2()
+
+        return f"""✅ PHASE 2 VISUAL SYNTHESIS COMPLETE
+
+**Generated Files:**
+- Strategic data: {data_path}
+- Canva prompts: {prompts_path}
+
+**Three Strategic Infographics:**
+1. Opportunity Map — Market opportunities by cruise line × destination
+2. Revenue Timeline — Commission forecast Apr 2026 → Q1 2027
+3. Capability Roadmap — Thunderbird Wing evolution (3M/6M/12M targets)
+
+**Next Steps:**
+1. Use prompts from {prompts_path} with MCP Canva generate-design tool
+2. Create permanent designs with create-design-from-candidate
+3. Link new designs into strategic briefings
+
+Phase 2 visuals auto-generate weekly (Sundays 18:00 MT) via systemd timer."""
+    except Exception as e:
+        return f"[PHASE2 VISUAL SYNTHESIS ERROR] {e}"
+
+
 # ── Brain 3: DeepSeek arbitration ──
 
 def _call_brain3(question: str) -> str:
@@ -680,6 +721,21 @@ Be concise. Lead with facts. No fluff. Max 600 tokens."""
 
         return result
 
+    def generate_phase2_visuals(self) -> str:
+        """
+        Generate Phase 2 strategic visuals (Opportunity Map, Revenue Timeline, Capability Roadmap).
+        Callable from systemd timer weekly on Sundays 18:00 MT (SO 2026-04-28).
+        Returns status + file paths.
+        """
+        result = _call_phase2_visual_synthesis()
+
+        # Log generation
+        now = datetime.now(MT)
+        ts  = now.strftime("%Y-%m-%d %H:%M MT")
+        print(f"[{ts}] HALE Phase 2 Visual Synthesis executed", file=sys.stderr)
+
+        return result
+
 
 # ── CLI entrypoint ──
 
@@ -691,6 +747,8 @@ if __name__ == "__main__":
         print(hale.generate_brief())
     elif task == "generate_visual_brief":
         print(hale.generate_visual_brief())
+    elif task == "generate_phase2_visuals":
+        print(hale.generate_phase2_visuals())
     else:
         # Check for Commander override prefix
         override = None
