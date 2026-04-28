@@ -34,6 +34,13 @@ from typing import Optional
 
 import requests
 
+# Import model router (from sibling ai_infra module)
+import sys
+_core_dir = Path(__file__).parent.parent
+if str(_core_dir) not in sys.path:
+    sys.path.insert(0, str(_core_dir))
+from ai_infra.thunderbird_model_router import route_model, estimate_cost
+
 BASE_DIR = Path(__file__).parent
 INTEL_DIR = BASE_DIR / "intel"
 LOG_DIR = BASE_DIR / "logs"
@@ -62,6 +69,7 @@ ANTHROPIC_API_KEY = None  # DO NOT use — see _call_claude() below
 REST_API_URL = os.getenv("REST_API_URL", "http://localhost:8766")
 REST_API_KEY = os.getenv("THUNDERBIRD_API_KEY", "***REMOVED-SECRET***")
 CLAUDE_CMD = os.path.expanduser("~/.local/bin/claude")
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
 
 AM_CATEGORIES_FILE = INTEL_DIR / "incubator_am_categories.json"
 BUILD_QUEUE_FILE = INTEL_DIR / "elon_build_queue.md"
@@ -90,6 +98,45 @@ def _send_telegram(message: str, parse_mode: str = "Markdown"):
             r.raise_for_status()
         except Exception as e:
             log.error(f"Telegram send failed: {e}")
+
+
+def _call_openrouter(prompt: str, system: str, model_id: str, max_tokens: int = 2000) -> str:
+    """Call OpenRouter API for routed models (Grok, Gemini, DeepSeek)"""
+    if not OPENROUTER_API_KEY:
+        log.warning(f"OPENROUTER_API_KEY not set — falling back to Claude CLI")
+        return _call_claude(prompt, system, max_tokens)
+
+    try:
+        response = requests.post(
+            "https://openrouter.ai/api/v1/chat/completions",
+            headers={
+                "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+                "HTTP-Referer": "https://thunderbird.d2mluxury.quest",
+                "X-Title": "Thunderbird AI Incubator"
+            },
+            json={
+                "model": model_id,
+                "messages": [
+                    {"role": "system", "content": system},
+                    {"role": "user", "content": prompt}
+                ],
+                "max_tokens": max_tokens,
+                "temperature": 1.0  # Recommended for reasoning models
+            },
+            timeout=120,
+        )
+        if response.ok:
+            result = response.json()
+            content = result.get("choices", [{}])[0].get("message", {}).get("content", "")
+            usage = result.get("usage", {})
+            log.info(f"OpenRouter call: {model_id} | tokens: {usage.get('prompt_tokens')}→{usage.get('completion_tokens')}")
+            return content
+        else:
+            log.error(f"OpenRouter API error {response.status_code}: {response.text[:300]}")
+            return f"[OpenRouter error {response.status_code}]"
+    except Exception as e:
+        log.error(f"OpenRouter call failed: {e}")
+        return f"[OpenRouter error: {e}]"
 
 
 def _call_claude(prompt: str, system: str, max_tokens: int = 2000) -> str:
@@ -294,9 +341,26 @@ Measured, authoritative. Never raise your voice. Lead with the recommendation.""
 }
 
 
-def _persona_call(persona_key: str, prompt: str, max_tokens: int = 1500) -> str:
+def _persona_call(persona_key: str, prompt: str, max_tokens: int = 1500, model_tier: Optional[str] = None) -> str:
+    """Call persona with optional model routing.
+
+    Args:
+        persona_key: Which persona to consult
+        prompt: The prompt/task
+        max_tokens: Max output tokens
+        model_tier: Optional model tier from router (e.g., "grok_2m"). If None, uses Claude CLI.
+    """
     p = PERSONAS[persona_key]
     log.info(f"Consulting {p['name']}")
+
+    # If model_tier specified, route to OpenRouter
+    if model_tier:
+        model_config = route_model(model_tier)
+        model_id = model_config.get("model_id")
+        log.info(f"  → Routed to {model_tier}: {model_id}")
+        return _call_openrouter(prompt, p["system"], model_id, max_tokens)
+
+    # Otherwise use Claude CLI
     return _call_claude(prompt, p["system"], max_tokens)
 
 
@@ -445,7 +509,7 @@ Output:
 4. AM CATEGORIES FOR TOMORROW (3-5 specific topics for morning deep scrape)
 5. COMMANDER INSIGHT (the one thing that changes how we see ourselves)
 
-Integration specialist lens. No self-congratulation. Find what we can't do.""", max_tokens=2500)
+Integration specialist lens. No self-congratulation. Find what we can't do.""", max_tokens=2500, model_tier="grok_2m")
 
     # Extract AM categories
     am_cats = []
