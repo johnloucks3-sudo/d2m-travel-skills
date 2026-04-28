@@ -1,16 +1,23 @@
 #!/usr/bin/env python3
 """
-Hale Brief Email Sender — MCP Gmail Integration
+Hale Brief Email Sender — Direct Gmail API Integration
 Composes and sends daily brief email to Commander (johnloucks3@gmail.com).
 Sends from d2mconcierge@gmail.com.
-Dispatches to headless Claude for MCP Gmail send (SO 27 MAR 2026: full send, not draft).
+SO 27 MAR 2026: Briefs are FULL SENDS, not drafts. Bypasses WF-17 gate.
 """
 
 import logging
-import subprocess
 import json
+import base64
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from google.oauth2.credentials import Credentials
+from google_auth_oauthlib.flow import InstalledAppFlow
+from google.auth.transport.requests import Request
+from googleapiclient.discovery import build
+from googleapiclient.errors import HttpError
 
 logger = logging.getLogger("hale_brief_email_sender")
 
@@ -18,6 +25,9 @@ MT = timezone(timedelta(hours=-6))
 BRIEFS_DOMAIN = "itinerary.d2mluxury.quest"
 FROM_EMAIL = "d2mconcierge@gmail.com"
 TO_EMAIL = "johnloucks3@gmail.com"
+SCOPES = ["https://www.googleapis.com/auth/gmail.send"]
+TOKEN_FILE = Path.home() / "Thunderbird" / "gmail_token.json"
+CREDENTIALS_FILE = Path.home() / ".credentials.json"
 
 
 def compose_brief_email(date_str: str) -> tuple[str, str]:
@@ -131,11 +141,27 @@ def compose_brief_email(date_str: str) -> tuple[str, str]:
     return subject, html_body
 
 
+def _get_gmail_service():
+    """Get authenticated Gmail service using stored token."""
+    creds = None
+
+    # Load stored token
+    if TOKEN_FILE.exists():
+        creds = Credentials.from_authorized_user_file(TOKEN_FILE, SCOPES)
+
+    if not creds or not creds.valid:
+        if creds and creds.expired and creds.refresh_token:
+            creds.refresh(Request())
+        else:
+            raise RuntimeError(f"Gmail token not found at {TOKEN_FILE}. Run: python3 thunderbird_gmail.py --authorize")
+
+    return build("gmail", "v1", credentials=creds)
+
+
 def send_brief_email(date_str: str) -> bool:
     """
-    Send brief email via headless Claude + MCP Gmail.
-    SO 27 MAR 2026: Briefs are FULL SENDS to johnloucks3@gmail.com (not drafts).
-    Spawns headless Claude to call mcp__claude_ai_Gmail__create_draft (systemd context).
+    Send brief email via Gmail API directly (no MCP, no headless Claude).
+    SO 27 MAR 2026: Briefs are FULL SENDS to johnloucks3@gmail.com.
     """
     try:
         subject, html_body = compose_brief_email(date_str)
@@ -145,152 +171,50 @@ def send_brief_email(date_str: str) -> bool:
         logger.info(f"To: {TO_EMAIL}")
         logger.info(f"From: {FROM_EMAIL}")
 
-        # Build MCP call prompt for headless Claude
-        # This spawns Claude to send via MCP Gmail (full send, not draft, per SO 27 MAR 2026)
-        prompt = f"""You are sending an automated daily brief email via MCP Gmail integration.
+        # Build MIME message
+        message = MIMEMultipart("alternative")
+        message["to"] = TO_EMAIL
+        message["from"] = FROM_EMAIL
+        message["subject"] = subject
+        message.attach(MIMEText("", "plain"))  # Plain text part (empty)
+        message.attach(MIMEText(html_body, "html"))  # HTML part
 
-TASK: Send the HALE Daily Brief email for {date_str}.
+        raw_message = base64.urlsafe_b64encode(message.as_bytes()).decode()
 
-ACTION:
-Call mcp__claude_ai_Gmail__create_draft with these exact parameters:
-- to: ["{TO_EMAIL}"]
-- subject: "{subject}"
-- htmlBody: (the HTML body below)
+        # Send via Gmail API
+        service = _get_gmail_service()
+        sent = service.users().messages().send(
+            userId="me",
+            body={"raw": raw_message}
+        ).execute()
 
-HTML BODY:
-{html_body}
+        message_id = sent.get("id")
+        logger.info(f"✅ Brief email sent successfully for {date_str}")
+        logger.info(f"Message ID: {message_id}")
 
-After creating the draft, immediately send it by calling mcp__claude_ai_Gmail__send_draft with the draft ID returned.
+        # Update pending marker to sent status
+        pending_dir = Path("/home/john/Thunderbird/output/briefs")
+        pending_file = pending_dir / f"pending_brief_send_{date_str}.json"
+        if pending_file.exists():
+            email_data = json.loads(pending_file.read_text())
+            email_data["status"] = "sent"
+            email_data["sent_at"] = datetime.now(MT).isoformat()
+            email_data["message_id"] = message_id
+            pending_file.write_text(json.dumps(email_data, indent=2))
+            logger.info(f"Updated pending marker to sent status")
 
-CRITICAL: This is a standing order (SO 27 MAR 2026) — briefs are FULL SENDS, not draft-only. Send to johnloucks3@gmail.com without requiring Commander approval.
+        return True
 
-Log the result (draft created, email sent, timestamp) to stdout.
-
-Do NOT output anything else to stdout."""
-
-        # Spawn headless Claude to send email via MCP
-        result = _spawn_headless_gmail_send(prompt, date_str, html_body)
-
-        if result["success"]:
-            logger.info(f"✅ Brief email sent successfully for {date_str}")
-            logger.info(f"MCP send result: {result.get('message', 'Email dispatched')}")
-            return True
-        else:
-            logger.error(f"❌ Failed to send brief email: {result.get('error', 'Unknown error')}")
-            return False
-
+    except HttpError as e:
+        logger.error(f"Gmail API error: {e}")
+        return False
     except Exception as e:
         logger.error(f"Failed to send brief email: {e}")
         return False
 
 
-def _spawn_headless_gmail_send(prompt: str, date_str: str, html_body: str) -> dict:
-    """
-    Spawn headless Claude to create Gmail draft via MCP Gmail (async).
-    SO 27 MAR 2026: Creates ready-to-send draft (full send semantics).
-    Returns: {success: bool, message: str, error: str}
-    """
-    try:
-        # Setup logging
-        log_dir = Path("/home/john/Thunderbird/logs")
-        log_dir.mkdir(exist_ok=True)
-        ts = datetime.now(MT).strftime("%Y%m%d_%H%M%S")
-        log_file = log_dir / f"hale_brief_email_{ts}.log"
-
-        # Write email details to pending file (for future batch sends)
-        pending_dir = Path("/home/john/Thunderbird/output/briefs")
-        pending_dir.mkdir(exist_ok=True)
-        pending_file = pending_dir / f"pending_brief_send_{date_str}.json"
-
-        email_data = {
-            "date": date_str,
-            "timestamp": ts,
-            "to": TO_EMAIL,
-            "from": FROM_EMAIL,
-            "subject": f"HALE — DAILY BRIEF | {date_str} 06:00 MT",
-            "html_body_length": len(html_body),
-            "status": "ready_to_send",
-            "created_at": datetime.now(MT).isoformat()
-        }
-
-        pending_file.write_text(json.dumps(email_data, indent=2))
-        logger.info(f"Email ready to send: {pending_file}")
-
-        # Load OAuth token from credentials
-        import os
-        creds_path = Path.home() / ".claude" / ".credentials.json"
-        env = dict(os.environ)
-
-        if not creds_path.exists():
-            return {
-                "success": False,
-                "error": f"OAuth credentials not found at {creds_path}"
-            }
-
-        creds = json.loads(creds_path.read_text())
-        token = creds.get("claudeAiOauth", {}).get("accessToken")
-        if not token:
-            return {
-                "success": False,
-                "error": "No accessToken in credentials file"
-            }
-
-        env["CLAUDE_CODE_OAUTH_TOKEN"] = token
-
-        # Build prompt that creates draft with explicit logging
-        draft_prompt = f"""Use the mcp__claude_ai_Gmail__create_draft tool to create a Gmail draft.
-
-Parameters:
-- to: ["{TO_EMAIL}"]
-- subject: "HALE — DAILY BRIEF | {date_str} 06:00 MT"
-- htmlBody: See the HTML content below
-
-HTML CONTENT TO USE:
-{html_body}
-
-After creating the draft, log the result by writing to file:
-{log_file}
-
-Write: "DRAFT_CREATED" if successful, or "DRAFT_FAILED: [error]" if failed.
-"""
-
-        # Spawn headless Claude to create draft
-        proc = subprocess.Popen(
-            [
-                "/home/john/.local/bin/claude",
-                "-p", draft_prompt,
-                "--model", "claude-haiku-4-5-20251001"
-            ],
-            stdout=subprocess.DEVNULL,  # Don't capture output
-            stderr=subprocess.DEVNULL,  # Don't capture errors
-            env=env,
-            start_new_session=True
-        )
-
-        logger.info(f"Dispatched Gmail draft creation (PID {proc.pid})")
-        logger.info(f"Draft will be created in d2mconcierge@gmail.com (SO 27 MAR 2026 FULL SEND)")
-        logger.info(f"Pending email marker: {pending_file}")
-
-        return {
-            "success": True,
-            "message": f"Gmail draft creation queued (PID {proc.pid}) — ready to send",
-            "pid": proc.pid,
-            "pending_file": str(pending_file),
-            "note": "Draft created in d2mconcierge; ready for immediate send per SO 27 MAR 2026"
-        }
-
-    except Exception as e:
-        logger.error(f"Failed to queue Gmail draft creation: {e}")
-        return {
-            "success": False,
-            "error": str(e)
-        }
-
-
 if __name__ == "__main__":
-    # Test email composition
     logging.basicConfig(level=logging.INFO)
     today_str = datetime.now(MT).strftime("%Y-%m-%d")
-    subject, html_body = compose_brief_email(today_str)
-    print(f"Subject: {subject}")
-    print(f"\nHTML Body (first 500 chars):\n{html_body[:500]}...")
+    success = send_brief_email(today_str)
+    exit(0 if success else 1)
