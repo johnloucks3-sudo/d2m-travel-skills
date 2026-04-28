@@ -3,17 +3,20 @@ Hale Brain Dispatcher
 =====================
 Three-brain routing for Col Victoria "Iron Vic" Hale, COO — Thunderbird Wing.
 
-Brain 1: DeepSeek V3.1 (OpenRouter, $0)   — ops, context, research, scan, summarize
-Brain 2: Claude Sonnet (headless)         — reasoning, code, strategy, complex writing
-Brain 3: DeepSeek (direct or OpenRouter)  — arbitration, high-stakes, brain disagreement
-Self:    Hale handles directly             — simple, within institutional knowledge
+⚠️ CRITICAL FIX (SO 2026-04-27): Switched from FREE OpenRouter tiers to Claude MAX (unlimited tier).
+Brief generation and synthesis now use Claude Sonnet headless via OAuth.
+
+Brain 1: (DEPRECATED — was OpenRouter free tiers)
+Brain 2: Claude MAX (Sonnet headless)                        — brief generation, synthesis, reasoning
+Brain 3: DeepSeek (direct or OpenRouter)                    — arbitration, high-stakes, brain disagreement
+Self:    Hale handles directly                               — simple, within institutional knowledge
 
 Usage:
     from hale_dispatcher import HaleDispatcher
     hale = HaleDispatcher()
     result = hale.dispatch("Summarize the Furlow dossier and flag anything overdue.")
 
-Author: Col Victoria "Iron Vic" Hale (COS) — built 2026-04-03
+Author: Col Victoria "Iron Vic" Hale (COS) — built 2026-04-03, fixed 2026-04-24
 """
 
 import json
@@ -47,12 +50,18 @@ OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
 DEEPSEEK_API_KEY   = os.getenv("DEEPSEEK_API_KEY", "")
 ANTHROPIC_API_KEY  = os.getenv("ANTHROPIC_API_KEY", "")
 
-DEEPSEEK_V3_MODEL  = "deepseek/deepseek-chat-v3.1"
+DEEPSEEK_V3_MODEL  = "deepseek/deepseek-chat-v3.1"  # ⚠️ DEPRECATED: $0.27/M tokens, DO NOT USE
 QWEN_MODEL         = DEEPSEEK_V3_MODEL  # Legacy alias
 SONNET_MODEL       = "claude-sonnet-4-6"
 OPUS_MODEL         = "claude-opus-4-6"
 DEEPSEEK_MODEL     = "deepseek-chat-v3.1"
-DEEPSEEK_OR_MODEL  = "deepseek/deepseek-chat-v3.1"  # OpenRouter proxy
+DEEPSEEK_OR_MODEL  = "deepseek/deepseek-chat-v3.1"  # OpenRouter proxy — $0.27/M, deprecated
+
+# Free OpenRouter tiers (SO 2026-04-24)
+FREE_OPENROUTER_RESEARCH = "openrouter/nvidia/nemotron-3-super-120b-a12b:free"
+FREE_OPENROUTER_OPS = "openrouter/openai/gpt-oss-120b:free"
+FREE_OPENROUTER_SUMMARY = "openrouter/google/gemma-3-27b-it:free"
+FREE_OPENROUTER_BULK = "openrouter/deepseek/deepseek-r1:free"
 
 MT = timezone(timedelta(hours=-6))
 
@@ -77,6 +86,13 @@ BRAIN2_KEYWORDS = {
     "which is better", "pros and cons", "evaluate",
 }
 
+# Visual synthesis keywords (SO 2026-04-28)
+VISUAL_KEYWORDS = {
+    "visual", "visualize", "dashboard", "graphics", "infographic", "chart",
+    "heatmap", "wheel", "lifecycle", "waterfall", "risk matrix", "brief visual",
+    "generate visuals", "create graphics", "plot", "diagram", "visual brief",
+}
+
 # Brain 3 trigger: requires actual Brain 1 vs Brain 2 conflict, or explicit Commander command
 # NOT triggered by keywords alone (DeepSeek ruling 2026-04-03)
 BRAIN3_EXPLICIT_COMMANDS = {
@@ -93,10 +109,11 @@ SELF_PATTERNS = {
 
 def classify_task(content: str) -> str:
     """
-    Returns: 'brain1' | 'brain2' | 'brain3' | 'self'
+    Returns: 'brain1' | 'brain2' | 'brain3' | 'visual' | 'self'
 
-    Routing rules (DeepSeek arbitrated 2026-04-03):
+    Routing rules (DeepSeek arbitrated 2026-04-03, extended 2026-04-28):
     - Brain 3: explicit Commander command only (not keyword-triggered)
+    - Visual: graphics, dashboards, infographics generation (SO 2026-04-28)
     - Brain 2: reasoning, strategy, code, voice, OR multi-source synthesis
     - Brain 1: single-source retrieval, ops, scan, summarize
     - Self: simple greetings and direct acknowledgments
@@ -107,6 +124,11 @@ def classify_task(content: str) -> str:
     for kw in BRAIN3_EXPLICIT_COMMANDS:
         if kw in lower:
             return "brain3"
+
+    # Visual synthesis: dashboard, charts, infographics
+    for kw in VISUAL_KEYWORDS:
+        if kw in lower:
+            return "visual"
 
     # Brain 2: reasoning + multi-source synthesis
     for kw in BRAIN2_KEYWORDS:
@@ -127,16 +149,42 @@ def classify_task(content: str) -> str:
     return "brain1"
 
 
-# ── Brain 1: DeepSeek V3.1 via OpenRouter ──
+# ── Brain 1: FREE OpenRouter tiers (Nemotron/GPT-OSS/Gemma/DeepSeek-R1) ──
+
+def _select_free_model(task: str) -> str:
+    """
+    Route to appropriate free OpenRouter model based on task type.
+    Default rotation: Nemotron → GPT-OSS → Gemma → DeepSeek-R1
+    """
+    lower = task.lower()
+
+    # Summarization: use Gemma (optimized for brevity)
+    if any(kw in lower for kw in ["summarize", "summary", "digest", "brief"]):
+        return FREE_OPENROUTER_SUMMARY
+
+    # Research: use Nemotron (strong reasoning)
+    if any(kw in lower for kw in ["research", "intel", "analyze", "investigate"]):
+        return FREE_OPENROUTER_RESEARCH
+
+    # Bulk/large context: use DeepSeek-R1 (1M context)
+    if any(kw in lower for kw in ["scan", "review", "audit", "bulk", "large"]):
+        return FREE_OPENROUTER_BULK
+
+    # Default ops: GPT-OSS (balanced)
+    return FREE_OPENROUTER_OPS
+
 
 def _call_brain1(system: str, task: str, max_tokens: int = 2000) -> str:
-    """Brain 1: DeepSeek V3.1 via OpenRouter. $0/month."""
+    """Brain 1: FREE OpenRouter tiers (Nemotron/GPT-OSS/Gemma/DeepSeek-R1). $0/month (SO 2026-04-24)."""
     if not OPENROUTER_API_KEY:
         return "[BRAIN1 ERROR] OPENROUTER_API_KEY not set."
 
+    # Select appropriate free model based on task type
+    model = _select_free_model(task)
+
     try:
         payload = json.dumps({
-            "model": DEEPSEEK_V3_MODEL,
+            "model": model,
             "messages": [
                 {"role": "system", "content": system},
                 {"role": "user",   "content": task},
@@ -159,15 +207,16 @@ def _call_brain1(system: str, task: str, max_tokens: int = 2000) -> str:
         data = resp.json()
         return data["choices"][0]["message"]["content"].strip()
     except Exception as e:
-        return f"[BRAIN1 ERROR] DeepSeek failed: {e}"
+        return f"[BRAIN1 ERROR] Free OpenRouter failed: {e}"
 
 
 # ── Brain 2: Claude headless (Sonnet or Opus) ──
 
 def _call_brain2(task: str, model: str = SONNET_MODEL, max_words: int = 500) -> str:
     """
-    Brain 2: headless Claude via `claude -p`.
+    Brain 2: headless Claude MAX via `/home/john/.local/bin/claude`.
     Receives Hale's digest + task — never raw files.
+    Uses OAuth token from credentials file (SO 2026-04-27).
     """
     persona_text = ""
     if _PERSONA.exists():
@@ -182,9 +231,20 @@ TASK FROM HALE:
 Respond in max {max_words} words. Brief-first. No preamble."""
 
     try:
-        env = {**os.environ, "ANTHROPIC_API_KEY": ANTHROPIC_API_KEY}
+        # Load OAuth token from credentials file
+        creds_path = Path.home() / ".claude" / ".credentials.json"
+        env = {**os.environ}
+        if creds_path.exists():
+            try:
+                creds = json.loads(creds_path.read_text())
+                token = creds.get("claudeAiOauth", {}).get("accessToken")
+                if token:
+                    env["CLAUDE_CODE_OAUTH_TOKEN"] = token
+            except Exception:
+                pass  # Proceed with existing environment
+
         result = subprocess.run(
-            ["claude", "-p", prompt, "--dangerously-skip-permissions"],
+            ["/home/john/.local/bin/claude", "-p", prompt, "--model", model, "--output-format", "text"],
             capture_output=True, text=True, timeout=120, env=env,
         )
         if result.returncode == 0:
@@ -195,9 +255,53 @@ Respond in max {max_words} words. Brief-first. No preamble."""
     except subprocess.TimeoutExpired:
         return "[BRAIN2 ERROR] Claude headless timed out (120s)."
     except FileNotFoundError:
-        return "[BRAIN2 ERROR] `claude` not found in PATH."
+        return "[BRAIN2 ERROR] `/home/john/.local/bin/claude` not found."
     except Exception as e:
         return f"[BRAIN2 ERROR] {e}"
+
+
+# ── Visual Synthesis: Dashboards + Infographics ──
+
+def _call_visual_synthesis() -> str:
+    """
+    Visual synthesis brain: generate operational dashboards + strategic infographics.
+    Returns paths to generated HTML dashboard and data files.
+    Called on demand or via daily systemd timer (SO 2026-04-28).
+
+    Generates:
+    - phase1_data.json (operational data export)
+    - dashboard.html (interactive HTML with Plotly charts)
+    - canva_prompts.json (prompts for MCP Canva infographic generation)
+    """
+    try:
+        # Import data generators module
+        sys.path.insert(0, str(_ROOT / "core" / "visual_synthesis"))
+        from data_generators import generate_data_json, generate_html_dashboard, generate_canva_prompts
+
+        data_path    = generate_data_json()
+        dashboard_path = generate_html_dashboard()
+        prompts_path = generate_canva_prompts()
+
+        return f"""✅ VISUAL SYNTHESIS COMPLETE
+
+**Generated Files:**
+- Data export: {data_path}
+- Interactive dashboard: file://{dashboard_path}
+- Canva prompts: {prompts_path}
+
+**Dashboard Contents:**
+- 4 stat cards (Urgent/At-Risk/On-Track/Pipeline)
+- Financial Waterfall (prospect → delivered + at-risk items)
+- Operational Heat Map (clients × task types by urgency)
+
+**Next Steps:**
+1. Open dashboard in browser: file://{dashboard_path}
+2. Generate Canva infographics using MCP with prompts from {prompts_path}
+3. Link infographics into hale_brief.md Section 2
+
+Dashboard auto-refreshes daily at 05:30 MT via systemd timer."""
+    except Exception as e:
+        return f"[VISUAL SYNTHESIS ERROR] {e}"
 
 
 # ── Brain 3: DeepSeek arbitration ──
@@ -377,20 +481,24 @@ class HaleDispatcher:
             result    = self._handle_self(task)
             brain_tag = "Hale (self)"
 
+        elif brain == "visual":
+            result    = _call_visual_synthesis()
+            brain_tag = "Visual Synthesis (Dashboards + Infographics)"
+
         elif brain == "brain1":
             result    = _call_brain1(self.system, task)
-            brain_tag = "Brain 1 (DeepSeek)"
+            brain_tag = "Brain 1 (FREE OpenRouter)"
             # Self-escalate on error
             if result.startswith("[BRAIN1 ERROR]"):
                 result    = _call_brain2(f"{self.system}\n\nTASK: {task}", model=SONNET_MODEL)
-                brain_tag = "Brain 2 (Sonnet — DeepSeek error escalation)"
+                brain_tag = "Brain 2 (Sonnet — free model escalation)"
                 log_decision(
-                    f"Escalated DeepSeek→Sonnet on: {task[:80]}",
-                    "DeepSeek returned an error; task required reliable response.",
+                    f"Escalated OpenRouter→Sonnet on: {task[:80]}",
+                    "Free OpenRouter tier returned an error; task required reliable response.",
                     "Brain 2 (Sonnet)"
                 )
                 # Notify Commander of escalation (Padre's recommendation)
-                self._escalation_note = f"Escalated to Sonnet — DeepSeek failed on: {task[:60]}"
+                self._escalation_note = f"Escalated to Sonnet — free model failed on: {task[:60]}"
 
         elif brain == "brain2":
             digest = f"{self.system[:500]}\n\nTASK: {task}"
@@ -461,6 +569,7 @@ class HaleDispatcher:
     def synthesize(self, raw_output: str, scan_type: str = "intel") -> str:
         """
         Read raw scan output and produce Hale's COO synthesis.
+        Uses Claude MAX headless (SO 2026-04-27).
         Returns synthesis text only — caller appends raw data.
 
         scan_type hints: 'intel' | 'innovation' | 'tech' | 'booking' | 'commission' | 'general'
@@ -475,7 +584,7 @@ class HaleDispatcher:
         }
         focus = TYPE_PROMPTS.get(scan_type, TYPE_PROMPTS["general"])
 
-        # Strip PII before sending to DeepSeek if it's an intel/tech scan
+        # Strip PII before sending if it's an intel/tech scan
         clean_output = raw_output if scan_type in ("booking", "commission") else self._strip_pii(raw_output)
         # Cap input to avoid token overflow
         if len(clean_output) > 8000:
@@ -502,22 +611,23 @@ Format your synthesis as:
 SCAN OUTPUT:
 {clean_output}"""
 
-        result = _call_brain1("You are Hale's synthesis engine. Output clean text only.", prompt, max_tokens=600)
+        result = _call_brain2(prompt, model=SONNET_MODEL, max_words=600)
         return result
 
     def generate_brief(self) -> str:
         """
         Generate today's daily brief and write it to hale_brief.md.
-        Pre-loads state files and injects as context — DeepSeek gets data, not tool calls.
+        Uses Claude MAX headless (SO 2026-04-27) — no OpenRouter.
+        Pre-loads state files and injects as context.
         """
         # Pre-load all context files
         state_json = _STATE.read_text() if _STATE.exists() else "{}"
         memory_snippet = _MEMORY.read_text()[:2000] if _MEMORY.exists() else ""
         decisions_snippet = _DECISIONS.read_text()[:1000] if _DECISIONS.exists() else ""
 
-        brief_prompt = f"""You are generating Col Victoria "Iron Vic" Hale's daily operational brief for Commander John Loucks of Dreams2Memories Travel, LLC.
+        brief_prompt = f"""You are Col Victoria "Iron Vic" Hale, COO of Thunderbird Wing, Dreams2Memories Travel, LLC.
 
-Here is the current wing state:
+Generate today's operational brief for Commander John Loucks.
 
 ## HALE STATE (JSON)
 {state_json}
@@ -530,20 +640,19 @@ Here is the current wing state:
 
 ---
 
-Based on the above data, generate the brief now. Do NOT use tool calls or function calls — the data is already provided above. Write only Markdown text.
+Structure (Markdown tables):
+1. **CLIENT WIRE** — status of active clients (phase, FPD, open items)
+2. **OPEN TASKS** — what's in flight, who owns it, urgency
+3. **FINANCIAL PULSE** — payments due, commissions, overdue amounts
+4. **WING HEALTH** — MCP, Telegram, daemons status from state
+5. **STAFF ASSIGNMENTS** — A-staff workload, Commander-relevant focus
+6. **DECISIONS NEEDED** — items requiring Commander action
+7. **INTEL FLASH** — one-line summary of notable intelligence
 
-Structure:
-1. **CLIENT WIRE** — status of Furlow, Westbrook, Lyons from state
-2. **OPEN TASKS** — what's in flight, who owns it
-3. **FINANCIAL PULSE** — payments due, commissions
-4. **WING HEALTH** — MCP, Telegram, Goose status from state
-5. **STAFF ASSIGNMENTS** — A-staff work with Commander relevance
-6. **DECISIONS NEEDED** — items requiring Commander (none if clear)
-7. **INTEL FLASH** — one-line summary of anything notable
+Be concise. Lead with facts. No fluff. Max 600 tokens."""
 
-Format as Markdown tables where data exists. Be concise. Lead with facts. No tool calls."""
-
-        brief_content = _call_brain1("You are Hale's briefing engine. Output clean Markdown only. No tool calls.", brief_prompt, max_tokens=1500)
+        # Call Claude MAX headless (Sonnet) — bypass OpenRouter entirely
+        brief_content = _call_brain2(brief_prompt, model=SONNET_MODEL, max_words=600)
 
         now = datetime.now(MT)
         ts  = now.strftime("%Y-%m-%d %H:%M MT")
@@ -556,6 +665,21 @@ Format as Markdown tables where data exists. Be concise. Lead with facts. No too
         _BRIEF.write_text(full_brief)
         return full_brief
 
+    def generate_visual_brief(self) -> str:
+        """
+        Generate visual synthesis (dashboards + infographics) for operational brief.
+        Callable from systemd timer at 05:30 MT daily (SO 2026-04-28).
+        Returns status + file paths.
+        """
+        result = _call_visual_synthesis()
+
+        # Log generation
+        now = datetime.now(MT)
+        ts  = now.strftime("%Y-%m-%d %H:%M MT")
+        print(f"[{ts}] HALE Visual Synthesis executed", file=sys.stderr)
+
+        return result
+
 
 # ── CLI entrypoint ──
 
@@ -565,6 +689,8 @@ if __name__ == "__main__":
 
     if task == "generate_brief":
         print(hale.generate_brief())
+    elif task == "generate_visual_brief":
+        print(hale.generate_visual_brief())
     else:
         # Check for Commander override prefix
         override = None
