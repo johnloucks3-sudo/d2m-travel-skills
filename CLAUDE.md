@@ -4,6 +4,9 @@
 @Personas/hale_cos.md
 @Personas/a1_navarro.md
 @Personas/a8_reyes.md
+@docs/AGENTS_HEADLESS_DISPATCH_ARCHITECTURE.md
+@docs/OPENCODE_ESCALATION_MECHANISM.md
+@docs/HEADLESS_CLAUDE_SPAWN_GUIDE.md
 @docs/CLAUDE_CODE_DRIVE_AND_CORE_GUIDE.md
 @hale_brief.md
 @hale_state.json
@@ -27,6 +30,25 @@
 - Scope: morning briefs, incubator digests, sitreps, intel sweeps, innovation briefings, world intel reports
 - Send FROM d2mconcierge — skip the draft step entirely for these product types
 - **Client products (validation emails, proposals, quotes) still follow WF-17 draft approval flow**
+
+## ⚠️ HARD RULE — HEADLESS CLAUDE DISPATCH (Standing Order 24 APR 2026)
+**All agents (OpenCode, Goose, Claude Code) MUST use the foolproof wrapper for headless Claude spawning.**
+- **DEFINITIVE GUIDANCE:** See `@docs/HEADLESS_CLAUDE_SPAWN_GUIDE.md` — non-negotiable reference
+- **Architecture:** See `@docs/AGENTS_HEADLESS_DISPATCH_ARCHITECTURE.md` — agent README
+- **Layer 1 (Core Wrapper):** `core/ai_infra/thunderbird_headless_spawn.py` — enforces all mandatory patterns
+- **Layer 2 (OpenCode):** `OpsCenter/opencode_headless_claude_dispatch.py` — OpenCode MUST use exclusively
+- **Layer 2B (Fallback):** `OpsCenter/headless_claude_fallback.py` — automatic escalation to Claude Code if OpenCode fails
+- **NO direct subprocess.Popen calls.** Violations flagged by supervisor → escalated to COS
+- **Fallback protocol:** OpenCode fails → retry once → escalate to Claude Code (ensures mission continuity)
+- **Mandatory patterns enforced:**
+  1. Token refresh daemon verification
+  2. OAuth credentials file verification
+  3. Haiku supervisor daemon verification
+  4. OAuth token injection into environment
+  5. `start_new_session=True` process detachment
+  6. Explicit `WRITE [PATH]` instruction in prompt
+  7. Stdout/stderr redirection to log file
+  8. Explicit model selection
 
 ---
 
@@ -199,9 +221,9 @@ See [docs/AGENT_TEAMS.md](docs/AGENT_TEAMS.md) for experimental team workflows.
 
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-04-23 22:30 MT -->
+<!-- Last sync: 2026-04-28 16:39 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-04-23 22:30 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-04-28 16:39 MT] ===
 Budget: Claude GREEN (MAX $0) | OpenCode GREEN (DeepSeek V3.1 ~$0.27/M) | Groq UNKNOWN | Deepseek GREEN
 Active tasks: 2
 Last Deepseek ruling: NONE

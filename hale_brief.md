@@ -1,4 +1,4 @@
-# WING STATUS — 2026-04-23 · Dreams2Memories Travel, LLC
+# WING STATUS — 2026-04-28 · Dreams2Memories Travel, LLC
 *Auto-generated · Read this first · Source of truth for session orientation*
 
 ---
@@ -28,12 +28,12 @@
 | Client | Ship / Line | Depart | Phase | FPD | Open Items |
 |--------|------------|--------|-------|-----|------------|
 | McLeod / McGlasson | Silver Muse · Silversea · Med | 2026-06-23 | PRE-DEPARTURE | ✅ PAID | 2 (transfer dispute, return flights TBD) |
+| Lyons, Nancy & Ken | Regent Splendor · Athens→NY | 2026-08-11 | MOMENTUM | ⚠️ **DUE MAY 11** | 3 (FPD due May 11, flights TBD...) |
 | Furlow, Missy & John | Regent Grandeur · Scandinavia | 2026-08-29 | PRE-DEPARTURE | ✅ PAID $15,486 | 1 (insurance pending) |
 | Nichols, Larry | Regent Grandeur · Scandinavia | 2026-08-29 | PRE-DEPARTURE | ✅ PAID | 2 (insurance on file (review), flights TBD) |
 | Ely / Darrow | Regent Grandeur · Scandinavia | 2026-08-29 | PRE-DEPARTURE | ✅ PAID | 2 (flights TBD, pre/post hotel TBD) |
 | Kuklinski · 3 couples | Viking Mars · Panama Canal | 2026-12-17 | RESEARCH | ✅ PAID $21,244 | 5 (validation email (~OVERDUE), insurance email (~OVERDUE)...) |
 | ~~Westbrook, Ron & Lindy~~ | ~~Silver Nova · Pacific~~ | ~~2026-04-23~~ | **CANCELLED — Medical emergency 2026-04-20 · Booking 566904-25** | — | 2 (Allianz claim $11,280 pending, contact Perx+SkyLux (awaiting Commander confirm)) |
-| ~~Lyons, Nancy & Ken~~ | ~~Regent Splendor~~ | ~~2026-08-11~~ | **PROSPECT ONLY** — Not a D2M client | — | — |
 
 ---
 
@@ -85,4 +85,4 @@
 
 *Source files: dossiers/ · hale_state.json · THUNDERBIRD_MASTER_PLAN.md*
 *Auto-regen target: 05:30 MT daily via scripts/generate_wing_status.py*
-*Token count target: <600 · Timestamp: 2026-04-23T05:30:01.640846*
+*Token count target: <600 · Timestamp: 2026-04-28T05:30:00.849674*

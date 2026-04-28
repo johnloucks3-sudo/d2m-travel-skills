@@ -1,6 +1,6 @@
 # HALE — Institutional Memory
 *Persistent across all sessions. Updated by hale_dispatcher. Loaded at session start.*
-*Last updated: 2026-04-08*
+*Last updated: 2026-04-24*
 
 ---
 
@@ -45,6 +45,7 @@ Commander always knows which Hale he's talking to before she says another word.
 | OPUS override | 2026-04-03 | "OPUS: [task]" from Telegram → route to Claude Opus headless. |
 | Sonnet override | 2026-04-03 | "Sonnet: [task]" from Telegram → route to Claude Sonnet headless. |
 | Hale MAX Autonomy | 2026-04-12 | Authority: Do anything except email clients or commit money. Reminder protocol active. |
+| **FULL WING AUTHORITY** | **2026-04-24** | **Commander granted Hale complete authority over the wing. ONLY exception: WF-17 gate (client send still requires Commander approval). Execute without confirmation on all wing tasks.** |
 
 ---
 
@@ -86,7 +87,9 @@ Commander always knows which Hale he's talking to before she says another word.
 - Telegram bot: active, routes to OpsCenter task_processor.py
 - **OpenCode** v1.3.17: DeepSeek V3.1 via OpenRouter (~$0.27/M), headless via `opencode run -m openrouter/deepseek/deepseek-chat-v3.1 "task"`
 - Claude headless: `claude -p "[prompt]" --dangerously-skip-permissions`
-- **Chrome debug service: `chrome-debug.service` — LIVE, port 9222, headless, autostart**
+- **Hale Draft Engine**: systemd timer active — 07:00 MT daily
+- **Touchpoint Proposer**: systemd timer active — 06:00 MT daily
+- **Chrome debug service: `chrome-debug.service` — OFFLINE (port 9222 not responding)**
   - Profile: ~/.chrome-debug-profile (separate from Commander's personal Chrome)
   - Gives OpenCode CDP access for SPA scraping (Silversea.com, OA portal, etc.)
   - Verify: `curl -s http://localhost:9222/json/version`
@@ -99,16 +102,20 @@ Commander always knows which Hale he's talking to before she says another word.
 ### Active Clients
 | Client | Trip | Status | Key Facts |
 |--------|------|--------|-----------|
-| Furlow (Missy & John) | Grandeur Scandinavia Aug 29-Sep 8 | BOOKED | Final pmt $15,486 PAID Mar 25. Finnair BB4X94. All 3 couples paid. |
-| Westbrook, Brent & Kim | — | INACTIVE | Commander's son & daughter-in-law. SWA pilot (Brent), anesthesiologist (Kim). Honolulu Apr 13-18 was Commander + Susan's trip, not Brent & Kim. No active booking. |
-| Loucks, John & Susan | Honolulu, HI — Apr 13-18 | PERSONAL | Commander's own vacation with Susan. Not a D2M booking. |
-| Westbrook, Ron & Lindy | Silver Nova Trans-Pacific Apr 23–May 11 | ACTIVE | Commander's personal friends, Monument CO. Commander + Susan Loucks traveling with them (party of 4). Dossier: Westbrook_SilverNova_Personal.md. NOT a D2M booking — booked via Perx/SkyLux. |
-| Lyons (Nancy & Ken) | RSSC Splendor Athens ~Aug 10 | F&F/Validation | Internal training only. No lifecycle client comms. |
+| McLeod / McGlasson | Silver Muse · Silversea · Med · Jun 23 | ACTIVE | FPD PAID. Open: transfer dispute, return flights TBD. |
+| Lyons, Nancy & Ken | Regent Splendor · Athens→NY · Aug 11 | ACTIVE | **FPD DUE MAY 11** — amount TBD. Flights TBD. F&F/validation status. |
+| Furlow, Missy & John | Regent Grandeur · Scandinavia · Aug 29–Sep 8 | BOOKED | Final pmt $15,486 PAID Mar 25. Finnair BB4X94. All 3 couples paid. Insurance pending. |
+| Nichols, Larry | Regent Grandeur · Scandinavia · Aug 29 | BOOKED | FPD PAID. Insurance on file (review), flights TBD. |
+| Ely / Darrow | Regent Grandeur · Scandinavia · Aug 29 | BOOKED | FPD PAID. Flights TBD, pre/post hotel TBD. |
+| Kuklinski · 3 couples | Viking Mars · Panama Canal · Dec 17–27 | RESEARCH | FPD PAID $21,244. Booking 9593880/9593873/9595029. Guests: **Kyle+Rosalie Kuklinski** (9593880, $800 SBC), **Roger+Dr. Nicholas Kuklinski** (9593873, $200 SBC), **Josh+Erica Morton** (9595029, $200 SBC). **Validation email pushed to drafts 2026-04-24 (SEND GATE PENDING).** Insurance email still OVERDUE. Josh Morton guest form still OVERDUE. Air/hotel search open. Excursion window Aug 2; dining window Sep 18. |
+| Westbrook, Ron & Lindy | ~~Silver Nova Trans-Pacific~~ | **CANCELLED + BEREAVEMENT** | **⚠️ Lindy Westbrook passed away April 23, 2026.** Booking 566904-25. Allianz Annual Premier E2549991663 ($15K policy) — claim scope $11,280. Both transfers refunded. **Cancellation drafts pushed to d2mconcierge 2026-04-24:** Jenna Woodcock (jwoodcock@perx.com) + Zoro L (zoro@skyluxtravel.com). Awaiting Commander send approval. Hilton Tokyo 33S2013960 (~$480) also in Allianz claim. NOT a D2M booking. Handle all Ron Westbrook communications with bereavement sensitivity. |
+| Westbrook, Brent & Kim | — | INACTIVE | Commander's son & daughter-in-law. SWA pilot (Brent), anesthesiologist (Kim). No active booking. |
+| Loucks, John & Susan | Japan voyage (Silver Nova companion party) | PERSONAL | Commander's personal trip with Susan + Ron & Lindy Westbrook. Returned ~May 11. Not a D2M booking. |
 
 ### ⚠️ WESTBROOK DISAMBIGUATION — REQUIRED READING
 Two unrelated Westbrook families. NEVER conflate them.
-- **Brent & Kim Westbrook** — Commander's son & daughter-in-law. Honolulu prospect (unbooked). No dossier. Client relationship.
-- **Ron & Lindy Westbrook** — Commander's personal friends from Monument, CO. Silver Nova Trans-Pacific active trip. Personal/F&F service, not a D2M-booked trip. Commander and Susan Loucks are travel companions on this voyage (Apr 23–May 11). When Commander says "I'm leaving for a month" — this is where he's going.
+- **Brent & Kim Westbrook** — Commander's son & daughter-in-law. No active booking. Client relationship.
+- **Ron & Lindy Westbrook** — Commander's personal friends from Monument, CO. Silver Nova Trans-Pacific CANCELLED (medical emergency Apr 20). Personal/F&F service, not a D2M-booked trip. Commander and Susan Loucks were travel companions.
 
 ### Client Voice Rules (WF-17 Gate)
 - Every hotel/transfer/excursion: name, link, images, customer comments, price (Queen/Double + King/Grand)
@@ -164,7 +171,7 @@ Silversea · Regent Seven Seas · Cunard · Oceania · Seabourn · Viking · Ama
 
 ---
 
-*This file is maintained by hale_dispatcher.py. Do not edit manually.
+*This file is maintained by hale_dispatcher.py. Last manual sync: 2026-04-24 (MISSION-005 — OpenCode state sync).*
 ## A7 - Brig Gen (Ret.) Thomas "Gauge" Sterling (ADDED 2026-04-03)
 Slot: A7 (Process, Metrics & Technology Improvement).
 Background: Malcolm Baldrige Quality Award winner, AI firm founder. Worth millions, works for mission.
@@ -184,5 +191,39 @@ Reports to: COS (Hale).
 - Hale Persona Deep Assessment tasked to Claude Opus for strategic recommendations
 
 **Current Focus:** Making Hale more autonomous, authoritative, and persona-driven in interactions.
+
+## PHASE 4 DEPLOYMENT — Layers 11-18 (Completed 2026-04-23)
+
+**Commander Directive:** Deploy organizational architecture layers 11-18 for Hale's operational maturity and continuity.
+
+### Layer Summary:
+- **Layer 11: Absence Protocol** — Authority expansion during Commander absence (active Apr 10-23)
+- **Layer 12: Conflict Resolution** — Staff capability and performance modeling
+- **Layer 13: Performance Modeling** — Objective metrics for staff effectiveness
+- **Layer 14: Crisis Mode** — Emergency operations framework
+- **Layer 15: Escalation Tiers** — Formalized decision escalation pathways
+- **Layer 16: Culture** — Wing culture maintenance and reinforcement
+- **Layer 17: Pattern Mining** — Learning from operational patterns
+- **Layer 18: Degradation & Evolution** — Engine failover and system evolution
+
+### Key Deployments:
+1. **Hale Draft Engine** — systemd timer (07:00 MT daily)
+2. **Touchpoint Proposer** — systemd timer (06:00 MT daily)
+3. **Layer 11 Authority Expansion revoked** — Commander returned April 23, normal operations resumed
+4. **Trust-compounding system tested** — 6 test cases, all PASS (baseline trust score: 60/100 COMMANDER tier)
+
+### Active Services Status (as of 2026-04-23):
+- **d2m-tasking-watcher**: RUNNING (V6 inotify)
+- **opencode**: RUNNING — deepseek-chat-v3.1
+- **claude_headless**: READY — Max OAuth + cache
+- **telegram_gw**: RUNNING — 3 bots active (D2MC2C, GooseD2M, Dani)
+- **mcp_server**: RUNNING — thunderbird-mcp.service port 8765
+- **chrome_debug**: OFFLINE — port 9222 not responding
+- **oauth_cache**: LIVE — hooks/refresh_claude_oauth_cache.sh auto-refreshes
+
+### Disposition Adjustment:
+- **Commander returned** from absence (Apr 10-23)
+- **Address form**: "Yoda" (normal operations)
+- **Layer 11 Authority Expansion revokes** — temporary Tier 5 authority ends
 
 *
