@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D2M Operational Dashboard</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+
+        header {
+            margin-bottom: 30px;
+            border-bottom: 2px solid #0066cc;
+            padding-bottom: 15px;
+        }
+
+        h1 {
+            color: #0066cc;
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+
+        .header-meta {
+            font-size: 13px;
+            color: #666;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .controls {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+        }
+
+        .filter-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            font-size: 12px;
+            color: #333;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            background: white;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #0066cc;
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 10px 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: white;
+            color: #333;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        button:hover {
+            background: #f0f0f0;
+            border-color: #999;
+        }
+
+        button.primary {
+            background: #0066cc;
+            color: white;
+            border-color: #0066cc;
+        }
+
+        button.primary:hover {
+            background: #0052a3;
+        }
+
+        .kpi-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .kpi-card {
+            background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .kpi-label {
+            font-size: 12px;
+            opacity: 0.9;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .kpi-value {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .charts {
+            display: grid;
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+
+        .chart-container {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .chart-title {
+            padding: 15px 20px;
+            background: #f9f9f9;
+            border-bottom: 1px solid #eee;
+            font-weight: 600;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .chart-body {
+            padding: 0;
+            height: 400px;
+        }
+
+        .exports {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
+
+        .exports h3 {
+            font-size: 14px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .export-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+
+        .error {
+            background: #fee;
+            color: #c00;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            border-left: 4px solid #c00;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>D2M Operational Dashboard</h1>
+            <div class="header-meta">
+                <span>Real-time pipeline visibility</span>
+                <span>Last updated: <strong id="last-updated">—</strong></span>
+            </div>
+        </header>
+
+        <div class="controls">
+            <div class="filter-group">
+                <div>
+                    <label for="filter-client">Client</label>
+                    <select id="filter-client">
+                        <option value="all">All Clients</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="filter-urgency">Urgency</label>
+                    <select id="filter-urgency">
+                        <option value="all">All Urgencies</option>
+                        <option value="red">Red (Critical)</option>
+                        <option value="yellow">Yellow (Medium)</option>
+                        <option value="green">Green (Low)</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="filter-phase">Phase</label>
+                    <select id="filter-phase">
+                        <option value="all">All Phases</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="filter-tasktype">Task Type</label>
+                    <select id="filter-tasktype">
+                        <option value="all">All Types</option>
+                        <option value="Booking">Booking</option>
+                        <option value="Excursions">Excursions</option>
+                        <option value="Payment">Payment</option>
+                        <option value="Validation">Validation</option>
+                        <option value="Proposals">Proposals</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button id="btn-refresh" class="primary">Refresh Now</button>
+                <button id="btn-clear-filters">Clear Filters</button>
+            </div>
+        </div>
+
+        <div id="kpi-section" class="kpi-cards"></div>
+
+        <div class="charts">
+            <div class="chart-container">
+                <div class="chart-title">Revenue Forecast (Committed + Booked + At-Risk)</div>
+                <div class="chart-body" id="waterfall"></div>
+            </div>
+            <div class="chart-container">
+                <div class="chart-title">Client × Urgency Heatmap</div>
+                <div class="chart-body" id="heatmap"></div>
+            </div>
+        </div>
+
+        <div class="exports">
+            <h3>Export Data</h3>
+            <div class="export-buttons">
+                <button id="btn-export-waterfall">Download Forecast (PNG)</button>
+                <button id="btn-export-heatmap">Download Heatmap (PNG)</button>
+                <button id="btn-export-csv">Export Clients CSV</button>
+                <button id="btn-export-tasks-csv">Export Tasks CSV</button>
+                <button id="btn-export-all">Export All Package</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global state
+        let _rawData = null;
+        let _filters = {
+            client: "all",
+            urgency: "all",
+            phase: "all",
+            tasktype: "all"
+        };
+
+        // Initialize on page load
+        window.addEventListener("DOMContentLoaded", async () => {
+            await fetchData();
+            populateFilterOptions();
+            setupEventListeners();
+
+            // Start polling every 20 minutes
+            setInterval(fetchData, 20 * 60 * 1000);
+        });
+
+        // Fetch fresh data from API
+        async function fetchData() {
+            try {
+                const response = await fetch("/api/data/phase1");
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+                _rawData = await response.json();
+
+                // Update timestamp
+                if (_rawData._served_at) {
+                    const dt = new Date(_rawData._served_at);
+                    const timeStr = dt.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" });
+                    document.getElementById("last-updated").textContent = timeStr + " MT";
+                }
+
+                // Re-render with current filters
+                applyFiltersAndRender();
+            } catch (error) {
+                console.error("Failed to fetch data:", error);
+            }
+        }
+
+        // Populate filter dropdowns
+        function populateFilterOptions() {
+            if (!_rawData) return;
+
+            // Clients
+            const clients = [...new Set(_rawData.clients.map(c => c.name))].sort();
+            const clientSelect = document.getElementById("filter-client");
+            clients.forEach(name => {
+                const opt = document.createElement("option");
+                opt.value = name;
+                opt.textContent = name;
+                clientSelect.appendChild(opt);
+            });
+
+            // Phases
+            const phases = [...new Set(_rawData.clients.map(c => c.phase))].sort();
+            const phaseSelect = document.getElementById("filter-phase");
+            phases.forEach(phase => {
+                const opt = document.createElement("option");
+                opt.value = phase;
+                opt.textContent = phase;
+                phaseSelect.appendChild(opt);
+            });
+        }
+
+        // Setup filter and button event listeners
+        function setupEventListeners() {
+            document.getElementById("filter-client").addEventListener("change", (e) => {
+                _filters.client = e.target.value;
+                applyFiltersAndRender();
+            });
+
+            document.getElementById("filter-urgency").addEventListener("change", (e) => {
+                _filters.urgency = e.target.value;
+                applyFiltersAndRender();
+            });
+
+            document.getElementById("filter-phase").addEventListener("change", (e) => {
+                _filters.phase = e.target.value;
+                applyFiltersAndRender();
+            });
+
+            document.getElementById("filter-tasktype").addEventListener("change", (e) => {
+                _filters.tasktype = e.target.value;
+                applyFiltersAndRender();
+            });
+
+            document.getElementById("btn-refresh").addEventListener("click", fetchData);
+            document.getElementById("btn-clear-filters").addEventListener("click", clearFilters);
+
+            // Export buttons
+            document.getElementById("btn-export-waterfall").addEventListener("click", () => {
+                Plotly.downloadImage("waterfall", {
+                    format: "png",
+                    width: 1400,
+                    height: 600,
+                    filename: `d2m-waterfall-${new Date().toISOString().split("T")[0]}`
+                });
+            });
+
+            document.getElementById("btn-export-heatmap").addEventListener("click", () => {
+                Plotly.downloadImage("heatmap", {
+                    format: "png",
+                    width: 1200,
+                    height: 600,
+                    filename: `d2m-heatmap-${new Date().toISOString().split("T")[0]}`
+                });
+            });
+
+            document.getElementById("btn-export-csv").addEventListener("click", () => {
+                exportClientsCsv();
+            });
+
+            document.getElementById("btn-export-tasks-csv").addEventListener("click", () => {
+                exportTasksCsv();
+            });
+
+            document.getElementById("btn-export-all").addEventListener("click", () => {
+                exportAllPackage();
+            });
+        }
+
+        // Clear all filters
+        function clearFilters() {
+            _filters = { client: "all", urgency: "all", phase: "all", tasktype: "all" };
+            document.getElementById("filter-client").value = "all";
+            document.getElementById("filter-urgency").value = "all";
+            document.getElementById("filter-phase").value = "all";
+            document.getElementById("filter-tasktype").value = "all";
+            applyFiltersAndRender();
+        }
+
+        // Apply filters and render charts
+        function applyFiltersAndRender() {
+            if (!_rawData) return;
+
+            // Filter clients
+            let clients = [..._rawData.clients];
+            if (_filters.client !== "all") {
+                clients = clients.filter(c => c.name === _filters.client);
+            }
+            if (_filters.urgency !== "all") {
+                clients = clients.filter(c => c.urgency === _filters.urgency);
+            }
+            if (_filters.phase !== "all") {
+                clients = clients.filter(c => c.phase === _filters.phase);
+            }
+
+            // Filter tasks
+            let tasks = [..._rawData.tasks];
+            if (_filters.client !== "all") {
+                tasks = tasks.filter(t => t.client === _filters.client);
+            }
+            if (_filters.urgency !== "all") {
+                tasks = tasks.filter(t => t.urgency === _filters.urgency);
+            }
+            if (_filters.tasktype !== "all") {
+                tasks = tasks.filter(t => t.task === _filters.tasktype);
+            }
+
+            // Update KPI cards
+            updateKPICards(clients);
+
+            // Render waterfall (uses aggregate financial data, NOT filtered)
+            renderWaterfall(_rawData.financial);
+
+            // Render heatmap (filtered by above logic)
+            renderHeatmap(clients, tasks);
+        }
+
+        // Update KPI cards
+        function updateKPICards(clients) {
+            const totalCommission = clients.reduce((sum, c) => sum + (c.commission || 0), 0);
+            const activeCount = clients.length;
+            const urgentCount = clients.filter(c => c.urgency === "red").length;
+            const atRisk = _rawData.risks ? _rawData.risks.length : 0;
+
+            const html = `
+                <div class="kpi-card">
+                    <div class="kpi-label">Total Commission</div>
+                    <div class="kpi-value">$${(totalCommission / 1000).toFixed(1)}K</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">Active Clients</div>
+                    <div class="kpi-value">${activeCount}</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">Critical Items</div>
+                    <div class="kpi-value">${urgentCount}</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">At-Risk</div>
+                    <div class="kpi-value">${atRisk}</div>
+                </div>
+            `;
+            document.getElementById("kpi-section").innerHTML = html;
+        }
+
+        // Render waterfall chart (aggregate financials)
+        function renderWaterfall(financial) {
+            if (!financial) return;
+
+            const categories = ["Starting", "Committed", "Booked", "At-Risk", "Ending"];
+            const values = [
+                0,
+                financial.committed || 0,
+                financial.booked || 0,
+                -(financial.atRisk || 0),
+                (financial.committed || 0) + (financial.booked || 0) - (financial.atRisk || 0)
+            ];
+            const colors = ["#e8e8e8", "#00cc96", "#636efa", "#ef553b", "#636efa"];
+
+            const trace = {
+                x: categories,
+                y: values,
+                type: "waterfall",
+                marker: { color: colors },
+                connector: { line: { color: "#999" } }
+            };
+
+            const layout = {
+                title: null,
+                xaxis: { title: null },
+                yaxis: { title: "USD" },
+                hovermode: "closest",
+                margin: { t: 20, l: 60, r: 20, b: 40 }
+            };
+
+            Plotly.react("waterfall", [trace], layout, { responsive: true });
+        }
+
+        // Render heatmap
+        function renderHeatmap(clients, tasks) {
+            // Build heatmap: clients × urgency
+            const urgencyValues = { red: 5, yellow: 3, green: 1 };
+            const uniqueClients = [...new Set(clients.map(c => c.name))].sort();
+
+            const z = uniqueClients.map(clientName => {
+                const client = clients.find(c => c.name === clientName);
+                return [urgencyValues[client?.urgency || "green"] || 0];
+            });
+
+            const trace = {
+                z: z,
+                x: ["Urgency"],
+                y: uniqueClients,
+                type: "heatmap",
+                colorscale: [
+                    [0, "#e0e0e0"],
+                    [0.2, "#00cc96"],
+                    [0.6, "#ffa500"],
+                    [1.0, "#ef553b"]
+                ],
+                hovertemplate: "%{y}: %{z}<extra></extra>"
+            };
+
+            const layout = {
+                title: null,
+                xaxis: { title: null },
+                yaxis: { title: null },
+                margin: { t: 20, l: 150, r: 20, b: 40 }
+            };
+
+            Plotly.react("heatmap", [trace], layout, { responsive: true });
+        }
+
+        // Export clients as CSV
+        function exportClientsCsv() {
+            if (!_rawData || !_rawData.clients) return;
+
+            const headers = ["name", "phase", "urgency", "commission", "fpd_days", "fpd_date"];
+            const rows = _rawData.clients.map(c => [
+                c.name,
+                c.phase,
+                c.urgency,
+                c.commission || "",
+                c.fpd_days || "",
+                c.fpd_date || ""
+            ]);
+
+            downloadCsv(headers, rows, `d2m-clients-${new Date().toISOString().split("T")[0]}.csv`);
+        }
+
+        // Export tasks as CSV
+        function exportTasksCsv() {
+            if (!_rawData || !_rawData.tasks) return;
+
+            const headers = ["client", "task", "urgency", "days_remaining", "effort"];
+            const rows = _rawData.tasks.map(t => [
+                t.client,
+                t.task,
+                t.urgency,
+                t.days_remaining || "",
+                t.effort || ""
+            ]);
+
+            downloadCsv(headers, rows, `d2m-tasks-${new Date().toISOString().split("T")[0]}.csv`);
+        }
+
+        // Download CSV helper
+        function downloadCsv(headers, rows, filename) {
+            const csvContent = [
+                headers.join(","),
+                ...rows.map(row => row.map(v => `"${v}"`).join(","))
+            ].join("\n");
+
+            const blob = new Blob([csvContent], { type: "text/csv" });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.href = url;
+            link.download = filename;
+            link.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // Export all package (sequential downloads with delays)
+        function exportAllPackage() {
+            const delay = 400; // ms between downloads
+            let index = 0;
+
+            const exports = [
+                () => Plotly.downloadImage("waterfall", { format: "png", width: 1400, height: 600, filename: `d2m-waterfall-${new Date().toISOString().split("T")[0]}` }),
+                () => Plotly.downloadImage("heatmap", { format: "png", width: 1200, height: 600, filename: `d2m-heatmap-${new Date().toISOString().split("T")[0]}` }),
+                exportClientsCsv,
+                exportTasksCsv
+            ];
+
+            function executeNext() {
+                if (index < exports.length) {
+                    exports[index]();
+                    index++;
+                    setTimeout(executeNext, delay);
+                }
+            }
+
+            executeNext();
+        }
+    </script>
+</body>
+</html>
