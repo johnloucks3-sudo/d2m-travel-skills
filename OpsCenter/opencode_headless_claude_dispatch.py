@@ -21,8 +21,44 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from core.ai_infra.thunderbird_headless_spawn import spawn_headless_claude
 from core.ai_infra.thunderbird_model_router import route_model
+from OpsCenter.hale_escalation_triggers import should_escalate
 
 logger = logging.getLogger("opencode_dispatch")
+
+
+# Persona routing map — maps persona targets to prompt personalities and model defaults
+PERSONA_CONFIGS = {
+    "hale_cos": {
+        "name": "Col Victoria 'Iron Vic' Hale",
+        "role": "Chief of Staff",
+        "model_default": "claude-opus-4-7",
+        "prompt_prefix": "You are Col Victoria 'Iron Vic' Hale, Chief of Staff of Dreams2Memories Travel, LLC.",
+    },
+    "a5_castillo": {
+        "name": "Lt Col Ryan 'Viper' Castillo",
+        "role": "Strategy & Business Growth",
+        "model_default": "claude-sonnet-4-6",
+        "prompt_prefix": "You are Lt Col Ryan 'Viper' Castillo, Head of Strategy & Business Growth at Dreams2Memories Travel, LLC.",
+    },
+    "a9_harlan": {
+        "name": "Victor 'Vic' Harlan",
+        "role": "Finance & Process Improvement",
+        "model_default": "claude-sonnet-4-6",
+        "prompt_prefix": "You are Victor 'Vic' Harlan, Head of Finance & Process Improvement at Dreams2Memories Travel, LLC.",
+    },
+    "ch_washington": {
+        "name": "Col James 'Padre' Washington",
+        "role": "Wisdom, Ethics & Morale",
+        "model_default": "claude-sonnet-4-6",
+        "prompt_prefix": "You are Col James 'Padre' Washington, Chief of Wisdom, Ethics & Morale at Dreams2Memories Travel, LLC.",
+    },
+    "a12_elon": {
+        "name": "ELON",
+        "role": "Innovation & Disruption",
+        "model_default": "claude-sonnet-4-6",
+        "prompt_prefix": "You are ELON, Head of Innovation & Disruption at Dreams2Memories Travel, LLC.",
+    },
+}
 
 
 def dispatch_to_headless_claude(
@@ -34,7 +70,8 @@ def dispatch_to_headless_claude(
     content_size: Optional[int] = None,
     has_images: bool = False,
     budget: str = "normal",
-    required_context: Optional[int] = None
+    required_context: Optional[int] = None,
+    full_prompt: Optional[str] = None
 ) -> dict:
     """
     OpenCode MUST use this to spawn headless Claude with AUTOMATIC MODEL ROUTING.
@@ -59,6 +96,7 @@ def dispatch_to_headless_claude(
         has_images: Whether task includes imagery (routes to Gemini Flash)
         budget: "minimal" → DeepSeek, "normal" → default, "premium" → Grok/Opus
         required_context: Minimum context window needed (>1M → Grok 2M)
+        full_prompt: Optional complete prompt to use instead of building default prompt (for persona dispatch)
 
     Returns:
         dict with spawn result:
@@ -119,7 +157,11 @@ def dispatch_to_headless_claude(
         logger.info(f"Model explicit: {model}")
 
     # ENFORCE: Build prompt — simple and clear (no confusing file/stdout instructions)
-    prompt = f"""You are performing a task for Commander John Loucks of Dreams2Memories Travel, LLC.
+    # Use full_prompt if provided (for persona dispatch), otherwise build default
+    if full_prompt:
+        prompt = full_prompt
+    else:
+        prompt = f"""You are performing a task for Commander John Loucks of Dreams2Memories Travel, LLC.
 
 TASK: {task_description}
 
@@ -149,6 +191,230 @@ Just the actual task output."""
         )
 
     return result
+
+
+def dispatch_to_persona(
+    persona_target: str,
+    task_description: str,
+    output_file_path: str,
+    task_name: str = "opencode_task",
+    decision_type: str = "judgment",
+    model_override: Optional[str] = None,
+    context: Optional[dict] = None
+) -> dict:
+    """
+    Dispatch task to a specific A-staff persona using headless Claude.
+
+    This implements tier-based routing: instead of always routing to Hale,
+    routes to the appropriate specialist (A5 for strategy, A9 for finance,
+    CH for ethics, etc.) for more efficient decision-making.
+
+    Args:
+        persona_target: Persona identifier (e.g., "a5_castillo", "ch_washington")
+        task_description: The decision/task to present
+        output_file_path: Where persona's response should be written
+        task_name: Task name for logging
+        decision_type: Type of decision (judgment, strategy, ethics, etc.)
+        model_override: Optional explicit model override
+        context: Optional context dict (converted to JSON for briefing)
+
+    Returns:
+        dict with result from headless Claude dispatch
+    """
+    import time
+
+    # Get persona config
+    persona_config = PERSONA_CONFIGS.get(persona_target, PERSONA_CONFIGS["hale_cos"])
+
+    # Determine model: use override if provided, else use persona default
+    selected_model = model_override or persona_config["model_default"]
+
+    # Generate unique output filename with timestamp to avoid concurrency collisions
+    task_ts = int(time.time() * 1000)
+    unique_output = output_file_path.replace(".txt", f"_{persona_target}_{task_ts}.txt")
+
+    # Build persona-specific prompt
+    prompt = f"""{persona_config['prompt_prefix']}
+
+DECISION REQUEST — {decision_type.upper()}
+
+Question:
+{task_description}
+
+Context:
+{json.dumps(context) if context else "(No additional context)"}
+
+---
+
+RESPOND AS {persona_config['name'].upper()}:
+- Your recommendation or ruling (direct, measured, authoritative)
+- Brief reasoning if judgment is non-obvious
+- If strategy, marshal evidence
+- If ethics check, state your position clearly
+- If enterprise transformation, map implications: people, process, systems, timeline, risk
+- Do NOT apologize. Do NOT hedge.
+
+WRITE your complete response to {unique_output}
+
+Your response should be what you would say directly to Commander. No meta-commentary."""
+
+    # Dispatch to headless Claude with explicit model and full persona prompt
+    result = dispatch_to_headless_claude(
+        task_description=f"{persona_config['name']} judgment: {task_description[:60]}",
+        output_file_path=unique_output,
+        task_name=f"persona_dispatch_{persona_target}_{task_ts}",
+        model=selected_model,  # Explicit model, no routing
+        full_prompt=prompt  # Pass the persona-specific prompt
+    )
+
+    # On success, wait for async file completion and read output
+    if result["status"] == "SPAWNED":
+        output_file = Path(unique_output)
+        response_text = None
+        max_wait_seconds = 60
+        poll_interval = 0.5
+        elapsed = 0
+
+        # File-watch loop: wait for file to exist and contain content
+        while elapsed < max_wait_seconds:
+            if output_file.exists():
+                try:
+                    content = output_file.read_text().strip()
+                    if content:  # File has content
+                        response_text = content
+                        break
+                except Exception:
+                    pass
+
+            import time as time_module
+            time_module.sleep(poll_interval)
+            elapsed += poll_interval
+
+        if response_text is None:
+            response_text = f"(Output pending after {max_wait_seconds}s — check log: {result['log_file']})"
+
+        # Log to audit trail
+        from OpsCenter.hale_telegram_reporter import audit_log_entry
+        audit_log_entry(
+            action=f"{persona_config['name']} — {decision_type.upper()}",
+            details=f"Decision type: {decision_type}\nQuestion: {task_description[:100]}...\nPID: {result.get('pid')}",
+            outcome=f"Response logged to {unique_output}"
+        )
+
+        return {
+            "status": "SPAWNED",
+            "response": response_text,
+            "decision_type": decision_type,
+            "persona": persona_target,
+            "persona_name": persona_config["name"],
+            "model": selected_model,
+            "pid": result.get("pid"),
+            "output_file": unique_output,
+            "log_file": result["log_file"]
+        }
+
+    # On failure, escalate to Commander
+    from OpsCenter.hale_telegram_reporter import report_alert
+    from OpsCenter.thunderbird_gmail import send_email
+
+    # Telegram alert
+    report_alert(
+        f"{persona_config['name']} dispatch FAILED ({decision_type}): {result.get('error')}. Check logs: {result.get('log_file')}",
+        severity="critical"
+    )
+
+    # Email to Commander
+    try:
+        send_email(
+            to="johnloucks3@gmail.com",
+            subject=f"{persona_config['name'].upper()} DISPATCH FAILED — {decision_type.upper()}",
+            body=f"""
+Commander,
+
+{persona_config['name']} dispatch attempt failed.
+
+Question: {task_description}
+Type: {decision_type}
+Error: {result.get('error', 'Unknown error')}
+Log file: {result.get('log_file')}
+
+COS recommends: Check the log file above. If the issue is OAuth/token related, run:
+  systemctl --user status claude-token-monitor.timer
+
+If the issue persists, let me know and we'll troubleshoot.
+
+— {persona_config['name']}
+""",
+            from_addr="d2mconcierge@gmail.com"
+        )
+    except Exception as e:
+        logger.warning(f"Could not email Commander about dispatch failure: {e}")
+
+    return {
+        "status": "FAILED",
+        "response": f"Failed to dispatch to {persona_config['name']}: {result.get('error', 'Unknown error')}. Commander has been notified.",
+        "decision_type": decision_type,
+        "persona": persona_target,
+        "log_file": result.get("log_file"),
+        "escalated_to_commander": True
+    }
+
+
+def dispatch_with_escalation_check(
+    task_description: str,
+    output_file_path: str,
+    task_name: str = "opencode_task",
+    context: Optional[dict] = None,
+    **dispatch_kwargs
+) -> dict:
+    """
+    OpenCode dispatch with automatic tier-based escalation checking.
+
+    Before dispatching to standard Claude, checks if the task matches any
+    escalation triggers and routes to the appropriate A-staff persona:
+    - A5 (Castillo) for strategy/supplier approval/client relationships
+    - A9 (Harlan) for financial commitments
+    - CH (Washington) for ethics/reputational risk
+    - A12 (ELON) for innovation questions
+    - Hale (COS) for conflict resolution, policy exceptions, enterprise transformation
+
+    Args:
+        task_description: Task description
+        output_file_path: Output file path
+        task_name: Task name for logging
+        context: Optional context dict with metadata (margin_percent, commission_value, etc.)
+        **dispatch_kwargs: Additional arguments to dispatch_to_headless_claude
+
+    Returns:
+        dict with dispatch result (either from persona or standard Claude)
+    """
+    # Check if this task should escalate and to whom
+    should_esc, decision_type, reason, model_override, persona_target = should_escalate(task_description, context)
+
+    if should_esc:
+        persona_config = PERSONA_CONFIGS.get(persona_target, PERSONA_CONFIGS["hale_cos"])
+        logger.info(f"🔼 Escalating to {persona_config['name']}: {reason}" + (f" (using {model_override})" if model_override else ""))
+
+        result = dispatch_to_persona(
+            persona_target=persona_target or "hale_cos",
+            task_description=task_description,
+            output_file_path=output_file_path,
+            task_name=task_name,
+            decision_type=decision_type or "judgment",
+            model_override=model_override,
+            context=context
+        )
+        result["escalated"] = True
+        return result
+    else:
+        # Standard dispatch
+        logger.debug(f"Standard dispatch: {task_name}")
+        return dispatch_to_headless_claude(
+            task_description=task_description,
+            output_file_path=output_file_path,
+            task_name=task_name,
+            **dispatch_kwargs
+        )
 
 
 if __name__ == "__main__":
@@ -182,6 +448,54 @@ if __name__ == "__main__":
         )
         print(f"Model: {result.get('model')}")
         print(f"Routed: {result.get('routed')}")
+        print(f"Status: {result.get('status')}")
+    except RuntimeError as e:
+        print(f"ERROR: {e}", file=sys.stderr)
+
+    # Test 3: Escalation trigger (should route to A5 Castillo for strategy)
+    print("\n✓ Test 3: Escalation trigger (should route to A5 Castillo for strategy)")
+    try:
+        result = dispatch_with_escalation_check(
+            task_description="Should we consolidate cruise suppliers to 3 lines or diversify to 8?",
+            output_file_path="/home/john/Thunderbird/output/test_escalation.txt",
+            task_name="test_escalation",
+            context={"supply_chain_impact": True}
+        )
+        print(f"Escalated: {result.get('escalated', False)}")
+        print(f"Persona: {result.get('persona')}")
+        print(f"Persona Name: {result.get('persona_name')}")
+        print(f"Status: {result.get('status')}")
+    except RuntimeError as e:
+        print(f"ERROR: {e}", file=sys.stderr)
+
+    # Test 4: Finance escalation (should route to A9 Harlan)
+    print("\n✓ Test 4: Finance escalation (should route to A9 Harlan for financial commitment)")
+    try:
+        result = dispatch_with_escalation_check(
+            task_description="Should we approve a $25K investment in a new supplier relationship?",
+            output_file_path="/home/john/Thunderbird/output/test_finance_escalation.txt",
+            task_name="test_finance_escalation",
+            context={}
+        )
+        print(f"Escalated: {result.get('escalated', False)}")
+        print(f"Persona: {result.get('persona')}")
+        print(f"Persona Name: {result.get('persona_name')}")
+        print(f"Status: {result.get('status')}")
+    except RuntimeError as e:
+        print(f"ERROR: {e}", file=sys.stderr)
+
+    # Test 5: Ethics escalation (should route to CH Washington)
+    print("\n✓ Test 5: Ethics escalation (should route to CH Washington for ethics)")
+    try:
+        result = dispatch_with_escalation_check(
+            task_description="A client expects luxury but we booked them a budget cabin. Rebook or manage expectation?",
+            output_file_path="/home/john/Thunderbird/output/test_ethics_escalation.txt",
+            task_name="test_ethics_escalation",
+            context={}
+        )
+        print(f"Escalated: {result.get('escalated', False)}")
+        print(f"Persona: {result.get('persona')}")
+        print(f"Persona Name: {result.get('persona_name')}")
         print(f"Status: {result.get('status')}")
     except RuntimeError as e:
         print(f"ERROR: {e}", file=sys.stderr)
