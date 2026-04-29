@@ -279,7 +279,7 @@ class InboxHandler(FileSystemEventHandler):
 
         try:
             proc = subprocess.Popen(
-                [CLAUDE_BIN, "-p", prompt, "--model", model, "--output-format", "text"],
+                [CLAUDE_BIN, "-p", prompt, "--model", model, "--output-format", "text", "--mcp-config", "/home/john/.claude/mcp.json"],
                 stdout=open(log, "w"),
                 stderr=subprocess.STDOUT,
                 env=fresh_env,

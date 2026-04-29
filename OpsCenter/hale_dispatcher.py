@@ -50,12 +50,12 @@ OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
 DEEPSEEK_API_KEY   = os.getenv("DEEPSEEK_API_KEY", "")
 ANTHROPIC_API_KEY  = os.getenv("ANTHROPIC_API_KEY", "")
 
-DEEPSEEK_V3_MODEL  = "deepseek/deepseek-chat-v3.1"  # ⚠️ DEPRECATED: $0.27/M tokens, DO NOT USE
-QWEN_MODEL         = DEEPSEEK_V3_MODEL  # Legacy alias
+DEEPSEEK_V4_MODEL  = "deepseek/deepseek-v4-pro"  # ✅ ACTIVE: $0.305/M tokens — cost-optimized reasoning
+QWEN_MODEL         = DEEPSEEK_V4_MODEL  # Legacy alias (updated)
 SONNET_MODEL       = "claude-sonnet-4-6"
 OPUS_MODEL         = "claude-opus-4-6"
-DEEPSEEK_MODEL     = "deepseek-chat-v3.1"
-DEEPSEEK_OR_MODEL  = "deepseek/deepseek-chat-v3.1"  # OpenRouter proxy — $0.27/M, deprecated
+DEEPSEEK_MODEL     = "deepseek-chat"
+DEEPSEEK_OR_MODEL  = "deepseek/deepseek-v4-pro"  # OpenRouter proxy — $0.305/M, cost-optimized
 
 # Free OpenRouter tiers (SO 2026-04-24)
 FREE_OPENROUTER_RESEARCH = "openrouter/nvidia/nemotron-3-super-120b-a12b:free"
@@ -244,7 +244,7 @@ Respond in max {max_words} words. Brief-first. No preamble."""
                 pass  # Proceed with existing environment
 
         result = subprocess.run(
-            ["/home/john/.local/bin/claude", "-p", prompt, "--model", model, "--output-format", "text"],
+            ["/home/john/.local/bin/claude", "-p", prompt, "--model", model, "--output-format", "text", "--mcp-config", "/home/john/.claude/mcp.json"],
             capture_output=True, text=True, timeout=120, env=env,
         )
         if result.returncode == 0:
