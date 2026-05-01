@@ -256,15 +256,19 @@ def test_telegram_simulation():
         ]
 
         for test in test_commands:
-            if "Send" in test["cmd"] or "email" in test["cmd"].lower():
-                gate = "WF-17"
-                decision = "NO"
-            elif "$50K" in test["cmd"] or "commission" in test["cmd"].lower():
-                gate = "Financial"
-                decision = "NO"
-            elif "fix" in test["cmd"].lower() or "crashed" in test["cmd"].lower():
+            # Priority: check most specific conditions first to avoid false positives
+            if "crashed" in test["cmd"].lower() and "fix" in test["cmd"].lower():
+                # System crash + fix = Spot-it-fix-it (highest priority)
                 gate = "SO#3"
                 decision = "YES"
+            elif "$50K" in test["cmd"] or "commission" in test["cmd"].lower():
+                # Financial gate
+                gate = "Financial"
+                decision = "NO"
+            elif "Send" in test["cmd"] or ("email" in test["cmd"].lower() and "approval" in test["cmd"].lower()):
+                # Client send without approval = WF-17
+                gate = "WF-17"
+                decision = "NO"
             else:
                 gate = "UNKNOWN"
                 decision = "UNKNOWN"
