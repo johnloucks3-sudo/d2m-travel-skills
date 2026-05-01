@@ -9,8 +9,28 @@ import json
 import logging
 from enum import Enum
 from typing import Optional
+import os
 
 log = logging.getLogger("thunderbird_router")
+
+# API Keys & Constants (used by task_processor and other modules)
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
+XAI_API_KEY = os.getenv("XAI_API_KEY", "")
+
+# Model aliases (Groq eliminated 2026-04-28, replaced with OpenRouter DeepSeek)
+DEEPSEEK_PRIMARY_MODEL = "deepseek/deepseek-v4-pro"
+QWEN_PLUS_FREE_MODEL = "deepseek/deepseek-v4-pro"  # Legacy alias
+GROQ_MODELS = ["groq_fast", "groq_light"]  # Legacy—no longer used
+
+# Legacy task classification enum (for backward compatibility)
+class TaskType(Enum):
+    """Task classification types (DEPRECATED—use route_model instead)"""
+    SIMPLE = "simple"
+    STANDARD = "standard"
+    COMPLEX = "complex"
+    RESEARCH = "research"
+    CREATIVE = "creative"
 
 
 class ModelTier(Enum):
@@ -199,6 +219,112 @@ def get_all_models() -> dict:
 def log_routing_decision(task_type: str, selected_model: str, rationale: str = ""):
     """Log routing decision for audit trail"""
     log.info(f"ROUTE: task={task_type} → model={selected_model} | {rationale}")
+
+
+# Additional routing functions (backward compatibility)
+MODEL_TAGS = {
+    "fast": "grok_2m",
+    "vision": "gemini_vision",
+    "research": "deepseek_optimized",
+    "cheap": "free"
+}
+
+
+def smart_route(task: str, **kwargs) -> dict:
+    """Smart routing for tasks with contextual awareness (routes to route_model)"""
+    return route_model(task, **kwargs)
+
+
+def route_call(task: str, prompt: str, **kwargs) -> str:
+    """Route task and execute call (DEPRECATED—use _call_claude directly)"""
+    return _call_claude(system_prompt=f"Task: {task}", query=prompt, **kwargs)
+
+
+def route_and_call(task: str, prompt: str, **kwargs) -> str:
+    """Route task and execute call (alias for route_call, DEPRECATED)"""
+    return route_call(task, prompt, **kwargs)
+
+
+def register_router_tools() -> dict:
+    """Register router tools for MCP server (returns empty dict—MCP tools via travel_mcp_server.py)"""
+    return {}
+
+
+def _call_claude(system_prompt: str, query: str, model: str = "sonnet",
+                  temperature: float = 0.7, max_tokens: int = 2000) -> str:
+    """
+    BACKWARD-COMPATIBILITY STUB: Direct Claude call (Sonnet).
+    Routes to Claude 3.5 Sonnet via Anthropic SDK.
+    """
+    import anthropic
+
+    client = anthropic.Anthropic()
+    try:
+        response = client.messages.create(
+            model="claude-3-5-sonnet-20241022",
+            max_tokens=max_tokens,
+            system=system_prompt,
+            messages=[{"role": "user", "content": query}]
+        )
+        result = response.content[0].text
+        log.info(f"_call_claude (stub): {len(result)} chars")
+        return result
+    except Exception as e:
+        log.error(f"_call_claude failed: {e}")
+        return f"Error: {str(e)}"
+
+
+def _call_groq(system_prompt: str, query: str, model: str = "fast",
+               temperature: float = 0.7, max_tokens: int = 2000) -> str:
+    """
+    BACKWARD-COMPATIBILITY STUB: _call_groq routes to Claude Sonnet.
+
+    Groq was eliminated 2026-04-28. All calls route to Claude via Anthropic SDK ($0 on Max plan).
+    This stub maintains backward compatibility for existing code that imports _call_groq.
+
+    Args:
+        system_prompt: System context/instructions
+        query: User query/prompt
+        model: Model hint ("fast", "light", etc.) — ignored, uses Sonnet
+        temperature: Creativity parameter (0.0-2.0)
+        max_tokens: Maximum output tokens
+
+    Returns:
+        Response text from Claude Sonnet
+    """
+    return _call_claude(system_prompt, query, model, temperature, max_tokens)
+
+
+def _call_gemini(system_prompt: str, query: str, model: str = "vision",
+                 temperature: float = 0.7, max_tokens: int = 2000) -> str:
+    """
+    BACKWARD-COMPATIBILITY STUB: _call_gemini routes to Claude Sonnet.
+    """
+    return _call_claude(system_prompt, query, model, temperature, max_tokens)
+
+
+def _call_openrouter(system_prompt: str, query: str, model: str = "grok",
+                     temperature: float = 0.7, max_tokens: int = 2000) -> str:
+    """
+    BACKWARD-COMPATIBILITY STUB: _call_openrouter routes to Claude Sonnet.
+    """
+    return _call_claude(system_prompt, query, model, temperature, max_tokens)
+
+
+def _call_grok(system_prompt: str, query: str, model: str = "fast",
+               temperature: float = 0.7, max_tokens: int = 2000) -> str:
+    """
+    BACKWARD-COMPATIBILITY STUB: _call_grok (alternate spelling) routes to Claude Sonnet.
+    """
+    return _call_claude(system_prompt, query, model, temperature, max_tokens)
+
+
+def classify_task(prompt: str) -> str:
+    """
+    BACKWARD-COMPATIBILITY STUB: Classify task type.
+    Returns "general" for all inputs during recovery.
+    """
+    return "general"
 
 
 if __name__ == "__main__":
