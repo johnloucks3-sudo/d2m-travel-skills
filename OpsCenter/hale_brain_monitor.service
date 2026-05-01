@@ -1,0 +1,27 @@
+[Unit]
+Description=Hale Unified Brain Synchronization Monitor
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=john
+WorkingDirectory=/home/john/Thunderbird
+ExecStart=/usr/bin/python3 /home/john/Thunderbird/OpsCenter/hale_brain_monitor_12h.py
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=hale-monitor
+Environment="PATH=/home/john/.local/bin:/usr/local/bin:/usr/bin:/bin"
+Environment="HOME=/home/john"
+
+# Timeout if test takes longer than 10 minutes
+TimeoutStartSec=600
+
+# Restart policy
+Restart=on-failure
+RestartSec=60
+StartLimitInterval=3600
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
