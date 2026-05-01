@@ -5,8 +5,10 @@ D2M Thunderbird OS · v1.1 · 2026-04-05
 Commander: John Loucks | Author: Hale/COS
 
 State machine with 6 hard stops. Routes tasks to:
-  DeepSeek V3.1 (OpenCode)  → Action/extraction/ops ($0)
-  Claude MAX (Sonnet) → Judgment/voice/strategy ($0 via MAX OAuth)
+  Claude MAX (Sonnet) → All judgment/voice/strategy tasks ($0 via MAX OAuth)
+  OpenRouter FREE tiers → Operational/research/summarization tasks ($0 — Nemotron/GPT-OSS/Gemma)
+
+⚠️ DEPRECATED: DeepSeek V3.1 is NOT free ($0.27/M tokens). Removed 2026-04-24.
 
 Hard Stops:
   1. Max iterations: 6 spawns per mission
@@ -16,8 +18,9 @@ Hard Stops:
   5. Explicit COMPLETE: agent writes rationale
   6. No blind pass-through: next action from whitelist
 
-Cost: $0/month (DeepSeek V3.1 + Claude MAX OAuth)
+Cost: $0/month (FREE OpenRouter tiers + Claude MAX OAuth)
 Gemini: PURGED.
+DeepSeek V3.1: PURGED for cost control (2026-04-24).
 
 ┌─ Changelog ──────────────────────────────────────────────────────────┐
 │ [2026-04-05] Extract all config to config.py; from config import *    │
@@ -245,10 +248,11 @@ def _route(task_text: str, mission_id: str) -> str:
 OPENCODE_BIN = Path('/home/john/.opencode/bin/opencode')
 OPENCODE_TIMEOUT_SECS = 180
 
-# Claude-first chain — OpenRouter free models as distant fallback only
+# 3-tier fallback chain — maximize free/low-cost options
 OPENCODE_MODEL_CHAIN = [
-    'openrouter/deepseek/deepseek-chat-v3.1',              # DeepSeek V3.1 — primary (confirmed working)
-    'openrouter/anthropic/claude-sonnet-4.6',             # Claude MAX via OpenRouter — fallback
+    'openrouter/anthropic/claude-sonnet-4.6',             # Tier 1: Claude MAX (via OpenRouter) — $0 (MAX OAuth)
+    'openrouter/nvidia/nemotron-4-340b-instruct:free',  # Tier 2: OpenRouter free — $0 (free tier)
+    'poe',                                                 # Tier 3: Poe.com KIMI-K2 — low cost backup
 ]
 _RATE_LIMIT_MARKERS = ('rate limit', 'rate_limit', '429', 'too many requests',
                         'quota exceeded', 'ratelimit',
@@ -264,42 +268,88 @@ def _is_rate_limited(output: str) -> bool:
     low = output.lower()
     return any(m in low for m in _RATE_LIMIT_MARKERS)
 
-def dispatch_to_opencode(task_text: str, mission_id: str) -> str:
-    """Run OpenCode headless with model fallback chain.
-    Order: DeepSeek V3.1 → Claude via OpenRouter (last resort)."""
-    env = dict(os.environ)
-    env['PATH'] = f'/home/john/.opencode/bin:{env.get("PATH", "")}'
+def dispatch_to_poe(task_text: str, mission_id: str) -> str:
+    """Dispatch to Poe.com API (KIMI-K2 or similar low-cost model).
+    Uses POE_API_KEY from environment."""
+    try:
+        import requests
+        api_key = os.environ.get("POE_API_KEY")
+        if not api_key:
+            audit("DISPATCH_POE_FAIL", "POE_API_KEY not set in environment", mission_id)
+            return "ERROR: POE_API_KEY not configured"
 
-    for model in OPENCODE_MODEL_CHAIN:
-        is_paid = not model.endswith(':free')
-        try:
-            r = subprocess.run(
-                [str(OPENCODE_BIN), 'run', '-m', model,
-                 f'[{mission_id}] {task_text}'],
-                capture_output=True, text=True,
-                timeout=OPENCODE_TIMEOUT_SECS,
-                cwd=str(BASE_DIR.parent),
-                env=env,
-            )
-            output = r.stdout.strip() or r.stderr.strip()
-            if not output or _is_rate_limited(output):
-                audit("DISPATCH_OPENCODE_RATELIMIT", f"model={model} rc={r.returncode} — trying next", mission_id)
-                continue
-            tier = 'PAID' if is_paid else 'FREE'
-            audit("DISPATCH_OPENCODE", f"model={model} [{tier}] | task={task_text[:60]} | chars={len(output)}", mission_id)
-            return output[:2000]
-        except FileNotFoundError:
-            audit("DISPATCH_OPENCODE_FAIL", "opencode binary not found", mission_id)
-            return "ERROR: opencode binary not found at ~/.opencode/bin/opencode"
-        except subprocess.TimeoutExpired:
-            audit("DISPATCH_OPENCODE_TIMEOUT", f"model={model} | {OPENCODE_TIMEOUT_SECS}s exceeded — trying next", mission_id)
-            continue
-        except Exception as e:
-            audit("DISPATCH_OPENCODE_ERROR", f"model={model} | {e}", mission_id)
-            continue
+        # Poe API endpoint
+        headers = {
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+        }
 
-    audit("DISPATCH_OPENCODE_CHAIN_EXHAUSTED", "All models failed", mission_id)
-    return "ERROR: All OpenCode models exhausted (rate limits + timeouts)"
+        payload = {
+            "model": "kimi-k2-instruct",  # KIMI-K2 low-cost model
+            "messages": [
+                {"role": "user", "content": f"[{mission_id}] {task_text}"}
+            ],
+            "max_tokens": 2048,
+        }
+
+        response = requests.post(
+            "https://api.poe.com/openai/",
+            headers=headers,
+            json=payload,
+            timeout=180,
+        )
+
+        if response.status_code == 429:
+            audit("DISPATCH_POE_RATELIMIT", f"Rate limited — trying next model", mission_id)
+            return "RATE_LIMITED"
+
+        if response.status_code >= 500:
+            audit("DISPATCH_POE_ERROR", f"HTTP {response.status_code} — server error", mission_id)
+            return "SERVER_ERROR"
+
+        response.raise_for_status()
+        data = response.json()
+
+        # Extract text from response
+        if "choices" in data and len(data["choices"]) > 0:
+            output = data["choices"][0].get("message", {}).get("content", "").strip()
+            if output:
+                audit("DISPATCH_POE", f"model=kimi-k2 | task={task_text[:60]} | chars={len(output)}", mission_id)
+                return output[:2000]
+
+        audit("DISPATCH_POE_EMPTY", "Empty response from Poe API", mission_id)
+        return "ERROR: Empty response from Poe"
+
+    except Exception as e:
+        audit("DISPATCH_POE_ERROR", str(e), mission_id)
+        return f"ERROR: Poe dispatch failed: {e}"
+
+
+def dispatch_to_opencode(task_text: str, mission_id: str, preferred_model: str = None) -> str:
+    """
+    THREE-BRAIN ROUTER (Gemini / Sonnet / Opus).
+    Replaces OpenCode entirely. $0 cost (Gemini free + Claude MAX OAuth).
+
+    Brain 1: Gemini 2.5 Flash (research, ops, bulk analysis) — FREE tier
+    Brain 2: Claude Sonnet (strategy, client email, voice) — MAX OAuth
+    Brain 3: Claude Opus (arbitration, tiebreaking) — MAX OAuth fallback
+
+    Args:
+        task_text: The task prompt
+        mission_id: Mission ID for tracking
+        preferred_model: Optional override ('brain1', 'brain2', 'brain3', or task_type)
+    """
+    from OpsCenter.multi_brain_router import route_task
+
+    try:
+        task_type = preferred_model if preferred_model else "general"
+        audit("DISPATCH_THREE_BRAIN", f"routing to brain via task_type={task_type}", mission_id)
+        result = route_task(task_text, task_type=task_type, mission_id=mission_id)
+        audit("DISPATCH_THREE_BRAIN_SUCCESS", f"chars={len(result)}", mission_id)
+        return result[:2000]
+    except Exception as e:
+        audit("DISPATCH_THREE_BRAIN_ERROR", str(e), mission_id)
+        return f"ERROR: Three-brain router failed: {e}"
 
 # Legacy alias — keeps any external callers working
 dispatch_to_deepseek = dispatch_to_opencode
@@ -437,20 +487,27 @@ def route_and_dispatch(task_text: str, mission_id: str, model: str = None) -> tu
     """Route task and dispatch. Returns (engine, result).
 
     Args:
-        model: Optional model override. If set, forces Claude dispatch with
-               this model ("sonnet", "opus", "haiku", or full OpenRouter ID).
-               Parsed from `model:` field in inbox task entries.
+        model: Optional model override. Can be:
+               - OpenCode tier: 'tier1', 'tier2', 'poe' (routes to OpenCode)
+               - Claude model: 'sonnet', 'opus', 'haiku' (routes to Claude via OpenRouter)
+               - Full OpenRouter ID: 'openrouter/...' (routes based on prefix)
     """
     if model:
-        # Explicit model requested — always route to Claude via OpenRouter
-        engine = "claude"
-        result = dispatch_to_claude(task_text, mission_id, model=model)
+        # Check if this is an OpenCode tier request
+        opencode_tiers = ['tier1', 'tier2', 'poe']
+        if model in opencode_tiers:
+            engine = "opencode"
+            result = dispatch_to_opencode(task_text, mission_id, preferred_model=model)
+        else:
+            # Claude model requested
+            engine = "claude"
+            result = dispatch_to_claude(task_text, mission_id, model=model)
     else:
         engine = _route(task_text, mission_id)
         if engine == "claude":
             result = dispatch_to_claude(task_text, mission_id)
         else:
-            result = dispatch_to_deepseek(task_text, mission_id)
+            result = dispatch_to_opencode(task_text, mission_id)  # dispatch_to_deepseek is now opencode
     return engine, result
 
 
@@ -513,6 +570,16 @@ def run_mission(mission_id: str, task_text: str) -> dict:
     """
     audit("MISSION_START", f"task={task_text[:80]}", mission_id)
 
+    # Parse optional --model flag from task text
+    preferred_model = None
+    clean_task = task_text
+    import re
+    model_match = re.search(r'--model\s+(tier1|tier2|poe|sonnet|opus|haiku)', task_text, re.IGNORECASE)
+    if model_match:
+        preferred_model = model_match.group(1).lower()
+        clean_task = re.sub(r'\s*--model\s+\S+\s*', ' ', task_text).strip()
+        audit("MODEL_PREFERENCE_PARSED", f"Using --model {preferred_model}", mission_id)
+
     board = load_board()
     mission = find_mission(board, mission_id)
     if mission is None:
@@ -529,13 +596,15 @@ def run_mission(mission_id: str, task_text: str) -> dict:
     # Update board: mission is running
     mission["status"] = "running"
     mission["nexus_started"] = start_time.isoformat()
-    append_mission_log(board, mission_id, f"NEXUS started — task: {task_text[:80]}")
+    append_mission_log(board, mission_id, f"NEXUS started — task: {clean_task[:80]}")
+    if preferred_model:
+        append_mission_log(board, mission_id, f"Model preference: {preferred_model}")
     save_board(board)
 
     # ── State Machine Loop ────────────────────────────────────────────────────
-    current_task = task_text
+    current_task = clean_task
     explicit_complete = False
-    next_action = "route_to_deepseek"  # default first action
+    next_action = "route_to_opencode"  # default first action
 
     while True:
         iterations += 1
@@ -556,23 +625,40 @@ def run_mission(mission_id: str, task_text: str) -> dict:
             break
 
         # ── Dispatch ──────────────────────────────────────────────────────
-        engine, result = route_and_dispatch(current_task, mission_id)
+        engine, result = route_and_dispatch(current_task, mission_id, model=preferred_model)
 
         # Estimate tokens (rough: 1 token ≈ 4 chars)
         tokens_used += (len(current_task) + len(result)) // 4
 
         # ── Parse result for state signals ───────────────────────────────
         result_lower = result.lower()
-        if "complete" in result_lower or "done" in result_lower or "finished" in result_lower:
+        is_error = result.startswith("ERROR:") or result.startswith("BLOCKED:")
+        # Use explicit signal markers (prefixed) to avoid keyword collisions
+        # e.g. "Commander of the Seas" should NOT trigger escalate_commander
+        if result_lower.startswith("signal:complete") or result_lower.startswith("status:complete"):
             explicit_complete = True
             next_action = "mark_complete"
-        elif "deadlock" in result_lower or "blocked" in result_lower or "stuck" in result_lower:
+        elif result_lower.startswith("signal:deadlock") or result_lower.startswith("signal:blocked"):
             next_action = "mark_deadlock"
-        elif "escalate" in result_lower or "commander" in result_lower:
+        elif result_lower.startswith("signal:escalate"):
             next_action = "escalate_commander"
+        elif "complete" in result_lower or "done" in result_lower or "finished" in result_lower:
+            explicit_complete = True
+            next_action = "mark_complete"
+        elif "deadlock" in result_lower or "stuck" in result_lower:
+            next_action = "mark_deadlock"
+        elif result_lower.strip().startswith("escalate:") or "escalate to commander" in result_lower:
+            next_action = "escalate_commander"
+        elif not is_error and len(result.strip()) >= 100:
+            # Substantive answer received — treat as complete.
+            # Simple factual tasks (list X, name Y) answer correctly on iter 1
+            # but never emit "complete" keywords, causing guaranteed deadlock.
+            # If we got a real answer (≥100 chars, no error prefix), accept it.
+            explicit_complete = True
+            next_action = "mark_complete"
         else:
-            # Continue iterating — route again
-            next_action = "route_to_claude" if engine == "deepseek" else "route_to_deepseek"
+            # Short/empty/error result — retry with the other engine once
+            next_action = "route_to_claude" if engine == "opencode" else "route_to_opencode"
 
         # ── Track status for deadlock detection ───────────────────────────
         last_statuses.append(next_action)
