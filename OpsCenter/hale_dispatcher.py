@@ -32,6 +32,14 @@ from typing import Optional
 import requests
 from dotenv import load_dotenv
 
+# Token optimization (from same directory)
+sys.path.insert(0, str(Path(__file__).parent))
+try:
+    from hale_token_optimizer import HaleTokenOptimizer
+except ImportError as e:
+    print(f"Warning: Could not import HaleTokenOptimizer: {e}", file=sys.stderr)
+    HaleTokenOptimizer = None
+
 # ── Paths ──
 _ROOT = Path(__file__).resolve().parent.parent
 _OPSCENTER = Path(__file__).resolve().parent
@@ -494,32 +502,73 @@ class HaleDispatcher:
         self.system = _build_hale_system()
         self.state  = load_state()
         self._brain_log: list[dict] = []
+        self.optimizer = HaleTokenOptimizer() if HaleTokenOptimizer else None
 
     def dispatch(self, task: str, brain_override: Optional[str] = None) -> str:
         """
-        Classify task → route to correct brain → return result.
+        Classify task → OPTIMIZE FOR TOKENS → route to correct brain → return result.
 
         brain_override: 'opus' | 'sonnet' | 'brain1' | 'brain2' | 'brain3' | None
+
+        Token optimization is applied automatically via HaleTokenOptimizer:
+        1. Model selection based on task type (Haiku/Sonnet/Opus)
+        2. Context compression (if context provided)
+        3. Lazy context loading (if task doesn't need full context)
+        4. Output specifications (format, length constraints)
+        5. Batch optimization hints
         """
         start = time.time()
 
-        # ── Determine brain ──
+        # ── STEP 1: Classify task ──
         if brain_override in ("opus", "sonnet"):
             brain  = "brain2"
             model  = OPUS_MODEL if brain_override == "opus" else SONNET_MODEL
             reason = f"Commander override: {brain_override.upper()}"
+            optimized_task = task
+            optimization_info = ""
         elif brain_override in ("brain1", "brain2", "brain3"):
             brain  = brain_override
             model  = SONNET_MODEL
             reason = f"Explicit override: {brain_override}"
+            optimized_task = task
+            optimization_info = ""
         else:
             brain  = classify_task(task)
             model  = SONNET_MODEL
             reason = "Auto-classified"
+            optimized_task = task
+            optimization_info = ""
 
-        # ── Dispatch ──
+            # ── STEP 2: Apply token optimization (if optimizer loaded) ──
+            if self.optimizer:
+                # Determine task type for optimizer
+                task_type = brain  # Use brain classification as task type
+                is_client_facing = any(kw in task.lower() for kw in ["email", "dani", "draft", "client", "proposal"])
+
+                # Run optimizer
+                opt_result = self.optimizer.assess_and_optimize(
+                    task_text=task,
+                    task_type=task_type,
+                    context=None,  # Context not provided in this API; could be extended
+                    client_facing=is_client_facing
+                )
+
+                # Use optimizer's model recommendation
+                model_map = {
+                    "haiku": "claude-haiku-4-5-20251001",
+                    "sonnet": SONNET_MODEL,
+                    "opus": OPUS_MODEL,
+                }
+                model = model_map.get(opt_result.model, SONNET_MODEL)
+                optimized_task = opt_result.optimized_prompt
+
+                # Log optimization info
+                optimization_info = f" | Optimized: {', '.join(opt_result.strategy_applied)} | Est. savings: {opt_result.savings_estimate} tokens"
+                reason = f"Auto-classified + optimized | Model: {opt_result.model} | Strategies: {', '.join(opt_result.strategy_applied)}"
+
+        # ── STEP 3: Dispatch ──
         if brain == "self":
-            result    = self._handle_self(task)
+            result    = self._handle_self(optimized_task)
             brain_tag = "Hale (self)"
 
         elif brain == "visual":
@@ -527,33 +576,32 @@ class HaleDispatcher:
             brain_tag = "Visual Synthesis (Dashboards + Infographics)"
 
         elif brain == "brain1":
-            result    = _call_brain1(self.system, task)
+            result    = _call_brain1(self.system, optimized_task)
             brain_tag = "Brain 1 (FREE OpenRouter)"
             # Self-escalate on error
             if result.startswith("[BRAIN1 ERROR]"):
-                result    = _call_brain2(f"{self.system}\n\nTASK: {task}", model=SONNET_MODEL)
+                result    = _call_brain2(f"{self.system}\n\nTASK: {optimized_task}", model=SONNET_MODEL)
                 brain_tag = "Brain 2 (Sonnet — free model escalation)"
                 log_decision(
-                    f"Escalated OpenRouter→Sonnet on: {task[:80]}",
+                    f"Escalated OpenRouter→Sonnet on: {optimized_task[:80]}",
                     "Free OpenRouter tier returned an error; task required reliable response.",
                     "Brain 2 (Sonnet)"
                 )
-                # Notify Commander of escalation (Padre's recommendation)
-                self._escalation_note = f"Escalated to Sonnet — free model failed on: {task[:60]}"
+                self._escalation_note = f"Escalated to Sonnet — free model failed on: {optimized_task[:60]}"
 
         elif brain == "brain2":
-            digest = f"{self.system[:500]}\n\nTASK: {task}"
+            digest = f"{self.system[:500]}\n\nTASK: {optimized_task}"
             result = _call_brain2(digest, model=model)
             brain_tag = f"Brain 2 ({model.split('-')[1].title() if '-' in model else model})"
 
         elif brain == "brain3":
             # Strip PII before sending to DeepSeek
-            clean_task = self._strip_pii(task)
+            clean_task = self._strip_pii(optimized_task)
             result     = _call_brain3(clean_task)
             brain_tag  = "Brain 3 (DeepSeek)"
 
         else:
-            result    = self._handle_self(task)
+            result    = self._handle_self(optimized_task)
             brain_tag = "Hale (self)"
 
         elapsed = round(time.time() - start, 1)
