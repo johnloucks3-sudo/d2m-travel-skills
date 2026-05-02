@@ -89,6 +89,97 @@ def format_financial_section(data: Dict) -> str:
 """
 
 
+def format_spsa_eod_section() -> str:
+    """Format EOD SPSA section — new cases created today + status updates."""
+    try:
+        from core.ops.thunderbird_spsa import get_active_cases, load_case
+        import os
+
+        # Get all active cases
+        red_cases = get_active_cases(severity='RED')
+        yellow_cases = get_active_cases(severity='YELLOW')
+
+        # Count created today (rough check on timestamp)
+        today_str = datetime.now(MT).strftime("%Y-%m-%d")
+        red_today = [c for c in red_cases if c.timestamp_created.startswith(today_str)]
+        yellow_today = [c for c in yellow_cases if c.timestamp_created.startswith(today_str)]
+
+        lines = ["## 🚨 SPSA EOD — Cases & Status\n"]
+
+        if red_today or yellow_today:
+            lines.append(f"**Created Today:** {len(red_today)} RED, {len(yellow_today)} YELLOW\n")
+
+        if red_today:
+            lines.append("### 🔴 NEW RED (Today)\n")
+            for case in red_today[:3]:
+                lines.append(f"**{case.case_id}** | {case.problem_statement[:50]}...\n> {case.recommendation} ({case.timeline_hours}h)\n")
+
+        if yellow_today:
+            lines.append("### 🟡 NEW YELLOW (Today)\n")
+            for case in yellow_today[:3]:
+                lines.append(f"**{case.case_id}** | {case.problem_statement[:50]}...\n> {case.recommendation} ({case.timeline_hours}h)\n")
+
+        # Status summary
+        open_count = len([c for c in (red_cases + yellow_cases) if c.status == "OPEN"])
+        decided_count = len([c for c in (red_cases + yellow_cases) if c.status == "DECIDED"])
+        implementing_count = len([c for c in (red_cases + yellow_cases) if c.status == "IMPLEMENTING"])
+
+        if open_count + decided_count + implementing_count > 0:
+            lines.append(f"\n**Pipeline:** {open_count} open, {decided_count} decided, {implementing_count} implementing\n")
+
+        return "\n".join(lines) + "\n"
+    except Exception as e:
+        return f"## 🚨 SPSA EOD\n*Failed to load cases: {str(e)[:60]}*\n\n"
+
+
+def format_spsa_weekly_section() -> str:
+    """Format weekly SPSA section — closed cases + lessons learned."""
+    try:
+        from core.ops.thunderbird_spsa import get_closed_cases_for_week
+
+        closed = get_closed_cases_for_week()
+        if not closed:
+            return "## 📊 SPSA WEEKLY\nNo cases closed this week.\n\n"
+
+        lines = ["## 📊 SPSA WEEKLY — Lessons & Patterns\n"]
+        lines.append(f"**This Week:** {len(closed)} cases closed\n")
+
+        # Group by severity
+        red_closed = [c for c in closed if c.severity == "RED"]
+        yellow_closed = [c for c in closed if c.severity == "YELLOW"]
+
+        if red_closed:
+            lines.append(f"\n**RED (Critical):** {len(red_closed)} resolved\n")
+            for case in red_closed[:2]:
+                lines.append(f"- {case.case_id}: {case.problem_statement[:40]}... → {case.outcome[:40] if case.outcome else 'Resolved'}\n")
+
+        if yellow_closed:
+            lines.append(f"\n**YELLOW (Routine):** {len(yellow_closed)} resolved\n")
+
+        # Lessons learned
+        lessons = [c.lessons_learned for c in closed if c.lessons_learned]
+        if lessons:
+            lines.append("\n**Key Lessons:**\n")
+            for lesson in lessons[:3]:
+                lines.append(f"- {lesson[:70]}...\n")
+
+        # Metrics
+        days_to_close = []
+        for case in closed:
+            if case.timestamp_closed:
+                created = datetime.fromisoformat(case.timestamp_created)
+                closed_dt = datetime.fromisoformat(case.timestamp_closed)
+                days_to_close.append((closed_dt - created).days)
+
+        if days_to_close:
+            avg_days = sum(days_to_close) / len(days_to_close)
+            lines.append(f"\n**Average closure time:** {avg_days:.1f} days\n")
+
+        return "\n".join(lines) + "\n"
+    except Exception as e:
+        return f"## 📊 SPSA WEEKLY\n*Failed to load lessons: {str(e)[:60]}*\n\n"
+
+
 def format_wing_section(data: Dict) -> str:
     """Format wing health section."""
     try:
@@ -185,10 +276,80 @@ def generate_template_brief() -> str:
     return header + body + footer
 
 
+def generate_eod_brief() -> str:
+    """Generate EOD (1700 MT) brief — focus on daily SPSA updates."""
+    now = datetime.now(MT)
+    ts = now.strftime("%Y-%m-%d %H:%M MT")
+
+    header = f"""# HALE — EOD Briefing
+*Generated: {ts}*
+
+---
+
+**End of day status.**
+
+---
+
+"""
+
+    body = (
+        format_spsa_eod_section() +
+        format_financial_section({}) +
+        format_wing_section({})
+    )
+
+    footer = f"""---
+*— Col Victoria "Iron Vic" Hale | Thunderbird Wing | {ts}*
+"""
+
+    return header + body + footer
+
+
+def generate_weekly_brief() -> str:
+    """Generate weekly (Monday 0700 MT) brief — lessons, patterns, retrospective."""
+    now = datetime.now(MT)
+    ts = now.strftime("%Y-%m-%d %H:%M MT")
+
+    header = f"""# HALE — Weekly Retrospective
+*Generated: {ts}*
+
+---
+
+**What we learned this week.**
+
+---
+
+"""
+
+    body = format_spsa_weekly_section()
+
+    footer = f"""---
+*— Col Victoria "Iron Vic" Hale | Thunderbird Wing | {ts}*
+"""
+
+    return header + body + footer
+
+
 def save_brief_to_file():
     """Generate and save brief to hale_brief.md."""
     brief_content = generate_template_brief()
     output_path = ROOT / "hale_brief.md"
+    output_path.write_text(brief_content)
+    return str(output_path)
+
+
+def save_eod_brief_to_file():
+    """Generate and save EOD brief."""
+    brief_content = generate_eod_brief()
+    output_path = ROOT / "hale_eod_brief.md"
+    output_path.write_text(brief_content)
+    return str(output_path)
+
+
+def save_weekly_brief_to_file():
+    """Generate and save weekly brief."""
+    brief_content = generate_weekly_brief()
+    output_path = ROOT / "hale_weekly_brief.md"
     output_path.write_text(brief_content)
     return str(output_path)
 

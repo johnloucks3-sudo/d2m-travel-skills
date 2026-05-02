@@ -114,5 +114,60 @@ def alert_red_cases():
         logger.error(f"Failed to alert RED cases: {e}")
 
 
+def handle_spsa_command(case_id: str) -> str:
+    """
+    Handle /spsa CASE_ID command — return full SPSA brief.
+    Usage: /spsa SPSA-20260502-25089
+    """
+    from core.ops.thunderbird_spsa import load_case
+
+    case = load_case(case_id)
+    if not case:
+        return f"❌ Case not found: {case_id}"
+
+    return case.to_brief()
+
+
+def handle_approve_command(case_id: str) -> str:
+    """
+    Handle /approve CASE_ID command — approve case and execute if LOW risk.
+    Usage: /approve SPSA-20260502-25089
+    """
+    from core.ops.thunderbird_spsa import load_case, update_case_status, classify_risk
+
+    case = load_case(case_id)
+    if not case:
+        return f"❌ Case not found: {case_id}"
+
+    if case.status not in ["OPEN", "UNDER_REVIEW"]:
+        return f"⚠️ Case {case_id} already in {case.status} state"
+
+    # Mark as DECIDED
+    update_case_status(case_id, "DECIDED", decision="Approved")
+
+    # Check risk level
+    risk = classify_risk(case)
+    if risk == "LOW":
+        update_case_status(case_id, "IMPLEMENTING")
+        return f"""✅ **APPROVED & EXECUTING** (LOW RISK)
+
+Case: {case_id}
+Recommendation: {case.recommendation}
+Timeline: {case.timeline_hours}h
+
+Status: IMPLEMENTING
+(COS will report completion when done)"""
+    else:
+        return f"""✅ **APPROVED** (MEDIUM/HIGH RISK — Awaiting execution)
+
+Case: {case_id}
+Recommendation: {case.recommendation}
+Risk: {risk}
+Timeline: {case.timeline_hours}h
+
+Status: DECIDED
+(COS will execute and report back)"""
+
+
 if __name__ == "__main__":
     alert_red_cases()
