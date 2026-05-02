@@ -1,0 +1,104 @@
+{
+  "_description": "Silversea Spring/Summer 2027 Watch — expanded ship scope",
+  "_updated": "2026-04-25",
+  "ships": {
+    "silver_spirit": {
+      "name": "Silver Spirit",
+      "voyages": [
+        {
+          "code": "SL270505016",
+          "route": "Lisbon → Copenhagen",
+          "dates": "May 5–21, 2027",
+          "nights": 16,
+          "silversea_url": "https://www.silversea.com/destinations/northern-europe-british-isles-cruise/lisbon-to-copenhagen-sl270505016.html"
+        },
+        {
+          "code": "SL270521015",
+          "route": "Copenhagen → Norway → Copenhagen",
+          "dates": "May 21–Jun 5, 2027",
+          "nights": 15,
+          "silversea_url": "https://www.silversea.com/destinations/northern-europe-british-isles-cruise/copenhagen-to-copenhagen-sl270521015.html"
+        }
+      ]
+    },
+    "silver_nova": {
+      "name": "Silver Nova",
+      "voyages_search": {
+        "period": "May–June 2027",
+        "silversea_filter_url": "https://www.silversea.com/find-a-voyage.html?voyageType=classic&ship=NV&departureFrom=2027-05&departureTo=2027-06",
+        "notes": "Voyage codes TBD — not yet published. Filter page will show when available."
+      }
+    },
+    "silver_ray": {
+      "name": "Silver Ray",
+      "voyages_search": {
+        "period": "May–June 2027",
+        "silversea_filter_url": "https://www.silversea.com/find-a-voyage.html?voyageType=classic&ship=RA&departureFrom=2027-05&departureTo=2027-06",
+        "notes": "Voyage codes TBD — not yet published. Silver Ray launching 2024, still new. Filter page will show when available."
+      }
+    }
+  },
+  "sources": [
+    {
+      "name": "Silversea Direct (per voyage)",
+      "type": "silversea",
+      "auth": "none",
+      "notes": "Direct voyage page scrape — JSON-LD + regex price extraction"
+    },
+    {
+      "name": "Silversea Deals Filter",
+      "type": "deals",
+      "auth": "none",
+      "urls": [
+        "https://www.silversea.com/find-a-voyage.html?voyageType=classic&ship=SI&departureFrom=2027-04&departureTo=2027-07",
+        "https://www.silversea.com/find-a-voyage.html?voyageType=classic&ship=NV&departureFrom=2027-04&departureTo=2027-07",
+        "https://www.silversea.com/find-a-voyage.html?voyageType=classic&ship=RA&departureFrom=2027-04&departureTo=2027-07"
+      ]
+    },
+    {
+      "name": "Perx Travel (TA/Interline Rates)",
+      "type": "perx",
+      "auth": "cookies",
+      "cookie_file": "creds/perx_cookies.json",
+      "account": "yodainva@gmail.com",
+      "urls": [
+        "https://www.perx.com/cruise/silversea/silver-spirit",
+        "https://www.perx.com/cruise/silversea/silver-nova",
+        "https://www.perx.com/cruise/silversea/silver-ray",
+        "https://www.perx.com/cruise/silversea"
+      ],
+      "notes": "Cookies expire ~2026-05-25. Re-capture from browser if 403."
+    },
+    {
+      "name": "Exchange Rate EUR/USD",
+      "type": "fx",
+      "auth": "none",
+      "url": "https://open.er-api.com/v6/latest/EUR"
+    },
+    {
+      "name": "CruiseCritic (Reviews)",
+      "type": "review",
+      "auth": "none",
+      "urls": {
+        "silver_spirit": "https://www.cruisecritic.com/reviews/review.cfm?ShipID=743",
+        "silver_nova": "https://www.cruisecritic.com/reviews/review.cfm?ShipID=927",
+        "silver_ray": "https://www.cruisecritic.com/reviews/review.cfm?ShipID=928"
+      }
+    },
+    {
+      "name": "ID90 Travel (Interline)",
+      "type": "interline",
+      "auth": "none",
+      "url": "https://www.id90travel.com/"
+    }
+  ],
+  "alert_thresholds": {
+    "price_change_pct": 5,
+    "new_voyage_published": true,
+    "ta_rate_detected": true
+  },
+  "schedule": {
+    "cron": "0 8 * * 1",
+    "description": "Every Monday 8 AM MDT"
+  }
+}

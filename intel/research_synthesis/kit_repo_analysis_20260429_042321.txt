@@ -1,0 +1,453 @@
+# KIT GITHUB REPO — THUNDERBIRD ASSESSMENT
+Timestamp: 2026-04-29 04:23 MDT
+
+## REPOSITORY SUMMARY
+**Project Name:** Kit
+**Creator:** ashawareb (Ash Abare)
+**Repository URL:** https://github.com/ashawareb/kit
+**Purpose:** Spec-driven workflow toolkit for Claude Code designed to impose discipline on multi-step, multi-file, quality-critical AI-assisted development work
+**Primary Use Case:** Improving code quality, reviewability, and error-catching in Claude Code projects through mandatory phase gates and multi-party oversight
+**Tech Stack:** Markdown-based methodology with scaffolding files (DEBT.md, specs/NN.md format, phase checklists); language-agnostic (works with any codebase/language)
+**Maturity:** Beta/production-ready methodology (well-documented, actively maintained, no external dependencies)
+**License:** Not explicitly stated in available docs (appears to be reference/educational)
+**Repository Status:** Active, single-author maintained project focused on personal methodology sharing
+
+---
+
+## ARCHITECTURE DEEP-DIVE
+
+### Core Abstractions
+Kit is NOT a software system—it's a disciplined workflow process. Core abstractions:
+
+1. **Phase Gate Model (A→F Cycle)**
+   - Analyze: Review context, generate findings (human reads, approves)
+   - Blueprint: Propose solution without code (human approves architecture before implementation)
+   - Code: Execute approved blueprint (executor implements)
+   - Diff: Display all changes (human reviews delta)
+   - Evaluate: Test, lint, type-check (human approves quality)
+   - Finalize: Create commits per spec (preserves intent in git history)
+
+2. **Three-Party System**
+   - Decision-maker (You): Reviews findings, approves phase transitions, catches errors
+   - Architect: Drafts specifications in isolated session, reviews outputs
+   - Executor: Claude Code in project repo implementing per specification
+
+3. **Specification-First Discipline**
+   - Written specs before code (prevents freestyle drift)
+   - Tier-based scope (Bug Fix <1hr, Feature hours-days, New Project week+)
+   - Amendment pattern: Spec changes don't overwrite originals—new amendment files (specs/NN-amendment-to-spec-MM.md) maintain audit trail
+
+4. **DEBT Registry**
+   - Known issues + deferred work documented in DEBT.md with increment numbers
+   - Never deleted, preserves historical context
+   - Links known issues to specs that defer them
+
+### Component Breakdown
+- **Specs folder:** NN.md files (numbered sequentially, immutable once approved)
+- **DEBT.md:** Master registry of known issues, tech debt, deferred decisions (growing append-only log)
+- **Amendments folder:** specs/NN-amendment-to-spec-MM.md (spec changes with full lineage)
+- **Phase checklists:** Seven-point end-of-session verification (files exist, protected files untouched, acceptance criteria met)
+- **Scaffolding templates:** Starting structure for new projects (not provided in README but implied)
+
+### Message/Command Flow
+1. Human (Decision-maker) → Claude (Architect): "Analyze this codebase/task. Report findings."
+2. Claude → Human: Analysis findings in structured format (human reads, decides next step)
+3. Human → Claude: "Proceed to Blueprint. Design solution per findings."
+4. Claude → Human: Blueprint with acceptance criteria (human approves or requests changes)
+5. Human → Claude: "Proceed to Code. Implement blueprint."
+6. Claude → Human: Diff + summary (human reviews changes)
+7. Human → Claude: "Proceed to Evaluate. Test and lint."
+8. Claude → Human: Test results (human approves or requests fixes)
+9. Human → Claude: "Proceed to Finalize. Create commit with spec reference."
+
+**Key Gate:** No transition without explicit "proceed to [phase]" approval. Vague affirmations don't satisfy gates.
+
+### Extensibility Model
+Kit is intentionally simple and extensible:
+- Tier system can be customized (1-3 default, but pattern adapts to project needs)
+- DEBT registry format is human-readable, integrates with any project
+- Phase gates can be adapted for different team structures (not just one-person)
+- Amendment pattern is portable to other document-based workflows
+- No proprietary tools—just Markdown + human discipline
+
+### Integration Surface
+- **Input:** Markdown specs, human approval/direction (via chat, email, or command)
+- **Output:** Committed code with clean git history, DEBT registry for future reference
+- **Extensibility:** Reference implementation only—users implement their own scaffolding
+- **Portability:** Zero dependencies, works across all codebases, languages, and toolchains
+- **Historical Audit:** Git history + DEBT.md + specs folder provide complete decision trail
+
+---
+
+## DIRECT THUNDERBIRD APPLICABILITY
+
+### Strongest Match
+**Workflow discipline for multi-agent, multi-step work.**
+
+Thunderbird's core challenge is orchestrating multiple specialized agents (Hale → A1 → A8 → Dani) across long workflows (client onboarding, dossier creation, itinerary generation, booking confirmation). Kit's phase-gate discipline directly maps to this:
+
+- **Current state:** Hale coordinates via keyword router + mission board + Telegram C2. No structured phase gates between major transitions. Risk: context drift, missed error-checking, unclear approval boundaries.
+
+- **Kit application:** Could impose mandatory gates on Thunderbird's multi-agent flows:
+  1. Client Intake (A1 → A8 → Dani): Analyze client profile → Blueprint travel DNA → Code dossier/recommendations → Diff client brief → Evaluate against client constraints → Finalize booking strategy
+  2. Itinerary Generation: Analyze client preferences → Blueprint itinerary structure → Code HTML/PDF → Diff layout → Evaluate accessibility/correctness → Finalize delivery
+  3. Email Validation: Analyze client expectations → Blueprint email strategy → Code draft → Diff tone/accuracy → Evaluate compliance (WF-17) → Finalize send
+
+- **Impact:** Reduces context drift across agent handoffs, enforces explicit approval at each agent boundary, maintains audit trail of decisions via DEBT registry.
+
+### Moderate Match
+**Error recovery and deferred work tracking.**
+
+Kit's DEBT registry maps well to Thunderbird's current pain points:
+- Currently: Known issues in scattered comments, verbal notes, mission board
+- Kit approach: DEBT.md as canonical source, referenced in specs, linked to phase gates
+- Example: "Grandeur deck plan images sparse — ARC3 deferred to Apr 30" (DEBT-47) → referenced in current ARC3 spec → blocks Finalize until resolved
+
+### Weak Match
+**Real-time command routing and cost optimization.**
+
+Kit is not designed for:
+- High-frequency agent dispatch (Telegram C2 paging every 30-60 seconds)
+- Dynamic cost-based routing (Claude vs OpenCode vs DeepSeek)
+- Concurrent multi-agent execution
+- Event-driven workflows
+
+Kit is sequential, human-gated, and disciplinary. Thunderbird needs parallel execution, autonomous agent dispatch, and cost-aware routing.
+
+### Pain Point Alignment
+
+| Pain Point | Kit Solves? | How/Why |
+|-----------|-----------|---------|
+| **Context management across agents** | ✅ Partial | Specs + DEBT registry maintain context lineage; phase gates enforce context handoff. Does NOT solve real-time context sharing (which is infrastructure problem). |
+| **State synchronization (dossiers, tasks)** | ❌ No | Kit is process-discipline, not state management. Dossiers/mission board are external systems. Kit could reference them but doesn't solve sync. |
+| **Error recovery/retry logic** | ✅ Partial | DEBT registry tracks deferred issues; phase gates can enforce retry-on-failure checks. But no automated retry. |
+| **Cost-aware routing** | ❌ No | Kit is model-agnostic. No cost calculation, no dynamic routing. |
+| **Real-time visibility** | ❌ No | Kit works at phase-gate boundaries (minutes to hours). Thunderbird needs second-level visibility. |
+| **Multi-agent coordination** | ✅ Partial | Three-party model extends to N-party (Hale + A1 + A8 + Dani + others). But not designed for concurrent execution. |
+
+---
+
+## COMPARISON TO THUNDERBIRD CURRENT STATE
+
+### Current Agent Orchestration
+1. **Hale Persona System:** 24-layer authority model, COS owns staff assignments and phase transitions. Manual hand-offs via Telegram or git.
+2. **Keyword Router:** 23+ keywords default to Claude. Routes tasks to specialists (A2→research, A3→client, A9→finance). NO phase gates between keyword and action.
+3. **Mission Board:** JSON-based task queue with status (pending/in_progress/completed). No approval gates. No spec storage.
+4. **Telegram C2:** Commander pager fires every 30-60 sec. Real-time dispatch. No historical spec/DEBT registry.
+5. **Email Workflows (WF-17):** Draft → Commander-Review label → /drafts → approve/edit → auto-send. HAS approval gates but not integrated with agent coordination.
+
+### Kit vs. Current State
+
+| Aspect | Thunderbird Current | Kit Pattern | Winner & Why |
+|--------|-------------------|-------------|--------------|
+| **Phase gates** | Manual (Telegram approval) | Mandatory A→F cycle | Kit (explicit gates reduce drift) |
+| **Spec tracking** | None (keywords + prompts) | Immutable specs/ folder + amendments | Kit (better audit trail) |
+| **Known issues** | Scattered comments/Telegram | DEBT.md registry | Kit (centralized, referenced in specs) |
+| **Error recovery** | Manual retry via Telegram | Phase gates with retry checkpoints | Tie (both manual, Kit more structured) |
+| **State management** | Mission board + dossiers | External (Kit doesn't solve) | Current (Thunderbird system is purpose-built) |
+| **Real-time dispatch** | Telegram C2 pager | Not designed for this | Thunderbird (Kit is too slow) |
+| **Multi-agent coordination** | Hale assigns → staff executes | Three-party (architect/executor/decider) | Tie (both work, different models) |
+| **Cost optimization** | Keyword router (crude) | Not addressed | Thunderbird (Kit is agnostic) |
+| **Scalability to concurrent work** | Mission board handles N tasks | Sequential, human-gated only | Thunderbird (Kit would bottleneck) |
+
+### Gaps Kit Could Fill
+1. **Spec-first discipline:** Thunderbird prompts are freestyle. Kit enforces written specs before agent execution → less context drift, better approval documentation.
+2. **Deferred work visibility:** DEBT.md as canonical source for "known issues" instead of scattered Telegram notes.
+3. **Amendment audit trail:** Spec changes create new files instead of overwrites → cleaner git history, decision rationale preserved.
+4. **Phase-gate enforcement:** Explicit "proceed to [phase]" gates between agent handoffs (not just "Hale approves").
+5. **End-of-session verification:** Seven-point checklist ensures agent work didn't drift (e.g., "protected files untouched," "acceptance criteria met").
+
+### Redundancy/Overlap
+1. **WF-17 draft gate:** Already implements phase-gate discipline for email approvals. Kit would extend this to ALL workflows, not just emails.
+2. **Hale authority model:** Already implements multi-party approval (COS decides, staff executes). Kit formalizes this into A→F cycle.
+3. **Mission board:** Serves similar role to Kit's specs/DEBT combo but looser, task-focused instead of decision-focused.
+
+---
+
+## INTEGRATION ASSESSMENT
+
+### Ease of Integration
+**Medium difficulty, non-blocking changes.**
+
+**Positive factors:**
+- Kit is methodology-only (no code dependencies, no infrastructure required).
+- Markdown-based (integrates cleanly with existing git workflows).
+- Extends current WF-17 discipline to ALL agent workflows, not just emails.
+- No breaking changes to Thunderbird systems.
+
+**Friction points:**
+- Requires discipline culture shift (spec-first, phase-gated approval vs. freestyle dispatch).
+- Adds latency (phase gates increase decision cycles from "10 sec Telegram confirmation" to "2-min human review per phase").
+- DEBT registry maintenance adds overhead (new issues must be documented with increment numbers).
+- Hale + all staff need training on spec format, phase transitions, amendment patterns.
+
+### Breaking Changes Required
+**No breaking changes to infrastructure; cultural adoption only.**
+
+Current systems (mission board, keyword router, Telegram C2, WF-17) all continue. Kit adds:
+- New specs/ folder (append-only)
+- New DEBT.md file (centralized known-issues log)
+- New amendments/ subfolder (spec change lineage)
+- New approval gates in agent workflows (adds decision points, doesn't remove existing ones)
+
+Parallel run: Full compatibility. Old freestyle prompts can coexist with new spec-driven work. Gradual migration possible.
+
+### Parallel Run Feasibility
+**Yes, high feasibility. Recommended approach for transition.**
+
+**Phase 1 (Weeks 1-2):** Pilot Kit on single client flow (e.g., Nancy Lyons onboarding via A1 → A8 → Dani). Document specs, DEBT registry. Hale reviews gates, approves phase transitions.
+
+**Phase 2 (Weeks 3-6):** Roll out to Kuklinski lifecycle (16 TPs). Full specs for each phase. Weekly DEBT reviews.
+
+**Phase 3 (Weeks 7+):** Full Thunderbird adoption. All agent workflows use specs + phases. DEBT registry grows to enterprise-level known-issues tracker.
+
+### Team Learning Curve
+**Low-to-medium. One-time cost.**
+
+What needs to be understood:
+1. **A→F phase cycle:** Each phase has distinct thinking mode (Analyze = research, Blueprint = design, Code = implement, etc.). Mixing phases degrades quality. ~30 min explanation.
+2. **Spec format:** Numbered, immutable. Changes → new amendment files. ~15 min template walk-through.
+3. **DEBT registry:** Known issues with increment numbers, linked to specs. ~20 min process training.
+4. **Phase gates:** Only "proceed to [next phase]" counts. Vague affirmations rejected. ~10 min policy clarification.
+5. **Three-party roles:** Decision-maker (Hale/Commander), Architect (spec drafter), Executor (agent). Most staff already know their role.
+
+Total: ~2 hours training for full staff.
+
+### Deployment Model
+**Local files + git history. No infrastructure required.**
+
+- Specs/ folder checked into Thunderbird git repo
+- DEBT.md as canonical source (pulled into memory for COS visibility)
+- Phase gates enforced by Hale via Telegram or email approval
+- No servers, no databases, no external APIs
+- Works in current environment (openSUSE, git, Telegram C2)
+
+### Platform Support
+**Platform-agnostic.** Works on Linux, macOS, Windows, cloud. Only requirement: git + text editor.
+
+---
+
+## STRATEGIC RECOMMENDATION
+
+### Relevance Score
+**6/10** — Moderate relevance with caveats.
+
+**Justification:**
+- ✅ Directly applicable to multi-agent workflow discipline (Thunderbird's #1 pain point).
+- ✅ Zero infrastructure cost, pure methodology.
+- ✅ Non-breaking, parallel-run compatible.
+- ✅ Addresses context drift, spec audit trail, known-issues tracking.
+- ❌ Does NOT solve state synchronization (dossiers, mission board).
+- ❌ Does NOT solve real-time dispatch (Telegram C2 paging).
+- ❌ Does NOT optimize costs (agnostic to model routing).
+- ❌ Adds latency (phase gates = slower decisions, acceptable for quality-critical work but friction for high-frequency tasks).
+- ⚠️  Requires culture shift (discipline overhead).
+
+### Implementation Priority
+**Medium.** Implement AFTER:
+1. Current client lifecycle (Westbrook, McLeod, Loucks, Kuklinski) stabilizes.
+2. Autonomy checklist reaches 85%+ (currently 68%).
+3. Email send gate + draft approval workflow (WF-17) solidifies.
+
+Implement BEFORE:
+- Scaling to new clients/staff.
+- Building outside-agent portal (MAGOA, Odysseus) integrations.
+
+### Recommended Action
+**Selective adoption with phased rollout.**
+
+**Why not "full adoption":** Kit's discipline overhead is justified for multi-step, quality-critical work (client lifecycles, itineraries, major decisions). Overkill for quick lookups, one-shot research, or routine updates.
+
+**Why not "skip":** Thunderbird has documented context-drift issues (session autosave, collaboration blackboard). Kit's spec + DEBT discipline directly addresses this. Payoff on client side once adoption reaches 50% of workflows.
+
+**Action plan:**
+1. Implement Kit on Kuklinski lifecycle (16 TPs, known scope).
+2. Document lessons learned, DEBT registry growth.
+3. Decide on full adoption based on Kuklinski results.
+4. If successful, roll to McLeod + Loucks (27 TPs each).
+
+### Conditions for Adoption
+1. **Discipline commitment:** Hale + staff must enforce phase gates consistently (no "skip approval" shortcuts).
+2. **Spec template + training:** Create Thunderbird-specific spec template (client data, booking phases, staff assignments). Train full wing.
+3. **DEBT registry integration:** Link DEBT.md into session_autosave_latest.md so COS sees current blockers on every brief.
+4. **Gate automation (optional):** Integrate Kit gates into WF-17 approval flow (draft gate → full workflow phase gates).
+
+---
+
+## 90-DAY INTEGRATION ROADMAP (If Adopted)
+
+### Phase 1: Pilot (Weeks 1-2) — Nancy Lyons Onboarding
+**Goal:** Prove Kit's phase gates reduce context drift on single client flow.
+
+**Activities:**
+- Weeks 1: Create specs/01-lyons-intake-analysis.md, specs/02-lyons-intake-blueprint.md. Document A1 Navarro analysis, then A8 Reyes blueprint. Gate between Analyze and Blueprint; Hale reviews, approves.
+- Week 2: Implement Lyons dossier per blueprint (Code phase). Diff review (Dani brief vs. spec expectations). Evaluate (Dani testing with client inquiry). Finalize (commit with spec references).
+- Outcome: DEBT-01 through DEBT-05 logged (any issues deferred). Lyons booking ready.
+
+**Success criteria:**
+- All 5 specs completed and committed.
+- DEBT registry created with 0-5 items logged.
+- Phase gates enforced: each transition required explicit approval.
+- Zero context drift across A1 → A8 → Dani handoffs.
+
+### Phase 2: Expand to Kuklinski (Weeks 3-6) — Full Lifecycle Test
+**Goal:** Validate Kit on real, complex lifecycle (16 TPs, 90+ day window).
+
+**Activities:**
+- Week 3: Specs for ARC1 (initial contact) → ARC2 (search phase) → ARC3 (pricing/booking). One spec per major TP cluster.
+- Weeks 4-5: Execute each spec. Weekly Hale gate reviews. DEBT registry grows.
+- Week 6: Kuklinski booking confirmed. Final Finalize phase (commit with all spec references).
+- Outcome: Full Kuklinski lifecycle under Kit discipline. DEBT registry documents all known issues (e.g., "Finnair availability delays," "cabin upgrade pricing pending").
+
+**Success criteria:**
+- 8-12 specs completed (one per major phase).
+- DEBT registry at 10-20 items (known issues logged, referenced in specs).
+- Client satisfaction unaffected or improved (clearer communication, fewer surprises).
+- Git history clean: every commit references spec(s).
+
+### Phase 3: Roll to Production (Weeks 7-12) — McLeod + Loucks
+**Goal:** Full production rollout to all active clients.
+
+**Activities:**
+- Week 7-8: McLeod lifecycle specs (27 TPs). Template refinement, amendment process testing.
+- Week 9-10: Loucks lifecycle specs (22 TPs). Staff training reinforcement.
+- Week 11-12: Review lessons, document amendments (spec changes from real world feedback). DEBT registry consolidation.
+- Outcome: All 4 major clients on Kit discipline. Standardized spec templates, trainable process.
+
+**Success criteria:**
+- 50+ specs created (covering all lifecycle phases for 4 clients).
+- DEBT registry at 30-50 items (real-world blockers documented, tracked).
+- Staff adoption: 90%+ compliance with phase gates (Hale observes discipline in Telegram approvals).
+- Zero regressions: WF-17 draft quality maintained, client communication improved.
+
+---
+
+## RISKS & CONCERNS
+
+### Technical Risks
+- **None.** Kit is pure methodology (Markdown + git). No technical debt, no dependencies, no infrastructure failure modes.
+
+### Maintenance Burden
+- **Low.** DEBT registry grows over time (append-only log). Annual cleanup recommended (age-out resolved issues, consolidate lessons learned). ~2 hours/quarter for COS.
+- **Amendment management:** New amendment files for spec changes. Could accumulate. Recommendation: every 10 amendments for a spec, consolidate into spec v2.
+- **Spec review:** Phase gates add Hale decision load (~10 min per gate, potentially 3-4 gates per client per week). Manageable but noticeable.
+
+### Community/Support
+- **Project:** Active, single-author (ashawareb). Well-documented. No community, no bug tracking, no community issues. If Kit breaks, Thunderbird fixes it (pure methodology, no code to break).
+- **Maintenance:** Not an open-source project in the traditional sense. Author shares methodology but doesn't provide commercial support. Thunderbird must own implementation.
+
+### Licensing
+- **Not explicitly stated.** Appears to be reference/educational material. No restrictions inferred. Thunderbird can adopt freely.
+
+### Cultural Risk
+**Highest risk.** Thunderbird staff is accustomed to freestyle dispatch via Telegram. Kit enforces discipline:
+- "Wait for spec before coding" (slower than current "just code").
+- "Hale approves before next phase" (more decision gates than current loose Telegram).
+- "DEBT registry first, then action" (documentation burden before doing).
+
+**Mitigation:**
+- Pilot phase proves value before full rollout.
+- Commander explicitly endorses phase-gate discipline (standing order from COS).
+- First 2 weeks show visible improvement (cleaner Thunderbird git history, fewer "oops" moments).
+
+---
+
+## FINAL VERDICT
+
+### Best-Case Scenario (If Integrated)
+- **Reduced context drift:** Specs capture intent before execution. A1 → A8 → Dani handoffs are explicit, not implicit.
+- **Cleaner git history:** Every commit references spec(s). Future engineers (or COS reviewing history) understand decisions.
+- **Known-issues visibility:** DEBT.md becomes canonical source. COS sees all blockers in one place (integrated into session briefs).
+- **Staff discipline:** Phase gates become habit. Quality improves across all workflows.
+- **Auditable decisions:** Amendment pattern preserves spec evolution. If a decision changes, the old spec + amendment show why.
+- **Scalable to new clients:** Once templates solidify (Kuklinski), new clients follow same pattern (specs/NN.md format, known DEBT categories).
+
+### Worst-Case Scenario (Integration Fails)
+- **Adoption stalls:** Staff finds gate discipline too slow, reverts to freestyle Telegram dispatch.
+- **DEBT registry becomes stale:** Not updated consistently, loses value as known-issues tracker.
+- **Specs accumulate without review:** Specs/ folder grows to 100+ files, becomes unmaintainable.
+- **Phase gates enforced sporadically:** Hale approves some transitions, others bypass gates. Defeats purpose.
+- **Fallback:** Revert to current state (WF-17 for emails, freestyle for other workflows). Zero damage, Kit infrastructure orphaned but not harmful.
+
+### Bottom Line
+**Kit is a low-risk, moderate-payoff methodology. Implement on Kuklinski lifecycle as proof-of-concept. If discipline sticks and DEBT registry proves valuable, roll to production. If adoption struggles, Kit gracefully fails with zero infrastructure cost.**
+
+Kit's true value: **Not agent orchestration or real-time dispatch, but audit trail + spec discipline for quality-critical workflows.** Thunderbird's multi-agent coordination already works. Kit would make it defensible (specs, gates, DEBT) instead of implicit (keyword router, Telegram nods).
+
+**Recommendation: Selective adoption on Kuklinski (Weeks 1-6 of 90-day roadmap). Reassess after pilot. Full rollout conditional on discipline adoption and DEBT registry showing ROI.**
+
+---
+
+## APPENDIX: Kit in Thunderbird Context
+
+### Hypothetical Kuklinski Spec Example
+```
+specs/01-kuklinski-intake-analysis.md
+===========================================
+
+CLIENT: Brent & Kim Kuklinski
+CRUISE: Viking Mars Panama Canal (Dec 26, 2026 – Jan 8, 2027)
+PHASE: Analyze
+OWNER: A1 Navarro (Intake & Client Profile Architect)
+
+FINDINGS:
+- Adventure seekers, Panama canal preference, previous river-cruise experience
+- 14-day commitment, family-friendly, "nature over nightlife"
+- Cabin upgrade potential: junior suite to veranda suite
+- Excursion focus: cultural (Mayan ruins, local communities), not resort beach
+
+NEXT PHASE: Blueprint
+APPROVED BY: Hale (COS) — 2026-05-01 10:30 MDT
+```
+
+Then:
+```
+specs/02-kuklinski-intake-blueprint.md
+===========================================
+
+CLIENT: Kuklinski
+PHASE: Blueprint
+OWNER: A8 Reyes (Experience Architect)
+
+TRAVEL DNA PROFILE:
+- Adventure seekers / Cultural immersion
+- Cabin: Veranda suite (sun deck, river views)
+- Dining: Specialty restaurants (Nordic), casual adventure briefings
+- Excursions: Gatun Lake wildlife, San Blas Islands indigenous community, Portobelo ruins
+- Onboard: Lecture series, nature talks
+
+DOSSIER STRUCTURE:
+- Client brief (A1 summary)
+- Cabin recommendation with tier options
+- Itinerary sketch (port-by-port excursion recommendations)
+- Pricing (base + cabin upgrade + excursions)
+
+ACCEPTANCE CRITERIA:
+- A1 brief mirrors client feedback
+- Cabin recommendation aligns with "adventure" DNA
+- Excursion choices validated against Viking Mars Panama Canal 2026 schedule
+- Pricing ready for ARC2 (final booking phase)
+
+APPROVED BY: Hale — 2026-05-01 14:15 MDT
+```
+
+Then Code phase: Dani creates actual dossier per blueprint.
+Then Diff phase: Compare dossier vs. blueprint expectations.
+Then Evaluate: Hale reviews; if cabin/excursion recommendations match Viking Mars catalog, approve Finalize.
+Then Finalize: Commit with "ref: specs/01, specs/02" in message.
+
+**DEBT logging (if issues found):**
+```
+DEBT.md
+========
+
+DEBT-47 (Kuklinski phase): Grandeur deck plan images incomplete; deferred to ARC3 phase
+DEBT-48 (Kuklinski): Gatun Lake excursion shuttle timing not confirmed with Viking Mars; added to ARC2 verification list
+DEBT-49 (General): Panama Canal entry fees for non-standard cabin categories not yet sourced; blocking premium cabin pricing
+```
+
+Then COS sees DEBT-47/48/49 in next brief, incorporates into ARC2 action plan.
+
+---
+
+**END ANALYSIS**

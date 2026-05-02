@@ -17,6 +17,7 @@
 - .api_token
 
 # --- EXCLUDE: large cache & build dirs ---
+- .smart-env/**
 - .venv/**
 - venv/**
 - __pycache__/**
@@ -26,6 +27,9 @@
 - .rtk/**
 - storage/backups/**
 - storage/browser_profiles/**
+
+# --- EXCLUDE: rclone's own log (race condition: file changes during sync) ---
+- .rclone_sync.log
 
 # --- EXCLUDE: compiled/temp ---
 - *.pyc

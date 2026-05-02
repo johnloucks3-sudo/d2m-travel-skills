@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0",
+  "ship_id": "le_bougainville",
+  "cruise_line": "Ponant",
+  "ship_name": "Le Bougainville",
+  "icruise_id": "ship_640",
+  "capacity_guests": 184,
+  "d2m_priority": "MEDIUM",
+  "target_clients": [],
+  "last_updated": "2026-04-29T19:52:59.757871+00:00",
+  "timeseries": [
+    {
+      "scraped_at": "2026-04-29T19:52:59.757871+00:00",
+      "occupancy": {
+        "estimated_pct": 76.0,
+        "method": "availability_inference",
+        "available_voyages": 3,
+        "sold_out_voyages": 2,
+        "limited_voyages": 1,
+        "confidence": "medium"
+      },
+      "reviews": {
+        "avg_score": 4.5,
+        "score_max": 5.0,
+        "review_count": 267,
+        "score_breakdown": {
+          "cabin": 4.6,
+          "dining": 4.5,
+          "service": 4.6,
+          "entertainment": 4.3,
+          "value": 4.4
+        },
+        "source": "icruise_seed",
+        "source_url": "https://www.icruise.com/ships/le-bougainville.html"
+      },
+      "onboard_events": [
+        {
+          "title": "S.A.L.T. Lab Workshop",
+          "category": "culinary",
+          "date": null,
+          "time": "10:00",
+          "venue": "S.A.L.T. Lab",
+          "description": null
+        },
+        {
+          "title": "Destination Enrichment Lecture",
+          "category": "enrichment",
+          "date": null,
+          "time": "11:30",
+          "venue": "Main Lounge",
+          "description": null
+        },
+        {
+          "title": "Evening Entertainment Show",
+          "category": "entertainment",
+          "date": null,
+          "time": "21:00",
+          "venue": "Theater",
+          "description": null
+        }
+      ],
+      "dining": {
+        "restaurants": [
+          "Le Gastronomique",
+          "Le Grill",
+          "La Boussole"
+        ],
+        "specialty_featured": [],
+        "theme_nights": [],
+        "source": "seed",
+        "source_url": ""
+      },
+      "scrape_errors": [],
+      "scrape_duration_sec": 0.0
+    }
+  ]
+}

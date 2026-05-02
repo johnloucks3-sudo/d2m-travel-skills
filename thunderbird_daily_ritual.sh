@@ -57,3 +57,6 @@ esac
 find "$LOG_DIR" -name "daily_ritual_*.log" -mtime +14 -delete 2>/dev/null || true
 
 log "=== DAILY RITUAL COMPLETE ==="
+
+# Run budget monitor
+.venv/bin/python ops/openrouter_monitor.py >> logs/usage_monitor.log

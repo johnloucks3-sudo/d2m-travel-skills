@@ -1,0 +1,68 @@
+[
+  {
+    "id": "A2-2026-04-30-001",
+    "title": "LuxuryEstate Multilingual Scrape - PT",
+    "source_signal": "[1] Im\u00f3veis de luxo e propriedades de prest\u00edgio \u00e0 venda",
+    "classification": "INTEGRATE",
+    "gap_closed": "Portuguese-language luxury lifestyle signals for behavioral preference inference and travel vector compounding",
+    "thunderbird_component": "core/client/thunderbird_auto_enrich.py + incubator_lifestyle_signals",
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "Recommended build (PT/IT/EN/FR multilingual expansion); 2 dev-days effort, high signal for European property owners, no new infrastructure."
+  },
+  {
+    "id": "A2-2026-04-30-002",
+    "title": "LuxuryEstate Multilingual Scrape - IT",
+    "source_signal": "[2] Immobili di lusso e Propriet\u00e0 di prestigio in Vendita",
+    "classification": "INTEGRATE",
+    "gap_closed": "Italian-language luxury property signals for Mediterranean travel archetype inference and preference compounding",
+    "thunderbird_component": "core/client/thunderbird_auto_enrich.py + incubator_lifestyle_signals",
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "Recommended build; strong signal correlation to Viking/Oceania/Seabourn Mediterranean clientele; part of 2 dev-day multilingual effort."
+  },
+  {
+    "id": "A2-2026-04-30-003",
+    "title": "LuxuryEstate Regional Vector - Gauteng",
+    "source_signal": "[3] Luxury Properties for sale in Gauteng",
+    "classification": "WATCH",
+    "gap_closed": "Southern Africa UHNW market signals; cruise booking behavior correlation unproven",
+    "thunderbird_component": "core/client/thunderbird_auto_enrich.py (post-monitor expansion)",
+    "risk": "MED",
+    "sss_required": false,
+    "rationale": "New region not in recommended build; 30-day validation cycle required to establish Gauteng property \u2192 cruise booking signal correlation."
+  },
+  {
+    "id": "A2-2026-04-30-004",
+    "title": "LuxuryEstate Regional Vector - Toronto",
+    "source_signal": "[4] Luxury Properties for sale in Toronto, Ontario",
+    "classification": "WATCH",
+    "gap_closed": "Canada UHNW market signals; regional vector correlation requires validation",
+    "thunderbird_component": "core/client/thunderbird_auto_enrich.py (post-monitor expansion)",
+    "risk": "MED",
+    "sss_required": false,
+    "rationale": "Incubator WATCH LIST named; 30-day signal maturity hold before scale. Toronto/Gauteng regional expansion not committed."
+  },
+  {
+    "id": "A2-2026-04-30-005",
+    "title": "LuxuryEstate Multilingual Scrape - FR",
+    "source_signal": "[5] R\u00e9sidences de luxe et biens de prestige \u00e0 vendre",
+    "classification": "INTEGRATE",
+    "gap_closed": "French-language luxury property signals for behavioral compounding; part of recommended multilingual build",
+    "thunderbird_component": "core/client/thunderbird_auto_enrich.py + incubator_lifestyle_signals",
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "Recommended PT/IT/EN/FR build; Q2 execution planned; high signal for French/Swiss/Monaco UHNW clientele; part of 2 dev-day effort."
+  },
+  {
+    "id": "A2-2026-04-30-006",
+    "title": "LuxuryEstate FR Market Scale & Signal Architecture",
+    "source_signal": "[6] Immobilier de luxe en vente en France - 79,963 annonces",
+    "classification": "INTEGRATE",
+    "gap_closed": "High-volume French market signal corpus with infrastructure scaling for deduplication and pop-culture signal filtering",
+    "thunderbird_component": "core/client/thunderbird_auto_enrich.py + incubator_signal_quality_layer",
+    "risk": "LOW",
+    "sss_required": true,
+    "rationale": "79.9k listing scale requires SSS approval on: (1) scrape infrastructure bandwidth/storage, (2) dedup+entity resolution layer, (3) pop-culture bleed filter deployment."
+  }
+]

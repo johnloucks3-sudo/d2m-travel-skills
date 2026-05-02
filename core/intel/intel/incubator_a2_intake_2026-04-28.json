@@ -1,0 +1,90 @@
+[
+  {
+    "id": "A2-2026-04-28-001",
+    "title": "LIFE Magazine Photo Archives",
+    "source_signal": "[1] The Most Iconic Photographs of All Time - LIFE",
+    "classification": "REJECT",
+    "gap_closed": "none",
+    "thunderbird_component": "n/a",
+    "risk": "n/a",
+    "sss_required": false,
+    "rationale": "Archive content unrelated to luxury travel, cruise/hotel booking intelligence, or client experience design."
+  },
+  {
+    "id": "A2-2026-04-28-002",
+    "title": "LIFE Magazine Historical Social Life",
+    "source_signal": "[2] LIFE: 6 days ago \u00b7 Here's how LIFE described the social life...",
+    "classification": "REJECT",
+    "gap_closed": "none",
+    "thunderbird_component": "n/a",
+    "risk": "n/a",
+    "sss_required": false,
+    "rationale": "1945 historical archive; no relevance to current travel booking, client profiling, or experience design."
+  },
+  {
+    "id": "A2-2026-04-28-003",
+    "title": "LIFE Magazine 20th Century Life/Fashion",
+    "source_signal": "[3] What 20th Century Life Was Like - LIFE",
+    "classification": "REJECT",
+    "gap_closed": "none",
+    "thunderbird_component": "n/a",
+    "risk": "n/a",
+    "sss_required": false,
+    "rationale": "Historical archive of fashion and lifestyle; unrelated to luxury cruise/hotel services or client preferences."
+  },
+  {
+    "id": "A2-2026-04-28-004",
+    "title": "LIFE Magazine Arts/Culture",
+    "source_signal": "[4] Arts, Entertainment, & Culture - LIFE",
+    "classification": "REJECT",
+    "gap_closed": "none",
+    "thunderbird_component": "n/a",
+    "risk": "n/a",
+    "sss_required": false,
+    "rationale": "Cultural history archive; no actionable intelligence for travel experience design or booking optimization."
+  },
+  {
+    "id": "A2-2026-04-28-005",
+    "title": "LIFE Magazine Photo Archives (duplicate)",
+    "source_signal": "[5] The Most Iconic Photographs of All Time - LIFE",
+    "classification": "REJECT",
+    "gap_closed": "none",
+    "thunderbird_component": "n/a",
+    "risk": "n/a",
+    "sss_required": false,
+    "rationale": "Duplicate of [1]; unrelated to travel intelligence."
+  },
+  {
+    "id": "A2-2026-04-28-006",
+    "title": "LIFE Magazine Historical Social Life (duplicate)",
+    "source_signal": "[6] LIFE: 6 days ago \u00b7 Here's how LIFE described the social life...",
+    "classification": "REJECT",
+    "gap_closed": "none",
+    "thunderbird_component": "n/a",
+    "risk": "n/a",
+    "sss_required": false,
+    "rationale": "Duplicate of [2]; archival content unrelated to D2M business."
+  },
+  {
+    "id": "A2-2026-04-28-007",
+    "title": "LIFE Magazine 20th Century Life/Fashion (duplicate)",
+    "source_signal": "[7] What 20th Century Life Was Like - LIFE",
+    "classification": "REJECT",
+    "gap_closed": "none",
+    "thunderbird_component": "n/a",
+    "risk": "n/a",
+    "sss_required": false,
+    "rationale": "Duplicate of [3]; historical archive unrelated to travel services."
+  },
+  {
+    "id": "A2-2026-04-28-008",
+    "title": "LIFE Magazine Arts/Culture (duplicate)",
+    "source_signal": "[8] Arts, Entertainment, & Culture - LIFE",
+    "classification": "REJECT",
+    "gap_closed": "none",
+    "thunderbird_component": "n/a",
+    "risk": "n/a",
+    "sss_required": false,
+    "rationale": "Duplicate of [4]; cultural history archive with no D2M application."
+  }
+]

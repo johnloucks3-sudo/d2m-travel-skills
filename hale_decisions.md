@@ -169,3 +169,25 @@ Example:
 **Brain:** Self (COS infrastructure authority)
 
 ---
+### 2026-04-30 — Autonomous Decision
+**Decision:** Escalated OpenRouter→Sonnet on: Convert this booking into JSON format
+
+[OUTPUT SPEC] JSON format, max 200 tokens
+**Rationale:** Free OpenRouter tier returned an error; task required reliable response.
+**Brain used:** Brain 2 (Sonnet)
+**Outcome:** pending
+**Commander notified:** Next brief
+**Disagreement logged:** No
+
+
+### 2026-04-30 — Autonomous Decision
+**Decision:** Escalated OpenRouter→Sonnet on: Format this list of clients as CSV
+
+[OUTPUT SPEC] table format (pipe-delimited),
+**Rationale:** Free OpenRouter tier returned an error; task required reliable response.
+**Brain used:** Brain 2 (Sonnet)
+**Outcome:** pending
+**Commander notified:** Next brief
+**Disagreement logged:** No
+
+2026-05-01 03:13 MT | Decision: Initialize Bimodal Briefing (TSB) Protocol | Result: System armed | Model: Gemini 3.1 Flash-Lite

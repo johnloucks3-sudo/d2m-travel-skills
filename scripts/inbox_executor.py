@@ -41,7 +41,7 @@ TELEGRAM_URL   = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
 # ── DeepSeek via OpenRouter ───────────────────────────────────────────────────
 OPENROUTER_KEY = os.environ.get("OPENROUTER_API_KEY", "").strip()
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
-DEEPSEEK_MODEL = "deepseek/deepseek-chat-v3.1"
+DEEPSEEK_MODEL = "deepseek/deepseek-v4-pro"
 
 # ── Gmail ─────────────────────────────────────────────────────────────────────
 sys.path.insert(0, str(BASE))
@@ -88,7 +88,7 @@ def page_commander(msg: str) -> bool:
 
 
 def call_deepseek(system_prompt: str, user_prompt: str, max_tokens: int = 800) -> str:
-    """Call DeepSeek V3.1 via OpenRouter. Returns text or empty string on failure."""
+    """Call DeepSeek V4 Pro via OpenRouter. Returns text or empty string on failure."""
     if not OPENROUTER_KEY:
         log.warning("OPENROUTER_API_KEY not set — DeepSeek unavailable")
         return ""
@@ -303,8 +303,8 @@ def handle_trigger_email(block: dict):
         source  = "pre-written"
         log.info(f"    Pre-written email found for TP {tp_id}")
     else:
-        # ── DeepSeek fallback ──────────────────────────────────────────────
-        log.info(f"    No pre-written email — calling DeepSeek for TP {tp_id}")
+        # ── DeepSeek V4 Pro fallback ──────────────────────────────────────
+        log.info(f"    No pre-written email — calling DeepSeek V4 Pro for TP {tp_id}")
         system_prompt = (
             "You are Danielle 'Dani' Moreau, D2M Luxury Travel Concierge for Dreams2Memories Travel, LLC. "
             "Write warm, crisp, certain client emails. Short sentences. No hedging. No filler. "
@@ -326,13 +326,13 @@ def handle_trigger_email(block: dict):
                 f"## EMAIL COMPOSITION NEEDED — {tp_id} {tp_lbl}\n"
                 f"**Client:** {client}\n"
                 f"**Subject:** {subject}\n"
-                f"**Reason:** DeepSeek unavailable. Manual composition required.\n"
+                f"**Reason:** DeepSeek V4 Pro unavailable. Manual composition required.\n"
                 f"**Staff:** {block.get('staff', 'Hale')}"
             )
             page_commander(
                 f"⚠️ *EMAIL NEEDED — Manual*\n"
                 f"*{client}* — {tp_id} {tp_lbl}\n"
-                f"DeepSeek unavailable. Task in wing\\_comms.\n"
+                f"DeepSeek V4 Pro unavailable. Task in wing\\_comms.\n"
                 f"_{TODAY}_"
             )
             return
@@ -341,7 +341,7 @@ def handle_trigger_email(block: dict):
         subj  = lines[0].strip() if lines else subject
         body  = lines[2].strip() if len(lines) > 2 else composed
         to_addr = ""  # DeepSeek doesn't know recipients — leave blank for Commander
-        source  = "DeepSeek V3.1"
+        source  = "DeepSeek V4 Pro"
 
     # ── Create Gmail draft ─────────────────────────────────────────────────
     # If channel says SEND (owner client / intel) — still draft for WF-17 safety

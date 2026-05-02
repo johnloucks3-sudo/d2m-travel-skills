@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0",
+  "ship_id": "seven_seas_grandeur",
+  "cruise_line": "Regent Seven Seas",
+  "ship_name": "Seven Seas Grandeur",
+  "icruise_id": "ship_732",
+  "capacity_guests": 746,
+  "d2m_priority": "CRITICAL",
+  "target_clients": [
+    "Loucks",
+    "McLeod",
+    "Furlow"
+  ],
+  "last_updated": "2026-04-29T19:52:59.757023+00:00",
+  "timeseries": [
+    {
+      "scraped_at": "2026-04-29T19:52:59.757023+00:00",
+      "occupancy": {
+        "estimated_pct": 94.0,
+        "method": "availability_inference",
+        "available_voyages": 3,
+        "sold_out_voyages": 2,
+        "limited_voyages": 1,
+        "confidence": "medium"
+      },
+      "reviews": {
+        "avg_score": 4.9,
+        "score_max": 5.0,
+        "review_count": 203,
+        "score_breakdown": {
+          "cabin": 5.0,
+          "dining": 4.9,
+          "service": 5.0,
+          "entertainment": 4.7,
+          "value": 4.800000000000001
+        },
+        "source": "icruise_seed",
+        "source_url": "https://www.icruise.com/ships/seven-seas-grandeur.html"
+      },
+      "onboard_events": [
+        {
+          "title": "S.A.L.T. Lab Workshop",
+          "category": "culinary",
+          "date": null,
+          "time": "10:00",
+          "venue": "S.A.L.T. Lab",
+          "description": null
+        },
+        {
+          "title": "Destination Enrichment Lecture",
+          "category": "enrichment",
+          "date": null,
+          "time": "11:30",
+          "venue": "Main Lounge",
+          "description": null
+        },
+        {
+          "title": "Evening Entertainment Show",
+          "category": "entertainment",
+          "date": null,
+          "time": "21:00",
+          "venue": "Theater",
+          "description": null
+        }
+      ],
+      "dining": {
+        "restaurants": [
+          "Compass Rose",
+          "Chartreuse",
+          "Prime 7",
+          "Sette Mari",
+          "Pacific Rim"
+        ],
+        "specialty_featured": [],
+        "theme_nights": [],
+        "source": "seed",
+        "source_url": ""
+      },
+      "scrape_errors": [],
+      "scrape_duration_sec": 0.0
+    }
+  ]
+}

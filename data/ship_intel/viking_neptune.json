@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "ship_id": "viking_neptune",
+  "cruise_line": "Viking Ocean",
+  "ship_name": "Viking Neptune",
+  "icruise_id": "ship_710",
+  "capacity_guests": 930,
+  "d2m_priority": "MEDIUM",
+  "target_clients": [],
+  "last_updated": "2026-04-29T19:52:59.757590+00:00",
+  "timeseries": [
+    {
+      "scraped_at": "2026-04-29T19:52:59.757590+00:00",
+      "occupancy": {
+        "estimated_pct": 84.0,
+        "method": "availability_inference",
+        "available_voyages": 3,
+        "sold_out_voyages": 2,
+        "limited_voyages": 1,
+        "confidence": "medium"
+      },
+      "reviews": {
+        "avg_score": 4.6,
+        "score_max": 5.0,
+        "review_count": 445,
+        "score_breakdown": {
+          "cabin": 4.699999999999999,
+          "dining": 4.6,
+          "service": 4.699999999999999,
+          "entertainment": 4.3999999999999995,
+          "value": 4.5
+        },
+        "source": "icruise_seed",
+        "source_url": "https://www.icruise.com/ships/viking-neptune.html"
+      },
+      "onboard_events": [
+        {
+          "title": "S.A.L.T. Lab Workshop",
+          "category": "culinary",
+          "date": null,
+          "time": "10:00",
+          "venue": "S.A.L.T. Lab",
+          "description": null
+        },
+        {
+          "title": "Destination Enrichment Lecture",
+          "category": "enrichment",
+          "date": null,
+          "time": "11:30",
+          "venue": "Main Lounge",
+          "description": null
+        },
+        {
+          "title": "Evening Entertainment Show",
+          "category": "entertainment",
+          "date": null,
+          "time": "21:00",
+          "venue": "Theater",
+          "description": null
+        }
+      ],
+      "dining": {
+        "restaurants": [
+          "World Caf\u00e9",
+          "The Restaurant",
+          "Manfredi's",
+          "The Chef's Table"
+        ],
+        "specialty_featured": [],
+        "theme_nights": [],
+        "source": "seed",
+        "source_url": ""
+      },
+      "scrape_errors": [],
+      "scrape_duration_sec": 0.0
+    }
+  ]
+}

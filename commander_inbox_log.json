@@ -3618,5 +3618,895 @@
     "persona": "A2",
     "draft_id": null,
     "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-24T14:01:29.733680+00:00",
+    "msg_id": "19dbf9b103f94d8d",
+    "subject": "Exclusive Webinar: Don\u2019t Miss Your First Look at Oceania Aurelia",
+    "sender": "oceaniainsider@oceaniacruises.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-24T14:01:49.800055+00:00",
+    "msg_id": "19dbf8a6c17bf8bf",
+    "subject": "[D2M RED] Preflight Check",
+    "sender": "",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-24T14:17:10.499817+00:00",
+    "msg_id": "19dbfd65377ed6a8",
+    "subject": "NCL vs. Holland America Line; Celebrity River Update & More",
+    "sender": "news@info.cruisecritic.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-24T14:17:45.488451+00:00",
+    "msg_id": "19dbfcd6a4f56947",
+    "subject": "\u2708 Travel Cooler: Here\u2019s Where to Beat the Summer Heat, a Deeper American-Alaska Partnership? & More from TPG \u2708",
+    "sender": "tpg@thepointsguy.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-24T14:18:04.658966+00:00",
+    "msg_id": "19dbfaad1b25c6bc",
+    "subject": "Your OpenRouter, Inc receipt [#1782-0523]",
+    "sender": "receipts@openrouter.ai",
+    "classification": "financial",
+    "persona": "A9",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-24T14:18:24.624692+00:00",
+    "msg_id": "19dbf8df4e2dcf30",
+    "subject": "Your OpenRouter, Inc receipt [#1229-8629]",
+    "sender": "receipts@openrouter.ai",
+    "classification": "financial",
+    "persona": "A9",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-24T14:18:42.853567+00:00",
+    "msg_id": "19dbf749cfef7c72",
+    "subject": "Your OpenRouter, Inc receipt [#1038-1710]",
+    "sender": "receipts@openrouter.ai",
+    "classification": "financial",
+    "persona": "A9",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-24T16:16:53.776472+00:00",
+    "msg_id": "19dc043e4e758736",
+    "subject": "$3,000 Double Air Credit + 40% Bonus Savings",
+    "sender": "learnmore@atlasoceanvoyages.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-24T16:17:32.106589+00:00",
+    "msg_id": "19dc00bb12a28a92",
+    "subject": "Up to 45% Spring Savings + $200 TA Gift Card",
+    "sender": "mail@tln.messages2.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-24T18:16:49.332403+00:00",
+    "msg_id": "19dc0a9a4a45e16d",
+    "subject": "New Solo Verandahs on Oosterdam",
+    "sender": "reply@halpartners.hollandamerica.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-24T18:17:08.625082+00:00",
+    "msg_id": "19dc07b2af56f68e",
+    "subject": "DOJ Charges the \"Southern Poverty Law Center\" With Wire Fraud, False Statements, and Money Laundering Conspiracy -\u2026",
+    "sender": "shipwreckedcrew@substack.com",
+    "classification": "financial",
+    "persona": "A9",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-24T20:17:10.973735+00:00",
+    "msg_id": "19dc11ad9dac74cf",
+    "subject": "Last-Minute Offers - Internova Hotels, Resorts & In-Country Partners",
+    "sender": "mail@tln.messages2.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-24T20:17:50.141082+00:00",
+    "msg_id": "19dc11608ccbafb2",
+    "subject": "Chosen With You in Mind",
+    "sender": "seabourn@m.seabourn.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-24T20:18:14.655645+00:00",
+    "msg_id": "19dc0e5dd8a1246e",
+    "subject": "Majestic Resorts Offer the Perfect Setting",
+    "sender": "mail@tln.messages2.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-24T22:16:03.017267+00:00",
+    "msg_id": "19dc18640c97e5bd",
+    "subject": "Picasso Travel Newsletter - 103 - AC, CZ, EK, IZ, NH, NT, TK - (ALL)",
+    "sender": "news@news.picassotravel.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-24T22:16:28.681886+00:00",
+    "msg_id": "19dc1568d4df6edf",
+    "subject": "Your Travel Advisor Perk: 50% Off Hilton Stays in Mexico",
+    "sender": "mail@tln.messages2.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-25T14:02:21.896315+00:00",
+    "msg_id": "19dc4b118d427a8a",
+    "subject": "[D2M RED] Preflight Check",
+    "sender": "",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-25T14:17:06.322166+00:00",
+    "msg_id": "19dc4baaaccdcf79",
+    "subject": "BREAKING:  CBP and Coast Guard arrest 60 people after apprehending multiple smuggling vessels",
+    "sender": "info@justthenews.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-25T16:16:48.788571+00:00",
+    "msg_id": "19dc5638f0788eea",
+    "subject": "Summer travel snags: From jet fuel shortages, rising prices and baggage fees \u2014 here\u2019s how to plan ahead",
+    "sender": "askbk@thepointsguy.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-25T16:17:16.845058+00:00",
+    "msg_id": "19dc52da403f69c7",
+    "subject": "Enhance the Value of Your River Cruise with AmaWaterways",
+    "sender": "news@info.cruisecritic.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-25T18:16:05.499219+00:00",
+    "msg_id": "19dc5ccdb6572b22",
+    "subject": "The North Awakens",
+    "sender": "seabourn@m.seabourn.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-25T20:16:06.475461+00:00",
+    "msg_id": "19dc613ec91fe53c",
+    "subject": "The Grayzone visits ruins of US aircraft in Iran",
+    "sender": "thegrayzone@substack.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-26T02:00:54.864731+00:00",
+    "msg_id": "19dc74dbeefc8cc0",
+    "subject": "Re: Can you please...",
+    "sender": "iamheer@outlook.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-26T14:01:37.246453+00:00",
+    "msg_id": "19dc9d72447c3597",
+    "subject": "[D2M RED] Preflight Check",
+    "sender": "",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-26T14:17:08.253722+00:00",
+    "msg_id": "19dca1adbad32b20",
+    "subject": "\u2708 News You Need to Know, Why I Bought Hotel Points & More from TPG \u2708",
+    "sender": "tpg@thepointsguy.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-26T14:17:43.265724+00:00",
+    "msg_id": "19dc9cbaab0e120b",
+    "subject": "BREAKING:  Acting AG says WH correspondents\u2019 dinner gunman was likely targeting Trump admin officials",
+    "sender": "info@justthenews.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-26T14:18:16.263087+00:00",
+    "msg_id": "19dc99356dbddc6e",
+    "subject": "BREAKING:  WH correspondents\u2019 dinner shooter is amateur video game developer, testing tutor: report",
+    "sender": "info@justthenews.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-26T16:16:05.571620+00:00",
+    "msg_id": "19dca872019e8e37",
+    "subject": "Re: Can you please...",
+    "sender": "iamheer@outlook.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-26T16:16:32.092975+00:00",
+    "msg_id": "19dca3f6fdb3591e",
+    "subject": "BREAKING:  Fetterman calls on Democrats to 'drop the TDS and build the White House ballroom' after shooting",
+    "sender": "info@justthenews.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-26T18:16:33.776863+00:00",
+    "msg_id": "19dca982b375adde",
+    "subject": "\ud83d\ude34 Balcony Sleeping\u2014Genius or Ridiculous? Norwegian Ship Rankings & More",
+    "sender": "news@info.cruisecritic.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-26T22:00:50.299976+00:00",
+    "msg_id": "19dcbaffffd01720",
+    "subject": "Re: A Short Japan Survey",
+    "sender": "iamheer@outlook.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-26T22:00:51.953445+00:00",
+    "msg_id": "19dcb95cc09327f6",
+    "subject": "Re: Can you please...",
+    "sender": "iamheer@outlook.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-27T00:16:05.426973+00:00",
+    "msg_id": "19dcc217f585e40d",
+    "subject": "BREAKING:  Iran\u2019s top diplomat goes back to Pakistan while Trump says U.S.-Iran talks can be done by phone",
+    "sender": "info@justthenews.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-27T02:00:42.403942+00:00",
+    "msg_id": "19dcc4a6d43ce390",
+    "subject": "Italy Summer 2026",
+    "sender": "memcglas@gmail.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-27T18:16:55.889415+00:00",
+    "msg_id": "19dd013f04ad76fc",
+    "subject": "Plan your cruise directly in ChatGPT",
+    "sender": "hello@marketing.cruisebound.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-27T18:17:34.236918+00:00",
+    "msg_id": "19dcfc841c1feafb",
+    "subject": "Your Windstar Mediterranean Summer Is Waiting \u2014 Book Now & Sail All-Inclusive",
+    "sender": "news@info.cruisecritic.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-27T20:16:59.555499+00:00",
+    "msg_id": "19dd07d7687a855e",
+    "subject": "Last chance!  Anniversary Sale ends April 30",
+    "sender": "reply@halpartners.hollandamerica.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-27T22:15:48.350852+00:00",
+    "msg_id": "19dd0a73dbe20942",
+    "subject": "Special Message from Lindsay Pearlman",
+    "sender": "mail@tln.messages2.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-28T00:16:13.735165+00:00",
+    "msg_id": "19dd132f2f033992",
+    "subject": "Plan a perfect getaway at Hilton All-Inclusive Resorts",
+    "sender": "mail@tln.messages2.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-28T00:16:46.302440+00:00",
+    "msg_id": "19dd12f52901db5a",
+    "subject": "Picasso Travel Newsletter - 104 - AAx2, BA IB, CX, DE, DL, NH, UA - (ALL)",
+    "sender": "news@news.picassotravel.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-28T02:02:22.739851+00:00",
+    "msg_id": "19dd188c4d695611",
+    "subject": "Exclusive Deals from 33 Cruise Lines -- Offers Expire Soon!",
+    "sender": "vtgmail@list.vacationstogo.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-28T14:02:06.394849+00:00",
+    "msg_id": "19dd45ca156ef22c",
+    "subject": "UAE Exiting OPEC; Airline Fuel Shortages; Neb. Medicaid Move",
+    "sender": "newsmax@latest.newsmax.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-28T14:02:52.718607+00:00",
+    "msg_id": "19dd4370b0d6f9b9",
+    "subject": "Jen's Journeys - May Edition!",
+    "sender": "jennifer.greenfield@explorajourneys.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-28T14:03:13.994396+00:00",
+    "msg_id": "19dd42430280cecf",
+    "subject": "[D2M RED] Preflight Check",
+    "sender": "",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-28T14:03:40.399503+00:00",
+    "msg_id": "19dd3ed34fb57bef",
+    "subject": "HALE \u2014 DAILY BRIEF | 2026-04-28 06:00 MT",
+    "sender": "",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-28T14:17:10.602869+00:00",
+    "msg_id": "19dd3f6b78d82f25",
+    "subject": "Morning Insurrection: WHCA Dinner Shooting Suspect Charged With Attempt to Assassinate the President",
+    "sender": "info@legalinsurrection.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-28T16:16:53.478698+00:00",
+    "msg_id": "19dd4c8e0b872b45",
+    "subject": "Tomorrow: Discover Oceania Aurelia",
+    "sender": "oceaniainsider@oceaniacruises.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-28T16:17:38.975195+00:00",
+    "msg_id": "19dd49a775d55215",
+    "subject": "The End of OPEC as We Knew It",
+    "sender": "genflynn@substack.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-28T18:02:19.535519+00:00",
+    "msg_id": "19dd516a8ad9eb49",
+    "subject": "Yours To Explore Event Ends May 5",
+    "sender": "seabourn@m.seabourn.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-28T18:02:53.500275+00:00",
+    "msg_id": "19dd4fad9d18537d",
+    "subject": "\ud83d\udcb3 Introducing Royal One!",
+    "sender": "royalcaribbeangroup@royalsales.rccl.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-28T18:03:25.742203+00:00",
+    "msg_id": "19dd4f1b272dbaeb",
+    "subject": "\ud83d\udcb3 Introducing Royal One!",
+    "sender": "royalcaribbeangroup@royalsales.rccl.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-28T18:03:52.985192+00:00",
+    "msg_id": "19dd4efd06f94323",
+    "subject": "Explore in-depth on short expeditions",
+    "sender": "learnmore@atlasoceanvoyages.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-28T18:17:44.645959+00:00",
+    "msg_id": "19dd5413ec6c8a86",
+    "subject": "First Class\u2026.Without the First Class Price",
+    "sender": "news@news.picassotravel.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-28T20:16:39.136318+00:00",
+    "msg_id": "19dd5ba924eb8811",
+    "subject": "Mark Meckler Releases Statement Following Tragedy in D.C.",
+    "sender": "updates@cosaction.com",
+    "classification": "financial",
+    "persona": "A9",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-28T20:17:18.576063+00:00",
+    "msg_id": "19dd5a97590a3dc3",
+    "subject": "BREAKING:  King Charles III calls for unity between US and UK during speech to Congress",
+    "sender": "info@justthenews.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-28T20:17:56.555077+00:00",
+    "msg_id": "19dd593a5fa4b715",
+    "subject": "Transiting the Strait of Hormuz with The Grayzone",
+    "sender": "thegrayzone@substack.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-28T20:18:22.766817+00:00",
+    "msg_id": "19dd58bab5d0b2ed",
+    "subject": "Sailing in Style with Silversea | Your Client's Guide To Attire Onboard",
+    "sender": "sma_outbound@silversea.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-28T20:18:53.238248+00:00",
+    "msg_id": "19dd5895224ae39c",
+    "subject": "Interactive Tour: Russia's Cognitive Warfare Infrastructure",
+    "sender": "publications@understandingwar.org",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-28T20:19:16.587324+00:00",
+    "msg_id": "19dd57d07df406bb",
+    "subject": "Two Wonderfully Wild Micato Minutes (VIDEO)",
+    "sender": "mail@tln.messages2.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-28T20:19:44.721328+00:00",
+    "msg_id": "19dd5798966e2207",
+    "subject": "Final Reminder: Spring Savings Offer: Up to 45% Savings",
+    "sender": "regent@cruise.rssc.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-28T22:02:06.789838+00:00",
+    "msg_id": "19dd5dc1903dfc2c",
+    "subject": "Last Chance: Earn Up to $300 With Every Booking",
+    "sender": "oceaniainsider@oceaniacruises.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-28T22:02:33.915613+00:00",
+    "msg_id": "19dd5cdb7ad66325",
+    "subject": "Webinar invitation - Next week's agenda",
+    "sender": "insidesales@tbo.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-28T22:15:57.838953+00:00",
+    "msg_id": "19dd61e482ce7585",
+    "subject": "Introducing Bridgeview Suites: Available Soon on Oosterdam",
+    "sender": "reply@halpartners.hollandamerica.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-28T22:16:35.241189+00:00",
+    "msg_id": "19dd57834923687b",
+    "subject": "GAME CHANGER -New Nonstop Los Angeles to Casablanca",
+    "sender": "news@news.picassotravel.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-29T00:16:20.081902+00:00",
+    "msg_id": "19dd66559ccb5ac2",
+    "subject": "Re: Some ideas for your Japan trip",
+    "sender": "iamheer@outlook.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-29T00:16:51.414065+00:00",
+    "msg_id": "19dd64c0fa79f704",
+    "subject": "Thunderbird Backup Complete \u2014 Drive Links Ready",
+    "sender": "",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-29T00:17:32.885355+00:00",
+    "msg_id": "19dd646fbcc41d42",
+    "subject": "Israel\u2019s AI foreign influence op blames Palestinians for killing Hind Rajab",
+    "sender": "thegrayzone@substack.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-29T02:15:23.755077+00:00",
+    "msg_id": "19dd6bd2263fac83",
+    "subject": "Picasso Travel Newsletter - 105 - H2, JX, LY, MU, UA, XE - (ALL)",
+    "sender": "news@news.picassotravel.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-29T14:02:12.062035+00:00",
+    "msg_id": "19dd94a8b59c1d2f",
+    "subject": "[D2M RED] Preflight Check",
+    "sender": "",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-29T14:16:57.899454+00:00",
+    "msg_id": "19dd99139b2c062e",
+    "subject": "RESERVATIONS NOW OPEN \u2013 2028-2029 Legendary Journeys",
+    "sender": "regent@cruise.rssc.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-29T14:17:25.562548+00:00",
+    "msg_id": "19dd98e92eed5a0e",
+    "subject": "Oceania Insider Weekly - April 29, 2026",
+    "sender": "oceaniainsider@oceaniacruises.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-29T14:17:52.255081+00:00",
+    "msg_id": "19dd98d2af76c575",
+    "subject": "\u2708 How I Unlocked $1,800 From Card Perks, Is Cheap Airfare Worth Your Tax Dollars? & More from TPG \u2708",
+    "sender": "tpg@thepointsguy.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-29T14:18:21.560542+00:00",
+    "msg_id": "19dd98bdb0cc7c7f",
+    "subject": "There's still time to secure your clients' incredible savings",
+    "sender": "silversea@email.silversea.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-29T14:18:49.208442+00:00",
+    "msg_id": "19dd9136e9d5876f",
+    "subject": "HALE \u2014 DAILY BRIEF | 2026-04-29 06:00 MT",
+    "sender": "",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-29T16:16:51.716392+00:00",
+    "msg_id": "19dda00ac7726955",
+    "subject": "10 Cruise Mistakes Even Veterans Make; A Norwegian Ship Is Disappearing & More",
+    "sender": "news@info.cruisecritic.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-29T16:17:09.361893+00:00",
+    "msg_id": "19dd9ee227809034",
+    "subject": "Payment Received",
+    "sender": "conexonnotifications@conexonconnect.com",
+    "classification": "financial",
+    "persona": "A9",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-29T16:17:42.951409+00:00",
+    "msg_id": "19dd9d45d8e42a94",
+    "subject": "Private tours. Smaller groups. Higher earnings.",
+    "sender": "info@shoreex.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-29T18:16:40.678873+00:00",
+    "msg_id": "19dda6811f2e1ae3",
+    "subject": "Starting in 1 Hour: Exclusive look at Oceania Aurelia",
+    "sender": "oceaniainsider@oceaniacruises.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-29T18:17:18.052043+00:00",
+    "msg_id": "19dda37b59e2613a",
+    "subject": "8 Alaska cruises we recommend right now",
+    "sender": "hello@marketing.cruisebound.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-29T22:01:51.117833+00:00",
+    "msg_id": "19ddabb0ec7ee568",
+    "subject": "EXCLUSIVE PREVIEW: Just for your clients",
+    "sender": "learnmore@atlasoceanvoyages.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-04-30T02:01:08.705991+00:00",
+    "msg_id": "19ddc0fa799ecc4a",
+    "subject": "Spencer Grand Tour 2027",
+    "sender": "bkspencer381@gmail.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-01T14:01:50.601988+00:00",
+    "msg_id": "19de3d2157898bbe",
+    "subject": "GOP Sidesteps War Powers Deadline; War Redraws Sea Routes; NASA Head Lauds Trump Moon Push",
+    "sender": "newsmax@latest.newsmax.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-01T14:02:24.484222+00:00",
+    "msg_id": "19de3a666a0cba81",
+    "subject": "Spring Savings Extended \u2013 Now Enhanced with a $500 Shipboard Credit",
+    "sender": "regent@cruise.rssc.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-01T14:03:32.333121+00:00",
+    "msg_id": "19de3a3227618845",
+    "subject": "NEW OFFER | Up to 40% Off",
+    "sender": "oceaniainsider@oceaniacruises.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-01T14:03:58.170268+00:00",
+    "msg_id": "19de396d64dc1e5a",
+    "subject": "[D2M RED] Preflight Check",
+    "sender": "",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-01T14:04:42.920036+00:00",
+    "msg_id": "19de35fe2e22874c",
+    "subject": "HALE \u2014 DAILY BRIEF | 2026-05-01 06:00 MT",
+    "sender": "",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-01T18:01:54.566267+00:00",
+    "msg_id": "19de46310be6fe1f",
+    "subject": "LIMITED AVAILABILITY \u2014 Fewer than 15 suites left",
+    "sender": "learnmore@atlasoceanvoyages.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-01T22:00:24.756228+00:00",
+    "msg_id": "19de54a45e535788",
+    "subject": "Costco Anywhere Visa\u00ae Cardmembers Get More on Travel",
+    "sender": "costco@digital.costco.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-02T02:01:25.645700+00:00",
+    "msg_id": "19de666dea38ddee",
+    "subject": "Re: Regent Seven Seas Cruises Invoice: 3071222 Guest: FURLOW",
+    "sender": "missy.furlow@gmail.com",
+    "classification": "financial",
+    "persona": "A9",
+    "draft_id": null,
+    "status": "tasked"
   }
 ]

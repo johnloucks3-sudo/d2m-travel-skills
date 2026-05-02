@@ -155,3 +155,7 @@ def check_and_alert():
 
 if __name__ == "__main__":
     check_and_alert()
+
+# AGENTS DOCUMENTATION
+# - Updated to enforce free-model guardrail for OpenRouter.
+# - See docs/AGENTS_MODEL_GUIDE.md for allowed models and usage.

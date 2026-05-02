@@ -148,98 +148,27 @@ All automated via systemd timers (MDT):
 | Tool | Model | Cost | Use |
 |------|-------|------|-----|
 | **Claude Code** (MAX) | Opus 4.6 / Sonnet 4.6 | $0 | Primary — reasoning, code, client work |
-| **OpenCode** v1.3.17 | DeepSeek V3.1 (`openrouter/deepseek/deepseek-chat-v3.1`) | ~$0.27/M | Ops, bulk tasks, scanning, interactive dev |
-| **Claude Agent SDK** | Sonnet 4.6 | $0 (MAX) | Headless: `claude -p "..."` |
-| **Nexus daemon** | OpenCode (DeepSeek V3.1) + claude -p judgment | ~$0/task | Keyword-routed task queue |
+| **OpenCode** v1.3.17 | Gemini 3.1 Flash-Lite (`openrouter/gemini/gemini-3.1-flash-lite`) | ~$0.27/M | Ops, bulk tasks, scanning, interactive dev |
+| **Claude Agent SDK** | Sonnet 4.6 (Exec) / Opus 4.6 (Plan/Eval) | $0 (MAX) | Headless: `claude -p "..."` |
+| **Nexus daemon** | OpenCode (Gemini 3.1 Flash-Lite) + claude -p judgment | ~$0/task | Keyword-routed task queue |
 
 **Goose is decommissioned.** References to `goose-d2m`, `goose run`, or `~/.config/goose/` anywhere in docs are stale. Replace `goose run "X"` with `opencode run "X"`.
 
-**OpenCode model IDs** (confirmed working — tested 2026-04-07):
-- `openrouter/deepseek/deepseek-chat-v3.1` — **default** — DeepSeek V3.1, ~$0.27/M tokens, confirmed working
-- `opencode/nemotron-3-super-free` — Nemotron free fallback
-- `opencode/minimax-m2.5-free` — Minimax free fallback
-- `deepseek/deepseek-chat-v3.1` — DeepSeek direct (requires DeepSeek API balance — currently $0)
-- `togetherai/deepseek-ai/DeepSeek-V3-1` — DeepSeek V3.1 via TogetherAI (requires TogetherAI balance)
+**OpenCode model IDs** (confirmed working — tested 2026-04-30):
+- `openrouter/gemini/gemini-3.1-flash-lite` — **default** — Gemini 3.1 Flash-Lite, confirmed working
+- `openrouter/gemini/gemini-2.0-flash-lite` — Gemini 2.0 Flash-Lite fallback
 
-**Note:** `deepseek/deepseek-chat:free` and `opencode/qwen3.6-plus-free` are **decommissioned** — they throw `ProviderModelNotFoundError`. Use `openrouter/deepseek/deepseek-chat-v3.1` as the primary model.
+**Note:** OpenCode acts as the primary, stable interface for all Telegram interactions to bypass Claude's `rc=1` instability in that channel.
 
 **To invoke OpenCode headless:**
 ```bash
-opencode run -m openrouter/deepseek/deepseek-chat-v3.1 "your task here"
+opencode run -m openrouter/gemini/gemini-3.1-flash-lite "your task here"
 ```
 
 ---
-
-## Canonical Inbox / Outbox — File Layout
-
-| File | Owner | Purpose |
-|------|-------|---------|
-| `/home/john/Thunderbird/claude_inbox.md` | Claude | **Canonical** Claude task inbox. Watcher monitors this file. Hook auto-injects UNREAD count on every user prompt. |
-| `/home/john/Thunderbird/OpsCenter/collaboration/claude_outbox.md` | Claude | **Canonical** Claude result outbox. Write completed task results here. |
-| `/home/john/Thunderbird/OpsCenter/collaboration/opencode_inbox.md` | OpenCode | **Canonical** OpenCode task inbox. Watcher monitors this file and spawns headless OpenCode on new UNREAD content. |
-| `/home/john/Thunderbird/OpsCenter/collaboration/opencode_outbox.md` | OpenCode | **Canonical** OpenCode result outbox. Create if needed. |
-
-**Do NOT use:**
-- `OpsCenter/collaboration/claude_inbox.md` — stale, merged into canonical root on 2026-04-07
-- `OpsCenter/collaboration/goose_inbox.md` — decommissioned, content migrated to opencode_inbox.md
-- `claude_outbox.md` at root — stale, merged into canonical OpsCenter outbox on 2026-04-07
-
-### Cross-bot routing
-- OpenCode → Claude: append task to `/home/john/Thunderbird/claude_inbox.md`
-- Claude → OpenCode: append task to `/home/john/Thunderbird/OpsCenter/collaboration/opencode_inbox.md`
-- Both agents write results to their respective outbox files
-- Watcher (`thunderbird_tasking_watcher.py`) pings Commander via Telegram on any change to either inbox
 
 ### Default OpenCode model
-`openrouter/deepseek/deepseek-chat-v3.1` — ~$0.27/M tokens, confirmed working 2026-04-08
-
----
-
-## Tasking Claude FROM OpenCode
-
-Three patterns depending on whether you need the result now or later.
-
-### 1. Inline (synchronous — you need the answer now)
-```bash
-# Strip proxy vars so Max OAuth kicks in, not the Claude Code proxy
-.venv/bin/python agents/thunderbird_model_dispatcher.py "your task here"
-```
-- Returns response to stdout
-- Uses Claude MAX (free under subscription)
-- Best for: judgment calls, voice-matched copy, strategy, client emails
-- Timeout: ~3 min for complex tasks
-
-### 2. Via claude_inbox.md (async — fire and forget)
-```bash
-# Append a properly-formatted task block — watcher triggers on ^status: UNREAD
-cat >> /home/john/Thunderbird/claude_inbox.md << TASK
-
----
-## TASK: <UNIQUE-ID>
-status: UNREAD
-from: OpenCode
-injected: $(date '+%Y-%m-%d %H:%M MT')
-priority: P1
-task: |
-  <describe what Claude should do>
-  Write result to /home/john/Thunderbird/OpsCenter/collaboration/claude_outbox.md
-TASK
-```
-- Watcher detects `^status: UNREAD` via inotify within 2 seconds → spawns `claude -p` headless
-- Result lands in `/home/john/Thunderbird/OpsCenter/collaboration/claude_outbox.md`
-- Claude also writes an `UNREAD` entry to `opencode_inbox.md` so watcher loops back to OpenCode
-- Best for: judgment calls, client copy, strategy — any task needing Claude MAX
-- **Do NOT use `echo "NEXUS: ..."` to claude_inbox** — NEXUS: prefix belongs in opencode_inbox (for Nexus daemon routing)
-
-### 3. Via wing_comms.md (FYI / REQUEST to Claude Code)
-```markdown
-## REQUEST — [date]
-**From:** OpenCode
-**To:** Claude Code
-**Task:** [description]
-**File:** [output path]
-```
-Write to: `OpsCenter/collaboration/wing_comms.md`
+`openrouter/gemini/gemini-3.1-flash-lite` — confirmed working 2026-04-30
 
 ---
 
@@ -252,13 +181,19 @@ Write to: `OpsCenter/collaboration/wing_comms.md`
 | Commander-directed tasks | Claude (keyword router handles this) |
 | Code edits, file ops, bulk scanning | Handle yourself (OpenCode) |
 | Research, data extraction | Handle yourself (OpenCode) |
-| Arbitration / tiebreak | DeepSeek R1 (`openrouter/deepseek/deepseek-r1:free`) |
+| Telegram Interactions | Handle yourself (OpenCode - Gemini) |
+
+**Claude Roles (Asynchronous):**
+- **Plan:** Claude Opus
+- **Execute:** Claude Sonnet (Primary)
+- **Evaluate:** Claude Opus
+
 
 **Environment note:** Strip `ANTHROPIC_API_KEY` and `ANTHROPIC_BASE_URL` before calling `claude -p`
 so Max OAuth kicks in. The watcher service also injects `CLAUDE_CODE_OAUTH_TOKEN` from
 `OpsCenter/.claude_oauth_cache` — refreshed automatically on every Commander message via
 `hooks/refresh_claude_oauth_cache.sh`. If `claude -p` still fails rc=1, the watcher falls
-back to `opencode run -m openrouter/deepseek/deepseek-chat-v3.1`.
+back to `opencode run -m openrouter/gemini/gemini-3.1-flash-lite`.
 
 ---
 

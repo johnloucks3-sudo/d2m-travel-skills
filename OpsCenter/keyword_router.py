@@ -1,15 +1,17 @@
 #!/usr/bin/env python3
 """
 KEYWORD ROUTER — Three-Tier Traffic Control
-D2M Thunderbird OS · 2026-04-06 (updated 2026-04-19)
+D2M Thunderbird OS · 2026-04-06 (updated 2026-04-24)
+
+⚠️ CRITICAL FIX: DeepSeek V3.1 is NOT free ($0.27/M tokens). Replaced with FREE OpenRouter tiers.
 
 Routing Table (cost order, cheapest first):
   Tier 1 — Ollama (local, $0): Inbox triage, summarization, classification,
     simple extractions, tag/label tasks. Keywords: summarize, triage, classify,
     scan, label, tag, extract, list, count, check status.
-  Tier 2 — OpenCode/DeepSeek V3.1 (~$0.27/M): Research, file ops, code gen,
-    multi-step analysis, data processing. Default for unmatched tasks.
-  Tier 3 — Claude Sonnet MAX (reserved, highest cost): Creative writing,
+  Tier 2 — FREE OpenRouter tiers ($0 — Nemotron/GPT-OSS/Gemma): Research, ops,
+    summarization, light analysis. Default for unmatched tasks. SO 2026-04-24.
+  Tier 3 — Claude Sonnet MAX (reserved, $0 via OAuth): Creative writing,
     client copy, strategy, architecture, conflict resolution, voice drafts.
 
 Keywords → Claude (reserved):
@@ -23,8 +25,8 @@ Keywords → Ollama (local inference):
   "summarize", "triage", "classify", "scan inbox", "label", "tag",
   "extract", "list tasks", "count", "check status", "categorize"
 
-Default: OpenCode/DeepSeek V3.1 (free, unlimited turns)
-Tiebreak: If both DeepSeek and Claude have touched a task → Claude precedent wins.
+Default: FREE OpenRouter (Nemotron/GPT-OSS FREE, $0, SO 2026-04-24)
+Tiebreak: If both FREE and Claude have touched a task → Claude precedent wins.
 """
 
 import json

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hale — Task Heat Map | {{ brief_data.generated_at[:10] }}</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #f7f3ea;
+            margin: 0;
+            padding: 20px;
+            color: #1a1a1a;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #0000ff;
+            margin: 0 0 10px 0;
+            font-size: 24px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        #heatmap {
+            min-height: 600px;
+        }
+        .legend {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 30px;
+            padding: 20px;
+            background: #f9f7f3;
+            border-radius: 8px;
+        }
+        .legend-item {
+            font-size: 13px;
+        }
+        .legend-color {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        .filter-bar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .filter-button {
+            background: #f0f0f0;
+            border: 1px solid #ddd;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.2s;
+        }
+        .filter-button.active {
+            background: #0000ff;
+            color: white;
+            border-color: #0000ff;
+        }
+        .filter-button:hover {
+            border-color: #0000ff;
+        }
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .summary-card {
+            background: #f9f7f3;
+            padding: 12px 15px;
+            border-radius: 6px;
+            text-align: center;
+            border-left: 3px solid #0000ff;
+        }
+        .summary-value {
+            font-size: 16px;
+            font-weight: bold;
+            color: #0000ff;
+        }
+        .summary-label {
+            font-size: 11px;
+            color: #666;
+            margin-top: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔥 TASK HEAT MAP</h1>
+        <div class="subtitle">{{ brief_data.generated_at[:10] }} | Clients × Task Types | Urgency & Effort Encoding</div>
+
+        <div class="summary">
+            <div class="summary-card">
+                <div class="summary-value">{{ brief_data.clients|length }}</div>
+                <div class="summary-label">Clients Tracked</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-value">{{ brief_data.tasks|length }}</div>
+                <div class="summary-label">Open Tasks</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-value">{{ brief_data.clients|selectattr('urgency', 'equalto', 'red')|list|length }}</div>
+                <div class="summary-label">🔴 Red Priority</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-value">{{ brief_data.clients|selectattr('urgency', 'equalto', 'yellow')|list|length }}</div>
+                <div class="summary-label">🟡 Yellow Alert</div>
+            </div>
+        </div>
+
+        <div id="heatmap"></div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <span class="legend-color" style="background: #ef553b;"></span>
+                <strong>Red:</strong> High urgency / Immediate action
+            </div>
+            <div class="legend-item">
+                <span class="legend-color" style="background: #ffa500;"></span>
+                <strong>Yellow:</strong> Medium urgency / This week
+            </div>
+            <div class="legend-item">
+                <span class="legend-color" style="background: #00cc96;"></span>
+                <strong>Green:</strong> On schedule / Normal effort
+            </div>
+            <div class="legend-item">
+                <span class="legend-color" style="background: #e0e0e0;"></span>
+                <strong>Gray:</strong> No active tasks / Low priority
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const data = {{ brief_data|tojson }};
+        const clients = data.clients;
+        const tasks = data.tasks;
+
+        // Task type categories
+        const taskTypes = ["Validation", "Excursion", "Payment", "Follow-up", "Cabin Selection"];
+
+        // Build heatmap matrix: clients × task types
+        const clientNames = clients.map(c => c.name);
+        const z_values = clientNames.map(clientName => {
+            return taskTypes.map(taskType => {
+                const clientTasks = tasks.filter(t =>
+                    t.client === clientName &&
+                    t.task_type === taskType
+                );
+                return clientTasks.length > 0 ? clientTasks.length : 0;
+            });
+        });
+
+        // Build color mapping: urgency-based
+        const colorMap = clientNames.map(clientName => {
+            const client = clients.find(c => c.name === clientName);
+            const urgency = client?.urgency || "green";
+            return taskTypes.map(taskType => {
+                const taskCount = z_values[clientNames.indexOf(clientName)][taskTypes.indexOf(taskType)];
+                if (taskCount === 0) return 0; // Gray for no tasks
+                if (urgency === "red") return 3;   // Red
+                if (urgency === "yellow") return 2; // Yellow
+                return 1; // Green
+            });
+        });
+
+        // Color scale for heat map
+        const colorValues = [];
+        const hoverText = [];
+        for (let i = 0; i < clientNames.length; i++) {
+            const hoverRow = [];
+            for (let j = 0; j < taskTypes.length; j++) {
+                const count = z_values[i][j];
+                const urgency = clients[i]?.urgency || "green";
+                hoverRow.push(`Client: ${clientNames[i]}<br/>Task: ${taskTypes[j]}<br/>Count: ${count}<br/>Priority: ${urgency.toUpperCase()}`);
+            }
+            hoverText.push(hoverRow);
+        }
+
+        const trace = {
+            z: z_values,
+            x: taskTypes,
+            y: clientNames,
+            type: "heatmap",
+            colorscale: [
+                [0, "#e0e0e0"],      // Gray: no tasks
+                [0.33, "#00cc96"],   // Green: low urgency
+                [0.66, "#ffa500"],   // Yellow: medium urgency
+                [1.0, "#ef553b"]     // Red: high urgency
+            ],
+            hovertemplate: "%{customdata}<extra></extra>",
+            customdata: hoverText,
+            colorbar: {
+                title: "Task<br/>Count",
+                thickness: 15,
+                len: 0.7
+            }
+        };
+
+        // Add text annotations for task counts
+        const annotations = [];
+        for (let i = 0; i < clientNames.length; i++) {
+            for (let j = 0; j < taskTypes.length; j++) {
+                const count = z_values[i][j];
+                if (count > 0) {
+                    annotations.push({
+                        x: taskTypes[j],
+                        y: clientNames[i],
+                        text: count.toString(),
+                        showarrow: false,
+                        font: {
+                            size: 12,
+                            color: count === 0 ? "#999" : (
+                                clients[i]?.urgency === "red" ? "white" :
+                                clients[i]?.urgency === "yellow" ? "white" : "white"
+                            )
+                        }
+                    });
+                }
+            }
+        }
+
+        const layout = {
+            title: { text: "" },
+            xaxis: { title: "Task Type" },
+            yaxis: { title: "Client" },
+            plot_bgcolor: "white",
+            paper_bgcolor: "white",
+            annotations: annotations,
+            height: 600,
+            margin: { l: 150, b: 80, t: 40, r: 100 }
+        };
+
+        Plotly.newPlot("heatmap", [trace], layout, { responsive: true });
+    </script>
+</body>
+</html>

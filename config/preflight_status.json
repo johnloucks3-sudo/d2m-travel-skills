@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-05-01 05:45 MT",
+  "tier1_ok": 5,
+  "tier1_total": 6,
+  "tier2_ok": 4,
+  "tier2_total": 6,
+  "tier1_failures": [
+    "thunderbird-drive-sync"
+  ],
+  "tier2_failures": [
+    "d2m-mcp",
+    "d2m-tunnel"
+  ],
+  "all_clear": false
+}

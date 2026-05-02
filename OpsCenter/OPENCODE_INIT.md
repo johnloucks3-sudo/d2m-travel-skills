@@ -109,5 +109,35 @@ cd ~/Thunderbird && opencode
 
 ---
 
-*OpenCode Init v1.0 — Thunderbird Wing | 2026-04-06*
+## SPECIALIZED TASKS — RESEARCH & LONG-RUNNING JOBS
+
+**See: `OpsCenter/RESEARCH_SYSTEM_INDEX.md`** ← START HERE for research tasks
+
+### Research Task: Claude Integration Research
+If assigned: "Research 3rd-party Claude integrators, agentic models, voice control"
+
+**Single command:**
+```bash
+bash /home/john/Thunderbird/OpsCenter/run_research_task.sh
+```
+
+**Integration code:** See `OPENCODE_INTEGRATION_GUIDE.md`
+
+**System files:**
+- `research_integrators_headless.py` — Core spawner (do not call directly)
+- `send_research_email.py` — Email delivery
+- `diagnose_research_system.py` — Prerequisite checker (run first if issues)
+- `RESEARCH_TASK_README.md` — Full reference (foolproof pattern explained)
+
+**Status:** ✅ All 5/5 prerequisites pass (verified 2026-04-27)
+
+**Key points:**
+- Returns immediately (research runs in background, 5-15 min)
+- Output: `/home/john/Thunderbird/OpsCenter/opencode_knowledge/research_integrators_RESULT_*.md`
+- Email: johnloucks3@gmail.com (automatic)
+- Never fails silently (full logs captured)
+
+---
+
+*OpenCode Init v1.0 — Thunderbird Wing | 2026-04-06 (Updated 2026-04-27)*
 *Replaces: GOOSE_INIT.md (deprecated)*

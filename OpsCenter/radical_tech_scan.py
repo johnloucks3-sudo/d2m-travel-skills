@@ -11,7 +11,7 @@ logging.basicConfig(filename='/home/john/Thunderbird/OpsCenter/overwatch.log', l
 
 # Groq Client for fast web scraping triage
 groq_client = AsyncOpenAI(
-    api_key=os.environ.get("GROQ_API_KEY", "***REMOVED-SECRET***"),
+    api_key=os.environ.get("GROQ_API_KEY", ""),
     base_url="https://api.groq.com/openai/v1"
 )
 

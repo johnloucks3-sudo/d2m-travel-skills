@@ -4,11 +4,12 @@ OpsCenter Task Processor — Hale-Loop Consumer
 Pops tasks from the JSON queue, classifies them, routes to the
 correct engine, and sends results back via Telegram.
 
+⚠️ COST FIX 2026-04-24: DeepSeek V3.1 is NOT free ($0.27/M). Replaced with FREE OpenRouter.
+
 Division of Labor:
-    DeepSeek V3.1 (OpenRouter) → Hale's primary brain. All operational tasks, summaries, routing. $0/month.
-    Gemini Flash ($)  → Morning brief synthesis, fallback when OpenRouter unavailable
+    FREE OpenRouter tiers → Hale's primary brain. Operational tasks, summaries, research. $0/month (SO 2026-04-24)
+    Gemini Flash Lite ($) → Simple analysis, lightweight inference when free tier unavailable
     Claude MAX ($0)   → Client-facing emails, proposals, voice-matched copy, complex reasoning
-    DeepSeek (cheap)  → Data extraction, analytics (PII-fenced)
     Local Python      → Queue mechanics, deadline checks, format checks (no LLM)
 
 Claude MAX tokens are SCARCE (5-hour window). Never burn them on:

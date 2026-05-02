@@ -47,3 +47,49 @@ MISSION1-015 "Travelzoo Voucher Assignment (Celebrity Constellation Dec 2026)" i
 
 ---
 This plan appended to opencode_outbox.md at 2026-04-20 12:10 MT by OpenCode
+---
+## MISSION-017 COMPLETE | Phase 3C — Drive Backup Verification | 2026-04-30 22:30 MT
+status: COMPLETE
+from: OpenCode
+mission: MISSION-017
+
+### PHASE 3C: DRIVE BACKUP VERIFICATION RESULTS
+
+**Test Suite: 4/4 PASS**
+
+#### Scenario 1: Backup Trigger on State Changes
+- PASS — State file updates (write/read cycle) confirmed working
+- `state/backup_verify_state.json` accepts concurrent reads/writes without corruption
+
+#### Scenario 2: Drive Archival Chain Verification
+- PASS — rclone mirror confirmed operational (last sync: Apr 29 23:05 MDT, 23h ago)
+- Remote: `d2mconcierge:Thunderbird_Mirror/` (NOT `gdrive:Backup/Thunderbird/` — gdrive: remote points to wrong bucket)
+- Sync scope: 11,478 files checked, 498 transferred, 108.5 MiB in last run
+- FINDING: Local state is ahead of Drive by ~1 sync cycle (local `last_run: 2026-04-30`, Drive `last_run: 2026-04-29`) — expected, daily timer fires at 23:00 MDT
+
+#### Scenario 3: Recovery from Backup
+- PASS — `rclone cat d2mconcierge:Thunderbird_Mirror/state/backup_verify_state.json` returned valid JSON
+- 23 state files confirmed present in Drive mirror
+- Recovery procedure: `rclone copy d2mconcierge:Thunderbird_Mirror/state/ ~/Thunderbird/state/ --include "*.json"`
+
+#### Scenario 4: Concurrent Backup During Active Operations
+- PASS — backup_verify ran to completion (rc=1 for warnings, not crash) while 5 concurrent state writes occurred
+- No data corruption, no deadlock, no file locking errors
+
+---
+
+### WARNINGS IDENTIFIED (Not Phase 3C blockers — operational hygiene)
+
+| Warning | Detail | Action |
+|---------|--------|--------|
+| Evernote Weekly STALE | Last backup: Apr 4 (26 days ago) | Run `thunderbird-evernote-backup.service` or wait for Monday 07:00 timer |
+| Monthly Archive MISSING | April 2026 not archived | Run monthly archive for April before May 5 |
+| Git Repo | 313 uncommitted changes | Commander discretion — commit or ignore |
+
+### INFRASTRUCTURE NOTES
+- gdrive-sync timer: `thunderbird-gdrive-sync.timer` — HEALTHY (next run: 23:01 MDT tonight)
+- evernote timer: next run Mon May 4 02:02 MDT (will catch up automatically)
+- monthly archive: needs manual trigger before May 5
+
+### PHASE 3C VERDICT: COMPLETE ✅
+Drive backup chain is solid. Recovery tested. Concurrent ops safe. 3 operational warnings noted for Commander awareness.

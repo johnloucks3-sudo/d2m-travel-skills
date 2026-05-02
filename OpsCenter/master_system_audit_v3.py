@@ -15,7 +15,7 @@ openrouter_client = AsyncOpenAI(
 )
 
 groq_client = AsyncOpenAI(
-    api_key=os.environ.get("GROQ_API_KEY", "***REMOVED-SECRET***"),
+    api_key=os.environ.get("GROQ_API_KEY", ""),
     base_url="https://api.groq.com/openai/v1"
 )
 
@@ -44,7 +44,7 @@ def gather_markdown_files():
     return massive_context, len(all_md_files)
 
 async def deepseek_summarize(massive_context):
-    logging.info("DeepSeek V3.1 via OpenRouter executing deep context summarization and conflict detection...")
+    logging.info("DeepSeek V4 Pro via OpenRouter executing deep context summarization and conflict detection...")
     
     prompt = f"""
     You are Vic Harlan (A9). You are tasked with analyzing the entire Thunderbird OS documentation stack.
@@ -68,7 +68,7 @@ async def deepseek_summarize(massive_context):
     """
     
     response = await openrouter_client.chat.completions.create(
-        model="deepseek/deepseek-chat-v3.1",  # Using DeepSeek V3.1 on OpenRouter for massive context
+        model="deepseek/deepseek-v4-pro",  # Using DeepSeek V4 Pro on OpenRouter for massive context
         messages=[{"role": "user", "content": prompt}]
     )
     return response.choices[0].message.content

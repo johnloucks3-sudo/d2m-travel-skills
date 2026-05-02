@@ -42,16 +42,18 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 # ── Thunderbird imports ──
-from thunderbird_model_router import (
-    _call_groq,
-    _call_claude,
+from core.learning.model_safeguards import (
     _check_pii_fence,
     call_deepseek,
-    GROQ_MODELS,
     CLAUDE_MODEL,
     DEEPSEEK_MODEL,
     DEEPSEEK_URL,
     DEEPSEEK_API_KEY,
+)
+from thunderbird_model_router import (
+    _call_groq,
+    _call_claude,
+    GROQ_MODELS,
 )
 
 logger = logging.getLogger("thunderbird.overwatch")

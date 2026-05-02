@@ -1,0 +1,31 @@
+You are managing Phase 2 MCP installations for Thunderbird OS.
+
+TASK: Create detailed installation instructions for 4 stdio MCPs that will run on YOGA (192.168.1.198) as persistent services. Output a complete deployment guide.
+
+MCPs to install:
+1. Apify (@apify/actors-mcp-server) — npm install
+2. Yelp Fusion (yelp-mcp) — git clone + pip
+3. Foursquare (foursquare-places-mcp) — git clone + pip
+4. Mapbox (@mapbox/mcp-server) — npm install
+
+For each MCP:
+- Step-by-step installation commands
+- Account creation / API key retrieval
+- Environment variable configuration
+- systemd unit file (for persistent service)
+- Testing command
+- mcp.json configuration
+- Connector wiring (thunderbird_mcp_connector.py MCP_BACKENDS entry)
+
+OUTPUT FORMAT:
+Create a comprehensive deployment guide at /home/john/Thunderbird/output/phase2_mcp_deployment_guide.txt
+
+Include:
+1. Prerequisites check (node, npm, python3, git)
+2. For each MCP: full installation flow
+3. systemd unit templates for each
+4. Test validation scripts
+5. Troubleshooting section
+6. Timeline estimate (2-3 days total)
+
+WRITE to file only. Do NOT output to stdout.

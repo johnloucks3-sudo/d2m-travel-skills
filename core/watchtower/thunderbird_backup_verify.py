@@ -29,14 +29,16 @@ from pathlib import Path
 import requests
 
 THUNDERBIRD_DIR = Path.home() / "Thunderbird"
-STATE_FILE = THUNDERBIRD_DIR / "backup_verify_state.json"
+STATE_DIR = THUNDERBIRD_DIR / "state"
+STATE_FILE = STATE_DIR / "backup_verify_state.json"
 
 TELEGRAM_BOT = os.getenv("TELEGRAM_C2_BOT_TOKEN", "")
 TELEGRAM_CHAT = os.getenv("TELEGRAM_COMMANDER_ID", "")
 
-DRIVE_SYNC_STATE = THUNDERBIRD_DIR / "thunderbird_sync_state.json"
-EVERNOTE_STATE = THUNDERBIRD_DIR / "evernote_backup_state.json"
-MONTHLY_STATE = THUNDERBIRD_DIR / "monthly_archive_state.json"
+DRIVE_SYNC_STATE = STATE_DIR / "thunderbird_sync_state.json"
+EVERNOTE_STATE = STATE_DIR / "evernote_backup_state.json"
+MONTHLY_STATE = STATE_DIR / "monthly_archive_state.json"
+RCLONE_LOG = THUNDERBIRD_DIR / ".rclone_sync.log"
 
 DRIVE_STALE_HOURS = 36
 EVERNOTE_STALE_DAYS = 8
@@ -60,37 +62,58 @@ def save_state(state: dict):
 # ─── Individual checks ────────────────────────────────────────────────────────
 
 def check_drive_mirror() -> dict:
-    """Check Drive sync state — flag if last sync > 36h ago."""
+    """Check Drive sync state — flag if last rclone sync > 36h ago."""
+    # Primary check: rclone log timestamp (most reliable last-run indicator)
+    if RCLONE_LOG.exists():
+        log_mtime = RCLONE_LOG.stat().st_mtime
+        sync_dt = datetime.fromtimestamp(log_mtime)
+        age_hours = (datetime.now() - sync_dt).total_seconds() / 3600
+
+        # Also check for last success line in the log
+        try:
+            log_tail = RCLONE_LOG.read_text()[-500:]
+            last_exit_ok = "exit: 0" in log_tail or "Transferred:" in log_tail
+        except Exception:
+            last_exit_ok = True  # assume OK if can't read
+
+        if age_hours > DRIVE_STALE_HOURS:
+            return {
+                "status": "WARN",
+                "msg": f"Drive mirror stale — last rclone {age_hours:.0f}h ago ({sync_dt.strftime('%m/%d %H:%M')})",
+                "age_hours": round(age_hours, 1),
+            }
+
+        status_note = "" if last_exit_ok else " (last run may have had errors)"
+        return {
+            "status": "OK",
+            "msg": f"Drive mirror current — last rclone {age_hours:.0f}h ago{status_note}",
+            "age_hours": round(age_hours, 1),
+        }
+
+    # Fallback: check sync state file
     if not DRIVE_SYNC_STATE.exists():
-        return {"status": "WARN", "msg": "thunderbird_sync_state.json not found — Drive sync unverifiable"}
+        return {"status": "WARN", "msg": "rclone log and thunderbird_sync_state.json both missing — Drive sync unverifiable"}
 
     try:
         state = json.loads(DRIVE_SYNC_STATE.read_text())
     except Exception:
         return {"status": "WARN", "msg": "Cannot parse thunderbird_sync_state.json"}
 
-    # Find the most recently synced file's mtime
-    most_recent_mtime = 0
-    for key, val in state.items():
-        if isinstance(val, dict) and "mtime" in val:
-            most_recent_mtime = max(most_recent_mtime, val["mtime"])
-
-    if most_recent_mtime == 0:
-        return {"status": "WARN", "msg": "No sync records found in Drive state file"}
-
-    sync_dt = datetime.fromtimestamp(most_recent_mtime)
+    # Use the file's own mtime as a proxy for last sync run
+    file_mtime = DRIVE_SYNC_STATE.stat().st_mtime
+    sync_dt = datetime.fromtimestamp(file_mtime)
     age_hours = (datetime.now() - sync_dt).total_seconds() / 3600
 
     if age_hours > DRIVE_STALE_HOURS:
         return {
             "status": "WARN",
-            "msg": f"Drive mirror stale — last sync {age_hours:.0f}h ago ({sync_dt.strftime('%m/%d %H:%M')})",
+            "msg": f"Drive mirror stale — last sync state updated {age_hours:.0f}h ago ({sync_dt.strftime('%m/%d %H:%M')})",
             "age_hours": round(age_hours, 1),
         }
 
     return {
         "status": "OK",
-        "msg": f"Drive mirror current — last sync {age_hours:.0f}h ago",
+        "msg": f"Drive mirror current — state updated {age_hours:.0f}h ago",
         "age_hours": round(age_hours, 1),
     }
 

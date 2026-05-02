@@ -1,0 +1,156 @@
+[
+  {
+    "id": "A2-2026-04-27-001",
+    "title": "Industry TV Series (Banking Drama)",
+    "source_signal": "[1] Industry (TV series) - Wikipedia",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 entertainment content unrelated to cruise/travel domain",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Generic TV show recap. Zero travel relevance. Symptom of scrape daemon vector misconfiguration."
+  },
+  {
+    "id": "A2-2026-04-27-002",
+    "title": "Industry TV Series IMDb",
+    "source_signal": "[2] Industry (TV Series 2020\u20132027) - IMDb",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 entertainment content",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "TV series metadata. Not actionable."
+  },
+  {
+    "id": "A2-2026-04-27-003",
+    "title": "Industry Definition \u2014 Britannica",
+    "source_signal": "[3] Industry | Definition, Sectors, & Facts | Britannica Money",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 generic economic dictionary entry",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Dictionary definition with zero cruise/travel specificity. Noise."
+  },
+  {
+    "id": "A2-2026-04-27-004",
+    "title": "Industry Definition \u2014 Cambridge",
+    "source_signal": "[4] INDUSTRY | English meaning - Cambridge Dictionary",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 generic dictionary",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Dictionary definition. Not actionable."
+  },
+  {
+    "id": "A2-2026-04-27-005",
+    "title": "Industry TV Series (Duplicate)",
+    "source_signal": "[5] Industry (TV series) - Wikipedia",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 duplicate entertainment content",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Duplicate signal. Entertainment, not travel intelligence."
+  },
+  {
+    "id": "A2-2026-04-27-006",
+    "title": "Industry TV Series IMDb (Duplicate)",
+    "source_signal": "[6] Industry (TV Series 2020\u20132027) - IMDb",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 duplicate entertainment",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Duplicate TV series metadata."
+  },
+  {
+    "id": "A2-2026-04-27-007",
+    "title": "Industry Definition \u2014 Britannica (Duplicate)",
+    "source_signal": "[7] Industry | Definition, Sectors, & Facts | Britannica Money",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 duplicate dictionary",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Duplicate generic definition."
+  },
+  {
+    "id": "A2-2026-04-27-008",
+    "title": "Industry Definition \u2014 Cambridge (Duplicate)",
+    "source_signal": "[8] INDUSTRY | English meaning - Cambridge Dictionary",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 duplicate dictionary",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Duplicate generic definition."
+  },
+  {
+    "id": "A2-2026-04-27-009",
+    "title": "Commander X16 Retro Emulator",
+    "source_signal": "[9] Commander X16 (94%): Experience the Commander X16 Emulator",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 vintage computing platform unrelated to travel/cruise",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Retro computing emulator. Zero D2M relevance. False match on keyword 'Commander.'"
+  },
+  {
+    "id": "A2-2026-04-27-010",
+    "title": "Commander X16 Community Forum",
+    "source_signal": "[10] Commander X16\u2122 Home - Commander X16\u2122 Community",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 computing community unrelated to luxury travel",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Vintage computing forum. Not actionable for cruise intelligence."
+  },
+  {
+    "id": "A2-2026-04-27-011",
+    "title": "Commander X16 About FAQ",
+    "source_signal": "[11] Commander X16\u2122 About & FAQ",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 computing documentation",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Retro computer FAQ. Noise."
+  },
+  {
+    "id": "A2-2026-04-27-012",
+    "title": "CHIP-8 Emulator Commander X16",
+    "source_signal": "[12] CHIP-8 Emulator/Interpreter for Commander X16",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 software emulation architecture",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Vintage computing technical thread. Zero cruise relevance."
+  },
+  {
+    "id": "A2-2026-04-27-013",
+    "title": "Commander X16 Personal Computer Intro",
+    "source_signal": "[13] Introducing Your Commander X16 Personal Computer",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 computing hardware",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Retro hardware product intro. Not actionable."
+  },
+  {
+    "id": "A2-2026-04-27-014",
+    "title": "Commander X16 Vera Palette Update",
+    "source_signal": "[14] VERA PALLETTE UPDATE USING VPOKE",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 vintage computing graphics chip configuration",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Vintage computing graphics configuration. Completely off-domain."
+  }
+]

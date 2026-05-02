@@ -9,7 +9,7 @@ import logging
 logging.basicConfig(filename='/home/john/Thunderbird/OpsCenter/overwatch.log', level=logging.INFO, format='%(asctime)s - [TECH AUDIT V2] - %(message)s')
 
 groq_client = AsyncOpenAI(
-    api_key=os.environ.get("GROQ_API_KEY", "***REMOVED-SECRET***"),
+    api_key=os.environ.get("GROQ_API_KEY", ""),
     base_url="https://api.groq.com/openai/v1"
 )
 

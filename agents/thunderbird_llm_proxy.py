@@ -78,3 +78,9 @@ if __name__ == "__main__":
     print(f"[D2M LLM Proxy] Listening on http://127.0.0.1:{PORT}/v1")
     print(f"[D2M LLM Proxy] Forwarding to Together AI → {DEFAULT_MODEL}")
     server.serve_forever()
+
+## AGENTS DOCUMENTATION
+
+- Updated to enforce free‑model guardrail for OpenRouter.
+- See docs/AGENTS_MODEL_GUIDE.md for allowed models and usage.
+

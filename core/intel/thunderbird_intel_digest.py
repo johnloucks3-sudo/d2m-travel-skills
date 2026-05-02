@@ -816,8 +816,24 @@ async def run_digest(preview=False, scrape_only=False):
     logger.info("Phase 2: Opus AI analysis...")
     ai_summary = await summarize_feeds(x_feeds)
 
-    # 2b. Intel Crew pipeline (Dembe → Radar → COS review chain)
-    logger.info("Phase 2b: Intel Crew persona chain analysis...")
+    # 2b. Twitter OSINT via Grok 4.1 — Phase 2 Project #1 (A2 Dembe, 2026-04-29)
+    logger.info("Phase 2b: Twitter OSINT sweep via Grok 4.1...")
+    try:
+        from thunderbird_twitter_osint import run_twitter_osint_sweep, get_digest_section
+        twitter_report = run_twitter_osint_sweep()
+        twitter_section = get_digest_section()
+        if twitter_section.strip() and "No Twitter OSINT" not in twitter_section:
+            ai_summary = ai_summary + "\n\n--- TWITTER OSINT (GROK 4.1) ---\n\n" + twitter_section
+            logger.info(
+                f"Twitter OSINT appended — "
+                f"{twitter_report.get('successful', 0)}/{twitter_report.get('topics_queried', 0)} "
+                f"topics OK in {twitter_report.get('total_elapsed_s', '?')}s"
+            )
+    except Exception as e:
+        logger.warning(f"Twitter OSINT failed (non-fatal): {e}")
+
+    # 2c. Intel Crew pipeline (Dembe → Radar → COS review chain)
+    logger.info("Phase 2c: Intel Crew persona chain analysis...")
     try:
         from thunderbird_intel_crew import IntelCrew
         crew = IntelCrew()

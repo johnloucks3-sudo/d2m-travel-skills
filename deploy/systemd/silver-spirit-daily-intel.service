@@ -1,0 +1,16 @@
+[Unit]
+Description=Daily Silversea Silver Spirit Intelligence Search — Hale COS
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/john/Thunderbird/.venv/bin/python /home/john/Thunderbird/OpsCenter/silver_spirit_daily_intel.py
+WorkingDirectory=/home/john/Thunderbird
+User=john
+Environment=HOME=/home/john
+Environment=PYTHONPATH=/home/john/Thunderbird
+EnvironmentFile=/home/john/Thunderbird/.env
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=silver-spirit-intel

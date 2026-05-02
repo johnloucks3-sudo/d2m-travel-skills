@@ -1,0 +1,32 @@
+{
+  "tasks": [
+    {
+      "id": "MB001-HEER-JAPAN",
+      "title": "Ann & Shawn Heer — Japan Proposal (Aug 8–16, 2026)",
+      "description": "Ann & Shawn Heer (friends, complementary services). Daughter studying abroad; family meetup in Japan. Dates: Aug 8–16, 2026. Current: Round-trip tickets to/from Tokyo confirmed. Survey sent. TASK: Build comprehensive 9-day itinerary covering Tokyo metro, potential Sapporo extension (Hokkaido), cultural experiences, dining. Model routing: Use Sonnet for proposal narrative + itinerary prose. Reference: Email thread 'Can you please...' with Ann (Apr 25–26). OUTPUT: Proposal document ready for Commander review.",
+      "priority": "P2",
+      "owner": "COS",
+      "status": "PENDING",
+      "created": "2026-04-27T02:03:58Z",
+      "task_type": "proposal",
+      "source_email": "John to COS (Fwd: A Short Japan Survey, Apr 26)",
+      "deliverable": "Japan_Proposal_Heer_20260426.md",
+      "dependencies": [],
+      "deadline": "2026-05-05"
+    },
+    {
+      "id": "MB002-MCLEOD-DINING",
+      "title": "Melissa McGlasson — Rome Dining Research & Reservation Strategy",
+      "description": "Melissa McGlasson (McLeod Silver Muse prep). Needs assistance with Rome dinner reservations (Jun 19–23, 2026). Five options identified in dossier: (1) Sistina 52 (5★), (2) Diana's Place (1★ Michelin), (3) Colline Emiliane (Emilia-Romagna), (4) La Pergola (3★ Michelin, Waldorf — books weeks out), (5) Moma (1★ Michelin, ~$130 tasting, books weeks out). TASK: (1) Confirm Melissa's top 3 picks, (2) Provide contact info + reservation strategy for each, (3) Draft outreach to La Pergola/Moma if she wants (high-demand tables), (4) Provide backup options if reservations unavailable. CRITICAL: Melissa is the primary irritant with transfers; dining excellence = recovery opportunity. Model routing: Use Sonnet for research narrative + reservation strategy. Reference: Email from Melissa McGlasson (Apr 27 00:15) + dossier section 'Rome Dining Options'. OUTPUT: Rome Dining Strategy doc with actionable reservations plan.",
+      "priority": "P1",
+      "owner": "COS",
+      "status": "PENDING",
+      "created": "2026-04-27T02:03:58Z",
+      "task_type": "research",
+      "source_email": "Melissa to John (Italy Summer 2026, Apr 27)",
+      "deliverable": "McLeod_Rome_Dining_Strategy_20260427.md",
+      "dependencies": [],
+      "deadline": "2026-05-01"
+    }
+  ]
+}

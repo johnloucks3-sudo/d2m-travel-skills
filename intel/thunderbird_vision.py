@@ -33,7 +33,7 @@ from datetime import datetime
 from typing import Optional, Union
 
 # ── Groq config ──────────────────────────────────────────────────────────────
-GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "***REMOVED-SECRET***")
+GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
 GROQ_URL     = "https://api.groq.com/openai/v1/chat/completions"
 VISION_MODEL = "meta-llama/llama-4-scout-17b-16e-instruct"
 

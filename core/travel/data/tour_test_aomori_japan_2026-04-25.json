@@ -1,0 +1,20 @@
+{
+  "dest": "aomori japan",
+  "query": "shopping",
+  "date": "2026-04-25",
+  "scraped_at": "2026-04-25T17:18:48.367156",
+  "getyourguide": {
+    "source": "getyourguide",
+    "dest": "aomori japan",
+    "query": "shopping",
+    "url": "https://www.getyourguide.com/s/?q=shopping",
+    "scraped_at": "2026-04-25T17:18:48.833862",
+    "date_filter": "2026-04-25",
+    "tours": [],
+    "total_found_estimate": "500+ results:",
+    "screenshot": "/home/john/Thunderbird/core/travel/data/tour_gyg_aomori japan_2026-04-25.png",
+    "status": "no_results",
+    "notes": ""
+  },
+  "tourradar": {}
+}

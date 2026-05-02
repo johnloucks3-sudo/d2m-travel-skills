@@ -1,0 +1,57 @@
+[
+  {
+    "id": "A2-2026-05-01-001",
+    "title": "Prestige Portraits \u2014 Student Photography Portal",
+    "source_signal": "Sign In - Shop Prestige Portraits",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Student/senior portrait photography service. Outside D2M luxury travel vertical. No relevance to affluent cruise or high-net-worth client profiling."
+  },
+  {
+    "id": "A2-2026-05-01-002",
+    "title": "Dictionary Definitions \u2014 'High'",
+    "source_signal": "HIGH Definition & Meaning - Merriam-Webster",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Generic dictionary definitions. Zero relevance to yacht intelligence, client research, or Thunderbird architecture. Incubator crawler noise."
+  },
+  {
+    "id": "A2-2026-05-01-003",
+    "title": "Superyachts.com Portal \u2014 General",
+    "source_signal": "Superyachts.com | Luxury Yacht Sales, Charter, News & More",
+    "classification": "WATCH",
+    "gap_closed": "Multilingual yacht listing integration (EN/FR/IT/ES potential)",
+    "thunderbird_component": "thunderbird_world_intel.py / thunderbird_price_scrapers.py",
+    "risk": "MED",
+    "sss_required": false,
+    "rationale": "Portal exists but signal lacks depth on multilingual support, API access, or scrape feasibility. Requires linguistic reconnaissance before integration. Revisit 30 days."
+  },
+  {
+    "id": "A2-2026-05-01-004",
+    "title": "Superyachts.com \u2014 Mega Yacht Fleet Directory",
+    "source_signal": "Luxury Yachts For Sale - Superyachts.com",
+    "classification": "WATCH",
+    "gap_closed": "Ultra-HNW alternative to cruise charters; yacht supply intelligence",
+    "thunderbird_component": "thunderbird_client_context.py (alternative luxury assets)",
+    "risk": "MED",
+    "sss_required": true,
+    "rationale": "Fleet data could enhance ultra-HNW profiling, but integration requires Commander approval: does D2M expand into yacht chartering as service expansion?"
+  },
+  {
+    "id": "A2-2026-05-01-005",
+    "title": "Superyachts.com \u2014 Top 100 Largest Yachts List",
+    "source_signal": "Top 100 World's Largest Yachts | Superyachts.com",
+    "classification": "WATCH",
+    "gap_closed": "Mega-yacht competitive intelligence for luxury asset profiling",
+    "thunderbird_component": "thunderbird_world_intel.py (supply-side luxury intelligence)",
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "Reference material for asset-class intelligence, but signal is shallow. Actionable only if paired with deeper research into multilingual scraping and charter integration feasibility."
+  }
+]

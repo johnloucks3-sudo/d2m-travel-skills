@@ -14,7 +14,7 @@ logging.basicConfig(filename='/home/john/Thunderbird/OpsCenter/overwatch.log', l
 genai.configure(api_key=os.environ.get("GOOGLE_API_KEY", "***REMOVED-SECRET***"))
 
 groq_client = AsyncOpenAI(
-    api_key=os.environ.get("GROQ_API_KEY", "***REMOVED-SECRET***"),
+    api_key=os.environ.get("GROQ_API_KEY", ""),
     base_url="https://api.groq.com/openai/v1"
 )
 

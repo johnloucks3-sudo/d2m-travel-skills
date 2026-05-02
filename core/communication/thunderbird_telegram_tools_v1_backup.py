@@ -33,7 +33,7 @@ from typing import Any
 logger = logging.getLogger("thunderbird_telegram_tools")
 
 # ── Config ──
-GROQ_API_KEY = "***REMOVED-SECRET***"
+GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
 GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 GROQ_MODEL = "meta-llama/llama-4-scout-17b-16e-instruct"
 MCP_URL = "http://localhost:8765/mcp"

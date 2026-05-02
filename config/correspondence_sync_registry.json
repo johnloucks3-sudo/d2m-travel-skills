@@ -1,0 +1,90 @@
+{
+  "_comment": "Maps client email addresses to their primary dossier file. Update when adding new clients.",
+  "clients": {
+    "Kuklinski": {
+      "dossier": "dossiers/Kuklinski_Viking_Panama.md",
+      "emails": [
+        "kyle.kuklinski@gmail.com",
+        "rosalie.kuklinski@gmail.com",
+        "roger.kuklinski@gmail.com",
+        "nikpack@gmail.com",
+        "josh@jerichopix.com",
+        "buzzerica@gmail.com"
+      ],
+      "display_names": {
+        "kyle.kuklinski@gmail.com": "Kyle",
+        "rosalie.kuklinski@gmail.com": "Rosalie",
+        "roger.kuklinski@gmail.com": "Roger",
+        "nikpack@gmail.com": "Nick",
+        "josh@jerichopix.com": "Josh",
+        "buzzerica@gmail.com": "Erica"
+      }
+    },
+    "Furlow": {
+      "dossier": "dossiers/Furlow_Regent_3071222.md",
+      "emails": [
+        "missy.furlow@gmail.com",
+        "john.furlow@tpf.org"
+      ],
+      "display_names": {
+        "missy.furlow@gmail.com": "Missy",
+        "john.furlow@tpf.org": "John Furlow"
+      }
+    },
+    "Nichols": {
+      "dossier": "dossiers/Nichols_Regent_3078056.md",
+      "emails": [
+        "larry.nichols4811@gmail.com",
+        "heidi.nichols1@yahoo.com"
+      ],
+      "display_names": {
+        "larry.nichols4811@gmail.com": "Larry",
+        "heidi.nichols1@yahoo.com": "Heidi"
+      }
+    },
+    "Ely_Darrow": {
+      "dossier": "dossiers/Ely_Darrow_Regent_3096289.md",
+      "emails": [
+        "al.ely58@gmail.com",
+        "amy.darrow@me.com"
+      ],
+      "display_names": {
+        "al.ely58@gmail.com": "Al",
+        "amy.darrow@me.com": "Amy"
+      }
+    },
+    "McLeod": {
+      "dossier": "dossiers/McLeod_Erik_Melissa_SilverMuse_Complete.md",
+      "emails": [
+        "emcleod@gmail.com",
+        "memcglas@gmail.com"
+      ],
+      "display_names": {
+        "emcleod@gmail.com": "Erik",
+        "memcglas@gmail.com": "Melissa"
+      }
+    },
+    "Westbrook": {
+      "dossier": "dossiers/Westbrook_SilverNova_Personal.md",
+      "emails": [
+        "rwestbrook3@gmail.com",
+        "lindywestbrook77@gmail.com"
+      ],
+      "display_names": {
+        "rwestbrook3@gmail.com": "Ron",
+        "lindywestbrook77@gmail.com": "Lindy"
+      }
+    },
+    "Lyons": {
+      "dossier": "dossiers/Lyons_Nancy_Ken.md",
+      "emails": [
+        "nancylyons73@outlook.com",
+        "klyons3@bellsouth.net"
+      ],
+      "display_names": {
+        "nancylyons73@outlook.com": "Nancy",
+        "klyons3@bellsouth.net": "Ken"
+      }
+    }
+  }
+}

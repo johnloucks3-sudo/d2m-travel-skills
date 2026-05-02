@@ -15,29 +15,18 @@ Transport: stdio (local), SSE (legacy), or Streamable HTTP (production)
 Streamable HTTP is the production transport — stateless, load-balancer friendly,
 and the MCP standard replacing SSE (deprecated April 2026).
 """
-from thunderbird_ship_intel import register_ship_intel_tools
-from thunderbird_world_intel import register_world_intel_tools
-from thunderbird_ship_compare import register_comparison_tools
-from thunderbird_drive import register_drive_tools
-from thunderbird_browser import register_browser_tools
-from thunderbird_weekly_report import register_weekly_report_tools
 from thunderbird_tech_monitor import register_tech_monitor_tools
 from thunderbird_v3 import register_v3_tools
 from itinerary_finishing_pipeline import register_itinerary_pipeline_tools
 from thunderbird_hotel_search import register_hotel_search_tools
 from thunderbird_flight_search import register_flight_search_tools
-from thunderbird_gmail import register_gmail_tools
 from thunderbird_tour_search import register_tour_search_tools
 from thunderbird_fare_watch import register_fare_watch_tools
 from thunderbird_personas import register_persona_tools
-from thunderbird_sms import register_sms_tools
 from thunderbird_evernote import register_evernote_tools
 from thunderbird_whatsapp import register_whatsapp_tools
 from thunderbird_quote_render import register_quote_tools
-from thunderbird_star_protocol import register_star_protocol_tools
 from thunderbird_dani_email import register_dani_email_tools
-from thunderbird_keep import register_keep_tools
-from thunderbird_calendar_sync import register_calendar_tools
 from thunderbird_dining import register_dining_tools
 from thunderbird_anchor_dates import register_anchor_date_tools
 from thunderbird_dossier import register_dossier_tools
@@ -46,8 +35,6 @@ from thunderbird_morning_briefing import register_briefing_tools
 from thunderbird_x_osint import register_x_osint_tools
 from d2m_client_materials import register_client_materials_tools
 from thunderbird_trip_architect import register_trip_architect_tools
-from thunderbird_commission_recon import register_commission_recon_tools
-from thunderbird_survey import register_survey_tools
 from thunderbird_competitive_surveillance import register_surveillance_tools
 from thunderbird_price_monitor import register_price_monitor_tools
 from thunderbird_email_intel import register_email_intel_tools
@@ -87,6 +74,7 @@ from thunderbird_a2a_protocol import register_a2a_protocol_tools
 from thunderbird_grant_compiler import register_grant_tools
 from thunderbird_mcp_connector import register_connector_tools
 from thunderbird_groq_connectors import register_groq_connector_tools
+from thunderbird_headless_claude import register_headless_claude_tools
 # Phantom self-building MCP — adds 'build_mcp_tool' and 'list_phantom_builds'
 try:
     import sys as _sys
@@ -103,6 +91,7 @@ import asyncio
 import os
 from pathlib import Path
 from datetime import datetime
+from core.self_healing import self_healing
 import re
 from typing import Optional, List, Dict, Any
 from enum import Enum
@@ -377,6 +366,7 @@ async def consolidate_booking_sources(
         "readOnlyHint": True
     }
 )
+@self_healing
 async def search_live_cruise_voyages(
     url: str = Field(..., description="Target URL to search, e.g., 'https://www.silversea.com/find-a-cruise.html'")
 ) -> str:
@@ -422,6 +412,7 @@ async def search_live_cruise_voyages(
         "readOnlyHint": True
     }
 )
+@self_healing
 async def check_cabin_availability(
     voyage_url: str = Field(..., description="Direct URL to the specific cruise voyage page")
 ) -> str:
@@ -479,7 +470,6 @@ logger.info(f"MCP profile: {MCP_PROFILE}")
 
 # ── CORE — always loaded (every profile) ─────────────────────────────────────
 _CORE_LOADERS = [
-    register_drive_tools, register_gmail_tools, register_keep_tools, register_calendar_tools,
     register_dossier_tools, register_tasks_tools, register_memory_tools,
     register_sss_tools, register_persona_tools, register_learning_tools,
     register_commander_inbox_tools, register_checkpoint_tools, register_router_tools,
@@ -493,7 +483,6 @@ _CORE_LOADERS = [
 
 # ── INTEL additions ───────────────────────────────────────────────────────────
 _INTEL_LOADERS = [
-    register_ship_intel_tools, register_world_intel_tools, register_tech_monitor_tools,
     register_x_osint_tools, register_academic_scanner_tools, register_surveillance_tools,
     register_price_monitor_tools, register_email_intel_tools, register_airline_monitor_tools,
     register_intel_crew_tools, register_innovation_tools, register_a2a_tools,
@@ -506,16 +495,14 @@ _TRAVEL_LOADERS = [
     register_fare_watch_tools, register_excursion_tools, register_transfer_tools,
     register_opentable_tools, register_dining_tools, register_taap_tools,
     register_tess_tools, register_trip_architect_tools, register_worldfactbook_tools,
-    register_outside_agents_tools, register_comparison_tools,
+    register_outside_agents_tools,
     register_itinerary_pipeline_tools, register_auto_enrich_tools,
     register_client_materials_tools, register_v3_tools,
 ]
 
 # ── OPS additions ─────────────────────────────────────────────────────────────
 _OPS_LOADERS = [
-    register_commission_recon_tools, register_survey_tools, register_weekly_report_tools,
     register_files_api_tools, register_skills_tools, register_evernote_tools,
-    register_star_protocol_tools, register_browser_tools, register_sms_tools,
     register_whatsapp_tools,
 ]
 
@@ -556,6 +543,12 @@ try:
     register_groq_connector_tools(mcp)
 except Exception as e:
     logger.warning(f"Groq connector tools not available: {e}")
+
+# Headless Claude tasking — always loaded (core infrastructure for async tasks)
+try:
+    register_headless_claude_tools(mcp)
+except Exception as e:
+    logger.warning(f"Headless Claude tools not available: {e}")
 
 # remaining wave 4 based on profile
 if MCP_PROFILE in ("intel", "full"):

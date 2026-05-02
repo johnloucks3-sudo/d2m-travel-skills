@@ -43,9 +43,10 @@ HEARTBEAT_INTERVAL = 30         # Seconds between lock heartbeat writes
 
 # ── Action Whitelist (no blind pass-through) ─────────────────────────────────
 ALLOWED_ACTIONS = {
-    "route_to_deepseek",
-    "route_to_qwen",  # legacy alias for backward compat
-    "route_to_claude",
+    "route_to_opencode",  # primary dispatch (OpenCode/OpenRouter models)
+    "route_to_deepseek",  # legacy alias for backward compat
+    "route_to_qwen",      # legacy alias for backward compat
+    "route_to_claude",    # Claude via OpenRouter
     "mark_complete",
     "mark_deadlock",
     "escalate_commander",

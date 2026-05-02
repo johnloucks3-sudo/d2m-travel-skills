@@ -46,6 +46,8 @@ from enum import Enum
 # All paths, thresholds, and ALLOWED_ACTIONS are loaded from config.py
 # via wildcard import. Edit config.py to change paths or limits.
 from config import *
+from core.self_healing import self_healing
+
 
 
 # ── Logging ──────────────────────────────────────────────────────────────────
@@ -325,6 +327,7 @@ def dispatch_to_poe(task_text: str, mission_id: str) -> str:
         return f"ERROR: Poe dispatch failed: {e}"
 
 
+@self_healing
 def dispatch_to_opencode(task_text: str, mission_id: str, preferred_model: str = None) -> str:
     """
     THREE-BRAIN ROUTER (Gemini / Sonnet / Opus).
@@ -380,6 +383,7 @@ def _get_openrouter_key() -> str:
     return key
 
 
+@self_healing
 def dispatch_to_claude(task_text: str, mission_id: str, model: str = None) -> str:
     """Dispatch judgment tasks to Claude via OpenRouter API.
 

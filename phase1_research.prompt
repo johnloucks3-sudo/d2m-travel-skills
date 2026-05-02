@@ -1,0 +1,22 @@
+You are researching MCP endpoints for Thunderbird OS integration.
+
+TASK: Find the exact endpoint URLs for the following MCPs from the claude.ai Marketplace:
+1. lastminute.com MCP (flight + hotel search)
+2. Fever MCP (event discovery)
+
+Your sources:
+- Search the web for "lastminute.com MCP claude" and "Fever MCP claude.ai"
+- Check GitHub repositories if they're open-source
+- Look for official documentation
+
+OUTPUT FORMAT:
+For each MCP, provide:
+- Name: [name]
+- Type: [http or stdio]
+- Endpoint URL: [full URL or package name]
+- Auth method: [api key, oauth, etc.]
+- Setup steps: [3-5 step installation/configuration]
+
+WRITE your findings to /home/john/Thunderbird/output/mcp_endpoints_research.txt
+
+Do NOT output to stdout. All output to file.

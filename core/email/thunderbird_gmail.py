@@ -53,17 +53,34 @@ COMMANDER_EMAIL = "d2mconcierge@gmail.com"  # Commander directive 2026-03-19: d2
 # ── D2M Ops Gmail (d2mconcierge@gmail.com) ───────────────────────────────────
 # PRIMARY D2M ops account — Commander directive 2026-03-19.
 # ALL drafts, reads, sends, and label ops happen here.
-# johnloucks3 is personal only — not D2M ops.
-# COS → Commander stays on Telegram (per Commander directive 2026-03-18).
 WING_GMAIL_ADDRESS = "d2mconcierge@gmail.com"
 
+# ── Commander Gmail (johnloucks3@gmail.com) ───────────────────────────────────
+# Reclassified as part of the wing per Commander SO 2026-04-24.
+# Hale has full read/label/manage authority — same as d2mconcierge.
+# Token: ~/Thunderbird/creds/johnloucks3_token.json (gmail.modify scope, no re-auth needed).
+COMMANDER_INBOX_ADDRESS = "johnloucks3@gmail.com"
+
 def _get_wing_gmail_service():
-    """Return Gmail service authenticated as the Wing persona account."""
+    """Return Gmail service authenticated as the Wing persona account (d2mconcierge)."""
     try:
         from thunderbird_google_auth import get_persona_gmail
         return get_persona_gmail()
     except Exception as e:
         raise RuntimeError(f"Wing Gmail not available: {e}. Run --authorize-persona.")
+
+
+def _get_commander_gmail_service():
+    """Return Gmail service authenticated as Commander's inbox (johnloucks3@gmail.com).
+
+    Granted wing-level access per Commander SO 2026-04-24. Hale may read, search,
+    label, move, and flag — but never draft or send from this account.
+    """
+    try:
+        from thunderbird_google_auth import get_commander_gmail
+        return get_commander_gmail()
+    except Exception as e:
+        raise RuntimeError(f"Commander Gmail not available: {e}. Check creds/johnloucks3_token.json.")
 
 # All Commander-owned addresses — sends here are auto-authorized, no draft staging needed.
 # Commander directive 2026-03-18: "SENDING TO ME FROM D2M CONCIERGE OR D2M STAFF IS AUTHORIZED"

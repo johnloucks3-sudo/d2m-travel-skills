@@ -11,13 +11,14 @@
             "id": "9a646f99b4a23e72",
             "type": "leaf",
             "state": {
-              "type": "bases",
+              "type": "markdown",
               "state": {
-                "file": "Untitled.base",
-                "viewName": "Table"
+                "file": "Commander_Review/07_Commission_Summary.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-table",
-              "title": "Untitled"
+              "icon": "lucide-file",
+              "title": "07_Commission_Summary"
             }
           }
         ]
@@ -200,20 +201,21 @@
   },
   "active": "9a646f99b4a23e72",
   "lastOpenFiles": [
-    "logs/token_refresh_daemon.log",
     "OpsCenter/task_queue.db-wal",
+    "learning_rules.db-wal",
+    "OpsCenter/task_queue.db-shm",
+    "logs/sentinel/sweep_20260424_040000.json",
+    "logs/sentinel/sweep_20260424_030000.json",
+    "logs/judge/judge_20260424_020000.json",
+    "logs/goose/x_osint.log.1.gz",
+    "logs/goose/airline_monitor.log.8.gz",
+    "logs/goose/airline_monitor.log.1.gz",
+    "logs/sentinel/sweep_20260424_020000.json",
+    "Untitled.base",
+    "docs/HEADLESS_CLAUDE_SPAWN_GUIDE.md",
     "OpsCenter/COMPLETE_AUTONOMY_INFRASTRUCTURE.md",
-    "logs/inbox_checkpoint_daemon.log",
-    "OpsCenter/__pycache__/inbox_checkpoint_daemon.cpython-313.pyc",
-    "OpsCenter/inbox_checkpoint_daemon.py",
     "OpsCenter/OPENCODE_BRIEFING_CLAUDE_HEADLESS.md",
     "OpsCenter/CLAUDE_HEADLESS_ARCHITECTURE_SUMMARY.md",
-    "logs/haiku_supervisor.log",
-    "OpsCenter/__pycache__/claude_haiku_supervisor.cpython-313.pyc",
-    "OpsCenter/claude_haiku_supervisor.py",
-    "OpsCenter/__pycache__/claude_token_refresh_daemon.cpython-313.pyc",
-    "OpsCenter/claude_token_refresh_daemon.py",
-    "scripts/preemptive_oauth_refresh.py",
     "OpsCenter/OAUTH_QUICK_REFERENCE.md",
     "OpsCenter/OAUTH_ALTERNATIVES_ANALYSIS.md",
     "Personas/hale_layer_index.md",
@@ -241,7 +243,6 @@
     "core/travel/data/centrav_search_economy_2026-05-15.png",
     "core/travel/data/centrav_preflight_economy_2026-05-15.png",
     "core/intel/intel/incubator_review_2026-04-21.md",
-    "dossiers/DOSSIER_Celebrity_Constellation_Furlow_Dec2026.md",
     "portal/portal_kuklinski_v2.png",
     "portal/portal_kuklinski_screenshot.png",
     "core/travel/data/centrav_search_first_2026-09-14.png",

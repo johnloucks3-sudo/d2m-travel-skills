@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hale — Risk Matrix | {{ brief_data.generated_at[:10] }}</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #f7f3ea;
+            margin: 0;
+            padding: 20px;
+            color: #1a1a1a;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #0000ff;
+            margin: 0 0 10px 0;
+            font-size: 24px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        #risk-matrix {
+            min-height: 600px;
+        }
+        .quadrant-legend {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+        .quadrant {
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid;
+        }
+        .quadrant.escalate {
+            background: #ffe6e6;
+            border-left-color: #ef553b;
+        }
+        .quadrant.mitigate {
+            background: #fff3cd;
+            border-left-color: #ffa500;
+        }
+        .quadrant.monitor {
+            background: #fff3cd;
+            border-left-color: #ffa500;
+        }
+        .quadrant.accept {
+            background: #f0f0f0;
+            border-left-color: #999;
+        }
+        .quadrant-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 13px;
+        }
+        .quadrant-description {
+            font-size: 12px;
+            color: #666;
+        }
+        .risk-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 13px;
+        }
+        .risk-table th {
+            background: #f9f7f3;
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 2px solid #ddd;
+            font-weight: bold;
+            color: #0000ff;
+        }
+        .risk-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #eee;
+        }
+        .risk-table tr:hover {
+            background: #f9f7f3;
+        }
+        .risk-name {
+            font-weight: bold;
+            color: #1a1a1a;
+        }
+        .action-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: bold;
+            color: white;
+        }
+        .action-badge.escalate {
+            background: #ef553b;
+        }
+        .action-badge.mitigate {
+            background: #ffa500;
+        }
+        .action-badge.monitor {
+            background: #ffa500;
+        }
+        .action-badge.accept {
+            background: #999;
+        }
+        .score {
+            text-align: center;
+            font-weight: bold;
+            color: #0000ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⚠️ RISK MATRIX</h1>
+        <div class="subtitle">{{ brief_data.generated_at[:10] }} | Likelihood × Operational Disruption | Recommended Actions</div>
+
+        <div id="risk-matrix"></div>
+
+        <div class="quadrant-legend">
+            <div class="quadrant escalate">
+                <div class="quadrant-title">🔴 ESCALATE (Top-Right)</div>
+                <div class="quadrant-description">High likelihood + High disruption → Immediate intervention required</div>
+            </div>
+            <div class="quadrant mitigate">
+                <div class="quadrant-title">🟡 MITIGATE (Top-Left & Bottom-Right)</div>
+                <div class="quadrant-description">Mixed signals → Develop contingency & monitor closely</div>
+            </div>
+            <div class="quadrant monitor">
+                <div class="quadrant-title">🟡 MONITOR (Bottom-Right)</div>
+                <div class="quadrant-description">Low likelihood + High disruption → Watch & prepare</div>
+            </div>
+            <div class="quadrant accept">
+                <div class="quadrant-title">⚪ ACCEPT (Bottom-Left)</div>
+                <div class="quadrant-description">Low impact overall → Background awareness only</div>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 30px; color: #0000ff;">Risk Register</h3>
+        <table class="risk-table">
+            <thead>
+                <tr>
+                    <th style="width: 30%;">Risk</th>
+                    <th style="width: 12%; text-align: center;">Likelihood</th>
+                    <th style="width: 12%; text-align: center;">Disruption</th>
+                    <th style="width: 15%;">Action</th>
+                    <th style="width: 15%;">Timeline</th>
+                    <th style="width: 16%;">Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for risk in brief_data.risks %}
+                <tr>
+                    <td class="risk-name">{{ risk.name }}</td>
+                    <td class="score">{{ risk.likelihood }}%</td>
+                    <td class="score">{{ risk.disruption }}/10</td>
+                    <td><span class="action-badge {{ risk.action|lower }}">{{ risk.action }}</span></td>
+                    <td>{{ risk.timeline }}</td>
+                    <td>{{ risk.details }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const data = {{ brief_data|tojson }};
+        const risks = data.risks;
+
+        // Map actions to colors
+        const actionColors = {
+            "ESCALATE": "#ef553b",
+            "MITIGATE": "#ffa500",
+            "MONITOR": "#ffa500",
+            "ACCEPT": "#999"
+        };
+
+        // Create scatter plot
+        const x_values = risks.map(r => r.likelihood);
+        const y_values = risks.map(r => r.disruption);
+        const colors = risks.map(r => actionColors[r.action]);
+        const labels = risks.map(r => r.name);
+        const sizes = risks.map(r => 15); // Bubble size
+
+        const trace = {
+            x: x_values,
+            y: y_values,
+            mode: "markers+text",
+            type: "scatter",
+            marker: {
+                size: sizes,
+                color: colors,
+                opacity: 0.7,
+                line: {
+                    color: "white",
+                    width: 2
+                }
+            },
+            text: labels,
+            textposition: "top center",
+            textfont: {
+                size: 11,
+                color: "#1a1a1a"
+            },
+            hovertemplate:
+                "<b>%{text}</b><br>" +
+                "Likelihood: %{x}%<br>" +
+                "Disruption: %{y}/10<br>" +
+                "<extra></extra>",
+            name: "Risks"
+        };
+
+        // Add quadrant shading via shapes
+        const shapes = [
+            // Escalate (top-right, red)
+            {
+                type: "rect",
+                x0: 50, x1: 100,
+                y0: 6, y1: 10,
+                fillcolor: "#ef553b",
+                opacity: 0.1,
+                line: { width: 0 }
+            },
+            // Mitigate top-left (yellow)
+            {
+                type: "rect",
+                x0: 0, x1: 50,
+                y0: 6, y1: 10,
+                fillcolor: "#ffa500",
+                opacity: 0.1,
+                line: { width: 0 }
+            },
+            // Monitor bottom-right (yellow)
+            {
+                type: "rect",
+                x0: 50, x1: 100,
+                y0: 0, y1: 6,
+                fillcolor: "#ffa500",
+                opacity: 0.1,
+                line: { width: 0 }
+            },
+            // Accept (bottom-left, gray)
+            {
+                type: "rect",
+                x0: 0, x1: 50,
+                y0: 0, y1: 6,
+                fillcolor: "#e0e0e0",
+                opacity: 0.1,
+                line: { width: 0 }
+            }
+        ];
+
+        // Add quadrant labels
+        const annotations = [
+            {
+                x: 75, y: 8.5,
+                text: "<b>ESCALATE</b><br/>High/High",
+                showarrow: false,
+                font: { size: 12, color: "#ef553b" },
+                bgcolor: "rgba(255,255,255,0.8)",
+                bordercolor: "#ef553b",
+                borderwidth: 1,
+                borderpad: 4
+            },
+            {
+                x: 25, y: 8.5,
+                text: "<b>MITIGATE</b><br/>Low/High",
+                showarrow: false,
+                font: { size: 12, color: "#ffa500" },
+                bgcolor: "rgba(255,255,255,0.8)",
+                bordercolor: "#ffa500",
+                borderwidth: 1,
+                borderpad: 4
+            },
+            {
+                x: 75, y: 1.5,
+                text: "<b>MONITOR</b><br/>High/Low",
+                showarrow: false,
+                font: { size: 12, color: "#ffa500" },
+                bgcolor: "rgba(255,255,255,0.8)",
+                bordercolor: "#ffa500",
+                borderwidth: 1,
+                borderpad: 4
+            },
+            {
+                x: 25, y: 1.5,
+                text: "<b>ACCEPT</b><br/>Low/Low",
+                showarrow: false,
+                font: { size: 12, color: "#999" },
+                bgcolor: "rgba(255,255,255,0.8)",
+                bordercolor: "#999",
+                borderwidth: 1,
+                borderpad: 4
+            }
+        ];
+
+        const layout = {
+            title: { text: "" },
+            xaxis: {
+                title: "Likelihood of Occurrence (%)",
+                range: [0, 100],
+                showgrid: true,
+                gridwidth: 1,
+                gridcolor: "#e0e0e0"
+            },
+            yaxis: {
+                title: "Operational Disruption Impact (0–10 scale)",
+                range: [0, 10],
+                showgrid: true,
+                gridwidth: 1,
+                gridcolor: "#e0e0e0"
+            },
+            plot_bgcolor: "#fafaf8",
+            paper_bgcolor: "white",
+            hovermode: "closest",
+            height: 600,
+            shapes: shapes,
+            annotations: annotations,
+            margin: { l: 80, b: 80, t: 40, r: 40 },
+            showlegend: false
+        };
+
+        Plotly.newPlot("risk-matrix", [trace], layout, { responsive: true });
+    </script>
+</body>
+</html>

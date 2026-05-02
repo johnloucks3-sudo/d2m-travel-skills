@@ -18,7 +18,12 @@ from typing import Dict, List, Optional, Any
 # Import both systems
 import sys
 
-sys.path.insert(0, "/home/john/Thunderbird/core/intel")
+# Ensure all required modules are on path when run standalone
+_TB = "/home/john/Thunderbird"
+for _p in [f"{_TB}/core/travel", f"{_TB}/core/intel", f"{_TB}/core/booking", f"{_TB}/core/learning"]:
+    if _p not in sys.path:
+        sys.path.insert(0, _p)
+
 from thunderbird_fare_watch import list_watches, check_fare
 from thunderbird_price_monitor import check_current_prices
 

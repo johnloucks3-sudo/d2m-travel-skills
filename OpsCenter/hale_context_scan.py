@@ -5,7 +5,7 @@ Feeds all key Thunderbird documents to DeepSeek's massive context window.
 Produces a structured digest written to hale_session_context.md.
 Runs before brief generation so Hale briefs from full institutional knowledge.
 
-DeepSeek V3.1 context: ~128K tokens. We batch the most important docs first.
+DeepSeek V4 Pro context: 1M tokens. We batch the most important docs first.
 
 Priority tiers:
   TIER 1 (always) — state, memory, master plan, CLAUDE.md, session checkpoint
@@ -32,7 +32,7 @@ load_dotenv(str(_ROOT / ".env"))
 load_dotenv(str(_ROOT / ".env.telegram"))
 
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
-DEEPSEEK_MODEL = "deepseek/deepseek-chat-v3.1"
+DEEPSEEK_MODEL = "deepseek/deepseek-v4-pro"
 QWEN_MODEL = DEEPSEEK_MODEL  # Legacy alias
 MT = timezone(timedelta(hours=-6))
 

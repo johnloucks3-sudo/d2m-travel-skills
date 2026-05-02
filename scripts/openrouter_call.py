@@ -1,13 +1,18 @@
 #!/usr/bin/env python3
 """
 openrouter_call.py — Unified CLI for OpenRouter API calls
-Used by Claude Code agents, /escalate skill, and escalation hooks.
+Used by Claude Code agents, skills, and escalation hooks.
+
+GUARDRAIL: Only free-model keys are allowed from OpenRouter.
+Poe.com models are ALLOWED (user-selectable via Poe gateway).
+
+Available model keys (free from OpenRouter):
+  gemma-3, deepseek-r1, deepseek-chat
 
 Usage:
-    python3 scripts/openrouter_call.py --model grok --prompt "Analyze this..."
-    python3 scripts/openrouter_call.py --model r1 --system "You are..." --prompt "..."
-    echo "prompt" | python3 scripts/openrouter_call.py --model deepseek --stdin
-    python3 scripts/openrouter_call.py --list
+  python3 scripts/openrouter_call.py --model gemma-3 --prompt "..."
+  echo "prompt" | python3 scripts/openrouter_call.py --model deepseek-r1 --stdin
+  python3 scripts/openrouter_call.py --list
 """
 
 import argparse
@@ -17,10 +22,10 @@ import sys
 import requests
 from pathlib import Path
 
-# Load .env
-_env_path = Path("/home/john/Thunderbird/.env")
-if _env_path.exists():
-    for line in _env_path.read_text().splitlines():
+# ── Load environment ──────────────────────────────────────────────────────────
+_ENV_PATH = Path("/home/john/Thunderbird/.env")
+if _ENV_PATH.exists():
+    for line in _ENV_PATH.read_text().splitlines():
         line = line.strip()
         if line and not line.startswith("#") and "=" in line:
             k, v = line.split("=", 1)
@@ -29,272 +34,141 @@ if _env_path.exists():
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
 BASE_URL = "https://openrouter.ai/api/v1/chat/completions"
 
+# ── ALLOWED MODELS (FREE ONLY from OpenRouter) ──────────────────────────────
+# NOTE: Poe.com models bypass this restriction — they are allowed via Poe gateway.
 MODELS = {
-    # ── FREE TIER ($0) ────────────────────────────────────────────────────
-    "nemotron": {
-        "id": "nvidia/nemotron-3-super-120b-a12b:free",
-        "label": "Nemotron 120B Super (FREE)",
-        "context": 262_144,
+    # FREE MODELS ONLY — $0 cost
+    "gemma-3": {
+        "id": "openrouter/google/gemma-3-27b-it:free",
+        "label": "Gemma 3 27B",
+        "context": 8192,
         "cost": "FREE",
-        "max_tokens": 8192,
-        "tier": "free-reasoning",
+        "free": True,
+        "best_for": "visualization, writing, creative tasks"
     },
-    "gpt-oss": {
-        "id": "openai/gpt-oss-120b:free",
-        "label": "GPT-OSS 120B (FREE)",
-        "context": 131_072,
+    "deepseek-r1": {
+        "id": "openrouter/deepseek/deepseek-r1:free",
+        "label": "DeepSeek R1",
+        "context": 16384,
         "cost": "FREE",
-        "max_tokens": 4096,
-        "tier": "free-reasoning",
-    },
-    # NOTE: These free models exist but are rate-limited (429) as of 2026-04-17.
-    # Kept commented for future retry. Working free: nemotron, gpt-oss, elephant.
-    # Rate-limited: hermes 405B, qwen-free 80B, qwen-coder, llama-free 70B,
-    #               gemma 27B, minimax m2.5, glm 4.5-air
-    "elephant": {
-        "id": "openrouter/elephant-alpha",
-        "label": "Elephant Alpha (FREE)",
-        "context": 262_144,
-        "cost": "FREE",
-        "max_tokens": 4096,
-        "tier": "free-general",
-    },
-    # ── ULTRA-CHEAP (< $0.15/M input) ────────────────────────────────────
-    "qwen-235b": {
-        "id": "qwen/qwen3-235b-a22b-2507",
-        "label": "Qwen3 235B",
-        "context": 262_144,
-        "cost": "$0.07/$0.10/M",
-        "max_tokens": 8192,
-        "tier": "ultra-cheap",
-    },
-    "gpt-nano": {
-        "id": "openai/gpt-4.1-nano",
-        "label": "GPT-4.1 Nano",
-        "context": 1_047_576,
-        "cost": "$0.10/$0.40/M",
-        "max_tokens": 4096,
-        "tier": "ultra-cheap",
-    },
-    "gemini-lite": {
-        "id": "google/gemini-2.5-flash-lite",
-        "label": "Gemini 2.5 Flash Lite",
-        "context": 1_048_576,
-        "cost": "$0.10/$0.40/M",
-        "max_tokens": 8192,
-        "tier": "ultra-cheap",
-    },
-    "llama": {
-        "id": "meta-llama/llama-4-maverick",
-        "label": "Llama 4 Maverick",
-        "context": 1_048_576,
-        "cost": "$0.15/$0.60/M",
-        "max_tokens": 4096,
-        "tier": "ultra-cheap",
-    },
-    "deepseek": {
-        "id": "deepseek/deepseek-chat-v3.1",
-        "label": "DeepSeek V3.1",
-        "context": 32_768,
-        "cost": "$0.15/$0.75/M",
-        "max_tokens": 4096,
-        "tier": "cheap",
-    },
-    "qwq": {
-        "id": "qwen/qwq-32b",
-        "label": "QwQ 32B (Reasoning)",
-        "context": 131_072,
-        "cost": "$0.15/$0.58/M",
-        "max_tokens": 8192,
-        "tier": "cheap-reasoning",
-    },
-    # ── VALUE TIER ($0.15–$0.50/M input) ──────────────────────────────────
-    "grok": {
-        "id": "x-ai/grok-4.1-fast",
-        "label": "Grok 4.1 Fast",
-        "context": 2_000_000,
-        "cost": "$0.20/$0.50/M",
-        "max_tokens": 8192,
-        "tier": "value-reasoning",
-    },
-    "gemini": {
-        "id": "google/gemini-3.1-flash-lite-preview",
-        "label": "Gemini 3.1 Flash Lite",
-        "context": 1_048_576,
-        "cost": "$0.25/$1.50/M",
-        "max_tokens": 8192,
-        "tier": "value",
-    },
-    "deepseek-v3.2": {
-        "id": "deepseek/deepseek-v3.2",
-        "label": "DeepSeek V3.2",
-        "context": 163_840,
-        "cost": "$0.26/$0.38/M",
-        "max_tokens": 4096,
-        "tier": "value",
-    },
-    "gpt5-mini": {
-        "id": "openai/gpt-5-mini",
-        "label": "GPT-5 Mini",
-        "context": 400_000,
-        "cost": "$0.25/$2.00/M",
-        "max_tokens": 4096,
-        "tier": "value",
-    },
-    "gpt": {
-        "id": "openai/gpt-4.1-mini",
-        "label": "GPT-4.1 Mini",
-        "context": 1_047_576,
-        "cost": "$0.40/$1.60/M",
-        "max_tokens": 4096,
-        "tier": "value",
-    },
-    # ── REASONING TIER ────────────────────────────────────────────────────
-    "r1": {
-        "id": "deepseek/deepseek-r1-0528",
-        "label": "DeepSeek R1 (Reasoning)",
-        "context": 163_840,
-        "cost": "$0.50/$2.15/M",
-        "max_tokens": 8192,
-        "tier": "reasoning",
-    },
-    "mistral": {
-        "id": "mistralai/mistral-small-3.2-24b-instruct",
-        "label": "Mistral Small 3.2",
-        "context": 128_000,
-        "cost": "$0.07/$0.20/M",
-        "max_tokens": 4096,
-        "tier": "cheap",
-    },
-    # ── PREMIUM (web search, Claude, etc.) ────────────────────────────────
-    "perplexity": {
-        "id": "perplexity/sonar-reasoning-pro",
-        "label": "Perplexity Reasoning Pro",
-        "context": 128_000,
-        "cost": "$2/$8/M+search",
-        "max_tokens": 4096,
-        "tier": "web-research",
-    },
-    "haiku": {
-        "id": "anthropic/claude-haiku-4.5",
-        "label": "Haiku 4.5 (OpenRouter)",
-        "context": 200_000,
-        "cost": "$1/$5/M",
-        "max_tokens": 4096,
-        "tier": "premium",
-    },
+        "free": True,
+        "best_for": "reasoning, analysis, logic"
+    }
+    # NOTE: deepseek-chat REMOVED — it costs $0.27/M was causing $150/month charges
 }
 
 
-def call_openrouter(model_key, prompt, system=None, max_tokens=None, temperature=0.7):
-    """Call an OpenRouter model and return structured result."""
-    if not OPENROUTER_API_KEY:
-        return {"success": False, "error": "OPENROUTER_API_KEY not set"}
+def _parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="OpenRouter call (free-model guardrail)")
+    parser.add_argument("--model", required=True, help="Model key from MODELS")
+    parser.add_argument("--prompt", default="", help="User prompt")
+    parser.add_argument("--system", default="", help="System prompt")
+    parser.add_argument("--stdin", action="store_true", help="Read prompt from stdin")
+    parser.add_argument("--list", action="store_true", help="List allowed models and exit")
+    parser.add_argument("--max-tokens", type=int, default=4096, help="Max tokens")
+    parser.add_argument("--temperature", type=float, default=0.7, help="Temperature")
+    return parser.parse_args()
 
-    model = MODELS.get(model_key)
-    if not model:
-        return {"success": False, "error": f"Unknown model: {model_key}"}
+
+def _validate_model(model_key: str) -> dict:
+    """Ensure model is in allowed list."""
+    if model_key not in MODELS:
+        allowed = ", ".join(MODELS.keys())
+        raise ValueError(
+            f"Model '{model_key}' is not allowed from OpenRouter.\n"
+            f"Allowed free keys: {allowed}\n"
+            f"Poe.com models are allowed via the Poe gateway (use --poe flag if using poe wrapper)."
+        )
+    return MODELS[model_key]
+
+
+def _load_stdin() -> str:
+    return sys.stdin.read().strip()
+
+
+def _call_openrouter(model_cfg: dict, system: str, user_prompt: str, args: argparse.Namespace) -> dict:
+    """Make the OpenRouter API call."""
+    headers = {
+        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+        "Content-Type": "application/json",
+        "HTTP-Referer": "https://github.com/dreams2memories/thunderbird",
+        "X-Title": "Thunderbird-OS",
+    }
 
     messages = []
     if system:
         messages.append({"role": "system", "content": system})
-    messages.append({"role": "user", "content": prompt})
+    messages.append({"role": "user", "content": user_prompt})
 
     payload = {
-        "model": model["id"],
+        "model": model_cfg["id"],
         "messages": messages,
-        "max_tokens": max_tokens or model["max_tokens"],
-        "temperature": temperature,
+        "max_tokens": args.max_tokens,
+        "temperature": args.temperature,
     }
 
-    headers = {
-        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
-        "HTTP-Referer": "https://d2mluxury.quest",
-        "X-Title": "Thunderbird OS",
-        "Content-Type": "application/json",
-    }
-
-    try:
-        resp = requests.post(BASE_URL, headers=headers, json=payload, timeout=180)
-        resp.raise_for_status()
-        data = resp.json()
-        content = data["choices"][0]["message"]["content"]
-        usage = data.get("usage", {})
-
-        return {
-            "success": True,
-            "model": model["label"],
-            "model_id": model["id"],
-            "model_key": model_key,
-            "content": content,
-            "usage": {
-                "prompt_tokens": usage.get("prompt_tokens", 0),
-                "completion_tokens": usage.get("completion_tokens", 0),
-                "total_tokens": usage.get("total_tokens", 0),
-            },
-            "cost_tier": model["cost"],
-        }
-
-    except requests.exceptions.Timeout:
-        return {"success": False, "error": f"{model['label']} timed out (180s)"}
-    except requests.exceptions.RequestException as e:
-        return {"success": False, "error": f"{model['label']} API error: {e}"}
-    except (KeyError, IndexError) as e:
-        return {"success": False, "error": f"Bad response from {model['label']}: {e}"}
+    resp = requests.post(BASE_URL, headers=headers, json=payload, timeout=120)
+    resp.raise_for_status()
+    return resp.json()
 
 
 def main():
-    parser = argparse.ArgumentParser(
-        description="Thunderbird OpenRouter CLI — call any model from Claude Code"
-    )
-    parser.add_argument(
-        "--model", "-m", choices=list(MODELS.keys()), help="Model shortname"
-    )
-    parser.add_argument("--prompt", "-p", help="Prompt text")
-    parser.add_argument("--system", "-s", help="System prompt")
-    parser.add_argument("--max-tokens", "-t", type=int, help="Max output tokens")
-    parser.add_argument("--temperature", type=float, default=0.7)
-    parser.add_argument("--stdin", action="store_true", help="Read prompt from stdin")
-    parser.add_argument("--json", action="store_true", help="Output as JSON")
-    parser.add_argument("--list", "-l", action="store_true", help="List models")
-
-    args = parser.parse_args()
+    args = _parse_args()
 
     if args.list:
-        print(f"{'Key':15s} {'Model':30s} {'Cost':14s} {'Context':>10s}  {'Tier'}")
-        print("-" * 80)
-        for key, m in MODELS.items():
-            print(
-                f"{key:15s} {m['label']:30s} {m['cost']:14s} {m['context']:>10,}  {m['tier']}"
-            )
+        print("Allowed OpenRouter model keys (FREE or explicitly permitted):")
+        for key, cfg in MODELS.items():
+            print(f"  {key:16} -> {cfg['label']:32} ({cfg['cost']}) — {cfg['best_for']}")
         return
 
-    if not args.model:
-        parser.error("--model is required (or use --list)")
+    # Validate
+    model_cfg = _validate_model(args.model)
 
-    prompt = args.prompt
-    if args.stdin or not prompt:
-        if not sys.stdin.isatty():
-            prompt = sys.stdin.read().strip()
-
-    if not prompt:
-        parser.error("No prompt provided (use --prompt or --stdin)")
-
-    result = call_openrouter(
-        args.model,
-        prompt,
-        system=args.system,
-        max_tokens=args.max_tokens,
-        temperature=args.temperature,
-    )
-
-    if args.json:
-        print(json.dumps(result, indent=2))
-    elif result["success"]:
-        print(f"**{result['model']}, OpenRouter**\n")
-        print(result["content"])
+    # Build prompt
+    if args.stdin:
+        user_prompt = _load_stdin()
     else:
-        print(f"[ERROR] {result['error']}", file=sys.stderr)
+        user_prompt = args.prompt
+
+    if not user_prompt:
+        print("No prompt provided. Use --prompt or pipe via stdin.", file=sys.stderr)
+        sys.exit(1)
+
+    # Confirm non-free (if applicable)
+    estimated_cost_note = ""
+    estimated_cost = model_cfg.get("cost", "FREE")
+    if not model_cfg.get("free", False):
+        estimated_cost_note = f" [NOTE: model '{args.model}' costs {estimated_cost}]"
+
+    print(f"→ Calling {model_cfg['label']}...{estimated_cost_note}", file=sys.stderr)
+
+    try:
+        result = _call_openrouter(model_cfg, args.system, user_prompt, args)
+        content = result["choices"][0]["message"]["content"]
+        print(content)
+
+        # Log usage if possible
+        try:
+            usage = result.get("usage", {})
+            log_entry = {
+                "timestamp": __import__("datetime").datetime.now(__import__("datetime").timezone.utc).isoformat(),
+                "model_key": args.model,
+                "model_id": model_cfg["id"],
+                "prompt_tokens": usage.get("prompt_tokens"),
+                "completion_tokens": usage.get("completion_tokens"),
+                "total_tokens": usage.get("total_tokens"),
+                "cost_estimate": estimated_cost,
+            }
+            Path("/home/john/Thunderbird/logs").mkdir(exist_ok=True)
+            log_path = Path("/home/john/Thunderbird/logs/openrouter_calls.jsonl")
+            with log_path.open("a") as f:
+                json.dump(log_entry, f)
+                f.write("\n")
+        except Exception:
+            pass
+
+    except Exception as e:
+        print(f"Error: {e}", file=sys.stderr)
         sys.exit(1)
 
 

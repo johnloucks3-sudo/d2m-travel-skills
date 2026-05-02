@@ -506,7 +506,10 @@ Output:
 1. VERDICT (1 sentence — core gap tonight revealed)
 2. TOP GAPS (each: gap name, industry that proved it, why it matters to D2M)
 3. INTEGRATION PRIORITY (which gap to build first)
-4. AM CATEGORIES FOR TOMORROW (3-5 specific topics for morning deep scrape)
+4. AM CATEGORIES FOR TOMORROW (3-5 BROAD SEARCH TOPICS: cruise industry trends, luxury travel tech, client preference learning, AI in hospitality, competitor benchmarking)
+   - Each category should be 2-4 words and searchable (will find 5-20 results when scraped)
+   - Examples of GOOD: "AI luxury concierge", "cruise pricing trends", "client preference AI"
+   - Examples of BAD: "Private jet fractional ownership vectors" (too niche — 0 results)
 5. COMMANDER INSIGHT (the one thing that changes how we see ourselves)
 
 Integration specialist lens. No self-congratulation. Find what we can't do.""", max_tokens=2500, model_tier="grok_2m")

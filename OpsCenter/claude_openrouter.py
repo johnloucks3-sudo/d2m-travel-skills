@@ -26,7 +26,7 @@ HEADERS = {
 def ask_claude(
     prompt: str,
     system: str = "You are a helpful AI assistant integrated into the Thunderbird Wing multi-agent system.",
-    model: str = "deepseek/deepseek-chat-v3.1",  # Free Opus equivalent
+    model: str = "deepseek/deepseek-v4-pro",  # Cost-optimized reasoning
     max_tokens: int = 2048,
     temperature: float = 0.7,
 ) -> str:

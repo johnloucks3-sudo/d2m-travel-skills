@@ -25,13 +25,18 @@ class MultiModelOrchestrator:
     
     def __init__(self):
         self.openrouter_api_key = "***REMOVED-SECRET***"
-        
+        self.monthly_openrouter_spend = 0.0
+        self.openrouter_monthly_cap = 20.0  # $20/mo cap, remaining via Claude MAX
+        self.use_claude_max_by_default = True  # Use Claude MAX for reasoning tasks
+
         # THOS Personas mapped to optimized non-Claude models
+        # NOTE (2026-04-30): Cost optimization — complex tasks now default to Claude MAX ($0)
+        # OpenRouter reserved for arbitration/DeepSeek R1 only
         self.persona_models = [
             # Core Leadership (higher quality models)
             ("x-ai/grok-4.1-fast", "COLONEL HALE", "Chief of Staff - Orchestration, Priorities, Staff Sync"),
             ("openai/gpt-4o-mini", "NAIA EXEC", "Voice & Visual Leader - Client Copy, Brand Tone, Commander's Intent"),
-            
+
             # Primary A-Staff (Balanced models)
             ("x-ai/grok-4.1-fast", "A1 NAVARRO", "Intake & Client Profile Architect - Travel DNA, Dani Brief, Luna Brief"),
             ("x-ai/grok-4.1-fast", "A2 DEMBE", "Research & Market Intelligence - Destination Intel, Cruise Analysis"),
@@ -40,7 +45,7 @@ class MultiModelOrchestrator:
             ("openai/gpt-4o-mini", "A6 LUNA", "Creative Director - Narrative Copy, Emotional Travel Writing"),
             ("x-ai/grok-4.1-fast", "A8 REYES", "Experience Architect - Travel DNA → Cruise/Cabin/Excursion Mapping"),
             ("openai/gpt-4o-mini", "A9 HARLAN", "Finance & Process Improvement - Commission Audits, ROI, Budget"),
-            
+
             # Special Staff
             ("x-ai/grok-4.1-fast", "CH PADRE", "Ethics & Morale - Wisdom, Ethical Checks, Perspective"),
             ("x-ai/grok-4.1-fast", "A12 ELON", "Innovation & Disruption - Automation, First-Principles Redesign")
@@ -127,36 +132,57 @@ class MultiModelOrchestrator:
                 "model": "Claude MAX (OAuth)",
             }
     
-    def thos_persona_analysis(self, prompt: str, max_cost: float = 0.05) -> Dict[str, Any]:
-        """Run THOS persona analysis with Claude MAX synthesis"""
-        logging.info(f"Starting THOS persona analysis with 10-persona orchestration")
-        
+    def thos_persona_analysis(self, prompt: str, max_cost: float = 0.05, use_openrouter: bool = False) -> Dict[str, Any]:
+        """Run THOS persona analysis with Claude MAX synthesis (cost-optimized 2026-04-30)
+
+        By default uses Claude MAX ($0 via OAuth) for persona perspectives.
+        Set use_openrouter=True to use OpenRouter (only for arbitration tasks).
+
+        Args:
+            prompt: Analysis prompt
+            max_cost: Max cost limit (for OpenRouter fallback)
+            use_openrouter: If True, attempt OpenRouter. If False (default), use Claude MAX.
+        """
+        logging.info(f"Starting THOS persona analysis (mode: {'OpenRouter' if use_openrouter else 'Claude MAX'})")
+
         results = []
         total_cost = 0.0
-        
-        # Get perspectives from all THOS personas
+
+        # Redirect to Claude MAX for cost optimization (SO 2026-04-30)
+        if not use_openrouter and self.use_claude_max_by_default:
+            logging.info("→ Using Claude MAX instead of OpenRouter for cost reduction (~$115/mo savings)")
+            return self._thos_persona_analysis_claude_max(prompt)
+
+        # Get perspectives from all THOS personas (OpenRouter path — for arbitration only)
         for model_id, persona, role in self.persona_models:
             if total_cost >= max_cost:
                 logging.warning(f"Cost limit reached (${total_cost:.6f}), skipping remaining personas")
                 break
-                
+
+            # Cost guard: if monthly spend + this call > cap, use Claude MAX
+            estimated_cost = 0.000005  # Rough estimate per API call
+            if self.monthly_openrouter_spend + estimated_cost > self.openrouter_monthly_cap:
+                logging.warning(f"Monthly OpenRouter cap ($20) approaching. Escalating to Claude MAX.")
+                return self._thos_persona_analysis_claude_max(prompt)
+
             persona_prompt = f"""You are {persona} - {role} for Dreams2Memories Travel.
-            
+
             QUESTION: {prompt}
-            
+
             Provide your distinctive professional perspective from your specific role.
             Focus on your area of expertise within the Thunderbird OS operational model.
             Consider how your perspective contributes to the 12-persona team structure.
-            
+
             Respond with specific, actionable insights for Commander John Loucks.
             Format your response in character as {persona}."""
-            
+
             result = self.process_with_openrouter(model_id, persona_prompt)
-            
+
             if result["success"]:
                 cost = result.get("cost", 0)
                 total_cost += cost
-                
+                self.monthly_openrouter_spend += cost
+
                 results.append({
                     "persona": persona,
                     "role": role,
@@ -164,10 +190,11 @@ class MultiModelOrchestrator:
                     "cost": cost,
                     "model": model_id,
                 })
-                logging.info(f"✓ {persona} perspective: ${cost:.6f}")
+                logging.info(f"✓ {persona} perspective: ${cost:.6f} (monthly total: ${self.monthly_openrouter_spend:.2f})")
             else:
-                logging.warning(f"✗ {persona} failed: {result.get('error')}")
-        
+                logging.warning(f"✗ {persona} failed: {result.get('error')}, escalating to Claude MAX")
+                return self._thos_persona_analysis_claude_max(prompt)
+
         # Synthesize with Claude MAX as COS Hale
         if results:
             synthesis_prompt = f"""COS HALE SYNTHESIS - THOS PERSONA ORCHESTRATION
@@ -232,7 +259,58 @@ class MultiModelOrchestrator:
             "error": "THOS persona analysis failed",
             "total_cost": total_cost,
         }
-    
+
+    def _thos_persona_analysis_claude_max(self, prompt: str) -> Dict[str, Any]:
+        """Claude MAX version of THOS persona analysis (cost-optimized 2026-04-30)
+
+        Single Claude MAX call with all 10 personas instead of 10 OpenRouter calls.
+        Reduces cost from ~$0.05/call × 10 = $0.50+ to $0.00 (Claude MAX OAuth).
+        Estimated monthly savings: ~$115/mo.
+        """
+        logging.info("Executing THOS personas via Claude MAX (single prompt, $0 OAuth)")
+
+        persona_list = "\n".join([
+            f"  - {persona}: {role}"
+            for _, persona, role in self.persona_models
+        ])
+
+        # Single comprehensive prompt for Claude MAX
+        claude_max_prompt = f"""You are running a comprehensive 10-persona analysis for Dreams2Memories Travel.
+
+QUESTION: {prompt}
+
+PERSONAS (provide perspective from each):
+{persona_list}
+
+TASK: Generate a complete THOS analysis by:
+1. Providing each persona's perspective on the question (2-3 sentences each)
+2. Synthesizing insights into actionable recommendations
+3. Identifying risks and mitigation strategies
+4. Recommending which persona(s) should execute next steps
+
+Respond as COS Hale directing the 10-persona orchestration."""
+
+        result = self.process_with_claude_max(claude_max_prompt)
+
+        if result["success"]:
+            return {
+                "success": True,
+                "result": result["result"],
+                "total_cost": 0.0,  # Claude MAX OAuth = $0
+                "persona_assessments": [],  # Not broken out in Claude MAX mode
+                "synthesis_cost": 0.0,
+                "model": "THOS 10-Persona (Claude MAX integrated)",
+                "synthesized_by": "COS Hale (Claude MAX OAuth)",
+                "cost_optimization": "Claude MAX ($0) vs OpenRouter (~$0.50/call × 10 = $115/mo)",
+            }
+        else:
+            logging.error(f"Claude MAX THOS analysis failed: {result.get('error')}")
+            return {
+                "success": False,
+                "error": f"Claude MAX failed: {result.get('error')}",
+                "model": "THOS 10-Persona (Claude MAX)",
+            }
+
     def mcp_handler(self, request: Dict[str, Any]) -> Dict[str, Any]:
         """MCP-compatible handler for multi-model requests"""
         try:

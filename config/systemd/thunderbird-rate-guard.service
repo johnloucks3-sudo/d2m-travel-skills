@@ -1,0 +1,11 @@
+[Unit]
+Description=Thunderbird Rate-Limit Guard — Single Evaluation Cycle
+After=network.target
+
+[Service]
+Type=oneshot
+User=john
+WorkingDirectory=/home/john/Thunderbird
+ExecStart=/usr/bin/python3 /home/john/Thunderbird/scripts/rate_guard_daemon.py
+StandardOutput=journal
+StandardError=journal

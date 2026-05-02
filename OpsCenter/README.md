@@ -49,6 +49,11 @@ Commander's Phone (Telegram)
 | `dani_engine.py` | DEPRECATED — logic moved to task_processor | Dead code |
 | `naia_bridge.py` | DEPRECATED — logic moved to task_processor | Dead code |
 | `switchblade_report.md` | Historical diagnostic — env isolation fix | Archive |
+| **RESEARCH SYSTEM** (NEW) | See `RESEARCH_SYSTEM_INDEX.md` | **LIVE 2026-04-27** |
+| `research_integrators_headless.py` | Spawn headless Claude for research tasks | Core spawner |
+| `send_research_email.py` | Email research results to Commander | Delivery |
+| `run_research_task.sh` | Orchestrator — call this from OpenCode | Main entry point |
+| `diagnose_research_system.py` | Check all 5 prerequisites before running | Validation |
 
 ## Division of Labor — Engine Routing
 

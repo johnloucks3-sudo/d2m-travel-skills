@@ -253,5 +253,39 @@
     "active": true,
     "created": "2026-04-04T19:48:06.755384",
     "last_checked": null
+  },
+  "viking-kuklinski-panama-2026-12-17": {
+    "id": "viking-kuklinski-panama-2026-12-17",
+    "watch_type": "cruise",
+    "label": "Viking Mars Panama Canal Dec 17-27 2026 — Kuklinski/Morton group",
+    "provider": "Viking",
+    "route": "Fort Lauderdale->Panama Canal->Fort Lauderdale",
+    "travel_date": "2026-12-17",
+    "passengers": 6,
+    "current_price_pp": 2582.67,
+    "baseline_price_pp": 2582.67,
+    "alert_below": 2453.54,
+    "alert_above": 2840.0,
+    "notes": "3 cabins Jr Suite. FPD Apr 8 2026. Group: Kyle+Rosalie, Roger+Nick Kuklinski, Josh+Erica Morton. Baseline total: $15,496",
+    "active": true,
+    "created": "2026-04-24T06:35:00.999499",
+    "last_checked": null
+  },
+  "flight-kuklinski-cos-fll-2026-12-15": {
+    "id": "flight-kuklinski-cos-fll-2026-12-15",
+    "watch_type": "flight",
+    "label": "COS/DEN->FLL Dec 15-16 2026 — Kuklinski/Morton group positioning",
+    "provider": "Multiple airlines",
+    "route": "COS->FLL (via DEN or DFW)",
+    "travel_date": "2026-12-15",
+    "passengers": 6,
+    "current_price_pp": 450.0,
+    "baseline_price_pp": 450.0,
+    "alert_below": 350.0,
+    "alert_above": 700.0,
+    "notes": "Positioning flight to Fort Lauderdale for Viking Mars Dec 17 embark. Consider UA/AA/DL via DEN or DFW. T-270 research phase active. Viking Air Plus option: evaluate vs independent booking.",
+    "active": true,
+    "created": "2026-04-24T06:35:13.730934",
+    "last_checked": null
   }
 }

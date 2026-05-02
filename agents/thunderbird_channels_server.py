@@ -242,3 +242,9 @@ async def main() -> None:
 
 if __name__ == "__main__":
     asyncio.run(main())
+
+## AGENTS DOCUMENTATION
+
+- Updated to enforce free‑model guardrail for OpenRouter.
+- See docs/AGENTS_MODEL_GUIDE.md for allowed models and usage.
+

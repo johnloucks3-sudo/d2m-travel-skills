@@ -1,16 +1,16 @@
 {
-  "timestamp": "2026-04-23T06:50:03.862855",
+  "timestamp": "2026-05-01T06:50:04.329709",
   "overall": "RED",
   "checks": [
     {
       "name": "MCP Server",
       "status": "GREEN",
-      "message": "Running (PID 1808)"
+      "message": "Running (PID 180180)"
     },
     {
       "name": "Scheduler",
-      "status": "GREEN",
-      "message": "Running (PID 1794)"
+      "status": "RED",
+      "message": "NOT RUNNING"
     },
     {
       "name": "Telegram C2",
@@ -30,7 +30,7 @@
     {
       "name": "Disk Space",
       "status": "GREEN",
-      "message": "804.7 GB free"
+      "message": "800.7 GB free"
     },
     {
       "name": "TELEGRAM_BOT_TOKEN",
@@ -59,8 +59,8 @@
     },
     {
       "name": "MCP Port 8765",
-      "status": "GREEN",
-      "message": "Listening"
+      "status": "RED",
+      "message": "NOT LISTENING"
     }
   ]
 }

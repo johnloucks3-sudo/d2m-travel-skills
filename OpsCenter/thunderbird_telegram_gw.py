@@ -4,6 +4,10 @@ thunderbird_telegram_gw.py — Thunderbird Telegram Gateway
 Dreams2Memories Travel, LLC
 Version: 1.0 | 2026-04-04
 
+⚠️ COST FIX (2026-04-28): DeepSeek V3.1 replaced with V4 Pro ($0.305/M — 60% cheaper).
+Caused $130 in unexpected charges via OpenRouter auto-refill. Fixed by consolidating
+all references from deepseek-chat-v3.1 → deepseek-v4-pro across codebase.
+
 Three bots. One process. Clean output.
 
 Bot         Token prefix  Engine         Identity     Audience
@@ -33,13 +37,13 @@ Telegram overrides (D2MC2C only):
     Sonnet: [task] → route to claude-sonnet-4-6
 
 Model prefixes (any bot — direct OpenRouter):
-    GROK: [task]     → xAI Grok 4.1 Fast
-    DEEPSEEK: [task] → DeepSeek V3.1
-    GEMINI: [task]   → Gemini 3.1 Flash Lite
-    LLAMA: [task]    → Llama 4 Maverick
-    GPT: [task]      → GPT-4.1 Mini
-    HAIKU: [task]    → Claude Haiku 4.5
-    MISTRAL: [task]  → Mistral Small
+    GROK: [task]     → xAI Grok 4.1 Fast (~$0.20/M)
+    DEEPSEEK: [task] → DeepSeek V4 Pro (~$0.305/M — cost-optimized reasoning)
+    GEMINI: [task]   → Gemini 3.1 Flash Lite (~$0.25/M)
+    LLAMA: [task]    → Llama 4 Maverick (~$0.15/M)
+    GPT: [task]      → GPT-4.1 Mini (~$0.40/M)
+    HAIKU: [task]    → Claude Haiku 4.5 (free on Max plan)
+    MISTRAL: [task]  → Mistral Small (~$0.05/M — cheapest option)
 
 Both Ways auto-upgrade:
     Keywords (strategy, architect, draft, etc.) auto-route to Opus/Sonnet.
@@ -136,7 +140,7 @@ OPENROUTER_MODEL_ALIASES: dict[str, str] = {
     "GPTNANO":          "openai/gpt-4.1-nano",                       # 1M ctx, $0.10/M
     "GEMLITE":          "google/gemini-2.5-flash-lite",              # 1M ctx, $0.10/M
     "LLAMA":            "meta-llama/llama-4-maverick",               # 1M ctx, $0.15/M
-    "DEEPSEEK":         "deepseek/deepseek-chat-v3.1",               # $0.15/M
+    "DEEPSEEK":         "deepseek/deepseek-v4-pro",                 # ✅ ACTIVE: $0.305/M — cost-optimized
     "QWQ":              "qwen/qwq-32b",                              # reasoning, $0.15/M
     # ── VALUE ($0.15–$0.50/M) ────────────────────────────────────────────────
     "GROK":             "x-ai/grok-4.1-fast",                        # 2M ctx, $0.20/M
@@ -155,14 +159,16 @@ OPENROUTER_MODEL_ALIASES: dict[str, str] = {
 # Reverse: OpenRouter model ID → short display label
 _OR_DISPLAY_LABELS = {v: k.title() for k, v in OPENROUTER_MODEL_ALIASES.items()}
 
-# DeepSeek-first with confirmed-working free fallbacks (updated 2026-04-17)
-# Removed: nemotron-3-super-free, minimax-m2.5-free, mistral-small:free, deepseek-r1:free (all 429)
+# FREE-first with cheap fallbacks (updated 2026-04-24)
+# ⚠️ CRITICAL FIX: DeepSeek V3.1 is NOT free ($0.27/M tokens). Removed from primary chain.
+# Primary: free OpenRouter tiers. Fallback: ultra-cheap models.
 OPENCODE_MODEL_CHAIN = [
-    "openrouter/deepseek/deepseek-chat-v3.1",              # DeepSeek V3.1 — primary (~$0.15/M)
-    "openrouter/nvidia/nemotron-3-super-120b-a12b:free",   # Nemotron 120B — free fallback 1
-    "openrouter/openai/gpt-oss-120b:free",                 # GPT-OSS 120B — free fallback 2
-    "openrouter/openrouter/elephant-alpha",                 # Elephant Alpha — free fallback 3
-    "openrouter/qwen/qwen3-235b-a22b-2507",                # Qwen3 235B — ultra-cheap fallback
+    "openrouter/nvidia/nemotron-3-super-120b-a12b:free",   # Nemotron 120B — FREE ($0)
+    "openrouter/openai/gpt-oss-120b:free",                 # GPT-OSS 120B — FREE ($0)
+    "openrouter/google/gemma-3-27b-it:free",               # Gemma 3 27B — FREE ($0)
+    "openrouter/deepseek/deepseek-r1:free",                # DeepSeek-R1 — FREE ($0)
+    "openrouter/qwen/qwen3-235b-a22b-2507",                # Qwen3 235B — ultra-cheap ($0.07/M)
+    "openrouter/mistralai/mistral-small-3.2-24b-instruct", # Mistral Small — cheap ($0.07/M)
 ]
 _OC_RATE_MARKERS = (
     "rate limit",

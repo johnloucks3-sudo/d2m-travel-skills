@@ -1,0 +1,119 @@
+{
+  "id": "sW27watchV1abcd",
+  "name": "Silversea Spring 2027 Watch",
+  "active": true,
+  "nodes": [
+    {
+      "id": "wf20-0001-4000-8000-000000000001",
+      "name": "Weekly Monday 8AM",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [200, 300],
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 8 * * 1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "wf20-0002-4000-8000-000000000002",
+      "name": "Fetch All Sources",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [440, 300],
+      "parameters": {
+        "jsCode": "// Fetch all sources — Silver Spirit + Nova + Ray + Perx (authenticated)\nconst fs = require('fs');\n\n// Load Perx cookies for authenticated scraping\nlet perxCookieStr = '';\ntry {\n  const cookieData = JSON.parse(fs.readFileSync('/home/john/Thunderbird/creds/perx_cookies.json', 'utf8'));\n  perxCookieStr = cookieData.cookies\n    .filter(c => c.domain.includes('perx.com') || c.domain.includes('cloudflare.com'))\n    .map(c => `${c.name}=${c.value}`).join('; ');\n} catch (e) { perxCookieStr = ''; }\n\nconst sources = [\n  // Silver Spirit — confirmed voyages\n  { name: 'Silver Spirit Leg 1 (Lisbon-Copenhagen)', url: 'https://www.silversea.com/destinations/northern-europe-british-isles-cruise/lisbon-to-copenhagen-sl270505016.html', type: 'silversea', ship: 'spirit' },\n  { name: 'Silver Spirit Leg 2 (CPH-Norway-CPH)', url: 'https://www.silversea.com/destinations/northern-europe-british-isles-cruise/copenhagen-to-copenhagen-sl270521015.html', type: 'silversea', ship: 'spirit' },\n  // Silver Nova — May/Jun 2027 filter\n  { name: 'Silver Nova May-Jun 2027', url: 'https://www.silversea.com/find-a-voyage.html?voyageType=classic&ship=NV&departureFrom=2027-05&departureTo=2027-06', type: 'deals', ship: 'nova' },\n  // Silver Ray — May/Jun 2027 filter\n  { name: 'Silver Ray May-Jun 2027', url: 'https://www.silversea.com/find-a-voyage.html?voyageType=classic&ship=RA&departureFrom=2027-05&departureTo=2027-06', type: 'deals', ship: 'ray' },\n  // Silversea Deals (all 3 ships)\n  { name: 'Silversea Deals (Spirit)', url: 'https://www.silversea.com/find-a-voyage.html?voyageType=classic&ship=SI&departureFrom=2027-04&departureTo=2027-07', type: 'deals', ship: 'spirit' },\n  // Perx — authenticated TA rate scrape\n  { name: 'Perx Silversea (all ships)', url: 'https://www.perx.com/cruise/silversea', type: 'perx', ship: 'all' },\n  { name: 'Perx Silver Spirit', url: 'https://www.perx.com/cruise/silversea/silver-spirit', type: 'perx', ship: 'spirit' },\n  { name: 'Perx Silver Nova', url: 'https://www.perx.com/cruise/silversea/silver-nova', type: 'perx', ship: 'nova' },\n  { name: 'Perx Silver Ray', url: 'https://www.perx.com/cruise/silversea/silver-ray', type: 'perx', ship: 'ray' },\n  // Exchange rate\n  { name: 'Exchange Rate EUR/USD', url: 'https://open.er-api.com/v6/latest/EUR', type: 'fx', ship: 'all' },\n  // CruiseCritic reviews\n  { name: 'CruiseCritic Silver Spirit', url: 'https://www.cruisecritic.com/reviews/review.cfm?ShipID=743', type: 'review', ship: 'spirit' },\n  { name: 'CruiseCritic Silver Nova', url: 'https://www.cruisecritic.com/reviews/review.cfm?ShipID=927', type: 'review', ship: 'nova' },\n  { name: 'CruiseCritic Silver Ray', url: 'https://www.cruisecritic.com/reviews/review.cfm?ShipID=928', type: 'review', ship: 'ray' },\n  // Interline\n  { name: 'ID90 Travel', url: 'https://www.id90travel.com/', type: 'interline', ship: 'all' }\n];\n\nconst results = [];\nconst defaultHeaders = {\n  'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',\n  'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,application/json,*/*;q=0.8',\n  'Accept-Language': 'en-US,en;q=0.9'\n};\n\nfor (const src of sources) {\n  try {\n    const headers = { ...defaultHeaders };\n    if (src.type === 'perx' && perxCookieStr) {\n      headers['Cookie'] = perxCookieStr;\n    }\n    const resp = await fetch(src.url, { headers, signal: AbortSignal.timeout(15000) });\n    const body = await resp.text();\n    results.push({ name: src.name, url: src.url, type: src.type, ship: src.ship, status: resp.status, body: body.substring(0, 50000), ok: resp.ok });\n  } catch (err) {\n    results.push({ name: src.name, url: src.url, type: src.type, ship: src.ship, status: 0, body: '', ok: false, error: err.message });\n  }\n}\n\nreturn [{ json: { sources: results, fetchedAt: new Date().toISOString() } }];"
+      }
+    },
+    {
+      "id": "wf20-0003-4000-8000-000000000003",
+      "name": "Parse Prices & Signals",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [680, 300],
+      "parameters": {
+        "jsCode": "const data = $input.first().json;\nconst sources = data.sources;\nconst results = { legs: {}, fx: null, signals: [], errors: [] };\n\n// --- Parse Silversea voyage pages ---\nfor (const src of sources.filter(s => s.type === 'silversea')) {\n  const voyageId = src.url.includes('SL270505016') ? 'LEG1' : 'LEG2';\n  if (!src.ok) {\n    results.errors.push(`${src.name}: HTTP ${src.status} ${src.error || ''}`);\n    results.legs[voyageId] = { name: src.name, price: null, raw: 'FETCH_FAILED' };\n    continue;\n  }\n  let price = null;\n  let raw = 'NOT_PARSEABLE';\n\n  // Try JSON-LD\n  const jsonLdMatch = src.body.match(/<script[^>]*type=\"application\\/ld\\+json\"[^>]*>([\\s\\S]*?)<\\/script>/i);\n  if (jsonLdMatch) {\n    try {\n      const ld = JSON.parse(jsonLdMatch[1]);\n      if (ld.offers) {\n        const offer = Array.isArray(ld.offers) ? ld.offers[0] : ld.offers;\n        price = parseFloat(offer.price || offer.lowPrice);\n        raw = `JSON-LD: ${offer.priceCurrency || 'USD'} ${price}`;\n      }\n    } catch (e) { /* JSON-LD parse failed, try regex */ }\n  }\n\n  // Regex fallback: look for price patterns\n  if (!price) {\n    // Pattern: \"from $X,XXX\" or \"starting at $X,XXX\" or \"USD X,XXX\"\n    const pricePatterns = [\n      /(?:from|starting\\s+at|price)[^$]*\\$([\\d,]+)/i,\n      /USD\\s*([\\d,]+)/i,\n      /\"price\"\\s*:\\s*\"?([\\d,.]+)/i,\n      /\"lowPrice\"\\s*:\\s*\"?([\\d,.]+)/i,\n      /data-price=\"([\\d,.]+)\"/i,\n      /fare[^$]*\\$([\\d,]+)/i\n    ];\n    for (const pat of pricePatterns) {\n      const m = src.body.match(pat);\n      if (m) {\n        price = parseFloat(m[1].replace(/,/g, ''));\n        raw = `Regex: USD ${price}`;\n        break;\n      }\n    }\n  }\n\n  // Check for TA/interline rate signals\n  const taSignals = [\n    /travel\\s*(?:advisor|agent|professional)\\s*(?:rate|fare|pricing)/i,\n    /interline/i,\n    /industry\\s*rate/i,\n    /trade\\s*rate/i,\n    /reduced\\s*(?:rate|fare)/i\n  ];\n  for (const pat of taSignals) {\n    if (pat.test(src.body)) {\n      results.signals.push(`${src.name}: TA/interline rate signal detected (${pat.source})`);\n    }\n  }\n\n  if (!price) raw = 'NOT_PARSEABLE (JS-rendered SPA — no server-side price)';\n  results.legs[voyageId] = { name: src.name, price, raw };\n}\n\n// --- Parse Deals page ---\nconst dealsSrc = sources.find(s => s.type === 'deals');\nif (dealsSrc && dealsSrc.ok) {\n  const promoPatterns = [\n    /(?:save|discount|offer|deal|bonus|complimentary|free)[^.]{0,120}/gi\n  ];\n  for (const pat of promoPatterns) {\n    const matches = dealsSrc.body.match(pat);\n    if (matches) {\n      results.signals.push(`Silversea Deals: ${matches.slice(0, 3).map(m => m.trim().substring(0, 100)).join(' | ')}`);\n    }\n  }\n} else if (dealsSrc) {\n  results.errors.push(`Deals page: HTTP ${dealsSrc.status}`);\n}\n\n// --- Parse FX rate ---\nconst fxSrc = sources.find(s => s.type === 'fx');\nif (fxSrc && fxSrc.ok) {\n  try {\n    const fxData = JSON.parse(fxSrc.body);\n    results.fx = {\n      eurUsd: fxData.rates?.USD || null,\n      fetchedAt: fxData.time_last_update_utc || data.fetchedAt\n    };\n  } catch (e) {\n    results.errors.push('FX parse error: ' + e.message);\n  }\n} else {\n  results.errors.push('FX fetch failed');\n}\n\n// --- Parse interline sources ---\nfor (const src of sources.filter(s => s.type === 'interline')) {\n  if (!src.ok) {\n    results.errors.push(`${src.name}: HTTP ${src.status} — ${src.error || 'unreachable'}`);\n    continue;\n  }\n  const interlinePatterns = [\n    /silversea/i,\n    /silver\\s*spirit/i,\n    /SL2705/i,\n    /lisbon.*copenhagen/i,\n    /scandinavia/i\n  ];\n  for (const pat of interlinePatterns) {\n    if (pat.test(src.body)) {\n      results.signals.push(`${src.name}: Silversea mention detected`);\n      break;\n    }\n  }\n}\n\n// --- Parse CruiseCritic ---\nconst ccSrc = sources.find(s => s.type === 'review');\nif (ccSrc && ccSrc.ok) {\n  const ratingMatch = ccSrc.body.match(/(?:overall|rating)[^\\d]{0,30}([\\d.]+)\\s*(?:out\\s*of|\\/)\\s*5/i);\n  if (ratingMatch) {\n    results.signals.push(`CruiseCritic Silver Spirit rating: ${ratingMatch[1]}/5`);\n  }\n}\n\nresults.fetchedAt = data.fetchedAt;\nreturn [{ json: results }];"
+      }
+    },
+    {
+      "id": "wf20-0004-4000-8000-000000000004",
+      "name": "Compare & Build Email",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [920, 300],
+      "parameters": {
+        "jsCode": "const fs = require('fs');\nconst data = $input.first().json;\nconst staticData = $workflow.staticData || {};\nconst prev = staticData.lastPrices || {};\nconst now = new Date();\nconst weekOf = now.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });\n\n// --- Price comparison ---\nconst changes = [];\nfor (const [legId, legData] of Object.entries(data.legs || {})) {\n  if (legData.price && prev[legId]) {\n    const delta = legData.price - prev[legId];\n    const pctChange = ((delta / prev[legId]) * 100).toFixed(1);\n    if (Math.abs(parseFloat(pctChange)) > 0.1) {\n      const direction = delta > 0 ? 'UP' : 'DOWN';\n      const alert = Math.abs(parseFloat(pctChange)) > 5 ? ' ALERT' : '';\n      changes.push({\n        leg: legData.name,\n        prev: prev[legId],\n        current: legData.price,\n        delta,\n        pctChange,\n        direction,\n        alert\n      });\n    }\n  }\n}\n\n// --- Update staticData ---\nconst newPrices = {};\nfor (const [legId, legData] of Object.entries(data.legs || {})) {\n  if (legData.price) newPrices[legId] = legData.price;\n}\n$workflow.staticData = { lastPrices: { ...prev, ...newPrices }, lastRun: now.toISOString() };\n\n// --- FX display ---\nconst fxDisplay = data.fx?.eurUsd ? `EUR/USD: ${data.fx.eurUsd.toFixed(4)}` : 'EUR/USD: unavailable';\n\n// --- Build HTML email ---\nconst alertBanner = changes.some(c => c.alert) \n  ? '<div style=\"background:#d32f2f;color:#fff;padding:12px 20px;font-size:16px;font-weight:bold;border-radius:4px;margin-bottom:16px;\">PRICE MOVEMENT ALERT &mdash; >5% change detected</div>'\n  : '';\n\nconst priceRows = Object.entries(data.legs || {}).map(([id, leg]) => {\n  const change = changes.find(c => c.leg === leg.name);\n  const changeCell = change \n    ? `<span style=\"color:${change.direction === 'DOWN' ? '#2e7d32' : '#d32f2f'};font-weight:bold;\">${change.direction} $${Math.abs(change.delta).toFixed(0)} (${change.pctChange}%)${change.alert}</span>`\n    : '<span style=\"color:#666;\">No change</span>';\n  const priceCell = leg.price \n    ? `$${leg.price.toLocaleString()}` \n    : `<span style=\"color:#999;\">${leg.raw}</span>`;\n  return `<tr><td style=\"padding:8px 12px;border-bottom:1px solid #e0e0e0;\">${leg.name}</td><td style=\"padding:8px 12px;border-bottom:1px solid #e0e0e0;\">${priceCell}</td><td style=\"padding:8px 12px;border-bottom:1px solid #e0e0e0;\">${changeCell}</td></tr>`;\n}).join('');\n\nconst signalRows = (data.signals || []).length > 0\n  ? data.signals.map(s => `<tr><td style=\"padding:6px 12px;border-bottom:1px solid #e0e0e0;\">${s}</td></tr>`).join('')\n  : '<tr><td style=\"padding:6px 12px;color:#999;\">No signals detected this week</td></tr>';\n\nconst errorRows = (data.errors || []).length > 0\n  ? `<div style=\"margin-top:16px;padding:12px;background:#fff3e0;border-left:4px solid #ff9800;border-radius:4px;\"><strong>Source Issues:</strong><ul style=\"margin:8px 0 0 0;\">${data.errors.map(e => `<li>${e}</li>`).join('')}</ul></div>`\n  : '';\n\nconst nextMonday = new Date(now.getTime() + 7*24*60*60*1000);\nconst nextMondayStr = nextMonday.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });\nconst prevPricesNote = Object.keys(prev).length > 0 ? 'Yes (' + Object.keys(prev).join(', ') + ')' : 'First run &mdash; baseline established';\n\nconst html = `<!DOCTYPE html>\n<html>\n<head><meta charset=\"utf-8\"></head>\n<body style=\"font-family:Georgia,serif;background:#f7f3ea;margin:0;padding:0;\">\n<div style=\"max-width:680px;margin:0 auto;background:#ffffff;border:1px solid #ddd;\">\n  <div style=\"background:#1a237e;color:#ffffff;padding:20px 24px;\">\n    <h1 style=\"margin:0;font-size:22px;font-weight:normal;\">Silversea Spring 2027 Watch</h1>\n    <p style=\"margin:4px 0 0;font-size:13px;color:#b0bec5;\">Week of ${weekOf} &bull; ${fxDisplay}</p>\n  </div>\n  <div style=\"padding:20px 24px;\">\n    ${alertBanner}\n    <h2 style=\"color:#1a237e;font-size:16px;margin:0 0 12px;border-bottom:2px solid #1a237e;padding-bottom:6px;\">Silver Spirit &mdash; Target Voyages</h2>\n    <table style=\"width:100%;border-collapse:collapse;font-size:14px;margin-bottom:20px;\">\n      <tr style=\"background:#f5f5f5;\"><th style=\"padding:8px 12px;text-align:left;\">Voyage</th><th style=\"padding:8px 12px;text-align:left;\">Price (pp)</th><th style=\"padding:8px 12px;text-align:left;\">WoW Change</th></tr>\n      ${priceRows}\n    </table>\n    <div style=\"font-size:13px;color:#555;margin-bottom:20px;padding:10px;background:#f9f9f9;border-radius:4px;\">\n      <strong>Leg 1:</strong> SL270505016 &bull; Lisbon &rarr; Copenhagen &bull; May 5&ndash;21, 2027 &bull; 16 nights<br>\n      <strong>Leg 2:</strong> SL270521015 &bull; Copenhagen &rarr; Norway &rarr; CPH &bull; May 21&ndash;Jun 5, 2027 &bull; 15 nights\n    </div>\n    <h2 style=\"color:#1a237e;font-size:16px;margin:0 0 12px;border-bottom:2px solid #1a237e;padding-bottom:6px;\">Signal Detection</h2>\n    <table style=\"width:100%;border-collapse:collapse;font-size:14px;margin-bottom:20px;\">\n      ${signalRows}\n    </table>\n    <h2 style=\"color:#1a237e;font-size:16px;margin:0 0 12px;border-bottom:2px solid #1a237e;padding-bottom:6px;\">Sources Checked (7)</h2>\n    <div style=\"font-size:13px;color:#555;line-height:1.8;\">\n      1. Silversea SL270505016 (Leg 1 direct page)<br>\n      2. Silversea SL270521015 (Leg 2 direct page)<br>\n      3. Silversea Deals &amp; Promotions (Silver Spirit filter)<br>\n      4. Exchange Rate API (EUR/USD live)<br>\n      5. CruiseCritic Silver Spirit reviews<br>\n      6. Perx Travel / Interline Rate Desk<br>\n      7. ID90 Travel\n    </div>\n    ${errorRows}\n    <div style=\"margin-top:24px;padding-top:16px;border-top:1px solid #ddd;font-size:12px;color:#999;\">\n      Automated by Thunderbird Wing &bull; Dreams2Memories Travel, LLC<br>\n      Next scan: Monday ${nextMondayStr}<br>\n      Previous prices stored: ${prevPricesNote}\n    </div>\n  </div>\n</div>\n</body>\n</html>`;\n\nconst hasAlert = changes.some(c => c.alert);\nconst subject = hasAlert\n  ? '[ALERT] Silversea Spring 2027 Watch - ' + weekOf\n  : 'Silversea Spring 2027 Watch - ' + weekOf;\n\n// Write payload to temp file for the email sender script\nconst payload = JSON.stringify({ html, subject });\nfs.writeFileSync('/tmp/silversea_report_payload.json', payload, 'utf8');\n\nreturn [{ json: { payloadFile: '/tmp/silversea_report_payload.json', subject, hasAlert, changes, signalCount: (data.signals || []).length, errorCount: (data.errors || []).length } }];"
+      }
+    },
+    {
+      "id": "wf20-0005-4000-8000-000000000005",
+      "name": "Send Email",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [1160, 300],
+      "parameters": {
+        "jsCode": "const { execSync } = require('child_process');\nconst payloadFile = $input.first().json.payloadFile;\ntry {\n  const output = execSync(`cd /home/john/Thunderbird && python3 scripts/send_silversea_report.py ${payloadFile}`, { encoding: 'utf8', timeout: 30000 });\n  return [{ json: { status: 'sent', output: output.trim() } }];\n} catch (err) {\n  return [{ json: { status: 'error', error: err.message, stderr: err.stderr } }];\n}"
+      }
+    }
+  ],
+  "connections": {
+    "Weekly Monday 8AM": {
+      "main": [
+        [
+          {
+            "node": "Fetch All Sources",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch All Sources": {
+      "main": [
+        [
+          {
+            "node": "Parse Prices & Signals",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Prices & Signals": {
+      "main": [
+        [
+          {
+            "node": "Compare & Build Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Compare & Build Email": {
+      "main": [
+        [
+          {
+            "node": "Send Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/Denver"
+  },
+  "staticData": {},
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true
+  }
+}

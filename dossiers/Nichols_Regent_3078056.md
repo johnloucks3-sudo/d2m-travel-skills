@@ -189,6 +189,27 @@ All included (Regent Choice — $0.00). Both Larry & Heidi confirmed on all excu
 **Mar 20 — Commander → Larry & Heidi Nichols** (DRAFT — not yet sent)
 > Payment confirmation email drafted. Itemized: Cruise $14,986 + Hotel ~$494 + Transfer TBD. Asking: cruise only or all 3? CC info needed to process. Draft ID: r8933170342867443181
 
+---
+
+### ISSUES NEEDING RESOLUTION
+
+1. **Return Flight Seat Assignments** — Seats NOT assigned on BA 6776 (OSL→LHR, Sep 8) and AA 79 (LHR→DFW, Sep 8). Outbound flights confirmed (5D/5H + 2D/2F). Contact BA/AA to assign return seats for Larry & Heidi.
+2. **Haymarket Hotel Room Retention** — Confirm with Haymarket By Scandic that Larry & Heidi will remain in their room on the night of Aug 28 (when Regent covers the hotel night) rather than being asked to move rooms.
+3. **Insurance Policy Clarification** — Allianz policy purchased ($700+) but coverage unclear to client. They want CFAR confirmation. Cross-reference with Amex Platinum travel protection and provide clear summary of what is/isn't covered. Target: May 15.
+4. **Schengen Visa/Entry Requirements** — Confirm Sweden/Norway entry requirements for US passports (6+ month validity). Both passports valid through Feb 2030.
+
+**Special Note:** Heidi's birthday = Aug 29 (embarkation day). Relevant for dining reservations (opens May 31) — consider noting for onboard surprise/celebration.
+
+**Status:** Items 1–4 target resolution by May 15, 2026 (E-45 milestone).
+
+---
+
+### COMMANDER'S NOTES
+
+(None at this time)
+
+---
+
 ### ACTION ITEMS
 
 - [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
@@ -1731,6 +1752,42 @@ All included (Regent Choice — $0.00). Both Larry & Heidi confirmed on all excu
 7. [x] ~~Seat assignments (outbound)~~ — ✅ ALL 4 LEGS CONFIRMED (DFW→HEL: 5D/5H; HEL→ARN: 2D/2F; OSL→LHR: 3C/3A; LHR→DFW: 8D/8G)
 8. [ ] Confirm dining reservation strategy (opens May 31, 8pm ET)
 9. [ ] Culinary Arts Kitchen — present options when booking opens May 1, 8pm ET
+
+### CORRESPONDENCE LOG — Outbound to Clients (Jan 2026–Present)
+
+| Date | Subject | To |
+|------|---------|-----|
+| 2026-01-07 | Re: Scandinavian Cruise — flight coordination | Larry |
+| 2026-01-07 | Flight payment coordination — Finnair group booking | Heidi |
+| 2026-01-23 | Stockholm Restaurant Reservations — Pre-Cruise | Larry |
+| 2026-01-24 | Berlin Day Trip Analysis — Warnemünde Port Day (Group) | Larry |
+| 2026-01-27 | Finnair Flight Info — DFW→HEL Confirmation | Larry |
+| 2026-01-28 | Stockholm–Berlin Ground Transport Options (Group) | Larry |
+| 2026-01-28 | Haymarket Hotel — Pre-Cruise Stockholm (Group) | Larry |
+| 2026-01-29 | Scandinavian Excursion Options — Curated List (Group) | Larry |
+| 2026-01-29 | Travel Insurance — Allianz Premier Options | Larry |
+| 2026-02-01 | Regent Invoice Forward — Booking 3078056 | Larry |
+| 2026-02-01 | Haymarket By Scandic — Booking Confirmation | Larry |
+| 2026-02-01 | Insurance Follow-Up — Allianz Questionnaire | Larry |
+| 2026-02-02 | Insurance — Allianz Application Resend | Larry |
+| 2026-02-04 | Booking Progress Update — Flights + Hotel + Insurance | Larry |
+| 2026-03-03 | Passport Reminder — Expiration Check for Regent | Larry |
+| 2026-03-04 | Re: Insurance Coverage Questions | Larry |
+| 2026-03-08 | Insurance Policy Details — Allianz Premier Coverage | Larry |
+| 2026-03-11 | Your D2M Travel Portal — Regent Grandeur Scandinavia | Larry |
+| 2026-03-12 | Pre-Payment Review — Regent Balance Due Apr 1 | Larry |
+| 2026-03-14 | Re: Pre-Payment Review — Updated Breakdown | Larry |
+| 2026-03-16 | Quick Guest Profile — Larry Nichols | Larry |
+| 2026-03-16 | Quick Guest Profile — Heidi Nichols | Heidi |
+| 2026-03-19 | Your Regent Grandeur Voyage — Concierge Briefing | Larry |
+| 2026-03-20 | Voyage Briefing — Ports & Excursion Highlights | Larry |
+| 2026-03-22 | How AI Works for You at Dreams2Memories Travel | Larry (BCC) |
+| 2026-03-25 | Cruise Portal For You — Regent Grandeur | Larry |
+| 2026-03-26 | Re: Final Payment Confirmation — Regent 3078056 | Larry |
+| 2026-03-26 | Regent Invoice — Final Payment Processed | Larry |
+| 2026-03-27 | Charges Summary — Regent + Hotel + Transfer | Larry |
+
+---
 
 ### COMMUNICATION LOG ADDENDUM
 | Date | Type | Summary |

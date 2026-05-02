@@ -29,16 +29,22 @@
 | I0Y9VG | United UA 757, SEA → DEN, Economy | May 11, 12:46pm → 4:30pm | **CONFIRMED** | incl. in SkyLux booking |
 | — | Seattle Terminal → SEA-TAC transfer | May 11 | **RESOLVED — will arrange onboard Silver Nova** (Commander confirmed 2026-04-06) | N/A |
 
-### ⚠️ FULL CANCELLATION — MEDICAL EMERGENCY (2026-04-20)
+### ⚠️ BEREAVEMENT + FULL CANCELLATION
+
+**⚠️ LINDY WESTBROOK PASSED AWAY APRIL 23, 2026.**
+Ron Westbrook is a widower. All communications with Ron must be handled with bereavement sensitivity. Do NOT reference "medical emergency" in future client-facing communications — this is a bereavement.
+
 | Field | Detail |
 |-------|--------|
-| **Status** | FULL CANCEL — medical emergency |
-| **Date declared** | 2026-04-20 |
+| **Status** | FULL CANCEL — bereavement (Lindy Westbrook, d. 2026-04-23) |
+| **Date of passing** | 2026-04-23 |
+| **Cancel declared** | 2026-04-20 (medical emergency preceding passing) |
 | **Scope** | Silver Nova cruise (booking 566904-25, $10,800) + all associated bookings |
 | **Transfers cancelled** | NRT Transfer (Transferz) + Hotel→Port (PE) — both refunded 2026-04-19 |
 | **Hilton Tokyo** | 33S2013960, ¥73,364 (~$480) — Allianz claim pending |
-| **Insurance policy** | Allianz Annual Premier, Conf E2549991663, $15K coverage — medical cancellation covered |
-| **Next action** | Contact Jenna Woodcock (Perx/SkyLux) to cancel 566904-25 — **requires Commander approval** |
+| **Insurance policy** | Allianz Annual Premier, Conf E2549991663, $15K coverage — bereavement/medical cancellation covered |
+| **Cruise cancellation drafts** | Ready in d2mconcierge Gmail — Jenna Woodcock (Perx, r6417475218752383138) + Zoro L (SkyLux, r5112779138240404778) — **awaiting Commander send approval (WF-17)** |
+| **Allianz claim scope** | $11,280 — Silver Nova $10,800 + Hilton Tokyo ~$480 |
 | **Claim contact** | allianz.com / 1-800-284-8300 |
 
 ---

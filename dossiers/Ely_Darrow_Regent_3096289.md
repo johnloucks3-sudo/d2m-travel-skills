@@ -145,6 +145,21 @@ All included (Regent Choice — $0.00). Both Al & Amy confirmed on all excursion
 
 ---
 
+### ISSUES NEEDING RESOLUTION
+
+1. **Finnair HEL→ARN Seat Assignment** — Seats TBD on AY 811 (PNR AA UXVXZP, Aug 27). Contact Finnair/AA to assign seats for Alfred & Karen.
+2. **Haymarket Hotel Room Retention** — Confirm with Haymarket By Scandic that Alfred & Karen will remain in their room on the night of Aug 28 (when Regent covers the hotel night) rather than being asked to move rooms.
+
+**Status:** Both items target resolution by May 15, 2026 (E-45 milestone).
+
+---
+
+### COMMANDER'S NOTES
+
+(None at this time)
+
+---
+
 ### ACTION ITEMS
 
 - [x] ~~GET CVC from Kyle — needed to process $21,244 total payment before Mar 31~~ ✓
@@ -1688,6 +1703,46 @@ All included (Regent Choice — $0.00). Both Al & Amy confirmed on all excursion
 8. [x] ~~Verify passports~~ — ✅ CONFIRMED valid (Commander 2026-03-26)
 9. [ ] Insurance — Al deferring. Follow up May timeframe
 10. [ ] Guest profile forms — NOT received from Al or Amy — PENDING
+
+### CORRESPONDENCE LOG — Outbound to Clients (Jan 2026–Present)
+
+| Date | Subject | To |
+|------|---------|-----|
+| 2026-01-07 | Scandinavian Cruise — Flight Booking Request | Al |
+| 2026-01-08 | D2M Service Agreement — Regent Grandeur Booking | Al |
+| 2026-01-08 | Re: AA Account Credentials — Flight Booking Attempt | Al |
+| 2026-01-11 | Group Planning Meeting — Scandinavia Trip (Group) | Al |
+| 2026-01-17 | Re: Task Ella Apology — Booking System Issue | Al |
+| 2026-01-23 | Stockholm Restaurant Reservations — Pre-Cruise (Group) | Al |
+| 2026-01-24 | Berlin Day Trip Analysis — Warnemünde Port Day (Group) | Al |
+| 2026-01-26 | Re: Hotel Corrections — Haymarket Dates | Al |
+| 2026-01-28 | Stockholm–Berlin Ground Transport Options (Group) | Al |
+| 2026-01-28 | Haymarket Hotel — Pre-Cruise Stockholm (Group) | Al |
+| 2026-01-29 | Scandinavian Excursion Options — Curated List (Group) | Al |
+| 2026-01-29 | Travel Insurance — Allianz Premier Options | Al |
+| 2026-02-01 | Regent Invoice Forward — Booking 3096289 | Al |
+| 2026-02-01 | Waitlist Strategy — Suite Upgrade Advice | Al |
+| 2026-02-01 | Haymarket By Scandic — Booking Confirmation (Group) | Al |
+| 2026-02-02 | Insurance — Allianz Application Resend | Al |
+| 2026-02-04 | Booking Progress Update — Flights + Hotel + Insurance | Al |
+| 2026-03-03 | Passport Reminder — Expiration Check for Regent | Al |
+| 2026-03-04 | Re: Call Scheduling — Payment & Trip Review | Al |
+| 2026-03-11 | Your D2M Travel Portal — Regent Grandeur Scandinavia | Al |
+| 2026-03-12 | Pre-Payment Review — Regent Balance Due Apr 1 | Al |
+| 2026-03-13 | Allianz Premier Quote — Annual Travel Insurance | Al |
+| 2026-03-13 | Re: Attempted Call — Payment Follow-Up | Al |
+| 2026-03-16 | Quick Guest Profile — Alfred Ely | Al |
+| 2026-03-16 | Quick Guest Profile — Amy Darrow | Amy |
+| 2026-03-19 | Your Regent Grandeur Voyage — Concierge Briefing | Al |
+| 2026-03-20 | Voyage Briefing — Ports & Excursion Highlights | Al |
+| 2026-03-20 | Re: Payment Processing — Mastercard Authorization | Al |
+| 2026-03-22 | How AI Works for You at Dreams2Memories Travel | Al (BCC) |
+| 2026-03-24 | Regent Invoice — Final Payment Processed (3096289) | Al |
+| 2026-03-25 | Cruise Portal For You — Regent Grandeur | Al |
+| 2026-04-10 | Suite Change Confirmation — 1212 → 961 (Regent) | Al |
+| 2026-04-11 | Updated Regent Invoice — Suite 961 | Al |
+
+---
 
 ### EMAIL LOG ADDENDUM (Mar 24, 2026)
 **Mar 24 — Regent Invoice received (forwarded by Commander)**

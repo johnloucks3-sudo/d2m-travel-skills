@@ -1,0 +1,35 @@
+[Unit]
+Description=Claude Usage Monitor Daemon
+Documentation=file:///home/john/Thunderbird/core/ops/thunderbird_usage_daemon.py
+After=network.target
+Wants=claude-token-refresh.timer
+
+[Service]
+Type=simple
+User=john
+Group=users
+WorkingDirectory=/home/john/Thunderbird
+
+# Main process
+ExecStart=/usr/bin/python3 /home/john/Thunderbird/core/ops/thunderbird_usage_daemon.py
+
+# Restart policy
+Restart=always
+RestartSec=10
+StartLimitInterval=600s
+StartLimitBurst=5
+
+# Process isolation
+PrivateTmp=yes
+NoNewPrivileges=true
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=usage-monitor
+
+# Environment
+Environment="PYTHONUNBUFFERED=1"
+
+[Install]
+WantedBy=multi-user.target

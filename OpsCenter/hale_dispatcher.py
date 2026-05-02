@@ -220,52 +220,36 @@ def _call_brain1(system: str, task: str, max_tokens: int = 2000) -> str:
 
 # ── Brain 2: Claude headless (Sonnet or Opus) ──
 
-def _call_brain2(task: str, model: str = SONNET_MODEL, max_words: int = 500) -> str:
+def _call_brain2_claude_api(task: str, model: str = SONNET_MODEL, max_words: int = 500) -> str:
     """
-    Brain 2: headless Claude MAX via `/home/john/.local/bin/claude`.
-    Receives Hale's digest + task — never raw files.
-    Uses OAuth token from credentials file (SO 2026-04-27).
+    Brain 2 via Claude SDK (fallback when needed).
+    Uses ANTHROPIC_API_KEY if available.
     """
-    persona_text = ""
-    if _PERSONA.exists():
-        persona_text = _PERSONA.read_text()[:3000]  # First 3K of persona for context
-
-    prompt = f"""{persona_text}
-
----
-TASK FROM HALE:
-{task}
-
-Respond in max {max_words} words. Brief-first. No preamble."""
+    if not ANTHROPIC_API_KEY:
+        return "[BRAIN2 FALLBACK] No ANTHROPIC_API_KEY; use template-based brief instead."
 
     try:
-        # Load OAuth token from credentials file
-        creds_path = Path.home() / ".claude" / ".credentials.json"
-        env = {**os.environ}
-        if creds_path.exists():
-            try:
-                creds = json.loads(creds_path.read_text())
-                token = creds.get("claudeAiOauth", {}).get("accessToken")
-                if token:
-                    env["CLAUDE_CODE_OAUTH_TOKEN"] = token
-            except Exception:
-                pass  # Proceed with existing environment
-
-        result = subprocess.run(
-            ["/home/john/.local/bin/claude", "-p", prompt, "--model", model, "--output-format", "text", "--mcp-config", "/home/john/.claude/mcp.json"],
-            capture_output=True, text=True, timeout=120, env=env,
+        from anthropic import Anthropic
+        client = Anthropic(api_key=ANTHROPIC_API_KEY)
+        response = client.messages.create(
+            model=model,
+            max_tokens=int(max_words * 1.3),  # Rough estimation
+            messages=[{"role": "user", "content": task}]
         )
-        if result.returncode == 0:
-            return result.stdout.strip()
-        else:
-            err = result.stderr.strip()
-            return f"[BRAIN2 ERROR] claude -p failed (rc={result.returncode}): {err[:300]}"
-    except subprocess.TimeoutExpired:
-        return "[BRAIN2 ERROR] Claude headless timed out (120s)."
-    except FileNotFoundError:
-        return "[BRAIN2 ERROR] `/home/john/.local/bin/claude` not found."
+        return response.content[0].text.strip()
+    except ImportError:
+        return "[BRAIN2 ERROR] anthropic module not installed"
     except Exception as e:
-        return f"[BRAIN2 ERROR] {e}"
+        return f"[BRAIN2 ERROR] Claude API failed: {str(e)[:200]}"
+
+
+def _call_brain2(task: str, model: str = SONNET_MODEL, max_words: int = 500) -> str:
+    """
+    Brain 2: DEPRECATED — async spawn version disabled due to reliability issues.
+    Fallback to Claude SDK or template-based briefs.
+    For reliability, the daily brief now uses fast templates instead of Claude generation.
+    """
+    return _call_brain2_claude_api(task, model, max_words)
 
 
 # ── Visual Synthesis: Dashboards + Infographics ──

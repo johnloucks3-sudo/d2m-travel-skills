@@ -26,3 +26,9 @@ total_24h, all_costs = parse_costs(LOG_PATH)
 print(f"24h Total: ${total_24h:.6f}")
 print(f"Transactions: {len(all_costs)}")
 print("Per-call avg: ${sum(all_costs)/len(all_costs):.6f}" if all_costs else "No costs")
+
+## AGENTS DOCUMENTATION
+
+- Updated to enforce free‑model guardrail for OpenRouter.
+- See docs/AGENTS_MODEL_GUIDE.md for allowed models and usage.
+

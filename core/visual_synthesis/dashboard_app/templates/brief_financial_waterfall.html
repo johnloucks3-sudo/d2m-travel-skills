@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hale — Financial Waterfall | {{ brief_data.generated_at[:10] }}</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #f7f3ea;
+            margin: 0;
+            padding: 20px;
+            color: #1a1a1a;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #0000ff;
+            margin: 0 0 10px 0;
+            font-size: 24px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        #waterfall {
+            min-height: 500px;
+        }
+        .legend {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 30px;
+            padding: 20px;
+            background: #f9f7f3;
+            border-radius: 8px;
+        }
+        .legend-item {
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .legend-color {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+        }
+        .metrics-row {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .metric-card {
+            background: #f9f7f3;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid #0000ff;
+        }
+        .metric-value {
+            font-size: 18px;
+            font-weight: bold;
+            color: #0000ff;
+            margin-bottom: 5px;
+        }
+        .metric-label {
+            font-size: 12px;
+            color: #666;
+        }
+        .alert {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+            font-size: 13px;
+            color: #856404;
+        }
+        .alert.critical {
+            background: #f8d7da;
+            border-color: #f5c6cb;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💰 FINANCIAL WATERFALL</h1>
+        <div class="subtitle">{{ brief_data.generated_at[:10] }} | Commission Pipeline Flow</div>
+
+        <div class="metrics-row">
+            <div class="metric-card">
+                <div class="metric-value">${{ brief_data.waterfall.prospects_pipeline|int|default(0)|string }}</div>
+                <div class="metric-label">Prospects Pipeline</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">${{ brief_data.waterfall.booked_confirmed|int|default(0)|string }}</div>
+                <div class="metric-label">Booked & Confirmed</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">${{ brief_data.waterfall.at_risk_deduction|int|default(0)|string }}</div>
+                <div class="metric-label">At-Risk Deduction</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">${{ brief_data.waterfall.projected_final|int|default(0)|string }}</div>
+                <div class="metric-label">Projected Final</div>
+            </div>
+            <div class="metric-card" style="border-left-color: #ef553b;">
+                <div class="metric-value" style="color: #ef553b;">${{ brief_data.waterfall.allianz_claim|int|default(0)|string }}</div>
+                <div class="metric-label">Allianz Claim (Pending)</div>
+            </div>
+        </div>
+
+        {% if brief_data.waterfall.allianz_claim > 0 %}
+        <div class="alert critical">
+            <strong>⚠️ Allianz Insurance Claim Pending:</strong> ${{ brief_data.waterfall.allianz_claim|int|string }} awaiting settlement. No update since Apr 24.
+        </div>
+        {% endif %}
+
+        <div id="waterfall"></div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <span class="legend-color" style="background: #00cc96;"></span>
+                Growth / Confirmed Revenue
+            </div>
+            <div class="legend-item">
+                <span class="legend-color" style="background: #ef553b;"></span>
+                Loss / Risk Deductions
+            </div>
+            <div class="legend-item">
+                <span class="legend-color" style="background: #ffa500;"></span>
+                At-Risk Contingency
+            </div>
+            <div class="legend-item">
+                <span class="legend-color" style="background: #0000ff;"></span>
+                Projected Final / Claims
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const data = {{ brief_data|tojson }};
+        const waterfall = data.waterfall;
+
+        // Waterfall chart data
+        const waterfallTrace = {
+            type: "waterfall",
+            orientation: "v",
+            name: "Commission",
+            x: [
+                "Prospects<br/>Pipeline",
+                "Conversion<br/>Loss",
+                "Booked &<br/>Confirmed",
+                "At-Risk<br/>Deduction",
+                "Projected<br/>Final"
+            ],
+            textposition: "outside",
+            text: [
+                "$" + waterfall.prospects_pipeline.toLocaleString(),
+                "-$" + Math.round(waterfall.prospects_pipeline * (1 - waterfall.conversion_rate)).toLocaleString(),
+                "$" + waterfall.booked_confirmed.toLocaleString(),
+                "-$" + waterfall.at_risk_deduction.toLocaleString(),
+                "$" + waterfall.projected_final.toLocaleString()
+            ],
+            y: [
+                waterfall.prospects_pipeline,
+                -Math.round(waterfall.prospects_pipeline * (1 - waterfall.conversion_rate)),
+                waterfall.booked_confirmed,
+                -waterfall.at_risk_deduction,
+                waterfall.projected_final
+            ],
+            measure: [
+                "absolute",
+                "relative",
+                "absolute",
+                "relative",
+                "total"
+            ],
+            connector: { line: { color: "#999" } },
+            marker: {
+                color: [
+                    "#00cc96",  // Prospects
+                    "#ef553b",  // Conversion loss
+                    "#00cc96",  // Booked
+                    "#ef553b",  // At-risk
+                    "#0000ff"   // Projected
+                ]
+            }
+        };
+
+        // Allianz claim line (diverging annotation)
+        const claimTrace = {
+            type: "scatter",
+            x: ["Booked &<br/>Confirmed", "Projected<br/>Final"],
+            y: [waterfall.booked_confirmed - waterfall.allianz_claim, waterfall.booked_confirmed - waterfall.allianz_claim],
+            mode: "lines",
+            name: "Allianz Claim Impact",
+            line: {
+                color: "#ef553b",
+                width: 2,
+                dash: "dash"
+            },
+            yaxis: "y",
+            hovertemplate: "$%{y:,.0f}<br/>Allianz claim impact"
+        };
+
+        const layout = {
+            title: {
+                text: "",
+                x: 0.5,
+                xanchor: "center"
+            },
+            xaxis: {
+                type: "category"
+            },
+            yaxis: {
+                title: "Amount ($)",
+                tickformat: ",.0f"
+            },
+            hovermode: "x unified",
+            plot_bgcolor: "#f9f7f3",
+            paper_bgcolor: "white",
+            margin: { b: 80 },
+            height: 500,
+            showlegend: true,
+            legend: {
+                x: 1.02,
+                y: 1,
+                xanchor: "left",
+                yanchor: "top"
+            }
+        };
+
+        Plotly.newPlot("waterfall", [waterfallTrace, claimTrace], layout, { responsive: true });
+    </script>
+</body>
+</html>

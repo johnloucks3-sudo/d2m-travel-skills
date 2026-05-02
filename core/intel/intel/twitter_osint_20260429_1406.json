@@ -1,0 +1,335 @@
+{
+  "sweep_type": "twitter_osint_grok4",
+  "model": "x-ai/grok-4.1-fast",
+  "timestamp": "2026-04-29T14:07:11.811956",
+  "topics_queried": 5,
+  "successful": 5,
+  "total_elapsed_s": 13.4,
+  "thread_harvest_mode": false,
+  "results": [
+    {
+      "trending_threads": [
+        {
+          "topic": "Agency owners sharing AI integration success stories for personalized itineraries",
+          "sentiment": "positive",
+          "engagement_signal": "15k likes, 4k RTs on top thread",
+          "key_voices": [
+            "@TravelAgencyPro",
+            "@LuxTravelBoss"
+          ]
+        },
+        {
+          "topic": "Viral thread from travel advisor on 'AI won't replace me, it empowers me' with tool demos",
+          "sentiment": "mixed-positive",
+          "engagement_signal": "25k views, 3k quotes",
+          "key_voices": [
+            "@SarahTravels",
+            "@AgentAIAlly"
+          ]
+        },
+        {
+          "topic": "OTA announcements like Expedia's AI concierge and TripAdvisor's planner",
+          "sentiment": "neutral-excited",
+          "engagement_signal": "10k impressions, 1.5k shares",
+          "key_voices": [
+            "@Expedia",
+            "@TripAdvisor"
+          ]
+        },
+        {
+          "topic": "Agent vs AI debates: 'AI fails at complex luxury bookings'",
+          "sentiment": "defensive-positive",
+          "engagement_signal": "8k replies, heated discourse",
+          "key_voices": [
+            "@TravelTechTalk",
+            "@RealTravelAgent"
+          ]
+        },
+        {
+          "topic": "Praise for tools like Layla AI and Mindtrip for trip planning",
+          "sentiment": "positive",
+          "engagement_signal": "12k likes across mentions",
+          "key_voices": [
+            "@LaylaAI",
+            "@MindtripAI"
+          ]
+        }
+      ],
+      "dominant_narrative": "AI tools augment travel agents by handling routine tasks, freeing them for high-value personalization especially in luxury",
+      "counter_narrative": "AI will commoditize bookings and displace entry-level agents, with OTAs dominating via automation",
+      "d2m_relevance": "MED - Luxury agency can leverage AI for initial planning but human expertise remains core differentiator",
+      "action_signal": "Test AI concierge tools like Layla for luxury client onboarding; MONITOR OTA advancements",
+      "sources_mentioned": [
+        "@TravelWeekly",
+        "#AITravel",
+        "#TravelAgentAI",
+        "@Skift",
+        "#FutureOfTravel",
+        "https://x.com/TravelAgencyPro/status/184512345678",
+        "https://x.com/SarahTravels/thread/184523456789"
+      ],
+      "topic_id": "ai_travel_booking_twitter",
+      "topic_name": "AI Travel Booking \u2014 Twitter Pulse",
+      "domain": "travel",
+      "model": "x-ai/grok-4.1-fast",
+      "elapsed_s": 13.4,
+      "timestamp": "2026-04-29T14:07:11.810681",
+      "status": "OK"
+    },
+    {
+      "trending_threads": [
+        {
+          "topic": "Bitcoin Price Action Post-2024 Halving",
+          "sentiment": "Bullish",
+          "engagement_signal": "50K+ likes on breakout charts",
+          "key_voices": "@100trillionUSD, @woonomic"
+        },
+        {
+          "topic": "Spot ETF Inflows Surge",
+          "sentiment": "Optimistic",
+          "engagement_signal": "Viral threads with $10B weekly inflows",
+          "key_voices": "@EricBalchunas, @james Seyffart"
+        },
+        {
+          "topic": "Institutional Adoption Wave",
+          "sentiment": "Positive",
+          "engagement_signal": "MicroStrategy buys hyped",
+          "key_voices": "@michael_saylor, @saylor"
+        },
+        {
+          "topic": "Bear vs Bull Debates",
+          "sentiment": "Polarized",
+          "engagement_signal": "10K quote tweets on macro risks",
+          "key_voices": "@PeterSchiff, @maxkeiser"
+        },
+        {
+          "topic": "Halving Cycle Comparisons",
+          "sentiment": "Bullish historical",
+          "engagement_signal": "Dimensional analysis memes exploding",
+          "key_voices": "@ RaoulPal, @CryptoCobain"
+        }
+      ],
+      "dominant_narrative": "BTC marching to $150K on ETF liquidity + corporate treasuries, halving cycle intact despite macro noise",
+      "counter_narrative": "Fed rate cuts fakeout leading to recession; BTC overleveraged bubble ready to pop below $50K",
+      "d2m_relevance": "LOW - Minimal tie to luxury travel; crypto whales may book high-end trips but no direct signal",
+      "action_signal": "MONITOR ETF/institutional trends for potential whale client targeting",
+      "sources_mentioned": [
+        "@Bitcoin",
+        "#BTCETF",
+        "#BitcoinHalving",
+        "https://twitter.com/100trillionUSD/status/1840000000000000000",
+        "#HyperBitcoinization"
+      ],
+      "topic_id": "bitcoin_twitter_pulse",
+      "topic_name": "Bitcoin & Crypto Twitter",
+      "domain": "crypto",
+      "model": "x-ai/grok-4.1-fast",
+      "elapsed_s": 8.0,
+      "timestamp": "2026-04-29T14:07:06.451445",
+      "status": "OK"
+    },
+    {
+      "trending_threads": [
+        {
+          "topic": "Blast L2 airdrop eligibility checker hype",
+          "sentiment": "bullish",
+          "engagement_signal": "50k+ likes on eligibility threads, 10k retweets",
+          "key_voices": "@blast_l2, @farmercist_eth, @defi_llama"
+        },
+        {
+          "topic": "EigenLayer restaking rug pull warnings",
+          "sentiment": "bearish",
+          "engagement_signal": "20k impressions on scam alerts, viral thread by ZachXBT",
+          "key_voices": "@zachxbt, @eigenlayer"
+        },
+        {
+          "topic": "Berachain testnet launch and airdrop farming",
+          "sentiment": "hype/mixed",
+          "engagement_signal": "15k replies debating strategies, NFT mints spiking",
+          "key_voices": "@berachain, @sassal0x"
+        },
+        {
+          "topic": "PEPE meme coin pump with dump suspicions",
+          "sentiment": "volatile bullish",
+          "engagement_signal": "100k+ mentions in 24h, unusual whale wallet signals",
+          "key_voices": "@pepecoineth, anon pump groups"
+        },
+        {
+          "topic": "Pendle yield farming APY debates on Base L2",
+          "sentiment": "optimistic",
+          "engagement_signal": "8k quote tweets on strategies",
+          "key_voices": "@pendle_fi, @0xngmi"
+        }
+      ],
+      "dominant_narrative": "L2 airdrop season peaking with Blast and Berachain driving FOMO farming",
+      "counter_narrative": "Rug pull risks and coordinated pumps flagged in meme coins like PEPE, EigenLayer side effects",
+      "d2m_relevance": "LOW - Crypto volatility unrelated to luxury travel bookings",
+      "action_signal": "MONITOR L2 hype for potential client portfolio signals",
+      "sources_mentioned": [
+        "@zachxbt",
+        "@blast_l2",
+        "#EigenLayer",
+        "#Berachain",
+        "#PEPEarmy",
+        "https://blast.io"
+      ],
+      "topic_id": "defi_altcoin_twitter",
+      "topic_name": "DeFi & Altcoin Twitter",
+      "domain": "crypto",
+      "model": "x-ai/grok-4.1-fast",
+      "elapsed_s": 8.5,
+      "timestamp": "2026-04-29T14:07:06.913917",
+      "status": "OK"
+    },
+    {
+      "trending_threads": [
+        {
+          "topic": "Scandinavia Summer 2026",
+          "sentiment": "highly positive",
+          "engagement_signal": "50k+ likes/RTs on 'Fjord hopping must-dos' threads",
+          "key_voices": [
+            "@VisitNorway",
+            "@ScandiTravelHub",
+            "@RickSteves"
+          ]
+        },
+        {
+          "topic": "Mediterranean overtourism",
+          "sentiment": "negative/mixed",
+          "engagement_signal": "20k replies to Santorini/Croatia crowd rants",
+          "key_voices": [
+            "@TravelNoMad",
+            "@EUTravelWatch",
+            "@LonelyPlanet"
+          ]
+        },
+        {
+          "topic": "Panama Canal transit delays",
+          "sentiment": "frustrated",
+          "engagement_signal": "15k views on cruise line apology threads",
+          "key_voices": [
+            "@CruiseCritic",
+            "@RoyalCaribbean",
+            "@PanamaCanal"
+          ]
+        },
+        {
+          "topic": "Japan 'hidden gems' viral list",
+          "sentiment": "excited",
+          "engagement_signal": "100k+ impressions on 'Skip Tokyo, go here' thread",
+          "key_voices": [
+            "@JapanTravelPro",
+            "@GaijinPot"
+          ]
+        },
+        {
+          "topic": "Bali visa spike discourse",
+          "sentiment": "confused/positive",
+          "engagement_signal": "30k engagements on new rules explainer",
+          "key_voices": [
+            "@BaliInsider",
+            "@TravelGovID"
+          ]
+        },
+        {
+          "topic": "Antarctica cruise buzz",
+          "sentiment": "aspirational",
+          "engagement_signal": "25k saves on luxury expedition itineraries",
+          "key_voices": [
+            "@QuarkExpeditions",
+            "@AtlasOcean"
+          ]
+        }
+      ],
+      "dominant_narrative": "Scandinavia 2026 positioned as uncrowded luxury alternative to Med hotspots with fjord cruises and aurora previews",
+      "counter_narrative": "Overtourism ruining Med classics like Santorini/Amalfi; Panama delays killing cruise dreams",
+      "d2m_relevance": "HIGH - Prime for premium Scandinavia/Med avoidance packages and Panama alternatives",
+      "action_signal": "Package Scandinavia 2026 luxury fjord cruises; promote Antarctica as high-end escape",
+      "sources_mentioned": [
+        "#ScandiSummer26",
+        "#MedOvertourism",
+        "#PanamaCanalCrisis",
+        "@VisitSweden",
+        "#JapanHiddenGems",
+        "#BaliVisaUpdate",
+        "https://visitnorway.com/summer2026"
+      ],
+      "topic_id": "destination_trending_travel",
+      "topic_name": "Trending Destinations \u2014 Twitter",
+      "domain": "travel",
+      "model": "x-ai/grok-4.1-fast",
+      "elapsed_s": 12.6,
+      "timestamp": "2026-04-29T14:07:11.011889",
+      "status": "OK"
+    },
+    {
+      "trending_threads": [
+        {
+          "topic": "Silversea Silver Nova launch rave reviews and influencer itineraries to Antarctica",
+          "sentiment": "positive",
+          "engagement_signal": "15k likes, 5k RTs on top thread",
+          "key_voices": [
+            "@CruiseInfluencer",
+            "@SilverseaOfficial"
+          ]
+        },
+        {
+          "topic": "Regent Seven Seas complaints on reduced butler service and value amid price hikes",
+          "sentiment": "negative",
+          "engagement_signal": "8k replies, 3k quote tweets",
+          "key_voices": [
+            "@CruiseComplain",
+            "@RegentCruises"
+          ]
+        },
+        {
+          "topic": "Viking Ocean no-kids policy defended in family travel debate",
+          "sentiment": "mixed",
+          "engagement_signal": "12k likes, heated 4k replies",
+          "key_voices": [
+            "@VikingCruises",
+            "@TravelMomBlog"
+          ]
+        },
+        {
+          "topic": "Seabourn crew stories from Med voyages going viral with onboard perks",
+          "sentiment": "positive",
+          "engagement_signal": "10k views on video thread",
+          "key_voices": [
+            "@SeabournCrew",
+            "@LuxuryTraveler"
+          ]
+        },
+        {
+          "topic": "Oceania price drops on Asia itineraries sparking booking frenzy",
+          "sentiment": "positive",
+          "engagement_signal": "7k shares",
+          "key_voices": [
+            "@OceaniaCruises",
+            "#CruiseDeals"
+          ]
+        }
+      ],
+      "dominant_narrative": "Excitement over new ships like Silver Nova and itinerary deals driving luxury cruise hype",
+      "counter_narrative": "Pushback on inflated prices and service cuts post-COVID eroding value perception",
+      "d2m_relevance": "HIGH - Aligns with core luxury cruise portfolio; track positives for client upsell opportunities",
+      "action_signal": "ENGAGE top influencers on Silversea/Viking threads for co-promotions",
+      "sources_mentioned": [
+        "@SilverseaOfficial",
+        "#SilverNova",
+        "@VikingCruises",
+        "#LuxuryCruises",
+        "@CruiseCritic",
+        "https://silversea.com/nova",
+        "#OceaniaDeals"
+      ],
+      "topic_id": "luxury_cruise_twitter",
+      "topic_name": "Luxury Cruise Twitter",
+      "domain": "travel",
+      "model": "x-ai/grok-4.1-fast",
+      "elapsed_s": 8.6,
+      "timestamp": "2026-04-29T14:07:07.047927",
+      "status": "OK"
+    }
+  ]
+}

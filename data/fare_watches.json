@@ -1,1 +1,32 @@
-{}
+{
+  "watches": [
+    {
+      "id": "kuklinski-viking-mars-panama-2026-12-17",
+      "watch_type": "cruise",
+      "label": "Viking Mars Panama Canal 2026-12-17 (6 pax)",
+      "provider": "Viking",
+      "route": "Panama Canal",
+      "travel_date": "2026-12-17",
+      "passengers": 6,
+      "current_price_pp": 15496.0,
+      "baseline_price_pp": 15496.0,
+      "alert_below": 14721.2,
+      "alert_above": null,
+      "notes": "Kuklinski/Morton group. Viking Jr Suite. 6 passengers total."
+    },
+    {
+      "id": "kuklinski-positioning-cos-fll-2026-12-15",
+      "watch_type": "flight",
+      "label": "Positioning flights COS/DEN->FLL Dec 15-16 2026",
+      "provider": "Multiple Airlines",
+      "route": "COS/DEN->FLL",
+      "travel_date": "2026-12-15",
+      "passengers": 6,
+      "current_price_pp": 450.0,
+      "baseline_price_pp": 450.0,
+      "alert_below": 427.5,
+      "alert_above": null,
+      "notes": "Benchmark positioning flights for Panama Canal cruise. Target premium economy."
+    }
+  ]
+}

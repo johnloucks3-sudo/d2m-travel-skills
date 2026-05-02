@@ -1,0 +1,11 @@
+[Unit]
+Description=D2M Fare Watch Sweep — Tuesdays 09:30 MDT
+Requires=thunderbird-fare-sweep.service
+
+[Timer]
+# 09:30 MDT (UTC-6) = 15:30 UTC
+OnCalendar=Tue *-*-* 15:30:00 UTC
+Persistent=true
+
+[Install]
+WantedBy=timers.target

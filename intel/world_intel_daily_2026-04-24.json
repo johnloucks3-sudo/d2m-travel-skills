@@ -1,0 +1,353 @@
+{
+  "report_type": "WORLD INTEL BRIEF",
+  "classification": "INTERNAL — D2M WING ONLY",
+  "date": "2026-04-24",
+  "compiled_by": "A2 Dembe | Lt Col Marcus 'Wraith' Dembe",
+  "source_volume": "362 articles ingested | 21 airline route items | 0 travel advisories",
+  "standing_order": "SO 27 MAR 2026 — JSON-structured format, D2M Relevance Summary → Analysis → Raw Intel",
+  "note": "Coverage is commander's read file quality — broad ISW/RealClear bar. Client flags embedded per domain.",
+
+  "domains": {
+
+    "WAR_GEOPOLITICS_MILITARY": {
+      "confidence": "HIGH",
+      "d2m_relevance": "HIGH — active naval conflict is disrupting global shipping lanes, oil prices, and Mediterranean regional stability. Commander is currently aboard Silversea (Apr 23–May 11). Two client groups sail Mediterranean/Eastern Med in Jun–Aug 2026.",
+      "client_flags": [
+        "John & Susan Loucks — CURRENTLY ABOARD (Apr 23–May 11, Silversea). Monitor vessel routing near Middle East.",
+        "McLeod/McGlasson — Silver Muse Mediterranean Jun 23, 2026. Regional stability window: 8 weeks out.",
+        "Lyons — RSSC Splendor Athens/Piraeus Aug 2026. Eastern Mediterranean remains a watch zone.",
+        "Furlow, Ely/Darrow, Nichols — Regent Grandeur Scandinavia Aug 29. Northern route, low direct exposure to Gulf conflict."
+      ],
+      "analysis": {
+        "headline": "US-Iran Naval War: Fragile Ceasefire, Active Blockade, Hormuz Not Safe",
+        "situation": "As of April 24, the US-Israeli military campaign against Iran has produced a contested, fragile 2-week ceasefire on air/missile exchanges, but the naval theater is actively escalating in a dangerous tit-for-tat. The US military began a formal blockade of all maritime traffic entering and exiting Iranian ports on April 13, following failure of Islamabad talks. Since then: (1) the US Navy seized an Iranian oil tanker in the Indian Ocean on April 22-23; (2) Iran's IRGCN used swarm tactics — fast small boats — to seize two container ships near the Strait of Hormuz; (3) Iran struck additional vessels in the Strait. Both sides are now controlling or threatening commercial shipping simultaneously.",
+        "hormuz_assessment": "The Strait of Hormuz is NOT currently safe for commercial transit. Iran's swarm boat capability has NOT been neutralized by US strikes — this is confirmed by the April 23 gCaptain report. The US claim that Iranian naval threat has been 'disabled' is operationally false based on current reporting. Roughly 20-21% of global oil flow transits Hormuz. A protracted blockade enforcement contest here will generate significant upward pressure on oil prices and jet fuel costs.",
+        "ceasefire_fragility": "The air/missile ceasefire is described as 'fragile' across all major sources. Pakistani mediation is ongoing but 'significant gaps remain.' Simultaneously, Israel is pressing a ground assault on Bint Jbeil (Lebanese border) while in direct Washington talks — signaling internal Israeli escalation pressure that could fracture the ceasefire framework. If the ceasefire breaks, expect renewed missile exchange, possible Hormuz full closure, and major regional disruption.",
+        "strategic_exploitation": "Russia and China are positioned to exploit US entanglement in the Gulf. Moscow benefits from oil price pressure on Western economies; Beijing from reduced US naval attention to the South China Sea. This is a classic two-front stress on US strategic bandwidth. Analysts at Foreign Affairs assess this creates a 'significant opportunity' for both powers.",
+        "trump_victory_claim": "President Trump has publicly claimed victory in the Iran war while the conflict is unresolved. RealClear/The Conversation assess this as potentially 'Pyrrhic' — Iran's leadership has been targeted (Khamenei status unclear from package), economy is in freefall, but the regime has not collapsed and naval harassment capability is intact. Premature victory declaration may constrain US negotiating flexibility.",
+        "iran_economy": "Multiple sources confirm Iran's economy is in freefall — pre-existing fragility compounded by active conflict, US blockade, and sanctions. This may ironically increase Iranian desperation for a deal, OR increase internal pressure toward escalation as a nationalistic rallying mechanism. Assess: moderate probability deal is reached in 30-45 days, but blockade enforcement tit-for-tat will continue in the interim.",
+        "military_analysis_notes": "War on the Rocks published a substantive piece on F-35 strategic obsolescence — the argument is that precision, expensive systems are mismatched to attritional, swarm-style modern warfare (proven by Iran's small-boat tactics today). Separately, the Army is fielding its most powerful laser weapon system yet, suggesting directed-energy air defense is accelerating. These are background signals for how the US military is evolving its posture.",
+        "houthi_dimension": "War on the Rocks published a thoughtful piece on counter-Houthi strategy — the core argument is that military action has historically strengthened rather than weakened Houthi legitimacy, and a broader political-economic strategy is needed. Red Sea/Bab-el-Mandeb corridor remains a secondary concern for cruise routing."
+      },
+      "raw_intel": [
+        {
+          "title": "Iran's Swarm Tactics Show Why Hormuz Is Far From Safe",
+          "source": "gCaptain",
+          "date": "2026-04-23",
+          "url": "https://gcaptain.com/irans-swarm-tactics-show-why-hormuz-is-far-from-safe/",
+          "key_fact": "Iran's IRGCN used swarm of small fast boats to seize 2 container ships near Hormuz. US forces have NOT disabled Iranian naval threat despite claims."
+        },
+        {
+          "title": "Gunboat diplomacy ramps up in Hormuz Strait, endangering shaky ceasefire",
+          "source": "The Hill",
+          "date": "2026-04-24",
+          "url": "https://thehill.com/policy/defense/5846575-us-iran-seizure-tankers-ceasefire/",
+          "key_fact": "US and Iran both seized tankers in international waters this week. Tehran struck vessels in Strait of Hormuz. Missile/drone exchanges largely halted but naval tit-for-tat escalating."
+        },
+        {
+          "title": "US military intercepts another Iranian ship",
+          "source": "The Hill",
+          "date": "2026-04-23",
+          "url": "https://thehill.com/newsletters/defense-national-security/5846503-us-military-intercepts-another-iranian-ship/",
+          "key_fact": "US seized Iranian oil tanker in Indian Ocean overnight, Apr 22-23, under Trump-approved naval blockade."
+        },
+        {
+          "title": "A Fragile Ceasefire with Iran and the Price of Ending the War",
+          "source": "War on the Rocks",
+          "date": "2026-04-16",
+          "url": "https://warontherocks.com/a-fragile-ceasefire-with-iran-and-the-price-of-ending-the-war/",
+          "key_fact": "2-week ceasefire. Pakistan mediating. Significant gaps remain. Israel still attacking Bint Jbeil despite DC talks."
+        },
+        {
+          "title": "Bonus In Brief: Choke Point: The Risks and Realities of America's Iran Blockade",
+          "source": "War on the Rocks",
+          "date": "2026-04-15",
+          "url": "https://warontherocks.com/bonus-in-brief-choke-point-the-risks-and-realities-of-americas-iran-blockade/",
+          "key_fact": "Blockade began April 13. Five experts assess practicality, legality, Iran response, economic impacts. Enforcement is complex; global economy impact is significant."
+        },
+        {
+          "title": "The End of Managed Escalation in the Gulf",
+          "source": "War on the Rocks",
+          "date": "2026-04-16",
+          "url": "https://warontherocks.com/the-end-of-managed-escalation-in-the-gulf/",
+          "key_fact": "Decades-long deterrence framework for Gulf has collapsed. Gray zone rules of engagement no longer hold. New equilibrium not yet established."
+        },
+        {
+          "title": "China and Russia Can Exploit the Iran War",
+          "source": "RealClearWorld",
+          "date": "2026-04-23",
+          "url": "https://www.realclearworld.com/2026/04/23/china_and_russia_can_exploit_the_iran_war_1178560.html",
+          "key_fact": "Foreign Affairs: Both Moscow and Beijing see US-Iran war as significant opportunity. US strategic bandwidth is strained."
+        },
+        {
+          "title": "Is Trump Heading to a Pyrrhic Victory in Iran?",
+          "source": "RealClearWorld",
+          "date": "2026-04-23",
+          "url": "https://www.realclearworld.com/2026/04/23/is_trump_heading_to_a_pyrrhic_victory_in_iran_1178572.html",
+          "key_fact": "Trump claimed victory prematurely. Iranian regime not collapsed. Naval harassment capability intact. Premature declaration may constrain negotiating flexibility."
+        },
+        {
+          "title": "Iran's Economy Is in Freefall",
+          "source": "RealClearWorld",
+          "date": "2026-04-23",
+          "url": "https://www.realclearworld.com/2026/04/23/irans_economy_is_in_freefall_1178550.html",
+          "key_fact": "CNBC reporting: Active conflict + blockade + sanctions compounding pre-existing fragility. May increase deal urgency OR desperation escalation risk."
+        },
+        {
+          "title": "The F-35 Is a Masterpiece Built for the Wrong War",
+          "source": "War on the Rocks",
+          "date": "2026-04-20",
+          "url": "https://warontherocks.com/cogs-of-war/the-f-35-is-a-masterpiece-built-for-the-wrong-war/",
+          "key_fact": "Background: $2T program cost; drone/swarm warfare is rendering exquisite precision platforms strategically mismatched. Relevant to US military posture debates."
+        },
+        {
+          "title": "How to Counter the Houthis Without Strengthening Them",
+          "source": "War on the Rocks",
+          "date": "2026-04-17",
+          "url": "https://warontherocks.com/how-to-counter-the-houthis-without-strengthening-them/",
+          "key_fact": "Background strategy piece. Military action historically strengthened Houthi legitimacy. Red Sea corridor implications for shipping."
+        }
+      ]
+    },
+
+    "POLITICS_POLICY": {
+      "confidence": "HIGH",
+      "d2m_relevance": "MODERATE — blockade policy and ceasefire diplomacy will drive regional stability timeline. FAA policy at Chicago O'Hare affects airline routing. No direct regulatory changes affecting D2M business operations identified in this collection.",
+      "client_flags": [
+        "All clients with air TBD: FAA O'Hare limits may constrain routing options through ORD."
+      ],
+      "analysis": {
+        "headline": "Trump Blockade Order: Policy Risk at Sea; FAA Constrains Chicago; Talks Continue",
+        "us_iran_diplomacy": "The Trump administration has escalated from maximum pressure to active naval blockade — a significant policy escalation. Negotiations via Pakistani mediation are ongoing, with the next round scheduled in the coming days. The diplomatic track is real but narrow; any single incident (tanker seizure, miscalculation, Israeli escalation) could collapse talks. The administration appears to be pursuing a dual track: military pressure and diplomatic outreach simultaneously. Historical analysis suggests this approach carries high miscalculation risk when active naval contact is ongoing.",
+        "us_israel_dynamics": "Israel is conducting a ground assault on Bint Jbeil (Lebanon border) simultaneously with holding direct talks in Washington — a deliberate signal of independent operational intent. This constrains US diplomatic flexibility with Iran and Lebanon, since Iran can credibly argue the ceasefire is not being honored. The US ability to deliver Israeli restraint is the pivotal unknown in the diplomatic track.",
+        "faa_chicago_limits": "FAA is setting operational limits at Chicago O'Hare, per Cranky Flier reporting (April 21). This is a domestic aviation policy item — likely slot restrictions or departure sequencing caps. Impact: American and United hubs at ORD could see constrained scheduling. Monitor for any ORD routing implications for client connections.",
+        "turkey_eurofighter": "Background item: Turkey signed an $11B Eurofighter Typhoon deal (Oct 2025). Politically significant — Turkey diversifying away from US defense dependency following F-35 exclusion. UK gains, US loses strategic leverage. Not a near-term D2M concern but signals long-term NATO/Turkey relationship complexity relevant to Mediterranean cruise routing geopolitics."
+      },
+      "raw_intel": [
+        {
+          "title": "Air Force Pushes To Fund Upgraded Refueling Instead of New Tanker",
+          "source": "RealClearDefense",
+          "date": "2026-04-23",
+          "url": "https://www.realcleardefense.com/2026/04/23/air_force_pushes_to_fund_upgraded_refueling_instead_of_new_tanker_1178527.html",
+          "key_fact": "Budget trade-off debate. Tanker replacement delays could hurt combat fleet readiness. Background defense policy item."
+        },
+        {
+          "title": "American Reverses Some Share Decline in 2025 (as FAA Sets Chicago Limits)",
+          "source": "Cranky Flier",
+          "date": "2026-04-21",
+          "url": "https://crankyflier.com/2026/04/21/american-reverses-some-share-decline-in-2025-as-faa-sets-chicago-limits/",
+          "key_fact": "FAA setting slot/operational limits at ORD. American recovering share in some hub markets."
+        }
+      ]
+    },
+
+    "SOCIAL_ISSUES": {
+      "confidence": "LOW — insufficient data",
+      "d2m_relevance": "UNKNOWN",
+      "analysis": "This collection cycle returned no meaningful social issues coverage — no strikes, labor actions, protests, or public health items were present in the 362-article package. The Spirit Airlines situation (see Airline domain) has modest labor implications but no strike action reported. ASSESSMENT: This domain was not adequately covered in this scraping cycle. Recommend expanding sources to include labor-specific feeds (Reuters labor, Bloomberg labor) for future collections.",
+      "raw_intel": [],
+      "action": "Flag to scraper config — social issues domain undercovered."
+    },
+
+    "CRUISE_MARITIME": {
+      "confidence": "MEDIUM",
+      "d2m_relevance": "HIGH — Hormuz disruptions directly affect cruise line fuel supply chains, potential surcharges, and Eastern Mediterranean routing. No cruise-line-specific corporate news in this collection. Shipping disruption is the primary concern.",
+      "client_flags": [
+        "McLeod/McGlasson — Silver Muse Mediterranean Jun 23. Silversea will re-route vessels if Suez/Eastern Med becomes untenable. Monitor fleet deployment advisories from Silversea.",
+        "Lyons — RSSC Splendor Athens/Piraeus Aug 11. Regent should be contacted closer to date regarding port security posture at Piraeus if conflict persists.",
+        "John & Susan Loucks — Currently aboard Silversea. No client action needed today; flag for awareness.",
+        "All cruise clients: If blockade extends 60+ days and oil prices spike, cruise lines may impose fuel surcharges. Early warning window exists now."
+      ],
+      "analysis": {
+        "headline": "Hormuz Active Naval Theater — Cruise Supply Chain and Fuel Cost Watch",
+        "shipping_disruption": "The Hormuz Strait is the primary choke point for Gulf crude and LNG. With both US Navy and IRGCN actively seizing vessels in and near the Strait, commercial maritime operators face acute risk. The gCaptain report (April 23) explicitly states Iran's swarm boat capability is intact and 'Hormuz is far from safe.' Major cruise lines do not route passenger vessels through Hormuz, but the fuel supply chain disruption — crude from Gulf producers — feeds directly into bunker fuel pricing.",
+        "suez_implications": "Houthi activity in the Red Sea has previously closed the Bab-el-Mandeb corridor to cruise traffic; that situation predates this collection window but remains relevant. Eastern Med cruises (Lyons, McLeod) depend on Suez Canal access and regional port security. If Iran war escalation spreads to wider regional proxy conflict (Yemen re-engagement, Hezbollah flare-up), Suez could again face disruption.",
+        "fuel_surcharge_risk": "If Brent crude sustains above $90-95/barrel as a result of Hormuz uncertainty, cruise lines typically begin assessing fuel supplement language at the 90-120 day mark. Kuklinski (Dec 2026), Loucks personal (Dec 2026) and all Aug sailings are in the window where surcharges could materialize if oil price spikes persist.",
+        "no_cruise_line_corporate_news": "ASSESSMENT: This collection cycle captured no Silversea, Regent, Viking, Oceania, Seabourn, Cunard, AmaWaterways, or Ponant corporate news. Recommend dedicated cruise line press release monitoring as a supplementary feed."
+      },
+      "raw_intel": [
+        {
+          "title": "Iran's Swarm Tactics Show Why Hormuz Is Far From Safe",
+          "source": "gCaptain",
+          "date": "2026-04-23",
+          "url": "https://gcaptain.com/irans-swarm-tactics-show-why-hormuz-is-far-from-safe/",
+          "key_fact": "Primary shipping choke point actively contested. Cruise fuel supply chain upstream exposure confirmed."
+        },
+        {
+          "title": "Gunboat diplomacy ramps up in Hormuz Strait, endangering shaky ceasefire",
+          "source": "The Hill",
+          "date": "2026-04-24",
+          "url": "https://thehill.com/policy/defense/5846575-us-iran-seizure-tankers-ceasefire/",
+          "key_fact": "Tit-for-tat tanker seizures. Naval escalation ongoing despite air/missile ceasefire."
+        }
+      ]
+    },
+
+    "AIRLINE_AVIATION": {
+      "confidence": "HIGH",
+      "d2m_relevance": "HIGH — direct client impact identified. Southwest exit from Dulles (IAD) affects Justin Loucks routing. Fuel cost pressures are driving permanent fare and fee increases across major carriers. Spirit near-liquidation creates routing gaps in thin markets.",
+      "client_flags": [
+        "⚠️ CLIENT IMPACT — Justin Loucks (DCA/IAD user, Southwest): Southwest has permanently exited Dulles (IAD). Justin's routing options from DC are now materially changed. Action: Review any open or planned air bookings for Justin Loucks through IAD on Southwest. Recommend Centrav search for DCA/IAD alternatives.",
+        "⚠️ CLIENT IMPACT — Westbrook family (Southwest user): Southwest has also exited O'Hare. Westbrook uses SWA; monitor if any Westbrook future routing plans go through ORD or IAD.",
+        "WATCH — All clients with Air TBD: United has implemented permanent fare and fee increases to offset fuel costs. Premium fare tiers added. Budget estimates for Furlow, Ely/Darrow, Nichols, Kuklinski air searches should be revised upward 8-15% from pre-April baseline.",
+        "WATCH — Spirit near-liquidation: If Spirit liquidates, very thin leisure routes may disappear. No current clients booked on Spirit, but monitor for any partner or positioning disruptions."
+      ],
+      "analysis": {
+        "headline": "Southwest Exits Dulles — Client Impact. United Raises Fares Permanently. Spirit On Brink.",
+        "southwest_dulles_exit": "Southwest Airlines has permanently exited both O'Hare (ORD) and Dulles (IAD). This is confirmed reporting from Cranky Flier (March 16, 2026). IAD is a home airport for Justin Loucks (DCA/IAD/COS routing cluster). This is a material routing change. Southwest's rationale was inability to compete at secondary markets while managing its primary hub network. Note: Southwest is also rolling out new cabin experience on its primary routes, which Cranky Flier assessed as 'quite good' on initial trip report (April 7). The seating change story published April 1 is an April Fool's joke — disregard it; Southwest is operating assigned seating on its rollout routes.",
+        "spirit_liquidation_risk": "Spirit Airlines is on the verge of liquidation. Creditors are alarmed; the reorganization plan may not survive rising fuel costs. Spirit slashed future schedules significantly. If Spirit liquidates, it removes an ultra-low-cost option from ~100 city-pairs. No D2M clients currently booked on Spirit, but Spirit's absence in certain leisure markets (Orlando, Vegas, Fort Lauderdale) can create capacity constraints on other carriers, potentially pushing fares upward on those routes.",
+        "united_fare_increases": "United Airlines has pushed through permanent fare and fee increases — explicitly framed as offsetting 'temporary' high fuel costs with 'permanent' price changes. This is a telling asymmetry: they expect fuel to normalize, but they're keeping the price increases. United is also adding tiered premium fares (new tier structure announced). This creates an interesting dynamic: clients who previously searched fair prices will see higher benchmarks. Affects: all pending air TBD clients.",
+        "united_fleet_expansion": "United held a media day (March 2026) previewing 250 new aircraft in the next two years, including the CRJ450 (regional luxury upgrade) and premium long-haul refresh. This is positive for business travelers. United is clearly positioning for market share gains.",
+        "delta_q1": "Delta Q1 2026: $15.8B operating revenue, $501M operating profit, 3.2% margin — at guidance. Q2 outlook will be key signal for industry health under current fuel environment.",
+        "faa_chicago_limits": "FAA is implementing operational limits at O'Hare — likely slot controls or departure caps. Ongoing FAA staffing and ATC capacity challenges are behind this. Clients routed through ORD (Furlow uses DFW/DEN; Kuklinski uses DFW/COS/LAX) have some ORD exposure if rerouted.",
+        "american_airlines": "American reversing share decline in several markets — stabilizing after its distribution strategy struggles in 2024-2025. New Terminal 8 JFK experience opening. Upgraded to 'adequate but not premium' assessment. First class on domestic is described as 'perfectly fine' — functional but not exceptional.",
+        "filter_note": "Excluded: April 1 Cranky Flier Southwest open seating reversal story — confirmed April Fool's joke, not real news."
+      },
+      "raw_intel": [
+        {
+          "title": "Southwest Leaves O'Hare and Dulles",
+          "source": "Cranky Flier",
+          "date": "2026-03-16",
+          "url": "https://crankyflier.com/2026/03/16/southwest-leaves-ohare-and-dulles/",
+          "key_fact": "SWA permanently exited ORD and IAD. CRITICAL for Justin Loucks (IAD user) routing."
+        },
+        {
+          "title": "How is Spirit Still Flying?",
+          "source": "Cranky Flier",
+          "date": "2026-04-20",
+          "url": "https://crankyflier.com/2026/04/20/how-is-spirit-still-flying/",
+          "key_fact": "Spirit creditors alarmed; reorganization plan potentially collapsing. Liquidation risk is real."
+        },
+        {
+          "title": "Cranky Weekly Review: Spirit Possibly on Life Support, AA + UA = ??",
+          "source": "Cranky Flier",
+          "date": "2026-04-17",
+          "url": "https://crankyflier.com/2026/04/17/cranky-weekly-review-presented-by-oakland-san-francisco-bay-airport-spirit-possibly-on-life-support-aa-ua/",
+          "key_fact": "CNBC reporting Spirit on brink of liquidation. Reorganization plan at risk."
+        },
+        {
+          "title": "United Tries to Offset Temporary High Fuel Costs With Permanent Fare and Fee Increases",
+          "source": "Cranky Flier",
+          "date": "2026-04-06",
+          "url": "https://crankyflier.com/2026/04/06/united-tries-to-offset-temporary-high-fuel-costs-with-permanent-fare-and-fee-increases/",
+          "key_fact": "United implementing PERMANENT fare + fee increases to offset fuel costs. Revise air cost baselines upward for all clients."
+        },
+        {
+          "title": "Cranky Weekly Review: United Gets More Basic, Delta Improves Connectivity",
+          "source": "Cranky Flier",
+          "date": "2026-04-03",
+          "url": "https://crankyflier.com/2026/04/03/cranky-weekly-review-presented-by-oakland-san-francisco-bay-airport-united-gets-more-basic-delta-improves-connectivity/",
+          "key_fact": "United adding tiered fares. Oil-driven fare pressure building across industry."
+        },
+        {
+          "title": "American Reverses Some Share Decline in 2025 (as FAA Sets Chicago Limits)",
+          "source": "Cranky Flier",
+          "date": "2026-04-21",
+          "url": "https://crankyflier.com/2026/04/21/american-reverses-some-share-decline-in-2025-as-faa-sets-chicago-limits/",
+          "key_fact": "FAA imposing ORD limits. American stabilizing. United gaining local hub share."
+        },
+        {
+          "title": "Cranky Weekly Review: Delta's Earnings, Cape Air's New Air Conditioning Trial",
+          "source": "Cranky Flier",
+          "date": "2026-04-10",
+          "url": "https://crankyflier.com/2026/04/10/cranky-weekly-review-presented-by-oakland-san-francisco-bay-airport-deltas-earnings-cape-airs-new-air-conditioning-trial/",
+          "key_fact": "Delta Q1: $15.8B revenue, $501M op profit, 3.2% margin. In-line with guidance."
+        },
+        {
+          "title": "Southwest Marginalizes Its Worst Onboard Experience",
+          "source": "Cranky Flier",
+          "date": "2026-04-13",
+          "url": "https://crankyflier.com/2026/04/13/southwest-marginalizes-its-worst-onboard-experience/",
+          "key_fact": "~300 legacy 737-700s not being retrofitted. SWA product quality uneven across fleet."
+        },
+        {
+          "title": "Flying the New Southwest is Quite Good, But It's Not Fully Rolled Out (Trip Report)",
+          "source": "Cranky Flier",
+          "date": "2026-04-07",
+          "url": "https://crankyflier.com/2026/04/07/flying-the-new-southwest-is-quite-good-but-its-not-fully-rolled-out-trip-report/",
+          "key_fact": "New SWA assigned seating experience assessed as 'pretty good.' Not yet fully rolled out."
+        }
+      ]
+    },
+
+    "MARKETS_ENERGY": {
+      "confidence": "MEDIUM — inferred from conflict/blockade reporting; no direct commodity price data in this collection",
+      "d2m_relevance": "HIGH — oil price trajectory is the single biggest lever on airline fares, cruise fuel surcharges, and consumer travel spending.",
+      "client_flags": [
+        "WATCH — All clients with open air bookings: Airlines are already embedding fuel cost increases into fares. Lock air where possible before Hormuz situation clarifies.",
+        "WATCH — Kuklinski, Loucks, all Dec 2026 sailings: If crude stays elevated through Q3, cruise line fuel supplements are possible on late-2026 sailings."
+      ],
+      "analysis": {
+        "headline": "Hormuz Blockade Contest → Oil Supply Risk → Airline and Cruise Cost Pressure Building",
+        "oil_supply_risk": "The US naval blockade of Iranian ports combined with Iran's active harassment of commercial vessels in Hormuz creates a genuine oil supply shock risk. Iran exports approximately 1.5-2 million barrels per day when fully operational. Under blockade, that supply is disrupted. Saudi Arabia and UAE have spare capacity but are watching the situation carefully. If the conflict spreads to Gulf Arab states' export infrastructure, the impact would be severe.",
+        "jet_fuel_cascade": "United Airlines is already citing 'elevated fuel costs' as the driver for permanent fare increases. Delta Q1 margins (3.2%) are compressed. The airline industry's profitability window is narrowing in real time. Downstream for D2M: air quotes generated now may be meaningfully below what clients will actually pay if booking is delayed.",
+        "cruise_fuel": "Cruise lines hedge fuel 12-18 months out but not fully. If Brent crude averages above $90 for a sustained period, the probability of fuel supplement riders on 2026-2027 sailings increases. Silversea (McLeod, Loucks personal) and Regent (Furlow, Ely/Darrow, Nichols, Lyons) both have supplement provisions in their booking contracts.",
+        "currency_note": "No direct currency data in this collection cycle. EUR/USD monitoring is active for Lyons (Athens) and McLeod (Mediterranean). Default rate in use: 1.09 per standing order. Flag if conflict drives dollar strengthening from safe-haven flows — that would reduce EUR-denominated costs for US clients.",
+        "insufficient_data_note": "This collection cycle did not include commodity markets feeds (Bloomberg, Reuters markets). Fuel price direction is inferred from conflict analysis and airline earnings commentary. Recommend adding energy price feed for future cycles."
+      },
+      "raw_intel": [
+        {
+          "title": "Iran's Economy Is in Freefall",
+          "source": "RealClearWorld / CNBC",
+          "date": "2026-04-23",
+          "url": "https://www.realclearworld.com/2026/04/23/irans_economy_is_in_freefall_1178550.html",
+          "key_fact": "Blockade + conflict compressing Iranian economy. Secondary effect: global oil supply uncertainty."
+        },
+        {
+          "title": "United Tries to Offset Temporary High Fuel Costs With Permanent Fare and Fee Increases",
+          "source": "Cranky Flier",
+          "date": "2026-04-06",
+          "url": "https://crankyflier.com/2026/04/06/united-tries-to-offset-temporary-high-fuel-costs-with-permanent-fare-and-fee-increases/",
+          "key_fact": "Fuel cost pressure already flowing through to consumer fares. Airlines not waiting for normalization."
+        }
+      ]
+    },
+
+    "TRAVEL_ADVISORIES": {
+      "confidence": "LOW — zero items in collection cycle",
+      "d2m_relevance": "HIGH GAP — State Dept advisories are critical for Mediterranean and Middle East client sailings",
+      "analysis": "ZERO travel advisory items were returned in this collection cycle. This is a critical gap given the active US-Iran conflict and naval operations in Hormuz/Indian Ocean. The following advisories should be manually verified as of today:\n\n1. Iran — almost certainly Level 4 (Do Not Travel). Not a D2M client destination.\n2. Israel / Lebanon — likely Level 3-4 given active Israeli military operations on Lebanese border. McLeod's Mediterranean itinerary and Lyons' Athens routing should be checked against State Dept at travel.state.gov.\n3. Greece (Athens/Piraeus) — Lyons embark point. Generally Level 1-2 but verify for current labor actions or security posture.\n4. Scandinavia (Norway, Denmark, Sweden) — Aug 2026 sailings for Furlow, Ely/Darrow, Nichols. Low risk, but verify.\n5. Panama Canal ports — Kuklinski Dec 2026. Canal operations stable but periodic political tension in Panama City worth monitoring.\n\nACTION REQUIRED: Manual advisory check at travel.state.gov for Greece, Eastern Mediterranean ports, and Panama. Recommend adding State Dept RSS feed to intel scraper.",
+      "raw_intel": [],
+      "collection_gap": "State Dept travel advisory RSS feeds were not included in this scraping cycle. This must be corrected for next cycle.",
+      "action": "IMMEDIATE: Manually check travel.state.gov for Greece, Lebanon, Israel, and Panama. Add State Dept advisory feed to scraper config before next cycle."
+    }
+  },
+
+  "priority_actions": [
+    {
+      "priority": 1,
+      "action": "ALERT TO A3 DANI: Southwest exited Dulles (IAD) permanently. Justin Loucks uses IAD. Review any planned or open air bookings for Justin Loucks routing through IAD on SWA. Flag to Commander.",
+      "owner": "A2 → A3",
+      "urgency": "HIGH"
+    },
+    {
+      "priority": 2,
+      "action": "MANUAL ADVISORY CHECK: Verify travel.state.gov for Greece/Piraeus (Lyons Aug 2026), Eastern Mediterranean (McLeod Jun 2026), and Panama (Kuklinski Dec 2026). This collection cycle returned zero advisories.",
+      "owner": "A2",
+      "urgency": "HIGH"
+    },
+    {
+      "priority": 3,
+      "action": "FUEL COST WATCH: Revise air cost baseline estimates upward 8-15% for all Air TBD clients (Furlow, Ely/Darrow, Nichols, Kuklinski). United and other carriers have implemented permanent increases.",
+      "owner": "A2 → A9",
+      "urgency": "MEDIUM"
+    },
+    {
+      "priority": 4,
+      "action": "CRUISE SURCHARGE MONITORING: Flag Silversea and Regent booking contracts for fuel supplement clauses. If Brent crude sustains above $90 through Q3, communicate proactively to McLeod, Loucks, Lyons, Furlow/Ely/Nichols clients.",
+      "owner": "A2 → A3 → COS",
+      "urgency": "LOW-MEDIUM — 60-day watch"
+    },
+    {
+      "priority": 5,
+      "action": "SCRAPER IMPROVEMENT: (1) Add State Dept travel advisory RSS. (2) Add direct cruise line press release feeds. (3) Add energy/commodity price feed. (4) Add labor/social issues feeds. Current collection has structural gaps in 3 of 7 domains.",
+      "owner": "A2 → A12 ELON",
+      "urgency": "MEDIUM"
+    }
+  ],
+
+  "commander_note": "Commander is currently ABOARD (Silversea, Apr 23–May 11). Primary headline: US-Iran naval conflict is active and Hormuz is not safe — this is affecting global oil and commercial shipping. No direct threat to Commander's vessel routing (Silversea routes passenger ships clear of conflict zones) but fuel cost cascade is real. Justin Loucks IAD routing flag is the most immediate client action item. Brief transmitted per SO 27 MAR 2026.",
+
+  "next_collection": "2026-04-25 0530 MT",
+  "report_saved": "/home/john/Thunderbird/intel/world_intel_daily_2026-04-24.json"
+}

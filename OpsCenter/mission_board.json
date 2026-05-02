@@ -1,6 +1,21 @@
 {
   "active_missions": [
     {
+      "id": "MISSION-018",
+      "title": "Travel Service Credentials Provisioning",
+      "status": "in_progress",
+      "priority": "P2",
+      "assigned_to": "Hale",
+      "description": "Provision and validate credentials for travel service integrations. Status: 4 configured (Amadeus TEST, Hotelbeds TEST, Apify, TomTom), 8 empty placeholders (need partner registration), 1 missing (Centrav session). ACTION ITEMS: (1) Validate Amadeus/Hotelbeds connectivity, (2) Provision Blacklane/Mozio/GYG/Viator from partner programs, (3) Test Expedia TAAP integration, (4) Locate/restore Centrav session.",
+      "created_at": "2026-05-01T20:09:49.352678",
+      "updated_at": "2026-05-01T20:09:49.352687",
+      "logs": [
+        "[2026-05-01T20:09:49.352688] Created credential audit",
+        "[2026-05-01T20:09:49.352691] API tests: Amadeus CONNECTED, Hotelbeds AUTH_ERROR, Centrav SESSION_EXISTS",
+        "[2026-05-01T20:09:49.352693] Credential validation script deployed: scripts/validate_credentials.py"
+      ]
+    },
+    {
       "id": "MISSION-011",
       "title": "Fare & Flight Research Protocol Implementation",
       "status": "in_progress",
@@ -32,33 +47,6 @@
         "[2026-04-28T06:50:00] Created \u2014 Phase 3A entry for error recovery framework",
         "[2026-04-28T07:15:00] ALL 5 CONNECTORS REFACTORED: Dani V2, D2MC2 V2, Goose V2, OpenCode V2, Claude Subscriber V2. Base class deployed. Local cache tier active. Next: health check cron, test suite execution",
         "[2026-04-29T02:43:23.054934] PHASE 3A COMPLETE: Health check cron deployed, test suite 4/5 PASS, all 5 connectors operational with fallback verified."
-      ]
-    },
-    {
-      "id": "MISSION-016",
-      "title": "Phase 3B \u2014 End-to-End Integration Test",
-      "status": "in_progress",
-      "priority": "P1",
-      "assigned_to": "Hale",
-      "description": "Phase 3B Integration Testing \u2014 Full workflow test: Telegram command to D2MC2 to Redis to Dani to Email draft. Cross-platform testing: OpenCode mission to Goose task to Research result to Hale aware. Decision escalation chain: Financial decision to D2MC2 to Hale routes to A9 to A5 to COS approval.",
-      "created_at": "2026-04-28T06:50:00+00:00",
-      "updated_at": "2026-04-29T02:43:23.054979",
-      "logs": [
-        "[2026-04-28T06:50:00] Created \u2014 Phase 3B entry for integration testing",
-        "[2026-04-29T02:43:23.054968] PHASE 3B READY: Integration testing plan created. 5 scenarios defined: (1) Telegram\u2192D2MC2\u2192Dani\u2192Email, (2) OpenCode\u2192Goose\u2192Hale, (3) Decision escalation chain, (4) Dani\u2192Client\u2192Dossier, (5) Concurrent ops stress. Ready for sequential execution."
-      ]
-    },
-    {
-      "id": "MISSION-017",
-      "title": "Phase 3C \u2014 Drive Backup Verification",
-      "status": "pending",
-      "priority": "P1",
-      "assigned_to": "Hale",
-      "description": "Phase 3C Production Hardening \u2014 Verify RDB snapshot to Drive archival chain. Test backup trigger on state changes. Verify recovery from backup. Test concurrent backup during active operations.",
-      "created_at": "2026-04-28T06:50:00+00:00",
-      "updated_at": "2026-04-28T06:50:00+00:00",
-      "logs": [
-        "[2026-04-28T06:50:00] Created \u2014 Phase 3C entry for Drive backup verification"
       ]
     }
   ],
@@ -241,6 +229,39 @@
         "[2026-04-26T08:50:00] ORPHANED \u2014 Nexus process died after iter 1",
         "[2026-04-28T06:50:00] Archived to completed missions"
       ]
+    },
+    {
+      "id": "MISSION-016",
+      "title": "Phase 3B \u2014 End-to-End Integration Test",
+      "status": "completed",
+      "priority": "P1",
+      "assigned_to": "Hale",
+      "description": "Phase 3B Integration Testing \u2014 Full workflow test: Telegram command to D2MC2 to Redis to Dani to Email draft. Cross-platform testing: OpenCode mission to Goose task to Research result to Hale aware. Decision escalation chain: Financial decision to D2MC2 to Hale routes to A9 to A5 to COS approval.",
+      "created_at": "2026-04-28T06:50:00+00:00",
+      "updated_at": "2026-04-30T02:01:50.197473+00:00",
+      "logs": [
+        "[2026-04-28T06:50:00] Created \u2014 Phase 3B entry for integration testing",
+        "[2026-04-29T02:43:23.054968] PHASE 3B READY: Integration testing plan created. 5 scenarios defined: (1) Telegram\u2192D2MC2\u2192Dani\u2192Email, (2) OpenCode\u2192Goose\u2192Hale, (3) Decision escalation chain, (4) Dani\u2192Client\u2192Dossier, (5) Concurrent ops stress. Ready for sequential execution.",
+        "[2026-04-29T02:46:10.113467] PHASE 3B EXECUTION STARTED: Headless Claude (PID 2733040) running 5 integration test scenarios. Spawned with full Redis failure injection and fallback verification. Monitor active \u2014 completion expected in ~10 min. Log: phase3b_headless_spawn_20260428_204559.log",
+        "[2026-04-30T02:01:50.197478+00:00] PHASE 3B COMPLETE: 5/5 integration scenarios passed. Zero data loss. System production-ready. Logs: logs/phase3b_integration_results.txt"
+      ],
+      "completed_at": "2026-04-30T02:01:50.197462+00:00"
+    },
+    {
+      "id": "MISSION-017",
+      "title": "Phase 3C \u2014 Drive Backup Verification",
+      "status": "completed",
+      "priority": "P1",
+      "assigned_to": "Hale",
+      "description": "Phase 3C Production Hardening \u2014 Verify RDB snapshot to Drive archival chain. Test backup trigger on state changes. Verify recovery from backup. Test concurrent backup during active operations.",
+      "created_at": "2026-04-28T06:50:00+00:00",
+      "updated_at": "2026-04-30T22:19:20.683830",
+      "logs": [
+        "[2026-04-28T06:50:00] Created \u2014 Phase 3C entry for Drive backup verification",
+        "[2026-04-30T02:01:50.197486+00:00] MISSION-017 started by OpenCode. Phase 3C: Drive Backup Verification test suite building now.",
+        "[2026-04-30T22:30:00] PHASE 3C COMPLETE: 4/4 test scenarios passed. Drive archival chain verified (d2mconcierge:Thunderbird_Mirror/). Recovery tested. Concurrent ops safe. 3 operational warnings: Evernote 26d stale, April monthly archive missing, 313 uncommitted git changes."
+      ],
+      "completed_at": "2026-04-30T22:19:20.683840"
     }
   ],
   "suspense_watch": []

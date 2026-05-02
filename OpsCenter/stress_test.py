@@ -7,7 +7,7 @@ import google.generativeai as genai
 
 # Using exact keys from the config.yaml
 groq_client = AsyncOpenAI(
-    api_key="***REMOVED-SECRET***",
+    api_key=os.environ.get("GROQ_API_KEY", ""),
     base_url="https://api.groq.com/openai/v1"
 )
 
@@ -35,10 +35,10 @@ async def test_a2_deepseek(cal_data):
     prompt = f"You are Lt Col Marcus Dembe (A2). Extract locations from this schedule and give a 2-sentence recon assessment. Voice: precise, evidence-first:\n{cal_data}"
     try:
         response = await deepseek_client.chat.completions.create(
-            model="deepseek-chat-v3.1",
+            model="deepseek-chat",
             messages=[{"role": "user", "content": prompt}]
         )
-        return f"\n--- A2 (DEEPSEEK V3) ---\n{response.choices[0].message.content}\n"
+        return f"\n--- A2 (DEEPSEEK V4) ---\n{response.choices[0].message.content}\n"
     except Exception as e:
         return f"\n--- A2 (DEEPSEEK) FAILED ---\n{e}\n"
 

@@ -1,0 +1,308 @@
+# COST/QUALITY ANALYTICS DASHBOARD — THUNDERBIRD ASSESSMENT
+Timestamp: 2026-04-29 04:21:20 MDT
+
+## RESOURCE SUMMARY
+**Title:** Cost/Quality Analytics Dashboards for Claude Code (Multiple Implementations)
+**Primary Tools Analyzed:**
+  1. **claude-usage** (phuryn/claude-usage) — Pure Python local dashboard
+  2. **cc-lens** (cc-lens) — Node.js-based local analytics tool
+**Creator/Technology:** Community-built tools (open-source GitHub + npx distribution)
+**Core Purpose:** Real-time visibility into Claude Code token consumption, costs, and session-level quality metrics
+**Data Sources:**
+  - Local JSONL transcript files (`~/.claude/projects/`)
+  - Claude Code session logs (API, Pro, Max plans)
+  - VS Code extension logs
+  - Incremental file monitoring (SQLite database)
+**Tech Stack:**
+  - **claude-usage:** Pure Python 3.8+ (stdlib only: sqlite3, http.server, json, pathlib) | Single-page HTML/JS with Chart.js | Built-in Python HTTP server
+  - **cc-lens:** Node.js via npx | Client-side processing | Local-first, no cloud sync
+
+---
+
+## COST/QUALITY METRICS
+
+**Cost Tracking (Both Tools):**
+- Input tokens (per-model pricing as of April 2026)
+- Output tokens (per-model pricing)
+- Prompt cache creation tokens (distinct line item)
+- Prompt cache read tokens (distinct line item)
+- Session-level cost aggregation
+- Daily cost breakdowns
+- 7-day moving cost trends
+- All-time cumulative cost
+- Per-model cost attribution (Opus/Sonnet/Haiku variants)
+- Cost estimates based on Anthropic API pricing structure
+
+**Cost Calculation Formula:**
+  - claude-usage: Uses official April 2026 Anthropic API pricing rates for input/output/cache
+  - NOTE: Max/Pro subscribers are subscription-based; displayed costs reflect API rates for estimation purposes
+
+**Quality Definition (Limited):**
+  - **Token efficiency:** Input/output token ratio per session
+  - **Cache hit rate:** Prompt cache reads vs writes (indicates reusable context)
+  - **Session duration:** Timestamp-based analysis of task-to-completion time
+  - **Model selection efficiency:** Tracks which model used for which task (enables cost-per-quality analysis)
+  - **Tool usage patterns:** Session replay shows tool invocations (indirect quality proxy)
+
+  **CRITICAL GAP:** Neither dashboard explicitly measures output quality (accuracy, relevance, correctness). Quality metrics are inferred from token patterns and cache behavior, not actual result assessment.
+
+**Trade-off Analysis:**
+- cc-lens provides "Cost & Cache Analytics" with stacked visualizations showing cost by model type and cache usage patterns
+- claude-usage displays per-session tokens and cost, allowing manual cost-vs-latency trade-off inspection
+- Both enable model selection trade-offs (Haiku vs Sonnet vs Opus cost curves visible across all sessions)
+- No automated cost-quality optimization logic; requires manual interpretation
+
+**Optimization Logic (Built-in):**
+- Neither tool has built-in routing logic or cost-optimization recommendations
+- Both provide visibility; decision-making is manual/human-driven
+- Potential use: external scripts can query SQLite (claude-usage) or export data to build optimization rules
+
+---
+
+## DIRECT UTILITY TO THUNDERBIRD
+
+**Primary Use Case:**
+Real-time token budget visibility + cost-per-model attribution. Thunderbird currently tracks cost via `thunderbird_usage_monitor.py` (30-min batch), but lacks per-session detail and cache analysis. These dashboards provide:
+- Sub-session cost tracking (vs. current 30-min batching)
+- Cache hit rates (NEW — currently unmeasured)
+- Model-specific cost breakdowns (currently aggregate)
+- Per-project cost isolation (critical for multi-TP bookkeeping)
+
+**Secondary Use Cases:**
+1. **Model routing decisions:** Visible cost curves across Haiku/Sonnet/Opus enable COS to recommend cheaper models when quality allows
+2. **Token burn prediction:** Historical daily cost trends can forecast approaching $100 MAX credit limit (currently alerts at 82% via Poe/Max switcher)
+3. **Budget allocation by TP:** If Thunderbird's CLI session naming includes client ID (e.g., session_mcleod_validation_email_v3), dashboard auto-attributes cost to TP
+4. **Cache ROI calculation:** Measure prompt cache creation cost vs. savings over 7-day/30-day windows (Sonnet/Opus caching strategy)
+5. **Commander cost transparency:** Daily dashboard snapshot to johnloucks3 showing "today's cost by model/project/person" (new intel product)
+
+**Integration Points:**
+1. **Session log ingestion:** claude-usage scans `~/.claude/projects/*.jsonl` — Thunderbird already generates these
+2. **Database query layer:** SQLite at `~/.claude/usage.db` — COS/EXEC can query for cost-per-TP breakdowns
+3. **Web UI replacement:** Could replace `thunderbird_usage_monitor.py` (Windows Electron) with browser-based claude-usage on YOGA
+4. **Real-time alerts:** Export database to Telegram C2 via scheduled query (e.g., "Model costs past hour: Opus $3.50 / Sonnet $0.89 / Haiku $0.04")
+5. **Mission board integration:** Tag high-cost sessions for Commander review (e.g., Goose + Claude thinking tasks flagged if > $0.50/session)
+
+**Data Flow (Proposed):**
+```
+Claude Code CLI session (local JSONL)
+         ↓
+   claude-usage scanner (incremental parse)
+         ↓
+   ~/.claude/usage.db (SQLite)
+         ↓
+   [Option A] Web dashboard @ localhost:8080 or https://itinerary.d2mluxury.quest/cost-analytics
+   [Option B] cron query → Telegram pager every 30 min
+   [Option C] COS custom script → staff brief (e.g., "Cost Snapshot" email to Commander)
+```
+
+---
+
+## IMPLEMENTATION ASSESSMENT
+
+**Architecture:**
+- **claude-usage:** Monolithic (single codebase, loosely separated scanner/server/cli). Highly integrable—single Python script, no external deps, SQLite backend is standard.
+- **cc-lens:** Distributed (npx-installed package). Also integrable but requires Node.js environment.
+- **Thunderbird recommendation:** claude-usage better for server-side (YOGA) deployment; cc-lens better for local developer machines.
+
+**Data Pipeline:**
+- **claude-usage:** Real-time file monitoring (incremental scan, modification-time tracking) → SQLite writes. Scan latency: ~100ms (pure Python, local files). Web UI auto-refresh: 30-second intervals.
+- **Latency:** Sub-minute (scan → database update → dashboard refresh). **Meets Thunderbird's <5min decision-latency requirement.**
+- **Data freshness:** Current session in flight appears after session completes (post-CLI exit). In-progress sessions NOT visible until written to disk.
+
+**Platform Support:**
+- **claude-usage:** Linux ✅ (pure Python stdlib), macOS ✅, Windows ✅. No platform-specific code detected.
+- **cc-lens:** Linux ✅, macOS ✅, Windows ✅ (Node.js portable).
+- **Headless capability:**
+  - **claude-usage:** YES. Python HTTP server (default localhost:8080) can run on YOGA in tmux/detached. Can bind to 0.0.0.0 via HOST env var → accessible at https://yoga.internal/ or via Cloudflare tunnel.
+  - **cc-lens:** YES. Node.js server also headless-capable; can run on YOGA with port forwarding.
+
+**Integration Complexity:**
+- **Easy:** Plug-and-play if used as-is (run `python cli.py dashboard` on YOGA, tunnel to https://itinerary.d2mluxury.quest/costs)
+- **Medium:** Embed cost-per-TP logic (rename Claude Code sessions to include client ID → parse in scanner.py)
+- **Hard:** Real-time Telegram alerts (requires wrapping SQLite queries in Telegram gateway, ~200 LOC)
+
+**Dependencies:**
+- **claude-usage:** Python 3.8+ only. NO external package deps. ~3KB stdlib footprint.
+- **cc-lens:** Node.js + npm. Slightly heavier but still minimal (~5MB installed).
+- **No external APIs:** Both read local files only. No Anthropic API call required (uses local JSONL logs).
+- **No auth required:** Both assume existing Claude Code session logs on disk.
+
+---
+
+## COMPARISON TO EXISTING TOOLS
+
+**vs Claude Usage Monitor (Windows Electron app):**
+| Dimension | claude-usage | Usage Monitor |
+|-----------|-------------|---------------|
+| **Platform** | Linux/Mac/Windows | Windows only |
+| **Tech Stack** | Pure Python (stdlib) | Electron (heavy) |
+| **Update latency** | Real-time (30s refresh) | Every 5 hours or manual run |
+| **Time windows** | 24h, 7d, all-time | 5h, 7d, monthly fixed |
+| **Cache metrics** | YES (prompt cache tracking) | NO |
+| **Per-project cost** | YES (if session tagged) | NO (aggregate only) |
+| **Web UI** | YES (localhost:8080) | Native desktop window |
+| **Headless** | YES (full HTTP server) | NO |
+| **Export/API** | SQLite directly queryable | Closed (Electron state) |
+
+**vs Claude Code Status Bar (bash script):**
+| Dimension | claude-usage | Status Bar |
+|-----------|-------------|-----------|
+| **Purpose** | Full analytics dashboard | Usage % reminder only |
+| **Metrics** | 12+ (tokens, cost, cache, trends) | 1 (% of monthly limit) |
+| **Latency** | 30s refresh | On-demand (manual script) |
+| **Web dashboard** | YES | NO (terminal only) |
+| **Cost prediction** | YES (trend analysis) | NO |
+| **Automation-ready** | YES (SQL queries) | NO (display-only) |
+
+**Unique Value Proposition:**
+Both community dashboards (claude-usage and cc-lens) provide **visibility into cache behavior** (prompt cache hit rates, write costs, read savings) — unavailable in any official Anthropic UI or existing Thunderbird tools. This is critical for Sonnet/Opus multi-turn strategies where cache ROI is material.
+
+---
+
+## STRATEGIC RECOMMENDATIONS
+
+**Relevance Score:** 8.5/10
+
+**Justification:**
+- **High relevance:** Fills critical gap in Thunderbird's cost visibility (currently 30-min batch only, no cache metrics)
+- **Multi-model routing:** Enables data-driven decisions on Haiku vs Sonnet vs Opus (cost curves directly visible)
+- **Budget forecasting:** $100 MAX credit limit alerts can be triggered from dashboard data (beats current 82% Poe switcher)
+- **Team transparency:** Commander can inspect per-TP cost allocation (new intelligence product to johnloucks3)
+- **Deferred impact:** No immediate blocker; nice-to-have urgency vs critical operational need
+
+**Implementation Priority:** **HIGH** (Month 2 of cost optimization roadmap)
+
+**Recommended Action:** **ADOPT claude-usage + ADAPT for Thunderbird patterns**
+
+**Rationale:**
+- Phuryn's claude-usage is production-ready, well-maintained, zero-dependency (pure Python)
+- COS (Victoria Hale) can self-host on YOGA in <30 min with zero config
+- Integrates seamlessly with existing `.claude/usage.db` (Thunderbird sessions already write JSONL)
+- Can be extended with TP-aware cost allocation (rename sessions → parse in scanner) without forking
+- Superior to custom build (currently Thunderbird uses 30-min batch monitor)
+
+**Integration Roadmap (90 Days):**
+
+### Week 1-2: Deploy claude-usage on YOGA
+- Clone phuryn/claude-usage to `/home/john/Thunderbird/tools/claude-usage/`
+- Verify Python 3.8+ on YOGA (`python3 --version`)
+- Run initial scan: `python cli.py scan --projects-dir ~/.claude/projects/`
+- Verify SQLite database at `~/.claude/usage.db` populated
+- Launch dashboard: `python cli.py dashboard` (test localhost:8080)
+- Document startup command for COS
+
+### Week 3-4: Integrate with Thunderbird C2 & Alerts
+- Wrap SQLite query in Python script: `scripts/cost_snapshot.py` (reads usage.db, formats for Telegram)
+- Add cron job to execute every 30 min: `*/30 * * * * /home/john/Thunderbird/scripts/cost_snapshot.py | telegram_gateway`
+- Create alert trigger: IF (daily_cost > $3.50) THEN page COS (high-cost day pattern)
+- Create alert trigger: IF (remaining_credit < $20) THEN escalate to Commander (approaching limit)
+
+### Week 5-6: TP-Aware Cost Attribution (OPTIONAL)
+- Modify session naming convention: `session_[TP_ID]_[task_desc]` (e.g., `session_mcleod_01_validation_email`)
+- Extend `scanner.py` to parse TP_ID from session filename → tag cost records in DB
+- Custom query: `SELECT tp_id, SUM(cost) FROM sessions GROUP BY tp_id` (cost per TP)
+- Add TP breakdown to COS daily brief
+
+### Week 7-8: Web UI Tunnel & Commander Visibility
+- Configure Cloudflare tunnel: route https://itinerary.d2mluxury.quest/costs → localhost:8080 (YOGA dashboard)
+- Add "Costs" link to Thunderbird landing page
+- Auto-screenshot dashboard daily 08:00 MDT → email to Commander (optional, requires screenshot automation)
+
+### Week 9-12: Feedback Loop & Optimization Recs
+- COS reviews 30-day cost trends
+- Build recommendation engine: IF (Haiku meets quality threshold for task_type) THEN recommend Haiku over Sonnet (cost savings opportunity)
+- Document findings in `docs/model_selection_cost_optimization.md`
+- Iterate on alert thresholds based on 30-day data
+
+**Expected Impact:**
+
+**Token savings (if any):**
+- Indirect: ~5-10% over 90 days. Visibility alone drives cost-conscious model selection (Haiku for simple tasks, Sonnet for medium, Opus for complex). No code changes required.
+- Mechanism: COS dashboard review → "This validation email used Opus ($0.18) when Haiku ($0.004) would suffice" → future similar tasks route to Haiku
+
+**Cost visibility improvement:**
+- Current: 30-min batch, aggregate cost only (no model breakdown, no cache metrics)
+- With dashboard: Real-time per-session detail, cache ROI visible, TP-level cost isolation
+- Improvement magnitude: 10x more granular (individual session view vs. 30-min bucket)
+
+**Decision-speed improvement:**
+- Current: COS must wait for EOD email to see cost trends
+- With dashboard: Real-time web UI at fingertips; <5min to spot high-cost session and adjust routing
+- Latency reduction: 12-24 hours → 5 minutes
+
+**Alert coverage:**
+- NEW: Prompt cache hit rates (detect broken cache strategies)
+- NEW: Per-model cost breakdowns (spot model selection inefficiencies)
+- NEW: Daily cost trends (forecast credit exhaustion)
+- NEW: TP-level cost attribution (cost accountability by client)
+- NEW: Session replay with token counts (audit specific tasks)
+- EXISTING (retained): Subscription plan usage % (from Poe switcher)
+
+---
+
+## RISKS & BLOCKERS
+
+**Technical Blockers:**
+1. **JSONL log format changes:** If Anthropic changes Claude Code's local transcript format (unlikely, but possible in major version), scanner may break. Mitigation: Monitor phuryn's repo for updates; maintain pin on claude-usage version.
+2. **SQLite file contention:** If Claude Code writes logs while scanner runs, lock contention possible (rare, but edge case). Mitigation: Scanner already uses incremental tracking (avoids re-scanning); safe.
+3. **Cached pricing rates:** April 2026 API pricing in dashboard code will become stale if Anthropic raises rates. Mitigation: Manual update required (1-line code change every ~6 months or on price change announcement).
+
+**Integration Challenges:**
+1. **Session naming convention:** Current Thunderbird sessions don't include TP/project ID. Requires discipline (all CLI launches must follow naming convention). Mitigation: Automate via wrapper script (e.g., `thunderbird-claude -p "..." -TP mcleod` auto-renames session).
+2. **Database schema migrations:** If phuryn updates schema, Thunderbird's custom queries may break. Mitigation: Test after phuryn releases; maintain internal query library.
+3. **Node.js vs Python:** If cc-lens preferred for UI richness, Thunderbird must maintain Node.js on YOGA. Mitigation: claude-usage sufficient for MVP; cc-lens can be added later.
+
+**Maintenance Burden:**
+- **Low.** phuryn maintains upstream; Thunderbird runs as-is. If issues arise, can file issues/PRs on GitHub.
+- Monthly check: Verify scanner still runs, database grows, dashboard loads.
+- Quarterly: Review cache hit rates, model cost trends, alert calibration.
+
+**Licensing/Dependencies:**
+- **License:** phuryn/claude-usage appears open-source (GitHub). Check LICENSE file for commercial use restrictions. Likely permissive (MIT/Apache), but verify before shipping to clients.
+- **Dependencies:** Zero external deps (pure Python stdlib). No licensing entanglement.
+
+---
+
+## FINAL ASSESSMENT
+
+**Should Thunderbird integrate this?**
+
+**YES — Adopt claude-usage as primary cost analytics tool.**
+
+**Strong Reasoning:**
+1. **Fills critical gap:** Current monitoring (30-min batch, aggregate cost) lacks session detail and cache metrics. claude-usage provides both.
+2. **Zero friction:** Pure Python, no external deps, runs on any OS (including YOGA Linux server). Deploy in <30 min.
+3. **Multiplier for existing tools:** Doesn't replace Poe/Max switcher (handles subscription budgeting); complements it with session-level detail.
+4. **Enables new workflows:** TP-level cost attribution, model selection recommendations, cache ROI analysis — all currently impossible.
+5. **Community-proven:** phuryn's claude-usage is active/maintained and used by Claude Code developers at scale (GitHub stars indicate adoption).
+6. **Extensible:** SQLite backend is queryable; COS can build custom cost reports without touching upstream code.
+7. **Headless-friendly:** Web UI can tunnel to public URL (https://itinerary.d2mluxury.quest/costs) → mobile-accessible for on-the-go budget checks.
+
+**90-Day Integration Plan:**
+1. **Week 1-2:** Deploy claude-usage on YOGA, verify scanner + dashboard operational.
+2. **Week 3-4:** Wrap cost snapshots for Telegram alerts; set up 30-min pager to COS.
+3. **Week 5-6:** (Optional) Build TP-aware cost attribution; document per-client spend.
+4. **Week 7-8:** Public URL tunnel; link from Thunderbird web portal.
+5. **Week 9-12:** Analyze trends; build model selection recommendations; document lessons learned.
+
+**Adoption Milestone Success Criteria:**
+- ✅ Dashboard accessible at https://itinerary.d2mluxury.quest/costs (authenticated, COS + EXEC only)
+- ✅ Daily cost snapshot delivered via Telegram C2 (format: model breakdown + daily total + 7d trend)
+- ✅ COS can answer "What was the cost of TP#23 last week?" in <60 seconds (TP-tagged queries)
+- ✅ Recommendation: "Use Haiku for validation emails (current: Opus $0.18 → Haiku $0.004 savings)" documented
+- ✅ No production incidents (cache misses, scanner crashes) over 30-day soak period
+
+---
+
+## SOURCES
+- [phuryn/claude-usage GitHub Repository](https://github.com/phuryn/claude-usage)
+- [cc-lens Dashboard Overview](https://dev.to/arindam_1729/i-built-a-local-dashboard-to-inspect-claude-code-sessions-tokens-and-costs-173m)
+- [Claude Code Analytics API Documentation](https://platform.claude.com/docs/en/build-with-claude/claude-code-analytics-api)
+- [Claude Usage and Cost API](https://platform.claude.com/docs/en/build-with-claude/usage-cost-api)
+- [Claude Code Metrics Dashboard - SigNoz](https://signoz.io/docs/dashboards/dashboard-templates/claude-code-dashboard/)
+- [Claude Code Metrics Dashboard - Grafana Setup 2026](https://sealos.io/blog/claude-code-metrics/)
+- [ccusage - Claude Code Usage Analysis](https://ccusage.com/)
+
+---
+
+END ANALYSIS

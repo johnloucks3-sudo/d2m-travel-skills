@@ -1,0 +1,112 @@
+[
+  {
+    "id": "A2-2026-04-29-001",
+    "title": "ExifTool \u2014 Metadata Extraction Utility",
+    "source_signal": "ExifTool | Bellingcat's Online Investigation Toolkit",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 OSINT tool unrelated to travel booking operations",
+    "thunderbird_component": "N/A",
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "Metadata extraction for researchers. Zero relevance to luxury travel client intelligence or booking workflows."
+  },
+  {
+    "id": "A2-2026-04-29-002",
+    "title": "Google Scholar \u2014 Academic Literature Search",
+    "source_signal": "Google Scholar",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 academic search unrelated to travel destination or client research",
+    "thunderbird_component": "N/A",
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "General academic indexing. Not travel-specific. Incubator focus is luxury booking client intelligence, not research papers."
+  },
+  {
+    "id": "A2-2026-04-29-003",
+    "title": "ExifCleaner \u2014 Metadata Stripping Tool",
+    "source_signal": "How to remove metadata from photos using ExifCleaner",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 privacy tool unrelated to itinerary production or destination research",
+    "thunderbird_component": "N/A",
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "Image privacy utility. Not relevant to D2M's photo sourcing or client-facing itinerary pipelines."
+  },
+  {
+    "id": "A2-2026-04-29-004",
+    "title": "OpenTravelData \u2014 Structured Travel Entity Registry",
+    "source_signal": "opentraveldata | Collection of open data related to travel",
+    "classification": "INTEGRATE",
+    "gap_closed": "Post-2010 travel data deconfliction. Provides clean, structured transport/leisure entity data (airports, cities, cruise ports, routes) free of 20th-century media noise.",
+    "thunderbird_component": "core/intel/thunderbird_world_intel.py (destination research) + core/booking/thunderbird_dossier.py (itinerary data)",
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "OPTD solves the documented gap: LIFE archives drown travel signals. This source provides authoritative post-2010 transport/leisure entities. No cost, no client-facing change, data-only ingestion."
+  },
+  {
+    "id": "A2-2026-04-29-005",
+    "title": "LIFE Magazine \u2014 20th Century Iconic Photographs",
+    "source_signal": "The Most Iconic Photographs of All Time - LIFE",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 this IS the problem source per incubator memo (Cultural Icon Overmatch)",
+    "thunderbird_component": "N/A",
+    "risk": "MED",
+    "sss_required": false,
+    "rationale": "Per incubator gap analysis: 'LIFE photos/icons drown travel signals like Regent in generic 20th-century nostalgia.' This signal represents the NOISE, not the solution."
+  },
+  {
+    "id": "A2-2026-04-29-006",
+    "title": "LIFE Magazine \u2014 20th Century Social History",
+    "source_signal": "What 20th Century Life Was Like - LIFE",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 20th century lifestyle reference unrelated to modern luxury travel booking",
+    "thunderbird_component": "N/A",
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "Historical pop culture only. No luxury travel intelligence value. Contributes to era-specific pop culture noise flagged in gaps."
+  },
+  {
+    "id": "A2-2026-04-29-007",
+    "title": "LIFE Magazine \u2014 Arts, Entertainment & Culture",
+    "source_signal": "Arts, Entertainment, & Culture - LIFE",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 20th century cultural history unrelated to cruise/destination research",
+    "thunderbird_component": "N/A",
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "Cultural reference archive. Blocks precision travel intelligence by competing for entity resolution bandwidth."
+  },
+  {
+    "id": "A2-2026-04-29-008",
+    "title": "LIFE Magazine \u2014 20th Century Icons & Celebrities",
+    "source_signal": "Icons of the 20th Century - LIFE",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 this creates documented entity resolution noise per incubator memo",
+    "thunderbird_component": "N/A",
+    "risk": "MED",
+    "sss_required": false,
+    "rationale": "Per incubator: 'Cultural Icon Overmatch' starves D2M of luxury brand disambiguation (e.g., Regent ship vs. regency titles). LIFE icons fragment entity resolution."
+  },
+  {
+    "id": "A2-2026-04-29-009",
+    "title": "LIFE Magazine \u2014 Photographers Archive (20th Century)",
+    "source_signal": "Photographers Archive - LIFE",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 this IS the 'Photographic Archive Noise' problem documented in incubator gaps",
+    "thunderbird_component": "N/A",
+    "risk": "MED",
+    "sss_required": false,
+    "rationale": "Per incubator: 'Photographic Archive Noise fragments entity resolution.' LIFE photographer rosters are historical, not modern luxury travel imagery sources."
+  },
+  {
+    "id": "A2-2026-04-29-010",
+    "title": "LIFE Magazine \u2014 General 20th Century Archive",
+    "source_signal": "LIFE: Apr 22, 2026 \u2014 social life, fashion, pop culture references",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 competing signal source that occludes travel intelligence per incubator analysis",
+    "thunderbird_component": "N/A",
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "Incubator explicitly flags LIFE archives as blocking travel signal precision. Signals 5-10 describe the PROBLEM source, not a solution to integrate."
+  }
+]

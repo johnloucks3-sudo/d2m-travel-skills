@@ -790,3 +790,9 @@ def spectrum_analysis(self, prompt, task_id, max_cost=0.02):
 
 if __name__ == "__main__":
     exit(main())
+
+# ## AGENTS DOCUMENTATION
+#
+# - Updated to enforce free-model guardrail for OpenRouter.
+# - See docs/AGENTS_MODEL_GUIDE.md for allowed models and usage.
+

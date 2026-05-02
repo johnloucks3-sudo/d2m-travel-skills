@@ -66,9 +66,13 @@ def save_state(state: dict):
 def update():
     state = load_state()
     now = datetime.now(MT).isoformat()
+    if "_meta" not in state:
+        state["_meta"] = {}
     state["_meta"]["last_updated"] = now
 
     # ── Wing health ──
+    if "wing_health" not in state:
+        state["wing_health"] = {}
     health = _mcp("system_health_check")
     if health.get("ok"):
         state["wing_health"]["last_health_check"] = now
@@ -110,6 +114,8 @@ def update():
         }
 
     # ── Session context update ──
+    if "session_context" not in state:
+        state["session_context"] = {}
     state["session_context"]["last_checkpoint"] = now
 
     save_state(state)

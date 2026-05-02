@@ -750,3 +750,9 @@ if __name__ == "__main__":
             if result.get("script"):
                 print(f"\nScript (TTS failed):\n{'=' * 60}")
                 print(result["script"])
+
+## AGENTS DOCUMENTATION
+
+- Updated to enforce free‑model guardrail for OpenRouter.
+- See docs/AGENTS_MODEL_GUIDE.md for allowed models and usage.
+

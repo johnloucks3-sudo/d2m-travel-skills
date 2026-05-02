@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "ship_id": "seven_seas_explorer",
+  "cruise_line": "Regent Seven Seas",
+  "ship_name": "Seven Seas Explorer",
+  "icruise_id": "ship_608",
+  "capacity_guests": 750,
+  "d2m_priority": "HIGH",
+  "target_clients": [],
+  "last_updated": "2026-04-29T19:52:59.757320+00:00",
+  "timeseries": [
+    {
+      "scraped_at": "2026-04-29T19:52:59.757320+00:00",
+      "occupancy": {
+        "estimated_pct": 82.0,
+        "method": "availability_inference",
+        "available_voyages": 3,
+        "sold_out_voyages": 2,
+        "limited_voyages": 1,
+        "confidence": "medium"
+      },
+      "reviews": {
+        "avg_score": 4.8,
+        "score_max": 5.0,
+        "review_count": 982,
+        "score_breakdown": {
+          "cabin": 4.8999999999999995,
+          "dining": 4.8,
+          "service": 4.8999999999999995,
+          "entertainment": 4.6,
+          "value": 4.7
+        },
+        "source": "icruise_seed",
+        "source_url": "https://www.icruise.com/ships/seven-seas-explorer.html"
+      },
+      "onboard_events": [
+        {
+          "title": "S.A.L.T. Lab Workshop",
+          "category": "culinary",
+          "date": null,
+          "time": "10:00",
+          "venue": "S.A.L.T. Lab",
+          "description": null
+        },
+        {
+          "title": "Destination Enrichment Lecture",
+          "category": "enrichment",
+          "date": null,
+          "time": "11:30",
+          "venue": "Main Lounge",
+          "description": null
+        },
+        {
+          "title": "Evening Entertainment Show",
+          "category": "entertainment",
+          "date": null,
+          "time": "21:00",
+          "venue": "Theater",
+          "description": null
+        }
+      ],
+      "dining": {
+        "restaurants": [
+          "Compass Rose",
+          "Chartreuse",
+          "Prime 7",
+          "Sette Mari",
+          "Pacific Rim"
+        ],
+        "specialty_featured": [],
+        "theme_nights": [],
+        "source": "seed",
+        "source_url": ""
+      },
+      "scrape_errors": [],
+      "scrape_duration_sec": 0.0
+    }
+  ]
+}

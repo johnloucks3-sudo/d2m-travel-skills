@@ -27,7 +27,7 @@ models = [
     "anthropic/claude-3-haiku",  # $0.25/$1.25 per 1M
     "anthropic/claude-3.5-haiku",  # $0.8/$4 per 1M
     "anthropic/claude-haiku-4.5",  # $1/$5 per 1M
-    "openrouter/deepseek/deepseek-chat-v3.1",  # ~$0.27 per 1M total
+    "openrouter/deepseek/deepseek-v4-pro",     # ~$0.305 per 1M total
 ]
 
 print("Testing model costs for travel analysis task...")

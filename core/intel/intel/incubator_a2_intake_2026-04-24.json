@@ -1,0 +1,123 @@
+[
+  {
+    "id": "A2-2026-04-24-001",
+    "title": "Jesus and the Cross (Biblical Archaeology)",
+    "source_signal": "Jesus and the Cross - Biblical Archaeology Society",
+    "classification": "REJECT",
+    "gap_closed": "none",
+    "thunderbird_component": "none",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Archaeological content has zero relevance to luxury cruise client intelligence or travel behavior modeling."
+  },
+  {
+    "id": "A2-2026-04-24-002",
+    "title": "Cross-Entropy Loss (ML Theory)",
+    "source_signal": "Cross-entropy loss explanation - Data Science Stack Exchange",
+    "classification": "WATCH",
+    "gap_closed": "behavioral preference inference (theoretical foundation)",
+    "thunderbird_component": "core/ai_infra \u2014 persona preference models",
+    "risk": "MED",
+    "sss_required": false,
+    "rationale": "Technical foundation for loss functions in preference classification; applicable only if we move to supervised learning on client selection patterns (currently heuristic). Revisit Q3 2026."
+  },
+  {
+    "id": "A2-2026-04-24-003",
+    "title": "Cross-Attention Mask in Transformers",
+    "source_signal": "Cross-attention mask in Transformers - Data Science Stack Exchange",
+    "classification": "WATCH",
+    "gap_closed": "cross-transaction memory masking (theoretical)",
+    "thunderbird_component": "core/ai_infra \u2014 thunderbird_persona_memory.py",
+    "risk": "MED",
+    "sss_required": false,
+    "rationale": "Architectural pattern for multi-source context filtering; relevant for compounding memory across client transactions. Not actionable without supervised training data. Revisit when scaling persona memory."
+  },
+  {
+    "id": "A2-2026-04-24-004",
+    "title": "cross_validate vs cross_val_score (Scikit-learn)",
+    "source_signal": "What is the difference between cross_validate and cross_val_score?",
+    "classification": "REJECT",
+    "gap_closed": "none",
+    "thunderbird_component": "none",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "API reference material; not a capability gap. Relevant only if Thunderbird commits to scikit-learn model validation (current stack uses Claude + heuristics)."
+  },
+  {
+    "id": "A2-2026-04-24-005",
+    "title": "Behavioral Definition (Dictionary)",
+    "source_signal": "BEHAVIORAL Definition & Meaning - Merriam-Webster",
+    "classification": "REJECT",
+    "gap_closed": "none",
+    "thunderbird_component": "none",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Generic reference definition; no business value for Thunderbird."
+  },
+  {
+    "id": "A2-2026-04-24-006",
+    "title": "Behavioral Health Overview (CDC)",
+    "source_signal": "About Behavioral Health | Mental Health | CDC",
+    "classification": "REJECT",
+    "gap_closed": "none",
+    "thunderbird_component": "none",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Mental health reference; not applicable to client preference modeling or travel engagement."
+  },
+  {
+    "id": "A2-2026-04-24-007",
+    "title": "Behavioral Psychology Theories",
+    "source_signal": "Behavioral Psychology: Definition, Theories, & Examples",
+    "classification": "WATCH",
+    "gap_closed": "behavioral preference inference (foundational psychology)",
+    "thunderbird_component": "core/client \u2014 thunderbird_auto_enrich.py, thunderbird_recipient_profiles.py",
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "Behavioral psychology theory could inform client archetype refinement (Travel DNA profiles in A1/A8 pipeline). Educational reference for Navarro/Reyes persona enhancement. Low actionability; revisit only if expanding Travel DNA taxonomy."
+  },
+  {
+    "id": "A2-2026-04-24-008",
+    "title": "How Was Jesus Crucified (Biblical Archaeology)",
+    "source_signal": "How Was Jesus Crucified - Biblical Archaeology Society",
+    "classification": "REJECT",
+    "gap_closed": "none",
+    "thunderbird_component": "none",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Archaeological content; zero relevance to D2M operations."
+  },
+  {
+    "id": "A2-2026-04-24-009",
+    "title": "Ancient Crucifixion Images (Biblical Archaeology)",
+    "source_signal": "Ancient Crucifixion Images - Biblical Archaeology Society",
+    "classification": "REJECT",
+    "gap_closed": "none",
+    "thunderbird_component": "none",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Archaeological reference; no D2M business relevance."
+  },
+  {
+    "id": "A2-2026-04-24-010",
+    "title": "The Staurogram (Biblical Archaeology)",
+    "source_signal": "The Staurogram - Biblical Archaeology Society",
+    "classification": "REJECT",
+    "gap_closed": "none",
+    "thunderbird_component": "none",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Archaeological content; not relevant to Thunderbird."
+  },
+  {
+    "id": "A2-2026-04-24-011",
+    "title": "Golgotha Archaeological Evidence (Biblical Archaeology)",
+    "source_signal": "Where Is Golgotha, Where Jesus Was Crucified?",
+    "classification": "REJECT",
+    "gap_closed": "none",
+    "thunderbird_component": "none",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Archaeological reference; zero relevance to luxury cruise intelligence."
+  }
+]

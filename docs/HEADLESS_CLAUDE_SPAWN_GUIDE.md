@@ -37,28 +37,28 @@ Headless Claude = `claude -p "PROMPT"` running as a **background subprocess**, n
 
 ## THE THREE MANDATORY PREREQUISITES
 
-### ✅ PREREQUISITE 1: Token Refresh Daemon MUST Be Running
+### ✅ PREREQUISITE 1: Token Refresh Timers MUST Be Running
 
 **Check this FIRST. Every time. No exceptions.**
 
 ```bash
-systemctl status claude-token-refresh.timer --no-pager
+systemctl --user status claude-token-monitor.timer claude-oauth-keepalive.timer --no-pager
 ```
 
-**Expected output:**
+**Expected output (both timers):**
 ```
-● claude-token-refresh.timer - Claude OAuth Token Refresh Timer
-     Loaded: loaded (/etc/systemd/system/claude-token-refresh.timer; enabled; preset: disabled)
-     Active: active (waiting)
+Active: active (waiting)
 ```
 
-**If you see `inactive` or `disabled`:**
+**If either shows `inactive` or `failed`:**
 ```bash
-sudo systemctl enable claude-token-refresh.timer
-sudo systemctl start claude-token-refresh.timer
+systemctl --user enable --now claude-token-monitor.timer
+systemctl --user enable --now claude-oauth-keepalive.timer
 ```
 
-**Why this matters:** Token refresh daemon runs every 20 minutes. Without it, your token will expire within hours and Claude will fail. If you skip this check, you **will** fail within 1-2 hours.
+> **⚠️ NOTE (2026-04-24):** Earlier versions of this guide referenced `claude-token-refresh.timer` and `claude-haiku-supervisor.timer`. Those timers **do not exist** on this system. The actual OAuth refresh is handled by `claude-token-monitor.timer` + `claude-oauth-keepalive.timer` (both user-level). Do not attempt to check or restart the old names.
+
+**Why this matters:** Token keepalive fires every ~30 minutes. Without it, your token will expire within hours and Claude will fail silently.
 
 ---
 
@@ -81,28 +81,27 @@ ls -la ~/.claude/.credentials.json
 
 ---
 
-### ✅ PREREQUISITE 3: Haiku Supervisor MUST Be Running
+### ✅ PREREQUISITE 3: Thunderbird Watchdog MUST Be Running
 
 **Check this THIRD.**
 
 ```bash
-systemctl status claude-haiku-supervisor.timer --no-pager
+systemctl --user status thunderbird-watchdog.timer --no-pager
 ```
 
 **Expected output:**
 ```
-● claude-haiku-supervisor.timer - Haiku Supervisor Timer
-     Loaded: loaded (/etc/systemd/system/claude-haiku-supervisor.timer; enabled; preset: disabled)
-     Active: active (waiting)
+Active: active (waiting)
 ```
 
 **If inactive:**
 ```bash
-sudo systemctl enable claude-haiku-supervisor.timer
-sudo systemctl start claude-haiku-supervisor.timer
+systemctl --user enable --now thunderbird-watchdog.timer
 ```
 
-**Why this matters:** Supervisor detects when your headless Claude fails and alerts COS/Commander. Without it, failures go unnoticed and tasks are silently lost.
+> **⚠️ NOTE (2026-04-24):** Earlier versions of this guide referenced `claude-haiku-supervisor.timer`. That timer **does not exist** on this system. Failure monitoring is handled by `thunderbird-watchdog.timer` (user-level). Do not attempt to check or restart the old name.
+
+**Why this matters:** Watchdog detects spawn failures and alerts COS. Without it, failures go unnoticed and tasks are silently lost.
 
 ---
 
@@ -291,9 +290,10 @@ proc = subprocess.Popen([...], env=env, ...)
 
 | Check | Command | Expected Result | What to Do If Fails |
 |-------|---------|-----------------|-------------------|
-| Token refresh daemon running | `systemctl status claude-token-refresh.timer --no-pager` | `Active: active (waiting)` | `sudo systemctl enable --now claude-token-refresh.timer` |
+| Token monitor timer running | `systemctl --user status claude-token-monitor.timer --no-pager` | `Active: active (waiting)` | `systemctl --user enable --now claude-token-monitor.timer` |
+| OAuth keepalive timer running | `systemctl --user status claude-oauth-keepalive.timer --no-pager` | `Active: active (waiting)` | `systemctl --user enable --now claude-oauth-keepalive.timer` |
 | OAuth credentials exist | `ls -la ~/.claude/.credentials.json` | File exists, readable | Have Commander re-authenticate in Claude Desktop |
-| Supervisor running | `systemctl status claude-haiku-supervisor.timer --no-pager` | `Active: active (waiting)` | `sudo systemctl enable --now claude-haiku-supervisor.timer` |
+| Watchdog running | `systemctl --user status thunderbird-watchdog.timer --no-pager` | `Active: active (waiting)` | `systemctl --user enable --now thunderbird-watchdog.timer` |
 | /logs directory exists | `ls -ld /home/john/Thunderbird/logs` | Directory exists | `mkdir -p /home/john/Thunderbird/logs` |
 | Output directory exists | `ls -ld /home/john/Thunderbird/output` | Directory exists | `mkdir -p /home/john/Thunderbird/output` |
 
@@ -429,8 +429,9 @@ tail -50 /home/john/Thunderbird/logs/claude_spawn_TIMESTAMP.log
 
 **Step 2: Verify prerequisites again**
 ```bash
-systemctl status claude-token-refresh.timer --no-pager
-systemctl status claude-haiku-supervisor.timer --no-pager
+systemctl --user status claude-token-monitor.timer --no-pager
+systemctl --user status claude-oauth-keepalive.timer --no-pager
+systemctl --user status thunderbird-watchdog.timer --no-pager
 ls -la ~/.claude/.credentials.json
 ```
 

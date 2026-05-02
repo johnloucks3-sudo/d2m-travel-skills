@@ -123,6 +123,8 @@ def extract_template(template_file: str, anchor: str) -> str:
     Returns everything from that heading to the next same-level heading
     (or the next --- divider used between emails in the library).
     """
+    if template_file is None:
+        raise FileNotFoundError(f"No template file configured for anchor '{anchor}' — add template reference to lifecycle config")
     template_path = TEMPLATE_DIR / template_file
 
     if not template_path.exists():

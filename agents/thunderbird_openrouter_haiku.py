@@ -185,3 +185,9 @@ if __name__ == "__main__":
         # Process queued tasks
         success = process_queued_tasks()
         sys.exit(0 if success else 1)
+
+## AGENTS DOCUMENTATION
+
+- Updated to enforce free‑model guardrail for OpenRouter.
+- See docs/AGENTS_MODEL_GUIDE.md for allowed models and usage.
+

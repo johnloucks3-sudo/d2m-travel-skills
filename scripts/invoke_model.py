@@ -10,7 +10,7 @@ Usage:
 
 Model aliases:
     GROK      → xAI Grok 4.1 Fast          (2M context, ~$0.20/M)
-    DEEPSEEK  → DeepSeek V3.1              (64K context, ~$0.27/M)
+    DEEPSEEK  → DeepSeek V4 Pro            (1M context, ~$0.305/M)
     GEMINI    → Gemini 3.1 Flash Lite      (1M context, ~$0.25/M)
     LLAMA     → Llama 4 Maverick           (1M context, ~$0.15/M)
     GPT       → GPT-4.1 Mini              (1M context, ~$0.40/M)
@@ -39,7 +39,7 @@ if _ENV_FILE.exists():
 
 MODEL_ALIASES = {
     "GROK":     ("x-ai/grok-4.1-fast",                       "Grok 4.1 Fast",     "~$0.20/M, 2M ctx"),
-    "DEEPSEEK": ("deepseek/deepseek-chat-v3.1",              "DeepSeek V3.1",     "~$0.27/M, 64K ctx"),
+    "DEEPSEEK": ("deepseek/deepseek-v4-pro",                 "DeepSeek V4 Pro",   "~$0.305/M, 1M ctx"),
     "GEMINI":   ("google/gemini-3.1-flash-lite-preview",     "Gemini 3.1 Flash",  "~$0.25/M, 1M ctx"),
     "LLAMA":    ("meta-llama/llama-4-maverick",              "Llama 4 Maverick",  "~$0.15/M, 1M ctx"),
     "GPT":      ("openai/gpt-4.1-mini",                     "GPT-4.1 Mini",      "~$0.40/M, 1M ctx"),

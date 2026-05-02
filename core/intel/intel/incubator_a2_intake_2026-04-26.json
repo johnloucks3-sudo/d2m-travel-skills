@@ -1,0 +1,68 @@
+[
+  {
+    "id": "A2-2026-04-26-001",
+    "title": "Life (General Definitions)",
+    "source_signal": "Life - Wikipedia / Britannica / Merriam-Webster / Philosophy Now",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 out of domain",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Generic philosophical/biological definitions of life. Zero travel or cruise relevance."
+  },
+  {
+    "id": "A2-2026-04-26-002",
+    "title": "Origin of Life on Earth",
+    "source_signal": "The origin of life on Earth, explained - University of Chicago News",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 out of domain",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Astrobiological research. Not relevant to cruise operations, destinations, or client intelligence."
+  },
+  {
+    "id": "A2-2026-04-26-003",
+    "title": "Jesus and the Cross (Biblical Archaeology)",
+    "source_signal": "Jesus and the Cross - Biblical Archaeology Society / How Was Jesus Crucified / Ancient Crucifixion Images",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 out of domain",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Biblical history and archaeology. No connection to Thunderbird mission or travel intelligence."
+  },
+  {
+    "id": "A2-2026-04-26-004",
+    "title": "Where Is Golgotha (Biblical Archaeology)",
+    "source_signal": "Where Is Golgotha, Where Jesus Was Crucified?",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 out of domain",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Religious/archaeological geography. Not destination intelligence for D2M clients."
+  },
+  {
+    "id": "A2-2026-04-26-005",
+    "title": "Cross-Attention Mask in Transformers",
+    "source_signal": "Cross-attention mask in Transformers - Data Science Stack Exchange",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 foundational ML, not travel-domain",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "LLM architecture documentation. Relevant to AI engineering generally, but not to Thunderbird travel operations or cruise intelligence gaps."
+  },
+  {
+    "id": "A2-2026-04-26-006",
+    "title": "The Staurogram (Biblical Archaeology)",
+    "source_signal": "The Staurogram - Biblical Archaeology Society",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 out of domain",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Early Christian iconography. No travel, cruise, or client relevance."
+  }
+]

@@ -100,6 +100,53 @@ def get_persona_gmail():
     return build("gmail", "v1", credentials=get_persona_credentials())
 
 
+# ---------------------------------------------------------------------------
+# Commander Gmail — johnloucks3@gmail.com (part of the Wing, SO 2026-04-24)
+# ---------------------------------------------------------------------------
+# Authority expansion granted 2026-04-24: Commander reclassified johnloucks3 as
+# part of the wing. Hale has full read/label/manage access — same authority as
+# d2mconcierge. No re-auth needed; token at creds/johnloucks3_token.json.
+# ---------------------------------------------------------------------------
+
+COMMANDER_GMAIL_TOKEN = THUNDERBIRD_DIR / "creds" / "johnloucks3_token.json"
+COMMANDER_GMAIL_ADDRESS = "johnloucks3@gmail.com"
+COMMANDER_GMAIL_SCOPES = ["https://www.googleapis.com/auth/gmail.modify"]
+
+_cached_commander_creds: Credentials | None = None
+
+
+def get_commander_credentials(force_refresh: bool = False) -> Credentials:
+    """Return credentials for the Commander's Gmail account (johnloucks3@gmail.com)."""
+    global _cached_commander_creds
+    if _cached_commander_creds and _cached_commander_creds.valid and not force_refresh:
+        return _cached_commander_creds
+    if not COMMANDER_GMAIL_TOKEN.exists():
+        raise FileNotFoundError(
+            f"No Commander Gmail token at {COMMANDER_GMAIL_TOKEN}.\n"
+            "Commander must re-authenticate via OAuth flow."
+        )
+    creds = Credentials.from_authorized_user_file(str(COMMANDER_GMAIL_TOKEN), COMMANDER_GMAIL_SCOPES)
+    if creds.expired and creds.refresh_token:
+        creds.refresh(Request())
+        COMMANDER_GMAIL_TOKEN.write_text(creds.to_json())
+    _cached_commander_creds = creds
+    return creds
+
+
+def get_commander_gmail():
+    """Return authenticated Gmail service for Commander's inbox (johnloucks3@gmail.com)."""
+    return build("gmail", "v1", credentials=get_commander_credentials())
+
+
+def commander_gmail_available() -> bool:
+    """True if the Commander Gmail token exists and is valid."""
+    try:
+        get_commander_credentials()
+        return True
+    except Exception:
+        return False
+
+
 def persona_gmail_available() -> bool:
     """True if the persona Gmail token exists and is valid."""
     try:

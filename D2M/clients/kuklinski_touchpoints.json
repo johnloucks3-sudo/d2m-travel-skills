@@ -29,7 +29,7 @@
       "arc_position": "standalone",
       "category": "onboarding",
       "trigger_date": "2026-04-17",
-      "subject": "Welcome Aboard — Your Viking Mars Panama Canal Voyage, Dec 17–27",
+      "subject": "Welcome Aboard \u2014 Your Viking Mars Panama Canal Voyage, Dec 17\u201327",
       "template_file": "output/Drafts_for_Client_Lifecycle_Engagement.md",
       "template_anchor": "TP 0.5",
       "status": "sent",
@@ -43,7 +43,7 @@
       "arc_position": "standalone",
       "category": "insurance_documentation",
       "trigger_date": "2026-04-09",
-      "subject": "Action Required — Travel Protection & Passport Verification for Your Panama Canal Voyage",
+      "subject": "Action Required \u2014 Travel Protection & Passport Verification for Your Panama Canal Voyage",
       "template_file": "Kuklinski_Timeline_Touchpoint_Emails.md",
       "template_anchor": "PHASE 1 OF 6",
       "status": "sent",
@@ -52,7 +52,7 @@
     },
     {
       "id": "TP-1.1",
-      "label": "Voyage Preview — Phase 1 Discovery",
+      "label": "Voyage Preview \u2014 Phase 1 Discovery",
       "arc": "timeline",
       "arc_position": "standalone",
       "category": "discovery",
@@ -71,12 +71,14 @@
       "arc_position": "standalone",
       "category": "research_overview",
       "trigger_date": "2026-05-01",
-      "subject": "Your Panama Canal Research Brief — Transit Views, Shore Excursions & Specialty Dining",
+      "subject": "Your Panama Canal Research Brief \u2014 Transit Views, Shore Excursions & Specialty Dining",
       "template_file": "Kuklinski_Timeline_Touchpoint_Emails.md",
       "template_anchor": "PHASE 2 OF 6",
-      "status": "pending",
+      "status": "draft_created",
       "sent_date": null,
-      "notes": ""
+      "notes": "",
+      "draft_id": "r7964657748231602993",
+      "draft_date": "2026-05-01"
     },
     {
       "id": "ARC4-A",
@@ -85,12 +87,12 @@
       "arc_position": "A",
       "category": "specialty_dining",
       "trigger_date": "2026-05-15",
-      "subject": "Specialty Dining Aboard Viking Mars — Preferences Before We Plan",
+      "subject": "Specialty Dining Aboard Viking Mars \u2014 Preferences Before We Plan",
       "template_file": "Kuklinski_Discretionary_Arc_Library.md",
       "template_anchor": "ARC 4-A",
       "status": "pending",
       "sent_date": null,
-      "notes": "Send Arc4 (full) unless Kyle is unresponsive to TP-2 — then switch to Arc5"
+      "notes": "Send Arc4 (full) unless Kyle is unresponsive to TP-2 \u2014 then switch to Arc5"
     },
     {
       "id": "ARC4-B",
@@ -99,7 +101,7 @@
       "arc_position": "B",
       "category": "specialty_dining",
       "trigger_date": "2026-06-01",
-      "subject": "Your Specialty Dining Strategy — Three Approaches for the Group",
+      "subject": "Your Specialty Dining Strategy \u2014 Three Approaches for the Group",
       "template_file": "Kuklinski_Discretionary_Arc_Library.md",
       "template_anchor": "ARC 4-B",
       "status": "pending",
@@ -113,7 +115,7 @@
       "arc_position": "standalone",
       "category": "airfare_hotel",
       "trigger_date": "2026-07-01",
-      "subject": "Flight Planning Window Is Open — RIC→PTY and RSW→FLL Routing Analysis",
+      "subject": "Flight Planning Window Is Open \u2014 RIC\u2192PTY and RSW\u2192FLL Routing Analysis",
       "template_file": "Kuklinski_Timeline_Touchpoint_Emails.md",
       "template_anchor": "PHASE 3 OF 6",
       "status": "pending",
@@ -130,12 +132,12 @@
       "search_start": "2026-06-24",
       "search_end": "2026-07-01",
       "weekly_reports": false,
-      "subject": "Flight & Hotel Search Starting Now — A Few Quick Questions, Kyle",
+      "subject": "Flight & Hotel Search Starting Now \u2014 A Few Quick Questions, Kyle",
       "template_file": "Kuklinski_Discretionary_Arc_Library.md",
       "template_anchor": "ARC 1-A",
       "status": "pending",
       "sent_date": null,
-      "notes": "Send same day as TP-3 or day after — TP-3 plants the seed, ARC1-A collects prefs",
+      "notes": "Send same day as TP-3 or day after \u2014 TP-3 plants the seed, ARC1-A collects prefs",
       "arc_search_params": {
         "type": "arc1",
         "flights": [
@@ -144,14 +146,14 @@
             "dest": "PTY",
             "date": "2026-12-16",
             "adults": 4,
-            "label": "Virginia group (RIC→Panama City)"
+            "label": "Virginia group (RIC\u2192Panama City)"
           },
           {
             "origin": "RSW",
             "dest": "PTY",
             "date": "2026-12-16",
             "adults": 2,
-            "label": "Florida guests (RSW→Panama City)"
+            "label": "Florida guests (RSW\u2192Panama City)"
           }
         ],
         "hotel": {
@@ -161,7 +163,7 @@
           "checkout": "2026-12-17",
           "rooms": 3,
           "dest_code": "PTY",
-          "notes": "Pre-cruise night Dec 16 — 3 couples, before Dec 17 Viking Mars embarkation"
+          "notes": "Pre-cruise night Dec 16 \u2014 3 couples, before Dec 17 Viking Mars embarkation"
         }
       }
     },
@@ -172,7 +174,7 @@
       "arc_position": "B",
       "category": "airfare_hotel",
       "trigger_date": "2026-07-07",
-      "subject": "Your Flight & Hotel Candidates — Panama City Dec 16–17, Kyle",
+      "subject": "Your Flight & Hotel Candidates \u2014 Panama City Dec 16\u201317, Kyle",
       "template_file": "Kuklinski_Discretionary_Arc_Library.md",
       "template_anchor": "ARC 1-B",
       "status": "pending",
@@ -180,28 +182,28 @@
       "notes": "Fill table with live fare data before sending. Requires ARC1-A reply.",
       "arc_search_params": {
         "type": "arc1",
-        "search_note": "Candidates delivery — re-run ARC1-A routes with current live fares",
+        "search_note": "Candidates delivery \u2014 re-run ARC1-A routes with current live fares",
         "flights": [
           {
             "origin": "RIC",
             "dest": "PTY",
             "date": "2026-12-16",
             "adults": 4,
-            "label": "Virginia group (RIC→Panama City)"
+            "label": "Virginia group (RIC\u2192Panama City)"
           },
           {
             "origin": "RSW",
             "dest": "PTY",
             "date": "2026-12-16",
             "adults": 2,
-            "label": "Florida guests (RSW→Panama City)"
+            "label": "Florida guests (RSW\u2192Panama City)"
           },
           {
             "origin": "MHT",
             "dest": "FLL",
             "date": "2026-12-27",
             "adults": 2,
-            "label": "Return — FLL to MHT (post-cruise Dec 27)"
+            "label": "Return \u2014 FLL to MHT (post-cruise Dec 27)"
           }
         ],
         "hotel": {
@@ -211,7 +213,7 @@
           "checkout": "2026-12-17",
           "rooms": 3,
           "dest_code": "PTY",
-          "notes": "Pre-cruise night Dec 16 — present 3 options (budget/mid/luxury) per couple"
+          "notes": "Pre-cruise night Dec 16 \u2014 present 3 options (budget/mid/luxury) per couple"
         },
         "hotel_return": {
           "city": "Fort Lauderdale",
@@ -220,7 +222,7 @@
           "checkout": "2026-12-28",
           "rooms": 3,
           "dest_code": "FLL",
-          "notes": "Post-cruise night Dec 27 — only if needed based on flight availability"
+          "notes": "Post-cruise night Dec 27 \u2014 only if needed based on flight availability"
         }
       }
     },
@@ -231,12 +233,12 @@
       "arc_position": "C",
       "category": "airfare_hotel",
       "trigger_date": null,
-      "subject": "Confirmed — Flights and Panama City Hotel Locked for Kuklinski Group",
+      "subject": "Confirmed \u2014 Flights and Panama City Hotel Locked for Kuklinski Group",
       "template_file": "Kuklinski_Discretionary_Arc_Library.md",
       "template_anchor": "ARC 1-C",
       "status": "pending",
       "sent_date": null,
-      "notes": "Trigger date = day of booking. No fixed date — event-driven."
+      "notes": "Trigger date = day of booking. No fixed date \u2014 event-driven."
     },
     {
       "id": "ARC2-A",
@@ -248,12 +250,12 @@
       "search_start": "2026-07-14",
       "search_end": "2026-07-28",
       "weekly_reports": false,
-      "subject": "Excursion Planning Starts Now — Your Port Preferences, Kyle",
+      "subject": "Excursion Planning Starts Now \u2014 Your Port Preferences, Kyle",
       "template_file": "Kuklinski_Discretionary_Arc_Library.md",
       "template_anchor": "ARC 2-A",
       "status": "pending",
       "sent_date": null,
-      "notes": "Must send by Jul 28 — Viking window opens Aug 2",
+      "notes": "Must send by Jul 28 \u2014 Viking window opens Aug 2",
       "arc_search_params": {
         "type": "arc2",
         "pax": 6,
@@ -294,7 +296,7 @@
       "arc_position": "B",
       "category": "shore_excursions",
       "trigger_date": "2026-07-28",
-      "subject": "Your Shore Excursion Candidates — All Ports, Kuklinski Group",
+      "subject": "Your Shore Excursion Candidates \u2014 All Ports, Kuklinski Group",
       "template_file": "Kuklinski_Discretionary_Arc_Library.md",
       "template_anchor": "ARC 2-B",
       "status": "pending",
@@ -302,7 +304,7 @@
       "notes": "Can send same day as ARC2-A if preferences already known from TP-2 reply",
       "arc_search_params": {
         "type": "arc2",
-        "search_note": "Candidates delivery — run GYG searches for all 5 ports, 6 pax, present top 3 per port",
+        "search_note": "Candidates delivery \u2014 run GYG searches for all 5 ports, 6 pax, present top 3 per port",
         "pax": 6,
         "query": "group shore excursion",
         "result_count": 3,
@@ -342,7 +344,7 @@
       "arc_position": "standalone",
       "category": "shore_excursions",
       "trigger_date": "2026-07-28",
-      "subject": "Excursion Booking Opens August 2 — Your Port-by-Port Plan, Kyle",
+      "subject": "Excursion Booking Opens August 2 \u2014 Your Port-by-Port Plan, Kyle",
       "template_file": "Kuklinski_Timeline_Touchpoint_Emails.md",
       "template_anchor": "PHASE 4 OF 6",
       "status": "pending",
@@ -356,12 +358,12 @@
       "arc_position": "C",
       "category": "shore_excursions",
       "trigger_date": "2026-08-02",
-      "subject": "Shore Excursions Confirmed — All Ports, Kuklinski Group",
+      "subject": "Shore Excursions Confirmed \u2014 All Ports, Kuklinski Group",
       "template_file": "Kuklinski_Discretionary_Arc_Library.md",
       "template_anchor": "ARC 2-C",
       "status": "pending",
       "sent_date": null,
-      "notes": "Send same day as booking — Aug 2 opening day"
+      "notes": "Send same day as booking \u2014 Aug 2 opening day"
     },
     {
       "id": "ARC1-D",
@@ -370,7 +372,7 @@
       "arc_position": "D",
       "category": "airfare_hotel",
       "trigger_date": null,
-      "subject": "30-Day Check-In — Your Flights and Panama City Hotel",
+      "subject": "30-Day Check-In \u2014 Your Flights and Panama City Hotel",
       "template_file": "Kuklinski_Discretionary_Arc_Library.md",
       "template_anchor": "ARC 1-D",
       "status": "pending",
@@ -384,12 +386,12 @@
       "arc_position": "C",
       "category": "specialty_dining",
       "trigger_date": null,
-      "subject": "Specialty Dining Confirmed — Reservations Secured Aboard Viking Mars",
+      "subject": "Specialty Dining Confirmed \u2014 Reservations Secured Aboard Viking Mars",
       "template_file": "Kuklinski_Discretionary_Arc_Library.md",
       "template_anchor": "ARC 4-C",
       "status": "pending",
       "sent_date": null,
-      "notes": "Event-driven — send after embarkation day reservations confirmed Dec 17"
+      "notes": "Event-driven \u2014 send after embarkation day reservations confirmed Dec 17"
     },
     {
       "id": "ARC2-D",
@@ -398,7 +400,7 @@
       "arc_position": "D",
       "category": "shore_excursions",
       "trigger_date": "2026-09-02",
-      "subject": "30-Day Excursion Check-In — All Three Ports Still Locked",
+      "subject": "30-Day Excursion Check-In \u2014 All Three Ports Still Locked",
       "template_file": "Kuklinski_Discretionary_Arc_Library.md",
       "template_anchor": "ARC 2-D",
       "status": "pending",
@@ -412,12 +414,12 @@
       "arc_position": "D",
       "category": "specialty_dining",
       "trigger_date": null,
-      "subject": "Dining Check-In — Your Specialty Reservations Aboard Viking Mars",
+      "subject": "Dining Check-In \u2014 Your Specialty Reservations Aboard Viking Mars",
       "template_file": "Kuklinski_Discretionary_Arc_Library.md",
       "template_anchor": "ARC 4-D",
       "status": "pending",
       "sent_date": null,
-      "notes": "Event-driven — 30 days after ARC4-C"
+      "notes": "Event-driven \u2014 30 days after ARC4-C"
     },
     {
       "id": "TP-5",
@@ -426,7 +428,7 @@
       "arc_position": "standalone",
       "category": "final_prep",
       "trigger_date": "2026-10-01",
-      "subject": "75 Days Out — Online Check-In, Documents & Packing Brief for Viking Mars",
+      "subject": "75 Days Out \u2014 Online Check-In, Documents & Packing Brief for Viking Mars",
       "template_file": "Kuklinski_Timeline_Touchpoint_Emails.md",
       "template_anchor": "PHASE 5 OF 6",
       "status": "pending",
@@ -443,7 +445,7 @@
       "search_start": "2026-09-24",
       "search_end": "2026-10-01",
       "weekly_reports": false,
-      "subject": "Transfer Planning — Airport, Hotel & Pier for Your Group of Six",
+      "subject": "Transfer Planning \u2014 Airport, Hotel & Pier for Your Group of Six",
       "template_file": "Kuklinski_Discretionary_Arc_Library.md",
       "template_anchor": "ARC 3-A",
       "status": "pending",
@@ -455,7 +457,7 @@
         "routes": [
           {
             "route": "PTY-AIRPORT-HOTEL",
-            "label": "Panama City Airport → Pre-cruise Hotel (Dec 16)",
+            "label": "Panama City Airport \u2192 Pre-cruise Hotel (Dec 16)",
             "from": "Tocumen International Airport (PTY)",
             "to": "Panama City Hotel District",
             "date": "2026-12-16",
@@ -463,7 +465,7 @@
           },
           {
             "route": "PTY-HOTEL-PIER",
-            "label": "Pre-cruise Hotel → Viking Terminal Colon (Dec 17)",
+            "label": "Pre-cruise Hotel \u2192 Viking Terminal Colon (Dec 17)",
             "from": "Panama City Hotel District",
             "to": "Colon Cruise Terminal",
             "date": "2026-12-17",
@@ -471,7 +473,7 @@
           },
           {
             "route": "FLL-PORT-AIRPORT",
-            "label": "Port Everglades → FLL Airport (Dec 27 disembarkation)",
+            "label": "Port Everglades \u2192 FLL Airport (Dec 27 disembarkation)",
             "from": "Port Everglades (Fort Lauderdale)",
             "to": "Fort Lauderdale Airport (FLL)",
             "date": "2026-12-27",
@@ -487,7 +489,7 @@
       "arc_position": "B",
       "category": "transfers",
       "trigger_date": "2026-10-05",
-      "subject": "Your Transfer Candidates — All Three Segments, Kuklinski Group",
+      "subject": "Your Transfer Candidates \u2014 All Three Segments, Kuklinski Group",
       "template_file": "Kuklinski_Discretionary_Arc_Library.md",
       "template_anchor": "ARC 3-B",
       "status": "pending",
@@ -495,13 +497,13 @@
       "notes": "",
       "arc_search_params": {
         "type": "arc3",
-        "search_note": "Candidates delivery — run Kiwitaxi for all 3 transfer segments, present pricing per vehicle size",
+        "search_note": "Candidates delivery \u2014 run Kiwitaxi for all 3 transfer segments, present pricing per vehicle size",
         "pax": 6,
         "result_count": 2,
         "routes": [
           {
             "route": "PTY-AIRPORT-HOTEL",
-            "label": "Panama City Airport → Pre-cruise Hotel (Dec 16)",
+            "label": "Panama City Airport \u2192 Pre-cruise Hotel (Dec 16)",
             "from": "Tocumen International Airport (PTY)",
             "to": "Panama City Hotel District",
             "date": "2026-12-16",
@@ -509,7 +511,7 @@
           },
           {
             "route": "PTY-HOTEL-PIER",
-            "label": "Pre-cruise Hotel → Viking Terminal Colon (Dec 17)",
+            "label": "Pre-cruise Hotel \u2192 Viking Terminal Colon (Dec 17)",
             "from": "Panama City Hotel District",
             "to": "Colon Cruise Terminal",
             "date": "2026-12-17",
@@ -517,7 +519,7 @@
           },
           {
             "route": "FLL-PORT-AIRPORT",
-            "label": "Port Everglades → FLL Airport (Dec 27 disembarkation)",
+            "label": "Port Everglades \u2192 FLL Airport (Dec 27 disembarkation)",
             "from": "Port Everglades (Fort Lauderdale)",
             "to": "Fort Lauderdale Airport (FLL)",
             "date": "2026-12-27",
@@ -533,12 +535,12 @@
       "arc_position": "C",
       "category": "transfers",
       "trigger_date": null,
-      "subject": "All Transfers Confirmed — PTY, Pier & FLL for Kuklinski Group",
+      "subject": "All Transfers Confirmed \u2014 PTY, Pier & FLL for Kuklinski Group",
       "template_file": "Kuklinski_Discretionary_Arc_Library.md",
       "template_anchor": "ARC 3-C",
       "status": "pending",
       "sent_date": null,
-      "notes": "Event-driven — send day of booking"
+      "notes": "Event-driven \u2014 send day of booking"
     },
     {
       "id": "ARC3-D",
@@ -547,12 +549,12 @@
       "arc_position": "D",
       "category": "transfers",
       "trigger_date": null,
-      "subject": "Transfer Check-In — All Three Segments Still Confirmed",
+      "subject": "Transfer Check-In \u2014 All Three Segments Still Confirmed",
       "template_file": "Kuklinski_Discretionary_Arc_Library.md",
       "template_anchor": "ARC 3-D",
       "status": "pending",
       "sent_date": null,
-      "notes": "Event-driven — 30 days after ARC3-C"
+      "notes": "Event-driven \u2014 30 days after ARC3-C"
     },
     {
       "id": "TP-6",
@@ -561,7 +563,7 @@
       "arc_position": "standalone",
       "category": "embarkation",
       "trigger_date": "2026-12-14",
-      "subject": "Three Days Out — Your Complete Embarkation Brief, Kuklinski Group",
+      "subject": "Three Days Out \u2014 Your Complete Embarkation Brief, Kuklinski Group",
       "template_file": "Kuklinski_Timeline_Touchpoint_Emails.md",
       "template_anchor": "PHASE 6 OF 6",
       "status": "pending",

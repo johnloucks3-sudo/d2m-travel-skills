@@ -1,0 +1,10 @@
+[Unit]
+Description=Daily Silversea Silver Spirit Intel Search — 06:30 MDT
+
+[Timer]
+OnCalendar=*-*-* 06:30:00
+Persistent=true
+RandomizedDelaySec=120
+
+[Install]
+WantedBy=timers.target
