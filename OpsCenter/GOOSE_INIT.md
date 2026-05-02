@@ -575,9 +575,9 @@ AND `OpsCenter/thunderbird_overwatch.sh` (which has its own export).
 *Brain Index: 4 tiers, 30+ reference files, full Drive map, 13 recipes, full core module registry.*
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-05-02 01:46 MT -->
+<!-- Last sync: 2026-05-02 02:01 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-05-02 01:46 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-05-02 02:01 MT] ===
 Budget: Claude GREEN (MAX $0) | OpenCode GREEN (DeepSeek V3.1 ~$0.27/M) | Groq UNKNOWN | Deepseek GREEN
 Active tasks: 2
 Last Deepseek ruling: NONE

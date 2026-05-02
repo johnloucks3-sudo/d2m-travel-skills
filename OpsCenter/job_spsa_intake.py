@@ -15,6 +15,7 @@ import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from core.ops.thunderbird_spsa import intake_problem, get_active_cases
+from opencode_spsa_intake_scans import run_all_opencode_scans
 
 # Setup logging
 logging.basicConfig(
@@ -299,6 +300,35 @@ def issues_to_spsa_cases(issues: list) -> list:
                 )
                 cases.append(case)
 
+            elif issue_type == 'opencode_scan':
+                problem = issue.get('problem')
+                factors = issue.get('factors', [])
+                severity = issue.get('severity', 'YELLOW')
+
+                case = intake_problem(
+                    severity=severity,
+                    source='opencode',
+                    problem_statement=problem,
+                    factors=factors if factors else ["OpenCode scan result"],
+                    options=[
+                        {
+                            "name": "Address immediately",
+                            "description": "Execute fix or mitigation recommended by OpenCode",
+                            "tradeoff": "Varies by problem (minutes to hours)"
+                        },
+                        {
+                            "name": "Defer and monitor",
+                            "description": "Keep on watch list, address in next maintenance window",
+                            "tradeoff": "Risk may escalate, temporary workaround may be needed"
+                        }
+                    ],
+                    recommendation="Address immediately" if severity == 'RED' else "Address immediately",
+                    recommendation_rationale=f"OpenCode identified this as {severity} priority.",
+                    timeline_hours=0.5 if severity == 'RED' else 2.0,
+                    risk_summary=f"OpenCode severity: {severity}"
+                )
+                cases.append(case)
+
         except Exception as e:
             logger.error(f"Failed to create SPSA case for issue {issue}: {e}")
 
@@ -320,6 +350,23 @@ def main():
 
     logger.info("Scanning mission board for RED items...")
     all_issues.extend(scan_mission_board_for_red())
+
+    # OpenCode intake scans
+    logger.info("Running OpenCode intake scans...")
+    try:
+        opencode_issues = run_all_opencode_scans()
+        # Convert OpenCode format to standard issue format
+        for oc_issue in opencode_issues:
+            all_issues.append({
+                'type': 'opencode_scan',
+                'severity': oc_issue.get('severity', 'YELLOW'),
+                'problem': oc_issue.get('problem', ''),
+                'factors': oc_issue.get('factors', []),
+                'timestamp': datetime.now().isoformat()
+            })
+        logger.info(f"OpenCode scans found {len(opencode_issues)} issues")
+    except Exception as e:
+        logger.warning(f"OpenCode scans failed: {e}")
 
     logger.info(f"Found {len(all_issues)} potential issues")
 
