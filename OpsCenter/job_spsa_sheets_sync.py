@@ -13,6 +13,11 @@ from datetime import datetime, timedelta
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from core.ops.thunderbird_spsa import export_to_sheets_format, get_closed_cases_for_week
+from core.ops.thunderbird_sheets import (
+    update_spsa_sheet,
+    get_spsa_sheet_id_from_config,
+    save_spsa_sheet_id_to_config,
+)
 
 logging.basicConfig(
     level=logging.INFO,
@@ -65,12 +70,26 @@ def main():
         for row in rows[-3:]:  # Last 3 rows
             logger.info(f"  {row['Case ID']}: {row['Problem'][:40]}... → {row['Status']}")
 
-        # TODO: Integrate with Google Sheets API
-        # For now, save to JSON file for manual inspection
-        export_path = ROOT / "output" / "spsa_export.json"
-        export_path.parent.mkdir(parents=True, exist_ok=True)
-        export_path.write_text(json.dumps(rows, indent=2, default=str))
-        logger.info(f"✅ Exported to {export_path}")
+        # Sync to Google Sheets
+        sheet_id = get_spsa_sheet_id_from_config()
+        success = update_spsa_sheet(rows, sheet_id=sheet_id)
+
+        if success:
+            logger.info("✅ Successfully synced to Google Sheets")
+            # If this was a new sheet creation, save the sheet ID
+            if not sheet_id:
+                from core.ops.thunderbird_sheets import get_or_create_spsa_sheet
+                new_sheet_id = get_or_create_spsa_sheet()
+                if new_sheet_id:
+                    save_spsa_sheet_id_to_config(new_sheet_id)
+                    logger.info(f"Saved new sheet ID: {new_sheet_id}")
+        else:
+            logger.warning("Failed to sync to Google Sheets, falling back to JSON export")
+            # Fallback: save to JSON file for manual inspection
+            export_path = ROOT / "output" / "spsa_export.json"
+            export_path.parent.mkdir(parents=True, exist_ok=True)
+            export_path.write_text(json.dumps(rows, indent=2, default=str))
+            logger.info(f"Exported to JSON fallback: {export_path}")
 
         # Track sync state
         save_sync_state()

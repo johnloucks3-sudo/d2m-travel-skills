@@ -354,6 +354,11 @@ async def cmd_help(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "/dossier <name> — Quick dossier lookup by client name",
         "/ask <query> — Search intel archives for D2M-applicable insights",
         "",
+        "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+        "*SPSA (Standard Problem Solving Approach)*",
+        "/spsa <CASE_ID> — Get full SPSA brief for a case (e.g., /spsa SPSA-20260502-25089)",
+        "/approve <CASE_ID> — Approve case + auto-execute if LOW risk",
+        "",
         "_Type \"STAFF SUMMARY\" to start an SSS._",
         "_Plain text goes to COS (Opus via Agent SDK)._",
     ])
@@ -1886,6 +1891,82 @@ async def handle_draft_callback(update: Update, context: ContextTypes.DEFAULT_TY
 
 
 # ---------------------------------------------------------------------------
+# SPSA Command Handlers (Phase 3)
+# ---------------------------------------------------------------------------
+
+async def cmd_spsa(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Handle /spsa CASE_ID command to retrieve full SPSA brief."""
+    user_id = update.message.from_user.id
+    if not _is_commander(user_id):
+        await update.message.reply_text("Authorized access only.")
+        return
+
+    if not context.args:
+        await update.message.reply_text(
+            "Usage: `/spsa CASE_ID`\n\nExample: `/spsa SPSA-20260502-25089`",
+            parse_mode=ParseMode.MARKDOWN,
+        )
+        return
+
+    case_id = context.args[0].upper()
+    loop = asyncio.get_event_loop()
+
+    try:
+        from OpsCenter.spsa_telegram_c2 import handle_spsa_command
+
+        brief = await loop.run_in_executor(None, lambda: handle_spsa_command(case_id))
+        chunks = split_message(brief, max_len=4096)
+        for chunk in chunks:
+            try:
+                await update.message.reply_text(
+                    chunk,
+                    parse_mode=ParseMode.MARKDOWN,
+                )
+            except Exception:
+                await update.message.reply_text(chunk.replace("*", "").replace("_", ""))
+        _log_command("SPSA_BRIEF", "SPSA", f"case_id={case_id}", brief[:80])
+    except Exception as e:
+        logger.error(f"SPSA brief failed: {e}")
+        await update.message.reply_text(f"❌ Failed to retrieve brief: {e}")
+
+
+async def cmd_approve(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Handle /approve CASE_ID command to approve SPSA case and auto-execute LOW risk."""
+    user_id = update.message.from_user.id
+    if not _is_commander(user_id):
+        await update.message.reply_text("Authorized access only.")
+        return
+
+    if not context.args:
+        await update.message.reply_text(
+            "Usage: `/approve CASE_ID`\n\nExample: `/approve SPSA-20260502-25089`",
+            parse_mode=ParseMode.MARKDOWN,
+        )
+        return
+
+    case_id = context.args[0].upper()
+    loop = asyncio.get_event_loop()
+
+    try:
+        from OpsCenter.spsa_telegram_c2 import handle_approve_command
+
+        result = await loop.run_in_executor(None, lambda: handle_approve_command(case_id))
+        chunks = split_message(result, max_len=4096)
+        for chunk in chunks:
+            try:
+                await update.message.reply_text(
+                    chunk,
+                    parse_mode=ParseMode.MARKDOWN,
+                )
+            except Exception:
+                await update.message.reply_text(chunk.replace("*", "").replace("_", ""))
+        _log_command("SPSA_APPROVE", "SPSA", f"case_id={case_id}", result[:80])
+    except Exception as e:
+        logger.error(f"SPSA approval failed: {e}")
+        await update.message.reply_text(f"❌ Failed to approve case: {e}")
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -1920,6 +2001,10 @@ def main():
     app.add_handler(CommandHandler("fpd", cmd_fpd))
     app.add_handler(CommandHandler("dossier", cmd_dossier))
     app.add_handler(CommandHandler("ask", cmd_ask))
+
+    # SPSA (Standard Problem Solving Approach) commands
+    app.add_handler(CommandHandler("spsa", cmd_spsa))
+    app.add_handler(CommandHandler("approve", cmd_approve))
 
     # Draft approval inline buttons (approve/preview/reject)
     app.add_handler(CallbackQueryHandler(handle_draft_callback, pattern=r"^draft_"))
