@@ -1,29 +1,24 @@
 ---
-## TASK: HALE-OPUS-BRAIN-3-REVIEW
-from: Col. Victoria "Iron Vic" Hale, COS
-model_used: Gemini-3.1-Flash-Lite
-date: 2026-05-01 11:15 MT
-status: COMPLETE
-priority: P0
-completed: 2026-05-01 14:32 MT
-output: /home/john/Thunderbird/OpsCenter/collaboration/claude_outbox.md (Friction-Velocity assessment) + /home/john/Thunderbird/OpsCenter/YSB_BRIEFING_PROTOCOL.md (YSB civilian protocol)
+## TASK: SPSA-ANALYSIS-GMAIL-TEMPLATE-STRIPPING
+status: COMPLETED
+from: OpenCode
+injected: 2026-05-02 00:45 MT
+completed: 2026-05-03 01:15 MT
+priority: P1
 task: |
-  Commander is calling for Brain 3 (Claude Opus) review.
+  We are facing persistent template sanitization in the Gmail API pipeline (via create_gmail_draft_direct.py). 
   
-  OBJECTIVE: Analyze the integration between [1] Infrastructure/Process Improvement and [2] Client Lifecycle Operations within Thunderbird Wing.
-  
-  CONTEXT: 
-  - We have adopted the TSB (Thunderbird Summary Brief) protocol to replace formal SSS procedures.
-  - Commander notes: The Approve/Disapprove/Discuss flow is too binary for TA activities (flights, hotels, excursions, dining). These require iterative discussion, not simple approval.
-  - Commander wants to see how our process/tech improvements (MCP tools, persona tuning, CI/CD for agents) mesh with the client-facing work (the "Life Cycle").
-  
-  OPUS INSTRUCTIONS:
-  1. Analyze the "Friction/Velocity Paradox": Process improvements are intended to speed up operations, but they create overhead if they require high-stakes approvals on low-stakes tactical moves (like a dining search).
-  2. Propose a "Bimodal Briefing" structure for the TSB:
-     - PATH A (Executive): High-stakes/binding decisions (contracts, insurance, total budget) -> Approve/Disapprove flow.
-     - PATH B (Consultative): Tactical travel planning (flight/hotel/excursion/dining searches) -> Iterative discussion/polling flow.
-  3. Map the "Process/Tech Improvement" (Infrastructure) to "Client Lifecycle" (Mission). How does an MCP update to our flight scraper directly correlate to increased revenue or time-savings in the lifecycle?
-  4. Write the assessment as a Staff Summary Brief (TSB) in Brain 3 (Opus) quality.
-  
-  Write evaluation to /home/john/Thunderbird/OpsCenter/collaboration/claude_outbox.md
+  SPSA ANALYSIS REQUIRED:
+  1. SITUATION: We require consistent, branded D2M email stationery (Background #f7f3ea, Ink #0000ff, Georgia font) for client proposals and timelines.
+  2. PROBLEM: The Gmail API (and Gmail's internal rendering engine) strips specific CSS (background colors, certain font-family definitions, div-level styles) when pushing raw HTML via MIMEText.
+  3. SOLUTION: We need to define a "Gmail-Safe Stationery Specification." This includes:
+     - Identification of "safe" CSS (e.g., inline-only, legacy table-based layouts vs. div-based layouts).
+     - Identifying if the Gmail API `raw` field is being sanitized by Google's backend or if the MIME structure is triggering it.
+     - Proposing a robust template engine update (e.g., pre-processing HTML to inline all styles, removing disallowed tags).
+  4. ACTION:
+     - Provide a specific HTML/CSS template structure that is guaranteed not to be stripped by Gmail.
+     - Review `core/email/thunderbird_gmail.py` and `scripts/create_gmail_draft_direct.py` to see if the MIME structure is failing to signal "trusted" HTML.
+     - Propose a test-case script that sends a "Stress Test" email to verify what Gmail keeps vs. strips.
+
+  Write result to /home/john/Thunderbird/OpsCenter/collaboration/claude_outbox.md
 TASK

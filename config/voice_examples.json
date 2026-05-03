@@ -8,15 +8,15 @@
       "d2mconcierge@gmail.com"
     ],
     "days_back": 400,
-    "total_examples": 1123,
+    "total_examples": 1127,
     "by_tier": {
-      "personal": 295,
+      "personal": 296,
       "client": 198,
-      "vendor": 46,
-      "internal": 578,
+      "vendor": 47,
+      "internal": 580,
       "family": 6
     },
-    "last_sync": "2026-05-01T02:32:56.354580"
+    "last_sync": "2026-05-02T02:34:28.210308"
   },
   "examples": [
     {
@@ -3032,6 +3032,15 @@
       "to": "Dreams2Memories <d2mconcierge@gmail.com>",
       "date": "Wed, 29 Apr 2026 08:11:59 +1100",
       "body": "COO, Hale. What does this mean for Thunderbird?\n\nOn Wed, Apr 29, 2026, 00:12 Meng Li from AI Disruption <\naidisruption@substack.com> wrote:",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Thunderbird Products Archive — May 2026 @Thunderbird Backups #thunderbird #backup #products #monthly",
+      "to": "yodainva.5d9fc@m.evernote.com",
+      "date": "Fri, 1 May 2026 06:16:48 -0700",
+      "body": "Thunderbird Monthly Products Archive\nMonth: May 2026\nGenerated: 2026-05-01 07:16 MT\n\nFile counts:\n  PDFs:   0\n  HTML:   39\n  MD:     128\n  JSON:   81\n  Other:  87\n  Total:  335\n\nArchive size: 1775 KB compressed (5200 KB raw)\nAttached: thunderbird_products_202605.zip",
       "score": 4
     },
     {
@@ -8648,6 +8657,33 @@
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 30 Apr 2026 07:50:30 -0400",
       "body": "📊 HALE — DAILY OPERATIONAL BRIEF Generated 2026-04-30 · 06:00 MT · Commander John Loucks 📊 Client Lifecycle Wheel 7 active clients, urgency-coded segments, FPD countdown arcs. Click segment for detail panel. View Lifecycle Wheel → 💰 Financial Waterfall Commission pipeline flow: Prospects → Booked → At-Risk → Projected. Allianz claim divergence shown. View Waterfall → 🔥 Task Heat Map Clients × Task Types grid. Urgency-colored, effort-encoded. Hover for task roster by cell. View Heat Map → ⚠️ Risk Matrix Likelihood × Disruption scatter. Quadrants: Escalate (red), Mitigate (yellow), Monitor, Accept. Action registry below. View Risk Matrix → ⚡ DECISIONS NEEDED FROM COMMANDER Approve 11 Gmail Drafts? Kuklinski (validation), McLeod (Silver Muse 60-day + Grandeur TP0.5/TP0.6), Westbrook (Perx + SkyLux), Furlow/Nichols/Ely (CAK). All staged in d2mconcierge drafts folder. Initiate Lyons FPD Outreach? Nancy & Ken Lyons — FPD May 11 (14 days remaining). Direct Commander action required. Chase Furlow $15,486 Payment? Final payment was due Apr 1. Confirm received or authorize A9 follow-up. Re-Auth TESS? Financial feed is blind. Run: python3 thunderbird_tess.py --authorize to restore commission visibility. HALE — Col Victoria \"Iron Vic\" Hale | Chief of Staff | Dreams2Memories Travel, LLC This brief is generated automatically at 05:50 MT daily and sent at 06:00 MT. Link expires in 90 days. Briefs archived locally + Google Drive.",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "vendor",
+      "subject": "Please reset code so I can reset my password",
+      "to": "resetcodesnorthamerica@bedsonline.com",
+      "date": "Sat, 2 May 2026 14:06:04 +1300",
+      "body": "John Loucks\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[D2M RED] Preflight Check",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 1 May 2026 05:50:04 -0700",
+      "body": "Thunderbird Preflight — RED\nTime: 2026-05-01 06:50 MT\n\n✅ MCP Server: Running (PID 180180)\n🔴 Scheduler: NOT RUNNING\n🔴 Telegram C2: NOT RUNNING\n✅ Gmail Token: Valid (has refresh token)\n✅ Persona Token: Valid (has refresh token)\n✅ Disk Space: 800.7 GB free\n✅ TELEGRAM_BOT_TOKEN: Set\n✅ TELEGRAM_COMMANDER_ID: Set\n✅ GROQ_API_KEY: Set\n✅ Internet: Connected\n⚠️ Gemini API: No API key found\n🔴 MCP Port 8765: NOT LISTENING",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "HALE — DAILY BRIEF | 2026-05-01 06:00 MT",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 1 May 2026 04:50:02 -0700",
+      "body": "📊 HALE — DAILY OPERATIONAL BRIEF Generated 2026-05-01 · 06:00 MT · Commander John Loucks 📊 Client Lifecycle Wheel 7 active clients, urgency-coded segments, FPD countdown arcs. Click segment for detail panel. View Lifecycle Wheel → 💰 Financial Waterfall Commission pipeline flow: Prospects → Booked → At-Risk → Projected. Allianz claim divergence shown. View Waterfall → 🔥 Task Heat Map Clients × Task Types grid. Urgency-colored, effort-encoded. Hover for task roster by cell. View Heat Map → ⚠️ Risk Matrix Likelihood × Disruption scatter. Quadrants: Escalate (red), Mitigate (yellow), Monitor, Accept. Action registry below. View Risk Matrix → ⚡ DECISIONS NEEDED FROM COMMANDER Approve 11 Gmail Drafts? Kuklinski (validation), McLeod (Silver Muse 60-day + Grandeur TP0.5/TP0.6), Westbrook (Perx + SkyLux), Furlow/Nichols/Ely (CAK). All staged in d2mconcierge drafts folder. Initiate Lyons FPD Outreach? Nancy & Ken Lyons — FPD May 11 (14 days remaining). Direct Commander action required. Chase Furlow $15,486 Payment? Final payment was due Apr 1. Confirm received or authorize A9 follow-up. Re-Auth TESS? Financial feed is blind. Run: python3 thunderbird_tess.py --authorize to restore commission visibility. HALE — Col Victoria \"Iron Vic\" Hale | Chief of Staff | Dreams2Memories Travel, LLC This brief is generated automatically at 05:50 MT daily and sent at 06:00 MT. Link expires in 90 days. Briefs archived locally + Google Drive.",
       "score": 3
     },
     {

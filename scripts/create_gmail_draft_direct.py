@@ -60,27 +60,28 @@ def create_draft_with_token():
         print(f"ERROR building Gmail service: {e}")
         sys.exit(1)
 
-    # Read HTML email body
-parser = argparse.ArgumentParser()
-parser.add_argument('--html', required=True)
-parser.add_argument('--to', required=True)
-parser.add_argument('--subject', required=True)
-args = parser.parse_args()
-html_file = Path(args.html)
-to_email = args.to
-subject = args.subject
-from_email = "d2mconcierge@gmail.com"
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--html', required=True)
+    parser.add_argument('--to', required=True)
+    parser.add_argument('--subject', required=True)
+    args = parser.parse_args()
+    
+    with open(args.html, 'r') as f:
+        html_body = f.read()
 
     print(f"\nCreating draft:")
-    print(f"  To: {to_email}")
-    print(f"  From: {from_email}")
-    print(f"  Subject: {subject}")
+    print(f"  To: {args.to}")
+    print(f"  From: d2mconcierge@gmail.com")
+    print(f"  Subject: {args.subject}")
 
+    from_email = "d2mconcierge@gmail.com"
+    
     # Build email message
     message = MIMEMultipart('alternative')
-    message['to'] = to_email
+    message['to'] = args.to
     message['from'] = from_email
-    message['subject'] = subject
+    message['subject'] = args.subject
 
     # Add HTML part
     msg_html = MIMEText(html_body, 'html', 'utf-8')

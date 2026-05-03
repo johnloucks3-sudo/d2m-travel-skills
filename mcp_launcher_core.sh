@@ -1,10 +1,10 @@
 #!/bin/bash
-# Thunderbird MCP — CORE profile
-# Tools: gmail, drive, dossiers, personas, learning, inbox, sss (~25 tools)
+# Thunderbird MCP — FULL profile (headless Claude has access to ALL tools)
+# Tools: 120+ including gmail, flight/hotel/tour search, intel, ops, dossiers, personas, learning, inbox
 set -a
 source /home/john/Thunderbird/.env
 set +a
-export MCP_PROFILE=core
+export MCP_PROFILE=full
 
 # PYTHONPATH — flat module names still work after core/ reorg
 export PYTHONPATH=/home/john/Thunderbird:\

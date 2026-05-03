@@ -4508,5 +4508,45 @@
     "persona": "A9",
     "draft_id": null,
     "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-02T08:43:47.201897+00:00",
+    "msg_id": "19dd7a7c516f8e27",
+    "subject": "Re: Your Japan Itinerary \u2014 Revised with Your Preferences Built In",
+    "sender": "iamheer@outlook.com",
+    "classification": "booking_confirmation",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "intake_monitoring"
+  },
+  {
+    "timestamp": "2026-05-02T14:16:06.116084+00:00",
+    "msg_id": "19de8bd2ff4b2bf0",
+    "subject": "[D2M RED] Preflight Check",
+    "sender": "",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-02T18:16:12.963267+00:00",
+    "msg_id": "19de9c2c4bb4db25",
+    "subject": "Your receipt from Anthropic, PBC #2605-7032-4655",
+    "sender": "invoice+statements@mail.anthropic.com",
+    "classification": "financial",
+    "persona": "A9",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-02T22:15:38.753456+00:00",
+    "msg_id": "19deab04755be6c9",
+    "subject": "Forgotten Password",
+    "sender": "web@atlasoceanvoyages.net",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
   }
 ]

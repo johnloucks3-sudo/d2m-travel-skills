@@ -1,0 +1,190 @@
+================================================================================
+COS APPROVAL WORKFLOW — QUICK REFERENCE CARD
+================================================================================
+
+PREREQUISITES
+─────────────────────────────────────────────────────────────────────────────
+□ d2mconcierge OAuth configured: ~/.credentials/d2mconcierge.json exists
+□ Monitor service running: sudo systemctl status cos-approval-monitor.service
+□ Directories created: ~/.thunderbird_approvals, ~/Thunderbird/drafts
+
+================================================================================
+WORKFLOW: DRAFT → APPROVAL → SEND
+================================================================================
+
+STEP 1: CREATE DRAFT (2 minutes)
+───────────────────────────────────────────────────────────────────────────────
+$ python3 ~/Thunderbird/scripts/create_gmail_draft_direct_v3.py \
+    --html ~/Thunderbird/drafts/proposal.html \
+    --to johnloucks3@gmail.com \
+    --subject "[DRAFT] Your Title Here"
+
+✓ Output: Draft ID (e.g., abc123xyz), saved to ~/.thunderbird_approvals/
+
+STEP 2: FORWARD DRAFT (1 minute)
+───────────────────────────────────────────────────────────────────────────────
+1. Open Gmail → d2mconcierge account
+2. Go to Drafts folder
+3. Open the draft
+4. Click "Forward"
+5. To: johnloucks3@gmail.com
+6. Send
+
+STEP 3: COMMANDER APPROVES (2–60 minutes)
+───────────────────────────────────────────────────────────────────────────────
+Commander opens johnloucks3 inbox, reviews draft, clicks Reply, types "approve", sends.
+
+STEP 4: FINAL DRAFT GENERATED (1–2 minutes automatic)
+───────────────────────────────────────────────────────────────────────────────
+Monitor daemon polls johnloucks3, detects "approve" reply, auto-generates final draft
+in d2mconcierge Drafts folder. Sends notification "Draft Ready for Editing" to johnloucks3.
+
+STEP 5: COMMANDER EDITS & SENDS (1–5 minutes)
+───────────────────────────────────────────────────────────────────────────────
+1. Open d2mconcierge Gmail
+2. Go to Drafts folder
+3. Find the draft
+4. Edit as needed (full formatting preserved)
+5. Click Send
+
+================================================================================
+QUICK COMMANDS
+================================================================================
+
+SETUP & VALIDATION
+  bash ~/Thunderbird/scripts/install_approval_workflow.sh
+  python3 ~/Thunderbird/scripts/test_approval_workflow.py
+
+SERVICE MANAGEMENT
+  sudo systemctl status cos-approval-monitor.service
+  sudo systemctl restart cos-approval-monitor.service
+  sudo journalctl -u cos-approval-monitor.service -f
+
+OAUTH MANAGEMENT
+  python3 ~/Thunderbird/scripts/setup_d2mconcierge_oauth.py
+
+LOGS & MONITORING
+  tail -50 ~/.thunderbird_approvals/monitor.log
+  tail -50 ~/.thunderbird_approvals/generator.log
+  ls -la ~/.thunderbird_approvals/draft_*.json
+
+CHECK DRAFT STATUS
+  cat ~/.thunderbird_approvals/draft_{DRAFT_ID}.json
+
+MANUAL FINAL DRAFT TRIGGER (if auto-detection fails)
+  python3 ~/Thunderbird/scripts/cos_final_draft_generator.py \
+    --draft-id {DRAFT_ID} \
+    --to johnloucks3@gmail.com \
+    --subject "[DRAFT] ..."
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+PROBLEM: Monitor service won't start
+  → Check: sudo systemctl status cos-approval-monitor.service --no-pager -l
+  → Fix: sudo systemctl restart cos-approval-monitor.service
+
+PROBLEM: Draft created but approval not detected
+  → Check logs: tail -50 ~/.thunderbird_approvals/monitor.log
+  → Verify: Reply was sent to johnloucks3 (not d2mconcierge)
+  → Verify: Reply contains word "approve"
+
+PROBLEM: Final draft not created after approval
+  → Check: ls -la ~/.thunderbird_approvals/html_{DRAFT_ID}.txt
+  → Verify: ~/.credentials/d2mconcierge.json exists and is readable
+  → Check logs: tail -50 ~/.thunderbird_approvals/generator.log
+
+PROBLEM: OAuth token expired
+  → Fix: python3 ~/Thunderbird/scripts/setup_d2mconcierge_oauth.py
+  → Restart: sudo systemctl restart cos-approval-monitor.service
+
+================================================================================
+FORMATTING GUARANTEES
+================================================================================
+
+✅ PRESERVED:
+  • Background color (#f7f3ea cream)
+  • Ink color (#0000ff bright blue)
+  • Font family (Georgia serif)
+  • Text styling (bold, italic, underline)
+  • Images and links
+  • Table layouts
+  • Line breaks and spacing
+
+❌ REMOVED (for Gmail safety):
+  • Script tags
+  • Event handlers (onclick, onload, etc.)
+  • Unsafe CSS (animation, transform, position:fixed)
+  • iFrames and embedded SVGs
+
+================================================================================
+FILES & LOCATIONS
+================================================================================
+
+SCRIPTS: ~/Thunderbird/scripts/
+  • create_gmail_draft_direct_v3.py ← Use this to create drafts
+  • cos_approval_monitor.py ← Runs as systemd service
+  • cos_final_draft_generator.py ← Auto-triggered on approval
+
+DOCUMENTATION: ~/Thunderbird/docs/
+  • APPROVAL_WORKFLOW_OPERATOR_MANUAL.md ← Full guide
+  • APPROVAL_WORKFLOW_README.md ← Architecture overview
+
+LOGS & DATA: ~/.thunderbird_approvals/
+  • monitor.log ← Approval monitor activity
+  • generator.log ← Final draft generator output
+  • draft_{ID}.json ← Tracking metadata for each draft
+  • html_{ID}.txt ← Original HTML (used for final draft)
+
+OAuth: ~/.credentials/d2mconcierge.json
+
+================================================================================
+EXAMPLE WORKFLOW (Full)
+================================================================================
+
+# 1. Create HTML file
+cat > ~/Thunderbird/drafts/proposal_20260503.html << 'EOF'
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { background-color: #f7f3ea; color: #0000ff; font-family: Georgia, serif; }
+    .container { width: 600px; padding: 20px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Custom Itinerary for Client</h1>
+    <p>Here's your proposal...</p>
+  </div>
+</body>
+</html>
+EOF
+
+# 2. Create draft in d2mconcierge
+python3 ~/Thunderbird/scripts/create_gmail_draft_direct_v3.py \
+  --html ~/Thunderbird/drafts/proposal_20260503.html \
+  --to johnloucks3@gmail.com \
+  --subject "[DRAFT] Client Proposal May 2026"
+
+# 3. [Manually] Forward draft from d2mconcierge to johnloucks3
+
+# 4. [Commander] Opens johnloucks3, replies "approve"
+
+# 5. [Automatic] Monitor detects approval, generates final draft
+
+# 6. [Commander] Edits final draft in d2mconcierge, sends
+
+================================================================================
+REFERENCE DOCS
+================================================================================
+
+Quick Start:           docs/APPROVAL_WORKFLOW_README.md
+Full Operator Manual:  docs/APPROVAL_WORKFLOW_OPERATOR_MANUAL.md
+Technical Deep-Dive:   docs/GMAIL_TEMPLATE_SOLUTION_IRONCLAD.md
+Improvements vs. Grok: docs/GMAIL_SOLUTION_IMPROVEMENTS_SUMMARY.md
+
+================================================================================
+Last Updated: 2026-05-03 | Approval Workflow v1.0 | Production Ready
+================================================================================

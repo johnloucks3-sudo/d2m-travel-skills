@@ -56,3 +56,14 @@
 - **A5 Fit:** ? — 
 - **A9:** ? —  · ROI: 
 - **ELON:** _79k listings = real scale. Raw dump = garbage signal. Dedup + filter is non-negotiable. Requires SSS approval on: (1) storage cost for listing corpus, (2) entity resolution compute (Levenshtein is O(n²) without indexing), (3) quality threshold validation to ensure dedup+filter doesn't over-reduce signal corpus below utility._
+
+### ELON-2026-05-02-001 — Android Private Space Signal — HNWI Privacy Compartmentalization Detection
+- **Status:** 🟡 PENDING
+- **Date:** 2026-05-02
+- **What:** Detect and flag when HNWI clients use Android Private Space (encrypted app/data hiding) as privacy preference signal for profile enrichment.
+- **Why:** Closes gap in HNWI profile inference — compartmentalization desire signals security-conscious, high-net-worth profile; enables Dani to tailor privacy-forward copy + compliance messaging.
+- **How:** Add 'android_private_space' boolean field to thunderbird_recipient_profiles.py::RecipientProfile dataclass. Integrate into guest_intake_form (checkbox: 'I use Android Private Space for sensitive apps'). Hook into life_event_trigger_crm.py::enrich_profile_from_signals() to boost privacy_preference_score. Store in dossier JSON under client.privacy_signals.
+- **Effort:** LOW · **SSS:** YES
+- **A5 Fit:** ACCELERATES — Serves current HNWI clients + builds reusable signal-inference pattern; gate on privacy policy amendment before form deploy.
+- **A9:** FLAG_FOR_COMMANDER — NO - $0/mo · ROI: HNWI profile inference closure → better privacy-conscious client targeting → improved retention + compliance messaging fit
+- **ELON:** _Ask don't infer — we have zero device telemetry. One checkbox in intake form, zero API complexity. But flag: privacy signal collection itself needs privacy policy amendment + Commander sign-off before we touch client-facing forms._

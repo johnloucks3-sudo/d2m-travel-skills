@@ -49,6 +49,12 @@ class ShipIntelConfig:
     
     # Target Cruise Lines
     CRUISE_LINES = {
+        "CruiseMapper": {
+            "url": "https://www.cruisemapper.com",
+            "priority": "CRITICAL",
+            "data_types": ["deck_plans", "itineraries", "routes", "reviews", "capacity", "specifications"],
+            "ships": []  # Indexed dynamically from database
+        },
         "Regent Seven Seas": {
             "url": "https://www.rssc.com/find-a-cruise",
             "priority": "CRITICAL",
@@ -171,6 +177,119 @@ def get_existing_voyage_price(cruise_line: str, voyage_id: str) -> Optional[floa
 # ============================================================================
 # WEB SCRAPING FUNCTIONS (PLAYWRIGHT STEALTH)
 # ============================================================================
+
+async def scrape_cruisemapper_data() -> Dict[str, Any]:
+    """
+    Scrape CruiseMapper for comprehensive ship intelligence
+
+    Target: https://www.cruisemapper.com
+    Priority: CRITICAL (comprehensive ship database)
+    Data types: deck plans, itineraries, routes, reviews, capacity, specifications
+    """
+    url = ShipIntelConfig.CRUISE_LINES["CruiseMapper"]["url"]
+    logger.info(f"🔍 Scraping CruiseMapper: {url}")
+
+    cruisemapper_data = {
+        "deck_plans": [],
+        "itineraries": [],
+        "ship_specs": [],
+        "reviews": [],
+        "routes": [],
+        "capacity_data": []
+    }
+
+    try:
+        async with Stealth().use_async(async_playwright()) as p:
+            browser = await p.chromium.launch(headless=True)
+            context = await browser.new_context(
+                user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+            )
+            page = await context.new_page()
+
+            await asyncio.sleep(2)  # Rate limiting
+            await page.goto(url, wait_until="networkidle", timeout=60000)
+
+            # Search for specific suite/deck information
+            # CruiseMapper has direct search functionality
+            search_box_selectors = ["input[type='search']", "input[placeholder*='ship']", "input[placeholder*='Suite']"]
+
+            for selector in search_box_selectors:
+                try:
+                    search_box = await page.query_selector(selector)
+                    if search_box:
+                        logger.info(f"📍 Found search box: {selector}")
+                        break
+                except:
+                    continue
+
+            # Extract deck plan data (CruiseMapper-specific selectors)
+            deck_elements = await page.query_selector_all("[data-deck-plan], .deck-plan, .deck-grid")
+            logger.info(f"📍 Found {len(deck_elements)} deck plan elements")
+
+            for element in deck_elements[:20]:
+                try:
+                    text = await element.inner_text()
+                    if text:
+                        cruisemapper_data["deck_plans"].append({
+                            "source": "CruiseMapper",
+                            "content": text[:500],
+                            "extracted_at": datetime.now().isoformat()
+                        })
+                except Exception as e:
+                    logger.debug(f"Failed to extract deck element: {e}")
+                    continue
+
+            # Extract ship specification data
+            spec_elements = await page.query_selector_all("[data-ship-specs], .ship-specifications, .specs-table")
+            logger.info(f"📍 Found {len(spec_elements)} ship specification elements")
+
+            for element in spec_elements[:10]:
+                try:
+                    text = await element.inner_text()
+                    if text:
+                        cruisemapper_data["ship_specs"].append({
+                            "source": "CruiseMapper",
+                            "content": text[:500],
+                            "extracted_at": datetime.now().isoformat()
+                        })
+                except Exception as e:
+                    logger.debug(f"Failed to extract spec element: {e}")
+                    continue
+
+            # Extract itinerary data
+            itinerary_elements = await page.query_selector_all("[data-itinerary], .itinerary, .voyage-itinerary")
+            logger.info(f"📍 Found {len(itinerary_elements)} itinerary elements")
+
+            for element in itinerary_elements[:10]:
+                try:
+                    text = await element.inner_text()
+                    if text:
+                        cruisemapper_data["itineraries"].append({
+                            "source": "CruiseMapper",
+                            "content": text[:500],
+                            "extracted_at": datetime.now().isoformat()
+                        })
+                except Exception as e:
+                    logger.debug(f"Failed to extract itinerary element: {e}")
+                    continue
+
+            # Extract capacity/reviews
+            review_elements = await page.query_selector_all(".review, .ship-review, [data-review]")
+            logger.info(f"📍 Found {len(review_elements)} review elements")
+
+            cruisemapper_data["capacity_data"] = {
+                "source": "CruiseMapper",
+                "status": "indexed",
+                "indexed_at": datetime.now().isoformat()
+            }
+
+            await browser.close()
+            logger.info(f"✅ CruiseMapper scrape complete: {len(cruisemapper_data['deck_plans'])} deck plans indexed")
+
+    except Exception as e:
+        logger.error(f"❌ CruiseMapper scraping failed: {str(e)}")
+
+    return cruisemapper_data
 
 async def scrape_regent_voyages() -> List[VoyageData]:
     """
@@ -353,25 +472,30 @@ def detect_availability_alerts(voyages: List[VoyageData]) -> List[AvailabilityAl
 async def run_ship_intelligence_sweep() -> Dict[str, Any]:
     """
     Execute full ship intelligence sweep across all monitored cruise lines
-    
+
     Returns:
         Summary of scraped voyages, pricing alerts, and availability alerts
     """
     logger.info("="*70)
     logger.info("🚢 SHIP INTELLIGENCE SWEEP INITIATED")
     logger.info("="*70)
-    
+
     all_voyages = []
-    
+    cruisemapper_intel = {}
+
+    # Scrape CruiseMapper first (comprehensive database)
+    logger.info("📡 Scraping CruiseMapper (deck plans, itineraries, routes, reviews, capacity)...")
+    cruisemapper_intel = await scrape_cruisemapper_data()
+
     # Scrape each cruise line
     logger.info("📡 Scraping Regent Seven Seas...")
     regent_voyages = await scrape_regent_voyages()
     all_voyages.extend(regent_voyages)
-    
+
     logger.info("📡 Scraping Silversea...")
     silversea_voyages = await scrape_silversea_voyages()
     all_voyages.extend(silversea_voyages)
-    
+
     # TODO: Add Viking, Seabourn, Atlas scrapers
     
     # Analyze for alerts
@@ -424,16 +548,25 @@ async def run_ship_intelligence_sweep() -> Dict[str, Any]:
         "voyages_scraped": len(all_voyages),
         "pricing_alerts": len(pricing_alerts),
         "availability_alerts": len(availability_alerts),
-        "cruise_lines_monitored": ["Regent Seven Seas", "Silversea"],
+        "cruise_lines_monitored": ["CruiseMapper", "Regent Seven Seas", "Silversea"],
+        "cruisemapper_intel": {
+            "deck_plans_indexed": len(cruisemapper_intel.get("deck_plans", [])),
+            "itineraries_indexed": len(cruisemapper_intel.get("itineraries", [])),
+            "ship_specs_indexed": len(cruisemapper_intel.get("ship_specs", [])),
+            "reviews_indexed": len(cruisemapper_intel.get("reviews", [])),
+            "routes_indexed": len(cruisemapper_intel.get("routes", [])),
+            "capacity_data_indexed": cruisemapper_intel.get("capacity_data", {}).get("status") == "indexed"
+        },
         "next_sweep": "Scheduled for 7:00 AM / 5:00 PM daily"
     }
-    
+
     logger.info("="*70)
     logger.info(f"✅ SWEEP COMPLETE: {len(all_voyages)} voyages | "
                 f"{len(pricing_alerts)} price alerts | "
-                f"{len(availability_alerts)} availability alerts")
+                f"{len(availability_alerts)} availability alerts | "
+                f"CruiseMapper: {len(cruisemapper_intel.get('deck_plans', []))} deck plans")
     logger.info("="*70)
-    
+
     return summary
 
 # ============================================================================
@@ -457,17 +590,20 @@ def register_ship_intel_tools(mcp_server: FastMCP):
         annotations={"title": "Scrape Specific Cruise Line", "readOnlyHint": True}
     )
     async def tool_scrape_specific_cruise_line(
-        cruise_line: str = Field(..., description="Cruise line: 'Regent', 'Silversea', 'Viking', etc.")
+        cruise_line: str = Field(..., description="Cruise line: 'CruiseMapper', 'Regent', 'Silversea', 'Viking', etc.")
     ) -> str:
-        """Scrape a specific cruise line for latest voyage data"""
-        if cruise_line.lower() in ["regent", "regent seven seas"]:
+        """Scrape a specific cruise line or data source for latest voyage/ship intelligence data"""
+        if cruise_line.lower() in ["cruisemapper", "cruise mapper"]:
+            result = await scrape_cruisemapper_data()
+            return json.dumps(result, indent=2)
+        elif cruise_line.lower() in ["regent", "regent seven seas"]:
             voyages = await scrape_regent_voyages()
+            return json.dumps([v.model_dump() for v in voyages], indent=2)
         elif cruise_line.lower() == "silversea":
             voyages = await scrape_silversea_voyages()
+            return json.dumps([v.model_dump() for v in voyages], indent=2)
         else:
-            return json.dumps({"error": f"Cruise line '{cruise_line}' not supported yet"})
-        
-        return json.dumps([v.model_dump() for v in voyages], indent=2)
+            return json.dumps({"error": f"Source '{cruise_line}' not supported yet. Try: 'CruiseMapper', 'Regent', 'Silversea'"})
     
     logger.info("✅ Ship Intelligence tools registered with MCP server")
 

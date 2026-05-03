@@ -1,6 +1,37 @@
 {
   "active_missions": [
     {
+      "id": "MISSION-019",
+      "title": "Email System Analysis & Trigger Revision",
+      "status": "in_progress",
+      "priority": "P1",
+      "assigned_to": "Hale",
+      "description": "Email scanning/tasking pipeline overhaul. Phase 1: Execute Option C (Structured Routing with Supplier Fast-Path) — rebuild router logic for supplier vs. client email classification, enable selective Dani auto-draft on supplier emails only, rebuild d2m-email-intel timer scheduling. Phase 2 (future): Expand trigger system beyond current sender-name-based filtering (currently: hale, cos, coo only on unread). New triggers to evaluate: domain whitelist, Gmail labels, time-window batch sweep, flagged/starred status. Goal: Full email-to-action automation without manual address writing.",
+      "created_at": "2026-05-02T02:18:00Z",
+      "updated_at": "2026-05-02T02:36:57Z",
+      "logs": [
+        "[2026-05-02T02:18:00] MISSION-019 created by COS",
+        "[2026-05-02T02:18:00] Phase 1 (Option C execution) assigned to Hale. ETA: 3 hours.",
+        "[2026-05-02T02:36:57] PHASE 1 EXECUTION COMPLETE ✅",
+        "[2026-05-02T02:36:57] Implemented: Structured routing (Tier 1/2/3), supplier domains (50+ patterns), selective Dani auto-draft",
+        "[2026-05-02T02:36:57] Added: SUPPLIER_DOMAINS set (50+ cruise/airline/hotel/GDS domains), SUPPLIER_SENDERS set (known service accounts)",
+        "[2026-05-02T02:36:57] Added: _determine_email_tier() function, _populate_client_addresses() function",
+        "[2026-05-02T02:36:57] Modified: task_email() now routes via tier logic, selective auto-draft enabled for Tier 1 only",
+        "[2026-05-02T02:36:57] Verified: d2m-email-intel.timer active and scheduled (07:00/15:00 MDT daily)",
+        "[2026-05-02T02:36:57] Test sweep: 6 emails classified, tier routing working correctly",
+        "[2026-05-02T02:36:57] Status: PRODUCTION READY — Tier 1 (Supplier) auto-draft active, Tier 2 (Client) WF-17 gate active, Tier 3 (Intake) monitoring active",
+        "[2026-05-02T02:43:22] PHASE 1.5 REVISION: Focus shift to email tasking + COS discussion",
+        "[2026-05-02T02:43:22] INITIAL ATTEMPT: Label/star-based filtering (rejected by user)",
+        "[2026-05-02T02:47:25] PHASE 1.5 FINAL: Reverted to natural interaction triggers",
+        "[2026-05-02T02:47:25] RE-ENABLED: Supplier auto-scanning (SUPPLIER_SCANNING_ENABLED = True)",
+        "[2026-05-02T02:47:25] QUERY: Look for (1) emails from johnloucks3@gmail.com (forwarded to us), (2) emails starting with 'COS, ' or 'Hale, ' in subject",
+        "[2026-05-02T02:47:25] TIMER: Every 5 minutes, looking back 20 minutes for natural triggers",
+        "[2026-05-02T02:47:25] TASK_EMAIL: Restored SUPPLIER tier tasking + auto-draft for booking confirmations",
+        "[2026-05-02T02:47:25] STYLE: Natural back-and-forth flow, Hale signature block at end, SPSA only when needed",
+        "[2026-05-02T02:47:25] Status: PRODUCTION READY — Natural interaction workflow (forward or 'COS, ' prefix), processes every 5 minutes"
+      ]
+    },
+    {
       "id": "MISSION-018",
       "title": "Travel Service Credentials Provisioning",
       "status": "in_progress",

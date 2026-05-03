@@ -156,6 +156,8 @@ relationship: client
 | 2026-03-23 | Re: Client Portal Activation (thanks, got passport) | Missy |
 | 2026-03-25 | Re: Client Portal Activation (Chase Sapphire, send CVC) | Missy |
 | 2026-03-25 | Fwd: Invoice: 3071222 (final payment invoice) | Missy |
+| 2026-05-01 | Re: Regent Seven Seas Cruises Invoice: 3071222 Guest: FURLOW | Missy (from personal) |
+| 2026-05-01 | Fwd: Regent Seven Seas Cruises Invoice: 3071222 Guest: FURLOW | Missy (from personal) |
 
 ---
 

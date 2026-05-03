@@ -21,3 +21,9 @@ TESS portal access has been successfully restored via session cookie injection. 
 
 *Signed,*
 *OpenCode / Hale*
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-02 18:01:44
+Token health issue: Token expiring in 11 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-02 18:16:47
+Token health issue: Token expired 3 min ago

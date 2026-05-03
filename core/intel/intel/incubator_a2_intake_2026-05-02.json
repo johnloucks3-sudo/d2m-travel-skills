@@ -1,0 +1,57 @@
+[
+  {
+    "id": "A2-2026-05-02-001",
+    "title": "Behavioral Definition \u2014 Dictionary Baseline",
+    "source_signal": "Behavioral Definition & Meaning signals 1-4",
+    "classification": "REJECT",
+    "gap_closed": "none",
+    "thunderbird_component": "none",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Dictionary definitions of 'behavioral' have zero architectural relevance to D2M travel booking or client engagement."
+  },
+  {
+    "id": "A2-2026-05-02-002",
+    "title": "Browser Incognito Privacy Mode \u2014 Client Fingerprinting Baseline",
+    "source_signal": "Browse in Incognito mode + Naviguer en mode navigation priv\u00e9e signals 5-7",
+    "classification": "WATCH",
+    "gap_closed": "client privacy preference detection (immature signal)",
+    "thunderbird_component": "thunderbird_client_context.py + behavioral_preference_inference",
+    "risk": "MED",
+    "sss_required": false,
+    "rationale": "COS memo confirms LOW effort baseline. Incognito behavior is weak HNWI privacy signal \u2014 defer 30 days pending cross-transaction memory compounding build."
+  },
+  {
+    "id": "A2-2026-05-02-003",
+    "title": "Android Private Space Detection \u2014 HNWI App Hiding",
+    "source_signal": "Hide sensitive apps with private space signal 8",
+    "classification": "INTEGRATE",
+    "gap_closed": "signals affluent client desire for compartmentalized app/data hiding (privacy-conscious profile inference)",
+    "thunderbird_component": "thunderbird_recipient_profiles.py + life_event_trigger_crm layer",
+    "risk": "HIGH",
+    "sss_required": true,
+    "rationale": "COS escalates as SSS: approve as D2M privacy-evasion layer for HNWI app hiding? Requires Commander decision on integration scope + client-facing privacy guarantees."
+  },
+  {
+    "id": "A2-2026-05-02-004",
+    "title": "Steam Game Privacy Markers \u2014 Affluent Player Profiling Vector",
+    "source_signal": "Mark as Private v Hide on games in library signal 10",
+    "classification": "WATCH",
+    "gap_closed": "gaming preference and affluence correlation (niche recreational profiling)",
+    "thunderbird_component": "thunderbird_auto_enrich.py + cross_transaction_memory",
+    "risk": "MED",
+    "sss_required": false,
+    "rationale": "COS flags as funding question (low-med fit, ~$1.5M est). Monitor for affluent gamer targeting in 30-day cycle; defer until behavioral compounding layer deployed."
+  },
+  {
+    "id": "A2-2026-05-02-005",
+    "title": "WoW Private Server Lists \u2014 Gaming Niche HNWI Targeting",
+    "source_signal": "Private Server List + index - wowservers signals 6, 9",
+    "classification": "WATCH",
+    "gap_closed": "niche gaming communities as affluent customer proxy (indirect behavior signal)",
+    "thunderbird_component": "thunderbird_competitive_surveillance.py + gaming_vertical_intel",
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "Per COS: WATCH list. Monitor for HNWI gaming niche signals EN/FR. No build commitment; reassess post-30 days if multilingual G build ships."
+  }
+]

@@ -1,0 +1,27 @@
+[Unit]
+Description=COS Approval Monitor — watches johnloucks3 for draft approvals
+Documentation=file:///home/john/Thunderbird/docs/GMAIL_SOLUTION_IMPROVEMENTS_SUMMARY.md
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=john
+WorkingDirectory=/home/john/Thunderbird
+ExecStart=/usr/bin/python3 /home/john/Thunderbird/scripts/cos_approval_monitor.py --daemon --poll-interval 60
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=cos-approval-monitor
+
+# Security
+NoNewPrivileges=true
+PrivateTmp=yes
+
+# Resource limits
+MemoryLimit=256M
+CPUQuota=25%
+
+[Install]
+WantedBy=multi-user.target

@@ -38,6 +38,7 @@ from thunderbird_trip_architect import register_trip_architect_tools
 from thunderbird_competitive_surveillance import register_surveillance_tools
 from thunderbird_price_monitor import register_price_monitor_tools
 from thunderbird_email_intel import register_email_intel_tools
+from thunderbird_gmail import register_gmail_tools
 from thunderbird_tess import register_tess_tools
 from thunderbird_shared_memory import register_memory_tools
 from thunderbird_crewai import register_crewai_tools
@@ -478,7 +479,7 @@ _CORE_LOADERS = [
     register_temporal_tools, register_conversation_learner_tools,
     register_recipient_profile_tools, register_email_classifier_tools,
     register_dossier_scanner_tools, register_bulletin_tools, register_anchor_date_tools,
-    register_briefing_tools,
+    register_briefing_tools, register_gmail_tools,
 ]
 
 # ── INTEL additions ───────────────────────────────────────────────────────────

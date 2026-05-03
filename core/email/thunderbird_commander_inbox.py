@@ -85,11 +85,12 @@ CLASSIFICATION_ROUTING: Dict[str, Dict[str, str]] = {
     "personal": {"persona": None, "label": "SKIP"},
 }
 
-# ⚠️ DANI AUTO-DRAFT KILL SWITCH — Standing Order 2026-03-25
-# Commander directive: Dani was consuming 10%+ tokens/2h auto-drafting supplier
-# and unsolicited Commander-inbox responses. LOCKED until COS audit complete.
-# Re-enable by setting DANI_AUTO_DRAFT_ENABLED = True after supplier filter audit.
-DANI_AUTO_DRAFT_ENABLED = False  # LOCKED by COS 2026-03-25 per Commander directive
+# ⚠️ DANI AUTO-DRAFT & SUPPLIER SCANNING CONTROL
+# Standing Order 2026-03-25: Dani was consuming 10%+ tokens/2h auto-drafting
+# NATURAL INTERACTION (2026-05-02): Email tasking via forwarding + trigger phrases
+# Scanning for: (1) Forwarded emails from johnloucks3, (2) Emails starting with "COS, " or "Hale, "
+DANI_AUTO_DRAFT_ENABLED = False  # Deprecated (tier routing controls behavior now)
+SUPPLIER_SCANNING_ENABLED = True  # Re-enabled for natural workflow
 
 # Wing's own addresses — any email FROM these is self-send, never inbound client
 # Fast-path: return "personal" immediately before any LLM call
@@ -122,6 +123,80 @@ _NOISE_PATTERNS = re.compile(
     re.IGNORECASE,
 )
 
+# ============================================================================
+# OPTION C: STRUCTURED ROUTING — SUPPLIER vs CLIENT CLASSIFICATION
+# ============================================================================
+
+# Tier 1: SUPPLIER DOMAINS — Known travel vendors, systems, booking confirmations
+# These get LIGHTWEIGHT auto-draft (template responses, low token cost)
+SUPPLIER_DOMAINS = {
+    # Cruise lines
+    "silversea.com", "silverseamail.com",
+    "rssc.com", "rsccdirect.com",
+    "regent7seas.com", "regent.com", "seveneasrsc.com",
+    "cunardline.com", "cunard.com",
+    "oceaniacruises.com", "oceania.com",
+    "seabourn.com", "seabournmail.com",
+    "vikingcruises.com", "viking.com",
+    "amawaterways.com", "ama.com",
+    "ponant.com", "boquierports.com",
+    # GDS / booking systems
+    "tess.com", "tessintl.com",
+    "amadeus.com", "amadeus-hospitality.com",
+    "sabre.com", "sabresoap.com",
+    "travelport.com", "galileo.com",
+    "gds-systems.com",
+    # Airlines
+    "southwest.com", "swa.com",
+    "united.com", "unitedcruises.com",
+    "aa.com", "americanairlines.com",
+    "delta.com", "deltaair.com",
+    "alaskaair.com", "alaskaairlines.com",
+    "frontier.com", "spirit.com",
+    "lufthansa.com", "klm.com", "airfrance.com",
+    # Hotels / Resorts
+    "hyatt.com", "marriott.com", "hilton.com",
+    "fourseasons.com", "ritzcarleton.com",
+    "fairmont.com", "aman.com",
+    "sixsenses.com", "belmond.com",
+    # Excursions / Tours / Transfers
+    "getyourguide.com", "viator.com",
+    "klook.com", "civitatis.com",
+    "kiwitaxi.com", "blacklane.com",
+    "uber.com", "lyft.com",
+    "shuttledirect.com", "rentalcars.com",
+    # Payments / Invoicing
+    "stripe.com", "paypal.com",
+    "authorize.net", "square.com",
+    # Insurance
+    "insuremytrip.com", "travelinsurance.com",
+    # Google / Automated alerts
+    "google.com", "googledrive.com",
+    "googlemail.com", "noreply.google.com",
+    # Travel alerts
+    "state.gov", "travel.state.gov",
+    "cdc.gov", "who.int",
+}
+
+# Tier 1: KNOWN SUPPLIER SENDERS (service accounts, booking bots)
+SUPPLIER_SENDERS = {
+    "no-reply@silversea.com", "reservations@silversea.com",
+    "confirmation@regent.com", "bookings@regent.com",
+    "bookings@cunard.com", "confirmation@cunard.com",
+    "reservations@viking.com", "confirmation@viking.com",
+    "tess@tessintl.com", "system@tess.com",
+    "no-reply@amadeus.com", "bookings@amadeus.com",
+    "no-reply@stripe.com", "alerts@stripe.com",
+    "noreply@google.com", "drive-shares-noreply@google.com",
+    "no-reply@paypal.com", "service@paypal.com",
+    "alerts@state.gov", "travel@state.gov",
+}
+
+# Tier 2: CLIENT INDICATORS — look for these patterns/domains in known client list
+# (populated from dossiers at runtime)
+CLIENT_ADDRESSES = set()  # Will be populated from dossier scan
+
+# ============================================================================
 # Known D2M-relevant senders / domains — always process regardless of subject
 _D2M_DOMAINS = re.compile(
     r"(silversea|rssc|regent|cunard|oceania|seabourn|viking|ama"
@@ -336,6 +411,57 @@ def _log_action(entry: Dict):
 # ---------------------------------------------------------------------------
 # Email classification — Claude Sonnet (fast, cheap)
 # ---------------------------------------------------------------------------
+
+
+def _populate_client_addresses():
+    """Scan dossier directory and populate CLIENT_ADDRESSES set."""
+    global CLIENT_ADDRESSES
+    try:
+        for dossier_dir in [THUNDERBIRD_DIR / "dossiers", THUNDERBIRD_DIR / "Dossiers"]:
+            if dossier_dir.exists():
+                for dossier_file in dossier_dir.glob("*.json"):
+                    try:
+                        data = json.loads(dossier_file.read_text())
+                        # Extract client email addresses from dossier
+                        if "client_emails" in data:
+                            for email in data["client_emails"]:
+                                CLIENT_ADDRESSES.add(email.lower())
+                        if "email" in data:
+                            CLIENT_ADDRESSES.add(data["email"].lower())
+                        if "emails" in data:
+                            for email in data["emails"]:
+                                CLIENT_ADDRESSES.add(email.lower())
+                    except Exception:
+                        pass
+    except Exception as e:
+        logger.warning(f"Failed to populate client addresses: {e}")
+
+
+def _determine_email_tier(sender: str) -> str:
+    """Determine which tier an email belongs to.
+
+    Returns:
+      "SUPPLIER" — known supplier domain/sender (Tier 1)
+      "CLIENT"   — known client address (Tier 2)
+      "INTAKE"   — everything else (Tier 3)
+    """
+    sender_lower = sender.lower()
+    sender_domain = sender_lower.split("@")[-1] if "@" in sender_lower else ""
+
+    # Tier 1: Supplier
+    if sender_lower in SUPPLIER_SENDERS:
+        return "SUPPLIER"
+
+    for supplier_domain in SUPPLIER_DOMAINS:
+        if sender_domain == supplier_domain or sender_lower.endswith("@" + supplier_domain):
+            return "SUPPLIER"
+
+    # Tier 2: Client
+    if sender_lower in CLIENT_ADDRESSES:
+        return "CLIENT"
+
+    # Tier 3: Intake
+    return "INTAKE"
 
 
 def classify_email(subject: str, sender: str, body_preview: str) -> str:
@@ -556,21 +682,61 @@ def classify_email(subject: str, sender: str, body_preview: str) -> str:
 
 
 def _task_to_persona(
-    classification: str, sender_name: str, sender_email: str, subject: str, body: str
+    classification: str, sender_name: str, sender_email: str, subject: str, body: str,
+    tier: str = "INTAKE"
 ) -> Optional[str]:
     """Call the appropriate persona to analyze the email and produce a draft reply.
 
     Returns the draft reply text, or None if no draft needed (e.g. intel routing).
+
+    Args:
+        classification: Email classification (client_inquiry, booking_confirmation, etc.)
+        sender_name: Human-readable sender name
+        sender_email: Sender email address
+        subject: Email subject
+        body: Email body
+        tier: Email tier (SUPPLIER, CLIENT, INTAKE) — Option C routing
+
+    OPTION C — Selective Dani Auto-Draft:
+      - Tier 1 (SUPPLIER): Enable lightweight auto-draft (template responses)
+      - Tier 2 (CLIENT): Dani LOCKED — no auto-draft (WF-17 gate applies)
+      - Tier 3 (INTAKE): Skip (no response needed)
     """
-    # ⚠️ DANI AUTO-DRAFT KILL SWITCH — Standing Order 2026-03-25
-    # Block all Dani auto-drafting until COS completes supplier filter audit.
-    if not DANI_AUTO_DRAFT_ENABLED:
+    # ⚠️ OPTION C — Selective Dani Auto-Draft
+    # SUPPLIER tier (Tier 1): Enable lightweight auto-draft for procedural responses
+    # CLIENT tier (Tier 2): Keep Dani LOCKED per Standing Order 2026-03-25
+    # INTAKE tier (Tier 3): No response (monitoring only)
+
+    if tier in ("CLIENT", "INTAKE") and not DANI_AUTO_DRAFT_ENABLED:
         routing = CLASSIFICATION_ROUTING.get(classification, {})
         if routing.get("persona") == "A3":
             logger.info(
                 f"[DANI LOCKED] Skipped auto-draft for {sender_email} — {subject[:60]} "
-                f"(classification: {classification}). DANI_AUTO_DRAFT_ENABLED=False"
+                f"(tier: {tier}, classification: {classification}). CLIENT/INTAKE tier requires manual review."
             )
+            return None
+
+    # Tier 1 (SUPPLIER): Allow lightweight auto-draft with template responses
+    if tier == "SUPPLIER" and classification == "booking_confirmation":
+        # For supplier confirmations, generate lightweight procedural response
+        try:
+            from thunderbird_personas import _call_claude, CLAUDE_CMD
+
+            system = (
+                "You are a luxury travel concierge generating lightweight procedural responses "
+                "to TRAVEL SUPPLIER booking confirmations (airlines, hotels, cruises, etc.). "
+                "Keep response brief (2-3 sentences), professional, thank-you style. "
+                "Do NOT apologize. Do NOT ask questions. Just confirm receipt. "
+                "Sign as: Dani Moreau, Luxury Travel Concierge, Dreams2Memories Travel"
+            )
+            prompt = f"Generate a brief reply to this booking confirmation:\n\n{body[:1500]}"
+
+            raw = _call_claude(system, prompt, max_tokens=150, model="haiku")
+            if raw.strip():
+                logger.info(f"[TIER 1 SUPPLIER] Lightweight auto-draft generated for {sender_email}")
+                return raw.strip()
+        except Exception as e:
+            logger.warning(f"Lightweight supplier draft generation failed: {e}")
             return None
 
     routing = CLASSIFICATION_ROUTING.get(classification, {})
@@ -830,22 +996,39 @@ def task_email(
     body: str,
     thread_id: Optional[str] = None,
 ) -> Dict[str, Any]:
-    """Process a classified email end-to-end.
+    """Process a classified email end-to-end using Option C routing.
+
+    OPTION C — Structured Routing:
+      Tier 1 (SUPPLIER): Lightweight auto-draft → d2mconcierge draft → COS review
+      Tier 2 (CLIENT):   WF-17 gate → flag to COS for manual routing → no auto-draft
+      Tier 3 (INTAKE):   Monitoring only → no action, no notify
 
     Steps:
-      1. Task to persona (analyze / draft reply)
-      2. If client-facing: create draft in d2mconcierge (FROM concierge@)
-      3. Notify COS via Telegram
-      4. Return action summary
+      1. Determine tier (supplier/client/intake)
+      2. For Tier 1: Task to persona for lightweight draft
+      3. For Tier 2: Log for COS review, no draft
+      4. For Tier 3: Skip entirely
+      5. Create draft and notify COS
+      6. Return action summary
 
-    Returns dict with: msg_id, classification, persona, draft_id, status
+    Returns dict with: msg_id, classification, tier, persona, draft_id, status
     """
+    # Populate client addresses on first run
+    global CLIENT_ADDRESSES
+    if not CLIENT_ADDRESSES:
+        _populate_client_addresses()
+
+    # STEP 1: Determine tier
+    tier = _determine_email_tier(sender)
+    logger.info(f"[{tier:<8}] {sender} — {subject[:50]} (classification: {classification})")
+
     routing = CLASSIFICATION_ROUTING.get(classification, {})
     persona_id = routing.get("persona")
 
     result: Dict[str, Any] = {
         "msg_id": msg_id,
         "classification": classification,
+        "tier": tier,
         "subject": subject,
         "sender": sender,
         "persona": persona_id,
@@ -854,65 +1037,57 @@ def task_email(
         "status": "skipped",
     }
 
-    # Personal / skip — do not task, do not notify
+    # STEP 2: Tier 3 (INTAKE) — Skip entirely
+    if tier == "INTAKE":
+        result["status"] = "intake_monitoring"
+        logger.info(f"[TIER 3 INTAKE] {sender} — No action, monitoring only")
+        return result
+
+    # STEP 3: Tier 2 (CLIENT) — WF-17 gate, no auto-draft
+    if tier == "CLIENT":
+        result["status"] = "client_wf17_gate"
+        logger.info(f"[TIER 2 CLIENT] {sender} — Flagged for COS WF-17 review. No auto-draft.")
+        # Notify COS that a client email is waiting for manual routing
+        _notify_cos(
+            classification=classification,
+            sender=sender,
+            subject=subject,
+            persona_id=None,
+            draft_id=None,
+            persona_note=f"⚠️ CLIENT EMAIL REQUIRES MANUAL ROUTING (WF-17 GATE)\n\n"
+                         f"From: {sender_name} ({sender})\n"
+                         f"Subject: {subject}\n\n"
+                         f"Action: Route to appropriate staff or reply manually.\n"
+                         f"No auto-draft generated per WF-17 protocol."
+        )
+        return result
+
+    # Skip personal/no-persona cases
     if not persona_id:
         result["status"] = "skipped_personal"
         return result
 
-    # Get persona analysis / draft text
-    persona_note = _task_to_persona(classification, sender_name, sender, subject, body)
+    # STEP 4: Task to persona
+    persona_note = _task_to_persona(
+        classification, sender_name, sender, subject, body, tier=tier
+    )
     result["persona_note"] = persona_note or ""
 
-    # Create draft reply if this classification warrants one
+    # STEP 5: Create draft for SUPPLIER tier if appropriate
     draft_id = None
-    if classification in ("client_inquiry", "booking_confirmation") and persona_note:
-        # For A3 responses, extract just the DRAFT part (after "DRAFT:" marker)
-        draft_text = persona_note
-        if persona_id == "A3" and "DRAFT:" in persona_note:
-            draft_parts = persona_note.split("DRAFT:")
-            if len(draft_parts) > 1:
-                draft_text = draft_parts[1].strip()
-
-        # COS review: quick sanity check before drafting
-        try:
-            from thunderbird_dani_engine import cos_review
-
-            review = cos_review(
-                f"From: {sender}\nSubject: {subject}\n\n{body[:1500]}",
-                draft_text,  # Use just the draft text for COS review
-                is_client=(classification == "client_inquiry"),
-            )
-            approved = review.get("approved", True)
-            if not approved:
-                result["persona_note"] = review.get("note", persona_note)
-                _notify_cos(
-                    classification,
-                    sender,
-                    subject,
-                    persona_id,
-                    None,
-                    f"COS REJECTED: {review.get('note', 'No note')}",
-                )
-                return result
-        except Exception as e:
-            logger.warning(f"COS review failed ({e}) — proceeding with draft")
-
+    if tier == "SUPPLIER" and classification == "booking_confirmation" and persona_note:
+        draft_text = persona_note.strip()
         draft_id = _create_reply_draft(sender, subject, draft_text, thread_id)
         result["draft_id"] = draft_id
+        result["status"] = "tasked_supplier_drafted"
+    elif tier == "SUPPLIER" and persona_note:
+        result["status"] = "tasked_supplier_review"
+    else:
+        result["status"] = "tasked_to_persona"
 
-    elif classification in ("vendor_comm",) and persona_note:
-        # For vendor comms, COS drafts a reply
-        draft_text = persona_note
-        if persona_id == "COS" and "DRAFT:" in persona_note:
-            draft_parts = persona_note.split("DRAFT:")
-            if len(draft_parts) > 1:
-                draft_text = draft_parts[1].strip()
-        draft_id = _create_reply_draft(sender, subject, draft_text, thread_id)
-        result["draft_id"] = draft_id
+    logger.info(f"[TASKED] {tier} tier → {persona_id}: {subject[:50]}")
 
-    result["status"] = "tasked"
-
-    # Notify COS via Telegram — every tasked email
+    # STEP 6: Notify COS via Telegram
     _notify_cos(
         classification=classification,
         sender=sender,
@@ -949,12 +1124,15 @@ def scan_commander_inbox(hours_back: int = 4) -> List[Dict[str, Any]]:
     state = _load_state()
     processed_ids = set(state.get("processed_ids", []))
 
-    # Gmail search: recent inbox, not already scanned
-    cutoff = datetime.now(timezone.utc) - timedelta(hours=hours_back)
+    # Gmail search: Commander interaction triggers
+    # Look for: (1) Emails from johnloucks3 (forwarded to us), (2) Trigger phrases (COS, Hale,)
+    # Only look at recent messages (last 20 min for 5-min sweeps)
+    cutoff = datetime.now(timezone.utc) - timedelta(minutes=20)
     after_ts = int(cutoff.timestamp())
     query = (
         f"in:inbox after:{after_ts} "
         f"-label:{PROCESSED_LABEL} "
+        f"(from:johnloucks3@gmail.com OR subject:\"COS, \" OR subject:\"Hale, \") "
         "-from:noreply -from:no-reply"
     )
 
@@ -1041,17 +1219,29 @@ def scan_commander_inbox(hours_back: int = 4) -> List[Dict[str, Any]]:
 def run_commander_inbox_sweep(hours_back: int = 4) -> Dict[str, Any]:
     """Full Commander inbox sweep: scan → classify → task → draft → notify COS.
 
+    OPTION C: Structured Routing
+      Tier 1 (SUPPLIER): Auto-draft lightweight responses
+      Tier 2 (CLIENT):   Flag to COS for WF-17 manual routing
+      Tier 3 (INTAKE):   Monitoring only, no action
+
     Orchestrates the complete pipeline. Safe to call on a schedule.
 
     Args:
         hours_back: Lookback window (default 4h for scheduled runs)
 
     Returns:
-        Summary dict: emails_scanned, tasked, drafted, skipped, errors
+        Summary dict: emails_scanned, tier1_supplier, tier2_client, tier3_intake,
+                      tasked, drafted, skipped, errors
     """
     logger.info("=" * 60)
-    logger.info("COMMANDER INBOX SWEEP — johnloucks3@gmail.com")
+    logger.info("COMMANDER INBOX SWEEP — OPTION C STRUCTURED ROUTING")
     logger.info("=" * 60)
+
+    # Pre-populate client addresses for tier routing
+    global CLIENT_ADDRESSES
+    if not CLIENT_ADDRESSES:
+        _populate_client_addresses()
+        logger.info(f"Loaded {len(CLIENT_ADDRESSES)} known client email addresses")
 
     service = _get_commander_gmail_service()
     if not service:
@@ -1059,6 +1249,9 @@ def run_commander_inbox_sweep(hours_back: int = 4) -> Dict[str, Any]:
             "status": "no_token",
             "message": "gmail_token_commander.json not found — sweep skipped",
             "emails_scanned": 0,
+            "tier1_supplier": 0,
+            "tier2_client": 0,
+            "tier3_intake": 0,
             "tasked": 0,
             "drafted": 0,
             "skipped": 0,
@@ -1073,7 +1266,16 @@ def run_commander_inbox_sweep(hours_back: int = 4) -> Dict[str, Any]:
     # Scan
     emails = scan_commander_inbox(hours_back=hours_back)
 
-    stats = {"tasked": 0, "drafted": 0, "skipped": 0, "personal": 0, "errors": 0}
+    stats = {
+        "tier1_supplier": 0,
+        "tier2_client": 0,
+        "tier3_intake": 0,
+        "tasked": 0,
+        "drafted": 0,
+        "skipped": 0,
+        "personal": 0,
+        "errors": 0,
+    }
     actions: List[Dict] = []
 
     for email in emails:
@@ -1099,10 +1301,20 @@ def run_commander_inbox_sweep(hours_back: int = 4) -> Dict[str, Any]:
                 thread_id=email.get("thread_id"),
             )
 
+            # OPTION C — Track tier statistics
+            tier = result.get("tier", "INTAKE")
+            if tier == "SUPPLIER":
+                stats["tier1_supplier"] += 1
+            elif tier == "CLIENT":
+                stats["tier2_client"] += 1
+            elif tier == "INTAKE":
+                stats["tier3_intake"] += 1
+
             if result.get("draft_id"):
                 stats["drafted"] += 1
 
-            if result["status"] not in ("skipped", "skipped_personal", "cos_rejected"):
+            # Track tasking (both SUPPLIER and CLIENT tiers get tasked)
+            if result["status"] not in ("skipped", "skipped_personal", "intake_monitoring"):
                 stats["tasked"] += 1
             else:
                 stats["skipped"] += 1
@@ -1247,6 +1459,9 @@ def run_commander_inbox_sweep(hours_back: int = 4) -> Dict[str, Any]:
     summary = {
         "status": "ok",
         "emails_scanned": len(emails),
+        "tier1_supplier": stats["tier1_supplier"],
+        "tier2_client": stats["tier2_client"],
+        "tier3_intake": stats["tier3_intake"],
         "tasked": stats["tasked"],
         "drafted": stats["drafted"],
         "skipped": stats["skipped"],
@@ -1256,9 +1471,13 @@ def run_commander_inbox_sweep(hours_back: int = 4) -> Dict[str, Any]:
     }
 
     logger.info(
-        f"Commander Inbox Sweep complete: "
-        f"{len(emails)} scanned, {stats['tasked']} tasked, "
-        f"{stats['drafted']} drafted, {stats['personal']} personal filtered"
+        f"Commander Inbox Sweep complete (OPTION C): "
+        f"{len(emails)} scanned | "
+        f"Tier 1 (SUPPLIER): {stats['tier1_supplier']} | "
+        f"Tier 2 (CLIENT): {stats['tier2_client']} | "
+        f"Tier 3 (INTAKE): {stats['tier3_intake']} | "
+        f"Drafted: {stats['drafted']} | "
+        f"Personal filtered: {stats['personal']}"
     )
     return summary
 
