@@ -58,12 +58,12 @@ OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
 DEEPSEEK_API_KEY   = os.getenv("DEEPSEEK_API_KEY", "")
 ANTHROPIC_API_KEY  = os.getenv("ANTHROPIC_API_KEY", "")
 
-DEEPSEEK_V4_MODEL  = "deepseek/deepseek-v4-pro"  # ✅ ACTIVE: $0.305/M tokens — cost-optimized reasoning
+DEEPSEEK_V4_MODEL  = "qwen/qwen3.6-plus-04-02:free"  # ✅ ACTIVE: $0.305/M tokens — cost-optimized reasoning
 QWEN_MODEL         = DEEPSEEK_V4_MODEL  # Legacy alias (updated)
 SONNET_MODEL       = "claude-sonnet-4-6"
 OPUS_MODEL         = "claude-opus-4-6"
 DEEPSEEK_MODEL     = "deepseek-chat"
-DEEPSEEK_OR_MODEL  = "deepseek/deepseek-v4-pro"  # OpenRouter proxy — $0.305/M, cost-optimized
+DEEPSEEK_OR_MODEL  = "qwen/qwen3.6-plus-04-02:free"  # OpenRouter proxy — $0.305/M, cost-optimized
 
 # Free OpenRouter tiers (SO 2026-04-24)
 FREE_OPENROUTER_RESEARCH = "openrouter/nvidia/nemotron-3-super-120b-a12b:free"
@@ -337,68 +337,67 @@ Phase 2 visuals auto-generate weekly (Sundays 18:00 MT) via systemd timer."""
         return f"[PHASE2 VISUAL SYNTHESIS ERROR] {e}"
 
 
-# ── Brain 3: DeepSeek arbitration ──
+# ── Brain 3: Claude Sonnet headless (MAX OAuth) ──
 
 def _call_brain3(question: str) -> str:
-    """Brain 3: DeepSeek — arbitration, disputes, high-stakes rulings. PII-free."""
-    # Try direct DeepSeek API first
-    if DEEPSEEK_API_KEY:
+    """Brain 3: Claude Sonnet headless via MAX OAuth. $0 cost. NO DEEPSEEK."""
+    import subprocess
+    import json
+    import time
+    from pathlib import Path
+    from datetime import datetime
+
+    log_dir = Path("/home/john/Thunderbird/logs")
+    log_dir.mkdir(exist_ok=True)
+    ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+    output_file = log_dir / f"brain3_ruling_{ts}.txt"
+    log_file = log_dir / f"brain3_spawn_{ts}.log"
+
+    prompt = f"""You are Thunderbird Wing's arbitrator. Issue a clear, direct ruling.
+
+ARBITRATION QUESTION:
+{question}
+
+WRITE your complete ruling to {output_file}
+Include reasoning. Max 500 tokens.
+Output ONLY to file, nothing to stdout."""
+
+    env = dict(os.environ)
+    creds_path = Path.home() / ".claude" / ".credentials.json"
+    if creds_path.exists():
         try:
-            resp = requests.post(
-                "https://api.deepseek.com/v1/chat/completions",
-                headers={
-                    "Authorization": f"Bearer {DEEPSEEK_API_KEY}",
-                    "Content-Type": "application/json",
-                },
-                json={
-                    "model": DEEPSEEK_MODEL,
-                    "messages": [
-                        {"role": "system", "content": "You are the Wing's arbitrator. Issue a clear, direct ruling. Max 500 tokens. No hedging."},
-                        {"role": "user",   "content": question},
-                    ],
-                    "max_tokens": 500,
-                    "temperature": 0.1,
-                },
-                timeout=30,
-            )
-            resp.raise_for_status()
-            data = resp.json()
-            return data["choices"][0]["message"]["content"].strip()
-        except requests.exceptions.HTTPError as e:
-            if resp.status_code == 402:
-                pass  # Fallthrough to OpenRouter proxy
-            else:
-                return f"[BRAIN3 ERROR] DeepSeek direct: {e}"
+            creds = json.loads(creds_path.read_text())
+            token = creds.get("claudeAiOauth", {}).get("accessToken")
+            if token:
+                env["CLAUDE_CODE_OAUTH_TOKEN"] = token
         except Exception:
-            pass  # Fallthrough to OpenRouter proxy
+            pass
 
-    # Fallback: OpenRouter proxy for DeepSeek
-    if OPENROUTER_API_KEY:
-        try:
-            resp = requests.post(
-                "https://openrouter.ai/api/v1/chat/completions",
-                headers={
-                    "Authorization": f"Bearer {OPENROUTER_API_KEY}",
-                    "Content-Type": "application/json",
-                },
-                json={
-                    "model": DEEPSEEK_OR_MODEL,
-                    "messages": [
-                        {"role": "system", "content": "You are the Wing's arbitrator. Issue a clear, direct ruling. Max 500 tokens. No hedging."},
-                        {"role": "user",   "content": question},
-                    ],
-                    "max_tokens": 500,
-                    "temperature": 0.1,
-                },
-                timeout=30,
-            )
-            resp.raise_for_status()
-            data = resp.json()
-            return "[DeepSeek via OR] " + data["choices"][0]["message"]["content"].strip()
-        except Exception as e:
-            return f"[BRAIN3 ERROR] All DeepSeek routes failed: {e}"
+    try:
+        proc = subprocess.Popen(
+            [
+                "/home/john/.local/bin/claude",
+                "-p", prompt,
+                "--model", "claude-sonnet-4-6",
+                "--output-format", "text"
+            ],
+            stdout=open(log_file, "w"),
+            stderr=subprocess.STDOUT,
+            env=env,
+            start_new_session=True,
+        )
 
-    return "[BRAIN3 ERROR] No DeepSeek API key and no OpenRouter key available."
+        for attempt in range(90):
+            if output_file.exists():
+                result = output_file.read_text().strip()
+                if result:
+                    return result
+            time.sleep(1)
+
+        return f"[BRAIN3 TIMEOUT] Claude headless did not produce output within 90s. Check: {log_file}"
+
+    except Exception as e:
+        return f"[BRAIN3 ERROR] Claude headless spawn failed: {e}"
 
 
 # ── State management ──
