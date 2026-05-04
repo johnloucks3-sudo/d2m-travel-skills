@@ -150,7 +150,7 @@ def dispatch_to_headless_claude(
             budget=budget,
             required_context=required_context
         )
-        selected_model = route_config.get("model_id", "claude-haiku-4-5-20251001")
+        selected_model = route_config.get("model_id", "openrouter/anthropic/claude-sonnet-4-6")
         routed = True
         logger.info(f"Model routed: {task_type or 'routine_analysis'} → {selected_model}")
     else:
@@ -444,7 +444,7 @@ if __name__ == "__main__":
             task_description="List the top 3 luxury cruise lines and why they are popular.",
             output_file_path="/home/john/Thunderbird/output/test_opencode_explicit.txt",
             task_name="test_opencode_explicit",
-            model="claude-haiku-4-5-20251001"
+            model="openrouter/anthropic/claude-sonnet-4-6"
         )
         print(f"Model: {result.get('model')}")
         print(f"Routed: {result.get('routed')}")
