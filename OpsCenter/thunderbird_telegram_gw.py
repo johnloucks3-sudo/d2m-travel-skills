@@ -4,9 +4,9 @@ thunderbird_telegram_gw.py — Thunderbird Telegram Gateway
 Dreams2Memories Travel, LLC
 Version: 1.0 | 2026-04-04
 
-⚠️ COST FIX (2026-04-28): DeepSeek V3.1 replaced with V4 Pro ($0.305/M — 60% cheaper).
-Caused $130 in unexpected charges via OpenRouter auto-refill. Fixed by consolidating
-all references from deepseek-chat-v3.1 → deepseek-v4-pro across codebase.
+⚠️ COST NOTE (2026-05-04): Primary model is Gemini 3.1 Flash Lite (confirmed cheapest per invoice).
+DeepSeek V4 Pro is BLOCKED — it was the expensive outlier on 2026-04-30 ($0.03–$2.83/gen).
+DeepSeek V3.1 was NOT the expensive item. V4 Pro was. V4 Pro cannot be auto-selected.
 
 Three bots. One process. Clean output.
 
@@ -140,7 +140,7 @@ OPENROUTER_MODEL_ALIASES: dict[str, str] = {
     "GPTNANO":          "openai/gpt-4.1-nano",                       # 1M ctx, $0.10/M
     "GEMLITE":          "google/gemini-2.5-flash-lite",              # 1M ctx, $0.10/M
     "LLAMA":            "meta-llama/llama-4-maverick",               # 1M ctx, $0.15/M
-    "DEEPSEEK":         "deepseek/deepseek-v4-pro",                 # ✅ ACTIVE: $0.305/M — cost-optimized
+    "DEEPSEEK":         "qwen/qwen3.6-plus-04-02:free",                 # ✅ ACTIVE: $0.305/M — cost-optimized
     "QWQ":              "qwen/qwq-32b",                              # reasoning, $0.15/M
     # ── VALUE ($0.15–$0.50/M) ────────────────────────────────────────────────
     "GROK":             "x-ai/grok-4.1-fast",                        # 2M ctx, $0.20/M
@@ -159,16 +159,17 @@ OPENROUTER_MODEL_ALIASES: dict[str, str] = {
 # Reverse: OpenRouter model ID → short display label
 _OR_DISPLAY_LABELS = {v: k.title() for k, v in OPENROUTER_MODEL_ALIASES.items()}
 
-# FREE-first with cheap fallbacks (updated 2026-04-24)
-# ⚠️ CRITICAL FIX: DeepSeek V3.1 is NOT free ($0.27/M tokens). Removed from primary chain.
-# Primary: free OpenRouter tiers. Fallback: ultra-cheap models.
+# Gemini-first chain (Opus plan 2026-05-04 — confirmed by invoice analysis)
+# Invoice confirmed: Gemini 3.1 Flash Lite = $0.005–$0.01/gen NET after cache credits.
+# V4 Pro was the expensive outlier (April 30). V4 Pro is blocked in override detection.
+# Chain: Gemini Flash Lite → Gemini Flash → FREE tier → Qwen3 free → Mistral cheap
 OPENCODE_MODEL_CHAIN = [
-    "openrouter/nvidia/nemotron-3-super-120b-a12b:free",   # Nemotron 120B — FREE ($0)
-    "openrouter/openai/gpt-oss-120b:free",                 # GPT-OSS 120B — FREE ($0)
-    "openrouter/google/gemma-3-27b-it:free",               # Gemma 3 27B — FREE ($0)
-    "openrouter/deepseek/deepseek-r1:free",                # DeepSeek-R1 — FREE ($0)
-    "openrouter/qwen/qwen3-235b-a22b-2507",                # Qwen3 235B — ultra-cheap ($0.07/M)
-    "openrouter/mistralai/mistral-small-3.2-24b-instruct", # Mistral Small — cheap ($0.07/M)
+    "openrouter/google/gemini-3.1-flash-lite-preview-20260303",  # PRIMARY: $0.005–0.01/gen net
+    "openrouter/google/gemini-2.5-flash-lite",                   # FALLBACK: $0.10/M
+    "openrouter/nvidia/nemotron-3-super-120b-a12b:free",         # FREE tier
+    "openrouter/qwen/qwen3.6-plus-04-02:free",                   # Qwen3 free
+    "openrouter/deepseek/deepseek-r1:free",                      # DeepSeek-R1 free
+    "openrouter/mistralai/mistral-small-3.2-24b-instruct",       # last resort ($0.07/M)
 ]
 _OC_RATE_MARKERS = (
     "rate limit",
@@ -1070,6 +1071,12 @@ def handle_message(
         # Check OpenRouter model aliases (GROK:, DEEPSEEK:, GEMINI:, etc.)
         for prefix, or_model_id in OPENROUTER_MODEL_ALIASES.items():
             if msg_upper.startswith(prefix + ":"):
+                # V4 Pro block — too expensive for auto-selection ($0.03–$2.83/gen)
+                _V4PRO_BLOCK = {"deepseek-v4-pro", "deepseek/deepseek-v4-pro"}
+                if any(b in or_model_id for b in _V4PRO_BLOCK):
+                    log.warning("BLOCKED model override attempt: %s — V4 Pro is cost-prohibited", or_model_id)
+                    tg_send(token, chat_id, "⛔ Model blocked: DeepSeek V4 Pro is cost-prohibited on this wing ($0.03–$2.83/gen). Use DEEPSEEK: for Qwen free tier or GEMINI: for Flash Lite.")
+                    return
                 openrouter_override = or_model_id
                 msg = msg[len(prefix) + 1:].strip()
                 log.info("%s override activated → %s", prefix, or_model_id)

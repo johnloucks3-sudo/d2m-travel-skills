@@ -87,9 +87,9 @@ MODEL_STRATEGY = {
 
     ModelTier.GEMINI_VISION.value: {
         "provider": "openrouter",
-        "model_id": "google/gemini-3-flash-preview",
+        "model_id": "google/gemini-3.1-flash-lite-preview-20260303",
         "context": "1M tokens",
-        "cost_per_M": 0.375,
+        "cost_per_M": 0.10,
         "input_cost": 0.075,
         "output_cost": 0.30,
         "vision_support": True,
@@ -101,9 +101,13 @@ MODEL_STRATEGY = {
             "itinerary_imagery",
             "dashboard_copy",
             "multimodal_analysis",
-            "imagery_processing"
+            "imagery_processing",
+            "routine_ops",
+            "context_scan",
+            "summarize",
+            "ops_task"
         ],
-        "rationale": "Multimodal (images, video, audio, PDF); fastest inference; cheaper than Grok for vision"
+        "rationale": "Primary OpenCode model (confirmed invoice 2026-04). Net $0.005-$0.01/gen with cache credits. Gemini 3.1 Flash Lite — fastest, cheapest paid tier."
     },
 
     ModelTier.DEEPSEEK_OPTIMIZED.value: {
@@ -145,6 +149,46 @@ MODEL_STRATEGY = {
         "rationale": "Zero cost for non-critical tasks; use within rate limits only"
     }
 }
+
+
+# ── Crew Tier Map (Opus Plan — 2026-05-04) ───────────────────────────────────
+# Maps each A-staff persona to the minimum cost tier appropriate for their role.
+# Rule: use the cheapest tier that meets quality bar. Only escalate to Sonnet
+# when client-facing copy or complex judgment is required.
+CREW_MODEL_TIER: dict[str, str] = {
+    # Client-facing / judgment-required → Sonnet MAX ($0)
+    "HALE":   ModelTier.SONNET_MAX_LARGE.value,   # COS orchestration, decisions
+    "A3":     ModelTier.SONNET_MAX_LARGE.value,   # Dani — ALL client-facing copy
+    "A6":     ModelTier.SONNET_MAX_LARGE.value,   # Luna — narrative/brand copy
+    "A1":     ModelTier.SONNET_MAX_LARGE.value,   # Navarro — profile synthesis (nuance)
+    "EXEC":   ModelTier.SONNET_MAX_LARGE.value,   # Solberg-Vega — proposals, voice
+    # Research / structured output → Gemini Flash Lite (cheap, fast)
+    "A2":     ModelTier.GEMINI_VISION.value,      # Dembe — destination research
+    "A5":     ModelTier.GEMINI_VISION.value,      # Castillo — strategy drafts
+    "A7":     ModelTier.GEMINI_VISION.value,      # Sterling — process/metrics
+    "A8":     ModelTier.GEMINI_VISION.value,      # Reyes — product matching
+    "A9":     ModelTier.GEMINI_VISION.value,      # Harlan — commission analysis
+    # Incubator / large-context reasoning → Grok 4.1 Fast (2M ctx)
+    "A12":    ModelTier.GROK_2M.value,            # ELON — innovation/disruption
+}
+
+# Models explicitly blocked from auto-selection (too expensive for bulk use)
+BLOCKED_MODELS: set[str] = {
+    "deepseek/deepseek-v4-pro-20260423",
+    "deepseek/deepseek-v4-pro",
+    "deepseek-v4-pro",
+}
+
+
+def get_crew_model(persona: str) -> dict:
+    """Return the model strategy dict for a given crew member."""
+    tier = CREW_MODEL_TIER.get(persona.upper(), ModelTier.GEMINI_VISION.value)
+    return MODEL_STRATEGY[tier]
+
+
+def is_model_blocked(model_id: str) -> bool:
+    """Return True if model_id is in the BLOCKED_MODELS set."""
+    return model_id in BLOCKED_MODELS or any(b in model_id for b in BLOCKED_MODELS)
 
 
 def route_model(
