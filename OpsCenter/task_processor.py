@@ -305,32 +305,26 @@ def _fetch_mcp_context(content: str) -> str:
     )
 
 
-# ── Hale's Brain: DeepSeek V3.1 via OpenRouter — $0/month ──
-HALE_MODEL = QWEN_PLUS_FREE_MODEL  # "deepseek/deepseek-chat-v3.1" (aliased in model_router)
+# ── Hale's Brain: Gemini 3.1 Flash Lite via OpenRouter (Opus plan 2026-05-04) ──
+HALE_MODEL = "google/gemini-3.1-flash-lite-preview-20260303"  # ~$0.01/gen, crew standard
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")  # retained for fallback
 
 
 def _call_hale(system_prompt: str, query: str,
                max_tokens: int = 800, temperature: float = 0.5) -> str:
-    """Call DeepSeek V3.1 via OpenRouter — Hale's primary engine.
-
-    $0/month operational cost. Falls back to _call_gemini
-    if OPENROUTER_API_KEY is missing or the call fails.
+    """Hale's primary brain: Gemini 3.1 Flash Lite via OpenRouter (~$0.01/gen).
+    Falls back to Grok 4.1 Fast on failure.
     """
-    if not OPENROUTER_API_KEY:
-        logger.warning("OPENROUTER_API_KEY not set — falling back to Gemini Flash")
-        return _call_gemini(system_prompt, query, max_tokens=max_tokens,
-                            temperature=temperature)
-
     try:
         return _call_openrouter(system_prompt, query,
                                 model=HALE_MODEL,
                                 max_tokens=max_tokens,
                                 temperature=temperature)
     except Exception as e:
-        logger.warning("DeepSeek V3.1 failed (%s), falling back to Gemini Flash", e)
-        return _call_gemini(system_prompt, query, max_tokens=max_tokens,
-                            temperature=temperature)
+        logger.warning("Gemini Flash Lite failed (%s), falling back to Grok", e)
+        return _call_grok(system_prompt, query,
+                          max_tokens=max_tokens,
+                          temperature=temperature)
 
 
 # ── Paths ──
@@ -792,24 +786,24 @@ def _handle_commander_message(task: dict) -> str:
             engine = "DeepSeek V3.1 (OpenRouter) + MCP" if mcp_context else "DeepSeek V3.1 (OpenRouter)"
             try:
                 response = _call_openrouter(system_prompt, augmented_content,
-                                            model=QWEN_PLUS_FREE_MODEL,
+                                            model=HALE_MODEL,
                                             max_tokens=2500, temperature=0.3)
             except Exception as _ds_err:
-                _log(f"DeepSeek primary failed, falling back to Gemini: {_ds_err}")
-                engine = "Gemini 2.5 Flash (fallback)"
-                response = _call_hale(system_prompt, augmented_content,
+                _log(f"Gemini Flash Lite failed, falling back to Grok: {_ds_err}")
+                engine = "Grok 4.1 Fast (fallback)"
+                response = _call_grok(system_prompt, augmented_content,
                                       max_tokens=2500, temperature=0.3)
         elif task_type in GEMINI_TASKS:
-            engine = "DeepSeek V3.1 (OpenRouter)"
+            engine = "Gemini 3.1 Flash Lite (OpenRouter)"
             try:
                 response = _call_openrouter(system_prompt, content,
-                                            model=QWEN_PLUS_FREE_MODEL,
+                                            model=HALE_MODEL,
                                             max_tokens=2000, temperature=0.5)
             except Exception as _ds_err:
-                _log(f"DeepSeek primary failed, falling back to Gemini Flash: {_ds_err}")
-                engine = "Gemini Flash (fallback)"
-                response = _call_gemini(system_prompt, content,
-                                        max_tokens=800, temperature=0.5)
+                _log(f"Gemini Flash Lite failed, falling back to Grok: {_ds_err}")
+                engine = "Grok 4.1 Fast (fallback)"
+                response = _call_grok(system_prompt, content,
+                                      max_tokens=800, temperature=0.5)
         else:
             # Route to Claude MAX queue
             _queue_for_claude_max({

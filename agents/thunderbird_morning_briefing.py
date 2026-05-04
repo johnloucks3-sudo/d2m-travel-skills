@@ -422,15 +422,24 @@ def send_telegram_digest(rss_direct: list, anchor_report: dict, summary: dict):
 
     def _tg_send(text: str):
         url  = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
-        data = json.dumps({"chat_id": CHAT_ID, "text": text,
-                           "parse_mode": "Markdown",
-                           "disable_web_page_preview": True}).encode()
-        req  = _urlreq.Request(url, data=data,
-                                headers={"Content-Type": "application/json"})
-        try:
-            _urlreq.urlopen(req, timeout=15)
-        except Exception as e:
-            logger.warning(f"Telegram send failed: {e}")
+        # Try with Markdown first; fall back to plain text on 400 (unescaped chars)
+        for parse_mode in ("Markdown", None):
+            payload = {"chat_id": CHAT_ID, "text": text,
+                       "disable_web_page_preview": True}
+            if parse_mode:
+                payload["parse_mode"] = parse_mode
+            data = json.dumps(payload).encode()
+            req  = _urlreq.Request(url, data=data,
+                                    headers={"Content-Type": "application/json"})
+            try:
+                _urlreq.urlopen(req, timeout=15)
+                break  # success — stop retrying
+            except Exception as e:
+                if parse_mode and "400" in str(e):
+                    logger.debug("Markdown parse failed, retrying plain text")
+                    continue
+                logger.warning(f"Telegram send failed: {e}")
+                break
 
     def _chunk_send(text: str):
         lines, buf = text.split("\n"), ""

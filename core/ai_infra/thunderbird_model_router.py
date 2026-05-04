@@ -316,73 +316,99 @@ def register_router_tools() -> dict:
     return {}
 
 
+def _call_openrouter_real(system_prompt: str, query: str,
+                          model: str = "google/gemini-3.1-flash-lite-preview-20260303",
+                          temperature: float = 0.7, max_tokens: int = 2000) -> str:
+    """
+    Live OpenRouter call — uses OPENROUTER_API_KEY from environment.
+    Default model: Gemini 3.1 Flash Lite (crew standard for ops tasks, ~$0.01/gen).
+    """
+    import urllib.request, json as _json
+    api_key = OPENROUTER_API_KEY
+    if not api_key:
+        raise RuntimeError("OPENROUTER_API_KEY not set")
+    messages = []
+    if system_prompt:
+        messages.append({"role": "system", "content": system_prompt})
+    messages.append({"role": "user", "content": query})
+    payload = _json.dumps({
+        "model": model,
+        "messages": messages,
+        "max_tokens": max_tokens,
+        "temperature": temperature,
+    }).encode()
+    req = urllib.request.Request(
+        "https://openrouter.ai/api/v1/chat/completions",
+        data=payload,
+        headers={
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+            "HTTP-Referer": "https://d2mluxury.quest",
+            "X-Title": "Thunderbird Wing",
+        },
+    )
+    resp = urllib.request.urlopen(req, timeout=60)
+    data = _json.loads(resp.read())
+    result = data["choices"][0]["message"]["content"]
+    log.info("_call_openrouter_real: %d chars via %s", len(result), model)
+    return result
+
+
+# ── Crew-aware model selection ────────────────────────────────────────────────
+_GEMINI_FLASH_LITE = "google/gemini-3.1-flash-lite-preview-20260303"
+_GROK_FAST         = "x-ai/grok-4.1-fast"
+
+
 def _call_claude(system_prompt: str, query: str, model: str = "sonnet",
                   temperature: float = 0.7, max_tokens: int = 2000) -> str:
     """
-    BACKWARD-COMPATIBILITY STUB: Direct Claude call (Sonnet).
-    Routes to Claude 3.5 Sonnet via Anthropic SDK.
+    Claude call — routes to OpenRouter Gemini Flash Lite for ops tasks.
+    Falls back to Grok on rate-limit. Named _call_claude for backward compat.
     """
-    import anthropic
-
-    client = anthropic.Anthropic()
     try:
-        response = client.messages.create(
-            model="claude-3-5-sonnet-20241022",
-            max_tokens=max_tokens,
-            system=system_prompt,
-            messages=[{"role": "user", "content": query}]
-        )
-        result = response.content[0].text
-        log.info(f"_call_claude (stub): {len(result)} chars")
-        return result
+        return _call_openrouter_real(system_prompt, query,
+                                     model=_GEMINI_FLASH_LITE,
+                                     temperature=temperature,
+                                     max_tokens=max_tokens)
     except Exception as e:
-        log.error(f"_call_claude failed: {e}")
-        return f"Error: {str(e)}"
+        log.warning("Gemini Flash Lite failed (%s), falling back to Grok", e)
+        return _call_openrouter_real(system_prompt, query,
+                                     model=_GROK_FAST,
+                                     temperature=temperature,
+                                     max_tokens=max_tokens)
 
 
 def _call_groq(system_prompt: str, query: str, model: str = "fast",
                temperature: float = 0.7, max_tokens: int = 2000) -> str:
-    """
-    BACKWARD-COMPATIBILITY STUB: _call_groq routes to Claude Sonnet.
-
-    Groq was eliminated 2026-04-28. All calls route to Claude via Anthropic SDK ($0 on Max plan).
-    This stub maintains backward compatibility for existing code that imports _call_groq.
-
-    Args:
-        system_prompt: System context/instructions
-        query: User query/prompt
-        model: Model hint ("fast", "light", etc.) — ignored, uses Sonnet
-        temperature: Creativity parameter (0.0-2.0)
-        max_tokens: Maximum output tokens
-
-    Returns:
-        Response text from Claude Sonnet
-    """
+    """Backward compat: routes to Gemini Flash Lite (Groq eliminated 2026-04-28)."""
     return _call_claude(system_prompt, query, model, temperature, max_tokens)
 
 
 def _call_gemini(system_prompt: str, query: str, model: str = "vision",
                  temperature: float = 0.7, max_tokens: int = 2000) -> str:
-    """
-    BACKWARD-COMPATIBILITY STUB: _call_gemini routes to Claude Sonnet.
-    """
-    return _call_claude(system_prompt, query, model, temperature, max_tokens)
+    """Backward compat: routes to Gemini Flash Lite via OpenRouter."""
+    return _call_openrouter_real(system_prompt, query,
+                                 model=_GEMINI_FLASH_LITE,
+                                 temperature=temperature,
+                                 max_tokens=max_tokens)
 
 
 def _call_openrouter(system_prompt: str, query: str, model: str = "grok",
                      temperature: float = 0.7, max_tokens: int = 2000) -> str:
-    """
-    BACKWARD-COMPATIBILITY STUB: _call_openrouter routes to Claude Sonnet.
-    """
-    return _call_claude(system_prompt, query, model, temperature, max_tokens)
+    """Backward compat: routes to Gemini Flash Lite (real OpenRouter call)."""
+    return _call_openrouter_real(system_prompt, query,
+                                 model=_GEMINI_FLASH_LITE,
+                                 temperature=temperature,
+                                 max_tokens=max_tokens)
 
 
 def _call_grok(system_prompt: str, query: str, model: str = "fast",
                temperature: float = 0.7, max_tokens: int = 2000) -> str:
-    """
-    BACKWARD-COMPATIBILITY STUB: _call_grok (alternate spelling) routes to Claude Sonnet.
-    """
-    return _call_claude(system_prompt, query, model, temperature, max_tokens)
+    """Backward compat: routes to Grok 4.1 Fast via OpenRouter."""
+    return _call_openrouter_real(system_prompt, query,
+                                 model=_GROK_FAST,
+                                 temperature=temperature,
+                                 max_tokens=max_tokens)
 
 
 def classify_task(prompt: str) -> str:

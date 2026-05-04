@@ -336,14 +336,37 @@ class InboxHandler(FileSystemEventHandler):
         )
         logging.info(f"Spawning OpenCode headless → log: {log}")
         try:
-            subprocess.Popen(
+            proc = subprocess.Popen(
                 [OPENCODE_BIN, "run", prompt],
                 stdout=open(log, "w"),
                 stderr=subprocess.STDOUT,
                 env={**os.environ},
                 start_new_session=True,
             )
-            logging.info("OpenCode headless process started")
+            logging.info("OpenCode headless process started (PID %s)", proc.pid)
+            # ── Decision persistence bridge (SO 29 APR 2026) ──────────────────
+            # Log the dispatch to hale_decisions.md so it persists across context
+            # transitions (OpenCode → Claude Code). Without this, OpenCode's
+            # autonomous actions are invisible in the Claude Code audit trail.
+            try:
+                sys.path.insert(0, str(BASE))
+                from OpsCenter.hale_decision_logger import log_autonomous_decision
+                # Read task summary from inbox for context
+                try:
+                    inbox_snippet = inbox_path.read_text()[:200].replace('\n', ' ')
+                except Exception:
+                    inbox_snippet = str(inbox_path.name)
+                log_autonomous_decision(
+                    decision_description=f"OpenCode dispatched: {inbox_snippet[:120]}",
+                    domain="Autonomous Tasking",
+                    decision_type="routine",
+                    outcome="pending",
+                    autonomy_tier="T1",
+                    notes=f"PID {proc.pid} | Log: {log} | Inbox: {inbox_path.name}"
+                )
+            except Exception as _log_err:
+                logging.warning("Decision persistence log failed: %s", _log_err)
+            # ── End persistence bridge ────────────────────────────────────────
         except Exception as e:
             logging.error(f"Failed to spawn OpenCode: {e}")
 
