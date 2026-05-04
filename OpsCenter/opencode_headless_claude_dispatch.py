@@ -22,8 +22,86 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from core.ai_infra.thunderbird_headless_spawn import spawn_headless_claude
 from core.ai_infra.thunderbird_model_router import route_model
 from OpsCenter.hale_escalation_triggers import should_escalate
+from OpsCenter.hale_decision_logger import log_autonomous_decision
 
 logger = logging.getLogger("opencode_dispatch")
+
+
+def estimate_content_size(task_description: str, task_type: Optional[str] = None) -> int:
+    """
+    Estimate input content size based on task description and type.
+
+    Returns estimated token count. Large-context keywords trigger high estimates.
+    This allows automatic routing to SONNET_MAX_LARGE without manual intervention.
+
+    Args:
+        task_description: The task description text
+        task_type: Optional task type (overrides detection)
+
+    Returns:
+        Estimated content size in tokens. >500K triggers Sonnet escalation.
+    """
+    # Keywords that indicate large-context tasks
+    large_context_keywords = {
+        # Research & analysis
+        "research": 800_000,
+        "analysis": 600_000,
+        "analyze": 600_000,
+        "survey": 700_000,
+        "competitive analysis": 900_000,
+        "comprehensive review": 800_000,
+
+        # Intelligence & sweeping
+        "intelligence": 750_000,
+        "intel sweep": 850_000,
+        "intel": 750_000,
+        "sweep": 700_000,
+        "scan": 600_000,
+
+        # Incubator & innovation
+        "incubator": 900_000,
+        "incubate": 900_000,
+        "innovation": 700_000,
+        "discovery": 700_000,
+
+        # Document & content analysis
+        "document": 600_000,
+        "document analysis": 800_000,
+        "transcript": 700_000,
+        "book": 800_000,
+        "report": 600_000,
+        "comparative": 700_000,
+        "comparison": 700_000,
+
+        # Ship & cruise research
+        "ship": 500_000,
+        "cruise": 550_000,
+        "vessel": 500_000,
+        "fleet": 600_000,
+
+        # Data & metrics
+        "data": 550_000,
+        "dataset": 600_000,
+        "metrics": 550_000,
+        "performance": 550_000,
+    }
+
+    # Convert to lowercase for matching
+    task_lower = task_description.lower()
+    type_lower = (task_type or "").lower()
+
+    # Check task_type first (explicit)
+    if type_lower in ["incubator", "intel_sweep", "research", "document_analysis", "competitive_analysis"]:
+        return 800_000  # These always need large context
+
+    # Find matching keywords and return highest estimate
+    max_estimate = 0
+    for keyword, estimate in large_context_keywords.items():
+        if keyword in task_lower:
+            max_estimate = max(max_estimate, estimate)
+
+    # If no large-context keywords found, use default medium estimate
+    return max_estimate if max_estimate > 0 else 300_000
 
 
 # Persona routing map — maps persona targets to prompt personalities and model defaults
@@ -137,6 +215,11 @@ def dispatch_to_headless_claude(
             print(f"Output: {result['output_file']}")
     """
 
+    # ESTIMATE: Automatically detect content_size from task description if not provided
+    if content_size is None:
+        content_size = estimate_content_size(task_description, task_type)
+        logger.info(f"Content size auto-estimated: {content_size} tokens")
+
     # ROUTE: Select model if not explicitly provided
     selected_model = model
     routed = False
@@ -150,9 +233,21 @@ def dispatch_to_headless_claude(
             budget=budget,
             required_context=required_context
         )
-        selected_model = route_config.get("model_id", "openrouter/anthropic/claude-sonnet-4-6")
+        selected_model = route_config.get("model_id", "claude-sonnet-4-6")
         routed = True
-        logger.info(f"Model routed: {task_type or 'routine_analysis'} → {selected_model}")
+        logger.info(f"Model routed: {task_type or 'routine_analysis'} (content_size={content_size}) → {selected_model}")
+
+        # LOG AUTONOMOUS DECISION: Model was selected by router (auto-escalation if needed)
+        if content_size > 500_000:  # Large-context escalation
+            escalation_trigger = "content_size > 500K tokens"
+            log_autonomous_decision(
+                decision_description=f"Auto-escalated to {selected_model} for large-context task",
+                domain="Model Routing",
+                decision_type="routine",
+                outcome="correct",
+                autonomy_tier="T1",
+                notes=f"Task: {task_description[:60]}...\nTrigger: {escalation_trigger}\nEstimated context: {content_size:,} tokens"
+            )
     else:
         logger.info(f"Model explicit: {model}")
 
@@ -360,6 +455,152 @@ If the issue persists, let me know and we'll troubleshoot.
     }
 
 
+def spawn_sonnet_inline(task_description: str, task_name: str = "opencode_sonnet", model: str = "claude-sonnet-4-6") -> dict:
+    """
+    OpenCode single-screen Claude dispatch — NO SCREEN SWITCHING.
+
+    OpenCode calls this directly with a task. Spawns Claude (Sonnet or Opus), waits for output,
+    reads it inline, and returns to OpenCode prompt. Everything stays in one tool,
+    one screen.
+
+    Args:
+        task_description: What Claude should do
+        task_name: Task name for logging
+        model: Claude model to use (default: "claude-sonnet-4-6", alt: "claude-opus-4-7")
+
+    Returns:
+        dict with:
+        {
+            "status": "SUCCESS" | "TIMEOUT" | "FAILED",
+            "output": str (the task output, if successful),
+            "elapsed_seconds": float,
+            "output_file": str (path to output file),
+            "log_file": str (path to log file)
+        }
+
+    Example (from OpenCode interactive):
+        >>> result = spawn_sonnet_inline("Analyze cruise pricing trends")  # Sonnet
+        >>> print(result["output"])  # Displays Claude's response
+
+        >>> result = spawn_sonnet_inline("Strategic decision: expand or consolidate?", model="claude-opus-4-7")  # Opus
+        >>> # Returns to OpenCode prompt immediately after
+    """
+    import time
+    import os
+
+    # Generate unique output filename
+    ts = int(time.time() * 1000)
+    output_file = Path("/home/john/Thunderbird/output") / f"opencode_sonnet_{ts}.txt"
+    output_file.parent.mkdir(exist_ok=True)
+
+    start_time = time.time()
+
+    # SPAWN: Call Claude directly (explicit model, no routing)
+    model_name = "Sonnet" if "sonnet" in model else "Opus"
+    logger.info(f"🚀 Spawning {model_name} inline: {task_name}")
+    spawn_result = dispatch_to_headless_claude(
+        task_description=task_description,
+        output_file_path=str(output_file),
+        task_name=task_name,
+        model=model  # Explicit: use provided model via MAX OAuth ($0)
+    )
+
+    # Check spawn status
+    if spawn_result["status"] != "SPAWNED":
+        return {
+            "status": "FAILED",
+            "output": f"Spawn failed: {spawn_result.get('error')}",
+            "elapsed_seconds": time.time() - start_time,
+            "output_file": str(output_file),
+            "log_file": spawn_result.get("log_file")
+        }
+
+    pid = spawn_result["pid"]
+    logger.info(f"✓ Sonnet spawned (PID {pid}), waiting for output...")
+
+    # WAIT: Poll for output file creation and completion
+    max_wait_seconds = 120  # 2 minutes max
+    poll_interval = 0.5  # Check every 500ms
+    last_size = 0
+    stable_count = 0
+
+    while time.time() - start_time < max_wait_seconds:
+        if output_file.exists():
+            current_size = output_file.stat().st_size
+
+            # Check if file is stable (size hasn't changed in 2 checks)
+            if current_size == last_size and current_size > 0:
+                stable_count += 1
+                if stable_count >= 2:  # File stable for 1 second
+                    break
+            else:
+                stable_count = 0
+
+            last_size = current_size
+
+        time.sleep(poll_interval)
+
+    elapsed = time.time() - start_time
+
+    # READ: Load output
+    if not output_file.exists():
+        return {
+            "status": "TIMEOUT",
+            "output": f"No output file after {elapsed:.1f}s. Check logs: {spawn_result.get('log_file')}",
+            "elapsed_seconds": elapsed,
+            "output_file": str(output_file),
+            "log_file": spawn_result.get("log_file")
+        }
+
+    try:
+        output_text = output_file.read_text(encoding="utf-8")
+
+        # LOG AUTONOMOUS DECISION: Successful inline dispatch (T1 autonomous task)
+        log_autonomous_decision(
+            decision_description=f"{model_name} inline dispatch: {task_description[:60]}...",
+            domain="Task Execution",
+            decision_type="routine",
+            outcome="correct",
+            autonomy_tier="T1",
+            notes=f"OpenCode inline dispatch completed in {elapsed:.1f}s. Output: {len(output_text)} chars. Model: {model_name}"
+        )
+
+        # ADD BYLINE: Persona | Model | Cost | Time
+        _COST_TABLE = {
+            "opus":   ("claude-opus-4-7",   3.00),   # Opus via MAX = $0 but label real rate
+            "sonnet": ("claude-sonnet-4-6",  0.00),   # Sonnet via MAX OAuth = $0
+        }
+        _model_label, _rate_per_M = _COST_TABLE.get(model_name.lower(), (model, 0.0))
+        _est_tokens = max(1, len(output_text) // 4)  # rough: 4 chars ≈ 1 token
+        _est_cost = (_est_tokens / 1_000_000) * _rate_per_M
+        _cost_str = f"${_est_cost:.4f}" if _est_cost > 0 else "$0.00 (MAX)"
+        byline = (
+            f"\n\n{'─'*70}\n"
+            f"Persona: Col Victoria 'Iron Vic' Hale, COS  |  Model: {_model_label}  |  Cost: {_cost_str}  |  Time: {elapsed:.1f}s\n"
+            f"Thunderbird Wing · Dreams2Memories Travel, LLC\n"
+            f"{'─'*70}"
+        )
+        output_with_byline = output_text + byline
+
+        return {
+            "status": "SUCCESS",
+            "output": output_with_byline,
+            "elapsed_seconds": elapsed,
+            "output_file": str(output_file),
+            "log_file": spawn_result.get("log_file"),
+            "model": model,
+            "model_name": model_name
+        }
+    except Exception as e:
+        return {
+            "status": "FAILED",
+            "output": f"Could not read output: {e}",
+            "elapsed_seconds": elapsed,
+            "output_file": str(output_file),
+            "log_file": spawn_result.get("log_file")
+        }
+
+
 def dispatch_with_escalation_check(
     task_description: str,
     output_file_path: str,
@@ -418,18 +659,17 @@ def dispatch_with_escalation_check(
 
 
 if __name__ == "__main__":
-    # Test dispatch — with routing
-    print("Testing OpenCode headless dispatch with routing...")
+    # Test dispatch — with automatic content_size estimation
+    print("Testing OpenCode headless dispatch with AUTOMATIC content_size estimation...")
 
-    # Test 1: Routed task (large context → Grok 2M)
-    print("\n✓ Test 1: Large context task (should route to Grok 2M for 800K tokens)")
+    # Test 1: Automatic estimation (no content_size provided — should detect & route to Sonnet)
+    print("\n✓ Test 1: Auto-estimated content_size (intelligence sweep → should route to Sonnet)")
     try:
         result = dispatch_to_headless_claude(
-            task_description="Analyze 800K tokens of ship competitive intelligence.",
-            output_file_path="/home/john/Thunderbird/output/test_opencode_routed.txt",
-            task_name="test_opencode_routed",
-            task_type="research",
-            content_size=800000
+            task_description="Run intelligence sweep on ship market trends and competitor pricing",
+            output_file_path="/home/john/Thunderbird/output/test_opencode_auto_estimate.txt",
+            task_name="test_opencode_auto_estimate",
+            # NO content_size provided — estimator detects "intelligence" + "sweep" → 850K → Sonnet
         )
         print(f"Model: {result.get('model')}")
         print(f"Routed: {result.get('routed')}")
@@ -437,14 +677,30 @@ if __name__ == "__main__":
     except RuntimeError as e:
         print(f"ERROR: {e}", file=sys.stderr)
 
-    # Test 2: Explicit model (override router)
-    print("\n✓ Test 2: Explicit model (override router)")
+    # Test 2: Explicit content_size (override estimator)
+    print("\n✓ Test 2: Explicit content_size (should route to Sonnet for 800K tokens)")
+    try:
+        result = dispatch_to_headless_claude(
+            task_description="Analyze ship competitive intelligence.",
+            output_file_path="/home/john/Thunderbird/output/test_opencode_explicit_size.txt",
+            task_name="test_opencode_explicit_size",
+            task_type="research",
+            content_size=800000  # Explicit override
+        )
+        print(f"Model: {result.get('model')}")
+        print(f"Routed: {result.get('routed')}")
+        print(f"Status: {result.get('status')}")
+    except RuntimeError as e:
+        print(f"ERROR: {e}", file=sys.stderr)
+
+    # Test 3: Explicit model (override router entirely)
+    print("\n✓ Test 3: Explicit model (override router entirely)")
     try:
         result = dispatch_to_headless_claude(
             task_description="List the top 3 luxury cruise lines and why they are popular.",
-            output_file_path="/home/john/Thunderbird/output/test_opencode_explicit.txt",
-            task_name="test_opencode_explicit",
-            model="openrouter/anthropic/claude-sonnet-4-6"
+            output_file_path="/home/john/Thunderbird/output/test_opencode_explicit_model.txt",
+            task_name="test_opencode_explicit_model",
+            model="openrouter/anthropic/claude-sonnet-4-6"  # Explicit model → skip routing
         )
         print(f"Model: {result.get('model')}")
         print(f"Routed: {result.get('routed')}")
@@ -452,8 +708,8 @@ if __name__ == "__main__":
     except RuntimeError as e:
         print(f"ERROR: {e}", file=sys.stderr)
 
-    # Test 3: Escalation trigger (should route to A5 Castillo for strategy)
-    print("\n✓ Test 3: Escalation trigger (should route to A5 Castillo for strategy)")
+    # Test 4: Escalation trigger (should route to A5 Castillo for strategy)
+    print("\n✓ Test 4: Escalation trigger (should route to A5 Castillo for strategy)")
     try:
         result = dispatch_with_escalation_check(
             task_description="Should we consolidate cruise suppliers to 3 lines or diversify to 8?",
@@ -468,8 +724,8 @@ if __name__ == "__main__":
     except RuntimeError as e:
         print(f"ERROR: {e}", file=sys.stderr)
 
-    # Test 4: Finance escalation (should route to A9 Harlan)
-    print("\n✓ Test 4: Finance escalation (should route to A9 Harlan for financial commitment)")
+    # Test 5: Finance escalation (should route to A9 Harlan)
+    print("\n✓ Test 5: Finance escalation (should route to A9 Harlan for financial commitment)")
     try:
         result = dispatch_with_escalation_check(
             task_description="Should we approve a $25K investment in a new supplier relationship?",
@@ -484,8 +740,8 @@ if __name__ == "__main__":
     except RuntimeError as e:
         print(f"ERROR: {e}", file=sys.stderr)
 
-    # Test 5: Ethics escalation (should route to CH Washington)
-    print("\n✓ Test 5: Ethics escalation (should route to CH Washington for ethics)")
+    # Test 6: Ethics escalation (should route to CH Washington)
+    print("\n✓ Test 6: Ethics escalation (should route to CH Washington for ethics)")
     try:
         result = dispatch_with_escalation_check(
             task_description="A client expects luxury but we booked them a budget cabin. Rebook or manage expectation?",
