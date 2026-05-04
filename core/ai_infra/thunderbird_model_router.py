@@ -19,8 +19,8 @@ GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
 XAI_API_KEY = os.getenv("XAI_API_KEY", "")
 
 # Model aliases (Groq eliminated 2026-04-28, replaced with OpenRouter DeepSeek)
-DEEPSEEK_PRIMARY_MODEL = "deepseek/deepseek-v4-pro"
-QWEN_PLUS_FREE_MODEL = "deepseek/deepseek-v4-pro"  # Legacy alias
+DEEPSEEK_PRIMARY_MODEL = "qwen/qwen3.6-plus-04-02:free"
+QWEN_PLUS_FREE_MODEL = "qwen/qwen3.6-plus-04-02:free"  # Legacy alias
 GROQ_MODELS = ["groq_fast", "groq_light"]  # Legacy—no longer used
 
 # Legacy task classification enum (for backward compatibility)
@@ -35,13 +35,35 @@ class TaskType(Enum):
 
 class ModelTier(Enum):
     """Model selection tiers"""
-    GROK_2M = "grok_2m"              # 2M context, reasoning, cheapest for large
+    SONNET_MAX_LARGE = "sonnet_max_large"  # Large context via MAX OAuth (user's primary for large tasks)
+    GROK_2M = "grok_2m"              # 2M context, reasoning, cheapest for large (UNAVAILABLE — fallback to SONNET_MAX_LARGE)
     GEMINI_VISION = "gemini_vision"  # 1M context, multimodal, fastest
     DEEPSEEK_OPTIMIZED = "deepseek_optimized"  # 1M context, cheapest reasoning
     FREE = "free"                    # 200K context, $0, rate limited
 
 
 MODEL_STRATEGY = {
+    ModelTier.SONNET_MAX_LARGE.value: {
+        "provider": "anthropic",
+        "model_id": "claude-sonnet-4-6",
+        "context": "200K tokens",
+        "cost_per_M": 0,
+        "input_cost": 0,
+        "output_cost": 0,
+        "vision_support": False,
+        "reasoning": True,
+        "speed": "fast",
+        "use_cases": [
+            "large_context_research",
+            "incubator",
+            "intel_sweep",
+            "competitive_analysis",
+            "ship_research",
+            "document_analysis"
+        ],
+        "rationale": "Claude Sonnet via MAX subscription — user's primary for large context tasks. Headless spawn uses MAX OAuth credentials."
+    },
+
     ModelTier.GROK_2M.value: {
         "provider": "openrouter",
         "model_id": "x-ai/grok-4.1-fast",
@@ -60,7 +82,7 @@ MODEL_STRATEGY = {
             "ship_research",
             "document_analysis"
         ],
-        "rationale": "2M context for complete document sets; cost-effective reasoning at scale"
+        "rationale": "2M context for complete document sets; cost-effective reasoning at scale (UNAVAILABLE — user doesn't have access)"
     },
 
     ModelTier.GEMINI_VISION.value: {
@@ -86,7 +108,7 @@ MODEL_STRATEGY = {
 
     ModelTier.DEEPSEEK_OPTIMIZED.value: {
         "provider": "openrouter",
-        "model_id": "deepseek/deepseek-v4-pro",
+        "model_id": "qwen/qwen3.6-plus-04-02:free",
         "context": "1M tokens",
         "cost_per_M": 0.305,
         "input_cost": 0.435,
@@ -164,16 +186,16 @@ def route_model(
         return MODEL_STRATEGY[ModelTier.GEMINI_VISION.value]
 
     if content_size and content_size > 500_000 and "vision" not in task_type.lower():
-        log.info(f"Model route: large context ({content_size} tokens) → {ModelTier.GROK_2M.value}")
-        return MODEL_STRATEGY[ModelTier.GROK_2M.value]
+        log.info(f"Model route: large context ({content_size} tokens) → {ModelTier.SONNET_MAX_LARGE.value}")
+        return MODEL_STRATEGY[ModelTier.SONNET_MAX_LARGE.value]
 
     if budget == "minimal":
         log.info(f"Model route: budget minimal → {ModelTier.DEEPSEEK_OPTIMIZED.value}")
         return MODEL_STRATEGY[ModelTier.DEEPSEEK_OPTIMIZED.value]
 
     if required_context and required_context > 1_000_000:
-        log.info(f"Model route: context required {required_context} → {ModelTier.GROK_2M.value}")
-        return MODEL_STRATEGY[ModelTier.GROK_2M.value]
+        log.info(f"Model route: context required {required_context} → {ModelTier.SONNET_MAX_LARGE.value}")
+        return MODEL_STRATEGY[ModelTier.SONNET_MAX_LARGE.value]
 
     # Default: Gemini Vision (fastest, reasonable cost, multimodal ready)
     log.info(f"Model route: default → {ModelTier.GEMINI_VISION.value}")
