@@ -194,7 +194,71 @@ These remain to be mapped (low-priority, non-blocking):
 
 ---
 
-## 8. Module Status
+## 8. Generic Action Caller — The 344-Endpoint Surface
+
+The full catalog of `?action=X` endpoints is in **`output/tess_map/08_action_catalog.md`** (344
+actions across 30 resources). The module exposes a single generic helper rather than wrapping
+every one of them:
+
+```python
+client.call_action(resource, action, method="POST", body=None, **params)
+```
+
+Examples:
+```python
+# GET dashboard tile data
+client.call_action("Trip", "TripAccessGetListForDashboard",
+                   method="GET", pageNumber=1, pageSize=10)
+
+# Find unclaimed bookings
+client.call_action("Booking", "GetUnclaimedBookings", method="GET")
+
+# Post a note to a trip
+client.call_action("Trip", "PostTripNote",
+                   tripID=123, noteContent="Confirmed dates")
+# (or use the convenience: client.add_note("Trip", 123, "Confirmed dates"))
+```
+
+When the catalog needs deeper consultation, refer to:
+- `output/tess_map/08_action_catalog.md` — human reference
+- `output/tess_map/08_action_catalog.json` — machine-readable, 344 entries
+
+## 9. Write Operations — Required Fields
+
+POST creates were live-tested with empty bodies to capture ModelState validation:
+
+| Resource | Required Fields |
+|---|---|
+| Trip | `TripDescription`, `Agent`, `Extended` |
+| Booking | `BookingNumber`, `TourOperator` |
+| Client | `Contact`, `Agent` |
+| CheckReceived | `CheckNumber`, `CheckDate` |
+| HelpDesk | `Title`, `Content`, `HelpDeskType`, `HelpDeskStatus` |
+
+**⚠️ Critical:** `PUT /api/Trip/{id}` and `PUT /api/Booking/{id}` return **HTTP 405** despite
+the JS factory declaring `update:{method:"PUT"}`. Instance updates must use POST + `?action=X`.
+The module's `update_trip()` / `update_booking()` / `update_client()` route through
+`call_action()` accordingly.
+
+Full DTO body shapes + JS factory proofs in `output/tess_map/09_write_dto_shapes.md`.
+
+## 10. Training & Destination Guides — Not in This Surface
+
+Live-tested 13 candidate paths (`/api/Training`, `/api/Course`, `/api/Library`,
+`/api/Destination`, etc.) — **all 404**. Bundle module list audited — no
+`modules/training/`, `modules/education/`. The closest analog is `CruiseDescriptionUpdate` /
+`PropertyDescriptionUpdate` (agent-editable text on inventory records), not curated content.
+
+The `TrainingDataGet` action exists on `/api/User` but **silently returns the User DTO** with no
+training data — verified live, not used by any controller.
+
+**Conclusion:** Training and destination guides live outside this REST surface. They're likely a
+separate sub-application (OAweb portal, MAGtap, Odysseus) or a different auth scope. To be
+re-investigated when those surfaces are exposed.
+
+Full search audit in `output/tess_map/10_training_guides.md`.
+
+## 11. Module Status
 
 `core/booking/thunderbird_tess.py` — **patched 2026-05-05, all read methods working:**
 
@@ -220,12 +284,15 @@ These remain to be mapped (low-priority, non-blocking):
 | `download_check_received_report(id, fmt)` | ✅ live (75 KB PDF confirmed) | `Reporting/CheckReceived?checkID&format` |
 | `download_check_paid_report(id, fmt)` | ✅ live | `Reporting/CheckPaid?checkID&format` |
 | `download_client_export()` | ✅ live | `Export/ClientExport` (XLSX) |
+| `call_action(resource, action, ...)` | ✅ live (verified on 2 actions) | The 344-endpoint catch-all |
+| `add_note(target, target_id, note)` | ⚠️ untested | Convenience wrapper — Trip/Booking/Client notes |
+| `update_trip / update_booking / update_client` | ✅ rewired to call_action | POST + ?action= (PUT returns 405) |
 
-Methods removed (require write DTO discovery — out of scope):
-`create_trip`, `create_booking`, `create_client`. POST/PUT bodies need full DTOs;
-add back as each is needed with payload reverse-engineered from the UI.
+Methods removed (require write DTO discovery — see write_dto_shapes.md if needed):
+`create_trip`, `create_booking`, `create_client`. The required-fields table in §9
+gives the minimum viable bodies if a consumer needs them.
 
-## 9. Files Generated
+## 12. Files Generated
 
 All artifacts in `output/tess_map/`:
 
@@ -237,9 +304,15 @@ All artifacts in `output/tess_map/`:
 | `04_action_probe.json` | Live status of action paths |
 | `05_deep_js_extract.json` | All `apiServiceBaseUri+` paths + $http calls |
 | `06_discovery_probe.json` | Dashboard endpoint guesses (none worked) |
-| `07_deep_re.md` | **Background agent's deep reverse-engineering report — the breakthrough** |
-| `clients_export.json` | All 17 D2M clients (parsed from XLSX) |
-| `clients_export.xlsx` | Raw client export from TESS |
+| `07_deep_re.md` | Pagination breakthrough — read endpoints unlocked |
+| `08_action_catalog.md` + `.json` | **344 actions across 30 resources** — full action surface |
+| `09_write_dto_shapes.md` | POST/PUT body shapes (live ModelState validation) |
+| `10_training_guides.md` | Training/guide search audit (none found in this REST surface) |
+| `booking_master_schema.md` | Booking Master sheet column inventory |
+| `booking_master_dump.json` | Full sheet dump (34 D2M bookings) |
+| `cross_ref.json` + `cross_ref.md` | TESS↔Sheet reconciliation (15 matched, 19 sheet-only, 1 TESS-only) |
+| `d2m_full_pipeline.md` | **Executive summary — unified D2M pipeline view** |
+| `clients_export.json` / `.xlsx` | TESS bulk client export (kept as fallback) |
 
 ---
 

@@ -525,6 +525,63 @@ class TESSClient:
             return {"error": str(e), "type": "network_error"}
 
     # ------------------------------------------------------------------
+    # Generic action caller — the catch-all for the 344 ?action=X endpoints
+    # ------------------------------------------------------------------
+
+    def call_action(
+        self,
+        resource: str,
+        action: str | None = None,
+        method: str = "POST",
+        body: dict | None = None,
+        **params,
+    ) -> dict:
+        """Invoke any TESS action endpoint.
+
+        myAgentGenie's AngularJS frontend uses URL pattern
+        `api/{Resource}/:id/:action`. When `:action` is set but `:id` is empty,
+        Angular emits the action as a query param (?action=Name). When both
+        are empty, the call collapses to bare `api/{Resource}`.
+
+        Most actions are GET (data fetches) or POST (mutations). PUT is
+        declared by some factories but the server returns 405 — use POST.
+
+        Examples:
+            client.call_action("Trip", "TripAccessGetListForDashboard",
+                               method="GET", pageNumber=1, pageSize=10)
+            client.call_action("Trip", "PostTripNote",
+                               tripID=123, noteContent="Confirmed dates")
+            client.call_action("Booking", "GetUnclaimedBookings", method="GET")
+
+        Full action catalog: output/tess_map/08_action_catalog.md (344 actions
+        across 30 resources).
+        """
+        path = resource
+        clean_params = {k: v for k, v in params.items() if v not in (None, "")}
+        if action:
+            clean_params = {"action": action, **clean_params}
+        return self._api_request(method, path, params=clean_params, json_body=body)
+
+    def add_note(self, target: str, target_id: str | int, note: str) -> dict:
+        """Add a note to a Trip, Booking, or Client.
+
+        target: 'Trip' | 'Booking' | 'Client' (the resource name).
+        Body MUST be null per the JS pattern; content goes in query params.
+        """
+        target = target.capitalize()
+        action_map = {
+            "Trip": ("PostTripNote", "tripID", "noteContent"),
+            "Booking": ("PostBookingNote", "bookingID", "noteContent"),
+            "Client": ("PostClientNote", "clientID", "noteContent"),
+        }
+        if target not in action_map:
+            return {"error": f"Unsupported note target '{target}'", "type": "validation_error"}
+        action, id_param, content_param = action_map[target]
+        return self.call_action(
+            target, action, body=None, **{id_param: target_id, content_param: note}
+        )
+
+    # ------------------------------------------------------------------
     # Agent / Profile (myAgentGenie)
     # ------------------------------------------------------------------
     #
@@ -578,9 +635,15 @@ class TESSClient:
         """Get a specific trip by ID."""
         return self._api_request("GET", f"Trip/{trip_id}")
 
-    def update_trip(self, trip_id: str | int, trip_data: dict) -> dict:
-        """Update an existing trip (PUT, full DTO required)."""
-        return self._api_request("PUT", f"Trip/{trip_id}", json_body=trip_data)
+    def update_trip(self, trip_id: str | int, **action_params) -> dict:
+        """Update a trip via POST + action.
+
+        NOTE: Direct PUT /api/Trip/{id} returns 405 despite what the AngularJS
+        factory declares. Trip mutations happen via POST with an action override.
+        Pass the action name as `action="..."` plus any extra query params.
+        Example: client.update_trip(123, action="ReservationUpdate", parentTripID=99)
+        """
+        return self.call_action("Trip", trip_id=trip_id, **action_params)
 
     # ------------------------------------------------------------------
     # Bookings
@@ -619,9 +682,15 @@ class TESSClient:
         """Compatibility shim — delegates to list_bookings with filters."""
         return self.list_bookings(**(filters or {}), **kwargs)
 
-    def update_booking(self, booking_id: str | int, updates: dict) -> dict:
-        """Update an existing booking (PUT, full DTO required)."""
-        return self._api_request("PUT", f"Booking/{booking_id}", json_body=updates)
+    def update_booking(self, booking_id: str | int, **action_params) -> dict:
+        """Update a booking via POST + action.
+
+        NOTE: Direct PUT /api/Booking/{id} returns 405. Booking mutations use
+        POST with an action override. Common actions:
+          - BookingPaymentUpdate
+          - BookingStatusUpdate
+        """
+        return self.call_action("Booking", booking_id=booking_id, **action_params)
 
     # ------------------------------------------------------------------
     # Clients
@@ -650,9 +719,14 @@ class TESSClient:
         """Get a specific client by ID."""
         return self._api_request("GET", f"Client/{client_id}")
 
-    def update_client(self, client_id: str | int, client_data: dict) -> dict:
-        """Update client information (PUT, full DTO required)."""
-        return self._api_request("PUT", f"Client/{client_id}", json_body=client_data)
+    def update_client(self, client_id: str | int, **action_params) -> dict:
+        """Update a client via POST + action.
+
+        NOTE: Direct PUT /api/Client/{id} is unverified — the factory declares
+        PUT but live tests on Trip/Booking PUTs returned 405. Use the action
+        pattern to be safe; extend to PUT if a specific action is verified.
+        """
+        return self.call_action("Client", client_id=client_id, **action_params)
 
     # ------------------------------------------------------------------
     # Commissions — checks received and paid
