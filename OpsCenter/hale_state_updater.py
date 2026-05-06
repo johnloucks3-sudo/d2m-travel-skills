@@ -105,60 +105,69 @@ def update():
                     state["active_clients"][client_key]["last_dossier_scan"] = snippet[:200]
                     state["active_clients"][client_key]["scan_at"] = now
 
-    # ── TESS financial pulse (direct module — bypasses MCP layer) ──
-    try:
-        sys.path.insert(0, str(_ROOT / "core" / "booking"))
-        from thunderbird_tess import TESSClient
+    # ── Unified financial pulse (TESS + Booking Master sheet) ──
+    pulse: dict = {"last_checked": now}
+    sys.path.insert(0, str(_ROOT / "core" / "booking"))
 
+    # TESS side — what's already in the CRM (Kuklinski, McLeod Dec, Loucks Dec, Westbrook…)
+    try:
+        from thunderbird_tess import TESSClient
         tc = TESSClient()
         bookings = tc.list_bookings(page_size=200)
         clients = tc.list_clients(page_size=200)
         trips = tc.list_trips(page_size=200)
         summary = tc.get_commission_summary()
-
         if "error" not in bookings and "error" not in summary:
-            # Aggregate package value across active bookings
-            pkg_total = sum(
-                (b.get("PackagePrice") or 0)
-                for b in (bookings.get("Items") or [])
-            )
-            booking_comm_expected = sum(
-                ((b.get("Commission") or {}).get("Earned") or 0)
-                for b in (bookings.get("Items") or [])
-            )
-            state["financial_pulse"] = {
-                "last_checked": now,
-                "tess_auth_status": "ONLINE",
-                "tess_api_base": "https://crm.myagentgenie.com/api/api/",
-                "company": "Dreams2Memories Travel (ID 72914)",
-                "user": "johnloucks3 (UserID 3720865)",
-                "trips_count": trips.get("CountUnfiltered", 0),
-                "bookings_count": bookings.get("CountUnfiltered", 0),
-                "clients_count": clients.get("CountUnfiltered", 0),
-                "booking_pkg_total": round(pkg_total, 2),
-                "booking_commission_expected": round(booking_comm_expected, 2),
-                **{k: round(v, 2) if isinstance(v, float) else v for k, v in summary.items()},
-                "raw_snippet": (
-                    f"TESS pulse: {bookings.get('CountUnfiltered', 0)} bookings, "
-                    f"{summary.get('checks_received_count', 0)} checks received "
-                    f"totaling ${summary.get('total_received', 0):,.2f}. "
-                    f"NOTE: Most commissions for upcoming voyages live in Booking Master "
-                    f"sheet — not yet integrated into financial_pulse."
-                ),
-            }
+            pulse["tess_auth_status"] = "ONLINE"
+            pulse["tess_trips"] = trips.get("CountUnfiltered", 0)
+            pulse["tess_bookings"] = bookings.get("CountUnfiltered", 0)
+            pulse["tess_clients"] = clients.get("CountUnfiltered", 0)
+            pulse["tess_pkg_total"] = round(sum(
+                (b.get("PackagePrice") or 0) for b in (bookings.get("Items") or [])
+            ), 2)
+            pulse["tess_received"] = round(summary.get("total_received", 0), 2)
+            pulse["tess_due"] = round(summary.get("total_due", 0), 2)
+            pulse["tess_checks_received"] = summary.get("checks_received_count", 0)
         else:
-            err = bookings.get("error") or summary.get("error") or "unknown"
-            state["financial_pulse"] = {
-                "last_checked": now,
-                "tess_auth_status": "ERROR",
-                "raw_snippet": f"TESS pulse failed: {err}",
-            }
+            pulse["tess_auth_status"] = "ERROR"
+            pulse["tess_error"] = bookings.get("error") or summary.get("error")
     except Exception as e:
-        state["financial_pulse"] = {
-            "last_checked": now,
-            "tess_auth_status": "EXCEPTION",
-            "raw_snippet": f"TESS pulse exception: {e!s}",
-        }
+        pulse["tess_auth_status"] = "EXCEPTION"
+        pulse["tess_error"] = str(e)
+
+    # Booking Master sheet — source of truth incl. McLeod June, Ely/Darrow, Nichols, Furlow Aug
+    try:
+        from booking_master import BookingMasterClient
+        bmc = BookingMasterClient()
+        bm_summary = bmc.commission_summary()
+        upcoming = bmc.upcoming_voyages()
+        pulse["sheet_status"] = "ONLINE"
+        pulse["sheet_bookings"] = bm_summary.get("booking_count", 0)
+        pulse["sheet_commission_expected"] = round(bm_summary.get("total_expected", 0), 2)
+        pulse["sheet_d2m_share"] = round(bm_summary.get("total_d2m_share", 0), 2)
+        pulse["sheet_upcoming_count"] = len(upcoming)
+        # Commission still in pipeline (D2M share of upcoming voyages only)
+        pulse["pipeline_d2m_share_upcoming"] = round(sum(
+            (b.get("_parsed_d2m_share") or 0) for b in upcoming
+        ), 2)
+        pulse["pipeline_commission_upcoming"] = round(sum(
+            (b.get("_parsed_commission") or 0) for b in upcoming
+        ), 2)
+    except Exception as e:
+        pulse["sheet_status"] = "EXCEPTION"
+        pulse["sheet_error"] = str(e)
+
+    # Top-level summary: total D2M commission income waiting (sheet pipeline + TESS due)
+    pulse["total_d2m_pipeline"] = round(
+        pulse.get("pipeline_d2m_share_upcoming", 0) + pulse.get("tess_due", 0), 2
+    )
+    pulse["raw_snippet"] = (
+        f"D2M pipeline: ${pulse.get('total_d2m_pipeline', 0):,.2f} D2M share "
+        f"across {pulse.get('sheet_upcoming_count', 0)} upcoming voyages "
+        f"(sheet) + {pulse.get('tess_checks_received', 0)} checks already received "
+        f"totaling ${pulse.get('tess_received', 0):,.2f} (TESS)."
+    )
+    state["financial_pulse"] = pulse
 
     # ── Session context update ──
     if "session_context" not in state:
