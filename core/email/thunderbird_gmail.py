@@ -220,165 +220,58 @@ _STAFF_PERSONA_CONFIGS: dict = {
 }
 
 
-def _get_staff_icon_svg(persona_id: str, accent: str) -> str:
-    """Return a unique inline SVG icon badge for each Wing persona.
+def _get_staff_icon_html(persona_id: str, accent: str) -> str:
+    """Return a CSS div badge for each Wing persona — renders in all email clients.
 
-    All SVGs are self-contained — no external refs, no defs/filters.
-    Renders in Gmail, Outlook, Apple Mail. 54×54 viewbox.
+    SVG is stripped by Gmail. This div/span approach (border-radius circles with
+    callsign initials) works universally: Gmail web, Outlook, Apple Mail.
+    COS Hale gets a double-ring treatment to mark command authority.
     """
     bg = "#0d1117"
-    c = accent
-    icons = {
-        # COS Hale — Colonel's eagle, double ring, spread wings with layered feathers
-        "COS": (
-            f'<svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 54 54">'
-            f'<circle cx="27" cy="27" r="26" fill="none" stroke="{c}" stroke-width="2"/>'
-            f'<circle cx="27" cy="27" r="22" fill="none" stroke="{c}" stroke-width="0.6" opacity="0.4"/>'
-            f'<path d="M27 25 Q20 16 6 13 Q10 21 17 23 Q20 28 22 26Z" fill="{c}"/>'
-            f'<path d="M27 25 Q34 16 48 13 Q44 21 37 23 Q34 28 32 26Z" fill="{c}"/>'
-            f'<path d="M22 26 Q14 23 6 26 Q10 30 18 28Z" fill="{c}" opacity="0.7"/>'
-            f'<path d="M32 26 Q40 23 48 26 Q44 30 36 28Z" fill="{c}" opacity="0.7"/>'
-            f'<ellipse cx="27" cy="30" rx="5.5" ry="8" fill="{c}"/>'
-            f'<path d="M24 28 L27 26 L30 28 L30 33 Q27 36 24 33Z" fill="{bg}"/>'
-            f'<circle cx="27" cy="21" r="5" fill="{c}"/>'
-            f'<path d="M25 24 L22 27 L29 25Z" fill="{bg}"/>'
-            f'<circle cx="29" cy="20" r="1.3" fill="{bg}"/>'
-            f'<path d="M24 38 L27 35 L30 38 L28 46 L26 46Z" fill="{c}"/>'
-            f'</svg>'
-        ),
-        # EXEC Solberg-Vega — 4-pointed star, executive polish
-        "EXEC": (
-            f'<svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 54 54">'
-            f'<circle cx="27" cy="27" r="26" fill="none" stroke="{c}" stroke-width="1.5"/>'
-            f'<path d="M27 6 L31 22 L48 27 L31 32 L27 48 L23 32 L6 27 L23 22Z" fill="{c}"/>'
-            f'<circle cx="27" cy="27" r="5" fill="{bg}"/>'
-            f'</svg>'
-        ),
-        # A1 Navarro "Iris" — stylized eye with iris rings
-        "A1": (
-            f'<svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 54 54">'
-            f'<circle cx="27" cy="27" r="26" fill="none" stroke="{c}" stroke-width="1.5"/>'
-            f'<path d="M6 27 Q27 8 48 27 Q27 46 6 27Z" fill="none" stroke="{c}" stroke-width="2"/>'
-            f'<circle cx="27" cy="27" r="12" stroke="{c}" stroke-width="1.5" fill="none"/>'
-            f'<circle cx="27" cy="27" r="7" fill="{c}"/>'
-            f'<circle cx="27" cy="27" r="3.5" fill="{bg}"/>'
-            f'<circle cx="29" cy="25" r="1.5" fill="{c}" opacity="0.7"/>'
-            f'</svg>'
-        ),
-        # A2 Dembe "Wraith" — radar sweep with blip
-        "A2": (
-            f'<svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 54 54">'
-            f'<circle cx="27" cy="27" r="26" fill="none" stroke="{c}" stroke-width="1.5"/>'
-            f'<circle cx="27" cy="27" r="20" stroke="{c}" stroke-width="0.8" fill="none" opacity="0.45"/>'
-            f'<circle cx="27" cy="27" r="13" stroke="{c}" stroke-width="0.8" fill="none" opacity="0.45"/>'
-            f'<circle cx="27" cy="27" r="6" stroke="{c}" stroke-width="0.8" fill="none" opacity="0.45"/>'
-            f'<line x1="27" y1="1" x2="27" y2="53" stroke="{c}" stroke-width="0.6" opacity="0.25"/>'
-            f'<line x1="1" y1="27" x2="53" y2="27" stroke="{c}" stroke-width="0.6" opacity="0.25"/>'
-            f'<line x1="27" y1="27" x2="27" y2="7" stroke="{c}" stroke-width="2.5"/>'
-            f'<path d="M27 27 L44 10" stroke="{c}" stroke-width="1.5" opacity="0.5"/>'
-            f'<circle cx="38" cy="14" r="3" fill="{c}"/>'
-            f'<circle cx="27" cy="27" r="3" fill="{c}"/>'
-            f'</svg>'
-        ),
-        # A3 Moreau "Dani" — fleur-de-lis, luxury French
-        "A3": (
-            f'<svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 54 54">'
-            f'<circle cx="27" cy="27" r="26" fill="none" stroke="{c}" stroke-width="1.5"/>'
-            f'<path d="M27 8 C23 12 23 18 27 22 C31 18 31 12 27 8Z" fill="{c}"/>'
-            f'<path d="M27 21 C27 21 14 17 12 21 C10 25 15 28 20 27 C22 27 25 24 25 22 L27 21Z" fill="{c}"/>'
-            f'<path d="M27 21 C27 21 40 17 42 21 C44 25 39 28 34 27 C32 27 29 24 29 22 L27 21Z" fill="{c}"/>'
-            f'<rect x="19" y="27" width="16" height="5" rx="2.5" fill="{c}"/>'
-            f'<path d="M22 32 C20 36 27 44 27 44 C27 44 34 36 32 32Z" fill="{c}"/>'
-            f'</svg>'
-        ),
-        # A5 Castillo "Viper" — lightning bolt, decisive striker
-        "A5": (
-            f'<svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 54 54">'
-            f'<circle cx="27" cy="27" r="26" fill="none" stroke="{c}" stroke-width="1.5"/>'
-            f'<polygon points="31,6 20,29 28,29 23,48 40,25 30,25" fill="{c}"/>'
-            f'</svg>'
-        ),
-        # A6 Voss "Luna" — crescent moon with stars
-        "A6": (
-            f'<svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 54 54">'
-            f'<circle cx="27" cy="27" r="26" fill="none" stroke="{c}" stroke-width="1.5"/>'
-            f'<path d="M33 8 A18 18 0 1 0 33 46 A14 14 0 1 1 33 8Z" fill="{c}"/>'
-            f'<circle cx="41" cy="14" r="2.5" fill="{c}"/>'
-            f'<circle cx="45" cy="26" r="1.8" fill="{c}" opacity="0.65"/>'
-            f'<circle cx="39" cy="38" r="1.5" fill="{c}" opacity="0.45"/>'
-            f'</svg>'
-        ),
-        # A7 Sterling "Gauge" — speedometer dial
-        "A7": (
-            f'<svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 54 54">'
-            f'<circle cx="27" cy="27" r="26" fill="none" stroke="{c}" stroke-width="1.5"/>'
-            f'<path d="M8 37 A19 19 0 0 1 46 37" stroke="{c}" stroke-width="3" fill="none" stroke-linecap="round"/>'
-            f'<line x1="8" y1="37" x2="13" y2="33" stroke="{c}" stroke-width="2"/>'
-            f'<line x1="27" y1="18" x2="27" y2="23" stroke="{c}" stroke-width="2"/>'
-            f'<line x1="46" y1="37" x2="41" y2="33" stroke="{c}" stroke-width="2"/>'
-            f'<line x1="14" y1="22" x2="17" y2="26" stroke="{c}" stroke-width="1.5" opacity="0.6"/>'
-            f'<line x1="40" y1="22" x2="37" y2="26" stroke="{c}" stroke-width="1.5" opacity="0.6"/>'
-            f'<line x1="27" y1="37" x2="40" y2="23" stroke="{c}" stroke-width="2.5" stroke-linecap="round"/>'
-            f'<circle cx="27" cy="37" r="3.5" fill="{c}"/>'
-            f'</svg>'
-        ),
-        # A8 Reyes "Atlas" — globe with meridians and pin
-        "A8": (
-            f'<svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 54 54">'
-            f'<circle cx="27" cy="27" r="26" fill="none" stroke="{c}" stroke-width="1.5"/>'
-            f'<circle cx="27" cy="27" r="18" stroke="{c}" stroke-width="1.5" fill="none"/>'
-            f'<ellipse cx="27" cy="27" rx="9" ry="18" stroke="{c}" stroke-width="1" fill="none"/>'
-            f'<line x1="9" y1="27" x2="45" y2="27" stroke="{c}" stroke-width="1"/>'
-            f'<path d="M11 18 Q27 14 43 18" stroke="{c}" stroke-width="0.8" fill="none" opacity="0.55"/>'
-            f'<path d="M11 36 Q27 40 43 36" stroke="{c}" stroke-width="0.8" fill="none" opacity="0.55"/>'
-            f'<circle cx="34" cy="21" r="3" fill="{c}"/>'
-            f'<path d="M34 21 L34 29" stroke="{c}" stroke-width="1.5"/>'
-            f'</svg>'
-        ),
-        # A9 Harlan — bar chart with upward trend line
-        "A9": (
-            f'<svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 54 54">'
-            f'<circle cx="27" cy="27" r="26" fill="none" stroke="{c}" stroke-width="1.5"/>'
-            f'<rect x="10" y="32" width="9" height="13" fill="{c}" opacity="0.55"/>'
-            f'<rect x="22" y="24" width="9" height="21" fill="{c}" opacity="0.75"/>'
-            f'<rect x="34" y="14" width="9" height="31" fill="{c}"/>'
-            f'<line x1="8" y1="45" x2="46" y2="45" stroke="{c}" stroke-width="2"/>'
-            f'<polyline points="12,38 24,30 36,20 44,13" stroke="{c}" stroke-width="1.5" fill="none" opacity="0.5" stroke-dasharray="3,2"/>'
-            f'</svg>'
-        ),
-        # CH Washington "Padre" — shield with cross
-        "CH": (
-            f'<svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 54 54">'
-            f'<circle cx="27" cy="27" r="26" fill="none" stroke="{c}" stroke-width="1.5"/>'
-            f'<path d="M27 6 L44 13 L44 30 Q44 42 27 48 Q10 42 10 30 L10 13Z" stroke="{c}" stroke-width="1.8" fill="none"/>'
-            f'<line x1="27" y1="16" x2="27" y2="42" stroke="{c}" stroke-width="3" stroke-linecap="round"/>'
-            f'<line x1="15" y1="26" x2="39" y2="26" stroke="{c}" stroke-width="3" stroke-linecap="round"/>'
-            f'</svg>'
-        ),
-        # A12 ELON — circuit traces + lightning, innovation/tech
-        "A12": (
-            f'<svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 54 54">'
-            f'<circle cx="27" cy="27" r="26" fill="none" stroke="{c}" stroke-width="1.5"/>'
-            f'<polyline points="6,20 16,20 16,14 25,14" stroke="{c}" stroke-width="1.5" fill="none"/>'
-            f'<circle cx="25" cy="14" r="2.5" fill="{c}"/>'
-            f'<polyline points="48,20 38,20 38,14 34,14" stroke="{c}" stroke-width="1.5" fill="none"/>'
-            f'<circle cx="34" cy="14" r="2.5" fill="{c}"/>'
-            f'<polyline points="6,36 16,36 16,42 22,42" stroke="{c}" stroke-width="1.5" fill="none"/>'
-            f'<circle cx="22" cy="42" r="2.5" fill="{c}"/>'
-            f'<polyline points="48,36 38,36 38,42 32,42" stroke="{c}" stroke-width="1.5" fill="none"/>'
-            f'<circle cx="32" cy="42" r="2.5" fill="{c}"/>'
-            f'<polygon points="30,8 20,29 28,29 24,46 40,27 30,27" fill="{c}"/>'
-            f'</svg>'
-        ),
+    # Two-letter callsign badge labels — unique per persona
+    labels = {
+        "COS":  ("IVH", "10pt"),   # Iron Vic Hale — 3 letters, COS distinction
+        "EXEC": ("NSV", "10pt"),   # Naia Solberg-Vega
+        "A1":   ("IR",  "13pt"),   # Iris Navarro
+        "A2":   ("WR",  "13pt"),   # Wraith Dembe
+        "A3":   ("DN",  "13pt"),   # Dani Moreau
+        "A5":   ("VP",  "13pt"),   # Viper Castillo
+        "A6":   ("LV",  "13pt"),   # Luna Voss
+        "A7":   ("GS",  "13pt"),   # Gauge Sterling
+        "A8":   ("AR",  "13pt"),   # Atlas Reyes
+        "A9":   ("VH",  "13pt"),   # Vic Harlan
+        "CH":   ("PW",  "13pt"),   # Padre Washington
+        "A12":  ("EL",  "13pt"),   # ELON
     }
-    # Default: 10-point star burst
-    default = (
-        f'<svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 54 54">'
-        f'<circle cx="27" cy="27" r="26" fill="none" stroke="{c}" stroke-width="1.5"/>'
-        f'<polygon points="27,8 30,20 42,20 33,28 36,40 27,33 18,40 21,28 12,20 24,20" fill="{c}"/>'
-        f'</svg>'
+    label, font_size = labels.get(persona_id, (persona_id[:2], "13pt"))
+
+    if persona_id == "COS":
+        # Double-ring badge: gold outer disc, dark inner ring, gold "IVH"
+        return (
+            f'<div style="display:inline-block;width:54px;height:54px;'
+            f'border-radius:50%;background:{accent};vertical-align:middle;">'
+            f'<div style="width:44px;height:44px;margin:5px;border-radius:50%;'
+            f'background:{bg};border:1.5px solid {accent};text-align:center;'
+            f'line-height:41px;font-family:Arial Black,Arial,sans-serif;'
+            f'font-size:{font_size};font-weight:900;color:{accent};'
+            f'letter-spacing:0.5px;">{label}</div>'
+            f'</div>'
+        )
+
+    # All other staff: solid accent disc, dark initials
+    return (
+        f'<div style="display:inline-block;width:54px;height:54px;border-radius:50%;'
+        f'background:{accent};text-align:center;line-height:54px;vertical-align:middle;'
+        f'font-family:Arial Black,Arial,sans-serif;font-size:{font_size};'
+        f'font-weight:900;color:{bg};letter-spacing:0.5px;">'
+        f'{label}'
+        f'</div>'
     )
-    return icons.get(persona_id, default)
+
+
+# Keep SVG function as dead code reference — not used (Gmail strips SVG)
+def _get_staff_icon_svg(persona_id: str, accent: str) -> str:  # noqa: ARG001
+    return _get_staff_icon_html(persona_id, accent)
 
 
 def _wrap_staff_html(body: str, persona_id: str = "COS") -> str:
@@ -399,7 +292,7 @@ def _wrap_staff_html(body: str, persona_id: str = "COS") -> str:
         escaped = html_mod.escape(body)
         html_body = escaped.replace('\n', '<br>\n')
 
-    icon_svg = _get_staff_icon_svg(persona_id.upper(), accent)
+    icon_svg = _get_staff_icon_html(persona_id.upper(), accent)
 
     sig = (
         f'<hr style="border:none;border-top:2px solid {accent};margin:28px 0 18px 0;" />'
