@@ -440,11 +440,21 @@ def _build_dani_claude_prompt(context_text: str, message: str) -> str:
 def call_claude_engine(prompt: str, model: str = SONNET_MODEL) -> str:
     """
     Invoke Claude headless via `claude -p`.
-    Uses Max OAuth (no API key needed when ANTHROPIC_API_KEY is empty).
+    Uses Max OAuth — injects CLAUDE_CODE_OAUTH_TOKEN from credentials file
+    because the systemd service env does not inherit the interactive session token.
     """
-    # Use real API key from environment — ANTHROPIC_BASE_URL=api.anthropic.com
-    # Service env has correct key + endpoint. Don't strip.
     env = dict(os.environ)
+    # Strip stale API key — it overrides OAuth and causes "Invalid API key" rc=1.
+    # Headless Claude uses OAuth via CLAUDE_CODE_OAUTH_TOKEN exclusively.
+    env.pop("ANTHROPIC_API_KEY", None)
+    _creds = Path.home() / ".claude" / ".credentials.json"
+    if _creds.exists():
+        try:
+            _tok = json.loads(_creds.read_text()).get("claudeAiOauth", {}).get("accessToken")
+            if _tok:
+                env["CLAUDE_CODE_OAUTH_TOKEN"] = _tok
+        except Exception:
+            pass
 
     try:
         result = subprocess.run(
@@ -1388,26 +1398,38 @@ def main() -> None:
     # Fires before threads start. If Claude binary is broken, pages Commander
     # immediately instead of silently returning [Engine error] on every message.
     def _startup_engine_test():
+        # Test with a real model call (not just --version) to catch auth failures too.
+        env_test = dict(os.environ)
+        env_test.pop("ANTHROPIC_API_KEY", None)  # strip stale key that overrides OAuth
+        _creds = Path.home() / ".claude" / ".credentials.json"
+        if _creds.exists():
+            try:
+                _tok = json.loads(_creds.read_text()).get("claudeAiOauth", {}).get("accessToken")
+                if _tok:
+                    env_test["CLAUDE_CODE_OAUTH_TOKEN"] = _tok
+            except Exception:
+                pass
         try:
             result = subprocess.run(
-                ["/home/john/.local/bin/claude", "--version"],
-                capture_output=True, text=True, timeout=10,
+                ["/home/john/.local/bin/claude", "--model", HAIKU_MODEL,
+                 "-p", "Reply with the single word: OK",
+                 "--dangerously-skip-permissions"],
+                capture_output=True, text=True, timeout=30, env=env_test,
             )
             if result.returncode == 0:
-                log.info("Engine self-test OK: %s", result.stdout.strip()[:60])
+                log.info("Engine self-test OK (auth confirmed)")
             else:
-                err = result.stderr.strip()[:200]
+                err = (result.stderr or result.stdout).strip()[:300]
                 log.error("ENGINE SELF-TEST FAILED rc=%d: %s", result.returncode, err)
                 tg_send(TOKEN_D2MC2C, COMMANDER_ID,
                         f"⚠️ <b>D2MC2C ENGINE BROKEN</b>\n"
-                        f"claude binary rc={result.returncode}\n<code>{err}</code>\n"
+                        f"claude rc={result.returncode}\n<code>{err or '(no output)'}</code>\n"
                         f"Messages will return [Engine error] until fixed.")
         except FileNotFoundError:
-            log.error("ENGINE SELF-TEST FAILED: claude binary not found at /home/john/.local/bin/claude")
+            log.error("ENGINE SELF-TEST FAILED: claude binary not found")
             tg_send(TOKEN_D2MC2C, COMMANDER_ID,
                     "⚠️ <b>D2MC2C ENGINE BROKEN</b>\n"
-                    "claude binary not found at /home/john/.local/bin/claude\n"
-                    "Reinstall Claude Code CLI to restore D2MC2C.")
+                    "claude binary not found at /home/john/.local/bin/claude")
         except Exception as e:
             log.error("ENGINE SELF-TEST exception: %s", e)
 

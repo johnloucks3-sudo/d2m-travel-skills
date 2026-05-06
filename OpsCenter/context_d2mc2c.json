@@ -1,26 +1,26 @@
 [
   {
     "role": "Commander",
-    "text": "HALE, Give me a one line update"
-  },
-  {
-    "role": "Hale, Dispatcher",
-    "text": "System GREEN, zero open tasks, one blocker: Brain 2 (Claude API) returning 401 on invalid key — needs a credential check before the next brief fires."
-  },
-  {
-    "role": "Commander",
-    "text": "Hale debug errors"
-  },
-  {
-    "role": "Hale, Dispatcher",
-    "text": "[FALLBACK PLACEHOLDER for substrate=sonnet (MAX failed: TIMEOUT, Exceeded 180s timeout). Wire DeepSeek/Gemini caller here.]"
-  },
-  {
-    "role": "Commander",
-    "text": "COS, the previous message wates tokens, stop sending these empty messages from staff. Stop all client and supplier-related messages. ALL OF THEM."
+    "text": "hale, I do not think this search is related to our business, how do you justify it?"
   },
   {
     "role": "Hale, Sonnet",
     "text": "<b>Hale, Sonnet</b>\n\n[Engine error — Claude rc=1]"
+  },
+  {
+    "role": "Commander",
+    "text": "Status"
+  },
+  {
+    "role": "Hale, Sonnet",
+    "text": "<b>Hale, Sonnet</b>\n\n**Sir.**\n\nWing is GREEN with two blockers active.\n\n**Open items requiring Commander:**\n| Priority | Item | Status |\n|---|---|---|\n| 🔴 | **Furlow final payment** — $15,486 was due Apr 1 | 34 days overdue — cannot confirm without TESS |\n| 🔴 | **TESS re-auth** — blocking all financial visibility | Run: `python3 thunderbird_tess.py --authorize` |\n| 🟡 | **Kuklinski insurance email** — deferred, needs your direction | Send / defer / drop |\n\n**Wing systems:**\n| System | Status |\n|---|---|\n| MCP Server | 🟡 SPSA incidents logged |\n| Redis connectors | 🟡 Phase 3B pending (3 unprotected connectors) |\n| TESS Auth | 🔴 Offline |\n| Telegram GW | ✅ 3 bots active |\n| Claude Headless | ✅ Ready |\n| Chrome Debug | 🔴 Port 9222 offline |\n\n**Clients:**\n- **Furlow** — TP2, payment overdue, ne"
+  },
+  {
+    "role": "Commander",
+    "text": "Hale, examine and debug Goose bot errors"
+  },
+  {
+    "role": "Hale, Sonnet",
+    "text": "<b>Hale, Sonnet</b>\n\n[Engine timeout — Claude exceeded limit]"
   }
 ]

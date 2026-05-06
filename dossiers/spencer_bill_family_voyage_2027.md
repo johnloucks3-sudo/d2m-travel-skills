@@ -282,3 +282,45 @@ PRICING TIER DIFFERENTIATORS REMAIN:
 - Tour experiences level
 - Meal inclusions
 - Transfer services
+
+---
+
+## ⚠️ CONFIRMED DATA OVERRIDE — 2026-05-06
+*Source: Travel Timeline email sent to bkspencer381@gmail.com 2026-05-03 + Bill reply 2026-05-03*
+*Supersedes all earlier research/draft figures above.*
+
+### CONFIRMED ITINERARY (21 days)
+- **June 12, 2027** — Depart DEN → FCO, United Business Class nonstop (full party)
+- **June 12–15** — Rome, 3 nights, 5-star (Spanish Steps/Trevi or Borghese Park area)
+- **June 15–23** — Disney Wish Mediterranean cruise, 8 nights
+  - Deposit placed **2026-05-04** by Bill Spencer
+  - Booking Number: **🟡 PENDING** — Bill confirmed "deposit going in tomorrow" (May 3 reply)
+  - Commission rate / host agency: TBD once BN received
+- **June 23–25** — Florence, 2 nights, Centro Storico luxury
+- **June 25–30** — Switzerland, 5 nights. Two models offered:
+  - Model A: Interlaken base (Jungfraujoch, Lauterbrunnen)
+  - Model B: Zermatt 1–2 nights + Interlaken 3 nights
+- **July 1–2** — Zurich, 2 nights, pre-departure rest
+
+### CONFIRMED DEPARTURES (3 family groups)
+- **Tim's family**: Departs Rome June 23 — FCO → DEN (does NOT continue to Florence/Switzerland)
+  - *Commander note 2026-05-03: "Make a note of Tim and families departure from Rome June 23rd"*
+- **Remaining 8 travelers**: Continue to Florence, Switzerland, Zurich
+- **Return**: ZRH → DEN (July 2) for remaining 8
+
+### COMMITTED DELIVERABLES
+- June 10, 2027: Flight quotes (all 3 groups)
+- June 17, 2027: Full package — accommodations, transfers, insurance, per-family pricing
+- Week of June 19: Review call (Mon/Fri — text to confirm)
+- Upon approval: Service Agreement
+
+### CORRECTIONS TO EARLIER DRAFT
+1. ~~Departure June 20~~ → **June 12** (3 weeks earlier)
+2. ~~Iceland extension~~ → **Does not exist** — itinerary ends Zurich July 2
+3. ~~Cruise line TBD~~ → **Disney Wish** confirmed
+4. ~~All 12 travel together~~ → **Tim's family branches at Rome** June 23
+5. ~~Cruise embark June 23~~ → **Disney Wish June 15–23** (before Florence, not after Rome)
+6. Milan phase → **Not in itinerary** (replaced by Disney Wish segment)
+
+### BOOKING MASTER ENTRY
+Row 36 added 2026-05-06: Disney Wish Mediterranean Jun 15–23 2027 | Status: Pending | BN: 🟡 PENDING

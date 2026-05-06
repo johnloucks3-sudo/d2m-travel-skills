@@ -74,10 +74,20 @@ Why Travel is an Australia-based agency. D2M value proposition for a 2027 Austra
 
 ---
 
+## BACKGROUND CONTEXT (from Jan 2026 email thread)
+- Phil ("Flip") Piontek reached out to John in early 2026 seeking expert opinion on his son's plan to relocate to Australia with pets
+- Son's plan involved ~6-month pet quarantine timeline, $15,000–$20,000 relocation cost
+- Australia 2027 trip likely tied to visiting son post-relocation
+- Email: piontek@retiree.ucmo.edu (from 24th Phantoms contact list)
+- Phil's nickname: "Flip"
+
+---
+
 ## COMMUNICATION LOG
 
 | Date | From | Summary |
 |------|------|---------|
+| 2026-01-02 | Phil Piontek → johnloucks3 | Sought opinion on son's pet relocation to Australia (~$15-20K, 6-month quarantine) |
 | 2026-04-23 | Robin Janke → johnloucks3 | Sent "Contact" email with Melina Vrettos / Why Travel info |
 | 2026-04-24 | John Loucks → Robin Janke | "Thanks Robin." acknowledged |
 | 2026-04-24 | John Loucks → COS | "Add this to a dossier, new dossier for Phillip Piontek. More info later. Trip to Australia 2027." |
