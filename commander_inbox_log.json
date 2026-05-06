@@ -4808,5 +4808,55 @@
     "persona": "A3",
     "draft_id": null,
     "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-06T16:17:49.957696+00:00",
+    "msg_id": "19dfe0bf0b07878c",
+    "subject": "Intellectual Conservatism Needs Fighters to Survive",
+    "sender": "tom@tomklingenstein.ccsend.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-06T16:18:26.368572+00:00",
+    "msg_id": "19dfdedb044c5d98",
+    "subject": "Celebrating You on National Travel Advisor Day!",
+    "sender": "contact@princesspartners.princess.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-06T16:18:58.723383+00:00",
+    "msg_id": "19dfdb4fa678915d",
+    "subject": "JUST ANNOUNCED \u2014 NEW 2028 Arctic expeditions",
+    "sender": "learnmore@atlasoceanvoyages.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-06T18:15:24.082995+00:00",
+    "msg_id": "19dfe4fc420c711f",
+    "subject": "An Update to Our Itinerary\u00a0| Mise \u00e0 jour de notre itin\u00e9raire - Mr Erik Mc Leod | Ms Melissa Mc Glasson - Silver Muse - Civitavecchia (Rome) to  Fusina (Venice) - 2026-06-23",
+    "sender": "sma_outbound@silversea.com",
+    "classification": "booking_confirmation",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-06T18:15:54.198633+00:00",
+    "msg_id": "19dfe4bcc11ef9e3",
+    "subject": "Oceania Insider Weekly - May 6 2026",
+    "sender": "oceaniainsider@oceaniacruises.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
   }
 ]

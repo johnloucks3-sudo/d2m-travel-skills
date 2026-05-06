@@ -1,0 +1,115 @@
+{
+  "report": "WORLD INTEL ASSESSMENT \u2014 6 MAY 2026",
+  "classification": "INTERNAL // FOR COMMANDER",
+  "prepared_by": "A2 \u2014 Lt Col Marcus 'Wraith' Dembe",
+  "timestamp": "2026-05-06T06:15:00Z",
+  "d2m_relevance_summary": [
+    "Strait of Hormuz US naval blockade remains ACTIVE post-ceasefire \u2014 affects Mediterranean/Middle East routing, fuel costs, cruise line operations. McLeod (Med Jun 23) most exposed.",
+    "Spirit Airlines liquidation eliminates major carrier at Fort Lauderdale (FLL) \u2014 Kuklinski disembarks Dec 27 from FLL. Capacity reductions likely; flight costs for DFW\u2192FLL segments may increase.",
+    "Iran ceasefire shaky \u2014 Tehran feeling confident attacking despite framework. Med travel (McLeod cruise) requires elevated situational awareness. No current travel advisories, but geopolitical risk rising.",
+    "Airline industry fuel surcharges permanent; United revised Q2 guidance DOWN. Expect airfare increases across all transatlantic/long-haul D2M bookings through summer 2026.",
+    "American Airlines pilot union publicly frustrated, merger talk escalating \u2014 labor uncertainty in aviation sector. DFW hub (Furlow, Kuklinski, Nichols routes) stability unclear short-term."
+  ],
+  "key_findings": {
+    "geopolitics": "Iran ceasefire superficial; Tehran using pause to reposition. Hormuz blockade structural. Mediterranean geopolitical friction elevated.",
+    "aviation": "Spirit Airlines liquidated \u2014 capacity crunch at Fort Lauderdale. Fuel surcharges permanent. United/American both under pressure. Fares rising.",
+    "energy": "Oil elevated due to Hormuz blockade. Airline fuel costs structural, not temporary. Travel inflation 5-10% through summer 2026.",
+    "maritime": "No specific cruise advisories, but Hormuz blockade cascades to fuel costs and port operations. FLL capacity concern for Kuklinski Dec 27.",
+    "travel_advisories": "CRITICAL GAP \u2014 no State Dept travel advisories in feed. Recommend direct monitoring of state.gov/travel."
+  },
+  "critical_actions": [
+    "Flag McLeod (Med Jun 23) for elevated geopolitical awareness; brief 60 days pre-departure",
+    "Lock in airfare quotes 90-120 days pre-departure for all clients; fuel surcharges are structural",
+    "Monitor FLL capacity for Kuklinski (disembarks Dec 27); Spirit exit creates constraints",
+    "Implement daily State Dept travel advisory monitoring (state.gov/travel) for all client destinations",
+    "Monitor Iran ceasefire daily via RealClearWorld (Latham, Frantzman); escalate if ceasefire breaks"
+  ],
+  "client_impacts": {
+    "McLeod_Erik": {
+      "voyage": "Silver Muse Mediterranean Jun 23-Jul 3",
+      "risks": [
+        "Iran ceasefire fragility",
+        "Elevated fuel costs in transatlantic segment",
+        "Mediterranean geopolitical tension"
+      ],
+      "actions": [
+        "Brief on geopolitical context 60 days out",
+        "Lock transatlantic fares by Mar 24 (90 days)",
+        "Monitor Iran daily"
+      ]
+    },
+    "Kuklinski_Kyle_Others": {
+      "voyage": "Viking Mars Panama Canal Dec 17-27, disembarks FLL",
+      "risks": [
+        "Fort Lauderdale capacity crunch from Spirit exit",
+        "Elevated fuel costs propagated to cruise pricing",
+        "American Airlines labor uncertainty on DFW routing"
+      ],
+      "actions": [
+        "Quote airfare early; FLL capacity may tighten",
+        "Monitor AA labor talks",
+        "Brief on FLL port operations 30 days out"
+      ]
+    },
+    "Furlow_Nichols_Ely": {
+      "voyage": "Regent Grandeur Scandinavia Aug 29-Sep 8",
+      "risks": [
+        "Transatlantic peak summer fares",
+        "United ORD capacity constraints",
+        "Labor uncertainty AA/United"
+      ],
+      "actions": [
+        "Lock transatlantic fares by Jun 1 (90 days)",
+        "Monitor O'Hare capacity",
+        "Monitor labor situation"
+      ]
+    },
+    "Loucks_John_Susan": {
+      "voyage": "Pending Silversea/Regent Dec 29-Jan 14",
+      "risks": [
+        "Iran situation may evolve by Dec",
+        "Oil prices may ease in Q4 but geopolitical risk remains",
+        "Potential AA merger affects routing"
+      ],
+      "actions": [
+        "Request geopolitical brief 90 days out",
+        "Monitor oil prices fall-winter",
+        "Monitor AA merger developments"
+      ]
+    },
+    "Lyons_Nancy_Ken": {
+      "voyage": "Regent Splendor Athens embark Aug 11",
+      "risks": [
+        "Greece/Mediterranean geopolitical context",
+        "Transatlantic peak summer fuel surcharges"
+      ],
+      "actions": [
+        "Check Greece travel advisory",
+        "Lock fares by May 12 (90 days)",
+        "Brief on Mediterranean geopolitical context"
+      ]
+    }
+  },
+  "sources_summary": {
+    "geopolitics_military": [
+      "RealClearWorld",
+      "War on the Rocks",
+      "RealClearDefense",
+      "The Hill"
+    ],
+    "aviation": [
+      "Cranky Flier",
+      "Simple Flying",
+      "Aviation Week"
+    ],
+    "energy_markets": [
+      "CNBC Energy",
+      "Oil Price",
+      "Energy News"
+    ],
+    "travel_advisories": [
+      "U.S. State Department (state.gov/travel)"
+    ]
+  },
+  "wraith_recommendation": "Commander, macro picture is cost inflation through 2026, elevated geopolitical friction Mediterranean/Middle East, structural capacity reduction US aviation. Immediate actions: (1) lock airfare quotes 90-120 days pre-departure, (2) implement State Dept advisory monitoring, (3) brief McLeod on Med context, (4) monitor Iran ceasefire daily, (5) flag FLL for Kuklinski. No cancel triggers yet, but elevated situational awareness required across portfolio. Monitor Cranky Flier daily for carrier capacity/earnings signals."
+}

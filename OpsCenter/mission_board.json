@@ -73,6 +73,36 @@
       "logs": [
         "[2026-05-04T22:36:38] Auto-created from inbox"
       ]
+    },
+    {
+      "id": "MISSION-002",
+      "title": "DEBUG: ttyd browser",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "terminal not connecting from Chromebook nginx now listening on 100.69.222.124:8099 (Tailscale). Commander reports no connection from Chromebook. Check: ttyd process health, nginx error logs, Tailscale routing, htpasswd auth. Expected URL: http://100.69.222.124:8099 user=john pass=535277 P2",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-05-06T18:36:01.952795+00:00",
+      "updated_at": "2026-05-06T18:36:01.952806+00:00"
+    },
+    {
+      "id": "MISSION-003",
+      "title": "DEBUG: D2MC2 and",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "Goose Telegram bot errors Commander reports persistent errors on D2MC2C and GooseD2M Telegram bots. Check: thunderbird-telegram-gw.service logs, bot token validity, dispatcher errors, Hale router import failures. Resolve and restore clean operation. P1",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-05-06T18:36:01.978069+00:00",
+      "updated_at": "2026-05-06T18:36:01.978080+00:00"
     }
   ]
 }

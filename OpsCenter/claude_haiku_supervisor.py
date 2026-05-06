@@ -50,12 +50,7 @@ SUPERVISOR_STATE = BASE / "OpsCenter" / ".supervisor_state.json"
 
 def load_patterns_db():
     """Load historical pattern database."""
-    if PATTERNS_DB.exists():
-        try:
-            return json.loads(PATTERNS_DB.read_text())
-        except Exception as e:
-            logging.warning(f"Could not load patterns DB: {e}")
-    return {
+    defaults = {
         "total_invocations": 0,
         "failures": [],
         "auth_errors": 0,
@@ -64,6 +59,14 @@ def load_patterns_db():
         "logic_errors": 0,
         "last_30_min": [],
     }
+    if PATTERNS_DB.exists():
+        try:
+            loaded = json.loads(PATTERNS_DB.read_text())
+            # Merge: missing keys get defaults, existing keys from file are preserved
+            return {**defaults, **loaded}
+        except Exception as e:
+            logging.warning(f"Could not load patterns DB: {e}")
+    return defaults
 
 
 def save_patterns_db(db):

@@ -1,0 +1,46 @@
+[
+  {
+    "id": "A2-2026-05-06-001",
+    "title": "USAGov Service Finder (Drivers License, Benefits, Elections)",
+    "source_signal": "Signals 1-4: State/local government service websites",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "Government licensing/benefits services have zero relevance to luxury travel client profiling or destination intelligence."
+  },
+  {
+    "id": "A2-2026-05-06-002",
+    "title": "Dictionary Definitions (Diplomatic)",
+    "source_signal": "Signals 5-8: Merriam-Webster, Cambridge, Dictionary.com entries for 'diplomatic'",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "Lexical definitions of 'diplomatic' do not close any Thunderbird gap; already captured in voice/communication modules."
+  },
+  {
+    "id": "A2-2026-05-06-003",
+    "title": "Ordinal Number Grammar (20th vs 20\u1d57\u02b0, 3\u02b3\u1d48 vs 3rd)",
+    "source_signal": "Signals 9-12: English language grammar for century/ordinal notation",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "Typographic conventions for ordinals are irrelevant to luxury travel operations or client intelligence."
+  },
+  {
+    "id": "A2-2026-05-06-004",
+    "title": "State Dept Historical Documents Archive (Treaties, FRUS Series)",
+    "source_signal": "Signals 13-18: Office of the Historian, Presidential administrations (Truman, FDR, T.Roosevelt), Foreign Relations of the United States volumes",
+    "classification": "WATCH",
+    "gap_closed": "Text-mined diplomatic history and territorial/administrative events for HNWI nostalgia-trigger profiling",
+    "thunderbird_component": "thunderbird_incubator.py / A1 Navarro Travel DNA profiles (historical event correlation)",
+    "risk": "MED",
+    "sss_required": true,
+    "rationale": "Archive is real (State Dept ebook/treaty repository), but signals are landing pages only \u2014 no content extraction yet. Requires PDF harvest + LLM inference to link 20th-century events (cessions, treaties, presidencies) to HNWI nostalgia patterns. Confidence: LOW until we validate that actual HNWI clients express this preference."
+  }
+]

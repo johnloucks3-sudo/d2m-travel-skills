@@ -1,36 +1,36 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-05-06 00:44:09 MDT
+## Generated: 2026-05-06 12:34:18 MDT
 
 ---
 
 ### Recent Commits
-- 6c62418 feat(tess): generic action caller + 344-endpoint catalog
-- 45730fb feat(booking): unified D2M financial pipeline — TESS + Booking Master sheet
-- 80a0ca3 fix(hale): wire financial pulse to live TESS data
-- 745162f feat(tess): wire all read endpoints to myAgentGenie API
-- 66a2dfc docs: TESS API map — initial discovery
+- eac790f feat: Wire Hale eagle mark across all channels — email, Telegram, C2 bot
+- e25e328 fix: Replace SVG icons with CSS badge divs — Gmail strips inline SVG
+- 53a1e1c feat: Universal staff persona email template system for all 12 Wing members
+- 7ac4e13 feat: Add Hale command-aesthetic email template for Wing→Commander channel
+- 808e0f8 feat: Commission audit + Booking Master corrections + Spencer/Piontek/Heer intake
 
 ### Uncommitted Changes
  M CLAUDE.md
  M OpsCenter/.supervisor_patterns.json
+ M OpsCenter/00_COMMAND_LOG.md
  M OpsCenter/CLAUDE_DESKTOP_INIT.md
  M OpsCenter/GOOSE_INIT.md
+ M OpsCenter/claude_haiku_supervisor.py
  M OpsCenter/collaboration/blackboard_summary.txt
  M OpsCenter/collaboration/routing_log.md
+ M OpsCenter/collaboration/wing_comms.md
  M OpsCenter/context_d2mc2c.json
+ M OpsCenter/context_goose.json
  M OpsCenter/nexus.lock
- M OpsCenter/scan_outputs/incubator_review_latest.txt
- M OpsCenter/thunderbird_telegram_gw.py
- M commander_inbox_log.json
- M core/intel/intel/incubator_am_categories.json
- M core/intel/intel/incubator_last_review.md
- M dossiers/Piontek_Phillip.md
- M dossiers/spencer_bill_family_voyage_2027.md
- m reverie
- M scripts/fix_booking_master.py
- M session_autosave_latest.html
- M session_autosave_latest.md
-?? cache/client_context/spencer_context.json
+ M cache/client_context/ely_context.json
+ M cache/client_context/furlow_context.json
+ M cache/client_context/heer_context.json
+ M cache/client_context/how_context.json
+ M cache/client_context/loucks_context.json
+ M cache/client_context/mcleran_context.json
+ M cache/client_context/quick_context.json
+ M cache/client_context/scandi_context.json
 
 ### Inbox Status
 - Claude inbox: 0

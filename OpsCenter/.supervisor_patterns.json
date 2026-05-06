@@ -1,108 +1,11 @@
 {
-  "total_invocations": 39,
-  "failures": [
-    {
-      "timestamp": "2026-04-23T22:43:08",
-      "log_path": "/home/john/Thunderbird/logs/claude_invoke_20260423_224308.log",
-      "model": "opus",
-      "issues": [
-        "credit_error"
-      ]
-    },
-    {
-      "timestamp": "2026-04-23T23:11:03",
-      "log_path": "/home/john/Thunderbird/logs/claude_invoke_20260423_231103.log",
-      "model": "sonnet",
-      "issues": [
-        "credit_error"
-      ]
-    },
-    {
-      "timestamp": "2026-04-23T23:14:37",
-      "log_path": "/home/john/Thunderbird/logs/claude_invoke_20260423_231437.log",
-      "model": "sonnet",
-      "issues": [
-        "credit_error"
-      ]
-    },
-    {
-      "timestamp": "2026-04-24T05:57:45",
-      "log_path": "/home/john/Thunderbird/logs/claude_invoke_20260424_055745.log",
-      "model": "sonnet",
-      "issues": [
-        "credit_error"
-      ]
-    },
-    {
-      "timestamp": "2026-04-24T05:59:47",
-      "log_path": "/home/john/Thunderbird/logs/claude_invoke_20260424_055947.log",
-      "model": "sonnet",
-      "issues": [
-        "credit_error"
-      ]
-    },
-    {
-      "timestamp": "2026-04-24T06:00:43",
-      "log_path": "/home/john/Thunderbird/logs/claude_invoke_20260424_060043.log",
-      "model": "opus",
-      "issues": [
-        "credit_error"
-      ]
-    },
-    {
-      "timestamp": "2026-04-24T06:08:36",
-      "log_path": "/home/john/Thunderbird/logs/claude_invoke_20260424_060836.log",
-      "model": "opus",
-      "issues": [
-        "credit_error"
-      ]
-    },
-    {
-      "timestamp": "2026-04-24T06:08:36",
-      "log_path": "/home/john/Thunderbird/logs/claude_invoke_20260424_060836.log",
-      "model": "opus",
-      "issues": [
-        "credit_error"
-      ]
-    },
-    {
-      "timestamp": "2026-04-25T05:30:28",
-      "log_path": "/home/john/Thunderbird/logs/claude_invoke_20260425_053028.log",
-      "model": "opus",
-      "issues": [
-        "credit_error"
-      ]
-    },
-    {
-      "timestamp": "2026-04-25T05:30:28",
-      "log_path": "/home/john/Thunderbird/logs/claude_invoke_20260425_053028.log",
-      "model": "opus",
-      "issues": [
-        "credit_error"
-      ]
-    },
-    {
-      "timestamp": "2026-04-25T17:02:46",
-      "log_path": "/home/john/Thunderbird/logs/claude_invoke_20260425_170246.log",
-      "model": "opus",
-      "issues": [
-        "credit_error"
-      ]
-    },
-    {
-      "timestamp": "2026-04-25T17:02:46",
-      "log_path": "/home/john/Thunderbird/logs/claude_invoke_20260425_170246.log",
-      "model": "opus",
-      "issues": [
-        "credit_error"
-      ]
-    }
-  ],
+  "total_invocations": 0,
+  "failures": [],
   "auth_errors": 0,
-  "credit_errors": 12,
+  "credit_errors": 0,
   "timeouts": 0,
   "logic_errors": 0,
   "last_30_min": [],
-  "checkpoint_passes": 3387,
+  "checkpoint_passes": 123,
   "stale_tasks_detected": 0
 }

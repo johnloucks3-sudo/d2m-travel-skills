@@ -1,24 +1,25 @@
 {
   "date": "2026-05-05",
-  "total_dispatches": 3,
+  "total_dispatches": 6,
   "by_substrate": {
-    "sonnet": 2,
+    "sonnet": 5,
     "haiku": 1
   },
   "by_source": {
-    "layer1_keyword_router": 2,
-    "default": 1
+    "layer1_keyword_router": 4,
+    "default": 2
   },
   "by_executed_via": {
     "test": 2,
-    "max_oauth": 1
+    "max_oauth": 3,
+    "fallback_unimplemented": 1
   },
-  "escalations": 0,
-  "max_oauth_pct": 33.3,
-  "tokens_in_total_est": 32,
-  "tokens_out_total_est": 45,
-  "cost_actual_usd_total": 0.0002,
-  "cost_would_be_api_total": 0.0007,
-  "savings_total_usd": 0.0005,
-  "avg_duration_s": 2.245
+  "escalations": 1,
+  "max_oauth_pct": 50.0,
+  "tokens_in_total_est": 45,
+  "tokens_out_total_est": 378,
+  "cost_actual_usd_total": 0.0007,
+  "cost_would_be_api_total": 0.0057,
+  "savings_total_usd": 0.005,
+  "avg_duration_s": 39.586
 }

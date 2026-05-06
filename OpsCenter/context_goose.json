@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "role": "Commander",
+    "text": "debug goose bot errors"
+  },
+  {
+    "role": "Sonnet (via Both Ways)",
+    "text": "[Engine timeout — Claude exceeded limit]"
+  }
+]
