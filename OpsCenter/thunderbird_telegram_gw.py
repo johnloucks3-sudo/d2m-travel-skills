@@ -1094,7 +1094,7 @@ def handle_message(
                 resp = get_hale_response(dispatch_text, channel="telegram")
             except Exception as e:
                 resp = f"[Hale dispatcher error: {e}]"
-            chunks = fmt_process(f"<b>Hale | Dispatcher</b>\n\n{resp}", CHUNK_SIZE)
+            chunks = fmt_process(f"🦅\n\n{resp}", CHUNK_SIZE)
             tg_send_chunks(token, chat_id, chunks)
             try:
                 hale_record_turn(chat_id, dispatch_text, resp[:800])
@@ -1182,7 +1182,7 @@ def handle_message(
                     log.info("[%s] Hale dispatcher returned %d chars in %.1fs",
                              bot_name, len(hale_resp), elapsed)
                     full_label = f"{assistant_label}, Dispatcher"
-                    full = f"<b>{full_label}</b>\n\n{hale_resp}"
+                    full = f"🦅\n\n{hale_resp}"
                     tg_send_chunks(token, chat_id, fmt_process(full, CHUNK_SIZE))
                     try:
                         hale_record_turn(chat_id, msg, hale_resp[:800])

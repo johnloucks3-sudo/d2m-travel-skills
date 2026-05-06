@@ -134,7 +134,7 @@ PERSONA_REGISTRY: Dict[str, Dict[str, Any]] = {
         "name": "Hale",
         "full_name": "Col Victoria 'Iron Vic' Hale",
         "role": "Chief of Staff",
-        "icon": "🎯",
+        "icon": "🦅",
         "color": "#6366f1",
         "model": "fast",
         "gender": "F",

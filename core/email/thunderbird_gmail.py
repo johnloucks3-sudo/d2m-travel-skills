@@ -246,15 +246,16 @@ def _get_staff_icon_html(persona_id: str, accent: str) -> str:
     label, font_size = labels.get(persona_id, (persona_id[:2], "13pt"))
 
     if persona_id == "COS":
-        # Double-ring badge: gold outer disc, dark inner ring, gold "IVH"
+        # Eagle emoji in double gold ring — the IVH seal. Emoji renders in Gmail + all clients.
         return (
             f'<div style="display:inline-block;width:54px;height:54px;'
-            f'border-radius:50%;background:{accent};vertical-align:middle;">'
+            f'border-radius:50%;background:{accent};text-align:center;'
+            f'vertical-align:middle;">'
             f'<div style="width:44px;height:44px;margin:5px;border-radius:50%;'
             f'background:{bg};border:1.5px solid {accent};text-align:center;'
-            f'line-height:41px;font-family:Arial Black,Arial,sans-serif;'
-            f'font-size:{font_size};font-weight:900;color:{accent};'
-            f'letter-spacing:0.5px;">{label}</div>'
+            f'line-height:44px;font-size:22pt;">'
+            f'&#x1F985;'
+            f'</div>'
             f'</div>'
         )
 
