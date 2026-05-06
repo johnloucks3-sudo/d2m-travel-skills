@@ -49,8 +49,9 @@ THUNDERBIRD_DIR = Path.home() / "Thunderbird"
 TOKEN_FILE = THUNDERBIRD_DIR / "tess_token.json"
 CONFIG_FILE = THUNDERBIRD_DIR / "tess_config.json"
 
-AUTH_BASE_URL = "https://auth.outsideagents.com/oauth2"
-API_BASE_URL = "https://api.outsideagents.com/tess/v2"
+AUTH_BASE_URL = "https://crm.myagentgenie.com/api"
+API_BASE_URL = "https://crm.myagentgenie.com/api/api/"
+DEFAULT_CLIENT_ID = "ngAuthApp"
 
 REDIRECT_URI = "http://localhost:8089/callback"
 CALLBACK_PORT = 8089
@@ -118,6 +119,18 @@ class TESSAuth:
         if TOKEN_FILE.exists():
             try:
                 self._tokens = json.loads(TOKEN_FILE.read_text(encoding="utf-8"))
+                # Normalize issued_at to numeric Unix timestamp.
+                # The OAuth ".issued" field is an HTTP-date string; the rest of
+                # this module expects a number for expiry math.
+                if self._tokens:
+                    issued = self._tokens.get("issued_at")
+                    if not isinstance(issued, (int, float)):
+                        if "expires_at" in self._tokens and "expires_in" in self._tokens:
+                            self._tokens["issued_at"] = (
+                                self._tokens["expires_at"] - self._tokens["expires_in"]
+                            )
+                        else:
+                            self._tokens["issued_at"] = time.time()
             except Exception as e:
                 logger.warning(f"Failed to load TESS tokens: {e}")
                 self._tokens = None
@@ -132,7 +145,14 @@ class TESSAuth:
 
     @property
     def is_configured(self) -> bool:
-        """True if client credentials are available."""
+        """True if usable token is on disk OR full client credentials are available.
+
+        TESS uses two paths now: (a) JWT bearer tokens extracted from browser
+        localStorage (no client_secret needed), (b) full OAuth PKCE with
+        client_id + client_secret. Either qualifies as configured.
+        """
+        if self._tokens and "refresh_token" in self._tokens:
+            return True
         return bool(self.client_id and self.client_secret)
 
     @property
@@ -324,14 +344,18 @@ class TESSAuth:
             return False
 
         try:
+            refresh_data = {
+                "grant_type": "refresh_token",
+                "refresh_token": self._tokens["refresh_token"],
+                "client_id": self.client_id or self._tokens.get("client_id") or DEFAULT_CLIENT_ID,
+            }
+            # client_secret only sent when we actually have one (OAuth PKCE path)
+            if self.client_secret:
+                refresh_data["client_secret"] = self.client_secret
+
             resp = requests.post(
                 f"{AUTH_BASE_URL}/token",
-                data={
-                    "grant_type": "refresh_token",
-                    "refresh_token": self._tokens["refresh_token"],
-                    "client_id": self.client_id,
-                    "client_secret": self.client_secret,
-                },
+                data=refresh_data,
                 headers={
                     "Content-Type": "application/x-www-form-urlencoded",
                     "Accept": "application/json",
@@ -352,13 +376,21 @@ class TESSAuth:
                 return False
 
             data = resp.json()
+            now = time.time()
             self._tokens = {
                 "access_token": data["access_token"],
                 "refresh_token": data.get("refresh_token", self._tokens.get("refresh_token", "")),
                 "token_type": data["token_type"],
                 "expires_in": data["expires_in"],
+                "expires_at": int(now) + int(data["expires_in"]),
                 "scope": data.get("scope", self._tokens.get("scope", "")),
-                "issued_at": time.time(),
+                "issued_at": now,
+                "userID": data.get("userID", self._tokens.get("userID", "")),
+                "client_id": data.get("as:client_id", self._tokens.get("client_id", DEFAULT_CLIENT_ID)),
+                "auth_type": "jwt_bearer",
+                "api_base": API_BASE_URL,
+                "token_endpoint": f"{AUTH_BASE_URL}/token",
+                "company_id": self._tokens.get("company_id", ""),
             }
             self._save_tokens()
             logger.info("TESS access token refreshed successfully")
