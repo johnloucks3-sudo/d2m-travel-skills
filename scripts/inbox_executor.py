@@ -57,8 +57,12 @@ TODAY = datetime.now().strftime("%Y-%m-%d %H:%M")
 # HELPERS
 # ─────────────────────────────────────────────────────────────────────────────
 
+_MUTE_FLAG = Path("/home/john/Thunderbird/config/d2mc2c_client_mute")
+
 def page_commander(msg: str) -> bool:
     """Send Telegram message to Commander via D2MC2C bot."""
+    if _MUTE_FLAG.exists():
+        return False  # client/supplier push muted — SO 2026-05-05
     if not BOT_TOKEN:
         log.warning("TELEGRAM_BOT_TOKEN not set — skipping Telegram page")
         return False

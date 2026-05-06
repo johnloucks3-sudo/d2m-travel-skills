@@ -710,6 +710,9 @@ def _cos_review_email(query: str, dani_answer: str) -> Dict:
 def _notify_commander_telegram(sender: str, subject: str, dani_response: str,
                                  cos_note: str, draft_id: str):
     """Send Commander a Telegram notification about the email draft."""
+    from pathlib import Path as _Path
+    if _Path("/home/john/Thunderbird/config/d2mc2c_client_mute").exists():
+        return  # client/supplier push muted — SO 2026-05-05
     try:
         import os
         import requests as _requests

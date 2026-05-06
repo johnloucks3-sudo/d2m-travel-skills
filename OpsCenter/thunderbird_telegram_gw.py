@@ -449,7 +449,7 @@ def call_claude_engine(prompt: str, model: str = SONNET_MODEL) -> str:
     try:
         result = subprocess.run(
             [
-                "claude",
+                "/home/john/.local/bin/claude",
                 "--model",
                 model,
                 "-p",
@@ -1383,6 +1383,35 @@ def main() -> None:
 
     # Load persona cache
     _load_persona_cache()
+
+    # ── Startup engine self-test ──────────────────────────────────────────────
+    # Fires before threads start. If Claude binary is broken, pages Commander
+    # immediately instead of silently returning [Engine error] on every message.
+    def _startup_engine_test():
+        try:
+            result = subprocess.run(
+                ["/home/john/.local/bin/claude", "--version"],
+                capture_output=True, text=True, timeout=10,
+            )
+            if result.returncode == 0:
+                log.info("Engine self-test OK: %s", result.stdout.strip()[:60])
+            else:
+                err = result.stderr.strip()[:200]
+                log.error("ENGINE SELF-TEST FAILED rc=%d: %s", result.returncode, err)
+                tg_send(TOKEN_D2MC2C, COMMANDER_ID,
+                        f"⚠️ <b>D2MC2C ENGINE BROKEN</b>\n"
+                        f"claude binary rc={result.returncode}\n<code>{err}</code>\n"
+                        f"Messages will return [Engine error] until fixed.")
+        except FileNotFoundError:
+            log.error("ENGINE SELF-TEST FAILED: claude binary not found at /home/john/.local/bin/claude")
+            tg_send(TOKEN_D2MC2C, COMMANDER_ID,
+                    "⚠️ <b>D2MC2C ENGINE BROKEN</b>\n"
+                    "claude binary not found at /home/john/.local/bin/claude\n"
+                    "Reinstall Claude Code CLI to restore D2MC2C.")
+        except Exception as e:
+            log.error("ENGINE SELF-TEST exception: %s", e)
+
+    _startup_engine_test()
 
     # Verify commander ID is set
     log.info("Commander ID: %d", COMMANDER_ID)

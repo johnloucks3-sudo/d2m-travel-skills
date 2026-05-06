@@ -67,6 +67,9 @@ def check_opencode_inbox():
 
 def send_telegram_alert(message):
     """Send alert via Telegram"""
+    from pathlib import Path as _Path
+    if _Path("/home/john/Thunderbird/config/d2mc2c_client_mute").exists():
+        return  # client/supplier push muted — SO 2026-05-05
     try:
         BOT_TOKEN = "***REMOVED-SECRET***"
         CHAT_ID = "7554895206"

@@ -515,8 +515,12 @@ def _create_gmail_draft(classification: dict, reply_text: str) -> Optional[str]:
         return None
 
 
+_MUTE_FLAG = Path("/home/john/Thunderbird/config/d2mc2c_client_mute")
+
 def _telegram_alert(text: str):
     """Send a Telegram DM to the Commander about an inbound concierge email."""
+    if _MUTE_FLAG.exists():
+        return  # client/supplier push muted — SO 2026-05-05
     try:
         import requests
         url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"

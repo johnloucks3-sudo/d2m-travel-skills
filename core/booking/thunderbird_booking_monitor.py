@@ -61,7 +61,11 @@ def load_creds() -> dict:
 
 # ── Telegram ─────────────────────────────────────────────────────────────────
 
+_MUTE_FLAG = Path("/home/john/Thunderbird/config/d2mc2c_client_mute")
+
 def send_telegram(msg: str):
+    if _MUTE_FLAG.exists():
+        return  # client/supplier push muted — SO 2026-05-05
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
     data = json.dumps({
         "chat_id": COMMANDER_ID,
