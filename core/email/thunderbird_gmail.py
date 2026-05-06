@@ -129,6 +129,96 @@ COMMANDER_SIGNATURE_HTML = (
     '</div>'
 )
 
+HALE_SIGNATURE_HTML = (
+    '<hr style="border:none;border-top:2px solid #D4AF37;margin:28px 0 18px 0;" />'
+    '<div style="font-family:Arial,Helvetica,sans-serif;font-size:9.5pt;line-height:1.7;color:#c9d1d9;">'
+    '<strong style="color:#D4AF37;letter-spacing:1px;">Col Victoria &ldquo;Iron Vic&rdquo; Hale</strong>'
+    ', USAF (Ret.)<br>'
+    'Chief of Staff &nbsp;&middot;&nbsp; Thunderbird Wing<br>'
+    'Dreams2Memories Travel, LLC<br>'
+    '<a href="mailto:d2mconcierge@gmail.com" style="color:#8b949e;text-decoration:none;">'
+    'd2mconcierge@gmail.com</a>'
+    '</div>'
+)
+
+
+def _wrap_hale_html(plain_text: str) -> str:
+    """Build Hale's command-aesthetic email template for internal Wing→Commander traffic.
+
+    Dark-ops aesthetic: charcoal wrapper, military-gold accents, inline SVG thunderbird seal.
+    Used exclusively by gmail_send_from_wing() so Commander sig never leaks into Hale emails.
+    All styles are inline — Gmail strips <style> blocks.
+    """
+    import html as html_mod
+    import re as _re
+
+    if _re.search(r'<[a-zA-Z][^>]*>', plain_text):
+        html_body = plain_text
+    else:
+        escaped = html_mod.escape(plain_text)
+        html_body = escaped.replace('\n', '<br>\n')
+
+    # Inline SVG thunderbird/eagle seal — no external asset, renders everywhere
+    seal_svg = (
+        '<svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 52 52">'
+        '<circle cx="26" cy="26" r="25" fill="none" stroke="#D4AF37" stroke-width="1.5"/>'
+        # Eagle body
+        '<ellipse cx="26" cy="28" rx="7" ry="9" fill="#D4AF37"/>'
+        # Wings spread
+        '<path d="M19 27 Q10 20 4 24 Q8 28 14 27 Q17 30 19 29Z" fill="#D4AF37"/>'
+        '<path d="M33 27 Q42 20 48 24 Q44 28 38 27 Q35 30 33 29Z" fill="#D4AF37"/>'
+        # Head
+        '<circle cx="26" cy="19" r="5" fill="#D4AF37"/>'
+        # Beak
+        '<path d="M26 22 L24 25 L28 25Z" fill="#0d1117"/>'
+        # Eye
+        '<circle cx="27" cy="18" r="1.2" fill="#0d1117"/>'
+        # Tail feathers
+        '<path d="M23 37 L26 34 L29 37 L27 44 L25 44Z" fill="#D4AF37"/>'
+        # Talons
+        '<path d="M22 36 Q18 40 16 42" stroke="#D4AF37" stroke-width="1.5" fill="none"/>'
+        '<path d="M30 36 Q34 40 36 42" stroke="#D4AF37" stroke-width="1.5" fill="none"/>'
+        '</svg>'
+    )
+
+    return (
+        # Outer charcoal wrapper
+        '<div style="background:#0d1117;padding:0;margin:0;font-family:Arial,Helvetica,sans-serif;">'
+
+        # Command header bar
+        '<div style="background:#161b22;padding:20px 32px;border-bottom:2px solid #D4AF37;'
+        'text-align:center;">'
+        f'<div style="display:inline-block;vertical-align:middle;margin-right:14px;">{seal_svg}</div>'
+        '<div style="display:inline-block;vertical-align:middle;">'
+        '<div style="color:#D4AF37;font-size:13pt;font-weight:700;letter-spacing:3px;'
+        'text-transform:uppercase;font-family:Arial,Helvetica,sans-serif;">THUNDERBIRD WING</div>'
+        '<div style="color:#8b949e;font-size:8pt;letter-spacing:2px;margin-top:3px;">'
+        'DREAMS2MEMORIES TRAVEL, LLC &nbsp;&middot;&nbsp; COMMAND CHANNEL</div>'
+        '</div>'
+        '</div>'
+
+        # Body card — slightly lighter than outer wrapper
+        '<div style="background:#0d1117;padding:28px 36px 24px 36px;">'
+        '<div style="color:#e6edf3;font-size:10.5pt;line-height:1.75;'
+        'font-family:Arial,Helvetica,sans-serif;">'
+        f'{html_body}'
+        '</div>'
+        f'{HALE_SIGNATURE_HTML}'
+        '</div>'
+
+        # Classification footer bar
+        '<div style="background:#161b22;border-top:1px solid #30363d;padding:8px 32px;'
+        'text-align:center;">'
+        '<span style="color:#484f58;font-size:7.5pt;letter-spacing:1.5px;'
+        'font-family:Arial,Helvetica,sans-serif;">'
+        'INTERNAL &nbsp;&bull;&nbsp; THUNDERBIRD WING &nbsp;&bull;&nbsp; EYES ONLY'
+        '</span>'
+        '</div>'
+
+        '</div>'
+    )
+
+
 logger = logging.getLogger(__name__)
 
 # Cached service instance
@@ -1714,7 +1804,7 @@ def gmail_send_from_wing(
     pid = persona_id.upper()
     display_name = PERSONA_DISPLAY_NAMES.get(pid, PERSONA_DISPLAY_NAMES.get("D2M", "D2M Wing"))
 
-    html_body = _wrap_body_html(body)
+    html_body = _wrap_hale_html(body)
     msg = MIMEMultipart("alternative")
     msg["to"] = to
     msg["from"] = f'"{display_name}" <{WING_GMAIL_ADDRESS}>'
