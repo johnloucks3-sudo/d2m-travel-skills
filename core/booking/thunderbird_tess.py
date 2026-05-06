@@ -525,108 +525,271 @@ class TESSClient:
             return {"error": str(e), "type": "network_error"}
 
     # ------------------------------------------------------------------
-    # Agent / Profile
+    # Agent / Profile (myAgentGenie)
     # ------------------------------------------------------------------
+    #
+    # NOTE: Endpoints below use myAgentGenie's actual API surface, discovered
+    # by reverse-engineering the AngularJS bundle on 2026-05-05. URL pattern
+    # `api/{Resource}/:id/:action` collapses to bare `api/{Resource}` when
+    # both id and action are unset. List endpoints REQUIRE pageNumber +
+    # pageSize query params — without them the server returns 405. Responses
+    # are paginated as `{Items, CountFiltered, CountUnfiltered, PageNumber, PageSize}`.
 
     def get_profile(self) -> dict:
-        """Get the authenticated agent's profile."""
-        return self._api_request("GET", "/agents/profile")
+        """Get the authenticated user's TESS profile (full record + Company + Permissions)."""
+        user_id = (self.auth._tokens or {}).get("userID", "")
+        if not user_id:
+            return {"error": "No userID in token; re-extract from localStorage", "type": "auth_required"}
+        return self._api_request("GET", f"User?userID={user_id}")
+
+    def get_company(self, company_id: str | int = "") -> dict:
+        """Get a company record. Defaults to the agent's own company."""
+        cid = company_id or (self.auth._tokens or {}).get("company_id") or ""
+        return self._api_request("GET", f"Company/{cid}")
 
     # ------------------------------------------------------------------
     # Trips
     # ------------------------------------------------------------------
 
-    def list_trips(self, status: str = "", limit: int = 50, offset: int = 0) -> dict:
-        """List trips with optional status filter."""
-        params = {"limit": limit, "offset": offset}
-        if status:
-            params["status"] = status
-        return self._api_request("GET", "/trips", params=params)
+    def list_trips(
+        self,
+        page_number: int = 1,
+        page_size: int = 50,
+        sort_by: str = "CreatedDateTimeUTC",
+        sort_ascending: bool = False,
+        **filters,
+    ) -> dict:
+        """List trips. Returns paginated {Items, CountFiltered, CountUnfiltered}.
 
-    def get_trip(self, trip_id: str) -> dict:
+        Optional filters: tripDescription, tripMainTypeIds, tripTypeID,
+        tripCarrierTypeID, supplierID, userID, tripStatusIDs, startDate,
+        startDateEnd, endDate, endDateEnd, clientID.
+        """
+        params = {
+            "pageNumber": page_number,
+            "pageSize": page_size,
+            "sortBy": sort_by,
+            "sortAscending": str(sort_ascending).lower(),
+            **{k: v for k, v in filters.items() if v not in (None, "")},
+        }
+        return self._api_request("GET", "Trip", params=params)
+
+    def get_trip(self, trip_id: str | int) -> dict:
         """Get a specific trip by ID."""
-        return self._api_request("GET", f"/trips/{trip_id}")
+        return self._api_request("GET", f"Trip/{trip_id}")
 
-    def create_trip(self, trip_data: dict) -> dict:
-        """Create a new trip."""
-        return self._api_request("POST", "/trips", json_body=trip_data)
-
-    def update_trip(self, trip_id: str, trip_data: dict) -> dict:
-        """Update an existing trip."""
-        return self._api_request("PUT", f"/trips/{trip_id}", json_body=trip_data)
+    def update_trip(self, trip_id: str | int, trip_data: dict) -> dict:
+        """Update an existing trip (PUT, full DTO required)."""
+        return self._api_request("PUT", f"Trip/{trip_id}", json_body=trip_data)
 
     # ------------------------------------------------------------------
     # Bookings
     # ------------------------------------------------------------------
 
-    def list_bookings(self, limit: int = 50, offset: int = 0) -> dict:
-        """List all bookings."""
-        return self._api_request("GET", "/bookings", params={"limit": limit, "offset": offset})
+    def list_bookings(
+        self,
+        page_number: int = 1,
+        page_size: int = 50,
+        sort_by: str = "BookingDate",
+        sort_ascending: bool = False,
+        **filters,
+    ) -> dict:
+        """List bookings. Returns paginated {Items, CountFiltered, CountUnfiltered}.
 
-    def get_booking(self, booking_id: str) -> dict:
+        Each Item carries a full Commission object — this is the financial pulse.
+        Optional filters: bookingNumber, bookingCategoryTypeID, tripDescription,
+        tourOperatorID, userID, bookingStatus, tripID, tripGroupNumber,
+        bookingDateStart, bookingDateEnd, startDate, startDateEnd,
+        endDate, endDateEnd, paymentDateStart, paymentDateEnd, personalTravel.
+        """
+        params = {
+            "pageNumber": page_number,
+            "pageSize": page_size,
+            "sortBy": sort_by,
+            "sortAscending": str(sort_ascending).lower(),
+            **{k: v for k, v in filters.items() if v not in (None, "")},
+        }
+        return self._api_request("GET", "Booking", params=params)
+
+    def get_booking(self, booking_id: str | int) -> dict:
         """Get a specific booking by ID."""
-        return self._api_request("GET", f"/bookings/{booking_id}")
+        return self._api_request("GET", f"Booking/{booking_id}")
 
-    def search_bookings(self, filters: dict) -> dict:
-        """Search bookings with filters (status, client, date range, etc.)."""
-        return self._api_request("POST", "/bookings/search", json_body=filters)
+    def search_bookings(self, filters: dict | None = None, **kwargs) -> dict:
+        """Compatibility shim — delegates to list_bookings with filters."""
+        return self.list_bookings(**(filters or {}), **kwargs)
 
-    def create_booking(self, trip_id: str, booking_data: dict) -> dict:
-        """Create a new booking under a trip.
-
-        Args:
-            trip_id: TESS trip ID to attach the booking to.
-            booking_data: Booking details (supplier, confirmation_number, dates,
-                          traveler info, costs, etc.).
-        """
-        payload = {**booking_data, "trip_id": trip_id}
-        return self._api_request("POST", "/bookings", json_body=payload)
-
-    def update_booking(self, booking_id: str, updates: dict) -> dict:
-        """Update an existing booking.
-
-        Args:
-            booking_id: TESS booking ID.
-            updates: Fields to update (status, dates, costs, notes, etc.).
-        """
-        return self._api_request("PUT", f"/bookings/{booking_id}", json_body=updates)
+    def update_booking(self, booking_id: str | int, updates: dict) -> dict:
+        """Update an existing booking (PUT, full DTO required)."""
+        return self._api_request("PUT", f"Booking/{booking_id}", json_body=updates)
 
     # ------------------------------------------------------------------
     # Clients
     # ------------------------------------------------------------------
 
-    def list_clients(self, limit: int = 50, offset: int = 0) -> dict:
-        """List all clients."""
-        return self._api_request("GET", "/clients", params={"limit": limit, "offset": offset})
+    def list_clients(
+        self,
+        page_number: int = 1,
+        page_size: int = 50,
+        **filters,
+    ) -> dict:
+        """List clients. Returns paginated {Items, CountFiltered, CountUnfiltered}.
 
-    def get_client(self, client_id: str) -> dict:
-        """Get a specific client by ID."""
-        return self._api_request("GET", f"/clients/{client_id}")
-
-    def create_client(self, client_data: dict) -> dict:
-        """Create a new client in TESS.
-
-        Args:
-            client_data: Client details (first_name, last_name, email, phone,
-                         address, passport info, preferences, etc.).
+        Optional filters: clientFirstName, clientLastName, userID, marketable,
+        telephoneNumber, emailAddress, contactReferralGroupID, minBirthDate,
+        maxBirthDate, minAnniversaryDate, maxAnniversaryDate, isMarketing.
         """
-        return self._api_request("POST", "/clients", json_body=client_data)
+        params = {
+            "pageNumber": page_number,
+            "pageSize": page_size,
+            **{k: v for k, v in filters.items() if v not in (None, "")},
+        }
+        return self._api_request("GET", "Client", params=params)
 
-    def update_client(self, client_id: str, client_data: dict) -> dict:
-        """Update client information."""
-        return self._api_request("PUT", f"/clients/{client_id}", json_body=client_data)
+    def get_client(self, client_id: str | int) -> dict:
+        """Get a specific client by ID."""
+        return self._api_request("GET", f"Client/{client_id}")
+
+    def update_client(self, client_id: str | int, client_data: dict) -> dict:
+        """Update client information (PUT, full DTO required)."""
+        return self._api_request("PUT", f"Client/{client_id}", json_body=client_data)
 
     # ------------------------------------------------------------------
-    # Commissions
+    # Commissions — checks received and paid
     # ------------------------------------------------------------------
+    #
+    # In TESS terms:
+    #   - CheckReceived = D2M received commission from a tour operator/supplier.
+    #     This is what Commander cares about — money in.
+    #   - CheckPaid = D2M paid out a sub-agent (D2M is org level 2, no sub-agents,
+    #     so this list is normally empty).
+
+    def list_checks_received(
+        self,
+        page_number: int = 1,
+        page_size: int = 50,
+        **filters,
+    ) -> dict:
+        """List commission checks received. Returns paginated result.
+
+        Optional filters: checkNumber, tourOperatorID, checkStatusID.
+        Each Item includes Commission breakdown (Received, Earned, Paid, Due).
+        """
+        params = {
+            "pageNumber": page_number,
+            "pageSize": page_size,
+            **{k: v for k, v in filters.items() if v not in (None, "")},
+        }
+        return self._api_request("GET", "CheckReceived", params=params)
+
+    def get_check_received(self, check_id: str | int) -> dict:
+        """Get a single CheckReceived record by ID."""
+        return self._api_request("GET", f"CheckReceived/{check_id}")
+
+    def list_checks_paid(
+        self,
+        page_number: int = 1,
+        page_size: int = 50,
+        **filters,
+    ) -> dict:
+        """List commission checks paid out (sub-agent payments).
+
+        Optional filters: checkNumber, checkGroupNumber, checkStatusID.
+        D2M typically has none of these (org level 2, no downline).
+        """
+        params = {
+            "pageNumber": page_number,
+            "pageSize": page_size,
+            **{k: v for k, v in filters.items() if v not in (None, "")},
+        }
+        return self._api_request("GET", "CheckPaid", params=params)
 
     def get_commissions(self, limit: int = 50, offset: int = 0) -> dict:
-        """Get commission records."""
-        return self._api_request("GET", "/commissions", params={"limit": limit, "offset": offset})
+        """Compatibility shim — returns CheckReceived list (most relevant for D2M).
+
+        For full financial pulse, prefer list_checks_received() directly.
+        """
+        page = (offset // max(limit, 1)) + 1
+        return self.list_checks_received(page_number=page, page_size=limit)
 
     def get_commission_summary(self) -> dict:
-        """Get commission summary (totals, pending, paid)."""
-        return self._api_request("GET", "/commissions/summary")
+        """Aggregate commission rollup from all CheckReceived records.
+
+        myAgentGenie has no dedicated summary endpoint — we aggregate locally
+        from the Commission object on each check.
+        """
+        result = self.list_checks_received(page_size=200)
+        if "error" in result:
+            return result
+        items = result.get("Items", [])
+        totals = {
+            "checks_received_count": result.get("CountUnfiltered", len(items)),
+            "total_received": 0.0,
+            "total_earned": 0.0,
+            "total_paid": 0.0,
+            "total_due": 0.0,
+            "booking_count": 0,
+        }
+        for it in items:
+            c = it.get("Commission") or {}
+            totals["total_received"] += c.get("Received", 0) or 0
+            totals["total_earned"] += c.get("Earned", 0) or 0
+            totals["total_paid"] += c.get("Paid", 0) or 0
+            totals["total_due"] += c.get("Due", 0) or 0
+            totals["booking_count"] += c.get("BookingCount", 0) or 0
+        return totals
+
+    # ------------------------------------------------------------------
+    # Reports — Telerik PDF/Excel binaries (single-check or filtered exports)
+    # ------------------------------------------------------------------
+
+    def download_check_received_report(
+        self, check_id: str | int, fmt: str = "PDF"
+    ) -> bytes | dict:
+        """Download a per-check CheckReceived Telerik report.
+
+        Returns raw bytes on success; error dict on failure.
+        Format: 'PDF' or 'Excel'.
+        """
+        return self._download_report(
+            "Reporting/CheckReceived", {"checkID": check_id, "format": fmt}
+        )
+
+    def download_check_paid_report(
+        self, check_id: str | int, fmt: str = "PDF"
+    ) -> bytes | dict:
+        """Download a per-check CheckPaid Telerik report."""
+        return self._download_report(
+            "Reporting/CheckPaid", {"checkID": check_id, "format": fmt}
+        )
+
+    def download_client_export(self) -> bytes | dict:
+        """Download all-clients XLSX export. Prefer list_clients() for JSON."""
+        return self._download_report("Export/ClientExport", {})
+
+    def _download_report(self, path: str, params: dict) -> bytes | dict:
+        """Internal: GET a Telerik/Export report, return raw bytes."""
+        token = self.auth.get_valid_token()
+        if not token:
+            return {"error": "Not authenticated", "type": "auth_required"}
+        url = f"{API_BASE_URL}{path}"
+        try:
+            resp = requests.get(
+                url,
+                params=params,
+                headers={"Authorization": f"Bearer {token}", "User-Agent": USER_AGENT},
+                timeout=60,
+            )
+            if resp.ok:
+                return resp.content
+            return {
+                "error": f"Report download failed: HTTP {resp.status_code}",
+                "type": "api_error",
+                "status_code": resp.status_code,
+                "preview": resp.text[:300],
+            }
+        except requests.RequestException as e:
+            return {"error": str(e), "type": "network_error"}
 
     # ------------------------------------------------------------------
     # Documents

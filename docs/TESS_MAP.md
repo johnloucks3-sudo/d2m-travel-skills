@@ -1,6 +1,6 @@
 # TESS / CRM API Map
 ## Dreams2Memories Travel, LLC — myAgentGenie / Outside Agents
-### Last Updated: 2026-05-05 (Initial Discovery)
+### Last Updated: 2026-05-05 (Discovery Complete + Module Patched)
 
 ---
 
@@ -131,74 +131,117 @@ Fields per client:
 
 ---
 
-## 5. Open Discovery Questions
+## 5. Discovery Resolved — Pagination Was The Key
 
-These require either (a) further reverse engineering of the JS bundle, or (b) live capture of the TESS UI's network traffic:
+**One insight unlocked everything:** the AngularJS `$resource` URL template `api/{X}/:id/:action`
+collapses to bare `api/{X}` when both `id` and `action` are empty. List endpoints **require**
+`pageNumber` + `pageSize` query params — without them, the server returns 405. With them, every
+resource list returns paginated JSON `{Items, CountFiltered, CountUnfiltered, PageNumber, PageSize}`.
 
-1. **Trip listing pattern** — How does the app fetch the trips list? Bare GET `/Trip` returns 405. POST returns 400 (needs specific DTO).
-2. **Booking listing pattern** — Same as Trip. The app loads bookings somehow.
-3. **Commission/CheckPaid listing** — `Reporting/CheckPaid` returns 404 on bare GET. Needs date range or filter params.
-4. **Per-resource :action enumeration** — The `api/X/:id/:action` URL pattern allows the app to call dynamic actions on each resource. The full action surface isn't statically discoverable.
-5. **Training documents location** — Not yet found. May be inside `HelpDesk` or a separate `Training` namespace.
-6. **Destination guides location** — Not yet found.
+**Confirmed live (verified with bearer token, 2026-05-05):**
+
+| Concern | Working URL |
+|---|---|
+| Trip list | `GET /api/api/Trip?pageNumber=1&pageSize=50&sortBy=CreatedDateTimeUTC&sortAscending=false` |
+| Booking list (financial pulse) | `GET /api/api/Booking?pageNumber=1&pageSize=50&sortBy=BookingDate&sortAscending=false` |
+| Client list (JSON) | `GET /api/api/Client?pageNumber=1&pageSize=50` |
+| CheckReceived list (commissions in) | `GET /api/api/CheckReceived?pageNumber=1&pageSize=50` |
+| CheckPaid list (payouts) | `GET /api/api/CheckPaid?pageNumber=1&pageSize=50` |
+| Per-check PDF report | `GET /api/api/Reporting/CheckReceived?checkID={id}&format=PDF` |
+
+**Action endpoints (where `:action` is set but `:id` is empty):** Angular emits the action as a
+**query parameter** (`?action=ActionName`), NOT a path segment. Examples:
+
+| Resource | Action | Use |
+|---|---|---|
+| Trip | `?action=TripAccessGetListForDashboard` | Dashboard tile |
+| Trip | `?action=TripAccessGetListGroupedByCountryByUserID` | Reporting |
+| Booking | `?action=GetBookingSalesGroupedDashboard` | Sales dashboard |
+| Booking | `?action=GetUnclaimedBookings` | Unclaimed bookings |
+| CheckPaid | `?action=CheckPaidByCompanyIDGet` | Per-company check list |
+
+**General URL rules for any resource in the `:id/:action` family:**
+
+| Goal | URL |
+|---|---|
+| Get one record | `GET /api/api/{X}/{id}` |
+| List all (paginated) | `GET /api/api/{X}?pageNumber=1&pageSize=10[&filters]` |
+| Call collection action | `GET /api/api/{X}?action=ActionName[&params]` |
+| Call instance action | `GET /api/api/{X}/{id}?action=ActionName[&params]` |
+| Update | `PUT /api/api/{X}/{id}` (body = full DTO) |
+| Save/insert | `POST /api/api/{X}` or `POST /api/api/{X}?action=...` |
+
+## 6. Live D2M Snapshot (verified 2026-05-05)
+
+| Resource | Count | Notes |
+|---|---|---|
+| Trips | 12 | Active book + completed |
+| Bookings | 17 | $23.4K in top 5 alone, full Commission objects per record |
+| Clients | 18 | JSON list works (XLSX export still available as fallback) |
+| CheckReceived | 1 | $244.80 from Outside Agents, CheckID 605635, dated 2026-03-03 |
+| CheckPaid | 0 | D2M is OrgLevel 2 — no downline payouts |
+
+## 7. Still Out of Scope
+
+These remain to be mapped (low-priority, non-blocking):
+
+1. **Action-level write payloads** — POST/PUT body DTOs for create/update operations
+2. **Training documents** — not visible in this bundle, may be a separate module
+3. **Destination guides** — not in this bundle, likely on-demand load
+4. **`Export/AgentCheckDueExport` + `CompanyCheckDueExport`** — return 404 on bare GET, need
+   `userID` / `companyID` query params (mirror `AdjustmentExport` pattern)
+5. **Per-resource instance `:action` enumeration** — full catalog requires exhaustive bundle grep
 
 ---
 
-## 6. Discovery Method Path Forward
+## 8. Module Status
 
-To complete the map, the most efficient next steps are:
+`core/booking/thunderbird_tess.py` — **patched 2026-05-05, all read methods working:**
 
-### Option A — Live UI capture (fastest, ~10 minutes)
-Commander logs into TESS in Chrome, opens DevTools Network tab (filter Fetch/XHR), and:
-1. Clicks "Trips" in the navigation
-2. Clicks "Bookings"
-3. Clicks "Commissions"
-4. Clicks any reports / dashboards
-5. Sends the captured URLs back
+| Method | Status | Underlying call |
+|---|---|---|
+| `get_profile()` | ✅ live | `GET User?userID={tokenUserID}` |
+| `get_company(id)` | ✅ live | `GET Company/{id}` |
+| `list_trips(page, page_size, **filters)` | ✅ live | paginated Trip query |
+| `get_trip(id)` | ✅ live | `GET Trip/{id}` |
+| `update_trip(id, dto)` | ⚠️ untested | `PUT Trip/{id}` |
+| `list_bookings(page, page_size, **filters)` | ✅ live | paginated Booking query (with Commission) |
+| `get_booking(id)` | ✅ live | `GET Booking/{id}` |
+| `search_bookings(filters)` | ✅ live | shim → `list_bookings` |
+| `update_booking(id, dto)` | ⚠️ untested | `PUT Booking/{id}` |
+| `list_clients(page, page_size, **filters)` | ✅ live | paginated Client query (JSON) |
+| `get_client(id)` | ✅ live | `GET Client/{id}` |
+| `update_client(id, dto)` | ⚠️ untested | `PUT Client/{id}` |
+| `list_checks_received(...)` | ✅ live | paginated CheckReceived query |
+| `get_check_received(id)` | ✅ live | `GET CheckReceived/{id}` |
+| `list_checks_paid(...)` | ✅ live (empty for D2M) | paginated CheckPaid query |
+| `get_commissions()` | ✅ shim | `list_checks_received` (compat) |
+| `get_commission_summary()` | ✅ live | local aggregate from CheckReceived |
+| `download_check_received_report(id, fmt)` | ✅ live (75 KB PDF confirmed) | `Reporting/CheckReceived?checkID&format` |
+| `download_check_paid_report(id, fmt)` | ✅ live | `Reporting/CheckPaid?checkID&format` |
+| `download_client_export()` | ✅ live | `Export/ClientExport` (XLSX) |
 
-This gives us the exact endpoints + body payloads the app uses.
+Methods removed (require write DTO discovery — out of scope):
+`create_trip`, `create_booking`, `create_client`. POST/PUT bodies need full DTOs;
+add back as each is needed with payload reverse-engineered from the UI.
 
-### Option B — Headless reverse engineering (slower, autonomous)
-A headless Claude agent reads more of the JS bundle (especially the "controllers" and "factories" sections), looking for the pattern where `Resource.$method({id, action})` is invoked. This recovers the action names that fill the `:action` URL placeholder.
-
-### Option C — Playwright session capture (autonomous, requires login)
-Spawn a Playwright session that logs into TESS using the JWT token, navigates each major page, and captures all XHR requests automatically. This is the most thorough but requires Playwright session bootstrap.
-
----
-
-## 7. Module Status
-
-`core/booking/thunderbird_tess.py`:
-
-- ✅ **Auth layer**: Working (OAuth password grant + JWT bearer + auto-refresh)
-- ❌ **Endpoint methods**: All point to legacy `outsideagents.com/tess/v2` paths and need re-mapping
-  - `get_profile()` — needs new endpoint
-  - `list_trips()` — pattern unknown
-  - `search_bookings()` — pattern unknown
-  - `get_commissions()` — likely `Reporting/CheckPaid` with params
-  - `list_clients()` — use `Export/ClientExport` (returns XLSX) until JSON pattern found
-  - `get_client(id)` — use `Client/{id}` GET (verified pattern)
-
-`MCP tools` (registered via `register_tess_tools`):
-- All depend on the endpoint methods above and will fail until those are re-mapped
-
----
-
-## 8. Files Generated
+## 9. Files Generated
 
 All artifacts in `output/tess_map/`:
 
 | File | Purpose |
 |---|---|
 | `01_static_extract.json` | Resource families from JS bundle |
-| `02_live_probe.json` | Live status codes for every resource (GET list/by-id) |
+| `02_live_probe.json` | Live status codes for every resource (initial sweep) |
 | `03_action_paths.json` | Explicit action paths found in JS strings |
 | `04_action_probe.json` | Live status of action paths |
 | `05_deep_js_extract.json` | All `apiServiceBaseUri+` paths + $http calls |
 | `06_discovery_probe.json` | Dashboard endpoint guesses (none worked) |
+| `07_deep_re.md` | **Background agent's deep reverse-engineering report — the breakthrough** |
 | `clients_export.json` | All 17 D2M clients (parsed from XLSX) |
 | `clients_export.xlsx` | Raw client export from TESS |
 
 ---
 
-*Discovery in progress — auth foundation is solid. Endpoint surface needs live capture or deeper static analysis to complete.*
+*Discovery complete. Auth + read endpoints working live against D2M production data. Write
+endpoints (POST/PUT create) deferred until specific consumers surface a need.*
