@@ -105,12 +105,59 @@ def update():
                     state["active_clients"][client_key]["last_dossier_scan"] = snippet[:200]
                     state["active_clients"][client_key]["scan_at"] = now
 
-    # ── TESS commissions ──
-    commissions_result = _mcp("tess_get_commissions", {"limit": 10})
-    if commissions_result.get("ok"):
+    # ── TESS financial pulse (direct module — bypasses MCP layer) ──
+    try:
+        sys.path.insert(0, str(_ROOT / "core" / "booking"))
+        from thunderbird_tess import TESSClient
+
+        tc = TESSClient()
+        bookings = tc.list_bookings(page_size=200)
+        clients = tc.list_clients(page_size=200)
+        trips = tc.list_trips(page_size=200)
+        summary = tc.get_commission_summary()
+
+        if "error" not in bookings and "error" not in summary:
+            # Aggregate package value across active bookings
+            pkg_total = sum(
+                (b.get("PackagePrice") or 0)
+                for b in (bookings.get("Items") or [])
+            )
+            booking_comm_expected = sum(
+                ((b.get("Commission") or {}).get("Earned") or 0)
+                for b in (bookings.get("Items") or [])
+            )
+            state["financial_pulse"] = {
+                "last_checked": now,
+                "tess_auth_status": "ONLINE",
+                "tess_api_base": "https://crm.myagentgenie.com/api/api/",
+                "company": "Dreams2Memories Travel (ID 72914)",
+                "user": "johnloucks3 (UserID 3720865)",
+                "trips_count": trips.get("CountUnfiltered", 0),
+                "bookings_count": bookings.get("CountUnfiltered", 0),
+                "clients_count": clients.get("CountUnfiltered", 0),
+                "booking_pkg_total": round(pkg_total, 2),
+                "booking_commission_expected": round(booking_comm_expected, 2),
+                **{k: round(v, 2) if isinstance(v, float) else v for k, v in summary.items()},
+                "raw_snippet": (
+                    f"TESS pulse: {bookings.get('CountUnfiltered', 0)} bookings, "
+                    f"{summary.get('checks_received_count', 0)} checks received "
+                    f"totaling ${summary.get('total_received', 0):,.2f}. "
+                    f"NOTE: Most commissions for upcoming voyages live in Booking Master "
+                    f"sheet — not yet integrated into financial_pulse."
+                ),
+            }
+        else:
+            err = bookings.get("error") or summary.get("error") or "unknown"
+            state["financial_pulse"] = {
+                "last_checked": now,
+                "tess_auth_status": "ERROR",
+                "raw_snippet": f"TESS pulse failed: {err}",
+            }
+    except Exception as e:
         state["financial_pulse"] = {
             "last_checked": now,
-            "raw_snippet": commissions_result["text"][:400],
+            "tess_auth_status": "EXCEPTION",
+            "raw_snippet": f"TESS pulse exception: {e!s}",
         }
 
     # ── Session context update ──
