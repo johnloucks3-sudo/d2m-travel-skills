@@ -1465,7 +1465,7 @@ Each score 0–3: 0=no signal, 1=slight, 2=clear, 3=strong. Most should be 0–1
             api_key=or_key,
         )
         resp = or_client.chat.completions.create(
-            model="deepseek/deepseek-v4-pro",
+            model="qwen/qwen3.6-plus-04-02:free",
             max_tokens=120,
             messages=[
                 {"role": "system", "content": system},

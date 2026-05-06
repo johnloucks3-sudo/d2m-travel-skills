@@ -12,6 +12,7 @@ fpd_amount: 14986
 payment_status: paid_in_full
 status: active
 relationship: client
+completed_tps: []
 ---
 
 # CLIENT DOSSIER — Larry & Heidi Nichols

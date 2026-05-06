@@ -7,6 +7,7 @@
 **Source:** Allianz "All Trips Annual Premier" (annual multi-trip plan)
 **Confidence:** Based on published Allianz plan structure. Items marked "VERIFY" require checking against your actual policy document.
 
+completed_tps: []
 ---
 
 ## WHAT THE ALLIANZ ANNUAL PREMIER COVERS

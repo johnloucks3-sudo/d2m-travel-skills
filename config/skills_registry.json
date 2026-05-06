@@ -33,5 +33,14 @@
     "description": "A5 Castillo \u2014 strategy tools: competitive positioning, pricing models, growth opportunity analysis",
     "synced_at": "2026-03-21T23:54:28.601155+00:00",
     "size_bytes": 963
+  },
+  "skills": {
+    "test_skill_registration": {
+      "path": "/home/john/Thunderbird/core/skills/test_skill_registration.py",
+      "domain": "travel",
+      "description": "Test skill for P0",
+      "registered_at": "2026-05-04T14:35:57.525799",
+      "status": "active"
+    }
   }
 }

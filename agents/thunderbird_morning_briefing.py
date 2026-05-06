@@ -236,6 +236,7 @@ def _mailto_snooze_link(booking_key: str, anchor_label: str) -> str:
 def fetch_anchor_dates_upcoming() -> dict:
     """Get upcoming anchor dates from KNOWN_BOOKINGS."""
     try:
+        from core.booking.thunderbird_tp_scheduler import scan_all_actionable
         from thunderbird_anchor_dates import KNOWN_BOOKINGS, compute_anchors, scan_all_bookings_due
         all_anchors = {}
         for key, bk in KNOWN_BOOKINGS.items():
@@ -995,6 +996,19 @@ def send_briefing_json(intel_log: list, pricing: dict, tech_news: list, subject:
         "subject": subject,
         "sections": []
     }
+
+    # ── Hale Everywhere — yesterday's dispatch telemetry (Phase 2 hook) ──
+    # Renders at the top of the briefing JSON.  Defensive: brief still ships
+    # if the telemetry module or rollup is unavailable.
+    try:
+        from agents.morning_brief_telemetry import telemetry_section
+        brief_json["sections"].insert(0, {
+            "id": "dispatch-telemetry",
+            "title": "YESTERDAY'S DISPATCH",
+            "text": telemetry_section(),
+        })
+    except Exception as _e:
+        logger.debug(f"Dispatch telemetry section skipped: {_e}")
 
     # D2M RELEVANCE SUMMARY
     if intel_log:

@@ -15,6 +15,7 @@
 
 **Travel Companions:** John & Susan Loucks — party of 4 throughout voyage, all dining & excursions shared
 
+completed_tps: []
 ---
 
 ### ACTIVE BOOKINGS — COMPLETE INVENTORY

@@ -25,11 +25,13 @@
 - **Send FROM d2mconcierge always.** Client-facing emails use concierge@d2mluxury.quest as Send-As alias on d2mconcierge.
 - When Commander closes a transaction, it stays in d2mconcierge. Never pollute johnloucks3 with drafts or operational debris.
 
-## ⚠️ INTEL & BRIEFS — FULL SEND (Standing Order 27 MAR 2026)
-**ALL intel reports and briefings go to johnloucks3@gmail.com as FULL SENDS — not drafts.**
-- Scope: morning briefs, incubator digests, sitreps, intel sweeps, innovation briefings, world intel reports
-- Send FROM d2mconcierge — skip the draft step entirely for these product types
-- **Client products (validation emails, proposals, quotes) still follow WF-17 draft approval flow**
+## ⚠️ INTEL, BRIEFS & FINAL STAFF COMMUNICATIONS — FULL SEND DIRECTLY (Standing Order 27 MAR 2026, Clarified 4 MAY 2026)
+**ALL reports, intel, briefings, and final staff communications go to johnloucks3@gmail.com as FULL SENDS — directly, no draft steps.**
+- **Scope:** Morning briefs, incubator digests, sitreps, intel sweeps, innovation briefings, world intel reports, staff papers, operational updates, decisions log, radar scans
+- **Send FROM d2mconcierge** — skip the draft step entirely for these product types
+- **Eliminate all intermediate draft stops for internal communications.** These are internal deliverables to Commander.
+- **Client products only (validation emails, proposals, quotes) follow WF-17 draft approval flow** — those are client-facing and require quality gate
+- **No confirmation needed for johnloucks3 sends** — this is within-wing communication (SO 24 MAR 2026)
 
 ## ⚠️ HARD RULE — HEADLESS CLAUDE DISPATCH (Standing Order 24 APR 2026)
 **All agents (OpenCode, Goose, Claude Code) MUST use the foolproof wrapper for headless Claude spawning.**
@@ -221,9 +223,9 @@ See [docs/AGENT_TEAMS.md](docs/AGENT_TEAMS.md) for experimental team workflows.
 
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-05-03 01:25 MT -->
+<!-- Last sync: 2026-05-05 18:18 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-05-03 01:25 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-05-05 18:18 MT] ===
 Budget: Claude GREEN (MAX $0) | OpenCode GREEN (DeepSeek V3.1 ~$0.27/M) | Groq UNKNOWN | Deepseek GREEN
 Active tasks: 2
 Last Deepseek ruling: NONE

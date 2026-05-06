@@ -18,6 +18,7 @@ Check current token scopes:
 """
 
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -322,6 +323,10 @@ def authorize_persona() -> Credentials:
     Copy-paste method — no local server, no port forwarding.
     Works on any machine: browser fails to load the redirect, you copy the URL, paste it here.
     """
+    # oauthlib rejects http:// redirect URIs unless this is set.
+    # localhost redirects over HTTP are safe and standard for installed apps.
+    os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
+
     if not OAUTH_CREDENTIALS_FILE.exists():
         raise FileNotFoundError(f"OAuth credentials not found: {OAUTH_CREDENTIALS_FILE}")
     flow = InstalledAppFlow.from_client_secrets_file(

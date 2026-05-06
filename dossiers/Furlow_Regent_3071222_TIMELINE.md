@@ -21,6 +21,7 @@
 - **Room request:** Suite 853 (requested) → *assigned Suite 827* (note for future)
 - **Insurance:** DECLINED — Travel protection was refundable up to 10 days from purchase; client declined. COS tracking only, do not raise in client-facing comms.
 
+completed_tps: []
 ---
 
 ## 💰 FINANCIALS

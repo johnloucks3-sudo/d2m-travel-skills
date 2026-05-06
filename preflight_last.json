@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-05-02T06:50:04.515131",
+  "timestamp": "2026-05-05T06:50:03.482244",
   "overall": "RED",
   "checks": [
     {
       "name": "MCP Server",
       "status": "GREEN",
-      "message": "Running (PID 525633)"
+      "message": "Running (PID 1389259)"
     },
     {
       "name": "Scheduler",
@@ -30,7 +30,7 @@
     {
       "name": "Disk Space",
       "status": "GREEN",
-      "message": "800.5 GB free"
+      "message": "801.1 GB free"
     },
     {
       "name": "TELEGRAM_BOT_TOKEN",

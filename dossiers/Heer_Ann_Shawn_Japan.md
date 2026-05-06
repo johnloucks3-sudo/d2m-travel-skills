@@ -6,6 +6,7 @@ status: INTAKE
 phase: SURVEY
 created: 2026-04-26
 owner: COS Hale
+completed_tps: []
 ---
 
 # DOSSIER — HEER, ANN & SHAWN

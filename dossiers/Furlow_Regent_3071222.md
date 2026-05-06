@@ -11,6 +11,7 @@ fpd: 2026-04-01
 fpd_amount: 15486
 status: active
 relationship: client
+completed_tps: []
 ---
 # CLIENT DOSSIER — John & Melissa Furlow
 ## Regent SS Grandeur | Booking 3071222 | Scandinavia Aug 29 – Sep 8, 2026

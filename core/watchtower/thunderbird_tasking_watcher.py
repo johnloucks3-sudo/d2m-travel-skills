@@ -92,6 +92,8 @@ def trigger_claude_headless(task_count: int) -> None:
 
     def _run():
         global _headless_active
+        from core.ai_infra.thunderbird_headless_spawn import spawn_headless_claude
+        
         prompt = (
             f"You have {task_count} UNREAD task(s) in your inbox. "
             "Read /home/john/Thunderbird/OpsCenter/collaboration/claude_inbox.md "
@@ -101,23 +103,20 @@ def trigger_claude_headless(task_count: int) -> None:
         )
         log.info(f"Spawning headless Claude — {task_count} task(s)")
         try:
-        result = subprocess.run(
-            [sys.executable, "agents/thunderbird_model_dispatcher.py", prompt],
-            cwd=str(BASE),
-            capture_output=True,
-            text=True,
-            timeout=300,
-        )
-            if result.returncode != 0:
+            output_file = "/home/john/Thunderbird/output/claude_spawn_" + datetime.now().strftime("%Y%m%d_%H%M%S") + ".md"
+            result = spawn_headless_claude(
+                prompt=prompt,
+                output_file=output_file,
+                model="claude-sonnet-4-6",
+                task_name="watcher_inbox_spawn",
+                background=True
+            )
+            if result.get("status") not in ("SPAWNED", "COMPLETED"):
                 log.warning(
-                    f"Headless Claude exit {result.returncode}: {result.stderr[:300]}"
+                    f"Headless Claude spawn failed: {result}"
                 )
             else:
-                log.info("Headless Claude session completed")
-        except subprocess.TimeoutExpired:
-            log.warning("Headless Claude timed out (300s)")
-        except FileNotFoundError:
-            log.error("claude CLI not found — is ~/.local/bin in PATH?")
+                log.info(f"Headless Claude session spawned: {result.get('pid')}")
         except Exception as e:
             log.error(f"Headless Claude error: {e}")
         finally:

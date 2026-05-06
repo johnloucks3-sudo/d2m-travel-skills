@@ -1,299 +1,78 @@
 {
-  "active_missions": [
+  "missions": [
     {
-      "id": "MISSION-019",
-      "title": "Email System Analysis & Trigger Revision",
-      "status": "in_progress",
+      "id": "MISSION-024",
+      "title": "McLeod FPD Payment Orchestration",
+      "status": "active",
       "priority": "P1",
       "assigned_to": "Hale",
-      "description": "Email scanning/tasking pipeline overhaul. Phase 1: Execute Option C (Structured Routing with Supplier Fast-Path) — rebuild router logic for supplier vs. client email classification, enable selective Dani auto-draft on supplier emails only, rebuild d2m-email-intel timer scheduling. Phase 2 (future): Expand trigger system beyond current sender-name-based filtering (currently: hale, cos, coo only on unread). New triggers to evaluate: domain whitelist, Gmail labels, time-window batch sweep, flagged/starred status. Goal: Full email-to-action automation without manual address writing.",
-      "created_at": "2026-05-02T02:18:00Z",
-      "updated_at": "2026-05-02T02:36:57Z",
+      "description": "McLeod Grandeur Lesser Antilles (Dec 19-29, 2026). FPD: 22-Jul-26 (78 days). Cruise fare: $13,398. Balance due: $12,427. Tasks: (1) Confirm cabin selection response by May 10, (2) Set payment reminder cadence (Aug 1, Aug 15, Jul 22), (3) Surface financial commitment to Commander for approval, (4) Monitor payment clearing.",
+      "created_at": "2026-05-04T20:00:00Z",
+      "updated_at": "2026-05-04T22:18:59.678158Z",
       "logs": [
-        "[2026-05-02T02:18:00] MISSION-019 created by COS",
-        "[2026-05-02T02:18:00] Phase 1 (Option C execution) assigned to Hale. ETA: 3 hours.",
-        "[2026-05-02T02:36:57] PHASE 1 EXECUTION COMPLETE ✅",
-        "[2026-05-02T02:36:57] Implemented: Structured routing (Tier 1/2/3), supplier domains (50+ patterns), selective Dani auto-draft",
-        "[2026-05-02T02:36:57] Added: SUPPLIER_DOMAINS set (50+ cruise/airline/hotel/GDS domains), SUPPLIER_SENDERS set (known service accounts)",
-        "[2026-05-02T02:36:57] Added: _determine_email_tier() function, _populate_client_addresses() function",
-        "[2026-05-02T02:36:57] Modified: task_email() now routes via tier logic, selective auto-draft enabled for Tier 1 only",
-        "[2026-05-02T02:36:57] Verified: d2m-email-intel.timer active and scheduled (07:00/15:00 MDT daily)",
-        "[2026-05-02T02:36:57] Test sweep: 6 emails classified, tier routing working correctly",
-        "[2026-05-02T02:36:57] Status: PRODUCTION READY — Tier 1 (Supplier) auto-draft active, Tier 2 (Client) WF-17 gate active, Tier 3 (Intake) monitoring active",
-        "[2026-05-02T02:43:22] PHASE 1.5 REVISION: Focus shift to email tasking + COS discussion",
-        "[2026-05-02T02:43:22] INITIAL ATTEMPT: Label/star-based filtering (rejected by user)",
-        "[2026-05-02T02:47:25] PHASE 1.5 FINAL: Reverted to natural interaction triggers",
-        "[2026-05-02T02:47:25] RE-ENABLED: Supplier auto-scanning (SUPPLIER_SCANNING_ENABLED = True)",
-        "[2026-05-02T02:47:25] QUERY: Look for (1) emails from johnloucks3@gmail.com (forwarded to us), (2) emails starting with 'COS, ' or 'Hale, ' in subject",
-        "[2026-05-02T02:47:25] TIMER: Every 5 minutes, looking back 20 minutes for natural triggers",
-        "[2026-05-02T02:47:25] TASK_EMAIL: Restored SUPPLIER tier tasking + auto-draft for booking confirmations",
-        "[2026-05-02T02:47:25] STYLE: Natural back-and-forth flow, Hale signature block at end, SPSA only when needed",
-        "[2026-05-02T02:47:25] Status: PRODUCTION READY — Natural interaction workflow (forward or 'COS, ' prefix), processes every 5 minutes"
+        "[2026-05-04T20:00:00Z] McLeod FPD critical discovery: 22-Jul-26 (78 days out), not Sep 1",
+        "[2026-05-04T20:00:00Z] Cabin selection email ready for Dani dispatch",
+        "[2026-05-04T22:18:59.678176Z] Updated: All payments Furlow/Ely/Nichols confirmed cleared Apr 1"
       ]
     },
     {
-      "id": "MISSION-018",
-      "title": "Travel Service Credentials Provisioning",
-      "status": "in_progress",
+      "id": "MISSION-025",
+      "title": "OpenClaw P0/P4/P2 Build Review & Integration",
+      "status": "pending",
+      "priority": "P1",
+      "assigned_to": "Hale",
+      "description": "Review OpenClaw P0/P4/P2 build output (Skill Builder, Multi-Agent Spawn, Heartbeat). Build spawned at 2026-05-04 14:36 MT (PID 2308172). Output: /home/john/Thunderbird/output/OPENCLAW_P0P4P2_BUILD.md. Tasks: (1) Review generated code for correctness, (2) Run integrated test suite, (3) Verify no WF-17 violations, (4) Stage files for integration into Thunderbird core.",
+      "created_at": "2026-05-04T20:36:00Z",
+      "updated_at": "2026-05-04T22:18:59.678188Z",
+      "logs": [
+        "[2026-05-04T20:36:02Z] OpenClaw P0/P4/P2 build spawned to headless Claude",
+        "[2026-05-04T20:36:02Z] Awaiting build completion (~45min ETA)"
+      ]
+    },
+    {
+      "id": "MISSION-026",
+      "title": "Cabin Selection Follow-up Monitoring",
+      "status": "active",
       "priority": "P2",
       "assigned_to": "Hale",
-      "description": "Provision and validate credentials for travel service integrations. Status: 4 configured (Amadeus TEST, Hotelbeds TEST, Apify, TomTom), 8 empty placeholders (need partner registration), 1 missing (Centrav session). ACTION ITEMS: (1) Validate Amadeus/Hotelbeds connectivity, (2) Provision Blacklane/Mozio/GYG/Viator from partner programs, (3) Test Expedia TAAP integration, (4) Locate/restore Centrav session.",
-      "created_at": "2026-05-01T20:09:49.352678",
-      "updated_at": "2026-05-01T20:09:49.352687",
+      "description": "Monitor cabin selection responses from McLeod + Kuklinski (emails dispatched May 4). Expected response window: May 10-11. Tasks: (1) Set 24hr escalation trigger if no response by May 10, (2) Confirm cabin categories selected, (3) Update dossiers with cabin assignments, (4) Trigger Phase 2 pipeline (A2 Dembe destination research, A8 Reyes recommendations).",
+      "created_at": "2026-05-04T22:18:59.678197Z",
+      "updated_at": "2026-05-04T22:18:59.678207Z",
       "logs": [
-        "[2026-05-01T20:09:49.352688] Created credential audit",
-        "[2026-05-01T20:09:49.352691] API tests: Amadeus CONNECTED, Hotelbeds AUTH_ERROR, Centrav SESSION_EXISTS",
-        "[2026-05-01T20:09:49.352693] Credential validation script deployed: scripts/validate_credentials.py"
+        "[2026-05-04T22:18:59.678215Z] MISSION-026 created \u2014 Cabin selection watch",
+        "[2026-05-04T22:18:59.678223Z] Deadline: May 10 (escalation trigger if no response)"
       ]
     },
     {
-      "id": "MISSION-011",
-      "title": "Fare & Flight Research Protocol Implementation",
-      "status": "in_progress",
-      "priority": "P1",
-      "assigned_to": "OpenCode",
-      "description": "Fare & Flight Research Protocol \u2014 core infrastructure COMPLETE. 17 active fare watches registered across all active clients with proper baselines (Furlow $9,618pp, Nichols $9,448pp, Ely/Darrow $10,320pp, Kuklinski DV1 $3,799pp, Morton V1 $3,099pp, flights $550pp est, etc). fare_watch_integration.py import path fixed (added core/learning to sys.path for thunderbird_model_router). MCP tools: fare_watch (5 tools) + flight_search registered. BLOCKERS: XAI/Grok API 403 (price check method down), Amadeus creds not configured. PENDING: Amadeus credentials, Google Sheets price tracker build.",
-      "created_at": "2026-04-24T12:24:45.334550+00:00",
-      "updated_at": "2026-04-24T12:30:00",
-      "logs": [
-        "[2026-04-24T12:24:45] Auto-created from inbox",
-        "[2026-04-24T19:45:00] MISSION-011 identified as Fare & Flight Research from comprehensive lifecycle framework",
-        "[2026-04-24T19:45:00] Protocol document exists: business/client_research/Fare_Flight_Research_Protocol.md",
-        "[2026-04-24T19:45:00] Implementation files found: thunderbird_fare_watch.py, thunderbird_flight_search.py",
-        "[2026-04-24T19:45:00] Status updated to in_progress - assigned to OpenCode",
-        "[2026-04-24T06:35] Phase 1 complete: 17 watches registered, integration import fixed, Kuklinski watches live",
-        "[2026-04-24T12:30] OpenCode audit: all 17 watch baselines confirmed in fare_watches.json. fare_watch_integration.py path fix applied (core/learning added). XAI API 403 blocking live price checks. Amadeus not configured."
-      ]
-    },
-    {
-      "id": "MISSION-015",
-      "title": "Phase 3A \u2014 Redis Error Recovery & Fallback",
-      "status": "in_progress",
+      "id": "MISSION-027",
+      "title": "Telegram Debug \u2014 All Channels",
+      "status": "pending",
       "priority": "P1",
       "assigned_to": "Hale",
-      "description": "Phase 3 Production Hardening \u2014 Test Redis connection loss and fallback to local cache. All 5 connectors (D2MC2, Dani, Goose, OpenCode, Claude) refactored to inherit from RedisConnectorFallback base class. Local cache layer: ~/.thunderbird_cache/{connector_name}/. Health check & sync-on-reconnect wired.",
-      "created_at": "2026-04-28T06:50:00+00:00",
-      "updated_at": "2026-04-29T02:43:23.054956",
+      "description": "Debug Telegram integration across all channels (D2MC2C, GooseD2M, Dani). Verify: (1) Message delivery, (2) Command routing (/status, /hale, /approve, /reject), (3) Commander paging (30-60 sec cadence), (4) Inbox sync (d2mconcierge + johnloucks3), (5) Approval marker detection. Expected: Match design from 2026-05-03 session.",
+      "created_at": "2026-05-04T22:18:59.678233Z",
+      "updated_at": "2026-05-04T22:18:59.678241Z",
       "logs": [
-        "[2026-04-28T06:50:00] Created \u2014 Phase 3A entry for error recovery framework",
-        "[2026-04-28T07:15:00] ALL 5 CONNECTORS REFACTORED: Dani V2, D2MC2 V2, Goose V2, OpenCode V2, Claude Subscriber V2. Base class deployed. Local cache tier active. Next: health check cron, test suite execution",
-        "[2026-04-29T02:43:23.054934] PHASE 3A COMPLETE: Health check cron deployed, test suite 4/5 PASS, all 5 connectors operational with fallback verified."
+        "[2026-05-04T22:18:59.678249Z] MISSION-027 created by Hale \u2014 Telegram debug request from Commander",
+        "[2026-05-04T22:18:59.678258Z] Scope: All channels (D2MC2C, GooseD2M, Dani), all commands, approval detection"
       ]
     }
   ],
-  "suspended_missions": [],
-  "completed_missions": [
-    {
-      "id": "MISSION-008",
-      "title": "CANCELLED per Commander directive",
-      "status": "cancelled",
-      "priority": "P1",
-      "assigned_to": "NEXUS (auto)",
-      "description": "Mission cancelled Apr 8 per Commander directive. Auto-created placeholder removed from mission board.",
-      "created_at": "2026-04-08T00:00:00+00:00",
-      "updated_at": "2026-04-24T19:30:00+00:00",
-      "completed_at": "2026-04-08T00:00:00+00:00",
-      "logs": [
-        "[2026-04-08] CANCELLED per Commander directive",
-        "[2026-04-24] Cleaned up from mission board"
-      ]
-    },
+  "suspense_watch": [],
+  "last_updated": "2026-05-04T22:18:59.678267+00:00",
+  "active_missions": [
     {
       "id": "MISSION-001",
-      "title": "Lifecycle Chart Generation",
-      "status": "completed",
+      "title": "|",
+      "status": "running",
       "priority": "P1",
       "assigned_to": "NEXUS (auto)",
-      "description": "Generate visual timeline charts for all active clients using anchor-date engine. Created ~/Thunderbird/output/lifecycle_chart.html.",
-      "created_at": "2026-04-22T12:04:05.909511+00:00",
-      "updated_at": "2026-04-22T12:04:05.909556+00:00",
+      "description": "|",
+      "created_at": "2026-05-04T22:36:38.914472+00:00",
+      "updated_at": "2026-05-04T22:36:38.914480+00:00",
       "logs": [
-        "[2026-04-22T12:04:05] Auto-created from inbox"
-      ],
-      "completed_at": "2026-04-22T12:05:04.218758+00:00"
-    },
-    {
-      "id": "MISSION-002",
-      "title": "Client Lifecycle Chart Generation",
-      "status": "completed",
-      "priority": "P1",
-      "assigned_to": "NEXUS (auto)",
-      "description": "Generate visual timeline charts for all active clients using anchor-date engine. Integrated with revised Phase_Standardization.md. Created ~/Thunderbird/output/lifecycle_chart.html.",
-      "created_at": "2026-04-22T12:05:16.956556+00:00",
-      "updated_at": "2026-04-22T05:54:00+00:00",
-      "completed_at": "2026-04-20T01:40:00+00:00",
-      "logs": [
-        "[2026-04-22T12:05:16] Auto-created from inbox",
-        "[2026-04-22T05:54:00] Corrected from placeholder \u2014 lifecycle_chart.html created Apr 20 01:40 MT"
+        "[2026-05-04T22:36:38] Auto-created from inbox"
       ]
-    },
-    {
-      "id": "MISSION-003",
-      "title": "18-Month Client Lifecycle Analysis \u2014 Revenue Pipeline Visualization",
-      "status": "completed",
-      "priority": "P1",
-      "assigned_to": "NEXUS (auto)",
-      "description": "Revenue pipeline visualization across 7 active clients: $40,480 confirmed over 18 months. Created ~/Thunderbird/output/lifecycle_18month.html (13.5K). Analyses include Lyons FPD May 11 (T-34d), Westbrook prospect on hold.",
-      "created_at": "2026-04-22T12:07:39.280879+00:00",
-      "updated_at": "2026-04-22T13:15:00+00:00",
-      "completed_at": "2026-04-07T08:40:00+00:00",
-      "logs": [
-        "[2026-04-22T12:07:39] Auto-created from inbox",
-        "[2026-04-22T13:15:00] Updated with actual completion: 18-month lifecycle analysis ($40,480 revenue)"
-      ]
-    },
-    {
-      "id": "MISSION-004",
-      "title": "Placeholder entry",
-      "status": "completed",
-      "priority": "P1",
-      "assigned_to": "NEXUS (auto)",
-      "description": "Completed",
-      "created_at": "2026-04-22T21:39:33.003797+00:00",
-      "updated_at": "2026-04-22T21:39:33.003804+00:00",
-      "logs": [
-        "[2026-04-22T21:39:33] Auto-created from inbox"
-      ],
-      "completed_at": "2026-04-24T04:45:36.326573+00:00"
-    },
-    {
-      "id": "MISSION-005",
-      "title": "Hale Memory & State Sync",
-      "status": "completed",
-      "priority": "P1",
-      "assigned_to": "NEXUS (auto)",
-      "description": "Synchronize Hale institutional memory (hale_memory.md) with active state files (hale_state.json) and ensure consistency across persona systems. Critical for maintaining Hale's multi-layer identity coherence and operational continuity.",
-      "created_at": "2026-04-24T05:11:19.273870+00:00",
-      "updated_at": "2026-04-24T11:55:31+00:00",
-      "logs": [
-        "[2026-04-24T05:11:19] Auto-created from inbox",
-        "[2026-04-24T15:30:00] Updated with correct title and description from nexus audit logs",
-        "[2026-04-24T05:55:00] MISSION COMPLETED by OpenCode \u2014 Hale memory & state sync complete"
-      ],
-      "completed_at": "2026-04-24T11:55:31+00:00"
-    },
-    {
-      "id": "MISSION-006",
-      "title": "Telegram Validation & Gateway Health Check",
-      "status": "completed",
-      "priority": "P1",
-      "assigned_to": "NEXUS (auto)",
-      "description": "Validate Telegram channels and repair them. Check C2 bot, client-facing bot, and gateway services. Gateway running with 3 bots (D2MC2C, GooseD2M, Dani). Sending functional - test message delivered to Commander. Receiving has 'Connection reset by peer' errors from Telegram API - likely temporary network issue. Service restart recommended.",
-      "created_at": "2026-04-24T11:57:47.887027+00:00",
-      "updated_at": "2026-04-24T11:57:47.887028+00:00",
-      "completed_at": "2026-04-24T11:57:47.887029+00:00",
-      "logs": [
-        "[2026-04-24T11:57:47] Auto-created from inbox",
-        "[2026-04-24T11:57:47] Updated: Telegram validation complete. Gateway operational with 3 bots. Sending OK, receiving has 'Connection reset by peer' errors - likely temporary network issue"
-      ]
-    },
-    {
-      "id": "MISSION-009",
-      "title": "System Health Diagnostic",
-      "status": "completed",
-      "priority": "P0",
-      "assigned_to": "HALE (Col Victoria Hale)",
-      "description": "MCP infrastructure DOWN. Telegram C2/Dani INACTIVE. Chrome debug OFFLINE. Root cause: Module import path corruption in travel_mcp_server.py. System health score: 2/10 \u2014 critical system failure.",
-      "created_at": "2026-04-12T22:30:00+00:00",
-      "updated_at": "2026-04-12T22:30:00+00:00",
-      "completed_at": "2026-04-12T22:30:00+00:00",
-      "logs": [
-        "[2026-04-12T22:30:00] System health diagnostic completed. Major failures identified requiring immediate remediation"
-      ]
-    },
-    {
-      "id": "MISSION-010",
-      "title": "Google Forms Logic Protocol",
-      "status": "completed",
-      "priority": "P1",
-      "assigned_to": "NEXUS (auto)",
-      "description": "Established timing protocol for sending client forms based on anchor dates. Created Google_Forms_Logic_Protocol.md with 5 forms inventory and automated send timing logic integrated with lifecycle architecture.",
-      "created_at": "2026-04-24T12:21:31.800086+00:00",
-      "updated_at": "2026-04-24T19:45:00+00:00",
-      "completed_at": "2026-04-07T20:15+00:00",
-      "logs": [
-        "[2026-04-24T12:21:31] Auto-created from inbox",
-        "[2026-04-24T19:45:00] Mission already completed on 2026-04-07 \u2014 Google Forms Logic Protocol created at comms/Google_Forms_Logic_Protocol.md"
-      ]
-    },
-    {
-      "id": "MISSION-012",
-      "title": "TEST-3TIER (Archived \u2014 Failed Model Selection)",
-      "status": "completed",
-      "priority": "P0",
-      "assigned_to": "NEXUS (auto)",
-      "description": "Archived test mission \u2014 deadlock in 3-tier model routing. No longer active.",
-      "created_at": "2026-04-26T08:31:58.586405+00:00",
-      "updated_at": "2026-04-28T06:50:00+00:00",
-      "completed_at": "2026-04-28T06:50:00+00:00",
-      "logs": [
-        "[2026-04-26T08:32:03] NEXUS started \u2014 deadlock after 3 iter / 285 tokens",
-        "[2026-04-28T06:50:00] Archived to completed missions"
-      ]
-    },
-    {
-      "id": "MISSION-013",
-      "title": "TEST Model Selection (Archived \u2014 Failed)",
-      "status": "completed",
-      "priority": "P0",
-      "assigned_to": "NEXUS (auto)",
-      "description": "Archived test mission \u2014 deadlock in model selection logic. No longer active.",
-      "created_at": "2026-04-26T08:38:58.688256+00:00",
-      "updated_at": "2026-04-28T06:50:00+00:00",
-      "completed_at": "2026-04-28T06:50:00+00:00",
-      "logs": [
-        "[2026-04-26T08:39:38] NEXUS STOP: DEADLOCK after 3 iter / 152 tokens",
-        "[2026-04-28T06:50:00] Archived to completed missions"
-      ]
-    },
-    {
-      "id": "MISSION-014",
-      "title": "TEST Tier1 Selection (Archived \u2014 Failed)",
-      "status": "completed",
-      "priority": "P0",
-      "assigned_to": "NEXUS (auto)",
-      "description": "Archived test mission \u2014 process orphaned during tier1 model selection. No longer active.",
-      "created_at": "2026-04-26T08:39:44.832221+00:00",
-      "updated_at": "2026-04-28T06:50:00+00:00",
-      "completed_at": "2026-04-28T06:50:00+00:00",
-      "logs": [
-        "[2026-04-26T08:50:00] ORPHANED \u2014 Nexus process died after iter 1",
-        "[2026-04-28T06:50:00] Archived to completed missions"
-      ]
-    },
-    {
-      "id": "MISSION-016",
-      "title": "Phase 3B \u2014 End-to-End Integration Test",
-      "status": "completed",
-      "priority": "P1",
-      "assigned_to": "Hale",
-      "description": "Phase 3B Integration Testing \u2014 Full workflow test: Telegram command to D2MC2 to Redis to Dani to Email draft. Cross-platform testing: OpenCode mission to Goose task to Research result to Hale aware. Decision escalation chain: Financial decision to D2MC2 to Hale routes to A9 to A5 to COS approval.",
-      "created_at": "2026-04-28T06:50:00+00:00",
-      "updated_at": "2026-04-30T02:01:50.197473+00:00",
-      "logs": [
-        "[2026-04-28T06:50:00] Created \u2014 Phase 3B entry for integration testing",
-        "[2026-04-29T02:43:23.054968] PHASE 3B READY: Integration testing plan created. 5 scenarios defined: (1) Telegram\u2192D2MC2\u2192Dani\u2192Email, (2) OpenCode\u2192Goose\u2192Hale, (3) Decision escalation chain, (4) Dani\u2192Client\u2192Dossier, (5) Concurrent ops stress. Ready for sequential execution.",
-        "[2026-04-29T02:46:10.113467] PHASE 3B EXECUTION STARTED: Headless Claude (PID 2733040) running 5 integration test scenarios. Spawned with full Redis failure injection and fallback verification. Monitor active \u2014 completion expected in ~10 min. Log: phase3b_headless_spawn_20260428_204559.log",
-        "[2026-04-30T02:01:50.197478+00:00] PHASE 3B COMPLETE: 5/5 integration scenarios passed. Zero data loss. System production-ready. Logs: logs/phase3b_integration_results.txt"
-      ],
-      "completed_at": "2026-04-30T02:01:50.197462+00:00"
-    },
-    {
-      "id": "MISSION-017",
-      "title": "Phase 3C \u2014 Drive Backup Verification",
-      "status": "completed",
-      "priority": "P1",
-      "assigned_to": "Hale",
-      "description": "Phase 3C Production Hardening \u2014 Verify RDB snapshot to Drive archival chain. Test backup trigger on state changes. Verify recovery from backup. Test concurrent backup during active operations.",
-      "created_at": "2026-04-28T06:50:00+00:00",
-      "updated_at": "2026-04-30T22:19:20.683830",
-      "logs": [
-        "[2026-04-28T06:50:00] Created \u2014 Phase 3C entry for Drive backup verification",
-        "[2026-04-30T02:01:50.197486+00:00] MISSION-017 started by OpenCode. Phase 3C: Drive Backup Verification test suite building now.",
-        "[2026-04-30T22:30:00] PHASE 3C COMPLETE: 4/4 test scenarios passed. Drive archival chain verified (d2mconcierge:Thunderbird_Mirror/). Recovery tested. Concurrent ops safe. 3 operational warnings: Evernote 26d stale, April monthly archive missing, 313 uncommitted git changes."
-      ],
-      "completed_at": "2026-04-30T22:19:20.683840"
     }
-  ],
-  "suspense_watch": []
+  ]
 }

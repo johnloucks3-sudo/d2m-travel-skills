@@ -17,6 +17,7 @@
 - Email: [to be captured]
 - Phone: [to be captured]
 
+completed_tps: []
 ---
 
 ## BOOKING — ATLAS OCEAN VOYAGES, JULY 2026

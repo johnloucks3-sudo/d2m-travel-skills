@@ -31,6 +31,7 @@
 | Dec 29, 2026 | **EMBARKATION — Miami** |
 | Jan 14, 2027 | **DISEMBARKATION — Los Angeles** |
 
+completed_tps: []
 ---
 
 ### TRAVEL COMPANIONS — Nancy & Ken Lyons

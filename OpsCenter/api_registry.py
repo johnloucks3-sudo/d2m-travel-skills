@@ -91,7 +91,7 @@ APIS = {
         "notes":     "Local RAG + LLM. $0 always. Use for document ingestion and offline queries.",
         "mcp_tool":  None,
     },
-    "openrouter": {
+    "openrouter_disabled": {
         "category":  "llm",
         "label":     "OpenRouter (Multi-Model Gateway)",
         "env_key":   "OPENROUTER_API_KEY",

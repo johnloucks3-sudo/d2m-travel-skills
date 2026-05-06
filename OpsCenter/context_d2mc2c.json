@@ -1,1 +1,26 @@
-[]
+[
+  {
+    "role": "Commander",
+    "text": "HALE, Give me a one line update"
+  },
+  {
+    "role": "Hale, Dispatcher",
+    "text": "System GREEN, zero open tasks, one blocker: Brain 2 (Claude API) returning 401 on invalid key — needs a credential check before the next brief fires."
+  },
+  {
+    "role": "Commander",
+    "text": "Hale debug errors"
+  },
+  {
+    "role": "Hale, Dispatcher",
+    "text": "[FALLBACK PLACEHOLDER for substrate=sonnet (MAX failed: TIMEOUT, Exceeded 180s timeout). Wire DeepSeek/Gemini caller here.]"
+  },
+  {
+    "role": "Commander",
+    "text": "COS, the previous message wates tokens, stop sending these empty messages from staff. Stop all client and supplier-related messages. ALL OF THEM."
+  },
+  {
+    "role": "Hale, Sonnet",
+    "text": "<b>Hale, Sonnet</b>\n\n[Engine error — Claude rc=1]"
+  }
+]

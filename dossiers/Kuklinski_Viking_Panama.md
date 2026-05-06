@@ -10,6 +10,7 @@ fpd: 2026-03-31
 fpd_amount: 21244
 status: active
 relationship: client
+completed_tps: []
 ---
 # CLIENT DOSSIER — Kuklinski Group (3 bookings)
 ## Viking Mars | Panama Canal | Dec 17–27, 2026

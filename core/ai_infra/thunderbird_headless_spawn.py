@@ -28,42 +28,68 @@ logger = logging.getLogger("thunderbird_headless_spawn")
 
 def verify_prerequisites() -> Dict[str, Any]:
     """
-    Verify all 3 mandatory daemon prerequisites before spawning.
+    Verify all mandatory daemon prerequisites before spawning.
+
+    Real daemon names (corrected 2026-05-04):
+    - claude-token-monitor.timer (user-level)
+    - claude-oauth-keepalive.timer (user-level)
+    - thunderbird-watchdog.timer (user-level)
 
     Returns:
         dict with status and details for each check
     """
     results = {}
 
-    # CHECK 1: Token refresh daemon
-    token_refresh = subprocess.run(
-        ["systemctl", "is-active", "claude-token-refresh.timer"],
-        capture_output=True,
-        text=True
-    )
-    results["token_refresh_running"] = token_refresh.returncode == 0
-    if not results["token_refresh_running"]:
-        results["token_refresh_error"] = "Token refresh daemon inactive. Run: sudo systemctl enable --now claude-token-refresh.timer"
+    def _check_user_timer(name: str) -> bool:
+        out = subprocess.run(
+            ["systemctl", "--user", "is-active", name],
+            capture_output=True, text=True
+        )
+        return out.returncode == 0
 
-    # CHECK 2: Haiku supervisor daemon
-    supervisor = subprocess.run(
-        ["systemctl", "is-active", "claude-haiku-supervisor.timer"],
-        capture_output=True,
-        text=True
-    )
-    results["supervisor_running"] = supervisor.returncode == 0
-    if not results["supervisor_running"]:
-        results["supervisor_error"] = "Haiku supervisor inactive. Run: sudo systemctl enable --now claude-haiku-supervisor.timer"
+    # CHECK 1: OAuth keepalive (refreshes the access token every ~90 min)
+    results["oauth_keepalive_running"] = _check_user_timer("claude-oauth-keepalive.timer")
+    if not results["oauth_keepalive_running"]:
+        results["oauth_keepalive_error"] = (
+            "OAuth keepalive timer inactive. Run: "
+            "systemctl --user enable --now claude-oauth-keepalive.timer"
+        )
 
-    # CHECK 3: OAuth credentials file
+    # CHECK 2: Token monitor (counts token usage, auxiliary)
+    results["token_monitor_running"] = _check_user_timer("claude-token-monitor.timer")
+    if not results["token_monitor_running"]:
+        results["token_monitor_error"] = (
+            "Token monitor timer inactive. Run: "
+            "systemctl --user enable --now claude-token-monitor.timer"
+        )
+
+    # CHECK 3: Thunderbird watchdog (failure detection)
+    results["watchdog_running"] = _check_user_timer("thunderbird-watchdog.timer")
+    if not results["watchdog_running"]:
+        results["watchdog_error"] = (
+            "Thunderbird watchdog timer inactive. Run: "
+            "systemctl --user enable --now thunderbird-watchdog.timer"
+        )
+
+    # CHECK 4: OAuth credentials file
     creds_path = Path.home() / ".claude" / ".credentials.json"
     results["creds_exist"] = creds_path.exists()
     if not results["creds_exist"]:
-        results["creds_error"] = f"Credentials file missing at {creds_path}. Have Commander re-authenticate in Claude Desktop."
+        results["creds_error"] = (
+            f"Credentials file missing at {creds_path}. "
+            "Have Commander re-authenticate in Claude Desktop."
+        )
 
+    # OAuth keepalive + creds are HARD requirements.
+    # Token monitor + watchdog are SOFT (warn but don't block).
+    results["hard_pass"] = all([
+        results["oauth_keepalive_running"],
+        results["creds_exist"]
+    ])
     results["all_pass"] = all([
-        results["token_refresh_running"],
-        results["supervisor_running"],
+        results["oauth_keepalive_running"],
+        results["token_monitor_running"],
+        results["watchdog_running"],
         results["creds_exist"]
     ])
 
@@ -109,45 +135,47 @@ def spawn_headless_claude(
     prompt: str,
     output_file: str,
     model: str = "claude-haiku-4-5-20251001",
-    task_name: str = "task"
+    task_name: str = "task",
+    background: bool = False,
+    timeout: int = 300
 ) -> Dict[str, Any]:
     """
     FOOLPROOF headless Claude spawn wrapper.
 
-    Enforces ALL patterns from docs/HEADLESS_CLAUDE_SPAWN_GUIDE.md.
-
-    Uses stdin/stdout PIPE pattern (NOT -p/--print flag) to enable OAuth authentication.
-    The -p flag disables OAuth; we use communicate() instead.
+    Two modes:
+        background=False (default): SYNCHRONOUS — caller blocks for up to `timeout` seconds.
+                                    Returns when output is fully written. Best for short tasks.
+        background=True:            ASYNCHRONOUS — caller gets PID immediately and returns.
+                                    Output written to output_file by detached subprocess.
+                                    Caller must poll output_file or log_file for completion.
+                                    Best for long-running builds (>5 min).
 
     Args:
-        prompt: Complete prompt (WRITE instruction still recommended but not required here)
+        prompt: Complete prompt. For background=True, MUST include WRITE [PATH] instruction.
         output_file: Path where output will be written
-        model: Claude model to use (default: haiku-4-5-20251001)
+        model: Claude model name OR alias ('haiku', 'sonnet', 'opus')
         task_name: Human-readable task name for logging
+        background: If True, detach and return immediately. If False, block until done.
+        timeout: Synchronous mode only. Max seconds to wait. Default 300 (5 min).
 
     Returns:
         dict with status, PID, log_file, output_file, and any errors
-
-    Raises:
-        No exceptions. Always returns status dict. Caller must check status field.
     """
 
-    # PRE-SPAWN VERIFICATION (all mandatory)
+    # PRE-SPAWN VERIFICATION
     logs_dir = Path("/home/john/Thunderbird/logs")
     logs_dir.mkdir(exist_ok=True)
 
-    # Generate unique log file
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
     log_file = logs_dir / f"claude_{task_name}_{ts}.log"
 
-    # Verify prerequisites
+    # Verify HARD prerequisites only (oauth keepalive + creds)
+    # Soft prereqs (token monitor, watchdog) warn but don't block
     prereq_check = verify_prerequisites()
-    if not prereq_check["all_pass"]:
+    if not prereq_check["hard_pass"]:
         error_msgs = []
-        if not prereq_check["token_refresh_running"]:
-            error_msgs.append(prereq_check.get("token_refresh_error", "Token refresh daemon down"))
-        if not prereq_check["supervisor_running"]:
-            error_msgs.append(prereq_check.get("supervisor_error", "Supervisor daemon down"))
+        if not prereq_check["oauth_keepalive_running"]:
+            error_msgs.append(prereq_check.get("oauth_keepalive_error", "OAuth keepalive down"))
         if not prereq_check["creds_exist"]:
             error_msgs.append(prereq_check.get("creds_error", "Credentials missing"))
 
@@ -158,7 +186,13 @@ def spawn_headless_claude(
             "log_file": str(log_file)
         }
 
-    # Load OAuth token
+    # Soft prereqs: log warnings, don't block
+    if not prereq_check.get("token_monitor_running"):
+        logger.warning(prereq_check.get("token_monitor_error", "Token monitor not running"))
+    if not prereq_check.get("watchdog_running"):
+        logger.warning(prereq_check.get("watchdog_error", "Watchdog not running"))
+
+    # Load OAuth token (also strips ANTHROPIC_API_KEY)
     try:
         token, env = load_oauth_token()
     except ValueError as e:
@@ -173,73 +207,81 @@ def spawn_headless_claude(
     output_path = Path(output_file)
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
-    # Spawn subprocess with stdin/stdout PIPE pattern (OAuth-friendly)
-    # This uses communicate() instead of -p flag, which disables OAuth
+    if background:
+        return _spawn_background(prompt, output_path, log_file, model, task_name, env)
+    else:
+        return _spawn_synchronous(prompt, output_path, log_file, model, task_name, env, timeout)
+
+
+def _spawn_synchronous(prompt, output_path, log_file, model, task_name, env, timeout):
+    """Synchronous spawn — block on communicate() until done or timeout."""
     try:
         proc = subprocess.Popen(
-            [
-                "/home/john/.local/bin/claude",
-                "--model", model,
-                "--output-format", "text"
-            ],
+            ["/home/john/.local/bin/claude", "--model", model, "--output-format", "text"],
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             text=True,
             env=env,
-            start_new_session=True,  # ← CRITICAL: Detaches process
+            start_new_session=True,
         )
-
-        # Communicate with the process (sends prompt via stdin)
-        stdout, stderr = proc.communicate(input=prompt, timeout=300)
-
-        # Write output to file
+        stdout, stderr = proc.communicate(input=prompt, timeout=timeout)
         output_path.write_text(stdout)
-
-        # Log any stderr
-        if stderr:
-            with open(log_file, "w") as f:
+        with open(log_file, "w") as f:
+            if stderr:
                 f.write(f"STDERR:\n{stderr}\n\nSTDOUT:\n{stdout}\n")
-        else:
-            with open(log_file, "w") as f:
+            else:
                 f.write(stdout)
-
     except FileNotFoundError:
-        return {
-            "status": "FATAL_BIN",
-            "error": "Claude binary not found at /home/john/.local/bin/claude",
-            "can_retry": False,
-            "log_file": str(log_file)
-        }
+        return {"status": "FATAL_BIN", "error": "Claude binary not found", "can_retry": False, "log_file": str(log_file)}
     except subprocess.TimeoutExpired:
-        return {
-            "status": "TIMEOUT",
-            "error": "Claude process exceeded 300 second timeout",
-            "can_retry": True,
-            "log_file": str(log_file)
-        }
+        return {"status": "TIMEOUT", "error": f"Exceeded {timeout}s timeout", "can_retry": True, "log_file": str(log_file)}
     except Exception as e:
-        return {
-            "status": "SPAWN_FAILED",
-            "error": f"Failed to spawn subprocess: {e}",
-            "can_retry": True,
-            "log_file": str(log_file)
-        }
+        return {"status": "SPAWN_FAILED", "error": str(e), "can_retry": True, "log_file": str(log_file)}
 
-    # Success
-    logger.info(f"✅ Executed headless Claude for task '{task_name}'")
-    logger.info(f"   Model: {model}")
-    logger.info(f"   Output: {output_file}")
-    logger.info(f"   Logs: {log_file}")
+    logger.info(f"✅ Synchronous spawn complete: {task_name} -> {output_path}")
+    return {
+        "status": "COMPLETED",
+        "pid": proc.pid,
+        "log_file": str(log_file),
+        "output_file": str(output_path),
+        "model": model,
+        "task_name": task_name,
+        "can_retry": False
+    }
 
+
+def _spawn_background(prompt, output_path, log_file, model, task_name, env):
+    """Background spawn — return PID immediately, output written by detached subprocess.
+
+    Prompt MUST include 'WRITE [PATH]' instruction so the model writes to file.
+    Stdout is redirected to log_file for debugging.
+    """
+    # Use -p flag for true background mode (model writes to file via WRITE instruction in prompt)
+    try:
+        proc = subprocess.Popen(
+            ["/home/john/.local/bin/claude", "-p", prompt, "--model", model, "--output-format", "text"],
+            stdout=open(log_file, "w"),
+            stderr=subprocess.STDOUT,
+            env=env,
+            start_new_session=True,
+        )
+    except FileNotFoundError:
+        return {"status": "FATAL_BIN", "error": "Claude binary not found", "can_retry": False, "log_file": str(log_file)}
+    except Exception as e:
+        return {"status": "SPAWN_FAILED", "error": str(e), "can_retry": True, "log_file": str(log_file)}
+
+    logger.info(f"✅ Background spawn launched: {task_name} (PID {proc.pid}) -> {output_path}")
     return {
         "status": "SPAWNED",
         "pid": proc.pid,
         "log_file": str(log_file),
-        "output_file": output_file,
+        "output_file": str(output_path),
         "model": model,
         "task_name": task_name,
-        "can_retry": False
+        "background": True,
+        "can_retry": False,
+        "note": "Background mode — caller must poll output_file or log_file for completion."
     }
 
 

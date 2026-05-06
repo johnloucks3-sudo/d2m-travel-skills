@@ -12,6 +12,7 @@
 | Relationship | Friend — introduced via email Mar 15, 2026 |
 | Status | PROSPECT — researching Alaska self-drive options |
 
+completed_tps: []
 ---
 
 ### TRIP OVERVIEW

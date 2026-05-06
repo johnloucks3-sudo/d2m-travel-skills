@@ -191,3 +191,174 @@ Example:
 **Disagreement logged:** No
 
 2026-05-01 03:13 MT | Decision: Initialize Bimodal Briefing (TSB) Protocol | Result: System armed | Model: Gemini 3.1 Flash-Lite
+
+---
+
+### 2026-05-04 — CRITICAL: Hale Autonomy Persistence Gap Identified & Logged
+
+**Issue:** Hale operates autonomously in OpenCode context (executing T1-T2 tasks without approval), but those decisions and state changes do NOT persist when context switches to Claude Code. Hale has no institutional memory of her autonomous actions across tool contexts.
+
+**Symptom:** 
+- OpenCode: Hale makes autonomous decision (e.g., routing task to Sonnet, escalating a model call)
+- Context switches to Claude Code
+- Claude Code Hale has zero memory that decision was made
+- Decision is invisible to audit trail, never logged to hale_decisions.md
+- Result: Autonomy appears to only exist within single tool context
+
+**Root Cause:** Hale's decision state lives in OpenCode subprocess memory only. No persistence layer writes decisions to durable storage (hale_decisions.md, mission_board, etc.) that survives context transitions.
+
+**Impact:** 
+- Autonomy framework (T1-T4 tiers per autonomy_tiers.md) is theoretically deployed but practically unobservable
+- Commander cannot verify what Hale did autonomously in OpenCode
+- Audit trail is incomplete
+- Trust compounding (Layer 9) cannot function without complete decision log
+- Autonomy decisions are invisible and therefore unmeasurable
+
+**Solution Required:** 
+Every autonomous decision Hale makes (especially T1-T2 routine tasks) must be written to hale_decisions.md in real-time by the spawning context (OpenCode in this case). The write must happen BEFORE the context exits, ensuring the decision persists into subsequent Claude Code sessions.
+
+**Implementation Path:**
+1. OpenCode must call a decision logging function after executing T1-T2 autonomous tasks
+2. Function writes to hale_decisions.md with standard format (timestamp, domain, type, outcome, points)
+3. Decision is then visible in Claude Code when Hale loads hale_decisions.md on next session
+4. Audit trail becomes complete; trust compounding can measure actual autonomy decisions
+
+**Authority:** COS operational (Autonomy governance + audit transparency). Commander authorized this discovery via "Execute, I gave you that authority in Opencode."
+
+**Domain:** Infrastructure & Governance — Autonomy Persistence
+
+**Status:** ⚠️ CRITICAL BLOCKER — Autonomy framework is live but unmeasurable until persistence layer is deployed
+
+**Next Action:** Propose and deploy decision logging mechanism so autonomous decisions (made in OpenCode) persist into Claude Code audit trail.
+
+**Brain:** Self (Hale — COS autonomy governance)
+
+### 2026-05-04 10:27:41 — Autonomous Decision (Tier T1)
+
+**Decision:** Sonnet inline dispatch: Given D2M's current state (9-person wing, MAX budget tight, ...
+
+**Domain:** Task Execution
+**Type:** routine
+**Outcome:** correct
+**Trust Points:** +1
+**Autonomy Tier:** T1
+**Notes:** OpenCode inline dispatch completed in 251.2s. Output: 26204 chars. Model: Sonnet
+
+---
+
+### 2026-05-04 16:58:46 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: OC-1777935526 status: UNREAD from: opencode injected: 2026-05-04 16:58 MT priority: P1 task: |   Hale, inve
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 2375601 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260504_165846.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-05-04 17:07:50 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: OC-1777935526 status: UNREAD from: opencode injected: 2026-05-04 16:58 MT priority: P1 task: |   Hale, inve
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 2381664 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260504_170750.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-05-05 15:46:49 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: OC-1777935526 status: UNREAD from: opencode injected: 2026-05-04 16:58 MT priority: P1 task: |   Hale, inve
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 2935199 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260505_154649.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-05-05 15:47:38 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: OC-1777935526 status: UNREAD from: opencode injected: 2026-05-04 16:58 MT priority: P1 task: |   Hale, inve
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 2936468 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260505_154738.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-05-05 15:52:39 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: OC-1777935526 status: UNREAD from: opencode injected: 2026-05-04 16:58 MT priority: P1 task: |   Hale, inve
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 2942092 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260505_155239.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-05-05 15:53:30 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: OC-1777935526 status: IN_PROGRESS from: opencode injected: 2026-05-04 16:58 MT priority: P1 task: |   Hale,
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 2943343 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260505_155330.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-05-05 15:54:42 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: OC-1777935526 status: COMPLETE completed_at: 2026-05-05 22:05 MT from: opencode injected: 2026-05-04 16:58 
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 2946812 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260505_155442.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-05-05 16:03:57 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: OC-1777935526 status: COMPLETE completed_at: 2026-05-05 22:05 MT from: opencode injected: 2026-05-04 16:58 
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 2952417 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260505_160357.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-05-05 16:05:00 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: OC-1777935526 status: COMPLETE completed_at: 2026-05-05 22:05 MT from: opencode injected: 2026-05-04 16:58 
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 2954279 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260505_160500.log | Inbox: opencode_inbox.md
+
+---

@@ -149,3 +149,73 @@ Inbox now clear.
 4. **Integration:** Browser-based session injection (via captured cookies) is now the standard for non-API portals (TESS, Centrav, Blacklane).
 
 **Active Mission:** Complete lifecycle touchpoint integration. Next: Viator/Project Expedition portal registration + cookie capture.
+
+## 2026-05-03 — OpenClaw Pattern Adaptation
+**Status:** COMPLETE
+**Task:** OC-OPENCLAW-ADAPTATION (P0 from Commander)
+**Completed:** 2026-05-03 16:30 MT
+
+**What Was Built:**
+- OpenClaw architectural patterns adapted into Thunderbird OS
+- 3 of 6 patterns implemented (P0, P2, P4), architecture specs for all 6
+
+**Key Files Created:**
+- `docs/OPENCLAW_ADAPTATION_SPEC.md` — Full architecture spec
+- `core/ai_infra/thunderbird_skill_builder_mcp.py` — MCP tools for skill builder
+- `core/ai_infra/thunderbird_multi_agent.py` — Multi-agent orchestration engine
+- `core/ops/thunderbird_heartbeat.py` — Proactive heartbeat assessment
+- `deploy/d2m-heartbeat.{service,timer}` — Systemd timer (every 2 hours)
+- `tests/test_openclaw_adaptation.py` — Integration tests (~20 cases)
+
+**Telegram Commands Added:**
+- `/build-skill <description>` — Build Python skill from natural language
+- `/spawn <n> <task>` — Spawn N agents for parallel work
+- `/heartbeat` — Run system health assessment
+
+**MCP Tools Added (4):**
+- `build_skill_from_description_tool`
+- `list_available_skills_tool`
+- `validate_skill_safety_tool`
+- `get_skill_metadata_tool`
+
+**Documentation Updated:**
+- `AGENTS.md` — Added new entrypoints and test reference
+- `core/communication/thunderbird_telegram_c2.py` — Help command updated
+- `core/mcp/travel_mcp_server.py` — Skill builder registration
+
+**Future Work:** P1 (vector memory), P3 (config hot-reload), P5 (OAuth self-heal)
+
+## 2026-05-03 — OpenClaw Pattern Adaptation
+**Status:** COMPLETE
+**Task:** OC-OPENCLAW-ADAPTATION (P0 from Commander)
+**Completed:** 2026-05-03 16:30 MT
+
+**What Was Built:**
+- OpenClaw architectural patterns adapted into Thunderbird OS
+- 3 of 6 patterns implemented (P0, P2, P4), architecture specs for all 6
+
+**Key Files Created:**
+- `docs/OPENCLAW_ADAPTATION_SPEC.md` — Full architecture spec
+- `core/ai_infra/thunderbird_skill_builder_mcp.py` — MCP tools for skill builder
+- `core/ai_infra/thunderbird_multi_agent.py` — Multi-agent orchestration engine
+- `core/ops/thunderbird_heartbeat.py` — Proactive heartbeat assessment
+- `deploy/d2m-heartbeat.{service,timer}` — Systemd timer (every 2 hours)
+- `tests/test_openclaw_adaptation.py` — Integration tests (~20 cases)
+
+**Telegram Commands Added:**
+- `/build-skill <description>` — Build Python skill from natural language
+- `/spawn <n> <task>` — Spawn N agents for parallel work
+- `/heartbeat` — Run system health assessment
+
+**MCP Tools Added (4):**
+- `build_skill_from_description_tool`
+- `list_available_skills_tool`
+- `validate_skill_safety_tool`
+- `get_skill_metadata_tool`
+
+**Documentation Updated:**
+- `AGENTS.md` — Added new entrypoints and test reference
+- `core/communication/thunderbird_telegram_c2.py` — Help command updated
+- `core/mcp/travel_mcp_server.py` — Skill builder registration
+
+**Future Work:** P1 (vector memory), P3 (config hot-reload), P5 (OAuth self-heal)

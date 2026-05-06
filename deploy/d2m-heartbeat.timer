@@ -1,0 +1,13 @@
+[Unit]
+Description=Thunderbird Heartbeat Assessment Timer (Every 2 Hours)
+After=network-online.target
+Documentation=https://github.com/anthropics/thunderbird-os
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=2h
+Unit=d2m-heartbeat.service
+Persistent=true
+
+[Install]
+WantedBy=timers.target

@@ -8,6 +8,7 @@
 **Source Dossiers:** Furlow_Regent_3071222 · Ely_Darrow_Regent_3096289 · Nichols_Regent_3078056
 **Status:** ALL PAID · ALL BOOKED · ALL GUEST REGISTERED
 
+completed_tps: []
 ---
 
 ## 3-COUPLE STATUS MATRIX

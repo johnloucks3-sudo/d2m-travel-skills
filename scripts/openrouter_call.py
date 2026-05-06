@@ -19,20 +19,11 @@ import argparse
 import json
 import os
 import sys
-import requests
 from pathlib import Path
 
-# ── Load environment ──────────────────────────────────────────────────────────
-_ENV_PATH = Path("/home/john/Thunderbird/.env")
-if _ENV_PATH.exists():
-    for line in _ENV_PATH.read_text().splitlines():
-        line = line.strip()
-        if line and not line.startswith("#") and "=" in line:
-            k, v = line.split("=", 1)
-            os.environ.setdefault(k.strip(), v.strip().strip("'\""))
+# ── ALLOWED MODELS (FREE ONLY from OpenRouter) ──────────────────────────────
+# ...
 
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
-BASE_URL = "https://openrouter.ai/api/v1/chat/completions"
 
 # ── ALLOWED MODELS (FREE ONLY from OpenRouter) ──────────────────────────────
 # NOTE: Poe.com models bypass this restriction — they are allowed via Poe gateway.
@@ -86,30 +77,22 @@ def _load_stdin() -> str:
     return sys.stdin.read().strip()
 
 
+from OpsCenter.hale_dispatcher import HaleDispatcher
+
+# ...
+
 def _call_openrouter(model_cfg: dict, system: str, user_prompt: str, args: argparse.Namespace) -> dict:
     """Make the OpenRouter API call."""
-    headers = {
-        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
-        "Content-Type": "application/json",
-        "HTTP-Referer": "https://github.com/dreams2memories/thunderbird",
-        "X-Title": "Thunderbird-OS",
-    }
+    # REFACTORED: Use HaleDispatcher for all calls
+    hale = HaleDispatcher()
+    
+    # Simple dispatch, Hale handles the brain classification based on keywords
+    # This replaces the entire requests.post structure
+    result_content = hale.dispatch(user_prompt)
+    
+    # Mock the expected return structure to maintain compatibility
+    return {"choices": [{"message": {"content": result_content}}]}
 
-    messages = []
-    if system:
-        messages.append({"role": "system", "content": system})
-    messages.append({"role": "user", "content": user_prompt})
-
-    payload = {
-        "model": model_cfg["id"],
-        "messages": messages,
-        "max_tokens": args.max_tokens,
-        "temperature": args.temperature,
-    }
-
-    resp = requests.post(BASE_URL, headers=headers, json=payload, timeout=120)
-    resp.raise_for_status()
-    return resp.json()
 
 
 def main():

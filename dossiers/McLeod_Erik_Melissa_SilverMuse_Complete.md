@@ -15,6 +15,7 @@
 | **Trip Status** | Payment Complete (Jan 24, 2026) |
 | **Confirmation #** | 298475-25 |
 
+completed_tps: []
 ---
 
 ## FLIGHT SEGMENT — DENVER ↔ ROME/VENICE

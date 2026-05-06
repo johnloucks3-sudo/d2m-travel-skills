@@ -60,7 +60,11 @@ opencode                              # TUI, default model: deepseek-chat-v3.1 (
 opencode run "task"                   # headless one-shot (uses default model)
 opencode run -m openrouter/deepseek/deepseek-chat-v3.1 "task"  # explicit model
 opencode web                          # browser UI (accessible from Chromebook/phone)
-# NOTE: To invoke Claude headless from OpenCode, use claude -p directly (see Tasking Claude section)
+# Slash commands (defined in ~/Thunderbird/opencode.json, active when opencode runs from Thunderbird/):
+#   /ask <request>       → headless Claude Sonnet via dispatch_claude.py
+#   /ask-opus <request>  → headless Claude Opus via dispatch_claude.py
+#   /ask-haiku <request> → headless Claude Haiku via dispatch_claude.py
+# Dispatcher CLI (direct, any shell): OpsCenter/dispatch_claude.py --task NAME --output PATH --prompt "..." --model [haiku|sonnet|opus]
 ```
 
 ## Architecture Boundaries
@@ -93,6 +97,15 @@ opencode web                          # browser UI (accessible from Chromebook/p
 - Client Portal: `portal/server.py` (port 8780)
 - Batch Runner: `ops/thunderbird_batch_run.py`
 - Agentic Intel: `core/intel/thunderbird_agentic_intel.py` (nightly 01:00 MDT)
+- Skill Builder: `core/ai_infra/thunderbird_skill_builder.py` (OpenClaw P0)
+- Multi-Agent: `core/ai_infra/thunderbird_multi_agent.py` (OpenClaw P4)
+- Heartbeat: `core/ops/thunderbird_heartbeat.py` (OpenClaw P2)
+- Memory Embeddings: `core/ai_infra/thunderbird_memory_embeddings.py` (OpenClaw P1)
+- Config Watcher: `core/ops/thunderbird_config_watcher.py` (OpenClaw P3)
+- OAuth Self-Heal: `core/ops/thunderbird_oauth_self_heal.py` (OpenClaw P5)
+- Memory Embeddings: `core/ai_infra/thunderbird_memory_embeddings.py` (OpenClaw P1)
+- Config Watcher: `core/ops/thunderbird_config_watcher.py` (OpenClaw P3)
+- OAuth Self-Heal: `core/ops/thunderbird_oauth_self_heal.py` (OpenClaw P5)
 
 ## MCP Server — Critical Details
 
@@ -120,6 +133,7 @@ No formal test framework (no pytest, no conftest.py). Verification:
 - `api/thunderbird_preflight.py` — 7-check system health
 - `intel/thunderbird_zfold_test.py --force` — connectivity test
 - `OpsCenter/keyword_router_test.py` — 22/22 keyword routing tests (target: all PASS)
+- `tests/test_openclaw_adaptation.py` — OpenClaw pattern integration tests (P0-P5)
 - MCP tool invocation through the server
 
 ## Git & Branching
@@ -308,9 +322,24 @@ task: |
   <your task here>
 TASK
 
-# OpenCode → Claude (synchronous — blocks until result returned)
-env -u ANTHROPIC_API_KEY -u ANTHROPIC_BASE_URL \
-  claude --dangerously-skip-permissions -p "<your task here>"
+# OpenCode → Claude (recommended — dispatch_claude.py CLI, handles OAuth + ANTHROPIC_API_KEY strip)
+# Background (returns immediately with PID):
+python3 /home/john/Thunderbird/OpsCenter/dispatch_claude.py \
+  --task "oc-task-$(date +%s)" \
+  --output "/home/john/Thunderbird/output/task_$(date +%s).md" \
+  --prompt "Your task here" \
+  --model sonnet   # or haiku | opus
+
+# Foreground (waits for completion, prints result):
+python3 /home/john/Thunderbird/OpsCenter/dispatch_claude.py \
+  --task "oc-task-$(date +%s)" \
+  --output "/home/john/Thunderbird/output/task_$(date +%s).md" \
+  --prompt "Your task here" \
+  --model sonnet --foreground
+
+# DO NOT use: env -u ANTHROPIC_API_KEY claude -p "..."
+# DO NOT use: nohup claude -p "..." &
+# Both inherit shell state that may break OAuth. Use dispatch_claude.py exclusively.
 
 # Claude → OpenCode (append NEXUS task — Nexus daemon picks up, routes to OpenCode)
 echo "NEXUS: <task>" >> /home/john/Thunderbird/OpsCenter/collaboration/opencode_inbox.md

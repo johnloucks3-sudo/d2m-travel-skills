@@ -36,37 +36,52 @@ class ModelDispatcher:
         self.anthropic_api_key = os.environ.get("ANTHROPIC_API_KEY", "")
 
         # Model configurations
-        # TRULY FREE MODEL STACK (Tested & Working - 600x Cheaper than Haiku!)
+        # TRULY FREE MODEL STACK (Tested & Working)
         self.models = {
-            # TIER 1: OPUS-LEVEL REASONING (Massive Context + FREE)
-            "grok_4_1_fast": {
-                "name": "xAI Grok 4.1 Fast (OPUS++ FREE)",
-                "description": "✅ 2,000,000 CONTEXT (10x Opus!) ✅ $0.0000002 per token (600x cheaper than Haiku) ✅ Elon Musk's xAI ✅ Verified working",
-                "cost": "$0.0000002 per token ($0.20 per 1M tokens)",
-                "method": "openrouter",
-                "model_id": "x-ai/grok-4.1-fast",
-                "priority": 1,
-                "type": "text_reasoning",
-                "context": 2000000,
-                "speed": "fast",
-                "capability": "very_high",
-                "trainable": False,
-                "status": "VALIDATED_WORKING",
-            },
-            "gemini_3_1_flash_lite": {
-                "name": "Google Gemini 3.1 Flash Lite (OPUS+ FREE)",
-                "description": "✅ 1,048,576 CONTEXT (5x Opus) ✅ $0.00000025 per token ✅ Google quality ✅ Verified working",
-                "极光cost": "$0.00000025 per token ($0.25 per 1M tokens)",
-                "method": "openrouter",
-                "model_id": "google/gemini-3.1-flash-lite-preview",
-                "priority": 2,
-                "type": "text_reasoning",
-                "context": 1048576,
-                "speed": "very_fast",
-                "capability": "high",
-                "trainable": False,
-                "status": "VALIDATED_WORKING",
-            },
+        # TIER 1: OPUS-LEVEL REASONING
+        "grok_4_1_fast": {
+            "name": "xAI Grok 4.1 Fast (OPUS++ FREE)",
+            "description": "✅ 2,000,000 CONTEXT ✅ $0.0000002 per token ✅ Verified working",
+            "cost": "Free/Low",
+            "method": "openrouter",
+            "model_id": "x-ai/grok-4.1-fast",
+            "priority": 1,
+            "type": "text_reasoning",
+            "context": 2000000,
+            "speed": "fast",
+            "capability": "very_high",
+            "trainable": False,
+            "status": "VALIDATED_WORKING",
+        },
+        "gemini_3_1_flash_lite": {
+            "name": "Google Gemini 3.1 Flash Lite (OPUS+ FREE)",
+            "description": "✅ 1,048,576 CONTEXT ✅ Google quality ✅ Verified working",
+            "cost": "Free/Low",
+            "method": "openrouter",
+            "model_id": "google/gemini-3.1-flash-lite-preview",
+            "priority": 2,
+            "type": "text_reasoning",
+            "context": 1048576,
+            "speed": "very_fast",
+            "capability": "high",
+            "trainable": False,
+            "status": "VALIDATED_WORKING",
+        },
+        # TIER 1.5: BULK/FALLBACK
+        "qwen3_6_plus": {
+            "name": "Qwen 3.6 Plus (FREE)",
+            "description": "✅ 6.09T tokens ✅ Ranked #1 on OpenRouter ✅ Apache 2.0",
+            "cost": "Free",
+            "method": "openrouter",
+            "model_id": "qwen/qwen3.6-plus-04-02:free",
+            "priority": 3,
+            "type": "text_general",
+            "context": 128000,
+            "speed": "fast",
+            "capability": "high",
+            "trainable": False,
+            "status": "VALIDATED_WORKING",
+        },
             # TIER 2: HAIKU-LEVEL SPEED (But FREE!)
             "llama_4_maverick": {
                 "name": "Meta Llama 4 Maverick (HAIKU SPEED FREE)",
@@ -160,38 +175,19 @@ class ModelDispatcher:
             return False
 
     def check_anthropic_api(self):
-        """Check if Anthropic API key has credits"""
-        if not self.anthropic_api_key:
-            return False
-
+        """Check if Claude MAX OAuth token is present and valid."""
         try:
-            result = subprocess.run(
-                [
-                    "claude",
-                    "--dangerously-skip-permissions",
-                    "--model",
-                    "claude-haiku-4-5-20251001",
-                    "-p",
-                    "test",
-                ],
-                env={"ANTHROPIC_API_KEY": self.anthropic_api_key},
-                capture_output=True,
-                text=True,
-                timeout=10,
-            )
-
-            if result.returncode == 0:
-                logging.info("✓ Anthropic API key has credits")
-                return True
-            elif "credit balance" in result.stderr.lower():
-                logging.warning("✗ Anthropic API key has insufficient credits")
+            creds_path = Path.home() / ".claude" / ".credentials.json"
+            if not creds_path.exists():
                 return False
-            else:
-                logging.warning(f"✗ Anthropic API check failed: {result.stderr[:100]}")
+            creds = json.loads(creds_path.read_text())
+            token = creds.get("claudeAiOauth", {}).get("accessToken")
+            if not token:
                 return False
-
+            expires_at = creds.get("claudeAiOauth", {}).get("expiresAt", 0)
+            return expires_at > time.time() * 1000
         except Exception as e:
-            logging.error(f"✗ Anthropic API check error: {e}")
+            logging.warning(f"OAuth token check failed: {e}")
             return False
 
     def process_with_claude_max(self, prompt, task_id):
@@ -201,15 +197,16 @@ class ModelDispatcher:
             env.pop("ANTHROPIC_API_KEY", None)
             env.pop("ANTHROPIC_BASE_URL", None)
 
-            # Try to get OAuth token from cache
-            oauth_cache = Path("/home/john/Thunderbird/OpsCenter/.claude_oauth_cache")
-            if oauth_cache.exists():
-                with open(oauth_cache, "r") as f:
-                    for line in f:
-                        if line.startswith("CLAUDE_CODE_OAUTH_TOKEN="):
-                            token = line.strip().split("=", 1)[1]
-                            env["CLAUDE_CODE_OAUTH_TOKEN"] = token
-                            break
+            # Read OAuth token directly from credentials file (authoritative source)
+            creds_path = Path.home() / ".claude" / ".credentials.json"
+            if creds_path.exists():
+                try:
+                    creds = json.loads(creds_path.read_text())
+                    token = creds.get("claudeAiOauth", {}).get("accessToken")
+                    if token:
+                        env["CLAUDE_CODE_OAUTH_TOKEN"] = token
+                except Exception as e:
+                    logging.warning(f"Could not load OAuth token from credentials file: {e}")
 
             result = subprocess.run(
                 ["claude", "--dangerously-skip-permissions", "-p", prompt],

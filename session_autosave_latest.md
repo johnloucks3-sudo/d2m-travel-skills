@@ -1,42 +1,41 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-05-03 01:21:07 MDT
+## Generated: 2026-05-05 18:14:04 MDT
 
 ---
 
 ### Recent Commits
-- bfadf8a feat: Deploy OpenCode-SPSA Integration — Full automation across all points
-- dc91053 feat: Deploy SPSA Phase 3 — Telegram commands + Google Sheets sync
-- 47144d4 feat: Deploy SPSA Phase 2 — EOD briefs, weekly retrospectives, sheets sync, telegram commands
-- fe53347 feat: Deploy SPSA system with structured problem-solving framework
-- 7404fa9 fix: Restore MCP service stability and deploy Hale 12-hour brain monitor
+- 2973fc6 fix: Repair all broken call stubs + wire decision persistence + Telegram 400 fallback
+- 1b85cfa fix: Byline now shows Persona | Model | Cost | Time
+- b1b9084 feat: Implement Opus plan — Gemini Flash Lite primary + V4 Pro block + crew tier map
+- 3d97114 fix: Route large context tasks to Sonnet via MAX, not unavailable Grok
+- 99d7428 fix: Restore Claude Sonnet as OpenCode primary model via OpenRouter MAX OAuth
 
 ### Uncommitted Changes
+ M AGENTS.md
+ M AGENTS_NEW_TASKING.md
  M CLAUDE.md
  M OpsCenter/.supervisor_patterns.json
+ M OpsCenter/00_COMMAND_LOG.md
  M OpsCenter/CLAUDE_DESKTOP_INIT.md
  M OpsCenter/GOOSE_INIT.md
+ M OpsCenter/api_registry.py
  M OpsCenter/claude_inbox.md
+ M OpsCenter/claude_openrouter.py
  M OpsCenter/collaboration/blackboard_summary.txt
+ M OpsCenter/collaboration/claude_outbox.md
+ M OpsCenter/collaboration/opencode_inbox.md
+ M OpsCenter/collaboration/opencode_outbox.md
  M OpsCenter/collaboration/routing_log.md
  M OpsCenter/collaboration/wing_comms.md
- M OpsCenter/mission_board.json
- M OpsCenter/nexus.lock
- M OpsCenter/scan_outputs/incubator_review_latest.txt
- M agents/claude_code_digest_seen.json
- M cache/client_context/ely_context.json
- M cache/client_context/furlow_context.json
- M cache/client_context/how_context.json
- M cache/client_context/loucks_context.json
- M cache/client_context/mcleran_context.json
- M cache/client_context/quick_context.json
- M cache/client_context/scandi_context.json
- M cache/client_context/thanks_context.json
+ M OpsCenter/config.py
+ M OpsCenter/context_d2mc2c.json
+ M OpsCenter/context_goose.json
+ M OpsCenter/email_task_ingest.py
 
 ### Inbox Status
 - Claude inbox: 0
 0 pending task(s)
-- OpenCode inbox: 0
-0 pending task(s)
+- OpenCode inbox: 8 pending task(s)
 
 ### System Health
 - Watcher: ❌ STOPPED

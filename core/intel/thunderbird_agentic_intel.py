@@ -87,6 +87,7 @@ PRIMARY_KEYWORDS = [
     "ai staff", "ai team", "ai personas", "ai org chart",
     "agentic coding", "agentic workflow", "agentic ide",
     "coding agent", "code agent", "autonomous coding",
+    "osint", "open source intelligence", "ai osint", "agentic osint"
 ]
 
 # Secondary — competitors and adjacent tech

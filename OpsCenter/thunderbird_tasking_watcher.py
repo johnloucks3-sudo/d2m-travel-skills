@@ -55,7 +55,7 @@ OPENCODE_BIN = "/home/john/.opencode/bin/opencode"
 # Opus   — P0 only, maximum capability
 MODEL_HAIKU  = "claude-haiku-4-5-20251001"
 MODEL_SONNET = "claude-sonnet-4-6"
-MODEL_OPUS   = "claude-opus-4-6"
+MODEL_OPUS   = "claude-opus-4-7"
 
 def refresh_oauth_token_preemptive() -> bool:
     """Preemptively refresh OAuth token if expiring within 30 minutes.
@@ -142,7 +142,11 @@ def load_oauth_env() -> dict:
     """
     env = dict(os.environ)
 
-    # Tier 1: Try official credentials file
+    # CRITICAL: Strip stale ANTHROPIC_API_KEY — it preempts OAuth and causes 401s.
+    # The shell env may carry a deprecated key; always remove before spawning Claude.
+    env.pop("ANTHROPIC_API_KEY", None)
+
+    # Tier 1: Try official credentials file (MAX OAuth — $0 marginal cost)
     try:
         import json
         creds_path = Path.home() / ".claude" / ".credentials.json"
@@ -156,13 +160,8 @@ def load_oauth_env() -> dict:
     except Exception as e:
         logging.debug(f"Failed to load from credentials file: {e}")
 
-    # Tier 2: Check for API key in environment (will use as fallback)
-    if "ANTHROPIC_API_KEY" in env:
-        logging.debug("Using ANTHROPIC_API_KEY from environment")
-        return env
-
-    # Tier 3: Fall back to bare environment
-    logging.debug("Using bare environment (no OAuth or API key)")
+    # Tier 2: Bare environment — Claude CLI will error if no auth available.
+    logging.debug("No OAuth token found — Claude CLI will fall back to its own auth resolution")
     return env
 
 
@@ -351,6 +350,7 @@ class InboxHandler(FileSystemEventHandler):
             try:
                 sys.path.insert(0, str(BASE))
                 from OpsCenter.hale_decision_logger import log_autonomous_decision
+                from core.ops.hale_activity_logger import task_dispatched
                 # Read task summary from inbox for context
                 try:
                     inbox_snippet = inbox_path.read_text()[:200].replace('\n', ' ')
@@ -363,6 +363,11 @@ class InboxHandler(FileSystemEventHandler):
                     outcome="pending",
                     autonomy_tier="T1",
                     notes=f"PID {proc.pid} | Log: {log} | Inbox: {inbox_path.name}"
+                )
+                task_dispatched(
+                    task=inbox_snippet[:80],
+                    model="OpenCode/DeepSeek",
+                    source="tasking_watcher"
                 )
             except Exception as _log_err:
                 logging.warning("Decision persistence log failed: %s", _log_err)

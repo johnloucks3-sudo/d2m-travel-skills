@@ -24,8 +24,6 @@ import urllib.request
 from datetime import datetime
 from pathlib import Path
 
-import requests
-
 BASE = Path("/home/john/Thunderbird")
 INBOX_FILE      = BASE / "OpsCenter" / "claude_inbox.md"
 WING_COMMS      = BASE / "OpsCenter" / "collaboration" / "wing_comms.md"
@@ -37,11 +35,6 @@ STATE_FILE      = BASE / "state" / "inbox_executor_state.json"
 BOT_TOKEN      = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
 COMMANDER_ID   = os.environ.get("TELEGRAM_COMMANDER_ID", "7554895206").strip()
 TELEGRAM_URL   = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
-
-# ── DeepSeek via OpenRouter ───────────────────────────────────────────────────
-OPENROUTER_KEY = os.environ.get("OPENROUTER_API_KEY", "").strip()
-OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
-DEEPSEEK_MODEL = "deepseek/deepseek-v4-pro"
 
 # ── Gmail ─────────────────────────────────────────────────────────────────────
 sys.path.insert(0, str(BASE))
@@ -87,34 +80,17 @@ def page_commander(msg: str) -> bool:
         return False
 
 
+from OpsCenter.hale_dispatcher import HaleDispatcher
+
+# ...
+
 def call_deepseek(system_prompt: str, user_prompt: str, max_tokens: int = 800) -> str:
-    """Call DeepSeek V4 Pro via OpenRouter. Returns text or empty string on failure."""
-    if not OPENROUTER_KEY:
-        log.warning("OPENROUTER_API_KEY not set — DeepSeek unavailable")
-        return ""
-    try:
-        resp = requests.post(
-            OPENROUTER_URL,
-            headers={
-                "Authorization": f"Bearer {OPENROUTER_KEY}",
-                "Content-Type": "application/json",
-            },
-            json={
-                "model": DEEPSEEK_MODEL,
-                "messages": [
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user",   "content": user_prompt},
-                ],
-                "max_tokens": max_tokens,
-                "temperature": 0.4,
-            },
-            timeout=60,
-        )
-        resp.raise_for_status()
-        return resp.json()["choices"][0]["message"]["content"].strip()
-    except Exception as e:
-        log.error(f"  [deepseek] API call failed: {e}")
-        return ""
+    """Compose email via HaleDispatcher."""
+    # REFACTORED: Use HaleDispatcher for composition
+    hale = HaleDispatcher()
+    
+    # Brain 2 handles writing/drafting tasks automatically
+    return hale.dispatch(user_prompt, brain_override="sonnet")
 
 
 def extract_tp_email(tp_id: str) -> dict | None:

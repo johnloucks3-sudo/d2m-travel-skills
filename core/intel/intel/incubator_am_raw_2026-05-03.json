@@ -1,0 +1,34 @@
+[
+  {
+    "title": "\u4e00\u6587\u4e86\u89e3Transformer\u5168\u8c8c\uff08\u56fe\u89e3Transformer\uff09",
+    "snippet": "Sep 26, 2025 \u00b7 \u7f51\u4e0a\u6709\u5173Transformer\u539f\u7406\u7684\u4ecb\u7ecd\u5f88\u591a\uff0c\u5728\u672c\u6587\u4e2d\u6211\u4eec\u5c06\u5c3d\u91cf\u6a21\u578b\u7b80\u5316\uff0c\u8ba9\u666e\u901a\u8bfb\u8005\u4e5f\u80fd\u8f7b\u677e\u7406\u89e3\u3002 1. Transformer \u2026",
+    "url": "https://www.zhihu.com/tardis/zm/art/600773858",
+    "source": "ddg_web",
+    "category": "Transformer cross-attention",
+    "query_type": "enterprise implementation case study 2026"
+  },
+  {
+    "title": "\u5982\u4f55\u6700\u7b80\u5355\u3001\u901a\u4fd7\u5730\u7406\u89e3Transformer\uff1f - \u77e5\u4e4e",
+    "snippet": "Transformer\u6700\u5f00\u59cb\u5e94\u7528\u4e8eNLP\u9886\u57df\u7684\u673a\u5668\u7ffb\u8bd1\u4efb\u52a1\uff0c\u4f46\u662f\u5b83\u7684\u901a\u7528\u6027\u5f88\u597d\uff0c\u9664\u4e86NLP\u9886\u57df\u7684\u5176\u4ed6\u4efb\u52a1\uff0c\u7ecf\u8fc7\u53d8\u4f53\uff0c\u8fd8\u53ef\u4ee5\u7528\u4e8e\u89c6\u89c9\u9886 \u2026",
+    "url": "https://www.zhihu.com/question/445556653",
+    "source": "ddg_web",
+    "category": "Transformer cross-attention",
+    "query_type": "enterprise implementation case study 2026"
+  },
+  {
+    "title": "\u5982\u4f55\u4ece\u6d45\u5165\u6df1\u7406\u89e3 Transformer\uff1f - \u77e5\u4e4e",
+    "snippet": "Transformer\u5347\u7ea7\u4e4b\u8def\uff1a1\u3001Sinusoidal\u4f4d\u7f6e\u7f16\u7801\u8ffd\u6839\u6eaf\u6e90 Transformer\u5347\u7ea7\u4e4b\u8def\uff1a2\u3001\u535a\u91c7\u4f17\u957f\u7684\u65cb\u8f6c\u5f0f\u4f4d\u7f6e\u7f16\u7801 \u731b\u733f\uff1aTransformer \u2026",
+    "url": "https://www.zhihu.com/question/471328838",
+    "source": "ddg_web",
+    "category": "Transformer cross-attention",
+    "query_type": "enterprise implementation case study 2026"
+  },
+  {
+    "title": "\u5982\u4f55\u4ece\u6d45\u5165\u6df1\u7406\u89e3 Transformer\uff1f - \u77e5\u4e4e",
+    "snippet": "\u4f60\u8981\u662f\u628aTransformer\u641e\u61c2\u4e86\uff0c\u5927\u6a21\u578b\u7684\u6240\u6709\u79d8\u5bc6\u4f60\u5c31\u61c2\u4e8680%\u3002 \u4ee5\u540e\u518d\u6709\u4eba\u8ddf\u4f60\u5439\u4ec0\u4e48\u5927\u6a21\u578b\u9ed1\u79d1\u6280\uff0c\u4f60\u4e00\u773c\u5c31\u80fd\u770b\u7a7f\u5b83\u7684\u672c\u8d28\u3002  \u2026",
+    "url": "https://www.zhihu.com/question/471328838/answers/updated",
+    "source": "ddg_web",
+    "category": "Transformer cross-attention",
+    "query_type": "enterprise implementation case study 2026"
+  }
+]

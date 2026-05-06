@@ -1074,10 +1074,12 @@ def task_email(
     result["persona_note"] = persona_note or ""
 
     # STEP 5: Create draft for SUPPLIER tier if appropriate
+    # NOTE: thread_id is from johnloucks3; drafts go to d2mconcierge — cross-account
+    # thread linkage always 404s, so we omit thread_id here.
     draft_id = None
     if tier == "SUPPLIER" and classification == "booking_confirmation" and persona_note:
         draft_text = persona_note.strip()
-        draft_id = _create_reply_draft(sender, subject, draft_text, thread_id)
+        draft_id = _create_reply_draft(sender, subject, draft_text, None)
         result["draft_id"] = draft_id
         result["status"] = "tasked_supplier_drafted"
     elif tier == "SUPPLIER" and persona_note:

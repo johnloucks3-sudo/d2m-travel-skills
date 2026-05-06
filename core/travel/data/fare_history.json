@@ -1,0 +1,29 @@
+[
+  {
+    "watch_id": "furlow-grandeur-scandinavia-cruise",
+    "timestamp": "2026-05-04T01:05:54.970083",
+    "price_pp": 9618.0,
+    "total": 19236.0,
+    "price_change_pct": 0.0,
+    "alert_triggered": null,
+    "notes": ""
+  },
+  {
+    "watch_id": "nichols-grandeur-scandinavia-cruise",
+    "timestamp": "2026-05-04T01:05:54.971474",
+    "price_pp": 9448.0,
+    "total": 18896.0,
+    "price_change_pct": 0.0,
+    "alert_triggered": null,
+    "notes": ""
+  },
+  {
+    "watch_id": "ely-darrow-grandeur-scandinavia-cruise",
+    "timestamp": "2026-05-04T01:05:54.971928",
+    "price_pp": 10320.0,
+    "total": 20640.0,
+    "price_change_pct": 0.0,
+    "alert_triggered": null,
+    "notes": ""
+  }
+]

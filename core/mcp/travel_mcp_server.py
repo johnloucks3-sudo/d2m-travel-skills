@@ -76,6 +76,13 @@ from thunderbird_grant_compiler import register_grant_tools
 from thunderbird_mcp_connector import register_connector_tools
 from thunderbird_groq_connectors import register_groq_connector_tools
 from thunderbird_headless_claude import register_headless_claude_tools
+# OpenClaw P0: Skill Builder MCP tools (messaging-based skill creation)
+try:
+    from ai_infra.thunderbird_skill_builder_mcp import register_skill_builder_tools
+    _SKILL_BUILDER_OK = True
+except Exception as _e:
+    _SKILL_BUILDER_OK = False
+    logger.warning(f"Skill builder MCP tools not available: {_e}")
 # Phantom self-building MCP — adds 'build_mcp_tool' and 'list_phantom_builds'
 try:
     import sys as _sys
@@ -550,6 +557,30 @@ try:
     register_headless_claude_tools(mcp)
 except Exception as e:
     logger.warning(f"Headless Claude tools not available: {e}")
+
+# OpenClaw P1: Memory Embeddings — semantic recall layer
+try:
+    from ai_infra.thunderbird_memory_embeddings import register_memory_embedding_tools
+    register_memory_embedding_tools(mcp)
+    logger.info("OpenClaw P1 memory embedding tools registered (search_memory_semantic, index_memory, recall_by_context, memory_stats, add_to_memory)")
+except Exception as _e:
+    logger.warning(f"OpenClaw P1 memory embedding tools not available: {_e}")
+
+# OpenClaw P5: OAuth Self-Heal — token health monitoring and auto-refresh
+try:
+    from ops.thunderbird_oauth_self_heal import register_oauth_self_heal_tools
+    register_oauth_self_heal_tools(mcp)
+    logger.info("OpenClaw P5 OAuth self-heal tools registered (check_oauth_health, heal_oauth)")
+except Exception as _e:
+    logger.warning(f"OpenClaw P5 OAuth self-heal tools not available: {_e}")
+
+# OpenClaw P0: Skill Builder — always loaded (messaging-based skill creation)
+if _SKILL_BUILDER_OK:
+    try:
+        register_skill_builder_tools(mcp)
+        logger.info("OpenClaw skill builder tools registered (build_skill_from_description, list_available_skills, validate_skill_safety, get_skill_metadata)")
+    except Exception as e:
+        logger.warning(f"Skill builder tools registration failed: {e}")
 
 # remaining wave 4 based on profile
 if MCP_PROFILE in ("intel", "full"):

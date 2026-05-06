@@ -1,0 +1,31 @@
+# thunderbird-coo-watchdog.timer
+# Thunderbird COO Watchdog Timer
+#
+# WHAT IT DOES:
+#   Activates the COO Watchdog service 30 seconds after boot, then every 10 minutes.
+#   Persistent=true ensures missed runs (e.g. system was off) execute on next boot.
+#
+# INSTALL:
+#   sudo cp /home/john/Thunderbird/OpsCenter/thunderbird-coo-watchdog.timer /etc/systemd/user/
+#   systemctl --user daemon-reload
+#   systemctl --user enable --now thunderbird-coo-watchdog.timer
+#
+# VERIFY:
+#   systemctl --user list-timers
+#   systemctl --user status thunderbird-coo-watchdog.timer
+#
+# VIEW LOGS:
+#   journalctl --user -u thunderbird-coo-watchdog
+#   journalctl --user -u thunderbird-coo-watchdog --since "1 hour ago"
+
+[Unit]
+Description=Thunderbird COO Watchdog Timer
+Requires=thunderbird-coo-watchdog.service
+
+[Timer]
+OnBootSec=30s
+OnUnitActiveSec=10min
+Persistent=true
+
+[Install]
+WantedBy=timers.target

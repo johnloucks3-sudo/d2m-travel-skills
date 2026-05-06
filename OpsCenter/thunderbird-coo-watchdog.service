@@ -1,0 +1,35 @@
+# thunderbird-coo-watchdog.service
+# Thunderbird COO Watchdog — Autonomous System Health Monitor
+#
+# WHAT IT DOES:
+#   Runs thunderbird_coo_watchdog.py continuously, monitoring wing health,
+#   system services, and autonomous operations. Restarts automatically on failure.
+#
+# INSTALL:
+#   sudo cp /home/john/Thunderbird/OpsCenter/thunderbird-coo-watchdog.service /etc/systemd/user/
+#   systemctl --user daemon-reload
+#   systemctl --user enable --now thunderbird-coo-watchdog.service
+#
+# VERIFY:
+#   systemctl --user status thunderbird-coo-watchdog.service
+#   systemctl --user list-timers
+#
+# VIEW LOGS:
+#   journalctl --user -u thunderbird-coo-watchdog
+#   journalctl --user -u thunderbird-coo-watchdog -f   # follow live
+#   journalctl --user -u thunderbird-coo-watchdog --since "1 hour ago"
+
+[Unit]
+Description=Thunderbird COO Watchdog - Autonomous System Health Monitor
+After=network.target
+
+[Service]
+Type=oneshot
+User=john
+ExecStart=/usr/bin/python3 /home/john/Thunderbird/OpsCenter/thunderbird_coo_watchdog.py
+StandardOutput=journal
+StandardError=journal
+Environment="PYTHONUNBUFFERED=1"
+
+[Install]
+WantedBy=default.target

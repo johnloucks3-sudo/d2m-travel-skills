@@ -22,6 +22,7 @@
 | **Status** | PRE-DEPARTURE |
 | **Dossier Last Updated** | 2026-04-26 |
 
+completed_tps: []
 ---
 
 ## CLIENT CONTACT INFORMATION

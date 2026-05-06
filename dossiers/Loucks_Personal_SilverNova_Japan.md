@@ -12,6 +12,7 @@ fpd: 2026-02-01
 fpd_amount: 22663
 status: active
 relationship: commander
+completed_tps: []
 ---
 # PERSONAL DOSSIER — John & Susan Loucks
 ## 32-Day Pacific Luxury Journey (Apr 10 – May 11, 2026)

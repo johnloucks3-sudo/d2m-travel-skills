@@ -234,7 +234,8 @@ def task_list() -> str:
                 tasks.append(f"🔔 `{tid}` [{label}]")
     return ("📋 *PENDING TASKS*\n" + "\n".join(tasks[-15:])) if tasks else "📭 No pending tasks."
 
-# ── Message router ────────────────────────────────────────────────────────────
+# ROUTE_TABLE changes: Define log-only targets for noise
+# Modify routing to write to /logs/telegram_noise.log instead of flooding C2
 def route_message(text: str) -> str | None:
     """Return formatted reply if text matches a tasking command, else None."""
     for pattern, target, msg_type in ROUTE_TABLE:
@@ -243,6 +244,13 @@ def route_message(text: str) -> str | None:
             continue
         content = m.group(1).strip() if m.lastindex else text.strip()
         emoji   = PRI_EMOJI.get(msg_type, "🔵")
+
+        # FILTER: Mute repetitive dispatcher tasks in C2
+        if "Dispatcher" in content or "DONE" in content:
+            with open("/home/john/Thunderbird/logs/telegram_noise.log", "a") as f:
+                f.write(f"[{mt_now()}] SILENT ROUTE: {target} | {content}\n")
+            return None
+
         if msg_type in ("TASK", "REQUEST"):
             tid = write_inbox(target, msg_type, content)
             return f"{emoji} *{msg_type} → {target}*\n`{tid}`\n_{content[:120]}_"

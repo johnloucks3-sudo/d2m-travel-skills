@@ -1,0 +1,68 @@
+[
+  {
+    "id": "A2-2026-05-04-001",
+    "title": "MIT AI Confidence Calibration",
+    "source_signal": "[13] Artificial intelligence | MIT News",
+    "classification": "INTEGRATE",
+    "gap_closed": "Preference inference accuracy in HNWI targeting \u2014 current models lack calibrated confidence bounds",
+    "thunderbird_component": "core/client/thunderbird_auto_enrich.py + preference_engine",
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "3-day retraining yields 15% inference accuracy without performance cost; plug into existing D2M enrichment stack immediately."
+  },
+  {
+    "id": "A2-2026-05-04-002",
+    "title": "Hybrid Autoregressive Transformer for Image Gen",
+    "source_signal": "[16] AI tool generates high-quality images faster",
+    "classification": "INTEGRATE",
+    "gap_closed": "Personalization imagery generation speed \u2014 current Thunderbird_AI_Visuals cadence is 8-12 hours per client",
+    "thunderbird_component": "core/ops/thunderbird_dashboard.py + Thunderbird_AI_Visuals pipeline",
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "4x acceleration on luxury outreach visuals; drop-in replacement for current pipeline; proven at scale (Mar 2025)."
+  },
+  {
+    "id": "A2-2026-05-04-003",
+    "title": "MIT GenAI Database Semantic Query Tool",
+    "source_signal": "[14] MIT researchers introduce generative AI for databases",
+    "classification": "WATCH",
+    "gap_closed": "Semantic query acceleration on client/booking/preference databases (future \u2014 not blocking current ops)",
+    "thunderbird_component": "core/booking/thunderbird_reconciliation.py (future layer)",
+    "risk": "MED",
+    "sss_required": true,
+    "rationale": "Promising for cross-transaction memory; maturity level unclear (Jul 2024 signal = 10mo old); requires Commander SSS before integration; revisit 2026-06-03."
+  },
+  {
+    "id": "A2-2026-05-04-004",
+    "title": "Explainable Computer Vision (Concept-Based)",
+    "source_signal": "[17] Improving AI models' ability to explain their predictions",
+    "classification": "INTEGRATE",
+    "gap_closed": "Cross-transaction memory transparency \u2014 clients cannot see why D2M made a specific cabin/excursion recommendation",
+    "thunderbird_component": "core/client/thunderbird_auto_enrich.py + thunderbird_quote_render.py (client-facing XAI layer)",
+    "risk": "MED",
+    "sss_required": true,
+    "rationale": "Builds trust in A8 recommendations; 20% latency risk acceptable for client-facing explanations; Commander SSS required before deployment."
+  },
+  {
+    "id": "A2-2026-05-04-REJECT-01",
+    "title": "Behavioral Health / LIFE Magazine Signals",
+    "source_signal": "[1-12] Dictionary definitions, mental health centers, photography archives",
+    "classification": "REJECT",
+    "gap_closed": "None",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Generic/off-topic: behavioral definitions and photography unrelated to D2M travel AI ops."
+  },
+  {
+    "id": "A2-2026-05-04-REJECT-02",
+    "title": "GenAI Overview (Generic)",
+    "source_signal": "[15] Explained: Generative AI | MIT News",
+    "classification": "REJECT",
+    "gap_closed": "None",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Educational only; no actionable technical signal for Thunderbird build queue."
+  }
+]

@@ -54,25 +54,28 @@ from telegram.ext import (
 )
 from telegram.constants import ChatAction, ParseMode
 
+# Add core directory to path for local imports
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
 # Persistent conversation memory — shared with Dani bot via same DB
-from thunderbird_conversation_bridge import ConversationBridge
+from learning.thunderbird_conversation_bridge import ConversationBridge
 
 _bridge = ConversationBridge()
 
-from thunderbird_personas import (
+from ai_infra.thunderbird_personas import (
     get_persona,
     get_roster,
     PERSONA_REGISTRY,
     resolve_id,
 )
-from thunderbird_telegram_tools_sdk import (
+from communication.thunderbird_telegram_tools_sdk import (
     call_cos_with_tools,
     call_cos_via_cli,
     call_cos_via_sdk,
     classify_intent,
     _is_draft_request,
 )
-from thunderbird_telegram_fmt import (
+from communication.thunderbird_telegram_fmt import (
     md_to_telegram,
     send_claude_response,
     send_telegram,
@@ -335,10 +338,31 @@ async def cmd_help(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     lines.extend([
         "",
-        "/staff <message> — Broadcast to all personas",
-        "/sitrep — Status report on all active bookings",
-        "/sss — Staff Summary Sheet (formal coordination)",
-        "/drafts — Pending email drafts for approval",
+        "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+        "*IOC Commands*",
+        "/scan — Scan all dossiers for gaps and issues",
+        "/learn — Learning: digest, approve/reject/edit/supersede/history",
+        "/voice — Voice ledger summary",
+        "/inbox — Sweep Commander's personal inbox for D2M emails",
+        "/usage — Claude Code usage meter (tokens, cost, block, monthly)",
+        "/restart — Restart both Telegram bots (C2 + Dani)",
+        "/intel — Push morning intel brief now (A2→A1→COS chain)",
+        "/brief — Push FPD/departure/CC brief now",
+        "/fpd — FPD alert scan",
+        "/dossier <name> — Quick dossier lookup by client name",
+        "/ask <query> — Search intel archives for D2M-applicable insights",
+        "",
+        "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+        "*OpenClaw Commands*",
+        "/build-skill <description> — Build a Python skill from natural language",
+        "/spawn <n> <task> — Spawn N agents for parallel work (1-5)",
+        "/heartbeat — Run proactive system health assessment",
+        "",
+        "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+        "*OpenClaw Commands*",
+        "/build-skill <description> — Build a Python skill from natural language",
+        "/spawn <n> <task> — Spawn N agents for parallel work (1-5)",
+        "/heartbeat — Run proactive system health assessment",
         "",
         "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
         "*IOC Commands*",
@@ -1966,6 +1990,203 @@ async def cmd_approve(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text(f"❌ Failed to approve case: {e}")
 
 
+@commander_only
+async def cmd_build_skill(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """OpenClaw P0: Build a skill from natural language description.
+
+    Usage: /build-skill <description>
+    Example: /build-skill Check hotel prices in any city and return formatted comparison
+    """
+    requirement = " ".join(context.args) if context.args else ""
+    if not requirement:
+        await update.message.reply_text(
+            "🔧 *Build Skill*\n\n"
+            "Usage: `/build-skill <description>`\n\n"
+            "Example:\n"
+            "`/build-skill Check hotel prices in any city and return formatted comparison`\n\n"
+            "_Sonnet will generate the Python skill, validate it, and register it._",
+            parse_mode=ParseMode.MARKDOWN,
+        )
+        return
+
+    ack = await update.message.reply_text("🔧 Building skill from description...")
+    loop = asyncio.get_event_loop()
+
+    try:
+        from ai_infra.thunderbird_skill_builder import ThunderbirdSkillBuilder
+        from ai_infra.skill_builder_config import validate_skill_constraint, DEFAULT_CONSTRAINTS
+
+        def _build():
+            builder = ThunderbirdSkillBuilder()
+            return builder.build_skill(requirement, str(update.effective_user.id))
+
+        result = await loop.run_in_executor(None, _build)
+
+        if result.success:
+            # Validate generated code
+            is_valid, error_msg = validate_skill_constraint(result.generated_code, DEFAULT_CONSTRAINTS)
+
+            lines = [
+                "✅ *Skill Created Successfully*\n",
+                f"*Name:* `{result.skill_name}`",
+                f"*Domain:* {result.metadata.get('domain', 'unknown')}",
+                f"*File:* `{result.file_path}`",
+                f"*Tests:* `{result.test_file_path}`",
+                "",
+                f"*Usage:* `{result.invocation_example}`",
+                "",
+                f"*Safety:* {'✅ Passed' if is_valid else '⚠️ Review needed'}",
+            ]
+
+            if not is_valid:
+                lines.append(f"*Warning:* {error_msg}")
+
+            lines.append("\n_Code preview:_")
+            code_preview = result.generated_code[:800]
+            if len(result.generated_code) > 800:
+                code_preview += "\n...(truncated)"
+            lines.append(f"```\n{code_preview}\n```")
+
+            await ack.delete()
+            await send_long_message(update, "\n".join(lines))
+            _log_command("BUILD_SKILL", "SKILL_BUILDER", requirement[:100], f"created: {result.skill_name}")
+        else:
+            await ack.edit_text(f"❌ *Skill generation failed*\n\n_{result.error_message}_", parse_mode="Markdown")
+
+    except Exception as e:
+        logger.error(f"build_skill failed: {e}")
+        await ack.edit_text(f"⚠️ Build skill error: {e}")
+
+
+@commander_only
+async def cmd_spawn(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """OpenClaw P4: Spawn multiple agents for parallel work.
+
+    Usage: /spawn <count> <task description>
+    Example: /spawn 3 Analyze cruise pricing for Panama Canal routes
+    """
+    if not context.args or len(context.args) < 2:
+        await update.message.reply_text(
+            "🚀 *Multi-Agent Spawn*\n\n"
+            "Usage: `/spawn <count> <task>`\n\n"
+            "Example:\n"
+            "`/spawn 3 Analyze cruise pricing for Panama Canal routes`\n\n"
+            "_Spawns N OpenCode instances with task variations, aggregates results._",
+            parse_mode=ParseMode.MARKDOWN,
+        )
+        return
+
+    try:
+        count = int(context.args[0])
+        if count < 1 or count > 5:
+            await update.message.reply_text("Count must be between 1 and 5.")
+            return
+        task = " ".join(context.args[1:])
+    except ValueError:
+        await update.message.reply_text("First argument must be a number (1-5).")
+        return
+
+    ack = await update.message.reply_text(f"🚀 Spawning {count} agent(s) for: _{task[:100]}_", parse_mode="Markdown")
+
+    try:
+        from ai_infra.thunderbird_multi_agent import spawn_multi_agent
+
+        def _spawn():
+            return spawn_multi_agent(count, task, commander_id=str(update.effective_user.id))
+
+        result = await loop.run_in_executor(None, _spawn)
+
+        if result.get("success"):
+            lines = [
+                f"✅ *Multi-Agent Complete* ({result.get('agents_spawned', 0)} agents)\n",
+                f"*Task:* {task[:200]}",
+                "",
+            ]
+
+            # Add individual results
+            for i, agent_result in enumerate(result.get("results", []), 1):
+                status = "✅" if agent_result.get("success") else "❌"
+                lines.append(f"*Agent {i}* {status}")
+                output = agent_result.get("output", "No output")[:300]
+                lines.append(f"_{output}_\n")
+
+            # Add consolidated summary
+            if result.get("consolidated_summary"):
+                lines.append("*Consolidated Summary:*")
+                lines.append(result["consolidated_summary"][:1000])
+
+            await ack.delete()
+            await send_long_message(update, "\n".join(lines))
+            _log_command("SPAWN", "MULTI_AGENT", f"count={count} task={task[:100]}", f"agents={result.get('agents_spawned', 0)}")
+        else:
+            await ack.edit_text(f"❌ *Multi-agent failed*\n\n_{result.get('error', 'Unknown error')}_", parse_mode="Markdown")
+
+    except Exception as e:
+        logger.error(f"spawn failed: {e}")
+        await ack.edit_text(f"⚠️ Spawn error: {e}")
+
+
+@commander_only
+async def cmd_heartbeat(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """OpenClaw P2: Run proactive heartbeat assessment on demand."""
+    ack = await update.message.reply_text("💓 Running heartbeat assessment...")
+    loop = asyncio.get_event_loop()
+
+    try:
+        from ops.thunderbird_heartbeat import run_heartbeat_assessment
+
+        def _heartbeat():
+            return run_heartbeat_assessment()
+
+        result = await loop.run_in_executor(None, _heartbeat)
+
+        lines = ["💓 *Heartbeat Assessment*\n"]
+
+        if result.get("success"):
+            lines.append(f"*Status:* {'🟢 Nominal' if result.get('overall_status') == 'nominal' else '🟡 Attention needed'}")
+            lines.append(f"*Timestamp:* {result.get('timestamp', '')[:19]}")
+            lines.append("")
+
+            # System health
+            if "system_health" in result:
+                lines.append("*System Health:*")
+                for key, value in result["system_health"].items():
+                    icon = "✅" if value.get("status") == "ok" else "⚠️"
+                    lines.append(f"  {icon} {key}: {value.get('message', '')[:100]}")
+                lines.append("")
+
+            # Inbox status
+            if "inbox_status" in result:
+                lines.append("*Inbox Status:*")
+                for key, value in result["inbox_status"].items():
+                    lines.append(f"  • {key}: {value}")
+                lines.append("")
+
+            # Mission status
+            if "mission_status" in result:
+                lines.append("*Mission Status:*")
+                for mission in result["mission_status"]:
+                    icon = {"active": "🟢", "stale": "🟡", "complete": "✅"}.get(mission.get("status", ""), "⚪")
+                    lines.append(f"  {icon} {mission.get('id', '')}: {mission.get('status', '')}")
+                lines.append("")
+
+            # Recommendations
+            if result.get("recommendations"):
+                lines.append("*Recommendations:*")
+                for rec in result["recommendations"][:5]:
+                    lines.append(f"  • {rec[:150]}")
+
+            await ack.delete()
+            await send_long_message(update, "\n".join(lines))
+            _log_command("HEARTBEAT", "HEARTBEAT", "on-demand", f"status={result.get('overall_status', '')}")
+        else:
+            await ack.edit_text(f"❌ *Heartbeat failed*\n\n_{result.get('error', 'Unknown error')}_", parse_mode="Markdown")
+
+    except Exception as e:
+        logger.error(f"heartbeat failed: {e}")
+        await ack.edit_text(f"⚠️ Heartbeat error: {e}")
+
+
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
@@ -2001,6 +2222,11 @@ def main():
     app.add_handler(CommandHandler("fpd", cmd_fpd))
     app.add_handler(CommandHandler("dossier", cmd_dossier))
     app.add_handler(CommandHandler("ask", cmd_ask))
+
+    # OpenClaw adaptation commands
+    app.add_handler(CommandHandler("build-skill", cmd_build_skill))
+    app.add_handler(CommandHandler("spawn", cmd_spawn))
+    app.add_handler(CommandHandler("heartbeat", cmd_heartbeat))
 
     # SPSA (Standard Problem Solving Approach) commands
     app.add_handler(CommandHandler("spsa", cmd_spsa))

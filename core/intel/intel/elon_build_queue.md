@@ -67,3 +67,85 @@
 - **A5 Fit:** ACCELERATES — Serves current HNWI clients + builds reusable signal-inference pattern; gate on privacy policy amendment before form deploy.
 - **A9:** FLAG_FOR_COMMANDER — NO - $0/mo · ROI: HNWI profile inference closure → better privacy-conscious client targeting → improved retention + compliance messaging fit
 - **ELON:** _Ask don't infer — we have zero device telemetry. One checkbox in intake form, zero API complexity. But flag: privacy signal collection itself needs privacy policy amendment + Commander sign-off before we touch client-facing forms._
+
+### ELON-2026-05-04-001 — MIT AI Confidence Calibration for Preference Inference
+- **Status:** 🟡 PENDING
+- **Date:** 2026-05-04
+- **What:** Add calibrated confidence bounds to preference inference model for HNWI targeting accuracy.
+- **Why:** Current models lack confidence estimates; 15% accuracy improvement available without performance cost.
+- **How:** Integrate calibration layer into core/client/thunderbird_auto_enrich.py::enrich_client_preferences(). Use sklearn.calibration.CalibratedClassifierCV or direct Platt scaling on existing model outputs. Retrain on 30-day client dataset (~3 days async).
+- **Effort:** MED · **SSS:** NO
+- **A5 Fit:** ACCELERATES — 15% preference accuracy + calibration confidence bounds serve current clients AND demonstrate horizontal enterprise AI pattern (confidence estimation) portable to credit/hiring/medical.
+- **A9:** APPROVED — NO · ROI: 15% accuracy lift → better A8 cabin/excursion picks → fewer rejections → est. $25K+ annual churn prevention
+- **ELON:** _15% accuracy lift, zero perf penalty = free money. Patch it this sprint._
+
+
+### ELON-2026-05-04-002 — 4x Faster Image Generation via Hybrid Autoregressive Transformer
+- **Status:** 🟡 PENDING
+- **Date:** 2026-05-04
+- **What:** Replace current image generation model with hybrid autoregressive transformer for 4x speedup on personalization visuals.
+- **Why:** Current 8-12 hour per-client cadence blocks final itinerary delivery; 4x speedup cuts to 2-3 hours, unblocks morning brief timeline.
+- **How:** Update core/ops/thunderbird_dashboard.py::generate_itinerary_images() model call; swap provider library (e.g., transformers HybridTransformer or Stability.ai Turbo endpoint). One-day validation against existing Thunderbird_AI_Visuals gallery.
+- **Effort:** LOW · **SSS:** NO
+- **A5 Fit:** SERVES_CLIENTS — Unblocks morning brief timeline + delivery cadence (direct client value), but image gen perf is travel-specific; limited horizontal platform spillover.
+- **A9:** APPROVED — MAYBE — depends on provider. Stability.ai Turbo ~$2/month; HuggingFace local = NO cost · ROI: 8-12hr → 2-3hr cycle cuts morning brief delay, unblocks final itinerary delivery, accelerates 2-3 high-value payment closes → $5-10K revenue acceleration + client satisfaction lift
+- **ELON:** _Drop-in replacement, proven, 4x speedup = no debate. Push this live next week._
+
+
+### ELON-2026-05-04-003 — Concept-Based XAI for A8 Recommendation Transparency
+- **Status:** 🟡 PENDING
+- **Date:** 2026-05-04
+- **What:** Add explainable AI layer to render human-readable explanations of cabin and excursion recommendations to clients.
+- **Why:** Clients cannot see why A8 made specific picks; transparency closes trust gap and reduces pushback on upsells.
+- **How:** New function in core/client/thunderbird_quote_render.py::render_recommendation_explanation(cabin_id, excursion_list, client_profile) → uses concept-based XAI (TCAV or similar via transformers library) to generate client-facing narrative. Hook output into A3 briefing; async generation acceptable (20% latency ok for draft flow).
+- **Effort:** HIGH · **SSS:** YES
+- **A5 Fit:** ACCELERATES — Closes trust gap for current clients (Dani's concierge mandate) + concept-based XAI is core horizontal enterprise pattern (credit/hiring/medical); high-value proof-of-concept.
+- **A9:** ? —  · ROI: 
+- **ELON:** _Trust lever worth the latency, but this is client-facing XAI — wrong explanations = liability. SSS gate mandatory before deploy._
+
+### ELON-2026-05-05-001 — LIFE Magazine Iconic Photographs Archive Integration
+- **Status:** 🟡 PENDING
+- **Date:** 2026-05-05
+- **What:** Integrate LIFE Magazine iconic photograph archive as visual nostalgia data source for HNWI profile compounding.
+- **Why:** Closes archival visual nostalgia gap — enables matching 20th-century cultural icons and moments to emotional/identity preferences in cabin and experience selection.
+- **How:** Create core/client/archival_visual_resonance.py module. Extend thunderbird_recipient_profiles.py with infer_archival_nostalgia(profile_data, life_archive_index) function. Source LIFE JSON archive (icon name, decade, category, image URL). Wire into profile enrichment pipeline in thunderbird_auto_enrich.py.
+- **Effort:** MED · **SSS:** YES
+- **A5 Fit:** PLATFORM_ONLY — Valid archival-data-to-inference pattern, but unproven that HNWI prefer cabin choice based on nostalgia era. Defer until 3-client validation shows it moves booking behavior.
+- **A9:** FLAG_FOR_COMMANDER — YES — $200–500/mo (if paid API); $0 if public archive, but legal review required · ROI: Speculative. IF archival nostalgia resonates with HNWI: improved cabin matching → retention. IF not: sunk cost. Unproven.
+- **ELON:** _LIFE photos are nostalgia gold — but we need LIFE API access or a static archive first. Before building, verify: (a) can we legally access/index LIFE archive, (b) do HNWI actually respond to '1963 moonwalk' in their cabin choice? Test with 3 client profiles before shipping._
+
+
+### ELON-2026-05-05-002 — 20th Century Lifestyle Trend Extraction — Era-Specific Aesthetic Inference
+- **Status:** 🟡 PENDING
+- **Date:** 2026-05-05
+- **What:** Extract era-specific lifestyle aesthetics (fashion, family dynamics, holidays) from LIFE archive to infer decade-anchored HNWI preferences for personalized cabin and itinerary matching.
+- **Why:** Closes historical lifestyle preference gap — enables compound inference (e.g., 1960s elegance + family-first values + formal dining → suite with butler, formal dining priority).
+- **How:** Extend core/client/thunderbird_auto_enrich.py with extract_era_aesthetics(profile, era) and compound_decade_preferences(profile_data, decade_anchors) functions. Create preference_compounding_engine.py (new file) with decade lookup tables. Tag LIFE archive by era. Integrate enrichment output into A8 recommendation weighting (cabin class, dining rhythm, excursion selection).
+- **Effort:** MED-HIGH · **SSS:** YES
+- **A5 Fit:** PLATFORM_ONLY — Interesting compounding inference (decade + values → recommendations), but speculative and dependent on #001. Blocks current clients zero. Table until simpler compounding (Travel DNA → product rec → narrative) saturates.
+- **A9:** REJECT — YES — Contingent on TICKET 1 (same API cost, if required) · ROI: Speculative. Compound decade-anchored preferences may improve matching, but no direct revenue. Indirect retention IF clients respond to era framing.
+- **ELON:** _Aesthetic compounding is flavor or fact? If it moves cabin upgrades, build it. If it's just story decoration, skip it. A/B test with 5 profiles first — does 1960s elegance signal actually correlate with suite upsell?_
+
+
+### ELON-2026-05-05-003 — Cultural Icon Inference Layer — Pop Culture Icon to Preference Mapping
+- **Status:** 🟡 PENDING
+- **Date:** 2026-05-05
+- **What:** Map pop culture icons (actors, athletes, politicians, artists) from LIFE archive to HNWI identity signals and experience/cabin preferences.
+- **Why:** Closes pop culture icon preference gap — icon-anchored identity directly correlates with cabin class, dining venue, and excursion selection (e.g., Audrey Hepburn fan → grand dining, cultural shore excursions).
+- **How:** Create core/client/cultural_icon_inference.py module. Extend thunderbird_personas.py with infer_icon_affinity(client_profile, era) and map_icon_to_experience_weights(icon_list) functions. Build icon→cabin/dining/excursion lookup table. Parse LIFE archive for era-specific cultural figures. Integrate into A8 recommendation engine (thunderbird_experience_architect.py) as a weighting factor for cabin class and excursion ranking.
+- **Effort:** MED · **SSS:** YES
+- **A5 Fit:** ? — 
+- **A9:** ? —  · ROI: 
+- **ELON:** _Icon mapping is pattern-matching gold IF it moves cabin upsells. But 'Audrey Hepburn fan = suite + formal dining' is correlation, not law. Wire it in with confidence scores. Flag recommendations where icon signal is weak._
+
+
+### ELON-2026-05-05-005 — Arts & Culture Trend Extraction — Sophisticated Cultural Marker Inference
+- **Status:** 🟡 PENDING
+- **Date:** 2026-05-05
+- **What:** Infer era-anchored cultural sophistication markers (theater, design, music preferences across decades) from LIFE archive to enable cultural excursion and dining strategy personalization.
+- **Why:** Closes cultural sophistication marker gap — enables decade-by-decade culture preference compounding (Classical Theater 1970s→Design + Modern Music) to inform excursion ranking and dining venues.
+- **How:** Create core/client/cultural_marker_inference_module.py with era-specific culture profiles (1950s: jazz + musicals, 1970s: classical + design, etc.). Extend thunderbird_recipient_profiles.py with infer_cultural_markers(profile, era_data) function. Build culture-to-excursion mapping table. Integrate into A8's excursion ranking (thunderbird_experience_architect.py) and Dani's dining strategy briefing. Wire into thunderbird_auto_enrich.py for full profile enrichment.
+- **Effort:** MED-HIGH · **SSS:** YES
+- **A5 Fit:** ? — 
+- **A9:** ? —  · ROI: 
+- **ELON:** _Culture compounding is our differentiator — a Classical Theater + 1970s Design client SHOULD get different excursions than a Modern Pop client. Just don't over-build for 1% of clients. Validate with A8 that culture signals actually shift recommendation rank._

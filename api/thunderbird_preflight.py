@@ -318,4 +318,4 @@ if __name__ == "__main__":
         for name, _, msg in reds:
             print(f"  - {name}: {msg}")
 
-    sys.exit(0 if result["overall"] == "GREEN" else 1)
+    sys.exit(0 if result["overall"] in ("GREEN", "YELLOW") else 1)

@@ -1,0 +1,15 @@
+[Unit]
+Description=Thunderbird Heartbeat Assessment Service
+After=network-online.target
+Documentation=https://github.com/anthropics/thunderbird-os
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /home/john/Thunderbird/core/ops/thunderbird_heartbeat.py
+User=john
+StandardOutput=journal
+StandardError=journal
+Environment="PYTHONUNBUFFERED=1"
+
+[Install]
+WantedBy=multi-user.target

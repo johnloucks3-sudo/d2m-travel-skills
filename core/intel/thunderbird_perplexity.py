@@ -13,49 +13,18 @@ Usage:
     for src in result["sources"]: print(src["url"])
 """
 
-import json
-import logging
-import os
-import time
-import urllib.request
-import urllib.error
+import sys
 from pathlib import Path
-from typing import Optional
+sys.path.insert(0, "/home/john/Thunderbird")
+from OpsCenter.hale_dispatcher import HaleDispatcher
 
-from dotenv import load_dotenv
-
-load_dotenv(Path.home() / "Thunderbird" / ".env")
-
-logger = logging.getLogger(__name__)
-
-OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
-OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
-
-# Sonar = web-grounded answers with citations ($1/$1 per M tokens + request fee)
-# Sonar Pro = deeper research ($3/$15 per M tokens)
-SONAR_MODEL = "perplexity/sonar"
-SONAR_PRO_MODEL = "perplexity/sonar-pro"
-
-D2M_SYSTEM = (
-    "You are A2 Dembe, research intelligence officer for Dreams2Memories Travel, LLC — "
-    "a luxury travel concierge specializing in Silversea, Regent Seven Seas, Cunard, "
-    "Oceania, Seabourn, Viking, AmaWaterways, and Ponant. "
-    "Provide factual, current, sourced intelligence. "
-    "Lead with the most actionable finding. Be concise — max 400 words. "
-    "Always cite sources."
-)
-
+# D2M_SYSTEM is used by the dispatcher if needed, but not directly here anymore
 
 class PerplexityClient:
-    """Live web research via Perplexity Sonar through OpenRouter."""
+    """Live web research via Hale Dispatcher (Intel Brain)."""
 
-    def __init__(self, model: str = SONAR_MODEL, timeout: int = 30):
-        if not OPENROUTER_API_KEY:
-            raise RuntimeError(
-                "OPENROUTER_API_KEY not set in ~/Thunderbird/.env"
-            )
-        self.model = model
-        self.timeout = timeout
+    def __init__(self, model: str = None, timeout: int = 30):
+        self.hale = HaleDispatcher()
 
     def search(
         self,
@@ -65,18 +34,21 @@ class PerplexityClient:
         pro: bool = False,
     ) -> dict:
         """
-        Run a live web-grounded search via Perplexity Sonar.
+        Run a live web-grounded search via Hale Dispatcher.
+        """
+        # We lose structured source data here, but fulfill the dispatcher pattern.
+        # Could be improved by parsing dispatcher output if needed.
+        result = self.hale.dispatch(f"Research: {query}")
+        return {
+            "answer": result,
+            "sources": [],
+            "model": "hale-dispatcher",
+            "latency_ms": 0,
+            "tokens_in": 0,
+            "tokens_out": 0,
+            "cost_est_usd": 0.0,
+        }
 
-        Returns:
-            {
-                "answer": str,           # model's answer
-                "sources": list[dict],   # [{title, url}]
-                "model": str,
-                "latency_ms": int,
-                "tokens_in": int,
-                "tokens_out": int,
-                "cost_est_usd": float,   # rough estimate
-            }
         """
         model = SONAR_PRO_MODEL if pro else self.model
         payload = {
@@ -139,6 +111,7 @@ class PerplexityClient:
             "tokens_out": tokens_out,
             "cost_est_usd": round(cost_est, 4),
         }
+        """
 
     # ------------------------------------------------------------------
     # D2M-specific helpers

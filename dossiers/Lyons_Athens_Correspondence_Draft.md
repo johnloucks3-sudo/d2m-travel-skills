@@ -8,6 +8,7 @@
 ### To: Hotel Grande Bretagne — Reservations / Concierge
 ### Re: Dinner Reservation Request — GB Roof Garden, August 10, 2026
 
+completed_tps: []
 ---
 
 **TO:** reservations@grandebretagne.gr *(confirm current address before send)*

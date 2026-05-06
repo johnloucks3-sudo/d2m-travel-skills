@@ -32,7 +32,7 @@ load_dotenv(str(_ROOT / ".env"))
 load_dotenv(str(_ROOT / ".env.telegram"))
 
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
-DEEPSEEK_MODEL = "deepseek/deepseek-v4-pro"
+DEEPSEEK_MODEL = "qwen/qwen3.6-plus-04-02:free"
 QWEN_MODEL = DEEPSEEK_MODEL  # Legacy alias
 MT = timezone(timedelta(hours=-6))
 

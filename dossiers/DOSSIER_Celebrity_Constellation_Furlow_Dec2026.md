@@ -9,6 +9,7 @@ departure: 2026-12-14
 return: 2026-12-20
 status: voucher_assignment_cancelled
 relationship: N/A
+completed_tps: []
 ---
 
 ════════════════════════════════════════════════════════════

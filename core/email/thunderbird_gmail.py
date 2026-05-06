@@ -2027,10 +2027,25 @@ def gmail_check_wing_inbox(max_results: int = 10, mark_read: bool = True) -> lis
         Empty list if Wing Gmail unavailable or no unread Commander messages.
     """
     try:
+        # FILTER: Prevent inbox clutter from automated wing noise
+        NOISY_SUBJECTS = [
+            "Delivery Status Notification",
+            "Task",
+            "Timer System Update",
+            "PREFLIGHT CHECK",
+            "HALE DAILY BRIEF"
+        ]
+        if subject and any(noisy in subject for noisy in NOISY_SUBJECTS):
+            logger.info(f"BLOCKED NOISY EMAIL: {subject} (Route: /logs/system_noise.log)")
+            with open("/home/john/Thunderbird/logs/system_noise.log", "a") as f:
+                f.write(f"[{datetime.now()}] BLOCKED: {subject}\n{body}\n---\n")
+            return {"status": "success", "message_id": "blocked_noise"}
+
         service = _get_wing_gmail_service()
     except Exception as e:
         logger.warning(f"Wing Gmail not available for inbox check: {e}")
         return []
+
 
     # Build query: unread messages from any Commander address
     addrs = " OR ".join(f"from:{addr}" for addr in COMMANDER_ADDRS)

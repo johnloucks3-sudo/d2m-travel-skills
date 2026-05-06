@@ -160,6 +160,7 @@ BOOKING SUMMARY
 
 ANCHOR DATE TIMELINE
 Date         Status Category     Milestone
+completed_tps: []
 ----------------------------------------------------------------------
 2025-07-27   PAST   [documents ]   E-270: Passport validity check (6-month rule)
 2025-10-25   PAST   [insurance ]   E-180: Insurance decision deadline

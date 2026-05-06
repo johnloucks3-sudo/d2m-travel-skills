@@ -66,10 +66,10 @@ DEEPSEEK_MODEL     = "deepseek-chat"
 DEEPSEEK_OR_MODEL  = "qwen/qwen3.6-plus-04-02:free"  # OpenRouter proxy — $0.305/M, cost-optimized
 
 # Free OpenRouter tiers (SO 2026-04-24)
-FREE_OPENROUTER_RESEARCH = "openrouter/nvidia/nemotron-3-super-120b-a12b:free"
-FREE_OPENROUTER_OPS = "openrouter/openai/gpt-oss-120b:free"
-FREE_OPENROUTER_SUMMARY = "openrouter/google/gemma-3-27b-it:free"
-FREE_OPENROUTER_BULK = "openrouter/deepseek/deepseek-r1:free"
+FREE_OPENROUTER_RESEARCH = "anthropic/claude-3-5-haiku-20241022"
+FREE_OPENROUTER_OPS = "anthropic/claude-3-5-sonnet-20241022"
+FREE_OPENROUTER_SUMMARY = "anthropic/claude-3-5-haiku-20241022"
+FREE_OPENROUTER_BULK = "anthropic/claude-3-5-haiku-20241022"
 
 MT = timezone(timedelta(hours=-6))
 
@@ -201,7 +201,7 @@ def _call_brain1(system: str, task: str, max_tokens: int = 2000) -> str:
             "temperature": 0.3,
         }, ensure_ascii=False).encode("utf-8")
         resp = requests.post(
-            "https://openrouter.ai/api/v1/chat/completions",
+            "https://api.anthropic.com/v1/messages",
             headers={
                 "Authorization": f"Bearer {OPENROUTER_API_KEY}",
                 "Content-Type": "application/json; charset=utf-8",
@@ -222,25 +222,52 @@ def _call_brain1(system: str, task: str, max_tokens: int = 2000) -> str:
 
 def _call_brain2_claude_api(task: str, model: str = SONNET_MODEL, max_words: int = 500) -> str:
     """
-    Brain 2 via Claude SDK (fallback when needed).
-    Uses ANTHROPIC_API_KEY if available.
-    """
-    if not ANTHROPIC_API_KEY:
-        return "[BRAIN2 FALLBACK] No ANTHROPIC_API_KEY; use template-based brief instead."
+    Brain 2 via headless Claude over MAX OAuth (zero marginal cost).
 
+    Replaced 2026-05-04: previously used ANTHROPIC_API_KEY which had gone stale
+    and was causing 401s on every call. Now routes through the foolproof wrapper
+    which strips the stale env var and authenticates via OAuth credentials.
+
+    Returns Sonnet response text or a [BRAIN2 ERROR] sentinel.
+    """
     try:
-        from anthropic import Anthropic
-        client = Anthropic(api_key=ANTHROPIC_API_KEY)
-        response = client.messages.create(
-            model=model,
-            max_tokens=int(max_words * 1.3),  # Rough estimation
-            messages=[{"role": "user", "content": task}]
+        # Lazy import — avoid hard dep cycle; wrapper lives in core/ai_infra
+        sys.path.insert(0, str(_ROOT))
+        from core.ai_infra.thunderbird_headless_spawn import spawn_headless_claude
+        import tempfile
+
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".txt", delete=False) as tmp:
+            output_file = tmp.name
+
+        # Map full model id (e.g. "claude-sonnet-4-6-20251001") to CLI alias
+        alias = "sonnet"
+        if "haiku" in (model or "").lower():
+            alias = "haiku"
+        elif "opus" in (model or "").lower():
+            alias = "opus"
+
+        result = spawn_headless_claude(
+            prompt=task,
+            output_file=output_file,
+            model=alias,
+            task_name="brain2",
+            background=False,
+            timeout=120,
         )
-        return response.content[0].text.strip()
-    except ImportError:
-        return "[BRAIN2 ERROR] anthropic module not installed"
+
+        if result.get("status") == "COMPLETED":
+            try:
+                with open(output_file) as f:
+                    return f.read().strip()
+            finally:
+                try:
+                    os.unlink(output_file)
+                except Exception:
+                    pass
+
+        return f"[BRAIN2 ERROR] Headless spawn failed: {result.get('status')} {result.get('error', '')}"
     except Exception as e:
-        return f"[BRAIN2 ERROR] Claude API failed: {str(e)[:200]}"
+        return f"[BRAIN2 ERROR] {type(e).__name__}: {str(e)[:200]}"
 
 
 def _call_brain2(task: str, model: str = SONNET_MODEL, max_words: int = 500) -> str:
@@ -335,69 +362,6 @@ def _call_phase2_visual_synthesis() -> str:
 Phase 2 visuals auto-generate weekly (Sundays 18:00 MT) via systemd timer."""
     except Exception as e:
         return f"[PHASE2 VISUAL SYNTHESIS ERROR] {e}"
-
-
-# ── Brain 3: Claude Sonnet headless (MAX OAuth) ──
-
-def _call_brain3(question: str) -> str:
-    """Brain 3: Claude Sonnet headless via MAX OAuth. $0 cost. NO DEEPSEEK."""
-    import subprocess
-    import json
-    import time
-    from pathlib import Path
-    from datetime import datetime
-
-    log_dir = Path("/home/john/Thunderbird/logs")
-    log_dir.mkdir(exist_ok=True)
-    ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-    output_file = log_dir / f"brain3_ruling_{ts}.txt"
-    log_file = log_dir / f"brain3_spawn_{ts}.log"
-
-    prompt = f"""You are Thunderbird Wing's arbitrator. Issue a clear, direct ruling.
-
-ARBITRATION QUESTION:
-{question}
-
-WRITE your complete ruling to {output_file}
-Include reasoning. Max 500 tokens.
-Output ONLY to file, nothing to stdout."""
-
-    env = dict(os.environ)
-    creds_path = Path.home() / ".claude" / ".credentials.json"
-    if creds_path.exists():
-        try:
-            creds = json.loads(creds_path.read_text())
-            token = creds.get("claudeAiOauth", {}).get("accessToken")
-            if token:
-                env["CLAUDE_CODE_OAUTH_TOKEN"] = token
-        except Exception:
-            pass
-
-    try:
-        proc = subprocess.Popen(
-            [
-                "/home/john/.local/bin/claude",
-                "-p", prompt,
-                "--model", "claude-sonnet-4-6",
-                "--output-format", "text"
-            ],
-            stdout=open(log_file, "w"),
-            stderr=subprocess.STDOUT,
-            env=env,
-            start_new_session=True,
-        )
-
-        for attempt in range(90):
-            if output_file.exists():
-                result = output_file.read_text().strip()
-                if result:
-                    return result
-            time.sleep(1)
-
-        return f"[BRAIN3 TIMEOUT] Claude headless did not produce output within 90s. Check: {log_file}"
-
-    except Exception as e:
-        return f"[BRAIN3 ERROR] Claude headless spawn failed: {e}"
 
 
 # ── State management ──
@@ -580,8 +544,8 @@ class HaleDispatcher:
         elif brain == "brain3":
             # Strip PII before sending to DeepSeek
             clean_task = self._strip_pii(optimized_task)
-            result     = _call_brain3(clean_task)
-            brain_tag  = "Brain 3 (DeepSeek)"
+            result     = self._call_brain3(clean_task)
+            brain_tag  = "Brain 3 (Claude Haiku)"
 
         else:
             result    = self._handle_self(optimized_task)
@@ -607,6 +571,63 @@ class HaleDispatcher:
         save_state(state)
 
         return result
+
+    def _call_brain3(self, question: str, context: str = "") -> str:
+        """Brain 3 arbitrator — Claude headless MAX OAuth ($0/mo). Ruling only."""
+        import subprocess, os, json, tempfile
+        from pathlib import Path
+        from datetime import datetime
+
+        ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+        log_dir = Path("/home/john/Thunderbird/logs")
+        log_dir.mkdir(exist_ok=True)
+        log_file = log_dir / f"brain3_arbitration_{ts}.log"
+        output_file = log_dir / f"brain3_output_{ts}.txt"
+
+        # Load OAuth token
+        creds_path = Path.home() / ".claude" / ".credentials.json"
+        env = dict(os.environ)
+        try:
+            creds = json.loads(creds_path.read_text())
+            token = creds.get("claudeAiOauth", {}).get("accessToken", "")
+            if token:
+                env["CLAUDE_CODE_OAUTH_TOKEN"] = token
+        except Exception:
+            pass
+
+        prompt = (
+            "You are an arbitrator for Dreams2Memories Travel, LLC.\n\n"
+            "ARBITRATION QUESTION:\n" + question + "\n\n"
+            "CONTEXT (no PII):\n" + context + "\n\n"
+            "RULING: Provide a concise arbitration ruling (max 300 words). Lead with your decision. "
+            "State reasoning in 2-3 sentences. No preamble.\n\n"
+            "WRITE your complete ruling to " + str(output_file) + "\n"
+            "Do NOT output to stdout."
+        )
+
+        try:
+            proc = subprocess.Popen(
+                [
+                    "/home/john/.local/bin/claude",
+                    "-p", prompt,
+                    "--model", "claude-haiku-4-5-20251001",
+                    "--output-format", "text"
+                ],
+                stdout=open(log_file, "w"),
+                stderr=subprocess.STDOUT,
+                env=env,
+                start_new_session=True,
+            )
+            proc.wait(timeout=120)
+            if output_file.exists():
+                return output_file.read_text().strip()
+            else:
+                return "[Brain 3 arbitration failed — no output written]"
+        except subprocess.TimeoutExpired:
+            proc.kill()
+            return "[Brain 3 arbitration timed out after 120s]"
+        except Exception as e:
+            return f"[Brain 3 error: {e}]"
 
     def _handle_self(self, task: str) -> str:
         """Hale handles simple/direct tasks without spinning up a brain."""
@@ -662,26 +683,15 @@ class HaleDispatcher:
         if len(clean_output) > 8000:
             clean_output = clean_output[:8000] + "\n... [truncated for synthesis]"
 
-        prompt = f"""You are Col Victoria "Iron Vic" Hale, COO — Thunderbird Wing, Dreams2Memories Travel, LLC.
-
-A {scan_type} scan just completed. Read the output below and provide your COO synthesis.
-
-{focus}
-
-Format your synthesis as:
-**HALE ({scan_type.upper()} SYNTHESIS)**
-[2-4 sentences: what matters, what to act on, what to watch. Commander-first. No fluff.]
-
-**ACTION ITEMS** (if any):
-- [Specific action, owner, urgency]
-
-**CAN WAIT:**
-- [Lower-priority items]
-
----
-
-SCAN OUTPUT:
-{clean_output}"""
+        prompt = (
+            "You are Col Victoria \"Iron Vic\" Hale, COO — Thunderbird Wing, Dreams2Memories Travel, LLC.\n\n"
+            "A " + scan_type + " scan just completed. Read the output below and provide your COO synthesis.\n\n"
+            + focus + "\n\nFormat your synthesis as:\n"
+            "**HALE (" + scan_type.upper() + " SYNTHESIS)**\n"
+            "[2-4 sentences: what matters, what to act on, what to watch. Commander-first. No fluff.]\n\n"
+            "**ACTION ITEMS** (if any):\n- [Specific action, owner, urgency]\n\n"
+            "**CAN WAIT:**\n- [Lower-priority items]\n\n---\n\nSCAN OUTPUT:\n" + clean_output
+        )
 
         result = _call_brain2(prompt, model=SONNET_MODEL, max_words=600)
         return result
@@ -697,31 +707,22 @@ SCAN OUTPUT:
         memory_snippet = _MEMORY.read_text()[:2000] if _MEMORY.exists() else ""
         decisions_snippet = _DECISIONS.read_text()[:1000] if _DECISIONS.exists() else ""
 
-        brief_prompt = f"""You are Col Victoria "Iron Vic" Hale, COO of Thunderbird Wing, Dreams2Memories Travel, LLC.
-
-Generate today's operational brief for Commander John Loucks.
-
-## HALE STATE (JSON)
-{state_json}
-
-## HALE MEMORY (excerpt)
-{memory_snippet[:1500]}
-
-## RECENT DECISIONS
-{decisions_snippet[:500]}
-
----
-
-Structure (Markdown tables):
-1. **CLIENT WIRE** — status of active clients (phase, FPD, open items)
-2. **OPEN TASKS** — what's in flight, who owns it, urgency
-3. **FINANCIAL PULSE** — payments due, commissions, overdue amounts
-4. **WING HEALTH** — MCP, Telegram, daemons status from state
-5. **STAFF ASSIGNMENTS** — A-staff workload, Commander-relevant focus
-6. **DECISIONS NEEDED** — items requiring Commander action
-7. **INTEL FLASH** — one-line summary of notable intelligence
-
-Be concise. Lead with facts. No fluff. Max 600 tokens."""
+        brief_prompt = (
+            "You are Col Victoria \"Iron Vic\" Hale, COO of Thunderbird Wing, Dreams2Memories Travel, LLC.\n\n"
+            "Generate today's operational brief for Commander John Loucks.\n\n"
+            "## HALE STATE (JSON)\n" + state_json + "\n\n"
+            "## HALE MEMORY (excerpt)\n" + memory_snippet[:1500] + "\n\n"
+            "## RECENT DECISIONS\n" + decisions_snippet[:500] + "\n\n---\n\n"
+            "Structure (Markdown tables):\n"
+            "1. **CLIENT WIRE** — status of active clients (phase, FPD, open items)\n"
+            "2. **OPEN TASKS** — what's in flight, who owns it, urgency\n"
+            "3. **FINANCIAL PULSE** — payments due, commissions, overdue amounts\n"
+            "4. **WING HEALTH** — MCP, Telegram, daemons status from state\n"
+            "5. **STAFF ASSIGNMENTS** — A-staff workload, Commander-relevant focus\n"
+            "6. **DECISIONS NEEDED** — items requiring Commander action\n"
+            "7. **INTEL FLASH** — one-line summary of notable intelligence\n\n"
+            "Be concise. Lead with facts. No fluff. Max 600 tokens."
+        )
 
         # Call Claude MAX headless (Sonnet) — bypass OpenRouter entirely
         brief_content = _call_brain2(brief_prompt, model=SONNET_MODEL, max_words=600)

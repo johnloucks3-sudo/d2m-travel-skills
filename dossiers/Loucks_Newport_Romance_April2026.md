@@ -52,6 +52,7 @@ Before heading back, you must stop at the original Balboa Island treat stand.
 *   *The Move:* Get a classic hand-dipped Balboa Bar or a Frozen Banana, split it, and eat it on a bench watching the afternoon harbor traffic. 
 *   *Link:* [Sugar 'n Spice](https://sugarnspicebalboaisland.com/)
 
+completed_tps: []
 ---
 *End of Itinerary. Auto-saving to Dossiers.*
 

@@ -14,6 +14,7 @@
 | **Primary Booking** | Silver Muse Mediterranean, Jun 23–Jul 3, 2026 |
 | **Status** | PAID IN FULL ($27,813.32) |
 
+completed_tps: []
 ---
 
 ## ACTIVE BOOKINGS

@@ -4548,5 +4548,255 @@
     "persona": "COS",
     "draft_id": null,
     "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-03T14:15:53.172072+00:00",
+    "msg_id": "19dede3971ac19d9",
+    "subject": "[D2M RED] Preflight Check",
+    "sender": "",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-03T20:15:34.598160+00:00",
+    "msg_id": "19def1860a87f0ce",
+    "subject": "Re: Your Travel Timeline: Rome, Florence, Switzerland, & Zurich",
+    "sender": "bkspencer381@gmail.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-04T02:16:05.304084+00:00",
+    "msg_id": "19df09bf0890c5ee",
+    "subject": "[D2M RED] Preflight Check",
+    "sender": "",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-04T02:16:39.609468+00:00",
+    "msg_id": "19df08c4cfaa6f6a",
+    "subject": "[D2M RED] Preflight Check",
+    "sender": "",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-04T16:16:11.621994+00:00",
+    "msg_id": "19df38fe5a1bdebb",
+    "subject": "Celebrating National Travel Advisor Day \ud83c\udfc6",
+    "sender": "shawna@centrav.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-04T16:16:43.422606+00:00",
+    "msg_id": "19df359e7c76f50e",
+    "subject": "Strait on Fire; New Drone Threat to Israel, US",
+    "sender": "newsmax@latest.newsmax.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-04T18:15:45.045815+00:00",
+    "msg_id": "19df432a8d9e4d28",
+    "subject": "[D2M YELLOW] Preflight Check",
+    "sender": "",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-04T18:16:16.997877+00:00",
+    "msg_id": "19df427b1041af98",
+    "subject": "Regent New & Noteworthy: NEW OFFER- Spring Savings MAY and Travel Advisor Incentive. PLUS Current and Ending Soon Offers",
+    "sender": "rarmelin@rssc.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-04T18:16:43.213155+00:00",
+    "msg_id": "19df3f134d2bc1ff",
+    "subject": "Upcoming Connect with Princess\u00ae Webinar May 7!",
+    "sender": "contact@princesspartners.princess.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-04T20:16:41.613501+00:00",
+    "msg_id": "19df493f864a345b",
+    "subject": "Early Booking Savings Ends May 13",
+    "sender": "seabourn@m.seabourn.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-04T20:17:06.908131+00:00",
+    "msg_id": "19df45f821962fbe",
+    "subject": "Travel Advisor Appreciation Month",
+    "sender": "learnmore@atlasoceanvoyages.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-04T20:17:48.404199+00:00",
+    "msg_id": "19df4398b71dac17",
+    "subject": "Travel Advisor Appreciation Month(s) \u2013 $500 Gift Card Per Booking!",
+    "sender": "nicole@atlasoceanvoyages.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-04T20:18:04.047232+00:00",
+    "msg_id": "19df4352e91af91f",
+    "subject": "[D2M YELLOW] Preflight Check",
+    "sender": "",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-04T22:16:22.047762+00:00",
+    "msg_id": "19df4cefe2d4ab25",
+    "subject": "You're Invited to the 2026 Virtual Goway Asia Forum This June",
+    "sender": "reply@e-mail.goway.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-05T00:15:41.199453+00:00",
+    "msg_id": "19df5678991fcc54",
+    "subject": "Amsterdam Insanity",
+    "sender": "alredigon2@hotmail.com",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-05T14:16:29.166435+00:00",
+    "msg_id": "19df87ce94be87f5",
+    "subject": "Travel advisor exclusive: Azamara + May offers (don't miss these!)",
+    "sender": "jenn@approachguides.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-05T14:17:02.440964+00:00",
+    "msg_id": "19df87953bce7c3e",
+    "subject": "Travel Leaders advisor exclusive: Azamara + May offers (don't miss these!)",
+    "sender": "jenn@approachguides.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-05T14:17:23.025745+00:00",
+    "msg_id": "19df871638624691",
+    "subject": "n8n's MCP server can now create workflows",
+    "sender": "hello@info.n8n.io",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-05T14:18:04.394232+00:00",
+    "msg_id": "19df85605d0cc024",
+    "subject": "ISW Intel Brief - April 2026",
+    "sender": "publications@understandingwar.org",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-05T14:18:28.762922+00:00",
+    "msg_id": "19df83048bc2c920",
+    "subject": "[D2M RED] Preflight Check",
+    "sender": "",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-05T20:16:11.109194+00:00",
+    "msg_id": "19df9bcabda83313",
+    "subject": "2028 Europe Groups open May 26!",
+    "sender": "contact@princesspartners.princess.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-05T20:16:39.908357+00:00",
+    "msg_id": "19df986b0f0f2710",
+    "subject": "Happy Travel Advisor Appreciation Month!",
+    "sender": "regent@cruise.rssc.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-05T20:17:06.404317+00:00",
+    "msg_id": "19df96a218fc6e7e",
+    "subject": "Atlas Adventurer \u2014 Early reservations open May 20",
+    "sender": "learnmore@atlasoceanvoyages.com",
+    "classification": "vendor_comm",
+    "persona": "COS",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-06T00:16:24.714637+00:00",
+    "msg_id": "19dfa571777bf9e4",
+    "subject": "AOV 2027 \u2014 Rome/Livorno \u00b7 Dubrovnik \u00b7 Venice \u00b7 Athens Research Brief",
+    "sender": "",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "tasked"
+  },
+  {
+    "timestamp": "2026-05-06T00:16:27.067473+00:00",
+    "msg_id": "19dfa4c03fca6316",
+    "subject": "Re: Silver Muse Mediterranean \u2014 Your Complete Transfer Plan",
+    "sender": "memcglas@gmail.com",
+    "classification": "client_inquiry",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "tasked"
   }
 ]

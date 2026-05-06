@@ -1,0 +1,262 @@
+================================================================================
+  COS APPROVAL MONITOR v2 — QUICK REFERENCE CARD
+================================================================================
+
+LOCATION:     /home/john/Thunderbird/scripts/cos_approval_monitor_v2.py
+LOG FILE:     ~/.thunderbird_approvals/monitor_v2.log
+STATE FILE:   ~/.thunderbird_approvals/detection_state.json
+SERVICE:      cos-approval-monitor-v2.service
+POLL INTERVAL: 60 seconds (default)
+
+================================================================================
+  BASIC COMMANDS
+================================================================================
+
+START DAEMON
+  python3 cos_approval_monitor_v2.py --daemon
+
+SCAN ONCE (TEST)
+  python3 cos_approval_monitor_v2.py --scan-once
+
+DRY RUN (NO ACTIONS)
+  python3 cos_approval_monitor_v2.py --scan-once --dry-run
+
+CUSTOM POLL INTERVAL (30 SECONDS)
+  python3 cos_approval_monitor_v2.py --daemon --poll-interval 30
+
+================================================================================
+  SERVICE MANAGEMENT
+================================================================================
+
+START SERVICE
+  sudo systemctl start cos-approval-monitor-v2.service
+
+STOP SERVICE
+  sudo systemctl stop cos-approval-monitor-v2.service
+
+RESTART SERVICE
+  sudo systemctl restart cos-approval-monitor-v2.service
+
+CHECK STATUS
+  systemctl status cos-approval-monitor-v2.service
+
+VIEW LOGS (REAL-TIME)
+  journalctl -u cos-approval-monitor-v2.service -f
+
+VIEW LAST 50 LINES
+  journalctl -u cos-approval-monitor-v2.service -n 50 --no-pager
+
+VIEW ERRORS ONLY
+  journalctl -u cos-approval-monitor-v2.service -p err --no-pager
+
+ENABLE AT STARTUP
+  sudo systemctl enable cos-approval-monitor-v2.service
+
+================================================================================
+  LOG MANAGEMENT
+================================================================================
+
+VIEW LOG FILE
+  tail -f ~/.thunderbird_approvals/monitor_v2.log
+
+SEARCH FOR APPROVALS
+  grep "Approval detected" ~/.thunderbird_approvals/monitor_v2.log
+
+SEARCH FOR DIRECTIVES
+  grep "Directive detected" ~/.thunderbird_approvals/monitor_v2.log
+
+SEARCH FOR ERRORS
+  grep ERROR ~/.thunderbird_approvals/monitor_v2.log
+
+COUNT DETECTIONS BY TYPE
+  grep "detected" ~/.thunderbird_approvals/monitor_v2.log | wc -l
+
+CLEAR OLD LOGS (30+ DAYS)
+  find ~/.thunderbird_approvals -name "monitor_v2.log" -mtime +30 -delete
+
+================================================================================
+  STATE MANAGEMENT
+================================================================================
+
+VIEW ALL PROCESSED DETECTIONS
+  cat ~/.thunderbird_approvals/detection_state.json | jq .
+
+COUNT TOTAL DETECTIONS
+  cat ~/.thunderbird_approvals/detection_state.json | jq '. | length'
+
+VIEW APPROVALS ONLY
+  cat ~/.thunderbird_approvals/detection_state.json | jq '.[] | select(.approval_type == "approve")'
+
+VIEW DIRECTIVES ONLY
+  cat ~/.thunderbird_approvals/detection_state.json | jq '.[] | select(.approval_type == "directive")'
+
+VIEW TASKING ONLY
+  cat ~/.thunderbird_approvals/detection_state.json | jq '.[] | select(.approval_type == "tasking")'
+
+VIEW FAILED ACTIONS
+  cat ~/.thunderbird_approvals/detection_state.json | jq '.[] | select(.result | contains("FAILED"))'
+
+COUNT BY TYPE
+  cat ~/.thunderbird_approvals/detection_state.json | jq '[.[] | .approval_type] | group_by(.) | map({type: .[0], count: length})'
+
+RESET STATE (START FRESH)
+  rm ~/.thunderbird_approvals/detection_state.json
+  sudo systemctl restart cos-approval-monitor-v2.service
+
+================================================================================
+  TESTING & VALIDATION
+================================================================================
+
+QUICK TEST SUITE (5 MIN)
+  python3 - << 'EOF'
+  from cos_approval_monitor_v2 import ApprovalPatternDetector
+  d = ApprovalPatternDetector()
+  assert len(d.detect_approvals('', 'approve')) > 0
+  assert len(d.detect_directives('COS:', '')) > 0
+  print('✓ All quick tests passed')
+  EOF
+
+TEST APPROVAL DETECTION
+  python3 -c "from cos_approval_monitor_v2 import ApprovalPatternDetector; d = ApprovalPatternDetector(); print(d.detect_approvals('', 'I approve this'))"
+
+TEST DIRECTIVE DETECTION
+  python3 -c "from cos_approval_monitor_v2 import ApprovalPatternDetector; d = ApprovalPatternDetector(); print(d.detect_directives('COS: priority', ''))"
+
+VERIFY SYSTEMD SERVICE FILE SYNTAX
+  sudo systemd-analyze verify cos-approval-monitor-v2.service
+
+CHECK PYTHON SYNTAX
+  python3 -m py_compile cos_approval_monitor_v2.py
+
+================================================================================
+  TROUBLESHOOTING
+================================================================================
+
+DAEMON NOT STARTING?
+  1. journalctl -u cos-approval-monitor-v2.service -p err -n 50
+  2. systemd-analyze verify cos-approval-monitor-v2.service
+  3. sudo systemctl daemon-reload
+  4. ps aux | grep cos_approval_monitor_v2
+
+NO DETECTIONS FOUND?
+  1. Send test email: Subject "[DRAFT] Test", Body "approve"
+  2. Wait 60 seconds
+  3. Check logs: grep "Approval detected" monitor_v2.log
+  4. Check state: cat detection_state.json | jq '. | length'
+
+DUPLICATE PROCESSING?
+  1. Check state file: jq '[.[] | .thread_id] | group_by(.) | .[] | select(length > 1)' detection_state.json
+  2. Clear state: rm detection_state.json
+  3. Restart: sudo systemctl restart cos-approval-monitor-v2.service
+
+HIGH MEMORY USAGE?
+  1. Check running processes: ps aux | grep cos_approval_monitor
+  2. Restart service: sudo systemctl restart cos-approval-monitor-v2.service
+  3. Check logs for leaks: grep WARNING monitor_v2.log
+
+SERVICE WON'T RESTART?
+  1. Check disk space: df -h
+  2. Check systemd: journalctl -xe
+  3. Try: sudo systemctl reset-failed cos-approval-monitor-v2.service
+
+================================================================================
+  DEPLOYMENT CHECKLIST
+================================================================================
+
+PRE-DEPLOYMENT
+  ☐ Backup v1 state: cp -r ~/.thunderbird_approvals ~/.thunderbird_approvals.backup
+  ☐ Test v2 dry-run: python3 cos_approval_monitor_v2.py --scan-once --dry-run
+  ☐ Verify imports: python3 -c "from cos_approval_monitor_v2 import *"
+
+DEPLOYMENT
+  ☐ Stop v1: sudo systemctl stop cos-approval-monitor.service
+  ☐ Create systemd service file in /etc/systemd/user/
+  ☐ Reload: sudo systemctl daemon-reload
+  ☐ Enable: sudo systemctl enable cos-approval-monitor-v2.service
+  ☐ Start: sudo systemctl start cos-approval-monitor-v2.service
+
+POST-DEPLOYMENT
+  ☐ Check service: systemctl status cos-approval-monitor-v2.service
+  ☐ View logs: journalctl -u cos-approval-monitor-v2.service -n 50
+  ☐ Send test email (approve)
+  ☐ Wait 60 seconds
+  ☐ Verify detection: grep "Approval detected" ~/.thunderbird_approvals/monitor_v2.log
+
+================================================================================
+  KEY PATTERNS DETECTED
+================================================================================
+
+APPROVAL KEYWORDS (CASE-INSENSITIVE)
+  ✓ approve, approved, approving
+  ✓ yes, yep, yup, ok, okay
+  ✓ proceed, go ahead, send it, confirmed sending
+
+DIRECTIVES
+  ✓ COS: [directive text]
+  ✓ COO: [directive text]
+  ✓ Hale: [directive text]
+
+TASKING
+  ✓ Assign [task] to [person]
+  ✓ Task: [description]
+  ✓ @[person] [action]
+
+================================================================================
+  INTEGRATION POINTS
+================================================================================
+
+WHEN APPROVAL DETECTED
+  → Triggers: cos_final_draft_generator.py
+  → Sends: final draft email
+  → Logs: State file, audit log
+
+WHEN DIRECTIVE DETECTED
+  → Logs: Mission board via mission_board_sync.py
+  → Priority: P1
+  → Action: Admin review queue
+
+WHEN TASKING DETECTED
+  → Logs: Mission board via mission_board_sync.py
+  → Priority: P2
+  → Action: Task assignment queue
+
+================================================================================
+  CONTACT & ESCALATION
+================================================================================
+
+NORMAL ISSUES
+  1. Check logs: tail -100 ~/.thunderbird_approvals/monitor_v2.log
+  2. Review: COS_APPROVAL_MONITOR_V2_README.md
+  3. Test: COS_APPROVAL_MONITOR_V2_TESTING.md
+
+EMERGENCY ROLLBACK
+  1. sudo systemctl stop cos-approval-monitor-v2.service
+  2. sudo systemctl enable cos-approval-monitor.service
+  3. sudo systemctl start cos-approval-monitor.service
+  4. Verify: systemctl status cos-approval-monitor.service
+
+ESCALATION
+  Contact COS with:
+  - Error message
+  - Log excerpt (tail -50 monitor_v2.log)
+  - State summary (cat detection_state.json | jq '. | length')
+
+================================================================================
+  DOCUMENTATION
+================================================================================
+
+README                → /home/john/Thunderbird/scripts/COS_APPROVAL_MONITOR_V2_README.md
+MIGRATION GUIDE       → /home/john/Thunderbird/scripts/COS_APPROVAL_MONITOR_V2_MIGRATION.md
+TESTING GUIDE         → /home/john/Thunderbird/scripts/COS_APPROVAL_MONITOR_V2_TESTING.md
+IMPLEMENTATION SUMMARY → /home/john/Thunderbird/scripts/COS_APPROVAL_MONITOR_V2_IMPLEMENTATION_SUMMARY.md
+
+================================================================================
+  VERSION & DATE
+================================================================================
+
+VERSION:     2.0
+DATE:        2026-05-03
+STATUS:      Production-Ready
+LAST UPDATE: 2026-05-03
+
+================================================================================

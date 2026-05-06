@@ -1,0 +1,17 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "command": {
+    "ask": {
+      "description": "Dispatch a task to headless Claude Sonnet via dispatch_claude.py. Usage: /ask <your request>",
+      "template": "Run this bash command to dispatch to Claude Sonnet and watch progress:\nTS=$(date +%s); OUTF=\"/home/john/Thunderbird/output/ask_${TS}.md\"; DJSON=$(python3 /home/john/Thunderbird/OpsCenter/dispatch_claude.py --task \"oc-ask-${TS}\" --output \"${OUTF}\" --prompt \"{0}\" --model sonnet); PID=$(echo \"${DJSON}\" | python3 -c \"import json,sys; print(json.load(sys.stdin).get('pid',0))\" 2>/dev/null || echo 0); if [ \"${PID:-0}\" -gt 0 ] 2>/dev/null; then python3 /home/john/Thunderbird/OpsCenter/watch_task.py \"${OUTF}\" \"${PID}\"; else echo \"Dispatch failed: ${DJSON}\"; fi"
+    },
+    "ask-opus": {
+      "description": "Dispatch a task to headless Claude Opus via dispatch_claude.py. Usage: /ask-opus <your request>",
+      "template": "Run this bash command to dispatch to Claude Opus and watch progress:\nTS=$(date +%s); OUTF=\"/home/john/Thunderbird/output/ask_opus_${TS}.md\"; DJSON=$(python3 /home/john/Thunderbird/OpsCenter/dispatch_claude.py --task \"oc-ask-opus-${TS}\" --output \"${OUTF}\" --prompt \"{0}\" --model opus); PID=$(echo \"${DJSON}\" | python3 -c \"import json,sys; print(json.load(sys.stdin).get('pid',0))\" 2>/dev/null || echo 0); if [ \"${PID:-0}\" -gt 0 ] 2>/dev/null; then python3 /home/john/Thunderbird/OpsCenter/watch_task.py \"${OUTF}\" \"${PID}\" --timeout 3600; else echo \"Dispatch failed: ${DJSON}\"; fi"
+    },
+    "ask-haiku": {
+      "description": "Dispatch a quick task to headless Claude Haiku via dispatch_claude.py. Usage: /ask-haiku <your request>",
+      "template": "Run this bash command to dispatch to Claude Haiku and watch progress:\nTS=$(date +%s); OUTF=\"/home/john/Thunderbird/output/ask_haiku_${TS}.md\"; DJSON=$(python3 /home/john/Thunderbird/OpsCenter/dispatch_claude.py --task \"oc-ask-haiku-${TS}\" --output \"${OUTF}\" --prompt \"{0}\" --model haiku); PID=$(echo \"${DJSON}\" | python3 -c \"import json,sys; print(json.load(sys.stdin).get('pid',0))\" 2>/dev/null || echo 0); if [ \"${PID:-0}\" -gt 0 ] 2>/dev/null; then python3 /home/john/Thunderbird/OpsCenter/watch_task.py \"${OUTF}\" \"${PID}\" --timeout 600; else echo \"Dispatch failed: ${DJSON}\"; fi"
+    }
+  }
+}

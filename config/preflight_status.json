@@ -1,13 +1,10 @@
 {
-  "timestamp": "2026-05-02 05:45 MT",
+  "timestamp": "2026-05-05 05:45 MT",
   "tier1_ok": 6,
   "tier1_total": 6,
-  "tier2_ok": 4,
+  "tier2_ok": 6,
   "tier2_total": 6,
   "tier1_failures": [],
-  "tier2_failures": [
-    "d2m-mcp",
-    "d2m-tunnel"
-  ],
-  "all_clear": false
+  "tier2_failures": [],
+  "all_clear": true
 }

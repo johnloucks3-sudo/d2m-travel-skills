@@ -15,6 +15,7 @@
 - Email: (Pending)
 - Phone: (Pending)
 
+completed_tps: []
 ---
 
 ## BOOKING INFORMATION

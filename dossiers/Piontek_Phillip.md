@@ -17,6 +17,7 @@
 | Phone | TBD |
 | Email | TBD |
 
+completed_tps: []
 ---
 
 ## TRIP OF INTEREST

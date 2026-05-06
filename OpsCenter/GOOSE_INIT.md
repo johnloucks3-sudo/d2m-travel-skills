@@ -264,18 +264,33 @@ Agent card: `http://localhost:8766/.well-known/agent.json`
 
 ### Method 2: Headless Claude MAX (For Judgment Tasks)
 
-See `docs/GOOSE_HEADLESS_CLAUDE_MAX_GUIDE.md` for full guide.
+See `docs/HEADLESS_CLAUDE_SPAWN_GUIDE.md` for the canonical guide.
 
-Quick pattern:
+**⚠️ DO NOT USE `nohup claude -p ... &`** — the shell carries a stale
+`ANTHROPIC_API_KEY` that preempts MAX OAuth and produces 401 / "Invalid API key".
+Standing Order 24 APR 2026 bans direct `subprocess.Popen([CLAUDE_BIN,...])`.
+
+**ONE correct pattern — the dispatcher CLI:**
 ```bash
-TASK_ID="task_$(date +%s)"
-LOG="/home/john/Thunderbird/logs/headless/${TASK_ID}.log"
-
-nohup claude -p "FULL CONTEXT + WRITE TO /path/output.md" > $LOG 2>&1 &
+python3 /home/john/Thunderbird/OpsCenter/dispatch_claude.py \
+    --task   "regent_splendor_intel" \
+    --output /home/john/Thunderbird/output/splendor.md \
+    --prompt "Produce ship intel report on Regent Splendor Trieste-Athens Jul 2026..." \
+    --model  sonnet
 ```
 
-**Rules:** Complete context inline. Explicit WRITE TO path. Check log for errors.
-Only use for judgment/reasoning tasks — DeepSeek V3.1 handles summaries cheaply.
+The dispatcher:
+- Strips the stale `ANTHROPIC_API_KEY` automatically (foolproof wrapper does it)
+- Verifies token-monitor + oauth-keepalive + watchdog timers
+- Injects MAX OAuth from `~/.claude/.credentials.json` ($0 marginal cost)
+- Uses `start_new_session=True` so the process survives parent exit
+- Auto-appends `WRITE [PATH]` to the prompt if missing
+- Returns JSON to stdout: `{"status":"SPAWNED","pid":...,"log_file":...,"output_file":...}`
+
+**Models:** `haiku` / `sonnet` / `opus` aliases, or full IDs. Default: `sonnet`.
+Add `--foreground` to block until done. Use `--prompt-file /tmp/p.txt` for long prompts.
+
+Only use Claude for judgment/reasoning tasks — DeepSeek V3.1 handles summaries cheaply.
 
 ---
 
@@ -575,9 +590,9 @@ AND `OpsCenter/thunderbird_overwatch.sh` (which has its own export).
 *Brain Index: 4 tiers, 30+ reference files, full Drive map, 13 recipes, full core module registry.*
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-05-03 01:25 MT -->
+<!-- Last sync: 2026-05-05 18:18 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-05-03 01:25 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-05-05 18:18 MT] ===
 Budget: Claude GREEN (MAX $0) | OpenCode GREEN (DeepSeek V3.1 ~$0.27/M) | Groq UNKNOWN | Deepseek GREEN
 Active tasks: 2
 Last Deepseek ruling: NONE

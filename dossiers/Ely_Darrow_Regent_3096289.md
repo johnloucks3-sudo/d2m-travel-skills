@@ -11,6 +11,7 @@ fpd: 2026-04-01
 fpd_amount: 16640
 status: active
 relationship: client
+completed_tps: []
 ---
 
 # CLIENT DOSSIER — Al Ely & Amy Darrow

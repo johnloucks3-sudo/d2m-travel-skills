@@ -99,6 +99,7 @@ DOCUMENTS CHECKLIST
 Content drip tracker — what has been sent to clients pre-trip.
 
 Date Sent    T-minus  Content                                  Channel
+completed_tps: []
 ----------------------------------------------------------------------
   [No content sent yet]
 

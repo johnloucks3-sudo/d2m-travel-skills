@@ -57,8 +57,8 @@ MODEL_TAGS = {
     "extraction": "DeepSeek (fenced)",
     "deepseek": "DeepSeek V4 Pro ($0.305/M)",
     "claude": "Claude Sonnet",
-    "deepseek_primary": "✅ ACTIVE: DeepSeek V4 Pro ($0.305/M) — cost-optimized reasoning",
-    "deepseek_bulk": "✅ ACTIVE: DeepSeek V4 Pro Bulk ($0.305/M) — for large context",
+    "qwen/qwen3.6-plus-04-02:free": "✅ ACTIVE: DeepSeek V4 Pro ($0.305/M) — cost-optimized reasoning",
+    "nvidia/nemotron-3-super-120b-a12b": "✅ ACTIVE: DeepSeek V4 Pro Bulk ($0.305/M) — for large context",
     "openrouter_free": "OpenRouter Free (Nemotron/GPT-OSS/Gemma/DeepSeek-R1)",
     "gemini_lite": "Gemini 2.5 Flash-Lite ($0.10/$0.40/1M)",
     "perplexity": "Perplexity Sonar (Web Search, $1/$1/1M)",
@@ -98,7 +98,7 @@ GROK_URL = "https://api.x.ai/v1/chat/completions"
 
 # DeepSeek V4 Pro — ~$0.305/M tokens via OpenRouter (primary OpenCode model, cost-optimized)
 DEEPSEEK_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
-DEEPSEEK_MODEL = "deepseek/deepseek-v4-pro"
+DEEPSEEK_MODEL = "qwen/qwen3.6-plus-04-02:free"
 DEEPSEEK_URL = "https://openrouter.ai/api/v1/chat/completions"
 
 # OpenRouter — multi-model API gateway
@@ -106,15 +106,16 @@ DEEPSEEK_URL = "https://openrouter.ai/api/v1/chat/completions"
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 
-# DeepSeek V4 Pro via OpenRouter — primary AI engine, ~$0.305/M tokens
-# Lead model for all operational/non-classification tasks (SO 2026-04-28 — upgraded from V3.1)
-DEEPSEEK_PRIMARY_MODEL = "deepseek/deepseek-v4-pro"
-QWEN_PLUS_FREE_MODEL = DEEPSEEK_PRIMARY_MODEL  # Legacy alias for backward compat (updated to V4)
-DEEPSEEK_PRIMARY_CONTEXT = 1_000_000  # 1M token context window (upgraded from 128K)
+# DeepSeek V4 Pro via OpenRouter — PRIMARY AI ENGINE (Cost-Optimized/Free Guardrail)
+# Forced redirection to FREE tier as per SO 2026-04-24
+DEEPSEEK_PRIMARY_MODEL = "openrouter/deepseek/deepseek-r1:free"  
+QWEN_PLUS_FREE_MODEL = "openrouter/qwen/qwen3.6-plus-04-02:free"
+DEEPSEEK_PRIMARY_CONTEXT = 131_072  
 
 # DeepSeek V4 Pro via OpenRouter — also used for bulk context tasks
-DEEPSEEK_BULK_MODEL = "deepseek/deepseek-v4-pro"
-DEEPSEEK_BULK_CONTEXT = 1_000_000  # 1M token context window (upgraded from 128K)
+# Forced redirection to FREE tier
+DEEPSEEK_BULK_MODEL = "openrouter/deepseek/deepseek-r1:free"
+DEEPSEEK_BULK_CONTEXT = 131_072
 
 # Perplexity Sonar via OpenRouter — web-grounded research with citations
 # $1/$1 per 1M tokens + $5/1K search requests. Built-in web search.
@@ -231,8 +232,8 @@ MODEL_TIER = {
     CLAUDE_OPUS: "opus",
     CLAUDE_SONNET: "sonnet",
     CLAUDE_HAIKU: "haiku",
-    "deepseek_primary": "❌ DEPRECATED",
-    "deepseek_bulk": "❌ DEPRECATED",
+    "qwen/qwen3.6-plus-04-02:free": "❌ DEPRECATED",
+    "nvidia/nemotron-3-super-120b-a12b": "❌ DEPRECATED",
     "openrouter_free": "openrouter_free",
     "gemini_lite": "gemini_lite",
     "perplexity": "perplexity",
@@ -1095,13 +1096,13 @@ def route_and_call(system_prompt: str, user_prompt: str,
 
     # ⚠️ DEPRECATED — DeepSeek V3.1 routes — SHOULD NOT BE REACHED (if classifier is working)
     # Kept as fallback safety only. If you see these in logs, the guardrail is broken.
-    if model_id == "deepseek_primary":
+    if model_id == "qwen/qwen3.6-plus-04-02:free":
         logger.error("❌ COST LEAK: [%s] routed to PAID DeepSeek V3.1 (should be openrouter_free)", task_type.value)
         # Fall through to Claude as emergency cost control
         model_id = CLAUDE_HAIKU
         tier = "haiku"
 
-    if model_id == "deepseek_bulk":
+    if model_id == "nvidia/nemotron-3-super-120b-a12b":
         logger.error("❌ COST LEAK: [%s] routed to PAID DeepSeek V3.1 Bulk (should be openrouter_free)", task_type.value)
         # Fall through to Claude as emergency cost control
         model_id = CLAUDE_HAIKU

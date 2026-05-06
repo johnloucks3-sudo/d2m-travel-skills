@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D2M Ops Dashboard — Commission Reconciliation</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Georgia, serif;
+            background: #f7f3ea;
+            color: #1a1a1a;
+            padding: 2rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #0000ff 0%, #0033cc 100%);
+            color: white;
+            padding: 2rem;
+            border-bottom: 4px solid #f7f3ea;
+        }
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .header p {
+            font-size: 0.95rem;
+            opacity: 0.95;
+        }
+        .content {
+            padding: 2rem;
+        }
+        .section {
+            margin-bottom: 2.5rem;
+        }
+        .section-title {
+            font-size: 1.3rem;
+            color: #0000ff;
+            border-bottom: 2px solid #0000ff;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+        }
+        th {
+            background: #f7f3ea;
+            color: #0000ff;
+            padding: 0.75rem;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid #0000ff;
+        }
+        td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #ddd;
+        }
+        tr:nth-child(even) {
+            background: #faf8f5;
+        }
+        .currency {
+            text-align: right;
+            font-family: monospace;
+            font-weight: 600;
+            color: #0000ff;
+        }
+        .total-row {
+            background: #e6e6ff;
+            font-weight: 600;
+            border-top: 2px solid #0000ff;
+            border-bottom: 2px solid #0000ff;
+        }
+        .grand-total {
+            background: #0000ff;
+            color: white;
+            font-size: 1.2rem;
+            border: none;
+        }
+        .grand-total .currency {
+            color: white;
+        }
+        .note {
+            background: #fff9e6;
+            border-left: 4px solid #0000ff;
+            padding: 1rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        .timestamp {
+            color: #666;
+            font-size: 0.85rem;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #ddd;
+            text-align: center;
+        }
+        .status {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>D2M Ops Dashboard</h1>
+            <p>Commission Reconciliation — FY2026 Active Bookings</p>
+        </div>
+        <div class="content">
+            <!-- Summary Section -->
+            <div class="section">
+                <div class="section-title">Executive Summary</div>
+                <table>
+                    <tr class="grand-total">
+                        <td><strong>Total D2M Revenue (10 Bookings)</strong></td>
+                        <td class="currency">$15,666.09</td>
+                    </tr>
+                </table>
+                <div class="note">
+                    <strong>Reconciliation Status:</strong> <span class="status">Complete</span><br>
+                    All 10 revenue bookings cross-verified against Travel Agent Invoices and Nexion/OA documentation.
+                    Booking Master corrected for deposit vs. commission entries. Final totals reflect accurate gross commissions
+                    and D2M net take-home by channel split (70/30 Nexion, 80/20 OA).
+                </div>
+            </div>
+
+            <!-- Regent (Nexion 70/30) -->
+            <div class="section">
+                <div class="section-title">Regent — Nexion 70/30 Split</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Booking ID</th>
+                            <th>Client</th>
+                            <th>Voyage</th>
+                            <th>Gross Commission</th>
+                            <th>D2M Net (70%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>3071222</td>
+                            <td>Furlow (John & Missy)</td>
+                            <td>Grandeur Scandinavia</td>
+                            <td class="currency">$2,718.00</td>
+                            <td class="currency">$1,902.60</td>
+                        </tr>
+                        <tr>
+                            <td>3096289</td>
+                            <td>Ely/Darrow (Al & Amy)</td>
+                            <td>Grandeur Scandinavia</td>
+                            <td class="currency">$3,096.00</td>
+                            <td class="currency">$2,167.20</td>
+                        </tr>
+                        <tr>
+                            <td>3078056</td>
+                            <td>Nichols (Larry & Heidi)</td>
+                            <td>Grandeur Scandinavia</td>
+                            <td class="currency">$2,459.70</td>
+                            <td class="currency">$1,721.79</td>
+                        </tr>
+                        <tr>
+                            <td>2984034</td>
+                            <td>McLeod (Erik & Melissa)</td>
+                            <td>Regent Lesser Antilles</td>
+                            <td class="currency">$2,009.70</td>
+                            <td class="currency">$1,406.79</td>
+                        </tr>
+                        <tr>
+                            <td>3112369</td>
+                            <td>McLeod (Erik & Melissa)</td>
+                            <td>Regent Season To Cheer</td>
+                            <td class="currency">$2,459.70</td>
+                            <td class="currency">$1,721.79</td>
+                        </tr>
+                        <tr class="total-row">
+                            <td colspan="3"><strong>Regent Subtotal</strong></td>
+                            <td class="currency"><strong>$12,743.10</strong></td>
+                            <td class="currency"><strong>$8,920.17</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Silversea (Nexion 70/30) -->
+            <div class="section">
+                <div class="section-title">Silversea — Nexion 70/30 Split</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Booking ID</th>
+                            <th>Client</th>
+                            <th>Voyage</th>
+                            <th>Gross Commission</th>
+                            <th>D2M Net (70%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>298475-25</td>
+                            <td>McLeod (Erik & Melissa)</td>
+                            <td>Silver Muse Mediterranean</td>
+                            <td class="currency">$3,884.40</td>
+                            <td class="currency">$2,719.08</td>
+                        </tr>
+                        <tr class="total-row">
+                            <td colspan="3"><strong>Silversea Subtotal</strong></td>
+                            <td class="currency"><strong>$3,884.40</strong></td>
+                            <td class="currency"><strong>$2,719.08</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Viking (OA 80/20) -->
+            <div class="section">
+                <div class="section-title">Viking — Outside Agent 80/20 Split</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Booking ID</th>
+                            <th>Client</th>
+                            <th>Voyage</th>
+                            <th>Gross Commission</th>
+                            <th>D2M Net (80%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>9593880<br/>9593873<br/>9595029</td>
+                            <td>Kuklinski (Kyle & Rosalie)<br/>Kuklinski (Roger & Nick)<br/>Kuklinski/Morton (Josh & Erica)</td>
+                            <td>Viking Mars Panama Canal<br/>(3 cabins, aggregate)</td>
+                            <td class="currency">$3,636.98</td>
+                            <td class="currency">$2,909.58</td>
+                        </tr>
+                        <tr class="total-row">
+                            <td colspan="3"><strong>Viking Subtotal</strong></td>
+                            <td class="currency"><strong>$3,636.98</strong></td>
+                            <td class="currency"><strong>$2,909.58</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Other Suppliers (OA 80/20) -->
+            <div class="section">
+                <div class="section-title">Other Suppliers — Outside Agent 80/20 Split</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Booking ID</th>
+                            <th>Supplier</th>
+                            <th>Service</th>
+                            <th>Gross Commission</th>
+                            <th>D2M Net (80%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>8X6PGQ</td>
+                            <td>Princess Cruises</td>
+                            <td>McGlasson — Mexico Riviera</td>
+                            <td class="currency">$969.30</td>
+                            <td class="currency">$775.44</td>
+                        </tr>
+                        <tr>
+                            <td>3 bookings</td>
+                            <td>Bedsonline</td>
+                            <td>Hotels + Transfers (Stockholm)</td>
+                            <td class="currency">$395.85</td>
+                            <td class="currency">$316.68</td>
+                        </tr>
+                        <tr>
+                            <td>Expedia TAAP</td>
+                            <td>Expedia</td>
+                            <td>Westbrook — Tokyo Hotel</td>
+                            <td class="currency">$31.43</td>
+                            <td class="currency">$25.14</td>
+                        </tr>
+                        <tr class="total-row">
+                            <td colspan="3"><strong>Other Suppliers Subtotal</strong></td>
+                            <td class="currency"><strong>$1,396.58</strong></td>
+                            <td class="currency"><strong>$1,117.26</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Grand Total -->
+            <div class="section">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Channel</th>
+                            <th>Gross Commission</th>
+                            <th>D2M Net</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Regent (Nexion 70/30)</strong></td>
+                            <td class="currency"><strong>$12,743.10</strong></td>
+                            <td class="currency"><strong>$8,920.17</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Silversea (Nexion 70/30)</strong></td>
+                            <td class="currency"><strong>$3,884.40</strong></td>
+                            <td class="currency"><strong>$2,719.08</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Viking (OA 80/20)</strong></td>
+                            <td class="currency"><strong>$3,636.98</strong></td>
+                            <td class="currency"><strong>$2,909.58</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Other (OA 80/20)</strong></td>
+                            <td class="currency"><strong>$1,396.58</strong></td>
+                            <td class="currency"><strong>$1,117.26</strong></td>
+                        </tr>
+                        <tr class="grand-total">
+                            <td><strong>TOTAL — 10 REVENUE BOOKINGS</strong></td>
+                            <td class="currency"><strong>$21,661.06</strong></td>
+                            <td class="currency"><strong>$15,666.09</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Notes -->
+            <div class="section">
+                <div class="section-title">Reconciliation Notes</div>
+                <div class="note">
+                    <p><strong>Verification Method:</strong> All 10 bookings cross-checked against Travel Agent Invoices (Nexion/OA) and Booking Master Google Sheet.</p>
+                    <p style="margin-top: 0.75rem;"><strong>Commission Splits:</strong></p>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                        <li><strong>Nexion (Regent & Silversea):</strong> 70/30 split — D2M receives 70% of gross commission</li>
+                        <li><strong>Outside Agents (Viking, Princess, Bedsonline, Expedia):</strong> 80/20 split — D2M receives 80% of gross commission</li>
+                    </ul>
+                    <p style="margin-top: 0.75rem;"><strong>Status by Booking:</strong></p>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                        <li>Regent (5 bookings): ✓ Verified against Nexion invoices</li>
+                        <li>Silversea (1 booking): ✓ Verified against Nexion invoices</li>
+                        <li>Viking (3 aggregate): ✓ Verified against OA Travel Agent Invoices</li>
+                        <li>Princess (1 booking): ✓ Verified</li>
+                        <li>Bedsonline (3 aggregate): ✓ Verified</li>
+                        <li>Expedia (1 booking): ✓ Verified</li>
+                    </ul>
+                    <p style="margin-top: 0.75rem;"><strong>Key Findings:</strong> Booking Master spreadsheet contained data entry errors where deposit amounts were mistakenly entered as commission amounts. Commission reconciliation corrected these discrepancies and confirmed accurate D2M revenue figures. No adjustments to totals from Master Plan — all figures reflect ground truth from supplier invoices.</p>
+                </div>
+            </div>
+
+            <div class="timestamp">
+                <p>Commission Reconciliation Complete — MISSION-027</p>
+                <p>Generated: 2026-05-04 | Reconciliation Date: Mar 10 — Updated May 4, 2026</p>
+                <p>Dreams2Memories Travel, LLC — D2M Ops Dashboard</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

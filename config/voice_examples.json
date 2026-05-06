@@ -8,15 +8,15 @@
       "d2mconcierge@gmail.com"
     ],
     "days_back": 400,
-    "total_examples": 1127,
+    "total_examples": 1163,
     "by_tier": {
-      "personal": 296,
-      "client": 198,
+      "personal": 311,
+      "client": 200,
       "vendor": 47,
-      "internal": 580,
-      "family": 6
+      "internal": 598,
+      "family": 7
     },
-    "last_sync": "2026-05-02T02:34:28.210308"
+    "last_sync": "2026-05-05T02:30:24.761314"
   },
   "examples": [
     {
@@ -1448,6 +1448,15 @@
       "to": "ann heer <iamheer@outlook.com>",
       "date": "Wed, 29 Apr 2026 11:16:18 +1100",
       "body": "Hi Ann, I am not sure if I asked the right questions or perhaps didn't\nfocus on your answers, glad you clarified.  I'll get back to you and I'm\nglad you appreciate the advantage of making timely reservations. Keep\nfeeding me ideas and questions, even as you get ready to travel to Florida.\nJohn",
+      "score": 5
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Tonight's pre-dinner meet",
+      "to": "steve@srtrientech.com",
+      "date": "Sat, 2 May 2026 07:44:00 -1000",
+      "body": "Steve, Good Morning, there is a lecture at 5:45 we want to catch.  Can we\njust meet at Silver Note for the 1900 dinner?  Or...come to the lecture, we\nwill sit together.  and we can go to the restaurant together.\n\nThanks\nJohn\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
       "score": 5
     },
     {
@@ -3041,6 +3050,42 @@
       "to": "yodainva.5d9fc@m.evernote.com",
       "date": "Fri, 1 May 2026 06:16:48 -0700",
       "body": "Thunderbird Monthly Products Archive\nMonth: May 2026\nGenerated: 2026-05-01 07:16 MT\n\nFile counts:\n  PDFs:   0\n  HTML:   39\n  MD:     128\n  JSON:   81\n  Other:  87\n  Total:  335\n\nArchive size: 1775 KB compressed (5200 KB raw)\nAttached: thunderbird_products_202605.zip",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: [DRAFT] Approval Workflow Test — 2026-05-03",
+      "to": "Dreams2Memories <d2mconcierge@gmail.com>",
+      "date": "Sun, 3 May 2026 00:06:26 -0800",
+      "body": "APPROVE\n\nOn Sun, May 3, 2026 at 12:05 AM Dreams2Memories <d2mconcierge@gmail.com>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: [DRAFT] Approval Workflow Test — 2026-05-03",
+      "to": "Dreams2Memories <d2mconcierge@gmail.com>",
+      "date": "Sun, 3 May 2026 00:03:47 -0800",
+      "body": "Approve\n\nOn Sun, May 3, 2026 at 12:01 AM Dreams2Memories <d2mconcierge@gmail.com>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: [DRAFT] Approval Workflow Test — 2026-05-03",
+      "to": "Dreams2Memories <d2mconcierge@gmail.com>",
+      "date": "Sun, 3 May 2026 00:02:53 -0800",
+      "body": "Approve\n\nOn Sun, May 3, 2026 at 12:01 AM Dreams2Memories <d2mconcierge@gmail.com>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: [DRAFT] Approval Workflow Test — 2026-05-03",
+      "to": "Dreams2Memories <d2mconcierge@gmail.com>",
+      "date": "Sun, 3 May 2026 00:02:11 -0800",
+      "body": "Success!\n\nOn Sun, May 3, 2026 at 12:01 AM Dreams2Memories <d2mconcierge@gmail.com>\nwrote:",
       "score": 4
     },
     {
@@ -8688,6 +8733,195 @@
     },
     {
       "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "My comparison of two cruise ships and itineraries and other stuff",
+      "to": "BRENT WESTBROOK <WESTY737@gmail.com>, Kim Westbrook <crnakim@yahoo.com>",
+      "date": "Sat, 2 May 2026 14:39:07 -0800",
+      "body": "Brent, Kim and I have chatted about this on Whatsapp, I just wanted you to\nhave a more accessible copy to make some choices\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "Re: Spencer Grand Tour 2027 — Flight & Accommodations Plan",
+      "to": "d2mconcierge@gmail.com",
+      "date": "Sat, 2 May 2026 10:11:18 -1000",
+      "body": "COS, add one month to all suspense dates.  Then wrap in correct format and\npush to draft folder now.\n\nJL",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "Re: Your Japan Itinerary — Expanded, Mixed-Budget Framework, Ready for Your Decision",
+      "to": "d2mconcierge@gmail.com",
+      "date": "Sat, 2 May 2026 09:36:40 -1000",
+      "body": "COS, plan for 2 days tokyo, 2 days kyoto, 2 days osaka, no hiroshima what\nhappened to OSAKA, did Ann negate it?\nJL",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "Re: Fwd: Spencer Grand Tour 2027",
+      "to": "d2mconcierge@gmail.com",
+      "date": "Sat, 2 May 2026 08:34:28 -1000",
+      "body": "COS, re-write for MY signature, first person, then place it in d2m drafts\nfolder with all the D2M format.  Make it look great! And...then tell me\nwhat I need to get from claude code to allow you to access MCP tools as a\nheadless thru gmail",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "Re: Fwd: Spencer Grand Tour 2027",
+      "to": "d2mconcierge@gmail.com",
+      "date": "Sat, 2 May 2026 07:28:48 -1000",
+      "body": "COS, make following changes, then send me another draft, but formatted in\nour colors:\n1. Change 5/10/15 business days to 15/30/45 following our initial\nconfirmation meeting.  SUggest the weekend of May 15th as we return May\n11th.  The four of us would be great.  Breakfast somewhere he likes.\n2. You forgot transport.  To/From home, From FCO to hotel, back to FCO, to\nthe airport for TIm's family etc etc\n3. Change TIm's departure time to NET 1300 (read his feedback closely)\n4. Tell him Susie and I think Interlaken is kind of overrated.  It is an OK\nplace to do things FROM not that much of a town, train logistics are not\nthat great (West station vs east station) .  May want to look at min time\nthere and shift to other places, but we'll plan it as he stipulates for\nnow.\n5. Grab the Furlow Service Agreement and send a draft to me with no service\nfee or electronic deposit transfer included\n6. Also, finally,  send me an initial air quote\n\nCOS there is a lot here, oPUS escalation or OPUS advisor authorized",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "✅ Draft Ready for Editing: [DRAFT] Approval Workflow Test — 2026-05-03",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sun, 3 May 2026 01:15:28 -0700",
+      "body": "Your draft has been approved and is now ready for editing in Gmail.\n\nDraft Details:\n  Subject: [DRAFT] Approval Workflow Test — 2026-05-03\n  Draft ID: r-1362437616322009650\n\nNext Steps:\n1. Open Gmail\n2. Go to Drafts folder\n3. Open the draft: \"[DRAFT] Approval Workflow Test — 2026-05-03\"\n4. Edit content as needed\n5. Click Send when ready\n\nThe draft is in your d2mconcierge account and fully formatted. All images, colors, and styling are preserved.\n\n—COS (Chief of Staff)\nDreams2Memories Travel, LLC",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "[DRAFT] Approval Workflow Test — 2026-05-03",
+      "to": "John Loucks3 <johnloucks3@gmail.com>",
+      "date": "Sun, 3 May 2026 00:01:44 -0800",
+      "body": "Approval Workflow Test — 2026-05-03\n\nThis is a test email to verify the COS approval workflow system is\noperational.\n\n* Test Status: * OAuth token configured, approval monitor ready.\n\nIf you see this draft, the system is working correctly.",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Your Travel Timeline: Rome, Florence, Switzerland, & Zurich",
+      "to": "John Loucks3 <johnloucks3@gmail.com>",
+      "date": "Sat, 2 May 2026 22:29:58 -0800",
+      "body": "Dear Bill,\n\nTwenty-one days. Twelve travelers. Rome, Florence, Switzerland, Disney\nWish, and Zurich. Here's exactly how we're building it — and when each\npiece lands in your inbox.\n\n*STEP 1 — FLIGHT QUOTES*\n*Delivery: June 10*\n\n   - DEN → FCO (June 12) — United Business Class nonstop, full party\n   - FCO → DEN (July 2) — Return via ZRH if Zurich extension preferred\n   - Flex departures for the three family groups with varying schedules\n\n*STEP 2 — ACCOMMODATIONS & SEGMENT BREAKDOWN*\n*Delivery: June 17*\n\n   - Rome (3 nights, June 12–15) — 5-star near Spanish Steps / Trevi\n   Fountain\n   - Florence (2 nights, June 23–25) — Luxury properties, Centro Storico\n   - Switzerland (5 nights, June 25–30) — Two models presented:\n      - Model A: Interlaken-based — Jungfraujoch, Lauterbrunnen, alpine\n      hiking\n      - Model B: Zermatt 1–2 nights (Matterhorn / Gornergrat) + Interlaken\n      3 nights\n   - Zurich (2 nights, July 1–2) — Pre-departure rest and final shopping\n\n*STEP 3 — GROUND TRANSFERS & EXCURSIONS*\n*Delivery: June 17*\n\nPrivate motorcoach with local guides throughout Italy and Switzerland.\nExcursion menu includes Vatican and Colosseum (Rome), Uffizi and Accademia\n(Florence), and Swiss alpine experiences.\n\n*STEP 4 — TRAVEL INSURANCE & DMC PARTNERSHIPS*\n*Delivery: June 17*\n\nComprehensive coverage for all 12 travelers. Vetting Europe Express and\nInsight Tours for Italy and Switzerland ground support.\n\n*STEP 5 — THREE-FAMILY PRICING SUMMARY*\n*Delivery: June 17*\n\nItemized by family unit — transparent, clean, easy for each group to review\nand decide independently.\n\n*YOUR TIMELINE:*\n\n   - June 10 — Flight quotes, all groups\n   - June 17 — Full itinerary, accommodations, transfers, insurance,\n   per-family pricing\n   - Week of June 19 — Review call; you mentioned Monday and Friday — we'll\n   text to confirm\n   - Upon approval — Service Agreement ready for signature\n\nQuestions before then? Reply here or text 719-291-0742.\n\nThanks,\n\nJohn A Loucks III\nDreams2Memories Travel, LLC\nconcierge@d2mluxury.quest | 719-291-0742",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Re: Spencer Grand Tour 2027 — Flight & Accommodati",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 2 May 2026 21:50:21 -0400",
+      "body": "ISSUE:\nExecute drafts push for Spencer Grand Tour 2027 proposal (Bill Spencer, 12 travelers, June 10 delivery date)\n\nDISCUSSION:\nCommander confirms Spencer Grand Tour 2027 draft is complete and ready for d2mconcierge drafts folder per WF-17 approval gate.\n\nACTIONS I RECOMMEND TAKING:\n1. COS to push draft to d2mconcierge Gmail drafts via OpenCode\n2. Await Commander approval in WF-17 gate\n3. Execute send upon approval confirmation\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-05-02 19:50 MT\nThunderbird Email Intelligence Officer",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[D2M RED] Preflight Check",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 2 May 2026 05:50:04 -0700",
+      "body": "Thunderbird Preflight — RED\nTime: 2026-05-02 06:50 MT\n\n✅ MCP Server: Running (PID 525633)\n✅ Scheduler: Running (PID 734689)\n🔴 Telegram C2: NOT RUNNING\n✅ Gmail Token: Valid (has refresh token)\n✅ Persona Token: Valid (has refresh token)\n✅ Disk Space: 800.5 GB free\n✅ TELEGRAM_BOT_TOKEN: Set\n✅ TELEGRAM_COMMANDER_ID: Set\n✅ GROQ_API_KEY: Set\n✅ Internet: Connected\n⚠️ Gemini API: No API key found\n✅ MCP Port 8765: Listening",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "HALE — DAILY BRIEF | 2026-05-02 06:00 MT",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 2 May 2026 07:50:03 -0400",
+      "body": "📊 HALE — DAILY OPERATIONAL BRIEF Generated 2026-05-02 · 06:00 MT · Commander John Loucks 📊 Client Lifecycle Wheel 7 active clients, urgency-coded segments, FPD countdown arcs. Click segment for detail panel. View Lifecycle Wheel → 💰 Financial Waterfall Commission pipeline flow: Prospects → Booked → At-Risk → Projected. Allianz claim divergence shown. View Waterfall → 🔥 Task Heat Map Clients × Task Types grid. Urgency-colored, effort-encoded. Hover for task roster by cell. View Heat Map → ⚠️ Risk Matrix Likelihood × Disruption scatter. Quadrants: Escalate (red), Mitigate (yellow), Monitor, Accept. Action registry below. View Risk Matrix → ⚡ DECISIONS NEEDED FROM COMMANDER Approve 11 Gmail Drafts? Kuklinski (validation), McLeod (Silver Muse 60-day + Grandeur TP0.5/TP0.6), Westbrook (Perx + SkyLux), Furlow/Nichols/Ely (CAK). All staged in d2mconcierge drafts folder. Initiate Lyons FPD Outreach? Nancy & Ken Lyons — FPD May 11 (14 days remaining). Direct Commander action required. Chase Furlow $15,486 Payment? Final payment was due Apr 1. Confirm received or authorize A9 follow-up. Re-Auth TESS? Financial feed is blind. Run: python3 thunderbird_tess.py --authorize to restore commission visibility. HALE — Col Victoria \"Iron Vic\" Hale | Chief of Staff | Dreams2Memories Travel, LLC This brief is generated automatically at 05:50 MT daily and sent at 06:00 MT. Link expires in 90 days. Briefs archived locally + Google Drive.",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "Test Test",
+      "to": "D2M Concierge <d2mconcierge@gmail.com>",
+      "date": "Sun, 3 May 2026 21:13:08 -0800",
+      "body": "Test test test\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Your Travel Timeline: Rome, Florence, Switzerland, & Zurich",
+      "to": "Bill Spencer <bkspencer381@gmail.com>",
+      "date": "Sun, 3 May 2026 10:32:14 -0800",
+      "body": "Thanks. We just hit Kodiak not literally lol. And now the country that let\n20 million people in over the last 4 years is asking American citizens to\nsit through a personalized interview with a customs declaration form.\nWhat, my passport isn't enough? Isn't that wonderful? Send me the deposit\netc info and I will have my staff and put it into your dossier.\nJohn",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "family",
+      "subject": "Re: My comparison of two cruise ships and itineraries and other stuff",
+      "to": "Brent Westbrook <westy737@gmail.com>",
+      "date": "Sun, 3 May 2026 08:07:40 -0800",
+      "body": "We're coming into Kodiam now. In light of our experiences with Susie's mom\nand my dad, and probably you have others, I suggest: Crawl, walk,\nrun....wind the clock. No  big decisions for a while. Get him a live-in, or\nvisit every day healthcare person.  Would you like me to research those? I\nhave a great staff...\nJohn",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "Re: [D2M RED] Preflight Check",
+      "to": "d2mconcierge@gmail.com",
+      "date": "Sun, 3 May 2026 08:04:16 -0800",
+      "body": "COO, Telegram C2 has been red in the preflight check for months. Do what it\ntakes to bring it back to green, I suspect bad code, not a broken Telegram.\nJL",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: My comparison of two cruise ships and itineraries and other stuff",
+      "to": "Brent Westbrook <westy737@gmail.com>",
+      "date": "Mon, 4 May 2026 17:21:21 -0800",
+      "body": "Brent, glad it found a home.  Kim will take care of it. Rondo will do\nRondo.\nJohn",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Please tell me...",
+      "to": "Steve Trien <steve@srtrientech.com>",
+      "date": "Mon, 4 May 2026 08:27:50 -0800",
+      "body": "What time we are meeting for lobster tonight? Is it 7:00? I made a goofy\nmistake and entered the time in my calendar but when I did that it was on\nJapan time, so that when I switched back the entire system I lost the exact\ntime. Anyway, real question is do you want to meet ahead of time and if so\nwhat time and that will solve everything.\nJohn\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: My comparison of two cruise ships and itineraries and other stuff",
+      "to": "Brent Westbrook <westy737@gmail.com>",
+      "date": "Mon, 4 May 2026 07:48:04 -0800",
+      "body": "Well, I have just gotten up and if not had my coffee yet. Are you saying\nthat Rondo wants to leave his house?  Or are you saying that he doesn't\nwant anybody coming by?  I know this is tough for you.  Just another\nthought, we may be interested in buying Lindy's car. Between you and I.\nJohn",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Thunderbird Code Backup — 2026-05-04 @Thunderbird Backups #thunderbird #backup #code",
+      "to": "yodainva.5d9fc@m.evernote.com",
+      "date": "Mon, 4 May 2026 13:25:33 -0500",
+      "body": "Thunderbird Code Backup\nDate: 2026-05-04\nFiles: 622 (619 .py, 3 .md)\nTotal size: 7637 KB\nZip size: 2295 KB\n\nAttached: thunderbird_code_20260504.zip",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[D2M YELLOW] Preflight Check",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 4 May 2026 13:16:58 -0500",
+      "body": "Thunderbird Preflight — YELLOW\nTime: 2026-05-04 12:16 MT\n\n✅ MCP Server: Running (PID 1389259)\n✅ Scheduler: Running (PID 734689)\n✅ Telegram C2: Running (PID 1567938)\n✅ Gmail Token: Valid (has refresh token)\n✅ Persona Token: Valid (has refresh token)\n✅ Disk Space: 801.1 GB free\n✅ TELEGRAM_BOT_TOKEN: Set\n✅ TELEGRAM_COMMANDER_ID: Set\n✅ GROQ_API_KEY: Set\n✅ Internet: Connected\n⚠️ Gemini API: No API key found\n✅ MCP Port 8765: Listening",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[D2M YELLOW] Preflight Check",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 4 May 2026 18:14:12 +0000",
+      "body": "Thunderbird Preflight — YELLOW\nTime: 2026-05-04 12:14 MT\n\n✅ MCP Server: Running (PID 1389259)\n✅ Scheduler: Running (PID 734689)\n✅ Telegram C2: Running (PID 1567938)\n✅ Gmail Token: Valid (has refresh token)\n✅ Persona Token: Valid (has refresh token)\n✅ Disk Space: 801.1 GB free\n✅ TELEGRAM_BOT_TOKEN: Set\n✅ TELEGRAM_COMMANDER_ID: Set\n✅ GROQ_API_KEY: Set\n✅ Internet: Connected\n⚠️ Gemini API: No API key found\n✅ MCP Port 8765: Listening",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
       "tier": "internal",
       "subject": "[COS] General: BREAKING:  Most Americans say war in Iran is going",
       "to": "johnloucks3@gmail.com",
@@ -10160,6 +10394,96 @@
       "to": "johnloucks3@gmail.com",
       "date": "Wed, 29 Apr 2026 08:56:26 -0400",
       "body": "ISSUE:\nCRITICAL ACCOUNT VIOLATION: Client email routed FROM johnloucks3@gmail.com (receive-only inbox) instead of d2mconcierge@gmail.com. Per email separation protocol (CLAUDE.md): 'Send FROM d2mconcierge always. Client-facing emails use concierge@d2mluxury.quest as Send-As alias.'\n\nDISCUSSION:\nCommander sent detailed Japan itinerary revision to clients with three budget tiers, cultural/historical site prioritization, and family accommodation options. High-quality response mirroring back client requirements.\n\nACTIONS I RECOMMEND TAKING:\n1. FLAG FOR APPROVAL: Email content is excellent; account routing is critical violation\n2. VERIFY IF SENT: If not yet delivered, STOP and reroute from d2mconcierge@gmail.com\n3. QUALITY ASSESSMENT: Mirror-back structure (you asked X, here's how we answered Y) is exemplary per client inquiry standard\n4. ESCALATE: Account separation enforcement — johnloucks3 is Commander receive-only, zero outbound client emails allowed\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-04-29 06:56 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Spencer Grand Tour 2027 — Flight & Accommodations Plan",
+      "to": "D2M Concierge <d2mconcierge@gmail.com>",
+      "date": "Sat, 2 May 2026 09:10:06 -1000",
+      "body": "COS, Changes:\n\n1) You ignored my timeline, restore it\n2) THIS IS NOT MY VOICE\n3) Re-submit and ensure the format sticks, it did not\n\n🌍 Dreams2Memories Travel, LLC\nLuxury Travel Concierge\n\nDear Bill,\n\nThank you for reaching out about your Grand Tour 2027. We're excited to\ndevelop this comprehensive itinerary for your family group (June 12–July 2,\n2027: Rome, Disney Wish Mediterranean cruise, Florence, Switzerland, and\nZurich).\n\nBased on your requirements, we're proceeding with the following plan of\nattack:\nSTEP 1: Transatlantic Flight Quotes (This week)\n\nWe're sourcing competitive options for your family's departure pattern:\n\n   - *DEN → FCO (June 12)* — United Business Class nonstop for your party\n   - *FCO → DEN (July 2)* — Return routing options via ZRH if Zurich\n   extension preferred\n   - *Flex departures* — For the three family groups with varying schedules\n\n*Expected delivery: Friday, May 10*\nSTEP 2: Accommodations & Segment Breakdown\n\nWe're curating properties for each leg with pricing transparency by family\ngroup:\n\n   - *Rome (3 nights, June 12–15)* — 5-star options near Spanish Steps /\n   Trevi Fountain\n   - *Florence (2 nights, June 23–25)* — Luxury properties in Centro Storico\n   - *Switzerland (5 nights, June 25–30)* — *Two models presented:*\n      - Model A: Interlaken-based (Jungfraujoch, Lauterbrunnen, hiking)\n      - Model B: Zermatt 1–2 nights (Matterhorn/Gornergrat experience) +\n      Interlaken 3 nights\n   - *Zurich (2 nights, July 1–2)* — Pre-departure rest & final shopping\n\n*Expected delivery: May 17*\nSTEP 3: Ground Transfers & Excursions\n\nPrivate motorcoach routing with local guides for all segments. Excursion\nmenu includes Vatican/Colosseum (Rome), Uffizi/Accademia (Florence), and\nSwiss alpine experiences.\nSTEP 4: Travel Insurance & DMC Research\n\nComprehensive coverage for all 12 travelers, plus vetted DMC partnerships\n(Europe Express, Insight Tours) to support ground logistics in Italy and\nSwitzerland.\nSTEP 5: Three-Family Group Pricing Summary\n\nTransparent, itemized breakdown by family unit to simplify decision-making\nand approval.\nNEXT STEPS\n\n   - ✅ Flight quotes by May 10\n   - ✅ Full itinerary + pricing models by May 17\n   - ✅ Call to review (you mentioned Monday/Friday availability — we'll\n   text to coordinate)\n   - ✅ Service Agreement ready for signature once itinerary is approved\n\nThis Grand Tour represents a singular opportunity for your entire group,\nand we're committed to making every detail seamless. We understand this may\nbe your final journey together as a full family, and we treat it with that\nlevel of care.\n\nQuestions in the meantime? Reply here or reach out directly.\nThanks,\n\nDanielle Moreau\nD2M Luxury Travel Concierge\nDreams2Memories Travel, LLC\nconcierge@d2mluxury.quest\n719-291-0742\n\n*This correspondence is from Dreams2Memories Travel, LLC — your trusted\nluxury travel partner for curated, all-inclusive experiences.*\n\"",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Fwd: Your Travel Timeline: Rome, Florence, Switzer",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sun, 3 May 2026 02:36:35 -0400",
+      "body": "ISSUE:\nProspect engagement in execution phase — Bill and Kathleen Italy/Switzerland trip (21 days, 12 travelers). Flight quotes due June 10, full itinerary due June 17.\n\nDISCUSSION:\nCommander's draft/reference email to prospects Bill and Kathleen outlining a multi-family Europe trip (Rome, Florence, Switzerland, Zurich) with phased delivery timeline — flights June 10, full itinerary June 17, review call week of June 19.\n\nACTIONS I RECOMMEND TAKING:\n1. Verify Bill and Kathleen are in dossier system with confirmed contact details\n2. Confirm United Business Class availability DEN→FCO June 12 + return routing for three family groups\n3. Lock accommodations: Rome (Spanish Steps/Trevi/Borghese area), Florence (Centro Storico), Switzerland (Interlaken vs Zermatt options), Zurich\n4. Finalize DMC partnerships (Europe Express and Insight Tours vetting) for Italy/Switzerland ground support\n5. Prep per-family pricing breakdown for June 17 delivery\n6. Schedule review call for week of June 19 (Monday/Friday options) and confirm via text at 719-291-0742\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-05-03 00:36 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Re: Spencer Grand Tour 2027 — Flight & Accommodati",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 2 May 2026 17:33:28 -0700",
+      "body": "ISSUE:\nCOS workflow blocked pending Bill Spencer email address confirmation to populate TO field and trigger OpenCode draft push\n\nDISCUSSION:\nCommander John Loucks confirms Bill Spencer's email and instructs COS to revalidate draft format before OpenCode pushes the Spencer Grand Tour 2027 proposal with phased June delivery timeline (flights June 10, full itinerary June 17).\n\nACTIONS I RECOMMEND TAKING:\n1. Revalidate D2M stationery format (cream #f7f3ea, blue #0000ff, Georgia, navy banner)\n2. Populate TO field: bkspencer381@gmail.com\n3. Route to OpenCode (thunderbird_gmail.py or thunderbird_dani_email.py) for d2mconcierge draft creation\n4. Track deliverables: June 10 (flights), June 17 (accommodations/transfers/insurance/pricing)\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-05-02 18:33 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Your Japan Itinerary — Expanded, Mixed-Budget Fram",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 2 May 2026 12:12:21 -0700",
+      "body": "ISSUE:\nJapan itinerary draft for Heer clients requires revision per Commander feedback; clients already purchased flights (do not alter).\n\nDISCUSSION:\nCommander providing feedback on Japan itinerary draft for Heer clients (Ann & Shawn). Four edits: remove extra night, reduce sales tone, expand descriptions, align with Commander's voice.\n\nACTIONS I RECOMMEND TAKING:\n1. Revise draft: remove extra Tokyo night (flights already purchased by clients)\n2. Reframe tone from sales-focused to conversational/advisory (neighbors receiving advice, not sales pitch)\n3. Expand destination descriptions, reduce persuasive language ('pushy' phrasing removed)\n4. Realign voice to match Commander's natural style (warmer, less solicitous)\n5. Submit revised draft to Commander for WF-17 approval before client delivery to iamheer@outlook.com\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-05-02 13:12 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Spencer Grand Tour 2027 — Flight & Accommodations ",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 2 May 2026 12:11:59 -0700",
+      "body": "ISSUE:\nSpencer Grand Tour draft email fails Commander's voice/tone standard, ignores timeline requirements, and format did not stick on submission. Requires immediate revision and re-submission.\n\nDISCUSSION:\nCommander John Loucks has rejected a draft email from Dani Moreau to Bill Spencer (Spencer Grand Tour 2027 proposal). Three explicit issues flagged: timeline not restored, voice/tone incorrect (not Dani's voice), and formatting did not persist after submission.\n\nACTIONS I RECOMMEND TAKING:\n1. Pull the Spencer Grand Tour draft from WF-17 queue (or wherever it's staged)\n2. Verify timeline matches Commander's directive (check MISSION board or prior context for timeline details)\n3. Revise voice/tone to match authentic Dani persona (reference Dani voice standards and prior Spencer communications if available)\n4. Test formatting persistence (HTML/template stickiness) before re-submitting to Commander\n5. Re-submit for approval once all three issues resolved\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-05-02 13:11 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Re: Fwd: Spencer Grand Tour 2027",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 2 May 2026 13:36:24 -0500",
+      "body": "ISSUE:\nSpencer Grand Tour 2027 draft rewrite + formatting required; MCP tool access architecture needs clarification for headless Claude through Gmail\n\nDISCUSSION:\nCommander directs COS to rewrite Spencer tour draft in first-person for Commander signature with D2M formatting and placement in drafts. Also requests clarification on MCP tool access method for headless Claude dispatch via Gmail.\n\nACTIONS I RECOMMEND TAKING:\n1. Rewrite Spencer draft in first-person Commander voice\n2. Apply D2M stationery (cream #f7f3ea, blue #0000ff, Georgia serif, navy banner)\n3. Push to d2mconcierge Gmail drafts folder\n4. Document MCP tool access method for headless Claude headless dispatch via Gmail (OAuth, token injection, service account vs. user account)\n5. Queue air quote search (DEN→FCO June 11, 12 pax, economy + business class) and Furlow service agreement pull for next tool-enabled session\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-05-02 12:36 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Re: Fwd: Spencer Grand Tour 2027",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 2 May 2026 12:30:23 -0500",
+      "body": "ISSUE:\nCommander requests six revisions to Spencer proposal draft + Furlow SA draft + air quotes before next send. States 'OPUS escalation or OPUS advisor authorized' — flagging complexity.\n\nDISCUSSION:\nCommander John Loucks provides 6 specific revisions to the Spencer proposal draft: adjust timeline to 15/30/45 days post-confirmation (suggest May 15 breakfast meeting), add ground transport details, change Tim's departure to NET 1300, comment on Interlaken logistics, request Furlow Service Agreement draft, and request initial air quotes.\n\nACTIONS I RECOMMEND TAKING:\n1. Execute all 6 revisions per Commander direction\n2. Reformat draft in D2M brand colors (cream/blue)\n3. Add comprehensive transport segments (DEN→home, DEN→FCO, FCO→hotel, FCO→airport, airport logistics for Tim's family)\n4. Adjust timeline milestones: 15 business days (initial), 30 days (follow-up), 45 days (final)\n5. Suggest May 15 weekend breakfast meeting for four (Commander + Susie + two guests)\n6. Pull Furlow Service Agreement and create draft version without service fee or electronic deposit transfer\n7. Generate initial air quotes (DEN-FCO round trip, three family groups, Business Class options for Bill/Kathleen and Yaggi family)\n8. Note on Interlaken: reflect Commander's feedback that it's overrated as a destination (better as a base/transit point) — recalibrate Swiss itinerary accordingly\n9. Prioritize air quotes first; deliver within 5 business days\n10. Send revised draft back to Commander for approval before client push\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-05-02 11:30 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "⚡ BRAIN 3 FIX: APPROVE | DISAPPROVE | DISCUSS",
+      "to": "John Loucks3 <johnloucks3@gmail.com>",
+      "date": "Sun, 3 May 2026 14:26:11 -0800",
+      "body": "APPROVE:\n\nSir,\n\n═══════════════════════════════════════════════════════════════════\n BRAIN 3 DEEPSEEK ELIMINATION — DECISION REQUIRED\n═══════════════════════════════════════════════════════════════════\n\nCURRENT COST DRAIN:\n  $29/week ($116/month) via hale_dispatcher.py _call_brain3()\n  Root: Direct DeepSeek API calls for arbitration tasks\n\nPROPOSED FIX:\n  Replace with Claude Code headless (MAX OAuth, $0)\n  - Same auth used for daily briefs (proven reliable)\n  - Isolated subprocess (can't crash parent)\n  - 90-second window for arbitration decision\n  - Full fallback error handling\n\nIMPLEMENTATION SCOPE:\n  File: /home/john/Thunderbird/OpsCenter/hale_dispatcher.py\n  Lines: 340-366 (entire _call_brain3 function)\n  Effort: 15 minutes code + test\n  Risk: Low (isolated function, new errors logged cleanly)\n\nCOST IMPACT:\n  Before: $116/month (DeepSeek)\n  After: $0 (MAX OAuth)\n  Savings: $1,392/year\n\n═══════════════════════════════════════════════════════════════════\n YOUR DECISION\n═══════════════════════════════════════════════════════════════════\n\nReply to this email with ONE of the following:\n\n[1] APPROVE\n    Proceed immediately. I will:\n    - Replace hale_dispatcher _call_brain3() with Claude headless\n    - Test with arbitration trigger\n    - Report completion\n    - Move to Telegram pull-only conversion\n\n[2] DISAPPROVE\n    Do not proceed. I will:\n    - Preserve current DeepSeek implementation\n    - Explore alternative approaches\n    - Report findings before next action\n\n[3] DISCUSS\n    Need clarification. Reply with your questions:\n    - Concerned about MAX auth reliability?\n    - Want a different approach entirely?\n    - Want more detail on implementation?\n\n═══════════════════════════════════════════════════════════════════\n\nFull technical plan in previous email: \"URGENT: Brain 3 DeepSeek...\"\n\n—Hale\nCOS, Thunderbird Wing",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: My comparison of two cruise ships and itineraries and other stuff",
+      "to": "Brent Westbrook <westy737@gmail.com>",
+      "date": "Sun, 3 May 2026 08:25:35 -0800",
+      "body": "Listen, I am not there, but let me offer advice unsolicited in the form of\noptions-- that you have probably considered, ranked in no order\n1. Move into an IL/AL tomorrow\n2. Get on a list to move as soon as an availability is evident\n3. Make a decision to do nothing for 6 months to a year\n4. DO nothing...\nInstead or at the same time:\n1. Get daily home PT AND\n2. Find a daily health-care pro to stay 0800-1800 or something like that\n3. FInd someone to come visit daily and help him navigate daily tasks\n4. Make him swear to use his walker or his cane, have him get PT assists in\nwalking and strength building\n\nConnect with senior services to evaluate and suggest alternative care and\noptions\nContact VA or Doctor Baker for aging in the home advice\nContact Woodmen Valley Chapel his old church (we went there often years\nago) for referrals and assistance\n\nThe most evident solution to you in your mid 50s?? may not be the same to\nRondo at 80. I will be there anywhere in the world to help you and Robyn\nand Kim slog thru this problem.\n\nLove\nJohn",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Security alert",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 4 May 2026 13:11:02 -0500",
+      "body": "ISSUE:\nVerify OAuth access grant to d2mconcierge@gmail.com by Thunderbird Command is legitimate and intentional\n\nDISCUSSION:\nGoogle security alert notifying that 'Thunderbird Command' was granted access to d2mconcierge@gmail.com account data. Appears to be a legitimate OAuth permission grant for the D2M system, but requires Commander verification.\n\nACTIONS I RECOMMEND TAKING:\n1. Click 'Check activity' link to review recent account access on d2mconcierge@gmail.com\n2. Confirm this is the intended OAuth permission for Claude Code / Thunderbird OS integration\n3. If unauthorized, revoke access immediately via Google Account settings\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-05-04 12:11 MT\nThunderbird Email Intelligence Officer",
       "score": 2
     }
   ]

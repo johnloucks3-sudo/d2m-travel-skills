@@ -1,0 +1,5 @@
+            if from_opencode:
+                result = dispatch_to_claude(txt, mid_to_use)
+                engine = "claude"
+            else:
+                engine, result = route_and_dispatch(txt, mid_to_use)

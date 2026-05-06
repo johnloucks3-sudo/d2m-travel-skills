@@ -57,6 +57,7 @@
 | **May 11** | SEA → DEN | Southwest WN 4195, 1:55 PM, Seats 06E/06F | ✅ CONFIRMED ASC3LX |
 | **May 11** | DEN → Home | Uber/family, ~6:30 PM | ⚠ TO ARRANGE by May 10 ($80-150) |
 
+completed_tps: []
 ---
 
 ## CRITICAL GAPS (8 to book/arrange)

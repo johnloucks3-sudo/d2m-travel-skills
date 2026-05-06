@@ -10,8 +10,22 @@ import logging
 import os
 import re
 import subprocess
+import sys
 from datetime import datetime
 from pathlib import Path
+
+# Ensure project root is importable (for `agents.email_hale_dispatch`).
+_TB_ROOT = "/home/john/Thunderbird"
+if _TB_ROOT not in sys.path:
+    sys.path.insert(0, _TB_ROOT)
+
+# ── Hale Dispatcher integration (Hale Everywhere — Phase 2 hook) ──────────────
+# Defensive: ingest service must keep running if Hale infra fails to import.
+try:
+    from agents.email_hale_dispatch import handle_email_task, is_hale_tier_email
+    _HALE_DISPATCHER_AVAILABLE = True
+except Exception as _hale_import_err:  # pragma: no cover
+    _HALE_DISPATCHER_AVAILABLE = False
 
 logging.basicConfig(
     filename="/home/john/Thunderbird/OpsCenter/logs/email_task_ingest.log",
@@ -242,6 +256,34 @@ def _extract_persona(subject: str, body: str) -> str:
 
 def route_task(persona: str, subject: str, body: str, msg_id: str, sender: str):
     """Create task JSON and add to queue."""
+
+    # ── Hale Dispatcher early-exit ──
+    # If the inbound email warrants Sonnet/Opus tier handling, route through
+    # the Hale dispatcher (substrate-aware: MAX OAuth → Sonnet/Opus, fallback
+    # Haiku) and skip the legacy queue.  Falls through on any error so the
+    # legacy persona queue still receives the task.
+    if _HALE_DISPATCHER_AVAILABLE:
+        try:
+            if is_hale_tier_email(subject, body):
+                result = handle_email_task(subject=subject, body=body, sender=sender)
+                logging.info(
+                    "[EMAIL INGEST] Hale dispatcher handled %s: substrate=%s savings=$%.4f",
+                    msg_id[:8],
+                    result.get("substrate_used", "?"),
+                    result.get("telemetry", {}).get("savings_usd", 0),
+                )
+                send_receipt(persona, subject)
+                ok = mark_read(msg_id)
+                if not ok:
+                    logging.warning(
+                        f"[EMAIL INGEST] mark_read FAILED post-Hale for {msg_id} (in-session dedup blocks reprocess)."
+                    )
+                return  # task handled — skip legacy persona queue
+        except Exception as e:
+            logging.warning(
+                f"[EMAIL INGEST] Hale dispatcher error for {msg_id} — falling through to legacy queue: {e}"
+            )
+
     task_json = {
         "task_id": f"EMAIL-TASK-{msg_id[:8]}",
         "task_type": "commander_email",

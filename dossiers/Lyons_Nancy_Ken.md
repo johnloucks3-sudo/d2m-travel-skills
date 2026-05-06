@@ -18,6 +18,7 @@
 | **Dossier Created** | March 15, 2026 |
 | **Last Updated** | March 26, 2026 — Voyage Summary ingested from rssc.com |
 
+completed_tps: []
 ---
 
 ### ACTIVE TRAVEL — REGENT SEVEN SEAS SPLENDOR

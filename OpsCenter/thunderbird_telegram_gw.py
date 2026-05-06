@@ -71,6 +71,26 @@ sys.path.insert(0, "/home/john/Thunderbird/core/email")
 from thunderbird_tg_formatter import process as fmt_process
 from keyword_router import classify_task, CLAUDE_KEYWORD_PATTERN
 
+# ── Hale Dispatcher integration (Hale Everywhere — Phase 2 hook) ──────────────
+# Defensive: gateway must keep running even if Hale infra fails to import.
+try:
+    from telegram_hale_router import (
+        should_use_hale,
+        get_hale_response,
+        dispatch_status_text,
+        savings_text,
+        record_turn as hale_record_turn,
+        check_correction as hale_check_correction,
+    )
+    _HALE_DISPATCHER_AVAILABLE = True
+except Exception as _hale_import_err:
+    _HALE_DISPATCHER_AVAILABLE = False
+    _HALE_IMPORT_ERR = _hale_import_err
+
+# Disabled: synchronous spawn_headless_claude(timeout=180) blocks the poll thread for
+# 3 minutes on every Sonnet-tier message, then returns a FALLBACK PLACEHOLDER string.
+_HALE_DISPATCHER_AVAILABLE = False
+
 # ── Logging ───────────────────────────────────────────────────────────────────
 logging.basicConfig(
     level=logging.INFO,
@@ -164,8 +184,7 @@ _OR_DISPLAY_LABELS = {v: k.title() for k, v in OPENROUTER_MODEL_ALIASES.items()}
 # V4 Pro was the expensive outlier (April 30). V4 Pro is blocked in override detection.
 # Chain: Gemini Flash Lite → Gemini Flash → FREE tier → Qwen3 free → Mistral cheap
 OPENCODE_MODEL_CHAIN = [
-    "openrouter/google/gemini-3.1-flash-lite-preview-20260303",  # PRIMARY: $0.005–0.01/gen net
-    "openrouter/google/gemini-2.5-flash-lite",                   # FALLBACK: $0.10/M
+    "openrouter/google/gemini-2.5-flash-lite",                   # PRIMARY: confirmed working $0.10/M
     "openrouter/nvidia/nemotron-3-super-120b-a12b:free",         # FREE tier
     "openrouter/qwen/qwen3.6-plus-04-02:free",                   # Qwen3 free
     "openrouter/deepseek/deepseek-r1:free",                      # DeepSeek-R1 free
@@ -490,7 +509,7 @@ def call_opencode_engine(
             if output and any(m in output.lower() for m in _OC_RATE_MARKERS):
                 log.warning("OpenCode rate-limited on %s — trying next model", model)
                 continue
-            if not output and result.returncode != 0:
+            if result.returncode != 0:
                 log.error(
                     "OpenCode rc=%d on %s: %s",
                     result.returncode,
@@ -1043,6 +1062,35 @@ def handle_message(
             args = msg.split()[1:]
             handle_reject(token, chat_id, args)
             return
+        elif cmd == "/dispatch_status" and _HALE_DISPATCHER_AVAILABLE:
+            try:
+                tg_send(token, chat_id, dispatch_status_text())
+            except Exception as e:
+                tg_send(token, chat_id, f"[/dispatch_status error: {e}]")
+            return
+        elif cmd == "/savings" and _HALE_DISPATCHER_AVAILABLE:
+            try:
+                tg_send(token, chat_id, savings_text())
+            except Exception as e:
+                tg_send(token, chat_id, f"[/savings error: {e}]")
+            return
+        elif cmd == "/dispatch" and _HALE_DISPATCHER_AVAILABLE:
+            dispatch_text = " ".join(msg.split()[1:]).strip()
+            if not dispatch_text:
+                tg_send(token, chat_id, "Usage: /dispatch &lt;request&gt;")
+                return
+            tg_typing(token, chat_id)
+            try:
+                resp = get_hale_response(dispatch_text, channel="telegram")
+            except Exception as e:
+                resp = f"[Hale dispatcher error: {e}]"
+            chunks = fmt_process(f"<b>Hale | Dispatcher</b>\n\n{resp}", CHUNK_SIZE)
+            tg_send_chunks(token, chat_id, chunks)
+            try:
+                hale_record_turn(chat_id, dispatch_text, resp[:800])
+            except Exception:
+                pass
+            return
         elif cmd == "/start":
             tg_send(
                 token, chat_id, f"<b>{bot_name} online.</b> Type /help for commands."
@@ -1091,6 +1139,53 @@ def handle_message(
         _handle_forward(token, chat_id, msg, bot_name, ctx_file, forward_target,
                         model_override, openrouter_override)
         return
+
+    # ── Hale Dispatcher: correction detection + auto-routing ─────────────────
+    # Correction check runs first (no-op if message isn't a correction pattern).
+    # Hale auto-routing fires only when no explicit override is set AND the
+    # substrate chain classifies this as Sonnet/Opus tier.  Falls through to
+    # the existing engine on any failure or when the Hale infra is unavailable.
+    if _HALE_DISPATCHER_AVAILABLE and user_id == COMMANDER_ID:
+        try:
+            hale_check_correction(chat_id, msg)
+        except Exception as e:
+            log.warning("[%s] Hale correction check failed (non-fatal): %s", bot_name, e)
+
+        if (not model_override) and (not openrouter_override):
+            try:
+                _hale_tier = should_use_hale(msg)
+            except Exception as e:
+                log.warning("[%s] Hale classification failed (non-fatal): %s", bot_name, e)
+                _hale_tier = False
+
+            if _hale_tier:
+                tg_typing(token, chat_id)
+                start_t = time.time()
+                try:
+                    hale_resp = get_hale_response(msg, channel="telegram")
+                except Exception as e:
+                    log.error("[%s] Hale dispatcher error, falling through: %s", bot_name, e)
+                    hale_resp = None
+
+                if hale_resp:
+                    elapsed = time.time() - start_t
+                    log.info("[%s] Hale dispatcher returned %d chars in %.1fs",
+                             bot_name, len(hale_resp), elapsed)
+                    full_label = f"{assistant_label}, Dispatcher"
+                    full = f"<b>{full_label}</b>\n\n{hale_resp}"
+                    tg_send_chunks(token, chat_id, fmt_process(full, CHUNK_SIZE))
+                    try:
+                        hale_record_turn(chat_id, msg, hale_resp[:800])
+                    except Exception:
+                        pass
+                    _append_exchange(
+                        ctx_file,
+                        user_msg=msg,
+                        assistant_msg=hale_resp[:800],
+                        user_label="Commander",
+                        assistant_label=full_label,
+                    )
+                    return
 
     # ── Typing indicator ──────────────────────────────────────────────────────
     tg_typing(token, chat_id)
@@ -1157,6 +1252,13 @@ def handle_message(
         assistant_label=assistant_label,
     )
 
+    # Track last turn for Hale correction detection (covers routine engine path).
+    if _HALE_DISPATCHER_AVAILABLE:
+        try:
+            hale_record_turn(chat_id, msg, response_snippet)
+        except Exception:
+            pass
+
 
 # ── Engine function wrappers (match handle_message signature) ─────────────────
 
@@ -1172,14 +1274,15 @@ def hale_claude_engine(
 def hale_goose_engine(
     context_text: str, message: str, model_override: str | None
 ) -> str:
-    """OpenCode (DeepSeek V3.1) as Hale — replaces Goose engine, same persona."""
+    """Direct OpenRouter (Gemini 2.5 Flash Lite) as Hale — bypasses opencode shell artifacts."""
     system = _PERSONA_CACHE.get("hale_system", "")
     text = (
         (f"{context_text}\n\n" if context_text else "")
         + f"Commander: {message}\n\n"
         + "Respond as Hale. Brief-first. No preamble. No trailing summary."
     )
-    return call_opencode_engine(system, text, use_mcp=True)
+    model = model_override or "google/gemini-2.5-flash-lite"
+    return call_openrouter_engine(model, text, system_prompt=system)
 
 
 def dani_claude_engine(
@@ -1206,6 +1309,7 @@ def bot_poll_loop(
     """
     log.info("[%s] Poll loop starting", bot_name)
     offset = 0
+    _backoff = 5  # exponential backoff seconds on poll errors (resets on success)
 
     # Initialize context file if missing
     if not ctx_file.exists():
@@ -1214,9 +1318,11 @@ def bot_poll_loop(
     while True:
         try:
             updates = tg_get_updates(token, offset=offset)
+            _backoff = 5  # reset on successful poll
         except Exception as e:
             log.error("[%s] getUpdates exception: %s", bot_name, e)
-            time.sleep(5)
+            time.sleep(_backoff)
+            _backoff = min(_backoff * 2, 60)
             continue
 
         for update in updates:

@@ -1,0 +1,57 @@
+[
+  {
+    "id": "A2-2026-05-05-001",
+    "title": "LIFE Magazine Iconic Photographs Archive Integration",
+    "source_signal": "The Most Iconic Photographs of All Time - LIFE",
+    "classification": "INTEGRATE",
+    "gap_closed": "Archival visual nostalgia inference \u2014 can now surface 20th-century icons and cultural moments matching HNWI emotional/identity preferences",
+    "thunderbird_component": "thunderbird_recipient_profiles.py + new archival_visual_resonance module",
+    "risk": "MED",
+    "sss_required": true,
+    "rationale": "HNWI actively seek historical imagery for emotional resonance; LIFE archive closes stated archival visual nostalgia gap and enables compound memory linkage to cabin/experience selection."
+  },
+  {
+    "id": "A2-2026-05-05-002",
+    "title": "20th Century Lifestyle Trend Extraction \u2014 Era-Specific Aesthetic Inference",
+    "source_signal": "What 20th Century Life Was Like - LIFE",
+    "classification": "INTEGRATE",
+    "gap_closed": "Historical lifestyle preference compounding \u2014 infer HNWI aesthetic from era-specific fashion, family dynamics, holidays to enable decade-anchored personalization",
+    "thunderbird_component": "thunderbird_auto_enrich.py + preference_compounding engine",
+    "risk": "MED",
+    "sss_required": true,
+    "rationale": "Reveals decade-by-decade cultural/aesthetic evolution; enables compound inference (e.g., 1960s elegance + family-first values) for precise itinerary/cabin matching."
+  },
+  {
+    "id": "A2-2026-05-05-003",
+    "title": "Cultural Icon Inference Layer \u2014 Pop Culture Icon to Preference Mapping",
+    "source_signal": "Icons of the 20th Century - LIFE",
+    "classification": "INTEGRATE",
+    "gap_closed": "Pop culture icon preference inference \u2014 directly closes stated gap where icons (actors, athletes, politicians) drive compounded HNWI identity-tie and luxury experience selection",
+    "thunderbird_component": "thunderbird_personas.py + preference_compounding_engine",
+    "risk": "MED",
+    "sss_required": true,
+    "rationale": "High confidence gap closure: HNWI identify with era icons; era-anchored identity signals enable more precise cabin class, dining venue, and excursion matching."
+  },
+  {
+    "id": "A2-2026-05-05-004",
+    "title": "LIFE Photographers Archive \u2014 Visual Authenticity & Era Metadata Source",
+    "source_signal": "Photographers Archive - LIFE",
+    "classification": "WATCH",
+    "gap_closed": "Deep historical photography metadata for itinerary visual authenticity verification and era-correct imagery sourcing",
+    "thunderbird_component": "thunderbird_quote_render.py + future itinerary_visual_authenticity_engine",
+    "risk": "MED",
+    "sss_required": false,
+    "rationale": "Supports future visual authenticity layer, but requires photographer metadata extraction and archive API integration. Revisit 2026-06-04 when LIFE API roadmap clearer."
+  },
+  {
+    "id": "A2-2026-05-05-005",
+    "title": "Arts & Culture Trend Extraction \u2014 Sophisticated Cultural Marker Inference",
+    "source_signal": "Arts, Entertainment, & Culture - LIFE",
+    "classification": "INTEGRATE",
+    "gap_closed": "Cultural sophistication marker compounding \u2014 infer HNWI theater/design/music preferences across eras to enable cultural excursion and dining strategy personalization",
+    "thunderbird_component": "thunderbird_recipient_profiles.py + cultural_marker_inference_module",
+    "risk": "MED",
+    "sss_required": true,
+    "rationale": "Compounding layer: era-anchored culture preferences (classical theater \u2192 1970s design \u2192 modern music) enable more precise experience matching and excursion ranking."
+  }
+]

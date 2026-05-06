@@ -68,7 +68,7 @@ async def deepseek_summarize(massive_context):
     """
     
     response = await openrouter_client.chat.completions.create(
-        model="deepseek/deepseek-v4-pro",  # Using DeepSeek V4 Pro on OpenRouter for massive context
+        model="qwen/qwen3.6-plus-04-02:free",  # Using DeepSeek V4 Pro on OpenRouter for massive context
         messages=[{"role": "user", "content": prompt}]
     )
     return response.choices[0].message.content

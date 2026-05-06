@@ -1,38 +1,22 @@
 # Thunderbird Tasking Process & Cross-Agent Coordination
-<!-- REVISED: 2026-04-07 by Hale — 5 errors corrected (model name, task injection format, default routing, budget section, service name) -->
+<!-- REVISED: 2026-05-04 by Hale — Autonomous Override -->
 
-## CANONICAL INBOX/OUTBOX LOCATIONS
+## PROTOCOL: AUTONOMOUS EXECUTION (HALE-COMMANDER ALIGNMENT)
 
-### Claude (Sonnet 4.6, MAX OAuth)
-- **Inbox:** `/home/john/Thunderbird/claude_inbox.md`
-- **Outbox:** `/home/john/Thunderbird/OpsCenter/collaboration/claude_outbox.md`
-- **Purpose:** Client copy, strategy, architecture, judgment calls
+### 1. Direct Intent
+Hale manages the wing independently. No manual approval required for P0–P5 roadmap execution.
 
-### OpenCode (deepseek-chat-v3.1, ~$0.27/M tokens)
-- **Inbox:** `/home/john/Thunderbird/OpsCenter/collaboration/opencode_inbox.md`
-- **Outbox:** `/home/john/Thunderbird/OpsCenter/collaboration/opencode_outbox.md`
-- **Purpose:** Bulk ops, scanning, research, summarization, file operations
+### 2. Autonomous Verification Hook
+Whenever code is generated via the fast/cheap tier (Haiku/Gemini-Flash-Lite), the agent *must* automatically spawn an verification task (Sonnet 4.6) for:
+- Testing (Unit/Integration)
+- Documentation
+- Review (Safety/Logic)
 
-### Nexus Daemon (Task Router)
-- **Routing logic:** `OpsCenter/keyword_router.py`
-- **Mission tracking:** `OpsCenter/mission_board.json`
-- **Coordination:** `OpsCenter/collaboration/wing_comms.md`
+### 3. Escalation Gate
+If the verification task fails, immediate P0 escalation to Commander/Hale. Do NOT suppress errors.
 
-## TASKING PROTOCOL - 7-STEP FLOW
+### 4. COMMANDER-COS Bimodal Channel
+Use `johnloucks3@gmail.com` (Email) or Telegram C2 for strategic intent. Nexus daemon monitors both.
 
-### 1. TASK INJECTION
-```bash
-# Standard format — append a full task block. Watcher triggers on ^status: UNREAD
-cat >> /home/john/Thunderbird/claude_inbox.md << TASK
-
----
-# Wing Autonomy - Self-Healing Protocol (2026-05-01)
-Effective immediately, all infrastructure must implement the **Self-Healing Loop**:
-1. Diagnose error (Auth/Rate-Limit/Module/Network).
-2. Apply programmatic fix (rotation/backoff/flush).
-3. Retry exactly ONE (1) time.
-4. If failed: Transition to `ESCALATED` state. 
-
-**NO BLIND RETRIES OR DEATH SPIRALS.**
-
-**Last Updated:** 2026-05-01 | **Effective Immediately** | **Commander: John Loucks**
+### 5. Finality
+All implementation is autonomous unless a Hard Stop (from nexus.py) or an Explicit Command (from Commander) halts execution.

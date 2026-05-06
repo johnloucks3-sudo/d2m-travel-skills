@@ -18,11 +18,11 @@ GROQ_BASE = "https://api.groq.com/openai/v1"
 GROQ_MODEL = "llama-3.3-70b-versatile"
 
 DEEPSEEK_BASE = "https://openrouter.ai/api/v1"
-DEEPSEEK_MODEL = "deepseek/deepseek-v4-pro"
+DEEPSEEK_MODEL = "qwen/qwen3.6-plus-04-02:free"
 
 OPENROUTER_BASE = "https://openrouter.ai/api/v1"
-OPENROUTER_MODEL = "deepseek/deepseek-v4-pro"
-OPENROUTER_FREE = "deepseek/deepseek-v4-pro"
+OPENROUTER_MODEL = "qwen/qwen3.6-plus-04-02:free"
+OPENROUTER_FREE = "qwen/qwen3.6-plus-04-02:free"
 
 # NEVER use these for actual API calls
 _ANTHROPIC_KEY = os.environ.get('ANTHROPIC_API_KEY', '')  # DECOY — DO NOT TOUCH
