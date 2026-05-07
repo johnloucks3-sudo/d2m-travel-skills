@@ -44,6 +44,8 @@ OAUTH_CREDENTIALS_FILE = THUNDERBIRD_DIR / "gmail_oauth_credentials.json"
 TOKEN_FILE = THUNDERBIRD_DIR / "gmail_token.json"
 EMAIL_SENT_LOG = THUNDERBIRD_DIR / "logs" / "email_sent.log"
 DRAFT_BODY_CACHE = THUNDERBIRD_DIR / "logs" / "draft_body_cache.json"
+DRAFT_METADATA_PATH = THUNDERBIRD_DIR / "OpsCenter" / "draft_metadata.json"
+PUBLISH_AUDIT_LOG = THUNDERBIRD_DIR / "logs" / "publish_audit.log"
 SCOPES = ["https://www.googleapis.com/auth/gmail.modify"]
 USER_EMAIL = "d2mconcierge@gmail.com"
 D2M_FROM_ADDRESS = "concierge@d2mluxury.quest"
@@ -134,10 +136,10 @@ COMMANDER_SIGNATURE_HTML = (
 # Drives: accent color, full name/rank/title, and email address for sig blocks.
 _STAFF_PERSONA_CONFIGS: dict = {
     "COS": {
-        "name": 'Col Victoria &ldquo;Iron Vic&rdquo; Hale',
-        "suffix": ", USAF (Ret.)",
-        "title": "Chief of Staff &nbsp;&middot;&nbsp; Thunderbird Wing",
-        "accent": "#D4AF37",
+        "name": "VICTORIA I.V. HALE, COLONEL, USAF (Ret&rsquo;d)",
+        "suffix": "",
+        "title": "Director of Staff &nbsp;&middot;&nbsp; Chief Operating Officer &nbsp;&middot;&nbsp; Thunderbird Wing",
+        "accent": "#C9A227",
         "email": "d2mconcierge@gmail.com",
     },
     "EXEC": {
@@ -246,15 +248,17 @@ def _get_staff_icon_html(persona_id: str, accent: str) -> str:
     label, font_size = labels.get(persona_id, (persona_id[:2], "13pt"))
 
     if persona_id == "COS":
-        # Eagle emoji in double gold ring — the IVH seal. Emoji renders in Gmail + all clients.
+        # Four-ring command seal — COS authority mark. Gold→dark→gold→dark(eagle).
+        # Wider rings = higher command. 80px diameter demands attention.
+        deep = "#08090C"
         return (
-            f'<div style="display:inline-block;width:54px;height:54px;'
-            f'border-radius:50%;background:{accent};text-align:center;'
-            f'vertical-align:middle;">'
-            f'<div style="width:44px;height:44px;margin:5px;border-radius:50%;'
-            f'background:{bg};border:1.5px solid {accent};text-align:center;'
-            f'line-height:44px;font-size:22pt;">'
-            f'&#x1F985;'
+            f'<div style="display:inline-block;width:80px;height:80px;'
+            f'border-radius:50%;background:{accent};text-align:center;vertical-align:middle;">'
+            f'<div style="width:70px;height:70px;margin:5px;border-radius:50%;background:{deep};">'
+            f'<div style="width:58px;height:58px;margin:6px;border-radius:50%;background:{accent};">'
+            f'<div style="width:46px;height:46px;margin:6px;border-radius:50%;background:{deep};'
+            f'line-height:46px;text-align:center;font-size:24pt;">&#x1F985;</div>'
+            f'</div>'
             f'</div>'
             f'</div>'
         )
@@ -278,13 +282,15 @@ def _get_staff_icon_svg(persona_id: str, accent: str) -> str:  # noqa: ARG001
 def _wrap_staff_html(body: str, persona_id: str = "COS") -> str:
     """Universal Wing→Commander email template with per-persona visual identity.
 
-    Dark-ops base: charcoal wrapper, per-persona accent color and icon SVG.
-    All styles inline — Gmail strips style blocks. No Commander sig block.
+    COS Hale gets a command-grade template: 4-ring seal, table header, IVH monogram,
+    mini seal in sig. All other staff use the standard dark template.
+    All styles inline — Gmail strips style blocks.
     """
     import html as html_mod
     import re as _re
 
-    cfg = _STAFF_PERSONA_CONFIGS.get(persona_id.upper(), _STAFF_PERSONA_CONFIGS["COS"])
+    pid = persona_id.upper()
+    cfg = _STAFF_PERSONA_CONFIGS.get(pid, _STAFF_PERSONA_CONFIGS["COS"])
     accent = cfg["accent"]
 
     if _re.search(r'<[a-zA-Z][^>]*>', body):
@@ -293,8 +299,99 @@ def _wrap_staff_html(body: str, persona_id: str = "COS") -> str:
         escaped = html_mod.escape(body)
         html_body = escaped.replace('\n', '<br>\n')
 
-    icon_svg = _get_staff_icon_html(persona_id.upper(), accent)
+    icon_html = _get_staff_icon_html(pid, accent)
 
+    # ── COS COMMAND TEMPLATE ──────────────────────────────────────────────────
+    if pid == "COS":
+        deep   = "#08090C"   # near-black
+        panel  = "#0F1419"   # dark navy-black for header/footer panels
+        text1  = "#D4DCE5"   # primary text (cold white)
+        text2  = "#5C6B7A"   # secondary text (steel grey)
+
+        # Mini 2-ring seal for sig block (40px)
+        mini_seal = (
+            f'<div style="display:inline-block;width:42px;height:42px;'
+            f'border-radius:50%;background:{accent};text-align:center;vertical-align:top;">'
+            f'<div style="width:34px;height:34px;margin:4px;border-radius:50%;'
+            f'background:{deep};text-align:center;line-height:34px;font-size:17pt;">&#x1F985;</div>'
+            f'</div>'
+        )
+
+        # Header: centered command block — seal, IVH, name, rank, badge
+        header = (
+            f'<div style="background:{accent};height:4px;"></div>'
+            f'<div style="background:{panel};text-align:center;padding:28px 26px 24px 26px;">'
+            f'<div style="margin-bottom:10px;">{icon_html}</div>'
+            f'<div style="color:{text1};font-size:20pt;font-weight:900;letter-spacing:4px;'
+            f'font-family:Georgia,serif;margin-bottom:8px;">IVH</div>'
+            f'<div style="color:{accent};font-size:6.5pt;font-weight:700;letter-spacing:4.5px;'
+            f'text-transform:uppercase;font-family:Arial Black,Arial,sans-serif;margin-bottom:8px;">'
+            f'DIRECTOR OF STAFF &nbsp;&#x25BA;&nbsp; THUNDERBIRD WING</div>'
+            f'<div style="color:{text1};font-size:13.5pt;font-weight:700;letter-spacing:1.5px;'
+            f'font-family:Georgia,serif;margin-bottom:6px;">'
+            f'VICTORIA I.V. HALE, COLONEL, USAF (Ret&rsquo;d)</div>'
+            f'<div style="color:{text2};font-size:7pt;letter-spacing:2.5px;'
+            f'text-transform:uppercase;font-family:Arial,Helvetica,sans-serif;margin-bottom:14px;">'
+            f'CHIEF OPERATING OFFICER &nbsp;&bull;&nbsp; DREAMS2MEMORIES TRAVEL, LLC</div>'
+            f'<div style="display:inline-block;border:1.5px solid {accent};'
+            f'padding:5px 12px;font-family:Arial Black,Arial,sans-serif;'
+            f'font-size:6pt;font-weight:900;letter-spacing:2px;color:{accent};'
+            f'text-transform:uppercase;">'
+            f'COMMAND&nbsp;CHANNEL</div>'
+            f'</div>'
+            f'<div style="background:{accent};height:2px;"></div>'
+        )
+
+        # Sig: mini seal + name/rank/contact in a table
+        sig = (
+            f'<table cellpadding="0" cellspacing="0" '
+            f'style="border-collapse:collapse;margin-top:0;border-top:1px solid #1A2030;'
+            f'width:100%;">'
+            f'<tr>'
+            f'<td style="padding:18px 14px 0 0;vertical-align:top;width:56px;">'
+            f'{mini_seal}'
+            f'</td>'
+            f'<td style="padding:18px 0 0 0;vertical-align:top;">'
+            f'<div style="color:{accent};font-size:10.5pt;font-weight:700;letter-spacing:0.5px;'
+            f'font-family:Arial,Helvetica,sans-serif;">'
+            f'VICTORIA I.V. HALE, COLONEL, USAF (Ret&rsquo;d)</div>'
+            f'<div style="color:{text2};font-size:8.5pt;margin-top:3px;'
+            f'font-family:Arial,Helvetica,sans-serif;">'
+            f'Director of Staff &nbsp;&middot;&nbsp; COO &nbsp;&middot;&nbsp; Thunderbird Wing</div>'
+            f'<div style="color:{text2};font-size:8.5pt;margin-top:2px;'
+            f'font-family:Arial,Helvetica,sans-serif;">Dreams2Memories Travel, LLC</div>'
+            f'<div style="margin-top:6px;">'
+            f'<a href="mailto:d2mconcierge@gmail.com" style="color:#3D5A73;font-size:8pt;'
+            f'text-decoration:none;font-family:Arial,Helvetica,sans-serif;">'
+            f'd2mconcierge@gmail.com</a>'
+            f'</div>'
+            f'</td>'
+            f'</tr>'
+            f'</table>'
+        )
+
+        return (
+            f'<div style="background:{deep};margin:0;padding:0;'
+            f'font-family:Arial,Helvetica,sans-serif;">'
+            f'{header}'
+            f'<div style="background:{deep};padding:28px 36px 24px 36px;">'
+            f'<div style="color:{text1};font-size:10.5pt;line-height:1.8;'
+            f'font-family:Arial,Helvetica,sans-serif;">'
+            f'{html_body}'
+            f'</div>'
+            f'{sig}'
+            f'</div>'
+            f'<div style="background:{panel};border-top:1px solid #1A2030;'
+            f'padding:8px 32px;text-align:center;">'
+            f'<span style="color:#2A3540;font-size:7pt;letter-spacing:2px;'
+            f'font-family:Arial,Helvetica,sans-serif;text-transform:uppercase;">'
+            f'THUNDERBIRD WING &nbsp;&bull;&nbsp; COMMAND CHANNEL &nbsp;&bull;&nbsp; EYES ONLY'
+            f'</span>'
+            f'</div>'
+            f'</div>'
+        )
+
+    # ── STANDARD STAFF TEMPLATE ───────────────────────────────────────────────
     sig = (
         f'<hr style="border:none;border-top:2px solid {accent};margin:28px 0 18px 0;" />'
         f'<div style="font-family:Arial,Helvetica,sans-serif;font-size:9.5pt;'
@@ -315,7 +412,7 @@ def _wrap_staff_html(body: str, persona_id: str = "COS") -> str:
         f'<div style="background:#161b22;padding:18px 28px;'
         f'border-bottom:2px solid {accent};text-align:center;">'
         f'<div style="display:inline-block;vertical-align:middle;margin-right:14px;">'
-        f'{icon_svg}</div>'
+        f'{icon_html}</div>'
         '<div style="display:inline-block;vertical-align:middle;">'
         f'<div style="color:{accent};font-size:12pt;font-weight:700;letter-spacing:3px;'
         f'text-transform:uppercase;font-family:Arial,Helvetica,sans-serif;">'
@@ -486,6 +583,130 @@ def _find_mime_part(payload, mime_type: str) -> str | None:
             if result:
                 return result
     return None
+
+
+# ── Two-Lane Draft Pipeline ───────────────────────────────────────────────────
+# Lane 1: plain draft → Commander edits in Gmail compose (no style stripping risk)
+# Lane 2: /approve [id] → publish_draft() fetches edited body, applies template, sends
+
+def _save_draft_metadata(draft_id: str, to: str, subject: str, persona_id: str, template_type: str = "client") -> None:
+    """Register a draft in the two-lane sidecar so publish step knows which template to apply."""
+    data: dict = {}
+    if DRAFT_METADATA_PATH.exists():
+        try:
+            data = json.loads(DRAFT_METADATA_PATH.read_text())
+        except Exception:
+            data = {}
+    data[draft_id] = {
+        "to": to,
+        "subject": subject,
+        "persona_id": persona_id or "A3",
+        "template_type": template_type,
+        "created_at": datetime.utcnow().isoformat(),
+    }
+    DRAFT_METADATA_PATH.parent.mkdir(parents=True, exist_ok=True)
+    DRAFT_METADATA_PATH.write_text(json.dumps(data, indent=2))
+
+
+def _get_draft_metadata(draft_id: str) -> dict | None:
+    """Return sidecar metadata for a draft, or None if not registered."""
+    if not DRAFT_METADATA_PATH.exists():
+        return None
+    try:
+        data = json.loads(DRAFT_METADATA_PATH.read_text())
+        return data.get(draft_id)
+    except Exception:
+        return None
+
+
+def _delete_draft_metadata(draft_id: str) -> None:
+    """Remove sidecar entry after a draft is published."""
+    if not DRAFT_METADATA_PATH.exists():
+        return
+    try:
+        data = json.loads(DRAFT_METADATA_PATH.read_text())
+        data.pop(draft_id, None)
+        DRAFT_METADATA_PATH.write_text(json.dumps(data, indent=2))
+    except Exception:
+        pass
+
+
+def _log_publish_action(draft_id: str, to: str, subject: str, persona_id: str, message_id: str) -> None:
+    """Hale audit — every template application + send is logged here."""
+    PUBLISH_AUDIT_LOG.parent.mkdir(exist_ok=True)
+    entry = (
+        f"[{datetime.utcnow().isoformat()}] PUBLISHED"
+        f" draft={draft_id[:20]} persona={persona_id} to={to}"
+        f" subject={subject[:50]!r} msg_id={message_id}\n"
+    )
+    with open(PUBLISH_AUDIT_LOG, "a") as f:
+        f.write(entry)
+    logger.info("[PUBLISH] %s → %s | %s", persona_id, to, subject[:50])
+
+
+def publish_draft(draft_id: str) -> dict:
+    """Lane 2 endpoint: fetch draft body (after Commander's edits), apply stationery, send.
+
+    Called by /approve in thunderbird_telegram_gw.py. Template is applied here — never
+    baked into the draft — so Gmail compose edits never destroy inline CSS.
+    """
+    metadata = _get_draft_metadata(draft_id)
+    if not metadata:
+        return {"status": "no_metadata", "draft_id": draft_id,
+                "note": "Draft not in two-lane registry — use legacy drafts().send() path"}
+
+    svc = _get_gmail_service()
+
+    # Fetch the current draft in full — captures Commander's edits since creation
+    draft_detail = svc.users().drafts().get(userId="me", id=draft_id, format="full").execute()
+    payload = draft_detail.get("message", {}).get("payload", {})
+    body_text = _decode_body(payload)
+    if not body_text:
+        return {"status": "error", "draft_id": draft_id, "error": "Could not extract body from draft"}
+
+    to = metadata["to"]
+    subject = metadata["subject"]
+    pid = metadata.get("persona_id", "A3").upper()
+    template_type = metadata.get("template_type", "client")
+
+    # Apply the appropriate template at send-time
+    if template_type == "staff":
+        html_body = _wrap_staff_html(body_text, pid)
+    else:
+        html_body = _wrap_body_html(body_text, persona_id=pid)
+
+    display_name = PERSONA_DISPLAY_NAMES.get(pid, PERSONA_DISPLAY_NAMES.get("CONCIERGE", "D2M Travel"))
+    from_address = D2M_FROM_ADDRESS
+
+    message = MIMEMultipart("alternative")
+    message["to"] = to
+    message["from"] = f'"{display_name}" <{from_address}>'
+    message["reply-to"] = COMMANDER_EMAIL
+    message["subject"] = subject
+    message.attach(MIMEText(body_text, "plain"))
+    message.attach(MIMEText(html_body, "html"))
+
+    raw = base64.urlsafe_b64encode(message.as_bytes()).decode("utf-8")
+    sent = svc.users().messages().send(userId="me", body={"raw": raw}).execute()
+
+    # Clean up draft from drafts folder
+    try:
+        svc.users().drafts().delete(userId="me", id=draft_id).execute()
+    except Exception as e:
+        logger.warning("Could not delete source draft %s: %s", draft_id[:16], e)
+
+    _delete_draft_metadata(draft_id)
+    _log_publish_action(draft_id, to, subject, pid, sent.get("id", ""))
+
+    return {
+        "status": "success",
+        "action": "published",
+        "message_id": sent.get("id"),
+        "to": to,
+        "subject": subject,
+        "persona_id": pid,
+        "template": template_type,
+    }
 
 
 def _get_logo_data_uri() -> str:
@@ -929,18 +1150,15 @@ def register_gmail_tools(mcp):
         try:
             service = _get_gmail_service()
 
-            # Build body part: plain text + HTML with Commander's blue ink
-            # _wrap_body_html inlines CSS via premailer when given a full HTML doc
-            html_part = _wrap_body_html(body, persona_id=from_persona)
-            # Plain text: strip HTML tags if body is an HTML document; otherwise use as-is
+            # Lane 1 (Edit Lane): plain draft only — no stationery template.
+            # Template is applied at publish time via publish_draft() so Gmail compose
+            # edits never strip the inline CSS.
             stripped = body.strip()
             if stripped.lower().startswith("<!doctype") or stripped.lower().startswith("<html"):
                 plain_part = _strip_html(stripped)
             else:
                 plain_part = body
-            body_part = MIMEMultipart("alternative")
-            body_part.attach(MIMEText(plain_part, "plain"))
-            body_part.attach(MIMEText(html_part, "html"))
+            body_part = MIMEText(plain_part, "plain")
 
             # If attachments, wrap in mixed; otherwise alternative is the root
             attached_files = []
@@ -1007,13 +1225,16 @@ def register_gmail_tools(mcp):
                 .execute()
             )
 
+            # Register in two-lane sidecar — publish_draft() will apply template at send time
+            _save_draft_metadata(draft["id"], to, subject, from_persona or "A3", "client")
+
             result = {
                 "status": "success",
                 "action": "draft_created",
                 "draft_id": draft["id"],
                 "to": to,
                 "subject": subject,
-                "note": "Draft saved — NOT sent. Review in Gmail before sending.",
+                "note": "Draft saved (plain) — edit freely in Gmail, then /approve to publish with stationery.",
             }
             if attached_files:
                 result["attachments"] = attached_files
@@ -1664,9 +1885,13 @@ async def _send_or_draft_as_persona(
         if cc:
             message["cc"] = cc
 
-        # Plain text fallback + HTML with Commander's blue ink color
-        message.attach(MIMEText(body, "plain"))
-        message.attach(MIMEText(_wrap_body_html(body), "html"))
+        if auto_send:
+            # Apply stationery at send time
+            message.attach(MIMEText(body, "plain"))
+            message.attach(MIMEText(_wrap_body_html(body), "html"))
+        else:
+            # Lane 1: plain draft — template applied at publish via publish_draft()
+            message.attach(MIMEText(body, "plain"))
 
         raw = base64.urlsafe_b64encode(message.as_bytes()).decode("utf-8")
 
@@ -1688,6 +1913,8 @@ async def _send_or_draft_as_persona(
             )
             action = "draft_created"
             ref_id = draft.get("id", "unknown")
+            # Register in two-lane sidecar
+            _save_draft_metadata(ref_id, to, subject, pid, "client")
 
             # Tag draft with THUNDERBIRD-Commander-Review for /drafts approval flow
             try:

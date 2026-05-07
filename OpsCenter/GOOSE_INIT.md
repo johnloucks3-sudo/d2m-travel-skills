@@ -519,6 +519,7 @@ tech_monitor, airline_monitor, x_osint, factbook_refresh
 13. **Email Send Gate (SO 21 MAR):** Never send outside the wing without Commander approval. Exception: johnloucks3@gmail.com.
 14. **Email Account Separation (SO 24 MAR):** d2mconcierge = sole ops Gmail. ZERO drafts in johnloucks3.
 15. **Dani is sole client-facing voice.** She does not research, write briefs, or reply to Commander.
+16. **Two-Lane Email Pipeline (SO 07 MAY 2026):** Drafts MUST be plain text — NEVER apply HTML stationery at draft creation. Template is applied at publish time by `publish_draft()` when Commander runs `/approve [id]` in Telegram. Violating this causes Gmail compose to strip all inline styles.
 
 ---
 
@@ -594,9 +595,9 @@ AND `OpsCenter/thunderbird_overwatch.sh` (which has its own export).
 *Brain Index: 4 tiers, 30+ reference files, full Drive map, 13 recipes, full core module registry.*
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-05-07 00:44 MT -->
+<!-- Last sync: 2026-05-07 01:29 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-05-07 00:44 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-05-07 01:29 MT] ===
 Budget: Claude GREEN (MAX $0) | OpenCode GREEN (DeepSeek V3.1 ~$0.27/M) | Groq UNKNOWN | Deepseek GREEN
 Active tasks: 2
 Last Deepseek ruling: NONE

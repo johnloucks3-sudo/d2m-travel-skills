@@ -25,6 +25,14 @@
 - **Send FROM d2mconcierge always.** Client-facing emails use concierge@d2mluxury.quest as Send-As alias on d2mconcierge.
 - When Commander closes a transaction, it stays in d2mconcierge. Never pollute johnloucks3 with drafts or operational debris.
 
+## ⚠️ HARD RULE — TWO-LANE EMAIL PIPELINE (Standing Order 07 MAY 2026)
+**Drafts MUST be plain text — NEVER apply HTML stationery at draft creation time.**
+- **Lane 1 (Edit Lane):** `gmail_create_draft()` creates plain-text drafts in d2mconcierge. Commander edits content freely in Gmail compose with no style-stripping risk.
+- **Lane 2 (Publish Lane):** Commander runs `/approve [draft_id]` in Telegram → `publish_draft()` fetches the edited body, applies the correct stationery template, sends via `messages().send()`, deletes the source draft.
+- **`publish_draft(draft_id)`** is in `core/email/thunderbird_gmail.py`. Two-lane registry: `OpsCenter/draft_metadata.json`. Audit log: `logs/publish_audit.log`.
+- **VIOLATION:** Calling `_wrap_body_html()` or `_wrap_staff_html()` at draft creation time causes Gmail to strip all inline CSS when Commander opens the draft to edit — destroying the template. This is the confirmed bug this SO fixes.
+- This applies to: `gmail_create_draft()`, `_send_or_draft_as_persona(auto_send=False)`. The `gmail_send_from_wing()` send-only path is unaffected.
+
 ## ⚠️ INTEL, BRIEFS & FINAL STAFF COMMUNICATIONS — FULL SEND DIRECTLY (Standing Order 27 MAR 2026, Clarified 4 MAY 2026)
 **ALL reports, intel, briefings, and final staff communications go to johnloucks3@gmail.com as FULL SENDS — directly, no draft steps.**
 - **Scope:** Morning briefs, incubator digests, sitreps, intel sweeps, innovation briefings, world intel reports, staff papers, operational updates, decisions log, radar scans
@@ -223,9 +231,9 @@ See [docs/AGENT_TEAMS.md](docs/AGENT_TEAMS.md) for experimental team workflows.
 
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-05-07 00:44 MT -->
+<!-- Last sync: 2026-05-07 01:29 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-05-07 00:44 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-05-07 01:29 MT] ===
 Budget: Claude GREEN (MAX $0) | OpenCode GREEN (DeepSeek V3.1 ~$0.27/M) | Groq UNKNOWN | Deepseek GREEN
 Active tasks: 2
 Last Deepseek ruling: NONE

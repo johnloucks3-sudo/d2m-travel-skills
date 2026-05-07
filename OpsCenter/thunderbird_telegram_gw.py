@@ -70,6 +70,7 @@ sys.path.insert(0, "/home/john/Thunderbird/core/email")
 
 from thunderbird_tg_formatter import process as fmt_process
 from keyword_router import classify_task, CLAUDE_KEYWORD_PATTERN
+from thunderbird_gmail import publish_draft, _get_draft_metadata
 
 # ── Hale Dispatcher integration (Hale Everywhere — Phase 2 hook) ──────────────
 # Defensive: gateway must keep running even if Hale infra fails to import.
@@ -791,7 +792,12 @@ def handle_drafts(token: str, chat_id: int) -> None:
 
 
 def handle_approve(token: str, chat_id: int, args: list) -> None:
-    """Send a draft by ID — /approve [draft_id]"""
+    """Publish a draft — apply stationery template + send. /approve [draft_id]
+
+    Two-lane system (SO 2026-05-07):
+    - If draft is in the two-lane registry: fetches edited body, applies template, sends.
+    - If no registry entry (old-style draft): falls back to raw drafts().send().
+    """
     if not args:
         tg_send(
             token,
@@ -801,12 +807,35 @@ def handle_approve(token: str, chat_id: int, args: list) -> None:
         return
     draft_id = args[0]
     tg_typing(token, chat_id)
+
+    # Lane 2: two-lane publish path (template applied at send time)
+    metadata = _get_draft_metadata(draft_id)
+    if metadata:
+        try:
+            result = publish_draft(draft_id)
+            if result.get("status") == "success":
+                tg_send(
+                    token,
+                    chat_id,
+                    f"✅ <b>PUBLISHED</b>\n"
+                    f"To: {result['to']}\n"
+                    f"Subject: {result['subject']}\n"
+                    f"Persona: {result['persona_id']} | Template: {result['template']}\n\n"
+                    f"<i>Stationery applied at send-time — Gmail-safe. Draft deleted.</i>",
+                )
+                log.info("[PUBLISH] %s → %s | %s", result['persona_id'], result['to'], result['subject'][:50])
+            else:
+                tg_send(token, chat_id, f"❌ Publish failed: {result}")
+        except Exception as e:
+            tg_send(token, chat_id, f"❌ Publish error: {e}")
+        return
+
+    # Fallback: legacy draft not in registry — send raw (no template)
     svc = _get_d2m_gmail()
     if not svc:
         tg_send(token, chat_id, "❌ Gmail unavailable.")
         return
     try:
-        # Preview before sending
         detail = (
             svc.users()
             .drafts()
@@ -819,14 +848,14 @@ def handle_approve(token: str, chat_id: int, args: list) -> None:
         }
         subject = headers.get("subject", "?")
         to = headers.get("to", "?")
-        # Send it
         svc.users().drafts().send(userId="me", body={"id": draft_id}).execute()
         tg_send(
             token,
             chat_id,
-            f"✅ <b>SENT</b>\nTo: {to}\nSubject: {subject}\n\n<i>Draft {draft_id[:16]}… delivered.</i>",
+            f"✅ <b>SENT</b>\nTo: {to}\nSubject: {subject}\n\n"
+            f"<i>Draft {draft_id[:16]}… delivered (legacy — no stationery applied).</i>",
         )
-        log.info("[APPROVE] Sent draft %s to %s — %s", draft_id[:16], to, subject)
+        log.info("[APPROVE-LEGACY] Sent draft %s to %s — %s", draft_id[:16], to, subject)
     except Exception as e:
         tg_send(token, chat_id, f"❌ Send failed: {e}")
 
