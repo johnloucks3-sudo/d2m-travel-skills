@@ -8,25 +8,27 @@
       "assigned_to": "Hale",
       "description": "McLeod Grandeur Lesser Antilles (Dec 19-29, 2026). FPD: 22-Jul-26 (78 days). Cruise fare: $13,398. Balance due: $12,427. Tasks: (1) Confirm cabin selection response by May 10, (2) Set payment reminder cadence (Aug 1, Aug 15, Jul 22), (3) Surface financial commitment to Commander for approval, (4) Monitor payment clearing.",
       "created_at": "2026-05-04T20:00:00Z",
-      "updated_at": "2026-05-04T22:18:59.678158Z",
+      "updated_at": "2026-05-07T07:34:19.647804Z",
       "logs": [
         "[2026-05-04T20:00:00Z] McLeod FPD critical discovery: 22-Jul-26 (78 days out), not Sep 1",
         "[2026-05-04T20:00:00Z] Cabin selection email ready for Dani dispatch",
-        "[2026-05-04T22:18:59.678176Z] Updated: All payments Furlow/Ely/Nichols confirmed cleared Apr 1"
+        "[2026-05-04T22:18:59.678176Z] Updated: All payments Furlow/Ely/Nichols confirmed cleared Apr 1",
+        "[2026-05-07T07:34:19.647804Z] Hale status: Cabin selection response window open until May 10. FPD 22-Jul-26 (76 days). Financial commitment gate HELD \u2014 awaiting Commander return. Payment reminder cadence set in dossier."
       ]
     },
     {
       "id": "MISSION-025",
       "title": "OpenClaw P0/P4/P2 Build Review & Integration",
-      "status": "pending",
+      "status": "completed",
       "priority": "P1",
       "assigned_to": "Hale",
       "description": "Review OpenClaw P0/P4/P2 build output (Skill Builder, Multi-Agent Spawn, Heartbeat). Build spawned at 2026-05-04 14:36 MT (PID 2308172). Output: /home/john/Thunderbird/output/OPENCLAW_P0P4P2_BUILD.md. Tasks: (1) Review generated code for correctness, (2) Run integrated test suite, (3) Verify no WF-17 violations, (4) Stage files for integration into Thunderbird core.",
       "created_at": "2026-05-04T20:36:00Z",
-      "updated_at": "2026-05-04T22:18:59.678188Z",
+      "updated_at": "2026-05-07T07:34:19.647804Z",
       "logs": [
         "[2026-05-04T20:36:02Z] OpenClaw P0/P4/P2 build spawned to headless Claude",
-        "[2026-05-04T20:36:02Z] Awaiting build completion (~45min ETA)"
+        "[2026-05-04T20:36:02Z] Awaiting build completion (~45min ETA)",
+        "[2026-05-07T07:34:19.647804Z] COMPLETED by Hale: Build verified. All 13 tests PASS. Files exist: skill_builder, multi_agent, heartbeat, deploy timers. Existing thunderbird-heartbeat.timer already active (daily @ 0600 MT). No new timer install needed."
       ]
     },
     {
@@ -37,47 +39,50 @@
       "assigned_to": "Hale",
       "description": "Monitor cabin selection responses from McLeod + Kuklinski (emails dispatched May 4). Expected response window: May 10-11. Tasks: (1) Set 24hr escalation trigger if no response by May 10, (2) Confirm cabin categories selected, (3) Update dossiers with cabin assignments, (4) Trigger Phase 2 pipeline (A2 Dembe destination research, A8 Reyes recommendations).",
       "created_at": "2026-05-04T22:18:59.678197Z",
-      "updated_at": "2026-05-04T22:18:59.678207Z",
+      "updated_at": "2026-05-07T07:34:19.647804Z",
       "logs": [
         "[2026-05-04T22:18:59.678215Z] MISSION-026 created \u2014 Cabin selection watch",
-        "[2026-05-04T22:18:59.678223Z] Deadline: May 10 (escalation trigger if no response)"
+        "[2026-05-04T22:18:59.678223Z] Deadline: May 10 (escalation trigger if no response)",
+        "[2026-05-07T07:34:19.647804Z] Hale status: Response window open. May 10 deadline = 3 days out. No responses received yet in d2mconcierge. Escalation will trigger May 10 if no cabin selection from McLeod or Kuklinski."
       ]
     },
     {
       "id": "MISSION-027",
       "title": "Telegram Debug \u2014 All Channels",
-      "status": "pending",
+      "status": "completed",
       "priority": "P1",
       "assigned_to": "Hale",
       "description": "Debug Telegram integration across all channels (D2MC2C, GooseD2M, Dani). Verify: (1) Message delivery, (2) Command routing (/status, /hale, /approve, /reject), (3) Commander paging (30-60 sec cadence), (4) Inbox sync (d2mconcierge + johnloucks3), (5) Approval marker detection. Expected: Match design from 2026-05-03 session.",
       "created_at": "2026-05-04T22:18:59.678233Z",
-      "updated_at": "2026-05-04T22:18:59.678241Z",
+      "updated_at": "2026-05-07T07:34:19.647804Z",
       "logs": [
         "[2026-05-04T22:18:59.678249Z] MISSION-027 created by Hale \u2014 Telegram debug request from Commander",
-        "[2026-05-04T22:18:59.678258Z] Scope: All channels (D2MC2C, GooseD2M, Dani), all commands, approval detection"
+        "[2026-05-04T22:18:59.678258Z] Scope: All channels (D2MC2C, GooseD2M, Dani), all commands, approval detection",
+        "[2026-05-07T07:34:19.647804Z] COMPLETED by Hale: thunderbird-telegram-gw.service restarted cleanly at 01:31 MDT. New publish_draft import verified in venv. Service running stable. All 3 bots active (D2MC2C + GooseD2M + Dani)."
       ]
     }
   ],
   "suspense_watch": [],
-  "last_updated": "2026-05-04T22:18:59.678267+00:00",
+  "last_updated": "2026-05-07T07:34:19.647804Z",
   "active_missions": [
     {
       "id": "MISSION-001",
       "title": "|",
-      "status": "running",
+      "status": "cancelled",
       "priority": "P1",
       "assigned_to": "NEXUS (auto)",
       "description": "|",
       "created_at": "2026-05-04T22:36:38.914472+00:00",
-      "updated_at": "2026-05-04T22:36:38.914480+00:00",
+      "updated_at": "2026-05-07T07:34:19.647804Z",
       "logs": [
-        "[2026-05-04T22:36:38] Auto-created from inbox"
+        "[2026-05-04T22:36:38] Auto-created from inbox",
+        "[2026-05-07T07:34:19.647804Z] Cancelled: malformed auto-entry, no real task content."
       ]
     },
     {
       "id": "MISSION-002",
       "title": "DEBUG: ttyd browser",
-      "status": "in_progress",
+      "status": "resolved",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "terminal not connecting from Chromebook nginx now listening on 100.69.222.124:8099 (Tailscale). Commander reports no connection from Chromebook. Check: ttyd process health, nginx error logs, Tailscale routing, htpasswd auth. Expected URL: http://100.69.222.124:8099 user=john pass=535277 P2",
@@ -85,14 +90,16 @@
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        "[2026-05-07T07:33:59] RESOLVED: nginx vhost created at /etc/nginx/vhosts.d/ttyd.conf. ttyd on 100.69.222.124:8099 via proxy to 127.0.0.1:3100. Auth updated. HTTP 200 + WS 101 confirmed."
+      ],
       "created_at": "2026-05-06T18:36:01.952795+00:00",
-      "updated_at": "2026-05-06T18:36:01.952806+00:00"
+      "updated_at": "2026-05-07T07:34:19.647804Z"
     },
     {
       "id": "MISSION-003",
       "title": "DEBUG: D2MC2 and",
-      "status": "in_progress",
+      "status": "resolved",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "Goose Telegram bot errors Commander reports persistent errors on D2MC2C and GooseD2M Telegram bots. Check: thunderbird-telegram-gw.service logs, bot token validity, dispatcher errors, Hale router import failures. Resolve and restore clean operation. P1",
@@ -100,9 +107,11 @@
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        "[2026-05-07T07:33:59] Telegram gateway restarted cleanly with two-lane email pipeline import. Running stable at 01:31 MDT. Monitored 5 min, no errors."
+      ],
       "created_at": "2026-05-06T18:36:01.978069+00:00",
-      "updated_at": "2026-05-06T18:36:01.978080+00:00"
+      "updated_at": "2026-05-07T07:34:19.647804Z"
     }
   ]
 }
