@@ -152,15 +152,15 @@ OPENCODE_BIN = Path("/home/john/.opencode/bin/opencode")
 # Synced with scripts/openrouter_call.py — 2026-04-17
 OPENROUTER_MODEL_ALIASES: dict[str, str] = {
     # ── FREE ──────────────────────────────────────────────────────────────────
-    "NEMOTRON":         "nvidia/nemotron-3-super-120b-a12b:free",   # 120B, 262K ctx, FREE
-    "GPTOSS":           "openai/gpt-oss-120b:free",                  # 120B, 131K ctx, FREE
+    "NEMOTRON":         "nvidia/nemotron-nano-9b-v2:free",            # 9B, free tier (120B deprecated)
+    "GPTOSS":           "openai/gpt-oss-20b:free",                   # 20B, free tier
     "ELEPHANT":         "openrouter/elephant-alpha",                  # 262K ctx, FREE
     # ── ULTRA-CHEAP (<$0.15/M) ────────────────────────────────────────────────
     "QWEN":             "qwen/qwen3-235b-a22b-2507",                 # 235B, $0.07/M
     "GPTNANO":          "openai/gpt-4.1-nano",                       # 1M ctx, $0.10/M
     "GEMLITE":          "google/gemini-2.5-flash-lite",              # 1M ctx, $0.10/M
     "LLAMA":            "meta-llama/llama-4-maverick",               # 1M ctx, $0.15/M
-    "DEEPSEEK":         "qwen/qwen3.6-plus-04-02:free",                 # ✅ ACTIVE: $0.305/M — cost-optimized
+    "DEEPSEEK":         "deepseek/deepseek-chat-v3.1",                  # DeepSeek V3.1 via OpenRouter, ~$0.27/M
     "QWQ":              "qwen/qwq-32b",                              # reasoning, $0.15/M
     # ── VALUE ($0.15–$0.50/M) ────────────────────────────────────────────────
     "GROK":             "x-ai/grok-4.1-fast",                        # 2M ctx, $0.20/M
@@ -185,9 +185,8 @@ _OR_DISPLAY_LABELS = {v: k.title() for k, v in OPENROUTER_MODEL_ALIASES.items()}
 # Chain: Gemini Flash Lite → Gemini Flash → FREE tier → Qwen3 free → Mistral cheap
 OPENCODE_MODEL_CHAIN = [
     "openrouter/google/gemini-2.5-flash-lite",                   # PRIMARY: confirmed working $0.10/M
-    "openrouter/nvidia/nemotron-3-super-120b-a12b:free",         # FREE tier
-    "openrouter/qwen/qwen3.6-plus-04-02:free",                   # Qwen3 free
-    "openrouter/deepseek/deepseek-r1:free",                      # DeepSeek-R1 free
+    "openrouter/deepseek/deepseek-chat-v3.1",                     # DeepSeek V3.1 paid (~$0.27/M)
+    "openrouter/nvidia/nemotron-nano-9b-v2:free",                 # FREE tier fallback
     "openrouter/mistralai/mistral-small-3.2-24b-instruct",       # last resort ($0.07/M)
 ]
 _OC_RATE_MARKERS = (

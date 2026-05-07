@@ -306,11 +306,14 @@ Goose Desktop App — YOUR BRAIN (Gemini 2.5 Flash)
 
 Commander's Telegram (@D2MC2C_bot — Hale C2 bot)
     |
-thunderbird-telegram-c2 service — Hale (Python/PTB)
+thunderbird-telegram-gw.service — UNIFIED GATEWAY (owns D2MC2C + GooseD2M + Dani)
     |-- "Task Claude: ..." -> claude_inbox.md
     |-- "Task Goose: ..."  -> goose_inbox.md
     |-- "FYI All: ..."     -> wing_comms.md
     +-- anything else -> SQLite queue -> task_processor.py
+
+⚠️ thunderbird-telegram-c2 DECOMMISSIONED (2026-04-04) — gateway owns this token.
+   DO NOT start thunderbird-telegram-c2.service — causes getUpdates Conflict error.
 
 d2m-tasking-watcher service
     |-- watches claude_inbox.md, goose_inbox.md, claude_outbox.md
@@ -323,9 +326,10 @@ d2m-tasking-watcher service
 
 **Services:**
 ```bash
-systemctl --user status thunderbird-telegram-c2.service   # Hale C2 bot
+systemctl --user status thunderbird-telegram-gw.service   # Unified gateway (D2MC2C + GooseD2M + Dani)
 systemctl --user status d2m-tasking-watcher.service       # inbox watcher
 systemctl --user status thunderbird-api.service           # A2A + MCP endpoint
+# NOTE: thunderbird-telegram-c2 DECOMMISSIONED — DO NOT start it (token conflict with gateway)
 ```
 
 ---
@@ -590,9 +594,9 @@ AND `OpsCenter/thunderbird_overwatch.sh` (which has its own export).
 *Brain Index: 4 tiers, 30+ reference files, full Drive map, 13 recipes, full core module registry.*
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-05-06 12:31 MT -->
+<!-- Last sync: 2026-05-07 00:44 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-05-06 12:31 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-05-07 00:44 MT] ===
 Budget: Claude GREEN (MAX $0) | OpenCode GREEN (DeepSeek V3.1 ~$0.27/M) | Groq UNKNOWN | Deepseek GREEN
 Active tasks: 2
 Last Deepseek ruling: NONE

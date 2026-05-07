@@ -1,0 +1,17 @@
+[Unit]
+Description=Thunderbird OAuth Self-Heal — OpenClaw P5 Proactive Token Check
+After=network-online.target
+Documentation=core/ops/thunderbird_oauth_self_heal.py
+
+[Service]
+Type=oneshot
+ExecStart=/home/john/Thunderbird/.venv/bin/python /home/john/Thunderbird/core/ops/thunderbird_oauth_self_heal.py
+User=john
+WorkingDirectory=/home/john/Thunderbird
+Environment="PYTHONUNBUFFERED=1"
+Environment="PYTHONPATH=/home/john/Thunderbird/core"
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target

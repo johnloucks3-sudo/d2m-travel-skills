@@ -1,0 +1,19 @@
+[Unit]
+Description=Thunderbird Config Watcher — OpenClaw P3 Hot-Reload
+After=network.target
+Documentation=core/ops/thunderbird_config_watcher.py
+
+[Service]
+Type=simple
+ExecStart=/home/john/Thunderbird/.venv/bin/python /home/john/Thunderbird/core/ops/thunderbird_config_watcher.py
+User=john
+WorkingDirectory=/home/john/Thunderbird
+Environment="PYTHONUNBUFFERED=1"
+Environment="PYTHONPATH=/home/john/Thunderbird/core"
+Restart=on-failure
+RestartSec=10s
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target
