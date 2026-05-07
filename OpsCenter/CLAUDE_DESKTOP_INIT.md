@@ -71,10 +71,10 @@ Owns: bulk ops, intel scans, file ops, research, batch code.
 4. **Intel** → johnloucks3 as full sends, not drafts (SO 27 MAR)
 5. **Two-lane email pipeline (SO 07 MAY):** `gmail_create_draft()` creates PLAIN drafts only — NO HTML template. Template applied at `/approve` time via `publish_draft()` in `core/email/thunderbird_gmail.py`. NEVER call `_wrap_body_html()` at draft creation.
 6. **Root cause** — fix the source, never paper over
-6. **8 Staff Skills** — diff → principle → forward → ask → debate/align → Covey 5 → learn → Dani=agg/artist/adv
-7. **Client output priority:** Words/tone → Experience → Images → Inspiration
-8. **Sign-off:** "Thanks" — NEVER "Best"
-9. **Branding:** Dreams2Memories Travel, LLC only
+7. **8 Staff Skills** — diff → principle → forward → ask → debate/align → Covey 5 → learn → Dani=agg/artist/adv
+8. **Client output priority:** Words/tone → Experience → Images → Inspiration
+9. **Sign-off:** "Thanks" — NEVER "Best"
+10. **Branding:** Dreams2Memories Travel, LLC only
 
 ---
 
@@ -100,9 +100,9 @@ Acknowledge with: "Thunderbird Wing online. Sonnet 4.6. Ready, Yoda."
 
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-05-07 01:29 MT -->
+<!-- Last sync: 2026-05-07 01:34 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-05-07 01:29 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-05-07 01:34 MT] ===
 Budget: Claude GREEN (MAX $0) | OpenCode GREEN (DeepSeek V3.1 ~$0.27/M) | Groq UNKNOWN | Deepseek GREEN
 Active tasks: 2
 Last Deepseek ruling: NONE

@@ -112,6 +112,57 @@
       ],
       "created_at": "2026-05-06T18:36:01.978069+00:00",
       "updated_at": "2026-05-07T07:34:19.647804Z"
+    },
+    {
+      "id": "MISSION-004",
+      "title": "OpenClaw Implementation Verification",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "Verify that OpenClaw P0/P4/P2 are correctly wired into live Thunderbird systems beyond unit tests. Check: (1) /build-skill and /spawn commands registered in thunderbird_telegram_c2.py, (2) heartbeat.py imports and scan functions callable, (3) deploy/ timer files match installed user systemd units, (4) No WF-17 violations or client-facing side effects. Output: integration report to /home/john/Thunderbird/output/openclaw_integration_check.md",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-05-07T07:36:23] Headless Claude spawned PID=3837492 \u2014 openclaw_integration_check. Output: output/openclaw_integration_check.md. ETA ~10min."
+      ],
+      "created_at": "2026-05-07T07:35:27.217665+00:00",
+      "updated_at": "2026-05-07T07:36:23.971294+00:00"
+    },
+    {
+      "id": "MISSION-005",
+      "title": "Intel Report Debug",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "Sweep Diagnose and document all known issues with intel report generation and delivery pipeline. Check: (1) morning brief generation (hale_brief.md, fires at 01:30 MDT), (2) incubator digest pipeline, (3) ship intel sweep, (4) email delivery to johnloucks3 via gmail_send_from_wing, (5) JSON structure compliance per INTEL_STANDARDS.md, (6) any broken sources or missing hyperlinks. Output: debug report to /home/john/Thunderbird/output/intel_pipeline_debug.md",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-05-07T07:36:23] Headless Claude spawned PID=3837731 \u2014 intel_pipeline_debug. Output: output/intel_pipeline_debug.md. ETA ~10min."
+      ],
+      "created_at": "2026-05-07T07:35:27.241540+00:00",
+      "updated_at": "2026-05-07T07:36:23.997000+00:00"
+    },
+    {
+      "id": "MISSION-006",
+      "title": "Records Maintenance Best",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "Practices Document Develop a comprehensive best practices guide for Thunderbird records and dossier maintenance. Cover: (1) dossier lifecycle (creation, update, archive), (2) FPD tracking cadence, (3) THUNDERBIRD_MASTER_PLAN sync protocol, (4) Drive mirror rules, (5) data quality checks, (6) retention/purge policy, (7) gap detection via thunderbird_dossier_scanner.py. Output: SOP to /home/john/Thunderbird/docs/RECORDS_MAINTENANCE_SOP.md",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-05-07T07:36:24] Headless Claude spawned PID=3838274 \u2014 records_maintenance_sop. Output: docs/RECORDS_MAINTENANCE_SOP.md. ETA ~10min."
+      ],
+      "created_at": "2026-05-07T07:35:27.264631+00:00",
+      "updated_at": "2026-05-07T07:36:24.022111+00:00"
     }
   ]
 }
