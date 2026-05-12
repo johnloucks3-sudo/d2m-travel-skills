@@ -1,0 +1,193 @@
+{
+  "name": "d2m-wf-elon-task-webhook",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "pinData": {},
+  "tags": ["hale", "d2m", "automation", "elon", "webhook", "sop-elon-001"],
+  "versionId": "1.0.0",
+  "createdAt": "2026-05-12T15:32:00.000Z",
+  "updatedAt": "2026-05-12T15:32:00.000Z",
+  "nodes": [
+    {
+      "id": "n1-webhook",
+      "name": "ELON Task Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "position": [250, 300],
+      "parameters": {
+        "path": "elon-task",
+        "httpMethod": "POST",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "webhookId": "elon-task",
+      "typeVersion": 2
+    },
+    {
+      "id": "n2-validate-bearer",
+      "name": "Validate Bearer Token",
+      "type": "n8n-nodes-base.code",
+      "position": [500, 300],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "// Validate Bearer token from Authorization header\nconst authHeader = $input.first().json.headers?.authorization || '';\nconst expectedToken = '***REMOVED-SECRET***';\nconst token = authHeader.replace('Bearer ', '').trim();\n\nif (token !== expectedToken) {\n  // Return 401 — handled by IF node below\n  return [{ json: { authorized: false, error: 'Invalid Bearer token', from: '', task_type: '', instructions: '', priority: '' } }];\n}\n\nconst body = $input.first().json.body || {};\nreturn [{\n  json: {\n    authorized: true,\n    from: body.from || 'HALE',\n    priority: body.priority || 'NORMAL',\n    task_type: body.task_type || 'task',\n    instructions: body.instructions || '',\n    timestamp: new Date().toISOString()\n  }\n}];"
+      },
+      "typeVersion": 2
+    },
+    {
+      "id": "n3-if-authorized",
+      "name": "Authorized?",
+      "type": "n8n-nodes-base.if",
+      "position": [750, 300],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "c1",
+              "leftValue": "={{ $json.authorized }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equal"
+              }
+            }
+          ],
+          "combinator": "and"
+        }
+      },
+      "typeVersion": 2
+    },
+    {
+      "id": "n4-respond-401",
+      "name": "Respond 401",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "position": [1000, 450],
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "{\"error\": \"Unauthorized\"}",
+        "options": {
+          "responseCode": 401,
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ]
+          }
+        }
+      },
+      "typeVersion": 1.1
+    },
+    {
+      "id": "n5-format-task",
+      "name": "Format Task Entry",
+      "type": "n8n-nodes-base.code",
+      "position": [1000, 200],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "const data = $input.first().json;\nconst ts = data.timestamp || new Date().toISOString();\nconst tsShort = ts.substring(0, 16).replace('T', ' ');\n\n// Format the task entry for claude_inbox.md\nconst taskEntry = `\\n## HALE TASK — ${tsShort}\\n**From:** ${data.from}\\n**Priority:** ${data.priority}\\n**Type:** ${data.task_type}\\n\\n${data.instructions}\\n\\n---`;\n\n// Format Telegram notification\nconst telegramMsg = `🦅 HALE→ELON TASK\\nPriority: ${data.priority}\\nType: ${data.task_type}\\n\\n${data.instructions.substring(0, 400)}\\n\\nTimestamp: ${tsShort}`;\n\n// Format n8n response\nconst responseBody = JSON.stringify({\n  status: 'received',\n  task_id: `ELON-${ts.replace(/[^0-9]/g,'').substring(0,14)}`,\n  timestamp: ts,\n  message: 'Task queued in claude_inbox.md'\n});\n\nreturn [{\n  json: {\n    taskEntry: taskEntry,\n    telegramMsg: telegramMsg,\n    responseBody: responseBody,\n    task_id: `ELON-${ts.replace(/[^0-9]/g,'').substring(0,14)}`\n  }\n}];"
+      },
+      "typeVersion": 2
+    },
+    {
+      "id": "n6-write-inbox",
+      "name": "Write to claude_inbox.md",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [1250, 100],
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.d2mluxury.quest/api/tool/append_to_file",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ file_path: '/home/john/Thunderbird/claude_inbox.md', content: $json.taskEntry }) }}",
+        "options": {
+          "timeout": 10000
+        },
+        "continueOnFail": true
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "thunderbirdApiKey",
+          "name": "Thunderbird API Key"
+        }
+      },
+      "typeVersion": 4.2,
+      "continueOnFail": true
+    },
+    {
+      "id": "n7-telegram",
+      "name": "Alert Commander via Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "position": [1250, 300],
+      "parameters": {
+        "chatId": "7554895206",
+        "text": "={{ $('Format Task Entry').item.json.telegramMsg }}",
+        "additionalFields": {}
+      },
+      "credentials": {},
+      "typeVersion": 1.2
+    },
+    {
+      "id": "n8-respond-200",
+      "name": "Respond 200 OK",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "position": [1500, 200],
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "={{ $('Format Task Entry').item.json.responseBody }}",
+        "options": {
+          "responseCode": 200,
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ]
+          }
+        }
+      },
+      "typeVersion": 1.1
+    }
+  ],
+  "connections": {
+    "ELON Task Webhook": {
+      "main": [
+        [{"node": "Validate Bearer Token", "type": "main", "index": 0}]
+      ]
+    },
+    "Validate Bearer Token": {
+      "main": [
+        [{"node": "Authorized?", "type": "main", "index": 0}]
+      ]
+    },
+    "Authorized?": {
+      "main": [
+        [{"node": "Format Task Entry", "type": "main", "index": 0}],
+        [{"node": "Respond 401", "type": "main", "index": 0}]
+      ]
+    },
+    "Format Task Entry": {
+      "main": [
+        [
+          {"node": "Write to claude_inbox.md", "type": "main", "index": 0},
+          {"node": "Alert Commander via Telegram", "type": "main", "index": 0}
+        ]
+      ]
+    },
+    "Write to claude_inbox.md": {
+      "main": [
+        [{"node": "Respond 200 OK", "type": "main", "index": 0}]
+      ]
+    }
+  }
+}

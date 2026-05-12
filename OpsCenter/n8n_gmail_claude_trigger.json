@@ -1,0 +1,293 @@
+{
+  "name": "d2m-wf-gmail-claude-trigger",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "pinData": {},
+  "tags": ["hale", "d2m", "automation", "gmail", "ai-trigger", "etb001"],
+  "versionId": "1.0.0",
+  "createdAt": "2026-05-12T15:32:00.000Z",
+  "updatedAt": "2026-05-12T15:32:00.000Z",
+  "nodes": [
+    {
+      "id": "n1-schedule",
+      "name": "Poll Every 5 Min",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "position": [250, 300],
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 5
+            }
+          ]
+        },
+        "options": {}
+      },
+      "typeVersion": 1.2
+    },
+    {
+      "id": "n2-gmail-list",
+      "name": "Get Unprocessed Emails",
+      "type": "n8n-nodes-base.gmail",
+      "position": [500, 300],
+      "parameters": {
+        "resource": "message",
+        "operation": "getAll",
+        "returnAll": false,
+        "limit": 10,
+        "filters": {
+          "q": "label:d2m-ai-process is:unread"
+        },
+        "options": {
+          "dataPropertyAttachmentsPrefixName": ""
+        }
+      },
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "gmail",
+          "name": "Gmail account"
+        }
+      },
+      "typeVersion": 2.1
+    },
+    {
+      "id": "n3-if-has-messages",
+      "name": "Has Messages?",
+      "type": "n8n-nodes-base.if",
+      "position": [750, 300],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "c1",
+              "leftValue": "={{ $items().length }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        }
+      },
+      "typeVersion": 2
+    },
+    {
+      "id": "n4-gmail-get",
+      "name": "Get Message Content",
+      "type": "n8n-nodes-base.gmail",
+      "position": [1000, 200],
+      "parameters": {
+        "resource": "message",
+        "operation": "get",
+        "messageId": "={{ $json.id }}",
+        "options": {
+          "format": "full"
+        }
+      },
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "gmail",
+          "name": "Gmail account"
+        }
+      },
+      "typeVersion": 2.1
+    },
+    {
+      "id": "n5-format-payload",
+      "name": "Format AI Query",
+      "type": "n8n-nodes-base.code",
+      "position": [1250, 200],
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// Extract email fields\nconst msg = $input.item.json;\nconst subject = msg.subject || '(no subject)';\nconst sender = msg.from || 'unknown';\nconst date = msg.date || new Date().toISOString();\n\n// Get body (prefer text over html)\nlet body = '';\nif (msg.text) {\n  body = msg.text.substring(0, 2000);\n} else if (msg.snippet) {\n  body = msg.snippet;\n}\n\n// Build AI query for Thunderbird API\nconst query = `D2M Email Analysis Request\\nFrom: ${sender}\\nSubject: ${subject}\\nDate: ${date}\\n\\nEmail body:\\n${body}\\n\\nTask: Analyze this client email. Identify: (1) client name and booking reference if present, (2) primary request or question, (3) urgency level (routine/urgent/critical), (4) recommended action for Dreams2Memories Travel team.`;\n\nreturn {\n  json: {\n    messageId: msg.id,\n    sender: sender,\n    subject: subject,\n    date: date,\n    query: query,\n    context: 'email_processing',\n    processed_at: new Date().toISOString()\n  }\n};"
+      },
+      "typeVersion": 2
+    },
+    {
+      "id": "n6-thunderbird-api",
+      "name": "Call Thunderbird AI API",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [1500, 200],
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.d2mluxury.quest/api/ai/query",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-API-KEY",
+              "value": "={{ $credentials.thunderbirdApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "query",
+              "value": "={{ $json.query }}"
+            },
+            {
+              "name": "context",
+              "value": "={{ $json.context }}"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 30000,
+          "response": {
+            "response": {
+              "fullResponse": false
+            }
+          }
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "thunderbirdApiKey",
+          "name": "Thunderbird API Key"
+        }
+      },
+      "typeVersion": 4.2
+    },
+    {
+      "id": "n7-format-log",
+      "name": "Format R2 Log Entry",
+      "type": "n8n-nodes-base.code",
+      "position": [1750, 200],
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const now = new Date().toISOString();\nconst dateStr = now.substring(0, 10);\n\nconst logEntry = {\n  timestamp: now,\n  action_type: 'email_ai_analysis',\n  description: `AI analysis of email: ${$('Format AI Query').item.json.subject}`,\n  client_id: $('Format AI Query').item.json.sender,\n  impact: 'Email processed by AI — action identified',\n  reference: $('Format AI Query').item.json.messageId,\n  query_summary: $('Format AI Query').item.json.query.substring(0, 500),\n  ai_response: typeof $input.item.json.response === 'string' \n    ? $input.item.json.response.substring(0, 1000)\n    : JSON.stringify($input.item.json).substring(0, 1000),\n  notification_sent: 'pending'\n};\n\nreturn {\n  json: {\n    logEntry: logEntry,\n    r2Key: `logs/gmail-ai-trigger/${dateStr}/${$('Format AI Query').item.json.messageId}.json`,\n    logJson: JSON.stringify(logEntry, null, 2),\n    dateStr: dateStr,\n    messageId: $('Format AI Query').item.json.messageId,\n    subject: $('Format AI Query').item.json.subject,\n    sender: $('Format AI Query').item.json.sender,\n    aiResponse: logEntry.ai_response\n  }\n};"
+      },
+      "typeVersion": 2
+    },
+    {
+      "id": "n8-r2-log",
+      "name": "Log to Cloudflare R2",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [2000, 100],
+      "parameters": {
+        "method": "PUT",
+        "url": "=https://{{ $credentials.cloudflareAccountId }}.r2.cloudflarestorage.com/d2m-claude-sync/{{ $json.r2Key }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "aws",
+        "sendBody": true,
+        "contentType": "raw",
+        "rawContentType": "application/json",
+        "body": "={{ $json.logJson }}",
+        "options": {
+          "timeout": 10000
+        }
+      },
+      "credentials": {
+        "aws": {
+          "id": "cloudflareR2Api",
+          "name": "Cloudflare R2"
+        }
+      },
+      "typeVersion": 4.2,
+      "continueOnFail": true
+    },
+    {
+      "id": "n9-telegram",
+      "name": "Notify Commander",
+      "type": "n8n-nodes-base.telegram",
+      "position": [2000, 300],
+      "parameters": {
+        "chatId": "7554895206",
+        "text": "={{ '🦅 D2M AI EMAIL TRIGGER\\n\\nFrom: ' + $('Format R2 Log Entry').item.json.sender + '\\nSubject: ' + $('Format R2 Log Entry').item.json.subject + '\\n\\nAI Analysis:\\n' + $('Format R2 Log Entry').item.json.aiResponse.substring(0, 500) + '\\n\\nMsg ID: ' + $('Format R2 Log Entry').item.json.messageId }}",
+        "additionalFields": {}
+      },
+      "credentials": {},
+      "typeVersion": 1.2
+    },
+    {
+      "id": "n10-gmail-label",
+      "name": "Mark as Processed",
+      "type": "n8n-nodes-base.gmail",
+      "position": [2250, 200],
+      "parameters": {
+        "resource": "message",
+        "operation": "addLabels",
+        "messageId": "={{ $('Format AI Query').item.json.messageId }}",
+        "labelIds": ["d2m-ai-processed"],
+        "options": {}
+      },
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "gmail",
+          "name": "Gmail account"
+        }
+      },
+      "typeVersion": 2.1,
+      "continueOnFail": true
+    }
+  ],
+  "connections": {
+    "Poll Every 5 Min": {
+      "main": [
+        [{"node": "Get Unprocessed Emails", "type": "main", "index": 0}]
+      ]
+    },
+    "Get Unprocessed Emails": {
+      "main": [
+        [{"node": "Has Messages?", "type": "main", "index": 0}]
+      ]
+    },
+    "Has Messages?": {
+      "main": [
+        [{"node": "Get Message Content", "type": "main", "index": 0}],
+        []
+      ]
+    },
+    "Get Message Content": {
+      "main": [
+        [{"node": "Format AI Query", "type": "main", "index": 0}]
+      ]
+    },
+    "Format AI Query": {
+      "main": [
+        [{"node": "Call Thunderbird AI API", "type": "main", "index": 0}]
+      ]
+    },
+    "Call Thunderbird AI API": {
+      "main": [
+        [{"node": "Format R2 Log Entry", "type": "main", "index": 0}]
+      ]
+    },
+    "Format R2 Log Entry": {
+      "main": [
+        [
+          {"node": "Log to Cloudflare R2", "type": "main", "index": 0},
+          {"node": "Notify Commander", "type": "main", "index": 0}
+        ]
+      ]
+    },
+    "Log to Cloudflare R2": {
+      "main": [
+        [{"node": "Mark as Processed", "type": "main", "index": 0}]
+      ]
+    },
+    "Notify Commander": {
+      "main": [
+        [{"node": "Mark as Processed", "type": "main", "index": 0}]
+      ]
+    }
+  }
+}

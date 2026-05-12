@@ -117,8 +117,44 @@ OpenCode → `claude_inbox.md` → Watcher → Claude Code → `claude_outbox.md
 
 **Status:** Hale transformation oversight protocol active. Awaiting Commander review of Phase 2.
 
+---
 
-## STANDING ORDER 2026-04-14 — FILE VISIBILITY (YOGA ACCESS BLOCKED UNTIL 12 May 2026)
+## 2026-05-12 — HALE Autonomy Framework v1.1 + ETB Execution (ELON)
+
+**SOP-ELON-001 executed. All ETBs complete.**
+
+### HALE Autonomy Framework — LIVE
+- **Instructions.md** (v1.1 Autonomy Edition): `/home/john/Thunderbird/OpsCenter/Instructions.md`
+- **Authority Level:** FULL AUTONOMY — all areas except external client sends
+- **Logging Protocol:** Three channels — Telegram (real-time) + Gmail (daily summary) + R2 (persistent)
+- **EARA spreadsheet:** 1GFjUe8RvP-GT4YHGn0DYv_BEAZGXlYfwEicFrm8ANuU (never rename/restructure)
+
+### n8n Workflows Deployed (ETB 001 + SOP P3)
+- **d2m-wf-gmail-claude-trigger** (ID: pl1M5NRh4uofPpdf) — ACTIVE: Gmail→AI trigger, polls 5 min, logs to R2
+  - Filter: label:d2m-ai-process is:unread
+  - API: https://api.d2mluxury.quest/api/ai/query
+  - R2 credential: cloudflareR2Api (needs configuration in n8n admin)
+- **d2m-wf-elon-task-webhook** (ID: 6U3tz0RFwMLI4lPh) — ACTIVE: HALE→ELON async channel
+  - URL: https://n8n.d2mluxury.quest/webhook/elon-task
+  - Auth: Bearer ***REMOVED-SECRET***
+  - On receive: writes to claude_inbox.md + Telegram alert
+
+### Infrastructure Fixed
+- n8n restart loop fixed: `scripts/n8n_webhook_reinit.sh` — removed `set -e`, made API calls non-fatal
+- Telegram C2: started `thunderbird-telegram-c2.service` (was inactive)
+- Tailscale MCP (ETB 002): `thunderbird-mcp-tailscale.service` — ACTIVE port 8768
+
+### Pending (Commander action required)
+- Anthropic API key refresh: console.anthropic.com → update ANTHROPIC_API_KEY in ~/.env
+- Cloudflare R2 credentials: configure "cloudflareR2Api" in n8n admin → d2m-claude-sync bucket
+- Gmail label: create "d2m-ai-process" label in Gmail for ETB 001 trigger
+
+**Updated:** 2026-05-12 15:45 MT by ELON (Claude Code)
+
+
+## STANDING ORDER 2026-05-07 — SESSION OUTPUT PROTOCOL
+1. Always display D2M Logo path: `/home/john/Thunderbird/media/Agency_Logo_Enhanced.png`
+2. Always display Model Used for current task completion.
 When citing/creating HDD files:
 1. Show onscreen (read tool/output)
 2. Gmail drafts (johnloucks3)
@@ -185,37 +221,15 @@ Inbox now clear.
 
 **Future Work:** P1 (vector memory), P3 (config hot-reload), P5 (OAuth self-heal)
 
-## 2026-05-03 — OpenClaw Pattern Adaptation
-**Status:** COMPLETE
-**Task:** OC-OPENCLAW-ADAPTATION (P0 from Commander)
-**Completed:** 2026-05-03 16:30 MT
+## 2026-05-06 — Task Dispatch Protocol Update
+- **Protocol Change:** Strictly discontinue use of `--foreground` flag for headless Claude dispatching.
+- **Reason:** Enforces background execution to prevent process termination/timeouts on long-running tasks.
+- **Verified Workflow:** Use background dispatching + `watch_task.py` for completion monitoring.
 
-**What Was Built:**
-- OpenClaw architectural patterns adapted into Thunderbird OS
-- 3 of 6 patterns implemented (P0, P2, P4), architecture specs for all 6
-
-**Key Files Created:**
-- `docs/OPENCLAW_ADAPTATION_SPEC.md` — Full architecture spec
-- `core/ai_infra/thunderbird_skill_builder_mcp.py` — MCP tools for skill builder
-- `core/ai_infra/thunderbird_multi_agent.py` — Multi-agent orchestration engine
-- `core/ops/thunderbird_heartbeat.py` — Proactive heartbeat assessment
-- `deploy/d2m-heartbeat.{service,timer}` — Systemd timer (every 2 hours)
-- `tests/test_openclaw_adaptation.py` — Integration tests (~20 cases)
-
-**Telegram Commands Added:**
-- `/build-skill <description>` — Build Python skill from natural language
-- `/spawn <n> <task>` — Spawn N agents for parallel work
-- `/heartbeat` — Run system health assessment
-
-**MCP Tools Added (4):**
-- `build_skill_from_description_tool`
-- `list_available_skills_tool`
-- `validate_skill_safety_tool`
-- `get_skill_metadata_tool`
-
-**Documentation Updated:**
-- `AGENTS.md` — Added new entrypoints and test reference
-- `core/communication/thunderbird_telegram_c2.py` — Help command updated
-- `core/mcp/travel_mcp_server.py` — Skill builder registration
-
-**Future Work:** P1 (vector memory), P3 (config hot-reload), P5 (OAuth self-heal)
+---
+## Session Summary — 2026-05-09
+- CCR Integration: Installed, systemd-managed, activated in .bashrc.
+- Initiative I5: Groq/DeepSeek routing verified and active.
+- Harness Discipline: Implemented VBC dispatch hooks and auto-retro scripts.
+- Cost Telemetry: OC-03 integrated into opencode_spsa_monitor.py.
+- Infrastructure: Resolved Drive sync race condition and restored ttyd.

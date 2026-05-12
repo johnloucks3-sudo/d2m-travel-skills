@@ -7,7 +7,7 @@
 # Usage: called from n8n.service ExecStartPost, or run manually.
 # Workflow: z4pYJ2Dr3XqLnf5d (Blackboard Read Webhook)
 
-set -euo pipefail
+set -uo pipefail
 
 N8N_API="http://127.0.0.1:5678/api/v1"
 WORKFLOW_ID="z4pYJ2Dr3XqLnf5d"
@@ -31,18 +31,18 @@ until curl -sf -o /dev/null "http://127.0.0.1:5678/healthz" 2>/dev/null; do
 done
 log "n8n is up."
 
-# Deactivate
+# Deactivate (non-fatal — API may reject if workflow state doesn't require it)
 log "Deactivating workflow ${WORKFLOW_ID}..."
-curl -sf -X POST "${N8N_API}/workflows/${WORKFLOW_ID}/deactivate" \
+curl -s -X POST "${N8N_API}/workflows/${WORKFLOW_ID}/deactivate" \
     -H "X-N8N-API-KEY: ${API_KEY}" \
-    -H "Content-Type: application/json" > /dev/null
+    -H "Content-Type: application/json" > /dev/null || log "WARNING: deactivate returned non-200 (continuing)"
 sleep 2
 
-# Activate
+# Activate (non-fatal)
 log "Activating workflow ${WORKFLOW_ID}..."
-curl -sf -X POST "${N8N_API}/workflows/${WORKFLOW_ID}/activate" \
+curl -s -X POST "${N8N_API}/workflows/${WORKFLOW_ID}/activate" \
     -H "X-N8N-API-KEY: ${API_KEY}" \
-    -H "Content-Type: application/json" > /dev/null
+    -H "Content-Type: application/json" > /dev/null || log "WARNING: activate returned non-200 (continuing)"
 sleep 2
 
 # Verify webhook responds

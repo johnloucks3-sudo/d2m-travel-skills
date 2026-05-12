@@ -93,6 +93,8 @@ YOGA: 192.168.1.198 · Cloudflare: api.d2mluxury.quest · Itinerary tunnel: itin
 Key files all under ~/Thunderbird/ on YOGA.
 Canonical agent docs: ~/Thunderbird/AGENTS.md (OpenCode brain) · AGENTS_NEW_TASKING.md (cross-agent protocol)
 OpsCenter: GOOSE_INIT.md (ARCHIVED — historical) · opencode_memory.md (OpenCode session memory)
+HALE Autonomy Framework v1.1: ~/Thunderbird/OpsCenter/Instructions.md (effective 12 May 2026 — FULL AUTONOMY GRANT)
+ELON Task Channel: POST https://n8n.d2mluxury.quest/webhook/elon-task (Bearer: stored in n8n — SOP-ELON-001)
 
 ---
 
@@ -100,11 +102,11 @@ Acknowledge with: "Thunderbird Wing online. Sonnet 4.6. Ready, Yoda."
 
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-05-07 01:34 MT -->
+<!-- Last sync: 2026-05-12 15:38 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-05-07 01:34 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-05-12 15:38 MT] ===
 Budget: Claude GREEN (MAX $0) | OpenCode GREEN (DeepSeek V3.1 ~$0.27/M) | Groq UNKNOWN | Deepseek GREEN
-Active tasks: 2
+Active tasks: 0
 Last Deepseek ruling: NONE
 Open items: none logged
 Next priority: check session_autosave_latest.md
