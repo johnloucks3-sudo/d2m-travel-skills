@@ -22,7 +22,7 @@ import json as _json
 from datetime import datetime, timezone
 from pathlib import Path
 
-from telegram import Update
+from telegram import Update, Bot as TelegramBot
 from telegram.ext import (Application, CommandHandler, MessageHandler,
                            CallbackQueryHandler, filters, ContextTypes)
 from dotenv import load_dotenv
@@ -364,26 +364,52 @@ async def handle_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     elif data.startswith("reject_"):
         await query.edit_message_text(f"{query.message.text}\n\n❌ REJECTED.")
 
-# ── Main ──────────────────────────────────────────────────────────────────────
+# ── Main — SEND-ONLY pager (GW handles incoming; C2 handles outbound push) ────
+# Rationale: thunderbird-telegram-gw.service owns D2MC2C long-polling. Running
+# two pollers on the same token triggers Telegram Conflict errors that break both
+# services. C2 now acts as a pure outbox watcher — no getUpdates, no conflict.
+# To push a Telegram alert from any script: append "PENDING: <msg>" to queue file.
+C2_QUEUE_FILE = Path("/home/john/Thunderbird/OpsCenter/c2_pager_queue.md")
+
 def main():
     if not BOT_TOKEN:
         print("ERROR: TELEGRAM_C2_BOT_TOKEN not set in .env.telegram")
         sys.exit(1)
 
-    app = Application.builder().token(BOT_TOKEN).build()
+    C2_QUEUE_FILE.parent.mkdir(parents=True, exist_ok=True)
+    if not C2_QUEUE_FILE.exists():
+        C2_QUEUE_FILE.write_text("# C2 Pager Queue — append 'PENDING: <msg>' to send\n")
 
-    app.add_handler(CommandHandler("start",      start_command))
-    app.add_handler(CommandHandler("reconnect",  reconnect_command))
-    app.add_handler(CommandHandler("goose_code", goose_code_command))
-    app.add_handler(CommandHandler("board",      board_command))
-    app.add_handler(CommandHandler("status",     status_command))
-    app.add_handler(CommandHandler("tasks",     tasks_command))
-    app.add_handler(CommandHandler("help",      help_command))
-    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
-    app.add_handler(CallbackQueryHandler(handle_callback))
+    async def _push(bot: TelegramBot, msg: str) -> bool:
+        try:
+            await bot.send_message(chat_id=int(COMMANDER_ID), text=msg, parse_mode="Markdown")
+            return True
+        except Exception as e:
+            print(f"[C2-PAGER] send error: {e}", flush=True)
+            return False
 
-    print("Thunderbird C2 Hale Bot starting...")
-    app.run_polling(allowed_updates=Update.ALL_TYPES)
+    async def run():
+        bot = TelegramBot(token=BOT_TOKEN)
+        print("Thunderbird C2 Pager SEND-ONLY active (GW owns incoming D2MC2C)", flush=True)
+        while True:
+            try:
+                raw = C2_QUEUE_FILE.read_text()
+                if "PENDING:" in raw:
+                    lines = raw.splitlines()
+                    updated = []
+                    for line in lines:
+                        if line.startswith("PENDING:"):
+                            msg = line[8:].strip()
+                            ok  = await _push(bot, msg)
+                            updated.append(line.replace("PENDING:", "SENT:" if ok else "FAILED:", 1))
+                        else:
+                            updated.append(line)
+                    C2_QUEUE_FILE.write_text("\n".join(updated) + "\n")
+            except Exception as e:
+                print(f"[C2-PAGER] queue error: {e}", flush=True)
+            await asyncio.sleep(5)
+
+    asyncio.run(run())
 
 if __name__ == "__main__":
     main()
