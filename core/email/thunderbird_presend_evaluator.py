@@ -197,6 +197,9 @@ def evaluate_draft(
     subject: str = "",
     recipient: str = "",
     is_client_facing: bool = True,
+    client_name: str = "",
+    voice_check: bool = False,
+    voice_threshold: int = 75,
 ) -> EvalResult:
     """Evaluate a draft email before sending.
 
@@ -205,6 +208,9 @@ def evaluate_draft(
         subject: Email subject line
         recipient: Recipient email address
         is_client_facing: If False, relaxes internal jargon rules
+        client_name: Client first name — enables voice match personalization check
+        voice_check: If True, runs LLM voice match scoring (adds ~0.1s, ~$0.0001)
+        voice_threshold: Voice match pass threshold (default 75/100)
 
     Returns:
         EvalResult with pass/fail and violation list
@@ -243,6 +249,20 @@ def evaluate_draft(
     # Style — always check
     violations.extend(_scan_patterns(
         full_text, STYLE_PATTERNS, "STYLE", Severity.WARN))
+
+    # Voice match scoring (optional — requires LLM call via DeepSeek V3.1)
+    if is_client_facing and voice_check:
+        try:
+            from voice_match_scorer import check_voice_match  # type: ignore
+            voice_violations = check_voice_match(
+                body=clean_body,
+                client_name=client_name or None,
+                threshold=voice_threshold,
+                use_llm=True,
+            )
+            violations.extend(voice_violations)
+        except Exception as e:
+            logger.warning(f"Voice match scorer unavailable: {e}")
 
     # Check for empty body
     if len(clean_body.strip()) < 20:
