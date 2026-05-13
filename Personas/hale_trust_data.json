@@ -1,0 +1,52 @@
+{
+  "trust_score": 50,
+  "autonomy_tier": "COS (Operational)",
+  "current_streak": 1,
+  "last_decision": "D-20260513153253",
+  "domain_accuracy": {
+    "email_classification": {
+      "correct": 0,
+      "total": 2
+    },
+    "staff_task_routing": {
+      "correct": 0,
+      "total": 0
+    },
+    "quality_gate_wf17": {
+      "correct": 0,
+      "total": 0
+    },
+    "vendor_contact_boundaries": {
+      "correct": 0,
+      "total": 0
+    },
+    "client_context_building": {
+      "correct": 0,
+      "total": 0
+    },
+    "brief_prioritization": {
+      "correct": 0,
+      "total": 0
+    },
+    "strategic_staff_growth": {
+      "correct": 0,
+      "total": 0
+    },
+    "commander_pushback_timing": {
+      "correct": 0,
+      "total": 0
+    },
+    "system_architecture": {
+      "correct": 0,
+      "total": 0
+    },
+    "voice_drift_detection": {
+      "correct": 0,
+      "total": 0
+    }
+  },
+  "quarterly_history": [],
+  "breach_count": 0,
+  "created": "2026-05-13T15:24:10.615917",
+  "last_updated": "2026-05-13T15:32:53.637072"
+}

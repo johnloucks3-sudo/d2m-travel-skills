@@ -1,36 +1,31 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-05-06 12:34:18 MDT
+## Generated: 2026-05-13 16:26:36 MDT
 
 ---
 
 ### Recent Commits
-- eac790f feat: Wire Hale eagle mark across all channels — email, Telegram, C2 bot
-- e25e328 fix: Replace SVG icons with CSS badge divs — Gmail strips inline SVG
-- 53a1e1c feat: Universal staff persona email template system for all 12 Wing members
-- 7ac4e13 feat: Add Hale command-aesthetic email template for Wing→Commander channel
-- 808e0f8 feat: Commission audit + Booking Master corrections + Spencer/Piontek/Heer intake
+- 0deb6952 feat: Agent Pool Manager for OpenCode + Claude orchestration
+- 25b59e44 Fix Telegram C2 daemon startup failure
+- b3e66a14 feat: three harness refinements — code gate, auto-retros, context7
+- 19328eff feat: HALE Email C2 — Thread-aware daemon with full MCP parity (Phases 1-3)
+- 6e3448d8 ops: ETB 001/004 COMPLETE — n8n Gmail trigger + ELON task webhook + autonomy broadcast
 
 ### Uncommitted Changes
  M CLAUDE.md
  M OpsCenter/.supervisor_patterns.json
- M OpsCenter/00_COMMAND_LOG.md
  M OpsCenter/CLAUDE_DESKTOP_INIT.md
  M OpsCenter/GOOSE_INIT.md
- M OpsCenter/claude_haiku_supervisor.py
  M OpsCenter/collaboration/blackboard_summary.txt
  M OpsCenter/collaboration/routing_log.md
- M OpsCenter/collaboration/wing_comms.md
- M OpsCenter/context_d2mc2c.json
- M OpsCenter/context_goose.json
- M OpsCenter/nexus.lock
- M cache/client_context/ely_context.json
- M cache/client_context/furlow_context.json
- M cache/client_context/heer_context.json
- M cache/client_context/how_context.json
- M cache/client_context/loucks_context.json
- M cache/client_context/mcleran_context.json
- M cache/client_context/quick_context.json
- M cache/client_context/scandi_context.json
+ M OpsCenter/task_queue.db
+ M OpsCenter/thunderbird_telegram_gw.py
+ M dossiers/Heer_Ann_Shawn_Japan.md
+ m reverie
+ M session_autosave_latest.html
+ M session_autosave_latest.md
+?? Personas/hale_decision_log.json
+?? Personas/hale_trust_data.json
+?? data/email_c2_processed.json
 
 ### Inbox Status
 - Claude inbox: 0

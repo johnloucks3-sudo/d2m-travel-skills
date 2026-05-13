@@ -71,6 +71,8 @@ sys.path.insert(0, "/home/john/Thunderbird/core/email")
 from thunderbird_tg_formatter import process as fmt_process
 from keyword_router import classify_task, CLAUDE_KEYWORD_PATTERN
 from thunderbird_gmail import publish_draft, _get_draft_metadata
+from thunderbird_stt import transcribe_audio
+from thunderbird_tts import synthesize_speech
 
 # ── Hale Dispatcher integration (Hale Everywhere — Phase 2 hook) ──────────────
 # Defensive: gateway must keep running even if Hale infra fails to import.
@@ -1054,6 +1056,33 @@ def _handle_forward(
 # ── Message Handler ───────────────────────────────────────────────────────────
 
 
+def handle_voice(token, chat_id, user_id, voice_obj, bot_name, ctx_file, engine_fn, assistant_label):
+    """Handle voice messages: download, transcribe, dispatch."""
+    log.info("[%s] Received voice message", bot_name)
+    file_id = voice_obj["file_id"]
+    file_data = tg(token, "getFile", file_id=file_id)
+    if not file_data.get("ok"):
+        tg_send(token, chat_id, "❌ Voice transcription failed (cannot get file path)")
+        return
+
+    file_path = file_data["result"]["file_path"]
+    download_url = f"https://api.telegram.org/file/bot{token}/{file_path}"
+    
+    with tempfile.NamedTemporaryFile(suffix=".ogg", delete=False) as tmp:
+        r = requests.get(download_url, stream=True)
+        for chunk in r.iter_content(chunk_size=8192):
+            tmp.write(chunk)
+        tmp_path = tmp.name
+
+    try:
+        text = transcribe_audio(tmp_path)
+        log.info("[%s] Transcription: %s", bot_name, text)
+        tg_send(token, chat_id, f"🎙️ <i>{text}</i>")
+        handle_message(token, chat_id, user_id, text, bot_name, ctx_file, engine_fn, assistant_label)
+    finally:
+        if os.path.exists(tmp_path):
+            os.remove(tmp_path)
+
 def handle_message(
     token: str,
     chat_id: int,
@@ -1275,6 +1304,20 @@ def handle_message(
 
     # ── Format and send — model attribution always shown ──────────────────
     raw_response = f"<b>{assistant_label}</b>\n\n{raw_response}"
+    
+    # ── Text-to-Speech synthesis ──────────────────────────────────────────
+    audio_path = f"/tmp/response_{chat_id}_{int(time.time())}.ogg"
+    synthesize_speech(raw_response, audio_path)
+    
+    # Send Voice
+    try:
+        with open(audio_path, 'rb') as f:
+            tg(token, "sendVoice", chat_id=chat_id, voice=f)
+    except Exception as e:
+        log.error("TTS sending failed: %s", e)
+    
+    if os.path.exists(audio_path):
+        os.remove(audio_path)
 
     chunks = fmt_process(raw_response, CHUNK_SIZE)
     tg_send_chunks(token, chat_id, chunks)
@@ -1378,21 +1421,38 @@ def bot_poll_loop(
                 continue
 
             # Dispatch in a thread so we don't block the poll loop
-            t = threading.Thread(
-                target=handle_message,
-                args=(
-                    token,
-                    chat_id,
-                    user_id,
-                    text,
-                    bot_name,
-                    ctx_file,
-                    engine_fn,
-                    assistant_label,
-                ),
-                daemon=True,
-            )
+            if msg_obj.get("voice"):
+                t = threading.Thread(
+                    target=handle_voice,
+                    args=(
+                        token,
+                        chat_id,
+                        user_id,
+                        msg_obj["voice"],
+                        bot_name,
+                        ctx_file,
+                        engine_fn,
+                        assistant_label,
+                    ),
+                    daemon=True,
+                )
+            else:
+                t = threading.Thread(
+                    target=handle_message,
+                    args=(
+                        token,
+                        chat_id,
+                        user_id,
+                        text,
+                        bot_name,
+                        ctx_file,
+                        engine_fn,
+                        assistant_label,
+                    ),
+                    daemon=True,
+                )
             t.start()
+
 
         # Brief sleep between polls to avoid hammering Telegram
         time.sleep(POLL_INTERVAL)

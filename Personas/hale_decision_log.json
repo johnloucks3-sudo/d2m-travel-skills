@@ -1,0 +1,30 @@
+{
+  "decisions": [
+    {
+      "id": "D-20260513152410",
+      "timestamp": "2026-05-13T15:24:10.615959",
+      "type": "tactical",
+      "domain": "email_classification",
+      "description": "Email C2 outcome confirmed: general task \u2192 by Col Victoria 'Iron Vic' Hale \u2014 Chief of Staff.",
+      "outcome_correct": false,
+      "points_awarded": 0,
+      "trust_score_after": 50,
+      "streak_after": 1,
+      "autonomy_tier": "COS (Operational)",
+      "address_to_use": "Commander"
+    },
+    {
+      "id": "D-20260513153253",
+      "timestamp": "2026-05-13T15:32:53.637064",
+      "type": "tactical",
+      "domain": "email_classification",
+      "description": "Email C2 outcome confirmed: general task \u2192 itinerary",
+      "outcome_correct": false,
+      "points_awarded": 0,
+      "trust_score_after": 50,
+      "streak_after": 1,
+      "autonomy_tier": "COS (Operational)",
+      "address_to_use": "Commander"
+    }
+  ]
+}

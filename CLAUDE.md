@@ -4,6 +4,8 @@
 @Personas/hale_cos.md
 @Personas/a1_navarro.md
 @Personas/a8_reyes.md
+@docs/HALE_AGENT_TASKING_ARCHITECTURE.md
+@docs/HALE_AGENT_TASKING_QUICK_REF.md
 @docs/AGENTS_HEADLESS_DISPATCH_ARCHITECTURE.md
 @docs/OPENCODE_ESCALATION_MECHANISM.md
 @docs/HEADLESS_CLAUDE_SPAWN_GUIDE.md
@@ -241,9 +243,9 @@ See [docs/AGENT_TEAMS.md](docs/AGENT_TEAMS.md) for experimental team workflows.
 
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-05-13 15:07 MT -->
+<!-- Last sync: 2026-05-13 16:28 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-05-13 15:07 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-05-13 16:28 MT] ===
 Budget: Claude GREEN (MAX $0) | OpenCode GREEN (DeepSeek V3.1 ~$0.27/M) | Groq UNKNOWN | Deepseek GREEN
 Active tasks: 0
 Last Deepseek ruling: NONE
