@@ -8,7 +8,7 @@ import sys
 import json
 from datetime import datetime
 
-TELEGRAM_C2_SERVICE = "thunderbird-telegram-c2.service"
+TELEGRAM_C2_SERVICE = "thunderbird-telegram-gw.service"
 COMMANDER_ID = 7554895206
 
 def check_service_status():

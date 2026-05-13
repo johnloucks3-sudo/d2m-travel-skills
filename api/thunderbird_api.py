@@ -35,22 +35,103 @@ from fastapi import FastAPI, HTTPException, Header, Request
 from fastapi.responses import JSONResponse
 import uvicorn
 
-# Add project root to path
-sys.path.insert(0, str(Path(__file__).parent.parent))
+# Add project root and core to path
+project_root = Path(__file__).parent.parent
+sys.path.insert(0, str(project_root))
+sys.path.insert(0, str(project_root / "core"))
 
-from thunderbird_gmail import _get_gmail_service, _decode_body, _extract_headers, gmail_create_draft_sync
-from thunderbird_drive import _get_drive_service
-from thunderbird_fare_watch import list_watches, check_fare, add_watch, get_fare_history
-from thunderbird_ship_intel import run_ship_intelligence_sweep
-from thunderbird_world_intel import run_world_intelligence_sweep
-from thunderbird_tech_monitor import run_daily_tech_monitor
-from thunderbird_personas import (
-    PERSONA_REGISTRY, call_persona, run_staff_meeting, get_roster,
-    get_persona, build_system_prompt,
-)
-from thunderbird_flight_search import _auth_headers as _flight_auth, _format_flight_offers, AmadeusConfig
-from thunderbird_hotel_search import _auth_headers as _hotel_auth, _api_url as _hotel_api_url, _format_hotel_results
-from thunderbird_hud_memory import HudMemory
+# Conditional imports with fallback
+try:
+    from core.email.thunderbird_gmail import _get_gmail_service, _decode_body, _extract_headers, gmail_create_draft_sync, gmail_reply_in_thread
+except ImportError:
+    try:
+        from thunderbird_gmail import _get_gmail_service, _decode_body, _extract_headers, gmail_create_draft_sync, gmail_reply_in_thread
+    except ImportError:
+        print("⚠️  Gmail module not available. API will operate with reduced functionality.")
+        _get_gmail_service = None
+        gmail_reply_in_thread = None
+
+try:
+    from core.booking.thunderbird_drive import _get_drive_service
+except ImportError:
+    try:
+        from thunderbird_drive import _get_drive_service
+    except ImportError:
+        print("⚠️  Drive module not available.")
+        _get_drive_service = None
+
+try:
+    from core.intel.thunderbird_fare_watch import list_watches, check_fare, add_watch, get_fare_history
+except ImportError:
+    try:
+        from thunderbird_fare_watch import list_watches, check_fare, add_watch, get_fare_history
+    except ImportError:
+        list_watches = check_fare = add_watch = get_fare_history = None
+
+try:
+    from core.intel.thunderbird_ship_intel import run_ship_intelligence_sweep
+except ImportError:
+    try:
+        from thunderbird_ship_intel import run_ship_intelligence_sweep
+    except ImportError:
+        run_ship_intelligence_sweep = None
+
+try:
+    from core.intel.thunderbird_world_intel import run_world_intelligence_sweep
+except ImportError:
+    try:
+        from thunderbird_world_intel import run_world_intelligence_sweep
+    except ImportError:
+        run_world_intelligence_sweep = None
+
+try:
+    from core.intel.thunderbird_tech_monitor import run_daily_tech_monitor
+except ImportError:
+    try:
+        from thunderbird_tech_monitor import run_daily_tech_monitor
+    except ImportError:
+        run_daily_tech_monitor = None
+
+try:
+    from core.ai_infra.thunderbird_personas import (
+        PERSONA_REGISTRY, call_persona, run_staff_meeting, get_roster,
+        get_persona, build_system_prompt,
+    )
+except ImportError:
+    try:
+        from thunderbird_personas import (
+            PERSONA_REGISTRY, call_persona, run_staff_meeting, get_roster,
+            get_persona, build_system_prompt,
+        )
+    except ImportError:
+        PERSONA_REGISTRY = {}
+        print("⚠️  Persona module not available.")
+try:
+    from core.travel.thunderbird_flight_search import _auth_headers as _flight_auth, _format_flight_offers, AmadeusConfig
+except ImportError:
+    try:
+        from thunderbird_flight_search import _auth_headers as _flight_auth, _format_flight_offers, AmadeusConfig
+    except ImportError:
+        _flight_auth = None
+        print("⚠️  Flight search module not available.")
+
+try:
+    from core.travel.thunderbird_hotel_search import _auth_headers as _hotel_auth, _api_url as _hotel_api_url, _format_hotel_results
+except ImportError:
+    try:
+        from thunderbird_hotel_search import _auth_headers as _hotel_auth, _api_url as _hotel_api_url, _format_hotel_results
+    except ImportError:
+        _hotel_auth = None
+        print("⚠️  Hotel search module not available.")
+
+try:
+    from core.ai_infra.thunderbird_hud_memory import HudMemory
+except ImportError:
+    try:
+        from thunderbird_hud_memory import HudMemory
+    except ImportError:
+        HudMemory = None
+        print("⚠️  HUD memory module not available.")
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -96,7 +177,7 @@ def _get_api_key() -> str:
 
 
 API_KEY = _get_api_key()
-HUD_MEMORY = HudMemory()
+HUD_MEMORY = HudMemory() if HudMemory is not None else None
 
 # Bearer token auth (Authorization: Bearer <token>)
 BEARER_TOKEN_FILE = THUNDERBIRD_DIR / ".api_token"
@@ -123,7 +204,8 @@ from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.responses import JSONResponse as StarletteJSONResponse
 
 class BearerTokenMiddleware(BaseHTTPMiddleware):
-    """Enforce Authorization: Bearer <token> on all endpoints except /health."""
+    """Enforce auth on all endpoints except exempt paths.
+    Accepts either Authorization: Bearer <bearer_token> or x-api-key: <api_key>."""
 
     EXEMPT_PATHS = {"/api/health", "/docs", "/openapi.json", "/redoc", "/.well-known/agent.json",
                     "/api/travel-dna/interpret"}
@@ -133,31 +215,50 @@ class BearerTokenMiddleware(BaseHTTPMiddleware):
         if path in self.EXEMPT_PATHS:
             return await call_next(request)
 
+        # Accept x-api-key header (n8n workflows)
+        x_api_key = request.headers.get("x-api-key", "")
+        if x_api_key and secrets.compare_digest(x_api_key, API_KEY):
+            return await call_next(request)
+
+        # Accept Authorization: Bearer <token>
         auth_header = request.headers.get("authorization", "")
-        if not auth_header.startswith("Bearer "):
-            return StarletteJSONResponse(
-                status_code=401,
-                content={"detail": "Missing Authorization: Bearer <token> header"},
-            )
-        token = auth_header[7:]  # strip "Bearer "
-        if not secrets.compare_digest(token, BEARER_TOKEN):
+        if auth_header.startswith("Bearer "):
+            token = auth_header[7:]
+            if secrets.compare_digest(token, BEARER_TOKEN):
+                return await call_next(request)
             return StarletteJSONResponse(
                 status_code=403,
                 content={"detail": "Invalid bearer token"},
             )
-        return await call_next(request)
+
+        return StarletteJSONResponse(
+            status_code=401,
+            content={"detail": "Auth required: x-api-key header or Authorization: Bearer <token>"},
+        )
 
 app.add_middleware(BearerTokenMiddleware)
 
 # MCP Connector — unified proxy to all backend MCP servers
-from thunderbird_mcp_connector import get_connector_router
-app.include_router(get_connector_router())
+try:
+    from core.mcp.thunderbird_mcp_connector import get_connector_router
+    app.include_router(get_connector_router())
+except ImportError:
+    try:
+        from thunderbird_mcp_connector import get_connector_router
+        app.include_router(get_connector_router())
+    except ImportError:
+        print("⚠️  MCP connector not available.")
 
 # A2A Protocol — Google A2A spec compliance layer
-# /.well-known/agent.json is exempt from auth (public discovery)
-# /a2a/* routes require Bearer token (enforced by BearerTokenMiddleware)
-from thunderbird_a2a_protocol import get_a2a_router
-app.include_router(get_a2a_router())
+try:
+    from core.ai_infra.thunderbird_a2a_protocol import get_a2a_router
+    app.include_router(get_a2a_router())
+except ImportError:
+    try:
+        from thunderbird_a2a_protocol import get_a2a_router
+        app.include_router(get_a2a_router())
+    except ImportError:
+        print("⚠️  A2A protocol not available.")
 
 
 def _verify_key(x_api_key: Optional[str] = None):
@@ -404,6 +505,17 @@ async def get_fare_watches(x_api_key: str = Header(None)):
     return JSONResponse(result)
 
 
+@app.get("/api/blackboard")
+async def get_blackboard(x_api_key: str = Header(None)):
+    """Return current Thunderbird Wing blackboard state."""
+    _verify_key(x_api_key)
+    bb_path = project_root / "OpsCenter" / "collaboration" / "blackboard.md"
+    if not bb_path.exists():
+        raise HTTPException(status_code=404, detail="Blackboard not found")
+    content = bb_path.read_text()
+    return JSONResponse({"content": content, "path": str(bb_path), "timestamp": datetime.now().isoformat()})
+
+
 # ============================================================================
 # GENERIC TOOL EXECUTOR
 # ============================================================================
@@ -448,6 +560,20 @@ def _build_tool_registry():
             label_review=kwargs.get("label_review", True),
         )
 
+    async def _gmail_reply_in_thread(**kwargs):
+        """Thread-aware reply from d2mconcierge to Commander (within-wing only)."""
+        if gmail_reply_in_thread is None:
+            return {"status": "error", "error": "gmail_reply_in_thread not available — Gmail module failed to import"}
+        return gmail_reply_in_thread(
+            thread_id=kwargs["thread_id"],
+            in_reply_to=kwargs["in_reply_to"],
+            subject=kwargs.get("subject", ""),
+            body=kwargs.get("body", ""),
+            html_body=kwargs.get("html_body"),
+            persona_id=kwargs.get("persona_id", "COS"),
+            to=kwargs.get("to", "johnloucks3@gmail.com"),
+        )
+
     TOOL_REGISTRY.update({
         "run_ship_intelligence_sweep": _run_ship_intel,
         "run_world_intelligence_sweep": _run_world_intel,
@@ -457,6 +583,7 @@ def _build_tool_registry():
         "fare_watch_add": _fare_watch_add,
         "fare_watch_history": _fare_watch_history,
         "gmail_create_draft": _gmail_create_draft,
+        "gmail_reply_in_thread": _gmail_reply_in_thread,
     })
 
 
@@ -1465,7 +1592,7 @@ Each score 0–3: 0=no signal, 1=slight, 2=clear, 3=strong. Most should be 0–1
             api_key=or_key,
         )
         resp = or_client.chat.completions.create(
-            model="qwen/qwen3.6-plus-04-02:free",
+            model="deepseek/deepseek-chat-v3.1",
             max_tokens=120,
             messages=[
                 {"role": "system", "content": system},

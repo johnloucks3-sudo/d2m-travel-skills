@@ -2189,6 +2189,101 @@ def gmail_send_from_wing(
     }
 
 
+def gmail_reply_in_thread(
+    thread_id: str,
+    in_reply_to: str,
+    subject: str,
+    body: str,
+    html_body: Optional[str] = None,
+    persona_id: str = "COS",
+    to: str = "johnloucks3@gmail.com",
+) -> dict:
+    """Send a thread-aware reply FROM d2mconcierge TO Commander (within-wing).
+
+    Sets In-Reply-To + References headers so Gmail nests the reply in the
+    correct conversation thread.  This is the primary send path for HALE
+    Email C2 (both ack messages and full responses).
+
+    Args:
+        thread_id:    Gmail thread ID — places message in existing thread.
+        in_reply_to:  RFC 2822 Message-ID of the email being replied to.
+                      May include angle brackets or bare string; normalised here.
+        subject:      Subject line (should match original thread subject).
+                      "Re: " prefix added automatically if absent.
+        body:         Plain-text body (always sent; shown in plain-text clients).
+        html_body:    Optional HTML body.  None → plain text only (for ack msgs).
+                      Supply wing stationery HTML for full HALE responses.
+        persona_id:   Persona sending the reply (default: COS / Iron Vic).
+        to:           Recipient address.  Must be a Commander-owned address;
+                      enforced here — no accidental client sends via this path.
+
+    Returns:
+        {"status": "success", "message_id": str, "thread_id": str, ...}
+    """
+    # Hard guard — this path is within-wing only (SO 21 MAR 2026 + SO 24 MAR 2026)
+    if to.lower() not in {addr.lower() for addr in COMMANDER_ADDRS}:
+        return {
+            "status": "blocked",
+            "error": (
+                f"gmail_reply_in_thread: '{to}' is not a Commander-owned address. "
+                "Email C2 replies are within-wing only. Use gmail_send_as_persona "
+                "for client sends after WF-17 Commander approval."
+            ),
+        }
+
+    service = _get_wing_gmail_service()
+    pid = persona_id.upper()
+    display_name = PERSONA_DISPLAY_NAMES.get(pid, PERSONA_DISPLAY_NAMES.get("COS", "Victoria Hale, D2M Travel"))
+
+    # Normalise In-Reply-To — RFC 2822 requires angle brackets
+    msg_id_header = in_reply_to if in_reply_to.startswith("<") else f"<{in_reply_to}>"
+
+    # Subject — ensure "Re: " prefix
+    reply_subject = subject if subject.lower().startswith("re:") else f"Re: {subject}"
+
+    # Build MIME message
+    if html_body:
+        msg = MIMEMultipart("alternative")
+        msg.attach(MIMEText(body, "plain"))
+        msg.attach(MIMEText(html_body, "html"))
+    else:
+        msg = MIMEMultipart("alternative")
+        msg.attach(MIMEText(body, "plain"))
+
+    msg["to"] = to
+    msg["from"] = f'"{display_name}" <{WING_GMAIL_ADDRESS}>'
+    msg["reply-to"] = WING_GMAIL_ADDRESS
+    msg["subject"] = reply_subject
+    msg["In-Reply-To"] = msg_id_header
+    msg["References"] = msg_id_header  # single parent; daemon extends for chains
+
+    raw = base64.urlsafe_b64encode(msg.as_bytes()).decode("utf-8")
+
+    # threadId in the request body places this message in the existing Gmail thread
+    result = service.users().messages().send(
+        userId="me",
+        body={"raw": raw, "threadId": thread_id},
+    ).execute()
+
+    _log_email_action(
+        to=to,
+        subject=reply_subject,
+        persona_id=pid,
+        auto_send=True,
+        ref_id=result.get("id", ""),
+    )
+
+    return {
+        "status": "success",
+        "action": "replied",
+        "message_id": result.get("id"),
+        "thread_id": thread_id,
+        "from": f"{display_name} <{WING_GMAIL_ADDRESS}>",
+        "to": to,
+        "subject": reply_subject,
+    }
+
+
 def gmail_send_as_persona(to: str, subject: str, body: str, persona_id: str = "CONCIERGE", cc: Optional[str] = None) -> dict:
     """Synchronous wrapper: send an email as a D2M persona.
 
