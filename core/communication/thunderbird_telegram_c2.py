@@ -1231,7 +1231,6 @@ async def handle_plain_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
             persona="COS",
             intent_type="TASK",
             conversation_history=conv_hist or None,
-            recent_context=recent_context or None,
             on_progress=on_progress,
             draft_mode=is_draft,
         )
