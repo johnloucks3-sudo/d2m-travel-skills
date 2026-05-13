@@ -1,14 +1,14 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-05-13 16:26:36 MDT
+## Generated: 2026-05-13 16:36:36 MDT
 
 ---
 
 ### Recent Commits
+- e7572058 feat: HALE Agent Tasking Architecture — OpenCode & Claude Code dispatch
 - 0deb6952 feat: Agent Pool Manager for OpenCode + Claude orchestration
 - 25b59e44 Fix Telegram C2 daemon startup failure
 - b3e66a14 feat: three harness refinements — code gate, auto-retros, context7
 - 19328eff feat: HALE Email C2 — Thread-aware daemon with full MCP parity (Phases 1-3)
-- 6e3448d8 ops: ETB 001/004 COMPLETE — n8n Gmail trigger + ELON task webhook + autonomy broadcast
 
 ### Uncommitted Changes
  M CLAUDE.md
@@ -17,15 +17,9 @@
  M OpsCenter/GOOSE_INIT.md
  M OpsCenter/collaboration/blackboard_summary.txt
  M OpsCenter/collaboration/routing_log.md
- M OpsCenter/task_queue.db
- M OpsCenter/thunderbird_telegram_gw.py
- M dossiers/Heer_Ann_Shawn_Japan.md
+ M core/communication/thunderbird_telegram_c2.py
  m reverie
- M session_autosave_latest.html
  M session_autosave_latest.md
-?? Personas/hale_decision_log.json
-?? Personas/hale_trust_data.json
-?? data/email_c2_processed.json
 
 ### Inbox Status
 - Claude inbox: 0

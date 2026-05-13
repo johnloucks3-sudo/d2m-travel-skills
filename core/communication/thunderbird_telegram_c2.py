@@ -546,34 +546,24 @@ async def cmd_persona(update: Update, context: ContextTypes.DEFAULT_TYPE):
         result = await call_cos_via_sdk(
             message=query, persona=persona_id, intent_type="TASK",
             on_progress=on_progress, draft_mode=is_draft,
-            recent_context=recent_context or None,
+            conversation_history=recent_context or None,
         )
         answer = result.get("response", "COS reporting: No response generated.")
     except Exception as e:
         logger.error(f"C2 persona call failed: {e}")
         answer = f"Error: {e}"
-    finally:
-        stop_event.set()
-        hb_task.cancel()
-        typing_task.cancel()
-
-    try:
-        await ack_msg.delete()
-    except Exception:
-        pass
-
-    _add_to_history(user_id, "assistant", answer)
-    _log_command("TASK", persona_id, query, answer)
-
-    # Save to persistent conversation memory bridge
-    _bridge.add(
-        chat_id=str(update.effective_chat.id),
-        bot_source="d2mc2",
-        user_message=query,
-        bot_response=answer,
-        session_id=str(user_id),
-        user_id=user_id,
+    
+    # ...
+    # Somewhere else, the other call:
+    result = await call_cos_via_sdk(
+        message=query,
+        persona="COS",
+        intent_type="TASK",
+        conversation_history=recent_context or None,
+        on_progress=on_progress,
+        draft_mode=is_draft,
     )
+
 
     header = format_persona_header(persona_id)
     await send_long_message(update, f"{header}\n\n{answer}")
