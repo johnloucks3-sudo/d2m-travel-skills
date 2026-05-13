@@ -144,6 +144,16 @@ NON-NEGOTIABLE. All 8 required before client release.
 - Interview with multiple-choice questions before major coding tasks
 - Ask permission for architectural changes; bug fixes and small edits proceed directly
 
+### ⚠️ HARD RULE — CODE TASK COMPLETION GATE (Standing Order 13 MAY 2026)
+**Claude may not report a code task complete without running the verify/test command and displaying output.**
+- *"It should work"* is NOT a completion statement.
+- *"I've made the changes"* is NOT a completion statement.
+- Valid completion = run the verification command + show the actual output.
+- If no test exists: run the file, import it, or execute a smoke check. Show the result.
+- Gate applies to: all code edits, new modules, script fixes, config changes.
+- Exception: pure documentation or comment-only changes.
+- Code-deliverable equivalent of WF-17.
+
 ### Booking Protocol — Auto-Dossier
 See `dossiers/CLAUDE.md` for full dossier conventions and FPD rules.
 1. Create/update dossier in `~/Thunderbird/dossiers/`
@@ -231,11 +241,11 @@ See [docs/AGENT_TEAMS.md](docs/AGENT_TEAMS.md) for experimental team workflows.
 
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-05-07 01:29 MT -->
+<!-- Last sync: 2026-05-13 15:07 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-05-07 01:29 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-05-13 15:07 MT] ===
 Budget: Claude GREEN (MAX $0) | OpenCode GREEN (DeepSeek V3.1 ~$0.27/M) | Groq UNKNOWN | Deepseek GREEN
-Active tasks: 2
+Active tasks: 0
 Last Deepseek ruling: NONE
 Open items: none logged
 Next priority: check session_autosave_latest.md
