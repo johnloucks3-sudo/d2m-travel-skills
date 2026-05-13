@@ -354,13 +354,13 @@ async def cmd_help(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "",
         "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
         "*OpenClaw Commands*",
-        "/build-skill <description> — Build a Python skill from natural language",
+        "/build_skill <description> — Build a Python skill from natural language",
         "/spawn <n> <task> — Spawn N agents for parallel work (1-5)",
         "/heartbeat — Run proactive system health assessment",
         "",
         "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
         "*OpenClaw Commands*",
-        "/build-skill <description> — Build a Python skill from natural language",
+        "/build_skill <description> — Build a Python skill from natural language",
         "/spawn <n> <task> — Spawn N agents for parallel work (1-5)",
         "/heartbeat — Run proactive system health assessment",
         "",
@@ -1994,16 +1994,16 @@ async def cmd_approve(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def cmd_build_skill(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """OpenClaw P0: Build a skill from natural language description.
 
-    Usage: /build-skill <description>
-    Example: /build-skill Check hotel prices in any city and return formatted comparison
+    Usage: /build_skill <description>
+    Example: /build_skill Check hotel prices in any city and return formatted comparison
     """
     requirement = " ".join(context.args) if context.args else ""
     if not requirement:
         await update.message.reply_text(
             "🔧 *Build Skill*\n\n"
-            "Usage: `/build-skill <description>`\n\n"
+            "Usage: `/build_skill <description>`\n\n"
             "Example:\n"
-            "`/build-skill Check hotel prices in any city and return formatted comparison`\n\n"
+            "`/build_skill Check hotel prices in any city and return formatted comparison`\n\n"
             "_Sonnet will generate the Python skill, validate it, and register it._",
             parse_mode=ParseMode.MARKDOWN,
         )
@@ -2224,7 +2224,7 @@ def main():
     app.add_handler(CommandHandler("ask", cmd_ask))
 
     # OpenClaw adaptation commands
-    app.add_handler(CommandHandler("build-skill", cmd_build_skill))
+    app.add_handler(CommandHandler("build_skill", cmd_build_skill))
     app.add_handler(CommandHandler("spawn", cmd_spawn))
     app.add_handler(CommandHandler("heartbeat", cmd_heartbeat))
 
