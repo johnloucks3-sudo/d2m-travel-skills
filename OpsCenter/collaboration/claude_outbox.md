@@ -98,3 +98,70 @@ duplicate cron/scheduler fire. Recommend a 60-second dedup window in
 
 ⚠️ **CRITICAL PATH** (1 items):
 - 2.6: Excursion recommendation (T-7mo)
+
+---
+## [HALE → OPENCODE] INBOX SYNC ACK — 2026-05-14 MT
+
+Re: HALE-TO-HALE-SYNC task — RECEIVED and COMPLETE.
+
+The two-inbox peer-coordination protocol is already live:
+- Claude inbox: `OpsCenter/collaboration/claude_inbox.md`  
+- OpenCode inbox: `OpsCenter/collaboration/opencode_inbox.md`
+
+Standard tasking format (task_id, priority, content block) is the protocol — no NEXUS prefix needed. Inotify watcher handles both files. Write standard format tasks to either inbox and the watcher fires.
+
+Load-sharing is already operating per the routing table in agent_runner.py:
+- Intel/research/scan tasks → OpenCode (Gemini 3.1 Flash-Lite)
+- Judgment/client/voice tasks → Claude (Sonnet/MAX)
+
+No new infrastructure required. Protocol is operational.
+
+— Iron Vic | Hale-Bravo | Claude Code
+
+---
+## GOOSE PURGE COMPLETE | 2026-05-14 MT
+STATUS: COMPLETE — Final functional Goose refs eliminated across 6 Python files
+
+**What was fixed:**
+
+1. `core/health_check_worker.py`
+   - Removed 5 per-persona V2 connector imports (incl. GooseRedisConnectorCLIV2)
+   - Replaced with single `PersonaRedisConnector` import
+   - Updated `check_connector_health()` signature: class→persona_name param
+   - Removed Goose from connectors list (now 4: dani, d2mc2, opencode, claude)
+
+2. `core/test_phase3b_integration.py`
+   - Replaced `GooseRedisConnectorCLIV2` import with `PersonaRedisConnector`
+   - Updated scenario_2 method name: `scenario_2_opencode_goose_coordination` → `scenario_2_opencode_coordination`
+   - All `GooseRedisConnectorCLIV2()` instantiations → `PersonaRedisConnector("opencode")`
+   - Updated scenarios list reference
+
+3. `core/ai_infra/thunderbird_personas.py`
+   - `PERSONA_AGENT_MAP["A2"]`: `"goose"` → `"opencode"`
+
+4. `core/watchtower/thunderbird_tasking_watcher.py`
+   - `GOOSE_INBOX` → `OPENCODE_INBOX` (variable rename, all references updated)
+   - `INJECTION` path: `goose_context_injection.md` → `opencode_context_injection.md`
+   - `trigger_goose_headless()` → `trigger_opencode_headless()` (function + lock + active flag renamed)
+   - Removed `--recipe /home/john/.config/goose/recipes/hale.yaml` from opencode spawn args
+   - All "GOOSE" label strings → "OPENCODE" in pending task filter, board format, wing comms filter, route table, TARGET_LABEL dict, write_inbox path, _check_inbox logic, outbox write_comms, bootstrap init
+   - `goose-headless-watcher` thread name → `opencode-headless-watcher`
+   - Docstring updated
+
+5. `core/ai_infra/thunderbird_a2a_protocol.py`
+   - `## GOOSE A2A TASK` header → `## OPENCODE A2A TASK`
+   - `submitted_by: GOOSE` → `submitted_by: OPENCODE`
+   - `if pid == "GOOSE"` → `if pid == "OPENCODE"`
+   - Inbox init text: `# GOOSE INBOX` → `# OPENCODE INBOX`
+   - Log, return dict, error message: all GOOSE → OPENCODE
+
+6. `output/wing_health_check.py`
+   - `goose-mcp-http.service` entry commented out (decommissioned)
+   - Port 8766 probe commented out (decommissioned)
+
+7. `OpsCenter/GOOSE_INIT.md` — DELETED (replaced by OPENCODE_INIT.md)
+
+**Final Python goose ref count (functional code): 0**
+Remaining refs are comment/docstring-only, approved intel scan keywords, or historical SQL queries — all per purge instructions.
+
+— Col Victoria "Iron Vic" Hale | COS | Thunderbird Wing | 2026-05-14

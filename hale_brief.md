@@ -1,5 +1,5 @@
 # HALE — Daily Brief
-*Generated: 2026-05-06 06:46 MT*
+*Generated: 2026-05-14 06:46 MT*
 
 ---
 
@@ -9,91 +9,97 @@
 
 🦅
 
----
-
-# THUNDERBIRD — DAILY OPERATIONAL BRIEF
-**2026-05-06 · Col Victoria "Iron Vic" Hale, COS**
+**THUNDERBIRD DAILY BRIEF — 2026-05-14 | COO DISPOSITION**
 
 ---
 
-## 1. CLIENT WIRE
+### 1. CLIENT WIRE
 
-| Client | Phase | Ship | Key Item |
-|--------|-------|------|----------|
-| Lyons | Pre-Booking | RSSC Splendor | Awaiting Commander direction |
-| Furlow | TP2 — Final Payment | Grandeur Scandinavia | **PAID** — $15,486 confirmed. FPD archived. No action. |
-| Kuklinski | TP1 — Validation | Viking Mars Panama | Validation sent. Insurance deferred. Monitor. |
-| McLeod | TP0.5/0.6 | Grandeur Lesser Antilles | Dossier current. Research window opens mid-May. |
-| Nichols | Booked | Grandeur | Stable. No open items. |
-
----
-
-## 2. OPEN TASKS
-
-| Priority | Task | Owner | Status |
-|----------|------|-------|--------|
-| 🔴 | OAuth `invalid_scope` error in open_tasks queue | HALE | Investigating — root cause, not symptom |
-| 🟡 | Redis connection — multiple SPSA cases (3A/3B/3C) | Eng | Phase 3A deployed; connectors refactor target was 2026-05-05 — **overdue** |
-| 🟡 | TESS re-authentication flagged | HALE | State shows ONLINE, SPSA shows auth flag — verifying |
-| 🟡 | Chrome debug offline (port 9222) | Infra | Non-blocking. Flagged. |
-| ⚪ | Phase 3B integration testing | Eng | Pending Phase 3A connector refactor completion |
+| Client | Phase | Status | Open Item |
+|--------|-------|--------|-----------|
+| **Furlow** | TP2 — Final Payment | FPD confirmed | None — closed |
+| **Kuklinski** | TP1 — Validation | Email sent | Insurance deferred — 7-day follow-up due |
+| **McLeod** | TP0.5/0.6 | Pre-departure window | Shore excursion + flight search opens mid-May |
+| **Nichols** | Booked — Grandeur | Dining window opens May 31 | Navarro inference profile due in 7 days |
+| **Lyons** | Pre-booking | Pending A1 profile | 48-hour gate — Navarro profile required before Dani makes contact |
 
 ---
 
-## 3. FINANCIAL PULSE
+### 2. OPEN TASKS
+
+| Priority | Item | Owner | Urgency |
+|----------|------|-------|---------|
+| 🔴 RED | 5× SPSA: OpenCode daemon not running (state shows RUNNING — **discrepancy**) | Hale/Investigate | Immediate |
+| 🟡 YELLOW | 5× SPSA: MCP server health check failed | Hale | Today |
+| 🟡 | Google Tasks API 403 — insufficient scope on tasks.googleapis.com | Hale | Background |
+| 🟡 | A1 Navarro — Lyons inference profile | Navarro | 48h deadline |
+| 🟡 | A1 Navarro — Kuklinski, McLeod, Nichols inference profiles | Navarro | 7 days |
+| 🟡 | A1 Navarro — Heer (Ann/Shawn + daughters) inference profile | **COMPLETE** 2026-05-14 | Route to A8 Reyes — Japan 85 days out, Obon urgent |
+| 🔴 HIGH VALUE | A1 Navarro — Spencer (Bill/Kathleen, 12-pax Grand Tour 2027) inference profile | **COMPLETE** 2026-05-14 | Disney Wish BN pending; deliverable June 10 (flights) + June 17 (full pkg) |
+
+---
+
+### 3. FINANCIAL PULSE
 
 | Metric | Value |
 |--------|-------|
-| D2M Pipeline (upcoming, 23 voyages) | **$21,440.75** |
-| Commission Expected (sheet, 35 bookings) | **$35,214.47** |
-| D2M Share (total) | **$27,146.41** |
-| Received (TESS) | $244.80 |
-| Overdue | $0.00 |
-| TESS Trips/Bookings/Clients | 12 / 17 / 18 |
+| D2M pipeline (upcoming) | **$21,440.75** — 23 voyages |
+| Commission expected (sheet) | $35,214.47 gross / $27,146.41 D2M share |
+| Received (TESS) | $244.80 — 1 check |
+| Due now | $0.00 |
+| TESS bookings | 17 bookings / 18 clients / 12 trips |
+
+No payment emergencies. Harlan's first weekly pulse review fires Monday.
 
 ---
 
-## 4. WING HEALTH
+### 4. WING HEALTH
 
 | System | Status |
 |--------|--------|
-| MCP Server (port 8765) | ✅ ONLINE |
-| Tasking Watcher (V6) | ✅ RUNNING |
-| OpenCode (DeepSeek V3.1) | ✅ RUNNING |
+| MCP Server | ✅ ONLINE (port 8765) |
+| OpenCode | ✅ RUNNING (Gemini 3.1 Flash-Lite via OpenRouter) |
+| Tasking Watcher | ✅ RUNNING (V6 inotify) |
 | Claude Headless | ✅ READY (Max OAuth) |
-| Telegram GW (3 bots) | ✅ RUNNING |
+| Telegram Gateway | ✅ LIVE — D2MC2C (@D2MC2C_bot) + Dani (@d2m_channels_bot) |
 | TESS Auth | ✅ ONLINE |
-| Chrome Debug | ❌ OFFLINE (port 9222) |
-| Goose | ⚠️ UNKNOWN |
-| OAuth Cache | ✅ LIVE (auto-refresh active) |
+
+Chrome debug offline is low impact. Telegram status needs a live ping to confirm.
 
 ---
 
-## 5. STAFF ASSIGNMENTS
+### 5. STAFF ASSIGNMENTS
 
-All A-staff dormant. Hale is sole active. No briefings, no client actions queued to any persona. Standing by for Commander direction to activate Dani (Lyons/Kuklinski), Dembe (McLeod mid-May research), or Reyes (new intake).
-
----
-
-## 6. DECISIONS NEEDED
-
-| # | Item | Decision |
-|---|------|----------|
-| 1 | Lyons — Dani first contact | **Commander call.** Dossier ready. |
-| 2 | Phase 3B — authorize integration testing | Confirm when 3A refactor is verified complete |
-
-No financial commits pending. No client sends queued at WF-17.
+| Staff | Status | Active Focus |
+|-------|--------|--------------|
+| **Hale** | Active | COO ops, brief, SPSA triage |
+| **Navarro (A1)** | Activated 2026-05-13 | Lyons (48h), Kuklinski/McLeod/Nichols (7d) |
+| **Reyes (A8)** | Activated 2026-05-13 | Monthly dossier scan — fires 1st of month |
+| **Castillo (A5)** | Rechartered — Deputy COS | First weekly biz review due Friday |
+| **Harlan (A9)** | Probation until 2026-06-13 | First financial pulse review due Monday |
+| **ELON (A12)** | Rechartered — weekly kill audit | First audit due Wednesday |
+| **All others** | Idle | — |
 
 ---
 
-## 7. INTEL FLASH
+### 6. DECISIONS NEEDED
 
-Commander last active: **2026-04-24** (12 days). Autonomous wing ops have continued under SO-2026-05-04. All decisions logged to `hale_decisions.md`. Pipeline healthy. No revenue at risk.
+| # | Item | Action Required |
+|---|------|----------------|
+| 1 | SPSA state discrepancy — OpenCode shows RUNNING in state but 5× RED SPSAs flag it down | Commander: confirm if SPSAs are stale or if there's a real daemon split |
+| 2 | Kuklinski insurance follow-up | Approve timing: now or at 14-day mark post-validation? |
+| 3 | Lyons first contact | Pending Navarro profile — no Commander action yet, just awareness |
 
 ---
 
-*— Iron Vic | Thunderbird Wing | 2026-05-06 0645 MT*
+### 7. INTEL FLASH
+
+Staff Transformation (2026-05-13) fully loaded — 6 rechartered/activated slots, 5 standing hooks live, Naia mandatory-stop trigger active. First performance gates hit June 13.
 
 ---
-*— Col Victoria "Iron Vic" Hale | Thunderbird Wing | 2026-05-06 06:46 MT*
-*Next brief: 2026-05-07 07:00 MT*
+
+*— Iron Vic | Thunderbird Wing | 2026-05-14 | Next brief: 2026-05-15 07:00 MT*
+
+---
+*— Col Victoria "Iron Vic" Hale | Thunderbird Wing | 2026-05-14 06:46 MT*
+*Next brief: 2026-05-15 07:00 MT*

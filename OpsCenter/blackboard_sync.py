@@ -6,9 +6,9 @@ Runs every 5 minutes via systemd timer.
 
 Entry points served:
   1. CLAUDE.md              → Claude Code on YOGA (auto-loaded)
-  2. GOOSE_INIT.md          → Goose (paste-in kept current)
+  2. OPENCODE_INIT.md     → OpenCode (paste-in kept current)
   3. CLAUDE_DESKTOP_INIT.md → Claude Desktop / Chromebook (paste-in kept current)
-  4. blackboard_summary.txt → Goose TOM + SSH MOTD + Hale context
+  4. blackboard_summary.txt → OpenCode TOM + SSH MOTD + Hale context
   5. .bashrc MOTD           → reads blackboard_summary.txt (one-time setup)
   6. task_processor.py      → Hale reads blackboard_summary.txt (one-time edit)
 
@@ -32,7 +32,7 @@ RATE_LIMIT  = COLLAB / "rate_limit_status.md"
 ROUTING_LOG = COLLAB / "routing_log.md"
 SESSION     = ROOT / "session_autosave_latest.md"
 CLAUDE_MD   = ROOT / "CLAUDE.md"
-GOOSE_INIT  = OPSCENTER / "GOOSE_INIT.md"
+OPENCODE_INIT = OPSCENTER / "OPENCODE_INIT.md"
 DESKTOP_INIT = OPSCENTER / "CLAUDE_DESKTOP_INIT.md"
 
 MT = timezone(timedelta(hours=-6))
@@ -192,14 +192,14 @@ def run_sync():
     summary = _build_summary(bb, rl, session)
     md_block = _build_md_block(summary)
 
-    # ── Write blackboard_summary.txt (Goose TOM + SSH MOTD + Hale) ──
+    # ── Write blackboard_summary.txt (OpenCode TOM + SSH MOTD + Hale) ──
     ok1 = _safe_write(SUMMARY_TXT, summary)
 
     # ── Inject into CLAUDE.md ──
     ok2 = _inject_sentinel(CLAUDE_MD, md_block)
 
-    # ── Inject into GOOSE_INIT.md ──
-    ok3 = _inject_sentinel(GOOSE_INIT, md_block)
+    # ── Inject into OPENCODE_INIT.md ──
+    ok3 = _inject_sentinel(OPENCODE_INIT, md_block)
 
     # ── Inject into CLAUDE_DESKTOP_INIT.md ──
     ok4 = _inject_sentinel(DESKTOP_INIT, md_block)
@@ -207,7 +207,7 @@ def run_sync():
     results = {
         "blackboard_summary.txt": ok1,
         "CLAUDE.md":              ok2,
-        "GOOSE_INIT.md":          ok3,
+        "OPENCODE_INIT.md":       ok3,
         "CLAUDE_DESKTOP_INIT.md": ok4,
     }
     failed = [k for k, v in results.items() if not v]

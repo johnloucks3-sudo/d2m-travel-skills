@@ -13,7 +13,6 @@ Three bots. One process. Clean output.
 Bot         Token prefix  Engine         Identity     Audience
 ─────────────────────────────────────────────────────────────
 D2MC2C      8754681793    Claude -p      Hale (COS)   Commander only
-GooseD2M    8774569956    Goose run      Hale (COS)   Commander only
 Dani        8723918695    Claude -p      Dani Moreau  Clients + Commander
 
 Message Flow:
@@ -21,7 +20,7 @@ Message Flow:
       → COMMANDER_ID whitelist check
       → typing... indicator
       → load rolling context (last 10 turns)
-      → invoke engine (Claude or Goose headless)
+      → invoke engine (Claude or OpenCode headless)
       → Formatter Pipeline (5 stages)
       → send clean chunks (0.5s gap)
       → append exchange to rolling context file
@@ -30,7 +29,6 @@ Slash commands (all bots):
     /new     — clear context, fresh session
     /status  — wing health + last activity
     /help    — show available commands
-    /brief   — (GooseD2M only) trigger Hale morning brief
 
 Telegram overrides (D2MC2C only):
     OPUS: [task]   → route to claude-opus-4-6
@@ -114,7 +112,7 @@ HALE_BRIEF = THUNDERBIRD / "hale_brief.md"
 STAFF_INTRO = PERSONAS / "D2M_Staff_Introduction.md"
 
 CTX_D2MC2C = OPS / "context_d2mc2c.json"
-CTX_GOOSE = OPS / "context_goose.json"
+CTX_OPENCODE = OPS / "context_opencode.json"
 CTX_DANI = OPS / "context_dani.json"
 
 
@@ -136,7 +134,6 @@ _load_env_file("/home/john/Thunderbird/.env")
 _load_env_file("/home/john/Thunderbird/config/telegram_gw.env")
 
 TOKEN_D2MC2C = os.environ.get("TELEGRAM_D2MC2C_TOKEN", "")
-TOKEN_GOOSE = os.environ.get("TELEGRAM_GOOSE_TOKEN", "")
 TOKEN_DANI = os.environ.get("TELEGRAM_DANI_TOKEN", "")
 COMMANDER_ID = int(os.environ.get("TELEGRAM_COMMANDER_ID", "7554895206"))
 POLL_INTERVAL = float(os.environ.get("TELEGRAM_GW_POLL_INTERVAL", "2"))
@@ -276,7 +273,7 @@ Respond warmly, briefly, and with certainty. Mobile-first: ≤4096 chars, scanna
 # ── Rolling Context Management ────────────────────────────────────────────────
 _CTX_LOCKS: dict[Path, threading.Lock] = {
     CTX_D2MC2C: threading.Lock(),
-    CTX_GOOSE: threading.Lock(),
+    CTX_OPENCODE: threading.Lock(),
     CTX_DANI: threading.Lock(),
 }
 
@@ -547,8 +544,8 @@ def call_opencode_engine(
     return "[Engine error — all models exhausted (rate limits + timeouts)]"
 
 
-# Legacy alias — keeps any remaining call_goose_engine references working
-call_goose_engine = call_opencode_engine
+# Legacy alias — keeps any remaining call_opencode_engine references working
+call_opencode_engine = call_opencode_engine
 
 
 # ── Engine: Direct OpenRouter API — call any model by ID ─────────────────────
@@ -656,7 +653,7 @@ def handle_status(token: str, chat_id: int) -> None:
     # Context activity
     for label, ctx_file in [
         ("D2MC2C", CTX_D2MC2C),
-        ("GooseD2M", CTX_GOOSE),
+        ("DECOMMISSIONED", CTX_OPENCODE),
         ("Dani", CTX_DANI),
     ]:
         if ctx_file.exists():
@@ -686,15 +683,15 @@ def handle_help(token: str, chat_id: int, bot_name: str) -> None:
 /approve [id] — Send a draft (first 20 chars of ID)
 /reject [id] — Delete a draft
 """
-    if bot_name == "GooseD2M":
+    if bot_name == "DECOMMISSIONED":
         msg += "/brief — Trigger Hale morning brief\n"
     msg += "\n<b>🔄 Both Ways Cross-Bot:</b>\n"
     if bot_name == "D2MC2C":
-        msg += "<code>@goose [msg]</code> — Task Goose\n<code>@dani [msg]</code> — Task Dani\n"
-    elif bot_name == "GooseD2M":
+        msg += "<code>@opencode [msg]</code> — Task OpenCode\n<code>@dani [msg]</code> — Task Dani\n"
+    elif bot_name == "DECOMMISSIONED":
         msg += "<code>@claude [msg]</code> — Task Claude\n<code>@dani [msg]</code> — Task Dani\n"
     elif bot_name == "Dani":
-        msg += "<code>@goose [msg]</code> — Task Goose\n<code>@claude [msg]</code> — Task Claude\n"
+        msg += "<code>@opencode [msg]</code> — Task OpenCode\n<code>@claude [msg]</code> — Task Claude\n"
     msg += "\n<b>Model Overrides:</b>\n"
     msg += "<code>OPUS: [task]</code> — Claude Opus\n"
     msg += "<code>Sonnet: [task]</code> — Claude Sonnet\n"
@@ -720,7 +717,7 @@ def handle_brief(token: str, chat_id: int) -> None:
 Format: structured, scannable. Highlight CRITICAL items first.
 If the brief is stale or missing, summarize what you know about current wing status."""
 
-    raw = call_goose_engine(system, text, use_mcp=True)
+    raw = call_opencode_engine(system, text, use_mcp=True)
     chunks = fmt_process(raw, CHUNK_SIZE)
     tg_send_chunks(token, chat_id, chunks)
 
@@ -900,34 +897,34 @@ def handle_reject(token: str, chat_id: int, args: list) -> None:
 
 
 def _detect_forward(msg: str, bot_name: str) -> str | None:
-    """Return 'goose', 'claude', or 'dani' if msg targets them. Works with typed @ or voice 'at'."""
+    """Return 'opencode', 'claude', or 'dani' if msg targets them. Works with typed @ or voice 'at'."""
     lower = msg.lower().strip()
 
     # Regex catches:
-    # 1. Typed: "@goose do this"
-    # 2. Voice: "at goose do this"
-    # 3. Short: "goose, do this" (Name as imperative)
+    # 1. Typed: "@opencode do this"
+    # 2. Voice: "at opencode do this"
+    # 3. Short: "opencode, do this" (Name as imperative)
 
-    p_goose = re.compile(r"^(@|at\s+)?goose[,\s:].*")
+    p_opencode_cmd = re.compile(r"^(@|at\s+)?opencode[,\s:].*")
     p_claude = re.compile(r"^(@|at\s+)?(claude|hale)[,\s:].*")
     p_dani = re.compile(r"^(@|at\s+)?dani[,\s:].*")
 
     if bot_name == "D2MC2C":
         # Currently talking to Claude. Forward others.
-        if p_goose.match(lower):
-            return "goose"
+        if p_opencode.match(lower):
+            return "opencode"
         if p_dani.match(lower):
             return "dani"
-    elif bot_name == "GooseD2M":
-        # Currently talking to Goose. Forward others.
+    elif bot_name == "DECOMMISSIONED":
+        # Currently talking to OpenCode. Forward others.
         if p_claude.match(lower):
             return "claude"
         if p_dani.match(lower):
             return "dani"
     elif bot_name == "Dani":
         # Currently talking to Dani. Forward others.
-        if p_goose.match(lower):
-            return "goose"
+        if p_opencode.match(lower):
+            return "opencode"
         if p_claude.match(lower):
             return "claude"
 
@@ -1009,14 +1006,14 @@ def _handle_forward(
     effective_override = model_override or kw_model
 
     # ── Pick engine + apply upgrade ──────────────────────────────────────
-    if target == "goose":
+    if target == "opencode":
         if effective_override:
             # Keywords say this needs Claude — upgrade from OpenCode → Claude
             engine_fn = hale_claude_engine
             engine_label = "Opus" if effective_override == OPUS_MODEL else "Sonnet"
-            log.info("[%s] Both Ways UPGRADE goose→%s (%s)", bot_name, engine_label, kw_reason)
+            log.info("[%s] Both Ways UPGRADE opencode→%s (%s)", bot_name, engine_label, kw_reason)
         else:
-            engine_fn = hale_goose_engine
+            engine_fn = hale_opencode_engine
             engine_label = "OpenCode"
     elif target == "dani":
         engine_fn = dani_claude_engine
@@ -1095,7 +1092,7 @@ def handle_message(
 ) -> None:
     """Process one incoming message and send formatted response."""
 
-    # Security: Commander-only for D2MC2C and GooseD2M
+    # Security: Commander-only for D2MC2C and DECOMMISSIONED
     # For Dani, still only accept Commander ID (clients use a separate flow later)
     if user_id != COMMANDER_ID:
         log.warning("Rejected message from non-Commander user_id=%d", user_id)
@@ -1115,7 +1112,6 @@ def handle_message(
         elif cmd == "/help":
             handle_help(token, chat_id, bot_name)
             return
-        elif cmd == "/brief" and bot_name == "GooseD2M":
             handle_brief(token, chat_id)
             return
         elif cmd == "/drafts":
@@ -1292,7 +1288,7 @@ def handle_message(
     elif model_override == SONNET_MODEL:
         model_label = "Sonnet"
         assistant_label = f"{assistant_label}, Sonnet"
-    elif bot_name == "GooseD2M":
+    elif bot_name == "DECOMMISSIONED":
         model_label = "DeepSeek V3.1"
         assistant_label = f"{assistant_label}, DeepSeek V3.1"
     elif bot_name == "Dani":
@@ -1352,7 +1348,7 @@ def hale_claude_engine(
     return call_claude_engine(prompt, model=model)
 
 
-def hale_goose_engine(
+def hale_opencode_engine(
     context_text: str, message: str, model_override: str | None
 ) -> str:
     """Direct OpenRouter (Gemini 2.5 Flash Lite) as Hale — bypasses opencode shell artifacts."""
@@ -1471,8 +1467,6 @@ def main() -> None:
     missing = []
     if not TOKEN_D2MC2C:
         missing.append("TELEGRAM_D2MC2C_TOKEN")
-    if not TOKEN_GOOSE:
-        missing.append("TELEGRAM_GOOSE_TOKEN")
     if not TOKEN_DANI:
         missing.append("TELEGRAM_DANI_TOKEN")
     if missing:
@@ -1539,13 +1533,6 @@ def main() -> None:
             "bot_name": "D2MC2C",
             "ctx_file": CTX_D2MC2C,
             "engine_fn": hale_claude_engine,
-            "assistant_label": "Hale",
-        },
-        {
-            "token": TOKEN_GOOSE,
-            "bot_name": "GooseD2M",
-            "ctx_file": CTX_GOOSE,
-            "engine_fn": hale_goose_engine,
             "assistant_label": "Hale",
         },
         {

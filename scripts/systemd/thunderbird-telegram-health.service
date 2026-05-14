@@ -1,0 +1,12 @@
+[Unit]
+Description=Thunderbird Telegram Bot Health Check
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=john
+WorkingDirectory=/home/john/Thunderbird
+ExecStart=/usr/bin/python3 /home/john/Thunderbird/core/monitoring/telegram_bot_healthcheck.py
+StandardOutput=journal
+StandardError=journal

@@ -28,7 +28,7 @@ from pathlib import Path
 # ── ALLOWED MODELS (FREE ONLY from OpenRouter) ──────────────────────────────
 # NOTE: Poe.com models bypass this restriction — they are allowed via Poe gateway.
 MODELS = {
-    # FREE MODELS ONLY — $0 cost
+    # FREE MODELS — $0 cost
     "gemma-3": {
         "id": "openrouter/google/gemma-3-27b-it:free",
         "label": "Gemma 3 27B",
@@ -44,8 +44,27 @@ MODELS = {
         "cost": "FREE",
         "free": True,
         "best_for": "reasoning, analysis, logic"
-    }
-    # NOTE: deepseek-chat REMOVED — it costs $0.27/M was causing $150/month charges
+    },
+    # WING NODES — paid via OpenRouter (complements Gemini on YOGA)
+    # Per April 30 analysis: Gemini Flash-Lite 2.7× cheaper than DeepSeek for bulk tasks.
+    # NOTE: Primary Gemini path is OpenCode (gemini-3.1-flash-lite). This is the OpenRouter fallback.
+    # NOTE: Grok is NOT a D2M wing resource — removed.
+    "gemini": {
+        "id": "google/gemini-3.1-flash-lite",
+        "label": "Gemini 3.1 Flash Lite",
+        "context": 1000000,
+        "cost": "$0.016/M",
+        "free": False,
+        "best_for": "fast ops, summarization, bulk context — cheapest paid model"
+    },
+    "deepseek": {
+        "id": "deepseek/deepseek-chat-v3.1",
+        "label": "DeepSeek V3.1",
+        "context": 65536,
+        "cost": "$0.27/M",
+        "free": False,
+        "best_for": "OpenCode primary model — ops, research, analysis"
+    },
 }
 
 

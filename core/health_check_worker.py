@@ -24,20 +24,16 @@ logging.basicConfig(
 )
 logger = logging.getLogger("health_check_worker")
 
-# Import all V2 connectors
+# Import unified persona connector
 try:
-    from core.dani_redis_connector_cli_v2 import DaniRedisConnectorCLI
-    from core.d2mc2_redis_connector_cli_v2 import D2MC2RedisConnectorCLIV2
-    from core.goose_redis_connector_cli_v2 import GooseRedisConnectorCLIV2
-    from core.opencode_redis_connector_cli_v2 import OpenCodeRedisConnectorCLIV2
-    from core.claude_redis_subscriber_v2 import ClaudeRedisSubscriberV2
-    logger.info("✅ All V2 connectors imported successfully")
+    from core.persona_redis_connector import PersonaRedisConnector
+    logger.info("✅ PersonaRedisConnector imported successfully")
 except ImportError as e:
-    logger.error(f"❌ Failed to import connectors: {e}")
+    logger.error(f"❌ Failed to import PersonaRedisConnector: {e}")
     sys.exit(1)
 
 
-def check_connector_health(connector_class, connector_name: str) -> dict:
+def check_connector_health(persona_name: str, connector_name: str) -> dict:
     """
     Check health of a single connector and sync cache if needed.
 
@@ -45,7 +41,7 @@ def check_connector_health(connector_class, connector_name: str) -> dict:
     - dict with status, was_down, recovered, synced info
     """
     try:
-        connector = connector_class(host="127.0.0.1", port=6379)
+        connector = PersonaRedisConnector(persona_name, host="127.0.0.1", port=6379)
 
         # Check if Redis is available
         was_available = connector.redis_available
@@ -77,22 +73,21 @@ def run_health_check():
     logger.info(f"HEALTH CHECK CYCLE @ {timestamp}")
     logger.info(f"{'='*70}\n")
 
-    # Define connectors to check
+    # Define connectors to check: (persona_name, display_name)
     connectors = [
-        (DaniRedisConnectorCLI, "Dani"),
-        (D2MC2RedisConnectorCLIV2, "D2MC2"),
-        (GooseRedisConnectorCLIV2, "Goose"),
-        (OpenCodeRedisConnectorCLIV2, "OpenCode"),
-        (ClaudeRedisSubscriberV2, "Claude/Subscriber")
+        ("dani",     "Dani"),
+        ("d2mc2",    "D2MC2"),
+        ("opencode", "OpenCode"),
+        ("claude",   "Claude/Subscriber"),
     ]
 
     results = []
     recovered_count = 0
     error_count = 0
 
-    for connector_class, connector_name in connectors:
+    for persona_name, connector_name in connectors:
         logger.info(f"Checking {connector_name}...")
-        result = check_connector_health(connector_class, connector_name)
+        result = check_connector_health(persona_name, connector_name)
         results.append(result)
 
         if result["status"] == "ok":

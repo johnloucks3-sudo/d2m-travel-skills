@@ -870,7 +870,7 @@ PERSONA_AGENT_MAP = {
     "COS": "hale",
     "EXEC": "hale",
     "A1": "hale",
-    "A2": "goose",
+    "A2": "opencode",
     "A3": "hale",
     "A5": "hale",
     "A6": "hale",

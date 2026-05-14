@@ -10,7 +10,7 @@ logging.basicConfig(filename='/home/john/Thunderbird/OpsCenter/overwatch.log', l
 
 genai.configure(api_key=os.environ.get("GOOGLE_API_KEY", "***REMOVED-SECRET***"))
 
-async def generate_goose_summary():
+async def generate_opencode_summary():
     try:
         with open("/home/john/Thunderbird/OpsCenter/00_COMMAND_LOG.md", "r") as f:
             logs = f.readlines()[-50:] # Grab recent logs
@@ -24,7 +24,7 @@ async def generate_goose_summary():
         board = "No board available."
 
     prompt = f"""
-    You are Goose, the A-Staff Ops Orchestrator. It is 22:30 MT.
+    You are Hale, acting as A-Staff Ops Orchestrator. It is 22:30 MT.
     Draft your half of the Daily End-Of-Day SITREP for the Commander.
     Summarize your operational executions, tool deployments, routing efficiency, and any anomalies today.
     Keep it blunt, concise, and formatted as a military SITREP.
@@ -43,8 +43,8 @@ async def generate_goose_summary():
 async def run_eod_integration():
     logging.info("Initiating 22:30 MT EOD Summary Integration...")
     
-    # 1. Get Goose Summary
-    goose_part = await generate_goose_summary()
+    # 1. Get OpenCode Summary
+    opencode_part = await generate_opencode_summary()
     
     # 2. Get Claude Summary
     try:
@@ -65,8 +65,8 @@ async def run_eod_integration():
 
 ---
 
-## GOOSE (A-STAFF OPS) EOD SUMMARY
-{goose_part}
+## OPENCODE (A-STAFF OPS) EOD SUMMARY
+{opencode_part}
 
 ---
 *End of Report.*

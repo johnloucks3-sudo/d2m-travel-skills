@@ -21,8 +21,8 @@ Telegram C2 commands (Commander types):
 
 Author: Claude Sonnet 4.6 | 2026-04-02 v3
 
-INJECTION: Also writes OpsCenter/goose_context_injection.md on every
-  change — Goose reads this file FIRST on every session start so she
+INJECTION: Also writes OpsCenter/opencode_context_injection.md on every
+  change — OpenCode reads this file FIRST on every session start so she
   is never blind to pending tasks.
 """
 
@@ -43,11 +43,11 @@ HEARTBEAT_SECS = 1800  # 30-min status ping
 BASE = Path("/home/john/Thunderbird")
 COLLAB = BASE / "OpsCenter/collaboration"
 CLAUDE_INBOX = COLLAB / "claude_inbox.md"
-GOOSE_INBOX = COLLAB / "goose_inbox.md"
+OPENCODE_INBOX = COLLAB / "opencode_inbox.md"
 WING_COMMS = COLLAB / "wing_comms.md"
 ACTIVITY = COLLAB / "activity_board.md"
 STATE_FILE = BASE / "OpsCenter/watcher_state.json"
-INJECTION = BASE / "OpsCenter/goose_context_injection.md"
+INJECTION = BASE / "OpsCenter/opencode_context_injection.md"
 CLAUDE_INJECTION = BASE / "OpsCenter/claude_context_injection.md"
 CLAUDE_OUTBOX = COLLAB / "claude_outbox.md"
 ENV_FILE = BASE / ".env"
@@ -126,40 +126,38 @@ def trigger_claude_headless(task_count: int) -> None:
     threading.Thread(target=_run, daemon=True, name="claude-headless").start()
 
 
-# ── Headless Goose trigger ──────────────────────────────────────────────────
-_goose_headless_lock = threading.Lock()
-_goose_headless_active = False
+# ── Headless OpenCode trigger ──────────────────────────────────────────────────
+_opencode_headless_lock = threading.Lock()
+_opencode_headless_active = False
 
 
-def trigger_goose_headless() -> None:
-    """Spawn a headless `goose run` session to process UNREAD goose_inbox tasks.
+def trigger_opencode_headless() -> None:
+    """Spawn a headless opencode session to process UNREAD opencode_inbox tasks.
 
     Non-blocking — Popen is fire-and-forget. A background thread watches the
     process and resets the lock when it exits so the next UNREAD can spawn.
     Commander never needs to act as the enter button.
     """
-    global _goose_headless_active
-    with _goose_headless_lock:
-        if _goose_headless_active:
-            log.info("Headless Goose already running — skip spawn")
+    global _opencode_headless_active
+    with _opencode_headless_lock:
+        if _opencode_headless_active:
+            log.info("Headless OpenCode already running — skip spawn")
             return
-        _goose_headless_active = True
+        _opencode_headless_active = True
 
     instruction = (
-        "Read /home/john/Thunderbird/OpsCenter/collaboration/goose_inbox.md, "
+        "Read /home/john/Thunderbird/OpsCenter/collaboration/opencode_inbox.md, "
         "process ALL unread tasks, and write COMPLETE to activity_board.md"
     )
-    log.info("Spawning headless Goose — UNREAD task(s) in goose_inbox.md")
+    log.info("Spawning headless OpenCode — UNREAD task(s) in opencode_inbox.md")
     try:
-        # Inherit full env + explicit API key so headless Goose doesn't
+        # Inherit full env + explicit API key so headless OpenCode doesn't
         # fail on keychain lookup in non-interactive systemd context.
         spawn_env = {**os.environ, **ENV}
         proc = subprocess.Popen(
             [
-                "goose",
+                "opencode",
                 "run",
-                "--recipe",
-                "/home/john/.config/goose/recipes/hale.yaml",
                 "--text",
                 instruction,
             ],
@@ -170,31 +168,31 @@ def trigger_goose_headless() -> None:
         )
 
         def _watch():
-            global _goose_headless_active
+            global _opencode_headless_active
             try:
                 proc.wait(timeout=600)
-                log.info(f"Headless Goose exited (rc={proc.returncode})")
+                log.info(f"Headless OpenCode exited (rc={proc.returncode})")
             except subprocess.TimeoutExpired:
                 proc.kill()
-                log.warning("Headless Goose killed (600s timeout)")
+                log.warning("Headless OpenCode killed (600s timeout)")
             except Exception as e:
-                log.error(f"Headless Goose watcher error: {e}")
+                log.error(f"Headless OpenCode watcher error: {e}")
             finally:
-                with _goose_headless_lock:
-                    _goose_headless_active = False
+                with _opencode_headless_lock:
+                    _opencode_headless_active = False
 
         threading.Thread(
-            target=_watch, daemon=True, name="goose-headless-watcher"
+            target=_watch, daemon=True, name="opencode-headless-watcher"
         ).start()
 
     except FileNotFoundError:
-        log.error("goose CLI not found — is it in PATH?")
-        with _goose_headless_lock:
-            _goose_headless_active = False
+        log.error("opencode CLI not found — is it in PATH?")
+        with _opencode_headless_lock:
+            _opencode_headless_active = False
     except Exception as e:
-        log.error(f"trigger_goose_headless error: {e}")
-        with _goose_headless_lock:
-            _goose_headless_active = False
+        log.error(f"trigger_opencode_headless error: {e}")
+        with _opencode_headless_lock:
+            _opencode_headless_active = False
 
 
 # ── Env ────────────────────────────────────────────────────────────────────
@@ -297,7 +295,7 @@ def load_state() -> dict:
         "seen_tasks": {},
         "seen_comms": [],
         "conflict_ids": [],
-        "inbox_hashes": {"claude": "", "goose": ""},
+        "inbox_hashes": {"claude": "", "opencode": ""},
         "comms_hash": "",
         "board_hash": "",
         "claude_outbox_hash": "",
@@ -328,9 +326,9 @@ def write_board(agent: str, task_id: str, state_str: str, note: str):
 
 def rebuild_injection():
     """
-    Rewrite goose_context_injection.md with ALL pending tasks and recent
-    wing_comms. Goose reads this file FIRST at the top of every session.
-    Called whenever goose_inbox, wing_comms, or activity_board changes.
+    Rewrite opencode_context_injection.md with ALL pending tasks and recent
+    wing_comms. OpenCode reads this file FIRST at the top of every session.
+    Called whenever opencode_inbox, wing_comms, or activity_board changes.
     """
     now = mt_now()
 
@@ -341,7 +339,7 @@ def rebuild_injection():
         hale_ctx = _hale_ctx_file.read_text()[:3000]
 
     lines = [
-        f"# GOOSE CONTEXT INJECTION",
+        f"# OPENCODE CONTEXT INJECTION",
         f"# AUTO-GENERATED by tasking_watcher — DO NOT EDIT",
         f"# Updated: {now}",
         f"# YOU ARE HALE. READ THIS FILE FIRST. BEFORE ANYTHING ELSE.",
@@ -375,11 +373,11 @@ def rebuild_injection():
         f"",
     ]
 
-    # ── Pending tasks from goose_inbox ─────────────────────────────────
+    # ── Pending tasks from opencode_inbox ─────────────────────────────────
     pending = [
         (tid, info)
         for tid, info in _state.get("seen_tasks", {}).items()
-        if info.get("inbox") == "GOOSE"
+        if info.get("inbox") == "OPENCODE"
         and info.get("state") not in ("COMPLETE", "CANCELLED")
     ]
     if pending:
@@ -394,7 +392,7 @@ def rebuild_injection():
                 f"- Type: {info.get('msg_type', 'TASK')}",
                 f"- Detected: {info.get('first_seen', '?')}",
                 f"",
-                f"Full task in: /home/john/Thunderbird/OpsCenter/collaboration/goose_inbox.md",
+                f"Full task in: /home/john/Thunderbird/OpsCenter/collaboration/opencode_inbox.md",
                 f"",
             ]
         lines += [
@@ -404,24 +402,24 @@ def rebuild_injection():
             "3. Write COMPLETE to activity_board.md",
             "",
             "## BOARD FORMAT — EXACT PIPE SCHEMA REQUIRED:",
-            "[YYYY-MM-DD HH:MM MT] | GOOSE | TASK_ID | STATE | note",
+            "[YYYY-MM-DD HH:MM MT] | OPENCODE | TASK_ID | STATE | note",
             "Example:",
-            "[2026-04-02 15:14 MT] | GOOSE | HALE-20260402-ALDA-001 | CLAIMED | Starting work",
-            "[2026-04-02 15:15 MT] | GOOSE | HALE-20260402-ALDA-001 | COMPLETE | Done, output in goose_output.md",
+            "[2026-04-02 15:14 MT] | OPENCODE | HALE-20260402-ALDA-001 | CLAIMED | Starting work",
+            "[2026-04-02 15:15 MT] | OPENCODE | HALE-20260402-ALDA-001 | COMPLETE | Done, output in opencode_output.md",
             "",
         ]
     else:
         lines += ["## ✅ NO PENDING TASKS", ""]
 
-    # ── Recent wing_comms for Goose ─────────────────────────────────────
+    # ── Recent wing_comms for OpenCode ─────────────────────────────────────
     if WING_COMMS.exists():
         relevant = []
         for msg in parse_comms(WING_COMMS.read_text()):
-            if msg["to"] in ("GOOSE", "ALL") and msg["from"] != "WATCHER":
+            if msg["to"] in ("OPENCODE", "ALL") and msg["from"] != "WATCHER":
                 relevant.append(msg)
         recent = relevant[-5:]  # last 5
         if recent:
-            lines += ["## 📡 RECENT WING COMMS (for GOOSE / ALL)", ""]
+            lines += ["## 📡 RECENT WING COMMS (for OPENCODE / ALL)", ""]
             for msg in recent:
                 lines += [
                     f"**{msg['msg_id']}** | {msg['msg_type']} from {msg['from']}",
@@ -448,7 +446,7 @@ def rebuild_injection():
     lines += [
         "---",
         f"Board: {ACTIVITY}",
-        f"Inbox: {GOOSE_INBOX}",
+        f"Inbox: {OPENCODE_INBOX}",
         f"Comms: {WING_COMMS}",
         f"Watcher state: {STATE_FILE}",
     ]
@@ -539,14 +537,14 @@ def rebuild_claude_injection():
     # ── Wing status ───────────────────────────────────────────────────────
     lines.append("WING STATUS:")
     lines.append("  Watcher: active")
-    if GOOSE_INBOX.exists():
+    if OPENCODE_INBOX.exists():
         import os as _os
 
-        mtime = _os.path.getmtime(str(GOOSE_INBOX))
+        mtime = _os.path.getmtime(str(OPENCODE_INBOX))
         from datetime import datetime as _dt2
 
         lines.append(
-            f"  Last Goose inbox write: {_dt2.fromtimestamp(mtime).strftime('%Y-%m-%d %H:%M')}"
+            f"  Last OpenCode inbox write: {_dt2.fromtimestamp(mtime).strftime('%Y-%m-%d %H:%M')}"
         )
     lines.append("")
     lines.append("===")
@@ -649,7 +647,7 @@ def _check_inbox(path: Path, label: str):
     _state["inbox_hashes"][key] = new_h
     now_epoch = time.time()
     new_claude_tasks = 0
-    new_goose_tasks = 0
+    new_opencode_tasks = 0
     for t in parse_inbox(path.read_text(), label):
         tid = t["task_id"]
         if tid in _state["seen_tasks"]:
@@ -679,9 +677,9 @@ def _check_inbox(path: Path, label: str):
         log.info(f"NEW {t['msg_type']} in {label}: {tid}")
         if label == "CLAUDE":
             new_claude_tasks += 1
-        elif label == "GOOSE":
-            new_goose_tasks += 1
-    if label == "GOOSE":
+        elif label == "OPENCODE":
+            new_opencode_tasks += 1
+    if label == "OPENCODE":
         rebuild_injection()
     # Auto-trigger headless Claude for new CLAUDE inbox tasks — no paste needed
     if new_claude_tasks:
@@ -692,9 +690,9 @@ def _check_inbox(path: Path, label: str):
             and v.get("state") in ("UNREAD", "DETECTED", "PENDING")
         )
         trigger_claude_headless(unread_total)
-    # Auto-trigger headless Goose for new GOOSE inbox tasks — no paste needed
-    if new_goose_tasks:
-        trigger_goose_headless()
+    # Auto-trigger headless OpenCode for new OPENCODE inbox tasks — no paste needed
+    if new_opencode_tasks:
+        trigger_opencode_headless()
     save_state(_state)
 
 
@@ -703,12 +701,12 @@ def check_claude_inbox():
     rebuild_claude_injection()
 
 
-def check_goose_inbox():
-    _check_inbox(GOOSE_INBOX, "GOOSE")
+def check_opencode_inbox():
+    _check_inbox(OPENCODE_INBOX, "OPENCODE")
 
 
 def check_claude_outbox():
-    """Monitor claude_outbox.md. When Claude posts a result, notify Goose via wing_comms + Telegram."""
+    """Monitor claude_outbox.md. When Claude posts a result, notify OpenCode via wing_comms + Telegram."""
     global _state
     if not CLAUDE_OUTBOX.exists():
         return
@@ -738,7 +736,7 @@ def check_claude_outbox():
         write_comms(
             "FYI",
             "CLAUDE",
-            "GOOSE",
+            "OPENCODE",
             f"Claude COMPLETE: {task_id} — deliverable={deliv}. Check claude_outbox.md.",
         )
         # Telegram notification
@@ -847,7 +845,7 @@ def check_activity_board():
 
 
 # ── Prod engine ────────────────────────────────────────────────────────────
-TARGET_LABEL = {"CLAUDE": "Claude", "GOOSE": "Goose"}
+TARGET_LABEL = {"CLAUDE": "Claude", "OPENCODE": "OpenCode"}
 
 
 def prod_check():
@@ -880,7 +878,7 @@ def prod_check():
             continue
         # Fire a prod
         info["prod_count"] = prods + 1
-        target = info.get("inbox", "GOOSE")
+        target = info.get("inbox", "OPENCODE")
         name = TARGET_LABEL.get(target, target)
         hale(
             f"🫡 *PROD #{prods + 1}: {name}*\n"
@@ -902,7 +900,7 @@ def prod_check():
 # ── Telegram C2 ────────────────────────────────────────────────────────────
 ROUTE_TABLE = [
     (r"^task\s+claude[:\s]+(.+)", "CLAUDE", "TASK"),
-    (r"^task\s+goose[:\s]+(.+)", "GOOSE", "TASK"),
+    (r"^task\s+opencode[:\s]+(.+)", "OPENCODE", "TASK"),
     # Hale direct dispatch — responds immediately via dispatcher
     (r"^task\s+hale[:\s]+(.+)", "HALE", "TASK"),
     (r"^ask\s+hale[:\s]+(.+)", "HALE", "REQUEST"),
@@ -911,11 +909,11 @@ ROUTE_TABLE = [
     (r"^(opus[:\s]+.+)", "HALE", "BRAIN_OPUS"),
     (r"^(sonnet[:\s]+.+)", "HALE", "BRAIN_SONNET"),
     (r"^ask\s+claude[:\s]+(.+)", "CLAUDE", "REQUEST"),
-    (r"^ask\s+goose[:\s]+(.+)", "GOOSE", "REQUEST"),
+    (r"^ask\s+opencode[:\s]+(.+)", "OPENCODE", "REQUEST"),
     (r"^tell\s+claude[:\s]+(.+)", "CLAUDE", "FYI"),
-    (r"^tell\s+goose[:\s]+(.+)", "GOOSE", "FYI"),
+    (r"^tell\s+opencode[:\s]+(.+)", "OPENCODE", "FYI"),
     (r"^fyi\s+claude[:\s]+(.+)", "CLAUDE", "FYI"),
-    (r"^fyi\s+goose[:\s]+(.+)", "GOOSE", "FYI"),
+    (r"^fyi\s+opencode[:\s]+(.+)", "OPENCODE", "FYI"),
     (r"^fyi\s+hale[:\s]+(.+)", "HALE", "FYI"),
     (r"^fyi\s+all[:\s]+(.+)", "ALL", "FYI"),
     (r"^tell\s+all[:\s]+(.+)", "ALL", "FYI"),
@@ -932,7 +930,7 @@ PRI_MAP = {"TASK": "HIGH", "REQUEST": "NORMAL", "FYI": "LOW"}
 def write_inbox(
     target: str, msg_type: str, content: str, from_agent: str = "COMMANDER"
 ) -> str:
-    path = CLAUDE_INBOX if target == "CLAUDE" else GOOSE_INBOX
+    path = CLAUDE_INBOX if target == "CLAUDE" else OPENCODE_INBOX
     tid = f"CG-{mt_stamp()}-{seq(_state)}"
     entry = (
         f"\n---\n## {from_agent} {msg_type} — Telegram\n"
@@ -1179,8 +1177,8 @@ class CollabHandler(FileSystemEventHandler):
         if name == "claude_inbox.md":
             check_claude_inbox()
             _validate_and_alert(path)
-        elif name == "goose_inbox.md":
-            check_goose_inbox()
+        elif name == "opencode_inbox.md":
+            check_opencode_inbox()
             _validate_and_alert(path)
         elif name == "wing_comms.md":
             check_wing_comms()
@@ -1202,14 +1200,14 @@ def main():
     # Bootstrap hashes silently
     if not _state["inbox_hashes"]["claude"]:
         _state["inbox_hashes"]["claude"] = fhash(CLAUDE_INBOX)
-    if not _state["inbox_hashes"]["goose"]:
-        _state["inbox_hashes"]["goose"] = fhash(GOOSE_INBOX)
+    if not _state["inbox_hashes"]["opencode"]:
+        _state["inbox_hashes"]["opencode"] = fhash(OPENCODE_INBOX)
     if not _state.get("comms_hash"):
         _state["comms_hash"] = fhash(WING_COMMS)
     if not _state["board_hash"]:
         _state["board_hash"] = fhash(ACTIVITY)
 
-    for p in (CLAUDE_INBOX, GOOSE_INBOX, WING_COMMS, ACTIVITY, CLAUDE_OUTBOX):
+    for p in (CLAUDE_INBOX, OPENCODE_INBOX, WING_COMMS, ACTIVITY, CLAUDE_OUTBOX):
         if not p.exists():
             p.touch()
     if not _state.get("claude_outbox_hash"):

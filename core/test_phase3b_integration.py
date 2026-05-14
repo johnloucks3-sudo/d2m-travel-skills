@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Phase 3B Integration Testing — End-to-End Workflow Validation with Redis Failure Injection
-Tests all 5 connectors (D2MC2, Dani, Goose, OpenCode, Claude) with mid-workflow Redis outages
+Tests all 5 connectors (D2MC2, Dani, OpenCode x2, Claude) with mid-workflow Redis outages
 """
 
 import json
@@ -33,7 +33,7 @@ logger = logging.getLogger("Phase3B")
 from core.redis_connector_fallback import RedisConnectorFallback
 from core.d2mc2_redis_connector_cli_v2 import D2MC2RedisConnectorCLIV2
 from core.dani_redis_connector_cli_v2 import DaniRedisConnectorCLI
-from core.goose_redis_connector_cli_v2 import GooseRedisConnectorCLIV2
+from core.persona_redis_connector import PersonaRedisConnector  # replaces GooseRedisConnectorCLIV2
 from core.opencode_redis_connector_cli_v2 import OpenCodeRedisConnectorCLIV2
 
 
@@ -220,20 +220,20 @@ class Phase3BTestRunner:
             self.log_operation(scenario, "ERROR", "FAILED", str(e))
             return False, {"error": str(e)}
 
-    def scenario_2_opencode_goose_coordination(self) -> Tuple[bool, Dict[str, Any]]:
+    def scenario_2_opencode_coordination(self) -> Tuple[bool, Dict[str, Any]]:
         """
-        Scenario 2: Cross-Platform Coordination — OpenCode → Goose → Research → Hale
-        Tests OpenCode and Goose connectors with Redis failure during research phase.
+        Scenario 2: Cross-Platform Coordination — OpenCode → OpenCode → Research → Hale
+        Tests OpenCode connectors with Redis failure during research phase.
         """
         scenario = "scenario_2"
-        self.log_operation(scenario, "START", "INFO", "OpenCode → Goose coordination workflow")
+        self.log_operation(scenario, "START", "INFO", "OpenCode → OpenCode coordination workflow")
 
         try:
             start_time = time.time()
 
             # Initialize connectors
             opencode = OpenCodeRedisConnectorCLIV2()
-            goose = GooseRedisConnectorCLIV2()
+            goose = PersonaRedisConnector("opencode")
 
             # Step 1: OpenCode creates mission
             self.log_operation(scenario, "CREATE_MISSION", "INFO", "OpenCode creating mission")
@@ -247,7 +247,7 @@ class Phase3BTestRunner:
             self.log_operation(scenario, "CREATE_MISSION", "SUCCESS" if mission_result else "FALLBACK",
                              f"Mission created (redis={mission_result})")
 
-            # Step 2: Goose queues task for the mission
+            # Step 2: OpenCode queues task for the mission
             self.log_operation(scenario, "QUEUE_TASK", "INFO", "Goose queueing task for mission")
             task_result = goose.queue_task(
                 task_id="TASK-TEST-20260428",
@@ -265,7 +265,7 @@ class Phase3BTestRunner:
             self.log_operation(scenario, "INJECT_FAILURE", "INFO", "Stopping Redis during research")
             self.stop_redis()
 
-            # Step 4: Goose saves sweep status while Redis is down
+            # Step 4: OpenCode saves sweep status while Redis is down
             self.log_operation(scenario, "SAVE_SWEEP", "INFO", "Saving sweep status while Redis is down")
             sweep_result = goose.save_sweep_status(
                 sweep_id="SWEEP-TEST-20260428",
@@ -283,10 +283,10 @@ class Phase3BTestRunner:
                              "Redis restarted")
 
             # Step 6: Sync cache to Redis
-            self.log_operation(scenario, "SYNC_CACHE", "INFO", "Syncing Goose state to Redis")
+            self.log_operation(scenario, "SYNC_CACHE", "INFO", "Syncing OpenCode state to Redis")
             time.sleep(1)
 
-            goose_reconnect = GooseRedisConnectorCLIV2()
+            goose_reconnect = PersonaRedisConnector("opencode")
             synced_items = goose_reconnect._sync_cache_to_redis()
             self.log_operation(scenario, "SYNC_CACHE", "SUCCESS", f"Synced {synced_items} items")
 
@@ -626,7 +626,7 @@ class Phase3BTestRunner:
         # Run scenarios
         scenarios = [
             ("scenario_1", self.scenario_1_telegram_to_email, "Telegram → D2MC2 → Email"),
-            ("scenario_2", self.scenario_2_opencode_goose_coordination, "OpenCode → Goose Coordination"),
+            ("scenario_2", self.scenario_2_opencode_coordination, "OpenCode → OpenCode Coordination"),
             ("scenario_3", self.scenario_3_decision_escalation, "Decision Escalation Chain"),
             ("scenario_4", self.scenario_4_dani_to_client_dossier, "Dani → Client → Dossier"),
             ("scenario_5", self.scenario_5_concurrent_stress_test, "Concurrent Stress Test"),

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Hale → Telegram Reporter — Activity Updates to Commander via Goose Bot
+Hale → Telegram Reporter — Activity Updates to Commander via Telegram Bot
 
 Hale sends real-time activity updates to Commander via Telegram.
 - Decisions made
@@ -20,8 +20,8 @@ from typing import Optional
 
 logger = logging.getLogger("hale_telegram_reporter")
 
-# Goose Telegram bot token and Commander ID
-GOOSE_BOT_TOKEN = os.getenv("GOOSE_TELEGRAM_TOKEN", "")
+# Telegram bot token and Commander ID
+D2MC2C_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", os.getenv("TELEGRAM_C2_BOT_TOKEN", ""))
 COMMANDER_TELEGRAM_ID = 7554895206  # John Loucks (@yodalife)
 
 
@@ -32,7 +32,7 @@ def send_to_commander(
     also_email: bool = False
 ) -> bool:
     """
-    Send message to Commander via Goose Telegram bot and optionally email.
+    Send message to Commander via Telegram bot and optionally email.
 
     Args:
         message: The message text (markdown OK)
@@ -51,8 +51,8 @@ def send_to_commander(
         )
     """
 
-    if not GOOSE_BOT_TOKEN:
-        logger.warning("GOOSE_TELEGRAM_TOKEN not set — cannot send to Telegram")
+    if not D2MC2C_BOT_TOKEN:
+        logger.warning("TELEGRAM_BOT_TOKEN not set — cannot send to Telegram")
         return False
 
     # Format message with Hale signature
@@ -73,7 +73,7 @@ def send_to_commander(
     try:
         import requests
         response = requests.post(
-            f"https://api.telegram.org/bot{GOOSE_BOT_TOKEN}/sendMessage",
+            f"https://api.telegram.org/bot{D2MC2C_BOT_TOKEN}/sendMessage",
             json={
                 "chat_id": COMMANDER_TELEGRAM_ID,
                 "text": formatted,

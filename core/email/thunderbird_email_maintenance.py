@@ -45,7 +45,7 @@ COMMANDER_EMAIL = "johnloucks3@gmail.com"
 CONCIERGE_SEND_AS = "concierge@d2mluxury.quest"
 
 # Inbox destinations
-GOOSE_INBOX = THUNDERBIRD_DIR / "goose_inbox.md"
+OPENCODE_INBOX = THUNDERBIRD_DIR / "opencode_inbox.md"
 CLAUDE_INBOX = THUNDERBIRD_DIR / "claude_inbox.md"
 ACTIVITY_BOARD = OPSCENTER_DIR / "collaboration" / "activity_board.md"
 
@@ -571,13 +571,13 @@ def classify_email(
         "[COO]": {"target_inbox": "claude", "persona": "hale"},
         "[EXEC]": {"target_inbox": "claude", "persona": "naia"},
         "[A2]": {"target_inbox": "claude", "persona": "dembe"},
-        "[A3]": {"target_inbox": "goose", "persona": "dani"},
+        "[A3]": {"target_inbox": "opencode", "persona": "dani"},
         "[A5]": {"target_inbox": "claude", "persona": "castillo"},
-        "[A6]": {"target_inbox": "goose", "persona": "luna"},
+        "[A6]": {"target_inbox": "opencode", "persona": "luna"},
         "[A7]": {"target_inbox": "claude", "persona": "sterling"},
         "[A9]": {"target_inbox": "claude", "persona": "harlan"},
         "[A12]": {"target_inbox": "claude", "persona": "elon"},
-        "[CLIENT]": {"target_inbox": "goose", "persona": "dani", "action": "draft_wf17"},
+        "[CLIENT]": {"target_inbox": "opencode", "persona": "dani", "action": "draft_wf17"},
     }
 
     route = routing_rules.get(persona_tag, {"target_inbox": "claude", "persona": "hale"})
@@ -602,7 +602,7 @@ def write_task_to_inbox(
     classification: Dict[str, Any],
 ) -> bool:
     """
-    Write classified email to goose_inbox.md or claude_inbox.md.
+    Write classified email to opencode_inbox.md or claude_inbox.md.
     Format: task entry with message ID, sender, subject, persona tag, action.
     """
     try:
@@ -739,7 +739,7 @@ def process_email_sweep(
         # Route based on classification
         if not dry_run:
             # Write to appropriate inbox
-            inbox_path = GOOSE_INBOX if classification["target_inbox"] == "goose" else CLAUDE_INBOX
+            inbox_path = OPENCODE_INBOX if classification["target_inbox"] == "opencode" else CLAUDE_INBOX
             write_task_to_inbox(inbox_path, classification)
 
             # Create draft if client-facing
@@ -771,7 +771,7 @@ def notify_command_summary(stats: Dict[str, int]) -> None:
 • Skipped: {stats['skipped']}
 • Errors: {stats['errors']}
 
-Tasks written to goose_inbox.md / claude_inbox.md
+Tasks written to opencode_inbox.md / claude_inbox.md
 Drafts awaiting your review in Gmail
 """
     send_telegram_notification(message)

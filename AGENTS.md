@@ -54,7 +54,7 @@ export OAUTHLIB_INSECURE_TRANSPORT=1
 .venv/bin/python api/thunderbird_google_auth.py --authorize-headless
 .venv/bin/python api/thunderbird_google_auth.py --authorize-persona
 
-# OpenCode (multi-model agent — replaces Goose)
+# OpenCode (multi-model agent)
 export PATH=/home/john/.opencode/bin:$PATH  # already in .bashrc/.profile
 opencode                              # TUI, default model: deepseek-chat-v3.1 ($0)
 opencode run "task"                   # headless one-shot (uses default model)
@@ -166,7 +166,7 @@ All automated via systemd timers (MDT):
 | **Claude Agent SDK** | Sonnet 4.6 (Exec) / Opus 4.6 (Plan/Eval) | $0 (MAX) | Headless: `claude -p "..."` |
 | **Nexus daemon** | OpenCode (Gemini 3.1 Flash-Lite) + claude -p judgment | ~$0/task | Keyword-routed task queue |
 
-**Goose is decommissioned.** References to `goose-d2m`, `goose run`, or `~/.config/goose/` anywhere in docs are stale. Replace `goose run "X"` with `opencode run "X"`.
+**Goose is decommissioned.** References to `goose-d2m`, `opencode run`, or `~/.config/goose/` anywhere in docs are stale. Replace `opencode run "X"` with `opencode run "X"`.
 
 **OpenCode model IDs** (confirmed working — tested 2026-04-30):
 - `openrouter/gemini/gemini-3.1-flash-lite` — **default** — Gemini 3.1 Flash-Lite, confirmed working
@@ -230,7 +230,7 @@ back to `opencode run -m openrouter/gemini/gemini-3.1-flash-lite`.
 
 - `CLAUDE.md` — Full operating manual, persona roster, hard rules, output contract
 - `Personas/hale_cos.md` — COS Hale 7-layer identity (auto-loaded by `CLAUDE.md`)
-- `docs/MULTI_MODEL_STACK.md` — Post-Goose architecture (Claude Code + OpenCode)
+- `docs/MULTI_MODEL_STACK.md` — Post-OpenCode migration architecture (Claude Code + OpenCode)
 - `docs/CLAUDE_CODE_DRIVE_AND_CORE_GUIDE.md` — Drive folder IDs, core module registry
 - `docs/ARCHITECTURE_REFERENCE.md` — Component table, MCP failure playbook
 - `.claude/CLAUDE.md` — Nexus system memory (critical procedures, file map, keyword router)
@@ -373,7 +373,7 @@ tail -50 /home/john/Thunderbird/logs/inbox_watcher.log
 grep "TIMEOUT\|ALERT" /home/john/Thunderbird/logs/inbox_watcher.log
 
 # Lock file (indicates OpenCode is currently running)
-ls -la /home/john/Thunderbird/OpsCenter/.goose_headless.lock
+ls -la /home/john/Thunderbird/OpsCenter/.opencode_headless.lock
 ```
 
 **Common Issues & Fixes:**
@@ -382,7 +382,7 @@ ls -la /home/john/Thunderbird/OpsCenter/.goose_headless.lock
 |-------|---------|-----|
 | **Tasks stay UNREAD** | Spawned process didn't mark COMPLETE | Check `/logs/claude_headless.log`. If rc≠0, run manually: `claude -p "Read claude_inbox.md..."` |
 | **Task timeout alerts** | Watcher sends ⚠️ every 5 min | Manual status check: `grep "status: UNREAD" /home/john/Thunderbird/claude_inbox.md`. Mark COMPLETE manually if stuck. |
-| **Duplicate spawns** | Multiple Claude/OpenCode running | Check lock file exists: `/OpsCenter/.goose_headless.lock`. If stale, remove: `rm /OpsCenter/.goose_headless.lock && systemctl --user restart d2m-tasking-watcher.service` |
+| **Duplicate spawns** | Multiple Claude/OpenCode running | Check lock file exists: `/OpsCenter/.opencode_headless.lock`. If stale, remove: `rm /OpsCenter/.opencode_headless.lock && systemctl --user restart d2m-tasking-watcher.service` |
 | **Watcher not detecting changes** | Inbox modified but no Telegram ping | Check file permissions: `stat /home/john/Thunderbird/claude_inbox.md`. If watch directory is wrong, verify inotify: `ls -la /proc/sys/fs/inotify/` |
 | **Telegram pings not arriving** | Watcher logs show "Telegram Ping Failed" | Check network: `curl -s https://api.telegram.org/bot<token>/getMe`. If token expired, update BOT_TOKEN in `thunderbird_tasking_watcher.py`. |
 

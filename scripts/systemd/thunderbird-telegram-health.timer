@@ -1,0 +1,11 @@
+[Unit]
+Description=Thunderbird Telegram Bot Health Check — 60-second interval
+Requires=thunderbird-telegram-health.service
+
+[Timer]
+OnBootSec=30s
+OnUnitActiveSec=60s
+AccuracySec=5s
+
+[Install]
+WantedBy=timers.target

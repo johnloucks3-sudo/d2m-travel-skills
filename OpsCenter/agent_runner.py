@@ -1,6 +1,6 @@
 """
-agent_runner.py — Claude and Goose CLI execution wrappers
-=========================================================
+agent_runner.py — Claude and OpenCode CLI execution wrappers
+============================================================
 Routes tasks to the correct agent and executes them headlessly.
 Returns (success: bool, output: str).
 """
@@ -20,7 +20,7 @@ sys.path.insert(0, str(WORK_DIR))
 MCP_BRIDGE = WORK_DIR / "OpsCenter/mcp_bridge.sh"
 
 # ── Routing table ─────────────────────────────────────────────────────────────
-# task_type → agent.  "auto" resolves here first, then falls through to "hale".
+# task_type → agent.  All tasks route to "hale" (Claude) or "opencode" or "api".
 ROUTE_TABLE: dict[str, str] = {
     "commander_message": "hale",
     "client_email":      "hale",
@@ -29,26 +29,26 @@ ROUTE_TABLE: dict[str, str] = {
     "fpd_alert":         "hale",
     "dossier_check":     "hale",
     "commission_audit":  "hale",
-    # Goose handles async intel (Gemini, free tier)
-    "intel_sweep":       "goose",
-    "world_intel":       "goose",
-    "innovation_scan":   "goose",
-    "ship_intel":        "goose",
-    "morning_briefing":  "goose",
-    "sentinel_sweep":    "goose",
-    "research":          "goose",
+    # OpenCode handles async intel (Gemini 3.1 Flash-Lite via OpenRouter)
+    "intel_sweep":       "opencode",
+    "world_intel":       "opencode",
+    "innovation_scan":   "opencode",
+    "ship_intel":        "opencode",
+    "morning_briefing":  "opencode",
+    "sentinel_sweep":    "opencode",
+    "research":          "opencode",
     # Direct API calls — no LLM spin-up needed
     "api_call":          "api",
 }
 
 
 def route(task: dict) -> str:
-    """Return 'hale', 'goose', or 'api' for this task."""
+    """Return 'hale', 'opencode', or 'api' for this task."""
     assigned = task.get("assigned_to", "auto").lower()
     if assigned in ("hale", "claude", "cos", "a3", "dani"):
         return "hale"
-    if assigned in ("goose", "gemini", "a2", "wraith"):
-        return "goose"
+    if assigned in ("opencode", "gemini", "a2", "wraith", "research"):
+        return "opencode"
     if assigned == "api" or task.get("task_type") == "api_call":
         return "api"
     # auto-route by task_type
@@ -64,6 +64,7 @@ def _base_env() -> dict:
     env["HOME"] = "/home/john"
     env["PATH"] = (
         "/home/john/.local/bin"
+        ":/home/john/.opencode/bin"
         ":/home/john/.local/share/claude/versions/current/bin"
         ":/usr/local/bin:/usr/bin:/bin"
     )
@@ -98,22 +99,18 @@ def run_claude(content: str, timeout: int = 300) -> tuple[bool, str]:
         return False, str(e)
 
 
-def run_goose(content: str, timeout: int = 300) -> tuple[bool, str]:
+def run_opencode(content: str, timeout: int = 300) -> tuple[bool, str]:
     """
-    Run Goose CLI in headless mode using Gemini Flash (free tier).
+    Run OpenCode in headless mode using Gemini 3.1 Flash-Lite via OpenRouter.
+    Primary async intel/research node — low cost.
     """
     env = _base_env()
-    env["GOOSE_WORKING_DIR"] = str(WORK_DIR)
     try:
         result = subprocess.run(
             [
-                "goose", "run",
-                "--text", content,
-                "--no-session",
-                "-q",
-                "--max-turns", "20",
-                "--provider", "google",
-                "--model", "gemini-2.5-flash",
+                "opencode", "run",
+                "-m", "openrouter/google/gemini-3.1-flash-lite",
+                content,
             ],
             capture_output=True,
             text=True,
@@ -124,12 +121,12 @@ def run_goose(content: str, timeout: int = 300) -> tuple[bool, str]:
         output = result.stdout.strip()
         error  = result.stderr.strip()
         if result.returncode != 0 and not output:
-            return False, error or f"goose exited {result.returncode}"
+            return False, error or f"opencode exited {result.returncode}"
         return True, output or "(done, no output)"
     except subprocess.TimeoutExpired:
-        return False, f"goose timeout after {timeout}s"
+        return False, f"opencode timeout after {timeout}s"
     except FileNotFoundError:
-        return False, "goose CLI not found — check PATH"
+        return False, "opencode CLI not found — check PATH or run: export PATH=/home/john/.opencode/bin:$PATH"
     except Exception as e:
         return False, str(e)
 
@@ -253,7 +250,7 @@ def execute_task(task: dict) -> tuple[bool, str]:
 
     if agent == "api":
         return run_api_direct(task)
-    elif agent == "goose":
-        return run_goose(content, timeout)
+    elif agent == "opencode":
+        return run_opencode(content, timeout)
     else:
         return run_claude(content, timeout)

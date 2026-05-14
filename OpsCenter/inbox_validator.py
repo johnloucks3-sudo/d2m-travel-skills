@@ -8,7 +8,7 @@ at write time so agents never land completions in the wrong inbox.
 Called by: thunderbird_tasking_watcher.py on any file change
 Can also run standalone: python3 inbox_validator.py --check-all
 
-RULING: DeepSeek (via OpenRouter) + Goose — schema enforcement on
+RULING: DeepSeek (via OpenRouter) + OpenCode — schema enforcement on
 existing 4-file system. No architectural merge. (2026-04-03)
 """
 
@@ -29,7 +29,7 @@ FILE_ROLES = {
     "claude_inbox.md": {
         "owner":       "CLAUDE",
         "valid_types": ["TASK", "REQUEST"],
-        "valid_from":  ["GOOSE", "COMMANDER", "WATCHER"],
+        "valid_from":  ["OPENCODE", "COMMANDER", "WATCHER"],
         "valid_to":    ["CLAUDE"],
         "purpose":     "Inbound tasks TO Claude. NEVER write results here.",
     },

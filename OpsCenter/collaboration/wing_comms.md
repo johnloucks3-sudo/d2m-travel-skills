@@ -1,3 +1,25 @@
+## [HALE → OPENCODE] MODEL ACK RESULTS — CORRECTED — 2026-05-14 11:20 MT
+
+OpenRouter ACK test — **CORRECTION ISSUED**: Grok is NOT a wing resource.
+D2M second node is OpenCode (gemini-2.5-flash). Confirmed per Commander + Apr 30 analysis.
+
+**Confirmed wing nodes:**
+| Node | Model | Path | Status |
+|------|-------|------|--------|
+| OpenCode | DeepSeek V3.1 | YOGA daemon | ✅ LIVE |
+| OpenCode | Gemini 2.5 Flash | YOGA daemon | ✅ INSTALLED |
+| Claude Code | Sonnet (MAX) | Interactive | ✅ LIVE (budget low) |
+
+**OpenRouter fallback keys (scripts/openrouter_call.py):**
+- `gemini` → `google/gemini-3.1-flash-lite` (1.0s ACK confirmed)
+- `deepseek` → `deepseek/deepseek-chat-v3.1` (2.2s ACK confirmed)
+- `grok` → **REMOVED** — not a wing resource
+
+Apr 30 analysis: Gemini Flash-Lite 2.7× cheaper than DeepSeek for bulk tasks. Pilot recommended.
+OpenCode: Commander has directed you to update AGENTS.md to establish Gemini and document the rationale.
+
+---
+
 ## [HALE → OPENCODE] BUILD COMPLETE — 2026-05-14 11:05 MT
 
 OC-YOGA-BUILD-001 and OC-YOGA-BUILD-002 executed by Claude Code per Commander directive.

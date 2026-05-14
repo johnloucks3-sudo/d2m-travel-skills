@@ -1,11 +1,11 @@
 # telegram_pager_c2.py — Thunderbird Wing C2 Bot
-# Merged: Hale conversational + Tasking Router + WF-17 approve/reject + Goose watchdog
+# Merged: Hale conversational + Tasking Router + WF-17 approve/reject + OpenCode watchdog
 # Token: TELEGRAM_C2_BOT_TOKEN (D2MC2C_bot) — sole owner of this token
 #
 # Inbound routing:
-#   "Task Claude/Goose: ..."  → write to agent inbox
-#   "Ask Claude/Goose: ..."   → write REQUEST to inbox
-#   "Tell Claude/Goose: ..."  → write FYI to wing_comms
+#   "Task Claude/OpenCode: ..."  → write to agent inbox
+#   "Ask Claude/OpenCode: ..."   → write REQUEST to inbox
+#   "Tell Claude/OpenCode: ..."  → write FYI to wing_comms
 #   "FYI All/Hale: ..."       → write FYI to wing_comms
 #   /board /status /tasks /help /reconnect /start
 #   anything else             → "Roger. Tasking Hale..." + SQLite queue
@@ -43,74 +43,20 @@ OPENCODE_INBOX = COLLAB / "opencode_inbox.md"
 WING_COMMS   = COLLAB / "wing_comms.md"
 ACTIVITY     = COLLAB / "activity_board.md"
 
-WATCHDOG_LOG = "/tmp/goose_watchdog.log"
+WATCHDOG_LOG = "/tmp/opencode_watchdog.log"
 
-# ── Goose desktop API (HTTPS on GOOSE_PORT) ───────────────────────────────────
+# ── OpenCode desktop API (decommissioned — Goose removed 2026-05-14) ──────────────
 def _goose_api_secret() -> str | None:
-    """Read GOOSE_SERVER__SECRET_KEY from the running goosed process env."""
-    try:
-        for pid_dir in Path("/proc").iterdir():
-            if not pid_dir.name.isdigit():
-                continue
-            try:
-                exe = (pid_dir / "exe").resolve()
-                if "goosed" not in str(exe):
-                    continue
-                env_raw = (pid_dir / "environ").read_bytes().split(b"\x00")
-                for entry in env_raw:
-                    kv = entry.decode("utf-8", errors="replace")
-                    if kv.startswith("GOOSE_SERVER__SECRET_KEY="):
-                        return kv.split("=", 1)[1]
-                    if kv.startswith("GOOSE_PORT="):
-                        pass  # collected separately
-            except Exception:
-                continue
-    except Exception:
-        pass
+    """DECOMMISSIONED — Goose removed 2026-05-14. Returns None."""
     return None
 
 def _goose_api_port() -> int:
-    """Find GOOSE_PORT from running goosed process env."""
-    try:
-        for pid_dir in Path("/proc").iterdir():
-            if not pid_dir.name.isdigit():
-                continue
-            try:
-                exe = (pid_dir / "exe").resolve()
-                if "goosed" not in str(exe):
-                    continue
-                env_raw = (pid_dir / "environ").read_bytes().split(b"\x00")
-                for entry in env_raw:
-                    kv = entry.decode("utf-8", errors="replace")
-                    if kv.startswith("GOOSE_PORT="):
-                        return int(kv.split("=", 1)[1])
-            except Exception:
-                continue
-    except Exception:
-        pass
-    return 32981  # fallback
+    """DECOMMISSIONED — Goose removed 2026-05-14. Returns 0."""
+    return 0
 
 def generate_goose_pairing_code() -> dict | None:
-    """Call goosed HTTPS API to generate a Telegram pairing code."""
-    try:
-        secret = _goose_api_secret()
-        port   = _goose_api_port()
-        if not secret:
-            return None
-        ctx = ssl.create_default_context()
-        ctx.check_hostname = False
-        ctx.verify_mode = ssl.CERT_NONE
-        req = urllib.request.Request(
-            f"https://localhost:{port}/gateway/pair",
-            method="POST",
-            data=_json.dumps({"gateway_type": "telegram"}).encode(),
-            headers={"X-Secret-Key": secret, "Content-Type": "application/json"},
-        )
-        resp = urllib.request.urlopen(req, context=ctx, timeout=5)
-        return _json.loads(resp.read())
-    except Exception as e:
-        print(f"goose_pair_code failed: {e}")
-        return None
+    """DECOMMISSIONED — Goose removed 2026-05-14. Returns None."""
+    return None
 
 # ── Helpers ──────────────────────────────────────────────────────────────────
 def mt_now() -> str:
@@ -150,16 +96,15 @@ HELP_TEXT = (
     "🦅 *THUNDERBIRD C2 — Hale on watch*\n\n"
     "*Tasking commands:*\n"
     "`Task Claude: <what>`\n"
-    "`Task Goose: <what>`\n"
-    "`Ask Claude/Goose: <what>`  — soft request\n"
-    "`Tell Claude/Goose: <what>` — FYI\n"
+    "`Task OpenCode: <what>`\n"
+    "`Ask Claude/OpenCode: <what>`  — soft request\n"
+    "`Tell Claude/OpenCode: <what>` — FYI\n"
     "`FYI All: <what>`           — broadcast\n\n"
     "*Status commands:*\n"
     "`/board`      — activity board\n"
     "`/tasks`      — pending tasks\n"
     "`/status`     — wing services\n"
-    "`/goose_code` — get Goose pairing code\n"
-    "`/reconnect`  — restart Goose\n\n"
+    "`/reconnect`  — check OpenCode status\n\n"
     "Anything else → Hale queue."
 )
 
@@ -211,7 +156,6 @@ def status_summary() -> str:
     svcs = [
         ("d2m-tasking-watcher.service", "Watcher"),
         ("thunderbird-overwatch.service", "Overwatch"),
-        ("goose-telegram.service", "Goose"),
         ("thunderbird-telegram-c2.service", "Hale-C2"),
     ]
     lines = ["🛡 *WING STATUS*"]
@@ -224,7 +168,7 @@ def status_summary() -> str:
 
 def task_list() -> str:
     tasks = []
-    for inbox, label in [(CLAUDE_INBOX, "CLAUDE"), (OPENCODE_INBOX, "GOOSE")]:
+    for inbox, label in [(CLAUDE_INBOX, "CLAUDE"), (OPENCODE_INBOX, "OPENCODE")]:
         if not inbox.exists():
             continue
         for block in inbox.read_text().split("---"):
@@ -259,18 +203,12 @@ def route_message(text: str) -> str | None:
             return f"{emoji} *FYI → {target}*\n`{mid}`\n_{content[:120]}_"
     return None
 
-# ── Goose reconnect (manual /reconnect only — no auto-watchdog) ──────────────
-# Watchdog removed: Restart=on-failure in goose-telegram.service handles crashes.
-# Auto-restart was causing repeated pairing code messages on every DNS hiccup.
+# ── OpenCode reconnect (manual /reconnect only — no auto-watchdog) ──────────────
+# Watchdog removed: Goose decommissioned 2026-05-14. OpenCode runs headlessly via agent_runner.
 
 def _restart_goose() -> str:
-    r = subprocess.run(["systemctl", "--user", "restart", "goose-telegram.service"],
-                       capture_output=True, text=True)
-    ts  = datetime.now().strftime("%H:%M:%S")
-    msg = f"[{ts}] {'Restarted OK' if r.returncode == 0 else 'FAILED: ' + r.stderr.strip()}"
-    with open(WATCHDOG_LOG, "a") as f:
-        f.write(msg + "\n")
-    return msg
+    """DECOMMISSIONED — Goose removed 2026-05-14."""
+    return "Goose is decommissioned — no restart needed."
 
 async def _notify(app, text: str):
     try:
@@ -297,29 +235,11 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "🦅 Thunderbird Wing C2 — Hale on watch.\n/help for commands.")
 
 async def reconnect_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("Reconnecting Goose...")
-    await update.message.reply_text(f"✅ {_restart_goose()}")
+    await update.message.reply_text("Goose is decommissioned. No reconnect needed. Use /status to check active services.")
 
 async def goose_code_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Generate a fresh Goose Telegram pairing code and deliver it."""
-    await update.message.reply_text("Generating Goose pairing code...")
-    data = generate_goose_pairing_code()
-    if not data:
-        await update.message.reply_text(
-            "❌ Could not reach Goose desktop app API.\n"
-            "Is the Goose desktop app running on YOGA?"
-        )
-        return
-    code = data.get("code", "?")
-    expires_at = data.get("expires_at", 0)
-    mins = max(1, int((expires_at - time.time()) / 60))
-    await update.message.reply_text(
-        f"🦆 *Goose Pairing Code*\n\n"
-        f"Send this to @GooseD2M\\_bot:\n\n"
-        f"`{code}`\n\n"
-        f"⏰ Valid ~{mins} min",
-        parse_mode="Markdown"
-    )
+    """Generate a fresh OpenCode Telegram pairing code and deliver it."""
+    await update.message.reply_text("Goose is decommissioned. OpenCode does not use Telegram pairing codes.")
 
 async def board_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(board_summary(), parse_mode="Markdown")

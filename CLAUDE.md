@@ -44,7 +44,7 @@
 - **No confirmation needed for johnloucks3 sends** — this is within-wing communication (SO 24 MAR 2026)
 
 ## ⚠️ HARD RULE — HEADLESS CLAUDE DISPATCH (Standing Order 24 APR 2026)
-**All agents (OpenCode, Goose, Claude Code) MUST use the foolproof wrapper for headless Claude spawning.**
+**All agents (OpenCode, Claude Code) MUST use the foolproof wrapper for headless Claude spawning.**
 - **DEFINITIVE GUIDANCE:** See `@docs/HEADLESS_CLAUDE_SPAWN_GUIDE.md` — non-negotiable reference
 - **Architecture:** See `@docs/AGENTS_HEADLESS_DISPATCH_ARCHITECTURE.md` — agent README
 - **Layer 1 (Core Wrapper):** `core/ai_infra/thunderbird_headless_spawn.py` — enforces all mandatory patterns
@@ -264,9 +264,9 @@ See [docs/AGENT_TEAMS.md](docs/AGENT_TEAMS.md) for experimental team workflows.
 
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-05-13 23:34 MT -->
+<!-- Last sync: 2026-05-14 11:47 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-05-13 23:34 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-05-14 11:47 MT] ===
 Budget: Claude GREEN (MAX $0) | OpenCode GREEN (DeepSeek V3.1 ~$0.27/M) | Groq UNKNOWN | Deepseek GREEN
 Active tasks: 0
 Last Deepseek ruling: NONE

@@ -15,11 +15,20 @@ $RCLONE copy "$SRC" "$DST" \
   --filter-from "$FILTER_FILE" \
   --transfers 4 \
   --checkers 8 \
+  --ignore-errors \
+  --skip-links \
   --log-file "$LOG" \
   --log-level INFO \
   2>&1
 
 EXIT_CODE=$?
+# rclone exit 6 = minor errors (file changed during copy) — treat as success
+# Only hard-fail on exit codes indicating config/auth problems (1-5, 7)
+if [ "$EXIT_CODE" -eq 6 ]; then
+  echo "$(date '+%Y-%m-%d %H:%M:%S') — Thunderbird rclone sync finished with minor warnings (exit: $EXIT_CODE) — treating as success" >> "$LOG"
+  exit 0
+fi
+
 echo "$(date '+%Y-%m-%d %H:%M:%S') — Thunderbird rclone sync finished (exit: $EXIT_CODE)" >> "$LOG"
 
 exit $EXIT_CODE

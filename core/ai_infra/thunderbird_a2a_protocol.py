@@ -724,10 +724,10 @@ def get_a2a_router() -> APIRouter:
             deliv_tag = f"\ndeliverable: {req.deliverable}" if req.deliverable else ""
             ctx_tag = f"\ncontext_files: {', '.join(req.context_files)}" if req.context_files else ""
             entry = (
-                f"\n---\n## GOOSE A2A TASK\n"
+                f"\n---\n## OPENCODE A2A TASK\n"
                 f"task_id: {task_id}\n"
                 f"msg_type: TASK\n"
-                f"submitted_by: GOOSE\n"
+                f"submitted_by: OPENCODE\n"
                 f"authority: PEER\n"
                 f"submitted_at: {now_str}\n"
                 f"task_type: a2a_routed\n"
@@ -747,17 +747,17 @@ def get_a2a_router() -> APIRouter:
                 "note": "Task written to claude_inbox.md — watcher will notify",
             }
 
-        # GOOSE target: write to goose_inbox.md for pickup by Goose Desktop App
-        if pid == "GOOSE":
+        # OPENCODE target: write to opencode_inbox.md for pickup by OpenCode Desktop App
+        if pid == "OPENCODE":
             from pathlib import Path as _Path
             from datetime import datetime as _dt
             from zoneinfo import ZoneInfo as _ZI
             import uuid as _uuid
             collab_dir = _Path(__file__).parent / "OpsCenter/collaboration"
-            goose_inbox = collab_dir / "goose_inbox.md"
+            opencode_inbox = collab_dir / "opencode_inbox.md"
             collab_dir.mkdir(parents=True, exist_ok=True)
-            if not goose_inbox.exists():
-                goose_inbox.write_text("# GOOSE INBOX\n\n")
+            if not opencode_inbox.exists():
+                opencode_inbox.write_text("# OPENCODE INBOX\n\n")
             mt = _ZI("America/Denver")
             now_str = _dt.now(tz=mt).strftime("%Y-%m-%d %H:%M MT")
             task_id = f"A2A-{_dt.now(tz=mt).strftime('%Y%m%d-%H%M')}-{_uuid.uuid4().hex[:6].upper()}"
@@ -777,23 +777,23 @@ def get_a2a_router() -> APIRouter:
                 f"status: UNREAD\n"
                 f"content: |\n  {req.content.strip()}\n"
             )
-            with open(goose_inbox, "a") as f:
+            with open(opencode_inbox, "a") as f:
                 f.write(entry)
-            logger.info(f"A2A send → GOOSE inbox: {task_id}")
+            logger.info(f"A2A send → OPENCODE inbox: {task_id}")
             return {
                 "task_id": task_id,
                 "state": TaskState.SUBMITTED.value,
-                "target": "GOOSE",
-                "channel": "goose_inbox.md",
-                "note": "Task written to goose_inbox.md — watcher will notify Goose",
+                "target": "OPENCODE",
+                "channel": "opencode_inbox.md",
+                "note": "Task written to opencode_inbox.md — watcher will notify OpenCode",
             }
 
-        # Non-CLAUDE/GOOSE personas: use standard A2A task executor
+        # Non-CLAUDE/OPENCODE personas: use standard A2A task executor
         if pid not in _PERSONA_CAPABILITIES and pid not in ("A1", "A6"):
             raise HTTPException(
                 status_code=400,
                 detail=f"Unknown persona '{req.target_persona}'. "
-                       f"Available: CLAUDE, GOOSE, {', '.join(_PERSONA_CAPABILITIES.keys())}",
+                       f"Available: CLAUDE, OPENCODE, {', '.join(_PERSONA_CAPABILITIES.keys())}",
             )
 
         task_id = _store.create_task(target_persona=pid, metadata=meta)
