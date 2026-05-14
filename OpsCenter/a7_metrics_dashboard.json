@@ -1,0 +1,26 @@
+{
+  "generated_at": null,
+  "note": "Written by a7-daily-audit.timer at 06:30 MT. Null = not yet instrumented.",
+  "process": {
+    "task_sla_compliance_pct": null,
+    "escalation_rate_24h": null,
+    "mtbf_per_service": {},
+    "wf17_cycle_minutes_p50": null,
+    "email_diff_capture_pct": null,
+    "dossier_sync_success_pct": null
+  },
+  "code": {
+    "complexity_top10_files": [],
+    "dead_code_lines": null,
+    "duplicate_script_count": null,
+    "test_coverage_pct": null,
+    "precommit_pass_rate_7d": null,
+    "import_cycle_count": null
+  },
+  "business": {
+    "csat_proxy_score": null,
+    "inquiry_to_booking_conversion_pct": null,
+    "booking_to_payment_days_p50": null
+  },
+  "red_items": []
+}

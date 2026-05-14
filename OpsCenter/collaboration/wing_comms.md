@@ -109,3 +109,6 @@ Supervisor itself encountered error: 'total_invocations'
 
 ## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-06 10:54:52
 Token health issue: Token expiring in 5 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-13 22:08:50
+Token health issue: Token expiring in 12 min (CRITICAL)

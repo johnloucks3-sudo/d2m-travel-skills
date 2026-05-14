@@ -26,6 +26,15 @@ from typing import Any
 from urllib.error import URLError
 from urllib.request import Request, urlopen
 
+try:
+    from OpsCenter.incident_queue import enqueue_incident
+except ImportError:
+    try:
+        from incident_queue import enqueue_incident
+    except ImportError:
+        def enqueue_incident(event):
+            pass
+
 # ─── Config ───────────────────────────────────────────────────────────────────
 
 BASE = Path("/home/john/Thunderbird")
@@ -353,6 +362,14 @@ def attempt_recovery(
 
     if rc == 0:
         log.info("Recovery SUCCESS: %s restarted", service)
+        enqueue_incident({
+            "source": "coo_watchdog",
+            "event_type": "auto_healed",
+            "severity": "info",
+            "service": service,
+            "auto_heal_succeeded": True,
+            "details": f"COO watchdog restarted service successfully",
+        })
         return True, updated
     else:
         log.error("Recovery FAILED: %s — rc=%d — %s", service, rc, output[:500])
@@ -362,22 +379,8 @@ def attempt_recovery(
 # ─── Alerts ───────────────────────────────────────────────────────────────────
 
 def _send_telegram(message: str) -> None:
-    """Send a plain-text or HTML message to Commander via Telegram."""
-    try:
-        token = _load_bot_token()
-        url = f"https://api.telegram.org/bot{token}/sendMessage"
-        payload = json.dumps({
-            "chat_id": COMMANDER_CHAT_ID,
-            "text": message,
-            "parse_mode": "HTML",
-        }).encode()
-        req = Request(url, data=payload, headers={"Content-Type": "application/json"})
-        urlopen(req, timeout=15)
-        log.info("Telegram alert dispatched to Commander")
-    except URLError as exc:
-        log.error("Telegram send failed (URLError): %s", exc)
-    except Exception as exc:
-        log.error("Telegram send failed: %s", exc)
+    """DEPRECATED 2026-05-13: Routed to Hale incident queue."""
+    log.info("[muted→hale_queue] %s", str(message)[:200] if message else "")
 
 
 def send_unrecoverable_alert(
@@ -386,19 +389,15 @@ def send_unrecoverable_alert(
     diagnostics: str,
     restart_count: int,
 ) -> None:
-    """Alert Commander when a Tier 1 service cannot be recovered."""
-    now = datetime.now().strftime("%Y-%m-%d %H:%M MT")
-    lines = [
-        f"<b>COO WATCHDOG — UNRECOVERABLE FAILURE</b>",
-        f"<b>Service:</b> {service}",
-        f"<b>Role:</b> {desc}",
-        f"<b>Restarts attempted:</b> {restart_count}/{MAX_RESTARTS_PER_HOUR} (cap reached)",
-        f"<b>Time:</b> {now}",
-        "",
-        "COO self-healing exhausted. Manual intervention required.",
-        f"<code>journalctl --user-unit {service}.service -n 50</code>",
-    ]
-    _send_telegram("\n".join(lines))
+    """Alert through Hale incident queue when a Tier 1 service cannot be recovered."""
+    enqueue_incident({
+        "source": "coo_watchdog",
+        "event_type": "unrecoverable",
+        "severity": "tier1_critical",
+        "service": service,
+        "auto_heal_succeeded": False,
+        "details": f"Role: {desc}\nRestarts: {restart_count}/{MAX_RESTARTS_PER_HOUR}\n{diagnostics[:1500]}",
+    })
 
 
 # ─── Logging ──────────────────────────────────────────────────────────────────

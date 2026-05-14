@@ -17,6 +17,15 @@ import time
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
+try:
+    from OpsCenter.incident_queue import enqueue_incident
+except ImportError:
+    try:
+        from incident_queue import enqueue_incident
+    except ImportError:
+        def enqueue_incident(event):
+            pass  # fallback: swallow silently if queue unavailable
+
 # ── Paths ──
 ROOT = Path(__file__).resolve().parent.parent
 OPSCENTER = ROOT / "OpsCenter"
@@ -102,33 +111,10 @@ def _save_state(state: dict):
 
 
 def _send_alert(text: str) -> bool:
-    """Send Telegram alert directly (NOT through C2 bot pipeline)."""
-    if not TELEGRAM_BOT_TOKEN or not TELEGRAM_COMMANDER_ID:
-        _log("Cannot send alert — no Telegram credentials")
-        return False
-    try:
-        import requests
-        resp = requests.post(
-            f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage",
-            json={
-                "chat_id": TELEGRAM_COMMANDER_ID,
-                "text": text,
-                "parse_mode": "HTML",
-            },
-            timeout=10,
-        )
-        if resp.ok:
-            return True
-        # Fallback to plain text
-        resp = requests.post(
-            f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage",
-            json={"chat_id": TELEGRAM_COMMANDER_ID, "text": text.replace("<b>", "").replace("</b>", "").replace("<i>", "").replace("</i>", "")},
-            timeout=10,
-        )
-        return resp.ok
-    except Exception as e:
-        _log(f"Alert send failed: {e}")
-        return False
+    """DEPRECATED 2026-05-13: All alerts now route through Hale incident queue.
+    Watchdog no longer pages Commander directly. hale_incident_router.py triages."""
+    _log(f"[muted→hale_queue] {text[:200]}")
+    return True
 
 
 def _check_network() -> bool:
@@ -349,6 +335,14 @@ def run_watchdog():
             )
             _log(msg)
             alerts.append(msg)
+            enqueue_incident({
+                "source": "opscenter_watchdog",
+                "event_type": "crash_loop",
+                "severity": "critical",
+                "service": svc_name,
+                "auto_heal_succeeded": False,
+                "details": msg,
+            })
             continue
 
         success, output = _restart_service(svc_name)
@@ -377,6 +371,14 @@ def run_watchdog():
                 msg = f"AUTO-HEALED: {svc_desc} restarted"
                 _log(msg)
                 actions.append(msg)
+                enqueue_incident({
+                    "source": "opscenter_watchdog",
+                    "event_type": "auto_healed",
+                    "severity": "info",
+                    "service": svc_name,
+                    "auto_heal_succeeded": True,
+                    "details": msg,
+                })
         else:
             msg = f"RESTART FAILED: {svc_desc} — {output[:100]}"
             _log(msg)

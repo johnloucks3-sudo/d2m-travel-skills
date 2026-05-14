@@ -1,0 +1,30 @@
+{
+  "date": "2026-05-13",
+  "summary": {
+    "auto_healed": 0,
+    "self_repaired": 0,
+    "unresolved": 0,
+    "elon_proposals_new": 0
+  },
+  "incidents": [
+    {
+      "time": "22:43",
+      "service": "test_service",
+      "event_type": "test",
+      "action": "queued_for_brief",
+      "status": "INFO",
+      "note": "Test incident",
+      "elon_invoked": false
+    },
+    {
+      "time": "22:43",
+      "service": "test.service",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: inactive",
+      "elon_invoked": false
+    }
+  ],
+  "mode_now": "GREEN"
+}

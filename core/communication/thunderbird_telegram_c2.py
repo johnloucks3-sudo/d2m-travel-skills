@@ -543,6 +543,7 @@ async def cmd_persona(update: Update, context: ContextTypes.DEFAULT_TYPE):
     stop_event = asyncio.Event()
     on_progress, hb_task, typing_task = await _make_progress_updater(ack_msg, stop_event, update)
     try:
+        logger.info(f"Invoking call_cos_via_sdk with: message={query}, persona={persona_id}, intent_type='TASK', on_progress={on_progress}, draft_mode={is_draft}, conversation_history={recent_context or None}")
         result = await call_cos_via_sdk(
             message=query, persona=persona_id, intent_type="TASK",
             on_progress=on_progress, draft_mode=is_draft,

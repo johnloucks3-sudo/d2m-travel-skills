@@ -1,0 +1,12 @@
+{
+  "_note": "Keyed by 'event_type:service' or 'event_type:*' for wildcard. Actions: log_only | run_cleanup | escalate_elon.",
+  "auto_healed:*":            {"action": "log_only",     "note": "Watchdog already restarted. Record and close."},
+  "service_restart:*":        {"action": "log_only",     "note": "Watchdog already restarted. Record and close."},
+  "mcp_unresponsive:*":       {"action": "log_only",     "note": "Watchdog already restarted MCP. Record."},
+  "queue_stuck:*":            {"action": "log_only",     "note": "Watchdog already restarted overwatch. Record."},
+  "disk_warn:*":              {"action": "log_only",     "note": "Flag in brief. ELON proposes cleanup if recurring."},
+  "crash_loop:*":             {"action": "escalate_elon","reason": "Auto-restart exhausted — needs permanent fix."},
+  "code_broken:*":            {"action": "escalate_elon","reason": "Rapid-fail implies syntax/import error — needs code repair."},
+  "network_down:*":           {"action": "log_only",     "note": "External dependency. Monitor for >30 min, then brief."},
+  "mode_change:system":       {"action": "log_only",     "note": "GREEN/YELLOW handled by router rules. RED pages Commander directly."}
+}

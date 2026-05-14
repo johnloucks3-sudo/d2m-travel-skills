@@ -187,6 +187,7 @@ def monitor_cycle() -> int:
 
     Returns: count of violations detected
     """
+    global ALERTED_TASKS
     active = load_active_tasks()
     violations = 0
 
