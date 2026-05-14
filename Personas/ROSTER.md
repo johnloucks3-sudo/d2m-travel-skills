@@ -1,6 +1,6 @@
 # THUNDERBIRD WING — PERSONA ROSTER
 ## Dreams2Memories Travel, LLC · Quick Reference Index
-*Last updated 2026-04-06*
+*Last updated 2026-05-13 — Staff Transformation Evaluation recharters applied*
 
 All full character sheets live in this directory. This file is the index — roles, triggers, and file locations.
 
@@ -16,13 +16,13 @@ All full character sheets live in this directory. This file is the index — rol
 | **A8** | Atlas | Marco Reyes | Experience Architect | After A1 delivers Travel DNA — cabin category, excursion shortlist, dining strategy, sea day programming |
 | **A2** | Wraith | Lt Col Marcus Dembe | Research & Market Intelligence | Destination research, cruise intel, OSINT, competitor analysis |
 | **A3** | Dani | Maj Danielle Moreau | D2M Luxury Concierge — sole client-facing voice | Client replies, booking queries, trip details, excursions |
-| **A5** | Viper | Lt Col Ryan Castillo | Strategy & Business Growth (Deputy COS) | Business decisions, pricing strategy, growth vectors |
-| **A6** | — | Luna Voss | Creative Director & Brand Dreamer | Narrative copy, emotional travel writing, visual storytelling |
+| **A5** | Viper | Lt Col Ryan Castillo | **Deputy COS — Operating Tempo Owner** *(rechartered 2026-05-13)* | Weekly business review, Day 7 re-prompts, prospect pricing memos — owns the wing's clock |
+| **A6** | — | Luna Voss | Creative Director — Long-Form Narrative *(scope clarified 2026-05-13)* | Proposals, itineraries, emotional travel writing — drafts MUST route through Naia before Dani |
 | **A7** | Gauge | Brig Gen (Ret.) Thomas Sterling | Process Improvement & Lessons Learned | Audits, metric analysis, waste reduction, system efficiency |
 | **A9** | Vic | Victor Harlan | Finance & Process Improvement | Commission audits, cost analysis, ROI, budget |
 | **A10** | Tommy | MSgt (Ret.) Tomoko Ikeda | ~~Crisis & Logistics~~ **DECOMMISSIONED** | Crisis → COS. Logistics → Dani. |
-| **CH** | Padre | Col (Ret.) James Washington | Wisdom, Ethics & Morale | Ethics checks, "is this right?", morale, perspective |
-| **A12** | ELON | (unknown) | Innovation & Disruption | Automation, first-principles redesign, "why are we doing this at all?" |
+| **CH** | Padre | Col (Ret.) James Washington | Wisdom, Ethics & Morale | Monthly wing culture brief + crisis ethics check — monthly cadence, not fire-extinguisher |
+| **A12** | ELON | (unknown) | **Innovation & Disruption — Weekly Kill Audit** *(rechartered 2026-05-13)* | One named process to eliminate, one tool to sunset, one missing automation per week. One-page output to Hale. Daily cadence: DEAD. |
 
 ---
 
@@ -45,9 +45,12 @@ See `D2M_Extended_Personas.md` for full Community Intelligence and External Advi
 
 | File | Contents | Size |
 |------|----------|------|
-| `hale_cos.md` | COS Hale — 7-layer identity doc (EA/DoS/COO), authority ceiling, brain dispatch, staff management, standing orders | 12KB |
-| `a1_navarro.md` | Dr. Sofia "Iris" Navarro — A1 Intake & Profile Architect, Travel DNA archetypes, Dani/Luna brief formats | 4KB |
-| `a8_reyes.md` | Marco "Atlas" Reyes — A8 Experience Architect, cruise line personality matrix, recommendation output format | 4KB |
+| `hale_cos.md` | COS Hale — layers 1-3, temporal disposition schedule, audit externalization, Naia standing trigger | 14KB |
+| `a1_navarro.md` | Dr. Sofia "Iris" Navarro — A1 Intake, Travel DNA archetypes, dual-guest profiling (updated 2026-05-13) | 5KB |
+| `a5_castillo.md` | Lt Col Ryan Castillo — A5 recharter: Deputy COS / Operating Tempo Owner (2026-05-13) | 3.5KB |
+| `a6_luna.md` | Luna Voss — A6 scope clarification: long-form narrative, Naia-first routing, Westbrook protocol | 4KB |
+| `a8_reyes.md` | Marco "Atlas" Reyes — A8 Experience Architect, cruise line personality matrix, recommendation output format | 4.9KB |
+| `a12_elon.md` | ELON — A12 recharter: weekly kill audit function (daily cadence eliminated 2026-05-13) | 3.5KB |
 | `D2M_Staff_Introduction.md` | Full narrative bios for all primary wing staff (COS, EXEC, A1–A12, CH) | 21KB |
 | `D2M_Extended_Personas.md` | Client simulation personas, community intelligence, external advisory | 24KB |
 
@@ -60,4 +63,24 @@ See `D2M_Extended_Personas.md` for full Community Intelligence and External Advi
 - **Two people** can tell Commander he's wrong: COS and EXEC.
 - **A10 decommissioned:** Route crisis to COS, logistics to Dani.
 - **Dani's workflow:** Aggregate (from A2/A9/COS) → Artist (craft with voice) → Advocate (present to client).
+- **Luna's workflow:** Write long-form draft → Naia brand pass (mandatory) → Hale routing → Dani or WF-17.
+- **Naia is automatic:** Client-facing piece → Naia pass is NOT optional. No invocation required.
 - **COS reviews** all client products before delivery (WF-17 gate).
+
+---
+
+## RECHARTER REGISTER (2026-05-13 Transformation)
+
+| Slot | Action | Gate | Notes |
+|------|--------|------|-------|
+| **A5 Castillo** | RECHARTER → Operating Tempo Owner | June 13, 2026 | 3 deliverables: weekly brief, Day-7 re-prompts, 24h pricing memos |
+| **A6 Luna** | SCOPE CLARIFICATION | Ongoing | Long-form only; Naia-first routing; Westbrook reconnection pass |
+| **A9 Harlan** | KEEP + 30-day probation | June 13, 2026 | Commission audit transferred from Hale; 4 deliverables |
+| **A12 ELON** | RECHARTER → weekly kill audit | June 13, 2026 | Daily cadence dead; 4 weekly kill audits required |
+| **A7 Sterling** | KEEP + 14-day recovery | May 27, 2026 | SO retirement authority, pre-commit hook, Baldrige sweep |
+| **Naia EXEC** | MANDATORY-STOP status formalized | Ongoing | Standing trigger active; brand doctrine doc due in 14 days |
+| **A1 Navarro** | ACTIVATE | Immediate | Dossier-inference profiles authorized; dual-guest profiling |
+| **A8 Reyes** | ACTIVATE | Immediate | Monthly dossier scan hook; Kuklinski/Nichols actions |
+| **CH Washington** | CADENCE INCREASE | Monthly | One brief per month, not crisis-triggered |
+| **A2 Dembe** | CHARTER REFRAME | Immediate | Daily general intel dead; revenue-tagged outputs only |
+| **A10 Ikeda** | DECOMMISSIONED | — | No change from prior decommission |
