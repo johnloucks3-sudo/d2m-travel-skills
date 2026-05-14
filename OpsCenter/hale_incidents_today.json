@@ -1,28 +1,2026 @@
 {
-  "date": "2026-05-13",
+  "date": "2026-05-14",
   "summary": {
-    "auto_healed": 0,
+    "auto_healed": 86,
     "self_repaired": 0,
-    "unresolved": 0,
-    "elon_proposals_new": 0
+    "unresolved": 66,
+    "elon_proposals_new": 2
   },
   "incidents": [
     {
-      "time": "22:43",
-      "service": "test_service",
-      "event_type": "test",
-      "action": "queued_for_brief",
-      "status": "INFO",
-      "note": "Test incident",
-      "elon_invoked": false
+      "time": "00:01",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": true
     },
     {
-      "time": "22:43",
-      "service": "test.service",
+      "time": "00:01",
+      "service": "thunderbird-telegram-gw",
       "event_type": "auto_healed",
       "action": "queued_for_brief",
       "status": "YELLOW",
-      "note": "auto-heal unverified: systemctl is-active: inactive",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "00:01",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "crash_loop",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "CRASH LOOP: Telegram Gateway restarted >3x in 10 min. NOT restarting.\nLast journal:\n...telegram-gw.service: Consumed 5.329s CPU time over 25.975s wall clock time.\n2026-05-13T23:58:43-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Scheduled restart job, restart counter is at 4.\n2026-05-13T23:58:43-06:00 localhost.localdomain systemd[1625]: Started Thunderbird Telegram Gateway \u2014 3-bot unified gateway (D2MC2C + GooseD2M + Dani).\n2026-05-13T23:58:59-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Main process exited, code=exited, status=1/FAILURE\n2026-05-13T23:58:59-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Failed with result 'exit-code'.\n2026-05-13T23:58:59-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Consumed 5.391s CPU time over 26.033s wall clock time.",
+      "elon_invoked": true
+    },
+    {
+      "time": "00:06",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "00:11",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "00:11",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "00:11",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "00:16",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "00:21",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "00:21",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "00:26",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "00:26",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "00:31",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "00:41",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "00:41",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "00:41",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "00:46",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "crash_loop",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "CRASH LOOP: Telegram Gateway restarted >3x in 10 min. NOT restarting.\nLast journal:\n...telegram-gw.service: Consumed 5.268s CPU time over 25.946s wall clock time.\n2026-05-14T00:42:43-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Scheduled restart job, restart counter is at 4.\n2026-05-14T00:42:43-06:00 localhost.localdomain systemd[1625]: Started Thunderbird Telegram Gateway \u2014 3-bot unified gateway (D2MC2C + GooseD2M + Dani).\n2026-05-14T00:42:59-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Main process exited, code=exited, status=1/FAILURE\n2026-05-14T00:42:59-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Failed with result 'exit-code'.\n2026-05-14T00:42:59-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Consumed 5.285s CPU time over 25.788s wall clock time.",
+      "elon_invoked": false
+    },
+    {
+      "time": "00:51",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "00:51",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "00:56",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "01:01",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "01:01",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "01:01",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "01:12",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "01:12",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "01:12",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "01:12",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "01:17",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "crash_loop",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "CRASH LOOP: Telegram Gateway restarted >3x in 10 min. NOT restarting.\nLast journal:\n...telegram-gw.service: Consumed 5.281s CPU time over 26.021s wall clock time.\n2026-05-14T01:12:44-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Scheduled restart job, restart counter is at 4.\n2026-05-14T01:12:44-06:00 localhost.localdomain systemd[1625]: Started Thunderbird Telegram Gateway \u2014 3-bot unified gateway (D2MC2C + GooseD2M + Dani).\n2026-05-14T01:12:59-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Main process exited, code=exited, status=1/FAILURE\n2026-05-14T01:12:59-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Failed with result 'exit-code'.\n2026-05-14T01:12:59-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Consumed 5.320s CPU time over 25.851s wall clock time.",
+      "elon_invoked": false
+    },
+    {
+      "time": "01:17",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "01:22",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "01:27",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "01:27",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "01:27",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "01:32",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "01:37",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "01:37",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "01:42",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "01:47",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "01:52",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "01:52",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "01:57",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "crash_loop",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "CRASH LOOP: Telegram Gateway restarted >3x in 10 min. NOT restarting.\nLast journal:\n...telegram-gw.service: Consumed 5.238s CPU time over 26.089s wall clock time.\n2026-05-14T01:52:45-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Scheduled restart job, restart counter is at 4.\n2026-05-14T01:52:45-06:00 localhost.localdomain systemd[1625]: Started Thunderbird Telegram Gateway \u2014 3-bot unified gateway (D2MC2C + GooseD2M + Dani).\n2026-05-14T01:53:00-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Main process exited, code=exited, status=1/FAILURE\n2026-05-14T01:53:00-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Failed with result 'exit-code'.\n2026-05-14T01:53:00-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Consumed 5.255s CPU time over 25.610s wall clock time.",
+      "elon_invoked": false
+    },
+    {
+      "time": "01:57",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "02:02",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "02:02",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "02:02",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "02:07",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "crash_loop",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "CRASH LOOP: Telegram Gateway restarted >3x in 10 min. NOT restarting.\nLast journal:\n...telegram-gw.service: Consumed 5.211s CPU time over 25.872s wall clock time.\n2026-05-14T02:02:44-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Scheduled restart job, restart counter is at 4.\n2026-05-14T02:02:44-06:00 localhost.localdomain systemd[1625]: Started Thunderbird Telegram Gateway \u2014 3-bot unified gateway (D2MC2C + GooseD2M + Dani).\n2026-05-14T02:03:01-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Main process exited, code=exited, status=1/FAILURE\n2026-05-14T02:03:01-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Failed with result 'exit-code'.\n2026-05-14T02:03:01-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Consumed 5.329s CPU time over 26.255s wall clock time.",
+      "elon_invoked": false
+    },
+    {
+      "time": "02:07",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "02:07",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "02:12",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "02:12",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "02:17",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "02:17",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "02:22",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "02:22",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "02:27",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "02:27",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "02:32",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "02:32",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "02:37",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "02:37",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "02:42",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "02:42",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "02:47",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "crash_loop",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "CRASH LOOP: Telegram Gateway restarted >3x in 10 min. NOT restarting.\nLast journal:\n...telegram-gw.service: Consumed 5.248s CPU time over 26.049s wall clock time.\n2026-05-14T02:42:45-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Scheduled restart job, restart counter is at 4.\n2026-05-14T02:42:45-06:00 localhost.localdomain systemd[1625]: Started Thunderbird Telegram Gateway \u2014 3-bot unified gateway (D2MC2C + GooseD2M + Dani).\n2026-05-14T02:43:01-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Main process exited, code=exited, status=1/FAILURE\n2026-05-14T02:43:01-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Failed with result 'exit-code'.\n2026-05-14T02:43:01-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Consumed 5.262s CPU time over 26.002s wall clock time.",
+      "elon_invoked": false
+    },
+    {
+      "time": "02:47",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "02:52",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "02:52",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "02:57",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "crash_loop",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "CRASH LOOP: Telegram Gateway restarted >3x in 10 min. NOT restarting.\nLast journal:\n...telegram-gw.service: Consumed 5.282s CPU time over 26.006s wall clock time.\n2026-05-14T02:52:44-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Scheduled restart job, restart counter is at 4.\n2026-05-14T02:52:44-06:00 localhost.localdomain systemd[1625]: Started Thunderbird Telegram Gateway \u2014 3-bot unified gateway (D2MC2C + GooseD2M + Dani).\n2026-05-14T02:53:00-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Main process exited, code=exited, status=1/FAILURE\n2026-05-14T02:53:00-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Failed with result 'exit-code'.\n2026-05-14T02:53:00-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Consumed 5.338s CPU time over 26.098s wall clock time.",
+      "elon_invoked": false
+    },
+    {
+      "time": "02:57",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "03:02",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "03:02",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "03:07",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "crash_loop",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "CRASH LOOP: Telegram Gateway restarted >3x in 10 min. NOT restarting.\nLast journal:\n...telegram-gw.service: Consumed 5.263s CPU time over 25.846s wall clock time.\n2026-05-14T03:02:45-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Scheduled restart job, restart counter is at 4.\n2026-05-14T03:02:45-06:00 localhost.localdomain systemd[1625]: Started Thunderbird Telegram Gateway \u2014 3-bot unified gateway (D2MC2C + GooseD2M + Dani).\n2026-05-14T03:03:01-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Main process exited, code=exited, status=1/FAILURE\n2026-05-14T03:03:01-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Failed with result 'exit-code'.\n2026-05-14T03:03:01-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Consumed 5.316s CPU time over 25.900s wall clock time.",
+      "elon_invoked": false
+    },
+    {
+      "time": "03:07",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "03:17",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "03:17",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "03:17",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "03:22",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n=== DIAGNOSTICS: thunderbird-drive-sync (service failed) ===\n--- systemctl status ---\n\u00d7 thunderbird-drive-sync.service - Thunderbird Google Drive Mirror \u2014 d2mconcierge\n     Loaded: loaded (/home/john/.config/systemd/user/thunderbird-drive-sync.service; disabled; preset: disabled)\n     Active: failed (Result: exit-code) since Thu 2026-05-14 03:10:51 MDT; 6min ago\n Invocation: 28278cf7b93048098b62bf5bda51399b\nTriggeredBy: \u25cf thunderbird-drive-sync.timer\n    Process: 394191 ExecStart=/home/john/Thunderbird/scripts/thunderbird-rclone-sync.sh (code=exited, status=6)\n   Main PID: 394191 (code=exited, status=6)\n        CPU: 15.356s\n\nMay 14 02:57:01 localhost.localdomain systemd[1625]: Starting Thunderbird Google Drive Mirror \u2014 d2mconcierge...\nMay 14 03:10:51 localhost.localdomain systemd[1625]: thunderbird-drive-sync.service: Main process exited, code=exited, status=6/NOTCONFIGURED\nMay 14 03:10:51 localhost.localdomain systemd[1625]: thunderbird-drive-sync.service: Failed with result 'exit-code'.\nMay 14 03:10:51 localhost.localdomain systemd[1625]: Failed to start Thunderbird Google Drive Mirror \u2014 d2mconcierge.\nMay 14 03:10:51 localhost.localdomain systemd[1625]: thunderbird-drive-sync.service: Consumed 15.356s CPU time over 13min 50.282s wall clock time.\n--- journal (last 50 lines) ---\nMay 13 23:26:59 localhost.localdomain systemd[1625]: Starting Thunderbird Google Drive Mirror \u2014 d2mconcierge...\nMay 13 23:35:00 localhost.localdomain systemd[1625]: thunderbird-drive-sync.service: Mai",
+      "elon_invoked": false
+    },
+    {
+      "time": "03:27",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "03:27",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "03:32",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "03:37",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n=== DIAGNOSTICS: thunderbird-drive-sync (service failed) ===\n--- systemctl status ---\n\u00d7 thunderbird-drive-sync.service - Thunderbird Google Drive Mirror \u2014 d2mconcierge\n     Loaded: loaded (/home/john/.config/systemd/user/thunderbird-drive-sync.service; disabled; preset: disabled)\n     Active: failed (Result: exit-code) since Thu 2026-05-14 03:27:30 MDT; 9min ago\n Invocation: b148cfc517c2408cad007705ebde5d62\nTriggeredBy: \u25cf thunderbird-drive-sync.timer\n    Process: 402005 ExecStart=/home/john/Thunderbird/scripts/thunderbird-rclone-sync.sh (code=exited, status=6)\n   Main PID: 402005 (code=exited, status=6)\n        CPU: 15.192s\n\nMay 14 03:17:02 localhost.localdomain systemd[1625]: Starting Thunderbird Google Drive Mirror \u2014 d2mconcierge...\nMay 14 03:27:30 localhost.localdomain systemd[1625]: thunderbird-drive-sync.service: Main process exited, code=exited, status=6/NOTCONFIGURED\nMay 14 03:27:30 localhost.localdomain systemd[1625]: thunderbird-drive-sync.service: Failed with result 'exit-code'.\nMay 14 03:27:30 localhost.localdomain systemd[1625]: Failed to start Thunderbird Google Drive Mirror \u2014 d2mconcierge.\nMay 14 03:27:30 localhost.localdomain systemd[1625]: thunderbird-drive-sync.service: Consumed 15.192s CPU time over 10min 27.430s wall clock time.\n--- journal (last 50 lines) ---\nMay 13 23:36:59 localhost.localdomain systemd[1625]: Starting Thunderbird Google Drive Mirror \u2014 d2mconcierge...\nMay 13 23:40:06 localhost.localdomain systemd[1625]: thunderbird-drive-sync.service: Mai",
+      "elon_invoked": false
+    },
+    {
+      "time": "03:37",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "03:42",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "03:42",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "03:47",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "crash_loop",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "CRASH LOOP: Telegram Gateway restarted >3x in 10 min. NOT restarting.\nLast journal:\n...telegram-gw.service: Consumed 5.292s CPU time over 25.740s wall clock time.\n2026-05-14T03:42:45-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Scheduled restart job, restart counter is at 4.\n2026-05-14T03:42:45-06:00 localhost.localdomain systemd[1625]: Started Thunderbird Telegram Gateway \u2014 3-bot unified gateway (D2MC2C + GooseD2M + Dani).\n2026-05-14T03:43:01-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Main process exited, code=exited, status=1/FAILURE\n2026-05-14T03:43:01-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Failed with result 'exit-code'.\n2026-05-14T03:43:01-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Consumed 5.309s CPU time over 26.006s wall clock time.",
+      "elon_invoked": false
+    },
+    {
+      "time": "03:47",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "03:47",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "03:52",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "03:57",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "03:57",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "04:02",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "04:07",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "04:07",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "04:07",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "04:12",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "04:12",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "crash_loop",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "CRASH LOOP: Telegram Gateway restarted >3x in 10 min. NOT restarting.\nLast journal:\n...telegram-gw.service: Consumed 5.279s CPU time over 25.890s wall clock time.\n2026-05-14T04:10:46-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Scheduled restart job, restart counter is at 4.\n2026-05-14T04:10:46-06:00 localhost.localdomain systemd[1625]: Started Thunderbird Telegram Gateway \u2014 3-bot unified gateway (D2MC2C + GooseD2M + Dani).\n2026-05-14T04:11:02-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Main process exited, code=exited, status=1/FAILURE\n2026-05-14T04:11:02-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Failed with result 'exit-code'.\n2026-05-14T04:11:02-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Consumed 5.219s CPU time over 25.862s wall clock time.",
+      "elon_invoked": false
+    },
+    {
+      "time": "04:17",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "04:17",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "04:17",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "04:22",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "04:27",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "04:27",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "04:27",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "04:32",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "04:32",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "crash_loop",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "CRASH LOOP: Telegram Gateway restarted >3x in 10 min. NOT restarting.\nLast journal:\n...telegram-gw.service: Consumed 5.258s CPU time over 26.031s wall clock time.\n2026-05-14T04:30:46-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Scheduled restart job, restart counter is at 4.\n2026-05-14T04:30:46-06:00 localhost.localdomain systemd[1625]: Started Thunderbird Telegram Gateway \u2014 3-bot unified gateway (D2MC2C + GooseD2M + Dani).\n2026-05-14T04:31:02-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Main process exited, code=exited, status=1/FAILURE\n2026-05-14T04:31:02-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Failed with result 'exit-code'.\n2026-05-14T04:31:02-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Consumed 5.263s CPU time over 25.932s wall clock time.",
+      "elon_invoked": false
+    },
+    {
+      "time": "04:37",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "04:37",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "04:37",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "04:47",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "04:47",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "04:47",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "04:52",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "04:58",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "04:58",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "04:58",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "04:58",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "crash_loop",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "CRASH LOOP: Telegram Gateway restarted >3x in 10 min. NOT restarting.\nLast journal:\n...telegram-gw.service: Consumed 5.274s CPU time over 25.935s wall clock time.\n2026-05-14T04:56:46-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Scheduled restart job, restart counter is at 4.\n2026-05-14T04:56:46-06:00 localhost.localdomain systemd[1625]: Started Thunderbird Telegram Gateway \u2014 3-bot unified gateway (D2MC2C + GooseD2M + Dani).\n2026-05-14T04:57:02-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Main process exited, code=exited, status=1/FAILURE\n2026-05-14T04:57:02-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Failed with result 'exit-code'.\n2026-05-14T04:57:02-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Consumed 5.303s CPU time over 25.817s wall clock time.",
+      "elon_invoked": false
+    },
+    {
+      "time": "05:03",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "05:08",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "05:13",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "05:13",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "05:18",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "05:18",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "crash_loop",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "CRASH LOOP: Telegram Gateway restarted >3x in 10 min. NOT restarting.\nLast journal:\n...telegram-gw.service: Consumed 5.294s CPU time over 26.008s wall clock time.\n2026-05-14T05:14:46-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Scheduled restart job, restart counter is at 4.\n2026-05-14T05:14:46-06:00 localhost.localdomain systemd[1625]: Started Thunderbird Telegram Gateway \u2014 3-bot unified gateway (D2MC2C + GooseD2M + Dani).\n2026-05-14T05:15:02-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Main process exited, code=exited, status=1/FAILURE\n2026-05-14T05:15:02-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Failed with result 'exit-code'.\n2026-05-14T05:15:02-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Consumed 5.270s CPU time over 25.802s wall clock time.",
+      "elon_invoked": false
+    },
+    {
+      "time": "05:18",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "05:23",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "05:23",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "05:28",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "05:28",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "crash_loop",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "CRASH LOOP: Telegram Gateway restarted >3x in 10 min. NOT restarting.\nLast journal:\n...telegram-gw.service: Consumed 5.291s CPU time over 25.785s wall clock time.\n2026-05-14T05:24:46-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Scheduled restart job, restart counter is at 4.\n2026-05-14T05:24:46-06:00 localhost.localdomain systemd[1625]: Started Thunderbird Telegram Gateway \u2014 3-bot unified gateway (D2MC2C + GooseD2M + Dani).\n2026-05-14T05:25:02-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Main process exited, code=exited, status=1/FAILURE\n2026-05-14T05:25:02-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Failed with result 'exit-code'.\n2026-05-14T05:25:02-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Consumed 5.297s CPU time over 25.972s wall clock time.",
+      "elon_invoked": false
+    },
+    {
+      "time": "05:28",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "05:33",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "05:38",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "05:38",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "05:38",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "05:43",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "05:43",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "crash_loop",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "CRASH LOOP: Telegram Gateway restarted >3x in 10 min. NOT restarting.\nLast journal:\n...telegram-gw.service: Consumed 5.318s CPU time over 25.999s wall clock time.\n2026-05-14T05:40:47-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Scheduled restart job, restart counter is at 4.\n2026-05-14T05:40:47-06:00 localhost.localdomain systemd[1625]: Started Thunderbird Telegram Gateway \u2014 3-bot unified gateway (D2MC2C + GooseD2M + Dani).\n2026-05-14T05:41:03-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Main process exited, code=exited, status=1/FAILURE\n2026-05-14T05:41:03-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Failed with result 'exit-code'.\n2026-05-14T05:41:03-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Consumed 5.344s CPU time over 26.041s wall clock time.",
+      "elon_invoked": false
+    },
+    {
+      "time": "05:48",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "05:48",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "05:53",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "05:58",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "05:58",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "05:58",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "06:03",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "06:08",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "06:08",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "06:08",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "06:08",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "crash_loop",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "CRASH LOOP: Telegram Gateway restarted >3x in 10 min. NOT restarting.\nLast journal:\n...telegram-gw.service: Consumed 5.187s CPU time over 25.802s wall clock time.\n2026-05-14T06:06:46-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Scheduled restart job, restart counter is at 4.\n2026-05-14T06:06:46-06:00 localhost.localdomain systemd[1625]: Started Thunderbird Telegram Gateway \u2014 3-bot unified gateway (D2MC2C + GooseD2M + Dani).\n2026-05-14T06:07:02-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Main process exited, code=exited, status=1/FAILURE\n2026-05-14T06:07:02-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Failed with result 'exit-code'.\n2026-05-14T06:07:02-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Consumed 5.177s CPU time over 25.698s wall clock time.",
+      "elon_invoked": false
+    },
+    {
+      "time": "06:13",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "06:18",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "06:23",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "06:28",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "06:28",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "06:28",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "06:33",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "06:38",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "06:38",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "06:43",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "06:43",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "06:48",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "06:53",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "06:53",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "06:53",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "06:58",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "07:03",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "07:03",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "07:03",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "07:08",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "crash_loop",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "CRASH LOOP: Telegram Gateway restarted >3x in 10 min. NOT restarting.\nLast journal:\n...telegram-gw.service: Consumed 5.293s CPU time over 25.601s wall clock time.\n2026-05-14T07:04:48-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Scheduled restart job, restart counter is at 4.\n2026-05-14T07:04:48-06:00 localhost.localdomain systemd[1625]: Started Thunderbird Telegram Gateway \u2014 3-bot unified gateway (D2MC2C + GooseD2M + Dani).\n2026-05-14T07:05:04-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Main process exited, code=exited, status=1/FAILURE\n2026-05-14T07:05:04-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Failed with result 'exit-code'.\n2026-05-14T07:05:04-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Consumed 5.302s CPU time over 26.250s wall clock time.",
+      "elon_invoked": false
+    },
+    {
+      "time": "07:08",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "07:13",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "07:13",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "07:13",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "07:18",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "07:23",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "07:28",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "07:28",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "07:33",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "07:33",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "crash_loop",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "CRASH LOOP: Telegram Gateway restarted >3x in 10 min. NOT restarting.\nLast journal:\n...telegram-gw.service: Consumed 5.240s CPU time over 25.647s wall clock time.\n2026-05-14T07:30:48-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Scheduled restart job, restart counter is at 4.\n2026-05-14T07:30:48-06:00 localhost.localdomain systemd[1625]: Started Thunderbird Telegram Gateway \u2014 3-bot unified gateway (D2MC2C + GooseD2M + Dani).\n2026-05-14T07:31:04-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Main process exited, code=exited, status=1/FAILURE\n2026-05-14T07:31:04-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Failed with result 'exit-code'.\n2026-05-14T07:31:04-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Consumed 5.239s CPU time over 25.910s wall clock time.",
+      "elon_invoked": false
+    },
+    {
+      "time": "07:38",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "07:38",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "07:38",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "07:43",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "07:43",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "crash_loop",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "CRASH LOOP: Telegram Gateway restarted >3x in 10 min. NOT restarting.\nLast journal:\n...telegram-gw.service: Consumed 5.231s CPU time over 25.703s wall clock time.\n2026-05-14T07:40:48-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Scheduled restart job, restart counter is at 4.\n2026-05-14T07:40:48-06:00 localhost.localdomain systemd[1625]: Started Thunderbird Telegram Gateway \u2014 3-bot unified gateway (D2MC2C + GooseD2M + Dani).\n2026-05-14T07:41:04-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Main process exited, code=exited, status=1/FAILURE\n2026-05-14T07:41:04-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Failed with result 'exit-code'.\n2026-05-14T07:41:04-06:00 localhost.localdomain systemd[1625]: thunderbird-telegram-gw.service: Consumed 5.145s CPU time over 25.895s wall clock time.",
+      "elon_invoked": false
+    },
+    {
+      "time": "07:48",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "07:48",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "07:53",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "07:58",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "07:58",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "08:08",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "08:08",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "08:18",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "08:18",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "08:28",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "08:28",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "08:33",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "08:43",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "08:48",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "08:48",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "08:53",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "08:58",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "08:58",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "09:03",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "09:08",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "09:08",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "09:13",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "09:18",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "09:18",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "09:23",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "09:28",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "09:33",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "09:38",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "09:38",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "09:43",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "09:48",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "09:53",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "09:58",
+      "service": "thunderbird-drive-sync",
+      "event_type": "unrecoverable",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "Role: Dossier \u2192 Google Drive mirror\nRestarts: 3/3\n",
+      "elon_invoked": false
+    },
+    {
+      "time": "10:03",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "10:03",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "10:08",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "10:13",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "10:24",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "10:29",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "10:34",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "10:39",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "10:44",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "10:54",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "10:59",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "11:04",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
       "elon_invoked": false
     }
   ],

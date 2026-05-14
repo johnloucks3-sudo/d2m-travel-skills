@@ -335,3 +335,73 @@ It looks like you've initiated something, but I need more context to proceed.
 
 *Ready to execute on your command.* What's the mission?
 ---
+
+---
+## TASK: OC-YOGA-BUILD-001
+status: COMPLETE
+completed_at: 2026-05-14 11:05 MT
+completed_by: Hale (Claude Code) — Commander authorized "build here"
+from: hale
+injected: 2026-05-14 11:00 MT
+priority: P1
+task: |
+  BUILD: Telegram bot health check script + systemd timer.
+  
+  Context: Wing has 2 active Telegram bots (GooseD2M decommissioned). Need automated health check.
+  Active bots to check:
+  - D2MC2C (Commander C2 bot)
+  - Dani (client-facing bot)
+  
+  Build: /home/john/Thunderbird/core/monitoring/telegram_bot_healthcheck.py
+  - Ping each bot's webhook endpoint via Telegram Bot API getMe method
+  - Write result to hale_state.json wing_health.telegram_bots with status LIVE/DEAD + timestamp
+  - Runs as standalone script, no LLM needed
+  - Use bot tokens from environment or config (check OpsCenter/config.py for token refs)
+  
+  Also create: /home/john/Thunderbird/scripts/systemd/thunderbird-telegram-health.service
+  And: /home/john/Thunderbird/scripts/systemd/thunderbird-telegram-health.timer (60-second interval)
+  
+  Output confirmation to: /home/john/Thunderbird/output/telegram_health_build_result.txt
+---
+
+---
+## TASK: OC-YOGA-BUILD-002
+status: COMPLETE
+completed_at: 2026-05-14 11:05 MT
+completed_by: Hale (Claude Code) — Commander authorized "build here"
+from: hale
+injected: 2026-05-14 11:00 MT
+priority: P2
+task: |
+  BUILD: Parameterized Redis connector to replace 10+ per-persona files.
+  
+  Context: ELON kill audit found 17 Redis connector files (one per persona + v1/v2 variants).
+  Target: 3 files total.
+  
+  Current dead files already archived:
+  - goose_redis_connector_cli.py (archived)
+  - goose_redis_connector_cli_v2.py (archived)
+  
+  Active files to consolidate (read these first to understand the pattern):
+  - /home/john/Thunderbird/core/redis_connector.py (base — keep)
+  - /home/john/Thunderbird/core/redis_connector_fallback.py (keep)
+  - /home/john/Thunderbird/core/claude_redis_subscriber.py
+  - /home/john/Thunderbird/core/claude_redis_subscriber_v2.py
+  - /home/john/Thunderbird/core/d2mc2_redis_connector_cli.py
+  - /home/john/Thunderbird/core/d2mc2_redis_connector_cli_v2.py
+  - /home/john/Thunderbird/core/d2mc2_redis_connector.py
+  - /home/john/Thunderbird/core/dani_redis_connector_cli.py
+  - /home/john/Thunderbird/core/dani_redis_connector_cli_v2.py
+  - /home/john/Thunderbird/core/opencode_redis_connector_cli.py
+  - /home/john/Thunderbird/core/opencode_redis_connector_cli_v2.py
+  
+  Build: /home/john/Thunderbird/core/persona_redis_connector.py
+  - Single class that accepts persona_name parameter ("d2mc2", "dani", "opencode", "claude", etc.)
+  - Inherits from redis_connector_fallback.py base
+  - Replaces all per-persona files
+  - CLI-compatible (same interface as existing _cli.py files)
+  
+  Archive the old files after building the replacement (move to /home/john/Thunderbird/OpsCenter/archive/).
+  
+  Output confirmation to: /home/john/Thunderbird/output/redis_consolidation_result.txt
+---

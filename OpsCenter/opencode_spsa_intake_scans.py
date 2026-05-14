@@ -17,19 +17,84 @@ from datetime import datetime, timedelta
 logger = logging.getLogger("opencode_intake")
 
 ROOT = Path("/home/john/Thunderbird")
+DEDUP_FILE = ROOT / "OpsCenter" / "spsa_dedup_state.json"
+
+
+def _load_dedup() -> dict:
+    try:
+        if DEDUP_FILE.exists():
+            return json.loads(DEDUP_FILE.read_text())
+    except Exception:
+        pass
+    return {}
+
+
+def _save_dedup(state: dict):
+    try:
+        DEDUP_FILE.write_text(json.dumps(state, indent=2, default=str))
+    except Exception as e:
+        logger.warning(f"Failed to save dedup state: {e}")
+
+
+def _should_fire(alert_key: str, suppress_after: int = 3) -> bool:
+    """
+    Returns True if this alert should fire.
+    Suppresses repeated alerts after suppress_after consecutive occurrences.
+    Always fires on first occurrence and when threshold is crossed (escalation signal).
+    """
+    state = _load_dedup()
+    entry = state.get(alert_key, {})
+    count = entry.get("count", 0)
+    now = datetime.now().isoformat()
+
+    state[alert_key] = {
+        "count": count + 1,
+        "first_seen": entry.get("first_seen", now),
+        "last_seen": now,
+    }
+    _save_dedup(state)
+
+    if count == 0:
+        return True   # first occurrence — fire
+    if count == suppress_after:
+        return True   # threshold crossing — fire once as escalation notice
+    if count > suppress_after:
+        return False  # suppress repeat noise
+    return True       # within initial window
+
+
+def _clear_alert(alert_key: str):
+    """Clear dedup state when a condition resolves."""
+    state = _load_dedup()
+    if alert_key in state:
+        del state[alert_key]
+        _save_dedup(state)
+
+
+def _hale_state_says_running(component: str) -> bool:
+    """Check hale_state.json for a component's status before escalating."""
+    try:
+        state_file = ROOT / "hale_state.json"
+        if state_file.exists():
+            state = json.loads(state_file.read_text())
+            health = state.get("system_health", state.get("wing_health", {}))
+            for key, val in health.items():
+                if component.lower() in key.lower() and "RUNNING" in str(val).upper():
+                    return True
+    except Exception:
+        pass
+    return False
 
 
 def scan_opencode_health() -> list:
     """
     Scan OpenCode daemon health and resource usage.
-
-    Returns:
-        List of (problem, factors, severity) tuples if issues found, else []
+    Cross-checks hale_state.json before flagging RED to prevent false alarms.
+    Deduplicates: suppresses repeat alerts after 3 consecutive occurrences.
     """
     issues = []
 
     try:
-        # Check if OpenCode daemon is running
         result = subprocess.run(
             ["systemctl", "--user", "status", "opencode.service"],
             capture_output=True,
@@ -38,17 +103,36 @@ def scan_opencode_health() -> list:
         )
 
         if result.returncode != 0:
-            issues.append({
-                "problem": "OpenCode daemon is not running",
-                "factors": [
-                    "systemctl --user status opencode.service returned non-zero",
-                    "OpenCode tasks cannot be dispatched or executed",
-                    "Background AI operations are paused"
-                ],
-                "severity": "RED",
-            })
+            # Cross-check state file before declaring RED
+            if _hale_state_says_running("opencode"):
+                # State/process discrepancy — not a confirmed outage
+                if _should_fire("opencode_state_discrepancy"):
+                    issues.append({
+                        "problem": "OpenCode state/process discrepancy",
+                        "factors": [
+                            "opencode.service not active via systemctl",
+                            "hale_state.json indicates RUNNING — possible stale state",
+                            "OpenCode may be running outside systemd (screen/tmux)",
+                            "Investigate but do not treat as confirmed outage"
+                        ],
+                        "severity": "YELLOW",
+                    })
+            else:
+                if _should_fire("opencode_daemon_down"):
+                    issues.append({
+                        "problem": "OpenCode daemon is not running",
+                        "factors": [
+                            "systemctl --user status opencode.service returned non-zero",
+                            "hale_state.json does not confirm RUNNING status",
+                            "OpenCode tasks cannot be dispatched or executed",
+                            "Background AI operations are paused"
+                        ],
+                        "severity": "RED",
+                    })
         else:
             logger.info("✅ OpenCode daemon is running")
+            _clear_alert("opencode_daemon_down")
+            _clear_alert("opencode_state_discrepancy")
 
     except Exception as e:
         logger.warning(f"Failed to check OpenCode status: {e}")

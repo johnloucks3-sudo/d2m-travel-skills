@@ -1,43 +1,19 @@
 {
-  "generated_at": "2026-04-22T06:03:56.339128",
-  "total_tasks": 3,
-  "critical_count": 0,
+  "generated_at": "2026-05-14T06:04:11.502219",
+  "total_tasks": 1,
+  "critical_count": 1,
   "tasks": [
     {
-      "task_id": "TASK-3.6-westbrook_group",
-      "client": "westbrook_group",
-      "phase": 3,
-      "touchpoint": "3.6",
-      "deliverable": "Embarkation day send-off",
-      "owners": "A6\u2192A3",
-      "draft_due": "2026-04-20T00:00:00",
-      "send_date": "2026-04-23T00:00:00",
-      "status": "PENDING",
-      "critical": false
-    },
-    {
-      "task_id": "TASK-5.3-westbrook_group",
-      "client": "westbrook_group",
-      "phase": 5,
-      "touchpoint": "5.3",
-      "deliverable": "Thank you + referral",
-      "owners": "A6\u2192A3",
-      "draft_due": "2026-04-21T00:00:00",
-      "send_date": "2026-04-23T00:00:00",
-      "status": "PENDING",
-      "critical": false
-    },
-    {
-      "task_id": "TASK-5.4-westbrook_group",
-      "client": "westbrook_group",
-      "phase": 5,
-      "touchpoint": "5.4",
-      "deliverable": "Next voyage plant",
+      "task_id": "TASK-2.6-kuklinski_group",
+      "client": "kuklinski_group",
+      "phase": 2,
+      "touchpoint": "2.6",
+      "deliverable": "Excursion recommendation",
       "owners": "A2\u2192A6\u2192A3",
-      "draft_due": "2026-04-21T00:00:00",
-      "send_date": "2026-04-23T00:00:00",
+      "draft_due": "2026-05-07T00:00:00",
+      "send_date": "2026-05-21T00:00:00",
       "status": "PENDING",
-      "critical": false
+      "critical": true
     }
   ]
 }

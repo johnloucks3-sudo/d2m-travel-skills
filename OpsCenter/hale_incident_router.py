@@ -14,6 +14,8 @@ import os
 import hashlib
 import subprocess
 import sys
+sys.path.insert(0, str(__import__("pathlib").Path(__file__).parent.parent))
+import sys
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
@@ -36,10 +38,25 @@ BOT_TOKEN = os.environ.get("TELEGRAM_C2_BOT_TOKEN", "")
 # ── Rule 1 (hardcoded, never changes) ───────────────────────────────────────
 RULE_1 = "auto_heal_success_never_pages_commander"
 
-# Severities that page Commander immediately
+# Severities that MAY page Commander — but only if service is in COMMANDER_GATE_SERVICES
 COMMANDER_PAGE_SEVERITIES = {"tier1_critical", "unrecoverable", "crash_loop", "code_broken", "engine_dead"}
 # Event types that page Commander if severity matches
 MODE_RED_PAGES = True
+
+# COMMANDER GATE (SO 2026-05-07 — Manage the Exceptions Doctrine):
+# Hale repairs first. Commander is paged ONLY if ALL THREE conditions are true:
+#   1. Service is in COMMANDER_GATE_SERVICES (genuinely client-blocking)
+#   2. Severity matches COMMANDER_PAGE_SEVERITIES
+#   3. Auto-heal attempts exhausted
+# Infrastructure/mirror services (e.g. thunderbird-drive-sync) are NEVER in this list.
+# Updated 2026-05-14: drive-sync removed — reclassified to Tier 2 in watchdog.
+COMMANDER_GATE_SERVICES = {
+    "hale-draft-engine",        # Blocks lifecycle emails to clients
+    "hale-touchpoint-proposer", # Blocks touchpoint delivery
+    "d2m-lifecycle",            # Blocks lifecycle state transitions
+    "d2m-correspondence-sync",  # Blocks dossier update after send
+    "d2m-fpd-alert",            # Blocks final payment date warnings
+}
 
 # ── Logging ─────────────────────────────────────────────────────────────────
 LOGS.mkdir(parents=True, exist_ok=True)
@@ -247,18 +264,19 @@ WRITE this proposal to {proposal_path}
             if token:
                 env["CLAUDE_CODE_OAUTH_TOKEN"] = token
 
-        log_path = LOGS / f"elon_proposal_{date_str}_{service.replace('/', '-')}.log"
-        proc = subprocess.Popen(
-            ["/home/john/.local/bin/claude", "-p", prompt,
-             "--model", "claude-haiku-4-5-20251001"],
-            stdout=open(log_path, "w"),
-            stderr=subprocess.STDOUT,
-            env=env,
-            start_new_session=True,
+        from core.ai_infra.thunderbird_headless_spawn import spawn_headless_claude
+        result = spawn_headless_claude(
+            prompt=prompt,
+            output_file=str(proposal_path),
+            model="claude-haiku-4-5-20251001",
+            task_name=f"elon_proposal_{sig[:12]}",
         )
+        if result.get("status") != "SPAWNED":
+            log.error(f"invoke_elon spawn failed: {result.get('error')}")
+            return {}
         mark_elon_invoked(sig)
-        log.info(f"invoke_elon: spawned PID {proc.pid} for sig={sig}, proposal={proposal_path}")
-        return {"proposal_path": str(proposal_path), "pid": proc.pid}
+        log.info(f"invoke_elon: spawned PID {result['pid']} for sig={sig}, proposal={proposal_path}")
+        return {"proposal_path": str(proposal_path), "pid": result["pid"]}
     except Exception as e:
         log.error(f"invoke_elon failed: {e}")
         return {}
@@ -325,8 +343,27 @@ def triage_event(event: dict) -> dict:
             result["brief_status"] = curr_mode
         return result
 
-    # Tier 1 critical / unrecoverable / crash_loop / code_broken → page Commander
+    # Tier 1 critical / unrecoverable → page Commander ONLY if service is in COMMANDER_GATE_SERVICES
+    # Per SO 2026-05-07: Hale repairs first. Commander gates only on client-blocking failures.
     if severity in COMMANDER_PAGE_SEVERITIES or event_type in COMMANDER_PAGE_SEVERITIES:
+        if service not in COMMANDER_GATE_SERVICES:
+            # Infrastructure service — Hale owns repair, Commander not paged
+            result["page_commander"] = False
+            result["action_taken"] = "hale_owns_repair_no_commander_page"
+            result["brief_status"] = "RED"
+            log.warning(
+                "COMMANDER GATE: %s has severity %s but is not in COMMANDER_GATE_SERVICES — "
+                "Hale owns repair, Commander not paged (SO 2026-05-07)", service, severity
+            )
+            # Still invoke ELON for recurring failures
+            elon_needed, elon_reason = should_invoke_elon(sig, event)
+            if elon_needed:
+                elon_result = invoke_elon(sig, service, event, elon_reason)
+                if elon_result:
+                    result["elon_invoked"] = True
+                    result["elon_proposal_path"] = elon_result.get("proposal_path")
+            return result
+
         result["page_commander"] = True
         result["action_taken"] = "paged_commander_tier1"
         result["brief_status"] = "RED"

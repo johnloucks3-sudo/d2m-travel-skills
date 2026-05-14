@@ -1,11 +1,11 @@
 {
-  "total_invocations": 0,
+  "total_invocations": 1,
   "failures": [],
   "auth_errors": 0,
   "credit_errors": 0,
   "timeouts": 0,
   "logic_errors": 0,
   "last_30_min": [],
-  "checkpoint_passes": 209,
-  "stale_tasks_detected": 0
+  "checkpoint_passes": 143,
+  "stale_tasks_detected": 5
 }

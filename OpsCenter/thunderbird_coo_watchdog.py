@@ -49,17 +49,22 @@ COMMANDER_CHAT_ID = "7554895206"
 MAX_RESTARTS_PER_HOUR = 3
 
 # Tier 1: Client-critical — self-heal + alert Commander if unrecoverable
+# CLASSIFICATION RULE: Tier 1 = service whose failure directly blocks a client
+# deliverable or financial transaction. Infrastructure/mirror services = Tier 2.
 TIER1_SERVICES: dict[str, str] = {
     "hale-draft-engine":       "Lifecycle email drafts for clients",
     "hale-touchpoint-proposer":"Touchpoint scheduling (what's due today)",
     "d2m-lifecycle":           "Lifecycle state scanner",
     "d2m-correspondence-sync": "Sent email → dossier logging",
     "d2m-fpd-alert":           "Final payment date alerts",
-    "thunderbird-drive-sync":  "Dossier → Google Drive mirror",
 }
 
 # Tier 2: Operational — self-heal, log; no Commander alert
+# NOTE: thunderbird-drive-sync moved from Tier 1 → Tier 2 (2026-05-14).
+# Drive mirror down ≠ client blocked. Race-condition transient failures should
+# NOT page Commander. Hale owns repair silently per SO 2026-05-07.
 TIER2_SERVICES: dict[str, str] = {
+    "thunderbird-drive-sync": "Dossier → Google Drive mirror",
     "hale-brief-generate":    "Morning brief auto-generation",
     "d2m-email-intel":        "Inbound email intelligence",
     "d2m-booking-monitor":    "Booking status change detection",

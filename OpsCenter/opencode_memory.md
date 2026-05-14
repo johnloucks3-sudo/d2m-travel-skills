@@ -227,9 +227,7 @@ Inbox now clear.
 - **Verified Workflow:** Use background dispatching + `watch_task.py` for completion monitoring.
 
 ---
-## Session Summary — 2026-05-09
-- CCR Integration: Installed, systemd-managed, activated in .bashrc.
-- Initiative I5: Groq/DeepSeek routing verified and active.
-- Harness Discipline: Implemented VBC dispatch hooks and auto-retro scripts.
-- Cost Telemetry: OC-03 integrated into opencode_spsa_monitor.py.
-- Infrastructure: Resolved Drive sync race condition and restored ttyd.
+## 2026-05-14 — Standing Order: Gmail Historical Search Protocol
+1. Use native Gmail search (via Playwright or appropriate browser-based automation) for all historical Gmail searches, especially when D2M API/MCP tools fail.
+2. If D2M Gmail tools do not find results, immediately pivot to browser-based native search.
+3. Ensure authorized personal accounts (e.g., yodainva@gmail.com) are included in search scope if permitted by Commander.
