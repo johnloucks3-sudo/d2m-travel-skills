@@ -1,0 +1,18 @@
+[
+  {
+    "timestamp": "2026-05-14T15:16:07.737302",
+    "task_id": "TEMPLATE",
+    "script": "python_task_name",
+    "input": {
+      "example": "data"
+    },
+    "output": null,
+    "confidence": 0,
+    "escalation_reason": "Example: unknown condition, confidence < 85%, timeout",
+    "status": "pending",
+    "escalation_time": null,
+    "decision_by": null,
+    "decision": null,
+    "notes": "Remove this template entry before production"
+  }
+]
