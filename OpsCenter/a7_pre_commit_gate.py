@@ -16,6 +16,10 @@ CLAUDE_SPAWN_WHITELIST = {
     "core/ai_infra/thunderbird_headless_spawn.py",
     "OpsCenter/opencode_headless_claude_dispatch.py",
     "OpsCenter/headless_claude_fallback.py",
+    # Tasking watcher spawns opencode (not claude) — false positive due to CLAUDE_INBOX variable
+    "core/watchtower/thunderbird_tasking_watcher.py",
+    # This gate script itself — uses subprocess.Popen for git, not claude
+    "OpsCenter/a7_pre_commit_gate.py",
 }
 
 # Functions that must NOT call _wrap_body_html or _wrap_staff_html
