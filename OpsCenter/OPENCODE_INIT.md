@@ -47,25 +47,31 @@ cat /home/john/Thunderbird/session_autosave_latest.md
 
 ## MODEL STACK — CURRENT (2026-05-16)
 
-| Priority | Model ID | Cost | When |
+| Priority | Headless ID (`opencode run -m`) | TUI display | Cost |
 |---|---|---|---|
-| **1 — Primary** | `zen/big-pickle` | $0 | All tasks by default |
-| **2 — Fallback** | `zen/deepseek-v4-flash-free` | $0 | Auto if rate-limited |
-| **3 — Last resort** | `google/gemini-2.5-flash` | flat-fee | Non-ZEN only |
-| **4 — Emergency** | `openrouter/nvidia/nemotron-3-super-120b-a12b:free` | $0 | OR emergency only |
+| **1 — Primary** | `opencode/big-pickle` | OpenCode Zen · big-pickle | $0 |
+| **2 — Fallback** | `opencode/deepseek-v4-flash-free` | OpenCode Zen · DeepSeek V4 Flash Free | $0 |
+| **3 — Last resort** | `google/gemini-2.5-flash` | Google · Gemini 2.5 Flash | flat-fee |
+| **4 — Emergency** | `openrouter/nvidia/nemotron-3-super-120b-a12b:free` | — | $0 |
 
-**ZEN is a provider native to OpenCode. Format: `zen/[model-name]`. All ZEN models are free.**
-
-Config: `/home/john/Thunderbird/.opencode.json` — already set to `zen/big-pickle` primary.
+**NAMESPACE SPLIT — confirmed 2026-05-16 via live test:**
+- **TUI picker:** Models show as **"OpenCode Zen · [model]"** — that's the display label
+- **Headless `opencode run -m`:** Must use **`opencode/`** prefix — `zen/` rejected ("Model not found")
+- Same pool, different namespace. Config and gateway both use `opencode/` (headless-compatible)
 
 ```bash
-# Headless invocation
-opencode run -m zen/big-pickle "task description here"
+# Headless — correct prefix
+opencode run -m opencode/big-pickle "task description here"
+opencode run -m opencode/deepseek-v4-flash-free "task description here"
+
+# Confirm available models
+opencode models | grep opencode/
 ```
 
 **BANNED (incur real cost):** `openrouter/deepseek/deepseek-chat-v3.1`, `openrouter/google/*`, `x-ai/grok-4.1-fast`, `openai/*`
 
-⚠️ **NEVER enable reasoning/HIGH mode on bulk-context tasks.** The 05-15 session cost $3.74 for a CLAUDE.md edit with reasoning on. Reasoning mode only for genuinely novel problems with no clear path.
+⚠️ **HIGH mode** = reasoning toggle in TUI, shown as **"OpenCode Zen · DeepSeek V4 Flash Free · high"**.
+The 05-15 HIGH session cost $3.74 for a CLAUDE.md edit. Never enable on read/edit/bulk-context tasks.
 
 ---
 
@@ -290,3 +296,19 @@ At session end, append to `OpsCenter/opencode_memory.md`:
 
 *OpenCode Init v2.0 — Thunderbird Wing | 2026-05-16*
 *Replaces v1.0 (2026-04-06) — ZEN models, webhook C2, costs capability matrix*
+
+# BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
+<!-- Last sync: 2026-05-16 15:07 MT -->
+```
+=== THUNDERBIRD BLACKBOARD [2026-05-16 15:07 MT] ===
+Budget: Claude UNKNOWN | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
+Active tasks: 0
+Last Deepseek ruling: NONE
+Open items: none logged
+Next priority: check session_autosave_latest.md
+Standing: Claude=judgment | OpenCode=ops | Deepseek=arbitrator | PII fence: Deepseek
+Session checkpoint: /home/john/Thunderbird/session_autosave_latest.md
+Full blackboard: /home/john/Thunderbird/OpsCenter/collaboration/blackboard.md
+================================================
+```
+# BLACKBOARD_END

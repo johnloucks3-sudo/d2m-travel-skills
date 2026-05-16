@@ -1,8 +1,8 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "zen/big-pickle",
+  "model": "opencode/big-pickle",
   "fallbackModels": [
-    "zen/deepseek-v4-flash-free",
+    "opencode/deepseek-v4-flash-free",
     "google/gemini-2.5-flash",
     "openrouter/nvidia/nemotron-3-super-120b-a12b:free"
   ],

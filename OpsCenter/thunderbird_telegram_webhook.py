@@ -72,9 +72,9 @@ HALE_SYSTEM     = ""
 STAFF_INTRO_TXT = ""
 
 OPENCODE_MODEL_CHAIN = [
-    "zen/big-pickle",              # ZEN primary (native OpenCode provider, free)
-    "zen/deepseek-v4-flash-free",  # ZEN fallback (native OpenCode provider, free)
-    "google/gemini-2.5-flash",     # Non-ZEN last resort
+    "opencode/big-pickle",              # OpenCode native (zen/ prefix = TUI only; opencode/ = headless)
+    "opencode/deepseek-v4-flash-free",  # OpenCode native fallback
+    "google/gemini-2.5-flash",          # Non-OpenCode last resort
 ]
 _OC_RATE_MARKERS = ["rate limit", "rate-limit", "too many requests", "429"]
 
