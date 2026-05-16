@@ -1,19 +1,12 @@
 """
 thunderbird_telegram_webhook.py — Thunderbird Telegram Webhook Gateway v2
-Dreams2Memories Travel, LLC
-Version: 2.0.0 | 2026-05-16
+Dreams2Memories Travel, LLC | 2026-05-16
 
-Replaces polling-based thunderbird_telegram_gw.py.
+Bots: HALE-YODA (/hale-yoda, Claude), HALE_D2M (/staff, personas), d2m_channels (/channels)
 Cloudflare tunnel: tg.d2mluxury.quest → localhost:8768
 
-Three bots:
-  HALE-YODA   TOKEN_HALUYODA  /hale-yoda  Commander ↔ Hale only, Claude Sonnet
-  HALE_D2M    TOKEN_STAFF     /staff      Staff channel, persona routing via slash cmd
-  d2m_channels TOKEN_CHANNELS /channels   Infrastructure push, receive-only
-
-Strike counter: 3 strikes → Signal migration notice. A strike = manual declaration
-by Commander or automated detection (external daemon). This file implements the
-file API only; silent-period detection lives in a separate watchdog.
+ARCH: setWebhook is ONE URL per bot. All update types (message, callback_query) for
+a bot arrive at that bot's route. Callback dispatch is colocated in each process_* fn.
 """
 
 import json
@@ -25,25 +18,19 @@ import threading
 import time
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Optional
 
 import requests
 from flask import Flask, jsonify, request
 
-# ── Logging ───────────────────────────────────────────────────────────────────
-logging.basicConfig(
-    level=logging.INFO,
+logging.basicConfig(level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
-    handlers=[logging.StreamHandler()],
-)
+    handlers=[logging.StreamHandler()])
 log = logging.getLogger("tg_webhook")
 
-# ── Paths ─────────────────────────────────────────────────────────────────────
 THUNDERBIRD = Path("/home/john/Thunderbird")
-OPS = THUNDERBIRD / "OpsCenter"
-PERSONAS = THUNDERBIRD / "Personas"
+OPS         = THUNDERBIRD / "OpsCenter"
+PERSONAS    = THUNDERBIRD / "Personas"
 
-# ── Load .env files ───────────────────────────────────────────────────────────
 def _load_env_file(path: str) -> None:
     try:
         with open(path) as f:
@@ -58,58 +45,46 @@ def _load_env_file(path: str) -> None:
 _load_env_file(str(THUNDERBIRD / ".env"))
 _load_env_file(str(THUNDERBIRD / "config" / "telegram_gw.env"))
 
-# ── Config ────────────────────────────────────────────────────────────────────
-PORT = 8768
-WEBHOOK_SECRET = os.environ.get("TELEGRAM_WEBHOOK_SECRET", "")
-TOKEN_HALUYODA = os.environ.get("TELEGRAM_D2MC2C_TOKEN", "")   # reuse existing var
-TOKEN_STAFF    = os.environ.get("TELEGRAM_GOOSE_TOKEN", "")    # reuse existing var
-TOKEN_CHANNELS = os.environ.get("TELEGRAM_DANI_TOKEN", "")     # reuse existing var
-COMMANDER_ID   = int(os.environ.get("TELEGRAM_COMMANDER_ID", "7554895206"))
-SONNET_MODEL   = "claude-sonnet-4-6"
-OPUS_MODEL     = "claude-opus-4-6"
-ENGINE_TIMEOUT = int(os.environ.get("TELEGRAM_GW_TIMEOUT", "300"))
+PORT             = 8769  # 8768 occupied by travel_mcp_server.py
+WEBHOOK_SECRET   = os.environ.get("TELEGRAM_WEBHOOK_SECRET", "")
+TOKEN_HALUYODA   = os.environ.get("TELEGRAM_D2MC2C_TOKEN", "")   # reuse existing var
+TOKEN_STAFF      = os.environ.get("TELEGRAM_GOOSE_TOKEN", "")    # reuse existing var
+TOKEN_CHANNELS   = os.environ.get("TELEGRAM_DANI_TOKEN", "")     # reuse existing var
+COMMANDER_ID     = int(os.environ.get("TELEGRAM_COMMANDER_ID", "7554895206"))
+SONNET_MODEL     = "claude-sonnet-4-6"
+OPUS_MODEL       = "claude-opus-4-6"
+ENGINE_TIMEOUT   = int(os.environ.get("TELEGRAM_GW_TIMEOUT", "300"))
 OPENCODE_TIMEOUT = int(os.environ.get("OPENCODE_TIMEOUT", "60"))
-MAX_CTX_TURNS  = 12
-CHUNK_SIZE     = 4000
-OPENCODE_BIN   = Path("/home/john/.opencode/bin/opencode")
+MAX_CTX_TURNS    = 12
+CHUNK_SIZE       = 4000
+OPENCODE_BIN     = Path("/home/john/.opencode/bin/opencode")
 
-# Webhook secret: if unset, log a warning but allow through so Commander can
-# deploy first and then secure. A 403 on empty secret would silently brick gateway.
+# Webhook secret: if unset, log a warning and allow through. A 403 on empty
+# secret would silently brick the gateway during initial deployment.
 if not WEBHOOK_SECRET:
     log.warning("TELEGRAM_WEBHOOK_SECRET not set — webhook auth disabled. Set it!")
 
-# ── Context files ─────────────────────────────────────────────────────────────
 CTX_HALUYODA = OPS / "context_haluyoda.json"
 CTX_STAFF    = OPS / "context_staff.json"
+STRIKE_FILE  = OPS / "telegram_strike_counter.json"
 
-# ── Strike file ───────────────────────────────────────────────────────────────
-STRIKE_FILE = OPS / "telegram_strike_counter.json"
-
-# ── Persona globals (populated at startup) ────────────────────────────────────
-HALE_SYSTEM  = ""
+HALE_SYSTEM     = ""
 STAFF_INTRO_TXT = ""
 
-# ── OpenCode model chain (spec: big-pickle → deepseek-v4-flash-free → gemini-2.5-flash)
 OPENCODE_MODEL_CHAIN = [
-    "opencode/big-pickle",
-    "deepseek/deepseek-v4-flash-free",
-    "google/gemini-2.5-flash",
+    "zen/big-pickle",              # ZEN primary (native OpenCode provider, free)
+    "zen/deepseek-v4-flash-free",  # ZEN fallback (native OpenCode provider, free)
+    "google/gemini-2.5-flash",     # Non-ZEN last resort
 ]
 _OC_RATE_MARKERS = ["rate limit", "rate-limit", "too many requests", "429"]
 
 app = Flask(__name__)
-
-
-# ─────────────────────────────────────────────────────────────────────────────
-# STRIKE COUNTER
-# ─────────────────────────────────────────────────────────────────────────────
 
 def get_strike_count() -> int:
     try:
         return json.loads(STRIKE_FILE.read_text()).get("count", 0)
     except Exception:
         return 0
-
 
 def record_strike(reason: str) -> int:
     data = {"count": 0, "strikes": []}
@@ -128,33 +103,19 @@ def record_strike(reason: str) -> int:
         _send_signal_migration_notice()
     return data["count"]
 
-
 def clear_strikes() -> None:
     STRIKE_FILE.write_text(json.dumps({"count": 0, "strikes": []}, indent=2))
 
-
 def _send_signal_migration_notice() -> None:
-    """3-strike threshold hit — notify Commander via email."""
     try:
         from thunderbird_gmail import gmail_send_from_wing  # type: ignore
-        gmail_send_from_wing(
-            to="johnloucks3@gmail.com",
-            subject="⚠️ Thunderbird Telegram — 3 Strikes: Signal Migration Required",
-            body=(
-                "Commander,\n\n"
-                "The HALE-YODA Telegram gateway has hit 3 strikes. "
-                "Recommend migrating to Signal or re-deploying the webhook.\n\n"
-                "Check: /home/john/Thunderbird/OpsCenter/telegram_strike_counter.json\n\n"
-                "— Iron Vic"
-            ),
-        )
+        gmail_send_from_wing(to="johnloucks3@gmail.com",
+            subject="Thunderbird Telegram — 3 Strikes: Signal Migration Required",
+            body="Commander,\n\nHALE-YODA gateway hit 3 strikes. "
+                 "Recommend Signal migration or webhook redeploy.\n\n"
+                 "Check: OpsCenter/telegram_strike_counter.json\n\n— Iron Vic")
     except Exception as e:
         log.error("Could not send Signal migration notice: %s", e)
-
-
-# ─────────────────────────────────────────────────────────────────────────────
-# CONTEXT MANAGEMENT
-# ─────────────────────────────────────────────────────────────────────────────
 
 def load_context(ctx_file: Path) -> list:
     try:
@@ -162,10 +123,8 @@ def load_context(ctx_file: Path) -> list:
     except Exception:
         return []
 
-
 def save_context(ctx_file: Path, exchanges: list) -> None:
     ctx_file.write_text(json.dumps(exchanges[-MAX_CTX_TURNS:], indent=2))
-
 
 def append_exchange(ctx_file: Path, user_msg: str, assistant_reply: str) -> None:
     exchanges = load_context(ctx_file)
@@ -175,7 +134,6 @@ def append_exchange(ctx_file: Path, user_msg: str, assistant_reply: str) -> None
         "assistant": assistant_reply,
     })
     save_context(ctx_file, exchanges)
-
 
 def format_context_for_prompt(ctx_file: Path) -> str:
     exchanges = load_context(ctx_file)
@@ -187,27 +145,21 @@ def format_context_for_prompt(ctx_file: Path) -> str:
         lines.append(f"Assistant: {ex.get('assistant', '')[:600]}")
     return "\n".join(lines)
 
-
 def clear_context(ctx_file: Path) -> None:
     ctx_file.write_text("[]")
 
-
-# ─────────────────────────────────────────────────────────────────────────────
-# PERSONA LOADING (called at startup)
-# ─────────────────────────────────────────────────────────────────────────────
-
 def _load_personas() -> None:
     global HALE_SYSTEM, STAFF_INTRO_TXT
-    hale_cos_path  = PERSONAS / "hale_cos.md"
+    hale_cos_path    = PERSONAS / "hale_cos.md"
     staff_intro_path = PERSONAS / "D2M_Staff_Introduction.md"
-    hale_state_path = THUNDERBIRD / "hale_state.json"
+    hale_state_path  = THUNDERBIRD / "hale_state.json"
 
     if hale_cos_path.exists():
         HALE_SYSTEM = hale_cos_path.read_text()[:6000]
     if staff_intro_path.exists():
         STAFF_INTRO_TXT = staff_intro_path.read_text()[:3000]
 
-    # Append live state summary (mode + open tasks only, no PII)
+    # Append live state summary (mode + open tasks only — no PII)
     if hale_state_path.exists():
         try:
             state = json.loads(hale_state_path.read_text())
@@ -220,15 +172,10 @@ def _load_personas() -> None:
     log.info("Personas loaded: HALE_SYSTEM=%d chars, STAFF_INTRO=%d chars",
              len(HALE_SYSTEM), len(STAFF_INTRO_TXT))
 
-
-# ─────────────────────────────────────────────────────────────────────────────
-# ENGINE FUNCTIONS
-# ─────────────────────────────────────────────────────────────────────────────
-
 def call_claude_engine(prompt: str, model: str = SONNET_MODEL) -> str:
-    """Invoke Claude headless via `claude -p`. Uses Max OAuth token injection."""
+    """Claude headless via `claude -p`. Strips ANTHROPIC_API_KEY; uses Max OAuth."""
     env = dict(os.environ)
-    env.pop("ANTHROPIC_API_KEY", None)  # Strip stale API key — it overrides OAuth
+    env.pop("ANTHROPIC_API_KEY", None)   # Strip stale API key — it overrides OAuth
     creds = Path.home() / ".claude" / ".credentials.json"
     if creds.exists():
         try:
@@ -255,9 +202,8 @@ def call_claude_engine(prompt: str, model: str = SONNET_MODEL) -> str:
     except Exception as e:
         return f"[Engine error — {e}]"
 
-
 def call_opencode_engine(system_prompt: str, user_msg: str) -> str:
-    """Invoke OpenCode headless. Chain: big-pickle → deepseek-v4-flash-free → gemini-2.5-flash."""
+    """OpenCode headless. Chain: zen/big-pickle → zen/deepseek-v4-flash-free → gemini-2.5-flash."""
     full_prompt = f"{system_prompt[:2000]}\n\n{user_msg}" if system_prompt else user_msg
     env = dict(os.environ)
     env["PATH"] = f"/home/john/.opencode/bin:{env.get('PATH', '')}"
@@ -289,7 +235,6 @@ def call_opencode_engine(system_prompt: str, user_msg: str) -> str:
 
     return "[Engine error — all OpenCode models exhausted]"
 
-
 def call_openrouter_direct(model: str, system: str, user: str) -> str:
     """Direct OpenRouter API call for any model ID."""
     api_key = os.environ.get("OPENROUTER_API_KEY", "")
@@ -311,18 +256,11 @@ def call_openrouter_direct(model: str, system: str, user: str) -> str:
             return f"[Rate limited on {model} — try again shortly]"
         resp.raise_for_status()
         choices = resp.json().get("choices", [])
-        if choices:
-            return choices[0].get("message", {}).get("content", "").strip()
-        return f"[{model} returned empty response]"
+        return choices[0].get("message", {}).get("content", "").strip() if choices else f"[{model} returned empty response]"
     except requests.Timeout:
         return f"[{model} timed out after {ENGINE_TIMEOUT}s]"
     except Exception as e:
         return f"[Engine error — {model}: {e}]"
-
-
-# ─────────────────────────────────────────────────────────────────────────────
-# TELEGRAM API HELPERS
-# ─────────────────────────────────────────────────────────────────────────────
 
 def tg(token: str, method: str, **kwargs) -> dict:
     """Low-level Telegram Bot API call."""
@@ -336,18 +274,15 @@ def tg(token: str, method: str, **kwargs) -> dict:
         log.error("tg() %s failed: %s", method, e)
         return {"ok": False, "error": str(e)}
 
-
 def tg_send(token: str, chat_id: int, text: str, parse_mode: str = "HTML") -> bool:
     r = tg(token, "sendMessage", chat_id=chat_id, text=text, parse_mode=parse_mode)
     return bool(r.get("ok"))
-
 
 def tg_send_photo(token: str, chat_id: int, photo_url_or_file_id: str,
                   caption: str = "", parse_mode: str = "HTML") -> bool:
     r = tg(token, "sendPhoto", chat_id=chat_id, photo=photo_url_or_file_id,
             caption=caption, parse_mode=parse_mode)
     return bool(r.get("ok"))
-
 
 def tg_send_album(token: str, chat_id: int, photo_list: list) -> bool:
     """Send up to 10 photos as a media group. Each item: {url, caption}."""
@@ -361,7 +296,6 @@ def tg_send_album(token: str, chat_id: int, photo_list: list) -> bool:
     r = tg(token, "sendMediaGroup", chat_id=chat_id, media=media)
     return bool(r.get("ok"))
 
-
 def tg_send_with_keyboard(token: str, chat_id: int, text: str,
                            buttons: list, parse_mode: str = "HTML") -> bool:
     """Send message with inline keyboard. buttons = [[{text, callback_data}]]."""
@@ -370,42 +304,19 @@ def tg_send_with_keyboard(token: str, chat_id: int, text: str,
             parse_mode=parse_mode, reply_markup=keyboard)
     return bool(r.get("ok"))
 
-
 def tg_edit_message(token: str, chat_id: int, message_id: int,
                     new_text: str, parse_mode: str = "HTML") -> bool:
     r = tg(token, "editMessageText", chat_id=chat_id, message_id=message_id,
             text=new_text, parse_mode=parse_mode)
     return bool(r.get("ok"))
 
-
 def tg_answer_callback(token: str, callback_query_id: str, text: str = "") -> bool:
     r = tg(token, "answerCallbackQuery", callback_query_id=callback_query_id, text=text)
     return bool(r.get("ok"))
 
-
-def tg_send_document(token: str, chat_id: int, document_url: str, caption: str = "") -> bool:
-    r = tg(token, "sendDocument", chat_id=chat_id, document=document_url, caption=caption)
-    return bool(r.get("ok"))
-
-
-def tg_send_voice(token: str, chat_id: int, audio_path: str) -> bool:
-    try:
-        with open(audio_path, "rb") as af:
-            resp = requests.post(
-                f"https://api.telegram.org/bot{token}/sendVoice",
-                data={"chat_id": chat_id},
-                files={"voice": af},
-                timeout=30,
-            )
-        return bool(resp.json().get("ok"))
-    except Exception as e:
-        log.error("tg_send_voice failed: %s", e)
-        return False
-
-
 def _balance_html_tags(text: str) -> str:
-    """Close any unclosed <b>/<i>/<code>/<pre> tags at chunk boundary."""
-    open_tags = re.findall(r"<(b|i|code|pre)>", text)
+    """Close unclosed <b>/<i>/<code>/<pre> tags at chunk boundary."""
+    open_tags  = re.findall(r"<(b|i|code|pre)>", text)
     close_tags = re.findall(r"</(b|i|code|pre)>", text)
     tail = ""
     for tag in reversed(open_tags):
@@ -414,13 +325,11 @@ def _balance_html_tags(text: str) -> str:
             close_tags.append(tag)
     return text + tail
 
-
 def tg_send_chunked(token: str, chat_id: int, text: str, parse_mode: str = "HTML") -> None:
     """Split long messages on paragraph boundaries and send in order with 0.3s gap."""
     if len(text) <= CHUNK_SIZE:
         tg_send(token, chat_id, text, parse_mode)
         return
-
     paragraphs = text.split("\n\n")
     chunks, current = [], ""
     for para in paragraphs:
@@ -430,7 +339,6 @@ def tg_send_chunked(token: str, chat_id: int, text: str, parse_mode: str = "HTML
             if current:
                 chunks.append(current)
             if len(para) > CHUNK_SIZE:
-                # Hard split for oversized single paragraphs
                 for i in range(0, len(para), CHUNK_SIZE):
                     chunks.append(para[i:i + CHUNK_SIZE])
                 current = ""
@@ -438,44 +346,21 @@ def tg_send_chunked(token: str, chat_id: int, text: str, parse_mode: str = "HTML
                 current = para
     if current:
         chunks.append(current)
-
     total = len(chunks)
     for idx, chunk in enumerate(chunks, 1):
-        prefix = f"[{idx}/{total}] " if total > 1 else ""
+        prefix  = f"[{idx}/{total}] " if total > 1 else ""
         payload = prefix + (_balance_html_tags(chunk) if parse_mode == "HTML" else chunk)
         tg_send(token, chat_id, payload, parse_mode)
         if idx < total:
             time.sleep(0.3)
 
-
-# ─────────────────────────────────────────────────────────────────────────────
-# FORMATTED BRIEF HELPERS
-# ─────────────────────────────────────────────────────────────────────────────
-
 def format_brief_header(title: str, emoji: str = "🦅") -> str:
     now = datetime.now().strftime("%Y-%m-%d %H:%M MT")
     return f"{emoji} <b>{title.upper()}</b> | <i>{now}</i>"
 
-
 def format_section(title: str, content: str, emoji: str = "") -> str:
     prefix = f"{emoji} " if emoji else ""
     return f"<b>{prefix}{title}</b>\n{content}\n"
-
-
-def format_table_pre(headers: list, rows: list) -> str:
-    col_widths = [max(len(str(h)), max((len(str(r[i])) for r in rows), default=0))
-                  for i, h in enumerate(headers)]
-    lines = [" | ".join(str(h).ljust(col_widths[i]) for i, h in enumerate(headers))]
-    lines.append("-+-".join("-" * w for w in col_widths))
-    for row in rows:
-        lines.append(" | ".join(str(row[i] if i < len(row) else "").ljust(col_widths[i])
-                                for i in range(len(headers))))
-    return "<pre>" + "\n".join(lines) + "</pre>"
-
-
-# ─────────────────────────────────────────────────────────────────────────────
-# STAFF PERSONAS
-# ─────────────────────────────────────────────────────────────────────────────
 
 STAFF_PERSONAS = {
     "hale":       ("Col Victoria Hale (COS)", "claude"),
@@ -497,42 +382,104 @@ STAFF_DISAGREE_DIRECTIVE = (
     "all align. Do not suppress a genuine disagreement to please. Honest counsel is the mission."
 )
 
-
-# ─────────────────────────────────────────────────────────────────────────────
-# WEBHOOK SECRET VALIDATION
-# ─────────────────────────────────────────────────────────────────────────────
-
 def _validate_webhook_secret() -> bool:
     if not WEBHOOK_SECRET:
-        return True  # Secret disabled — allow through with warning logged at startup
-    incoming = request.headers.get("X-Telegram-Bot-Api-Secret-Token", "")
-    return incoming == WEBHOOK_SECRET
+        return True  # Secret disabled — allow through (warning logged at startup)
+    return request.headers.get("X-Telegram-Bot-Api-Secret-Token", "") == WEBHOOK_SECRET
 
+def _handle_status(token: str, chat_id: int) -> None:
+    state_path = THUNDERBIRD / "hale_state.json"
+    try:
+        state    = json.loads(state_path.read_text())
+        mode     = state.get("system_mode", "UNKNOWN")
+        tasks    = len(state.get("open_tasks", []))
+        pipeline = state.get("financial_pulse", {}).get("total_d2m_pipeline", 0)
+        text = (
+            f"{format_brief_header('WING STATUS')}\n\n"
+            f"<b>Mode:</b> {mode}\n"
+            f"<b>Open Tasks:</b> {tasks}\n"
+            f"<b>Pipeline:</b> ${pipeline:,.2f}\n"
+            f"<b>Strikes:</b> {get_strike_count()}/3\n"
+        )
+        tg_send(token, chat_id, text)
+    except Exception as e:
+        tg_send(token, chat_id, f"Status unavailable: {e}")
 
-# ─────────────────────────────────────────────────────────────────────────────
-# MESSAGE PROCESSORS
-# ─────────────────────────────────────────────────────────────────────────────
+def _handle_help(token: str, chat_id: int, bot_name: str) -> None:
+    lines = [
+        f"<b>{bot_name} — Available Commands</b>", "",
+        "/new — Clear context, fresh session",
+        "/status — Wing health + financial pulse",
+        "/help — This message", "",
+    ]
+    if "HALE-YODA" in bot_name:
+        lines += ["<b>Model Overrides:</b>",
+                  "OPUS: [task] — Route to Claude Opus",
+                  "Sonnet: [task] — Route to Claude Sonnet (default)"]
+    if "Staff" in bot_name:
+        lines += ["<b>Persona Routing:</b>",
+                  "/" + " | /".join(STAFF_PERSONAS.keys())]
+    tg_send(token, chat_id, "\n".join(lines))
+
+def _handle_callback_query(token: str, cbq: dict) -> None:
+    """WF-17 inline keyboard. tg_answer_callback fires sync; heavy work in thread."""
+    cbq_id  = cbq["id"]
+    user_id = cbq["from"]["id"]
+    data    = cbq.get("data", "")
+    chat_id = cbq.get("message", {}).get("chat", {}).get("id")
+
+    # Answer immediately — clears Telegram spinner
+    tg_answer_callback(token, cbq_id, text="Processing...")
+
+    def _process() -> None:
+        try:
+            if not data or not chat_id:
+                return
+            if user_id != COMMANDER_ID:
+                tg_send(token, chat_id, "Callback restricted to Commander.")
+                return
+            action, _, payload = data.partition(":")
+            if action == "approve":
+                try:
+                    from thunderbird_gmail import publish_draft  # type: ignore
+                    result_msg = publish_draft(payload)
+                    tg_send(token, chat_id,
+                            f"Draft <code>{payload}</code> approved and sent.\n{result_msg}")
+                except ImportError:
+                    tg_send(token, chat_id,
+                            f"Approval recorded for <code>{payload}</code>. "
+                            "Run /approve in Claude Code to complete send.")
+            elif action == "reject":
+                tg_send(token, chat_id, f"Draft <code>{payload}</code> rejected.")
+            elif action == "edit":
+                tg_send(token, chat_id,
+                        f"Open Gmail drafts to edit <code>{payload}</code>. "
+                        "Reply here when ready to approve.")
+            else:
+                tg_send(token, chat_id, f"Unknown action: <code>{data}</code>")
+        except Exception:
+            log.exception("_handle_callback_query._process crashed for data=%s", data)
+
+    threading.Thread(target=_process, daemon=True).start()
 
 def process_haluyoda_message(update: dict) -> None:
-    """Process incoming message for HALE-YODA bot (Commander ↔ Hale only)."""
+    """HALE-YODA: handles message, edited_message, callback_query (all at /hale-yoda)."""
     try:
+        cbq = update.get("callback_query")
+        if cbq:
+            _handle_callback_query(TOKEN_HALUYODA, cbq)
+            return
         msg = update.get("message") or update.get("edited_message")
         if not msg:
             return
-
         chat_id = msg["chat"]["id"]
         user_id = msg["from"]["id"]
         text    = msg.get("text", "").strip()
-
         if not text:
             return
-
-        # Commander-only gate
         if user_id != COMMANDER_ID:
-            tg_send(TOKEN_HALUYODA, chat_id, "⚠️ HALE-YODA is Commander-only.")
+            tg_send(TOKEN_HALUYODA, chat_id, "HALE-YODA is Commander-only.")
             return
-
-        # Slash commands
         if text == "/new":
             clear_context(CTX_HALUYODA)
             tg_send(TOKEN_HALUYODA, chat_id, "🦅 Context cleared. Fresh session.")
@@ -543,8 +490,6 @@ def process_haluyoda_message(update: dict) -> None:
         if text == "/help":
             _handle_help(TOKEN_HALUYODA, chat_id, "HALE-YODA")
             return
-
-        # Model override
         model = SONNET_MODEL
         if text.upper().startswith("OPUS:"):
             model = OPUS_MODEL
@@ -553,7 +498,6 @@ def process_haluyoda_message(update: dict) -> None:
             model = SONNET_MODEL
             text  = text[7:].strip()
 
-        # Typing indicator
         tg(TOKEN_HALUYODA, "sendChatAction", chat_id=chat_id, action="typing")
 
         ctx_text = format_context_for_prompt(CTX_HALUYODA)
@@ -563,23 +507,20 @@ def process_haluyoda_message(update: dict) -> None:
             f"{ctx_text}\n"
             f"--- END CONTEXT ---\n\n"
             f"Commander: {text}\n\n"
-            "Respond as Col Victoria \"Iron Vic\" Hale. Open with 🦅. "
+            'Respond as Col Victoria "Iron Vic" Hale. Open with 🦅. '
             "Brief-first. Execute-then-report posture. No preamble. No trailing summary."
         )
 
         response = call_claude_engine(prompt, model=model)
 
-        # WF-17 detection — add approval buttons if draft surfaced
-        wf17_triggers = ["draft_id:", "approve this", "wf-17"]
-        if any(k in response.lower() for k in wf17_triggers):
-            # Extract draft_id if present (TODO: wire full WF-17 approval flow)
-            draft_id_match = re.search(r"draft_id:\s*(\S+)", response, re.IGNORECASE)
-            if draft_id_match:
-                draft_id = draft_id_match.group(1)
+        if any(k in response.lower() for k in ["draft_id:", "approve this", "wf-17"]):
+            m = re.search(r"draft_id:\s*(\S+)", response, re.IGNORECASE)
+            if m:
+                draft_id = m.group(1)
                 buttons = [
-                    [{"text": "✅ Approve", "callback_data": f"approve:{draft_id}"}],
-                    [{"text": "✏️ Edit in Gmail", "callback_data": f"edit:{draft_id}"},
-                     {"text": "❌ Reject", "callback_data": f"reject:{draft_id}"}],
+                    [{"text": "Approve", "callback_data": f"approve:{draft_id}"}],
+                    [{"text": "Edit in Gmail", "callback_data": f"edit:{draft_id}"},
+                     {"text": "Reject", "callback_data": f"reject:{draft_id}"}],
                 ]
                 tg_send_with_keyboard(TOKEN_HALUYODA, chat_id, response, buttons)
             else:
@@ -593,26 +534,23 @@ def process_haluyoda_message(update: dict) -> None:
     except Exception:
         log.exception("process_haluyoda_message crashed")
 
-
 def process_staff_message(update: dict) -> None:
-    """Process incoming message for HALE_D2M staff channel bot."""
+    """HALE_D2M: handles message, edited_message, callback_query (all at /staff)."""
     try:
+        cbq = update.get("callback_query")
+        if cbq:
+            _handle_callback_query(TOKEN_STAFF, cbq)
+            return
         msg = update.get("message") or update.get("edited_message")
         if not msg:
             return
-
         chat_id = msg["chat"]["id"]
         user_id = msg["from"]["id"]
         text    = msg.get("text", "").strip()
-
         if not text:
             return
-
         if user_id != COMMANDER_ID:
-            # Staff channel: Commander + AI staff personas only
             return
-
-        # Slash commands
         if text == "/new":
             clear_context(CTX_STAFF)
             tg_send(TOKEN_STAFF, chat_id, "🦅 Staff context cleared.")
@@ -623,18 +561,15 @@ def process_staff_message(update: dict) -> None:
         if text == "/help":
             _handle_help(TOKEN_STAFF, chat_id, "HALE_D2M Staff")
             return
-
-        # Parse slash command for persona routing
         persona_key = "hale"
         if text.startswith("/"):
-            parts    = text.split(" ", 1)
-            cmd      = parts[0][1:].lower()
+            parts = text.split(" ", 1)
+            cmd   = parts[0][1:].lower()
             if cmd in STAFF_PERSONAS:
                 persona_key = cmd
                 text = parts[1].strip() if len(parts) > 1 else ""
                 if not text:
-                    tg_send(TOKEN_STAFF, chat_id,
-                            f"Usage: /{persona_key} [your message]")
+                    tg_send(TOKEN_STAFF, chat_id, f"Usage: /{persona_key} [your message]")
                     return
 
         persona_name, engine = STAFF_PERSONAS[persona_key]
@@ -646,184 +581,74 @@ def process_staff_message(update: dict) -> None:
             f"You are {persona_name} of the Thunderbird Wing, "
             f"Dreams2Memories Travel, LLC.\n\n"
             f"{STAFF_DISAGREE_DIRECTIVE}\n\n"
-            "Respond in your persona's voice. Be brief. Lead with the answer. "
-            "Commander's context is the Wing operation."
+            "Respond in your persona's voice. Be brief. Lead with the answer."
         )
-        ctx_text = format_context_for_prompt(CTX_STAFF)
-        user_input = f"{ctx_text}\n\nCommander: {text}" if ctx_text != "[No prior context]" else f"Commander: {text}"
+        ctx_text   = format_context_for_prompt(CTX_STAFF)
+        user_input = (f"{ctx_text}\n\nCommander: {text}"
+                      if ctx_text != "[No prior context]" else f"Commander: {text}")
 
-        if engine == "claude":
-            prompt   = f"{system}\n\n{user_input}"
-            response = call_claude_engine(prompt)
-        else:
-            response = call_opencode_engine(system, user_input)
+        response = (call_claude_engine(f"{system}\n\n{user_input}")
+                    if engine == "claude"
+                    else call_opencode_engine(system, user_input))
 
-        header  = f"<b>{persona_name}</b>"
-        payload = f"{header}\n\n{response}"
-        tg_send_chunked(TOKEN_STAFF, chat_id, payload)
+        tg_send_chunked(TOKEN_STAFF, chat_id, f"<b>{persona_name}</b>\n\n{response}")
         append_exchange(CTX_STAFF, text, f"[{persona_name}] {response}")
 
     except Exception:
         log.exception("process_staff_message crashed")
 
-
 def process_channels_message(update: dict) -> None:
-    """Process d2m_channels bot — receive-only, log only."""
+    """d2m_channels bot — receive-only, log only."""
     try:
         msg = update.get("message") or update.get("channel_post")
         if not msg:
             return
-        text    = msg.get("text", "")[:200]
-        chat_id = msg.get("chat", {}).get("id", "?")
-        log.info("[channels] chat=%s: %s", chat_id, text)
+        log.info("[channels] chat=%s: %s",
+                 msg.get("chat", {}).get("id", "?"),
+                 msg.get("text", "")[:200])
     except Exception:
         log.exception("process_channels_message crashed")
 
-
-# ─────────────────────────────────────────────────────────────────────────────
-# SLASH COMMAND HANDLERS (shared)
-# ─────────────────────────────────────────────────────────────────────────────
-
-def _handle_status(token: str, chat_id: int) -> None:
-    state_path = THUNDERBIRD / "hale_state.json"
-    try:
-        state = json.loads(state_path.read_text())
-        mode  = state.get("system_mode", "UNKNOWN")
-        tasks = len(state.get("open_tasks", []))
-        fin   = state.get("financial_pulse", {})
-        pipeline = fin.get("total_d2m_pipeline", 0)
-        strikes  = get_strike_count()
-        text = (
-            f"{format_brief_header('WING STATUS')}\n\n"
-            f"<b>Mode:</b> {mode}\n"
-            f"<b>Open Tasks:</b> {tasks}\n"
-            f"<b>Pipeline:</b> ${pipeline:,.2f}\n"
-            f"<b>Strikes:</b> {strikes}/3\n"
-        )
-        tg_send(token, chat_id, text)
-    except Exception as e:
-        tg_send(token, chat_id, f"⚠️ Status unavailable: {e}")
-
-
-def _handle_help(token: str, chat_id: int, bot_name: str) -> None:
-    lines = [
-        f"<b>{bot_name} — Available Commands</b>",
-        "",
-        "/new — Clear context, fresh session",
-        "/status — Wing health + financial pulse",
-        "/help — This message",
-        "",
-    ]
-    if "HALE-YODA" in bot_name:
-        lines += [
-            "<b>Model Overrides:</b>",
-            "OPUS: [task] — Route to Claude Opus",
-            "Sonnet: [task] — Route to Claude Sonnet (default)",
-        ]
-    if "Staff" in bot_name:
-        lines += [
-            "<b>Persona Routing:</b>",
-            "/" + " | /".join(STAFF_PERSONAS.keys()),
-        ]
-    tg_send(token, chat_id, "\n".join(lines))
-
-
-# ─────────────────────────────────────────────────────────────────────────────
-# FLASK ROUTES
-# ─────────────────────────────────────────────────────────────────────────────
-
 @app.route("/hale-yoda", methods=["POST"])
 def webhook_haluyoda():
+    """All HALE-YODA updates (messages + callback_query) arrive here."""
     if not _validate_webhook_secret():
         return "Forbidden", 403
     update = request.get_json(silent=True) or {}
-    t = threading.Thread(target=process_haluyoda_message, args=(update,), daemon=True)
-    t.start()
+    # callback_query: answer_callback must fire sync to clear Telegram's spinner.
+    # process_haluyoda_message handles this — it answers sync then spawns the thread.
+    if update.get("callback_query"):
+        process_haluyoda_message(update)
+    else:
+        threading.Thread(target=process_haluyoda_message, args=(update,), daemon=True).start()
     return jsonify({"ok": True}), 200
-
 
 @app.route("/staff", methods=["POST"])
 def webhook_staff():
+    """All HALE_D2M updates (messages + callback_query) arrive here."""
     if not _validate_webhook_secret():
         return "Forbidden", 403
     update = request.get_json(silent=True) or {}
-    t = threading.Thread(target=process_staff_message, args=(update,), daemon=True)
-    t.start()
+    if update.get("callback_query"):
+        process_staff_message(update)
+    else:
+        threading.Thread(target=process_staff_message, args=(update,), daemon=True).start()
     return jsonify({"ok": True}), 200
-
 
 @app.route("/channels", methods=["POST"])
 def webhook_channels():
     if not _validate_webhook_secret():
         return "Forbidden", 403
     update = request.get_json(silent=True) or {}
-    t = threading.Thread(target=process_channels_message, args=(update,), daemon=True)
-    t.start()
+    threading.Thread(target=process_channels_message, args=(update,), daemon=True).start()
     return jsonify({"ok": True}), 200
-
-
-@app.route("/callback", methods=["POST"])
-def webhook_callback():
-    """Handle inline keyboard callback queries for all bots."""
-    if not _validate_webhook_secret():
-        return "Forbidden", 403
-
-    update = request.get_json(silent=True) or {}
-    cbq    = update.get("callback_query")
-    if not cbq:
-        return jsonify({"ok": True}), 200
-
-    cbq_id   = cbq["id"]
-    user_id  = cbq["from"]["id"]
-    data     = cbq.get("data", "")
-    chat_id  = cbq.get("message", {}).get("chat", {}).get("id")
-
-    # Answer immediately — clears Telegram spinner
-    # Determine token from message source (best-effort)
-    token = TOKEN_HALUYODA or TOKEN_STAFF
-    tg_answer_callback(token, cbq_id, text="Processing...")
-
-    def _handle_callback():
-        try:
-            if not data or not chat_id:
-                return
-            if user_id != COMMANDER_ID:
-                tg_send(token, chat_id, "⚠️ Callback restricted to Commander.")
-                return
-
-            action, _, payload = data.partition(":")
-            if action == "approve":
-                # WF-17 approve flow — delegate to publish_draft if available
-                try:
-                    from thunderbird_gmail import publish_draft  # type: ignore
-                    result_msg = publish_draft(payload)
-                    tg_send(token, chat_id,
-                            f"✅ Draft <code>{payload}</code> approved and sent.\n{result_msg}")
-                except ImportError:
-                    tg_send(token, chat_id,
-                            f"✅ Approval recorded for <code>{payload}</code>. "
-                            "Run /approve in Claude Code to complete send.")
-            elif action == "reject":
-                tg_send(token, chat_id, f"❌ Draft <code>{payload}</code> rejected.")
-            elif action == "edit":
-                tg_send(token, chat_id,
-                        f"✏️ Open Gmail drafts to edit <code>{payload}</code>. "
-                        "Reply here when ready to approve.")
-            else:
-                tg_send(token, chat_id, f"Unknown action: <code>{data}</code>")
-        except Exception:
-            log.exception("_handle_callback crashed for data=%s", data)
-
-    threading.Thread(target=_handle_callback, daemon=True).start()
-    return jsonify({"ok": True}), 200
-
 
 @app.route("/health", methods=["GET"])
 def health():
     return jsonify({
         "status": "ok",
         "gateway": "thunderbird-telegram-webhook-v2",
-        "version": "2.0.0",
+        "version": "2.0.1",
         "strikes": get_strike_count(),
         "bots": {
             "hale_yoda": bool(TOKEN_HALUYODA),
@@ -833,41 +658,28 @@ def health():
         "timestamp": datetime.now(timezone.utc).isoformat(),
     })
 
-
-# ─────────────────────────────────────────────────────────────────────────────
-# WEBHOOK REGISTRATION
-# ─────────────────────────────────────────────────────────────────────────────
-
 def register_webhooks() -> None:
-    """Call Telegram setWebhook for each bot. Run once via WEBHOOK_AUTO_REGISTER=1."""
+    """setWebhook for each bot. Run once via WEBHOOK_AUTO_REGISTER=1."""
     base_url = os.environ.get("WEBHOOK_BASE_URL", "https://tg.d2mluxury.quest")
-    bots = [
-        (TOKEN_HALUYODA, "/hale-yoda", "HALE-YODA"),
-        (TOKEN_STAFF,    "/staff",     "Staff"),
-        (TOKEN_CHANNELS, "/channels",  "Channels"),
-    ]
-    for token, path, name in bots:
+    for token, path, name in [(TOKEN_HALUYODA, "/hale-yoda", "HALE-YODA"),
+                               (TOKEN_STAFF,    "/staff",     "Staff"),
+                               (TOKEN_CHANNELS, "/channels",  "Channels")]:
         if not token:
             log.warning("[%s] Token not set — skipping webhook registration", name)
             continue
-        url = f"{base_url}{path}"
-        payload = {"url": url, "drop_pending_updates": True}
+        payload = {
+            "url": f"{base_url}{path}",
+            "drop_pending_updates": True,
+            "allowed_updates": ["message", "edited_message", "callback_query"],
+        }
         if WEBHOOK_SECRET:
             payload["secret_token"] = WEBHOOK_SECRET
-        resp = requests.post(
-            f"https://api.telegram.org/bot{token}/setWebhook",
-            json=payload, timeout=15,
-        )
-        data = resp.json()
+        data = requests.post(f"https://api.telegram.org/bot{token}/setWebhook",
+                             json=payload, timeout=15).json()
         if data.get("ok"):
-            log.info("[%s] Webhook registered → %s", name, url)
+            log.info("[%s] Webhook registered → %s%s", name, base_url, path)
         else:
-            log.error("[%s] Webhook registration failed: %s", name, data)
-
-
-# ─────────────────────────────────────────────────────────────────────────────
-# ENTRY POINT
-# ─────────────────────────────────────────────────────────────────────────────
+            log.error("[%s] Registration failed: %s", name, data)
 
 if __name__ == "__main__":
     _load_personas()
