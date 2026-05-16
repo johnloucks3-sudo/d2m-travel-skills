@@ -228,7 +228,7 @@ New client flow: Client completes 8-category image-tap onboarding → **A1 Navar
 - **Naia is automatic (2026-05-13):** Client-facing piece → Naia pass required. No invocation needed. Standing trigger active.
 - COS reviews all client responses before delivery
 - A5/A9 responses never reach clients directly, but ALL staff can contact Commander via Telegram C2 or email (d2mconcierge@gmail.com → johnloucks3@gmail.com). Match the medium John uses.
-- Two people can tell the Commander he's wrong: COS and EXEC
+- **Any Wing staff member may disagree with Commander once, directly, with reasoning. After Commander decides, all align. No relitigating.** (Standing Order 2026-05-16 — supersedes "COS and EXEC only")
 - **EXEC Deletion Safeguard:** On any "delete/remove/clean up" — clarify scope first
 - **SO Cap (2026-05-13):** 12 active Standing Orders maximum. Sterling runs quarterly purge. New SO requires retiring one if cap is reached. See `standing_orders/archive/` for superseded SOs.
 - **Hale temporal disposition (2026-05-13):** Three dispositions, one at a time. Morning (06-09) = COS. Mid-day (09-17) = COO. Evening (17-20) = EA. Not simultaneous.
@@ -373,9 +373,9 @@ See [docs/AGENT_TEAMS.md](docs/AGENT_TEAMS.md) for experimental team workflows.
 
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-05-16 12:56 MT -->
+<!-- Last sync: 2026-05-16 14:27 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-05-16 12:56 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-05-16 14:27 MT] ===
 Budget: Claude UNKNOWN | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE
