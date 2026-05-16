@@ -3,7 +3,7 @@
 **Working directory:** `/home/john/Thunderbird`
 **Last rebuilt:** 2026-04-06
 
-> **Note:** GOOSE_INIT.md is DEPRECATED. OpenCode replaces Goose entirely.
+> **Note:** GOOSE_INIT.md is DEPRECATED. OpenCode replaces OpenCode entirely.
 > This file replaces GOOSE_INIT.md for all OpenCode sessions.
 
 ---
@@ -65,16 +65,19 @@ cd ~/Thunderbird && opencode
 
 ---
 
-## MODEL STACK (2026-04-06)
+## MODEL STACK (Updated 2026-05-16 — P0-P8 Migration)
 
 | Priority | Model | Cost | Notes |
 |----------|-------|------|-------|
-| 1 (default) | `openrouter/deepseek/deepseek-chat-v3.1` | ~$0.27/M | Reliable, fast, no rate limits |
-| 2 | `openrouter/deepseek/deepseek-r1:free` | $0 | Reasoning, rate limited |
-| 3 | `openrouter/mistralai/mistral-small-3.1-24b-instruct:free` | $0 | Fallback |
-| 4 | `openrouter/google/gemma-3-27b-it:free` | $0 | Last resort |
+| 1 (default) | `opencode/big-pickle` | $0 | Approved primary — use this |
+| 2 | `opencode/deepseek-v4-flash-free` | $0 | Approved fallback |
+| 3 | `google/gemini-2.5-flash` | flat-fee | Native Google AI, $20/mo subscription |
+| 4 | `openrouter/nvidia/nemotron-3-super-120b-a12b:free` | $0 | OR emergency fallback only |
 
-**Avoid:** Qwen (Alibaba rate limits — decommissioned), Llama free (Venice rate limits), free tiers with undocumented limits
+**BANNED (do not use):** `openrouter/google/gemini-3.1-flash-lite-preview`, `openrouter/deepseek/deepseek-chat-v3.1`, `x-ai/grok-4.1-fast`, `openai/gpt-4o-mini` — all incur real OR charges.
+
+⚠️ **HIGH-VARIANT / REASONING MODE — NEVER ENABLE for bulk-context tasks.**
+Pressing the reasoning toggle (Shift+Enter or equivalent) on a task that reads large files or loads heavy context will incur a $3-4 reasoning surcharge even on $0-base models. The 05-15 deepseek-v4-flash-free [HIGH] session cost $3.74 for a CLAUDE.md edit. If a task is "read files and edit code" — do NOT enable reasoning. Reasoning mode is only for genuinely novel problem-solving with no clear path.
 
 ---
 
@@ -83,7 +86,7 @@ cd ~/Thunderbird && opencode
 - Interactive dev sessions — code, analysis, file edits
 - Bulk ops tasks routed from Nexus
 - Research tasks not requiring Claude MAX judgment
-- Telegram gateway ops dispatch (GooseD2M bot → now OpenCode engine)
+- Telegram gateway ops dispatch (OpenCodeD2M bot → now OpenCode engine)
 
 ## WHAT CLAUDE CODE OWNS (Don't Duplicate)
 
@@ -101,7 +104,7 @@ cd ~/Thunderbird && opencode
 | `OpsCenter/nexus.py` | Nexus daemon — reads opencode_inbox, dispatches tasks |
 | `OpsCenter/config.py` | Paths, thresholds, action whitelist |
 | `OpsCenter/keyword_router.py` | Routes tasks → Claude or OpenCode |
-| `OpsCenter/thunderbird_telegram_gw.py` | 3-bot Telegram gateway (D2MC2C / GooseD2M / Dani) |
+| `OpsCenter/thunderbird_telegram_gw.py` | 3-bot Telegram gateway (D2MC2C / OpenCodeD2M / Dani) |
 | `OpsCenter/collaboration/opencode_inbox.md` | Your task inbox |
 | `OpsCenter/opencode_memory.md` | Your persistent memory across sessions |
 | `AGENTS.md` | OpenCode session config (auto-loaded) |
@@ -141,3 +144,19 @@ bash /home/john/Thunderbird/OpsCenter/run_research_task.sh
 
 *OpenCode Init v1.0 — Thunderbird Wing | 2026-04-06 (Updated 2026-04-27)*
 *Replaces: GOOSE_INIT.md (deprecated)*
+
+# BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
+<!-- Last sync: 2026-05-16 13:07 MT -->
+```
+=== THUNDERBIRD BLACKBOARD [2026-05-16 13:07 MT] ===
+Budget: Claude UNKNOWN | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
+Active tasks: 0
+Last Deepseek ruling: NONE
+Open items: none logged
+Next priority: check session_autosave_latest.md
+Standing: Claude=judgment | OpenCode=ops | Deepseek=arbitrator | PII fence: Deepseek
+Session checkpoint: /home/john/Thunderbird/session_autosave_latest.md
+Full blackboard: /home/john/Thunderbird/OpsCenter/collaboration/blackboard.md
+================================================
+```
+# BLACKBOARD_END
