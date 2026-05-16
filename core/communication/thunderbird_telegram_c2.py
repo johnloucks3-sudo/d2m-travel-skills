@@ -402,7 +402,7 @@ async def cmd_sitrep(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 import anthropic
                 client = anthropic.Anthropic()
                 response = client.messages.parse(
-                    model="claude-3-5-haiku-20241022",  # Haiku — SITREP is classification/lookup, not creative (SO-2026-03-25)
+                    model="claude-haiku-4-5-20251001",  # Haiku — SITREP is classification/lookup, not creative (SO-2026-03-25)
                     max_tokens=1024,
                     system=(
                         "You are COS Hale assembling a SITREP for Commander Loucks at "

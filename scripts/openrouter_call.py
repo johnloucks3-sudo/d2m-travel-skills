@@ -45,25 +45,17 @@ MODELS = {
         "free": True,
         "best_for": "reasoning, analysis, logic"
     },
-    # WING NODES — paid via OpenRouter (complements Gemini on YOGA)
-    # Per April 30 analysis: Gemini Flash-Lite 2.7× cheaper than DeepSeek for bulk tasks.
-    # NOTE: Primary Gemini path is OpenCode (gemini-3.1-flash-lite). This is the OpenRouter fallback.
-    # NOTE: Grok is NOT a D2M wing resource — removed.
-    "gemini": {
-        "id": "google/gemini-3.1-flash-lite",
-        "label": "Gemini 3.1 Flash Lite",
-        "context": 1000000,
-        "cost": "$0.016/M",
-        "free": False,
-        "best_for": "fast ops, summarization, bulk context — cheapest paid model"
-    },
-    "deepseek": {
-        "id": "deepseek/deepseek-chat-v3.1",
-        "label": "DeepSeek V3.1",
-        "context": 65536,
-        "cost": "$0.27/M",
-        "free": False,
-        "best_for": "OpenCode primary model — ops, research, analysis"
+    # PAID MODELS REMOVED — OR balance $0.00 (2026-05-16 audit, P4 hardening)
+    # Use OpenCode native for Gemini (google/gemini-2.5-flash) and DeepSeek (opencode/big-pickle)
+    # "gemini": REMOVED — route to OpenCode google/gemini-2.5-flash instead
+    # "deepseek": REMOVED — route to OpenCode opencode/big-pickle instead
+    "nemotron": {
+        "id": "nvidia/nemotron-3-super-120b-a12b:free",
+        "label": "Nvidia Nemotron 3 Super 120B",
+        "context": 128000,
+        "cost": "FREE",
+        "free": True,
+        "best_for": "reasoning, synthesis, fallback when native models unavailable"
     },
 }
 

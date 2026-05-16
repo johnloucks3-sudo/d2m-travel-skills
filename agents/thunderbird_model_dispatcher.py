@@ -38,30 +38,30 @@ class ModelDispatcher:
         # Model configurations
         # TRULY FREE MODEL STACK (Tested & Working)
         self.models = {
-        # TIER 1: OPUS-LEVEL REASONING
-        "grok_4_1_fast": {
-            "name": "xAI Grok 4.1 Fast (OPUS++ FREE)",
-            "description": "✅ 2,000,000 CONTEXT ✅ $0.0000002 per token ✅ Verified working",
-            "cost": "Free/Low",
-            "method": "openrouter",
-            "model_id": "x-ai/grok-4.1-fast",
+        # TIER 1: OPUS-LEVEL REASONING — OpenCode native ($0, no OR credits)
+        "big_pickle": {
+            "name": "Big Pickle (OpenCode native $0)",
+            "description": "✅ OpenCode native reasoning model ✅ $0 flat ✅ No OR credits required",
+            "cost": "$0 (OpenCode native)",
+            "method": "opencode_native",
+            "model_id": "opencode/big-pickle",
             "priority": 1,
             "type": "text_reasoning",
-            "context": 2000000,
+            "context": 128000,
             "speed": "fast",
             "capability": "very_high",
             "trainable": False,
             "status": "VALIDATED_WORKING",
         },
-        "gemini_3_1_flash_lite": {
-            "name": "Google Gemini 3.1 Flash Lite (OPUS+ FREE)",
-            "description": "✅ 1,048,576 CONTEXT ✅ Google quality ✅ Verified working",
-            "cost": "Free/Low",
-            "method": "openrouter",
-            "model_id": "google/gemini-3.1-flash-lite-preview",
+        "deepseek_v4_flash_free": {
+            "name": "DeepSeek V4 Flash Free (OpenCode native $0)",
+            "description": "✅ OpenCode native ✅ $0 flat ✅ Fast fallback reasoning",
+            "cost": "$0 (OpenCode native)",
+            "method": "opencode_native",
+            "model_id": "opencode/deepseek-v4-flash-free",
             "priority": 2,
             "type": "text_reasoning",
-            "context": 1048576,
+            "context": 128000,
             "speed": "very_fast",
             "capability": "high",
             "trainable": False,
@@ -561,13 +561,10 @@ class ModelDispatcher:
         """Run 9 free models in parallel for multi-perspective luxury travel analysis"""
         logging.info(f"Starting spectrum analysis with 9 models for task {task_id}")
         
-        # 5 proven working models for luxury travel multi-perspective analysis
+        # 2 free OR models — paid models removed (OR balance $0)
         expert_models = [
-            ("x-ai/grok-4.1-fast", "Strategic Visionary", "Big picture strategy and market positioning"),
-            ("anthropic/claude-3-haiku", "Data Analyst", "Market data, pricing, and metrics"),
-            ("openai/gpt-4o-mini", "Creative Director", "Innovative experiences and unique offerings"),
-            ("anthropic/claude-3-haiku", "Operations Agent", "Execution and workflow automation"),
-            ("openai/gpt-4o-mini", "Brand Specialist", "Luxury branding and client positioning")
+            ("nvidia/nemotron-3-super-120b-a12b:free", "Strategic Visionary", "Big picture strategy and market positioning"),
+            ("meta-llama/llama-3.3-70b-instruct:free", "Creative Director", "Innovative experiences and unique offerings"),
         ]
         
         results = []
@@ -614,8 +611,8 @@ class ModelDispatcher:
             
             Provide a brief executive summary combining the key insights."""
             
-            # Use GPT-4o mini for synthesis instead of Claude MAX
-            synth_result = self.process_with_openrouter('openai/gpt-4o-mini', synthesis_prompt, task_id)
+            # Use free OR model for synthesis (paid models removed — OR balance $0)
+            synth_result = self.process_with_openrouter('nvidia/nemotron-3-super-120b-a12b:free', synthesis_prompt, task_id)
             
             if synth_result["success"]:
                 return {
@@ -699,17 +696,10 @@ def spectrum_analysis(self, prompt, task_id, max_cost=0.02):
     """Run 9 free models in parallel for multi-perspective luxury travel analysis"""
     logging.info(f"Starting spectrum analysis with 9 models for task {task_id}")
     
-    # 9 specialized models for luxury travel multi-perspective analysis
+    # 2 free OR models — 9-model paid council trimmed (OR balance $0)
     expert_models = [
-        ("x-ai/grok-4.1-fast", "Strategic Visionary", "Big picture strategy and market positioning"),
-        ("google/gemini-3.1-flash-lite", "Data Analyst", "Market data, pricing, and metrics"),
-        ("meta-llama/llama-4-maverick", "Creative Director", "Innovative experiences and unique offerings"),
-        ("qwen/qwen3-30b-a3b", "Operations Agent", "Execution and workflow automation"),
-        ("openai/gpt-4.1-mini", "Brand Specialist", "Luxury branding and client positioning"),
-        ("google/gemini-2.5-flash-lite", "Efficiency Expert", "Cost optimization and resource allocation"),
-        ("anthropic/claude-3-haiku", "Communication Coach", "Client relations and persona alignment"),
-        ("mistralai/mistral-small", "Tactical Planner", "Short-term execution and tactics"),
-        ("cohere/command-r-plus", "Narrative Architect", "Storytelling and experience design")
+        ("nvidia/nemotron-3-super-120b-a12b:free", "Strategic Visionary", "Big picture strategy and market positioning"),
+        ("meta-llama/llama-3.3-70b-instruct:free", "Narrative Architect", "Storytelling and experience design"),
     ]
     
     results = []

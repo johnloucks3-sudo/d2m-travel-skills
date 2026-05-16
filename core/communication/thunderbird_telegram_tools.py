@@ -581,7 +581,7 @@ def call_cos_with_tools(query: str, conversation_history: list[dict] = None) -> 
     for round_num in range(MAX_TOOL_ROUNDS):
         try:
             resp = client.messages.create(
-                model="claude-sonnet-4-20250514",
+                model="claude-sonnet-4-6",
                 max_tokens=4000,
                 system=COS_SYSTEM_PROMPT,
                 messages=messages,

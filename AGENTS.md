@@ -157,32 +157,33 @@ All automated via systemd timers (MDT):
 | 21:00 | Evening sync |
 | 23:00 | Drive mirror (rclone full sync → d2mconcierge Google Drive) |
 
-## AI/LLM Model Stack — Current (2026-04-06)
+## AI/LLM Model Stack — Current (2026-05-16)
 
 | Tool | Model | Cost | Use |
 |------|-------|------|-----|
-| **Claude Code** (MAX) | Opus 4.6 / Sonnet 4.6 | $0 | Primary — reasoning, code, client work |
-| **OpenCode** v1.3.17 | Gemini 3.1 Flash-Lite (`openrouter/gemini/gemini-3.1-flash-lite`) | ~$0.27/M | Ops, bulk tasks, scanning, interactive dev |
-| **Claude Agent SDK** | Sonnet 4.6 (Exec) / Opus 4.6 (Plan/Eval) | $0 (MAX) | Headless: `claude -p "..."` |
-| **Nexus daemon** | OpenCode (Gemini 3.1 Flash-Lite) + claude -p judgment | ~$0/task | Keyword-routed task queue |
+| **Claude Code** (MAX) | Sonnet 4.6 | $0 (MAX plan) | Primary — reasoning, code, client work |
+| **OpenCode** | Big Pickle (`opencode/big-pickle`) | $0 native | Default ops, interactive dev, Telegram GW |
+| **OpenCode fallback** | DeepSeek V4 Flash Free (`opencode/deepseek-v4-flash-free`) | $0 native | Fallback reasoning |
+| **OpenCode fallback 2** | Nemotron 3 Super (`openrouter/nvidia/nemotron-3-super-120b-a12b:free`) | $0 (free tier) | OR emergency fallback |
+| **Claude headless** | Sonnet 4.6 | $0 (MAX plan) | Background tasks: `claude -p "..."` |
 
-**Goose is decommissioned.** References to `goose-d2m`, `opencode run`, or `~/.config/goose/` anywhere in docs are stale. Replace `opencode run "X"` with `opencode run "X"`.
+**OpenCode model IDs** (updated 2026-05-16 — P0 migration):
+- `opencode/big-pickle` — **default** — $0 native reasoning, no OR credits needed
+- `opencode/deepseek-v4-flash-free` — fallback, $0 native
+- `openrouter/nvidia/nemotron-3-super-120b-a12b:free` — emergency OR fallback, $0 free tier
 
-**OpenCode model IDs** (confirmed working — tested 2026-04-30):
-- `openrouter/gemini/gemini-3.1-flash-lite` — **default** — Gemini 3.1 Flash-Lite, confirmed working
-- `openrouter/gemini/gemini-2.0-flash-lite` — Gemini 2.0 Flash-Lite fallback
-
-**Note:** OpenCode acts as the primary, stable interface for all Telegram interactions to bypass Claude's `rc=1` instability in that channel.
+**Note:** OpenRouter balance is $0.00. All paid OR model calls will fail. Use native OpenCode models only.
 
 **To invoke OpenCode headless:**
 ```bash
-opencode run -m openrouter/gemini/gemini-3.1-flash-lite "your task here"
+opencode run "your task here"  # defaults to big-pickle
+opencode run -m opencode/big-pickle "your task here"
 ```
 
 ---
 
 ### Default OpenCode model
-`openrouter/gemini/gemini-3.1-flash-lite` — confirmed working 2026-04-30
+`opencode/big-pickle` — updated 2026-05-16 (was Gemini 3.1 Flash-Lite)
 
 ---
 
@@ -207,7 +208,7 @@ opencode run -m openrouter/gemini/gemini-3.1-flash-lite "your task here"
 so Max OAuth kicks in. The watcher service also injects `CLAUDE_CODE_OAUTH_TOKEN` from
 `OpsCenter/.claude_oauth_cache` — refreshed automatically on every Commander message via
 `hooks/refresh_claude_oauth_cache.sh`. If `claude -p` still fails rc=1, the watcher falls
-back to `opencode run -m openrouter/gemini/gemini-3.1-flash-lite`.
+back to `opencode run -m opencode/big-pickle`.
 
 ---
 

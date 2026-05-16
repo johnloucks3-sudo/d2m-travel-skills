@@ -164,7 +164,7 @@ def check_current_prices(departures: List[Dict[str, Any]]) -> List[Dict[str, Any
 
     Returns departures enriched with current_price and source.
     """
-    from thunderbird_model_router import _call_grok, XAI_API_KEY
+    from ai_infra.thunderbird_model_router import _call_grok, XAI_API_KEY
 
     results = []
 

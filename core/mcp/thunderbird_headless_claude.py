@@ -12,7 +12,7 @@ all mandatory patterns from docs/HEADLESS_CLAUDE_SPAWN_GUIDE.md.
 These tools are intended for use by:
 - OpenCode agents (via OpsCenter/opencode_headless_claude_dispatch.py)
 - Claude Code headless workflows
-- Goose automation tasks
+- OpenCode automation tasks
 - Any agent needing to spawn long-running Claude processes
 
 Usage:
@@ -65,7 +65,7 @@ class HeadlessClaudeTaskRequest(BaseModel):
         description="Short identifier for the task, used for logging and monitoring (e.g., 'market_analysis', 'competitor_research')"
     )
     model: str = Field(
-        default="claude-opus-4-6",
+        default="claude-sonnet-4-6",
         description="Claude model to use: 'claude-opus-4-6', 'claude-sonnet-4-6', or 'claude-haiku-4-5-20251001'"
     )
     max_retries: int = Field(
@@ -85,7 +85,7 @@ class HeadlessClaudeSpawnRequest(BaseModel):
         description="Full path where Claude will write output (same path as in WRITE instruction in prompt)"
     )
     model: str = Field(
-        default="claude-opus-4-6",
+        default="claude-sonnet-4-6",
         description="Claude model: 'claude-opus-4-6', 'claude-sonnet-4-6', or 'claude-haiku-4-5-20251001'"
     )
     task_name: str = Field(
@@ -119,7 +119,7 @@ def register_headless_claude_tools(mcp: Any) -> None:
         task_description: str,
         output_path: str,
         task_name: str,
-        model: str = "claude-opus-4-6",
+        model: str = "claude-sonnet-4-6",
         max_retries: int = 1
     ) -> str:
         """
@@ -137,7 +137,7 @@ def register_headless_claude_tools(mcp: Any) -> None:
             task_description: What Claude should do (e.g., "Analyze Q2 cruise demand trends by destination")
             output_path: Full path for output file (e.g., "/home/john/Thunderbird/output/q2_analysis.txt")
             task_name: Short identifier for logging (e.g., "q2_cruise_analysis")
-            model: Claude model to use (default: claude-opus-4-6)
+            model: Claude model to use (default: claude-sonnet-4-6)
             max_retries: Retry attempts if spawn fails (default: 1)
 
         Returns:
@@ -245,7 +245,7 @@ All output goes to {output_path}.
     async def headless_claude_spawn(
         prompt: str,
         output_file: str,
-        model: str = "claude-opus-4-6",
+        model: str = "claude-sonnet-4-6",
         task_name: str = "headless_task"
     ) -> str:
         """
@@ -263,7 +263,7 @@ All output goes to {output_path}.
         Args:
             prompt: Complete prompt for Claude (MUST include WRITE [output_file] instruction)
             output_file: Full path where Claude writes output
-            model: Claude model (default: claude-opus-4-6)
+            model: Claude model (default: claude-sonnet-4-6)
             task_name: Identifier for logging (default: headless_task)
 
         Returns:

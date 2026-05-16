@@ -40,7 +40,7 @@ COMMANDER_REVIEW_DIR = THUNDERBIRD_DIR / "Commander_Review"
 PROFILE_JSON = THUNDERBIRD_DIR / "my_voice_profile.json"
 PROFILE_MD = THUNDERBIRD_DIR / "my_voice_profile.md"
 
-CLAUDE_MODEL = "claude-sonnet-4-20250514"
+CLAUDE_MODEL = "claude-sonnet-4-6"
 
 USER_EMAIL = "d2mconcierge@gmail.com"  # D2M operational Gmail per standing order
 SAMPLE_MONTHS = 3

@@ -66,11 +66,33 @@ sys.path.insert(0, "/home/john/Thunderbird")
 sys.path.insert(0, "/home/john/Thunderbird/OpsCenter")
 sys.path.insert(0, "/home/john/Thunderbird/core/email")
 
+def pre_process_prompt(prompt: str) -> list:
+    """Break large prompts into manageable chunks to prevent timeout errors."""
+    if len(prompt) < 15000:
+        return [prompt]
+    
+    # Simple chunking by paragraph if too large
+    chunks = prompt.split('\n\n')
+    processed_chunks = []
+    current_chunk = ""
+    for chunk in chunks:
+        if len(current_chunk) + len(chunk) < 12000:
+            current_chunk += chunk + "\n\n"
+        else:
+            processed_chunks.append(current_chunk)
+            current_chunk = chunk + "\n\n"
+    processed_chunks.append(current_chunk)
+    return processed_chunks
+
 from thunderbird_tg_formatter import process as fmt_process
 from keyword_router import classify_task, CLAUDE_KEYWORD_PATTERN
 from thunderbird_gmail import publish_draft, _get_draft_metadata
 from thunderbird_stt import transcribe_audio
-from thunderbird_tts import synthesize_speech
+# TTS optional — if missing, fall back silently
+TTS_AVAILABLE = False
+def synthesize_speech(text, output_path, voice_name="en-US-Journey-F"):
+    print(f"[TTS FALLBACK] TTS not available. Text: {text[:50]}...")
+    return False
 
 # ── Hale Dispatcher integration (Hale Everywhere — Phase 2 hook) ──────────────
 # Defensive: gateway must keep running even if Hale infra fails to import.
@@ -134,10 +156,12 @@ _load_env_file("/home/john/Thunderbird/.env")
 _load_env_file("/home/john/Thunderbird/config/telegram_gw.env")
 
 TOKEN_D2MC2C = os.environ.get("TELEGRAM_D2MC2C_TOKEN", "")
+TOKEN_GOOSE = os.environ.get("TELEGRAM_GOOSE_TOKEN", "")
 TOKEN_DANI = os.environ.get("TELEGRAM_DANI_TOKEN", "")
 COMMANDER_ID = int(os.environ.get("TELEGRAM_COMMANDER_ID", "7554895206"))
 POLL_INTERVAL = float(os.environ.get("TELEGRAM_GW_POLL_INTERVAL", "2"))
-ENGINE_TIMEOUT = int(os.environ.get("TELEGRAM_GW_TIMEOUT", "180"))
+ENGINE_TIMEOUT = int(os.environ.get("TELEGRAM_GW_TIMEOUT", "300"))
+OPENCODE_TIMEOUT = int(os.environ.get("OPENCODE_TIMEOUT", "60"))  # native models: 60s max per model before chain advances
 CHUNK_SIZE = int(os.environ.get("TELEGRAM_GW_CHUNK_SIZE", "4000"))
 CONTEXT_TURNS = int(os.environ.get("TELEGRAM_GW_CONTEXT_TURNS", "10"))
 
@@ -184,10 +208,9 @@ _OR_DISPLAY_LABELS = {v: k.title() for k, v in OPENROUTER_MODEL_ALIASES.items()}
 # V4 Pro was the expensive outlier (April 30). V4 Pro is blocked in override detection.
 # Chain: Gemini Flash Lite → Gemini Flash → FREE tier → Qwen3 free → Mistral cheap
 OPENCODE_MODEL_CHAIN = [
-    "openrouter/google/gemini-2.5-flash-lite",                   # PRIMARY: confirmed working $0.10/M
-    "openrouter/deepseek/deepseek-chat-v3.1",                     # DeepSeek V3.1 paid (~$0.27/M)
-    "openrouter/nvidia/nemotron-nano-9b-v2:free",                 # FREE tier fallback
-    "openrouter/mistralai/mistral-small-3.2-24b-instruct",       # last resort ($0.07/M)
+    "opencode/big-pickle",                                        # PRIMARY: $0 native, reasoning=True
+    "opencode/deepseek-v4-flash-free",                            # $0 native fallback, reasoning=True
+    "openrouter/nvidia/nemotron-3-super-120b-a12b:free",         # $0 OR fallback (confirmed free)
 ]
 _OC_RATE_MARKERS = (
     "rate limit",
@@ -510,7 +533,7 @@ def call_opencode_engine(
                 [str(OPENCODE_BIN), "run", "-m", model, full_prompt],
                 capture_output=True,
                 text=True,
-                timeout=ENGINE_TIMEOUT,
+                timeout=OPENCODE_TIMEOUT,
                 cwd=str(THUNDERBIRD),
                 env=env,
             )
@@ -911,7 +934,7 @@ def _detect_forward(msg: str, bot_name: str) -> str | None:
 
     if bot_name == "D2MC2C":
         # Currently talking to Claude. Forward others.
-        if p_opencode.match(lower):
+        if p_opencode_cmd.match(lower):
             return "opencode"
         if p_dani.match(lower):
             return "dani"
@@ -923,7 +946,7 @@ def _detect_forward(msg: str, bot_name: str) -> str | None:
             return "dani"
     elif bot_name == "Dani":
         # Currently talking to Dani. Forward others.
-        if p_opencode.match(lower):
+        if p_opencode_cmd.match(lower):
             return "opencode"
         if p_claude.match(lower):
             return "claude"
@@ -1358,8 +1381,9 @@ def hale_opencode_engine(
         + f"Commander: {message}\n\n"
         + "Respond as Hale. Brief-first. No preamble. No trailing summary."
     )
-    model = model_override or "google/gemini-2.5-flash-lite"
-    return call_openrouter_engine(model, text, system_prompt=system)
+    if model_override:
+        return call_openrouter_engine(model_override, text, system_prompt=system)
+    return call_opencode_engine(system, text)  # native $0 chain (Big Pickle first)
 
 
 def dani_claude_engine(
@@ -1472,6 +1496,8 @@ def main() -> None:
     if missing:
         log.error("Missing required tokens: %s", ", ".join(missing))
         sys.exit(1)
+    if not TOKEN_GOOSE:
+        log.warning("TELEGRAM_GOOSE_TOKEN not set — GooseD2M bot will be skipped")
 
     # Load persona cache
     _load_persona_cache()
@@ -1536,6 +1562,13 @@ def main() -> None:
             "assistant_label": "Hale",
         },
         {
+            "token": TOKEN_GOOSE,
+            "bot_name": "GooseD2M",
+            "ctx_file": CTX_OPENCODE,
+            "engine_fn": hale_opencode_engine,
+            "assistant_label": "Hale, OpenCode",
+        },
+        {
             "token": TOKEN_DANI,
             "bot_name": "Dani",
             "ctx_file": CTX_DANI,
@@ -1543,6 +1576,9 @@ def main() -> None:
             "assistant_label": "Dani",
         },
     ]
+
+    # Drop any bot with empty token (GooseD2M is optional)
+    bot_configs = [b for b in bot_configs if b["token"]]
 
     # Start a poll thread per bot
     threads = []

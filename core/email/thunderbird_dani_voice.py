@@ -270,7 +270,7 @@ def _call_llm(prompt: str) -> str:
     try:
         client = anthropic.Anthropic(api_key=api_key)
         response = client.messages.create(
-            model=os.getenv("DANI_VOICE_MODEL", "claude-sonnet-4-20250514"),
+            model=os.getenv("DANI_VOICE_MODEL", "claude-sonnet-4-6"),
             max_tokens=300,
             system=DANI_VOICE_SYSTEM_PROMPT,
             messages=[{"role": "user", "content": prompt}],

@@ -76,8 +76,8 @@ GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
 GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 
-# Gemini Flash rate limiter — Goose batches hit 10 RPM free tier limit
-# Set GEMINI_INTER_CALL_DELAY=6 in env for Goose sessions, 0 for interactive
+# Gemini Flash rate limiter — OpenCode batches hit 10 RPM free tier limit
+# Set GEMINI_INTER_CALL_DELAY=6 in env for OpenCode sessions, 0 for interactive
 _GEMINI_LAST_CALL: float = 0.0
 GEMINI_INTER_CALL_DELAY = float(os.environ.get("GEMINI_INTER_CALL_DELAY", "0"))
 
@@ -177,9 +177,9 @@ class TaskType(Enum):
 # ============================================================
 
 # Claude model IDs
-CLAUDE_OPUS = "claude-opus-4-20250514"
-CLAUDE_SONNET = "claude-sonnet-4-20250514"
-CLAUDE_HAIKU = "claude-haiku-3-20250307"
+CLAUDE_OPUS = "claude-opus-4-7"
+CLAUDE_SONNET = "claude-sonnet-4-6"
+CLAUDE_HAIKU = "claude-haiku-4-5-20251001"
 
 # FREE OpenRouter models (GUARDRAIL: $0 compliance, SO 2026-04-24)
 FREE_OPENROUTER_RESEARCH = "openrouter/nvidia/nemotron-3-super-120b-a12b:free"
@@ -706,7 +706,7 @@ def _call_gemini(system_prompt: str, query: str,
 
     Cost: $0.30/$2.50 per 1M tokens — cheap, native Google Workspace affinity.
     Rate limiter: respects GEMINI_INTER_CALL_DELAY (default 0s, set to 6s for
-    Goose batch sessions to stay under 10 RPM free tier limit).
+    OpenCode batch sessions to stay under 10 RPM free tier limit).
     No circular fallback — raises cleanly on failure.
     """
     global _GEMINI_LAST_CALL

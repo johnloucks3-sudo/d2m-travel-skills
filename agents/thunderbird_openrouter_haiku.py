@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """
-Thunderbird OpenRouter Haiku Agent
-Processes tasks using Claude Haiku via OpenRouter API
+DEPRECATED — thunderbird_openrouter_haiku.py
+Replaced by: opencode/big-pickle (native, $0) for classification/routing tasks
+             opencode/claude-sonnet-4-6 (voice-critical tasks)
+OR balance: $0.00 — all OR Haiku calls will return 402 errors.
+No active callers as of 2026-05-16 audit (P3).
 """
 
 import os
@@ -22,9 +25,11 @@ CLAUDE_OUTBOX = "/home/john/Thunderbird/OpsCenter/collaboration/claude_outbox.md
 
 # Model selection: cheapest to most capable
 MODELS = {
-    "cheapest": "anthropic/claude-3-haiku",  # $0.25/$1.25 per 1M tokens
-    "balcost": "anthropic/claude-3.5-haiku",  # $0.8/$4 per 1M tokens
-    "latest": "anthropic/claude-haiku-4.5",  # $1/$5 per 1M tokens
+    # DEPRECATED — OR balance $0.00, all calls will fail with 402
+    # Migration target: opencode/big-pickle (routing), opencode/claude-sonnet-4-6 (voice)
+    "cheapest": "anthropic/claude-3-haiku",   # DEAD: $0.25/$1.25 per 1M, OR $0 balance
+    "balcost": "anthropic/claude-3.5-haiku",  # DEAD: $0.8/$4 per 1M, OR $0 balance
+    "latest": "anthropic/claude-haiku-4.5",   # DEAD: $1/$5 per 1M, OR $0 balance
 }
 
 
