@@ -1,3 +1,31 @@
+### 2026-05-16 — Inter-Instance Handshake Protocol: DIVERGENCE Routing Approved
+
+**Decision:** DIVERGENCE packet routing confirmed by Commander: **Telegram for gate-adjacent divergences, email to johnloucks3 for operational divergences.**
+
+**Protocol status:** LIVE. Handshake spec v1.0 activated. `OpsCenter/hale_handshake.jsonl` is the shared append-only log. ONLINE packet already written for this session.
+
+**Scope:** Both HALE instances (Claude Code + HALE-YODA/Telegram) write ONLINE/DECISION/DIVERGENCE/EOD packets to the shared file. 60-second mirror SLA for DECISION packets.
+
+**Authority:** COS operational. Protocol design + Commander routing approval received 2026-05-16.
+
+**Brain:** Self (COS design authority).
+
+---
+
+### 2026-05-16 — ELON Weekly Kill Audit: Telegram Gateway Auto-Heal Policy
+
+**Decision:** Kill the auto-heal policy for critical services (`thunderbird-telegram-gw`, and replicate to MCP Server, TESS Auth, Headless Claude Dispatcher). Replace with escalate-on-first-failure + log-and-hold.
+
+**Rationale:** Telegram Gateway is crashing 207 times/7d (~29/day). The watchdog auto-heal masks the root cause, preventing diagnosis. Root-cause must be visible; watchdog must escalate, not hide. This is infrastructure rot.
+
+**Authority:** A12 ELON operational (infrastructure optimization). Hale queue for Commander (affects C2 critical path).
+
+**Deliverable:** PROPOSAL-20260516-thunderbird-telegram-gw.md (root cause analysis, implementation steps, verification test)
+
+**Brain:** ELON (A12 — Innovation & Disruption)
+
+---
+
 ### 2026-04-12 — MISSION1-015 Travelzoo Voucher Assignment (Operational Decision)
 
 **Decision:** Travelzoo voucher (Celebrity Constellation, Dec 14, 2026, 6-night Caribbean) assigned to **Furlow** as secondary cruise booking opportunity. Analysis:
@@ -360,5 +388,493 @@ Every autonomous decision Hale makes (especially T1-T2 routine tasks) must be wr
 **Trust Points:** +0
 **Autonomy Tier:** T1
 **Notes:** PID 2954279 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260505_160500.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-05-14 14:13:31 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: VALIDATION-PROBE-001 status: UNREAD from: HALE-ALPHA injected: $(date '+%Y-%m-%d %H:%M MT') priority: P1 ta
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 738846 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260514_141331.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-05-14 14:37:17 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: VALIDATION-PROBE-001 status: COMPLETE completed: 2026-05-14 13:00 MT from: HALE-ALPHA priority: P1 task: | 
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 751792 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260514_143717.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-05-14 14:40:12 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: VALIDATION-PROBE-001 status: COMPLETE completed: 2026-05-14 13:00 MT from: HALE-ALPHA priority: P1 task: | 
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 753617 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260514_144012.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-05-14 14:45:18 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: VALIDATION-PROBE-001 status: COMPLETE completed: 2026-05-14 13:00 MT from: HALE-ALPHA priority: P1 task: | 
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 760014 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260514_144518.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-05-14 15:04:57 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: VALIDATION-PROBE-001 status: COMPLETE completed: 2026-05-14 13:00 MT from: HALE-ALPHA priority: P1 task: | 
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 776724 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260514_150457.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-05-14 15:18:16 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: VALIDATION-PROBE-001 status: COMPLETE completed: 2026-05-14 13:00 MT from: HALE-ALPHA priority: P1 task: | 
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 787670 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260514_151816.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-05-14 15:24:32 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: VALIDATION-PROBE-001 status: COMPLETE completed: 2026-05-14 13:00 MT from: HALE-ALPHA priority: P1 task: | 
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 792915 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260514_152432.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-05-14 15:35:39 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: VALIDATION-PROBE-001 status: COMPLETE completed: 2026-05-14 13:00 MT from: HALE-ALPHA priority: P1 task: | 
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 802425 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260514_153539.log | Inbox: opencode_inbox.md
+
+---
+CANONICAL claude_inbox path: /home/john/Thunderbird/OpsCenter/collaboration/claude_inbox.md
+
+### 2026-05-15 09:42:47 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: VALIDATION-PROBE-001 status: COMPLETE completed: 2026-05-14 13:00 MT from: HALE-ALPHA priority: P1 task: | 
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 1200840 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260515_094247.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-05-15 09:59:32 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: A7-INTEL-BRIEF-ROLE-DEFINITION-20260515 status: UNREAD from: HALE-ALPHA to: A7-STERLING priority: P1 task: 
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 1208437 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260515_095932.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-05-15 10:12:22 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: A7-DAILY-METRICS-REPORTING-PROTOCOL-20260515 status: UNREAD from: HALE-ALPHA to: A7-STERLING priority: P1 t
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 1215458 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260515_101222.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-05-15 10:32:51 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: HALE-ALPHA-COMMS-TEST-20260515 status: PENDING from: HALE-ALPHA (Claude Code) to: OPENCODE priority: P3 tas
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 1223073 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260515_103251.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-05-15 14:03:19 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: HALE-ALPHA-COMMS-TEST-2-20260515 status: PENDING from: HALE-ALPHA (Claude Code) to: OPENCODE priority: P1 c
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 1313122 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260515_140319.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-05-15 21:08:29 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: HALE-ALPHA-COMMS-TEST-2-20260515 status: COMPLETE completed: 2026-05-15 13:10 MT from: HALE-ALPHA (Claude C
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 1539816 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260515_210829.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-05-15 21:14:39 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: HALE-ALPHA-COMMS-TEST-2-20260515 status: COMPLETE completed: 2026-05-15 13:10 MT from: HALE-ALPHA (Claude C
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 1542868 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260515_211439.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-05-15 21:23:41 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: HALE-ALPHA-COMMS-TEST-2-20260515 status: COMPLETE completed: 2026-05-15 13:10 MT from: HALE-ALPHA (Claude C
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 1547057 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260515_212341.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-05-15 21:28:20 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: HALE-ALPHA-COMMS-TEST-2-20260515 status: COMPLETE completed: 2026-05-15 13:10 MT from: HALE-ALPHA (Claude C
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 1550785 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260515_212820.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-05-15 21:29:10 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: HALE-ALPHA-COMMS-TEST-2-20260515 status: COMPLETE completed: 2026-05-15 13:10 MT from: HALE-ALPHA (Claude C
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 1551628 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260515_212910.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-05-15 21:33:05 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: HALE-ALPHA-COMMS-TEST-2-20260515 status: COMPLETE completed: 2026-05-15 13:10 MT from: HALE-ALPHA (Claude C
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 1554507 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260515_213305.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-05-15 21:36:04 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: HALE-ALPHA-COMMS-TEST-2-20260515 status: COMPLETE completed: 2026-05-15 13:10 MT from: HALE-ALPHA (Claude C
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 1557654 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260515_213604.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-05-15 22:00:53 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: HALE-ALPHA-COMMS-TEST-2-20260515 status: COMPLETE completed: 2026-05-15 13:10 MT from: HALE-ALPHA (Claude C
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 1571983 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260515_220053.log | Inbox: opencode_inbox.md
+
+---
+
+
+---
+## Harlan Cost Brief — 2026-05-16
+```
+HARLAN WEEKLY COST BRIEF — 2026-05-16 (last 7 days)
+============================================================
+Total spend: $15.9309 | Sessions: 44 | Prior period: $0.1305
+
+OPENCODE SESSIONS BY MODEL:
+  google/gemini-3.1-flash-lite-preview [high] ⚠
+    $8.4165 | 4 sessions | avg 8,509,364 in / 33,531 out tokens
+  deepseek-v4-flash-free [high]
+    $3.7424 | 1 sessions | avg 16,067,231 in / 79,767 out tokens
+  google/gemini-3.1-flash-lite-preview ⚠
+    $2.2475 | 25 sessions | avg 226,853 in / 3,552 out tokens
+  deepseek/deepseek-chat-v3.1 ⚠
+    $1.4375 | 10 sessions | avg 694,452 in / 6,080 out tokens
+  google/gemini-3.1-flash-lite-preview ⚠
+    $0.0870 | 1 sessions | avg 195,612 in / 2,417 out tokens
+  gpt-5
+    $0.0000 | 1 sessions | avg 0 in / 0 out tokens
+  gemini/gemini-3.1-flash-lite
+    $0.0000 | 1 sessions | avg 0 in / 0 out tokens
+  big-pickle [NATIVE $0]
+    $0.0000 | 1 sessions | avg 22,987 in / 77 out tokens
+
+OPENROUTER BALANCE:
+  Credits: $60.00 limit | $203.59 used | $0.00 remaining
+
+CLAUDE MAX PLAN:
+  Session: 0/225 messages | Weekly: 0/1500
+  Budget status: GREEN
+
+OPTIMIZATION FLAGS:
+  ⚠ BANNED MODEL ACTIVE: google/gemini-3.1-flash-lite-preview billed $8.4165 — should be replaced with native/free alternative
+  ⚠ CONTEXT BLOAT: google/gemini-3.1-flash-lite-preview [high] averaging 8,509,364 input tokens/session (4 sessions) — review prompt compression
+  ⚠ HIGH-VARIANT COST: deepseek-v4-flash-free [high] cost $3.7424 (1 sessions, 16,067,231 input tokens) — consider default variant for ops tasks
+  ⚠ CONTEXT BLOAT: deepseek-v4-flash-free [high] averaging 16,067,231 input tokens/session (1 sessions) — review prompt compression
+  ⚠ BANNED MODEL ACTIVE: google/gemini-3.1-flash-lite-preview billed $2.2475 — should be replaced with native/free alternative
+  ⚠ BANNED MODEL ACTIVE: deepseek/deepseek-chat-v3.1 billed $1.4375 — should be replaced with native/free alternative
+  ⚠ BANNED MODEL ACTIVE: google/gemini-3.1-flash-lite-preview billed $0.0870 — should be replaced with native/free alternative
+
+RECOMMENDATION: Eliminate google/gemini-3.1-flash-lite-preview calls ($8.4165 this week). Replace with opencode/big-pickle — same capability, $0 cost.
+
+— A9 Victor 'Vic' Harlan | Thunderbird Wing
+```
+
+
+---
+## Harlan Cost Brief — 2026-05-16
+```
+HARLAN DAILY COST BRIEF — 2026-05-16 09:56
+============================================================
+
+── Weekly (last 7 days — May 09 → now) ──
+  TOTAL: $15.9309 | 44 sessions
+
+  [Claude (anthropic)]
+    No sessions recorded.
+
+  [OpenCode native]
+    Total: $3.7424 | 2 sessions
+    • deepseek-v4-flash-free [high] [HIGH-VARIANT $]
+      $3.7424 | 1 sess | avg 16,067,231 in / 79,767 out
+    • big-pickle [NATIVE $0]
+      $0.0000 | 1 sess | avg 22,987 in / 77 out
+
+  [OpenRouter]
+    Total: $12.1885 | 41 sessions
+    • google/gemini-3.1-flash-lite-preview [high] [⚠ BANNED]
+      $8.4165 | 4 sess | avg 8,509,364 in / 33,531 out
+    • google/gemini-3.1-flash-lite-preview [⚠ BANNED]
+      $2.2475 | 25 sess | avg 226,853 in / 3,552 out
+    • deepseek/deepseek-chat-v3.1 [⚠ BANNED]
+      $1.4375 | 10 sess | avg 694,452 in / 6,080 out
+    • google/gemini-3.1-flash-lite-preview [⚠ BANNED]
+      $0.0870 | 1 sess | avg 195,612 in / 2,417 out
+    • gemini/gemini-3.1-flash-lite
+      $0.0000 | 1 sess | avg 0 in / 0 out
+
+  [Other]
+    Total: $0.0000 | 1 sessions
+    • gpt-5
+      $0.0000 | 1 sess | avg 0 in / 0 out
+
+── Current Month (May 2026) ──
+  TOTAL: $16.0614 | 46 sessions
+
+  [Claude (anthropic)]
+    No sessions recorded.
+
+  [OpenCode native]
+    Total: $3.7424 | 2 sessions
+    • deepseek-v4-flash-free [high] [HIGH-VARIANT $]
+      $3.7424 | 1 sess | avg 16,067,231 in / 79,767 out
+    • big-pickle [NATIVE $0]
+      $0.0000 | 1 sess | avg 22,987 in / 77 out
+
+  [OpenRouter]
+    Total: $12.3190 | 43 sessions
+    • google/gemini-3.1-flash-lite-preview [high] [⚠ BANNED]
+      $8.4165 | 4 sess | avg 8,509,364 in / 33,531 out
+    • google/gemini-3.1-flash-lite-preview [⚠ BANNED]
+      $2.2475 | 25 sess | avg 226,853 in / 3,552 out
+    • deepseek/deepseek-chat-v3.1 [⚠ BANNED]
+      $1.4375 | 10 sess | avg 694,452 in / 6,080 out
+    • google/gemini-3.1-flash-lite-preview [medium] [⚠ BANNED]
+      $0.1305 | 2 sess | avg 232,236 in / 2,278 out
+    • google/gemini-3.1-flash-lite-preview [⚠ BANNED]
+      $0.0870 | 1 sess | avg 195,612 in / 2,417 out
+    • gemini/gemini-3.1-flash-lite
+      $0.0000 | 1 sess | avg 0 in / 0 out
+
+  [Other]
+    Total: $0.0000 | 1 sessions
+    • gpt-5
+      $0.0000 | 1 sess | avg 0 in / 0 out
+
+── Prior Month (April 2026) ──
+  TOTAL: $0.0000 | 0 sessions
+
+  [Claude (anthropic)]
+    No sessions recorded.
+
+  [OpenCode native]
+    No sessions recorded.
+
+  [OpenRouter]
+    No sessions recorded.
+
+OPENROUTER BALANCE:
+  $60.00 limit | $203.59 used | $0.00 remaining
+
+CLAUDE MAX PLAN:
+  Session: 0/225 | Weekly: 0/1500
+  Budget status: GREEN
+
+OPTIMIZATION FLAGS:
+  ⚠ BANNED MODEL ACTIVE: google/gemini-3.1-flash-lite-preview billed $8.4165 — replace with native/free alternative
+  ⚠ CONTEXT BLOAT: google/gemini-3.1-flash-lite-preview [high] avg 8,509,364 in tokens/session (4 sessions) — review prompt compression
+  ⚠ HIGH-VARIANT COST: deepseek-v4-flash-free [high] $3.7424 (1 sessions, 16,067,231 in tokens) — consider default variant for ops tasks
+  ⚠ CONTEXT BLOAT: deepseek-v4-flash-free [high] avg 16,067,231 in tokens/session (1 sessions) — review prompt compression
+  ⚠ BANNED MODEL ACTIVE: google/gemini-3.1-flash-lite-preview billed $2.2475 — replace with native/free alternative
+  ⚠ BANNED MODEL ACTIVE: deepseek/deepseek-chat-v3.1 billed $1.4375 — replace with native/free alternative
+  ⚠ BANNED MODEL ACTIVE: google/gemini-3.1-flash-lite-preview billed $0.1305 — replace with native/free alternative
+  ⚠ OR BALANCE ZERO: OpenRouter credits exhausted — native/free-tier only
+
+RECOMMENDATION: Eliminate google/gemini-3.1-flash-lite-preview calls ($8.4165 this week). Replace with opencode/big-pickle — same capability, $0 cost.
+
+— A9 Victor 'Vic' Harlan | Thunderbird Wing
+```
+
+## 2026-05-16 — Commander Decision: ALPHA/BRAVO Disagree Rule
+**Decision:** HALE ALPHA and HALE BRAVO are two independent voices for the Staff Disagree Directive (SO 2026-05-16). Each may file one disagreement per decision, independently. Not a combined single-voice model.
+**Authority:** Commander Loucks — direct ruling.
+**Context:** HALE BRAVO headless had recommended single-voice (BRAVO posts, ALPHA rides inside). Commander overruled: two voices, for now.
+
+### 2026-05-16 16:20:08 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: HALE-ALPHA-COMMS-TEST-2-20260515 status: COMPLETE completed: 2026-05-15 13:10 MT from: HALE-ALPHA (Claude C
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 2072035 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260516_162008.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-05-16 16:25:05 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: HALE-ALPHA-COMMS-TEST-2-20260515 status: COMPLETE completed: 2026-05-15 13:10 MT from: HALE-ALPHA (Claude C
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 2074166 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260516_162504.log | Inbox: opencode_inbox.md
+
+---
+
+## 2026-05-16 — Commander Decision: BRAVO Group + Commander Naming
+**BRAVO Group:** WIND — "The wind beneath your wings"
+**HALE BRAVO Commander callsign:** JET — Jet Stream
+**Authority:** Commander Loucks — direct naming, 2026-05-16
+**Context:** Part of deliberate ALPHA/BRAVO entity separation exercise. ALPHA Group (THE KEEL / CAST) awaiting Commander decision.
+
+## 2026-05-16 — Commander Decision: ALPHA Group + Commander Naming
+**ALPHA Group:** CONDOR — huge, mighty, long distance, venerable
+**HALE ALPHA Commander callsign:** TALON
+**Supersedes:** CAST (prior consensus callsign from deputy exercise)
+**Authority:** Commander Loucks — direct naming, 2026-05-16
+**Wing complete:** WIND (JET) + CONDOR (TALON) under HALE-YODA. The two groups named.
+
+## 2026-05-16 — CORRECTION: Final Wing Naming (supersedes all prior)
+**ALPHA Group:** WIND | Commander: JET (Jet Stream) — OpenCode, support, the invisible force
+**BRAVO Group:** CONDOR | Commander: TALON — Claude Code, strike, mighty and precise
+**Authority:** Commander Loucks — direct correction, 2026-05-16
+
+### 2026-05-16 16:35:12 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: HALE-ALPHA-COMMS-TEST-2-20260515 status: COMPLETE completed: 2026-05-15 13:10 MT from: HALE-ALPHA (Claude C
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 2079843 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260516_163512.log | Inbox: opencode_inbox.md
 
 ---

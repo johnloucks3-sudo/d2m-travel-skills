@@ -298,9 +298,9 @@ At session end, append to `OpsCenter/opencode_memory.md`:
 *Replaces v1.0 (2026-04-06) — ZEN models, webhook C2, costs capability matrix*
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-05-16 15:07 MT -->
+<!-- Last sync: 2026-05-16 16:47 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-05-16 15:07 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-05-16 16:47 MT] ===
 Budget: Claude UNKNOWN | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE
