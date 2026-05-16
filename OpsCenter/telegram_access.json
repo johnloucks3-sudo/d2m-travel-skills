@@ -1,0 +1,14 @@
+{
+  "_description": "Telegram staff command access whitelist. Commander always has access.",
+  "_version": "1.0",
+  "_format": {
+    "user_id": {
+      "role": "commander | executive_officer | operations | observer",
+      "name": "Display name for logging"
+    }
+  },
+  "7554895206": {
+    "role": "commander",
+    "name": "John Loucks (Yoda)"
+  }
+}

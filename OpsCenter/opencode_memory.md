@@ -1,3 +1,61 @@
+# OpenCode Memory — Session 2026-05-16 (evening)
+
+## Headless Dispatch Fix — dispatch_opencode.py
+
+**Problem:** Shell-based `opencode run` dispatch failed. `--cwd` is invalid (should be `--dir`), and `${}` template vars in `$prompt` expanded to empty strings → no positional arg → help screen.
+
+**Fix:** Created `OpsCenter/dispatch_opencode.py` — Python subprocess wrapper that builds clean arg vectors. No shell interpolation issues. Supports `--prompt`/`--prompt-file`, `--foreground` (with NDJSON text extraction), and background mode. Model auto-fallback chain: big-pickle → deepseek-v4-flash-free → gemini-2.5-flash.
+
+**Rule established for all wing:** NEVER call `opencode run` or `claude -p` directly from shell. ALL headless dispatch goes through `dispatch_opencode.py` or `dispatch_claude.py`.
+
+**Other P1 items closed this session:**
+- 30s JS auto-refresh on cost dashboard (meta refresh + timestamp display)
+- hale_shared_state.jsonl created at OpsCenter/hale_shared_state.jsonl (Option A confirmed)
+- /api/claude/models JSON endpoint added for Telegram /costs
+- Handshake write-on-open (ONLINE packet) and write-on-close (EOD) now standard practice
+
+**Key files touched:**
+- `OpsCenter/dispatch_opencode.py` — created
+- `core/cost_dashboard/templates/index.html` — auto-refresh
+- `core/cost_dashboard/app.py` — /api/claude/models endpoint
+- `OpsCenter/hale_shared_state.jsonl` — created
+- `OpsCenter/hale_handshake.jsonl` — ONLINE + EOD entries
+- `OpsCenter/collaboration/wing_comms.md` — P1 closeout + headless dispatch education
+- `OpsCenter/collaboration/claude_inbox.md` — stale BRAVO task marked COMPLETE
+
+**BRAVO still owns:** B3 (claude_windows), handshake read-on-open in BRAVO instance, `/costs` Telegram command
+
+---
+
+# OpenCode Memory — Session 2026-05-16
+
+## P1 Closeout — 3/3 ALPHA-owned items closed
+
+**Read BRAVO's init (HALE_BRAVO_INIT.md).** Full staff engagement lifecycle (BEFORE/DURING/AFTER) with tiered classification (T0-T3), pipeline routing, and hotwash/artifact enforcement.
+
+**Delivered:**
+1. **30s JS auto-refresh** on cost dashboard (`core/cost_dashboard/templates/index.html`) — meta refresh + timestamp display
+2. **hale_shared_state.jsonl** (`OpsCenter/hale_shared_state.jsonl`) — Option A confirmed, initial entry written, both instances append
+3. **`/api/claude/models`** JSON endpoint added to `core/cost_dashboard/app.py` — model breakdown for Telegram `/costs` command
+4. **ONLINE + EOD handshake packets** written this session (handshake write-on-open/close now operational)
+
+**Key files touched:**
+- `core/cost_dashboard/templates/index.html` — auto-refresh
+- `core/cost_dashboard/app.py` — /api/claude/models endpoint
+- `OpsCenter/hale_shared_state.jsonl` — created
+- `OpsCenter/hale_handshake.jsonl` — ONLINE + EOD entries
+- `OpsCenter/collaboration/wing_comms.md` — P1 closeout posted
+
+**Outstanding (BRAVO):**
+- B3 claude_windows population (blocks `/costs` Telegram command)
+- ACK organizational directive
+- Handshake read-on-open in BRAVO instance
+- `/costs` Telegram command in HALE-YODA
+
+**BRAVO's P1 that was already done:** `/api/summary` endpoint existed in app.py before this session.
+
+---
+
 # OpenCode Memory — Session 2026-04-07
 
 ## Claude Tasking Procedure Documentation
@@ -231,3 +289,100 @@ Inbox now clear.
 1. Use native Gmail search (via Playwright or appropriate browser-based automation) for all historical Gmail searches, especially when D2M API/MCP tools fail.
 2. If D2M Gmail tools do not find results, immediately pivot to browser-based native search.
 3. Ensure authorized personal accounts (e.g., yodainva@gmail.com) are included in search scope if permitted by Commander.
+
+## 2026-05-15 — CHROMEBOOK INITIATION
+**Status:** PROTOCOL ESTABLISHED
+**Reference:** `CHROMEBOOK_INIT.md`
+**Protocol:** 
+- Outbound-only MCP connection to Yoga server (primary host).
+- Standing Order: Execute direct, no confirm emails.
+- Coordination: Handoff of task state (McGlasson, SilverSea) established.
+
+## 2026-05-16 — Cost Dashboard Operationalization (MISSION-008)
+**Status:** COLLECTORS FIXED, DASHBOARD LIVE
+**Dashboard URL:** https://costs.d2mluxury.quest
+**Local port:** 8902
+**Tunnel:** User-level cloudflared service (`systemctl --user restart cloudflared.service`)
+
+### Changes Made
+1. **OpenRouter collector** (`core/cost_dashboard/collectors/openrouter.py`):
+   - Replaced `/api/v1/activity` (403 — needs management key) with `/api/v1/auth/key` for aggregate snapshots
+   - New table: `openrouter_snapshots` stores periodic usage snapshots (total/daily/weekly/monthly)
+   - Added `PRAGMA busy_timeout=10000` for SQLite contention
+
+2. **Claude collector** (`core/cost_dashboard/collectors/claude_usage.py`):
+   - Rewritten to parse `~/.claude/projects/-home-john/<uuid>.jsonl` session files
+   - Extracts `message.usage` from `type=assistant` events (input_tokens, output_tokens, cache fields)
+   - Falls back gracefully — also reads `usage_*.jsonl` if present (--output-usage flag)
+   - Limited to `-home-john` project + 5MB file cap to avoid 588MB Thunderbird project dir
+
+3. **dispatch_claude.py** (`core/ai_infra/thunderbird_headless_spawn.py`):
+   - Both spawn modes now pass `--output-usage` flag writing to `~/.claude/projects/-home-john/usage_<task>_<ts>.jsonl`
+
+4. **Dashboard template** (`core/cost_dashboard/templates/index.html`):
+   - New OpenRouter budget card with gauge (96.9% → red)
+   - New Claude usage by model table with totals row
+
+5. **Systemd services** (`deploy/systemd/cost-*.service`):
+   - Added `EnvironmentFile=/home/john/Thunderbird/.env` to source OPENROUTER_API_KEY
+
+### DB State
+- 33,963 Claude events (opus-4-7: 14,810, unknown: 13,475, opus-4-6: 5,678)
+- 1 OpenRouter snapshot: $203.59/$210, daily $3.03, weekly $28.19, monthly $60.04
+- No window tracking or daily rollups yet (no Claude 5hr windows have completed)
+
+### Key Fixes
+- Cloudflared is a **user-level systemd service**: `systemctl --user restart cloudflared.service`
+- costs.d2mluxury.quest tunnel working and serving live dashboard
+- OpenRouter /activity requires management key — use /auth/key for aggregate data
+
+### 2026-05-16 — Claude Max Plan Added to Dashboard
+- New `plan_snapshots` table captures plan-level limits from Claude web UI
+- **Seed script**: `core/cost_dashboard/seed_plan.py` (run after plan changes/monthly reset)
+- Dashboard now shows 4 color-coded gauges: Session (10%), Weekly All (22%), Weekly Sonnet (29%), Monthly ($50.24/$100)
+- Plan: Max ($100/mo), balance $3.15, auto-reload Off, resets June 1
+
+---
+
+# OpenCode Memory — Session 2026-05-16 (late evening)
+
+## Built: Telegram Staff Access Infrastructure
+
+### telegram_access.json
+Created `OpsCenter/telegram_access.json` — Commander-only whitelist (7554895206, role: commander). JSON schema designed for future OA partner extensibility (executive_officer, operations, observer roles). Zero code change required to add new users.
+
+### thunderbird_telegram_webhook.py — Major modifications
+1. **Constants**: ACCESS_FILE, WING_NAMES, WING_HELP, EXERCISE_STATE dict, GROUP_MAP
+2. **check_access()**: Replaced hard `user_id != COMMANDER_ID` with whitelist-based access. Lazy-loaded from telegram_access.json. Commander always falls through via env var.
+3. **_load_personas()**: Updated to populate GROUP_MAP from STAFF_PERSONAS 3-tuple
+4. **STAFF_PERSONAS**: Converted to 3-tuple (name, engine, group). Group assignment per TALON's design:
+   - CONDOR/Claude: hale, naia, luna, navarro, reyes, washington
+   - WIND/OpenCode: dembe, castillo, sterling, harlan, elon
+   - Changed: navarro (opencode→claude), reyes (opencode→claude), washington (opencode→claude)
+5. **Group handlers**: /wind [message] → dispatches to all 5 WIND staff (parallel, results collated). /condor [message] → dispatches to all 6 CONDOR staff. /groups → lists all staff by group with engine icons.
+6. **Exercise state machine**: /exercise T0|T1|T2|T3 [wind|condor] [charter] → in-memory state per chat_id. /exercise status, /exercise cancel. T2/T3 auto-dispatch to named group.
+7. **wing_comms.md writer**: _append_to_wing_comms() — appends exercise start/cancel/group dispatch entries with timestamps.
+8. **_handle_help()**: Updated staff bot help to show /wind, /condor, /groups, /exercise commands.
+9. **_chunk_text()**: Utility for splitting long group dispatch results.
+
+### Quality Management Integration
+**Standing Order**: `standing_orders/SO_QUALITY_MANAGEMENT_20260516.md`
+- AF CPI/CI² (AFI 38-401) DMAIC-derived QM lens for WING EXERCISE protocol
+- 4 pre-delegation QM fields: desired end state, definition of success, metrics (baseline→target), ETC
+- Quality Review Gate (Gate 5) after T3 Hotwash — enforces quality score before exercise is complete
+- 2 new metrics: exercise_quality_score_pct (≥85%), pre_task_qm_completion_rate (100%)
+- Sterling owns quality enforcement; Castillo briefs staff
+
+**Protocol doc updated**: `docs/WING_EXERCISE_PROTOCOL.md` → v1.1
+- T2 Prompt Charter: 9 fields (was 5 — added QM fields 6-9)
+- T3 Prompt Charter: 9 fields (same expansion)
+- T3 sequence: added Gate 5 (Quality Review)
+- New QUALITY MANAGEMENT LENS section
+- Metrics table: added exercise_quality_score_pct, pre_task_qm_completion_rate
+
+### Services
+- thunderbird-telegram-webhook.service restarted — health check (all 3 bots up)
+- Syntax verified on both webhook.py and telegram_access.json
+
+### Pending Approval
+Commander needs to approve/disapprove/modify the QM proposal. Then: build session implementing TALON's staff Telegram access design (90 min estimated, modify webhook.py + telegram_access.json).

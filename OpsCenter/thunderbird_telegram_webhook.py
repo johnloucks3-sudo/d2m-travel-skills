@@ -16,6 +16,7 @@ import re
 import subprocess
 import threading
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -77,6 +78,26 @@ OPENCODE_MODEL_CHAIN = [
     "google/gemini-2.5-flash",          # Non-OpenCode last resort
 ]
 _OC_RATE_MARKERS = ["rate limit", "rate-limit", "too many requests", "429"]
+
+# ── Telegram access whitelist ────────────────────────────────────────────
+ACCESS_FILE = OPS / "telegram_access.json"
+ACCESS_MAP  = None  # Lazy-loaded in check_access()
+
+# ── WING EXERCISE: group definitions ─────────────────────────────────────
+WING_NAMES = {
+    "wind":   "WIND Group (Infra/Ops/Execution)",
+    "condor": "CONDOR Group (Strategy/Design/Premium)",
+}
+WING_HELP = {
+    "wind":   "wake structure, run T1 data, execute T3 logistics, monitor heartbeat",
+    "condor": "design exercises, craft strategy, evaluate proposals, write client-facing",
+}
+
+# ── WING EXERCISE: state machine ────────────────────────────────────────
+EXERCISE_STATE: dict[int, dict] = {}
+
+# Populated at init from STAFF_PERSONAS (below)
+GROUP_MAP: dict[str, list[str]] = {}
 
 app = Flask(__name__)
 
@@ -169,8 +190,15 @@ def _load_personas() -> None:
         except Exception:
             pass
 
+    # Populate GROUP_MAP from STAFF_PERSONAS
+    GROUP_MAP["wind"]   = []
+    GROUP_MAP["condor"] = []
+    for key, (name, engine, group) in STAFF_PERSONAS.items():
+        GROUP_MAP.setdefault(group, []).append(key)
+
     log.info("Personas loaded: HALE_SYSTEM=%d chars, STAFF_INTRO=%d chars",
              len(HALE_SYSTEM), len(STAFF_INTRO_TXT))
+    log.info("GROUP_MAP: wind=%s, condor=%s", GROUP_MAP["wind"], GROUP_MAP["condor"])
 
 def call_claude_engine(prompt: str, model: str = SONNET_MODEL) -> str:
     """Claude headless via `claude -p`. Strips ANTHROPIC_API_KEY; uses Max OAuth."""
@@ -363,17 +391,17 @@ def format_section(title: str, content: str, emoji: str = "") -> str:
     return f"<b>{prefix}{title}</b>\n{content}\n"
 
 STAFF_PERSONAS = {
-    "hale":       ("Col Victoria Hale (COS)", "claude"),
-    "dembe":      ("Lt Col Marcus Dembe (A2 — Research)", "opencode"),
-    "castillo":   ("Lt Col Ryan Castillo (A5 — Strategy)", "opencode"),
-    "sterling":   ("Brig Gen Thomas Sterling (A7 — Process)", "opencode"),
-    "harlan":     ("Victor Harlan (A9 — Finance)", "opencode"),
-    "washington": ("Col James Washington (CH — Ethics)", "opencode"),
-    "elon":       ("ELON (A12 — Innovation)", "opencode"),
-    "naia":       ("Naia Solberg-Vega (EXEC — Brand)", "claude"),
-    "navarro":    ("Dr. Sofia Navarro (A1 — Intake)", "opencode"),
-    "reyes":      ("Marco Reyes (A8 — Experience)", "opencode"),
-    "luna":       ("Luna Voss (A6 — Creative)", "claude"),
+    "hale":       ("Col Victoria Hale (COS)",           "claude",   "condor"),
+    "naia":       ("Naia Solberg-Vega (EXEC — Brand)",  "claude",   "condor"),
+    "luna":       ("Luna Voss (A6 — Creative)",         "claude",   "condor"),
+    "navarro":    ("Dr. Sofia Navarro (A1 — Intake)",   "claude",   "condor"),
+    "reyes":      ("Marco Reyes (A8 — Experience)",     "claude",   "condor"),
+    "washington": ("Col James Washington (CH — Ethics)","claude",   "condor"),
+    "dembe":      ("Lt Col Marcus Dembe (A2 — Research)","opencode", "wind"),
+    "castillo":   ("Lt Col Ryan Castillo (A5 — Strategy)","opencode","wind"),
+    "sterling":   ("Brig Gen Thomas Sterling (A7 — Process)","opencode","wind"),
+    "harlan":     ("Victor Harlan (A9 — Finance)",      "opencode", "wind"),
+    "elon":       ("ELON (A12 — Innovation)",           "opencode", "wind"),
 }
 
 STAFF_DISAGREE_DIRECTIVE = (
@@ -381,6 +409,128 @@ STAFF_DISAGREE_DIRECTIVE = (
     "Commander. State your position once, directly, with reasoning. After Commander decides, "
     "all align. Do not suppress a genuine disagreement to please. Honest counsel is the mission."
 )
+
+# ── Access control ──────────────────────────────────────────────────────
+def _load_access_map() -> dict:
+    if ACCESS_FILE.exists():
+        try:
+            return json.loads(ACCESS_FILE.read_text())
+        except Exception as e:
+            log.warning("Failed to load %s: %s", ACCESS_FILE, e)
+    return {}
+
+def check_access(user_id: int) -> tuple[bool, str]:
+    global ACCESS_MAP
+    if ACCESS_MAP is None:
+        ACCESS_MAP = _load_access_map()
+    if str(user_id) in ACCESS_MAP:
+        entry = ACCESS_MAP[str(user_id)]
+        return True, entry.get("role", "unknown")
+    # Commander always has access via env var
+    if user_id == COMMANDER_ID:
+        return True, "commander"
+    return False, ""
+
+def _build_group_list(group: str) -> str:
+    keys = GROUP_MAP.get(group, [])
+    lines = [f"<b>{WING_NAMES.get(group, group)}</b>", f"<i>{WING_HELP.get(group, '')}</i>", ""]
+    for k in keys:
+        name, engine, _ = STAFF_PERSONAS[k]
+        engine_icon = "☁️" if engine == "claude" else "💨"
+        lines.append(f"  /{k} — {name} {engine_icon}")
+    return "\n".join(lines)
+
+# ── WING EXERCISE: state machine ────────────────────────────────────────
+def _get_exercise(chat_id: int) -> dict:
+    if chat_id not in EXERCISE_STATE:
+        EXERCISE_STATE[chat_id] = {"state": "idle", "tier": None, "group": None, "charter": None}
+    return EXERCISE_STATE[chat_id]
+
+def _set_exercise(chat_id: int, **kw) -> dict:
+    state = _get_exercise(chat_id)
+    state.update(kw)
+    return state
+
+def _append_to_wing_comms(entry: str) -> None:
+    path = OPS / "collaboration" / "wing_comms.md"
+    ts   = datetime.now().strftime("%Y-%m-%d %H:%M MT")
+    text = f"\n## {ts}\n{entry}\n"
+    try:
+        with open(path, "a") as f:
+            f.write(text)
+        log.info("Wing comms entry written")
+    except Exception as e:
+        log.warning("Failed to write wing_comms: %s", e)
+
+# ── WING EXERCISE: command handlers ─────────────────────────────────────
+def _record_lifecycle(chat_id: int, persona_key: str, phase: str, **kw) -> None:
+    """Track per-persona lifecycle: STANDBY → ENGAGED → RESPONDING → DEBRIEF → STANDBY."""
+    ex = _get_exercise(chat_id)
+    if "personas" not in ex:
+        ex["personas"] = {}
+    ex["personas"].setdefault(persona_key, {"phase": "STANDBY"})
+    ex["personas"][persona_key]["phase"] = phase
+    ex["personas"][persona_key].update(kw, ts=datetime.now(timezone.utc).isoformat())
+
+def _dispatch_one(key: str, user_text: str, group: str, chat_id: int) -> tuple[str, str]:
+    """Dispatch to one persona. Returns (key, formatted_result)."""
+    name, engine, _ = STAFF_PERSONAS[key]
+    _record_lifecycle(chat_id, key, "ENGAGED")
+    system = (
+        f"{STAFF_INTRO_TXT}\n\n"
+        f"You are {name}.\n\n"
+        f"{STAFF_DISAGREE_DIRECTIVE}\n\n"
+        "Respond in your persona's voice. Be brief. Lead with the answer."
+    )
+    _record_lifecycle(chat_id, key, "RESPONDING")
+    try:
+        if engine == "claude":
+            resp = call_claude_engine(f"{system}\n\nCommander {group} directive: {user_text}")
+        else:
+            resp = call_opencode_engine(system, f"Commander {group} directive: {user_text}")
+        _record_lifecycle(chat_id, key, "DEBRIEF", response_preview=resp[:200])
+        return key, f"<b>{name}</b>\n{resp[:1500]}"
+    except Exception as e:
+        _record_lifecycle(chat_id, key, "DEBRIEF", error=str(e))
+        return key, f"<b>{name}</b>\n⚠️ Error: {e}"
+
+def _handle_wind_or_condor(command: str, token: str, chat_id: int, user_text: str) -> None:
+    """Dispatch to all members of WIND or CONDOR in parallel."""
+    group = command
+    keys = GROUP_MAP.get(group, [])
+    if not keys:
+        tg_send(token, chat_id, f"No staff found in {group.upper()}.")
+        return
+    tg_send(token, chat_id, f"🌬️ Dispatching to <b>{WING_NAMES[group]}</b> ({len(keys)} staff)...")
+    results = {}
+    ex = _get_exercise(chat_id)
+    ex["group"] = group
+    ex["question"] = user_text
+    with ThreadPoolExecutor(max_workers=min(len(keys), 4)) as pool:
+        fut_map = {pool.submit(_dispatch_one, k, user_text, group, chat_id): k for k in keys}
+        for fut in as_completed(fut_map):
+            k, result = fut.result()
+            results[k] = result
+    ordered = [results[k] for k in keys if k in results]
+    summary = "\n\n".join(ordered)
+    for chunk in _chunk_text(summary if summary else "All staff returned empty.", 3500, "HTML"):
+        tg_send(token, chat_id, chunk)
+    _append_to_wing_comms(f"### {WING_NAMES.get(group, group)} Dispatch\n{user_text}\n\n{summary}")
+    for k in keys:
+        _record_lifecycle(chat_id, k, "STANDBY")
+
+def _chunk_text(text: str, max_size: int = 3500, parse_mode: str | None = None) -> list[str]:
+    if len(text) <= max_size:
+        return [text]
+    chunks = []
+    for paragraph in text.split("\n\n"):
+        if paragraph.strip():
+            if len(paragraph) > max_size:
+                for i in range(0, len(paragraph), max_size):
+                    chunks.append(paragraph[i:i+max_size])
+            else:
+                chunks.append(paragraph)
+    return chunks
 
 def _validate_webhook_secret() -> bool:
     if not WEBHOOK_SECRET:
@@ -410,7 +560,8 @@ def _handle_help(token: str, chat_id: int, bot_name: str) -> None:
         f"<b>{bot_name} — Available Commands</b>", "",
         "/new — Clear context, fresh session",
         "/status — Wing health + financial pulse",
-        "/help — This message", "",
+        "/help — This message",
+        "/reload — Reload access whitelist (Commander)", "",
     ]
     if "HALE-YODA" in bot_name:
         lines += ["<b>Model Overrides:</b>",
@@ -418,7 +569,15 @@ def _handle_help(token: str, chat_id: int, bot_name: str) -> None:
                   "Sonnet: [task] — Route to Claude Sonnet (default)"]
     if "Staff" in bot_name:
         lines += ["<b>Persona Routing:</b>",
-                  "/" + " | /".join(STAFF_PERSONAS.keys())]
+                  "/" + " | /".join(STAFF_PERSONAS.keys()),
+                  "",
+                  "<b>Group Commands:</b>",
+                  "/wind [message] — Dispatch to all WIND (infra/ops)",
+                  "/condor [message] — Dispatch to all CONDOR (strategy/design)",
+                  "/groups — List staff by group",
+                  "/exercise [T0|T1|T2|T3] [group] [charter...] — Start exercise",
+                  "/exercise status — Show current exercise state",
+                  "/exercise cancel — End current exercise"]
     tg_send(token, chat_id, "\n".join(lines))
 
 def _handle_callback_query(token: str, cbq: dict) -> None:
@@ -549,8 +708,12 @@ def process_staff_message(update: dict) -> None:
         text    = msg.get("text", "").strip()
         if not text:
             return
-        if user_id != COMMANDER_ID:
+        allowed, role = check_access(user_id)
+        if not allowed:
+            log.warning("Unauthorized access attempt: user_id=%s", user_id)
             return
+
+        # ── Built-in commands ──────────────────────────────────────────────
         if text == "/new":
             clear_context(CTX_STAFF)
             tg_send(TOKEN_STAFF, chat_id, "🦅 Staff context cleared.")
@@ -561,6 +724,102 @@ def process_staff_message(update: dict) -> None:
         if text == "/help":
             _handle_help(TOKEN_STAFF, chat_id, "HALE_D2M Staff")
             return
+        if text == "/reload":
+            global ACCESS_MAP
+            ACCESS_MAP = None
+            tg_send(TOKEN_STAFF, chat_id, "🔄 Access map reloaded.")
+            log.info("Access map reloaded by %s", role)
+            return
+
+        # ── Group commands ─────────────────────────────────────────────────
+        if text.startswith("/wind ") or text == "/wind":
+            parts = text.split(" ", 1)
+            user_text = parts[1].strip() if len(parts) > 1 else ""
+            if not user_text:
+                tg_send(TOKEN_STAFF, chat_id, "Usage: /wind [message to all WIND staff]")
+                return
+            _handle_wind_or_condor("wind", TOKEN_STAFF, chat_id, user_text)
+            return
+
+        if text.startswith("/condor ") or text == "/condor":
+            parts = text.split(" ", 1)
+            user_text = parts[1].strip() if len(parts) > 1 else ""
+            if not user_text:
+                tg_send(TOKEN_STAFF, chat_id, "Usage: /condor [message to all CONDOR staff]")
+                return
+            _handle_wind_or_condor("condor", TOKEN_STAFF, chat_id, user_text)
+            return
+
+        if text == "/groups":
+            wind   = _build_group_list("wind")
+            condor = _build_group_list("condor")
+            tg_send(TOKEN_STAFF, chat_id, f"{wind}\n\n{condor}")
+            return
+
+        # ── WING EXERCISE commands ─────────────────────────────────────────
+        if text.startswith("/exercise"):
+            parts = text.split(" ", 2)
+            sub_cmd = parts[1].lower() if len(parts) > 1 else "status"
+
+            if sub_cmd == "status":
+                ex = _get_exercise(chat_id)
+                state = ex.get("state", "idle")
+                if state == "idle":
+                    tg_send(TOKEN_STAFF, chat_id, "No active exercise.")
+                else:
+                    tg_send(TOKEN_STAFF, chat_id,
+                            f"<b>Exercise State</b>\n"
+                            f"Tier: {ex.get('tier', '?')}\n"
+                            f"Group: {ex.get('group', '?')}\n"
+                            f"Charter: {ex.get('charter', '?')[:200]}")
+                return
+
+            if sub_cmd == "cancel":
+                _set_exercise(chat_id, state="idle", tier=None, group=None, charter=None)
+                tg_send(TOKEN_STAFF, chat_id, "Exercise cancelled.")
+                _append_to_wing_comms(f"**EXERCISE CANCELLED** by {role}")
+                return
+
+            # T0|T1|T2|T3 <group> <charter...>
+            tier = sub_cmd.upper()
+            if tier not in ("T0", "T1", "T2", "T3"):
+                tg_send(TOKEN_STAFF, chat_id,
+                        "Usage: /exercise T0|T1|T2|T3 [wind|condor] [charter...]\n"
+                        "  /exercise status\n"
+                        "  /exercise cancel")
+                return
+
+            rest = parts[2].strip() if len(parts) > 2 else ""
+            group = ""
+            charter = rest
+            if rest.startswith("wind") or rest.startswith("condor"):
+                group = rest.split()[0].lower()
+                charter = rest[len(group):].strip()
+
+            state = {
+                "state": "active", "tier": tier, "group": group,
+                "charter": charter, "role": role,
+            }
+            _set_exercise(chat_id, **state)
+
+            summary = (
+                f"🏋️ <b>WING EXERCISE STARTED</b>\n"
+                f"Tier: {tier}\n"
+                f"Group: {group or 'all'}\n"
+                f"Charter: {charter or '(none)'}\n"
+            )
+            tg_send(TOKEN_STAFF, chat_id, summary)
+
+            # For T2/T3, dispatch to group automatically
+            if group:
+                tg_send(TOKEN_STAFF, chat_id, f"🌬️ Dispatching to {group.upper()}...")
+                _handle_wind_or_condor(group, TOKEN_STAFF, chat_id, charter or "Exercise task")
+            elif tier in ("T2", "T3"):
+                tg_send(TOKEN_STAFF, chat_id,
+                        "Specify a group for T2/T3: /exercise T2 wind [charter]")
+            return
+
+        # ── Persona routing ────────────────────────────────────────────────
         persona_key = "hale"
         if text.startswith("/"):
             parts = text.split(" ", 1)
@@ -572,7 +831,7 @@ def process_staff_message(update: dict) -> None:
                     tg_send(TOKEN_STAFF, chat_id, f"Usage: /{persona_key} [your message]")
                     return
 
-        persona_name, engine = STAFF_PERSONAS[persona_key]
+        persona_name, engine, _ = STAFF_PERSONAS[persona_key]
 
         tg(TOKEN_STAFF, "sendChatAction", chat_id=chat_id, action="typing")
 

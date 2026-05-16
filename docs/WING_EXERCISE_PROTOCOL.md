@@ -92,6 +92,10 @@ PROMPT CHARTER — T2
 3. NAMED STAFF: [persona 1 — why] / [persona 2 — why] / [persona 3 — why if applicable]
 4. BUDGET: [token target] / [time target]
 5. EXIT CONDITION: [at what point do we stop and reassess?]
+6. DESIRED END STATE: [what does success look like when finished?]
+7. DEFINITION OF SUCCESS: [measurable — how will we know?]
+8. METRICS: [baseline → target — what are we moving?]
+9. ETC: [estimated time to complete]
 ```
 
 ---
@@ -110,6 +114,12 @@ PROMPT CHARTER — T2
 7. **Hotwash** — Two tiers:
    - Immediate verbal (<60 min of completion): quick debrief
    - Formal AAR (<24h): structured, written, DOTMLPF-P classified
+8. **Quality Review (Sterling) — Gate 5**
+   - Were pre-defined success criteria met? (Y/N/PARTIAL)
+   - Were metrics tracked from baseline to completion?
+   - Was ETC accurate? Variance logged.
+   - Quality score recorded in exercise log
+   - If PARTIAL or NO: DOTMLPF-P finding auto-generated
 
 **Prompt Charter — Commander fills (Gate 4 event):**
 ```
@@ -120,6 +130,10 @@ PROMPT CHARTER — T3
 3. NAMED STAFF: [persona + rationale for each]
 4. BUDGET: [token target] / [time target] / [calendar deadline]
 5. EXIT CONDITION: [at what point do we stop and reassess?]
+6. DESIRED END STATE: [what does success look like when finished?]
+7. DEFINITION OF SUCCESS: [measurable — how will we know?]
+8. METRICS: [baseline → target — what are we moving?]
+9. ETC: [estimated time to complete]
 ```
 
 **T3 hotwash sequencing (Washington):**
@@ -180,12 +194,54 @@ Every formal AAR produces at least one committed change within 7 days:
 | Metric | Target | Red Threshold | Source |
 |---|---|---|---|
 | `lessons_implementation_rate_pct` | ≥ 80% | < 50% at 60 days | AAR tracking |
+| `exercise_quality_score_pct` | ≥ 85% | < 60% | Quality Review Gate 5 |
+| `pre_task_qm_completion_rate` | 100% on T2/T3 | Any missing QM fields | gate log |
 | `t3_per_week` | ≤ 1 | > 1 = classification broken | exercise log |
 | `prompt_charter_completion_rate` | 100% on T2/T3 | Any T2/T3 without charter | gate log |
 | `approved_model_utilization_pct` | ≥ 95% | < 80% | `a7_model_audit_gate.py` |
 | `or_cost_7d` | < $0.50 | > $2.00 | Sterling dashboard |
 
 Dashboard: `output/STERLING_METRICS_DASHBOARD.md` (weekly update by Sterling)
+
+---
+
+## QUALITY MANAGEMENT LENS (Sterling — process owner)
+
+**Source doctrine:** AF CPI/CI² (AFI 38-401), DMAIC methodology, 8-Step Problem Solving, AFIT KPI-baseline-target framework.
+
+**Purpose:** Ensure every WING EXERCISE produces measurable improvement, not activity. Prevents "exercise theater" — sessions that feel productive but leave no verifiable change.
+
+### Pre-Delegation QM Fields (all T2/T3)
+
+Before any staff are invoked, the Prompt Charter MUST include:
+
+1. **Desired end state** — what does success look like when finished?
+2. **Definition of success** — measurable, verifiable. How will we know?
+3. **Metrics** — baseline value → target value. What are we moving?
+4. **ETC** — estimated time to complete based on current trajectory
+
+Hale fills these for T2 (autonomously). Commander fills for T3 (Gate 4). If any field is missing, Sterling may hold the exercise at the gate.
+
+### Quality Review Gate (Gate 5 — T3 only)
+
+Added after Hotwash:
+
+- Were pre-defined success criteria met? (Y/N/PARTIAL)
+- Were metrics tracked from baseline to completion?
+- ETC accuracy logged (variance analysis)
+- Quality score recorded in exercise log
+- If PARTIAL or NO: DOTMLPF-P finding auto-generated
+
+### Quality Score Calculation
+
+`exercise_quality_score_pct = (met_criteria / total_criteria) × 100`
+
+- Criteria met = success criteria fulfilled AND metrics showed movement toward target AND artifact delivered within 7 days
+- Total criteria = criteria defined in Prompt Charter
+
+### Staff QM Briefing (Castillo)
+
+Every persona must be able to state, when asked by Sterling: the end state, success definition, tracked metrics, and ETC for any exercise they participated in. Castillo briefs this as part of T2/T3 classification (30-second inline note).
 
 ---
 
@@ -216,5 +272,5 @@ Dashboard: `output/STERLING_METRICS_DASHBOARD.md` (weekly update by Sterling)
 
 ---
 
-*Wing Exercise Protocol — Full Reference | v1.0 | 2026-05-16*
+*Wing Exercise Protocol — Full Reference | v1.1 | 2026-05-16*
 *SO binding summary in CLAUDE.md | Decision record in standing_orders/SO_WING_EXERCISE_PROTOCOL_20260516.md*
