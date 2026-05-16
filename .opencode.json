@@ -3,6 +3,7 @@
   "model": "opencode/big-pickle",
   "fallbackModels": [
     "opencode/deepseek-v4-flash-free",
+    "google/gemini-2.5-flash",
     "openrouter/nvidia/nemotron-3-super-120b-a12b:free"
   ],
   "mcpServers": {
