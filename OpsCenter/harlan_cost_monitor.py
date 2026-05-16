@@ -1,12 +1,22 @@
 #!/usr/bin/env python3
 """
-harlan_cost_monitor.py — A9 Victor "Vic" Harlan Weekly Cost Brief
-Fires Monday per standing hook in hale_state.json.
+harlan_cost_monitor.py — A9 Victor "Vic" Harlan Daily Cost Brief
+Fires daily at 06:00 per thunderbird-harlan-daily.timer.
+
+Three reporting windows:
+  - Weekly rolling (last 7 days)
+  - Current calendar month (month-start → now)
+  - Prior full calendar month (1st → last day of previous month)
+
+Each window shows provider-split costs:
+  - Claude (anthropic providerID)
+  - OpenCode native (opencode providerID)
+  - OpenRouter (openrouter providerID — paid and free tier)
 
 Usage:
-    python3 OpsCenter/harlan_cost_monitor.py           # generate brief, print + append to hale_decisions.md
+    python3 OpsCenter/harlan_cost_monitor.py           # print + append to hale_decisions.md
     python3 OpsCenter/harlan_cost_monitor.py --telegram # also send to Commander via Telegram
-    python3 OpsCenter/harlan_cost_monitor.py --days 14  # change lookback window (default 7)
+    python3 OpsCenter/harlan_cost_monitor.py --no-append # skip appending to hale_decisions.md
 
 Inputs:
     ~/.local/share/opencode/opencode.db  — OpenCode session costs (SQLite)
@@ -15,11 +25,12 @@ Inputs:
 """
 
 import argparse
+import calendar
 import json
 import os
 import sqlite3
 import sys
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 # ── Paths ─────────────────────────────────────────────────────────────────────
@@ -29,10 +40,14 @@ DB_PATH = Path.home() / ".local/share/opencode/opencode.db"
 USAGE_STATUS = THUNDERBIRD / "OpsCenter/claude_usage_status.json"
 DECISIONS_LOG = THUNDERBIRD / "hale_decisions.md"
 
-# ── Free model markers (should cost $0 or near-$0) ───────────────────────────
-FREE_PROVIDERS = {"opencode"}           # native = always $0 unless variant="high"
-FREE_SUFFIXES  = {":free"}             # OR `:free` tier
-FREE_IDS = {                            # known explicitly-free model IDs
+# ── Provider buckets ───────────────────────────────────────────────────────────
+PROVIDER_CLAUDE    = "anthropic"
+PROVIDER_OPENCODE  = "opencode"
+PROVIDER_OR        = "openrouter"
+
+# ── Free model markers ────────────────────────────────────────────────────────
+FREE_SUFFIXES = {":free"}
+FREE_IDS = {
     "opencode/big-pickle",
     "opencode/deepseek-v4-flash-free",
     "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
@@ -46,29 +61,78 @@ BANNED_PAID = {
     "x-ai/grok-4.1-fast",
     "openai/gpt-4o-mini",
     "openai/gpt-4.1-mini",
-    "google/gemini-3.1-flash-lite-preview",   # paid OR path — use native instead
-    "deepseek/deepseek-chat-v3.1",             # paid OR — use native instead
+    "google/gemini-3.1-flash-lite-preview",
+    "deepseek/deepseek-chat-v3.1",
     "anthropic/claude-3-haiku",
     "anthropic/claude-3.5-haiku",
     "openai/gpt-4o",
 }
 
 
-def _load_env() -> dict:
-    env = {}
-    if ENV_FILE.exists():
-        for line in ENV_FILE.read_text().splitlines():
-            line = line.strip()
-            if line and not line.startswith("#") and "=" in line:
-                k, v = line.split("=", 1)
-                env[k.strip()] = v.strip().strip('"').strip("'")
-    return env
+# ── Time windows ──────────────────────────────────────────────────────────────
 
+def get_window_bounds() -> dict:
+    """Return epoch-millisecond boundaries for the three reporting windows."""
+    now = datetime.now(timezone.utc)
+    today = now.date()
+
+    # Weekly: last 7 rolling days
+    week_start = now - timedelta(days=7)
+    week_start_ms = int(week_start.timestamp() * 1000)
+
+    # Current calendar month: 1st of this month → now
+    cur_month_start = date(today.year, today.month, 1)
+    cur_month_start_dt = datetime(
+        cur_month_start.year, cur_month_start.month, cur_month_start.day,
+        tzinfo=timezone.utc
+    )
+    cur_month_start_ms = int(cur_month_start_dt.timestamp() * 1000)
+    now_ms = int(now.timestamp() * 1000)
+
+    # Prior full calendar month
+    if today.month == 1:
+        prior_year, prior_month = today.year - 1, 12
+    else:
+        prior_year, prior_month = today.year, today.month - 1
+
+    prior_month_start = date(prior_year, prior_month, 1)
+    prior_month_end_day = calendar.monthrange(prior_year, prior_month)[1]
+    prior_month_end = date(prior_year, prior_month, prior_month_end_day)
+
+    prior_start_dt = datetime(
+        prior_month_start.year, prior_month_start.month, prior_month_start.day,
+        tzinfo=timezone.utc
+    )
+    prior_end_dt = datetime(
+        prior_month_end.year, prior_month_end.month, prior_month_end.day,
+        23, 59, 59, tzinfo=timezone.utc
+    )
+    prior_start_ms = int(prior_start_dt.timestamp() * 1000)
+    prior_end_ms   = int(prior_end_dt.timestamp() * 1000)
+
+    return {
+        "weekly": {
+            "label": f"Weekly (last 7 days — {week_start.strftime('%b %d')} → now)",
+            "start_ms": week_start_ms,
+            "end_ms": now_ms,
+        },
+        "cur_month": {
+            "label": f"Current Month ({cur_month_start.strftime('%B %Y')})",
+            "start_ms": cur_month_start_ms,
+            "end_ms": now_ms,
+        },
+        "prior_month": {
+            "label": f"Prior Month ({prior_month_start.strftime('%B %Y')})",
+            "start_ms": prior_start_ms,
+            "end_ms": prior_end_ms,
+        },
+    }
+
+
+# ── Model parsing ─────────────────────────────────────────────────────────────
 
 def _parse_model(raw_model: str) -> dict:
-    """Parse the JSON model column from opencode.db.
-    Returns dict with keys: display, provider_id, model_id, variant, is_free, is_native
-    """
+    """Parse the JSON model column from opencode.db."""
     try:
         m = json.loads(raw_model)
     except (json.JSONDecodeError, TypeError):
@@ -81,22 +145,22 @@ def _parse_model(raw_model: str) -> dict:
             "is_native": False,
         }
 
-    model_id = m.get("id", "unknown")
+    model_id   = m.get("id", "unknown")
     provider_id = m.get("providerID", "unknown")
-    variant = m.get("variant", "default")
+    variant    = m.get("variant", "default")
 
-    is_native = provider_id in FREE_PROVIDERS
+    is_native = provider_id == PROVIDER_OPENCODE
     is_free = (
         is_native
         or any(model_id.endswith(s) for s in FREE_SUFFIXES)
         or model_id in FREE_IDS
     )
 
-    # High-variant native models may still bill (e.g., reasoning surcharge)
+    # High-variant native models bill a reasoning surcharge
     if is_native and variant == "high":
         is_free = False
 
-    display = f"{model_id}"
+    display = model_id
     if variant and variant not in ("default", ""):
         display += f" [{variant}]"
 
@@ -110,24 +174,22 @@ def _parse_model(raw_model: str) -> dict:
     }
 
 
-def query_opencode_db(days: int) -> list[dict]:
-    """Return per-model stats for the last N days."""
+# ── DB queries ────────────────────────────────────────────────────────────────
+
+def query_window(start_ms: int, end_ms: int) -> list[dict]:
+    """Return per-model stats for a given millisecond window."""
     if not DB_PATH.exists():
         return []
 
-    cutoff_ms = int((datetime.now(timezone.utc) - timedelta(days=days)).timestamp() * 1000)
-    prior_cutoff_ms = int((datetime.now(timezone.utc) - timedelta(days=days * 2)).timestamp() * 1000)
-
     rows = []
     with sqlite3.connect(DB_PATH) as conn:
-        # Current window
         cur = conn.execute(
             """SELECT model, SUM(cost), COUNT(*), SUM(tokens_input), SUM(tokens_output)
                FROM session
-               WHERE time_created > ? AND model IS NOT NULL
+               WHERE time_created >= ? AND time_created < ? AND model IS NOT NULL
                GROUP BY model
                ORDER BY SUM(cost) DESC""",
-            (cutoff_ms,),
+            (start_ms, end_ms),
         )
         for raw_model, cost, sessions, tok_in, tok_out in cur.fetchall():
             m = _parse_model(raw_model)
@@ -138,20 +200,40 @@ def query_opencode_db(days: int) -> list[dict]:
                 "tokens_in": tok_in or 0,
                 "tokens_out": tok_out or 0,
             })
+    return rows
 
-        # Prior window (for trend)
-        prior_cur = conn.execute(
-            """SELECT SUM(cost) FROM session
-               WHERE time_created > ? AND time_created <= ? AND model IS NOT NULL""",
-            (prior_cutoff_ms, cutoff_ms),
-        )
-        prior_total = (prior_cur.fetchone() or [0])[0] or 0.0
 
-    return rows, round(prior_total, 4)
+def split_by_provider(rows: list[dict]) -> dict:
+    """Split rows into three provider buckets."""
+    buckets = {
+        PROVIDER_CLAUDE:   [],
+        PROVIDER_OPENCODE: [],
+        PROVIDER_OR:       [],
+        "other":           [],
+    }
+    for r in rows:
+        pid = r["provider_id"]
+        if pid in buckets:
+            buckets[pid].append(r)
+        else:
+            buckets["other"].append(r)
+    return buckets
+
+
+# ── OR balance ────────────────────────────────────────────────────────────────
+
+def _load_env() -> dict:
+    env = {}
+    if ENV_FILE.exists():
+        for line in ENV_FILE.read_text().splitlines():
+            line = line.strip()
+            if line and not line.startswith("#") and "=" in line:
+                k, v = line.split("=", 1)
+                env[k.strip()] = v.strip().strip('"').strip("'")
+    return env
 
 
 def query_or_balance(api_key: str) -> dict:
-    """Check OpenRouter API key for balance. Returns dict with credit info."""
     if not api_key:
         return {"error": "no API key"}
     try:
@@ -176,70 +258,72 @@ def read_claude_usage() -> dict:
     return {}
 
 
-def detect_flags(rows: list[dict], or_data: dict) -> list[str]:
-    """Return list of flag strings for Harlan to surface."""
-    flags = []
+# ── Flags ─────────────────────────────────────────────────────────────────────
 
-    for r in rows:
+def detect_flags(all_rows: list[dict], or_data: dict) -> list[str]:
+    """Detect cost anomalies across all rows (window-agnostic)."""
+    flags = []
+    seen = set()
+
+    for r in all_rows:
         mid = r["model_id"]
         cost = r["cost"]
+        key = (mid, r["variant"])
+        if key in seen:
+            continue
+        seen.add(key)
 
-        # Native opencode model billing unexpectedly (not high variant)
         if r["is_native"] and r["variant"] != "high" and cost > 0.001:
             flags.append(
-                f"NATIVE MODEL BILLING: {r['display']} charged ${cost:.4f} — "
+                f"NATIVE BILLING: {r['display']} charged ${cost:.4f} — "
                 f"native provider should be $0"
             )
 
-        # High-variant native — note it, not a hard flag
         if r["is_native"] and r["variant"] == "high" and cost > 1.0:
             flags.append(
-                f"HIGH-VARIANT COST: {r['display']} cost ${cost:.4f} "
-                f"({r['sessions']} sessions, {r['tokens_in']:,} input tokens) — "
+                f"HIGH-VARIANT COST: {r['display']} ${cost:.4f} "
+                f"({r['sessions']} sessions, {r['tokens_in']:,} in tokens) — "
                 f"consider default variant for ops tasks"
             )
 
-        # Banned paid model still running
         if mid in BANNED_PAID and cost > 0:
             flags.append(
                 f"BANNED MODEL ACTIVE: {mid} billed ${cost:.4f} "
-                f"— should be replaced with native/free alternative"
+                f"— replace with native/free alternative"
             )
 
-        # Free-labelled model charging
         if r["is_free"] and not r["is_native"] and cost > 0.01:
             flags.append(
                 f"FREE-TIER BILLING: {r['display']} charged ${cost:.4f} "
                 f"— check OR rate limits or variant"
             )
 
-        # Large input token sessions (possible context bloat)
         if r["tokens_in"] > 5_000_000 and r["sessions"] <= 5:
             avg_in = r["tokens_in"] // r["sessions"]
             flags.append(
-                f"CONTEXT BLOAT: {r['display']} averaging {avg_in:,} input tokens/session "
+                f"CONTEXT BLOAT: {r['display']} avg {avg_in:,} in tokens/session "
                 f"({r['sessions']} sessions) — review prompt compression"
             )
 
-    # OR balance warning
-    credit = or_data.get("limit_requests") or or_data.get("usage")
-    balance = or_data.get("limit") or 0
-    if "error" not in or_data and balance == 0:
-        flags.append("OR BALANCE ZERO: OpenRouter paid credits exhausted — use native/free-tier only")
-    elif "error" not in or_data and isinstance(balance, (int, float)) and balance < 5:
-        flags.append(f"OR BALANCE LOW: ${balance:.2f} remaining — replenish or migrate remaining paid calls")
+    balance = or_data.get("limit", 0) or 0
+    usage   = or_data.get("usage", 0) or 0
+    remaining = max(balance - usage, 0)
+    if "error" not in or_data:
+        if remaining == 0:
+            flags.append("OR BALANCE ZERO: OpenRouter credits exhausted — native/free-tier only")
+        elif remaining < 5:
+            flags.append(f"OR BALANCE LOW: ${remaining:.2f} remaining — replenish or migrate paid calls")
 
     return flags
 
 
-def pick_recommendation(rows: list[dict], flags: list[str], prior_total: float) -> str:
-    current_total = sum(r["cost"] for r in rows)
+# ── Recommendation ────────────────────────────────────────────────────────────
 
-    if not rows:
-        return "No OpenCode sessions recorded this period — check if OpenCode is running."
+def pick_recommendation(weekly_rows: list[dict], flags: list[str]) -> str:
+    if not weekly_rows:
+        return "No OpenCode sessions recorded this week — check if OpenCode is running."
 
-    # Check if banned models are active
-    banned_active = [r for r in rows if r["model_id"] in BANNED_PAID and r["cost"] > 0]
+    banned_active = [r for r in weekly_rows if r["model_id"] in BANNED_PAID and r["cost"] > 0]
     if banned_active:
         worst = max(banned_active, key=lambda r: r["cost"])
         return (
@@ -247,87 +331,131 @@ def pick_recommendation(rows: list[dict], flags: list[str], prior_total: float) 
             f"Replace with opencode/big-pickle — same capability, $0 cost."
         )
 
-    # High variant native billing large
-    high_native = [r for r in rows if r["is_native"] and r["variant"] == "high" and r["cost"] > 1]
+    high_native = [r for r in weekly_rows if r["is_native"] and r["variant"] == "high" and r["cost"] > 1]
     if high_native:
         worst = max(high_native, key=lambda r: r["cost"])
         return (
-            f"Switch {worst['model_id']} from 'high' to 'default' variant for routine ops. "
-            f"Reserve 'high' for complex reasoning tasks only — saves ~${worst['cost']:.2f}/week."
+            f"Switch {worst['model_id']} [high] → [default] for routine ops. "
+            f"Reserve 'high' for complex reasoning only — saves ~${worst['cost']:.2f}/week."
         )
 
-    # Cost trending up
-    if prior_total > 0 and current_total > prior_total * 1.25:
-        pct = int((current_total / prior_total - 1) * 100)
-        return (
-            f"Weekly cost up {pct}% vs prior period (${prior_total:.2f} → ${current_total:.2f}). "
-            f"Audit new model usage — check for new paid model introductions."
-        )
-
-    if current_total < 1.0:
+    total = sum(r["cost"] for r in weekly_rows)
+    if total < 0.50:
         return "Cost profile optimal — all key tasks routing to native/free models."
 
-    return (
-        f"Total cost ${current_total:.2f} this week. "
-        f"Primary spend: {rows[0]['display']} (${rows[0]['cost']:.2f}). "
-        f"Confirm this model is the right tool for those {rows[0]['sessions']} sessions."
-    )
+    paid = [r for r in weekly_rows if not r["is_free"]]
+    if paid:
+        worst = max(paid, key=lambda r: r["cost"])
+        return (
+            f"Weekly paid spend ${total:.2f}. Primary: {worst['display']} (${worst['cost']:.2f}). "
+            f"Confirm this model is justified for those {worst['sessions']} sessions."
+        )
+
+    return f"Weekly cost ${total:.2f} — cost profile acceptable."
 
 
-def build_brief(rows: list[dict], prior_total: float, or_data: dict, claude_usage: dict, days: int) -> str:
-    today = datetime.now().strftime("%Y-%m-%d")
+# ── Brief builder ─────────────────────────────────────────────────────────────
+
+def _fmt_provider_block(label: str, rows: list[dict]) -> list[str]:
+    """Render one provider block for a window."""
+    lines = [f"  [{label}]"]
+    if not rows:
+        lines.append("    No sessions recorded.")
+        return lines
+
     total_cost = sum(r["cost"] for r in rows)
     total_sessions = sum(r["sessions"] for r in rows)
-    flags = detect_flags(rows, or_data)
-    recommendation = pick_recommendation(rows, flags, prior_total)
+    lines.append(f"    Total: ${total_cost:.4f} | {total_sessions} sessions")
+
+    for r in rows:
+        tags = []
+        if r["is_native"] and r["variant"] != "high":
+            tags.append("NATIVE $0")
+        if r["is_free"] and not r["is_native"]:
+            tags.append("FREE")
+        if r["model_id"] in BANNED_PAID:
+            tags.append("⚠ BANNED")
+        if r["is_native"] and r["variant"] == "high":
+            tags.append("HIGH-VARIANT $")
+        tag_str = f" [{', '.join(tags)}]" if tags else ""
+
+        avg_in  = r["tokens_in"]  // r["sessions"] if r["sessions"] else 0
+        avg_out = r["tokens_out"] // r["sessions"] if r["sessions"] else 0
+        lines.append(
+            f"    • {r['display']}{tag_str}"
+        )
+        lines.append(
+            f"      ${r['cost']:.4f} | {r['sessions']} sess | "
+            f"avg {avg_in:,} in / {avg_out:,} out"
+        )
+    return lines
+
+
+def _fmt_window_section(window_label: str, rows: list[dict]) -> list[str]:
+    """Render one full window section with provider subsections."""
+    buckets = split_by_provider(rows)
+    total_cost = sum(r["cost"] for r in rows)
+    total_sessions = sum(r["sessions"] for r in rows)
 
     lines = [
-        f"HARLAN WEEKLY COST BRIEF — {today} (last {days} days)",
+        f"── {window_label} ──",
+        f"  TOTAL: ${total_cost:.4f} | {total_sessions} sessions",
+        "",
+    ]
+    lines += _fmt_provider_block("Claude (anthropic)", buckets[PROVIDER_CLAUDE])
+    lines.append("")
+    lines += _fmt_provider_block("OpenCode native", buckets[PROVIDER_OPENCODE])
+    lines.append("")
+    lines += _fmt_provider_block("OpenRouter", buckets[PROVIDER_OR])
+    if buckets["other"]:
+        lines.append("")
+        lines += _fmt_provider_block("Other", buckets["other"])
+    return lines
+
+
+def build_brief(windows: dict, or_data: dict, claude_usage: dict) -> str:
+    today_str = datetime.now().strftime("%Y-%m-%d %H:%M")
+
+    # Gather all rows for flags and recommendation
+    weekly_rows = windows["weekly"]["rows"]
+    all_rows = weekly_rows + windows["cur_month"]["rows"] + windows["prior_month"]["rows"]
+
+    flags = detect_flags(all_rows, or_data)
+    recommendation = pick_recommendation(weekly_rows, flags)
+
+    lines = [
+        f"HARLAN DAILY COST BRIEF — {today_str}",
         "=" * 60,
-        f"Total spend: ${total_cost:.4f} | Sessions: {total_sessions} | Prior period: ${prior_total:.4f}",
         "",
     ]
 
-    # OpenCode sessions table
-    lines.append("OPENCODE SESSIONS BY MODEL:")
-    if rows:
-        for r in rows:
-            free_tag = " [FREE]" if r["is_free"] and not r["is_native"] else ""
-            native_tag = " [NATIVE $0]" if r["is_native"] and r["variant"] != "high" else ""
-            flag_tag = " ⚠" if r["model_id"] in BANNED_PAID else ""
-            avg_tok = r["tokens_in"] // r["sessions"] if r["sessions"] else 0
-            lines.append(
-                f"  {r['display']}{free_tag}{native_tag}{flag_tag}"
-            )
-            lines.append(
-                f"    ${r['cost']:.4f} | {r['sessions']} sessions | "
-                f"avg {avg_tok:,} in / {r['tokens_out']//max(r['sessions'],1):,} out tokens"
-            )
-    else:
-        lines.append("  No session data found.")
-
-    lines.append("")
+    # Three windows
+    for key in ("weekly", "cur_month", "prior_month"):
+        w = windows[key]
+        lines += _fmt_window_section(w["label"], w["rows"])
+        lines.append("")
 
     # OR balance
     lines.append("OPENROUTER BALANCE:")
     if "error" in or_data:
         lines.append(f"  Could not retrieve: {or_data['error']}")
     else:
-        limit = or_data.get("limit", 0)
-        usage = or_data.get("usage", 0)
-        lines.append(f"  Credits: ${limit:.2f} limit | ${usage:.2f} used | ${max(limit-usage,0):.2f} remaining")
+        limit     = or_data.get("limit", 0) or 0
+        usage     = or_data.get("usage", 0) or 0
+        remaining = max(limit - usage, 0)
+        lines.append(f"  ${limit:.2f} limit | ${usage:.2f} used | ${remaining:.2f} remaining")
 
     lines.append("")
 
-    # MAX plan usage
+    # Claude MAX plan
     lines.append("CLAUDE MAX PLAN:")
     if claude_usage:
-        session_msgs = claude_usage.get("session_messages", "?")
+        session_msgs  = claude_usage.get("session_messages", "?")
         session_limit = claude_usage.get("session_limit", "?")
-        weekly_msgs = claude_usage.get("weekly_messages", "?")
-        weekly_limit = claude_usage.get("weekly_limit", "?")
-        budget = claude_usage.get("budget_status", "UNKNOWN")
-        lines.append(f"  Session: {session_msgs}/{session_limit} messages | Weekly: {weekly_msgs}/{weekly_limit}")
+        weekly_msgs   = claude_usage.get("weekly_messages", "?")
+        weekly_limit  = claude_usage.get("weekly_limit", "?")
+        budget        = claude_usage.get("budget_status", "UNKNOWN")
+        lines.append(f"  Session: {session_msgs}/{session_limit} | Weekly: {weekly_msgs}/{weekly_limit}")
         lines.append(f"  Budget status: {budget}")
     else:
         lines.append("  claude_usage_status.json not found.")
@@ -350,8 +478,9 @@ def build_brief(rows: list[dict], prior_total: float, or_data: dict, claude_usag
     return "\n".join(lines)
 
 
+# ── Persistence ───────────────────────────────────────────────────────────────
+
 def append_to_decisions(brief: str) -> None:
-    """Append the brief to hale_decisions.md under a dated section."""
     today = datetime.now().strftime("%Y-%m-%d")
     section = f"\n\n---\n## Harlan Cost Brief — {today}\n```\n{brief}\n```\n"
     try:
@@ -362,19 +491,16 @@ def append_to_decisions(brief: str) -> None:
 
 
 def send_telegram(brief: str, env: dict) -> None:
-    """Send the brief to Commander via Telegram. Best-effort."""
-    token = env.get("TELEGRAM_C2_BOT_TOKEN") or os.environ.get("TELEGRAM_C2_BOT_TOKEN")
+    token   = env.get("TELEGRAM_C2_BOT_TOKEN") or os.environ.get("TELEGRAM_C2_BOT_TOKEN")
     chat_id = env.get("TELEGRAM_COMMANDER_ID") or os.environ.get("TELEGRAM_COMMANDER_ID")
     if not token or not chat_id:
         print("[harlan] Telegram creds not found — skipping send.", file=sys.stderr)
         return
     try:
-        import urllib.request
-        import urllib.parse
-        # Telegram has 4096 char limit — truncate if needed
-        msg = brief[:4000] + ("\n[truncated]" if len(brief) > 4000 else "")
+        import urllib.request, urllib.parse
+        msg  = brief[:4000] + ("\n[truncated]" if len(brief) > 4000 else "")
         data = urllib.parse.urlencode({"chat_id": chat_id, "text": msg}).encode()
-        req = urllib.request.Request(
+        req  = urllib.request.Request(
             f"https://api.telegram.org/bot{token}/sendMessage",
             data=data,
         )
@@ -388,30 +514,32 @@ def send_telegram(brief: str, env: dict) -> None:
         print(f"[harlan] Telegram send error: {e}", file=sys.stderr)
 
 
+# ── Main ──────────────────────────────────────────────────────────────────────
+
 def main():
-    parser = argparse.ArgumentParser(description="A9 Harlan — Weekly Cost Brief")
-    parser.add_argument("--days", type=int, default=7, help="Lookback window in days (default: 7)")
-    parser.add_argument("--telegram", action="store_true", help="Send brief to Commander via Telegram")
-    parser.add_argument("--no-append", action="store_true", help="Skip appending to hale_decisions.md")
+    parser = argparse.ArgumentParser(description="A9 Harlan — Daily Cost Brief")
+    parser.add_argument("--telegram",   action="store_true", help="Send brief to Commander via Telegram")
+    parser.add_argument("--no-append",  action="store_true", help="Skip appending to hale_decisions.md")
     args = parser.parse_args()
 
     env = _load_env()
 
-    # Gather data
-    result = query_opencode_db(args.days)
-    if isinstance(result, tuple):
-        rows, prior_total = result
-    else:
-        rows, prior_total = result, 0.0
+    # Build time windows
+    bounds = get_window_bounds()
 
-    or_api_key = env.get("OPENROUTER_API_KEY", "")
-    or_data = query_or_balance(or_api_key)
+    # Query each window
+    windows = {}
+    for key, meta in bounds.items():
+        windows[key] = {
+            "label":   meta["label"],
+            "rows":    query_window(meta["start_ms"], meta["end_ms"]),
+        }
+
+    or_api_key  = env.get("OPENROUTER_API_KEY", "")
+    or_data     = query_or_balance(or_api_key)
     claude_usage = read_claude_usage()
 
-    # Build brief
-    brief = build_brief(rows, prior_total, or_data, claude_usage, args.days)
-
-    # Output
+    brief = build_brief(windows, or_data, claude_usage)
     print(brief)
 
     if not args.no_append:
@@ -419,10 +547,7 @@ def main():
         print(f"\n[harlan] Brief appended to {DECISIONS_LOG}")
 
     if args.telegram:
-        # Only send if Monday OR forced
-        today_weekday = datetime.now().weekday()  # 0=Monday
-        if today_weekday == 0 or args.telegram:
-            send_telegram(brief, env)
+        send_telegram(brief, env)
 
 
 if __name__ == "__main__":
