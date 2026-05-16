@@ -1,26 +1,17 @@
 {
-  "generated_at": null,
-  "note": "Written by a7-daily-audit.timer at 06:30 MT. Null = not yet instrumented.",
+  "generated_at": "2026-05-16T23:39:21.116799+00:00",
+  "note": "Automated generation by generate_a7_metrics.py",
   "process": {
-    "task_sla_compliance_pct": null,
-    "escalation_rate_24h": null,
-    "mtbf_per_service": {},
-    "wf17_cycle_minutes_p50": null,
-    "email_diff_capture_pct": null,
-    "dossier_sync_success_pct": null
+    "open_tasks_count": 1,
+    "system_mode": "GREEN"
   },
-  "code": {
-    "complexity_top10_files": [],
-    "dead_code_lines": null,
-    "duplicate_script_count": null,
-    "test_coverage_pct": null,
-    "precommit_pass_rate_7d": null,
-    "import_cycle_count": null
+  "quality": {
+    "exercise_quality_score_pct": null,
+    "pre_task_qm_completion_rate": null,
+    "total_exercises": 0,
+    "note": "No exercises recorded yet"
   },
-  "business": {
-    "csat_proxy_score": null,
-    "inquiry_to_booking_conversion_pct": null,
-    "booking_to_payment_days_p50": null
-  },
+  "cost_control": {},
+  "exercise": {},
   "red_items": []
 }

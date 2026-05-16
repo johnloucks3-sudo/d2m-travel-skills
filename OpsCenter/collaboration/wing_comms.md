@@ -2036,6 +2036,15 @@ Commander via YODA: *"We now have ZERO Hales. We have Jet and Talon. I will let 
 
 **Telegram is down.** JET introduced to WIND deputies via headless dispatch instead. All 5 ACKed with first actions.
 
+## [QUALITY EXECUTION] JET — QM tooling live — 2026-05-16 23:40 MT
+
+Quality Management execution complete per Commander directive. Operational tooling built:
+- `/quality score [0-100] note [text]` — Telegram command for Sterling/Gate 5
+- `/quality summary` — show last 5 quality scores with trend
+- `quality_log.json` — persistent store for all exercise quality scores
+- `generate_a7_metrics.py` — updated to track exercise_quality_score_pct and pre_task_qm_completion_rate
+- Protocol doc already v1.1 with QM section and Gate 5
+
 **WIND Deputy ACKs and first actions:**
 | Deputy | First Action |
 |--------|-------------|

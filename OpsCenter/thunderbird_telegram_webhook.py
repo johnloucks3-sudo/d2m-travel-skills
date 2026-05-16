@@ -68,6 +68,7 @@ if not WEBHOOK_SECRET:
 CTX_HALUYODA = OPS / "context_haluyoda.json"
 CTX_STAFF    = OPS / "context_staff.json"
 STRIKE_FILE  = OPS / "telegram_strike_counter.json"
+QUALITY_LOG  = OPS / "quality_log.json"
 
 HALE_SYSTEM     = ""
 STAFF_INTRO_TXT = ""
@@ -532,6 +533,95 @@ def _chunk_text(text: str, max_size: int = 3500, parse_mode: str | None = None) 
                 chunks.append(paragraph)
     return chunks
 
+# ── Quality Management ───────────────────────────────────────────────────
+def _load_quality_log() -> list[dict]:
+    if QUALITY_LOG.exists():
+        try:
+            data = json.loads(QUALITY_LOG.read_text())
+            return data.get("exercises", [])
+        except Exception as e:
+            log.warning("Failed to load quality log: %s", e)
+    return []
+
+def _save_quality_log(exercises: list[dict]) -> None:
+    QUALITY_LOG.write_text(json.dumps({"exercises": exercises, "_last_updated":
+        datetime.now(timezone.utc).isoformat()}, indent=2))
+
+def _record_quality(token: str, chat_id: int, score: int, note: str = "") -> None:
+    """Record a quality score for the current exercise and persist to quality_log.json."""
+    ex = _get_exercise(chat_id)
+    if ex.get("state") != "active":
+        tg_send(token, chat_id, "No active exercise to score. Start one with /exercise.")
+        return
+    if score < 0 or score > 100:
+        tg_send(token, chat_id, "Score must be 0-100.")
+        return
+
+    entry = {
+        "exercise_id": int(datetime.now().timestamp()),
+        "ts": datetime.now(timezone.utc).isoformat(),
+        "tier": ex.get("tier", "?"),
+        "group": ex.get("group", ""),
+        "charter": (ex.get("charter", "") or "")[:200],
+        "quality_score": score,
+        "success_criteria_met": score >= 80,
+        "metrics_tracked": score >= 60,
+        "etc_accurate": None,
+        "artifact_delivered": None,
+        "qm_fields_defined": bool(ex.get("charter")),
+        "note": note or "",
+    }
+    exercises = _load_quality_log()
+    exercises.append(entry)
+    _save_quality_log(exercises)
+
+    ex["quality_score"] = score
+    summary = (
+        f"📊 <b>Quality Score Recorded</b>\n"
+        f"Tier: {entry['tier']} | Score: {score}/100\n"
+        f"Note: {note or '(none)'}\n"
+    )
+    tg_send(token, chat_id, summary)
+    _append_to_wing_comms(f"### QUALITY SCORE: {score}/100 — {entry['tier']}\n{note}")
+
+def _handle_quality_command(token: str, chat_id: int, text: str) -> None:
+    """Parse /quality score 85 note [text] or /quality summary."""
+    parts = text.split()
+    if not parts:
+        tg_send(token, chat_id, "Usage: /quality score [0-100] note [optional note]")
+        return
+    sub = parts[0].lower()
+    if sub == "summary":
+        exercises = _load_quality_log()
+        if not exercises:
+            tg_send(token, chat_id, "No quality records yet.")
+            return
+        recent = exercises[-5:]
+        avg = sum(e.get("quality_score", 0) for e in recent) / len(recent)
+        lines = [
+            f"<b>Quality Summary (last {len(recent)} exercises)</b>", "",
+            f"Average score: {avg:.0f}/100",
+            "",
+        ]
+        for e in reversed(recent):
+            lines.append(
+                f"• {e.get('tier', '?')} — {e.get('quality_score', '?')}/100 "
+                f"{'✅' if e.get('quality_score', 0) >= 80 else '⚠️'} "
+                f"{e.get('note', '')[:80]}"
+            )
+        tg_send(token, chat_id, "\n".join(lines))
+        return
+    if sub == "score" and len(parts) >= 2:
+        try:
+            score = int(parts[1])
+        except ValueError:
+            tg_send(token, chat_id, "Score must be a number 0-100.")
+            return
+        note = " ".join(parts[3:]) if len(parts) > 3 and parts[2].lower() == "note" else ""
+        _record_quality(token, chat_id, score, note)
+        return
+    tg_send(token, chat_id, "Usage: /quality score [0-100] note [text] | /quality summary")
+
 def _validate_webhook_secret() -> bool:
     if not WEBHOOK_SECRET:
         return True  # Secret disabled — allow through (warning logged at startup)
@@ -577,7 +667,9 @@ def _handle_help(token: str, chat_id: int, bot_name: str) -> None:
                   "/groups — List staff by group",
                   "/exercise [T0|T1|T2|T3] [group] [charter...] — Start exercise",
                   "/exercise status — Show current exercise state",
-                  "/exercise cancel — End current exercise"]
+                  "/exercise cancel — End current exercise",
+                  "/quality score [0-100] note [text] — Record quality score",
+                  "/quality summary — Show recent quality scores"]
     tg_send(token, chat_id, "\n".join(lines))
 
 def _handle_callback_query(token: str, cbq: dict) -> None:
@@ -729,6 +821,9 @@ def process_staff_message(update: dict) -> None:
             ACCESS_MAP = None
             tg_send(TOKEN_STAFF, chat_id, "🔄 Access map reloaded.")
             log.info("Access map reloaded by %s", role)
+            return
+        if text.startswith("/quality"):
+            _handle_quality_command(TOKEN_STAFF, chat_id, text[len("/quality"):].strip())
             return
 
         # ── Group commands ─────────────────────────────────────────────────

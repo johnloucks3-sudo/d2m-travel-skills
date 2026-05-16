@@ -384,5 +384,16 @@ Created `OpsCenter/telegram_access.json` — Commander-only whitelist (755489520
 - thunderbird-telegram-webhook.service restarted — health check (all 3 bots up)
 - Syntax verified on both webhook.py and telegram_access.json
 
-### Pending Approval
-Commander needs to approve/disapprove/modify the QM proposal. Then: build session implementing TALON's staff Telegram access design (90 min estimated, modify webhook.py + telegram_access.json).
+### Quality Execution (2026-05-16 second session — Chromebook)
+Commander approved QM SO and directed execution. Built operational tooling:
+- `/quality score [0-100] note [text]` — Telegram command for Sterling Gate 5 quality reviews
+- `/quality summary` — show last 5 scores with trend indicators
+- `quality_log.json` — persistent store at OpsCenter/
+- `generate_a7_metrics.py` — enhanced with quality metrics tracking
+- exercise_quality_score_pct and pre_task_qm_completion_rate now tracked in Sterling dashboard
+
+### Operational
+- `/quality` command live in staff bot
+- Sterling metrics generator pulls from quality_log.json
+- Gate 5 enforcement: manual via /quality, recorded persistently
+- Next: commander directs next priority
