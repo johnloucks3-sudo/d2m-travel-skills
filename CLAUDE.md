@@ -1,5 +1,5 @@
 # THUNDERBIRD OS — CLAUDE AI OPERATING MANUAL
-## Dreams2Memories Travel, LLC · v2.6.0 · Updated 2026-05-13 — Staff Transformation Evaluation
+## Dreams2Memories Travel, LLC · v2.7.0 · Updated 2026-05-16 — Wing Exercise Protocol (SO 16 MAY 2026)
 
 @Personas/hale_cos.md
 @Personas/a1_navarro.md
@@ -61,6 +61,25 @@
   6. Explicit `WRITE [PATH]` instruction in prompt
   7. Stdout/stderr redirection to log file
   8. Explicit model selection
+
+## ⚠️ HARD RULE — WING EXERCISE PROTOCOL (Standing Order 16 MAY 2026)
+**Full protocol:** `standing_orders/SO_WING_EXERCISE_PROTOCOL_20260516.md` | `docs/WING_EXERCISE_PROTOCOL.md`
+
+**Exemption first:** Any prompt where inaction costs something in 24 hours → EXEMPT. Execute-then-report. No protocol.
+
+**Four tiers (A5 Castillo classifies — his call is final):**
+- **T0** — Routine/repeat/short: No protocol.
+- **T1** — Novel, single-domain: 3-step, 1 staff, 3-bullet async hotwash.
+- **T2** — Multi-domain, 2-3 staff: 5-step, Hale aggregates one principle. **Prompt Charter required.**
+- **T3** — Strategy/doctrine/new pattern: Full 7-step. **≤ 1/week cap.** ELON nominates. **Prompt Charter required.**
+
+**Prompt Charter (T2/T3 — Hale rejects incomplete charters):** (1) Success criteria, (2) Scope in/out, (3) Named staff + rationale, (4) Token/time budget, (5) Exit condition. T3: Commander fills. T2: Hale fills autonomously.
+
+**Anti-theater rule (Sterling owns):** Every formal AAR produces a durable artifact (CLAUDE.md edit, SO, code commit, or hale_decisions.md entry) within 7 days — or the hotwash did not happen. Metric: `lessons_implementation_rate_pct` ≥ 80%. Red at <50% (60-day). See dashboard: `output/STERLING_METRICS_DASHBOARD.md`.
+
+**Monthly Deliberate Review:** First of each month. 30 min. Hale facilitates. Sterling presents. Commander decides doctrine changes. First: 2026-06-01.
+
+**SO-2026-05-04 unaffected.** T0/T1/T2 stay inside Hale's 95% autonomy band. Only T3 is a Commander gate — because T3 is already Gate 4 by definition.
 
 ---
 
@@ -354,9 +373,9 @@ See [docs/AGENT_TEAMS.md](docs/AGENT_TEAMS.md) for experimental team workflows.
 
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-05-15 21:24 MT -->
+<!-- Last sync: 2026-05-16 12:56 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-05-15 21:24 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-05-16 12:56 MT] ===
 Budget: Claude UNKNOWN | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE
