@@ -275,7 +275,7 @@ class GmailSafePreprocessor:
                     continue
                 key, value = prop.split(":", 1)
                 key = key.strip().lower()
-                value = value.strip().rstrip("!important").strip()
+                value = re.sub(r"\s*!important\s*$", "", value.strip())
 
                 if key and value:
                     props_dict[key] = value
