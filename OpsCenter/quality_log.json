@@ -1,5 +1,5 @@
 {
-  "_description": "WING EXERCISE quality scores — recorded by Sterling (A7) at Gate 5",
+  "_description": "WING EXERCISE quality scores \u2014 recorded by Sterling (A7) at Gate 5",
   "_version": "1.0",
   "_fields": {
     "exercise_id": "auto-incrementing integer",
@@ -15,5 +15,25 @@
     "qm_fields_defined": true,
     "note": "free text from reviewer"
   },
-  "exercises": []
+  "exercises": [
+    {
+      "exercise_id": 1778990025,
+      "ts": "2026-05-17T03:53:45.066872+00:00",
+      "tier": "T2",
+      "group": "all",
+      "charter": "Telegram Claude timeout investigation + engine architecture fix",
+      "quality_score": 42,
+      "success_criteria_met": false,
+      "metrics_tracked": false,
+      "etc_accurate": true,
+      "artifact_delivered": true,
+      "qm_fields_defined": true,
+      "note": "Staff inputs: Castillo (T3 call), Sterling (audit score 42/100, 6 gates), ELON (hybrid rec). Infra built: ROUTE_ALL_OPENCODE toggle, command_signal.md. Not deployed per Commander directive.",
+      "staff_invoked": [
+        "castillo",
+        "sterling",
+        "elon"
+      ]
+    }
+  ]
 }

@@ -54,3 +54,10 @@ body: |
 
 <!-- New signals appended below this line -->
 
+
+## SIGNAL: TEST | JET | 2026-05-16 21:58 MT
+status: COMPLETE
+body: |
+  Signal channel verified. Commander ↔ JET ↔ TALON communication path is live.
+  Protocol: append signal at bottom of file, reader scans for status: UNREAD.
+  This is a test signal. Marked COMPLETE.
