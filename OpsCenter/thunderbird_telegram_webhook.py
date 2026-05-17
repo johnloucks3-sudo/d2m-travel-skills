@@ -54,11 +54,12 @@ TOKEN_CHANNELS   = os.environ.get("TELEGRAM_DANI_TOKEN", "")     # reuse existin
 COMMANDER_ID     = int(os.environ.get("TELEGRAM_COMMANDER_ID", "7554895206"))
 SONNET_MODEL     = "claude-sonnet-4-6"
 OPUS_MODEL       = "claude-opus-4-6"
-ENGINE_TIMEOUT   = int(os.environ.get("TELEGRAM_GW_TIMEOUT", "300"))
-OPENCODE_TIMEOUT = int(os.environ.get("OPENCODE_TIMEOUT", "60"))
-MAX_CTX_TURNS    = 12
-CHUNK_SIZE       = 4000
-OPENCODE_BIN     = Path("/home/john/.opencode/bin/opencode")
+ENGINE_TIMEOUT     = int(os.environ.get("TELEGRAM_GW_TIMEOUT", "300"))
+OPENCODE_TIMEOUT   = int(os.environ.get("OPENCODE_TIMEOUT", "60"))
+ROUTE_ALL_OPENCODE = os.environ.get("ROUTE_ALL_OPENCODE", "0") == "1"
+MAX_CTX_TURNS      = 12
+CHUNK_SIZE         = 4000
+OPENCODE_BIN       = Path("/home/john/.opencode/bin/opencode")
 
 # Webhook secret: if unset, log a warning and allow through. A 403 on empty
 # secret would silently brick the gateway during initial deployment.
@@ -475,7 +476,8 @@ def _record_lifecycle(chat_id: int, persona_key: str, phase: str, **kw) -> None:
 
 def _dispatch_one(key: str, user_text: str, group: str, chat_id: int) -> tuple[str, str]:
     """Dispatch to one persona. Returns (key, formatted_result)."""
-    name, engine, _ = STAFF_PERSONAS[key]
+    name, _, _ = STAFF_PERSONAS[key]
+    engine = _resolve_engine(key)
     _record_lifecycle(chat_id, key, "ENGAGED")
     system = (
         f"{STAFF_INTRO_TXT}\n\n"
@@ -532,6 +534,18 @@ def _chunk_text(text: str, max_size: int = 3500, parse_mode: str | None = None) 
             else:
                 chunks.append(paragraph)
     return chunks
+
+# ── Engine routing ──────────────────────────────────────────────────────
+def _resolve_engine(persona_key: str) -> str:
+    """Return the effective engine for a persona.
+    
+    If ROUTE_ALL_OPENCODE=1, all personas use OpenCode regardless of their
+    configured engine. This is the Commander's kill switch for Claude timeouts.
+    """
+    if ROUTE_ALL_OPENCODE:
+        return "opencode"
+    entry = STAFF_PERSONAS.get(persona_key)
+    return entry[1] if entry else "opencode"
 
 # ── Quality Management ───────────────────────────────────────────────────
 def _load_quality_log() -> list[dict]:
@@ -926,7 +940,8 @@ def process_staff_message(update: dict) -> None:
                     tg_send(TOKEN_STAFF, chat_id, f"Usage: /{persona_key} [your message]")
                     return
 
-        persona_name, engine, _ = STAFF_PERSONAS[persona_key]
+        persona_name, configured_engine, _ = STAFF_PERSONAS[persona_key]
+        engine = _resolve_engine(persona_key)
 
         tg(TOKEN_STAFF, "sendChatAction", chat_id=chat_id, action="typing")
 

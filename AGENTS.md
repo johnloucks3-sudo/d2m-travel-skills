@@ -4,11 +4,13 @@
 
 ## Session Init — Read First
 
-On every session start, read these files before doing anything else:
+On every session start, read these files IN THIS ORDER before doing anything else:
+
+0. **`OpsCenter/LESSONS_LEARNED.md`** — **HARD-WON LESSONS.** Read before anything. Before code. Before dialogue. Before thinking about the task. These are mistakes carved into procedure. If you skip this, you will repeat the same patterns (routing to yourself, not delegating, autonomy theater, dormant staff).
 
 1. **`OpsCenter/opencode_memory.md`** — persistent session memory: what was built, what changed, operating agreement with Claude, key file locations, model stack. Append a summary of this session's work at the end when you close out.
 2. **`AGENTS_NEW_READ_FIRST.md`** — **MASTER REFERENCE MANUAL** — D2M company overview, wing staff, model stack, protocols, exhaustive "For X see Y" index. Read this if you are new or re-orienting.
-3. **`Personas/ROSTER.md`** — wing staff index: who does what, who to route to, who owns client comms.
+3. **`Personas/ROSTER.md`** — wing staff index: who does who, who to route to, who owns client comms.
 4. **`OpsCenter/opencode_knowledge/INDEX.md`** — curated vault of all key reference docs, grouped by category.
 
 If Commander asks "what do you remember?" or "what happened last session?" — read `opencode_memory.md` and summarize.
@@ -255,6 +257,7 @@ back to `opencode run -m opencode/big-pickle`.
 4. **`/home/john/Thunderbird/OpsCenter/collaboration/claude_outbox.md`** — Claude's results (read here for Claude's responses to you)
 5. **`/home/john/Thunderbird/OpsCenter/mission_board.json`** — Mission status
 6. **`/home/john/Thunderbird/OpsCenter/collaboration/wing_comms.md`** — Internal coordination
+7. **`/home/john/Thunderbird/OpsCenter/command_signal.md`** — Command-level signal channel (Commander ↔ JET ↔ TALON)
 
 ## QUICK STATUS CHECK COMMANDS
 ```bash
