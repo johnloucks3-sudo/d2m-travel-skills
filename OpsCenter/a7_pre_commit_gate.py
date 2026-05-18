@@ -69,8 +69,8 @@ def check_two_lane_pipeline(staged_files):
                 in_draft_fn = True
             if in_draft_fn and WRAP_CALL.search(line):
                 violations.append(f"{rel_path}:{i+1}")
-            if in_draft_fn and line.strip().startswith("def ") and i > 0:
-                in_draft_fn = False  # new function started
+            if in_draft_fn and re.match(r'\s*(async\s+)?def\s+', line) and i > 0:
+                in_draft_fn = False  # new function started (handles both def and async def)
     return violations
 
 

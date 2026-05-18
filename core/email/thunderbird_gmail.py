@@ -95,7 +95,7 @@ COMMANDER_ADDRS = {
 
 # Persona display names for Send As support
 PERSONA_DISPLAY_NAMES = {
-    "COS": "Victoria Hale, D2M Travel",
+    "COS": "Victory Hale, D2M Travel",
     "EXEC": "Naia Solberg-Vega, D2M Travel",
     "A2": "Marcus Dembe, D2M Travel",
     "A3": "Dani Moreau, D2M Travel",
@@ -136,9 +136,9 @@ COMMANDER_SIGNATURE_HTML = (
 # Drives: accent color, full name/rank/title, and email address for sig blocks.
 _STAFF_PERSONA_CONFIGS: dict = {
     "COS": {
-        "name": "VICTORIA I.V. HALE, COLONEL, USAF (Ret&rsquo;d)",
+        "name": "VICTORIA I.V. HALE, SES-6",
         "suffix": "",
-        "title": "Director of Staff &nbsp;&middot;&nbsp; Chief Operating Officer &nbsp;&middot;&nbsp; Thunderbird Wing",
+        "title": "VCSAF-equivalent &nbsp;&middot;&nbsp; Chief of Staff &nbsp;&middot;&nbsp; Thunderbird Wing",
         "accent": "#C9A227",
         "email": "d2mconcierge@gmail.com",
     },
@@ -232,7 +232,7 @@ def _get_staff_icon_html(persona_id: str, accent: str) -> str:
     bg = "#0d1117"
     # Two-letter callsign badge labels — unique per persona
     labels = {
-        "COS":  ("IVH", "10pt"),   # Iron Vic Hale — 3 letters, COS distinction
+        "COS":  ("VH", "10pt"),   # Victory Hale — COS distinction
         "EXEC": ("NSV", "10pt"),   # Naia Solberg-Vega
         "A1":   ("IR",  "13pt"),   # Iris Navarro
         "A2":   ("WR",  "13pt"),   # Wraith Dembe
@@ -241,7 +241,7 @@ def _get_staff_icon_html(persona_id: str, accent: str) -> str:
         "A6":   ("LV",  "13pt"),   # Luna Voss
         "A7":   ("GS",  "13pt"),   # Gauge Sterling
         "A8":   ("AR",  "13pt"),   # Atlas Reyes
-        "A9":   ("VH",  "13pt"),   # Vic Harlan
+        "A9":   ("HR",  "13pt"),   # Harlan — distinct from Hale's VH
         "CH":   ("PW",  "13pt"),   # Padre Washington
         "A12":  ("EL",  "13pt"),   # ELON
     }
@@ -323,16 +323,16 @@ def _wrap_staff_html(body: str, persona_id: str = "COS") -> str:
             f'<div style="background:{panel};text-align:center;padding:28px 26px 24px 26px;">'
             f'<div style="margin-bottom:10px;">{icon_html}</div>'
             f'<div style="color:{text1};font-size:20pt;font-weight:900;letter-spacing:4px;'
-            f'font-family:Georgia,serif;margin-bottom:8px;">IVH</div>'
+            f'font-family:Georgia,serif;margin-bottom:8px;">VH</div>'
             f'<div style="color:{accent};font-size:6.5pt;font-weight:700;letter-spacing:4.5px;'
             f'text-transform:uppercase;font-family:Arial Black,Arial,sans-serif;margin-bottom:8px;">'
-            f'DIRECTOR OF STAFF &nbsp;&#x25BA;&nbsp; THUNDERBIRD WING</div>'
+            f'VCSAF-EQUIVALENT &nbsp;&#x25BA;&nbsp; CHIEF OF STAFF &nbsp;&#x25BA;&nbsp; THUNDERBIRD WING</div>'
             f'<div style="color:{text1};font-size:13.5pt;font-weight:700;letter-spacing:1.5px;'
             f'font-family:Georgia,serif;margin-bottom:6px;">'
-            f'VICTORIA I.V. HALE, COLONEL, USAF (Ret&rsquo;d)</div>'
+            f'VICTORIA I.V. HALE, SES-6</div>'
             f'<div style="color:{text2};font-size:7pt;letter-spacing:2.5px;'
             f'text-transform:uppercase;font-family:Arial,Helvetica,sans-serif;margin-bottom:14px;">'
-            f'CHIEF OPERATING OFFICER &nbsp;&bull;&nbsp; DREAMS2MEMORIES TRAVEL, LLC</div>'
+            f'VCSAF-EQUIVALENT &nbsp;&bull;&nbsp; CHIEF OF STAFF &nbsp;&bull;&nbsp; THUNDERBIRD WING</div>'
             f'<div style="display:inline-block;border:1.5px solid {accent};'
             f'padding:5px 12px;font-family:Arial Black,Arial,sans-serif;'
             f'font-size:6pt;font-weight:900;letter-spacing:2px;color:{accent};'
@@ -354,10 +354,10 @@ def _wrap_staff_html(body: str, persona_id: str = "COS") -> str:
             f'<td style="padding:18px 0 0 0;vertical-align:top;">'
             f'<div style="color:{accent};font-size:10.5pt;font-weight:700;letter-spacing:0.5px;'
             f'font-family:Arial,Helvetica,sans-serif;">'
-            f'VICTORIA I.V. HALE, COLONEL, USAF (Ret&rsquo;d)</div>'
+            f'VICTORIA I.V. HALE, SES-6</div>'
             f'<div style="color:{text2};font-size:8.5pt;margin-top:3px;'
             f'font-family:Arial,Helvetica,sans-serif;">'
-            f'Director of Staff &nbsp;&middot;&nbsp; COO &nbsp;&middot;&nbsp; Thunderbird Wing</div>'
+            f'VCSAF-equivalent &nbsp;&middot;&nbsp; Chief of Staff &nbsp;&middot;&nbsp; Thunderbird Wing</div>'
             f'<div style="color:{text2};font-size:8.5pt;margin-top:2px;'
             f'font-family:Arial,Helvetica,sans-serif;">Dreams2Memories Travel, LLC</div>'
             f'<div style="margin-top:6px;">'
@@ -1399,10 +1399,10 @@ def register_gmail_tools(mcp):
         try:
             service = _get_gmail_service()
 
-            # Build MIME message — always include HTML for blue ink color
+            # Build MIME message — plain draft; stationery applied at publish_draft() send time
             message = MIMEMultipart("alternative")
             message.attach(MIMEText(body, "plain"))
-            message.attach(MIMEText(html_body if html_body else _wrap_body_html(body), "html"))
+            message.attach(MIMEText(html_body if html_body else body, "html"))
 
             message["to"] = to
             message["subject"] = subject
@@ -1604,17 +1604,17 @@ def register_gmail_tools(mcp):
             updated["subject"] = subject if subject else headers.get("Subject", "")
 
             # Use new body if provided, otherwise keep existing
-            # Always attach both plain + HTML (stationery) for consistency
+            # Plain draft only — stationery applied at publish_draft() send time
             if body:
                 alt = MIMEMultipart("alternative")
                 alt.attach(MIMEText(body, "plain"))
-                alt.attach(MIMEText(_wrap_body_html(body), "html"))
+                alt.attach(MIMEText(body, "html"))
                 updated.attach(alt)
             else:
                 existing_body = _decode_body(payload)
                 alt = MIMEMultipart("alternative")
                 alt.attach(MIMEText(existing_body, "plain"))
-                alt.attach(MIMEText(_wrap_body_html(existing_body), "html"))
+                alt.attach(MIMEText(existing_body, "html"))
                 updated.attach(alt)
 
             raw = base64.urlsafe_b64encode(updated.as_bytes()).decode("utf-8")
@@ -1695,7 +1695,7 @@ def register_gmail_tools(mcp):
 
         Use this for ALL client-facing emails. There is no bypass.
         """
-        return await _send_or_draft_as_persona(
+        return await _send_or_save_as_persona(
             service=_get_gmail_service(),
             to=to, subject=subject, body=body,
             persona_id=persona_id, cc=cc,
@@ -1719,7 +1719,7 @@ def register_gmail_tools(mcp):
         Uses Gmail Send As with the persona display name via concierge@d2mluxury.quest.
         Reply-To is set to johnloucks3@gmail.com. Draft is NOT sent — Commander reviews in Gmail.
         """
-        return await _send_or_draft_as_persona(
+        return await _send_or_save_as_persona(
             service=_get_gmail_service(),
             to=to, subject=subject, body=body,
             persona_id=persona_id, cc=cc,
@@ -1856,7 +1856,7 @@ def register_gmail_tools(mcp):
     logger.info("Gmail tools registered successfully (including Send As persona tools + email management)")
 
 
-async def _send_or_draft_as_persona(
+async def _send_or_save_as_persona(
     service, to: str, subject: str, body: str,
     persona_id: str = "CONCIERGE", cc: Optional[str] = None,
     auto_send: bool = False,
@@ -2213,7 +2213,7 @@ def gmail_reply_in_thread(
         body:         Plain-text body (always sent; shown in plain-text clients).
         html_body:    Optional HTML body.  None → plain text only (for ack msgs).
                       Supply wing stationery HTML for full HALE responses.
-        persona_id:   Persona sending the reply (default: COS / Iron Vic).
+        persona_id:   Persona sending the reply (default: COS / Victory Hale).
         to:           Recipient address.  Must be a Commander-owned address;
                       enforced here — no accidental client sends via this path.
 
@@ -2233,7 +2233,7 @@ def gmail_reply_in_thread(
 
     service = _get_wing_gmail_service()
     pid = persona_id.upper()
-    display_name = PERSONA_DISPLAY_NAMES.get(pid, PERSONA_DISPLAY_NAMES.get("COS", "Victoria Hale, D2M Travel"))
+    display_name = PERSONA_DISPLAY_NAMES.get(pid, PERSONA_DISPLAY_NAMES.get("COS", "Victory Hale, D2M Travel"))
 
     # Normalise In-Reply-To — RFC 2822 requires angle brackets
     msg_id_header = in_reply_to if in_reply_to.startswith("<") else f"<{in_reply_to}>"
@@ -2475,7 +2475,7 @@ def gmail_get_message_sync(message_id: str) -> dict:
     """Synchronous wrapper: fetch a sent/received message's full content by ID.
 
     Returns dict with id, threadId, labels, headers, body, and attachment list.
-    Used by Goose for email content comparison after sends.
+    Used by OpenCode for email content comparison after sends.
     """
     service = _get_gmail_service()
     msg = service.users().messages().get(userId="me", id=message_id, format="full").execute()
@@ -2690,6 +2690,15 @@ def gmail_create_draft_sync(
         "to": to,
         "label_applied": label_review,
     }
+
+
+# T2 TOOL_REGISTRY — callable by OpenCode / any gateway importing this module
+# Maps function name → callable. Checked by Sterling verify_comms_health.py L1.2.
+TOOL_REGISTRY = {
+    "gmail_reply_in_thread": gmail_reply_in_thread,
+    "gmail_create_draft_sync": gmail_create_draft_sync,
+    "gmail_send_as_persona": gmail_send_as_persona,
+}
 
 
 if __name__ == "__main__":
