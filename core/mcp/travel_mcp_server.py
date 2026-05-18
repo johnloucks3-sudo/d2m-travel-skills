@@ -15,6 +15,21 @@ Transport: stdio (local), SSE (legacy), or Streamable HTTP (production)
 Streamable HTTP is the production transport — stateless, load-balancer friendly,
 and the MCP standard replacing SSE (deprecated April 2026).
 """
+import json
+import logging
+import asyncio
+import os
+from pathlib import Path
+from datetime import datetime
+import re
+from typing import Optional, List, Dict, Any
+from enum import Enum
+
+# Initialize logging first (before any try/except that uses logger)
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+# Tool registrations
 from thunderbird_tech_monitor import register_tech_monitor_tools
 from thunderbird_v3 import register_v3_tools
 from itinerary_finishing_pipeline import register_itinerary_pipeline_tools
@@ -93,17 +108,8 @@ try:
 except Exception as _e:
     _PHANTOM_OK = False
     _phantom = None
-import json
-import logging
-import asyncio
-import os
-from pathlib import Path
-from datetime import datetime
-from core.self_healing import self_healing
-import re
-from typing import Optional, List, Dict, Any
-from enum import Enum
 
+from core.self_healing import self_healing
 from pydantic import BaseModel, Field, ConfigDict
 from mcp.server.fastmcp import FastMCP
 
@@ -113,10 +119,6 @@ from playwright_stealth import Stealth
 
 # Initialize MCP server
 mcp = FastMCP("dreams2memories_travel_mcp")
-
-# Configure logging
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
 
 # ============================================================================
 # DATA MODELS
