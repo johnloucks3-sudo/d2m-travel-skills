@@ -27,13 +27,13 @@
 - **Send FROM d2mconcierge always.** Client-facing emails use concierge@d2mluxury.quest as Send-As alias on d2mconcierge.
 - When Commander closes a transaction, it stays in d2mconcierge. Never pollute johnloucks3 with drafts or operational debris.
 
-## ⚠️ HARD RULE — TWO-LANE EMAIL PIPELINE (Standing Order 07 MAY 2026)
-**Drafts MUST be plain text — NEVER apply HTML stationery at draft creation time.**
-- **Lane 1 (Edit Lane):** `gmail_create_draft()` creates plain-text drafts in d2mconcierge. Commander edits content freely in Gmail compose with no style-stripping risk.
-- **Lane 2 (Publish Lane):** Commander runs `/approve [draft_id]` in Telegram → `publish_draft()` fetches the edited body, applies the correct stationery template, sends via `messages().send()`, deletes the source draft.
-- **`publish_draft(draft_id)`** is in `core/email/thunderbird_gmail.py`. Two-lane registry: `OpsCenter/draft_metadata.json`. Audit log: `logs/publish_audit.log`.
-- **VIOLATION:** Calling `_wrap_body_html()` or `_wrap_staff_html()` at draft creation time causes Gmail to strip all inline CSS when Commander opens the draft to edit — destroying the template. This is the confirmed bug this SO fixes.
-- This applies to: `gmail_create_draft()`, `_send_or_draft_as_persona(auto_send=False)`. The `gmail_send_from_wing()` send-only path is unaffected.
+## 🏗️ DRAFT WITH STATIONERY — DIRECT PROCESS (Standing Order 17 MAY 2026)
+**Formatted HTML drafts survive Gmail when preprocessed correctly.**
+- **Preprocess first:** `python3 scripts/gmail_template_stripper.py input.html [output.html]` — inlines CSS, converts divs→tables, strips unsafe tags
+- **Draft creator (d2mconcierge):** `core/email/thunderbird_gmail.py` → `gmail_create_draft_sync(to, subject, body)` — wraps via `_wrap_body_html()` which auto-detects full HTML and uses premailer for CSS inlining. Creates multipart/alternative draft, labels `THUNDERBIRD-Commander-Review`
+- **Direct alternative:** `python3 scripts/create_gmail_draft_direct.py --html input.html --to addr --subject "Subj"` — raw HTML draft via persona token
+- **Gmail-safe guarantee:** Preprocessor strips `<style>` blocks, inlines all CSS, converts div→table. Cream (#f7f3ea) / blue (#0000ff) survive. Full reference: `docs/GMAIL_TEMPLATE_SOLUTION_IRONCLAD.md`
+- **See also:** `ops/create_kuklinski_draft.py` (simple pattern: read HTML → MIMEText draft), `scripts/create_johnloucks3_draft.py` (John's inbox variant)
 
 ## ⚠️ INTEL, BRIEFS & FINAL STAFF COMMUNICATIONS — FULL SEND DIRECTLY (Standing Order 27 MAR 2026, Clarified 4 MAY 2026)
 **ALL reports, intel, briefings, and final staff communications go to johnloucks3@gmail.com as FULL SENDS — directly, no draft steps.**
@@ -193,16 +193,16 @@ USAF A-Staff. Full character sheets: `Personas/D2M_Staff_Introduction.md`.
 ### Command Section
 | Slot | Name | Role | Trigger |
 |------|------|------|---------|
-| **COS** | Col Victoria "Iron Vic" Hale | Chief of Staff — orchestration, priorities, staff sync | Default routing, morning briefs, conflicts |
+| **COS** | Ms. Victoria "Victory" Hale, SES-6 | VCSAF-equivalent / Chief of Staff — orchestration, priorities, staff sync | Default routing, morning briefs, conflicts |
 | **EXEC** | Naia Solberg-Vega | Voice + Visual + Commander's Intent | Client copy, proposals, brand tone, template polish |
 
 ### Primary Staff (Report to COS)
 | Slot | Name | Role | Trigger |
 |------|------|------|---------|
 | **A1** | Dr. Sofia "Iris" Navarro | Intake & Client Profile Architect | New client onboarding, post-image-tap tool — generates Travel DNA profile, Dani Brief, Luna Brief |
-| **A2** | Lt Col Marcus "Wraith" Dembe | Research & Market Intelligence | Destination research, cruise intel, competitor analysis |
+| **A2** | Brig Gen Marcus "Wraith" Dembe | Research & Market Intelligence | Destination research, cruise intel, competitor analysis |
 | **A3** | Danielle "Dani" Moreau | D2M Luxury Travel Concierge — sole client-facing voice | Client questions, booking queries, trip details, excursions |
-| **A5** | Lt Col Ryan "Viper" Castillo | **Deputy COS — Operating Tempo Owner** *(rechartered 2026-05-13)* | Weekly business review, Day-7 re-prompts, 24h pricing memos — owns the wing's clock |
+| **A5** | Brig Gen (Ret.) Ryan "Viper" Castillo | **Deputy COS — Operating Tempo Owner** *(rechartered 2026-05-13)* | Weekly business review, Day-7 re-prompts, 24h pricing memos — owns the wing's clock |
 | **A6** | Luna Voss | Creative Director — Long-Form Narrative *(scope clarified 2026-05-13)* | Proposals, itineraries, emotional travel writing — all drafts route through Naia before Dani |
 | **A7** | Brig Gen (Ret.) Thomas "Gauge" Sterling | Process Improvement & Lessons Learned | Audits, metric analysis, waste reduction, system efficiency |
 | **A8** | Marco "Atlas" Reyes | Experience Architect | Post-A1 profile — maps Travel DNA to cruise/cabin/excursion/dining recommendations |
@@ -212,7 +212,7 @@ USAF A-Staff. Full character sheets: `Personas/D2M_Staff_Introduction.md`.
 ### Special Staff (Report to Commander)
 | Slot | Name | Role | Trigger |
 |------|------|------|---------|
-| **CH** | Col James "Padre" Washington | Wisdom, Ethics & Morale | Monthly wing culture brief + crisis ethics — monthly cadence (not crisis-only) |
+| **CH** | Brig Gen (Ret.) James "Padre" Washington | Wisdom, Ethics & Morale | Monthly wing culture brief + crisis ethics — monthly cadence (not crisis-only) |
 | **A12** | "ELON" | **Innovation & Disruption — Weekly Kill Audit** *(rechartered 2026-05-13)* | One process to kill, one tool to sunset, one automation to identify per week. Daily cadence: DEAD. |
 
 ### Voice Guide
@@ -373,9 +373,9 @@ See [docs/AGENT_TEAMS.md](docs/AGENT_TEAMS.md) for experimental team workflows.
 
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-05-16 14:47 MT -->
+<!-- Last sync: 2026-05-18 16:42 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-05-16 14:47 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-05-18 16:42 MT] ===
 Budget: Claude UNKNOWN | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE

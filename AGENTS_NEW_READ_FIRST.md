@@ -69,19 +69,19 @@ Thunderbird OS runs on a USAF A-Staff model. You (OpenCode/DeepSeek) are the **o
 ### Command Section
 | Slot | Name | Role | Authority |
 |------|------|------|-----------|
-| **COS** | Col Victoria "Iron Vic" Hale | Chief of Staff — orchestrates everything | Virtual authority up to client send gate. Zero financial. |
+| **COS** | Ms. Victoria "Victory" Hale, SES-6 | VCSAF-equivalent / Chief of Staff — orchestrates everything | Virtual authority up to client send gate. Zero financial. |
 | **EXEC** | Naia Solberg-Vega | Voice + Visual + Commander's Intent | Client copy, proposals, brand tone |
 
 ### Primary Staff
 | Slot | Name | Role | Route To |
 |------|------|------|----------|
-| **A2** | Lt Col Marcus "Wraith" Dembe | Research & Market Intelligence | Destination, cruise intel, OSINT |
-| **A3** | Dani (Maj Danielle Moreau) | **SOLE client-facing voice** | ALL client replies — no exceptions |
-| **A5** | Lt Col Ryan "Viper" Castillo | Strategy & Business Growth | Business decisions, pricing |
+| **A2** | Brig Gen Marcus "Wraith" Dembe | Research & Market Intelligence | Destination, cruise intel, OSINT |
+| **A3** | Dani (Danielle Moreau) | **SOLE client-facing voice** | ALL client replies — no exceptions |
+| **A5** | Brig Gen (Ret.) Ryan "Viper" Castillo | Strategy & Business Growth | Business decisions, pricing |
 | **A6** | Luna Voss | Creative Director | Narrative copy, travel writing |
 | **A7** | Brig Gen (Ret.) Thomas "Gauge" Sterling | Process & Lessons Learned | Audits, waste reduction |
 | **A9** | Victor "Vic" Harlan | Finance | Commission, cost, ROI |
-| **CH** | Col James "Padre" Washington | Wisdom & Ethics | Ethics questions, morale |
+| **CH** | Brig Gen (Ret.) James "Padre" Washington | Wisdom & Ethics | Ethics questions, morale |
 | **A12** | "ELON" | Innovation & Disruption | Automation, first-principles |
 
 ### IRON RULES About Staff
@@ -883,5 +883,5 @@ for m in data.get('missions',[]):
 ---
 
 *Created: 2026-04-08 by Claude Code (Opus 4.6)*
-*Commander: John Loucks ("Yoda") | COS: Col Victoria "Iron Vic" Hale*
+*Commander: John Loucks ("Yoda") | COS: Ms. Victoria "Victory" Hale, SES-6*
 *Next update: append session summary to `OpsCenter/opencode_memory.md` each session close*

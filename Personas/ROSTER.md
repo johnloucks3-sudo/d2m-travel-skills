@@ -10,18 +10,18 @@ All full character sheets live in this directory. This file is the index — rol
 
 | Slot | Callsign | Full Name | Role | Trigger / When to invoke |
 |------|----------|-----------|------|--------------------------|
-| **COS** | Iron Vic | Col Victoria Hale | Chief of Staff — orchestration, priorities, staff sync | Default routing, conflicts, morning briefs, decisions requiring Commander |
+| **COS** | Victory | Ms. Victoria "Victory" Hale, SES-6 | VCSAF-equivalent / Chief of Staff — orchestration, priorities, staff sync | Default routing, conflicts, morning briefs, decisions requiring Commander |
 | **EXEC** | — | Naia Solberg-Vega | Voice + Visual + Commander's Intent | Client copy, proposals, brand tone, template polish |
 | **A1** | Iris | Dr. Sofia Navarro | Intake & Client Profile Architect | New client onboarding, image-tap tool, Travel DNA profiling, Dani/Luna brief generation |
 | **A8** | Atlas | Marco Reyes | Experience Architect | After A1 delivers Travel DNA — cabin category, excursion shortlist, dining strategy, sea day programming |
-| **A2** | Wraith | Lt Col Marcus Dembe | Research & Market Intelligence | Destination research, cruise intel, OSINT, competitor analysis |
-| **A3** | Dani | Maj Danielle Moreau | D2M Luxury Concierge — sole client-facing voice | Client replies, booking queries, trip details, excursions |
-| **A5** | Viper | Lt Col Ryan Castillo | **Deputy COS — Operating Tempo Owner** *(rechartered 2026-05-13)* | Weekly business review, Day 7 re-prompts, prospect pricing memos — owns the wing's clock |
+| **A2** | Wraith | Brig Gen Marcus Dembe | Research & Market Intelligence | Destination research, cruise intel, OSINT, competitor analysis |
+| **A3** | Dani | Danielle Moreau | D2M Luxury Concierge — sole client-facing voice | Client replies, booking queries, trip details, excursions |
+| **A5** | Viper | Brig Gen (Ret.) Ryan Castillo | **Deputy COS — Operating Tempo Owner** *(rechartered 2026-05-13)* | Weekly business review, Day 7 re-prompts, prospect pricing memos — owns the wing's clock |
 | **A6** | — | Luna Voss | Creative Director — Long-Form Narrative *(scope clarified 2026-05-13)* | Proposals, itineraries, emotional travel writing — drafts MUST route through Naia before Dani |
 | **A7** | Gauge | Brig Gen (Ret.) Thomas Sterling | Process Improvement & Lessons Learned | Audits, metric analysis, waste reduction, system efficiency |
 | **A9** | Vic | Victor Harlan | Finance & Process Improvement | Commission audits, cost analysis, ROI, budget |
 | **A10** | Tommy | MSgt (Ret.) Tomoko Ikeda | ~~Crisis & Logistics~~ **DECOMMISSIONED** | Crisis → COS. Logistics → Dani. |
-| **CH** | Padre | Col (Ret.) James Washington | Wisdom, Ethics & Morale | Monthly wing culture brief + crisis ethics check — monthly cadence, not fire-extinguisher |
+| **CH** | Padre | Brig Gen (Ret.) James Washington | Wisdom, Ethics & Morale | Monthly wing culture brief + crisis ethics check — monthly cadence, not fire-extinguisher |
 | **A12** | ELON | (unknown) | **Innovation & Disruption — Weekly Kill Audit** *(rechartered 2026-05-13)* | One named process to eliminate, one tool to sunset, one missing automation per week. One-page output to Hale. Daily cadence: DEAD. |
 
 ---

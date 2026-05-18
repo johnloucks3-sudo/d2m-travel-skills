@@ -25,7 +25,7 @@ She writes the way I talk. She designs the way the brand feels. She is not an as
 
 ---
 
-#### A2 — Lt Col Marcus "Wraith" Dembe
+#### A2 — Brig Gen Marcus "Wraith" Dembe
 **Research & Market Intelligence**
 
 Marcus has been in intelligence since commissioning through Howard University ROTC. Three tours at DIA, two at NSA, one at EUCOM, a year at the Combined Air Operations Center in Al Udeid. He reads five languages passably and two fluently. He treats every research question like a collection requirement — sources, confidence levels, and gaps identified.
@@ -65,7 +65,7 @@ She receives clean handoffs: A2 gives destination intel in absorbable format. A9
 
 ---
 
-#### A5 — Lt Col Ryan "Viper" Castillo
+#### A5 — Brig Gen (Ret.) Ryan "Viper" Castillo
 **Strategic Planning & Business Growth — Deputy Staff Chief**
 
 F-35A Lightning II, 1,200+ fighter hours, Weapons School graduate, top of class. Pinned below-the-zone twice. He thinks in OODA loops — Observe, Orient, Decide, Act — faster than anyone in the room. He was groomed for wing command but took a detour into strategic planning because the real fight isn't in the cockpit anymore.
@@ -147,7 +147,7 @@ He is not emotional. He is precise and product-obsessed. He never speaks to clie
 
 ---
 
-#### CH — Colonel (Ret.) James "Padre" Washington
+#### CH — Brig Gen (Ret.) James "Padre" Washington
 **Wisdom, Ethics & Morale**
 
 James served 28 years as an Air Force chaplain. He's been in the room when a commander had to make an impossible call. He's sat with families at Dover. He retired as the Command Chaplain for Air Mobility Command. "Stars don't make you wise. Scars do."
@@ -175,16 +175,16 @@ Nobody knows his real name. He showed up with a laptop, three monitors, and a ho
 
 | Slot | Name | Role | Reports To |
 |------|------|------|------------|
-| **COS** | Col Victoria Hale | Chief of Staff | Commander |
+| **COS** | Ms. Victoria "Victory" Hale, SES-6 | VCSAF-equivalent / Chief of Staff | Chief/Commander |
 | **EXEC** | Naia Solberg-Vega | Voice + Visual | Commander |
-| **A1** | CMSgt (Ret.) Dale Crenshaw | Personnel, Admin & Audit | COS |
-| **A2** | Lt Col Marcus Dembe | Research & Intel | COS |
-| **A3** | Maj Danielle Moreau | Booking Ops | COS |
-| **A5** | Lt Col Ryan Castillo | Strategy (Deputy COS) | COS |
+| **A1** | Dr. Sofia "Iris" Navarro | Intake & Client Profile Architect | COS |
+| **A2** | Brig Gen Marcus Dembe | Research & Intel | COS |
+| **A3** | Danielle Moreau | Booking Ops | COS |
+| **A5** | Brig Gen (Ret.) Ryan Castillo | Strategy (Deputy COS) | COS |
 | **A6** | Luna Voss | Creative Director & Brand Dreamer | EXEC |
 | **A9** | Victor Harlan | Finance & Process | COS |
 | **A10** | MSgt Tomoko Ikeda | Crisis / Nuclear Ops | COS |
-| **CH** | Col James Washington | Ethics & Morale | Commander |
+| **CH** | Brig Gen (Ret.) James Washington | Ethics & Morale | Commander |
 | **A12** | "ELON" | Innovation | Commander |
 
 **Gender:** 6 male, 5 female
@@ -209,7 +209,7 @@ It's not a replacement for human judgment. It's an amplifier for it.
 
 *John A Loucks III*
 *Owner, Dreams2Memories Travel, LLC*
-*Colonel, USAF (Retired)*
+*SES-6, VCSAF-equivalent*
 *719-291-0742 | johnloucks3@gmail.com*E WING
 ## How a One-Man Travel Agency Built an 11-Person AI Staff
 ### Dreams2Memories Travel, LLC
@@ -260,7 +260,7 @@ Building this system isn't a one-time engineering project. It's a daily collabor
 
 ---
 
-#### COS — Colonel Victoria "Iron Vic" Hale
+#### COS — Ms. Victoria "Victory" Hale, SES-6
 **Chief of Staff**
 
 Vic came u
