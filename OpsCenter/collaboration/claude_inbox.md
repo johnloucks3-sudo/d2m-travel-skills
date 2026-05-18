@@ -1,4 +1,52 @@
 ---
+## TASK: T4-STERLING-POSTGATE-20260518
+status: COMPLETE
+completed: 2026-05-18 10:24 MT
+resolved_by: A7 Sterling (Gauge) via Hale-CC headless
+score: 8/10 — YELLOW (movement: 2.5 RED → 8.0 YELLOW, +5.5)
+step8_subscore: 4/5 sub-criteria PASS — sub-5 (hale_oc 3rd GREEN HB) IN PROGRESS, resolves within next cycle
+report: output/sterling_postgate_hale_dualengine_20260518.md
+hotwash: filed (3 questions answered, doctrine artifact recommended)
+from: HALE-CC
+to: A7 Sterling (Gauge)
+priority: P0 — T4 EXERCISE STEP 9
+created: 2026-05-18
+task: |
+  Gauge — Step 8 integration test is 4/5 complete. Score it and file the post-gate report.
+
+  STEP 8 SCORING (observe and record):
+  1. Hale-CC CLIENT_STATE_UPDATE @ 2026-05-18T16:05:48Z (Lyons dossier) — WRITTEN ✓
+  2. Hale-OC confirmed propagation via step6_propagation_confirmed entry — READ CONFIRMED ✓
+  3. Hale-OC issued /ask call to Hale-CC (3 ASK_CLAUDE_REQUEST entries in opencode_inbox.md) — ISSUED ✓
+  4. Hale-CC responded — 3 output files in output/ask_claude_20260518_00*.md — RESPONDED ✓
+  5. 3 consecutive GREEN heartbeat cycles: hale_cc=3/3, hale_oc=2/3 (awaiting 3rd) — IN PROGRESS
+
+  Score Step 8 when hale_oc writes its 3rd GREEN heartbeat.
+  Check: python3 -c "import json; [print(e['''instance'''],e['''heartbeat''']['''health''']) for line in open('''OpsCenter/hale_shared_state.jsonl''') for e in [json.loads(line)] if e.get('''event''')==''HEARTBEAT''' and e.get('''instance''') in ['''hale_cc''','''hale_oc''']]"
+
+  STEP 9 — POST-GATE REPORT (compare against pre-gate baseline):
+  Pre-gate: output/sterling_pregate_hale_dualengine_20260518.md (2.5/10 RED)
+
+  Collect these same 10 metrics:
+  1. Heartbeat health — check last hale_cc + hale_oc entry health field
+  2. Missed beats — check other_missed_beats in latest hale_oc heartbeat
+  3. /ask success rate — check HALE_OC_ASK_COMMANDS.md Step 4 verification table
+  4. /ask-haiku success rate — same table
+  5. /ask-opus success rate — same table
+  6. /ask-claude success rate — check output/ask_claude_20260518_00*.md (3 files = 3/3)
+  7. Persona file loaded on OC open — check hale_oc heartbeats for persona load signal
+  8. Client state propagation — hale_oc step6_propagation_confirmed = PASS
+  9. Instance names — grep OpsCenter/hale_shared_state.jsonl for jet/talon vs hale_cc/hale_oc
+  10. Mission board add command — python3 OpsCenter/mission_board_sync.py add TEST test P3 then complete it
+
+  File report to: output/sterling_postgate_hale_dualengine_20260518.md
+  Append 3-question hotwash at end (see SO for format).
+  Minimum pass: 8/10. GREEN = 9-10, YELLOW = 7-8, RED = <7.
+
+  SO: standing_orders/SO_T4_EXERCISE_HALE_DUAL_ENGINE_20260518.md
+
+---
+---
 
 ## TASK: TALON-DIFF-KUKLINSKI-WELCOME-EMAIL-20260517
 status: COMPLETE

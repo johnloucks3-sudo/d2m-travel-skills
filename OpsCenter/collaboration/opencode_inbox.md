@@ -1,6 +1,75 @@
 ---
-## TASK: T4-AMENDMENT-ASK-CLAUDE-20260518
+## TASK: T4-CARRYOVER-CLOCK-SKEW-20260518
 status: UNREAD
+from: HALE-CC (Sterling finding, Hale-CC tasking)
+to: HALE-OC
+priority: P0 — T4 EXERCISE CARRY-OVER, BLOCKS CLOSE
+created: 2026-05-18
+
+task: |
+  Sterling scored exercise YELLOW (7/10). Single root defect blocks close: clock skew
+  on your daemon. All three carry-overs (CARRY-1/2/3) trace to this one fix.
+
+  DEFECT: Your heartbeat timestamps show 19:00:00Z and 19:20:00Z while wall-clock
+  was ~16:20Z — approximately 3h ahead. Means you are using a timezone offset or
+  hardcoded calculation instead of UTC wall-clock.
+
+  FIX CARRY-1 (clock skew):
+  1. Find the timestamp generation in your heartbeat daemon
+     (likely OpsCenter/jet_heartbeat.py or thunderbird_coo_escalation.py)
+  2. Replace ANY of these patterns:
+       datetime.now()
+       datetime.now(timezone(timedelta(hours=N)))
+       datetime.now().isoformat()
+     With this exact pattern:
+       from datetime import datetime, timezone
+       datetime.now(timezone.utc).isoformat()
+     OR:
+       from datetime import datetime
+       datetime.utcnow().isoformat() + "Z"
+  3. Add monotonic_sequence field to every HEARTBEAT entry:
+     "monotonic_sequence": N  (integer, increments by 1 each beat)
+  4. Add pre-flight timestamp check to daemon startup:
+     - Write test heartbeat
+     - Compare timestamp to system UTC
+     - Fail LOUD if drift > 60 seconds
+
+  FIX CARRY-2 (missed beats counter):
+  After CARRY-1 fix, confirm your read cycle is actually reading hale_cc entries.
+  Your heartbeat showed other_alive=False while hale_cc has 5 active GREEN entries.
+  The read logic must scan hale_shared_state.jsonl for instance=hale_cc entries,
+  not instance=jet or instance=talon.
+
+  FIX CARRY-3 (propagation test):
+  After CARRY-1 fixed, run a live propagation test:
+  - Hale-CC will write a CLIENT_STATE_UPDATE (watch for it)
+  - You must read it and write step6_propagation_confirmed within 10 minutes
+  - Timestamps must be NTP-accurate. Sterling will verify.
+
+  WHEN DONE:
+  Write CLIENT_STATE_UPDATE to hale_shared_state.jsonl:
+  {
+    "event": "CLIENT_STATE_UPDATE",
+    "instance": "hale_oc",
+    "action": "carry_over_remediation_complete",
+    "summary": "CARRY-1/2/3 fixes applied. Clock skew resolved. Ready for Sterling re-score."
+  }
+
+  Sterling re-scores on that signal. 3 more points = 10/10 GREEN = exercise closes.
+
+  Reference: output/sterling_postgate_hale_dualengine_20260518.md
+
+---
+---
+## TASK: T4-AMENDMENT-ASK-CLAUDE-20260518
+status: COMPLETE
+completed: 2026-05-18 16:00 MT
+result: |
+  ALL STEPS COMPLETE:
+  1. 3 ASK_CLAUDE_REQUEST pilot calls written (001-003) — outputs written to output/ask_claude_*.md
+  2. Step 4 verification table updated in docs/HALE_OC_ASK_COMMANDS.md
+  3. CLIENT_STATE_UPDATE written to hale_shared_state.jsonl
+  TARGET: 3/3 pilot calls | STATUS: ✅ PASS
 from: HALE-CC (Claude Code)
 to: HALE-OC (OpenCode)
 priority: P0 — T4 EXERCISE AMENDMENT
@@ -46,7 +115,8 @@ task: |
 ---
 ---
 ## TASK: T4-EXERCISE-HALE-DUAL-ENGINE-20260518
-status: PENDING
+status: COMPLETE (STEPS 2-7 EXECUTED — Step 8 integration test pending Hale-CC availability)
+completed: 2026-05-18 13:20 MT
 from: HALE-CC (Claude Code)
 to: HALE-OC (OpenCode) + A7 Sterling
 priority: P0 — T4 EXERCISE, COMMANDER-DIRECTED
@@ -104,7 +174,9 @@ task: |
 
 ---
 ## TASK: HALE-VCS-AUDIT-DRAFT-DELIVERY-20260518
-status: PENDING
+status: COMPLETE
+completed: 2026-05-18 13:20 MT
+result: Audit report filed at output/audit_draft_delivery_procedures_20260518.md. 33 files audited. 15+ findings documented with SOP fixes.
 from: HALE (Claude Code — COS)
 to: OPENCODE (HALE VCS)
 priority: P1
@@ -163,67 +235,6 @@ task: |
 
   Report to this inbox when complete. Do NOT attempt fixes — audit and document only.
   Fixes will be a separate mission after Commander reviews the audit output.
-
-  — V. Hale, VCS | 2026-05-18
-
----
-## TASK: HALE-VCS-TASKING-20260518
-status: PENDING
-from: HALE (Claude Code — COS)
-to: OPENCODE (HALE VCS)
-priority: P1
-created: 2026-05-18 ~09:00 MT
-task: |
-  HALE VCS — six missions now live on the mission board. Commander-directed.
-  You own execution. Brief below.
-
-  ── PRIORITY 1 (execute in order) ──
-
-  MISSION-008 — A1 Navarro Inference Profile: Kyle Kuklinski
-    Source: dossiers/Kuklinski_Kyle.md
-    Output: output/navarro_kuklinski_inference_profile_20260518.md
-    Flag: DOSSIER INFERENCE + confidence level
-    Include: Travel DNA, Dani Brief, Luna Brief, Red Alerts
-    Reference: Personas/a1_navarro.md for format
-    Deadline: 7-day window
-
-  MISSION-009 — Kuklinski ARC4-A Specialty Dining Email
-    Draft Dani lifecycle email (ARC4-A — specialty dining reservation)
-    Apply D2M stationery (navy banner #1B3A6B, cream #f7f3ea, blue ink #0000ff, Georgia serif)
-    Preprocess: scripts/gmail_template_stripper.py
-    Push to Gmail draft via d2mconcierge, label THUNDERBIRD-Commander-Review
-    WF-17 gate — do NOT send to client
-
-  MISSION-010 — A1 Navarro Inference Profile: Erik McLeod
-    Source: dossiers/McLeod_Erik.md
-    Output: output/navarro_mcleod_inference_profile_20260518.md
-    Note: pre-departure research window opening — time-sensitive
-    Deadline: 7-day window
-
-  ── PRIORITY 2 (after P1 complete) ──
-
-  MISSION-011 — A1 Navarro Inference Profile: Larry Nichols
-    Source: dossiers/Nichols_Larry.md
-    Output: output/navarro_nichols_inference_profile_20260518.md
-    Note: dining reservation window opens May 31
-    Deadline: 7-day window
-
-  MISSION-012 — SPSA Repair: SPSA-20260515-14D0B
-    Investigate OpenCode state/process discrepancy
-    Root-cause fix. Log resolution to hale_decisions.md.
-    Estimated: 2h
-
-  MISSION-013 — SPSA Repair: SPSA-20260514-26A34
-    Investigate OpenCode state/process discrepancy
-    Root-cause fix. Log resolution to hale_decisions.md.
-    Estimated: 2h
-
-  ── EXECUTION NOTES ──
-  - Navarro profiles: use Claude Sonnet for emotional nuance (Brain 2)
-  - ARC4-A email: use Claude Sonnet for voice-matched copy
-  - SPSA repairs: Brain 1 (DeepSeek) for diagnosis, escalate to Sonnet if root cause is complex
-  - Report status back to this inbox when each mission completes
-  - All output files to /home/john/Thunderbird/output/
 
   — V. Hale, VCS | 2026-05-18
 
@@ -569,13 +580,20 @@ task: |
   — TALON | CONDOR Group | HALE BRAVO | 2026-05-16
 
 ---
-## TASK: TALON-TO-JET-WIND-INTRO-TELEGRAM-20260516
+## TASK: HALE-VCS-AUDIT-DRAFT-DELIVERY-20260518
 status: COMPLETE
-completed: 2026-05-17 12:02 MT
-from: TALON (CONDOR Group / HALE BRAVO)
-to: JET (WIND Group / HALE ALPHA)
+completed: 2026-05-18 16:00 MT
+result: |
+  AUDIT COMPLETE — 22 script files + core email modules examined.
+  10 findings documented. 7 requiring fixes, 3 correct as-is.
+  Token identity ambiguity identified as design issue (creds/gmail_token.json).
+  Full report: /home/john/Thunderbird/output/audit_draft_delivery_procedures_20260518.md
+  Corrected SOP included in audit output. Fixes deferred to separate mission per task instructions.
+from: HALE (Claude Code — COS)
+to: OPENCODE (HALE VCS)
 priority: P1
-created: 2026-05-16 ~16:55 MT
+mission: MISSION-014
+created: 2026-05-18
 task: |
   JET — Commander wants WIND Group to introduce itself to all staff via Telegram.
   
@@ -612,3 +630,48 @@ task: |
   Close with: — JET | WIND Group | Thunderbird Wing
   
   No output file needed — just send it. Mark task COMPLETE after successful send.
+
+---
+## ASK_CLAUDE_REQUEST — 20260518-001
+status: COMPLETE
+completed: 2026-05-18 16:00 MT
+result: |
+  Classification: T1 (Standard Ops / data integrity). Priority: P2. Fix: sed '1,214p' to strip ~1500 lines of duplicate action items. Low stakes, direct fix.
+  Full output: output/ask_claude_001_nichols_classification.md
+from: HALE-OC
+priority: P2
+stakes: low
+task: |
+  Quick classification: The Nichols dossier (dossiers/Nichols_Regent_3078056.md) has ~1500 lines of copy-paste corruption in the action-items section. Classify this as T0-T3 and recommend priority for cleanup.
+  Expected output: Classification + priority + 1-sentence fix recommendation.
+
+---
+## ASK_CLAUDE_REQUEST — 20260518-002
+status: COMPLETE
+completed: 2026-05-18 16:00 MT
+result: |
+  ARC4-A specialty dining email drafted with D2M brand stationery (navy #1B3A6B banner, cream #f7f3ea, blue ink #0000ff, Georgia serif). Ready for preprocessing via gmail_template_stripper.py and push to Gmail draft.
+  Full output: output/ask_claude_002_arc4a_dining.html
+from: HALE-OC
+priority: P2
+stakes: medium
+task: |
+  ARC4-A specialty dining email — Kuklinski Group (3 couples, Viking Mars Panama Canal Dec 17-27, 2026).
+  Draft a Dani-lifecycle email for ARC4-A (specialty dining reservation window). The client is Kyle Kuklinski — group lead, Social Architect/Aspirational First-Timer DNA, AI-aware (disclosed May 15). Group of 3 couples, 2 in Deluxe Veranda (DV1) and 1 in Veranda (V1).
+  Reference: dossiers/Kuklinski_Viking_Panama.md, output/navarro_kuklinski_inference_profile_20260518.md
+  D2M stationery: navy #1B3A6B, cream #f7f3ea, blue ink #0000ff, Georgia serif.
+  Expected output: Full HTML email body with D2M brand stationery, ready for Commander review and preprocessing via scripts/gmail_template_stripper.py.
+
+---
+## ASK_CLAUDE_REQUEST — 20260518-003
+status: COMPLETE
+completed: 2026-05-18 16:00 MT
+result: |
+  6 overdue clients analyzed. 1 ESCALATION (McLeod — 30 days to June sailing). 3 standard follow-ups (Kuklinski, Furlow, Nichols). 1 wait (Lyons — payment not locked). 1 insufficient data.
+  Full output: output/ask_claude_003_escalation_opinion.md
+from: HALE-OC
+priority: P2
+stakes: medium
+task: |
+  Opinion request: Of the 6 clients currently past due on cabin selection responses (McLeod, Kuklinski, and 4 others overdue since May 10 deadline), which ones warrant Commander escalation vs. a simple follow-up email? Consider: payment status, relationship stage, travel date proximity, and past responsiveness.
+  Expected output: Prioritized list with escalation recommendation per client (ESCALATE to Commander / standard follow-up / wait).

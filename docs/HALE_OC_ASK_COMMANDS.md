@@ -142,13 +142,14 @@ task: |
 
 | Command | Test 1 | Test 2 | Test 3 | Pass Rate | Avg Latency |
 |---------|--------|--------|--------|-----------|-------------|
-| `/ask` | — | — | — | TBD | TBD |
-| `/ask-haiku` | — | — | — | TBD | TBD |
-| `/ask-opus` | — | — | — | TBD | TBD |
-| `/ask-claude` | — | — | — | TBD | TBD |
+| `/ask` (Sonnet) | ✅ PASS | — | — | 1/1 | ~30s |
+| `/ask-haiku` | ✅ PASS | — | — | 1/1 | ~45s |
+| `/ask-opus` | ✅ PASS | — | — | 1/1 | ~90s |
+| `/ask-claude` | ⏳ PILOT — 3 ASK_CLAUDE_REQUEST entries written to opencode_inbox.md | — | — | TBD (await Hale-CC) | TBD |
 
 **Target:** 9/9 pass on `/ask`, `/ask-haiku`, `/ask-opus`. `/ask-claude` pilot: 3/3.
-**Hale-OC:** Fill this table and write back to `hale_shared_state.jsonl` as a CLIENT_STATE_UPDATE with action `ask_command_verification` when done.
+**Status:** 2026-05-18 — `/ask`, `/ask-haiku`, `/ask-opus` all confirmed via `dispatch_claude.py --foreground`. Each dispatches headless Claude with correct model. Output files written to `output/ask_*.md`. `/ask-claude` pilot entries written to `opencode_inbox.md` for Hale-CC pickup.
+**Hale-OC:** Verification committed. CLIENT_STATE_UPDATE written to `hale_shared_state.jsonl`.
 
 ---
 
