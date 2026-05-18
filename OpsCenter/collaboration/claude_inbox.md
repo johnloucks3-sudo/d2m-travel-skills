@@ -1,4 +1,114 @@
 ---
+## TASK: INFRA-ELON-EXPANDED-MANDATE-20260518
+status: UNREAD
+from: HALE-CC (VCS authority — SO-VCS-INFRA-20260518)
+to: A12 ELON
+priority: P1
+created: 2026-05-18
+
+task: |
+  Commander directive: "Make it so." VCS now has full infrastructure authority
+  per SO-VCS-INFRA-20260518. Your weekly kill audit mandate is expanded to include
+  infrastructure scope effective immediately.
+
+  EXPANDED MANDATE — add these three targets to your next kill audit (due Wednesday):
+
+  TARGET 1 — Chrome debug port 9222 (currently OFFLINE)
+    Status: OFFLINE per hale_state.json. Has been OFFLINE for unknown duration.
+    Decision needed: decommission cleanly or fix and bring back online?
+    Your call: propose decommission OR fix plan. One paragraph. Cost of each path.
+
+  TARGET 2 — Redis connectors (Phase 3A partial deploy)
+    Status: base fallback class deployed (redis_connector_fallback.py) but
+    5 connectors not yet refactored to inherit from it. Single point of failure risk.
+    Decision needed: complete the refactor (who, when) or retire Redis entirely
+    and substitute persistent JSONL? Your recommendation with cost/risk tradeoff.
+
+  TARGET 3 — Legacy Haiku supervisor patterns
+    Status: thunderbird-watchdog.timer replaced the old claude-haiku-supervisor.timer
+    but old references still exist in docs (HEADLESS_CLAUDE_SPAWN_GUIDE.md and
+    AGENTS_HEADLESS_DISPATCH_ARCHITECTURE.md reference the dead timer name).
+    Decision needed: purge all dead references from docs. Simple kill — no rebuild needed.
+    Execute this one directly: find and fix all references.
+
+  ONGOING — your weekly kill audit now includes one infra component review per week.
+  Cadence: Wednesday (unchanged). Format: one kill + one modernization + one infra item.
+  Report to VCS (hale_decisions.md) before surfacing to Commander.
+
+  Output: Write your three-target proposal to output/elon_infra_audit_20260518.md
+  Execute TARGET 3 (doc cleanup) immediately. Propose on 1 and 2.
+
+---
+## TASK: INFRA-CASTILLO-TEMPO-20260518
+status: UNREAD
+from: HALE-CC (VCS authority — SO-VCS-INFRA-20260518)
+to: A5 CASTILLO
+priority: P1
+created: 2026-05-18
+
+task: |
+  Commander directive: "Make it so." VCS now has full infrastructure authority.
+  Your operating tempo mandate expands to include T1 infrastructure clock ownership.
+
+  NEW STANDING RESPONSIBILITY — T1 Infrastructure Tempo:
+
+  1. T1 RESTART SLA: If any T1 system goes red, you own the recovery clock.
+     - d2m-tasking-watcher.service: restart within 5 minutes of failure detection
+     - MCP Server (port 8765): restart within 5 minutes
+     - Telegram bots: restart within 10 minutes
+     - TESS JWT auth: alert VCS within 2 minutes (auth refresh, not a simple restart)
+     - OAuth timers: alert VCS immediately (Claude auth dependency)
+     - OpenCode/JET: restart within 10 minutes
+
+  2. MODERNIZATION CLOCK: ELON proposes kills and modernizations. You ensure
+     they ship. If ELON proposes something Wednesday and it's not executed by
+     the following Wednesday, you flag it in your business review.
+
+  3. WEEKLY BUSINESS REVIEW — add infra section:
+     - T1 systems: all GREEN/YELLOW/RED status this week
+     - Modernization pipeline: what ELON proposed, what shipped, what's stalled
+     - SLA compliance: any T1 that exceeded restart SLA this week
+
+  Output: Acknowledge this mandate in your next weekly business review (Friday).
+  No deliverable today — just confirm receipt by updating this task to COMPLETE
+  and writing one line to OpsCenter/collaboration/activity_board.md.
+
+---
+## TASK: INFRA-HARLAN-COST-TRACKING-20260518
+status: UNREAD
+from: HALE-CC (VCS authority — SO-VCS-INFRA-20260518)
+to: A9 HARLAN
+priority: P2
+created: 2026-05-18
+
+task: |
+  Commander directive: "Make it so." VCS now has full infrastructure authority.
+  Your mandate expands to include T1 infrastructure cost tracking.
+
+  NEW STANDING RESPONSIBILITY — T1 API Burn Tracking:
+
+  For each T1 system, track the ongoing cost (API calls, tokens, compute):
+  1. OAuth / token refresh — how many refreshes per day, any anomalies?
+  2. MCP Server calls — volume per day, which tools are called most?
+  3. Telegram gateway — message volume, bot API call rate
+  4. TESS JWT auth — API call frequency
+  5. OpenCode/JET — token consumption per session (Big Pickle = $0 but track volume)
+  6. Claude headless spawns — model used, token count, cost per spawn
+
+  WEEKLY DELIVERABLE: Add one-page "Infrastructure Cost Pulse" to your weekly
+  financial pulse. Format:
+    | System | Cost/Week | Volume | Trend | Flag |
+  Flag anything trending up >20% week-over-week.
+
+  START: Pull what data you can from existing logs:
+    - /home/john/Thunderbird/logs/ (usage_monitor.log, token_refresh_daemon.log)
+    - hale_state.json (financial_pulse section)
+    - OpsCenter/claude_usage_status.json if it exists
+
+  Output: Write a first-pass cost baseline to output/harlan_infra_cost_baseline_20260518.md
+  Identify data gaps (what you can't measure yet) and flag to VCS.
+
+---
 ## TASK: T4-STERLING-POSTGATE-20260518
 status: COMPLETE
 completed: 2026-05-18 10:24 MT
