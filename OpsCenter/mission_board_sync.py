@@ -71,15 +71,22 @@ def save_board(board, fd):
 
 
 def get_active(board):
-    return board.get("active_missions", [])
+    all_missions = board.get("missions", board.get("active_missions", []))
+    return [m for m in all_missions if m.get("status") not in ("completed", "complete", "done", "cancelled")]
 
 
 def find_mission(board, mission_id):
-    """Search all states for a mission by ID."""
-    for state in ["active_missions", "suspended_missions", "completed_missions"]:
-        for m in board.get(state, []):
-            if m["id"] == mission_id:
-                return m, state
+    """Search flat missions array for a mission by ID."""
+    all_missions = board.get("missions", board.get("active_missions", []))
+    for m in all_missions:
+        if m["id"] == mission_id:
+            status = m.get("status", "active")
+            if status in ("completed", "complete", "done"):
+                return m, "completed_missions"
+            elif status == "suspended":
+                return m, "suspended_missions"
+            else:
+                return m, "active_missions"
     return None, None
 
 
@@ -101,7 +108,8 @@ def cmd_list_board(board):
 
 def cmd_list_suspended(board):
     """EXEC: list suspended"""
-    suspended = board.get("suspended_missions", [])
+    all_missions = board.get("missions", board.get("suspended_missions", []))
+    suspended = [m for m in all_missions if m.get("status") == "suspended"]
     if not suspended:
         return "⏸️ Suspended Queue: EMPTY"
     
@@ -114,7 +122,8 @@ def cmd_list_suspended(board):
 
 def cmd_list_complete(board):
     """EXEC: list complete"""
-    completed = board.get("completed_missions", [])
+    all_missions = board.get("missions", board.get("completed_missions", []))
+    completed = [m for m in all_missions if m.get("status") in ("completed", "complete", "done")]
     if not completed:
         return "✅ Completed Missions: EMPTY"
     
@@ -131,9 +140,16 @@ def cmd_add(board, args):
     desc = " ".join(args[3:]) if len(args) > 3 else "No description"
     
     # Generate ID
-    existing_ids = [m["id"] for state in ["active_missions", "suspended_missions", "completed_missions"] 
-                    for m in board.get(state, [])]
-    next_num = len(existing_ids) + 1
+    all_missions = board.get("missions", board.get("active_missions", []))
+    existing_ids = [m["id"] for m in all_missions]
+    # Find next available MISSION-NNN
+    nums = []
+    for mid in existing_ids:
+        try:
+            nums.append(int(mid.split("-")[-1]))
+        except (ValueError, IndexError):
+            pass
+    next_num = (max(nums) + 1) if nums else 1
     mission_id = f"MISSION-{next_num:03d}"
     
     new_mission = {
@@ -152,7 +168,10 @@ def cmd_add(board, args):
         "updated_at": now_iso()
     }
     
-    board["active_missions"].append(new_mission)
+    if "missions" in board:
+        board["missions"].append(new_mission)
+    else:
+        board.setdefault("active_missions", []).append(new_mission)
     return f"✅ Created: {mission_id} — {title}\nPriority: P0 | Assigned: NEXUS (auto)"
 
 
@@ -180,12 +199,9 @@ def cmd_complete(board, mission_id):
     if not mission:
         return f"❌ Mission {mission_id} not found"
     
-    # Move to completed
-    if state in ["active_missions", "suspended_missions"]:
-        board[state].remove(mission)
-        mission["status"] = "completed"
-        mission["completed_at"] = now_iso()
-        board["completed_missions"].append(mission)
+    # Mark completed in-place (flat missions array)
+    mission["status"] = "completed"
+    mission["completed_at"] = now_iso()
     
     # Remove from suspense_watch
     watch = board.get("suspense_watch", [])

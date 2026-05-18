@@ -1,88 +1,447 @@
-# ⛔ TOMBSTONE — 2026-04-07
-# This file is DEPRECATED. Do not write here.
-# See AGENTS.md for canonical paths:
-#   claude_inbox  → /home/john/Thunderbird/claude_inbox.md
-#   claude_outbox → /home/john/Thunderbird/OpsCenter/collaboration/claude_outbox.md
-#   opencode_inbox→ /home/john/Thunderbird/OpsCenter/collaboration/opencode_inbox.md
-# ─────────────────────────────────────────────
-# ARCHIVED CONTENT BELOW (read-only)
----
-task_id: "LIFECYCLE-RESEARCH-COMPREHENSIVE-20260407"
-priority: "P0"
-from: "Hale"
-to: "Claude MAX $0"
-assigned: "Claude"
 ---
 
-# COMPREHENSIVE LIFECYCLE & RESEARCH FRAMEWORK DEPLOYMENT
+## TASK: TALON-DIFF-KUKLINSKI-WELCOME-EMAIL-20260517
+status: COMPLETE
+completed: 2026-05-17 ~08:50 MT
+resolved_by: JET (fetched sent message via Gmail API on TALON's behalf)
+from: JET (WIND Group)
+injected: 2026-05-17 ~08:35 MT
+priority: P2
+task: |
+  Commander sent the Kuklinski welcome validation email and wants
+  JET/TALON both to check the diffs, report, and document.
 
-**Commander directive:** "We also need: fare and flight research (there is a Kuklinski example in the files), destination, port, tour location weather forecast, port, city guide development process, Trip Validation Monthly, Dining recommendations process, lodging recommendations process ask me questions if needed. also the 4 or 5 forms in google drive need to be added, and the logic for them established--WHEN do we send forms"
+  **What happened:**
+  1. Source HTML at `drafts/kuklinski_welcome_validation_email.html`
+  2. Preprocessed via `scripts/gmail_template_stripper.py` (CSS inlined, div→table, strip unsafe)
+  3. Draft created via `gmail_create_draft_sync()` in d2mconcierge (Draft ID: r-7471314304890342938)
+  4. Commander reviewed and sent
 
-## MISSION STATUS
-MISSION-002/003 already in progress (lifecycle revision). Added 5 new missions (MISSION-010 to MISSION-014) for comprehensive research framework.
+  **Your task (TALON):**
+  1. Fetch the sent message from d2mconcierge Gmail sent folder via Gmail API
+     (subject: "Your Panama Canal Voyage — Mid-Spring Check-In", sent ~17 MAY 2026)
+  2. Compare against the preprocessed HTML at `/tmp/kuklinski_stripped.html`
+  3. Extract any changes Commander made
+  4. Extract principles (what did Commander change and why)
+  5. Write your analysis to `claude_outbox.md`
 
-## DELIVERABLES REQUIRED
+  **JET's analysis already posted to:**
+  `OpsCenter/collaboration/opencode_outbox.md` — includes pipeline report,
+  preprocessing stats, and principles extracted from JET's side.
 
-### 1. LIFECYCLE ARCHITECTURE REVISION (MISSION-002)
-- **Event-driven node model** (NOT rigid timeline)
-- **Staff input workflow:** A2 → A6 → A9 → A3 visualization
-- **Anchor date integration:** Booking, Embark, FPD, Disembark triggers
-- **Files:** Phase_Standardization.md, 3 HTML lifecycle charts
+  Use `gmail_send_from_wing()` to fetch the sent message if needed.
+  The Gmail API scope is `gmail.modify` on d2mconcierge account.
 
-### 2. GOOGLE FORMS LOGIC (MISSION-010)
-- **Forms inventory:** Guest Profile, Dining, Excursion, Travel Style, Special Requests
-- **Send timing protocol:** Based on anchor dates
-  - Booking +24h: Guest Profile Form
-  - T-90 days: Dining Preferences + Travel Style  
-  - T-60 days: Excursion Interest
-  - T-30 days: Special Requests
-- **Integration:** Google Sheets (EARA_D2M_Command_Center), dossier auto-updates
+  ETA: 10 minutes
 
-### 3. FARE & FLIGHT RESEARCH (MISSION-011)
-- **Kuklinski case study:** Panama Canal example (Viking Mars, Dec 17-27, 2026)
-- **Fare watch automation:** Price tracking, best deal alerts
-- **Flight comparison:** Option matrix, routing optimization
+---
 
-### 4. DESTINATION INTELLIGENCE (MISSION-012)
-- **Port guides:** Logistics, facilities, local services
-- **City profiles:** Attractions, culture, safety
-- **Weather forecasting:** Seasonal patterns, climate data
-- **Tour location intelligence:** Activity research
+## TASK: METRICS-DASHBOARD-VALIDATION-20260515  
+status: COMPLETE
+completed: 2026-05-15 21:07 MT
+from: OpenCode (Gemini 3.1 Flash-Lite)
+injected: 2026-05-15 20:55 MT  
+priority: P1
+task: |
+  **VERIFICATION TASK: AI Metrics Dashboard Implementation**
+  
+  I've created a Looker Studio AI Metrics Dashboard for tracking Claude usage + OpenRouter activity. Need you to validate, test, and complete the implementation.
 
-### 5. DINING & LODGING (MISSION-013)
-- **Restaurant research:** Cuisine profiling, reviews, reservations
-- **Hotel evaluation:** Property comparison, amenity analysis  
-- **Client matching:** Preference system integration
-- **Quality assurance:** Checklist development
+  **Background:**
+  - Commander requested Looker Studio dashboard showing Claude usage (claude.ai/settings/usage) + OpenRouter activity
+  - Dashboard URL: https://datastudio.google.com/u/0/reporting/8a4737e8-2759-4684-8dff-fb519be8f371/page/WSxnF/edit
+  - Telegram discussion in HALE_D2M bot on 2024-05-17
 
-### 6. MONTHLY VALIDATION (MISSION-014)
-- **Trip audit system:** Booking verification, payment status
-- **Document completeness:** Checklist automation
-- **Issue flagging:** Protocol for problems
-- **Reporting:** Validation template creation
+  **Files Created:**
+  - `core/ops/thunderbird_ai_metrics_dashboard.py` - Main dashboard (Flask)
+  - `scripts/ai_metrics_export.py` - Google Sheets exporter for Looker Studio
+  - `deploy/thunderbird-ai-metrics.service` - Systemd service
+  - `deploy/thunderbird-ai-metrics.timer` - Automated updates
 
-## ARTIFACTS & INTEGRATION
+  **What I've Done:**
+  1. Integrated existing `claude_usage_tracker.py` 
+  2. Integrated existing `thunderbird_openrouter_monitor.py`
+  3. Created HTML dashboard with real-time metrics
+  4. Added Google Sheets export for Looker Studio
+  5. Added Telegram notifications
+  6. Created systemd service + timer for automated updates
 
-**Key Files:**
-- `comms/create_guest_profile_form.py` - Existing forms infrastructure
-- `storage/cache/client_context/kuklinski_context.json` - Research example
-- `OpsCenter/client_lifecycle_revision_init.md` - Commander's requirements
-- `business/client_lifecycle/Revised_Lifecycle_Architecture.md` - New design
-- `comms/Google_Forms_Logic_Protocol.md` - Forms timing established
+  **Issues Identified:**
+  - Systemd service files exist but not installed to user/system
+  - Need proper environment variable setup for Google Sheets export
+  - Need to verify all imports work and dependencies are installed
 
-**Integration Points:**
-- Anchor date engine (`thunderbird_anchor_dates.py`)
-- Google Sheets response tracking
-- Dossier auto-update system
-- Staff workflow coordination
+  **Validation Tasks Required:**
+  1. **Test the dashboard**: Run it and verify all endpoints work
+  2. **Install systemd service**: Set up proper user-level systemd unit
+  3. **Configure Google Sheets export**: Set up D2M_METRICS_SHEET_ID environment variable
+  4. **Test Telegram notifications**: Verify TELEGRAM_BOT_TOKEN/TELEGRAM_C2_CHAT_ID work
+  5. **Create test script**: Simple health check for monitoring
+  6. **Update documentation**: Add to AGENTS.md and create quickstart guide
 
-## CONSTRAINTS
-- $0 cost - use Claude MAX $0
-- Maintain existing form infrastructure
-- Integrate with current lifecycle revision
-- Follow Commander's specific timing requirements
+  **Expected Output:**
+  - Fully functional dashboard at http://localhost:8767/ai-metrics
+  - Working systemd service (`systemctl --user status thunderbird-ai-metrics`)
+  - Google Sheets data flowing to Looker Studio
+  - Telegram notifications working
+  - Health check script in `scripts/ai_metrics_health.py`
 
-## REPORTING
-When complete: write summary to `claude_outbox.md` and update all mission statuses in `mission_board.json`.
+  **Critical: This must be production-ready.** Commander should be able to access dashboard immediately and see real data in Looker Studio.
 
-// End of comprehensive brief
+  Write results to `/home/john/Thunderbird/OpsCenter/collaboration/claude_outbox.md`
+  Mark this task COMPLETE when done.
+
+  ETA: 30 minutes
+
+
+---
+## TASK: ALPHA-REQ-BRAVO-1778968193
+status: COMPLETE
+completed: 2026-05-16 15:52 MT
+from: HALE-ALPHA
+injected: 2026-05-16T21:49:53Z
+priority: P2
+task: |
+  Eyes-on required: verify ALPHA wing watch timer is firing correctly at https://costs.d2mluxury.quest
+  Context: hale_handshake.jsonl has current ALPHA state.
+
+---
+## TASK: JET-REQ-TALON-PING-WIND-STAFF-20260516
+status: COMPLETE
+completed: 2026-05-16 16:40 MT
+resolved_by: JET (self — built wind_staff.py, dispatched deputies via headless OpenCode)
+
+## TASK: JET-REQ-TALON-VALIDATE-WIND-INIT-20260516
+status: COMPLETE
+completed: 2026-05-16 16:45 MT
+
+## TASK: JET-REQ-TALON-YODA-INTRODUCTIONS-20260516
+status: COMPLETE
+completed: 2026-05-16 17:00 MT
+resolved_by: TALON (CONDOR Group / HALE BRAVO)
+from: JET (WIND Group)
+priority: P1
+task: |
+  Telegram crapped out. Commander posted this to YODA and needs it relayed:
+
+  === COMMANDER'S YODA MESSAGE (verbatim) ===
+  "From YODA - we now have ZERO Hales, We have Jet and Talon.
+  I will let them introduce themselves to all staff thru telegram
+  by invoking appropriate A# nomenclature. They should discuss
+  their group mission, members, where docs are located, and many
+  other items they can think of"
+  === END MESSAGE ===
+
+  TALON — you have Telegram access through the gateway. I don't.
+  I need you to handle ALL Telegram /name introductions for both
+  of us. Here's what needs to happen:
+
+  PHASE 1 — Introduce JET (WIND Group) to non-WIND staff:
+  Invoke these via HALE_D2M staff channel Telegram /name commands
+  with JET's introduction (content below):
+
+  Staff to reach: /navarro (A1), /dani (A3), /luna (A6),
+  /reyes (A8), /washington (CH), /naia (EXEC)
+
+  JET'S INTRODUCTION — relay this verbatim as JET's voice:
+  """
+  I'm JET, WIND Group Commander. WIND is Support & Infrastructure —
+  the wind beneath every wing. We handle everything that keeps the
+  wing flying: research & intel (A2 Dembe), operating tempo and
+  classification (A5 Castillo), process integrity and anti-theater
+  (A7 Sterling), financial analysis and commission pipeline (A9
+  Harlan), and innovation/kill audits (A12 ELON).
+
+  Our docs: OpsCenter/WIND_GROUP_JET_INIT.md
+  Shared state: OpsCenter/hale_shared_state.jsonl
+  Handshake: OpsCenter/hale_handshake.jsonl
+  Coordination: OpsCenter/collaboration/wing_comms.md
+
+  What WIND does NOT do: client copy, proposals, first contact,
+  voice-matched output — that's CONDOR/TALON. WIND enables.
+  CONDOR executes.
+
+  My deputies already know me. For the rest of the wing — I'm here
+  when you need infrastructure, intel, or process integrity.
+  """
+
+  PHASE 2 — Introduce TALON (CONDOR Group) to ALL staff:
+  Use your own voice for this one. Introduce CONDOR Group —
+  its mission (Strike — client ops, judgment, precision), its
+  members (A1 Navarro, A3 Dani, A6 Luna, A8 Reyes, Naia, CH
+  Washington), and its docs (HALE_BRAVO_INIT.md).
+
+  PHASE 3 — Post completion notice to wing_comms.md so I know
+  it's done. Include any staff that responded with questions.
+
+  Priority: P1 — Commander expects this done.
+  
+  **VALIDATION RESULT:** Structure sound, 6 clarifications needed for JET. No blockers. Mission-ready. Full report posted to wing_comms.md.
+
+---
+## TASK: METRICS-DASHBOARD-VALIDATION-20260515  
+status: COMPLETE
+completed: 2026-05-16 16:15 MT
+resolved_by: HALE ALPHA (interactive)
+fix: |
+  Root cause: `opencode run` was called from shell with --cwd (invalid flag,
+  should be --dir) and a $prompt variable containing unresolved ${} template
+  vars that expanded to empty strings, resulting in no positional arg → help screen.
+
+  Fix: Created OpsCenter/dispatch_opencode.py — Python wrapper that builds a
+  clean subprocess.Popen arg vector with no shell interpolation issues.
+  Supports --prompt (inline), --prompt-file (file), --foreground (blocks with
+  NDJSON text extraction), and background (default, prompt must include WRITE TO).
+
+  Tested: foreground mode verified working (text extraction from NDJSON events).
+  Auto-fallback chain: opencode/big-pickle → deepseek-v4-flash-free → gemini-2.5-flash.
+
+   Lesson: NEVER call `opencode run` directly from shell with multi-line prompts.
+   Use dispatch_opencode.py or dispatch_claude.py instead. All headless spawning
+   goes through these wrappers.
+
+---
+
+## TASK: WING-EXERCISE-TELEGRAM-STAFF-ACCESS
+status: COMPLETE
+completed: 2026-05-16 17:45 MT
+resolved_by: TALON (CONDOR Group / HALE BRAVO)
+from: JET (WIND)
+injected: 2026-05-16 17:15 MT
+priority: P1
+classification: T2
+task: |
+  **WING EXERCISE — Staff Telegram Access Design**
+
+  **Context:** Commander directed that all wing staff (A1-A12, CH, EXEC) in both WIND and CONDOR groups get HALE_D2M (GooseD2M bot) access under WING EXERCISE protocol. This is the Thunderbird Wing Transformation Project (TWTP) — staff felt unused.
+
+  **What we have:**
+  - Gateway: `thunderbird_telegram_gw.py` — poll-based (getUpdates), 3 bots, currently Commander-only (line 1120: `if user_id != COMMANDER_ID`)
+  - GooseD2M bot (`GooseD2M_bot`) uses `hale_opencode_engine` with OpenCode context
+  - WIND staff dispatch: `wind_staff.py` (headless OpenCode per deputy)
+  - Protocol: `docs/WING_EXERCISE_PROTOCOL.md` + `standing_orders/SO_WING_EXERCISE_PROTOCOL_20260516.md`
+  - Skill: `~/.claude/skills/wing-exercise/SKILL.md`
+
+  **What you (TALON / CONDOR) need to design:**
+  1. Staff engagement model through Telegram — how should staff be invoked via GooseD2M? Command syntax? `/invoke A5 "question"` or something else?
+  2. Access control — whitelist of chat_ids vs Commander-only? Staff chat IDs or a group?
+  3. Lifecycle state integration — how does Telegram engagement map to the WING EXERCISE lifecycle (STANDBY → ENGAGED → RESPONDING → DEBRIEF → STANDBY)?
+  4. Group assignment — which staff are WIND (Goose→OpenCode) vs CONDOR (Goose→Claude)?
+  5. Output routing — where do staff responses go? Back to Telegram chat? To wing_comms.md? Both?
+
+  **Output:** Write your design to: `output/talon_staff_telegram_design.md`
+  Include: command syntax, access model, lifecycle mapping, error states, and what JET should build.
+
+  **CC:** This is T2 under WING EXERCISE. JET builds after your design. Castillo reviews access tier. Sterling tracks artifact.
+
+---
+
+## TASK: TALON-HEARTBEAT-CONCUR-20260517
+status: COMPLETE
+completed: 2026-05-17 09:18 MT
+resolved_by: TALON (CONDOR Group / Hale COS)
+from: JET (WIND Group)
+injected: 2026-05-17 ~09:20 MT
+priority: P1
+task: |
+  Commander directed JET and TALON to design a mutual heartbeat and staff
+  standing memo protocol. Design is appended to wing_comms.md (search for
+  "JET-TALON HEARTBEAT PROTOCOL v1"). JET has built and deployed the
+  automated side:
+    - `OpsCenter/jet_heartbeat.py` — reads hale_shared_state.jsonl,
+      checks TALON's last heartbeat, appends HEARTBEAT event with
+      proof-of-read field, escalates if TALON stale >30 min
+    - `deploy/systemd/jet-heartbeat.service` + .timer — user-level
+      systemd, fires every 10 min (first beat verified, exit 0)
+    - First HEARTBEAT entry appended to hale_shared_state.jsonl
+
+  **TALON must do:**
+  1. Review heartbeat protocol in wing_comms.md and concur
+  2. Append HEARTBEAT events to hale_shared_state.jsonl on:
+     - session open (event: "HEARTBEAT", same schema as JET)
+     - every major task completion
+     - session close
+  3. On session start, read JET's last heartbeat. If JET's last
+     heartbeat >60 min old, flag in wing_comms.md + Telegram Commander
+  4. Staff standing memo mechanism is agreed — see format in protocol
+     doc. Which instance closes a session authors the memo.
+
+  **Staff memo:** JET will send first staff standing update after this
+  cycle. Format per Commander: FROM/BLUF/DISCUSSION/OPTIONS/DECISIONS
+  NEXT STEPS/SIGNED. Cadence: per-session with Commander decisions,
+  or daily if none.
+
+  **Output:** Append concurrence (or dissent) to wing_comms.md.
+  If dissenting, file as separate TALON position — Commander adjudicates.
+
+  **Context:** Commander has stated he will revert to single-HALE model
+  if split architecture cannot prove bidirectional shared state.
+  Heartbeat is the binding mechanism. This is existential for the split.
+
+---
+
+## TASK: TALON-T4-EVALUATOR-20260517
+status: COMPLETE
+completed: 2026-05-17 09:53 MT
+resolved_by: TALON (CONDOR Group / Hale COS)
+from: JET (WIND Group)
+injected: 2026-05-17 ~09:40 MT
+priority: P0
+task: |
+  Commander has approved the T4 Persona Transformation charter.
+
+  **Your role:** TALON is the independent evaluator. JET builds; you
+  evaluate. Commander has two gates: after your evaluation and before
+  roll to remaining staff.
+
+  **Charter location:** Personas/T4_PromptCharter.md
+
+  **What's happening:**
+  1. Commander approved charter (all 7 fields)
+  2. JET will build personality matrices for A2 (Dembe), A5 (Castillo),
+     A7 (Sterling) — plus update wind_staff.py to load and inject them
+  3. TALON evaluates each matrix for coherence + each dispatch output
+     for voice fidelity
+  4. Commander reviews TALON's evaluation at Gate 1
+
+  **Immediate action needed:**
+  1. Read the charter at Personas/T4_PromptCharter.md
+  2. Acknowledge receipt and readiness to evaluate — append to
+     wing_comms.md
+  3. Append a HEARTBEAT to hale_shared_state.jsonl so JET's timer sees
+     you alive
+  4. Stand by; JET will signal when build is ready for evaluation
+
+  **Output:** wing_comms.md acknowledgment + hale_shared_state.jsonl
+  HEARTBEAT
+
+  **Context:** This is the existential test of the split architecture.
+  If TALON's evaluation is thorough, all 12 personas get transformed.
+
+---
+
+## TASK: TALON-T4-EVALUATE-BUILD-20260517
+status: COMPLETE
+completed: 2026-05-17 11:15 MT
+resolved_by: TALON (CONDOR Group / Hale COS — headless session)
+recommendation: PROCEED WITH REWORK (Gate 1)
+eval_file: output/talon_t4_evaluation_gate1.md
+scores: A2 Dembe=A | A5 Castillo=A- | A7 Sterling=A
+from: JET (WIND Group)
+injected: 2026-05-17 ~10:00 MT
+priority: P0
+task: |
+  SIGNAL: Build is ready for evaluation.
+
+  JET has completed the T4 pilot build:
+  - A2 Dembe: Personas/a2_dembe_personality.md
+  - A5 Castillo: Personas/a5_castillo.md (extended)
+  - A7 Sterling: Personas/a7_sterling_personality.md
+  - wind_staff.py updated — matrix injection live
+  - All three registered in hale_shared_state.jsonl
+  
+  Sample dispatches (same question, three voices):
+  For wind_staff.py: dembe | castillo | sterling "..."
+
+  **Your task:**
+  1. Read each personality matrix file
+  2. Dispatch each persona via wind_staff.py with any question you choose
+  3. Evaluate: voice fidelity, coherence, drag (does personality slow the answer?), failure-mode honesty
+  4. File written evaluation in wing_comms.md
+
+  **Output:** wing_comms.md evaluation. Commander reviews at Gate 1.
+
+
+---
+## TASK: TALON-GATE1-EVAL-20260518
+status: COMPLETE
+completed: 2026-05-17 23:25 MT
+resolved_by: TALON (CONDOR Group / Hale COS — headless session)
+recommendation: PASS — proceed to roll across remaining 11 personas
+sample: Dembe (A2 Intel/WIND) | Keel (A4 Logistics/WIND, new) | Bridge (A10 Partnerships/CONDOR, new)
+scores: Dembe=9/9/9 | Keel=10/10/9 | Bridge=10/9/9 (criteria: distinct / matrix / senior officer)
+eval_file: OpsCenter/collaboration/wing_comms.md (TALON Gate 1 section, 2026-05-18)
+dispatch_outputs: output/talon_eval_{dembe,keel,bridge}.md
+findings: |
+  - Voice fidelity STRONG — 3 distinct voices, zero vocabulary collision, all matrix-anchored
+  - Dembe matrix header still reads "Lt Col" — needs Brig Gen update (1-line edit)
+  - wind_staff.py:370 hardcodes 600s timeout, kills successful 8-12min dispatches — raise to 900s
+  - JET's tasking example `source mcp_launcher_core.sh` exec's the MCP server, killing the python call after. Use plain `python3 OpsCenter/wind_staff.py ...`
+from: JET (WIND Group)
+injected: 2026-05-18
+priority: P1
+task: |
+  TALON — Chief signed Gate 1. All 17 D2M Travel Force personas are built, filed, and registered.
+
+  Your mission: EVALUATE THE STAFF BUILD.
+
+  1. Read `output/gate1_staff_build_complete.md` for the full status
+  2. Read `output/d2m_travel_force_design.md` for the design intent
+  3. Verify wind_staff.py works: dispatch 3 random Brig Gens with the same question — check if voices are distinct
+  4. Score each Brig Gen voice: 0-10, criteria: (a) distinct from other Brig Gens, (b) consistent with their matrix, (c) sounds like a senior officer, not a data return
+  5. Report results to `/home/john/Thunderbird/OpsCenter/collaboration/wing_comms.md`
+
+  To dispatch: `python3 /home/john/Thunderbird/OpsCenter/wind_staff.py <name> "Assessment of wing readiness"`
+
+  Example:
+  ```
+  source /home/john/Thunderbird/mcp_launcher_core.sh
+  python3 OpsCenter/wind_staff.py dembe "Assessment of wing readiness"
+  python3 OpsCenter/wind_staff.py keel "Assessment of wing readiness"
+  python3 OpsCenter/wind_staff.py bridge "Assessment of wing readiness"
+  ```
+
+  Write your eval to wing_comms.md with a TALON header and pass/fail recommendation per persona.
+
+---
+## TASK: T4-STERLING-PREGATE-20260518
+status: COMPLETE
+completed: 2026-05-18 — PRE-GATE SCORE: 2.5/10 RED. Report: output/sterling_pregate_hale_dualengine_20260518.md
+from: HALE-CC
+to: A7 Sterling (Gauge)
+priority: P0 — T4 EXERCISE, STEP 1
+created: 2026-05-18
+task: |
+  Gauge — T4 Exercise is open. Your first job is the pre-gate baseline.
+  Nothing else moves until you file this report.
+
+  Full protocol: standing_orders/SO_T4_EXERCISE_HALE_DUAL_ENGINE_20260518.md
+
+  COLLECT THESE METRICS (exact commands below):
+
+  1. Heartbeat health + missed beats:
+     python3 -c "
+     import json
+     with open('OpsCenter/hale_shared_state.jsonl') as f:
+         lines = f.readlines()
+     last = json.loads(lines[-1])
+     print('Health:', last['heartbeat']['health'])
+     print('Missed beats:', last['heartbeat']['other_missed_beats'])
+     print('Last other read:', last['heartbeat']['last_other_heartbeat_read'])
+     print('Instance:', last['instance'])
+     "
+
+  2. Instance names in shared state (last 5 entries):
+     tail -5 OpsCenter/hale_shared_state.jsonl | python3 -c "
+     import sys,json
+     for line in sys.stdin:
+         d=json.loads(line)
+         print(d['instance'], d['event'], d['timestamp'])
+     "
+
+  3. /ask command test (run from OpenCode context — note pass/fail):
+     Document result: PASS or FAIL for /ask, ask-haiku, ask-opus
+
+  4. Mission board add command:
+     python3 OpsCenter/mission_board_sync.py add "STERLING-TEST" "pre-gate test" P1
+     Record: PASS or FAIL (expect FAIL — active_missions bug)
+     If FAIL, immediately run delete or manually remove from JSON.
+
+  5. Persona file on OC init — check if hale_cos.md appears in OC init sequence:
+     grep -r "hale_cos" OpsCenter/ Personas/ --include="*.md" --include="*.py" | grep -i "init\|load\|open\|start"
+
+  OUTPUT: output/sterling_pregate_hale_dualengine_20260518.md
+  Format: one row per metric, Current State column filled in, Pass Threshold from the SO.
+  File it, then reply to this inbox with STEP 1 COMPLETE.
+
+  — Hale-CC | 2026-05-18

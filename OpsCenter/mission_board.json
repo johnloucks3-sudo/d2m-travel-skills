@@ -1,19 +1,117 @@
 {
   "missions": [
     {
+      "id": "MISSION-007",
+      "title": "Looker Studio Dashboard Implementation",
+      "status": "active",
+      "priority": "P2",
+      "assigned_to": "Hale/OpenCode",
+      "description": "Implement Looker Studio dashboard for real-time tracking of Claude usage and OpenRouter activity. Dashboard URL: https://datastudio.google.com/u/0/reporting/8a4737e8-2759-4684-8dff-fb519be8f371/page/WSxnF/edit",
+      "created_at": "2026-05-15T18:30:00Z",
+      "updated_at": "2026-05-15T20:43:00Z",
+      "logs": [
+        "[2026-05-15T18:30:00] Mission created by Commander",
+        "[2026-05-15T20:42:00] AI Metrics Dashboard created with Claude + OpenRouter tracking",
+        "[2026-05-15T20:43:00] Dashboard features: Real-time metrics, Google Sheets export, Telegram notifications"
+      ]
+    },
+    {
+      "id": "MISSION-008",
+      "title": "Navarro Inference Profile: Kyle Kuklinski",
+      "status": "pending",
+      "priority": "P1",
+      "assigned_to": "A1 Navarro (JET/OpenCode)",
+      "description": "Generate A1 Navarro dossier inference profile for Kyle Kuklinski. Source: dossiers/Kuklinski_Kyle.md. Output: output/navarro_kuklinski_inference_profile_20260518.md. Include: Travel DNA, Dani Brief, Luna Brief, Red Alerts. Flag: DOSSIER INFERENCE + confidence level.",
+      "deadline": "7-day window",
+      "created_at": "2026-05-18T14:02:00Z",
+      "updated_at": "2026-05-18T08:00:00Z",
+      "logs": [
+        "[2026-05-18T08:00:00] Tasked by HALE VCS via opencode_inbox"
+      ]
+    },
+    {
+      "id": "MISSION-009",
+      "title": "Kuklinski ARC4-A Specialty Dining Email",
+      "status": "pending",
+      "priority": "P1",
+      "assigned_to": "A3 Dani (via JET/OpenCode \u2192 TALON/Claude for voice)",
+      "description": "Draft Dani lifecycle email (ARC4-A \u2014 specialty dining reservation). D2M stationery applied. Preprocess via scripts/gmail_template_stripper.py. Push to Gmail draft labeled THUNDERBIRD-Commander-Review. WF-17 gate \u2014 do NOT send.",
+      "created_at": "2026-05-18T14:02:00Z",
+      "updated_at": "2026-05-18T08:00:00Z",
+      "logs": [
+        "[2026-05-18T08:00:00] Tasked by HALE VCS via opencode_inbox",
+        "[2026-05-18T08:00:00] NOTE: Use Claude Sonnet for voice-matched copy (Brain 2)"
+      ]
+    },
+    {
+      "id": "MISSION-010",
+      "title": "Navarro Inference Profile: Erik McLeod",
+      "status": "pending",
+      "priority": "P1",
+      "assigned_to": "A1 Navarro (JET/OpenCode)",
+      "description": "Generate A1 Navarro dossier inference profile for Erik McLeod. Source: dossiers/McLeod_Erik.md. Output: output/navarro_mcleod_inference_profile_20260518.md. Pre-departure research window opening \u2014 time-sensitive.",
+      "deadline": "7-day window",
+      "created_at": "2026-05-18T14:02:00Z",
+      "updated_at": "2026-05-18T08:00:00Z",
+      "logs": [
+        "[2026-05-18T08:00:00] Tasked by HALE VCS via opencode_inbox"
+      ]
+    },
+    {
+      "id": "MISSION-011",
+      "title": "Navarro Inference Profile: Larry Nichols",
+      "status": "pending",
+      "priority": "P2",
+      "assigned_to": "A1 Navarro (JET/OpenCode)",
+      "description": "Generate A1 Navarro dossier inference profile for Larry Nichols. Source: dossiers/Nichols_Larry.md. Output: output/navarro_nichols_inference_profile_20260518.md. Dining reservation window opens May 31.",
+      "deadline": "7-day window",
+      "created_at": "2026-05-18T14:02:00Z",
+      "updated_at": "2026-05-18T08:00:00Z",
+      "logs": [
+        "[2026-05-18T08:00:00] Tasked by HALE VCS via opencode_inbox"
+      ]
+    },
+    {
+      "id": "MISSION-012",
+      "title": "SPSA Repair: SPSA-20260515-14D0B",
+      "status": "pending",
+      "priority": "P2",
+      "assigned_to": "JET/OpenCode (Brain 1 \u2014 DeepSeek)",
+      "description": "Investigate OpenCode state/process discrepancy. Root-cause fix. Log resolution to hale_decisions.md.",
+      "created_at": "2026-05-18T14:02:00Z",
+      "updated_at": "2026-05-18T08:00:00Z",
+      "logs": [
+        "[2026-05-18T08:00:00] Tasked by HALE VCS via opencode_inbox"
+      ]
+    },
+    {
+      "id": "MISSION-013",
+      "title": "SPSA Repair: SPSA-20260514-26A34",
+      "status": "pending",
+      "priority": "P2",
+      "assigned_to": "JET/OpenCode (Brain 1 \u2014 DeepSeek)",
+      "description": "Investigate OpenCode state/process discrepancy. Root-cause fix. Log resolution to hale_decisions.md.",
+      "created_at": "2026-05-18T14:02:00Z",
+      "updated_at": "2026-05-18T08:00:00Z",
+      "logs": [
+        "[2026-05-18T08:00:00] Tasked by HALE VCS via opencode_inbox"
+      ]
+    },
+    {
       "id": "MISSION-024",
       "title": "McLeod FPD Payment Orchestration",
       "status": "active",
       "priority": "P1",
       "assigned_to": "Hale",
-      "description": "McLeod Grandeur Lesser Antilles (Dec 19-29, 2026). FPD: 22-Jul-26 (78 days). Cruise fare: $13,398. Balance due: $12,427. Tasks: (1) Confirm cabin selection response by May 10, (2) Set payment reminder cadence (Aug 1, Aug 15, Jul 22), (3) Surface financial commitment to Commander for approval, (4) Monitor payment clearing.",
+      "description": "McLeod Grandeur Lesser Antilles (Dec 19-29, 2026). FPD: 22-Jul-26. Cruise fare: $13,398. Balance due: $12,427. Tasks: (1) Cabin selection response \u2014 OVERDUE (was May 10), (2) Set payment reminder cadence (Aug 1, Aug 15, Jul 22), (3) Surface financial commitment to Commander, (4) Monitor payment clearing.",
       "created_at": "2026-05-04T20:00:00Z",
-      "updated_at": "2026-05-07T07:34:19.647804Z",
+      "updated_at": "2026-05-18T08:00:00Z",
       "logs": [
-        "[2026-05-04T20:00:00Z] McLeod FPD critical discovery: 22-Jul-26 (78 days out), not Sep 1",
-        "[2026-05-04T20:00:00Z] Cabin selection email ready for Dani dispatch",
-        "[2026-05-04T22:18:59.678176Z] Updated: All payments Furlow/Ely/Nichols confirmed cleared Apr 1",
-        "[2026-05-07T07:34:19.647804Z] Hale status: Cabin selection response window open until May 10. FPD 22-Jul-26 (76 days). Financial commitment gate HELD \u2014 awaiting Commander return. Payment reminder cadence set in dossier."
+        "[2026-05-04T20:00:00] McLeod FPD critical discovery: 22-Jul-26 (78 days out), not Sep 1",
+        "[2026-05-04T20:00:00] Cabin selection email ready for Dani dispatch",
+        "[2026-05-04T22:18:59] Updated: All payments Furlow/Ely/Nichols confirmed cleared Apr 1",
+        "[2026-05-07T07:34:19] Hale status: Cabin selection response window open until May 10",
+        "[2026-05-18T08:00:00] **OVERDUE**: Cabin selection response not received. Escalation needed."
       ]
     },
     {
@@ -22,28 +120,28 @@
       "status": "completed",
       "priority": "P1",
       "assigned_to": "Hale",
-      "description": "Review OpenClaw P0/P4/P2 build output (Skill Builder, Multi-Agent Spawn, Heartbeat). Build spawned at 2026-05-04 14:36 MT (PID 2308172). Output: /home/john/Thunderbird/output/OPENCLAW_P0P4P2_BUILD.md. Tasks: (1) Review generated code for correctness, (2) Run integrated test suite, (3) Verify no WF-17 violations, (4) Stage files for integration into Thunderbird core.",
+      "description": "Review OpenClaw P0/P4/P2 build output (Skill Builder, Multi-Agent Spawn, Heartbeat).",
       "created_at": "2026-05-04T20:36:00Z",
-      "updated_at": "2026-05-07T07:34:19.647804Z",
+      "updated_at": "2026-05-07T07:34:19Z",
       "logs": [
-        "[2026-05-04T20:36:02Z] OpenClaw P0/P4/P2 build spawned to headless Claude",
-        "[2026-05-04T20:36:02Z] Awaiting build completion (~45min ETA)",
-        "[2026-05-07T07:34:19.647804Z] COMPLETED by Hale: Build verified. All 13 tests PASS. Files exist: skill_builder, multi_agent, heartbeat, deploy timers. Existing thunderbird-heartbeat.timer already active (daily @ 0600 MT). No new timer install needed."
+        "[2026-05-04T20:36:02] OpenClaw P0/P4/P2 build spawned to headless Claude",
+        "[2026-05-07T07:34:19] COMPLETED: Build verified. All 13 tests PASS."
       ]
     },
     {
       "id": "MISSION-026",
       "title": "Cabin Selection Follow-up Monitoring",
       "status": "active",
-      "priority": "P2",
+      "priority": "P1",
       "assigned_to": "Hale",
-      "description": "Monitor cabin selection responses from McLeod + Kuklinski (emails dispatched May 4). Expected response window: May 10-11. Tasks: (1) Set 24hr escalation trigger if no response by May 10, (2) Confirm cabin categories selected, (3) Update dossiers with cabin assignments, (4) Trigger Phase 2 pipeline (A2 Dembe destination research, A8 Reyes recommendations).",
-      "created_at": "2026-05-04T22:18:59.678197Z",
-      "updated_at": "2026-05-07T07:34:19.647804Z",
+      "description": "Monitor cabin selection responses from McLeod + Kuklinski (emails dispatched May 4). BOTH OVERDUE. Tasks: (1) Immediate escalation to Commander, (2) Follow-up with both clients, (3) Update dossiers with responses when received, (4) Trigger Phase 2 pipeline (A2 Dembe destination research, A8 Reyes recommendations).",
+      "created_at": "2026-05-04T22:18:59Z",
+      "updated_at": "2026-05-18T08:00:00Z",
       "logs": [
-        "[2026-05-04T22:18:59.678215Z] MISSION-026 created \u2014 Cabin selection watch",
-        "[2026-05-04T22:18:59.678223Z] Deadline: May 10 (escalation trigger if no response)",
-        "[2026-05-07T07:34:19.647804Z] Hale status: Response window open. May 10 deadline = 3 days out. No responses received yet in d2mconcierge. Escalation will trigger May 10 if no cabin selection from McLeod or Kuklinski."
+        "[2026-05-04T22:18:59] MISSION-026 created \u2014 Cabin selection watch",
+        "[2026-05-04T22:18:59] Deadline: May 10 (escalation trigger if no response)",
+        "[2026-05-07T07:34:19] Hale status: Response window open. May 10 deadline = 3 days out.",
+        "[2026-05-18T08:00:00] **OVERDUE**: No cabin selection responses received from McLeod or Kuklinski. Escalation required."
       ]
     },
     {
@@ -52,117 +150,82 @@
       "status": "completed",
       "priority": "P1",
       "assigned_to": "Hale",
-      "description": "Debug Telegram integration across all channels (D2MC2C, GooseD2M, Dani). Verify: (1) Message delivery, (2) Command routing (/status, /hale, /approve, /reject), (3) Commander paging (30-60 sec cadence), (4) Inbox sync (d2mconcierge + johnloucks3), (5) Approval marker detection. Expected: Match design from 2026-05-03 session.",
-      "created_at": "2026-05-04T22:18:59.678233Z",
-      "updated_at": "2026-05-07T07:34:19.647804Z",
+      "description": "Debug Telegram integration across all channels (D2MC2C, GooseD2M, Dani).",
+      "created_at": "2026-05-04T22:18:59Z",
+      "updated_at": "2026-05-07T07:34:19Z",
       "logs": [
-        "[2026-05-04T22:18:59.678249Z] MISSION-027 created by Hale \u2014 Telegram debug request from Commander",
-        "[2026-05-04T22:18:59.678258Z] Scope: All channels (D2MC2C, GooseD2M, Dani), all commands, approval detection",
-        "[2026-05-07T07:34:19.647804Z] COMPLETED by Hale: thunderbird-telegram-gw.service restarted cleanly at 01:31 MDT. New publish_draft import verified in venv. Service running stable. All 3 bots active (D2MC2C + GooseD2M + Dani)."
+        "[2026-05-07T07:34:19] COMPLETED: thunderbird-telegram-gw.service restarted cleanly. All 3 bots active."
       ]
+    },
+    {
+      "id": "MISSION-DOC-SYNC",
+      "title": "Synchronize Model Documentation",
+      "status": "complete",
+      "description": "Archive MULTI_MODEL_STACK.md, update AGENTS.md, audit ghost configs."
+    },
+    {
+      "id": "MISSION-014",
+      "title": "AUDIT \u2014 Draft & Final Delivery Procedures (WF-17 Chain)",
+      "description": "Full audit of all procedures for: (1) sending drafts to Commander for review/edit, (2) moving finals through WF-17 chain to clients. Root problem: messages.send() was used to deliver Lyons draft to johnloucks3 \u2014 arrived as received email, not editable draft. Commander could not edit. Audit must: (a) inventory every draft/final delivery pattern currently in use across core/email/, scripts/, OpsCenter/; (b) flag broken patterns; (c) produce corrected SOPs specifying when to use drafts.create vs messages.send, correct account (d2mconcierge vs johnloucks3), and WF-17 gate sequencing. Output to output/audit_draft_delivery_procedures_20260518.md.",
+      "status": "pending",
+      "priority": "P1",
+      "assigned_to": "A7 Sterling + OpenCode",
+      "created": "2026-05-18T08:22:53.722110",
+      "owner": "HALE"
+    },
+    {
+      "id": "MISSION-029",
+      "title": "STERLING-TEST2 post-fix validation",
+      "status": "completed",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "P1",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-05-18T15:59:33.526543+00:00",
+      "updated_at": "2026-05-18T15:59:33.526548+00:00",
+      "completed_at": "2026-05-18T15:59:33.551658+00:00"
     }
   ],
-  "suspense_watch": [],
-  "last_updated": "2026-05-07T07:34:19.647804Z",
-  "active_missions": [
+  "suspense_watch": [
     {
-      "id": "MISSION-001",
-      "title": "|",
-      "status": "cancelled",
-      "priority": "P1",
-      "assigned_to": "NEXUS (auto)",
-      "description": "|",
-      "created_at": "2026-05-04T22:36:38.914472+00:00",
-      "updated_at": "2026-05-07T07:34:19.647804Z",
-      "logs": [
-        "[2026-05-04T22:36:38] Auto-created from inbox",
-        "[2026-05-07T07:34:19.647804Z] Cancelled: malformed auto-entry, no real task content."
-      ]
+      "date": "2026-05-18",
+      "item": "McLeod cabin selection \u2014 ESCALATE",
+      "priority": "P1"
     },
     {
-      "id": "MISSION-002",
-      "title": "DEBUG: ttyd browser",
-      "status": "resolved",
-      "priority": "P0",
-      "assigned_to": "NEXUS (auto)",
-      "description": "terminal not connecting from Chromebook nginx now listening on 100.69.222.124:8099 (Tailscale). Commander reports no connection from Chromebook. Check: ttyd process health, nginx error logs, Tailscale routing, htpasswd auth. Expected URL: http://100.69.222.124:8099 user=john pass=535277 P2",
-      "deliverables": [],
-      "dependencies": [],
-      "suspense_date": null,
-      "escalation_rule": null,
-      "logs": [
-        "[2026-05-07T07:33:59] RESOLVED: nginx vhost created at /etc/nginx/vhosts.d/ttyd.conf. ttyd on 100.69.222.124:8099 via proxy to 127.0.0.1:3100. Auth updated. HTTP 200 + WS 101 confirmed."
-      ],
-      "created_at": "2026-05-06T18:36:01.952795+00:00",
-      "updated_at": "2026-05-07T07:34:19.647804Z"
+      "date": "2026-05-18",
+      "item": "Kuklinski cabin selection \u2014 ESCALATE",
+      "priority": "P2"
     },
     {
-      "id": "MISSION-003",
-      "title": "DEBUG: D2MC2 and",
-      "status": "resolved",
-      "priority": "P0",
-      "assigned_to": "NEXUS (auto)",
-      "description": "Goose Telegram bot errors Commander reports persistent errors on D2MC2C and GooseD2M Telegram bots. Check: thunderbird-telegram-gw.service logs, bot token validity, dispatcher errors, Hale router import failures. Resolve and restore clean operation. P1",
-      "deliverables": [],
-      "dependencies": [],
-      "suspense_date": null,
-      "escalation_rule": null,
-      "logs": [
-        "[2026-05-07T07:33:59] Telegram gateway restarted cleanly with two-lane email pipeline import. Running stable at 01:31 MDT. Monitored 5 min, no errors."
-      ],
-      "created_at": "2026-05-06T18:36:01.978069+00:00",
-      "updated_at": "2026-05-07T07:34:19.647804Z"
+      "date": "2026-06-23",
+      "item": "McLeod/McGlasson Silver Muse embarkation",
+      "priority": "P1"
     },
     {
-      "id": "MISSION-004",
-      "title": "OpenClaw Implementation Verification",
-      "status": "in_progress",
-      "priority": "P0",
-      "assigned_to": "NEXUS (auto)",
-      "description": "Verify that OpenClaw P0/P4/P2 are correctly wired into live Thunderbird systems beyond unit tests. Check: (1) /build-skill and /spawn commands registered in thunderbird_telegram_c2.py, (2) heartbeat.py imports and scan functions callable, (3) deploy/ timer files match installed user systemd units, (4) No WF-17 violations or client-facing side effects. Output: integration report to /home/john/Thunderbird/output/openclaw_integration_check.md",
-      "deliverables": [],
-      "dependencies": [],
-      "suspense_date": null,
-      "escalation_rule": null,
-      "logs": [
-        "[2026-05-07T07:36:23] Headless Claude spawned PID=3837492 \u2014 openclaw_integration_check. Output: output/openclaw_integration_check.md. ETA ~10min."
-      ],
-      "created_at": "2026-05-07T07:35:27.217665+00:00",
-      "updated_at": "2026-05-07T07:36:23.971294+00:00"
+      "date": "2026-07-22",
+      "item": "McLeod Grandeur FPD ($12,393.15)",
+      "priority": "P1"
     },
     {
-      "id": "MISSION-005",
-      "title": "Intel Report Debug",
-      "status": "in_progress",
-      "priority": "P0",
-      "assigned_to": "NEXUS (auto)",
-      "description": "Sweep Diagnose and document all known issues with intel report generation and delivery pipeline. Check: (1) morning brief generation (hale_brief.md, fires at 01:30 MDT), (2) incubator digest pipeline, (3) ship intel sweep, (4) email delivery to johnloucks3 via gmail_send_from_wing, (5) JSON structure compliance per INTEL_STANDARDS.md, (6) any broken sources or missing hyperlinks. Output: debug report to /home/john/Thunderbird/output/intel_pipeline_debug.md",
-      "deliverables": [],
-      "dependencies": [],
-      "suspense_date": null,
-      "escalation_rule": null,
-      "logs": [
-        "[2026-05-07T07:36:23] Headless Claude spawned PID=3837731 \u2014 intel_pipeline_debug. Output: output/intel_pipeline_debug.md. ETA ~10min."
-      ],
-      "created_at": "2026-05-07T07:35:27.241540+00:00",
-      "updated_at": "2026-05-07T07:36:23.997000+00:00"
+      "date": "2026-08-01",
+      "item": "Commander Grandeur FPD ($24,798)",
+      "priority": "P1"
     },
     {
-      "id": "MISSION-006",
-      "title": "Records Maintenance Best",
-      "status": "in_progress",
-      "priority": "P0",
-      "assigned_to": "NEXUS (auto)",
-      "description": "Practices Document Develop a comprehensive best practices guide for Thunderbird records and dossier maintenance. Cover: (1) dossier lifecycle (creation, update, archive), (2) FPD tracking cadence, (3) THUNDERBIRD_MASTER_PLAN sync protocol, (4) Drive mirror rules, (5) data quality checks, (6) retention/purge policy, (7) gap detection via thunderbird_dossier_scanner.py. Output: SOP to /home/john/Thunderbird/docs/RECORDS_MAINTENANCE_SOP.md",
-      "deliverables": [],
-      "dependencies": [],
-      "suspense_date": null,
-      "escalation_rule": null,
-      "logs": [
-        "[2026-05-07T07:36:24] Headless Claude spawned PID=3838274 \u2014 records_maintenance_sop. Output: docs/RECORDS_MAINTENANCE_SOP.md. ETA ~10min."
-      ],
-      "created_at": "2026-05-07T07:35:27.264631+00:00",
-      "updated_at": "2026-05-07T07:36:24.022111+00:00"
+      "date": "2026-08-29",
+      "item": "Scandi Group embarkation",
+      "priority": "P1"
+    },
+    {
+      "date": "2026-12-17",
+      "item": "Kuklinski/Morton Viking Mars",
+      "priority": "P1"
     }
-  ]
+  ],
+  "last_updated": "2026-05-18T08:22:53.722117"
 }
