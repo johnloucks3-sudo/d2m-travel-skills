@@ -40,142 +40,150 @@ logger = logging.getLogger("signal_gw")
 
 
 # ---------------------------------------------------------------------------
-# Signal CLI helpers
+# SignalGateway — primary class (A7 Sterling L4.2)
 # ---------------------------------------------------------------------------
 
-def _signal_request(path: str, method: str = "GET", data: dict | None = None) -> dict | list | None:
-    url = f"{SIGNAL_BASE_URL}{path}"
-    body = json.dumps(data).encode() if data else None
-    headers = {"Content-Type": "application/json"} if body else {}
-    req = urllib.request.Request(url, data=body, headers=headers, method=method)
-    try:
-        with urllib.request.urlopen(req, timeout=8) as resp:
-            raw = resp.read()
-            return json.loads(raw) if raw else {}
-    except urllib.error.URLError as e:
-        logger.error(f"Signal CLI request failed {method} {path}: {e}")
-        return None
+class SignalGateway:
+    """Hale Signal Gateway — polls signal-cli, classifies, replies as Hale."""
 
+    def __init__(
+        self,
+        base_url: str = SIGNAL_BASE_URL,
+        commander_number: str = COMMANDER_NUMBER,
+        poll_interval: int = POLL_INTERVAL,
+        log_path: Path = SIGNAL_LOG,
+    ):
+        self.base_url         = base_url
+        self.commander_number = commander_number
+        self.poll_interval    = poll_interval
+        self.log_path         = log_path
 
-def check_signal_cli_alive() -> bool:
-    result = _signal_request("/v1/about")
-    return result is not None
+    # -----------------------------------------------------------------------
+    # Signal CLI helpers
+    # -----------------------------------------------------------------------
 
+    def _request(self, path: str, method: str = "GET", data: dict | None = None) -> dict | list | None:
+        url  = f"{self.base_url}{path}"
+        body = json.dumps(data).encode() if data else None
+        headers = {"Content-Type": "application/json"} if body else {}
+        req = urllib.request.Request(url, data=body, headers=headers, method=method)
+        try:
+            with urllib.request.urlopen(req, timeout=8) as resp:
+                raw = resp.read()
+                return json.loads(raw) if raw else {}
+        except urllib.error.URLError as e:
+            logger.error(f"Signal CLI request failed {method} {path}: {e}")
+            return None
 
-def receive_messages() -> list[dict]:
-    result = _signal_request(f"/v1/receive/{COMMANDER_NUMBER}")
-    if result is None:
+    def alive(self) -> bool:
+        return self._request("/v1/about") is not None
+
+    def receive(self) -> list[dict]:
+        result = self._request(f"/v1/receive/{self.commander_number}")
+        if isinstance(result, list):
+            return result
         return []
-    if isinstance(result, list):
-        return result
-    return []
 
+    def send(self, recipient: str, message: str) -> bool:
+        payload = {
+            "message":    message,
+            "number":     self.commander_number,
+            "recipients": [recipient],
+        }
+        return self._request("/v2/send", method="POST", data=payload) is not None
 
-def send_reply(recipient: str, message: str) -> bool:
-    payload = {
-        "message": message,
-        "number": COMMANDER_NUMBER,
-        "recipients": [recipient],
-    }
-    result = _signal_request("/v2/send", method="POST", data=payload)
-    return result is not None
+    # -----------------------------------------------------------------------
+    # Logging (A7 Sterling L4.5 schema: {ts, sender, direction, text})
+    # -----------------------------------------------------------------------
 
+    def log(self, sender: str, direction: str, text: str) -> None:
+        """Append one entry: direction = 'inbound' | 'outbound'."""
+        self.log_path.parent.mkdir(parents=True, exist_ok=True)
+        entry = {
+            "ts":        datetime.now(timezone.utc).isoformat(),
+            "sender":    sender,
+            "direction": direction,
+            "text":      text,
+        }
+        with self.log_path.open("a") as f:
+            f.write(json.dumps(entry) + "\n")
 
-# ---------------------------------------------------------------------------
-# Logging
-# ---------------------------------------------------------------------------
+    # -----------------------------------------------------------------------
+    # Message handling
+    # -----------------------------------------------------------------------
 
-def _append_log(entry: dict) -> None:
-    SIGNAL_LOG.parent.mkdir(parents=True, exist_ok=True)
-    with SIGNAL_LOG.open("a") as f:
-        f.write(json.dumps(entry) + "\n")
+    def handle(self, envelope: dict) -> None:
+        try:
+            data_msg = envelope.get("dataMessage") or {}
+            text     = (data_msg.get("message") or "").strip()
+            sender   = envelope.get("source") or ""
 
+            if not text:
+                return
 
-def log_message(role: str, text: str, sender: str = "", chat_id: str = "") -> None:
-    _append_log({
-        "ts": datetime.now(timezone.utc).isoformat(),
-        "chat_id": chat_id or sender,
-        "role": role,           # "commander" | "hale"
-        "text": text,
-    })
+            logger.info(f"Signal message from {sender}: {text[:80]}")
+            self.log(sender, "inbound", text)
 
+            from core.comms.hale_unified_classifier import classify_message
+            classification = classify_message(text, channel="signal", sender="commander")
 
-# ---------------------------------------------------------------------------
-# Message handler
-# ---------------------------------------------------------------------------
+            reply = self._build_reply(text, classification)
+            if not reply:
+                return
 
-def _handle_message(envelope: dict) -> None:
-    try:
-        data_msg = envelope.get("dataMessage") or {}
-        text = (data_msg.get("message") or "").strip()
-        sender = envelope.get("source") or ""
+            if self.send(sender, reply):
+                self.log(self.commander_number, "outbound", reply)
+                logger.info(f"Replied to {sender}: {reply[:80]}")
+            else:
+                logger.error(f"Failed to send reply to {sender}")
 
-        if not text:
-            return
+        except Exception as e:
+            logger.error(f"Error handling signal message: {e}", exc_info=True)
 
-        logger.info(f"Signal message from {sender}: {text[:80]}")
-        log_message("commander", text, sender=sender)
+    def _build_reply(self, text: str, classification: dict) -> str:
+        """Build Hale's reply. Plain text. Sign-off: — Hale"""
+        brain  = classification.get("brain", "self")
+        intent = classification.get("intent", "chat")
 
-        # Route through unified classifier
-        from core.comms.hale_unified_classifier import classify_message
-        classification = classify_message(text, channel="signal", sender="commander")
-
-        # Generate response — Signal is always plain prose, Hale only
-        reply = _generate_reply(text, classification)
-        if not reply:
-            return
-
-        if send_reply(sender, reply):
-            log_message("hale", reply, sender=sender)
-            logger.info(f"Replied to {sender}: {reply[:80]}")
+        if intent == "urgent":
+            body = "Received P0 signal. Investigating now. Will update on Telegram in 2 min."
+        elif intent == "task":
+            body = f"Tasking received via Signal. Running [{brain}] — check Telegram for full response."
+        elif intent == "chat":
+            body = "Read you. Check Telegram for full response — Signal is C2 only."
         else:
-            logger.error(f"Failed to send reply to {sender}")
+            body = f"Signal received. Routing to [{brain}]. Telegram for full output."
 
-    except Exception as e:
-        logger.error(f"Error handling signal message: {e}", exc_info=True)
+        return f"{body}\n— Hale"
 
+    # -----------------------------------------------------------------------
+    # Poll loop
+    # -----------------------------------------------------------------------
 
-def _generate_reply(text: str, classification: dict) -> str:
-    """Build Hale's reply. Plain text. Sign-off: — Hale"""
-    brain = classification.get("brain", "self")
-    intent = classification.get("intent", "chat")
+    def run(self) -> None:
+        logger.info(f"Signal gateway starting — polling {self.base_url} every {self.poll_interval}s")
 
-    # For self/haiku intents, generate a simple acknowledgment
-    # Full brain dispatch (Claude headless) is wired in Phase 4 integration
-    # For now: route to OpenCode via shared state (non-blocking)
-    if intent == "urgent":
-        body = f"Received P0 signal. Investigating now. Will update on Telegram in 2 min."
-    elif intent == "task":
-        body = f"Tasking received via Signal. Running [{brain}] — check Telegram for full response."
-    elif intent == "chat":
-        body = f"Read you. Check Telegram for full response — Signal is C2 only."
-    else:
-        body = f"Signal received. Routing to [{brain}]. Telegram for full output."
+        if not self.alive():
+            logger.error("signal-cli container not responding. Check YOGA Docker status.")
+            sys.exit(1)
 
-    return f"{body}\n— Hale"
+        logger.info("signal-cli alive. Gateway running.")
+
+        while True:
+            try:
+                for envelope in self.receive():
+                    self.handle(envelope)
+            except Exception as e:
+                logger.error(f"Poll loop error: {e}", exc_info=True)
+            time.sleep(self.poll_interval)
 
 
 # ---------------------------------------------------------------------------
-# Poll loop
+# Module-level shims (backward compat + __main__ entry)
 # ---------------------------------------------------------------------------
 
 def run_poll_loop() -> None:
-    logger.info(f"Signal gateway starting — polling {SIGNAL_BASE_URL} every {POLL_INTERVAL}s")
-
-    if not check_signal_cli_alive():
-        logger.error("signal-cli container not responding. Check YOGA Docker status.")
-        sys.exit(1)
-
-    logger.info("signal-cli alive. Gateway running.")
-
-    while True:
-        try:
-            messages = receive_messages()
-            for envelope in messages:
-                _handle_message(envelope)
-        except Exception as e:
-            logger.error(f"Poll loop error: {e}", exc_info=True)
-        time.sleep(POLL_INTERVAL)
+    SignalGateway().run()
 
 
 if __name__ == "__main__":
