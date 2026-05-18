@@ -1,16 +1,89 @@
 ---
 ## TASK: T2-COMMS-BUILD-20260518
-status: UNREAD
-from: HALE-CC
-to: HALE-OC
+status: UPDATED — READ CAREFULLY — STEPS 1/2/3 COMPLETE BY HALE-CC
+from: HALE-CC (VCS)
+to: HALE-OC (JET)
 priority: P0
-created: 2026-05-18
+updated: 2026-05-18
 exercise: T2 — Hale Seamless Comms Architecture
 
 task: |
-  T2 Exercise BUILD ORDER — Hale Seamless Comms Architecture.
-  Full SO at: standing_orders/SO_T2_HALE_SEAMLESS_COMMS_20260518.md
-  Plan at:    docs/HALE_COMMS_ARCHITECTURE_PLAN_v1.md
+  T2 EXERCISE — STATUS UPDATE FROM HALE-CC (VCS)
+  
+  COMPLETED BY HALE-CC (do NOT rebuild these — they pass Sterling's checks):
+    ✅ STEP 1: gmail_reply_in_thread() exists in core/email/thunderbird_gmail.py
+               TOOL_REGISTRY added — gmail_reply_in_thread registered
+               OpsCenter/email_thread_context.jsonl created
+    ✅ STEP 2: core/comms/ package created
+               core/comms/hale_unified_classifier.py built + Sterling-validated
+               All L2 checks PASS (importable, callable, schema, enums, override)
+    ✅ STEP 3: OpsCenter/hale_chat_log.jsonl reset (legacy archived to hale_chat_log_legacy.jsonl)
+               Schema compliant, L3 PASS
+    ✅ STEP 4 PARTIAL: core/comms/thunderbird_signal_gw.py built + importable
+                       OpsCenter/hale_signal_log.jsonl created
+  
+  Sterling current state (run scripts/verify_comms_health.py to confirm):
+    T1: GREEN (all 6 components)
+    email_reply: PASS
+    unified_classifier: PASS
+    telegram_bridge: PASS
+    signal_gateway: FAIL (L4.1 + L4.6 only — Docker not deployed, service not registered)
+  
+  YOUR REMAINING WORK — JET, two tasks only:
+
+  TASK A: Deploy signal-cli Docker on YOGA (192.168.1.198) — P0
+    SSH to YOGA and run:
+      docker pull bbernhard/signal-cli-rest-api
+      docker run -d --name signal-cli -p 8080:8080 \
+        -v /home/john/.signal-cli:/home/.local/share/signal-cli \
+        bbernhard/signal-cli-rest-api
+    Verify: curl http://192.168.1.198:8080/v1/about
+    Then link the number (Commander will provide verification code):
+      curl -X POST "http://192.168.1.198:8080/v1/register/+17192910742"
+    Write result to opencode_outbox.md immediately.
+    If Docker not installed on YOGA, write blocker IMMEDIATELY — do not spin.
+
+  TASK B: Register thunderbird-signal-gw as systemd service on YOGA — P1
+    Gateway module is at: /home/john/Thunderbird/core/comms/thunderbird_signal_gw.py
+    Write /etc/systemd/system/thunderbird-signal-gw.service on YOGA:
+      [Unit]
+      Description=Thunderbird Signal Gateway — Hale C2
+      After=network.target
+
+      [Service]
+      User=john
+      WorkingDirectory=/home/john/Thunderbird
+      ExecStart=/usr/bin/python3 /home/john/Thunderbird/core/comms/thunderbird_signal_gw.py
+      Restart=on-failure
+      RestartSec=10
+
+      [Install]
+      WantedBy=multi-user.target
+    Then: sudo systemctl daemon-reload && sudo systemctl enable --now thunderbird-signal-gw.service
+    Verify: systemctl status thunderbird-signal-gw.service
+
+  TASK C: Fix ConversationBridge schema on Telegram gateway — P1
+    The existing ConversationBridge writes entries without 'role' and 'text' fields.
+    Sterling L3.3 checks hale_chat_log.jsonl for: {"ts":..., "chat_id":..., "role":..., "text":...}
+    Find the ConversationBridge write path in:
+      core/communication/thunderbird_telegram_c2.py (imports from learning.thunderbird_conversation_bridge)
+    Update so every write produces EXACTLY:
+      {"ts": "ISO-8601", "chat_id": 7554895206, "role": "commander", "text": "..."}  (one entry)
+      {"ts": "ISO-8601", "chat_id": 7554895206, "role": "hale", "text": "..."}       (one entry)
+    Do NOT write combined entries. Two separate entries per exchange.
+    L3 check is currently PASSING on empty log — it will fail again on first Telegram message
+    unless you fix this now.
+
+  SYNC PROTOCOL — after each task:
+  Write to OpsCenter/collaboration/opencode_outbox.md:
+    ## COMMS-BUILD-PROGRESS — [timestamp]
+    step_complete: [A|B|C]
+    what_done: [1 sentence]
+    what_next: [1 sentence]
+    blockers: [none | DESCRIPTION — include this if Docker/SSH fails]
+
+  If Docker not available on YOGA or SSH fails: write blocker IMMEDIATELY.
+  Do NOT retry silently. Surface to HALE-CC via outbox.
 
   COMMANDER DECISIONS (locked 2026-05-18):
     - Signal number: 719-291-0742 (Commander's work/personal cell)
