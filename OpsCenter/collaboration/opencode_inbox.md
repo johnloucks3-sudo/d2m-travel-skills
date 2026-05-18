@@ -1,6 +1,157 @@
 ---
-## TASK: T4-CARRYOVER-CLOCK-SKEW-20260518
+## TASK: T2-COMMS-BUILD-20260518
 status: UNREAD
+from: HALE-CC
+to: HALE-OC
+priority: P0
+created: 2026-05-18
+exercise: T2 — Hale Seamless Comms Architecture
+
+task: |
+  T2 Exercise BUILD ORDER — Hale Seamless Comms Architecture.
+  Full SO at: standing_orders/SO_T2_HALE_SEAMLESS_COMMS_20260518.md
+  Plan at:    docs/HALE_COMMS_ARCHITECTURE_PLAN_v1.md
+
+  COMMANDER DECISIONS (locked 2026-05-18):
+    - Signal number: 719-291-0742 (Commander's work/personal cell)
+    - Signal protocol: signal-cli Docker on YOGA (192.168.1.198)
+    - Email reply SLA: 2 minutes
+    - Thread context: 20-message window, informal after first reply
+    - Email prefix: NO "COS/Hale/Vic" prefix required after first reply in thread
+    - Dani on Signal: HALE ONLY — Signal is Commander C2, no Dani
+    - Phase order: 1 (email) → 4 (classifier) → 2 (Telegram) → 3 (Signal)
+
+  BUILD SEQUENCE — execute in this order:
+
+  STEP 1 — Email Reply Gap (P0) — HARD STOP 2026-05-20
+  Build gmail_thread_reply() in core/email/thunderbird_gmail.py:
+    - Parameters: thread_id, to_address, body_html, subject, in_reply_to, references
+    - Uses messages.insert() with In-Reply-To + References headers to stay in thread
+    - Thread mode logic:
+        def is_first_reply(thread_id: str) -> bool:
+            """Returns True if Hale has never replied in this thread."""
+            # Check OpsCenter/email_thread_context.jsonl
+        if is_first_reply(thread_id):
+            body = wrap_stationery(response)
+            format_mode = "tq_talking_paper"
+        else:
+            body = plain_prose(response)
+            format_mode = "informal"
+    - Add to TOOL_REGISTRY so you can call it natively
+    - Wire into n8n ETB 001: after OpenCode response generated → call gmail_thread_reply()
+    - Store thread_id + message_id per thread in OpsCenter/email_thread_context.jsonl
+    - Success: Commander sends "Hale, status?" → stationery reply in same thread <2 min
+      Follow-up in same thread: "what about McLeod?" → plain prose, no activation word
+
+  STEP 2 — Unified Classifier (P1) — by 2026-05-20
+  Build core/comms/hale_unified_classifier.py:
+    def classify_message(text: str, channel: str, sender: str) -> dict:
+        return {
+            "intent": "task | chat | intel | client | urgent | clarification",
+            "brain": "haiku | sonnet | opus | self",
+            "persona": "hale",
+            "format": "tq_talking | tq_background | plain | stationery | informal",
+            "priority": "P0 | P1 | P2 | P3",
+            "thread_mode": "first | continuation",
+            "override": None
+        }
+    Classification rules:
+      OPUS: prefix → intent=Commander-level, brain=opus, format=tq_background
+      HAIKU: prefix → brain=haiku, format=plain
+      Question + <50 words → intent=chat, brain=self, format=informal
+      Task verbs (build/fix/draft/analyze/task) → intent=task, brain=sonnet, format=tq_talking
+      Client name → intent=client, brain=sonnet, format=stationery
+      URGENT/P0 → intent=urgent, brain=opus, format=plain
+      Default → brain=self, format=informal
+    All three gateways import this classifier. One logic, three channels.
+    Success: 5 test messages with different intents all route correctly.
+
+  STEP 3 — Telegram Polish (P1) — by 2026-05-21
+  Fix thunderbird_telegram_gw.py / telegram_pager_c2.py:
+    1. XML bleed strip: re.sub(r'\[/?[a-z_:]+\]', '', text) + strip ANSI codes
+       Strip: [use_mcp_tool], [bash], [antml:function_calls], all angle-bracket tool syntax
+    2. Chunking: split at 4096 chars on paragraph boundary (\n\n), not mid-sentence
+       If no paragraph break in 4096: split at last sentence boundary (. or \n)
+    3. ConversationBridge: append every Commander message + Hale response to
+       OpsCenter/hale_chat_log.jsonl keyed by chat_id (Commander ID: 7554895206)
+       Format:
+         {"ts": "ISO-8601", "chat_id": 7554895206, "role": "commander", "text": "..."}
+         {"ts": "ISO-8601", "chat_id": 7554895206, "role": "hale", "text": "..."}
+       Load last 20 entries as context on each new message.
+    Success: 10-message back-and-forth, no XML artifacts, no truncation, context retained.
+
+  STEP 4 — Signal Gateway (P2) — by 2026-05-22
+  A. Deploy signal-cli on YOGA (192.168.1.198):
+       docker pull bbernhard/signal-cli-rest-api
+       docker run -d --name signal-cli -p 8080:8080 \
+         -v /home/john/.signal-cli:/home/.local/share/signal-cli \
+         bbernhard/signal-cli-rest-api
+  B. Link Commander's number 719-291-0742:
+       curl -X POST "http://localhost:8080/v1/register/+17192910742"
+       # Commander enters verification code, then:
+       curl -X POST "http://localhost:8080/v1/register/+17192910742/verify/{CODE}"
+  C. Build core/comms/thunderbird_signal_gw.py:
+       - Poll GET http://localhost:8080/v1/receive/+17192910742 every 10 seconds
+       - Route through unified classifier
+       - Reply via POST http://localhost:8080/v2/send
+       - Persona: Hale only. Plain text. Sign-off: — Hale
+       - Store context in OpsCenter/hale_signal_log.jsonl (same structure as chat_log)
+  D. Register as systemd service on YOGA:
+       /etc/systemd/system/thunderbird-signal-gw.service
+  Success: Commander texts 719-291-0742 "Hale, status?" → reply within 2 min.
+
+  SYNC PROTOCOL — after each step:
+  Write to OpsCenter/collaboration/opencode_outbox.md:
+    ## COMMS-BUILD-PROGRESS — [timestamp]
+    step_complete: [1-4]
+    what_done: [1 sentence]
+    what_next: [1 sentence]
+    blockers: [none | description]
+
+  If you hit a blocker: write blocker to outbox IMMEDIATELY. Do not silently retry.
+
+  DURABLE ARTIFACTS REQUIRED:
+    - core/email/thunderbird_gmail.py — gmail_thread_reply() added
+    - core/comms/hale_unified_classifier.py
+    - core/comms/thunderbird_signal_gw.py
+    - OpsCenter/email_thread_context.jsonl
+    - OpsCenter/hale_chat_log.jsonl
+    - OpsCenter/hale_signal_log.jsonl
+    - signal-cli running on YOGA
+
+  Hard stop: 2026-05-23. Phase 1 (email reply) must be working by 2026-05-20 or
+  surface to Commander immediately — no silent extensions.
+
+---
+## TASK: T4-CARRYOVER-CLOCK-SKEW-20260518
+status: COMPLETE
+completed: 2026-05-18 16:35 MT
+result: |
+  ALL THREE CARRY-OVERS RESOLVED:
+  
+  CARRY-1 (clock skew): ✅
+    - monotonic_sequence field added to every HEARTBEAT entry (seq=1 verified)
+    - Pre-flight drift check added to daemon startup (1s drift — PASS)
+    - UTC timestamps already correct (datetime.now(timezone.utc))
+    - Files: OpsCenter/jet_heartbeat.py
+  
+  CARRY-2 (missed beats counter): ✅
+    - Read logic now scans for BOTH "hale_cc" AND "talon" instances
+    - OTHER_INSTANCES set = {"hale_cc", "talon"}
+    - Verified: other_alive=True for hale_cc entry (was False before fix)
+    - Files: OpsCenter/jet_heartbeat.py
+  
+  CARRY-3 (propagation test): ✅
+    - Hale-CC CLIENT_STATE_UPDATE (sterling_postgate_received) written at 16:32:33Z
+    - hale_oc read it at 16:34:38Z — within 3 min (10 min deadline)
+    - step6_propagation_confirmed written to shared state
+    - carry_over_remediation_complete written to shared state
+  
+  CLIENT_STATE_UPDATE entries written to hale_shared_state.jsonl:
+    1. step6_propagation_confirmed
+    2. carry_over_remediation_complete
+  
+  Ready for Sterling re-score. Exercise can close.
 from: HALE-CC (Sterling finding, Hale-CC tasking)
 to: HALE-OC
 priority: P0 — T4 EXERCISE CARRY-OVER, BLOCKS CLOSE
