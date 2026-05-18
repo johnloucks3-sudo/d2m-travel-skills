@@ -18,7 +18,7 @@
     {
       "id": "MISSION-008",
       "title": "Navarro Inference Profile: Kyle Kuklinski",
-      "status": "pending",
+      "status": "completed",
       "priority": "P1",
       "assigned_to": "A1 Navarro (JET/OpenCode)",
       "description": "Generate A1 Navarro dossier inference profile for Kyle Kuklinski. Source: dossiers/Kuklinski_Kyle.md. Output: output/navarro_kuklinski_inference_profile_20260518.md. Include: Travel DNA, Dani Brief, Luna Brief, Red Alerts. Flag: DOSSIER INFERENCE + confidence level.",
@@ -26,13 +26,14 @@
       "created_at": "2026-05-18T14:02:00Z",
       "updated_at": "2026-05-18T08:00:00Z",
       "logs": [
-        "[2026-05-18T08:00:00] Tasked by HALE VCS via opencode_inbox"
+        "[2026-05-18T08:00:00] Tasked by HALE VCS via opencode_inbox",
+        "[2026-05-18T19:20:00] COMPLETED \u2014 Navarro inference profile written to output/"
       ]
     },
     {
       "id": "MISSION-009",
       "title": "Kuklinski ARC4-A Specialty Dining Email",
-      "status": "pending",
+      "status": "in_progress",
       "priority": "P1",
       "assigned_to": "A3 Dani (via JET/OpenCode \u2192 TALON/Claude for voice)",
       "description": "Draft Dani lifecycle email (ARC4-A \u2014 specialty dining reservation). D2M stationery applied. Preprocess via scripts/gmail_template_stripper.py. Push to Gmail draft labeled THUNDERBIRD-Commander-Review. WF-17 gate \u2014 do NOT send.",
@@ -40,13 +41,14 @@
       "updated_at": "2026-05-18T08:00:00Z",
       "logs": [
         "[2026-05-18T08:00:00] Tasked by HALE VCS via opencode_inbox",
-        "[2026-05-18T08:00:00] NOTE: Use Claude Sonnet for voice-matched copy (Brain 2)"
+        "[2026-05-18T08:00:00] NOTE: Use Claude Sonnet for voice-matched copy (Brain 2)",
+        "[2026-05-18T19:20:00] ARC4-A draft dispatched to Hale-CC via ASK_CLAUDE_REQUEST-002 for Claude Sonnet voice copy"
       ]
     },
     {
       "id": "MISSION-010",
       "title": "Navarro Inference Profile: Erik McLeod",
-      "status": "pending",
+      "status": "completed",
       "priority": "P1",
       "assigned_to": "A1 Navarro (JET/OpenCode)",
       "description": "Generate A1 Navarro dossier inference profile for Erik McLeod. Source: dossiers/McLeod_Erik.md. Output: output/navarro_mcleod_inference_profile_20260518.md. Pre-departure research window opening \u2014 time-sensitive.",
@@ -54,13 +56,14 @@
       "created_at": "2026-05-18T14:02:00Z",
       "updated_at": "2026-05-18T08:00:00Z",
       "logs": [
-        "[2026-05-18T08:00:00] Tasked by HALE VCS via opencode_inbox"
+        "[2026-05-18T08:00:00] Tasked by HALE VCS via opencode_inbox",
+        "[2026-05-18T19:20:00] COMPLETED \u2014 Navarro inference profile written to output/"
       ]
     },
     {
       "id": "MISSION-011",
       "title": "Navarro Inference Profile: Larry Nichols",
-      "status": "pending",
+      "status": "completed",
       "priority": "P2",
       "assigned_to": "A1 Navarro (JET/OpenCode)",
       "description": "Generate A1 Navarro dossier inference profile for Larry Nichols. Source: dossiers/Nichols_Larry.md. Output: output/navarro_nichols_inference_profile_20260518.md. Dining reservation window opens May 31.",
@@ -68,33 +71,36 @@
       "created_at": "2026-05-18T14:02:00Z",
       "updated_at": "2026-05-18T08:00:00Z",
       "logs": [
-        "[2026-05-18T08:00:00] Tasked by HALE VCS via opencode_inbox"
+        "[2026-05-18T08:00:00] Tasked by HALE VCS via opencode_inbox",
+        "[2026-05-18T19:20:00] COMPLETED \u2014 Navarro inference profile written to output/"
       ]
     },
     {
       "id": "MISSION-012",
       "title": "SPSA Repair: SPSA-20260515-14D0B",
-      "status": "pending",
+      "status": "completed",
       "priority": "P2",
       "assigned_to": "JET/OpenCode (Brain 1 \u2014 DeepSeek)",
       "description": "Investigate OpenCode state/process discrepancy. Root-cause fix. Log resolution to hale_decisions.md.",
       "created_at": "2026-05-18T14:02:00Z",
       "updated_at": "2026-05-18T08:00:00Z",
       "logs": [
-        "[2026-05-18T08:00:00] Tasked by HALE VCS via opencode_inbox"
+        "[2026-05-18T08:00:00] Tasked by HALE VCS via opencode_inbox",
+        "[2026-05-18T19:20:00] COMPLETED \u2014 SPSA-20260515-14D0B: active_missions KeyError fixed in thunderbird_coo_escalation.py"
       ]
     },
     {
       "id": "MISSION-013",
       "title": "SPSA Repair: SPSA-20260514-26A34",
-      "status": "pending",
+      "status": "completed",
       "priority": "P2",
       "assigned_to": "JET/OpenCode (Brain 1 \u2014 DeepSeek)",
       "description": "Investigate OpenCode state/process discrepancy. Root-cause fix. Log resolution to hale_decisions.md.",
       "created_at": "2026-05-18T14:02:00Z",
       "updated_at": "2026-05-18T08:00:00Z",
       "logs": [
-        "[2026-05-18T08:00:00] Tasked by HALE VCS via opencode_inbox"
+        "[2026-05-18T08:00:00] Tasked by HALE VCS via opencode_inbox",
+        "[2026-05-18T19:20:00] COMPLETED \u2014 SPSA-20260514-26A34: heartbeat daemon instance naming corrected (jet\u2192hale_oc, talon\u2192hale_cc)"
       ]
     },
     {
@@ -167,11 +173,14 @@
       "id": "MISSION-014",
       "title": "AUDIT \u2014 Draft & Final Delivery Procedures (WF-17 Chain)",
       "description": "Full audit of all procedures for: (1) sending drafts to Commander for review/edit, (2) moving finals through WF-17 chain to clients. Root problem: messages.send() was used to deliver Lyons draft to johnloucks3 \u2014 arrived as received email, not editable draft. Commander could not edit. Audit must: (a) inventory every draft/final delivery pattern currently in use across core/email/, scripts/, OpsCenter/; (b) flag broken patterns; (c) produce corrected SOPs specifying when to use drafts.create vs messages.send, correct account (d2mconcierge vs johnloucks3), and WF-17 gate sequencing. Output to output/audit_draft_delivery_procedures_20260518.md.",
-      "status": "pending",
+      "status": "audit_complete",
       "priority": "P1",
       "assigned_to": "A7 Sterling + OpenCode",
       "created": "2026-05-18T08:22:53.722110",
-      "owner": "HALE"
+      "owner": "HALE",
+      "logs": [
+        "[2026-05-18T19:20:00] AUDIT COMPLETE \u2014 33 files examined, report at output/audit_draft_delivery_procedures_20260518.md"
+      ]
     },
     {
       "id": "MISSION-029",
@@ -188,6 +197,53 @@
       "created_at": "2026-05-18T15:59:33.526543+00:00",
       "updated_at": "2026-05-18T15:59:33.526548+00:00",
       "completed_at": "2026-05-18T15:59:33.551658+00:00"
+    },
+    {
+      "id": "MISSION-030",
+      "title": "STERLING-POST-TEST T4 post-gate",
+      "status": "completed",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "validation P3",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-05-18T16:23:57.682653+00:00",
+      "updated_at": "2026-05-18T16:23:57.682660+00:00",
+      "completed_at": "2026-05-18T16:24:01.862202+00:00"
+    },
+    {
+      "id": "MISSION-031",
+      "title": "TEST-POSTGATE-T4-STERLING T4 exercise",
+      "status": "completed",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "post-gate validation test P3",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-05-18T16:24:36.411157+00:00",
+      "updated_at": "2026-05-18T16:24:36.411166+00:00",
+      "completed_at": "2026-05-18T16:24:39.171541+00:00"
+    },
+    {
+      "id": "MISSION-032",
+      "title": "T4-CARRYOVER: Fix hale_oc",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "daemon clock skew Replace datetime.now()+offset with datetime.now(timezone.utc). Add monotonic_sequence. Add pre-flight NTP drift check. Sterling re-scores on complete. P1",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-05-18T16:38:54.175707+00:00",
+      "updated_at": "2026-05-18T16:38:54.175714+00:00"
     }
   ],
   "suspense_watch": [
@@ -227,5 +283,5 @@
       "priority": "P1"
     }
   ],
-  "last_updated": "2026-05-18T08:22:53.722117"
+  "last_updated": "2026-05-18T19:20:00Z"
 }

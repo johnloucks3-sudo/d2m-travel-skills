@@ -171,7 +171,7 @@ def cmd_add(board, args):
     if "missions" in board:
         board["missions"].append(new_mission)
     else:
-        board.setdefault("active_missions", []).append(new_mission)
+        board.setdefault("missions", []).append(new_mission)
     return f"✅ Created: {mission_id} — {title}\nPriority: P0 | Assigned: NEXUS (auto)"
 
 

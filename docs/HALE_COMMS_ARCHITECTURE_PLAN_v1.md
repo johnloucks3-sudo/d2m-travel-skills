@@ -1,6 +1,6 @@
 # HALE SEAMLESS COMMS ARCHITECTURE — PLAN v1
 ## Email · Telegram · Signal | AI-Classified Routing | OpenCode Engine
-**Author:** Hale-CC | **Date:** 2026-05-18 | **Status:** DRAFT — Commander Review Required
+**Author:** Hale-CC | **Date:** 2026-05-18 | **Status:** COMMANDER DECISIONS LOCKED — Ready for T2 Exercise Build
 **Exercise tier:** T2 (multi-domain, Hale fills charter)
 
 ---
@@ -207,16 +207,23 @@ Add to `Personas/hale_cos.md` — Layer 4 Voice:
 
 ---
 
-## DECISIONS NEEDED FROM COMMANDER
+## COMMANDER DECISIONS — LOCKED 2026-05-18
 
-| # | Decision | Options | Recommendation |
-|---|----------|---------|----------------|
-| 1 | Signal protocol | A (signal-cli local) / B (Maytapi API) / C (signal-cli Docker) | **C — Docker on YOGA** |
-| 2 | Email reply SLA | 2 min / 5 min / async | **2 min (standing requirement)** |
-| 3 | Conversation context window | 10 / 20 / 50 messages | **20 (balance cost vs context)** |
-| 4 | Signal device | Which number/device links to Hale? | Commander input required |
-| 5 | Phase order | 1→2→3→4 or 1→4→2→3 | **1→4→2→3 (fix email first, then unify, then polish, then Signal)** |
-| 6 | Dani on Signal? | Yes — Dani bot on Signal / No — Hale only | Commander preference |
+| # | Decision | Commander Answer | Notes |
+|---|----------|-----------------|-------|
+| 1 | Signal protocol | **C — signal-cli Docker on YOGA** | ✓ |
+| 2 | Signal number | **719-291-0742** | Commander's work/personal cell |
+| 3 | Email reply SLA | **2 minutes** | Standing requirement confirmed |
+| 4 | Conversation context | **20 messages + informal mode** | See threading rules below |
+| 5 | Phase order | **1→4→2→3** | Email first, unify, Telegram polish, Signal |
+| 6 | Dani on Signal | **Hale only** | Signal = Commander C2 channel exclusively |
+
+### Email Threading Rules (Decision 4 — expanded)
+- **First email in a thread:** Hale replies with activation word acknowledgment + T&Q format
+- **Subsequent emails in same thread:** No "COS/Hale/Vic" prefix required — thread context is established
+- **Format after first reply:** Informal — plain prose, short answers, conversational tone
+- **T&Q format:** Only on first reply OR when Commander asks for a formal product
+- **Rationale:** Email is a conversation channel, not a command terminal. After Commander emails Hale once, they're in a thread — treat it like Telegram, not a new brief every time.
 
 ---
 
