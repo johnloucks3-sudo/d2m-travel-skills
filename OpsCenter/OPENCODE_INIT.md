@@ -45,30 +45,36 @@ cat /home/john/Thunderbird/session_autosave_latest.md
 
 ---
 
-## MODEL STACK — CURRENT (2026-05-18 — post-Zen migration)
+## MODEL STACK — CURRENT (2026-05-18 — MAX OAuth primary activated)
 
-| Priority | Headless ID (`opencode run -m`) | TUI display | Cost |
+| Priority | Headless ID (`opencode run -m`) | Engine | Cost |
 |---|---|---|---|
-| **1 — Primary** | `google/gemini-2.5-flash` | Google · Gemini 2.5 Flash | Google AI Pro flat-fee |
-| **2 — Fallback** | `opencode/deepseek-v4-flash-free` | OpenCode Zen · DeepSeek V4 Flash Free | $0 (⚠️ YELLOW) |
-| **3 — Emergency** | `opencode/nemotron-3-super-free` | OpenCode Zen · Nemotron Super Free | $0 |
-| ~~DEAD~~ | ~~`opencode/big-pickle`~~ | ~~OpenCode Zen · big-pickle~~ | ~~DEAD — requires credits~~ |
+| **1 — Primary** | `anthropic/claude-sonnet-4-6` | Claude MAX OAuth via max-proxy (localhost:5099) | $0 (MAX plan) |
+| **2 — Fallback** | `google/gemini-2.5-flash` | Google AI Pro | Flat-fee |
+| **3 — Fallback** | `opencode/deepseek-v4-flash-free` | OpenCode Zen | $0 (⚠️ YELLOW — may expire) |
+| **4 — Emergency** | `opencode/nemotron-3-super-free` | OpenCode Zen | $0 |
+| ~~DEAD~~ | ~~`opencode/big-pickle`~~ | ~~OpenCode Zen~~ | ~~DEAD — requires credits~~ |
 
-**Also available:** `google/gemini-2.5-pro` — confirmed live 2026-05-18. Use for reasoning-heavy tasks.
-
-**NAMESPACE SPLIT — confirmed 2026-05-16 via live test:**
-- **TUI picker:** Models show as **"OpenCode Zen · [model]"** — that's the display label
-- **Headless `opencode run -m`:** Must use **`opencode/`** prefix — `zen/` rejected ("Model not found")
-- Same pool, different namespace. Config and gateway both use `opencode/` (headless-compatible)
+**MAX OAuth routing — how it works (2026-05-18):**
+- `ANTHROPIC_BASE_URL=http://localhost:5099` in `~/.bashrc` → routes all Anthropic SDK calls to max-proxy
+- max-proxy dispatches via `claude -p --model claude-sonnet-4-6` (Max OAuth, $0)
+- `.opencode.json` providers.anthropic.baseURL = `http://localhost:5099` (config backup)
+- **Prerequisite:** `systemctl --user status max-proxy.service` must be RUNNING
 
 ```bash
-# Headless — correct prefix
-opencode run -m opencode/big-pickle "task description here"
-opencode run -m opencode/deepseek-v4-flash-free "task description here"
+# Verify MAX routing is live
+systemctl --user status max-proxy.service --no-pager
+python3 -c "import urllib.request; r=urllib.request.urlopen('http://localhost:5099/health'); print(r.read().decode())"
 
-# Confirm available models
-opencode models | grep opencode/
+# Test primary model (requires shell sourced from ~/.bashrc)
+opencode run -m anthropic/claude-sonnet-4-6 "Reply: MAX_OK"
+
+# Headless fallbacks
+opencode run -m google/gemini-2.5-flash "task description here"
+opencode run -m opencode/deepseek-v4-flash-free "task description here"
 ```
+
+**Also available:** `google/gemini-2.5-pro` — confirmed live 2026-05-18. Use for reasoning-heavy tasks.
 
 **BANNED (incur real cost):** `openrouter/deepseek/deepseek-chat-v3.1`, `openrouter/google/*`, `x-ai/grok-4.1-fast`, `openai/*`
 
@@ -300,9 +306,9 @@ At session end, append to `OpsCenter/opencode_memory.md`:
 *Replaces v1.0 (2026-04-06) — ZEN models, webhook C2, costs capability matrix*
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-05-18 19:02 MT -->
+<!-- Last sync: 2026-05-18 19:12 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-05-18 19:02 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-05-18 19:12 MT] ===
 Budget: Claude UNKNOWN | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE
