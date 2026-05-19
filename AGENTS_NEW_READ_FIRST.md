@@ -94,25 +94,32 @@ Thunderbird OS runs on a USAF A-Staff model. You (OpenCode/DeepSeek) are the **o
 
 ---
 
-## SECTION 4 — MODEL STACK (CURRENT)
+## SECTION 4 — MODEL STACK (CURRENT — updated 2026-05-18)
+
+> ⚠️ **OpenCode free models expire without notice. Do not build mission-critical workflows on opencode/native free models.** `opencode/big-pickle` went paid without warning on 2026-05-18. `opencode/deepseek-v4-flash-free` carries the same risk (YELLOW). See Sterling brief `output/sterling_opencode_zen_brief_20260518.html`.
 
 | Tool | Model | Cost | Use |
 |------|-------|------|-----|
 | **Claude Code** (MAX) | Opus 4.6 / Sonnet 4.6 | $0 | Primary — reasoning, code, client work |
-| **OpenCode** (you) | `openrouter/deepseek/deepseek-chat-v3.1` | ~$0.27/M | Ops, bulk tasks, scanning, file ops |
+| **OpenCode** (you) | `google/gemini-2.5-flash` | Google AI Pro flat-fee | Primary JET model as of 2026-05-18 |
 | **Claude Agent SDK** | Sonnet 4.6 | $0 (MAX OAuth) | Headless: `claude -p "..."` |
 | **Nexus daemon** | OpenCode + `claude -p` judgment | ~$0/task | Keyword-routed task queue |
 
-### Model ID Reference (CRITICAL — Updated 2026-04-08)
-**Your default model:** `openrouter/deepseek/deepseek-chat-v3.1`
+### Model ID Reference (CRITICAL — Updated 2026-05-18)
+**Current JET model chain:** `google/gemini-2.5-flash` → `opencode/deepseek-v4-flash-free` → `opencode/nemotron-3-super-free`
+
+**Also available (Google AI Pro):** `google/gemini-2.5-pro` — live, use for heavy reasoning.
 
 ```bash
-opencode run -m openrouter/deepseek/deepseek-chat-v3.1 "task"
+opencode run -m google/gemini-2.5-flash "task"
+opencode run -m google/gemini-2.5-pro "reasoning-heavy task"
 ```
 
-**Decommissioned (will throw errors):**
-- `opencode/qwen3.6-plus-free` — DEAD. ProviderModelNotFoundError.
-- `deepseek/deepseek-chat:free` — DEAD. Use v3.1.
+**Decommissioned / DEAD:**
+- `opencode/big-pickle` — DEAD as of 2026-05-18. "Free usage exceeded. Add credits." Do not use.
+- `openrouter/nvidia/nemotron-3-super-120b-a12b:free` — OpenRouter balance depleted, replaced by `opencode/nemotron-3-super-free`.
+- `opencode/qwen3.6-plus-free` — Was DEAD (ProviderModelNotFoundError). Now restored as available model — but YELLOW risk.
+- `deepseek/deepseek-chat:free` — DEAD. Use opencode/deepseek-v4-flash-free instead.
 - `deepseek-chat` (without v3.1) — WRONG. Always use `deepseek-chat-v3.1`.
 
 **Free fallbacks (lower quality):**

@@ -1,3 +1,21 @@
+### 2026-05-18 — OpenCode Zen Migration: Google AI Pro Activated, big-pickle Retired
+
+**Decision:** Commander directed migration away from OpenCode Zen models (big-pickle dead, OpenCode Go $10/month rejected per Sterling brief). Google AI Pro subscription confirmed active — both `google/gemini-2.5-flash` and `google/gemini-2.5-pro` tested live via OpenCode.
+
+**Changes executed (no Commander gate — within Hale autonomy band):**
+- `.opencode.json` primary model: `openrouter/nvidia/nemotron-3-super-120b-a12b:free` → `google/gemini-2.5-flash`
+- `.opencode.json` fallbacks: `[deepseek-v4-flash-free, big-pickle, google/gemini-2.5-flash]` → `[deepseek-v4-flash-free, nemotron-3-super-free]`
+- `OpsCenter/thunderbird_telegram_webhook.py` OPENCODE_MODEL_CHAIN: same migration applied
+- Telegram gateway restarted — confirmed active (running)
+
+**Sterling brief verdict (2026-05-18):** Option B selected — no OpenCode Go payment ($10/month). Migrate JET to Claude Code headless over 30 days. Google AI Pro fills the gap today.
+
+**Pending:** Max-proxy integration (http://localhost:5099) to route OpenCode JET through Claude MAX OAuth — research needed for `.opencode.json` provider baseURL config. Not a gate item.
+
+**Authority:** SO-2026-05-04 | Hale autonomy band | No Commander gate required.
+
+---
+
 ### 2026-05-16 — Inter-Instance Handshake Protocol: DIVERGENCE Routing Approved
 
 **Decision:** DIVERGENCE packet routing confirmed by Commander: **Telegram for gate-adjacent divergences, email to johnloucks3 for operational divergences.**

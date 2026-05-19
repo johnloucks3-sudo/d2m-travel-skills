@@ -1,10 +1,9 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "opencode/big-pickle",
+  "model": "google/gemini-2.5-flash",
   "fallbackModels": [
     "opencode/deepseek-v4-flash-free",
-    "google/gemini-2.5-flash",
-    "openrouter/nvidia/nemotron-3-super-120b-a12b:free"
+    "opencode/nemotron-3-super-free"
   ],
   "mcpServers": {
     "dreams2memories": {

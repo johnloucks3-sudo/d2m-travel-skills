@@ -75,9 +75,9 @@ HALE_SYSTEM     = ""
 STAFF_INTRO_TXT = ""
 
 OPENCODE_MODEL_CHAIN = [
-    "opencode/big-pickle",              # OpenCode native (zen/ prefix = TUI only; opencode/ = headless)
-    "opencode/deepseek-v4-flash-free",  # OpenCode native fallback
-    "google/gemini-2.5-flash",          # Non-OpenCode last resort
+    "google/gemini-2.5-flash",          # Google AI Pro — primary (confirmed live 2026-05-18)
+    "opencode/deepseek-v4-flash-free",  # OpenCode native fallback (YELLOW — limited-time free)
+    "opencode/nemotron-3-super-free",   # OpenCode native emergency fallback
 ]
 _OC_RATE_MARKERS = ["rate limit", "rate-limit", "too many requests", "429"]
 
@@ -136,7 +136,7 @@ def _send_signal_migration_notice() -> None:
             subject="Thunderbird Telegram — 3 Strikes: Signal Migration Required",
             body="Commander,\n\nHALE-YODA gateway hit 3 strikes. "
                  "Recommend Signal migration or webhook redeploy.\n\n"
-                 "Check: OpsCenter/telegram_strike_counter.json\n\n— Iron Vic")
+                 "Check: OpsCenter/telegram_strike_counter.json\n\n— Victory")
     except Exception as e:
         log.error("Could not send Signal migration notice: %s", e)
 
@@ -233,7 +233,7 @@ def call_claude_engine(prompt: str, model: str = SONNET_MODEL) -> str:
         return f"[Engine error — {e}]"
 
 def call_opencode_engine(system_prompt: str, user_msg: str) -> str:
-    """OpenCode headless. Chain: zen/big-pickle → zen/deepseek-v4-flash-free → gemini-2.5-flash."""
+    """OpenCode headless. Chain: google/gemini-2.5-flash → deepseek-v4-flash-free → nemotron-super-free."""
     full_prompt = f"{system_prompt[:2000]}\n\n{user_msg}" if system_prompt else user_msg
     env = dict(os.environ)
     env["PATH"] = f"/home/john/.opencode/bin:{env.get('PATH', '')}"
@@ -393,7 +393,7 @@ def format_section(title: str, content: str, emoji: str = "") -> str:
     return f"<b>{prefix}{title}</b>\n{content}\n"
 
 STAFF_PERSONAS = {
-    "hale":       ("Col Victoria Hale (COS)",           "claude",   "condor"),
+    "hale":       ("Victory Hale (COS)",                 "claude",   "condor"),
     "naia":       ("Naia Solberg-Vega (EXEC — Brand)",  "claude",   "condor"),
     "luna":       ("Luna Voss (A6 — Creative)",         "claude",   "condor"),
     "navarro":    ("Dr. Sofia Navarro (A1 — Intake)",   "claude",   "condor"),
@@ -659,11 +659,31 @@ def _handle_status(token: str, chat_id: int) -> None:
     except Exception as e:
         tg_send(token, chat_id, f"Status unavailable: {e}")
 
+def _handle_costs_command(token: str, chat_id: int) -> None:
+    COST_API = "http://localhost:8902/api/summary"
+    try:
+        resp = requests.get(COST_API, timeout=10)
+        resp.raise_for_status()
+        d = resp.json()
+        text = (
+            f"{format_brief_header('COST DASHBOARD')}\n\n"
+            f"<b>Claude Window:</b> {d.get('claude_pct', '?')}%\n"
+            f"<b>Plan Monthly:</b> {d.get('plan_monthly_pct', '?')}%\n"
+            f"<b>Plan Balance:</b> ${d.get('plan_balance', 0):.2f}\n"
+            f"<b>OpenRouter Daily:</b> ${d.get('or_daily_usd', 0):.4f}\n"
+            f"<b>OpenRouter Monthly:</b> ${d.get('or_monthly_usd', 0):.4f}\n"
+            f"<b>Last Updated:</b> {d.get('updated', '?')}\n"
+        )
+        tg_send(token, chat_id, text)
+    except Exception as e:
+        tg_send(token, chat_id, f"Cost dashboard unavailable: {e}")
+
 def _handle_help(token: str, chat_id: int, bot_name: str) -> None:
     lines = [
         f"<b>{bot_name} — Available Commands</b>", "",
         "/new — Clear context, fresh session",
         "/status — Wing health + financial pulse",
+        "/costs — Cost dashboard (Claude windows, Plan, OpenRouter)",
         "/help — This message",
         "/reload — Reload access whitelist (Commander)", "",
     ]
@@ -755,6 +775,9 @@ def process_haluyoda_message(update: dict) -> None:
         if text == "/help":
             _handle_help(TOKEN_HALUYODA, chat_id, "HALE-YODA")
             return
+        if text == "/costs":
+            _handle_costs_command(TOKEN_HALUYODA, chat_id)
+            return
         model = SONNET_MODEL
         if text.upper().startswith("OPUS:"):
             model = OPUS_MODEL
@@ -772,7 +795,7 @@ def process_haluyoda_message(update: dict) -> None:
             f"{ctx_text}\n"
             f"--- END CONTEXT ---\n\n"
             f"Commander: {text}\n\n"
-            'Respond as Col Victoria "Iron Vic" Hale. Open with 🦅. '
+            'Respond as Ms. Victoria "Victory" Hale, SES-6. Open with 🦅. '
             "Brief-first. Execute-then-report posture. No preamble. No trailing summary."
         )
 
