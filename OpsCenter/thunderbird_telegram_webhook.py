@@ -55,7 +55,7 @@ COMMANDER_ID     = int(os.environ.get("TELEGRAM_COMMANDER_ID", "7554895206"))
 SONNET_MODEL     = "claude-sonnet-4-6"
 OPUS_MODEL       = "claude-opus-4-6"
 ENGINE_TIMEOUT     = int(os.environ.get("TELEGRAM_GW_TIMEOUT", "300"))
-OPENCODE_TIMEOUT   = int(os.environ.get("OPENCODE_TIMEOUT", "60"))
+OPENCODE_TIMEOUT   = int(os.environ.get("OPENCODE_TIMEOUT", "120"))
 ROUTE_ALL_OPENCODE = os.environ.get("ROUTE_ALL_OPENCODE", "0") == "1"
 MAX_CTX_TURNS      = 12
 CHUNK_SIZE         = 4000
@@ -75,9 +75,10 @@ HALE_SYSTEM     = ""
 STAFF_INTRO_TXT = ""
 
 OPENCODE_MODEL_CHAIN = [
-    "google/gemini-2.5-flash",          # Google AI Pro — primary (confirmed live 2026-05-18)
-    "opencode/deepseek-v4-flash-free",  # OpenCode native fallback (YELLOW — limited-time free)
-    "opencode/nemotron-3-super-free",   # OpenCode native emergency fallback
+    "anthropic/claude-sonnet-4-6",      # Claude MAX OAuth via max-proxy (localhost:5099)
+    "google/gemini-2.5-flash",          # Google AI Pro fallback
+    "opencode/deepseek-v4-flash-free",  # OpenCode native fallback (YELLOW — may expire)
+    "opencode/nemotron-3-super-free",   # Emergency fallback
 ]
 _OC_RATE_MARKERS = ["rate limit", "rate-limit", "too many requests", "429"]
 
@@ -234,7 +235,7 @@ def call_claude_engine(prompt: str, model: str = SONNET_MODEL) -> str:
 
 def call_opencode_engine(system_prompt: str, user_msg: str) -> str:
     """OpenCode headless. Chain: google/gemini-2.5-flash → deepseek-v4-flash-free → nemotron-super-free."""
-    full_prompt = f"{system_prompt[:2000]}\n\n{user_msg}" if system_prompt else user_msg
+    full_prompt = f"{system_prompt[:4000]}\n\n{user_msg}" if system_prompt else user_msg
     env = dict(os.environ)
     env["PATH"] = f"/home/john/.opencode/bin:{env.get('PATH', '')}"
 
