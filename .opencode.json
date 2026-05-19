@@ -1,10 +1,17 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "google/gemini-2.5-flash",
+  "model": "anthropic/claude-sonnet-4-6",
   "fallbackModels": [
+    "google/gemini-2.5-flash",
     "opencode/deepseek-v4-flash-free",
     "opencode/nemotron-3-super-free"
   ],
+  "providers": {
+    "anthropic": {
+      "apiKey": "claude-max-oauth",
+      "baseURL": "http://localhost:5099"
+    }
+  },
   "mcpServers": {
     "dreams2memories": {
       "command": "/home/john/Thunderbird/mcp_launcher_core.sh"

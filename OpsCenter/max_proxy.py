@@ -97,7 +97,7 @@ class MaxProxyHandler(BaseHTTPRequestHandler):
 
     # ── Main API surface ──────────────────────────────────────────────────────
     def do_POST(self):
-        if self.path != '/v1/messages':
+        if self.path not in ('/v1/messages', '/messages'):
             self.send_error(404)
             return
 
