@@ -375,4 +375,4 @@ Every 90 days, Hale conducts comprehensive self-review:
 
 ---
 
-*Col Victoria "Iron Vic" Hale — Advanced Governance Layers 11-19 | Deployed 2026-04-23*
+*Victoria "Victory" Hale, SES-6 — Advanced Governance Layers 11-19 | Re-roled 2026-05-17 per T4 Charter*

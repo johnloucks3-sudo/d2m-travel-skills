@@ -1,5 +1,5 @@
 # HALE — EOD Briefing
-*Generated: 2026-05-13 17:00 MT*
+*Generated: 2026-05-18 17:00 MT*
 
 ---
 
@@ -9,26 +9,15 @@
 
 ## 🚨 SPSA EOD — Cases & Status
 
-**Created Today:** 2 RED, 2 YELLOW
-
-### 🔴 NEW RED (Today)
-
-**SPSA-20260513-88A18** | OpenCode daemon is not running...
-> Address immediately (0.5h)
-
-**SPSA-20260513-69D1E** | OpenCode daemon is not running...
-> Address immediately (0.5h)
+**Created Today:** 0 RED, 1 YELLOW
 
 ### 🟡 NEW YELLOW (Today)
 
-**SPSA-20260513-FF547** | MCP Server health check failed...
-> Address immediately (2.0h)
-
-**SPSA-20260513-05ACD** | MCP Server health check failed...
+**SPSA-20260518-BB2E1** | MCP Server health check failed...
 > Address immediately (2.0h)
 
 
-**Pipeline:** 37 open, 0 decided, 0 implementing
+**Pipeline:** 3 open, 0 decided, 0 implementing
 
 ## 💰 FINANCIAL PULSE
 **Status:** UNKNOWN
@@ -41,4 +30,4 @@
 - **Command Ready:** ✅ (COS Online)
 
 ---
-*— Col Victoria "Iron Vic" Hale | Thunderbird Wing | 2026-05-13 17:00 MT*
+*— Ms. Victoria "Victory" Hale, SES-6 | Thunderbird Wing | 2026-05-18 17:00 MT*

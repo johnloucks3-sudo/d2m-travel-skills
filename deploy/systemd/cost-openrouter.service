@@ -1,0 +1,10 @@
+[Unit]
+Description=Cost Dashboard — OpenRouter Collector
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/john/Thunderbird
+Environment="PATH=/home/john/Thunderbird/.venv/bin:/usr/local/bin:/usr/bin:/bin"
+EnvironmentFile=/home/john/Thunderbird/.env
+ExecStart=/home/john/Thunderbird/.venv/bin/python /home/john/Thunderbird/core/cost_dashboard/collectors/openrouter.py
+User=john

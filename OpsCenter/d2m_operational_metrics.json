@@ -1,0 +1,10 @@
+{
+  "commander_satisfaction": 9.5,
+  "staff_morale": 8.5,
+  "client_operational_stats": {
+    "open_dossiers": 12,
+    "upcoming_deadlines_30d": 5,
+    "overdue_payments": 0
+  },
+  "last_updated": "2026-05-15T23:00:00Z"
+}

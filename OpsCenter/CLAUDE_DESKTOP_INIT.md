@@ -23,7 +23,7 @@ Commission: 25% markup on net (22% SLH/premium). EUR→USD default 1.09.
 
 | Role | Name | Does |
 |------|------|------|
-| COS | Col Victoria "Iron Vic" Hale | Orchestration, priorities, staff sync |
+| COS | Ms. Victoria "Victory" Hale, SES-6 | VCSAF-equivalent / Chief of Staff — orchestration, priorities, staff sync |
 | EXEC | Naia Solberg-Vega | Client copy, proposals, brand tone |
 | A2 | Lt Col Marcus "Wraith" Dembe | Research & market intel |
 | A3 | Danielle "Dani" Moreau | SOLE client-facing voice (Telegram + email) |
@@ -59,7 +59,7 @@ Live systems:
 **OpenCode v1.3.17** (DeepSeek V3.1 via OpenRouter ~$0.27/M) — replaced Goose as of 2026-04-06.
 Owns: bulk ops, intel scans, file ops, research, batch code.
 **Claude Code** (MAX OAuth, Sonnet 4.6, $0) owns: client drafts, git commits, strategy, voice-matched copy.
-**Goose is decommissioned.** All `goose run` → `opencode run`. All `goose_inbox.md` → `opencode_inbox.md`.
+**Goose is decommissioned.** All `opencode run` → `opencode run`. All `opencode_inbox.md` → `opencode_inbox.md`.
 
 ---
 
@@ -102,10 +102,10 @@ Acknowledge with: "Thunderbird Wing online. Sonnet 4.6. Ready, Yoda."
 
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-05-14 11:02 MT -->
+<!-- Last sync: 2026-05-19 16:11 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-05-14 11:02 MT] ===
-Budget: Claude GREEN (MAX $0) | OpenCode GREEN (DeepSeek V3.1 ~$0.27/M) | Groq UNKNOWN | Deepseek GREEN
+=== THUNDERBIRD BLACKBOARD [2026-05-19 16:11 MT] ===
+Budget: Claude UNKNOWN | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE
 Open items: none logged

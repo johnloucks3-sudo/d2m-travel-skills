@@ -25,8 +25,8 @@ Any task that can be initiated before 0500 and completed before 0600 is a
   blackboard.md              ← master shared state (all agents read first)
   claude_inbox.md            ← Commander or Goose queues tasks for Claude
   claude_output.md           ← Claude writes all completed work here
-  goose_inbox.md             ← Commander or Claude queues tasks for Goose
-  goose_output.md            ← Goose writes completed work here
+  opencode_inbox.md             ← Commander or Claude queues tasks for Goose
+  opencode_output.md            ← Goose writes completed work here
   deepseek_inbox.md          ← arbitration requests only
   deepseek_ruling.md         ← Deepseek arbitration decisions
   conflict_log.md            ← all disputes + resolutions, append-only
@@ -135,10 +135,10 @@ Exception: Commander explicitly types `/use claude` to override.
 ### 3.2 Goose-First / Claude-Finish Cycle (0600–1800 MT)
 
 1. Task arrives requiring Claude-level quality
-2. Task written to goose_inbox.md with flag: `claude_finish: true`
-3. Goose executes, writes draft to goose_output.md
+2. Task written to opencode_inbox.md with flag: `claude_finish: true`
+3. Goose executes, writes draft to opencode_output.md
 4. If Claude budget available and task is client_output or synthesis:
-   - Task written to claude_inbox.md with context_file = goose_output.md
+   - Task written to claude_inbox.md with context_file = opencode_output.md
    - Claude reads Goose draft, refines for D2M voice, writes to claude_output.md
 5. If Claude budget not available:
    - Goose output is final; Commander reviews directly

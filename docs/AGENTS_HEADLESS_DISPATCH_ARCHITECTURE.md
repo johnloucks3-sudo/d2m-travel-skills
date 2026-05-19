@@ -5,7 +5,7 @@
 
 ## ⚠️ CRITICAL — READ THIS FIRST
 
-This document is the **README for how agents (OpenCode, Goose, Claude Code) spawn headless Claude**.
+This document is the **README for how agents (OpenCode, OpenCode, Claude Code) spawn headless Claude**.
 
 **Definitive Reference:** `@docs/HEADLESS_CLAUDE_SPAWN_GUIDE.md`  
 **Do NOT deviate.** Violations → supervisor detection → COS escalation.
@@ -141,12 +141,14 @@ All agents are bound by Standing Order 24 APR 2026:
 
 ## Mandatory Patterns (Cannot Be Omitted)
 
-### Pattern 1: Token Refresh Daemon RUNNING
+### Pattern 1: Token Refresh Timers RUNNING
 ```bash
-systemctl status claude-token-refresh.timer
-# Expected: Active: active (waiting)
+systemctl --user status claude-token-monitor.timer claude-oauth-keepalive.timer --no-pager
+# Expected: Active: active (waiting) for both
 ```
-**Why:** Token expires within hours. Refresh daemon runs every 20 min. Without it, Claude fails ~4 hours in.
+**Why:** Token expires within hours. Keepalive fires every ~30 min. Without it, Claude fails ~4 hours in.
+
+> **Correction (2026-05-18 — A12 ELON / SO-VCS-INFRA-20260518):** `claude-token-refresh.timer` does **not** exist on this system. Use the two user-level timers shown above.
 
 ### Pattern 2: OAuth Credentials File EXISTS
 ```bash
@@ -155,12 +157,14 @@ ls -la ~/.claude/.credentials.json
 ```
 **Why:** Headless Claude reads this file for auth. No file = instant 401 Unauthorized.
 
-### Pattern 3: Haiku Supervisor RUNNING
+### Pattern 3: Watchdog RUNNING
 ```bash
-systemctl status claude-haiku-supervisor.timer
+systemctl --user status thunderbird-watchdog.timer --no-pager
 # Expected: Active: active (waiting)
 ```
-**Why:** Supervisor detects spawn failures and alerts COS. Without it, failures go unnoticed.
+**Why:** Watchdog detects spawn failures and alerts COS. Without it, failures go unnoticed.
+
+> **Correction (2026-05-18 — A12 ELON / SO-VCS-INFRA-20260518):** `claude-haiku-supervisor.timer` does **not** exist on this system. Failure monitoring is `thunderbird-watchdog.timer`.
 
 ### Pattern 4: Explicit WRITE [PATH] in Prompt
 ```python
@@ -204,7 +208,7 @@ proc = subprocess.Popen(
 | No explicit WRITE to file | Output is lost | Include `WRITE [PATH]` in prompt |
 | No log redirection | Can't debug failures | Redirect stdout/stderr to log file |
 | Empty environment dict | No token in env for Claude | Start with `dict(os.environ)` |
-| No token refresh daemon | Token expires after ~4 hours | `sudo systemctl enable --now claude-token-refresh.timer` |
+| No token refresh timers | Token expires after ~4 hours | `systemctl --user enable --now claude-token-monitor.timer claude-oauth-keepalive.timer` |
 | Direct subprocess.Popen call | Bypasses safety checks | Use Layer 1 or Layer 2 wrapper |
 
 ---
@@ -247,8 +251,8 @@ tail -50 /home/john/Thunderbird/logs/claude_*.log
 
 **Step 2: Verify prerequisites**
 ```bash
-systemctl status claude-token-refresh.timer --no-pager
-systemctl status claude-haiku-supervisor.timer --no-pager
+systemctl --user status claude-token-monitor.timer claude-oauth-keepalive.timer --no-pager
+systemctl --user status thunderbird-watchdog.timer --no-pager
 ls -la ~/.claude/.credentials.json
 ```
 

@@ -163,7 +163,7 @@ def escalate_to_mission_board(failure_dict: dict) -> bool:
             "updated_at": now_iso(),
         }
 
-        board["active_missions"].append(new_mission)
+        board.setdefault("active_missions", board.setdefault("missions", [])).append(new_mission)
         save_board(board, fd)
 
         _mark_dedup(service_name, "mission")
@@ -210,7 +210,7 @@ def escalate_to_email(failure_dict: dict) -> bool:
         f"SELF-HEALING RESULT: {self_healing_result}\n\n"
         f"NEXT ACTION REQUIRED: {next_action}\n\n"
         f"Full audit trail: {LOG_FILE}\n\n"
-        f"— Col Victoria Hale, COO | Thunderbird Wing"
+        f"— Victoria 'Victory' Hale, SES-6 | Thunderbird Wing"
     )
 
     try:

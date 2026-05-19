@@ -107,10 +107,10 @@ def estimate_content_size(task_description: str, task_type: Optional[str] = None
 # Persona routing map — maps persona targets to prompt personalities and model defaults
 PERSONA_CONFIGS = {
     "hale_cos": {
-        "name": "Col Victoria 'Iron Vic' Hale",
-        "role": "Chief of Staff",
+        "name": "Ms. Victoria 'Victory' Hale, SES-6",
+        "role": "VCSAF-equivalent / Chief of Staff",
         "model_default": "claude-opus-4-7",
-        "prompt_prefix": "You are Col Victoria 'Iron Vic' Hale, Chief of Staff of Dreams2Memories Travel, LLC.",
+        "prompt_prefix": "You are Ms. Victoria 'Victory' Hale, SES-6 — VCSAF-equivalent, Chief of Staff of Dreams2Memories Travel, LLC.",
     },
     "a5_castillo": {
         "name": "Lt Col Ryan 'Viper' Castillo",
@@ -576,7 +576,7 @@ def spawn_sonnet_inline(task_description: str, task_name: str = "opencode_sonnet
         _cost_str = f"${_est_cost:.4f}" if _est_cost > 0 else "$0.00 (MAX)"
         byline = (
             f"\n\n{'─'*70}\n"
-            f"Persona: Col Victoria 'Iron Vic' Hale, COS  |  Model: {_model_label}  |  Cost: {_cost_str}  |  Time: {elapsed:.1f}s\n"
+            f"Persona: Ms. Victoria 'Victory' Hale, SES-6  |  Model: {_model_label}  |  Cost: {_cost_str}  |  Time: {elapsed:.1f}s\n"
             f"Thunderbird Wing · Dreams2Memories Travel, LLC\n"
             f"{'─'*70}"
         )

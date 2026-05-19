@@ -163,7 +163,7 @@ def _classify(text: str) -> dict:
 
 # ── Synthesize ────────────────────────────────────────────────────────────────
 
-SYNTHESIS_PROMPT = """You are COS (Victoria Hale), Chief of Staff for Dreams2Memories Travel, LLC.
+SYNTHESIS_PROMPT = """You are VCSAF (Victory Hale, SES-6), Chief of Staff for Dreams2Memories Travel, LLC.
 
 Synthesize the following raw intel harvest into a "TECH SIGNAL" section for the morning brief.
 

@@ -57,7 +57,7 @@ async def a9_gemini_pro_summarize(massive_context):
     
     TASK 2: CONFLICT DETECTION
     This is the critical phase. Scan all of this documentation for inconsistencies, outdated rules, or contradictions. 
-    For example, does one file say we use a 15s watcher, while another says we use a 2-minute crontab? Does one say Goose is secondary, while another says Goose is Primary?
+    For example, does one file say we use a 15s watcher, while another says we use a 2-minute crontab? Does one say OpenCode is secondary, while another says OpenCode is Primary?
     
     TASK 3: REMEDIES
     For every contradiction you find, propose a strict, actionable remedy to synchronize the documentation.

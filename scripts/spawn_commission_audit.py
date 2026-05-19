@@ -15,7 +15,7 @@ OUTPUT = str(_ROOT / "output" / "commission_audit_opus.md")
 Path(OUTPUT).parent.mkdir(exist_ok=True)
 
 PROMPT = """
-You are performing a financial audit for Dreams2Memories Travel, LLC on behalf of COS Col Victoria Hale.
+You are performing a financial audit for Dreams2Memories Travel, LLC on behalf of VCSAF Victoria 'Victory' Hale.
 Commander John Loucks ("Yoda") needs a definitive, PDF-sourced D2M commission register.
 
 ## YOUR TOOLS

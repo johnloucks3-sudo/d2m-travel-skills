@@ -12,6 +12,10 @@
     "ask-haiku": {
       "description": "Dispatch a quick task to headless Claude Haiku via dispatch_claude.py. Usage: /ask-haiku <your request>",
       "template": "Run this bash command to dispatch to Claude Haiku and watch progress:\nTS=$(date +%s); OUTF=\"/home/john/Thunderbird/output/ask_haiku_${TS}.md\"; DJSON=$(python3 /home/john/Thunderbird/OpsCenter/dispatch_claude.py --task \"oc-ask-haiku-${TS}\" --output \"${OUTF}\" --prompt \"{0}\" --model haiku); PID=$(echo \"${DJSON}\" | python3 -c \"import json,sys; print(json.load(sys.stdin).get('pid',0))\" 2>/dev/null || echo 0); if [ \"${PID:-0}\" -gt 0 ] 2>/dev/null; then python3 /home/john/Thunderbird/OpsCenter/watch_task.py \"${OUTF}\" \"${PID}\" --timeout 600; else echo \"Dispatch failed: ${DJSON}\"; fi"
+    },
+    "ask-claude": {
+      "description": "Dispatch to Hale-CC (Claude) — auto-selects model + optional Advisor. Usage: /ask-claude <your request>",
+      "template": "TS=$(date +%s); INBOX=\"/home/john/Thunderbird/OpsCenter/collaboration/opencode_inbox.md\"; { echo ''; echo '## ASK_CLAUDE_REQUEST — '\"$TS\"; echo 'status: UNREAD'; echo 'from: HALE-OC'; echo 'priority: P1'; echo 'stakes: medium'; echo 'task: |'; echo '  {0}'; echo '  Expected output: output/ask_claude_'\"$TS\"'.md'; } >> \"$INBOX\"; echo 'Dispatched to Hale-CC (task '\"$TS\"'). Output: output/ask_claude_'\"$TS\"'.md'"
     }
   }
 }

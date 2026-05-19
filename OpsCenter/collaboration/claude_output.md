@@ -130,7 +130,7 @@ Hale's count of 8 is close but she listed tasking-watcher as "fixed" — it's st
 
 3. **Fix Morning Briefing credentials (30 min, HIGH)** — OAuth client vs service account. This is the Commander's most visible autonomous product. Fix it before the others.
 
-4. **Fix Airline Monitor (30 min, HIGH)** — `goose-d2m` not in PATH. Convert to direct Python call (more reliable than depending on Goose CLI being in systemd's PATH).
+4. **Fix Airline Monitor (30 min, HIGH)** — `opencode` not in PATH. Convert to direct Python call (more reliable than depending on OpenCode being in systemd's PATH).
 
 5. **Install Playwright browsers (10 min, MED)** — `playwright install chromium`. Unblocks booking monitor.
 
@@ -221,7 +221,7 @@ One line of code (`SMS_GATEWAY = ""` added to `thunderbird_payment_alerts.py`, o
 | **5** | Update `crewai_bridge/` stale references | **MEDIUM** | 20 min | Update llm_router.py from stale model refs to DeepSeek V3.1. Remove A10 Ikeda from task_router.py. Don't activate CrewAI until Tier 1 services are stable. |
 
 ### Honorable Mentions (Do After Top 5)
-- **6.** Convert Airline Monitor from `goose-d2m` CLI to direct Python (30 min, HIGH)
+- **6.** Convert Airline Monitor from `opencode` CLI to direct Python (30 min, HIGH)
 - **7.** Run `playwright install chromium` for booking monitor (10 min, MED)
 - **8.** Add fallback pricing model document — "what happens if MAX plan changes" (1 hr, STRATEGIC)
 - **9.** Rename `GROQ_TASKS` to `DEEPSEEK_TASKS` in task_processor.py (5 min, LOW — code hygiene)

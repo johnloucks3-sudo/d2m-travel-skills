@@ -187,7 +187,7 @@ OPENROUTER_MODEL_ALIASES: dict[str, str] = {
     "DEEPSEEK":         "deepseek/deepseek-chat-v3.1",                  # DeepSeek V3.1 via OpenRouter, ~$0.27/M
     "QWQ":              "qwen/qwq-32b",                              # reasoning, $0.15/M
     # ── VALUE ($0.15–$0.50/M) ────────────────────────────────────────────────
-    "GROK":             "x-ai/grok-4.1-fast",                        # 2M ctx, $0.20/M
+    "GROK":             "x-ai/grok-4.3",                             # 2M ctx, successor to grok-4.1-fast
     "GEMINI":           "google/gemini-3.1-flash-lite-preview",      # 1M ctx, $0.25/M
     "DEEPSEEKV32":      "deepseek/deepseek-v3.2",                    # $0.26/M
     "GPT5MINI":         "openai/gpt-5-mini",                         # 400K ctx, $0.25/M
@@ -469,6 +469,7 @@ def call_claude_engine(prompt: str, model: str = SONNET_MODEL) -> str:
     # Strip stale API key — it overrides OAuth and causes "Invalid API key" rc=1.
     # Headless Claude uses OAuth via CLAUDE_CODE_OAUTH_TOKEN exclusively.
     env.pop("ANTHROPIC_API_KEY", None)
+    env.pop("ANTHROPIC_BASE_URL", None)  # Strip MAX proxy URL — breaks headless Claude
     _creds = Path.home() / ".claude" / ".credentials.json"
     if _creds.exists():
         try:
@@ -509,6 +510,12 @@ def call_claude_engine(prompt: str, model: str = SONNET_MODEL) -> str:
 
 # ── Engine: OpenCode headless — free-first fallback chain ────────────────────
 
+def _strip_ansi(text: str) -> str:
+    """Strip ANSI escape codes and OpenCode build-status lines from output."""
+    import re
+    text = re.sub(r'\x1b\[[0-9;]*[a-zA-Z]', '', text)
+    text = re.sub(r'^> build .*', '', text, flags=re.MULTILINE)
+    return text.strip()
 
 def call_opencode_engine(
     system_prompt: str, text_prompt: str, use_mcp: bool = True
@@ -537,7 +544,7 @@ def call_opencode_engine(
                 cwd=str(THUNDERBIRD),
                 env=env,
             )
-            output = result.stdout.strip() or result.stderr.strip()
+            output = _strip_ansi(f"{result.stdout}\n{result.stderr}")
             if output and any(m in output.lower() for m in _OC_RATE_MARKERS):
                 log.warning("OpenCode rate-limited on %s — trying next model", model)
                 continue

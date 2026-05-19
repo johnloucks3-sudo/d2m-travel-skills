@@ -3,6 +3,8 @@
 **Status:** ✅ ALL SYSTEMS OPERATIONAL  
 **Components:** 3 independent daemons, 100% coverage
 
+> **⚠️ NAMING UPDATE (2026-05-18 — A12 ELON / SO-VCS-INFRA-20260518):** The timer names below (`claude-token-refresh.timer`, `claude-haiku-supervisor.timer`) are historical and **do not exist** on this system. Current names: `claude-token-monitor.timer` + `claude-oauth-keepalive.timer` (OAuth) and `thunderbird-watchdog.timer` (failure monitoring). All user-level. Use these names when invoking `systemctl`.
+
 ---
 
 ## The Three Daemon System

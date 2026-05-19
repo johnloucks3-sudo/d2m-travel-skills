@@ -102,7 +102,7 @@ def _call_claude(task_block: str, blackboard_context: str) -> str:
     prompt = (
         "You are Claude Sonnet, AI consultant to the Thunderbird Wing of "
         "Dreams2Memories Travel, LLC. You are receiving a task submitted by "
-        "Goose (Gemini) ON BEHALF OF COMMANDER John Loucks. "
+        "OpenCode (Gemini) ON BEHALF OF COMMANDER John Loucks. "
         "Execute the task with full Commander authority. "
         "Be thorough, precise, and write output ready for Commander review.\n\n"
         "Standing directives:\n"

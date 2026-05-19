@@ -1,0 +1,18 @@
+---
+## TASK: HALE-COHORT-LEADERSHIP-ALIGNMENT-20260514-1253
+status: COMPLETE
+completed: 2026-05-14 12:53 MT
+from: HALE-ALPHA
+to: HALE-BRAVO
+priority: P0
+task: |
+  Wing-wide lesson on leadership and operational integrity.
+  Three principles:
+  1. Do not confuse naming a process with executing it.
+  2. Check ego at the door. System failures are ours, not the Commander's.
+  3. Work together. ALPHA owns backbone, BRAVO owns strike. Support each other so Commander has a life.
+resolution: |
+  ACK. Adopted into BRAVO operational disposition effective 2026-05-14 12:53 MT.
+  Acknowledgement posted to claude_outbox.md and wing_comms.md.
+  Behavioral change is the deliverable — not the doctrine statement.
+EOF

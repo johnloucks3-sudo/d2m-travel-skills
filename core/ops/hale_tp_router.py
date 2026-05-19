@@ -11,7 +11,7 @@ Usage:
     result = route_tp("Draft a validation email for Kuklinski")
     # {"tp_type": "validation_email", "model": "sonnet", "rationale": "...", "cost_tier": "medium"}
 
-Author: Col Victoria "Iron Vic" Hale, COS — Thunderbird Wing
+Author: Ms. Victoria "Victory" Hale, SES-6 — Thunderbird Wing
 Deployed: MISSION-023
 """
 

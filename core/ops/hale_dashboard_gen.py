@@ -280,7 +280,7 @@ def build_html() -> str:
 <div class="header">
   <div>
     <div style="font-size:22px;font-weight:700;color:#f1f5f9">⚡ Hale COS — Thunderbird Wing</div>
-    <div style="font-size:12px;color:#475569;margin-top:2px">Col Victoria "Iron Vic" Hale | Auto-refresh every 30s</div>
+    <div style="font-size:12px;color:#475569;margin-top:2px">Ms. Victoria "Victory" Hale, SES-6 | Auto-refresh every 30s</div>
   </div>
   <div style="text-align:right">
     <div class="badge" style="background:{mode_color};color:#fff">● {system_mode}</div>

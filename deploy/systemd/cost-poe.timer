@@ -1,0 +1,10 @@
+[Unit]
+Description=Poe Usage Collector — 5-minute interval
+
+[Timer]
+OnBootSec=3min
+OnUnitActiveSec=5min
+Persistent=true
+
+[Install]
+WantedBy=default.target

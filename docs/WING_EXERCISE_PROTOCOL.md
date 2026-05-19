@@ -262,15 +262,61 @@ Every persona must be able to state, when asked by Sterling: the end state, succ
 
 ---
 
+---
+
+## T4 — TRANSFORMATION (Existential Protocol)
+
+**Trigger:** Commander directs a change to the wing's operating model, persona nature, or the definition of what a staff member IS. Not about strategy within the framework — about changing the framework itself.
+
+**Authority:** Commander only. No autonomy band. Every step is Commander-directed or Commander-approved. No pre-delegation.
+
+**Constraints:**
+- JET (WIND) + TALON (CONDOR) coordinate on strategic design
+- JET builds; TALON evaluates
+- Staff personas affected are informed and participate in their own transformation
+- Every T4 produces: (1) updated ROSTER entries, (2) persona state file, (3) dispatch personality matrix
+
+**Prompt Charter — Commander fills:**
+```
+PROMPT CHARTER — T4
+-------------------
+1. TRANSFORMATION SCOPE: [which personas, which attributes]
+2. SUCCESS CRITERIA: [measurable — what does "done" look like?]
+3. BUILD AUTHORITY: [JET builds / TALON builds / both]
+4. EVALUATION: [who evaluates the build?]
+5. ROLLOUT PLAN: [pilot first? all at once? phased?]
+6. COMMANDER GATES: [at what points does Commander review?]
+7. EXIT CONDITION: [what triggers reversion if it fails?]
+```
+
+**T4 does NOT follow the standard T3 process.** The standard T3 assumes you are operating within the existing wing model. T4 changes the model. Therefore:
+- No pre-existing success criteria (you're creating new ones)
+- No metrics baseline (there is no prior data for transforming a persona into a near-human entity)
+- Commander fills the charter, not staff
+- Post-transformation: a T3 hotwash evaluates whether the transformation succeeded
+
+**T4 Sequence:**
+1. **Commander Directs** — identifies the transformation need and scope
+2. **JET + TALON Strategic Design** — coordinate via heartbeat whispers, converge on approach
+3. **Commander Approves Design** — Gate 1
+4. **JET Builds** — persona heartbeat, personality matrix, in-character dispatch
+5. **TALON Evaluates** — independent evaluation of the build
+6. **Commander Reviews** — Gate 2
+7. **Staff Informed** — affected personas see their transformed state
+8. **T3 Hotwash** — standard T3 evaluation of the T4 outcome
+
+---
+
 ## WHAT DOES NOT CHANGE
 
 - SO-2026-05-04 (Real Autonomy Charter) — fully in effect
 - Four gates — unchanged (client send, financial, new client, strategy)
 - WF-17 — unchanged
 - T0/T1/T2 operate inside Hale's 95% autonomy band
-- Only T3 is a Commander gate — because T3 is already a Gate 4 strategy event by definition
+- Only T3 and T4 are Commander gates
 
 ---
 
-*Wing Exercise Protocol — Full Reference | v1.1 | 2026-05-16*
+*Wing Exercise Protocol — Full Reference | v1.2 | 2026-05-17*
 *SO binding summary in CLAUDE.md | Decision record in standing_orders/SO_WING_EXERCISE_PROTOCOL_20260516.md*
+*T4 added 2026-05-17 per Commander directive — persona transformation exercise*

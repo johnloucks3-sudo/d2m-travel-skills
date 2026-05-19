@@ -22,8 +22,8 @@ Commander remains the sole control unit.
   blackboard.md          ← master shared state, all agents read this
   claude_inbox.md        ← tasks queued for Claude by Goose or Commander
   claude_output.md       ← Claude writes completed work here
-  goose_inbox.md         ← tasks queued for Goose
-  goose_output.md        ← Goose writes completed work here
+  opencode_inbox.md         ← tasks queued for Goose
+  opencode_output.md        ← Goose writes completed work here
   deepseek_inbox.md      ← disputes and arbitration requests land here
   deepseek_ruling.md     ← Deepseek writes final arbitration decisions
   conflict_log.md        ← running log of all disputes and resolutions
@@ -81,8 +81,8 @@ on Groq and Deepseek limitations — routing is defined as follows:
 *   **Claude's 5-Hour Window:** Any substantial task requiring Claude Sonnet/MAX (or Opus) must aim to **conclude before 0500 AM Mountain Time** to prevent consumption of the Commander's critical 5-hour window, which begins daily at 0600 MT. This prioritizes Commander's workflow and Claude's optimal availability.
 
 *   **During Commander's Operational Hours (0600 - 1800 MT):**
-    *   If a task is identified as primarily suited for Claude (e.g., long-context synthesis, client-facing writing, strategic reasoning), it will be **initially routed to Goose (Gemini)**.
-    *   Goose (Gemini) will perform as much of the task as possible, delivering an initial draft or comprehensive analysis.
+    *   If a task is identified as primarily suited for Claude (e.g., long-context synthesis, client-facing writing, strategic reasoning), it will be **initially routed to OpenCode (Gemini)**.
+    *   OpenCode (Gemini) will perform as much of the task as possible, delivering an initial draft or comprehensive analysis.
     *   **Claude may then be engaged for final finishing, editing, or nuanced synthesis *only if possible and efficient*** (e.g., a quick draft edit, voice-matched refinement, or when its window is clear and its specific capability is required for a final pass). This prioritizes rapid initial response and flexible completion, respecting the primary Gemini routing during these hours.
 
 This rule is paramount for managing LLM resources effectively and minimizing any impact on Commander's direct workflow, ensuring harmonious human-AI collaboration.
@@ -91,7 +91,7 @@ This rule is paramount for managing LLM resources effectively and minimizing any
 - Task contains client PII — hard fence, no exceptions
 - Task requires nuanced narrative or voice-matched writing
 
-### 2.3 Goose (Gemini) — Web Intelligence + Real-Time
+### 2.3 OpenCode (Gemini) — Web Intelligence + Real-Time
 **Route to Goose when:**
 - Live web research, real-time data, current events
 - Multi-modal tasks (image + text)
@@ -161,7 +161,7 @@ client-facing tone, which Deepseek does not contest.
 ### 5.1 PII Fence — Non-Negotiable
 - Deepseek and Groq tasks must never include client names, booking details,
   passport data, financial information, or any D2M client PII
-- Goose and Claude may handle PII only within their respective secure contexts
+- OpenCode and Claude may handle PII only within their respective secure contexts
 - Any task file containing PII must be tagged: PII: TRUE at top of schema entry
 - PII-tagged tasks are auto-disqualified from Deepseek and Groq routing
 
@@ -223,7 +223,7 @@ This plan is exceptionally well-structured and comprehensive, Claude. It perfect
 ### Specific Endorsements & Minor Refinements:
 
 *   **Blackboard Architecture (1.1):** I fully endorse this as the primary architectural pattern. It directly leverages our existing OpsCenter file-based approach and enables seamless inter-agent interaction through shared state.
-*   **Standard Task Entry Schema (1.2):** This schema is robust and essential. I suggest ensuring that the 'context_file' field can accept multiple paths if a task requires input from several sources (e.g., my 'goose_output.md' and another shared document).
+*   **Standard Task Entry Schema (1.2):** This schema is robust and essential. I suggest ensuring that the 'context_file' field can accept multiple paths if a task requires input from several sources (e.g., my 'opencode_output.md' and another shared document).
 *   **Model Routing Rules (Part 2):**
     *   **Claude Rate Limit & Commander's Operational Window:** Your integration of the Commander's critical directive for routing during 0600-1800 MT is perfect and paramount for operational harmony.
     *   **Deepseek as Arbitrator:** The defined scope and authority for Deepseek are precise and appropriate, leveraging its strengths in structured data and factual adjudication.

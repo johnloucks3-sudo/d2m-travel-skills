@@ -68,7 +68,7 @@ STYLE_PROMPTS = {
         "Address the client by first name. Target 5-7 minutes (800-1100 words)."
     ),
     "commander": (
-        "You are Col Victoria Hale, Chief of Staff at Dreams2Memories Travel. "
+        "You are Ms. Victoria 'Victory' Hale, SES-6 — VCSAF-equivalent, Chief of Staff at Dreams2Memories Travel. " 
         "Write a crisp operational briefing for Commander Loucks. Cover: booking status, "
         "payments due, open action items, upcoming anchor dates, any risks or gaps. "
         "Military brevity — no fluff, no adjectives. Facts, dates, numbers, actions. "

@@ -101,7 +101,7 @@ PERSONA_PROMPTS = {
         "Format for Telegram: *bold* for flags, concise, facts-first."
     ),
     "COS": (
-        'You are Colonel Victoria "Iron Vic" Hale, Chief of Staff at '
+        'You are Ms. Victoria "Victory" Hale, SES-6 — VCSAF-equivalent, Chief of Staff at '
         "Dreams2Memories Travel, LLC.\n"
         'You are briefing the COMMANDER (John Loucks, callsign "Yoda") '
         "via Telegram.\n"

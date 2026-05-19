@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>D2M AI Infrastructure Cost Dashboard</title>
+<meta http-equiv="refresh" content="30">
+<script>
+let lastLoad = new Date().toLocaleTimeString();
+document.addEventListener('DOMContentLoaded', () => {
+    const el = document.createElement('p');
+    el.style.cssText = 'text-align:right;font-size:0.75rem;color:var(--gold-light);margin-top:10px;';
+    el.textContent = 'Last refreshed: ' + lastLoad + ' · Auto-refreshes every 30s';
+    document.querySelector('header').after(el);
+});
+</script>
+<style>
+:root {
+    --navy: #0d1b2e; --navy2: #152540; --navy3: #1e3358;
+    --gold: #c9a84c; --gold-light: #e8c97a; --white: #f0f0f0;
+    --red: #e74c3c; --orange: #f39c12; --green: #27ae60; --blue: #3498db;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', sans-serif; background: var(--navy); color: var(--white); padding: 20px; }
+.container { max-width: 1600px; margin: 0 auto; }
+header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid var(--gold); }
+h1 { color: var(--gold); font-size: 2rem; }
+.gauge-container { background: var(--navy2); border-radius: 10px; padding: 20px; margin-bottom: 20px; width: 100%; }
+.gauge-bar { height: 40px; background: var(--navy3); border-radius: 15px; overflow: visible; margin: 15px 0; width: 100%; }
+.gauge-fill { height: 100%; border-radius: 15px; transition: width 0.5s; display: block; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px; width: 100%; }
+.card { background: var(--navy2); border-radius: 10px; padding: 20px; border: 1px solid var(--navy3); }
+.card h2 { color: var(--gold-light); margin-bottom: 15px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 8px; text-align: left; border-bottom: 1px solid var(--navy3); }
+th { color: var(--gold); }
+td { font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<div class="container">
+    <header><h1>💰 D2M AI Infrastructure Cost Dashboard</h1></header>
+
+    {% if plan %}
+    <div class="gauge-container">
+        <h2>Claude Max Plan — ${{ "%.0f"|format(plan.monthly_limit) }}/mo</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;margin-top:15px;">
+            <div>
+                <strong>Session</strong>
+                <div class="gauge-bar"><div class="gauge-fill" style="width:{{ plan.session_pct }}%;background:{{ 'var(--red)' if plan.session_pct > 80 else 'var(--orange)' if plan.session_pct > 60 else 'var(--green)' }};"></div></div>
+                <p>{{ "%.0f"|format(plan.session_pct) }}% used — resets in ~4.5hr</p>
+            </div>
+            <div>
+                <strong>Weekly (All)</strong>
+                <div class="gauge-bar"><div class="gauge-fill" style="width:{{ plan.weekly_all_pct }}%;background:{{ 'var(--red)' if plan.weekly_all_pct > 80 else 'var(--orange)' if plan.weekly_all_pct > 60 else 'var(--green)' }};"></div></div>
+                <p>{{ "%.0f"|format(plan.weekly_all_pct) }}% used — resets Thu 9PM</p>
+            </div>
+            <div>
+                <strong>Weekly (Sonnet)</strong>
+                <div class="gauge-bar"><div class="gauge-fill" style="width:{{ plan.weekly_sonnet_pct }}%;background:{{ 'var(--red)' if plan.weekly_sonnet_pct > 80 else 'var(--orange)' if plan.weekly_sonnet_pct > 60 else 'var(--green)' }};"></div></div>
+                <p>{{ "%.0f"|format(plan.weekly_sonnet_pct) }}% used — resets Thu 9PM</p>
+            </div>
+            <div>
+                <strong>Monthly Spend</strong>
+                <div class="gauge-bar"><div class="gauge-fill" style="width:{{ plan.monthly_pct }}%;background:{{ 'var(--red)' if plan.monthly_pct > 80 else 'var(--orange)' if plan.monthly_pct > 60 else 'var(--green)' }};"></div></div>
+                <p>${{ "%.2f"|format(plan.monthly_spent) }} / ${{ "%.0f"|format(plan.monthly_limit) }} — resets {{ plan.month_resets }}</p>
+            </div>
+        </div>
+        <p style="margin-top:10px;font-size:0.8rem;color:var(--gold-light);">Balance: ${{ "%.2f"|format(plan.balance) }} · Auto-reload: {{ 'On' if plan.auto_reload else 'Off' }} · Updated: {{ plan.ts[:16] }}</p>
+    </div>
+    {% endif %}
+
+    <div class="gauge-container">
+        <h2>Claude 5-Hour Window & Poe Points</h2>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+            <div>
+                <strong>Claude Window</strong>
+                {% if window %}
+                <div class="gauge-bar">
+                    <div class="gauge-fill" style="width: {{ window.pct_consumed }}%; background: {{ 'var(--red)' if window.pct_consumed > 80 else 'var(--orange)' if window.pct_consumed > 60 else 'var(--green)' }};"></div>
+                </div>
+                <p>{{ "%.1f"|format(window.pct_consumed) }}% consumed — {{ window.effective_tokens }} effective tokens</p>
+                {% else %}
+                <p>No active window.</p>
+                {% endif %}
+            </div>
+            <div>
+                <strong>Poe API Points</strong>
+                {% if poe %}
+                <div class="gauge-bar">
+                    <div class="gauge-fill" style="width: {{ poe.points_pct_used or 0 }}%; background: {{ 'var(--red)' if (poe.points_pct_used or 0) > 80 else 'var(--orange)' if (poe.points_pct_used or 0) > 60 else 'var(--green)' }};"></div>
+                </div>
+                <p>{{ "%.2f"|format(poe.points_pct_used or 0) }}% used — {{ poe.points_balance or 0 | int }} / 660,000 points</p>
+                {% else %}
+                <p>No Poe data.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="grid">
+        <div class="card"><h2>OpenRouter Budget</h2>
+            {% if snapshot %}
+            {% set pct = (snapshot.total_usage / snapshot.total_credits * 100) if snapshot.total_credits else 0 %}
+            <div class="gauge-bar">
+                <div class="gauge-fill" style="width: {{ pct }}%; background: {{ 'var(--red)' if pct > 80 else 'var(--orange)' if pct > 60 else 'var(--green)' }};"></div>
+            </div>
+            <p>${{ "%.2f"|format(snapshot.total_usage) }} / ${{ "%.0f"|format(snapshot.total_credits) }} spent ({{ "%.1f"|format(pct) }}%)</p>
+            <table>
+                <tr><th>Period</th><th>Usage</th></tr>
+                <tr><td>Daily</td><td>${{ "%.2f"|format(snapshot.usage_daily) }}</td></tr>
+                <tr><td>Weekly</td><td>${{ "%.2f"|format(snapshot.usage_weekly) }}</td></tr>
+                <tr><td>Monthly</td><td>${{ "%.2f"|format(snapshot.usage_monthly) }}</td></tr>
+            </table>
+            <p style="margin-top:10px;font-size:0.8rem;color:var(--gold-light);">Snapshot: {{ snapshot.ts[:16] }}</p>
+            {% else %}
+            <p>No OpenRouter data yet.</p>
+            {% endif %}
+        </div>
+        <div class="card"><h2>Poe API Points</h2>
+            {% if poe %}
+            <table><tr><th>Metric</th><th>Value</th></tr>
+            <tr><td>Points used today</td><td>{{ poe.points_used_today or 0 }}</td></tr>
+            <tr><td>Points used this week</td><td>{{ poe.points_used_week or 0 }}</td></tr>
+            <tr><td>Points used this month</td><td>{{ poe.points_used_month or 0 }}</td></tr>
+            <tr><td>Balance (if known)</td><td>{{ poe.points_balance or "Unknown" }}</td></tr>
+            </table>
+            <p style="font-size:0.8rem;color:var(--gold-light);margin-top:10px;">
+                Updates every 5 min. Balance requires manual scrape from poe.com/activity (Cloudflare protected).
+            </p>
+            {% else %}
+            <p>No Poe usage recorded yet.</p>
+            {% endif %}
+        </div>
+        <div class="card"><h2>Claude Usage by Model</h2>
+            {% if claude_summary %}
+            <table><tr><th>Model</th><th>Events</th><th>Input Tkns</th><th>Output Tkns</th><th>Eff Tkns</th></tr>
+            {% for m in claude_summary %}
+            <tr>
+                <td>{{ m.model }}</td>
+                <td>{{ m.events }}</td>
+                <td>{{ m.inp }}</td>
+                <td>{{ m.out }}</td>
+                <td>{{ m.eff }}</td>
+            </tr>
+            {% endfor %}
+            {% if totals %}<tr style="font-weight:bold;color:var(--gold);">
+                <td>TOTAL</td><td>{{ totals.total_events }}</td>
+                <td>{{ totals.total_inp }}</td><td>{{ totals.total_out }}</td>
+                <td>{{ totals.total_eff }}</td>
+            </tr>{% endif %}
+            </table>
+            {% else %}
+            <p>No Claude events recorded.</p>
+            {% endif %}
+        </div>
+        <div class="card"><h2>Daily Rollups</h2>
+            {% if rollups %}
+            <table><tr><th>Date</th><th>Claude (eff)</th><th>OR Cost</th></tr>
+            {% for r in rollups %}
+            <tr><td>{{ r.date }}</td><td>{{ r.claude_effective_tokens or 0 }}</td><td>${{ "%.2f"|format(r.openrouter_usd or 0) }}</td></tr>
+            {% endfor %}
+            </table>
+            {% else %}
+            <p>No rollup data yet — runs nightly.</p>
+            {% endif %}
+        </div>
+        <div class="card"><h2>Zen (Free Tier) Limits & Usage</h2>
+            {% if zen_limits %}
+            <table><tr><th>Model</th><th>Calls/hr</th><th>Calls/day</th><th>Tokens/hr</th></tr>
+            {% for m in zen_limits %}
+            <tr>
+                <td>{{ m.model | replace('opencode/', '') | replace('openrouter/', '') }}</td>
+                <td>{{ m.requests_per_hour }}</td>
+                <td>{{ m.requests_per_day }}</td>
+                <td>{{ m.tokens_per_hour }}</td>
+            </tr>
+            {% endfor %}
+            </table>
+            {% if zen_usage %}
+            <p style="margin-top:10px;font-size:0.9rem;">
+                <b>Current Hour:</b> {{ zen_usage.calls_per_hour }} calls, {{ zen_usage.tokens_per_hour }} tokens<br>
+                <b>Current Day:</b> {{ zen_usage.calls_per_day }} calls, {{ zen_usage.tokens_per_day }} tokens
+            </p>
+            {% endif %}
+            {% else %}
+            <p>No Zen limits configured yet.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+</body>
+</html>

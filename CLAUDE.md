@@ -373,9 +373,9 @@ See [docs/AGENT_TEAMS.md](docs/AGENT_TEAMS.md) for experimental team workflows.
 
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-05-18 16:42 MT -->
+<!-- Last sync: 2026-05-19 16:11 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-05-18 16:42 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-05-19 16:11 MT] ===
 Budget: Claude UNKNOWN | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE

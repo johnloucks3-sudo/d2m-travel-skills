@@ -49,7 +49,7 @@ Dreams2Memories Travel, LLC — Owner & Principal Advisor
 
 ---
 
-### COS — Colonel Victoria "Iron Vic" Hale
+### COS — Ms. Victoria "Victory" Hale, SES-6
 
 **Gender:** Female
 **Age:** 57
@@ -240,7 +240,7 @@ Dreams2Memories Travel, LLC — Owner & Principal Advisor
 
 | Slot | Name | Gender | Age | Background | Reports To |
 |------|------|--------|-----|------------|------------|
-| **COS** | Col Victoria Hale | F | 57 | USAF, KC-135, former Wing CC | Commander |
+| **COS** | Ms. Victoria "Victory" Hale | F | 54 | SES-6 VCSAF-equivalent, civilian senior executive | Chief/Commander |
 | **EXEC** | Naia Solberg-Vega | F | 38 | Civilian, Columbia/Parsons, embassy kid | Commander |
 | **A2** | Lt Col Marcus Dembe | M | 46 | USAF Intel, DIA/NSA/EUCOM | COS |
 | **A3** | Maj Danielle Moreau | F | 38 | USAF, AWACS Air Battle Mgr | COS |

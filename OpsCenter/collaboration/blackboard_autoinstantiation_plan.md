@@ -7,7 +7,7 @@
 
 ## OBJECTIVE
 Blackboard state appears automatically on every entry point —
-YOGA, Goose, Telegram, Termius, Claude Desktop, Chromebook —
+YOGA, OpenCode, Telegram, Termius, Claude Desktop, Chromebook —
 with zero Commander action after one-time setup.
 
 ---

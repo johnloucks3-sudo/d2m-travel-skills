@@ -245,7 +245,7 @@ Briefs follow D2M branding:
 
 ## Contact & Support
 
-- **Hale (COS):** Col Victoria "Iron Vic" Hale — orchestration, priority decisions
+- **Hale (VCSAF):** Ms. Victoria "Victory" Hale, SES-6 — orchestration, priority decisions
 - **Infrastructure:** Check systemd logs: `journalctl --user -u hale-brief-*`
 - **Data Issues:** Verify `phase1_data.json` freshness and format
 

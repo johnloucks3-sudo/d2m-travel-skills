@@ -109,7 +109,9 @@ def run_opencode(content: str, timeout: int = 300) -> tuple[bool, str]:
         result = subprocess.run(
             [
                 "opencode", "run",
-                "-m", "openrouter/google/gemini-3.1-flash-lite",
+                "-m", "opencode/big-pickle",
+                "--dir", str(WORK_DIR),
+                "--dangerously-skip-permissions",
                 content,
             ],
             capture_output=True,

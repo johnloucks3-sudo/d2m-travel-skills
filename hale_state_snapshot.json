@@ -1,0 +1,388 @@
+{
+  "timestamp": "2026-05-17T23:00:49.819397+00:00",
+  "scans": {
+    "email": {
+      "timestamp": "2026-05-17T23:00:56.008732+00:00",
+      "total_inbox": 20,
+      "unread": 20,
+      "by_client": {
+        "furlow": 3,
+        "westbrook": 17,
+        "morton": 3,
+        "loucks": 11
+      },
+      "by_urgency": {
+        "routine": 19,
+        "urgent": 1
+      },
+      "needs_reply": 20,
+      "messages": [
+        {
+          "id": "19e382762b6010ba",
+          "from": "Ronald Westbrook <rwestbrook3@gmail.com>",
+          "subject": "Fwd: Silversea Notice 566910-25 / John Loucks, Susan Loucks / SN260423019 / 05/07/2026 / United Stat",
+          "date": "Sun, 17 May 2026 16:55:51 -0600",
+          "unread": true,
+          "snippet": "---------- Forwarded message --------- From: Ronald Westbrook &lt;rwestbrook3@gmail.com&gt; Date: Sun, Dec 28, 2025 at 11:01 AM Subject: Re: Silversea",
+          "classification": {
+            "clients": [
+              "furlow",
+              "westbrook",
+              "morton",
+              "loucks"
+            ],
+            "lifecycle_tps": [],
+            "urgency": "routine",
+            "source": "vendor"
+          }
+        },
+        {
+          "id": "19e3826fc96bf949",
+          "from": "Ronald Westbrook <rwestbrook3@gmail.com>",
+          "subject": "Fwd: Silversea Notice 566910-25 / John Loucks, Susan Loucks / SN260423019 / 05/07/2026 / United Stat",
+          "date": "Sun, 17 May 2026 16:55:25 -0600",
+          "unread": true,
+          "snippet": "---------- Forwarded message --------- From: Ronald Westbrook &lt;rwestbrook3@gmail.com&gt; Date: Sun, Dec 28, 2025 at 11:01 AM Subject: Re: Silversea",
+          "classification": {
+            "clients": [
+              "furlow",
+              "westbrook",
+              "morton",
+              "loucks"
+            ],
+            "lifecycle_tps": [],
+            "urgency": "routine",
+            "source": "vendor"
+          }
+        },
+        {
+          "id": "19e38268b3defbfc",
+          "from": "Costco Wholesale <Costco@digital.costco.com>",
+          "subject": "Your Weekly Warehouse Insider!",
+          "date": "Sun, 17 May 2026 22:54:25 +0000",
+          "unread": true,
+          "snippet": "Featured items at your local Costco warehouse View in browser. Costco.com Shop this week&#39;s featured items at your local Warehouse Shop this week&#",
+          "classification": {
+            "clients": [],
+            "lifecycle_tps": [],
+            "urgency": "routine",
+            "source": "vendor"
+          }
+        },
+        {
+          "id": "19e3825cecf46360",
+          "from": "Ronald Westbrook <rwestbrook3@gmail.com>",
+          "subject": "Fwd: SILVERSEAS PASSWORD",
+          "date": "Sun, 17 May 2026 16:54:07 -0600",
+          "unread": true,
+          "snippet": "---------- Forwarded message --------- From: Ronald Westbrook &lt;rwestbrook3@gmail.com&gt; Date: Tue, Feb 24, 2026 at 9:54 AM Subject: SILVERSEAS PAS",
+          "classification": {
+            "clients": [
+              "westbrook",
+              "loucks"
+            ],
+            "lifecycle_tps": [],
+            "urgency": "routine",
+            "source": "vendor"
+          }
+        },
+        {
+          "id": "19e3824a7d9d71dd",
+          "from": "Ronald Westbrook <rwestbrook3@gmail.com>",
+          "subject": "Fwd: Silversea Cruise",
+          "date": "Sun, 17 May 2026 16:52:50 -0600",
+          "unread": true,
+          "snippet": "---------- Forwarded message --------- From: Ronald Westbrook &lt;rwestbrook3@gmail.com&gt; Date: Fri, Aug 8, 2025 at 10:45 AM Subject: Fwd: Silversea",
+          "classification": {
+            "clients": [
+              "westbrook",
+              "loucks"
+            ],
+            "lifecycle_tps": [],
+            "urgency": "routine",
+            "source": "vendor"
+          }
+        },
+        {
+          "id": "19e382448e8bf20d",
+          "from": "Ronald Westbrook <rwestbrook3@gmail.com>",
+          "subject": "Fwd: Silversea Cruise",
+          "date": "Sun, 17 May 2026 16:52:25 -0600",
+          "unread": true,
+          "snippet": "---------- Forwarded message --------- From: Ronald Westbrook &lt;rwestbrook3@gmail.com&gt; Date: Fri, Aug 8, 2025 at 10:45 AM Subject: Fwd: Silversea",
+          "classification": {
+            "clients": [
+              "westbrook",
+              "loucks"
+            ],
+            "lifecycle_tps": [],
+            "urgency": "routine",
+            "source": "vendor"
+          }
+        },
+        {
+          "id": "19e3823ee4530d74",
+          "from": "Ronald Westbrook <rwestbrook3@gmail.com>",
+          "subject": "Fwd: Silversea Cruise",
+          "date": "Sun, 17 May 2026 16:52:03 -0600",
+          "unread": true,
+          "snippet": "---------- Forwarded message --------- From: Ronald Westbrook &lt;rwestbrook3@gmail.com&gt; Date: Fri, Aug 8, 2025 at 10:46 AM Subject: Fwd: Silversea",
+          "classification": {
+            "clients": [
+              "westbrook",
+              "loucks"
+            ],
+            "lifecycle_tps": [],
+            "urgency": "routine",
+            "source": "vendor"
+          }
+        },
+        {
+          "id": "19e382392676c3cd",
+          "from": "Ronald Westbrook <rwestbrook3@gmail.com>",
+          "subject": "Fwd: Silversea Cruise",
+          "date": "Sun, 17 May 2026 16:51:39 -0600",
+          "unread": true,
+          "snippet": "---------- Forwarded message --------- From: Ronald Westbrook &lt;rwestbrook3@gmail.com&gt; Date: Fri, Aug 8, 2025 at 10:56 AM Subject: Fwd: Silversea",
+          "classification": {
+            "clients": [
+              "westbrook"
+            ],
+            "lifecycle_tps": [],
+            "urgency": "routine",
+            "source": "vendor"
+          }
+        },
+        {
+          "id": "19e382345ba8addc",
+          "from": "Ronald Westbrook <rwestbrook3@gmail.com>",
+          "subject": "Fwd: Cruise Confirmation",
+          "date": "Sun, 17 May 2026 16:51:20 -0600",
+          "unread": true,
+          "snippet": "---------- Forwarded message --------- From: Ronald Westbrook &lt;rwestbrook3@gmail.com&gt; Date: Sun, Aug 10, 2025 at 1:56 PM Subject: Fwd: Cruise Co",
+          "classification": {
+            "clients": [
+              "westbrook"
+            ],
+            "lifecycle_tps": [
+              "TP-2.2",
+              "TP-3.2"
+            ],
+            "urgency": "routine",
+            "source": "vendor"
+          }
+        },
+        {
+          "id": "19e3822b4d4d18fd",
+          "from": "Ronald Westbrook <rwestbrook3@gmail.com>",
+          "subject": "Fwd: Silversea Notice 566910-25 / John Loucks, Susan Loucks / SN260423019 / 05/07/2026 / United Stat",
+          "date": "Sun, 17 May 2026 16:50:44 -0600",
+          "unread": true,
+          "snippet": "---------- Forwarded message --------- From: Ronald Westbrook &lt;rwestbrook3@gmail.com&gt; Date: Sun, Dec 28, 2025 at 11:01 AM Subject: Re: Silversea",
+          "classification": {
+            "clients": [
+              "furlow",
+              "westbrook",
+              "morton",
+              "loucks"
+            ],
+            "lifecycle_tps": [],
+            "urgency": "routine",
+            "source": "vendor"
+          }
+        },
+        {
+          "id": "19e38222dc36db99",
+          "from": "Ronald Westbrook <rwestbrook3@gmail.com>",
+          "subject": "Fwd: Cruise Confirmation",
+          "date": "Sun, 17 May 2026 16:50:08 -0600",
+          "unread": true,
+          "snippet": "---------- Forwarded message --------- From: Ronald Westbrook &lt;rwestbrook3@gmail.com&gt; Date: Wed, Feb 25, 2026 at 4:55 PM Subject: Fwd: Cruise Co",
+          "classification": {
+            "clients": [
+              "westbrook",
+              "loucks"
+            ],
+            "lifecycle_tps": [
+              "TP-2.2",
+              "TP-3.2"
+            ],
+            "urgency": "routine",
+            "source": "vendor"
+          }
+        },
+        {
+          "id": "19e3821b7debb6a2",
+          "from": "Ronald Westbrook <rwestbrook3@gmail.com>",
+          "subject": "Fwd: Final Silversea Cruise Documents for 566904-25 CAPT RONALD LAWRENCE WESTBROOK",
+          "date": "Sun, 17 May 2026 16:49:38 -0600",
+          "unread": true,
+          "snippet": "---------- Forwarded message --------- From: Jenna Woodcock &lt;jwoodcock@perx.com&gt; Date: Tue, Mar 24, 2026 at 8:41 AM Subject: Final Silversea Cru",
+          "classification": {
+            "clients": [
+              "westbrook"
+            ],
+            "lifecycle_tps": [
+              "TP-2.4",
+              "TP-3.2"
+            ],
+            "urgency": "routine",
+            "source": "vendor"
+          }
+        },
+        {
+          "id": "19e3820a8f30f7d6",
+          "from": "Ronald Westbrook <rwestbrook3@gmail.com>",
+          "subject": "Fwd: Cruise Confirmation",
+          "date": "Sun, 17 May 2026 16:48:29 -0600",
+          "unread": true,
+          "snippet": "---------- Forwarded message --------- From: Ronald Westbrook &lt;rwestbrook3@gmail.com&gt; Date: Sun, May 17, 2026 at 4:36 PM Subject: Fwd: Cruise Co",
+          "classification": {
+            "clients": [
+              "westbrook",
+              "loucks"
+            ],
+            "lifecycle_tps": [
+              "TP-2.2",
+              "TP-3.2"
+            ],
+            "urgency": "routine",
+            "source": "vendor"
+          }
+        },
+        {
+          "id": "19e3820265ab8a41",
+          "from": "Ronald Westbrook <rwestbrook3@gmail.com>",
+          "subject": "Fwd: Cruise Confirmation",
+          "date": "Sun, 17 May 2026 16:47:56 -0600",
+          "unread": true,
+          "snippet": "---------- Forwarded message --------- From: Ronald Westbrook &lt;rwestbrook3@gmail.com&gt; Date: Sun, Aug 10, 2025 at 1:56 PM Subject: Fwd: Cruise Co",
+          "classification": {
+            "clients": [
+              "westbrook"
+            ],
+            "lifecycle_tps": [
+              "TP-2.2",
+              "TP-3.2"
+            ],
+            "urgency": "routine",
+            "source": "vendor"
+          }
+        },
+        {
+          "id": "19e381fd8d7ef0fc",
+          "from": "Ronald Westbrook <rwestbrook3@gmail.com>",
+          "subject": "Fwd: Silversea Cruise",
+          "date": "Sun, 17 May 2026 16:47:35 -0600",
+          "unread": true,
+          "snippet": "---------- Forwarded message --------- From: Ronald Westbrook &lt;rwestbrook3@gmail.com&gt; Date: Fri, Aug 8, 2025 at 10:56 AM Subject: Fwd: Silversea",
+          "classification": {
+            "clients": [
+              "westbrook"
+            ],
+            "lifecycle_tps": [],
+            "urgency": "routine",
+            "source": "vendor"
+          }
+        },
+        {
+          "id": "19e381f850c39842",
+          "from": "Ronald Westbrook <rwestbrook3@gmail.com>",
+          "subject": "Fwd: Silversea Cruise",
+          "date": "Sun, 17 May 2026 16:47:14 -0600",
+          "unread": true,
+          "snippet": "---------- Forwarded message --------- From: Ronald Westbrook &lt;rwestbrook3@gmail.com&gt; Date: Fri, Aug 8, 2025 at 10:46 AM Subject: Fwd: Silversea",
+          "classification": {
+            "clients": [
+              "westbrook",
+              "loucks"
+            ],
+            "lifecycle_tps": [],
+            "urgency": "routine",
+            "source": "vendor"
+          }
+        },
+        {
+          "id": "19e381e85ed0c5e5",
+          "from": "Ronald Westbrook <rwestbrook3@gmail.com>",
+          "subject": "Fwd: Silversea Cruise",
+          "date": "Sun, 17 May 2026 16:46:07 -0600",
+          "unread": true,
+          "snippet": "---------- Forwarded message --------- From: Ronald Westbrook &lt;rwestbrook3@gmail.com&gt; Date: Fri, Aug 8, 2025 at 10:45 AM Subject: Fwd: Silversea",
+          "classification": {
+            "clients": [
+              "westbrook",
+              "loucks"
+            ],
+            "lifecycle_tps": [],
+            "urgency": "routine",
+            "source": "vendor"
+          }
+        },
+        {
+          "id": "19e38156a9c4a05b",
+          "from": "Ronald Westbrook <rwestbrook3@gmail.com>",
+          "subject": "Fwd: Cruise Confirmation",
+          "date": "Sun, 17 May 2026 16:36:11 -0600",
+          "unread": true,
+          "snippet": "---------- Forwarded message --------- From: Jenna Woodcock &lt;jwoodcock@perx.com&gt; Date: Fri, Nov 21, 2025 at 10:32 AM Subject: Cruise Confirmatio",
+          "classification": {
+            "clients": [
+              "westbrook"
+            ],
+            "lifecycle_tps": [
+              "TP-2.2",
+              "TP-3.2"
+            ],
+            "urgency": "routine",
+            "source": "vendor"
+          }
+        },
+        {
+          "id": "19e37f4f05fb2a39",
+          "from": "Allegiant <no-reply@e.allegiant.com>",
+          "subject": "Summer Adventures \u2013 Fly from $33",
+          "date": "17 May 2026 22:00:59 +0000",
+          "unread": true,
+          "snippet": "Book low fares now and your future self will thank you \u034f\u200c \u034f\u200c \u034f\u200c \u034f\u200c \u034f\u200c \u034f\u200c \u034f\u200c \u034f\u200c \u034f\u200c \u034f\u200c \u034f\u200c \u034f\u200c \u034f\u200c \u034f\u200c \u034f\u200c \u034f\u200c \u034f\u200c \u034f\u200c \u034f\u200c \u034f\u200c \u034f\u200c \u034f\u200c \u034f\u200c \u034f\u200c \u034f\u200c \u034f\u200c \u034f\u200c \u034f\u200c \u034f\u200c \u034f\u200c \u034f\u200c \u034f\u200c",
+          "classification": {
+            "clients": [],
+            "lifecycle_tps": [
+              "TP-1.2",
+              "TP-5.3",
+              "TP-5.4"
+            ],
+            "urgency": "routine",
+            "source": "vendor"
+          }
+        },
+        {
+          "id": "19e37d4099f6144a",
+          "from": "Laura Loomer from LOOMER UNLEASHED <lauraloomer@substack.com>",
+          "subject": "BerlinRosen\u2019s Israel Problem",
+          "date": "Sun, 17 May 2026 19:23:52 +0000",
+          "unread": true,
+          "snippet": "BerlinRosen built influence with the anti-Israel Left while quietly cashing in on the Jewish and pro-Israel clients its own political machine undermin",
+          "classification": {
+            "clients": [],
+            "lifecycle_tps": [
+              "urgent"
+            ],
+            "urgency": "urgent",
+            "source": "vendor"
+          }
+        }
+      ]
+    },
+    "system": {
+      "tunnel_alive": false,
+      "n8n_running": true,
+      "gmail_token_expiry": "2026-05-17T23:00:01.065754Z",
+      "gmail_token_ok": true,
+      "vendor_alerts": 0
+    },
+    "journal": {
+      "total_decisions": 1
+    }
+  }
+}

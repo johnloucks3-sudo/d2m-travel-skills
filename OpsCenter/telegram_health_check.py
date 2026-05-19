@@ -36,9 +36,6 @@ LOG_DIR = THUNDERBIRD / "logs"
 TELEGRAM_D2MC2C_TOKEN = os.environ.get(
     "TELEGRAM_D2MC2C_TOKEN", "***REMOVED-SECRET***"
 )
-TELEGRAM_GOOSE_TOKEN = os.environ.get(
-    "TELEGRAM_GOOSE_TOKEN", "***REMOVED-SECRET***"
-)
 TELEGRAM_DANI_TOKEN = os.environ.get(
     "TELEGRAM_DANI_TOKEN", "***REMOVED-SECRET***"
 )
@@ -169,7 +166,6 @@ def main():
     # Check each bot
     bots = {
         "d2mc2c": TELEGRAM_D2MC2C_TOKEN,
-        "goose": TELEGRAM_GOOSE_TOKEN,
         "dani": TELEGRAM_DANI_TOKEN,
     }
 

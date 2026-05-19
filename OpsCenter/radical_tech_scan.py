@@ -32,7 +32,7 @@ async def a2_perplexity_live_search():
     
     Instead, search the live web for breaking news, Github repos, HackerNews discussions, and ArXiv papers from the last 72 hours covering:
     1. Multi-Agent AI collaboration frameworks (e.g., LangChain, AutoGen, CrewAI updates).
-    2. Goose CLI alternatives or advanced Claude/Goose integrations.
+    2. OpenCode alternatives or advanced Claude/OpenCode integrations.
     3. AI-driven generative design for proposals, dynamic PDF rendering, or visual UI agents.
     4. Advanced Google Workspace API/MCP integrations (Gmail, Calendar, Drive automation).
     
@@ -92,7 +92,7 @@ async def run_scan():
     
     # We will use Gemini to do the final formatting/synthesis to test the pipeline as requested
     model = genai.GenerativeModel('gemini-2.5-pro')
-    final_prompt = f"Format this intel into a highly readable, aggressive military sitrep report for the Commander. Focus heavily on AI collaboration and Goose alternatives:\nRaw: {raw_intel}\nTriage: {actionable_intel}"
+    final_prompt = f"Format this intel into a highly readable, aggressive military sitrep report for the Commander. Focus heavily on AI collaboration and OpenCode alternatives:\nRaw: {raw_intel}\nTriage: {actionable_intel}"
     final_report = model.generate_content(final_prompt).text
     
     email_results(final_report)

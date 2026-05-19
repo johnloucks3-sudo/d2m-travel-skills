@@ -1,7 +1,7 @@
 # Agents_NEW — Agent Integration Guides
-## Thunderbird OS | Guides for OpenCode, Goose, and Specialist Models
+## Thunderbird OS | Guides for OpenCode, OpenCode, and Specialist Models
 
-This directory contains operational guides written specifically for autonomous AI agents (OpenCode, Goose, DeepSeek, etc.) to understand Thunderbird OS patterns and execute tasks effectively.
+This directory contains operational guides written specifically for autonomous AI agents (OpenCode, OpenCode, DeepSeek, etc.) to understand Thunderbird OS patterns and execute tasks effectively.
 
 ---
 

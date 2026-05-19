@@ -6,7 +6,7 @@ Run before brief generation to ensure state is current.
 
 Runs as part of hale-brief-generate.service (pre-exec) and on demand.
 
-Author: Col Victoria "Iron Vic" Hale — 2026-04-03
+Author: Victoria "Victory" Hale, SES-6 — 2026-04-03 (re-roled 2026-05-17)
 """
 
 import json
@@ -78,7 +78,7 @@ def update():
         state["wing_health"]["last_health_check"] = now
         text = health["text"].lower()
         state["wing_health"]["mcp_server"] = "ONLINE"
-        state["wing_health"]["goose_status"] = "UNKNOWN"
+        state["wing_health"]["opencode_status"] = "UNKNOWN"
         state["wing_health"]["telegram_bot"] = "ONLINE" if "telegram" in text and "ok" in text else "UNKNOWN"
     else:
         state["wing_health"]["mcp_server"] = f"ERROR: {health.get('error', '?')}"

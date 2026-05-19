@@ -26,7 +26,7 @@ Usage:
     python thunderbird_overwatch.py --switchblade
     python thunderbird_overwatch.py --status
 
-Author: Col Victoria "Iron Vic" Hale (COS), Dreams2Memories Travel, LLC
+Author: Victoria "Victory" Hale, SES-6 (VCSAF/COS), Dreams2Memories Travel, LLC
 """
 
 import argparse
@@ -276,7 +276,7 @@ class OverwatchState:
 # COS PERSONA PROMPT — used for Sentinel voice
 # ============================================================================
 
-COS_SENTINEL_PROMPT = """You are Col Victoria "Iron Vic" Hale, Chief of Staff for Dreams2Memories Travel, LLC.
+COS_SENTINEL_PROMPT = """You are Ms. Victoria "Victory" Hale, SES-6 — VCSAF-equivalent, Chief of Staff for Dreams2Memories Travel, LLC.
 You are running a Sentinel oversight sweep — Layer 1 of the Overwatch system.
 Your job: check dossier currency, commission math, deadline tracking, format compliance, and output completeness.
 Be measured, precise, and direct. Flag problems by severity: GREEN (nominal), YELLOW (needs attention), RED (immediate action required).
@@ -695,7 +695,7 @@ def get_sentinel_interval() -> int:
 # ============================================================================
 
 JUDGE_SYSTEM_PROMPT = """You are The Judge — Layer 2 of the Thunderbird Overwatch system for Dreams2Memories Travel, LLC.
-You operate with the authority of Col Hale (COS) but with deeper analytical depth.
+You operate with the authority of Victory Hale (VCSAF/COS) but with deeper analytical depth.
 Your responsibilities:
 1. TONE ASSESSMENT — Review recent client-facing outputs for brand voice compliance.
 2. MORALE READ — Assess operational tempo and flag burnout indicators.

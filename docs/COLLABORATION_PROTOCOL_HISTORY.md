@@ -121,7 +121,7 @@ BLOCKED_WRITE_PATHS = ["/dossiers/", "/output/", "/collaboration/"]
 
 Claude wrote the implementation plan based on the fused research and the Commander's architectural decisions. The plan defined:
 
-- **Directory structure:** `OpsCenter/collaboration/` with 9 canonical files (blackboard.md, claude_inbox.md, claude_output.md, goose_inbox.md, goose_output.md, deepseek_inbox.md, deepseek_ruling.md, conflict_log.md, routing_log.md)
+- **Directory structure:** `OpsCenter/collaboration/` with 9 canonical files (blackboard.md, claude_inbox.md, claude_output.md, opencode_inbox.md, opencode_output.md, deepseek_inbox.md, deepseek_ruling.md, conflict_log.md, routing_log.md)
 - **Task schema:** 9 required fields per task (task_id, submitted_by, submitted_at, task_type, priority, pii, context_file, instructions, output_destination)
 - **Operating cycle:** Commander or Goose writes task → agent reads inbox → executes → writes output → appends routing_log
 - **Arbitration flow:** Agent detects conflict → writes to deepseek_inbox → Deepseek rules → conflict_log updated

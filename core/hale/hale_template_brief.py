@@ -269,7 +269,7 @@ def generate_template_brief() -> str:
     )
 
     footer = f"""---
-*— Col Victoria "Iron Vic" Hale | Thunderbird Wing | {ts}*
+*— Ms. Victoria "Victory" Hale, SES-6 | Thunderbird Wing | {ts}*
 *Next brief: {next_ts}*
 """
 
@@ -299,7 +299,7 @@ def generate_eod_brief() -> str:
     )
 
     footer = f"""---
-*— Col Victoria "Iron Vic" Hale | Thunderbird Wing | {ts}*
+*— Ms. Victoria "Victory" Hale, SES-6 | Thunderbird Wing | {ts}*
 """
 
     return header + body + footer
@@ -324,7 +324,7 @@ def generate_weekly_brief() -> str:
     body = format_spsa_weekly_section()
 
     footer = f"""---
-*— Col Victoria "Iron Vic" Hale | Thunderbird Wing | {ts}*
+*— Ms. Victoria "Victory" Hale, SES-6 | Thunderbird Wing | {ts}*
 """
 
     return header + body + footer

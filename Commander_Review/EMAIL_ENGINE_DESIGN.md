@@ -29,7 +29,7 @@
 │                              │                      │           │
 │                      ┌───────▼───────┐    ┌─────────▼────────┐ │
 │                      │ Route to      │    │ Send to          │ │
-│                      │ goose_inbox / │    │ Commander/       │ │
+│                      │ opencode_inbox / │    │ Commander/       │ │
 │                      │ claude_inbox  │    │ johnloucks3      │ │
 │                      │ or delegate   │    │ drafts           │ │
 │                      └───────────────┘    └──────────────────┘ │
@@ -67,7 +67,7 @@ Service file should use `/usr/bin/python3` (not .venv — home dir blocks system
 - `OpsCenter/email_maintenance.log` — detailed log
 - Drafts in Gmail (not sent — Commander reviews via WF-17)
 - Telegram notifications for completions and escalations
-- Tasks written to goose_inbox.md / claude_inbox.md
+- Tasks written to opencode_inbox.md / claude_inbox.md
 
 ---
 *Design by Hale — hand off to Claude for implementation*

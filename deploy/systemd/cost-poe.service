@@ -1,0 +1,12 @@
+[Unit]
+Description=Poe Usage Collector — track Poe API points consumption
+After=network.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/Thunderbird
+Environment="PATH=%h/Thunderbird/.venv/bin:/usr/local/bin:/usr/bin:/bin"
+ExecStart=%h/Thunderbird/.venv/bin/python %h/Thunderbird/core/cost_dashboard/collectors/poe_usage.py
+
+[Install]
+WantedBy=default.target

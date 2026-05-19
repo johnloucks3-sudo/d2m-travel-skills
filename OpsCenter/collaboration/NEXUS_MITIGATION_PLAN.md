@@ -123,7 +123,7 @@ All fixes maintain $0 cost constraint and preserve existing hard-stop enforcemen
 
 **The Finding:**
 - **Location:** `nexus.py:202-213` (dispatch_to_qwen function)
-- **Current behavior:** `dispatch_to_qwen` blindly appends tasks to `goose_inbox.md` with no queue depth check
+- **Current behavior:** `dispatch_to_qwen` blindly appends tasks to `opencode_inbox.md` with no queue depth check
 - **DeepSeek V3.1 tier constraints:** Unknown RPM/token-per-minute limits (API documentation not provided)
 - **Risk scenario:** Rapid task submitter could queue 6+ missions before any complete, overwhelming free tier
 - **Impact:** Tasks disappear into inbox with no feedback; DeepSeek starts dropping work silently
@@ -134,11 +134,11 @@ All fixes maintain $0 cost constraint and preserve existing hard-stop enforcemen
 - Low cost: If rate-limited, DeepSeek starts failing, forcing fallback to Claude; loses cost advantage
 
 **Proposed Fix (Plain English):**
-1. Before appending to `goose_inbox.md` in `dispatch_to_qwen`, count active PENDING tasks:
-   - Read goose_inbox.md
+1. Before appending to `opencode_inbox.md` in `dispatch_to_qwen`, count active PENDING tasks:
+   - Read opencode_inbox.md
    - Count lines matching `status:PENDING` (grep-style)
    - If count ≥ 3, return "QUEUE_FULL" error instead of appending
-2. Log the rejection: `audit("QUEUE_FULL", f"goose_inbox has {count} pending, rejecting new task")`
+2. Log the rejection: `audit("QUEUE_FULL", f"opencode_inbox has {count} pending, rejecting new task")`
 3. The calling code (run_mission loop) sees the error, escalates to commander via Telegram
 4. Set threshold conservatively: 3 pending is safe for free tier; can adjust after testing
 
@@ -149,7 +149,7 @@ All fixes maintain $0 cost constraint and preserve existing hard-stop enforcemen
 - Test with synthetic load (5 rapid tasks): 20 min
 - Adjust threshold if needed: 10 min
 
-**Dependencies:** Requires understanding of goose_inbox.md format (lines with status:PENDING)
+**Dependencies:** Requires understanding of opencode_inbox.md format (lines with status:PENDING)
 
 **Risk Level of Fix:** Low-Medium
 - Queue rejection doesn't break missions; just blocks new ones until space opens
@@ -168,7 +168,7 @@ All fixes maintain $0 cost constraint and preserve existing hard-stop enforcemen
   ```
   MISSION_BOARD = BASE_DIR / "mission_board.json"
   AUDIT_LOG = Path("/home/john/Thunderbird/logs/nexus_audit.log")
-  GOOSE_INBOX = BASE_DIR / "collaboration/goose_inbox.md"
+  GOOSE_INBOX = BASE_DIR / "collaboration/opencode_inbox.md"
   CLAUDE_INBOX = BASE_DIR.parent / "claude_inbox.md"
   ```
 - **Problem:** Some paths are absolute (`/home/john/...`), some are relative to script location
@@ -186,7 +186,7 @@ All fixes maintain $0 cost constraint and preserve existing hard-stop enforcemen
    BASE_DIR = Path(__file__).parent.parent
    MISSION_BOARD = BASE_DIR / "OpsCenter" / "mission_board.json"
    AUDIT_LOG = BASE_DIR / "logs" / "nexus_audit.log"
-   GOOSE_INBOX = BASE_DIR / "OpsCenter" / "collaboration" / "goose_inbox.md"
+   GOOSE_INBOX = BASE_DIR / "OpsCenter" / "collaboration" / "opencode_inbox.md"
    CLAUDE_INBOX = BASE_DIR / "claude_inbox.md"
    # ... etc for all paths
    ```
@@ -303,18 +303,18 @@ All fixes maintain $0 cost constraint and preserve existing hard-stop enforcemen
 - **Scenario:** Under burst load (5+ concurrent missions), DeepSeek silently drops tasks or returns errors
 
 **Impact:**
-- Silent failures: Tasks queue in goose_inbox but never complete
+- Silent failures: Tasks queue in opencode_inbox but never complete
 - No alerting: Daemon logs appends but DeepSeek never processes
 - Cascading: Missions stack up, suspense deadlines pass, escalation doesn't trigger
 
 **Mitigation:**
-1. **Burst test:** Execute 5 sequential DeepSeek tasks in 1 minute via goose_inbox:
+1. **Burst test:** Execute 5 sequential DeepSeek tasks in 1 minute via opencode_inbox:
    - Task 1: "list all active missions" (light)
    - Task 2: "extract vendor details from PDF" (medium)
    - Task 3: "calculate margin analysis" (light)
    - Task 4: "compare flight rates" (heavy)
    - Task 5: "verify invoice totals" (light)
-2. Monitor completion: Check goose_inbox for status transitions (PENDING → COMPLETE)
+2. Monitor completion: Check opencode_inbox for status transitions (PENDING → COMPLETE)
 3. Document observed limits:
    - Max tasks per minute: ___
    - Max tokens per minute: ___
@@ -499,7 +499,7 @@ All fixes maintain $0 cost constraint and preserve existing hard-stop enforcemen
 
 **The Risk:**
 - **Status:** `scan_inboxes()` in nexus.py reads line counts to track position
-- **Scenario:** Multi-line task is written to goose_inbox mid-scan:
+- **Scenario:** Multi-line task is written to opencode_inbox mid-scan:
   - Scanner reads lines 0-50 (last_line=50)
   - New task writes lines 51-54 (4 lines, multi-line)
   - Scanner next cycle reads line 51 only
@@ -518,7 +518,7 @@ All fixes maintain $0 cost constraint and preserve existing hard-stop enforcemen
    - Scan complete tasks only (look for task delimiter: `\n---\n` followed by status line)
 
 2. **Alternative (simpler):** Add task boundary marker:
-   - Require all tasks in goose_inbox to have delimiter: `\n---\nNEXUS_TASK_END\n`
+   - Require all tasks in opencode_inbox to have delimiter: `\n---\nNEXUS_TASK_END\n`
    - Scanner waits for complete task before delivering to router
    - This matches the dispatch_to_qwen format (already has `\n---\n`)
 

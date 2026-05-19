@@ -2,15 +2,15 @@
 """
 submit_task.py — Universal task submission CLI + library
 =========================================================
-Used by: C2 bot, Goose (via shell), Claude, cron scripts, MCP tools.
+Used by: C2 bot, OpenCode (via shell), Claude, cron scripts, MCP tools.
 
 CLI usage:
-    python submit_task.py "Run morning intel sweep" --to goose --type intel_sweep
+    python submit_task.py "Run morning intel sweep" --to opencode --type intel_sweep
     python submit_task.py "Draft reply to Furlow" --to hale --priority 2
 
 Library usage:
     from OpsCenter.submit_task import queue
-    task_id = queue("Do X", assigned_to="goose", task_type="intel_sweep")
+    task_id = queue("Do X", assigned_to="opencode", task_type="intel_sweep")
 """
 
 import argparse
@@ -51,7 +51,7 @@ def main():
     parser.add_argument("content", help="Task description / prompt")
     parser.add_argument(
         "--to", default="auto",
-        help="Agent: hale | goose | auto  (default: auto)",
+        help="Agent: hale | opencode | auto  (default: auto)",
     )
     parser.add_argument(
         "--type", default="general", dest="task_type",

@@ -1,0 +1,165 @@
+{
+  "compiled": "2026-05-18T08:00:00Z",
+  "compiled_by": "HALE ALPHA (OpenCode) — RIR-1 Layer 0",
+  "schema_version": "1.0",
+  "active_clients": [
+    {
+      "names": "Al Ely & Amy Darrow",
+      "cruise_line": "Regent",
+      "ship": "SS Grandeur",
+      "voyage": "Scandinavia",
+      "dates": "2026-08-29 to 2026-09-08",
+      "booking": "3096289",
+      "fpd_amount": 16640,
+      "fpd_date": "2026-04-01",
+      "fpd_status": "PAID",
+      "dossier": "dossiers/Ely_Darrow_Regent_3096289.md",
+      "status": "active"
+    },
+    {
+      "names": "John & Melissa Furlow",
+      "cruise_line": "Regent",
+      "ship": "SS Grandeur",
+      "voyage": "Scandinavia",
+      "dates": "2026-08-29 to 2026-09-08",
+      "booking": "3071222",
+      "fpd_amount": 15486,
+      "fpd_date": "2026-04-01",
+      "fpd_status": "PAID",
+      "dossier": "dossiers/Furlow_Regent_3071222.md",
+      "status": "active",
+      "notes": "Cancelled mentions found. Chase Sapphire coverage active."
+    },
+    {
+      "names": "Ann & Shawn Heer",
+      "cruise_line": "Independent",
+      "voyage": "Japan Independent",
+      "dates": "2026-09-16 to 2026-09-30",
+      "fpd_status": "N/A",
+      "dossier": "dossiers/Heer_Ann_Shawn_Japan.md",
+      "status": "active",
+      "service_tier": "Pro bono — no commission"
+    },
+    {
+      "names": "Kyle & Rosalie Kuklinski / Morton & Dodge",
+      "cruise_line": "Viking",
+      "ship": "Viking Mars",
+      "voyage": "Panama Canal",
+      "dates": "2026-12-17 to 2026-12-27",
+      "bookings": ["9595029 (Morton)", "Kuklinski x2"],
+      "total_paid": 21244,
+      "fpd_date": "2026-03-31",
+      "fpd_status": "PAID_IN_FULL",
+      "dossier": "dossiers/Kuklinski_Viking_Panama.md",
+      "status": "active",
+      "notes": "All paid by Kyle Kuklinski. Flights/hotel/transfers/insurance not booked yet. Cabin selection response window: May 10 (OVERDUE)."
+    },
+    {
+      "names": "Nancy & Ken Lyons",
+      "cruise_line": "Viking",
+      "ship": "Viking Star",
+      "voyage": "Athens & Adriatic",
+      "dates": "2026-05-06 to 2026-05-16",
+      "fpd_status": "PAID",
+      "dossier": "dossiers/Lyons_Nancy_Ken.md",
+      "status": "active — ISSUE",
+      "issues": ["Onboard balance $2,338 unpaid — 15 days past due"]
+    },
+    {
+      "names": "Erik McLeod & Melissa McGlasson",
+      "cruise_line": "Silversea + Regent + Princess",
+      "voyages": [
+        {"line": "Silversea", "ship": "Silver Muse", "dates": "2026-06-23 to 2026-07-03", "status": "paid_in_full"},
+        {"line": "Regent", "ship": "SS Grandeur", "dates": "2026-12-19 to 2026-12-29", "booking": "2984034", "fpd": "2026-07-22", "fpd_amount": 12393.15, "status": "active"},
+        {"line": "Regent", "ship": "SS Prestige", "dates": "2027-12-18 to 2027-12-28", "booking": "3114500", "fpd": "2027-07-21", "fpd_amount": 14598.00, "status": "future"},
+        {"line": "Princess", "ship": "TBD", "dates": "2027-03-13 to 2027-03-20", "booking": "8X6PGQ", "fpd": "~Dec 2026", "status": "future"}
+      ],
+      "dossier": "dossiers/McLeod_Erik_Melissa_SilverMuse_Complete.md",
+      "status": "active",
+      "issues": ["Transfer coordination critical", "Grandeur Dec 2026 suite upgrade bid pending", "Rome dining reservations needed"]
+    },
+    {
+      "names": "Joshua Morton & Erica Dodge",
+      "cruise_line": "Viking",
+      "ship": "Viking Mars",
+      "voyage": "Panama Canal (Kuklinski Group)",
+      "dates": "2026-12-17 to 2026-12-27",
+      "booking": "9595029",
+      "fpd_status": "PAID_IN_FULL",
+      "dossier": "dossiers/Morton_Joshua_Erica_Viking_Panama.md",
+      "status": "active"
+    },
+    {
+      "names": "Larry & Heidi Nichols",
+      "cruise_line": "Regent",
+      "ship": "SS Grandeur",
+      "voyage": "Scandinavia",
+      "dates": "2026-08-29 to 2026-09-08",
+      "booking": "3078056",
+      "fpd_amount": 14986,
+      "fpd_date": "2026-04-01",
+      "fpd_status": "PAID",
+      "dossier": "dossiers/Nichols_Regent_3078056.md",
+      "status": "active",
+      "notes": "Suite 939. Allianz insurance paid but client doesn't understand coverage."
+    },
+    {
+      "names": "Ronald 'Rondo' Westbrook",
+      "cruise_line": "Silversea",
+      "ship": "Silver Nova",
+      "voyage": "Trans-Pacific (Japan to Seattle)",
+      "dates": "2026-04-23 to 2026-05-11",
+      "fpd_status": "CANCELLED — BEREAVEMENT",
+      "dossier": "dossiers/Westbrook_Brent_Kim_UPDATED.md",
+      "status": "cancelled",
+      "issues": ["Allianz claim $11,280 pending", "Cruise cancellation drafts ready — awaiting Commander send approval"]
+    }
+  ],
+  "prospects": [
+    {"names": "David McLeran", "type": "Alaska Self-Drive", "status": "researching", "email": "davidmcleran@yahoo.com"},
+    {"names": "Phillip 'Flip' Piontek", "type": "Australia 2027", "status": "awaiting Commander intake", "competing_agent": "Why Travel"},
+    {"names": "Bill & Kathleen Spencer", "type": "Multi-gen Europe June 2027", "status": "initial research", "travelers": 12},
+    {"names": "Brent & Kim Westbrook + family", "type": "Atlas Ocean Voyages July 2026", "status": "awaiting ship/dates"}
+  ],
+  "suspenses": [
+    {"date": "2026-05-18", "item": "McLeod cabin selection response OVERDUE (was May 10)", "priority": "P1", "owner": "Hale"},
+    {"date": "2026-05-18", "item": "Kuklinski cabin selection response OVERDUE (was May 10)", "priority": "P2", "owner": "Hale"},
+    {"date": "2026-05-31", "item": "Nichols dining reservation window opens", "priority": "P2", "owner": "A1 Navarro"},
+    {"date": "2026-06-01", "item": "Furlow Celebrity voucher assignment deadline", "priority": "P2", "owner": "Hale"},
+    {"date": "2026-06-23", "item": "McLeod/McGlasson Silver Muse embarkation", "priority": "P1", "owner": "Dani/CONDOR"},
+    {"date": "2026-07-22", "item": "McLeod Grandeur FPD ($12,393.15 due)", "priority": "P1", "owner": "Hale"},
+    {"date": "2026-08-01", "item": "Commander Loucks Grandeur FPD ($24,798 due)", "priority": "P1", "owner": "Hale"},
+    {"date": "2026-08-29", "item": "Scandi Group embarkation — Ely/Darrow, Furlow, Nichols", "priority": "P1", "owner": "Dani/CONDOR"},
+    {"date": "2026-09-16", "item": "Heer Japan independent trip", "priority": "P2", "owner": "Hale"},
+    {"date": "2026-12-17", "item": "Kuklinski/Morton Viking Mars Panama Canal", "priority": "P1", "owner": "Dani/CONDOR"},
+    {"date": "2026-12-19", "item": "McLeod Grandeur Lesser Antilles", "priority": "P1", "owner": "Dani/CONDOR"},
+    {"date": "2026-12-29", "item": "Commander Loucks Grandeur Panama Canal & Pacific", "priority": "P1", "owner": "Hale"}
+  ],
+  "wing_staff": {
+    "cmd": {"hale": "SES-6 VCS — Command", "jet": "Lt Gen — WIND Group", "talon": "Lt Gen — CONDOR Group"},
+    "wind": [
+      {"call": "A2 Dembe", "role": "Intel", "status": "operational"},
+      {"call": "A4 Keel", "role": "Logistics", "status": "operational"},
+      {"call": "A5 Castillo", "role": "Force Readiness", "status": "operational"},
+      {"call": "A7 Sterling", "role": "Programs/Metrics", "status": "operational"},
+      {"call": "A9 Harlan", "role": "Cost Ops", "status": "operational"},
+      {"call": "A11 Horizon", "role": "Future Ops", "status": "operational"},
+      {"call": "A12 ELON", "role": "Innovation", "status": "operational"}
+    ],
+    "condor": [
+      {"call": "A1 Navarro", "role": "Client Intel", "status": "operational"},
+      {"call": "A3 Dani", "role": "Client Voice", "status": "operational"},
+      {"call": "A6 Prism", "role": "C4/Cyber", "status": "operational"},
+      {"call": "A8 Reyes", "role": "Force Readiness", "status": "operational"},
+      {"call": "A10 Bridge", "role": "Partnerships", "status": "operational"},
+      {"call": "CH Washington", "role": "Chief of Staff", "status": "operational"},
+      {"call": "EXEC Naia", "role": "Executive Officer", "status": "operational"}
+    ]
+  },
+  "financial_summary": {
+    "paid_in_full_value": 103652.32,
+    "confirmed_commission": 906,
+    "cancelled_allianz_claim_pending": 11280,
+    "notes": "Most D2M commissions tracked via Nexion splits. Heers/Lyons/Loucks family = pro bono."
+  }
+}

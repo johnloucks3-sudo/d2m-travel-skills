@@ -131,7 +131,7 @@ FORMAT: Detailed staff paper (ISSUE → DISCUSSION → OPTIONS → ACTIONS)
 
 | Shorthand | Full Name | Role |
 |---|---|---|
-| `[COS]` | Col Victoria "Iron Vic" Hale | Chief of Staff — Routing, priorities, orchestration |
+| `[COS]` | Ms. Victoria "Victory" Hale, SES-6 | VCSAF-equivalent / Chief of Staff — Routing, priorities, orchestration |
 | `[A2]` | Lt Col Marcus "Wraith" Dembe | Research & Intelligence — Destination research, cruise intel, competitor analysis |
 | `[A3]` | Danielle "Dani" Moreau | Concierge — Client questions, booking queries, client-facing email |
 | `[A5]` | Lt Col Ryan "Viper" Castillo | Strategy & Business Growth — Business decisions, pricing, growth vectors |

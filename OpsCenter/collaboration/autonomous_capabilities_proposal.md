@@ -40,7 +40,7 @@ Commander, you have built something remarkable here. But you're right to want mo
 | **Email Ingest** | Every 2 min | inactive (dead) | Not actively broken — just not running |
 | **Dispatcher** | Every 2 min | inactive (dead) | Queue-based, exits fast |
 | **Morning Briefing** | 01:30 MT daily | ❌ FAILED | Google service account credentials malformed (missing `client_email`, `token_uri`) |
-| **Airline Monitor** | 01:40 MT daily | ❌ FAILED | Exit code 127 — `goose-d2m` recipe not found in PATH |
+| **Airline Monitor** | 01:40 MT daily | ❌ FAILED | Exit code 127 — `opencode` recipe not found in PATH |
 | **Booking Monitor** | Every 6h | ❌ FAILED | Playwright portal scraper — likely Playwright browser not installed |
 | **Scheduler** | Always-on daemon | ❌ FAILED | `ImportError: cannot import name 'SMS_GATEWAY' from thunderbird_payment_alerts` |
 | **Watchdog** | Every 2 min | ❌ FAILED | Self-healing watchdog — likely same import issue as scheduler |
@@ -79,7 +79,7 @@ Commander, you have built something remarkable here. But you're right to want mo
 You have 41 systemd timers. Most are broken. The activation layer — the thing that actually kicks off autonomous operations — is non-functional. This is what A12-ELON meant: *"You built a race car and forgot the key."*
 
 **Specific blockers:**
-1. **Airline Monitor** — uses `goose-d2m` command not in PATH; recipe exists at `recipes/airline_monitor.yaml`
+1. **Airline Monitor** — uses `opencode` command not in PATH; recipe exists at `recipes/airline_monitor.yaml`
 2. **Morning Briefing** — Google Apps credentials are OAuth client type, not service account type. Need to create proper service account JSON.
 3. **Scheduler** — `SMS_GATEWAY` was removed from `thunderbird_payment_alerts.py` but `thunderbird_heartbeat.py` still imports it
 4. **Watchdog** — depends on scheduler imports (same root cause)
@@ -120,7 +120,7 @@ Everything is polling-based (check inbox every 2 min, check email every 2 min, e
 | **Fix Tasking Watcher** | 5 min | HIGH | ✅ Already fixed — unit file path corrected. Just needs `systemctl --user daemon-reload && start` |
 | **Fix Scheduler ImportError** | 15 min | HIGH | Add `SMS_GATEWAY` back to payment_alerts.py or fix heartbeat import |
 | **Fix Morning Briefing credentials** | 30 min | HIGH | Replace OAuth client creds with service account JSON |
-| **Restart Airline Monitor** | 30 min | HIGH | Fix `goose-d2m` PATH or convert to direct Python call |
+| **Restart Airline Monitor** | 30 min | HIGH | Fix `opencode` PATH or convert to direct Python call |
 | **Install Playwright browsers** | 10 min | MED | `playwright install chromium` for booking monitor |
 | **Start all dead timers** | 30 min | HIGH | Fix paths, restart service units |
 

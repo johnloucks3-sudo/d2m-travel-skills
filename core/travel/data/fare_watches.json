@@ -7,14 +7,14 @@
     "route": "Stockholm → Oslo (10-night Scandinavia)",
     "travel_date": "2026-08-29",
     "passengers": 2,
-    "current_price_pp": 9618.0,
+    "current_price_pp": 16499.0,
     "baseline_price_pp": 9618.0,
     "alert_below": 8656.0,
     "alert_above": null,
     "notes": "Suite 827 Deck 8. Paid in full $19,236. Alert if refare opportunity >10% drop. Flights client-booked (AA/Finnair CKZHXA/BB4X94).",
     "active": true,
     "created": "2026-04-04T19:41:41.587142",
-    "last_checked": "2026-05-04T01:05:54.970083"
+    "last_checked": "2026-05-14T09:21:58.166356"
   },
   "nichols-grandeur-scandinavia-cruise": {
     "id": "nichols-grandeur-scandinavia-cruise",
@@ -24,14 +24,14 @@
     "route": "Stockholm → Oslo (10-night Scandinavia)",
     "travel_date": "2026-08-29",
     "passengers": 2,
-    "current_price_pp": 9448.0,
+    "current_price_pp": 15299.0,
     "baseline_price_pp": 9448.0,
     "alert_below": 8503.0,
     "alert_above": null,
     "notes": "Suite 939 Deck 9. Paid in full $18,896. Same voyage as Furlow/Ely-Darrow. Heidi's birthday Aug 29. Flights client-booked (AA/Finnair DSTAGH/BERJYH).",
     "active": true,
     "created": "2026-04-04T19:41:45.357706",
-    "last_checked": "2026-05-04T01:05:54.971474"
+    "last_checked": "2026-05-14T09:21:58.167024"
   },
   "ely-darrow-grandeur-scandinavia-cruise": {
     "id": "ely-darrow-grandeur-scandinavia-cruise",
@@ -41,14 +41,14 @@
     "route": "Stockholm → Oslo (10-night Scandinavia)",
     "travel_date": "2026-08-29",
     "passengers": 2,
-    "current_price_pp": 10320.0,
+    "current_price_pp": 18499.0,
     "baseline_price_pp": 10320.0,
     "alert_below": 9288.0,
     "alert_above": null,
     "notes": "Suite 1212 Deck 12. Paid in full $20,640. Insurance deferred — follow up May. Flights client-booked (AA UXVXZP).",
     "active": true,
     "created": "2026-04-04T19:41:48.375086",
-    "last_checked": "2026-05-04T01:05:54.971928"
+    "last_checked": "2026-05-14T09:21:58.170899"
   },
   "kuklinski-viking-panama-dv1": {
     "id": "kuklinski-viking-panama-dv1",
@@ -58,14 +58,14 @@
     "route": "Panama City → Ft. Lauderdale (10-night Panama Canal)",
     "travel_date": "2026-12-17",
     "passengers": 4,
-    "current_price_pp": 3799.0,
+    "current_price_pp": 7999.0,
     "baseline_price_pp": 3799.0,
     "alert_below": 3419.0,
     "alert_above": null,
     "notes": "Bookings 9593880 + 9593873. Paid in full. Fare OMAFSV26-3. Kyle/Rosalie SBC $800 total. FLIGHTS NOT BOOKED — Richmond VA (RIC) to Panama City (PTY). Insurance declined.",
     "active": true,
     "created": "2026-04-04T19:41:56.662650",
-    "last_checked": null
+    "last_checked": "2026-05-14T09:21:58.171480"
   },
   "kuklinski-viking-panama-v1": {
     "id": "kuklinski-viking-panama-v1",
@@ -75,14 +75,14 @@
     "route": "Panama City → Ft. Lauderdale (10-night Panama Canal)",
     "travel_date": "2026-12-17",
     "passengers": 2,
-    "current_price_pp": 3099.0,
+    "current_price_pp": 12999.0,
     "baseline_price_pp": 3099.0,
     "alert_below": 2789.0,
     "alert_above": null,
     "notes": "Booking 9595029. Paid in full. Fare OMAPSF26-3. FLIGHTS NOT BOOKED — Naples FL (RSW/FMY) to Panama City (PTY). Insurance declined. Josh guest form still missing.",
     "active": true,
     "created": "2026-04-04T19:41:58.534033",
-    "last_checked": null
+    "last_checked": "2026-05-14T09:21:58.171970"
   },
   "kuklinski-flights-ric-pty": {
     "id": "kuklinski-flights-ric-pty",
@@ -160,14 +160,14 @@
     "route": "Miami→Miami",
     "travel_date": "2026-12-19",
     "passengers": 2,
-    "current_price_pp": 7700.0,
+    "current_price_pp": 12849.0,
     "baseline_price_pp": 7700.0,
     "alert_below": 6930.0,
     "alert_above": null,
     "notes": "Suite 863 Deck 8 Concierge E. FPD Jul 22, 2026 = $12,393.15. Total est ~$15,400 ($7,700pp incl deposit). TESS auth needed for exact pricing. Refare alert at 10% drop.",
     "active": true,
     "created": "2026-04-04T19:47:50.622898",
-    "last_checked": null
+    "last_checked": "2026-05-14T09:21:58.172368"
   },
   "mcleod-flights-den-fco-jun2026": {
     "id": "mcleod-flights-den-fco-jun2026",
@@ -245,14 +245,14 @@
     "route": "Miami→Los Angeles",
     "travel_date": "2026-12-29",
     "passengers": 2,
-    "current_price_pp": 12899.0,
+    "current_price_pp": 12949.0,
     "baseline_price_pp": 12899.0,
     "alert_below": 11609.0,
     "alert_above": null,
     "notes": "Suite 658 Deck 6 Concierge E (447 sqft). Total $25,798. $1,000 deposited Jan 25, 2026. FPD AUG 1, 2026 = $24,798. Travel companions: Nancy & Ken Lyons. SBC $300. Refare alert at 10% drop. Flights NOT BOOKED (COS→MIA outbound, LAX→COS return).",
     "active": true,
     "created": "2026-04-04T19:48:06.755384",
-    "last_checked": null
+    "last_checked": "2026-05-14T09:21:58.172764"
   },
   "viking-kuklinski-panama-2026-12-17": {
     "id": "viking-kuklinski-panama-2026-12-17",
@@ -262,14 +262,14 @@
     "route": "Fort Lauderdale->Panama Canal->Fort Lauderdale",
     "travel_date": "2026-12-17",
     "passengers": 6,
-    "current_price_pp": 2582.67,
+    "current_price_pp": 8999.0,
     "baseline_price_pp": 2582.67,
     "alert_below": 2453.54,
     "alert_above": 2840.0,
     "notes": "3 cabins Jr Suite. FPD Apr 8 2026. Group: Kyle+Rosalie, Roger+Nick Kuklinski, Josh+Erica Morton. Baseline total: $15,496",
     "active": true,
     "created": "2026-04-24T06:35:00.999499",
-    "last_checked": null
+    "last_checked": "2026-05-14T09:21:58.173163"
   },
   "flight-kuklinski-cos-fll-2026-12-15": {
     "id": "flight-kuklinski-cos-fll-2026-12-15",

@@ -184,7 +184,7 @@ _BANNED_STRINGS = [
 _SEND_SUBSTRINGS = ["send", "Send"]
 
 # Valid originating agents
-_KNOWN_AGENTS = {"Goose", "Claude", "Hale"}
+_KNOWN_AGENTS = {"OpenCode", "Claude", "Hale"}
 
 
 def _matches_any(name: str, patterns: list) -> bool:

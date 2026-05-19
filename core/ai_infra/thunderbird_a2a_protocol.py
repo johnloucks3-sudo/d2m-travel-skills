@@ -98,7 +98,7 @@ class TaskMessageRequest(BaseModel):
 
 _PERSONA_CAPABILITIES = {
     "COS": {
-        "name": "Col Victoria Hale — Chief of Staff",
+        "name": "Victoria 'Victory' Hale, SES-6 — Chief of Staff",
         "description": "Orchestration, prioritization, staff coordination, synthesis, crisis management. Routes to specialist personas as needed.",
         "skills": ["orchestration", "task-routing", "synthesis", "crisis-management", "staff-coordination"],
         "accepts_external": True,

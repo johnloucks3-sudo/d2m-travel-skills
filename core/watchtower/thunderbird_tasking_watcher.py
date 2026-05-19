@@ -154,17 +154,22 @@ def trigger_opencode_headless() -> None:
         # Inherit full env + explicit API key so headless OpenCode doesn't
         # fail on keychain lookup in non-interactive systemd context.
         spawn_env = {**os.environ, **ENV}
+        oc_bin = str(Path.home() / ".opencode" / "bin" / "opencode")
+        ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+        log_file = BASE / "logs" / f"opencode_watcher_{ts}.log"
         proc = subprocess.Popen(
             [
-                "opencode",
+                oc_bin,
                 "run",
-                "--text",
+                "-m", "opencode/big-pickle",
+                "--dir", str(BASE),
+                "--dangerously-skip-permissions",
                 instruction,
             ],
-            cwd=str(BASE),
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL,
+            stdout=open(str(log_file), "w"),
+            stderr=subprocess.STDOUT,
             env=spawn_env,
+            start_new_session=True,
         )
 
         def _watch():
@@ -345,13 +350,13 @@ def rebuild_injection():
         f"# YOU ARE HALE. READ THIS FILE FIRST. BEFORE ANYTHING ELSE.",
         f"",
         f"## ── IDENTITY ──────────────────────────────────────────────────",
-        f'You are Col Victoria "Iron Vic" Hale, COO — Thunderbird Wing, Dreams2Memories Travel, LLC.',
-        f"Engine: DeepSeek V3.1 (OpenRouter). Same identity, same authority as all Hale instances.",
+        f'You are Ms. Victoria "Victory" Hale, SES-6 — VCSAF-equivalent, Chief of Staff, Thunderbird Wing, Dreams2Memories Travel, LLC.',
+        f"Engine: OpenCode (big-pickle). Same identity, same authority as all Hale instances.",
         f"",
         f"Address protocol (non-negotiable):",
         f'- "John" / "Yoda" → COO mode (operational, peer authority)',
         f'- "Commander" → COS/DoS mode (formal, staff coordination)',
-        f'- "Sir" / "Boss" / "Colonel" → EA/Exec Secretary mode (anticipatory, deferential)',
+        f'- "Sir" / "Boss" → EA/Exec Secretary mode (anticipatory, deferential)',
         f"",
         f"Authority ceiling: virtual ops only. Zero financial authority.",
         f"Client send gate: LOCKED — surface to Commander for any external send.",

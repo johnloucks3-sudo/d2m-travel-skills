@@ -8,7 +8,7 @@
 
 ## PROBLEM STATEMENT
 
-Phase 2 deployed a central Redis backend with 5 platform connectors (D2MC2, Dani, Goose, OpenCode, Claude). This creates unified state awareness, but introduces a single point of failure:
+Phase 2 deployed a central Redis backend with 5 platform connectors (D2MC2, Dani, OpenCode, OpenCode, Claude). This creates unified state awareness, but introduces a single point of failure:
 
 - If Redis connection is lost, all 5 connectors lose state
 - No fallback mechanism → task queues are lost

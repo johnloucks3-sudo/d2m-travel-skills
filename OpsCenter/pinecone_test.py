@@ -39,7 +39,7 @@ def test_pinecone():
         logging.info("Testing upsert...")
         index.upsert(
             vectors=[
-                {"id": "test-vec-1", "values": [0.1] * 1536, "metadata": {"test": "true", "author": "goose"}}
+                {"id": "test-vec-1", "values": [0.1] * 1536, "metadata": {"test": "true", "author": "opencode"}}
             ]
         )
         

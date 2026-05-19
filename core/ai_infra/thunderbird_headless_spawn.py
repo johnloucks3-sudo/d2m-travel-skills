@@ -122,9 +122,18 @@ def load_oauth_token() -> tuple[str, Dict[str, Any]]:
             raise ValueError("No accessToken in credentials file")
 
         env = dict(os.environ)
-        # CRITICAL: Strip ANTHROPIC_API_KEY to force OAuth from credentials.json
+        # CRITICAL: Strip ANTHROPIC_API_KEY + ANTHROPIC_BASE_URL to force OAuth from credentials.json
         env.pop("ANTHROPIC_API_KEY", None)
+        env.pop("ANTHROPIC_BASE_URL", None)
         env["CLAUDE_CODE_OAUTH_TOKEN"] = token
+
+        # Inject room-res.com credentials for hotel rate search tasks
+        room_res_email = os.getenv("ROOM_RES_EMAIL")
+        room_res_password = os.getenv("ROOM_RES_PASSWORD")
+        if room_res_email:
+            env["ROOM_RES_EMAIL"] = room_res_email
+        if room_res_password:
+            env["ROOM_RES_PASSWORD"] = room_res_password
 
         return token, env
     except json.JSONDecodeError as e:
@@ -207,17 +216,24 @@ def spawn_headless_claude(
     output_path = Path(output_file)
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
+    # Usage tracking output (for --output-usage flag)
+    usage_dir = Path.home() / ".claude" / "projects" / "-home-john"
+    usage_dir.mkdir(parents=True, exist_ok=True)
+    usage_file = usage_dir / f"usage_{task_name}_{ts}.jsonl"
+
     if background:
-        return _spawn_background(prompt, output_path, log_file, model, task_name, env)
+        return _spawn_background(prompt, output_path, log_file, model, task_name, env, usage_file)
     else:
-        return _spawn_synchronous(prompt, output_path, log_file, model, task_name, env, timeout)
+        return _spawn_synchronous(prompt, output_path, log_file, model, task_name, env, timeout, usage_file)
 
 
-def _spawn_synchronous(prompt, output_path, log_file, model, task_name, env, timeout):
+def _spawn_synchronous(prompt, output_path, log_file, model, task_name, env, timeout, usage_file):
     """Synchronous spawn — block on communicate() until done or timeout."""
+    mcp_config = "/home/john/.claude/mcp.json"
+    claude_bin = "/home/john/.local/bin/claude"
     try:
         proc = subprocess.Popen(
-            ["/home/john/.local/bin/claude", "--model", model, "--output-format", "text"],
+            [claude_bin, "--model", model, "--print", "--output-format", "text", "--mcp-config", mcp_config],
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
@@ -251,16 +267,21 @@ def _spawn_synchronous(prompt, output_path, log_file, model, task_name, env, tim
     }
 
 
-def _spawn_background(prompt, output_path, log_file, model, task_name, env):
+def _spawn_background(prompt, output_path, log_file, model, task_name, env, usage_file):
     """Background spawn — return PID immediately, output written by detached subprocess.
 
     Prompt MUST include 'WRITE [PATH]' instruction so the model writes to file.
     Stdout is redirected to log_file for debugging.
     """
     # Use -p flag for true background mode (model writes to file via WRITE instruction in prompt)
+    # CRITICAL: --mcp-config is REQUIRED. Without it, Claude spins up its own MCP
+    # host and may enter D-state (uninterruptible sleep) waiting for connections.
+    # The watcher service confirmed this pattern works (2026-05-17).
+    mcp_config = "/home/john/.claude/mcp.json"
+    claude_bin = "/home/john/.local/bin/claude"
     try:
         proc = subprocess.Popen(
-            ["/home/john/.local/bin/claude", "-p", prompt, "--model", model, "--output-format", "text"],
+            [claude_bin, "-p", prompt, "--model", model, "--output-format", "text", "--mcp-config", mcp_config],
             stdout=open(log_file, "w"),
             stderr=subprocess.STDOUT,
             env=env,

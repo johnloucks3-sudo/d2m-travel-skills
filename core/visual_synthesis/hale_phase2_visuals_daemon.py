@@ -18,7 +18,7 @@ Usage:
   python3 hale_phase2_visuals_daemon.py logs        # View recent logs
   python3 hale_phase2_visuals_daemon.py verify      # Verify systemd setup
 
-Author: Col Victoria "Iron Vic" Hale, COS — 2026-04-28
+Author: Ms. Victoria "Victory" Hale, SES-6 — 2026-04-28
 """
 
 import subprocess

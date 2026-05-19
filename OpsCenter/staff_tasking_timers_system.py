@@ -36,6 +36,26 @@ OPECODE_INBOX = THUNDERBIRD_ROOT / "OpsCenter/collaboration/opencode_inbox.md"
 OUTBOX = THUNDERBIRD_ROOT / "OpsCenter/collaboration/claude_outbox.md"
 LOG_FILE = THUNDERBIRD_ROOT / "OpsCenter/logs/staff_tasking.log"
 MASTER_SCHEDULE = THUNDERBIRD_ROOT / "OpsCenter/staff_tasking_schedule.json"
+DEDUP_FILE = THUNDERBIRD_ROOT / "OpsCenter" / "staff_tasking_dedup.json"
+
+def _load_dedup() -> Dict[str, str]:
+    """Load dedup state from JSON file."""
+    if not DEDUP_FILE.exists():
+        return {}
+    try:
+        with open(DEDUP_FILE) as f:
+            return json.load(f)
+    except Exception as e:
+        logger.warning(f"Failed to load dedup state: {e}")
+        return {}
+
+def _save_dedup(state: Dict[str, str]):
+    """Save dedup state to JSON file."""
+    try:
+        with open(DEDUP_FILE, "w") as f:
+            json.dump(state, f, indent=2)
+    except Exception as e:
+        logger.error(f"Failed to save dedup state: {e}")
 
 logging.basicConfig(
     level=logging.INFO,
@@ -281,20 +301,30 @@ def generate_task_queue(clients: Dict[str, Dict]) -> List[Dict]:
 def dispatch_to_inboxes(tasks: List[Dict]) -> None:
     """
     Dispatch tasks to appropriate staff inboxes.
-    A2/A6/A9 → goose_inbox.md
+    A2/A6/A9 → opencode_inbox.md
     A3/COS → claude_inbox.md
     """
     claude_tasks = []
-    goose_tasks = []
+    opencode_tasks = []
+    dedup_state = _load_dedup()
+    now = datetime.now()
+    updated = False
 
     for task in tasks:
-        owners = task["owners"]
+        # Check for dedup
+        dedup_key = f"{task['task_id']}|{task['send_date']}"
+        if dedup_key in dedup_state:
+            last_sent = datetime.fromisoformat(dedup_state[dedup_key])
+            if now - last_sent < timedelta(hours=24):
+                logger.info(f"Skipping duplicate task: {task['task_id']}")
+                continue
+
         inbox_task = f"""
 ---
 ## TASK: {task["task_id"]}
 status: UNREAD
 from: Staff-Tasking-Timers-System
-injected: {datetime.now().isoformat()}
+injected: {now.isoformat()}
 priority: P{"0" if task["critical"] else "1"}
 task: |
   Deliverable: {task["deliverable"]}
@@ -307,11 +337,19 @@ task: |
   For WF-17 gate and Commander approval flow.
 """
 
+        # Update dedup state
+        dedup_state[dedup_key] = now.isoformat()
+        updated = True
+
         # Route by primary owner
+        owners = task["owners"]
         if "A3" in owners or "COS" in owners:
             claude_tasks.append(inbox_task)
         else:
-            goose_tasks.append(inbox_task)
+            opencode_tasks.append(inbox_task)
+
+    if updated:
+        _save_dedup(dedup_state)
 
     # Append to appropriate inboxes
     if claude_tasks and CLAUDE_INBOX.exists():
@@ -319,10 +357,10 @@ task: |
             f.write("\n".join(claude_tasks))
         logger.info(f"Dispatched {len(claude_tasks)} tasks to claude_inbox.md")
 
-    if goose_tasks and GOOSE_INBOX.exists():
-        with open(GOOSE_INBOX, "a") as f:
-            f.write("\n".join(goose_tasks))
-        logger.info(f"Dispatched {len(goose_tasks)} tasks to goose_inbox.md")
+    if opencode_tasks and OPENCODE_INBOX.exists():
+        with open(OPENCODE_INBOX, "a") as f:
+            f.write("\n".join(opencode_tasks))
+        logger.info(f"Dispatched {len(opencode_tasks)} tasks to opencode_inbox.md")
 
 
 def notify_commander(tasks: List[Dict]) -> None:

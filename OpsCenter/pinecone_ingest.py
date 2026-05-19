@@ -80,7 +80,6 @@ async def run_ingestion():
     
     target_dirs = [
         "/home/john/Thunderbird/dossiers/*.md",
-        "/home/john/Thunderbird/agent_docs/goose_persistent_lessons.md",
         "/home/john/Thunderbird/OpsCenter/collaboration/Team_API_Architecture.md"
     ]
     

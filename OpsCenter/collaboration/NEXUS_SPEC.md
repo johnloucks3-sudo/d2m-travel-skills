@@ -86,7 +86,7 @@
 
 ## 5. COMMANDER INTERFACE — THREE WAYS TO DROP TASKS
 1.  **Telegram GW:** `@nexus "Plan Smith Japan trip, $8k, Apr 15-22"`
-2.  **CLI Inbox:** Write JSON to `goose_inbox.md` (append-only).
+2.  **CLI Inbox:** Write JSON to `opencode_inbox.md` (append-only).
 3.  **GMAIL TO EXEC:**
     - Email `johnloucks3@gmail.com` with subject `EXEC: [command]` or `NEXUS: [mission]`.
     - Body is parsed into actions.

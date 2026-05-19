@@ -180,8 +180,9 @@ tail -50 /home/john/Thunderbird/logs/claude_*.log
 
 **Step 2: Check prerequisites**
 ```bash
-systemctl is-active claude-token-refresh.timer
-systemctl is-active claude-haiku-supervisor.timer
+systemctl --user is-active claude-token-monitor.timer
+systemctl --user is-active claude-oauth-keepalive.timer
+systemctl --user is-active thunderbird-watchdog.timer
 ls -la ~/.claude/.credentials.json
 ```
 

@@ -172,7 +172,7 @@ def audit_oa_commissions() -> dict:
         "description": "COS Hale — operations tools: weekly report, morning briefing, staff coordination, calendar sync",
         "content": """# SKILL: cos_ops
 ## Description
-Iron Vic's operational command tools. Weekly reports, morning briefings,
+Hale's operational command tools. Weekly reports, morning briefings,
 booking anchors, calendar sync, and staff tasking coordination.
 
 ## Instructions

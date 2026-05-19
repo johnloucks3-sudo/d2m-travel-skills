@@ -6,7 +6,8 @@ Runs every 20 minutes. Keeps the OAuth token perpetually fresh.
 This prevents token expiry from ever blocking headless Claude operations.
 
 Single job: refresh the token if it's within ANY risk window.
-Launched by: systemd timer (claude-token-refresh.timer)
+Launched by: systemd timer (historical reference — current OAuth refresh is handled by
+claude-token-monitor.timer + claude-oauth-keepalive.timer, both user-level)
 """
 
 import json

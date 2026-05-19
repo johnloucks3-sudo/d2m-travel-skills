@@ -1,0 +1,12 @@
+[Unit]
+Description=Unified Router Health Daemon Timer (Every 5 Minutes)
+After=network.target
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=5min
+Unit=router-health-daemon.service
+Persistent=true
+
+[Install]
+WantedBy=timers.target

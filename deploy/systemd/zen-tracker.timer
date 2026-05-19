@@ -1,0 +1,11 @@
+[Unit]
+Description=Zen Usage Tracker Timer
+Requires=zen-tracker.service
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=5min
+AccuracySec=1min
+
+[Install]
+WantedBy=timers.target

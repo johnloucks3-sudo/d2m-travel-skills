@@ -55,7 +55,7 @@ def main():
 <div style="max-width: 700px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; border: 1px solid #ddd;">
 
 <h2 style="color: #0000ff; margin-top: 0;">D2M Client Lifecycle — HEART OF THE BUSINESS</h2>
-<p style="color: #666; font-size: 14px;">COS Report · Col Victoria Hale · 2026-04-17</p>
+<p style="color: #666; font-size: 14px;">COS Report · Victoria 'Victory' Hale, SES-6 · 2026-04-17</p>
 
 <hr style="border: 1px solid #0000ff;">
 

@@ -11,7 +11,7 @@ Usage:
     python3 opscenter_test_harness.py --quick    # Infra + sanitizer only (no API calls)
     python3 opscenter_test_harness.py --phase 2  # MCP tools only
 
-Author: Col Victoria "Iron Vic" Hale (COS)
+Author: Victoria "Victory" Hale, SES-6 (VCSAF)
 """
 
 import argparse

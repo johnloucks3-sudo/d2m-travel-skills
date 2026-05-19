@@ -6,7 +6,7 @@
 Currently, **there is no active listener routing inbound emails into AI tasks**. 
 The Wing relies entirely on:
 1.  **Telegram C2** (telegram_pager_c2.py / Goose Gateway)
-2.  **File-based Inboxes** (claude_inbox.md / goose_inbox.md)
+2.  **File-based Inboxes** (claude_inbox.md / opencode_inbox.md)
 3.  **Manual CLI Execution**
 
 While you have sent emails with "red!" triggers to `d2mconcierge@gmail.com`, the system is deaf to them because:

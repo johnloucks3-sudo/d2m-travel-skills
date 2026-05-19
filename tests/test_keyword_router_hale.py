@@ -47,8 +47,8 @@ class TestHaleTier:
         d = classify_substrate("Chief of Staff brief")
         assert d["substrate"] == "sonnet"
 
-    def test_iron_vic(self):
-        d = classify_substrate("Iron Vic, what do you recommend?")
+    def test_victory(self):
+        d = classify_substrate("Victory, what do you recommend?")
         assert d["substrate"] == "sonnet"
 
     def test_strategic_verb_decide(self):

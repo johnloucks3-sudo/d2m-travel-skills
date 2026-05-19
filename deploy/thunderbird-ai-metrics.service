@@ -1,0 +1,20 @@
+[Unit]
+Description=Thunderbird AI Metrics Dashboard Service
+After=network.target
+Wants=thunderbird-ai-metrics.timer
+
+[Service]
+Type=simple
+User=john
+Group=john
+WorkingDirectory=/home/john/Thunderbird
+Environment="PATH=/home/john/Thunderbird/.venv/bin:/usr/local/bin:/usr/bin:/bin"
+Environment="PYTHONPATH=/home/john/Thunderbird"
+ExecStart=/home/john/Thunderbird/.venv/bin/python /home/john/Thunderbird/core/ops/thunderbird_ai_metrics_dashboard.py --port 8767
+Restart=on-failure
+RestartSec=10s
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target

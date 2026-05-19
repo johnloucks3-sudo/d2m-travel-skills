@@ -115,6 +115,8 @@ def main():
         log_msg(f"System health: {health}")
 
         if update_brief():
+            import subprocess
+            subprocess.run(["/home/john/Thunderbird/.venv/bin/python3", "/home/john/Thunderbird/OpsCenter/generate_a7_metrics.py"])
             log_msg("=== Audit Complete ===\n")
             return 0
         else:

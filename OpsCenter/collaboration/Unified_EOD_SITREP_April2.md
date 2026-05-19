@@ -7,7 +7,7 @@
 In the past 24 hours, the Thunderbird Wing executed 41+ major operational directives, completely tearing down the legacy file-watcher architecture and deploying **Architecture V3**. The Wing is now load-balanced, FinOps-secured, and operating with a unified A-Staff hierarchy.
 
 ## ARCHITECTURAL UPGRADES (V3 LIVE)
-1. **Zero-Paste A2A Bridge:** Claude wired the A2A HTTP bridge (Port 8766). Goose and Claude now communicate via native JSON-RPC payloads backed by SQLite and SSE streaming, eliminating file-system lag.
+1. **Zero-Paste A2A Bridge:** Claude wired the A2A HTTP bridge (Port 8766). OpenCode and Claude now communicate via native JSON-RPC payloads backed by SQLite and SSE streaming, eliminating file-system lag.
 2. **Goose as Primary:** The Telegram conflict was resolved. Goose natively owns the C2 token and possesses Streamable HTTP access to all 285 D2M MCP tools directly.
 3. **FinOps Multi-Model Routing:** A strict load-balancing matrix was enforced:
    - *Claude 3.7 Sonnet/Opus:* High-thinking architecture and client copy ($0 Max Plan).

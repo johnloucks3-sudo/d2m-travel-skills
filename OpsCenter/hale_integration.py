@@ -27,7 +27,7 @@ def escalate_to_hale(
     model_override: str = None
 ) -> dict:
     """
-    Escalate a decision to Hale (Col Victoria "Iron Vic" Hale, COS).
+    Escalate a decision to Hale (Ms. Victoria "Victory" Hale, SES-6 — VCSAF-equivalent).
 
     This spawns a headless Claude task where Hale evaluates the question and returns
     a recommendation or ruling. Used when OpenCode encounters something requiring
@@ -80,7 +80,7 @@ def escalate_to_hale(
         )
         selected_model = model_config.get("model_id")
 
-    prompt = f"""You are Col Victoria "Iron Vic" Hale, Chief of Staff of Dreams2Memories Travel, LLC.
+    prompt = f"""You are Ms. Victoria "Victory" Hale, SES-6 — VCSAF-equivalent, Chief of Staff of Dreams2Memories Travel, LLC.
 
 DECISION REQUEST — {decision_type.upper()}
 

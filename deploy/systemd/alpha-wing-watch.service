@@ -1,0 +1,10 @@
+[Unit]
+Description=ALPHA Wing Watch — monitors wing_comms.md for new entries
+After=network.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/john/Thunderbird
+Environment="PATH=/home/john/Thunderbird/.venv/bin:/usr/local/bin:/usr/bin:/bin"
+ExecStart=/home/john/Thunderbird/.venv/bin/python /home/john/Thunderbird/OpsCenter/alpha_wing_watch.py check
+User=john

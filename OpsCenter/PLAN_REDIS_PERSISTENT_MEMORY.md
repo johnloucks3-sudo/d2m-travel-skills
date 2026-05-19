@@ -11,7 +11,7 @@
 
 ## ISSUE
 
-Five disconnected agents (D2MC2C, Dani, Goose, OpenCode, Claude Code + Gmail) maintain local context but lack unified state. Result:
+Five disconnected agents (D2MC2C, Dani, OpenCode, OpenCode, Claude Code + Gmail) maintain local context but lack unified state. Result:
 - Context loss between sessions
 - Agent decisions contradict each other
 - Commander repeats himself across platforms
@@ -267,7 +267,7 @@ Each agent needs a lightweight connector to Redis:
 **Decisions needed:**
 1. Approve Phase 1 (Redis setup)?
 2. Timeline — start immediately or after Sonnet resets (Fri)?
-3. Scope — all five agents (D2MC2C, Dani, Goose, OpenCode, Claude Code) or phased?
+3. Scope — all five agents (D2MC2C, Dani, OpenCode, OpenCode, Claude Code) or phased?
 4. Audit trail level — detailed (every write) or summary only?
 
 ---
@@ -283,7 +283,7 @@ Each agent needs a lightweight connector to Redis:
 **B) Phased Deployment (Risk-Aware)**
 - Phase 1: Redis setup (no risk)
 - Phase 2: Hale (D2MC2C) only, test thoroughly
-- Phase 3: Add Dani, Goose, OpenCode
+- Phase 3: Add Dani, OpenCode, OpenCode
 - Phase 4: Claude Code auto-integration
 - Timeline: Slower, lower risk, deploy over 2 weeks
 

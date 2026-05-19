@@ -2,7 +2,7 @@
 task_queue.py — Centralized SQLite task queue for Thunderbird OS
 ================================================================
 Single source of truth for all task submission and retrieval.
-WAL mode ensures safe concurrent writes from C2 bot, Goose, Claude, cron.
+WAL mode ensures safe concurrent writes from C2 bot, OpenCode, Claude, cron.
 
 Usage:
     from OpsCenter.task_queue import submit_task, get_pending_tasks, ...

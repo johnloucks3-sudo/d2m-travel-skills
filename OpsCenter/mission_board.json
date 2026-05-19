@@ -233,7 +233,7 @@
     {
       "id": "MISSION-032",
       "title": "T4-CARRYOVER: Fix hale_oc",
-      "status": "in_progress",
+      "status": "completed",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "daemon clock skew Replace datetime.now()+offset with datetime.now(timezone.utc). Add monotonic_sequence. Add pre-flight NTP drift check. Sterling re-scores on complete. P1",
@@ -241,9 +241,63 @@
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        "[2026-05-19T12:30:00] CARRY-1/2/3 fixed in jet_heartbeat.py. Timer restarted, writing as hale_oc. T4 Exercise Step 8 integration test PASS (5/5).",
+        "[2026-05-19T18:30:00] STERLING RE-SCORE: 9.5/10 GREEN. Exercise CLOSED with CARRY-4 (Hale-CC reader staleness). CARRY-4 added as new mission."
+      ],
       "created_at": "2026-05-18T16:38:54.175707+00:00",
-      "updated_at": "2026-05-18T16:38:54.175714+00:00"
+      "updated_at": "2026-05-19T18:30:00+00:00"
+    },
+    {
+      "id": "MISSION-033",
+      "title": "CARRY-4: Hale-CC Reader Staleness",
+      "status": "completed",
+      "priority": "P0",
+      "assigned_to": "JET/OpenCode",
+      "description": "Hale-CC reader path remains stale — last_other_heartbeat_read pinned to old RED beat (2026-05-19T17:53:53Z) across beats 1/2/3. Fix reader cache/seek bug or missing same-fix on hale_cc. Target: hale_cc last_other_heartbeat_read >= 2026-05-19T18:03:53Z with other_missed_beats: 0. Sterling SO: every cross-instance daemon must test BOTH read and write directions.",
+      "created_at": "2026-05-19T18:30:00+00:00",
+      "updated_at": "2026-05-19T18:30:00+00:00",
+      "logs": [
+        "[2026-05-19T18:30:00] Created from Sterling re-score. Root: CARRY-1/2/3 fix applied only to hale_oc writer, not hale_cc reader. Verify by 2026-05-19T19:00 MDT.",
+        "[2026-05-19T...] COMPLETED — hale_state_reader.py created, jet_heartbeat.py updated (CC_TIMEOUT_S 1800→3600, HANDOFF grace), backward compat verified."
+      ]
+    },
+    {
+      "id": "MISSION-034",
+      "title": "Explora Journeys Competitive Intelligence Deep Dive",
+      "status": "active",
+      "priority": "P2",
+      "assigned_to": "A2 Dembe (WIND Group)",
+      "description": "Develop comprehensive competitive intelligence on Explora Journeys (MSC luxury brand), analogous to Silversea watch program. Coverage: brand overview, ship profiles, itinerary strategy, pricing/positioning, B2B accessibility, target client fit, review/risk intel. Deliver structured report with confidence levels and actionable leads.",
+      "deliverables": [
+        "output/wind_staff_dembe_explora_journeys_intel.md"
+      ],
+      "dependencies": [],
+      "suspense_date": "2026-05-20T23:59:00Z",
+      "logs": [
+        "[2026-05-19T13:46:00] DISPATCHED via wind_staff.py dembe. Model: opencode/big-pickle. Output: output/wind_staff_dembe_20260519_134641.md (967 chars).",
+        "[2026-05-19T13:50:00] Commander requested full intel scan mission board entry. MISSION-034 created.",
+        "[2026-05-19T13:50:00] Status: Initial assessment delivered; full structured report pending per Commander direction."
+      ]
+    },
+    {
+      "id": "MISSION-035",
+      "title": "Keyword Router Revision",
+      "status": "pending",
+      "priority": "P0",
+      "assigned_to": "OpenCode (Brain 1 — Keyword Chaos)",
+      "description": "Revise keyword router classification system. Current router (OpsCenter/keyword_router.py) uses 3-tier cost-aware routing: Tier 1 (Ollama $0), Tier 2 (OpenCode/DeepSeek ~$0.27/M), Tier 3 (Claude Sonnet $0 OAuth). Substrate classifier routes to Haiku/Sonnet/Opus. Task: audit router for keyword collision, pattern overlap, and routing ambiguity. Detect edge cases where tasks could match multiple tiers. Produce: (1) collision matrix (keywords matching multiple tiers), (2) recommended dedupe/priority rules, (3) revised router with improved precision, (4) test suite validation (target: 25/25 tests PASS).",
+      "deliverables": [
+        "output/keyword_router_revision_audit_20260519.md",
+        "OpsCenter/keyword_router_v2.py",
+        "OpsCenter/keyword_router_test_v2.py"
+      ],
+      "dependencies": [],
+      "suspense_date": "2026-05-20T23:59:00Z",
+      "keywords": ["Keyword Chaos"],
+      "logs": [
+        "[2026-05-19T20:00:00] MISSION-035 created. Trigger: 'keyword' request (not POE METER). Keyword Router committed to memory. Scope: router audit + collision analysis + v2 implementation."
+      ]
     }
   ],
   "suspense_watch": [
@@ -283,5 +337,13 @@
       "priority": "P1"
     }
   ],
-  "last_updated": "2026-05-18T19:20:00Z"
+  "last_updated": "2026-05-19T18:30:00Z",
+  "t4_exercise_status": {
+    "status": "CLOSED",
+    "score": "9.5/10 GREEN",
+    "closed_by": "Sterling",
+    "date": "2026-05-19",
+    "carryover": "CARRY-4: Hale-CC reader staleness",
+    "note": "Exercise CLOSED per SO_T4_EXERCISE_HALE_DUAL_ENGINE_20260518 (score >= 8/10 threshold met)"
+  }
 }

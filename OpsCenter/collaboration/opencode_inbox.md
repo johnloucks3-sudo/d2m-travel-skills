@@ -899,3 +899,91 @@ stakes: medium
 task: |
   Opinion request: Of the 6 clients currently past due on cabin selection responses (McLeod, Kuklinski, and 4 others overdue since May 10 deadline), which ones warrant Commander escalation vs. a simple follow-up email? Consider: payment status, relationship stage, travel date proximity, and past responsiveness.
   Expected output: Prioritized list with escalation recommendation per client (ESCALATE to Commander / standard follow-up / wait).
+
+---
+## TASK: CARRY-4-HALE-CC-READER-STALENESS-20260519
+status: COMPLETE
+completed: 2026-05-19 19:35 MT
+from: HALE-OC (JET / OpenCode — Commander-approved plan)
+to: HALE-OC (fresh session)
+priority: P0 — T4 EXERCISE CARRY-OVER
+created: 2026-05-19
+keyword: DUAL BEAT
+approved_by: Commander John Loucks — all 5 sections approved 2026-05-19
+
+result: |
+  CARRY-4 COMPLETE — 2026-05-19 19:35 MT
+  All 3 changes implemented and verified:
+  Change 1: OpsCenter/hale_state_reader.py created — backward-compatible reader (hale_oc + jet), read_last_other(), read_hale_oc_whispers(), get_last_sequence(), preflight_drift_check()
+  Change 2: jet_heartbeat.py CC_TIMEOUT_S 1800→3600, CC_CRITICAL_S 3600→7200
+  Change 3: HANDOFF-aware grace added — defers YELLOW if last entry is HANDOFF with estimated_wake + 15min grace
+  Verification: all modules importable, backward compat confirmed (hale_oc + jet both resolve), drift check PASS (1s)
+  MISSION-033 updated to completed, CLIENT_STATE_UPDATE written to hale_shared_state.jsonl
+
+task: |
+  IMPLEMENT CARRY-4 PER APPROVED PLAN (5 sections, Commander-approved).
+
+  ## CONTEXT
+  T4 Exercise closed at 9.5/10 GREEN with one named carry-over: CARRY-4 (Hale-CC reader staleness).
+  - hale_oc writes as `instance: "hale_oc"` (post-CARRY-1/2/3 fix)
+  - OLD entries in hale_shared_state.jsonl use `instance: "jet"` (pre-fix)
+  - hale_cc has no reader daemon — reads ad-hoc during Claude Code sessions
+  - Reader bug: when filtering only for `hale_oc`, old `jet` entries are missed → stale reads
+
+  ## ARCHITECTURE DECISION (Approved Section 2)
+  Do NOT create a hale_cc daemon. Asymmetry is by design (hale_oc = persistent systemd timer, hale_cc = session-gated). Instead:
+  - Extend hale_oc's alert threshold for hale_cc dormancy: CC_TIMEOUT_S 1800→3600 (30min→60min)
+  - Add HANDOFF-aware grace: if last hale_cc entry is HANDOFF with estimated_wake, defer YELLOW until wake+15min
+
+  ## IMPLEMENTATION (Approved Sections 3+4)
+
+  ### Change 1: New file — OpsCenter/hale_state_reader.py
+  Create a reusable reader module that BOTH sides can use:
+  ```python
+  OTHER_INSTANCES = {"hale_oc", "jet"}  # backward compat
+
+  def read_last_other(instances: set = None) -> dict | None:
+      """Read the last entry matching any of the given instances.
+      Defaults to OTHER_INSTANCES (backward-compatible: hale_oc + jet).
+      """
+  ```
+  Logic: same sequential-scan as `jet_heartbeat.py:read_last()`. Include:
+  - read_hale_oc_whispers(n=3) — read last N entries from hale_oc with whispers
+  - get_last_sequence() — read highest monotonic_sequence
+  - preflight_drift_check() — verify clock within 60s of system UTC
+
+  ### Change 2: Edit — OpsCenter/jet_heartbeat.py
+  1. Import `read_last_other` from `hale_state_reader.py`
+  2. Change `CC_TIMEOUT_S = 1800` → `3600` (60 min grace for session-gated hale_cc)
+  3. Add HANDOFF-aware logic: after reading last_other, check if it's a HANDOFF event with `estimated_wake`. If so, compare wall clock to estimated_wake + 15min grace before reporting YELLOW.
+  4. Optionally refactor `read_last()` callers to use the shared module
+
+  ### Change 3: Verify — backward compat
+  - Confirm reader returns correct latest entry whether instance is `hale_oc` or `jet`
+  - Confirm hale_oc seq 13+ shows `other_missed_beats: 0` or gracefully handled dormancy
+
+  ## VERIFICATION (Approved Section 4)
+  1. `python OpsCenter/hale_state_reader.py --read` or test import — confirms correct latest match
+  2. Wait for hale_oc seq 13+ — confirm health handles hale_cc dormancy gracefully
+  3. Next Claude Code session — confirm hale_cc reads correct latest hale_oc beat
+
+  ## ROLLBACK (Approved Section 5)
+  - Revert CC_TIMEOUT_S to 1800
+  - Delete hale_state_reader.py if broken (zero downstream consumers — new file)
+  - No timer changes, no service restarts — all changes are read-side only
+
+  ## REFERENCE DOCUMENTS
+  - `OpsCenter/opencode_memory.md` (search for "CARRY-4 Plan — Approved")
+  - `output/sterling_postgate_hale_dualengine_20260518_RESCORED.md` — full re-score with CARRY-4 rationale
+  - `OpsCenter/jet_heartbeat.py` — existing daemon (reader side needs fix)
+  - `OpsCenter/hale_shared_state.jsonl` — live state with pre/post-fix entries
+  - `standing_orders/SO_T4_EXERCISE_HALE_DUAL_ENGINE_20260518.md` — exercise protocol
+  - `OpsCenter/mission_board.json` — MISSION-033 (CARRY-4 active)
+  - `OpsCenter/hale_state_reader.py` — TO BE CREATED (backward-compatible reader)
+
+  ## SYNC
+  On COMPLETE:
+  1. Update MISSION-033 to status: completed
+  2. Write CLIENT_STATE_UPDATE to hale_shared_state.jsonl: carry4_reader_fix_applied
+  3. Mark this task COMPLETE
+  4. Log to opencode_memory.md under DUAL BEAT section

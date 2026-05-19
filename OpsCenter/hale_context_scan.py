@@ -12,7 +12,7 @@ Priority tiers:
   TIER 2 (always) — all dossiers, wing comms, activity board, knowledge base
   TIER 3 (if space) — roadmaps, blueprints, plans, intel digests
 
-Author: Col Victoria "Iron Vic" Hale — 2026-04-03
+Author: Victoria "Victory" Hale, SES-6 — 2026-04-03 (re-roled 2026-05-17)
 """
 
 import json

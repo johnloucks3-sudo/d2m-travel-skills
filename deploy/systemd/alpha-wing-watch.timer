@@ -1,0 +1,11 @@
+[Unit]
+Description=ALPHA Wing Watch — 2-minute check interval
+After=network.target
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=2min
+Persistent=true
+
+[Install]
+WantedBy=default.target

@@ -39,7 +39,7 @@ if not OPENROUTER_API_KEY:
     print("ERROR: OPENROUTER_API_KEY not set", file=sys.stderr)
     sys.exit(1)
 
-GROK_MODEL = "x-ai/grok-4.1-fast"
+GROK_MODEL = "x-ai/grok-4.3"
 OPENROUTER_BASE = "https://openrouter.ai/api/v1/chat/completions"
 INTEL_DIR = _TB_ROOT / "core" / "intel" / "intel"
 OUTPUT_DIR = _TB_ROOT / "output"

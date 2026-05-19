@@ -225,4 +225,4 @@ The fix is **minimal, focused, and verified working**.
 
 ---
 
-*Explanation written for command clarity. OAuth mechanism now functional across all headless spawns (OpenCode, Goose, Claude Code).*
+*Explanation written for command clarity. OAuth mechanism now functional across all headless spawns (OpenCode, OpenCode, Claude Code).*

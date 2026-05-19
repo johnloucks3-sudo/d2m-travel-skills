@@ -1404,7 +1404,7 @@ def architect_pipeline(
                 body += f"The Wing has completed Phase 1 analysis of a trip design request.\n"
                 body += f"Please review the staff paper below and reply with your decision.\n\n"
                 body += session.staff_paper
-                body += f"\n\n— Col Victoria Hale (COS)\n   Trip Architect Pipeline v2.0"
+                body += f"\n\n— Victoria 'Victory' Hale, SES-6 (VCSAF)\n   Trip Architect Pipeline v5.1"
 
                 draft_result = gmail_send_with_approval(
                     to=COMMANDER_EMAIL,

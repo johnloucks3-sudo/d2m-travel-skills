@@ -71,7 +71,7 @@ MEM0_CONFIG = {
 
 # Persona metadata for memory tagging
 PERSONA_LABELS = {
-    "COS": "Col Hale (Chief of Staff)",
+    "COS": "Victory Hale, SES-6 (Chief of Staff)",
     "EXEC": "Naia Solberg-Vega (EXEC)",
     "A2": "Lt Col Dembe (Intel)",
     "A3": "Dani Moreau (Concierge)",

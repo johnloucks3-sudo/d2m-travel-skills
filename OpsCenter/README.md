@@ -45,7 +45,7 @@ Commander's Phone (Telegram)
 | `02_SCIF_PUZZLES.json` | Reserved for future SCIF use | Empty |
 | `00_COMMAND_LOG.md` | Append-only command log | Active |
 | `thunderbird_overwatch.sh` | Bash wrapper — sources env, launches Python | **LIVE** |
-| `notify_commander.sh` | Terminal bell + goose ASCII art | Fun |
+| `notify_commander.sh` | Terminal bell + opencode ASCII art | Fun |
 | `dani_engine.py` | DEPRECATED — logic moved to task_processor | Dead code |
 | `naia_bridge.py` | DEPRECATED — logic moved to task_processor | Dead code |
 | `switchblade_report.md` | Historical diagnostic — env isolation fix | Archive |
@@ -81,7 +81,7 @@ commander_message arrives
     └── classify_task() → client_facing/creative/strategic/crisis/code/voice
             └── QUEUED to 03_CLAUDE_MAX_QUEUE.json
                 Commander gets Telegram notice: "Queued for Claude Code session"
-                Claude Code (or Goose) picks up the queue next session
+                Claude Code (or OpenCode) picks up the queue next session
 ```
 
 ## Systemd Services
@@ -92,9 +92,9 @@ commander_message arrives
 | `thunderbird-overwatch` | Hale-Loop (Python processor) | **Running** |
 | `d2m-telegram-c2` | OLD competing bot | **Disabled** (was fighting for token) |
 
-## Goose Handoff — What Needs Work
+## OpenCode Handoff — What Needs Work
 
-### Ready for Goose (no Claude MAX needed):
+### Ready for OpenCode (no Claude MAX needed):
 
 1. **Wire `innovation_scan` handler** to call the actual `thunderbird_innovation_scanner.py` instead of a Gemini stub
 2. **Wire `morning_briefing` handler** to call the real morning brief pipeline (MCP tools)
@@ -117,3 +117,10 @@ commander_message arrives
 1. **Log rotation** for `process.log` and `overwatch.log` — add to `thunderbird-logrotate`
 2. **Health check** — add a `/health` endpoint or heartbeat timer that verifies the daemon is alive
 3. **Queue persistence** — current JSON file approach is fine for low volume but consider SQLite if task volume grows
+
+## Room-Res.com Integration (Pending)
+- **Status**: Credentials added to .env, connector stub at `core/mcp/room_res_connector.py`
+- **Properties**: Westin Kierland Villas, Sheraton Desert Oasis Villas, Homewood Suites (1 King)
+- **Next**: Implement `RoomResConnector` methods + register MCP tools in travel_mcp_server.py
+- **Auth**: Headless login via selenium or API key when available
+

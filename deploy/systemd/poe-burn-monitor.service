@@ -1,0 +1,15 @@
+[Unit]
+Description=Poe API Burn Rate Monitor
+After=network.target
+Wants=poe-burn-monitor.timer
+
+[Service]
+Type=oneshot
+User=john
+WorkingDirectory=/home/john/Thunderbird
+ExecStart=/home/john/Thunderbird/.venv/bin/python3 core/cost_dashboard/daemons/poe_burn_monitor.py
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

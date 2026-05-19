@@ -55,7 +55,7 @@ def check_services() -> List[Tuple[str, str, str]]:
     checks = {
         "MCP Server": "travel_mcp_server",
         "Scheduler": "thunderbird_scheduler",
-        "Telegram C2": "telegram_pager_c2",
+        "Telegram C2": "thunderbird_telegram_gw",
     }
     for name, proc_name in checks.items():
         try:

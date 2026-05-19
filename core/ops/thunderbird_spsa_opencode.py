@@ -75,8 +75,8 @@ def create_case_from_opencode(
                 "Token expiry in ~2 hours without refresh"
             ],
             options=[
-                {"name": "Restart daemon", "description": "systemctl --user restart claude-token-refresh.timer", "tradeoff": "5 min"},
-                {"name": "Investigate logs", "description": "journalctl -u claude-token-refresh.timer -20", "tradeoff": "15+ min"},
+                {"name": "Restart daemon", "description": "systemctl --user restart claude-token-monitor.timer", "tradeoff": "5 min"},
+                {"name": "Investigate logs", "description": "journalctl -u claude-token-monitor.timer -20", "tradeoff": "15+ min"},
             ],
             recommendation="Restart daemon",
             timeline_hours=0.25,
@@ -182,7 +182,7 @@ def execute_case_with_handler(
             import subprocess
             try:
                 result = subprocess.run(
-                    ["systemctl", "--user", "restart", "claude-token-refresh.timer"],
+                    ["systemctl", "--user", "restart", "claude-token-monitor.timer"],
                     capture_output=True, text=True, timeout=30
                 )
                 return {"success": True, "result": result.stdout}

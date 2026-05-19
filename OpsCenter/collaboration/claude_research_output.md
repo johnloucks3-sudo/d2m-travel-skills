@@ -100,7 +100,7 @@ Goose is evolving from single chat agent into a **meta-agent orchestrator** mana
 **Sources:**
 - [Goose Subagents Docs](https://block.github.io/goose/docs/guides/subagents/)
 - [Goose OSS Roadmap Feb–Apr 2026](https://github.com/block/goose/discussions/6973)
-- [PulseMCP: A Human, A Goose, and Some Agents](https://www.pulsemcp.com/building-agents-with-goose)
+- [PulseMCP: A Human, A OpenCode, and Some Agents](https://www.pulsemcp.com/building-agents-with-goose)
 - [Morph: Goose vs Claude Code 2026](https://www.morphllm.com/comparisons/goose-vs-claude-code)
 - [VentureBeat: Goose does the same thing for free](https://venturebeat.com/technology/claude-code-costs-up-to-usd200-a-month-goose-does-the-same-thing-for-free)
 - [Unified Tooling Discussion](https://github.com/block/goose/discussions/6202)
@@ -228,7 +228,7 @@ Academic and industry research is formalizing the **blackboard architecture** as
 | Priority | Opportunity | Effort | Impact |
 |----------|------------|--------|--------|
 | 1 | **Claude Code Agent Teams** — enable native teams for complex multi-module tasks | Low (config flag) | High — peer-to-peer Claude messaging |
-| 2 | **Goose CLI Provider for Claude** — route Goose recipes through Claude Code subscription | Medium | High — unified billing, recipe scheduling |
+| 2 | **OpenCode Provider for Claude** — route Goose recipes through Claude Code subscription | Medium | High — unified billing, recipe scheduling |
 | 3 | **A2A Protocol monitoring** — watch for Claude/Goose native A2A support | None (watch) | Transformative when available |
 | 4 | **oh-my-claudecode Ultrapilot** — 5 parallel Claude instances for batch ops | Medium | High for batch (intel sweeps, multi-dossier) |
 | 5 | **Formalize handoff schema** — add agent_id, timestamp, confidence, task_type to all files | Low | Medium — better audit trail |

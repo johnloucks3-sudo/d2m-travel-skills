@@ -1562,3 +1562,161 @@ Not committing until violations are properly remediated. This is a separate JET 
 **Type:** routine
 **Outcome:** correct
 **Trust Points:** +1
+
+
+---
+## Harlan Cost Brief — 2026-05-19
+```
+HARLAN DAILY COST BRIEF — 2026-05-19 06:00
+============================================================
+
+── Weekly (last 7 days — May 12 → now) ──
+  TOTAL: $15.2964 | 249 sessions
+
+  [Claude (anthropic)]
+    Total: $0.0007 | 8 sessions
+    • claude-sonnet-4-6
+      $0.0007 | 7 sess | avg 0 in / 7 out
+    • claude-opus-4-6
+      $0.0000 | 1 sess | avg 2,551,261 in / 2,627 out
+
+  [OpenCode native]
+    Total: $3.7424 | 190 sessions
+    • deepseek-v4-flash-free [NATIVE $0]
+      $3.7424 | 69 sess | avg 333,944 in / 8,820 out
+    • deepseek-v4-flash-free [NATIVE $0]
+      $0.0000 | 8 sess | avg 191,816 in / 27,742 out
+    • big-pickle [NATIVE $0]
+      $0.0000 | 113 sess | avg 34,691 in / 1,588 out
+
+  [OpenRouter]
+    Total: $11.4131 | 39 sessions
+    • google/gemini-3.1-flash-lite-preview [high] [⚠ BANNED]
+      $8.4165 | 4 sess | avg 8,509,364 in / 33,531 out
+    • google/gemini-3.1-flash-lite-preview [⚠ BANNED]
+      $2.2475 | 25 sess | avg 226,853 in / 3,552 out
+    • deepseek/deepseek-chat-v3.1 [⚠ BANNED]
+      $0.7491 | 9 sess | avg 399,920 in / 4,064 out
+    • nvidia/nemotron-3-super-120b-a12b:free [FREE]
+      $0.0000 | 1 sess | avg 0 in / 0 out
+
+  [Other]
+    Total: $0.1402 | 12 sessions
+    • gemini-2.5-flash
+      $0.0940 | 7 sess | avg 40,664 in / 67 out
+    • gemini-2.5-pro
+      $0.0462 | 2 sess | avg 15,996 in / 4 out
+    • gpt-5
+      $0.0000 | 1 sess | avg 0 in / 0 out
+    • big-pickle
+      $0.0000 | 1 sess | avg 0 in / 0 out
+    • 
+      $0.0000 | 1 sess | avg 0 in / 0 out
+
+── Current Month (May 2026) ──
+  TOTAL: $16.2023 | 254 sessions
+
+  [Claude (anthropic)]
+    Total: $0.0007 | 8 sessions
+    • claude-sonnet-4-6
+      $0.0007 | 7 sess | avg 0 in / 7 out
+    • claude-opus-4-6
+      $0.0000 | 1 sess | avg 2,551,261 in / 2,627 out
+
+  [OpenCode native]
+    Total: $3.7424 | 190 sessions
+    • deepseek-v4-flash-free [NATIVE $0]
+      $3.7424 | 69 sess | avg 333,944 in / 8,820 out
+    • deepseek-v4-flash-free [NATIVE $0]
+      $0.0000 | 8 sess | avg 191,816 in / 27,742 out
+    • big-pickle [NATIVE $0]
+      $0.0000 | 113 sess | avg 34,691 in / 1,588 out
+
+  [OpenRouter]
+    Total: $12.3190 | 44 sessions
+    • google/gemini-3.1-flash-lite-preview [high] [⚠ BANNED]
+      $8.4165 | 4 sess | avg 8,509,364 in / 33,531 out
+    • google/gemini-3.1-flash-lite-preview [⚠ BANNED]
+      $2.2475 | 25 sess | avg 226,853 in / 3,552 out
+    • deepseek/deepseek-chat-v3.1 [⚠ BANNED]
+      $1.4375 | 10 sess | avg 694,452 in / 6,080 out
+    • google/gemini-3.1-flash-lite-preview [medium] [⚠ BANNED]
+      $0.1305 | 2 sess | avg 232,236 in / 2,278 out
+    • google/gemini-3.1-flash-lite-preview [⚠ BANNED]
+      $0.0870 | 1 sess | avg 195,612 in / 2,417 out
+    • nvidia/nemotron-3-super-120b-a12b:free [FREE]
+      $0.0000 | 1 sess | avg 0 in / 0 out
+    • gemini/gemini-3.1-flash-lite
+      $0.0000 | 1 sess | avg 0 in / 0 out
+
+  [Other]
+    Total: $0.1402 | 12 sessions
+    • gemini-2.5-flash
+      $0.0940 | 7 sess | avg 40,664 in / 67 out
+    • gemini-2.5-pro
+      $0.0462 | 2 sess | avg 15,996 in / 4 out
+    • gpt-5
+      $0.0000 | 1 sess | avg 0 in / 0 out
+    • big-pickle
+      $0.0000 | 1 sess | avg 0 in / 0 out
+    • 
+      $0.0000 | 1 sess | avg 0 in / 0 out
+
+── Prior Month (April 2026) ──
+  TOTAL: $0.0000 | 0 sessions
+
+  [Claude (anthropic)]
+    No sessions recorded.
+
+  [OpenCode native]
+    No sessions recorded.
+
+  [OpenRouter]
+    No sessions recorded.
+
+OPENROUTER BALANCE:
+  $60.00 limit | $203.59 used | $0.00 remaining
+
+CLAUDE MAX PLAN:
+  Session: 0/225 | Weekly: 0/1500
+  Budget status: GREEN
+
+OPTIMIZATION FLAGS:
+  ⚠ BANNED MODEL ACTIVE: google/gemini-3.1-flash-lite-preview billed $8.4165 — replace with native/free alternative
+  ⚠ CONTEXT BLOAT: google/gemini-3.1-flash-lite-preview [high] avg 8,509,364 in tokens/session (4 sessions) — review prompt compression
+  ⚠ NATIVE BILLING: deepseek-v4-flash-free charged $3.7424 — native provider should be $0
+  ⚠ BANNED MODEL ACTIVE: google/gemini-3.1-flash-lite-preview billed $2.2475 — replace with native/free alternative
+  ⚠ BANNED MODEL ACTIVE: deepseek/deepseek-chat-v3.1 billed $0.7491 — replace with native/free alternative
+  ⚠ BANNED MODEL ACTIVE: google/gemini-3.1-flash-lite-preview billed $0.1305 — replace with native/free alternative
+  ⚠ OR BALANCE ZERO: OpenRouter credits exhausted — native/free-tier only
+
+RECOMMENDATION: Eliminate google/gemini-3.1-flash-lite-preview calls ($8.4165 this week). Replace with opencode/big-pickle — same capability, $0 cost.
+
+— A9 Victor 'Vic' Harlan | Thunderbird Wing
+```
+
+### 2026-05-19 13:34:58 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: T2-COMMS-BUILD-20260518 status: UPDATED — READ CAREFULLY — STEPS 1/2/3 COMPLETE BY HALE-CC from: HALE-CC (V
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 874269 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260519_133458.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-05-19 13:37:23 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: T2-COMMS-BUILD-20260518 status: UPDATED — READ CAREFULLY — STEPS 1/2/3 COMPLETE BY HALE-CC from: HALE-CC (V
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 878780 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260519_133723.log | Inbox: opencode_inbox.md
+
+---

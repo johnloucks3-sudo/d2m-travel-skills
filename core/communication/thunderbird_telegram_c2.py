@@ -8,7 +8,7 @@ Separate from the Dani client-facing bot.
 Commands:
   /start        — Welcome
   /help         — Command reference
-  /hale <msg>   — COS (Col Victoria Hale)
+  /hale <msg>   — COS (Victory Hale)
   /naia <msg>   — EXEC (Naia Solberg-Vega)
   /dembe <msg>  — A2 (Lt Col Marcus Dembe)
   /dani <msg>   — A3 (Danielle Moreau)
@@ -1282,7 +1282,7 @@ async def error_handler(update: object, context: ContextTypes.DEFAULT_TYPE):
 
 # Persona list for SSS coordination checkboxes
 SSS_PERSONAS = [
-    ("COS", "Col Victoria Hale", "Chief of Staff"),
+    ("COS", "Victory Hale", "Chief of Staff"),
     ("EXEC", "Naia Solberg-Vega", "Voice & Visual"),
     ("A2", "Lt Col Marcus Dembe", "Research & Intel"),
     ("A3", "Danielle Moreau", "Client Concierge"),

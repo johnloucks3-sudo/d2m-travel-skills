@@ -85,7 +85,7 @@ def validate_mission_board():
             return False
 
         # Check mission status consistency
-        for mission in data["active_missions"]:
+        for mission in data.get("active_missions", data.get("missions", [])):
             status = mission.get("status", "").lower()
             if status not in ["pending", "in_progress", "running"]:
                 print(

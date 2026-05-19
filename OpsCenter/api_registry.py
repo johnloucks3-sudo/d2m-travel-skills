@@ -2,7 +2,7 @@
 api_registry.py — Thunderbird OS API Registry
 ==============================================
 Single source of truth for all available APIs.
-Goose and Hale can task any API directly via the dispatcher schema.
+OpenCode and Hale can task any API directly via the dispatcher schema.
 
 Task schema for direct API calls:
 {
@@ -47,8 +47,8 @@ APIS = {
         "env_key":   "GEMINI_API_KEY",
         "base_url":  "https://generativelanguage.googleapis.com",
         "cost_tier": "free_tier",
-        "agent":     "goose",
-        "notes":     "Gemini 2.5 Flash = free tier. Default Goose model. 1M context. Excellent for intel/research.",
+        "agent":     "opencode",
+        "notes":     "Gemini 2.5 Flash = free tier. Default OpenCode model. 1M context. Excellent for intel/research.",
         "mcp_tool":  None,
     },
     "groq": {
@@ -57,7 +57,7 @@ APIS = {
         "env_key":   "GROQ_API_KEY",
         "base_url":  "https://api.groq.com",
         "cost_tier": "free_tier",
-        "agent":     "goose",
+        "agent":     "opencode",
         "notes":     "Ultra-fast LLaMA/Mixtral inference. Free. Use for classification, summarization, routing.",
         "mcp_tool":  "groq_gmail_query",
     },
@@ -109,7 +109,7 @@ APIS = {
         "env_key":   "SERPER_API_KEY",
         "base_url":  "https://google.serper.dev",
         "cost_tier": "cheap",
-        "agent":     "goose",
+        "agent":     "opencode",
         "notes":     "Real-time Google search results. ~$0.001/query. Primary web search for intel.",
         "mcp_tool":  None,
     },
@@ -119,7 +119,7 @@ APIS = {
         "env_key":   "GOOGLE_API_KEY",
         "base_url":  "https://customsearch.googleapis.com",
         "cost_tier": "free_tier",
-        "agent":     "goose",
+        "agent":     "opencode",
         "notes":     "100 free searches/day. D2M-tuned index.",
         "mcp_tool":  None,
     },
@@ -139,7 +139,7 @@ APIS = {
         "env_key":   "X_BEARER_TOKEN",
         "base_url":  "https://api.twitter.com/2",
         "cost_tier": "paid",
-        "agent":     "goose",
+        "agent":     "opencode",
         "notes":     "OSINT feed. Cruise industry news, competitor monitoring, travel trends.",
         "mcp_tool":  "scrape_x_osint_feed",
     },
@@ -149,7 +149,7 @@ APIS = {
         "env_key":   "APIFY_API_TOKEN",
         "base_url":  "https://api.apify.com",
         "cost_tier": "paid",
-        "agent":     "goose",
+        "agent":     "opencode",
         "notes":     "Full web scraping. Use for competitor pricing, tour content, cruise line pages.",
         "mcp_tool":  "scrape_consumer_tour_prices",
     },
@@ -161,7 +161,7 @@ APIS = {
         "env_key":   "N8N_API_KEY",
         "base_url":  "http://10.0.0.53:5678",
         "cost_tier": "free",
-        "agent":     "goose",
+        "agent":     "opencode",
         "notes":     "24 workflows live. MCP server at /mcp. Trigger workflows via REST or MCP. Local only (LAN).",
         "mcp_tool":  None,
         "mcp_url":   "http://10.0.0.53:5678/mcp",
@@ -304,7 +304,7 @@ APIS = {
         "env_key":   "TOMTOM_API_KEY",
         "base_url":  "https://api.tomtom.com",
         "cost_tier": "free_tier",
-        "agent":     "goose",
+        "agent":     "opencode",
         "notes":     "Geocoding, routing, port city maps. Used for itinerary map generation.",
         "mcp_tool":  None,
     },

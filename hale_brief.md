@@ -1,5 +1,5 @@
 # HALE — Daily Brief
-*Generated: 2026-05-14 06:46 MT*
+*Generated: 2026-05-19 06:46 MT*
 
 ---
 
@@ -9,97 +9,82 @@
 
 🦅
 
-**THUNDERBIRD DAILY BRIEF — 2026-05-14 | COO DISPOSITION**
+**THUNDERBIRD WING — OPERATIONAL BRIEF**
+*2026-05-19 | Hale, VCS | COO Disposition*
 
 ---
 
-### 1. CLIENT WIRE
+**CLIENT WIRE**
 
 | Client | Phase | Status | Open Item |
 |--------|-------|--------|-----------|
-| **Furlow** | TP2 — Final Payment | FPD confirmed | None — closed |
-| **Kuklinski** | TP1 — Validation | Email sent | Insurance deferred — 7-day follow-up due |
-| **McLeod** | TP0.5/0.6 | Pre-departure window | Shore excursion + flight search opens mid-May |
-| **Nichols** | Booked — Grandeur | Dining window opens May 31 | Navarro inference profile due in 7 days |
-| **Lyons** | Pre-booking | Pending A1 profile | 48-hour gate — Navarro profile required before Dani makes contact |
+| Lyons, Nancy & Ken | Pre-booking | Active | Navarro inference profile due (48h) |
+| Kuklinski, Kyle | TP1 — Validation | Active | ARC4-A specialty dining email pending |
+| McLeod, Erik | TP0.5/0.6 | Active | Pre-departure window opening mid-May |
+| Nichols, Larry | Booked — Grandeur | Active | Dining reservation window opens May 31 |
+| Furlow, Missy & John | TP2 — Final Payment | Closed | FPD received. No action. |
 
 ---
 
-### 2. OPEN TASKS
+**FINANCIAL PULSE**
 
-| Priority | Item | Owner | Urgency |
-|----------|------|-------|---------|
-| 🔴 RED | 5× SPSA: OpenCode daemon not running (state shows RUNNING — **discrepancy**) | Hale/Investigate | Immediate |
-| 🟡 YELLOW | 5× SPSA: MCP server health check failed | Hale | Today |
-| 🟡 | Google Tasks API 403 — insufficient scope on tasks.googleapis.com | Hale | Background |
-| 🟡 | A1 Navarro — Lyons inference profile | Navarro | 48h deadline |
-| 🟡 | A1 Navarro — Kuklinski, McLeod, Nichols inference profiles | Navarro | 7 days |
-| 🟡 | A1 Navarro — Heer (Ann/Shawn + daughters) inference profile | **COMPLETE** 2026-05-14 | Route to A8 Reyes — Japan 85 days out, Obon urgent |
-| 🔴 HIGH VALUE | A1 Navarro — Spencer (Bill/Kathleen, 12-pax Grand Tour 2027) inference profile | **COMPLETE** 2026-05-14 | Disney Wish BN pending; deliverable June 10 (flights) + June 17 (full pkg) |
+| Item | Amount |
+|------|--------|
+| D2M pipeline (23 upcoming) | **$21,440.75** |
+| Commission pool (35 bookings) | $35,214.47 expected |
+| D2M share (total sheet) | $27,146.41 |
+| Received (TESS) | $244.80 |
+| TESS auth | ONLINE |
 
 ---
 
-### 3. FINANCIAL PULSE
-
-| Metric | Value |
-|--------|-------|
-| D2M pipeline (upcoming) | **$21,440.75** — 23 voyages |
-| Commission expected (sheet) | $35,214.47 gross / $27,146.41 D2M share |
-| Received (TESS) | $244.80 — 1 check |
-| Due now | $0.00 |
-| TESS bookings | 17 bookings / 18 clients / 12 trips |
-
-No payment emergencies. Harlan's first weekly pulse review fires Monday.
-
----
-
-### 4. WING HEALTH
+**WING HEALTH**
 
 | System | Status |
 |--------|--------|
 | MCP Server | ✅ ONLINE (port 8765) |
-| OpenCode | ✅ RUNNING (Gemini 3.1 Flash-Lite via OpenRouter) |
-| Tasking Watcher | ✅ RUNNING (V6 inotify) |
+| Telegram (D2MC2C + Dani) | ✅ LIVE |
 | Claude Headless | ✅ READY (Max OAuth) |
-| Telegram Gateway | ✅ LIVE — D2MC2C (@D2MC2C_bot) + Dani (@d2m_channels_bot) |
-| TESS Auth | ✅ ONLINE |
-
-Chrome debug offline is low impact. Telegram status needs a live ping to confirm.
-
----
-
-### 5. STAFF ASSIGNMENTS
-
-| Staff | Status | Active Focus |
-|-------|--------|--------------|
-| **Hale** | Active | COO ops, brief, SPSA triage |
-| **Navarro (A1)** | Activated 2026-05-13 | Lyons (48h), Kuklinski/McLeod/Nichols (7d) |
-| **Reyes (A8)** | Activated 2026-05-13 | Monthly dossier scan — fires 1st of month |
-| **Castillo (A5)** | Rechartered — Deputy COS | First weekly biz review due Friday |
-| **Harlan (A9)** | Probation until 2026-06-13 | First financial pulse review due Monday |
-| **ELON (A12)** | Rechartered — weekly kill audit | First audit due Wednesday |
-| **All others** | Idle | — |
+| OpenCode | ✅ RUNNING (Gemini 2.5 Flash) |
+| TESS | ✅ ONLINE |
+| OAuth Cache | ✅ LIVE |
+| Chrome Debug (9222) | ⚠️ OFFLINE |
+| Google Tasks API | 🔴 403 — insufficient scopes |
 
 ---
 
-### 6. DECISIONS NEEDED
+**OPEN ITEMS / SPSA**
 
-| # | Item | Action Required |
-|---|------|----------------|
-| 1 | SPSA state discrepancy — OpenCode shows RUNNING in state but 5× RED SPSAs flag it down | Commander: confirm if SPSAs are stale or if there's a real daemon split |
-| 2 | Kuklinski insurance follow-up | Approve timing: now or at 14-day mark post-validation? |
-| 3 | Lyons first contact | Pending Navarro profile — no Commander action yet, just awareness |
+| ID | Severity | Issue |
+|----|----------|-------|
+| SPSA-20260518-BB2E1 | 🟡 YELLOW | MCP health check failed |
+| SPSA-20260515-14D0B | 🟡 YELLOW | OpenCode state/process discrepancy |
+| SPSA-20260514-26A34 | 🟡 YELLOW | OpenCode state/process discrepancy |
 
----
-
-### 7. INTEL FLASH
-
-Staff Transformation (2026-05-13) fully loaded — 6 rechartered/activated slots, 5 standing hooks live, Naia mandatory-stop trigger active. First performance gates hit June 13.
+Three unresolved SPSA cases. None hit a Commander gate — I own repair. Moving to spot-it-fix-it protocol after this brief.
 
 ---
 
-*— Iron Vic | Thunderbird Wing | 2026-05-14 | Next brief: 2026-05-15 07:00 MT*
+**DECISIONS NEEDED**
+
+None today. All three SPSA cases are within Hale's autonomy band. Will report back on outcomes.
 
 ---
-*— Col Victoria "Iron Vic" Hale | Thunderbird Wing | 2026-05-14 06:46 MT*
-*Next brief: 2026-05-15 07:00 MT*
+
+**STAFF**
+
+Hale (93%) and ELON (10%) are the only active staff this cycle. All A-staff directed work (Navarro inference profiles, Reyes dossier scan, Castillo weekly review due Friday) is queued and will fire on schedule.
+
+---
+
+**INTEL FLASH**
+
+OpenCode model migration complete (big-pickle → Gemini 2.5 Flash, 2026-05-18). No regressions detected. Wing operational at full tempo.
+
+---
+
+*— V. Hale, VCS | Thunderbird Wing | 2026-05-19*
+
+---
+*— Victoria "Victory" Hale, SES-6 | Thunderbird Wing | 2026-05-19 06:46 MT*
+*Next brief: 2026-05-20 07:00 MT*

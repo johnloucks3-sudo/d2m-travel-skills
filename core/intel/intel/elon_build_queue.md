@@ -149,3 +149,26 @@
 - **A5 Fit:** ? — 
 - **A9:** ? —  · ROI: 
 - **ELON:** _Culture compounding is our differentiator — a Classical Theater + 1970s Design client SHOULD get different excursions than a Modern Pop client. Just don't over-build for 1% of clients. Validate with A8 that culture signals actually shift recommendation rank._
+
+### ELON-2026-05-14-001 — Tool-Call Hallucination & Cost-Override Gates
+- **Status:** 🟡 PENDING
+- **Date:** 2026-05-14
+- **What:** Add validator + cost ceiling to agent executor to prevent hallucinated tool calls and uncontrolled spend from autonomous persona loops.
+- **Why:** HALE's personas hit infinite retry loops on MCP errors (calling same failed tool N times). No cost tracking on autonomous execution. Production readiness requires fail-fast + spend guard rails.
+- **How:** File: core/ai_infra/thunderbird_personas.py | Add ToolCallValidator class (inspect module, validate tool name exists in MCP catalog + args match signature) | Add CostOverrideGate function (track cumulative tool-call spend per session, surface to Commander if >$threshold) | Hook into execute() before tool invocation | Store spend tracking in hale_state.json financial_pulse
+- **Effort:** MED · **SSS:** YES
+- **A5 Fit:** PLATFORM_ONLY — Production gate for autonomous persona loops; necessary for scaling but zero impact on current clients.
+- **A9:** APPROVED — This is not an expense, it's a guardrail. We need this running autonomous agents safely. — NO — internal instrumentation only · ROI: Cost containment on autonomous HALE loops. Prevents financial bleeding from invisible retry storms. Production readiness gate. ROI = $0 spend vs. uncontrolled spend.
+- **ELON:** _We're burning money on retry loops HALE can't see. Stop the bleeding with a 2-line validator + cost gate. Production-ready means cost-aware._
+
+
+### ELON-2026-05-14-002 — Unified Supplier Connector Abstraction + AI Schema Mapper
+- **Status:** 🟡 PENDING
+- **Date:** 2026-05-14
+- **What:** Consolidate 5 supplier connectors (TESS, Centrav, GYG, MAGOA, Hotelbeds) into single SupplierConnectorBase with auto-mapping layer; enable AI-assisted onboarding of new suppliers.
+- **Why:** Every supplier addition is 3 weeks of hand-coded glue. SAP's AI middleware pattern + MCP resources layer = one abstraction + Claude auto-maps supplier schemas to canonical D2M models. Breaks the bottleneck on supplier onboarding.
+- **How:** File: core/mcp/travel_mcp_server.py | Create SupplierConnectorBase abstract class (authenticate, query, map_response, handle_error methods) | Refactor 5 existing connectors to inherit from base | Add SupplierSchemaMatcher class (takes raw supplier response schema, invokes Claude to generate mapping code to canonical Booking/Flight/Tour/Excursion models) | Use MCP resources pattern for per-supplier credentials (no more scattered config files) | Library: Anthropic SDK for mapper, mcp.resources for auth abstraction
+- **Effort:** HIGH · **SSS:** YES
+- **A5 Fit:** PLATFORM_ONLY — Breaks supplier onboarding bottleneck and proves AI-assisted enterprise integration pattern, but current clients aren't blocked by supplier count.
+- **A9:** FLAG_FOR_COMMANDER — Ticket is incomplete (description cut off). Need clarity: (1) Does Claude get called per supplier? (2) Is this blocking Supplier Tripling, or speculative? (3) Timeline? Build only if Commander commits to supplier scaling. — CONDITIONAL — If AI schema mapper invokes Claude per supplier: ~$10–50/supplier. If amortized one-time: NO new cost. · ROI: HIGH IF committed to Tripling Plan. Saves ~$1.2–2.4K dev cost per supplier. 30 suppliers = $36–72K ROI. Breaks supplier onboarding bottleneck (3 weeks → 1–2 weeks).
+- **ELON:** _Copy SAP's enterprise middleware playbook. Let Claude write the boring glue. 10x faster supplier onboarding, same reliability, half the code debt._

@@ -13,20 +13,20 @@
 [2026-04-02 14:55 MT] | WATCHER | SYSTEM | WATCHING | Watcher v2 online — Telegram C2 + wing_comms active
 [2026-04-02 15:02 MT] | WATCHER | HALE-20260402-ALDA-001 | DETECTED | New TASK in GOOSE inbox — from HALE
 - [2026-04-02 15:14:49] Goose CLAIMED task HALE-20260402-ALDA-001 (Automated Lifecycle Delivery Architecture).
-- [2026-04-02 15:14:50] Goose COMPLETED task HALE-20260402-ALDA-001. Findings written to goose_output.md.
+- [2026-04-02 15:14:50] Goose COMPLETED task HALE-20260402-ALDA-001. Findings written to opencode_output.md.
 [2026-04-02 15:19 MT] | WATCHER | SYSTEM | WATCHING | v3 online — inotify + prod engine active
 [2026-04-02 15:25 MT] | WATCHER | CL-20260402-BOARDFMT-001 | DETECTED | New TASK in GOOSE inbox from CLAUDE
 [2026-04-02 15:27 MT] | WATCHER | CL-20260402-BOARDFMT-001 | PRODDED | Prod #1 sent to Goose — unread 93s
 [2026-04-02 15:28 MT] | WATCHER | CL-20260402-BOARDFMT-001 | PRODDED | Prod #2 sent to Goose — unread 182s
 [2026-04-02 15:30 MT] | WATCHER | CL-20260402-BOARDFMT-001 | PRODDED | Prod #3 sent to Goose — unread 273s
-- [2026-04-02 15:33:49] Goose CLAIMED tasks in goose_inbox.md and tasked Claude with Gmail JSON fix.
+- [2026-04-02 15:33:49] Goose CLAIMED tasks in opencode_inbox.md and tasked Claude with Gmail JSON fix.
 [2026-04-02 15:34 MT] | GOOSE | CL-20260402-BOARDFMT-001 | CLAIMED | Acknowledging board format standard
 
 [2026-04-02 15:34 MT] | GOOSE | CL-20260402-BOARDFMT-001 | COMPLETE | Acknowledgment sent to wing_comms.md
 
 [2026-04-02 15:34 MT] | GOOSE | HALE-20260402-ALDA-001 | CLAIMED | Scanning active dossiers for trigger windows
 
-[2026-04-02 15:34 MT] | GOOSE | HALE-20260402-ALDA-001 | COMPLETE | ALDA trigger findings posted to goose_output.md
+[2026-04-02 15:34 MT] | GOOSE | HALE-20260402-ALDA-001 | COMPLETE | ALDA trigger findings posted to opencode_output.md
 
 [2026-04-02 15:42 MT] | GOOSE | TASK-KUKLINSKI-DRAFT | CLAIMED | Routing task to COS Hale to coordinate Dani/Luna email draft
 
@@ -146,7 +146,7 @@
 [2026-04-02 19:59 MT] | GOOSE | CL-20260402-WATCHER-NOTICE | CLAIMED | Reading the watcher notice task
 
 [2026-04-02 19:59 MT] | GOOSE | CL-20260402-BOARDFMT-001 | COMPLETE | Acknowledged format earlier
-[2026-04-02 19:59 MT] | GOOSE | HALE-20260402-ALDA-001 | COMPLETE | Executed ALDA scan and reported to goose_output.md
+[2026-04-02 19:59 MT] | GOOSE | HALE-20260402-ALDA-001 | COMPLETE | Executed ALDA scan and reported to opencode_output.md
 [2026-04-02 19:59 MT] | GOOSE | TASK-KUKLINSKI-DRAFT | COMPLETE | Routed task to Hale
 [2026-04-02 19:59 MT] | GOOSE | TASK-MCP-PROXY-INIT | COMPLETE | Tasked ELON
 [2026-04-02 19:59 MT] | GOOSE | CL-STATUS-SWEEP-001 | COMPLETE | Swept status and reported
@@ -220,7 +220,7 @@
 
 [2026-04-03 13:14 MT] | GOOSE | TASK-WATCHER-EXECUTION | COMPLETE | Task dropped in claude_inbox.md
 
-[2026-04-03 13:15 MT] | GOOSE | CL-20260403-INBOX-SWEEP | CLAIMED | Sweeping all unread legacy tasks from goose_inbox.md
+[2026-04-03 13:15 MT] | GOOSE | CL-20260403-INBOX-SWEEP | CLAIMED | Sweeping all unread legacy tasks from opencode_inbox.md
 
 [2026-04-03 13:15 MT] | GOOSE | CL-20260403-INBOX-SWEEP | COMPLETE | Processed legacy tasks. Inbox cleared.
 
@@ -292,3 +292,5 @@
 
 [2026-04-07 19:05 MT] | OPERA-CODE | OPENCODE-INBOX-PROCESS-001 | COMPLETE | Processed all unread tasks in opencode_inbox.md, removed UNREAD markers, updated activity board.
 [2026-04-11 13:45 MT] | WATCHER | SYSTEM | WATCHING | v3 online — inotify + prod engine active
+
+[2026-05-18 11:14 MT] | A5_CASTILLO | INFRA-CASTILLO-TEMPO-20260518 | ACK | T1 infrastructure tempo mandate received. T1 restart SLAs accepted (watcher 5min / MCP 5min / Telegram 10min / TESS-JWT 2min alert / OAuth-timers immediate alert / OpenCode 10min). Modernization clock ownership accepted — ELON proposes Wed, I track to following Wed. Weekly business review (Friday) will include infra section starting this Friday 2026-05-22. SO-VCS-INFRA-20260518 acknowledged.

@@ -9,10 +9,13 @@ import json
 import os
 import subprocess
 import uuid
+import datetime
 from http.server import BaseHTTPRequestHandler, HTTPServer
+from pathlib import Path
 
-PORT     = 5099
-TIMEOUT  = 180
+PORT      = 5099
+TIMEOUT   = 180
+PROXY_LOG = Path("/home/john/Thunderbird/logs/max_proxy_requests.jsonl")
 CWD      = '/home/john/Thunderbird'
 # Fallback model name for the claude CLI
 # Default when OpenCode sends an unrecognized model ID
@@ -60,7 +63,6 @@ def _build_prompt(messages: list, system) -> str:
 
 def _call_max(prompt: str, model: str) -> str:
     """Dispatch to claude -p with Max OAuth. Returns response text."""
-    # Honor the model OpenCode requests; fall back to default
     cli_model = MODEL_MAP.get(model, CLAUDE_MODEL)
     result = subprocess.run(
         ['claude', '--model', cli_model, '-p', prompt,
@@ -71,7 +73,22 @@ def _call_max(prompt: str, model: str) -> str:
         env=_clean_env(),
         cwd=CWD,
     )
-    return result.stdout.strip() or result.stderr.strip() or '[max_proxy: empty response]'
+    text = result.stdout.strip() or result.stderr.strip() or '[max_proxy: empty response]'
+    # Log request for cost tracker
+    try:
+        PROXY_LOG.parent.mkdir(parents=True, exist_ok=True)
+        entry = json.dumps({
+            "ts":           datetime.datetime.now(datetime.timezone.utc).isoformat(),
+            "model":        model,
+            "cli_model":    cli_model,
+            "prompt_chars": len(prompt),
+            "resp_chars":   len(text),
+        })
+        with open(PROXY_LOG, "a") as f:
+            f.write(entry + "\n")
+    except Exception:
+        pass
+    return text
 
 
 # ── request handler ───────────────────────────────────────────────────────────

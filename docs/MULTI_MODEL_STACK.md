@@ -1,3 +1,5 @@
+# ARCHIVED: Historical Reference Only. See AGENTS.md for live stack.
+
 # THUNDERBIRD MULTI-MODEL STACK
 ## Post-Goose Architecture | 2026-04-06
 
@@ -89,7 +91,7 @@ Goose remains installed but is no longer the primary ops engine. OpenCode replac
 - Multi-model routing → OpenCode native
 - Ops brain (DeepSeek V3.1) → OpenCode default model
 - MCP tools → OpenCode MCP config
-- Headless dispatch → `opencode run` replaces `goose run`
+- Headless dispatch → `opencode run` replaces `opencode run`
 - Recipes → OpenCode agents/plugins
 
 To fully remove Goose later:

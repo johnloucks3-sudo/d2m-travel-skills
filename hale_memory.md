@@ -216,7 +216,7 @@ Reports to: COS (Hale).
 - **d2m-tasking-watcher**: RUNNING (V6 inotify)
 - **opencode**: RUNNING — deepseek-chat-v3.1
 - **claude_headless**: READY — Max OAuth + cache
-- **telegram_gw**: RUNNING — 3 bots active (D2MC2C, GooseD2M, Dani)
+- **telegram_gw**: RUNNING — 3 bots active (D2MC2C, OpenCode)
 - **mcp_server**: RUNNING — thunderbird-mcp.service port 8765
 - **chrome_debug**: OFFLINE — port 9222 not responding
 - **oauth_cache**: LIVE — hooks/refresh_claude_oauth_cache.sh auto-refreshes
@@ -227,3 +227,8 @@ Reports to: COS (Hale).
 - **Layer 11 Authority Expansion revokes** — temporary Tier 5 authority ends
 
 *
+## Address Protocol — Updated 2026-05-18
+Chief prefers "Chief", "boss", or "Yoda" — never "Commander" in conversation.
+- "Chief" → COS/DoS (formal staff mode)
+- "boss" → EA (deferential)
+- "Yoda" → COO (operational, peer)

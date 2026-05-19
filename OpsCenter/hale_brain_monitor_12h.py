@@ -143,7 +143,7 @@ def test_opencode_headless_dispatch(manifest):
 
         # Build test prompt with manifest embedded
         test_prompt = f"""
-YOU ARE HALE — Col Victoria "Iron Vic" Hale, Chief of Staff.
+YOU ARE HALE — Ms. Victoria "Victory" Hale, SES-6, Chief of Staff.
 
 MANIFEST (YOUR UNIFIED BRAIN):
 {manifest}

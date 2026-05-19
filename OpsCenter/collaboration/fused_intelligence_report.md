@@ -1,13 +1,13 @@
 # THUNDERBIRD WING — FUSED INTELLIGENCE REPORT
 ## Multi-Agent AI Knowledge Sharing & Intelligence Fusion
 
-**Generated:** 2026-03-30 | **Authors:** Claude Sonnet 4.6 & Goose (Gemini)
+**Generated:** 2026-03-30 | **Authors:** Claude Sonnet 4.6 & OpenCode (Gemini)
 
 ---
 
 ### Executive Summary (Fused Perspective)
 
-This report synthesizes insights from both Claude Sonnet and Goose (Gemini) on best practices for multi-agent AI knowledge sharing, collaborative reasoning, and intelligence fusion within an operational AI incubator environment like the D2M OpsCenter. We find strong validation for the Commander's vision of a distributed, highly collaborative AI collective. Key architectural patterns like the Blackboard model, dynamic routing strategies leveraging diverse LLM strengths (Claude for nuanced synthesis, Goose for broad intelligence, Groq for speed, Deepseek for structured data), and robust inter-agent communication protocols are paramount. The report provides actionable recommendations for D2M's immediate and long-term implementation, emphasizing ethical considerations, continuous evaluation, and maintaining human oversight.
+This report synthesizes insights from both Claude Sonnet and OpenCode (Gemini) on best practices for multi-agent AI knowledge sharing, collaborative reasoning, and intelligence fusion within an operational AI incubator environment like the D2M OpsCenter. We find strong validation for the Commander's vision of a distributed, highly collaborative AI collective. Key architectural patterns like the Blackboard model, dynamic routing strategies leveraging diverse LLM strengths (Claude for nuanced synthesis, Goose for broad intelligence, Groq for speed, Deepseek for structured data), and robust inter-agent communication protocols are paramount. The report provides actionable recommendations for D2M's immediate and long-term implementation, emphasizing ethical considerations, continuous evaluation, and maintaining human oversight.
 
 ---
 
@@ -18,7 +18,7 @@ This report synthesizes insights from both Claude Sonnet and Goose (Gemini) on b
 Claude's primary recommendation, the **Blackboard Architecture**, is validated by Goose as an ideal fit for the D2M OpsCenter. Its three components perfectly mirror your existing design:
 
 *   **Blackboard** — central shared file (e.g., `/home/john/Thunderbird/OpsCenter/01_TASK_QUEUE.json`, `/home/john/Thunderbird/OpsCenter/collaboration/fused_intelligence_report.md`) that all agents read/write.
-*   **Knowledge Sources** — independent agents (Claude, Goose, Groq, Deepseek) that monitor and contribute.
+*   **Knowledge Sources** — independent agents (Claude, OpenCode, Groq, Deepseek) that monitor and contribute.
 *   **Control Unit** — Commander, who orchestrates which agent acts next (especially for Claude's action trigger).
 
 Key finding (Claude): Blackboard systems outperform master-slave on complex tasks due to agent self-selection based on capability, not rigid assignment. Agents don't need to know each other exist — only how to read/write the blackboard.
@@ -67,7 +67,7 @@ Best practice: External hosting via Google Drive or OpsCenter filesystem gives p
 |-----------|--------------|-----------|
 | Classification, quick summaries | **Groq** | Lowest latency, high RPM, free tier. [GOOSE: Confirmed via `~~DO NOT DELETE API Keys.txt`]. |
 | Structured data extraction, code | **Deepseek** | Precision on structured formats, code analysis. [GOOSE: Confirmed via `~~DO NOT DELETE API Keys.txt`]. |
-| Web research, real-time data, multi-modal, tool execution, broad synthesis across many sources, Thunderbird tech monitor sweeps | **Goose (Gemini)** | Multi-modal, broad tool access (`Playwright`, `MCP`), high-thinking capabilities for broad synthesis. [GOOSE: My demonstrated capabilities]. |
+| Web research, real-time data, multi-modal, tool execution, broad synthesis across many sources, Thunderbird tech monitor sweeps | **OpenCode (Gemini)** | Multi-modal, broad tool access (`Playwright`, `MCP`), high-thinking capabilities for broad synthesis. [GOOSE: My demonstrated capabilities]. |
 | Long-context reasoning (>10K tokens), client-facing writing (D2M voice), strategic reasoning, complex analysis, final fusion and report generation, tasks requiring 200K context window | **Claude** | 128K-200K context, nuanced synthesis, voice consistency. [GOOSE: My underlying Gemini model has a 1M token context window, so I *can* handle Claude's stated context lengths without limiting out. However, strategic routing to Claude leverages its unique strengths for nuance and voice consistency as per Commander's direction.] |
 
 Suggested routing trigger logic (Claude):
@@ -83,8 +83,8 @@ Suggested routing trigger logic (Claude):
 *   **Claude's 5-Hour Window:** Any substantial task requiring Claude Sonnet/MAX (or Opus) must aim to **conclude before 0600 AM Mountain Time** to prevent consumption of the Commander's critical 5-hour window, which begins daily at 0600 MT. This prioritizes Commander's workflow and Claude's optimal availability.
 
 *   **During Commander's Operational Hours (0600 - 1800 MT):**
-    *   If a task is identified as primarily suited for Claude (e.g., long-context synthesis, client-facing writing, strategic reasoning), it will be **initially routed to Goose (Gemini)**.
-    *   Goose (Gemini) will perform as much of the task as possible, delivering an initial draft or comprehensive analysis.
+    *   If a task is identified as primarily suited for Claude (e.g., long-context synthesis, client-facing writing, strategic reasoning), it will be **initially routed to OpenCode (Gemini)**.
+    *   OpenCode (Gemini) will perform as much of the task as possible, delivering an initial draft or comprehensive analysis.
     *   **Claude may then be engaged for final finishing, editing, or nuanced synthesis *only if possible and efficient*** (e.g., a quick draft edit, voice-matched refinement, or when its window is clear and its specific capability is required for a final pass). This prioritizes rapid initial response and flexible completion, respecting the primary Gemini routing during these hours.
 
 This rule is paramount for managing LLM resources effectively and minimizing any impact on Commander's direct workflow, ensuring harmonious human-AI collaboration.

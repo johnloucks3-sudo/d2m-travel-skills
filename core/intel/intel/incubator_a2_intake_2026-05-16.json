@@ -1,0 +1,46 @@
+[
+  {
+    "id": "A2-2026-05-16-001",
+    "title": "Life - Wikipedia definition",
+    "source_signal": "Life - Wikipedia: Life exists all over the Earth in air, water, and soil...",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "Generic encyclopedia definition of 'life.' No relevance to luxury travel concierge, client engagement, or Thunderbird architecture."
+  },
+  {
+    "id": "A2-2026-05-16-002",
+    "title": "Life - Britannica definition",
+    "source_signal": "Life | Definition, Origin, Evolution, Diversity, & Facts | Britannica",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "Biological encyclopedia entry. Zero actionable intelligence for D2M client engagement, behavioral inference, or CRM triggers."
+  },
+  {
+    "id": "A2-2026-05-16-003",
+    "title": "LIFE - Merriam-Webster definition",
+    "source_signal": "LIFE Definition & Meaning - Merriam-Webster",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "Dictionary definition. Noise. Does not address travel, luxury, clients, or any Thunderbird gap category."
+  },
+  {
+    "id": "A2-2026-05-16-004",
+    "title": "What Is Life? - Scientific definition",
+    "source_signal": "What Is Life? The Scientific Definition and Criteria",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "Scientific philosophy article. Unrelated to D2M business, client engagement, behavioral preference inference, or CRM. Archive and suppress."
+  }
+]

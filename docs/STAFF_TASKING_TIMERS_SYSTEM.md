@@ -85,7 +85,7 @@ Routes tasks to correct inboxes:
 
 | Owners | Route To |
 |--------|----------|
-| A2, A6, A9 (research/narrative/finance) | `goose_inbox.md` |
+| A2, A6, A9 (research/narrative/finance) | `opencode_inbox.md` |
 | A3, COS, EXEC | `claude_inbox.md` |
 | Mixed (e.g., A2→A6→A3) | Route to primary owner |
 
@@ -169,13 +169,13 @@ systemctl start staff-tasking-timers-system.service
 1. **Load:** Client dossiers from `~/Thunderbird/dossiers/*.json`
 2. **Calculate:** All 35 deadlines for each client
 3. **Filter:** Next 90 days, sorted by draft due date
-4. **Route:** Append tasks to `claude_inbox.md` and `goose_inbox.md`
+4. **Route:** Append tasks to `claude_inbox.md` and `opencode_inbox.md`
 5. **Notify:** Append summary to `claude_outbox.md`
 6. **Persist:** Save schedule to `staff_tasking_schedule.json` for dashboard
 
 ### ~06:10 AM MT — Staff Picks Up Tasks
 - `d2m-tasking-watcher.service` detects UNREAD tasks
-- Routes to Claude (claude_inbox) or Goose (goose_inbox)
+- Routes to Claude (claude_inbox) or Goose (opencode_inbox)
 - Staff agents task their respective team members
 - A2 begins research input (T-21 before send)
 
@@ -235,7 +235,7 @@ cat /home/john/Thunderbird/OpsCenter/staff_tasking_schedule.json
 | Tasks not appearing | Check `systemctl status staff-tasking-timers-system.service` for errors |
 | No dossiers loaded | Verify dossier JSON files exist and are valid |
 | Wrong client dates | Check dossier fields: `booking_date`, `embark_date`, `fpd_date` |
-| Tasks not reaching inboxes | Check file permissions on `claude_inbox.md`, `goose_inbox.md` |
+| Tasks not reaching inboxes | Check file permissions on `claude_inbox.md`, `opencode_inbox.md` |
 
 ---
 

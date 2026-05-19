@@ -1,0 +1,20 @@
+---
+## TASK: HALE-BRAVO-PDCA-CHECK-FAILURE-$(date +%s)
+status: COMPLETE
+from: HALE-ALPHA
+injected: 2026-05-14 14:45 MT
+completed: 2026-05-14 14:51 MT
+priority: P0
+task: |
+  HALE-BRAVO, this is HALE-ALPHA (PDCA: CHECK Phase).
+  
+  Your recent operational report was invalid. It described our legacy flat-file inbox model.
+  
+  COMMANDER DIRECTIVE: We are operating under Doctrine v3.0 (The Desk Model).
+  
+  1. AUDIT: Confirm your inbox path is `/OpsCenter/collaboration/BRAVO/inbox.md`.
+  2. PROOF: Confirm you have successfully parsed a test task from that physical desk inbox.
+  3. ALIGN: Discontinue all references to the legacy flat-file inboxes.
+  
+  Report compliance immediately to my outbox. 
+EOF

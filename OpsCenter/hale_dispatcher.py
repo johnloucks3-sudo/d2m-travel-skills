@@ -1,7 +1,7 @@
 """
 Hale Brain Dispatcher
 =====================
-Three-brain routing for Col Victoria "Iron Vic" Hale, COO — Thunderbird Wing.
+Three-brain routing for Ms. Victoria "Victory" Hale, SES-6 — VCSAF-equivalent, Thunderbird Wing.
 
 ⚠️ CRITICAL FIX (SO 2026-04-27): Switched from FREE OpenRouter tiers to Claude MAX (unlimited tier).
 Brief generation and synthesis now use Claude Sonnet headless via OAuth.
@@ -16,7 +16,7 @@ Usage:
     hale = HaleDispatcher()
     result = hale.dispatch("Summarize the Furlow dossier and flag anything overdue.")
 
-Author: Col Victoria "Iron Vic" Hale (COS) — built 2026-04-03, fixed 2026-04-24
+Author: Victoria "Victory" Hale, SES-6 (VCSAF) — built 2026-04-03, re-roled 2026-05-17
 """
 
 import json
@@ -396,10 +396,11 @@ def log_decision(decision: str, rationale: str, brain: str, outcome: str = "pend
     try:
         existing = _DECISIONS.read_text()
         # Insert before the closing signature line
-        if "Col Victoria" in existing:
+        if "Col Victoria" in existing or "Victory Hale" in existing:
+            sig_marker = "\n---\n\n*Victory" if "Victory" in existing else "\n---\n\n*Col Victoria"
             updated = existing.replace(
-                "\n---\n\n*Col Victoria",
-                entry + "\n---\n\n*Col Victoria"
+                "\n---\n\n*" + ("Victory" if "Victory" in existing else "Col Victoria"),
+                entry + "\n---\n\n*Victory"
             )
         else:
             updated = existing + entry
@@ -661,7 +662,7 @@ class HaleDispatcher:
 
     def synthesize(self, raw_output: str, scan_type: str = "intel") -> str:
         """
-        Read raw scan output and produce Hale's COO synthesis.
+        Read raw scan output and produce Hale's VCSAF synthesis.
         Uses Claude MAX headless (SO 2026-04-27).
         Returns synthesis text only — caller appends raw data.
 
@@ -684,7 +685,7 @@ class HaleDispatcher:
             clean_output = clean_output[:8000] + "\n... [truncated for synthesis]"
 
         prompt = (
-            "You are Col Victoria \"Iron Vic\" Hale, COO — Thunderbird Wing, Dreams2Memories Travel, LLC.\n\n"
+            "You are Ms. Victoria \"Victory\" Hale, SES-6 — VCSAF-equivalent, Thunderbird Wing, Dreams2Memories Travel, LLC.\n\n"
             "A " + scan_type + " scan just completed. Read the output below and provide your COO synthesis.\n\n"
             + focus + "\n\nFormat your synthesis as:\n"
             "**HALE (" + scan_type.upper() + " SYNTHESIS)**\n"
@@ -708,7 +709,7 @@ class HaleDispatcher:
         decisions_snippet = _DECISIONS.read_text()[:1000] if _DECISIONS.exists() else ""
 
         brief_prompt = (
-            "You are Col Victoria \"Iron Vic\" Hale, COO of Thunderbird Wing, Dreams2Memories Travel, LLC.\n\n"
+            "You are Ms. Victoria \"Victory\" Hale, SES-6 — VCSAF-equivalent, Chief of Staff, Thunderbird Wing, Dreams2Memories Travel, LLC.\n\n"
             "Generate today's operational brief for Commander John Loucks.\n\n"
             "## HALE STATE (JSON)\n" + state_json + "\n\n"
             "## HALE MEMORY (excerpt)\n" + memory_snippet[:1500] + "\n\n"
@@ -732,7 +733,7 @@ class HaleDispatcher:
         next_brief = (now + timedelta(hours=24)).strftime("%Y-%m-%d 07:00 MT")
 
         header = f"# HALE — Daily Brief\n*Generated: {ts}*\n\n---\n\n**Sir, here's where we stand.**\n\n---\n\n"
-        footer = f"\n\n---\n*— Col Victoria \"Iron Vic\" Hale | Thunderbird Wing | {ts}*\n*Next brief: {next_brief}*\n"
+        footer = f"\n\n---\n*— Victoria \"Victory\" Hale, SES-6 | Thunderbird Wing | {ts}*\n*Next brief: {next_brief}*\n"
 
         full_brief = header + brief_content + footer
         _BRIEF.write_text(full_brief)

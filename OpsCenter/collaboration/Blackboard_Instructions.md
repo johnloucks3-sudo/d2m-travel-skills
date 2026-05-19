@@ -8,7 +8,7 @@
 ## WHAT IS THE BLACKBOARD?
 
 The blackboard is Thunderbird's shared operational state system.
-It tells every AI (Claude, Goose, Hale, Deepseek, Groq) what's happening,
+It tells every AI (Claude, OpenCode, Hale, Deepseek, Groq) what's happening,
 what's pending, and what the current budget is — automatically, on every
 session, on every device, with zero Commander action.
 
@@ -45,7 +45,7 @@ All files live in: `~/Thunderbird/OpsCenter/collaboration/`
 | `deepseek_inbox.md` | Arbitration requests | Any agent |
 | `deepseek_ruling.md` | Arbitration decisions | Deepseek |
 | `claude_inbox.md` | Tasks for Claude | Commander or Goose |
-| `goose_inbox.md` | Tasks for Goose | Commander or Claude |
+| `opencode_inbox.md` | Tasks for Goose | Commander or Claude |
 | `blackboard_summary.txt` | 10-line digest | blackboard_sync.py ONLY |
 
 **Never edit `blackboard_summary.txt` manually** — it is overwritten every 5 minutes.
@@ -88,7 +88,7 @@ Add a JSON block to `claude_inbox.md`:
   "priority": "NORMAL",
   "token_estimate": 2000,
   "pii": false,
-  "instructions": "Read goose_output.md and synthesize into client proposal.",
+  "instructions": "Read opencode_output.md and synthesize into client proposal.",
   "output_destination": "/home/john/Thunderbird/OpsCenter/collaboration/claude_output.md",
   "deadline": "2026-04-01T11:00:00MT"
 }
@@ -96,7 +96,7 @@ Add a JSON block to `claude_inbox.md`:
 Then trigger Claude: **"Read your inbox and execute"**
 
 ### Queue a task for Goose
-Same format, write to `goose_inbox.md`.
+Same format, write to `opencode_inbox.md`.
 Then trigger Goose: **"Read your inbox and execute"**
 
 ### PII rule
@@ -243,7 +243,7 @@ journalctl --user -u thunderbird-blackboard-sync.service -n 20
   deepseek_inbox.md                     ← arbitration requests
   deepseek_ruling.md                    ← arbitration decisions
   claude_inbox.md                       ← Claude task queue
-  goose_inbox.md                        ← Goose task queue
+  opencode_inbox.md                        ← Goose task queue
   Blackboard_Instructions.md            ← this file
 ```
 

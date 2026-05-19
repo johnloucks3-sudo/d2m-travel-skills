@@ -1,0 +1,145 @@
+[
+  {
+    "id": "A2-2026-05-19-001",
+    "title": "Dictionary Definition: Behavioral (Merriam-Webster)",
+    "source_signal": "[1] BEHAVIORAL Definition & Meaning - Merriam-Webster",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "Dictionary definition. Zero relevance to D2M travel operations, client preference modeling, or Thunderbird architecture."
+  },
+  {
+    "id": "A2-2026-05-19-002",
+    "title": "Dictionary Definition: Behavioral (Cambridge)",
+    "source_signal": "[2] BEHAVIORAL | English meaning - Cambridge Dictionary",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "English language definition. No connection to cruise booking intelligence or client profiling systems."
+  },
+  {
+    "id": "A2-2026-05-19-003",
+    "title": "Parkwood Behavioral Health System",
+    "source_signal": "[3] Programs & Services | Parkwood Behavioral | Olive Branch, MS",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "Mental health services provider in Mississippi. Unrelated to luxury travel concierge or D2M client management."
+  },
+  {
+    "id": "A2-2026-05-19-004",
+    "title": "Dictionary Definition: Behavioral (Dictionary.com)",
+    "source_signal": "[4] BEHAVIORAL Definition & Meaning | Dictionary.com",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "Dictionary definition. No application to travel operations or stated incubator gaps."
+  },
+  {
+    "id": "A2-2026-05-19-005",
+    "title": "Dictionary Definition: Behavioral (Merriam-Webster duplicate)",
+    "source_signal": "[5] BEHAVIORAL Definition & Meaning - Merriam-Webster (repeat)",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "Duplicate dictionary entry. No Thunderbird relevance."
+  },
+  {
+    "id": "A2-2026-05-19-006",
+    "title": "Dictionary Definition: Behavioral (Cambridge duplicate)",
+    "source_signal": "[6] BEHAVIORAL | English meaning - Cambridge Dictionary (repeat)",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "Duplicate entry. No travel or client intelligence value."
+  },
+  {
+    "id": "A2-2026-05-19-007",
+    "title": "Parkwood Behavioral Health System (duplicate)",
+    "source_signal": "[7] Programs & Services | Parkwood Behavioral | Olive Branch, MS (repeat)",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "Duplicate mental health provider listing. Zero D2M relevance."
+  },
+  {
+    "id": "A2-2026-05-19-008",
+    "title": "Dictionary Definition: Behavioral (Dictionary.com duplicate)",
+    "source_signal": "[8] BEHAVIORAL Definition & Meaning | Dictionary.com (repeat)",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "Duplicate dictionary definition. No application to Thunderbird gaps."
+  },
+  {
+    "id": "A2-2026-05-19-009",
+    "title": "Wikipedia: Life",
+    "source_signal": "[9] Life - Wikipedia",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "Encyclopedia article on biological life. Unrelated to client behavior modeling or travel platform architecture."
+  },
+  {
+    "id": "A2-2026-05-19-010",
+    "title": "Dictionary Definition: Life",
+    "source_signal": "[10] LIFE Definition & Meaning - Merriam-Webster",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "Dictionary definition. No connection to D2M cruise booking or client profiling platform."
+  },
+  {
+    "id": "A2-2026-05-19-011",
+    "title": "LIFE Magazine Iconic Photographs",
+    "source_signal": "[11] The Most Iconic Photographs of All Time - LIFE",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "Magazine feature article. No connection to travel intelligence, client profiling, or Thunderbird architecture."
+  },
+  {
+    "id": "A2-2026-05-19-012",
+    "title": "Britannica: Life Definition",
+    "source_signal": "[12] Life | Definition, Origin, Evolution, Diversity, & Facts | Britannica",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "Encyclopedia definition of biological life. No relevance to cruise booking, client intelligence, or D2M operations."
+  },
+  {
+    "id": "A2-2026-05-19-013",
+    "title": "NASA Science: Characteristics of Life",
+    "source_signal": "[13] What are the characteristics of life? - NASA Science",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "Scientific article on life characteristics. No application to luxury travel concierge, client behavior analysis, or Thunderbird CRM."
+  }
+]

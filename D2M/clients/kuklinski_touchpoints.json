@@ -90,9 +90,11 @@
       "subject": "Specialty Dining Aboard Viking Mars \u2014 Preferences Before We Plan",
       "template_file": "Kuklinski_Discretionary_Arc_Library.md",
       "template_anchor": "ARC 4-A",
-      "status": "pending",
+      "status": "draft_created",
       "sent_date": null,
-      "notes": "Send Arc4 (full) unless Kyle is unresponsive to TP-2 \u2014 then switch to Arc5"
+      "notes": "Send Arc4 (full) unless Kyle is unresponsive to TP-2 \u2014 then switch to Arc5",
+      "draft_id": "r-8411087444723767592",
+      "draft_date": "2026-05-15"
     },
     {
       "id": "ARC4-B",

@@ -88,54 +88,38 @@ def _hale_state_says_running(component: str) -> bool:
 
 def scan_opencode_health() -> list:
     """
-    Scan OpenCode daemon health and resource usage.
-    Cross-checks hale_state.json before flagging RED to prevent false alarms.
-    Deduplicates: suppresses repeat alerts after 3 consecutive occurrences.
+    Scan OpenCode binary availability and task queue health.
+    OpenCode is an on-demand CLI tool (not a daemon/service) — check binary,
+    not opencode.service which does not and should not exist.
     """
     issues = []
 
     try:
-        result = subprocess.run(
-            ["systemctl", "--user", "status", "opencode.service"],
-            capture_output=True,
-            text=True,
-            timeout=5
+        # Check binary exists and is executable
+        import shutil
+        opencode_bin = (
+            shutil.which("opencode")
+            or (Path("/home/john/.opencode/bin/opencode") if Path("/home/john/.opencode/bin/opencode").exists() else None)
+            or (Path("/home/john/bin/opencode") if Path("/home/john/bin/opencode").exists() else None)
         )
 
-        if result.returncode != 0:
-            # Cross-check state file before declaring RED
-            if _hale_state_says_running("opencode"):
-                # State/process discrepancy — not a confirmed outage
-                if _should_fire("opencode_state_discrepancy"):
-                    issues.append({
-                        "problem": "OpenCode state/process discrepancy",
-                        "factors": [
-                            "opencode.service not active via systemctl",
-                            "hale_state.json indicates RUNNING — possible stale state",
-                            "OpenCode may be running outside systemd (screen/tmux)",
-                            "Investigate but do not treat as confirmed outage"
-                        ],
-                        "severity": "YELLOW",
-                    })
-            else:
-                if _should_fire("opencode_daemon_down"):
-                    issues.append({
-                        "problem": "OpenCode daemon is not running",
-                        "factors": [
-                            "systemctl --user status opencode.service returned non-zero",
-                            "hale_state.json does not confirm RUNNING status",
-                            "OpenCode tasks cannot be dispatched or executed",
-                            "Background AI operations are paused"
-                        ],
-                        "severity": "RED",
-                    })
-        else:
-            logger.info("✅ OpenCode daemon is running")
+        if opencode_bin:
+            logger.info(f"✅ OpenCode binary available: {opencode_bin}")
             _clear_alert("opencode_daemon_down")
             _clear_alert("opencode_state_discrepancy")
-
+        else:
+            if _should_fire("opencode_binary_missing"):
+                issues.append({
+                    "problem": "OpenCode binary not found",
+                    "factors": [
+                        "opencode not found in PATH, ~/.opencode/bin, or ~/bin",
+                        "OpenCode tasks cannot be dispatched or executed",
+                        "Reinstall: see AGENTS.md OpenCode section"
+                    ],
+                    "severity": "RED",
+                })
     except Exception as e:
-        logger.warning(f"Failed to check OpenCode status: {e}")
+        logger.warning(f"Failed to check OpenCode binary: {e}")
 
     # Check OpenCode task queue depth
     try:

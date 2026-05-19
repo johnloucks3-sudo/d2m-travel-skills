@@ -4,8 +4,8 @@ After=network-online.target
 Documentation=https://github.com/anthropics/thunderbird-os
 
 [Timer]
-OnBootSec=5min
-OnUnitActiveSec=2h
+OnBootSec=1min
+OnUnitActiveSec=15min
 Unit=d2m-heartbeat.service
 Persistent=true
 

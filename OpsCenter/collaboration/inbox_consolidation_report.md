@@ -14,7 +14,7 @@
 | `/home/john/Thunderbird/OpsCenter/collaboration/opencode_inbox.md` | **CANONICAL** | OpenCode task inbox |
 | `/home/john/Thunderbird/OpsCenter/collaboration/opencode_outbox.md` | **CANONICAL** (new) | Created this session |
 | `/home/john/Thunderbird/OpsCenter/collaboration/claude_inbox.md` | STALE | Had pending tasks — merged into canonical |
-| `/home/john/Thunderbird/OpsCenter/collaboration/goose_inbox.md` | STALE | Decommissioned — merged into opencode_inbox.md |
+| `/home/john/Thunderbird/OpsCenter/collaboration/opencode_inbox.md` | STALE | Decommissioned — merged into opencode_inbox.md |
 | `/home/john/Thunderbird/claude_outbox.md` | STALE | Had historical inter-agent content — merged into canonical outbox |
 
 ---
@@ -25,7 +25,7 @@
 |--------|-------------|--------|
 | `/home/john/Thunderbird/claude_outbox.md` (root) | `OpsCenter/collaboration/claude_outbox.md` | Appended full content (historical inter-agent discussion) |
 | `OpsCenter/collaboration/claude_inbox.md` | `claude_inbox.md` (root canonical) | Appended with source header (had MISSION-002-003 and lifecycle tasks) |
-| `OpsCenter/collaboration/goose_inbox.md` | `OpsCenter/collaboration/opencode_inbox.md` | Appended with source header (had OpenCode intro + NEXUS V2.1 review JSON) |
+| `OpsCenter/collaboration/opencode_inbox.md` | `OpsCenter/collaboration/opencode_inbox.md` | Appended with source header (had OpenCode intro + NEXUS V2.1 review JSON) |
 
 Files NOT deleted — content preserved in canonical files.
 

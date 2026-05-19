@@ -1,0 +1,11 @@
+[Unit]
+Description=A5 Castillo Validation 1-Hour Checkpoint (15:50 MT)
+After=network.target
+
+[Timer]
+OnCalendar=*-05-14 15:50:00
+Persistent=true
+Unit=a5_validation_checkpoint_1h.service
+
+[Install]
+WantedBy=timers.target

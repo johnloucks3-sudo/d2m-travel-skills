@@ -1,0 +1,24 @@
+[
+  {
+    "id": "A2-2026-05-15-001",
+    "title": "Dictionary Definition \u2014 Client",
+    "source_signal": "[1-4] Merriam-Webster / Cambridge / Collins / Oxford definitions",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 this is a word definition",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Signals 1-4 are dictionary entries, not technology intelligence. Zero architectural relevance to Thunderbird gaps. Incubator likely misfired on search query."
+  },
+  {
+    "id": "A2-2026-05-15-002",
+    "title": "ServiceNow Enterprise Platform",
+    "source_signal": "[5-8] ServiceNow product pages / Wikipedia / TechTarget / Google Finance",
+    "classification": "WATCH",
+    "gap_closed": "Potential: Enterprise SaaS middleware for workflow automation + AI orchestration",
+    "thunderbird_component": "Core middleware layer (OpsCenter, Telegram gateway, MCP server)",
+    "risk": "MED",
+    "sss_required": true,
+    "rationale": "ServiceNow mentioned in known gaps (enterprise platform integration). Signals confirm AI capability exists, but no evidence it solves D2M hallucination risk, luxury travel personalization, or HNWI nostalgia mining. Depth insufficient to integrate \u2014 needs 30-day deep dive on ServiceNow AI module stability, API maturity, and luxury travel use case fit before Commander decision."
+  }
+]

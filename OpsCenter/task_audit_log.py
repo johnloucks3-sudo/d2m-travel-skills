@@ -15,7 +15,7 @@ Each record contains:
   - task_name: human-readable name for logging
   - task_type: research|analysis|intelligence|client_email|briefing|arbitration|etc
   - brain_routed: Brain 1 (DeepSeek) | Brain 2 (Sonnet) | Brain 3 (Opus) | none
-  - agent_dispatched: opencode|claude_code|goose|python|none
+  - agent_dispatched: opencode|claude_code|python|none
   - model: claude-haiku|claude-sonnet|claude-opus|deepseek-chat-v3.1|etc
   - status: SPAWNED|RUNNING|COMPLETED|ESCALATED|FAILED
   - escalated: True if task escalated from OpenCode to Claude Code

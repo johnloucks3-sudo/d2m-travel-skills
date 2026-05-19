@@ -130,7 +130,7 @@ WING_INTRO = (
 )
 
 STAFF_ROSTER = [
-    {"role": "Chief of Staff", "name": "Victoria Hale",
+    {"role": "Chief of Staff (VCSAF)", "name": "Victory Hale",
      "desc": "Orchestrates priorities, resolves conflicts, runs the morning brief."},
     {"role": "Voice & Visual", "name": "Naia Solberg-Vega",
      "desc": "Client-facing communications, brand tone, proposals, and template design."},

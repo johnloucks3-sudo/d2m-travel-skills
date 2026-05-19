@@ -232,7 +232,7 @@ back to `opencode run -m opencode/big-pickle`.
 ## Important References
 
 - `CLAUDE.md` — Full operating manual, persona roster, hard rules, output contract
-- `Personas/hale_cos.md` — COS Hale 7-layer identity (auto-loaded by `CLAUDE.md`)
+- `Personas/hale_cos.md` — COS Victory Hale, SES-6 7-layer identity (auto-loaded by `CLAUDE.md`)
 - `docs/MULTI_MODEL_STACK.md` — Post-OpenCode migration architecture (Claude Code + OpenCode)
 - `docs/CLAUDE_CODE_DRIVE_AND_CORE_GUIDE.md` — Drive folder IDs, core module registry
 - `docs/ARCHITECTURE_REFERENCE.md` — Component table, MCP failure playbook

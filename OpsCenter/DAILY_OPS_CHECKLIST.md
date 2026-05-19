@@ -1,6 +1,6 @@
 # THUNDERBIRD WING — DAILY OPS CHECKLIST
 **Updated:** 2026-03-29 | Owner: COS (Hale)
-**Show this file on every Claude Code or Goose login.**
+**Show this file on every Claude Code or OpenCode login.**
 
 ---
 
@@ -19,7 +19,7 @@ cat OpsCenter/01_TASK_QUEUE.json
 | Task queue | `cat OpsCenter/01_TASK_QUEUE.json` | `[]` or new tasks to process |
 | Claude MAX queue | `cat OpsCenter/03_CLAUDE_MAX_QUEUE.json` | `[]` or hand off to Claude |
 | OpsCenter test | `python3 OpsCenter/opscenter_test_harness.py` | 33/33 green (currently 31/33) |
-| Goose manifest | `cat OpsCenter/04_GOOSE_TASK_MANIFEST.md` | Check completion log |
+| OpenCode manifest | `cat OpsCenter/04_GOOSE_TASK_MANIFEST.md` | Check completion log |
 
 ---
 
@@ -44,7 +44,7 @@ cat OpsCenter/01_TASK_QUEUE.json
 ### DEFERRED
 | # | Task | When |
 |---|------|------|
-| #8 | TESS auth — browser SSH + Goose ride-along | Monday 30 MAR afternoon |
+| #8 | TESS auth — browser SSH + OpenCode ride-along | Monday 30 MAR afternoon |
 
 ---
 
@@ -109,7 +109,7 @@ cat OpsCenter/01_TASK_QUEUE.json
 | **Sunday 01:30** | `thunderbird-innovation-scan-weekly` | Deep innovation scan |
 | **Monday** | `thunderbird-evernote-backup` | Evernote backup |
 | **Monday** | `thunderbird-backup-verify` | Backup integrity |
-| **Monday PM** | TESS auth (browser SSH + Goose ride-along) | Deferred from 29 MAR |
+| **Monday PM** | TESS auth (browser SSH + OpenCode ride-along) | Deferred from 29 MAR |
 
 ---
 
@@ -125,7 +125,7 @@ cat OpsCenter/01_TASK_QUEUE.json
 
 ## INTEL DELEGATION — ALL TO GOOSE
 
-Per Commander standing order 2026-03-29. Goose owns:
+Per Commander standing order 2026-03-29. OpenCode owns:
 - Daily innovation scan (G4)
 - World intelligence sweep (G5)
 - Tech monitor / news scan (G6)
@@ -136,7 +136,7 @@ Per Commander standing order 2026-03-29. Goose owns:
 
 ---
 
-## FILE MAINTENANCE (manual or Goose)
+## FILE MAINTENANCE (manual or OpenCode)
 
 | Task | Frequency | Command / Location |
 |------|-----------|--------------------|
@@ -146,7 +146,7 @@ Per Commander standing order 2026-03-29. Goose owns:
 | Dossier → Drive mirror | On booking change | `mcp__dreams2memories__sync_all_dossier_files` |
 | Master booking sheet | On booking change | Google Sheet via MCP |
 | THUNDERBIRD_MASTER_PLAN | On booking change | Manual update Part 5 |
-| Goose manifest check | On login | `cat OpsCenter/04_GOOSE_TASK_MANIFEST.md` |
+| OpenCode manifest check | On login | `cat OpsCenter/04_GOOSE_TASK_MANIFEST.md` |
 
 ---
 

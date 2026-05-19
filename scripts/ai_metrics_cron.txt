@@ -1,0 +1,16 @@
+# AI Metrics Export Cron Jobs for Looker Studio
+# ==============================================
+# These jobs export Claude usage + OpenRouter data to Google Sheets
+# for Looker Studio dashboard integration
+
+# Every 5 minutes during business hours (6 AM - 10 PM MT)
+*/5 6-22 * * * cd /home/john/Thunderbird && /home/john/Thunderbird/.venv/bin/python scripts/ai_metrics_export.py --cron >> /home/john/Thunderbird/logs/ai_metrics_cron.log 2>&1
+
+# Every hour outside business hours
+0 0-5,23 * * * cd /home/john/Thunderbird && /home/john/Thunderbird/.venv/bin/python scripts/ai_metrics_export.py --cron >> /home/john/Thunderbird/logs/ai_metrics_cron.log 2>&1
+
+# Daily summary at 8 AM MT
+0 8 * * * cd /home/john/Thunderbird && /home/john/Thunderbird/.venv/bin/python scripts/ai_metrics_export.py --cron --summary >> /home/john/Thunderbird/logs/ai_metrics_daily.log 2>&1
+
+# Test run (uncomment for debugging)
+# */1 * * * * cd /home/john/Thunderbird && /home/john/Thunderbird/.venv/bin/python scripts/ai_metrics_export.py --debug >> /home/john/Thunderbird/logs/ai_metrics_test.log 2>&1

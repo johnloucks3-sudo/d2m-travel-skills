@@ -30,7 +30,6 @@ MISSION_BOARD = BASE_DIR / "mission_board.json"
 AUDIT_LOG = Path("/home/john/Thunderbird/logs/nexus_audit.log")
 NEXUS_LOCK = BASE_DIR / "nexus.lock"
 OPENCODE_INBOX = BASE_DIR / "collaboration/opencode_inbox.md"
-GOOSE_INBOX = OPENCODE_INBOX  # DEPRECATED alias — remove usages, use OPENCODE_INBOX directly
 CLAUDE_INBOX       = BASE_DIR.parent / "claude_inbox.md"
 EMAIL_INBOX        = BASE_DIR / "collaboration/email_inbox.md"
 ROUTING_LOG        = BASE_DIR / "collaboration/routing_log.md"

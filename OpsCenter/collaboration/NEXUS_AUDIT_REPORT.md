@@ -81,8 +81,8 @@ NEXUS v1.0 implements a dual-brain autonomous orchestration architecture that ro
 
 ### HIGH — #4: No Rate Limit Monitoring for DeepSeek
 **Location:** `nexus.py:147-160`  
-**Issue:** The `dispatch_to_qwen` function blindly appends to `goose_inbox.md` with no check on how many tasks are outstanding. DeepSeek V3.1 (via OpenCode) has unstated rate limits. Without a queue depth check, the system could schedule 6 rapid missions before any complete, overwhelming the free tier.  
-**Fix:** Add a queue depth check in `dispatch_to_qwen`; refuse new tasks if >3 pending in goose_inbox.
+**Issue:** The `dispatch_to_qwen` function blindly appends to `opencode_inbox.md` with no check on how many tasks are outstanding. DeepSeek V3.1 (via OpenCode) has unstated rate limits. Without a queue depth check, the system could schedule 6 rapid missions before any complete, overwhelming the free tier.  
+**Fix:** Add a queue depth check in `dispatch_to_qwen`; refuse new tasks if >3 pending in opencode_inbox.
 
 ### 🟡 MEDIUM — #5: Hardcoded Paths
 **Issue:** All scripts use hardcoded absolute paths (/home/john/Thunderbird/...). No `os.path.dirname(__file__)`-based resolution for cross-environment compatibility. If the OpsCenter moves, everything breaks.  
@@ -106,7 +106,7 @@ NEXUS v1.0 implements a dual-brain autonomous orchestration architecture that ro
 - **Status:** No rate limit testing has been performed against `deepseek/deepseek-chat-v3.1`.
 - **Risk:** Free tier likely has RPM/token-per-minute caps that could cause silent task drops.
 - **Impact:** Under burst load, tasks disappear into the inbox with no feedback loop.
-- **Verification:** Send 10 concurrent tasks to goose_inbox and measure completion rate.
+- **Verification:** Send 10 concurrent tasks to opencode_inbox and measure completion rate.
 
 ### 3. Telegram Failures — ⚠️ CREDS EMPTY
 - **Status:** `TELEGRAM_BOT_TOKEN` and `TELEGRAM_COMMANDER_ID` are both **empty strings** in nexus.py.
@@ -183,7 +183,7 @@ r'\bfigure\s+this\s+out\b',
 Verify credentials exist in `.env`, run `python3 nexus.py run MISSION-001 "test page"` and confirm the Telegram message is received. If creds are missing, generate a new bot via @BotFather.
 
 ### 3. 🟠 Implement Rate-Limit Awareness (1 hour)
-Add a simple queue counter to `dispatch_to_qwen`. Before appending to goose_inbox, count existing `status:PENDING` entries. If >3, return "QUEUE_FULL" and trigger suspense escalation.
+Add a simple queue counter to `dispatch_to_qwen`. Before appending to opencode_inbox, count existing `status:PENDING` entries. If >3, return "QUEUE_FULL" and trigger suspense escalation.
 
 ### 4. 🟠 Add Lock Acquisition to Gmail Poller (30 min)
 In `gmail_exec_poller.py`, wrap the `execute_command` call with the same `mission_board.lock` acquisition that `mission_board_sync.py` uses. This eliminates the race condition between email-based and daemon-based writes.
@@ -191,7 +191,7 @@ In `gmail_exec_poller.py`, wrap the `execute_command` call with the same `missio
 ### 5. 🟡 Create Health Check Endpoint (2 hours)
 Build a lightweight `nexus.py health` CLI mode that reports:
 - Lock status (held/free/heartbeat age)
-- Queue depth in goose_inbox
+- Queue depth in opencode_inbox
 - Claude availability (claude -p ping)
 - Last successful dispatch timestamp
 - Telegram credential status

@@ -34,7 +34,7 @@
 | d2m-morning-briefing.timer | active (waiting) | 2026-04-24 | ✅ RUNNING |
 | thunderbird-inbox-sweep.timer | active (waiting) | 2026-04-24 | ✅ RUNNING |
 
-> **Note:** `HEADLESS_CLAUDE_SPAWN_GUIDE.md` references `claude-token-refresh.timer` and `claude-haiku-supervisor.timer` — these do NOT exist. The actual OAuth refresh is handled by `claude-token-monitor.timer` + `claude-oauth-keepalive.timer`. Guide should be updated.
+> **Resolved 2026-05-18 — A12 ELON (SO-VCS-INFRA-20260518):** Dead references to `claude-token-refresh.timer` and `claude-haiku-supervisor.timer` purged from all docs. Real timers: `claude-token-monitor.timer` + `claude-oauth-keepalive.timer` (OAuth) and `thunderbird-watchdog.timer` (spawn failure monitoring). All user-level.
 
 **Audit check command:**
 ```bash
@@ -55,7 +55,9 @@ systemctl --user list-timers --all | grep -E "d2m|thunderbird|claude|inbox"
 |---------|----------|------------|--------|
 | thunderbird-gdrive-sync.timer | active (waiting) | 2026-04-24 | ✅ RUNNING |
 | thunderbird-evernote-backup.timer | active (waiting) | 2026-04-20 | ✅ RUNNING |
-| claude-token-refresh.timer (system) | active (waiting) | 2026-04-24 | ✅ RUNNING |
+| claude-token-monitor.timer (user) | active (waiting) | 2026-05-18 | ✅ RUNNING |
+| claude-oauth-keepalive.timer (user) | active (waiting) | 2026-05-18 | ✅ RUNNING |
+| thunderbird-watchdog.timer (user) | active (waiting) | 2026-05-18 | ✅ RUNNING |
 
 ### A3. Remote Sync Health
 
@@ -350,7 +352,7 @@ lsof -i :8765
 | Bot | Purpose | Status |
 |-----|---------|--------|
 | D2MC2C | Commander C2 | ✅ RUNNING |
-| GooseD2M | OpenCode comms | ✅ RUNNING |
+| DECOMMISSIONED | OpenCode comms | ✅ RUNNING |
 | Dani | Client-facing | ✅ RUNNING |
 
 ### F3. OpsCenter Daemon Health
@@ -370,7 +372,7 @@ tail -5 /home/john/Thunderbird/OpsCenter/collaboration/routing_log.md
 LAYER 0: OAuth/Auth
   ~/.claude/.credentials.json
   gmail_token.json · drive_token.json
-  claude-token-refresh.timer ← MANDATORY for headless
+  claude-token-monitor.timer + claude-oauth-keepalive.timer ← MANDATORY for headless
          ↓
 LAYER 1: Core Infrastructure
   core/mcp/travel_mcp_server.py [120+ tools, port 8765]
@@ -388,7 +390,7 @@ LAYER 3: Headless Spawn Architecture
   core/ai_infra/thunderbird_headless_spawn.py [Layer 1 wrapper]
   OpsCenter/opencode_headless_claude_dispatch.py [Layer 2 — OpenCode]
   OpsCenter/headless_claude_fallback.py [Layer 2B — fallback]
-  claude-haiku-supervisor.timer ← monitors spawn failures
+  thunderbird-watchdog.timer ← monitors spawn failures
          ↓
 LAYER 4: Persona Layer
   Personas/hale_cos.md [COS identity]
@@ -412,7 +414,7 @@ LAYER 6: Intelligence
 - If `task_queue.py` fails → OpsCenter stops routing all tasks
 - If `travel_mcp_server.py` fails → 120 tools go offline; Claude code falls back to manual
 - If `thunderbird_gmail.py` fails → all email (read/draft/send) stops
-- If `claude-token-refresh.timer` stops → headless Claude fails within ~4 hours
+- If `claude-token-monitor.timer` or `claude-oauth-keepalive.timer` stops → headless Claude fails within ~4 hours
 - If `nexus.py` fails → task queue empties, no automated processing
 
 ---
@@ -431,7 +433,7 @@ echo "=== THUNDERBIRD DAILY HEALTH CHECK $(date) ==="
 # 1. Service status
 echo "--- SERVICES ---"
 systemctl --user is-active d2m-tasking-watcher.service thunderbird-mcp.service
-systemctl --user is-active claude-token-refresh.timer claude-haiku-supervisor.timer
+systemctl --user is-active claude-token-monitor.timer claude-oauth-keepalive.timer thunderbird-watchdog.timer
 
 # 2. OAuth freshness
 echo "--- OAUTH ---"

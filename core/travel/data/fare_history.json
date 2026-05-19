@@ -25,5 +25,113 @@
     "price_change_pct": 0.0,
     "alert_triggered": null,
     "notes": ""
+  },
+  {
+    "watch_id": "kuklinski-viking-panama-dv1",
+    "timestamp": "2026-05-14T09:20:01.225834",
+    "price_pp": 12995.0,
+    "total": 51980.0,
+    "price_change_pct": 242.1,
+    "alert_triggered": null,
+    "notes": ""
+  },
+  {
+    "watch_id": "kuklinski-viking-panama-v1",
+    "timestamp": "2026-05-14T09:20:01.230495",
+    "price_pp": 8999.0,
+    "total": 17998.0,
+    "price_change_pct": 190.4,
+    "alert_triggered": null,
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-regent-grandeur-panama-dec2026",
+    "timestamp": "2026-05-14T09:20:01.230922",
+    "price_pp": 14999.0,
+    "total": 29998.0,
+    "price_change_pct": 16.3,
+    "alert_triggered": null,
+    "notes": ""
+  },
+  {
+    "watch_id": "viking-kuklinski-panama-2026-12-17",
+    "timestamp": "2026-05-14T09:20:01.231286",
+    "price_pp": 13995.0,
+    "total": 83970.0,
+    "price_change_pct": 441.9,
+    "alert_triggered": "PRICE SPIKE: $13,995/pp exceeds alert threshold $2,840",
+    "notes": ""
+  },
+  {
+    "watch_id": "furlow-grandeur-scandinavia-cruise",
+    "timestamp": "2026-05-14T09:21:58.166356",
+    "price_pp": 16499.0,
+    "total": 32998.0,
+    "price_change_pct": 71.5,
+    "alert_triggered": null,
+    "notes": ""
+  },
+  {
+    "watch_id": "nichols-grandeur-scandinavia-cruise",
+    "timestamp": "2026-05-14T09:21:58.167024",
+    "price_pp": 15299.0,
+    "total": 30598.0,
+    "price_change_pct": 61.9,
+    "alert_triggered": null,
+    "notes": ""
+  },
+  {
+    "watch_id": "ely-darrow-grandeur-scandinavia-cruise",
+    "timestamp": "2026-05-14T09:21:58.170899",
+    "price_pp": 18499.0,
+    "total": 36998.0,
+    "price_change_pct": 79.3,
+    "alert_triggered": null,
+    "notes": ""
+  },
+  {
+    "watch_id": "kuklinski-viking-panama-dv1",
+    "timestamp": "2026-05-14T09:21:58.171480",
+    "price_pp": 7999.0,
+    "total": 31996.0,
+    "price_change_pct": 110.6,
+    "alert_triggered": null,
+    "notes": ""
+  },
+  {
+    "watch_id": "kuklinski-viking-panama-v1",
+    "timestamp": "2026-05-14T09:21:58.171970",
+    "price_pp": 12999.0,
+    "total": 25998.0,
+    "price_change_pct": 319.5,
+    "alert_triggered": null,
+    "notes": ""
+  },
+  {
+    "watch_id": "mcleod-regent-grandeur-dec2026",
+    "timestamp": "2026-05-14T09:21:58.172368",
+    "price_pp": 12849.0,
+    "total": 25698.0,
+    "price_change_pct": 66.9,
+    "alert_triggered": null,
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-regent-grandeur-panama-dec2026",
+    "timestamp": "2026-05-14T09:21:58.172764",
+    "price_pp": 12949.0,
+    "total": 25898.0,
+    "price_change_pct": 0.4,
+    "alert_triggered": null,
+    "notes": ""
+  },
+  {
+    "watch_id": "viking-kuklinski-panama-2026-12-17",
+    "timestamp": "2026-05-14T09:21:58.173163",
+    "price_pp": 8999.0,
+    "total": 53994.0,
+    "price_change_pct": 248.4,
+    "alert_triggered": "PRICE SPIKE: $8,999/pp exceeds alert threshold $2,840",
+    "notes": ""
   }
 ]

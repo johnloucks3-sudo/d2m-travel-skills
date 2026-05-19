@@ -6,7 +6,7 @@
 
 ## OVERVIEW
 
-HALE (Col Victoria "Iron Vic" Hale, COS) is the **sole autonomous dispatcher** for all agents: OpenCode (DeepSeek V3.1), Claude Code (Sonnet/Opus), and Goose (Gemini). This document defines the authoritative tasking protocol.
+HALE (Col Victoria "Iron Vic" Hale, COS) is the **sole autonomous dispatcher** for all agents: OpenCode (DeepSeek V3.1), Claude Code (Sonnet/Opus), and OpenCode (Gemini). This document defines the authoritative tasking protocol.
 
 **Authority Base:** SO-2026-05-04 (Real Autonomy Charter). HALE operates at **95% autonomy**. No request/permission cycle needed—HALE owns task dispatch, routing, escalation, and result handling.
 

@@ -21,7 +21,7 @@
 ┌─────────────────────────────────────────────────────────────────┐
 │ OpsCenter Daemon (agent_runner.py + task dispatcher)             │
 │  - Monitors task queues (Telegram, API, cron)                   │
-│  - Routes tasks to Hale (Claude), Goose (Gemini), or API        │
+│  - Routes tasks to Hale (Claude), OpenCode (Gemini), or API        │
 └─────────────────────────────────────────────────────────────────┘
                            │
                            ↓

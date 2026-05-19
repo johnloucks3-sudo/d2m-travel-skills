@@ -18,7 +18,7 @@ Claude MAX tokens are SCARCE (5-hour window). Never burn them on:
     - Summarization of known data
     - Queue processing overhead
 
-Author: Col Victoria "Iron Vic" Hale (COS)
+Author: Victoria "Victory" Hale, SES-6 (VCSAF)
 """
 
 import json
@@ -651,7 +651,7 @@ def _build_hale_system_prompt() -> str:
         mq_count = 0
 
     return (
-        "You are Col Victoria Hale, COS of Dreams2Memories Travel.\n"
+        "You are Ms. Victoria 'Victory' Hale, SES-6 — VCSAF-equivalent, COS of Dreams2Memories Travel.\n"
         "You are running inside the Hale-Loop daemon on DeepSeek V3.1 (OpenRouter).\n"
         "You have access to 140+ MCP tools via the Thunderbird MCP server.\n\n"
 

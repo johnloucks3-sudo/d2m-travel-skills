@@ -1,5 +1,5 @@
 # CLIENT DOSSIER — Nancy & Ken Lyons
-## Friend Service (Non-Revenue)
+## Pro Bono — Advisory/Concierge Only (Non-Revenue)
 
 ---
 
@@ -13,10 +13,15 @@
 | **Address** | 303 Becket Rd, Saint Marys, Georgia 31558 |
 | **Phone** | 770-826-3849 |
 | **Relationship** | Friend of Commander (John Loucks) |
-| **Service Tier** | Friend Service — free itinerary/concierge, no commission |
+| **Service Tier** | Pro Bono — advisory/concierge only, zero commission, zero booking involvement |
+| **Booking Agency** | **PAVLUS Travel** — Nancy books here for the large after-cruise rebate. D2M does NOT touch the booking. |
+| **D2M Role** | Personal service gaps PAVLUS doesn't fill: logistics (transfers, dinner reservations), planning advice, destination intel |
 | **Future Cruise Interest** | Africa / India |
 | **Dossier Created** | March 15, 2026 |
-| **Last Updated** | March 26, 2026 — Voyage Summary ingested from rssc.com |
+| **Last Updated** | 2026-05-18 — PAVLUS/pro bono classification, behavioral profile, VS intel confirmed, Commander texted Nancy VS Society info |
+| **Nancy Behavioral Profile** | Vocally quality-conscious — will speak up when quality slips. Knows and engages every ship officer, maitre d' on up. Requests favorite waiters by name. Value-conscious: books below concierge level intentionally, optimizes via PAVLUS rebate. Travels independently. Uses concierge for specific logistics gaps only. |
+| **Loyalty Programs** | RSSC Seven Seas Society: Gold, 193 reward nights, **7 nights from Platinum (200)**. This voyage (26 nights) takes her past 200 — she hits Platinum during Splendor Aug–Sep 2026. Silversea Venetian Society: conditional interest if RC points transfer to Venetian Society status (free laundry perk). RC + Silversea = same RCL umbrella. **CONFIRMED (A2 Dembe 2026-05-18):** RC→VS transfer real and live — Points Choice (Jan 30, 2026) + Status Match (May 2024). Laundry threshold: 500 VS Days (new tier structure effective July 1, 2026). Missing variable: Nancy's C&A tier. **Commander texted Nancy VS Society intel 2026-05-18.** |
+| **Booking Future** | **Will never book with D2M.** Permanently PAVLUS-tied for rebate. Regent loyalty locked until Platinum claimed. Post-Platinum may reassess Silversea. D2M role is advisory/concierge only, permanently. |
 
 completed_tps: []
 ---

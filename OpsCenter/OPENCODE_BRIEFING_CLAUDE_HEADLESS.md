@@ -4,6 +4,8 @@
 **Status:** Claude token lifecycle is now automated and supervised  
 **Your Role:** Do NOT manage Claude token. Monitor and alert if supervisor detects issues.
 
+> **⚠️ NAMING UPDATE (2026-05-18 — A12 ELON / SO-VCS-INFRA-20260518):** Timer names in this doc are historical. Actual names on system: `claude-token-monitor.timer` + `claude-oauth-keepalive.timer` (OAuth) and `thunderbird-watchdog.timer` (failure monitoring). All user-level (`systemctl --user`).
+
 ---
 
 ## What Changed

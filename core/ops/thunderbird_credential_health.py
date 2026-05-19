@@ -24,7 +24,7 @@ Usage:
     python3 thunderbird_credential_health.py --alert   # Send Telegram alert if any RED
 
 Reference: docs/HEADLESS_CLAUDE_SPAWN_GUIDE.md (corrected timer names)
-Author: Col Victoria "Iron Vic" Hale, COS — Thunderbird Wing
+Author: Ms. Victoria "Victory" Hale, SES-6 — Thunderbird Wing
 """
 
 from __future__ import annotations

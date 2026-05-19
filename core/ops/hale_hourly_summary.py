@@ -112,7 +112,7 @@ def build_html_body(events: list[dict], missions: list[dict], mode: str) -> str:
       Live dashboard: <a href="https://itinerary.d2mluxury.quest/hale_dashboard.html" style="color:#0000ff">itinerary.d2mluxury.quest/hale_dashboard.html</a>
     </div>
     <div style="font-size:11px;color:#94a3b8;margin-top:4px">
-      Col Victoria "Iron Vic" Hale · COS · Thunderbird Wing · Dreams2Memories Travel, LLC
+      Ms. Victoria "Victory" Hale, SES-6 · COS · Thunderbird Wing · Dreams2Memories Travel, LLC
     </div>
   </div>
 </div>"""

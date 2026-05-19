@@ -26,8 +26,8 @@ async def run_live_sweep():
     3. AI enabling collaboration across different corporations' models.
     4. Use of graphics in developing products like itineraries and proposals.
     5. Newly developed or established Google Integration with AI production.
-    6. Claude-Goose integration protocols.
-    7. Goose and Gemini alternatives and how effective they are.
+    6. Claude-OpenCode integration protocols.
+    7. OpenCode and Gemini alternatives and how effective they are.
     
     SCORING METRIC: Solutions that have "Zero cost" raise the score and must be highlighted.
     

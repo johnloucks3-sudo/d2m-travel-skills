@@ -1,17 +1,25 @@
 {
-  "generated_at": "2026-05-16T23:39:21.116799+00:00",
+  "generated_at": "2026-05-19T12:00:02.037416+00:00",
   "note": "Automated generation by generate_a7_metrics.py",
   "process": {
     "open_tasks_count": 1,
     "system_mode": "GREEN"
   },
   "quality": {
-    "exercise_quality_score_pct": null,
-    "pre_task_qm_completion_rate": null,
-    "total_exercises": 0,
-    "note": "No exercises recorded yet"
+    "exercise_quality_score_pct": 42.0,
+    "pre_task_qm_completion_rate": 100.0,
+    "total_exercises": 1,
+    "target": {
+      "quality_score_pct": 85,
+      "qm_completion_rate": 100
+    },
+    "red_threshold": {
+      "quality_score_pct": 60
+    }
   },
   "cost_control": {},
   "exercise": {},
-  "red_items": []
+  "red_items": [
+    "Quality score (42%) below red threshold (60%). Review latest 1 exercises."
+  ]
 }

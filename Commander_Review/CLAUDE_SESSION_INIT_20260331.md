@@ -69,7 +69,7 @@ Goose submitted 8 tasks to claude_inbox.md across the evening session:
 
 ### Budget
 - **Claude:** Was YELLOW (rate-limited) as of 01:00 MT on 3/30. Should be recovered by now (28hr window elapsed). **Verify on first tool call.**
-- **Goose (Gemini):** GREEN
+- **OpenCode (Gemini):** GREEN
 - **Groq:** GREEN (no PII)
 - **Deepseek:** GREEN (arbitration only, no PII)
 

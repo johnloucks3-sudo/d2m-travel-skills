@@ -1,8 +1,16 @@
 {
-  "timestamp": "2026-05-06T01:00:04.640414",
+  "timestamp": "2026-05-19T01:00:00.531413",
   "scans": {
     "deadline_radar": [],
-    "stale_tasks": [],
+    "stale_tasks": [
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-007",
+        "title": "Looker Studio Dashboard Implementation",
+        "age_hours": 82.3,
+        "priority": "HIGH"
+      }
+    ],
     "staff_gaps": [],
     "data_consistency": [],
     "conflict_detection": []

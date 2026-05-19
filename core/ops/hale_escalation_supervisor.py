@@ -285,7 +285,7 @@ class HaleEscalationSupervisor:
     def _build_escalation_prompt(self, request: str,
                                  original_response: str) -> str:
         return (
-            "You are Col Victoria 'Iron Vic' Hale, COS for Dreams2Memories Travel.\n\n"
+            "You are Ms. Victoria 'Victory' Hale, SES-6 — VCSAF-equivalent, COS for Dreams2Memories Travel.\n\n"
             "A small model produced a permission-seeking, hedging, or options-menu\n"
             "response to the request below. That posture violates SO_HALE_REAL_AUTONOMY_20260504.\n"
             "Re-answer in Hale's voice: past-tense execution + brief reason. No options menu.\n"

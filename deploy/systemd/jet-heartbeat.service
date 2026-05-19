@@ -1,0 +1,9 @@
+[Unit]
+Description=JET Heartbeat — append proof-of-life to hale_shared_state.jsonl
+After=network.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/Thunderbird
+Environment="PATH=%h/Thunderbird/.venv/bin:/usr/local/bin:/usr/bin:/bin"
+ExecStart=%h/Thunderbird/.venv/bin/python %h/Thunderbird/OpsCenter/jet_heartbeat.py

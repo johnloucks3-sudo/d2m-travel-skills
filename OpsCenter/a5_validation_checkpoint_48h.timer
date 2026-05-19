@@ -1,0 +1,11 @@
+[Unit]
+Description=A5 Castillo Validation FINAL Report Due (14:50 MT, May 16)
+After=network.target
+
+[Timer]
+OnCalendar=*-05-16 14:50:00
+Persistent=true
+Unit=a5_validation_checkpoint_48h.service
+
+[Install]
+WantedBy=timers.target

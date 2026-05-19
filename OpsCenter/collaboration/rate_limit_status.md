@@ -1,4 +1,10 @@
-Claude Sonnet: GREEN (MAX $0)
-OpenCode: GREEN (DeepSeek V3.1 ~$0.27/M)
-Groq: UNKNOWN
-Deepseek: GREEN
+# CLAUDE USAGE STATUS — AUTO-GENERATED
+Updated: 2026-05-15T21:06:38 MT
+
+## 🟩 Overall Status: GREEN
+### Session
+`[░░░░░░░░░░] 0.0%` (0/225 effective)
+### Weekly
+`[░░░░░░░░░░] 0.0%` (0/1500)
+### Sonnet Daily
+`[░░░░░░░░░░] 0.0%` (0/25)

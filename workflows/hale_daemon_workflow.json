@@ -1,0 +1,54 @@
+{
+  "name": "HALE Daemon — 4-Hour Observation Sweep",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": 240
+        }
+      },
+      "name": "Every 4 Hours",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const { execSync } = require(child_process);\nconst result = execSync(python3 /home/john/Thunderbird/scripts/hale_daemon.py, {\n  timeout: 120000,\n  cwd: /home/john/Thunderbird\n}).toString().trim();\nreturn [{ result, timestamp: new Date().toISOString() }];"
+      },
+      "name": "Run HALE Daemon Scan",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const { execSync } = require(child_process);\nconst result = execSync(python3 /home/john/Thunderbird/scripts/hale_vendor_calendar.py, {\n  timeout: 30000,\n  cwd: /home/john/Thunderbird\n}).toString().trim();\nreturn [{ result, timestamp: new Date().toISOString() }];"
+      },
+      "name": "Update Vendor Calendar",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [450, 500]
+    }
+  ],
+  "connections": {
+    "Every 4 Hours": {
+      "main": [
+        [
+          {
+            "node": "Run HALE Daemon Scan",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Update Vendor Calendar",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {},
+  "active": true
+}

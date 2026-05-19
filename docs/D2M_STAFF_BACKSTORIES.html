@@ -4,7 +4,7 @@
 
 ---
 
-## COS — Colonel Victoria "Iron Vic" Hale
+## COS — Ms. Victoria "Victory" Hale, SES-6
 
 ### Origin
 

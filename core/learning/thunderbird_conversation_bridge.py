@@ -2,7 +2,7 @@
 """
 Thunderbird Conversation Bridge
 ===============================
-Shared persistent memory for both Goose Bot and D2MC2 Bot.
+Shared persistent memory for both OpenCode Bot and D2MC2 Bot.
 - Both bots read/write the same SQLite DB
 - Context injection makes conversations feel native to each platform
 - Sessions persist across bot restarts
@@ -88,7 +88,7 @@ class ConversationBridge:
         rows.reverse()  # Chronological order
         context_lines = []
         for row in rows:
-            source_label = "Goose" if row["bot_source"] == "goose" else "Claude" if row["bot_source"] == "d2mc2" else row["bot_source"]
+            source_label = "Goose" if row["bot_source"] == "opencode" else "Claude" if row["bot_source"] == "d2mc2" else row["bot_source"]
             context_lines.append(f"[{source_label}] User: {row['user_message']}")
             if row['bot_response']:
                 context_lines.append(f"[{source_label}] {source_label}: {row['bot_response'][:500]}")

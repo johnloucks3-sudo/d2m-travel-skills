@@ -1,0 +1,15 @@
+[Unit]
+Description=Zen (OpenCode Free) Usage Tracker
+After=network.target
+Wants=zen-tracker.timer
+
+[Service]
+Type=oneshot
+User=john
+WorkingDirectory=/home/john/Thunderbird
+ExecStart=/home/john/Thunderbird/.venv/bin/python3 core/cost_dashboard/collectors/zen_usage_tracker.py
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

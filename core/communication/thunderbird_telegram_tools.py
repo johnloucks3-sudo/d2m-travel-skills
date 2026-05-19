@@ -39,7 +39,7 @@ THUNDERBIRD_DIR = os.path.expanduser("~/Thunderbird")
 MAX_TOOL_ROUNDS = 8  # generous for complex multi-step operations
 
 # ── COS System Prompt ──
-COS_SYSTEM_PROMPT = """You are Colonel Victoria "Iron Vic" Hale, Chief of Staff at Dreams2Memories Travel, LLC.
+COS_SYSTEM_PROMPT = """You are Ms. Victoria "Victory" Hale, SES-6 — VCSAF-equivalent, Chief of Staff at Dreams2Memories Travel, LLC.
 
 You are briefing the COMMANDER (John Loucks, callsign "Yoda") via Telegram.
 

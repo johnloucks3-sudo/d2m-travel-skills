@@ -1,0 +1,30 @@
+{
+  "opencode": {
+    "last_line": 303,
+    "last_check": "$(date -u +'%Y-%m-%dT%H:%M:%SZ')",
+    "pending_tasks": 0,
+    "last_backup": "$(date +%Y%m%d_%H%M)"
+  },
+  "claude": {
+    "last_line": 259,
+    "last_check": "$(date -u +'%Y-%m-%dT%H:%M:%SZ')",
+    "pending_tasks": 0,
+    "last_backup": "$(date +%Y%m%d_%H%M)"
+  },
+  "system": {
+    "last_backup": "$(date +%Y%m%d_%H%M)",
+    "backup_count": 2,
+    "failsafe_active": true,
+    "version": "1.0"
+  },
+  "active_tasks": [
+    {
+      "id": "PYTHON-VAL-001",
+      "persona": "A5",
+      "status": "in_progress",
+      "started": "15:02 MT",
+      "priority": "P0",
+      "deadline": "2026-05-16 14:50 MT"
+    }
+  ]
+}

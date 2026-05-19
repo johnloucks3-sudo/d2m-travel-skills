@@ -129,7 +129,7 @@ def compose_brief_email(date_str: str) -> tuple[str, str]:
             </div>
 
             <div class="footer">
-                <p><strong>HALE — Col Victoria "Iron Vic" Hale | Chief of Staff | Dreams2Memories Travel, LLC</strong></p>
+                <p><strong>HALE — Ms. Victoria "Victory" Hale, SES-6 | Chief of Staff | Dreams2Memories Travel, LLC</strong></p>
                 <p>This brief is generated automatically at 05:50 MT daily and sent at 06:00 MT.</p>
                 <p style="margin-top: 10px; color: #ccc;">Link expires in 90 days. Briefs archived locally + Google Drive.</p>
             </div>

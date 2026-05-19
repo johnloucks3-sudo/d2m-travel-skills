@@ -1,7 +1,7 @@
 """
 Hale Scan Wrapper — Universal Synthesis Injector
 ==================================================
-Wraps ANY scan output with Hale's COO synthesis before delivery.
+Wraps ANY scan output with Hale's VCSAF synthesis before delivery.
 Raw data is preserved below the synthesis block.
 
 Usage:
@@ -22,12 +22,12 @@ Scan types: intel | innovation | tech | booking | commission | general
 
 Output format (Telegram):
     ── HALE SYNTHESIS ──────────────────────
-    [Hale's COO take — what matters, action items]
+    [Hale's VCSAF take — what matters, action items]
     ─────────────────────────────────────────
     RAW DATA ↓
     [Full original scan output]
 
-Author: Col Victoria "Iron Vic" Hale — 2026-04-03
+Author: Victoria "Victory" Hale, SES-6 — 2026-04-03 (re-roled 2026-05-17)
 """
 
 import argparse

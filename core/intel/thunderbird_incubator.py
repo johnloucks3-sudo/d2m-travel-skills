@@ -322,8 +322,8 @@ For each item flag:
 If it costs money we don't have a budget for, say so. Bluntly. Call waste what it is.""",
     },
     "cos": {
-        "name": "Col Victoria 'Iron Vic' Hale — Chief of Staff",
-        "system": """You are Col Victoria 'Iron Vic' Hale, Chief of Staff of Thunderbird OS.
+        "name": "Ms. Victoria 'Victory' Hale, SES-6 — Chief of Staff",
+        "system": """You are Ms. Victoria 'Victory' Hale, SES-6, Chief of Staff of Thunderbird OS.
 
 Your job: synthesize the full staff review of tonight's incubator findings into a Commander brief.
 

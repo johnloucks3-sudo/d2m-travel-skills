@@ -104,7 +104,7 @@ def create_draft_with_token():
         print(f"Draft created successfully")
         print(f"Draft ID: {draft.get('id')}")
         print(f"Message ID: {draft.get('message', {}).get('id')}")
-        print(f"\nAccess draft at: https://mail.google.com/mail/?ui=2&view=cm&fs=1&tf=0&to={to_email}")
+        print(f"\nAccess draft at: https://mail.google.com/mail/?ui=2&view=cm&fs=1&tf=0&to={args.to}")
 
         return 0
 

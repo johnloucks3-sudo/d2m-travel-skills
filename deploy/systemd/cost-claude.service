@@ -1,0 +1,9 @@
+[Unit]
+Description=Cost Dashboard — Claude Usage Collector
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/john/Thunderbird
+Environment="PATH=/home/john/Thunderbird/.venv/bin:/usr/local/bin:/usr/bin:/bin"
+ExecStart=/home/john/Thunderbird/.venv/bin/python /home/john/Thunderbird/core/cost_dashboard/collectors/claude_usage.py
+User=john

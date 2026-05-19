@@ -26,7 +26,7 @@ T2 RATIONALE (anything autonomous but worth a notify):
   to standing artifacts (dossiers, configs, templates). Documented here for COS
   review — not buried.
 
-Author: Col Victoria "Iron Vic" Hale — Thunderbird Wing
+Author: Ms. Victoria "Victory" Hale, SES-6 — Thunderbird Wing
 Version: 1.0 | 2026-05-04
 """
 

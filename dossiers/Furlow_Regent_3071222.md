@@ -159,6 +159,12 @@ completed_tps: []
 | 2026-03-25 | Fwd: Invoice: 3071222 (final payment invoice) | Missy |
 | 2026-05-01 | Re: Regent Seven Seas Cruises Invoice: 3071222 Guest: FURLOW | Missy (from personal) |
 | 2026-05-01 | Fwd: Regent Seven Seas Cruises Invoice: 3071222 Guest: FURLOW | Missy (from personal) |
+| 2026-05-13 | Re: COS: Status of Hotels and Finnair seat assignments | John Furlow, Missy (from personal) |
+| 2026-05-13 | COS:  Status of Hotels and Finnair seat assignments | John Furlow, Missy (from personal) |
+| 2026-05-13 | Re: Status of Hotels and Finnair seat assignments | John Furlow, Missy (from personal) |
+| 2026-05-13 | Status of Hotels and Finnair seat assignments | John Furlow, Missy (from personal) |
+| 2026-05-13 | Fwd: Important - Regent Seven Seas Cruises Preliminary Cruise Vacation Summary:: FURLOW 3071222 | John Furlow (from personal) |
+| 2026-05-18 | SS Grandeur — Specialty Dining Strategy | John Furlow, Missy |
 
 ---
 

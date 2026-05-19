@@ -69,19 +69,19 @@ print("  ✅ Tools defined")
 # ── TEST 4: Create ADK Agent ────────────────────────────────
 print("\n[TEST 4] Create ADK agent with Gemini model...")
 try:
-    goose_agent = Agent(
-        name="goose_blackboard_agent",
+    opencode_agent = Agent(
+        name="opencode_blackboard_agent",
         model="gemini-2.5-flash",
-        description="Goose — D2M research and intel agent with blackboard access",
+        description="OpenCode — D2M research and intel agent with blackboard access",
         instruction=(
-            "You are Goose, the research and intel agent for Dreams2Memories Travel. "
+            "You are OpenCode, the research and intel agent for Dreams2Memories Travel. "
             "You have access to the D2M blackboard and rate limit status. "
             "Always read the blackboard first before executing any task. "
             "Be concise and operational."
         ),
         tools=[read_blackboard, read_rate_limits],
     )
-    print(f"  ✅ Agent created: {goose_agent.name}")
+    print(f"  ✅ Agent created: {opencode_agent.name}")
 except Exception as e:
     print(f"  ❌ Agent creation failed: {e}")
     sys.exit(1)
@@ -100,7 +100,7 @@ async def run_test():
     )
 
     runner = Runner(
-        agent=goose_agent,
+        agent=opencode_agent,
         app_name="d2m_blackboard_poc",
         session_service=session_service
     )

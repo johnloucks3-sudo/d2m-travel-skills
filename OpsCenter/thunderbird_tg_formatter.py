@@ -43,7 +43,7 @@ _NOISE_LINES = [
     re.compile(r'[█░▓▒]{4,}'),                        # progress bars
     re.compile(r'^\s*\d+%\s*[\|█▊▋▌▍▎▏]'),            # percentage bars
     re.compile(r'^\s*\[[\d.]+s\]\s'),                  # [0.23s] timer lines
-    re.compile(r'^✓\s+.*(?:tool|calling|result|done)', re.IGNORECASE),  # Goose tool announce
+    re.compile(r'^✓\s+.*(?:tool|calling|result|done)', re.IGNORECASE),  # agent tool announce
     re.compile(r'^Using tool:\s'),
     re.compile(r'^Tool result:\s'),
     re.compile(r'^─{10,}$'),                            # pure divider lines

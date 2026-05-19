@@ -125,7 +125,7 @@ writes to correct inbox, sends back:
    Say 'Read your inbox and execute' to Goose to trigger."
 
 Commander then goes to Goose and says: "Read your inbox and execute."
-Goose reads goose_inbox.md, executes, writes to goose_output.md.
+Goose reads opencode_inbox.md, executes, writes to opencode_output.md.
 If claude_finish: true — Commander then triggers Claude.
 
 One Telegram message initiates the full cycle.

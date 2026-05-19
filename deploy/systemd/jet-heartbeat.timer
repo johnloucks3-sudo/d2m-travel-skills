@@ -1,0 +1,10 @@
+[Unit]
+Description=JET Heartbeat — 10-minute interval
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=10min
+Persistent=true
+
+[Install]
+WantedBy=default.target

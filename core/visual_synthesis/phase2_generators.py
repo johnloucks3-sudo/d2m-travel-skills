@@ -9,7 +9,7 @@ Generates three executive-level strategic infographics:
 3. Capability Roadmap — Thunderbird Wing evolution (3/6/12 month targets)
 
 Deployed: Weekly on Sundays at 18:00 MT via systemd timer
-Author: Col Victoria "Iron Vic" Hale, COS — 2026-04-28
+Author: Ms. Victoria "Victory" Hale, SES-6 — 2026-04-28
 """
 
 import json

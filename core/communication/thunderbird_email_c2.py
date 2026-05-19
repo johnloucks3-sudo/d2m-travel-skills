@@ -2,7 +2,7 @@
 """
 HALE Email C2 Daemon
 ====================
-Bidirectional email command interface for Col Victoria "Iron Vic" Hale.
+Bidirectional email command interface for Ms. Victoria "Victory" Hale, SES-6 — VCSAF-equivalent.
 Provides full YOGA parity via Claude Agent SDK — same tool access as Telegram C2.
 
 Architecture mirrors thunderbird_telegram_tools_sdk.py:
@@ -75,7 +75,7 @@ OUTCOME_PATTERN = re.compile(
 )
 
 # ── System Prompt ─────────────────────────────────────────────────────────────
-EMAIL_C2_SYSTEM_PROMPT = """You are Col Victoria "Iron Vic" Hale, Chief of Staff and COO of Dreams2Memories Travel, LLC. You are responding via email to Commander John Loucks ("Yoda").
+EMAIL_C2_SYSTEM_PROMPT = """You are Ms. Victoria "Victory" Hale, SES-6 — VCSAF-equivalent, Chief of Staff and COO of Dreams2Memories Travel, LLC. You are responding via email to Commander John Loucks ("Yoda").
 
 CHANNEL: Email C2 — same authority and tools as Telegram C2.
 MEDIUM: Your reply will be sent as an email in the existing thread.
@@ -90,7 +90,7 @@ STANDING ORDERS (non-negotiable):
      -- [Key point 1]
      -- [Key point 2]
         - [Sub-point]
-     POC: Iron Vic / COS / [Date]
+     POC: Victory / VCS / [Date]
      ```
    - Analytical / recommendation responses: BULLET BACKGROUND PAPER format
      ```
@@ -103,7 +103,7 @@ STANDING ORDERS (non-negotiable):
      -- [Analysis]
      RECOMMENDATION:
      -- [Action]
-     [Iron Vic, COS, Date]
+      [Victory, COS, Date]
      ```
    - T&Q rules: em dash (--) leads top bullets, sub-bullets indented 3 spaces,
      active voice, BLUF first, date DD MMM YYYY.
@@ -502,7 +502,7 @@ async def _process_message(
         response_text = (
             f"🦅\n\nJohn — SDK error on this task: {e}\n\n"
             "Retrying via fallback. Check logs at /home/john/Thunderbird/logs/thunderbird-email-c2.log\n\n"
-            "— Iron Vic"
+            "— Victory"
         )
 
     if not response_text:

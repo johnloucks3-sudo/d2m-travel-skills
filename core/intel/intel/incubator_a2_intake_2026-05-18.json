@@ -1,0 +1,101 @@
+[
+  {
+    "id": "A2-2026-05-18-001",
+    "title": "Wikipedia: Life Definition",
+    "source_signal": "[1] Life - Wikipedia",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Generic biology definition. Not relevant to travel, cruise, or client engagement architecture."
+  },
+  {
+    "id": "A2-2026-05-18-002",
+    "title": "Britannica: Life Definition",
+    "source_signal": "[2] Life | Definition, Origin, Evolution, Diversity, & Facts | Britannica",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Encyclopedia entry on biology. Zero relevance to D2M's travel/cruise operations or stated incubator gaps."
+  },
+  {
+    "id": "A2-2026-05-18-003",
+    "title": "Merriam-Webster: Life Definition",
+    "source_signal": "[3] LIFE Definition & Meaning - Merriam-Webster",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Dictionary definition. Not actionable for travel intelligence or client profiling."
+  },
+  {
+    "id": "A2-2026-05-18-004",
+    "title": "LIFE Magazine Photo Archive",
+    "source_signal": "[4] The Most Iconic Photographs of All Time - LIFE",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Photography archive. Not relevant to cruise line intelligence, destination research, or client behavior modeling."
+  },
+  {
+    "id": "A2-2026-05-18-005",
+    "title": "Types of Crosses (Religious Symbols)",
+    "source_signal": "[5] 34 Types of Crosses and What They Mean (With Images)",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Religious iconography reference. Not relevant to travel business or client profiling."
+  },
+  {
+    "id": "A2-2026-05-18-006",
+    "title": "Cross TV Series (IMDb)",
+    "source_signal": "[6] Cross (TV Series 2024\u2013 ) - IMDb",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Entertainment content (crime thriller). Not actionable for travel intelligence."
+  },
+  {
+    "id": "A2-2026-05-18-007",
+    "title": "Merriam-Webster: Cross Definition",
+    "source_signal": "[7] CROSS Definition & Meaning - Merriam-Webster",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Dictionary definition. Not relevant to Thunderbird architecture or gaps."
+  },
+  {
+    "id": "A2-2026-05-18-008",
+    "title": "Cross TV Series (Wikipedia)",
+    "source_signal": "[8] Cross (American TV series) - Wikipedia",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Entertainment metadata (crime thriller). No travel/client engagement value."
+  },
+  {
+    "id": "A2-2026-05-18-009",
+    "title": "Copley High School Track Results",
+    "source_signal": "[9] Copley Running | High School Track and Cross Country",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "High school athletics results. No relevance to cruise/travel business or client intelligence."
+  }
+]

@@ -56,7 +56,7 @@ def build_research_prompt():
     prompt = f"""You are Claude Sonnet, researching integration options for the Thunderbird Wing AI system.
 
 TASK: Research and provide a comprehensive summary of:
-1. **3rd Party Integrators for Claude**: Find tools/platforms similar to OpenCode and Goose that integrate with Claude API for agentic workflows. Include: name, key features, integration method, pricing, URL.
+1. **3rd Party Integrators for Claude**: Find tools/platforms similar to OpenCode that integrate with Claude API for agentic workflows. Include: name, key features, integration method, pricing, URL.
 2. **Agentic Models for Thunderbird Wing**: Identify models (especially agentic/autonomous ones) that could improve Thunderbird Wing characteristics: multi-step reasoning, tool use, task decomposition, self-correction, parallel execution.
 3. **Voice Activation & Control**: Tools/platforms for adding voice control to agentic systems working with Claude. Include: wake word engines, STT providers, voice command frameworks.
 

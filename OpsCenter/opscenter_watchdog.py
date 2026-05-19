@@ -5,7 +5,7 @@ Runs every 2 minutes. Checks services, MCP, queues.
 Auto-restarts crashed services. Detects crash loops.
 Alerts Commander via direct Telegram HTTP (independent of C2 bot).
 
-Author: Col Victoria "Iron Vic" Hale (COS)
+Author: Victoria "Victory" Hale, SES-6 (VCSAF)
 """
 
 import json

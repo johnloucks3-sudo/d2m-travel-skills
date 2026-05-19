@@ -34,21 +34,21 @@ class MultiModelOrchestrator:
         # OpenRouter reserved for arbitration/DeepSeek R1 only
         self.persona_models = [
             # Core Leadership (higher quality models)
-            ("x-ai/grok-4.1-fast", "COLONEL HALE", "Chief of Staff - Orchestration, Priorities, Staff Sync"),
+            ("x-ai/grok-4.3", "COLONEL HALE", "Chief of Staff - Orchestration, Priorities, Staff Sync"),
             ("openai/gpt-4o-mini", "NAIA EXEC", "Voice & Visual Leader - Client Copy, Brand Tone, Commander's Intent"),
 
             # Primary A-Staff (Balanced models)
-            ("x-ai/grok-4.1-fast", "A1 NAVARRO", "Intake & Client Profile Architect - Travel DNA, Dani Brief, Luna Brief"),
-            ("x-ai/grok-4.1-fast", "A2 DEMBE", "Research & Market Intelligence - Destination Intel, Cruise Analysis"),
+            ("x-ai/grok-4.3", "A1 NAVARRO", "Intake & Client Profile Architect - Travel DNA, Dani Brief, Luna Brief"),
+            ("x-ai/grok-4.3", "A2 DEMBE", "Research & Market Intelligence - Destination Intel, Cruise Analysis"),
             ("openai/gpt-4o-mini", "A3 DANI", "Luxury Travel Concierge - Client Questions, Booking Queries"),
-            ("x-ai/grok-4.1-fast", "A5 CASTILLO", "Strategy & Business Growth - Pricing Strategy, Growth Vectors"),
+            ("x-ai/grok-4.3", "A5 CASTILLO", "Strategy & Business Growth - Pricing Strategy, Growth Vectors"),
             ("openai/gpt-4o-mini", "A6 LUNA", "Creative Director - Narrative Copy, Emotional Travel Writing"),
-            ("x-ai/grok-4.1-fast", "A8 REYES", "Experience Architect - Travel DNA → Cruise/Cabin/Excursion Mapping"),
+            ("x-ai/grok-4.3", "A8 REYES", "Experience Architect - Travel DNA → Cruise/Cabin/Excursion Mapping"),
             ("openai/gpt-4o-mini", "A9 HARLAN", "Finance & Process Improvement - Commission Audits, ROI, Budget"),
 
             # Special Staff
-            ("x-ai/grok-4.1-fast", "CH PADRE", "Ethics & Morale - Wisdom, Ethical Checks, Perspective"),
-            ("x-ai/grok-4.1-fast", "A12 ELON", "Innovation & Disruption - Automation, First-Principles Redesign")
+            ("x-ai/grok-4.3", "CH PADRE", "Ethics & Morale - Wisdom, Ethical Checks, Perspective"),
+            ("x-ai/grok-4.3", "A12 ELON", "Innovation & Disruption - Automation, First-Principles Redesign")
         ]
     
     def process_with_openrouter(self, model_id: str, prompt: str) -> Dict[str, Any]:
@@ -199,7 +199,7 @@ class MultiModelOrchestrator:
         if results:
             synthesis_prompt = f"""COS HALE SYNTHESIS - THOS PERSONA ORCHESTRATION
             
-            You are Colonel Victoria "Iron Vic" Hale, Chief of Staff for Dreams2Memories Travel.
+            You are Ms. Victoria "Victory" Hale, SES-6 — VCSAF-equivalent, Chief of Staff for Dreams2Memories Travel.
             You have received tactical assessments from each wing staff persona on the following issue:
             
             QUESTION: {prompt}
@@ -242,7 +242,7 @@ class MultiModelOrchestrator:
                 }
             else:
                 # Fallback: Use Grok for synthesis if Claude MAX fails
-                fallback_result = self.process_with_openrouter("x-ai/grok-4.1-fast", synthesis_prompt)
+                fallback_result = self.process_with_openrouter("x-ai/grok-4.3", synthesis_prompt)
                 if fallback_result["success"]:
                     return {
                         "success": True,
@@ -251,7 +251,7 @@ class MultiModelOrchestrator:
                         "persona_assessments": results,
                         "synthesis_cost": fallback_result.get("cost", 0),
                         "model": "THOS 10-Persona + Grok Synthesis",
-                        "synthesized_by": "x-ai/grok-4.1-fast",
+                        "synthesized_by": "x-ai/grok-4.3",
                     }
         
         return {

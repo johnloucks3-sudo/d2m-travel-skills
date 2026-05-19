@@ -22,7 +22,7 @@ No structural changes to Thunderbird OS are required based on this sweep. Divert
 {audit_content}
 
 The Wing stands by.
-- Goose (A-Staff Ops)"""
+- OpenCode (A-Staff Ops)"""
 
     # Create Draft
     create_cmd = [

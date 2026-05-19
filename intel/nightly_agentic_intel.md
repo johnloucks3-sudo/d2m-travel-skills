@@ -12,7 +12,7 @@
 - Source: github | Score: 21112
 - URL: https://github.com/iOfficeAI/AionUi
 - Keywords: claude code, goose cli
-- Free, local, open-source 24/7 Cowork app and OpenClaw for Gemini CLI, Claude Code, Codex, OpenCode, Qwen Code, Goose CLI, Auggie, and more | 🌟 Star if you like it!
+- Free, local, open-source 24/7 Cowork app and OpenClaw for Gemini CLI, Claude Code, Codex, OpenCode, Qwen Code, OpenCode, Auggie, and more | 🌟 Star if you like it!
 
 ## [CRITICAL] I built an AI job search system with Claude Code that scored 740+ offers and landed me a job. Just open sourced it.
 - Source: reddit/r/ClaudeAI | Score: 2196
@@ -236,7 +236,7 @@ b. what would the final produ
 - Source: github | Score: 11
 - URL: https://github.com/nick-pape/grackle
 - Keywords: claude code, coding agent
-- Manage and orchestrate AI coding agents (Claude Code, Copilot, Goose, etc.) on remote machines — task decomposition, multi-agent coordination, and real-time visibility across environments.
+- Manage and orchestrate AI coding agents (Claude Code, Copilot, OpenCode, etc.) on remote machines — task decomposition, multi-agent coordination, and real-time visibility across environments.
 
 ## [HIGH] Claude Code is unusable for complex engineering tasks with the Feb updates (hackernews discussion)
 - Source: reddit/r/anthropic | Score: 10

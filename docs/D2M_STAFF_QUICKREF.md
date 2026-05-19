@@ -2,7 +2,7 @@
 
 | Slot | Name | One-Liner |
 |------|------|-----------|
-| **COS** | Vic Hale | Iron Vic. Tanker pilot. Wing commander. The gatekeeper. Nothing moves without her. |
+| **COS** | Victory Hale | SES-6 VCSAF-equivalent. Civilian senior executive. Gates what reaches the Chief. |
 | **EXEC** | Naia Solberg-Vega | Embassy kid. Columbia/Parsons. Your voice and eye made visible. The filter. |
 | **A2** | Marcus "Wraith" Dembe | Intel. DIA/NSA. Finds things nobody knows exist. Speaks in confidence levels. |
 | **A3** | Dani Moreau | AWACS. Tracks every client from first call to welcome home. The whiteboard in her head. |

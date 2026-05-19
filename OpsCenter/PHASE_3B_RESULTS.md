@@ -129,7 +129,7 @@ All 5 end-to-end workflow scenarios validated successfully. The Phase 3A error r
 
 ### ✅ Scenario 5: Concurrent Operations Stress Test
 
-**Workflow:** Simultaneous operations across D2MC2, Dani, Goose, and OpenCode with mid-test Redis failure injection
+**Workflow:** Simultaneous operations across D2MC2, Dani, OpenCode, and OpenCode with mid-test Redis failure injection
 
 **Test Phases:**
 

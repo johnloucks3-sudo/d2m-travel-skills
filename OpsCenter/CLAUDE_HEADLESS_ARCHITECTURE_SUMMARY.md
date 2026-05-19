@@ -3,6 +3,8 @@
 **Status:** ✅ LIVE AND OPERATIONAL  
 **Owner:** Haiku Supervisor + Continuous Refresh Daemon  
 
+> **⚠️ NAMING UPDATE (2026-05-18 — A12 ELON / SO-VCS-INFRA-20260518):** Timer names below are historical. Real names: `claude-token-monitor.timer` + `claude-oauth-keepalive.timer` (OAuth refresh, user-level) and `thunderbird-watchdog.timer` (failure monitoring, user-level).
+
 ---
 
 ## Architecture Overview

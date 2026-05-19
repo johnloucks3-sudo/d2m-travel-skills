@@ -17,7 +17,7 @@ Usage:
     python3 thunderbird_tp_scheduler.py --brief         # Brief-mode for morning inject
 
 Reference: memory/reference_canonical_lifecycle_touchpoints.md
-Author: Col Victoria "Iron Vic" Hale, COS — Thunderbird Wing
+Author: Ms. Victoria "Victory" Hale, SES-6 — Thunderbird Wing
 """
 
 from __future__ import annotations

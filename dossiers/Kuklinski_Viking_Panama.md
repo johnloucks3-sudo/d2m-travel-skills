@@ -152,6 +152,10 @@ Fares: Kyle/Roger = OMAFSV26-3 (DV1 $3,799pp) | Josh/Erica = OMAPSF26-3 (V1 $3,0
 | 2026-04-25 | Your Viking Mars Voyage — Travel Protection for Your Group | Kyle |
 | 2026-04-25 | Your Viking Mars Voyage — Travel Protection for Your Group | Kyle (from personal) |
 | 2026-04-25 | Your Panama Canal Voyage — Confirmed & Your Full Search Roadmap | Kyle (from personal) |
+| 2026-05-15 | Specialty Dining Aboard Viking Mars — Preferences Before We Plan (ARC4-A) | Kyle (d2mconcierge → kyle.kuklinski@gmail.com) — sent 2x (double-send system error) |
+| 2026-05-15 | Re: Specialty Dining Aboard Viking Mars — Commander personal reply | Kyle — Commander sent direct reply from d2mconcierge acknowledging AI use, context below |
+| 2026-05-15 | Re: Specialty Dining Aboard Viking Mars — Preferences Before We Plan | Kyle |
+| 2026-05-17 | Your Panama Canal Voyage — Mid-Spring Check-In | Kyle |
 
 ---
 
@@ -223,3 +227,24 @@ Fares: Kyle/Roger = OMAFSV26-3 (DV1 $3,799pp) | Josh/Erica = OMAPSF26-3 (V1 $3,0
 | **Josh guest form** | Admin | Only missing guest form — Kyle offered to help Josh resolve portal/access issue |
 
 *Last updated: Mar 27, 2026 — payment confirmed, gaps section added per Commander directive*
+
+---
+
+### MAY 15, 2026 — ARC4-A SPECIALTY DINING TOUCHPOINT
+
+**ARC4-A Email — Sent (double-send, system error)**
+- **Message IDs:** `19e2c0a1c8ab7921` + `19e2c133f636f148`
+- **Sent:** ~09:28–09:38 MT, Fri May 15, 2026
+- **Subject:** Specialty Dining Aboard Viking Mars — Preferences Before We Plan
+- **To:** kyle.kuklinski@gmail.com (from d2mconcierge)
+- **Content:** Manfredi's + Chef's Table specialty dining, preferences ask before we plan
+- **Note:** Email sent twice due to system automation error (WF-17 protocol review underway)
+
+**Commander's Personal Reply to Kyle**
+- **Message ID:** `19e2c3a2f0fcf3b3`
+- **Sent:** Fri May 15, 2026, ~09:21 MT (from d2mconcierge@gmail.com)
+- **Subject:** Re: Specialty Dining Aboard Viking Mars — Preferences Before We Plan
+- **Content excerpt:** "Morning Kyle. I imagine you use AI in your work everyday. So you can understand how I am trying to liberate my AI to take..." [full message in Gmail thread]
+- **Intelligence:** Kyle is now aware that Commander/D2M uses AI tools extensively. Commander made reference to "liberating" the AI — sets context for relationship tone going forward. Kyle works in a field where AI is common; this creates peer-level AI fluency in the relationship.
+
+*Last updated: 2026-05-15 — ARC4-A sent, Commander personal reply logged, AI context noted*

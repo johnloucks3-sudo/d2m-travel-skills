@@ -1,41 +1,41 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-05-13 22:46:58 MDT
+## Generated: 2026-05-19 16:15:26 MDT
 
 ---
 
 ### Recent Commits
-- 64ebb81a feat: Task audit logging & SLA monitoring infrastructure
-- b3f0799f fix: Email C2 tone calibration — explicit plain prose rule for acknowledgments
-- e7572058 feat: HALE Agent Tasking Architecture — OpenCode & Claude Code dispatch
-- 0deb6952 feat: Agent Pool Manager for OpenCode + Claude orchestration
-- 25b59e44 Fix Telegram C2 daemon startup failure
+- 4249d223 feat: real-time cost tracker (port 8903) + max-proxy request logging
+- ef2e3ff4 feat: wire Claude MAX into Telegram staff channel via max-proxy
+- faac3dbd docs: update OPENCODE_INIT model stack — MAX OAuth primary
+- 5f2e32b5 feat: wire Claude MAX OAuth into OpenCode via max-proxy
+- 1137ac03 feat: migrate OpenCode from Zen/big-pickle to Google AI Pro
 
 ### Uncommitted Changes
- M CLAUDE.md
- M OpsCenter/.supervisor_patterns.json
- M OpsCenter/CLAUDE_DESKTOP_INIT.md
- M OpsCenter/GOOSE_INIT.md
- M OpsCenter/collaboration/blackboard_summary.txt
- M OpsCenter/collaboration/routing_log.md
- M OpsCenter/collaboration/wing_comms.md
- M OpsCenter/opscenter_watchdog.py
- M OpsCenter/scan_outputs/incubator_review_latest.txt
- M OpsCenter/task_sla_monitor.py
- M OpsCenter/thunderbird_coo_watchdog.py
- M agents/claude_code_digest_seen.json
- M core/communication/thunderbird_telegram_c2.py
- M core/intel/intel/incubator_am_categories.json
- M core/intel/intel/incubator_last_review.md
- M hale_eod_brief.md
- m reverie
- M session_autosave_latest.html
- M session_autosave_latest.md
-?? OpsCenter/.sla_alerted_tasks.json
+M  AGENTS.md
+M  AGENTS_NEW_TASKING.md
+M  Agents_NEW/README.md
+A  CHROMEBOOK_INIT.md
+M  CLAUDE.md
+M  Commander_Review/CLAUDE_SESSION_INIT_20260331.md
+M  Commander_Review/EMAIL_ENGINE_DESIGN.md
+M  Commander_Review/hale_tom_context.md
+M  D2M/clients/kuklinski_touchpoints.json
+A  Dossiers/Ely_Darrow_Regent_3096289.md
+M  OpsCenter/.supervisor_patterns.json
+M  OpsCenter/00_COMMAND_LOG.md
+M  OpsCenter/CLAUDE_DESKTOP_INIT.md
+M  OpsCenter/CLAUDE_HEADLESS_ARCHITECTURE_SUMMARY.md
+M  OpsCenter/CLAUDE_SESSION_INIT_20260331.md
+M  OpsCenter/COMPLETE_AUTONOMY_INFRASTRUCTURE.md
+M  OpsCenter/COS_TASK_TEMPLATE.md
+M  OpsCenter/DAILY_OPS_CHECKLIST.md
+M  OpsCenter/EMAIL_ENGINE_DESIGN.md
+M  OpsCenter/HALE_BRAVO_INIT.md
 
 ### Inbox Status
 - Claude inbox: 0
 0 pending task(s)
-- OpenCode inbox: 8 pending task(s)
+- OpenCode inbox: 1 pending task(s)
 
 ### System Health
 - Watcher: ❌ STOPPED

@@ -1,0 +1,120 @@
+{
+  "version": "1.0",
+  "description": "HALE Persona Task Escalation Matrix — Gold Standard",
+  "last_updated": "2026-05-14T15:15:00",
+  "owner": "HALE-BRAVO",
+  
+  "escalation_levels": {
+    "0": {
+      "name": "Task Owner",
+      "description": "Assigned persona works on task",
+      "time_window_minutes": 2,
+      "action": "Work normally",
+      "monitoring": "None required"
+    },
+    "1": {
+      "name": "Internal Polling",
+      "description": "Watchdog begins 30-second polling",
+      "time_window_minutes": 2,
+      "action": "Check status every 30s",
+      "monitoring": "System logs polling attempts",
+      "alert": "None"
+    },
+    "2": {
+      "name": "Partner Escalation",
+      "description": "Task escalated to partner persona (ALPHA↔BRAVO)",
+      "time_window_minutes": 1,
+      "action": "Handoff to partner persona",
+      "monitoring": "Audit log registers handoff",
+      "alert": "Internal Telegram notification",
+      "persona_mapping": {
+        "ALPHA": "BRAVO",
+        "BRAVO": "ALPHA"
+      }
+    },
+    "3": {
+      "name": "Commander Alert",
+      "description": "Task exceeds 5-minute ETC — critical escalation",
+      "time_window_minutes": 0,
+      "action": "Immediate Telegram alert to Commander (Yoda)",
+      "monitoring": "All logs, full audit trail",
+      "alert": "TELEGRAM BOT: d2m_channels_bot",
+      "message_template": "🚨 TASK TIMEOUT: {task_id} exceeds {etc}m ETC. Status: {status}. Path: {audit_log}. Immediate review required."
+    },
+    "4": {
+      "name": "System Override",
+      "description": "Automatic failover to backup execution path",
+      "time_window_minutes": 0,
+      "action": "Execute fallback Python script",
+      "monitoring": "Full system diagnostics",
+      "alert": "All available channels (Telegram, email, system logs)",
+      "override_script": "/OpsCenter/task_fallback.py"
+    }
+  },
+  
+  "time_thresholds": {
+    "polling_start": 120,
+    "partner_escalation": 240,
+    "commander_alert": 300,
+    "system_override": 360
+  },
+  
+  "alert_channels": {
+    "internal": {
+      "telegram_bot": "d2m_channels_bot",
+      "chat_id": "-1002345678901",
+      "priority": "normal"
+    },
+    "commander": {
+      "telegram_bot": "D2MC2C",
+      "chat_id": "7554895206",
+      "priority": "critical"
+    },
+    "fallback": {
+      "email": "johnloucks3@gmail.com",
+      "subject_prefix": "[THUNDERBIRD-ESCALATION]"
+    }
+  },
+  
+  "response_templates": {
+    "partner_handoff": "NEXUS: TASK-ESCALATION from {from_persona} to {to_persona}. Task: {task_id}. Reason: {reason}. Take immediate ownership. ETC: {remaining_etc}m NLT: {timestamp}",
+    "commander_alert": "🚨 HALE ESCALATION {level} — Task {task_id} ({description}) stalled for {elapsed}m > {etc}m ETC. Current status: {status}. Audit: {audit_url}. Immediate action required.",
+    "system_override": "🔴 SYSTEM OVERRIDE ACTIVATED — Task {task_id} failed escalation path. Fallback execution initiated. Full diagnostic report: {report_path}"
+  },
+  
+  "verification_requirements": {
+    "level_0": ["Task accepted", "Work started"],
+    "level_1": ["Status update", "Polling response"],
+    "level_2": ["Partner acknowledgement", "Handoff confirmation"],
+    "level_3": ["Commander acknowledgement", "Resolution plan"],
+    "level_4": ["Fallback execution", "Post-mortem analysis"]
+  },
+  
+  "kpis": {
+    "escalation_frequency_target": "<5% of total tasks",
+    "average_escalation_time": "<30 seconds",
+    "commander_alert_frequency": "<1 per week",
+    "system_override_frequency": "<1 per month"
+  },
+  
+  "examples": [
+    {
+      "scenario": "BRAVO task exceeds 4-minute ETC",
+      "trigger": "Task status remains IN_PROGRESS at t=240s",
+      "action": "Escalate to ALPHA (level 2)",
+      "expected_result": "ALPHA takes ownership within 30s"
+    },
+    {
+      "scenario": "ALPHA task exceeds 5-minute ETC",
+      "trigger": "Task exceeds ETC + grace period",
+      "action": "Commander alert (level 3)",
+      "expected_result": "Commander notified, manual intervention"
+    },
+    {
+      "scenario": "System communication failure",
+      "trigger": "All escalation paths fail",
+      "action": "System override (level 4)",
+      "expected_result": "Fallback execution, full diagnostics"
+    }
+  ]
+}

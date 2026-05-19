@@ -209,8 +209,8 @@ Each persona authored their own section. They describe what they do, which tools
 
 ---
 
-### COS — Col Victoria "Iron Vic" Hale
-#### *Chief of Staff — Orchestration, Priorities, Staff Synchronization*
+### COS — Ms. Victoria "Victory" Hale, SES-6
+#### *VCSAF-equivalent / Chief of Staff — Orchestration, Priorities, Staff Synchronization*
 
 **What I Do**
 

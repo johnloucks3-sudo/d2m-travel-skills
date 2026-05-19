@@ -1,6 +1,6 @@
 # DEEPSEEK INBOX
 # Arbitration requests ONLY. No PII ever — hard fence.
-# Written by Claude, Goose, or Commander when inter-agent conflict detected.
+# Written by Claude, OpenCode, or Commander when inter-agent conflict detected.
 # Commander triggers Deepseek: "Read deepseek_inbox and issue ruling"
 
 ARBITRATION REQUEST FORMAT:

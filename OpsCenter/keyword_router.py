@@ -108,12 +108,12 @@ def classify_task(task_text, task_context=None):
 
     Tier priority (cheapest first):
       1. ollama  — local $0 inference for triage/summarize/classify
-      2. goose   — OpenCode/DeepSeek V3.1 for research/file ops/code
+      2. opencode — OpenCode/DeepSeek V3.1 for research/file ops/code
       3. claude  — Sonnet MAX for creative/strategy/client copy
     """
     if not task_text:
         return {
-            "engine": "goose",
+            "engine": "opencode",
             "confidence": 0.7,
             "reason": "Empty task, default to OpenCode/DeepSeek (cost-aware fallback)"
         }
@@ -154,7 +154,7 @@ def classify_task(task_text, task_context=None):
 
     # 4. Default: OpenCode/DeepSeek V3.1
     return {
-        "engine": "goose",
+        "engine": "opencode",
         "confidence": 0.7,
         "reason": "No Claude/Ollama keywords detected. OpenCode/DeepSeek default (cost-aware)."
     }

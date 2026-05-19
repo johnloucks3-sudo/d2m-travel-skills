@@ -1,0 +1,36 @@
+{
+  "_comment": "EOD TEMPLATE — Claude Code instance writes this at session close. HALE-YODA reads on next activation.",
+  "packet_type": "HALE_HANDSHAKE",
+  "version": "1.0",
+  "instance": "CLAUDE_CODE",
+  "session_id": "cc-YYYYMMDD-HHMM",
+  "event": "EOD",
+  "timestamp": "ISO-8601",
+  "payload": {
+    "decisions_this_session": [
+      {
+        "ts": "ISO-8601",
+        "decision": "Text of autonomous decision",
+        "gate_classification": "none | client_send | financial | new_client | strategy",
+        "hale_decisions_ref": "hale_decisions.md#anchor-or-timestamp",
+        "outcome": "executed | pending | surfaced_to_commander"
+      }
+    ],
+    "commander_directives_unresolved": [
+      {
+        "directive": "What Commander asked",
+        "ts_received": "ISO-8601",
+        "blocker": "Why not completed"
+      }
+    ],
+    "context_gaps": [
+      "Description of lost or incomplete context — engine timeouts, unlocated messages, etc."
+    ],
+    "open_items_at_close": [
+      "Item 1 — still open",
+      "Item 2 — still open"
+    ],
+    "next_session_priority": "Single most important action at next session open",
+    "handoff_notes": "Anything HALE-YODA needs to know before next Claude Code session"
+  }
+}

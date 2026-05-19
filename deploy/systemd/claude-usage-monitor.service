@@ -2,7 +2,7 @@
 Description=Claude Usage Monitor Daemon
 Documentation=file:///home/john/Thunderbird/core/ops/thunderbird_usage_daemon.py
 After=network.target
-Wants=claude-token-refresh.timer
+Wants=claude-token-monitor.timer claude-oauth-keepalive.timer
 
 [Service]
 Type=simple

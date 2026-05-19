@@ -1,0 +1,13 @@
+[Unit]
+Description=Cost Dashboard — FastAPI Server
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/john/Thunderbird
+Environment="PATH=/home/john/Thunderbird/.venv/bin:/usr/local/bin:/usr/bin:/bin"
+ExecStart=/home/john/Thunderbird/.venv/bin/uvicorn core.cost_dashboard.app:app --host 127.0.0.1 --port 8902
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

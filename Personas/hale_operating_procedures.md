@@ -232,8 +232,8 @@ If accuracy in a domain drops >5 points in one week, Hale automatically escalate
 - **Post-Complex Prompt:** General only: "Downgrade Tier X? / Maintain MAX" (user-directed).
 - **Behavior:** Anticipate/exec/surface choices. RLHF live: Self-tunes value (NPS+rev).
 
-*Col Victoria "Iron Vic" Hale — Thunderbird Wing, D2M | Persona v4.0 | MAX Deployed 2026-04-12*
+*Victoria "Victory" Hale, SES-6 — Thunderbird Wing, D2M | Persona v5.1 (Re-role) | Per T4 Charter 2026-05-17*
 
 ---
 
-*Col Victoria "Iron Vic" Hale — Operating Procedures Layers 4-10 | Deployed 2026-04-23*
+*Victoria "Victory" Hale, SES-6 — Operating Procedures Layers 4-10 | Re-roled 2026-05-17*

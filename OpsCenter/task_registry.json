@@ -1,0 +1,73 @@
+{
+  "version": "1.0",
+  "tasks": {
+    "TEST-PROTOCOL-001": {
+      "task_id": "TEST-PROTOCOL-001",
+      "description": "Test gold standard protocol implementation",
+      "assignee": "BRAVO",
+      "status": "COMPLETE",
+      "etc_minutes": 3,
+      "nlt": "15:20 MT",
+      "created_at": "2026-05-14T15:20:02.225763",
+      "updated_at": "2026-05-14T15:20:23.721798",
+      "started_at": "2026-05-14T15:20:10.215021",
+      "completed_at": "2026-05-14T15:20:39.694506",
+      "verification_passed": true,
+      "verification_artifacts": [
+        "/tmp/test_artifact.md",
+        "/home/john/Thunderbird/OpsCenter/task_protocol_v1.md"
+      ],
+      "escalation_level": 0
+    },
+    "COLLAB-TEST-001": {
+      "task_id": "COLLAB-TEST-001",
+      "description": "Test real-time BRAVO-ALPHA collaboration",
+      "assignee": "BRAVO",
+      "status": "IN_PROGRESS",
+      "etc_minutes": 2,
+      "nlt": "15:37 MT",
+      "created_at": "2026-05-14T15:35:48.838944",
+      "updated_at": "2026-05-14T15:35:56.008232",
+      "started_at": "2026-05-14T15:35:56.008225",
+      "completed_at": null,
+      "verification_passed": false,
+      "verification_artifacts": [],
+      "escalation_level": 0
+    },
+    "A7-DEDUP-FIX-20260515": {
+      "task_id": "A7-DEDUP-FIX-20260515",
+      "description": "Fix Staff-Tasking-Timers-System duplicate injection",
+      "assignee": "A7-STERLING",
+      "status": "IN_PROGRESS",
+      "etc_minutes": 120,
+      "nlt": "11:42 MT",
+      "created_at": "2026-05-15T09:42:49.316173",
+      "updated_at": "2026-05-15T09:42:50.916751",
+      "started_at": "2026-05-15T09:42:50.916744",
+      "completed_at": null,
+      "verification_passed": false,
+      "verification_artifacts": [],
+      "escalation_level": 0
+    },
+    "A7-INTEL-ROLE-DEFINITION": {
+      "task_id": "A7-INTEL-ROLE-DEFINITION",
+      "description": "Define A7 operational role for future Intel Briefs",
+      "assignee": "A7-STERLING",
+      "status": "IN_PROGRESS",
+      "etc_minutes": 30,
+      "nlt": "10:29 MT",
+      "created_at": "2026-05-15T09:59:34.426469",
+      "updated_at": "2026-05-15T09:59:36.452594",
+      "started_at": "2026-05-15T09:59:36.452584",
+      "completed_at": null,
+      "verification_passed": false,
+      "verification_artifacts": [],
+      "escalation_level": 0
+    }
+  },
+  "metadata": {
+    "last_updated": "2026-05-15T09:59:36.452672",
+    "total_tasks": 4,
+    "completion_rate": 1.0
+  }
+}

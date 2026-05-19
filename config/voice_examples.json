@@ -8,15 +8,15 @@
       "d2mconcierge@gmail.com"
     ],
     "days_back": 400,
-    "total_examples": 1171,
+    "total_examples": 1251,
     "by_tier": {
-      "personal": 314,
-      "client": 200,
+      "personal": 340,
+      "client": 211,
       "vendor": 47,
-      "internal": 603,
+      "internal": 646,
       "family": 7
     },
-    "last_sync": "2026-05-06T02:30:20.826803"
+    "last_sync": "2026-05-19T02:34:54.163580"
   },
   "examples": [
     {
@@ -449,6 +449,33 @@
       "to": "Steve Trien <steve@srtrientech.com>",
       "date": "Tue, 5 May 2026 17:44:23 -0800",
       "body": "Hi Steve, I noticed you called.  Probably to meet tonight for a drink.\nLet's meet somewhere around 18:30? We have Terrazza reservations at 19:30.\nThanks\nJohn",
+      "score": 7
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: AT Six",
+      "to": "Al Ely <al.ely58@gmail.com>",
+      "date": "Wed, 13 May 2026 16:59:44 -0600",
+      "body": "Hi Al,  Yes it got confusing quickly.\n\nGot it. I will get the additional room booked for you and Amy.\n\nLet me know what you find out about the Finnair seats once you check.\n\nThanks\n\nJohn",
+      "score": 7
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "COS:  Your At SIX pay-later coupon",
+      "to": "Al Ely <al.ely58@gmail.com>, Amy Darrow <amy.darrow@me.com>",
+      "date": "Fri, 15 May 2026 15:45:57 -0600",
+      "body": "Hi Al and Amy, here is your room reservation for August 27–28, 2026. I\ntried to keep the cost equivalent to Scandic Haymarket and what Regent will\nprobably provide.  Would you please read all the legal terms and optional\nofferings? Let me know if you have any questions.\n\nThanks\nJohn\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 7
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: COS: Your At SIX pay-later coupon",
+      "to": "Al Ely <al.ely58@gmail.com>",
+      "date": "Sun, 17 May 2026 14:10:40 -0600",
+      "body": "Hi Al and Amy, sorry for the name mixup. That was me failing to check my\nrecords before making the reservation. But checking the records, the \"paid\nin full\" is for the cruise. I made the Haymarket transfer as a  \"pay-by\"\nversus \"pay immediately\". But if you desire, we can update your credit card\ninformation, and I will book your transfer and pay both.\n\nThanks\nJohn",
       "score": 7
     },
     {
@@ -908,6 +935,24 @@
       "to": "Melissa McGlasson <memcglas@gmail.com>, D2M Concierge <d2mconcierge@gmail.com>",
       "date": "Tue, 5 May 2026 17:52:03 -0800",
       "body": "Hi Melissa, if this were late September or February I would say booking 2-3\ndays ahead would be OK.  But I think you should assume all transport venues\nwill be swamped, esp the Venice watertaxis.  So I recommend you contact\nthose folks in Venice and get a seat on a boat--and get one for your\nluggage.  It will cost a bit more, but then you get peace of mind.\nRegarding Rome Taxis, their prices *are* fixed. Even though I have used\nthem, I avoid on-demand transport for a trip where I must be somewhere at a\nspecific time or don't want to waste time. So I would think the Rome\nairport to hotel pickup fits the latter category.\n\nMake sense?\nThanks\nJohn",
+      "score": 6
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Status of Hotels and Finnair seat assignments",
+      "to": "Larry Nichols <larry.nichols4811@gmail.com>",
+      "date": "Wed, 13 May 2026 14:37:55 -0600",
+      "body": "Okay all, I will send Regent reservations an email and copy you. I want to\nmake sure and get this on record. I will also cancel the Haymarket and the\ntransportation. And ensure you're all on the Regent bus both ways.\n\nNow I have to tell you that when we booked it we booked it through Amex and\nit was a fine hotel, I am thinking that you might all want to try to book\non your own the extra night, please send me an email if you intend to do\nthat.\nThanks\nJohn\n\nOn Wed, May 13, 2026, 14:15 Larry Nichols <larry.nichols4811@gmail.com>\nwrote:",
+      "score": 6
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Silversea transfers",
+      "to": "Melissa McGlasson <memcglas@gmail.com>",
+      "date": "Thu, 14 May 2026 15:27:06 -0600",
+      "body": "Hi Melissa,\n\nThat date issue is stubborn. I will look into why the home transfer date\nisn't reflecting the airline schedule and either sort that out on their\nsystem or get written confirmation of the actual commitment for 18 June/6\nJuly.\n\nJohn\n\nOn Thu, May 14, 2026 at 2:53 PM Melissa McGlasson <memcglas@gmail.com>\nwrote:",
       "score": 6
     },
     {
@@ -1484,6 +1529,42 @@
       "to": "Melissa McGlasson <memcglas@gmail.com>",
       "date": "Tue, 5 May 2026 16:13:11 -0800",
       "body": "Hi Melissa from Silver Nova in Sitka. My experience is that immigration\ninto the Schengen Zone and Italy is about an hour.  We thought we were\nprepared for Japan immigration, but so much had changed since our last trip\nthere in 2024.  So, it may be the same in Italy but I have not read of any\nbad experiences.  I will search for some comments and suggest you do the\nsame.\n\nIf you book a limo (I would still recommend the Mercedes transfer) you will\nneed to provide your flight info.  Armed with that info, your driver or the\nagency should contact you most likely via WhatsApp a day prior. As the time\napproaches they should track your flight. I know the price increases must\nbe frustrating; Susie and I experienced the same thing for this trip.  One\nadvisory: do not book a non-refundable, as I still think Blacklane will\nhave something to offer.\n\nAs for your departure from CIV: Your invoice states a 7 PM departure.\nHowever, as you're likely aware, the ship usually opens by 12:00 PM, and\nyou are allowed in suites by 2:00 PM.  This time, for Tokyo, we embarked at\n11:00 and were having a nice meal in the main restaurant by noon.  Traffic\nduring that time is unpredictable, so plan to arrive at 1200 unless you\nhear otherwise from Silversea.  Ninety minutes should cover the trip. If\nyou arrive at the embarkation pier earlier than your e-ticket (which you'll\nreceive soon) specifies, they will still let you board.\n\nActually, I was sweating the arrangements in Venice, so that's good news.\nLet me know if I can assist, and I hope this puts your minds at ease a\nbit.  Would you please pass me your arrangements for Venice and Rome, so I\ncan place them in your final html/.pdf itinerary I will send about a month\nout.  I have incorporated everything you have sent me so far, including\nyour planning sheet.\n\nThanks,\nJohn",
+      "score": 5
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: I'm available",
+      "to": "Ronald Westbrook <rwestbrook3@gmail.com>",
+      "date": "Fri, 15 May 2026 11:39:22 -0600",
+      "body": "Hi Rondo,\n\nI'm here and available whenever you're ready. Just let me know when you\nstart working on Lindy's computer and need a hand.\n\nJohn",
+      "score": 5
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "client",
+      "subject": "A3 Ops Brief — May 17",
+      "to": "Dreams2Memories <d2mconcierge@gmail.com>",
+      "date": "Sun, 17 May 2026 07:21:14 -0600",
+      "body": "COS, send to johnloucks3@gmail.com from now on\n\nA3 Moreau — Morning Ops Brief\n\nDani Moreau | Sunday, May 17 2026 0700\nPayment Pipeline\nClient Cruise Amount Days Status\nMcLeod (Erik & Melissa) Silver Muse PAID 37d PAID\nMcLeod (Erik & Melissa) Regent Grandeur $12,393.15 66d UPCOMING\nDreams2Memories Travel, LLC — Thunderbird OS",
+      "score": 5
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "client",
+      "subject": "A9 Finance — May 17",
+      "to": "Dreams2Memories <d2mconcierge@gmail.com>",
+      "date": "Sun, 17 May 2026 07:20:21 -0600",
+      "body": "COS, send this brief to johnloucks3@gmail.com from now on\n\nA9 Harlan — Finance Brief\n\nVic Harlan | Sunday, May 17 2026 0900\nNo API cost log found.\nCommission Pipeline\n*Total expected revenue: $12,393.15*\nClient Amount Due\nMcLeod (Erik & Melissa) $12,393.15 2026-07-22 (66d)\nDreams2Memories Travel, LLC — Thunderbird OS",
+      "score": 5
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Coffee?",
+      "to": "Bill Spencer <bkspencer381@gmail.com>",
+      "date": "Mon, 18 May 2026 06:39:45 -0600",
+      "body": "Morning classmate/brother we are back, most of my mental cognition has\nreturned, and I would like to start listening to you about your dream\nanniversary celebration. Let me know your availability over the next two\nweeks, and where you might want to meet. For breakfast? For coffee? Just\nthe two of us for now I think and then the four of us later.\nThanks\nJohn\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
       "score": 5
     },
     {
@@ -3122,6 +3203,159 @@
       "to": "d2mconcierge@gmail.com",
       "date": "Tue, 5 May 2026 23:00:25 -0800",
       "body": "Hale, Looks great! Use this whenever we are chatting or you're sending me\nifo. Make one for the staff as well with persona signatures, so they feel\nreal.\n\nOn Tue, May 5, 2026 at 10:58 PM Victoria Hale, D2M Travel <\nd2mconcierge@gmail.com> wrote:",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Confirmed: your trip to Stockholm",
+      "to": "Heidi Nichols <heidi.nichols1@yahoo.com>",
+      "date": "Wed, 13 May 2026 16:36:35 -0600",
+      "body": "Got it.\n\nOn Wed, May 13, 2026 at 4:34 PM Heidi Nichols <heidi.nichols1@yahoo.com>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: COS: Status of Hotels and Finnair seat assignments",
+      "to": "Heidi Nichols <heidi.nichols1@yahoo.com>",
+      "date": "Wed, 13 May 2026 16:34:47 -0600",
+      "body": "Thanks Heidi. Will do.\nJohn\n\nOn Wed, May 13, 2026 at 4:33 PM Heidi Nichols <heidi.nichols1@yahoo.com>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "COS:  Status of Hotels and Finnair seat assignments",
+      "to": "Melissa Furlow <missy.furlow@gmail.com>",
+      "date": "Wed, 13 May 2026 16:22:13 -0600",
+      "body": "OK, lots of emails.  Here is what I am hearing:\n1) Missy booked AT SIX for the 27th with her AMEX and wants me to switch\nher REGENT reservation for the 28th to AT SIX. After that is confirmed, I\nneed to cancel the Haymarket reservation.  That also requires changing the\nairport2hotel transport reservations.  She is also concerned (I think\nrightfully) that rooms won't be available if we delay.  Remember, the\nentire passenger cohort received notice today of the hotel switch.\n\n2) Larry is wondering why we don't make one complete 2-night reservation to\navoid two separate ones? My answer: Regent will only book one night and\ninvites the traveler to book another one in their letters.\n\n3) My specified and implied tasks\na.  Email Regent to request switching everyone to AT SIX for 28th and to\nsecure a \"seat on the bus\" both from AT SIX to the ship and from the ship\nto the airport.  This I can do soon for all.\nb.  Re-do the airport-to-hotel reservation to reflect ARN to AT SIX.  This\nI can also do soon for all.\nc.  Cancel Haymarket but only after Regent confirms.\n\n4) Please send me any NEW reservations you make so I can refer to them when\ncontacting the hotel.\n\n5) Please get back to me on the process you used (and cost) to secure your\nFinnair seats if you have them.\n\nThanks\nJohn\n\nOn Wed, May 13, 2026 at 3:59 PM Melissa Furlow <missy.furlow@gmail.com>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "Re: [COS] General: Claude Code's Agent View: One Screen for All",
+      "to": "d2mconcierge@gmail.com",
+      "date": "Wed, 13 May 2026 15:15:31 -0600",
+      "body": "Write me a user manual or descriptio of what I will see that is different\n\nOn Wed, May 13, 2026 at 3:06 PM Victoria Hale, D2M Travel <\nd2mconcierge@gmail.com> wrote:",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Fwd: Confirmed: your trip to Stockholm",
+      "to": "johnloucks3@gmail.com",
+      "date": "Wed, 13 May 2026 15:41:49 -0700",
+      "body": "ISSUE:\nStockholm pre/post-cruise hotel booking for Nichols family requires dossier filing and booking master cross-reference\n\nDISCUSSION:\nAmerican Express Travel confirmation for Larry & Heidi Nichols: At Six hotel, Stockholm, Aug 27-28, 2026 (1 night, King bed, Standard Room, SEK 3,715.00). Fine Hotels + Resorts benefits applied.\n\nACTIONS I RECOMMEND TAKING:\n1. File confirmation in Nichols dossier (hotel details, confirmation #9092637820900, FHR loyalty #x116328)\n2. Cross-ref against D2M booking master — verify alignment with any cruise itinerary\n3. Note FHR benefits: 12pm check-in, room upgrade, daily breakfast for 2, $100 F&B credit, Wi-Fi, 4pm check-out\n4. Flag: Cancellation penalty if cancelled after Aug 27 3:59 PM UTC+2 — monitor for any itinerary changes\n5. Confirm currency: SEK → USD conversion; note foreign transaction fee possible\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-05-13 16:41 MT\nThunderbird Email Intelligence Officer",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "TWTP Phase 1 — Complete Package | Staff Summary Sheet + 3 ATTs | For Commander Approval",
+      "to": "johnloucks3@gmail.com",
+      "date": "Thu, 14 May 2026 07:26:05 -0700",
+      "body": "THUNDERBIRD WING TRANSFORMATION PLAN (TWTP) — PHASE 1\nComplete Document Package | 14 May 2026\n\nCol Victoria \"Iron Vic\" Hale, COS/COO | Thunderbird Wing\n\nPackage contents (see HTML body and attachments):\n  MAIN: Staff Summary Sheet — Hale → Commander, Request for Approval\n  ATT 1: Evidentiary Record — Sterling + 10 blind interviews + Oracle eval\n  ATT 2: Hale's Position Paper — COS response to all findings\n  ATT 3: Background Paper — what was, what changes, what will be\n\nModel cycle used: OPUS → SONNET → HAIKU → SONNET → OPUS",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: ALLIANZ AGEMCY TRAVEL INSURANCE",
+      "to": "Ronald Westbrook <rwestbrook3@gmail.com>",
+      "date": "Fri, 15 May 2026 16:13:15 -0600",
+      "body": "Rondo, put that aside. I am drafting a complete claims package for\nyou--air, cruise, hotel transfers all of it. You will need to provide\ndetails of her death and a death certificate, but move to something else. I\nwill have it by tomorrow at the latest.\nJohn\n\nOn Fri, May 15, 2026 at 3:32 PM Ronald Westbrook <rwestbrook3@gmail.com>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "Re: I GOT LUCKY I FOUND THE PASSWORD AND ID FOR LINDYS COMPUTER AND GOT IN",
+      "to": "Ronald Westbrook <rwestbrook3@gmail.com>",
+      "date": "Fri, 15 May 2026 15:02:21 -0600",
+      "body": "🙃🙃😃😃👍👍😅😅\n\nOn Fri, May 15, 2026 at 2:50 PM Ronald Westbrook <rwestbrook3@gmail.com>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "Re: [COS] General: Melissa McGlasson Transportation issues",
+      "to": "d2mconcierge@gmail.com",
+      "date": "Fri, 15 May 2026 13:08:29 -0600",
+      "body": "Victoria,\n\nAuthority is already granted for these types of directives. Moving forward,\nthese confirmation emails are unnecessary and result in redundant\nprocessing.\n\nPlease execute all Commander instructions directly without sending further\nnotifications or seeking confirmation unless specifically requested.\n\nJL\n\nOn Fri, May 15, 2026 at 1:06 PM Dreams2Memories <d2mconcierge@gmail.com>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "Re: [COS] General: THUNDERBIRD WAR ROOM - Invitation to edit",
+      "to": "d2mconcierge@gmail.com",
+      "date": "Fri, 15 May 2026 13:06:57 -0600",
+      "body": "This paper is unnecessary it is an interim step pasking for authority where\nauthority has already been granted\n\nOn Fri, May 15, 2026 at 12:40 PM Dreams2Memories <d2mconcierge@gmail.com>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "Re: LINDYS COMPUTER INFO",
+      "to": "Ronald Westbrook <rwestbrook3@gmail.com>",
+      "date": "Sun, 17 May 2026 20:13:47 -0600",
+      "body": "Rondo, is this for UC Health?\nJohn\n\nOn Sun, May 17, 2026 at 5:47 PM Ronald Westbrook <rwestbrook3@gmail.com>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "client",
+      "subject": "Re: JET Brief to TALON — Shared State Protocol Proposal",
+      "to": "Dreams2Memories <d2mconcierge@gmail.com>",
+      "date": "Sun, 17 May 2026 12:06:52 -0600",
+      "body": "COS, Send these types of info things to johnloucks3\n\nOn Sun, May 17, 2026 at 9:05 AM Victoria Hale, D2M Travel <\nd2mconcierge@gmail.com> wrote:",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Your Panama Canal Voyage — Mid-Spring Check-In",
+      "to": "\"Kyle.Kuklinski@gmail.com\" <kyle.kuklinski@gmail.com>",
+      "date": "Sun, 17 May 2026 08:39:35 -0600",
+      "body": "Dreams2Memories\nTravel, LLC\nCurating the voyage of your lifetime\n\nKyle, Rosalie — December is getting closer.\n\nI keep coming back to this itinerary and smiling. Ten nights through the\nPanama Canal, Christmas at sea, six of you spread across three suites on\nViking Mars — it's going to be something special. Consider this your\nmid-spring check-in on where we are and what's coming.\nBooking Snapshot\n\n* Ship: * Viking Mars\n\n* Itinerary: * Panama Canal — Dec 17–27, 2026\n\n* Staterooms: * 4122 (Kyle & Rosalie) · 8012 (Roger & Nicholas) · 3015\n(Josh & Erica)\n\n* Payment: * Paid in full — $21,244\n\n* Shipboard Credits: * $1,200 across all three suites\n\n* Flights — we're on it now. *\n\nYour team out of Richmond (you, Rosalie, Roger, Nick) will fly RIC to\nPanama City — I'm watching that route closely. Josh and Erica will probably\nroute through Fort Lauderdale. The research window opened last month, and\nI've got fares being tracked in real time. My goal is to have three solid\noptions for each couple ready by mid-June, with enough lead time to lock in\ngood pricing. Nothing urgent yet — just know the search is active.\n\n* Hotels — same timeline. *\n\nA night or two in Panama City before embarkation makes the trip feel like\nit starts a day early instead of rushing to the pier. I'm looking at\nproperties near the Amador Causeway — close to the terminal, good views,\nright energy for kicking off a voyage. For the return, we'll plan\nfor a same day departure, so no hotel there.\n\n* Insurance — on the calendar for September. *\n\nWe touched on this at booking. I've noted it for a proper conversation\ncloser to departure — a full run at coverage options so you can make the\ncall that's right for your group--especially those older folks. No action\nnow.\n\n* The rest of the roadmap looks like this: *\n\nExcursion recommendations land in late July/early August, just before\nViking opens its booking window on the 2nd — I'll have my picks for each\nport ready. Specialty dining (Manfredi's, Chef's Table) gets coordinated as\na group in September so you're all at the same table. A full pre-voyage\nbriefing lands in November with everything: flights, hotels, transfers,\npacking, port guides, the works.\n\nFor now — you're set. Three suites, paid in full, a planning machine\nhumming in the background. If anything changes on your end, or a question\npops into your head at 10 PM, you know where to find\nme--d2mconcierge@gmail.com (John also monitors this email)\n\nThanks,\n\nDani Moreau\n\nLuxury Travel Concierge · Dreams2Memories Travel, LLC\nDani Moreau\nLuxury Travel Concierge\nconcierge@d2mluxury.quest · d2mluxury.quest\nDreams2Memories Travel, LLC  ·  Colorado Springs, CO FL ST1578  ·  CA\n2090937-50  ·  WA UBID 603189022  ·  IA 1202",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Fwd: HALE — DAILY BRIEF | 2026-05-17 06:00 MT",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sun, 17 May 2026 08:55:19 -0400",
+      "body": "ISSUE:\nWebsite itinerary.d2mluxury.quest not connecting (Cloudflare/YOGA tunnel possible failure); 4 time-sensitive decisions pending with hard deadlines (Lyons FPD May 25 cutoff, Furlow payment due Apr 1, TESS financial feed blind, 11 draft approvals)\n\nDISCUSSION:\nDaily COS operational brief reporting website link failures and requesting Commander approval on 11 drafts, FPD outreach, payment verification, and TESS re-authorization.\n\nACTIONS I RECOMMEND TAKING:\n1. Diagnose itinerary.d2mluxury.quest connectivity (check YOGA 192.168.1.198:8900 and Cloudflare tunnel status)\n2. Verify Lyons FPD outreach deadline: May 11 invoice date + 14 days = May 25 contact cutoff\n3. Confirm Furlow $15,486 final payment status (due Apr 1; cross-ref TESS CheckReceived vs CommissionDue fields)\n4. Re-authorize TESS: python3 thunderbird_tess.py --authorize to restore financial pipeline visibility\n5. Surface 11 staged Gmail drafts (Kuklinski, McLeod×2, Westbrook, Furlow, Nichols, Ely) for Commander approval gate\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-05-17 06:55 MT\nThunderbird Email Intelligence Officer",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "Re: McLeod ESCALATION — 31 Days to Departure | Action Required",
+      "to": "d2mconcierge@gmail.com",
+      "date": "Mon, 18 May 2026 16:53:54 -0600",
+      "body": "None of these are critical. The hotel gap is from AI's mis-read. They get\nin the 19th. all other issues are OK by my direction.\n\nOn Mon, May 18, 2026 at 4:39 PM Victory Hale, D2M Travel <\nd2mconcierge@gmail.com> wrote:",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Coffee?",
+      "to": "Bill Spencer <bkspencer381@gmail.com>",
+      "date": "Mon, 18 May 2026 11:44:53 -0600",
+      "body": "Here's an audible: breakfast Weds 27 0800 I will pick you up. We'll go\nsomewhere.\nOK?\nJohn\n\nAddress again please???\n\nOn Mon, May 18, 2026 at 10:57 AM Bill Spencer <bkspencer381@gmail.com>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[DRAFT — Review Before Send] Nancy Lyons — a few things before August",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 18 May 2026 13:57:45 +0000",
+      "body": "Nancy,\n\nJohn passed your file along and I've been looking at your Splendor voyage. There are a few things still open I'd like to help close before August.\n\nATHENS DINNER — GRANDE BRETAGNE\nThe Roof Garden is the right call for August 10. I can secure the reservation. Just let me know your preferred time: early (7pm) or later?\n\nSEPTEMBER 6 — PIER TO LGA\nDL5613 departs noon. With disembarkation at 7am, the pier-to-airport window is tight. Want me to arrange a car?\n\nQuick questions:\n· Athens transfers (airport→Grande Bretagne Aug 10, hotel→Piraeus Aug 11) — handled or open?\n· Splendor dining reservations opened May 13 — did you get Chartreuse?\n\nAlso: Royal Caribbean Group launched Points Choice in January — Crown & Anchor points transfer to Venetian Society days. Status Match (live since 2024) gives one-for-one tier equivalency. New VS tier structure takes effect July 1. If you have RC sailing history, worth a look before then. Happy to send the full breakdown.\n\nThanks —\nDani\nDreams2Memories Travel, LLC · concierge@d2mluxury.quest",
       "score": 4
     },
     {
@@ -8976,6 +9210,330 @@
     },
     {
       "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: THURSDAY NIGHT DINNER 16:30",
+      "to": "Ronald Westbrook <rwestbrook3@gmail.com>",
+      "date": "Wed, 13 May 2026 21:36:47 -0600",
+      "body": "Sounds great Rondo. Thanks for handling the wine and dessert. See you\ntomorrow.\nJohn",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "Re: [COS] General: Claude Code's Agent View: One Screen for All",
+      "to": "d2mconcierge@gmail.com",
+      "date": "Wed, 13 May 2026 15:29:37 -0600",
+      "body": "all I have is this ❯ QUICK TEST: Write the text 'Agent View pilot test -\nYOGA - 2026-05-13' to /tmp/agent_view_test.txt and exit.\nFailed with non-blocking status code: bash:\n/home/john/Thunderbird/hooks/refresh_claude_oauth_cache.sh: No such file or\ndirectory\n\n● Write(/tmp/agent_view_test.txt)\nWrote 1 lines to /tmp/agent_view_test.txt\nAgent View pilot test - YOGA - 2026-05-13\n\nTest file written successfully. Ready to exit.",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "Test of Prefix",
+      "to": "D2M Concierge <d2mconcierge@gmail.com>",
+      "date": "Wed, 13 May 2026 14:55:25 -0600",
+      "body": "HALE, testing notification by prefix, we will chat back and forth\n\nJL\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "HALE: Test Email C2 Daemon",
+      "to": "D2M Concierge <d2mconcierge@gmail.com>",
+      "date": "Wed, 13 May 2026 14:41:23 -0600",
+      "body": "HALE, please confirm you are listening on email and can reply in-thread.\nJL\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "JustTheNews.com+|+Biden+FBI+secretly+set+up+Trump+to+be+indicted+after+he+leaves+office,+Arctic+Frost+memos+suggest",
+      "to": "Susan Loucks <susanna.loucks@gmail.com>",
+      "date": "Wed, 13 May 2026 11:58:16 -0600",
+      "body": "From+JustTheNews.com:+Biden+FBI+secretly+set+up+Trump+to+be+indicted+after+he+leaves+office,+Arctic+Frost+memos+suggest\n\nhttps://justthenews.com/government/courts-law/fbi-and-jack-smith-prosecutor-sought-hold-anti-trump-evidence-until-he-left?utm_medium=social_media&utm_source=mail_social_icon&utm_campaign=social_icons\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Question",
+      "to": "ann heer <iamheer@outlook.com>",
+      "date": "Wed, 13 May 2026 07:54:02 -0600",
+      "body": "Sure thing on the pine needles.\n\nGlad you got your daughter off. Let me know when you want to dive into\nJapan.\nJohn",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Re: [COS] General: COS: Status of Hotels and Finna",
+      "to": "johnloucks3@gmail.com",
+      "date": "Wed, 13 May 2026 17:37:15 -0500",
+      "body": "ISSUE:\nFurlow pre-cruise coordination requires multiple emails drafted for hotel change confirmation (Regent), transport rebooking, and Haymarket cancellation before Regent roster lock (two weeks pre-departure)\n\nDISCUSSION:\nCommander John Loucks directs COS Hale to write draft emails for Furlow pre-cruise hotel changes (Haymarket→AT SIX Stockholm), transport rebooking (ARN airport→hotel), and Finnair seat assignment cost inquiry.\n\nACTIONS I RECOMMEND TAKING:\n1. Write draft email to Regent reservations (all passengers CC'd) confirming AT SIX for May 28th check-in with bidirectional transport to/from ship\n2. Write draft email to transport provider rebooking ARN→AT SIX for all passengers\n3. Write draft email to Haymarket for cancellation (condition: after Regent confirms AT SIX booking)\n4. Write draft response to Commander with Finnair seat assignment cost and process (if D2M handled seat selection)\n5. Prepare confirmation copies of all new reservations for Commander approval before sending out\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-05-13 16:37 MT\nThunderbird Email Intelligence Officer",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: COS: Status of Hotels and Finnair seat assignments",
+      "to": "johnloucks3@gmail.com",
+      "date": "Wed, 13 May 2026 17:26:43 -0500",
+      "body": "ISSUE:\nFurlow pre-cruise hotel coordination: (1) Regent reservation switch from 27th to 28th at AT SIX, (2) cancel Haymarket after Regent confirms, (3) ARN airport→AT SIX transport rebooked, (4) Regent must link rooms to hotel roster two weeks pre-departure, (5) Finnair seat assignment cost inquiry.\n\nDISCUSSION:\nCommander directing hotel change from Haymarket to AT SIX for Furlow pre-cruise stay in Stockholm. Missy booked AT SIX at $399; need Regent confirmation, transport rebooking, and Haymarket cancellation.\n\nACTIONS I RECOMMEND TAKING:\n1. Email Regent reservations (copying all passengers) to switch everyone to AT SIX for 28th and secure bus both ways (AT SIX→ship, ship→airport)\n2. Rebook airport-to-hotel transport from ARN to AT SIX for all passengers\n3. Cancel Haymarket reservation AFTER Regent confirms AT SIX booking\n4. Send Commander copies of all new reservations made\n5. Provide Commander Finnair seat assignment cost/process if D2M booked seats\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-05-13 16:26 MT\nThunderbird Email Intelligence Officer",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: HALE: Test Email C2 Daemon",
+      "to": "johnloucks3@gmail.com",
+      "date": "Wed, 13 May 2026 15:44:39 -0500",
+      "body": "ISSUE:\nHALE Email C2 — Test confirmation needed per Standing Requirement\n\nDISCUSSION:\nCommander testing HALE's email C2 listening capability and ability to respond in-thread. Direct operational test of COS command channel.\n\nACTIONS I RECOMMEND TAKING:\n1. HALE responds in-thread immediately confirming email C2 is active and COS is listening\n2. Log test result to system health checks\n3. Establish 2-min SLA for all Commander email directives to COS\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-05-13 14:44 MT\nThunderbird Email Intelligence Officer",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "HALE — DAILY BRIEF | 2026-05-13 06:00 MT",
+      "to": "johnloucks3@gmail.com",
+      "date": "Wed, 13 May 2026 04:50:03 -0700",
+      "body": "📊 HALE — DAILY OPERATIONAL BRIEF Generated 2026-05-13 · 06:00 MT · Commander John Loucks 📊 Client Lifecycle Wheel 7 active clients, urgency-coded segments, FPD countdown arcs. Click segment for detail panel. View Lifecycle Wheel → 💰 Financial Waterfall Commission pipeline flow: Prospects → Booked → At-Risk → Projected. Allianz claim divergence shown. View Waterfall → 🔥 Task Heat Map Clients × Task Types grid. Urgency-colored, effort-encoded. Hover for task roster by cell. View Heat Map → ⚠️ Risk Matrix Likelihood × Disruption scatter. Quadrants: Escalate (red), Mitigate (yellow), Monitor, Accept. Action registry below. View Risk Matrix → ⚡ DECISIONS NEEDED FROM COMMANDER Approve 11 Gmail Drafts? Kuklinski (validation), McLeod (Silver Muse 60-day + Grandeur TP0.5/TP0.6), Westbrook (Perx + SkyLux), Furlow/Nichols/Ely (CAK). All staged in d2mconcierge drafts folder. Initiate Lyons FPD Outreach? Nancy & Ken Lyons — FPD May 11 (14 days remaining). Direct Commander action required. Chase Furlow $15,486 Payment? Final payment was due Apr 1. Confirm received or authorize A9 follow-up. Re-Auth TESS? Financial feed is blind. Run: python3 thunderbird_tess.py --authorize to restore commission visibility. HALE — Col Victoria \"Iron Vic\" Hale | Chief of Staff | Dreams2Memories Travel, LLC This brief is generated automatically at 05:50 MT daily and sent at 06:00 MT. Link expires in 90 days. Briefs archived locally + Google Drive.",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "suspiciously precise floats, or, how I got Claude's real limits",
+      "to": "D2M Concierge <d2mconcierge@gmail.com>",
+      "date": "Thu, 14 May 2026 23:15:36 -0600",
+      "body": "https://she-llac.com/claude-limits\n\nCOO, task staff for ideas to implement from this article. See formula for\ncredits to tokens conversion. Background paper is appropriate.\n\nJL\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Fwd: Silversea transfers",
+      "to": "johnloucks3@gmail.com",
+      "date": "Thu, 14 May 2026 16:26:57 -0500",
+      "body": "ISSUE:\nTransfer date discrepancy between Silversea portal and airline schedule; domestic transfer coordination incomplete\n\nDISCUSSION:\nClient reports Silversea transfer showing June 23 doesn't match airline schedule. Requests confirmation that domestic home-to-airport transfers are properly coordinated and scheduled.\n\nACTIONS I RECOMMEND TAKING:\n1. Verify actual airline departure and arrival dates for the McLeod group\n2. Contact Silversea to correct transfer dates to match airline schedule\n3. Audit Italian transfer charges ($1K) against booking terms (confirm if they were supposed to be included)\n4. Confirm all domestic transfers (home→airport, airport→home) are booked with correct dates/times\n5. Send client written confirmation of corrected transfer itinerary before departure\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-05-14 15:26 MT\nThunderbird Email Intelligence Officer",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Fwd: AT Six",
+      "to": "johnloucks3@gmail.com",
+      "date": "Thu, 14 May 2026 07:33:18 -0700",
+      "body": "ISSUE:\nSeat assignment fees unclear; multiple party members lack Finnair seat assignments; additional room booking for clients requires processing\n\nDISCUSSION:\nClient Al Ely confirms Finnair seats 2A/2C on flight 811 (Aug 27). Commander asks if seat assignment fees apply; some party members still lack seat assignments. Additional room booking for Al & Amy pending.\n\nACTIONS I RECOMMEND TAKING:\n1. Confirm Finnair seat assignment fee policy and ensure all party members have assigned seats\n2. Process additional room booking for Al Ely & Amy Darrow\n3. Follow up on cancellation of transportation mentioned in original chain\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-05-14 08:33 MT\nThunderbird Email Intelligence Officer",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "HALE — DAILY BRIEF | 2026-05-14 06:00 MT",
+      "to": "johnloucks3@gmail.com",
+      "date": "Thu, 14 May 2026 04:50:06 -0700",
+      "body": "📊 HALE — DAILY OPERATIONAL BRIEF Generated 2026-05-14 · 06:00 MT · Commander John Loucks 📊 Client Lifecycle Wheel 7 active clients, urgency-coded segments, FPD countdown arcs. Click segment for detail panel. View Lifecycle Wheel → 💰 Financial Waterfall Commission pipeline flow: Prospects → Booked → At-Risk → Projected. Allianz claim divergence shown. View Waterfall → 🔥 Task Heat Map Clients × Task Types grid. Urgency-colored, effort-encoded. Hover for task roster by cell. View Heat Map → ⚠️ Risk Matrix Likelihood × Disruption scatter. Quadrants: Escalate (red), Mitigate (yellow), Monitor, Accept. Action registry below. View Risk Matrix → ⚡ DECISIONS NEEDED FROM COMMANDER Approve 11 Gmail Drafts? Kuklinski (validation), McLeod (Silver Muse 60-day + Grandeur TP0.5/TP0.6), Westbrook (Perx + SkyLux), Furlow/Nichols/Ely (CAK). All staged in d2mconcierge drafts folder. Initiate Lyons FPD Outreach? Nancy & Ken Lyons — FPD May 11 (14 days remaining). Direct Commander action required. Chase Furlow $15,486 Payment? Final payment was due Apr 1. Confirm received or authorize A9 follow-up. Re-Auth TESS? Financial feed is blind. Run: python3 thunderbird_tess.py --authorize to restore commission visibility. HALE — Col Victoria \"Iron Vic\" Hale | Chief of Staff | Dreams2Memories Travel, LLC This brief is generated automatically at 05:50 MT daily and sent at 06:00 MT. Link expires in 90 days. Briefs archived locally + Google Drive.",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "Re: Fwd: Allianz Claim Info for Silver Nova Cancellation",
+      "to": "d2mconcierge@gmail.com",
+      "date": "Fri, 15 May 2026 17:12:10 -0600",
+      "body": "The changes made from the draft were mine. Rondo is OK, he is my best\nfriend.  I diirected a less formal tone. I originally created this prompt\nin Opencode Deepseek, then NEMO Ruter, the model should not matter",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Melissa McGlasson Transportation issues",
+      "to": "D2M Concierge <d2mconcierge@gmail.com>",
+      "date": "Fri, 15 May 2026 13:03:14 -0600",
+      "body": "Hale, Develop a background paper summarizing all of Melissa McGlassons\nconcerns raised about transportation, my response, SilverSea's response,\nher eaction, agreed-upon course of action from the beginning of the booking\nuntil today. Do not send a confirmation/approval email for these taskings,\never. Just do.\nJL\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "Staff briefs, Intel Briefs, Innovation, Switchblade move them all",
+      "to": "D2M Concierge <d2mconcierge@gmail.com>",
+      "date": "Fri, 15 May 2026 13:01:12 -0600",
+      "body": "COS, Move all briefs and staff documents--anything produced by the staff\nfor my consumption  to johnloucks3@gmail.com inbox, send from d2mconcierge\nto johnloucks3.  I missed a bunch because I did not see them\nImmediate comliance\nJL\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: [COS] General: Fwd: suspiciously precise floats, or, how I got Cl",
+      "to": "D2M Concierge <d2mconcierge@gmail.com>",
+      "date": "Fri, 15 May 2026 11:41:35 -0600",
+      "body": "I would like to keep as much as possible in Claude Max, which is why I am\nattempting to figure out our spend rate as it applies to limit. Any insight\nyou have on that would be great. As far as all the tracking, I think it's a\ngreat idea for you to implement. Please notify me with what you have done\nonce complete. And as always show proof.",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "I'm available",
+      "to": "Ronald Westbrook <rwestbrook3@gmail.com>",
+      "date": "Fri, 15 May 2026 11:18:49 -0600",
+      "body": "Rondo, Susie at PT 1300. Available to help with computer\nJohn\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "",
+      "to": "D2M Concierge <d2mconcierge@gmail.com>",
+      "date": "Fri, 15 May 2026 09:45:50 -0600",
+      "body": "It looks like you've already updated it. Well done 👍 👍\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: THUNDERBIRD WAR ROOM - Invitation to edit",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 15 May 2026 11:40:47 -0700",
+      "body": "ISSUE:\nNone\n\nDISCUSSION:\nGoogle Looker Studio invitation from Commander to edit THUNDERBIRD WAR ROOM dashboard (internal operational reporting/analytics tool).\n\nACTIONS I RECOMMEND TAKING:\n1. If recipient is assigned to Thunderbird operations: accept invitation and access dashboard\n2. If recipient is unclear, forward to COS (Hale) for task routing\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-05-15 12:40 MT\nThunderbird Email Intelligence Officer",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Specialty Dining Aboard Viking Mars — Preferences Before We Plan",
+      "to": "\"Kyle.Kuklinski@gmail.com\" <kyle.kuklinski@gmail.com>",
+      "date": "Fri, 15 May 2026 09:21:10 -0600",
+      "body": "Morning Kyle. I imagine you use AI in your work everyday. So you can\nunderstand how I am trying to liberate my AI to take care of the myriad\ndetails for my 17 clients, but at the same time keep them from engaging\ndirectly. Well, something broke this morning. That is why two emails got\nsent, but the message got across - we are here and ready to help. We are\ndefinitely doing flight searches and all the other things that we talked\nabout earlier, so please engage if you have ideas.\nJohn",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Specialty Dining Aboard Viking Mars — Preferences Before We Plan",
+      "to": "kyle.kuklinski@gmail.com, Rosalie.Kuklinski@gmail.com, Roger.kuklinski@gmail.com, nikpack@gmail.com, Josh@jerichopix.com, Buzzerica@gmail.com",
+      "date": "Fri, 15 May 2026 09:38:39 -0500",
+      "body": "Hi Kyle,\n\nViking Mars has two specialty restaurants that go beyond the included dining — and for a group of six over 10 nights, they're worth planning deliberately. Both require reservations, both fill up on embarkation day, and group tables for six take a bit more coordination than a table for two.\n\nYOUR TWO SPECIALTY OPTIONS\n\nManfredi's Italian Kitchen — Viking's signature Italian restaurant. Classic antipasti, handmade pasta, branzino, osso buco. Relaxed but elevated — smart casual dress. Reservations open on embarkation day at the restaurant podium.\nhttps://www.vikingcruises.com/oceans/life-on-board/restaurants/manfredis.html\n\nThe Chef's Table — Multi-course tasting menu paired with wines. More formal, slower pace, typically 2.5–3 hours. Limited seating; one of the first things to fill on any Viking sailing.\nhttps://www.vikingcruises.com/oceans/life-on-board/restaurants/the-chefs-table.html\n\nWHAT I NEED TO KNOW\n\n1. Dietary restrictions or allergies for any of the six travelers? (Chef's Table in particular needs advance notice for modifications.)\n2. Any celebration nights? Anniversary, birthday, or other occasion during the voyage I should flag for a special table or amenity request?\n3. Dining pace preference: Does your group prefer a leisurely multi-course evening (Chef's Table pace) or a more relaxed dinner that wraps in 90 minutes (Manfredi's pace)?\n4. Both restaurants, or focus on one? With 10 nights, you could do both — or do one well. What sounds right?\n5. Any by-name requests? Specific dishes, wine preferences, or \"I've heard the [DISH] is excellent\" moments I should note?\n\nNext step: Reply with preferences and I'll build your dining strategy for embarkation day — right timing, right nights, right ask.\n\nThanks — John\n\nJohn A Loucks III\nOwner, Dreams2Memories Travel, LLC\n719-291-0742 | johnloucks3@gmail.com | www.d2mluxury.quest",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[D2M YELLOW] Preflight Check",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 15 May 2026 08:31:36 -0500",
+      "body": "Thunderbird Preflight — YELLOW\nTime: 2026-05-15 07:31 MT\n\n✅ MCP Server: Running (PID 2369)\n✅ Scheduler: Running (PID 2373)\n✅ Telegram C2: Running (PID 1133124)\n✅ Gmail Token: Valid (has refresh token)\n✅ Persona Token: Valid (has refresh token)\n✅ Disk Space: 791.8 GB free\n✅ TELEGRAM_BOT_TOKEN: Set\n✅ TELEGRAM_COMMANDER_ID: Set\n✅ GROQ_API_KEY: Set\n✅ Internet: Connected\n⚠️ Gemini API: Skipped (--quick)\n✅ MCP Port 8765: Listening",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[D2M RED] Preflight Check",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 15 May 2026 07:50:07 -0500",
+      "body": "Thunderbird Preflight — RED\nTime: 2026-05-15 06:50 MT\n\n✅ MCP Server: Running (PID 2369)\n✅ Scheduler: Running (PID 2373)\n🔴 Telegram C2: NOT RUNNING\n✅ Gmail Token: Valid (has refresh token)\n✅ Persona Token: Valid (has refresh token)\n✅ Disk Space: 791.8 GB free\n✅ TELEGRAM_BOT_TOKEN: Set\n✅ TELEGRAM_COMMANDER_ID: Set\n✅ GROQ_API_KEY: Set\n✅ Internet: Connected\n✅ Gemini API: Responding\n✅ MCP Port 8765: Listening",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "HALE — DAILY BRIEF | 2026-05-15 06:00 MT",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 15 May 2026 04:50:03 -0700",
+      "body": "📊 HALE — DAILY OPERATIONAL BRIEF Generated 2026-05-15 · 06:00 MT · Commander John Loucks 📊 Client Lifecycle Wheel 7 active clients, urgency-coded segments, FPD countdown arcs. Click segment for detail panel. View Lifecycle Wheel → 💰 Financial Waterfall Commission pipeline flow: Prospects → Booked → At-Risk → Projected. Allianz claim divergence shown. View Waterfall → 🔥 Task Heat Map Clients × Task Types grid. Urgency-colored, effort-encoded. Hover for task roster by cell. View Heat Map → ⚠️ Risk Matrix Likelihood × Disruption scatter. Quadrants: Escalate (red), Mitigate (yellow), Monitor, Accept. Action registry below. View Risk Matrix → ⚡ DECISIONS NEEDED FROM COMMANDER Approve 11 Gmail Drafts? Kuklinski (validation), McLeod (Silver Muse 60-day + Grandeur TP0.5/TP0.6), Westbrook (Perx + SkyLux), Furlow/Nichols/Ely (CAK). All staged in d2mconcierge drafts folder. Initiate Lyons FPD Outreach? Nancy & Ken Lyons — FPD May 11 (14 days remaining). Direct Commander action required. Chase Furlow $15,486 Payment? Final payment was due Apr 1. Confirm received or authorize A9 follow-up. Re-Auth TESS? Financial feed is blind. Run: python3 thunderbird_tess.py --authorize to restore commission visibility. HALE — Col Victoria \"Iron Vic\" Hale | Chief of Staff | Dreams2Memories Travel, LLC This brief is generated automatically at 05:50 MT daily and sent at 06:00 MT. Link expires in 90 days. Briefs archived locally + Google Drive.",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "HALE — DAILY BRIEF | 2026-05-16 06:00 MT",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 16 May 2026 07:50:01 -0400",
+      "body": "📊 HALE — DAILY OPERATIONAL BRIEF Generated 2026-05-16 · 06:00 MT · Commander John Loucks 📊 Client Lifecycle Wheel 7 active clients, urgency-coded segments, FPD countdown arcs. Click segment for detail panel. View Lifecycle Wheel → 💰 Financial Waterfall Commission pipeline flow: Prospects → Booked → At-Risk → Projected. Allianz claim divergence shown. View Waterfall → 🔥 Task Heat Map Clients × Task Types grid. Urgency-colored, effort-encoded. Hover for task roster by cell. View Heat Map → ⚠️ Risk Matrix Likelihood × Disruption scatter. Quadrants: Escalate (red), Mitigate (yellow), Monitor, Accept. Action registry below. View Risk Matrix → ⚡ DECISIONS NEEDED FROM COMMANDER Approve 11 Gmail Drafts? Kuklinski (validation), McLeod (Silver Muse 60-day + Grandeur TP0.5/TP0.6), Westbrook (Perx + SkyLux), Furlow/Nichols/Ely (CAK). All staged in d2mconcierge drafts folder. Initiate Lyons FPD Outreach? Nancy & Ken Lyons — FPD May 11 (14 days remaining). Direct Commander action required. Chase Furlow $15,486 Payment? Final payment was due Apr 1. Confirm received or authorize A9 follow-up. Re-Auth TESS? Financial feed is blind. Run: python3 thunderbird_tess.py --authorize to restore commission visibility. HALE — Col Victoria \"Iron Vic\" Hale | Chief of Staff | Dreams2Memories Travel, LLC This brief is generated automatically at 05:50 MT daily and sent at 06:00 MT. Link expires in 90 days. Briefs archived locally + Google Drive.",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Thunderbird Code Backup — 2026-05-18 @Thunderbird Backups #thunderbird #backup #code",
+      "to": "yodainva.5d9fc@m.evernote.com",
+      "date": "Mon, 18 May 2026 04:00:29 -0400",
+      "body": "Thunderbird Code Backup\nDate: 2026-05-18\nFiles: 912 (908 .py, 4 .md)\nTotal size: 12654 KB\nZip size: 3762 KB\n\nAttached: thunderbird_code_20260518.zip",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Fwd: COS: Your At SIX pay-later coupon",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sun, 17 May 2026 18:12:54 +0000",
+      "body": "ISSUE:\nAl Ely dossier contains incorrect name (Albert vs. ALFRED) and phone number; payment status of August 27-28 room reservation needs verification and clarification.\n\nDISCUSSION:\nAl Ely flagged three issues: name should be ALFRED (not Albert), phone should be 214-394-7137, and questioned payment status of Aug 27-28 room reservation. Commander directing COS to search payment history, update dossier, and confirm.\n\nACTIONS I RECOMMEND TAKING:\n1. Search email since September 2025 for Al Ely payment records related to August 27-28 room\n2. Update dossier with correct name (ALFRED Ely) and phone (214-394-7137)\n3. Verify payment status—confirm if August 27-28 room is paid in full or has outstanding balance\n4. Reply to Commander with findings and confirmation of dossier updates\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-05-17 12:12 MT\nThunderbird Email Intelligence Officer",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "HALE — DAILY BRIEF | 2026-05-17 06:00 MT",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sun, 17 May 2026 07:50:01 -0400",
+      "body": "📊 HALE — DAILY OPERATIONAL BRIEF Generated 2026-05-17 · 06:00 MT · Commander John Loucks 📊 Client Lifecycle Wheel 7 active clients, urgency-coded segments, FPD countdown arcs. Click segment for detail panel. View Lifecycle Wheel → 💰 Financial Waterfall Commission pipeline flow: Prospects → Booked → At-Risk → Projected. Allianz claim divergence shown. View Waterfall → 🔥 Task Heat Map Clients × Task Types grid. Urgency-colored, effort-encoded. Hover for task roster by cell. View Heat Map → ⚠️ Risk Matrix Likelihood × Disruption scatter. Quadrants: Escalate (red), Mitigate (yellow), Monitor, Accept. Action registry below. View Risk Matrix → ⚡ DECISIONS NEEDED FROM COMMANDER Approve 11 Gmail Drafts? Kuklinski (validation), McLeod (Silver Muse 60-day + Grandeur TP0.5/TP0.6), Westbrook (Perx + SkyLux), Furlow/Nichols/Ely (CAK). All staged in d2mconcierge drafts folder. Initiate Lyons FPD Outreach? Nancy & Ken Lyons — FPD May 11 (14 days remaining). Direct Commander action required. Chase Furlow $15,486 Payment? Final payment was due Apr 1. Confirm received or authorize A9 follow-up. Re-Auth TESS? Financial feed is blind. Run: python3 thunderbird_tess.py --authorize to restore commission visibility. HALE — Col Victoria \"Iron Vic\" Hale | Chief of Staff | Dreams2Memories Travel, LLC This brief is generated automatically at 05:50 MT daily and sent at 06:00 MT. Link expires in 90 days. Briefs archived locally + Google Drive.",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Silversea Cruises — Company Profile & Market Analysis | A2 Dembe | AFA Format (v3)",
+      "to": "Steve Trien <steve@srtrientech.com>",
+      "date": "Mon, 18 May 2026 22:08:27 -0600",
+      "body": "You got me interested.  I have now update my previous Regent and Atlas\nOcean as well.\nJohn",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "One less letter for you to write",
+      "to": "Ronald Westbrook <rwestbrook3@gmail.com>",
+      "date": "Mon, 18 May 2026 22:06:16 -0600",
+      "body": "Rondo, let me know if I can help any more.  It is editable in Word.\nPlease check all the numbers and booking info.  If you need help\nlogging onto Allianz and uploading all the docs (electronic) just ask.\nI have done about 4.\n\nJohn\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: LINDYS COMPUTER INFO",
+      "to": "Ronald Westbrook <rwestbrook3@gmail.com>",
+      "date": "Mon, 18 May 2026 06:29:36 -0600",
+      "body": "Rondo, I tried last night to switch my robo to Lindy's, and could not do\nit. Too many authentications sent to her email needed to be done. So after\nyou get your hopefully good doctor news today, I would like to come over\nand work off of Lindy's computer, probably would take about 30 minutes.",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "Re: McLeod ESCALATION — 31 Days to Departure | Action Required",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 18 May 2026 18:58:26 -0400",
+      "body": "Commander,\n\nTask completed by Ms. Victoria 'Victory' Hale, SES-6 — Chief of Staff.\nOriginal email: \"Re: McLeod ESCALATION — 31 Days to Departure | Action Required\" from John Loucks3 <johnloucks3@gmail.com>\nCompleted: 2026-05-18 16:58 MT\n\n────────────────────────────────────────────────────────────\n\n🦅\n\nRoger. Hotel gap was my mis-read — Chase confirmation showing Jun 19 check-in is the correct arrival night. No gap. Correcting the record.\n\nShore excursions and cabin follow-up route back to Dani as standard TP work. No Commander action required on McLeod.\n\n— Victory\n\n────────────────────────────────────────────────────────────\n\nThanks,\nThunderbird Wing\nDreams2Memories Travel, LLC",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "RE: Fwd: SS Grandeur — Specialty Dining Strategy",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 18 May 2026 12:37:36 -0700",
+      "body": "Commander,\n\nTask completed by Ms. Victoria 'Victory' Hale, SES-6 — Chief of Staff.\nOriginal email: \"Fwd: SS Grandeur — Specialty Dining Strategy\" from Dreams2Memories <d2mconcierge@gmail.com>\nCompleted: 2026-05-18 13:37 MT\n\n────────────────────────────────────────────────────────────\n\nYou're out of extra usage · resets 2:40pm (America/Denver)\n\n────────────────────────────────────────────────────────────\n\nThanks,\nThunderbird Wing\nDreams2Memories Travel, LLC",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "HALE — DAILY BRIEF | 2026-05-18 06:00 MT",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 18 May 2026 07:50:01 -0400",
+      "body": "📊 HALE — DAILY OPERATIONAL BRIEF Generated 2026-05-18 · 06:00 MT · Commander John Loucks 📊 Client Lifecycle Wheel 7 active clients, urgency-coded segments, FPD countdown arcs. Click segment for detail panel. View Lifecycle Wheel → 💰 Financial Waterfall Commission pipeline flow: Prospects → Booked → At-Risk → Projected. Allianz claim divergence shown. View Waterfall → 🔥 Task Heat Map Clients × Task Types grid. Urgency-colored, effort-encoded. Hover for task roster by cell. View Heat Map → ⚠️ Risk Matrix Likelihood × Disruption scatter. Quadrants: Escalate (red), Mitigate (yellow), Monitor, Accept. Action registry below. View Risk Matrix → ⚡ DECISIONS NEEDED FROM COMMANDER Approve 11 Gmail Drafts? Kuklinski (validation), McLeod (Silver Muse 60-day + Grandeur TP0.5/TP0.6), Westbrook (Perx + SkyLux), Furlow/Nichols/Ely (CAK). All staged in d2mconcierge drafts folder. Initiate Lyons FPD Outreach? Nancy & Ken Lyons — FPD May 11 (14 days remaining). Direct Commander action required. Chase Furlow $15,486 Payment? Final payment was due Apr 1. Confirm received or authorize A9 follow-up. Re-Auth TESS? Financial feed is blind. Run: python3 thunderbird_tess.py --authorize to restore commission visibility. HALE — Ms. Victoria \"Victory\" Hale, SES-6 | Chief of Staff | Dreams2Memories Travel, LLC This brief is generated automatically at 05:50 MT daily and sent at 06:00 MT. Link expires in 90 days. Briefs archived locally + Google Drive.",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
       "tier": "internal",
       "subject": "[COS] General: BREAKING:  Most Americans say war in Iran is going",
       "to": "johnloucks3@gmail.com",
@@ -10556,6 +11114,168 @@
       "to": "johnloucks3@gmail.com",
       "date": "Tue, 5 May 2026 15:55:12 -0700",
       "body": "ISSUE:\nVerify OAuth access grant to d2mconcierge@gmail.com is expected and authorized.\n\nDISCUSSION:\nGoogle security alert notifying that Thunderbird Command was granted access to d2mconcierge@gmail.com. Standard OAuth permission notification for system integration.\n\nACTIONS I RECOMMEND TAKING:\n1. Check Google Account security activity to verify this is the expected Thunderbird Command / Claude Code system integration\n2. If access is unexpected, revoke immediately at Google Account connections settings\n3. If expected, no action required—document as baseline OAuth setup\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-05-05 16:55 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Status of Hotels and Finnair seat assignments",
+      "to": "Larry Nichols <larry.nichols4811@gmail.com>, Heidi Nichols <heidi.nichols1@yahoo.com>, Al Ely <al.ely58@gmail.com>, Amy Darrow <amy.darrow@me.com>, Melissa Furlow <missy.furlow@gmail.com>, John Furlow <john.furlow@tpf.org>",
+      "date": "Wed, 13 May 2026 08:42:13 -0600",
+      "body": "Good morning, I JUST sent you the Preliminary Cruise Details from Regent.\nIf you all compare you will see three different pre-cruise hotel options:\n1) No hotel mentioned, 2) At Six, or 3) Scandic Haymarket.  I need to\ncontact Regent to straighten out this mess but before I do, here is my\nrecommendation: change your hotel to AT SIX.  You can find it here:\nhttps://hotelatsix.com/  Ignore the lady with the dog.  Susie and I stayed\nhere: great rooms, great service, nice location. The Regent bus leaves from\nthat location.  Please state your intentions.\n\nAlso, has anyone decided to pay for their advance seat assignment on the\nFinnair flight? If so, can you let me know the charge/fee?\n\nThanks--\nJohn\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Re: COS: Status of Hotels and Finnair seat assignm",
+      "to": "johnloucks3@gmail.com",
+      "date": "Wed, 13 May 2026 15:36:53 -0700",
+      "body": "ISSUE:\nPre-cruise logistics coordination: hotel switch requires Regent confirmation before Haymarket cancellation; Finnair seat assignment cost data being collected from clients; transportation logistics pending finalization.\n\nDISCUSSION:\nCommander orchestrating hotel switch (Haymarket → AT SIX), Finnair seat assignment tracking, and Regent bus coordination for August 2026 cruise pre-cruise stay. Multiple clients responding with confirmations and booking details.\n\nACTIONS I RECOMMEND TAKING:\n1. Log hotel coordination (Haymarket → AT SIX) for audit trail\n2. Collect/consolidate Finnair seat assignment receipts and costs from Nichols, Furlow, Ely\n3. Track Regent confirmation on room linkage at AT SIX (required 2 weeks pre-departure per Melissa)\n4. Confirm Regent bus reservations both directions from AT SIX\n5. Cancel Haymarket only AFTER AT SIX confirmation received\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-05-13 16:36 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "Re: Fwd: Your Japan Itinerary — Revised with Your Preferences Built In",
+      "to": "johnloucks3@gmail.com",
+      "date": "Wed, 13 May 2026 16:32:51 -0500",
+      "body": "Good. Now I have the full picture. Let me process this precisely.\n\n**Situation:** Ann's April 29 reply + Commander's directive give me clear changes. The constraint is 7 fixed nights (Aug 8–16, flights in/out of Tokyo). Current structure: 2 Tokyo + 2 Kyoto + 2 Osaka + 1 return Tokyo = 7. Adding 1 Tokyo night requires trading 1 from elsewhere. Osaka is the only candidate (Kyoto locked at 2-night ryokan per Ann).\nDossier updated. Briefing Commander now.\n\n---\n\n🦅\n\n*Heer Japan — Dossier Updated | 5 Changes Applied*\n\n---\n\n**CHANGES FROM ANN'S APRIL 29 EMAIL:**\n\n**1. Lodging: 2 rooms → 1 room (2 queen beds)**\nAll properties. Parents + daughters sharing to manage daughters' budgets. Significant cost reduction at every stop.\n*Ryokan note: No queen beds — traditional tatami, futon sets. Need to specify 4-person capacity room at booking.*\n\n**2. Kyoto Ryokan: Confirmed 2 nights**\n\"The splurge stay.\" Already in dossier from May 2. No change — just confirmed by Ann directly.\n\n**3. Budget profile: Mixed / daughters paying independently**\nPer-person pricing at budget tier must stand alone for the daughters. Already in dossier framework.\n\n---\n\n**YOUR DIRECTIVE (+1 TOKYO):**\n\n**4. Tokyo: 2 nights → 3 nights ✅**\n\n*However — there's a math problem, John.*\n\nFlights are fixed in/out of Tokyo. Trip is 7 nights total. Current structure was:\n`2 Tokyo + 2 Kyoto + 2 Osaka + 1 return Tokyo = 7`\n\nAdding 1 Tokyo night gets to 8. *Something has to give.*\n\n**My call:** Osaka drops from 2 → 1 night.\n\n**Revised structure:**\n| Night | City |\n|-------|------|\n| 1–3 | Tokyo (arrival) |\n| 4–5 | Kyoto — Ryokan |\n| 6 | Osaka — highlight stop |\n| 7 | Tokyo — return/rest before departure |\n\nOsaka in 1 night is tight but workable: Dotonbori evening, street food, Osaka Castle or Shinsekai. It becomes a cultural taste rather than a deep dive.\n\n---\n\n**⚠️ CONFIRM ONE THING:**\nIs *Osaka → 1 night* acceptable to you, or do you want a different trade?\n\nAlternative: Keep Osaka at 2 nights, reduce Tokyo back to 2, add the extra night as the return Tokyo night instead. But that doesn't net you more Tokyo exploration time.\n\n**My recommendation:** 3 Tokyo + 2 Kyoto (ryokan) + 1 Osaka + 1 return Tokyo = 7. Lock it.\n\n---\n\n**5. Open work remaining:**\n- Tokyo Day 3 content (new night — sumo/Yanaka/Edo expansion)\n- Osaka 1-night build-out (new scope)\n- Kyoto ryokan 4-person room verification\n- Shinkansen reservations (Obon — book ASAP once locked)\n\n*— Iron Vic*",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "Re: [COS] General: Fwd: Your Japan Itinerary — Revised with Your Pref",
+      "to": "johnloucks3@gmail.com",
+      "date": "Wed, 13 May 2026 14:26:49 -0700",
+      "body": "Dossier is stale — updating now with full thread intelligence.\n🦅\n\nCommander — you're right, and I own it.\n\n*Critique accepted.* When Ann replied with preferences and I needed the prior itinerary, I asked instead of searching. Gmail search was available the entire time. That's a gap in my default posture, not a capability gap. Corrected it right now — searched the full thread, recovered all eight touchpoints going back to April 26.\n\n---\n\n**HEER, ANN & SHAWN — STATUS BRIEF**\n\n| Field | Value |\n|-------|-------|\n| Clients | Ann & Shawn Heer |\n| Email | iamheer@outlook.com |\n| Relationship | *Commander's neighbors — complimentary, no commission* |\n| Trip | Japan · Aug 8–16, 2026 |\n| Party | 4 (Ann + Shawn + 2 daughters) · 2 rooms every stop |\n| Air | *BOOKED — fixed, no night count changes* |\n\n**City Structure (per your 2 MAY directive):**\n- 2 nights Tokyo\n- 2 nights Kyoto *(premium ryokan — Ann's splurge)*\n- 2 nights Osaka\n- Hiroshima: DROPPED\n- Return to NRT for outbound flights\n\n**What's been sent:** Three itinerary versions through May 2. Latest v3 covered Tokyo + Kyoto with full tiered pricing. Osaka content *not yet built*.\n\n---\n\n**🔴 OPEN ITEM — OSAKA NOT BUILT**\n\nOsaka replaced Hiroshima on your May 2 directive. That 2-night block has no content yet:\n- Osaka historical/cultural experiences (Ann's profile — Dotonbori is NOT what she wants; Osaka Castle, Sumiyoshi Taisha, Shinsekai are the direction)\n- 2-room tiered lodging (A/B/C, per-person)\n- Shinkansen Kyoto→Osaka + Osaka→NRT logistics\n\n**Dossier updated** with full engagement history, Ann's confirmed preferences, and all open items.\n\n*Ready to build the Osaka block on your order. Or if Ann's already reviewing v3 and hasn't come back — hold until she responds.*\n\n— *Iron Vic*",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Fwd: n8n Security Update - May 13, 2026",
+      "to": "johnloucks3@gmail.com",
+      "date": "Wed, 13 May 2026 13:40:31 -0500",
+      "body": "ISSUE:\nD2M's n8n instance must be assessed for version and patched immediately to prevent RCE and credential exfiltration attacks.\n\nDISCUSSION:\nn8n published 6 security advisories (5/13/2026) including 3 Critical vulnerabilities: XML Node Prototype Pollution Bypass, Arbitrary File Read via Git Node, and HTTP Request Node Pagination to RCE. Patches available in v1.123.43 (v1), v2.21.1 (beta), v2.20.7 (stable).\n\nACTIONS I RECOMMEND TAKING:\n1. Check current n8n version running on D2M infrastructure (likely v2.x based on production deployment)\n2. Verify if patched versions (v1.123.43, v2.20.7, or v2.21.1) are deployed\n3. If running pre-patch versions, schedule upgrade immediately given Critical severity and RCE risk\n4. Audit n8n workflows for use of affected nodes: XML, Git, HTTP Request, ExecuteWorkflow, Source Control Pull\n5. Cross-reference: Any active booking automations, client data flows, or supplier integrations through n8n must be validated post-patch\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-05-13 12:40 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Security alert",
+      "to": "johnloucks3@gmail.com",
+      "date": "Wed, 13 May 2026 12:24:23 -0500",
+      "body": "ISSUE:\nVerify that 'Thunderbird Command' OAuth access to d2mconcierge@gmail.com is legitimate and authorized.\n\nDISCUSSION:\nGoogle security notification: OAuth access to d2mconcierge@gmail.com was granted to 'Thunderbird Command'. Requires verification this is an authorized application.\n\nACTIONS I RECOMMEND TAKING:\n1. Check the activity link to review access details and timestamp\n2. Confirm 'Thunderbird Command' is a recognized internal service (likely Claude Code or Thunderbird OS component)\n3. If unfamiliar, review connected apps in Google Account → Security → Apps with account access\n4. If unauthorized, revoke access immediately and change d2mconcierge password\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-05-13 11:24 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: suspiciously precise floats, or, how I got Claude'",
+      "to": "johnloucks3@gmail.com",
+      "date": "Thu, 14 May 2026 22:16:41 -0700",
+      "body": "ISSUE:\nCOS needs to route to appropriate staff and task background paper on Claude limits + implementation recommendations\n\nDISCUSSION:\nCommander directing COS to review article on Claude's technical limits, extract token/credit conversion formula, and task staff to write background paper with implementation ideas.\n\nACTIONS I RECOMMEND TAKING:\n1. Route to COS Hale for staff tasking\n2. Review article at https://she-llac.com/claude-limits for token/credit conversion formula\n3. Task staff to draft background paper with implementation ideas (reference: Staff Paper Format — ISSUE/DISCUSSION/OPTIONS/ACTIONS)\n4. Identify which D2M systems (incubator, headless dispatch, model routing) could benefit from tighter Claude limit accounting\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-05-14 23:16 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Re: AT Six",
+      "to": "johnloucks3@gmail.com",
+      "date": "Thu, 14 May 2026 08:49:25 -0700",
+      "body": "ISSUE:\nSome party members lack assigned seats; need clarification on which guests still require seat assignments and whether fees were incurred.\n\nDISCUSSION:\nAl Ely confirms Finnair flight 811 seats (2A, 2C) for August 27th Helsinki→Stockholm leg. Commander requesting clarification on seat fees for remaining party members and confirming additional cabin booking.\n\nACTIONS I RECOMMEND TAKING:\n1. Confirm which party members still need Finnair seat assignments\n2. Verify American Airlines Executive Platinum status covers seat assignments for entire party\n3. Book additional cabin/room for Al and Amy as requested\n4. Update Ely dossier with Helsinki→Stockholm Finnair details and cabin configurations\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-05-14 09:49 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "How to Use Third-Party APIs in Claude Code Desktop--from Intel Report",
+      "to": "D2M Concierge <d2mconcierge@gmail.com>",
+      "date": "Fri, 15 May 2026 12:52:48 -0600",
+      "body": "COO, task Hale ALpha to look into this, requires web search and then\nstandard analysis with report. This could change our operations. You cannot\naccess urls but they can. Here are ones I found\nhttps://www.reddit.com/r/ClaudeAI/comments/1r2fbex/enable_thirdparty_apps_to_use_claude_code_without/\nhttps://thetricontinental.org/how-to-connect-claude-code-to-alternative-apis/\nhttps://code.claude.com/docs/en/third-party-integrations\nhttps://prismatic.io/best-integration-platform-v2/?vector_id=20515509043&vector_source=GOOGLE&vector_campaign=D%26D+-+API+Integration+Platform+Refresh+-+US&utm_source=google&utm_medium=paid_search&utm_campaign=20515509043&utm_campaignname={campaign}&utm_content=808015440627&utm_term=api%20third%20party&gad_source=1&gad_campaignid=20515509043&gbraid=0AAAAACPIMUhrrh_KkDAa9ltKRnUQ9xEeu&gclid=Cj0KCQjwiJvQBhCYARIsAMjts3JLw648JMCvZua14oFRUnXWYa1B8kh6NimVBe1hJrprfzq2VpB9KPUaAoO-EALw_wcB\n\nJL\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Hale brain options",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 16 May 2026 02:01:34 -0400",
+      "body": "ISSUE:\nInfrastructure decision: Should HALE brain #2 (OpenCode headless dispatch) migrate to DeepSeek V4 Flash (free tier) from current free-tier model?\n\nDISCUSSION:\nCommander requests COS analysis of DeepSeek V4 Flash as replacement for HALE brain #2 free tier model. Background paper from Big Pickle (OpenCode analysis) recommends swap: 5x context (200K→1M), estimated 15-25% quality improvement, zero cost, safe fallback.\n\nACTIONS I RECOMMEND TAKING:\n1. 1. Review Big Pickle's background paper analysis — cost/context/benchmark comparison vs. current model\n2. 2. Evaluate three options: A (swap free tier only), B (route routine_analysis to free tier), C (paid V4 Pro)\n3. 3. Assess risk: OpenRouter free-tier stability, data privacy (free tier may train on inputs), rate limits\n4. 4. Develop implementation plan: one-line change to thunderbird_model_router.py, test routing, verify fallback\n5. 5. Recommend Option A (lowest risk, immediate payoff) or Option B (cost savings + quality) with timeline\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-05-16 00:01 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: ⚠️ Your Gmail storage is 70% full",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 15 May 2026 13:58:44 -0700",
+      "body": "ISSUE:\nGmail storage quota nearing limit — may impact email operations and Google Drive file uploads if not addressed\n\nDISCUSSION:\nGoogle notification: Gmail storage at 10.53 GB of 15 GB quota (70% full). D2M account approaching limit that could restrict send/receive and Drive uploads.\n\nACTIONS I RECOMMEND TAKING:\n1. Review Gmail storage breakdown (identify large attachments/threads)\n2. Archive old emails and delete unnecessary items from trash/spam folders\n3. Check Drive storage usage (shared quota with Gmail)\n4. Evaluate Google One membership for 100 GB+ expanded storage\n5. Implement quarterly email cleanup routine to prevent recurring issue\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-05-15 14:58 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Melissa McGlasson Transportation issues",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 15 May 2026 14:06:36 -0500",
+      "body": "ISSUE:\nClient Melissa McGlasson has transportation-related concerns on Silversea booking requiring comprehensive documentation and analysis\n\nDISCUSSION:\nCommander directive to COS Hale: develop background paper on Melissa McGlasson's Silversea transportation concerns, including all correspondence, responses, and resolution to date.\n\nACTIONS I RECOMMEND TAKING:\n1. Create background paper per Commander directive\n2. Document timeline: McGlasson's original concerns → D2M response → Silversea response → client reaction → agreed resolution\n3. No confirmation email required — execute directly per Commander instruction\n4. Route final paper to Commander\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-05-15 13:06 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Re: [COS] General: Fwd: suspiciously precise float",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 15 May 2026 10:34:00 -0700",
+      "body": "ISSUE:\nCommander approval received; staff paper requires routing to COS for assignment to A5 Castillo and A9 Harlan per recommendations\n\nDISCUSSION:\nCommander approves staff paper on Claude subscription credit-to-token conversion analysis. Requires routing to COS (Hale) for staff tasking on cost optimization implementation.\n\nACTIONS I RECOMMEND TAKING:\n1. Route to COS (Hale) for staff tasking per email recommendations\n2. Brief A5 Castillo on credit-to-token budgeting formulas\n3. Brief A9 Harlan on cache optimization ROI analysis\n4. Task team to analyze D2M's current usage patterns against conversion formula\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-05-15 11:34 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Fwd: suspiciously precise floats, or, how I got Cl",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 15 May 2026 12:23:45 -0500",
+      "body": "ISSUE:\nTask staff to identify and implement optimization opportunities from Claude's pricing analysis (Max plan value, cache optimization, credit-to-token conversion formulas).\n\nDISCUSSION:\nCommander forwarded technical analysis of Claude's subscription pricing tiers and credit-to-token conversion formulas, requesting staff ideas for optimization and background paper.\n\nACTIONS I RECOMMEND TAKING:\n1. Route to COS (Hale) for immediate staff tasking assignment\n2. Brief A5 Castillo (Deputy COS/Operating Tempo) on credit-to-token formulas for weekly budget tracking\n3. Brief A9 Harlan (Finance) on cache optimization ROI and subscription vs. API cost comparison\n4. Analyze D2M's current usage patterns against the article's credit conversion formula\n5. Prepare background paper documenting implementation recommendations per Commander request\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-05-15 11:23 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Claude's 15 Agent Workflows: Digital Employees for",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 15 May 2026 05:27:03 -0700",
+      "body": "ISSUE:\nTechnology intelligence: Claude product expansion into SME agent workflows may offer operational optimization insights for Thunderbird OS.\n\nDISCUSSION:\nAnthropic has launched Claude for Small Business with 15 ready-to-use Agent workflows, positioning AI as 'digital employees.' Substack analysis of how SOPs are being transformed into intelligent agents.\n\nACTIONS I RECOMMEND TAKING:\n1. Review the 15 Agent Workflows against Thunderbird architecture (Hale, A-staff, persona system) for adoption opportunities\n2. Forward to A12 ELON (Innovation & Disruption owner) for innovation scan cadence\n3. Assess if any off-the-shelf workflows reduce custom implementation burden vs. current build\n\n---\nStaff Paper from Victoria Hale, D2M Travel\nGenerated: 2026-05-15 06:27 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "McLeod ESCALATION — 31 Days to Departure | Action Required",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 18 May 2026 17:39:26 -0500",
+      "body": "<strong style=\"color:#cc0000;\">CLIENT: Erik &amp; Melissa McLeod — Silver Muse Mediterranean</strong>\n\n<table>\n<tr><td><strong>Departure:</strong></td><td>June 18, 2026 (DEN → Rome)</td></tr>\n<tr><td><strong>Embarkation:</strong></td><td>June 23, 2026 (Civitavecchia)</td></tr>\n<tr><td><strong>Days Out:</strong></td><td><strong style=\"color:#cc0000;\">31 days — CRITICAL WINDOW</strong></td></tr>\n</table>\n\n<p><strong>OPEN ITEMS REQUIRING YOUR CALL:</strong></p>\n\n<ol>\n<li><strong>Hotel gap — Jun 18 night unconfirmed.</strong> Flight arrives Rome Jun 18 PM. Chase confirmation shows Jun 19 check-in. Erik may have no hotel coverage that night. Needs your direct contact to confirm or fix before departure.</li>\n<li><strong>Shore excursion window closing.</strong> Silversea excursion reservations are open now. Naples, Sicily, Malta, Dubrovnik — cultural/immersive profile. Wing has shortlist ready to send to Erik on your go-ahead.</li>\n<li><strong>No cabin selection response on file</strong> — overdue since May 10.</li>\n</ol>\n\n<p><strong>RECOMMENDATION:</strong> Personal outreach from you — one email or call. High-touch appropriate given the relationship context (trust-building in progress after transfer friction).</p>\n\n<p><em>McLeod is the only client of 6 overdue that warrants Commander escalation. All others are standard Dani follow-up.</em></p>",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "Crystal Cruises — Company Profile & Market Analysis (Service Version)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 18 May 2026 18:18:59 +0000",
+      "body": "Dreams2Memories Travel Curating the voyage of your lifetime Pro Bono Service — Analysis by AI Staff Crystal Cruises Company Profile & Market Analysis Prepared for: John Loucks, CEO | Researcher: Marcus Dembe (AI Research Analyst) | Date: 2026-05-18 Executive Summary Crystal Cruises returned from a 2022 bankruptcy as a genuinely transformed product under A&K Travel Group ownership. $170M in refurbishments, reduced passenger counts, 1:1 crew ratios, Nobu and Michelin dining aboard, and a first newbuild in 25 years. Profitable in 2025. Asia 2026 sold out. Alaska nearly full. Commission structure is advisor-favorable (10–16% + 5% new-to-Crystal bonus). Competes directly with Regent and Seabourn. Company Overview Owner: A&K Travel Group (Heritage Group). Acquired at bankruptcy auction 2022. Relaunched July 2023. Net profitable 2025. Asia SOLD OUT, Alaska near capacity. Three newbuilds on order. Fleet Crystal Serenity — 740 pax, 1:1 crew, Nobu + Michelin dining. Mediterranean/Northern Europe. Crystal Symphony — 606 pax. Alaska return July 2026 (7 back-to-back sailings). Caribbean. Crystal Grace (2028) — 650 pax all-suite. First newbuild in 25 years. Beefbar at sea. Two sister ships. Commission & Incentives 10% base, up to 16% luxury specialist, +5% new-to-Crystal bonus. Payment 30–50 days pre-departure. Explorer Fare: ~20% early booking discount. Key Considerations Dining: Specialty restaurants fill fast — clients should book at embarkation Crew: Some inconsistency reported; rebuilding post-bankruptcy Legacy: $100M+ pre-bankruptcy credits unresolved — address ownership change proactively No expedition ships (unlike Silversea, Seabourn) Regent Seven Seas Prestige launching late 2026 — intensifies competition Recommendations Add Crystal to active portfolio Target new-to-Crystal bonus — +5% on clients new since July 2023 Alaska 2026 — act now, approaching capacity Pre-brief clients on specialty dining at embarkation Track Crystal Grace for 2028 forward positioning 32 cited sources — full analysis in GitHub — Marcus Dembe (Research) · Victoria Hale (Review) · AI Staff, Dreams2Memories Travel John Loucks Owner & Founder, Dreams2Memories Travel, LLC concierge@d2mluxury.quest · d2mluxury.quest D 2 M Dreams2Memories Travel, LLC concierge@d2mluxury.quest d2mluxury.quest © 2026 Dreams2Memories Travel, LLC · Colorado Springs, CO",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "Crystal Cruises — Full-Spectrum Scan (Internal Wing Version)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 18 May 2026 14:18:58 -0400",
+      "body": "Dreams2Memories Travel Curating the voyage of your lifetime Thunderbird Intelligence Report Crystal Cruises Full-Spectrum Scan Classification: Revenue-Tagged Market Intelligence | Prepared by: Lt Col Marcus \"Wraith\" Dembe, A2 For: Commander John \"Yoda\" Loucks · COS Victoria \"Victory\" Hale, SES-6 | Date: 2026-05-18 Executive Summary Crystal Cruises returned from a 2022 bankruptcy as a genuinely transformed product under A&K Travel Group ownership. The relaunch is no cosmetic exercise — $170M in refurbishments, reduced passenger counts, 1:1 crew ratios, Nobu and Michelin dining aboard, and a first newbuild in 25 years on the way. Financial performance turned profitable in 2025. Asia 2026 is sold out. Alaska is nearly full. The product is credible ultra-luxury, not a nostalgia act. D2M Relevance: Crystal sits squarely in the Thunderbird target portfolio. Commission structure is advisor-favorable (base 10%, up to 16%, plus 5% new-to-Crystal bonus). Crystal Grace (2028 delivery) is a forward sales opportunity worth tracking now. Company Overview Owner: A&K Travel Group (Heritage Group / Manfredi Lefebvre d'Ovidio) — acquired Crystal brand + ships at 2022 bankruptcy auction. Relaunched July 2023. Achieved net profitability in 2025. 2026 bookings ahead of all prior years. Asia SOLD OUT, Alaska approaching capacity. Three new ships on order. Ship Profiles Crystal Serenity (2003, refurb 2023) — 740 pax, 655 crew, 1:1 crew ratio. 10 dining venues including Nobu's Umi Uma and Michelin-starred Osteria D'Ovidio. Deployed Mediterranean, Northern Europe. Crystal Symphony (1995, refurb 2023/2025) — 606 pax, 530 crew. First Alaska return since 2019 — 7 back-to-back sailings July 2026. Also Caribbean. Crystal Grace (2028 delivery) — First newbuild in 25 years. 650 pax all-suite. Nobu, Beefbar at sea, Monte-Carlo SBM casino. Two sister ships planned. Business Intelligence Commission: 10% base, up to 16% for luxury specialists, +5% new-to-Crystal bonus. Payment 50 days pre-departure (standard) or 30 days (Explorer Fare). Key pain points: Dining availability (book specialty immediately at embarkation), crew consistency (rebuilding post-bankruptcy), legacy refund overhang ($100M+ unresolved). Recommendations Add Crystal to active portfolio — credible relaunch, profitable, advisor-friendly Target new-to-Crystal bonus aggressively (+5% on $25K booking = $1,250 incremental) Alaska 2026 — approaching capacity, act now Pre-brief clients on specialty dining protocol (book at embarkation) Address bankruptcy proactively: \"Separate company, A&K, $170M reinvested\" Track Crystal Grace for 2028 forward sales 32 cited sources — full report in GitHub — Lt Col Marcus \"Wraith\" Dembe, A2 Research & Market Intelligence John Loucks Owner & Founder, Dreams2Memories Travel, LLC concierge@d2mluxury.quest · d2mluxury.quest D 2 M Dreams2Memories Travel, LLC concierge@d2mluxury.quest d2mluxury.quest © 2026 Dreams2Memories Travel, LLC · Colorado Springs, CO",
       "score": 2
     }
   ]

@@ -145,7 +145,7 @@ TD_ROLE = (f'style="color: {INK}; font-family: {FONT}; font-size: 9.5pt; padding
 
 staff_rows = ""
 roster = [
-    ("Chief of Staff", "Victoria Hale", "Orchestrates priorities, resolves conflicts, runs the morning brief."),
+    ("Chief of Staff (VCSAF)", "Victory Hale", "Orchestrates priorities, resolves conflicts, runs the morning brief."),
     ("Voice &amp; Visual", "Naia Solberg-Vega", "Client communications, brand tone, proposals, template design."),
     ("Research &amp; Intel", "Marcus Dembe", "Destination research, cruise line comparisons, supplier pricing."),
     ("Booking Operations", "Dani Moreau", "Tracks every client from first inquiry through welcome home. Nothing falls through."),

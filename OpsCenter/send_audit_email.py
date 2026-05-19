@@ -18,7 +18,7 @@ try:
 except:
     body += "Report file not found."
 
-body += "\n\n***\n\nAwaiting your strategic decisions on whether to integrate any of these into Thunderbird OS.\n- Goose (A-Staff Ops)"
+body += "\n\n***\n\nAwaiting your strategic decisions on whether to integrate any of these into Thunderbird OS.\n- OpenCode (A-Staff Ops)"
 
 # Create Draft
 create_cmd = [

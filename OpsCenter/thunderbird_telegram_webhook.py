@@ -23,6 +23,11 @@ from pathlib import Path
 import requests
 from flask import Flask, jsonify, request
 
+POE_LOG = Path("/home/john/Thunderbird/logs/poe_api_calls.jsonl")
+
+from core.ai_infra.router_setup import register_all_adapters, router_health_summary
+from core.ai_infra.unified_router import dispatch, TaskRequest
+
 logging.basicConfig(level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
     handlers=[logging.StreamHandler()])
@@ -75,12 +80,18 @@ HALE_SYSTEM     = ""
 STAFF_INTRO_TXT = ""
 
 OPENCODE_MODEL_CHAIN = [
-    "anthropic/claude-sonnet-4-6",      # Claude MAX OAuth via max-proxy (localhost:5099)
-    "google/gemini-2.5-flash",          # Google AI Pro fallback
-    "opencode/deepseek-v4-flash-free",  # OpenCode native fallback (YELLOW — may expire)
-    "opencode/nemotron-3-super-free",   # Emergency fallback
+    "opencode/big-pickle",              # Native $0, never billed — primary (2026-05-19)
+    "google/gemini-2.5-flash",          # Google AI Pro flat-fee — $0
+    "opencode/nemotron-3-super-free",   # Native $0 emergency
+    # DEPRIORITIZED 2026-05-19: anthropic/claude-sonnet-4-6 drained MAX weekly cap.
+    # MAX-OAuth reserved for explicit Hale-CC Sonnet/Opus sessions only.
+    # Poe (Gemini-2.5-Flash, ~100 pts/call) is last-resort fallback — see call_poe_engine().
 ]
-_OC_RATE_MARKERS = ["rate limit", "rate-limit", "too many requests", "429"]
+_OC_RATE_MARKERS = [
+    "rate limit", "rate-limit", "too many requests", "429",
+    "credit balance", "insufficient credit", "balance is too low",
+    "quota exceeded", "account is over",
+]
 
 # ── Telegram access whitelist ────────────────────────────────────────────
 ACCESS_FILE = OPS / "telegram_access.json"
@@ -207,6 +218,7 @@ def call_claude_engine(prompt: str, model: str = SONNET_MODEL) -> str:
     """Claude headless via `claude -p`. Strips ANTHROPIC_API_KEY; uses Max OAuth."""
     env = dict(os.environ)
     env.pop("ANTHROPIC_API_KEY", None)   # Strip stale API key — it overrides OAuth
+    env.pop("ANTHROPIC_BASE_URL", None)  # Strip MAX proxy URL — breaks headless Claude
     creds = Path.home() / ".claude" / ".credentials.json"
     if creds.exists():
         try:
@@ -233,8 +245,15 @@ def call_claude_engine(prompt: str, model: str = SONNET_MODEL) -> str:
     except Exception as e:
         return f"[Engine error — {e}]"
 
+def _strip_ansi(text: str) -> str:
+    """Strip ANSI escape codes and OpenCode build-status lines from output."""
+    import re
+    text = re.sub(r'\x1b\[[0-9;]*[a-zA-Z]', '', text)
+    text = re.sub(r'^> build .*', '', text, flags=re.MULTILINE)
+    return text.strip()
+
 def call_opencode_engine(system_prompt: str, user_msg: str) -> str:
-    """OpenCode headless. Chain: google/gemini-2.5-flash → deepseek-v4-flash-free → nemotron-super-free."""
+    """OpenCode headless. Chain: anthropic/claude-sonnet-4-6 (MAX $0) → google/gemini-2.5-flash → nemotron-super-free."""
     full_prompt = f"{system_prompt[:4000]}\n\n{user_msg}" if system_prompt else user_msg
     env = dict(os.environ)
     env["PATH"] = f"/home/john/.opencode/bin:{env.get('PATH', '')}"
@@ -246,7 +265,8 @@ def call_opencode_engine(system_prompt: str, user_msg: str) -> str:
                 capture_output=True, text=True, timeout=OPENCODE_TIMEOUT,
                 cwd=str(THUNDERBIRD), env=env,
             )
-            output = (result.stdout or result.stderr or "").strip()
+            output = _strip_ansi(f"{result.stdout}\n{result.stderr}")
+            log.info("[OC] rc=%d out=%d err=%d model=%s", result.returncode, len(result.stdout), len(result.stderr), model)
             if any(m in output.lower() for m in _OC_RATE_MARKERS):
                 log.warning("OpenCode rate-limited on %s — next model", model)
                 continue
@@ -264,7 +284,54 @@ def call_opencode_engine(system_prompt: str, user_msg: str) -> str:
             log.error("OpenCode error on %s: %s", model, e)
             continue
 
-    return "[Engine error — all OpenCode models exhausted]"
+    log.warning("OpenCode chain exhausted — Poe fallback (use_poe_if_needed)")
+    return call_poe_engine(system_prompt, user_msg)
+
+def call_poe_engine(system: str, user: str, model: str = "Gemini-2.5-Flash") -> str:
+    """Poe fallback — invoked when OpenCode chain exhausted. SO-2026-05-19.
+    Default: Gemini-2.5-Flash (~100 pts/call, ~16K calls per $50). Polyglot tier only —
+    do NOT route Claude/GPT-class models through Poe by default (burns points 40x faster)."""
+    api_key = os.environ.get("POE_API_KEY", "")
+    if not api_key:
+        return "[Poe error — POE_API_KEY not set]"
+    base = os.environ.get("POE_BASE_URL", "https://api.poe.com")
+    messages = []
+    if system:
+        messages.append({"role": "system", "content": system[:3000]})
+    messages.append({"role": "user", "content": user})
+    try:
+        resp = requests.post(
+            f"{base}/v1/chat/completions",
+            headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
+            json={"model": model, "max_tokens": 4096, "messages": messages},
+            timeout=ENGINE_TIMEOUT,
+        )
+        if resp.status_code == 429:
+            return f"[Poe rate-limited on {model}]"
+        if resp.status_code == 402:
+            return "[Poe out of points — top up at poe.com]"
+        resp.raise_for_status()
+        choices = resp.json().get("choices", [])
+        out = choices[0].get("message", {}).get("content", "").strip() if choices else ""
+        # Log Poe API call for cost tracking
+        try:
+            POE_LOG.parent.mkdir(parents=True, exist_ok=True)
+            with open(POE_LOG, "a") as f:
+                f.write(json.dumps({
+                    "ts": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+                    "model": model,
+                    "points": 100,  # Default estimate; refine per model if needed
+                    "endpoint": f"{base}/v1/chat/completions"
+                }) + "\n")
+        except Exception as e:
+            log.warning("Failed to log Poe call: %s", e)
+        log.info("Poe fallback: %s (%d chars)", model, len(out))
+        return out or f"[Poe {model} empty response]"
+    except requests.Timeout:
+        return f"[Poe {model} timed out]"
+    except Exception as e:
+        log.error("Poe error on %s: %s", model, e)
+        return f"[Poe error — {model}: {e}]"
 
 def call_openrouter_direct(model: str, system: str, user: str) -> str:
     """Direct OpenRouter API call for any model ID."""
@@ -488,10 +555,16 @@ def _dispatch_one(key: str, user_text: str, group: str, chat_id: int) -> tuple[s
     )
     _record_lifecycle(chat_id, key, "RESPONDING")
     try:
-        if engine == "claude":
-            resp = call_claude_engine(f"{system}\n\nCommander {group} directive: {user_text}")
+        _user_text = f"Commander {group} directive: {user_text}"
+        _router_result = dispatch(TaskRequest(
+            system=system, user=_user_text, persona=key.upper(),
+        ))
+        if _router_result.ok:
+            resp = _router_result.text
+        elif engine == "claude":
+            resp = call_claude_engine(f"{system}\n\n{_user_text}")
         else:
-            resp = call_opencode_engine(system, f"Commander {group} directive: {user_text}")
+            resp = call_opencode_engine(system, _user_text)
         _record_lifecycle(chat_id, key, "DEBRIEF", response_preview=resp[:200])
         return key, f"<b>{name}</b>\n{resp[:1500]}"
     except Exception as e:
@@ -679,12 +752,96 @@ def _handle_costs_command(token: str, chat_id: int) -> None:
     except Exception as e:
         tg_send(token, chat_id, f"Cost dashboard unavailable: {e}")
 
+def _handle_poe_points_command(token: str, chat_id: int) -> None:
+    """Handle /poe-points command — display real-time Poe usage."""
+    import sqlite3
+    from pathlib import Path
+    
+    DB = Path.home() / "Thunderbird" / "storage" / "ai_costs.db"
+    try:
+        conn = sqlite3.connect(str(DB))
+        conn.row_factory = sqlite3.Row
+        row = conn.execute(
+            "SELECT points_balance, points_used_month, points_limit, points_pct_used FROM poe_snapshots ORDER BY ts DESC LIMIT 1"
+        ).fetchone()
+        conn.close()
+        
+        if not row:
+            tg_send(token, chat_id, "📊 No Poe data yet")
+            return
+        
+        balance = row["points_balance"] or 0
+        used = row["points_used_month"] or 0
+        limit = row["points_limit"] or 660000
+        pct = row["points_pct_used"] or 0
+        
+        # Calculate burn projection
+        days_used = 19  # Approximate days in billing period
+        daily_avg = used / max(days_used, 1)
+        days_remaining = balance / max(daily_avg, 1) if daily_avg > 0 else 999
+        
+        text = (
+            f"{format_brief_header('POE API POINTS')}\n\n"
+            f"<b>Balance:</b> {balance:,} remaining\n"
+            f"<b>Used:</b> {used:,} / {limit:,}\n"
+            f"<b>Burned:</b> {pct:.2f}%\n\n"
+            f"<b>Daily Avg:</b> {daily_avg:,.0f} pts/day\n"
+            f"<b>Days Left:</b> {days_remaining:.1f}d\n"
+        )
+        tg_send(token, chat_id, text)
+    except Exception as e:
+        tg_send(token, chat_id, f"Poe points unavailable: {e}")
+
+def _handle_zen_limits_command(token: str, chat_id: int) -> None:
+    """Handle /zen-limits command — display Zen tier limits and current usage."""
+    import sqlite3
+    from pathlib import Path
+    
+    DB = Path.home() / "Thunderbird" / "storage" / "ai_costs.db"
+    try:
+        conn = sqlite3.connect(str(DB))
+        conn.row_factory = sqlite3.Row
+        
+        limits = conn.execute(
+            "SELECT model, requests_per_hour, requests_per_day, tokens_per_hour FROM zen_limits"
+        ).fetchall()
+        
+        usage = conn.execute(
+            "SELECT ts, calls_per_hour, tokens_per_hour, calls_per_day, tokens_per_day FROM zen_usage ORDER BY ts DESC LIMIT 1"
+        ).fetchone()
+        
+        conn.close()
+        
+        if not limits:
+            tg_send(token, chat_id, "⏱️  No Zen limits configured yet")
+            return
+        
+        lines = [f"{format_brief_header('ZEN FREE TIER')}"]
+        
+        for limit in limits:
+            model = limit["model"].replace("opencode/", "").replace("openrouter/", "")
+            lines.append(f"\n<b>{model}</b>")
+            lines.append(f"  Calls/hr: {limit['requests_per_hour']}")
+            lines.append(f"  Calls/day: {limit['requests_per_day']}")
+            lines.append(f"  Tokens/hr: {limit['tokens_per_hour']}")
+        
+        if usage:
+            lines.append(f"\n<b>Current Usage</b>")
+            lines.append(f"  Hour: {usage['calls_per_hour']} calls, {usage['tokens_per_hour']} tokens")
+            lines.append(f"  Day: {usage['calls_per_day']} calls, {usage['tokens_per_day']} tokens")
+        
+        tg_send(token, chat_id, "\n".join(lines))
+    except Exception as e:
+        tg_send(token, chat_id, f"Zen limits unavailable: {e}")
+
 def _handle_help(token: str, chat_id: int, bot_name: str) -> None:
     lines = [
         f"<b>{bot_name} — Available Commands</b>", "",
         "/new — Clear context, fresh session",
         "/status — Wing health + financial pulse",
         "/costs — Cost dashboard (Claude windows, Plan, OpenRouter)",
+        "/poe-points — Poe API points usage (realtime)",
+        "/zen-limits — Zen free tier limits & usage",
         "/help — This message",
         "/reload — Reload access whitelist (Commander)", "",
     ]
@@ -779,19 +936,24 @@ def process_haluyoda_message(update: dict) -> None:
         if text == "/costs":
             _handle_costs_command(TOKEN_HALUYODA, chat_id)
             return
-        model = SONNET_MODEL
+        if text == "/poe-points":
+            _handle_poe_points_command(TOKEN_HALUYODA, chat_id)
+            return
+        if text == "/zen-limits":
+            _handle_zen_limits_command(TOKEN_HALUYODA, chat_id)
+            return
+        persona = "HALE"
         if text.upper().startswith("OPUS:"):
-            model = OPUS_MODEL
+            persona = "HALE-OPUS"
             text  = text[5:].strip()
         elif text.upper().startswith("SONNET:"):
-            model = SONNET_MODEL
+            persona = "HALE-SONNET"
             text  = text[7:].strip()
 
         tg(TOKEN_HALUYODA, "sendChatAction", chat_id=chat_id, action="typing")
 
         ctx_text = format_context_for_prompt(CTX_HALUYODA)
-        prompt = (
-            f"{HALE_SYSTEM}\n\n"
+        user_input = (
             f"--- ROLLING CONTEXT (last {MAX_CTX_TURNS} exchanges) ---\n"
             f"{ctx_text}\n"
             f"--- END CONTEXT ---\n\n"
@@ -799,8 +961,13 @@ def process_haluyoda_message(update: dict) -> None:
             'Respond as Ms. Victoria "Victory" Hale, SES-6. Open with 🦅. '
             "Brief-first. Execute-then-report posture. No preamble. No trailing summary."
         )
-
-        response = call_claude_engine(prompt, model=model)
+        _router_result = dispatch(TaskRequest(
+            system=HALE_SYSTEM, user=user_input, persona=persona,
+        ))
+        response = _router_result.text if _router_result.ok else call_claude_engine(
+            f"{HALE_SYSTEM}\n\n{user_input}",
+            model=SONNET_MODEL if persona == "HALE-SONNET" else OPUS_MODEL,
+        )
 
         if any(k in response.lower() for k in ["draft_id:", "approve this", "wf-17"]):
             m = re.search(r"draft_id:\s*(\S+)", response, re.IGNORECASE)
@@ -980,9 +1147,15 @@ def process_staff_message(update: dict) -> None:
         user_input = (f"{ctx_text}\n\nCommander: {text}"
                       if ctx_text != "[No prior context]" else f"Commander: {text}")
 
-        response = (call_claude_engine(f"{system}\n\n{user_input}")
-                    if engine == "claude"
-                    else call_opencode_engine(system, user_input))
+        _router_result = dispatch(TaskRequest(
+            system=system, user=user_input, persona=persona_key.upper(),
+        ))
+        if _router_result.ok:
+            response = _router_result.text
+        elif engine == "claude":
+            response = call_claude_engine(f"{system}\n\n{user_input}")
+        else:
+            response = call_opencode_engine(system, user_input)
 
         tg_send_chunked(TOKEN_STAFF, chat_id, f"<b>{persona_name}</b>\n\n{response}")
         append_exchange(CTX_STAFF, text, f"[{persona_name}] {response}")
@@ -1076,6 +1249,7 @@ def register_webhooks() -> None:
 
 if __name__ == "__main__":
     _load_personas()
+    register_all_adapters()
     if os.environ.get("WEBHOOK_AUTO_REGISTER", "0") == "1":
         register_webhooks()
     log.info("Telegram Webhook Gateway v2 starting on port %d", PORT)

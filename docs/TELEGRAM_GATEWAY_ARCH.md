@@ -9,10 +9,10 @@
 | Bot | Handle | Token | Engine | Identity | Audience |
 |-----|--------|-------|--------|----------|---------|
 | **D2MC2C** | @D2MC2C_bot | `***REMOVED-SECRET***` | Claude headless | **Hale** — complex reasoning, code, strategy | Commander only |
-| **GooseD2M** | @GooseD2M_bot | `***REMOVED-SECRET***` | Goose headless | **Hale** — ops, dossiers, MCP tools, daily watch | Commander only |
+| **DECOMMISSIONED** | @DECOMMISSIONED_bot | `***REMOVED-SECRET***` | Goose headless | **Hale** — ops, dossiers, MCP tools, daily watch | Commander only |
 | **Dani** | @d2m_dani_bot | `***REMOVED-SECRET***` | Goose headless | **Dani Moreau** — warm, crisp, concierge voice | Clients + Commander |
 
-**Commander always talks to Hale.** D2MC2C = Hale backed by Claude. GooseD2M = Hale backed by OpenCode/DeepSeek V3.1. Same officer, different brain depending on task complexity.
+**Commander always talks to Hale.** D2MC2C = Hale backed by Claude. DECOMMISSIONED = Hale backed by OpenCode/DeepSeek V3.1. Same officer, different brain depending on task complexity.
 
 ---
 
@@ -39,7 +39,7 @@ Current `thunderbird-telegram-c2.service` (runs `telegram_pager_c2.py`) is a **d
 ║           📱  Telegram  📱                               ║
 ╚══════════╤═══════════════╤══════════════╤════════════════╝
            │               │              │
-    @D2MC2C_bot    @GooseD2M_bot   @d2m_dani_bot
+    @D2MC2C_bot    @DECOMMISSIONED_bot   @d2m_dani_bot
     (8754681793)   (8774569956)    (8723918695)
            │               │              │
 ╔══════════▼═══════════════▼══════════════▼════════════════╗
@@ -183,7 +183,7 @@ Context cap: 10 turns, FIFO — oldest drops when 11th added.
 | `/new` | ✅ | Clear context, fresh session |
 | `/status` | ✅ | Wing health: MCP, services, last activity |
 | `/help` | ✅ | Show available commands |
-| `/brief` | GooseD2M only | Trigger Hale morning brief |
+| `/brief` | DECOMMISSIONED only | Trigger Hale morning brief |
 
 ---
 
@@ -193,7 +193,7 @@ Context cap: 10 turns, FIFO — oldest drops when 11th added.
 Loads: `~/Thunderbird/Personas/hale_cos.md` + `hale_memory.md` condensed
 Voice: Measured, authoritative. Brief first. No filler.
 
-### GooseD2M (Hale/Goose)
+### DECOMMISSIONED (Hale/Goose)
 Loads: `~/Thunderbird/hale_init.md` (the paste-in init we already built)
 Voice: Same Hale — EA/COS/COO dispositions, address protocol active.
 
@@ -251,7 +251,7 @@ Step 2 │ Formatter pipeline module
 Step 3 │ Wire Claude engine (D2MC2C)
        │   - Test: "Hale, what's today's date?" → clean response
        │
-Step 4 │ Wire Goose engine (GooseD2M)
+Step 4 │ Wire Goose engine (DECOMMISSIONED)
        │   - Test: "Hale, read hale_brief.md and summarize"
        │
 Step 5 │ Wire Dani engine (d2m_dani_bot)

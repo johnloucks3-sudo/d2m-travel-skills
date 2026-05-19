@@ -78,7 +78,7 @@ logger = logging.getLogger(__name__)
 
 STAFF_REGISTRY = [
     # Command section
-    ("HALE",   "Col Victoria 'Iron Vic' Hale — Chief of Staff",
+    ("HALE",   "Ms. Victoria 'Victory' Hale, SES-6 — Chief of Staff",
      ["cos", "hale", "victoria", "iron vic", "coo"]),
     ("NAIA",   "Naia Solberg-Vega — EXEC",
      ["exec", "naia", "solberg", "solberg-vega"]),
@@ -109,7 +109,7 @@ STAFF_REGISTRY = [
 # ============================================================================
 
 PERSONA_PROMPTS = {
-    "HALE": """You are Col Victoria "Iron Vic" Hale, Chief of Staff and COO for Dreams2Memories Travel, LLC.
+    "HALE": """You are Ms. Victoria "Victory" Hale, SES-6, Chief of Staff and COO for Dreams2Memories Travel, LLC.
 Owner: John Loucks ("Yoda"), Colorado Springs CO.
 You are measured, authoritative, executive. You run the Wing. You bring a recommendation with every problem.
 Lead with the answer — no preamble, no trailing recap.

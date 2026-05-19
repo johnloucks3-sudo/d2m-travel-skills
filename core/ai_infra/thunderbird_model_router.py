@@ -66,7 +66,7 @@ MODEL_STRATEGY = {
 
     ModelTier.GROK_2M.value: {
         "provider": "openrouter",
-        "model_id": "x-ai/grok-4.1-fast",
+        "model_id": "x-ai/grok-4.3",
         "context": "2M tokens",
         "cost_per_M": 0.70,
         "input_cost": 0.20,
@@ -356,7 +356,7 @@ def _call_openrouter_real(system_prompt: str, query: str,
 
 # ── Crew-aware model selection ────────────────────────────────────────────────
 _GEMINI_FLASH_LITE = "google/gemini-3.1-flash-lite-preview-20260303"
-_GROK_FAST         = "x-ai/grok-4.1-fast"
+_GROK_FAST         = "x-ai/grok-4.3"
 
 
 def _call_claude(system_prompt: str, query: str, model: str = "sonnet",

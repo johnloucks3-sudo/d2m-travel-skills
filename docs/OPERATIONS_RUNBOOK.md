@@ -7,16 +7,16 @@
 
 | Launcher | Provider | Model | Cost | Use Case |
 |----------|----------|-------|------|----------|
-| `goose-d2m` | Google Gemini | gemini-2.5-flash | ~$20/mo | Default automated, all timers |
-| `goose-d2m-claude` | Claude MAX | claude-sonnet-4-6 | $0 | Interactive sessions |
-| `goose-d2m-groq` | Groq | llama-3.3-70b-versatile | Free | Fallback when others down |
+| `opencode` | Google Gemini | gemini-2.5-flash | ~$20/mo | Default automated, all timers |
+| `opencode-claude` | Claude MAX | claude-sonnet-4-6 | $0 | Interactive sessions |
+| `opencode-groq` | Groq | llama-3.3-70b-versatile | Free | Fallback when others down |
 | `goose-poe` | Poe (Anthropic trick) | claude-sonnet-4-6 | Poe points | Reserve tank |
 
-**Model override (any launcher):** `GOOSE_MODEL=gemini-2.5-pro goose-d2m session`
+**Model override (any launcher):** `GOOSE_MODEL=gemini-2.5-pro opencode session`
 
 ## Failover Chain
 ```
-Gemini (goose-d2m) → Claude MAX (goose-d2m-claude) → Groq (goose-d2m-groq) → Poe (goose-poe)
+Gemini (opencode) → Claude MAX (opencode-claude) → Groq (opencode-groq) → Poe (goose-poe)
 ```
 
 ## Claude Code / Desktop / Telegram C2
@@ -70,9 +70,9 @@ Gemini (goose-d2m) → Claude MAX (goose-d2m-claude) → Groq (goose-d2m-groq) �
 - `forms_token.json` — Confirmed deleted (covered by gmail_token.json)
 
 ### Phase 3: Goose → Gemini
-- `/home/john/bin/goose-d2m` — Rewritten: Claude → Gemini 2.5 Flash
-- `/home/john/bin/goose-d2m-claude` — NEW: Claude MAX ($0)
-- `/home/john/bin/goose-d2m-groq` — NEW: Groq fallback
+- `/home/john/bin/opencode` — Rewritten: Claude → Gemini 2.5 Flash
+- `/home/john/bin/opencode-claude` — NEW: Claude MAX ($0)
+- `/home/john/bin/opencode-groq` — NEW: Groq fallback
 - `/home/john/bin/goose-poe` — Updated: model selection support
 - `~/.config/goose/config.yaml` — Provider=google, all API keys, MCP via launcher
 
@@ -113,7 +113,7 @@ python3 thunderbird_google_auth.py --authorize-persona    # Persona token
 # Verify key works
 curl -s "https://generativelanguage.googleapis.com/v1beta/models?key=REDACTED_USE_ENV_VAR" | head -5
 # Switch to Claude fallback
-goose-d2m-claude session
+opencode-claude session
 ```
 
 ### All notification channels down
@@ -125,8 +125,8 @@ Check `~/Thunderbird/zfold_test_state.json` — if "conservation_mode", system r
 
 - [ ] Run full preflight: `python3 thunderbird_preflight.py`
 - [ ] Verify all timers: `systemctl --user list-timers 'd2m-*'`
-- [ ] Test Goose Gemini: `goose-d2m run --no-session -t "Say OK"`
-- [ ] Test Goose Claude: `goose-d2m-claude run --no-session -t "Say OK"`
+- [ ] Test Goose Gemini: `opencode run --no-session -t "Say OK"`
+- [ ] Test Goose Claude: `opencode-claude run --no-session -t "Say OK"`
 - [ ] Test Z Fold6 connectivity: `python3 thunderbird_zfold_test.py --force`
 - [ ] Verify Telegram C2 responds
 - [ ] Check OAuth token expiry: `python3 thunderbird_google_auth.py --status`

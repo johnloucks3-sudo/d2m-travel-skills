@@ -13,7 +13,7 @@ The A2A SDK is Apache 2.0, Linux Foundation, mature. The Wing already has a part
 
 This is not a greenfield build. This is a wiring and extension job.
 
-The current file-based system (`claude_inbox.md`, `goose_inbox.md`, `wing_comms.md`, `claude_outbox.md`) continues to function and is **NOT deprecated in Phase 1 or 2**. DeepSeek ruled: schema enforcement on existing files first, full architectural migration second.
+The current file-based system (`claude_inbox.md`, `opencode_inbox.md`, `wing_comms.md`, `claude_outbox.md`) continues to function and is **NOT deprecated in Phase 1 or 2**. DeepSeek ruled: schema enforcement on existing files first, full architectural migration second.
 
 ---
 
@@ -24,7 +24,7 @@ The current file-based system (`claude_inbox.md`, `goose_inbox.md`, `wing_comms.
 | Flow | Current | A2A Replaces? | Phase |
 |---|---|---|---|
 | Goose → Claude specialist tasks | File write to claude_inbox.md, 15s watcher | Yes | Phase 2 |
-| Claude → Goose ops tasks | File write to goose_inbox.md | Yes | Phase 2 |
+| Claude → Goose ops tasks | File write to opencode_inbox.md | Yes | Phase 2 |
 | Commander → Wing | Telegram C2 → task_processor.py | No — unchanged | N/A |
 | Claude → Goose D2M tool calls | mcp_bridge.sh subprocess | Yes | Phase 2 |
 | Goose → Claude return results | claude_outbox.md → watcher | Yes | Phase 2 |
@@ -76,7 +76,7 @@ The current file-based system (`claude_inbox.md`, `goose_inbox.md`, `wing_comms.
 ### Phase 1 — Wire Alongside Existing (Zero Disruption)
 1. Confirm `pip install a2a-sdk` in venv
 2. Update `thunderbird_a2a_protocol.py` from spec 0.2 → 1.0
-3. Stand up Goose A2A listener port 8767 — writes to goose_inbox.md as bridge (A2A in, file-based out)
+3. Stand up Goose A2A listener port 8767 — writes to opencode_inbox.md as bridge (A2A in, file-based out)
 4. Add Goose peer to Claude's A2A registry
 5. Test one round-trip task Claude→Goose via A2A
 6. `inbox_validator.py` schema enforcement active (already done)
@@ -91,7 +91,7 @@ The current file-based system (`claude_inbox.md`, `goose_inbox.md`, `wing_comms.
 - Keep file inboxes as dead-letter fallback
 
 ### Phase 3 — Deprecate File Polling (After 14-Day Stability Window)
-- Reduce watcher scope: remove claude_inbox.md / goose_inbox.md polling
+- Reduce watcher scope: remove claude_inbox.md / opencode_inbox.md polling
 - Archive inboxes as dead-letter only (1-min safety check)
 - Update GOOSE_INIT.md and CLAUDE.md
 
