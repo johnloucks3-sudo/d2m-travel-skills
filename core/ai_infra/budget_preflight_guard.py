@@ -16,6 +16,7 @@ Commander Standing Orders (2026-05-21):
 """
 import json
 import logging
+import os
 import sqlite3
 import threading
 import time
@@ -153,7 +154,8 @@ def check_zen_usage() -> PoolSnapshot:
         ).fetchone()
         limits_rows = conn.execute(
             "SELECT requests_per_hour, requests_per_day FROM zen_limits "
-            "WHERE model LIKE '%big-pickle' ORDER BY ts DESC LIMIT 1"
+            "WHERE model LIKE '%big-pickle' OR model LIKE '%deepseek-v4%' "
+            "ORDER BY ts DESC LIMIT 1"
         ).fetchall()
         conn.close()
     except Exception:
@@ -164,12 +166,12 @@ def check_zen_usage() -> PoolSnapshot:
             reason="No ZEN data yet",
         )
 
-    # Defaults: Big Pickle limits from ZEN_LIMITS in zen_check.py
-    hr_limit = 50
-    day_limit = 200
+    # Defaults: DeepSeek V4 limits from ZEN_LIMITS in zen_check.py
+    hr_limit = 100
+    day_limit = 500
     for r in limits_rows:
-        hr_limit = r["requests_per_hour"] or 50
-        day_limit = r["requests_per_day"] or 200
+        hr_limit = r["requests_per_hour"] or 100
+        day_limit = r["requests_per_day"] or 500
 
     hr_used = usage_row["calls_per_hour"] if usage_row else 0
     day_used = usage_row["calls_per_day"] if usage_row else 0
@@ -183,20 +185,27 @@ def check_zen_usage() -> PoolSnapshot:
             pool="zen_opencode", pct_used=max_pct, limit=min(hr_limit, day_limit),
             remaining=min(hr_limit - hr_used, day_limit - day_used),
             verdict=GuardVerdict.BLOCK,
-            reason=f"ZEN at {max_pct:.0f}% (hr={hr_used}/{hr_limit}, day={day_used}/{day_limit})",
+            reason=f"ZEN at {max_pct:.0f}% (hr={hr_used}/{hr_limit}, day={day_used}/{day_limit}) — HARD BLOCK",
         )
     if max_pct >= 80:
         return PoolSnapshot(
             pool="zen_opencode", pct_used=max_pct, limit=min(hr_limit, day_limit),
             remaining=min(hr_limit - hr_used, day_limit - day_used),
             verdict=GuardVerdict.DEGRADE,
-            reason=f"ZEN at {max_pct:.0f}% — degrade to alternate free model",
+            reason=f"ZEN at {max_pct:.0f}% (hr={hr_used}/{hr_limit}, day={day_used}/{day_limit}) — DEGRADE",
+        )
+    if max_pct >= 60:
+        return PoolSnapshot(
+            pool="zen_opencode", pct_used=max_pct, limit=min(hr_limit, day_limit),
+            remaining=min(hr_limit - hr_used, day_limit - day_used),
+            verdict=GuardVerdict.PASS,
+            reason=f"ZEN at {max_pct:.0f}% (hr={hr_used}/{hr_limit}, day={day_used}/{day_limit}) — WARN approaching limit",
         )
     return PoolSnapshot(
         pool="zen_opencode", pct_used=max_pct, limit=min(hr_limit, day_limit),
         remaining=min(hr_limit - hr_used, day_limit - day_used),
         verdict=GuardVerdict.PASS,
-        reason=f"ZEN at {max_pct:.0f}% — OK",
+        reason=f"ZEN at {max_pct:.0f}% (hr={hr_used}/{hr_limit}, day={day_used}/{day_limit}) — OK",
     )
 
 
@@ -445,6 +454,16 @@ def run_preflight() -> PreFlightResult:
     zen = check_zen_usage()
     pools.append(zen)
     pool_results["zen_opencode"] = zen.verdict
+    # Alert if ZEN in WARN range (60-79% — PASS verdict with warning reason)
+    if zen.verdict == GuardVerdict.PASS and "WARN" in zen.reason:
+        import re
+        m = re.search(r'hr=(\d+)/(\d+).*day=(\d+)/(\d+)', zen.reason)
+        if m:
+            alert_zen_warning(
+                zen.pct_used,
+                int(m.group(1)), int(m.group(2)),
+                int(m.group(3)), int(m.group(4)),
+            )
 
     # ── Aggregate ────────────────────────────────────────────────────────────
     verdicts = set(pool_results.values())
@@ -487,6 +506,45 @@ def read_commander_report() -> dict | None:
         except Exception as e:
             log.warning("Cannot read commander_cost_report.json: %s", e)
     return None
+
+
+# ── ZEN Warning Alert ──────────────────────────────────────────────────────────
+_ZEN_WARN_SENT_TS: float = 0
+_ZEN_WARN_COOLDOWN = 600  # seconds (10 min between alerts)
+
+def alert_zen_warning(pct: float, hr_used: int, hr_limit: int, day_used: int, day_limit: int):
+    """Send Commander a Telegram alert when ZEN usage is in WARN range (60-79%)."""
+    global _ZEN_WARN_SENT_TS
+    now = time.time()
+    if now - _ZEN_WARN_SENT_TS < _ZEN_WARN_COOLDOWN:
+        return
+    try:
+        env_path = THUNDERBIRD_DIR / ".env"
+        bot_token = None
+        chat_id = None
+        if env_path.exists():
+            for line in env_path.read_text().splitlines():
+                line = line.strip()
+                if line.startswith("C2_BOT_TOKEN="):
+                    bot_token = line.split("=", 1)[1].strip("\"'")
+                elif line.startswith("COMMANDER_CHAT_ID="):
+                    chat_id = line.split("=", 1)[1].strip("\"'")
+        if bot_token and chat_id:
+            import urllib.request
+            msg = (
+                f"\u26a0\ufe0f ZEN DEEPSEEK V4 WARNING: {pct:.0f}% used\n"
+                f"hr: {hr_used}/{hr_limit}  day: {day_used}/{day_limit}\n"
+                f"DEGRADE at 80%  BLOCK at 95%"
+            )
+            payload = f"chat_id={chat_id}&text={msg}".encode()
+            urllib.request.urlopen(
+                f"https://api.telegram.org/bot{bot_token}/sendMessage",
+                data=payload, timeout=10,
+            )
+            _ZEN_WARN_SENT_TS = now
+            log.info("ZEN warning sent to Commander")
+    except Exception as e:
+        log.warning("Failed to send ZEN alert: %s", e)
 
 
 # ── Invalidation ───────────────────────────────────────────────────────────────
