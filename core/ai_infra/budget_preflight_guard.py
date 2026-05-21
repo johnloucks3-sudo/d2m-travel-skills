@@ -93,25 +93,27 @@ def _read_claude_usage() -> dict:
 
 
 def check_claude_session() -> PoolSnapshot:
-    """Check Claude MAX session % against 80% degrade / 95% block thresholds."""
+    """Check Claude MAX session % against tight thresholds.
+    Commander's MAX plan has 5 concurrent sessions. At 59% (3 used), we DEGRADE.
+    """
     usage = _read_claude_usage()
     eff = usage.get("effective_messages", 0)
     limit = usage.get("session_limit", 225)
     pct = (eff / limit) * 100 if limit > 0 else 0
 
-    if pct >= 95:
+    if pct >= 75:
         return PoolSnapshot(
             pool="claude_max_session", pct_used=pct, limit=limit,
             remaining=max(0, limit - eff),
             verdict=GuardVerdict.BLOCK,
-            reason=f"Claude MAX session at {pct:.0f}% — hard block",
+            reason=f"Claude MAX session at {pct:.0f}% — hard block (5-session plan)",
         )
-    if pct >= 80:
+    if pct >= 50:
         return PoolSnapshot(
             pool="claude_max_session", pct_used=pct, limit=limit,
             remaining=max(0, limit - eff),
             verdict=GuardVerdict.DEGRADE,
-            reason=f"Claude MAX session at {pct:.0f}% — degrade to free tier",
+            reason=f"Claude MAX session at {pct:.0f}% — degrade (preserve 5-session plan)",
         )
     return PoolSnapshot(
         pool="claude_max_session", pct_used=pct, limit=limit,
@@ -342,8 +344,33 @@ def run_preflight() -> PreFlightResult:
                 pool_results["claude_max_sonnet_weekly"] = GuardVerdict.PASS
 
         all_wk = cmdr.get("all_models_weekly_pct")
-        if all_wk is not None and "claude_max_all_weekly" not in pool_results:
-            pass  # all-models is advisory — Sonnet is the hard cap
+        if all_wk is not None:
+            if all_wk >= 85:
+                pools.append(PoolSnapshot(
+                    pool="claude_max_all_weekly", pct_used=all_wk, limit=100,
+                    remaining=max(0.0, 100.0 - all_wk),
+                    verdict=GuardVerdict.BLOCK,
+                    reason=f"Commander report: All models weekly at {all_wk:.0f}%",
+                ))
+                pool_results["claude_max_all_weekly"] = GuardVerdict.BLOCK
+                hint = hint or "opencode/deepseek-v4-flash-free"
+            elif all_wk >= 70:
+                pools.append(PoolSnapshot(
+                    pool="claude_max_all_weekly", pct_used=all_wk, limit=100,
+                    remaining=max(0.0, 100.0 - all_wk),
+                    verdict=GuardVerdict.DEGRADE,
+                    reason=f"Commander report: All models weekly at {all_wk:.0f}%",
+                ))
+                pool_results["claude_max_all_weekly"] = GuardVerdict.DEGRADE
+                hint = hint or "opencode/deepseek-v4-flash-free"
+            else:
+                pools.append(PoolSnapshot(
+                    pool="claude_max_all_weekly", pct_used=all_wk, limit=100,
+                    remaining=max(0.0, 100.0 - all_wk),
+                    verdict=GuardVerdict.PASS,
+                    reason=f"Commander report: All models weekly at {all_wk:.0f}% — OK",
+                ))
+                pool_results["claude_max_all_weekly"] = GuardVerdict.PASS
 
         session = cmdr.get("session_pct")
         if session is not None:
@@ -373,6 +400,37 @@ def run_preflight() -> PreFlightResult:
                     reason=f"Commander report: Session at {session:.0f}% — OK",
                 ))
                 pool_results["claude_max_session"] = GuardVerdict.PASS
+        monthly = cmdr.get("monthly_spent_usd")
+        monthly_limit = cmdr.get("monthly_limit_usd", 100.0)
+        if monthly is not None and monthly_limit > 0:
+            monthly_pct = (monthly / monthly_limit) * 100
+            if monthly_pct >= 90:
+                pools.append(PoolSnapshot(
+                    pool="monthly_spend", pct_used=monthly_pct,
+                    limit=monthly_limit, remaining=monthly_limit - monthly,
+                    verdict=GuardVerdict.BLOCK,
+                    reason=f"Monthly spend ${monthly:.2f}/{monthly_limit:.0f} ({monthly_pct:.0f}%)",
+                ))
+                pool_results["monthly_spend"] = GuardVerdict.BLOCK
+                hint = hint or "opencode/deepseek-v4-flash-free"
+            elif monthly_pct >= 80:
+                pools.append(PoolSnapshot(
+                    pool="monthly_spend", pct_used=monthly_pct,
+                    limit=monthly_limit, remaining=monthly_limit - monthly,
+                    verdict=GuardVerdict.DEGRADE,
+                    reason=f"Monthly spend ${monthly:.2f}/{monthly_limit:.0f} ({monthly_pct:.0f}%)",
+                ))
+                pool_results["monthly_spend"] = GuardVerdict.DEGRADE
+                hint = hint or "opencode/deepseek-v4-flash-free"
+            else:
+                pools.append(PoolSnapshot(
+                    pool="monthly_spend", pct_used=monthly_pct,
+                    limit=monthly_limit, remaining=monthly_limit - monthly,
+                    verdict=GuardVerdict.PASS,
+                    reason=f"Monthly spend ${monthly:.2f}/{monthly_limit:.0f} ({monthly_pct:.0f}%) — OK",
+                ))
+                pool_results["monthly_spend"] = GuardVerdict.PASS
+
     else:
         # ── 3. Fallback: local checks ────────────────────────────────────────
         claude = check_claude_session()
