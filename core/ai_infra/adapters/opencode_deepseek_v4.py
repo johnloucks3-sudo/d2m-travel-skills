@@ -26,7 +26,7 @@ def _strip_ansi(text: str) -> str:
 
 
 class DeepSeekV4Adapter:
-    name = "deepseek_r1"
+    name = "deepseek_v4"
     tier_capabilities = ["ARB"]
     cost_pool = "opencode_native"
     point_cost_estimate = 0.0

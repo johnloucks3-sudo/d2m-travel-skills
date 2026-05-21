@@ -1,31 +1,25 @@
 TIER_CHAINS: dict[str, list[str]] = {
     "FLAG": [
         "claude_max_oauth_sonnet",
-        "deepseek_r1",
+        "deepseek_v4",
     ],
     "FLAG_OPUS": [
         "claude_max_oauth_opus",
-        "deepseek_r1",
+        "deepseek_v4",
     ],
     "FLAG_SONNET": [
         "claude_max_oauth_sonnet",
-        "deepseek_r1",
+        "deepseek_v4",
     ],
     "MID": [
         "claude_max_oauth_sonnet",
-        "opencode_bigpickle",
-        "poe_kimi_k2",
-        "opencode_nemotron",
+        "deepseek_v4",
     ],
     "BULK": [
-        "opencode_bigpickle",
-        "google_gemini_flash",
-        "poe_gemini_flash",
-        "opencode_nemotron",
+        "deepseek_v4",
     ],
     "ARB": [
-        "deepseek_r1",
-        "poe_kimi_k2",
+        "deepseek_v4",
     ],
 }
 
