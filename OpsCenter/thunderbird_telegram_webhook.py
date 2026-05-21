@@ -36,6 +36,7 @@ log = logging.getLogger("tg_webhook")
 THUNDERBIRD = Path("/home/john/Thunderbird")
 OPS         = THUNDERBIRD / "OpsCenter"
 PERSONAS    = THUNDERBIRD / "Personas"
+COMMANDER_COST_REPORT = OPS / "commander_cost_report.json"
 
 def _load_env_file(path: str) -> None:
     try:
@@ -905,6 +906,49 @@ def _handle_callback_query(token: str, cbq: dict) -> None:
 
     threading.Thread(target=_process, daemon=True).start()
 
+def _handle_report_limits_command(token: str, chat_id: int, text: str) -> None:
+    """Handle /report-limits — Commander uploads his Claude MAX dashboard stats.
+    Format: /report-limits sonnet_weekly=100 all_weekly=86 session=59 monthly=55.67 limit=100
+    Parses key=value pairs and writes to commander_cost_report.json for Harlan + guard.
+    """
+    import json as _json, re as _re
+    pairs = text[len("/report-limits"):].strip()
+    if not pairs:
+        tg_send(token, chat_id, "Usage: /report-limits sonnet_weekly=100 all_weekly=86 session=59 monthly=55.67 limit=100")
+        return
+
+    data = {
+        "sonnet_weekly_pct": None,
+        "all_models_weekly_pct": None,
+        "session_pct": None,
+        "monthly_spent_usd": None,
+        "monthly_limit_usd": 100.0,
+        "reported_at": datetime.now(timezone.utc).isoformat(),
+    }
+    for match in _re.finditer(r'(\w+)\s*=\s*([\d.]+)', pairs):
+        k = match.group(1).lower()
+        v = float(match.group(2))
+        if "sonnet" in k and "weekly" in k:
+            data["sonnet_weekly_pct"] = v
+        elif "all" in k and ("weekly" in k or "week" in k):
+            data["all_models_weekly_pct"] = v
+        elif "session" in k:
+            data["session_pct"] = v
+        elif "monthly" in k:
+            data["monthly_spent_usd"] = v
+        elif "limit" in k:
+            data["monthly_limit_usd"] = v
+
+    COMMANDER_COST_REPORT.write_text(_json.dumps(data, indent=2))
+    tg_send(token, chat_id,
+        f"✅ Limits received. Harlan will raise alarm if thresholds breached.\n"
+        f"  Sonnet weekly: {data['sonnet_weekly_pct'] or '?'}%\n"
+        f"  All weekly:    {data['all_models_weekly_pct'] or '?'}%\n"
+        f"  Session:       {data['session_pct'] or '?'}%\n"
+        f"  Monthly:       ${data['monthly_spent_usd'] or '?'}/{data['monthly_limit_usd']}",
+    )
+
+
 def process_haluyoda_message(update: dict) -> None:
     """HALE-YODA: handles message, edited_message, callback_query (all at /hale-yoda)."""
     try:
@@ -942,7 +986,15 @@ def process_haluyoda_message(update: dict) -> None:
         if text == "/zen-limits":
             _handle_zen_limits_command(TOKEN_HALUYODA, chat_id)
             return
+        if text.lower().startswith("/report-limits"):
+            _handle_report_limits_command(TOKEN_HALUYODA, chat_id, text)
+            return
         persona = "HALE"
+        budget_override = False
+        if text.upper().startswith("OVERRIDE:"):
+            budget_override = True
+            text = text[9:].strip()
+            tg_send(TOKEN_HALUYODA, chat_id, "🦅 Commander override active — routing through Poe.")
         if text.upper().startswith("OPUS:"):
             persona = "HALE-OPUS"
             text  = text[5:].strip()
@@ -963,6 +1015,7 @@ def process_haluyoda_message(update: dict) -> None:
         )
         _router_result = dispatch(TaskRequest(
             system=HALE_SYSTEM, user=user_input, persona=persona,
+            budget_override=budget_override,
         ))
         response = _router_result.text if _router_result.ok else call_claude_engine(
             f"{HALE_SYSTEM}\n\n{user_input}",

@@ -19,6 +19,7 @@ State persisted to disk so daemon restarts survive.
 import json
 import logging
 import os
+import sqlite3
 import subprocess
 import urllib.request
 from datetime import datetime, timezone
@@ -34,16 +35,20 @@ CONFIG_DIR       = THUNDERBIRD_DIR / "config"
 STATE_FILE       = CONFIG_DIR / "rate_guard_state.json"
 LOG_DIR          = THUNDERBIRD_DIR / "logs"
 LOG_FILE         = LOG_DIR / "rate_limit_guard.log"
+COST_DB          = THUNDERBIRD_DIR / "storage" / "ai_costs.db"
 
 POE_ENV_FILE     = CONFIG_DIR / "poe.env"
 MAIN_ENV_FILE    = THUNDERBIRD_DIR / ".env"
 
 # ── Thresholds ─────────────────────────────────────────────────────────────────
 WEEKLY_LIMIT_ALL = 680_000_000   # tokens — all-models rolling 7-day
+SONNET_WARN      = 70    # % — Sonnet weekly heads-up
+SONNET_CRIT      = 85    # % — Sonnet graceful degradation
+SONNET_STOP      = 95    # % — Sonnet hard block
 
-THRESH_WARN      = 70    # % — heads-up
-THRESH_CRIT      = 85    # % — graceful degradation engages
-THRESH_STOP      = 90    # % — hard guard, all to DeepSeek
+THRESH_WARN      = 70    # % — all-models heads-up
+THRESH_CRIT      = 85    # % — all-models graceful degradation engages
+THRESH_STOP      = 90    # % — all-models hard guard
 THRESH_ROLLBACK  = 10    # % — auto-rollback to NORMAL (post weekly-reset)
 
 
@@ -84,6 +89,25 @@ def _get_telegram_creds() -> tuple[str, str]:
 
 
 # ── Token usage ────────────────────────────────────────────────────────────────
+
+def get_sonnet_weekly_pct() -> float:
+    """Read Sonnet weekly % from claude_usage_reports table.
+    Returns 0.0 if unavailable.
+    """
+    if not COST_DB.exists():
+        return 0.0
+    try:
+        conn = sqlite3.connect(str(COST_DB), timeout=3)
+        row = conn.execute(
+            "SELECT sonnet_weekly_pct FROM claude_usage_reports ORDER BY ts DESC LIMIT 1"
+        ).fetchone()
+        conn.close()
+        if row and row[0] is not None:
+            return float(row[0])
+    except Exception:
+        pass
+    return 0.0
+
 
 def get_weekly_pct() -> tuple[float, int]:
     """Return (weekly_consumption_pct, total_tokens_used).
@@ -167,7 +191,7 @@ def get_routing_override(
 
     Returns:
         {
-            "engine":    "max" | "openrouter_deepseek" | "normal",
+            "engine":    "max" | "opencode_free" | "normal",
             "model":     str,
             "reason":    str,
             "degraded":  bool,
@@ -200,17 +224,17 @@ def get_routing_override(
             }
         else:
             return {
-                "engine":   "openrouter_deepseek",
-                "model":    "deepseek/deepseek-chat-v3-0324",
-                "reason":   "CRIT 85%+ — non-urgent → OpenRouter DeepSeek",
+                "engine":   "opencode_free",
+                "model":    "opencode/deepseek-v4-flash-free",
+                "reason":   "CRIT 85%+ — non-urgent → OpenCode free tier (OpenRouter $0)",
                 "degraded": True,
             }
 
     if current_state == GuardState.STOP:
         return {
-            "engine":   "openrouter_deepseek",
-            "model":    "deepseek/deepseek-chat-v3-0324",
-            "reason":   "STOP 90%+ — all tasks → OpenRouter DeepSeek",
+            "engine":   "opencode_free",
+            "model":    "opencode/big-pickle",
+            "reason":   "STOP 90%+ — all tasks → OpenCode free tier (OpenRouter $0)",
             "degraded": True,
         }
 
@@ -230,48 +254,6 @@ def route_task(task_description: str) -> dict:
     state_data = load_state()
     guard_state = GuardState(state_data.get("state", GuardState.NORMAL.value))
     return get_routing_override(task_description, guard_state)
-
-
-# ── OpenRouter dispatch (degraded mode) ───────────────────────────────────────
-
-def dispatch_openrouter(
-    prompt: str,
-    system: str = "You are a helpful assistant in the Thunderbird Wing for Dreams2Memories Travel.",
-    model: str = "deepseek/deepseek-chat-v3-0324",
-    max_tokens: int = 2048,
-) -> str:
-    """Send task to OpenRouter DeepSeek when in degraded mode."""
-    import requests as _req  # noqa: PLC0415
-
-    api_key = _read_env_key("OPENROUTER_API_KEY")
-    if not api_key:
-        return "[DEGRADED ERROR] OPENROUTER_API_KEY not configured"
-
-    headers = {
-        "Authorization": f"Bearer {api_key}",
-        "HTTP-Referer":  "https://dreams2memories.com",
-        "X-Title":       "Thunderbird Wing — Degraded Mode",
-        "Content-Type":  "application/json",
-    }
-    payload = {
-        "model":      model,
-        "messages":   [
-            {"role": "system", "content": system},
-            {"role": "user",   "content": prompt},
-        ],
-        "max_tokens": max_tokens,
-    }
-    try:
-        resp = _req.post(
-            "https://openrouter.ai/api/v1/chat/completions",
-            headers=headers,
-            json=payload,
-            timeout=120,
-        )
-        resp.raise_for_status()
-        return resp.json()["choices"][0]["message"]["content"]
-    except Exception as e:
-        return f"[DEGRADED ERROR] OpenRouter failed: {e}"
 
 
 # ── Telegram alerts ────────────────────────────────────────────────────────────
@@ -304,6 +286,7 @@ def _alert_message(
     used_pct: float,
     total_tokens: int,
     prev_state: GuardState,
+    sonnet_pct: float = 0.0,
 ) -> str:
     remaining = tokens_remaining(used_pct)
     rem_m = remaining // 1_000_000
@@ -322,12 +305,15 @@ def _alert_message(
     icon = state_icons.get(new_state, "ℹ️")
     bar_filled = min(int(used_pct / 5), 20)
     bar = "█" * bar_filled + "░" * (20 - bar_filled)
+    sonnet_filled = min(int(sonnet_pct / 5), 20)
+    sonnet_bar = "█" * sonnet_filled + "░" * (20 - sonnet_filled)
 
     lines = [
         f"{icon} <b>Rate-Limit Guard — {new_state.value}</b>",
         f"━━━━━━━━━━━━━━━━━━━━",
         f"Transition: {prev_state.value} → <b>{new_state.value}</b>",
-        f"Weekly: [{bar}] {used_pct:.1f}%",
+        f"All models weekly: [{bar}] {used_pct:.1f}%",
+        f"Sonnet weekly:      [{sonnet_bar}] {sonnet_pct:.1f}%",
         f"Tokens used: {total_tokens:,}",
         f"Remaining:  <b>{rem_m}M {rem_k:03d}K tokens</b>",
         f"",
@@ -341,14 +327,14 @@ def _alert_message(
     elif new_state == GuardState.CRIT:
         lines += [
             "🔴 <b>GRACEFUL DEGRADATION ENGAGED</b>",
-            "• Non-urgent tasks → OpenRouter DeepSeek",
+            "• Non-urgent tasks → OpenCode free tier (DeepSeek V4 Flash)",
             "• Urgent/client tasks → Max preserved",
             "CLI monitor switched to blinking red.",
         ]
     elif new_state == GuardState.STOP:
         lines += [
             "🚨 <b>HARD GUARD ACTIVE — 90%+ consumed</b>",
-            "• ALL tasks → OpenRouter DeepSeek",
+            "• ALL tasks → OpenCode free tier (Big Pickle)",
             "• Max suspended except Commander override",
             "Take a break or wait for weekly reset.",
         ]
@@ -367,7 +353,13 @@ def _alert_message(
 
 # ── State transition engine ────────────────────────────────────────────────────
 
-def _compute_target_state(pct: float) -> GuardState:
+def _compute_target_state(pct: float, sonnet_pct: float = 0.0) -> GuardState:
+    # Sonnet weekly can independently trigger CRIT/STOP (Sonnet-only caps)
+    if sonnet_pct >= SONNET_STOP:
+        return GuardState.STOP
+    if sonnet_pct >= SONNET_CRIT:
+        return GuardState.CRIT
+    # All-models thresholds
     if pct < THRESH_ROLLBACK:
         return GuardState.ROLLBACK
     if pct < THRESH_WARN:
@@ -396,7 +388,8 @@ def evaluate(send_alerts: bool = True) -> dict:
     LOG_DIR.mkdir(parents=True, exist_ok=True)
 
     pct, total = get_weekly_pct()
-    target     = _compute_target_state(pct)
+    sonnet_pct = get_sonnet_weekly_pct()
+    target     = _compute_target_state(pct, sonnet_pct)
     state_data = load_state()
     prev_state = GuardState(state_data.get("state", GuardState.NORMAL.value))
 
@@ -424,7 +417,7 @@ def evaluate(send_alerts: bool = True) -> dict:
         logger.info("State transition: %s → %s (%.1f%%)", prev_state.value, target.value, pct)
 
         if send_alerts:
-            msg  = _alert_message(target, pct, total, prev_state)
+            msg  = _alert_message(target, pct, total, prev_state, sonnet_pct)
             sent = _send_telegram(msg)
             state_data["last_telegram_sent"] = now_iso if sent else ""
 
@@ -441,6 +434,7 @@ def evaluate(send_alerts: bool = True) -> dict:
         "prev_state":          prev_state.value,
         "transitioned":        transitioned,
         "weekly_pct":          pct,
+        "sonnet_weekly_pct":   sonnet_pct,
         "total_tokens":        total,
         "tokens_remaining":    remaining,
         "degradation_active":  state_data["degradation_active"],

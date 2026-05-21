@@ -39,6 +39,87 @@ ENV_FILE = THUNDERBIRD / ".env"
 DB_PATH = Path.home() / ".local/share/opencode/opencode.db"
 USAGE_STATUS = THUNDERBIRD / "OpsCenter/claude_usage_status.json"
 DECISIONS_LOG = THUNDERBIRD / "hale_decisions.md"
+COMMANDER_REPORT = THUNDERBIRD / "OpsCenter" / "commander_cost_report.json"
+HARLAN_VERDICT = THUNDERBIRD / "OpsCenter" / "harlan_verdict.json"
+
+# ── Commander Cost Report ──────────────────────────────────────────────────────
+
+def read_commander_report() -> dict:
+    """Read Commander's uploaded Claude MAX limits (from TG /report-limits)."""
+    if COMMANDER_REPORT.exists():
+        try:
+            return json.loads(COMMANDER_REPORT.read_text())
+        except Exception:
+            pass
+    return {}
+
+# ── Harlan Verdict ─────────────────────────────────────────────────────────────
+
+def write_verdict(
+    sonnet_weekly_pct: float = 0.0,
+    all_weekly_pct: float = 0.0,
+    session_pct: float = 0.0,
+    monthly_spent: float = 0.0,
+    monthly_limit: float = 100.0,
+    flags: list[str] | None = None,
+    deepseek_wandering: bool = False,
+) -> dict:
+    """Write harlan_verdict.json — the single source of truth for budget decisions.
+    
+    Verdict logic (thresholds set by Commander via SO):
+      - Sonnet weekly >= 95% → BLOCK
+      - Sonnet weekly >= 80% or all_weekly >= 85% → DEGRADE
+      - DeepSeek V4 wandering into banned models → ALARM (DEGRADE)
+      - Otherwise → PASS
+    """
+    flags = flags or []
+    alarm = "PASS"
+    reason = "All within budget."
+    degrade_reason = ""
+
+    # Priority: BLOCK > DEGRADE. DeepSeek wandering is a flag, not a verdict override.
+    if sonnet_weekly_pct >= 95:
+        alarm = "BLOCK"
+        reason = f"Sonnet weekly at {sonnet_weekly_pct:.0f}% — hard block until reset"
+    elif sonnet_weekly_pct >= 80:
+        alarm = "DEGRADE"
+        reason = f"Sonnet weekly at {sonnet_weekly_pct:.0f}% — degrade to free tier"
+        degrade_reason = "sonnet_exhausted"
+    elif all_weekly_pct >= 85:
+        alarm = "DEGRADE"
+        reason = f"All-models weekly at {all_weekly_pct:.0f}% — degrade non-urgent tasks"
+        degrade_reason = "all_models_high"
+
+    if deepseek_wandering:
+        reason += " | DeepSeek V4 wandering — investigate routing"
+        degrade_reason = "deepseek_wandering"
+        flags.append("DEEPSEEK WANDERING: DeepSeek V4 used banned or high-cost models")
+        if alarm == "PASS":
+            alarm = "DEGRADE"
+
+    if monthly_spent > 0 and monthly_limit > 0:
+        monthly_pct = (monthly_spent / monthly_limit) * 100
+        if monthly_pct >= 90:
+            if alarm == "PASS":
+                alarm = "DEGRADE"
+            reason += f" | Monthly spend at ${monthly_spent:.2f}/{monthly_limit:.0f} ({monthly_pct:.0f}%)"
+
+    verdict = {
+        "verdict": alarm,
+        "sonnet_weekly_pct": sonnet_weekly_pct,
+        "all_models_weekly_pct": all_weekly_pct,
+        "session_pct": session_pct,
+        "monthly_spent_usd": monthly_spent,
+        "monthly_limit_usd": monthly_limit,
+        "reason": reason,
+        "degrade_reason": degrade_reason,
+        "flags": flags,
+        "issued_at": datetime.now(timezone.utc).isoformat(),
+        "source": "commander_report" if COMMANDER_REPORT.exists() else "db_fallback",
+    }
+    HARLAN_VERDICT.write_text(json.dumps(verdict, indent=2))
+    return verdict
+
 
 # ── Provider buckets ───────────────────────────────────────────────────────────
 PROVIDER_CLAUDE    = "anthropic"
@@ -413,68 +494,55 @@ def _fmt_window_section(window_label: str, rows: list[dict]) -> list[str]:
     return lines
 
 
-def build_brief(windows: dict, or_data: dict, claude_usage: dict) -> str:
+def build_brief(
+    windows: dict,
+    claude_usage: dict,
+    commander_report: dict,
+    verdict: dict,
+) -> str:
     today_str = datetime.now().strftime("%Y-%m-%d %H:%M")
 
-    # Gather all rows for flags and recommendation
     weekly_rows = windows["weekly"]["rows"]
-    all_rows = weekly_rows + windows["cur_month"]["rows"] + windows["prior_month"]["rows"]
+    cur_rows = windows["cur_month"]["rows"]
+    all_rows = weekly_rows + cur_rows + windows["prior_month"]["rows"]
 
-    flags = detect_flags(all_rows, or_data)
-    recommendation = pick_recommendation(weekly_rows, flags)
+    weekly_total = sum(r["cost"] for r in weekly_rows)
+    cur_total = sum(r["cost"] for r in cur_rows)
+
+    sonnet_wk = verdict.get("sonnet_weekly_pct", claude_usage.get("sonnet_weekly_pct", 0))
+    all_wk = verdict.get("all_models_weekly_pct", claude_usage.get("all_models_weekly_pct", 0))
+    monthly = verdict.get("monthly_spent_usd", 0)
+    monthly_limit = verdict.get("monthly_limit_usd", 100)
+
+    # DeepSeek V4 wander check
+    deepseek_models = [r for r in all_rows if "deepseek" in r.get("model_id", "").lower()]
+    banned_deepseek = [r for r in deepseek_models if r.get("model_id") in BANNED_PAID]
+
+    v_icon = {"PASS": "✅", "DEGRADE": "🟡", "BLOCK": "🔴"}.get(verdict["verdict"], "❓")
 
     lines = [
-        f"HARLAN DAILY COST BRIEF — {today_str}",
-        "=" * 60,
-        "",
+        f"HARLAN AM BRIEF — {today_str}",
+        f"{v_icon} Verdict: {verdict['verdict']} | {verdict['reason']}",
+        f"───" if verdict["verdict"] == "PASS" else f"═══",
+        f"Sonnet weekly: {sonnet_wk:.0f}% | All weekly: {all_wk:.0f}%",
+        f"Monthly: ${monthly:.2f}/{monthly_limit:.0f}",
+        f"OpenCode 7d: ${weekly_total:.4f} | Month: ${cur_total:.4f}",
     ]
 
-    # Three windows
-    for key in ("weekly", "cur_month", "prior_month"):
-        w = windows[key]
-        lines += _fmt_window_section(w["label"], w["rows"])
-        lines.append("")
+    if banned_deepseek:
+        for r in banned_deepseek:
+            lines.append(f"⚠ DEEPSEEK WANDER: {r['model_id']} ${r['cost']:.4f}")
 
-    # OR balance
-    lines.append("OPENROUTER BALANCE:")
-    if "error" in or_data:
-        lines.append(f"  Could not retrieve: {or_data['error']}")
-    else:
-        limit     = or_data.get("limit", 0) or 0
-        usage     = or_data.get("usage", 0) or 0
-        remaining = max(limit - usage, 0)
-        lines.append(f"  ${limit:.2f} limit | ${usage:.2f} used | ${remaining:.2f} remaining")
+    if deepseek_models:
+        ds_total = sum(r["cost"] for r in deepseek_models)
+        ds_sessions = sum(r["sessions"] for r in deepseek_models)
+        lines.append(f"DeepSeek V4: {ds_sessions} sessions, ${ds_total:.4f}")
 
-    lines.append("")
-
-    # Claude MAX plan
-    lines.append("CLAUDE MAX PLAN:")
-    if claude_usage:
-        session_msgs  = claude_usage.get("session_messages", "?")
-        session_limit = claude_usage.get("session_limit", "?")
-        weekly_msgs   = claude_usage.get("weekly_messages", "?")
-        weekly_limit  = claude_usage.get("weekly_limit", "?")
-        budget        = claude_usage.get("budget_status", "UNKNOWN")
-        lines.append(f"  Session: {session_msgs}/{session_limit} | Weekly: {weekly_msgs}/{weekly_limit}")
-        lines.append(f"  Budget status: {budget}")
-    else:
-        lines.append("  claude_usage_status.json not found.")
-
-    lines.append("")
-
-    # Flags
-    lines.append("OPTIMIZATION FLAGS:")
-    if flags:
-        for f in flags:
+    if verdict.get("flags"):
+        for f in verdict["flags"][:3]:
             lines.append(f"  ⚠ {f}")
-    else:
-        lines.append("  None — cost profile clean.")
 
-    lines.append("")
-    lines.append(f"RECOMMENDATION: {recommendation}")
-    lines.append("")
-    lines.append("— A9 Victor 'Vic' Harlan | Thunderbird Wing")
-
+    lines.append("— A9 Harlan | Thunderbird Wing")
     return "\n".join(lines)
 
 
@@ -535,16 +603,46 @@ def main():
             "rows":    query_window(meta["start_ms"], meta["end_ms"]),
         }
 
-    or_api_key  = env.get("OPENROUTER_API_KEY", "")
-    or_data     = query_or_balance(or_api_key)
-    claude_usage = read_claude_usage()
+    all_rows = windows["weekly"]["rows"] + windows["cur_month"]["rows"] + windows["prior_month"]["rows"]
 
-    brief = build_brief(windows, or_data, claude_usage)
+    claude_usage = read_claude_usage()
+    commander_report = read_commander_report()
+
+    # Sonnet weekly: Commander's report > claude_usage_reports > claude_usage_status > 0
+    sonnet_wk = commander_report.get("sonnet_weekly_pct")
+    if sonnet_wk is None:
+        sonnet_wk = claude_usage.get("sonnet_weekly_pct", 0)
+    all_wk = commander_report.get("all_models_weekly_pct", 0)
+    session = commander_report.get("session_pct", 0)
+    monthly = commander_report.get("monthly_spent_usd", 0)
+    monthly_limit = commander_report.get("monthly_limit_usd", 100)
+
+    # DeepSeek V4 wander check
+    deepseek_models = [r for r in all_rows if "deepseek" in r.get("model_id", "").lower()]
+    banned_deepseek = [r for r in deepseek_models if r.get("model_id") in BANNED_PAID]
+    deepseek_wandering = len(banned_deepseek) > 0
+
+    # Build flags
+    flags = detect_flags(all_rows, {})
+
+    # Write verdict — single source of truth for the budget guard
+    verdict = write_verdict(
+        sonnet_weekly_pct=sonnet_wk,
+        all_weekly_pct=all_wk,
+        session_pct=session,
+        monthly_spent=monthly,
+        monthly_limit=monthly_limit,
+        flags=flags,
+        deepseek_wandering=deepseek_wandering,
+    )
+
+    brief = build_brief(windows, claude_usage, commander_report, verdict)
     print(brief)
+    print(f"\n[harlan] Verdict: {verdict['verdict']} — written to {HARLAN_VERDICT}")
 
     if not args.no_append:
         append_to_decisions(brief)
-        print(f"\n[harlan] Brief appended to {DECISIONS_LOG}")
+        print(f"[harlan] Brief appended to {DECISIONS_LOG}")
 
     if args.telegram:
         send_telegram(brief, env)

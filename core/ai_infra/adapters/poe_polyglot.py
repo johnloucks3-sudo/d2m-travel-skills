@@ -105,3 +105,11 @@ kimi_k2_adapter = PoePolyglotAdapter(
     tier_capabilities=["MID", "ARB"],
     point_cost_estimate=400.0,
 )
+# Commander override — Poe Claude Sonnet (used when budget guard blocks MAX Sonnet)
+# Registered separately with its own cost pool to track override usage.
+claude_sonnet_poe_adapter = PoePolyglotAdapter(
+    name="poe_claude_sonnet",
+    model="claude-sonnet-4.5",
+    tier_capabilities=["FLAG"],
+    point_cost_estimate=400.0,
+)

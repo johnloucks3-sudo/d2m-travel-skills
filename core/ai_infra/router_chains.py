@@ -2,7 +2,6 @@ TIER_CHAINS: dict[str, list[str]] = {
     "FLAG": [
         "claude_max_oauth_sonnet",
         "deepseek_r1",
-        "opencode_bigpickle",
     ],
     "FLAG_OPUS": [
         "claude_max_oauth_opus",

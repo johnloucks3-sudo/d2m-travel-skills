@@ -9,16 +9,30 @@ from core.ai_infra.router_chains import (
 )
 from core.ai_infra.router_health import health
 from core.ai_infra.router_cost_gates import cost_gates
+from core.ai_infra.budget_preflight_guard import run_preflight, PreFlightResult, GuardVerdict
 from core.ai_infra.router_telemetry import telemetry
 from core.ai_infra.router_classifier import classify as classify_tier, ALL_TIERS, DEFAULT_TIER
 
 log = logging.getLogger("unified_router")
 
+# ── Commander Standing Order: NO OPENROUTER MODELS (2026-05-21) ───────────────
+# Hard-blocked at registration and dispatch — no code path can reach an OpenRouter model.
+BLOCKED_ADAPTER_PREFIXES: set[str] = {"openrouter"}
+BLOCKED_COST_POOLS: set[str] = {"openrouter_credits"}
+
+
+def _is_openrouter(adapter: Adapter) -> bool:
+    name_lower = adapter.name.lower()
+    for prefix in BLOCKED_ADAPTER_PREFIXES:
+        if prefix in name_lower:
+            return True
+    return adapter.cost_pool in BLOCKED_COST_POOLS
+
 
 # ── Task Request ──────────────────────────────────────────────────────────────
 
 class TaskRequest:
-    __slots__ = ("system", "user", "persona", "max_tokens", "tier_override", "task_id")
+    __slots__ = ("system", "user", "persona", "max_tokens", "tier_override", "task_id", "budget_override")
 
     def __init__(
         self,
@@ -28,6 +42,7 @@ class TaskRequest:
         max_tokens: int = 4096,
         tier_override: str | None = None,
         task_id: str = "",
+        budget_override: bool = False,
     ):
         self.system = system
         self.user = user
@@ -35,6 +50,7 @@ class TaskRequest:
         self.max_tokens = max_tokens
         self.tier_override = tier_override
         self.task_id = task_id
+        self.budget_override = budget_override
 
 
 # ── Global State ──────────────────────────────────────────────────────────────
@@ -46,6 +62,9 @@ _adapter_lock = threading.Lock()
 def register_adapter(adapter: Adapter):
     if not hasattr(adapter, "name") or not adapter.name:
         raise ValueError("Adapter must have a .name attribute")
+    if _is_openrouter(adapter):
+        log.warning("REFUSED — OpenRouter adapter blocked by Commander order: %s", adapter.name)
+        return
     with _adapter_lock:
         _adapters[adapter.name] = adapter
         health.set_state(adapter.name, "GREEN")
@@ -79,6 +98,18 @@ def configure_default_pools():
 # ── Dispatch ──────────────────────────────────────────────────────────────────
 
 def dispatch(task: TaskRequest) -> AdapterResult:
+    # ── Budget pre-flight: check ceilings before touching any adapter ──
+    # When BLOCKED, strip MAX Sonnet → try DeepSeek V4 → STOP + alert
+    preflight = run_preflight()
+    budget_blocked = preflight.verdict == GuardVerdict.BLOCK and not task.budget_override
+    if budget_blocked:
+        pool_details = "; ".join(
+            f"{p.pool}={p.pct_used:.0f}%" for p in preflight.pools
+        )
+        log.warning("Budget guard BLOCK — DeepSeek V4 fallback: %s", pool_details)
+    elif task.budget_override:
+        log.info("Commander budget override active — guard bypassed")
+
     tier = classify_tier(task.system, task.user, task.persona, task.tier_override)
 
     candidate_names = list(TIER_CHAINS.get(tier, []))
@@ -87,6 +118,21 @@ def dispatch(task: TaskRequest) -> AdapterResult:
         candidate_names = list(TIER_CHAINS.get(persona_tier, []))
         tier = persona_tier
         log.debug("Persona override: %s → tier %s", task.persona, tier)
+
+    # Budget degrade mode: strip Claude MAX adapters if blocked or degraded.
+    # BLOCK = autonomous fallback through Poe/DeepSeek/Big Pickle
+    pool_blocked = any(
+        p.pool in ("claude_max_session", "claude_max_sonnet_weekly", "harlan_veto")
+        and p.verdict in (GuardVerdict.DEGRADE, GuardVerdict.BLOCK)
+        for p in preflight.pools
+    )
+    degrade_claude = budget_blocked or (
+        preflight.verdict == GuardVerdict.DEGRADE and pool_blocked
+    )
+    degrade_zen = (
+        preflight.verdict == GuardVerdict.DEGRADE
+        and any(p.pool == "zen_opencode" and p.verdict in (GuardVerdict.DEGRADE, GuardVerdict.BLOCK) for p in preflight.pools)
+    )
 
     candidates: list[Adapter] = []
     for name in candidate_names:
@@ -97,18 +143,30 @@ def dispatch(task: TaskRequest) -> AdapterResult:
         if health.get(adapter.name) == "RED":
             log.debug("Adapter %s is RED — skipping", name)
             continue
+        if _is_openrouter(adapter):
+            log.debug("Adapter %s is OpenRouter — blocked by Commander order", name)
+            continue
         if not cost_gates.has_headroom(adapter.cost_pool):
             log.debug("Adapter %s pool %s exhausted — skipping", name, adapter.cost_pool)
+            continue
+        # Budget degrade: drop Claude MAX if session is over 80%
+        if degrade_claude and adapter.cost_pool in ("max_weekly_sonnet", "max_weekly_all"):
+            log.info("Budget degrade: skipping %s (Claude MAX session >= 80%%)", name)
+            continue
+        # Budget degrade: drop OpenCode native if ZEN limits near
+        if degrade_zen and adapter.cost_pool == "opencode_native":
+            log.info("Budget degrade: skipping %s (ZEN limits near)", name)
             continue
         candidates.append(adapter)
 
     if not candidates:
-        msg = f"All {tier} adapters offline or exhausted"
+        # All models in this tier are exhausted — Commander must authorize Poe or switch manually
+        msg = f"CLAUDE MAX + DEEPSEEK V4 EXHAUSTED — authorize Poe to continue, or switch model manually"
         log.error(msg)
         return AdapterResult(
             text=None, error=msg,
             cost_consumed=0, cost_pool="none",
-            latency_ms=0, model_used="none",
+            latency_ms=0, model_used="exhausted",
         )
 
     chains_tried: list[str] = []
