@@ -323,7 +323,10 @@ def run_preflight() -> PreFlightResult:
     # ── 2. Commander's report ────────────────────────────────────────────────
     cmdr = read_commander_report()
     if cmdr is not None:
-        sonnet_wk = cmdr.get("sonnet_weekly_pct")
+        weekly_fresh = _commander_weekly_fresh(cmdr)
+        if not weekly_fresh:
+            log.info("Commander report weekly stats are stale (>7 days) — skipping weekly pct checks")
+        sonnet_wk = cmdr.get("sonnet_weekly_pct") if weekly_fresh else None
         if sonnet_wk is not None:
             if sonnet_wk >= 95:
                 pools.append(PoolSnapshot(
@@ -352,7 +355,7 @@ def run_preflight() -> PreFlightResult:
                 ))
                 pool_results["claude_max_sonnet_weekly"] = GuardVerdict.PASS
 
-        all_wk = cmdr.get("all_models_weekly_pct")
+        all_wk = cmdr.get("all_models_weekly_pct") if weekly_fresh else None
         if all_wk is not None:
             if all_wk >= 85:
                 pools.append(PoolSnapshot(
@@ -506,6 +509,25 @@ def read_commander_report() -> dict | None:
         except Exception as e:
             log.warning("Cannot read commander_cost_report.json: %s", e)
     return None
+
+
+def _commander_weekly_fresh(cmdr: dict) -> bool:
+    """Return True if the report's weekly stats are < 7 days old.
+
+    Weekly pools reset every 7 days.  After that, stale weekly % figures
+    must not keep blocking Claude MAX — only monthly spend stays valid
+    indefinitely.
+    """
+    reported_at = cmdr.get("reported_at")
+    if not reported_at:
+        return True  # no timestamp → assume fresh
+    try:
+        from datetime import datetime, timezone, timedelta
+        ts = datetime.fromisoformat(reported_at.replace("Z", "+00:00"))
+        age = datetime.now(timezone.utc) - ts
+        return age < timedelta(days=7)
+    except Exception:
+        return True
 
 
 # ── ZEN Warning Alert ──────────────────────────────────────────────────────────
