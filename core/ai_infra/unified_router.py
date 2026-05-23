@@ -88,7 +88,7 @@ def registered_adapters() -> list[str]:
 def configure_default_pools():
     cost_gates.configure_pool("max_weekly_sonnet", soft_limit=80.0, hard_limit=95.0)
     cost_gates.configure_pool("max_weekly_all", soft_limit=80.0, hard_limit=95.0)
-    cost_gates.configure_pool("poe_points", soft_limit=80.0, hard_limit=95.0)
+    cost_gates.configure_pool("poe_points", soft_limit=0, hard_limit=0)  # Poe removed 2026-05-23 — points exhausted
     cost_gates.configure_pool("openrouter_credits", soft_limit=0, hard_limit=0)  # $0 — frozen
     cost_gates.configure_pool("google_ai_pro", soft_limit=0, hard_limit=-1)     # flat-fee — unlimited
     cost_gates.configure_pool("opencode_native", soft_limit=0, hard_limit=-1)   # free — unlimited
@@ -160,8 +160,8 @@ def dispatch(task: TaskRequest) -> AdapterResult:
         candidates.append(adapter)
 
     if not candidates:
-        # All models in this tier are exhausted — Commander must authorize Poe or switch manually
-        msg = f"CLAUDE MAX + DEEPSEEK V4 EXHAUSTED — authorize Poe to continue, or switch model manually"
+        # All models in this tier are exhausted — use Ollama local or notify Commander
+        msg = f"CLAUDE MAX + DEEPSEEK V4 EXHAUSTED — switch to Ollama local or notify Commander"
         log.error(msg)
         return AdapterResult(
             text=None, error=msg,

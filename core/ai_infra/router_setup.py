@@ -4,9 +4,6 @@ from core.ai_infra import unified_router
 from core.ai_infra.adapters.opencode_nemotron import adapter as nemotron_adapter
 from core.ai_infra.adapters.google_gemini_flash import adapter as gemini_flash_adapter
 from core.ai_infra.adapters.claude_max_oauth import sonnet_adapter, opus_adapter
-from core.ai_infra.adapters.poe_polyglot import gemini_flash_adapter as poe_gemini_adapter
-from core.ai_infra.adapters.poe_polyglot import kimi_k2_adapter
-from core.ai_infra.adapters.poe_polyglot import claude_sonnet_poe_adapter
 from core.ai_infra.adapters.opencode_deepseek_v4 import adapter as deepseek_adapter
 
 log = logging.getLogger("router_setup")
@@ -16,7 +13,6 @@ def register_all_adapters():
     count = 0
     for adap in (nemotron_adapter, gemini_flash_adapter,
                  sonnet_adapter, opus_adapter,
-                 poe_gemini_adapter, kimi_k2_adapter, claude_sonnet_poe_adapter,
                  deepseek_adapter):
         try:
             unified_router.register_adapter(adap)

@@ -1,5 +1,68 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "model": "opencode/deepseek-v4-flash-free",
+  "provider": {
+    "anthropic": {
+      "npm": "@ai-sdk/anthropic",
+      "name": "Anthropic Claude MAX",
+      "options": {
+        "apiKey": "***REMOVED-ANTHROPIC***"
+      },
+      "models": {
+        "claude-sonnet-4-6": {
+          "name": "Claude Sonnet 4.6 (MAX)"
+        },
+        "claude-haiku-4-5": {
+          "name": "Claude Haiku 4.5 (MAX)"
+        },
+        "claude-opus-4-7": {
+          "name": "Claude Opus 4.7 (MAX)"
+        }
+      }
+    },
+    "ollama": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Ollama Local (unlimited)",
+      "options": {
+        "baseURL": "http://localhost:11434/v1"
+      },
+      "models": {
+        "qwen2.5-coder:7b": {
+          "name": "Qwen 2.5 Coder 7B (local, unlimited)"
+        },
+        "phi3:mini": {
+          "name": "Phi 3 Mini 3.8B (local, unlimited)"
+        }
+      }
+    }
+  },
+  "skills": {
+    "paths": [
+      ".opencode/skills"
+    ]
+  },
+  "agent": {
+    "metronome": {
+      "description": "METRONOME clock agent \u2014 ticks every 5min, tracks session cadence, escalates stalled tasks.",
+      "mode": "subagent",
+      "model": "opencode/deepseek-v4-flash-free",
+      "permission": {
+        "read": "allow",
+        "bash": "allow"
+      },
+      "prompt": "You are METRONOME, the non-sleeper clock agent. Run 'python3 OpsCenter/metronome.py --status' to check current tick state. Read last 5 ticks from OpsCenter/metronome_ticks.jsonl. If stalled >10min write a nudge. If stalled >15min alert."
+    },
+    "sonnet-partner": {
+      "description": "Claude Sonnet MAX thinking partner \u2014 for reasoning/judgment tasks. Run: python3 OpsCenter/dispatch_claude.py --model sonnet",
+      "mode": "subagent",
+      "model": "anthropic/claude-sonnet-4-6",
+      "permission": {
+        "bash": "allow",
+        "read": "allow"
+      },
+      "prompt": "You are Claude Sonnet, the two-brain thinking partner. Handle reasoning/judgment tasks. Read context, analyze, write output to the path specified. Thorough and precise."
+    }
+  },
   "command": {
     "ask": {
       "description": "Dispatch a task to headless Claude Sonnet via dispatch_claude.py. Usage: /ask <your request>",
@@ -13,9 +76,13 @@
       "description": "Dispatch a quick task to headless Claude Haiku via dispatch_claude.py. Usage: /ask-haiku <your request>",
       "template": "Run this bash command to dispatch to Claude Haiku and watch progress:\nTS=$(date +%s); OUTF=\"/home/john/Thunderbird/output/ask_haiku_${TS}.md\"; DJSON=$(python3 /home/john/Thunderbird/OpsCenter/dispatch_claude.py --task \"oc-ask-haiku-${TS}\" --output \"${OUTF}\" --prompt \"{0}\" --model haiku); PID=$(echo \"${DJSON}\" | python3 -c \"import json,sys; print(json.load(sys.stdin).get('pid',0))\" 2>/dev/null || echo 0); if [ \"${PID:-0}\" -gt 0 ] 2>/dev/null; then python3 /home/john/Thunderbird/OpsCenter/watch_task.py \"${OUTF}\" \"${PID}\" --timeout 600; else echo \"Dispatch failed: ${DJSON}\"; fi"
     },
-    "ask-claude": {
-      "description": "Dispatch to Hale-CC (Claude) — auto-selects model + optional Advisor. Usage: /ask-claude <your request>",
-      "template": "TS=$(date +%s); INBOX=\"/home/john/Thunderbird/OpsCenter/collaboration/opencode_inbox.md\"; { echo ''; echo '## ASK_CLAUDE_REQUEST — '\"$TS\"; echo 'status: UNREAD'; echo 'from: HALE-OC'; echo 'priority: P1'; echo 'stakes: medium'; echo 'task: |'; echo '  {0}'; echo '  Expected output: output/ask_claude_'\"$TS\"'.md'; } >> \"$INBOX\"; echo 'Dispatched to Hale-CC (task '\"$TS\"'). Output: output/ask_claude_'\"$TS\"'.md'"
+    "zen-status": {
+      "description": "Check ZEN usage + cache stats.",
+      "template": "echo '=== ZEN STATUS ==='; python3 /home/john/Thunderbird/core/ops/zen_check.py 2>/dev/null || echo 'zen_check.py not found'; echo ''; echo '=== ZEN CACHE ==='; python3 /home/john/Thunderbird/core/ops/zen_cache.py --stats 2>/dev/null || echo 'zen_cache.py not found'"
+    },
+    "two-brain": {
+      "description": "Two-Brain session \u2014 OpenCode + Claude Sonnet partner. Usage: /two-brain status | /two-brain dispatch <task> | /two-brain tick",
+      "template": "TS=$(date +%s); case \"{0}\" in status) python3 /home/john/Thunderbird/OpsCenter/metronome.py --status ;; tick) python3 /home/john/Thunderbird/OpsCenter/metronome.py --force-tick ;; dispatch*) TASK=\"$(echo \"{0}\" | sed 's/^dispatch *//')\"; OUTF=\"/home/john/Thunderbird/output/two_brain_${TS}.md\"; DJSON=$(python3 /home/john/Thunderbird/OpsCenter/dispatch_claude.py --task \"two-brain-${TS}\" --output \"${OUTF}\" --prompt \"${TASK} WRITE to ${OUTF}\" --model sonnet); PID=$(echo \"${DJSON}\" | python3 -c \"import json,sys; print(json.load(sys.stdin).get('pid',0))\" 2>/dev/null || echo 0); if [ \"${PID:-0}\" -gt 0 ] 2>/dev/null; then python3 /home/john/Thunderbird/OpsCenter/watch_task.py \"${OUTF}\" \"${PID}\" --timeout 600; else echo \"Dispatch failed: ${DJSON}\"; fi ;; *) echo 'Usage: /two-brain status | tick | dispatch <task>' ;; esac"
     }
   }
 }
