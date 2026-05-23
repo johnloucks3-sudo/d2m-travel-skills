@@ -8,9 +8,29 @@ from core.ai_infra.adapters.opencode_deepseek_v4 import adapter as deepseek_adap
 
 log = logging.getLogger("router_setup")
 
+# Optional zero-cost adapters — present only in some deployments
+_free_adapters = []
+try:
+    from core.ai_infra.adapters.opencode_bigpickle import adapter as bigpickle_adapter
+    _free_adapters.append(bigpickle_adapter)
+except ImportError:
+    log.debug("opencode_bigpickle adapter not available")
+try:
+    from core.ai_infra.adapters.ollama_local import adapter as ollama_adapter
+    _free_adapters.append(ollama_adapter)
+except ImportError:
+    log.debug("ollama_local adapter not available")
+
 
 def register_all_adapters():
     count = 0
+    # Register zero-cost adapters first so they appear early in any chain
+    for adap in _free_adapters:
+        try:
+            unified_router.register_adapter(adap)
+            count += 1
+        except Exception as e:
+            log.error("Failed to register %s: %s", adap.name, e)
     for adap in (nemotron_adapter, gemini_flash_adapter,
                  sonnet_adapter, opus_adapter,
                  deepseek_adapter):

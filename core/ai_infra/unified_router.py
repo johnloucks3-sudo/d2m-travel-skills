@@ -20,6 +20,10 @@ log = logging.getLogger("unified_router")
 BLOCKED_ADAPTER_PREFIXES: set[str] = {"openrouter"}
 BLOCKED_COST_POOLS: set[str] = {"openrouter_credits"}
 
+# ── Zero-cost pools — never skipped by degrade logic ─────────────────────────
+# Bouncing stack: big-pickle → deepseek-v4-flash-free → ollama (local, unlimited)
+FREE_COST_POOLS: set[str] = {"ollama_local", "free_local", "zero_cost"}
+
 
 def _is_openrouter(adapter: Adapter) -> bool:
     name_lower = adapter.name.lower()
@@ -153,21 +157,35 @@ def dispatch(task: TaskRequest) -> AdapterResult:
         if degrade_claude and adapter.cost_pool in ("max_weekly_sonnet", "max_weekly_all"):
             log.info("Budget degrade: skipping %s (Claude MAX session >= 80%%)", name)
             continue
-        # Budget degrade: drop OpenCode native if ZEN limits near
-        if degrade_zen and adapter.cost_pool == "opencode_native":
+        # Budget degrade: drop OpenCode ZEN native if ZEN limits near (never drop truly free pools)
+        if degrade_zen and adapter.cost_pool == "opencode_native" and adapter.cost_pool not in FREE_COST_POOLS:
             log.info("Budget degrade: skipping %s (ZEN limits near)", name)
             continue
         candidates.append(adapter)
 
     if not candidates:
-        # All models in this tier are exhausted — use Ollama local or notify Commander
-        msg = f"CLAUDE MAX + DEEPSEEK V4 EXHAUSTED — switch to Ollama local or notify Commander"
-        log.error(msg)
-        return AdapterResult(
-            text=None, error=msg,
-            cost_consumed=0, cost_pool="none",
-            latency_ms=0, model_used="exhausted",
-        )
+        # Emergency free-pool fallback: try any registered zero-cost adapter before giving up
+        with _adapter_lock:
+            free_fallbacks = [
+                a for a in _adapters.values()
+                if a.cost_pool in FREE_COST_POOLS
+                and health.get(a.name) != "RED"
+                and not _is_openrouter(a)
+            ]
+        if free_fallbacks:
+            log.info("Emergency free-pool fallback: %s", [a.name for a in free_fallbacks])
+            candidates = free_fallbacks
+        else:
+            msg = (
+                "ALL ADAPTERS EXHAUSTED (Claude MAX + DeepSeek V4 + free tier) — "
+                "switch to ollama/qwen2.5-coder:7b locally or notify Commander"
+            )
+            log.error(msg)
+            return AdapterResult(
+                text=None, error=msg,
+                cost_consumed=0, cost_pool="none",
+                latency_ms=0, model_used="exhausted",
+            )
 
     chains_tried: list[str] = []
     for adapter in candidates:
@@ -191,7 +209,7 @@ def dispatch(task: TaskRequest) -> AdapterResult:
         health.record_failure(adapter.name)
         log.warning("Adapter %s returned !ok — trying next in chain", adapter.name)
 
-    msg = f"All {tier} adapters exhausted: {chains_tried}"
+    msg = f"All {tier} adapters exhausted (tried: {chains_tried}) — try: opencode/big-pickle, ollama/qwen2.5-coder:7b"
     log.error(msg)
     return AdapterResult(
         text=None, error=msg,

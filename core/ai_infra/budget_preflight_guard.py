@@ -302,7 +302,7 @@ def run_preflight() -> PreFlightResult:
             ))
             sonnet_pct = harlan.get("sonnet_weekly_pct", 0)
             if sonnet_pct >= 80:
-                hint = "opencode/deepseek-v4-flash-free"
+                hint = "opencode/big-pickle"  # cascade: big-pickle → deepseek → ollama
             return PreFlightResult(
                 verdict=GuardVerdict.BLOCK, pools=pools,
                 degraded_model_hint=hint, checked_at=time.time(),
@@ -314,8 +314,10 @@ def run_preflight() -> PreFlightResult:
                 remaining=20, verdict=GuardVerdict.DEGRADE, reason=reason,
             ))
             degrade_reason = harlan.get("degrade_reason", "")
-            if "sonnet" in degrade_reason or "deepseek" in degrade_reason:
-                hint = "opencode/deepseek-v4-flash-free"
+            if "deepseek" in degrade_reason:
+                hint = "ollama/qwen2.5-coder:7b"  # deepseek itself degraded → go local
+            elif "sonnet" in degrade_reason:
+                hint = "opencode/big-pickle"  # sonnet degraded → big-pickle first
             else:
                 hint = "opencode/big-pickle"
             pool_results["harlan_veto"] = GuardVerdict.DEGRADE
@@ -336,7 +338,7 @@ def run_preflight() -> PreFlightResult:
                     reason=f"Commander report: Sonnet weekly at {sonnet_wk:.0f}%",
                 ))
                 pool_results["claude_max_sonnet_weekly"] = GuardVerdict.BLOCK
-                hint = hint or "opencode/deepseek-v4-flash-free"
+                hint = hint or "opencode/big-pickle"
             elif sonnet_wk >= 80:
                 pools.append(PoolSnapshot(
                     pool="claude_max_sonnet_weekly", pct_used=sonnet_wk, limit=100,
@@ -345,7 +347,7 @@ def run_preflight() -> PreFlightResult:
                     reason=f"Commander report: Sonnet weekly at {sonnet_wk:.0f}%",
                 ))
                 pool_results["claude_max_sonnet_weekly"] = GuardVerdict.DEGRADE
-                hint = hint or "opencode/deepseek-v4-flash-free"
+                hint = hint or "opencode/big-pickle"
             else:
                 pools.append(PoolSnapshot(
                     pool="claude_max_sonnet_weekly", pct_used=sonnet_wk, limit=100,
@@ -365,7 +367,7 @@ def run_preflight() -> PreFlightResult:
                     reason=f"Commander report: All models weekly at {all_wk:.0f}%",
                 ))
                 pool_results["claude_max_all_weekly"] = GuardVerdict.BLOCK
-                hint = hint or "opencode/deepseek-v4-flash-free"
+                hint = hint or "opencode/big-pickle"
             elif all_wk >= 70:
                 pools.append(PoolSnapshot(
                     pool="claude_max_all_weekly", pct_used=all_wk, limit=100,
@@ -374,7 +376,7 @@ def run_preflight() -> PreFlightResult:
                     reason=f"Commander report: All models weekly at {all_wk:.0f}%",
                 ))
                 pool_results["claude_max_all_weekly"] = GuardVerdict.DEGRADE
-                hint = hint or "opencode/deepseek-v4-flash-free"
+                hint = hint or "opencode/big-pickle"
             else:
                 pools.append(PoolSnapshot(
                     pool="claude_max_all_weekly", pct_used=all_wk, limit=100,
@@ -394,7 +396,7 @@ def run_preflight() -> PreFlightResult:
                     reason=f"Commander report: Session at {session:.0f}%",
                 ))
                 pool_results["claude_max_session"] = GuardVerdict.BLOCK
-                hint = hint or "opencode/deepseek-v4-flash-free"
+                hint = hint or "opencode/big-pickle"
             elif session >= 80:
                 pools.append(PoolSnapshot(
                     pool="claude_max_session", pct_used=session, limit=100,
@@ -403,7 +405,7 @@ def run_preflight() -> PreFlightResult:
                     reason=f"Commander report: Session at {session:.0f}%",
                 ))
                 pool_results["claude_max_session"] = GuardVerdict.DEGRADE
-                hint = hint or "opencode/deepseek-v4-flash-free"
+                hint = hint or "opencode/big-pickle"
             else:
                 pools.append(PoolSnapshot(
                     pool="claude_max_session", pct_used=session, limit=100,
@@ -424,7 +426,7 @@ def run_preflight() -> PreFlightResult:
                     reason=f"Monthly spend ${monthly:.2f}/{monthly_limit:.0f} ({monthly_pct:.0f}%)",
                 ))
                 pool_results["monthly_spend"] = GuardVerdict.BLOCK
-                hint = hint or "opencode/deepseek-v4-flash-free"
+                hint = hint or "opencode/big-pickle"
             elif monthly_pct >= 80:
                 pools.append(PoolSnapshot(
                     pool="monthly_spend", pct_used=monthly_pct,
@@ -433,7 +435,7 @@ def run_preflight() -> PreFlightResult:
                     reason=f"Monthly spend ${monthly:.2f}/{monthly_limit:.0f} ({monthly_pct:.0f}%)",
                 ))
                 pool_results["monthly_spend"] = GuardVerdict.DEGRADE
-                hint = hint or "opencode/deepseek-v4-flash-free"
+                hint = hint or "opencode/big-pickle"
             else:
                 pools.append(PoolSnapshot(
                     pool="monthly_spend", pct_used=monthly_pct,
