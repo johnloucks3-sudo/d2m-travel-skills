@@ -1,7 +1,7 @@
 ---
 title: "Five Ports in Four Days: Alaska's Inside Passage on Silver Nova"
 slug: alaska-inside-passage-silver-nova
-date: 2026-05-25
+date: 2026-05-03
 author: John A. Loucks III, CEO, Dreams2Memories Travel, LLC
 excerpt: "The Inside Passage doesn't ease you in. By the time Silver Nova cleared open water and the first glaciated peaks came into view, I understood why people come back to Alaska over and over."
 image: /static/images/blog/inside-passage.jpg

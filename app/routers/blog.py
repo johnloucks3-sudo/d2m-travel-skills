@@ -58,10 +58,11 @@ def _parse_post(path: Path) -> dict | None:
 
 def _all_posts() -> list[dict]:
     posts = []
-    for path in sorted(BLOG_DIR.glob("*.md"), reverse=True):
+    for path in BLOG_DIR.glob("*.md"):
         post = _parse_post(path)
         if post:
             posts.append(post)
+    posts.sort(key=lambda p: p["date"])
     return posts
 
 

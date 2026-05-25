@@ -1,7 +1,7 @@
 ---
 title: "Four Nights in Japan Before Your Pacific Cruise: What We Actually Did"
 slug: four-nights-japan-before-silver-nova
-date: 2026-05-25
+date: 2026-04-20
 author: John A. Loucks III, CEO, Dreams2Memories Travel, LLC
 excerpt: "Kyoto was beautiful and it nearly broke us. The ropeway over the sulfur mines wasn't worth it. Mt. Fuji looks better from a distance. Here's what actually happened on our four nights in Japan before boarding Silver Nova."
 image: /static/images/blog/japan-tokyo.jpg

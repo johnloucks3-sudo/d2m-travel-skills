@@ -1,7 +1,7 @@
 ---
 title: "JAL Business Class, Honolulu to Tokyo: Honest Notes from Seats 6G and 6D"
 slug: jal-business-class-honolulu-tokyo
-date: 2026-05-25
+date: 2026-04-19
 author: John A. Loucks III, CEO, Dreams2Memories Travel, LLC
 excerpt: "The sake was exceptional. The seat was better than anything American carriers are putting in business class. It wasn't Turkish. Here's the honest take."
 image: /static/images/blog/jal-business.jpg

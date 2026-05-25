@@ -1,7 +1,7 @@
 ---
 title: "Boarding Silver Nova in Yokohama: What We Noticed in the First Hour"
 slug: silver-nova-embarkation-first-impressions
-date: 2026-05-25
+date: 2026-04-23
 author: John A. Loucks III, CEO, Dreams2Memories Travel, LLC
 excerpt: "We've sailed Regent before. The first hour on Silver Nova was different — not worse, but different — and the differences tell you something real about the two products."
 image: /static/images/blog/silver-nova-yokohama.jpg
