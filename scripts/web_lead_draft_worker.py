@@ -25,6 +25,65 @@ GMAIL_DRAFT_SCRIPT = "/home/john/Thunderbird/scripts/create_gmail_draft_direct.p
 COMMANDER_ID = 7554895206
 ENV_FILE = Path("/home/john/Thunderbird/.env")
 OUTPUT_DIR = Path("/home/john/Thunderbird/output")
+OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
+PRICING_MODEL = "perplexity/sonar"
+KNOWN_LINES = ["silversea", "regent", "seabourn", "viking", "oceania", "cunard", "ama", "ponant"]
+
+
+def _load_openrouter_key() -> str:
+    if ENV_FILE.exists():
+        for line in ENV_FILE.read_text(encoding="utf-8").splitlines():
+            if line.startswith("OPENROUTER_API_KEY="):
+                return line.split("=", 1)[1].strip().strip('"').strip("'")
+    return os.environ.get("OPENROUTER_API_KEY", "")
+
+
+def _lookup_cruise_pricing(lead: dict) -> str:
+    """
+    Query Perplexity Sonar via OpenRouter for live cabin pricing.
+    Returns a short pricing summary or "" on failure/insufficient data.
+    """
+    cruise = (lead.get("cruise_interest") or "").strip()
+    if not cruise or not any(line in cruise.lower() for line in KNOWN_LINES):
+        return ""
+
+    cabin = lead.get("cabin_preference") or "standard"
+    window = lead.get("travel_window") or ""
+    party = lead.get("party") or ""
+
+    query = (
+        f"Current retail cruise fare for {cruise}"
+        + (f" departing {window}" if window else "")
+        + f", {cabin} cabin category, per person USD."
+        + (" " + party if party else "")
+        + " What is the typical price range from a travel agent? Include any current promotions."
+    )
+
+    api_key = _load_openrouter_key()
+    if not api_key:
+        return ""
+
+    try:
+        resp = requests.post(
+            OPENROUTER_URL,
+            headers={
+                "Authorization": f"Bearer {api_key}",
+                "HTTP-Referer": "https://d2mluxury.quest",
+                "X-Title": "Dreams2Memories Travel",
+                "Content-Type": "application/json",
+            },
+            json={
+                "model": PRICING_MODEL,
+                "messages": [{"role": "user", "content": query}],
+                "max_tokens": 400,
+            },
+            timeout=20,
+        )
+        data = resp.json()
+        return data["choices"][0]["message"]["content"].strip()
+    except Exception as exc:
+        print(f"[pricing] Lookup failed: {exc}")
+        return ""
 
 
 def _load_tg_token() -> str:
@@ -64,7 +123,7 @@ def _load_oauth_env() -> dict:
     return env
 
 
-def _build_draft_prompt(lead: dict, output_html: Path) -> str:
+def _build_draft_prompt(lead: dict, output_html: Path, pricing_intel: str = "") -> str:
     name = lead.get("name") or "our guest"
     email = lead.get("email") or ""
     cruise = lead.get("cruise_interest") or "luxury cruise"
@@ -73,6 +132,7 @@ def _build_draft_prompt(lead: dict, output_html: Path) -> str:
     window = lead.get("travel_window") or ""
     budget = lead.get("budget_signal") or ""
     conversation = lead.get("conversation_context") or "No chat context — came via intake form."
+    pricing_block = pricing_intel if pricing_intel else "(none available — use placeholder per requirement 4)"
 
     return f"""You are drafting a D2M luxury travel proposal email for a web inquiry.
 
@@ -88,13 +148,16 @@ LEAD DATA:
 CONVERSATION CONTEXT (Dani chat transcript):
 {conversation}
 
+PRICING INTEL (live web lookup — verify before quoting client):
+{pricing_block}
+
 TASK: Write a personalized D2M proposal email as John A. Loucks III.
 
 REQUIREMENTS:
 1. Voice: warm, specific, direct. No "I'm thrilled" or "Great news!" Lead with the answer.
 2. Open by referencing exactly what they asked about (ship name, destination, specific dates if mentioned)
 3. Body includes: why this cruise line fits what they described, cabin recommendation with one specific reason, 1-2 excursion suggestions for the itinerary
-4. Pricing placeholder — include this exact line: [John: add current [cabin category] pricing for [ship/sailing dates]]
+4. Pricing — use the PRICING INTEL block below if provided. Present the range naturally in the email body (e.g., "current fares are running $X,XXX–$X,XXX per person"). If no pricing intel, include this exact placeholder instead: [John: verify current {cabin} pricing for {cruise}]
 5. What happens next: John will confirm pricing and availability, ask if they have questions
 6. Sign: John A. Loucks III, CEO · Dreams2Memories Travel · 719-291-0742 · concierge@d2mluxury.quest
 
@@ -136,8 +199,16 @@ def main() -> int:
     output_html = OUTPUT_DIR / f"web_lead_draft_{lead_id}.html"
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
+    # Step 0: Live pricing lookup via Perplexity Sonar
+    print(f"[{lead_id}] Looking up live pricing for: {cruise}...")
+    pricing_intel = _lookup_cruise_pricing(lead)
+    if pricing_intel:
+        print(f"[{lead_id}] Pricing intel acquired ({len(pricing_intel)} chars)")
+    else:
+        print(f"[{lead_id}] No pricing intel — using placeholder")
+
     # Step 1: Generate draft via Claude
-    prompt = _build_draft_prompt(lead, output_html)
+    prompt = _build_draft_prompt(lead, output_html, pricing_intel=pricing_intel)
     env = _load_oauth_env()
 
     print(f"[{lead_id}] Generating draft for {name} ({email})...")
