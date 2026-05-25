@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+
+{% block title %}The Journal — Dreams2Memories Travel{% endblock %}
+
+{% block head_extra %}
+<meta name="description" content="First-person accounts of luxury cruises and expedition travel from the desk of John A. Loucks III, CEO of Dreams2Memories Travel.">
+<style>
+.blog-hero {
+  background: var(--navy);
+  color: #fff;
+  padding: 4rem 2rem 3rem;
+  text-align: center;
+}
+.blog-hero h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: #fff;
+  margin: 0 0 0.75rem;
+}
+.blog-hero p {
+  color: rgba(255,255,255,0.8);
+  font-size: 1.05rem;
+  max-width: 560px;
+  margin: 0 auto;
+}
+.blog-grid {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+  display: grid;
+  gap: 2.5rem;
+}
+.blog-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid #e0d9ce;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #fff;
+  transition: box-shadow .2s;
+}
+.blog-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,.09); }
+.blog-card-body {
+  padding: 2rem;
+}
+.blog-card-meta {
+  font-size: .82rem;
+  color: #888;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  margin-bottom: .75rem;
+}
+.blog-card-meta .read-time {
+  color: var(--gold);
+}
+.blog-card h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.5rem;
+  color: var(--navy);
+  margin: 0 0 .75rem;
+  line-height: 1.3;
+}
+.blog-card h2 a {
+  color: inherit;
+  text-decoration: none;
+}
+.blog-card h2 a:hover { text-decoration: underline; }
+.blog-card-byline {
+  font-size: .88rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+.blog-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  margin-top: 1.25rem;
+}
+.blog-card-tags span {
+  background: var(--cream);
+  color: var(--navy);
+  font-size: .75rem;
+  padding: .2rem .65rem;
+  border-radius: 2px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.blog-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  margin-top: 1.25rem;
+  color: var(--navy);
+  font-weight: 600;
+  font-size: .9rem;
+  text-decoration: none;
+}
+.blog-card-cta:hover { color: var(--gold); }
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #888;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="blog-hero">
+  <h1>The Journal</h1>
+  <p>First-person accounts from the sea — and the ports between.</p>
+</section>
+
+<div class="blog-grid">
+  {% if posts %}
+    {% for post in posts %}
+    <article class="blog-card">
+      <div class="blog-card-body">
+        <div class="blog-card-meta">
+          {{ post.date }}
+          &nbsp;·&nbsp;
+          <span class="read-time">{{ post.reading_time }} min read</span>
+        </div>
+        <h2><a href="/blog/{{ post.slug }}">{{ post.title }}</a></h2>
+        <div class="blog-card-byline">By {{ post.byline }}</div>
+        {% if post.meta_description %}
+        <p>{{ post.meta_description }}</p>
+        {% endif %}
+        {% if post.tags %}
+        <div class="blog-card-tags">
+          {% for tag in post.tags[:5] %}
+          <span>{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+        <a href="/blog/{{ post.slug }}" class="blog-card-cta">
+          Read the full account &rarr;
+        </a>
+      </div>
+    </article>
+    {% endfor %}
+  {% else %}
+    <div class="empty-state">
+      <p>The first entry is being prepared. Check back soon.</p>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

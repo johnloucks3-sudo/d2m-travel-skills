@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block title %}Request a Voyage — Dreams2Memories Travel{% endblock %}
+{% block meta_description %}Tell us your dream voyage. John Loucks III will personally review your request and respond within 24 hours.{% endblock %}
+
+{% block content %}
+
+<section class="intake-header">
+  <div class="section-inner" style="max-width:720px;">
+    <h1>Request a Voyage</h1>
+    <p>Tell us where you want to go — or where you think you want to go. John will personally review every request and respond within one business day.</p>
+  </div>
+</section>
+
+<section class="intake-body">
+  <div class="section-inner" style="max-width:720px;">
+
+  {% if submitted %}
+  <div class="success-box">
+    <h2>We've received your request, {{ name }}.</h2>
+    <p>John Loucks III will personally review your request and be in touch within one business day at the email address you provided.</p>
+    <p style="margin-top:16px;"><a href="/" class="btn-primary">Back to Home</a></p>
+  </div>
+  {% else %}
+
+  <form method="post" action="/request-a-voyage" class="intake-form">
+
+    <div class="form-row two-col">
+      <div>
+        <label for="name">Your name *</label>
+        <input type="text" id="name" name="name" required placeholder="First and last name">
+      </div>
+      <div>
+        <label for="email">Email address *</label>
+        <input type="email" id="email" name="email" required placeholder="you@example.com">
+      </div>
+    </div>
+
+    <div class="form-row two-col">
+      <div>
+        <label for="phone">Phone (optional)</label>
+        <input type="tel" id="phone" name="phone" placeholder="(719) 555-0100">
+      </div>
+      <div>
+        <label for="party_size">Party size</label>
+        <select id="party_size" name="party_size">
+          <option value="">Select…</option>
+          <option>Solo</option>
+          <option>2 guests</option>
+          <option>3 guests</option>
+          <option>4 guests</option>
+          <option>5+ guests</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <label for="destination">Destination or cruise line interest</label>
+      <input type="text" id="destination" name="destination" placeholder="e.g. Norway, Mediterranean, Regent Seven Seas, Alaska">
+    </div>
+
+    <div class="form-row two-col">
+      <div>
+        <label for="travel_window">Travel window</label>
+        <input type="text" id="travel_window" name="travel_window" placeholder="e.g. October 2026, Flexible 2027">
+      </div>
+      <div>
+        <label for="budget">Approximate budget</label>
+        <select id="budget" name="budget">
+          <option value="">Prefer not to say</option>
+          <option>Under $5,000 per person</option>
+          <option>$5,000–$10,000 per person</option>
+          <option>$10,000–$20,000 per person</option>
+          <option>$20,000+ per person</option>
+          <option>Open — find me the right voyage</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <label for="comments">Anything else we should know?</label>
+      <textarea id="comments" name="comments" rows="4" placeholder="Special occasions, mobility considerations, past cruise experience, specific ships you've admired…"></textarea>
+    </div>
+
+    <div class="form-row consent-row">
+      <label class="consent-label">
+        <input type="checkbox" name="consent" required>
+        I agree to be contacted by Dreams2Memories Travel regarding my voyage inquiry. We never share your information.
+      </label>
+    </div>
+
+    <button type="submit" class="btn-primary" style="width:100%; padding:16px;">Submit Voyage Request</button>
+
+  </form>
+  {% endif %}
+
+  </div>
+</section>
+
+{% endblock %}

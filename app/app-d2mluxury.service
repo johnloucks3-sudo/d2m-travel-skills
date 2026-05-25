@@ -1,0 +1,17 @@
+[Unit]
+Description=app.d2mluxury.quest — Dreams2Memories Travel Web App
+After=network.target
+
+[Service]
+Type=simple
+User=john
+WorkingDirectory=/home/john/Thunderbird
+ExecStart=/home/john/Thunderbird/.venv/bin/uvicorn app.main:app --host 127.0.0.1 --port 8080 --workers 2
+Restart=on-failure
+RestartSec=5
+StandardOutput=append:/home/john/Thunderbird/logs/app_d2mluxury.log
+StandardError=append:/home/john/Thunderbird/logs/app_d2mluxury.log
+Environment=PYTHONPATH=/home/john/Thunderbird
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Dreams2Memories Travel{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}Luxury cruise travel concierge — John A. Loucks III, CEO{% endblock %}">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap">
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  {% block head_extra %}{% endblock %}
+</head>
+<body>
+
+  <!-- Top bar -->
+  <div class="topbar">
+    <span>Luxury Cruise Concierge &nbsp;·&nbsp; Colorado Springs, CO &nbsp;·&nbsp; <a href="mailto:concierge@d2mluxury.quest">concierge@d2mluxury.quest</a></span>
+  </div>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <a href="/" class="nav-logo">
+      <img src="/static/img/logo.png" alt="Dreams2Memories Travel" height="48">
+    </a>
+    <div class="nav-links">
+      <a href="/search">Cruise Finder</a>
+      <a href="/blog">The Journal</a>
+      <a href="/request-a-voyage" class="btn-nav">Request a Voyage</a>
+    </div>
+  </nav>
+
+  <!-- Page content -->
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <img src="/static/img/logo.png" alt="Dreams2Memories Travel" height="40" style="margin-bottom:10px;">
+        <p>Dreams2Memories Travel, LLC</p>
+        <p>John A. Loucks III, CEO</p>
+        <p><a href="mailto:concierge@d2mluxury.quest">concierge@d2mluxury.quest</a></p>
+      </div>
+      <div>
+        <p class="footer-head">Navigate</p>
+        <p><a href="/">Home</a></p>
+        <p><a href="/search">Cruise Finder</a></p>
+        <p><a href="/blog">The Journal</a></p>
+        <p><a href="/request-a-voyage">Request a Voyage</a></p>
+      </div>
+      <div>
+        <p class="footer-head">Cruise Lines</p>
+        <p><a href="/search?line=Regent+Seven+Seas">Regent Seven Seas</a></p>
+        <p><a href="/search?line=Silversea">Silversea</a></p>
+        <p><a href="/search?line=Seabourn">Seabourn</a></p>
+        <p><a href="/search?line=Viking">Viking</a></p>
+        <p><a href="/search?line=Oceania">Oceania</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Dreams2Memories Travel, LLC. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

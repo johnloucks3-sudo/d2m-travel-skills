@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block title %}Cruise Finder — Dreams2Memories Travel{% endblock %}
+{% block meta_description %}Search {{ stats.total_sailings }}+ luxury sailings across {{ stats.cruise_lines }} lines — Regent Seven Seas, Silversea, Seabourn, Viking, Oceania, and more.{% endblock %}
+
+{% block content %}
+
+<section class="search-header">
+  <div class="section-inner">
+    <h1>Cruise Finder</h1>
+    <p>{{ stats.total_sailings }}+ sailings across {{ stats.cruise_lines }} luxury lines. Filter by destination, line, or travel window.</p>
+  </div>
+</section>
+
+<section class="search-body">
+  <div class="section-inner search-layout">
+
+    <!-- Filters sidebar -->
+    <aside class="search-filters">
+      <form method="get" action="/search">
+        <h3>Filter Voyages</h3>
+
+        <label>Destination or keyword</label>
+        <input type="text" name="q" value="{{ query }}" placeholder="e.g. Mediterranean, Japan, Norway">
+
+        <label>Cruise Line</label>
+        <select name="line">
+          <option value="all" {% if selected_line == 'all' %}selected{% endif %}>All Lines</option>
+          {% for line in cruise_lines %}
+          <option value="{{ line }}" {% if selected_line == line %}selected{% endif %}>{{ line }}</option>
+          {% endfor %}
+        </select>
+
+        <label>Month</label>
+        <select name="month">
+          <option value="all" {% if selected_month == 'all' %}selected{% endif %}>Any Month</option>
+          {% for m in months %}
+          <option value="{{ m }}" {% if selected_month == m %}selected{% endif %}>{{ m }}</option>
+          {% endfor %}
+        </select>
+
+        <label>Minimum nights</label>
+        <input type="number" name="min_days" value="{{ min_days or '' }}" placeholder="e.g. 7" min="1" max="120">
+
+        <label>Maximum nights</label>
+        <input type="number" name="max_days" value="{{ max_days or '' }}" placeholder="e.g. 30" min="1" max="120">
+
+        <button type="submit" class="btn-primary" style="width:100%; margin-top:16px;">Search</button>
+        <a href="/search" style="display:block; text-align:center; margin-top:10px; color:#666; font-size:13px;">Clear filters</a>
+      </form>
+    </aside>
+
+    <!-- Results -->
+    <div class="search-results">
+
+      {% if not searched %}
+      <div class="search-empty">
+        <p>Use the filters to find your voyage, or <a href="/search?line=Regent+Seven+Seas">browse Regent Seven Seas</a>, <a href="/search?line=Silversea">Silversea</a>, or <a href="/search?line=Seabourn">Seabourn</a>.</p>
+      </div>
+
+      {% elif results %}
+      <div class="results-count">{{ results | length }} voyage{{ 's' if results | length != 1 else '' }} found</div>
+
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>Line</th>
+            <th>Ship</th>
+            <th>Departure</th>
+            <th>Nights</th>
+            <th>Route</th>
+            <th>Price</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for s in results %}
+          <tr>
+            <td class="col-line">{{ s.cruise_line }}</td>
+            <td class="col-ship">{{ s.ship_name }}</td>
+            <td class="col-date">{{ s.departure_date }}</td>
+            <td class="col-days">{{ s.days }}n</td>
+            <td class="col-route">{{ s.route }}</td>
+            <td class="col-price">
+              {% if s.price_usd %}${{ s.price_usd }}{% else %}<span class="por">On request</span>{% endif %}
+            </td>
+            <td class="col-action">
+              <a href="/request-a-voyage?voyage={{ s.ship_name | urlencode }}&line={{ s.cruise_line | urlencode }}&date={{ s.departure_date }}" class="btn-table">Request</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      {% else %}
+      <div class="search-empty">
+        <p>No voyages matched your search. Try broadening your filters — or <a href="/request-a-voyage">tell us what you're looking for</a> and we'll find it.</p>
+      </div>
+      {% endif %}
+
+    </div>
+  </div>
+</section>
+
+<!-- Bottom CTA -->
+<section class="cta-band">
+  <h2>Don't see what you're looking for?</h2>
+  <p>Our database covers Oct–Nov 2026. We track additional windows — just ask.</p>
+  <a href="/request-a-voyage" class="btn-white">Request a Custom Search</a>
+</section>
+
+{% endblock %}

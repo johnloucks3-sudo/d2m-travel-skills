@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% block title %}Dreams2Memories Travel — Luxury Cruise Concierge{% endblock %}
+
+{% block content %}
+
+<!-- Hero -->
+<section class="hero" x-data="{ q: '' }">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Dreams2Memories Travel, LLC</p>
+    <h1 class="hero-headline">The world's finest voyages,<br>curated for you.</h1>
+    <p class="hero-sub">{{ stats.total_sailings }}+ sailings across {{ stats.cruise_lines }} luxury lines — searched in seconds.</p>
+    <form class="hero-search" action="/search" method="get">
+      <input
+        type="text"
+        name="q"
+        x-model="q"
+        placeholder="Destination, region, or cruise line…"
+        class="hero-input"
+        autocomplete="off"
+      >
+      <button type="submit" class="btn-primary">Find My Voyage</button>
+    </form>
+    <div class="hero-quick-links">
+      <a href="/search?line=Regent+Seven+Seas">Regent Seven Seas</a>
+      <a href="/search?line=Silversea">Silversea</a>
+      <a href="/search?line=Seabourn">Seabourn</a>
+      <a href="/search?line=Viking">Viking</a>
+      <a href="/search?line=Oceania">Oceania</a>
+    </div>
+  </div>
+</section>
+
+<!-- Value strip -->
+<section class="value-strip">
+  <div class="value-item">
+    <div class="value-icon">✦</div>
+    <div>
+      <strong>Concierge Search</strong>
+      <p>{{ stats.total_sailings }}+ sailings across {{ stats.cruise_lines }} lines — no cruise site required.</p>
+    </div>
+  </div>
+  <div class="value-item">
+    <div class="value-icon">✦</div>
+    <div>
+      <strong>One Expert. Every Detail.</strong>
+      <p>John Loucks III personally reviews every voyage recommendation.</p>
+    </div>
+  </div>
+  <div class="value-item">
+    <div class="value-icon">✦</div>
+    <div>
+      <strong>No Fees. Ever.</strong>
+      <p>Our compensation comes from the cruise lines. You pay cruise price — nothing more.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Featured sailings -->
+<section class="section-featured">
+  <div class="section-inner">
+    <h2 class="section-title">Featured Voyages</h2>
+    <p class="section-sub">A selection from our current inventory — <a href="/search">browse all {{ stats.total_sailings }} sailings →</a></p>
+
+    <div class="card-grid">
+      {% for s in featured %}
+      <a href="/search?line={{ s.cruise_line | urlencode }}" class="voyage-card">
+        <div class="card-line">{{ s.cruise_line }}</div>
+        <div class="card-ship">{{ s.ship_name }}</div>
+        <div class="card-route">{{ s.route }}</div>
+        <div class="card-meta">
+          <span>{{ s.departure_date }}</span>
+          <span>{{ s.days }} nights</span>
+        </div>
+        {% if s.price_usd %}
+        <div class="card-price">From ${{ s.price_usd }}</div>
+        {% else %}
+        <div class="card-price card-price-req">Price on request</div>
+        {% endif %}
+        <div class="card-cta">View voyages →</div>
+      </a>
+      {% endfor %}
+    </div>
+
+    <div style="text-align:center; margin-top:40px;">
+      <a href="/search" class="btn-primary">Browse All {{ stats.total_sailings }} Sailings</a>
+    </div>
+  </div>
+</section>
+
+<!-- Why D2M -->
+<section class="section-why">
+  <div class="section-inner two-col">
+    <div class="why-text">
+      <h2>Not a booking engine.<br>A concierge.</h2>
+      <p>Dreams2Memories Travel exists because booking a luxury cruise deserves the same intelligence you'd bring to any significant life decision. We've catalogued {{ stats.total_sailings }}+ sailings across {{ stats.cruise_lines }} lines so that when you tell us where you want to go — we already know what's available, what's right, and what to avoid.</p>
+      <p>Every client receives direct access to John Loucks III. Not a call center. Not an automated reply. A travel professional who has sailed aboard the ships he recommends.</p>
+      <a href="/request-a-voyage" class="btn-primary" style="margin-top:24px; display:inline-block;">Request a Voyage Consultation</a>
+    </div>
+    <div class="why-stat-block">
+      <div class="why-stat">
+        <div class="why-num">{{ stats.total_sailings }}+</div>
+        <div class="why-label">Sailings in our database</div>
+      </div>
+      <div class="why-stat">
+        <div class="why-num">{{ stats.cruise_lines }}</div>
+        <div class="why-label">Luxury lines tracked</div>
+      </div>
+      <div class="why-stat">
+        <div class="why-num">$0</div>
+        <div class="why-label">Agent fees — ever</div>
+      </div>
+      <div class="why-stat">
+        <div class="why-num">1</div>
+        <div class="why-label">Person handling your voyage</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Band -->
+<section class="cta-band">
+  <h2>Ready to start planning?</h2>
+  <p>Tell us where you want to go — or let us show you where you should.</p>
+  <a href="/request-a-voyage" class="btn-white">Request a Voyage</a>
+</section>
+
+{% endblock %}
