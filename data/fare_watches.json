@@ -27,6 +27,26 @@
       "alert_below": 427.5,
       "alert_above": null,
       "notes": "Benchmark positioning flights for Panama Canal cruise. Target premium economy."
+    },
+    {
+      "id": "loucks-phx-hnl-2027-04-09",
+      "watch_type": "flight",
+      "label": "AA675 PHX→HNL Apr 9 2027 (Commander + Susie, Business)",
+      "provider": "American Airlines via Centrav",
+      "route": "PHX→HNL",
+      "travel_date": "2027-04-09",
+      "return_date": "2027-04-17",
+      "passengers": 2,
+      "current_price_total": 4619.02,
+      "current_price_pp": 2309.51,
+      "baseline_price_total": 4619.02,
+      "baseline_price_pp": 2309.51,
+      "alert_below": 4157.12,
+      "alert_above": null,
+      "refundable_option_total": 6494.68,
+      "centrav_flight": "AA675 2:30PM PHX T4 → 6:05PM HNL T2, A321neo, Class R (non-refund) / Class D (refund)",
+      "return_flight": "AA144 9:45PM HNL → 6:13AM LAX + AA4999 8:36AM LAX → 12:07PM DEN",
+      "notes": "Commander personal trip. Booking deadline 2026-05-25 11:55 PM CT. Gate 2 — Commander books directly. Daily scan: check Centrav + Google Flights PHX→HNL Apr 9 2027 Business."
     }
   ]
 }
