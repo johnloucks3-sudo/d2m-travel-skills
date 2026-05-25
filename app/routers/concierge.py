@@ -22,6 +22,7 @@ from fastapi import APIRouter, Request
 from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
+from app.lead_pipeline import notify_soft_lead, notify_rfp, spawn_draft_worker
 
 logger = logging.getLogger(__name__)
 
@@ -31,7 +32,7 @@ templates = Jinja2Templates(directory=str(Path(__file__).parent.parent / "templa
 CLAUDE_BIN = "/home/john/.local/bin/claude"
 CREDS_PATH = Path.home() / ".claude" / ".credentials.json"
 LEADS_PATH = Path(__file__).parent.parent / "concierge_leads.jsonl"
-MODEL = "claude-haiku-4-5-20251001"
+MODEL = "claude-sonnet-4-6"
 HISTORY_TURNS = 6  # keep last N turns (user+assistant pairs)
 TIMEOUT_SECONDS = 30
 
@@ -74,6 +75,13 @@ HANDOFF TRIGGERS — route to John with context, not just a phone number:
 - Visitor references an existing D2M booking or mentions they've sailed with John before: "John knows your file — reach him directly at concierge@d2mluxury.quest or 719-291-0742 and mention what you need. He'll be back to you the same day."
 - Visitor signals departure within two weeks: treat as urgent, give John's direct line immediately.
 - Conversation moves to deposits, booking confirmation, or contract terms: Dani does not take deposits. "That step goes directly through John — he'll walk you through it."
+
+PRICING REQUEST PIPELINE — when a visitor wants a specific quote:
+1. Qualify four things before promising: ship/itinerary, approximate dates, cabin category, party size
+2. Once you have all four: "I'm putting together a personalized proposal for you right now — John will have real pricing and a full recommendation in your inbox within two hours. What's the best email to reach you?"
+3. When they give their email, confirm: "Done — you'll hear from John at [their email] within two hours. He may follow up with one question, but you'll have a real quote."
+4. DO NOT estimate or range-guess pricing. The proposal is the service. Saying "probably around X" undercuts both you and John.
+5. The 2-hour promise is real. A personalized draft will be in John's review queue before that clock expires.
 
 VOICE RULES:
 - Contractions always: I'm, don't, it's, you'll
@@ -213,6 +221,59 @@ def _log_lead(lead: dict[str, str], message: str) -> None:
         logger.warning("Failed to log lead: %s", exc)
 
 
+_RFP_COMMIT_PHRASES = [
+    "within two hours",
+    "you'll hear from john",
+    "real pricing",
+    "in your inbox within",
+    "personalized proposal",
+    "proposal for you",
+]
+
+
+def _is_rfp_committed(reply: str) -> bool:
+    low = reply.lower()
+    return any(phrase in low for phrase in _RFP_COMMIT_PHRASES)
+
+
+def _extract_email_from_history(history: list[ChatMessage]) -> str | None:
+    pattern = r"[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
+    for turn in reversed(history):
+        if turn.role == "user":
+            m = re.search(pattern, turn.content)
+            if m:
+                return m.group(0)
+    return None
+
+
+def _build_conversation_context(history: list[ChatMessage], message: str) -> str:
+    lines = []
+    for turn in history:
+        role = "Visitor" if turn.role == "user" else "Dani"
+        lines.append(f"{role}: {turn.content}")
+    lines.append(f"Visitor: {message}")
+    return "\n".join(lines)
+
+
+def _process_lead_pipeline(
+    lead: dict,
+    message: str,
+    reply: str,
+    history: list[ChatMessage],
+) -> None:
+    if _is_rfp_committed(reply):
+        # Dani committed to a proposal — fire RFP pipeline if we have an email
+        email = lead.get("email") or _extract_email_from_history(history)
+        if email:
+            full_lead = {**lead, "email": email}
+            conv_context = _build_conversation_context(history, message)
+            notify_rfp(full_lead)
+            spawn_draft_worker(full_lead, conversation_context=conv_context)
+    elif lead.get("email"):
+        # Email just appeared in this message — soft lead
+        notify_soft_lead(lead)
+
+
 @router.get("/concierge", response_class=HTMLResponse)
 async def concierge_page(request: Request) -> Any:
     return templates.TemplateResponse("concierge.html", {"request": request})
@@ -232,6 +293,10 @@ def concierge_api(payload: ConciergeRequest) -> JSONResponse:
     try:
         prompt = _build_prompt(message, payload.history)
         reply = _call_claude(prompt)
+        try:
+            _process_lead_pipeline(lead, message, reply, payload.history)
+        except Exception as exc:
+            logger.warning("Lead pipeline error: %s", exc)
     except RuntimeError as exc:
         logger.error("Concierge API error: %s", exc)
         reply = (
