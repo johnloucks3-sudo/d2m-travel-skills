@@ -1,0 +1,134 @@
+[
+  {
+    "site": "viator",
+    "class_counts": [],
+    "testids": [],
+    "title": "viator.com"
+  },
+  {
+    "site": "klook",
+    "class_counts": [],
+    "testids": [],
+    "title": "klook.com"
+  },
+  {
+    "site": "headout",
+    "class_counts": [
+      [
+        "items_center",
+        402
+      ],
+      [
+        "items_flex-start",
+        188
+      ],
+      [
+        "items_flex-end",
+        134
+      ],
+      [
+        "currencyPickerList__StyledPickerItem-sc-1ubrdca-0",
+        51
+      ],
+      [
+        "styles__StyledCityCardContainer-sc-131azev-2",
+        30
+      ],
+      [
+        "city-card-wrapper",
+        30
+      ],
+      [
+        "city-card-v2-wrapper",
+        30
+      ],
+      [
+        "city-card",
+        30
+      ],
+      [
+        "footer__FooterListItem-sc-b36fb5-2",
+        20
+      ],
+      [
+        "languagePickerList__StyledPickerItem-sc-10nnja0-0",
+        9
+      ],
+      [
+        "left_var(--card-x,_0px)",
+        7
+      ],
+      [
+        "transform_rotate(var(--card-r,_0deg))",
+        4
+      ],
+      [
+        "[&_.video-container]:justify-items_stretch!",
+        4
+      ],
+      [
+        "justify-items_end",
+        4
+      ],
+      [
+        "items_stretch",
+        3
+      ],
+      [
+        "cityCardListV2__CitiesCardListWrapper-sc-vwpfd-0",
+        1
+      ]
+    ],
+    "testids": [
+      [
+        "icon-component",
+        165
+      ],
+      [
+        "star-rating",
+        10
+      ],
+      [
+        "video-player",
+        4
+      ],
+      [
+        "view-all-link-cta",
+        1
+      ],
+      [
+        "slide-1",
+        1
+      ],
+      [
+        "slide-2",
+        1
+      ],
+      [
+        "slide-3",
+        1
+      ],
+      [
+        "slide-4",
+        1
+      ],
+      [
+        "prev-navigation-button",
+        1
+      ],
+      [
+        "next-navigation-button",
+        1
+      ],
+      [
+        "next-slide-button",
+        1
+      ],
+      [
+        "drawer-content",
+        1
+      ]
+    ],
+    "title": "Headout: Things To Do, Attractions, Tours, Events & Experiences"
+  }
+]

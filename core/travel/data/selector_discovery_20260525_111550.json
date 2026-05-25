@@ -1,0 +1,127 @@
+[
+  {
+    "site": "viator",
+    "url": "https://www.viator.com/Lisbon/d538-ttd",
+    "page_title": "viator.com",
+    "matches": [],
+    "dom_snapshot": [],
+    "error": null
+  },
+  {
+    "site": "getyourguide",
+    "url": "https://www.getyourguide.com/lisbon-l42/",
+    "page_title": "The BEST Lisbon Tours and Things to Do in 2026 - FREE Cancellation | GetYourGuide",
+    "matches": [
+      {
+        "selector": "[class*='activity-card']",
+        "count": 48,
+        "first_tag": "div",
+        "first_class": "vertical-layout clickable granular-layout-activity-card-469243",
+        "first_testid": ""
+      },
+      {
+        "selector": "div[class*='card']",
+        "count": 49,
+        "first_tag": "div",
+        "first_class": "tooltip__card tooltip__card--right",
+        "first_testid": ""
+      }
+    ],
+    "dom_snapshot": [],
+    "error": null
+  },
+  {
+    "site": "klook",
+    "url": "https://www.klook.com/en-US/search/?query=lisbon+tours",
+    "page_title": "klook.com",
+    "matches": [],
+    "dom_snapshot": [],
+    "error": null
+  },
+  {
+    "site": "tiqets",
+    "url": "https://www.tiqets.com/en/lisbon-attractions-c63751/",
+    "page_title": "Best Things to Do in Colombia | Activities, Attractions & More",
+    "matches": [
+      {
+        "selector": "[data-testid*='experience']",
+        "count": 2,
+        "first_tag": "div",
+        "first_class": "",
+        "first_testid": "experiences-app-anchor"
+      },
+      {
+        "selector": "article[class*='card']",
+        "count": 9,
+        "first_tag": "article",
+        "first_class": "relative isolate overflow-hidden rounded-xl bg-white cursor-pointer card-hover-animation",
+        "first_testid": ""
+      }
+    ],
+    "dom_snapshot": [
+      {
+        "tag": "input",
+        "testid": "search-input",
+        "cls": "grow w-full m-0 p-0 ml-3 text-ink-500 border-0! shadow-none! outline-hidden appe"
+      },
+      {
+        "tag": "ul",
+        "testid": "search-suggestions",
+        "cls": "list-none bg-white rounded-xl shadow-md overflow-hidden\n               absolute "
+      },
+      {
+        "tag": "button",
+        "testid": "open-user-settings",
+        "cls": "flex items-center uppercase font-medium p-2 topbar-menu-item"
+      },
+      {
+        "tag": "section",
+        "testid": "hero-section",
+        "cls": "HeroSection text-white relative md:rounded-xl mb-4 md:mb-8 max-md:-mx-4"
+      },
+      {
+        "tag": "div",
+        "testid": "experiences-app-anchor",
+        "cls": ""
+      },
+      {
+        "tag": "div",
+        "testid": "destination-experiences",
+        "cls": ""
+      }
+    ],
+    "error": null
+  },
+  {
+    "site": "headout",
+    "url": "https://www.headout.com/lisbon/",
+    "page_title": "Headout: Things To Do, Attractions, Tours, Events & Experiences",
+    "matches": [
+      {
+        "selector": "div[class*='card']",
+        "count": 97,
+        "first_tag": "div",
+        "first_class": "pos_absolute top_0 left_var(--card-x,_0px) w_[44px] h_[44px] rounded_radius.8 border_[0.5px_solid_rgba(226,_226,_226,_0.",
+        "first_testid": ""
+      }
+    ],
+    "dom_snapshot": [
+      {
+        "tag": "span",
+        "testid": "icon-component",
+        "cls": "self_center [&_svg]:mb_space.2"
+      },
+      {
+        "tag": "a",
+        "testid": "view-all-link-cta",
+        "cls": "w_fit-content d_flex items_center gap_space.4 hover:cursor_pointer hover:text_se"
+      },
+      {
+        "tag": "div",
+        "testid": "drawer-content",
+        "cls": "pos_fixed bg_semantic.surface.light.white shadow_shadow.level.2 d_flex flex_colu"
+      }
+    ],
+    "error": null
+  }
+]

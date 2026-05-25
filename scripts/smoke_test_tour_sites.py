@@ -19,24 +19,32 @@ def log(msg: str):
 
 
 # Site definitions: name, search URL template, selectors that indicate real results
+# Selector audit: 2026-05-25 — confirmed via live Playwright discovery
+# viator: Cloudflare-blocked (consumer URL). Needs Partner API key.
+# klook: Cloudflare-blocked (consumer URL). Needs Affiliate API.
+# headout: Returns blank pages. Needs API or alternative approach.
+# getyourguide: Working — [class*='activity-card'] 48 matches confirmed.
+# tiqets: Working — article[class*='card'] 9 matches confirmed.
+# tourradar: Working — .tour-card 7 matches confirmed.
 SITES = [
     {
         "name": "viator",
         "url": "https://www.viator.com/Lisbon/d538-ttd",
         "real_result_selectors": [
             "[data-testid='product-card']",
-            ".product-listing",
+            "[class*='product-card']",
+            "[class*='ProductCard']",
             "article.result-card",
         ],
         "bot_indicators": ["captcha", "cf-challenge", "robot", "Access Denied"],
+        "notes": "API-required: consumer URL Cloudflare-blocked. Get key from https://partnerresources.viator.com/",
     },
     {
         "name": "getyourguide",
         "url": "https://www.getyourguide.com/lisbon-l42/",
         "real_result_selectors": [
+            "[class*='activity-card']",
             "[data-testid='activity-card']",
-            ".activity-card",
-            "article[data-id]",
             "[data-cy='activity-card']",
         ],
         "bot_indicators": ["captcha", "cf-challenge", "robot", "blocked"],
@@ -45,11 +53,13 @@ SITES = [
         "name": "klook",
         "url": "https://www.klook.com/en-US/search/?query=lisbon+tours",
         "real_result_selectors": [
-            ".search-result-card",
+            "[class*='ActivityCard']",
+            "[class*='activity-card']",
+            "[class*='search-result-card']",
             "[data-testid='search-result']",
-            ".activity-card",
         ],
         "bot_indicators": ["captcha", "robot", "Access Denied", "403"],
+        "notes": "API-required: consumer URL Cloudflare-blocked. Use Klook Affiliate API.",
     },
     {
         "name": "tourradar",
@@ -65,9 +75,9 @@ SITES = [
         "name": "tiqets",
         "url": "https://www.tiqets.com/en/lisbon-attractions-c63751/",
         "real_result_selectors": [
-            ".product-card",
+            "article[class*='card']",
+            "[class*='product-card']",
             "[data-testid='product']",
-            ".venue-card",
         ],
         "bot_indicators": ["captcha", "robot", "blocked", "forbidden"],
     },
@@ -75,11 +85,13 @@ SITES = [
         "name": "headout",
         "url": "https://www.headout.com/lisbon/",
         "real_result_selectors": [
-            ".product-card",
-            "[data-testid='experience-card']",
-            ".tour-card",
+            "[class*='ProductCard']",
+            "[class*='ExperienceCard']",
+            "[class*='card-tile']",
+            "[class*='CardTile']",
         ],
         "bot_indicators": ["captcha", "robot", "blocked"],
+        "notes": "Returns blank pages in headless — may require JS render wait or API.",
     },
 ]
 
@@ -144,7 +156,8 @@ async def smoke_test_site(page, site: dict, date: str) -> dict:
 
         # No bot indicators, no known result selectors — ambiguous
         result["status"] = "ambiguous"
-        result["notes"] = "No bot indicators found, but no known result selectors matched. Check screenshot."
+        extra = site.get("notes", "")
+        result["notes"] = f"No known selectors matched. {extra}".strip() if extra else "No bot indicators found, but no known result selectors matched. Check screenshot."
         log(f"    AMBIGUOUS — check screenshot: {screenshot_path.name}")
 
     except Exception as e:
