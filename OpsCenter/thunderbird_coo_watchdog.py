@@ -434,6 +434,137 @@ def log_scan(
     )
 
 
+# ─── CR-3: hale_cc HEARTBEAT presence monitor ─────────────────────────────────
+# A7 Sterling compounding rule — logged 2026-05-25 post T4 re-score.
+# If no hale_cc HEARTBEAT in hale_shared_state.jsonl within 15 minutes,
+# write RED alert to watcher_alerts.jsonl and page Sterling via Telegram.
+# Metric: watcher_hale_cc_alert_latency_minutes, threshold <=15.
+
+SHARED_STATE_PATH = BASE / "OpsCenter" / "hale_shared_state.jsonl"
+WATCHER_ALERTS_PATH = BASE / "OpsCenter" / "watcher_alerts.jsonl"
+HALE_CC_TIMEOUT_MINUTES = 15  # Sterling CR-3 spec: alert if absent > 15 min
+STERLING_CHAT_ID = COMMANDER_CHAT_ID  # Sterling alerts go to Commander channel
+
+
+def _read_last_hale_cc_heartbeat() -> dict | None:
+    """Return the most recent hale_cc HEARTBEAT entry, or None if not found."""
+    if not SHARED_STATE_PATH.exists():
+        return None
+    last = None
+    try:
+        with open(SHARED_STATE_PATH) as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    entry = json.loads(line)
+                except json.JSONDecodeError:
+                    continue
+                if (entry.get("instance") == "hale_cc"
+                        and entry.get("event") == "HEARTBEAT"):
+                    last = entry
+    except Exception as exc:
+        log.warning("CR-3: could not read shared state: %s", exc)
+    return last
+
+
+def check_hale_cc_presence() -> dict[str, Any]:
+    """
+    CR-3 check: verify hale_cc wrote a HEARTBEAT within the last 15 minutes.
+
+    Returns dict with keys:
+        alive (bool), last_ts (str|None), elapsed_minutes (float), alert_sent (bool)
+    """
+    result: dict[str, Any] = {
+        "alive": False,
+        "last_ts": None,
+        "elapsed_minutes": float("inf"),
+        "alert_sent": False,
+    }
+
+    last = _read_last_hale_cc_heartbeat()
+    if last is None:
+        log.warning("CR-3: no hale_cc HEARTBEAT ever found in shared state")
+        _send_hale_cc_alert(result, "no hale_cc heartbeat found in shared state (ever)")
+        result["alert_sent"] = True
+        return result
+
+    ts_str = last.get("timestamp", "")
+    result["last_ts"] = ts_str
+    try:
+        ts = datetime.fromisoformat(ts_str.replace("Z", "+00:00"))
+        elapsed = (datetime.now(timezone.utc) - ts).total_seconds() / 60.0
+        result["elapsed_minutes"] = elapsed
+    except (ValueError, TypeError):
+        log.warning("CR-3: could not parse hale_cc timestamp: %s", ts_str)
+        _send_hale_cc_alert(result, f"unparseable timestamp: {ts_str}")
+        result["alert_sent"] = True
+        return result
+
+    if elapsed <= HALE_CC_TIMEOUT_MINUTES:
+        result["alive"] = True
+        log.info("CR-3: hale_cc alive — last heartbeat %.1f min ago", elapsed)
+    else:
+        log.warning("CR-3: hale_cc ABSENT — last heartbeat %.1f min ago (threshold: %d min)",
+                    elapsed, HALE_CC_TIMEOUT_MINUTES)
+        _send_hale_cc_alert(result, f"last heartbeat {elapsed:.1f} min ago (threshold: {HALE_CC_TIMEOUT_MINUTES} min)")
+        result["alert_sent"] = True
+
+    return result
+
+
+def _send_hale_cc_alert(check_result: dict[str, Any], reason: str) -> None:
+    """Write alert to watcher_alerts.jsonl and send Telegram page to Sterling/Commander."""
+    alert = {
+        "timestamp": _now_iso(),
+        "source": "coo_watchdog",
+        "rule": "CR-3",
+        "severity": "RED",
+        "metric": "watcher_hale_cc_alert_latency_minutes",
+        "threshold_minutes": HALE_CC_TIMEOUT_MINUTES,
+        "last_hale_cc_heartbeat": check_result.get("last_ts"),
+        "elapsed_minutes": check_result.get("elapsed_minutes"),
+        "reason": reason,
+    }
+
+    # Write to watcher_alerts.jsonl
+    try:
+        WATCHER_ALERTS_PATH.parent.mkdir(parents=True, exist_ok=True)
+        with open(WATCHER_ALERTS_PATH, "a") as f:
+            f.write(json.dumps(alert, ensure_ascii=False) + "\n")
+        log.info("CR-3 alert written to watcher_alerts.jsonl")
+    except Exception as exc:
+        log.error("CR-3: could not write alert file: %s", exc)
+
+    # Page Sterling (via Commander Telegram channel)
+    try:
+        token = _load_bot_token()
+        msg = (
+            f"⚠️ <b>CR-3 ALERT — hale_cc absent</b>\n\n"
+            f"Last heartbeat: {check_result.get('last_ts', 'NEVER')}\n"
+            f"Elapsed: {check_result.get('elapsed_minutes', '∞'):.1f} min "
+            f"(threshold: {HALE_CC_TIMEOUT_MINUTES} min)\n"
+            f"Reason: {reason}\n\n"
+            f"<i>A7 Sterling compounding rule CR-3 — hale_cc must resume.</i>"
+        )
+        import urllib.request
+        req = urllib.request.Request(
+            f"https://api.telegram.org/bot{token}/sendMessage",
+            data=json.dumps({"chat_id": STERLING_CHAT_ID, "text": msg,
+                             "parse_mode": "HTML"}).encode(),
+            headers={"Content-Type": "application/json"},
+            method="POST",
+        )
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            if resp.status == 200:
+                log.info("CR-3 Telegram alert sent to Commander/Sterling channel")
+            else:
+                log.warning("CR-3 Telegram send returned HTTP %d", resp.status)
+    except Exception as exc:
+        log.warning("CR-3 Telegram alert failed (non-critical): %s", exc)
+
+
 # ─── Main orchestration ───────────────────────────────────────────────────────
 
 def run_watchdog_cycle() -> None:
@@ -447,6 +578,7 @@ def run_watchdog_cycle() -> None:
       6. Update + save state
       7. Alert Commander on unrecoverable Tier 1 failures
       8. Log scan summary
+      9. CR-3: hale_cc presence check (A7 Sterling compounding rule)
     """
     log.info("─── COO Watchdog cycle start ───")
 
@@ -521,6 +653,14 @@ def run_watchdog_cycle() -> None:
 
     # 7. Log structured summary
     log_scan(scan, deltas, diagnostics_map, recovery_map)
+
+    # 9. CR-3: hale_cc HEARTBEAT presence check (A7 Sterling compounding rule)
+    cr3 = check_hale_cc_presence()
+    if cr3["alert_sent"]:
+        log.warning("CR-3: alert fired — elapsed=%.1f min", cr3["elapsed_minutes"])
+    else:
+        log.info("CR-3: hale_cc present — elapsed=%.1f min", cr3["elapsed_minutes"])
+
     log.info("─── COO Watchdog cycle complete ───")
 
 
