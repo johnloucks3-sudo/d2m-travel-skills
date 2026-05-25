@@ -1,7 +1,8 @@
 # OpenCode Memory — Active Operational State
-**Last Compaction:** 2026-05-23 | **Archive:** `archives/opencode_memory_20260523_full.md`
+**Last Compaction:** 2026-05-24 | **Hard cap: 200 lines** | **Archive:** `archives/opencode_memory_20260523_full.md`
+**2026-05-24 sessions archived to:** `archives/opencode_memory_20260524_sessions.md`
 
-> Full session transcripts (2026-05-19 → 2026-05-23) archived to preserve session stability. Active file holds current state + rules only. See `## ARCHIVE INDEX` for resume keywords.
+> Active file holds current state + rules only. Session summaries are archived immediately. Hard cap: 200 lines. Sterling audits on compaction. See ARCHIVE INDEX for resume keywords.
 
 ---
 
@@ -178,97 +179,9 @@ Contents by session (line ranges in archive):
 
 ---
 
-## SESSION SUMMARY — 2026-05-24 Lifecycle Automation Validation (Weapons Free)
-
-**Task:** Validate the entire lifecycle automation system against the Lifecycle Automation Compact v1.0 (MISSION-059) after budget-forced model changes caused failures. Commander now on 20X Claude MAX (unlimited, $0).
-
-### What was validated
-- **ARC YAML** (`lifecycle_decision_trees.yaml`) — cross-referenced against compact Section 1.1. Found 6 missing ARCs (ARC0, ARC5, ARC6, ARC7, ARC8, CRISIS). Naia missing from 22/23 client-facing chains. Fixed: v1.1 with all 13 ARCs + Naia in every client-facing chain.
-- **Metrics writer** (`thunderbird_metrics_writer.py`) — found 3 bugs: wrong schema key (`metric`→`metric_name`), wrong path (`OpsCenter/metrics/`→`metrics/`), zero production callers. All fixed and wired into unified_router dispatch.
-- **Lifecycle router** (`lifecycle_router.py`) — validate passes. All routes resolve.
-- **Model routing** — all non-Claude paths stripped. Budget guard disabled. Only 3 Claude MAX adapters registered.
-- **hale_tp_router.py** — `deepseek`→`sonnet` for research/intel/brief categories.
-- **TP alert engine** — dry run OK. 20 actionable TPs in scan window.
-- **23-TP scheduler** — schedule logic OK. Date offsets, DateRef enum, status evaluation all correct.
-
-### Files changed (direct edits)
-- `core/ai_infra/budget_preflight_guard.py` — gutted, always returns PASS
-- `core/ai_infra/router_chains.py` — removed deepseek_v4, added claude_max_oauth_haiku to BULK/ARB
-- `core/ai_infra/router_setup.py` — only registers 3 Claude MAX adapters
-- `core/ai_infra/unified_router.py` — removed degrade logic, FREE_COST_POOLS, free-pool fallback; all pools unlimited; wired metrics writer
-- `core/ai_infra/adapters/claude_max_oauth.py` — added haiku_adapter
-- `core/ops/hale_tp_router.py` — deepseek→sonnet, removed deepseek from COST_TIERS
-- `core/ops/lifecycle_decision_trees.yaml` — v1.1: added ARC0-ARC13, Naia in all client-facing chains
-- `core/ops/thunderbird_metrics_writer.py` — fixed schema key, path, added schema_version
-- `OpsCenter/opencode_memory.md` — updated model routing, budget, operational state
-
-### Bugs found and fixed
-| # | Finding | Fix |
-|---|---------|-----|
-| 1 | Budget guard blocking Claude MAX at 80% weekly thresholds | Gutted — always PASS |
-| 2 | Router chains BULK/ARB had `deepseek_v4` as only option | Added `claude_max_oauth_haiku` as primary |
-| 3 | Router setup registered 9 adapters including non-Claude | Only 3 Claude MAX adapters now |
-| 4 | `hale_tp_router` mapped research/intel to `deepseek` | `sonnet` for all |
-| 5 | `lifecycle_decision_trees.yaml` missing 6/12 ARC chains | Added ARC0-ARC13 |
-| 6 | Naia missing from 22/23 client-facing chains | Inserted exec before a3 in all |
-| 7 | Metrics writer `metric`→`metric_name` (wrong schema key) | Fixed field name |
-| 8 | Metrics writer wrong path | Moved to `/metrics/metrics.jsonl` |
-| 9 | Metrics writer zero callers in production | Wired into unified_router dispatch |
-| 10 | Haiku adapter didn't exist | Added to `claude_max_oauth.py` |
-
-### Outstanding
-- ~750 non-Claude model references remain in OpsCenter/ scripts, archive files, and test files. These are interactive/operational tools (keyword_router, telegram_gw, etc.) — not timer-automated lifecycle paths. Commander can review if cleanup is wanted.
-- 19 files have hardcoded OpenRouter API keys (`sk-or-v1-...`) — security issue flagged for cleanup.
-- Metrics writer still needs pipe probe and cost snapshot integration points (currently only persona dispatches are wired).
-- The compact mentions "reference_canonical_lifecycle_touchpoints.md" — file not found on disk.
 
 ---
 
-## SESSION SUMMARY — 2026-05-24 Quick Session (Session Init Only)
-
-**Task:** Session startup followed by Commander calling "end" immediately.
-
-**State at start:**
-- All inboxes clean (opencode_inbox.md, claude_inbox.md — all COMPLETE)
-- 12 non-completed missions active (P0: MISSION-054 Silver Muse T-27, MISSION-059 Lifecycle Compact)
-- MISSION-009 (Kuklinski ARC4-A email) stale "in_progress" since May 18
-- METRONOME #475, RED heartbeat (720 missed beats from hale_cc, expected)
-- Services: Telegram GW ✅, Watcher ✅ (both running since May 23)
-- No UNREAD command signals
-
-**Actions taken:** Session init only — no code changes, no task execution.
-
----
-
-## SESSION SUMMARY — 2026-05-24 T2 Wave 2 Cruise Intel Pipeline
-
-**Task:** Expand T2 Arctic/Europe/Med cruise intelligence pipeline from 4 sources (Wave 1) to 7 sources (Wave 2). Fix data quality bugs. Produce final HTML report.
-
-### What was built
-- **scrape_hx.py** — HX Expeditions scraper via `__NEXT_DATA__` JSON (no gstack; fast)
-- **scrape_seadream.py** — SeaDream Yacht Club via gstack headless browser; Euro/Med geo filter applied
-- **scrape_explora.py** — Explora Journeys rewrite; original Coveo REST API dead (Adobe Helix migration → 401); now uses public sitemap + og:description page scrape
-- **progress.py** — Gold-standard ANSI terminal display (StepTracker, wave badges W1/W2, per-step timing, SummaryTable)
-- **generate_report.py** — HTML report generator from master CSV; produces T2_CRUISE_REPORT.html
-- **run_pipeline.py** — Updated to orchestrate all 7 sources with `--skip-hx/seadream/explora` flags
-- **utils.py** — Fixed Antarctic false-positive in `is_europe_med_arctic()`; added `_SHIP_ALIASES` for SeaDream cross-matching
-
-### Output
-- **205 unique sailings** across **13 cruise lines** (Oct/Nov 2026 Arctic/Europe/Med)
-- **27 net-new sailings** from Wave 2 sources
-- **5 multi-source confirmed** (was 0 before SeaDream alias fix)
-- `T2_CRUISE_REPORT.html` (61KB) + `T2_MASTER_CRUISE_OCTOBER_NOVEMBER_2026.csv` in `output/`
-
-### Bugs found and fixed
-1. SeaDream ship name mismatch (DeluxeCruises: "SeaDream Cruise 1/2" vs canonical "SeaDream I/II") → added `_SHIP_ALIASES` + prefix matching in `find_match()`; result: 211→205 unique sailings, 5 multi-source
-2. Explora Journeys Coveo API dead (401 since Adobe Helix migration) → rewrote to sitemap + og:description scrape
-3. Antarctic false-positive in `is_europe_med_arctic()` (substring "arctic" matched "antarctica") → `_SOUTHERN_HEMISPHERE_EXCLUDE` pre-check
-4. Perx API HTTP 400 on all queries (server-side render migration) → documented; cache protection added; recovery options noted
-
-### Dead-API resilience pattern (lesson)
-Two fallback paths when REST API dies: (1) public sitemap + page scrape (Explora), (2) SSR `__NEXT_DATA__` JSON extraction (HX). Both in production as templates.
-
-### Open / Next session
-- Perx recovery: gstack + authenticated session, or CruiseDirect as alternate price source
-- Viking absent from T2 output — verify geo filter not over-pruning
-- Mirror T2_CRUISE_REPORT.html + CSV to `Thunderbird_Intel` Drive folder
+## SESSION SUMMARIES — 2026-05-24
+Archived to `archives/opencode_memory_20260524_sessions.md` per hard-cap Rule 4.
+Four sessions: Lifecycle Validation, Quick Init, Wave 2 Pipeline, Evening Email+AAR.
