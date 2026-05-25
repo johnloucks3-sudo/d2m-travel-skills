@@ -721,7 +721,7 @@
     },
     {
       "id": "MISSION-061",
-      "title": "invisible_playwright Eval — Centrav reCAPTCHA + Cruise Pricing",
+      "title": "invisible_playwright Eval \u2014 Centrav reCAPTCHA + Cruise Pricing",
       "status": "active",
       "priority": "P1",
       "assigned_to": "ELON/A12",
@@ -735,16 +735,16 @@
       "created_at": "2026-05-25T12:00:00Z",
       "updated_at": "2026-05-25T12:00:00Z",
       "logs": [
-        "[2026-05-25T12:00:00] Mission created — HALE COS, per Commander approval via Innovation Synthesis"
+        "[2026-05-25T12:00:00] Mission created \u2014 HALE COS, per Commander approval via Innovation Synthesis"
       ]
     },
     {
       "id": "MISSION-062",
-      "title": "Claude Code Release Integration — HEADLESSCLAUDESPAWN_GUIDE.md",
+      "title": "Claude Code Release Integration \u2014 HEADLESSCLAUDESPAWN_GUIDE.md",
       "status": "active",
       "priority": "P2",
       "assigned_to": "A7 Sterling",
-      "description": "Update docs/HEADLESSCLAUDESPAWN_GUIDE.md to document claude agents --json (v2.1.145), --bg /resume pattern (v2.1.144), --mcp-config, and --model flags. Update spawn template with new flags. Source: Claude Code releases v2.1.142–v2.1.149.",
+      "description": "Update docs/HEADLESSCLAUDESPAWN_GUIDE.md to document claude agents --json (v2.1.145), --bg /resume pattern (v2.1.144), --mcp-config, and --model flags. Update spawn template with new flags. Source: Claude Code releases v2.1.142\u2013v2.1.149.",
       "deliverables": [
         "Updated HEADLESSCLAUDESPAWN_GUIDE.md with new flags",
         "Spawn template updated"
@@ -753,12 +753,12 @@
       "created_at": "2026-05-25T12:00:00Z",
       "updated_at": "2026-05-25T12:00:00Z",
       "logs": [
-        "[2026-05-25T12:00:00] Mission created — HALE COS, per Commander approval via Innovation Synthesis"
+        "[2026-05-25T12:00:00] Mission created \u2014 HALE COS, per Commander approval via Innovation Synthesis"
       ]
     },
     {
       "id": "MISSION-063",
-      "title": "Prompt Formatting Study — Persona Files & CLAUDE.md",
+      "title": "Prompt Formatting Study \u2014 Persona Files & CLAUDE.md",
       "status": "active",
       "priority": "P3",
       "assigned_to": "A7 Sterling",
@@ -771,7 +771,7 @@
       "created_at": "2026-05-25T12:00:00Z",
       "updated_at": "2026-05-25T12:00:00Z",
       "logs": [
-        "[2026-05-25T12:00:00] Mission created — HALE COS, per Commander approval via Innovation Synthesis"
+        "[2026-05-25T12:00:00] Mission created \u2014 HALE COS, per Commander approval via Innovation Synthesis"
       ]
     },
     {
@@ -789,8 +789,43 @@
       "created_at": "2026-05-25T12:00:00Z",
       "updated_at": "2026-05-25T12:00:00Z",
       "logs": [
-        "[2026-05-25T12:00:00] Mission created — HALE COS, per Commander approval via Innovation Synthesis"
+        "[2026-05-25T12:00:00] Mission created \u2014 HALE COS, per Commander approval via Innovation Synthesis"
       ]
+    },
+    {
+      "id": "MISSION-066",
+      "title": "Web Lead Pipeline — Live Site Test",
+      "status": "pending",
+      "priority": "P1",
+      "assigned_to": "Commander + Hale",
+      "description": "End-to-end live test of the Dani web lead pipeline on app.d2mluxury.quest. Verify: (1) Dani qualifies cruise, dates, cabin, party over 2+ turns, (2) commits to 2hr proposal when all four criteria met, (3) visitor provides email, (4) Telegram 🔥 RFP alert fires to Commander, (5) draft worker spawns, (6) Sonnet prices cruise from conversation context, (7) HTML proposal created with correct stationery, (8) Gmail Commander-Review draft appears in d2mconcierge, (9) Telegram ✅ completion alert fires. Commander supplies real or realistic test lead data.",
+      "deliverables": [
+        "Confirmed Telegram 🔥 RFP alert receipt",
+        "Confirmed Gmail Commander-Review draft in d2mconcierge inbox",
+        "Confirmed Telegram ✅ completion alert receipt",
+        "Draft HTML reviewed for stationery compliance (navy #001f5b / cream #f7f3ea / blue #0000ff)"
+      ],
+      "suspense_date": null,
+      "created_at": "2026-05-25T23:30:00Z",
+      "updated_at": "2026-05-25T23:30:00Z",
+      "logs": [
+        "[2026-05-25T23:30:00] Pipeline smoke-tested and all components passing. Telegram token fixed (TELEGRAM_C2_BOT_TOKEN). Draft HTML confirmed real 6.9KB proposal. Awaiting Commander live test."
+      ]
+    },
+    {
+      "id": "MISSION-065",
+      "title": "Pacific Voyage Blog",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "\u2014 Interview Series (Segments Remaining) Interview-based blog posts for www.d2mluxury.quest. Commander provides truth, Hale writes in his voice. Remaining segments: (1) OC/family leg Apr 10-13 John Wayne, (2) Hawaii Apr 13-18, (3) Silver Nova dining \u2014 La Dame/Kaiseki/SALT/Silver Note, (4) Sea days rhythm, (5) Miyako Apr 25 first port, (6) Final wrap/reflections. Method: interview Commander per segment, one post per sitting. Do NOT publish without Commander review. P2",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-05-25T21:11:19.746921+00:00",
+      "updated_at": "2026-05-25T21:11:19.746933+00:00"
     }
   ],
   "suspense_watch": [
@@ -806,22 +841,22 @@
     },
     {
       "date": "2026-05-31",
-      "item": "MISSION-061: invisible_playwright Eval — PoC complete",
+      "item": "MISSION-061: invisible_playwright Eval \u2014 PoC complete",
       "priority": "P1"
     },
     {
       "date": "2026-06-01",
-      "item": "MISSION-062: Claude Code Release Integration — doc update",
+      "item": "MISSION-062: Claude Code Release Integration \u2014 doc update",
       "priority": "P2"
     },
     {
       "date": "2026-06-07",
-      "item": "MISSION-063: Prompt Formatting Study — audit report",
+      "item": "MISSION-063: Prompt Formatting Study \u2014 audit report",
       "priority": "P3"
     },
     {
       "date": "2026-06-07",
-      "item": "MISSION-064: Anthropic Skills Ecosystem — analysis report",
+      "item": "MISSION-064: Anthropic Skills Ecosystem \u2014 analysis report",
       "priority": "P3"
     },
     {
@@ -850,7 +885,7 @@
       "priority": "P1"
     }
   ],
-  "last_updated": "2026-05-25T12:00:00Z",
+  "last_updated": "2026-05-25T23:30:00Z",
   "t4_exercise_status": {
     "status": "CLOSED",
     "score": "9.5/10 GREEN",
