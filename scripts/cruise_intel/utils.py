@@ -46,8 +46,18 @@ VESSEL_PREFIXES = [
     'RY ', 'MY ', 'M/S ', 'ms ', 'mv ',
 ]
 
+# Canonical aliases: map non-standard names → canonical form for cross-source matching.
+# Keys are lowercased partial or full ship names; values are the canonical lowercased form.
+_SHIP_ALIASES: dict[str, str] = {
+    'seadream cruise 1': 'seadream i',
+    'seadream cruise 2': 'seadream ii',
+    # Generic "seadream" (from seadream.com gstack — no ship number) maps to the prefix
+    # so it can match either vessel when find_match uses startswith logic.
+    # NOTE: don't alias 'seadream' itself — keep it as-is so find_match can fuzzy-match.
+}
+
 def norm_ship(name: str) -> str:
-    """Strip vessel prefixes and lowercase for dedup matching."""
+    """Strip vessel prefixes, apply canonical aliases, lowercase for dedup matching."""
     if not name:
         return ''
     n = str(name).strip()
@@ -55,7 +65,8 @@ def norm_ship(name: str) -> str:
         if n.startswith(pfx):
             n = n[len(pfx):]
             break
-    return n.lower().strip()
+    n = n.lower().strip()
+    return _SHIP_ALIASES.get(n, n)
 
 
 # ── Cross-source matching ──────────────────────────────────────────────────────
@@ -73,7 +84,9 @@ def find_match(
     if not dep_date:
         return None
     for e in entries:
-        if e.get('ship_norm') == ship_norm:
+        e_norm = e.get('ship_norm', '')
+        # Exact match OR prefix match for generic names (e.g. "seadream" matches "seadream i")
+        if e_norm == ship_norm or e_norm.startswith(ship_norm + ' ') or ship_norm.startswith(e_norm + ' '):
             e_date = e.get('departure_date_obj')
             if e_date and abs((dep_date - e_date).days) <= tolerance:
                 return e

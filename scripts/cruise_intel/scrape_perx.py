@@ -1,12 +1,20 @@
 #!/usr/bin/env python3
 """
 Cruise Intel — Perx.com Scraper
-Uses the hidden sail-personalize.com API that powers both Perx and CruiseDirect.
-Endpoint: POST https://api.sail-personalize.com/v1/search/cruises
+Previously used the sail-personalize.com REST API backend.
 
-SP-T2-1: Run gstack network inspection before scraping — document shared backends.
-NOTE: If the API payload format changes, re-capture via: gstack goto https://www.perx.com/cruise-search
-      then inspect Network requests in the browser devtools.
+⚠️  STATUS 2026-05-24: sail-personalize.com API returns HTTP 400 on ALL queries.
+    Perx.com migrated to server-side rendering; individual sailing prices now require
+    a registered/logged-in session. The API is effectively dead for unauthenticated use.
+
+    RECOVERY OPTIONS (requires gstack):
+      1. Log into perx.com with a test account via gstack, then capture network traffic
+         to find the new authenticated API endpoint.
+      2. Use CruiseDirect.com (same backend) — may have different auth requirements.
+      3. Accept Perx as a dead source and use the cache from prior successful runs.
+
+    LAST SUCCESSFUL SCRAPE: 2026-05-22 (before API change detected).
+    Cache at: output/T2_PERX_COMBINED.json (currently empty — wiped by failed run).
 """
 import argparse
 import json
