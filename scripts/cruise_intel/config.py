@@ -16,6 +16,11 @@ PERX_JSON = OUTPUT_DIR / "T2_PERX_COMBINED.json"
 PONANT_RAW_JSON = OUTPUT_DIR / "T2_PONANT_PARSED.json"
 PONANT_CLEAN_JSON = OUTPUT_DIR / "T2_PONANT_CLEAN.json"
 
+# ── New native sources (Wave 2 — 2026-05-24) ──────────────────────────────────
+HX_JSON        = OUTPUT_DIR / "T2_HX_EXPEDITIONS.json"
+SEADREAM_JSON  = OUTPUT_DIR / "T2_SEADREAM_YACHTCLUB.json"
+EXPLORA_JSON   = OUTPUT_DIR / "T2_EXPLORA_JOURNEYS.json"
+
 # ── Browser binary ─────────────────────────────────────────────────────────────
 GSTACK_BIN = Path.home() / ".claude/skills/gstack/browse/dist/browse"
 
@@ -162,7 +167,10 @@ SHIP_LINE_MAP = {
 # ── CSV column order ───────────────────────────────────────────────────────────
 CSV_COLUMNS = [
     'cruise_line', 'ship_name', 'departure_date', 'month', 'days',
-    'route', 'voyage_code', 'on_deluxecruises', 'on_perx', 'on_oat', 'on_ponant',
+    'route', 'voyage_code',
+    'on_deluxecruises', 'on_perx', 'on_oat', 'on_ponant',
+    'on_hx', 'on_seadream', 'on_explora',
+    'price_usd',
 ]
 
 # ── Month name <-> number ──────────────────────────────────────────────────────

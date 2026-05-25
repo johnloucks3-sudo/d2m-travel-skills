@@ -131,6 +131,12 @@ def scrape_perx(year: int, months: list[int], output_path: Path,
         filtered = deduped
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
+    if not filtered and output_path.exists():
+        import json as _json
+        cached = _json.loads(output_path.read_text())
+        if cached:
+            print(f'  [perx] WARNING: 0 results from API — keeping existing cache ({len(cached)} records)')
+            return cached
     output_path.write_text(json.dumps(filtered, indent=2))
     print(f"  [perx] Saved → {output_path}")
     return filtered

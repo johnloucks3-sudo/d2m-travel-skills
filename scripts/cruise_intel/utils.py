@@ -82,9 +82,19 @@ def find_match(
 
 # ── Region filter ──────────────────────────────────────────────────────────────
 
+_SOUTHERN_HEMISPHERE_EXCLUDE = (
+    'antarctica', 'antarctic', 'falkland', 'south georgia',
+    'ushuaia', 'patagonia', 'tierra del fuego', 'south shetland',
+    'south pole', 'drake passage',
+)
+
 def is_europe_med_arctic(from_port: str, to_port: str, route_name: str = '') -> bool:
-    """Return True if any port or route text matches European/Med/Arctic keywords."""
+    """Return True if any port or route text matches European/Med/Arctic keywords.
+    Explicit exclusion: Southern Hemisphere expedition keywords win over 'arctic' substring.
+    """
     text = (from_port + ' ' + to_port + ' ' + route_name).lower()
+    if any(ex in text for ex in _SOUTHERN_HEMISPHERE_EXCLUDE):
+        return False
     return any(kw in text for kw in EUROPE_MED_KEYWORDS)
 
 
