@@ -31,9 +31,17 @@ KNOWN_LINES = ["silversea", "regent", "seabourn", "viking", "oceania", "cunard",
 def _lookup_cruise_pricing(lead: dict) -> str:
     """
     Ask Claude Sonnet for a cruise fare range estimate.
+    Falls back to scanning conversation_context if cruise_interest is empty.
     Returns a short pricing summary or "" if cruise is too vague.
     """
     cruise = (lead.get("cruise_interest") or "").strip()
+    if not cruise:
+        # Try to extract cruise line from conversation context
+        ctx = (lead.get("conversation_context") or "").lower()
+        for line in KNOWN_LINES:
+            if line in ctx:
+                cruise = line
+                break
     if not cruise or not any(line in cruise.lower() for line in KNOWN_LINES):
         return ""
 
@@ -67,9 +75,9 @@ def _lookup_cruise_pricing(lead: dict) -> str:
 def _load_tg_token() -> str:
     if ENV_FILE.exists():
         for line in ENV_FILE.read_text(encoding="utf-8").splitlines():
-            if line.startswith("TELEGRAM_D2MC2C_TOKEN="):
+            if line.startswith("TELEGRAM_C2_BOT_TOKEN="):
                 return line.split("=", 1)[1].strip().strip('"').strip("'")
-    return os.environ.get("TELEGRAM_D2MC2C_TOKEN", "")
+    return os.environ.get("TELEGRAM_C2_BOT_TOKEN", "")
 
 
 def _tg_send(text: str) -> None:
@@ -101,7 +109,7 @@ def _load_oauth_env() -> dict:
     return env
 
 
-def _build_draft_prompt(lead: dict, output_html: Path, pricing_intel: str = "") -> str:
+def _build_draft_prompt(lead: dict, pricing_intel: str = "") -> str:
     name = lead.get("name") or "our guest"
     email = lead.get("email") or ""
     cruise = lead.get("cruise_interest") or "luxury cruise"
@@ -126,16 +134,16 @@ LEAD DATA:
 CONVERSATION CONTEXT (Dani chat transcript):
 {conversation}
 
-PRICING INTEL (live web lookup — verify before quoting client):
+PRICING INTEL (live lookup — verify before quoting client):
 {pricing_block}
 
 TASK: Write a personalized D2M proposal email as John A. Loucks III.
 
 REQUIREMENTS:
 1. Voice: warm, specific, direct. No "I'm thrilled" or "Great news!" Lead with the answer.
-2. Open by referencing exactly what they asked about (ship name, destination, specific dates if mentioned)
+2. Open by referencing exactly what they asked about (ship name, destination, specific dates if mentioned). Extract these from the CONVERSATION CONTEXT if not in LEAD DATA.
 3. Body includes: why this cruise line fits what they described, cabin recommendation with one specific reason, 1-2 excursion suggestions for the itinerary
-4. Pricing — use the PRICING INTEL block below if provided. Present the range naturally in the email body (e.g., "current fares are running $X,XXX–$X,XXX per person"). If no pricing intel, include this exact placeholder instead: [John: verify current {cabin} pricing for {cruise}]
+4. Pricing — use the PRICING INTEL block if provided. Present the range naturally (e.g., "current fares are running $X,XXX–$X,XXX per person"). If no pricing intel, include this exact placeholder: [John: verify current {cabin or "cabin"} pricing for {cruise}]
 5. What happens next: John will confirm pricing and availability, ask if they have questions
 6. Sign: John A. Loucks III, CEO · Dreams2Memories Travel · 719-291-0742 · concierge@d2mluxury.quest
 
@@ -148,13 +156,13 @@ HTML STATIONERY SPEC:
 - Links: color #0000ff
 - Footer: small gray text, company name + contact
 
-Write ONLY the complete HTML. No markdown, no explanation, no wrapper text.
+Output ONLY the raw complete HTML document starting with <!DOCTYPE html> or <html>.
+Do NOT include any explanation, summary, bullets, or commentary before or after the HTML.
+Do NOT use markdown code fences.
 
 After the closing </html> tag, on separate lines, write exactly:
 GMAIL_TO: {email}
 GMAIL_SUBJECT: Your {cruise} Proposal — Dreams2Memories Travel
-
-WRITE your complete output to {output_html}
 """
 
 
@@ -177,8 +185,8 @@ def main() -> int:
     output_html = OUTPUT_DIR / f"web_lead_draft_{lead_id}.html"
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-    # Step 0: Live pricing lookup via Perplexity Sonar
-    print(f"[{lead_id}] Looking up live pricing for: {cruise}...")
+    # Step 0: Pricing lookup via Sonnet
+    print(f"[{lead_id}] Looking up pricing for: {cruise}...")
     pricing_intel = _lookup_cruise_pricing(lead)
     if pricing_intel:
         print(f"[{lead_id}] Pricing intel acquired ({len(pricing_intel)} chars)")
@@ -186,7 +194,7 @@ def main() -> int:
         print(f"[{lead_id}] No pricing intel — using placeholder")
 
     # Step 1: Generate draft via Claude
-    prompt = _build_draft_prompt(lead, output_html, pricing_intel=pricing_intel)
+    prompt = _build_draft_prompt(lead, pricing_intel=pricing_intel)
     env = _load_oauth_env()
 
     print(f"[{lead_id}] Generating draft for {name} ({email})...")

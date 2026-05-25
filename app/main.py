@@ -10,7 +10,7 @@ from pathlib import Path
 from urllib.parse import quote as urlencode_str
 
 from app.db import init_db, get_featured_sailings, get_stats
-from app.routers import cruise, intake, blog
+from app.routers import cruise, intake, blog, concierge
 
 BASE = Path(__file__).parent
 
@@ -23,6 +23,7 @@ templates.env.filters["urlencode"] = urlencode_str
 app.include_router(cruise.router)
 app.include_router(intake.router)
 app.include_router(blog.router)
+app.include_router(concierge.router)
 
 
 @app.on_event("startup")
@@ -32,6 +33,7 @@ async def startup():
     cruise.templates.env.filters["urlencode"] = urlencode_str
     intake.templates.env.filters["urlencode"] = urlencode_str
     blog.templates.env.filters["urlencode"] = urlencode_str
+    concierge.templates.env.filters["urlencode"] = urlencode_str
 
 
 @app.get("/", response_class=HTMLResponse)

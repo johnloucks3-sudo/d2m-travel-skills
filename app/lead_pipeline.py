@@ -25,9 +25,9 @@ LOG_DIR = Path("/home/john/Thunderbird/logs")
 def _load_tg_token() -> str:
     if ENV_FILE.exists():
         for line in ENV_FILE.read_text(encoding="utf-8").splitlines():
-            if line.startswith("TELEGRAM_D2MC2C_TOKEN="):
+            if line.startswith("TELEGRAM_C2_BOT_TOKEN="):
                 return line.split("=", 1)[1].strip().strip('"').strip("'")
-    return os.environ.get("TELEGRAM_D2MC2C_TOKEN", "")
+    return os.environ.get("TELEGRAM_C2_BOT_TOKEN", "")
 
 
 def _tg_send(text: str) -> None:

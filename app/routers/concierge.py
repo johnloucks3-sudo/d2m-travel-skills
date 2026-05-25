@@ -34,7 +34,7 @@ CREDS_PATH = Path.home() / ".claude" / ".credentials.json"
 LEADS_PATH = Path(__file__).parent.parent / "concierge_leads.jsonl"
 MODEL = "claude-sonnet-4-6"
 HISTORY_TURNS = 6  # keep last N turns (user+assistant pairs)
-TIMEOUT_SECONDS = 30
+TIMEOUT_SECONDS = 60
 
 def _build_system_prompt() -> str:
     today = datetime.now().strftime("%B %d, %Y")
