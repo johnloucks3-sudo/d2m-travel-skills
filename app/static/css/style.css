@@ -2,14 +2,16 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --navy: #0033A0;
-  --navy-dark: #00256e;
-  --navy-light: #e8eef8;
+  --navy: #1c3560;
+  --navy-dark: #0e1e38;
+  --navy-mid: #2a4878;
+  --navy-light: #eaeff7;
+  --silver: #8aa0bb;
   --cream: #f7f3ea;
   --cream-dark: #ede8da;
-  --gold: #c9a84c;
-  --text: #222;
-  --text-muted: #666;
+  --gold: #b8955a;
+  --text: #1c2436;
+  --text-muted: #5a6a7e;
   --white: #fff;
   --font-serif: 'Playfair Display', Georgia, serif;
   --font-sans: 'Lato', system-ui, sans-serif;
@@ -134,7 +136,7 @@ a:hover { text-decoration: underline; }
   display: flex;
   align-items: center;
   background:
-    linear-gradient(135deg, rgba(0,30,90,0.82) 0%, rgba(0,51,160,0.60) 100%),
+    linear-gradient(135deg, rgba(14,30,56,0.88) 0%, rgba(28,53,96,0.68) 100%),
     url('/static/img/hero_bg.jpg') center/cover no-repeat;
   background-color: var(--navy-dark);
   padding: 80px 40px;
