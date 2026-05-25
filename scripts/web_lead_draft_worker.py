@@ -25,65 +25,43 @@ GMAIL_DRAFT_SCRIPT = "/home/john/Thunderbird/scripts/create_gmail_draft_direct.p
 COMMANDER_ID = 7554895206
 ENV_FILE = Path("/home/john/Thunderbird/.env")
 OUTPUT_DIR = Path("/home/john/Thunderbird/output")
-OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
-PRICING_MODEL = "perplexity/sonar"
 KNOWN_LINES = ["silversea", "regent", "seabourn", "viking", "oceania", "cunard", "ama", "ponant"]
-
-
-def _load_openrouter_key() -> str:
-    if ENV_FILE.exists():
-        for line in ENV_FILE.read_text(encoding="utf-8").splitlines():
-            if line.startswith("OPENROUTER_API_KEY="):
-                return line.split("=", 1)[1].strip().strip('"').strip("'")
-    return os.environ.get("OPENROUTER_API_KEY", "")
 
 
 def _lookup_cruise_pricing(lead: dict) -> str:
     """
-    Query Perplexity Sonar via OpenRouter for live cabin pricing.
-    Returns a short pricing summary or "" on failure/insufficient data.
+    Ask Claude Sonnet for a cruise fare range estimate.
+    Returns a short pricing summary or "" if cruise is too vague.
     """
     cruise = (lead.get("cruise_interest") or "").strip()
     if not cruise or not any(line in cruise.lower() for line in KNOWN_LINES):
         return ""
 
-    cabin = lead.get("cabin_preference") or "standard"
+    cabin = lead.get("cabin_preference") or "standard cabin"
     window = lead.get("travel_window") or ""
-    party = lead.get("party") or ""
+    party = lead.get("party") or "2 guests"
 
-    query = (
-        f"Current retail cruise fare for {cruise}"
-        + (f" departing {window}" if window else "")
-        + f", {cabin} cabin category, per person USD."
-        + (" " + party if party else "")
-        + " What is the typical price range from a travel agent? Include any current promotions."
+    prompt = (
+        f"You are a luxury cruise pricing specialist. "
+        f"Give a realistic per-person fare range in USD for: "
+        f"{cruise}"
+        + (f", departing {window}" if window else "")
+        + f", {cabin} category, {party}. "
+        f"Include typical inclusions for this cruise line. "
+        f"2-3 sentences, specific numbers, no hedging."
     )
 
-    api_key = _load_openrouter_key()
-    if not api_key:
-        return ""
-
+    env = _load_oauth_env()
     try:
-        resp = requests.post(
-            OPENROUTER_URL,
-            headers={
-                "Authorization": f"Bearer {api_key}",
-                "HTTP-Referer": "https://d2mluxury.quest",
-                "X-Title": "Dreams2Memories Travel",
-                "Content-Type": "application/json",
-            },
-            json={
-                "model": PRICING_MODEL,
-                "messages": [{"role": "user", "content": query}],
-                "max_tokens": 400,
-            },
-            timeout=20,
+        result = subprocess.run(
+            [CLAUDE_BIN, "-p", prompt, "--model", "claude-sonnet-4-6", "--output-format", "text"],
+            capture_output=True, text=True, env=env, timeout=30,
         )
-        data = resp.json()
-        return data["choices"][0]["message"]["content"].strip()
+        if result.returncode == 0 and result.stdout.strip():
+            return result.stdout.strip()
     except Exception as exc:
-        print(f"[pricing] Lookup failed: {exc}")
-        return ""
+        print(f"[pricing] Sonnet lookup failed: {exc}")
+    return ""
 
 
 def _load_tg_token() -> str:
