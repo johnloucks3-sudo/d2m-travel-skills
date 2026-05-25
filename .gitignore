@@ -67,6 +67,7 @@ creds/
 # Browser automation profiles
 browser_profiles/
 .playwright-mcp/
+oa_state/
 
 # Nested Thunderbird copy
 Thunderbird/
