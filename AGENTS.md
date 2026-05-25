@@ -164,17 +164,19 @@ All automated via systemd timers (MDT):
 | Tool | Model | Cost | Use |
 |------|-------|------|-----|
 | **Claude Code** (MAX) | Sonnet 4.6 | $0 (MAX plan) | Primary — reasoning, code, client work |
-| **OpenCode** | Big Pickle (`opencode/big-pickle`) | $0 native | Default ops, interactive dev, Telegram GW |
-| **OpenCode fallback** | DeepSeek V4 Flash Free (`opencode/deepseek-v4-flash-free`) | $0 native | Fallback reasoning |
-| **OpenCode fallback 2** | Nemotron 3 Super (`openrouter/nvidia/nemotron-3-super-120b-a12b:free`) | $0 (free tier) | OR emergency fallback |
+| **OpenCode** | Claude Sonnet 4.6 (`anthropic/claude-sonnet-4-6`) | MAX plan | Default ops, interactive dev, Telegram GW |
+| **OpenCode fallback** | Big Pickle (`opencode/big-pickle`) | $0 native | Emergency fallback |
+| **OpenCode fallback 2** | DeepSeek V4 Flash Free (`opencode/deepseek-v4-flash-free`) | $0 native | OR emergency fallback |
 | **Claude headless** | Sonnet 4.6 | $0 (MAX plan) | Background tasks: `claude -p "..."` |
 
-**OpenCode model IDs** (updated 2026-05-16 — P0 migration):
-- `opencode/big-pickle` — **default** — $0 native reasoning, no OR credits needed
-- `opencode/deepseek-v4-flash-free` — fallback, $0 native
-- `openrouter/nvidia/nemotron-3-super-120b-a12b:free` — emergency OR fallback, $0 free tier
+**OpenCode model IDs** (updated 2026-05-22 — Anthropic MAX migration):
+- `anthropic/claude-sonnet-4-6` — **default** — MAX plan via localhost:5099 proxy
+- `anthropic/claude-haiku-4-5` — fast queries, MAX plan
+- `anthropic/claude-opus-4-7` — heavy reasoning, MAX plan
+- `opencode/big-pickle` — $0 native fallback
+- `opencode/deepseek-v4-flash-free` — $0 native fallback
 
-**Note:** OpenRouter balance is $0.00. All paid OR model calls will fail. Use native OpenCode models only.
+**Note:** All Anthropic models route through `ANTHROPIC_BASE_URL=http://localhost:5099` (MAX OAuth proxy). OpenRouter balance is $0.00 — do not use. Ollama local models remain available as secondary fallback. Poe.com REMOVED — points exhausted.
 
 **To invoke OpenCode headless:**
 ```bash
@@ -185,24 +187,29 @@ opencode run -m opencode/big-pickle "your task here"
 ---
 
 ### Default OpenCode model
-`opencode/big-pickle` — updated 2026-05-16 (was Gemini 3.1 Flash-Lite)
+`anthropic/claude-haiku-4-5` via MAX OAuth direct (token from `~/.claude/.credentials.json`). Poe.com removed — points exhausted 2026-05-23. Fallback: `ollama/qwen2.5-coder:7b` (local, $0).
 
 ---
 
-### When to task Claude vs. handle yourself
+### When to task Claude vs. handle yourself (Amended 2026-05-20)
 
 | Task type | Route to |
 |-----------|----------|
-| Client email / proposal copy | Claude (voice, brand standards) |
-| Strategy / pricing decisions | Claude (judgment) |
-| Commander-directed tasks | Claude (keyword router handles this) |
-| Code edits, file ops, bulk scanning | Handle yourself (OpenCode) |
+| Client email / proposal copy | Claude MAX Sonnet (voice, brand standards) |
+| Strategy / pricing decisions | Claude MAX Sonnet or Opus (judgment) |
+| Architecture / infrastructure design | Claude MAX Opus (dispatch_claude.py --model opus) |
+| Commander-directed tasks | Claude MAX Sonnet (keyword router handles this) |
+| Code builds, file ops, bulk scanning | Handle yourself (OpenCode) |
 | Research, data extraction | Handle yourself (OpenCode) |
-| Telegram Interactions | Handle yourself (OpenCode - Gemini) |
+| Telegram Interactions | Handle yourself (OpenCode) |
+| Dossier analysis, client profiling | Claude MAX Sonnet |
+| Classification, quick extraction | Claude MAX Haiku |
 
 **Claude Roles (Asynchronous):**
-- **Plan:** Claude Opus
-- **Execute:** Claude Sonnet (Primary)
+- **Plan:** Claude Opus (dispatch_claude.py --model opus)
+- **Execute:** Claude Sonnet (dispatch_claude.py --model sonnet) — primary workhorse
+- **Bulk batch:** Claude Sonnet (unlimited MAX plan) — research, analysis, drafting
+- **Quick tasks:** Claude Haiku (dispatch_claude.py --model haiku)
 - **Evaluate:** Claude Opus
 
 
@@ -247,6 +254,18 @@ back to `opencode run -m opencode/big-pickle`.
  - `AGENTS_NEW_TASKING.md` — Complete tasking process & cross-agent coordination protocol
 
 ---
+## TWO-BRAIN + METRONOME (Built 2026-05-22)
+
+Dual-model session protocol: **OpenCode (tools/ops)** + **Claude Sonnet (reasoning/voice)**.
+METRONOME is the non-sleeper clock daemon that tracks cadence and escalates stalled tasks.
+
+**Key files:**
+- `.opencode/skills/two-brain/SKILL.md` — skill triggers on 20+ keywords
+- `OpsCenter/metronome.py` — clock daemon, systemd timer every 5min (ENABLED)
+- `opencode.json` — agent `metronome`, agent `sonnet-partner`, `/two-brain` command
+
+**On session start:** `python3 OpsCenter/metronome.py --status` — if RED, check ticks.
+
 # STARTUP BRAIN JOGGER — Session Init Checklist
 
 ## CRITICAL FILES TO CHECK ON EVERY SESSION START
@@ -409,6 +428,7 @@ ls -la /home/john/Thunderbird/OpsCenter/.opencode_headless.lock
 - [ ] Verify `opencode_inbox.md` for cross-agent coordination
 - [ ] Review `mission_board.json` for active missions
 - [ ] Check Telegram gateway status (`systemctl status thunderbird-telegram-gw.service`)
+- [ ] Check METRONOME status (`python3 OpsCenter/metronome.py --status`)
 - [ ] Verify OpenCode model availability (`opencode run -m openrouter/deepseek/deepseek-chat-v3.1 "test"`)
 - [ ] Check watcher logs for timeout alerts: `grep TIMEOUT /logs/inbox_watcher.log | tail -5`
 

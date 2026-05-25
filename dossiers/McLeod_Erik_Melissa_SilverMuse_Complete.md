@@ -1,3 +1,15 @@
+---
+client: "McLeod McGlasson - Silver Muse"
+ship: Silver Muse
+cruise_line: Silversea
+departure: 2026-06-18
+return: 2026-07-06
+fpd: 2026-01-24
+fpd_amount: 27813.32
+booking_date: 2025-02-06
+status: active
+---
+
 # Erik McLeod & Melissa McGlasson — Complete Trip Data
 ## Silver Muse Mediterranean | June 18 – July 6, 2026
 
@@ -341,6 +353,9 @@ Three options presented to client:
 | 2026-05-05 | Re: Silver Muse Mediterranean — Your Complete Transfer Plan | Melissa (from personal) |
 | 2026-05-14 | Re: Silversea transfers | Erik, Melissa (from personal) |
 | 2026-05-18 | Fwd: Crystal Cruises — Company Profile & Market Analysis | Erik (from personal) |
+| 2026-05-23 | Fwd: Regent Seven Seas Cruises Invoice: 2984034 Guest: MC GLASSON | Erik, Melissa (from personal) |
+| 2026-05-24 | Re: It's time to book your airport transfers with Blacklane | Erik (from personal) |
+| 2026-05-24 | Fwd: Final Silversea Cruise Documents including Air Tickets for 298475-25 MR ERIK WIEDENBACH MC LEOD | Erik, Melissa (from personal) |
 
 ---
 

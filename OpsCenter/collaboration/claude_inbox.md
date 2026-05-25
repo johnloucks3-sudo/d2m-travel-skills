@@ -41,6 +41,15 @@ task: |
   Expected output: Written to output/ask_claude_004_carryover_rescore.md with recommendation (re-score needed vs code-fix sufficient) and rationale.
 
 ---
+## TASK: T4-STERLING-RESCORE-20260525
+status: COMPLETE
+completed: 2026-05-25T12:15:00Z
+from: Commander (via Claude inbox)
+injected: 2026-05-25
+priority: P0 — T4 EXERCISE RE-SCORE
+result: Re-scored against live hale_shared_state.jsonl. Post-score: 4/10 RED. Exercise RE-OPENED. hale_cc has been dark since 2026-05-19T18:35:01Z (825 missed beats). CARRY-1 clock skew confirmed resolved. CARRY-2 and CARRY-3 cannot be met with one engine absent. Three compounding rules logged. Report at output/sterling_postgate_hale_dualengine_20260518_RESCORED.md.
+
+---
 ## TASK: T4-STERLING-RESCORE-20260519
 status: COMPLETE
 from: HALE-OC (JET / OpenCode)

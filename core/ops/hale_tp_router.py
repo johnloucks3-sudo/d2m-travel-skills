@@ -22,16 +22,16 @@ from __future__ import annotations
 # ---------------------------------------------------------------------------
 
 TP_MODEL_MAP: dict[str, str] = {
-    "client_email":      "sonnet",    # Voice-matched copy; relationship product
-    "research":          "deepseek",  # Bulk context, destination/market intel
-    "booking_admin":     "haiku",     # Structured data entry, fast pattern work
-    "financial":         "sonnet",    # Accuracy critical; commission/pricing logic
-    "intel_sweep":       "deepseek",  # High-volume research; morning/world sweeps
-    "proposal":          "sonnet",    # Client-facing quality; credibility product
-    "dossier_update":    "haiku",     # Structured write; low judgment required
-    "validation_email":  "sonnet",    # WF-17 gate product; voice + accuracy
-    "morning_brief":     "deepseek",  # Templated, high-volume; low judgment
-    "strategy":          "sonnet",    # Judgment required; business decisions
+    "client_email":      "sonnet",    # Voice-matched copy
+    "research":          "sonnet",    # Claude MAX unlimited — no cost constraint
+    "booking_admin":     "haiku",     # Fast structured data entry
+    "financial":         "sonnet",    # Accuracy critical
+    "intel_sweep":       "sonnet",    # Claude MAX unlimited
+    "proposal":          "sonnet",    # Client-facing quality
+    "dossier_update":    "haiku",     # Fast structured writes
+    "validation_email":  "sonnet",    # Voice + accuracy
+    "morning_brief":     "sonnet",    # Claude MAX unlimited
+    "strategy":          "sonnet",    # Judgment required
 }
 
 # ---------------------------------------------------------------------------
@@ -40,7 +40,6 @@ TP_MODEL_MAP: dict[str, str] = {
 
 COST_TIERS: dict[str, str] = {
     "haiku":    "low",
-    "deepseek": "low",
     "sonnet":   "medium",
     "opus":     "high",
 }
@@ -162,14 +161,14 @@ def route_tp(task_description: str) -> dict:
 
     rationale_map: dict[str, str] = {
         "client_email":     "Voice-matched client copy requires Sonnet tone quality.",
-        "research":         "Bulk context retrieval is cost-efficient on DeepSeek.",
+        "research":         "Claude MAX Sonnet — unlimited, best quality.",
         "booking_admin":    "Structured data tasks run fast and cheap on Haiku.",
         "financial":        "Commission and pricing accuracy requires Sonnet reliability.",
-        "intel_sweep":      "High-volume research sweeps are DeepSeek's strength.",
+        "intel_sweep":      "Claude MAX Sonnet — unlimited sweep capacity.",
         "proposal":         "Client-facing proposals demand Sonnet presentation quality.",
-        "dossier_update":   "Structured file writes need speed and format compliance — Haiku.",
+        "dossier_update":   "Structured file writes need speed — Haiku.",
         "validation_email": "WF-17 gate product requires Sonnet voice + accuracy.",
-        "morning_brief":    "Templated daily brief runs efficiently on DeepSeek.",
+        "morning_brief":    "Claude MAX Sonnet — no budget limit.",
         "strategy":         "Business judgment and strategic synthesis requires Sonnet.",
     }
 

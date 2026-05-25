@@ -1,36 +1,36 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-05-19 16:15:26 MDT
+## Generated: 2026-05-25 07:54:08 MDT
 
 ---
 
 ### Recent Commits
-- 4249d223 feat: real-time cost tracker (port 8903) + max-proxy request logging
-- ef2e3ff4 feat: wire Claude MAX into Telegram staff channel via max-proxy
-- faac3dbd docs: update OPENCODE_INIT model stack — MAX OAuth primary
-- 5f2e32b5 feat: wire Claude MAX OAuth into OpenCode via max-proxy
-- 1137ac03 feat: migrate OpenCode from Zen/big-pickle to Google AI Pro
+- a9be8520 docs: T4 exercise closed 10/10 GREEN — Sterling final addendum
+- 0412d9cb feat(watchdog): implement CR-3 hale_cc HEARTBEAT presence monitor
+- 35804c9d corrective: overnight AAR implementation per Commander directive 2026-05-24
+- 67ffa1eb chore(governance): Hale self-submitted corrective AAR — 2026-05-24
+- fe9a3999 fix(email): three directed elements restored — search params, test invitation, integrate intent
 
 ### Uncommitted Changes
-M  AGENTS.md
-M  AGENTS_NEW_TASKING.md
-M  Agents_NEW/README.md
-A  CHROMEBOOK_INIT.md
-M  CLAUDE.md
-M  Commander_Review/CLAUDE_SESSION_INIT_20260331.md
-M  Commander_Review/EMAIL_ENGINE_DESIGN.md
-M  Commander_Review/hale_tom_context.md
-M  D2M/clients/kuklinski_touchpoints.json
-A  Dossiers/Ely_Darrow_Regent_3096289.md
-M  OpsCenter/.supervisor_patterns.json
-M  OpsCenter/00_COMMAND_LOG.md
-M  OpsCenter/CLAUDE_DESKTOP_INIT.md
-M  OpsCenter/CLAUDE_HEADLESS_ARCHITECTURE_SUMMARY.md
-M  OpsCenter/CLAUDE_SESSION_INIT_20260331.md
-M  OpsCenter/COMPLETE_AUTONOMY_INFRASTRUCTURE.md
-M  OpsCenter/COS_TASK_TEMPLATE.md
-M  OpsCenter/DAILY_OPS_CHECKLIST.md
-M  OpsCenter/EMAIL_ENGINE_DESIGN.md
-M  OpsCenter/HALE_BRAVO_INIT.md
+ M .gitignore
+ M .obsidian/workspace.json
+ M .smart-env/event_logs/event_logs.ajson
+ M .smart-env/multi/AGENTS_NEW_TASKING_md.ajson
+ M .smart-env/multi/AGENTS_md.ajson
+ M .smart-env/multi/CLAUDE_md.ajson
+ M .smart-env/multi/Commander_Review_26_McLeod_Validation_Email_md.ajson
+ M .smart-env/multi/D2M_lifecycle_Kuklinski_Viking_Panama_Lifecycle_md.ajson
+ M .smart-env/multi/OpsCenter_00_COMMAND_LOG_md.ajson
+ M .smart-env/multi/OpsCenter_CLAUDE_DESKTOP_INIT_md.ajson
+ M .smart-env/multi/OpsCenter_CLAUDE_HEADLESS_ARCHITECTURE_SUMMARY_md.ajson
+ M .smart-env/multi/OpsCenter_COMPLETE_AUTONOMY_INFRASTRUCTURE_md.ajson
+ M .smart-env/multi/OpsCenter_OPENCODE_BRIEFING_CLAUDE_HEADLESS_md.ajson
+ M .smart-env/multi/OpsCenter_OPENCODE_INIT_md.ajson
+ M .smart-env/multi/OpsCenter_README_md.ajson
+ M .smart-env/multi/OpsCenter_claude_inbox_md.ajson
+ M .smart-env/multi/OpsCenter_collaboration_activity_board_md.ajson
+ M .smart-env/multi/OpsCenter_collaboration_autonomy_strategy_review_md.ajson
+ M .smart-env/multi/OpsCenter_collaboration_blackboard_md.ajson
+ M .smart-env/multi/OpsCenter_collaboration_blackboard_summary_txt.ajson
 
 ### Inbox Status
 - Claude inbox: 0

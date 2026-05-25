@@ -21,6 +21,11 @@ HX_JSON        = OUTPUT_DIR / "T2_HX_EXPEDITIONS.json"
 SEADREAM_JSON  = OUTPUT_DIR / "T2_SEADREAM_YACHTCLUB.json"
 EXPLORA_JSON   = OUTPUT_DIR / "T2_EXPLORA_JOURNEYS.json"
 
+# ── Aggregator sources (Wave 3 — 2026-05-24) ──────────────────────────────────
+CRUISEMAPPER_JSON = OUTPUT_DIR / "T2_CRUISEMAPPER.json"
+CRUISESONLY_JSON  = OUTPUT_DIR / "T2_CRUISESONLY.json"
+CRUISEPLUM_JSON   = OUTPUT_DIR / "T2_CRUISEPLUM.json"
+
 # ── Browser binary ─────────────────────────────────────────────────────────────
 GSTACK_BIN = Path.home() / ".claude/skills/gstack/browse/dist/browse"
 
@@ -170,8 +175,48 @@ CSV_COLUMNS = [
     'route', 'voyage_code',
     'on_deluxecruises', 'on_perx', 'on_oat', 'on_ponant',
     'on_hx', 'on_seadream', 'on_explora',
+    'on_cruisemapper', 'on_cruisesonly', 'on_cruiseplum',
     'price_usd',
 ]
+
+# ── CruiseMapper line slugs (Wave 3) ─────────────────────────────────────────
+# Maps display name → (slug-for-URL, canonical-cruise-line-name)
+CRUISEMAPPER_LINES = {
+    'Silversea':    ('Silversea-Cruises-19',             'Silversea'),
+    'Seabourn':     ('Seabourn-Cruises-2',               'Seabourn'),
+    'Regent':       ('Regent-Seven-Seas-Cruises-28',     'Regent Seven Seas Cruises'),
+    'Cunard':       ('Cunard-31',                        'Cunard'),
+    'Oceania':      ('Oceania-Cruises-29',               'Oceania Cruises'),
+    'Viking':       ('Viking-Cruises-78',                'Viking'),
+    'Ponant':       ('Ponant-Cruises-40',                'PONANT'),
+    'Explora':      ('MSC-Explora-Journeys-125',         'Explora Journeys'),
+    'Crystal':      ('Crystal-Cruises-17',               'Crystal'),
+    'HX':           ('HX-Expeditions-129',               'HX Expeditions'),
+    'SeaDream':     ('SeaDream-Yacht-Club-108',          'SeaDream Yacht Club'),
+    'Atlas':        ('Atlas-Ocean-Voyages-122',          'Atlas Ocean Voyages'),
+    'Ritz-Carlton': ('Ritz-Carlton-Yacht-Collection-96', 'Ritz-Carlton Yacht Club'),
+    'Scenic':       ('Scenic-Cruises-82',                'Scenic'),
+    'Lindblad':     ('Lindblad-Expeditions-103',         'Lindblad Expeditions'),
+}
+
+# ── CruisesOnly line slugs + search codes (Wave 3) ───────────────────────────
+# Maps display name → (promotion-slug, search-code-or-None)
+CRUISESONLY_LINES = {
+    'Silversea': ('silversea-cruises',         50),
+    'Seabourn':  ('seabourn-cruise-line',      None),
+    'Regent':    ('regent-seven-seas-cruises', None),
+    'Crystal':   ('crystal-cruises',           None),
+    'Viking':    ('viking-ocean-cruises',      None),
+    'Oceania':   ('oceania-cruises',           None),
+    'Ponant':    ('ponant',                    None),
+    'Azamara':   ('azamara',                   None),
+    'Windstar':  ('windstar-cruises',          None),
+}
+
+# ── CruisePlum credentials (Wave 3) ──────────────────────────────────────────
+# Scraper reads from env vars CRUISEPLUM_USER / CRUISEPLUM_PASS
+# or from this file if it exists (format: USER=... / PASS=...)
+CRUISEPLUM_CREDS_FILE = Path.home() / '.config' / 'd2m' / 'cruiseplum.env'
 
 # ── Month name <-> number ──────────────────────────────────────────────────────
 MONTH_MAP = {

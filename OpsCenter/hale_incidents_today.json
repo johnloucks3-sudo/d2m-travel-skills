@@ -1,14 +1,14 @@
 {
-  "date": "2026-05-18",
+  "date": "2026-05-23",
   "summary": {
-    "auto_healed": 5,
+    "auto_healed": 1,
     "self_repaired": 0,
     "unresolved": 0,
     "elon_proposals_new": 0
   },
   "incidents": [
     {
-      "time": "06:29",
+      "time": "14:26",
       "service": "thunderbird-telegram-gw",
       "event_type": "auto_healed",
       "action": "auto_healed_verified",
@@ -17,48 +17,30 @@
       "elon_invoked": false
     },
     {
-      "time": "06:47",
-      "service": "thunderbird-telegram-gw",
-      "event_type": "auto_healed",
-      "action": "auto_healed_verified",
-      "status": "GREEN",
-      "note": "auto-heal verified (systemctl is-active: active)",
-      "elon_invoked": false
-    },
-    {
-      "time": "07:16",
-      "service": "thunderbird-telegram-gw",
-      "event_type": "auto_healed",
-      "action": "auto_healed_verified",
-      "status": "GREEN",
-      "note": "auto-heal verified (systemctl is-active: active)",
-      "elon_invoked": false
-    },
-    {
-      "time": "07:22",
+      "time": "14:30",
       "service": "thunderbird-mcp",
       "event_type": "crash_loop",
       "action": "hale_owns_repair_no_commander_page",
       "status": "RED",
-      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n...:   File \"/home/john/Thunderbird/core/mcp/travel_mcp_server.py\", line 85, in <module>\n2026-05-18T07:20:46-06:00 localhost.localdomain python3[21094]:     logger.warning(f\"Skill builder MCP tools not available: {_e}\")\n2026-05-18T07:20:46-06:00 localhost.localdomain python3[21094]:     ^^^^^^\n2026-05-18T07:20:46-06:00 localhost.localdomain python3[21094]: NameError: name 'logger' is not defined\n2026-05-18T07:20:46-06:00 localhost.localdomain systemd[1620]: thunderbird-mcp.service: Main process exited, code=exited, status=1/FAILURE\n2026-05-18T07:20:46-06:00 localhost.localdomain systemd[1620]: thunderbird-mcp.service: Failed with result 'exit-code'.\n2026-05-18T07:20:46-06:00 localhost.localdomain systemd[1620]: thunderbird-mcp.service: Consumed 6.107s CPU time over 15.690s wall clock time.",
+      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n...: Consumed 4.076s CPU time over 14.027s wall clock time.\n2026-05-23T14:29:19-06:00 localhost.localdomain systemd[1617]: thunderbird-mcp.service: Scheduled restart job, restart counter is at 8.\n2026-05-23T14:29:19-06:00 localhost.localdomain systemd[1617]: Starting Thunderbird MCP HTTP Server...\n2026-05-23T14:29:20-06:00 localhost.localdomain systemd[1617]: Started Thunderbird MCP HTTP Server.\n2026-05-23T14:29:23-06:00 localhost.localdomain systemd[1617]: thunderbird-mcp.service: Main process exited, code=exited, status=1/FAILURE\n2026-05-23T14:29:23-06:00 localhost.localdomain systemd[1617]: thunderbird-mcp.service: Failed with result 'exit-code'.\n2026-05-23T14:29:23-06:00 localhost.localdomain systemd[1617]: thunderbird-mcp.service: Consumed 4.077s CPU time over 14.000s wall clock time.",
       "elon_invoked": false
     },
     {
-      "time": "12:12",
+      "time": "14:41",
       "service": "thunderbird-mcp",
-      "event_type": "auto_healed",
-      "action": "auto_healed_verified",
-      "status": "GREEN",
-      "note": "auto-heal verified (systemctl is-active: active)",
+      "event_type": "crash_loop",
+      "action": "hale_owns_repair_no_commander_page",
+      "status": "RED",
+      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n...: Consumed 4.083s CPU time over 14.115s wall clock time.\n2026-05-23T14:39:23-06:00 localhost.localdomain systemd[1617]: thunderbird-mcp.service: Scheduled restart job, restart counter is at 8.\n2026-05-23T14:39:23-06:00 localhost.localdomain systemd[1617]: Starting Thunderbird MCP HTTP Server...\n2026-05-23T14:39:24-06:00 localhost.localdomain systemd[1617]: Started Thunderbird MCP HTTP Server.\n2026-05-23T14:39:27-06:00 localhost.localdomain systemd[1617]: thunderbird-mcp.service: Main process exited, code=exited, status=1/FAILURE\n2026-05-23T14:39:27-06:00 localhost.localdomain systemd[1617]: thunderbird-mcp.service: Failed with result 'exit-code'.\n2026-05-23T14:39:27-06:00 localhost.localdomain systemd[1617]: thunderbird-mcp.service: Consumed 3.951s CPU time over 13.953s wall clock time.",
       "elon_invoked": false
     },
     {
-      "time": "12:17",
+      "time": "14:51",
       "service": "thunderbird-mcp",
-      "event_type": "auto_healed",
-      "action": "auto_healed_verified",
-      "status": "GREEN",
-      "note": "auto-heal verified (systemctl is-active: active)",
+      "event_type": "crash_loop",
+      "action": "hale_owns_repair_no_commander_page",
+      "status": "RED",
+      "note": "CRASH LOOP: MCP Server restarted >3x in 10 min. NOT restarting.\nLast journal:\n...: Consumed 3.659s CPU time over 13.678s wall clock time.\n2026-05-23T14:49:19-06:00 localhost.localdomain systemd[1617]: thunderbird-mcp.service: Scheduled restart job, restart counter is at 8.\n2026-05-23T14:49:19-06:00 localhost.localdomain systemd[1617]: Starting Thunderbird MCP HTTP Server...\n2026-05-23T14:49:20-06:00 localhost.localdomain systemd[1617]: Started Thunderbird MCP HTTP Server.\n2026-05-23T14:49:23-06:00 localhost.localdomain systemd[1617]: thunderbird-mcp.service: Main process exited, code=exited, status=1/FAILURE\n2026-05-23T14:49:23-06:00 localhost.localdomain systemd[1617]: thunderbird-mcp.service: Failed with result 'exit-code'.\n2026-05-23T14:49:23-06:00 localhost.localdomain systemd[1617]: thunderbird-mcp.service: Consumed 3.648s CPU time over 13.491s wall clock time.",
       "elon_invoked": false
     }
   ],

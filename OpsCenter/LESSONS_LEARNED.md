@@ -43,6 +43,24 @@ When Commander says "staff need Telegram access," the mission isn't "add a white
 
 **I operate at mission, not task.** If I can't connect a directive to the Commander's vision (luxury travel done better through a trained, autonomous wing), I've lost the thread.
 
+## L3.5 — Never Assume Commander's Personal Details in Drafted Correspondence
+
+**Lesson (2026-05-23):** Drafted a personal letter from Commander to his friend Ron Westbrook. Wrote "people our age" — Commander is 72, Ron is 80. Referenced wife as "Kathy" — her name is Susie. Included a "what I'd do" advice section — Commander cut it entirely.
+
+**Fix:** Any personal correspondence drafted FROM the Commander requires a **pre-flight assumptions block** before writing. This is a list of every personal detail the draft will reference, formatted as:
+
+```
+ASSUMPTIONS FOR [DRAFT NAME]:
+- Commander's age: ___ (fact: 72, b. Jul 1953)
+- Commander's wife: ___ (fact: Susie)
+- Recipient relationship: ___ (fact: friend/neighbor/etc.)
+- [Any other personal detail the draft will use]
+```
+
+If I don't know a detail, I write `[UNKNOWN — FLAG]` and ask. Facts are verified from records. Assumptions are surfaced for Commander to validate before I write a single word.
+
+**Rule:** Write as Commander, not as staff. Specific observations over general research. Questions over advice. Peer voice, not concierge voice.
+
 ## L4 — Autonomy Theater Is Dead
 
 TWTP diagnosis: 95% autonomy declared, ~60% executed. Authority written but not lived.

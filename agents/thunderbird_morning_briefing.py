@@ -356,6 +356,112 @@ def fetch_direct_rss_feeds() -> list[dict]:
 # EXECUTIVE SUMMARY BUILDER
 # ---------------------------------------------------------------------------
 
+def fetch_overnight_outputs() -> list[dict]:
+    """Scan for overnight routine outputs from the last 24h."""
+    results = []
+    now = datetime.now()
+    cutoff = now - timedelta(hours=24)
+    intel_dir = THUNDERBIRD_DIR / "intel"
+    output_dir = THUNDERBIRD_DIR / "output"
+
+    # Scan intel/ for files modified in last 24h
+    if intel_dir.exists():
+        for f in sorted(intel_dir.iterdir(), key=lambda x: x.stat().st_mtime, reverse=True):
+            if not f.is_file():
+                continue
+            mtime = datetime.fromtimestamp(f.stat().st_mtime)
+            if mtime < cutoff:
+                continue
+            size_kb = f.stat().st_size / 1024
+            # Grab first meaningful line as description
+            try:
+                first_line = f.read_text(encoding="utf-8", errors="replace")[:200].strip()
+            except Exception:
+                first_line = ""
+            results.append({
+                "source": "intel",
+                "file": f.name,
+                "path": str(f.relative_to(THUNDERBIRD_DIR)),
+                "size_kb": round(size_kb, 1),
+                "mtime": mtime.strftime("%H:%M"),
+                "preview": first_line[:150] if first_line else "",
+            })
+
+    # Scan output/ for files modified in last 24h
+    if output_dir.exists():
+        for f in sorted(output_dir.iterdir(), key=lambda x: x.stat().st_mtime, reverse=True):
+            if not f.is_file():
+                continue
+            mtime = datetime.fromtimestamp(f.stat().st_mtime)
+            if mtime < cutoff:
+                continue
+            # Only catch routine outputs (ask_*, wind_staff_*, etc.)
+            if not any(f.name.startswith(p) for p in ["ask_", "wind_staff_", "two_brain_", "briefing_"]):
+                continue
+            size_kb = f.stat().st_size / 1024
+            try:
+                first_line = f.read_text(encoding="utf-8", errors="replace")[:200].strip()
+            except Exception:
+                first_line = ""
+            results.append({
+                "source": "output",
+                "file": f.name,
+                "path": str(f.relative_to(THUNDERBIRD_DIR)),
+                "size_kb": round(size_kb, 1),
+                "mtime": mtime.strftime("%H:%M"),
+                "preview": first_line[:150] if first_line else "",
+            })
+    return results
+
+
+def fetch_system_status() -> dict:
+    """Gather system health summary."""
+    status = {}
+
+    # Preflight log tail
+    preflight_log = THUNDERBIRD_DIR / "logs" / "preflight.log"
+    if preflight_log.exists():
+        try:
+            lines = preflight_log.read_text(encoding="utf-8").strip().split("\n")
+            tail = [l for l in lines if "RED" in l or "YELLOW" in l or "GREEN" in l or "Overall" in l]
+            status["preflight"] = tail[-5:] if tail else ["No alerts in preflight log"]
+        except Exception:
+            status["preflight"] = ["Could not read preflight log"]
+    else:
+        status["preflight"] = ["No preflight log found"]
+
+    # Metronome latest tick
+    metronome_ticks = THUNDERBIRD_DIR / "OpsCenter" / "metronome_ticks.jsonl"
+    if metronome_ticks.exists():
+        try:
+            lines = metronome_ticks.read_text(encoding="utf-8").strip().split("\n")
+            if lines:
+                last = json.loads(lines[-1])
+                status["metronome"] = {
+                    "state": last.get("state", "UNKNOWN"),
+                    "last_tick": last.get("ts", "")[:19],
+                }
+        except Exception:
+            status["metronome"] = {"state": "UNKNOWN", "last_tick": "?"}
+    else:
+        status["metronome"] = {"state": "OFF", "last_tick": "N/A"}
+
+    # Mission board counts
+    mission_board = THUNDERBIRD_DIR / "OpsCenter" / "mission_board.json"
+    if mission_board.exists():
+        try:
+            board = json.loads(mission_board.read_text(encoding="utf-8"))
+            missions = board.get("missions", [])
+            active = [m for m in missions if m.get("status") not in ("complete", "completed")]
+            status["missions"] = {"active": len(active), "total": len(missions)}
+        except Exception:
+            status["missions"] = {"active": "?", "total": "?"}
+    else:
+        status["missions"] = {"active": 0, "total": 0}
+
+    return status
+
+
 def build_executive_summary(
     commander_log, intel_log, pricing, tech_news, fare_log, anchor_report, today,
     rss_direct=None,
@@ -596,6 +702,8 @@ def render_briefing_html(
     rss_direct: list = None,
     intel_crew_report: dict = None,
     temporal_intel: str = "",
+    overnight_outputs: list[dict] = None,
+    system_status: dict = None,
 ) -> str:
     """Render the full briefing as branded expandable-card HTML email."""
 
@@ -755,6 +863,48 @@ function toggle(id) {{
         crew_bullets = ["COS Hale synthesis available", "A2 Dembe analysis complete"]
         html += _render_card_section("🎯", "Intel Crew Analysis", "crew",
                                       crew_bullets, crew_expanded, accent="#44c8c8")
+
+    # ── Overnight File Outputs card ──
+    if overnight_outputs:
+        overnight_bullets = []
+        overnight_expanded_parts = []
+        for out in overnight_outputs[:15]:
+            icon = "📁" if out["source"] == "intel" else "📄"
+            overnight_bullets.append(f'{icon} {out["file"]} ({out["size_kb"]}KB, {out["mtime"]})')
+            preview = out.get("preview", "")
+            preview_html = f'<div style="font-size:11px;color:#6b7c99;margin-top:3px;">{preview}</div>' if preview else ""
+            overnight_expanded_parts.append(
+                f'<div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);">'
+                f'<span style="color:#e8c97a;font-weight:600;">{out["file"]}</span>'
+                f'<span style="color:#6b7c99;font-size:11px;margin-left:8px;">[{out["size_kb"]}KB @ {out["mtime"]}]</span>'
+                f'{preview_html}'
+                f'</div>'
+            )
+        overnight_expanded = "\n".join(overnight_expanded_parts)
+
+        # System status sub-section inline
+        if system_status:
+            sys_parts = []
+            preflight_lines = system_status.get("preflight", [])
+            if preflight_lines:
+                for pl in preflight_lines:
+                    color = "#ff4444" if "RED" in pl else ("#ff8800" if "YELLOW" in pl else "#44c8c8")
+                    sys_parts.append(f'<div style="color:{color};font-size:12px;padding:2px 0;">{pl[:120]}</div>')
+            met = system_status.get("metronome", {})
+            met_state = met.get("state", "?")
+            met_color = {"GREEN": "#44c8c8", "YELLOW": "#ff8800", "RED": "#ff4444", "OFFLINE": "#6b7c99"}.get(met_state, "#c8d0dc")
+            mis = system_status.get("missions", {})
+            sys_parts.append(
+                f'<div style="font-size:12px;color:#6b7c99;padding:4px 0;">'
+                f'Metronome: <span style="color:{met_color};">{met_state}</span>'
+                f' &middot; Last tick: {met.get("last_tick","?")}'
+                f' &middot; Missions: {mis.get("active","?")} active / {mis.get("total","?")} total'
+                f'</div>'
+            )
+            overnight_expanded += '<div style="margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,0.08);">' + "\n".join(sys_parts) + '</div>'
+
+        html += _render_card_section("🌙", "Overnight Routine Outputs", "overnight",
+                                      overnight_bullets[:5], overnight_expanded, accent="#7eb8ff")
 
     # ── RSS category cards ──
     for cat in cat_order:
@@ -1264,6 +1414,12 @@ def run_briefing(preview: bool = False, weekly: bool = False):
         product_digest=product_digest,
     )
 
+    # Scan overnight routine outputs
+    logger.info("Scanning overnight file outputs...")
+    overnight_outputs = fetch_overnight_outputs()
+    system_status = fetch_system_status()
+    logger.info(f"  {len(overnight_outputs)} files, {len(system_status.get('preflight',[]))} system checks")
+
     # Render HTML
     logger.info("Rendering briefing HTML...")
     html = render_briefing_html(
@@ -1273,6 +1429,8 @@ def run_briefing(preview: bool = False, weekly: bool = False):
         rss_direct=rss_direct,
         intel_crew_report=intel_crew_report,
         temporal_intel=temporal_intel,
+        overnight_outputs=overnight_outputs,
+        system_status=system_status,
     )
 
     # Save dedup cache
@@ -1292,7 +1450,14 @@ def run_briefing(preview: bool = False, weekly: bool = False):
             emoji = {"RED": "🔴", "GOLD": "🟡", "GREEN": "🟢"}.get(summary["alert_level"], "")
             subject = f"{emoji} THUNDERBIRD BRIEFING // {today.strftime('%b %d')} — {summary['alert_text']}"
 
-        # CHANGE: Send as JSON, not HTML
+        # Send HTML email to Commander with full briefing
+        try:
+            send_briefing_email(html, subject)
+            logger.info(f"Briefing email sent: {subject}")
+        except Exception as e:
+            logger.warning(f"Briefing email failed (non-fatal): {e}")
+
+        # Also send JSON summary
         send_briefing_json(intel_log, pricing, tech_news, subject)
 
         # ── Telegram C2 digest ──

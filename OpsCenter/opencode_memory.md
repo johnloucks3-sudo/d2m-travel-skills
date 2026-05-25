@@ -185,3 +185,10 @@ Contents by session (line ranges in archive):
 ## SESSION SUMMARIES — 2026-05-24
 Archived to `archives/opencode_memory_20260524_sessions.md` per hard-cap Rule 4.
 Four sessions: Lifecycle Validation, Quick Init, Wave 2 Pipeline, Evening Email+AAR.
+
+### Session 5: Inbox Sweep + Travel Research — 2026-05-24 19:35 MT
+- Processed 1 UNREAD task: TP-ALERT-20260524 (18:00 MT) — acknowledged, 108 touchpoints, 4th duplicate today
+- Dedup blocker persists (14+ copies since May 22) — flagged A12 ELON
+- METRONOME: tick #539, hale_oc seq 762 RED (hale_cc dormancy expected), DeepSeek V4 0/hr GREEN
+- Also answered travel questions (Kyoto→Hakone routing, Tokyo neighborhood advice, Hakone Free Pass)
+- Inbox terminal state: CLEAN — 0 UNREAD / 0 PENDING

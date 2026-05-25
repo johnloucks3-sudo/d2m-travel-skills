@@ -103,3 +103,4 @@ config/monitor_state.json
 *.bak.*
 intel/tmp_*
 150000
+.aider*

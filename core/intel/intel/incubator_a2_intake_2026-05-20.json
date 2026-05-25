@@ -1,0 +1,57 @@
+[
+  {
+    "id": "A2-2026-05-20-001",
+    "title": "NASA Life Characteristics Definition",
+    "source_signal": "What are the characteristics of life? - NASA Science: May 13, 2026",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 no relevance to Thunderbird travel/cruise operations",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Scientific definition of biological life has zero applicability to luxury travel concierge, client CRM, or experience architecture."
+  },
+  {
+    "id": "A2-2026-05-20-002",
+    "title": "Britannica Life Evolution Entry",
+    "source_signal": "Life | Definition, Origin, Evolution, Diversity, & Facts | Britannica",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 no relevance to Thunderbird travel/cruise operations",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Evolutionary biology content unrelated to stated incubator gaps (AI engagement, behavioral inference, life-event CRM, memory compounding)."
+  },
+  {
+    "id": "A2-2026-05-20-003",
+    "title": "Philosophical Meaning of Life",
+    "source_signal": "Meaning of life - Wikipedia",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 no relevance to Thunderbird travel/cruise operations",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Philosophical inquiry into life meaning has no bearing on travel intelligence, client profiling, or concierge automation."
+  },
+  {
+    "id": "A2-2026-05-20-004",
+    "title": "Merriam-Webster Life Definition",
+    "source_signal": "LIFE Definition & Meaning - Merriam-Webster",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 no relevance to Thunderbird travel/cruise operations",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Dictionary definition of life is off-topic for luxury travel research and client engagement intelligence."
+  },
+  {
+    "id": "A2-2026-05-20-005",
+    "title": "Scientific Definition and Criteria for Life",
+    "source_signal": "What Is Life? The Scientific Definition and Criteria: Aug 30, 2025",
+    "classification": "REJECT",
+    "gap_closed": "None \u2014 no relevance to Thunderbird travel/cruise operations",
+    "thunderbird_component": "N/A",
+    "risk": "N/A",
+    "sss_required": false,
+    "rationale": "Astrobiological and scientific criteria for life definition unrelated to D2M business model, stated gaps, or travel intelligence categories."
+  }
+]

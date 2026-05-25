@@ -224,7 +224,34 @@ def spawn_headless_claude(
     if background:
         return _spawn_background(prompt, output_path, log_file, model, task_name, env, usage_file)
     else:
-        return _spawn_synchronous(prompt, output_path, log_file, model, task_name, env, timeout, usage_file)
+        return _spawn_with_retry(prompt, output_path, log_file, model, task_name, env, timeout, usage_file, retries=2)
+
+
+def _spawn_with_retry(prompt, output_path, log_file, model, task_name, env, timeout, usage_file, retries=2, attempt=1):
+    """Synchronous spawn with retry. retries=2 means 2 retries after initial attempt (3 total)."""
+    result = _spawn_synchronous(prompt, output_path, log_file, model, task_name, env, timeout, usage_file)
+
+    if result.get("status") == "COMPLETED":
+        # Verify output is non-empty (catch silent failures)
+        output_path_obj = Path(output_path)
+        if output_path_obj.exists() and output_path_obj.stat().st_size > 0:
+            return result
+        else:
+            result = {"status": "SILENT_FAILURE", "error": "Output file empty or missing", "can_retry": True, "log_file": str(log_file)}
+
+    if result.get("can_retry") and attempt <= retries:
+        logger.warning(f"Retry {attempt}/{retries} for {task_name}: {result.get('error', 'unknown error')}")
+        # Escalate model tier on retry (haiku -> sonnet -> opus)
+        model_tiers = ["claude-haiku-4-5-20251001", "claude-sonnet-4-6", "claude-opus-4-7"]
+        current = model
+        for i, tier in enumerate(model_tiers):
+            if tier in model and i + 1 < len(model_tiers):
+                current = model_tiers[i + 1]
+                logger.info(f"  Escalating model: {model} -> {current}")
+                break
+        return _spawn_with_retry(prompt, output_path, log_file, current, f"{task_name}_retry{attempt}", env, timeout, usage_file, retries, attempt + 1)
+
+    return result
 
 
 def _spawn_synchronous(prompt, output_path, log_file, model, task_name, env, timeout, usage_file):

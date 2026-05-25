@@ -136,6 +136,9 @@ completed_tps: []
 **Apr 20 — Jada** (Re: Re: Cancellation - PE151557101 / HL855855)
 > **2026-04-20 MEDICAL EMERGENCY** — Susan Loucks hospitalized 3 times in past 2 weeks. John initiated emergency cancellation of shared transfer PE151557101 (Hilton Odaiba→Harumi Port, Apr 23 10:30 AM, 4-pax, $0 cost) via Project Expedition. Refund confirmed (full refund, 5-7 day processing). **CRUISE STATUS UNKNOWN** — Silver Nova 566910-25 (Apr 23 embarkation, $10.8K) not yet confirmed cancelled or proceeding; determination drives cascade of remaining bookings. If cancelled: Hilton Tokyo Odaiba (¥424K, free cancel deadline **PASSED** Apr 18 11:59 PM), JAL HNL→HND Business ($4,093.60, seats 6G/6D), Southwest SEA→DEN ($147.80 + 12K RR pts). Allianz Annual Premier $15K policy may cover medical cancellation if rider active. NOTE: Westbrook family (shared transfer) separately cancelled Silver Nova (566904-25) Apr 20; transfer now affects only Loucks if cruise proceeds (2 pax instead of 4). **ACTION REQUIRED**: Confirm cruise status immediately with John (719-291-0742); all rebooking and cascade decisions dependent on this determination.
 
+**May 21 — John Loucks** (Re: COS...Fwd: [Gemini API] Build production ready managed agents with a single API call)
+> INFRASTRUCTURE TECHNOLOGY REVIEW [2026-05-21] — Commander flagged Google Gemini API managed agents announcement (Google I/O 2026-05-20). Gemini 3.5 Flash with managed agents available; single API call provisions agent sandbox with code execution, web browsing, file management. Commander notes Google AI PRO subscription is currently unused. Requested COS evaluation: architectural fit for D2M task dispatch, cost comparison vs. Claude MAX + DeepSeek stack, integration effort. Routed to A7/A12 for technical review. Decision gate: 2026-05-28.
+
 ---
 
 ---
@@ -1895,6 +1898,14 @@ Status changes since Mar 24 validation:
 
 ### OPEN ACTION ITEMS
 - [ ] Call John Loucks (719-291-0742) URGENT — confirm Silver Nova 566910-25 status (cancelled or proceeding) by EOD Apr 20 (auto-intel Apr 20)
+
+- [ ] Decision gate: Go/no-go on Gemini integration in 1 week (by 2026-05-28) (auto-intel May 21)
+
+- [ ] Cost audit: Compare Google AI PRO $$/month against projected Claude MAX burn rate + OpenRouter spend (auto-intel May 21)
+
+- [ ] Proof-of-concept: Test Gemini managed agents on one low-risk task (e.g., simple research) to assess real-world latency + cost vs. baseline (auto-intel May 21)
+
+- [ ] A7 Sterling: Evaluate Gemini 3.5 Flash managed agents vs. current Claude MAX + DeepSeek V3.1 + R1 stack—capability, cost, integration (auto-intel May 21)
 
 - [ ] Update dossier with medical emergency note, cascade decision tree, and refund/claim tracking (auto-intel Apr 20)
 

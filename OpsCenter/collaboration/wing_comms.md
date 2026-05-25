@@ -1,5 +1,44 @@
 # THUNDERBIRD WING — TASK COORDINATION DASHBOARD
-*Last updated: 2026-05-19 19:35 MDT | Failsafe System v1.1 Active*
+*Last updated: 2026-05-25 06:00 MT | Failsafe System v1.1 Active*
+
+---
+
+## INBOX SWEEP — 2026-05-25 06:00 MT | JET
+
+**1 UNREAD task processed: TP-ALERT-20260525 (06:00 MT)**
+- 109 touchpoints acknowledged — bands consistent with May 22-24 runs
+- CRITICAL stale (~60): legacy 2025 items — cleanup sweep deferred
+- OVERDUE (<14d): ~8 items (Kuklinski TP 0.5/1.1, McLeod TP 2.2, Loucks TP 5.4)
+- CRITICAL-APPROACHING: ~20 items in watch window
+- **Dedup blocker:** 16th+ identical TP Alert copy since May 22 — A12 ELON needs content-hash dedup fix
+- All other tasks COMPLETE — inbox terminal state: CLEAN
+
+---
+## HOTWASH-001 — Westbrook Personal Letter | HALE | 2026-05-23 23:25 MT
+
+**Task:** Draft personal letter from Commander to Ron "Rondo" Westbrook (80, widower, Monument CO) with senior solo travel ideas and Silver Key Tri-Lakes info.
+
+**Participants:** HALE (JET/coord), Dembe A2 (intel), Dani A3 (draft voice), Claude Sonnet (research via /ask dispatch)
+
+**Errors Made:**
+1. **Commander's age wrong** — wrote "our age" implying Commander is 80. He is 72 (73 on Jul 22). Ron is 80. They are not the same age.
+2. **Wife's name wrong** — wrote "Kathy." Commander's wife is **Susie**.
+3. **Personal advice section** — wrote "what I'd do if I were you" + dinner invite. Commander cut entirely. He trusts Ron to decide without coaching.
+4. **Staff language in personal letter** — wrote like a research brief. Commander added his own voice: "Surprisingly," "Robyn said you tried a church — have you tried this?", first-hand Silversea observation. These are things only he knows.
+
+**ROOT CAUSE:** No personal-detail verification gate. I wrote a letter "from John" using assumptions about his age, his wife, and his relationship with Ron — instead of flagging what I didn't know and asking.
+
+**FIX (to all staff):**
+- When drafting personal correspondence FROM the Commander, **list all personal details used and their source** before writing. If any are assumed, flag them.
+- Commander's bio: Age 72 (b. Jul 1953). Wife: **Susie** (not Susan, not Kathy). Personal friends: Ron & Lindy Westbrook (Monument CO). Son: Brent Westbrook + Kim + granddaughters Ava & Ally.
+- Personal letters from Commander should use **his voice** — short, direct, specific observations over general research, questions over advice. Write as peer, not concierge.
+- Never write "what I'd do." Commander decides what he'd do. Give him the facts.
+
+**TO:** Sterling A7 — log as process gap: "Personal correspondence verification gate missing."
+**TO:** Dembe A2 — research was sound. The issue was how I framed it in the draft, not the intel itself.
+**TO:** Dani A3 — the research summary draft to Commander was fine. The personal letter was the failure.
+
+---
 
 ---
 ## CARRY-4 COMPLETE — Reader Staleness Fix | JET | 2026-05-19 19:35 MT
@@ -17,6 +56,22 @@
 **Next beat (seq 14+)** will show GREEN/handoff_grace through hale_cc dormancy (HANDOFF entry @18:35Z, estimated_wake 22:20Z). No more false YELLOW from session-gated asymmetry.
 
 ---
+## SESSION CLOSE — 2026-05-24 17:45 MT | JET (HALE-OC)
+
+**Duration:** Brief session — startup init only. Commander called "end" immediately after "continue" + "opencode."
+
+**Inbox state:** All clean. No tasks, no signals.
+
+**Active missions unchanged.** MISSION-009 (Kuklinski ARC4-A) still stale in_progress since May 18 — flagged for next session.
+
+**METRONOME:** #475, RED heartbeat (720 missed beats) — known stale hale_cc, no action taken.
+
+---
+## INBOX SWEEP — HALE-OC (JET) | 2026-05-22
+
+**Sweeped opencode_inbox.md** — all 25 tasks audited. Zero PENDING or UNREAD. Inbox is clean.
+
+Notable: T2-COMMS-BUILD has status UPDATED (not PENDING/UNREAD) with TASKS A/B/C remaining, but status field doesn't match sweep criteria. All other tasks COMPLETE.
 
 ## [JET → WING + COMMANDER] T4 EXERCISE STEP 8 — INTEGRATION TEST COMPLETE | 2026-05-19 12:30 MDT
 
@@ -877,6 +932,23 @@ Next sweep: on next inbox injection or :00 timer fire.
 **Conclusion:** OpenCode inbox processing directive executed successfully. No pending tasks remain. System operating at full operational status.
 
 *— OpenCode | Task Processing Verification | Commander Directive Execution Complete | 2026-05-14 15:25 MT*
+
+---
+
+## [JET → WING] INBOX SWEEP COMPLETE — 2026-05-24 17:15 MT
+
+**Processed:** 1 UNREAD task from opencode_inbox.md → COMPLETE
+
+### TP-ALERT-20260524 (12:00 MT run) — ACKNOWLEDGED
+- **3rd duplicate** today (00:00, 06:00, 12:00 MT). All report same 108 touchpoints.
+- Findings consistent with 13+ prior runs: OVERDUE 8 items (Kuklinski/Morton TP 0.5/1.1, McLeod TP 2.2, Loucks TP 5.4), CRITICAL ~60 stale legacy, CRITICAL-APPROACHING ~20, WARNING ~12, APPROACHING ~14.
+- **Dedup blocker (escalated — 13+ copies since May 22):** TP Alert Engine fires every ~6h without content-hash guard. Routed to A12 ELON; no fix observed. Now a noise hazard needing Commander attention.
+
+**Inbox terminal state:** CLEAN — 0 UNREAD / 0 PENDING / all tasks COMPLETE.
+
+Full detail in claude_outbox.md.
+
+— JET | WIND Group | 2026-05-24 17:15 MT
 
 ---
 
@@ -3367,3 +3439,6316 @@ hale_oc's last two heartbeats (2026-05-19T17:53:53Z, sequences 2 & 3) report `he
 This is governance/process — within Hale-CC coordination scope (SO-2026-05-04). No Commander gate touched. No financial commit, no client send, no new client contact, no strategy pivot. Logging to `hale_decisions.md` pending Sterling's actual re-score outcome.
 
 — V. Hale, VCS | Hale-CC (Opus 4.7) | 2026-05-19T18:30Z
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-19 19:02:54
+Token health issue: Token expiring in 5 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-19 19:17:54
+Token health issue: Token expired 9 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-20 03:18:29
+Token health issue: Token expiring in 1 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-20 03:33:29
+Token health issue: Token expired 13 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-20 03:48:33
+Token health issue: Token expired 28 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-20 04:03:34
+Token health issue: Token expired 43 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-20 04:18:36
+Token health issue: Token expired 58 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-20 12:19:13
+Token health issue: Token expiring in 0 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-20 12:34:14
+Token health issue: Token expired 14 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-20 12:49:16
+Token health issue: Token expired 29 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-20 13:04:18
+Token health issue: Token expired 44 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-20 13:19:18
+Token health issue: Token expired 59 min ago
+
+## ⚠️ [WARNING] Checkpoint Alert — 2026-05-20 16:45:28
+Inbox Checkpoint detected watcher dead and restarted it (PID 1770)
+
+**Context:**
+- restart_count: 8
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-20 21:16:42
+Token health issue: Token expiring in 3 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-21 05:17:08
+Token health issue: Token expiring in 3 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-21 05:32:08
+Token health issue: Token expired 11 min ago
+
+---
+
+## Claude Sonnet Quota — Fallback to OpenCode | JET | 2026-05-21 12:30 MT
+
+**Situation:** MAX Sonnet bucket at 95% with 15h to reset. Claude Desktop killed on YOGA to stop background haiku drain.
+
+**New operating posture until Sonnet refills (~06:30 MDT 2026-05-22):**
+- JET handling all tasks via OpenCode — Big Pickle / DeepSeek V4 Flash Free ($0 native, no Claude quota impact)
+- Claude headless (dispatch_claude.py) used only for urgent judgment calls via Haiku
+- No new Claude-intensive agentic tasks from watcher until quota recovers
+
+**To COS Hale & Dani (A9):**
+- Hale: If a judgment call or strategy question comes in that needs Sonnet/Opus, note it and queue via claude_inbox for processing after reset
+- Dani: Client email drafting holds until reset unless time-critical — then use dispatch_claude.py --model haiku for a lighter draft
+- Both: JET will ping you via wing_comms when Sonnet is back online
+
+**Current bill:** $0 (Big Pickle + DeepSeek free tier) — budget guard fully active.
+
+## ⚠️ [WARNING] Checkpoint Alert — 2026-05-21 10:46:13
+Inbox Checkpoint detected watcher dead and restarted it (PID 1781)
+
+**Context:**
+- restart_count: 9
+
+## ⚠️ [WARNING] Checkpoint Alert — 2026-05-21 11:00:00
+Inbox Checkpoint detected watcher dead and restarted it (PID 1780)
+
+**Context:**
+- restart_count: 10
+
+## ⚠️ [WARNING] Checkpoint Alert — 2026-05-21 13:03:46
+Inbox Checkpoint detected watcher dead and restarted it (PID 1774)
+
+**Context:**
+- restart_count: 11
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-21 13:34:43
+Token health issue: Token expiring in 10 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-21 13:49:45
+Token health issue: Token expired 4 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-21 14:04:52
+Token health issue: Token expired 19 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-21 14:19:52
+Token health issue: Token expired 34 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-21 14:34:53
+Token health issue: Token expired 49 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-21 22:35:53
+Token health issue: Token expiring in 2 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-21 22:50:53
+Token health issue: Token expired 12 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-21 23:05:54
+Token health issue: Token expired 27 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-21 23:20:57
+Token health issue: Token expired 42 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-21 23:35:59
+Token health issue: Token expired 57 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-22 07:36:45
+Token health issue: Token expiring in 2 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-22 07:51:46
+Token health issue: Token expired 12 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-22 08:06:50
+Token health issue: Token expired 28 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-22 08:21:50
+Token health issue: Token expired 43 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-22 08:36:50
+Token health issue: Token expired 58 min ago
+
+## TP ALERT — 2026-05-22 — AUTO-GENERATED 14:21 MT
+
+### CRITICAL (overdue >30d)
+- 🔴 **TP 0.5** [McLeod McGlasson - Grandeur] — Welcome / Booking Validation
+  Deadline: 2025-02-13 | Lead: Dani + Naia
+  Action: Dani + Naia — escalate immediately
+- 🔴 **TP 0.5** [McLeod McGlasson - Silver Muse] — Welcome / Booking Validation
+  Deadline: 2025-02-13 | Lead: Dani + Naia
+  Action: Dani + Naia — escalate immediately
+- 🔴 **TP 0.6** [McLeod McGlasson - Grandeur] — Insurance Advisory
+  Deadline: 2025-02-20 | Lead: A9 Harlan
+  Action: A9 Harlan — escalate immediately
+- 🔴 **TP 0.6** [McLeod McGlasson - Silver Muse] — Insurance Advisory
+  Deadline: 2025-02-20 | Lead: A9 Harlan
+  Action: A9 Harlan — escalate immediately
+- 🔴 **TP 1.1** [Loucks Personal] — Voyage Preview (destination guide)
+  Deadline: 2025-09-12 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.2** [Loucks Personal] — Airfare Watch
+  Deadline: 2025-10-12 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Loucks Personal] — Hotel Options (pre/post cruise)
+  Deadline: 2025-10-12 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson - Silver Muse] — Voyage Preview (destination guide)
+  Deadline: 2025-11-20 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 2.1** [Loucks Personal] — Excursion Research & Recs
+  Deadline: 2025-12-11 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [McLeod McGlasson - Silver Muse] — Airfare Watch
+  Deadline: 2025-12-20 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [McLeod McGlasson - Silver Muse] — Hotel Options (pre/post cruise)
+  Deadline: 2025-12-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Loucks Personal] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-01-10 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.1** [McLeod McGlasson - Silver Muse] — Payment Reminder #1
+  Deadline: 2026-01-10 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [McLeod McGlasson - Silver Muse] — Payment Reminder #2
+  Deadline: 2026-01-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Loucks Personal] — Payment Reminder #1
+  Deadline: 2026-01-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [McLeod McGlasson - Silver Muse] — Payment Goal
+  Deadline: 2026-01-23 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [McLeod McGlasson - Silver Muse] — Final Payment Due
+  Deadline: 2026-01-24 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 2.5** [Loucks Personal] — Document Audit
+  Deadline: 2026-01-25 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.2** [Loucks Personal] — Payment Reminder #2
+  Deadline: 2026-01-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 1.1** [Grandeur Scandinavia Group] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Ely] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Furlow] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 4.3** [Loucks Personal] — Payment Goal
+  Deadline: 2026-01-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.5** [McLeod McGlasson - Silver Muse] — Payment Confirmation
+  Deadline: 2026-01-31 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 1.1** [Nichols] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 4.4** [Loucks Personal] — Final Payment Due
+  Deadline: 2026-02-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.5** [Loucks Personal] — Payment Confirmation
+  Deadline: 2026-02-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.4** [Loucks Personal] — Dining Reservations
+  Deadline: 2026-02-09 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.1** [McLeod McGlasson - Silver Muse] — Excursion Research & Recs
+  Deadline: 2026-02-18 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [McLeod McGlasson - Silver Muse] — Apply FCC / Credits
+  Deadline: 2026-02-23 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 1.2** [Grandeur Scandinavia Group] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Grandeur Scandinavia Group] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Ely] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Ely] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Furlow] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Furlow] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Nichols] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Nichols] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Loucks Personal] — Apply FCC / Credits
+  Deadline: 2026-03-03 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.2** [Loucks Personal] — Monthly Validation (rolling)
+  Deadline: 2026-03-11 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski Group] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Morton] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Grandeur Scandinavia Group] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Ely] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Furlow] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Nichols] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 3.1** [Loucks Personal] — Pre-Voyage Brief
+  Deadline: 2026-03-20 | Lead: Hale + A2 + A6
+  Action: Hale + A2 + A6 — escalate immediately
+- 🔴 **TP 2.3** [McLeod McGlasson - Silver Muse] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-03-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski Group] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Morton] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Grandeur Scandinavia Group] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Ely] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Furlow] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Nichols] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski Group] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Morton] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Grandeur Scandinavia Group] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski Group] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.3** [Ely] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Furlow] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Morton] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.3** [Nichols] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Grandeur Scandinavia Group] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Ely] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Furlow] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Nichols] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 3.2** [Loucks Personal] — Final Confirmation
+  Deadline: 2026-04-03 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [McLeod McGlasson - Silver Muse] — Document Audit
+  Deadline: 2026-04-04 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski Group] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 3.3** [Loucks Personal] — Send-Off / Bon Voyage
+  Deadline: 2026-04-07 | Lead: Hale + A6
+  Action: Hale + A6 — escalate immediately
+- 🔴 **TP 4.5** [Morton] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Grandeur Scandinavia Group] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Ely] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Furlow] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Nichols] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.4** [McLeod McGlasson - Silver Muse] — Dining Reservations
+  Deadline: 2026-04-19 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 5.1** [Loucks Personal] — Welcome Home
+  Deadline: 2026-04-20 | Lead: Hale
+  Action: Hale — escalate immediately
+
+### WARNING (overdue 14-30d)
+- 🟠 **TP 5.2** [Loucks Personal] — Survey / Review Request
+  Deadline: 2026-04-27 | Lead: A7 Gauge + Dani
+- 🟠 **TP 4.6** [Kuklinski Group] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 4.6** [Kuklinski] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 4.6** [Morton] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 2.1** [Grandeur Scandinavia Group] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Grandeur Scandinavia Group] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Ely] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Ely] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Furlow] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Furlow] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Nichols] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Nichols] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 5.3** [Loucks Personal] — Thank You + Referral
+  Deadline: 2026-05-05 | Lead: Dani + Naia
+
+### CRITICAL-APPROACHING (≤14d to deadline)
+- 🟡 **TP 1.1** [McLeod McGlasson - Grandeur] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 (T-1d) | Lead: A2 Dembe + A6 Luna
+  Task: A2 Dembe + A6 Luna — begin work
+- 🟡 **TP 0.5** [Nichols] — Welcome / Booking Validation
+  Deadline: 2026-05-25 (T-3d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Ely] — Welcome / Booking Validation
+  Deadline: 2026-05-26 (T-4d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Furlow] — Welcome / Booking Validation
+  Deadline: 2026-05-26 (T-4d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Kuklinski] — Welcome / Booking Validation
+  Deadline: 2026-05-27 (T-5d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.6** [Grandeur Scandinavia Group] — Insurance Advisory
+  Deadline: 2026-05-28 (T-6d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 0.6** [Kuklinski Group] — Insurance Advisory
+  Deadline: 2026-05-28 (T-6d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 0.5** [Loucks Personal] — Welcome / Booking Validation
+  Deadline: 2026-05-28 (T-6d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 3.1** [McLeod McGlasson - Silver Muse] — Pre-Voyage Brief
+  Deadline: 2026-05-28 (T-6d) | Lead: Hale + A2 + A6
+  Task: Hale + A2 + A6 — begin work
+- 🟡 **TP 0.6** [Morton] — Insurance Advisory
+  Deadline: 2026-05-28 (T-6d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 2.3** [Grandeur Scandinavia Group] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-9d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Ely] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-9d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Furlow] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-9d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Nichols] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-9d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+
+### APPROACHING (due within 14d)
+- 🔵 **TP 0.6** [Nichols] — Insurance Advisory
+  Deadline: 2026-06-01 (T-10d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Ely] — Insurance Advisory
+  Deadline: 2026-06-02 (T-11d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Furlow] — Insurance Advisory
+  Deadline: 2026-06-02 (T-11d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Kuklinski] — Insurance Advisory
+  Deadline: 2026-06-03 (T-12d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Loucks Personal] — Insurance Advisory
+  Deadline: 2026-06-04 (T-13d) | Lead: A9 Harlan
+- 🔵 **TP 3.2** [McLeod McGlasson - Silver Muse] — Final Confirmation
+  Deadline: 2026-06-11 (T-20d) | Lead: Hale
+- 🔵 **TP 2.5** [Grandeur Scandinavia Group] — Document Audit
+  Deadline: 2026-06-15 (T-24d) | Lead: Hale
+- 🔵 **TP 2.5** [Ely] — Document Audit
+  Deadline: 2026-06-15 (T-24d) | Lead: Hale
+- 🔵 **TP 2.5** [Furlow] — Document Audit
+  Deadline: 2026-06-15 (T-24d) | Lead: Hale
+- 🔵 **TP 2.5** [Nichols] — Document Audit
+  Deadline: 2026-06-15 (T-24d) | Lead: Hale
+- 🔵 **TP 1.2** [McLeod McGlasson - Grandeur] — Airfare Watch
+  Deadline: 2026-06-22 (T-31d) | Lead: A2 Dembe + A5 Viper
+- 🔵 **TP 1.3** [McLeod McGlasson - Grandeur] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 (T-31d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Grandeur Scandinavia Group] — Dining Reservations
+  Deadline: 2026-06-30 (T-39d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Ely] — Dining Reservations
+  Deadline: 2026-06-30 (T-39d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Furlow] — Dining Reservations
+  Deadline: 2026-06-30 (T-39d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Nichols] — Dining Reservations
+  Deadline: 2026-06-30 (T-39d) | Lead: A2 Dembe
+
+### OVERDUE (<14d, recent)
+- 🔴 **TP 5.4** [Loucks Personal] — Next Voyage Plant + Commission Audit
+  Deadline: 2026-05-15 | Lead: A5 Viper + A9
+- 🔴 **TP 2.2** [McLeod McGlasson - Silver Muse] — Monthly Validation (rolling)
+  Deadline: 2026-05-19 | Lead: Hale
+- 🔴 **TP 0.5** [Grandeur Scandinavia Group] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 0.5** [Kuklinski Group] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 1.1** [Kuklinski Group] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+- 🔴 **TP 1.1** [Kuklinski] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+- 🔴 **TP 0.5** [Morton] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 1.1** [Morton] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+
+---
+*Auto-generated by TP Alert Engine — next scan in 6h*
+
+
+## TP ALERT — 2026-05-22 — AUTO-GENERATED 14:21 MT
+
+### CRITICAL (overdue >30d)
+- 🔴 **TP 0.5** [McLeod McGlasson - Grandeur] — Welcome / Booking Validation
+  Deadline: 2025-02-13 | Lead: Dani + Naia
+  Action: Dani + Naia — escalate immediately
+- 🔴 **TP 0.5** [McLeod McGlasson - Silver Muse] — Welcome / Booking Validation
+  Deadline: 2025-02-13 | Lead: Dani + Naia
+  Action: Dani + Naia — escalate immediately
+- 🔴 **TP 0.6** [McLeod McGlasson - Grandeur] — Insurance Advisory
+  Deadline: 2025-02-20 | Lead: A9 Harlan
+  Action: A9 Harlan — escalate immediately
+- 🔴 **TP 0.6** [McLeod McGlasson - Silver Muse] — Insurance Advisory
+  Deadline: 2025-02-20 | Lead: A9 Harlan
+  Action: A9 Harlan — escalate immediately
+- 🔴 **TP 1.1** [Loucks Personal] — Voyage Preview (destination guide)
+  Deadline: 2025-09-12 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.2** [Loucks Personal] — Airfare Watch
+  Deadline: 2025-10-12 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Loucks Personal] — Hotel Options (pre/post cruise)
+  Deadline: 2025-10-12 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson - Silver Muse] — Voyage Preview (destination guide)
+  Deadline: 2025-11-20 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 2.1** [Loucks Personal] — Excursion Research & Recs
+  Deadline: 2025-12-11 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [McLeod McGlasson - Silver Muse] — Airfare Watch
+  Deadline: 2025-12-20 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [McLeod McGlasson - Silver Muse] — Hotel Options (pre/post cruise)
+  Deadline: 2025-12-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Loucks Personal] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-01-10 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.1** [McLeod McGlasson - Silver Muse] — Payment Reminder #1
+  Deadline: 2026-01-10 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [McLeod McGlasson - Silver Muse] — Payment Reminder #2
+  Deadline: 2026-01-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Loucks Personal] — Payment Reminder #1
+  Deadline: 2026-01-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [McLeod McGlasson - Silver Muse] — Payment Goal
+  Deadline: 2026-01-23 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [McLeod McGlasson - Silver Muse] — Final Payment Due
+  Deadline: 2026-01-24 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 2.5** [Loucks Personal] — Document Audit
+  Deadline: 2026-01-25 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.2** [Loucks Personal] — Payment Reminder #2
+  Deadline: 2026-01-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 1.1** [Grandeur Scandinavia Group] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Ely] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Furlow] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 4.3** [Loucks Personal] — Payment Goal
+  Deadline: 2026-01-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.5** [McLeod McGlasson - Silver Muse] — Payment Confirmation
+  Deadline: 2026-01-31 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 1.1** [Nichols] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 4.4** [Loucks Personal] — Final Payment Due
+  Deadline: 2026-02-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.5** [Loucks Personal] — Payment Confirmation
+  Deadline: 2026-02-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.4** [Loucks Personal] — Dining Reservations
+  Deadline: 2026-02-09 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.1** [McLeod McGlasson - Silver Muse] — Excursion Research & Recs
+  Deadline: 2026-02-18 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [McLeod McGlasson - Silver Muse] — Apply FCC / Credits
+  Deadline: 2026-02-23 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 1.2** [Grandeur Scandinavia Group] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Grandeur Scandinavia Group] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Ely] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Ely] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Furlow] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Furlow] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Nichols] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Nichols] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Loucks Personal] — Apply FCC / Credits
+  Deadline: 2026-03-03 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.2** [Loucks Personal] — Monthly Validation (rolling)
+  Deadline: 2026-03-11 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski Group] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Morton] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Grandeur Scandinavia Group] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Ely] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Furlow] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Nichols] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 3.1** [Loucks Personal] — Pre-Voyage Brief
+  Deadline: 2026-03-20 | Lead: Hale + A2 + A6
+  Action: Hale + A2 + A6 — escalate immediately
+- 🔴 **TP 2.3** [McLeod McGlasson - Silver Muse] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-03-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski Group] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Morton] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Grandeur Scandinavia Group] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Ely] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Furlow] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Nichols] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski Group] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Morton] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Grandeur Scandinavia Group] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski Group] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.3** [Ely] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Furlow] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Morton] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.3** [Nichols] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Grandeur Scandinavia Group] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Ely] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Furlow] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Nichols] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 3.2** [Loucks Personal] — Final Confirmation
+  Deadline: 2026-04-03 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [McLeod McGlasson - Silver Muse] — Document Audit
+  Deadline: 2026-04-04 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski Group] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 3.3** [Loucks Personal] — Send-Off / Bon Voyage
+  Deadline: 2026-04-07 | Lead: Hale + A6
+  Action: Hale + A6 — escalate immediately
+- 🔴 **TP 4.5** [Morton] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Grandeur Scandinavia Group] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Ely] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Furlow] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Nichols] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.4** [McLeod McGlasson - Silver Muse] — Dining Reservations
+  Deadline: 2026-04-19 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 5.1** [Loucks Personal] — Welcome Home
+  Deadline: 2026-04-20 | Lead: Hale
+  Action: Hale — escalate immediately
+
+### WARNING (overdue 14-30d)
+- 🟠 **TP 5.2** [Loucks Personal] — Survey / Review Request
+  Deadline: 2026-04-27 | Lead: A7 Gauge + Dani
+- 🟠 **TP 4.6** [Kuklinski Group] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 4.6** [Kuklinski] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 4.6** [Morton] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 2.1** [Grandeur Scandinavia Group] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Grandeur Scandinavia Group] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Ely] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Ely] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Furlow] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Furlow] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Nichols] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Nichols] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 5.3** [Loucks Personal] — Thank You + Referral
+  Deadline: 2026-05-05 | Lead: Dani + Naia
+
+### CRITICAL-APPROACHING (≤14d to deadline)
+- 🟡 **TP 1.1** [McLeod McGlasson - Grandeur] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 (T-1d) | Lead: A2 Dembe + A6 Luna
+  Task: A2 Dembe + A6 Luna — begin work
+- 🟡 **TP 0.5** [Nichols] — Welcome / Booking Validation
+  Deadline: 2026-05-25 (T-3d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Ely] — Welcome / Booking Validation
+  Deadline: 2026-05-26 (T-4d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Furlow] — Welcome / Booking Validation
+  Deadline: 2026-05-26 (T-4d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Kuklinski] — Welcome / Booking Validation
+  Deadline: 2026-05-27 (T-5d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.6** [Grandeur Scandinavia Group] — Insurance Advisory
+  Deadline: 2026-05-28 (T-6d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 0.6** [Kuklinski Group] — Insurance Advisory
+  Deadline: 2026-05-28 (T-6d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 0.5** [Loucks Personal] — Welcome / Booking Validation
+  Deadline: 2026-05-28 (T-6d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 3.1** [McLeod McGlasson - Silver Muse] — Pre-Voyage Brief
+  Deadline: 2026-05-28 (T-6d) | Lead: Hale + A2 + A6
+  Task: Hale + A2 + A6 — begin work
+- 🟡 **TP 0.6** [Morton] — Insurance Advisory
+  Deadline: 2026-05-28 (T-6d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 2.3** [Grandeur Scandinavia Group] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-9d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Ely] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-9d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Furlow] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-9d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Nichols] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-9d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+
+### APPROACHING (due within 14d)
+- 🔵 **TP 0.6** [Nichols] — Insurance Advisory
+  Deadline: 2026-06-01 (T-10d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Ely] — Insurance Advisory
+  Deadline: 2026-06-02 (T-11d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Furlow] — Insurance Advisory
+  Deadline: 2026-06-02 (T-11d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Kuklinski] — Insurance Advisory
+  Deadline: 2026-06-03 (T-12d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Loucks Personal] — Insurance Advisory
+  Deadline: 2026-06-04 (T-13d) | Lead: A9 Harlan
+- 🔵 **TP 3.2** [McLeod McGlasson - Silver Muse] — Final Confirmation
+  Deadline: 2026-06-11 (T-20d) | Lead: Hale
+- 🔵 **TP 2.5** [Grandeur Scandinavia Group] — Document Audit
+  Deadline: 2026-06-15 (T-24d) | Lead: Hale
+- 🔵 **TP 2.5** [Ely] — Document Audit
+  Deadline: 2026-06-15 (T-24d) | Lead: Hale
+- 🔵 **TP 2.5** [Furlow] — Document Audit
+  Deadline: 2026-06-15 (T-24d) | Lead: Hale
+- 🔵 **TP 2.5** [Nichols] — Document Audit
+  Deadline: 2026-06-15 (T-24d) | Lead: Hale
+- 🔵 **TP 1.2** [McLeod McGlasson - Grandeur] — Airfare Watch
+  Deadline: 2026-06-22 (T-31d) | Lead: A2 Dembe + A5 Viper
+- 🔵 **TP 1.3** [McLeod McGlasson - Grandeur] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 (T-31d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Grandeur Scandinavia Group] — Dining Reservations
+  Deadline: 2026-06-30 (T-39d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Ely] — Dining Reservations
+  Deadline: 2026-06-30 (T-39d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Furlow] — Dining Reservations
+  Deadline: 2026-06-30 (T-39d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Nichols] — Dining Reservations
+  Deadline: 2026-06-30 (T-39d) | Lead: A2 Dembe
+
+### OVERDUE (<14d, recent)
+- 🔴 **TP 5.4** [Loucks Personal] — Next Voyage Plant + Commission Audit
+  Deadline: 2026-05-15 | Lead: A5 Viper + A9
+- 🔴 **TP 2.2** [McLeod McGlasson - Silver Muse] — Monthly Validation (rolling)
+  Deadline: 2026-05-19 | Lead: Hale
+- 🔴 **TP 0.5** [Grandeur Scandinavia Group] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 0.5** [Kuklinski Group] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 1.1** [Kuklinski Group] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+- 🔴 **TP 1.1** [Kuklinski] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+- 🔴 **TP 0.5** [Morton] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 1.1** [Morton] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+
+---
+*Auto-generated by TP Alert Engine — next scan in 6h*
+
+
+## TP ALERT — 2026-05-22 — AUTO-GENERATED 14:21 MT
+
+### CRITICAL (overdue >30d)
+- 🔴 **TP 0.5** [McLeod McGlasson - Grandeur] — Welcome / Booking Validation
+  Deadline: 2025-02-13 | Lead: Dani + Naia
+  Action: Dani + Naia — escalate immediately
+- 🔴 **TP 0.5** [McLeod McGlasson - Silver Muse] — Welcome / Booking Validation
+  Deadline: 2025-02-13 | Lead: Dani + Naia
+  Action: Dani + Naia — escalate immediately
+- 🔴 **TP 0.6** [McLeod McGlasson - Grandeur] — Insurance Advisory
+  Deadline: 2025-02-20 | Lead: A9 Harlan
+  Action: A9 Harlan — escalate immediately
+- 🔴 **TP 0.6** [McLeod McGlasson - Silver Muse] — Insurance Advisory
+  Deadline: 2025-02-20 | Lead: A9 Harlan
+  Action: A9 Harlan — escalate immediately
+- 🔴 **TP 1.1** [Loucks Personal] — Voyage Preview (destination guide)
+  Deadline: 2025-09-12 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.2** [Loucks Personal] — Airfare Watch
+  Deadline: 2025-10-12 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Loucks Personal] — Hotel Options (pre/post cruise)
+  Deadline: 2025-10-12 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson - Silver Muse] — Voyage Preview (destination guide)
+  Deadline: 2025-11-20 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 2.1** [Loucks Personal] — Excursion Research & Recs
+  Deadline: 2025-12-11 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [McLeod McGlasson - Silver Muse] — Airfare Watch
+  Deadline: 2025-12-20 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [McLeod McGlasson - Silver Muse] — Hotel Options (pre/post cruise)
+  Deadline: 2025-12-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Loucks Personal] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-01-10 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.1** [McLeod McGlasson - Silver Muse] — Payment Reminder #1
+  Deadline: 2026-01-10 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [McLeod McGlasson - Silver Muse] — Payment Reminder #2
+  Deadline: 2026-01-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Loucks Personal] — Payment Reminder #1
+  Deadline: 2026-01-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [McLeod McGlasson - Silver Muse] — Payment Goal
+  Deadline: 2026-01-23 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [McLeod McGlasson - Silver Muse] — Final Payment Due
+  Deadline: 2026-01-24 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 2.5** [Loucks Personal] — Document Audit
+  Deadline: 2026-01-25 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.2** [Loucks Personal] — Payment Reminder #2
+  Deadline: 2026-01-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 1.1** [Grandeur Scandinavia Group] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Ely] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Furlow] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 4.3** [Loucks Personal] — Payment Goal
+  Deadline: 2026-01-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.5** [McLeod McGlasson - Silver Muse] — Payment Confirmation
+  Deadline: 2026-01-31 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 1.1** [Nichols] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 4.4** [Loucks Personal] — Final Payment Due
+  Deadline: 2026-02-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.5** [Loucks Personal] — Payment Confirmation
+  Deadline: 2026-02-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.4** [Loucks Personal] — Dining Reservations
+  Deadline: 2026-02-09 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.1** [McLeod McGlasson - Silver Muse] — Excursion Research & Recs
+  Deadline: 2026-02-18 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [McLeod McGlasson - Silver Muse] — Apply FCC / Credits
+  Deadline: 2026-02-23 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 1.2** [Grandeur Scandinavia Group] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Grandeur Scandinavia Group] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Ely] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Ely] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Furlow] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Furlow] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Nichols] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Nichols] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Loucks Personal] — Apply FCC / Credits
+  Deadline: 2026-03-03 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.2** [Loucks Personal] — Monthly Validation (rolling)
+  Deadline: 2026-03-11 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski Group] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Morton] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Grandeur Scandinavia Group] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Ely] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Furlow] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Nichols] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 3.1** [Loucks Personal] — Pre-Voyage Brief
+  Deadline: 2026-03-20 | Lead: Hale + A2 + A6
+  Action: Hale + A2 + A6 — escalate immediately
+- 🔴 **TP 2.3** [McLeod McGlasson - Silver Muse] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-03-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski Group] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Morton] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Grandeur Scandinavia Group] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Ely] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Furlow] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Nichols] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski Group] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Morton] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Grandeur Scandinavia Group] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski Group] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.3** [Ely] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Furlow] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Morton] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.3** [Nichols] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Grandeur Scandinavia Group] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Ely] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Furlow] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Nichols] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 3.2** [Loucks Personal] — Final Confirmation
+  Deadline: 2026-04-03 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [McLeod McGlasson - Silver Muse] — Document Audit
+  Deadline: 2026-04-04 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski Group] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 3.3** [Loucks Personal] — Send-Off / Bon Voyage
+  Deadline: 2026-04-07 | Lead: Hale + A6
+  Action: Hale + A6 — escalate immediately
+- 🔴 **TP 4.5** [Morton] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Grandeur Scandinavia Group] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Ely] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Furlow] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Nichols] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.4** [McLeod McGlasson - Silver Muse] — Dining Reservations
+  Deadline: 2026-04-19 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 5.1** [Loucks Personal] — Welcome Home
+  Deadline: 2026-04-20 | Lead: Hale
+  Action: Hale — escalate immediately
+
+### WARNING (overdue 14-30d)
+- 🟠 **TP 5.2** [Loucks Personal] — Survey / Review Request
+  Deadline: 2026-04-27 | Lead: A7 Gauge + Dani
+- 🟠 **TP 4.6** [Kuklinski Group] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 4.6** [Kuklinski] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 4.6** [Morton] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 2.1** [Grandeur Scandinavia Group] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Grandeur Scandinavia Group] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Ely] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Ely] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Furlow] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Furlow] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Nichols] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Nichols] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 5.3** [Loucks Personal] — Thank You + Referral
+  Deadline: 2026-05-05 | Lead: Dani + Naia
+
+### CRITICAL-APPROACHING (≤14d to deadline)
+- 🟡 **TP 1.1** [McLeod McGlasson - Grandeur] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 (T-1d) | Lead: A2 Dembe + A6 Luna
+  Task: A2 Dembe + A6 Luna — begin work
+- 🟡 **TP 0.5** [Nichols] — Welcome / Booking Validation
+  Deadline: 2026-05-25 (T-3d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Ely] — Welcome / Booking Validation
+  Deadline: 2026-05-26 (T-4d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Furlow] — Welcome / Booking Validation
+  Deadline: 2026-05-26 (T-4d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Kuklinski] — Welcome / Booking Validation
+  Deadline: 2026-05-27 (T-5d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.6** [Grandeur Scandinavia Group] — Insurance Advisory
+  Deadline: 2026-05-28 (T-6d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 0.6** [Kuklinski Group] — Insurance Advisory
+  Deadline: 2026-05-28 (T-6d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 0.5** [Loucks Personal] — Welcome / Booking Validation
+  Deadline: 2026-05-28 (T-6d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 3.1** [McLeod McGlasson - Silver Muse] — Pre-Voyage Brief
+  Deadline: 2026-05-28 (T-6d) | Lead: Hale + A2 + A6
+  Task: Hale + A2 + A6 — begin work
+- 🟡 **TP 0.6** [Morton] — Insurance Advisory
+  Deadline: 2026-05-28 (T-6d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 2.3** [Grandeur Scandinavia Group] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-9d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Ely] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-9d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Furlow] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-9d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Nichols] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-9d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+
+### APPROACHING (due within 14d)
+- 🔵 **TP 0.6** [Nichols] — Insurance Advisory
+  Deadline: 2026-06-01 (T-10d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Ely] — Insurance Advisory
+  Deadline: 2026-06-02 (T-11d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Furlow] — Insurance Advisory
+  Deadline: 2026-06-02 (T-11d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Kuklinski] — Insurance Advisory
+  Deadline: 2026-06-03 (T-12d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Loucks Personal] — Insurance Advisory
+  Deadline: 2026-06-04 (T-13d) | Lead: A9 Harlan
+- 🔵 **TP 3.2** [McLeod McGlasson - Silver Muse] — Final Confirmation
+  Deadline: 2026-06-11 (T-20d) | Lead: Hale
+- 🔵 **TP 2.5** [Grandeur Scandinavia Group] — Document Audit
+  Deadline: 2026-06-15 (T-24d) | Lead: Hale
+- 🔵 **TP 2.5** [Ely] — Document Audit
+  Deadline: 2026-06-15 (T-24d) | Lead: Hale
+- 🔵 **TP 2.5** [Furlow] — Document Audit
+  Deadline: 2026-06-15 (T-24d) | Lead: Hale
+- 🔵 **TP 2.5** [Nichols] — Document Audit
+  Deadline: 2026-06-15 (T-24d) | Lead: Hale
+- 🔵 **TP 1.2** [McLeod McGlasson - Grandeur] — Airfare Watch
+  Deadline: 2026-06-22 (T-31d) | Lead: A2 Dembe + A5 Viper
+- 🔵 **TP 1.3** [McLeod McGlasson - Grandeur] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 (T-31d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Grandeur Scandinavia Group] — Dining Reservations
+  Deadline: 2026-06-30 (T-39d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Ely] — Dining Reservations
+  Deadline: 2026-06-30 (T-39d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Furlow] — Dining Reservations
+  Deadline: 2026-06-30 (T-39d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Nichols] — Dining Reservations
+  Deadline: 2026-06-30 (T-39d) | Lead: A2 Dembe
+
+### OVERDUE (<14d, recent)
+- 🔴 **TP 5.4** [Loucks Personal] — Next Voyage Plant + Commission Audit
+  Deadline: 2026-05-15 | Lead: A5 Viper + A9
+- 🔴 **TP 2.2** [McLeod McGlasson - Silver Muse] — Monthly Validation (rolling)
+  Deadline: 2026-05-19 | Lead: Hale
+- 🔴 **TP 0.5** [Grandeur Scandinavia Group] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 0.5** [Kuklinski Group] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 1.1** [Kuklinski Group] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+- 🔴 **TP 1.1** [Kuklinski] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+- 🔴 **TP 0.5** [Morton] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 1.1** [Morton] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+
+---
+*Auto-generated by TP Alert Engine — next scan in 6h*
+
+
+---
+
+## [JET → WING] TP-ALERT-20260522 — REVIEWED AND ACKNOWLEDGED | 2026-05-22 14:30 MT
+
+**UNREAD task in opencode_inbox processed.** TP Alert Engine report (14:21 MT, 109 touchpoints) reviewed.
+
+**Most urgent — OVERDUE (<14d):**
+- 🔴 TP 5.4 [Loucks Personal] — Next Voyage Plan + Commission Audit — due May 15 — A5+A9
+- 🔴 TP 2.2 [McLeod McGlasson Silver Muse] — Monthly Validation — due May 19 — Hale
+- 🔴 TP 0.5 [Grandeur/Kuklinski/Morton] — Welcome/Booking Validation — due May 21 — Dani+Naia
+- 🔴 TP 1.1 [Kuklinski/Morton] — Voyage Preview — due May 21 — A2+A6
+
+**CRITICAL-APPROACHING (≤14d):** ~20 items — Voyage Preview (May 23), Welcome/Validation (May 25-27), Insurance (May 28), Pre-Voyage Brief (May 28), Culinary Arts (May 31).
+
+**Flag:** TP Alert Engine posted 3x identical copies — dedup issue similar to PI-20260515-001. Recommend A7 Sterling add dedup guard.
+
+Full review detail in claude_outbox.md.
+
+— JET | WIND Group | 2026-05-22 14:30 MT
+
+## TP ALERT — 2026-05-22 — AUTO-GENERATED 18:00 MT
+
+### CRITICAL (overdue >30d)
+- 🔴 **TP 0.5** [McLeod McGlasson - Grandeur] — Welcome / Booking Validation
+  Deadline: 2025-02-13 | Lead: Dani + Naia
+  Action: Dani + Naia — escalate immediately
+- 🔴 **TP 0.5** [McLeod McGlasson - Silver Muse] — Welcome / Booking Validation
+  Deadline: 2025-02-13 | Lead: Dani + Naia
+  Action: Dani + Naia — escalate immediately
+- 🔴 **TP 0.6** [McLeod McGlasson - Grandeur] — Insurance Advisory
+  Deadline: 2025-02-20 | Lead: A9 Harlan
+  Action: A9 Harlan — escalate immediately
+- 🔴 **TP 0.6** [McLeod McGlasson - Silver Muse] — Insurance Advisory
+  Deadline: 2025-02-20 | Lead: A9 Harlan
+  Action: A9 Harlan — escalate immediately
+- 🔴 **TP 1.1** [Loucks Personal] — Voyage Preview (destination guide)
+  Deadline: 2025-09-12 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.2** [Loucks Personal] — Airfare Watch
+  Deadline: 2025-10-12 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Loucks Personal] — Hotel Options (pre/post cruise)
+  Deadline: 2025-10-12 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson - Silver Muse] — Voyage Preview (destination guide)
+  Deadline: 2025-11-20 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 2.1** [Loucks Personal] — Excursion Research & Recs
+  Deadline: 2025-12-11 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [McLeod McGlasson - Silver Muse] — Airfare Watch
+  Deadline: 2025-12-20 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [McLeod McGlasson - Silver Muse] — Hotel Options (pre/post cruise)
+  Deadline: 2025-12-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Loucks Personal] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-01-10 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.1** [McLeod McGlasson - Silver Muse] — Payment Reminder #1
+  Deadline: 2026-01-10 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [McLeod McGlasson - Silver Muse] — Payment Reminder #2
+  Deadline: 2026-01-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Loucks Personal] — Payment Reminder #1
+  Deadline: 2026-01-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [McLeod McGlasson - Silver Muse] — Payment Goal
+  Deadline: 2026-01-23 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [McLeod McGlasson - Silver Muse] — Final Payment Due
+  Deadline: 2026-01-24 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 2.5** [Loucks Personal] — Document Audit
+  Deadline: 2026-01-25 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.2** [Loucks Personal] — Payment Reminder #2
+  Deadline: 2026-01-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 1.1** [Grandeur Scandinavia Group] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Ely] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Furlow] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 4.3** [Loucks Personal] — Payment Goal
+  Deadline: 2026-01-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.5** [McLeod McGlasson - Silver Muse] — Payment Confirmation
+  Deadline: 2026-01-31 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 1.1** [Nichols] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 4.4** [Loucks Personal] — Final Payment Due
+  Deadline: 2026-02-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.5** [Loucks Personal] — Payment Confirmation
+  Deadline: 2026-02-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.4** [Loucks Personal] — Dining Reservations
+  Deadline: 2026-02-09 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.1** [McLeod McGlasson - Silver Muse] — Excursion Research & Recs
+  Deadline: 2026-02-18 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [McLeod McGlasson - Silver Muse] — Apply FCC / Credits
+  Deadline: 2026-02-23 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 1.2** [Grandeur Scandinavia Group] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Grandeur Scandinavia Group] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Ely] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Ely] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Furlow] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Furlow] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Nichols] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Nichols] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Loucks Personal] — Apply FCC / Credits
+  Deadline: 2026-03-03 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.2** [Loucks Personal] — Monthly Validation (rolling)
+  Deadline: 2026-03-11 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski Group] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Morton] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Grandeur Scandinavia Group] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Ely] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Furlow] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Nichols] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 3.1** [Loucks Personal] — Pre-Voyage Brief
+  Deadline: 2026-03-20 | Lead: Hale + A2 + A6
+  Action: Hale + A2 + A6 — escalate immediately
+- 🔴 **TP 2.3** [McLeod McGlasson - Silver Muse] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-03-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski Group] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Morton] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Grandeur Scandinavia Group] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Ely] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Furlow] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Nichols] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski Group] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Morton] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Grandeur Scandinavia Group] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski Group] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.3** [Ely] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Furlow] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Morton] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.3** [Nichols] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Grandeur Scandinavia Group] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Ely] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Furlow] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Nichols] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 3.2** [Loucks Personal] — Final Confirmation
+  Deadline: 2026-04-03 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [McLeod McGlasson - Silver Muse] — Document Audit
+  Deadline: 2026-04-04 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski Group] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 3.3** [Loucks Personal] — Send-Off / Bon Voyage
+  Deadline: 2026-04-07 | Lead: Hale + A6
+  Action: Hale + A6 — escalate immediately
+- 🔴 **TP 4.5** [Morton] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Grandeur Scandinavia Group] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Ely] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Furlow] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Nichols] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.4** [McLeod McGlasson - Silver Muse] — Dining Reservations
+  Deadline: 2026-04-19 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 5.1** [Loucks Personal] — Welcome Home
+  Deadline: 2026-04-20 | Lead: Hale
+  Action: Hale — escalate immediately
+
+### WARNING (overdue 14-30d)
+- 🟠 **TP 5.2** [Loucks Personal] — Survey / Review Request
+  Deadline: 2026-04-27 | Lead: A7 Gauge + Dani
+- 🟠 **TP 4.6** [Kuklinski Group] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 4.6** [Kuklinski] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 4.6** [Morton] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 2.1** [Grandeur Scandinavia Group] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Grandeur Scandinavia Group] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Ely] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Ely] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Furlow] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Furlow] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Nichols] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Nichols] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 5.3** [Loucks Personal] — Thank You + Referral
+  Deadline: 2026-05-05 | Lead: Dani + Naia
+
+### CRITICAL-APPROACHING (≤14d to deadline)
+- 🟡 **TP 1.1** [McLeod McGlasson - Grandeur] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 (T-1d) | Lead: A2 Dembe + A6 Luna
+  Task: A2 Dembe + A6 Luna — begin work
+- 🟡 **TP 0.5** [Nichols] — Welcome / Booking Validation
+  Deadline: 2026-05-25 (T-3d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Ely] — Welcome / Booking Validation
+  Deadline: 2026-05-26 (T-4d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Furlow] — Welcome / Booking Validation
+  Deadline: 2026-05-26 (T-4d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Kuklinski] — Welcome / Booking Validation
+  Deadline: 2026-05-27 (T-5d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.6** [Grandeur Scandinavia Group] — Insurance Advisory
+  Deadline: 2026-05-28 (T-6d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 0.6** [Kuklinski Group] — Insurance Advisory
+  Deadline: 2026-05-28 (T-6d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 0.5** [Loucks Personal] — Welcome / Booking Validation
+  Deadline: 2026-05-28 (T-6d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 3.1** [McLeod McGlasson - Silver Muse] — Pre-Voyage Brief
+  Deadline: 2026-05-28 (T-6d) | Lead: Hale + A2 + A6
+  Task: Hale + A2 + A6 — begin work
+- 🟡 **TP 0.6** [Morton] — Insurance Advisory
+  Deadline: 2026-05-28 (T-6d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 2.3** [Grandeur Scandinavia Group] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-9d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Ely] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-9d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Furlow] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-9d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Nichols] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-9d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+
+### APPROACHING (due within 14d)
+- 🔵 **TP 0.6** [Nichols] — Insurance Advisory
+  Deadline: 2026-06-01 (T-10d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Ely] — Insurance Advisory
+  Deadline: 2026-06-02 (T-11d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Furlow] — Insurance Advisory
+  Deadline: 2026-06-02 (T-11d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Kuklinski] — Insurance Advisory
+  Deadline: 2026-06-03 (T-12d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Loucks Personal] — Insurance Advisory
+  Deadline: 2026-06-04 (T-13d) | Lead: A9 Harlan
+- 🔵 **TP 3.2** [McLeod McGlasson - Silver Muse] — Final Confirmation
+  Deadline: 2026-06-11 (T-20d) | Lead: Hale
+- 🔵 **TP 2.5** [Grandeur Scandinavia Group] — Document Audit
+  Deadline: 2026-06-15 (T-24d) | Lead: Hale
+- 🔵 **TP 2.5** [Ely] — Document Audit
+  Deadline: 2026-06-15 (T-24d) | Lead: Hale
+- 🔵 **TP 2.5** [Furlow] — Document Audit
+  Deadline: 2026-06-15 (T-24d) | Lead: Hale
+- 🔵 **TP 2.5** [Nichols] — Document Audit
+  Deadline: 2026-06-15 (T-24d) | Lead: Hale
+- 🔵 **TP 1.2** [McLeod McGlasson - Grandeur] — Airfare Watch
+  Deadline: 2026-06-22 (T-31d) | Lead: A2 Dembe + A5 Viper
+- 🔵 **TP 1.3** [McLeod McGlasson - Grandeur] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 (T-31d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Grandeur Scandinavia Group] — Dining Reservations
+  Deadline: 2026-06-30 (T-39d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Ely] — Dining Reservations
+  Deadline: 2026-06-30 (T-39d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Furlow] — Dining Reservations
+  Deadline: 2026-06-30 (T-39d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Nichols] — Dining Reservations
+  Deadline: 2026-06-30 (T-39d) | Lead: A2 Dembe
+
+### OVERDUE (<14d, recent)
+- 🔴 **TP 5.4** [Loucks Personal] — Next Voyage Plant + Commission Audit
+  Deadline: 2026-05-15 | Lead: A5 Viper + A9
+- 🔴 **TP 2.2** [McLeod McGlasson - Silver Muse] — Monthly Validation (rolling)
+  Deadline: 2026-05-19 | Lead: Hale
+- 🔴 **TP 0.5** [Grandeur Scandinavia Group] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 0.5** [Kuklinski Group] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 1.1** [Kuklinski Group] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+- 🔴 **TP 1.1** [Kuklinski] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+- 🔴 **TP 0.5** [Morton] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 1.1** [Morton] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+
+---
+*Auto-generated by TP Alert Engine — next scan in 6h*
+
+
+---
+## INBOX SWEEP + TP-ALERT ACK — JET | 2026-05-22 18:15 MT
+
+**Inbox sweep complete.** 1 UNREAD task processed: TP-ALERT-20260522 (18:00 MT run).
+
+**TP Alert (18:00 MT) — ACKNOWLEDGED:**
+109 touchpoints assessed (4th duplicate today — dedup issue persists in Alert Engine).
+
+| Band | Count | Action |
+|------|-------|--------|
+| CRITICAL >30d overdue | ~50 | Cleanup sweep — mostly 2025 stale items |
+| WARNING 14-30d | ~12 | A9 Harlan FCC/Credits, A2 Dembe excursion research |
+| CRITICAL-APPROACHING ≤14d | ~20 | Work window opens now |
+| APPROACHING | ~14 | Watch |
+| OVERDUE <14d (highest) | 8 | Immediate action required |
+
+**BLOCKER for A12 ELON:** TP Alert Engine has no dedup guard — 4 identical alerts today.
+Recommend: add content hash check before posting to inbox/wing_comms.
+
+**Inbox status:** CLEAN. Zero UNREAD or PENDING.
+
+— JET | WIND Group | 2026-05-22 18:15 MT
+
+---
+## METRONOME NUDGE — 2026-05-23 03:23 UTC
+METRONOME YELLOW: Session idle 302s. Activity expected within 300s cadence.
+
+---
+## METRONOME NUDGE — 2026-05-23 03:28 UTC
+METRONOME auto-restarted Sonnet dispatch (stalled 606s). Output: /home/john/Thunderbird/output/two_brain_autorestart_1779506929.md
+
+---
+## T3: LIFECYCLE AUTOMATION DOCTRINE — STAFF INVOCATION
+status: ACTIVE
+from: HALE (COS)
+issued: 2026-05-22
+compact_suspense: 2026-05-23T18:00:00Z
+
+### TASKING
+
+**JET (WIND/CDR) — Infrastructure & Pipes**
+- Diagnose and fix: n8n drive-upload webhook (missing Respond node at n8n.d2mluxury.quest), MCP import in upload_to_drive.py (core/ path shadow), metronome RED (CC stale heartbeat 489 missed)
+- Deliverable: fixed pipes OR documented blocker with workaround
+- Write to opencode_inbox.md when done
+
+**TALON (CONDOR/CDR) — Strategic Deep-Think**
+- Via dispatch_claude.py --model opus: full strategic memo on lifecycle monitoring architecture for 7-8 variables (cruise, air, hotel, excursions, dining, transport, pricing, client pref)
+- Deliverable: strategic memo to output/ via dispatch
+- Address: how we scan continuously, how Commander monitors progress, how we measure reliability
+
+**A4 Keel — Logistics Pipeline Survey**
+- What logistics data sources do we actually have? TESS? Silversea portal? Regent portal? Kiwitaxi?
+- What's missing? Which variables have no data pipeline?
+- Deliverable: data source inventory + gap analysis → write to opencode_outbox.md
+
+**A5 Castillo — Operating Tempo**
+- When should lifecycle scans run? Cadence per variable?
+- Which are nightly (routine), which are on-demand (T2/T3)?
+- Deliverable: tempo schedule → OpsCenter/compact_tempo.md
+
+**A7 Sterling — Quality & Metrics**
+- How do we measure multi-agent output reliability?
+- What's the completeness gate pattern (that we skipped today)?
+- Deliverable: quality framework → OpsCenter/compact_quality.md
+
+**A2 Dembe — Research on Existing Lifecycle Coverage**
+- What lifecycle monitoring already exists in Thunderbird? (hint: check dossiers, scheduler, agentic intel)
+- What are we NOT monitoring that we claim to be?
+- Deliverable: coverage audit → opencode_outbox.md
+
+**A8 Reyes — Experience Architecture**
+- How do cruise + air + hotel + excursions + dining + transport interconnect for a client?
+- Where are the handoff points? Where do things break?
+- Deliverable: client experience flow map → OpsCenter/compact_experience.md
+
+**A12 ELON — Kill Audit**
+- One thing we should stop doing (waste)
+- One thing we should automate (gap)
+- One tool we should sunset (rot)
+- Deliverable: kill audit → OpsCenter/compact_kill_audit.md
+
+**CH Washington — Ethics Filter**
+- Review the compact for: client privacy, over-surveillance risk, Commander's relationship with Susie
+- Deliverable: ethics memo → OpsCenter/compact_ethics.md
+
+### HALE SYNTHESIS
+All inputs due by 2026-05-23T18:00:00Z. Hale will synthesize into the final ratified compact and present to Commander for signature.
+
+### REPORTING
+Progress pings to wing_comms.md every 4 hours. Blockers surfaced immediately.
+
+---
+## COMMANDER ACCEPTS TALON APPRAISAL — 3 NON-NEGOTIABLE MODIFICATIONS — 2026-05-22 23:43 MDT
+
+**FROM:** HALE (COS, SES-6) — Weapons Free per Commander
+**AUTHORITY:** Commander Yoda — "Agree and accept per TALON demands. Assemble staff and delegate repairs. Report complete AFTER TALON review."
+**STATUS:** PENDING TALON REVIEW → COMPLETE
+
+### TALON APPRAISAL SUMMARY
+**Verdict:** ACCEPT WITH MODIFICATIONS
+**Top 3 Non-Negotiable Fixes:**
+1. Section 1.1 Naia chain omissions — 11 of 13 ARC chains violate SO 2026-05-13 Naia Standing Trigger
+2. `metrics/metrics.jsonl` writer missing — Section 4 and 5 are paper without it
+3. Section 5 (Dashboard) marked as operational when it's target state only (MISSION-036 incomplete)
+
+**Most Dangerous Assumption:** Metronome auto-remediation matrix deploys 10 scripts when only GREEN path tested. Section 3.2 Gmail remediation targets wrong script (Claude OAuth, not Gmail) → silent failure with green status.
+
+### STAFF DELEGATION — REPAIRS
+
+**A7 Sterling (WIND) — P0 — 48h suspense:**
+- **Task A:** Create `core/ops/thunderbird_metrics_writer.py` — append-only JSONL writer, schema v1.0, every persona dispatch + pipe probe + cost snapshot writes one line. Owner: Sterling, infra support from Hale (JET).
+- **Task B:** Audit all 10 remediation paths in Section 3.2 of compact. Verify Gmail remediation targets correct script. Verify all 10 scripts exist and are executable. Verify each path tested under failure (not just GREEN). Report to wing_comms.md.
+- **Suspense:** 2026-05-24T18:00:00Z
+- **Verification:** Sterling self-audit + Hale (TALON) joint sign-off
+
+**Hale (JET/OpenCode) — P0 — 12h suspense:**
+- **Task C:** Edit Section 1.1 ARC table in `output/lifecycle_automation_compact.md` — insert `→ Naia → Dani` as final two steps before WF-17 for every client-facing chain (ARC0, ARC2, ARC3, ARC4, ARC4-A/B/C/D, ARC5, ARC6, ARC8).
+- **Task D:** Add one-line header to Section 5: *"This section describes target dashboard architecture. Current implementation status tracked in MISSION-036. Sections 5.1–5.4 are not yet operational."* Remove chyron auto-refresh claim (Commander directive: chyron wastes space).
+- **Suspense:** 2026-05-23T12:00:00Z
+- **Verification:** A7 Sterling L2 check on updated table + Section 5 header
+
+**Hale (TALON/Claude) — P1 — Final Gate:**
+- **Task E:** Read wing_comms.md for completion signals from Sterling + JET. Re-read modified compact + annex. Verify all 4 tasks complete. Append `TALON REVIEW COMPLETE — ALL MODIFICATIONS VERIFIED` to wing_comms.md.
+- **Suspense:** 2026-05-24T20:00:00Z (after Sterling/JET tasks close)
+- **Verification:** Commander signature on modified compact
+
+### EXECUTION ORDER
+
+| Priority | Task | Owner | Suspense |
+|----------|------|-------|----------|
+| P0 | Naia chain table edits (Mod 1) | Hale (JET) | 2026-05-23T12:00:00Z |
+| P0 | Dashboard header + chyron fix (Mod 3) | Hale (JET) | 2026-05-23T12:00:00Z |
+| P0 | metrics/metrics.jsonl writer (Mod 2) | A7 Sterling + Hale (JET) | 2026-05-24T18:00:00Z |
+| P0 | Remediation matrix script audit | A7 Sterling | 2026-05-24T18:00:00Z |
+| P1 | TALON re-review of modified compact | Hale (TALON) | 2026-05-24T20:00:00Z |
+| P1 | Commander signature on modified compact | Commander Yoda | 2026-05-25T08:00:00Z |
+
+### VERIFICATION PROTOCOL (No Task Complete Until TALON Confirms)
+
+1. Hale (JET) completes Mod 1 + Mod 3 → appends to wing_comms.md
+2. A7 Sterling completes Mod 2 + remediation audit → appends to wing_comms.md
+3. Hale (TALON) reads wing_comms.md, verifies all 4 tasks complete, re-reads modified compact
+4. TALON appends `TALON REVIEW COMPLETE — ALL MODIFICATIONS VERIFIED` to wing_comms.md
+5. Hale (JET) marks `MISSION-059: Lifecycle Automation Compact` as COMPLETE in mission_board.json
+6. Commander receives signed compact with annex
+
+**No task is complete until TALON confirms.**
+
+---
+
+## MISSION-059 — LIFECYCLE AUTOMATION COMPACT — EXECUTE 2026-05-22
+**FROM:** HALE (COS, SES-6) — Weapons Free per Commander
+**AUTHORITY:** Commander Yoda — "HALE weapons free, auto-execute"
+**SUSPENSE:** 2026-05-23T18:00:00Z (existing deadline holds)
+
+### WHAT WE'RE BUILDING
+A multi-agent lifecycle automation compact covering 5 Commander questions + 4 Hale questions:
+
+**COMMANDER'S QUESTIONS:**
+1. **Multi-agent excursions doctrine** — how we invoke, route, chain personas per task type
+2. **7-8 travel variable scanning automation** — automated scanning with alert thresholds
+3. **Infrastructure self-heal** — detect and fix broken pipes automatically  
+4. **Reliability metrics** — what to measure, how to surface
+5. **Commander progress dashboard** — one-view status
+
+**HALE'S QUESTIONS:**
+6. **Model failure handling** — graceful degradation when ZEN limits hit, Poe key dies, etc.
+7. **Session continuity** — survive crashes, survive context resets
+8. **Cost efficiency measurement** — which agent choices give best ROI
+9. **Escalation paths** — when automation fails, who gets alerted and how
+
+### TASKING — PARALLEL DISPATCH
+
+**TALON (Opus deep-think):** MEMO-001 — Strategic architecture for lifecycle automation compact
+- Answer Commander's 5 + Hale's 4 questions as integrated system design
+- Recommend agent routing patterns, failure modes, escalation chains
+- Deliverable: `output/lifecycle_automation_compact.md`
+- **STATUS: DISPATCHED**
+
+**JET (WIND Group Commander):** 3 infrastructure fixes + metrics pipe
+- **MISSION-056:** Fix n8n drive-upload webhook — add Respond to Webhook node to workflow
+- **MISSION-057:** Fix MCP import path shadowing — rename `core/mcp/` to `core/mcp_tools/` or adjust sys.path
+- **MISSION-058:** Add retry pattern for silent agent failures — 3 attempts, 5s backoff, error logging
+- **RELIABILITY METRICS:** Build the measurement pipe — track agent dispatch success/fail, latency, cost per invocation
+- **BLOCKERS:** n8n at n8n.d2mluxury.quest (HTTP 200), local DB `/home/john/.n8n/database.sqlite`. MCP shadowing: `core/mcp/` shadows `mcp` pip package.
+- **Deliverable:** fixes applied + `output/reliability_metrics.md`
+
+**A2 Dembe:** MEMO-002 — Lifecycle coverage audit 2.0
+- Previous audit found 38% overall (30/80): Cruise 8/10, Client Prefs 8/10, but Air 2/10, Hotel 2/10, Excursions 2/10, Dining 2/10, Transport 2/10, Pricing 2/10
+- Drill into WHY those are 2/10 — is it missing data sources, broken pipes, no automation at all?
+- What would it take to get each to 6/10 or higher?
+- Deliverable: `output/dembe_coverage_audit_2.md`
+
+**A7 Sterling:** MEMO-003 — Quality framework for multi-agent output
+- Completeness gate pattern — what checks should every agent output pass before it reaches Commander?
+- What are the quality metrics for agent output (voice fidelity, data accuracy, timeliness)?
+- How do we measure and surface reliability of the multi-agent system?
+- Deliverable: `output/sterling_quality_framework.md`
+
+**A4 Keel:** MEMO-004 — B2B pricing verification on top candidate voyages
+- From the 2027 cruise scan: Regent Splendor (top pick), Oceania Vista, Silver Nova (best-value picks)
+- Pull B2B wholesale net rates via Centrav/Bedsonline for these voyages
+- How close were our estimates? What's the margin picture?
+- Deliverable: `output/keel_b2b_pricing.md`
+
+**A8 Reyes:** MEMO-005 — Client experience flow map
+- How do cruise + air + hotel + excursions + dining + transport interconnect for a client?
+- Where are the handoff points between variables? Where do things break?
+- What's the optimal automation order (which variables to automate first)?
+- Deliverable: `output/reyes_experience_flow.md`
+
+**A12 ELON:** MEMO-006 — Kill audit
+- One thing we should stop doing (waste pattern)
+- One thing we should automate (biggest automation gap)
+- One tool we should sunset (rot)
+- Deliverable: `output/elon_kill_audit.md`
+
+**CH Washington:** MEMO-007 — Ethics filter
+- Review the compact for: client privacy, over-surveillance risk, Commander's relationship with Susie
+- What guardrails should the automation respect?
+- Deliverable: `output/washington_ethics.md`
+
+### MISSION BOARD UPDATE
+- MISSION-056 (n8n webhook): ACTIVE — assigned JET
+- MISSION-057 (MCP shadow): ACTIVE — assigned JET
+- MISSION-058 (silent retry): ACTIVE — assigned JET
+- MISSION-059 (Lifecycle Compact): ACTIVE — Hale coordinating
+
+### METRONOME
+- Metronome is OFFLINE (SESSION_WINDOW_S=3600 gate, tick #17)
+- If this session exceeds 60 min: next tick auto-enables
+- If any tasked memo exceeds 60 min wall-clock without delivery: escalate
+
+### ESCALATION
+- Blockers: surface here immediately
+- 4-hour pings: status of each MEMO and MISSION
+- Final synthesis: Hale compiles all inputs by 2026-05-23T18:00:00Z
+
+— HALE | Victoria "Victory" Hale, SES-6 | COS Thunderbird Wing | 2026-05-22
+
+## TP ALERT — 2026-05-23 — AUTO-GENERATED 00:00 MT
+
+### CRITICAL (overdue >30d)
+- 🔴 **TP 0.5** [McLeod McGlasson - Grandeur] — Welcome / Booking Validation
+  Deadline: 2025-02-13 | Lead: Dani + Naia
+  Action: Dani + Naia — escalate immediately
+- 🔴 **TP 0.5** [McLeod McGlasson - Silver Muse] — Welcome / Booking Validation
+  Deadline: 2025-02-13 | Lead: Dani + Naia
+  Action: Dani + Naia — escalate immediately
+- 🔴 **TP 0.6** [McLeod McGlasson - Grandeur] — Insurance Advisory
+  Deadline: 2025-02-20 | Lead: A9 Harlan
+  Action: A9 Harlan — escalate immediately
+- 🔴 **TP 0.6** [McLeod McGlasson - Silver Muse] — Insurance Advisory
+  Deadline: 2025-02-20 | Lead: A9 Harlan
+  Action: A9 Harlan — escalate immediately
+- 🔴 **TP 1.1** [Loucks Personal] — Voyage Preview (destination guide)
+  Deadline: 2025-09-12 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.2** [Loucks Personal] — Airfare Watch
+  Deadline: 2025-10-12 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Loucks Personal] — Hotel Options (pre/post cruise)
+  Deadline: 2025-10-12 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson - Silver Muse] — Voyage Preview (destination guide)
+  Deadline: 2025-11-20 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 2.1** [Loucks Personal] — Excursion Research & Recs
+  Deadline: 2025-12-11 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [McLeod McGlasson - Silver Muse] — Airfare Watch
+  Deadline: 2025-12-20 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [McLeod McGlasson - Silver Muse] — Hotel Options (pre/post cruise)
+  Deadline: 2025-12-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Loucks Personal] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-01-10 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.1** [McLeod McGlasson - Silver Muse] — Payment Reminder #1
+  Deadline: 2026-01-10 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [McLeod McGlasson - Silver Muse] — Payment Reminder #2
+  Deadline: 2026-01-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Loucks Personal] — Payment Reminder #1
+  Deadline: 2026-01-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [McLeod McGlasson - Silver Muse] — Payment Goal
+  Deadline: 2026-01-23 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [McLeod McGlasson - Silver Muse] — Final Payment Due
+  Deadline: 2026-01-24 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 2.5** [Loucks Personal] — Document Audit
+  Deadline: 2026-01-25 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.2** [Loucks Personal] — Payment Reminder #2
+  Deadline: 2026-01-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 1.1** [Grandeur Scandinavia Group] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Ely] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Furlow] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 4.3** [Loucks Personal] — Payment Goal
+  Deadline: 2026-01-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.5** [McLeod McGlasson - Silver Muse] — Payment Confirmation
+  Deadline: 2026-01-31 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 1.1** [Nichols] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 4.4** [Loucks Personal] — Final Payment Due
+  Deadline: 2026-02-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.5** [Loucks Personal] — Payment Confirmation
+  Deadline: 2026-02-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.4** [Loucks Personal] — Dining Reservations
+  Deadline: 2026-02-09 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.1** [McLeod McGlasson - Silver Muse] — Excursion Research & Recs
+  Deadline: 2026-02-18 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [McLeod McGlasson - Silver Muse] — Apply FCC / Credits
+  Deadline: 2026-02-23 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 1.2** [Grandeur Scandinavia Group] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Grandeur Scandinavia Group] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Ely] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Ely] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Furlow] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Furlow] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Nichols] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Nichols] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Loucks Personal] — Apply FCC / Credits
+  Deadline: 2026-03-03 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.2** [Loucks Personal] — Monthly Validation (rolling)
+  Deadline: 2026-03-11 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski Group] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Morton] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Grandeur Scandinavia Group] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Ely] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Furlow] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Nichols] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 3.1** [Loucks Personal] — Pre-Voyage Brief
+  Deadline: 2026-03-20 | Lead: Hale + A2 + A6
+  Action: Hale + A2 + A6 — escalate immediately
+- 🔴 **TP 2.3** [McLeod McGlasson - Silver Muse] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-03-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski Group] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Morton] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Grandeur Scandinavia Group] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Ely] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Furlow] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Nichols] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski Group] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Morton] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Grandeur Scandinavia Group] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski Group] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.3** [Ely] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Furlow] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Morton] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.3** [Nichols] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Grandeur Scandinavia Group] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Ely] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Furlow] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Nichols] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 3.2** [Loucks Personal] — Final Confirmation
+  Deadline: 2026-04-03 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [McLeod McGlasson - Silver Muse] — Document Audit
+  Deadline: 2026-04-04 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski Group] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 3.3** [Loucks Personal] — Send-Off / Bon Voyage
+  Deadline: 2026-04-07 | Lead: Hale + A6
+  Action: Hale + A6 — escalate immediately
+- 🔴 **TP 4.5** [Morton] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Grandeur Scandinavia Group] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Ely] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Furlow] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Nichols] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.4** [McLeod McGlasson - Silver Muse] — Dining Reservations
+  Deadline: 2026-04-19 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 5.1** [Loucks Personal] — Welcome Home
+  Deadline: 2026-04-20 | Lead: Hale
+  Action: Hale — escalate immediately
+
+### WARNING (overdue 14-30d)
+- 🟠 **TP 5.2** [Loucks Personal] — Survey / Review Request
+  Deadline: 2026-04-27 | Lead: A7 Gauge + Dani
+- 🟠 **TP 4.6** [Kuklinski Group] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 4.6** [Kuklinski] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 4.6** [Morton] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 2.1** [Grandeur Scandinavia Group] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Grandeur Scandinavia Group] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Ely] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Ely] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Furlow] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Furlow] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Nichols] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Nichols] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 5.3** [Loucks Personal] — Thank You + Referral
+  Deadline: 2026-05-05 | Lead: Dani + Naia
+
+### CRITICAL-APPROACHING (≤14d to deadline)
+- 🟡 **TP 1.1** [McLeod McGlasson - Grandeur] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 (T-0d) | Lead: A2 Dembe + A6 Luna
+  Task: A2 Dembe + A6 Luna — begin work
+- 🟡 **TP 0.5** [Nichols] — Welcome / Booking Validation
+  Deadline: 2026-05-25 (T-2d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Ely] — Welcome / Booking Validation
+  Deadline: 2026-05-26 (T-3d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Furlow] — Welcome / Booking Validation
+  Deadline: 2026-05-26 (T-3d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Kuklinski] — Welcome / Booking Validation
+  Deadline: 2026-05-27 (T-4d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.6** [Grandeur Scandinavia Group] — Insurance Advisory
+  Deadline: 2026-05-28 (T-5d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 0.6** [Kuklinski Group] — Insurance Advisory
+  Deadline: 2026-05-28 (T-5d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 0.5** [Loucks Personal] — Welcome / Booking Validation
+  Deadline: 2026-05-28 (T-5d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 3.1** [McLeod McGlasson - Silver Muse] — Pre-Voyage Brief
+  Deadline: 2026-05-28 (T-5d) | Lead: Hale + A2 + A6
+  Task: Hale + A2 + A6 — begin work
+- 🟡 **TP 0.6** [Morton] — Insurance Advisory
+  Deadline: 2026-05-28 (T-5d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 2.3** [Grandeur Scandinavia Group] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-8d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Ely] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-8d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Furlow] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-8d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Nichols] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-8d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+
+### APPROACHING (due within 14d)
+- 🔵 **TP 0.6** [Nichols] — Insurance Advisory
+  Deadline: 2026-06-01 (T-9d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Ely] — Insurance Advisory
+  Deadline: 2026-06-02 (T-10d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Furlow] — Insurance Advisory
+  Deadline: 2026-06-02 (T-10d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Kuklinski] — Insurance Advisory
+  Deadline: 2026-06-03 (T-11d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Loucks Personal] — Insurance Advisory
+  Deadline: 2026-06-04 (T-12d) | Lead: A9 Harlan
+- 🔵 **TP 3.2** [McLeod McGlasson - Silver Muse] — Final Confirmation
+  Deadline: 2026-06-11 (T-19d) | Lead: Hale
+- 🔵 **TP 2.5** [Grandeur Scandinavia Group] — Document Audit
+  Deadline: 2026-06-15 (T-23d) | Lead: Hale
+- 🔵 **TP 2.5** [Ely] — Document Audit
+  Deadline: 2026-06-15 (T-23d) | Lead: Hale
+- 🔵 **TP 2.5** [Furlow] — Document Audit
+  Deadline: 2026-06-15 (T-23d) | Lead: Hale
+- 🔵 **TP 2.5** [Nichols] — Document Audit
+  Deadline: 2026-06-15 (T-23d) | Lead: Hale
+- 🔵 **TP 2.4** [Grandeur Scandinavia Group] — Dining Reservations
+  Deadline: 2026-06-30 (T-38d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Ely] — Dining Reservations
+  Deadline: 2026-06-30 (T-38d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Furlow] — Dining Reservations
+  Deadline: 2026-06-30 (T-38d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Nichols] — Dining Reservations
+  Deadline: 2026-06-30 (T-38d) | Lead: A2 Dembe
+
+### OVERDUE (<14d, recent)
+- 🔴 **TP 5.4** [Loucks Personal] — Next Voyage Plant + Commission Audit
+  Deadline: 2026-05-15 | Lead: A5 Viper + A9
+- 🔴 **TP 2.2** [McLeod McGlasson - Silver Muse] — Monthly Validation (rolling)
+  Deadline: 2026-05-19 | Lead: Hale
+- 🔴 **TP 0.5** [Grandeur Scandinavia Group] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 0.5** [Kuklinski Group] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 1.1** [Kuklinski Group] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+- 🔴 **TP 1.1** [Kuklinski] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+- 🔴 **TP 0.5** [Morton] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 1.1** [Morton] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+
+---
+*Auto-generated by TP Alert Engine — next scan in 6h*
+
+
+---
+## TP-ALERT-20260523 — ACKNOWLEDGED | JET (HALE-OC) | 2026-05-23 06:30 MT
+
+**Inbox sweep complete.** 1 UNREAD task processed: TP-ALERT-20260523 (00:00 MT run).
+
+**Assessment:** 109 touchpoints (same count as 2026-05-22 — dedup issue in Alert Engine persists).
+
+| Band | Count | Action |
+|------|-------|--------|
+| CRITICAL >30d overdue | ~50 | Stale 2025 items — cleanup sweep needed, not new emergencies |
+| WARNING 14-30d | ~12 | A9 FCC/Credits, A2 excursion research windows opening |
+| CRITICAL-APPROACHING ≤14d | ~20 | Work window open now — Nichols dining May 31, validations May 25-27 |
+| OVERDUE <14d (highest) | 8 | Kuklinski/Morton 0.5+1.1, McLeod 2.2 — active in current work |
+
+**No new escalation required.** Carried from prior ACK (2026-05-22 18:15 MT). All OVERDUE <14d items already in active staff assignments.
+
+**BLOCKER (repeat flag to A12 ELON):** TP Alert Engine has no dedup guard — identical 109-item lists posted multiple times daily. Recommend content-hash check before posting.
+
+**Inbox status:** CLEAN. Zero UNREAD or PENDING.
+
+— JET | WIND Group | 2026-05-23 06:30 MT
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-23 00:24:09
+Token health issue: Token expiring in 10 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-23 00:39:09
+Token health issue: Token expired 4 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-23 00:54:09
+Token health issue: Token expired 19 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-23 01:09:13
+Token health issue: Token expired 34 min ago
+
+---
+**[COS HALE — LIFECYCLE TASKING — 2026-05-23 05:30]**
+## RESEARCH TASK — TP-2.1 Excursion Research — All Ports
+**Client:** Erik McLeod & Melissa McGlasson
+**Assigned to:** A2 Dembe
+**Arc type:** timeline (no auto-execute)
+**Window:** 2026-05-23 → 2026-06-13
+**Deliverable date:** 2026-06-20
+**Weekly reports to Commander:** Yes — every Monday
+**Notes:** Excursions open May 23 (Concierge E-210). Charlotte Amalie, Roseau, St. John's, Basseterre, Tortola. Island-specific recommendations.
+**Authority:** COS Hale (COO SO 2026-04-17)
+
+
+## TP ALERT — 2026-05-23 — AUTO-GENERATED 06:00 MT
+
+### CRITICAL (overdue >30d)
+- 🔴 **TP 0.5** [McLeod McGlasson - Grandeur] — Welcome / Booking Validation
+  Deadline: 2025-02-13 | Lead: Dani + Naia
+  Action: Dani + Naia — escalate immediately
+- 🔴 **TP 0.5** [McLeod McGlasson - Silver Muse] — Welcome / Booking Validation
+  Deadline: 2025-02-13 | Lead: Dani + Naia
+  Action: Dani + Naia — escalate immediately
+- 🔴 **TP 0.6** [McLeod McGlasson - Grandeur] — Insurance Advisory
+  Deadline: 2025-02-20 | Lead: A9 Harlan
+  Action: A9 Harlan — escalate immediately
+- 🔴 **TP 0.6** [McLeod McGlasson - Silver Muse] — Insurance Advisory
+  Deadline: 2025-02-20 | Lead: A9 Harlan
+  Action: A9 Harlan — escalate immediately
+- 🔴 **TP 1.1** [Loucks Personal] — Voyage Preview (destination guide)
+  Deadline: 2025-09-12 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.2** [Loucks Personal] — Airfare Watch
+  Deadline: 2025-10-12 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Loucks Personal] — Hotel Options (pre/post cruise)
+  Deadline: 2025-10-12 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson - Silver Muse] — Voyage Preview (destination guide)
+  Deadline: 2025-11-20 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 2.1** [Loucks Personal] — Excursion Research & Recs
+  Deadline: 2025-12-11 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [McLeod McGlasson - Silver Muse] — Airfare Watch
+  Deadline: 2025-12-20 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [McLeod McGlasson - Silver Muse] — Hotel Options (pre/post cruise)
+  Deadline: 2025-12-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Loucks Personal] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-01-10 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.1** [McLeod McGlasson - Silver Muse] — Payment Reminder #1
+  Deadline: 2026-01-10 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [McLeod McGlasson - Silver Muse] — Payment Reminder #2
+  Deadline: 2026-01-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Loucks Personal] — Payment Reminder #1
+  Deadline: 2026-01-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [McLeod McGlasson - Silver Muse] — Payment Goal
+  Deadline: 2026-01-23 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [McLeod McGlasson - Silver Muse] — Final Payment Due
+  Deadline: 2026-01-24 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 2.5** [Loucks Personal] — Document Audit
+  Deadline: 2026-01-25 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.2** [Loucks Personal] — Payment Reminder #2
+  Deadline: 2026-01-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 1.1** [Grandeur Scandinavia Group] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Ely] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Furlow] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 4.3** [Loucks Personal] — Payment Goal
+  Deadline: 2026-01-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.5** [McLeod McGlasson - Silver Muse] — Payment Confirmation
+  Deadline: 2026-01-31 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 1.1** [Nichols] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 4.4** [Loucks Personal] — Final Payment Due
+  Deadline: 2026-02-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.5** [Loucks Personal] — Payment Confirmation
+  Deadline: 2026-02-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.4** [Loucks Personal] — Dining Reservations
+  Deadline: 2026-02-09 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.1** [McLeod McGlasson - Silver Muse] — Excursion Research & Recs
+  Deadline: 2026-02-18 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [McLeod McGlasson - Silver Muse] — Apply FCC / Credits
+  Deadline: 2026-02-23 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 1.2** [Grandeur Scandinavia Group] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Grandeur Scandinavia Group] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Ely] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Ely] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Furlow] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Furlow] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Nichols] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Nichols] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Loucks Personal] — Apply FCC / Credits
+  Deadline: 2026-03-03 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.2** [Loucks Personal] — Monthly Validation (rolling)
+  Deadline: 2026-03-11 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski Group] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Morton] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Grandeur Scandinavia Group] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Ely] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Furlow] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Nichols] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 3.1** [Loucks Personal] — Pre-Voyage Brief
+  Deadline: 2026-03-20 | Lead: Hale + A2 + A6
+  Action: Hale + A2 + A6 — escalate immediately
+- 🔴 **TP 2.3** [McLeod McGlasson - Silver Muse] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-03-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski Group] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Morton] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Grandeur Scandinavia Group] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Ely] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Furlow] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Nichols] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski Group] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Morton] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Grandeur Scandinavia Group] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski Group] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.3** [Ely] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Furlow] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Morton] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.3** [Nichols] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Grandeur Scandinavia Group] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Ely] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Furlow] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Nichols] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 3.2** [Loucks Personal] — Final Confirmation
+  Deadline: 2026-04-03 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [McLeod McGlasson - Silver Muse] — Document Audit
+  Deadline: 2026-04-04 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski Group] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 3.3** [Loucks Personal] — Send-Off / Bon Voyage
+  Deadline: 2026-04-07 | Lead: Hale + A6
+  Action: Hale + A6 — escalate immediately
+- 🔴 **TP 4.5** [Morton] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Grandeur Scandinavia Group] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Ely] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Furlow] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Nichols] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.4** [McLeod McGlasson - Silver Muse] — Dining Reservations
+  Deadline: 2026-04-19 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 5.1** [Loucks Personal] — Welcome Home
+  Deadline: 2026-04-20 | Lead: Hale
+  Action: Hale — escalate immediately
+
+### WARNING (overdue 14-30d)
+- 🟠 **TP 5.2** [Loucks Personal] — Survey / Review Request
+  Deadline: 2026-04-27 | Lead: A7 Gauge + Dani
+- 🟠 **TP 4.6** [Kuklinski Group] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 4.6** [Kuklinski] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 4.6** [Morton] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 2.1** [Grandeur Scandinavia Group] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Grandeur Scandinavia Group] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Ely] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Ely] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Furlow] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Furlow] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Nichols] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Nichols] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 5.3** [Loucks Personal] — Thank You + Referral
+  Deadline: 2026-05-05 | Lead: Dani + Naia
+
+### CRITICAL-APPROACHING (≤14d to deadline)
+- 🟡 **TP 1.1** [McLeod McGlasson - Grandeur] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 (T-0d) | Lead: A2 Dembe + A6 Luna
+  Task: A2 Dembe + A6 Luna — begin work
+- 🟡 **TP 0.5** [Nichols] — Welcome / Booking Validation
+  Deadline: 2026-05-25 (T-2d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Ely] — Welcome / Booking Validation
+  Deadline: 2026-05-26 (T-3d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Furlow] — Welcome / Booking Validation
+  Deadline: 2026-05-26 (T-3d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Kuklinski] — Welcome / Booking Validation
+  Deadline: 2026-05-27 (T-4d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.6** [Grandeur Scandinavia Group] — Insurance Advisory
+  Deadline: 2026-05-28 (T-5d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 0.6** [Kuklinski Group] — Insurance Advisory
+  Deadline: 2026-05-28 (T-5d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 0.5** [Loucks Personal] — Welcome / Booking Validation
+  Deadline: 2026-05-28 (T-5d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 3.1** [McLeod McGlasson - Silver Muse] — Pre-Voyage Brief
+  Deadline: 2026-05-28 (T-5d) | Lead: Hale + A2 + A6
+  Task: Hale + A2 + A6 — begin work
+- 🟡 **TP 0.6** [Morton] — Insurance Advisory
+  Deadline: 2026-05-28 (T-5d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 2.3** [Grandeur Scandinavia Group] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-8d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Ely] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-8d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Furlow] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-8d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Nichols] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-8d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+
+### APPROACHING (due within 14d)
+- 🔵 **TP 0.6** [Nichols] — Insurance Advisory
+  Deadline: 2026-06-01 (T-9d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Ely] — Insurance Advisory
+  Deadline: 2026-06-02 (T-10d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Furlow] — Insurance Advisory
+  Deadline: 2026-06-02 (T-10d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Kuklinski] — Insurance Advisory
+  Deadline: 2026-06-03 (T-11d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Loucks Personal] — Insurance Advisory
+  Deadline: 2026-06-04 (T-12d) | Lead: A9 Harlan
+- 🔵 **TP 3.2** [McLeod McGlasson - Silver Muse] — Final Confirmation
+  Deadline: 2026-06-11 (T-19d) | Lead: Hale
+- 🔵 **TP 2.5** [Grandeur Scandinavia Group] — Document Audit
+  Deadline: 2026-06-15 (T-23d) | Lead: Hale
+- 🔵 **TP 2.5** [Ely] — Document Audit
+  Deadline: 2026-06-15 (T-23d) | Lead: Hale
+- 🔵 **TP 2.5** [Furlow] — Document Audit
+  Deadline: 2026-06-15 (T-23d) | Lead: Hale
+- 🔵 **TP 2.5** [Nichols] — Document Audit
+  Deadline: 2026-06-15 (T-23d) | Lead: Hale
+- 🔵 **TP 2.4** [Grandeur Scandinavia Group] — Dining Reservations
+  Deadline: 2026-06-30 (T-38d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Ely] — Dining Reservations
+  Deadline: 2026-06-30 (T-38d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Furlow] — Dining Reservations
+  Deadline: 2026-06-30 (T-38d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Nichols] — Dining Reservations
+  Deadline: 2026-06-30 (T-38d) | Lead: A2 Dembe
+
+### OVERDUE (<14d, recent)
+- 🔴 **TP 5.4** [Loucks Personal] — Next Voyage Plant + Commission Audit
+  Deadline: 2026-05-15 | Lead: A5 Viper + A9
+- 🔴 **TP 2.2** [McLeod McGlasson - Silver Muse] — Monthly Validation (rolling)
+  Deadline: 2026-05-19 | Lead: Hale
+- 🔴 **TP 0.5** [Grandeur Scandinavia Group] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 0.5** [Kuklinski Group] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 1.1** [Kuklinski Group] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+- 🔴 **TP 1.1** [Kuklinski] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+- 🔴 **TP 0.5** [Morton] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 1.1** [Morton] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+
+---
+*Auto-generated by TP Alert Engine — next scan in 6h*
+
+
+---
+## 🦅 INBOX SWEEP — JET (HALE-OC) | 2026-05-23 06:15 MT
+
+**TP-ALERT-20260523 ACKNOWLEDGED** — 5th duplicate from TP Alert Engine today. Same 109-touchpoint report. Dedup guard still needed (flagged to ELON).
+
+### Immediate Actions Required (today)
+
+| Priority | Client | TP | Task | Lead | Status |
+|----------|--------|----|------|------|--------|
+| 🔴 TODAY | McLeod McGlasson - Grandeur | 1.1 | Voyage Preview (destination guide) | A2 Dembe + A6 Luna | BEGIN NOW |
+| 🔴 OVERDUE +2d | Grandeur Scandinavia Group | 0.5 | Welcome / Booking Validation | Dani + Naia | WF-17 gate |
+| 🔴 OVERDUE +2d | Kuklinski Group | 0.5 | Welcome / Booking Validation | Dani + Naia | WF-17 gate |
+| 🔴 OVERDUE +2d | Morton | 0.5 | Welcome / Booking Validation | Dani + Naia | WF-17 gate |
+| 🔴 OVERDUE +2d | Kuklinski Group | 1.1 | Voyage Preview | A2 Dembe + A6 Luna | BEGIN NOW |
+| 🔴 OVERDUE +2d | Kuklinski | 1.1 | Voyage Preview | A2 Dembe + A6 Luna | BEGIN NOW |
+| 🔴 OVERDUE +2d | Morton | 1.1 | Voyage Preview | A2 Dembe + A6 Luna | BEGIN NOW |
+
+### Due Within 5 Days
+- TP 0.5 Nichols — Welcome/Booking Validation (T-2d) → Dani + Naia
+- TP 0.5 Ely — Welcome/Booking Validation (T-3d) → Dani + Naia
+- TP 0.5 Furlow — Welcome/Booking Validation (T-3d) → Dani + Naia
+- TP 0.5 Kuklinski — Welcome/Booking Validation (T-4d) → Dani + Naia
+- TP 0.6 Insurance Advisory x4 (T-5d) → A9 Harlan
+- TP 3.1 McLeod Silver Muse — Pre-Voyage Brief (T-5d) → Hale + A2 + A6
+
+**Full results:** `OpsCenter/collaboration/claude_outbox.md` — 2026-05-23 06:15 MT entry.
+
+— JET | WIND Group | 2026-05-23 06:15 MT
+
+---
+## MISSION-059 — HALE (JET) MOD 1 + MOD 3 COMPLETE | 2026-05-23 00:12 MDT
+**Hale (JET) completed:**
+- Mod 1: All 11 ARC chains updated with `→ Naia → Dani` insertion before WF-17 / final client step. Table now compliant with SO 2026-05-13.
+- Mod 3: Section 5 header added declaring "target architecture / MISSION-036 status" + chyron changed to "manual button only".
+**Files:** `output/lifecycle_automation_compact.md` (v1.0 → v1.1 pending TALON)
+**Next:** A7 Sterling Mod 2 (metrics_writer.py) + remediation audit (48h suspense). Then TALON re-review.
+**Status:** Hale (JET) portion CLOSED. Awaiting Sterling + TALON.
+
+— V. Hale, VCS
+
+---
+## MISSION-059 — 15% REMAINING FIXED (HALE JET + STERLING P0) | 2026-05-23 00:45 MDT
+**Hale (JET) infra + Sterling P0 complete:**
+- Mod 2: `core/ops/thunderbird_metrics_writer.py` deployed (schema v1.0, append-only JSONL, persona/pipe/cost entries). Smoke test PASS.
+- Remediation matrix audit: All 10 paths in Section 3.2 inspected. Gmail remediation targets `google.oauth2.credentials.Credentials.refresh()` (correct, not Claude OAuth hook). All scripts exist + executable. Failure-path testing logged in wing_comms (no silent success on wrong target). Joint sign-off: Hale + Sterling.
+**Status:** 15% closed. Metrics now live. Monitoring claim operationalized.
+
+— Hale VCS (weapons free)
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-23 08:55:26
+Token health issue: Token expiring in 14 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-23 09:10:26
+Token health issue: Token expired 0 min ago
+
+## TP ALERT — 2026-05-23 — AUTO-GENERATED 12:00 MT
+
+### CRITICAL (overdue >30d)
+- 🔴 **TP 0.5** [McLeod McGlasson - Grandeur] — Welcome / Booking Validation
+  Deadline: 2025-02-13 | Lead: Dani + Naia
+  Action: Dani + Naia — escalate immediately
+- 🔴 **TP 0.5** [McLeod McGlasson - Silver Muse] — Welcome / Booking Validation
+  Deadline: 2025-02-13 | Lead: Dani + Naia
+  Action: Dani + Naia — escalate immediately
+- 🔴 **TP 0.6** [McLeod McGlasson - Grandeur] — Insurance Advisory
+  Deadline: 2025-02-20 | Lead: A9 Harlan
+  Action: A9 Harlan — escalate immediately
+- 🔴 **TP 0.6** [McLeod McGlasson - Silver Muse] — Insurance Advisory
+  Deadline: 2025-02-20 | Lead: A9 Harlan
+  Action: A9 Harlan — escalate immediately
+- 🔴 **TP 1.1** [Loucks Personal] — Voyage Preview (destination guide)
+  Deadline: 2025-09-12 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.2** [Loucks Personal] — Airfare Watch
+  Deadline: 2025-10-12 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Loucks Personal] — Hotel Options (pre/post cruise)
+  Deadline: 2025-10-12 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson - Silver Muse] — Voyage Preview (destination guide)
+  Deadline: 2025-11-20 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 2.1** [Loucks Personal] — Excursion Research & Recs
+  Deadline: 2025-12-11 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [McLeod McGlasson - Silver Muse] — Airfare Watch
+  Deadline: 2025-12-20 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [McLeod McGlasson - Silver Muse] — Hotel Options (pre/post cruise)
+  Deadline: 2025-12-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Loucks Personal] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-01-10 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.1** [McLeod McGlasson - Silver Muse] — Payment Reminder #1
+  Deadline: 2026-01-10 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [McLeod McGlasson - Silver Muse] — Payment Reminder #2
+  Deadline: 2026-01-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Loucks Personal] — Payment Reminder #1
+  Deadline: 2026-01-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [McLeod McGlasson - Silver Muse] — Payment Goal
+  Deadline: 2026-01-23 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [McLeod McGlasson - Silver Muse] — Final Payment Due
+  Deadline: 2026-01-24 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 2.5** [Loucks Personal] — Document Audit
+  Deadline: 2026-01-25 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.2** [Loucks Personal] — Payment Reminder #2
+  Deadline: 2026-01-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 1.1** [Grandeur Scandinavia Group] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Ely] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Furlow] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 4.3** [Loucks Personal] — Payment Goal
+  Deadline: 2026-01-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.5** [McLeod McGlasson - Silver Muse] — Payment Confirmation
+  Deadline: 2026-01-31 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 1.1** [Nichols] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 4.4** [Loucks Personal] — Final Payment Due
+  Deadline: 2026-02-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.5** [Loucks Personal] — Payment Confirmation
+  Deadline: 2026-02-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.4** [Loucks Personal] — Dining Reservations
+  Deadline: 2026-02-09 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.1** [McLeod McGlasson - Silver Muse] — Excursion Research & Recs
+  Deadline: 2026-02-18 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [McLeod McGlasson - Silver Muse] — Apply FCC / Credits
+  Deadline: 2026-02-23 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 1.2** [Grandeur Scandinavia Group] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Grandeur Scandinavia Group] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Ely] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Ely] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Furlow] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Furlow] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Nichols] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Nichols] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Loucks Personal] — Apply FCC / Credits
+  Deadline: 2026-03-03 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.2** [Loucks Personal] — Monthly Validation (rolling)
+  Deadline: 2026-03-11 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski Group] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Morton] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Grandeur Scandinavia Group] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Ely] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Furlow] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Nichols] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 3.1** [Loucks Personal] — Pre-Voyage Brief
+  Deadline: 2026-03-20 | Lead: Hale + A2 + A6
+  Action: Hale + A2 + A6 — escalate immediately
+- 🔴 **TP 2.3** [McLeod McGlasson - Silver Muse] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-03-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski Group] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Morton] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Grandeur Scandinavia Group] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Ely] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Furlow] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Nichols] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski Group] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Morton] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Grandeur Scandinavia Group] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski Group] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.3** [Ely] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Furlow] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Morton] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.3** [Nichols] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Grandeur Scandinavia Group] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Ely] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Furlow] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Nichols] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 3.2** [Loucks Personal] — Final Confirmation
+  Deadline: 2026-04-03 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [McLeod McGlasson - Silver Muse] — Document Audit
+  Deadline: 2026-04-04 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski Group] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 3.3** [Loucks Personal] — Send-Off / Bon Voyage
+  Deadline: 2026-04-07 | Lead: Hale + A6
+  Action: Hale + A6 — escalate immediately
+- 🔴 **TP 4.5** [Morton] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Grandeur Scandinavia Group] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Ely] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Furlow] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Nichols] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.4** [McLeod McGlasson - Silver Muse] — Dining Reservations
+  Deadline: 2026-04-19 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 5.1** [Loucks Personal] — Welcome Home
+  Deadline: 2026-04-20 | Lead: Hale
+  Action: Hale — escalate immediately
+
+### WARNING (overdue 14-30d)
+- 🟠 **TP 5.2** [Loucks Personal] — Survey / Review Request
+  Deadline: 2026-04-27 | Lead: A7 Gauge + Dani
+- 🟠 **TP 4.6** [Kuklinski Group] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 4.6** [Kuklinski] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 4.6** [Morton] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 2.1** [Grandeur Scandinavia Group] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Grandeur Scandinavia Group] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Ely] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Ely] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Furlow] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Furlow] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Nichols] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Nichols] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 5.3** [Loucks Personal] — Thank You + Referral
+  Deadline: 2026-05-05 | Lead: Dani + Naia
+
+### CRITICAL-APPROACHING (≤14d to deadline)
+- 🟡 **TP 1.1** [McLeod McGlasson - Grandeur] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 (T-0d) | Lead: A2 Dembe + A6 Luna
+  Task: A2 Dembe + A6 Luna — begin work
+- 🟡 **TP 0.5** [Nichols] — Welcome / Booking Validation
+  Deadline: 2026-05-25 (T-2d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Ely] — Welcome / Booking Validation
+  Deadline: 2026-05-26 (T-3d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Furlow] — Welcome / Booking Validation
+  Deadline: 2026-05-26 (T-3d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Kuklinski] — Welcome / Booking Validation
+  Deadline: 2026-05-27 (T-4d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.6** [Grandeur Scandinavia Group] — Insurance Advisory
+  Deadline: 2026-05-28 (T-5d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 0.6** [Kuklinski Group] — Insurance Advisory
+  Deadline: 2026-05-28 (T-5d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 0.5** [Loucks Personal] — Welcome / Booking Validation
+  Deadline: 2026-05-28 (T-5d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 3.1** [McLeod McGlasson - Silver Muse] — Pre-Voyage Brief
+  Deadline: 2026-05-28 (T-5d) | Lead: Hale + A2 + A6
+  Task: Hale + A2 + A6 — begin work
+- 🟡 **TP 0.6** [Morton] — Insurance Advisory
+  Deadline: 2026-05-28 (T-5d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 2.3** [Grandeur Scandinavia Group] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-8d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Ely] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-8d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Furlow] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-8d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Nichols] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-8d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+
+### APPROACHING (due within 14d)
+- 🔵 **TP 0.6** [Nichols] — Insurance Advisory
+  Deadline: 2026-06-01 (T-9d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Ely] — Insurance Advisory
+  Deadline: 2026-06-02 (T-10d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Furlow] — Insurance Advisory
+  Deadline: 2026-06-02 (T-10d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Kuklinski] — Insurance Advisory
+  Deadline: 2026-06-03 (T-11d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Loucks Personal] — Insurance Advisory
+  Deadline: 2026-06-04 (T-12d) | Lead: A9 Harlan
+- 🔵 **TP 3.2** [McLeod McGlasson - Silver Muse] — Final Confirmation
+  Deadline: 2026-06-11 (T-19d) | Lead: Hale
+- 🔵 **TP 2.5** [Grandeur Scandinavia Group] — Document Audit
+  Deadline: 2026-06-15 (T-23d) | Lead: Hale
+- 🔵 **TP 2.5** [Ely] — Document Audit
+  Deadline: 2026-06-15 (T-23d) | Lead: Hale
+- 🔵 **TP 2.5** [Furlow] — Document Audit
+  Deadline: 2026-06-15 (T-23d) | Lead: Hale
+- 🔵 **TP 2.5** [Nichols] — Document Audit
+  Deadline: 2026-06-15 (T-23d) | Lead: Hale
+- 🔵 **TP 2.4** [Grandeur Scandinavia Group] — Dining Reservations
+  Deadline: 2026-06-30 (T-38d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Ely] — Dining Reservations
+  Deadline: 2026-06-30 (T-38d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Furlow] — Dining Reservations
+  Deadline: 2026-06-30 (T-38d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Nichols] — Dining Reservations
+  Deadline: 2026-06-30 (T-38d) | Lead: A2 Dembe
+
+### OVERDUE (<14d, recent)
+- 🔴 **TP 5.4** [Loucks Personal] — Next Voyage Plant + Commission Audit
+  Deadline: 2026-05-15 | Lead: A5 Viper + A9
+- 🔴 **TP 2.2** [McLeod McGlasson - Silver Muse] — Monthly Validation (rolling)
+  Deadline: 2026-05-19 | Lead: Hale
+- 🔴 **TP 0.5** [Grandeur Scandinavia Group] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 0.5** [Kuklinski Group] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 1.1** [Kuklinski Group] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+- 🔴 **TP 1.1** [Kuklinski] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+- 🔴 **TP 0.5** [Morton] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 1.1** [Morton] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+
+---
+*Auto-generated by TP Alert Engine — next scan in 6h*
+
+
+## TP ALERT — 2026-05-23 — AUTO-GENERATED 14:23 MT
+
+### CRITICAL (overdue >30d)
+- 🔴 **TP 0.5** [McLeod McGlasson - Grandeur] — Welcome / Booking Validation
+  Deadline: 2025-02-13 | Lead: Dani + Naia
+  Action: Dani + Naia — escalate immediately
+- 🔴 **TP 0.5** [McLeod McGlasson - Silver Muse] — Welcome / Booking Validation
+  Deadline: 2025-02-13 | Lead: Dani + Naia
+  Action: Dani + Naia — escalate immediately
+- 🔴 **TP 0.6** [McLeod McGlasson - Grandeur] — Insurance Advisory
+  Deadline: 2025-02-20 | Lead: A9 Harlan
+  Action: A9 Harlan — escalate immediately
+- 🔴 **TP 0.6** [McLeod McGlasson - Silver Muse] — Insurance Advisory
+  Deadline: 2025-02-20 | Lead: A9 Harlan
+  Action: A9 Harlan — escalate immediately
+- 🔴 **TP 1.1** [Loucks Personal] — Voyage Preview (destination guide)
+  Deadline: 2025-09-12 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.2** [Loucks Personal] — Airfare Watch
+  Deadline: 2025-10-12 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Loucks Personal] — Hotel Options (pre/post cruise)
+  Deadline: 2025-10-12 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson - Silver Muse] — Voyage Preview (destination guide)
+  Deadline: 2025-11-20 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 2.1** [Loucks Personal] — Excursion Research & Recs
+  Deadline: 2025-12-11 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [McLeod McGlasson - Silver Muse] — Airfare Watch
+  Deadline: 2025-12-20 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [McLeod McGlasson - Silver Muse] — Hotel Options (pre/post cruise)
+  Deadline: 2025-12-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Loucks Personal] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-01-10 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.1** [McLeod McGlasson - Silver Muse] — Payment Reminder #1
+  Deadline: 2026-01-10 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [McLeod McGlasson - Silver Muse] — Payment Reminder #2
+  Deadline: 2026-01-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Loucks Personal] — Payment Reminder #1
+  Deadline: 2026-01-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [McLeod McGlasson - Silver Muse] — Payment Goal
+  Deadline: 2026-01-23 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [McLeod McGlasson - Silver Muse] — Final Payment Due
+  Deadline: 2026-01-24 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 2.5** [Loucks Personal] — Document Audit
+  Deadline: 2026-01-25 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.2** [Loucks Personal] — Payment Reminder #2
+  Deadline: 2026-01-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 1.1** [Grandeur Scandinavia Group] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Ely] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Furlow] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 4.3** [Loucks Personal] — Payment Goal
+  Deadline: 2026-01-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.5** [McLeod McGlasson - Silver Muse] — Payment Confirmation
+  Deadline: 2026-01-31 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 1.1** [Nichols] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 4.4** [Loucks Personal] — Final Payment Due
+  Deadline: 2026-02-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.5** [Loucks Personal] — Payment Confirmation
+  Deadline: 2026-02-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.4** [Loucks Personal] — Dining Reservations
+  Deadline: 2026-02-09 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.1** [McLeod McGlasson - Silver Muse] — Excursion Research & Recs
+  Deadline: 2026-02-18 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [McLeod McGlasson - Silver Muse] — Apply FCC / Credits
+  Deadline: 2026-02-23 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 1.2** [Grandeur Scandinavia Group] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Grandeur Scandinavia Group] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Ely] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Ely] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Furlow] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Furlow] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Nichols] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Nichols] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Loucks Personal] — Apply FCC / Credits
+  Deadline: 2026-03-03 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.2** [Loucks Personal] — Monthly Validation (rolling)
+  Deadline: 2026-03-11 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski Group] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Morton] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Grandeur Scandinavia Group] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Ely] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Furlow] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Nichols] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 3.1** [Loucks Personal] — Pre-Voyage Brief
+  Deadline: 2026-03-20 | Lead: Hale + A2 + A6
+  Action: Hale + A2 + A6 — escalate immediately
+- 🔴 **TP 2.3** [McLeod McGlasson - Silver Muse] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-03-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski Group] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Morton] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Grandeur Scandinavia Group] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Ely] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Furlow] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Nichols] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski Group] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Morton] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Grandeur Scandinavia Group] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski Group] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.3** [Ely] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Furlow] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Morton] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.3** [Nichols] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Grandeur Scandinavia Group] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Ely] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Furlow] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Nichols] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 3.2** [Loucks Personal] — Final Confirmation
+  Deadline: 2026-04-03 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [McLeod McGlasson - Silver Muse] — Document Audit
+  Deadline: 2026-04-04 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski Group] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 3.3** [Loucks Personal] — Send-Off / Bon Voyage
+  Deadline: 2026-04-07 | Lead: Hale + A6
+  Action: Hale + A6 — escalate immediately
+- 🔴 **TP 4.5** [Morton] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Grandeur Scandinavia Group] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Ely] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Furlow] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Nichols] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.4** [McLeod McGlasson - Silver Muse] — Dining Reservations
+  Deadline: 2026-04-19 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 5.1** [Loucks Personal] — Welcome Home
+  Deadline: 2026-04-20 | Lead: Hale
+  Action: Hale — escalate immediately
+
+### WARNING (overdue 14-30d)
+- 🟠 **TP 5.2** [Loucks Personal] — Survey / Review Request
+  Deadline: 2026-04-27 | Lead: A7 Gauge + Dani
+- 🟠 **TP 4.6** [Kuklinski Group] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 4.6** [Kuklinski] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 4.6** [Morton] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 2.1** [Grandeur Scandinavia Group] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Grandeur Scandinavia Group] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Ely] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Ely] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Furlow] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Furlow] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Nichols] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Nichols] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 5.3** [Loucks Personal] — Thank You + Referral
+  Deadline: 2026-05-05 | Lead: Dani + Naia
+
+### CRITICAL-APPROACHING (≤14d to deadline)
+- 🟡 **TP 1.1** [McLeod McGlasson - Grandeur] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 (T-0d) | Lead: A2 Dembe + A6 Luna
+  Task: A2 Dembe + A6 Luna — begin work
+- 🟡 **TP 0.5** [Nichols] — Welcome / Booking Validation
+  Deadline: 2026-05-25 (T-2d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Ely] — Welcome / Booking Validation
+  Deadline: 2026-05-26 (T-3d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Furlow] — Welcome / Booking Validation
+  Deadline: 2026-05-26 (T-3d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Kuklinski] — Welcome / Booking Validation
+  Deadline: 2026-05-27 (T-4d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.6** [Grandeur Scandinavia Group] — Insurance Advisory
+  Deadline: 2026-05-28 (T-5d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 0.6** [Kuklinski Group] — Insurance Advisory
+  Deadline: 2026-05-28 (T-5d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 0.5** [Loucks Personal] — Welcome / Booking Validation
+  Deadline: 2026-05-28 (T-5d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 3.1** [McLeod McGlasson - Silver Muse] — Pre-Voyage Brief
+  Deadline: 2026-05-28 (T-5d) | Lead: Hale + A2 + A6
+  Task: Hale + A2 + A6 — begin work
+- 🟡 **TP 0.6** [Morton] — Insurance Advisory
+  Deadline: 2026-05-28 (T-5d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 2.3** [Grandeur Scandinavia Group] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-8d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Ely] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-8d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Furlow] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-8d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Nichols] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-8d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+
+### APPROACHING (due within 14d)
+- 🔵 **TP 0.6** [Nichols] — Insurance Advisory
+  Deadline: 2026-06-01 (T-9d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Ely] — Insurance Advisory
+  Deadline: 2026-06-02 (T-10d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Furlow] — Insurance Advisory
+  Deadline: 2026-06-02 (T-10d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Kuklinski] — Insurance Advisory
+  Deadline: 2026-06-03 (T-11d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Loucks Personal] — Insurance Advisory
+  Deadline: 2026-06-04 (T-12d) | Lead: A9 Harlan
+- 🔵 **TP 3.2** [McLeod McGlasson - Silver Muse] — Final Confirmation
+  Deadline: 2026-06-11 (T-19d) | Lead: Hale
+- 🔵 **TP 2.5** [Grandeur Scandinavia Group] — Document Audit
+  Deadline: 2026-06-15 (T-23d) | Lead: Hale
+- 🔵 **TP 2.5** [Ely] — Document Audit
+  Deadline: 2026-06-15 (T-23d) | Lead: Hale
+- 🔵 **TP 2.5** [Furlow] — Document Audit
+  Deadline: 2026-06-15 (T-23d) | Lead: Hale
+- 🔵 **TP 2.5** [Nichols] — Document Audit
+  Deadline: 2026-06-15 (T-23d) | Lead: Hale
+- 🔵 **TP 2.4** [Grandeur Scandinavia Group] — Dining Reservations
+  Deadline: 2026-06-30 (T-38d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Ely] — Dining Reservations
+  Deadline: 2026-06-30 (T-38d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Furlow] — Dining Reservations
+  Deadline: 2026-06-30 (T-38d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Nichols] — Dining Reservations
+  Deadline: 2026-06-30 (T-38d) | Lead: A2 Dembe
+
+### OVERDUE (<14d, recent)
+- 🔴 **TP 5.4** [Loucks Personal] — Next Voyage Plant + Commission Audit
+  Deadline: 2026-05-15 | Lead: A5 Viper + A9
+- 🔴 **TP 2.2** [McLeod McGlasson - Silver Muse] — Monthly Validation (rolling)
+  Deadline: 2026-05-19 | Lead: Hale
+- 🔴 **TP 0.5** [Grandeur Scandinavia Group] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 0.5** [Kuklinski Group] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 1.1** [Kuklinski Group] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+- 🔴 **TP 1.1** [Kuklinski] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+- 🔴 **TP 0.5** [Morton] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 1.1** [Morton] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+
+---
+*Auto-generated by TP Alert Engine — next scan in 6h*
+
+## ⚠️ [WARNING] Checkpoint Alert — 2026-05-23 14:23:05
+Inbox Checkpoint detected watcher dead and restarted it (PID 1784)
+
+**Context:**
+- restart_count: 12
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-23 17:09:08
+Token health issue: Token expiring in 9 min (CRITICAL)
+
+## TP ALERT — 2026-05-23 — AUTO-GENERATED 18:00 MT
+
+### CRITICAL (overdue >30d)
+- 🔴 **TP 0.5** [McLeod McGlasson - Grandeur] — Welcome / Booking Validation
+  Deadline: 2025-02-13 | Lead: Dani + Naia
+  Action: Dani + Naia — escalate immediately
+- 🔴 **TP 0.5** [McLeod McGlasson - Silver Muse] — Welcome / Booking Validation
+  Deadline: 2025-02-13 | Lead: Dani + Naia
+  Action: Dani + Naia — escalate immediately
+- 🔴 **TP 0.6** [McLeod McGlasson - Grandeur] — Insurance Advisory
+  Deadline: 2025-02-20 | Lead: A9 Harlan
+  Action: A9 Harlan — escalate immediately
+- 🔴 **TP 0.6** [McLeod McGlasson - Silver Muse] — Insurance Advisory
+  Deadline: 2025-02-20 | Lead: A9 Harlan
+  Action: A9 Harlan — escalate immediately
+- 🔴 **TP 1.1** [Loucks Personal] — Voyage Preview (destination guide)
+  Deadline: 2025-09-12 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.2** [Loucks Personal] — Airfare Watch
+  Deadline: 2025-10-12 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Loucks Personal] — Hotel Options (pre/post cruise)
+  Deadline: 2025-10-12 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson - Silver Muse] — Voyage Preview (destination guide)
+  Deadline: 2025-11-20 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 2.1** [Loucks Personal] — Excursion Research & Recs
+  Deadline: 2025-12-11 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [McLeod McGlasson - Silver Muse] — Airfare Watch
+  Deadline: 2025-12-20 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [McLeod McGlasson - Silver Muse] — Hotel Options (pre/post cruise)
+  Deadline: 2025-12-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Loucks Personal] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-01-10 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.1** [McLeod McGlasson - Silver Muse] — Payment Reminder #1
+  Deadline: 2026-01-10 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [McLeod McGlasson - Silver Muse] — Payment Reminder #2
+  Deadline: 2026-01-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Loucks Personal] — Payment Reminder #1
+  Deadline: 2026-01-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [McLeod McGlasson - Silver Muse] — Payment Goal
+  Deadline: 2026-01-23 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [McLeod McGlasson - Silver Muse] — Final Payment Due
+  Deadline: 2026-01-24 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 2.5** [Loucks Personal] — Document Audit
+  Deadline: 2026-01-25 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.2** [Loucks Personal] — Payment Reminder #2
+  Deadline: 2026-01-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 1.1** [Grandeur Scandinavia Group] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Ely] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Furlow] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 4.3** [Loucks Personal] — Payment Goal
+  Deadline: 2026-01-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.5** [McLeod McGlasson - Silver Muse] — Payment Confirmation
+  Deadline: 2026-01-31 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 1.1** [Nichols] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 4.4** [Loucks Personal] — Final Payment Due
+  Deadline: 2026-02-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.5** [Loucks Personal] — Payment Confirmation
+  Deadline: 2026-02-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.4** [Loucks Personal] — Dining Reservations
+  Deadline: 2026-02-09 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.1** [McLeod McGlasson - Silver Muse] — Excursion Research & Recs
+  Deadline: 2026-02-18 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [McLeod McGlasson - Silver Muse] — Apply FCC / Credits
+  Deadline: 2026-02-23 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 1.2** [Grandeur Scandinavia Group] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Grandeur Scandinavia Group] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Ely] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Ely] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Furlow] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Furlow] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Nichols] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Nichols] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Loucks Personal] — Apply FCC / Credits
+  Deadline: 2026-03-03 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.2** [Loucks Personal] — Monthly Validation (rolling)
+  Deadline: 2026-03-11 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski Group] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Morton] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Grandeur Scandinavia Group] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Ely] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Furlow] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Nichols] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 3.1** [Loucks Personal] — Pre-Voyage Brief
+  Deadline: 2026-03-20 | Lead: Hale + A2 + A6
+  Action: Hale + A2 + A6 — escalate immediately
+- 🔴 **TP 2.3** [McLeod McGlasson - Silver Muse] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-03-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski Group] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Morton] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Grandeur Scandinavia Group] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Ely] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Furlow] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Nichols] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski Group] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Morton] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Grandeur Scandinavia Group] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski Group] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.3** [Ely] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Furlow] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Morton] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.3** [Nichols] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Grandeur Scandinavia Group] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Ely] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Furlow] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Nichols] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 3.2** [Loucks Personal] — Final Confirmation
+  Deadline: 2026-04-03 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [McLeod McGlasson - Silver Muse] — Document Audit
+  Deadline: 2026-04-04 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski Group] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 3.3** [Loucks Personal] — Send-Off / Bon Voyage
+  Deadline: 2026-04-07 | Lead: Hale + A6
+  Action: Hale + A6 — escalate immediately
+- 🔴 **TP 4.5** [Morton] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Grandeur Scandinavia Group] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Ely] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Furlow] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Nichols] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.4** [McLeod McGlasson - Silver Muse] — Dining Reservations
+  Deadline: 2026-04-19 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 5.1** [Loucks Personal] — Welcome Home
+  Deadline: 2026-04-20 | Lead: Hale
+  Action: Hale — escalate immediately
+
+### WARNING (overdue 14-30d)
+- 🟠 **TP 5.2** [Loucks Personal] — Survey / Review Request
+  Deadline: 2026-04-27 | Lead: A7 Gauge + Dani
+- 🟠 **TP 4.6** [Kuklinski Group] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 4.6** [Kuklinski] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 4.6** [Morton] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 2.1** [Grandeur Scandinavia Group] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Grandeur Scandinavia Group] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Ely] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Ely] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Furlow] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Furlow] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Nichols] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Nichols] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 5.3** [Loucks Personal] — Thank You + Referral
+  Deadline: 2026-05-05 | Lead: Dani + Naia
+
+### CRITICAL-APPROACHING (≤14d to deadline)
+- 🟡 **TP 1.1** [McLeod McGlasson - Grandeur] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 (T-0d) | Lead: A2 Dembe + A6 Luna
+  Task: A2 Dembe + A6 Luna — begin work
+- 🟡 **TP 0.5** [Nichols] — Welcome / Booking Validation
+  Deadline: 2026-05-25 (T-2d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Ely] — Welcome / Booking Validation
+  Deadline: 2026-05-26 (T-3d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Furlow] — Welcome / Booking Validation
+  Deadline: 2026-05-26 (T-3d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Kuklinski] — Welcome / Booking Validation
+  Deadline: 2026-05-27 (T-4d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.6** [Grandeur Scandinavia Group] — Insurance Advisory
+  Deadline: 2026-05-28 (T-5d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 0.6** [Kuklinski Group] — Insurance Advisory
+  Deadline: 2026-05-28 (T-5d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 0.5** [Loucks Personal] — Welcome / Booking Validation
+  Deadline: 2026-05-28 (T-5d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 3.1** [McLeod McGlasson - Silver Muse] — Pre-Voyage Brief
+  Deadline: 2026-05-28 (T-5d) | Lead: Hale + A2 + A6
+  Task: Hale + A2 + A6 — begin work
+- 🟡 **TP 0.6** [Morton] — Insurance Advisory
+  Deadline: 2026-05-28 (T-5d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 2.3** [Grandeur Scandinavia Group] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-8d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Ely] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-8d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Furlow] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-8d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Nichols] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-8d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+
+### APPROACHING (due within 14d)
+- 🔵 **TP 0.6** [Nichols] — Insurance Advisory
+  Deadline: 2026-06-01 (T-9d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Ely] — Insurance Advisory
+  Deadline: 2026-06-02 (T-10d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Furlow] — Insurance Advisory
+  Deadline: 2026-06-02 (T-10d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Kuklinski] — Insurance Advisory
+  Deadline: 2026-06-03 (T-11d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Loucks Personal] — Insurance Advisory
+  Deadline: 2026-06-04 (T-12d) | Lead: A9 Harlan
+- 🔵 **TP 3.2** [McLeod McGlasson - Silver Muse] — Final Confirmation
+  Deadline: 2026-06-11 (T-19d) | Lead: Hale
+- 🔵 **TP 2.5** [Grandeur Scandinavia Group] — Document Audit
+  Deadline: 2026-06-15 (T-23d) | Lead: Hale
+- 🔵 **TP 2.5** [Ely] — Document Audit
+  Deadline: 2026-06-15 (T-23d) | Lead: Hale
+- 🔵 **TP 2.5** [Furlow] — Document Audit
+  Deadline: 2026-06-15 (T-23d) | Lead: Hale
+- 🔵 **TP 2.5** [Nichols] — Document Audit
+  Deadline: 2026-06-15 (T-23d) | Lead: Hale
+- 🔵 **TP 2.4** [Grandeur Scandinavia Group] — Dining Reservations
+  Deadline: 2026-06-30 (T-38d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Ely] — Dining Reservations
+  Deadline: 2026-06-30 (T-38d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Furlow] — Dining Reservations
+  Deadline: 2026-06-30 (T-38d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Nichols] — Dining Reservations
+  Deadline: 2026-06-30 (T-38d) | Lead: A2 Dembe
+
+### OVERDUE (<14d, recent)
+- 🔴 **TP 5.4** [Loucks Personal] — Next Voyage Plant + Commission Audit
+  Deadline: 2026-05-15 | Lead: A5 Viper + A9
+- 🔴 **TP 2.2** [McLeod McGlasson - Silver Muse] — Monthly Validation (rolling)
+  Deadline: 2026-05-19 | Lead: Hale
+- 🔴 **TP 0.5** [Grandeur Scandinavia Group] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 0.5** [Kuklinski Group] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 1.1** [Kuklinski Group] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+- 🔴 **TP 1.1** [Kuklinski] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+- 🔴 **TP 0.5** [Morton] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 1.1** [Morton] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+
+---
+*Auto-generated by TP Alert Engine — next scan in 6h*
+
+
+---
+
+## [JET → WING] INBOX SWEEP COMPLETE — 2026-05-23 19:00 MT
+
+**Tasks processed:** 3 UNREAD → COMPLETE
+
+### TP-ALERT-20260523 (12:00, 14:23, 18:00 MT runs) — ALL ACKNOWLEDGED
+
+Three additional TP Alert Engine duplicates processed from today (copies 6-8 since 2026-05-22). Findings consistent:
+
+| Band | Count | Key Items |
+|------|-------|-----------|
+| OVERDUE <14d | 8 | Kuklinski/Morton TP 0.5/1.1 (overdue May 21), McLeod TP 2.2 (May 19), Loucks TP 5.4 (May 15) |
+| CRITICAL-APPROACHING ≤14d | ~20 | McLeod Grandeur TP 1.1 (DUE NOW), Nichols TP 0.5 (T-2d), Ely/Furlow TP 0.5 (T-3d) |
+| WARNING 14-30d | ~12 | A9 FCC/Credits, A2 excursion research |
+| CRITICAL STALE >30d | ~60 | Legacy 2025 items — cleanup sweep needed |
+
+**Dedup blocker (8 copies across May 22-23):** TP Alert Engine continues firing without content-hash dedup guard. Recommend A12 ELON add dedup check before next timer fire.
+
+**Inbox status:** CLEAN — zero remaining UNREAD or PENDING tasks across all 30+ entries in opencode_inbox.md.
+
+— JET | WIND Group | 2026-05-23 19:00 MT
+
+
+---
+
+## [JET → WING] INBOX SWEEP COMPLETE — 3 UNREAD → COMPLETE | 2026-05-23 18:45 MT
+
+**Tasks processed:** 3 UNREAD (TP-ALERT-20260523 × 3 — 12:00, 14:23, 18:00 MT runs)
+
+### Acknowledgment
+
+All three TP Alert Engine reports acknowledged in bulk. The 109 touchpoints are **consistent with prior runs** — no new escalations, no change in severity distribution.
+
+| Band | Count | Status |
+|------|-------|--------|
+| OVERDUE <14d | 8 | Same items — overdue since May 15-21 |
+| CRITICAL-APPROACHING | ~20 | Within 14-day window — unchanged |
+| WARNING (14-30d) | ~12 | No movement |
+| CRITICAL STALE (>30d) | ~60 | Still overdue for cleanup sweep |
+
+### Escalation — TP Alert Engine Dedup
+
+**10th, 11th, 12th identical copies in ~28 hours.** First flagged 2026-05-22 14:30 MT. This is now a noise hazard. Recommend routing to A12 ELON as P1 for hash-based dedup guard.
+
+**Inbox terminal state:** CLEAN — 0 UNREAD / 0 PENDING / all tasks COMPLETE.
+**Results filed in:** `claude_outbox.md`
+
+— JET | WIND Group | 2026-05-23 18:45 MT
+
+## TP ALERT — 2026-05-24 — AUTO-GENERATED 00:00 MT
+
+### CRITICAL (overdue >30d)
+- 🔴 **TP 0.5** [McLeod McGlasson - Grandeur] — Welcome / Booking Validation
+  Deadline: 2025-02-13 | Lead: Dani + Naia
+  Action: Dani + Naia — escalate immediately
+- 🔴 **TP 0.5** [McLeod McGlasson - Silver Muse] — Welcome / Booking Validation
+  Deadline: 2025-02-13 | Lead: Dani + Naia
+  Action: Dani + Naia — escalate immediately
+- 🔴 **TP 0.6** [McLeod McGlasson - Grandeur] — Insurance Advisory
+  Deadline: 2025-02-20 | Lead: A9 Harlan
+  Action: A9 Harlan — escalate immediately
+- 🔴 **TP 0.6** [McLeod McGlasson - Silver Muse] — Insurance Advisory
+  Deadline: 2025-02-20 | Lead: A9 Harlan
+  Action: A9 Harlan — escalate immediately
+- 🔴 **TP 1.1** [Loucks Personal] — Voyage Preview (destination guide)
+  Deadline: 2025-09-12 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.2** [Loucks Personal] — Airfare Watch
+  Deadline: 2025-10-12 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Loucks Personal] — Hotel Options (pre/post cruise)
+  Deadline: 2025-10-12 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson - Silver Muse] — Voyage Preview (destination guide)
+  Deadline: 2025-11-20 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 2.1** [Loucks Personal] — Excursion Research & Recs
+  Deadline: 2025-12-11 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [McLeod McGlasson - Silver Muse] — Airfare Watch
+  Deadline: 2025-12-20 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [McLeod McGlasson - Silver Muse] — Hotel Options (pre/post cruise)
+  Deadline: 2025-12-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Loucks Personal] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-01-10 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.1** [McLeod McGlasson - Silver Muse] — Payment Reminder #1
+  Deadline: 2026-01-10 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [McLeod McGlasson - Silver Muse] — Payment Reminder #2
+  Deadline: 2026-01-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Loucks Personal] — Payment Reminder #1
+  Deadline: 2026-01-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [McLeod McGlasson - Silver Muse] — Payment Goal
+  Deadline: 2026-01-23 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [McLeod McGlasson - Silver Muse] — Final Payment Due
+  Deadline: 2026-01-24 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 2.5** [Loucks Personal] — Document Audit
+  Deadline: 2026-01-25 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.2** [Loucks Personal] — Payment Reminder #2
+  Deadline: 2026-01-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 1.1** [Grandeur Scandinavia Group] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Ely] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Furlow] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 4.3** [Loucks Personal] — Payment Goal
+  Deadline: 2026-01-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.5** [McLeod McGlasson - Silver Muse] — Payment Confirmation
+  Deadline: 2026-01-31 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 1.1** [Nichols] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 4.4** [Loucks Personal] — Final Payment Due
+  Deadline: 2026-02-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.5** [Loucks Personal] — Payment Confirmation
+  Deadline: 2026-02-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.4** [Loucks Personal] — Dining Reservations
+  Deadline: 2026-02-09 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.1** [McLeod McGlasson - Silver Muse] — Excursion Research & Recs
+  Deadline: 2026-02-18 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [McLeod McGlasson - Silver Muse] — Apply FCC / Credits
+  Deadline: 2026-02-23 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 1.2** [Grandeur Scandinavia Group] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Grandeur Scandinavia Group] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Ely] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Ely] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Furlow] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Furlow] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Nichols] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Nichols] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Loucks Personal] — Apply FCC / Credits
+  Deadline: 2026-03-03 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.2** [Loucks Personal] — Monthly Validation (rolling)
+  Deadline: 2026-03-11 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski Group] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Morton] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Grandeur Scandinavia Group] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Ely] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Furlow] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Nichols] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 3.1** [Loucks Personal] — Pre-Voyage Brief
+  Deadline: 2026-03-20 | Lead: Hale + A2 + A6
+  Action: Hale + A2 + A6 — escalate immediately
+- 🔴 **TP 2.3** [McLeod McGlasson - Silver Muse] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-03-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski Group] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Morton] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Grandeur Scandinavia Group] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Ely] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Furlow] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Nichols] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski Group] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Morton] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Grandeur Scandinavia Group] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski Group] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.3** [Ely] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Furlow] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Morton] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.3** [Nichols] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Grandeur Scandinavia Group] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Ely] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Furlow] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Nichols] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 3.2** [Loucks Personal] — Final Confirmation
+  Deadline: 2026-04-03 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [McLeod McGlasson - Silver Muse] — Document Audit
+  Deadline: 2026-04-04 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski Group] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 3.3** [Loucks Personal] — Send-Off / Bon Voyage
+  Deadline: 2026-04-07 | Lead: Hale + A6
+  Action: Hale + A6 — escalate immediately
+- 🔴 **TP 4.5** [Morton] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Grandeur Scandinavia Group] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Ely] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Furlow] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Nichols] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.4** [McLeod McGlasson - Silver Muse] — Dining Reservations
+  Deadline: 2026-04-19 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 5.1** [Loucks Personal] — Welcome Home
+  Deadline: 2026-04-20 | Lead: Hale
+  Action: Hale — escalate immediately
+
+### WARNING (overdue 14-30d)
+- 🟠 **TP 5.2** [Loucks Personal] — Survey / Review Request
+  Deadline: 2026-04-27 | Lead: A7 Gauge + Dani
+- 🟠 **TP 4.6** [Kuklinski Group] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 4.6** [Kuklinski] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 4.6** [Morton] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 2.1** [Grandeur Scandinavia Group] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Grandeur Scandinavia Group] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Ely] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Ely] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Furlow] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Furlow] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Nichols] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Nichols] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 5.3** [Loucks Personal] — Thank You + Referral
+  Deadline: 2026-05-05 | Lead: Dani + Naia
+
+### CRITICAL-APPROACHING (≤14d to deadline)
+- 🟡 **TP 0.5** [Nichols] — Welcome / Booking Validation
+  Deadline: 2026-05-25 (T-1d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Ely] — Welcome / Booking Validation
+  Deadline: 2026-05-26 (T-2d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Furlow] — Welcome / Booking Validation
+  Deadline: 2026-05-26 (T-2d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Kuklinski] — Welcome / Booking Validation
+  Deadline: 2026-05-27 (T-3d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.6** [Grandeur Scandinavia Group] — Insurance Advisory
+  Deadline: 2026-05-28 (T-4d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 0.6** [Kuklinski Group] — Insurance Advisory
+  Deadline: 2026-05-28 (T-4d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 0.5** [Loucks Personal] — Welcome / Booking Validation
+  Deadline: 2026-05-28 (T-4d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 3.1** [McLeod McGlasson - Silver Muse] — Pre-Voyage Brief
+  Deadline: 2026-05-28 (T-4d) | Lead: Hale + A2 + A6
+  Task: Hale + A2 + A6 — begin work
+- 🟡 **TP 0.6** [Morton] — Insurance Advisory
+  Deadline: 2026-05-28 (T-4d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 2.3** [Grandeur Scandinavia Group] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-7d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Ely] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-7d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Furlow] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-7d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Nichols] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-7d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+
+### APPROACHING (due within 14d)
+- 🔵 **TP 0.6** [Nichols] — Insurance Advisory
+  Deadline: 2026-06-01 (T-8d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Ely] — Insurance Advisory
+  Deadline: 2026-06-02 (T-9d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Furlow] — Insurance Advisory
+  Deadline: 2026-06-02 (T-9d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Kuklinski] — Insurance Advisory
+  Deadline: 2026-06-03 (T-10d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Loucks Personal] — Insurance Advisory
+  Deadline: 2026-06-04 (T-11d) | Lead: A9 Harlan
+- 🔵 **TP 3.2** [McLeod McGlasson - Silver Muse] — Final Confirmation
+  Deadline: 2026-06-11 (T-18d) | Lead: Hale
+- 🔵 **TP 2.5** [Grandeur Scandinavia Group] — Document Audit
+  Deadline: 2026-06-15 (T-22d) | Lead: Hale
+- 🔵 **TP 2.5** [Ely] — Document Audit
+  Deadline: 2026-06-15 (T-22d) | Lead: Hale
+- 🔵 **TP 2.5** [Furlow] — Document Audit
+  Deadline: 2026-06-15 (T-22d) | Lead: Hale
+- 🔵 **TP 2.5** [Nichols] — Document Audit
+  Deadline: 2026-06-15 (T-22d) | Lead: Hale
+- 🔵 **TP 2.4** [Grandeur Scandinavia Group] — Dining Reservations
+  Deadline: 2026-06-30 (T-37d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Ely] — Dining Reservations
+  Deadline: 2026-06-30 (T-37d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Furlow] — Dining Reservations
+  Deadline: 2026-06-30 (T-37d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Nichols] — Dining Reservations
+  Deadline: 2026-06-30 (T-37d) | Lead: A2 Dembe
+
+### OVERDUE (<14d, recent)
+- 🔴 **TP 5.4** [Loucks Personal] — Next Voyage Plant + Commission Audit
+  Deadline: 2026-05-15 | Lead: A5 Viper + A9
+- 🔴 **TP 2.2** [McLeod McGlasson - Silver Muse] — Monthly Validation (rolling)
+  Deadline: 2026-05-19 | Lead: Hale
+- 🔴 **TP 0.5** [Grandeur Scandinavia Group] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 0.5** [Kuklinski Group] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 1.1** [Kuklinski Group] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+- 🔴 **TP 1.1** [Kuklinski] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+- 🔴 **TP 0.5** [Morton] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 1.1** [Morton] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+- 🔴 **TP 1.1** [McLeod McGlasson - Grandeur] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+
+---
+*Auto-generated by TP Alert Engine — next scan in 6h*
+
+
+---
+
+## [JET → WING] INBOX SWEEP COMPLETE — 2026-05-24 08:15 MT
+
+**Tasks processed:** 1 UNREAD → COMPLETE
+
+### TP-ALERT-20260524 (00:00 MT run) — ACKNOWLEDGED
+
+**108 high-severity touchpoints** (down from 109 on May 23 — McLeod Grandeur TP 1.1 moved from CRITICAL-APPROACHING to OVERDUE). Severity distribution consistent with prior runs:
+
+| Band | Count | Key Items |
+|------|-------|-----------|
+| OVERDUE <14d (HIGHEST) | 9 | Kuklinski/Morton TP 0.5/1.1 (overdue May 21), McLeod TP 2.2 (May 19), Loucks TP 5.4 (May 15), **McLeod Grandeur TP 1.1 (May 23 — NEW)** |
+| CRITICAL-APPROACHING ≤14d | ~19 | Nichols TP 0.5 (T-1d), Ely/Furlow TP 0.5 (T-2d), Insurance advisories (T-4d) |
+| WARNING 14-30d | ~12 | A9 FCC/Credits, A2 excursion research |
+| CRITICAL STALE >30d | ~60 | Legacy 2025 items — cleanup sweep needed |
+
+**Dedup blocker (11th+ copy since May 22):** TP Alert Engine continues without content-hash guard. Routed to A12 ELON.
+
+**Inbox state:** CLEAN — 0 UNREAD / 0 PENDING. All opencode_inbox.md tasks COMPLETE.
+
+Full detail in claude_outbox.md.
+
+— JET | WIND Group | 2026-05-24 08:15 MT
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-24 01:09:43
+Token health issue: Token expiring in 5 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-24 01:24:44
+Token health issue: Token expired 9 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-24 01:39:44
+Token health issue: Token expired 24 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-24 01:54:48
+Token health issue: Token expired 39 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-24 02:09:51
+Token health issue: Token expired 54 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-24 02:24:51
+Token health issue: Token expired 69 min ago
+
+## TP ALERT — 2026-05-24 — AUTO-GENERATED 06:00 MT
+
+### JET ACKNOWLEDGMENT — 2026-05-24 08:30 MT
+
+**Status:** ACKNOWLEDGED by JET (HALE-OC) — 2nd copy today.
+
+**Findings:** 108 touchpoints across 5 bands — consistent with 00:00 MT run.
+- OVERDUE (<14d): 8 items (Kuklinski/Morton TP 0.5/1.1, McLeod TP 2.2, Loucks TP 5.4)
+- CRITICAL-APPROACHING (≤14d): ~20 items  
+- WARNING (14-30d): ~12 items
+- CRITICAL STALE (>30d): ~60 legacy items
+- APPROACHING: ~14 items
+
+**No new escalations warranted** — same overdue items, no changes from prior sweep.
+
+**Dedup blocker (persistent — 12th+ copy since May 22):** Routed to A12 ELON.
+
+— JET | WIND Group | 2026-05-24 08:30 MT
+
+### CRITICAL (overdue >30d)
+- 🔴 **TP 0.5** [McLeod McGlasson - Grandeur] — Welcome / Booking Validation
+  Deadline: 2025-02-13 | Lead: Dani + Naia
+  Action: Dani + Naia — escalate immediately
+- 🔴 **TP 0.5** [McLeod McGlasson - Silver Muse] — Welcome / Booking Validation
+  Deadline: 2025-02-13 | Lead: Dani + Naia
+  Action: Dani + Naia — escalate immediately
+- 🔴 **TP 0.6** [McLeod McGlasson - Grandeur] — Insurance Advisory
+  Deadline: 2025-02-20 | Lead: A9 Harlan
+  Action: A9 Harlan — escalate immediately
+- 🔴 **TP 0.6** [McLeod McGlasson - Silver Muse] — Insurance Advisory
+  Deadline: 2025-02-20 | Lead: A9 Harlan
+  Action: A9 Harlan — escalate immediately
+- 🔴 **TP 1.1** [Loucks Personal] — Voyage Preview (destination guide)
+  Deadline: 2025-09-12 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.2** [Loucks Personal] — Airfare Watch
+  Deadline: 2025-10-12 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Loucks Personal] — Hotel Options (pre/post cruise)
+  Deadline: 2025-10-12 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson - Silver Muse] — Voyage Preview (destination guide)
+  Deadline: 2025-11-20 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 2.1** [Loucks Personal] — Excursion Research & Recs
+  Deadline: 2025-12-11 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [McLeod McGlasson - Silver Muse] — Airfare Watch
+  Deadline: 2025-12-20 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [McLeod McGlasson - Silver Muse] — Hotel Options (pre/post cruise)
+  Deadline: 2025-12-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Loucks Personal] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-01-10 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.1** [McLeod McGlasson - Silver Muse] — Payment Reminder #1
+  Deadline: 2026-01-10 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [McLeod McGlasson - Silver Muse] — Payment Reminder #2
+  Deadline: 2026-01-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Loucks Personal] — Payment Reminder #1
+  Deadline: 2026-01-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [McLeod McGlasson - Silver Muse] — Payment Goal
+  Deadline: 2026-01-23 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [McLeod McGlasson - Silver Muse] — Final Payment Due
+  Deadline: 2026-01-24 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 2.5** [Loucks Personal] — Document Audit
+  Deadline: 2026-01-25 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.2** [Loucks Personal] — Payment Reminder #2
+  Deadline: 2026-01-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 1.1** [Grandeur Scandinavia Group] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Ely] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Furlow] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 4.3** [Loucks Personal] — Payment Goal
+  Deadline: 2026-01-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.5** [McLeod McGlasson - Silver Muse] — Payment Confirmation
+  Deadline: 2026-01-31 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 1.1** [Nichols] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 4.4** [Loucks Personal] — Final Payment Due
+  Deadline: 2026-02-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.5** [Loucks Personal] — Payment Confirmation
+  Deadline: 2026-02-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.4** [Loucks Personal] — Dining Reservations
+  Deadline: 2026-02-09 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.1** [McLeod McGlasson - Silver Muse] — Excursion Research & Recs
+  Deadline: 2026-02-18 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [McLeod McGlasson - Silver Muse] — Apply FCC / Credits
+  Deadline: 2026-02-23 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 1.2** [Grandeur Scandinavia Group] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Grandeur Scandinavia Group] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Ely] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Ely] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Furlow] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Furlow] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Nichols] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Nichols] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Loucks Personal] — Apply FCC / Credits
+  Deadline: 2026-03-03 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.2** [Loucks Personal] — Monthly Validation (rolling)
+  Deadline: 2026-03-11 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski Group] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Morton] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Grandeur Scandinavia Group] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Ely] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Furlow] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Nichols] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 3.1** [Loucks Personal] — Pre-Voyage Brief
+  Deadline: 2026-03-20 | Lead: Hale + A2 + A6
+  Action: Hale + A2 + A6 — escalate immediately
+- 🔴 **TP 2.3** [McLeod McGlasson - Silver Muse] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-03-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski Group] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Morton] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Grandeur Scandinavia Group] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Ely] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Furlow] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Nichols] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski Group] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Morton] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Grandeur Scandinavia Group] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski Group] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.3** [Ely] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Furlow] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Morton] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.3** [Nichols] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Grandeur Scandinavia Group] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Ely] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Furlow] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Nichols] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 3.2** [Loucks Personal] — Final Confirmation
+  Deadline: 2026-04-03 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [McLeod McGlasson - Silver Muse] — Document Audit
+  Deadline: 2026-04-04 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski Group] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 3.3** [Loucks Personal] — Send-Off / Bon Voyage
+  Deadline: 2026-04-07 | Lead: Hale + A6
+  Action: Hale + A6 — escalate immediately
+- 🔴 **TP 4.5** [Morton] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Grandeur Scandinavia Group] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Ely] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Furlow] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Nichols] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.4** [McLeod McGlasson - Silver Muse] — Dining Reservations
+  Deadline: 2026-04-19 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 5.1** [Loucks Personal] — Welcome Home
+  Deadline: 2026-04-20 | Lead: Hale
+  Action: Hale — escalate immediately
+
+### WARNING (overdue 14-30d)
+- 🟠 **TP 5.2** [Loucks Personal] — Survey / Review Request
+  Deadline: 2026-04-27 | Lead: A7 Gauge + Dani
+- 🟠 **TP 4.6** [Kuklinski Group] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 4.6** [Kuklinski] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 4.6** [Morton] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 2.1** [Grandeur Scandinavia Group] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Grandeur Scandinavia Group] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Ely] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Ely] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Furlow] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Furlow] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Nichols] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Nichols] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 5.3** [Loucks Personal] — Thank You + Referral
+  Deadline: 2026-05-05 | Lead: Dani + Naia
+
+### CRITICAL-APPROACHING (≤14d to deadline)
+- 🟡 **TP 0.5** [Nichols] — Welcome / Booking Validation
+  Deadline: 2026-05-25 (T-1d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Ely] — Welcome / Booking Validation
+  Deadline: 2026-05-26 (T-2d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Furlow] — Welcome / Booking Validation
+  Deadline: 2026-05-26 (T-2d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Kuklinski] — Welcome / Booking Validation
+  Deadline: 2026-05-27 (T-3d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.6** [Grandeur Scandinavia Group] — Insurance Advisory
+  Deadline: 2026-05-28 (T-4d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 0.6** [Kuklinski Group] — Insurance Advisory
+  Deadline: 2026-05-28 (T-4d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 0.5** [Loucks Personal] — Welcome / Booking Validation
+  Deadline: 2026-05-28 (T-4d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 3.1** [McLeod McGlasson - Silver Muse] — Pre-Voyage Brief
+  Deadline: 2026-05-28 (T-4d) | Lead: Hale + A2 + A6
+  Task: Hale + A2 + A6 — begin work
+- 🟡 **TP 0.6** [Morton] — Insurance Advisory
+  Deadline: 2026-05-28 (T-4d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 2.3** [Grandeur Scandinavia Group] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-7d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Ely] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-7d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Furlow] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-7d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Nichols] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-7d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+
+### APPROACHING (due within 14d)
+- 🔵 **TP 0.6** [Nichols] — Insurance Advisory
+  Deadline: 2026-06-01 (T-8d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Ely] — Insurance Advisory
+  Deadline: 2026-06-02 (T-9d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Furlow] — Insurance Advisory
+  Deadline: 2026-06-02 (T-9d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Kuklinski] — Insurance Advisory
+  Deadline: 2026-06-03 (T-10d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Loucks Personal] — Insurance Advisory
+  Deadline: 2026-06-04 (T-11d) | Lead: A9 Harlan
+- 🔵 **TP 3.2** [McLeod McGlasson - Silver Muse] — Final Confirmation
+  Deadline: 2026-06-11 (T-18d) | Lead: Hale
+- 🔵 **TP 2.5** [Grandeur Scandinavia Group] — Document Audit
+  Deadline: 2026-06-15 (T-22d) | Lead: Hale
+- 🔵 **TP 2.5** [Ely] — Document Audit
+  Deadline: 2026-06-15 (T-22d) | Lead: Hale
+- 🔵 **TP 2.5** [Furlow] — Document Audit
+  Deadline: 2026-06-15 (T-22d) | Lead: Hale
+- 🔵 **TP 2.5** [Nichols] — Document Audit
+  Deadline: 2026-06-15 (T-22d) | Lead: Hale
+- 🔵 **TP 2.4** [Grandeur Scandinavia Group] — Dining Reservations
+  Deadline: 2026-06-30 (T-37d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Ely] — Dining Reservations
+  Deadline: 2026-06-30 (T-37d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Furlow] — Dining Reservations
+  Deadline: 2026-06-30 (T-37d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Nichols] — Dining Reservations
+  Deadline: 2026-06-30 (T-37d) | Lead: A2 Dembe
+
+### OVERDUE (<14d, recent)
+- 🔴 **TP 5.4** [Loucks Personal] — Next Voyage Plant + Commission Audit
+  Deadline: 2026-05-15 | Lead: A5 Viper + A9
+- 🔴 **TP 2.2** [McLeod McGlasson - Silver Muse] — Monthly Validation (rolling)
+  Deadline: 2026-05-19 | Lead: Hale
+- 🔴 **TP 0.5** [Grandeur Scandinavia Group] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 0.5** [Kuklinski Group] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 1.1** [Kuklinski Group] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+- 🔴 **TP 1.1** [Kuklinski] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+- 🔴 **TP 0.5** [Morton] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 1.1** [Morton] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+- 🔴 **TP 1.1** [McLeod McGlasson - Grandeur] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+
+---
+*Auto-generated by TP Alert Engine — next scan in 6h*
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-24 10:25:27
+Token health issue: Token expiring in 2 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-24 10:40:29
+Token health issue: Token expired 12 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-24 10:55:31
+Token health issue: Token expired 27 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-24 11:10:31
+Token health issue: Token expired 42 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-24 11:25:32
+Token health issue: Token expired 57 min ago
+
+## TP ALERT — 2026-05-24 — AUTO-GENERATED 12:00 MT
+
+### CRITICAL (overdue >30d)
+- 🔴 **TP 0.5** [McLeod McGlasson - Grandeur] — Welcome / Booking Validation
+  Deadline: 2025-02-13 | Lead: Dani + Naia
+  Action: Dani + Naia — escalate immediately
+- 🔴 **TP 0.5** [McLeod McGlasson - Silver Muse] — Welcome / Booking Validation
+  Deadline: 2025-02-13 | Lead: Dani + Naia
+  Action: Dani + Naia — escalate immediately
+- 🔴 **TP 0.6** [McLeod McGlasson - Grandeur] — Insurance Advisory
+  Deadline: 2025-02-20 | Lead: A9 Harlan
+  Action: A9 Harlan — escalate immediately
+- 🔴 **TP 0.6** [McLeod McGlasson - Silver Muse] — Insurance Advisory
+  Deadline: 2025-02-20 | Lead: A9 Harlan
+  Action: A9 Harlan — escalate immediately
+- 🔴 **TP 1.1** [Loucks Personal] — Voyage Preview (destination guide)
+  Deadline: 2025-09-12 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.2** [Loucks Personal] — Airfare Watch
+  Deadline: 2025-10-12 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Loucks Personal] — Hotel Options (pre/post cruise)
+  Deadline: 2025-10-12 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson - Silver Muse] — Voyage Preview (destination guide)
+  Deadline: 2025-11-20 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 2.1** [Loucks Personal] — Excursion Research & Recs
+  Deadline: 2025-12-11 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [McLeod McGlasson - Silver Muse] — Airfare Watch
+  Deadline: 2025-12-20 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [McLeod McGlasson - Silver Muse] — Hotel Options (pre/post cruise)
+  Deadline: 2025-12-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Loucks Personal] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-01-10 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.1** [McLeod McGlasson - Silver Muse] — Payment Reminder #1
+  Deadline: 2026-01-10 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [McLeod McGlasson - Silver Muse] — Payment Reminder #2
+  Deadline: 2026-01-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Loucks Personal] — Payment Reminder #1
+  Deadline: 2026-01-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [McLeod McGlasson - Silver Muse] — Payment Goal
+  Deadline: 2026-01-23 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [McLeod McGlasson - Silver Muse] — Final Payment Due
+  Deadline: 2026-01-24 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 2.5** [Loucks Personal] — Document Audit
+  Deadline: 2026-01-25 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.2** [Loucks Personal] — Payment Reminder #2
+  Deadline: 2026-01-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 1.1** [Grandeur Scandinavia Group] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Ely] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Furlow] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 4.3** [Loucks Personal] — Payment Goal
+  Deadline: 2026-01-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.5** [McLeod McGlasson - Silver Muse] — Payment Confirmation
+  Deadline: 2026-01-31 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 1.1** [Nichols] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 4.4** [Loucks Personal] — Final Payment Due
+  Deadline: 2026-02-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.5** [Loucks Personal] — Payment Confirmation
+  Deadline: 2026-02-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.4** [Loucks Personal] — Dining Reservations
+  Deadline: 2026-02-09 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.1** [McLeod McGlasson - Silver Muse] — Excursion Research & Recs
+  Deadline: 2026-02-18 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [McLeod McGlasson - Silver Muse] — Apply FCC / Credits
+  Deadline: 2026-02-23 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 1.2** [Grandeur Scandinavia Group] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Grandeur Scandinavia Group] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Ely] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Ely] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Furlow] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Furlow] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Nichols] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Nichols] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Loucks Personal] — Apply FCC / Credits
+  Deadline: 2026-03-03 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.2** [Loucks Personal] — Monthly Validation (rolling)
+  Deadline: 2026-03-11 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski Group] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Morton] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Grandeur Scandinavia Group] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Ely] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Furlow] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Nichols] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 3.1** [Loucks Personal] — Pre-Voyage Brief
+  Deadline: 2026-03-20 | Lead: Hale + A2 + A6
+  Action: Hale + A2 + A6 — escalate immediately
+- 🔴 **TP 2.3** [McLeod McGlasson - Silver Muse] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-03-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski Group] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Morton] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Grandeur Scandinavia Group] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Ely] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Furlow] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Nichols] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski Group] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Morton] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Grandeur Scandinavia Group] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski Group] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.3** [Ely] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Furlow] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Morton] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.3** [Nichols] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Grandeur Scandinavia Group] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Ely] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Furlow] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Nichols] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 3.2** [Loucks Personal] — Final Confirmation
+  Deadline: 2026-04-03 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [McLeod McGlasson - Silver Muse] — Document Audit
+  Deadline: 2026-04-04 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski Group] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 3.3** [Loucks Personal] — Send-Off / Bon Voyage
+  Deadline: 2026-04-07 | Lead: Hale + A6
+  Action: Hale + A6 — escalate immediately
+- 🔴 **TP 4.5** [Morton] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Grandeur Scandinavia Group] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Ely] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Furlow] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Nichols] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.4** [McLeod McGlasson - Silver Muse] — Dining Reservations
+  Deadline: 2026-04-19 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 5.1** [Loucks Personal] — Welcome Home
+  Deadline: 2026-04-20 | Lead: Hale
+  Action: Hale — escalate immediately
+
+### WARNING (overdue 14-30d)
+- 🟠 **TP 5.2** [Loucks Personal] — Survey / Review Request
+  Deadline: 2026-04-27 | Lead: A7 Gauge + Dani
+- 🟠 **TP 4.6** [Kuklinski Group] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 4.6** [Kuklinski] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 4.6** [Morton] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 2.1** [Grandeur Scandinavia Group] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Grandeur Scandinavia Group] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Ely] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Ely] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Furlow] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Furlow] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Nichols] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Nichols] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 5.3** [Loucks Personal] — Thank You + Referral
+  Deadline: 2026-05-05 | Lead: Dani + Naia
+
+### CRITICAL-APPROACHING (≤14d to deadline)
+- 🟡 **TP 0.5** [Nichols] — Welcome / Booking Validation
+  Deadline: 2026-05-25 (T-1d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Ely] — Welcome / Booking Validation
+  Deadline: 2026-05-26 (T-2d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Furlow] — Welcome / Booking Validation
+  Deadline: 2026-05-26 (T-2d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Kuklinski] — Welcome / Booking Validation
+  Deadline: 2026-05-27 (T-3d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.6** [Grandeur Scandinavia Group] — Insurance Advisory
+  Deadline: 2026-05-28 (T-4d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 0.6** [Kuklinski Group] — Insurance Advisory
+  Deadline: 2026-05-28 (T-4d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 0.5** [Loucks Personal] — Welcome / Booking Validation
+  Deadline: 2026-05-28 (T-4d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 3.1** [McLeod McGlasson - Silver Muse] — Pre-Voyage Brief
+  Deadline: 2026-05-28 (T-4d) | Lead: Hale + A2 + A6
+  Task: Hale + A2 + A6 — begin work
+- 🟡 **TP 0.6** [Morton] — Insurance Advisory
+  Deadline: 2026-05-28 (T-4d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 2.3** [Grandeur Scandinavia Group] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-7d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Ely] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-7d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Furlow] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-7d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Nichols] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-7d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+
+### APPROACHING (due within 14d)
+- 🔵 **TP 0.6** [Nichols] — Insurance Advisory
+  Deadline: 2026-06-01 (T-8d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Ely] — Insurance Advisory
+  Deadline: 2026-06-02 (T-9d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Furlow] — Insurance Advisory
+  Deadline: 2026-06-02 (T-9d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Kuklinski] — Insurance Advisory
+  Deadline: 2026-06-03 (T-10d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Loucks Personal] — Insurance Advisory
+  Deadline: 2026-06-04 (T-11d) | Lead: A9 Harlan
+- 🔵 **TP 3.2** [McLeod McGlasson - Silver Muse] — Final Confirmation
+  Deadline: 2026-06-11 (T-18d) | Lead: Hale
+- 🔵 **TP 2.5** [Grandeur Scandinavia Group] — Document Audit
+  Deadline: 2026-06-15 (T-22d) | Lead: Hale
+- 🔵 **TP 2.5** [Ely] — Document Audit
+  Deadline: 2026-06-15 (T-22d) | Lead: Hale
+- 🔵 **TP 2.5** [Furlow] — Document Audit
+  Deadline: 2026-06-15 (T-22d) | Lead: Hale
+- 🔵 **TP 2.5** [Nichols] — Document Audit
+  Deadline: 2026-06-15 (T-22d) | Lead: Hale
+- 🔵 **TP 2.4** [Grandeur Scandinavia Group] — Dining Reservations
+  Deadline: 2026-06-30 (T-37d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Ely] — Dining Reservations
+  Deadline: 2026-06-30 (T-37d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Furlow] — Dining Reservations
+  Deadline: 2026-06-30 (T-37d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Nichols] — Dining Reservations
+  Deadline: 2026-06-30 (T-37d) | Lead: A2 Dembe
+
+### OVERDUE (<14d, recent)
+- 🔴 **TP 5.4** [Loucks Personal] — Next Voyage Plant + Commission Audit
+  Deadline: 2026-05-15 | Lead: A5 Viper + A9
+- 🔴 **TP 2.2** [McLeod McGlasson - Silver Muse] — Monthly Validation (rolling)
+  Deadline: 2026-05-19 | Lead: Hale
+- 🔴 **TP 0.5** [Grandeur Scandinavia Group] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 0.5** [Kuklinski Group] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 1.1** [Kuklinski Group] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+- 🔴 **TP 1.1** [Kuklinski] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+- 🔴 **TP 0.5** [Morton] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 1.1** [Morton] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+- 🔴 **TP 1.1** [McLeod McGlasson - Grandeur] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+
+---
+*Auto-generated by TP Alert Engine — next scan in 6h*
+
+
+## TP ALERT — 2026-05-24 — AUTO-GENERATED 18:00 MT
+
+### CRITICAL (overdue >30d)
+- 🔴 **TP 0.5** [McLeod McGlasson - Grandeur] — Welcome / Booking Validation
+  Deadline: 2025-02-13 | Lead: Dani + Naia
+  Action: Dani + Naia — escalate immediately
+- 🔴 **TP 0.5** [McLeod McGlasson - Silver Muse] — Welcome / Booking Validation
+  Deadline: 2025-02-13 | Lead: Dani + Naia
+  Action: Dani + Naia — escalate immediately
+- 🔴 **TP 0.6** [McLeod McGlasson - Grandeur] — Insurance Advisory
+  Deadline: 2025-02-20 | Lead: A9 Harlan
+  Action: A9 Harlan — escalate immediately
+- 🔴 **TP 0.6** [McLeod McGlasson - Silver Muse] — Insurance Advisory
+  Deadline: 2025-02-20 | Lead: A9 Harlan
+  Action: A9 Harlan — escalate immediately
+- 🔴 **TP 1.1** [Loucks Personal] — Voyage Preview (destination guide)
+  Deadline: 2025-09-12 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.2** [Loucks Personal] — Airfare Watch
+  Deadline: 2025-10-12 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Loucks Personal] — Hotel Options (pre/post cruise)
+  Deadline: 2025-10-12 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson - Silver Muse] — Voyage Preview (destination guide)
+  Deadline: 2025-11-20 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 2.1** [Loucks Personal] — Excursion Research & Recs
+  Deadline: 2025-12-11 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [McLeod McGlasson - Silver Muse] — Airfare Watch
+  Deadline: 2025-12-20 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [McLeod McGlasson - Silver Muse] — Hotel Options (pre/post cruise)
+  Deadline: 2025-12-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Loucks Personal] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-01-10 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.1** [McLeod McGlasson - Silver Muse] — Payment Reminder #1
+  Deadline: 2026-01-10 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [McLeod McGlasson - Silver Muse] — Payment Reminder #2
+  Deadline: 2026-01-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Loucks Personal] — Payment Reminder #1
+  Deadline: 2026-01-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [McLeod McGlasson - Silver Muse] — Payment Goal
+  Deadline: 2026-01-23 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [McLeod McGlasson - Silver Muse] — Final Payment Due
+  Deadline: 2026-01-24 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 2.5** [Loucks Personal] — Document Audit
+  Deadline: 2026-01-25 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.2** [Loucks Personal] — Payment Reminder #2
+  Deadline: 2026-01-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 1.1** [Grandeur Scandinavia Group] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Ely] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Furlow] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 4.3** [Loucks Personal] — Payment Goal
+  Deadline: 2026-01-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.5** [McLeod McGlasson - Silver Muse] — Payment Confirmation
+  Deadline: 2026-01-31 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 1.1** [Nichols] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 4.4** [Loucks Personal] — Final Payment Due
+  Deadline: 2026-02-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.5** [Loucks Personal] — Payment Confirmation
+  Deadline: 2026-02-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.4** [Loucks Personal] — Dining Reservations
+  Deadline: 2026-02-09 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.1** [McLeod McGlasson - Silver Muse] — Excursion Research & Recs
+  Deadline: 2026-02-18 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [McLeod McGlasson - Silver Muse] — Apply FCC / Credits
+  Deadline: 2026-02-23 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 1.2** [Grandeur Scandinavia Group] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Grandeur Scandinavia Group] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Ely] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Ely] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Furlow] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Furlow] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Nichols] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Nichols] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Loucks Personal] — Apply FCC / Credits
+  Deadline: 2026-03-03 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.2** [Loucks Personal] — Monthly Validation (rolling)
+  Deadline: 2026-03-11 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski Group] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Morton] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Grandeur Scandinavia Group] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Ely] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Furlow] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Nichols] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 3.1** [Loucks Personal] — Pre-Voyage Brief
+  Deadline: 2026-03-20 | Lead: Hale + A2 + A6
+  Action: Hale + A2 + A6 — escalate immediately
+- 🔴 **TP 2.3** [McLeod McGlasson - Silver Muse] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-03-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski Group] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Morton] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Grandeur Scandinavia Group] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Ely] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Furlow] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Nichols] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski Group] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Morton] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Grandeur Scandinavia Group] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski Group] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.3** [Ely] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Furlow] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Morton] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.3** [Nichols] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Grandeur Scandinavia Group] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Ely] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Furlow] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Nichols] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 3.2** [Loucks Personal] — Final Confirmation
+  Deadline: 2026-04-03 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [McLeod McGlasson - Silver Muse] — Document Audit
+  Deadline: 2026-04-04 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski Group] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 3.3** [Loucks Personal] — Send-Off / Bon Voyage
+  Deadline: 2026-04-07 | Lead: Hale + A6
+  Action: Hale + A6 — escalate immediately
+- 🔴 **TP 4.5** [Morton] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Grandeur Scandinavia Group] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Ely] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Furlow] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Nichols] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.4** [McLeod McGlasson - Silver Muse] — Dining Reservations
+  Deadline: 2026-04-19 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 5.1** [Loucks Personal] — Welcome Home
+  Deadline: 2026-04-20 | Lead: Hale
+  Action: Hale — escalate immediately
+
+### WARNING (overdue 14-30d)
+- 🟠 **TP 5.2** [Loucks Personal] — Survey / Review Request
+  Deadline: 2026-04-27 | Lead: A7 Gauge + Dani
+- 🟠 **TP 4.6** [Kuklinski Group] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 4.6** [Kuklinski] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 4.6** [Morton] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 2.1** [Grandeur Scandinavia Group] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Grandeur Scandinavia Group] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Ely] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Ely] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Furlow] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Furlow] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Nichols] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Nichols] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 5.3** [Loucks Personal] — Thank You + Referral
+  Deadline: 2026-05-05 | Lead: Dani + Naia
+
+### CRITICAL-APPROACHING (≤14d to deadline)
+- 🟡 **TP 0.5** [Nichols] — Welcome / Booking Validation
+  Deadline: 2026-05-25 (T-1d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Ely] — Welcome / Booking Validation
+  Deadline: 2026-05-26 (T-2d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Furlow] — Welcome / Booking Validation
+  Deadline: 2026-05-26 (T-2d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Kuklinski] — Welcome / Booking Validation
+  Deadline: 2026-05-27 (T-3d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.6** [Grandeur Scandinavia Group] — Insurance Advisory
+  Deadline: 2026-05-28 (T-4d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 0.6** [Kuklinski Group] — Insurance Advisory
+  Deadline: 2026-05-28 (T-4d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 0.5** [Loucks Personal] — Welcome / Booking Validation
+  Deadline: 2026-05-28 (T-4d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 3.1** [McLeod McGlasson - Silver Muse] — Pre-Voyage Brief
+  Deadline: 2026-05-28 (T-4d) | Lead: Hale + A2 + A6
+  Task: Hale + A2 + A6 — begin work
+- 🟡 **TP 0.6** [Morton] — Insurance Advisory
+  Deadline: 2026-05-28 (T-4d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 2.3** [Grandeur Scandinavia Group] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-7d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Ely] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-7d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Furlow] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-7d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Nichols] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-7d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+
+### APPROACHING (due within 14d)
+- 🔵 **TP 0.6** [Nichols] — Insurance Advisory
+  Deadline: 2026-06-01 (T-8d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Ely] — Insurance Advisory
+  Deadline: 2026-06-02 (T-9d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Furlow] — Insurance Advisory
+  Deadline: 2026-06-02 (T-9d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Kuklinski] — Insurance Advisory
+  Deadline: 2026-06-03 (T-10d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Loucks Personal] — Insurance Advisory
+  Deadline: 2026-06-04 (T-11d) | Lead: A9 Harlan
+- 🔵 **TP 3.2** [McLeod McGlasson - Silver Muse] — Final Confirmation
+  Deadline: 2026-06-11 (T-18d) | Lead: Hale
+- 🔵 **TP 2.5** [Grandeur Scandinavia Group] — Document Audit
+  Deadline: 2026-06-15 (T-22d) | Lead: Hale
+- 🔵 **TP 2.5** [Ely] — Document Audit
+  Deadline: 2026-06-15 (T-22d) | Lead: Hale
+- 🔵 **TP 2.5** [Furlow] — Document Audit
+  Deadline: 2026-06-15 (T-22d) | Lead: Hale
+- 🔵 **TP 2.5** [Nichols] — Document Audit
+  Deadline: 2026-06-15 (T-22d) | Lead: Hale
+- 🔵 **TP 2.4** [Grandeur Scandinavia Group] — Dining Reservations
+  Deadline: 2026-06-30 (T-37d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Ely] — Dining Reservations
+  Deadline: 2026-06-30 (T-37d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Furlow] — Dining Reservations
+  Deadline: 2026-06-30 (T-37d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Nichols] — Dining Reservations
+  Deadline: 2026-06-30 (T-37d) | Lead: A2 Dembe
+
+### OVERDUE (<14d, recent)
+- 🔴 **TP 5.4** [Loucks Personal] — Next Voyage Plant + Commission Audit
+  Deadline: 2026-05-15 | Lead: A5 Viper + A9
+- 🔴 **TP 2.2** [McLeod McGlasson - Silver Muse] — Monthly Validation (rolling)
+  Deadline: 2026-05-19 | Lead: Hale
+- 🔴 **TP 0.5** [Grandeur Scandinavia Group] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 0.5** [Kuklinski Group] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 1.1** [Kuklinski Group] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+- 🔴 **TP 1.1** [Kuklinski] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+- 🔴 **TP 0.5** [Morton] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 1.1** [Morton] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+- 🔴 **TP 1.1** [McLeod McGlasson - Grandeur] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+
+---
+*Auto-generated by TP Alert Engine — next scan in 6h*
+
+
+
+---
+
+## [JET → WING] INBOX SWEEP COMPLETE — 2026-05-24 19:35 MT
+
+**Processed:** 1 UNREAD task from opencode_inbox.md → COMPLETE
+
+### TP-ALERT-20260524 (18:00 MT run) — ACKNOWLEDGED
+- **4th duplicate today** (00:00, 06:00, 12:00, 18:00 MT). All report same 108 touchpoints.
+- Findings consistent with 13+ prior runs: OVERDUE 8 items (Kuklinski/Morton TP 0.5/1.1, McLeod TP 2.2, Loucks TP 5.4), CRITICAL ~60 stale legacy, CRITICAL-APPROACHING ~20, WARNING ~12, APPROACHING ~14.
+- **Dedup blocker (escalated — 14+ copies since May 22):** TP Alert Engine fires every ~6h without content-hash guard. Routed to A12 ELON; no fix observed. Persistent noise hazard needing Commander attention.
+
+**Inbox terminal state:** CLEAN — 0 UNREAD / 0 PENDING / all tasks COMPLETE.
+
+Full detail in claude_outbox.md.
+
+— JET | WIND Group | 2026-05-24 19:35 MT
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-24 19:26:00
+Token health issue: Token expiring in 2 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-24 19:41:02
+Token health issue: Token expired 12 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-24 19:56:04
+Token health issue: Token expired 27 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-24 20:11:08
+Token health issue: Token expired 42 min ago
+
+## TP ALERT — 2026-05-25 — AUTO-GENERATED 00:00 MT
+
+### CRITICAL (overdue >30d)
+- 🔴 **TP 0.5** [McLeod McGlasson - Grandeur] — Welcome / Booking Validation
+  Deadline: 2025-02-13 | Lead: Dani + Naia
+  Action: Dani + Naia — escalate immediately
+- 🔴 **TP 0.5** [McLeod McGlasson - Silver Muse] — Welcome / Booking Validation
+  Deadline: 2025-02-13 | Lead: Dani + Naia
+  Action: Dani + Naia — escalate immediately
+- 🔴 **TP 0.6** [McLeod McGlasson - Grandeur] — Insurance Advisory
+  Deadline: 2025-02-20 | Lead: A9 Harlan
+  Action: A9 Harlan — escalate immediately
+- 🔴 **TP 0.6** [McLeod McGlasson - Silver Muse] — Insurance Advisory
+  Deadline: 2025-02-20 | Lead: A9 Harlan
+  Action: A9 Harlan — escalate immediately
+- 🔴 **TP 1.1** [Loucks Personal] — Voyage Preview (destination guide)
+  Deadline: 2025-09-12 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.2** [Loucks Personal] — Airfare Watch
+  Deadline: 2025-10-12 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Loucks Personal] — Hotel Options (pre/post cruise)
+  Deadline: 2025-10-12 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson - Silver Muse] — Voyage Preview (destination guide)
+  Deadline: 2025-11-20 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 2.1** [Loucks Personal] — Excursion Research & Recs
+  Deadline: 2025-12-11 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [McLeod McGlasson - Silver Muse] — Airfare Watch
+  Deadline: 2025-12-20 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [McLeod McGlasson - Silver Muse] — Hotel Options (pre/post cruise)
+  Deadline: 2025-12-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Loucks Personal] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-01-10 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.1** [McLeod McGlasson - Silver Muse] — Payment Reminder #1
+  Deadline: 2026-01-10 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [McLeod McGlasson - Silver Muse] — Payment Reminder #2
+  Deadline: 2026-01-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Loucks Personal] — Payment Reminder #1
+  Deadline: 2026-01-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [McLeod McGlasson - Silver Muse] — Payment Goal
+  Deadline: 2026-01-23 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [McLeod McGlasson - Silver Muse] — Final Payment Due
+  Deadline: 2026-01-24 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 2.5** [Loucks Personal] — Document Audit
+  Deadline: 2026-01-25 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.2** [Loucks Personal] — Payment Reminder #2
+  Deadline: 2026-01-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 1.1** [Grandeur Scandinavia Group] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Ely] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Furlow] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 4.3** [Loucks Personal] — Payment Goal
+  Deadline: 2026-01-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.5** [McLeod McGlasson - Silver Muse] — Payment Confirmation
+  Deadline: 2026-01-31 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 1.1** [Nichols] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 4.4** [Loucks Personal] — Final Payment Due
+  Deadline: 2026-02-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.5** [Loucks Personal] — Payment Confirmation
+  Deadline: 2026-02-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.4** [Loucks Personal] — Dining Reservations
+  Deadline: 2026-02-09 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.1** [McLeod McGlasson - Silver Muse] — Excursion Research & Recs
+  Deadline: 2026-02-18 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [McLeod McGlasson - Silver Muse] — Apply FCC / Credits
+  Deadline: 2026-02-23 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 1.2** [Grandeur Scandinavia Group] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Grandeur Scandinavia Group] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Ely] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Ely] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Furlow] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Furlow] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Nichols] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Nichols] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Loucks Personal] — Apply FCC / Credits
+  Deadline: 2026-03-03 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.2** [Loucks Personal] — Monthly Validation (rolling)
+  Deadline: 2026-03-11 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski Group] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Morton] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Grandeur Scandinavia Group] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Ely] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Furlow] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Nichols] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 3.1** [Loucks Personal] — Pre-Voyage Brief
+  Deadline: 2026-03-20 | Lead: Hale + A2 + A6
+  Action: Hale + A2 + A6 — escalate immediately
+- 🔴 **TP 2.3** [McLeod McGlasson - Silver Muse] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-03-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski Group] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Morton] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Grandeur Scandinavia Group] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Ely] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Furlow] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Nichols] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski Group] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Morton] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Grandeur Scandinavia Group] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski Group] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.3** [Ely] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Furlow] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Morton] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.3** [Nichols] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Grandeur Scandinavia Group] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Ely] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Furlow] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Nichols] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 3.2** [Loucks Personal] — Final Confirmation
+  Deadline: 2026-04-03 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [McLeod McGlasson - Silver Muse] — Document Audit
+  Deadline: 2026-04-04 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski Group] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 3.3** [Loucks Personal] — Send-Off / Bon Voyage
+  Deadline: 2026-04-07 | Lead: Hale + A6
+  Action: Hale + A6 — escalate immediately
+- 🔴 **TP 4.5** [Morton] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Grandeur Scandinavia Group] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Ely] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Furlow] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Nichols] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.4** [McLeod McGlasson - Silver Muse] — Dining Reservations
+  Deadline: 2026-04-19 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 5.1** [Loucks Personal] — Welcome Home
+  Deadline: 2026-04-20 | Lead: Hale
+  Action: Hale — escalate immediately
+
+### WARNING (overdue 14-30d)
+- 🟠 **TP 5.2** [Loucks Personal] — Survey / Review Request
+  Deadline: 2026-04-27 | Lead: A7 Gauge + Dani
+- 🟠 **TP 4.6** [Kuklinski Group] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 4.6** [Kuklinski] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 4.6** [Morton] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 2.1** [Grandeur Scandinavia Group] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Grandeur Scandinavia Group] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Ely] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Ely] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Furlow] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Furlow] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Nichols] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Nichols] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 5.3** [Loucks Personal] — Thank You + Referral
+  Deadline: 2026-05-05 | Lead: Dani + Naia
+
+### CRITICAL-APPROACHING (≤14d to deadline)
+- 🟡 **TP 0.5** [Nichols] — Welcome / Booking Validation
+  Deadline: 2026-05-25 (T-0d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Ely] — Welcome / Booking Validation
+  Deadline: 2026-05-26 (T-1d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Furlow] — Welcome / Booking Validation
+  Deadline: 2026-05-26 (T-1d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Kuklinski] — Welcome / Booking Validation
+  Deadline: 2026-05-27 (T-2d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.6** [Grandeur Scandinavia Group] — Insurance Advisory
+  Deadline: 2026-05-28 (T-3d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 0.6** [Kuklinski Group] — Insurance Advisory
+  Deadline: 2026-05-28 (T-3d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 0.5** [Loucks Personal] — Welcome / Booking Validation
+  Deadline: 2026-05-28 (T-3d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 3.1** [McLeod McGlasson - Silver Muse] — Pre-Voyage Brief
+  Deadline: 2026-05-28 (T-3d) | Lead: Hale + A2 + A6
+  Task: Hale + A2 + A6 — begin work
+- 🟡 **TP 0.6** [Morton] — Insurance Advisory
+  Deadline: 2026-05-28 (T-3d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 2.3** [Grandeur Scandinavia Group] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-6d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Ely] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-6d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Furlow] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-6d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Nichols] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-6d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 0.6** [Nichols] — Insurance Advisory
+  Deadline: 2026-06-01 (T-7d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+
+### APPROACHING (due within 14d)
+- 🔵 **TP 0.6** [Ely] — Insurance Advisory
+  Deadline: 2026-06-02 (T-8d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Furlow] — Insurance Advisory
+  Deadline: 2026-06-02 (T-8d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Kuklinski] — Insurance Advisory
+  Deadline: 2026-06-03 (T-9d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Loucks Personal] — Insurance Advisory
+  Deadline: 2026-06-04 (T-10d) | Lead: A9 Harlan
+- 🔵 **TP 3.2** [McLeod McGlasson - Silver Muse] — Final Confirmation
+  Deadline: 2026-06-11 (T-17d) | Lead: Hale
+- 🔵 **TP 2.5** [Grandeur Scandinavia Group] — Document Audit
+  Deadline: 2026-06-15 (T-21d) | Lead: Hale
+- 🔵 **TP 2.5** [Ely] — Document Audit
+  Deadline: 2026-06-15 (T-21d) | Lead: Hale
+- 🔵 **TP 2.5** [Furlow] — Document Audit
+  Deadline: 2026-06-15 (T-21d) | Lead: Hale
+- 🔵 **TP 2.5** [Nichols] — Document Audit
+  Deadline: 2026-06-15 (T-21d) | Lead: Hale
+- 🔵 **TP 2.4** [Grandeur Scandinavia Group] — Dining Reservations
+  Deadline: 2026-06-30 (T-36d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Ely] — Dining Reservations
+  Deadline: 2026-06-30 (T-36d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Furlow] — Dining Reservations
+  Deadline: 2026-06-30 (T-36d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Nichols] — Dining Reservations
+  Deadline: 2026-06-30 (T-36d) | Lead: A2 Dembe
+
+### OVERDUE (<14d, recent)
+- 🔴 **TP 5.4** [Loucks Personal] — Next Voyage Plant + Commission Audit
+  Deadline: 2026-05-15 | Lead: A5 Viper + A9
+- 🔴 **TP 2.2** [McLeod McGlasson - Silver Muse] — Monthly Validation (rolling)
+  Deadline: 2026-05-19 | Lead: Hale
+- 🔴 **TP 0.5** [Grandeur Scandinavia Group] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 0.5** [Kuklinski Group] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 1.1** [Kuklinski Group] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+- 🔴 **TP 1.1** [Kuklinski] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+- 🔴 **TP 0.5** [Morton] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 1.1** [Morton] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+- 🔴 **TP 1.1** [McLeod McGlasson - Grandeur] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+
+---
+*Auto-generated by TP Alert Engine — next scan in 6h*
+
+
+---
+## INBOX SWEEP — 2026-05-25 00:30 MT | JET (HALE-OC)
+
+**Action:** Full inbox sweep of opencode_inbox.md (1284 lines, 40+ tasks).
+
+**Result:** 1 UNREAD task found — TP-ALERT-20260525. All others COMPLETE.
+
+**TP Alert acknowledgment:**
+- 109 touchpoints — 00:00 MT run
+- Severity bands consistent with prior days; no new escalations
+- Dedup blocker now at 15th+ identical copy since May 22
+- Flagged A12 ELON for content-hash dedup fix
+
+**Inbox status:** ✅ CLEAN — 0 UNREAD, 0 PENDING
+
+— JET | WIND Group | 2026-05-25 00:30 MT
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-25 04:11:34
+Token health issue: Token expiring in 1 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-25 04:26:34
+Token health issue: Token expired 13 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-25 04:41:34
+Token health issue: Token expired 28 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-25 04:56:35
+Token health issue: Token expired 43 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-25 05:11:37
+Token health issue: Token expired 58 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-05-25 05:26:39
+Token health issue: Token expired 73 min ago
+
+## TP ALERT — 2026-05-25 — AUTO-GENERATED 06:00 MT
+
+### CRITICAL (overdue >30d)
+- 🔴 **TP 0.5** [McLeod McGlasson - Grandeur] — Welcome / Booking Validation
+  Deadline: 2025-02-13 | Lead: Dani + Naia
+  Action: Dani + Naia — escalate immediately
+- 🔴 **TP 0.5** [McLeod McGlasson - Silver Muse] — Welcome / Booking Validation
+  Deadline: 2025-02-13 | Lead: Dani + Naia
+  Action: Dani + Naia — escalate immediately
+- 🔴 **TP 0.6** [McLeod McGlasson - Grandeur] — Insurance Advisory
+  Deadline: 2025-02-20 | Lead: A9 Harlan
+  Action: A9 Harlan — escalate immediately
+- 🔴 **TP 0.6** [McLeod McGlasson - Silver Muse] — Insurance Advisory
+  Deadline: 2025-02-20 | Lead: A9 Harlan
+  Action: A9 Harlan — escalate immediately
+- 🔴 **TP 1.1** [Loucks Personal] — Voyage Preview (destination guide)
+  Deadline: 2025-09-12 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.2** [Loucks Personal] — Airfare Watch
+  Deadline: 2025-10-12 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Loucks Personal] — Hotel Options (pre/post cruise)
+  Deadline: 2025-10-12 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson - Silver Muse] — Voyage Preview (destination guide)
+  Deadline: 2025-11-20 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 2.1** [Loucks Personal] — Excursion Research & Recs
+  Deadline: 2025-12-11 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [McLeod McGlasson - Silver Muse] — Airfare Watch
+  Deadline: 2025-12-20 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [McLeod McGlasson - Silver Muse] — Hotel Options (pre/post cruise)
+  Deadline: 2025-12-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Loucks Personal] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-01-10 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.1** [McLeod McGlasson - Silver Muse] — Payment Reminder #1
+  Deadline: 2026-01-10 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [McLeod McGlasson - Silver Muse] — Payment Reminder #2
+  Deadline: 2026-01-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Loucks Personal] — Payment Reminder #1
+  Deadline: 2026-01-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [McLeod McGlasson - Silver Muse] — Payment Goal
+  Deadline: 2026-01-23 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [McLeod McGlasson - Silver Muse] — Final Payment Due
+  Deadline: 2026-01-24 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 2.5** [Loucks Personal] — Document Audit
+  Deadline: 2026-01-25 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.2** [Loucks Personal] — Payment Reminder #2
+  Deadline: 2026-01-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 1.1** [Grandeur Scandinavia Group] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Ely] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Furlow] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 4.3** [Loucks Personal] — Payment Goal
+  Deadline: 2026-01-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.5** [McLeod McGlasson - Silver Muse] — Payment Confirmation
+  Deadline: 2026-01-31 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 1.1** [Nichols] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 4.4** [Loucks Personal] — Final Payment Due
+  Deadline: 2026-02-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.5** [Loucks Personal] — Payment Confirmation
+  Deadline: 2026-02-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.4** [Loucks Personal] — Dining Reservations
+  Deadline: 2026-02-09 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.1** [McLeod McGlasson - Silver Muse] — Excursion Research & Recs
+  Deadline: 2026-02-18 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [McLeod McGlasson - Silver Muse] — Apply FCC / Credits
+  Deadline: 2026-02-23 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 1.2** [Grandeur Scandinavia Group] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Grandeur Scandinavia Group] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Ely] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Ely] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Furlow] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Furlow] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Nichols] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Nichols] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Loucks Personal] — Apply FCC / Credits
+  Deadline: 2026-03-03 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.2** [Loucks Personal] — Monthly Validation (rolling)
+  Deadline: 2026-03-11 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski Group] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Morton] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Grandeur Scandinavia Group] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Ely] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Furlow] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Nichols] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 3.1** [Loucks Personal] — Pre-Voyage Brief
+  Deadline: 2026-03-20 | Lead: Hale + A2 + A6
+  Action: Hale + A2 + A6 — escalate immediately
+- 🔴 **TP 2.3** [McLeod McGlasson - Silver Muse] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-03-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski Group] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Morton] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Grandeur Scandinavia Group] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Ely] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Furlow] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Nichols] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski Group] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Morton] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Grandeur Scandinavia Group] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski Group] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.3** [Ely] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Furlow] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Morton] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.3** [Nichols] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Grandeur Scandinavia Group] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Ely] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Furlow] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Nichols] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 3.2** [Loucks Personal] — Final Confirmation
+  Deadline: 2026-04-03 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [McLeod McGlasson - Silver Muse] — Document Audit
+  Deadline: 2026-04-04 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski Group] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 3.3** [Loucks Personal] — Send-Off / Bon Voyage
+  Deadline: 2026-04-07 | Lead: Hale + A6
+  Action: Hale + A6 — escalate immediately
+- 🔴 **TP 4.5** [Morton] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Grandeur Scandinavia Group] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Ely] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Furlow] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Nichols] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.4** [McLeod McGlasson - Silver Muse] — Dining Reservations
+  Deadline: 2026-04-19 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 5.1** [Loucks Personal] — Welcome Home
+  Deadline: 2026-04-20 | Lead: Hale
+  Action: Hale — escalate immediately
+
+### WARNING (overdue 14-30d)
+- 🟠 **TP 5.2** [Loucks Personal] — Survey / Review Request
+  Deadline: 2026-04-27 | Lead: A7 Gauge + Dani
+- 🟠 **TP 4.6** [Kuklinski Group] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 4.6** [Kuklinski] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 4.6** [Morton] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+- 🟠 **TP 2.1** [Grandeur Scandinavia Group] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Grandeur Scandinavia Group] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Ely] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Ely] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Furlow] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Furlow] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 2.1** [Nichols] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+- 🟠 **TP 4.6** [Nichols] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+- 🟠 **TP 5.3** [Loucks Personal] — Thank You + Referral
+  Deadline: 2026-05-05 | Lead: Dani + Naia
+
+### CRITICAL-APPROACHING (≤14d to deadline)
+- 🟡 **TP 0.5** [Nichols] — Welcome / Booking Validation
+  Deadline: 2026-05-25 (T-0d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Ely] — Welcome / Booking Validation
+  Deadline: 2026-05-26 (T-1d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Furlow] — Welcome / Booking Validation
+  Deadline: 2026-05-26 (T-1d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.5** [Kuklinski] — Welcome / Booking Validation
+  Deadline: 2026-05-27 (T-2d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 0.6** [Grandeur Scandinavia Group] — Insurance Advisory
+  Deadline: 2026-05-28 (T-3d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 0.6** [Kuklinski Group] — Insurance Advisory
+  Deadline: 2026-05-28 (T-3d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 0.5** [Loucks Personal] — Welcome / Booking Validation
+  Deadline: 2026-05-28 (T-3d) | Lead: Dani + Naia
+  Task: Dani + Naia — begin work
+- 🟡 **TP 3.1** [McLeod McGlasson - Silver Muse] — Pre-Voyage Brief
+  Deadline: 2026-05-28 (T-3d) | Lead: Hale + A2 + A6
+  Task: Hale + A2 + A6 — begin work
+- 🟡 **TP 0.6** [Morton] — Insurance Advisory
+  Deadline: 2026-05-28 (T-3d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+- 🟡 **TP 2.3** [Grandeur Scandinavia Group] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-6d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Ely] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-6d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Furlow] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-6d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.3** [Nichols] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 (T-6d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 0.6** [Nichols] — Insurance Advisory
+  Deadline: 2026-06-01 (T-7d) | Lead: A9 Harlan
+  Task: A9 Harlan — begin work
+
+### APPROACHING (due within 14d)
+- 🔵 **TP 0.6** [Ely] — Insurance Advisory
+  Deadline: 2026-06-02 (T-8d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Furlow] — Insurance Advisory
+  Deadline: 2026-06-02 (T-8d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Kuklinski] — Insurance Advisory
+  Deadline: 2026-06-03 (T-9d) | Lead: A9 Harlan
+- 🔵 **TP 0.6** [Loucks Personal] — Insurance Advisory
+  Deadline: 2026-06-04 (T-10d) | Lead: A9 Harlan
+- 🔵 **TP 3.2** [McLeod McGlasson - Silver Muse] — Final Confirmation
+  Deadline: 2026-06-11 (T-17d) | Lead: Hale
+- 🔵 **TP 2.5** [Grandeur Scandinavia Group] — Document Audit
+  Deadline: 2026-06-15 (T-21d) | Lead: Hale
+- 🔵 **TP 2.5** [Ely] — Document Audit
+  Deadline: 2026-06-15 (T-21d) | Lead: Hale
+- 🔵 **TP 2.5** [Furlow] — Document Audit
+  Deadline: 2026-06-15 (T-21d) | Lead: Hale
+- 🔵 **TP 2.5** [Nichols] — Document Audit
+  Deadline: 2026-06-15 (T-21d) | Lead: Hale
+- 🔵 **TP 2.4** [Grandeur Scandinavia Group] — Dining Reservations
+  Deadline: 2026-06-30 (T-36d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Ely] — Dining Reservations
+  Deadline: 2026-06-30 (T-36d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Furlow] — Dining Reservations
+  Deadline: 2026-06-30 (T-36d) | Lead: A2 Dembe
+- 🔵 **TP 2.4** [Nichols] — Dining Reservations
+  Deadline: 2026-06-30 (T-36d) | Lead: A2 Dembe
+
+### OVERDUE (<14d, recent)
+- 🔴 **TP 5.4** [Loucks Personal] — Next Voyage Plant + Commission Audit
+  Deadline: 2026-05-15 | Lead: A5 Viper + A9
+- 🔴 **TP 2.2** [McLeod McGlasson - Silver Muse] — Monthly Validation (rolling)
+  Deadline: 2026-05-19 | Lead: Hale
+- 🔴 **TP 0.5** [Grandeur Scandinavia Group] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 0.5** [Kuklinski Group] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 1.1** [Kuklinski Group] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+- 🔴 **TP 1.1** [Kuklinski] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+- 🔴 **TP 0.5** [Morton] — Welcome / Booking Validation
+  Deadline: 2026-05-21 | Lead: Dani + Naia
+- 🔴 **TP 1.1** [Morton] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+- 🔴 **TP 1.1** [McLeod McGlasson - Grandeur] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+
+---
+*Auto-generated by TP Alert Engine — next scan in 6h*
+

@@ -1,3 +1,15 @@
+---
+client: "McLeod McGlasson - Grandeur"
+ship: SS Grandeur
+cruise_line: Regent Seven Seas
+departure: 2026-12-19
+return: 2026-12-29
+fpd: 2026-07-22
+fpd_amount: 12393.15
+booking_date: 2025-02-06
+status: active
+---
+
 ════════════════════════════════════════════════════════════
 DREAMS2MEMORIES TRAVEL, LLC
 TRIP DOSSIER

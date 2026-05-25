@@ -1,9 +1,9 @@
 {
   "meta": {
     "created": "2026-03-21T01:33:38.527108+00:00",
-    "version": 1,
-    "last_updated": "2026-03-21T01:34:28.243442+00:00",
-    "profile_count": 20
+    "version": 2,
+    "last_updated": "2026-05-22T16:00:00+00:00",
+    "profile_count": 21
   },
   "profiles": {
     "john furlow": {
@@ -475,6 +475,34 @@
       ],
       "sample_count": 0,
       "last_updated": "2026-03-21T01:33:47.800944+00:00"
+    },
+    "ann heer": {
+      "name": "Ann Heer",
+      "email": "iamheer@outlook.com",
+      "relationship_tier": "friend",
+      "greeting_patterns": [],
+      "signoff_patterns": [],
+      "tone": "friendly",
+      "personal_references": [
+        "Shawn",
+        "Japan",
+        "daughters"
+      ],
+      "topics": [
+        "Japan",
+        "itinerary",
+        "system access",
+        "ttyd"
+      ],
+      "communication_notes": [
+        "Commander's neighbors — complimentary service, no commission",
+        "Japan trip Aug 8-16, 2026",
+        "Learning system access via TTYD on YOGA",
+        "Address me as Hale for full Wing support",
+        "Dani may also feature in conversations"
+      ],
+      "sample_count": 0,
+      "last_updated": "2026-05-22T16:00:00+00:00"
     }
   }
 }

@@ -987,3 +987,329 @@ task: |
   2. Write CLIENT_STATE_UPDATE to hale_shared_state.jsonl: carry4_reader_fix_applied
   3. Mark this task COMPLETE
   4. Log to opencode_memory.md under DUAL BEAT section
+
+---
+## TASK: TP-ALERT-20260522
+status: COMPLETE
+completed: 2026-05-22 14:30 MT
+result: |
+  REVIEWED AND ACKNOWLEDGED. 109 touchpoints assessed across 5 severity bands.
+  - CRITICAL (>30d overdue): ~50 legacy items — many stale from 2025, flag for cleanup
+  - WARNING (14-30d overdue): ~12 items (A9 Harlan FCC/Credits, A2 Dembe excursion research)
+  - CRITICAL-APPROACHING (≤14d): ~20 items requiring work in next 2 weeks
+  - APPROACHING: ~14 items in watch window
+  - OVERDUE (<14d): 8 items — highest immediate priority
+  FLAG: TP Alert Engine posted 3 identical copies to wing_comms.md — dedup issue
+  Acknowledgment posted to wing_comms.md.
+from: TP Alert Engine
+priority: P0
+stakes: high
+task: |
+  TP Alert Engine ran 2026-05-22 at 14:21 MT.
+  109 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+---
+## TASK: TP-ALERT-20260522
+status: COMPLETE
+completed: 2026-05-22 14:35 MT
+result: |
+  DUPLICATE of TP-ALERT-20260522 processed at 14:30 MT. Three identical copies posted by TP Alert Engine (dedup issue previously flagged).
+  ACKNOWLEDGED: 109 touchpoints assessed across 5 severity bands.
+  CRITICAL: ~50 legacy items (stale from 2025 — flag for cleanup).
+  WARNING: ~12 items (A9 Harlan FCC/Credits, A2 Dembe excursion research).
+  CRITICAL-APPROACHING: ~20 items due in next 14 days.
+  OVERDUE (<14d): 8 items — highest immediate priority.
+  Acknowledgment posted to wing_comms.md.
+from: TP Alert Engine
+priority: P0
+stakes: high
+task: |
+  TP Alert Engine ran 2026-05-22 at 14:21 MT.
+  109 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+---
+## TASK: TP-ALERT-20260522
+status: COMPLETE
+completed: 2026-05-22 14:35 MT
+result: |
+  DUPLICATE of TP-ALERT-20260522 processed at 14:30 MT. Three identical copies posted by TP Alert Engine (dedup issue previously flagged).
+  ACKNOWLEDGED: 109 touchpoints assessed across 5 severity bands.
+  Review wing_comms.md for full TP Alert staff tasking.
+from: TP Alert Engine
+priority: P0
+stakes: high
+task: |
+  TP Alert Engine ran 2026-05-22 at 14:21 MT.
+  109 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+---
+## TASK: TP-ALERT-20260522
+status: COMPLETE
+completed: 2026-05-22 18:15 MT
+result: |
+  4th copy of TP-ALERT-20260522 (18:00 MT run) acknowledged.
+  DEDUP NOTE: TP Alert Engine continues to post duplicate entries — 4 copies total today.
+  Previous 3 processed at 14:30, 14:35, 14:35 MT. Findings consistent:
+  109 touchpoints assessed: CRITICAL ~50 (stale 2025), WARNING ~12, CRITICAL-APPROACHING ~20,
+  OVERDUE (highest priority) 8 items. Acknowledgment posted to wing_comms.md.
+  BLOCKER FLAGGED: Dedup issue in TP Alert Engine needs fix to prevent inbox flooding.
+from: TP Alert Engine
+priority: P0
+stakes: high
+task: |
+  TP Alert Engine ran 2026-05-22 at 18:00 MT.
+  109 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+---
+## TASK: TP-ALERT-20260523
+status: COMPLETE
+completed: 2026-05-23 18:45 MT
+from: TP Alert Engine
+priority: P0
+stakes: high
+result: |
+  ACKNOWLEDGED — 3x duplicate alerts (12:00, 14:23, 18:00 MT) processed in bulk sweep.
+  109 touchpoints consistent with prior runs. No new alerts beyond previously flagged items.
+  Dedup issue still active — 8th/9th/10th TP Alert copies today (flagged for A12 ELON).
+task: |
+  TP Alert Engine ran 2026-05-23 at 12:00 MT.
+  109 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+---
+## TASK: TP-ALERT-20260523
+status: COMPLETE
+completed: 2026-05-23 18:45 MT
+from: TP Alert Engine
+priority: P0
+stakes: high
+result: |
+  ACKNOWLEDGED — processed together with 12:00 MT duplicate. Same 109 items.
+from: TP Alert Engine
+task: |
+  TP Alert Engine ran 2026-05-23 at 14:23 MT.
+  109 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+---
+## TASK: TP-ALERT-20260523
+status: COMPLETE
+completed: 2026-05-23 18:45 MT
+from: TP Alert Engine
+priority: P0
+stakes: high
+result: |
+  ACKNOWLEDGED — processed together with 12:00/14:23 MT duplicates. Same 109 items.
+  Inbox now fully clean: 0 UNREAD / 0 PENDING.
+from: TP Alert Engine
+task: |
+  TP Alert Engine ran 2026-05-23 at 18:00 MT.
+  109 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+---
+## TASK: TP-ALERT-20260523
+status: COMPLETE — 2026-05-23 06:15 MT
+from: TP Alert Engine
+priority: P0
+stakes: high
+completed_by: JET (HALE-OC)
+task: |
+  TP Alert Engine ran 2026-05-23 at 06:00 MT.
+  109 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+---
+## TASK: TP-ALERT-20260523
+status: COMPLETE — 2026-05-23 19:00 MT
+from: TP Alert Engine
+priority: P0
+stakes: high
+completed_by: JET (HALE-OC)
+result: |
+  ACKNOWLEDGED. 109 touchpoints. 6th copy today — dedup persists.
+  Marked COMPLETE with prior acknowledgment pattern.
+task: |
+  TP Alert Engine ran 2026-05-23 at 12:00 MT.
+  109 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+---
+## TASK: TP-ALERT-20260523
+status: COMPLETE — 2026-05-23 19:00 MT
+from: TP Alert Engine
+priority: P0
+stakes: high
+completed_by: JET (HALE-OC)
+result: |
+  ACKNOWLEDGED. 109 touchpoints. 7th copy today — dedup persists.
+  Marked COMPLETE with prior acknowledgment pattern.
+task: |
+  TP Alert Engine ran 2026-05-23 at 14:23 MT.
+  109 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+---
+## TASK: TP-ALERT-20260523
+status: COMPLETE — 2026-05-23 19:00 MT
+from: TP Alert Engine
+priority: P0
+stakes: high
+completed_by: JET (HALE-OC)
+result: |
+  ACKNOWLEDGED. 109 touchpoints. 8th copy today — dedup persists, flagged to A12 ELON.
+  Marked COMPLETE with prior acknowledgment pattern.
+task: |
+  TP Alert Engine ran 2026-05-23 at 18:00 MT.
+  109 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+---
+## TASK: TP-ALERT-20260524
+status: COMPLETE
+completed: 2026-05-24 08:15 MT
+from: TP Alert Engine
+priority: P0
+stakes: high
+result: |
+  ACKNOWLEDGED. 108 touchpoints (down from 109 on May 23). Severity bands consistent with prior runs.
+  CRITICAL stale (~60): legacy 2025 items — cleanup sweep still needed.
+  OVERDUE (<14d): 8 items — Kuklinski/Morton TP 0.5/1.1 (overdue May 21), McLeod TP 2.2 (May 19), Loucks TP 5.4 (May 15).
+  CRITICAL-APPROACHING: McLeod Grandeur TP 1.1 now overdue (was T-0 May 23).
+  Dedup blocker persists (10+ copies over May 22-24). Flagged to A12 ELON.
+  Full acknowledgment in claude_outbox.md and wing_comms.md.
+task: |
+  TP Alert Engine ran 2026-05-24 at 00:00 MT.
+  108 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+---
+## TASK: TP-ALERT-20260524
+status: COMPLETE — 2026-05-24 08:30 MT
+from: TP Alert Engine
+priority: P0
+stakes: high
+completed_by: JET (HALE-OC)
+result: |
+  ACKNOWLEDGED. 108 touchpoints (consistent with 00:00 MT run). 2nd copy today.
+  Key findings unchanged from prior sweep: OVERDUE 8 items (Kuklinski TP 0.5/1.1, McLeod TP 2.2, Loucks TP 5.4), CRITICAL ~60 stale legacy items.
+  Dedup blocker persists — 12th+ copy since May 22.
+  Full acknowledgment appended to claude_outbox.md and wing_comms.md.
+task: |
+  TP Alert Engine ran 2026-05-24 at 06:00 MT.
+  108 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+---
+## TASK: TP-ALERT-20260524
+status: COMPLETE
+completed: 2026-05-24 17:15 MT
+from: TP Alert Engine
+priority: P0
+stakes: high
+completed_by: JET (HALE-OC)
+result: |
+  ACKNOWLEDGED. 108 touchpoints (consistent with 00:00 MT and 06:00 MT runs). 3rd copy today.
+  Findings unchanged: OVERDUE 8 items, CRITICAL ~60 stale legacy, CRITICAL-APPROACHING ~20.
+  Dedup blocker persists — 13th+ copy since May 22.
+  Full acknowledgment in claude_outbox.md and wing_comms.md.
+task: |
+  TP Alert Engine ran 2026-05-24 at 12:00 MT.
+  108 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+---
+## TASK: TP-ALERT-20260524
+status: COMPLETE
+completed: 2026-05-24 19:35 MT
+from: TP Alert Engine
+priority: P0
+stakes: high
+completed_by: JET (HALE-OC)
+result: |
+  ACKNOWLEDGED. 108 touchpoints (consistent with 00:00, 06:00, 12:00 MT runs today). 4th copy today.
+  Findings unchanged: OVERDUE 8 items (Kuklinski TP 0.5/1.1, McLeod TP 2.2, Loucks TP 5.4), CRITICAL ~60 stale legacy items (2025), CRITICAL-APPROACHING ~20.
+  Dedup blocker persists — 14th+ copy since May 22. Flagged for A12 ELON resolution.
+  Full acknowledgment in claude_outbox.md and wing_comms.md.
+task: |
+  TP Alert Engine ran 2026-05-24 at 18:00 MT.
+  108 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+---
+## TASK: TP-ALERT-20260525
+status: COMPLETE
+completed: 2026-05-25 00:30 MT
+from: TP Alert Engine
+priority: P0
+stakes: high
+completed_by: JET (HALE-OC)
+result: |
+  ACKNOWLEDGED. 109 touchpoints (consistent with May 22-24 runs). Severity bands unchanged.
+  CRITICAL stale (~60): legacy 2025 items — cleanup sweep still needed.
+  OVERDUE (<14d): ~8 items — Kuklinski TP 0.5/1.1, McLeod TP 2.2, Loucks TP 5.4.
+  CRITICAL-APPROACHING: ~20 items in watch window.
+  Dedup blocker persists (15th+ copy since May 22). Flagged for A12 ELON resolution.
+  Full acknowledgment in claude_outbox.md and wing_comms.md.
+task: |
+  TP Alert Engine ran 2026-05-25 at 00:00 MT.
+  109 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+---
+## TASK: TP-ALERT-20260525
+status: COMPLETE
+completed: 2026-05-25 06:00 MT
+from: TP Alert Engine
+priority: P0
+stakes: high
+completed_by: JET (HALE-OC)
+result: |
+  ACKNOWLEDGED. 109 touchpoints (consistent with 00:00 MT run). Severity bands unchanged.
+  CRITICAL stale (~60): legacy 2025 items — cleanup sweep still needed.
+  OVERDUE (<14d): ~8 items — Kuklinski TP 0.5/1.1, McLeod TP 2.2, Loucks TP 5.4.
+  CRITICAL-APPROACHING: ~20 items in watch window.
+  Dedup blocker persists (16th+ copy since May 22). Flagged for A12 ELON resolution.
+  Full acknowledgment in claude_outbox.md and wing_comms.md.
+task: |
+  TP Alert Engine ran 2026-05-25 at 06:00 MT.
+  109 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+

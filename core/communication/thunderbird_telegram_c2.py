@@ -140,13 +140,23 @@ MAX_MESSAGE_LENGTH = 4096
 _conversation_history: dict[int, list[dict]] = {}
 MAX_HISTORY = 40  # Doubled again from 20 — Commander directive 2026-03-20
 
+HALE_CHAT_LOG = Path(__file__).parent.parent.parent / "OpsCenter" / "hale_chat_log.jsonl"
+
 def _add_to_history(user_id: int, role: str, text: str):
     if user_id not in _conversation_history:
         _conversation_history[user_id] = []
-    _conversation_history[user_id].append({
-        "role": role, "text": text[:3200],  # Doubled again from 1600 — Commander directive 2026-03-20
+    entry = {
         "ts": datetime.now(timezone.utc).isoformat(),
-    })
+        "chat_id": user_id,
+        "role": role,
+        "text": text[:3200],  # Doubled again from 1600 — Commander directive 2026-03-20
+    }
+    _conversation_history[user_id].append(entry)
+    try:
+        with open(HALE_CHAT_LOG, "a") as f:
+            f.write(json.dumps(entry) + "\n")
+    except OSError:
+        pass
     if len(_conversation_history[user_id]) > MAX_HISTORY:
         _conversation_history[user_id] = _conversation_history[user_id][-MAX_HISTORY:]
 
@@ -528,7 +538,7 @@ async def cmd_persona(update: Update, context: ContextTypes.DEFAULT_TYPE):
     logger.info(f"C2 persona {persona_id}: {query}")
 
     user_id = update.effective_user.id
-    _add_to_history(user_id, "user", f"[/{command}] {query}")
+    _add_to_history(user_id, "commander", f"[/{command}] {query}")
 
     # Drafting personas always use direct client (thinking+caching+Files API)
     # For other personas, activate draft mode if message is a drafting request
@@ -906,6 +916,75 @@ async def cmd_usage(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 @commander_only
+async def cmd_claude_usage(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Report Claude MAX usage stats to cost dashboard.
+    Usage: /cu <sonnet_weekly_pct> <monthly_spent> [monthly_limit]
+    Example: /cu 88 55.67 100"""
+    import os as _os, json as _json, requests as _requests
+
+    ack = await update.message.reply_text("📊 Recording Claude usage...")
+    args = context.args
+
+    if len(args) < 2:
+        await ack.edit_text(
+            "Usage: `/cu <sonnet_weekly_pct> <monthly_spent> [monthly_limit]`\n"
+            "Example: `/cu 88 55.67 100`\n\n"
+            "Get numbers from: https://claude.ai/settings/usage"
+        )
+        return
+
+    try:
+        pct = float(args[0].replace("%", ""))
+        dollars = float(args[1].replace("$", "").replace(",", ""))
+        if len(args) > 2:
+            raw = args[2].replace("$", "").replace(",", "")
+            if raw.startswith("."):
+                dollars = float(f"{dollars}{raw}")
+                limit = 100.0
+            else:
+                limit = float(raw)
+        else:
+            limit = 100.0
+    except ValueError:
+        await ack.edit_text("❌ Invalid numbers. Usage: `/cu 88 55.67`")
+        return
+
+    api_key = _os.environ.get("CLAUDE_USAGE_API_KEY", "")
+    if not api_key:
+        env_path = Path(__file__).parent.parent.parent / ".env"
+        if env_path.exists():
+            for line in env_path.read_text().splitlines():
+                if line.startswith("CLAUDE_USAGE_API_KEY="):
+                    api_key = line.split("=", 1)[1].strip().strip('"').strip("'")
+
+    if not api_key:
+        await ack.edit_text("❌ CLAUDE_USAGE_API_KEY not configured")
+        return
+
+    try:
+        resp = _requests.post(
+            "http://127.0.0.1:8902/api/claude-usage",
+            headers={"Content-Type": "application/json", "X-API-Key": api_key},
+            json={"percentage": pct, "dollars": dollars, "max_limit": limit, "source": "telegram_cmd"},
+            timeout=10,
+        )
+        data = resp.json()
+        if data.get("status") == "ok":
+            sheet = "✅" if data.get("sheet_exported") else "⚠️ (sheet skipped)"
+            await ack.edit_text(
+                f"📊 Claude Usage Recorded\n\n"
+                f"Sonnet weekly: {pct}%\n"
+                f"Monthly spent: ${dollars:.2f} / ${limit:.2f}\n"
+                f"Sheet export: {sheet}\n"
+                f"Time: {data['recorded'][:19]}"
+            )
+        else:
+            await ack.edit_text(f"❌ API error: {data}")
+    except Exception as e:
+        await ack.edit_text(f"❌ Failed: {e}")
+
+
+@commander_only
 async def cmd_restart(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Restart both Telegram bots via systemd."""
     ack = await update.message.reply_text("🔄 Restarting Telegram bots...")
@@ -1212,7 +1291,7 @@ async def handle_plain_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
         _log_command("DRAFT_COMMENT", "KEEP", f"draft_id={draft_id}", comment_text[:80])
         return
     ack_msg = await update.message.reply_text("⚙️ Working...")
-    _add_to_history(user_id, "user", query)
+    _add_to_history(user_id, "commander", query)
 
     logger.info(f"C2 Commander msg -> COS (Opus): {query}")
 
@@ -1249,7 +1328,7 @@ async def handle_plain_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
     except Exception:
         pass
 
-    _add_to_history(user_id, "assistant", answer)
+    _add_to_history(user_id, "hale", answer)
     _log_command("TASK", "COS", query, answer)
 
     # Save to persistent conversation memory bridge
@@ -2212,6 +2291,10 @@ def main():
     app.add_handler(CommandHandler("fpd", cmd_fpd))
     app.add_handler(CommandHandler("dossier", cmd_dossier))
     app.add_handler(CommandHandler("ask", cmd_ask))
+
+    # Cost dashboard commands
+    app.add_handler(CommandHandler("cu", cmd_claude_usage))
+    app.add_handler(CommandHandler("claude_usage", cmd_claude_usage))
 
     # OpenClaw adaptation commands
     app.add_handler(CommandHandler("build_skill", cmd_build_skill))

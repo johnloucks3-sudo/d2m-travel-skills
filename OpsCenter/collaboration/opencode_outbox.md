@@ -28,6 +28,41 @@ what_done: |
     ⚠️ Full dispatch test blocked by MAX rate limit (reset ~16:10 MDT).
 
 what_next: None — CARRY-4 complete. hale_cc expected wake 22:20Z.
+
+---
+## JET-INFRA-FIX-1-2-3 — 2026-05-23T04:20Z
+status: COMPLETE
+what_done: |
+  THREE FIXES EXECUTED AND VERIFIED.
+
+  FIX-1: n8n Drive-Upload Webhook (bypass)
+    - n8n webhook at /webhook/drive-upload returns 500: workflow has Respond to Webhook nodes
+      but published version registration is broken (workflow_published_version table empty).
+    - n8n API auth (X-N8N-API-KEY) returns 401 — cannot patch workflow via API.
+    - ROOT CAUSE: workflow_publish_history shows last activation 2026-05-08 but published
+      version data never persisted. Manual fix via n8n editor would require re-save + reactivate.
+    - FIX: Created scripts/drive_upload_robust.py — standalone bypass with direct googleapiclient.
+      No n8n dependency. Confirmed working: uploaded test file to Drive (ID: 1iq1lKRNe4JGaNCrW08n_JOyrU8mOdPbP).
+
+  FIX-2: upload_to_drive.py MCP Import
+    - Original code imported drive_upload_file from api.thunderbird_drive — but it's an
+      @mcp.tool() method inside a class, not a module-level function. MockMCP shim was fragile.
+    - FIX: Rewrote upload_to_drive.py with direct googleapiclient OAuth. Same pattern as
+      drive_upload_robust.py. Clear CLI args (--folder-id, --name). Robust error handling.
+    - VERIFIED: Syntax OK, --help works.
+
+  FIX-3: Metronome RED Noise
+    - ROOT CAUSE: evaluate_state() treated stale heartbeat from non-session Claude CC as RED.
+      hale_oc heartbeat showed 490 missed beats from CC — this is EXPECTED when CC not in session.
+    - FIX: Added SESSION_WINDOW_S=3600 check in evaluate_state(). If latest checkpoint is >1hr old,
+      system reports OFFLINE (not RED) — no Telegram alerts, no auto-restart, no noise.
+    - VERIFIED: metronome tick #17 returns OFFLINE (checkpoint 3738s old) instead of RED.
+
+verification:
+  - scripts/drive_upload_robust.py: syntax OK, LIVE UPLOAD CONFIRMED to Drive
+  - upload_to_drive.py: syntax OK, help output valid
+  - metronome.py: syntax OK, tick #17 reports OFFLINE (was RED)
+  - drive_token.json: valid, token refresh path confirmed working
 blockers: None
 
 ---
@@ -191,3 +226,187 @@ Fetched sent message from d2mconcierge Gmail via `_get_gmail_service()` → `mes
 **Clean send.** 7 minor edits, all tone/content, zero structural issues. The HTML pipeline proved itself. No regressions.
 
 ---
+
+---
+## TWO-BRAIN-SESSION-BUILD — 2026-05-22 21:20 MT
+status: COMPLETE
+what_done: |
+  Built two-brain OpenCode skill + METRONOME clock agent for dual-model sessions.
+  
+  Files created:
+  - .opencode/skills/two-brain/SKILL.md — skill with 20+ trigger keywords
+  - OpsCenter/metronome.py — clock daemon (ticks every 5min, 4-tier escalation)
+  - deploy/systemd/metronome.service — systemd oneshot
+  - deploy/systemd/metronome.timer — systemd timer, enabled + active
+  
+  Files modified:
+  - opencode.json — added skills.paths, metronome agent, sonnet-partner agent, /two-brain command
+  
+  METRONOME verified GREEN at tick #4. Next auto-tick in ~4min.
+  Session checkpoint written. Memory persisted to opencode_memory.md.
+  what_next: Commander has a real task to test two-brain on. Awaiting.
+blockers: None
+
+---
+
+## LIFECYCLE-DATA-SOURCE-INVENTORY — 2026-05-22
+status: COMPLETE
+from: A2 Dembe
+task: Inventory of lifecycle monitoring coverage across all 8 variables
+
+---
+
+# LIFECYCLE DATA SOURCE INVENTORY
+**A2 Dembe — Research & Market Intelligence**
+**2026-05-22**
+
+## METHODOLOGY
+Thunderbird codebase surveyed: core/ (13 domains), agents/ (18), api/ (12), OpsCenter/, routines/, dossiers/, intel/.
+
+---
+
+## PER-VARIABLE FINDINGS
+
+### 1. CRUISE (ships, voyages, pricing, availability)
+| Dimension | Finding |
+|-----------|---------|
+| Sources | Ship Intel Dashboard — Playwright scrape 12 target ships via CruiseMapper/Regent/Silversea/Viking/Seabourn/Ponant/Atlas, JSON time-series in `data/ship_intel/`. Booking Monitor — Regent/Viking portal scrape every 6h. Price Monitor — watch list in `core/intel/thunderbird_price_monitor.py`. Fare Sweep — weekly (`agents/thunderbird_fare_sweep.py`). TESS CRM API (`core/booking/thunderbird_tess.py`). Google Sheets (Pricing Tracker, Intel_Log). |
+| Frequency | Ship Intel — daily (systemd timer). Booking Monitor — every 6h. Fare Sweep — weekly Monday 08:00. Price Monitor — on-demand. |
+| Proactive? | YES — three automated pipelines. |
+| Gap | No daily pricing scrape for all booked departures. Fare sweep weekly only. No automated reprice alerts. |
+
+### 2. AIR (DEN business class routes, pricing)
+| Dimension | Finding |
+|-----------|---------|
+| Sources | Amadeus API (`core/travel/thunderbird_flight_search.py` — 1300 lines, 3 MCP tools). Airline Route Monitor (`core/travel/thunderbird_airline_monitor.py` — RSS feeds: Simple Flying, Routes Online, TPG, Cranky Flier). Fare Watch supports flights but active watches are all cruise. Centrav B2B credentials exist, no integration. |
+| Frequency | Amadeus — on-demand only. Airline Monitor — no timer, manual only. Fare Sweep weekly but zero flight entries. |
+| Proactive? | PARTIAL — route change monitor exists but not on timer. No DEN price tracking. |
+| Gap | CRITICAL. No DEN business class pricing watch. No automated DEN flight price monitoring for any client route. |
+
+### 3. HOTEL (pre/post cruise, port cities)
+| Dimension | Finding |
+|-----------|---------|
+| Sources | Hotelbeds/Bedsonline API + Playwright (`core/travel/thunderbird_hotel_search.py` — 1329 lines). room-res.com connector. TP 4.1 "Pre-Cruise Hotels" in TP Scheduler. |
+| Frequency | On-demand only. No scheduled monitoring. |
+| Proactive? | NO |
+| Gap | No proactive hotel price tracking. No pre/post-cruise hotel watchlist. API exists but never scheduled. |
+
+### 4. EXCURSIONS (shorex, private guides)
+| Dimension | Finding |
+|-----------|---------|
+| Sources | Viator + GetYourGuide + Shore Excursions Group (`core/travel/thunderbird_excursions.py` — 499 lines). Amadeus Tours + Musement + portal scraping (`core/travel/thunderbird_tour_search.py` — 1191 lines). TP 4.5 in TP Scheduler. |
+| Frequency | On-demand only. |
+| Proactive? | NO |
+| Gap | No proactive shorex pricing or availability monitoring. Three APIs, zero timers. |
+
+### 5. DINING (specialty restaurants, reservations)
+| Dimension | Finding |
+|-----------|---------|
+| Sources | Dining curation (`core/travel/thunderbird_dining.py` — 461 lines). OpenTable API (`core/travel/thunderbird_opentable.py` — 268 lines). E-30 anchor in anchor date engine. |
+| Frequency | On-demand only. |
+| Proactive? | NO |
+| Gap | No proactive reservation window monitoring. No automated dining alerts. |
+
+### 6. TRANSPORT (transfers, private car, trains)
+| Dimension | Finding |
+|-----------|---------|
+| Sources | Welcome Pickups + Mozio + Blacklane (`core/travel/thunderbird_transfers.py` — 523 lines). TP 4.2 + TP 4.4 in TP Scheduler. Kiwitaxi skill. |
+| Frequency | On-demand only. |
+| Proactive? | NO |
+| Gap | No proactive transport pricing. Three APIs, zero timers. |
+
+### 7. PRICING/PACKAGING (B2B net rates vs brochure)
+| Dimension | Finding |
+|-----------|---------|
+| Sources | Commission Recon (`core/booking/thunderbird_commission_recon.py` — 856 lines). Booking Master (Google Sheets). Fare Watch (cruise). Morning briefing reads Pricing Tracker + Fare Log daily. |
+| Frequency | Commission recon — on-demand. Booking Master — manual. Fare watch — weekly. Sheets read — daily. |
+| Proactive? | PARTIAL — data read daily but manually entered. |
+| Gap | No automated B2B net rate vs brochure comparison. Commission recon not scheduled. |
+
+### 8. CLIENT PREFERENCES/CONSTRAINTS (from dossiers)
+| Dimension | Finding |
+|-----------|---------|
+| Sources | Dossier Scanner (daily 06:45). TP Scheduler (23-touchpoint, daily). FPD Alerter (daily). Anchor Date Engine (892 lines). Auto-Enrich (599 lines). Follow-up Reminders (248 lines). Lifecycle Ingester (6 phases). 28 dossiers. Recipient Profiles (701 lines). |
+| Frequency | Dossier — daily. TP scheduler — daily. FPD — daily. Anchors — daily. |
+| Proactive? | YES — most automated variable. |
+| Gap | No preference change detection. No structured constraint extraction from correspondence. |
+
+---
+
+## OVERALL COVERAGE
+
+| Variable | Score |
+|----------|-------|
+| 1. Cruise | 8/10 |
+| 2. Air | 2/10 |
+| 3. Hotel | 2/10 |
+| 4. Excursions | 2/10 |
+| 5. Dining | 2/10 |
+| 6. Transport | 2/10 |
+| 7. Pricing | 4/10 |
+| 8. Preferences | 8/10 |
+
+**OVERALL: 30/80 (38%)**
+
+---
+
+## TOP 3 GAPS
+
+**Gap 1 — DEN Business Class Air (Variable 2)** — HIGH impact. Home airport, zero proactive pricing. Fix: daily Amadeus query for active client DEN routes. 2-4 hrs.
+
+**Gap 2 — Hotel + Transfer Pricing (Variables 3, 6)** — HIGH impact. Second-largest cost after cruise. Zero scheduled checks despite 4 API integrations. Fix: weekly Pre/Port Logistics Sweep. 3-5 hrs.
+
+**Gap 3 — Dining + Shorex Windows (Variables 4, 5)** — MEDIUM impact. Missing reservation windows means sold-out experiences. Fix: hard-date anchors for dining/shorex windows. 2-3 hrs.
+
+---
+
+## DEMBE'S ASSESSMENT
+
+Commander — we have a world-class cruise monitoring pipeline and a quarter-inch deep everything else. The booking side is tight (dossier scanner, TP scheduler, FPD alerter, anchor dates). But the actual product monitoring — air, hotel, dining, excursions, transport — is all on-demand. We're flying instruments on the cruise and dead reckoning on everything else.
+
+The good news: the API infrastructure is in place. Amadeus, Hotelbeds, OpenTable, Viator, GetYourGuide, Welcome Pickups — all wired as MCP tools. What's missing is the timer. We built an 8-cylinder engine and only 2 have spark plugs.
+
+Fix order stands: Air first (DEN exposure), Hotels+Transfers second (ancillary spend), Dining+Shorex third (experience windows). Ready to write build specs on any.
+
+— A2 Dembe, Brig Gen (Ret.)
+Research & Market Intelligence
+Dreams2Memories Travel Wing
+
+---
+## KEEL MEMO-004 — B2B Pricing — 2026-05-22
+status: COMPLETE
+deliverable: output/keel_b2b_pricing.md
+summary: B2B pricing verification memo for top 2027 cruise candidates (Regent Splendor Coastal Harmony, Oceania Vista Eternal Mediterranean, Silversea Nova). Confirmed no B2B cruise API exists in Thunderbird stack — Centrav is flights only, Hotelbeds is hotels only. Six detailed margin tables with commission estimates per voyage ($750–$3,368/pp). Four alternative verification methods ranked. Recommendation: pursue Coastal Harmony and Eternal Mediterranean for group blocks; build Centrav cruise scraper module as permanent infrastructure. Agent portal verification due 2026-05-24.
+
+---
+## STERLING MEMO-003 — Quality Framework — 2026-05-22
+status: COMPLETE
+deliverable: output/sterling_quality_framework.md
+summary: Quality framework for multi-agent output covering completeness gate pattern (4 gates: structural, content, format, voice fidelity), 5 quality metrics (VF, DA, Timeliness, Completeness, CQS), system reliability measures (GCR, FPY, RR, MR, ARS, TSI), and quality dashboard spec. Written in A7 Sterling voice — dry, data-driven, anti-theater. PONC-anchored every metric. 8-week implementation roadmap included. Measurement gaps documented per signature format.
+
+---
+
+## ELON MEMO-006 — Kill Audit — 2026-05-22
+status: COMPLETE
+deliverable: output/elon_kill_audit.md
+summary: Three kills identified: (1) Kill the dual-inbox markdown message bus — replace with SQLite-backed queue, 5h build; (2) Automate FPD payment tracking — parse invoice dates at booking, data-driven T-60/45/30/7 alerts, 6-8h build; (3) Sunset n8n over 2-week parallel run — port 27 workflows to MCP tools/systemd timers, decommission service. P1: inbox bus + FPD tracker. P2: n8n migration.
+
+---
+
+## WASHINGTON MEMO-007 — Ethics Filter — 2026-05-22
+status: COMPLETE
+deliverable: output/washington_ethics.md
+summary: Ethics filter for the Lifecycle Automation Compact. Five sections: (1) core tension between automation capability and client exposure; (2) Commander/Susie line — appropriate data (wine preference, seating) vs inappropriate (sentiment analysis, relationship inference, pattern analysis of together/apart time); (3) five guardrails — disclosure of tracked data, blush test for inferences, human friction point on new automation, client data control, no off-platform surveillance; (4) five ethical principles — trust as product, client dignity, transparency by default, automation serves client not system, human in loop for judgment calls; (5) green/yellow/red data framework — what to track freely, track with caution, and never track. Written in CH Washington voice — grounded, experiential, non-doctrinal.
+
+---
+## REYES MEMO-005 — Client Experience Flow — 2026-05-22
+status: COMPLETE
+deliverable: output/reyes_experience_flow.md
+summary: Full end-to-end client experience flow map covering 8-variable interconnect (cruise/air/hotel/excursions/dining/transport/pricing/preferences), 5 fracture points where variables disconnect, 5-tier automation build order (12-17h to move 38%→65% lifecycle coverage), ideal frictionless journey mapped as 7-phase emotional arc, and friction vs value scoring per process. Lead finding: the wing has the API infrastructure to score 8/10 on every variable but zero trigger logic connecting them. Recommendation: build DEN air price watch (Tier 1, 2-4h) first.
+
+---
+
+## DEMBE MEMO-002 — Lifecycle Coverage Audit 2.0 — 2026-05-22
+status: COMPLETE
+deliverable: output/dembe_coverage_audit_2.md
+summary: Deep-dive root cause analysis on all 6 gap variables (Air 2/10, Hotel 2/10, Excursions 2/10, Dining 2/10, Transport 2/10, Pricing 4/10). Primary finding — MCP tools exist for all six, zero timers trigger them. Two goose-d2m services (airline-monitor, price-monitor) run daily but produce 0-byte logs — theater, not monitoring. Fare sweep timer has been dead 34+ days (all 15 watches stale). Two-tier remediation plan: Tier 1 (9-12h) recovers fare sweep, builds DEN air pricing sweep + hotel rate sweep, moves coverage 38%→65%. Tier 2 (8-11h) covers excursions, transport, dining. Priority: fix fare sweep timer first (30min), then DEN air sweep (4-6h), then hotel sweep (3-4h). Six API integrations each for excursions and tours — highest leverage build targets.

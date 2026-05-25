@@ -156,6 +156,7 @@ Fares: Kyle/Roger = OMAFSV26-3 (DV1 $3,799pp) | Josh/Erica = OMAPSF26-3 (V1 $3,0
 | 2026-05-15 | Re: Specialty Dining Aboard Viking Mars — Commander personal reply | Kyle — Commander sent direct reply from d2mconcierge acknowledging AI use, context below |
 | 2026-05-15 | Re: Specialty Dining Aboard Viking Mars — Preferences Before We Plan | Kyle |
 | 2026-05-17 | Your Panama Canal Voyage — Mid-Spring Check-In | Kyle |
+| 2026-05-19 | Fwd: Viking Guest Registration Form for Reservation #9593880 | Kyle (from personal) |
 
 ---
 

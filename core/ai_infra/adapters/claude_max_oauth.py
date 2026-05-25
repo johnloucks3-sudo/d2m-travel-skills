@@ -99,3 +99,9 @@ opus_adapter = ClaudeMaxOAuthAdapter(
     model_id="claude-opus-4-6",
     cost_pool="max_weekly_all",
 )
+haiku_adapter = ClaudeMaxOAuthAdapter(
+    name="claude_max_oauth_haiku",
+    model_id="claude-haiku-4-5",
+    cost_pool="max_weekly_haiku",
+    tier_capabilities=["MID", "BULK", "ARB"],
+)

@@ -3,29 +3,53 @@
 **Dreams2Memories Travel, LLC — T2 Wing Exercise**
 
 Multi-source luxury cruise intelligence scraper for Arctic / Europe / Mediterranean sailings.
-Proven pipeline: 654-row master CSV, 32 cruise lines, 4 sources cross-referenced (T2 Exercise, 2026-05-24).
+**10-source pipeline: 205+ sailings, 13+ cruise lines, 3 waves** (Wave 3 complete 2026-05-24).
 
 ---
 
 ## Sources
 
-| Source | Method | Notes |
-|--------|--------|-------|
-| **deluxecruises.com** | gstack Chromium, 22 HTML pages | `scrape_deluxecruises.py` — run manually; 9 luxury lines |
-| **Perx.com** | Hidden API: `sail-personalize.com` | `scrape_perx.py` — fully automated; same backend as CruiseDirect |
-| **OAT.com** | gstack browser | `scrape_oat.py` — 26 pages, expedition/small-ship |
-| **Ponant.com** | gstack browser | `scrape_ponant.py` — `travel-in/[year]/[month]` pages |
+### Wave 1 — Core Sources
+| Source | Method | File |
+|--------|--------|------|
+| **deluxecruises.com** | gstack Chromium, 22 HTML pages | `scrape_deluxecruises.py` — manual run |
+| **Perx.com** | Hidden REST API: `sail-personalize.com` | `scrape_perx.py` — fully automated |
+| **OAT.com** | gstack browser, 26 pages | `scrape_oat.py` — expedition/small-ship |
+| **Ponant.com** | gstack browser | `scrape_ponant.py` — `travel-in/[year]/[month]` |
 
-> vacationstogo.com: **BLOCKED** — interline-only, all endpoints require login. Do not attempt without credentials.
+### Wave 2 — Line-Direct Additions
+| Source | Method | File |
+|--------|--------|------|
+| **HX Expeditions** | Next.js `__NEXT_DATA__` JSON | `scrape_hx.py` |
+| **SeaDream Yacht Club** | gstack browser | `scrape_seadream.py` |
+| **Explora Journeys** | Sitemap XML | `scrape_explora.py` |
+
+### Wave 3 — Aggregators (most travelers never check these)
+| Source | Method | Auth | File |
+|--------|--------|------|------|
+| **CruiseMapper** | requests + BeautifulSoup (static HTML) | None | `scrape_cruisemapper.py` |
+| **CruisesOnly** | gstack browser | None | `scrape_cruisesonly.py` |
+| **CruisePlum** | gstack + authenticated form login | Required (see below) | `scrape_cruiseplum.py` |
+
+> **vacationstogo.com**: BLOCKED — interline-only, all endpoints require login.
+> **CruisePlum credentials**: Set `~/.config/d2m/cruiseplum.env` with `USER=your@email.com` and `PASS=yourpassword`
+> (or env vars `CRUISEPLUM_USER` / `CRUISEPLUM_PASS`)
 
 ---
 
 ## Quick Start
 
-### Full fresh run (Oct/Nov 2026)
+### Full fresh run (Oct/Nov 2026, all 10 sources)
 ```bash
 cd ~/Thunderbird/scripts/cruise_intel
 python3 run_pipeline.py
+```
+
+### Wave 3 only (skip W1+W2 cached sources)
+```bash
+python3 run_pipeline.py \
+  --skip-perx --skip-oat --skip-ponant \
+  --skip-hx --skip-seadream --skip-explora
 ```
 
 ### Reassemble from cached JSONs (no scraping)
@@ -33,38 +57,49 @@ python3 run_pipeline.py
 python3 run_pipeline.py --build-only
 ```
 
+### Skip slow browser scrapers
+```bash
+python3 run_pipeline.py --skip-oat --skip-ponant --skip-cruisesonly --skip-cruiseplum
+```
+
 ### Custom year/months
 ```bash
 python3 run_pipeline.py --year 2027 --months 4 5
 ```
 
-### Skip slow browser scrapers (use cached OAT + Ponant)
+### CruisePlum with explicit credentials
 ```bash
-python3 run_pipeline.py --skip-oat --skip-ponant
+python3 run_pipeline.py --cruiseplum-user you@email.com --cruiseplum-pass yourpass
 ```
 
 ---
 
 ## Individual Scrapers
 
-### Perx (automated, ~2 min)
+### Wave 1
 ```bash
 python3 scrape_perx.py --year 2026 --months 10 11
+python3 scrape_oat.py  --year 2026 --months 10 11   # gstack, ~20 min
+python3 scrape_ponant.py --year 2026 --months 10 11  # gstack, ~5 min
 ```
 
-### OAT (gstack browser, ~20 min)
+### Wave 2
 ```bash
-python3 scrape_oat.py --year 2026 --months 10 11
+python3 scrape_hx.py        --year 2026 --months 10 11
+python3 scrape_seadream.py  --year 2026 --months 10 11   # gstack
+python3 scrape_explora.py   --year 2026 --months 10 11
 ```
 
-### Ponant (gstack browser, ~5 min)
+### Wave 3
 ```bash
-python3 scrape_ponant.py --year 2026 --months 10 11
+python3 scrape_cruisemapper.py --year 2026 --months 10 11  # ~5 min, polite crawl
+python3 scrape_cruisesonly.py  --year 2026 --months 10 11  # gstack, ~10 min
+python3 scrape_cruiseplum.py   --year 2026 --months 10 11  # gstack+login, needs creds
 ```
 
-### Build master only (all sources already scraped)
+### Report generation
 ```bash
-python3 build_master.py
+python3 generate_report.py   # → output/T2_CRUISE_REPORT.html
 ```
 
 ---
@@ -73,12 +108,18 @@ python3 build_master.py
 
 | File | Description |
 |------|-------------|
-| `output/T2_MASTER_CRUISE_OCTOBER_NOVEMBER_2026.csv` | Master 654-row dataset |
+| `output/T2_MASTER_CRUISE_OCTOBER_NOVEMBER_2026.csv` | Master dataset (205+ rows, 10 source flags) |
 | `output/T2_STATS.json` | Run statistics |
+| `output/T2_CRUISE_REPORT.html` | Interactive HTML report (cards + voyage links + filters) |
 | `output/T2_PERX_COMBINED.json` | Perx deduped dataset |
 | `output/T2_OAT_SOURCE_DATA.json` | OAT departure records |
 | `output/T2_PONANT_CLEAN.json` | Ponant filtered dataset |
-| `output/T2_PONANT_PARSED.json` | Ponant raw parse output |
+| `output/T2_HX_SOURCE_DATA.json` | HX Expeditions dataset |
+| `output/T2_SEADREAM_SOURCE_DATA.json` | SeaDream dataset |
+| `output/T2_EXPLORA_SOURCE_DATA.json` | Explora Journeys dataset |
+| `output/T2_CRUISEMAPPER.json` | CruiseMapper dataset (W3) |
+| `output/T2_CRUISESONLY.json` | CruisesOnly dataset (W3) |
+| `output/T2_CRUISEPLUM.json` | CruisePlum dataset (W3, out-the-door pricing) |
 
 ---
 
@@ -97,10 +138,21 @@ python3 build_master.py
 ## Architecture
 
 ```
-scrape_perx.py   ──→ T2_PERX_COMBINED.json     ─┐
-scrape_oat.py    ──→ T2_OAT_SOURCE_DATA.json    ─┼──→ build_master.py ──→ T2_MASTER_*.csv
-scrape_ponant.py ──→ T2_PONANT_CLEAN.json       ─┘                    ──→ T2_STATS.json
-(manual)         ──→ T2_EXERCISE_DEMBE_*.json   ─┘
+Wave 1:
+  scrape_deluxecruises.py ──→ T2_EXERCISE_DEMBE_*.json  ─┐
+  scrape_perx.py          ──→ T2_PERX_COMBINED.json     ─┤
+  scrape_oat.py           ──→ T2_OAT_SOURCE_DATA.json   ─┤
+  scrape_ponant.py        ──→ T2_PONANT_CLEAN.json      ─┤
+                                                          │
+Wave 2:                                                   ├──→ build_master.py
+  scrape_hx.py            ──→ T2_HX_SOURCE_DATA.json    ─┤        │
+  scrape_seadream.py      ──→ T2_SEADREAM_*.json        ─┤        ├──→ T2_MASTER_*.csv
+  scrape_explora.py       ──→ T2_EXPLORA_*.json         ─┤        └──→ T2_STATS.json
+                                                          │
+Wave 3:                                                   │
+  scrape_cruisemapper.py  ──→ T2_CRUISEMAPPER.json      ─┤
+  scrape_cruisesonly.py   ──→ T2_CRUISESONLY.json       ─┤
+  scrape_cruiseplum.py    ──→ T2_CRUISEPLUM.json        ─┘
 ```
 
 **Cross-reference logic:**
@@ -115,6 +167,11 @@ def find_match(ship_norm, dep_date, entries, tolerance=1):
     return None
 ```
 
+**Price authority chain (W3):**
+- CruisePlum (out-the-door) overwrites CruisesOnly price when both exist
+- CruisesOnly carries price but doesn't overwrite existing data
+- CruiseMapper carries no price data
+
 ---
 
 ## deluxecruises.com Manual Scrape
@@ -125,18 +182,55 @@ https://www.deluxecruises.com/{line}/cruises/{month}-{year}.htm
 ```
 Lines covered (9): silversea, regent-seven-seas, seabourn, oceania, crystal, azamara, windstar, ponant, paul-gauguin
 
-Run scrape_deluxecruises.py and save output to `output/T2_EXERCISE_DEMBE_CRUISE_INTELLIGENCE.json`.
+Run `scrape_deluxecruises.py` and save output to `output/T2_EXERCISE_DEMBE_CRUISE_INTELLIGENCE.json`.
+
+---
+
+## Terminal Display — 256-Color
+
+The pipeline uses ANSI 256-color output (Wave 3 upgrade):
+
+| Wave | Color | ANSI Code | Example |
+|------|-------|-----------|---------|
+| W1 | Electric cyan | `\033[38;5;51m` | Perx, OAT, Ponant, deluxe |
+| W2 | Vivid blue | `\033[38;5;33m` | HX, SeaDream, Explora |
+| W3 | Amber orange | `\033[38;5;214m` | CruiseMapper, CruisesOnly, CruisePlum |
+
+Terminal must support 256-color ANSI (virtually all modern terminals do).
+
+---
+
+## HTML Report
+
+`generate_report.py` produces an interactive single-page report with:
+- **Stats bar**: total sailings, Oct/Nov split, line count, multi-source count, source count
+- **By-Cruise-Line cards**: each card shows ships + Oct/Nov pill counts + clickable voyage links
+- **Voyage links**: each link anchors directly to the row in the table below (`href="#v-{idx}"`)
+- **Table**: sortable, filterable by text/month/line, multi-source checkbox
+- **Source badges**: 10 letter badges (D/P/O/N/H/S/E/M/C/L) color-coded by source
+- **Price column**: populated from CruisesOnly/CruisePlum when available
+
+---
+
+## Competitive Value
+
+Our edge is **source depth**, not just source count. We cross-reference:
+- Direct line sites (Ponant, HX, SeaDream, Explora)
+- Travel agencies (deluxecruises.com, OAT)
+- Fare aggregators (Perx, CruisesOnly)  
+- Itinerary databases (CruiseMapper — 15 luxury lines)
+- True-cost pricing (CruisePlum — member-only)
+
+When a voyage appears on 3+ sources, it carries confidence. When pricing differs 20%+ between sources, that's actionable intelligence.
 
 ---
 
 ## Monetization Vectors
 
-1. **Fiverr gig** — "Luxury Cruise Intelligence Report: All sailings [season], [region], 4 sources" → $150–500/report
-2. **Poe.com bot** — Interactive cruise search assistant with live pipeline backend
-3. **D2M lead-gen** — Complimentary cruise market scan as booking hook for prospects
-4. **OA subscription** — Monthly upcoming-season sweep for Outside Agent network
-
-**Prerequisite for external monetization:** Scripts are now productized. A CLI wrapper for Fiverr delivery and a Poe API endpoint are the next build steps.
+1. **D2M lead-gen** — Complimentary cruise market scan as booking hook for prospects
+2. **OA subscription** — Monthly upcoming-season sweep for Outside Agent network
+3. **Fiverr gig** — "Luxury Cruise Intelligence Report: All sailings [season], [region], 10 sources" → $250–750/report
+4. **Poe.com bot** — Interactive cruise search assistant with live pipeline backend
 
 ---
 
@@ -144,9 +238,11 @@ Run scrape_deluxecruises.py and save output to `output/T2_EXERCISE_DEMBE_CRUISE_
 
 | Metric | Value |
 |--------|-------|
-| Wall clock (full run) | ~3 hours first time |
-| Repeatable run (cached sources) | ~30 min |
-| Token spend | ~220K Sonnet 4.6 tokens = $0 on MAX |
-| Commander active time | ~15 min |
+| Wall clock (full 10-source run) | ~4 hours first time |
+| Repeatable run (W1+W2 cached, W3 live) | ~45 min |
+| Token spend | ~$0 on Claude MAX (unlimited) |
+| Commander active time | ~20 min |
 
-*Dreams2Memories Travel, LLC · Thunderbird Wing · T2 Exercise 2026-05-24*
+---
+
+*Dreams2Memories Travel, LLC · Thunderbird Wing · T2 Wave 3 Complete 2026-05-24*

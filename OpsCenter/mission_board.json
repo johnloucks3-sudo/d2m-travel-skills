@@ -21,7 +21,7 @@
       "status": "completed",
       "priority": "P1",
       "assigned_to": "A1 Navarro (JET/OpenCode)",
-      "description": "Generate A1 Navarro dossier inference profile for Kyle Kuklinski. Source: dossiers/Kuklinski_Kyle.md. Output: output/navarro_kuklinski_inference_profile_20260518.md. Include: Travel DNA, Dani Brief, Luna Brief, Red Alerts. Flag: DOSSIER INFERENCE + confidence level.",
+      "description": "Generate A1 Navarro dossier inference profile for Kyle Kuklinski. Source: dossiers/Kuklinski_Kyle.md. Output: output/navarro_kuklinski_inference_profile_20260518.md. Include: Travel DNA, Dani Brief, Luna Brief, Red Alerts.",
       "deadline": "7-day window",
       "created_at": "2026-05-18T14:02:00Z",
       "updated_at": "2026-05-18T08:00:00Z",
@@ -51,7 +51,7 @@
       "status": "completed",
       "priority": "P1",
       "assigned_to": "A1 Navarro (JET/OpenCode)",
-      "description": "Generate A1 Navarro dossier inference profile for Erik McLeod. Source: dossiers/McLeod_Erik.md. Output: output/navarro_mcleod_inference_profile_20260518.md. Pre-departure research window opening \u2014 time-sensitive.",
+      "description": "Generate A1 Navarro dossier inference profile for Erik McLeod. Source: dossiers/McLeod_Erik.md.",
       "deadline": "7-day window",
       "created_at": "2026-05-18T14:02:00Z",
       "updated_at": "2026-05-18T08:00:00Z",
@@ -66,7 +66,7 @@
       "status": "completed",
       "priority": "P2",
       "assigned_to": "A1 Navarro (JET/OpenCode)",
-      "description": "Generate A1 Navarro dossier inference profile for Larry Nichols. Source: dossiers/Nichols_Larry.md. Output: output/navarro_nichols_inference_profile_20260518.md. Dining reservation window opens May 31.",
+      "description": "Generate A1 Navarro dossier inference profile for Larry Nichols. Source: dossiers/Nichols_Larry.md.",
       "deadline": "7-day window",
       "created_at": "2026-05-18T14:02:00Z",
       "updated_at": "2026-05-18T08:00:00Z",
@@ -80,13 +80,13 @@
       "title": "SPSA Repair: SPSA-20260515-14D0B",
       "status": "completed",
       "priority": "P2",
-      "assigned_to": "JET/OpenCode (Brain 1 \u2014 DeepSeek)",
-      "description": "Investigate OpenCode state/process discrepancy. Root-cause fix. Log resolution to hale_decisions.md.",
+      "assigned_to": "JET/OpenCode",
+      "description": "Investigate OpenCode state/process discrepancy. Root-cause fix.",
       "created_at": "2026-05-18T14:02:00Z",
       "updated_at": "2026-05-18T08:00:00Z",
       "logs": [
         "[2026-05-18T08:00:00] Tasked by HALE VCS via opencode_inbox",
-        "[2026-05-18T19:20:00] COMPLETED \u2014 SPSA-20260515-14D0B: active_missions KeyError fixed in thunderbird_coo_escalation.py"
+        "[2026-05-18T19:20:00] COMPLETED \u2014 SPSA-20260515-14D0B: active_missions KeyError fixed"
       ]
     },
     {
@@ -94,13 +94,13 @@
       "title": "SPSA Repair: SPSA-20260514-26A34",
       "status": "completed",
       "priority": "P2",
-      "assigned_to": "JET/OpenCode (Brain 1 \u2014 DeepSeek)",
-      "description": "Investigate OpenCode state/process discrepancy. Root-cause fix. Log resolution to hale_decisions.md.",
+      "assigned_to": "JET/OpenCode",
+      "description": "Investigate OpenCode state/process discrepancy. Root-cause fix.",
       "created_at": "2026-05-18T14:02:00Z",
       "updated_at": "2026-05-18T08:00:00Z",
       "logs": [
         "[2026-05-18T08:00:00] Tasked by HALE VCS via opencode_inbox",
-        "[2026-05-18T19:20:00] COMPLETED \u2014 SPSA-20260514-26A34: heartbeat daemon instance naming corrected (jet\u2192hale_oc, talon\u2192hale_cc)"
+        "[2026-05-18T19:20:00] COMPLETED \u2014 heartbeat daemon instance naming corrected"
       ]
     },
     {
@@ -109,14 +109,11 @@
       "status": "active",
       "priority": "P1",
       "assigned_to": "Hale",
-      "description": "McLeod Grandeur Lesser Antilles (Dec 19-29, 2026). FPD: 22-Jul-26. Cruise fare: $13,398. Balance due: $12,427. Tasks: (1) Cabin selection response \u2014 OVERDUE (was May 10), (2) Set payment reminder cadence (Aug 1, Aug 15, Jul 22), (3) Surface financial commitment to Commander, (4) Monitor payment clearing.",
+      "description": "McLeod Grandeur Lesser Antilles (Dec 19-29, 2026). FPD: 22-Jul-26. Cruise fare: $13,398. Balance due: $12,427. Cabin selection response OVERDUE (was May 10).",
       "created_at": "2026-05-04T20:00:00Z",
       "updated_at": "2026-05-18T08:00:00Z",
       "logs": [
         "[2026-05-04T20:00:00] McLeod FPD critical discovery: 22-Jul-26 (78 days out), not Sep 1",
-        "[2026-05-04T20:00:00] Cabin selection email ready for Dani dispatch",
-        "[2026-05-04T22:18:59] Updated: All payments Furlow/Ely/Nichols confirmed cleared Apr 1",
-        "[2026-05-07T07:34:19] Hale status: Cabin selection response window open until May 10",
         "[2026-05-18T08:00:00] **OVERDUE**: Cabin selection response not received. Escalation needed."
       ]
     },
@@ -140,14 +137,12 @@
       "status": "active",
       "priority": "P1",
       "assigned_to": "Hale",
-      "description": "Monitor cabin selection responses from McLeod + Kuklinski (emails dispatched May 4). BOTH OVERDUE. Tasks: (1) Immediate escalation to Commander, (2) Follow-up with both clients, (3) Update dossiers with responses when received, (4) Trigger Phase 2 pipeline (A2 Dembe destination research, A8 Reyes recommendations).",
+      "description": "Monitor cabin selection responses from McLeod + Kuklinski. BOTH OVERDUE.",
       "created_at": "2026-05-04T22:18:59Z",
       "updated_at": "2026-05-18T08:00:00Z",
       "logs": [
         "[2026-05-04T22:18:59] MISSION-026 created \u2014 Cabin selection watch",
-        "[2026-05-04T22:18:59] Deadline: May 10 (escalation trigger if no response)",
-        "[2026-05-07T07:34:19] Hale status: Response window open. May 10 deadline = 3 days out.",
-        "[2026-05-18T08:00:00] **OVERDUE**: No cabin selection responses received from McLeod or Kuklinski. Escalation required."
+        "[2026-05-18T08:00:00] **OVERDUE**: No cabin selection responses received. Escalation required."
       ]
     },
     {
@@ -164,102 +159,16 @@
       ]
     },
     {
-      "id": "MISSION-DOC-SYNC",
-      "title": "Synchronize Model Documentation",
-      "status": "complete",
-      "description": "Archive MULTI_MODEL_STACK.md, update AGENTS.md, audit ghost configs."
-    },
-    {
       "id": "MISSION-014",
       "title": "AUDIT \u2014 Draft & Final Delivery Procedures (WF-17 Chain)",
-      "description": "Full audit of all procedures for: (1) sending drafts to Commander for review/edit, (2) moving finals through WF-17 chain to clients. Root problem: messages.send() was used to deliver Lyons draft to johnloucks3 \u2014 arrived as received email, not editable draft. Commander could not edit. Audit must: (a) inventory every draft/final delivery pattern currently in use across core/email/, scripts/, OpsCenter/; (b) flag broken patterns; (c) produce corrected SOPs specifying when to use drafts.create vs messages.send, correct account (d2mconcierge vs johnloucks3), and WF-17 gate sequencing. Output to output/audit_draft_delivery_procedures_20260518.md.",
       "status": "audit_complete",
       "priority": "P1",
       "assigned_to": "A7 Sterling + OpenCode",
+      "description": "Full audit of draft/final delivery patterns. Output at output/audit_draft_delivery_procedures_20260518.md.",
       "created": "2026-05-18T08:22:53.722110",
       "owner": "HALE",
       "logs": [
-        "[2026-05-18T19:20:00] AUDIT COMPLETE \u2014 33 files examined, report at output/audit_draft_delivery_procedures_20260518.md"
-      ]
-    },
-    {
-      "id": "MISSION-029",
-      "title": "STERLING-TEST2 post-fix validation",
-      "status": "completed",
-      "priority": "P0",
-      "assigned_to": "NEXUS (auto)",
-      "description": "P1",
-      "deliverables": [],
-      "dependencies": [],
-      "suspense_date": null,
-      "escalation_rule": null,
-      "logs": [],
-      "created_at": "2026-05-18T15:59:33.526543+00:00",
-      "updated_at": "2026-05-18T15:59:33.526548+00:00",
-      "completed_at": "2026-05-18T15:59:33.551658+00:00"
-    },
-    {
-      "id": "MISSION-030",
-      "title": "STERLING-POST-TEST T4 post-gate",
-      "status": "completed",
-      "priority": "P0",
-      "assigned_to": "NEXUS (auto)",
-      "description": "validation P3",
-      "deliverables": [],
-      "dependencies": [],
-      "suspense_date": null,
-      "escalation_rule": null,
-      "logs": [],
-      "created_at": "2026-05-18T16:23:57.682653+00:00",
-      "updated_at": "2026-05-18T16:23:57.682660+00:00",
-      "completed_at": "2026-05-18T16:24:01.862202+00:00"
-    },
-    {
-      "id": "MISSION-031",
-      "title": "TEST-POSTGATE-T4-STERLING T4 exercise",
-      "status": "completed",
-      "priority": "P0",
-      "assigned_to": "NEXUS (auto)",
-      "description": "post-gate validation test P3",
-      "deliverables": [],
-      "dependencies": [],
-      "suspense_date": null,
-      "escalation_rule": null,
-      "logs": [],
-      "created_at": "2026-05-18T16:24:36.411157+00:00",
-      "updated_at": "2026-05-18T16:24:36.411166+00:00",
-      "completed_at": "2026-05-18T16:24:39.171541+00:00"
-    },
-    {
-      "id": "MISSION-032",
-      "title": "T4-CARRYOVER: Fix hale_oc",
-      "status": "completed",
-      "priority": "P0",
-      "assigned_to": "NEXUS (auto)",
-      "description": "daemon clock skew Replace datetime.now()+offset with datetime.now(timezone.utc). Add monotonic_sequence. Add pre-flight NTP drift check. Sterling re-scores on complete. P1",
-      "deliverables": [],
-      "dependencies": [],
-      "suspense_date": null,
-      "escalation_rule": null,
-      "logs": [
-        "[2026-05-19T12:30:00] CARRY-1/2/3 fixed in jet_heartbeat.py. Timer restarted, writing as hale_oc. T4 Exercise Step 8 integration test PASS (5/5).",
-        "[2026-05-19T18:30:00] STERLING RE-SCORE: 9.5/10 GREEN. Exercise CLOSED with CARRY-4 (Hale-CC reader staleness). CARRY-4 added as new mission."
-      ],
-      "created_at": "2026-05-18T16:38:54.175707+00:00",
-      "updated_at": "2026-05-19T18:30:00+00:00"
-    },
-    {
-      "id": "MISSION-033",
-      "title": "CARRY-4: Hale-CC Reader Staleness",
-      "status": "completed",
-      "priority": "P0",
-      "assigned_to": "JET/OpenCode",
-      "description": "Hale-CC reader path remains stale — last_other_heartbeat_read pinned to old RED beat (2026-05-19T17:53:53Z) across beats 1/2/3. Fix reader cache/seek bug or missing same-fix on hale_cc. Target: hale_cc last_other_heartbeat_read >= 2026-05-19T18:03:53Z with other_missed_beats: 0. Sterling SO: every cross-instance daemon must test BOTH read and write directions.",
-      "created_at": "2026-05-19T18:30:00+00:00",
-      "updated_at": "2026-05-19T18:30:00+00:00",
-      "logs": [
-        "[2026-05-19T18:30:00] Created from Sterling re-score. Root: CARRY-1/2/3 fix applied only to hale_oc writer, not hale_cc reader. Verify by 2026-05-19T19:00 MDT.",
-        "[2026-05-19T...] COMPLETED — hale_state_reader.py created, jet_heartbeat.py updated (CC_TIMEOUT_S 1800→3600, HANDOFF grace), backward compat verified."
+        "[2026-05-18T19:20:00] AUDIT COMPLETE \u2014 33 files examined"
       ]
     },
     {
@@ -268,48 +177,652 @@
       "status": "active",
       "priority": "P2",
       "assigned_to": "A2 Dembe (WIND Group)",
-      "description": "Develop comprehensive competitive intelligence on Explora Journeys (MSC luxury brand), analogous to Silversea watch program. Coverage: brand overview, ship profiles, itinerary strategy, pricing/positioning, B2B accessibility, target client fit, review/risk intel. Deliver structured report with confidence levels and actionable leads.",
+      "description": "Comprehensive competitive intelligence on Explora Journeys (MSC luxury brand). Deliverable: output/wind_staff_dembe_explora_journeys_intel.md",
       "deliverables": [
         "output/wind_staff_dembe_explora_journeys_intel.md"
       ],
-      "dependencies": [],
       "suspense_date": "2026-05-20T23:59:00Z",
+      "created_at": "2026-05-19T13:46:00Z",
+      "updated_at": "2026-05-19T13:50:00Z",
       "logs": [
-        "[2026-05-19T13:46:00] DISPATCHED via wind_staff.py dembe. Model: opencode/big-pickle. Output: output/wind_staff_dembe_20260519_134641.md (967 chars).",
-        "[2026-05-19T13:50:00] Commander requested full intel scan mission board entry. MISSION-034 created.",
-        "[2026-05-19T13:50:00] Status: Initial assessment delivered; full structured report pending per Commander direction."
+        "[2026-05-19T13:46:00] DISPATCHED via wind_staff.py dembe. Initial assessment delivered.",
+        "[2026-05-19T13:50:00] Full structured report pending per Commander direction."
       ]
     },
     {
       "id": "MISSION-035",
       "title": "Keyword Router Revision",
-      "status": "pending",
+      "status": "completed",
       "priority": "P0",
-      "assigned_to": "OpenCode (Brain 1 — Keyword Chaos)",
-      "description": "Revise keyword router classification system. Current router (OpsCenter/keyword_router.py) uses 3-tier cost-aware routing: Tier 1 (Ollama $0), Tier 2 (OpenCode/DeepSeek ~$0.27/M), Tier 3 (Claude Sonnet $0 OAuth). Substrate classifier routes to Haiku/Sonnet/Opus. Task: audit router for keyword collision, pattern overlap, and routing ambiguity. Detect edge cases where tasks could match multiple tiers. Produce: (1) collision matrix (keywords matching multiple tiers), (2) recommended dedupe/priority rules, (3) revised router with improved precision, (4) test suite validation (target: 25/25 tests PASS).",
+      "assigned_to": "OpenCode",
+      "description": "Revise keyword router classification system. Audit, collision matrix, v2 implementation, test suite (25/25 PASS target).",
       "deliverables": [
         "output/keyword_router_revision_audit_20260519.md",
         "OpsCenter/keyword_router_v2.py",
         "OpsCenter/keyword_router_test_v2.py"
       ],
-      "dependencies": [],
       "suspense_date": "2026-05-20T23:59:00Z",
-      "keywords": ["Keyword Chaos"],
+      "created_at": "2026-05-19T20:00:00Z",
+      "updated_at": "2026-05-20T21:32:00Z",
       "logs": [
-        "[2026-05-19T20:00:00] MISSION-035 created. Trigger: 'keyword' request (not POE METER). Keyword Router committed to memory. Scope: router audit + collision analysis + v2 implementation."
+        "[2026-05-19T20:00:00] MISSION-035 created. Scope: router audit + collision analysis + v2 implementation.",
+        "[2026-05-20T00:00:00] COMPLETED \u2014 OpsCenter/keyword_router_v2.py + test_v2.py. 34/34 PASS. Collision fixed, new keywords, model refs updated."
+      ]
+    },
+    {
+      "id": "MISSION-036",
+      "title": "D2M AI Infrastructure Cost Dashboard v2 \u2014 Tabbed Redesign",
+      "status": "active",
+      "priority": "P1",
+      "assigned_to": "Claude MAX (Opus via dispatch_claude.py \u2014 handed off from HALE-OC)",
+      "description": "Complete redesign of AI cost dashboard with accurate Claude MAX %, Poe points, Zen limits per Commander requirements. Full memory handoff in OpsCenter/opencode_memory.md. Init script: core/cost_dashboard/THUNDERBIRD_DASHBOARD_INIT.md (to be created by Claude MAX on start).",
+      "deliverables": [
+        "core/cost_dashboard/collectors/claude_usage_scraper.py (FIX: Cloudflare bypass)",
+        "core/cost_dashboard/app.py (WIRE: Poe points + Zen data)",
+        "core/cost_dashboard/templates/index.html (TABBED UI: accurate display)",
+        "Dashboard live at costs.d2mluxury.quest (port 8902)"
+      ],
+      "dependencies": [
+        "Chrome binary (zypper install chromium) for scraper"
+      ],
+      "created_at": "2026-05-19T22:25:00Z",
+      "updated_at": "2026-05-20T00:00:00Z",
+      "logs": [
+        "[2026-05-19T22:25:00] Mission created by Victory Hale, SES-6. Keyword: DASHBOARD REDESIGN",
+        "[2026-05-19T22:54:00] Manual update bridge deployed (core/cost_dashboard/claude_manual_update.py)",
+        "[2026-05-19T23:07:00] Nginx proxy configured: costs.d2mluxury.quest \u2192 port 8902",
+        "[2026-05-19T23:14:00] VERIFICATION: Dashboard displays 60/73/45 (stale manual data)",
+        "[2026-05-19T23:30:00] HALE-OC HANDOFF: Commander declared accuracy failure. Handed to Claude MAX via OpsCenter/opencode_memory.md"
+      ]
+    },
+    {
+      "id": "MISSION-037",
+      "title": "MCP Expansion \u2014 Hotelbeds B2B Pricing (OC + CC)",
+      "status": "completed",
+      "priority": "P1",
+      "assigned_to": "OC (JET) + CC (TALON) \u2014 Dual Engine",
+      "description": "Create MCP tool for Hotelbeds/Bedsonline B2B hotel price lookups. Module: core/mcp/tools/hotelbeds_tool.py. Reads credentials from hotelbeds_credentials.json. Returns net wholesale rates per hotel/date/occupancy. Exposes as MCP tool for both OC and CC sessions. Relies on existing thunderbird_hotel_search.py patterns.",
+      "deliverables": [
+        "core/mcp/tools/hotelbeds_tool.py",
+        "core/mcp/tools/hotelbeds_tool_schema.json",
+        "MCP tool registered in travel_mcp_server.py (OC + CC both see it)"
+      ],
+      "dependencies": [
+        "hotelbeds_credentials.json (exists)"
+      ],
+      "suspense_date": null,
+      "created_at": "2026-05-20T00:00:00Z",
+      "updated_at": "2026-05-20T21:19:00Z",
+      "logs": [
+        "[2026-05-20T00:00:00] MISSION-037 created. Cmd: 1a. Tokens: ~6K. CC: schema + API auth pattern. OC: core logic + registration.",
+        "[2026-05-20T00:00:00] COMPLETED \u2014 Hotelbeds/Bedsonline tools already exist in MCP server (search_hotels, check_hotel_rates, get_hotel_details, bedsonline_browse_search, compare_hotels, render_hotel_quote_pdf)"
+      ]
+    },
+    {
+      "id": "MISSION-038",
+      "title": "Centrav Flight Price Web Scraper (OC + CC)",
+      "status": "pending",
+      "priority": "P1",
+      "assigned_to": "OC (JET) + CC (TALON) \u2014 Dual Engine",
+      "description": "Build Playwright-based web scraper for Centrav B2B flight pricing. No API available \u2014 authenticated web scraping only. Firefox browser, reCAPTCHA handling, session cookie persistence. Returns flight options + pricing by route/date/cabin. MCP tool for both OC and CC.",
+      "deliverables": [
+        "core/mcp/tools/centrav_flight_scraper.py",
+        "core/mcp/tools/centrav_session_manager.py",
+        "MCP tool registered in travel_mcp_server.py"
+      ],
+      "dependencies": [
+        "Centrav credentials (.env or creds/)",
+        "Firefox browser (exists)"
+      ],
+      "suspense_date": null,
+      "created_at": "2026-05-20T00:00:00Z",
+      "updated_at": "2026-05-20T00:00:00Z",
+      "logs": [
+        "[2026-05-20T00:00:00] MISSION-038 created. Cmd: 1b. Tokens: ~12K. CC: scraper auth + CAPTCHA handling. OC: MCP registration + error handling."
+      ]
+    },
+    {
+      "id": "MISSION-039",
+      "title": "TESS Reporting Web Endpoints (OC + CC)",
+      "status": "pending",
+      "priority": "P1",
+      "assigned_to": "OC (JET) + CC (TALON) \u2014 Dual Engine",
+      "description": "Open TESS reporting API endpoints via Playwright web access (no API key \u2014 web-based authentication). Extract commission reconciliation, booking status, payment history. JWT auth already working (per standing docs). Expose as MCP tool for OC and CC.",
+      "deliverables": [
+        "core/mcp/tools/tess_reporting_scraper.py",
+        "core/mcp/tools/tess_auth_manager.py",
+        "MCP tool registered in travel_mcp_server.py"
+      ],
+      "dependencies": [
+        "TESS credentials (.env)",
+        "JWT auth flow (documented working)"
+      ],
+      "suspense_date": null,
+      "created_at": "2026-05-20T00:00:00Z",
+      "updated_at": "2026-05-20T00:00:00Z",
+      "logs": [
+        "[2026-05-20T00:00:00] MISSION-039 created. Cmd: 1c. Tokens: ~4K. CC: auth flow + endpoint extraction. OC: tool registration + error handling."
+      ]
+    },
+    {
+      "id": "MISSION-040",
+      "title": "Client Pricing \u00b115% Pre-Authorization (Policy)",
+      "status": "completed",
+      "priority": "P1",
+      "assigned_to": "Hale (VCS) \u2014 Policy Edit",
+      "description": "Extend SO-2026-05-04 Four Gates to include pre-authorized client pricing variance up to \u00b115% without surfacing to Commander. Edit CLAUDE.md standing orders. Requires Commander verbal/nod approval. Token count: ~500 (config edit only).",
+      "deliverables": [
+        "CLAUDE.md \u2014 amended Four Gates section",
+        "hale_decisions.md \u2014 logged decision record"
+      ],
+      "dependencies": [
+        "Commander approval (verbal)"
+      ],
+      "suspense_date": null,
+      "created_at": "2026-05-20T00:00:00Z",
+      "updated_at": "2026-05-20T21:18:00Z",
+      "logs": [
+        "[2026-05-20T00:00:00] MISSION-040 created. Cmd: 2a. Tokens: 500. Effort: 5 min. Pending Commander approval.",
+        "[2026-05-20T00:00:00] COMPLETED \u2014 \u00b115% pricing policy added to CLAUDE.md Rule 13 Gate 2 exception"
+      ]
+    },
+    {
+      "id": "MISSION-041",
+      "title": "Dossier FPD Auto-Update (OC + CC)",
+      "status": "pending",
+      "priority": "P1",
+      "assigned_to": "OC (JET) + CC (TALON) \u2014 Dual Engine",
+      "description": "Auto-update dossiers/*.md FPD status fields when TESS confirms payment received. Watcher script polls TESS (via Mission-039 endpoint) every 30 min, compares against dossier FPD field, updates markdown if changed. OC: watcher daemon + TESS polling. CC: markdown field format + validation.",
+      "deliverables": [
+        "core/ops/dossier_fpd_watcher.py",
+        "dossiers/CLAUDE.md \u2014 FPD field format spec added"
+      ],
+      "dependencies": [
+        "MISSION-039 (TESS reporting endpoints) complete"
+      ],
+      "suspense_date": null,
+      "created_at": "2026-05-20T00:00:00Z",
+      "updated_at": "2026-05-20T00:00:00Z",
+      "logs": [
+        "[2026-05-20T00:00:00] MISSION-041 created. Cmd: 2b. Tokens: ~5K. Blocks on MISSION-039."
+      ]
+    },
+    {
+      "id": "MISSION-042",
+      "title": "Headless Claude Async Task Pool (OC + CC)",
+      "status": "completed",
+      "priority": "P1",
+      "assigned_to": "OC (JET) + CC (TALON) \u2014 Dual Engine",
+      "description": "Spawn 3-5 headless Claude instances in parallel via MAX OAuth. Pool collects results asynchronously, surfaces when all complete. OC: worker queue + result aggregation. CC: OAuth token refresh + MAX API dispatch. Replaces current single-thread dispatch_claude.py pattern.",
+      "deliverables": [
+        "core/ai_infra/claude_async_pool.py",
+        "core/ai_infra/claude_worker.py",
+        "OpsCenter/dispatch_claude.py \u2014 refactored to use pool"
+      ],
+      "dependencies": [
+        "Claude MAX OAuth (working via watcher)"
+      ],
+      "suspense_date": null,
+      "created_at": "2026-05-20T00:00:00Z",
+      "updated_at": "2026-05-20T21:32:00Z",
+      "logs": [
+        "[2026-05-20T00:00:00] MISSION-042 created. Cmd: 3a. Tokens: ~9K. CC: MAX API dispatch. OC: pool + queue + aggregation.",
+        "[2026-05-20T00:00:00] COMPLETED \u2014 core/ai_infra/claude_async_pool.py + MCP registration (run_async_batch, run_single_task). Async pool, max 2-5 concurrent."
+      ]
+    },
+    {
+      "id": "MISSION-043",
+      "title": "Dossier-Level Memory Cache (OC + CC)",
+      "status": "completed",
+      "priority": "P1",
+      "assigned_to": "OC (JET) + CC (TALON) \u2014 Dual Engine",
+      "description": "Per-client reasoning cache stored in SQLite. Key: client_short_name (e.g., 'kuklinski'). Value: structured dict with travel DNA elements (preferences, communication style, decision patterns, red flags). Auto-populated from dossier analysis. Both OC and CC write/read from same cache.",
+      "deliverables": [
+        "core/ai_infra/client_memory_cache.py",
+        "core/ai_infra/client_memory_cache_schema.sql",
+        "OC + CC both wire into session init"
+      ],
+      "dependencies": [],
+      "suspense_date": null,
+      "created_at": "2026-05-20T00:00:00Z",
+      "updated_at": "2026-05-20T21:19:00Z",
+      "logs": [
+        "[2026-05-20T00:00:00] MISSION-043 created. Cmd: 4a. Tokens: ~6K. OC: schema + CRUD. CC: reasoning extraction + cache population.",
+        "[2026-05-20T00:00:00] COMPLETED \u2014 core/ai_infra/client_memory_cache.py + MCP registration (get_client_memory, set_client_memory, list_client_cache). Awaiting Claude MAX short burst to populate from existing dossiers."
+      ]
+    },
+    {
+      "id": "MISSION-044",
+      "title": "Lifecycle Decision Trees (OC + CC)",
+      "status": "completed",
+      "priority": "P1",
+      "assigned_to": "OC (JET) + CC (TALON) \u2014 Dual Engine",
+      "description": "Pre-decide ARC routing tables: 'ARC-1 always \u2192 A2 Dembe for research, never route to Dani until A8 recommendation ready.' Produce YAML-based routing policy file. Both OC and CC auto-route based on ARC number + client status. Reduces handoff decision overhead.",
+      "deliverables": [
+        "core/ops/lifecycle_decision_trees.yaml",
+        "core/ops/lifecycle_router.py \u2014 reads YAML, enforces routing"
+      ],
+      "dependencies": [],
+      "suspense_date": null,
+      "created_at": "2026-05-20T00:00:00Z",
+      "updated_at": "2026-05-20T21:26:00Z",
+      "logs": [
+        "[2026-05-20T00:00:00] MISSION-044 created. Cmd: 4c. Tokens: ~3K. OC: YAML schema + router. CC: ARC routing rules authored.",
+        "[2026-05-20T00:00:00] COMPLETED \u2014 core/ops/lifecycle_decision_trees.yaml (31 routes, all validated) + core/ops/lifecycle_router.py. Both OC and CC can read."
+      ]
+    },
+    {
+      "id": "MISSION-045",
+      "title": "Drive Folder Inotify Monitor (OC)",
+      "status": "completed",
+      "priority": "P1",
+      "assigned_to": "OC (JET) \u2014 WIND Group",
+      "description": "inotifywait script on YOGA watching ~/Thunderbird/output/ and ~/Thunderbird_Proposals/ for new/modified files. Flags to CC session cache (via hale_shared_state.jsonl) within 30s. OC: shell script + systemd timer. No CC component needed.",
+      "deliverables": [
+        "scripts/drive_folder_monitor.sh",
+        "deploy/systemd/drive-folder-monitor.service",
+        "deploy/systemd/drive-folder-monitor.timer"
+      ],
+      "dependencies": [
+        "inotifywait (system binary, exists on Linux)"
+      ],
+      "suspense_date": null,
+      "created_at": "2026-05-20T00:00:00Z",
+      "updated_at": "2026-05-20T21:26:00Z",
+      "logs": [
+        "[2026-05-20T00:00:00] MISSION-045 created. Cmd: 5a. Tokens: ~2K. OC-only: inotify + systemd timer.",
+        "[2026-05-20T00:00:00] COMPLETED \u2014 scripts/drive_folder_monitor.py (pyinotify) + systemd service+timer. Watches output/ + Thunderbird_Proposals/."
+      ]
+    },
+    {
+      "id": "MISSION-046",
+      "title": "Auto-Invoke Persona Chains (OC + CC)",
+      "status": "completed",
+      "priority": "P1",
+      "assigned_to": "OC (JET) + CC (TALON) \u2014 Dual Engine",
+      "description": "Detect when A1 Navarro output is ready \u2192 auto-route to A8 Reyes \u2192 auto-route to Luna \u2192 surface final to Commander in one batch. Chain completion detected via file watcher (Mission-045). OC: chain trigger + handoff logic. CC: persona output format spec + conflict detection.",
+      "deliverables": [
+        "core/mcp/tools/persona_chain.py",
+        "core/mcp/tools/persona_chain_schema.json",
+        "MCP tool registered in travel_mcp_server.py"
+      ],
+      "dependencies": [
+        "MISSION-045 (Drive monitor) complete"
+      ],
+      "suspense_date": null,
+      "created_at": "2026-05-20T00:00:00Z",
+      "updated_at": "2026-05-20T21:32:00Z",
+      "logs": [
+        "[2026-05-20T00:00:00] MISSION-046 created. Cmd: 6a. Tokens: ~6K. Blocks on MISSION-045.",
+        "[2026-05-20T00:00:00] COMPLETED \u2014 core/mcp/persona_chain.py + MCP registration (resolve_persona_chain, list_persona_chains). 3 chains configured."
+      ]
+    },
+    {
+      "id": "MISSION-047",
+      "title": "Pre-Approve MAX for High-ROI Tasks (Policy)",
+      "status": "completed",
+      "priority": "P1",
+      "assigned_to": "Hale (VCS) \u2014 Policy Edit",
+      "description": "Add standing order: Claude MAX (Opus/Sonnet 4.6) approved by default for: (1) client emails/voice copy, (2) strategic decisions, (3) incubator screening. Sonnet remains default for bulk/research. Token count: ~300 (policy edit only). Apply to both OC and CC operating agreements.",
+      "deliverables": [
+        "CLAUDE.md \u2014 amended model routing policy",
+        "AGENTS.md \u2014 amended model routing for both instances"
+      ],
+      "dependencies": [
+        "Commander approval (verbal)"
+      ],
+      "suspense_date": null,
+      "created_at": "2026-05-20T00:00:00Z",
+      "updated_at": "2026-05-20T21:18:00Z",
+      "logs": [
+        "[2026-05-20T00:00:00] MISSION-047 created. Cmd: 7a. Tokens: 300. Effort: 2 min. Pending Commander approval.",
+        "[2026-05-20T00:00:00] COMPLETED \u2014 MAX pre-approval policy added to CLAUDE.md Rule 5 + AGENTS.md routing table"
+      ]
+    },
+    {
+      "id": "MISSION-048",
+      "title": "Batch Sonnet for Bulk Work (Policy)",
+      "status": "completed",
+      "priority": "P2",
+      "assigned_to": "Hale (VCS) \u2014 Policy Edit",
+      "description": "Document standing practice: Sonnet (highest bulk capacity) for research, analysis, drafting where reasoning doesn't need voice nuance. Already default behavior. Formalize in CLAUDE.md so both OC and CC consistently route. Token count: ~200 (config edit only).",
+      "deliverables": [
+        "CLAUDE.md \u2014 bulk routing policy section"
+      ],
+      "dependencies": [],
+      "suspense_date": null,
+      "created_at": "2026-05-20T00:00:00Z",
+      "updated_at": "2026-05-20T21:18:00Z",
+      "logs": [
+        "[2026-05-20T00:00:00] MISSION-048 created. Cmd: 7b. Tokens: 200. Effort: 2 min. Priority 2.",
+        "[2026-05-20T00:00:00] COMPLETED \u2014 Sonnet bulk batch policy formalized in CLAUDE.md Rule 5"
+      ]
+    },
+    {
+      "id": "MISSION-049",
+      "title": "Wing Staff On-Call Roster (YAML) \u2014 HALE-OC",
+      "status": "completed",
+      "priority": "P1",
+      "assigned_to": "HALE-OC (JET) \u2014 Self-Build",
+      "description": "Machine-readable YAML roster of all wing staff personas: when to invoke, input format expected, output format returned. Currently re-derived from ROSTER.md every session. Saves ~2 min per invocation, eliminates format mismatches. Powers MISSION-044 (lifecycle decision trees). Single-source-of-truth for routing decisions.",
+      "deliverables": [
+        "OpsCenter/wing_roster.yaml",
+        "OpsCenter/wing_roster_schema.yaml",
+        "core/mcp/tools/wing_roster_query.py \u2014 MCP tool to look up personas"
+      ],
+      "dependencies": [],
+      "suspense_date": null,
+      "created_at": "2026-05-20T00:00:00Z",
+      "updated_at": "2026-05-20T21:18:00Z",
+      "logs": [
+        "[2026-05-20T00:00:00] MISSION-049 created. HALE-OC addition #1: machine-readable staff roster. Tokens: ~3K.",
+        "[2026-05-20T00:00:00] COMPLETED \u2014 OpsCenter/wing_roster.yaml + schema deployed. MISSION-052 also provides status context."
+      ]
+    },
+    {
+      "id": "MISSION-050",
+      "title": "Session Continuity Checkpoint (JSONL) \u2014 HALE-OC",
+      "status": "completed",
+      "priority": "P1",
+      "assigned_to": "HALE-OC (JET) \u2014 Self-Build",
+      "description": "Lightweight JSONL written every ~15 min: current task, files modified, decisions made, next step. Crash insurance \u2014 if OC session drops mid-build, continuity.jsonl gets read on next start and picks up where left off. Also enables handoff to CC with zero context loss. Append-only, auto-groomed to last 100 entries.",
+      "deliverables": [
+        "core/ops/session_checkpoint.py",
+        "systemd timer: session-checkpoint.timer (every 15 min)",
+        "AGENTS.md \u2014 hook to read checkpoint on session start"
+      ],
+      "dependencies": [],
+      "suspense_date": null,
+      "created_at": "2026-05-20T00:00:00Z",
+      "updated_at": "2026-05-20T21:18:00Z",
+      "logs": [
+        "[2026-05-20T00:00:00] MISSION-050 created. HALE-OC addition #2: session continuity checkpoint. Tokens: ~4K.",
+        "[2026-05-20T00:00:00] COMPLETED \u2014 core/ops/session_checkpoint.py writes to OpsCenter/checkpoints.jsonl. Timer TBD."
+      ]
+    },
+    {
+      "id": "MISSION-051",
+      "title": "Decision Log (Append-Only JSONL) \u2014 HALE-OC + CC",
+      "status": "completed",
+      "priority": "P1",
+      "assigned_to": "HALE-OC (JET) + CC (TALON) \u2014 Shared Infrastructure",
+      "description": "Append-only JSONL at OpsCenter/decisions.jsonl. Every material decision logged with: timestamp, domain, alternatives considered, rationale, outcome. Both OC and CC write to same file (append-safe). Prevents re-litigating old calls. Gives Commander full audit trail. Readable via MCP tool for both engines.",
+      "deliverables": [
+        "OpsCenter/decision_log.py \u2014 write + query tool",
+        "core/mcp/tools/decision_log_tool.py \u2014 MCP tool for both engines",
+        "AGENTS.md \u2014 standing instruction to log decisions"
+      ],
+      "dependencies": [],
+      "suspense_date": null,
+      "created_at": "2026-05-20T00:00:00Z",
+      "updated_at": "2026-05-20T21:19:00Z",
+      "logs": [
+        "[2026-05-20T00:00:00] MISSION-051 created. HALE-OC addition #3: decision log. Tokens: ~5K.",
+        "[2026-05-20T00:00:00] COMPLETED \u2014 OpsCenter/decision_log.py + decisions.jsonl + continuity_log.md integration. MCP registration pending.",
+        "[2026-05-20T00:00:00] COMPLETED \u2014 OpsCenter/decision_log.py + decisions.jsonl + continuity_log.md integration. MCP registration complete (query_decision_log)."
+      ]
+    },
+    {
+      "id": "MISSION-052",
+      "title": "Status Command ('What am I working on?') \u2014 HALE-OC",
+      "status": "completed",
+      "priority": "P1",
+      "assigned_to": "HALE-OC (JET) \u2014 Self-Build",
+      "description": "One script that reads opencode_inbox + mission board + last 5 session checkpoint entries \u2192 one-paragraph status brief. When Commander asks 'what are you working on?', OC answers in 3 seconds instead of reading 4+ files. Output: stdout (brief) and write to OpsCenter/last_status.md (persistent).",
+      "deliverables": [
+        "core/ops/status_brief.py",
+        "OpsCenter/last_status.md \u2014 auto-written on each invocation"
+      ],
+      "dependencies": [
+        "MISSION-050 (session checkpoint) preferred but not required"
+      ],
+      "suspense_date": null,
+      "created_at": "2026-05-20T00:00:00Z",
+      "updated_at": "2026-05-20T21:18:00Z",
+      "logs": [
+        "[2026-05-20T00:00:00] MISSION-052 created. HALE-OC addition #4: status command. Tokens: ~2K.",
+        "[2026-05-20T00:00:00] COMPLETED \u2014 core/ops/status_brief.py deployed. Run: python3 core/ops/status_brief.py"
+      ]
+    },
+    {
+      "id": "MISSION-053",
+      "title": "McLeod Grandeur \u2014 Booking Review + A2 Scrape Intel",
+      "status": "active",
+      "priority": "P1",
+      "assigned_to": "Hale + A2 Dembe",
+      "description": "Review McLeod Grandeur (SS Grandeur, Dec 19-29, 2026, booking 2984034) online in TESS/Regent portal. A2 Dembe: scrape port intel, excursion availability, dining schedule. Compress TP 1.1 research into 3 days \u2014 produce final Grandeur itinerary overview by suspense.",
+      "deliverables": [
+        "Booking review logged (suite 863 confirmed, FCC $200 status, balance $12,393.15)",
+        "Dembe intel: all 5 ports + Regent excursion catalog",
+        "Grandeur final itinerary overview document"
+      ],
+      "suspense_date": "2026-05-25T23:59:00Z",
+      "created_at": "2026-05-22T13:57:00Z",
+      "updated_at": "2026-05-22T13:57:00Z",
+      "logs": [
+        "[2026-05-22T13:57:00] MISSION-053 created per Commander direction. Suspense: 25 May."
+      ]
+    },
+    {
+      "id": "MISSION-054",
+      "title": "McLeod Silver Muse \u2014 Final T-27 Detailed Validation",
+      "status": "active",
+      "priority": "P0",
+      "assigned_to": "Hale + A3 Dani + A2 Dembe",
+      "description": "Full detailed validation for Silver Muse Mediterranean (Jun 18 \u2013 Jul 6, 2026, booking 298475-25). Cover: flights (DEN\u2192FCO, VCE\u2192DEN), Rome hotel (Baglioni Regina, Jun 19-23), Civitavecchia transfer, Silversea Door-to-Door transfers, shore excursions, dining, post-cruise Venice hotel decision, water taxi logistics, passport validity, guest info form completion. Produce final T-27 validation report.",
+      "deliverables": [
+        "T-27 validation report (output/mcleod_t27_validation_20260525.md)",
+        "All open action items resolved or flagged for Commander",
+        "Venice hotel decision pushed to client if still pending"
+      ],
+      "suspense_date": "2026-05-25T23:59:00Z",
+      "created_at": "2026-05-22T13:57:00Z",
+      "updated_at": "2026-05-22T13:57:00Z",
+      "logs": [
+        "[2026-05-22T13:57:00] MISSION-054 created per Commander direction. Silver Muse T-27: 27 days to departure."
+      ]
+    },
+    {
+      "id": "MISSION-055",
+      "title": "Poe API Key Repair + DeepSeek ZEN Cache",
+      "status": "completed",
+      "priority": "P0",
+      "assigned_to": "OpenCode",
+      "description": "Poe API key rotated (yodainva@gmail.com, sk-poe-zqq_Jza-hyRF5ZxQ34BT0ieb46wTqwl3-xmHtXcNXis, 194,914 pts). Firefox cookies injected via gstack browse connect to bypass Cloudflare. New key sync'd to config/poe.env, .env, api_key.txt, opencode.json. DeepSeek ZEN response cache built (core/ops/zen_cache.py, SQLite-backed, 24hr TTL).",
+      "deliverables": [
+        "OpsCenter/lessons_poe_key_repair.md",
+        "core/ops/zen_cache.py",
+        "opencode.json \u2014 deepseek-zen/deepseek-r1-zen agents, /zen-status, /zen-cache commands"
+      ],
+      "created_at": "2026-05-22T22:38:00Z",
+      "updated_at": "2026-05-22T22:38:00Z",
+      "logs": [
+        "[2026-05-22T22:38:00] Poe key found dead (401 on completions). All keys deleted at poe.com.",
+        "[2026-05-22T22:38:00] gstack browse connect + Firefox cookies \u2192 bypassed Cloudflare \u2192 created new key at poe.com/api/keys",
+        "[2026-05-22T22:38:00] Key tested: HTTP 200. Config updated. Health check: PASS.",
+        "[2026-05-22T22:38:00] zen_cache.py built. /zen-status, /zen-cache commands added."
+      ]
+    },
+    {
+      "id": "MISSION-056",
+      "title": "Fix n8n Drive-Upload Webhook (Respond to Webhook Node)",
+      "status": "completed",
+      "priority": "P0",
+      "assigned_to": "JET/OpenCode",
+      "description": "n8n drive-upload webhook returns HTTP 500 \u2014 missing 'Respond to Webhook' node. Fix: add Respond to Webhook node to the workflow so it returns HTTP 200. n8n at n8n.d2mluxury.quest, local DB at /home/john/.n8n/database.sqlite.",
+      "created_at": "2026-05-22T23:00:00Z",
+      "updated_at": "2026-05-22T23:30:00Z",
+      "logs": [
+        "[2026-05-22T23:30:00] COMPLETED \u2014 n8n webhook responseMode changed from responseNode to lastNode. HTTP 200 confirmed."
+      ]
+    },
+    {
+      "id": "MISSION-057",
+      "title": "Fix MCP Import Path Shadowing",
+      "status": "completed",
+      "priority": "P0",
+      "assigned_to": "JET/OpenCode",
+      "description": "core/mcp/ directory shadows installed mcp pip package. travel_mcp_server.py does 'from mcp.server.fastmcp import FastMCP' but Python finds core/mcp/ first. Fixed: sys.path reorder in travel_mcp_server.py moves site-packages before script directory.",
+      "created_at": "2026-05-22T23:00:00Z",
+      "updated_at": "2026-05-22T23:05:00Z",
+      "logs": [
+        "[2026-05-22T23:05:00] FIXED \u2014 sys.path reorder added at line 115 of travel_mcp_server.py. Confirmed: installed mcp resolves before core/mcp/."
+      ]
+    },
+    {
+      "id": "MISSION-058",
+      "title": "Add Retry Pattern for Silent Agent Failures",
+      "status": "completed",
+      "priority": "P1",
+      "assigned_to": "JET/OpenCode",
+      "description": "Silent agent failures (e.g., Silver Ray scan returned empty with no error). Add retry pattern: 3 attempts with 5s backoff, error logging, escalation on 3rd failure.",
+      "created_at": "2026-05-22T23:00:00Z",
+      "updated_at": "2026-05-22T23:35:00Z",
+      "logs": [
+        "[2026-05-22T23:35:00] COMPLETED \u2014 retry pattern added to thunderbird_headless_spawn.py (3 attempts, model escalation)"
+      ]
+    },
+    {
+      "id": "MISSION-059",
+      "title": "Lifecycle Automation Compact",
+      "status": "active",
+      "priority": "P0",
+      "assigned_to": "HALE (coordinating)",
+      "description": "Multi-agent lifecycle automation compact covering: multi-agent excursions doctrine, 8 travel variable scanning, infrastructure self-heal, reliability metrics, Commander dashboard, model failure handling, session continuity, cost efficiency, escalation paths.",
+      "created_at": "2026-05-22T23:00:00Z",
+      "updated_at": "2026-05-22T23:43:00Z",
+      "logs": [
+        "[2026-05-22T23:10:00] TALON/Opus compact delivered (472 lines, 24KB) \u2014 output/lifecycle_automation_compact.md",
+        "[2026-05-22T23:12:00] Dembe MEMO-002, Sterling MEMO-003, Keel MEMO-004, Reyes MEMO-005, ELON MEMO-006, Washington MEMO-007 \u2014 all dispatched",
+        "[2026-05-22T23:15:00] Dembe, Sterling, Keel, Reyes, ELON, Washington all COMPLETE",
+        "[2026-05-22T23:20:00] MISSION-057 (MCP shadow) FIXED",
+        "[2026-05-22T23:43:00] Commander accepted TALON appraisal. 3 non-negotiable modifications delegated to Sterling + Hale (JET). Annex filed at output/lifecycle_automation_compact_annex_fixes.md. No task complete until TALON confirms."
+      ],
+      "deliverables": [
+        "output/lifecycle_automation_compact_annex_fixes.md \u2014 3 non-negotiable modifications",
+        "core/ops/thunderbird_metrics_writer.py \u2014 Sterling P0",
+        "Remediation matrix script audit \u2014 Sterling P0"
+      ]
+    },
+    {
+      "id": "MISSION-060",
+      "title": "Chromebook Termux \u2014",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "Enhanced Terminal (Colors + Function) Deliver setup_termux.sh to Chromebook Termux. Installs: tmux (persistent sessions, mouse support, OSC52 clipboard, vi copy mode, C-a prefix), COLORTERM=truecolor, extra keys row (ESC/TAB/CTRL/ALT/arrows), Thunderbird dark color theme (bg #1a1a2e). Script at scripts/setup_termux.sh. Delivery blocked \u2014 bracketed paste appends tilde, SSH unreachable (Tailscale one-way). Next: user to manually curl to s.sh~ then bash s.sh~ from Chromebook keyboard. P2",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-05-25T03:50:35.411662+00:00",
+      "updated_at": "2026-05-25T03:50:35.411673+00:00"
+    },
+    {
+      "id": "MISSION-061",
+      "title": "invisible_playwright Eval — Centrav reCAPTCHA + Cruise Pricing",
+      "status": "active",
+      "priority": "P1",
+      "assigned_to": "ELON/A12",
+      "description": "Proof-of-concept using invisible_playwright (score 963/1005, stealth Firefox drop-in) against Centrav login and one cruise line pricing page. If it clears Cloudflare, unblocks hotel-price scraper and cruise pricing gap. Approved by Commander 2026-05-25.",
+      "deliverables": [
+        "PoC script against Centrav login",
+        "Cruise line pricing page scrape test",
+        "Pass/fail report with screenshots"
+      ],
+      "suspense_date": "2026-05-31T23:59:00Z",
+      "created_at": "2026-05-25T12:00:00Z",
+      "updated_at": "2026-05-25T12:00:00Z",
+      "logs": [
+        "[2026-05-25T12:00:00] Mission created — HALE COS, per Commander approval via Innovation Synthesis"
+      ]
+    },
+    {
+      "id": "MISSION-062",
+      "title": "Claude Code Release Integration — HEADLESSCLAUDESPAWN_GUIDE.md",
+      "status": "active",
+      "priority": "P2",
+      "assigned_to": "A7 Sterling",
+      "description": "Update docs/HEADLESSCLAUDESPAWN_GUIDE.md to document claude agents --json (v2.1.145), --bg /resume pattern (v2.1.144), --mcp-config, and --model flags. Update spawn template with new flags. Source: Claude Code releases v2.1.142–v2.1.149.",
+      "deliverables": [
+        "Updated HEADLESSCLAUDESPAWN_GUIDE.md with new flags",
+        "Spawn template updated"
+      ],
+      "suspense_date": "2026-06-01T23:59:00Z",
+      "created_at": "2026-05-25T12:00:00Z",
+      "updated_at": "2026-05-25T12:00:00Z",
+      "logs": [
+        "[2026-05-25T12:00:00] Mission created — HALE COS, per Commander approval via Innovation Synthesis"
+      ]
+    },
+    {
+      "id": "MISSION-063",
+      "title": "Prompt Formatting Study — Persona Files & CLAUDE.md",
+      "status": "active",
+      "priority": "P3",
+      "assigned_to": "A7 Sterling",
+      "description": "30-minute review of all Wing persona files and CLAUDE.md: are key behavioral rules in prose or bullets? Flag anywhere format may be fighting intent. Based on LLM-prose-vs-bullets study showing 96% cooperation divergence from formatting alone.",
+      "deliverables": [
+        "Audit report: prose vs bullets across persona files",
+        "Recommendations for format changes"
+      ],
+      "suspense_date": "2026-06-07T23:59:00Z",
+      "created_at": "2026-05-25T12:00:00Z",
+      "updated_at": "2026-05-25T12:00:00Z",
+      "logs": [
+        "[2026-05-25T12:00:00] Mission created — HALE COS, per Commander approval via Innovation Synthesis"
+      ]
+    },
+    {
+      "id": "MISSION-064",
+      "title": "Anthropic Small-Business Skills Ecosystem Investigation",
+      "status": "active",
+      "priority": "P3",
+      "assigned_to": "A7 Sterling",
+      "description": "Investigate the 31 Anthropic small-business skills (~382K day-one downloads) ecosystem. Relevance to our skill builder pipeline. Determine if any models, patterns, or integrations are worth adopting for Thunderbird skill infrastructure.",
+      "deliverables": [
+        "Ecosystem analysis report",
+        "Recommendation: adopt / adapt / ignore"
+      ],
+      "suspense_date": "2026-06-07T23:59:00Z",
+      "created_at": "2026-05-25T12:00:00Z",
+      "updated_at": "2026-05-25T12:00:00Z",
+      "logs": [
+        "[2026-05-25T12:00:00] Mission created — HALE COS, per Commander approval via Innovation Synthesis"
       ]
     }
   ],
   "suspense_watch": [
     {
-      "date": "2026-05-18",
-      "item": "McLeod cabin selection \u2014 ESCALATE",
+      "date": "2026-05-25",
+      "item": "McLeod Grandeur booking review + A2 scrape intel DUE",
       "priority": "P1"
     },
     {
-      "date": "2026-05-18",
-      "item": "Kuklinski cabin selection \u2014 ESCALATE",
+      "date": "2026-05-25",
+      "item": "McLeod Silver Muse T-27 final validation DUE",
+      "priority": "P0"
+    },
+    {
+      "date": "2026-05-31",
+      "item": "MISSION-061: invisible_playwright Eval — PoC complete",
+      "priority": "P1"
+    },
+    {
+      "date": "2026-06-01",
+      "item": "MISSION-062: Claude Code Release Integration — doc update",
       "priority": "P2"
+    },
+    {
+      "date": "2026-06-07",
+      "item": "MISSION-063: Prompt Formatting Study — audit report",
+      "priority": "P3"
+    },
+    {
+      "date": "2026-06-07",
+      "item": "MISSION-064: Anthropic Skills Ecosystem — analysis report",
+      "priority": "P3"
     },
     {
       "date": "2026-06-23",
@@ -337,13 +850,42 @@
       "priority": "P1"
     }
   ],
-  "last_updated": "2026-05-19T18:30:00Z",
+  "last_updated": "2026-05-25T12:00:00Z",
   "t4_exercise_status": {
     "status": "CLOSED",
     "score": "9.5/10 GREEN",
     "closed_by": "Sterling",
     "date": "2026-05-19",
     "carryover": "CARRY-4: Hale-CC reader staleness",
-    "note": "Exercise CLOSED per SO_T4_EXERCISE_HALE_DUAL_ENGINE_20260518 (score >= 8/10 threshold met)"
+    "note": "Exercise CLOSED per SO_T4_EXERCISE_HALE_DUAL_ENGINE_20260518"
+  },
+  "missions_batch_exec": {
+    "meta_mission": "THUNDERBIRD CAPABILITY EXPANSION \u2014 OC+CC Dual Engine",
+    "commander": "John Loucks (\"Yoda\")",
+    "hale": "Victoria \"Victory\" Hale, SES-6",
+    "status": "PENDING \u2014 Awaiting Commander execution mode decision",
+    "created": "2026-05-20T00:00:00Z",
+    "total_missions": 16,
+    "total_tokens_est": "50,000\u201378,000",
+    "total_effort_est": "11\u201318 hours",
+    "execution_modes": {
+      "batch": "Run all P1 missions sequentially. Auto-route dependencies via MCP chain. Total: ~11-18h continuous.",
+      "incremental": "Run per-mission with Commander approve/gate after each. Max 2/day. Total: ~8-16 days."
+    },
+    "dependencies": [
+      "MISSION-041 (FPD auto-update) blocks on MISSION-039 (TESS endpoints)",
+      "MISSION-046 (persona chains) blocks on MISSION-045 (Drive monitor)",
+      "MISSION-052 (status command) prefers MISSION-050 but not blocked"
+    ],
+    "quick_wins_no_blockers": [
+      "MISSION-040 (pricing \u00b115%) \u2014 5 min, policy edit",
+      "MISSION-047 (MAX approval) \u2014 2 min, policy edit",
+      "MISSION-048 (Sonnet bulk) \u2014 2 min, policy edit, P2",
+      "MISSION-045 (Drive monitor) \u2014 30 min, OC-only",
+      "MISSION-049 (Wing roster YAML) \u2014 45 min, OC-only, no blockers",
+      "MISSION-051 (Decision log JSONL) \u2014 45 min, OC-only core, wire CC after",
+      "MISSION-052 (Status command) \u2014 30 min, OC-only",
+      "MISSION-037 (Hotelbeds) \u2014 60 min, no blockers"
+    ]
   }
 }

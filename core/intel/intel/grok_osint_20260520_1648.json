@@ -1,0 +1,128 @@
+{
+  "timestamp": "2026-05-20T16:48:13.640740",
+  "sweep_type": "grok_osint",
+  "domains_queried": 10,
+  "successful": 0,
+  "results": [
+    {
+      "domain_id": "autonomous_coding",
+      "domain_name": "Autonomous Coding Agents",
+      "status": "ERROR",
+      "error": "'ascii' codec can't encode character '\\u274c' in position 7: ordinal not in range(128)",
+      "timestamp": "2026-05-20T16:48:13.637640",
+      "key_findings": [],
+      "d2m_relevance": "UNKNOWN",
+      "tools_or_products": [],
+      "sources": [],
+      "action_item": "Retry manually."
+    },
+    {
+      "domain_id": "travel_tech_agentic",
+      "domain_name": "Travel Tech + AI Agents",
+      "status": "ERROR",
+      "error": "'ascii' codec can't encode character '\\u274c' in position 7: ordinal not in range(128)",
+      "timestamp": "2026-05-20T16:48:13.638047",
+      "key_findings": [],
+      "d2m_relevance": "UNKNOWN",
+      "tools_or_products": [],
+      "sources": [],
+      "action_item": "Retry manually."
+    },
+    {
+      "domain_id": "cruise_industry_ai",
+      "domain_name": "Cruise Industry Digital + AI",
+      "status": "ERROR",
+      "error": "'ascii' codec can't encode character '\\u274c' in position 7: ordinal not in range(128)",
+      "timestamp": "2026-05-20T16:48:13.638369",
+      "key_findings": [],
+      "d2m_relevance": "UNKNOWN",
+      "tools_or_products": [],
+      "sources": [],
+      "action_item": "Retry manually."
+    },
+    {
+      "domain_id": "open_source_llm",
+      "domain_name": "Open Source LLM Breakthroughs",
+      "status": "ERROR",
+      "error": "'ascii' codec can't encode character '\\u274c' in position 7: ordinal not in range(128)",
+      "timestamp": "2026-05-20T16:48:13.638695",
+      "key_findings": [],
+      "d2m_relevance": "UNKNOWN",
+      "tools_or_products": [],
+      "sources": [],
+      "action_item": "Retry manually."
+    },
+    {
+      "domain_id": "inference_hardware",
+      "domain_name": "Inference Speed & Hardware",
+      "status": "ERROR",
+      "error": "'ascii' codec can't encode character '\\u274c' in position 7: ordinal not in range(128)",
+      "timestamp": "2026-05-20T16:48:13.638999",
+      "key_findings": [],
+      "d2m_relevance": "UNKNOWN",
+      "tools_or_products": [],
+      "sources": [],
+      "action_item": "Retry manually."
+    },
+    {
+      "domain_id": "ai_memory_systems",
+      "domain_name": "AI Agent Memory & Cross-Session",
+      "status": "ERROR",
+      "error": "'ascii' codec can't encode character '\\u274c' in position 7: ordinal not in range(128)",
+      "timestamp": "2026-05-20T16:48:13.639295",
+      "key_findings": [],
+      "d2m_relevance": "UNKNOWN",
+      "tools_or_products": [],
+      "sources": [],
+      "action_item": "Retry manually."
+    },
+    {
+      "domain_id": "enterprise_ai_deployment",
+      "domain_name": "Enterprise AI Deployment Patterns",
+      "status": "ERROR",
+      "error": "'ascii' codec can't encode character '\\u274c' in position 7: ordinal not in range(128)",
+      "timestamp": "2026-05-20T16:48:13.639653",
+      "key_findings": [],
+      "d2m_relevance": "UNKNOWN",
+      "tools_or_products": [],
+      "sources": [],
+      "action_item": "Retry manually."
+    },
+    {
+      "domain_id": "reasoning_models",
+      "domain_name": "Reasoning Models & Benchmarks",
+      "status": "ERROR",
+      "error": "'ascii' codec can't encode character '\\u274c' in position 7: ordinal not in range(128)",
+      "timestamp": "2026-05-20T16:48:13.640078",
+      "key_findings": [],
+      "d2m_relevance": "UNKNOWN",
+      "tools_or_products": [],
+      "sources": [],
+      "action_item": "Retry manually."
+    },
+    {
+      "domain_id": "ai_agents_frameworks",
+      "domain_name": "AI Agent Frameworks & Multi-Agent",
+      "status": "ERROR",
+      "error": "'ascii' codec can't encode character '\\u274c' in position 7: ordinal not in range(128)",
+      "timestamp": "2026-05-20T16:48:13.640173",
+      "key_findings": [],
+      "d2m_relevance": "UNKNOWN",
+      "tools_or_products": [],
+      "sources": [],
+      "action_item": "Retry manually."
+    },
+    {
+      "domain_id": "claude_alternatives",
+      "domain_name": "Claude Alternatives / LLM Landscape",
+      "status": "ERROR",
+      "error": "'ascii' codec can't encode character '\\u274c' in position 7: ordinal not in range(128)",
+      "timestamp": "2026-05-20T16:48:13.640496",
+      "key_findings": [],
+      "d2m_relevance": "UNKNOWN",
+      "tools_or_products": [],
+      "sources": [],
+      "action_item": "Retry manually."
+    }
+  ]
+}

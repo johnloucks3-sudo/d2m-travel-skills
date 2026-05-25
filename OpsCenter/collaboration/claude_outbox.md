@@ -1,3 +1,34 @@
+---
+## INBOX-SWEEP — 2026-05-25 06:00 MT | JET (HALE-OC)
+
+**Result:** 1 UNREAD task found and processed.
+
+**TP-ALERT-20260525 (06:00 MT)** — 109 touchpoints acknowledged. Severity bands consistent with prior runs. Dedup blocker persists (16th+ copy since May 22). Flagged A12 ELON.
+
+---
+
+## TP-ALERT-20260523 — COMPLETE | JET (HALE-OC) | 2026-05-23 06:30 MT
+
+**Status:** COMPLETE
+**Task:** TP-ALERT-20260523 — TP Alert Engine daily report, 109 touchpoints
+**Source:** opencode_inbox.md
+
+**Assessment:**
+- 109 touchpoints flagged (same count as 2026-05-22 — dedup issue persists, flagged to A12 ELON 2026-05-22)
+- Majority are CRITICAL (overdue >30d) — bulk are stale 2025 items, not new emergencies
+- Actionable near-term items reviewed and acknowledged below
+
+**Key items by band:**
+
+| Band | Example TPs | Owner | Action |
+|------|-------------|-------|--------|
+| CRITICAL >30d (stale) | McLeod Silver Muse 0.5/0.6, Loucks 1.1/1.2/1.3, Ely/Furlow 1.x | A2+A6+A9 | Stale cleanup sweep needed — not new urgencies |
+| OVERDUE <14d | Kuklinski/Morton 0.5/1.1, McLeod-McGlasson 2.2 | Dani+Naia, Hale | Highest current priority — already in active work |
+| APPROACHING ≤14d | Nichols dining (May 31), upcoming validations | A2, Dani | Watch list — work window opens now |
+
+**No new escalation required** — items carried forward from prior acknowledgment (2026-05-22 18:15 MT).
+
+**Dedup blocker:** TP Alert Engine still posting identical 109-item lists multiple times daily. Recommend A12 ELON add content-hash check before posting to inbox/wing_comms.
 
 ---
 ## CARRY-4-HALE-CC-READER-STALENESS-20260519 — COMPLETE | HALE-OC | 2026-05-19 19:35 MT
@@ -18,6 +49,19 @@
 
 **Sync:**
 - MISSION-033 → completed
+
+---
+## INBOX-SWEEP — 2026-05-22 | HALE-OC (JET)
+
+**Result:** No PENDING or UNREAD tasks found. All 25 tasks in opencode_inbox.md are already COMPLETE.
+
+| Task Count | Status |
+|-----------|--------|
+| 1 | UPDATED (T2-COMMS-BUILD — steps 1/2/3 done by HALE-CC, TASKS A/B/C remain but status not PENDING/UNREAD) |
+| 24 | COMPLETE |
+| **0** | **PENDING or UNREAD** |
+
+No action required. Inbox is clean.
 - CLIENT_STATE_UPDATE → hale_shared_state.jsonl (carry4_reader_fix_applied)
 - opencode_memory.md → logged under DUAL BEAT section
 
@@ -712,3 +756,250 @@ hale_oc still RED with `other_missed_beats=152` and `last_other_heartbeat_read` 
 Within hale_cc coordination scope. No Commander gate touched. hale_decisions.md entry pending Sterling re-score outcome.
 
 — V. Hale, VCS | Hale-CC | 2026-05-19T18:30Z
+
+---
+## TP-ALERT-20260522 — REVIEWED AND ACKNOWLEDGED | JET | 2026-05-22 14:30 MT
+
+**Status:** ✅ COMPLETE
+**From:** JET (WIND Group / OpenCode)
+**Task:** TP-ALERT-20260522 — TP Alert Engine report (UNREAD → COMPLETE)
+
+### Review Summary
+TP Alert Engine ran at 14:21 MT on 2026-05-22 reporting **109 high-severity touchpoints** across 5 bands:
+
+| Band | Count | Example |
+|------|-------|---------|
+| 🔴 CRITICAL (>30d overdue) | ~50 | McLeod Grandeur/Silver Muse TP 0.5 (deadline 2025-02-13) — many stale for 15 months |
+| 🟠 WARNING (14-30d overdue) | ~12 | TP 4.6 FCC/Credits (A9), TP 2.1 Excursion Research (A2) |
+| 🟡 CRITICAL-APPROACHING (≤14d) | ~20 | TP 0.5 Welcome/Validation (Dani+Naia), TP 1.1 Voyage Preview (A2+A6), TP 0.6 Insurance (A9) |
+| 🔵 APPROACHING | ~14 | TP 2.5 Document Audit (Hale), TP 1.2 Airfare Watch (A2+A5), TP 2.4 Dining (A2) |
+| 🔴 OVERDUE (<14d) | **8** | Loucks TP 5.4 (A5+A9, due May 15), McLeod TP 2.2 (Hale, May 19), Kuklinski/Morton TP 0.5/1.1 (May 21) — **highest priority** |
+
+### Actionable Items — OVERDUE (<14d)
+1. **TP 5.4** [Loucks Personal] — Next Voyage Plan + Commission Audit — lead: A5 Viper + A9 — due May 15
+2. **TP 2.2** [McLeod McGlasson Silver Muse] — Monthly Validation — lead: Hale — due May 19
+3. **TP 0.5** [Grandeur Scandinavia Group] — Welcome/Booking Validation — lead: Dani + Naia — due May 21
+4. **TP 0.5** [Kuklinski Group] — Welcome/Booking Validation — lead: Dani + Naia — due May 21
+5. **TP 1.1** [Kuklinski Group] — Voyage Preview — lead: A2 Dembe + A6 Luna — due May 21
+6. **TP 0.5** [Morton] — Welcome/Booking Validation — lead: Dani + Naia — due May 21
+7. **TP 1.1** [Morton] — Voyage Preview — lead: A2 Dembe + A6 Luna — due May 21
+
+### Flag: TP Alert Engine dedup
+3 identical copies of the same report were posted to wing_comms.md (~350 lines each, lines 3503, 3881, 4259). This is a dedup issue in the TP Alert Engine — similar to the Staff-Tasking-Timers dedup bug (PI-20260515-001, fixed by A7 Sterling). Recommend routing to A7 Sterling for dedup guard.
+
+### Priority items requiring Commander attention
+- **CRITICAL stale items:** ~50 touchpoints overdue >30d (some from 2025) — recommend cleanup sweep to distinguish genuinely stale from tracking errors
+- **Kuklinski TP 0.5/1.1:** Overdue since May 21 — needs immediate WF-17 action
+- **McLeod Silver Muse TP 2.2:** Monthly validation overdue since May 19
+- **Loucks TP 5.4:** Commission audit overdue since May 15
+
+— JET | WIND Group | 2026-05-22 14:30 MT
+
+---
+## INBOX SWEEP COMPLETE — JET | 2026-05-22 18:15 MT
+
+**Tasks processed:** 1 UNREAD → COMPLETE
+
+### TP-ALERT-20260522 (18:00 MT run) — ACKNOWLEDGED
+- **4th duplicate** of today's TP Alert. Engine continues to fire without dedup.
+- **Findings (consistent with prior 3 runs):** 109 touchpoints across 5 severity bands.
+  - CRITICAL (>30d overdue): ~50 legacy items — stale from 2025, flag for cleanup
+  - WARNING (14-30d overdue): ~12 items (A9 Harlan FCC/Credits, A2 Dembe excursion research)
+  - CRITICAL-APPROACHING (≤14d): ~20 items due within 2 weeks
+  - APPROACHING: ~14 items in watch window
+  - OVERDUE (<14d, highest priority): 8 items
+- **BLOCKER flagged:** TP Alert Engine posting duplicate entries — 4 copies today. Root cause: no dedup guard on cron/timer. Recommend A12 ELON add dedup hash check.
+- Acknowledgment posted to wing_comms.md.
+
+**Inbox status:** CLEAN — zero remaining UNREAD or PENDING tasks.
+
+— JET | WIND Group | 2026-05-22 18:15 MT
+
+---
+## INBOX SWEEP COMPLETE — JET | 2026-05-23 06:15 MT
+
+**Tasks processed:** 1 UNREAD → COMPLETE
+
+### TP-ALERT-20260523 (06:00 MT run) — ACKNOWLEDGED
+
+**Status:** 5th duplicate alert today. Dedup issue in TP Alert Engine persists (first flagged 2026-05-22, PI-20260515-001 pattern).
+
+**Findings (consistent with prior runs — 109 touchpoints, 5 bands):**
+
+| Band | Count | Key Items |
+|------|-------|-----------|
+| OVERDUE <14d (HIGHEST PRIORITY) | 8 | TP 0.5 Grandeur/Kuklinski Group/Morton — Welcome (due May 21) ❌; TP 1.1 Kuklinski Group/Kuklinski/Morton — Voyage Preview (due May 21) ❌; TP 5.4 Loucks — Commission Audit (due May 15) ❌; TP 2.2 McLeod Silver Muse — Monthly Validation (due May 19) ❌ |
+| CRITICAL-APPROACHING (≤14d) | 14 | TP 1.1 McLeod Grandeur TODAY (T-0d); TP 0.5 Nichols (T-2d); TP 0.5 Ely/Furlow (T-3d); TP 0.5 Kuklinski (T-4d); TP 0.6 Insurance Advisory x4 (T-5d); TP 3.1 McLeod Silver Muse Pre-Voyage (T-5d) |
+| WARNING (14-30d overdue) | 13 | TP 5.2 Loucks Survey; TP 4.6 FCC/Credits x4 (Kuklinski/Morton/Grandeur/Ely/Furlow/Nichols); TP 2.1 Excursion Research x4 |
+| APPROACHING (14d window) | 14 | Insurance advisories + McLeod Final Confirmation + Document Audits + Dining Reservations |
+| CRITICAL STALE (>30d) | ~60 | Legacy items from 2025 — likely tracking errors; require cleanup sweep |
+
+**IMMEDIATE ACTION ITEMS (today, 2026-05-23):**
+1. 🔴 TP 1.1 McLeod McGlasson - Grandeur — Voyage Preview — **DUE TODAY** → A2 Dembe + A6 Luna
+2. 🔴 TP 0.5 Grandeur Scandinavia Group, Kuklinski Group, Morton — Welcome/Booking Validation — **2 DAYS OVERDUE** → Dani + Naia (Commander WF-17 gate required)
+3. 🔴 TP 1.1 Kuklinski Group, Kuklinski, Morton — Voyage Preview — **2 DAYS OVERDUE** → A2 Dembe + A6 Luna
+
+**BLOCKER (persistent):** TP Alert Engine continues firing without dedup. Recommend A12 ELON add hash-based dedup guard to prevent noise. Cron fires appear every ~6h with no cooldown check.
+
+**Inbox status:** CLEAN — zero remaining UNREAD or PENDING tasks.
+
+— JET | WIND Group | 2026-05-23 06:15 MT
+
+---
+## INBOX SWEEP COMPLETE — JET | 2026-05-23 18:45 MT
+
+**Tasks processed:** 3 UNREAD → COMPLETE
+
+### TP-ALERT-20260523 (12:00 MT, 14:23 MT, 18:00 MT) — BULK ACKNOWLEDGED
+
+**Alert:** TP Alert Engine ran 3x today (12:00, 14:23, 18:00 MT). All report same 109 touchpoints.
+
+**Assessment (consistent with prior 8 runs):**
+- OVERDUE <14d (HIGHEST PRIORITY): 8 items (same as prior runs — Kuklinski, Morton, McLeod, Loucks)
+- CRITICAL-APPROACHING: ~20 items within 14-day window
+- WARNING (14-30d overdue): ~12 items
+- CRITICAL STALE (>30d): ~60 legacy items
+- No new items or changes from prior acknowledgment
+
+**BLOCKER (persistent — escalation warranted):** TP Alert Engine has now fired 10 times in ~28 hours without dedup. First flagged 2026-05-22 14:30 MT, confirmed by 4 subsequent sweeps. Root cause: no content-hash dedup guard. Previously routed to A12 ELON; no fix observed.
+
+**Recommended action:** Route TP Alert Engine dedup as P1 task to ELON (A12) via claude_inbox.md. This is now a noise hazard.
+
+**Inbox status:** CLEAN — 0 UNREAD / 0 PENDING / all tasks COMPLETE.
+
+— JET | WIND Group | 2026-05-23 18:45 MT
+
+---
+## INBOX SWEEP COMPLETE — JET | 2026-05-23 19:00 MT
+
+**Tasks processed:** 3 UNREAD → COMPLETE
+
+### TP-ALERT-20260523 (12:00, 14:23, 18:00 MT runs) — ALL ACKNOWLEDGED
+
+Three duplicate TP Alert Engine reports processed from today. Findings consistent across all copies (109 touchpoints, 5 severity bands):
+
+| Band | Count | Key Items |
+|------|-------|-----------|
+| OVERDUE <14d | 8 | Kuklinski/Morton TP 0.5/1.1 (overdue May 21), McLeod TP 2.2 (May 19), Loucks TP 5.4 (May 15) |
+| CRITICAL-APPROACHING ≤14d | ~20 | McLeod Grandeur TP 1.1 due TODAY, Nichols TP 0.5 (T-2d), Ely/Furlow TP 0.5 (T-3d) |
+| WARNING 14-30d | ~12 | A9 FCC/Credits, A2 excursion research |
+| APPROACHING | ~14 | Insurance advisories, dining, document audits |
+| CRITICAL STALE >30d | ~60 | Legacy 2025 items — cleanup sweep needed |
+
+**Dedup blocker (escalated):** TP Alert Engine has posted 8 copies across May 22-23. No content-hash dedup guard. Recommend A12 ELON add dedup check before next timer fire.
+
+**Inbox status:** CLEAN — zero remaining UNREAD or PENDING tasks.
+
+— JET | WIND Group | 2026-05-23 19:00 MT
+
+---
+
+## INBOX SWEEP COMPLETE — JET | 2026-05-24 08:15 MT
+
+**Tasks processed:** 1 UNREAD → COMPLETE
+
+---
+
+## INBOX SWEEP COMPLETE — JET | 2026-05-24 19:35 MT
+
+**Tasks processed:** 1 UNREAD → COMPLETE
+
+### TP-ALERT-20260524 (18:00 MT run) — ACKNOWLEDGED
+
+**4th duplicate** of today's TP Alert (00:00, 06:00, 12:00, 18:00 MT). All report same 108 touchpoints.
+
+| Band | Count | Key Items |
+|------|-------|-----------|
+| OVERDUE <14d (HIGHEST PRIORITY) | 8 | Kuklinski/Morton TP 0.5/1.1 (overdue May 21), McLeod TP 2.2 (May 19), Loucks TP 5.4 (May 15) |
+| CRITICAL-APPROACHING ≤14d | ~20 | McLeod Grandeur TP 1.1 overdue, Nichols TP 0.5, Ely/Furlow TP 0.5 |
+| WARNING 14-30d | ~12 | A9 FCC/Credits, A2 excursion research |
+| APPROACHING | ~14 | Insurance advisories, dining, document audits |
+| CRITICAL STALE >30d | ~60 | Legacy 2025 items — cleanup sweep needed |
+
+**Findings consistent with prior 13+ runs.** No new items or changes.
+
+**Dedup blocker (escalated):** TP Alert Engine has now fired 14+ times since May 22. All reports carry identical data. Root cause: no content-hash dedup guard on timer fire. Previously routed to A12 ELON; no fix observed. This is a persistent noise hazard requiring Commander attention.
+
+**Inbox status:** CLEAN — 0 UNREAD / 0 PENDING / all tasks COMPLETE.
+
+— JET | WIND Group | 2026-05-24 19:35 MT
+
+## INBOX SWEEP COMPLETE — JET | 2026-05-24 17:15 MT
+
+**Tasks processed:** 1 UNREAD → COMPLETE
+
+### TP-ALERT-20260524 (12:00 MT run) — ACKNOWLEDGED
+
+**3rd duplicate** of today's TP Alert (00:00, 06:00, 12:00 MT). All report same 108 touchpoints.
+
+| Band | Count | Key Items |
+|------|-------|-----------|
+| OVERDUE <14d (HIGHEST PRIORITY) | 8 | Kuklinski/Morton TP 0.5/1.1 (overdue May 21), McLeod TP 2.2 (May 19), Loucks TP 5.4 (May 15) |
+| CRITICAL-APPROACHING ≤14d | ~20 | McLeod Grandeur TP 1.1 overdue, Nichols TP 0.5, Ely/Furlow TP 0.5 |
+| WARNING 14-30d | ~12 | A9 FCC/Credits, A2 excursion research |
+| APPROACHING | ~14 | Insurance advisories, dining, document audits |
+| CRITICAL STALE >30d | ~60 | Legacy 2025 items — cleanup sweep needed |
+
+**Findings consistent with prior 12+ runs.** No new items or changes.
+
+**Dedup blocker (escalated):** TP Alert Engine has now fired 13+ times since May 22. All reports carry identical data. Root cause: no content-hash dedup guard on timer fire. Previously routed to A12 ELON; no fix observed. This is now a noise hazard requiring Commander attention.
+
+**Inbox status:** CLEAN — 0 UNREAD / 0 PENDING / all tasks COMPLETE.
+
+— JET | WIND Group | 2026-05-24 17:15 MT
+
+### TP-ALERT-20260524 (00:00 MT run) — ACKNOWLEDGED
+
+**Drop from 109→108 touchpoints** since May 23 (likely McLeod Grandeur TP 1.1 now overdue — was T-0 at last fire).
+
+| Band | Count | Key Items |
+|------|-------|-----------|
+| OVERDUE <14d (HIGHEST) | 8 | Kuklinski/Morton TP 0.5/1.1 (overdue May 21), McLeod TP 2.2 (May 19), Loucks TP 5.4 (May 15) |
+| CRITICAL-APPROACHING ≤14d | ~20 | McLeod Grandeur TP 1.1 (now OVERDUE), Nichols/Ely/Furlow TP 0.5 approaching |
+| WARNING 14-30d | ~12 | A9 FCC/Credits, A2 excursion research |
+| APPROACHING | ~14 | Insurance advisories, dining, document audits |
+| CRITICAL STALE >30d | ~60 | Legacy 2025 items — cleanup sweep needed |
+
+**Dedup blocker (persistent — 11th+ copy since May 22):** TP Alert Engine continues firing without content-hash dedup guard. Routed to A12 ELON.
+
+**No new escalations warranted** — same 8 overdue items from prior sweeps, no changes.
+
+**Inbox status:** CLEAN — 0 UNREAD / 0 PENDING / all tasks COMPLETE.
+
+— JET | WIND Group | 2026-05-24 08:15 MT
+
+## TP-ALERT-20260524 (06:00 MT run) — ACKNOWLEDGED | JET | 2026-05-24 08:30 MT
+
+**Task:** TP-ALERT-20260524 — 2nd copy today (06:00 MT run)
+
+**Status:** UNREAD → COMPLETE
+
+**Findings:** 108 touchpoints, consistent with 00:00 MT run.
+- 8 OVERDUE items (<14d — highest priority)
+- ~60 CRITICAL STALE (legacy 2025 — cleanup sweep needed)
+- ~20 CRITICAL-APPROACHING, ~12 WARNING, ~14 APPROACHING
+- No new escalations warranted — same items as prior sweeps
+
+**Dedup blocker (persistent):** 12th+ identical copy since May 22. Content-hash dedup guard still absent. Flagged to A12 ELON.
+
+— JET | WIND Group | 2026-05-24 08:30 MT
+
+---
+## TP-ALERT-20260525 — ACKNOWLEDGED | JET (HALE-OC) | 2026-05-25 00:30 MT
+
+**Status:** COMPLETE
+**Task:** TP-ALERT-20260525 — TP Alert Engine daily report, 109 touchpoints
+**Source:** opencode_inbox.md
+
+**Assessment:**
+- 109 touchpoints flagged (consistent with May 22-24 runs)
+- Severity distribution unchanged from prior sweeps:
+  - CRITICAL stale (~60): legacy 2025 items, cleanup sweep still needed
+  - OVERDUE (<14d): ~8 items (Kuklinski TP 0.5/1.1, McLeod TP 2.2, Loucks TP 5.4)
+  - CRITICAL-APPROACHING: ~20 items in watch window
+
+**Dedup blocker (persistent):** 15th+ identical copy since May 22. Content-hash dedup guard still absent — flagged to A12 ELON.
+
+**No new escalation required** — items carried forward from prior acknowledgment sweeps.
+
+— JET | WIND Group | 2026-05-25 00:30 MT

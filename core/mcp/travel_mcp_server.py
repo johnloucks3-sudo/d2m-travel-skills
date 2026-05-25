@@ -91,6 +91,9 @@ from thunderbird_grant_compiler import register_grant_tools
 from thunderbird_mcp_connector import register_connector_tools
 from thunderbird_groq_connectors import register_groq_connector_tools
 from thunderbird_headless_claude import register_headless_claude_tools
+from thunderbird_capability_expansion import register_capability_tools
+from persona_chain import register_persona_chain_tools
+from ai_infra.claude_async_pool import register_async_pool_tools
 # OpenClaw P0: Skill Builder MCP tools (messaging-based skill creation)
 try:
     from ai_infra.thunderbird_skill_builder_mcp import register_skill_builder_tools
@@ -111,6 +114,16 @@ except Exception as _e:
 
 from core.self_healing import self_healing
 from pydantic import BaseModel, Field, ConfigDict
+# Fix import shadowing: core/mcp/ directory shadows the installed mcp pip package.
+# Ensure site-packages resolves before the script directory for the mcp import.
+import importlib
+_site_dir = None
+for _p in list(_sys.path):
+    if 'site-packages' in _p and _p not in _sys.path[:1]:
+        _site_dir = _p
+        _sys.path.remove(_p)
+        _sys.path.insert(0, _p)
+        break
 from mcp.server.fastmcp import FastMCP
 
 # New Imports for Web Scraping
@@ -1073,6 +1086,27 @@ import os
 
 
 # ============================================================================
+# ── Capability Expansion Tools (MISSION-037–052) ──────────────────────────
+try:
+    register_capability_tools(mcp)
+    logger.info("Capability expansion tools registered: query_decision_log, get_client_memory, set_client_memory, list_client_cache, write_session_checkpoint, read_session_checkpoints")
+except Exception as e:
+    logger.warning(f"Capability expansion tools not available: {e}")
+
+# ── Persona Chain Tools (MISSION-046) ─────────────────────────────────
+try:
+    register_persona_chain_tools(mcp)
+    logger.info("Persona chain tools registered (resolve_persona_chain, list_persona_chains)")
+except Exception as e:
+    logger.warning(f"Persona chain tools not available: {e}")
+
+# ── Async Task Pool Tools (MISSION-042) ────────────────────────────────
+try:
+    register_async_pool_tools(mcp)
+    logger.info("Async pool tools registered (run_async_batch, run_single_task)")
+except Exception as e:
+    logger.warning(f"Async pool tools not available: {e}")
+
 # PHANTOM SELF-BUILDING MCP TOOLS (Apr 17 2026)
 # ============================================================================
 

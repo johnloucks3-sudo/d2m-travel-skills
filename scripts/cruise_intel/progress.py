@@ -7,33 +7,47 @@ import time
 from datetime import datetime
 from typing import Optional
 
-# ── ANSI color codes ───────────────────────────────────────────────────────────
-RESET  = '\033[0m'
-BOLD   = '\033[1m'
-DIM    = '\033[2m'
-GREEN  = '\033[32m'
-YELLOW = '\033[33m'
-CYAN   = '\033[36m'
-WHITE  = '\033[37m'
-BLUE   = '\033[34m'
-MAGENTA= '\033[35m'
-RED    = '\033[31m'
-GRAY   = '\033[90m'
-BG_DARK= '\033[40m'
+# ── ANSI 256-color palette ─────────────────────────────────────────────────────
+def _c(n: int) -> str:
+    """256-color foreground escape code."""
+    return f'\033[38;5;{n}m'
+
+RESET   = '\033[0m'
+BOLD    = '\033[1m'
+DIM     = '\033[2m'
+GREEN   = _c(82)    # bright chartreuse-green
+YELLOW  = _c(220)   # amber-yellow
+CYAN    = _c(51)    # electric cyan
+WHITE   = _c(255)   # near-white
+BLUE    = _c(33)    # vivid cobalt-blue
+MAGENTA = _c(135)   # medium orchid
+RED     = _c(196)   # bright red
+GRAY    = _c(242)   # medium-dark gray
+ORANGE  = _c(214)   # amber-orange  (Wave 3 accent)
+BG_DARK = '\033[40m'
+
+# Wave accent colors
+W1_COLOR = CYAN
+W2_COLOR = BLUE
+W3_COLOR = ORANGE
 
 # ── Source metadata ────────────────────────────────────────────────────────────
 SOURCES = [
-    ('perx',        'Perx.com',            'sail-personalize.com REST API', CYAN),
-    ('oat',         'OAT',                 'oattravel.com (gstack browser)', CYAN),
-    ('ponant',      'PONANT',              'us.ponant.com (gstack browser)', CYAN),
-    ('hx',          'HX Expeditions',      'travelhx.com (__NEXT_DATA__)',   BLUE),
-    ('seadream',    'SeaDream Yacht Club',  'seadream.com (gstack browser)', BLUE),
-    ('explora',     'Explora Journeys',     'explorajourneys.com (sitemap)',  BLUE),
+    ('perx',         'Perx.com',            'sail-personalize.com REST API',  W1_COLOR),
+    ('oat',          'OAT',                 'oattravel.com (gstack browser)', W1_COLOR),
+    ('ponant',       'PONANT',              'us.ponant.com (gstack browser)', W1_COLOR),
+    ('hx',           'HX Expeditions',      'travelhx.com (__NEXT_DATA__)',   W2_COLOR),
+    ('seadream',     'SeaDream Yacht Club',  'seadream.com (gstack browser)', W2_COLOR),
+    ('explora',      'Explora Journeys',     'explorajourneys.com (sitemap)',  W2_COLOR),
+    ('cruisemapper', 'CruiseMapper',         'cruisemapper.com (requests+BS4)', W3_COLOR),
+    ('cruisesonly',  'CruisesOnly',          'cruisesonly.com (gstack browser)', W3_COLOR),
+    ('cruiseplum',   'CruisePlum',           'cruiseplum.com (gstack+login)', W3_COLOR),
 ]
 
 WAVE_LABELS = {
     'perx': 'W1', 'oat': 'W1', 'ponant': 'W1',
     'hx': 'W2', 'seadream': 'W2', 'explora': 'W2',
+    'cruisemapper': 'W3', 'cruisesonly': 'W3', 'cruiseplum': 'W3',
 }
 
 WIDTH = 70  # terminal width
@@ -58,7 +72,7 @@ def header(year: int, months: list) -> None:
     print()
     print(f'{BOLD}{"═" * WIDTH}{RESET}')
     print(f'{BOLD}  🛳  CRUISE INTEL PIPELINE   {year} · {months_str}{RESET}')
-    print(f'{DIM}  7 sources · Euro/Med/Arctic · Oct/Nov {year}{RESET}')
+    print(f'{DIM}  10 sources · Euro/Med/Arctic · Oct/Nov {year}{RESET}')
     print(f'{BOLD}{"═" * WIDTH}{RESET}')
     print()
 
@@ -89,7 +103,14 @@ class StepTracker:
     def __enter__(self):
         self.start_time = time.time()
         wave = WAVE_LABELS.get(self.source_key, '')
-        wave_badge = f'{BLUE}[{wave}]{RESET}' if wave == 'W2' else f'{GRAY}[{wave}]{RESET}'
+        if wave == 'W3':
+            wave_badge = f'{W3_COLOR}[{wave}]{RESET}'
+        elif wave == 'W2':
+            wave_badge = f'{W2_COLOR}[{wave}]{RESET}'
+        elif wave == 'W1':
+            wave_badge = f'{W1_COLOR}[{wave}]{RESET}'
+        else:
+            wave_badge = f'{GRAY}[{wave}]{RESET}'
         skip_tag = f' {YELLOW}(CACHED){RESET}' if self.skipped else ''
 
         print(f'{BOLD}{"─" * WIDTH}{RESET}')
@@ -162,6 +183,7 @@ class SummaryTable:
         total_lines: int,
         multi_source: int,
         wave2_net_new: int,
+        wave3_net_new: int = 0,
     ) -> None:
         elapsed = time.time() - self._total_start
         mins, secs = divmod(int(elapsed), 60)
@@ -183,7 +205,12 @@ class SummaryTable:
         print(f'  {"─" * (sum(col_w) + 5)}')
 
         for r in self._rows:
-            wave_col = BLUE if r['wave'] == 'W2' else GRAY
+            if r['wave'] == 'W3':
+                wave_col = W3_COLOR
+            elif r['wave'] == 'W2':
+                wave_col = W2_COLOR
+            else:
+                wave_col = W1_COLOR
             status = f'{YELLOW}CACHED{RESET}' if r['skipped'] else (
                 f'{GREEN}OK{RESET}' if r['records'] else f'{YELLOW}EMPTY{RESET}'
             )
@@ -207,7 +234,8 @@ class SummaryTable:
             ('Unique sailings',          f'{BOLD}{total_unique}{RESET}'),
             ('Cruise lines',             str(total_lines)),
             ('Multi-source confidence',  f'{GREEN}{multi_source}{RESET}'),
-            ('Wave 2 net-new sailings',  f'{BLUE}+{wave2_net_new}{RESET}'),
+            ('Wave 2 net-new sailings',  f'{W2_COLOR}+{wave2_net_new}{RESET}'),
+            ('Wave 3 net-new sailings',  f'{W3_COLOR}+{wave3_net_new}{RESET}'),
         ]
         for label, val in metrics:
             print(f'  {label:<28}  {val}')

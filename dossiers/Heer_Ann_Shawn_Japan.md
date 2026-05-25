@@ -2,10 +2,10 @@
 name: Heer, Ann & Shawn
 destination: Japan
 dates: 2026-08-08 to 2026-08-16
-status: ACTIVE — Itinerary Revision Cycle
-phase: TP1-TP2 (Active Planning)
+status: ACTIVE — Booking Phase
+phase: TP2-TP3 (Booking & Confirm)
 created: 2026-04-26
-last_updated: 2026-05-13 (Rev 2 — +1 Tokyo, 1-room, Osaka 1-night trade)
+last_updated: 2026-05-21 (Rev 4 — Commander restructured: Tokyo→Kyoto→Osaka→Hakone Mt Fuji→Tokyo→Miyako day trip)
 owner: COS Hale
 ---
 
@@ -29,16 +29,19 @@ owner: COS Hale
 | Field | Value |
 |-------|-------|
 | Destination | Japan |
-| Dates | August 8–16, 2026 (8 days / 7 nights) |
-| Air | **BOOKED — flights fixed IN/OUT of Tokyo, cannot alter total night count** |
-| City Structure (Current) | **3 nights Tokyo → 2 nights Kyoto (ryokan) → 1 night Osaka → 1 night Tokyo return** (Updated 2026-05-13: +1 Tokyo per Commander directive) |
-| Hiroshima | **DROPPED** (Commander, 2026-05-02) |
-| Party | Ann + Shawn (2 adults) + 2 daughters (4 total) |
-| Rooms Required | **1 room with 2 queen beds** — all 4 sharing (Ann confirmed 2026-04-29; was 2 rooms, now corrected) |
-| Ryokan Note | Traditional tatami rooms use futon sets on floor — no queen beds. Need 4-person capacity room (common in premium ryokan). Verify at booking. |
-| Daughters' Budget | Daughters covering their own share — pricing must show clear per-person costs at budget tier |
-| Budget Profile | Mixed — Premium Kyoto ryokan (the splurge, 2 nights); mid/budget for Tokyo & Osaka |
-| Osaka Trade-Off | **Osaka reduced to 1 night** (from 2) to absorb +1 Tokyo within 7-night constraint |
+| Dates | August 8–16, 2026 (8 days / 8 nights) |
+| Air | **BOOKED — flights finalized per Ann email 2026-05-20** |
+| City Structure (Current) | **1 night Tokyo (arrival) → 2 nights Kyoto → 2 nights Osaka → 1 night Hakone (Mt Fuji tour) → 2 nights Tokyo (end) → possible Miyako (Iwate) day trip** (Updated 2026-05-21: Commander directive — restructured) |
+| Hiroshima | **DROPPED** (replaced by Osaka + Hakone/Mt Fuji per Commander) |
+| Osaka | **REINSTATED** (2 nights, replaces Hiroshima) |
+| Mt Fuji / Hakone | **NEW** — Hakone loop + Mt Fuji tour on Osaka→Tokyo transit. 1 night ryokan/onsen. |
+| Miyako (Iwate) | **NEW** — possible day trip from Tokyo via Tohoku Shinkansen (~3h each way) |
+| Party | Ann + Shawn (parents) + Jocelyn (25) + Brianne (23) — 4 total |
+| Rooms Required | **1 room with 2 queen/2 double beds** — all 4 sharing. Girls can share a bed if needed (Ann confirmed 2026-05-20). |
+| Ryokan Note | Traditional tatami + futon sets. 1 night only (premium with kaiseki dinner). **Separate rooms OK for ryokan night** (Ann's first mention of separate rooms — budget flexibility). |
+| Daughters' Budget | Jocelyn (from Manila) & Brianne (from Orlando) paying their own share. Budget-conscious for their portion. |
+| Budget Profile | Mixed — Premium ryokan 1 night (the splurge); mid for Tokyo/Hiroshima; budget-conscious for daughters |
+| Gion Elite Terrace | **Self-booked by Ann** Aug 12-14 — **dates don't fit new structure.** Needs cancellation. Fully cancellable per Ann. |
 | Service Level | Complimentary (no commission) |
 
 ---
@@ -75,22 +78,26 @@ owner: COS Hale
 ---
 
 ## CURRENT ITINERARY STRUCTURE
-*(Updated 2026-05-13: +1 Tokyo per Commander directive, Osaka reduced to 1 night)*
+*(Updated 2026-05-21: Commander directive — full restructure: NRT arrival→Tokyo→Kyoto→Osaka→Hakone Mt Fuji→Tokyo→Miyako day trip)*
 
-| Night | Date | Stop | Tone |
-|-------|------|------|------|
-| 1 | Aug 8 → 9 | Tokyo | Arrival, Senso-ji orientation |
-| 2 | Aug 9 → 10 | Tokyo | Meiji Shrine, Yanaka historic district |
-| 3 | Aug 10 → 11 | Tokyo | **NEW** — Edo deep dive, Ryogoku sumo, or day excursion |
-| 4 | Aug 11 → 12 | Kyoto (Ryokan) | Fushimi Inari 6:30am, Arashiyama |
-| 5 | Aug 12 → 13 | Kyoto (Ryokan) | Philosopher's Path, Imperial Palace, Gion evening |
-| 6 | Aug 13 → 14 | Osaka | **1-night highlight stop — TBD** |
-| 7 | Aug 14 → 15 | Tokyo (return) | Transit back; rest before departure |
-| Depart | Aug 15/16 | NRT/HND | Flights fixed, in/out Tokyo |
+| Night | Date | Stop | Tone | Notes |
+|-------|------|------|------|-------|
+| 1 | Aug 8 → 9 | **Tokyo (Asakusa)** | Arrival, dinner, possible evening tour | Staggered arrivals 2:55-6pm. Quick orientation. |
+| 2 | Aug 9 → 10 | **Kyoto** | Shinkansen morning. Temples, Gion evening. | |
+| 3 | Aug 10 → 11 | **Kyoto** | Day 2 — Fushimi Inari dawn, Nara day trip | |
+| 4 | Aug 11 → 12 | **Osaka** | 30min from Kyoto. Dotonbori, Osaka Castle. | |
+| 5 | Aug 12 → 13 | **Osaka** | Day 2 — Shinsekai, Kuromon Market, culture | |
+| 6 | Aug 13 → 14 | **Hakone (Mt Fuji)** | Shinkansen→Odawara. Hakone Loop. Mt Fuji views. Onsen ryokan. | **Splurge night** — ryokan with kaiseki |
+| 7 | Aug 14 → 15 | **Tokyo (Asakusa)** | Return from Hakone afternoon. | |
+| 8 | Aug 15 → 16 | **Tokyo (Asakusa)** | Last day. Possible **Miyako (Iwate) day trip** via Tohoku Shinkansen. | Or relax, shop, last sightseeing. |
+| Depart | Aug 16 | NRT | 6:30pm (AA) & 6:40pm (Singapore Air) | Both groups same window |
 
-**Trade-off note:** Osaka reduced from 2 nights to 1 to absorb Commander's +1 Tokyo directive within 7-night constraint. Osaka remains a highlight stop; content to be built out accordingly.
+**City arc:** Tokyo(1) → Kyoto(2) → Osaka(2) → Hakone(1) → Tokyo(2) = 8 nights
+**Possible add:** Miyako (Iwate) day trip from Tokyo on Aug 15
 
-**Previous structure** (per 2026-05-02): 2 Tokyo + 2 Kyoto + 2 Osaka + 1 return = 7 nights.
+**Gion Elite Terrace:** Ann self-booked Aug 12-14. **No longer fits.** Needs cancellation — fully cancellable per Ann.
+
+**Ryokan plan:** Premium ryokan now relocated to **Hakone** (Night 6) — onsen, Mt Fuji views, kaiseki dinner. Better fit for a 1-night splurge than Kyoto given the new arc.
 
 ---
 
@@ -108,6 +115,29 @@ owner: COS Hale
 
 ---
 
+## FLIGHT DETAILS (Finalized Aug 8 & Aug 16)
+
+### Inbound — August 8, 2026 (Saturday)
+
+| Traveler | Routing | Times | Airline |
+|----------|---------|-------|---------|
+| Ann & Shawn | DEN → YVR → NRT | DEN 9:10am → YVR 11:00am; YVR 1:10pm → NRT Aug 8 2:55pm | Air Canada |
+| Jocelyn | MNL → NRT | MNL 12:15pm → NRT 6:00pm | Cebu Pacific Air |
+| Brianne | MCO → DFW → NRT | MCO 8:15am → DFW 10:13am; DFW 11:55am → NRT Aug 8 3:00pm | American Airlines |
+
+All arrive NRT on **August 8, 2026**. Ann & Shawn arrive 2:55pm, Brianne 3:00pm, Jocelyn 6:00pm.
+
+### Outbound — August 16, 2026 (Sunday)
+
+| Traveler | Routing | Times | Airline |
+|----------|---------|-------|---------|
+| Ann, Shawn & Jocelyn | NRT → DEN | 6:40pm → Denver | Singapore Air |
+| Brianne | NRT → MCO | 6:30pm → Orlando | American Airlines |
+
+All depart NRT evening of **August 16, 2026** (tight window — both ~6:30-6:40pm).
+
+---
+
 ## CORRESPONDENCE LOG
 
 | Date | Action | Subject / Notes |
@@ -120,6 +150,8 @@ owner: COS Hale
 | 2026-05-02 | Itinerary v3 sent | "Expanded, Mixed-Budget Framework" — Commander directed revision |
 | 2026-05-02 | Commander feedback | Remove extra night (flights fixed), no Hiroshima, add Osaka, tone down sales language |
 | 2026-05-13 | Commander directive | Adjust per Ann's April 29 email: +1 Tokyo night, 1-room-2Q-beds, daughters' budget. Dossier updated. Osaka reduced to 1 night to maintain 7-night total. |
+| **2026-05-20** | **Ann email → forwarded by Commander** | **"HALE, add this info to heer dossier... I got my daughter off to the Philippines..." — flights finalized, Gion Elite Terrace self-booked Aug 12-14, wants Hiroshima, wants 1 premium ryokan night with dinner, asks about Tokyo area advice. Ready to book.** |
+| **2026-05-21** | **Commander directive** | **Full restructure. New arc: NRT→Tokyo→Kyoto→Osaka→Hakone Mt Fuji→Tokyo→Miyako day trip. Cancel Gion Elite Terrace. Build in Mt Fuji tour from Hakone on Osaka→Tokyo transit. Analyze Option B (Tokyo→Osaka→Kyoto→Mt Fuji→Tokyo).** |
 
 ---
 
@@ -127,15 +159,18 @@ owner: COS Hale
 
 | Item | Status | Owner | Priority |
 |------|--------|-------|----------|
-| **Osaka 1-night content build** | **NEEDED** (reduced from 2 nights) | COS/A2 | 🔴 HIGH |
-| Osaka lodging — 1 room, 2Q beds, tiered options | **NEEDED** | A2 | 🔴 HIGH |
-| Osaka experiences — best 1-day highlights (Dotonbori, Osaka Castle, Shinsekai) | **NEEDED** | A2 | 🔴 HIGH |
-| Tokyo Day 3 content (new night) | **NEEDED** | COS/A2 | 🟡 |
-| Tokyo lodging re-price — 1 room, 2Q beds, 3 nights | **NEEDED** | COS/A2 | 🟡 |
-| Kyoto ryokan — verify 4-person room availability | **NEEDED** | COS | 🟡 |
-| Return NRT logistics (Aug 14 transit Osaka→Tokyo) | **NEEDED** | A2 | 🟡 |
-| Shinkansen reservations (Obon window) | Blocked — confirm city lock with Commander | A2 | 🟡 |
-| Daughter join dates confirmed | TBD | Ann | ⚪ |
+| **Gion Elite Terrace — CANCEL** | **ACTION** — dates no longer fit. Fully cancellable. | Ann | 🔴 HIGH |
+| **Tokyo hotel (Asakusa)** — 1 room, 2 double/queen beds | **RECOMMENDED** — see analysis. 3 nights total (1 arrival + 2 end). | COS | 🔴 HIGH |
+| **Kyoto hotel** — 2 nights, family-friendly, 1 room 4 people | **NEEDED** — recommend specific properties | COS | 🔴 HIGH |
+| **Osaka hotel** — 2 nights, 1 room, mid-range | **NEEDED** | COS | 🔴 HIGH |
+| **Hakone ryokan (Mt Fuji)** — 1 night, premium with kaiseki dinner | **NEEDED** — this replaces Kyoto ryokan as splurge night | COS | 🔴 HIGH |
+| **Kyoto ryokan** | **DROPPED** — moved to Hakone instead | — | — |
+| **Hiroshima** | **DROPPED** (per Commander) | — | — |
+| **Mt Fuji / Hakone Loop logistics** | **NEEDED** — plan the transit day from Osaka via Odawara | A2 | 🟡 |
+| **Miyako (Iwate) day trip feasibility** | **ANALYZED** — doable via Tohoku Shinkansen, ~3h each way | COS | 🟡 |
+| Shinkansen reservations (Obon Aug 13-16) | **URGENT** — Aug 13 Osaka→Odawara is Obon. Reserve now. | A2 | 🔴 HIGH |
+| Route analysis (Option A vs B) | **COMPLETED** — Recommend Option A | COS | ✅ |
+| Point use for 1 Tokyo night | Ann considering — TBD | Ann | ⚪ |
 
 ---
 
@@ -150,4 +185,4 @@ owner: COS Hale
 
 ---
 
-*— COS Hale | Updated 2026-05-13 | Sources: Gmail thread + Commander directive 2026-05-13*
+*— COS Hale | Updated 2026-05-21 (Rev 4) | Sources: Commander directive 2026-05-21 + Ann email 2026-05-20*

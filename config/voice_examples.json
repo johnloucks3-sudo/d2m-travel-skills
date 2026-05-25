@@ -8,15 +8,15 @@
       "d2mconcierge@gmail.com"
     ],
     "days_back": 400,
-    "total_examples": 1251,
+    "total_examples": 1290,
     "by_tier": {
-      "personal": 340,
-      "client": 211,
+      "personal": 367,
+      "client": 214,
       "vendor": 47,
-      "internal": 646,
+      "internal": 655,
       "family": 7
     },
-    "last_sync": "2026-05-19T02:34:54.163580"
+    "last_sync": "2026-05-25T02:34:24.473891"
   },
   "examples": [
     {
@@ -956,6 +956,15 @@
       "score": 6
     },
     {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Your OpenCode Access — Quick Start Guide",
+      "to": "iamheer@outlook.com, Dreams2Memories <d2mconcierge@gmail.com>",
+      "date": "Thu, 21 May 2026 13:43:15 -0600",
+      "body": "OpenCode Quick Start\n\nHi Ann,\n\nWelcome to OpenCode — your AI research assistant. Here's how to get started\nusing Claude Haiku 4.5 for quick research tasks, with the option to upgrade\nto DeepSeek v4 when you need deeper analysis.\n\nStep 1: Log In to the Portal\n\nOpen your browser and go to:\nhttps://code.d2mluxury.net\n\nLog in with:\n\n   - Username: john\n   - Password: 5277\n\nStep 2: Start OpenCode\n\nOnce logged in, you'll see the terminal. Type this command:\ncd /home/john/Thunderbird && opencode\n\nOpenCode will start in your terminal. You'll see a plain interface with a\nprompt waiting for your input.\n\nStep 3: Select Your Model — Claude Haiku 4.5\n\nWhen OpenCode starts, press the forward slash and type:\n/models\n\nA list of available models will appear. Select:\nClaude Haiku 4.5 (Poe)\n\nClaude Haiku is fast, smart for most tasks, and the right choice for quick\nresearch, summaries, and analysis.\n\nStep 4: Start Asking Questions\n\nNow you can type your research question directly. For example:\nTell me about all-inclusive river cruises\nin Europe for 10 days in September 2026\n\nPress Enter. Claude Haiku will research and respond with relevant\ninformation.\n\nWhen You Need Deeper Analysis — Switch Models\n\nIf your research question is complex (multi-day research, competitive\nanalysis, deep itinerary planning), switch models by typing:\n/models\n\nThen select:\nQwen 2.5 Coder 7B (local)\n\nThis is our local model — runs on Dreams2Memories hardware, completely\nprivate, no API costs.\n\n* Or if you need even deeper reasoning: *\nDeepSeek v4 (Poe)\n\nDeepSeek v4 is best for:\n\n   - Comparing complex cruise itineraries\n   - Deep competitive intelligence\n   - Multi-factor client matching\n   - Strategic planning questions\n\nTips for Best Results\n\n   - * Be specific. * \"Luxury river cruises for honeymooners, March 2026,\n   $30k budget\" beats \"tell me about cruises.\"\n   - * One question at a time. * Claude works best when focused.\n   - * Use Tab to switch modes. * In OpenCode, Tab toggles between \"Chat\"\n   and \"Plan\" mode. Plan mode shows what Claude would do without actually\n   doing it.\n   - * Type /help for commands. * OpenCode has built-in help for all\n   commands.\n\nQuestions or Issues?\n\nIf OpenCode isn't responding or you get an error, let me know. I'm\nmonitoring this and can troubleshoot quickly.\n\nThanks,\n\nJohn\nDreams2Memories Travel, LLC",
+      "score": 6
+    },
+    {
       "account": "johnloucks3@gmail.com",
       "tier": "vendor",
       "subject": "Notes from my chat with Al Ely",
@@ -1565,6 +1574,51 @@
       "to": "Bill Spencer <bkspencer381@gmail.com>",
       "date": "Mon, 18 May 2026 06:39:45 -0600",
       "body": "Morning classmate/brother we are back, most of my mental cognition has\nreturned, and I would like to start listening to you about your dream\nanniversary celebration. Let me know your availability over the next two\nweeks, and where you might want to meet. For breakfast? For coffee? Just\nthe two of us for now I think and then the four of us later.\nThanks\nJohn\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 5
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Your enviable summer trips",
+      "to": "Kim Westbrook <crnakim@yahoo.com>, BRENT WESTBROOK <WESTY737@gmail.com>",
+      "date": "Wed, 20 May 2026 21:46:47 -0600",
+      "body": "This itinerary is not as perfect as I would like it to be, I have not\nchecked the itinerary, but I wanted to send you this intel and\ninsight. There is a lot to dive into here, let me know if I can help.\nThanks\n\nJohn\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 5
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Your D2M System Access — Getting Started",
+      "to": "iamheer@outlook.com",
+      "date": "Thu, 21 May 2026 22:05:15 -0600",
+      "body": "Hi Ann,\n\nHere are the steps to access the system. The initial setup should only take\nabout two minutes. Please follow these instructions in order:\n\nStep 1: Open the Terminal\nGo to https://code.d2mluxury.quest/. You will see a terminal interface in\nyour browser.\n\nStep 2: Log In\nEnter the username and password I gave to you earlier.   Once you see a\nprompt ending in \"$\", you are successfully connected.\n\nStep 3: Launch opencode\nType the following command exactly as shown (all lowercase) and press Enter:\n\nopencode --model anthropic --provider anthropic\n\nIt will take a few seconds to load, and you will see a startup message once\nit is ready.\n\nStep 4: Pick Your Model\nWhen the selection screen appears, choose a model based on your needs:\n\n  - Haiku: Best for fast queries, research, and quick answers.\n  - Sonnet: Best for writing, analysis, and deeper reasoning.\n\nI recommend starting with Haiku to get comfortable; you can switch models\nat any time.\n\nThe interface works as a conversation—simply type what you need and it will\nrespond. If you run into any issues or have questions, please call me and I\nwill walk you through it.\n\nThanks,\n\nJohn Loucks\nDreams2Memories Travel, LLC\nd2mconcierge@gmail.com | d2mluxury.quest",
+      "score": 5
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Your OpenCode Access — Quick Start Guide",
+      "to": "iamheer@outlook.com, Dreams2Memories <d2mconcierge@gmail.com>",
+      "date": "Thu, 21 May 2026 17:03:12 -0600",
+      "body": "Hi Ann, I am getting errors 404 errors, when using Claude. Follow the\ninstructions and go to deepseek V4(Poe). Please let me know if I need to\ncome back over and resync.\nJohn",
+      "score": 5
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Quick test from Hale and John",
+      "to": "iamheer@outlook.com",
+      "date": "Fri, 22 May 2026 12:33:25 -0700",
+      "body": "Hi Ann,\n\nHale here with John. Just testing that this email pipeline reaches you. If you get this, hit Reply and say hi. That is all we need.\n\nThanks,\nHale (and John)",
+      "score": 5
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Question",
+      "to": "ann heer <iamheer@outlook.com>",
+      "date": "Sat, 23 May 2026 07:47:45 -0600",
+      "body": "Hi Ann I just hit the tokens limit wall with Claude MAX, so if this happens\nto you switch to Poe.com models like this\n/models-Enter\nFavorites (in purple)--Select from favorites\nGrok-4.1-Fast-Reasoning (or any other model with poe.com as a suffix.  That\nshould keep you moving.  Then, when the time specified in your \"You've hit\nyour limit\" initial message passes. Go back by selecting /models, Recent\n(in purple) Claude Haiku....(MAX) or Sonnet....(MAX)\n\nThat's it.  Simple right????\nJohn",
       "score": 5
     },
     {
@@ -3356,6 +3410,51 @@
       "to": "johnloucks3@gmail.com",
       "date": "Mon, 18 May 2026 13:57:45 +0000",
       "body": "Nancy,\n\nJohn passed your file along and I've been looking at your Splendor voyage. There are a few things still open I'd like to help close before August.\n\nATHENS DINNER — GRANDE BRETAGNE\nThe Roof Garden is the right call for August 10. I can secure the reservation. Just let me know your preferred time: early (7pm) or later?\n\nSEPTEMBER 6 — PIER TO LGA\nDL5613 departs noon. With disembarkation at 7am, the pier-to-airport window is tight. Want me to arrange a car?\n\nQuick questions:\n· Athens transfers (airport→Grande Bretagne Aug 10, hotel→Piraeus Aug 11) — handled or open?\n· Splendor dining reservations opened May 13 — did you get Chartreuse?\n\nAlso: Royal Caribbean Group launched Points Choice in January — Crown & Anchor points transfer to Venetian Society days. Status Match (live since 2024) gives one-for-one tier equivalency. New VS tier structure takes effect July 1. If you have RC sailing history, worth a look before then. Happy to send the full breakdown.\n\nThanks —\nDani\nDreams2Memories Travel, LLC · concierge@d2mluxury.quest",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Your OpenCode Access — Quick Start Guide",
+      "to": "iamheer@outlook.com, Dreams2Memories <d2mconcierge@gmail.com>",
+      "date": "Thu, 21 May 2026 18:17:54 -0600",
+      "body": "Nope, that's not going to work either.  I will get back to you.\nJohn\n\nOn Thu, May 21, 2026 at 5:03 PM Dreams2Memories <d2mconcierge@gmail.com>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "Re: Home depot",
+      "to": "Ronald Westbrook <rwestbrook3@gmail.com>",
+      "date": "Fri, 22 May 2026 14:08:59 -0600",
+      "body": "OK I have to be able to translate the 9 wires I currently have...back wakes\nme up most days...0930 C U\n\nJ\n\nOn Fri, May 22, 2026 at 1:57 PM Ronald Westbrook <rwestbrook3@gmail.com>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "Re: Home depot",
+      "to": "Ronald Westbrook <rwestbrook3@gmail.com>",
+      "date": "Fri, 22 May 2026 13:38:32 -0600",
+      "body": "OK, I think we should go with Lowe's. I'll pick you up, name your time. I\nam getting up at 0500 these days.\nJohn\n\nOn Fri, May 22, 2026 at 9:07 AM Ronald Westbrook <rwestbrook3@gmail.com>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Termius SSH Key for YOGA Connection",
+      "to": "D2M Concierge <d2mconcierge@gmail.com>",
+      "date": "Fri, 22 May 2026 07:57:00 -0600",
+      "body": "Thank you!\n\nOn Fri, May 22, 2026, 07:55 Victory Hale, D2M Travel <d2mconcierge@gmail.com>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "COS   Re: Some ideas for you",
+      "to": "Kim Westbrook <crnakim@yahoo.com>",
+      "date": "Sun, 24 May 2026 16:05:23 -0600",
+      "body": "Well, I worked on this Cruise DREAMS Catcher\n<https://itinerary.d2mluxury.quest/T2_CRUISE_REPORT.html>, only to discover\nthat there are no cruises Ron or Susie will go on because the results\nshowed me Norway is virtually shut out in October/November, except for\nHurtigruten.  But if you look at the bottom section and reverse search in\nNov you can see what may be available for T-G--filtered by Perx and one\nother Interline site (that's the green P). Bottom line: I can now do this\nfor any day, month, year, cruise ship, voyage number, or port.  I am giving\nyou the world of cruising--that is the oyster. I would like to help you\nfind the pearl within. And please if you figure out how to open this so it\nis not a bunch of code, share it with people you know. Still to come:\nairline pricing.   I know you're busy; give it to someone you know who is\nnot consumed with graduation and tell them to play around with it.\n\nThanks\nJohn",
       "score": 4
     },
     {
@@ -9533,6 +9632,240 @@
       "score": 3
     },
     {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "HALE — DAILY BRIEF | 2026-05-19 06:00 MT",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 19 May 2026 06:50:02 -0500",
+      "body": "📊 HALE — DAILY OPERATIONAL BRIEF Generated 2026-05-19 · 06:00 MT · Commander John Loucks 📊 Client Lifecycle Wheel 7 active clients, urgency-coded segments, FPD countdown arcs. Click segment for detail panel. View Lifecycle Wheel → 💰 Financial Waterfall Commission pipeline flow: Prospects → Booked → At-Risk → Projected. Allianz claim divergence shown. View Waterfall → 🔥 Task Heat Map Clients × Task Types grid. Urgency-colored, effort-encoded. Hover for task roster by cell. View Heat Map → ⚠️ Risk Matrix Likelihood × Disruption scatter. Quadrants: Escalate (red), Mitigate (yellow), Monitor, Accept. Action registry below. View Risk Matrix → ⚡ DECISIONS NEEDED FROM COMMANDER Approve 11 Gmail Drafts? Kuklinski (validation), McLeod (Silver Muse 60-day + Grandeur TP0.5/TP0.6), Westbrook (Perx + SkyLux), Furlow/Nichols/Ely (CAK). All staged in d2mconcierge drafts folder. Initiate Lyons FPD Outreach? Nancy & Ken Lyons — FPD May 11 (14 days remaining). Direct Commander action required. Chase Furlow $15,486 Payment? Final payment was due Apr 1. Confirm received or authorize A9 follow-up. Re-Auth TESS? Financial feed is blind. Run: python3 thunderbird_tess.py --authorize to restore commission visibility. HALE — Ms. Victoria \"Victory\" Hale, SES-6 | Chief of Staff | Dreams2Memories Travel, LLC This brief is generated automatically at 05:50 MT daily and sent at 06:00 MT. Link expires in 90 days. Briefs archived locally + Google Drive.",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: One less letter for you to write",
+      "to": "Ronald Westbrook <rwestbrook3@gmail.com>",
+      "date": "Wed, 20 May 2026 21:00:32 -0600",
+      "body": "Here is your newest letter. If you download it and save it, you can edit it.\nJohn",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Coffee?",
+      "to": "Bill Spencer <bkspencer381@gmail.com>",
+      "date": "Wed, 20 May 2026 20:58:39 -0600",
+      "body": "Send me any new thoughts you might have ahead of our mtg and I will\nintegrate them into the plan...or even advanced questions.  Still a staff\nofficer at heart. :)",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: One less letter for you to write",
+      "to": "Ronald Westbrook <rwestbrook3@gmail.com>",
+      "date": "Wed, 20 May 2026 13:58:03 -0600",
+      "body": "Thanks, been under the weather.  Just got up and showered!!. Rough night\nlast night.let me know where you stand. I'll send a revised letter.\nJohn",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "HALE — DAILY BRIEF | 2026-05-20 06:00 MT",
+      "to": "johnloucks3@gmail.com",
+      "date": "Wed, 20 May 2026 04:50:02 -0700",
+      "body": "📊 HALE — DAILY OPERATIONAL BRIEF Generated 2026-05-20 · 06:00 MT · Commander John Loucks 📊 Client Lifecycle Wheel 7 active clients, urgency-coded segments, FPD countdown arcs. Click segment for detail panel. View Lifecycle Wheel → 💰 Financial Waterfall Commission pipeline flow: Prospects → Booked → At-Risk → Projected. Allianz claim divergence shown. View Waterfall → 🔥 Task Heat Map Clients × Task Types grid. Urgency-colored, effort-encoded. Hover for task roster by cell. View Heat Map → ⚠️ Risk Matrix Likelihood × Disruption scatter. Quadrants: Escalate (red), Mitigate (yellow), Monitor, Accept. Action registry below. View Risk Matrix → ⚡ DECISIONS NEEDED FROM COMMANDER Approve 11 Gmail Drafts? Kuklinski (validation), McLeod (Silver Muse 60-day + Grandeur TP0.5/TP0.6), Westbrook (Perx + SkyLux), Furlow/Nichols/Ely (CAK). All staged in d2mconcierge drafts folder. Initiate Lyons FPD Outreach? Nancy & Ken Lyons — FPD May 11 (14 days remaining). Direct Commander action required. Chase Furlow $15,486 Payment? Final payment was due Apr 1. Confirm received or authorize A9 follow-up. Re-Auth TESS? Financial feed is blind. Run: python3 thunderbird_tess.py --authorize to restore commission visibility. HALE — Ms. Victoria \"Victory\" Hale, SES-6 | Chief of Staff | Dreams2Memories Travel, LLC This brief is generated automatically at 05:50 MT daily and sent at 06:00 MT. Link expires in 90 days. Briefs archived locally + Google Drive.",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Home depot",
+      "to": "Ronald Westbrook <rwestbrook3@gmail.com>",
+      "date": "Thu, 21 May 2026 22:26:57 -0600",
+      "body": "Rondo, how about if I pick you up Saturday mid-morning we go to home Depot\nand buy a sprinkler controller and then install it? I will take pictures\nbefore then of the entire unit and of every single connection. If we are\nlucky we will get it right on the first time, if not we have all day lol\nJohn\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Your Japan Itinerary — Revised with Your Preferences Built In",
+      "to": "ann heer <iamheer@outlook.com>",
+      "date": "Thu, 21 May 2026 08:43:52 -0600",
+      "body": "I was just thinking. OR I can come over with my \"staff\"; it's just a laptop\nand needs wifi. I can come this AM, susie has errands to run. 1000?",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[A3] Client: John & Susan Loucks — COS...Fwd: [Gemini API] Build production",
+      "to": "johnloucks3@gmail.com",
+      "date": "Thu, 21 May 2026 05:39:17 -0700",
+      "body": "ISSUE:\nGemini Google AI PRO subscription is paid but unused; evaluate whether managed agents API could supplement or replace current Claude MAX + DeepSeek infrastructure.\n\nDISCUSSION:\nCommander has active Google AI PRO enterprise subscription that is not currently integrated into D2M operations. Google I/O (May 2026) announced Gemini 3.5 Flash with managed agents—single API call provisions sandbox Linux environment with code execution, web browsing, file management, and agent orchestration. Current stack uses Claude MAX (primary, $0 via MAX plan), DeepSeek V3.1 (OpenRouter free tier), and DeepSeek R1 (arbitration). This is a potential cost optimization opportunity if managed agents can offload tier-1/tier-2 tasks, or a capability gap if current stack is missing agent orchestration.\n\nOPTIONS:\n1. Route to A7 Sterling (Process/Tech) or A12 ELON (Innovation) for architectural evaluation\n2. Compare Gemini managed agents vs. current Claude headless dispatch + DeepSeek routing: capability parity, cost per task, integration effort, latency, reliability\n3. Assess which current task types (research, intelligence, analysis, client drafts) could move to Gemini managed agents without performance loss\n4. Cost analysis: Google AI PRO monthly cost vs. projected Claude MAX + OpenRouter spend; ROI of migration\n5. Present go/no-go recommendation with proof-of-concept if favorable\n\nACTIONS I RECOMMEND TAKING:\n1. Route to A7 Sterling (Process/Tech) or A12 ELON (Innovation) for architectural evaluation\n2. Compare Gemini managed agents vs. current Claude headless dispatch + DeepSeek routing: capability parity, cost per task, integration effort, latency, reliability\n3. Assess which current task types (research, intelligence, analysis, client drafts) could move to Gemini managed agents without performance loss\n4. Cost analysis: Google AI PRO monthly cost vs. projected Claude MAX + OpenRouter spend; ROI of migration\n5. Present go/no-go recommendation with proof-of-concept if favorable\n\n---\nStaff Paper from Dani Moreau, D2M Travel\nGenerated: 2026-05-21 06:39 MT\nThunderbird Email Intelligence Officer",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "HALE — DAILY BRIEF | 2026-05-21 06:00 MT",
+      "to": "johnloucks3@gmail.com",
+      "date": "Thu, 21 May 2026 04:50:01 -0700",
+      "body": "📊 HALE — DAILY OPERATIONAL BRIEF Generated 2026-05-21 · 06:00 MT · Commander John Loucks 📊 Client Lifecycle Wheel 7 active clients, urgency-coded segments, FPD countdown arcs. Click segment for detail panel. View Lifecycle Wheel → 💰 Financial Waterfall Commission pipeline flow: Prospects → Booked → At-Risk → Projected. Allianz claim divergence shown. View Waterfall → 🔥 Task Heat Map Clients × Task Types grid. Urgency-colored, effort-encoded. Hover for task roster by cell. View Heat Map → ⚠️ Risk Matrix Likelihood × Disruption scatter. Quadrants: Escalate (red), Mitigate (yellow), Monitor, Accept. Action registry below. View Risk Matrix → ⚡ DECISIONS NEEDED FROM COMMANDER Approve 11 Gmail Drafts? Kuklinski (validation), McLeod (Silver Muse 60-day + Grandeur TP0.5/TP0.6), Westbrook (Perx + SkyLux), Furlow/Nichols/Ely (CAK). All staged in d2mconcierge drafts folder. Initiate Lyons FPD Outreach? Nancy & Ken Lyons — FPD May 11 (14 days remaining). Direct Commander action required. Chase Furlow $15,486 Payment? Final payment was due Apr 1. Confirm received or authorize A9 follow-up. Re-Auth TESS? Financial feed is blind. Run: python3 thunderbird_tess.py --authorize to restore commission visibility. HALE — Ms. Victoria \"Victory\" Hale, SES-6 | Chief of Staff | Dreams2Memories Travel, LLC This brief is generated automatically at 05:50 MT daily and sent at 06:00 MT. Link expires in 90 days. Briefs archived locally + Google Drive.",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Your enviable summer trips",
+      "to": "Kim Westbrook <crnakim@yahoo.com>",
+      "date": "Fri, 22 May 2026 17:05:49 -0600",
+      "body": "If the 4 is go  Iwould want to try Atlas Ocean. BEAUTIFUL SMALL YACHTS,\nMade in Portugal, unique stops. Venice to Athens THRU the Corinthian\nCanal--look THAT up",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Question",
+      "to": "ann heer <iamheer@outlook.com>",
+      "date": "Fri, 22 May 2026 16:43:30 -0600",
+      "body": "Now, I think if you see that \"◆ Thunderbird ] john@localhost ~/Thunderbird\"\nagain, you just type \"opencode --continue\", and see where you are.  If you\nare not in your session type \"/sessions\" and pick your session. THAT is the\nbest way. But I do not log in all the time, so you may bounce right back\ninto your session. Glad you are checking it out. Please do send me\ninputs as I eventually want to release Dani and Hale to others",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Question",
+      "to": "ann heer <iamheer@outlook.com>",
+      "date": "Fri, 22 May 2026 16:30:33 -0600",
+      "body": "Make sure are in the Thunderbird directory \"cd Thunderbird\"\nThen Opencode\nopencode --continue is what you will use next and you could be in my\nnext session, so if you do get someplace yo do not recognize do \"/new\"\nthen use they keyword technique Hale told you about\n\nComplex, a bit.  Just cd Thunderbird and opencode for now",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Your research sessions on YOGA — how saving your work will work",
+      "to": "ann heer <iamheer@outlook.com>",
+      "date": "Fri, 22 May 2026 16:26:55 -0600",
+      "body": "I should also say, my staff is front-loaded for shawn to log on, and I\nwould love to pursue hus ideas person-to-person.\nJ",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "Termux setup FIXED — with mkdir",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 22 May 2026 16:11:49 -0500",
+      "body": "Run each line one at a time in Termux:\n\nmkdir -p ~/.ssh && chmod 700 ~/.ssh\n\nprintf \"Host yoga\\n  HostName 100.69.222.124\\n  User john\\n  ServerAliveInterval 30\\n\" >> ~/.ssh/config\n\nchmod 600 ~/.ssh/config\n\npkg install tmux -y\n\ntmux new -s work",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "Termux setup — copy-paste lines",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 22 May 2026 16:10:05 -0500",
+      "body": "Run each line one at a time in Termux:\n\nprintf \"Host yoga\\n  HostName 100.69.222.124\\n  User john\\n  ServerAliveInterval 30\\n\" >> ~/.ssh/config\n\npkg install tmux -y\n\ntmux new -s work",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Your research sessions on YOGA — how saving your work will work",
+      "to": "iamheer@outlook.com",
+      "date": "Fri, 22 May 2026 14:35:01 -0500",
+      "body": "Hi Ann,\n\nYou may have just received a quick test from us — that was to confirm the email pipeline works. This is the real explanation.\n\nHere is what is now set up for you:\n\nWhen you log into YOGA (the Lenovo laptop John carries) through the web terminal at code.d2mluxury.quest, you are running research sessions. You might be looking up Japan hotels, Kyoto ryokans, Tokyo neighborhoods, Osaka day trips — whatever you need for your trip planning.\n\nUntil now, the only way to save what you found was to copy-paste manually or wait for John to follow up with you.\n\nThat changes now.\n\nStarting today, at the end of any research session, I (Hale) will ask you: \"Want me to save this and email it to you?\"\n\nIf you say yes, I will:\n1. Save your session output to a file on YOGA so it is there next time you log in\n2. Email the full content to this inbox — directly to you\n\nYou do not need to wait for John to be available. You do not need to remember what you found. It just arrives in your email, ready to reference or forward.\n\nThis is new for us — you are the first person we have set this up for. That is why we are testing it with a simple reply first. If you get this message, please hit Reply and say anything — just confirming the loop works at your end.\n\nAfter that, whenever you finish a research session on YOGA and tell me to save it, it will come straight here.\n\nThanks, and happy planning for Japan.\n\nHale\nChief of Staff, Dreams2Memories Travel\n(on behalf of John)",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "📝 Test: Save Output Pipeline — Dreams2Memories Travel",
+      "to": "iamheer@outlook.com",
+      "date": "Fri, 22 May 2026 12:30:19 -0700",
+      "body": "This is a test of the Ann save-to-email system. If you receive this, the pipeline works. — Hale",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Some ideas for you",
+      "to": "Ronald Westbrook <rwestbrook3@gmail.com>",
+      "date": "Sat, 23 May 2026 23:25:22 -0600",
+      "body": "DREAMS2MEMORIES TRAVEL, LLC\n\nMay 23, 2026\n\nRondo,\n\nWhen you told me you were lonely, I asked my team to look into some ideas.\nSurprisingly, they came back with a full research brief — here’s the best\nof what they found.\n\nIdeas Worth Looking At and Discuss\n\n* 1. Silver Key Tri-Lakes Senior Center — Monument *\nThis is the one I’d start with. Five minutes from your house, walk in\nanytime, and you’ll be sitting around with people your age before you know\nit. Full details below.\n\n* 2. Grief Cruise — Journeys of Hope *\nA 5-day Caribbean cruise with group support for people who lost a spouse.\nNot a singles thing — but the connections people make there are real.\nSomething to think about 6–12 months down the road.\n\n* 3. Silversea Solo Program *\nYou already know the product. They have hosted solo get-togethers and\ngentleman hosts on some sailings. One phone call and we can get you booked\n— no computer needed.  We saw men with traveling companions often.  Did not\nthink they could be solos \"paired up\".\n\n* 4. Cunard — Queen Mary 2 Transatlantic *\nIf you want to meet women, this is the best option out there. Dance hosts,\nsolo coffee groups, ballroom dancing every night. The crowd is your age.\n\n* 5. Overseas Adventure Travel (OAT) *\nSmall groups of 12–16 people, mostly solo travelers, mostly women. Phone\nbooking, print catalogs. No tech headaches.\n\n* 6. Grand Circle Travel *\nRiver cruises and tours for our age group. Built as a phone-and-catalog\ncompany. Half off some trips right now. Good community that travels\ntogether again and again.\n\n* 7. Crystal Cruises *\nAmbassador hosts, solo cabins at no extra charge, and they won best solo\nprogram in 2026. Intimate ships, high quality.\n\n* 8. Senior Travel Buddies *\nA $20/year service that matches solo travelers with companions. My team can\nset it up for you — you just get a call when there’s a good match.\n\nNow for Silver Key Tri-Lakes Senior Center — What They Offer\n\n238 3rd St, Monument (inside Community Presbyterian Church)\n719-884-2300 • Monday–Friday 9–4\nConnections Café Hot meals every Wednesday, $2.25 donation. Good food, good\npeople.\nLine Dancing Tuesdays at 1:30 PM. No partner needed — and you’ll meet\nplenty of women.\nFitness Classes $8 drop-in or $50/month. Gentle, nothing too rough.\nGriefShare Group Last Tuesday of month, 10:30 AM–noon. Spousal-loss\nsupport. Sue Walker 719-330-0241.\nCard Games & Socials Ongoing. Walk in, sit down, meet people.\nDay Trips Group outings to Front Range and mountain destinations.\nShuttle They can pick you up from Monument for events.\n\nNo membership fee. No sign-up. You can walk in Monday morning and be having\ncoffee with folks by 9.  Robyn said you tried a church-- have you tried\nthis?\n\nThanks, Rondo. You’re not doing this alone.\n\nJohn",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "Re: Your enviable summer trips",
+      "to": "Kim Westbrook <crnakim@yahoo.com>",
+      "date": "Sat, 23 May 2026 07:00:06 -0600",
+      "body": "👍\n\nJohn Loucks3 reacted via Gmail\n<https://www.google.com/gmail/about/?utm_source=gmail-in-product&utm_medium=et&utm_campaign=emojireactionemail#app>",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Your enviable summer trips",
+      "to": "Kim Westbrook <crnakim@yahoo.com>",
+      "date": "Sat, 23 May 2026 06:17:04 -0600",
+      "body": "Rondo and I are going to take a trip to Lowe's today to replace my\nsprinkler controller. I'm going to try to talk him into going on the\ncruise. Both Susie and I don't know why he hesitating.\nJohn",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "Re: HOTWASH + T_COMPETITIVE_001 Results | 2026-05-24",
+      "to": "d2mconcierge@gmail.com",
+      "date": "Sun, 24 May 2026 17:40:41 -0600",
+      "body": "COS Understanding these are not the ones others use, they are 3 more we add\nto our \"stable\" of sources, make them esoteric but effective.",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "Re: HOTWASH + T_COMPETITIVE_001 Results | 2026-05-24",
+      "to": "d2mconcierge@gmail.com",
+      "date": "Sun, 24 May 2026 17:38:29 -0600",
+      "body": "COS, Honest but not enough. There is a code solution here. Fin it, document\nit, you cannot od it in email, but if uou transfer to the mission board it\nwill get done. I want 3 more native (our sources ) sources added and want\nto use our ew scraping cape to add their results to the results.",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: COS Re: Some ideas for you",
+      "to": "Kim Westbrook <crnakim@yahoo.com>",
+      "date": "Sun, 24 May 2026 17:30:04 -0600",
+      "body": "No interline rates on retreat suites. But here is the entire enchilada. Let\nme know if I can narrow it down.\nJ",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: COS Re: Some ideas for you",
+      "to": "Kim Westbrook <crnakim@yahoo.com>",
+      "date": "Sun, 24 May 2026 17:20:55 -0600",
+      "body": "We're searching Edge Infinity and found some hits---will send them when I\nget all the data roped and tied. :)",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Japan trip 2026",
+      "to": "ann heer <iamheer@outlook.com>",
+      "date": "Sun, 24 May 2026 15:46:32 -0600",
+      "body": "I have not received anything yet but will keep looking, Let me search your\nsession if that is OK.  I di some model re-engineering.  Is it still workin\nsmoothly? If not I ca make a few changes.",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Some ideas for you",
+      "to": "Robyn Falconer <fysti@hotmail.com>",
+      "date": "Sun, 24 May 2026 13:25:14 -0600",
+      "body": "Had breakfast today with Rondo, he made famous casserole. We talked a lot\nabout future he without prompting said he has plans to go back to Silver\nkey this week and partake of lunch, possible chess club, and a couple other\nthings. He was really impressed because the place was clean. He also\nrealizes that the chance of finding someone over there who likes $2 lunches\nand has the bucks to cruise, and the personality to cruise, is remote. So\nthe other options I gave him? He likes OAG and Grand circle I also told him\nabout Abercrombie and Kent, Tauck, Insight and several other agencies who\nare focused on baby boomer singles. So we are going to do a two-track\nstrategy.  No October November Cruise because no Norway. So now I am\nlooking for next spring if anybody's interested or has ideas let me know.\nJohn",
+      "score": 3
+    },
+    {
       "account": "johnloucks3@gmail.com",
       "tier": "internal",
       "subject": "[COS] General: BREAKING:  Most Americans say war in Iran is going",
@@ -11276,6 +11609,24 @@
       "to": "johnloucks3@gmail.com",
       "date": "Mon, 18 May 2026 14:18:58 -0400",
       "body": "Dreams2Memories Travel Curating the voyage of your lifetime Thunderbird Intelligence Report Crystal Cruises Full-Spectrum Scan Classification: Revenue-Tagged Market Intelligence | Prepared by: Lt Col Marcus \"Wraith\" Dembe, A2 For: Commander John \"Yoda\" Loucks · COS Victoria \"Victory\" Hale, SES-6 | Date: 2026-05-18 Executive Summary Crystal Cruises returned from a 2022 bankruptcy as a genuinely transformed product under A&K Travel Group ownership. The relaunch is no cosmetic exercise — $170M in refurbishments, reduced passenger counts, 1:1 crew ratios, Nobu and Michelin dining aboard, and a first newbuild in 25 years on the way. Financial performance turned profitable in 2025. Asia 2026 is sold out. Alaska is nearly full. The product is credible ultra-luxury, not a nostalgia act. D2M Relevance: Crystal sits squarely in the Thunderbird target portfolio. Commission structure is advisor-favorable (base 10%, up to 16%, plus 5% new-to-Crystal bonus). Crystal Grace (2028 delivery) is a forward sales opportunity worth tracking now. Company Overview Owner: A&K Travel Group (Heritage Group / Manfredi Lefebvre d'Ovidio) — acquired Crystal brand + ships at 2022 bankruptcy auction. Relaunched July 2023. Achieved net profitability in 2025. 2026 bookings ahead of all prior years. Asia SOLD OUT, Alaska approaching capacity. Three new ships on order. Ship Profiles Crystal Serenity (2003, refurb 2023) — 740 pax, 655 crew, 1:1 crew ratio. 10 dining venues including Nobu's Umi Uma and Michelin-starred Osteria D'Ovidio. Deployed Mediterranean, Northern Europe. Crystal Symphony (1995, refurb 2023/2025) — 606 pax, 530 crew. First Alaska return since 2019 — 7 back-to-back sailings July 2026. Also Caribbean. Crystal Grace (2028 delivery) — First newbuild in 25 years. 650 pax all-suite. Nobu, Beefbar at sea, Monte-Carlo SBM casino. Two sister ships planned. Business Intelligence Commission: 10% base, up to 16% for luxury specialists, +5% new-to-Crystal bonus. Payment 50 days pre-departure (standard) or 30 days (Explorer Fare). Key pain points: Dining availability (book specialty immediately at embarkation), crew consistency (rebuilding post-bankruptcy), legacy refund overhang ($100M+ unresolved). Recommendations Add Crystal to active portfolio — credible relaunch, profitable, advisor-friendly Target new-to-Crystal bonus aggressively (+5% on $25K booking = $1,250 incremental) Alaska 2026 — approaching capacity, act now Pre-brief clients on specialty dining protocol (book at embarkation) Address bankruptcy proactively: \"Separate company, A&K, $170M reinvested\" Track Crystal Grace for 2028 forward sales 32 cited sources — full report in GitHub — Lt Col Marcus \"Wraith\" Dembe, A2 Research & Market Intelligence John Loucks Owner & Founder, Dreams2Memories Travel, LLC concierge@d2mluxury.quest · d2mluxury.quest D 2 M Dreams2Memories Travel, LLC concierge@d2mluxury.quest d2mluxury.quest © 2026 Dreams2Memories Travel, LLC · Colorado Springs, CO",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Fwd: Your Japan Itinerary — Revised with Your Pref",
+      "to": "johnloucks3@gmail.com",
+      "date": "Thu, 21 May 2026 05:39:36 -0700",
+      "body": "ISSUE:\nClient is actively booking Japan accommodations with 2.5-month lead time. Requires immediate hotel validation, Ryokan selection, and logistics coordination before dates fill.\n\nDISCUSSION:\nAnn Heer (ACTIVE CLIENT) is ready to finalize Japan accommodations for Aug 7-16. Has pre-booked Gion Elite Terrace (Kyoto, Aug 12-14), seeks Ryokan recommendations, location validation, and bullet train guidance. Flight details provided for 4 travelers from 3 origins.\n\nACTIONS I RECOMMEND TAKING:\n1. Validate Gion Elite Terrace location/quality; confirm cancellation flexibility holds\n2. Recommend 2-3 specific Kyoto Ryokan options (premium tier) with final pricing\n3. Answer bullet train (JR Pass) availability/pricing for 4 travelers Aug 7-16\n4. Recommend Tokyo hotel matching their cultural preference + executive lounge mention\n5. Address room configuration (1 vs 2 rooms, daughters' budget constraints)\n6. Cross-check accommodations with flight arrival times (Aug 8 staggered arrivals, Aug 16 departures)\n7. Provide booking confirmation sequence and payment process\n8. Escalate to Dani for client communication (client-facing response required)\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-05-21 06:39 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Your research sessions on YOGA — how saving your work will work",
+      "to": "ann heer <iamheer@outlook.com>",
+      "date": "Fri, 22 May 2026 16:25:40 -0600",
+      "body": "HALE, is my AI Chief of Staff. I have been trying to figure out how\nyou can save your work, since it's all going to be on my machine. You\nDO have a research section called ann_workspace. Two items are logged:\nthis one \"Test: Found a great ryokan in Kyoto — Gion Hatanaka,\n4-person room with garden view, ~¥80,000/night\" and the test we sent.\nI was trying to get your email authorized to be sent drafts of\nanything you found--no dice.  But as \"HALE\" says, if you tell the\nstaff to send you an email of the info you just found, or if you copy\nand paste something int the window (sometimes you have to use [SHIFT]\n+ {CTRL} at the same time then V ) if you do that, they will send me\nan email and it will automatically send to you from my email.  SO\nhere's to late nigh searching and a cookie!!\n\nJohn (the real john)",
       "score": 2
     }
   ]
