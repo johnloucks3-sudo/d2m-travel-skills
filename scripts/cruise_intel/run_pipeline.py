@@ -1,21 +1,26 @@
 #!/usr/bin/env python3
 """
-Cruise Intel Pipeline — One-Command Orchestrator  (Wave 2 — 7 sources)
+Cruise Intel Pipeline — One-Command Orchestrator  (Wave 3 — 10 sources)
 
 Usage:
-  python3 run_pipeline.py                          # Full run: Oct/Nov 2026
-  python3 run_pipeline.py --months 10 11 12        # Add December
-  python3 run_pipeline.py --year 2027              # Different year
-  python3 run_pipeline.py --skip-perx              # Skip Perx API (use cached)
-  python3 run_pipeline.py --skip-oat               # Skip OAT gstack (slow)
-  python3 run_pipeline.py --skip-ponant            # Skip Ponant gstack (slow)
-  python3 run_pipeline.py --skip-hx                # Skip HX Expeditions (use cached)
-  python3 run_pipeline.py --skip-seadream          # Skip SeaDream gstack (use cached)
-  python3 run_pipeline.py --skip-explora           # Skip Explora sitemap scrape (use cached)
-  python3 run_pipeline.py --build-only             # Reassemble from existing JSONs
+  python3 run_pipeline.py                              # Full run: Oct/Nov 2026
+  python3 run_pipeline.py --months 10 11 12            # Add December
+  python3 run_pipeline.py --year 2027                  # Different year
+  python3 run_pipeline.py --skip-perx                  # Skip Perx (use cached)
+  python3 run_pipeline.py --skip-oat                   # Skip OAT gstack (slow)
+  python3 run_pipeline.py --skip-ponant                # Skip Ponant gstack (slow)
+  python3 run_pipeline.py --skip-hx                    # Skip HX (use cached)
+  python3 run_pipeline.py --skip-seadream              # Skip SeaDream gstack (use cached)
+  python3 run_pipeline.py --skip-explora               # Skip Explora sitemap (use cached)
+  python3 run_pipeline.py --skip-cruisemapper          # Skip CruiseMapper scrape (use cached)
+  python3 run_pipeline.py --skip-cruisesonly           # Skip CruisesOnly gstack (use cached)
+  python3 run_pipeline.py --skip-cruiseplum            # Skip CruisePlum gstack+login (use cached)
+  python3 run_pipeline.py --build-only                 # Reassemble from existing JSONs
 
 NOTE: deluxecruises.com scraping requires manual gstack session.
-      Run scrape_deluxecruises.py separately or use existing T2_EXERCISE_DEMBE_CRUISE_INTELLIGENCE.json.
+      Run scrape_deluxecruises.py separately or use existing JSON.
+NOTE: CruisePlum requires credentials. Set CRUISEPLUM_USER + CRUISEPLUM_PASS env vars
+      or create ~/.config/d2m/cruiseplum.env with USER=... / PASS=... lines.
 """
 import argparse
 import json
@@ -28,6 +33,7 @@ from config import (
     OUTPUT_DIR, MASTER_CSV, STATS_JSON,
     DELUXE_JSON, PERX_JSON, OAT_JSON, PONANT_CLEAN_JSON, PONANT_RAW_JSON,
     HX_JSON, SEADREAM_JSON, EXPLORA_JSON,
+    CRUISEMAPPER_JSON, CRUISESONLY_JSON, CRUISEPLUM_JSON,
     GSTACK_BIN,
 )
 from progress import StepTracker, SummaryTable, header as prog_header
@@ -46,20 +52,25 @@ def _load_cached(path: Path) -> int:
 def run_pipeline(
     year: int,
     months: list,
-    skip_perx: bool     = False,
-    skip_oat: bool      = False,
-    skip_ponant: bool   = False,
-    skip_hx: bool       = False,
-    skip_seadream: bool = False,
-    skip_explora: bool  = False,
-    build_only: bool    = False,
-    skip_smoke: bool    = False,
-    verbose: bool       = False,
+    skip_perx: bool          = False,
+    skip_oat: bool           = False,
+    skip_ponant: bool        = False,
+    skip_hx: bool            = False,
+    skip_seadream: bool      = False,
+    skip_explora: bool       = False,
+    skip_cruisemapper: bool  = False,
+    skip_cruisesonly: bool   = False,
+    skip_cruiseplum: bool    = False,
+    build_only: bool         = False,
+    skip_smoke: bool         = False,
+    verbose: bool            = False,
+    cruiseplum_user: str     = '',
+    cruiseplum_pass: str     = '',
 ) -> None:
     table = SummaryTable()
     prog_header(year, months)
 
-    TOTAL = 7
+    TOTAL = 10
 
     # ── STEP 1: Perx ─────────────────────────────────────────────────────────
     with StepTracker(1, TOTAL, 'Perx.com  (sail-personalize.com REST API)',
@@ -168,8 +179,75 @@ def run_pipeline(
             t.records = len(results)
     table.add('explora', 'Explora Journeys', t.records, 0, 0, skip_explora or build_only, 'W2')
 
-    # ── STEP 7: Build master ──────────────────────────────────────────────────
-    with StepTracker(7, TOTAL, 'Build master CSV  (7-source merge + smoke check)',
+    # ── STEP 7: CruiseMapper ─────────────────────────────────────────────────
+    with StepTracker(7, TOTAL, 'CruiseMapper  (cruisemapper.com — requests+BS4)',
+                     'cruisemapper', skipped=(skip_cruisemapper or build_only)) as t:
+        if skip_cruisemapper or build_only:
+            t.records = _load_cached(CRUISEMAPPER_JSON)
+            t.note = str(CRUISEMAPPER_JSON.name)
+        else:
+            from scrape_cruisemapper import scrape_cruisemapper
+            results = scrape_cruisemapper(
+                year=year, months=months,
+                output_path=CRUISEMAPPER_JSON,
+                verbose=verbose,
+            )
+            t.records = len(results)
+    table.add('cruisemapper', 'CruiseMapper', t.records, 0, 0,
+              skip_cruisemapper or build_only, 'W3')
+
+    # ── STEP 8: CruisesOnly ───────────────────────────────────────────────────
+    with StepTracker(8, TOTAL, 'CruisesOnly  (cruisesonly.com — gstack browser)',
+                     'cruisesonly', skipped=(skip_cruisesonly or build_only)) as t:
+        if skip_cruisesonly or build_only:
+            t.records = _load_cached(CRUISESONLY_JSON)
+            t.note = str(CRUISESONLY_JSON.name)
+        elif not GSTACK_BIN.exists():
+            t.note = 'gstack binary not found — skipped'
+            t.records = _load_cached(CRUISESONLY_JSON)
+        else:
+            from scrape_cruisesonly import scrape_cruisesonly
+            try:
+                results = scrape_cruisesonly(
+                    year=year, months=months,
+                    output_path=CRUISESONLY_JSON,
+                    verbose=verbose,
+                )
+                t.records = len(results)
+            except RuntimeError as e:
+                t.note = f'scrape failed: {e} — falling back to cache'
+                t.records = _load_cached(CRUISESONLY_JSON)
+    table.add('cruisesonly', 'CruisesOnly', t.records, 0, 0,
+              skip_cruisesonly or build_only, 'W3')
+
+    # ── STEP 9: CruisePlum ────────────────────────────────────────────────────
+    with StepTracker(9, TOTAL, 'CruisePlum  (cruiseplum.com — gstack + login)',
+                     'cruiseplum', skipped=(skip_cruiseplum or build_only)) as t:
+        if skip_cruiseplum or build_only:
+            t.records = _load_cached(CRUISEPLUM_JSON)
+            t.note = str(CRUISEPLUM_JSON.name)
+        elif not GSTACK_BIN.exists():
+            t.note = 'gstack binary not found — skipped'
+            t.records = _load_cached(CRUISEPLUM_JSON)
+        else:
+            from scrape_cruiseplum import scrape_cruiseplum
+            try:
+                results = scrape_cruiseplum(
+                    year=year, months=months,
+                    output_path=CRUISEPLUM_JSON,
+                    username=cruiseplum_user,
+                    password=cruiseplum_pass,
+                    verbose=verbose,
+                )
+                t.records = len(results)
+            except RuntimeError as e:
+                t.note = f'credentials not configured — use --skip-cruiseplum or set creds'
+                t.records = _load_cached(CRUISEPLUM_JSON)
+    table.add('cruiseplum', 'CruisePlum', t.records, 0, 0,
+              skip_cruiseplum or build_only, 'W3')
+
+    # ── STEP 10: Build master ─────────────────────────────────────────────────
+    with StepTracker(10, TOTAL, 'Build master CSV  (10-source merge + smoke check)',
                      'build') as t:
         from build_master import build_master
         entries = build_master(
@@ -180,6 +258,9 @@ def run_pipeline(
             hx_path=HX_JSON,
             seadream_path=SEADREAM_JSON,
             explora_path=EXPLORA_JSON,
+            cruisemapper_path=CRUISEMAPPER_JSON,
+            cruisesonly_path=CRUISESONLY_JSON,
+            cruiseplum_path=CRUISEPLUM_JSON,
             output_csv=MASTER_CSV,
             stats_path=STATS_JSON,
             skip_smoke=skip_smoke,
@@ -191,27 +272,41 @@ def run_pipeline(
         def fc(col):
             return sum(1 for e in entries if e.get(col) == 'Y')
 
+        ALL_FLAGS = (
+            'on_deluxecruises','on_perx','on_oat','on_ponant',
+            'on_hx','on_seadream','on_explora',
+            'on_cruisemapper','on_cruisesonly','on_cruiseplum',
+        )
+        W1_FLAGS = ('on_deluxecruises','on_perx','on_oat','on_ponant')
+        W2_FLAGS = ('on_hx','on_seadream','on_explora')
+        W3_FLAGS = ('on_cruisemapper','on_cruisesonly','on_cruiseplum')
         multi_source = sum(
             1 for e in entries
-            if sum(1 for c in ('on_deluxecruises','on_perx','on_oat','on_ponant',
-                               'on_hx','on_seadream','on_explora')
-                   if e.get(c) == 'Y') >= 2
+            if sum(1 for c in ALL_FLAGS if e.get(c) == 'Y') >= 2
         )
         wave2_net_new = sum(
             1 for e in entries
-            if any(e.get(c) == 'Y' for c in ('on_hx','on_seadream','on_explora'))
-            and all(e.get(c) != 'Y' for c in ('on_deluxecruises','on_perx','on_oat','on_ponant'))
+            if any(e.get(c) == 'Y' for c in W2_FLAGS)
+            and all(e.get(c) != 'Y' for c in W1_FLAGS)
+        )
+        wave3_net_new = sum(
+            1 for e in entries
+            if any(e.get(c) == 'Y' for c in W3_FLAGS)
+            and all(e.get(c) != 'Y' for c in W1_FLAGS + W2_FLAGS)
         )
         lines = len(set(e['cruise_line'] for e in entries if e['cruise_line']))
 
         # Update summary table with actual cross-match/net-new from entries
         counts = {
-            'perx': (fc('on_perx'), 0),
-            'oat': (fc('on_oat'), 0),
-            'ponant': (fc('on_ponant'), 0),
-            'hx': (fc('on_hx'), 0),
-            'seadream': (fc('on_seadream'), 0),
-            'explora': (fc('on_explora'), 0),
+            'perx':         (fc('on_perx'), 0),
+            'oat':          (fc('on_oat'), 0),
+            'ponant':       (fc('on_ponant'), 0),
+            'hx':           (fc('on_hx'), 0),
+            'seadream':     (fc('on_seadream'), 0),
+            'explora':      (fc('on_explora'), 0),
+            'cruisemapper': (fc('on_cruisemapper'), 0),
+            'cruisesonly':  (fc('on_cruisesonly'), 0),
+            'cruiseplum':   (fc('on_cruiseplum'), 0),
         }
         for row in table._rows:
             k = row['key']
@@ -223,6 +318,7 @@ def run_pipeline(
             total_lines=lines,
             multi_source=multi_source,
             wave2_net_new=wave2_net_new,
+            wave3_net_new=wave3_net_new,
         )
 
     print(f'  Master CSV  : {MASTER_CSV}')
@@ -235,29 +331,39 @@ def run_pipeline(
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
-        description='Cruise Intel Pipeline — full scrape + assemble (7 sources)',
+        description='Cruise Intel Pipeline — full scrape + assemble (10 sources)',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=__doc__,
     )
-    parser.add_argument('--year',          type=int, default=2026)
-    parser.add_argument('--months',        nargs='+', type=int, default=[10, 11],
+    parser.add_argument('--year',               type=int, default=2026)
+    parser.add_argument('--months',             nargs='+', type=int, default=[10, 11],
                         help='Month numbers (default: 10 11)')
-    parser.add_argument('--skip-perx',     action='store_true',
+    parser.add_argument('--skip-perx',          action='store_true',
                         help='Skip Perx API call, use cached JSON')
-    parser.add_argument('--skip-oat',      action='store_true',
+    parser.add_argument('--skip-oat',           action='store_true',
                         help='Skip OAT gstack scrape, use cached JSON')
-    parser.add_argument('--skip-ponant',   action='store_true',
+    parser.add_argument('--skip-ponant',        action='store_true',
                         help='Skip Ponant gstack scrape, use cached JSON')
-    parser.add_argument('--skip-hx',       action='store_true',
+    parser.add_argument('--skip-hx',            action='store_true',
                         help='Skip HX Expeditions Next.js scrape, use cached JSON')
-    parser.add_argument('--skip-seadream', action='store_true',
+    parser.add_argument('--skip-seadream',      action='store_true',
                         help='Skip SeaDream gstack scrape, use cached JSON')
-    parser.add_argument('--skip-explora',  action='store_true',
+    parser.add_argument('--skip-explora',       action='store_true',
                         help='Skip Explora sitemap scrape, use cached JSON')
-    parser.add_argument('--build-only',    action='store_true',
+    parser.add_argument('--skip-cruisemapper',  action='store_true',
+                        help='Skip CruiseMapper requests scrape, use cached JSON')
+    parser.add_argument('--skip-cruisesonly',   action='store_true',
+                        help='Skip CruisesOnly gstack scrape, use cached JSON')
+    parser.add_argument('--skip-cruiseplum',    action='store_true',
+                        help='Skip CruisePlum gstack+login scrape, use cached JSON')
+    parser.add_argument('--cruiseplum-user',    default='',
+                        help='CruisePlum login email (overrides env/file)')
+    parser.add_argument('--cruiseplum-pass',    default='',
+                        help='CruisePlum login password (overrides env/file)')
+    parser.add_argument('--build-only',         action='store_true',
                         help='Skip all scraping, only reassemble master CSV')
-    parser.add_argument('--skip-smoke',    action='store_true')
-    parser.add_argument('--verbose',       action='store_true')
+    parser.add_argument('--skip-smoke',         action='store_true')
+    parser.add_argument('--verbose',            action='store_true')
     args = parser.parse_args()
 
     run_pipeline(
@@ -269,6 +375,11 @@ if __name__ == '__main__':
         skip_hx=args.skip_hx,
         skip_seadream=args.skip_seadream,
         skip_explora=args.skip_explora,
+        skip_cruisemapper=args.skip_cruisemapper,
+        skip_cruisesonly=args.skip_cruisesonly,
+        skip_cruiseplum=args.skip_cruiseplum,
+        cruiseplum_user=args.cruiseplum_user,
+        cruiseplum_pass=args.cruiseplum_pass,
         build_only=args.build_only,
         skip_smoke=args.skip_smoke,
         verbose=args.verbose,

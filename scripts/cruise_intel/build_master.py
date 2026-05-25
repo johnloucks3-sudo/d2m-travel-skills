@@ -2,6 +2,7 @@
 """
 Cruise Intel — Master CSV Builder
 Assembles deluxecruises, Perx, OAT, Ponant + Wave 2 (HX, SeaDream, Explora)
++ Wave 3 aggregators (CruiseMapper, CruisesOnly, CruisePlum)
 into one deduplicated master CSV.
 Cross-reference key: normalized_ship + departure_date ±1 day (SP-T2-2).
 Runs SP-T2-5 smoke check before reporting COMPLETE.
@@ -18,6 +19,7 @@ from config import (
     OUTPUT_DIR, MASTER_CSV, STATS_JSON,
     DELUXE_JSON, PERX_JSON, OAT_JSON, PONANT_CLEAN_JSON,
     HX_JSON, SEADREAM_JSON, EXPLORA_JSON,
+    CRUISEMAPPER_JSON, CRUISESONLY_JSON, CRUISEPLUM_JSON,
     CSV_COLUMNS, SHIP_LINE_MAP,
 )
 from utils import parse_date, norm_ship, find_match, resolve_cruise_line, normalize_flag
@@ -41,6 +43,7 @@ def make_entry(
     month='', days='', route='', voyage_code='',
     on_deluxecruises='', on_perx='', on_oat='', on_ponant='',
     on_hx='', on_seadream='', on_explora='',
+    on_cruisemapper='', on_cruisesonly='', on_cruiseplum='',
     price_usd='',
 ) -> dict:
     d_obj = parse_date(str(departure_date)) if departure_date else None
@@ -63,6 +66,9 @@ def make_entry(
         'on_hx':              normalize_flag(on_hx),
         'on_seadream':        normalize_flag(on_seadream),
         'on_explora':         normalize_flag(on_explora),
+        'on_cruisemapper':    normalize_flag(on_cruisemapper),
+        'on_cruisesonly':     normalize_flag(on_cruisesonly),
+        'on_cruiseplum':      normalize_flag(on_cruiseplum),
         'price_usd':          str(price_usd) if price_usd else '',
     }
 
@@ -250,6 +256,95 @@ def ingest_explora(entries: list, data: list, search_pool: list = None) -> None:
     print(f'  [build] Explora Journeys: {matched} cross-matched, {added} net-new')
 
 
+def ingest_cruisemapper(entries: list, data: list, search_pool: list = None) -> None:
+    """Ingest CruiseMapper — cross-match against search_pool, carry route."""
+    pool = search_pool if search_pool is not None else entries
+    added = matched = 0
+    for r in data:
+        dep_str = r.get('departure_date', '')
+        d_obj = parse_date(dep_str)
+        ship_n = norm_ship(r.get('ship_name', ''))
+
+        m = find_match(ship_n, d_obj, pool)
+        if m:
+            m['on_cruisemapper'] = 'Y'
+            if not m.get('route') and r.get('route'):
+                m['route'] = r['route']
+            matched += 1
+        else:
+            entries.append(make_entry(
+                cruise_line    = r.get('cruise_line', ''),
+                ship_name      = r.get('ship_name', ''),
+                departure_date = dep_str,
+                days           = r.get('days', ''),
+                route          = r.get('route', '')[:120],
+                on_cruisemapper= 'Y',
+            ))
+            added += 1
+    print(f'  [build] CruiseMapper: {matched} cross-matched, {added} net-new')
+
+
+def ingest_cruisesonly(entries: list, data: list, search_pool: list = None) -> None:
+    """Ingest CruisesOnly — cross-match, carry price when higher-confidence."""
+    pool = search_pool if search_pool is not None else entries
+    added = matched = 0
+    for r in data:
+        dep_str = r.get('departure_date', '')
+        d_obj = parse_date(dep_str)
+        ship_n = norm_ship(r.get('ship_name', ''))
+        price = r.get('price_usd', '')
+
+        m = find_match(ship_n, d_obj, pool)
+        if m:
+            m['on_cruisesonly'] = 'Y'
+            if price and not m.get('price_usd'):
+                m['price_usd'] = str(price)
+            matched += 1
+        else:
+            entries.append(make_entry(
+                cruise_line   = r.get('cruise_line', ''),
+                ship_name     = r.get('ship_name', ''),
+                departure_date= dep_str,
+                days          = r.get('days', ''),
+                route         = r.get('route', '')[:120],
+                on_cruisesonly= 'Y',
+                price_usd     = price,
+            ))
+            added += 1
+    print(f'  [build] CruisesOnly: {matched} cross-matched, {added} net-new')
+
+
+def ingest_cruiseplum(entries: list, data: list, search_pool: list = None) -> None:
+    """Ingest CruisePlum — cross-match, carry out-the-door price (preferred over others)."""
+    pool = search_pool if search_pool is not None else entries
+    added = matched = 0
+    for r in data:
+        dep_str = r.get('departure_date', '')
+        d_obj = parse_date(dep_str)
+        ship_n = norm_ship(r.get('ship_name', ''))
+        price = r.get('price_usd', '')
+
+        m = find_match(ship_n, d_obj, pool)
+        if m:
+            m['on_cruiseplum'] = 'Y'
+            # CruisePlum has "out-the-door" pricing — prefer it over promo estimates
+            if price:
+                m['price_usd'] = str(price)
+            matched += 1
+        else:
+            entries.append(make_entry(
+                cruise_line   = r.get('cruise_line', ''),
+                ship_name     = r.get('ship_name', ''),
+                departure_date= dep_str,
+                days          = r.get('days', ''),
+                route         = r.get('route', '')[:120],
+                on_cruiseplum = 'Y',
+                price_usd     = price,
+            ))
+            added += 1
+    print(f'  [build] CruisePlum: {matched} cross-matched, {added} net-new')
+
+
 def fill_missing_lines(entries: list) -> int:
     """Use SHIP_LINE_MAP to fill blank cruise_line fields."""
     fixed = 0
@@ -267,6 +362,9 @@ def smoke_check(entries: list,
                 oat_expected: int, ponant_expected: int,
                 hx_expected: int = 0, seadream_expected: int = 0,
                 explora_expected: int = 0,
+                cruisemapper_expected: int = 0,
+                cruisesonly_expected: int = 0,
+                cruiseplum_expected: int = 0,
                 tolerance: float = 0.02) -> bool:
     """
     SP-T2-5: count(csv[on_source]='Y') must equal count(source_json records).
@@ -281,6 +379,9 @@ def smoke_check(entries: list,
         'hx':            sum(1 for e in entries if e.get('on_hx') == 'Y'),
         'seadream':      sum(1 for e in entries if e.get('on_seadream') == 'Y'),
         'explora':       sum(1 for e in entries if e.get('on_explora') == 'Y'),
+        'cruisemapper':  sum(1 for e in entries if e.get('on_cruisemapper') == 'Y'),
+        'cruisesonly':   sum(1 for e in entries if e.get('on_cruisesonly') == 'Y'),
+        'cruiseplum':    sum(1 for e in entries if e.get('on_cruiseplum') == 'Y'),
     }
     expected = {
         'deluxecruises': deluxe_expected,
@@ -290,6 +391,9 @@ def smoke_check(entries: list,
         'hx':            hx_expected,
         'seadream':      seadream_expected,
         'explora':       explora_expected,
+        'cruisemapper':  cruisemapper_expected,
+        'cruisesonly':   cruisesonly_expected,
+        'cruiseplum':    cruiseplum_expected,
     }
     passed = True
     print('\n  [smoke] SP-T2-5 Smoke Check:')
@@ -328,16 +432,22 @@ def write_stats(entries: list, sources: dict, path: Path) -> None:
     def flag_count(key: str) -> int:
         return sum(1 for e in entries if e.get(key) == 'Y')
 
-    # Wave 2 net-new: entries ONLY on Wave 2 sources (not in original 4)
-    orig_flags = ('on_deluxecruises', 'on_perx', 'on_oat', 'on_ponant')
-    wave2_flags = ('on_hx', 'on_seadream', 'on_explora')
+    orig_flags   = ('on_deluxecruises', 'on_perx', 'on_oat', 'on_ponant')
+    wave2_flags  = ('on_hx', 'on_seadream', 'on_explora')
+    wave3_flags  = ('on_cruisemapper', 'on_cruisesonly', 'on_cruiseplum')
+    all_flags    = orig_flags + wave2_flags + wave3_flags
+
+    # Net-new: entries ONLY appearing in that wave (not confirmed by earlier waves)
     wave2_only = sum(1 for e in entries
                      if any(e.get(f) == 'Y' for f in wave2_flags)
                      and not any(e.get(f) == 'Y' for f in orig_flags))
+    wave3_only = sum(1 for e in entries
+                     if any(e.get(f) == 'Y' for f in wave3_flags)
+                     and not any(e.get(f) == 'Y' for f in orig_flags + wave2_flags))
 
     stats = {
         'exercise': 'T2 Wing Exercise — Arctic/Europe/Med Cruise Intelligence',
-        'wave': 'Wave 2 (7 sources: deluxe + perx + oat + ponant + hx + seadream + explora)',
+        'wave': 'Wave 3 (10 sources: deluxe + perx + oat + ponant + hx + seadream + explora + cruisemapper + cruisesonly + cruiseplum)',
         'generated': datetime.now().strftime('%Y-%m-%d'),
         'sources': {k: {'sailings': v} for k, v in sources.items()},
         'master_totals': {
@@ -345,6 +455,7 @@ def write_stats(entries: list, sources: dict, path: Path) -> None:
             'october':                  len(oct_e),
             'november':                 len(nov_e),
             'wave2_net_new_sailings':   wave2_only,
+            'wave3_net_new_sailings':   wave3_only,
             'on_deluxecruises':         flag_count('on_deluxecruises'),
             'on_perx':                  flag_count('on_perx'),
             'on_oat':                   flag_count('on_oat'),
@@ -352,8 +463,11 @@ def write_stats(entries: list, sources: dict, path: Path) -> None:
             'on_hx':                    flag_count('on_hx'),
             'on_seadream':              flag_count('on_seadream'),
             'on_explora':               flag_count('on_explora'),
+            'on_cruisemapper':          flag_count('on_cruisemapper'),
+            'on_cruisesonly':           flag_count('on_cruisesonly'),
+            'on_cruiseplum':            flag_count('on_cruiseplum'),
             'multi_source_confidence':  sum(1 for e in entries
-                                            if sum(1 for f in orig_flags + wave2_flags
+                                            if sum(1 for f in all_flags
                                                    if e.get(f) == 'Y') >= 2),
             'cruise_lines':             len(lines),
             'cruise_line_list':         lines,
@@ -364,30 +478,38 @@ def write_stats(entries: list, sources: dict, path: Path) -> None:
 
 
 def build_master(
-    deluxe_path: Path   = DELUXE_JSON,
-    perx_path: Path     = PERX_JSON,
-    oat_path: Path      = OAT_JSON,
-    ponant_path: Path   = PONANT_CLEAN_JSON,
-    hx_path: Path       = HX_JSON,
-    seadream_path: Path = SEADREAM_JSON,
-    explora_path: Path  = EXPLORA_JSON,
-    output_csv: Path    = MASTER_CSV,
-    stats_path: Path    = STATS_JSON,
-    skip_smoke: bool    = False,
+    deluxe_path: Path        = DELUXE_JSON,
+    perx_path: Path          = PERX_JSON,
+    oat_path: Path           = OAT_JSON,
+    ponant_path: Path        = PONANT_CLEAN_JSON,
+    hx_path: Path            = HX_JSON,
+    seadream_path: Path      = SEADREAM_JSON,
+    explora_path: Path       = EXPLORA_JSON,
+    cruisemapper_path: Path  = CRUISEMAPPER_JSON,
+    cruisesonly_path: Path   = CRUISESONLY_JSON,
+    cruiseplum_path: Path    = CRUISEPLUM_JSON,
+    output_csv: Path         = MASTER_CSV,
+    stats_path: Path         = STATS_JSON,
+    skip_smoke: bool         = False,
 ) -> list:
     print('[build] Loading source data...')
-    deluxe_data   = load_json(deluxe_path,   'deluxecruises')
-    perx_data     = load_json(perx_path,     'perx')
-    oat_data      = load_json(oat_path,      'oat')
-    ponant_data   = load_json(ponant_path,   'ponant')
-    hx_data       = load_json(hx_path,       'hx_expeditions')
-    seadream_data = load_json(seadream_path, 'seadream')
-    explora_data  = load_json(explora_path,  'explora_journeys')
+    deluxe_data       = load_json(deluxe_path,       'deluxecruises')
+    perx_data         = load_json(perx_path,         'perx')
+    oat_data          = load_json(oat_path,          'oat')
+    ponant_data       = load_json(ponant_path,       'ponant')
+    hx_data           = load_json(hx_path,           'hx_expeditions')
+    seadream_data     = load_json(seadream_path,     'seadream')
+    explora_data      = load_json(explora_path,      'explora_journeys')
+    cruisemapper_data = load_json(cruisemapper_path, 'cruisemapper')
+    cruisesonly_data  = load_json(cruisesonly_path,  'cruisesonly')
+    cruiseplum_data   = load_json(cruiseplum_path,   'cruiseplum')
 
     print(f'  Wave 1: deluxe={len(deluxe_data)}, perx={len(perx_data)}, '
           f'oat={len(oat_data)}, ponant={len(ponant_data)}')
     print(f'  Wave 2: hx={len(hx_data)}, seadream={len(seadream_data)}, '
           f'explora={len(explora_data)}')
+    print(f'  Wave 3: cruisemapper={len(cruisemapper_data)}, '
+          f'cruisesonly={len(cruisesonly_data)}, cruiseplum={len(cruiseplum_data)}')
 
     print('[build] Building master entries...')
     entries: list = []
@@ -399,13 +521,20 @@ def build_master(
     ingest_oat(entries, oat_data, search_pool=after_perx)
     after_oat = list(entries)
     ingest_ponant(entries, ponant_data, search_pool=after_oat)
-    # Wave 2 — three new native sources (cross-match against full existing pool)
+    # Wave 2 — three new native sources
     after_wave1 = list(entries)
     ingest_hx(entries, hx_data, search_pool=after_wave1)
     after_hx = list(entries)
     ingest_seadream(entries, seadream_data, search_pool=after_hx)
     after_seadream = list(entries)
     ingest_explora(entries, explora_data, search_pool=after_seadream)
+    # Wave 3 — aggregator sources (cross-match against full existing pool)
+    after_wave2 = list(entries)
+    ingest_cruisemapper(entries, cruisemapper_data, search_pool=after_wave2)
+    after_cm = list(entries)
+    ingest_cruisesonly(entries, cruisesonly_data, search_pool=after_cm)
+    after_co = list(entries)
+    ingest_cruiseplum(entries, cruiseplum_data, search_pool=after_co)
 
     # Fill missing cruise_line fields
     fixed = fill_missing_lines(entries)
@@ -414,19 +543,32 @@ def build_master(
 
     # Sort by departure date
     entries.sort(key=lambda e: e.get('departure_date', ''))
-    print(f'[build] Total unique sailings (7 sources): {len(entries)}')
+    print(f'[build] Total unique sailings (10 sources): {len(entries)}')
 
-    # Smoke check — all 7 sources
+    # All source flags for confidence counting
+    ALL_FLAGS = (
+        'on_deluxecruises', 'on_perx', 'on_oat', 'on_ponant',
+        'on_hx', 'on_seadream', 'on_explora',
+        'on_cruisemapper', 'on_cruisesonly', 'on_cruiseplum',
+    )
+    W1_FLAGS = ('on_deluxecruises', 'on_perx', 'on_oat', 'on_ponant')
+    W2_FLAGS = ('on_hx', 'on_seadream', 'on_explora')
+    W3_FLAGS = ('on_cruisemapper', 'on_cruisesonly', 'on_cruiseplum')
+
+    # Smoke check — all 10 sources
     if not skip_smoke:
         passed = smoke_check(
             entries,
-            deluxe_expected   = len(deluxe_data)   if deluxe_data   else 0,
-            perx_expected     = len(perx_data)     if perx_data     else 0,
-            oat_expected      = len(oat_data)      if oat_data      else 0,
-            ponant_expected   = len(ponant_data)   if ponant_data   else 0,
-            hx_expected       = len(hx_data)       if hx_data       else 0,
-            seadream_expected = len(seadream_data) if seadream_data else 0,
-            explora_expected  = len(explora_data)  if explora_data  else 0,
+            deluxe_expected       = len(deluxe_data)       if deluxe_data       else 0,
+            perx_expected         = len(perx_data)         if perx_data         else 0,
+            oat_expected          = len(oat_data)          if oat_data          else 0,
+            ponant_expected       = len(ponant_data)       if ponant_data       else 0,
+            hx_expected           = len(hx_data)           if hx_data           else 0,
+            seadream_expected     = len(seadream_data)     if seadream_data     else 0,
+            explora_expected      = len(explora_data)      if explora_data      else 0,
+            cruisemapper_expected = len(cruisemapper_data) if cruisemapper_data else 0,
+            cruisesonly_expected  = len(cruisesonly_data)  if cruisesonly_data  else 0,
+            cruiseplum_expected   = len(cruiseplum_data)   if cruiseplum_data   else 0,
         )
         if not passed:
             print('\n[build] WARNING: Smoke check FAILED — review mismatches above')
@@ -443,44 +585,51 @@ def build_master(
         'perx':          len(perx_data),
         'oat':           len(oat_data),
         'ponant':        len(ponant_data),
+        'hx':            len(hx_data),
+        'seadream':      len(seadream_data),
+        'explora':       len(explora_data),
+        'cruisemapper':  len(cruisemapper_data),
+        'cruisesonly':   len(cruisesonly_data),
+        'cruiseplum':    len(cruiseplum_data),
     }
     write_stats(entries, sources, stats_path)
     print(f'[build] Stats → {stats_path}')
 
     # Summary
     lines = sorted(set(e['cruise_line'] for e in entries if e['cruise_line']))
-    blank_lines = sum(1 for e in entries if not e['cruise_line'])
 
     def flag_count(col: str) -> int:
         return sum(1 for e in entries if e.get(col) == 'Y')
 
     multi_source = sum(
         1 for e in entries
-        if sum(1 for col in ('on_deluxecruises','on_perx','on_oat','on_ponant',
-                             'on_hx','on_seadream','on_explora')
-               if e.get(col) == 'Y') >= 2
+        if sum(1 for col in ALL_FLAGS if e.get(col) == 'Y') >= 2
     )
-    wave2_net_new = sum(
+    wave3_net_new = sum(
         1 for e in entries
-        if any(e.get(col) == 'Y' for col in ('on_hx','on_seadream','on_explora'))
-        and all(e.get(col) != 'Y' for col in ('on_deluxecruises','on_perx','on_oat','on_ponant'))
+        if any(e.get(f) == 'Y' for f in W3_FLAGS)
+        and all(e.get(f) != 'Y' for f in W1_FLAGS + W2_FLAGS)
     )
 
-    print(f'\n[build] === FINAL SUMMARY — 7 Sources ===')
+    print(f'\n[build] === FINAL SUMMARY — 10 Sources ===')
     print(f'  Unique sailings   : {len(entries)}')
     print(f'  Cruise lines      : {len(lines)}')
     print(f'  Multi-source (2+) : {multi_source}')
-    print(f'  Wave 2 net-new    : {wave2_net_new}')
+    print(f'  Wave 3 net-new    : {wave3_net_new}')
     print(f'  ---')
     print(f'  Wave 1:')
-    print(f'    on_deluxecruises: {flag_count("on_deluxecruises")}')
-    print(f'    on_perx         : {flag_count("on_perx")}')
-    print(f'    on_oat          : {flag_count("on_oat")}')
-    print(f'    on_ponant       : {flag_count("on_ponant")}')
+    print(f'    on_deluxecruises : {flag_count("on_deluxecruises")}')
+    print(f'    on_perx          : {flag_count("on_perx")}')
+    print(f'    on_oat           : {flag_count("on_oat")}')
+    print(f'    on_ponant        : {flag_count("on_ponant")}')
     print(f'  Wave 2:')
-    print(f'    on_hx           : {flag_count("on_hx")}')
-    print(f'    on_seadream     : {flag_count("on_seadream")}')
-    print(f'    on_explora      : {flag_count("on_explora")}')
+    print(f'    on_hx            : {flag_count("on_hx")}')
+    print(f'    on_seadream      : {flag_count("on_seadream")}')
+    print(f'    on_explora       : {flag_count("on_explora")}')
+    print(f'  Wave 3:')
+    print(f'    on_cruisemapper  : {flag_count("on_cruisemapper")}')
+    print(f'    on_cruisesonly   : {flag_count("on_cruisesonly")}')
+    print(f'    on_cruiseplum    : {flag_count("on_cruiseplum")}')
 
     return entries
 
