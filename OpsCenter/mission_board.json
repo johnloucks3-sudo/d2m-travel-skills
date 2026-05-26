@@ -872,7 +872,7 @@
       "status": "pending",
       "priority": "P1",
       "assigned_to": "Hale / A2 Dembe",
-      "description": "Establish periodic fare scan for luxury Norway/Scandinavia cruises July–August 2027. Reference: Commander directive 2026-05-25 + MISSION-067 Dembe research. Target: Copenhagen → Southampton (or similar), 10–18 days. Lines: Silversea (Silver Dawn), Seabourn (Quest), Regent (Voyager). Pull pricing from Perx, Odysseus/TESS, and CruiseComplete. Alert Commander via Telegram when price drops below alert threshold or new sailings surface. BLOCKED pending MISSION-069 (Chrome port 9222 / platform reliability).",
+      "description": "Establish periodic fare scan for luxury Norway/Scandinavia cruises July–August 2027. Reference: Commander directive 2026-05-25 + MISSION-067 Dembe research. Target: Copenhagen → Southampton (or similar), 10–18 days. Lines: Silversea (Silver Dawn), Seabourn (Quest), Regent (Voyager). Pull pricing from Perx, Odysseus/TESS, and CruiseComplete. Alert Commander via Telegram when price drops below alert threshold or new sailings surface.",
       "fare_watch_id": "norway-scandinavia-cruise-jul-aug-2027",
       "deliverables": [
         "Weekly scan: Silversea + Seabourn + Regent Norway sailings Jul–Aug 2027",
@@ -888,10 +888,44 @@
         "seabourn_quest_pp": 12287,
         "regent_voyager_pp": "16099+"
       },
+      "remaining_work": [
+        {
+          "step": 1,
+          "owner": "Commander",
+          "action": "Authenticate Odysseus portal — open http://127.0.0.1:9222 in browser (or SSH tunnel), navigate to book.myagentgenie.com tab, log in. Session persists in ~/.chrome-debug-profile.",
+          "status": "BLOCKED_ON_COMMANDER"
+        },
+        {
+          "step": 2,
+          "owner": "Commander",
+          "action": "Authenticate TLN CruiseComplete — same Chrome session, navigate to cruisecomplete.travelleaders.com tab, log in with TLN/D2M_TLN_CC_* credentials (Roboforms). Session persists.",
+          "status": "BLOCKED_ON_COMMANDER"
+        },
+        {
+          "step": 3,
+          "owner": "Commander",
+          "action": "Authenticate Perx — Perx pricing is interline/login-walled. Navigate to perx portal in same Chrome debug profile and log in. Hale will extract pricing via CDP page scrape after auth.",
+          "status": "BLOCKED_ON_COMMANDER"
+        },
+        {
+          "step": 4,
+          "owner": "Hale / A2 Dembe",
+          "action": "Build scan worker: scripts/norway_cruise_scan.py — uses OdysseusCDPClient + TLNCruiseCompleteClient to pull Norway Jul–Aug 2027 sailings, compare against baselines in data/fare_watches.json, send Telegram alert on price drop. Wire to weekly cron.",
+          "status": "READY_TO_BUILD — unblocked once Steps 1-3 complete"
+        },
+        {
+          "step": 5,
+          "owner": "Hale",
+          "action": "First live scan run: execute scripts/norway_cruise_scan.py, verify Telegram output, confirm pricing matches manual research from MISSION-067.",
+          "status": "PENDING — after Step 4"
+        }
+      ],
       "created_at": "2026-05-25T23:50:00Z",
-      "updated_at": "2026-05-25T23:50:00Z",
+      "updated_at": "2026-05-26T01:20:00Z",
       "logs": [
-        "[2026-05-25T23:50:00] Mission created per Commander direction. Fare watch entry added to data/fare_watches.json (id: norway-scandinavia-cruise-jul-aug-2027). BLOCKED on MISSION-069 — Chrome port 9222 must be resolved before automated scans can run. A2 Dembe on standby for manual scans in interim."
+        "[2026-05-25T23:50:00] Mission created per Commander direction. Fare watch entry added to data/fare_watches.json (id: norway-scandinavia-cruise-jul-aug-2027). BLOCKED on MISSION-069 — Chrome port 9222 must be resolved before automated scans can run.",
+        "[2026-05-26T01:20:00] MISSION-069 infrastructure complete — Chrome port 9222 confirmed ONLINE, CDP clients smoke-tested (Odysseus + TLN CC tabs opened). chrome-cdp-health watchdog running every 5min. Infrastructure blocker cleared.",
+        "[2026-05-26T01:20:00] REMAINING (Steps 1-3): Commander must log in to Odysseus, TLN CruiseComplete, and Perx in the Chrome debug profile (~/.chrome-debug-profile) — sessions persist after login. Once authenticated, Step 4 (scan worker build) proceeds immediately."
       ]
     },
     {
@@ -967,7 +1001,7 @@
       "priority": "P1"
     }
   ],
-  "last_updated": "2026-05-25T23:56:00Z",
+  "last_updated": "2026-05-26T01:20:00Z",
   "t4_exercise_status": {
     "status": "CLOSED",
     "score": "9.5/10 GREEN",
