@@ -67,7 +67,7 @@ def check_alerts():
     if weekly > WEEKLY_BURN_ALERT:
         alerts.append(f"⚠️  POE WEEKLY: {weekly:,} pts > {WEEKLY_BURN_ALERT:,} threshold")
     
-    if state["balance"] > 0 and daily > 0:
+    if (state["balance"] or 0) > 0 and daily > 0:
         days_left = state["balance"] / daily
         if days_left < 7:
             alerts.append(f"🔴 POE DEPLETES in {days_left:.1f}d at {daily:,}/day")
@@ -77,7 +77,7 @@ def check_alerts():
 if __name__ == "__main__":
     alerts, metrics = check_alerts()
     print("POE BURN MONITOR")
-    print(f"24h: {metrics['daily']:,} | 7d: {metrics['weekly']:,} | Balance: {metrics['balance']:,}")
+    print(f"24h: {metrics['daily'] or 0:,} | 7d: {metrics['weekly'] or 0:,} | Balance: {metrics['balance'] or 0:,}")
     if alerts:
         for a in alerts:
             print(f"  {a}")

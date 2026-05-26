@@ -442,7 +442,9 @@ def log_scan(
 
 SHARED_STATE_PATH = BASE / "OpsCenter" / "hale_shared_state.jsonl"
 WATCHER_ALERTS_PATH = BASE / "OpsCenter" / "watcher_alerts.jsonl"
+CR3_RATE_LIMIT_PATH = BASE / "OpsCenter" / "cr3_last_alert.json"
 HALE_CC_TIMEOUT_MINUTES = 15  # Sterling CR-3 spec: alert if absent > 15 min
+CR3_RATE_LIMIT_HOURS = 1       # max 1 Telegram alert per hour regardless of cycle count
 STERLING_CHAT_ID = COMMANDER_CHAT_ID  # Sterling alerts go to Commander channel
 
 
@@ -514,6 +516,29 @@ def check_hale_cc_presence() -> dict[str, Any]:
     return result
 
 
+def _cr3_rate_limited() -> bool:
+    """Return True if a CR-3 Telegram alert was sent within the last CR3_RATE_LIMIT_HOURS."""
+    if not CR3_RATE_LIMIT_PATH.exists():
+        return False
+    try:
+        data = json.loads(CR3_RATE_LIMIT_PATH.read_text())
+        last_sent = datetime.fromisoformat(data["last_sent"])
+        elapsed_hours = (datetime.now(timezone.utc) - last_sent).total_seconds() / 3600
+        return elapsed_hours < CR3_RATE_LIMIT_HOURS
+    except Exception:
+        return False
+
+
+def _cr3_mark_sent() -> None:
+    """Record the time of the last CR-3 Telegram alert."""
+    try:
+        CR3_RATE_LIMIT_PATH.write_text(
+            json.dumps({"last_sent": datetime.now(timezone.utc).isoformat()})
+        )
+    except Exception as exc:
+        log.warning("CR-3: could not write rate-limit file: %s", exc)
+
+
 def _send_hale_cc_alert(check_result: dict[str, Any], reason: str) -> None:
     """Write alert to watcher_alerts.jsonl and send Telegram page to Sterling/Commander."""
     alert = {
@@ -537,7 +562,10 @@ def _send_hale_cc_alert(check_result: dict[str, Any], reason: str) -> None:
     except Exception as exc:
         log.error("CR-3: could not write alert file: %s", exc)
 
-    # Page Sterling (via Commander Telegram channel)
+    # Page Sterling (via Commander Telegram channel) — rate-limited to 1/hour
+    if _cr3_rate_limited():
+        log.info("CR-3 Telegram suppressed — rate limit active (1 per %dh)", CR3_RATE_LIMIT_HOURS)
+        return
     try:
         token = _load_bot_token()
         msg = (
@@ -559,6 +587,7 @@ def _send_hale_cc_alert(check_result: dict[str, Any], reason: str) -> None:
         with urllib.request.urlopen(req, timeout=10) as resp:
             if resp.status == 200:
                 log.info("CR-3 Telegram alert sent to Commander/Sterling channel")
+                _cr3_mark_sent()
             else:
                 log.warning("CR-3 Telegram send returned HTTP %d", resp.status)
     except Exception as exc:
