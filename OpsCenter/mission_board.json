@@ -858,9 +858,12 @@
         "data/fare_watches.json (watch: norway-scandinavia-cruise-jul-aug-2027)"
       ],
       "created_at": "2026-05-25T23:50:00Z",
-      "updated_at": "2026-05-25T23:50:00Z",
+      "updated_at": "2026-05-25T23:56:00Z",
       "logs": [
-        "[2026-05-25T23:50:00] Mission created per Commander direction. Chrome port 9222 confirmed OFFLINE in hale_state.json. Odysseus + CruiseComplete both CDP-dependent on port 9222. Perx session management undefined. A7 Sterling assigned — code/infra domain. Blocker for MISSION-068."
+        "[2026-05-25T23:50:00] Mission created per Commander direction. Chrome port 9222 confirmed OFFLINE in hale_state.json. Odysseus + CruiseComplete both CDP-dependent on port 9222. Perx session management undefined. A7 Sterling assigned — code/infra domain. Blocker for MISSION-068.",
+        "[2026-05-25T23:56:00] ROOT CAUSE FOUND: hale_state.json had stale OFFLINE entry — chrome-debug.service was active/running (PID 1763, enabled, since 12:39 MDT). CDP port 9222 fully responsive.",
+        "[2026-05-25T23:56:00] FIXED: (1) chrome-debug.service updated — added missing headless flags, Restart=always, StartLimitBurst=5. (2) chrome_cdp_health.py watchdog script created — checks port every 5min, auto-restarts service if down, updates hale_state.json. (3) chrome-cdp-health.timer enabled (5min interval). (4) _open_new_tab() bug fixed in thunderbird_odysseus_cdp.py, thunderbird_tln_cruisecomplete.py, thunderbird_mag_suite.py — Chrome 80+ requires PUT not GET for /json/new. (5) Smoke test PASS: Odysseus tab opened at book.myagentgenie.com, TLN CC tab opened at cruisecomplete.travelleaders.com. hale_state.json now shows ONLINE.",
+        "[2026-05-25T23:56:00] REMAINING: Portal login sessions (Odysseus/TLN) need authentication — tabs open but logged-out until Commander navigates portals in Chrome. Perx session management still pending. MISSION-068 scan unblocked on the infrastructure side."
       ]
     },
     {
@@ -964,7 +967,7 @@
       "priority": "P1"
     }
   ],
-  "last_updated": "2026-05-25T23:55:00Z",
+  "last_updated": "2026-05-25T23:56:00Z",
   "t4_exercise_status": {
     "status": "CLOSED",
     "score": "9.5/10 GREEN",

@@ -84,9 +84,9 @@ class OdysseusCDPClient:
             return self._open_new_tab(f"https://{ODYSSEUS_HOST}/")
 
     def _open_new_tab(self, url: str) -> dict:
-        """Open a new Chrome tab at the given URL via CDP /json/new."""
+        """Open a new Chrome tab at the given URL via CDP /json/new (PUT, Chrome 80+)."""
         try:
-            resp = requests.get(f"{self.base}/json/new?{url}", timeout=10)
+            resp = requests.put(f"{self.base}/json/new?{url}", timeout=10)
             resp.raise_for_status()
             return resp.json()
         except requests.RequestException as e:

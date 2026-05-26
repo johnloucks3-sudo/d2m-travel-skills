@@ -82,8 +82,9 @@ class TLNCruiseCompleteClient:
             return self._open_new_tab(f"https://{TLN_CC_HOST}/")
 
     def _open_new_tab(self, url: str) -> dict:
+        # Chrome 80+ requires PUT (not GET) for /json/new
         try:
-            resp = requests.get(f"{self.base}/json/new?{url}", timeout=10)
+            resp = requests.put(f"{self.base}/json/new?{url}", timeout=10)
             resp.raise_for_status()
             return resp.json()
         except requests.RequestException as e:
