@@ -793,6 +793,26 @@
       ]
     },
     {
+      "id": "MISSION-067",
+      "title": "Norway Luxury Cruise Perx Pricing — Late Jul/Mid-Aug 2027",
+      "status": "active",
+      "priority": "P1",
+      "assigned_to": "A2 Dembe",
+      "description": "Research luxury cruise itineraries to Norway for late July – mid August 2027, comparable to Silver Spirit Arctic Norway (Voyage 2: May 21–Jun 5, 2027 — fjords, North Cape, Bergen). Pull Perx regular pricing and any available historical Perx pricing on equivalent Norway sailings. Cruise lines in scope: Silversea, Seabourn, Regent, Viking. Output to Telegram and output/dembe_norway_2027_perx_pricing.md.",
+      "deliverables": [
+        "Luxury Norway itineraries late Jul–mid Aug 2027 with matching port coverage",
+        "Perx regular price per person (suite/veranda category)",
+        "Historical Perx pricing on comparable Norway sailings if available",
+        "Telegram delivery to Commander"
+      ],
+      "suspense_date": "2026-05-25T23:59:00Z",
+      "created_at": "2026-05-25T23:45:00Z",
+      "updated_at": "2026-05-25T23:45:00Z",
+      "logs": [
+        "[2026-05-25T23:45:00] Mission created per Commander direction. Silver Spirit Voyage 2 reference itinerary on file at output/silver_spirit_itinerary_payload.json. Norway intel base at output/norway_intel.md. Dispatching A2 Dembe."
+      ]
+    },
+    {
       "id": "MISSION-066",
       "title": "Web Lead Pipeline — Live Site Test",
       "status": "pending",
@@ -810,6 +830,65 @@
       "updated_at": "2026-05-25T23:30:00Z",
       "logs": [
         "[2026-05-25T23:30:00] Pipeline smoke-tested and all components passing. Telegram token fixed (TELEGRAM_C2_BOT_TOKEN). Draft HTML confirmed real 6.9KB proposal. Awaiting Commander live test."
+      ]
+    },
+    {
+      "id": "MISSION-069",
+      "title": "Perx + Odysseus + CruiseComplete — Platform Reliability",
+      "status": "active",
+      "priority": "P1",
+      "assigned_to": "A7 Sterling / Hale",
+      "description": "Make Perx, Odysseus (TESS/book.myagentgenie.com), and CruiseComplete (TLN AgentUniverse) reliable automated data sources for fare scanning. Root issue: Chrome debug port 9222 is OFFLINE — both Odysseus and CruiseComplete use CDP via port 9222. Perx requires authenticated session. Goal: all three platforms health-checked, session-validated, and scan-ready so MISSION-068 Norway cruise scan can execute without manual intervention.",
+      "deliverables": [
+        "Chrome port 9222: auto-start script or systemd unit (restarts Chrome debug if down)",
+        "Odysseus CDP (api/thunderbird_odysseus_cdp.py): health check + session validation + smoke test",
+        "CruiseComplete CDP (api/thunderbird_tln_cruisecomplete.py): health check + session validation + smoke test",
+        "Perx: authenticated session pattern documented (Perx login flow or cookie injection) + price extraction working",
+        "Unified health check script: single command confirms all three platforms ready",
+        "Integration test: run Norway Jul/Aug 2027 scan query through all three platforms end-to-end"
+      ],
+      "root_issues": [
+        "Chrome port 9222 OFFLINE — primary blocker for Odysseus + CruiseComplete",
+        "No auto-restart mechanism for Chrome debug port",
+        "Perx is login-walled — no session management layer in place"
+      ],
+      "files": [
+        "api/thunderbird_odysseus_cdp.py",
+        "api/thunderbird_tln_cruisecomplete.py",
+        "data/fare_watches.json (watch: norway-scandinavia-cruise-jul-aug-2027)"
+      ],
+      "created_at": "2026-05-25T23:50:00Z",
+      "updated_at": "2026-05-25T23:50:00Z",
+      "logs": [
+        "[2026-05-25T23:50:00] Mission created per Commander direction. Chrome port 9222 confirmed OFFLINE in hale_state.json. Odysseus + CruiseComplete both CDP-dependent on port 9222. Perx session management undefined. A7 Sterling assigned — code/infra domain. Blocker for MISSION-068."
+      ]
+    },
+    {
+      "id": "MISSION-068",
+      "title": "Norway/Scandinavia 2027 Cruise Scan — Ongoing Fare Watch",
+      "status": "pending",
+      "priority": "P1",
+      "assigned_to": "Hale / A2 Dembe",
+      "description": "Establish periodic fare scan for luxury Norway/Scandinavia cruises July–August 2027. Reference: Commander directive 2026-05-25 + MISSION-067 Dembe research. Target: Copenhagen → Southampton (or similar), 10–18 days. Lines: Silversea (Silver Dawn), Seabourn (Quest), Regent (Voyager). Pull pricing from Perx, Odysseus/TESS, and CruiseComplete. Alert Commander via Telegram when price drops below alert threshold or new sailings surface. BLOCKED pending MISSION-069 (Chrome port 9222 / platform reliability).",
+      "fare_watch_id": "norway-scandinavia-cruise-jul-aug-2027",
+      "deliverables": [
+        "Weekly scan: Silversea + Seabourn + Regent Norway sailings Jul–Aug 2027",
+        "Perx pricing vs rack rate comparison per sailing",
+        "Telegram alert when price drops below $9,360pp (Silversea veranda baseline)",
+        "Running log of price history in data/fare_watches.json",
+        "Monthly summary to Commander"
+      ],
+      "depends_on": ["MISSION-069"],
+      "reference_mission": "MISSION-067",
+      "reference_sailings_baseline": {
+        "silversea_silver_dawn_pp": "9954-10829",
+        "seabourn_quest_pp": 12287,
+        "regent_voyager_pp": "16099+"
+      },
+      "created_at": "2026-05-25T23:50:00Z",
+      "updated_at": "2026-05-25T23:50:00Z",
+      "logs": [
+        "[2026-05-25T23:50:00] Mission created per Commander direction. Fare watch entry added to data/fare_watches.json (id: norway-scandinavia-cruise-jul-aug-2027). BLOCKED on MISSION-069 — Chrome port 9222 must be resolved before automated scans can run. A2 Dembe on standby for manual scans in interim."
       ]
     },
     {
@@ -885,7 +964,7 @@
       "priority": "P1"
     }
   ],
-  "last_updated": "2026-05-25T23:30:00Z",
+  "last_updated": "2026-05-25T23:55:00Z",
   "t4_exercise_status": {
     "status": "CLOSED",
     "score": "9.5/10 GREEN",

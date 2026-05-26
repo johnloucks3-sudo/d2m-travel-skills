@@ -29,6 +29,48 @@
       "notes": "Benchmark positioning flights for Panama Canal cruise. Target premium economy."
     },
     {
+      "id": "norway-scandinavia-cruise-jul-aug-2027",
+      "watch_type": "cruise",
+      "label": "Norway/Scandinavia Cruise Jul–Aug 2027 (Copenhagen→Southampton, 10–18 days)",
+      "provider": "Multiple — Silversea / Seabourn / Regent",
+      "route": "Copenhagen → Southampton (or similar — Bergen, Lofoten, North Cape, Norwegian fjords)",
+      "travel_window_start": "2027-07-15",
+      "travel_window_end": "2027-08-20",
+      "duration_days_min": 10,
+      "duration_days_max": 18,
+      "passengers": 2,
+      "cabin_category": "Suite / Veranda",
+      "baseline_price_pp": 10400.0,
+      "alert_below": 9360.0,
+      "alert_above": null,
+      "reference_mission": "MISSION-067",
+      "reference_sailings": [
+        {
+          "line": "Silversea",
+          "ship": "Silver Dawn",
+          "price_pp_low": 9954.0,
+          "price_pp_high": 10829.0,
+          "note": "Best geographic match — fjords + Lofoten + North Cape coverage"
+        },
+        {
+          "line": "Seabourn",
+          "ship": "Seabourn Quest",
+          "price_pp": 12287.0,
+          "note": "14 nights — best Lofoten/North Cape itinerary coverage"
+        },
+        {
+          "line": "Regent",
+          "ship": "Seven Seas Voyager",
+          "price_pp_low": 16099.0,
+          "note": "Most expensive, fully all-inclusive airfare"
+        }
+      ],
+      "perx_enabled": false,
+      "perx_note": "Perx login-walled — estimated 10–20% off rack. Need Perx session to pull live pricing.",
+      "scan_cadence": "weekly",
+      "notes": "Commander directive 2026-05-25. Comparable to Silver Spirit Voyage 2 (Arctic Norway May 21–Jun 5 2027). Alert when Silversea/Seabourn veranda-class drops below $9,360pp. Scan: Perx, Odysseus/TESS, CruiseComplete. Block on Chrome port 9222 — see MISSION-069."
+    },
+    {
       "id": "loucks-phx-hnl-2027-04-09",
       "watch_type": "flight",
       "label": "AA675 PHX→HNL Apr 9 2027 (Commander + Susie, Business)",
@@ -46,7 +88,7 @@
       "refundable_option_total": 6494.68,
       "centrav_flight": "AA675 2:30PM PHX T4 → 6:05PM HNL T2, A321neo, Class R (non-refund) / Class D (refund)",
       "return_flight": "AA144 9:45PM HNL → 6:13AM LAX + AA4999 8:36AM LAX → 12:07PM DEN",
-      "notes": "Commander personal trip. Booking deadline 2026-05-25 11:55 PM CT. Gate 2 — Commander books directly. Daily scan: check Centrav + Google Flights PHX→HNL Apr 9 2027 Business."
+      "notes": "Commander personal trip. Centrav price is initial quote benchmark — not a locked booking. Gate 2 — Commander books directly when ready. Daily scan: check Centrav + Google Flights PHX→HNL Apr 9 2027 Business."
     }
   ]
 }
