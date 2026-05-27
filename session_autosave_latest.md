@@ -1,14 +1,14 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-05-27 07:12:42 MDT
+## Generated: 2026-05-27 17:01:57 MDT
 
 ---
 
 ### Recent Commits
+- a259a9f fix(cruise-intel): CruisesOnly Tier 2 HTML parser + New England geo exclusion
+- ad47301 feat(cruise-intel): Wave 3 scraper fixes — Viking data + Incapsula doc
+- 76df966 feat(t2-cruise-intel): period expansion + volume leaders + name canonicalization
+- 43feba9 feat(session-20260527): Spencer briefing + voice ledger + metronome lifecycle alerts
 - 23d1282 feat(metronome): MISSION-070 — lifecycle FPD/departure alerts + daily brief
-- 8b38567 fix(telegram-gw): resolve rc=1 ENGINE BROKEN false alarms + 180s timeouts
-- 6c9bf43 feat(belize-yaya): T6 YAYA recovery playbook + ASUS WAN watchdog manual steps
-- c4f148e feat(nginx-watchdog): expand watchdog to all 4 vhosts + code-server/syncthing configs
-- 0a8ae73 feat(belize-mcp): nginx auth proxy for MCP + T3/T4/T5 Belize continuity progress
 
 ### Uncommitted Changes
  M .obsidian/workspace.json
@@ -23,7 +23,6 @@
  M .smart-env/multi/session_autosave_latest_md.ajson
  M CLAUDE.md
  M OpsCenter/.supervisor_patterns.json
- M OpsCenter/00_COMMAND_LOG.md
  M OpsCenter/CLAUDE_DESKTOP_INIT.md
  M OpsCenter/OPENCODE_INIT.md
  M OpsCenter/a7_metrics_dashboard.json
@@ -31,11 +30,12 @@
  M OpsCenter/collaboration/blackboard_summary.txt
  M OpsCenter/collaboration/claude_outbox.md
  M OpsCenter/collaboration/opencode_inbox.md
+ M OpsCenter/collaboration/routing_log.md
 
 ### Inbox Status
 - Claude inbox: 0
 0 pending task(s)
-- OpenCode inbox: 1 pending task(s)
+- OpenCode inbox: 2 pending task(s)
 
 ### System Health
 - Watcher: ❌ STOPPED

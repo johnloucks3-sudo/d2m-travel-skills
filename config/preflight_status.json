@@ -1,14 +1,12 @@
 {
-  "timestamp": "2026-05-25 05:45 MT",
+  "timestamp": "2026-05-27 05:45 MT",
   "tier1_ok": 5,
   "tier1_total": 6,
-  "tier2_ok": 5,
+  "tier2_ok": 6,
   "tier2_total": 6,
   "tier1_failures": [
     "d2m-fpd-alert"
   ],
-  "tier2_failures": [
-    "d2m-email-intel"
-  ],
+  "tier2_failures": [],
   "all_clear": false
 }

@@ -1,5 +1,5 @@
 {
-  "tested_at": "2026-04-17T20:40:40.546291",
+  "tested_at": "2026-05-25T11:10:10.924942",
   "results": [
     {
       "site": "viator",
@@ -64,7 +64,7 @@
       "bot_indicator_found": null,
       "result_count_estimate": 0,
       "screenshot": "/home/john/Thunderbird/core/travel/data/smoke_headout_2026-09-05.png",
-      "page_title": "",
+      "page_title": "Headout: Things To Do, Attractions, Tours, Events & Experiences",
       "notes": "No bot indicators found, but no known result selectors matched. Check screenshot."
     }
   ]

@@ -37,6 +37,9 @@ SEQUENCE_FILE = os.path.join(ROOT, "OpsCenter", ".metronome_seq")
 DEEPSEEK_RATE_LOG = os.path.join(ROOT, "OpsCenter", ".deepseek_rate_log")
 DOSSIERS_DIR = os.path.join(ROOT, "dossiers")
 MISSION_BOARD_FILE = os.path.join(ROOT, "OpsCenter", "mission_board.json")
+SPSA_DEDUP_FILE = os.path.join(ROOT, "OpsCenter", "spsa_dedup_state.json")
+LIFECYCLE_DEDUP_FILE = os.path.join(ROOT, "OpsCenter", ".lifecycle_alerted.json")
+LIFECYCLE_DAILY_SENTINEL = os.path.join(ROOT, "OpsCenter", ".lifecycle_last_scan_date")
 
 
 def _get_tick_number():
@@ -57,6 +60,22 @@ def _increment_tick():
 def _reset_tick():
     with open(SEQUENCE_FILE, "w") as f:
         f.write("0")
+
+
+def _load_dedup(filepath):
+    try:
+        with open(filepath) as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return {}
+
+
+def _save_dedup(filepath, state):
+    try:
+        with open(filepath, "w") as f:
+            json.dump(state, f)
+    except OSError:
+        pass
 
 
 def _read_last_checkpoint():
@@ -343,6 +362,112 @@ def _rank_missions_today():
     return active[:7]
 
 
+def _scan_lifecycle_windows():
+    """Scan dossiers for lifecycle touchpoint windows — runs once per calendar day.
+    Derives arc_id/position from days-to-departure via date-window table.
+    Outputs [HALE-ROUTE] entries to wing_comms.md.
+    NEVER calls _telegram_alert() — lifecycle routing is Hale's domain.
+    Per A7 Sterling design gate (output/sterling_metronome_lifecycle_design.md).
+    """
+    today_mt = datetime.now(ZoneInfo("America/Denver"))
+    today_str = today_mt.strftime("%Y-%m-%d")
+
+    # Daily sentinel gate — skip if already ran today
+    try:
+        if os.path.exists(LIFECYCLE_DAILY_SENTINEL):
+            with open(LIFECYCLE_DAILY_SENTINEL) as f:
+                if f.read().strip() == today_str:
+                    return
+    except OSError:
+        pass
+    try:
+        with open(LIFECYCLE_DAILY_SENTINEL, "w") as f:
+            f.write(today_str)
+    except OSError:
+        pass
+
+    today = today_mt.date()
+
+    # Date-window table: (dep_days_lo, dep_days_hi, arc_id, position, action_label)
+    # dep_days = departure_date - today (positive=future, negative=past)
+    # Client is IN window when dep_days_lo <= dep_days <= dep_days_hi
+    # Dedup key uses departure_date, so each (client, arc, position) fires ONCE per voyage.
+    # Synchronized with lifecycle_decision_trees.yaml v1.1
+    WINDOWS = [
+        (270, 330, "arc4", "a", "Air Search open — task A2 Dembe route intel + A9 fare check + A8 airline fit"),
+        (200, 220, "arc5", "a", "Dining Preferences — task A2 research dining options + A8 recommend"),
+        (169, 200, "arc5", "b", "Dining Candidates — task A2 shortlist candidates (T-200d)"),
+        (120, 169, "arc1", "a", "Research & Pricing — task A2 Dembe dest research + A9 Harlan pricing (T-169d)"),
+        ( 14,  77, "arc1", "c", "Check-In window — task A3 Dani check-in, confirm next steps"),
+        (  0,  14, "arc4", "c", "Final Prep — task A2 pre-departure brief + A3 Dani final touch"),
+        (-14,  -7, "arc3", "a", "Insurance window (D+7–D+14) — task A3 Dani insurance pitch"),
+        (-30, -15, "arc2", "a", "Post-voyage welcome (D+14+) — task A3 Dani validation + welcome"),
+    ]
+
+    if not os.path.isdir(DOSSIERS_DIR):
+        return
+
+    # Load dedup state — purge entries for departed voyages (dep_date < today)
+    raw_dedup = _load_dedup(LIFECYCLE_DEDUP_FILE)
+    dedup = {}
+    for key, dep_date_str in raw_dedup.items():
+        try:
+            dep_d = datetime.strptime(dep_date_str, "%Y-%m-%d").date()
+            if dep_d >= today:
+                dedup[key] = dep_date_str
+        except ValueError:
+            pass
+
+    SKIP_STATUS_WORDS = {"completed", "paid", "cancelled", "archived", "inactive", "void", "complete"}
+    pending = []  # (client, ship, dep_str, dep_days, arc_id, position, action_label, dedup_key)
+
+    for fname in sorted(os.listdir(DOSSIERS_DIR)):
+        if not fname.endswith(".md"):
+            continue
+        fm = _parse_frontmatter(os.path.join(DOSSIERS_DIR, fname))
+        if not fm:
+            continue
+        status = fm.get("status", "").lower()
+        if any(w in status for w in SKIP_STATUS_WORDS):
+            continue
+        dep_str = fm.get("departure", "")
+        if not dep_str:
+            continue
+        try:
+            dep_date = datetime.strptime(dep_str, "%Y-%m-%d").date()
+            dep_days = (dep_date - today).days
+        except ValueError:
+            continue
+        # Skip voyages more than 400d out or more than 60d past
+        if dep_days > 400 or dep_days < -60:
+            continue
+
+        client = fm.get("client", fname.replace(".md", "")).strip('"')
+        ship = fm.get("ship", "Unknown")
+
+        for lo, hi, arc_id, position, action_label in WINDOWS:
+            if lo <= dep_days <= hi:
+                dedup_key = f"{client}|{arc_id}|{position}|{dep_str}"
+                if dedup_key not in dedup:
+                    pending.append((client, ship, dep_str, dep_days, arc_id, position, action_label, dedup_key))
+
+    if not pending:
+        return
+
+    # Write dedup state BEFORE calling _write_wing_nudge (Sterling rule — non-negotiable)
+    new_dedup = dict(dedup)
+    for _, _, dep_str, _, arc_id, position, _, dedup_key in pending:
+        new_dedup[dedup_key] = dep_str
+    _save_dedup(LIFECYCLE_DEDUP_FILE, new_dedup)
+
+    # Fire [HALE-ROUTE] nudges to wing_comms.md
+    ts_str = today_mt.strftime("%Y-%m-%d %H:%M MT")
+    lines = [f"[HALE-ROUTE] LIFECYCLE WINDOWS — {ts_str}"]
+    for client, ship, dep_str, dep_days, arc_id, position, action_label, _ in pending:
+        lines.append(f"• **{client}** ({ship}) T{dep_days:+d}d → `{arc_id}/{position}` — {action_label}")
+    _write_wing_nudge("\n".join(lines))
+
+
 def _generate_daily_brief():
     """Compose daily brief message for Telegram from FPD alerts + mission ranking."""
     now_mt = datetime.now(ZoneInfo("America/Denver"))
@@ -545,10 +670,17 @@ def main():
     lc_sum = {"critical": len([a for a in lc if a["level"] == "CRITICAL"]),
               "red": len([a for a in lc if a["level"] == "RED"]),
               "yellow": len([a for a in lc if a["level"] == "YELLOW"])}
+    today_mt_str = datetime.now(ZoneInfo("America/Denver")).strftime("%Y-%m-%d")
+    fpd_dedup = _load_dedup(SPSA_DEDUP_FILE)
     for alert in lc:
         if alert["level"] == "CRITICAL":
-            _telegram_alert(f"*METRONOME* \U0001f534 FPD OVERDUE: {alert['msg']}")
+            fpd_key = f"fpd:{alert['client']}:{alert['date']}"
+            if fpd_dedup.get(fpd_key) != today_mt_str:
+                _telegram_alert(f"*METRONOME* \U0001f534 FPD OVERDUE: {alert['msg']}")
+                fpd_dedup[fpd_key] = today_mt_str
             break
+    _save_dedup(SPSA_DEDUP_FILE, {k: v for k, v in fpd_dedup.items() if v == today_mt_str})
+    _scan_lifecycle_windows()
 
     tick_n = _increment_tick()
     entry = {

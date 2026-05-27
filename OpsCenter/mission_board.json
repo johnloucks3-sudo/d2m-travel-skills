@@ -946,6 +946,27 @@
       "updated_at": "2026-05-25T21:11:19.746933+00:00"
     },
     {
+      "id": "MISSION-071",
+      "title": "Grok 4 + Grok Build \u2014 Wing Intel Review",
+      "status": "queued",
+      "priority": "P2",
+      "assigned_to": "A2 Dembe + A12 ELON",
+      "description": "Review xAI Grok 4 model capabilities and Grok Build (agentic/coding product). Assess: (1) model benchmark position vs Claude Sonnet/Opus, (2) Grok Build as potential OpenCode/Goose replacement or complement, (3) cost/token economics, (4) any D2M-relevant capabilities (live web search, X/Twitter native access). A2 Dembe: competitive intelligence brief. A12 ELON: disruption/automation angle \u2014 is there a kill or replace opportunity for any current wing tool? Deliverable: joint 1-page staff paper to Commander.",
+      "deliverables": [
+        "A2 competitive intel brief",
+        "A12 ELON disruption assessment",
+        "joint staff paper"
+      ],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-05-27] Queued by Commander. No coding \u2014 intel + idea exchange first."
+      ],
+      "created_at": "2026-05-27T00:00:00Z",
+      "updated_at": "2026-05-27T00:00:00Z"
+    },
+    {
       "id": "MISSION-070",
       "title": "Metronome \u2014 Wire",
       "status": "completed",
@@ -959,6 +980,21 @@
       "logs": [],
       "created_at": "2026-05-26T18:02:24.402063+00:00",
       "updated_at": "2026-05-26T18:02:24.402074+00:00"
+    },
+    {
+      "id": "MISSION-072",
+      "title": "MISSION-072: Metronome \u2194",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "Lifecycle Router Integration Wire lifecycle_router.py into metronome.py. On each tick: check each active client ARC position vs today, fire TP-ALERTs when touchpoints are due, route to correct persona per YAML decision tree, add dedup gate to suppress duplicate alerts (fixes 30x TP-ALERT blocker). Owner: A7 Sterling. Design review before any code. P2",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-05-27T20:25:56.691793+00:00",
+      "updated_at": "2026-05-27T20:25:56.691804+00:00"
     }
   ],
   "suspense_watch": [

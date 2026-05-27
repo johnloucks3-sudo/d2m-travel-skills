@@ -31,7 +31,7 @@
 **Class:** Business (Class R — Non-Refundable) / First Flexible option available  
 **Miles:** 2,530  
 **Booked via:** Centrav  
-**Status:** PENDING BOOKING — deadline 11:55 PM CT today (2026-05-25)
+**Status:** PRICE QUOTED — Centrav is initial benchmark. No booking deadline confirmed.
 
 **Pricing:**
 | Option | Price (2 pax) | Per Person | Refundable |
@@ -76,8 +76,8 @@
 |------|--------|-------|
 | Sheraton Desert Oasis | ✅ Booked | Confirm reservation # |
 | Hale Koa Hotel | ✅ Booked | Ocean View confirmed |
-| AA675 PHX→HNL | ⚠️ PENDING | Deadline 11:55 PM CT 2026-05-25 |
-| AA144/4999 HNL→DEN | ⚠️ PENDING | Same Centrav booking |
+| AA675 PHX→HNL | 📋 QUOTED | Centrav benchmark $4,619.02 — no booking yet |
+| AA144/4999 HNL→DEN | 📋 QUOTED | Same Centrav quote |
 
 ---
 

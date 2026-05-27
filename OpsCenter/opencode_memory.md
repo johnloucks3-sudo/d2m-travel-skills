@@ -182,12 +182,11 @@ Contents by session (line ranges in archive):
 
 ---
 
-### Session: Inbox Sweep — 2026-05-27 06:00 MT
-- Processed 1 UNREAD task: TP-ALERT-20260527 (06:00 MT) — acknowledged, 109 touchpoints, returned to May 25 level
-- Dedup blocker persists (29th+ copy since May 22) — flagged A12 ELON
-- All 57 tasks COMPLETE — inbox terminal: CLEAN
-- Wrote to claude_outbox.md and wing_comms.md per standard sweep protocol
-- T2-COMMS-BUILD-20260518 remains UPDATED with TASKS A/B/C pending (not UNREAD/PENDING — falls outside sweep criteria)
+### Session: Inbox Sweep — 2026-05-27 11:00 MT
+- Processed 1 UNREAD task: TP-ALERT-20260527 (10:51 MT) — acknowledged, 109 touchpoints
+- Dedup blocker persists (30th+ copy since May 22) — flagged A12 ELON
+- All tasks COMPLETE — inbox terminal: CLEAN
+- T2-COMMS-BUILD-20260518 UPDATED with TASKS A/B/C pending (outside UNREAD/PENDING sweep criteria)
 
 ## SESSION SUMMARIES — 2026-05-24
 Archived to `archives/opencode_memory_20260524_sessions.md` per hard-cap Rule 4.

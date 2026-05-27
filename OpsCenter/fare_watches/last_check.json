@@ -1,17 +1,177 @@
 {
-  "last_run": "2026-05-15T14:07:49.404Z",
-  "watches_checked": 2,
+  "last_run": "2026-05-27T16:55:32.409910+00:00",
+  "watches_checked": 17,
+  "live_lookups_performed": 5,
   "alerts_fired": 0,
+  "past_trip_watches_to_deactivate": [
+    "westbrook-silver-nova-pacific",
+    "loucks-silver-nova-pacific"
+  ],
+  "telegram_status": "sent",
+  "note": "Flight lookups via Amadeus API direct (5 mapped routes). Cruise lookups skipped: portal anti-bot + no MCP cruise search bound. 2 past-trip watches flagged for deactivation.",
   "results": [
     {
-      "id": "kuklinski-viking-mars-panama-2026-12-17",
+      "id": "furlow-grandeur-scandinavia-cruise",
+      "label": "Furlow \u2014 Regent Grandeur Scandinavia (Booking 3071222)",
+      "type": "cruise",
+      "travel_date": "2026-08-29",
+      "baseline_pp": 9618.0,
       "status": "skipped",
-      "reason": "manual check required"
+      "reason": "cruise line portals (RSSC=Akamai, Viking=CloudFront, Silversea=Cloudflare, Ponant=Cloudflare) block headless browsers; no public same-cabin-category fare endpoint; MCP search_live_cruise_voyages not bound in this Goose dispatch"
     },
     {
-      "id": "kuklinski-positioning-cos-fll-2026-12-15",
+      "id": "nichols-grandeur-scandinavia-cruise",
+      "label": "Nichols \u2014 Regent Grandeur Scandinavia (Booking 3078056)",
+      "type": "cruise",
+      "travel_date": "2026-08-29",
+      "baseline_pp": 9448.0,
       "status": "skipped",
-      "reason": "manual check required"
+      "reason": "cruise line portals (RSSC=Akamai, Viking=CloudFront, Silversea=Cloudflare, Ponant=Cloudflare) block headless browsers; no public same-cabin-category fare endpoint; MCP search_live_cruise_voyages not bound in this Goose dispatch"
+    },
+    {
+      "id": "ely-darrow-grandeur-scandinavia-cruise",
+      "label": "Ely/Darrow \u2014 Regent Grandeur Scandinavia (Booking 3096289)",
+      "type": "cruise",
+      "travel_date": "2026-08-29",
+      "baseline_pp": 10320.0,
+      "status": "skipped",
+      "reason": "cruise line portals (RSSC=Akamai, Viking=CloudFront, Silversea=Cloudflare, Ponant=Cloudflare) block headless browsers; no public same-cabin-category fare endpoint; MCP search_live_cruise_voyages not bound in this Goose dispatch"
+    },
+    {
+      "id": "kuklinski-viking-panama-dv1",
+      "label": "Kuklinski (Kyle+Rosalie, Roger+Nick) \u2014 Viking Mars Panama Canal DV1",
+      "type": "cruise",
+      "travel_date": "2026-12-17",
+      "baseline_pp": 3799.0,
+      "status": "skipped",
+      "reason": "cruise line portals (RSSC=Akamai, Viking=CloudFront, Silversea=Cloudflare, Ponant=Cloudflare) block headless browsers; no public same-cabin-category fare endpoint; MCP search_live_cruise_voyages not bound in this Goose dispatch"
+    },
+    {
+      "id": "kuklinski-viking-panama-v1",
+      "label": "Morton/Dodge (Josh+Erica) \u2014 Viking Mars Panama Canal V1-Veranda",
+      "type": "cruise",
+      "travel_date": "2026-12-17",
+      "baseline_pp": 3099.0,
+      "status": "skipped",
+      "reason": "cruise line portals (RSSC=Akamai, Viking=CloudFront, Silversea=Cloudflare, Ponant=Cloudflare) block headless browsers; no public same-cabin-category fare endpoint; MCP search_live_cruise_voyages not bound in this Goose dispatch"
+    },
+    {
+      "id": "kuklinski-flights-ric-pty",
+      "label": "Kuklinski Group \u2014 Flights RIC \u2192 PTY Dec 17 (4 pax, not yet booked)",
+      "type": "flight",
+      "travel_date": "2026-12-17",
+      "baseline_pp": 550.0,
+      "status": "checked",
+      "new_price_pp": 1042.91,
+      "pct_change": null,
+      "alert_triggered": null
+    },
+    {
+      "id": "morton-dodge-flights-rsw-pty",
+      "label": "Morton/Dodge \u2014 Flights RSW \u2192 PTY Dec 17 (2 pax, not yet booked)",
+      "type": "flight",
+      "travel_date": "2026-12-17",
+      "baseline_pp": 420.0,
+      "status": "checked",
+      "new_price_pp": 1002.91,
+      "pct_change": null,
+      "alert_triggered": null
+    },
+    {
+      "id": "lyons-splendor-athens-ny-cruise",
+      "label": "Lyons \u2014 Regent Splendor Athens \u2192 New York (Booking 2979301)",
+      "type": "cruise",
+      "travel_date": "2026-08-11",
+      "baseline_pp": 10625.0,
+      "status": "skipped",
+      "reason": "cruise line portals (RSSC=Akamai, Viking=CloudFront, Silversea=Cloudflare, Ponant=Cloudflare) block headless browsers; no public same-cabin-category fare endpoint; MCP search_live_cruise_voyages not bound in this Goose dispatch"
+    },
+    {
+      "id": "mcleod-silver-muse-med-jun2026",
+      "label": "McLeod/McGlasson \u2014 Silver Muse Mediterranean Jun 2026 (298475-25)",
+      "type": "cruise",
+      "travel_date": "2026-06-23",
+      "baseline_pp": 7200.0,
+      "status": "skipped",
+      "reason": "cruise line portals (RSSC=Akamai, Viking=CloudFront, Silversea=Cloudflare, Ponant=Cloudflare) block headless browsers; no public same-cabin-category fare endpoint; MCP search_live_cruise_voyages not bound in this Goose dispatch"
+    },
+    {
+      "id": "mcleod-regent-grandeur-dec2026",
+      "label": "McLeod/McGlasson \u2014 Regent Grandeur Lesser Antilles Dec 2026 (2984034)",
+      "type": "cruise",
+      "travel_date": "2026-12-19",
+      "baseline_pp": 7700.0,
+      "status": "skipped",
+      "reason": "cruise line portals (RSSC=Akamai, Viking=CloudFront, Silversea=Cloudflare, Ponant=Cloudflare) block headless browsers; no public same-cabin-category fare endpoint; MCP search_live_cruise_voyages not bound in this Goose dispatch"
+    },
+    {
+      "id": "mcleod-flights-den-fco-jun2026",
+      "label": "McLeod/McGlasson DEN\u2192FCO Jun 18 2026 (BOOKED \u2014 Business)",
+      "type": "flight",
+      "travel_date": "2026-06-18",
+      "baseline_pp": 3500.0,
+      "status": "checked",
+      "new_price_pp": 4413.6,
+      "pct_change": null,
+      "alert_triggered": null
+    },
+    {
+      "id": "mcleod-flights-vce-den-jul2026",
+      "label": "McLeod/McGlasson VCE\u2192DEN Jul 6 2026 via Toronto (BOOKED \u2014 Business)",
+      "type": "flight",
+      "travel_date": "2026-07-06",
+      "baseline_pp": 3200.0,
+      "status": "checked",
+      "new_price_pp": 2636.33,
+      "pct_change": null,
+      "alert_triggered": null
+    },
+    {
+      "id": "westbrook-silver-nova-pacific",
+      "label": "Westbrook \u2014 Silver Nova Trans-Pacific Apr 23 2026 (566904-25)",
+      "type": "cruise",
+      "travel_date": "2026-04-23",
+      "baseline_pp": 5400.0,
+      "status": "skipped",
+      "reason": "past trip (2026-04-23); flagged for deactivation"
+    },
+    {
+      "id": "loucks-silver-nova-pacific",
+      "label": "Loucks \u2014 Silver Nova Trans-Pacific Apr 23 2026 (566910-25) [Personal]",
+      "type": "cruise",
+      "travel_date": "2026-04-23",
+      "baseline_pp": 5400.0,
+      "status": "skipped",
+      "reason": "past trip (2026-04-23); flagged for deactivation"
+    },
+    {
+      "id": "loucks-regent-grandeur-panama-dec2026",
+      "label": "Loucks \u2014 Regent Grandeur Panama Canal Dec 29 2026 (3122006)",
+      "type": "cruise",
+      "travel_date": "2026-12-29",
+      "baseline_pp": 12899.0,
+      "status": "skipped",
+      "reason": "cruise line portals (RSSC=Akamai, Viking=CloudFront, Silversea=Cloudflare, Ponant=Cloudflare) block headless browsers; no public same-cabin-category fare endpoint; MCP search_live_cruise_voyages not bound in this Goose dispatch"
+    },
+    {
+      "id": "viking-kuklinski-panama-2026-12-17",
+      "label": "Viking Mars Panama Canal Dec 17-27 2026 \u2014 Kuklinski/Morton group",
+      "type": "cruise",
+      "travel_date": "2026-12-17",
+      "baseline_pp": 2582.67,
+      "status": "skipped",
+      "reason": "cruise line portals (RSSC=Akamai, Viking=CloudFront, Silversea=Cloudflare, Ponant=Cloudflare) block headless browsers; no public same-cabin-category fare endpoint; MCP search_live_cruise_voyages not bound in this Goose dispatch"
+    },
+    {
+      "id": "flight-kuklinski-cos-fll-2026-12-15",
+      "label": "COS/DEN->FLL Dec 15-16 2026 \u2014 Kuklinski/Morton group positioning",
+      "type": "flight",
+      "travel_date": "2026-12-15",
+      "baseline_pp": 450.0,
+      "status": "checked",
+      "new_price_pp": 221.24,
+      "pct_change": null,
+      "alert_triggered": null
     }
   ]
 }
