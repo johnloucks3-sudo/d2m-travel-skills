@@ -172,7 +172,11 @@ def scrape_cruisemapper(
     all_voyages: list[dict] = []
     seen: set[tuple] = set()   # (ship_norm, departure_date)
 
-    for line_key, (slug, canonical_line) in lines.items():
+    for line_key, line_cfg in lines.items():
+        slug, canonical_line = line_cfg[0], line_cfg[1]
+        opts = line_cfg[2] if len(line_cfg) > 2 else {}
+        ship_includes = [s.lower() for s in opts.get('ship_includes', [])]
+
         print(f'  [cruisemapper] {line_key}: fetching line page → {slug}', flush=True)
         ship_urls = _get_ship_urls(slug)
         if not ship_urls:
@@ -185,6 +189,11 @@ def scrape_cruisemapper(
         for ship_url in ship_urls:
             voyages = _parse_ship_itineraries(ship_url, year, months)
             for v in voyages:
+                # Apply ship whitelist if configured for this line
+                if ship_includes and not any(
+                    inc in v['ship_name'].lower() for inc in ship_includes
+                ):
+                    continue
                 v['cruise_line'] = canonical_line
                 key = (norm_ship(v['ship_name']), v['departure_date'])
                 if key not in seen:

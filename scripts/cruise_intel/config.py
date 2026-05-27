@@ -194,9 +194,11 @@ CSV_COLUMNS = [
     'price_usd',
 ]
 
-# ── CruiseMapper line slugs (Wave 3) ─────────────────────────────────────────
-# Maps display name → (slug-for-URL, canonical-cruise-line-name)
+# ── CruiseMapper line slugs (Wave 3 + Wave 4 expansion) ──────────────────────
+# Maps display name → (slug-for-URL, canonical-cruise-line-name[, opts])
+# Wave 4 lines confirmed by A2 Dembe 2026-05-27 from CruiseMapper directory
 CRUISEMAPPER_LINES = {
+    # ── Wave 3 — luxury core ──────────────────────────────────────────────────
     'Silversea':    ('Silversea-Cruises-19',             'Silversea'),
     'Seabourn':     ('Seabourn-Cruises-2',               'Seabourn'),
     'Regent':       ('Regent-Seven-Seas-Cruises-28',     'Regent Seven Seas Cruises'),
@@ -208,10 +210,26 @@ CRUISEMAPPER_LINES = {
     'Crystal':      ('Crystal-Cruises-17',               'Crystal'),
     'HX':           ('HX-Expeditions-129',               'HX Expeditions'),
     'SeaDream':     ('SeaDream-Yacht-Club-108',          'SeaDream Yacht Club'),
-    'Atlas':        ('Atlas-Ocean-Voyages-122',          'Atlas Ocean Voyages'),
+    # Vasco da Gama is Mystic Cruises (same parent co.) — exclude it; Atlas fleet is World Nav/Trav/Voy
+    'Atlas':        ('Atlas-Ocean-Voyages-122',          'Atlas Ocean Voyages',
+                     {'ship_includes': ['World Navigator', 'World Traveller', 'World Voyager']}),
     'Ritz-Carlton': ('Ritz-Carlton-Yacht-Collection-96', 'Ritz-Carlton Yacht Club'),
     'Scenic':       ('Scenic-Cruises-82',                'Scenic'),
     'Lindblad':     ('Lindblad-Expeditions-103',         'Lindblad Expeditions'),
+    # ── Wave 4 — premium & expedition expansion ───────────────────────────────
+    'Windstar':     ('Windstar-Cruises-30',              'Windstar Cruises'),
+    'Azamara':      ('Azamara-Cruises-7',                'Azamara'),
+    'StarClippers': ('Star-Clippers-118',                'Star Clippers'),
+    'SwanHellenic': ('Swan-Hellenic-Cruises-123',        'Swan Hellenic'),
+    'Hurtigruten':  ('Hurtigruten-45',                   'Hurtigruten'),
+    'FredOlsen':    ('Fred-Olsen-Cruise-Lines-26',       'Fred. Olsen Cruise Lines'),
+    'Celestyal':    ('Celestyal-Cruises-106',            'Celestyal Cruises'),
+    'Emerald':      ('Emerald-Cruises-95',               'Emerald Cruises'),
+    'Ambassador':   ('Ambassador-Cruise-Line-105',       'Ambassador Cruise Line'),
+    'HapagLloyd':   ('Hapag-Lloyd-Cruises-104',          'Hapag-Lloyd Cruises'),
+    'Aurora':       ('Aurora-Expeditions-132',           'Aurora Expeditions'),
+    'Quark':        ('Quark-Expeditions-114',            'Quark Expeditions'),
+    'Saga':         ('Saga-Cruises-27',                  'Saga Cruises'),
 }
 
 # ── CruisesOnly line slugs + search codes (Wave 3) ───────────────────────────
