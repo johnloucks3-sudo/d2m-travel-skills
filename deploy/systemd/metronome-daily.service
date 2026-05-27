@@ -1,0 +1,14 @@
+[Unit]
+Description=METRONOME daily brief — FPD alerts + mission board via Telegram (0600 MT)
+Documentation=file:///home/john/Thunderbird/OpsCenter/metronome.py
+After=network.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/Thunderbird/OpsCenter
+ExecStart=%h/Thunderbird/.venv/bin/python %h/Thunderbird/OpsCenter/metronome.py --daily-brief
+StandardOutput=append:%h/Thunderbird/logs/metronome.log
+StandardError=append:%h/Thunderbird/logs/metronome.log
+
+[Install]
+WantedBy=default.target

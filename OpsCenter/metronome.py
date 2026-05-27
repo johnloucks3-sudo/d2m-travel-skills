@@ -1,0 +1,585 @@
+#!/usr/bin/env python3
+"""METRONOME — The non-sleeper clock agent for Two-Brain sessions.
+Dreams2Memories Travel, LLC
+
+Ticks every 5 minutes via systemd timer. Never sleeps. Tracks cadence,
+detects stalled tasks, auto-escalates, writes to metronome_ticks.jsonl.
+
+Usage:
+  python metronome.py                    # normal tick
+  python metronome.py --status           # print current state, no tick
+  python metronome.py --force-tick       # tick even if offline mode
+  python metronome.py --reset-sequence   # reset tick counter to 0
+  python metronome.py --checkpoints      # print last 5 checkpoints
+"""
+
+import json
+import os
+import subprocess
+import sys
+from datetime import datetime, timezone, timedelta
+from zoneinfo import ZoneInfo
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+TICKS_FILE = os.path.join(ROOT, "OpsCenter", "metronome_ticks.jsonl")
+CHECKPOINT_FILE = os.path.join(ROOT, "OpsCenter", "checkpoints.jsonl")
+SHARED_STATE_FILE = os.path.join(ROOT, "OpsCenter", "hale_shared_state.jsonl")
+WING_COMMS = os.path.join(ROOT, "OpsCenter", "collaboration", "wing_comms.md")
+DISPATCH_SCRIPT = os.path.join(ROOT, "OpsCenter", "dispatch_claude.py")
+
+CADENCE_S = 300  # 5 minutes between ticks
+IDLE_YELLOW_S = 300   # 5 min — nudge
+IDLE_ORANGE_S = 600   # 10 min — auto-restart
+IDLE_RED_S = 900      # 15 min — Telegram alert
+IDLE_CRITICAL_S = 1800  # 30 min — auto-close
+
+SEQUENCE_FILE = os.path.join(ROOT, "OpsCenter", ".metronome_seq")
+DEEPSEEK_RATE_LOG = os.path.join(ROOT, "OpsCenter", ".deepseek_rate_log")
+DOSSIERS_DIR = os.path.join(ROOT, "dossiers")
+MISSION_BOARD_FILE = os.path.join(ROOT, "OpsCenter", "mission_board.json")
+
+
+def _get_tick_number():
+    try:
+        with open(SEQUENCE_FILE) as f:
+            return int(f.read().strip())
+    except (FileNotFoundError, ValueError):
+        return 0
+
+
+def _increment_tick():
+    n = _get_tick_number() + 1
+    with open(SEQUENCE_FILE, "w") as f:
+        f.write(str(n))
+    return n
+
+
+def _reset_tick():
+    with open(SEQUENCE_FILE, "w") as f:
+        f.write("0")
+
+
+def _read_last_checkpoint():
+    """Return the most recent checkpoint entry, or None."""
+    if not os.path.exists(CHECKPOINT_FILE):
+        return None
+    last = None
+    with open(CHECKPOINT_FILE) as f:
+        for line in f:
+            line = line.strip()
+            if line:
+                try:
+                    last = json.loads(line)
+                except json.JSONDecodeError:
+                    continue
+    return last
+
+
+def _read_last_heartbeat(instance="hale_oc"):
+    """Read the last shared-state entry for a given instance."""
+    if not os.path.exists(SHARED_STATE_FILE):
+        return None
+    last = None
+    with open(SHARED_STATE_FILE) as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                entry = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            if entry.get("instance") == instance:
+                last = entry
+    return last
+
+
+def _age_seconds(ts_str):
+    """Calculate how many seconds old a timestamp string is."""
+    try:
+        ts = datetime.fromisoformat(ts_str.replace("Z", "+00:00"))
+        return int((datetime.now(timezone.utc) - ts).total_seconds())
+    except (ValueError, AttributeError):
+        return None
+
+
+def _telegram_alert(message):
+    """Send alert to Commander via Telegram."""
+    try:
+        bot_token = ""
+        chat_id = "7554895206"
+        poe_env = os.path.join(ROOT, "config", "poe.env")
+        if os.path.exists(poe_env):
+            for line in open(poe_env):
+                if line.startswith("TELEGRAM_BOT_TOKEN="):
+                    bot_token = line.strip().split("=", 1)[1]
+                elif line.startswith("TELEGRAM_COMMANDER_ID="):
+                    chat_id = line.strip().split("=", 1)[1]
+        if not bot_token:
+            return
+        import urllib.request
+        payload = json.dumps({"chat_id": chat_id, "text": message, "parse_mode": "Markdown"}).encode()
+        req = urllib.request.Request(
+            f"https://api.telegram.org/bot{bot_token}/sendMessage",
+            data=payload,
+            headers={"Content-Type": "application/json"},
+        )
+        urllib.request.urlopen(req, timeout=10)
+    except Exception:
+        pass
+
+
+def _write_wing_nudge(message):
+    os.makedirs(os.path.dirname(WING_COMMS), exist_ok=True)
+    with open(WING_COMMS, "a") as f:
+        f.write(f"\n---\n## METRONOME NUDGE — {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}\n{message}\n")
+
+
+def _auto_restart_sonnet(age_s, reason=""):
+    """Auto-restart stalled Sonnet dispatch."""
+    ts = int(datetime.now(timezone.utc).timestamp())
+    outfile = os.path.join(ROOT, "output", f"two_brain_autorestart_{ts}.md")
+    try:
+        result = subprocess.run(
+            [sys.executable, DISPATCH_SCRIPT,
+             "--task", f"metronome-autorestart-{ts}",
+             "--output", outfile,
+             "--prompt", f"METRONOME auto-restart. Previous dispatch stalled at {age_s}s. {reason}. WRITE to {outfile}",
+             "--model", "sonnet"],
+            capture_output=True, text=True, timeout=30
+        )
+        _write_wing_nudge(f"METRONOME auto-restarted Sonnet dispatch (stalled {age_s}s). Output: {outfile}")
+    except Exception as e:
+        _write_wing_nudge(f"METRONOME failed to auto-restart: {e}")
+
+
+def _record_deepseek_call():
+    """Record a DeepSeek V4 Flash API call timestamp. Called by dispatch scripts."""
+    os.makedirs(os.path.dirname(DEEPSEEK_RATE_LOG), exist_ok=True)
+    with open(DEEPSEEK_RATE_LOG, "a") as f:
+        f.write(datetime.now(timezone.utc).isoformat() + "\n")
+
+
+def _check_deepseek_limits():
+    """Check DeepSeek V4 Flash free tier rate limits.
+    Limits: 100 req/hour, 500 req/day.
+    Returns dict with usage stats and alert state.
+    """
+    if not os.path.exists(DEEPSEEK_RATE_LOG):
+        return {"hourly_used": 0, "daily_used": 0, "hourly_pct": 0, "daily_pct": 0,
+                "hourly_limit": 100, "daily_limit": 500, "state": "GREEN", "alarm": None}
+
+    now = datetime.now(timezone.utc)
+    hour_ago = now - timedelta(hours=1)
+    day_ago = now - timedelta(hours=24)
+
+    hourly = 0
+    daily = 0
+    with open(DEEPSEEK_RATE_LOG) as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                ts = datetime.fromisoformat(line)
+                if ts > hour_ago:
+                    hourly += 1
+                if ts > day_ago:
+                    daily += 1
+            except ValueError:
+                continue
+
+    hourly_pct = round(hourly / 100 * 100, 1)
+    daily_pct = round(daily / 500 * 100, 1)
+
+    # Check thresholds against TALON compact spec
+    alarm = None
+    state = "GREEN"
+    if hourly >= 95 or daily >= 475:
+        state = "CRITICAL"
+        alarm = f"DeepSeek V4 CRITICAL: {hourly}/hr ({hourly_pct}%), {daily}/day ({daily_pct}%)"
+    elif hourly >= 80 or daily >= 400:
+        state = "RED"
+        alarm = f"DeepSeek V4 RED: {hourly}/hr ({hourly_pct}%), {daily}/day ({daily_pct}%)"
+    elif hourly >= 60 or daily >= 300:
+        state = "YELLOW"
+        alarm = f"DeepSeek V4 YELLOW: {hourly}/hr ({hourly_pct}%), {daily}/day ({daily_pct}%)"
+
+    return {
+        "hourly_used": hourly,
+        "daily_used": daily,
+        "hourly_pct": hourly_pct,
+        "daily_pct": daily_pct,
+        "hourly_limit": 100,
+        "daily_limit": 500,
+        "state": state,
+        "alarm": alarm,
+    }
+
+
+def _parse_frontmatter(filepath):
+    """Parse YAML-style frontmatter from a markdown file without yaml import.
+    Returns dict of key/value pairs, or {} if no frontmatter.
+    """
+    result = {}
+    try:
+        with open(filepath, encoding="utf-8", errors="replace") as f:
+            lines = f.readlines()
+    except OSError:
+        return result
+    if not lines or lines[0].strip() != "---":
+        return result
+    for line in lines[1:]:
+        stripped = line.strip()
+        if stripped == "---":
+            break
+        if ":" in stripped:
+            key, _, val = stripped.partition(":")
+            val = val.strip()
+            if (val.startswith('"') and val.endswith('"')) or \
+               (val.startswith("'") and val.endswith("'")):
+                val = val[1:-1]
+            result[key.strip()] = val
+    return result
+
+
+def _scan_dossier_fpds():
+    """Scan dossiers/*.md for FPD and departure deadline alerts.
+    Returns list of alert dicts sorted by urgency (CRITICAL first).
+    """
+    today = datetime.now(ZoneInfo("America/Denver")).date()
+    SKIP_STATUS_WORDS = {"completed", "paid", "cancelled", "archived",
+                         "inactive", "void", "complete"}
+    alerts = []
+    if not os.path.isdir(DOSSIERS_DIR):
+        return alerts
+    for fname in os.listdir(DOSSIERS_DIR):
+        if not fname.endswith(".md"):
+            continue
+        fm = _parse_frontmatter(os.path.join(DOSSIERS_DIR, fname))
+        if not fm:
+            continue
+        status = fm.get("status", "").lower()
+        if any(w in status for w in SKIP_STATUS_WORDS):
+            continue
+        client = fm.get("client", fname.replace(".md", "")).strip('"')
+        ship = fm.get("ship", "")
+        # Skip dossiers whose voyage has already departed (>7 days ago)
+        dep_str = fm.get("departure", "")
+        dep_days = None
+        if dep_str:
+            try:
+                dep_date = datetime.strptime(dep_str, "%Y-%m-%d").date()
+                dep_days = (dep_date - today).days
+                if dep_days < -7:
+                    continue
+            except ValueError:
+                pass
+        # FPD alert — only surface if within actionable window (-14d to +7d)
+        fpd_str = fm.get("fpd", "")
+        if fpd_str:
+            try:
+                fpd_date = datetime.strptime(fpd_str, "%Y-%m-%d").date()
+                fpd_days = (fpd_date - today).days
+                if fpd_days < -14:
+                    lvl = None  # Too old — assume handled
+                elif fpd_days < 0:
+                    lvl = "CRITICAL"  # -14 to -1 days
+                elif fpd_days <= 3:
+                    lvl = "RED"  # 0 to 3 days
+                elif fpd_days <= 7:
+                    lvl = "YELLOW"  # 4 to 7 days
+                else:
+                    lvl = None
+                if lvl:
+                    amt = fm.get("fpd_amount", "")
+                    amt_str = f" ${amt}" if amt else ""
+                    alerts.append({"type": "fpd", "level": lvl, "client": client,
+                                   "ship": ship, "date": fpd_str, "days": fpd_days,
+                                   "msg": f"FPD{amt_str} — {client} ({ship}) — {fpd_str} ({fpd_days:+d}d)"})
+            except ValueError:
+                pass
+        # Departure alert
+        if dep_days is not None:
+            try:
+                if 0 <= dep_days <= 14:
+                    lvl = "RED"
+                elif 0 < dep_days <= 30:
+                    lvl = "YELLOW"
+                else:
+                    lvl = None
+                if lvl:
+                    alerts.append({"type": "departure", "level": lvl, "client": client,
+                                   "ship": ship, "date": dep_str, "days": dep_days,
+                                   "msg": f"DEPARTS — {client} ({ship}) — {dep_str} (T-{dep_days}d)"})
+            except ValueError:
+                pass
+    level_order = {"CRITICAL": 0, "RED": 1, "YELLOW": 2}
+    alerts.sort(key=lambda a: (level_order.get(a["level"], 9), a["days"]))
+    return alerts
+
+
+def _rank_missions_today():
+    """Return top active missions ranked by priority, max 7."""
+    if not os.path.exists(MISSION_BOARD_FILE):
+        return []
+    try:
+        with open(MISSION_BOARD_FILE) as f:
+            board = json.load(f)
+    except (json.JSONDecodeError, OSError):
+        return []
+    SKIP = {"completed", "archived", "audit_complete"}
+    PORDER = {"P0": 0, "P1": 1, "P2": 2, "P3": 3}
+    today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    active = [m for m in board.get("missions", [])
+              if m.get("status", "").lower() not in SKIP]
+
+    def _key(m):
+        pri = PORDER.get(m.get("priority", "P3"), 3)
+        susp = (m.get("suspense_date") or "9999-99-99")[:10]
+        return (pri, "0000" + susp if susp < today_str else susp)
+
+    active.sort(key=_key)
+    return active[:7]
+
+
+def _generate_daily_brief():
+    """Compose daily brief message for Telegram from FPD alerts + mission ranking."""
+    now_mt = datetime.now(ZoneInfo("America/Denver"))
+    date_str = now_mt.strftime("%Y-%m-%d %H:%M MT")
+    alerts = _scan_dossier_fpds()
+    missions = _rank_missions_today()
+    today_str = now_mt.strftime("%Y-%m-%d")
+    lines = [f"*\U0001f985 THUNDERBIRD DAILY BRIEF — {date_str}*", ""]
+    if alerts:
+        lines.append("*\U0001f4c5 DEADLINE ALERTS*")
+        for a in alerts:
+            icon = {"CRITICAL": "\U0001f534", "RED": "\U0001f7e0", "YELLOW": "\U0001f7e1"}.get(a["level"], "⚪")
+            lines.append(f"{icon} {a['msg']}")
+        lines.append("")
+    else:
+        lines.append("*\U0001f4c5 DEADLINES* — None within 30-day window")
+        lines.append("")
+    if missions:
+        lines.append("*\U0001f4cb MISSION BOARD (Top Active)*")
+        for m in missions:
+            pid = m.get("priority", "?")
+            mid = m.get("id", "?")
+            title = m.get("title", "?")[:48]
+            status = m.get("status", "?")
+            susp = (m.get("suspense_date") or "")[:10]
+            overdue = " ⚠OVERDUE" if susp and susp < today_str else ""
+            susp_str = f" [{susp}]" if susp else ""
+            lines.append(f"• `{pid}` {mid}: {title}{susp_str} ({status}){overdue}")
+    else:
+        lines.append("*\U0001f4cb MISSION BOARD* — No active missions")
+    msg = "\n".join(lines)
+    return msg[:4000] + "..." if len(msg) > 4000 else msg
+
+
+def _auto_close_stale(age_s, reason=""):
+    """Close stale task and mark for Commander review."""
+    _telegram_alert(
+        f"*METRONOME ALERT* — Session stale {age_s}s\n"
+        f"Auto-closed stale task.\n"
+        f"Reason: {reason}\n"
+        f"Next: Commander review needed."
+    )
+
+
+# Heartbeat expected only during active Two-Brain sessions.
+# If the latest checkpoint is older than the session window, heartbeats
+# are expected to go stale — treat as IDLE/OFFLINE, not RED.
+SESSION_WINDOW_S = 3600  # 1 hour — if no activity in this long, session is over
+
+
+def _is_active_session(checkpoint_age):
+    """Return True if there's evidence of an active session (recent checkpoint)."""
+    if checkpoint_age is None:
+        return False
+    return checkpoint_age <= SESSION_WINDOW_S
+
+
+def evaluate_state(checkpoint_age, heartbeat_age, dispatch_age=None):
+    """Return (state, action_taken, description) based on age thresholds."""
+    action = None
+
+    if checkpoint_age is None and heartbeat_age is None:
+        return ("OFFLINE", "first_tick", "No checkpoints or heartbeats found — first METRONOME tick")
+
+    # If no active session (checkpoint > 1hr old), don't escalate heartbeat misses to RED
+    if not _is_active_session(checkpoint_age):
+        state = "OFFLINE"
+        desc = f"Session idle — last checkpoint {checkpoint_age}s ago"
+        if heartbeat_age is not None:
+            desc += f", last heartbeat {heartbeat_age}s ago (expected — no active session)"
+        return (state, None, desc)
+
+    max_age = max(
+        a for a in [checkpoint_age, heartbeat_age, dispatch_age]
+        if a is not None
+    )
+
+    if max_age is None:
+        return ("OFFLINE", None, "No age data available")
+
+    if max_age <= IDLE_YELLOW_S:
+        return ("GREEN", None, f"Healthy — last activity {max_age}s ago")
+
+    if max_age <= IDLE_ORANGE_S:
+        _write_wing_nudge(f"METRONOME YELLOW: Session idle {max_age}s. Activity expected within {CADENCE_S}s cadence.")
+        return ("YELLOW", "nudge", f"Nudge written — idle {max_age}s")
+
+    if max_age <= IDLE_RED_S:
+        _auto_restart_sonnet(max_age, reason="Session idle threshold crossed")
+        return ("ORANGE", "auto_restart", f"Auto-restart dispatched — idle {max_age}s")
+
+    if max_age <= IDLE_CRITICAL_S:
+        _telegram_alert(
+            f"*METRONOME RED* — Session idle {max_age}s\n"
+            f"Auto-restart triggered. Check wing_comms.md for nudge trail."
+        )
+        return ("RED", "telegram_alert", f"Commander alerted — idle {max_age}s")
+
+    _auto_close_stale(max_age, reason="Session idle > 30 min")
+    return ("CRITICAL", "auto_close", f"Task auto-closed — idle {max_age}s")
+
+
+def main():
+    args = sys.argv[1:]
+
+    if "--daily-brief" in args:
+        brief = _generate_daily_brief()
+        print(brief)
+        _telegram_alert(brief)
+        return
+
+    if "--reset-sequence" in args:
+        _reset_tick()
+        print("METRONOME sequence reset to 0")
+        return
+
+    if "--checkpoints" in args:
+        if os.path.exists(CHECKPOINT_FILE):
+            with open(CHECKPOINT_FILE) as f:
+                lines = f.readlines()
+            for line in lines[-5:]:
+                try:
+                    e = json.loads(line.strip())
+                    print(f"  {e.get('ts','?'):25s} {e.get('task','?')[:60]}")
+                except Exception:
+                    print(f"  (parse error) {line.strip()[:80]}")
+        else:
+            print("No checkpoints found")
+        return
+
+    if "--record-deepseek-call" in args:
+        _record_deepseek_call()
+        print("DeepSeek V4 call recorded")
+        return
+
+    tick_n = _get_tick_number()
+
+    if "--status" in args:
+        last_ck = _read_last_checkpoint()
+        last_hb = _read_last_heartbeat("hale_oc")
+        ds = _check_deepseek_limits()
+        print(f"METRONOME tick #{tick_n}")
+        print(f"  Last checkpoint: {json.dumps(last_ck) if last_ck else 'NONE'}")
+        print(f"  Last heartbeat:  {json.dumps(last_hb) if last_hb else 'NONE'}")
+        print(f"  DeepSeek V4: {ds['hourly_used']}/hr ({ds['hourly_pct']}%) | {ds['daily_used']}/day ({ds['daily_pct']}%) [{ds['state']}]")
+        return
+
+    force = "--force-tick" in args
+
+    # Read state
+    last_ck = _read_last_checkpoint()
+    last_hb = _read_last_heartbeat("hale_oc")
+
+    ck_age = _age_seconds(last_ck.get("ts")) if last_ck and last_ck.get("ts") else None
+    hb_age = _age_seconds(last_hb.get("ts")) if last_hb and last_hb.get("ts") else None
+
+    # If no age data and not forced, skip tick for first run
+    if ck_age is None and hb_age is None and not force:
+        tick_n = _increment_tick()
+        ds = _check_deepseek_limits()
+        lc = _scan_dossier_fpds()
+        lc_sum = {"critical": len([a for a in lc if a["level"] == "CRITICAL"]),
+                  "red": len([a for a in lc if a["level"] == "RED"]),
+                  "yellow": len([a for a in lc if a["level"] == "YELLOW"])}
+        entry = {
+            "ts": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "tick": tick_n,
+            "cadence_s": CADENCE_S,
+            "state": "OFFLINE",
+            "last_checkpoint_age_s": None,
+            "last_heartbeat_age_s": None,
+            "deepseek": {
+                "hourly": ds["hourly_used"],
+                "daily": ds["daily_used"],
+                "hourly_pct": ds["hourly_pct"],
+                "daily_pct": ds["daily_pct"],
+                "state": ds["state"],
+            },
+            "lifecycle": lc_sum,
+            "action": "first_tick",
+        }
+        os.makedirs(os.path.dirname(TICKS_FILE), exist_ok=True)
+        with open(TICKS_FILE, "a") as f:
+            f.write(json.dumps(entry) + "\n")
+        print(f"METRONOME tick #{tick_n}: OFFLINE (first tick — no data yet)")
+        return
+
+    state, action, desc = evaluate_state(ck_age, hb_age)
+
+    # DeepSeek V4 Flash rate limit check
+    ds = _check_deepseek_limits()
+    if ds["alarm"]:
+        desc += f" | {ds['alarm']}"
+        if ds["state"] in ("RED", "CRITICAL"):
+            _telegram_alert(f"*METRONOME* — {ds['alarm']}")
+            _write_wing_nudge(f"METRONOME ALERT: {ds['alarm']}")
+
+    # Lifecycle FPD scan — auto-alert on CRITICAL deadlines
+    lc = _scan_dossier_fpds()
+    lc_sum = {"critical": len([a for a in lc if a["level"] == "CRITICAL"]),
+              "red": len([a for a in lc if a["level"] == "RED"]),
+              "yellow": len([a for a in lc if a["level"] == "YELLOW"])}
+    for alert in lc:
+        if alert["level"] == "CRITICAL":
+            _telegram_alert(f"*METRONOME* \U0001f534 FPD OVERDUE: {alert['msg']}")
+            break
+
+    tick_n = _increment_tick()
+    entry = {
+        "ts": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "tick": tick_n,
+        "cadence_s": CADENCE_S,
+        "state": state,
+        "last_checkpoint_age_s": ck_age,
+        "last_heartbeat_age_s": hb_age,
+        "deepseek": {
+            "hourly": ds["hourly_used"],
+            "daily": ds["daily_used"],
+            "hourly_pct": ds["hourly_pct"],
+            "daily_pct": ds["daily_pct"],
+            "state": ds["state"],
+        },
+        "lifecycle": lc_sum,
+        "action": action,
+        "description": desc,
+    }
+
+    os.makedirs(os.path.dirname(TICKS_FILE), exist_ok=True)
+    with open(TICKS_FILE, "a") as f:
+        f.write(json.dumps(entry) + "\n")
+
+    brief_state = {"GREEN": "✓", "YELLOW": "~", "ORANGE": "!", "RED": "!!", "CRITICAL": "✗"}.get(state, "?")
+    print(f"METRONOME tick #{tick_n}: {brief_state} {state} — {desc}")
+
+    if state in ("RED", "CRITICAL"):
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()

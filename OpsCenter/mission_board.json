@@ -3,7 +3,7 @@
     {
       "id": "MISSION-007",
       "title": "Looker Studio Dashboard Implementation",
-      "status": "active",
+      "status": "archived",
       "priority": "P2",
       "assigned_to": "Hale/OpenCode",
       "description": "Implement Looker Studio dashboard for real-time tracking of Claude usage and OpenRouter activity. Dashboard URL: https://datastudio.google.com/u/0/reporting/8a4737e8-2759-4684-8dff-fb519be8f371/page/WSxnF/edit",
@@ -174,7 +174,7 @@
     {
       "id": "MISSION-034",
       "title": "Explora Journeys Competitive Intelligence Deep Dive",
-      "status": "active",
+      "status": "archived",
       "priority": "P2",
       "assigned_to": "A2 Dembe (WIND Group)",
       "description": "Comprehensive competitive intelligence on Explora Journeys (MSC luxury brand). Deliverable: output/wind_staff_dembe_explora_journeys_intel.md",
@@ -212,7 +212,7 @@
     {
       "id": "MISSION-036",
       "title": "D2M AI Infrastructure Cost Dashboard v2 \u2014 Tabbed Redesign",
-      "status": "active",
+      "status": "archived",
       "priority": "P1",
       "assigned_to": "Claude MAX (Opus via dispatch_claude.py \u2014 handed off from HALE-OC)",
       "description": "Complete redesign of AI cost dashboard with accurate Claude MAX %, Poe points, Zen limits per Commander requirements. Full memory handoff in OpsCenter/opencode_memory.md. Init script: core/cost_dashboard/THUNDERBIRD_DASHBOARD_INIT.md (to be created by Claude MAX on start).",
@@ -794,13 +794,13 @@
     },
     {
       "id": "MISSION-067",
-      "title": "Norway Luxury Cruise Perx Pricing — Late Jul/Mid-Aug 2027",
+      "title": "Norway Luxury Cruise Perx Pricing \u2014 Late Jul/Mid-Aug 2027",
       "status": "active",
       "priority": "P1",
       "assigned_to": "A2 Dembe",
-      "description": "Research luxury cruise itineraries to Norway for late July – mid August 2027, comparable to Silver Spirit Arctic Norway (Voyage 2: May 21–Jun 5, 2027 — fjords, North Cape, Bergen). Pull Perx regular pricing and any available historical Perx pricing on equivalent Norway sailings. Cruise lines in scope: Silversea, Seabourn, Regent, Viking. Output to Telegram and output/dembe_norway_2027_perx_pricing.md.",
+      "description": "Research luxury cruise itineraries to Norway for late July \u2013 mid August 2027, comparable to Silver Spirit Arctic Norway (Voyage 2: May 21\u2013Jun 5, 2027 \u2014 fjords, North Cape, Bergen). Pull Perx regular pricing and any available historical Perx pricing on equivalent Norway sailings. Cruise lines in scope: Silversea, Seabourn, Regent, Viking. Output to Telegram and output/dembe_norway_2027_perx_pricing.md.",
       "deliverables": [
-        "Luxury Norway itineraries late Jul–mid Aug 2027 with matching port coverage",
+        "Luxury Norway itineraries late Jul\u2013mid Aug 2027 with matching port coverage",
         "Perx regular price per person (suite/veranda category)",
         "Historical Perx pricing on comparable Norway sailings if available",
         "Telegram delivery to Commander"
@@ -814,15 +814,15 @@
     },
     {
       "id": "MISSION-066",
-      "title": "Web Lead Pipeline — Live Site Test",
+      "title": "Web Lead Pipeline \u2014 Live Site Test",
       "status": "pending",
       "priority": "P1",
       "assigned_to": "Commander + Hale",
-      "description": "End-to-end live test of the Dani web lead pipeline on app.d2mluxury.quest. Verify: (1) Dani qualifies cruise, dates, cabin, party over 2+ turns, (2) commits to 2hr proposal when all four criteria met, (3) visitor provides email, (4) Telegram 🔥 RFP alert fires to Commander, (5) draft worker spawns, (6) Sonnet prices cruise from conversation context, (7) HTML proposal created with correct stationery, (8) Gmail Commander-Review draft appears in d2mconcierge, (9) Telegram ✅ completion alert fires. Commander supplies real or realistic test lead data.",
+      "description": "End-to-end live test of the Dani web lead pipeline on app.d2mluxury.quest. Verify: (1) Dani qualifies cruise, dates, cabin, party over 2+ turns, (2) commits to 2hr proposal when all four criteria met, (3) visitor provides email, (4) Telegram \ud83d\udd25 RFP alert fires to Commander, (5) draft worker spawns, (6) Sonnet prices cruise from conversation context, (7) HTML proposal created with correct stationery, (8) Gmail Commander-Review draft appears in d2mconcierge, (9) Telegram \u2705 completion alert fires. Commander supplies real or realistic test lead data.",
       "deliverables": [
-        "Confirmed Telegram 🔥 RFP alert receipt",
+        "Confirmed Telegram \ud83d\udd25 RFP alert receipt",
         "Confirmed Gmail Commander-Review draft in d2mconcierge inbox",
-        "Confirmed Telegram ✅ completion alert receipt",
+        "Confirmed Telegram \u2705 completion alert receipt",
         "Draft HTML reviewed for stationery compliance (navy #001f5b / cream #f7f3ea / blue #0000ff)"
       ],
       "suspense_date": null,
@@ -834,11 +834,11 @@
     },
     {
       "id": "MISSION-069",
-      "title": "Perx + Odysseus + CruiseComplete — Platform Reliability",
+      "title": "Perx + Odysseus + CruiseComplete \u2014 Platform Reliability",
       "status": "active",
       "priority": "P1",
       "assigned_to": "A7 Sterling / Hale",
-      "description": "Make Perx, Odysseus (TESS/book.myagentgenie.com), and CruiseComplete (TLN AgentUniverse) reliable automated data sources for fare scanning. Root issue: Chrome debug port 9222 is OFFLINE — both Odysseus and CruiseComplete use CDP via port 9222. Perx requires authenticated session. Goal: all three platforms health-checked, session-validated, and scan-ready so MISSION-068 Norway cruise scan can execute without manual intervention.",
+      "description": "Make Perx, Odysseus (TESS/book.myagentgenie.com), and CruiseComplete (TLN AgentUniverse) reliable automated data sources for fare scanning. Root issue: Chrome debug port 9222 is OFFLINE \u2014 both Odysseus and CruiseComplete use CDP via port 9222. Perx requires authenticated session. Goal: all three platforms health-checked, session-validated, and scan-ready so MISSION-068 Norway cruise scan can execute without manual intervention.",
       "deliverables": [
         "Chrome port 9222: auto-start script or systemd unit (restarts Chrome debug if down)",
         "Odysseus CDP (api/thunderbird_odysseus_cdp.py): health check + session validation + smoke test",
@@ -848,9 +848,9 @@
         "Integration test: run Norway Jul/Aug 2027 scan query through all three platforms end-to-end"
       ],
       "root_issues": [
-        "Chrome port 9222 OFFLINE — primary blocker for Odysseus + CruiseComplete",
+        "Chrome port 9222 OFFLINE \u2014 primary blocker for Odysseus + CruiseComplete",
         "No auto-restart mechanism for Chrome debug port",
-        "Perx is login-walled — no session management layer in place"
+        "Perx is login-walled \u2014 no session management layer in place"
       ],
       "files": [
         "api/thunderbird_odysseus_cdp.py",
@@ -860,28 +860,30 @@
       "created_at": "2026-05-25T23:50:00Z",
       "updated_at": "2026-05-25T23:56:00Z",
       "logs": [
-        "[2026-05-25T23:50:00] Mission created per Commander direction. Chrome port 9222 confirmed OFFLINE in hale_state.json. Odysseus + CruiseComplete both CDP-dependent on port 9222. Perx session management undefined. A7 Sterling assigned — code/infra domain. Blocker for MISSION-068.",
-        "[2026-05-25T23:56:00] ROOT CAUSE FOUND: hale_state.json had stale OFFLINE entry — chrome-debug.service was active/running (PID 1763, enabled, since 12:39 MDT). CDP port 9222 fully responsive.",
-        "[2026-05-25T23:56:00] FIXED: (1) chrome-debug.service updated — added missing headless flags, Restart=always, StartLimitBurst=5. (2) chrome_cdp_health.py watchdog script created — checks port every 5min, auto-restarts service if down, updates hale_state.json. (3) chrome-cdp-health.timer enabled (5min interval). (4) _open_new_tab() bug fixed in thunderbird_odysseus_cdp.py, thunderbird_tln_cruisecomplete.py, thunderbird_mag_suite.py — Chrome 80+ requires PUT not GET for /json/new. (5) Smoke test PASS: Odysseus tab opened at book.myagentgenie.com, TLN CC tab opened at cruisecomplete.travelleaders.com. hale_state.json now shows ONLINE.",
-        "[2026-05-25T23:56:00] REMAINING: Portal login sessions (Odysseus/TLN) need authentication — tabs open but logged-out until Commander navigates portals in Chrome. Perx session management still pending. MISSION-068 scan unblocked on the infrastructure side."
+        "[2026-05-25T23:50:00] Mission created per Commander direction. Chrome port 9222 confirmed OFFLINE in hale_state.json. Odysseus + CruiseComplete both CDP-dependent on port 9222. Perx session management undefined. A7 Sterling assigned \u2014 code/infra domain. Blocker for MISSION-068.",
+        "[2026-05-25T23:56:00] ROOT CAUSE FOUND: hale_state.json had stale OFFLINE entry \u2014 chrome-debug.service was active/running (PID 1763, enabled, since 12:39 MDT). CDP port 9222 fully responsive.",
+        "[2026-05-25T23:56:00] FIXED: (1) chrome-debug.service updated \u2014 added missing headless flags, Restart=always, StartLimitBurst=5. (2) chrome_cdp_health.py watchdog script created \u2014 checks port every 5min, auto-restarts service if down, updates hale_state.json. (3) chrome-cdp-health.timer enabled (5min interval). (4) _open_new_tab() bug fixed in thunderbird_odysseus_cdp.py, thunderbird_tln_cruisecomplete.py, thunderbird_mag_suite.py \u2014 Chrome 80+ requires PUT not GET for /json/new. (5) Smoke test PASS: Odysseus tab opened at book.myagentgenie.com, TLN CC tab opened at cruisecomplete.travelleaders.com. hale_state.json now shows ONLINE.",
+        "[2026-05-25T23:56:00] REMAINING: Portal login sessions (Odysseus/TLN) need authentication \u2014 tabs open but logged-out until Commander navigates portals in Chrome. Perx session management still pending. MISSION-068 scan unblocked on the infrastructure side."
       ]
     },
     {
       "id": "MISSION-068",
-      "title": "Norway/Scandinavia 2027 Cruise Scan — Ongoing Fare Watch",
+      "title": "Norway/Scandinavia 2027 Cruise Scan \u2014 Ongoing Fare Watch",
       "status": "pending",
       "priority": "P1",
       "assigned_to": "Hale / A2 Dembe",
-      "description": "Establish periodic fare scan for luxury Norway/Scandinavia cruises July–August 2027. Reference: Commander directive 2026-05-25 + MISSION-067 Dembe research. Target: Copenhagen → Southampton (or similar), 10–18 days. Lines: Silversea (Silver Dawn), Seabourn (Quest), Regent (Voyager). Pull pricing from Perx, Odysseus/TESS, and CruiseComplete. Alert Commander via Telegram when price drops below alert threshold or new sailings surface.",
+      "description": "Establish periodic fare scan for luxury Norway/Scandinavia cruises July\u2013August 2027. Reference: Commander directive 2026-05-25 + MISSION-067 Dembe research. Target: Copenhagen \u2192 Southampton (or similar), 10\u201318 days. Lines: Silversea (Silver Dawn), Seabourn (Quest), Regent (Voyager). Pull pricing from Perx, Odysseus/TESS, and CruiseComplete. Alert Commander via Telegram when price drops below alert threshold or new sailings surface.",
       "fare_watch_id": "norway-scandinavia-cruise-jul-aug-2027",
       "deliverables": [
-        "Weekly scan: Silversea + Seabourn + Regent Norway sailings Jul–Aug 2027",
+        "Weekly scan: Silversea + Seabourn + Regent Norway sailings Jul\u2013Aug 2027",
         "Perx pricing vs rack rate comparison per sailing",
         "Telegram alert when price drops below $9,360pp (Silversea veranda baseline)",
         "Running log of price history in data/fare_watches.json",
         "Monthly summary to Commander"
       ],
-      "depends_on": ["MISSION-069"],
+      "depends_on": [
+        "MISSION-069"
+      ],
       "reference_mission": "MISSION-067",
       "reference_sailings_baseline": {
         "silversea_silver_dawn_pp": "9954-10829",
@@ -892,40 +894,40 @@
         {
           "step": 1,
           "owner": "Commander",
-          "action": "Authenticate Odysseus portal — open http://127.0.0.1:9222 in browser (or SSH tunnel), navigate to book.myagentgenie.com tab, log in. Session persists in ~/.chrome-debug-profile.",
+          "action": "Authenticate Odysseus portal \u2014 open http://127.0.0.1:9222 in browser (or SSH tunnel), navigate to book.myagentgenie.com tab, log in. Session persists in ~/.chrome-debug-profile.",
           "status": "BLOCKED_ON_COMMANDER"
         },
         {
           "step": 2,
           "owner": "Commander",
-          "action": "Authenticate TLN CruiseComplete — same Chrome session, navigate to cruisecomplete.travelleaders.com tab, log in with TLN/D2M_TLN_CC_* credentials (Roboforms). Session persists.",
+          "action": "Authenticate TLN CruiseComplete \u2014 same Chrome session, navigate to cruisecomplete.travelleaders.com tab, log in with TLN/D2M_TLN_CC_* credentials (Roboforms). Session persists.",
           "status": "BLOCKED_ON_COMMANDER"
         },
         {
           "step": 3,
           "owner": "Commander",
-          "action": "Authenticate Perx — Perx pricing is interline/login-walled. Navigate to perx portal in same Chrome debug profile and log in. Hale will extract pricing via CDP page scrape after auth.",
+          "action": "Authenticate Perx \u2014 Perx pricing is interline/login-walled. Navigate to perx portal in same Chrome debug profile and log in. Hale will extract pricing via CDP page scrape after auth.",
           "status": "BLOCKED_ON_COMMANDER"
         },
         {
           "step": 4,
           "owner": "Hale / A2 Dembe",
-          "action": "Build scan worker: scripts/norway_cruise_scan.py — uses OdysseusCDPClient + TLNCruiseCompleteClient to pull Norway Jul–Aug 2027 sailings, compare against baselines in data/fare_watches.json, send Telegram alert on price drop. Wire to weekly cron.",
-          "status": "READY_TO_BUILD — unblocked once Steps 1-3 complete"
+          "action": "Build scan worker: scripts/norway_cruise_scan.py \u2014 uses OdysseusCDPClient + TLNCruiseCompleteClient to pull Norway Jul\u2013Aug 2027 sailings, compare against baselines in data/fare_watches.json, send Telegram alert on price drop. Wire to weekly cron.",
+          "status": "READY_TO_BUILD \u2014 unblocked once Steps 1-3 complete"
         },
         {
           "step": 5,
           "owner": "Hale",
           "action": "First live scan run: execute scripts/norway_cruise_scan.py, verify Telegram output, confirm pricing matches manual research from MISSION-067.",
-          "status": "PENDING — after Step 4"
+          "status": "PENDING \u2014 after Step 4"
         }
       ],
       "created_at": "2026-05-25T23:50:00Z",
       "updated_at": "2026-05-26T01:20:00Z",
       "logs": [
-        "[2026-05-25T23:50:00] Mission created per Commander direction. Fare watch entry added to data/fare_watches.json (id: norway-scandinavia-cruise-jul-aug-2027). BLOCKED on MISSION-069 — Chrome port 9222 must be resolved before automated scans can run.",
-        "[2026-05-26T01:20:00] MISSION-069 infrastructure complete — Chrome port 9222 confirmed ONLINE, CDP clients smoke-tested (Odysseus + TLN CC tabs opened). chrome-cdp-health watchdog running every 5min. Infrastructure blocker cleared.",
-        "[2026-05-26T01:20:00] REMAINING (Steps 1-3): Commander must log in to Odysseus, TLN CruiseComplete, and Perx in the Chrome debug profile (~/.chrome-debug-profile) — sessions persist after login. Once authenticated, Step 4 (scan worker build) proceeds immediately."
+        "[2026-05-25T23:50:00] Mission created per Commander direction. Fare watch entry added to data/fare_watches.json (id: norway-scandinavia-cruise-jul-aug-2027). BLOCKED on MISSION-069 \u2014 Chrome port 9222 must be resolved before automated scans can run.",
+        "[2026-05-26T01:20:00] MISSION-069 infrastructure complete \u2014 Chrome port 9222 confirmed ONLINE, CDP clients smoke-tested (Odysseus + TLN CC tabs opened). chrome-cdp-health watchdog running every 5min. Infrastructure blocker cleared.",
+        "[2026-05-26T01:20:00] REMAINING (Steps 1-3): Commander must log in to Odysseus, TLN CruiseComplete, and Perx in the Chrome debug profile (~/.chrome-debug-profile) \u2014 sessions persist after login. Once authenticated, Step 4 (scan worker build) proceeds immediately."
       ]
     },
     {
@@ -942,6 +944,21 @@
       "logs": [],
       "created_at": "2026-05-25T21:11:19.746921+00:00",
       "updated_at": "2026-05-25T21:11:19.746933+00:00"
+    },
+    {
+      "id": "MISSION-070",
+      "title": "Metronome \u2014 Wire",
+      "status": "completed",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "ARC Lifecycle Touchpoint Alerting Wire lifecycle/ARC touchpoint awareness into OpsCenter/metronome.py. Metronome currently handles session idle + DeepSeek V4 rate monitoring only. Gap identified 2026-05-26: no FPD deadline alerts, no ARC chain progress, no touchpoint countdown. Design: add TP alert tier to evaluate_state() \u2014 scan active dossiers for upcoming FPD/touchpoint deadlines, flag YELLOW at T-7d, RED at T-3d, CRITICAL at T-1d. Telegram alert same pattern as session idle alerts. Owner: A7 Sterling designs + HALE-CC implements. P2",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-05-26T18:02:24.402063+00:00",
+      "updated_at": "2026-05-26T18:02:24.402074+00:00"
     }
   ],
   "suspense_watch": [

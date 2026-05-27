@@ -1,0 +1,11 @@
+[Unit]
+Description=METRONOME daily brief timer — fires 0600 MT (1200 UTC, MDT summer)
+Documentation=file:///home/john/Thunderbird/OpsCenter/metronome.py
+
+[Timer]
+OnCalendar=*-*-* 12:00:00 UTC
+Persistent=true
+Unit=metronome-daily.service
+
+[Install]
+WantedBy=timers.target
