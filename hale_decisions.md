@@ -2898,3 +2898,66 @@ DeepSeek V4: 238 sessions, $12.5801
   ⚠ BANNED MODEL ACTIVE: google/gemini-3.1-flash-lite-preview billed $8.4165 — replace with native/free alternative
 — A9 Harlan | Thunderbird Wing
 ```
+
+
+---
+## Harlan Cost Brief — 2026-05-27
+```
+HARLAN AM BRIEF — 2026-05-27 10:51
+🔴 Verdict: BLOCK | Sonnet weekly at 100% — hard block until reset | DeepSeek V4 wandering — investigate routing
+═══
+Sonnet weekly: 100% | All weekly: 86%
+Monthly: $55.67/100
+OpenCode 7d: $17.8543 | Month: $48.7485
+⚠ DEEPSEEK WANDER: deepseek/deepseek-chat-v3.1 $1.4375
+DeepSeek V4: 238 sessions, $12.5801
+  ⚠ CONTEXT BLOAT: anthropic/claude-haiku-4.5 avg 1,925,937 in tokens/session (5 sessions) — review prompt compression
+  ⚠ NATIVE BILLING: deepseek-v4-flash-free charged $3.4396 — native provider should be $0
+  ⚠ BANNED MODEL ACTIVE: google/gemini-3.1-flash-lite-preview billed $8.4165 — replace with native/free alternative
+— A9 Harlan | Thunderbird Wing
+```
+
+### 2026-05-27 10:51:29 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: T2-COMMS-BUILD-20260518 status: UPDATED — READ CAREFULLY — STEPS 1/2/3 COMPLETE BY HALE-CC from: HALE-CC (V
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 2213 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260527_105129.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-05-27 12:00:02 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: T2-COMMS-BUILD-20260518 status: UPDATED — READ CAREFULLY — STEPS 1/2/3 COMPLETE BY HALE-CC from: HALE-CC (V
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 38523 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260527_120002.log | Inbox: opencode_inbox.md
+
+---
+
+---
+## T2-WAVE3-PRINCIPLE — 2026-05-27 (Anti-Theater Artifact)
+**Wing Exercise:** T2 Cruise Intelligence Pipeline / Wave 3 + Session Enhancements
+**Filed by:** Hale, VCS per SO Wing Exercise Protocol (7-day durable artifact rule)
+
+### PRINCIPLE: Normalize at Assembly, Not at Source
+
+**What happened:** Oceania Cruises and Regent Seven Seas Cruises showed as absent from curated lines despite having 31 and 20 sailings respectively. Root cause: each scraper records its own vocabulary (`'Oceania'`, `'Regent Seven Seas'`), and CURATED_LINES expected canonical names (`'Oceania Cruises'`, `'Regent Seven Seas Cruises'`).
+
+**Decision:** Canonical name normalization belongs at the assembly layer (`build_master.py`), not at individual scrapers. Each source uses whatever names the site presents. `LINE_CANONICAL` in `config.py` maps all variants to canonical names and is applied once, post-ingest, before any downstream matching.
+
+**Corollary for future pipeline work:** Never add site-specific names to CURATED_LINES or SHIP_LINE_MAP. Add them to LINE_CANONICAL instead. The curated set is truth; scrapers are approximations that get resolved on the way in.
+
+**Second principle extracted:** Multi-period scrape runs must use named output paths (`--tag`) to prevent clobbering. A pipeline that can only hold one period at a time is a pipeline that can only answer one question.
+
+**Verified in code:** `config.py:LINE_CANONICAL`, `build_master.py:~line 539` (canonicalization block), `run_pipeline.py:--tag`, `merge_periods.py` (new).
+
+---

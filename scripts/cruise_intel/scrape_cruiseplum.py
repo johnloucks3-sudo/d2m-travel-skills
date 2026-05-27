@@ -220,7 +220,7 @@ def _parse_cruiseplum_text(text: str, year: int, months: list[int]) -> list[dict
         r'Nautica|Riviera|Marina|Insignia|Regatta|Sirena|'
         r'Le \w+|L\'Austral|Explora \w+|Crystal \w+|SeaDream [I]+|'
         r'Queen Mary 2|Queen Victoria|Queen Anne|Queen Elizabeth|'
-        r'World Navigator|World Traveller|World Seeker|World Explorer|'
+        r'World Navigator|World Traveller|World Voyager|World Seeker|World Explorer|'
         r'Evrima|Scenic Eclipse|Scenic Eclipse II|'
         r'National Geographic \w+|Sea Bird|Sea Lion)',
         re.IGNORECASE,

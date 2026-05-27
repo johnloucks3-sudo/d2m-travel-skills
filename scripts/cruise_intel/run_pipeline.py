@@ -6,6 +6,7 @@ Usage:
   python3 run_pipeline.py                              # Full run: Oct/Nov 2026
   python3 run_pipeline.py --months 10 11 12            # Add December
   python3 run_pipeline.py --year 2027                  # Different year
+  python3 run_pipeline.py --tag 2026-full              # Named output: T2_MASTER_2026-full.csv
   python3 run_pipeline.py --skip-perx                  # Skip Perx (use cached)
   python3 run_pipeline.py --skip-oat                   # Skip OAT gstack (slow)
   python3 run_pipeline.py --skip-ponant                # Skip Ponant gstack (slow)
@@ -16,6 +17,11 @@ Usage:
   python3 run_pipeline.py --skip-cruisesonly           # Skip CruisesOnly gstack (use cached)
   python3 run_pipeline.py --skip-cruiseplum            # Skip CruisePlum gstack+login (use cached)
   python3 run_pipeline.py --build-only                 # Reassemble from existing JSONs
+
+Multi-period example:
+  python3 run_pipeline.py --year 2026 --months 7 8 9 10 11 12 --tag 2026-full --skip-cruiseplum
+  python3 run_pipeline.py --year 2027 --months 1 2 3 4 5 6 7 8 9 --tag 2027-h1 --skip-cruiseplum
+  python3 merge_periods.py output/T2_MASTER_2026-full.csv output/T2_MASTER_2027-h1.csv
 
 NOTE: deluxecruises.com scraping requires manual gstack session.
       Run scrape_deluxecruises.py separately or use existing JSON.
@@ -52,6 +58,7 @@ def _load_cached(path: Path) -> int:
 def run_pipeline(
     year: int,
     months: list,
+    tag: str                 = '',
     skip_perx: bool          = False,
     skip_oat: bool           = False,
     skip_ponant: bool        = False,
@@ -67,8 +74,18 @@ def run_pipeline(
     cruiseplum_user: str     = '',
     cruiseplum_pass: str     = '',
 ) -> None:
+    # Resolve tagged output paths (or fall back to defaults)
+    if tag:
+        output_csv   = OUTPUT_DIR / f'T2_MASTER_{tag}.csv'
+        output_stats = OUTPUT_DIR / f'T2_STATS_{tag}.json'
+    else:
+        output_csv   = MASTER_CSV
+        output_stats = STATS_JSON
+
     table = SummaryTable()
     prog_header(year, months)
+    if tag:
+        print(f'  Tag: {tag}  →  {output_csv.name}')
 
     TOTAL = 10
 
@@ -261,8 +278,8 @@ def run_pipeline(
             cruisemapper_path=CRUISEMAPPER_JSON,
             cruisesonly_path=CRUISESONLY_JSON,
             cruiseplum_path=CRUISEPLUM_JSON,
-            output_csv=MASTER_CSV,
-            stats_path=STATS_JSON,
+            output_csv=output_csv,
+            stats_path=output_stats,
             skip_smoke=skip_smoke,
         )
         t.records = len(entries)
@@ -321,8 +338,8 @@ def run_pipeline(
             wave3_net_new=wave3_net_new,
         )
 
-    print(f'  Master CSV  : {MASTER_CSV}')
-    print(f'  Stats JSON  : {STATS_JSON}')
+    print(f'  Master CSV  : {output_csv}')
+    print(f'  Stats JSON  : {output_stats}')
     print()
     print(f'  NOTE: deluxecruises.com must be pre-scraped.')
     print(f'  Expected at : {DELUXE_JSON}')
@@ -338,6 +355,8 @@ if __name__ == '__main__':
     parser.add_argument('--year',               type=int, default=2026)
     parser.add_argument('--months',             nargs='+', type=int, default=[10, 11],
                         help='Month numbers (default: 10 11)')
+    parser.add_argument('--tag',                default='',
+                        help='Named output tag (e.g. 2026-full → T2_MASTER_2026-full.csv)')
     parser.add_argument('--skip-perx',          action='store_true',
                         help='Skip Perx API call, use cached JSON')
     parser.add_argument('--skip-oat',           action='store_true',
@@ -369,6 +388,7 @@ if __name__ == '__main__':
     run_pipeline(
         year=args.year,
         months=args.months,
+        tag=args.tag,
         skip_perx=args.skip_perx,
         skip_oat=args.skip_oat,
         skip_ponant=args.skip_ponant,

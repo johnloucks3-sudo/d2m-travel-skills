@@ -20,7 +20,7 @@ from config import (
     DELUXE_JSON, PERX_JSON, OAT_JSON, PONANT_CLEAN_JSON,
     HX_JSON, SEADREAM_JSON, EXPLORA_JSON,
     CRUISEMAPPER_JSON, CRUISESONLY_JSON, CRUISEPLUM_JSON,
-    CSV_COLUMNS, SHIP_LINE_MAP,
+    CSV_COLUMNS, SHIP_LINE_MAP, LINE_CANONICAL,
 )
 from utils import parse_date, norm_ship, find_match, resolve_cruise_line, normalize_flag
 
@@ -540,6 +540,16 @@ def build_master(
     fixed = fill_missing_lines(entries)
     if fixed:
         print(f'[build] Resolved {fixed} missing cruise_line fields via SHIP_LINE_MAP')
+
+    # Canonicalize cruise line names (e.g. 'Oceania' → 'Oceania Cruises')
+    canon_fixed = 0
+    for e in entries:
+        canonical = LINE_CANONICAL.get(e.get('cruise_line', ''))
+        if canonical:
+            e['cruise_line'] = canonical
+            canon_fixed += 1
+    if canon_fixed:
+        print(f'[build] Canonicalized {canon_fixed} cruise_line names via LINE_CANONICAL')
 
     # Sort by departure date
     entries.sort(key=lambda e: e.get('departure_date', ''))

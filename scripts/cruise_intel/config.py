@@ -111,7 +111,19 @@ DELUXE_BASE_URL = "https://www.deluxecruises.com/{line}/cruises/{month}-{year}.h
 DELUXE_CRUISE_LINES = [
     "silversea", "regent-seven-seas", "seabourn", "oceania",
     "crystal", "azamara", "windstar", "ponant", "paul-gauguin",
+    "viking", "cunard", "atlas-ocean",
 ]
+
+# ── Canonical cruise line name normalization ───────────────────────────────────
+# Maps scraped variants → canonical name used throughout the pipeline.
+# Applied in build_master.py after all source ingestion.
+LINE_CANONICAL = {
+    'Oceania':              'Oceania Cruises',
+    'Regent Seven Seas':    'Regent Seven Seas Cruises',
+    'Viking Ocean':         'Viking',
+    'Viking River':         'Viking',
+    'Atlas Ocean':          'Atlas Ocean Voyages',
+}
 
 # ── Region keyword filter (Euro/Med/Arctic) ────────────────────────────────────
 EUROPE_MED_KEYWORDS = [
@@ -167,6 +179,9 @@ SHIP_LINE_MAP = {
     'Le Boréal':                'PONANT',
     'Le Champlain':             'PONANT',
     'Le Dumont':                'PONANT',
+    'World Navigator':          'Atlas Ocean Voyages',
+    'World Traveller':          'Atlas Ocean Voyages',
+    'World Voyager':            'Atlas Ocean Voyages',
 }
 
 # ── CSV column order ───────────────────────────────────────────────────────────
