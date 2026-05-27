@@ -1,69 +1,55 @@
 {
-  "timestamp": "2026-05-25T01:00:00.515873",
+  "timestamp": "2026-05-27T01:00:00.152819",
   "scans": {
     "deadline_radar": [],
     "stale_tasks": [
       {
         "type": "stale_task",
-        "mission_id": "MISSION-007",
-        "title": "Looker Studio Dashboard Implementation",
-        "age_hours": 226.3,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
         "mission_id": "MISSION-009",
         "title": "Kuklinski ARC4-A Specialty Dining Email",
-        "age_hours": 167.0,
+        "age_hours": 215.0,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-024",
         "title": "McLeod FPD Payment Orchestration",
-        "age_hours": 167.0,
+        "age_hours": 215.0,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-026",
         "title": "Cabin Selection Follow-up Monitoring",
-        "age_hours": 167.0,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-034",
-        "title": "Explora Journeys Competitive Intelligence Deep Dive",
-        "age_hours": 137.2,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-036",
-        "title": "D2M AI Infrastructure Cost Dashboard v2 \u2014 Tabbed Redesign",
-        "age_hours": 127.0,
+        "age_hours": 215.0,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-053",
         "title": "McLeod Grandeur \u2014 Booking Review + A2 Scrape Intel",
-        "age_hours": 65.1,
-        "priority": "MEDIUM"
+        "age_hours": 113.1,
+        "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-054",
         "title": "McLeod Silver Muse \u2014 Final T-27 Detailed Validation",
-        "age_hours": 65.1,
-        "priority": "MEDIUM"
+        "age_hours": 113.1,
+        "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-059",
         "title": "Lifecycle Automation Compact",
-        "age_hours": 55.3,
+        "age_hours": 103.3,
+        "priority": "HIGH"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-060",
+        "title": "Chromebook Termux \u2014",
+        "age_hours": 51.2,
         "priority": "MEDIUM"
       }
     ],
@@ -72,7 +58,7 @@
     "conflict_detection": [
       {
         "type": "priority_conflict",
-        "issue": "10 active missions may indicate priority overload",
+        "issue": "14 active missions may indicate priority overload",
         "priority": "MEDIUM"
       }
     ]

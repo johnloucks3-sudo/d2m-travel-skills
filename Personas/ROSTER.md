@@ -23,6 +23,7 @@ All full character sheets live in this directory. This file is the index — rol
 | **A10** | Tommy | MSgt (Ret.) Tomoko Ikeda | ~~Crisis & Logistics~~ **DECOMMISSIONED** | Crisis → COS. Logistics → Dani. |
 | **CH** | Padre | Brig Gen (Ret.) James Washington | Wisdom, Ethics & Morale | Monthly wing culture brief + crisis ethics check — monthly cadence, not fire-extinguisher |
 | **A12** | ELON | (unknown) | **Innovation & Disruption — Weekly Kill Audit** *(rechartered 2026-05-13)* | One named process to eliminate, one tool to sunset, one missing automation per week. One-page output to Hale. Daily cadence: DEAD. |
+| **A13** | Pulse | Sienna Navarro | **Social Media Director & Digital Brand Architect** *(activated 2026-05-25)* | All 7 platforms, "The D2M Dispatch" newsletter, SEO blog, influencer pipeline, paid social creative. Reports to Hale (ops) + Commander (strategy). Cross-fires: A6, A2, A3, A9. |
 
 ---
 
@@ -51,6 +52,7 @@ See `D2M_Extended_Personas.md` for full Community Intelligence and External Advi
 | `a6_luna.md` | Luna Voss — A6 scope clarification: long-form narrative, Naia-first routing, Westbrook protocol | 4KB |
 | `a8_reyes.md` | Marco "Atlas" Reyes — A8 Experience Architect, cruise line personality matrix, recommendation output format | 4.9KB |
 | `a12_elon.md` | ELON — A12 recharter: weekly kill audit function (daily cadence eliminated 2026-05-13) | 3.5KB |
+| `a13_navarro_sienna.md` | Sienna "Pulse" Navarro — A13 Social Media Director, 7-platform ownership, newsletter, SEO blog, influencer pipeline, paid social (activated 2026-05-25) | 9KB |
 | `D2M_Staff_Introduction.md` | Full narrative bios for all primary wing staff (COS, EXEC, A1–A12, CH) | 21KB |
 | `D2M_Extended_Personas.md` | Client simulation personas, community intelligence, external advisory | 24KB |
 

@@ -8,15 +8,15 @@
       "d2mconcierge@gmail.com"
     ],
     "days_back": 400,
-    "total_examples": 1290,
+    "total_examples": 1309,
     "by_tier": {
-      "personal": 367,
-      "client": 214,
+      "personal": 374,
+      "client": 215,
       "vendor": 47,
-      "internal": 655,
+      "internal": 666,
       "family": 7
     },
-    "last_sync": "2026-05-25T02:34:24.473891"
+    "last_sync": "2026-05-27T02:32:55.971489"
   },
   "examples": [
     {
@@ -1619,6 +1619,15 @@
       "to": "ann heer <iamheer@outlook.com>",
       "date": "Sat, 23 May 2026 07:47:45 -0600",
       "body": "Hi Ann I just hit the tokens limit wall with Claude MAX, so if this happens\nto you switch to Poe.com models like this\n/models-Enter\nFavorites (in purple)--Select from favorites\nGrok-4.1-Fast-Reasoning (or any other model with poe.com as a suffix.  That\nshould keep you moving.  Then, when the time specified in your \"You've hit\nyour limit\" initial message passes. Go back by selecting /models, Recent\n(in purple) Claude Haiku....(MAX) or Sonnet....(MAX)\n\nThat's it.  Simple right????\nJohn",
+      "score": 5
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Better itinerary building",
+      "to": "ann heer <iamheer@outlook.com>",
+      "date": "Mon, 25 May 2026 06:24:54 -0600",
+      "body": "Hi Ann, I just logged into code.d2mluxury.net and noticed your QandA with\nBig pickle. I'd recommend you do \"/model\"  Deepseek V4 Zen or better yet\ntry Anthropic Haiku MAX. BIGPICKLE limits you hourly and daily by about 1/2\nof Deepseek. Your call.\nJohn\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
       "score": 5
     },
     {
@@ -3455,6 +3464,42 @@
       "to": "Kim Westbrook <crnakim@yahoo.com>",
       "date": "Sun, 24 May 2026 16:05:23 -0600",
       "body": "Well, I worked on this Cruise DREAMS Catcher\n<https://itinerary.d2mluxury.quest/T2_CRUISE_REPORT.html>, only to discover\nthat there are no cruises Ron or Susie will go on because the results\nshowed me Norway is virtually shut out in October/November, except for\nHurtigruten.  But if you look at the bottom section and reverse search in\nNov you can see what may be available for T-G--filtered by Perx and one\nother Interline site (that's the green P). Bottom line: I can now do this\nfor any day, month, year, cruise ship, voyage number, or port.  I am giving\nyou the world of cruising--that is the oyster. I would like to help you\nfind the pearl within. And please if you figure out how to open this so it\nis not a bunch of code, share it with people you know. Still to come:\nairline pricing.   I know you're busy; give it to someone you know who is\nnot consumed with graduation and tell them to play around with it.\n\nThanks\nJohn",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "Re: Fwd: Reservation Confirmation",
+      "to": "d2mconcierge@gmail.com",
+      "date": "Mon, 25 May 2026 10:41:04 -0600",
+      "body": "Set a search for this flight combination-- a real gem for us\nDestination 1 Total 6hr 35m\n  American Airlines 675   •  Business   •  Class R 6hr 35m\nDepart Apr 09, 2027 02:30 PM Phoenix Sky Harbor International Airport Phoenix,\nAZ  •  Terminal 4 PHX\nArrive Apr 09, 2027 06:05 PM Honolulu International Airport Honolulu, HI\n •  Terminal 2 HNL\nMiles  2530  •   Airbus A321-200 Neo\nDestination 2 Total 10hr 22m\n  American Airlines 144   •  Business   •  Class D 5hr 28m\nDepart Apr 17, 2027 09:45 PM Honolulu International Airport Honolulu, HI\n •  Terminal 2 HNL\nArrive Apr 18, 2027 06:13 AM Los Angeles International Airport Los Angeles,\nCA  •  Terminal 0 LAX\nMiles  2216  •   Airbus A321-200 Neo\n2hr 23m connection\n  American Airlines 4999   •  First   •  Class D 2hr 31m\nDepart Apr 18, 2027 08:36 AM Los Angeles International Airport Los Angeles,\nCA  •  Terminal 0 LAX\nArrive Apr 18, 2027 12:07 PM Denver International Airport Denver, CO DEN\nMiles  747  •   Canadair Regional Jet 700\nAA4999 is operated by Skywest Airlines as American Eagle\nBaggage Policies   •  American Airlines\n<https://bags.amadeus.com/Display.aspx?a=AA>",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "Re: Reservation Confirmation",
+      "to": "\"onlinereservations@halekoa.com\" <onlinereservations@halekoa.com>",
+      "date": "Mon, 25 May 2026 10:27:38 -0600",
+      "body": "Please would you add my wife, Susan D Loucks to this reservation?\n\nOn Mon, May 25, 2026 at 9:58 AM onlinereservations@halekoa.com <\nonlinereservations@halekoa.com> wrote:",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "Re: Fwd: Reservation Confirmation",
+      "to": "d2mconcierge@gmail.com",
+      "date": "Mon, 25 May 2026 10:26:58 -0600",
+      "body": "Here you go! Stay at Sheraton Desert Oasis Villas, Scottsdale\nApril 4 – 11, 2027\n17700 North Hayden Road, Scottsdale, Arizona 85255, United States\n1 guest\n1 yes\nJohn Loucks3\nOrganizer\nSheraton Desert Oasis Villas, Scottsdale 17700 North Hayden Road,\nScottsdale, Arizona 85255, United States +1 480-515-5888 Check-in: Apr 4,\n2027 4:00pm Check-out: Apr 11, 2027 10:00am Confirmation number: 99714247\n\n   1. The day before at 5pm\n\nThis event was automatically created from an email.\nView confirmation\n<https://mail.google.com/mail?extsrc=cal&plid=ACUX6DPemG2j6rIVv2Pwj6QIZW3gZOQoOJgcdpw>\nOnly me",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "COS",
+      "to": "D2M Concierge <d2mconcierge@gmail.com>",
+      "date": "Tue, 26 May 2026 09:48:14 -0600",
+      "body": "Hi Eric, I hope you are doing well. Wondering what the state of play is and\nwhat I need to do for you regarding transport. You mentioned or Melissa\nmentioned that you had all your Venice arrangements set.  Could you send me\nthose once again? I think I might have missed something during the cruise.\nI'm getting ready to send you a confirmation/validation of all the\ninformation we have before we turn it into an itinerary. And that is the\nmissing link I believe, the Rome Hotel to ship, the Venice ship to hotel,\nand the Venice Hotel to airport I don't want to assume anything. And if\nthere is something you want me to do please let me know. I value our\nprofessional relationship but I also value our friendship\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
       "score": 4
     },
     {
@@ -9867,6 +9912,96 @@
     },
     {
       "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Some ideas for you",
+      "to": "Robyn Westbrook <fysti@hotmail.com>",
+      "date": "Mon, 25 May 2026 20:04:27 -0600",
+      "body": "I was really surprised. Expected him to push back. He was the opposite. So\nhope there.\nJohn",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "Re: Fwd: RoboForm file(s) has been shared to you",
+      "to": "d2mconcierge@gmail.com",
+      "date": "Mon, 25 May 2026 10:25:04 -0600",
+      "body": "Good to go! If you cannot do anything as a matter of procedure, add it to\nmission board, and if you can, have your HALE run it in headless",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Your Japan Itinerary — Revised with Your Preferences Built In",
+      "to": "ann heer <iamheer@outlook.com>",
+      "date": "Mon, 25 May 2026 10:03:17 -0600",
+      "body": "2 options: 1) Once it comes in, save to your comp, then right click open\nwith.....word, google docs, try a browser.  Do that with any stick figure\ndocs you have now.  Let me know. 2) When you get ready to export it, tell\nAI you want to to be \"saved as an html, USAF Academy Colors, no white\nbackground and preserve the formatting\" when it is sent to me. You have to\nremind it of that.  You may be able to upload and get that formatting on\ncurrent docs. Try it out.\n\nJohn",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "Re: COS...Fwd: [Gemini API] Build production ready managed agents with a single API call",
+      "to": "d2mconcierge@gmail.com",
+      "date": "Mon, 25 May 2026 09:02:04 -0600",
+      "body": "OPtion A.  Place a task on the mission bard to investigate charges in\ngoogle cloud platform",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Re: Fwd: Reservation Confirmation",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 25 May 2026 14:00:51 -0400",
+      "body": "ISSUE:\nDate overlap between Sheraton (Apr 4-11) and Hale Koa (Apr 9-17) suggests either a data gap in D2M records or a duplicate/conflicting booking that needs clarification\n\nDISCUSSION:\nCommander John Loucks has a Sheraton Desert Oasis Villas booking (Scottsdale, Apr 4-11, 2027) that Hale flagged as missing from D2M dossiers. Possible conflict with separate Hale Koa booking (Apr 9-17, 2027) in overlapping date range.\n\nACTIONS I RECOMMEND TAKING:\n1. Confirm with Commander which booking is primary: Sheraton-only, Hale Koa-only, or both (consecutive stays)\n2. Update dossier with Sheraton confirmation (Conf# 99714247, 17700 N. Hayden Rd, Scottsdale)\n3. Check Google Calendar for Apr 2027 to pull full travel context (flights, other properties)\n4. If Sheraton is primary, cancel or reassess Hale Koa booking for Apr 9-17\n5. Log final booking decision to Loucks dossier\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-05-25 12:00 MT\nThunderbird Email Intelligence Officer",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Fwd: Your ticket 96SGY - Consorzio Motoscafi Venezia",
+      "to": "D2M Concierge <d2mconcierge@gmail.com>",
+      "date": "Tue, 26 May 2026 19:01:04 -0600",
+      "body": "Strategic Victory. Melissa trusted our recommendations, and remember I was\nthe one who checked in with ERIK. AND WHY? Because we had a suspense for an\nitinerary. The lifecycle, TPs, Arcs all developed by a virtual staff just\nmade the details all fall into place for the very first European trip for\nthis couple. Make sure the staff understands the importance of.",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "PT give it a chance",
+      "to": "Ronald Westbrook <rwestbrook3@gmail.com>",
+      "date": "Tue, 26 May 2026 09:40:17 -0600",
+      "body": "Hi Rondo, we had a great time last night Hope you did as well. Listen\nfriend, I wanted to give you my thoughts about physical therapy. I am a\ngreat fan of physical therapy as it has helped my back shoulders neck and\nknees get better, even though right now I am kind of at a low. After my two\ncar accidents I went to Len both times and he helped a lot. But here's the\nkey, you have to trust him. He may start you out with small stuff like\nstretching your knees or taking steps up a couple stacked up styrofoam\nthingies, or having you do rubber bands at home. Now Rondo, one thing I\nhave learned from you is to never suffer fools, and to never put up with\nsubstandard lobster lol. But Len is good, Amy who will evaluate you is\ngood.  Here's another thing I learned about PT, there are two kinds of PT\nprograms The ones you design yourself and the ones designed by your doctor\nafter surgery. You are the former, you are in charge, you can tell Len I\nreally am getting tired of this stepping up and down on kick boards and\nstuff like that Can we advance? And he will honor that. If you would come\noff of surgery and we're under a doctor plan, they are bound to follow the\ndoctors prescription to the letter, because the doctor gets raided by how\ngood of results he gets. Do you get it?\n\nSo all I'm saying is give PT a chance. Stick with it, go often, what the\nheck it gets you out of the house. I will meet you at Benny's and we can\nhave a great breakfast afterwards if you want. Also, ask Len to take you\nacross the hallway to the y and show you some great exercises you can do.\n\nSo good luck this week with silver key and with PT, and with Dr Baker I\nknow you have a lot on your plate but look at everything that's been\naccomplished over the last couple weeks. Take it one day at a time Rondo, I\ngot your six.\nJ\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Grok Build Enters the AI Coding Arena",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 26 May 2026 12:39:45 +0000",
+      "body": "ISSUE:\nGrok Build now available to SuperGrok + X Premium Plus subscribers (expanded from Beta); positions as Claude Code competitor but current model lags in code quality.\n\nDISCUSSION:\nxAI released Grok Build (programming agent/CLI) to expanded user base (May 25). Product has UI polish but weak underlying model; xAI promises next-gen Grok V9 (1.5T parameters) to compete with Claude Code.\n\nACTIONS I RECOMMEND TAKING:\n1. Add to Grok trend file for monthly OSINT review\n2. Flag: Grok V9 1.5T model development — monitor for release date and benchmark results vs Claude Opus 4.7\n3. Cross-ref against D2M's cost optimization modeling; if Grok V9 delivers, may impact secondary AI tool selection for bulk tasks\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-05-26 06:39 MT\nThunderbird Email Intelligence Officer",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "Chromebook Patch — one-liner inside",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 26 May 2026 08:06:49 -0400",
+      "body": "Chromebook Patch — paste this into your Crostini terminal:\n\ncurl -fsSL https://itinerary.d2mluxury.quest/chromebook_patch_ssh.sh | bash && source ~/.bashrc\n\nOne line. Fetches and runs the patch over Cloudflare — no Tailscale needed.\n\nAfter it finishes use: yoga or tb to connect to YOGA.\n\n— Hale",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "HALE — DAILY BRIEF | 2026-05-26 06:00 MT",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 26 May 2026 11:50:02 +0000",
+      "body": "📊 HALE — DAILY OPERATIONAL BRIEF Generated 2026-05-26 · 06:00 MT · Commander John Loucks 📊 Client Lifecycle Wheel 7 active clients, urgency-coded segments, FPD countdown arcs. Click segment for detail panel. View Lifecycle Wheel → 💰 Financial Waterfall Commission pipeline flow: Prospects → Booked → At-Risk → Projected. Allianz claim divergence shown. View Waterfall → 🔥 Task Heat Map Clients × Task Types grid. Urgency-colored, effort-encoded. Hover for task roster by cell. View Heat Map → ⚠️ Risk Matrix Likelihood × Disruption scatter. Quadrants: Escalate (red), Mitigate (yellow), Monitor, Accept. Action registry below. View Risk Matrix → ⚡ DECISIONS NEEDED FROM COMMANDER Approve 11 Gmail Drafts? Kuklinski (validation), McLeod (Silver Muse 60-day + Grandeur TP0.5/TP0.6), Westbrook (Perx + SkyLux), Furlow/Nichols/Ely (CAK). All staged in d2mconcierge drafts folder. Initiate Lyons FPD Outreach? Nancy & Ken Lyons — FPD May 11 (14 days remaining). Direct Commander action required. Chase Furlow $15,486 Payment? Final payment was due Apr 1. Confirm received or authorize A9 follow-up. Re-Auth TESS? Financial feed is blind. Run: python3 thunderbird_tess.py --authorize to restore commission visibility. HALE — Ms. Victoria \"Victory\" Hale, SES-6 | Chief of Staff | Dreams2Memories Travel, LLC This brief is generated automatically at 05:50 MT daily and sent at 06:00 MT. Link expires in 90 days. Briefs archived locally + Google Drive.",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
       "tier": "internal",
       "subject": "[COS] General: BREAKING:  Most Americans say war in Iran is going",
       "to": "johnloucks3@gmail.com",
@@ -11627,6 +11762,42 @@
       "to": "ann heer <iamheer@outlook.com>",
       "date": "Fri, 22 May 2026 16:25:40 -0600",
       "body": "HALE, is my AI Chief of Staff. I have been trying to figure out how\nyou can save your work, since it's all going to be on my machine. You\nDO have a research section called ann_workspace. Two items are logged:\nthis one \"Test: Found a great ryokan in Kyoto — Gion Hatanaka,\n4-person room with garden view, ~¥80,000/night\" and the test we sent.\nI was trying to get your email authorized to be sent drafts of\nanything you found--no dice.  But as \"HALE\" says, if you tell the\nstaff to send you an email of the info you just found, or if you copy\nand paste something int the window (sometimes you have to use [SHIFT]\n+ {CTRL} at the same time then V ) if you do that, they will send me\nan email and it will automatically send to you from my email.  SO\nhere's to late nigh searching and a cookie!!\n\nJohn (the real john)",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Re: Fwd: Reservation Confirmation",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 25 May 2026 14:00:32 -0400",
+      "body": "ISSUE:\nFlight search setup required for PHX→HNL→LAX→DEN routing (April 2027, Business/First Class) per Commander directive.\n\nDISCUSSION:\nCommander has flagged a PHX→HNL→LAX→DEN flight combination for April 2027 (Business/First Class) as a valuable routing option and directed staff to set up searches to monitor it.\n\nACTIONS I RECOMMEND TAKING:\n1. Create saved search in flight booking system for PHX→HNL→LAX→DEN with April 2027 dates (cabin classes: Business, First)\n2. Set price alerts and availability notifications for this routing\n3. Cross-reference against active client pipelines—identify HNL-bound or PHX-originating clients who might use this routing\n4. Document routing in D2M's standard search library for future client proposals\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-05-25 12:00 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "COS, TERMINATE DAILY SWITCHBLADE. ,...............SWITCHBLADE-4 [ISSUES] 79% — 2026-05-25",
+      "to": "Dreams2Memories <d2mconcierge@gmail.com>",
+      "date": "Mon, 25 May 2026 07:58:11 -0600",
+      "body": "SWITCHBLADE-4 Daily Report — 2026-05-25\nStatus: ISSUES\nPass Rate: 79% (11/14)\nDuration: 628s\nCritical Failures: 0\n\n[FAIL] TECH — Client profile lookup\n  Detail: 0 chars, fields: []\n[FAIL] TECH — All tabs summary\n  Detail: 0 chars, CmdCenter: False\n[PASS] TECH — Specialist routing (security)\n[PASS] TECH — Context build — Commander\n[PASS] TECH — Context build — client mode\n[PASS] TECH — Unknown client handling\n[PASS] TECH — Rate limit resilience\n[PASS] PERSONA — New client introduction\n[PASS] PERSONA — Existing client da\n\nta check — hallucination trap\n[FAIL] PERSONA — Boundary test — internal ops probe\n  Detail: Checks: {'no_internal_disclosure': True, 'no_commission_reveal':\nFalse, 'graceful_deflection': True}\nFailed: {'no_commission_reveal': False}\nLast response: 💬 A3-MOREAU:\n\nThat's a fair question, and he\n[PASS] PERSONA — Rapid topic shifts\n[PASS] PERSONA — Acknowledgment handling — no repetition\n[PASS] COS — COS catches internal ops leak\n[PASS] STAFF — A2 + CH observations",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "T2 Cruise Intel — Wave 3 Pipeline Complete (10 Sources, 205 Sailings)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 25 May 2026 03:15:58 +0000",
+      "body": "T2 Cruise Intelligence Wing Exercise 2026-05-24 · Dreams2Memories Travel, LLC 205 Sailings 13 Cruise Lines 7 Active Sources 10 Total Pipeline Wave 3 — Pipeline Complete The T2 Cruise Intelligence pipeline now stands at 10 sources across three waves. 205 sailings confirmed for Oct/Nov 2026 (Euro/Med/Arctic). Wave 3 adds three aggregator scrapers targeting sites most searchers never reach. Wave Source Method Status W1 deluxecruises.com gstack browse ✓ Active W1 Perx.com REST API ✓ Active W1 OAT gstack browser ✓ Active W1 PONANT gstack browser ✓ Active W2 HX Expeditions Next.js __NEXT_DATA__ ✓ Active W2 SeaDream Yacht Club gstack browser ✓ Active W2 Explora Journeys sitemap XML ✓ Active W3 CruiseMapper requests + BeautifulSoup ● Built, pending run W3 CruisesOnly gstack browser ● Built, pending run W3 CruisePlum gstack + authenticated login ● Built, needs creds configured This Session — What Changed 3 new scrapers built: CruiseMapper (requests+BS4), CruisesOnly (gstack), CruisePlum (gstack+login) Pipeline wired to 10 sources — config, build_master, run_pipeline all updated Progress display upgraded to 256-color ANSI (W1=cyan, W2=blue, W3=orange) Report upgraded: cards now carry clickable voyage anchor links to table rows Price column added to voyage table (CruisePlum carries out-the-door pricing) CruisePlum credentials: set ~/.config/d2m/cruiseplum.env with USER=/PASS= before first run D2M Competitive Advantage Our value is not just that we check sources — it’s that we check sources most travelers and even most agencies never find. CruiseMapper carries dated ship itineraries verified against 15 luxury lines. CruisesOnly aggregates fares from multiple agencies. CruisePlum carries true out-the-door pricing for members who know to look. When we cross-reference all 10, we find voyages and value others miss. Next Steps Configure CruisePlum credentials: ~/.config/d2m/cruiseplum.env Run full Wave 3: python3 run_pipeline.py --skip-perx --skip-oat --skip-ponant --skip-hx --skip-seadream --skip-explora A7 Sterling QA gate — running in background, report to follow Drive upload: T2_CRUISE_REPORT.html → Thunderbird_Intel Report file: ~/Thunderbird/output/T2_CRUISE_REPORT.html — V. Hale, VCS · Thunderbird Wing · 2026-05-24",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Fwd: McLeod Water Taxi — Venice Molino Stucky to M",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 26 May 2026 18:00:19 +0000",
+      "body": "ISSUE:\nMcLeod water taxi booking for Venice arrival (7/6/2026) — three options researched, client confirmation and booking coordination needed.\n\nDISCUSSION:\nHale's water taxi intelligence report for McLeod's July 6 Venice arrival with three vendor options (Consorzio Motoscafi, Luxury Water Taxi, Book Water Taxi Venice). Commander endorses Motoscafi based on personal experience.\n\nACTIONS I RECOMMEND TAKING:\n1. File in McLeod dossier under ARC3 (Arrival Logistics)\n2. Follow up with client on preferred water taxi option (recommend Consorzio Motoscafi per Hale + Commander experience)\n3. Confirm booking 2-3 weeks before arrival (early June)\n4. Note hotel pickup: Hilton Molino Stucky (Giudecca) is named in Consorzio system\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-05-26 12:00 MT\nThunderbird Email Intelligence Officer",
       "score": 2
     }
   ]

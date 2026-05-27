@@ -1,15 +1,23 @@
 [
   {
     "role": "Commander",
-    "text": "Hale,I know you are busy working in Claude code on the assessment using the exercise methodology just developed. I originally asked you to focus on the past 2 weeks, make that the past 30 days. We get a much better feel for how effective we were while I was gone. Acknowledge the change"
+    "text": "Needs fixing. Need a cookie refresh code after I go in and get them"
   },
   {
     "role": "Hale, Sonnet",
-    "text": "<b>Hale, Sonnet</b>\n\n🦅\n\nJohn, copy. Expanding assessment window from 14 days to 30 days — back to approximately 2026-04-16.\n\nRunning the full wing effectiveness evaluation against that broader window. Updated scope will give us a cleaner read on tempo, output quality, and gaps during the absence period. Proceeding."
+    "text": "<b>Hale, Sonnet</b>\n\n🦅\n\nJohn — cookie extraction script, understood. One question before I route this to Sterling: which site are we targeting? The pattern differs depending on:\n\n1. **Cloudflare-protected cruise/fare site** — Firefox sqlite3 extraction from `cookies.sqlite`\n2. **TESS / crm.myagentgenie.com** — JWT refresh (different path)\n3. **Something on YOGA/Belize** — may need Playwright session export\n\nTell me the target and I'll have Sterling write it clean."
   },
   {
     "role": "Commander",
-    "text": "Also. Check goose bot Hale D2M for Sonnet error persisting"
+    "text": "Centrav, TESS, several others that are holding up air and cruise searches"
+  },
+  {
+    "role": "Hale, Sonnet",
+    "text": "<b>Hale, Sonnet</b>\n\n[Engine timeout — Claude exceeded limit]"
+  },
+  {
+    "role": "Commander",
+    "text": "Hale. No reason for Claude to time-out"
   },
   {
     "role": "Hale, Sonnet",

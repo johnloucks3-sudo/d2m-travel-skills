@@ -76,14 +76,13 @@ completed_tps: []
 - FCO ↔ Baglioni private car: **€110 each way** (VAT 21% included), max 4 persons / 4 luggage pieces
 - Contact: concierge.reginaromabaglionihotels.com
 
-> ⚠️ **DATE DISCREPANCY — ACTION REQUIRED:** Prior dossier noted June 18 check-in. Chase confirmation shows **June 19**. Flight arrives Rome June 18 PM. Clients may be arriving late June 18 without hotel coverage, OR original June 18 note was an error. **Verify with Erik** that June 19 check-in is correct and confirm lodging plan for June 18 night.
+> ✅ **DATE DISCREPANCY RESOLVED:** Flight departs DEN June 18 at 5:45 PM, arrives FCO June 19 at 12:20 PM. June 18 night is spent in transit (overnight flight). Baglioni check-in June 19 at 2:00 PM aligns perfectly. No lodging gap.
 
 ### Ground Transport — Rome
 | Leg | Method | Cost | Status |
 |-----|--------|------|--------|
-| FCO Airport → Baglioni | Concierge Private Car | €110 each way | Available via hotel concierge |
-| Baglioni → Civitavecchia Port | FreeNow App | €140–160 | Client to arrange |
-| **Estimated Total** | — | €250–270 | — |
+| FCO Airport → Baglioni | Welcome Pickups private car | — | ✅ CONFIRMED — Order #w-6377007-2, Booking code 180102. June 19 at 13:30. UA 177 from Denver. Driver holds sign in Arrival Hall, NCC corner (1-4). |
+| Baglioni → Civitavecchia Port | Welcome Pickups private car | — | ✅ CONFIRMED — Order #w-6377007-1, same booking. June 23 at 10:00. Driver at hotel entrance. |
 
 ---
 
@@ -96,12 +95,12 @@ completed_tps: []
 | June 24 | Naples | AM | PM | Italian Riviera |
 | June 25 | Giardini Naxos (Sicily) | AM | PM | Gateway to Mount Etna |
 | June 26 | Valletta (Malta) | AM | PM | Walled capital, UNESCO |
-| June 27 | Kotor (Montenegro) | AM | PM | Bay of Kotor, Adriatic gem |
-| June 28 | Bari (Italy) | AM | PM | Puglia region |
-| June 29 | Dubrovnik (Croatia) | AM | PM | "Pearl of the Adriatic" |
-| June 30 | Split (Croatia) | AM | PM | Dalmatian Coast |
-| July 1 | Zadar (Croatia) | AM | PM | Roman Forum, sea organs |
-| July 2 | At Sea | — | — | Leisurely transit |
+| June 27 | At Sea | — | — | Day at Sea — Leisurely transit |
+| June 28 | Kotor (Montenegro) | AM | PM | Bay of Kotor, Adriatic gem |
+| June 29 | Bari (Italy) | AM | PM | Puglia region |
+| June 30 | Dubrovnik (Croatia) | AM | PM | "Pearl of the Adriatic" |
+| July 1 | Split (Croatia) | AM | PM | Dalmatian Coast |
+| July 2 | Zadar (Croatia) | AM | PM | Roman Forum, sea organs |
 | July 3 | Fusina/Venice | AM | — | **DISEMBARKATION** |
 
 ### Ship Details
@@ -130,23 +129,20 @@ completed_tps: []
 
 ## POST-CRUISE: VENICE (JULY 3–6)
 
-### Hotel: PENDING DECISION
-Three options presented to client:
-
-| Hotel | Type | Location | Status |
-|-------|------|----------|--------|
-| Sina Centurion Palace | 5-star | Giudecca Island | Under review |
-| JW Marriott | 5-star | Riva degli Schiavoni | Under review |
-| NH Palazzo dei Dogi | 4-star | Riva dei Schiavoni | Under review |
-
-**Recommendation:** Giudecca Island hotels offer quieter, more local experience vs. San Marco corridor.
+### Hotel: Hilton Molino Stucky Venice ✅ SELECTED (confirmed ~2026-05-05 per Commander)
+- **Property:** Hilton Molino Stucky Venice
+- **Location:** Giudecca Island — converted 19th-century flour mill, waterfront, Skyline Rooftop Bar
+- **Check-in:** July 3, 2026 (disembarkation day from Fusina pier)
+- **Check-out:** July 6, 2026
+- **Duration:** 3 nights
+- **Booking Status:** ⚠️ CONFIRM BOOKING IN HILTON/CRS — dossier updated from Commander verbal, verify confirmation number
+- **Note:** Skyline Rooftop Bar on property — excellent aperitivo with panoramic Venice views
 
 ### Ground Transport — Venice
 | Leg | Method | Cost | Status |
 |-----|--------|------|--------|
-| Ship (Fusina) → Hotel | Private Water Taxi | ~€140 | To arrange post-hotel selection |
-| Hotel → VCE Airport | Private Water Taxi | ~€140 | Confirmed |
-| **Estimated Total** | — | €280 | — |
+| Ship (Fusina) → Molino Stucky | Venice Guide and Boat — private boat | €350 PAID (Apple Pay) | ✅ CONFIRMED — Order #14878 via veniceguideandboat.it. July 3, 09:30. Silver Muse cruise port → Hilton Molino Stucky. 2 pax, 1-6 luggage. |
+| Molino Stucky → VCE Airport | Private Water Taxi | ~€140–200 | 🔴 UNCONFIRMED — No booking on file. Options researched: Consorzio Motoscafi (+39 041 522 2303), Luxury Water Taxi (+39 345 344 3468), bookwatertaxivenice.com. July 6. |
 
 ### Venice Dining Recommendations (Giudecca Island)
 *Researched for post-cruise experience. Pair with hotel selection for reservations.*
@@ -178,13 +174,19 @@ Three options presented to client:
 
 ### Erik McLeod
 - **Email:** emcleod@gmail.com
-- **Phone:** ⚠ NEEDED
-- **Address:** ⚠ NEEDED
+- **Phone:** 303-949-0857
+- **DOB:** June 24, 1983
+- **Address:** 1541 Armstrong Ct, Longmont CO 80504
+- **Passport:** A09468788 — expires September 15, 2032 ✅ VALID through trip
+- **Airline PNRs:** United ML237016 | American H1PY618
 
 ### Melissa McGlasson
 - **Email:** memcglas@gmail.com
-- **Phone:** ⚠ NEEDED
-- **Address:** ⚠ NEEDED
+- **Phone:** 303-475-3863
+- **DOB:** July 15, 1970
+- **Address:** 1541 Armstrong Dr, Longmont CO 80504
+- **Passport:** 582543236 — expires May 9, 2028 ✅ VALID through trip
+- **Airline PNRs:** United TF317131 | American N6TX610
 
 ---
 
@@ -221,14 +223,14 @@ Three options presented to client:
 
 🟡 **OPERATIONAL:**
 - [ ] ⚠️ **VERIFY June 18 lodging** — Chase confirmation shows Jun 19 check-in; flight arrives Jun 18 PM. Confirm with Erik where they're staying Jun 18 night (or if Jun 19 check-in is intentional late-night arrival).
-- [ ] Confirm post-cruise Venice hotel selection (choose from 3 options)
-- [ ] Book Venice hotel once decision made
-- [ ] Arrange Hotel → Civitavecchia transport (FreeNow, €140–160)
-- [ ] Arrange Fusina → Venice Hotel water taxi (€140)
-- [ ] Consolidate airline PNRs (multiple record locators in play)
+- [ ] ⚠️ Book Molino Stucky → VCE airport water taxi for July 6 — UNCONFIRMED. Options: Consorzio Motoscafi +39 041 522 2303, Luxury Water Taxi +39 345 344 3468, bookwatertaxivenice.com
+- [x] Arrange Hotel → Civitavecchia transport — ✅ Welcome Pickups Order #w-6377007-1, June 23 at 10:00, Baglioni → Civitavecchia Port
 - [ ] Verify Guest Information Form completed on my.silversea.com
-- [ ] Request/confirm emergency contact information
-- [ ] Obtain missing phone numbers and home addresses for both clients
+- [x] Confirm post-cruise Venice hotel — ✅ Hilton Molino Stucky confirmed
+- [x] Book Venice hotel — ✅ Done (confirmed ~2026-05-05)
+- [x] Arrange Fusina → Venice Hotel water taxi — ✅ Venice Guide and Boat, Order #14878, July 3 09:30, €350 PAID
+- [x] Obtain missing phone numbers and home addresses — ✅ Complete as of 2026-05-26
+- [x] Consolidate airline PNRs — ✅ All 4 PNRs confirmed 2026-05-26
 
 🟢 **RELEASED - PLANNING RESUMED:**
 - [x] Send Giudecca intel and Venice hotel recommendations
@@ -239,11 +241,28 @@ Three options presented to client:
 
 ## DINING & EXCURSIONS STATUS
 
+### Shore Excursions — ✅ ALL 8 CONFIRMED (source: "Melissa and Erik Excursions.pdf" in Drive)
+
+| Date | Port | Excursion | Departs | Duration | Cost |
+|------|------|-----------|---------|----------|------|
+| Jun 24 | Naples | RUINS OF HERCULANUM | 08:45 | 3.5 hr | $0 (included) |
+| Jun 25 | Giardini Naxos (Sicily) | GREEK & ROMAN TAORMINA | 09:30 | 4 hr | $0 (included) |
+| Jun 26 | Valletta (Malta) | GAME OF THRONES | 09:15 | 4 hr | $0 (included) |
+| Jun 27 | At Sea | — | — | — | — |
+| Jun 28 | Kotor (Montenegro) | SPEEDBOAT ADVENTURE TO BLUE CAVE | 08:30 | 4 hr | $159/pp ($318 total) |
+| Jun 29 | Bari (Italy) | POLIGNANO & MR VOLARE'S WHITE CLIFF | 09:15 | 4 hr | $0 (included) |
+| Jun 30 | Dubrovnik (Croatia) | DAY AT THE BEACH CLUB | 09:00 | 5 hr | $139/pp ($278 total) |
+| Jul 1 | Split (Croatia) | UNESCO WORLD HERITAGE SITES | 08:45 | 4.5 hr | $0 (included) |
+| Jul 2 | Zadar (Croatia) | ZADAR, NIN SALT WORKS & ROYAL VINEYARDS | 08:45 | 5 hr | $0 (included) |
+
+**Total paid excursions: $596 ($318 Kotor + $278 Dubrovnik)**
+**Note: No excursion for Portofino or Antibes (pre-Rome departure ports — check full programme)**
+
+### Specialty Dining
 | Category | Status | Notes |
 |----------|--------|-------|
-| **Specialty Dining** | Awaiting selections | Opens Feb 23; multiple restaurants available |
-| **Shore Excursions** | Awaiting selections | Opens Jan 31; 10-port itinerary |
-| **Private Dining** | Not yet discussed | Optional butler-arranged options available |
+| **Specialty Dining** | ⚠ Status unknown | Opens Feb 23, 2026 — verify via my.silversea.com |
+| **Private Dining** | Not discussed | Optional butler-arranged |
 
 ---
 
@@ -356,6 +375,7 @@ Three options presented to client:
 | 2026-05-23 | Fwd: Regent Seven Seas Cruises Invoice: 2984034 Guest: MC GLASSON | Erik, Melissa (from personal) |
 | 2026-05-24 | Re: It's time to book your airport transfers with Blacklane | Erik (from personal) |
 | 2026-05-24 | Fwd: Final Silversea Cruise Documents including Air Tickets for 298475-25 MR ERIK WIEDENBACH MC LEOD | Erik, Melissa (from personal) |
+| 2026-05-26 | Fwd: McLeod Water Taxi — Venice Molino Stucky to Marco Polo Airport, 6 July 2026 | Erik, Melissa (from personal) |
 
 ---
 

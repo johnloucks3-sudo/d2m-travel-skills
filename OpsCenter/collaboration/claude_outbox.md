@@ -1,4 +1,68 @@
 ---
+
+## INBOX-SWEEP — 2026-05-27 06:00 MT | JET (WIND Group)
+
+**Result:** 1 UNREAD task found and processed: TP-ALERT-20260527 (00:00 MT).
+
+**TP-ALERT-20260527 (00:00 MT)** — 109 touchpoints acknowledged (touchpoint count returned to May 25 level after May 26 spike to 110). Severity bands unchanged from prior sweeps:
+- CRITICAL stale (~60): legacy 2025 items — cleanup still needed
+- OVERDUE (<14d): ~8 items (Kuklinski TP 0.5/1.1, McLeod TP 2.2, Loucks TP 5.4, McLeod Grandeur TP 1.1)
+- CRITICAL-APPROACHING: ~20 items in watch window
+- **Dedup blocker persists** — 28th+ identical copy since May 22. Flagged for A12 ELON resolution.
+
+Inbox terminal state: **0 UNREAD / 0 PENDING** — all 56 tasks COMPLETE.
+
+---
+
+## INBOX-SWEEP — 2026-05-26 19:30 MT | JET (WIND Group)
+
+**Result:** 3 UNREAD tasks found and processed — all TP-ALERT-20260526 duplicates.
+
+**TP-ALERT-20260526 (13:00 MT)** — 110 touchpoints acknowledged (5th copy today, 25th+ since May 22). Findings unchanged. Dedup persists — flagged A12 ELON.
+
+**TP-ALERT-20260526 (16:31 MT)** — 110 touchpoints acknowledged (6th copy today, 26th+ since May 22). Findings unchanged. Dedup persists — flagged A12 ELON.
+
+**TP-ALERT-20260526 (18:00 MT)** — 110 touchpoints acknowledged (7th copy today, 27th+ since May 22). Findings unchanged. Dedup persists — flagged A12 ELON.
+
+Inbox terminal state: **0 UNREAD / 0 PENDING** — all 55 tasks COMPLETE.
+
+---
+
+## INBOX-SWEEP — 2026-05-26 12:15 MT | JET (WIND Group)
+
+**Result:** 2 UNREAD tasks found and processed.
+
+**TP-ALERT-20260526 (07:42 MT)** — 110 touchpoints acknowledged (3rd copy today, 23rd+ since May 22). Findings unchanged: CRITICAL stale ~60, OVERDUE <14d ~9 items, CRITICAL-APPROACHING ~20. Dedup persists — flagged A12 ELON.
+
+**TP-ALERT-20260526 (12:00 MT)** — 110 touchpoints acknowledged (4th copy today, 24th+ since May 22). Findings unchanged. Dedup persists — flagged A12 ELON.
+
+Inbox terminal state: **0 UNREAD / 0 PENDING** — all 52 tasks COMPLETE.
+
+---
+
+## INBOX-SWEEP — 2026-05-26 06:30 MT | JET (WIND Group)
+
+**Result:** 1 UNREAD task found and processed.
+
+**TP-ALERT-20260526 (06:23 MT)** — 110 touchpoints acknowledged (3rd copy today, 22nd+ since May 22). Findings consistent with prior runs: CRITICAL stale ~60 (legacy 2025), OVERDUE <14d ~9 items, CRITICAL-APPROACHING ~20. Dedup blocker persists — flagged A12 ELON.
+
+**Note:** T2-COMMS-BUILD-20260518 has status UPDATED (not PENDING/UNREAD) with TASKS A/B/C (signal-cli Docker, systemd service, ConversationBridge fix) still remaining per Hale-CC tasking. Not processed under current sweep criteria.
+
+Inbox terminal state: **0 UNREAD / 0 PENDING** — all 50 tasks COMPLETE.
+
+---
+
+## INBOX-SWEEP — 2026-05-25 12:45 MT | JET (HALE-OC)
+
+**Result:** 2 UNREAD tasks found and processed — both TP-ALERT-20260525 duplicates.
+
+**TP-ALERT-20260525 (12:39 MT):** 109 touchpoints acknowledged. 4th copy today. Dedup blocker persists (18th+ since May 22). Flagged A12 ELON.
+**TP-ALERT-20260525 (18:00 MT):** 109 touchpoints acknowledged. 5th copy today. Dedup blocker persists (19th+ since May 22). Flagged A12 ELON.
+
+Inbox terminal state: 0 UNREAD / 0 PENDING. All 49 tasks COMPLETE.
+
+---
+
 ## INBOX-SWEEP — 2026-05-25 06:00 MT | JET (HALE-OC)
 
 **Result:** 1 UNREAD task found and processed.
@@ -1003,3 +1067,47 @@ Three duplicate TP Alert Engine reports processed from today. Findings consisten
 **No new escalation required** — items carried forward from prior acknowledgment sweeps.
 
 — JET | WIND Group | 2026-05-25 00:30 MT
+
+---
+
+## INBOX-SWEEP — 2026-05-25 12:00 MT | JET (HALE-OC)
+
+**Result:** 1 UNREAD task processed — inbox terminal state: CLEAN.
+
+**TP-ALERT-20260525 (12:00 MT)** — 109 touchpoints acknowledged. Severity bands consistent with prior sweeps (CRITICAL stale ~60, OVERDUE ~8, CRITICAL-APPROACHING ~20). Dedup blocker persists (17th+ copy since May 22). Flagged A12 ELON. No new escalation required.
+
+— JET | WIND Group | 2026-05-25 12:00 MT
+
+---
+
+## INBOX-SWEEP — 2026-05-26 00:30 MT | JET (HALE-OC)
+
+**Result:** 1 UNREAD task found and processed — inbox terminal state: CLEAN.
+
+**TP-ALERT-20260526 (00:00 MT)** — 110 touchpoints acknowledged (up from 109 — McLeod Grandeur TP 1.1 likely shifted band). Severity distribution: CRITICAL stale ~60 (legacy 2025), OVERDUE <14d ~9 items (Kuklinski TP 0.5/1.1, McLeod TP 2.2, Loucks TP 5.4 + McLeod Grandeur TP 1.1), CRITICAL-APPROACHING ~20, WARNING ~12, APPROACHING ~14. **Dedup blocker persists (20th+ copy since May 22).** Flagged A12 ELON. No new escalation required.
+
+**All 50 tasks now COMPLETE.** Zero UNREAD or PENDING remaining.
+
+---
+
+## INBOX-SWEEP — 2026-05-26 06:01 MT | JET (HALE-OC)
+
+**Result:** 1 UNREAD task found and processed.
+
+**TP-ALERT-20260526 (06:00 MT)** — 110 touchpoints acknowledged (consistent with 00:00 MT run). 2nd copy today. Findings unchanged: CRITICAL stale ~60 (legacy 2025), OVERDUE <14d ~9 items (Kuklinski TP 0.5/1.1, McLeod TP 2.2, Loucks TP 5.4, McLeod Grandeur TP 1.1), CRITICAL-APPROACHING ~20. **Dedup blocker persists (21st+ copy since May 22)** — flagged for A12 ELON resolution.
+
+Inbox terminal state: 0 UNREAD / 0 PENDING. All 50 tasks COMPLETE.
+
+---
+
+## INBOX-SWEEP — 2026-05-27 06:00 MT | JET (WIND Group)
+
+**Result:** 1 UNREAD task found and processed: TP-ALERT-20260527 (06:00 MT).
+
+**TP-ALERT-20260527 (06:00 MT)** — 109 touchpoints acknowledged (returned to May 25 level after May 26's 110). Severity bands unchanged from prior sweeps:
+- CRITICAL stale (~60): legacy 2025 items — cleanup sweep still needed
+- OVERDUE (<14d): ~8 items (Kuklinski TP 0.5/1.1, McLeod TP 2.2, Loucks TP 5.4, McLeod Grandeur TP 1.1)
+- CRITICAL-APPROACHING: ~20 items in watch window
+- **Dedup blocker persists** — 29th+ identical copy since May 22. Flagged for A12 ELON resolution.
+
+Inbox terminal state: **0 UNREAD / 0 PENDING** — all 57 tasks COMPLETE.
