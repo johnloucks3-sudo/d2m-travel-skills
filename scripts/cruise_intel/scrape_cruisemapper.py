@@ -213,13 +213,24 @@ if __name__ == '__main__':
     parser.add_argument('--year',    type=int, default=2026)
     parser.add_argument('--months',  nargs='+', type=int, default=[10, 11])
     parser.add_argument('--output',  type=Path, default=CRUISEMAPPER_JSON)
+    parser.add_argument('--lines',   nargs='+', default=[],
+                        help='Restrict to specific line keys (e.g. Viking Silversea)')
     parser.add_argument('--verbose', action='store_true')
     args = parser.parse_args()
 
-    print(f'[cruisemapper] Scraping {args.year} months={args.months} '
-          f'({len(CRUISEMAPPER_LINES)} lines)')
+    lines_filter = None
+    if args.lines:
+        lines_filter = {k: v for k, v in CRUISEMAPPER_LINES.items()
+                        if k in args.lines}
+        if not lines_filter:
+            print(f'ERROR: none of {args.lines} matched. Valid keys: {list(CRUISEMAPPER_LINES)}')
+            import sys; sys.exit(1)
+
+    n_lines = len(lines_filter) if lines_filter else len(CRUISEMAPPER_LINES)
+    print(f'[cruisemapper] Scraping {args.year} months={args.months} ({n_lines} lines)')
     results = scrape_cruisemapper(
         year=args.year, months=args.months,
         output_path=args.output, verbose=args.verbose,
+        lines=lines_filter,
     )
     print(f'[cruisemapper] Done — {len(results)} sailings → {args.output}')

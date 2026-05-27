@@ -2,6 +2,11 @@
 Cruise Intel — CruisesOnly (cruisesonly.com) Scraper
 Uses gstack headless browser (JS rendering required).
 
+⚠️ SITE STATUS: CruisesOnly is protected by Imperva/Incapsula bot detection (confirmed 2026-05-27).
+Direct requests return a 212-byte JS challenge page. gstack sessions land on homepage (empty #root div,
+app never hydrates). Resolution requires residential proxy or manual session-cookie injection.
+This scraper will return 0 results until bypass is available.
+
 Two-tier strategy:
   Tier 1 (preferred) — Search results page with date range:
     /results.do?clp=1&c={code}&d1=MM/DD/YYYY&d2=MM/DD/YYYY&sort=departuredate
