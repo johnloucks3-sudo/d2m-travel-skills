@@ -99,6 +99,8 @@ _SOUTHERN_HEMISPHERE_EXCLUDE = (
     'antarctica', 'antarctic', 'falkland', 'south georgia',
     'ushuaia', 'patagonia', 'tierra del fuego', 'south shetland',
     'south pole', 'drake passage',
+    # North American false positives ('england' substring matches 'New England')
+    'new england', 'newfoundland', 'nova scotia', 'quebec city',
 )
 
 def is_europe_med_arctic(from_port: str, to_port: str, route_name: str = '') -> bool:
