@@ -167,7 +167,7 @@ CONTEXT_TURNS = int(os.environ.get("TELEGRAM_GW_CONTEXT_TURNS", "10"))
 
 SONNET_MODEL = "claude-sonnet-4-6"
 OPUS_MODEL = "claude-opus-4-6"
-HAIKU_MODEL = "claude-haiku-4-5"
+HAIKU_MODEL = "claude-haiku-4-5-20251001"
 OPENCODE_BIN = Path("/home/john/.opencode/bin/opencode")
 
 # ── OpenRouter model aliases — prefix routing (e.g. "GROK: task") ────────────
@@ -1525,8 +1525,9 @@ def main() -> None:
             except Exception:
                 pass
         try:
+            env_test.pop("ANTHROPIC_BASE_URL", None)  # strip proxy URL same as call_claude_engine
             result = subprocess.run(
-                ["/home/john/.local/bin/claude", "--model", HAIKU_MODEL,
+                ["/home/john/.local/bin/claude", "--model", SONNET_MODEL,
                  "-p", "Reply with the single word: OK",
                  "--dangerously-skip-permissions"],
                 capture_output=True, text=True, timeout=30, env=env_test,
