@@ -58,6 +58,26 @@ async def _login_and_scrape(username: str, password: str) -> dict:
             await page.goto(PORTAL_URL, wait_until="domcontentloaded", timeout=30_000)
             await page.wait_for_timeout(2_000)
 
+            # Dismiss cookie consent banner if present (blocks form access).
+            # Use JS evaluate — query_selector() doesn't support :has-text() pseudo-selectors.
+            try:
+                clicked = await page.evaluate("""
+                    () => {
+                        const labels = ['Allow all', 'Accept all', 'Allow selection', 'Accept'];
+                        const btns = Array.from(document.querySelectorAll('button'));
+                        for (const label of labels) {
+                            const btn = btns.find(b => b.textContent.trim() === label);
+                            if (btn) { btn.click(); return label; }
+                        }
+                        return null;
+                    }
+                """)
+                if clicked:
+                    await page.wait_for_timeout(1_500)
+                    logger.debug("bedsonline: dismissed cookie banner ('%s')", clicked)
+            except Exception as e:
+                logger.debug("bedsonline: cookie dismiss skipped: %s", e)
+
             current_url = page.url
             logger.debug("bedsonline: landed on %s", current_url)
 
@@ -67,24 +87,28 @@ async def _login_and_scrape(username: str, password: str) -> dict:
                 output["authenticated"] = True
                 logger.info("bedsonline: already authenticated ✓")
             else:
-                # Try login
-                user_el = await page.query_selector(
-                    "input[name='username'], input[type='text'], #username, #user"
-                )
-                pass_el = await page.query_selector(
-                    "input[name='password'], input[type='password'], #password, #pass"
-                )
+                await page.wait_for_timeout(1_000)
+                # Use locator API for React-controlled inputs (supports triple_click + type)
+                user_loc = page.locator("input[placeholder='Username']").first
+                pass_loc = page.locator("input[placeholder='Password']").first
 
-                if user_el and pass_el:
-                    await user_el.fill(username)
-                    await pass_el.fill(password)
+                user_visible = await user_loc.is_visible()
+                pass_visible = await pass_loc.is_visible()
+
+                if user_visible and pass_visible:
+                    # click to focus, press_sequentially triggers React onChange on each keystroke
+                    await user_loc.click()
+                    await page.keyboard.press("Control+a")
+                    await user_loc.press_sequentially(username, delay=50)
+                    await page.wait_for_timeout(300)
+                    await pass_loc.click()
+                    await page.keyboard.press("Control+a")
+                    await pass_loc.press_sequentially(password, delay=50)
                     await page.wait_for_timeout(500)
 
-                    submit = await page.query_selector(
-                        "button[type='submit'], input[type='submit'], .login-btn, #loginBtn"
-                    )
-                    if submit:
-                        await submit.click()
+                    login_btn = page.get_by_role("button", name="Login")
+                    if await login_btn.is_visible():
+                        await login_btn.click()
                     else:
                         await page.keyboard.press("Enter")
 
@@ -94,9 +118,14 @@ async def _login_and_scrape(username: str, password: str) -> dict:
                     post_url = page.url
                     post_text = await page.inner_text("body")
 
-                    if any(kw in post_text.lower() for kw in ("search hotels", "my bookings", "dashboard")):
+                    auth_urls = ("/main", "/dashboard", "/hotel-search", "/home")
+                    auth_kws = ("search hotels", "my bookings", "dashboard", "top picks", "our top picks")
+                    if any(post_url.endswith(u) or u in post_url for u in auth_urls):
                         output["authenticated"] = True
-                        logger.info("bedsonline: login successful ✓")
+                        logger.info("bedsonline: login successful ✓ (url=%s)", post_url)
+                    elif any(kw in post_text.lower() for kw in auth_kws):
+                        output["authenticated"] = True
+                        logger.info("bedsonline: login successful ✓ (content match)")
                     elif "error" in post_text.lower() or "invalid" in post_text.lower():
                         logger.warning("bedsonline: login error — credentials may be wrong")
                     elif "login" in post_url.lower():
