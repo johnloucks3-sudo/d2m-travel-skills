@@ -995,6 +995,93 @@
       "logs": [],
       "created_at": "2026-05-27T20:25:56.691793+00:00",
       "updated_at": "2026-05-27T20:25:56.691804+00:00"
+    },
+    {
+      "id": "MISSION-072",
+      "title": "Dead Link Audit + Portal Login Verification",
+      "status": "IN_PROGRESS",
+      "priority": "P2",
+      "created": "2026-05-27T17:10:05.069933",
+      "owner": "A7 Sterling + Hale",
+      "description": "Full audit of all external URLs in T2 cruise intel pipeline and supplier portal logins. Fix dead links in report LINE_URLS. Verify/refresh stale credentials for TESS, Centrav, Bedsonline, Perx.",
+      "findings": {
+        "dead_links_404": [
+          "https://www.silversea.com/cruises.html",
+          "https://www.vikingcruises.com/oceans/cruises/",
+          "https://www.atlasoceanvoyages.com/cruise",
+          "https://www.deluxecruises.com/silversea/cruises/",
+          "https://www.deluxecruises.com/regent-seven-seas/cruises/",
+          "https://www.deluxecruises.com/seabourn/cruises/",
+          "https://www.deluxecruises.com/viking-ocean/cruises/",
+          "https://www.deluxecruises.com/cunard/cruises/",
+          "https://www.deluxecruises.com/atlas-ocean/cruises/",
+          "https://us.ponant.com/travel-in/2026/10"
+        ],
+        "api_dead_400": [
+          "https://api.sail-personalize.com/v1/search/cruises (Perx \u2014 migrated to SSR, auth required)"
+        ],
+        "portals_live_200": [
+          "https://app.bedsonline.com",
+          "https://www.centrav.com",
+          "https://crm.myagentgenie.com (TESS)"
+        ],
+        "bot_blocked_403": [
+          "https://www.rssc.com/voyages (Regent)",
+          "https://www.oceaniacruises.com/cruises",
+          "https://www.cunard.com/en-us/cruise-search"
+        ],
+        "login_failures": {
+          "CruisePlum": "No credentials \u2014 needs ~/.config/d2m/cruiseplum.env (USER/PASS)",
+          "CruisesOnly_Tier1": "Incapsula bot block \u2014 Tier 2 workaround active",
+          "Perx": "API dead (401/400) after SSR migration \u2014 needs account session cookies",
+          "Centrav": "Cookie file exists (May 1) \u2014 may be stale, needs re-auth test",
+          "Bedsonline": "credentials.json exists but hotelbeds_credentials.json has no portal_username \u2014 incomplete",
+          "TESS": "Cookie file exists (May 1) \u2014 JWT auth confirmed working separately"
+        },
+        "atlas_vasco": "CruiseMapper Atlas page includes Vasco da Gama (Mystic Cruises, same parent). Ship whitelist fix applied."
+      },
+      "tasks": [
+        {
+          "id": "072-A",
+          "desc": "Verify dead links with stealth browser (Playwright)",
+          "status": "IN_PROGRESS"
+        },
+        {
+          "id": "072-B",
+          "desc": "Fix LINE_URLS in generate_report.py for confirmed dead links",
+          "status": "PENDING"
+        },
+        {
+          "id": "072-C",
+          "desc": "Audit Deluxe scraper \u2014 confirm monthly pages still working",
+          "status": "PENDING"
+        },
+        {
+          "id": "072-D",
+          "desc": "Test Centrav cookie freshness (centrav_cookies.json May 1)",
+          "status": "PENDING"
+        },
+        {
+          "id": "072-E",
+          "desc": "Test Bedsonline login (hotelbeds_credentials.json \u2014 incomplete?)",
+          "status": "PENDING"
+        },
+        {
+          "id": "072-F",
+          "desc": "CruisePlum: await Commander credentials",
+          "status": "BLOCKED"
+        },
+        {
+          "id": "072-G",
+          "desc": "Perx: investigate CruiseDirect.com as alternate backend",
+          "status": "PENDING"
+        },
+        {
+          "id": "072-H",
+          "desc": "Atlas Vasco da Gama fix \u2014 re-run CruiseMapper full scrape",
+          "status": "IN_PROGRESS"
+        }
+      ]
     }
   ],
   "suspense_watch": [

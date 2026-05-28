@@ -1,14 +1,14 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-05-27 17:01:57 MDT
+## Generated: 2026-05-27 18:01:58 MDT
 
 ---
 
 ### Recent Commits
+- 31722fe feat(cruise-intel): Wave 4 expansion — 28 lines, dead link audit, interline brief
+- cd11bf6 chore(ops): session state sync — T2 pipeline complete, McLeod WF-17 staged
 - a259a9f fix(cruise-intel): CruisesOnly Tier 2 HTML parser + New England geo exclusion
 - ad47301 feat(cruise-intel): Wave 3 scraper fixes — Viking data + Incapsula doc
 - 76df966 feat(t2-cruise-intel): period expansion + volume leaders + name canonicalization
-- 43feba9 feat(session-20260527): Spencer briefing + voice ledger + metronome lifecycle alerts
-- 23d1282 feat(metronome): MISSION-070 — lifecycle FPD/departure alerts + daily brief
 
 ### Uncommitted Changes
  M .obsidian/workspace.json
@@ -25,17 +25,17 @@
  M OpsCenter/.supervisor_patterns.json
  M OpsCenter/CLAUDE_DESKTOP_INIT.md
  M OpsCenter/OPENCODE_INIT.md
- M OpsCenter/a7_metrics_dashboard.json
- M OpsCenter/claude_inbox.md
  M OpsCenter/collaboration/blackboard_summary.txt
  M OpsCenter/collaboration/claude_outbox.md
  M OpsCenter/collaboration/opencode_inbox.md
  M OpsCenter/collaboration/routing_log.md
+ M OpsCenter/collaboration/wing_comms.md
+ M OpsCenter/mission_board.json
 
 ### Inbox Status
 - Claude inbox: 0
 0 pending task(s)
-- OpenCode inbox: 2 pending task(s)
+- OpenCode inbox: 1 pending task(s)
 
 ### System Health
 - Watcher: ❌ STOPPED
