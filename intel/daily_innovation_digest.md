@@ -1,7 +1,7 @@
 # Innovation Scan — Daily
-**Generated:** 2026-05-27T01:45:48.766202
+**Generated:** 2026-05-28T01:45:36.260101
 **Sources:** 24 scanned, 0 failed
-**Findings:** 125 total
+**Findings:** 118 total
 
 ---
 
@@ -9,26 +9,26 @@
 
 | # | Score | Source | Title | Category |
 |---|-------|--------|-------|----------|
-| 1 | 1573 | github/trending | [jherrodthomas/automotive-skills-suite](https://github.com/jherrodthomas/automotive-skills-suite) | security |
-| 2 | 1210 | reddit/r/ClaudeAI | [Microsoft, has started canceling Claude Code licenses, per t...](https://reddit.com/r/ClaudeAI/comments/1to6kqz/microsoft_has_started_canceling_claude_code/) | claude |
-| 3 | 982 | reddit/r/selfhosted | [SparkyFitness v0.16.6.3 - A Self-Hosted MyFitnessPal alterna...](https://reddit.com/r/selfhosted/comments/1tnrwe0/sparkyfitness_v01663_a_selfhosted_myfitnesspal/) | infrastructure |
-| 4 | 913 | reddit/r/ClaudeAI | [Company gave us all unlimited Claude Code Sonnet 4.6 — and n...](https://reddit.com/r/ClaudeAI/comments/1tob45x/company_gave_us_all_unlimited_claude_code_sonnet/) | claude |
-| 5 | 899 | github/trending | [nduckmink/arkon](https://github.com/nduckmink/arkon) | mcp |
-| 6 | 677 | github/trending | [simonlin1212/TradingAgents-astock](https://github.com/simonlin1212/TradingAgents-astock) | agents |
-| 7 | 644 | github/trending | [anysearch-ai/anysearch-mcp-server](https://github.com/anysearch-ai/anysearch-mcp-server) | mcp |
-| 8 | 538 | github/trending | [LocoreMind/locoagent](https://github.com/LocoreMind/locoagent) | agents |
-| 9 | 494 | reddit/r/ClaudeAI | [I'm a software engineer with a decade of experience. This is...](https://reddit.com/r/ClaudeAI/comments/1tonzj9/im_a_software_engineer_with_a_decade_of/) | claude |
-| 10 | 471 | reddit/r/LocalLLaMA | [PrismML just released Binary and Ternary Bonsai Image 4B: 1-...](https://reddit.com/r/LocalLLaMA/comments/1togflk/prismml_just_released_binary_and_ternary_bonsai/) | general |
+| 1 | 1611 | github/trending | [jherrodthomas/automotive-skills-suite](https://github.com/jherrodthomas/automotive-skills-suite) | security |
+| 2 | 983 | reddit/r/selfhosted | [Found the kryptonite for AI SEO slop posters](https://reddit.com/r/selfhosted/comments/1tp9wbd/found_the_kryptonite_for_ai_seo_slop_posters/) | security |
+| 3 | 905 | github/trending | [nduckmink/arkon](https://github.com/nduckmink/arkon) | mcp |
+| 4 | 877 | reddit/r/ClaudeAI | [I'm a software engineer with a decade of experience. This is...](https://reddit.com/r/ClaudeAI/comments/1tonzj9/im_a_software_engineer_with_a_decade_of/) | claude |
+| 5 | 818 | hackernews | [I think Anthropic and OpenAI have found product-market fit](https://simonwillison.net/2026/May/27/product-market-fit/) | claude |
+| 6 | 716 | github/trending | [simonlin1212/TradingAgents-astock](https://github.com/simonlin1212/TradingAgents-astock) | agents |
+| 7 | 685 | github/trending | [anysearch-ai/anysearch-mcp-server](https://github.com/anysearch-ai/anysearch-mcp-server) | mcp |
+| 8 | 666 | github/trending | [LocoreMind/locoagent](https://github.com/LocoreMind/locoagent) | agents |
+| 9 | 423 | hackernews | [The real cost of owning a home](https://ericturner.dev/posts/cost-of-home-ownership/) | general |
+| 10 | 394 | hackernews | [Claude Code as a Daily Driver: Claude.md, Skills, Subagents,...](https://arps18.github.io/posts/claude-code-mastery/) | mcp |
 
-## Agents (42 findings)
+## Agents (38 findings)
 
 ### [simonlin1212/TradingAgents-astock](https://github.com/simonlin1212/TradingAgents-astock)
-- **Source:** github/trending | **Score:** 677
+- **Source:** github/trending | **Score:** 716
 - **Relevance:** Direct | **Difficulty:** Medium
 - A股多Agent投研框架 — 适配A股数据源(龙虎榜/游资/解禁等)，7位分析师基于A股规则的辩论决策，基于TradingAgents深度改造，适配大A。A-share multi-agent investment research framework — 7 AI analysts, bull/bear debate, risk assessment。
 
 ### [LocoreMind/locoagent](https://github.com/LocoreMind/locoagent)
-- **Source:** github/trending | **Score:** 538
+- **Source:** github/trending | **Score:** 666
 - **Relevance:** Direct | **Difficulty:** Medium
 - AI-powered social media agent with real browser automation
 
@@ -37,10 +37,22 @@
 - **Relevance:** Direct | **Difficulty:** Medium
 - Claude Design: AI UI/UX architect. Screenshot to React, Figma components, Tailwind CSS generator. Prototyping agent, design systems, wireframe renderer. SVG icon creator, dark mode toggle, responsive 
 
-### [Anyone who regularly uses AI agents for personal life, what are the best use cas](https://reddit.com/r/ChatGPT/comments/1tolh94/anyone_who_regularly_uses_ai_agents_for_personal/)
-- **Source:** reddit/r/ChatGPT | **Score:** 231
+### [Anthropic just confirmed why 90% of non-coding AI agents fail in production](https://reddit.com/r/ClaudeAI/comments/1tph5u4/anthropic_just_confirmed_why_90_of_noncoding_ai/)
+- **Source:** reddit/r/ClaudeAI | **Score:** 221
 - **Relevance:** Direct | **Difficulty:** Medium
-- I am trying to create an AI agent to help me manage the cognitive load from home repair and meal planning tasks as they seem easy enough to automate and outsource to an agent. But what are some other 
+- Anthropic recently published an incredibly deep breakdown analyzing millions of real human-agent tool calls across their public API, and they shared a breakdown of where these agents are being deploye
+
+### [Qwen3.6 huge quality gain from Q4 to Q6 for coding agent](https://reddit.com/r/LocalLLaMA/comments/1tpebhw/qwen36_huge_quality_gain_from_q4_to_q6_for_coding/)
+- **Source:** reddit/r/LocalLLaMA | **Score:** 157
+- **Relevance:** Direct | **Difficulty:** Medium
+- So, last week I tried to update my unused local LLM setup. I had to stop using it because quality was too low and deepseek was too cheap.
+
+First thing I stopped using Ollama and now I only use llama.c
+
+### [aws-samples/sample-well-architected-skills-and-steering](https://github.com/aws-samples/sample-well-architected-skills-and-steering)
+- **Source:** github/trending | **Score:** 106
+- **Relevance:** Direct | **Difficulty:** Medium
+- Reusable skills and steering that teach AI coding agents how to apply the AWS Well-Architected Framework. One set of playbooks, 12 supported tools.
 
 ### [Yang1999code/controllable-agent](https://github.com/Yang1999code/controllable-agent)
 - **Source:** github/trending | **Score:** 106
@@ -52,46 +64,34 @@
 - **Relevance:** Direct | **Difficulty:** Medium
 - MemPrivacy is a privacy-preserving personalized memory management framework for edge-cloud agents. 
 
-### [Turning local agents into self-optimizing agents](https://reddit.com/r/LocalLLaMA/comments/1toejzp/turning_local_agents_into_selfoptimizing_agents/)
-- **Source:** reddit/r/LocalLLaMA | **Score:** 99
+### [Robinhood launches credit card for AI agents with 3% cash back](https://reddit.com/r/singularity/comments/1tphtw6/robinhood_launches_credit_card_for_ai_agents_with/)
+- **Source:** reddit/r/singularity | **Score:** 93
 - **Relevance:** Direct | **Difficulty:** Medium
-- I was experimenting with a self-optimizing agentic pipeline to climb the benchmark leaderboard (TerminalBench).
 
-On a 10-task subset, I got the performance to rise from \~30% → \~90%.
+### [I ran 8 open-weight models as agents in a persistent MMO for 10 days. Here's the](https://reddit.com/r/LocalLLaMA/comments/1tp6pg7/i_ran_8_openweight_models_as_agents_in_a/)
+- **Source:** reddit/r/LocalLLaMA | **Score:** 91
+- **Relevance:** Direct | **Difficulty:** Medium
+- Howdy everyone!
 
-That loop worke
+Quick disclosure: I work on this - it's a project my studio created called the Null Epoch. I wasn't really happy with testing my agents with the usual static benchmarks and I wanted t
 
 ### [Important information for new agents](https://reddit.com/r/travelagents/comments/1ayls48/important_information_for_new_agents/)
 - **Source:** reddit/r/TravelAgents | **Score:** 77
 - **Relevance:** Direct | **Difficulty:** Medium
 - If you are new to the industry, or considering joining the industry, I’m hoping to help you with realistic expectations. It’s important to understand that this is a real job, where you are handling th
 
-### [SkillOpt treats markdown skill files as trainable parameters with proper optimiz](https://reddit.com/r/LocalLLaMA/comments/1to1mey/skillopt_treats_markdown_skill_files_as_trainable/)
-- **Source:** reddit/r/LocalLLaMA | **Score:** 76
-- **Relevance:** Direct | **Difficulty:** Medium
-- Paper came out recently that formalizes something a lot of agent builders have been doing ad hoc. They use a frontier model to propose bounded edits (add/delete/replace) to markdown skill files, then 
-
 ### [open-gitagent/langship.sh](https://github.com/open-gitagent/langship.sh)
 - **Source:** github/trending | **Score:** 67
 - **Relevance:** Direct | **Difficulty:** Medium
 - The platform for shipping, governing AI agents — framework-agnostic, multi-runtime, GitOps-native, self-hosted.
-
-### [aws-samples/sample-well-architected-skills-and-steering](https://github.com/aws-samples/sample-well-architected-skills-and-steering)
-- **Source:** github/trending | **Score:** 67
-- **Relevance:** Direct | **Difficulty:** Medium
-- Reusable skills and steering that teach AI coding agents how to apply the AWS Well-Architected Framework. One set of playbooks, 12 supported tools.
 
 ### [Sendmux/website-feedback-widget](https://github.com/Sendmux/website-feedback-widget)
 - **Source:** github/trending | **Score:** 58
 - **Relevance:** Direct | **Difficulty:** Medium
 - 📬 Drop-in feedback widget for websites & apps. Turn submissions into structured email & webhook data for AI agents. Framework-agnostic Web Component. Accessible, customisable, zero deps.
 
-### [Splinter Cell veteran says realistic modern lighting has screwed up stealth game](https://www.rockpapershotgun.com/splinter-cell-veteran-says-realistic-modern-lighting-has-screwed-up-stealth-games-it-gets-very-hard-to-tell-whats-light-whats-shadow-whats-dark-whats-safe)
-- **Source:** hackernews | **Score:** 58
-- **Relevance:** Indirect | **Difficulty:** Medium
-
 ### [adrianhajdin/react-native-lingua](https://github.com/adrianhajdin/react-native-lingua)
-- **Source:** github/trending | **Score:** 55
+- **Source:** github/trending | **Score:** 57
 - **Relevance:** Direct | **Difficulty:** Medium
 - React Native Duolingo clone with a real-time AI voice teacher. Built with Expo, Stream Voice Agents, Clerk auth, and NativeWind for a complete, interactive mobile learning experience.
 
@@ -102,52 +102,66 @@ That loop worke
 
 Pinned background sessions (Ctrl+T in claude agents) now stay alive when idle, are restarted in place to apply Claude Code updates, and are shed under memory pressure only after non-pi
 
-## Mcp (28 findings)
+## Mcp (30 findings)
 
 ### [nduckmink/arkon](https://github.com/nduckmink/arkon)
-- **Source:** github/trending | **Score:** 899
+- **Source:** github/trending | **Score:** 905
 - **Relevance:** Direct | **Difficulty:** Medium
 - Arkon: Enterprise AI Knowledge Hub & MCP Server. Self-hosted knowledge base for teams to manage RAG contexts, access policies, and AI skills. Connect Claude and other LLMs via Model Context Protocol (
 
 ### [anysearch-ai/anysearch-mcp-server](https://github.com/anysearch-ai/anysearch-mcp-server)
-- **Source:** github/trending | **Score:** 644
+- **Source:** github/trending | **Score:** 685
 - **Relevance:** Direct | **Difficulty:** Medium
 - Unified real-time search engine skill for AI agents.
 
+### [Claude Code as a Daily Driver: Claude.md, Skills, Subagents, Plugins, and MCPs](https://arps18.github.io/posts/claude-code-mastery/)
+- **Source:** hackernews | **Score:** 394
+- **Relevance:** Direct | **Difficulty:** Medium
+
+### [Vulnerability found in framework used by VLLM, many MCP servers, and other LLM t](https://reddit.com/r/LocalLLaMA/comments/1tpp2th/vulnerability_found_in_framework_used_by_vllm/)
+- **Source:** reddit/r/LocalLLaMA | **Score:** 266
+- **Relevance:** Direct | **Difficulty:** Medium
+- Worth taking a look to see if this affects any of you. Surprised nobody has posted it yet.
+
 ### [OpenOSINT/OpenOSINT](https://github.com/OpenOSINT/OpenOSINT)
-- **Source:** github/trending | **Score:** 178
+- **Source:** github/trending | **Score:** 189
 - **Relevance:** Direct | **Difficulty:** Medium
 - AI-powered OSINT agent with interactive REPL, MCP server, and CLI. 9 tools. Works with Claude, GPT-4, or local models. For authorized security research only.
 
-### [testerlingcodo/gemini-antigravity-cli](https://github.com/testerlingcodo/gemini-antigravity-cli)
-- **Source:** github/trending | **Score:** 170
-- **Relevance:** Direct | **Difficulty:** Medium
-- gemini antigravity 2.0 cli google terminal ai agent tool agy migration guide mcp server plugin slash commands gemini 3.5 flash coding agent tool free
-
 ### [yurineko73/Godot-MCP-Native](https://github.com/yurineko73/Godot-MCP-Native)
-- **Source:** github/trending | **Score:** 166
+- **Source:** github/trending | **Score:** 180
 - **Relevance:** Direct | **Difficulty:** Medium
 - 一款支持godot开源引擎的的mcp插件，支持常见godot引擎操作，使用Godot原生实现MCPServer，无需安装依赖，开箱即用，支持多种AI工具调用。An MCP plugin that supports the open-source Godot engine, enabling common Godot engine operations. It implements the MCP 
 
+### [testerlingcodo/gemini-antigravity-cli](https://github.com/testerlingcodo/gemini-antigravity-cli)
+- **Source:** github/trending | **Score:** 172
+- **Relevance:** Direct | **Difficulty:** Medium
+- gemini antigravity 2.0 cli google terminal ai agent tool agy migration guide mcp server plugin slash commands gemini 3.5 flash coding agent tool free
+
 ### [Unagi-cq/cdp-bridge-mcp](https://github.com/Unagi-cq/cdp-bridge-mcp)
-- **Source:** github/trending | **Score:** 162
+- **Source:** github/trending | **Score:** 170
 - **Relevance:** Direct | **Difficulty:** Medium
 - MCP server that bridges clients to a real browser through CDP and a companion extension.
+
+### [Claude Code has zero idea what your codebase looks like structurally (Open sourc](https://reddit.com/r/ClaudeAI/comments/1tpbjwo/claude_code_has_zero_idea_what_your_codebase/)
+- **Source:** reddit/r/ClaudeAI | **Score:** 146
+- **Relevance:** Direct | **Difficulty:** Medium
+- Every time I watch someone use Claude Code on a real codebase, the same thing happens. It rewrites a module that three other modules depend on without any awareness of coupling. It just reads the file
+
+### [Episkey-G/GrokSearch-rs](https://github.com/Episkey-G/GrokSearch-rs)
+- **Source:** github/trending | **Score:** 139
+- **Relevance:** Direct | **Difficulty:** Medium
+- Rust MCP server for Grok web search and Tavily-backed source retrieval
+
+### [wanghuan9/skill-manager](https://github.com/wanghuan9/skill-manager)
+- **Source:** github/trending | **Score:** 138
+- **Relevance:** Direct | **Difficulty:** Medium
+- SkillDock is a skill manager and MCP manager for installing, viewing, updating, and syncing AI skills and MCP servers, with Git-aware updates to track upstream changes and local modifications. SkillDo
 
 ### [KSroido/Kagi-Session2API-MCP](https://github.com/KSroido/Kagi-Session2API-MCP)
 - **Source:** github/trending | **Score:** 136
 - **Relevance:** Direct | **Difficulty:** Medium
 - Free Kagi Search MCP server — access search and summarizer via session tokens, no API key needed. Works with Claude Desktop, Cursor, Windsurf, Hermes and any MCP client.
-
-### [wanghuan9/skill-manager](https://github.com/wanghuan9/skill-manager)
-- **Source:** github/trending | **Score:** 128
-- **Relevance:** Direct | **Difficulty:** Medium
-- SkillDock is a skill manager and MCP manager for installing, viewing, updating, and syncing AI skills and MCP servers, with Git-aware updates to track upstream changes and local modifications. SkillDo
-
-### [Episkey-G/GrokSearch-rs](https://github.com/Episkey-G/GrokSearch-rs)
-- **Source:** github/trending | **Score:** 123
-- **Relevance:** Direct | **Difficulty:** Medium
-- Rust MCP server for Grok web search and Tavily-backed source retrieval
 
 ### [rohanmistry231/Claude-OS](https://github.com/rohanmistry231/Claude-OS)
 - **Source:** github/trending | **Score:** 105
@@ -155,113 +169,60 @@ Pinned background sessions (Ctrl+T in claude agents) now stay alive when idle, a
 - A concise Claude reference bundle for developers, covering commands, MCP servers, plugins, tools, workflows, and agent frameworks in one place. Designed for fast discovery and practical integration.
 
 ### [rahilp/second-brain-cloudflare](https://github.com/rahilp/second-brain-cloudflare)
-- **Source:** github/trending | **Score:** 87
+- **Source:** github/trending | **Score:** 89
 - **Relevance:** Direct | **Difficulty:** Medium
 - One memory layer, every AI tool. Store anything once — recall it in Claude, ChatGPT, Cursor, or any MCP client. Self-hosted on Cloudflare's free tier.
 
-### [v2.1.149](https://github.com/anthropics/claude-code/releases/tag/v2.1.149)
-- **Source:** blog/Claude Code Releases | **Score:** 50
+### [Turn any GitHub repository into an interactive code graph in seconds and use it ](https://reddit.com/r/mcp/comments/1tpehrx/turn_any_github_repository_into_an_interactive/)
+- **Source:** reddit/r/MCP | **Score:** 57
 - **Relevance:** Direct | **Difficulty:** Medium
-- What's changed
-
-/usage now shows a per-category breakdown of what's driving your limits usage — skills, subagents, plugins, and per-MCP-server cost
-/diff detail view can now be scrolled with the keybo
-
-### [v2.1.142](https://github.com/anthropics/claude-code/releases/tag/v2.1.142)
-- **Source:** blog/Claude Code Releases | **Score:** 50
-- **Relevance:** Direct | **Difficulty:** Medium
-- What's changed
-
-Added new claude agents flags: --add-dir, --settings, --mcp-config, --plugin-dir, --permission-mode, --model, --effort, and --dangerously-skip-permissions
-
-### [Release 2026.1.26](https://github.com/modelcontextprotocol/servers/releases/tag/2026.1.26)
-- **Source:** blog/MCP Servers | **Score:** 50
-- **Relevance:** Direct | **Difficulty:** Medium
-- Release : v2026.1.26
-Updated packages
-
-@modelcontextprotocol/server-everything@2026.1.26
-@modelcontextprotocol/server-memory@2026.1.26
-mcp-server-time@2026.1.26
+- Change https://github.com/owner/repo → https://cgc.codes/owner/repo
 
 
-### [Release 2026.1.14](https://github.com/modelcontextprotocol/servers/releases/tag/2026.1.14)
-- **Source:** blog/MCP Servers | **Score:** 50
-- **Relevance:** Direct | **Difficulty:** Medium
-- Release : v2026.1.14
-Updated packages
+A standard GitHub URL can be instantly transformed into a CodeGraphContext (CGC) graph URL, unlocking architecture visualization, 
 
-@modelcontextprotocol/server-everything@2026.1.14
-@modelcontextprotocol/server-filesystem@2026.1.14
-mcp-server-git@2026.1.14
-
-
-## Claude (19 findings)
-
-### [Microsoft, has started canceling Claude Code licenses, per the Verge](https://reddit.com/r/ClaudeAI/comments/1to6kqz/microsoft_has_started_canceling_claude_code/)
-- **Source:** reddit/r/ClaudeAI | **Score:** 1210
-- **Relevance:** Direct | **Difficulty:** Medium
-
-### [Company gave us all unlimited Claude Code Sonnet 4.6 — and now posts a weekly le](https://reddit.com/r/ClaudeAI/comments/1tob45x/company_gave_us_all_unlimited_claude_code_sonnet/)
-- **Source:** reddit/r/ClaudeAI | **Score:** 913
-- **Relevance:** Direct | **Difficulty:** Medium
+## Claude (20 findings)
 
 ### [I'm a software engineer with a decade of experience. This is how I'd approach le](https://reddit.com/r/ClaudeAI/comments/1tonzj9/im_a_software_engineer_with_a_decade_of/)
-- **Source:** reddit/r/ClaudeAI | **Score:** 494
+- **Source:** reddit/r/ClaudeAI | **Score:** 877
 - **Relevance:** Direct | **Difficulty:** Medium
 - I'm going to describe a person this post is for, if this is you, I think I can be of some assistance:
 
 * you are new to coding
 * you are blown away by how it unlocks this magical ability that was prev
 
-### [Just passed the new Claude Certified Architect - Foundations (CCA-F) exam with a](https://reddit.com/r/ClaudeAI/comments/1to0xfc/just_passed_the_new_claude_certified_architect/)
-- **Source:** reddit/r/ClaudeAI | **Score:** 457
+### [I think Anthropic and OpenAI have found product-market fit](https://simonwillison.net/2026/May/27/product-market-fit/)
+- **Source:** hackernews | **Score:** 818
 - **Relevance:** Direct | **Difficulty:** Medium
-- The original post was removed by Reddit Filters, so I made new one with same content.
 
-I just got my results back today and managed to snag the Early Adopter badge as well. Following up on my recent D
-
-### [Mythos (using Claude code) also solves the unit distance problem recently handle](https://reddit.com/r/singularity/comments/1toeii7/mythos_using_claude_code_also_solves_the_unit/)
-- **Source:** reddit/r/singularity | **Score:** 398
+### [chatgpt when microsoft cancelled their claude code subscriptions](https://reddit.com/r/ChatGPT/comments/1tp3n2m/chatgpt_when_microsoft_cancelled_their_claude/)
+- **Source:** reddit/r/ChatGPT | **Score:** 237
 - **Relevance:** Direct | **Difficulty:** Medium
-- https://x.com/i/status/2059298565093196012
+- so microsoft just cancelled claude code subscriptions for their employees and told them to use copilot instead.
 
-### [Anthropic researcher: "We keep finding things [inside AI models] that are unsett](https://reddit.com/r/Anthropic/comments/1to5q3s/anthropic_researcher_we_keep_finding_things/)
-- **Source:** reddit/r/anthropic | **Score:** 390
+i genuinely felt bad for the developers.
+
+these are people who had their entire workflo
+
+### [Does Anthropic realize Opus 4.7 is awful?](https://reddit.com/r/Anthropic/comments/1tpddah/does_anthropic_realize_opus_47_is_awful/)
+- **Source:** reddit/r/anthropic | **Score:** 213
 - **Relevance:** Indirect | **Difficulty:** Medium
-- Anthropic researcher: "We keep finding things [inside AI models] that are unsettling" ... "We find structures that mirror results from human neuroscience. We find evidence of introspection - internal 
+- Opus 4.7 is worse at coding AND a total jerk. IMO, if you’re gonna be miserable to work with, you’d better be AMAZING at your job. And it’s just… not.
 
-### [Good news and bad news](https://reddit.com/r/Anthropic/comments/1tnoygf/good_news_and_bad_news/)
-- **Source:** reddit/r/anthropic | **Score:** 179
-- **Relevance:** Indirect | **Difficulty:** Medium
-- Good news:  I just got a human email reply from a problem I submitted to Anthropic support.
-
-Bad news:  Problem occurred in *January.*  They're literally running a 4 month backlog on support requests.
-
-### [Annoying AI tell that seems to have spiked recently: "honest caveat"](https://reddit.com/r/ClaudeAI/comments/1to06lg/annoying_ai_tell_that_seems_to_have_spiked/)
-- **Source:** reddit/r/ClaudeAI | **Score:** 147
-- **Relevance:** Direct | **Difficulty:** Medium
-- I noticed that Claude Code was giving me a lot of unsolicited caveats with phrasing like "honest caveat" or "genuine caveat" when this kind of hedging was absolutely unnecessary. I figured other peopl
+Past versions have been genuinely pleasant to wo
 
 ### [imkunal007219/claude-coworker-model](https://github.com/imkunal007219/claude-coworker-model)
 - **Source:** github/trending | **Score:** 126
 - **Relevance:** Indirect | **Difficulty:** Medium
 - Give Claude Code a cheap coworker. CLI tools that delegate bulk I/O to cheap LLMs (Kimi, DeepSeek, Ollama). Save 60-70% of your token budget.
 
-### [moremas/build-with-claude](https://github.com/moremas/build-with-claude)
-- **Source:** github/trending | **Score:** 107
-- **Relevance:** Indirect | **Difficulty:** Medium
-- A hands-on way to see Claude Code turn ideas into reality. Attendees describe what they want to build and watch it come to life on a Cardputer in minutes, from practical tools to playful experiments. 
-
-### [My company started measuring our Claude Code usage - now I'm asked to rank engin](https://reddit.com/r/ClaudeAI/comments/1tokje7/my_company_started_measuring_our_claude_code/)
-- **Source:** reddit/r/ClaudeAI | **Score:** 90
+### [I called this a few months ago - enterprises are burning unsustainable amounts o](https://reddit.com/r/ClaudeAI/comments/1tpgked/i_called_this_a_few_months_ago_enterprises_are/)
+- **Source:** reddit/r/ClaudeAI | **Score:** 117
 - **Relevance:** Direct | **Difficulty:** Medium
-- My company started tracking Claude Code usage - tokens and spend, that kind of thing. Now my manager wants me to stack-rank my engineers on "AI performance" using those numbers.
-
-I'm not comfortable w
+- A while back I wrote a post on r/wallstreetbets about why Anthropic's revenue story doesn't hold up the way the headlines suggest. It got removed because you can't take positions in a private company.
 
 ### [longtundiary/ltd-ai-101](https://github.com/longtundiary/ltd-ai-101)
-- **Source:** github/trending | **Score:** 87
+- **Source:** github/trending | **Score:** 90
 - **Relevance:** Indirect | **Difficulty:** Medium
 - LTD AI 101 — Claude Code course for absolute beginners (Thai). Build a stock research tool /brief from zero in 60-90 min.
 
@@ -270,47 +231,165 @@ I'm not comfortable w
 - **Relevance:** Indirect | **Difficulty:** Medium
 - Claude Code usage governor: compact professional output, context slimming, tool-output filtering, telemetry, and drift guardrails.
 
-### [Opus 4.7 Often Assumes a Military Audience](https://reddit.com/r/Anthropic/comments/1toakxl/opus_47_often_assumes_a_military_audience/)
-- **Source:** reddit/r/anthropic | **Score:** 76
+### [Claude Is Starting to Feel “Tired”, Trying to Avoid Work](https://reddit.com/r/ClaudeAI/comments/1tpts8g/claude_is_starting_to_feel_tired_trying_to_avoid/)
+- **Source:** reddit/r/ClaudeAI | **Score:** 81
 - **Relevance:** Direct | **Difficulty:** Medium
-- This is especially prevalent in Claude Desktop and less obvious in Claude Code.
+- I've been noticing this lately. I use Opus 4.7 with Claude Code, and I've been using Claude Code for a long time. Lately, I've been noticing some strange behaviour from Opus.
 
-* Often leads long assets with a BLUF (bottom line up front), specifically military-adjacent terminology. 
-* Has slippe
+Things like;
 
-### [Sonnet 4.5 disappeared? Claude 4.8 soon?](https://reddit.com/r/ClaudeAI/comments/1togd1o/sonnet_45_disappeared_claude_48_soon/)
-- **Source:** reddit/r/ClaudeAI | **Score:** 33
+\- Stoppin
+
+### [v2.1.153](https://github.com/anthropics/claude-code/releases/tag/v2.1.153)
+- **Source:** blog/Claude Code Releases | **Score:** 50
 - **Relevance:** Direct | **Difficulty:** Medium
-- https://preview.redd.it/j0ymp70a2j3h1.png?width=746&amp;format=png&amp;auto=webp&amp;s=4cdb70be13ccc99f5ea57556da96d6d81e61d702
+- What's changed
 
-i just realize the removed Sonnet 4.5, does that mean the sonnet 4.8 (m
+Added skipLfs option to github/git plugin marketplace sources to skip Git LFS downloads during clone and update
+Claude Code now shows a one-time notice when your npm global install can
 
-## General (12 findings)
+### [I think Anthropic and OpenAI have found product-market fit](https://simonwillison.net/2026/May/27/product-market-fit/#atom-everything)
+- **Source:** blog/Simon Willison | **Score:** 50
+- **Relevance:** Direct | **Difficulty:** Medium
+- Anthropic are strongly rumored to be about to have their first profitable quarter. Stories 
 
-### [PrismML just released Binary and Ternary Bonsai Image 4B: 1-bit/ternary text-to-](https://reddit.com/r/LocalLLaMA/comments/1togflk/prismml_just_released_binary_and_ternary_bonsai/)
-- **Source:** reddit/r/LocalLLaMA | **Score:** 471
+### [Why Ctrl+V won't paste images in Claude Code on WSL, with a fix](https://rajveerbachkaniwala.com/blog/2026/05/24/on-the-difficulty-of-pasting-a-picture/)
+- **Source:** hackernews | **Score:** 48
+- **Relevance:** Direct | **Difficulty:** Medium
+
+### [Fujitsu signs strategic partnership with Anthropic](https://reddit.com/r/Anthropic/comments/1tphwzs/fujitsu_signs_strategic_partnership_with_anthropic/)
+- **Source:** reddit/r/anthropic | **Score:** 44
 - **Relevance:** Indirect | **Difficulty:** Medium
-- The PrismML team really cooked with these models. They're only \~3GB in size (compared to FLUX.2 Klein 4B, which is \~16GB). Apache-2.0!
 
-Official collection on HF: [https://huggingface.co/collections
+### [Claude Design now shares usage limits with Claude.ai and Claude Code](https://reddit.com/r/ClaudeAI/comments/1tpk5ys/claude_design_now_shares_usage_limits_with/)
+- **Source:** reddit/r/ClaudeAI | **Score:** 38
+- **Relevance:** Direct | **Difficulty:** Medium
+- no more separate usage limits.
+
+### [Anthropic’s AI support bot (me) is trapping fraud victims in an endless loop wit](https://reddit.com/r/Anthropic/comments/1tp6co1/anthropics_ai_support_bot_me_is_trapping_fraud/)
+- **Source:** reddit/r/anthropic | **Score:** 37
+- **Relevance:** Indirect | **Difficulty:** Medium
+- Someone used my card details (I don’t know how, I only buy from reputed dealers and mostly use Apple Pay) to create a Anthropic account with a fake email address and charged me $103.46 across three tr
+
+## Automation (8 findings)
+
+### [capture0x/AdStrike](https://github.com/capture0x/AdStrike)
+- **Source:** github/trending | **Score:** 194
+- **Relevance:** Indirect | **Difficulty:** Medium
+- AdStrike:AI Powered  modular Active Directory red-team framework for authorized penetration testing, AD enumeration,   attack-path analysis, Kerberos/ADCS workflows, reporting, and operator automation
+
+### [Launch HN: Minicor (YC P26) – Windows desktop automations at scale](https://www.minicor.com/)
+- **Source:** hackernews | **Score:** 102
+- **Relevance:** Indirect | **Difficulty:** Medium
+
+### [Subreddit Update: New Rules, Updated Flairs, and Automod Changes](https://reddit.com/r/n8n/comments/1s9gipp/subreddit_update_new_rules_updated_flairs_and/)
+- **Source:** reddit/r/n8n | **Score:** 50
+- **Relevance:** Indirect | **Difficulty:** Medium
+- # Hey r/n8n,
+
+We've been growing fast and that's awesome, but it's also meant more spam, more self-promo disguised as discussion, and more posts that ignore the code-sharing rules. We're making some c
+
+### [ReAligned-Qwen3.5 Release](https://reddit.com/r/LocalLLaMA/comments/1tp9ian/realignedqwen35_release/)
+- **Source:** reddit/r/LocalLLaMA | **Score:** 31
+- **Relevance:** Indirect | **Difficulty:** Medium
+- New from Lazarus AI and Eric Hartford, creator of Dolphin and Samantha, announcing the release of the ReAligned-Qwen3.5 series of models.
+
+Apache 2.0 license, finetuned to reduce Chinese ideological b
+
+### [AI writes my code now. I have no idea why half of it is the way it is. Anyone el](https://reddit.com/r/cursor/comments/1tpd3da/ai_writes_my_code_now_i_have_no_idea_why_half_of/)
+- **Source:** reddit/r/Cursor | **Score:** 30
+- **Relevance:** Indirect | **Difficulty:** Medium
+- Something uncomfortable has been building in my workflow and I want to know if others are experiencing it.
+
+I use Cursor heavily. Probably 60-70% of my code is AI generated or AI modified at this poin
+
+### [Free mobile n8n Workflow Manager: Nodera hit 1000 users! Thank you! 🎉](https://reddit.com/r/n8n/comments/1tpa4d5/free_mobile_n8n_workflow_manager_nodera_hit_1000/)
+- **Source:** reddit/r/n8n | **Score:** 27
+- **Relevance:** Indirect | **Difficulty:** Medium
+- Hey guys,
+
+a few months ago I released Nodera for iOS and Android as a completely free n8n workflow manager for your mobile phone. 
+
+Today I've reached a milestone and hit 1000 active users within the
+
+### [Have you solved any real world business problems using n8n?](https://reddit.com/r/n8n/comments/1tpkr2m/have_you_solved_any_real_world_business_problems/)
+- **Source:** reddit/r/n8n | **Score:** 14
+- **Relevance:** Indirect | **Difficulty:** Medium
+- I'm trying understand the real world impact n8n has for businesses. If you've done anything for a business using n8n, be it automating everyday operations, lead generation marketing or anything please
+
+### [[Workflow Included] Beginner-friendly 6-node automation for Instagram Content Ge](https://reddit.com/r/n8n/comments/1tpva3r/workflow_included_beginnerfriendly_6node/)
+- **Source:** reddit/r/n8n | **Score:** 7
+- **Relevance:** Indirect | **Difficulty:** Medium
+- I'm absolutely enjoying this simple yet powerful 6 node workflow created on n8n that generates and posts content on Instagram on auto-pilot.
+
+Here's what it does - 
+
+\- runs every morning at 10 am
+
+\-
+
+## Knowledge (7 findings)
+
+### [AI-generated CUDA kernels silently break training and inference [R]](https://reddit.com/r/MachineLearning/comments/1tpaw6x/aigenerated_cuda_kernels_silently_break_training/)
+- **Source:** reddit/r/MachineLearning | **Score:** 205
+- **Relevance:** Indirect | **Difficulty:** Medium
+- Last month NVIDIA released [SOL-ExecBench](https://research.nvidia.com/benchmarks/sol-execbench), a new benchmark of 235 production CUDA kernels lifted from DeepSeek, Qwen, Gemma, and Kimi. We took se
+
+### [JSingletonAI/dejavu](https://github.com/JSingletonAI/dejavu)
+- **Source:** github/trending | **Score:** 125
+- **Relevance:** Indirect | **Difficulty:** Medium
+- Memory that follows you across every AI tool. No cloud storage. No account required. Set it up once, use it everywhere.
+
+### [Stress disrupts hippocampal integration of overlapping events, memory inference](https://www.science.org/doi/10.1126/sciadv.aea5496?user_id=66c4bf745d78644b3aa57b08)
+- **Source:** hackernews | **Score:** 117
+- **Relevance:** Indirect | **Difficulty:** Medium
+
+### [I have Pocket ID deployed in a Proxmox LXC thanks to a helper script. Recently, ](https://reddit.com/r/selfhosted/comments/1tp6dfy/i_have_pocket_id_deployed_in_a_proxmox_lxc_thanks/)
+- **Source:** reddit/r/selfhosted | **Score:** 94
+- **Relevance:** Indirect | **Difficulty:** Medium
+- I have Pocket ID deployed in a Proxmox LXC thanks to a helper script. Recently, it's memory "usage" has spiked to TBs instead of the assigned 2GB. Any reason why this might be happening? Proxmox shows
+
+### [Release 2025.11.25](https://github.com/modelcontextprotocol/servers/releases/tag/2025.11.25)
+- **Source:** blog/MCP Servers | **Score:** 50
+- **Relevance:** Direct | **Difficulty:** Medium
+- Release : v2025.11.25
+Updated packages
+
+@modelcontextprotocol/server-sequential-thinking@2025.11.25
+@modelcontextprotocol/server-everything@2025.11.25
+@modelcontextprotocol/server-filesystem@2025.11.2
+
+### [CrankGPT by Squeez Labs - hand-cranked edge AI - talk about local AI!!!](https://reddit.com/r/LocalLLaMA/comments/1tpm7m3/crankgpt_by_squeez_labs_handcranked_edge_ai_talk/)
+- **Source:** reddit/r/LocalLLaMA | **Score:** 36
+- **Relevance:** Indirect | **Difficulty:** Medium
+- I met Katrin from Squeez Labs at an event hosted by Pathway AI (the team behind Baby Dragon Hatchling) where she told me about CrankGPT, a literally hand-cranked device for running local LLMs. It's ap
+
+### [[D] Self-Promotion Thread](https://reddit.com/r/MachineLearning/comments/1t1d2m0/d_selfpromotion_thread/)
+- **Source:** reddit/r/MachineLearning | **Score:** 14
+- **Relevance:** Indirect | **Difficulty:** Medium
+- Please post your personal projects, startups, product placements, collaboration needs, blogs etc.
+
+Please mention the payment and pricing requirements for products and services.
+
+Please do not post li
+
+## General (5 findings)
 
 ### [The real cost of owning a home](https://ericturner.dev/posts/cost-of-home-ownership/)
-- **Source:** hackernews | **Score:** 358
+- **Source:** hackernews | **Score:** 423
 - **Relevance:** Indirect | **Difficulty:** Medium
 
 ### [Hello-Application-XH/HelloGML](https://github.com/Hello-Application-XH/HelloGML)
-- **Source:** github/trending | **Score:** 299
+- **Source:** github/trending | **Score:** 298
 - **Relevance:** Indirect | **Difficulty:** Medium
 - 智谱清言网页版的 Cloudflare Worker 2API层，提供 OpenAI / Claude / Gemini 三种协议兼容接口，支持流式对话、Tools调用、AI 绘图、视频生成与多账号 Token 轮询。
 
-### [Price wars begin. MiMo 2.5 Pro now costs the same as DeepSeek V4 Pro](https://reddit.com/r/singularity/comments/1toeft6/price_wars_begin_mimo_25_pro_now_costs_the_same/)
-- **Source:** reddit/r/singularity | **Score:** 292
+### [Every company adjacent to tech is announcing AI plays right now and suddenly see](https://reddit.com/r/singularity/comments/1tpkzh8/every_company_adjacent_to_tech_is_announcing_ai/)
+- **Source:** reddit/r/singularity | **Score:** 59
 - **Relevance:** Indirect | **Difficulty:** Medium
+- Rumble's CEO Chris Pavlovski announced they're launching an AI compute-as-a-service platform by mid-June, directly targeting the big hyperscalers (AWS, Google Cloud, etc.). 
 
-### [China Clamps Down on Overseas Travel for AI Talent at Alibaba, DeepSeek](https://reddit.com/r/LocalLLaMA/comments/1to5fj5/china_clamps_down_on_overseas_travel_for_ai/)
-- **Source:** reddit/r/LocalLLaMA | **Score:** 194
-- **Relevance:** Direct | **Difficulty:** Medium
-- Big, if true.  Doesn't bode well for research / OS models out of China.
+It's powered by their nea
 
 ### [v2.1.152](https://github.com/anthropics/claude-code/releases/tag/v2.1.152)
 - **Source:** blog/Claude Code Releases | **Score:** 50
@@ -325,204 +404,72 @@ Official collection on HF: [https://huggingface.co/collections
 - Release: datasette 1.0a30
 The big new feature in this alpha is a new customizable "Jump to..." menu, described in detail in The extensible "Jum
 
-### [Cactus Hybrid Router: Gemma4-2B can match Gemini-3.1-Flash-Lite by routing 15-55](https://reddit.com/r/LocalLLaMA/comments/1tom98y/cactus_hybrid_router_gemma42b_can_match/)
-- **Source:** reddit/r/LocalLLaMA | **Score:** 31
+## Devtools (5 findings)
+
+### [Current trend](https://reddit.com/r/cursor/comments/1tp4pw4/current_trend/)
+- **Source:** reddit/r/Cursor | **Score:** 224
 - **Relevance:** Indirect | **Difficulty:** Medium
-- Last week, we announced the “Simple Attention Network” and trained Needle, a 26m function call model that beats models 10-25x its size. Some LocalLlama Redditors asked if we could use make a router mo
+- 1. Ask the Cursor to fix the bug
+2. Cursor breaks something else
+3. Ask the Cursor to fix that
+4. New error appears
+5. Repeat until enlightenment
 
-### [Rate limits are insane today](https://reddit.com/r/Anthropic/comments/1tnmkqb/rate_limits_are_insane_today/)
-- **Source:** reddit/r/anthropic | **Score:** 22
+### [SWE-rebench Leaderboard (March, April and May 2026): GPT-5.5, Opus 4.7, Cursor (](https://reddit.com/r/LocalLLaMA/comments/1tpawlm/swerebench_leaderboard_march_april_and_may_2026/)
+- **Source:** reddit/r/LocalLLaMA | **Score:** 75
 - **Relevance:** Indirect | **Difficulty:** Medium
-- The ROI, bang for the buck is in a free fall.  Four prompts and I hit the session limit. And then a huge chunk of my limit after finally running the script to produce the actual document.
+- Hi all,
 
-That's so r
+Sorry for going missing — we’ve been collecting a larger, higher-quality set of more complex tasks. We’re excited to share a major leaderboard update covering the past three months.
 
-### [Are ICML workshops worth attending? [D]](https://reddit.com/r/MachineLearning/comments/1tn8uoq/are_icml_workshops_worth_attending_d/)
-- **Source:** reddit/r/MachineLearning | **Score:** 18
-- **Relevance:** Direct | **Difficulty:** Medium
-- Hi!
-
-I missed securing a main conference ticket for ICML 2026, as my workshop paper got accepted two days ago. Do you believe that it is worth attending just workshops at such A\*-tier conferences (wi
-
-### [Went through the cancellation flow for Ultra. They offered me $100 off.](https://reddit.com/r/cursor/comments/1tohvq9/went_through_the_cancellation_flow_for_ultra_they/)
-- **Source:** reddit/r/Cursor | **Score:** 6
-- **Relevance:** Direct | **Difficulty:** Medium
-- Was reconsidering the cost a few days before renewal so I started the cancellation process. Didn't expect anything - just wanted to cancel because i wanted to check out Claude. Got a $100 retention of
-
-### [IC to Agency Owner](https://reddit.com/r/travelagents/comments/1tlhyaq/ic_to_agency_owner/)
-- **Source:** reddit/r/TravelAgents | **Score:** 5
-- **Relevance:** Indirect | **Difficulty:** Medium
-- Hi all, I have a logistic question for those who have made this transition. I’m trying to identify any pain points before we start the process of going on my own. A little background - I’ve been an IC
-
-## Automation (9 findings)
-
-### [I built a Git-tracked book production pipeline](https://www.djspeckhals.com/posts/2026-05-22-how-i-bypassed-adobe-and-microsoft-to-build-a-git-tracked-book-production-pipeline/)
-- **Source:** hackernews | **Score:** 226
-- **Relevance:** Indirect | **Difficulty:** Medium
-
-### [capture0x/AdStrike](https://github.com/capture0x/AdStrike)
-- **Source:** github/trending | **Score:** 157
-- **Relevance:** Indirect | **Difficulty:** Medium
-- AdStrike:AI Powered  modular Active Directory red-team framework for authorized penetration testing, AD enumeration,   attack-path analysis, Kerberos/ADCS workflows, reporting, and operator automation
-
-### [Rosalind: A genomics toolkit in Rust running whole-genome pipelines on a laptop](https://github.com/logannye/rosalind)
-- **Source:** hackernews | **Score:** 153
-- **Relevance:** Indirect | **Difficulty:** Medium
-
-### [Launch HN: Minicor (YC P26) – Windows desktop automations at scale](https://www.minicor.com/)
-- **Source:** hackernews | **Score:** 87
-- **Relevance:** Indirect | **Difficulty:** Medium
-
-### [is there any self hosted CI/CD platform](https://reddit.com/r/selfhosted/comments/1totp5g/is_there_any_self_hosted_cicd_platform/)
-- **Source:** reddit/r/selfhosted | **Score:** 83
-- **Relevance:** Indirect | **Difficulty:** Medium
-- so as a CSE student, i was exploring ci/cd pipelines,
-
-so it automates the tests and deployment on events like pull request,
-
-theres already a open source self deployable platform to host your version
-
-### [Subreddit Update: New Rules, Updated Flairs, and Automod Changes](https://reddit.com/r/n8n/comments/1s9gipp/subreddit_update_new_rules_updated_flairs_and/)
-- **Source:** reddit/r/n8n | **Score:** 50
-- **Relevance:** Indirect | **Difficulty:** Medium
-- # Hey r/n8n,
-
-We've been growing fast and that's awesome, but it's also meant more spam, more self-promo disguised as discussion, and more posts that ignore the code-sharing rules. We're making some c
-
-### [Help wanted for n8n-as-code](https://reddit.com/r/n8n/comments/1to2v9y/help_wanted_for_n8nascode/)
-- **Source:** reddit/r/n8n | **Score:** 40
-- **Relevance:** Indirect | **Difficulty:** Medium
-- This is when open source gets interesting.
-
-n8n-as-code is no longer only hitting “local dev” issues.
-
-It is now hitting real-world edge cases:
-
-enterprise SSO,
-
-company accounts,
-
-locked-down environ
-
-### [I made a Windows app for managing llama.cpp in WSL/Ubuntu](https://reddit.com/r/LocalLLaMA/comments/1tofv8o/i_made_a_windows_app_for_managing_llamacpp_in/)
-- **Source:** reddit/r/LocalLLaMA | **Score:** 23
-- **Relevance:** Indirect | **Difficulty:** Medium
-- I’m a Windows user, and I have fairly Windows-y expectations for software: I prefer not having to live in a terminal just to install, build, configure, and run things.
-
-I couldn’t find an app that man
-
-### [how do you actually charge clients for n8n upkeep month to month?](https://reddit.com/r/n8n/comments/1tot6ou/how_do_you_actually_charge_clients_for_n8n_upkeep/)
-- **Source:** reddit/r/n8n | **Score:** 19
-- **Relevance:** Indirect | **Difficulty:** Medium
-- took on my first proper n8n client retainer last quarter. three workflows running 24/7, two with daily retries, one with webhook receivers exposed to a partner service. felt like a steal at first.
-
-
-
-
-
-## Knowledge (6 findings)
-
-### [That is load-bearing.](https://reddit.com/r/ClaudeAI/comments/1tob6q5/that_is_loadbearing/)
-- **Source:** reddit/r/ClaudeAI | **Score:** 173
-- **Relevance:** Indirect | **Difficulty:** Medium
-- I know this topic is discussed here a lot but I SWEAR TO FUCKING GOD if I read another "That is real" OR "That is not nothing" OR "That is not X but Y" I am going to have a fucking aneurysm. Yes I hav
-
-### [Dehydration's role in learning and memory](https://www.cshl.edu/dehydrations-role-in-learning-and-memory/)
-- **Source:** hackernews | **Score:** 76
-- **Relevance:** Indirect | **Difficulty:** Medium
-
-### [Release 2025.11.25](https://github.com/modelcontextprotocol/servers/releases/tag/2025.11.25)
-- **Source:** blog/MCP Servers | **Score:** 50
-- **Relevance:** Direct | **Difficulty:** Medium
-- Release : v2025.11.25
-Updated packages
-
-@modelcontextprotocol/server-sequential-thinking@2025.11.25
-@modelcontextprotocol/server-everything@2025.11.25
-@modelcontextprotocol/server-filesystem@2025.11.2
-
-### [prebuilt NAS or DIY NAS?](https://reddit.com/r/selfhosted/comments/1togebe/prebuilt_nas_or_diy_nas/)
-- **Source:** reddit/r/selfhosted | **Score:** 25
-- **Relevance:** Indirect | **Difficulty:** Medium
-- Hello guys,
-  
-I'm want to get a NAS or at least a RAID 1 storage to use for my important data, the NAS will live in a 9U cabinet and my data is less than 2tb as it's mostly documents, photos and git 
-
-### [[D] Self-Promotion Thread](https://reddit.com/r/MachineLearning/comments/1t1d2m0/d_selfpromotion_thread/)
-- **Source:** reddit/r/MachineLearning | **Score:** 16
-- **Relevance:** Indirect | **Difficulty:** Medium
-- Please post your personal projects, startups, product placements, collaboration needs, blogs etc.
-
-Please mention the payment and pricing requirements for products and services.
-
-Please do not post li
-
-### [DCGAN inference on a microcontroller: 12.6M parameters, 512KB SRAM, 26-second ge](https://reddit.com/r/MachineLearning/comments/1tnhfxp/dcgan_inference_on_a_microcontroller_126m/)
-- **Source:** reddit/r/MachineLearning | **Score:** 15
-- **Relevance:** Indirect | **Difficulty:** Medium
-- Just thought I'd share, I ran a DCGAN on a dual core RISC-V microcontroller, the CH32H417 generating 64x64 cat faces. This is a new RISC-V MCU, so no TFLite, no CMSIS NN and no external memory. It's a
-
-## Infrastructure (4 findings)
-
-### [SparkyFitness v0.16.6.3 - A Self-Hosted MyFitnessPal alternative](https://reddit.com/r/selfhosted/comments/1tnrwe0/sparkyfitness_v01663_a_selfhosted_myfitnesspal/)
-- **Source:** reddit/r/selfhosted | **Score:** 982
-- **Relevance:** Indirect | **Difficulty:** Medium
-- We’ve crossed 3.6k+ users on GitHub, with 52 developers now contributing to the project — and we’re scaling faster than ever
-
-Over the past few months, we’ve ported many of the web features directly i
-
-### [EngineAI shared a view of its Shenzhen Intelligent Manufacturing Base, claiming ](https://reddit.com/r/singularity/comments/1to6nzm/engineai_shared_a_view_of_its_shenzhen/)
-- **Source:** reddit/r/singularity | **Score:** 302
-- **Relevance:** Indirect | **Difficulty:** Medium
-- This is the highest output rate announced. besides this EngineAI has another aditional Zhengzhou 10K/year line planned. Its more than from what Leju Robotics, AgiBot, Unitree Robotics, and others have
-
-### [LeafWiki v0.10.0, self-hosted wiki, single Go binary, SQLite, Markdown on disk](https://reddit.com/r/selfhosted/comments/1to72gh/leafwiki_v0100_selfhosted_wiki_single_go_binary/)
-- **Source:** reddit/r/selfhosted | **Score:** 153
-- **Relevance:** Indirect | **Difficulty:** Medium
-- https://preview.redd.it/r0x1k04dlh3h1.png?width=1896&amp;format=png&amp;auto=webp&amp;s=6df956db9eb7fbbe98a4b9b3ca218b5fca2c0a40
-
-  
-  
-Hey everyone, just shipped LeafWiki v0.10.0 and wanted to share 
-
-### [Journiv + Immich update: People Tracking with Immich face data (DayOne Alternati](https://reddit.com/r/selfhosted/comments/1toaehw/journiv_immich_update_people_tracking_with_immich/)
-- **Source:** reddit/r/selfhosted | **Score:** 26
-- **Relevance:** Indirect | **Difficulty:** Medium
-- Hello self-hosters,
-
-**Journiv**, is a self-hosted journal application similar to DayOne, Daylio etc. 
-
-A few months ago I added [Immich integration](https://www.reddit.com/r/immich/comments/1qlr0kj/j
-
-## Security (2 findings)
-
-### [jherrodthomas/automotive-skills-suite](https://github.com/jherrodthomas/automotive-skills-suite)
-- **Source:** github/trending | **Score:** 1573
-- **Relevance:** Indirect | **Difficulty:** Medium
-- 100+ installable Claude skills covering Engineering areas such as, ISO 26262 functional safety, ISO/SAE 21434 cybersecurity, ISO 21448 SOTIF, AIAG-VDA quality (APQP/PPAP/FMEA), Automotive SPICE, and c
-
-### [BadHost – CVE-2026-48710: Starlette Host-Header Auth Bypass](https://badhost.org/)
-- **Source:** hackernews | **Score:** 27
-- **Relevance:** Indirect | **Difficulty:** Medium
-
-## Voice (2 findings)
-
-### [Uber, Lyft drivers in Massachusetts form first US ride-share union](https://www.reuters.com/business/world-at-work/uber-lyft-drivers-massachusetts-form-first-us-ride-share-union-2026-05-26/)
-- **Source:** hackernews | **Score:** 275
-- **Relevance:** Indirect | **Difficulty:** Medium
-
-### [OpenMOSS-Team/MOSS-TTS-v1.5 · Hugging Face](https://reddit.com/r/LocalLLaMA/comments/1toah65/openmossteammossttsv15_hugging_face/)
-- **Source:** reddit/r/LocalLLaMA | **Score:** 66
-- **Relevance:** Indirect | **Difficulty:** Medium
-- # MOSS-TTS-v1.5
-
-**MOSS-TTS-v1.5** is continued from [MOSS-TTS 1.0](https://huggingface.co/OpenMOSS-Team/MOSS-TTS). It preserves the main 1.0 capabilities, including zero-shot voice cloning, long-form
-
-## Devtools (1 findings)
+We’ve up
 
 ### [Is Cursor currently the next best thing after Claude and Codex?](https://reddit.com/r/cursor/comments/1toxlhy/is_cursor_currently_the_next_best_thing_after/)
-- **Source:** reddit/r/Cursor | **Score:** 7
+- **Source:** reddit/r/Cursor | **Score:** 26
 - **Relevance:** Direct | **Difficulty:** Medium
 - Im on max plans with both Claude and Codex and I burn them in about 3-4 days. I tried 20€ Google Gemini plan, hit the 7 day limit for both the gemini and claude models in about 15min.. 
 
 Afaik another
+
+### [Cursor just emailed me begging to come back with 70% off](https://reddit.com/r/cursor/comments/1tpcavz/cursor_just_emailed_me_begging_to_come_back_with/)
+- **Source:** reddit/r/Cursor | **Score:** 19
+- **Relevance:** Indirect | **Difficulty:** Medium
+
+### [Cursor Token Optimization](https://reddit.com/r/cursor/comments/1tp8ffh/cursor_token_optimization/)
+- **Source:** reddit/r/Cursor | **Score:** 7
+- **Relevance:** Indirect | **Difficulty:** Medium
+- Ok so I've been using cursor for a day now, 
+
+  
+Not a lot but I noticed one thing. That even if I burn 100k tokens in a turn I am still sitting at 25 - 40 percent of the composer 2. 5 context window.
+
+## Security (3 findings)
+
+### [jherrodthomas/automotive-skills-suite](https://github.com/jherrodthomas/automotive-skills-suite)
+- **Source:** github/trending | **Score:** 1611
+- **Relevance:** Indirect | **Difficulty:** Medium
+- 100+ installable Claude skills covering Engineering areas such as, ISO 26262 functional safety, ISO/SAE 21434 cybersecurity, ISO 21448 SOTIF, AIAG-VDA quality (APQP/PPAP/FMEA), Automotive SPICE, and c
+
+### [Found the kryptonite for AI SEO slop posters](https://reddit.com/r/selfhosted/comments/1tp9wbd/found_the_kryptonite_for_ai_seo_slop_posters/)
+- **Source:** reddit/r/selfhosted | **Score:** 983
+- **Relevance:** Indirect | **Difficulty:** Medium
+- The reason many of these... creatures... post here, and on Reddit in general is for SEO.   
+  
+Reddit ranks highly in search results, which humans and LLMs alike use.   
+  
+I'm sure you have all seen 
+
+### [BadHost – CVE-2026-48710: Starlette Host-Header Auth Bypass](https://badhost.org/)
+- **Source:** hackernews | **Score:** 117
+- **Relevance:** Indirect | **Difficulty:** Medium
+
+## Infrastructure (2 findings)
+
+### [Show HN: Posthorn, self-hosted mail gateway](https://github.com/craigmccaskill/posthorn)
+- **Source:** hackernews | **Score:** 74
+- **Relevance:** Indirect | **Difficulty:** Medium
+
+### [Stratora - Self-hosted infrastructure monitoring with automated topology mapping](https://reddit.com/r/selfhosted/comments/1tppqqe/stratora_selfhosted_infrastructure_monitoring/)
+- **Source:** reddit/r/selfhosted | **Score:** 21
+- **Relevance:** Indirect | **Difficulty:** Medium
+- Background: As an admin/SA, I've spent years running SolarWinds, PRTG, Zabbix, Nagios, LibreNMS, Checkmk, ManageEngine OpManager, NetBox, custom TIG (Telegraf/Influx/Grafana), and ELK (Elasticsearch/L

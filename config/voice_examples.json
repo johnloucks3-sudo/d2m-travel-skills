@@ -8,15 +8,15 @@
       "d2mconcierge@gmail.com"
     ],
     "days_back": 400,
-    "total_examples": 1309,
+    "total_examples": 1312,
     "by_tier": {
-      "personal": 374,
+      "personal": 375,
       "client": 215,
       "vendor": 47,
-      "internal": 666,
+      "internal": 668,
       "family": 7
     },
-    "last_sync": "2026-05-27T02:32:55.971489"
+    "last_sync": "2026-05-28T02:32:59.145940"
   },
   "examples": [
     {
@@ -962,6 +962,15 @@
       "to": "iamheer@outlook.com, Dreams2Memories <d2mconcierge@gmail.com>",
       "date": "Thu, 21 May 2026 13:43:15 -0600",
       "body": "OpenCode Quick Start\n\nHi Ann,\n\nWelcome to OpenCode — your AI research assistant. Here's how to get started\nusing Claude Haiku 4.5 for quick research tasks, with the option to upgrade\nto DeepSeek v4 when you need deeper analysis.\n\nStep 1: Log In to the Portal\n\nOpen your browser and go to:\nhttps://code.d2mluxury.net\n\nLog in with:\n\n   - Username: john\n   - Password: 5277\n\nStep 2: Start OpenCode\n\nOnce logged in, you'll see the terminal. Type this command:\ncd /home/john/Thunderbird && opencode\n\nOpenCode will start in your terminal. You'll see a plain interface with a\nprompt waiting for your input.\n\nStep 3: Select Your Model — Claude Haiku 4.5\n\nWhen OpenCode starts, press the forward slash and type:\n/models\n\nA list of available models will appear. Select:\nClaude Haiku 4.5 (Poe)\n\nClaude Haiku is fast, smart for most tasks, and the right choice for quick\nresearch, summaries, and analysis.\n\nStep 4: Start Asking Questions\n\nNow you can type your research question directly. For example:\nTell me about all-inclusive river cruises\nin Europe for 10 days in September 2026\n\nPress Enter. Claude Haiku will research and respond with relevant\ninformation.\n\nWhen You Need Deeper Analysis — Switch Models\n\nIf your research question is complex (multi-day research, competitive\nanalysis, deep itinerary planning), switch models by typing:\n/models\n\nThen select:\nQwen 2.5 Coder 7B (local)\n\nThis is our local model — runs on Dreams2Memories hardware, completely\nprivate, no API costs.\n\n* Or if you need even deeper reasoning: *\nDeepSeek v4 (Poe)\n\nDeepSeek v4 is best for:\n\n   - Comparing complex cruise itineraries\n   - Deep competitive intelligence\n   - Multi-factor client matching\n   - Strategic planning questions\n\nTips for Best Results\n\n   - * Be specific. * \"Luxury river cruises for honeymooners, March 2026,\n   $30k budget\" beats \"tell me about cruises.\"\n   - * One question at a time. * Claude works best when focused.\n   - * Use Tab to switch modes. * In OpenCode, Tab toggles between \"Chat\"\n   and \"Plan\" mode. Plan mode shows what Claude would do without actually\n   doing it.\n   - * Type /help for commands. * OpenCode has built-in help for all\n   commands.\n\nQuestions or Issues?\n\nIf OpenCode isn't responding or you get an error, let me know. I'm\nmonitoring this and can troubleshoot quickly.\n\nThanks,\n\nJohn\nDreams2Memories Travel, LLC",
+      "score": 6
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Just some thoughts",
+      "to": "ann heer <iamheer@outlook.com>, Susan Loucks <susanna.loucks@gmail.com>",
+      "date": "Wed, 27 May 2026 07:04:59 -0600",
+      "body": "Hi Ann, I ran across your itinerary a couple days ago and I don't know of\nwhat kind of changes you've made but I wanted to give you some feedback\nfrom our experience: regarding Mount Fuji, four things that stood out to us\nwere 1)  the close-in view of Mount Fuji from Hakone with no clouds, 2) the\npirate ship Lake Voyage 3) the fifth station shops and hot chocolate--\nexcpt probably during summer you  won't need it, and 4) lunch at a\nrestaurant that had a koi pond, a garden, a bridge spanning a creek and a\nbeautiful view of Mount Fuji over that bridge.  Of course we had to use\nGoogle Erase to remove some people, or telephone poles.  As far as the\nropeway or the tram, I would sayIt is not that great, because the Mount\nFuji Canyons are really just a mining effort below.  So anyway those are my\nthoughts. I did mention to Shawn that if you are having any problems\naccessing the AI let me know, because you're paying for it and I can switch\nyou to a better model.  Thanks\nJohn\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
       "score": 6
     },
     {
@@ -9998,6 +10007,24 @@
       "to": "johnloucks3@gmail.com",
       "date": "Tue, 26 May 2026 11:50:02 +0000",
       "body": "📊 HALE — DAILY OPERATIONAL BRIEF Generated 2026-05-26 · 06:00 MT · Commander John Loucks 📊 Client Lifecycle Wheel 7 active clients, urgency-coded segments, FPD countdown arcs. Click segment for detail panel. View Lifecycle Wheel → 💰 Financial Waterfall Commission pipeline flow: Prospects → Booked → At-Risk → Projected. Allianz claim divergence shown. View Waterfall → 🔥 Task Heat Map Clients × Task Types grid. Urgency-colored, effort-encoded. Hover for task roster by cell. View Heat Map → ⚠️ Risk Matrix Likelihood × Disruption scatter. Quadrants: Escalate (red), Mitigate (yellow), Monitor, Accept. Action registry below. View Risk Matrix → ⚡ DECISIONS NEEDED FROM COMMANDER Approve 11 Gmail Drafts? Kuklinski (validation), McLeod (Silver Muse 60-day + Grandeur TP0.5/TP0.6), Westbrook (Perx + SkyLux), Furlow/Nichols/Ely (CAK). All staged in d2mconcierge drafts folder. Initiate Lyons FPD Outreach? Nancy & Ken Lyons — FPD May 11 (14 days remaining). Direct Commander action required. Chase Furlow $15,486 Payment? Final payment was due Apr 1. Confirm received or authorize A9 follow-up. Re-Auth TESS? Financial feed is blind. Run: python3 thunderbird_tess.py --authorize to restore commission visibility. HALE — Ms. Victoria \"Victory\" Hale, SES-6 | Chief of Staff | Dreams2Memories Travel, LLC This brief is generated automatically at 05:50 MT daily and sent at 06:00 MT. Link expires in 90 days. Briefs archived locally + Google Drive.",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "Re: Fwd: My Honest Take on Grok Build After a Day",
+      "to": "d2mconcierge@gmail.com",
+      "date": "Wed, 27 May 2026 15:18:13 -0600",
+      "body": "COO: Start the recommended searches ASAP, I am looking as an adjunct to\nClaude, not a replacement.",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "HALE — DAILY BRIEF | 2026-05-27 06:00 MT",
+      "to": "johnloucks3@gmail.com",
+      "date": "Wed, 27 May 2026 06:50:02 -0500",
+      "body": "📊 HALE — DAILY OPERATIONAL BRIEF Generated 2026-05-27 · 06:00 MT · Commander John Loucks 📊 Client Lifecycle Wheel 7 active clients, urgency-coded segments, FPD countdown arcs. Click segment for detail panel. View Lifecycle Wheel → 💰 Financial Waterfall Commission pipeline flow: Prospects → Booked → At-Risk → Projected. Allianz claim divergence shown. View Waterfall → 🔥 Task Heat Map Clients × Task Types grid. Urgency-colored, effort-encoded. Hover for task roster by cell. View Heat Map → ⚠️ Risk Matrix Likelihood × Disruption scatter. Quadrants: Escalate (red), Mitigate (yellow), Monitor, Accept. Action registry below. View Risk Matrix → ⚡ DECISIONS NEEDED FROM COMMANDER Approve 11 Gmail Drafts? Kuklinski (validation), McLeod (Silver Muse 60-day + Grandeur TP0.5/TP0.6), Westbrook (Perx + SkyLux), Furlow/Nichols/Ely (CAK). All staged in d2mconcierge drafts folder. Initiate Lyons FPD Outreach? Nancy & Ken Lyons — FPD May 11 (14 days remaining). Direct Commander action required. Chase Furlow $15,486 Payment? Final payment was due Apr 1. Confirm received or authorize A9 follow-up. Re-Auth TESS? Financial feed is blind. Run: python3 thunderbird_tess.py --authorize to restore commission visibility. HALE — Ms. Victoria \"Victory\" Hale, SES-6 | Chief of Staff | Dreams2Memories Travel, LLC This brief is generated automatically at 05:50 MT daily and sent at 06:00 MT. Link expires in 90 days. Briefs archived locally + Google Drive.",
       "score": 3
     },
     {

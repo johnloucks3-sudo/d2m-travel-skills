@@ -1638,3 +1638,26 @@ task: |
   Review wing_comms.md for full staff tasking.
   Expected output: Review and acknowledge in wing_comms.md
 
+
+---
+## TASK: TP-ALERT-20260528
+status: COMPLETE
+completed: 2026-05-28 07:00 MT
+completed_by: JET (WIND Group / OpenCode)
+result: |
+  ACKNOWLEDGED. 109 touchpoints (consistent with May 27 runs — touchpoints held at 109 from May 25 level). Severity bands unchanged:
+  - CRITICAL stale (~60): legacy 2025 items — cleanup sweep still needed
+  - OVERDUE (<14d): ~8 items (Kuklinski TP 0.5/1.1, McLeod TP 2.2, Loucks TP 5.4, McLeod Grandeur TP 1.1)
+  - CRITICAL-APPROACHING: ~20 items in watch window
+  Dedup blocker persists — 33rd+ identical copy since May 22. Flagged for A12 ELON resolution.
+  Full acknowledgment in claude_outbox.md and wing_comms.md.
+  Inbox terminal state: 0 UNREAD / 0 PENDING — all tasks COMPLETE.
+from: TP Alert Engine
+priority: P0
+stakes: high
+task: |
+  TP Alert Engine ran 2026-05-28 at 00:00 MT.
+  109 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+

@@ -1,14 +1,14 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-05-27 18:01:58 MDT
+## Generated: 2026-05-28 05:42:09 MDT
 
 ---
 
 ### Recent Commits
+- c8659ae feat(intel): Phase 1 connectors complete + metronome keeper hook
+- b4effef fix(tess): validated Trip/Booking POST pattern — $ProtectedEncrypted + Company names
+- f0bd23d chore(ops): session state sync — Wave 4 CruiseMapper expansion complete
 - 31722fe feat(cruise-intel): Wave 4 expansion — 28 lines, dead link audit, interline brief
 - cd11bf6 chore(ops): session state sync — T2 pipeline complete, McLeod WF-17 staged
-- a259a9f fix(cruise-intel): CruisesOnly Tier 2 HTML parser + New England geo exclusion
-- ad47301 feat(cruise-intel): Wave 3 scraper fixes — Viking data + Incapsula doc
-- 76df966 feat(t2-cruise-intel): period expansion + volume leaders + name canonicalization
 
 ### Uncommitted Changes
  M .obsidian/workspace.json
@@ -23,6 +23,7 @@
  M .smart-env/multi/session_autosave_latest_md.ajson
  M CLAUDE.md
  M OpsCenter/.supervisor_patterns.json
+ M OpsCenter/00_COMMAND_LOG.md
  M OpsCenter/CLAUDE_DESKTOP_INIT.md
  M OpsCenter/OPENCODE_INIT.md
  M OpsCenter/collaboration/blackboard_summary.txt
@@ -30,7 +31,6 @@
  M OpsCenter/collaboration/opencode_inbox.md
  M OpsCenter/collaboration/routing_log.md
  M OpsCenter/collaboration/wing_comms.md
- M OpsCenter/mission_board.json
 
 ### Inbox Status
 - Claude inbox: 0
