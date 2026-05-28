@@ -20,6 +20,9 @@ CLAUDE_SPAWN_WHITELIST = {
     "core/watchtower/thunderbird_tasking_watcher.py",
     # This gate script itself — uses subprocess.Popen for git, not claude
     "OpsCenter/a7_pre_commit_gate.py",
+    # Metronome spawns Python (intel_keeper.py), not the claude binary.
+    # "claude" string comes from DISPATCH_SCRIPT path reference, not a spawn target.
+    "OpsCenter/metronome.py",
 }
 
 # Functions that must NOT call _wrap_body_html or _wrap_staff_html

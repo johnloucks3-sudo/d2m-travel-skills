@@ -41,6 +41,10 @@ SPSA_DEDUP_FILE = os.path.join(ROOT, "OpsCenter", "spsa_dedup_state.json")
 LIFECYCLE_DEDUP_FILE = os.path.join(ROOT, "OpsCenter", ".lifecycle_alerted.json")
 LIFECYCLE_DAILY_SENTINEL = os.path.join(ROOT, "OpsCenter", ".lifecycle_last_scan_date")
 
+# Intel Keeper fires every 3 ticks (3 × 5 min = 15 min), matching keeper TTL cadence
+INTEL_KEEPER_SCRIPT = os.path.join(ROOT, "core", "ai_infra", "intel_keeper.py")
+INTEL_KEEPER_TICKS = 3  # fire every N ticks
+
 
 def _get_tick_number():
     try:
@@ -502,6 +506,32 @@ def _generate_daily_brief():
     return msg[:4000] + "..." if len(msg) > 4000 else msg
 
 
+def _run_intel_keeper_if_due(tick_n: int) -> str | None:
+    """Spawn intel_keeper as a non-blocking subprocess every INTEL_KEEPER_TICKS ticks.
+
+    Returns a status string for the tick log, or None if skipped.
+    Playwright-heavy connectors (Regent/Viking) can take 1-3 min — must not block the tick.
+    """
+    if tick_n % INTEL_KEEPER_TICKS != 0:
+        return None
+    if not os.path.exists(INTEL_KEEPER_SCRIPT):
+        return "keeper_missing"
+    try:
+        log_path = os.path.join(ROOT, "logs", "intel_keeper_metronome.log")
+        os.makedirs(os.path.dirname(log_path), exist_ok=True)
+        with open(log_path, "a") as lf:
+            proc = subprocess.Popen(
+                [sys.executable, INTEL_KEEPER_SCRIPT],
+                stdout=lf,
+                stderr=subprocess.STDOUT,
+                start_new_session=True,
+                cwd=ROOT,
+            )
+        return f"keeper_spawned(pid={proc.pid})"
+    except Exception as e:
+        return f"keeper_error({e})"
+
+
 def _auto_close_stale(age_s, reason=""):
     """Close stale task and mark for Commander review."""
     _telegram_alert(
@@ -632,6 +662,7 @@ def main():
         lc_sum = {"critical": len([a for a in lc if a["level"] == "CRITICAL"]),
                   "red": len([a for a in lc if a["level"] == "RED"]),
                   "yellow": len([a for a in lc if a["level"] == "YELLOW"])}
+        keeper_status = _run_intel_keeper_if_due(tick_n)
         entry = {
             "ts": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
             "tick": tick_n,
@@ -648,6 +679,7 @@ def main():
             },
             "lifecycle": lc_sum,
             "action": "first_tick",
+            "intel_keeper": keeper_status,
         }
         os.makedirs(os.path.dirname(TICKS_FILE), exist_ok=True)
         with open(TICKS_FILE, "a") as f:
@@ -683,6 +715,8 @@ def main():
     _scan_lifecycle_windows()
 
     tick_n = _increment_tick()
+    keeper_status = _run_intel_keeper_if_due(tick_n)
+
     entry = {
         "ts": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "tick": tick_n,
@@ -700,6 +734,7 @@ def main():
         "lifecycle": lc_sum,
         "action": action,
         "description": desc,
+        "intel_keeper": keeper_status,
     }
 
     os.makedirs(os.path.dirname(TICKS_FILE), exist_ok=True)
