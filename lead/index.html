@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dreams2Memories — Lead Form</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0d1b3e;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+    .box { max-width: 420px; padding: 40px 24px; }
+    .logo { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+    .logo span { color: #4fc3f7; }
+    p { color: #90a4ae; font-size: 14px; line-height: 1.6; margin-bottom: 24px; }
+    a.btn {
+      display: inline-block;
+      background: #1565c0;
+      color: white;
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 15px;
+      transition: background 0.2s;
+    }
+    a.btn:hover { background: #0d47a1; }
+    .note { margin-top: 20px; font-size: 11px; color: #546e7a; }
+  </style>
+  <script>
+    // Auto-redirect to lead receiver service
+    window.location.href = 'http://' + window.location.hostname + ':8905/';
+  </script>
+</head>
+<body>
+  <div class="box">
+    <div class="logo">Dreams<span>2</span>Memories Travel</div>
+    <p>Redirecting you to our inquiry form…<br>
+       If you are not redirected automatically, use the button below.</p>
+    <a class="btn" href="javascript:window.location.href='http://'+window.location.hostname+':8905/'">
+      Open Inquiry Form
+    </a>
+    <div class="note">D2M Luxury Concierge Travel · (719) 291-0742</div>
+  </div>
+</body>
+</html>

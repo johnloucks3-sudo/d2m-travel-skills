@@ -333,7 +333,13 @@ function render(data) {
 
   // System health
   const h = data.system_health;
-  document.getElementById('health-grid').innerHTML = `
+  const tessDown = (h.tess || '').toUpperCase() === 'ERROR' || (h.tess || '').toUpperCase() === 'OFFLINE';
+  const tessNote = tessDown
+    ? `<div class="note-box" style="margin:0">
+        <strong>TESS offline</strong> — FPD auto-sync paused. To restore:<br>
+        <code>python3 thunderbird_tess.py --authorize</code>
+       </div>` : '';
+  document.getElementById('health-grid').innerHTML = tessNote + `
     <div class="health-grid">
       <div class="health-item ${healthClass(h.tess)}">
         <div class="name">TESS (Booking System)</div>
