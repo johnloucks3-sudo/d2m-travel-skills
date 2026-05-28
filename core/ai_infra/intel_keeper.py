@@ -52,6 +52,10 @@ TTL = {
     "bedsonline": 24 * 3600,
 }
 
+# Sources confirmed bot-blocked (Playwright/requests return CAPTCHA/403).
+# Re-enable when M-061 invisible_playwright eval selects anti-detect library.
+BOT_BLOCKED: set[str] = {"regent", "viking"}
+
 
 # ---------------------------------------------------------------------------
 # DB helpers
@@ -159,14 +163,23 @@ def refresh_bedsonline(con: sqlite3.Connection) -> None:
     ingest_bedsonline(con, upsert_rows, log_run, TTL["bedsonline"])
 
 
+# consumer: who reads this data and for what purpose
 SOURCES: list[tuple[str, list[str], Callable]] = [
+    # consumer: TESS auth → Bryana dashboard FPD sync, bryana_dashboard.py
     ("tess",        ["trips", "bookings", "clients"],     refresh_tess),
+    # consumer: cruise pricing lookups, A2 Dembe fare watch
     ("icruise",     ["cruise_pricing"],                   refresh_icruise),
+    # consumer: cruise pricing comparison, fare watch cross-check
     ("cruisebound", ["cruise_pricing"],                   refresh_cruisebound),
+    # consumer: Regent agent portal inventory — BOT_BLOCKED, skipped until M-061
     ("regent",      ["agent_inventory"],                  refresh_regent),
+    # consumer: Viking agent portal inventory — BOT_BLOCKED, skipped until M-061
     ("viking",      ["agent_inventory"],                  refresh_viking),
+    # consumer: VTG promo emails → A2 Dembe promo digest
     ("vtg",         ["promo_email"],                      refresh_vtg),
+    # consumer: Centrav B2B session health → M-038 flight scraper (Wave 2, needs re-auth)
     ("centrav",     ["session_health", "featured_deals"], refresh_centrav),
+    # consumer: Bedsonline hotel rates → post-cruise hotel quotes (Wave 2, needs credentials)
     ("bedsonline",  ["session_health", "hotel_rates"],    refresh_bedsonline),
 ]
 
@@ -178,6 +191,9 @@ SOURCES: list[tuple[str, list[str], Callable]] = [
 def run_once(force: bool = False) -> None:
     con = get_con()
     for source, categories, refresh_fn in SOURCES:
+        if source in BOT_BLOCKED:
+            logger.info("%s — SKIPPED (bot_blocked, pending M-061 anti-detect)", source)
+            continue
         needs_refresh = force or any(is_stale(con, source, cat) for cat in categories)
         if not needs_refresh:
             logger.debug("%s — fresh, skipping", source)
