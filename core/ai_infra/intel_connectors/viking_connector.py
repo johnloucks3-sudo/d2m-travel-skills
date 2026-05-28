@@ -12,9 +12,11 @@ from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
-VIKING_LOGIN = "https://book.vikingcruises.com/travel-agent/login"
-VIKING_AVAIL = "https://book.vikingcruises.com/travel-agent/cruises"
-VIKING_BASE  = "https://book.vikingcruises.com"
+# Correct Travel Advisor portal URL (confirmed from browser history 2026-05-28)
+# SSO login: login.viking.com → redirects to www.viking.com/travel-advisor
+VIKING_LOGIN = "https://www.viking.com/travel-advisor"
+VIKING_AVAIL = "https://www.viking.com/travel-advisor/search"
+VIKING_BASE  = "https://www.viking.com"
 
 
 def ingest_viking(con: sqlite3.Connection, upsert_rows, log_run, ttl: int) -> None:
