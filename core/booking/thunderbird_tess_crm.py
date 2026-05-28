@@ -4,14 +4,17 @@ Extends TESSClient with Trip, Booking, and Client creation/update.
 
 All writes go through _api_request() which handles auth and 401 retry.
 PUT endpoints return 405 in TESS — use POST + action param for updates.
+
+CRITICAL — Agent DTO shape for POST /Trip and POST /Booking:
+  The Agent requires fresh $ProtectedEncrypted tokens (fetched live from GET /User
+  and GET /Trip). The Company must include CompanyName, CompanyLegalName,
+  CompanyShortName alongside CompanyID.$ProtectedEncrypted.
+  See _build_agent_dto() for the canonical pattern. Validated 2026-05-28.
 """
+import copy
 import logging
-from datetime import datetime
-from pathlib import Path
 from typing import Optional
 
-# Import from sibling module — same package
-# sys.path is already set up for Thunderbird project
 from core.booking.thunderbird_tess import TESSClient, TESSAuth
 
 logger = logging.getLogger(__name__)
@@ -23,60 +26,167 @@ class TESSWriteError(Exception):
 
 class TESSWriteClient(TESSClient):
 
+    def _build_agent_dto(self) -> dict:
+        """Build a fresh Agent DTO suitable for POST /Trip and POST /Booking.
+
+        TESS POST endpoints require:
+          - UserID.$ProtectedEncrypted  (time-limited, from GET /User)
+          - Company.$ProtectedEncrypted (time-limited, from GET /User)
+          - Company.CompanyName / CompanyLegalName / CompanyShortName
+          - Contact.FirstName / LastName / ContactType.ID
+          - UserName, UserStatus.ID
+
+        The $ProtectedEncrypted tokens are generated server-side per-request and
+        must be fetched fresh; cached values cause 500 Internal Server Errors.
+
+        The Agent shape is seeded from an existing Trip GET (which includes the
+        correct server-serialised Contact shape), then the encrypted tokens and
+        company name fields are replaced with fresh values from GET /User.
+        """
+        user_id = self.auth._tokens.get("userID")
+
+        # Fetch fresh encrypted tokens
+        fresh_user = self._api_request("GET", f"User?userID={user_id}")
+        if "error" in fresh_user:
+            raise TESSWriteError(f"Could not fetch User DTO: {fresh_user['error']}")
+
+        # Seed from an existing trip to get the correct Contact/UserStatus shape
+        trips = self._api_request("GET", "Trip", params={
+            "pageNumber": 1, "pageSize": 1,
+            "sortBy": "CreatedDateTimeUTC", "sortAscending": "false",
+        })
+        items = trips.get("Items", [])
+        if not items:
+            raise TESSWriteError("No existing trips found to seed Agent shape")
+        seed_agent = copy.deepcopy(items[0]["Agent"])
+
+        # Replace with fresh encrypted tokens
+        seed_agent["UserID"] = fresh_user["UserID"]
+        seed_agent["Company"]["CompanyID"] = fresh_user["Company"]["CompanyID"]
+
+        # Add name fields required by POST validation (stripped from GET responses)
+        seed_agent["Company"]["CompanyName"] = fresh_user["Company"]["CompanyName"]
+        seed_agent["Company"]["CompanyLegalName"] = fresh_user["Company"]["CompanyLegalName"]
+        seed_agent["Company"]["CompanyShortName"] = fresh_user["Company"]["CompanyShortName"]
+        seed_agent["UserName"] = fresh_user.get("UserName", "johnloucks3")
+
+        # Remove server-generated read-only fields
+        for k in ("ActivationDateTimeUTC", "MyAccountApplicationSecurityLevel",
+                   "CreatedDateTimeUTC", "Permission"):
+            seed_agent.pop(k, None)
+
+        return seed_agent
+
     def create_trip(
         self,
         description: str,
+        trip_type_id: int = 2,
+        trip_type_name: str = "Vacation",
         trip_main_type_id: int = 1,
         trip_main_type_name: str = "Regular Trip",
         status_id: int = 1,
     ) -> dict:
         """Create a new TESS trip. Returns full API response dict.
 
-        Minimum viable body per live DTO mapping (09_write_dto_shapes.md):
-          TripDescription, Agent.UserID.ID, Extended.TripMainType
+        Required TESS POST /Trip shape (validated 2026-05-28):
+          TripDescription, Agent (full DTO with fresh $ProtectedEncrypted),
+          Extended.TripMainType, Extended.Extended.TripType, TripStatus.
         """
-        user_id = self.auth._tokens.get("userID")
+        agent = self._build_agent_dto()
         body = {
             "TripDescription": description,
-            "Agent": {"UserID": {"ID": user_id}},
+            "Agent": agent,
             "Extended": {
                 "TripMainType": {
                     "TripMainTypeID": trip_main_type_id,
                     "TripMainTypeName": trip_main_type_name,
+                    "Description": trip_main_type_name,
+                    "HasAccess": True,
                 },
-                "Extended": {},
+                "Extended": {
+                    "TripType": {
+                        "TripTypeID": trip_type_id,
+                        "TripTypeName": trip_type_name,
+                        "Description": trip_type_name,
+                    }
+                },
             },
-            "TripStatus": {"StatusID": status_id},
+            "TripStatus": {"StatusID": status_id, "StatusName": "Active", "Default": True},
         }
-        result = self._api_request("POST", "/Trip", json_body=body)
+        result = self._api_request("POST", "Trip", json_body=body)
         logger.info("create_trip: TripID=%s description=%r", result.get("TripID"), description)
         return result
 
     def create_booking(
         self,
         booking_number: str,
-        tour_operator_company_id: int,
+        tour_operator_id: int,
+        tour_operator_name: str,
         trip_id: Optional[int] = None,
-        **kwargs,
+        start_date: Optional[str] = None,
+        end_date: Optional[str] = None,
+        package_price: float = 0.0,
+        personal_travel: bool = False,
     ) -> dict:
         """Create a new TESS booking.
 
-        Required per DTO: BookingNumber, TourOperator.CompanyID.ID
-        Optional: TripID to associate with an existing trip.
-        Additional fields can be passed via **kwargs and are merged into body.
+        Required TESS POST /Booking shape (validated 2026-05-28):
+          BookingNumber, TripID, TourOperator (ID + Name), Agent (full DTO),
+          BookingCategoryType, BookingType, BookingStatus.
+
+        Note: All existing bookings use BookingCategoryTypeID=1 "Regular Booking"
+        regardless of booking type (cruise, hotel, etc.).
         """
-        user_id = self.auth._tokens.get("userID")
-        body = {
-            "BookingNumber": booking_number,
-            "TourOperator": {"CompanyID": {"ID": tour_operator_company_id}},
-            "Agent": {"UserID": {"ID": user_id}},
+        agent = self._build_agent_dto()
+
+        # Seed from existing booking to get correct shape (PackagePrice, PersonalTravel, etc.)
+        bookings = self._api_request("GET", "Booking", params={
+            "pageNumber": 1, "pageSize": 1,
+            "sortBy": "BookingDate", "sortAscending": "false",
+        })
+        items = bookings.get("Items", [])
+        if not items:
+            raise TESSWriteError("No existing bookings found to seed shape")
+        template = copy.deepcopy(items[0])
+
+        # Swap in new booking data
+        template["BookingNumber"] = booking_number
+        template["Agent"] = agent
+        template["TourOperator"] = {
+            "TourOperatorID": tour_operator_id,
+            "TourOperatorName": tour_operator_name,
+            "TourOperatorOwner": 2,
+            "ContactCount": 0,
+            "BookingCount": 0,
+            "TotalPackagePrice": 0.0,
+            "PrivateLinkCount": 0,
         }
         if trip_id is not None:
-            body["TripID"] = trip_id
-        body.update(kwargs)
-        result = self._api_request("POST", "/Booking", json_body=body)
-        logger.info("create_booking: BookingID=%s number=%r", result.get("BookingID"), booking_number)
+            template["TripID"] = trip_id
+        if start_date:
+            template["StartDate"] = start_date
+        if end_date:
+            template["EndDate"] = end_date
+        if package_price:
+            template["PackagePrice"] = package_price
+        template["PersonalTravel"] = personal_travel
+
+        # Remove read-only / auto-generated fields
+        for k in ("BookingID", "TripMainTypeEnum", "TripDescription", "CreatedDateTimeUTC",
+                   "Number", "ReceiptCount", "PaymentCount", "ReservationCount",
+                   "Commission", "PaymentsAndItemizations", "ActualPackagePrice"):
+            template.pop(k, None)
+
+        result = self._api_request("POST", "Booking", json_body=template)
+        logger.info(
+            "create_booking: BookingID=%s number=%r tourOp=%s",
+            result.get("BookingID"), booking_number, tour_operator_name,
+        )
         return result
+
+    def _get_agent_dto(self) -> dict:
+        """Return the full Agent DTO (backward compat alias for _build_agent_dto)."""
+        return self._build_agent_dto()
 
     def upsert_client(
         self,
@@ -88,34 +198,33 @@ class TESSWriteClient(TESSClient):
     ) -> dict:
         """Create or update a TESS client.
 
-        TESS upsert endpoint: POST /Client?updateAddress=true&updatePassport=false
-        Required per DTO: Contact.FirstName, Contact.LastName, Agent.UserID.ID
+        TESS requires the full Agent DTO (UserID + Contact incl. $ProtectedEncrypted).
+        Bare Agent.UserID.ID alone returns HTTP 400.
         """
-        user_id = self.auth._tokens.get("userID")
+        agent = self._build_agent_dto()
         contact = {
             "FirstName": first_name,
             "LastName": last_name,
+            "ContactType": {"ID": 1},
         }
-        if email:
-            contact["Email"] = email
-        if phone:
-            contact["Phone"] = phone
         contact.update(kwargs.pop("contact_extra", {}))
         body = {
             "Contact": contact,
-            "Agent": {"UserID": {"ID": user_id}},
+            "Agent": agent,
+            "ContactDetails": None,
         }
         body.update(kwargs)
         result = self._api_request(
             "POST",
-            "/Client",
+            "Client",
             params={"updateAddress": "true", "updatePassport": "false"},
             json_body=body,
         )
+        client_obj = result.get("Client", result)
         logger.info(
             "upsert_client: ClientID=%s name=%r %r",
-            result.get("ClientID"),
+            client_obj.get("ClientID", {}).get("ID"),
             first_name,
             last_name,
         )
-        return result
+        return client_obj

@@ -458,6 +458,7 @@ class TESSClient:
             "Accept": "application/json",
             "Content-Type": "application/json",
             "User-Agent": USER_AGENT,
+            "X-Requested-With": "XMLHttpRequest",
         })
 
     def _api_request(
