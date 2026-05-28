@@ -1,7 +1,12 @@
 """
 Viking Cruises agent portal → intel_index connector.
 Uses Playwright (headless Chromium) with agent credentials.
-Creds: johnloucks3@gmail.com / Falcons4me!
+
+Auth: portal_creds.json → viking.email / viking.password
+Login: Azure B2C OAuth (login.viking.com) — TA account required.
+       Current creds (johnloucks3@gmail.com) are a consumer account — will land on
+       /myjourney/no-active-booking instead of the TA portal.
+       Fix: Register at https://www.viking.com/travel-advisor (Commander action).
 TTL: 24h
 """
 import logging
@@ -57,22 +62,26 @@ def ingest_viking(con: sqlite3.Connection, upsert_rows, log_run, ttl: int) -> No
             page.goto(VIKING_LOGIN, timeout=30000)
             page.wait_for_load_state("networkidle", timeout=20000)
 
-            for email_sel in ["input[name='email']", "input[type='email']", "#email", "#username", "input[placeholder*='email' i]"]:
+            # Azure B2C login form — email field is logonIdentifier (text input), not email type
+            for email_sel in [
+                "input[name='logonIdentifier']", "input[id='logonIdentifier']",
+                "input[type='email']", "input[name='email']", "input[type='text']",
+            ]:
                 if page.locator(email_sel).count() > 0:
-                    page.fill(email_sel, email)
+                    page.locator(email_sel).first.press_sequentially(email, delay=50)
                     break
 
-            for pw_sel in ["input[name='password']", "input[type='password']", "#password"]:
+            for pw_sel in ["input[type='password']", "input[name='password']", "input[id='password']"]:
                 if page.locator(pw_sel).count() > 0:
-                    page.fill(pw_sel, password)
+                    page.locator(pw_sel).first.press_sequentially(password, delay=50)
                     break
 
             for submit_sel in [
                 "button[type='submit']",
                 "input[type='submit']",
+                "button:has-text('Sign in')",
                 "button:has-text('Log In')",
-                "button:has-text('Sign In')",
-                "button:has-text('Login')",
+                "button:has-text('Continue')",
             ]:
                 if page.locator(submit_sel).count() > 0:
                     page.click(submit_sel)

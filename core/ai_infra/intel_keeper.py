@@ -52,9 +52,14 @@ TTL = {
     "bedsonline": 24 * 3600,
 }
 
-# Sources confirmed bot-blocked (Playwright/requests return CAPTCHA/403).
-# Re-enable when M-061 invisible_playwright eval selects anti-detect library.
-BOT_BLOCKED: set[str] = {"regent", "viking"}
+# M-061 eval results (2026-05-28):
+#   regent — Akamai Bot Manager (edgesuite.net). Defeats vanilla + playwright-stealth + nodriver.
+#             Not bypassable at YOGA IP without residential proxy service. Stays blocked.
+#   viking — Azure B2C OAuth login. NOT bot-blocked — login form loads fine.
+#             Blocked here: TA account registration required (current creds = consumer account).
+#             Remove from skip list once Commander registers at viking.com/travel-advisor.
+BOT_BLOCKED: set[str] = {"regent"}
+TA_CREDS_MISSING: set[str] = {"viking"}
 
 
 # ---------------------------------------------------------------------------
@@ -192,7 +197,10 @@ def run_once(force: bool = False) -> None:
     con = get_con()
     for source, categories, refresh_fn in SOURCES:
         if source in BOT_BLOCKED:
-            logger.info("%s — SKIPPED (bot_blocked, pending M-061 anti-detect)", source)
+            logger.info("%s — SKIPPED (akamai_blocked — residential proxy required)", source)
+            continue
+        if source in TA_CREDS_MISSING:
+            logger.info("%s — SKIPPED (ta_account_registration_required — register at viking.com/travel-advisor)", source)
             continue
         needs_refresh = force or any(is_stale(con, source, cat) for cat in categories)
         if not needs_refresh:
