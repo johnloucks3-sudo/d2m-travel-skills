@@ -6,24 +6,29 @@
 Read `OpsCenter/opencode_memory.md` section "Session 2026-05-22" for full context.
 Key facts: Poe key rotated → new key under yodainva@gmail.com (194,914 pts). DeepSeek ZEN cache added. T3 cruise scan for Susie was in progress at Drive links. ZEN ~72% used.
 
-@OpsCenter/opencode_memory.md
+## AUTO-LOAD (Essential session context only — SO-TOKEN-DISCIPLINE 2026-05-29)
 @docs/HALE_SESSION_OPEN_CHECKLIST.md
-
 @Personas/hale_cos.md
-@Personas/a1_navarro.md
-@Personas/a8_reyes.md
-@docs/HALE_AGENT_TASKING_ARCHITECTURE.md
-@docs/HALE_AGENT_TASKING_QUICK_REF.md
-@docs/AGENTS_HEADLESS_DISPATCH_ARCHITECTURE.md
-@docs/OPENCODE_ESCALATION_MECHANISM.md
-@docs/HEADLESS_CLAUDE_SPAWN_GUIDE.md
-@docs/CLAUDE_CODE_DRIVE_AND_CORE_GUIDE.md
 @hale_brief.md
 @hale_state.json
-@hale_state_snapshot.json
-@hale_email_ooda_state.json
-@hale_decision_journal.jsonl
 @hale_session_state.md
+
+## LOAD ON DEMAND (Reference — Read tool when needed)
+<!-- These were auto-loaded prior to 2026-05-29. Moved to on-demand to save ~38K tokens/turn cache reads.
+- Personas/a1_navarro.md       — Read when invoking A1 Navarro (intake/profile)
+- Personas/a8_reyes.md         — Read when invoking A8 Reyes (experience architect)
+- OpsCenter/opencode_memory.md — Read when working on OpenCode/router infra
+- docs/HALE_AGENT_TASKING_ARCHITECTURE.md  — Agent dispatch reference
+- docs/HALE_AGENT_TASKING_QUICK_REF.md     — Quick patterns for dispatching agents
+- docs/AGENTS_HEADLESS_DISPATCH_ARCHITECTURE.md — Three-layer dispatch architecture
+- docs/OPENCODE_ESCALATION_MECHANISM.md    — OpenCode→Claude Code escalation
+- docs/HEADLESS_CLAUDE_SPAWN_GUIDE.md      — Headless spawn reference
+- docs/CLAUDE_CODE_DRIVE_AND_CORE_GUIDE.md — Drive map + core module registry
+- hale_state_snapshot.json     — Last system snapshot (stale 2026-05-17)
+- hale_email_ooda_state.json   — Email OODA queue (load when processing inbox)
+- hale_decision_journal.jsonl  — Append-only decision log (rarely needed in context)
+-->
+
 
 ---
 
@@ -152,9 +157,29 @@ Multi-hop memo chain retired for client products. Client emails written from ONE
 
 ---
 
+## ⚠️ HARD RULE — TOKEN DISCIPLINE (SO-TOKEN-DISCIPLINE 2026-05-29)
+**Driven by 7-day usage audit: 1.91B cache reads, 64% of weekly bucket on Sonnet alone.**
+
+### Model Routing (mandatory, not advisory)
+- **Haiku** = DEFAULT for: file reads under 500 lines · single-grep summaries · JSON/structured extraction · routine code edits · status checks · classification · log scans · "is X present" lookups
+- **Sonnet** = synthesis across multiple sources · client-voice copy · staff papers · multi-step reasoning · novel problem-solving
+- **Opus** = ONLY on explicit Commander request OR architecture decisions with cost > $1K impact. No auto-escalation. If a Sonnet task hits a ceiling, surface the gap before escalating.
+
+### Session Discipline
+- **Prefer `/resume <session_id>`** over new sessions. Each new session pays a ~90K-token cache-write tax to re-load CLAUDE.md context.
+- **Use `claude agents --bg`** for long-running tasks — survives idle/wake, no re-load.
+- **Consolidate work**: 146 sessions/day is the current burn pattern. Target: <50/day by batching related work into single sessions.
+
+### Auto-Load Hygiene
+- Anything added to CLAUDE.md `@` references multiplies by every turn × every session. Audit before adding.
+- Reference docs (>200 lines, used <1×/session) → on-demand Read, never `@`.
+- Persona files → `@` only for currently-active persona. All others on-demand.
+
+---
+
 ## OPERATING DISCIPLINE — 15 Core Rules (SO 15 MAY 2026)
 *Full rules archived:* `/mem read reference_operating_discipline_15_rules`
-**Model routing:** Sonnet=default · Opus=architecture/pricing · Haiku=classify/extract · BigPickle=code/ops/bulk
+**Model routing:** See SO-TOKEN-DISCIPLINE above — supersedes prior single-line rule.
 **4 gates:** Client send · Financial commit · New client first contact · Strategy direction (everything else = autonomous)
 **Key rules:** Simplicity First · Surgical Changes · Read Before Write · Fail Loud · Persona Fidelity · Standing Orders Binding
 
@@ -243,9 +268,9 @@ See [docs/AGENT_TEAMS.md](docs/AGENT_TEAMS.md) for experimental team workflows.
 
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-05-29 09:29 MT -->
+<!-- Last sync: 2026-05-29 09:54 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-05-29 09:29 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-05-29 09:54 MT] ===
 Budget: Claude UNKNOWN | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE
