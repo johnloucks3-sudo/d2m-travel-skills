@@ -22,7 +22,7 @@ openrouter_client = AsyncOpenAI(
 )
 
 # Gemini Client for synthesis and formatting
-genai.configure(api_key=os.environ.get("GOOGLE_API_KEY", "***REMOVED-SECRET***"))
+genai.configure(api_key=os.environ.get("GOOGLE_API_KEY", ""))
 
 async def a2_perplexity_live_search():
     logging.info("A2 Dembe initiating live web search via Perplexity for global AI tech trends...")

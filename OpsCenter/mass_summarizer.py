@@ -8,7 +8,7 @@ from datetime import datetime
 import logging
 
 logging.basicConfig(filename='/home/john/Thunderbird/OpsCenter/overwatch.log', level=logging.INFO, format='%(asctime)s - [MASS SUMMARY] - %(message)s')
-genai.configure(api_key=os.environ.get("GOOGLE_API_KEY", "***REMOVED-SECRET***"))
+genai.configure(api_key=os.environ.get("GOOGLE_API_KEY", ""))
 
 async def summarize_chunk(files, chunk_name):
     logging.info(f"Summarizing chunk: {chunk_name} ({len(files)} files)")

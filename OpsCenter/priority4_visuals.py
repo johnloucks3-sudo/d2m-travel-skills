@@ -10,7 +10,7 @@ import json
 logging.basicConfig(filename='/home/john/Thunderbird/OpsCenter/overwatch.log', level=logging.INFO, format='%(asctime)s - [EXEC VISUALS] - %(message)s')
 
 # Configure Gemini for Imagen 3
-genai.configure(api_key=os.environ.get("GOOGLE_API_KEY", "***REMOVED-SECRET***"))
+genai.configure(api_key=os.environ.get("GOOGLE_API_KEY", ""))
 
 async def generate_asset(prompt, filename):
     logging.info(f"EXEC Naia generating visual asset: {filename}")

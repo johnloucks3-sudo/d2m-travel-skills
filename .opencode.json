@@ -2,7 +2,6 @@
   "$schema": "https://opencode.ai/config.json",
   "model": "anthropic/claude-sonnet-4-6",
   "fallbackModels": [
-    "google/gemini-2.5-flash",
     "opencode/deepseek-v4-flash-free",
     "opencode/nemotron-3-super-free"
   ],

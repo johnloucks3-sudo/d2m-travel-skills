@@ -9,7 +9,7 @@ import pytesseract
 # 1. ENVIRONMENT CONFIGURATION (ALL KEYS ARMED)
 # ============================================================================
 class Config:
-    GEMINI_API_KEY = "***REMOVED-SECRET***"
+    GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")  # nulled 2026-05-29 — GCP cap
     PEXELS_KEY = "***REMOVED-SECRET***"
     UNSPLASH_KEY = "***REMOVED-SECRET***"
 

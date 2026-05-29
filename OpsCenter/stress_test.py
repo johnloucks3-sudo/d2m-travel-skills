@@ -16,7 +16,7 @@ deepseek_client = AsyncOpenAI(
     base_url="https://api.deepseek.com"
 )
 
-genai.configure(api_key="***REMOVED-SECRET***")
+genai.configure(api_key=os.environ.get("GOOGLE_API_KEY", ""))
 
 async def test_a7_groq(cal_data):
     print("Starting Groq (A7)...")

@@ -8,7 +8,7 @@ import subprocess
 
 logging.basicConfig(filename='/home/john/Thunderbird/OpsCenter/overwatch.log', level=logging.INFO, format='%(asctime)s - [EOD SUMMARY] - %(message)s')
 
-genai.configure(api_key=os.environ.get("GOOGLE_API_KEY", "***REMOVED-SECRET***"))
+genai.configure(api_key=os.environ.get("GOOGLE_API_KEY", ""))
 
 async def generate_opencode_summary():
     try:

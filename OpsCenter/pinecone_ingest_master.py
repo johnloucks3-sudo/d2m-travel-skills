@@ -31,7 +31,7 @@ except Exception as e:
     logging.info(f"Index creation note: {e}")
 
 index_768 = pc.Index("d2m-core-768")
-genai.configure(api_key=os.environ.get("GOOGLE_API_KEY", "***REMOVED-SECRET***"))
+genai.configure(api_key=os.environ.get("GOOGLE_API_KEY", ""))
 
 def chunk_text(text, chunk_size=1000):
     words = text.split()

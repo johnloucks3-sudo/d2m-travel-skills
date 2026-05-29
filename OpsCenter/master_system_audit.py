@@ -11,7 +11,7 @@ from datetime import datetime
 logging.basicConfig(filename='/home/john/Thunderbird/OpsCenter/overwatch.log', level=logging.INFO, format='%(asctime)s - [MASTER AUDIT] - %(message)s')
 
 # Configuration
-genai.configure(api_key=os.environ.get("GOOGLE_API_KEY", "***REMOVED-SECRET***"))
+genai.configure(api_key=os.environ.get("GOOGLE_API_KEY", ""))
 
 groq_client = AsyncOpenAI(
     api_key=os.environ.get("GROQ_API_KEY", ""),

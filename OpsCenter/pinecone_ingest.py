@@ -15,7 +15,7 @@ index = pc.Index("quickstart")
 
 # Setup Gemini for embeddings (text-embedding-004 output is exactly 768 dimensions by default. 
 # Pinecone 'quickstart' was created at 1536, but we can configure Gemini to output 1536 via output_dimensionality=1536)
-genai.configure(api_key=os.environ.get("GOOGLE_API_KEY", "***REMOVED-SECRET***"))
+genai.configure(api_key=os.environ.get("GOOGLE_API_KEY", ""))
 
 def chunk_text(text, max_size=2000):
     chunks = []
