@@ -85,12 +85,51 @@ def _parse_date(text: str) -> Optional[datetime]:
     return None
 
 
+def _check_corruption(filepath: Path, text: str, lines: list) -> Optional[Alert]:
+    """Detect dossier file corruption before scanning.
+
+    Two signals:
+    1. Repeated-line ratio — any single line appearing >10x is a write-loop artifact.
+    2. File size spike — files over 500KB are almost certainly corrupted (largest
+       legitimate dossier in production is ~120KB).
+    Returns an Alert if corruption is detected, else None.
+    """
+    name = filepath.stem
+    size_kb = filepath.stat().st_size / 1024
+
+    if size_kb > 500:
+        return Alert(name, "corruption", Alert.SEVERITY_CRITICAL,
+            f"File size {size_kb:.0f}KB far exceeds normal range (<120KB) — likely write-loop corruption. "
+            f"DO NOT USE for client work. Restore from Drive or git.")
+
+    if lines:
+        from collections import Counter
+        line_counts = Counter(l.strip() for l in lines if l.strip())
+        most_common_line, most_common_count = line_counts.most_common(1)[0]
+        repeat_ratio = most_common_count / len(lines)
+        if most_common_count > 10 and repeat_ratio > 0.05:
+            return Alert(name, "corruption", Alert.SEVERITY_CRITICAL,
+                f"Repeated-line corruption detected: '{most_common_line[:60]}' "
+                f"appears {most_common_count}x ({repeat_ratio:.0%} of file). "
+                f"DO NOT USE for client work. Restore from Drive or git.")
+
+    return None
+
+
 def _scan_one_dossier(filepath: Path, today: datetime) -> List[Alert]:
     """Scan a single dossier file for gaps and action items."""
     alerts: List[Alert] = []
     name = filepath.stem  # e.g., "Furlow_Regent_3071222"
-    text = filepath.read_text(encoding="utf-8", errors="replace")
+    lines = filepath.read_text(encoding="utf-8", errors="replace").splitlines(keepends=True)
+    text = "".join(lines)
     text_upper = text.upper()
+
+    # -----------------------------------------------------------------------
+    # 0. Corruption pre-check — abort scan if file is corrupted
+    # -----------------------------------------------------------------------
+    corruption_alert = _check_corruption(filepath, text, lines)
+    if corruption_alert:
+        return [corruption_alert]  # Surface immediately, skip remaining checks
 
     # -----------------------------------------------------------------------
     # 1. Final Payment Date (FPD) — critical if within 14 days
