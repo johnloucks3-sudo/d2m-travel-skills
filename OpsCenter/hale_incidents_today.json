@@ -1,5 +1,5 @@
 {
-  "date": "2026-05-27",
+  "date": "2026-05-28",
   "summary": {
     "auto_healed": 1,
     "self_repaired": 0,
@@ -8,7 +8,7 @@
   },
   "incidents": [
     {
-      "time": "10:54",
+      "time": "15:12",
       "service": "thunderbird-telegram-gw",
       "event_type": "auto_healed",
       "action": "auto_healed_verified",
@@ -17,7 +17,7 @@
       "elon_invoked": false
     },
     {
-      "time": "11:03",
+      "time": "15:22",
       "service": "thunderbird-fare-watch",
       "event_type": "auto_healed",
       "action": "queued_for_brief",

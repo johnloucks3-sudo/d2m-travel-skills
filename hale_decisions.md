@@ -3123,3 +3123,47 @@ DeepSeek V4: 227 sessions, $12.5801
 - Harlan/Sterling $180.33 conflict — Sterling must acknowledge within 48 hours
 - Sterling: single-hop build, target 2026-06-04
 - SO cap management: archived SO_T4_EXERCISE_HALE_DUAL_ENGINE_20260518.md; cap now at 12 with new SO
+
+### 2026-05-29 00:00:00 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: T2-COMMS-BUILD-20260518 status: UPDATED — READ CAREFULLY — STEPS 1/2/3 COMPLETE BY HALE-CC from: HALE-CC (V
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 326094 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260529_000000.log | Inbox: opencode_inbox.md
+
+---
+
+
+---
+## Harlan Cost Brief — 2026-05-29
+```
+HARLAN AM BRIEF — 2026-05-29 06:00
+🔴 Verdict: BLOCK | Sonnet weekly at 100% — hard block until reset | DeepSeek V4 wandering — investigate routing
+═══
+Sonnet weekly: 100% | All weekly: 86%
+Monthly: $55.67/100
+OpenCode 7d: $9.1155 | Month: $48.7485
+⚠ DEEPSEEK WANDER: deepseek/deepseek-chat-v3.1 $1.4375
+DeepSeek V4: 226 sessions, $12.5801
+  ⚠ NATIVE BILLING: deepseek-v4-flash-free charged $3.4396 — native provider should be $0
+  ⚠ BANNED MODEL ACTIVE: google/gemini-3.1-flash-lite-preview billed $8.4165 — replace with native/free alternative
+  ⚠ CONTEXT BLOAT: google/gemini-3.1-flash-lite-preview [high] avg 8,509,364 in tokens/session (4 sessions) — review prompt compression
+— A9 Harlan | Thunderbird Wing
+```
+
+### 2026-05-29 06:00:05 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: T2-COMMS-BUILD-20260518 status: UPDATED — READ CAREFULLY — STEPS 1/2/3 COMPLETE BY HALE-CC from: HALE-CC (V
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 497358 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260529_060005.log | Inbox: opencode_inbox.md
+
+---

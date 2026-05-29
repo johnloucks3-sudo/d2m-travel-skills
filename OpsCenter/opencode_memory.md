@@ -198,3 +198,10 @@ Four sessions: Lifecycle Validation, Quick Init, Wave 2 Pipeline, Evening Email+
 - METRONOME: tick #539, hale_oc seq 762 RED (hale_cc dormancy expected), DeepSeek V4 0/hr GREEN
 - Also answered travel questions (Kyoto→Hakone routing, Tokyo neighborhood advice, Hakone Free Pass)
 - Inbox terminal state: CLEAN — 0 UNREAD / 0 PENDING
+
+### Session 6: Inbox Sweep — 2026-05-29 07:00 MT
+- Processed 1 UNREAD task: TP-ALERT-20260529 (00:00 MT) — 98 touchpoints (first drop from 109-110), acknowledged
+- Key finding: touchpoint count dropped ~11 points — likely dedup consolidation, not resolved items
+- Dedup pattern shift: 1st copy only (vs. 4-7/day on May 26-28). Metronome FPD dedup gate may be active
+- A12 ELON flagged to confirm metronome dedup resolution
+- Inbox terminal state: CLEAN — 0 UNREAD / 0 PENDING

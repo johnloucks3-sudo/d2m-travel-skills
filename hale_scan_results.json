@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-28T01:00:03.930812",
+  "timestamp": "2026-05-29T01:00:01.078956",
   "scans": {
     "deadline_radar": [],
     "stale_tasks": [
@@ -7,99 +7,78 @@
         "type": "stale_task",
         "mission_id": "MISSION-009",
         "title": "Kuklinski ARC4-A Specialty Dining Email",
-        "age_hours": 239.0,
+        "age_hours": 263.0,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-024",
         "title": "McLeod FPD Payment Orchestration",
-        "age_hours": 239.0,
+        "age_hours": 263.0,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-026",
         "title": "Cabin Selection Follow-up Monitoring",
-        "age_hours": 239.0,
+        "age_hours": 263.0,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-053",
         "title": "McLeod Grandeur \u2014 Booking Review + A2 Scrape Intel",
-        "age_hours": 137.1,
+        "age_hours": 161.1,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-054",
         "title": "McLeod Silver Muse \u2014 Final T-27 Detailed Validation",
-        "age_hours": 137.1,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-059",
-        "title": "Lifecycle Automation Compact",
-        "age_hours": 127.3,
+        "age_hours": 161.1,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-060",
         "title": "Chromebook Termux \u2014",
-        "age_hours": 75.2,
+        "age_hours": 99.2,
         "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-061",
-        "title": "invisible_playwright Eval \u2014 Centrav reCAPTCHA + Cruise Pricing",
-        "age_hours": 67.0,
-        "priority": "MEDIUM"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-062",
-        "title": "Claude Code Release Integration \u2014 HEADLESSCLAUDESPAWN_GUIDE.md",
-        "age_hours": 67.0,
-        "priority": "MEDIUM"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-063",
         "title": "Prompt Formatting Study \u2014 Persona Files & CLAUDE.md",
-        "age_hours": 67.0,
-        "priority": "MEDIUM"
+        "age_hours": 91.0,
+        "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-064",
         "title": "Anthropic Small-Business Skills Ecosystem Investigation",
-        "age_hours": 67.0,
-        "priority": "MEDIUM"
+        "age_hours": 91.0,
+        "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-067",
         "title": "Norway Luxury Cruise Perx Pricing \u2014 Late Jul/Mid-Aug 2027",
-        "age_hours": 55.3,
-        "priority": "MEDIUM"
+        "age_hours": 79.3,
+        "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-069",
         "title": "Perx + Odysseus + CruiseComplete \u2014 Platform Reliability",
-        "age_hours": 55.1,
-        "priority": "MEDIUM"
+        "age_hours": 79.1,
+        "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-065",
         "title": "Pacific Voyage Blog",
-        "age_hours": 57.8,
-        "priority": "MEDIUM"
+        "age_hours": 81.8,
+        "priority": "HIGH"
       }
     ],
     "staff_gaps": [],
@@ -107,7 +86,7 @@
     "conflict_detection": [
       {
         "type": "priority_conflict",
-        "issue": "15 active missions may indicate priority overload",
+        "issue": "14 active missions may indicate priority overload",
         "priority": "MEDIUM"
       }
     ]

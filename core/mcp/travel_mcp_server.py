@@ -35,6 +35,7 @@ from thunderbird_v3 import register_v3_tools
 from itinerary_finishing_pipeline import register_itinerary_pipeline_tools
 from thunderbird_hotel_search import register_hotel_search_tools
 from thunderbird_flight_search import register_flight_search_tools
+from thunderbird_centrav_search import register_centrav_search_tools
 from thunderbird_tour_search import register_tour_search_tools
 from thunderbird_fare_watch import register_fare_watch_tools
 from thunderbird_personas import register_persona_tools
@@ -514,7 +515,8 @@ _INTEL_LOADERS = [
 
 # ── TRAVEL additions ──────────────────────────────────────────────────────────
 _TRAVEL_LOADERS = [
-    register_hotel_search_tools, register_flight_search_tools, register_tour_search_tools,
+    register_hotel_search_tools, register_flight_search_tools, register_centrav_search_tools,
+    register_tour_search_tools,
     register_fare_watch_tools, register_excursion_tools, register_transfer_tools,
     register_opentable_tools, register_dining_tools, register_taap_tools,
     register_tess_tools, register_trip_architect_tools, register_worldfactbook_tools,

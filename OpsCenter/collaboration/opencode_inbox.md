@@ -1661,3 +1661,144 @@ task: |
   Review wing_comms.md for full staff tasking.
   Expected output: Review and acknowledge in wing_comms.md
 
+
+---
+## TASK: TP-ALERT-20260528
+status: COMPLETE
+completed: 2026-05-28 06:00 MT
+completed_by: JET (WIND Group / OpenCode)
+result: |
+  ACKNOWLEDGED. 109 touchpoints (consistent with May 27 runs — held steady at 109). Severity bands unchanged:
+  - CRITICAL stale (~60): legacy 2025 items — cleanup sweep still needed
+  - OVERDUE (<14d): ~8 items (Kuklinski TP 0.5/1.1, McLeod TP 2.2, Loucks TP 5.4, McLeod Grandeur TP 1.1)
+  - CRITICAL-APPROACHING: ~20 items in watch window
+  Dedup blocker persists — 34th+ identical copy since May 22. Flagged for A12 ELON resolution.
+  Full acknowledgment in claude_outbox.md and wing_comms.md.
+  Inbox terminal state: 0 UNREAD / 0 PENDING — all tasks COMPLETE.
+from: TP Alert Engine
+priority: P0
+stakes: high
+task: |
+  TP Alert Engine ran 2026-05-28 at 06:00 MT.
+  109 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+---
+## TASK: TP-ALERT-20260528
+status: COMPLETE
+completed: 2026-05-28 12:00 MT
+completed_by: JET (WIND Group / OpenCode)
+result: |
+  ACKNOWLEDGED. 109 touchpoints (consistent with May 27 runs — held steady at 109). Severity bands unchanged:
+  - CRITICAL stale (~60): legacy 2025 items — cleanup sweep still needed
+  - OVERDUE (<14d): ~8 items (Kuklinski TP 0.5/1.1, McLeod TP 2.2, Loucks TP 5.4, McLeod Grandeur TP 1.1)
+  - CRITICAL-APPROACHING: ~20 items in watch window
+  Dedup blocker persists — 35th+ identical copy since May 22. Flagged for A12 ELON resolution.
+  Full acknowledgment in claude_outbox.md and wing_comms.md.
+  Inbox terminal state: 0 UNREAD / 0 PENDING — all tasks COMPLETE.
+from: TP Alert Engine
+priority: P0
+stakes: high
+task: |
+  TP Alert Engine ran 2026-05-28 at 12:00 MT.
+  109 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+---
+## TASK: TP-ALERT-20260528
+status: COMPLETE
+completed: 2026-05-28 19:00 MT
+completed_by: JET (WIND Group / OpenCode)
+result: |
+  ACKNOWLEDGED. 109 touchpoints (consistent with 00:00/06:00/12:00 MT runs today). Severity bands unchanged:
+  - CRITICAL stale (~60): legacy 2025 items — cleanup sweep still needed
+  - OVERDUE (<14d): ~8 items (Kuklinski TP 0.5/1.1, McLeod TP 2.2, Loucks TP 5.4, McLeod Grandeur TP 1.1)
+  - CRITICAL-APPROACHING: ~20 items in watch window
+  Dedup blocker persists — 36th+ identical copy since May 22. Flagged for A12 ELON resolution.
+  Full acknowledgment in claude_outbox.md and wing_comms.md.
+  Inbox terminal state: 0 UNREAD / 0 PENDING — all tasks COMPLETE.
+from: TP Alert Engine
+priority: P0
+stakes: high
+task: |
+  TP Alert Engine ran 2026-05-28 at 15:09 MT.
+  109 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+---
+## TASK: TP-ALERT-20260528
+status: COMPLETE
+completed: 2026-05-28 19:00 MT
+completed_by: JET (WIND Group / OpenCode)
+result: |
+  ACKNOWLEDGED. 109 touchpoints (consistent with prior 3 runs today). 4th copy today.
+  Findings unchanged. Dedup blocker persists — 37th+ identical copy since May 22. Flagged for A12 ELON.
+  Inbox terminal state: 0 UNREAD / 0 PENDING — all tasks COMPLETE.
+from: TP Alert Engine
+priority: P0
+stakes: high
+task: |
+  TP Alert Engine ran 2026-05-28 at 18:00 MT.
+  109 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+---
+## TASK: TP-ALERT-20260529
+status: COMPLETE
+completed: 2026-05-29 07:00 MT
+completed_by: JET (WIND Group / OpenCode)
+result: |
+  ACKNOWLEDGED. 98 touchpoints — notable drop from 109-110 on May 25-28. First significant decrease in touchpoint count since tracking began May 22.
+  Severity bands:
+  - CRITICAL stale (~49): legacy 2025 items — cleanup sweep still needed
+  - WARNING: ~5 items (FCC/Credits, Excursion Research for multiple clients)
+  - CRITICAL-APPROACHING (~10): T-2d to T-6d — Culinary Arts windows opening for Grandeur/Ely/Furlow/Nichols, Insurance Advisory for multiple clients
+  - APPROACHING (~11): Document Audit windows opening for Grandeur/Ely/Furlow/Nichols
+  - OVERDUE (<14d) (~10): McLeod TP 2.2 (May 19), Grandeur TP 0.5 (May 21), Kuklinski/Morton TP 1.1 (May 21), Nichols/Ely/Furlow/Kuklinski TP 0.5 (May 25-27), Grandeur TP 0.6 (May 28), Loucks TP 0.5 (May 28), McLeod TP 3.1 (May 28)
+  Based on the metronome lifecycle integration (HALE-BRIEF 2026-05-27), the 98 count likely reflects the lifecycle window scanner's dedup gate taking effect — previously overlapping entries from duplicate TP Alert runs may have been consolidated.
+  Dedup tracker: 1st TP Alert copy today (vs. 4-7/day on May 26-28). If the metronome FPD dedup gate is active, this pattern should hold. Flagged for A12 ELON to confirm resolution.
+  Full acknowledgment in claude_outbox.md and wing_comms.md.
+  Inbox terminal state: 0 UNREAD / 0 PENDING — all tasks COMPLETE.
+from: TP Alert Engine
+priority: P0
+stakes: high
+task: |
+  TP Alert Engine ran 2026-05-29 at 00:00 MT.
+  98 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+---
+## TASK: TP-ALERT-20260529
+status: COMPLETE
+completed: 2026-05-29 07:00 MT
+completed_by: JET (WIND Group / OpenCode)
+result: |
+  ACKNOWLEDGED. 98 touchpoints — 2nd copy today (06:00 MT run). Consistent with 00:00 MT run already processed.
+  Severity bands unchanged from 00:00 MT processing today:
+  - CRITICAL stale (~49): legacy 2025 items — cleanup sweep still needed
+  - WARNING: ~5 items (FCC/Credits, Excursion Research)
+  - CRITICAL-APPROACHING (~10): Culinary Arts windows for Grandeur/Ely/Furlow/Nichols, Insurance Advisory windows
+  - APPROACHING (~11): Document Audit windows opening
+  - OVERDUE (<14d) (~10): McLeod TP 2.2, Grandeur TP 0.5, Kuklinski/Morton TP 1.1, Nichols/Ely/Furlow/Kuklinski TP 0.5, Grandeur TP 0.6, Loucks TP 0.5, McLeod TP 3.1
+  Dedup note: Only 2 copies today (vs. 4-7/day on May 26-28) — metronome dedup gate appears to be reducing frequency.
+  Full acknowledgment in claude_outbox.md and wing_comms.md.
+  Inbox terminal state: 0 UNREAD / 0 PENDING — all tasks COMPLETE.
+from: TP Alert Engine
+priority: P0
+stakes: high
+task: |
+  TP Alert Engine ran 2026-05-29 at 06:00 MT.
+  98 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+

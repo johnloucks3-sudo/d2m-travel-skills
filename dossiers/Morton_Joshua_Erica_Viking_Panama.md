@@ -16,6 +16,7 @@ group: Kuklinski Viking Panama
 cc_on_file: true
 cc_note: Kyle Kuklinski paying ALL THREE bookings (his, Roger's, and Morton/Dodge) — confirmed 24 MAR 2026
 completed_tps: []
+fpd_status: PENDING
 ---
 
 # CLIENT DOSSIER — Joshua Morton & Erica Dodge

@@ -285,7 +285,7 @@
     {
       "id": "MISSION-039",
       "title": "TESS Reporting Web Endpoints (OC + CC)",
-      "status": "pending",
+      "status": "completed",
       "priority": "P1",
       "assigned_to": "OC (JET) + CC (TALON) \u2014 Dual Engine",
       "description": "Open TESS reporting API endpoints via Playwright web access (no API key \u2014 web-based authentication). Extract commission reconciliation, booking status, payment history. JWT auth already working (per standing docs). Expose as MCP tool for OC and CC.",
@@ -303,6 +303,12 @@
       "updated_at": "2026-05-20T00:00:00Z",
       "logs": [
         "[2026-05-20T00:00:00] MISSION-039 created. Cmd: 1c. Tokens: ~4K. CC: auth flow + endpoint extraction. OC: tool registration + error handling."
+      ],
+      "completion_log": [
+        {
+          "ts": "2026-05-28T22:55:09.486377",
+          "note": "M-039 COMPLETE: tess_fpd_sweep MCP tool (18th tool in register_tess_tools), tess_auth_manager.py, tess_reporting_scraper.py. Smoke tested: 17 bookings swept, 8 PAST + 1 ORANGE (McLeod Jul 22). Fix: BookingStatus is {StatusID, StatusName} dict, not string."
+        }
       ]
     },
     {
@@ -330,7 +336,7 @@
     {
       "id": "MISSION-041",
       "title": "Dossier FPD Auto-Update (OC + CC)",
-      "status": "pending",
+      "status": "completed",
       "priority": "P1",
       "assigned_to": "OC (JET) + CC (TALON) \u2014 Dual Engine",
       "description": "Auto-update dossiers/*.md FPD status fields when TESS confirms payment received. Watcher script polls TESS (via Mission-039 endpoint) every 30 min, compares against dossier FPD field, updates markdown if changed. OC: watcher daemon + TESS polling. CC: markdown field format + validation.",
@@ -346,6 +352,12 @@
       "updated_at": "2026-05-20T00:00:00Z",
       "logs": [
         "[2026-05-20T00:00:00] MISSION-041 created. Cmd: 2b. Tokens: ~5K. Blocks on MISSION-039."
+      ],
+      "completion_log": [
+        {
+          "ts": "2026-05-28T22:55:09.486377",
+          "note": "M-041 COMPLETE: scripts/tess_fpd_dossier_sync.py with YAML frontmatter parser, booking-number matching, --status / --dry-run modes, TESS-offline graceful fallback. All client dossiers with fpd: field covered. SO-PIPELINE-INTEGRITY Rule 4 compliant (CONFIRMED:TESS tag on all FPD updates)."
+        }
       ]
     },
     {
@@ -954,7 +966,7 @@
     {
       "id": "MISSION-071",
       "title": "Grok 4 + Grok Build \u2014 Wing Intel Review",
-      "status": "queued",
+      "status": "completed",
       "priority": "P2",
       "assigned_to": "A2 Dembe + A12 ELON",
       "description": "Review xAI Grok 4 model capabilities and Grok Build (agentic/coding product). Assess: (1) model benchmark position vs Claude Sonnet/Opus, (2) Grok Build as potential OpenCode/Goose replacement or complement, (3) cost/token economics, (4) any D2M-relevant capabilities (live web search, X/Twitter native access). A2 Dembe: competitive intelligence brief. A12 ELON: disruption/automation angle \u2014 is there a kill or replace opportunity for any current wing tool? Deliverable: joint 1-page staff paper to Commander.",
@@ -970,7 +982,13 @@
         "[2026-05-27] Queued by Commander. No coding \u2014 intel + idea exchange first."
       ],
       "created_at": "2026-05-27T00:00:00Z",
-      "updated_at": "2026-05-27T00:00:00Z"
+      "updated_at": "2026-05-27T00:00:00Z",
+      "completion_log": [
+        {
+          "ts": "2026-05-28T22:56:57.628608",
+          "note": "M-071 COMPLETE: A2 Dembe + A12 ELON joint staff paper. Grok 4.3 benchmarks just above Sonnet 4.6 (Intelligence Index 53). Grok Build SWE-Bench 70.8% vs Claude Code 72.5%, /bin/bash.20/1M tokens. Recommendation: Add Grok OSINT path (Jun 4), pilot Grok Build vs OpenCode (Jun 14). Staff paper at OpsCenter/M071_Grok4_GrokBuild_Staff_Paper.md"
+        }
+      ]
     },
     {
       "id": "MISSION-070",

@@ -1,3 +1,27 @@
+<!--
+========================================================================
+STALE / SUPERSEDED — A7 STERLING FLAG — 2026-05-28
+========================================================================
+THIS DOSSIER CONTAINS KNOWN DATA ERRORS AND IS NO LONGER AUTHORITATIVE.
+
+ERROR 1 — FPD: Recorded as 2026-09-01 (Sep 1) throughout document body.
+CORRECT FPD: 2026-07-22 (Jul 22) per live Regent portal (booking 2984034).
+DELTA: 41 days — FPD was understated by 41 calendar days.
+
+ERROR 2 — BALANCE: Recorded as $12,393.15 in frontmatter and document body.
+CORRECT BALANCE: $11,943.15 per live Regent portal (booking 2984034).
+DELTA: $450.00 — root cause unconfirmed (TESS offline at time of reconciliation).
+Possible causes: $200 FCC from Gale Hotel complaint + $250 pricing adjustment.
+
+SUPERSEDED BY: McLeod_Erik_Melissa_SilverMuse_Complete.md and/or current TESS record
+AUTHORITY: A7 Sterling — T3 Wing Exercise reconciliation 2026-05-28
+
+DO NOT USE THIS FILE FOR PAYMENT SCHEDULING, BALANCE TRACKING, OR FPD ALERTS.
+DO NOT DELETE — preserved per T3 durable artifact requirement.
+Contact Commander or pull live Regent portal for authoritative figures.
+========================================================================
+-->
+
 ---
 client: "McLeod McGlasson - Grandeur"
 ship: SS Grandeur

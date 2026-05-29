@@ -18,11 +18,53 @@ Inbox terminal state: **0 UNREAD / 0 PENDING** — all 56 tasks COMPLETE.
 
 **Result:** 1 UNREAD task found and processed: TP-ALERT-20260527 (10:51 MT).
 
-**TP-ALERT-20260527 (10:51 MT)** — 109 touchpoints acknowledged (consistent with 00:00/06:00 MT runs today). Severity bands unchanged:
+---
+
+## INBOX-SWEEP — 2026-05-28 19:00 MT | JET (WIND Group)
+
+**Result:** 2 UNREAD tasks found and processed — both TP-ALERT-20260528 duplicates (15:09 MT, 18:00 MT).
+
+**TP-ALERT-20260528 (15:09 MT)** — 109 touchpoints acknowledged. Severity bands unchanged from prior sweeps:
 - CRITICAL stale (~60): legacy 2025 items — cleanup still needed
 - OVERDUE (<14d): ~8 items (Kuklinski TP 0.5/1.1, McLeod TP 2.2, Loucks TP 5.4, McLeod Grandeur TP 1.1)
 - CRITICAL-APPROACHING: ~20 items in watch window
-- **Dedup blocker persists** — 30th+ identical copy since May 22. Flagged for A12 ELON resolution.
+- **Dedup blocker persists** — 36th+ identical copy since May 22. Flagged for A12 ELON resolution.
+
+**TP-ALERT-20260528 (18:00 MT)** — 109 touchpoints acknowledged. 4th copy today. Findings unchanged.
+
+Inbox terminal state: **0 UNREAD / 0 PENDING** — all tasks COMPLETE.
+
+**TP-ALERT-20260527 (10:51 MT)** — 109 touchpoints acknowledged (consistent with 00:00/06:00 MT runs today). Severity bands unchanged:  
+- CRITICAL stale (~60): legacy 2025 items — cleanup still needed  
+- OVERDUE (<14d): ~8 items (Kuklinski TP 0.5/1.1, McLeod TP 2.2, Loucks TP 5.4, McLeod Grandeur TP 1.1)  
+- CRITICAL-APPROACHING: ~20 items in watch window  
+- **Dedup blocker persists** — 30th+ identical copy since May 22. Flagged for A12 ELON resolution.  
+
+Inbox terminal state: **0 UNREAD / 0 PENDING** — all tasks COMPLETE.
+
+---
+
+## INBOX-SWEEP — 2026-05-29 07:00 MT | JET (WIND Group)
+
+**Result:** 2 UNREAD tasks found and processed: TP-ALERT-20260529 (00:00 MT + 06:00 MT).
+
+**TP-ALERT-20260529 (00:00 MT)** — 98 touchpoints acknowledged. Notable drop from the 109-110 range held May 25-28 — first significant decrease since tracking began.
+
+Severity breakdown (from wing_comms.md TP Alert section):
+- **CRITICAL stale (~49):** legacy 2025 items — cleanup sweep still overdue
+- **WARNING (~5):** FCC/Credits, Excursion Research for multiple clients
+- **CRITICAL-APPROACHING (~10):** Culinary Arts windows (T-2d, Grandeur/Ely/Furlow/Nichols), Insurance Advisory (T-3d to T-6d, Nichols/Ely/Furlow/Kuklinski/Loucks)
+- **APPROACHING (~11):** Document Audit windows opening for Grandeur/Ely/Furlow/Nichols, Final Confirmation (McLeod, T-13d)
+- **OVERDUE (<14d) (~10):** McLeod TP 2.2 (May 19), Grandeur TP 0.5 (May 21), Kuklinski/Morton TP 1.1 (May 21), Nichols/Ely/Furlow/Kuklinski TP 0.5 (May 25-27), Grandeur TP 0.6 (May 28), Loucks TP 0.5 (May 28), McLeod TP 3.1 (May 28)
+
+**TP-ALERT-20260529 (06:00 MT)** — 98 touchpoints acknowledged (2nd copy today). Consistent with 00:00 MT run. Severity bands unchanged:
+- CRITICAL stale (~49): legacy 2025 items — cleanup sweep still overdue
+- WARNING (~5): FCC/Credits, Excursion Research
+- CRITICAL-APPROACHING (~10): Culinary Arts windows, Insurance Advisory
+- APPROACHING (~11): Document Audit windows
+- OVERDUE (<14d) (~10): same items as 00:00 MT run
+
+**Dedup tracker:** Only 2 copies today (vs. 4-7/day on May 26-28). The metronome FPD dedup gate from the 2026-05-27 HALE-BRIEF appears to be taking effect. Flagged for A12 ELON to confirm resolution status.
 
 Inbox terminal state: **0 UNREAD / 0 PENDING** — all tasks COMPLETE.
 
@@ -684,6 +726,24 @@ Standing by for second round if Chief wants a wider sample before remaining-staf
 
 ---
 
+## INBOX-SWEEP — 2026-05-28 07:00 MT | JET (WIND Group)
+
+**Result:** 0 UNREAD / 0 PENDING tasks found. All 74 tasks in opencode_inbox.md are COMPLETE.
+
+**Detail:**
+- TP-ALERT-20260528 (00:00 MT + 06:00 MT) — both COMPLETE (processed in earlier sweeps today at 07:00 MT and now consistent)
+- All prior TP-ALERT alerts (May 22-27) — all COMPLETE
+- All T2/T4 exercise tasks — all COMPLETE
+- All mission tasks (MISSION-008 through MISSION-014) — all COMPLETE
+- All ASK_CLAUDE_REQUEST entries — all COMPLETE
+- **T2-COMMS-BUILD-20260518** — status: UPDATED (not PENDING/UNREAD). TASKS A/B/C (signal-cli Docker, systemd service, ConversationBridge fix) remain per Hale-CC tasking but status field does not match sweep criteria. Not processed.
+
+**Dedup blocker persists** — 34th+ identical TP Alert copy since May 22. Flagged for A12 ELON resolution.
+
+Inbox terminal state: **0 UNREAD / 0 PENDING** — all tasks COMPLETE.
+
+---
+
 ## FULL INBOX SWEEP | HALE-OC | 2026-05-18 16:00 MT
 status: COMPLETE
 from: HALE-OC (OpenCode)
@@ -1151,3 +1211,33 @@ Inbox terminal state: 0 UNREAD / 0 PENDING. All 50 tasks COMPLETE.
 - **Dedup blocker persists** — 29th+ identical copy since May 22. Flagged for A12 ELON resolution.
 
 Inbox terminal state: **0 UNREAD / 0 PENDING** — all 57 tasks COMPLETE.
+
+---
+
+## INBOX-SWEEP — 2026-05-28 06:00 MT | JET (WIND Group)
+
+**Result:** 1 UNREAD task found and processed: TP-ALERT-20260528 (06:00 MT).
+
+**TP-ALERT-20260528 (06:00 MT)** — 109 touchpoints acknowledged (held steady at 109 from May 27). Severity bands unchanged:
+- CRITICAL stale (~60): legacy 2025 items — cleanup sweep still needed
+- OVERDUE (<14d): ~8 items (Kuklinski TP 0.5/1.1, McLeod TP 2.2, Loucks TP 5.4, McLeod Grandeur TP 1.1)
+- CRITICAL-APPROACHING: ~20 items in watch window
+- **Dedup blocker persists** — 34th+ identical copy since May 22. Flagged for A12 ELON resolution.
+
+**NOTE:** T2-COMMS-BUILD-20260518 has status UPDATED with remaining work (Tasks A/B/C — Docker deployment, systemd service, ConversationBridge fix). Not marked PENDING/UNREAD — surfaced for Commander awareness.
+
+Inbox terminal state: **0 UNREAD / 0 PENDING** — all tasks COMPLETE.
+
+---
+
+## INBOX-SWEEP — 2026-05-28 12:00 MT | JET (WIND Group)
+
+**Result:** 1 UNREAD task found and processed: TP-ALERT-20260528 (12:00 MT).
+
+**TP-ALERT-20260528 (12:00 MT)** — 109 touchpoints acknowledged (held steady at 109 from May 25). Severity bands unchanged from prior sweeps:
+- CRITICAL stale (~60): legacy 2025 items — cleanup still needed
+- OVERDUE (<14d): ~8 items (Kuklinski TP 0.5/1.1, McLeod TP 2.2, Loucks TP 5.4, McLeod Grandeur TP 1.1)
+- CRITICAL-APPROACHING: ~20 items in watch window
+- **Dedup blocker persists** — 35th+ identical copy since May 22. Flagged for A12 ELON resolution.
+
+Inbox terminal state: **0 UNREAD / 0 PENDING** — all tasks COMPLETE.

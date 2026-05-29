@@ -1,46 +1,82 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-05-28 05:42:09 MDT
+## Generated: 2026-05-28 23:50:00 MT
 
 ---
 
 ### Recent Commits
-- c8659ae feat(intel): Phase 1 connectors complete + metronome keeper hook
-- b4effef fix(tess): validated Trip/Booking POST pattern — $ProtectedEncrypted + Company names
-- f0bd23d chore(ops): session state sync — Wave 4 CruiseMapper expansion complete
-- 31722fe feat(cruise-intel): Wave 4 expansion — 28 lines, dead link audit, interline brief
-- cd11bf6 chore(ops): session state sync — T2 pipeline complete, McLeod WF-17 staged
+- ecb75a63 feat(intel): M-071 — Grok 4 / Grok Build joint staff paper (A2+A12)
+- a9e270e5 feat(dossier): TESS FPD dossier auto-sync (M-041)
+- 9c8f94bf feat(tess): tess_fpd_sweep MCP tool + reporting utilities (M-039)
+- f9a25586 feat(m074): Intel Connector Re-Auth — centrav_reauth.py + bedsonline credential sync
+- fe7d3366 feat(poc): M-061 — invisible_playwright eval: reCAPTCHA + Cloudflare bypassed
 
 ### Uncommitted Changes
- M .obsidian/workspace.json
- M .smart-env/event_logs/event_logs.ajson
- M .smart-env/multi/CLAUDE_md.ajson
- M .smart-env/multi/OpsCenter_CLAUDE_DESKTOP_INIT_md.ajson
- M .smart-env/multi/OpsCenter_OPENCODE_INIT_md.ajson
- M .smart-env/multi/OpsCenter_collaboration_blackboard_summary_txt.ajson
- M .smart-env/multi/OpsCenter_collaboration_routing_log_md.ajson
- M .smart-env/multi/OpsCenter_scan_outputs_incubator_review_latest_txt.ajson
- M .smart-env/multi/logs_session_log_txt.ajson
- M .smart-env/multi/session_autosave_latest_md.ajson
- M CLAUDE.md
- M OpsCenter/.supervisor_patterns.json
- M OpsCenter/00_COMMAND_LOG.md
- M OpsCenter/CLAUDE_DESKTOP_INIT.md
- M OpsCenter/OPENCODE_INIT.md
- M OpsCenter/collaboration/blackboard_summary.txt
- M OpsCenter/collaboration/claude_outbox.md
- M OpsCenter/collaboration/opencode_inbox.md
- M OpsCenter/collaboration/routing_log.md
- M OpsCenter/collaboration/wing_comms.md
+- .obsidian/workspace.json (modified)
+- .smart-env/event_logs/event_logs.ajson (modified)
+- .smart-env/multi/CLAUDE_md.ajson (modified)
+- .smart-env/multi/OpsCenter_CLAUDE_DESKTOP_INIT_md.ajson (modified)
+- .smart-env/multi/OpsCenter_OPENCODE_INIT_md.ajson (modified)
+- .smart-env/multi/OpsCenter_collaboration_blackboard_summary_txt.ajson (modified)
+- .smart-env/multi/OpsCenter_collaboration_routing_log_md.ajson (modified)
+- .smart-env/multi/OpsCenter_scan_outputs_incubator_review_latest_txt.ajson (modified)
+- .smart-env/multi/logs_session_log_txt.ajson (modified)
+- .smart-env/multi/session_autosave_latest_md.ajson (modified)
+- CLAUDE.md (modified)
+- OpsCenter/.supervisor_patterns.json (modified)
+- OpsCenter/CLAUDE_DESKTOP_INIT.md (modified)
+- OpsCenter/OPENCODE_INIT.md (modified)
+- OpsCenter/a7_metrics_dashboard.json (modified)
+- OpsCenter/collaboration/blackboard_summary.txt (modified)
+- OpsCenter/collaboration/claude_outbox.md (modified)
+- OpsCenter/collaboration/opencode_inbox.md (modified)
+- OpsCenter/collaboration/routing_log.md (modified)
+- OpsCenter/collaboration/wing_comms.md (modified)
+- .opencode/skills/two-brain/SKILL.md (new)
+- .smart-env/multi/APPROVAL_WORKFLOW_QUICK_REFERENCE_txt.ajson (new)
+- .smart-env/multi/CHROMEBOOK_INIT_md.ajson (new)
+- .smart-env/multi/Commander_Review_Spencer_Grand_Tour_2027_Brief_md.ajson (new)
+- .smart-env/multi/Dossiers_Ely_Darrow_Regent_3096289_md.ajson (new)
+- .smart-env/multi/HALE_BRAIN_VALIDATION_REPORT_md.ajson (new)
+- .smart-env/multi/MODEL_ROUTING_SUMMARY_md.ajson (new)
+- .smart-env/multi/OPENROUTER_INTEGRATION_md.ajson (new)
+- .smart-env/multi/OpsCenter_COMMANDER_MEMO_20260427_md.ajson (new)
+- .smart-env/multi/OpsCenter_COS_TASKING_AUDIT_md.ajson (new)
+- .smart-env/multi/OpsCenter_COS_TASK_TEMPLATE_md.ajson (new)
+- .smart-env/multi/OpsCenter_HALE_BRAVO_INIT_md.ajson (new)
+- .smart-env/multi/OpsCenter_HALE_TOKEN_OPTIMIZATION_INTEGRATION_md.ajson (new)
+- .smart-env/multi/OpsCenter_Instructions_md.ajson (new)
+- .smart-env/multi/OpsCenter_LESSONS_LEARNED_md.ajson (new)
+- .smart-env/multi/OpsCenter_OPENCLAW_ARCHITECTURE_REVIEW_md.ajson (new)
+- .smart-env/multi/OpsCenter_OPENCODE_INTEGRATION_GUIDE_md.ajson (new)
+- .smart-env/multi/OpsCenter_OPENCODE_TOKEN_OPTIMIZATION_GUIDE_md.ajson (new)
+- .smart-env/multi/OpsCenter_OWNER_MEMO_TWO_DOMAINS_20260501_md.ajson (new)
+- .smart-env/multi/OpsCenter_PHASE1_OPUS_ROUTING_RULES_md.ajson (new)
 
-### Inbox Status
-- Claude inbox: 0
-0 pending task(s)
-- OpenCode inbox: 1 pending task(s)
+### Active Work
+- SSS: 0 pending decision(s)
+- Learning: 8 rules pending validation
 
-### System Health
-- Watcher: ❌ STOPPED
-- Claude headless: ✅ ACTIVE
-- OpenCode headless: ✅ ACTIVE
+### Recently Touched Dossiers
+- DOSSIER_VikingMars_PanamaCanal_Dec2026.md
+- McLeod_Erik_Melissa_SilverMuse_Complete.md
+- Morton_Joshua_Erica_Viking_Panama.md
+- Loucks_Regent_Grandeur_3122006.md
+- McLeod_McGlasson_Multi.md
+
+### Open TODOs
+- [tool_validation_plan.md] - [ ] read Booking Master tab
+- [tool_validation_plan.md] - [ ] write to Booking Master tab
+- [tool_validation_plan.md] - [ ] read Daily Itinerary tab
+- [tool_validation_plan.md] - [ ] write to Daily Itinerary tab
+- [tool_validation_plan.md] - [ ] read specific cell ranges
+- [tool_validation_plan.md] - [ ] write formatted data (USD, dates)
+- [tool_validation_plan.md] - [ ] verify fmt_usd() formatting in sheet output
+- [tool_validation_plan.md] - [ ] search confirmations
+- [tool_validation_plan.md] - [ ] read threads
+- [tool_validation_plan.md] - [ ] create drafts
+
+### Recent Telegram C2 Log (last 5 lines)
+  (no Telegram session logs found)
 
 ---
-*Auto-generated by COS · Thunderbird OS · Auto-Save Protocol 2026-03-27*
+*Auto-generated by COS · Thunderbird OS · Auto-Save Protocol 2026-03-16*

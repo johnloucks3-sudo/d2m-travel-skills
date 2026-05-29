@@ -8,15 +8,15 @@
       "d2mconcierge@gmail.com"
     ],
     "days_back": 400,
-    "total_examples": 1312,
+    "total_examples": 1320,
     "by_tier": {
-      "personal": 375,
-      "client": 215,
-      "vendor": 47,
-      "internal": 668,
+      "personal": 376,
+      "client": 218,
+      "vendor": 48,
+      "internal": 671,
       "family": 7
     },
-    "last_sync": "2026-05-28T02:32:59.145940"
+    "last_sync": "2026-05-29T02:35:00.331398"
   },
   "examples": [
     {
@@ -1637,6 +1637,24 @@
       "to": "ann heer <iamheer@outlook.com>",
       "date": "Mon, 25 May 2026 06:24:54 -0600",
       "body": "Hi Ann, I just logged into code.d2mluxury.net and noticed your QandA with\nBig pickle. I'd recommend you do \"/model\"  Deepseek V4 Zen or better yet\ntry Anthropic Haiku MAX. BIGPICKLE limits you hourly and daily by about 1/2\nof Deepseek. Your call.\nJohn\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 5
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "vendor",
+      "subject": "Please reset my password username JLOUCKS1",
+      "to": "resetcodesnorthamerica@bedsonline.com",
+      "date": "Thu, 28 May 2026 15:54:56 -0600",
+      "body": "Good afternoon, unable to reset my password. I am an outside agents agent.\nPlease reset\n\nThanks\nJohn\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 5
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "client",
+      "subject": "Re: An opportunity with Dreams2Memories Travel",
+      "to": "Bryana Roelke <bryanajarboe@gmail.com>",
+      "date": "Thu, 28 May 2026 14:00:56 -0600",
+      "body": "Sent the link.  Did you get the message about going slow and just\npartnering with me and learning the business from me vs paying $46 a month\nfor this host?\n\nOn Thu, May 28, 2026 at 11:28 AM Bryana Roelke <bryanajarboe@gmail.com>\nwrote:",
       "score": 5
     },
     {
@@ -3509,6 +3527,24 @@
       "to": "D2M Concierge <d2mconcierge@gmail.com>",
       "date": "Tue, 26 May 2026 09:48:14 -0600",
       "body": "Hi Eric, I hope you are doing well. Wondering what the state of play is and\nwhat I need to do for you regarding transport. You mentioned or Melissa\nmentioned that you had all your Venice arrangements set.  Could you send me\nthose once again? I think I might have missed something during the cruise.\nI'm getting ready to send you a confirmation/validation of all the\ninformation we have before we turn it into an itinerary. And that is the\nmissing link I believe, the Rome Hotel to ship, the Venice ship to hotel,\nand the Venice Hotel to airport I don't want to assume anything. And if\nthere is something you want me to do please let me know. I value our\nprofessional relationship but I also value our friendship\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Thanks For The...............",
+      "to": "Philip Piontek <piontek@retiree.ucmo.edu>",
+      "date": "Thu, 28 May 2026 14:08:54 -0600",
+      "body": "Flip, I would be glad to do some research with my very capable AI, but I\nhave no practical experience. Let me know.  Send me more info as to her\nhistorical status, marriage details, and anything else.  PS, last cruise we\nwere on we met some Aussies and they gave me the name of their awesome\ntravel agent. I told them of you r plans and they say it is all doable.\nHere's hoping you get to see them BOTH when you go.\nJohn\n\nOn Thu, May 28, 2026 at 12:58 PM Philip Piontek <piontek@retiree.ucmo.edu>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "client",
+      "subject": "Re: Rome by Night — 4 Options for Kim Westbrook | July 16, Party of 4",
+      "to": "crnakim@yahoo.com",
+      "date": "Thu, 28 May 2026 20:07:10 -0600",
+      "body": "Please let me know if you find any errors, I looked at this but at a\nsurface level....soooooooory\n\nOn Thu, May 28, 2026 at 7:38 PM Dreams2Memories <d2mconcierge@gmail.com>\nwrote:",
       "score": 4
     },
     {
@@ -10028,6 +10064,24 @@
       "score": 3
     },
     {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "YOGA Site Passwords — code + itinerary.d2mluxury.quest",
+      "to": "johnloucks3@gmail.com",
+      "date": "Thu, 28 May 2026 09:37:52 -0400",
+      "body": "Site Passwords — YOGA / d2mluxury.quest\n\nWeb Terminal (SSH-in-browser):\n  URL:      https://code.d2mluxury.quest\n  Username: john\n  Password: Falcons4me!\n\nItinerary / HALE Briefing (file server):\n  URL:      https://itinerary.d2mluxury.quest\n  Username: john\n  Password: d2m2026!\n\nBoth run through Cloudflare tunnel — accessible from any browser.\nNo Tailscale required.\n\n— Hale",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "HALE — DAILY BRIEF | 2026-05-28 06:00 MT",
+      "to": "johnloucks3@gmail.com",
+      "date": "Thu, 28 May 2026 07:50:02 -0400",
+      "body": "📊 HALE — DAILY OPERATIONAL BRIEF Generated 2026-05-28 · 06:00 MT · Commander John Loucks 📊 Client Lifecycle Wheel 7 active clients, urgency-coded segments, FPD countdown arcs. Click segment for detail panel. View Lifecycle Wheel → 💰 Financial Waterfall Commission pipeline flow: Prospects → Booked → At-Risk → Projected. Allianz claim divergence shown. View Waterfall → 🔥 Task Heat Map Clients × Task Types grid. Urgency-colored, effort-encoded. Hover for task roster by cell. View Heat Map → ⚠️ Risk Matrix Likelihood × Disruption scatter. Quadrants: Escalate (red), Mitigate (yellow), Monitor, Accept. Action registry below. View Risk Matrix → ⚡ DECISIONS NEEDED FROM COMMANDER Approve 11 Gmail Drafts? Kuklinski (validation), McLeod (Silver Muse 60-day + Grandeur TP0.5/TP0.6), Westbrook (Perx + SkyLux), Furlow/Nichols/Ely (CAK). All staged in d2mconcierge drafts folder. Initiate Lyons FPD Outreach? Nancy & Ken Lyons — FPD May 11 (14 days remaining). Direct Commander action required. Chase Furlow $15,486 Payment? Final payment was due Apr 1. Confirm received or authorize A9 follow-up. Re-Auth TESS? Financial feed is blind. Run: python3 thunderbird_tess.py --authorize to restore commission visibility. HALE — Ms. Victoria \"Victory\" Hale, SES-6 | Chief of Staff | Dreams2Memories Travel, LLC This brief is generated automatically at 05:50 MT daily and sent at 06:00 MT. Link expires in 90 days. Briefs archived locally + Google Drive.",
+      "score": 3
+    },
+    {
       "account": "johnloucks3@gmail.com",
       "tier": "internal",
       "subject": "[COS] General: BREAKING:  Most Americans say war in Iran is going",
@@ -11825,6 +11879,24 @@
       "to": "johnloucks3@gmail.com",
       "date": "Tue, 26 May 2026 18:00:19 +0000",
       "body": "ISSUE:\nMcLeod water taxi booking for Venice arrival (7/6/2026) — three options researched, client confirmation and booking coordination needed.\n\nDISCUSSION:\nHale's water taxi intelligence report for McLeod's July 6 Venice arrival with three vendor options (Consorzio Motoscafi, Luxury Water Taxi, Book Water Taxi Venice). Commander endorses Motoscafi based on personal experience.\n\nACTIONS I RECOMMEND TAKING:\n1. File in McLeod dossier under ARC3 (Arrival Logistics)\n2. Follow up with client on preferred water taxi option (recommend Consorzio Motoscafi per Hale + Commander experience)\n3. Confirm booking 2-3 weeks before arrival (early June)\n4. Note hotel pickup: Hilton Molino Stucky (Giudecca) is named in Consorzio system\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-05-26 12:00 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "client",
+      "subject": "Rome by Night — 4 Options for Kim Westbrook | July 16, Party of 4",
+      "to": "John Loucks3 <johnloucks3@gmail.com>",
+      "date": "Thu, 28 May 2026 19:36:41 -0600",
+      "body": "DREAMS2MEMORIES TRAVEL\n\nKim,\n\nHere are four Rome by Night options for your July 16 evening — all rated\n4.8 stars or better, all available for a party of four. Details and booking\nlinks below.\n\nOption 1 — Trastevere & Campo de Fiori Street Food Walking Tour\n\n2.5 hours  ·  4.9★ (3,452 reviews)  ·  $53 per person  ·  *$212 for four*\n\nView & Book on GetYourGuide\n<https://www.getyourguide.com/rome-l33/rome-trastevere-campo-de-fiori-street-food-walking-tour-t460750/>\n\nOption 2 — Golf Cart Tour with Artisanal Gelato Tasting\n\n2.5 hours  ·  4.8★ (1,924 reviews)  ·  $89 per person  ·  *$356 for four*\n\nView & Book on GetYourGuide\n<https://www.getyourguide.com/rome-l33/rome-golf-cart-tour-with-artisanal-gelato-tasting-t653524/>\n\nOption 3 — Food Tour in Trastevere with Dinner & Fine Wine\n\n4 hours  ·  4.9★ (1,506 reviews)  ·  $106 per person  ·  *$424 for four*\n\nView & Book on GetYourGuide\n<https://www.getyourguide.com/rome-l33/rome-food-tour-in-trastevere-with-dinner-fine-wine-t220905/>\n\nOption 4 — City Golf Cart Tour at Night with Free Pickup\n\n2.5 hours  ·  4.9★ (275 reviews)  ·  $139 per person  ·  *$556 for four*\n\nView & Book on GetYourGuide\n<https://www.getyourguide.com/rome-l33/rome-city-golf-cart-tour-at-night-with-free-pickup-t1031725/>\n\nEach links directly to the booking page. Let me know which one you'd like\nto move forward with and I'll confirm availability for July 16.\n\nThanks,\n\nDani Moreau (My AI concierge)\n\nDreams2Memories Travel, LLC\nDREAMS2MEMORIES TRAVEL, LLC  ·  concierge@d2mluxury.quest",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Re: An opportunity with Dreams2Memories Travel",
+      "to": "johnloucks3@gmail.com",
+      "date": "Thu, 28 May 2026 13:00:19 -0500",
+      "body": "ISSUE:\nProspect requires resend of Commander's recruiting message and application/information link; prior phone contact attempt failed.\n\nDISCUSSION:\nBryana Roelke is following up on Commander's business opportunity message for D2M. The phone number he provided doesn't work; she's requesting resend of the original message and application link.\n\nACTIONS I RECOMMEND TAKING:\n1. Resend Commander's original recruiting message and application/onboarding link to bryanajarboe@gmail.com\n2. Confirm receipt and clarify next steps\n3. Schedule initial intake conversation at 608-449-4699 or via email\n4. Flag as warm associate recruitment prospect — shows initiative by following up\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-05-28 12:00 MT\nThunderbird Email Intelligence Officer",
       "score": 2
     }
   ]

@@ -22,5 +22,37 @@
   {
     "role": "Hale, Sonnet",
     "text": "<b>Hale, Sonnet</b>\n\n[Engine timeout — Claude exceeded limit]"
+  },
+  {
+    "role": "Commander",
+    "text": "need portal password for code.d2mluxury.quest"
+  },
+  {
+    "role": "Hale, Sonnet",
+    "text": "<b>Hale, Sonnet</b>\n\nJohn — the password is hashed, never stored in plaintext. The memory note says it was set at setup but not recorded. Two options:\n\n**Option 1 — Reset it now (clean, 30 seconds):**\nYou'd need to SSH into YOGA and run:\n```bash\nsudo htpasswd /etc/nginx/ttyd.htpasswd john\n```\nEnter your new password when prompted. Takes effect immediately.\n\n**Option 2 — Check if you saved it in RoboForm/password manager** under `code.d2mluxury.quest` or `ttyd`.\n\nThe bcrypt hash in htpasswd is one-way — I cannot reverse it. Want me to draft the reset command as a one-liner you can paste into YOGA terminal?\n\n— Victory"
+  },
+  {
+    "role": "Commander",
+    "text": "I am doing it"
+  },
+  {
+    "role": "Hale, Sonnet",
+    "text": "<b>Hale, Sonnet</b>\n\n🦅\n\nCopy, John. Standing by if you hit any snags."
+  },
+  {
+    "role": "Commander",
+    "text": "can you do ti I am remote on Chromebook trying to fix termius/termux access"
+  },
+  {
+    "role": "Hale, Sonnet",
+    "text": "<b>Hale, Sonnet</b>\n\nDone. Password reset on YOGA.\n\n**code.d2mluxury.quest credentials:**\n- **Username:** john\n- **Password:** `Tbrd2026!`\n\nTest it now. Once you're in, change it to something you prefer via SSH or I can reset it to anything you want — just say the word."
+  },
+  {
+    "role": "Commander",
+    "text": "reset to 5277"
+  },
+  {
+    "role": "Hale, Sonnet",
+    "text": "<b>Hale, Sonnet</b>\n\nDone. `code.d2mluxury.quest` — password is now `5277`."
   }
 ]

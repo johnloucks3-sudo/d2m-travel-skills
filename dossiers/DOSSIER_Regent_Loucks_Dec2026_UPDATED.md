@@ -1,3 +1,22 @@
+<!--
+========================================================================
+STALE / SUPERSEDED — A7 STERLING FLAG — 2026-05-28
+========================================================================
+THIS DOSSIER CONTAINS A KNOWN DATA ERROR AND IS NO LONGER AUTHORITATIVE.
+
+ERROR: Final Payment Date recorded as 2026-09-30 (E-120 from embarkation).
+CORRECT FPD: 2026-08-01 per live Regent portal (booking 3122006).
+DELTA: 31 days — FPD was understated by one full calendar month.
+
+SUPERSEDED BY: Loucks_Regent_Grandeur_3122006.md (canonical, 99.7KB)
+AUTHORITY: A7 Sterling — T3 Wing Exercise reconciliation 2026-05-28
+
+DO NOT USE THIS FILE FOR PAYMENT SCHEDULING OR FPD ALERTS.
+DO NOT DELETE — preserved per T3 durable artifact requirement.
+Read the canonical dossier for all operational decisions.
+========================================================================
+-->
+
 # DREAMS2MEMORIES TRAVEL — CLIENT DOSSIER
 **REGENT SEVEN SEAS GRANDEUR | PANAMA CANAL TRANSIT**
 
