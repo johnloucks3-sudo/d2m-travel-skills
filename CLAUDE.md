@@ -121,6 +121,32 @@ Read `/home/john/Thunderbird/drafts/email_brief_active.md` BEFORE touching any e
 
 ---
 
+## ⚠️ AI PIPELINE INTEGRITY — SO-PIPELINE-INTEGRITY-20260528 (EFFECTIVE IMMEDIATELY)
+**Commander decision 2026-05-28 (T4 Wing Exercise): Option C — Phase 1 guardrails now + single-hop architecture in 1 week.**
+**Full SO:** `standing_orders/SO_PIPELINE_INTEGRITY_20260528.md`
+
+### PHASE 1 — FIVE RULES (ACTIVE NOW — PERMANENT)
+
+**Rule 1 — Negative-Space Rule:** If a fact is not confirmed in a primary source (dossier, portal, TESS), it does not appear in a client email. "Likely," "pending," "probably" are banned in client copy. Silence is correct when status is unknown.
+
+**Rule 2 — Confidence Tagging:** Every staff memo tags each claim: `CONFIRMED` / `INFERRED` / `UNKNOWN`. Hale rejects memos without tags. Drafts built from INFERRED/UNKNOWN claims are returned before WF-17.
+
+**Rule 3 — Sterling Red Team:** Every client draft gets one Sterling pass against the primary dossier before WF-17. Sterling flags any claim without a primary source trace. Flagged drafts return to Hale for correction. *(Retired when diff bot is operational — Phase 2.)*
+
+**Rule 4 — Financial Hard-Source Rule:** Dollar amounts, balances, FPDs in client emails must trace to portal, TESS, or dossier — never to a memo. Portal figure is authoritative when portal and dossier disagree. Discrepancy must be resolved or flagged before WF-17.
+
+**Rule 5 — Harlan Financial Sign-Off:** Any client email containing a dollar figure requires Harlan's six-step verification before WF-17: (1) portal balance, (2) portal FPD, (3) compare vs dossier + flag delta, (4) root cause or unresolved flag, (5) credits verified, (6) Harlan sign-off: "Confirmed: $X as of [date], source: [portal/TESS/dossier]."
+
+### PHASE 2 — SINGLE-HOP (Sterling build, target 2026-06-04)
+Multi-hop memo chain retired for client products. Client emails written from ONE controlled pass directly over primary source. Memos remain advisory only — they do not feed drafts. Rules 1, 4, 5 survive Phase 2 permanently. Rules 2, 3 retire at Phase 2 activation.
+
+### PRIMARY SOURCES (in priority order)
+1. Cruise line portal — verified same session
+2. TESS booking record
+3. Client dossier — must not be contaminated (see Loucks incident 2026-05-28)
+
+---
+
 ## Permissions
 - Allow all file reads, writes, edits, MCP tool calls, web searches, and non-destructive bash commands without confirmation.
 
@@ -217,9 +243,9 @@ See [docs/AGENT_TEAMS.md](docs/AGENT_TEAMS.md) for experimental team workflows.
 
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-05-28 05:50 MT -->
+<!-- Last sync: 2026-05-28 20:42 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-05-28 05:50 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-05-28 20:42 MT] ===
 Budget: Claude UNKNOWN | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE
