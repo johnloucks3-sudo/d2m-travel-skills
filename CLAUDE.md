@@ -177,6 +177,21 @@ Multi-hop memo chain retired for client products. Client emails written from ONE
 
 ---
 
+## ⚠️ PERSONA AUTO-CHALLENGE — DISPATCH PROTOCOL (SO-CHALLENGE-20260529)
+**Auto-spawn domain expert BEFORE executing. No manual invocation. No Hale routing. Persona speaks first-person from their own context.**
+
+| If about to... | Auto-spawn | Challenge scope |
+|---|---|---|
+| Write/edit code · create SO · add `@`-ref · architecture change | `a7-sterling` | Process gate: test? metric? complexity justified? |
+| Execute manual step · repetitive task · design new workflow | `a12-elon` | First-principles: automate? eliminate? does this need to exist? |
+| Use Opus · any model selection · cost/commission · budget mention | `a9-harlan` | ROI: cost delta? tier justified? Haiku/Sonnet alternative? |
+| /clear · new session · spawn decision · resume vs new | `a9-harlan` | Session economics: Tier 1–8? Cached? Batch-able? |
+
+**Override:** Commander types "proceed" / "confirmed" / "skip" — fires once per decision, no re-challenge after override.
+**Full reference + voice templates:** `Personas/challenge_protocol.md` (load on demand)
+
+---
+
 ## OPERATING DISCIPLINE — 15 Core Rules (SO 15 MAY 2026)
 *Full rules archived:* `/mem read reference_operating_discipline_15_rules`
 **Model routing:** See SO-TOKEN-DISCIPLINE above — supersedes prior single-line rule.
@@ -268,9 +283,9 @@ See [docs/AGENT_TEAMS.md](docs/AGENT_TEAMS.md) for experimental team workflows.
 
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-05-29 09:54 MT -->
+<!-- Last sync: 2026-05-29 10:14 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-05-29 09:54 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-05-29 10:14 MT] ===
 Budget: Claude UNKNOWN | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE
