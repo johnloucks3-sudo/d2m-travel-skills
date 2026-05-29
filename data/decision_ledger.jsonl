@@ -1,0 +1,1 @@
+{"ts":"2026-05-29T00:00:00-06:00","decision_type":"so_authorship","persona":"HALE","tier":"Hale","auto_execute":false,"outcome":"executed","notes":"Initial decision_ledger.jsonl created. Schema: {ts, decision_type, persona, tier, auto_execute, outcome, notes}. Daily scan AGT-009 reads this file at 06:45 MT. Ref: docs/decision_authority_matrix.yaml → audit section."}

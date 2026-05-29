@@ -1,0 +1,307 @@
+##
+## THUNDERBIRD WING — AGENT REGISTRY
+## Version: 1.0 | Created: 2026-05-29 | Owner: A12 ELON (nomination) + A7 Sterling (build/maintain)
+##
+## domain_owner: persona responsible for the agent's output and value
+## builder: persona responsible for the code/infra
+## status: live | defined | partial | not_built | gap
+## trigger: cron | lifecycle_event | on_demand | timer | webhook
+##
+
+version: "1.0"
+agent_domain_owner: A12_ELON    # nominates new agents, weekly kill audit, kills low-ROI agents
+agent_builder: A7_STERLING      # builds, deploys, monitors, owns registry health
+
+# ─────────────────────────────────────────────────
+# LIVE AGENTS (running now)
+# ─────────────────────────────────────────────────
+live:
+
+  morning_brief:
+    id: AGT-001
+    name: "Morning Brief Generator"
+    domain_owner: HALE
+    builder: STERLING
+    trigger: cron
+    cadence: "daily 06:00 MT"
+    script: "scripts/generate_hale_brief.py"
+    output: "hale_brief.md"
+    status: live
+    last_run: "auto"
+
+  tess_sync:
+    id: AGT-002
+    name: "TESS Dossier Sync"
+    domain_owner: HALE
+    builder: STERLING
+    trigger: cron
+    cadence: "daily 06:45 MT"
+    script: "scripts/tess_sync.py"
+    output: "hale_state.json (financial_pulse)"
+    status: live
+    note: "Conservative fill-only — never downgrades payment status"
+
+  fare_watch:
+    id: AGT-003
+    name: "Fare Alert Watch"
+    domain_owner: HALE
+    builder: STERLING
+    trigger: timer
+    cadence: "interval (configured)"
+    script: "scripts/fare_watch.py"
+    output: "Telegram notification"
+    status: live
+
+  daily_osint_sweep:
+    id: AGT-004
+    name: "Dembe Daily OSINT Sweep"
+    domain_owner: A2_DEMBE
+    builder: STERLING
+    trigger: cron
+    cadence: "daily"
+    script: "scripts/dembe_intel_sweep.py"
+    output: "intel/daily_brief.md + Telegram"
+    status: live
+
+  nightly_innovation_scan:
+    id: AGT-005
+    name: "Dembe Nightly Innovation Scan"
+    domain_owner: A2_DEMBE
+    builder: STERLING
+    trigger: cron
+    cadence: "daily 18:30 MT"
+    output: "intel/innovation_scan.md"
+    status: live
+
+# ─────────────────────────────────────────────────
+# PARTIAL — EXISTS BUT NOT FULLY OPERATIONAL
+# ─────────────────────────────────────────────────
+partial:
+
+  weekly_financial_pulse:
+    id: AGT-006
+    name: "Harlan Weekly Financial Pulse"
+    domain_owner: A9_HARLAN
+    builder: STERLING
+    trigger: cron
+    cadence: "Monday 06:45 MT"
+    script: "scripts/financial_pulse.py"
+    output: "hale_state.json (financial_pulse)"
+    status: partial
+    gap: "Harlan review step not automated — Hale surfaces result"
+
+  dani_tp_draft_queue:
+    id: AGT-007
+    name: "Dani Lifecycle TP Draft Queue"
+    domain_owner: A3_DANI
+    builder: STERLING
+    trigger: lifecycle_event
+    cadence: "on TP due date"
+    script: "scripts/dani_voice_draft.py"
+    output: "drafts/lifecycle/"
+    status: partial
+    gap: "Batch Sonnet spawn refactor pending (ELON nomination 2026-05-13)"
+
+  lessons_implementation_rate:
+    id: AGT-008
+    name: "Sterling Lessons Implementation Rate"
+    domain_owner: A7_STERLING
+    builder: STERLING
+    trigger: cron
+    cadence: "weekly"
+    output: "output/STERLING_METRICS_DASHBOARD.md"
+    status: partial
+    gap: "Manual hotwash ingestion — not fully automated"
+
+# ─────────────────────────────────────────────────
+# DEFINED — APPROVED, NOT YET BUILT
+# ─────────────────────────────────────────────────
+defined:
+
+  decision_ledger_scan:
+    id: AGT-009
+    name: "Decision Ledger Daily Scan"
+    domain_owner: A7_STERLING
+    builder: STERLING
+    trigger: cron
+    cadence: "daily 06:45 MT (after tess_sync)"
+    script: "scripts/decision_ledger_scan.py"
+    input: "data/decision_ledger.jsonl"
+    output: "hale_brief.md (anomaly section)"
+    status: defined
+    authority: "decision_authority_matrix.yaml → audit section"
+
+  domain_autonomy_rate:
+    id: AGT-010
+    name: "Domain Autonomy Rate Pull"
+    domain_owner: A7_STERLING
+    builder: STERLING
+    trigger: cron
+    cadence: "weekly Monday"
+    script: "scripts/domain_autonomy_rate.py"
+    input: "data/decision_ledger.jsonl"
+    output: "output/STERLING_METRICS_DASHBOARD.md"
+    status: defined
+    metric: "domain_autonomy_rate_pct"
+
+  fpd_flag_scanner:
+    id: AGT-011
+    name: "FPD Flag Resolution Scanner"
+    domain_owner: A9_HARLAN
+    builder: STERLING
+    trigger: cron
+    cadence: "daily"
+    input: "dossiers/ (FPD fields)"
+    output: "hale_brief.md (client wire) + Telegram if > 7 days unresolved"
+    status: defined
+    metric: "fpd_flag_resolution_days"
+
+  castillo_weekly_business_review:
+    id: AGT-012
+    name: "Castillo Weekly Business Review"
+    domain_owner: A5_CASTILLO
+    builder: STERLING
+    trigger: cron
+    cadence: "Friday 08:00 MT"
+    output: "hale_brief.md (Castillo section)"
+    status: defined
+    hook: "hale_state.json → standing_hooks.castillo_weekly_business_review"
+
+  elon_kill_audit:
+    id: AGT-013
+    name: "ELON Weekly Kill Audit"
+    domain_owner: A12_ELON
+    builder: STERLING
+    trigger: cron
+    cadence: "Wednesday 08:00 MT"
+    output: "hale_decisions.md (kill nominations)"
+    status: defined
+    hook: "hale_state.json → standing_hooks.elon_weekly_kill_audit"
+
+  reyes_monthly_dossier_scan:
+    id: AGT-014
+    name: "Reyes Monthly Dossier Scan"
+    domain_owner: A8_REYES
+    builder: STERLING
+    trigger: cron
+    cadence: "1st of month"
+    input: "dossiers/"
+    output: "hale_decisions.md (upsell/gap flags)"
+    status: defined
+    hook: "hale_state.json → standing_hooks.reyes_monthly_dossier_scan"
+
+  washington_monthly_brief:
+    id: AGT-015
+    name: "Washington Monthly Culture Brief"
+    domain_owner: CH_WASHINGTON
+    builder: STERLING
+    trigger: cron
+    cadence: "1st of month"
+    output: "hale_brief.md (Washington section)"
+    status: defined
+    hook: "hale_state.json → standing_hooks.washington_monthly_brief"
+
+  overdue_tp_flag:
+    id: AGT-016
+    name: "Washington 60-Day Overdue TP Flag"
+    domain_owner: CH_WASHINGTON
+    builder: STERLING
+    trigger: cron
+    cadence: "weekly"
+    input: "lifecycle engine + dossiers"
+    output: "hale_brief.md (⚠️ flags)"
+    status: defined
+
+  persona_graphify_rebuild:
+    id: AGT-017
+    name: "Sterling Persona Graph Rebuild"
+    domain_owner: A7_STERLING
+    builder: STERLING
+    trigger: on_demand
+    cadence: "on persona file change (git hook candidate)"
+    input: "Personas/"
+    output: "Personas/graphify-out/graph.html"
+    status: defined
+    note: "Interrupted 2026-05-29 — resume on demand"
+
+# ─────────────────────────────────────────────────
+# NOT BUILT — NOMINATED, PENDING BUILD
+# ─────────────────────────────────────────────────
+not_built:
+
+  navarro_gmail_scraper:
+    id: AGT-018
+    name: "Navarro Gmail Thread → Dossier Scraper"
+    domain_owner: A1_NAVARRO
+    builder: STERLING
+    trigger: webhook
+    cadence: "on new Gmail thread (client)"
+    output: "dossiers/ (auto-populate email fields)"
+    status: not_built
+    go_live_dependency: "email_scraper build (2026-06-15 target)"
+
+  keel_navigator_health:
+    id: AGT-019
+    name: "Keel Regent Navigator Guest-Reg Health Check"
+    domain_owner: A4_KEEL
+    builder: STERLING
+    trigger: cron
+    cadence: "weekly"
+    script: "Playwright automation"
+    output: "hale_brief.md (portal health)"
+    status: not_built
+
+  sienna_social_content_queue:
+    id: AGT-020
+    name: "Sienna Social Content Queue"
+    domain_owner: A13_SIENNA
+    builder: STERLING
+    trigger: lifecycle_event
+    cadence: "on TP milestone"
+    output: "drafts/social/"
+    status: not_built
+
+  metric_id_briefs:
+    id: AGT-021
+    name: "Sterling Metric ID Brief Generator (one-time)"
+    domain_owner: A7_STERLING
+    builder: STERLING
+    trigger: on_demand
+    cadence: "one-time + annual refresh"
+    output: "output/METRIC_ID_BRIEFS.md"
+    status: not_built
+    note: "Generating inline this session"
+
+# ─────────────────────────────────────────────────
+# GAPS — UNSTAFFED PERSONA DEPENDENCIES
+# ─────────────────────────────────────────────────
+gaps:
+
+  jet_charter:
+    id: AGT-GAP-001
+    name: "JET — Infrastructure Oversight + BG Escalation"
+    status: UNSTAFFED
+    charter_target: "2026-06-15"
+    fallback: "Hale advisory review"
+    note: "All infrastructure agents without a named LtGen owner report here when operational"
+
+  talon_charter:
+    id: AGT-GAP-002
+    name: "TALON — Strategic Escalation + External Coordination"
+    status: UNSTAFFED
+    charter_target: "2026-06-15"
+    fallback: "Hale advisory review"
+
+# ─────────────────────────────────────────────────
+# REGISTRY HEALTH (Sterling owns)
+# ─────────────────────────────────────────────────
+registry_health:
+  total_agents: 22
+  live: 5
+  partial: 3
+  defined: 9
+  not_built: 4
+  gaps: 2
+  last_updated: "2026-05-29"
+  next_kill_audit: "ELON — first Wednesday after 2026-06-01"
+  elon_kill_target: "At least 1 agent eliminated or consolidated per quarter"

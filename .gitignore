@@ -54,6 +54,7 @@ output/
 logs/
 *.log
 *.jsonl
+!data/decision_ledger.jsonl
 
 # Node
 node_modules/
