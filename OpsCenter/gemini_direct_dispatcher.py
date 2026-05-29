@@ -134,6 +134,9 @@ def _get_access_token() -> str:
         raise
 
 
+_GEMINI_DISABLED = True  # 2026-05-29 — GCP cap $5/mo. Route to Claude MAX.
+
+
 def dispatch_to_gemini(task_text: str, mission_id: str = None, max_tokens: int = 8000) -> str:
     """
     Call Gemini 1.5 Flash API directly via service account.
@@ -146,6 +149,8 @@ def dispatch_to_gemini(task_text: str, mission_id: str = None, max_tokens: int =
     Returns:
         str: Response text from Gemini, or error message
     """
+    if _GEMINI_DISABLED:
+        return "ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet)."
     try:
         # Get access token
         access_token = _get_access_token()

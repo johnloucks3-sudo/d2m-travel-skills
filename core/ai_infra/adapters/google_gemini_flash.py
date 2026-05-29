@@ -8,6 +8,9 @@ from core.ai_infra.adapters.base import AdapterResult, HealthState
 
 log = logging.getLogger("adapter.gemini_flash")
 
+# DISABLED 2026-05-29 — Gemini costs being eliminated (GCP cap $5/mo). Route to Claude MAX.
+_GEMINI_DISABLED = True
+
 MODEL_ID = "gemini-2.5-flash"
 
 
@@ -22,12 +25,20 @@ class GeminiFlashAdapter:
     point_cost_estimate = 0.0
 
     def health_probe(self) -> tuple[HealthState, str]:
+        if _GEMINI_DISABLED:
+            return ("RED", "Gemini disabled 2026-05-29 — use Claude MAX")
         key = _get_api_key()
         if not key:
             return ("RED", "No GOOGLE_API_KEY configured")
         return ("GREEN", "API key present")
 
     def dispatch(self, system: str, user: str, max_tokens: int = 4096) -> AdapterResult:
+        if _GEMINI_DISABLED:
+            return AdapterResult(
+                text=None, error="Gemini disabled 2026-05-29 — route to Claude MAX",
+                cost_consumed=0, cost_pool=self.cost_pool,
+                latency_ms=0, model_used=MODEL_ID,
+            )
         api_key = _get_api_key()
         if not api_key:
             return AdapterResult(
