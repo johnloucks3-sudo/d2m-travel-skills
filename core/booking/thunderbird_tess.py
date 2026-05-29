@@ -1461,7 +1461,129 @@ def register_tess_tools(mcp):
             return json.dumps({"status": "error", **result}, indent=2)
         return json.dumps({"status": "connected", "profile": result}, indent=2)
 
-    logger.info("TESS API tools registered (17 tools)")
+    @mcp.tool(
+        name="tess_fpd_sweep",
+        annotations={"title": "TESS Final Payment Date Sweep", "readOnlyHint": True},
+    )
+    async def tess_fpd_sweep(
+        days_ahead: int = Field(60, description="Look-ahead window in days (bookings with FPD within this many days)"),
+        include_no_fpd: bool = Field(False, description="Include bookings with no FinalPaymentDate set"),
+    ) -> str:
+        """Sweep all TESS bookings and return final payment date (FPD) status.
+
+        Returns all active bookings with FPD alerts:
+          RED    — FPD within 30 days (urgent)
+          YELLOW — FPD 31-45 days out
+          ORANGE — FPD 46-60 days out
+          GREEN  — FPD > 60 days out
+          PAST   — FPD already passed (overdue)
+
+        Used by Harlan (A9) for commission/payment tracking and by Hale's
+        proactive dossier sweep (SO-PIPELINE-INTEGRITY-20260528, Rule 4 & 5).
+        """
+        from datetime import date, datetime, timezone
+
+        client = _get_client()
+        raw = client.search_bookings({})
+
+        items = raw.get("Items", raw) if isinstance(raw, dict) else raw
+        if not isinstance(items, list):
+            return json.dumps({"error": "Unexpected TESS response shape", "raw_keys": list(raw.keys()) if isinstance(raw, dict) else "not_dict"}, indent=2)
+
+        today = date.today()
+        alerts: list[dict] = []
+        no_fpd_bookings: list[dict] = []
+        skipped_cancelled = 0
+
+        for b in items:
+            bs = b.get("BookingStatus") or {}
+            status_name = (bs.get("StatusName") if isinstance(bs, dict) else str(bs)).lower()
+            if status_name in ("cancelled", "canceled", "void"):
+                skipped_cancelled += 1
+                continue
+
+            fpd_raw = b.get("FinalPaymentDate")
+            if not fpd_raw:
+                if include_no_fpd:
+                    no_fpd_bookings.append({
+                        "booking_id": b.get("BookingID"),
+                        "booking_number": b.get("BookingNumber") or b.get("Number"),
+                        "trip_description": b.get("TripDescription"),
+                        "tour_operator": b.get("TourOperator"),
+                        "status": bs.get("StatusName") if isinstance(bs, dict) else str(bs),
+                        "start_date": b.get("StartDate"),
+                        "package_price": b.get("PackagePrice"),
+                    })
+                continue
+
+            # Parse FPD — TESS returns ISO 8601 strings
+            try:
+                if "T" in str(fpd_raw):
+                    fpd_dt = datetime.fromisoformat(str(fpd_raw).replace("Z", "+00:00"))
+                    fpd = fpd_dt.date()
+                else:
+                    fpd = date.fromisoformat(str(fpd_raw)[:10])
+            except (ValueError, TypeError):
+                fpd = None
+
+            if fpd is None:
+                continue
+
+            days_until = (fpd - today).days
+
+            if days_until < 0:
+                alert_level = "PAST"
+            elif days_until <= 30:
+                alert_level = "RED"
+            elif days_until <= 45:
+                alert_level = "YELLOW"
+            elif days_until <= 60:
+                alert_level = "ORANGE"
+            else:
+                alert_level = "GREEN"
+
+            if alert_level == "GREEN" and days_until > days_ahead:
+                continue
+
+            commission = b.get("Commission") or {}
+            alerts.append({
+                "alert_level": alert_level,
+                "days_until_fpd": days_until,
+                "fpd": str(fpd),
+                "booking_id": b.get("BookingID"),
+                "booking_number": b.get("BookingNumber") or b.get("Number"),
+                "trip_description": b.get("TripDescription"),
+                "tour_operator": b.get("TourOperator"),
+                "booking_status": bs.get("StatusName") if isinstance(bs, dict) else str(bs),
+                "start_date": b.get("StartDate"),
+                "end_date": b.get("EndDate"),
+                "package_price": b.get("PackagePrice"),
+                "commission_expected": (commission.get("AgencyCommission") or commission.get("CommissionAmount")) if isinstance(commission, dict) else None,
+            })
+
+        alerts.sort(key=lambda x: x["days_until_fpd"])
+
+        summary = {
+            "sweep_date": str(today),
+            "days_ahead_window": days_ahead,
+            "total_bookings_checked": len(items),
+            "cancelled_skipped": skipped_cancelled,
+            "alerts_found": len(alerts),
+            "by_level": {
+                "PAST": sum(1 for a in alerts if a["alert_level"] == "PAST"),
+                "RED": sum(1 for a in alerts if a["alert_level"] == "RED"),
+                "YELLOW": sum(1 for a in alerts if a["alert_level"] == "YELLOW"),
+                "ORANGE": sum(1 for a in alerts if a["alert_level"] == "ORANGE"),
+                "GREEN": sum(1 for a in alerts if a["alert_level"] == "GREEN"),
+            },
+            "alerts": alerts,
+        }
+        if include_no_fpd and no_fpd_bookings:
+            summary["no_fpd_bookings"] = no_fpd_bookings
+
+        return json.dumps(summary, indent=2, default=str)
+
+    logger.info("TESS API tools registered (18 tools)")
 
 
 # ============================================================================
