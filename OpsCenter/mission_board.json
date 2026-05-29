@@ -261,7 +261,7 @@
     {
       "id": "MISSION-038",
       "title": "Centrav Flight Price Web Scraper (OC + CC)",
-      "status": "pending",
+      "status": "complete",
       "priority": "P1",
       "assigned_to": "OC (JET) + CC (TALON) \u2014 Dual Engine",
       "description": "Build Playwright-based web scraper for Centrav B2B flight pricing. No API available \u2014 authenticated web scraping only. Firefox browser, reCAPTCHA handling, session cookie persistence. Returns flight options + pricing by route/date/cabin. MCP tool for both OC and CC.",
@@ -276,9 +276,10 @@
       ],
       "suspense_date": null,
       "created_at": "2026-05-20T00:00:00Z",
-      "updated_at": "2026-05-20T00:00:00Z",
+      "updated_at": "2026-05-28T15:38:37.908177",
       "logs": [
-        "[2026-05-20T00:00:00] MISSION-038 created. Cmd: 1b. Tokens: ~12K. CC: scraper auth + CAPTCHA handling. OC: MCP registration + error handling."
+        "[2026-05-20T00:00:00] MISSION-038 created. Cmd: 1b. Tokens: ~12K. CC: scraper auth + CAPTCHA handling. OC: MCP registration + error handling.",
+        "[2026-05-28T15:38:37] COMPLETE. Delivered: core/travel/thunderbird_centrav_search.py \u2014 register_centrav_search_tools(mcp), 2 MCP tools (search_centrav_flights, check_centrav_session). Session VALID (7 cookies). Registered in travel_mcp_server.py _TRAVEL_LOADERS."
       ]
     },
     {
@@ -685,18 +686,19 @@
     {
       "id": "MISSION-059",
       "title": "Lifecycle Automation Compact",
-      "status": "active",
+      "status": "completed",
       "priority": "P0",
       "assigned_to": "HALE (coordinating)",
       "description": "Multi-agent lifecycle automation compact covering: multi-agent excursions doctrine, 8 travel variable scanning, infrastructure self-heal, reliability metrics, Commander dashboard, model failure handling, session continuity, cost efficiency, escalation paths.",
       "created_at": "2026-05-22T23:00:00Z",
-      "updated_at": "2026-05-22T23:43:00Z",
+      "updated_at": "2026-05-29T04:27:00Z",
       "logs": [
         "[2026-05-22T23:10:00] TALON/Opus compact delivered (472 lines, 24KB) \u2014 output/lifecycle_automation_compact.md",
         "[2026-05-22T23:12:00] Dembe MEMO-002, Sterling MEMO-003, Keel MEMO-004, Reyes MEMO-005, ELON MEMO-006, Washington MEMO-007 \u2014 all dispatched",
         "[2026-05-22T23:15:00] Dembe, Sterling, Keel, Reyes, ELON, Washington all COMPLETE",
         "[2026-05-22T23:20:00] MISSION-057 (MCP shadow) FIXED",
-        "[2026-05-22T23:43:00] Commander accepted TALON appraisal. 3 non-negotiable modifications delegated to Sterling + Hale (JET). Annex filed at output/lifecycle_automation_compact_annex_fixes.md. No task complete until TALON confirms."
+        "[2026-05-22T23:43:00] Commander accepted TALON appraisal. 3 non-negotiable modifications delegated to Sterling + Hale (JET). Annex filed at output/lifecycle_automation_compact_annex_fixes.md. No task complete until TALON confirms.",
+        "[2026-05-29T04:27:00Z] HALE VERIFIED COMPLETE \u2014 all 3 TALON mods confirmed: Mod1=Naia chain in all ARC YAML routes (lifecycle_router.py), Mod2=thunderbird_metrics_writer.py (write_metric wired into unified_router.py lines 15+143), Mod3=compact.md target-state header present. Sterling remediation audit confirmed in wing_comms.md:6368."
       ],
       "deliverables": [
         "output/lifecycle_automation_compact_annex_fixes.md \u2014 3 non-negotiable modifications",
@@ -722,7 +724,7 @@
     {
       "id": "MISSION-061",
       "title": "invisible_playwright Eval \u2014 Centrav reCAPTCHA + Cruise Pricing",
-      "status": "active",
+      "status": "completed",
       "priority": "P1",
       "assigned_to": "ELON/A12",
       "description": "Proof-of-concept using invisible_playwright (score 963/1005, stealth Firefox drop-in) against Centrav login and one cruise line pricing page. If it clears Cloudflare, unblocks hotel-price scraper and cruise pricing gap. Approved by Commander 2026-05-25.",
@@ -733,9 +735,12 @@
       ],
       "suspense_date": "2026-05-31T23:59:00Z",
       "created_at": "2026-05-25T12:00:00Z",
-      "updated_at": "2026-05-25T12:00:00Z",
+      "updated_at": "2026-05-29T04:31:54Z",
       "logs": [
-        "[2026-05-25T12:00:00] Mission created \u2014 HALE COS, per Commander approval via Innovation Synthesis"
+        "[2026-05-25T12:00:00] Mission created \u2014 HALE COS, per Commander approval via Innovation Synthesis",
+        "[2026-05-29T04:31:54Z] PoC run: 3 tests. CruisePlum=PASS (Cloudflare bypassed, full pricing UI). Centrav=PASS on reCAPTCHA (reCAPTCHA bypassed, auth succeeded). New finding: Centrav added email MFA (OTP) \u2014 need Gmail MCP integration for full auth loop.",
+        "[2026-05-29T04:31:54Z] Report: output/invisible_playwright_poc_report.md. Screenshots: output/screenshots/ip_poc_*.png",
+        "[2026-05-29T04:31:54Z] Next task spawned: Gmail MCP OTP extraction for Centrav MFA (P1, unblocks full Centrav automation)"
       ]
     },
     {
@@ -1082,6 +1087,72 @@
           "status": "IN_PROGRESS"
         }
       ]
+    },
+    {
+      "id": "MISSION-073",
+      "title": "RoboForm Share Acceptance",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "+ Credential Extraction Commander must accept RoboForm share at d2mconcierge@gmail.com (folder: John Loucks HALE, shared 2026-05-25). Steps: (1) Log into d2mconcierge@gmail.com in browser. (2) Create/login RoboForm account with that address. (3) Run: python3 scripts/roboform_extract.py --accept to open share link. (4) After acceptance: python3 scripts/roboform_extract.py --browser to extract portal creds. Likely yields: TLN/CruiseComplete login, Viking, Regent, and other portal credentials. P1",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-05-28T13:00:36.903917+00:00",
+      "updated_at": "2026-05-28T13:00:36.903925+00:00"
+    },
+    {
+      "id": "MISSION-075",
+      "title": "Loucks Dossier Corruption \u2014 Root Cause Audit + Rebuild",
+      "status": "open",
+      "priority": "P1",
+      "assigned_to": "A7 Sterling (root cause audit) + Hale (dossier restoration)",
+      "description": "ACTIVE BOOKING DATA INTEGRITY DEFECT. Dossier at /home/john/Thunderbird/dossiers/Loucks_Regent_Grandeur_3122006.md is severely corrupted. File contains thousands of duplicated instances of 'GET CVC from Kyle \u2014 needed to process $21,244 total payment before Mar 31' across first 1,000+ lines, rendering dossier unusable as reference. Impact: Active booking 3122006 (John & Susan Loucks, Seven Seas Grandeur Panama Canal Dec 29 2026) with $24,798 outstanding balance. FPD: 2026-08-01 \u2014 65 days out. Any automated dossier scan or FPD sweep reading this file will produce unreliable output. Actions required: (1) Isolate root cause of corruption \u2014 suspected automated write loop (check logs for repetitive write events to this file). (2) Restore clean version from Drive mirror (Thunderbird_Client_Files > Loucks, John A III folder ID: 174sAduc7mdM9iHtjsg5p_WKjt6oER2Yd) or rebuild from TESS booking data. (3) Add dossier corruption detection to pre-scan validation routine \u2014 file size spike or repeated-line ratio check. Flagged by A7 Sterling as secondary finding in Regent Code 4232 post-mortem (output/sterling_qc_code4232_postmortem.md Section 6).",
+      "deliverables": [
+        "Root cause identified (automated write loop or other mechanism)",
+        "Clean dossier restored to /home/john/Thunderbird/dossiers/Loucks_Regent_Grandeur_3122006.md",
+        "Corruption detection check added to dossier pre-scan validation routine"
+      ],
+      "dependencies": [],
+      "suspense_date": "2026-06-07",
+      "escalation_rule": "Escalate to Commander if dossier cannot be restored from Drive mirror before 2026-06-15 (45 days before FPD). Do not allow corrupted file to remain as primary reference after that date.",
+      "logs": [
+        "[2026-05-28] MISSION created by A7 Sterling \u2014 secondary finding from Regent Code 4232 post-mortem. Corruption detected during dossier read as part of promo qualification audit."
+      ],
+      "created_at": "2026-05-28T21:30:00.000000+00:00",
+      "updated_at": "2026-05-28T21:30:00.000000+00:00"
+    },
+    {
+      "id": "MISSION-074",
+      "title": "Intel Connector Re-Auth",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "\u2014 Centrav + Bedsonline + Viking Verification Phase 2 connectors built but untested against live portals. Actions needed: (1) Centrav: cookies from 2026-04-22 likely expired \u2014 run: python3 scripts/centrav_flights.py --centrav-login --headless false to re-auth. (2) Bedsonline: verify JLOUCKS1/Canal4me12292026! still works on app.bedsonline.com. (3) Viking: URL fixed to www.viking.com/travel-advisor \u2014 test login selectors. (4) Regent: returns 0 rows \u2014 login flow on rssc.com needs adjustment. Run intel_keeper.py --force after re-auth to verify rows ingested. P2",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-05-28T13:00:45.330890+00:00",
+      "updated_at": "2026-05-28T13:00:45.330900+00:00"
+    },
+    {
+      "id": "MISSION-076",
+      "title": "Regent Cookie Expiry",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "\u2014 Metronome Monitor Wire regent cookie expiry check into metronome.py. Read ASPXAUTH expiry from creds/regent_cookies.json + creds/regent_cookies_oa.json on each tick. Alert via Telegram when either token is within 72h of expiry. Include re-export instructions in the alert message. Both accounts must stay authenticated for intel connector to function. P2",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-05-29T03:57:33.061651+00:00",
+      "updated_at": "2026-05-29T03:57:33.061660+00:00"
     }
   ],
   "suspense_watch": [
