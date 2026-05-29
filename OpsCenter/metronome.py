@@ -41,6 +41,12 @@ SPSA_DEDUP_FILE = os.path.join(ROOT, "OpsCenter", "spsa_dedup_state.json")
 LIFECYCLE_DEDUP_FILE = os.path.join(ROOT, "OpsCenter", ".lifecycle_alerted.json")
 LIFECYCLE_DAILY_SENTINEL = os.path.join(ROOT, "OpsCenter", ".lifecycle_last_scan_date")
 
+# M-076: Regent cookie expiry monitoring
+REGENT_COOKIES_MAIN = os.path.join(ROOT, "creds", "regent_cookies.json")
+REGENT_COOKIES_OA = os.path.join(ROOT, "creds", "regent_cookies_oa.json")
+REGENT_COOKIE_DEDUP_FILE = os.path.join(ROOT, "OpsCenter", ".regent_cookie_alert_dedup.json")
+REGENT_COOKIE_ALERT_HOURS = 72  # alert when ASPXAUTH expires within this many hours
+
 # Intel Keeper fires every 3 ticks (3 × 5 min = 15 min), matching keeper TTL cadence
 INTEL_KEEPER_SCRIPT = os.path.join(ROOT, "core", "ai_infra", "intel_keeper.py")
 INTEL_KEEPER_TICKS = 3  # fire every N ticks
@@ -464,12 +470,114 @@ def _scan_lifecycle_windows():
         new_dedup[dedup_key] = dep_str
     _save_dedup(LIFECYCLE_DEDUP_FILE, new_dedup)
 
+    # Attempt to load lifecycle_router for structured persona chains (M-072)
+    _router = None
+    try:
+        sys.path.insert(0, ROOT)
+        from core.ops.lifecycle_router import get_arc_route as _get_arc_route
+        _router = _get_arc_route
+    except Exception:
+        pass
+
     # Fire [HALE-ROUTE] nudges to wing_comms.md
     ts_str = today_mt.strftime("%Y-%m-%d %H:%M MT")
     lines = [f"[HALE-ROUTE] LIFECYCLE WINDOWS — {ts_str}"]
     for client, ship, dep_str, dep_days, arc_id, position, action_label, _ in pending:
-        lines.append(f"• **{client}** ({ship}) T{dep_days:+d}d → `{arc_id}/{position}` — {action_label}")
+        # Enrich with structured route chain from lifecycle_router if available
+        route_suffix = ""
+        if _router:
+            try:
+                route_data = _router(arc_id, position)
+                if "error" not in route_data:
+                    chain = " → ".join(s["persona"] for s in route_data.get("route", []))
+                    client_tag = " [client-facing]" if route_data.get("client_facing") else ""
+                    cos_tag = " [cos-review]" if route_data.get("cos_review") else ""
+                    route_suffix = f" | Route: {chain}{client_tag}{cos_tag}"
+            except Exception:
+                pass
+        lines.append(
+            f"• **{client}** ({ship}) T{dep_days:+d}d → `{arc_id}/{position}` — {action_label}{route_suffix}"
+        )
     _write_wing_nudge("\n".join(lines))
+
+
+def _check_regent_cookie_expiry():
+    """M-076: Check Regent ASPXAUTH cookie expiry on every tick.
+
+    Reads regent_cookies.json (main) and regent_cookies_oa.json (OA account).
+    Fires a Telegram alert (once per file per calendar day via dedup) when:
+      - ASPXAUTH expires within REGENT_COOKIE_ALERT_HOURS (72h), OR
+      - ASPXAUTH expires == -1 (session cookie — always flag as needs re-export)
+    Includes re-export instructions in the alert text.
+    """
+    now = datetime.now(timezone.utc)
+    today_str = now.strftime("%Y-%m-%d")
+    threshold = REGENT_COOKIE_ALERT_HOURS * 3600
+
+    dedup = _load_dedup(REGENT_COOKIE_DEDUP_FILE)
+
+    files = [
+        (REGENT_COOKIES_MAIN, "MAIN", "rssc.com (primary intel account)"),
+        (REGENT_COOKIES_OA, "OA", "rssc.com (OA portal account)"),
+    ]
+
+    fired = False
+    for cookie_path, label, desc in files:
+        if not os.path.exists(cookie_path):
+            continue
+        dedup_key = f"regent_cookie_{label}:{today_str}"
+        if dedup.get(dedup_key) == today_str:
+            continue  # already alerted today
+        try:
+            with open(cookie_path) as f:
+                cookies = json.load(f)
+        except (OSError, json.JSONDecodeError):
+            continue
+
+        aspx = next(
+            (c for c in cookies if c.get("name", "").upper() in (".ASPXAUTH", "ASPXAUTH")),
+            None,
+        )
+        if not aspx:
+            continue
+
+        expires_raw = aspx.get("expires", 0)
+        alert_msg = None
+
+        if expires_raw == -1:
+            # Session cookie — can expire any time; flag for re-export
+            alert_msg = (
+                f"*METRONOME* \U0001f7e1 REGENT COOKIE — {label} SESSION COOKIE\n"
+                f"Account: {desc}\n"
+                f"`.ASPXAUTH` is a session cookie (expires on browser close).\n"
+                f"Re-export now if intel connector is failing:\n"
+                f"`python3 core/intel/thunderbird_ship_intel.py --export-cookies {label.lower()}`"
+            )
+        elif expires_raw > 0:
+            exp_dt = datetime.fromtimestamp(expires_raw, tz=timezone.utc)
+            secs_left = (exp_dt - now).total_seconds()
+            if secs_left <= threshold:
+                hours_left = max(0, int(secs_left / 3600))
+                exp_str = exp_dt.strftime("%Y-%m-%d %H:%M UTC")
+                icon = "\U0001f534" if hours_left < 24 else "\U0001f7e0"
+                alert_msg = (
+                    f"*METRONOME* {icon} REGENT COOKIE EXPIRING — {label}\n"
+                    f"Account: {desc}\n"
+                    f"`.ASPXAUTH` expires: {exp_str} (~{hours_left}h)\n"
+                    f"Re-export before expiry:\n"
+                    f"1. Open Firefox, log in to rssc.com ({label} account)\n"
+                    f"2. Export cookies via Cookie-Editor extension\n"
+                    f"3. Save to `creds/regent_cookies{'' if label == 'MAIN' else '_oa'}.json`\n"
+                    f"4. Run: `python3 core/intel/thunderbird_ship_intel.py --verify-cookies {label.lower()}`"
+                )
+
+        if alert_msg:
+            _telegram_alert(alert_msg)
+            dedup[dedup_key] = today_str
+            fired = True
+
+    if fired:
+        _save_dedup(REGENT_COOKIE_DEDUP_FILE, dedup)
 
 
 def _generate_daily_brief():
@@ -663,6 +771,7 @@ def main():
                   "red": len([a for a in lc if a["level"] == "RED"]),
                   "yellow": len([a for a in lc if a["level"] == "YELLOW"])}
         keeper_status = _run_intel_keeper_if_due(tick_n)
+        _check_regent_cookie_expiry()  # M-076 — run even on first tick
         entry = {
             "ts": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
             "tick": tick_n,
@@ -713,6 +822,7 @@ def main():
             break
     _save_dedup(SPSA_DEDUP_FILE, {k: v for k, v in fpd_dedup.items() if v == today_mt_str})
     _scan_lifecycle_windows()
+    _check_regent_cookie_expiry()  # M-076 — every tick, deduped daily per account
 
     tick_n = _increment_tick()
     keeper_status = _run_intel_keeper_if_due(tick_n)
