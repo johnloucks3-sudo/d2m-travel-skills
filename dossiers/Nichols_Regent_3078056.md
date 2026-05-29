@@ -4,7 +4,7 @@ full_name: Larry & Heidi Nichols
 cruise_line: Regent
 ship: Grandeur
 voyage: Scandinavia
-booking: "3078056"
+booking: '3078056'
 departure: 2026-08-29
 return: 2026-09-08
 fpd: 2026-04-01
