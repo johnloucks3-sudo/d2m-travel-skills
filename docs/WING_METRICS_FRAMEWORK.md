@@ -110,13 +110,14 @@ Sterling's office receives all metric nominations. Nominations that fail any SMA
 ### Submissions tracker
 | Persona | Domain | Status | Metric Submitted |
 |---|---|---|---|
-| A2 Dembe | Intel | Pending | — |
-| A3 Dani | Client comms | Pending | — |
-| A5 Castillo | Strategy | Pending | — |
+| A2 Dembe | Intel | ✅ Submitted 2026-05-29 | `intel_turnaround_hours` |
+| A3 Dani | Client comms | ✅ Submitted 2026-05-29 | `tp_draft_first_pass_rate` |
+| A5 Castillo | Strategy | ✅ Submitted 2026-05-29 | `new_cruise_line_prospect_count` |
 | A7 Sterling | Process/tech | Auto-adopted (`lessons_implementation_rate_pct`) | ✅ |
-| A8 Reyes | Experience | Pending | — |
-| A9 Harlan | Finance | Pending | — |
-| A12 ELON | Automation | Pending | — |
+| A8 Reyes | Experience | ✅ Submitted 2026-05-29 | `excursion_recommendation_coverage_pct` |
+| A9 Harlan | Finance | ✅ Submitted 2026-05-29 | `overdue_commission_count` |
+| A12 ELON | Automation | ✅ Submitted 2026-05-29 | `processes_eliminated_per_quarter` |
+| Hale | Advisory chain | ✅ Submitted 2026-05-29 (self-nom) | `wf17_queue_age_days` |
 
 ### Submission Template (SMART+O/S)
 ```
