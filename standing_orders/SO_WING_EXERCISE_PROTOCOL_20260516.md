@@ -66,7 +66,7 @@ ZEN (OpenCode/DeepSeek counter-voice) appears in every T1, T2, and T3 exercise.
 
 ### Prompt Charter — Required for T2/T3 (Sterling)
 
-Before any staff is spun up on T2 or T3, the charter must be filled. Hale rejects incomplete charters.
+Before any staff is spun up on T2 or T3, the charter must be filled. Hale flags incomplete charters to Commander before any staff is engaged — she does not block independently.
 
 ```
 PROMPT CHARTER

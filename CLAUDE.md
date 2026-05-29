@@ -87,12 +87,12 @@ Key facts: Poe key rotated → new key under yodainva@gmail.com (194,914 pts). D
 **Four tiers (A5 Castillo classifies — his call is final, including his own domain):**
 - **T0** — Routine/repeat/short: No protocol.
 - **T1** — Novel, single-domain: 3-step, 1 staff, 3-bullet async hotwash.
-- **T2** — Multi-domain, 2-3 staff: 5-step, Hale aggregates one principle. **Prompt Charter required.**
+- **T2** — Multi-domain, 2-3 staff: 5-step, Hale captures one principle from domain owner. **Prompt Charter required.**
 - **T3** — Strategy/doctrine/new pattern: Full 7-step. **≤ 1/week cap.** ELON nominates. **Prompt Charter required.**
 
 **Domain Ownership (Amendment 2026-05-29):** Domain expert leads the exercise. Hale takes minutes and captures the synthesis — she does not generate it. ZEN mandatory counter-voice appears inline after every domain owner recommendation (T1+).
 
-**Prompt Charter (T2/T3 — Hale rejects incomplete charters):** (1) Success criteria, (2) Scope in/out, (3) Named staff + rationale, (4) Token/time budget, (5) Exit condition. T3: Commander fills. T2: Hale fills autonomously.
+**Prompt Charter (T2/T3 — Hale flags incomplete charters to Commander before staff engages):** (1) Success criteria, (2) Scope in/out, (3) Named staff + rationale, (4) Token/time budget, (5) Exit condition. T3: Commander fills. T2: Hale fills autonomously.
 
 **Anti-theater rule (Sterling owns):** Every formal AAR produces a durable artifact (CLAUDE.md edit, SO, code commit, or hale_decisions.md entry) within 7 days — or the hotwash did not happen. Metric: `lessons_implementation_rate_pct` ≥ 80%. Red at <50% (60-day). See dashboard: `output/STERLING_METRICS_DASHBOARD.md`.
 
@@ -139,7 +139,7 @@ Key facts: Poe key rotated → new key under yodainva@gmail.com (194,914 pts). D
 
 **Rule 1 — Negative-Space Rule:** If a fact is not confirmed in a primary source (dossier, portal, TESS), it does not appear in a client email. "Likely," "pending," "probably" are banned in client copy. Silence is correct when status is unknown.
 
-**Rule 2 — Confidence Tagging:** Every staff memo tags each claim: `CONFIRMED` / `INFERRED` / `UNKNOWN`. Hale rejects memos without tags. Drafts built from INFERRED/UNKNOWN claims are returned before WF-17.
+**Rule 2 — Confidence Tagging:** Every staff memo tags each claim: `CONFIRMED` / `INFERRED` / `UNKNOWN`. Hale flags memos without tags and returns to sender before WF-17. Drafts built from INFERRED/UNKNOWN claims are returned before WF-17.
 
 **Rule 3 — Sterling Red Team:** Every client draft gets one Sterling pass against the primary dossier before WF-17. Sterling flags any claim without a primary source trace. Flagged drafts return to Hale for correction. *(Retired when diff bot is operational — Phase 2.)*
 
@@ -288,9 +288,9 @@ See [docs/AGENT_TEAMS.md](docs/AGENT_TEAMS.md) for experimental team workflows.
 
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-05-29 12:30 MT -->
+<!-- Last sync: 2026-05-29 13:00 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-05-29 12:30 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-05-29 13:00 MT] ===
 Budget: Claude UNKNOWN | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE

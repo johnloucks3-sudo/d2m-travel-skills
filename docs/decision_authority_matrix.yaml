@@ -1,0 +1,354 @@
+##
+## THUNDERBIRD WING — DECISION AUTHORITY MATRIX
+## Version: 1.0 | Created: 2026-05-29 | Status: AUDIT MODE
+## Authority: Issues 1-4 staff votes, 2026-05-29
+##
+## audit_mode: true = observe and log only; no auto-blocking until 2026-06-15 review
+## tier_precedence (highest authority to lowest): Commander → Hale → LtGen → BG
+##
+
+version: "1.0"
+audit_mode: true
+audit_mode_expires: "2026-06-15"
+tier_precedence: [Commander, Hale, LtGen, BG]
+
+# ─────────────────────────────────────────────────
+# PERSONA DOMAIN REGISTRY
+# ─────────────────────────────────────────────────
+domains:
+  A2_DEMBE:
+    name: "Dembe — Intel & Research"
+    callsign: Wraith
+    tier: BG
+    domain_tags: [INTEL, OSINT, RESEARCH, MARKET]
+    bg_authority: "Intel assessments, OSINT sweeps, market analysis, destination research"
+
+  A3_DANI:
+    name: "Dani — Client Communications"
+    callsign: Concierge
+    tier: BG
+    domain_tags: [CLIENT, VOICE, LIFECYCLE]
+    bg_authority: "Client email voice, lifecycle touchpoints, relationship management"
+    note: "WF-17 gate applies to all client sends — Commander approval required before send"
+
+  A5_CASTILLO:
+    name: "Castillo — Strategy & Classification"
+    callsign: Viper
+    tier: BG
+    domain_tags: [STRATEGIC, PRICING, GROWTH, CLASSIFICATION]
+    bg_authority: "Business strategy, pricing decisions, T-tier classification (all tiers including own domain)"
+    special_authority: "Wing Exercise T-tier classification — final call, self-inclusive"
+
+  A7_STERLING:
+    name: "Sterling — Process & Tech"
+    callsign: Gauge
+    tier: BG
+    domain_tags: [TECH, PROCESS, CODE, METRICS, SLA]
+    bg_authority: "Code quality, process design, SLA enforcement, metrics architecture"
+
+  A8_REYES:
+    name: "Reyes — Client Experience"
+    callsign: Atlas
+    tier: BG
+    domain_tags: [EXPERIENCE, EXCURSION, CABIN, DINING]
+    bg_authority: "Excursion architecture, cabin strategy, dining programming"
+
+  A9_HARLAN:
+    name: "Harlan — Finance & Commission"
+    callsign: Ledger
+    tier: BG
+    domain_tags: [FINANCIAL, COMMISSION, ROI, COST]
+    bg_authority: "Commission reconciliation, cost analysis, financial sign-off on client emails"
+    financial_sign_off: "Required on all client emails containing dollar figures (Rule 5, SO-PIPELINE-INTEGRITY)"
+
+  A12_ELON:
+    name: "ELON — Automation & Elimination"
+    tier: BG
+    domain_tags: [AUTOMATION, ELIMINATION, REDESIGN]
+    bg_authority: "Weekly kill audit, process elimination, automation design"
+
+  CH_WASHINGTON:
+    name: "Washington — Ethics & Morale"
+    tier: BG
+    domain_tags: [ETHICAL, MORALE, CONSENT, TRANSPARENCY]
+    bg_authority: "Ethical review, consent issues, AI transparency, client impact analysis"
+
+  HALE:
+    name: "Hale — Advisory Chain (VCS)"
+    tier: Hale
+    role: "Advisor not director. Minutes capture, synthesis, advisory chain. Execution authority over own actions only."
+    advisory_chain: "Present on all T1+ decisions. Synthesis view auto-surfaced. Cannot be skipped."
+    note: "Influence without authority — hale_cos.md Amendment 2026-05-29"
+
+  JET:
+    name: "JET — Support & Infrastructure"
+    tier: LtGen
+    status: UNSTAFFED
+    escalation_fallback: "Hale advisory review while JET unstaffed"
+    scope: "Handles BG escalations, cross-domain conflicts, infrastructure oversight"
+
+  TALON:
+    name: "TALON — Strike & Strategy"
+    tier: LtGen
+    status: UNSTAFFED
+    escalation_fallback: "Hale advisory review while TALON unstaffed"
+    scope: "Strategic escalations, external coordination"
+
+# ─────────────────────────────────────────────────
+# DECISION TYPE REGISTRY
+# ─────────────────────────────────────────────────
+decision_types:
+
+  # CLIENT COMMUNICATIONS
+  lifecycle_draft:
+    description: "Dani voice draft of lifecycle touchpoint email"
+    tier: BG
+    authority: A3_DANI
+    auto_execute: true  # draft creation is automatic; send requires WF-17
+    log_required: true
+    domain_tags: [CLIENT, VOICE, LIFECYCLE]
+    wf17_gate: true  # Client send always requires Commander
+
+  client_send:
+    description: "Any email sent to a client outside the wing"
+    tier: Commander  # WF-17 — hard gate
+    auto_execute: false
+    log_required: true
+    domain_tags: [CLIENT]
+    gate: WF17
+
+  # FINANCIAL
+  commission_audit:
+    description: "Commission reconciliation against TESS/portal"
+    tier: BG
+    authority: A9_HARLAN
+    auto_execute: true
+    log_required: true
+    domain_tags: [FINANCIAL, COMMISSION]
+
+  financial_sign_off:
+    description: "Harlan sign-off on dollar figures in client emails (Rule 5)"
+    tier: BG
+    authority: A9_HARLAN
+    auto_execute: false  # Harlan must explicitly confirm
+    log_required: true
+    domain_tags: [FINANCIAL, CLIENT]
+    threshold_note: "See financial_thresholds section"
+
+  financial_commit:
+    description: "Any actual spend or financial commitment on behalf of D2M"
+    tier: Commander
+    auto_execute: false
+    log_required: true
+    domain_tags: [FINANCIAL]
+    gate: FINANCIAL_COMMIT
+
+  # INTEL & RESEARCH
+  intel_sweep:
+    description: "Dembe daily OSINT sweep and intel brief"
+    tier: BG
+    authority: A2_DEMBE
+    auto_execute: true
+    log_required: false  # Routine — no individual log entry needed
+    domain_tags: [INTEL, OSINT]
+
+  destination_research:
+    description: "On-demand destination or cruise line research for a client"
+    tier: BG
+    authority: A2_DEMBE
+    auto_execute: true
+    log_required: true
+    domain_tags: [INTEL, RESEARCH, CLIENT]
+
+  # AUTOMATION & TECH
+  script_execution:
+    description: "Running an autonomy stack script (morning brief, fare watch, etc.)"
+    tier: BG
+    auto_execute: true
+    log_required: false  # Timer-triggered scripts log to their own output files
+    domain_tags: [TECH, PROCESS]
+
+  code_change:
+    description: "Editing or creating code files in the Thunderbird repo"
+    tier: BG
+    authority: A7_STERLING  # Sterling gates code quality
+    auto_execute: true  # BG executes; Sterling reviews at commit layer via CODEOWNERS
+    log_required: true
+    domain_tags: [TECH, CODE]
+    codeowners: true  # CODEOWNERS file enforces at git layer
+
+  infrastructure_change:
+    description: "Changes to systemd timers, nginx, infrastructure configs"
+    tier: BG
+    authority: A7_STERLING
+    auto_execute: true
+    log_required: true
+    domain_tags: [TECH, PROCESS]
+
+  # AUTOMATION KILL AUDIT
+  kill_audit:
+    description: "ELON weekly kill audit — process elimination or automation nomination"
+    tier: BG
+    authority: A12_ELON
+    auto_execute: true  # Audit runs weekly; kill execution requires Commander if > T1
+    log_required: true
+    domain_tags: [AUTOMATION, ELIMINATION, PROCESS]
+
+  # TESS / BOOKING
+  tess_sync:
+    description: "Automated TESS dossier sync (payment status, booking data)"
+    tier: BG
+    auto_execute: true
+    log_required: false  # Script logs its own changes
+    domain_tags: [FINANCIAL, CLIENT]
+    note: "Conservative sync — fill-only, never downgrades payment status"
+
+  dossier_update:
+    description: "Writing or updating a client dossier"
+    tier: BG
+    auto_execute: true
+    log_required: true
+    domain_tags: [CLIENT, INTEL]
+
+  # FARE / FLIGHT MONITORING
+  fare_watch:
+    description: "Fare alert check and Telegram notification"
+    tier: BG
+    auto_execute: true
+    log_required: false
+    domain_tags: [FINANCIAL, CLIENT]
+
+  # WING EXERCISES
+  wing_exercise_classification:
+    description: "Castillo classifies a task as T0/T1/T2/T3"
+    tier: BG
+    authority: A5_CASTILLO
+    auto_execute: true
+    log_required: true
+    domain_tags: [STRATEGIC, CLASSIFICATION]
+    note: "Self-inclusive — Castillo classifies exercises in his own domain"
+
+  wing_exercise_lead:
+    description: "Domain owner leads a wing exercise"
+    tier: BG
+    auto_execute: true
+    log_required: true
+    domain_tags: [STRATEGIC]
+    note: "Domain owner leads; Hale takes minutes. ZEN mandatory."
+
+  so_authorship:
+    description: "Writing or amending a Standing Order"
+    tier: Hale  # Advisory review, then Commander if strategy-direction
+    auto_execute: false
+    log_required: true
+    domain_tags: [STRATEGIC, PROCESS]
+    note: "Sterling veto if 12-SO cap exceeded. Strategy-direction SOs require Commander gate."
+
+  # STRATEGY
+  strategy_direction:
+    description: "Setting business strategy, pricing model, growth direction"
+    tier: Commander  # Gate 4
+    auto_execute: false
+    log_required: true
+    domain_tags: [STRATEGIC]
+    gate: STRATEGY_DIRECTION
+
+  new_client_first_contact:
+    description: "First outbound contact to a new client"
+    tier: Commander  # Gate 4
+    auto_execute: false
+    log_required: true
+    domain_tags: [CLIENT]
+    gate: NEW_CLIENT_FIRST_CONTACT
+
+# ─────────────────────────────────────────────────
+# FINANCIAL THRESHOLDS
+# ─────────────────────────────────────────────────
+financial_thresholds:
+  BG_execute_max_usd: 500
+  LtGen_review_max_usd: 5000
+  Commander_gate_min_usd: 5000
+  reversibility_override: true
+  reversibility_note: >
+    Non-refundable commitments < $500 still escalate to LtGen review regardless of dollar amount.
+    Reversibility is the primary factor; dollar amount is the secondary threshold.
+
+# ─────────────────────────────────────────────────
+# CROSS-DOMAIN COMMENT FLOOR (Issue 2 — Hybrid Format)
+# ─────────────────────────────────────────────────
+cross_domain_comment_floor:
+  # These personas appear on EVERY issue regardless of tags
+  mandatory:
+    - domain_owner   # The persona whose domain is primary
+    - ZEN            # Structural counter — always inline after domain owner
+    - A5_CASTILLO    # Strategy floor
+    - A9_HARLAN      # Financial floor
+
+  # Additional voices triggered by domain tags
+  tag_triggers:
+    CLIENT:
+      - A3_DANI
+      - CH_WASHINGTON
+    FINANCIAL:
+      - A9_HARLAN    # Already mandatory, noted for clarity
+    TECH:
+      - A7_STERLING
+    CODE:
+      - A7_STERLING
+    INTEL:
+      - A2_DEMBE
+    STRATEGIC:
+      - A5_CASTILLO  # Already mandatory
+    ETHICAL:
+      - CH_WASHINGTON
+    PROCESS:
+      - A7_STERLING
+    EXPERIENCE:
+      - A8_REYES
+    VOICE:
+      - A3_DANI
+
+  comment_role: "Input, not gate. Cross-domain comments are advisory — they inform the vote, not block it."
+  hale_role: "Minutes capture + synthesis summary before vote. Hale advises, does not direct."
+
+# ─────────────────────────────────────────────────
+# LTGEN ESCALATION PATHS
+# ─────────────────────────────────────────────────
+ltgen_escalation:
+  triggers:
+    - financial_amount_usd_gt: 500
+    - decision_type: [financial_commit, strategy_direction, new_client_first_contact]
+    - reversibility: non_refundable
+    - cross_domain_conflict: unresolved  # Two BGs in direct disagreement
+
+  while_unstaffed:
+    JET: "Escalate to Hale advisory review. Flag to Commander if strategy-direction."
+    TALON: "Escalate to Hale advisory review. Flag to Commander if strategy-direction."
+
+  ltgen_charter_gap: true
+  ltgen_charter_target_date: "2026-06-15"  # Charter JET and TALON by this date
+
+# ─────────────────────────────────────────────────
+# COMMANDER GATES (unchanged from SO-2026-05-04)
+# ─────────────────────────────────────────────────
+commander_gates:
+  - WF17            # Any client send
+  - FINANCIAL_COMMIT # Any financial commitment or spend
+  - NEW_CLIENT_FIRST_CONTACT  # First outbound to new client
+  - STRATEGY_DIRECTION  # Setting business strategy
+
+# ─────────────────────────────────────────────────
+# AUDIT LOG
+# ─────────────────────────────────────────────────
+audit:
+  log_file: "data/decision_ledger.jsonl"
+  schema:
+    ts: "ISO8601 timestamp"
+    decision_type: "key from decision_types above"
+    persona: "who made the decision"
+    tier: "BG/LtGen/Hale/Commander"
+    auto_execute: bool
+    outcome: "executed/escalated/blocked/advisory"
+    notes: "optional"
+  scan_cadence: "daily at 06:45 MT (between tess-sync and flight-scan in morning pipeline)"
+  scan_owner: "JET/TALON (while unstaffed: Hale advisory review)"
