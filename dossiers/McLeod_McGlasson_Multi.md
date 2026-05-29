@@ -22,7 +22,7 @@ completed_tps: []
 | Booking | Supplier | Ship | Dates | FPD | Status | Cabin |
 |---------|----------|------|-------|-----|--------|-------|
 | 298475-25 | Silversea | Silver Muse | Jun 23–Jul 3, 2026 | Jan 24 (✅ PAID) | Active | Suite 617, Classic Veranda |
-| 2984034 | Regent | SS Grandeur | Dec 19–29, 2026 | Jul 22 ($12,393.15) | Active | Suite 863, Deck 8, Concierge E |
+| 2984034 | Regent | SS Grandeur | Dec 19–29, 2026 | Jul 22 ($11,943.15) | Active | Suite 863, Deck 8, Concierge E |
 | 3114500 | Regent | SS Prestige | Dec 18–28, 2027 | Jul 21, 2027 ($14,598.00) | Future | Suite 820, Deck 8, Concierge D |
 | 8X6PGQ | Princess | TBD | Mar 13–20, 2027 | ~Dec 2026 | Future | TBD |
 
@@ -41,7 +41,7 @@ completed_tps: []
 | — Venice Hilton→VCE airport Jul 6 12:20 PM: NOT YET CONFIRMED | Open | Dani | May 15, 2026 | Return flight logistics |
 | — Private water taxi research (Fusina direct→Stucky dock): Venice Guide & Boat (€200–€225) quoted | In Progress | Dani | May 10, 2026 | Cost optimization |
 | **Grandeur Dec 2026 Suite Upgrade Bid** | Pending | — | May 1, 2026 | Revenue opportunity |
-| — Clients bid on Medallion Suite upgrade; Regent acceptance status unknown | Pending | Regent/Dani | May 1, 2026 | Commission impact |
+| — Clients bid on Medallion Suite upgrade; Regent acceptance status unknown ⚠️ DO NOT REFERENCE IN REGENT CLIENT EMAILS (Commander 2026-05-28: belongs to Silversea context) | Pending | — | — | Track only |
 | **Rome Dining Reservations (Melissa Request)** | Open | Dani | May 30, 2026 | Client experience |
 | — Four starred options identified: Sistina 52 (5★), Diana's Place (1★), Moma (1★ Michelin), La Pergola (3★ Michelin) | Researched | Dani | Confirm preferences + book | Dining locked |
 | — High-demand tables (La Pergola, Moma) require early booking; confirm Melissa's interest before May 15 | Open | Dani | May 15, 2026 | Reservation availability |
@@ -276,8 +276,9 @@ completed_tps: []
 
 **Grandeur — Lesser Antilles (Dec 19–29, 2026)**
 - **Booking:** 2984034 | **Suite:** 863, Deck 8, Concierge E
-- **FPD:** Jul 22, 2026 ($12,393.15 balance)
+- **FPD:** Jul 22, 2026 ($11,943.15 balance — portal verified 2026-05-28; $450 delta from prior dossier, root cause pending TESS confirmation)
 - **Status:** Suite upgrade bid pending (Medallion Suite); Regent response awaited by May 1
+- **⚠️ DO NOT REFERENCE IN CLIENT EMAILS re: Regent Grandeur.** Commander 2026-05-28: Medallion Suite is a Silversea suite category; this bid belongs to Silversea context if/when addressed. Not relevant to Regent Grandeur communications.
 - **Regent FCC Status:** $200 outstanding from Dec 2025 Gale Hotel complaint. ACTION: Verify in TESS, apply to this booking.
 
 **Prestige — Year-End (Dec 18–28, 2027)**
