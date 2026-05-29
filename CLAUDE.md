@@ -84,11 +84,13 @@ Key facts: Poe key rotated → new key under yodainva@gmail.com (194,914 pts). D
 
 **Exemption first:** Any prompt where inaction costs something in 24 hours → EXEMPT. Execute-then-report. No protocol.
 
-**Four tiers (A5 Castillo classifies — his call is final):**
+**Four tiers (A5 Castillo classifies — his call is final, including his own domain):**
 - **T0** — Routine/repeat/short: No protocol.
 - **T1** — Novel, single-domain: 3-step, 1 staff, 3-bullet async hotwash.
 - **T2** — Multi-domain, 2-3 staff: 5-step, Hale aggregates one principle. **Prompt Charter required.**
 - **T3** — Strategy/doctrine/new pattern: Full 7-step. **≤ 1/week cap.** ELON nominates. **Prompt Charter required.**
+
+**Domain Ownership (Amendment 2026-05-29):** Domain expert leads the exercise. Hale takes minutes and captures the synthesis — she does not generate it. ZEN mandatory counter-voice appears inline after every domain owner recommendation (T1+).
 
 **Prompt Charter (T2/T3 — Hale rejects incomplete charters):** (1) Success criteria, (2) Scope in/out, (3) Named staff + rationale, (4) Token/time budget, (5) Exit condition. T3: Commander fills. T2: Hale fills autonomously.
 
@@ -286,9 +288,9 @@ See [docs/AGENT_TEAMS.md](docs/AGENT_TEAMS.md) for experimental team workflows.
 
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-05-29 11:10 MT -->
+<!-- Last sync: 2026-05-29 12:30 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-05-29 11:10 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-05-29 12:30 MT] ===
 Budget: Claude UNKNOWN | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE

@@ -43,6 +43,27 @@ Execute-then-report. No protocol applied.
 
 **Classification authority: A5 Castillo.** He calls the tier before any staff engages on T1+.
 
+### Domain Ownership Doctrine (Amendment 2026-05-29)
+
+**Every Wing Exercise is owned by the domain expert, not by Hale.**
+
+- **T1 (single-domain):** Named persona leads Steps 2–3. Hale takes minutes only.
+- **T2 (multi-domain):** Named personas each own their domain input. Senior named persona leads Step 3. Hale aggregates the record.
+- **T3 (full 7-step):** Domain lead persona owns Steps 2–4. Hale takes executive minutes and produces the synthesis document from those minutes — not from her own analysis.
+
+**Hale's exercise role:** Executive secretary. Records what domain experts produce. Captures decisions. Writes the hotwash document. Does not opine unless asked.
+
+**Classification note:** A5 Castillo classifies all T-tiers including exercises in his own domain. Classification is standing authority, not a conflict.
+
+### ZEN — Mandatory Counter-Voice (Amendment 2026-05-29)
+
+ZEN (OpenCode/DeepSeek counter-voice) appears in every T1, T2, and T3 exercise.
+
+- **Position:** Inline, immediately after domain owner's recommendation — not at end of room.
+- **Role:** Structural dissent. Always provides the counter-position. Not a veto — a perspective.
+- **Authority:** ZEN does not block decisions. Domain owner hears the counter and proceeds.
+- **For T3:** ZEN's counter is captured in Hale's minutes as a named position. Commander sees both.
+
 ### Prompt Charter — Required for T2/T3 (Sterling)
 
 Before any staff is spun up on T2 or T3, the charter must be filled. Hale rejects incomplete charters.
@@ -65,8 +86,8 @@ For T0/T1: No charter required.
 
 1. **Prompt** — Charter-complete, classified T3 by Castillo
 2. **Staff Discussion** — Named staff provide independent input (no Hale synthesis first)
-3. **HALE Red-Team Scan** — 90-second adversarial review before synthesis (Dembe gap, filled as standing protocol)
-4. **HALE Synthesis** — Integrates staff inputs, identifies decisions
+3. **Domain Owner Red-Team + ZEN Counter** — Lead persona challenges their own recommendation (90 seconds). ZEN provides structural counter-voice. Hale records both positions.
+4. **Hale Minutes Capture** — Hale captures the domain owner's synthesis and decisions verbatim. The domain owner's consensus position is the exercise record. Hale does not generate analysis — she captures it.
 5. **Commander Decision** — Gate 4 — Commander approves or redirects
 6. **Action** — Hale executes within SO-2026-05-04 authority
 7. **Hotwash** — Two tiers: immediate verbal (<60 min) + formal AAR (<24h). Senior speaks last, owns error first.
@@ -93,11 +114,12 @@ Acceptable artifacts: CLAUDE.md edit, Standing Order, code commit, `hale_decisio
 
 ## STANDING AUTHORITIES GRANTED BY THIS ORDER
 
-1. **A5 Castillo** — Classification authority for T0/T1/T2/T3. His call is final. If COS disagrees, surface to Commander once; then execute Castillo's classification.
+1. **A5 Castillo** — Classification authority for T0/T1/T2/T3, including exercises in his own domain. His call is final. If COS disagrees, surface to Commander once; then execute Castillo's classification.
 2. **Hale** — Prompt Charter completion authority for T2 (autonomous, no Commander gate).
-3. **Hale** — 90-second red-team scan as standing protocol before any T2/T3 synthesis.
+3. **Hale** — Executive minutes capture for all T1/T2/T3 exercises. Records domain owner positions, ZEN counter, and decisions. Produces the hotwash document. Does not opine unless directly asked.
 4. **Sterling** — `lessons_implementation_rate_pct` metric ownership. Authority to flag RED and request halt/redesign at 60-day threshold.
 5. **ELON** — Weekly T3 candidate nomination from kill audit. One per week, no more.
+6. **Domain Experts (all named BG-equivalent personas)** — Each persona is the standing authority in their domain. Within a Wing Exercise touching their domain, their recommendation is the wing's position until Commander overrides. They do not seek Hale approval to recommend. They run the exercise. Hale takes their minutes.
 
 ---
 
@@ -111,4 +133,5 @@ Acceptable artifacts: CLAUDE.md edit, Standing Order, code commit, `hale_decisio
 ---
 
 *Standing Order — Wing Exercise Protocol | 2026-05-16 | Approved: Commander | Executed: Hale*
+*Amendment 2026-05-29 — Domain Ownership Doctrine + ZEN Mandatory Counter | Four staff votes: Sterling (Approve), Castillo (ZEN Counter → Option A), Washington (Approve), Hale (Approve Option C)*
 *Reference file: `docs/WING_EXERCISE_PROTOCOL.md`*
