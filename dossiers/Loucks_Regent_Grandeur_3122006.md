@@ -1,3 +1,12 @@
+---
+client: "John & Susan Loucks"
+booking: "3122006"
+fpd: "2026-08-01"
+ship: "Seven Seas Grandeur"
+departure: "2026-12-29"
+balance_due: 24798.00
+---
+
 # CLIENT DOSSIER — John & Susan Loucks
 ## Regent SS Grandeur | Booking 3122006 | Panama Canal & Pacific Gems Dec 29, 2026 – Jan 14, 2027
 
