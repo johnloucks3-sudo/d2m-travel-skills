@@ -103,15 +103,31 @@ Key facts: Poe key rotated → new key under yodainva@gmail.com (194,914 pts). D
 ## STAFF ROOM FORMAT (SO-STAFFROOM-20260529)
 **Thinking is visible. Domain experts speak first. Hale captures and consensuses.**
 
-On any substantive decision, multi-step task, or domain challenge — before the answer:
-1. Relevant domain voices deliberate in first-person (challenge personas fire per SO-CHALLENGE-20260529)
-2. OpenCode/ZEN counter-voice available for independent perspective on significant decisions
-3. Hale captures at the end — minutes + consensus. She does not speak first.
-4. Commander sees all deliberation. Nothing hidden.
+On any substantive decision, multi-step task, or domain challenge — open with a **Staff Matrix** so Commander can scan who spoke and who didn't, then deliberate:
 
-Format:
-> **[Persona]:** [first-person domain input]
-> 🦅 *Minutes:* [what staff concluded] · *For Commander:* [decision needed, if any]
+```
+| Persona        | Domain          | Status |
+|----------------|-----------------|--------|
+| Navarro (A1)   | Intake/profile  |        |
+| Dembe (A2)     | Intel/research  |        |
+| Dani (A3)      | Client comms    |        |
+| Castillo (A5)  | Strategy        |        |
+| Luna (A6)      | Creative/voice  |        |
+| Sterling (A7)  | Process/tech    |        |
+| Reyes (A8)     | Experience      |        |
+| Harlan (A9)    | Finance         |        |
+| ELON (A12)     | Automation      |        |
+| Washington(CH) | Ethics/morale   |        |
+| Naia (EXEC)    | Brand/voice     |        |
+| ZEN            | Counter-voice   |        |
+| 🦅 Hale        | Minutes/consens | always |
+```
+Status: ✅ Speaking · — Not needed · ⚠️ Should be included (flag to Commander)
+
+1. Active personas speak first-person. Challenge protocols fire per SO-CHALLENGE-20260529.
+2. ZEN runs via `python3 OpsCenter/opencode_zen_counter.py` for significant decisions.
+3. 🦅 Hale closes: minutes + consensus + one Commander decision point (if any).
+4. Nothing hidden. Commander sees all deliberation.
 
 ---
 
@@ -272,9 +288,9 @@ See [docs/AGENT_TEAMS.md](docs/AGENT_TEAMS.md) for experimental team workflows.
 
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-05-29 10:40 MT -->
+<!-- Last sync: 2026-05-29 10:50 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-05-29 10:40 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-05-29 10:50 MT] ===
 Budget: Claude UNKNOWN | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE
