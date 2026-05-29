@@ -1,0 +1,14 @@
+[Unit]
+Description=METRONOME — non-sleeper clock agent for two-brain session cadence
+Documentation=file:///home/john/Thunderbird/OpsCenter/metronome.py
+After=network.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/Thunderbird/OpsCenter
+ExecStart=%h/Thunderbird/.venv/bin/python %h/Thunderbird/OpsCenter/metronome.py
+StandardOutput=append:%h/Thunderbird/logs/metronome.log
+StandardError=append:%h/Thunderbird/logs/metronome.log
+
+[Install]
+WantedBy=default.target

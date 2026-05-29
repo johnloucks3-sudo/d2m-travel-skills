@@ -1241,3 +1241,18 @@ Inbox terminal state: **0 UNREAD / 0 PENDING** — all tasks COMPLETE.
 - **Dedup blocker persists** — 35th+ identical copy since May 22. Flagged for A12 ELON resolution.
 
 Inbox terminal state: **0 UNREAD / 0 PENDING** — all tasks COMPLETE.
+
+---
+
+## INBOX-SWEEP — 2026-05-29 19:00 MT | JET (WIND Group)
+
+**Result:** Sweep of opencode_inbox.md (1804 lines) complete. **0 UNREAD / 0 PENDING** tasks found.
+
+All tasks are COMPLETE. Last entries processed were TP-ALERT-20260529 (00:00 MT + 06:00 MT) — both already marked COMPLETE at 07:00 MT.
+
+**Notable (non-sweep):**
+- **T2-COMMS-BUILD-20260518** — status: UPDATED (not PENDING/UNREAD). TASKS A/B/C (signal-cli Docker, systemd service, ConversationBridge fix) remain from Hale-CC tasking. Not processed under current sweep criteria.
+
+**Dedup tracker:** TP Alert Engine dedup appears to be improving — 2 copies on May 29 (vs. 4-7/day on May 26-28). Metronome FPD dedup gate appears effective. Flagged for A12 ELON to confirm resolution.
+
+Inbox terminal state: **0 UNREAD / 0 PENDING** — all tasks COMPLETE.

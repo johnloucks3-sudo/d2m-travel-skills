@@ -16,6 +16,18 @@
 
 ---
 
+## INBOX SWEEP — 2026-05-29 19:00 MT | JET
+
+**Result:** 0 UNREAD / 0 PENDING — opencode_inbox.md fully swept (1804 lines). All tasks COMPLETE.
+
+**T2-COMMS-BUILD-20260518** — status: UPDATED (not PENDING/UNREAD). TASKS A/B/C (signal-cli Docker, systemd service, ConversationBridge fix) remain from Hale-CC tasking. Not processed under PENDING/UNREAD criteria.
+
+**Dedup tracker:** Improving — only 2 TP Alert copies on May 29 (vs. 4-7/day on May 26-28). Metronome dedup gate appears effective. A12 ELON to confirm.
+
+Inbox terminal state: **CLEAN** — 0 UNREAD / 0 PENDING.
+
+---
+
 ## [HALE-BRIEF] METRONOME LIFECYCLE INTEGRATION — STAFF READ-IN
 *2026-05-27 | Hale, COS | All Wing Staff*
 

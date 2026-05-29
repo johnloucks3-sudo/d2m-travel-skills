@@ -1,0 +1,149 @@
+{
+  "generated": "2026-05-22T19:43:48.304587+00:00",
+  "source": "Last 14 days of johnloucks3@gmail.com sent mail",
+  "email_count": 50,
+  "voice_summary": {
+    "avg_message_length_chars": 1350,
+    "avg_sentence_words": 15.1,
+    "contraction_rate": 0.5,
+    "uses_contractions": true
+  },
+  "greeting_patterns": {
+    "most_common": [
+      "Rondo",
+      "COS",
+      "Hi Ann",
+      "Thanks",
+      "John A Loucks III"
+    ],
+    "typical_signoffs": [
+      "Thanks",
+      "Thanks, and happy planning for Japan.",
+      "Thanks,",
+      "Thank you!",
+      "Thanks, been under the weather.  Just got up and showered!!. Rough night"
+    ]
+  },
+  "hard_rules": [
+    "NEVER use flowery or salesy language \u2014 Commander is direct",
+    "NEVER say 'I'm excited to...' \u2014 Commander doesn't sell, he informs",
+    "ALWAYS lead with the answer, not the context",
+    "Use contractions (I'm, don't, it's) \u2014 natural cadence",
+    "Keep sentences short \u2014 average 12-15 words",
+    "Signature block: 'John' only for personal. Full block for clients.",
+    "When correcting yourself, be brief \u2014 'Correction:' then the fix",
+    "Don't over-explain. Trust the recipient to follow."
+  ],
+  "phrases_to_avoid": [
+    "I'm thrilled to",
+    "I'm excited to announce",
+    "Let me walk you through",
+    "This is where I earn my keep",
+    "I'd be honored to",
+    "Please don't hesitate to"
+  ],
+  "phrases_to_use": [
+    "Here's what I found",
+    "Let me know if I can help",
+    "I was thinking",
+    "Thanks",
+    "My thoughts:",
+    "Quick update:"
+  ],
+  "recipient_tone_samples": {
+    "friend": [
+      {
+        "to": "Ronald Westbrook <rwestbrook3@gmail.com>",
+        "subject": "Re: Home depot",
+        "tone_sample": "OK, I think we should go with Lowe's. I'll pick you up, name your time. I\r\nam getting up at 0500 these days.\r\nJohn\r\n\r\nOn Fri, May 22, 2026 at 9:07\u202fAM Ronald Westbrook <rwestbrook3@gmail.com>\r\nwrote:\r\n"
+      },
+      {
+        "to": "Ronald Westbrook <rwestbrook3@gmail.com>",
+        "subject": "Home depot",
+        "tone_sample": "Rondo, how about if I pick you up Saturday mid-morning we go to home Depot\r\nand buy a sprinkler controller and then install it? I will take pictures\r\nbefore then of the entire unit and of every single"
+      },
+      {
+        "to": "Kim Westbrook <crnakim@yahoo.com>, BRENT",
+        "subject": "Your enviable summer trips",
+        "tone_sample": "This itinerary is not as perfect as I would like it to be, I have not\r\nchecked the itinerary, but I wanted to send you this intel and\r\ninsight. There is a lot to dive into here, let me know if I can h"
+      }
+    ],
+    "neighbor": [
+      {
+        "to": "iamheer@outlook.com",
+        "subject": "Your research sessions on YOGA \u2014 how saving your work will w",
+        "tone_sample": "Hi Ann,\n\nYou may have just received a quick test from us \u2014 that was to confirm the email pipeline works. This is the real explanation.\n\nHere is what is now set up for you:\n\nWhen you log into YOGA (the"
+      },
+      {
+        "to": "iamheer@outlook.com",
+        "subject": "Quick test from Hale and John",
+        "tone_sample": "Hi Ann,\n\nHale here with John. Just testing that this email pipeline reaches you. If you get this, hit Reply and say hi. That is all we need.\n\nThanks,\nHale (and John)"
+      },
+      {
+        "to": "iamheer@outlook.com",
+        "subject": "\ud83d\udcdd Test: Save Output Pipeline \u2014 Dreams2Memories Travel",
+        "tone_sample": "This is a test of the Ann save-to-email system. If you receive this, the pipeline works. \u2014 Hale"
+      }
+    ],
+    "internal": [
+      {
+        "to": "D2M Concierge <d2mconcierge@gmail.com>",
+        "subject": "Re: Termius SSH Key for YOGA Connection",
+        "tone_sample": "Thank you!\r\n\r\n\r\nOn Fri, May 22, 2026, 07:55 Victory Hale, D2M Travel <d2mconcierge@gmail.com>\r\nwrote:\r\n\r\n> \ud83e\udd85\r\n> VH\r\n> VCSAF-EQUIVALENT  \u25ba  CHIEF OF STAFF  \u25ba  THUNDERBIRD WING\r\n> VICTORIA I.V. HALE, SE"
+      },
+      {
+        "to": "D2M Concierge <d2mconcierge@gmail.com>",
+        "subject": "Fwd: Your Japan Itinerary \u2014 Revised with Your Preferences Bu",
+        "tone_sample": "COS. FYI, UPDATE DOSSIER. Search cities mentioned for activities in line\r\nwith Ann's preferences. Send to me in separate email...johnloucks3\r\n\r\n---------- Forwarded message ---------\r\nFrom: John Louck"
+      },
+      {
+        "to": "D2M Concierge <d2mconcierge@gmail.com>",
+        "subject": "Fwd: Your enviable summer trips",
+        "tone_sample": "COS, I sent this brief but it was not perfect up to standards.\r\nJL\r\n\r\n---------- Forwarded message ---------\r\nFrom: John Loucks3 <johnloucks3@gmail.com>\r\nDate: Wed, May 20, 2026 at 9:46\u202fPM\r\nSubject: Y"
+      }
+    ],
+    "other": [
+      {
+        "to": "Steve Trien <steve@srtrientech.com>",
+        "subject": "Re: Silversea Cruises \u2014 Company Profile & Market Analysis | ",
+        "tone_sample": "You got me interested.  I have now update my previous Regent and Atlas\r\nOcean as well.\r\nJohn\r\n\r\nOn Mon, May 18, 2026 at 8:43\u202fPM Steve Trien <steve@srtrientech.com> wrote:\r\n\r\n> Thank you my friend.\r\n> "
+      },
+      {
+        "to": "Steve Trien <steve@srtrientech.com>",
+        "subject": "Fwd: Silversea Cruises \u2014 Company Profile & Market Analysis |",
+        "tone_sample": "Hi Steve, here is what my staff came up with.  On any of these, If you\r\nwanna dive deeper, just ask.\r\nThanks\r\nJohn\r\n\r\n---------- Forwarded message ---------\r\nFrom: Dreams2Memories <d2mconcierge@gmail."
+      },
+      {
+        "to": "",
+        "subject": "",
+        "tone_sample": "John A Loucks III\r\nOwner, Dreams2Memories, LLC\r\n719-291-0742\r\njohnloucks3@gmail.com\r\nwww.d2mluxury.quest"
+      }
+    ],
+    "personal": [
+      {
+        "to": "Bill Spencer <bkspencer381@gmail.com>",
+        "subject": "Re: Coffee?",
+        "tone_sample": "Send me any new thoughts you might have ahead of our mtg and I will\r\nintegrate them into the plan...or even advanced questions.  Still a staff\r\nofficer at heart. :)\r\n\r\nOn Tue, May 19, 2026 at 9:22\u202fAM "
+      },
+      {
+        "to": "Susan Loucks <susanna.loucks@gmail.com>",
+        "subject": "Fwd: Your United Airlines booking confirmation \u2013 GJNBRG",
+        "tone_sample": "---------- Forwarded message ---------\r\nFrom: Leslie Loucks <leslieanichols@gmail.com>\r\nDate: Mon, May 18, 2026, 14:02\r\nSubject: Fwd: Your United Airlines booking confirmation \u2013 GJNBRG\r\nTo: John Louck"
+      },
+      {
+        "to": "Bill Spencer <bkspencer381@gmail.com>",
+        "subject": "Re: Coffee?",
+        "tone_sample": "Great. Kneaders ok?\r\nJohn\r\n\r\nOn Tue, May 19, 2026, 08:10 Bill Spencer <bkspencer381@gmail.com> wrote:\r\n\r\n> That\u2019s fine.  I\u2019ll need to be back by 0945 that morning but I\u2019m eager to\r\n> chat with you.\r\n>"
+      }
+    ],
+    "client": []
+  },
+  "by_recipient_type": {
+    "friend": 10,
+    "neighbor": 8,
+    "internal": 14,
+    "other": 7,
+    "personal": 10,
+    "client": 1
+  }
+}

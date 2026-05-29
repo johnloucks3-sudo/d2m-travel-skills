@@ -1,0 +1,11 @@
+[Unit]
+Description=Drive Folder Inotify Monitor — flags new/modified files to hale_shared_state.jsonl
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/Thunderbird
+Environment="PATH=%h/Thunderbird/.venv/bin:/usr/local/bin:/usr/bin:/bin"
+ExecStart=%h/Thunderbird/.venv/bin/python %h/Thunderbird/scripts/drive_folder_monitor.py
+Restart=on-failure
+RestartSec=5s

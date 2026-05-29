@@ -105,3 +105,6 @@ config/monitor_state.json
 intel/tmp_*
 150000
 .aider*
+
+# Soak directories (14-day hold before rm — auto-rm 2026-06-12)
+core/*.soak_*/

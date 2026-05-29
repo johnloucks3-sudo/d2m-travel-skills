@@ -1,0 +1,12 @@
+[Unit]
+Description=Run Poe API key health check every 6 hours
+Documentation=file:///home/john/Thunderbird/scripts/check_poe_health.py
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=6h
+Unit=poe-auth-check.service
+Persistent=true
+
+[Install]
+WantedBy=timers.target

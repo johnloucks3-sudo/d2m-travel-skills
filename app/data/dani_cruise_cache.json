@@ -1,0 +1,84 @@
+{
+  "generated_at": "2026-05-25T06:00:00+00:00",
+  "cache_note": "Nightly pricing snapshot. Prices per person double occupancy. Dani should always offer to verify live availability with John.",
+  "lines": {
+    "Silversea": {
+      "sailings": [
+        {"ship": "Silver Nova", "itinerary": "Alaska Inside Passage", "dates": "Jun-Sep 2026", "price_from": "$7,200pp", "nights": 10},
+        {"ship": "Silver Dawn", "itinerary": "Mediterranean Greece & Turkey", "dates": "May-Oct 2026", "price_from": "$8,500pp", "nights": 10},
+        {"ship": "Silver Muse", "itinerary": "Japan Cherry Blossom", "dates": "Mar-Apr 2027", "price_from": "$9,800pp", "nights": 14},
+        {"ship": "Silver Nova", "itinerary": "Pacific Crossing Tokyo-Seattle", "dates": "Apr-May 2027", "price_from": "$11,200pp", "nights": 19}
+      ],
+      "promo_note": "Early booking 5-10% off veranda/terrace; door-to-door air often included.",
+      "booking_note": "Book 9-12 months for Alaska and Japan. Mediterranean more flexible."
+    },
+    "Regent Seven Seas": {
+      "sailings": [
+        {"ship": "Seven Seas Grandeur", "itinerary": "Scandinavia & Norway Fjords", "dates": "Aug-Sep 2026", "price_from": "$9,400pp", "nights": 12},
+        {"ship": "Seven Seas Grandeur", "itinerary": "Caribbean Holiday", "dates": "Dec 2026-Jan 2027", "price_from": "$8,200pp", "nights": 10},
+        {"ship": "Seven Seas Explorer", "itinerary": "Mediterranean Spain & Portugal", "dates": "Apr-Oct 2026", "price_from": "$7,800pp", "nights": 10},
+        {"ship": "Seven Seas Splendor", "itinerary": "Panama Canal Full Transit", "dates": "Jan-Feb 2027", "price_from": "$9,100pp", "nights": 16}
+      ],
+      "promo_note": "All-inclusive with business class air on most sailings. FREE air promotions strongest spring/fall.",
+      "booking_note": "Holiday sailings book 12-18 months out. Scandinavia best booked by January."
+    },
+    "Seabourn": {
+      "sailings": [
+        {"ship": "Seabourn Ovation", "itinerary": "Greek Islands & Adriatic", "dates": "May-Oct 2026", "price_from": "$6,800pp", "nights": 10},
+        {"ship": "Seabourn Pursuit", "itinerary": "Antarctica Expedition", "dates": "Nov 2026-Feb 2027", "price_from": "$18,500pp", "nights": 14},
+        {"ship": "Seabourn Encore", "itinerary": "Southeast Asia", "dates": "Nov 2026-Mar 2027", "price_from": "$7,200pp", "nights": 12}
+      ],
+      "promo_note": "Thomas Keller cuisine included. Solo supplements negotiable on select sailings.",
+      "booking_note": "Expedition sailings book 12-18 months out. Traditional 6-9 months."
+    },
+    "Viking Ocean": {
+      "sailings": [
+        {"ship": "Viking Mars", "itinerary": "Panama Canal & Central America", "dates": "Dec 2026-Jan 2027", "price_from": "$5,999pp", "nights": 15},
+        {"ship": "Viking Venus", "itinerary": "British Isles Explorer", "dates": "May-Aug 2026", "price_from": "$4,499pp", "nights": 12},
+        {"ship": "Viking Sea", "itinerary": "Japan & South Korea", "dates": "Mar-Apr 2027", "price_from": "$8,299pp", "nights": 16},
+        {"ship": "Viking Sky", "itinerary": "Northern Lights", "dates": "Jan-Mar 2027", "price_from": "$3,999pp", "nights": 8}
+      ],
+      "promo_note": "Often runs 2-for-1 base fares. No kids, no casino. Strong enrichment programming.",
+      "booking_note": "Japan books 12+ months ahead. Panama Canal Nov-Jan books fast."
+    },
+    "Oceania": {
+      "sailings": [
+        {"ship": "Riviera", "itinerary": "Mediterranean Culinary Voyage", "dates": "May-Oct 2026", "price_from": "$4,200pp", "nights": 10},
+        {"ship": "Sirena", "itinerary": "Caribbean & Central America", "dates": "Nov 2026-Apr 2027", "price_from": "$3,800pp", "nights": 12},
+        {"ship": "Vista", "itinerary": "Northern Europe & Fjords", "dates": "Jun-Sep 2026", "price_from": "$5,100pp", "nights": 12}
+      ],
+      "promo_note": "OLife perks bundle shore excursions or drink package. Dining rivals restaurants ashore.",
+      "booking_note": "New Vista-class books fast. Established ships offer more last-minute deals."
+    },
+    "Cunard": {
+      "sailings": [
+        {"ship": "Queen Mary 2", "itinerary": "Transatlantic Southampton-New York", "dates": "Year-round 2026-2027", "price_from": "$2,800pp", "nights": 7},
+        {"ship": "Queen Anne", "itinerary": "Mediterranean Voyage", "dates": "Apr-Oct 2026", "price_from": "$3,400pp", "nights": 12},
+        {"ship": "Queen Victoria", "itinerary": "World Voyage segments", "dates": "Jan-Mar 2027", "price_from": "$6,500pp", "nights": 14}
+      ],
+      "promo_note": "White Star Service. Formal nights, ballroom, afternoon tea. Grand prix for special occasions.",
+      "booking_note": "QM2 transatlantic year-round. World Voyage segments book 12+ months."
+    },
+    "AmaWaterways": {
+      "sailings": [
+        {"ship": "AmaMagna", "itinerary": "Danube: Vienna, Budapest, Bratislava", "dates": "Apr-Oct 2026", "price_from": "$3,899pp", "nights": 7},
+        {"ship": "AmaVerde", "itinerary": "Rhine: Amsterdam to Basel Tulip Time", "dates": "Mar-May 2026", "price_from": "$4,299pp", "nights": 7},
+        {"ship": "AmaKristina", "itinerary": "Douro River Portugal", "dates": "May-Oct 2026", "price_from": "$4,599pp", "nights": 7},
+        {"ship": "AmaSiena", "itinerary": "Rhone & Saone France", "dates": "Apr-Oct 2026", "price_from": "$4,199pp", "nights": 7}
+      ],
+      "promo_note": "Pairs well with pre/post hotel extensions. Includes guided biking tours.",
+      "booking_note": "Tulip Time and Christmas Markets book 12-18 months out."
+    },
+    "Ponant": {
+      "sailings": [
+        {"ship": "Le Commandant Charcot", "itinerary": "North Pole Expedition", "dates": "Jul-Aug 2027", "price_from": "$29,000pp", "nights": 14},
+        {"ship": "Le Bougainville", "itinerary": "Galapagos Islands", "dates": "Year-round 2026-2027", "price_from": "$7,500pp", "nights": 8},
+        {"ship": "Le Champlain", "itinerary": "French Polynesia & Pacific Islands", "dates": "Nov 2026-Apr 2027", "price_from": "$8,200pp", "nights": 10}
+      ],
+      "promo_note": "French character throughout. Expedition-focused with Zodiac landings and naturalist guides.",
+      "booking_note": "North Pole and Antarctica require 12-24 months lead."
+    }
+  },
+  "fair_winds": "Silversea, Regent, and Viking are D2M strongest current sellers. 2027 Alaska and Japan corridors booking fast.",
+  "pricing_disclaimer": "Prices per person double occupancy, typical range for veranda/suite. Always verify live availability — John confirms exact pricing within the hour."
+}

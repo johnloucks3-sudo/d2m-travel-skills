@@ -1,14 +1,14 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-05-28 23:50:00 MT
+## Generated: 2026-05-29 09:20:00 MT
 
 ---
 
 ### Recent Commits
+- fded8954 feat(yoga): P1/P2/P3 code reduction — archive deleted, timers killed, Gemini disabled
+- 60c360c4 chore(session): operational state commit 2026-05-29
+- bc73b84b fix(pipeline): email-to-dossier integration + McLeod T-20 water taxi close
+- 61ff050d feat(tess): YAML frontmatter for Loucks Grandeur dossier + TESS keepalive script
 - ecb75a63 feat(intel): M-071 — Grok 4 / Grok Build joint staff paper (A2+A12)
-- a9e270e5 feat(dossier): TESS FPD dossier auto-sync (M-041)
-- 9c8f94bf feat(tess): tess_fpd_sweep MCP tool + reporting utilities (M-039)
-- f9a25586 feat(m074): Intel Connector Re-Auth — centrav_reauth.py + bedsonline credential sync
-- fe7d3366 feat(poc): M-061 — invisible_playwright eval: reCAPTCHA + Cloudflare bypassed
 
 ### Uncommitted Changes
 - .obsidian/workspace.json (modified)
@@ -25,12 +25,12 @@
 - OpsCenter/.supervisor_patterns.json (modified)
 - OpsCenter/CLAUDE_DESKTOP_INIT.md (modified)
 - OpsCenter/OPENCODE_INIT.md (modified)
-- OpsCenter/a7_metrics_dashboard.json (modified)
 - OpsCenter/collaboration/blackboard_summary.txt (modified)
-- OpsCenter/collaboration/claude_outbox.md (modified)
-- OpsCenter/collaboration/opencode_inbox.md (modified)
 - OpsCenter/collaboration/routing_log.md (modified)
-- OpsCenter/collaboration/wing_comms.md (modified)
+- OpsCenter/fare_watches/last_check.json (modified)
+- bryana/data.json (modified)
+- core/ai_infra/data/router_cost.db-shm (modified)
+- core/ai_infra/data/router_cost.db-wal (modified)
 - .opencode/skills/two-brain/SKILL.md (new)
 - .smart-env/multi/APPROVAL_WORKFLOW_QUICK_REFERENCE_txt.ajson (new)
 - .smart-env/multi/CHROMEBOOK_INIT_md.ajson (new)
@@ -57,10 +57,10 @@
 - Learning: 8 rules pending validation
 
 ### Recently Touched Dossiers
-- DOSSIER_VikingMars_PanamaCanal_Dec2026.md
 - McLeod_Erik_Melissa_SilverMuse_Complete.md
-- Morton_Joshua_Erica_Viking_Panama.md
 - Loucks_Regent_Grandeur_3122006.md
+- DOSSIER_VikingMars_PanamaCanal_Dec2026.md
+- Morton_Joshua_Erica_Viking_Panama.md
 - McLeod_McGlasson_Multi.md
 
 ### Open TODOs

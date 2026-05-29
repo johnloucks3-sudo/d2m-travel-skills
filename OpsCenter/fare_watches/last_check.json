@@ -1,139 +1,24 @@
 {
   "status": "complete",
-  "started_at": "2026-05-28T15:47:53.536193",
-  "completed_at": "2026-05-28T15:49:50.002190",
+  "started_at": "2026-05-29T08:00:00.476802",
+  "completed_at": "2026-05-29T08:00:14.666267",
   "watches_total": 5,
   "watches_checked": 0,
-  "watches_with_errors": 5,
+  "watches_with_errors": 1,
   "alerts": [],
-  "warnings": [],
+  "warnings": [
+    "Auth failed on kuklinski-flights-ric-pty: Centrav session expired and auto-login failed. Re-authenticate manually: python3 scripts/centrav_flights.py --centrav-login --headless false"
+  ],
   "errors": [
     {
       "watch_id": "kuklinski-flights-ric-pty",
-      "error": "No price extracted for RIC\u2192PTY economy"
-    },
-    {
-      "watch_id": "morton-dodge-flights-rsw-pty",
-      "error": "No price extracted for RSW\u2192PTY economy"
-    },
-    {
-      "watch_id": "mcleod-flights-den-fco-jun2026",
-      "error": "No price extracted for DEN\u2192FCO business"
-    },
-    {
-      "watch_id": "mcleod-flights-vce-den-jul2026",
-      "error": "No price extracted for VCE\u2192DEN business"
-    },
-    {
-      "watch_id": "flight-kuklinski-cos-fll-2026-12-15",
-      "error": "No price extracted for COS\u2192FLL economy"
+      "error": "Centrav session expired and auto-login failed. Re-authenticate manually: python3 scripts/centrav_flights.py --centrav-login --headless false"
     }
   ],
   "results": {
     "kuklinski-flights-ric-pty": {
-      "status": "no_price_found",
-      "origin": "RIC",
-      "dest": "PTY",
-      "date": "2026-12-17",
-      "cabin": "economy",
-      "raw": {
-        "source": "centrav_b2b",
-        "cabin": "economy",
-        "origin": "RIC",
-        "dest": "PTY",
-        "date": "12/17/2026",
-        "adults": 4,
-        "raw_prices": [],
-        "airlines": [],
-        "lowest_total": null,
-        "lowest_pp": null,
-        "status": "no_prices_found",
-        "screenshot": "/home/john/Thunderbird/core/travel/data/centrav_economy_RIC_PTY_20260528_154757.png"
-      }
-    },
-    "morton-dodge-flights-rsw-pty": {
-      "status": "no_price_found",
-      "origin": "RSW",
-      "dest": "PTY",
-      "date": "2026-12-17",
-      "cabin": "economy",
-      "raw": {
-        "source": "centrav_b2b",
-        "cabin": "economy",
-        "origin": "RSW",
-        "dest": "PTY",
-        "date": "12/17/2026",
-        "adults": 2,
-        "raw_prices": [],
-        "airlines": [],
-        "lowest_total": null,
-        "lowest_pp": null,
-        "status": "no_prices_found",
-        "screenshot": "/home/john/Thunderbird/core/travel/data/centrav_economy_RSW_PTY_20260528_154820.png"
-      }
-    },
-    "mcleod-flights-den-fco-jun2026": {
-      "status": "no_price_found",
-      "origin": "DEN",
-      "dest": "FCO",
-      "date": "2026-06-18",
-      "cabin": "business",
-      "raw": {
-        "source": "centrav_b2b",
-        "cabin": "business",
-        "origin": "DEN",
-        "dest": "FCO",
-        "date": "06/18/2026",
-        "adults": 2,
-        "raw_prices": [],
-        "airlines": [],
-        "lowest_total": null,
-        "lowest_pp": null,
-        "status": "no_prices_found",
-        "screenshot": "/home/john/Thunderbird/core/travel/data/centrav_business_DEN_FCO_20260528_154843.png"
-      }
-    },
-    "mcleod-flights-vce-den-jul2026": {
-      "status": "no_price_found",
-      "origin": "VCE",
-      "dest": "DEN",
-      "date": "2026-07-06",
-      "cabin": "business",
-      "raw": {
-        "source": "centrav_b2b",
-        "cabin": "business",
-        "origin": "VCE",
-        "dest": "DEN",
-        "date": "07/06/2026",
-        "adults": 2,
-        "raw_prices": [],
-        "airlines": [],
-        "lowest_total": null,
-        "lowest_pp": null,
-        "status": "no_prices_found",
-        "screenshot": "/home/john/Thunderbird/core/travel/data/centrav_business_VCE_DEN_20260528_154906.png"
-      }
-    },
-    "flight-kuklinski-cos-fll-2026-12-15": {
-      "status": "no_price_found",
-      "origin": "COS",
-      "dest": "FLL",
-      "date": "2026-12-15",
-      "cabin": "economy",
-      "raw": {
-        "source": "centrav_b2b",
-        "cabin": "economy",
-        "origin": "COS",
-        "dest": "FLL",
-        "date": "12/15/2026",
-        "adults": 6,
-        "raw_prices": [],
-        "airlines": [],
-        "lowest_total": null,
-        "lowest_pp": null,
-        "status": "no_prices_found",
-        "screenshot": "/home/john/Thunderbird/core/travel/data/centrav_economy_COS_FLL_20260528_154930.png"
-      }
+      "status": "auth_error",
+      "error": "Centrav session expired and auto-login failed. Re-authenticate manually: python3 scripts/centrav_flights.py --centrav-login --headless false"
     }
   }
 }

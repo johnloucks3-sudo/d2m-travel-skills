@@ -1,0 +1,14 @@
+[Unit]
+Description=Poe API key health check — alerts via Telegram when key is stale
+Documentation=file:///home/john/Thunderbird/scripts/check_poe_health.py
+After=network.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/Thunderbird
+ExecStart=%h/Thunderbird/.venv/bin/python3 %h/Thunderbird/scripts/check_poe_health.py --quiet --telegram --fix
+StandardOutput=append:%h/Thunderbird/logs/poe_auth_check.log
+StandardError=append:%h/Thunderbird/logs/poe_auth_check.log
+
+[Install]
+WantedBy=default.target

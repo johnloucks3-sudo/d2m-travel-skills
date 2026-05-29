@@ -1,0 +1,10 @@
+[Unit]
+Description=Drive Folder Monitor — ensures monitor is running (restart if dead)
+
+[Timer]
+OnBootSec=30s
+OnUnitActiveSec=1min
+Persistent=true
+
+[Install]
+WantedBy=default.target

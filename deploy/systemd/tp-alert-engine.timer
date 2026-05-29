@@ -1,0 +1,10 @@
+[Unit]
+Description=D2M TP Alert Engine — Every 6h (00:00, 06:00, 12:00, 18:00 MDT)
+Requires=tp-alert-engine.service
+
+[Timer]
+OnCalendar=*-*-* 00,06,12,18:00:00 America/Denver
+Persistent=true
+
+[Install]
+WantedBy=timers.target

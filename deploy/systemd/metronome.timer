@@ -1,0 +1,12 @@
+[Unit]
+Description=METRONOME tick every 5 minutes — session cadence monitor
+Documentation=file:///home/john/Thunderbird/OpsCenter/metronome.py
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=5min
+Unit=metronome.service
+Persistent=true
+
+[Install]
+WantedBy=timers.target

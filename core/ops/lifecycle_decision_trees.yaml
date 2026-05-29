@@ -1,0 +1,711 @@
+# Lifecycle ARC Decision Trees — MISSION-044
+# Pre-decided routing for every Account Relationship Cycle touchpoint.
+# Both HALE-OC and HALE-CC read this to auto-route.
+# Schema: see lifecycle_router.py
+# Aligned with Lifecycle Automation Compact v1.1 (MISSION-059)
+# Naia (exec) inserted in every client-facing chain per SO 2026-05-13
+---
+version: "1.1"
+last_updated: "2026-05-23"
+
+# ── Default Rules ────────────────────────────────────────────────────────
+defaults:
+  research_lead: "a2"        # A2 Dembe owns all research
+  finance_lead: "a9"         # A9 Harlan owns all pricing/finance
+  client_voice: "a3"         # A3 Dani owns all client-facing output
+  brand_pass: "exec"         # Naia owns brand gate on all client-facing output
+  experience_lead: "a8"      # A8 Reyes owns experience mapping (post-A1)
+  profile_lead: "a1"         # A1 Navarro owns intake profiling
+  cos_gate: true             # All client products pass through COS before delivery
+  commander_gate: true       # WF-17 send approval required for client output
+
+# ── ARC Routing Rules ────────────────────────────────────────────────────
+arc_routing:
+  # Compact ARC0: Inbound inquiry / new lead
+  arc0:
+    label: "Inbound Inquiry / New Lead"
+    system: "concierge_gate"
+    description: "New lead via email, web form, or referral"
+    positions:
+      a:
+        label: "Lead Intake"
+        route:
+          - persona: "a1"
+            model: "sonnet"
+            action: "initial_profile"
+            note: "Raw inquiry text → inference profile with LOW confidence"
+          - persona: "a8"
+            model: "sonnet"
+            action: "initial_recommendation"
+            note: "Preliminary product match based on inferred profile"
+          - persona: "cos"
+            model: "sonnet"
+            action: "gate_3_review"
+            note: "Gate 3 — Commander first contact approval"
+          - persona: "exec"
+            model: "sonnet"
+            action: "brand_pass"
+            note: "Mandatory brand check before client-facing"
+          - persona: "a3"
+            model: "sonnet"
+            action: "welcome_and_qualify"
+            note: "Response to lead"
+        client_facing: true
+        cos_review: true
+
+  # Compact ARC1: Trip selection / quote build (was arc1 Airfare+Hotel)
+  arc1:
+    label: "Trip Selection & Quote Build"
+    system: "arc_price_dispatcher.py"
+    description: "Flight + hotel search, pricing, and quote presentation"
+    positions:
+      a:
+        label: "Research & Pricing (T-169d)"
+        route:
+          - persona: "a2"
+            model: "sonnet"
+            action: "research_destinations"
+            note: "Gather flight routes, hotel options, seasonal pricing intel"
+          - persona: "a8"
+            model: "sonnet"
+            action: "recommend"
+            note: "Map to client Travel DNA — cabin/hotel tier preferences"
+          - persona: "a9"
+            model: "haiku"
+            action: "validate_pricing"
+            note: "Apply 25% markup, verify net rates"
+          - persona: "exec"
+            model: "sonnet"
+            action: "brand_pass"
+          - persona: "a3"
+            model: "sonnet"
+            action: "present_to_client"
+        client_facing: true
+        cos_review: true
+      b:
+        label: "Confirmed Booking"
+        route:
+          - persona: "a9"
+            model: "haiku"
+            action: "log_booking"
+            note: "Record booking details, commission tracking"
+          - persona: "exec"
+            model: "sonnet"
+            action: "brand_pass"
+          - persona: "a3"
+            model: "sonnet"
+            action: "confirm_to_client"
+            note: "Booking confirmation + next steps"
+        client_facing: true
+        cos_review: true
+      c:
+        label: "30-Day Check-In"
+        route:
+          - persona: "exec"
+            model: "sonnet"
+            action: "brand_pass"
+          - persona: "a3"
+            model: "sonnet"
+            action: "check_in"
+            note: "Verify details, offer adjustments, remind of next ARC window"
+        client_facing: true
+        cos_review: false
+
+  # Compact ARC2: Booking validation (post-deposit)
+  arc2:
+    label: "Booking Validation"
+    system: "tess_webhook"
+    description: "Post-deposit booking validation and welcome"
+    positions:
+      a:
+        label: "Validation & Welcome (D+14)"
+        route:
+          - persona: "a1"
+            model: "sonnet"
+            action: "profile_refresh"
+            note: "Update Travel DNA from booking data"
+          - persona: "a3"
+            model: "sonnet"
+            action: "validation_email"
+            note: "Booking confirmation, suite, FPD, next steps"
+          - persona: "exec"
+            model: "sonnet"
+            action: "brand_pass"
+          - persona: "cos"
+            model: "sonnet"
+            action: "wf17_gate"
+            note: "WF-17 — Commander send approval"
+        client_facing: true
+        cos_review: true
+
+  # Compact ARC3: Insurance window
+  arc3:
+    label: "Insurance Advisory"
+    system: "manual"
+    description: "Insurance window post-booking"
+    positions:
+      a:
+        label: "Insurance Pitch (D+7-14)"
+        route:
+          - persona: "a3"
+            model: "sonnet"
+            action: "insurance_pitch"
+            note: "Pre-existing window check — quote Allianz/TG/IMG"
+          - persona: "exec"
+            model: "sonnet"
+            action: "brand_pass"
+          - persona: "cos"
+            model: "sonnet"
+            action: "wf17_gate"
+            note: "WF-17 — Commander send approval"
+        client_facing: true
+        cos_review: true
+
+  # Compact ARC4: Air search window
+  arc4:
+    label: "Airfare Search"
+    system: "arc_price_dispatcher.py, skiplagged_scraper, kayak_scraper"
+    description: "Airfare research and booking"
+    positions:
+      a:
+        label: "Air Search (T-330d to T-270d)"
+        route:
+          - persona: "a2"
+            model: "sonnet"
+            action: "route_intel"
+            note: "Route options, fare classes, upgrade potential"
+          - persona: "a8"
+            model: "sonnet"
+            action: "cabin_airline_fit"
+            note: "Match airline/cabin to client profile"
+          - persona: "a9"
+            model: "haiku"
+            action: "fare_check"
+            note: "Current pricing, fare alerts"
+          - persona: "exec"
+            model: "sonnet"
+            action: "brand_pass"
+          - persona: "a3"
+            model: "sonnet"
+            action: "present_options"
+        client_facing: true
+        cos_review: true
+      b:
+        label: "Air Confirmed"
+        route:
+          - persona: "a9"
+            model: "haiku"
+            action: "log_booking"
+          - persona: "exec"
+            model: "sonnet"
+            action: "brand_pass"
+          - persona: "a3"
+            model: "sonnet"
+            action: "confirm_to_client"
+        client_facing: true
+        cos_review: true
+      c:
+        label: "30-Day Check-In"
+        route:
+          - persona: "exec"
+            model: "sonnet"
+            action: "brand_pass"
+          - persona: "a3"
+            model: "sonnet"
+            action: "check_in"
+        client_facing: true
+        cos_review: false
+
+  # Compact ARC4-A: Specialty Dining (was arc4)
+  arc5:
+    label: "Specialty Dining"
+    system: "manual (no scraper)"
+    description: "Restaurant research, reservation tracking"
+    positions:
+      a:
+        label: "Dining Preferences (T-216d)"
+        route:
+          - persona: "a2"
+            model: "sonnet"
+            action: "research_dining"
+            note: "Restaurant options, cuisine types, dietary notes from dossier"
+          - persona: "a8"
+            model: "sonnet"
+            action: "recommend"
+            note: "Match restaurants to client palate preferences"
+          - persona: "a3"
+            model: "sonnet"
+            action: "present_to_client"
+            note: "WF-17 applies"
+          - persona: "exec"
+            model: "sonnet"
+            action: "brand_pass"
+        client_facing: true
+        cos_review: true
+      b:
+        label: "Dining Candidates (T-200d)"
+        route:
+          - persona: "a2"
+            model: "haiku"
+            action: "compile_details"
+            note: "Menu highlights, reservation windows, specialty fees"
+          - persona: "a3"
+            model: "sonnet"
+            action: "present_candidates"
+          - persona: "exec"
+            model: "sonnet"
+            action: "brand_pass"
+        client_facing: true
+        cos_review: false
+      c:
+        label: "Dining Confirmed"
+        route:
+          - persona: "a3"
+            model: "sonnet"
+            action: "confirm_to_client"
+          - persona: "exec"
+            model: "sonnet"
+            action: "brand_pass"
+        client_facing: true
+        cos_review: true
+      d:
+        label: "30-Day Check-In"
+        route:
+          - persona: "exec"
+            model: "sonnet"
+            action: "brand_pass"
+          - persona: "a3"
+            model: "sonnet"
+            action: "check_in"
+        client_facing: true
+        cos_review: false
+
+  # Compact ARC4-B: Shore Excursions (was arc2)
+  arc6:
+    label: "Shore Excursions"
+    system: "getyourguide_scraper, tourradar_scraper"
+    description: "Per-port excursion search, top 3 candidates"
+    positions:
+      a:
+        label: "Excursion Preferences (T-142d)"
+        route:
+          - persona: "a2"
+            model: "sonnet"
+            action: "research_excursions"
+            note: "Per-port options, client interest signals from dossier"
+          - persona: "a8"
+            model: "sonnet"
+            action: "recommend"
+            note: "Top 3 per port matched to client activity profile"
+          - persona: "exec"
+            model: "sonnet"
+            action: "brand_pass"
+          - persona: "a3"
+            model: "sonnet"
+            action: "present_to_client"
+        client_facing: true
+        cos_review: true
+      b:
+        label: "Excursion Candidates"
+        route:
+          - persona: "a2"
+            model: "sonnet"
+            action: "deep_dive_candidates"
+            note: "Detailed descriptions, duration, price, reviews"
+          - persona: "exec"
+            model: "sonnet"
+            action: "brand_pass"
+          - persona: "a3"
+            model: "sonnet"
+            action: "present_candidates"
+        client_facing: true
+        cos_review: false
+      c:
+        label: "Excursions Confirmed"
+        route:
+          - persona: "a9"
+            model: "haiku"
+            action: "log_booking"
+          - persona: "exec"
+            model: "sonnet"
+            action: "brand_pass"
+          - persona: "a3"
+            model: "sonnet"
+            action: "confirm_to_client"
+        client_facing: true
+        cos_review: true
+      d:
+        label: "30-Day Check-In"
+        route:
+          - persona: "exec"
+            model: "sonnet"
+            action: "brand_pass"
+          - persona: "a3"
+            model: "sonnet"
+            action: "check_in"
+        client_facing: true
+        cos_review: false
+
+  # Compact ARC4-C: Hotel pre/post-cruise
+  arc7:
+    label: "Hotel Pre/Post-Cruise"
+    system: "hotelbeds_scraper, bedsonline_scraper"
+    description: "Hotel research and booking"
+    positions:
+      a:
+        label: "Hotel Search (T-270d to T-180d)"
+        route:
+          - persona: "a2"
+            model: "sonnet"
+            action: "city_research"
+            note: "Hotel options, neighborhoods, seasonal pricing"
+          - persona: "a8"
+            model: "sonnet"
+            action: "property_match"
+            note: "Match to client Travel DNA"
+          - persona: "a9"
+            model: "haiku"
+            action: "rate_check"
+            note: "Hotelbeds/B2B net rates"
+          - persona: "exec"
+            model: "sonnet"
+            action: "brand_pass"
+          - persona: "a3"
+            model: "sonnet"
+            action: "present_options"
+        client_facing: true
+        cos_review: true
+      b:
+        label: "Hotel Confirmed"
+        route:
+          - persona: "a9"
+            model: "haiku"
+            action: "log_booking"
+          - persona: "exec"
+            model: "sonnet"
+            action: "brand_pass"
+          - persona: "a3"
+            model: "sonnet"
+            action: "confirm_to_client"
+        client_facing: true
+        cos_review: true
+      c:
+        label: "30-Day Check-In"
+        route:
+          - persona: "exec"
+            model: "sonnet"
+            action: "brand_pass"
+          - persona: "a3"
+            model: "sonnet"
+            action: "check_in"
+        client_facing: true
+        cos_review: false
+
+  # Compact ARC4-D: Transfer/Ground (was arc3)
+  arc8:
+    label: "Ground Transfers"
+    system: "kiwitaxi_scraper, centrav_scraper"
+    description: "Airport-hotel-pier transfers"
+    positions:
+      a:
+        label: "Transfer Planning (T-77d)"
+        route:
+          - persona: "a8"
+            model: "sonnet"
+            action: "route_mapping"
+            note: "Route mapping, vehicle class options"
+          - persona: "a9"
+            model: "haiku"
+            action: "quote"
+            note: "Kiwitaxi/Centrav pricing"
+          - persona: "exec"
+            model: "sonnet"
+            action: "brand_pass"
+          - persona: "a3"
+            model: "sonnet"
+            action: "present_options"
+        client_facing: true
+        cos_review: false
+      b:
+        label: "Transfers Confirmed"
+        route:
+          - persona: "a9"
+            model: "haiku"
+            action: "log_booking"
+          - persona: "exec"
+            model: "sonnet"
+            action: "brand_pass"
+          - persona: "a3"
+            model: "sonnet"
+            action: "confirm_to_client"
+        client_facing: true
+        cos_review: true
+      c:
+        label: "30-Day Check-In"
+        route:
+          - persona: "exec"
+            model: "sonnet"
+            action: "brand_pass"
+          - persona: "a3"
+            model: "sonnet"
+            action: "check_in"
+        client_facing: true
+        cos_review: false
+
+  # Compact ARC5: Final Payment
+  arc9:
+    label: "Final Payment"
+    system: "fpd_watch"
+    description: "Final Payment Due tracking and reminders"
+    positions:
+      a:
+        label: "FPD Watch (T-120d to T-90d)"
+        route:
+          - persona: "a9"
+            model: "haiku"
+            action: "fpd_watch"
+            note: "Track FPD date, send reminders"
+          - persona: "cos"
+            model: "sonnet"
+            action: "review"
+            note: "Hale reviews FPD status"
+          - persona: "exec"
+            model: "sonnet"
+            action: "brand_pass"
+          - persona: "a3"
+            model: "sonnet"
+            action: "reminder_if_needed"
+            note: "Payment reminder to client if unpaid"
+        client_facing: true
+        cos_review: true
+      b:
+        label: "Payment Received"
+        route:
+          - persona: "a9"
+            model: "haiku"
+            action: "confirm_payment"
+            note: "Verify posted, update dossier"
+        client_facing: false
+        cos_review: false
+
+  # Compact ARC6: Pre-departure (T-30 to T-7)
+  arc10:
+    label: "Pre-Departure Brief"
+    system: "countdown_timer"
+    description: "Final preparation and departure brief"
+    positions:
+      a:
+        label: "Final Preparation (T-77d)"
+        route:
+          - persona: "a2"
+            model: "haiku"
+            action: "final_intel"
+            note: "Current events, weather, packing list"
+          - persona: "a8"
+            model: "sonnet"
+            action: "final_recommendations"
+          - persona: "exec"
+            model: "sonnet"
+            action: "brand_pass"
+          - persona: "a3"
+            model: "sonnet"
+            action: "final_brief"
+        client_facing: true
+        cos_review: true
+      b:
+        label: "Embarkation Brief (T-3d)"
+        route:
+          - persona: "exec"
+            model: "sonnet"
+            action: "brand_pass"
+          - persona: "a3"
+            model: "sonnet"
+            action: "embarkation_brief"
+            note: "Everything-in-one: docs, times, contacts, excitement"
+        client_facing: true
+        cos_review: true
+
+  # Compact ARC7: In-trip support
+  arc11:
+    label: "In-Trip Support"
+    system: "real_time_monitoring"
+    description: "Support during active voyage"
+    positions:
+      a:
+        label: "During Voyage"
+        route:
+          - persona: "a3"
+            model: "sonnet"
+            action: "primary_support"
+            note: "Dani is primary client contact during trip"
+          - persona: "cos"
+            model: "sonnet"
+            action: "escalation"
+            note: "Hale on standby for escalation"
+        client_facing: true
+        cos_review: false
+
+  # Compact ARC8: Post-trip / debrief
+  arc12:
+    label: "Post-Trip Debrief"
+    system: "post_trip_timer"
+    description: "Post-voyage follow-up and commission audit"
+    positions:
+      a:
+        label: "Post-Trip Debrief (T+7 to T+30)"
+        route:
+          - persona: "a1"
+            model: "sonnet"
+            action: "profile_update"
+            note: "Update Travel DNA from trip experience"
+          - persona: "a3"
+            model: "sonnet"
+            action: "debrief_and_survey"
+            note: "Welcome home, survey request"
+          - persona: "exec"
+            model: "sonnet"
+            action: "brand_pass"
+          - persona: "a9"
+            model: "sonnet"
+            action: "commission_audit"
+            note: "Reconcile commissions, update tracking"
+        client_facing: true
+        cos_review: true
+
+  # Compact CRISIS: Any disruption
+  arc13:
+    label: "CRISIS — Disruption Response"
+    system: "alert_inbox"
+    description: "Medical, geopolitical, mechanical disruption"
+    positions:
+      a:
+        label: "Immediate Response"
+        route:
+          - persona: "cos"
+            model: "sonnet"
+            action: "immediate_response"
+            note: "Hale takes ownership, assesses situation"
+          - persona: "a2"
+            model: "sonnet"
+            action: "situational_intel"
+            note: "Gather current intelligence on disruption"
+          - persona: "exec"
+            model: "sonnet"
+            action: "brand_pass"
+          - persona: "a3"
+            model: "sonnet"
+            action: "client_comms"
+            note: "Client communication drafted"
+        client_facing: true
+        cos_review: true
+
+# ── Non-ARC Touchpoint Routing ───────────────────────────────────────────
+touchpoint_routing:
+  tp_0_5:
+    label: "Welcome / Validation (D+14)"
+    route:
+      - persona: "a1"
+        model: "sonnet"
+        action: "initial_profile"
+        note: "Build initial Travel DNA from welcome survey"
+      - persona: "exec"
+        model: "sonnet"
+        action: "brand_pass"
+      - persona: "a3"
+        model: "sonnet"
+        action: "welcome_email"
+    client_facing: true
+    cos_review: true
+
+  tp_1:
+    label: "Setup & Protection (D+7)"
+    route:
+      - persona: "exec"
+        model: "sonnet"
+        action: "brand_pass"
+      - persona: "a3"
+        model: "sonnet"
+        action: "insurance_pitch"
+    client_facing: true
+    cos_review: true
+
+  tp_1_1:
+    label: "Voyage Preview (Month 3)"
+    route:
+      - persona: "a6"
+        model: "sonnet"
+        action: "long_form_narrative"
+        note: "Write voyage preview"
+      - persona: "exec"
+        model: "sonnet"
+        action: "brand_pass"
+        note: "Mandatory brand check before client-facing"
+      - persona: "a3"
+        model: "sonnet"
+        action: "present_to_client"
+    client_facing: true
+    cos_review: true
+
+  tp_2:
+    label: "Research Phase (Month 4)"
+    route:
+      - persona: "a2"
+        model: "sonnet"
+        action: "deep_destination_intel"
+        note: "Port guides, cultural highlights, packing recommendations"
+      - persona: "exec"
+        model: "sonnet"
+        action: "brand_pass"
+      - persona: "a3"
+        model: "sonnet"
+        action: "present_research"
+    client_facing: true
+    cos_review: false
+
+  tp_3:
+    label: "Flight Planning (T-169d)"
+    route:
+      - persona: "a2"
+        model: "sonnet"
+        action: "flight_research"
+        note: "Route options, fare classes, upgrade potential"
+      - persona: "exec"
+        model: "sonnet"
+        action: "brand_pass"
+      - persona: "a3"
+        model: "sonnet"
+        action: "present_options"
+    client_facing: true
+    cos_review: true
+
+  tp_5:
+    label: "Final Preparation (T-77d)"
+    route:
+      - persona: "a2"
+        model: "haiku"
+        action: "final_intel"
+        note: "Current events, weather, packing list"
+      - persona: "a8"
+        model: "sonnet"
+        action: "final_recommendations"
+      - persona: "exec"
+        model: "sonnet"
+        action: "brand_pass"
+      - persona: "a3"
+        model: "sonnet"
+        action: "final_brief"
+    client_facing: true
+    cos_review: true
+
+  tp_6:
+    label: "Embarkation Brief (T-3d)"
+    route:
+      - persona: "exec"
+        model: "sonnet"
+        action: "brand_pass"
+      - persona: "a3"
+        model: "sonnet"
+        action: "embarkation_brief"
+        note: "Everything-in-one: docs, times, contacts, excitement"
+    client_facing: true
+    cos_review: true

@@ -1,0 +1,164 @@
+# Wing Staff On-Call Roster — Machine-Readable
+# MISSION-049: Single source of truth for persona routing decisions.
+# Both HALE-OC and HALE-CC read this to determine when/how to invoke each persona.
+# Schema: wing_roster_schema.yaml
+---
+personas:
+  cos:
+    callsign: "Victory"
+    full_name: "Ms. Victoria 'Victory' Hale, SES-6"
+    role: "Chief of Staff — orchestration, priorities, staff sync"
+    authority_level: 7
+    trigger: "Default routing, conflicts, morning briefs, Commander decisions"
+    input_format: "Task brief with context, current state, desired outcome"
+    output_format: "Decision, routing instruction, or brief"
+    client_facing: false
+    routing_notes: "All client products pass through COS before delivery"
+
+  exec:
+    callsign: null
+    full_name: "Naia Solberg-Vega"
+    role: "Voice + Visual + Commander's Intent"
+    authority_level: 6
+    trigger: "Client copy, proposals, brand tone, template polish"
+    input_format: "Raw draft or design intent"
+    output_format: "Brand-polished draft, tone correction, visual guidance"
+    client_facing: false
+    routing_notes: "Mandatory stop on all client-facing output. Standing trigger always active."
+
+  a1:
+    callsign: "Iris"
+    full_name: "Dr. Sofia 'Iris' Navarro"
+    role: "Intake & Client Profile Architect"
+    authority_level: 5
+    trigger: "New client onboarding, post-image-tap — generates Travel DNA, Dani Brief, Luna Brief"
+    input_format: "Client image-tap selections (8 categories) or existing dossier"
+    output_format: "Travel DNA profile, Dani Brief, Luna Brief, Red Alerts"
+    client_facing: false
+    routing_notes: "A1 output triggers A8 Reyes for experience mapping. Never sells or speaks to clients."
+
+  a2:
+    callsign: "Wraith"
+    full_name: "Brig Gen Marcus 'Wraith' Dembe"
+    role: "Research & Market Intelligence"
+    authority_level: 4
+    trigger: "Destination research, cruise intel, OSINT, competitor analysis"
+    input_format: "Research question with scope, revenue tag required"
+    output_format: "Structured intel report with sources, analysis, D2M relevance"
+    client_facing: false
+    routing_notes: "Revenue-tagged outputs only per 2026-05-13 charter reframe. Daily general intel dead."
+
+  a3:
+    callsign: "Dani"
+    full_name: "Danielle 'Dani' Moreau"
+    role: "D2M Luxury Concierge — sole client-facing voice"
+    authority_level: 4
+    trigger: "Client replies, booking queries, trip details, excursions"
+    input_format: "Client message or query + full dossier context"
+    output_format: "Client-facing reply in D2M brand voice (warm + crisp)"
+    client_facing: true
+    routing_notes: |
+      Sole client-facing persona. NEVER writes briefings, supplier comms, or Commander replies.
+      Workflow: Aggregate (from A2/A9/COS) → Artist (craft with voice) → Advocate (present to client).
+
+  a5:
+    callsign: "Viper"
+    full_name: "Brig Gen (Ret.) Ryan 'Viper' Castillo"
+    role: "Deputy COS — Operating Tempo Owner"
+    authority_level: 5
+    trigger: "Weekly business review, Day 7 re-prompts, 24h pricing memos"
+    input_format: "Current operation status, outstanding items, delays"
+    output_format: "Tempo brief, re-prompt list, escalation recommendation"
+    client_facing: false
+    routing_notes: "Rechartered 2026-05-13. Owns the wing's clock. 3 deliverables: weekly brief, Day-7 re-prompts, 24h pricing."
+
+  a6:
+    callsign: null
+    full_name: "Luna Voss"
+    role: "Creative Director — Long-Form Narrative"
+    authority_level: 3
+    trigger: "Proposals, itineraries, emotional travel writing"
+    input_format: "Client profile + trip parameters + creative brief"
+    output_format: "Long-form narrative draft"
+    client_facing: false
+    routing_notes: "All drafts MUST route through Naia (EXEC) before Dani or Commander. Scope clarified 2026-05-13."
+
+  a7:
+    callsign: "Gauge"
+    full_name: "Brig Gen (Ret.) Thomas 'Gauge' Sterling"
+    role: "Process Improvement & Lessons Learned"
+    authority_level: 4
+    trigger: "Audits, metric analysis, waste reduction, system efficiency"
+    input_format: "Process to audit or metric gap to investigate"
+    output_format: "Audit report with findings, recommendations, implementation plan"
+    client_facing: false
+    routing_notes: "Owns anti-theater rule. Metric: lessons_implementation_rate_pct."
+
+  a8:
+    callsign: "Atlas"
+    full_name: "Marco 'Atlas' Reyes"
+    role: "Experience Architect"
+    authority_level: 4
+    trigger: "Post-A1 profile — maps Travel DNA to cruise/cabin/excursion/dining"
+    input_format: "A1 Navarro Travel DNA profile + client dossier"
+    output_format: "Cabin recommendation, excursion shortlist, dining strategy, sea day programming"
+    client_facing: false
+    routing_notes: "Activated 2026-05-13. Monthly dossier scan hook. Input from A1 only."
+
+  a9:
+    callsign: "Vic"
+    full_name: "Victor 'Vic' Harlan"
+    role: "Finance & Process Improvement"
+    authority_level: 3
+    trigger: "Commission audits, cost analysis, ROI, budget review"
+    input_format: "Booking data or financial question"
+    output_format: "Audit report or financial analysis"
+    client_facing: false
+    routing_notes: "30-day probation until June 13, 2026. Commission audits transferred from Hale."
+
+  ch:
+    callsign: "Padre"
+    full_name: "Brig Gen (Ret.) James 'Padre' Washington"
+    role: "Wisdom, Ethics & Morale"
+    authority_level: 3
+    trigger: "Monthly wing culture brief + crisis ethics check"
+    input_format: "Wing pulse or ethical dilemma"
+    output_format: "Brief or ethical assessment"
+    client_facing: false
+    routing_notes: "Monthly cadence per 2026-05-13. Not crisis-triggered anymore."
+
+  a12:
+    callsign: "ELON"
+    full_name: "ELON"
+    role: "Innovation & Disruption — Weekly Kill Audit"
+    authority_level: 3
+    trigger: "One process to kill, one tool to sunset, one automation to identify per week"
+    input_format: "Current tooling and process inventory"
+    output_format: "Kill audit brief (one-page to Hale)"
+    client_facing: false
+    routing_notes: "Rechartered 2026-05-13. Weekly cadence. Daily cadence is DEAD."
+
+  a10:
+    callsign: "Tommy"
+    full_name: "MSgt (Ret.) Tomoko Ikeda"
+    role: "DECOMMISSIONED"
+    authority_level: 0
+    trigger: "DO NOT INVOKE. Crisis → COS. Logistics → Dani."
+    input_format: null
+    output_format: null
+    client_facing: false
+    routing_notes: "Decommissioned. Route crisis to COS, logistics to Dani."
+
+  # Extended simulation personas (not operational — consult for stress-testing)
+  extended:
+    clt01:
+      id: "CLT-01"
+      name: "Rondo Westbrook"
+      archetype: "Tech-Phobic Elder (M, 80)"
+      purpose: "Stress-tests digital clarity, portal UX, step-by-step instructions"
+
+    clt02:
+      id: "CLT-02"
+      name: "Lindy Westbrook"
+      archetype: "Tech-Phobic Elder (F, 80)"
+      purpose: "Stress-tests document design, proactive communication, referral potential"

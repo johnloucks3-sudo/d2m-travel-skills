@@ -1,0 +1,10 @@
+[Unit]
+Description=Thunderbird AM Digest — daily at 06:30 MT
+Documentation=https://github.com/d2m/thunderbird
+
+[Timer]
+OnCalendar=06:30:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target

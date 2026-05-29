@@ -1,0 +1,12 @@
+[Unit]
+Description=D2M TP Alert Engine — Early Warning + Staff Notification
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=john
+WorkingDirectory=/home/john/Thunderbird
+ExecStart=/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/scripts/tp_alert_engine.py --timer
+StandardOutput=journal
+StandardError=journal

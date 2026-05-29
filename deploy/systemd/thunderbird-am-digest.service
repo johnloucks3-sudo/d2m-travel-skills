@@ -1,0 +1,21 @@
+[Unit]
+Description=Thunderbird AM Digest — overnight outputs + briefing email
+Documentation=https://github.com/d2m/thunderbird
+After=network.target
+
+[Service]
+Type=oneshot
+User=john
+WorkingDirectory=/home/john/Thunderbird
+Environment=PYTHONPATH=/home/john/Thunderbird:/home/john/Thunderbird/core/ai_infra:/home/john/Thunderbird/core/booking:/home/john/Thunderbird/core/client:/home/john/Thunderbird/core/communication:/home/john/Thunderbird/core/email:/home/john/Thunderbird/core/intel:/home/john/Thunderbird/core/learning:/home/john/Thunderbird/core/mcp:/home/john/Thunderbird/core/ops:/home/john/Thunderbird/core/scheduling:/home/john/Thunderbird/core/travel:/home/john/Thunderbird/core/watchtower:/home/john/Thunderbird/core/crewai:/home/john/Thunderbird/api:/home/john/Thunderbird/agents:/home/john/Thunderbird/scripts
+ExecStart=/home/john/Thunderbird/.venv/bin/python /home/john/Thunderbird/agents/thunderbird_morning_briefing.py
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+
+# Security
+NoNewPrivileges=yes
+
+[Install]
+WantedBy=multi-user.target

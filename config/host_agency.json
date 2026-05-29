@@ -1,0 +1,27 @@
+{
+  "host_agency": {
+    "name": "Cruises and Tours Unlimited",
+    "address": "925 Philips Highway, Jacksonville, FL 32256",
+    "phone": "904-739-2224",
+    "fax": "904-739-2155"
+  },
+  "agent_numbers": {
+    "IATAN": "10766674",
+    "CLIA": "00409065",
+    "ASTA": "900249324",
+    "FLSOT": "ST15578"
+  },
+  "d2m_agent": {
+    "name": "John Loucks",
+    "dba": "Dreams2Memories Travel, LLC",
+    "email": "johnloucks3@gmail.com",
+    "phone": "719-291-0742"
+  },
+  "unlocks": {
+    "vacationstogo.com": "Register with IATAN 10766674 or CLIA 00409065 — interline travel agent portal",
+    "cruiseplum.com": "Email/password login — Cloudflare blocks headless; needs browser cookie seed",
+    "cruise_line_agent_portals": "IATAN/CLIA accepted at Silversea, Regent, Cunard, Viking, Seabourn, Oceania agent sites"
+  },
+  "_note": "DO NOT commit to public repo. Internal only.",
+  "_updated": "2026-05-27"
+}
