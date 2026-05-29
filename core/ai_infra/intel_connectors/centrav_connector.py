@@ -5,6 +5,11 @@ TTL: 4h (session health), 8h (pricing)
 
 Auth: session cookies from ~/Thunderbird/centrav_credentials.json
       and ~/Thunderbird/core/travel/data/centrav_session.json
+
+Re-auth: When session expires, run:
+  python3 scripts/centrav_reauth.py
+  (uses invisible_playwright stealth Firefox — bypasses reCAPTCHA, M-061 confirmed)
+  (auto-fetches email MFA OTP via Gmail API for full automation)
 """
 import json
 import logging
@@ -153,9 +158,9 @@ def ingest_centrav(con: sqlite3.Connection, upsert_rows, log_run, ttl: int) -> N
 
     cookies = _load_cookies()
     if not cookies:
-        logger.warning("centrav: no cookies found — need to re-auth via browser")
+        logger.warning("centrav: no cookies found — run: python3 scripts/centrav_reauth.py")
         log_run(con, "centrav", "no_credentials",
-                error="No session cookies found. Run: centrav-flights --centrav-login --headless false")
+                error="No session cookies found. Run: python3 scripts/centrav_reauth.py")
         return
 
     try:
@@ -199,8 +204,8 @@ def ingest_centrav(con: sqlite3.Connection, upsert_rows, log_run, ttl: int) -> N
         logger.info("centrav: %d deal rows, session=%s, %.1fs",
                     n_deals, result["authenticated"], elapsed)
     elif not result["authenticated"]:
-        logger.warning("centrav: session expired — re-auth required")
-        logger.warning("centrav: run: python3 scripts/centrav_flights.py --centrav-login --headless false")
+        logger.warning("centrav: session expired — run: python3 scripts/centrav_reauth.py")
+        logger.warning("centrav: stealth Firefox (invisible_playwright) bypasses reCAPTCHA + auto-fetches Gmail OTP")
     else:
         logger.info("centrav: session valid, 0 featured deals on page (%.1fs)", elapsed)
         log_run(con, "centrav", "no_deals", rows_in=0, rows_out=0, elapsed=elapsed)

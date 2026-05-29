@@ -27,7 +27,9 @@ DESTINATION_CITIES = [
     ("Lisbon", "PT"),
 ]
 
-PORTAL_URL = "https://app.bedsonline.com"
+# Primary: B2B booking portal (from portal_creds.json). Fallback: app. subdomain.
+PORTAL_URL = "https://book.bedsonline.com"
+PORTAL_URL_ALT = "https://app.bedsonline.com"
 
 
 def _load_creds() -> dict:
