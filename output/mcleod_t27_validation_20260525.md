@@ -18,7 +18,7 @@
 | Hotel → Civitavecchia (embark day) | 🟢 GREEN | CONFIRMED | Welcome Pickups Order #w-6377007-1, Jun 23 at 10:00 |
 | Post-cruise hotel (Venice — Molino Stucky) | 🟢 GREEN | CONFIRMED | Hilton Molino Stucky, Jul 3–6; Commander verbal confirmed ~2026-05-05 |
 | Fusina → Molino Stucky (disembark day) | 🟢 GREEN | CONFIRMED | Venice Guide and Boat Order #14878, Jul 3 09:30, €350 PAID |
-| VCE Airport water taxi (departure) | 🟡 YELLOW | INFERRED | May 26 email fwd references "McLeod Water Taxi — Venice Molino Stucky to Marco Polo Airport, 6 July 2026" — booking not yet reflected in dossier. Verify. |
+| VCE Airport water taxi (departure) | 🟢 GREEN | CONFIRMED | Consorzio Motoscafi Venezia — Booking code **96SGY**, Jul 6 at 09:00, 2 pax, 4 bags, €170 PAID. Erik booked same day Commander forwarded options (May 26). |
 | Air (DEN→FCO / VCE→YYZ→DEN) | 🟢 GREEN | CONFIRMED | All 4 PNRs confirmed 2026-05-26: United ML237016 / TF317131, American H1PY618 / N6TX610 |
 | Shore excursions | 🟢 GREEN | CONFIRMED | All 8 ports confirmed (source: "Melissa and Erik Excursions.pdf") |
 | Specialty dining | 🟡 YELLOW | UNKNOWN | Opens Feb 23; current status not confirmed in dossier |
@@ -28,7 +28,7 @@
 | Emergency contact | 🔴 RED | UNKNOWN | Missing from dossier for both clients |
 | June 18 lodging (overnight in transit) | 🟡 YELLOW | UNKNOWN | Flight arrives FCO Jun 19 12:20 PM; hotel check-in Jun 19 2:00 PM — overnight spent in transit. Confirm client is aware no lodging needed Jun 18 night. |
 
-**Overall:** 🟡 YELLOW → 3 open items for closure (water taxi booking, GIF, emergency contact). No financial or supplier risk. Departure in 20 days.
+**Overall:** 🟡 YELLOW → Water taxi CONFIRMED (96SGY, €170 PAID). 2 remaining items (emergency contact, GIF completion). No supplier or financial risk. Departure in 20 days.
 
 ---
 
@@ -56,12 +56,10 @@ The following items were open at T-35 and are now confirmed resolved:
 - **Deadline:** Must have before final itinerary delivery
 - **Action:** Include in next client communication. One emergency contact per traveler (name, relationship, phone).
 
-### 🟡 Priority 2 — VCE Airport Water Taxi (Jul 6, UNVERIFIED)
-- **Status:** INFERRED — May 26 email "Fwd: McLeod Water Taxi — Venice Molino Stucky to Marco Polo Airport, 6 July 2026" suggests booking exists, but dossier still shows 🔴 UNCONFIRMED.
-- **Confidence:** INFERRED (email title implies booking, not confirmed in primary source)
-- **Owner:** Hale — verify booking confirmation from email content
-- **Deadline:** Before T-14 (Jun 4) — last chance to book if not confirmed
-- **Action:** Read May 26 email forward and update dossier with confirmation number and timing. If not booked, book now via Consorzio Motoscafi (+39 041 522 2303) or bookwatertaxivenice.com.
+### ✅ RESOLVED — VCE Airport Water Taxi (Jul 6)
+- **Status:** CONFIRMED — Consorzio Motoscafi Venezia, Booking code **96SGY**, Jul 6 at 09:00
+- **Details:** 2 pax, 4 suitcases, €170.00 PAID. Booked by Erik McLeod (emcleod@gmail.com) May 26, 2026.
+- **Source:** Erik forwarded confirmation to Commander same evening. Commander forwarded to johnloucks3 (Gmail thread 19e6520cb3d6091d, May 26 18:47). ✅ CLOSED.
 
 ### 🟡 Priority 3 — Specialty Dining (UNKNOWN)
 - **Status:** UNKNOWN — opening was Feb 23; no confirmation of selections in dossier
@@ -122,7 +120,7 @@ The following items were open at T-35 and are now confirmed resolved:
 | Baglioni → Civitavecchia (Jun 23) | Welcome Pickups | Order #w-6377007-1, 10:00 | ✅ CONFIRMED |
 | Civitavecchia → Ship | Silversea Door-to-Door | Written confirmation 2026-04-06 | ✅ CONFIRMED |
 | Ship (Fusina) → Molino Stucky (Jul 3) | Venice Guide and Boat | Order #14878, 09:30, €350 PAID | ✅ CONFIRMED |
-| Molino Stucky → VCE (Jul 6) | TBD — see Priority 2 | Per May 26 email fwd | 🟡 VERIFY |
+| Molino Stucky → VCE (Jul 6) | Consorzio Motoscafi Venezia | Booking **96SGY**, Jul 6 09:00, €170 PAID | ✅ CONFIRMED |
 
 ### Passports
 - **Erik McLeod:** A09468788 — expires 2032-09-15 ✅ (valid 6+ months past Jan 2027 return buffer)
@@ -148,9 +146,9 @@ The following items were open at T-35 and are now confirmed resolved:
 
 ## 6. CONFIDENCE SUMMARY (SO-PIPELINE-INTEGRITY-20260528)
 
-**CONFIRMED:** All financial payments, all flight PNRs, Baglioni hotel, both Welcome Pickups orders, Venice Guide and Boat, Silversea Door-to-Door written confirmation, all shore excursions, passports.
+**CONFIRMED:** All financial payments, all flight PNRs, Baglioni hotel, both Welcome Pickups orders, Venice Guide and Boat, Silversea Door-to-Door written confirmation, all shore excursions, passports, VCE airport water taxi (Consorzio Motoscafi 96SGY, €170 PAID).
 
-**INFERRED:** VCE airport water taxi (May 26 email suggests booking), June 18 overnight awareness (client-sourced booking pattern implies awareness).
+**INFERRED:** June 18 overnight awareness (client-sourced booking pattern implies awareness).
 
 **UNKNOWN:** Specialty dining status, Guest Info Form completion status, emergency contact.
 
@@ -160,8 +158,7 @@ The following items were open at T-35 and are now confirmed resolved:
 
 ## 7. RECOMMENDED ACTIONS — NEXT 7 DAYS
 
-**Hale (immediate):**
-1. Read May 26 email "Fwd: McLeod Water Taxi — Venice Molino Stucky to Marco Polo Airport" — confirm booking details and update dossier. If unbooked, book now.
+**Water taxi: CLOSED.** Consorzio Motoscafi 96SGY confirmed May 26. No action needed.
 
 **Dani (in next client communication):**
 1. Request emergency contact for Erik and Melissa (name, relationship, phone)

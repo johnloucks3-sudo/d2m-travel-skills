@@ -956,21 +956,47 @@ def process_commander_directive(message: dict) -> bool:
 
     log.info(f"Commander directive: {subject[:60]}")
 
-    # Strip quoted replies — only process new content
+    # Strip quoted replies for the reply prompt — but keep full body for data extraction
     clean_body = _strip_quoted_text(body)
+
+    # ── BOOKING CONFIRMATION DETECTION ───────────────────────
+    dossier_update_result = ""
+    if _is_booking_forward(body):
+        log.info(f"Booking forward detected in Commander directive: {subject[:60]}")
+        details = _extract_booking_details(body)
+        if details:
+            # Use client_name from extracted data, or fall back to subject/commander note
+            client_hint = details.get("client_name") or clean_body
+            ok, msg = _update_dossier_with_confirmation(client_hint, details, subject, body)
+            dossier_update_result = msg
+            if ok:
+                log.info(f"[DOSSIER UPDATED] {msg}")
+            else:
+                log.warning(f"[DOSSIER UPDATE FAILED] {msg}")
+        else:
+            log.warning("Booking forward detected but extraction returned no data")
+    # ─────────────────────────────────────────────────────────
 
     # Build Dani's response via persona
     try:
         from thunderbird_personas import call_persona
 
+        dossier_note = (
+            f"\n\nDOSSIER STATUS: {dossier_update_result}"
+            if dossier_update_result
+            else "\n\nDOSSIER STATUS: No booking confirmation detected — no dossier update."
+        )
+
         prompt = (
             f"{SAFETY_ANCHOR}\n\n"
             f"The Commander (John Loucks) has sent you a directive via email.\n\n"
             f"Subject: {subject}\n"
-            f"Message:\n{clean_body}\n\n"
+            f"Message:\n{clean_body}\n"
+            f"{dossier_note}\n\n"
             f"As Dani Moreau, D2M Luxury Travel Concierge:\n"
             f"1. Acknowledge the directive clearly\n"
-            f"2. State what action you will take (or have taken)\n"
+            f"2. If dossier was updated, confirm exactly what was logged (booking code, provider, date)\n"
+            f"   If dossier was NOT updated, do NOT say 'logging to dossier' — say what you actually did\n"
             f"3. If it references a client, note which client and booking\n"
             f"4. If it requires follow-up, say when you'll check back\n"
             f"5. Keep it concise — 3-5 sentences max\n"
@@ -1022,11 +1048,14 @@ def process_commander_directive(message: dict) -> bool:
 
 
 def _strip_quoted_text(body: str) -> str:
-    """Strip quoted/forwarded text from email body — keep only new content."""
+    """Strip quoted/forwarded text from email body — keep only new content.
+
+    NOTE: For booking confirmation detection, call with the FULL body before stripping.
+    This function is for Dani's reply prompt only — not for data extraction.
+    """
     lines = body.split("\n")
     clean = []
     for line in lines:
-        # Stop at common quote markers
         if line.strip().startswith(">"):
             continue
         if re.match(r"^On .+ wrote:$", line.strip()):
@@ -1038,6 +1067,154 @@ def _strip_quoted_text(body: str) -> str:
         clean.append(line)
     result = "\n".join(clean).strip()
     return result if result else body[:500]
+
+
+# ── BOOKING CONFIRMATION DETECTION & DOSSIER UPDATE ──────────
+
+_BOOKING_SIGNALS = re.compile(
+    r"(booking\s+code|confirmation\s+number|booking\s+reference|ticket\s+number|"
+    r"reservation\s+confirmed|your\s+ticket|your\s+booking|order\s+#|booking\s+#|"
+    r"conf#|pnr|e-ticket|itinerary|booking\s+confirmation|confirmed\s+booking|"
+    r"payment\s+status.*paid|total\s+price|pick-?up\s+time)",
+    re.IGNORECASE,
+)
+
+DOSSIERS_DIR = ROOT / "dossiers"
+
+
+def _is_booking_forward(body: str) -> bool:
+    """Return True if body contains a forwarded booking confirmation."""
+    has_forward = "---------- Forwarded message" in body or "Begin forwarded message" in body
+    if not has_forward:
+        return False
+    # Must also have booking signals in the forwarded content
+    fwd_start = max(body.find("---------- Forwarded message"),
+                    body.find("Begin forwarded message"))
+    fwd_body = body[fwd_start:]
+    return bool(_BOOKING_SIGNALS.search(fwd_body))
+
+
+def _extract_booking_details(full_body: str) -> dict | None:
+    """Use Haiku to extract structured booking data from a forwarded confirmation."""
+    try:
+        from thunderbird_personas import _call_claude
+
+        system = (
+            "You are a booking data extractor for a luxury travel agency. "
+            "Extract booking details from the forwarded email content. "
+            "Return ONLY a JSON object with these exact keys (use null for unknown): "
+            "client_name, booking_code, provider, service_type, date, time, amount, "
+            "passengers, pickup_location, dropoff_location. "
+            "service_type must be one of: water_taxi, transfer, hotel, excursion, flight, cruise, other. "
+            "amount should be a string like '€170.00' or '$250.00'. "
+            "Return ONLY the JSON — no explanation, no markdown."
+        )
+        # Extract just the forwarded portion
+        fwd_start = max(full_body.find("---------- Forwarded message"),
+                        full_body.find("Begin forwarded message"))
+        fwd_content = full_body[fwd_start:fwd_start + 2000] if fwd_start >= 0 else full_body[:2000]
+
+        raw = _call_claude(system, fwd_content, max_tokens=300, model="haiku")
+        if not raw:
+            return None
+        # Strip markdown fences if present
+        raw = raw.strip()
+        if raw.startswith("```"):
+            raw = re.sub(r"^```[a-z]*\n?", "", raw)
+            raw = re.sub(r"\n?```$", "", raw)
+        return json.loads(raw.strip())
+    except Exception as e:
+        log.warning(f"Booking extraction failed: {e}")
+        return None
+
+
+def _find_matching_dossier(client_hint: str) -> Path | None:
+    """Find the most likely dossier matching a client name hint."""
+    if not DOSSIERS_DIR.exists() or not client_hint:
+        return None
+
+    # Normalize hint: last name or first name search
+    hint_lower = client_hint.lower().strip()
+    hint_parts = hint_lower.split()
+
+    candidates = []
+    for dossier in DOSSIERS_DIR.glob("*.md"):
+        name_lower = dossier.stem.lower()
+        score = 0
+        for part in hint_parts:
+            if len(part) > 2 and part in name_lower:
+                score += 1
+        if score > 0:
+            candidates.append((score, dossier))
+
+    if not candidates:
+        # Try searching inside dossier content
+        for dossier in DOSSIERS_DIR.glob("*.md"):
+            try:
+                content = dossier.read_text()[:500].lower()
+                score = sum(1 for part in hint_parts if len(part) > 2 and part in content)
+                if score > 0:
+                    candidates.append((score, dossier))
+            except Exception:
+                pass
+
+    if candidates:
+        candidates.sort(key=lambda x: -x[0])
+        return candidates[0][1]
+    return None
+
+
+def _update_dossier_with_confirmation(
+    client_hint: str, details: dict, subject: str, full_body: str
+) -> tuple[bool, str]:
+    """Append a booking confirmation block to the matching dossier.
+
+    Returns (success, message).
+    """
+    dossier_path = _find_matching_dossier(client_hint)
+    if not dossier_path:
+        return False, f"No dossier found for client hint: {client_hint!r}"
+
+    try:
+        ts = datetime.now().strftime("%Y-%m-%d %H:%M MT")
+        booking_code = details.get("booking_code") or "N/A"
+        provider = details.get("provider") or "Unknown"
+        service_type = details.get("service_type") or "booking"
+        date = details.get("date") or "N/A"
+        time_val = details.get("time") or "N/A"
+        amount = details.get("amount") or "N/A"
+        passengers = details.get("passengers") or "N/A"
+        pickup = details.get("pickup_location") or ""
+        dropoff = details.get("dropoff_location") or ""
+
+        route_str = f" | {pickup} → {dropoff}" if pickup or dropoff else ""
+
+        block = (
+            f"\n\n---\n"
+            f"### BOOKING CONFIRMED (AUTO-LOGGED {ts})\n"
+            f"**Source:** Commander forwarded via email | Subject: {subject[:80]}\n"
+            f"**Provider:** {provider}\n"
+            f"**Service:** {service_type}{route_str}\n"
+            f"**Booking Code:** {booking_code}\n"
+            f"**Date/Time:** {date} at {time_val}\n"
+            f"**Amount:** {amount} | **Passengers:** {passengers}\n"
+            f"**Status:** ✅ CONFIRMED — PAID\n"
+            f"*Integrate into trip transport/booking table above.*\n"
+        )
+
+        current = dossier_path.read_text()
+        dossier_path.write_text(current + block)
+
+        msg = (
+            f"Dossier updated: {dossier_path.name} — "
+            f"{provider} {service_type} {booking_code} ({date} {time_val}, {amount})"
+        )
+        log.info(f"[DOSSIER UPDATE] {msg}")
+        return True, msg
+
+    except Exception as e:
+        log.error(f"Dossier update failed for {dossier_path}: {e}")
+        return False, f"Dossier write failed: {e}"
 
 
 def _create_commander_reply_draft(original: dict, reply_text: str):
