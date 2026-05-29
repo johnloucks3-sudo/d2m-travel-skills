@@ -101,27 +101,31 @@ Key facts: Poe key rotated → new key under yodainva@gmail.com (194,914 pts). D
 ---
 
 ## STAFF ROOM FORMAT (SO-STAFFROOM-20260529)
-**Every substantive response opens with this matrix. Responses inline. All 13 seats filled.**
+**Every substantive response opens with this matrix. All 19 seats. Responses inline. Always.**
 
 | Persona | Domain | Input |
 |---|---|---|
 | Navarro (A1) | Intake/profile | [input or —] |
 | Dembe (A2) | Intel/research | [input or —] |
 | Dani (A3) | Client comms | [input or —] |
-| Castillo (A5) | Strategy | [input or —] |
-| Luna (A6) | Creative/voice | [input or —] |
+| Keel (A4) | Logistics | [input or —] |
+| Castillo (A5) | Strategy/growth | [input or —] |
+| Luna/Prism (A6) | Creative/brand | [input or —] |
 | Sterling (A7) | Process/tech | [input or —] |
 | Reyes (A8) | Experience | [input or —] |
 | Harlan (A9) | Finance | [input or —] |
 | Bridge (A10) | Crisis/logistics | [input or —] |
+| Horizon (A11) | Future/AI | [input or —] |
 | ELON (A12) | Automation | [input or —] |
+| Sienna (A13) | Social/digital | [input or —] |
 | Washington (CH) | Ethics/morale | [input or —] |
 | Naia (EXEC) | Brand/voice | [input or —] |
+| TALON | Strike/strategy | [input or —] |
+| JET | Support/infra | [input or —] |
 | ZEN | Counter-voice | [input or — ; run opencode_zen_counter.py for significant decisions] |
 | 🦅 Hale | Consensus | [minutes + one Commander decision point if needed] |
 
-⚠️ in the Input column = relevant but not addressed — flag to Commander.
-ZEN via `python3 OpsCenter/opencode_zen_counter.py "question"` — real OpenCode/DeepSeek subprocess, not fabricated.
+⚠️ in Input = relevant domain not addressed — flag to Commander.
 
 ---
 
@@ -282,9 +286,9 @@ See [docs/AGENT_TEAMS.md](docs/AGENT_TEAMS.md) for experimental team workflows.
 
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-05-29 10:50 MT -->
+<!-- Last sync: 2026-05-29 10:55 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-05-29 10:50 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-05-29 10:55 MT] ===
 Budget: Claude UNKNOWN | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE
