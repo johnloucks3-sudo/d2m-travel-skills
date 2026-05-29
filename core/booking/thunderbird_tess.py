@@ -1478,16 +1478,32 @@ def _cli():
         description="Dreams2Memories TESS API Client",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""Examples:
-  python3 thunderbird_tess.py --authorize       # Run OAuth flow
+  python3 thunderbird_tess.py --authorize       # Run OAuth flow (needs local browser)
+  python3 thunderbird_tess.py --inject-token '{"token":"eyJ...","refreshToken":"..."}' # Inject from browser localStorage
+  python3 thunderbird_tess.py --keepalive       # Proactively refresh (called by systemd timer)
   python3 thunderbird_tess.py --test            # Test connection
   python3 thunderbird_tess.py --bookings        # List bookings
   python3 thunderbird_tess.py --commissions     # Commission summary
   python3 thunderbird_tess.py --clients         # List clients
   python3 thunderbird_tess.py --trips           # List trips
   python3 thunderbird_tess.py --revoke          # Revoke tokens
+
+Token injection (from Chromebook or any remote browser):
+  1. Log in at https://crm.myagentgenie.com
+  2. DevTools (F12) → Application → Local Storage → crm.myagentgenie.com
+  3. Copy value of "authenticationData"
+  4. python3 thunderbird_tess.py --inject-token '<paste here>'
 """,
     )
     parser.add_argument("--authorize", action="store_true", help="Run OAuth 2.0 + PKCE authorization flow")
+    parser.add_argument(
+        "--inject-token",
+        metavar="JSON",
+        help='Inject token from browser localStorage. Pass the raw JSON value of the '
+             '"authenticationData" key, e.g.: \'{"token":"eyJ...","refreshToken":"abc..."}\''
+    )
+    parser.add_argument("--keepalive", action="store_true",
+                        help="Proactively refresh token if within 30 min of expiry — for use by systemd timer")
     parser.add_argument("--test", action="store_true", help="Test API connection (fetch agent profile)")
     parser.add_argument("--bookings", action="store_true", help="List bookings")
     parser.add_argument("--commissions", action="store_true", help="Get commission summary")
@@ -1500,6 +1516,14 @@ def _cli():
     if args.authorize:
         auth = TESSAuth()
         auth.authorize()
+        return
+
+    if args.inject_token:
+        _inject_token_from_localstorage(args.inject_token)
+        return
+
+    if args.keepalive:
+        _keepalive()
         return
 
     if args.revoke:
@@ -1541,6 +1565,104 @@ def _cli():
         return
 
     parser.print_help()
+
+
+def _inject_token_from_localstorage(raw_json: str) -> None:
+    """Write tess_token.json from the browser localStorage authenticationData blob.
+
+    Usage:
+        python3 thunderbird_tess.py --inject-token '{"token":"eyJ...","refreshToken":"..."}'
+
+    Gets the value from DevTools → Application → Local Storage →
+    https://crm.myagentgenie.com → authenticationData.
+    """
+    import base64
+
+    try:
+        data = json.loads(raw_json)
+    except json.JSONDecodeError as e:
+        print(f"ERROR: Could not parse JSON — {e}")
+        print("Wrap the value in single quotes and paste the full JSON object.")
+        sys.exit(1)
+
+    jwt_token = data.get("token") or data.get("access_token")
+    refresh_tok = data.get("refreshToken") or data.get("refresh_token")
+
+    if not jwt_token:
+        print("ERROR: No 'token' or 'access_token' field found in JSON.")
+        sys.exit(1)
+
+    # Decode JWT payload (no signature verification — we trust the browser source)
+    try:
+        payload_b64 = jwt_token.split(".")[1]
+        payload_b64 += "=" * (-len(payload_b64) % 4)
+        payload = json.loads(base64.urlsafe_b64decode(payload_b64))
+    except Exception as e:
+        print(f"ERROR: Could not decode JWT payload — {e}")
+        sys.exit(1)
+
+    nbf = payload.get("nbf", int(time.time()))
+    exp = payload.get("exp", nbf + 7200)
+    user_id = str(payload.get("UserID") or payload.get("userID") or "")
+    company_id = str(payload.get("CompanyID") or payload.get("companyID") or "")
+
+    token_data = {
+        "access_token": jwt_token,
+        "refresh_token": refresh_tok or "",
+        "token_type": "Bearer",
+        "userID": user_id,
+        "company_id": company_id,
+        "issued_at": nbf,
+        "expires_in": exp - nbf,
+        "expires_at": exp,
+        "source": "localStorage_inject",
+        "injected_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+    }
+
+    TOKEN_FILE.write_text(json.dumps(token_data, indent=2), encoding="utf-8")
+
+    remaining = int(exp - time.time())
+    print(f"✅ Token injected — UserID={user_id} CompanyID={company_id}")
+    print(f"   Expires: {time.strftime('%Y-%m-%d %H:%M UTC', time.gmtime(exp))} "
+          f"({remaining // 60}m {remaining % 60}s remaining)")
+
+    # Verify immediately
+    client = TESSClient()
+    profile = client.get_profile()
+    if "error" in profile:
+        print(f"⚠️  Connection test failed: {profile['error']}")
+    else:
+        print(f"✅ Connection verified — API responding")
+
+
+def _keepalive() -> None:
+    """Proactively refresh TESS token if within 30 minutes of expiry.
+
+    Called by systemd timer every 90 minutes. Keeps the refresh chain alive
+    so the token never lapses between sessions.
+    """
+    auth = TESSAuth()
+    if not auth._tokens:
+        print("TESS keepalive: no token on disk — nothing to refresh")
+        sys.exit(0)
+
+    expires_at = auth._tokens.get("expires_at", 0)
+    remaining = expires_at - time.time()
+
+    if remaining > 30 * 60:
+        print(f"TESS keepalive: token healthy ({int(remaining // 60)}m remaining) — no refresh needed")
+        sys.exit(0)
+
+    print(f"TESS keepalive: token expires in {int(remaining // 60)}m — refreshing now")
+    ok = auth.refresh_token()
+    if ok:
+        new_exp = auth._tokens.get("expires_at", 0)
+        print(f"✅ Token refreshed — new expiry {time.strftime('%Y-%m-%d %H:%M UTC', time.gmtime(new_exp))}")
+    else:
+        print("❌ Refresh failed — manual re-injection required")
+        print("   DevTools → Application → Local Storage → crm.myagentgenie.com → authenticationData")
+        print("   Then: python3 thunderbird_tess.py --inject-token '<paste JSON>'")
+        sys.exit(1)
 
 
 if __name__ == "__main__":
