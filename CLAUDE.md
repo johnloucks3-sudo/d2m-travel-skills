@@ -32,11 +32,12 @@ Key facts: Poe key rotated → new key under yodainva@gmail.com (194,914 pts). D
 
 ---
 
-## ⚠️ HARD RULE — EMAIL SEND GATE (Standing Order 21 MAR 2026, Amended 24 MAR 2026)
+## ⚠️ HARD RULE — EMAIL SEND GATE (Standing Order 21 MAR 2026, Amended 24 MAR 2026, Amended 30 MAY 2026)
 **The Wing MAY send to johnloucks3@gmail.com without confirmation** — this address is internal to the wing, no vulnerability.
-**All other addresses require explicit Commander approval.** Before ANY other send — any persona, any tool, any channel, any workflow state — post to Commander:
-> *"Commander, confirm you want me to send this out of the wing? yes/no"*
-**WAIT for explicit "yes" before executing send.** No exceptions. Supersedes all other workflow instructions.
+**AI/Wing may NEVER execute a send to any client address. Commander is the sole send executor for all client communications. WF-17 approval grants permission for the content — Commander executes the send, not the Wing.**
+Before any client-ready product exits the Wing: create the draft, label it `THUNDERBIRD-Commander-Review`, notify Commander. Stop there. Do not send.
+> *"Commander, [product] is ready in your drafts for review and send."*
+**No persona, tool, script, MCP call, workflow state, or approval grants the Wing execution authority for client sends.** This is a prohibition, not a gate. SO: `standing_orders/SO_WF17_CLIENTSEND_PROHIBITION_20260530.md`
 
 ## ⚠️ HARD RULE — EMAIL ACCOUNT SEPARATION (Standing Order 24 MAR 2026)
 - **d2mconcierge@gmail.com** = SOLE D2M ops account. ALL drafts created here. ALL business conducted here. MCP gmail_token.json authenticates here.
@@ -299,9 +300,9 @@ See [docs/AGENT_TEAMS.md](docs/AGENT_TEAMS.md) for experimental team workflows.
 
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-05-29 21:56 MT -->
+<!-- Last sync: 2026-05-30 06:28 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-05-29 21:56 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-05-30 06:28 MT] ===
 Budget: Claude UNKNOWN | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE
