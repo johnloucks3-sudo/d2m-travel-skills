@@ -2,6 +2,46 @@
 
 ## 2026-05-30 DECISIONS (Session Close)
 
+### COMPLETED: Fix MISSION-079-086 Over-Assignment (NEXUS Daemon Claiming)
+
+**Date:** 2026-05-30 16:08 MT
+**Authority:** Commander priority 3
+**Status:** COMPLETE — All missions reassigned, priorities bumped P0→P1
+
+Reassignments:
+- MISSION-079: Sterling (A7) — file-permission architecture
+- MISSION-080: Reyes (A8) — McLeod dossier CONFIRMED facts update
+- MISSION-081: Reyes (A8) — Grandeur specialty dining follow-up emails
+- MISSION-082: Reyes (A8) — Furlows HEL→ARN seat assignments
+- MISSION-083: Reyes (A8) — Nichols return flight seat assignments
+- MISSION-084: Reyes (A8) — Haymarket room retention confirmation
+- MISSION-085: Reyes (A8) — Schengen visa-free verification (dossier update)
+- MISSION-086: Sterling (A7) — Dossier Option B build (was NEXUS, now A7)
+
+Root cause: NEXUS daemon was auto-claiming missions created May 30 without explicit owner. Manual reassignment via mission_board.json. All now at P1 priority and visible to real owners.
+
+---
+
+### ROUTED: Dossier Option B (Cache + Daily Sweep) — Architecture Q&A to Sterling (A7)
+
+**Date:** 2026-05-30 15:52 MT
+**Authority:** Commander ("Agree with a")
+**Mechanism:** MISSION-022 created on mission board + headless Sterling dispatch (sonnet)
+**Status:** Dispatched — awaiting Sterling architecture answers
+
+Three questions to Sterling:
+1. Cache backend — Redis or in-process (dict+pickle)?
+2. Sweep scope — all 6 Harlan steps or FPD/pricing subset?
+3. Mismatch alert cadence — immediate page or morning brief rollup?
+
+Then Sterling outlines code structure (dossier_cache.py + dossier_validation_sweep.py functions, systemd timer, mismatch output format).
+
+**Timeline:** Sterling answers today. Build 2026-06-02. Go-live 2026-06-03.
+
+**Owner:** A7 Sterling (build). Hale (routing, tracking, escalation if at-risk).
+
+---
+
 ### APPROVED: SO-2026-05-30 — Wing Restructure (19→5 Personas)
 
 **Date:** 2026-05-30 15:47 MT
