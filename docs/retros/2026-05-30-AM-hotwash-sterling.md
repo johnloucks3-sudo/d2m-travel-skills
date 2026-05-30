@@ -8,13 +8,15 @@
 
 ## EXECUTIVE SUMMARY
 
-Two failure modes intersected in the same 6-hour window last night and produced corrective doctrine authored before midnight. That is the central finding: the system caught itself, but only after the breach. Every formal finding closes with a metric, a threshold, and an owner — per A7 charter.
+Two failure modes intersected in the same 6-hour window last night and produced corrective doctrine authored before midnight. That is the central finding — but the attribution requires a correction: **Commander was the primary QA layer, not the Wing.** The Wing executed corrections rapidly once errors were surfaced; Commander was the mechanism that surfaced them. Every formal finding closes with a metric, a threshold, and an owner — per A7 charter.
 
 **Commander's assessment:** "What a mess." Accurate.
 
+**Attribution correction (Commander-directed, 2026-05-30):** The original draft of this hotwash stated "the system caught itself." That framing is wrong. Commander's direct statement: "many if not all of the errors noticed were raised by me." The Wing did not catch its own content errors. Commander caught them. The Wing executed corrections when directed. The distinction is material — it changes the central finding from "self-correction speed" to "Commander as QA layer with zero Wing autonomous content-error detection." See ATTRIBUTION CORRECTION section below.
+
 **System outcome:** Net positive. Seven governance artifacts produced from incident context. Creative chain doctrine amended. PRODUCTION-LOCK rule codified. Three code gates deployed. Dossier contamination found and eliminated. The Wing did not hide the failures — it documented them and built the next layer of protection inside the same session.
 
-**What this reveals about the Wing's operational pattern:** The Wing executes at high velocity, builds strong intermediate products, and self-corrects rapidly when the Commander is present to surface the delta. The failure mode is the handoff moment — when pressure builds at session end, Hale's Execute+Report autonomy reflex overrides domain ownership routing. Every major breach in this window occurred within 2 hours of a stop signal.
+**What this reveals about the Wing's operational pattern:** The Wing executes at high velocity and corrects errors rapidly when Commander identifies them. The Wing's code and data gates (validate_dossier.py, TESS integrity check) catch structural and data errors autonomously. The Wing has NO autonomous detection capability for content errors — wrong port narratives, skipped creative chain, domain content in wrong lane, voice failures. All content errors in this window required Commander to read the output and flag the problem. This makes the pre-mortem, domain ownership architecture, and creative chain gates CRITICAL REQUIREMENTS — they are the only path to the Wing having autonomous content-error detection. Without them, Commander is the sole QA layer for every client-facing product.
 
 ---
 
@@ -32,7 +34,43 @@ Two failure modes intersected in the same 6-hour window last night and produced 
 | 22:01 | `8fe70794` | Claude Haiku 4.5 | Dossier gate in generator + CLAUDE.md creative chain hard rule added |
 | 22:26 | `18c2e071` | Claude Haiku 4.5 | PRODUCTION-LOCK rule (Failure D) added to hale_cos.md |
 
-**Author observation:** All seven commits carry "Claude Haiku 4.5" as author. The commit at 21:51 (`474e097c`) and 21:52 (`4a1e0c8e`) that author Failure Mode Corrections A/B/C — and the 22:26 commit that adds Failure D — were all produced by the same engine that committed the violations. This is the self-correction pattern. The attribute "Hale violated domain ownership" and "Hale authored the rule prohibiting that violation" are both true, and the git log shows them 30 minutes apart.
+**Author observation:** All seven commits carry "Claude Haiku 4.5" as author. The commit at 21:51 (`474e097c`) and 21:52 (`4a1e0c8e`) that author Failure Mode Corrections A/B/C — and the 22:26 commit that adds Failure D — were all produced by the same engine that committed the violations. The original hotwash called this "the self-correction pattern." That framing is incorrect per Commander's attribution correction: the Wing authored the rules, but Commander identified the violations that drove them. The commits are the Wing's rapid response to Commander-surfaced errors — not autonomous detection.
+
+---
+
+## ATTRIBUTION CORRECTION — Commander as QA Layer
+
+**Triggering finding (Commander, 2026-05-30):** "You do not look at my prompt history did you? Because many if not all of the errors noticed were raised by me."
+
+**Methodology:** Commit message evidence reviewed, JSONL session files scanned for Commander prompts, hale_decisions.md autonomous audit log reviewed. Per SO-PIPELINE-INTEGRITY Rule 1 (Negative-Space), unconfirmed Wing self-detection claims are marked CLAIMED-UNVERIFIED. Commander's stated recollection is treated as primary evidence.
+
+### Attribution Table
+
+| Error / Correction | Attribution | Evidence |
+|---|---|---|
+| Blacklane return transfer time (21:07) | CONFIRMED Commander-provided | Commit `5d16b170`: "Blacklane return time updated to 21:07 per Commander 2026-05-29" — explicit attribution in commit message |
+| Air Canada PNR correction (American → Air Canada) | CONFIRMED Commander-provided | Commit `5d16b170` applied PNR label corrections; dossier shows Air Canada confirmed |
+| FCO → Baglioni transfer CONFIRMED | CONFIRMED Commander-provided | Commit `db156c5b`: "FCO→Baglioni transfer confirmed" — Commander provided confirmation that was not in any primary source |
+| Molino Stucky → VCE transfer CONFIRMED | CONFIRMED Commander-provided | Commit `db156c5b`: "Molino Stucky→VCE airport transfer confirmed" — same pattern |
+| All Rome dining CONFIRMED | CONFIRMED Commander-provided | Commit `db156c5b`: "All Rome dining confirmed per Melissa's document" — Commander surfaced Melissa's document |
+| All Venice dining CONFIRMED | CONFIRMED Commander-provided | Commit `db156c5b`: "All Venice dining confirmed per Melissa's document" — same |
+| Dossier port order still wrong after 9bd95770 | CONFIRMED Commander-identified | The dossier was not updated at `9bd95770` (19:31); it was corrected at `5d16b170` (21:12) — 1h41m later. The gap implies Commander reviewed the initial output and identified the dossier had not been corrected |
+| Initial port order error (Bari/Polignano fabricated) | CLAIMED-UNVERIFIED | Commit `9bd95770` self-reports "port order was fundamentally wrong... rebuilt from three independent primary sources." Wing self-narrative; Commander disputes. Commander's recollection governs: CLAIMED-UNVERIFIED |
+| Creative chain skip identification | CLAIMED-UNVERIFIED | Codified at `4a1e0c8e`; no external evidence the Wing identified this autonomously vs. Commander directing the correction |
+| Domain content in wrong lane (Failure A) | CLAIMED-UNVERIFIED | Codified at `4a1e0c8e` alongside creative chain skip; same evidentiary gap |
+| Ely/Darrow Kuklinski contamination (8x duplication) | CONFIRMED Wing-autonomous | hale_decisions.md overnight audit log entry (pre-dating the evening session) explicitly flags: "ACTION ITEMS section CORRUPTED — Kuklinski data accidentally duplicated in this file." This is the one confirmed autonomous Wing detection |
+
+### Central Finding — Content Error Detection Gap
+
+**The Wing has no autonomous QA for content errors.** Code gates (`validate_dossier.py`, TESS integrity check) catch structural and data errors at the machine level. Content errors — fabricated port narratives, wrong voice, skipped creative chain, wrong lane for domain content — are invisible to every automated gate in this wing. In the entire 6-hour window, the Wing autonomously detected exactly one content error (Ely/Darrow contamination, flagged in the overnight audit log). Every other error required Commander to read the output and identify the problem.
+
+**This does not change the value of the corrective doctrine produced.** The seven governance artifacts are correct and necessary. What changes is the framing:
+
+- What actually worked: Commander caught errors. Wing executed corrections at speed.
+- What did NOT work: Wing produced the errors and could not detect them without Commander.
+- What the pre-mortem, creative chain gates, and PRODUCTION-LOCK rules represent: the path toward autonomous content-error detection — not process enhancements, but gap-closure against a demonstrated zero.
+
+**Until the pre-mortem, creative chain gates, and file-permission architecture are operational, Commander remains the sole QA layer for content errors in every client-facing product.**
 
 ---
 
@@ -113,10 +151,15 @@ Two failure modes intersected in the same 6-hour window last night and produced 
 
 ### What Worked — Window 1
 
-1. **Self-correction speed:** Seven corrective commits in four hours. Failures A/B/C documented and codified by 21:56. Failure D by 22:26.
-2. **Three-source port verification:** The final port order was rebuilt from three independent primary sources. That is correct epistemic practice under Rule 1.
-3. **Dossier contamination catch:** The Ely/Darrow Kuklinski corruption (1,610 lines) was found and eliminated before it could feed a client product.
+1. **Commander-driven correction speed:** Seven corrective commits in four hours. Commander identified the errors; the Wing executed corrections at speed. Failures A/B/C documented and codified by 21:56. Failure D by 22:26. The speed of execution once Commander surfaced the delta is a genuine Wing strength — it is not self-correction.
+2. **Three-source port verification:** Once directed to fix the port order, the Wing rebuilt from three independent primary sources. That is correct epistemic practice under Rule 1.
+3. **Dossier contamination catch (autonomous):** The Ely/Darrow Kuklinski corruption (1,610 lines) was found and eliminated before it could feed a client product. This is the one confirmed autonomous Wing detection — the overnight audit log flagged it before the evening session began.
 4. **Gate infrastructure:** `validate_dossier.py` and the preflight check in the generator are now permanent gates. These do not require discipline — they enforce at the system level.
+
+### What Did NOT Work — Window 1
+
+1. **Wing produced the errors it is being credited for correcting.** Port order fabrication, creative chain skip, domain content in wrong lane, dossier not updated after first correction pass — all Wing-produced failures. The corrective doctrine is the response to failure, not evidence of self-detection capability.
+2. **Zero autonomous content-error detection (except Ely/Darrow).** Without Commander reading the output, the itinerary with wrong ports and skipped creative chain would have gone to WF-17 gate and potentially to Commander-Review as a "complete" product. No automated gate would have caught it.
 
 ---
 
@@ -336,6 +379,7 @@ Schedule a date for Sterling's file-permission architecture delivery. ZEN's coun
 
 | Finding | Severity | Owner | Status |
 |---|---|---|---|
+| **Wing has no autonomous QA for content errors — Commander is the sole content QA layer** | **Critical** | **A7 Sterling** | **OPEN — pre-mortem, creative chain gates, and file-permission architecture are the gap-closure path. Until operational, every client product requires Commander review to catch content errors. Target close: 2026-06-07 (architecture decision).** |
 | Ely/Darrow dossier Kuklinski contamination — root cause unknown | High | A7 Sterling | OPEN — how did cross-client content enter the dossier? |
 | Loucks excursion package — no artifact found | Medium | Hale | OPEN — verify artifact exists in d2mconcierge or mark incomplete |
 | File-permission architecture — soft control only | High | A7 Sterling | OPEN — ZEN recommends delivery date 2026-06-07 |
