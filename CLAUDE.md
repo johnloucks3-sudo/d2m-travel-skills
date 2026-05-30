@@ -39,11 +39,27 @@ Before any client-ready product exits the Wing: create the draft, label it `THUN
 > *"Commander, [product] is ready in your drafts for review and send."*
 **No persona, tool, script, MCP call, workflow state, or approval grants the Wing execution authority for client sends.** This is a prohibition, not a gate. SO: `standing_orders/SO_WF17_CLIENTSEND_PROHIBITION_20260530.md`
 
-## ⚠️ HARD RULE — EMAIL ACCOUNT SEPARATION (Standing Order 24 MAR 2026)
-- **d2mconcierge@gmail.com** = SOLE D2M ops account. ALL drafts created here. ALL business conducted here. MCP gmail_token.json authenticates here.
-- **johnloucks3@gmail.com** = Commander's RECEIVE-ONLY inbox. Wing sends reports/products TO this address. **ZERO drafts ever created here.** Only real incoming emails live here.
-- **Send FROM d2mconcierge always.** Client-facing emails use concierge@d2mluxury.quest as Send-As alias on d2mconcierge.
-- When Commander closes a transaction, it stays in d2mconcierge. Never pollute johnloucks3 with drafts or operational debris.
+## ⚠️ HARD RULE — EMAIL ACCOUNT SEPARATION & ROUTING (Standing Order 24 MAR 2026, Updated 30 MAY 2026)
+**MCP gmail_token.json authenticates d2mconcierge. Client-facing emails use concierge@d2mluxury.quest as Send-As alias on d2mconcierge.**
+
+| Email type | Draft created in | Send from |
+|---|---|---|
+| D2M client products (validation, proposals, itineraries) | d2mconcierge — label THUNDERBIRD-Commander-Review | Commander sends from d2mconcierge |
+| Pro bono / D2M-adjacent business (research, vendor contact) | d2mconcierge — label THUNDERBIRD-Commander-Review | Commander sends from d2mconcierge |
+| Personal non-D2M (classmate assist, family, friends) | johnloucks3 — label WING-PERSONAL-DRAFT | Commander sends from johnloucks3 |
+| D2M-to-Chief internal (reports, briefs, intel) | FULL SEND to johnloucks3 inbox — no draft step | Wing sends directly |
+
+**Routing rule:** Check email type first → route to correct account → apply correct sig block. Full SO: `standing_orders/SO_EMAIL_RULES_UPDATE_20260530.md`
+
+## ⚠️ HARD RULE — EMAIL SIGNATURE BLOCK STANDARDS (Standing Order 2026-05-30)
+**Full SO:** `standing_orders/SO_EMAIL_RULES_UPDATE_20260530.md`
+
+1. **USAFA colors on ALL emails** — cream (#f7f3ea) background, blue (#0000ff) ink, navy (#003087) accent, Georgia font. Every email the Wing produces, regardless of type.
+2. **Signature block required on ALL emails** — no email exits the Wing without one.
+3. **Personal non-D2M emails:** USAFA colors YES. D2M logo/banner/branding NO. Personal sig: `John Loucks / [USAFA Class of '75 callsign] / [phone if appropriate]`.
+4. **All personas include their avatar photo** in their sig block (`storage/output/images/`). Personas without a generated avatar omit the photo slot — do NOT use a placeholder from another persona.
+5. **Wing writes the COMPLETE email** including personal/relationship opening paragraph. Commander should not need to add anything before sending. If relationship context is missing: ask ONE clarifying question ("What is my context on [name]?"), then draft complete.
+6. **Routing check before drafting:** D2M client product → d2mconcierge, label THUNDERBIRD-Commander-Review. Personal → johnloucks3, label WING-PERSONAL-DRAFT. Internal brief/report → full send to johnloucks3 inbox.
 
 ## 🏗️ DRAFT WITH STATIONERY — DIRECT PROCESS (Standing Order 17 MAY 2026)
 **Formatted HTML drafts survive Gmail when preprocessed correctly.**
@@ -297,13 +313,13 @@ See [docs/AGENT_TEAMS.md](docs/AGENT_TEAMS.md) for experimental team workflows.
 ## 10. Output Contract & Quality Standards (SO 2026-03-27)
 *Full standards archived:* `/mem read reference_output_contract_quality_standards`
 **Format:** Brief first · Telegram ≤4096 · Intel=JSON+hyperlinks · Staff papers=ISSUE/DISCUSSION/OPTIONS/ACTIONS · Client email=cream(#f7f3ea)/blue(#0000ff)/Georgia/navy banner · Sign-off="Thanks" NEVER "Best"
-**NEVERS:** No outside-wing sends without Commander · No drafts in johnloucks3 · No "Love Group Travel" · No fabricated data · No Dani outside client role · No amended commits · No force-push
+**NEVERS:** No outside-wing sends without Commander · No D2M client/ops drafts in johnloucks3 (personal assist drafts allowed under label WING-PERSONAL-DRAFT) · No "Love Group Travel" · No fabricated data · No Dani outside client role · No amended commits · No force-push
 
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-05-30 08:23 MT -->
+<!-- Last sync: 2026-05-30 12:19 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-05-30 08:23 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-05-30 12:19 MT] ===
 Budget: Claude UNKNOWN | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE
