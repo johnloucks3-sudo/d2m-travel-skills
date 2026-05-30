@@ -86,25 +86,28 @@ PORT_NARRATIVES = {
         "Go on foot; Valletta reveals itself at walking pace only."
     ),
     "Kotor, Montenegro": (
-        "The Bay of Kotor",
-        "Kotor exists at the end of a fjord so dramatic it looks like the set designer was working from a brief that said \"more\" — "
-        "dark Dinaric Alps dropping almost vertically into a bay so enclosed and still that the walled city's reflection appears "
-        "in the water with photographic fidelity. "
-        "The medieval ramparts climb the mountain behind the town in a series of switchbacks that take an hour each way and offer views "
-        "that restructure your sense of scale, with the Old Town's red rooftops and the silver water far below. "
-        "Inside the walls, cats outnumber tourists on quieter mornings and the churches hold Byzantine icons that have been accumulating "
-        "history since the ninth century. "
-        "This is the port that surprises people who thought they already knew what beautiful was."
+        "Blue Cave Speedboat Adventure",
+        "The Bay of Kotor arrives like a held breath — dark Dinaric Alps dropping almost vertically into water so still and enclosed "
+        "that the walled city's reflection appears with photographic fidelity, the whole scene slightly unreal in the early morning light. "
+        "Today you trade the view from shore for the view from the water: a speedboat threading the outer bay at 08:30, "
+        "the spray cold and the coast rushing past at a scale that makes the cliffs feel genuinely enormous. "
+        "The Blue Cave, accessible only by water, holds the quality of light that artists spend careers trying to describe — "
+        "a filtered turquoise that seems to come from inside the stone rather than from the sky above it. "
+        "Back in port with time before departure, the Old Town's medieval streets offer a slower counterpoint: "
+        "cats in doorways, Byzantine icons accumulating centuries quietly in small churches, the limestone walls "
+        "still warm from the morning sun. This is the day that reminds you why you book the adventure first."
     ),
     "Dubrovnik, Croatia": (
-        "The Pearl of the Adriatic",
-        "The walls of Dubrovnik are two kilometers of medieval limestone encircling a city that has been called a jewel box so many times "
-        "the phrase has lost its edge, but the view from the eastern ramparts at midmorning — terracotta rooftops, the blue Adriatic, "
-        "the island of Lokrum sitting in the bay like a punctuation mark — makes you understand why people keep reaching for that comparison. "
-        "The Stradun, the main boulevard, is polished limestone underfoot and five centuries of Ragusan republic overhead, "
-        "and even in high season there are hours — early morning, late evening — when the crowds thin enough to hear the city think. "
-        "Take a sea kayak around the walls if the morning is calm; the perspective from the water is the one the photographs don't show. "
-        "Dinner on the Banje Beach terrace, after the day-trippers have gone, returns Dubrovnik to itself."
+        "A Day at the Beach Club",
+        "Dubrovnik is a city so beautiful it can exhaust you with its own perfection — the walls, the Stradun, the terracotta rooftops, "
+        "the island of Lokrum sitting in the bay like punctuation at the end of a very long sentence about the Adriatic. "
+        "Today you make the wise choice: five hours at a beach club where the water is Adriatic-cold and Mediterranean-clear "
+        "and the only thing required of you is to be in it. "
+        "The Dalmatian coast from the water reveals what the postcards miss — the scale of the walls from sea level, "
+        "the way the city rises from the limestone in layers that feel simultaneously ancient and entirely alive. "
+        "Lunch on the terrace with a glass of local Plavac Mali, the city gleaming above, the afternoon light doing "
+        "what only Adriatic light does. The walls and the Stradun and the old republic will be there when you walk back "
+        "through the Pile Gate later — unhurried, having already had the best of the day."
     ),
     "Split, Croatia": (
         "Diocletian's Living Palace",
@@ -151,6 +154,28 @@ SEA_NARRATIVE = (
     "This is the luxury of a single day with no agenda and nothing required of you but presence — "
     "the Adriatic holds the ship, the ship holds you, and tomorrow is Kotor."
 )
+
+# ── KNOWN PROPER NOUN CORRECTIONS ────────────────────────────────────────────
+# Catches misspellings before they reach the rendered output.
+# Add entries whenever a new port/site/vessel name is confirmed from primary source.
+SPELL_CORRECTIONS = {
+    "Herculanum":    "Herculaneum",
+    "Herculanium":   "Herculaneum",
+    "Siracusa Italy": "Siracusa (Syracuse), Sicily",
+    "Syracuse Sicily": "Siracusa (Syracuse), Sicily",
+    "Taormina Sicily": "Giardini Naxos, Sicily",
+    "Molino Stuki":  "Hilton Molino Stucky Venice",
+    "Molino Stucki": "Hilton Molino Stucky Venice",
+    "Blacklain":     "Blacklane",
+    "Kotor Montenegro": "Kotor, Montenegro",
+    "Dubrovnik Croatia": "Dubrovnik, Croatia",
+}
+
+def spell_check(text: str) -> str:
+    """Apply known proper noun corrections to any string before rendering."""
+    for wrong, right in SPELL_CORRECTIONS.items():
+        text = text.replace(wrong, right)
+    return text
 
 # ── DAY TABLE ────────────────────────────────────────────────────────────────
 # (day, date, port, is_sea, img_src, arrive, depart, excursion)
@@ -367,10 +392,10 @@ def render_html(days_data: list, logo_b64: str, ship_b64: str, no_photos: bool =
 *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
 html {{ background: {LINEN}; }}
 body {{
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: Verdana, Geneva, 'Segoe UI', Arial, sans-serif;
   background: {LINEN};
   color: {SLATE};
-  line-height: 1.68;
+  line-height: 1.72;
 }}
 .page {{
   max-width: 800px;
@@ -879,13 +904,44 @@ body {{
 HTML_NOPHOTO_OUT = OUTPUT_DIR / "McLeod_SilverMuse_NoPhotos.html"
 
 # ── MAIN ──────────────────────────────────────────────────────────────────────
+def preflight_check() -> bool:
+    """Gate: verify all required images exist before rendering. Fail loudly."""
+    print("\n── PRE-FLIGHT IMAGE CHECK ──────────────────────────────────────────")
+    errors = []
+    for (day, date, port, is_sea, src, dock, depart, excursion) in DAYS:
+        if src[0] == "split":
+            for sub_src in [src[1], src[2]]:
+                p = Path(sub_src[1])
+                if not p.exists():
+                    errors.append(f"  ✗ Day {day} split image MISSING: {p}")
+        elif src[0] == "file":
+            p = Path(src[1])
+            if not p.exists():
+                errors.append(f"  ✗ Day {day} ({port[:30]}) image MISSING: {p}")
+    if errors:
+        print("  PREFLIGHT FAILED — fix images before rendering:")
+        for e in errors:
+            print(e)
+        print("  Run: python3 itinerary/fetch_port_images.py  to re-fetch missing images")
+        return False
+    print(f"  ✓ All {len(DAYS)} day images confirmed present")
+    return True
+
+
 def main():
     no_photos = "--no-photos" in sys.argv
     print("── McLeod / McGlasson · Silver Muse Mediterranean ──────────────────")
 
-    print("Loading images…")
+    # Pre-flight: verify images unless explicitly skipping photos
+    if not no_photos and not preflight_check():
+        sys.exit(1)
+
+    print("\nLoading images…")
     days_data = []
     for (day, date, port, is_sea, src, dock, depart, excursion) in DAYS:
+        # Apply spell corrections to all text fields
+        port      = spell_check(port)
+        excursion = spell_check(excursion)
         if is_sea:
             narrative = SEA_NARRATIVE[1]
             subtitle  = SEA_NARRATIVE[0]
