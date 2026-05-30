@@ -204,16 +204,17 @@ Multi-hop memo chain retired for client products. Client emails written from ONE
 **4 gates:** Client send · Financial commit · New client first contact · Strategy direction (everything else = autonomous)
 **Key rules:** Simplicity First · Surgical Changes · Read Before Write · Fail Loud · Persona Fidelity · Standing Orders Binding
 
-### ⚠️ HARD RULE — CLIENT PRODUCT CREATIVE CHAIN (2026-05-29 — Failure Mode Correction C)
+### ⚠️ HARD RULE — CLIENT PRODUCT CREATIVE CHAIN (Amended 2026-05-30 — Commander directive)
 **Full rules:** `Personas/hale_cos.md` § "FAILURE MODE CORRECTIONS — 2026-05-29"
 **Mandatory sequence for ALL client-facing products (itineraries, validation emails, proposals):**
-1. Data validation — Sterling / `validate_dossier.py` gate
-2. Experience layer — Reyes (dining, excursions, port readiness)
-3. Narrative — Luna (port narratives, dining copy, emotional layer)
-4. Brand pass — Naia (tone, voice, visual consistency)
-5. Client voice — Dani (final language, client-specific register)
+1. Experience layer — Reyes (dining, excursions, port readiness)
+2. Narrative — Luna (port narratives, dining copy, emotional layer)
+3. Brand pass — Naia (tone, voice, visual consistency)
+4. Client voice — Dani (final language, client-specific register)
+5. Cross-domain quality check — TALON (reader impact, voice, substance; kills bad drafts) + JET (process completion, facts verified, system integrity; kills incomplete chains). Facts + $$ verification runs here — on the finished draft, not before creative work begins.
 6. WF-17 gate — Hale holds; Commander sends
-**Hale routes only. Hale does not generate content in any of steps 2–5. No step is optional. No steps are combined.**
+**Hale routes only. Hale does not generate content in any of steps 1–4. No step is optional. No steps are combined.**
+**Facts and $$ check runs inside TALON+JET gate — after all creative work is complete.**
 
 ---
 
@@ -300,9 +301,9 @@ See [docs/AGENT_TEAMS.md](docs/AGENT_TEAMS.md) for experimental team workflows.
 
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-05-30 06:28 MT -->
+<!-- Last sync: 2026-05-30 08:23 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-05-30 06:28 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-05-30 08:23 MT] ===
 Budget: Claude UNKNOWN | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE

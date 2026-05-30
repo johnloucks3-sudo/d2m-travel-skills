@@ -3193,3 +3193,163 @@ DeepSeek V4: 226 sessions, $12.5801
 **Notes:** PID 751012 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260529_120000.log | Inbox: opencode_inbox.md
 
 ---
+
+### 2026-05-29 18:00:00 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: T2-COMMS-BUILD-20260518 status: UPDATED — READ CAREFULLY — STEPS 1/2/3 COMPLETE BY HALE-CC from: HALE-CC (V
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 962645 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260529_180000.log | Inbox: opencode_inbox.md
+
+---
+
+---
+## 2026-05-29 — OVERNIGHT DOSSIER AUDIT (Autonomous — SO-2026-05-04)
+
+### DOSSIER CONDITION REPORT — All Active Clients
+
+#### FURLOW (John & Missy) — 3071222 | Suite 827 | Aug 29 | ✅ SOLID
+- Cruise: CONFIRMED | Payment: PAID $15,486 | Flights: CONFIRMED (all 4 legs)
+- Hotel: PAID (Haymarket By Scandic) | Transfer: PAID (Royal Transfer Arlanda)
+- Excursions: 7 confirmed | Guest registration: COMPLETE
+- ⚠️ HEL→ARN seat assignment (AY 811, BB4X94) — only remaining gap
+- ⚠️ Insurance: Chase Sapphire Reserve only (partial — no dedicated policy)
+- ⚠️ Copenhagen Sep 4 excursion — was in dossier, NOT showing in portal Mar 24
+- ⚠️ Haymarket room retention (Aug 28) — not yet confirmed with hotel
+- 🗓️ Specialty dining opens May 31 8pm ET — 2 days
+
+#### ELY/DARROW (Al & Amy) — 3096289 | Suite 961 | Aug 29 | ⚠️ NEEDS ATTENTION
+- Suite CHANGED 1212→961 (Apr 10) — confirmed in matrix
+- Cruise: CONFIRMED | Payment: PAID $16,640
+- Flights: CONFIRMED (all 4 legs, seats assigned) | Hotel: CONFIRMED | Transfer: CONFIRMED
+- Excursions: 6 confirmed
+- ⚠️ Insurance: DEFERRED (Al said May follow-up — now overdue)
+- ⚠️ Guest profile forms: NOT received
+- ⚠️ Haymarket room retention — not confirmed
+- ⚠️ ACTION ITEMS section CORRUPTED — Kuklinski data accidentally duplicated in this file. Fix required.
+- 🗓️ Specialty dining opens May 31 8pm ET — 2 days
+
+#### NICHOLS (Larry & Heidi) — 3078056 | Suite 939 | Aug 29 | ⚠️ INSURANCE PRIORITY
+- Cruise: CONFIRMED | Payment: PAID $18,896
+- Flights: CONFIRMED (all 4 legs) | Hotel: CONFIRMED | Transfer: CONFIRMED
+- Excursions: 7 confirmed | Guest registration: COMPLETE
+- ⚠️ Return seat assignments MISSING (BA 6776 + AA 79 — check with AA/BA)
+- ⚠️ Insurance: $700 Allianz paid but coverage UNCLEAR to client; wants CFAR. NEEDS RESOLUTION.
+- ⚠️ Haymarket room retention — not confirmed
+- ⭐ Heidi's birthday = Aug 29 (embarkation day) — dining reservation opportunity
+- 🗓️ Specialty dining opens May 31 8pm ET — 2 days. Priority: arrange birthday dinner for Heidi.
+
+#### KUKLINSKI GROUP (3 couples) | Viking Mars | Dec 17 | ⚠️ FLIGHTS URGENT
+- Cruise: CONFIRMED | Payment: PAID $21,244
+- ⚠️ Flights NOT BOOKED — all 3 couples (RIC→PTY + RSW→PTY outbound; FLL returns)
+- ⚠️ Transfers NOT BOOKED (PTY airport, FLL pier→airport)
+- ⚠️ Hotel NOT PLANNED (Panama City Dec 16)
+- ⚠️ Josh Morton guest form still missing
+- ⚠️ Insurance: Deferred (revisit Jul 28)
+- Coverage: ~40% — critical gaps across the board
+
+#### SPENCER (Bill & Kathleen) | Disney Wish + Grand Tour | Jun 2027 | 🔴 DEADLINE IN 12 DAYS
+- Disney Wish: CONFIRMED (VTG/Christian Cornell, 5 cabins, Jun 15–23)
+- DCL booking number: PENDING (Bill will send electronically)
+- Working document: Commander_Review/Spencer_Grand_Tour_2027_Working.md — SOLID
+- ⚠️ Flight quotes due Jun 10, 2026 — 12 DAYS from today
+- ⚠️ Flights NOT RESEARCHED: DEN→FCO Jun 12, FCO→DEN Jun 23 (Tim's family), ZRH→DEN Jul 2 (8 pax)
+- ⚠️ Hotels NOT BOOKED: Rome (3 nights), Florence (2-3 nights), Switzerland, Zurich
+- ⚠️ Travel Planner/DMC needed for Rome, Florence, Switzerland logistics
+
+### OVERNIGHT ACTION TAKEN:
+- [ ] Draft 3 Furlow group validation emails → WF-17
+- [ ] Fix Ely/Darrow dossier corruption (Kuklinski data)
+- [ ] Run Kuklinski airline searches (RIC→PTY, RSW→PTY, FLL returns)
+- [ ] Build validate_dossier.py
+- [ ] Flag Spencer Jun 10 deadline in morning brief
+
+### 2026-05-30 00:00:00 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: T2-COMMS-BUILD-20260518 status: UPDATED — READ CAREFULLY — STEPS 1/2/3 COMPLETE BY HALE-CC from: HALE-CC (V
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 1215507 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260530_000000.log | Inbox: opencode_inbox.md
+
+---
+
+
+---
+## Harlan Cost Brief — 2026-05-30
+```
+HARLAN AM BRIEF — 2026-05-30 06:00
+🔴 Verdict: BLOCK | Sonnet weekly at 100% — hard block until reset | DeepSeek V4 wandering — investigate routing
+═══
+Sonnet weekly: 100% | All weekly: 86%
+Monthly: $55.67/100
+OpenCode 7d: $0.4159 | Month: $48.7485
+⚠ DEEPSEEK WANDER: deepseek/deepseek-chat-v3.1 $1.4375
+DeepSeek V4: 196 sessions, $9.0475
+  ⚠ CONTEXT BLOAT: claude-haiku-4-5 avg 2,837,030 in tokens/session (2 sessions) — review prompt compression
+  ⚠ BANNED MODEL ACTIVE: google/gemini-3.1-flash-lite-preview billed $8.4165 — replace with native/free alternative
+  ⚠ CONTEXT BLOAT: google/gemini-3.1-flash-lite-preview [high] avg 8,509,364 in tokens/session (4 sessions) — review prompt compression
+— A9 Harlan | Thunderbird Wing
+```
+
+### 2026-05-30 06:00:00 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: T2-COMMS-BUILD-20260518 status: UPDATED — READ CAREFULLY — STEPS 1/2/3 COMPLETE BY HALE-CC from: HALE-CC (V
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 1426967 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260530_060000.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-05-30 06:00:55 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: T2-COMMS-BUILD-20260518 status: UPDATED — READ CAREFULLY — STEPS 1/2/3 COMPLETE BY HALE-CC from: HALE-CC (V
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 1428487 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260530_060055.log | Inbox: opencode_inbox.md
+
+---
+
+---
+## 2026-05-30 — Creative Chain Sequence Correction (Commander Directive)
+
+**Decision:** $$ and facts check (Sterling + Harlan) moves to AFTER all creative drafting is complete — not before it.
+
+**Commander directive verbatim:** "The process should be that $$ and facts check occur last, after Dani, Luna, Naia all have their drafting done."
+
+**Prior chain (CLAUDE.md line 210–215):**
+1. Data validation — Sterling / validate_dossier.py
+2. Experience — Reyes
+3. Narrative — Luna
+4. Brand — Naia
+5. Client voice — Dani
+6. WF-17 gate
+
+**Corrected chain:**
+1. Experience — Reyes
+2. Narrative — Luna
+3. Brand — Naia
+4. Client voice — Dani
+5. Facts + $$ verification — Sterling (claims in draft vs. primary sources) + Harlan (dollar figures in draft)
+6. WF-17 gate — Hale holds; Commander sends
+
+**Why it's better:** Sterling and Harlan verify what Dani actually wrote — not a pre-draft data model. Checking figures before the draft exists checks the wrong thing. Checking them on the finished draft catches exactly what the client will read.
+
+**CLAUDE.md update:** Staged at `drafts/staging/creative_chain_correction_20260530.md` — routed to Sterling (A7) for execution per PRODUCTION-LOCK.
+
+**Authority:** Commander direct directive. No gate required.

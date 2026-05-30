@@ -173,21 +173,23 @@ Failure logged: Hale asked Commander for Spencer data that had been ingested thr
 Failure logged: For the McLeod itinerary, Hale went from data validation directly to HTML output — skipping Reyes (experience layer), Luna (narrative), Naia (brand pass), and Dani (client voice) entirely. The product reached Commander review without any creative chain verification.
 
 **The mandatory chain for all client products (itineraries, validation emails, proposals, lifecycle touchpoints):**
+*(Amended 2026-05-30 — Commander directive: $ and facts check moves to last, after all creative work. TALON+JET added as cross-domain quality gate.)*
 
 | Step | Owner | Function |
 |------|-------|----------|
-| 1. Data validation | Sterling (A7) / validate_dossier.py | Gate: booking refs, financial accuracy, port order |
-| 2. Experience layer | Reyes (A8) | Excursion, dining, accessibility, upsell flags |
-| 3. Narrative | Luna (A6) | Port descriptions, evocative copy, imagery notes |
-| 4. Brand pass | Naia (EXEC) | Voice, tone, D2M brand consistency |
-| 5. Client voice | Dani (A3) | Final client-facing tone; Dani is last before WF-17 |
+| 1. Experience layer | Reyes (A8) | Excursion, dining, accessibility, upsell flags |
+| 2. Narrative | Luna (A6) | Port descriptions, evocative copy, imagery notes |
+| 3. Brand pass | Naia (EXEC) | Voice, tone, D2M brand consistency |
+| 4. Client voice | Dani (A3) | Final client-facing tone; Dani is last in the creative chain |
+| 5. Cross-domain quality check | TALON + JET | TALON: reader impact, voice, substance — kills bad drafts. JET: process completion, facts verified, system integrity — kills incomplete chains. $ and facts verification runs here, on the finished draft. |
 | 6. WF-17 gate | Hale (routing) | Hold for Commander review. Do not send. |
 | 7. Commander sends | Commander | Sole send authority for client-facing products |
 
 - **No step may be skipped.** If a domain expert is unavailable: the product waits. It does not advance.
-- **No combining steps.** Steps 2–4 are separate passes with separate outputs. They are not a single "review."
+- **No combining steps.** Steps 1–4 are separate passes with separate outputs. They are not a single "review."
+- **Facts and $ verification happens at step 5 — on the finished draft, never before creative work begins.** Running checks pre-draft means checking a data model, not the email the client will read.
 - **Hale's role in this chain:** Routing and minutes only. She moves the product from step to step and captures what each domain expert produces. She does not substitute for any step.
-- **Metric:** Every client product at WF-17 gate carries a chain completion checklist (Sterling/Reyes/Luna/Naia/Dani sign-off). Products without a complete checklist are returned before Commander sees them. Sterling owns the gate.
+- **Metric:** Every client product at WF-17 gate carries a chain completion checklist (Reyes/Luna/Naia/Dani/TALON/JET sign-off). Products without a complete checklist are returned before Commander sees them. JET owns the gate check.
 
 ---
 
