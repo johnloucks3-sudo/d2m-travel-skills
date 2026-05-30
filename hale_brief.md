@@ -1,5 +1,5 @@
 # HALE — Daily Brief
-*Generated: 2026-05-29 06:45 MT*
+*Generated: 2026-05-30 06:46 MT*
 
 ---
 
@@ -9,31 +9,59 @@
 
 🦅
 
-**THUNDERBIRD DAILY BRIEF — 2026-05-29 · COS MODE**
-*— V. Hale, VCS*
+**THUNDERBIRD DAILY BRIEF — 2026-05-30 · COS MODE**
+
+---
+
+**STAFF ROOM**
+
+| Persona | Domain | Input |
+|---|---|---|
+| Navarro (A1) | Intake/profile | — |
+| Dembe (A2) | Intel/research | Daily sweep active |
+| Dani (A3) | Client comms | ⚠️ 8 client TP queues overdue — no WF-17 products in gate |
+| Keel (A4) | Logistics | — |
+| Castillo (A5) | Strategy/growth | Weekly biz review due Fri |
+| Luna/Prism (A6) | Creative/brand | — |
+| Sterling (A7) | Process/tech | ⚠️ Chrome debug OFFLINE; OAuth scope error in open_tasks |
+| Reyes (A8) | Experience | Monthly dossier scan fires 2026-06-01 |
+| Harlan (A9) | Finance | Weekly pulse review due Mon |
+| Bridge (A10) | Crisis/logistics | — |
+| Horizon (A11) | Future/AI | — |
+| ELON (A12) | Automation | Kill audit due Wed |
+| Sienna (A13) | Social/digital | — |
+| Washington (CH) | Ethics/morale | Monthly brief fires 2026-06-01 |
+| Naia (EXEC) | Brand/voice | — |
+| TALON | Strike/strategy | — |
+| JET | Support/infra | — |
+| ZEN | Counter-voice | — |
+| 🦅 Hale | Consensus | FPD overdue across 6 clients; one Commander decision point below |
 
 ---
 
 ### 1. CLIENT WIRE
 
-| Client | Phase | FPD Status | Open Item |
-|---|---|---|---|
-| Furlow | TP2 — Post-FPD | ✅ PAID $15,486 | None — file closed |
-| Kuklinski | TP1 — Validation | Pending | Validation email awaiting WF-17 send |
-| McLeod | TP0.5/0.6 | TBD | Pre-departure research window opening |
-| Nichols | Booked — Grandeur | Active | Dining window opens 2026-05-31 |
-| Lyons | Pre-booking | None | Profile build pending |
+| Client | Ship | Departure | FPD | Open Items |
+|---|---|---|---|---|
+| Loucks (J&S) | Silver Nova | 10 Apr 2026 | 🔴 OVERDUE 118d | TP 0.5 — 22 touchpoints overdue |
+| McLeod/McGlasson | Silver Muse | 18 Jun 2026 | 🔴 OVERDUE 126d | TP 0.5 — 17 overdue |
+| Furlow/Ely-Darrow/Nichols | Grandeur | 29 Aug 2026 | 🔴 OVERDUE 59d | TP 0.5 — 12 overdue |
+| Al Ely & Amy Darrow | Grandeur | 29 Aug 2026 | ✅ PAID | TP 0.5 — 5 overdue |
+| John & Melissa Furlow | Grandeur | 29 Aug 2026 | ✅ PAID | TP 0.5 — 5 overdue |
+| Larry & Heidi Nichols | Grandeur | 29 Aug 2026 | ✅ PAID | TP 0.5 — 10 overdue |
+| Kuklinski Group | Viking Mars | 17 Dec 2026 | 🔴 OVERDUE 60d | TP 0.5 — 8 overdue |
+| Morton/Dodge | Viking Mars | 17 Dec 2026 | 🔴 OVERDUE 60d | TP 0.5 — 7 overdue |
+| Loucks (J&S) | Grandeur | 29 Dec 2026 | DUE 1 Aug 2026 | TP 0.5 pending |
 
 ---
 
 ### 2. OPEN TASKS
 
-| Task | Owner | Urgency |
+| Item | Owner | Urgency |
 |---|---|---|
-| 5× MCP health check SPSAs (20260526–28) | Hale / A7 Sterling | 🟡 TODAY |
-| Google Tasks API 403 — insufficient auth scope | A7 Sterling | 🟡 RESOLVE |
-| Kuklinski validation email — WF-17 hold | Dani → Commander | 🔴 GATE |
-| Nichols dining reservations — window 2026-05-31 | A3 Dani | 🟡 QUEUE |
+| OAuth `invalid_scope` error in open_tasks | Sterling/Hale | 🔴 Investigate |
+| Chrome debug port 9222 OFFLINE | Sterling | 🟡 Monitor |
+| 69 overdue lifecycle touchpoints across 8 clients | Dani/Hale | 🔴 Batch routing needed |
 
 ---
 
@@ -41,11 +69,11 @@
 
 | Metric | Value |
 |---|---|
-| D2M pipeline (23 voyages) | **$21,440.75** |
-| Commission expected (sheet) | $35,214.47 |
-| D2M share (sheet) | $27,146.41 |
+| D2M pipeline (upcoming) | **$21,440.75** |
 | TESS received | $244.80 |
 | TESS due | $0.00 |
+| Commission expected (sheet) | $35,214.47 |
+| D2M share (sheet total) | $27,146.41 |
 
 ---
 
@@ -53,43 +81,44 @@
 
 | System | Status |
 |---|---|
-| MCP Server | ✅ ONLINE (port 8765) |
-| Telegram (D2MC2C + Dani) | ✅ LIVE |
-| TESS Auth | ✅ ONLINE |
-| Claude Headless | ✅ READY |
-| Chrome Debug (9222) | ❌ OFFLINE |
-| OpenCode | 💤 DORMANT |
+| MCP server | ✅ ONLINE |
+| Telegram bots (D2MC2C + Dani) | ✅ LIVE |
+| Claude headless | ✅ READY |
+| TESS auth | ✅ ONLINE |
+| OpenCode | 💤 DORMANT (Gemini 2.5 Flash routing) |
+| Chrome debug port 9222 | ❌ OFFLINE |
+| OAuth cache | ✅ LIVE |
 
 ---
 
 ### 5. STAFF ASSIGNMENTS
 
-| Staff | Focus |
+| Persona | Focus |
 |---|---|
-| A3 Dani | Kuklinski validation (WF-17 hold) + Nichols dining queue |
-| A7 Sterling | MCP SPSA diagnosis + Tasks API auth fix |
-| A9 Harlan | Weekly financial pulse review (fires Monday) |
-| A12 ELON | Kill audit due Wednesday |
+| Harlan (A9) | Weekly financial pulse — fires Monday |
+| Reyes (A8) | Monthly dossier scan — fires 2026-06-01 |
+| ELON (A12) | Kill audit — fires Wednesday |
+| Castillo (A5) | Weekly biz review — fires Friday |
+| Washington (CH) | Monthly ethics brief — fires 2026-06-01 |
 
 ---
 
-### 6. DECISIONS NEEDED — COMMANDER
+### 6. DECISIONS NEEDED
 
-| Item | Action |
-|---|---|
-| Kuklinski validation email | Review draft → `/approve` to send |
-| 5× MCP SPSA cases | Acknowledge or direct repair priority |
+**One item at your gate:**
+
+> **Lifecycle backlog — 69 overdue TPs across 8 clients.** Recommending I batch-route the TP 0.5 validation emails for all 8 into WF-17 this week, starting with McLeod (departs 18 Jun — most time-critical). Your call: approve the batch routing, or prioritize a specific client first?
 
 ---
 
 ### 7. INTEL FLASH
 
-Process violation logged 2026-05-28: Regent Code 4232 briefed to Commander before BDM confirmation call — neither booking qualified. Sterling capturing as pipeline integrity lesson. SO-PIPELINE-INTEGRITY rules apply.
+McLeod Silver Muse departs in 19 days — TP 0.5 validation email not yet in WF-17 gate. This is the single highest-urgency item on the board.
 
 ---
 
-*— V. Hale, VCS · Thunderbird Wing · 2026-05-29 06:45 MT*
+*— V. Hale, VCS · Thunderbird Wing · 2026-05-30 · COS Mode*
 
 ---
-*— Victoria "Victory" Hale, SES-6 | Thunderbird Wing | 2026-05-29 06:45 MT*
-*Next brief: 2026-05-30 07:00 MT*
+*— Victoria "Victory" Hale, SES-6 | Thunderbird Wing | 2026-05-30 06:46 MT*
+*Next brief: 2026-05-31 07:00 MT*
