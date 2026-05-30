@@ -240,7 +240,7 @@ def fmt_date(ds: str) -> str:
 
 
 # ── HTML TEMPLATE ─────────────────────────────────────────────────────────────
-def render_html(days_data: list, logo_b64: str, ship_b64: str) -> str:
+def render_html(days_data: list, logo_b64: str, ship_b64: str, no_photos: bool = False) -> str:
     logo_src = f"data:image/png;base64,{logo_b64}" if logo_b64 else ""
     ship_src = f"data:image/jpeg;base64,{ship_b64}" if ship_b64 else ""
 
@@ -293,7 +293,9 @@ def render_html(days_data: list, logo_b64: str, ship_b64: str) -> str:
         credit_html = f'<div class="photo-credit">Photo: {photo_cred}</div>' if photo_cred else ""
 
         split_data = d.get("split_imgs")
-        if split_data:
+        if no_photos:
+            img_html = ""
+        elif split_data:
             left_url, left_cred   = split_data[0]["url"], split_data[0]["credit"]
             right_url, right_cred = split_data[1]["url"], split_data[1]["credit"]
             img_html = f'''
@@ -345,10 +347,15 @@ def render_html(days_data: list, logo_b64: str, ship_b64: str) -> str:
         f'<div class="logo-banner text-logo"><div class="text-logo-inner">Dreams2Memories Travel</div></div>'
     )
 
-    ship_html = (
-        f'<div class="ship-photo-wrap"><img src="{ship_src}" alt="Silver Muse" class="ship-photo" /></div>'
-        if ship_src else ""
-    )
+    if no_photos:
+        ship_html = ""
+    elif ship_src:
+        ship_html = f'''<div class="ship-photo-wrap" style="position:relative;">
+  <img src="{ship_src}" alt="Silver Muse" class="ship-photo" />
+  <div class="ship-caption">Silver Muse &nbsp;·&nbsp; Silversea Cruises &nbsp;·&nbsp; 596 Guests &nbsp;·&nbsp; All-Suite · All-Inclusive</div>
+</div>'''
+    else:
+        ship_html = ""
 
     return f'''<!DOCTYPE html>
 <html lang="en">
@@ -387,47 +394,68 @@ body {{
 .cover {{
   background: {NAVY};
   color: white;
-  padding: 60px 40px 50px;
+  padding: 90px 48px 80px;
   text-align: center;
-  border-bottom: 4px solid {GOLD};
+  border-bottom: 5px solid {GOLD};
+  position: relative;
 }}
 .cover-eyebrow {{
-  font-size: 0.85em;
-  letter-spacing: 0.14em;
+  font-size: 0.82em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: {GOLD};
-  margin-bottom: 18px;
+  margin-bottom: 8px;
+}}
+.cover-rule {{
+  width: 60px;
+  height: 1px;
+  background: {GOLD};
+  margin: 16px auto 24px;
+  opacity: 0.6;
 }}
 .cover-title {{
-  font-size: 2.4em;
+  font-size: 3.4em;
   font-weight: normal;
-  line-height: 1.2;
-  margin-bottom: 14px;
+  line-height: 1.15;
+  margin-bottom: 18px;
+  letter-spacing: -0.01em;
 }}
 .cover-subtitle {{
-  font-size: 1.15em;
+  font-size: 1.35em;
   font-style: italic;
-  color: rgba(255,255,255,0.85);
-  margin-bottom: 28px;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 36px;
+  letter-spacing: 0.03em;
 }}
 .cover-dates {{
   display: inline-block;
-  border: 1px solid rgba(201,168,76,0.5);
-  border-radius: 4px;
-  padding: 10px 28px;
-  font-size: 1.05em;
+  border: 1px solid {GOLD};
+  border-radius: 3px;
+  padding: 12px 36px;
+  font-size: 1.08em;
   color: {GOLD};
-  letter-spacing: 0.05em;
-  margin-bottom: 28px;
+  letter-spacing: 0.08em;
+  margin-bottom: 36px;
 }}
 .cover-meta {{
-  font-size: 0.9em;
-  color: rgba(255,255,255,0.7);
-  line-height: 2;
+  font-size: 0.88em;
+  color: rgba(255,255,255,0.65);
+  line-height: 2.2;
 }}
-.cover-meta strong {{ color: rgba(255,255,255,0.95); }}
-.ship-photo-wrap {{ background: {NAVY}; padding: 0; }}
-.ship-photo {{ width: 100%; height: 340px; object-fit: cover; display: block; opacity: 0.88; }}
+.cover-meta strong {{ color: rgba(255,255,255,0.92); }}
+.ship-photo-wrap {{ background: {NAVY}; padding: 0; position: relative; }}
+.ship-photo {{ width: 100%; height: 500px; object-fit: cover; display: block; opacity: 0.9; }}
+.ship-caption {{
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(13,27,46,0.85));
+  color: white;
+  padding: 40px 40px 20px;
+  font-size: 0.82em;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(201,168,76,0.9);
+}}
 .summary-box {{
   padding: 36px 40px;
   border-bottom: 1px solid #ddd5c8;
@@ -475,40 +503,44 @@ body {{
   background: {NAVY};
   color: {GOLD};
   text-align: center;
-  padding: 14px 40px;
-  font-size: 0.88em;
-  letter-spacing: 0.15em;
+  padding: 22px 40px;
+  font-size: 0.95em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
+  border-top: 1px solid rgba(201,168,76,0.3);
+  border-bottom: 1px solid rgba(201,168,76,0.3);
 }}
 .day-card {{
-  padding: 32px 40px 28px;
+  padding: 38px 44px 32px;
   border-bottom: 1px solid #ddd5c8;
 }}
 .day-header {{
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 18px;
+  margin-bottom: 22px;
 }}
 .day-number {{
-  font-size: 0.8em;
-  letter-spacing: 0.12em;
+  font-size: 0.78em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: {GOLD};
   font-style: normal;
+  margin-bottom: 2px;
 }}
 .day-date {{
-  font-size: 1.05em;
+  font-size: 1.1em;
   color: {NAVY};
   font-weight: bold;
-  margin-top: 2px;
+  margin-top: 3px;
 }}
 .day-right {{ text-align: right; }}
 .day-port {{
-  font-size: 1.2em;
+  font-size: 1.55em;
   color: {NAVY};
   font-weight: bold;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
+  line-height: 1.1;
 }}
 .day-badge {{
   display: inline-block;
@@ -522,7 +554,7 @@ body {{
 .photo-wrap {{ margin-bottom: 18px; border-radius: 4px; overflow: hidden; }}
 .port-photo {{
   width: 100%;
-  height: 260px;
+  height: 320px;
   object-fit: cover;
   display: block;
   border-radius: 4px;
@@ -533,7 +565,7 @@ body {{
   margin-bottom: 18px;
 }}
 .photo-half {{ flex: 1; overflow: hidden; border-radius: 4px; }}
-.photo-half .port-photo {{ height: 220px; border-radius: 4px; }}
+.photo-half .port-photo {{ height: 260px; border-radius: 4px; }}
 .photo-credit {{
   font-size: 0.68em;
   color: {MIST};
@@ -549,13 +581,15 @@ body {{
   font-style: normal;
 }}
 .narrative {{
-  font-size: 0.93em;
+  font-size: 0.96em;
   color: {BLUE};
   font-style: italic;
-  line-height: 1.75;
-  margin-bottom: 14px;
-  border-left: 3px solid {GOLD};
-  padding-left: 14px;
+  line-height: 1.82;
+  margin-bottom: 18px;
+  border-left: 4px solid {GOLD};
+  padding: 10px 16px;
+  background: rgba(201,168,76,0.04);
+  border-radius: 0 4px 4px 0;
 }}
 .times {{
   font-size: 0.85em;
@@ -649,13 +683,15 @@ body {{
 
   <!-- COVER -->
   <div class="cover">
-    <div class="cover-eyebrow">Dreams2Memories Travel · Silver Muse Mediterranean</div>
+    <div class="cover-eyebrow">Dreams2Memories Travel &nbsp;·&nbsp; A Private Itinerary</div>
+    <div class="cover-rule"></div>
     <div class="cover-title">Erik McLeod &amp; Melissa McGlasson</div>
-    <div class="cover-subtitle">Rome · The Mediterranean · The Adriatic · Venice</div>
-    <div class="cover-dates">June 18 — July 6, 2026 &nbsp;·&nbsp; 11 Nights Aboard Silver Muse</div>
+    <div class="cover-subtitle">Rome &nbsp;·&nbsp; The Mediterranean &nbsp;·&nbsp; The Adriatic &nbsp;·&nbsp; Venice</div>
+    <div class="cover-dates">June 18 &mdash; July 6, 2026 &nbsp;·&nbsp; 11 Nights Aboard Silver Muse</div>
     <div class="cover-meta">
-      <strong>Silver Muse</strong> &nbsp;·&nbsp; All-Suite Ship · All-Inclusive · Butler Service &nbsp;·&nbsp; Booking 298475-25<br/>
-      Civitavecchia &rarr; Naples &rarr; Sicily &rarr; Malta &rarr; Montenegro &rarr; Croatia &rarr; Venice
+      <strong>Silver Muse</strong> &nbsp;·&nbsp; All-Suite · All-Inclusive · Butler Service &nbsp;·&nbsp; Booking 298475-25<br/>
+      Civitavecchia &rarr; Naples &rarr; Sicily &rarr; Malta &rarr; Montenegro &rarr; Croatia &rarr; Venice<br/>
+      <span style="color:{GOLD};letter-spacing:0.1em;font-size:0.9em;">PAID IN FULL &nbsp;·&nbsp; SILVERSEA CRUISES</span>
     </div>
   </div>
 
@@ -705,8 +741,12 @@ body {{
   <div class="precruise">
     <h2>Part One — Pre-Cruise Rome &nbsp;·&nbsp; June 18–23</h2>
     <div class="pre-item">
+      <div class="pre-icon">🚗</div>
+      <div class="pre-text"><strong>Jun 18 at 14:00 · Blacklane — Home → Denver International Airport (DEN)</strong> — Booking #127664621 · Chauffeur: Mr. Said Yusifli · Pickup: 1541 Armstrong Dr, Longmont CO 80504 · Business Van/SUV · 5 pax / 5 bags · Complimentary (Silversea all-inclusive) · Arrives DEN 2:42 PM [Source: Blacklane confirmation email, May 24, 2026]</div>
+    </div>
+    <div class="pre-item">
       <div class="pre-icon">✈</div>
-      <div class="pre-text"><strong>Jun 18 · Denver → Rome (FCO)</strong> — Erik: United ML237016 · Melissa: United TF317131 · Business Class · Overnight flight · Arrive FCO June 19</div>
+      <div class="pre-text"><strong>Jun 18 · Denver (DEN) → Rome (FCO)</strong> — United UA 177 · Erik: PNR ML237016 · Melissa: PNR TF317131 · Business Class · Seats: 3D/3F · Overnight flight · Arrive FCO June 19 [Source: Silversea booking 298475-25 + Erik McLeod email, Mar 17, 2026]</div>
     </div>
     <div class="pre-item">
       <div class="pre-icon">🚗</div>
@@ -809,11 +849,15 @@ body {{
     </div>
     <div class="pre-item">
       <div class="pre-icon">🚤</div>
-      <div class="pre-text"><strong>Jul 6 at 09:00 · Consorzio Motoscafi Venezia → Marco Polo Airport</strong> — Booking <strong>96SGY</strong> · Hilton Molino Stucky pier · €170 PAID · 2 pax · 4 suitcases</div>
+      <div class="pre-text"><strong>Jul 6 at 09:00 · Consorzio Motoscafi Venezia → Marco Polo Airport (VCE)</strong> — Booking <strong>96SGY</strong> · Hilton Molino Stucky pier → VCE · €170 PAID · 2 pax · 4 suitcases</div>
     </div>
     <div class="pre-item">
       <div class="pre-icon">✈</div>
-      <div class="pre-text"><strong>Jul 6 · Venice (VCE) → Denver</strong> — Erik: American H1PY618 · Melissa: American N6TX610 · Business Class</div>
+      <div class="pre-text"><strong>Jul 6 · Venice (VCE) → Toronto (YYZ) → Denver (DEN)</strong> — Air Canada AC 817 (VCE→YYZ · seats 3A / 4A) + AC 1041 (YYZ→DEN · seats 2A / 2C) · Business Class · PNRs: H1PY618 (Erik) / N6TX610 (Melissa) [Source: Erik McLeod email, Mar 17, 2026]</div>
+    </div>
+    <div class="pre-item">
+      <div class="pre-icon">🚗</div>
+      <div class="pre-text"><strong>Jul 6 · Blacklane — Denver International Airport (DEN) → Home</strong> — Pickup: DEN arrivals · Destination: 1541 Armstrong Dr, Longmont CO 80504 · Complimentary (Silversea all-inclusive) · Booking confirmed May 24, 2026 · Booking # pending [Source: Erik McLeod, May 24, 2026 — confirmed via Telegram]</div>
     </div>
   </div>
 
@@ -832,8 +876,11 @@ body {{
 </html>'''
 
 
+HTML_NOPHOTO_OUT = OUTPUT_DIR / "McLeod_SilverMuse_NoPhotos.html"
+
 # ── MAIN ──────────────────────────────────────────────────────────────────────
 def main():
+    no_photos = "--no-photos" in sys.argv
     print("── McLeod / McGlasson · Silver Muse Mediterranean ──────────────────")
 
     print("Loading images…")
@@ -889,10 +936,15 @@ def main():
         print(f"  ship: MISSING ({e})")
         ship_b64 = ""
 
-    print("\nRendering HTML…")
-    html = render_html(days_data, logo_b64, ship_b64)
+    print("\nRendering HTML (with photos)…")
+    html = render_html(days_data, logo_b64, ship_b64, no_photos=False)
     HTML_OUT.write_text(html, encoding="utf-8")
     print(f"  HTML → {HTML_OUT}  ({HTML_OUT.stat().st_size // 1024}KB)")
+
+    print("\nRendering HTML (no photos)…")
+    html_np = render_html(days_data, logo_b64, ship_b64, no_photos=True)
+    HTML_NOPHOTO_OUT.write_text(html_np, encoding="utf-8")
+    print(f"  HTML → {HTML_NOPHOTO_OUT}  ({HTML_NOPHOTO_OUT.stat().st_size // 1024}KB)")
 
     print("\nGenerating PDF (WeasyPrint)…")
     try:
@@ -905,7 +957,8 @@ def main():
         print("  Open HTML in Chrome → Print → Save as PDF")
 
     print(f"\n✅ DONE")
-    print(f"   Open: file://{HTML_OUT}")
+    print(f"   Full:     file://{HTML_OUT}")
+    print(f"   NoPhotos: file://{HTML_NOPHOTO_OUT}")
 
 
 if __name__ == "__main__":
