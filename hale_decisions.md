@@ -1,3 +1,20 @@
+---
+
+## 2026-05-30 DECISIONS (Session Close)
+
+### APPROVED: SO-2026-05-30 — Wing Restructure (19→5 Personas)
+
+**Date:** 2026-05-30 15:47 MT
+**Authority:** Commander
+**Status:** APPROVED — Implementation begins 2026-05-31
+**Owner:** A7 Sterling
+
+Five-seat architecture: Hale (COS/ops), Dani (client product, 6-step internal), Sterling (tech/process/kill), Intel (research/strategy), Harlan (financial verification, independent). Eleven personas retired. Timeline: go-live 2026-06-01, full completion 2026-06-07.
+
+SO location: `standing_orders/SO_WING_RESTRUCTURE_5PERSONA_20260530.md`
+
+---
+
 ### 2026-05-30 — COMMANDER PROPOSAL: Dossier Freshness — Three Options for Staff Consideration
 
 **Date:** 2026-05-30
