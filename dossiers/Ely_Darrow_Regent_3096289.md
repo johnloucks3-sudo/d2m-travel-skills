@@ -1,6 +1,8 @@
 ---
 client: Ely
 full_name: Al Ely & Amy Darrow
+email_al: al.ely58@gmail.com
+email_amy: amy.darrow@me.com
 cruise_line: Regent
 ship: Grandeur
 voyage: Scandinavia

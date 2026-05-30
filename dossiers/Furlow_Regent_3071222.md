@@ -1,6 +1,8 @@
 ---
 client: Furlow
 full_name: John & Melissa Furlow
+email_primary: missy.furlow@gmail.com
+email_secondary: john.furlow@tpf.org
 cruise_line: Regent Seven Seas
 ship: SS Grandeur
 voyage: Storied Scandinavia
