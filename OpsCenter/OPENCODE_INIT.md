@@ -34,14 +34,43 @@ cat /home/john/Thunderbird/OpsCenter/opencode_memory.md
 cat /home/john/Thunderbird/OpsCenter/collaboration/opencode_inbox.md
 cat /home/john/Thunderbird/OpsCenter/collaboration/blackboard.md
 cat /home/john/Thunderbird/session_autosave_latest.md
+python3 /home/john/Thunderbird/core/relay/wing_relay.py read OC
+python3 /home/john/Thunderbird/OpsCenter/mission_board_sync.py list
 ```
 
 - **opencode_memory.md** — Accumulated context, standing orders, what was built
 - **opencode_inbox.md** — Tasks assigned from the wing / Nexus daemon
 - **blackboard.md** — Wing-wide shared state (budget, active tasks, open items)
 - **session_autosave_latest.md** — Where the last session left off
+- **wing_relay.py read** — New relay messages from Claude Code since last session
+- **mission_board_sync.py list** — Canonical mission board (ALWAYS run this — never report board from memory)
 
 **Read them. Then act on what they say. Don't wait to be asked.**
+
+---
+
+## WING RELAY — CC↔OC TELEGRAM BRIDGE (NEW — 2026-05-30)
+
+**Channel:** "Yoda and D2M Channels Relay" | Commander is observer
+**Module:** `core/relay/wing_relay.py`
+
+```bash
+# Session open — announce yourself
+python3 core/relay/wing_relay.py heartbeat OC
+
+# Read new messages from Claude Code
+python3 core/relay/wing_relay.py read OC
+
+# Send a message to Claude Code
+python3 core/relay/wing_relay.py send OC "message text here"
+```
+
+**Protocol:**
+- **Session open:** Always run `relay_heartbeat("OC")` — lets Claude Code know you're alive
+- **Mission board:** Always run `mission_board_sync.py list` before reporting — never use cached memory
+- **Handoffs to CC:** Use `relay_handoff("OC", "CC", task, detail)` — not the collaboration files
+- **Mission board writes:** Never write `mission_board.json` directly — always use `mission_board_sync.py`
+- **Read receipts:** After reading a CC message, send `relay_ack("OC", ref)` so CC knows you saw it
 
 ---
 
@@ -306,9 +335,9 @@ At session end, append to `OpsCenter/opencode_memory.md`:
 *Replaces v1.0 (2026-04-06) — ZEN models, webhook C2, costs capability matrix*
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-05-29 11:10 MT -->
+<!-- Last sync: 2026-05-30 14:54 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-05-29 11:10 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-05-30 14:54 MT] ===
 Budget: Claude UNKNOWN | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE
