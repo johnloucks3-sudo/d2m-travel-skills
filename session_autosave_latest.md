@@ -1,82 +1,40 @@
-# Thunderbird Session Checkpoint
-## Generated: 2026-05-29 09:20:00 MT
+# SESSION AUTOSAVE — 2026-05-30 15:55 MT
+# Checkpoint: PM pause — resuming this evening
 
----
+## LAST ACTION
+- OpenRouter collector deleted from cost dashboard (per Commander directive — not billing OR)
+- app.py.bak deleted (stale backup)
+- Cost dashboard restarted, health OK (port 8902)
 
-### Recent Commits
-- fded8954 feat(yoga): P1/P2/P3 code reduction — archive deleted, timers killed, Gemini disabled
-- 60c360c4 chore(session): operational state commit 2026-05-29
-- bc73b84b fix(pipeline): email-to-dossier integration + McLeod T-20 water taxi close
-- 61ff050d feat(tess): YAML frontmatter for Loucks Grandeur dossier + TESS keepalive script
-- ecb75a63 feat(intel): M-071 — Grok 4 / Grok Build joint staff paper (A2+A12)
+## EVENING LINE-UP (ordered by priority)
 
-### Uncommitted Changes
-- .obsidian/workspace.json (modified)
-- .smart-env/event_logs/event_logs.ajson (modified)
-- .smart-env/multi/CLAUDE_md.ajson (modified)
-- .smart-env/multi/OpsCenter_CLAUDE_DESKTOP_INIT_md.ajson (modified)
-- .smart-env/multi/OpsCenter_OPENCODE_INIT_md.ajson (modified)
-- .smart-env/multi/OpsCenter_collaboration_blackboard_summary_txt.ajson (modified)
-- .smart-env/multi/OpsCenter_collaboration_routing_log_md.ajson (modified)
-- .smart-env/multi/OpsCenter_scan_outputs_incubator_review_latest_txt.ajson (modified)
-- .smart-env/multi/logs_session_log_txt.ajson (modified)
-- .smart-env/multi/session_autosave_latest_md.ajson (modified)
-- CLAUDE.md (modified)
-- OpsCenter/.supervisor_patterns.json (modified)
-- OpsCenter/CLAUDE_DESKTOP_INIT.md (modified)
-- OpsCenter/OPENCODE_INIT.md (modified)
-- OpsCenter/collaboration/blackboard_summary.txt (modified)
-- OpsCenter/collaboration/routing_log.md (modified)
-- OpsCenter/fare_watches/last_check.json (modified)
-- bryana/data.json (modified)
-- core/ai_infra/data/router_cost.db-shm (modified)
-- core/ai_infra/data/router_cost.db-wal (modified)
-- .opencode/skills/two-brain/SKILL.md (new)
-- .smart-env/multi/APPROVAL_WORKFLOW_QUICK_REFERENCE_txt.ajson (new)
-- .smart-env/multi/CHROMEBOOK_INIT_md.ajson (new)
-- .smart-env/multi/Commander_Review_Spencer_Grand_Tour_2027_Brief_md.ajson (new)
-- .smart-env/multi/Dossiers_Ely_Darrow_Regent_3096289_md.ajson (new)
-- .smart-env/multi/HALE_BRAIN_VALIDATION_REPORT_md.ajson (new)
-- .smart-env/multi/MODEL_ROUTING_SUMMARY_md.ajson (new)
-- .smart-env/multi/OPENROUTER_INTEGRATION_md.ajson (new)
-- .smart-env/multi/OpsCenter_COMMANDER_MEMO_20260427_md.ajson (new)
-- .smart-env/multi/OpsCenter_COS_TASKING_AUDIT_md.ajson (new)
-- .smart-env/multi/OpsCenter_COS_TASK_TEMPLATE_md.ajson (new)
-- .smart-env/multi/OpsCenter_HALE_BRAVO_INIT_md.ajson (new)
-- .smart-env/multi/OpsCenter_HALE_TOKEN_OPTIMIZATION_INTEGRATION_md.ajson (new)
-- .smart-env/multi/OpsCenter_Instructions_md.ajson (new)
-- .smart-env/multi/OpsCenter_LESSONS_LEARNED_md.ajson (new)
-- .smart-env/multi/OpsCenter_OPENCLAW_ARCHITECTURE_REVIEW_md.ajson (new)
-- .smart-env/multi/OpsCenter_OPENCODE_INTEGRATION_GUIDE_md.ajson (new)
-- .smart-env/multi/OpsCenter_OPENCODE_TOKEN_OPTIMIZATION_GUIDE_md.ajson (new)
-- .smart-env/multi/OpsCenter_OWNER_MEMO_TWO_DOMAINS_20260501_md.ajson (new)
-- .smart-env/multi/OpsCenter_PHASE1_OPUS_ROUTING_RULES_md.ajson (new)
+### TONIGHT — SPECIALTY DINING WINDOW
+| Mission | Action | Deadline |
+|---|---|---|
+| MISSION-081 | Grandeur Group specialty dining draft + WF-17 | Opens May 31 8pm ET |
 
-### Active Work
-- SSS: 0 pending decision(s)
-- Learning: 8 rules pending validation
+### P0 QUEUE
+| Mission | Title | Status |
+|---|---|---|
+| MISSION-054 | McLeod Silver Muse — T-27 Final Validation | active — 19 days to departure |
+| MISSION-080 | McLeod Dossier — Mark CONFIRMED (Baglioni FCO, VCE transfer) | in_progress |
+| MISSION-082 | Furlows — HEL→ARN Seat Assignments (BB4X94, AY 811 Aug 27) | in_progress |
+| MISSION-083 | Nichols — Return Flight Seat Assignments (BA 6776 + AA 79) | in_progress |
+| MISSION-084 | Grandeur Group — Haymarket Room Retention (all 3 couples) | in_progress |
+| MISSION-085 | Grandeur Group — Schengen Entry Verification | in_progress |
+| MISSION-077 | Email Sig Block — Avatar Injection in thunderbird_gmail.py | in_progress |
+| MISSION-078 | Persona Avatar Generation — 10 Missing Personas | in_progress |
+| MISSION-079 | Sterling — File-Permission Architecture Design | in_progress |
+| MISSION-072 | Metronome <-> Lifecycle Router Integration | in_progress |
+| MISSION-076 | Regent Cookie Expiry — Metronome Monitor | in_progress |
+| MISSION-073 | RoboForm Share Acceptance + Credential Extraction | in_progress |
 
-### Recently Touched Dossiers
-- McLeod_Erik_Melissa_SilverMuse_Complete.md
-- Loucks_Regent_Grandeur_3122006.md
-- DOSSIER_VikingMars_PanamaCanal_Dec2026.md
-- Morton_Joshua_Erica_Viking_Panama.md
-- McLeod_McGlasson_Multi.md
+## SYSTEM STATE
+- Relay: @d2m_channels_bot live, chat -5248121475
+- Metronome: GREEN, tick #1864
+- Cost dashboard: OpenRouter collector removed, health OK
+- Inbox: CLEAN — 0 UNREAD / 0 PENDING
+- opencode_memory.md: 213 lines (cap 200) — Sterling compaction needed
 
-### Open TODOs
-- [tool_validation_plan.md] - [ ] read Booking Master tab
-- [tool_validation_plan.md] - [ ] write to Booking Master tab
-- [tool_validation_plan.md] - [ ] read Daily Itinerary tab
-- [tool_validation_plan.md] - [ ] write to Daily Itinerary tab
-- [tool_validation_plan.md] - [ ] read specific cell ranges
-- [tool_validation_plan.md] - [ ] write formatted data (USD, dates)
-- [tool_validation_plan.md] - [ ] verify fmt_usd() formatting in sheet output
-- [tool_validation_plan.md] - [ ] search confirmations
-- [tool_validation_plan.md] - [ ] read threads
-- [tool_validation_plan.md] - [ ] create drafts
-
-### Recent Telegram C2 Log (last 5 lines)
-  (no Telegram session logs found)
-
----
-*Auto-generated by COS · Thunderbird OS · Auto-Save Protocol 2026-03-16*
+## RESUME
+Say `--resume` to reload this state.

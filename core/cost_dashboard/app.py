@@ -8,6 +8,7 @@ from fastapi.templating import Jinja2Templates
 import uvicorn
 
 DB = Path.home() / "Thunderbird" / "storage" / "ai_costs.db"
+ROUTER_DB = Path.home() / "Thunderbird" / "core" / "ai_infra" / "data" / "router_cost.db"
 TEMPLATES = Path(__file__).parent / "templates"
 
 app = FastAPI(title="D2M AI Cost Dashboard")
@@ -41,6 +42,15 @@ _ensure_tables()
 
 def _query(sql, params=()):
     conn = sqlite3.connect(str(DB))
+    conn.row_factory = sqlite3.Row
+    rows = conn.execute(sql, params).fetchall()
+    conn.close()
+    return [dict(r) for r in rows]
+
+def _query_router(sql, params=()):
+    if not ROUTER_DB.exists():
+        return []
+    conn = sqlite3.connect(str(ROUTER_DB))
     conn.row_factory = sqlite3.Row
     rows = conn.execute(sql, params).fetchall()
     conn.close()
@@ -85,18 +95,16 @@ def _compute_claude_windows():
 def api_summary():
     _compute_claude_windows()
     win = _query("SELECT * FROM claude_windows ORDER BY window_start DESC LIMIT 1")
-    snap = _query("SELECT * FROM openrouter_snapshots ORDER BY ts DESC LIMIT 1")
     plan = _query("SELECT * FROM plan_snapshots ORDER BY ts DESC LIMIT 1")
+    pools = _query_router("SELECT * FROM pools")
     w = win[0] if win else {}
-    s = snap[0] if snap else {}
     p = plan[0] if plan else {}
+    oc_pool = next((r for r in pools if r["name"] == "opencode_native"), {})
     return JSONResponse({
         "claude_pct": round(w.get("pct_consumed", 0), 1),
         "claude_tokens": w.get("effective_tokens", 0),
         "window_start": w.get("window_start"),
-        "or_daily_usd": round(s.get("usage_daily") or 0, 4),
-        "or_monthly_usd": round(s.get("usage_monthly") or 0, 4),
-        "or_total_usd": round(s.get("total_usage") or 0, 4),
+        "opencode_consumed": round(oc_pool.get("consumed") or 0, 4),
         "plan_monthly_pct": round(p.get("monthly_pct") or 0, 1),
         "plan_balance": round(p.get("balance") or 0, 2),
         "updated": datetime.now(timezone.utc).isoformat(),
@@ -109,10 +117,9 @@ def claude_current():
     rows = _query("SELECT * FROM claude_windows WHERE closed=0 ORDER BY window_start DESC LIMIT 1")
     return rows[0] if rows else {"window_start": None, "pct_consumed": 0}
 
-@app.get("/api/openrouter/snapshot")
-def openrouter_snapshot():
-    rows = _query("SELECT * FROM openrouter_snapshots ORDER BY ts DESC LIMIT 1")
-    return rows[0] if rows else {"ts": None, "total_usage": 0}
+@app.get("/api/opencode/pools")
+def opencode_pools():
+    return _query_router("SELECT * FROM pools ORDER BY name")
 
 @app.get("/api/rollups")
 def rollups(days: int = 30):
@@ -147,7 +154,6 @@ def healthz():
 def index(request: Request):
     _compute_claude_windows()
     window = _query("SELECT * FROM claude_windows WHERE closed=0 ORDER BY window_start DESC LIMIT 1")
-    snapshot = _query("SELECT * FROM openrouter_snapshots ORDER BY ts DESC LIMIT 1")
     rollup = _query("SELECT * FROM daily_rollups ORDER BY date DESC LIMIT 7")
     claude_summary = _query("""
         SELECT model, COUNT(*) as events, SUM(input_tokens) as inp, SUM(output_tokens) as out,
@@ -163,10 +169,10 @@ def index(request: Request):
     poe_data = _query("SELECT * FROM poe_snapshots ORDER BY ts DESC LIMIT 1")
     zen_limits = _query("SELECT model, requests_per_hour, requests_per_day, tokens_per_hour FROM zen_limits")
     zen_usage = _query("SELECT ts, calls_per_hour, tokens_per_hour, calls_per_day, tokens_per_day FROM zen_usage ORDER BY ts DESC LIMIT 1")
+    oc_pools = _query_router("SELECT * FROM pools ORDER BY name")
     return templates.TemplateResponse("index.html", {
         "request": request,
         "window": window[0] if window else None,
-        "snapshot": snapshot[0] if snapshot else None,
         "rollups": rollup,
         "claude_summary": claude_summary,
         "totals": totals[0] if totals else None,
@@ -174,6 +180,7 @@ def index(request: Request):
         "poe": poe_data[0] if poe_data else None,
         "zen_limits": zen_limits,
         "zen_usage": zen_usage[0] if zen_usage else None,
+        "oc_pools": oc_pools,
     })
 
 if __name__ == "__main__":
