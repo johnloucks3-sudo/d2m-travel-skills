@@ -33,13 +33,15 @@ MIST  = "#7f8c8d"
 # ── PORT NARRATIVES (Luna A6) ─────────────────────────────────────────────────
 PORT_NARRATIVES = {
     "Civitavecchia (Rome) — Embarkation": (
-        "The Silver Muse departs",
-        "Civitavecchia is the quiet handoff — the place where Rome releases you to the sea. "
-        "The port town itself holds little drama, but the departure does: that first hour aboard Silver Muse, "
-        "with the Italian coast still visible and your cabin unpacked, marks the moment the trip changes register entirely. "
-        "There is a particular exhale that happens when a ship clears the harbor and the city becomes a smudge of "
-        "terracotta on the horizon — this is that moment, and it is worth standing on deck for. "
-        "The days ahead are yours to compose."
+        "Rome releases you to the sea",
+        "Four days in Rome leave a particular residue — the smell of espresso and exhaust and two-thousand-year-old stone, "
+        "the way the light falls on the Forum at the golden hour, a dinner in Trastevere that went long because nobody wanted to end it. "
+        "Civitavecchia is where Rome hands you off to something different: the Silver Muse waiting at the pier, white and composed, "
+        "butler already at your suite door, the Tyrrhenian Sea spreading out beyond the breakwater in every shade the afternoon offers. "
+        "The transition from four days of walking ancient streets to the unhurried pace of an all-suite ship happens fast — "
+        "and that first hour on deck, with the Italian coast going amber behind you and a glass of something cold in hand, "
+        "is worth standing still for. The city you just lived becomes a smudge of terracotta on the horizon. "
+        "The next ten days belong to the sea."
     ),
     "Naples, Italy": (
         "Naples & Herculaneum",
@@ -74,16 +76,17 @@ PORT_NARRATIVES = {
         "This is the port that puts all the others in perspective."
     ),
     "Valletta, Malta": (
-        "The Knights' Capital",
-        "Valletta is the smallest capital in the European Union and the densest, a honey-limestone city built by crusading knights "
-        "on a peninsula between two of the finest natural harbors in the Mediterranean. "
-        "Every surface here has been carved by history and baked by centuries of Maltese sun until it glows the particular gold "
-        "that the afternoon light favors, and the street grid — designed in the sixteenth century as a model of rational urban planning — "
-        "rewards wandering in any direction. "
-        "The Barrakka Gardens terrace offers the most theatrical harbor view in the Mediterranean: the Grand Harbour spreading out below, "
-        "the three cities of Vittoriosa, Senglea, and Cospicua across the water, all of it steeped in siege and ambition and the "
-        "particular stubbornness of a small island that has survived everything. "
-        "Go on foot; Valletta reveals itself at walking pace only."
+        "Honey limestone, Game of Thrones, and the Grand Harbour",
+        "Valletta glows the color of old honey in the morning light — crusading knights cut this city from local limestone "
+        "in the sixteenth century, and five hundred years of Mediterranean sun have baked it into something that looks less built than grown. "
+        "Today's excursion follows the footprints of a different kind of epic: the Game of Thrones filming locations that gave Westeros "
+        "its most convincing skyline, the ancient harbor fortifications that doubled as King's Landing, walls that were already old "
+        "when the cameras arrived and will be here long after. "
+        "Between the filming sites, there is time to eat like a local — ftira, the Maltese bread ring sealed with oil and tuna, "
+        "and harissa paste that the islands have made their own for centuries, both sold from bakeries that open before the tour buses arrive. "
+        "The Upper Barrakka Gardens in the early afternoon offer the most theatrical harbor view in the Mediterranean: "
+        "the Grand Harbour thirty meters below, the three silent cities of Vittoriosa, Senglea, and Cospicua across the water, "
+        "the whole scene so layered in siege and ambition and improbable survival that the fiction of dragons feels almost modest by comparison."
     ),
     "Kotor, Montenegro": (
         "Blue Cave Speedboat Adventure",
@@ -95,7 +98,7 @@ PORT_NARRATIVES = {
         "a filtered turquoise that seems to come from inside the stone rather than from the sky above it. "
         "Back in port with time before departure, the Old Town's medieval streets offer a slower counterpoint: "
         "cats in doorways, Byzantine icons accumulating centuries quietly in small churches, the limestone walls "
-        "still warm from the morning sun. This is the day that reminds you why you book the adventure first."
+        "still warm from the morning sun."
     ),
     "Dubrovnik, Croatia": (
         "A Day at the Beach Club",
@@ -120,16 +123,17 @@ PORT_NARRATIVES = {
         "Split does not need to perform for visitors — it is too busy being itself."
     ),
     "Zadar, Croatia": (
-        "The Sea Organ at Sunset",
-        "Zadar has two instruments that the city plays at dusk: the Sea Organ, a series of underwater marble steps with pipes that "
-        "translate wave motion into a low, shifting chord that is neither music nor silence but something between them, "
-        "and the Sun Salutation, a circular solar-powered installation that responds to the failing light with slowly intensifying color. "
-        "Alfred Hitchcock once called the sunset here the most beautiful in the world, which is the kind of claim that is impossible "
-        "to verify and completely understandable if you are standing on the Riva while the Zadar light goes amber over the Roman forum "
-        "and the old-town campanile and the Adriatic stretching west toward Italy. "
-        "The Forum itself is still partially above ground — columns and fragments scattered in a square that doubles as a neighborhood "
-        "gathering place, unhurried and unselfconscious. "
-        "Zadar is the port that rewards the traveler who arrives without expectations and leaves with very specific ones."
+        "Salt works, royal vineyards, and a sea that plays music",
+        "Today's excursion moves inland first, to the salt works of Nin — one of the oldest continuously harvested salt pans in "
+        "the Mediterranean, where shallow Adriatic brine evaporates into fleur de sel that chefs in Dubrovnik pay serious money for. "
+        "The salt here has the faint mineral depth that industrial salt cannot replicate, and the landscape around the pans — "
+        "flat, blinding white under the Croatian sun, broken only by distant steeples — is unlike anything else on the coast. "
+        "From Nin, the route climbs into the Dalmatian hinterland for lunch at a royal vineyard, where Plavac Mali and Marastina "
+        "grow in thin limestone soil that concentrates everything the grape has into a small, serious pour. "
+        "Zadar itself waits for the late afternoon: walk the Roman forum, still partially above ground in the middle of a neighborhood square; "
+        "stand at dusk on the Riva above the Sea Organ, whose underwater pipes translate each wave into a low, shifting chord "
+        "that is neither music nor silence but the Adriatic speaking in its own key. "
+        "Alfred Hitchcock called this the most beautiful sunset in the world. He was not wrong."
     ),
     "Fusina (Venice) — Disembarkation": (
         "Arriving in Venice",
@@ -712,7 +716,7 @@ body {{
     <div class="cover-rule"></div>
     <div class="cover-title">Erik McLeod &amp; Melissa McGlasson</div>
     <div class="cover-subtitle">Rome &nbsp;·&nbsp; The Mediterranean &nbsp;·&nbsp; The Adriatic &nbsp;·&nbsp; Venice</div>
-    <div class="cover-dates">June 18 &mdash; July 6, 2026 &nbsp;·&nbsp; 11 Nights Aboard Silver Muse</div>
+    <div class="cover-dates">June 18 &mdash; July 6, 2026 &nbsp;·&nbsp; 11 Nights · Civitavecchia to Venice</div>
     <div class="cover-meta">
       <strong>Silver Muse</strong> &nbsp;·&nbsp; All-Suite · All-Inclusive · Butler Service &nbsp;·&nbsp; Booking 298475-25<br/>
       Civitavecchia &rarr; Naples &rarr; Sicily &rarr; Malta &rarr; Montenegro &rarr; Croatia &rarr; Venice<br/>
@@ -759,6 +763,10 @@ body {{
         <div class="summary-label">Includes</div>
         <div class="summary-value">All shore excursions · Dining · Premium beverages · Butler · Gratuities</div>
       </div>
+      <div class="summary-row">
+        <div class="summary-label">Shore Excursion Balance</div>
+        <div class="summary-value">$596 remaining as of April 27, 2026 · Covers Kotor ($318) + Dubrovnik ($278) <span style="font-size:0.82em;color:{MIST};">[Source: my.silversea.com activities portal, Apr 27, 2026]</span></div>
+      </div>
     </div>
   </div>
 
@@ -783,7 +791,7 @@ body {{
     </div>
     <div class="pre-item">
       <div class="pre-icon">🗺</div>
-      <div class="pre-text"><strong>June 19–22 · Rome —</strong> Four days in the city. The Colosseum and Roman Forum at dusk. Trastevere for dinner your first night. The Vatican and Borghese Gallery before the crowds. Time on Via Veneto over a long espresso.</div>
+      <div class="pre-text"><strong>June 19–22 · Rome —</strong> These four days belong entirely to you. You planned them, booked them, and know exactly how you want to spend them — the itinerary is yours, and we wouldn't touch it. What we'll say is this: when June 23 arrives and the driver pulls away from the Baglioni, you'll feel the city releasing you, unhurried, into something else entirely. That something is the Silver Muse at Civitavecchia, and it's worth the anticipation.</div>
     </div>
     <div class="pre-item">
       <div class="pre-icon">🚗</div>
@@ -824,10 +832,6 @@ body {{
       <div class="dining-item">
         <div class="dining-icon">🔥</div>
         <div class="dining-text"><strong>The Grill</strong> — Pool deck casual with grilled seafood, dry-aged steaks, and the best lunch at sea. Open seating. <span class="dining-source">[Source: activities portal, Apr 27, 2026 — reservation confirmed]</span></div>
-      </div>
-      <div class="dining-item" style="margin-top:8px; background:rgba(13,27,46,0.03); border-radius:4px; padding:8px 12px;">
-        <div class="dining-icon">💳</div>
-        <div class="dining-text"><strong>Shore Excursion Account Balance:</strong> $596 remaining on ship account as of April 27, 2026. Covers Kotor ($318) and Dubrovnik ($278) bookings. <span class="dining-source">[Source: my.silversea.com activities portal, Apr 27, 2026]</span></div>
       </div>
     </div>
 
@@ -888,7 +892,7 @@ body {{
 
   <!-- FOOTER -->
   <div class="footer">
-    <div class="footer-name">Prepared by the Dreams2Memories Travel Wing</div>
+    <div class="footer-name">Prepared by Your Dreams2Memories Travel Team</div>
     <div class="footer-line">Concierge Intelligence · <a href="mailto:concierge@d2mluxury.quest">concierge@d2mluxury.quest</a></div>
     <div class="footer-line">John Loucks · 719-291-0742</div>
     <div class="footer-line" style="margin-top:12px; font-size:0.78em; opacity:0.6;">
