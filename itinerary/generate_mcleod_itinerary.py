@@ -932,6 +932,19 @@ def main():
     no_photos = "--no-photos" in sys.argv
     print("── McLeod / McGlasson · Silver Muse Mediterranean ──────────────────")
 
+    # Dossier gate: validate dossier before any rendering (Sterling A7 — 2026-05-29)
+    dossier = Path("/home/john/Thunderbird/dossiers/McLeod_Erik_Melissa_SilverMuse_Complete.md")
+    result = subprocess.run(
+        [sys.executable, str(Path(__file__).parent / "validate_dossier.py"), str(dossier)],
+        capture_output=True, text=True
+    )
+    if result.returncode == 2:
+        print("✗ DOSSIER VALIDATION FAILED — generator refused to run")
+        print(result.stdout)
+        sys.exit(2)
+    if result.returncode == 1:
+        print("⚠ Dossier warnings — proceeding (review before sending to client)")
+
     # Pre-flight: verify images unless explicitly skipping photos
     if not no_photos and not preflight_check():
         sys.exit(1)

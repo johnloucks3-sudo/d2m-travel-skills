@@ -40,6 +40,10 @@ REQUIRED_CHECKS = [
     ("Transfer status",         r"(?i)(transfer|blacklane|royal transfer|welcome pickup).{0,60}(confirmed|booked|paid|#\d{4,})", "WARN"),
     # Financial source rule (SO-PIPELINE-INTEGRITY-20260528 Rule 4)
     ("Dollar amounts sourced",  r"(?i)(PAID IN FULL|CONFIRMED|\[Source|portal|TESS|invoice|booking master)", "WARN"),
+    # Client contact — required for WF-17 readiness (Dani A3 — 2026-05-29)
+    ("Client email address",    r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}", "ERROR"),
+    # International visa/entry check (Reyes A8 — 2026-05-29)
+    ("Schengen/visa status",    r"(?i)(schengen|visa|entry requirement|passport valid|U\.?S\.? passport|no visa required|visa-free)", "WARN"),
 ]
 
 # ── KNOWN MISSPELLINGS TO CATCH ───────────────────────────────────────────────
