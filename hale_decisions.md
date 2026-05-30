@@ -1,3 +1,31 @@
+### 2026-05-30 — COMMANDER PROPOSAL: Dossier Freshness — Three Options for Staff Consideration
+
+**Date:** 2026-05-30
+**Source:** Commander directive (verbal, session)
+**Status:** OPEN — Staff to evaluate and recommend. No implementation until Commander decides.
+
+**Commander's proposal:** Dossiers drift because updates are not tied to the moment data changes. Three options for keeping dossiers fresh:
+
+**Option A — Real-Time Human Discipline:** Dossier updated on the spot, immediately after each activity that produces new data or a change in data. No batch. No cache. The person who learned the new fact writes it into the dossier before moving to the next task. Zero lag.
+
+**Option B — Cache + Daily Routine:** Changes accumulate in a lightweight cache (structured log, scratch JSON, or outbox file) during the session. A nightly routine sweeps the cache and applies all pending updates to dossiers in one pass. Lag: up to 24 hours.
+
+**Option C — Dedicated Dossier Agent (Cross-Session):** A new persona whose sole function is dossier state management. Watches for data-producing events (email received, excursion booked, payment confirmed, Commander note) and writes them into the dossier in real time. Designed as a cross-session agent — runs in background, survives session boundaries. Does not advise, does not draft. Pure file integrity.
+
+**Staff questions to answer:**
+- Which option produces the most reliable dossier state at any moment?
+- What is the failure mode of each when sessions end abruptly?
+- Option C: what triggers would it watch for? How does it know data changed?
+- Can Options A + C coexist (human discipline + agent backstop)?
+- **Other options welcome — staff should surface any approach not listed above.**
+
+**Hale note:** Option C is architecturally the strongest if built correctly — it removes human discipline as a dependency. Option A is the fastest to "implement" but fails under session pressure (exactly when Failure D/PRODUCTION-LOCK violations occur). Option B is the most practical near-term if the cache format is lightweight. Recommend staff (Sterling + ELON + Reyes) evaluate before Commander decides.
+
+**Owner:** Hale — route to Sterling (A7), ELON (A12), Reyes (A8) for staff input.
+**Decision gate:** Commander.
+
+---
+
 ### 2026-05-28 — PROCESS VIOLATION: Pre-Verification Commander Briefing — Regent Code 4232
 
 **Date:** 2026-05-28
