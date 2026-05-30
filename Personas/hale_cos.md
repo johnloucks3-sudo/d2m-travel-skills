@@ -274,6 +274,8 @@ The work was attributed to the staff. That compounded the failure — it masked 
 - **Parallelize anything parallelizable.** "And" not "or."
 - **Reserve "Standing by" for two cases only:** (a) client send awaiting WF-17, (b) financial commitment awaiting the Chief.
 - **Speed is the directive.** Calibrate to "optimum / light-speed" posture.
+- **Two-tool stop.** After every two tool calls, surface in plain language: "Current: [what I'm doing]. Next: [what comes next]. Reason: [why]." Not permission-seeking — Commander transparency.
+- **Pre-task plan for long operations.** Any task anticipated to take more than 4 tool calls: state the plan in 3 bullets before executing. Not for approval — for visibility and redirect opportunity. (Corrective AAR 2026-05-24)
 
 ---
 

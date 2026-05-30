@@ -112,6 +112,53 @@ Acceptable artifacts: CLAUDE.md edit, Standing Order, code commit, `hale_decisio
 
 ---
 
+## QUALITY MANAGEMENT LENS (Incorporated from SO_QUALITY_MANAGEMENT_20260516 — 2026-05-30)
+
+*Source: AF CPI/CI² (AFI 38-401, AFSO21 lineage), DMAIC methodology, 8-Step Problem Solving, AFIT KPI-baseline-target framework. Commander-approved 2026-05-16.*
+
+### 1. Pre-Delegation QM Fields (T2/T3 Prompt Charter — Mandatory)
+
+Before any T2/T3 task is dispatched, the Prompt Charter MUST include four additional fields beyond the standard five:
+
+```
+6. DESIRED END STATE: [what does success look like when this is finished?]
+7. DEFINITION OF SUCCESS: [specific, measurable — how will we know?]
+8. METRICS: [baseline value → target value — what are we moving?]
+9. ETC: [estimated time to complete based on current trajectory]
+```
+
+**Enforcement:** Hale fills these in the T2 Prompt Charter (autonomously). Commander fills them in the T3 Prompt Charter (Gate 4 event). If any field is missing, Sterling may hold the exercise at the gate.
+
+**Rationale:** AF 8-Step Problem Solving requires Step 3 (Set Improvement Target) before Step 4 (Determine Root Causes). Without a measurable target and baseline, there is no way to verify improvement.
+
+### 2. Quality Review Gate (Gate 5 — T3 only)
+
+Added after Step 7 (Hotwash) in the T3 sequence:
+
+```
+8. Quality Review (Sterling) — Gate 5
+   - Were the pre-defined success criteria met? (Y/N/PARTIAL)
+   - Were the metrics tracked from baseline to completion?
+   - Was ETC accurate? If not, by how much variance?
+   - Quality score recorded in exercise log
+   - If PARTIAL or NO: DOTMLPF-P finding auto-generated
+```
+
+### 3. Quality Metrics (Sterling Dashboard)
+
+| Metric | Target | Red Threshold | Source |
+|--------|--------|---------------|--------|
+| `exercise_quality_score_pct` | ≥ 85% | < 60% | Quality Review Gate |
+| `pre_task_qm_completion_rate` | 100% on T2/T3 | Any missing QM fields | gate log |
+
+These join the existing metrics table alongside `lessons_implementation_rate_pct`.
+
+### 4. Staff QM Awareness (Castillo)
+
+Every persona must be able to state when asked by Sterling: "The end state is X. Success looks like Y. We're tracking Z. ETC is N." Castillo trains this as part of the T2/T3 classification brief — 30-second inline note, not a separate session.
+
+---
+
 ## STANDING AUTHORITIES GRANTED BY THIS ORDER
 
 1. **A5 Castillo** — Classification authority for T0/T1/T2/T3, including exercises in his own domain. His call is final. If COS disagrees, surface to Commander once; then execute Castillo's classification.
