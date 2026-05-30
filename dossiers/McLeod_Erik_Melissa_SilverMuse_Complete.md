@@ -8,7 +8,7 @@ fpd: 2026-01-24
 fpd_amount: 27813.32
 booking_date: 2025-02-06
 status: active
-fpd_status: PENDING
+fpd_status: PAID
 ---
 
 # Erik McLeod & Melissa McGlasson — Complete Trip Data
@@ -46,6 +46,12 @@ completed_tps: []
 - **Notes:** Depart Venice July 6 at 09:00 via Consorzio Motoscafi Venezia (booking 96SGY, €170 PAID)
 
 **CRITICAL:** Multiple PNRs need consolidation. Airline record locators tracking in progress.
+
+### Ground Transport — Home ↔ DEN (Blacklane, Silversea all-inclusive)
+| Leg | Details | Time | Status |
+|-----|---------|------|--------|
+| Home → DEN (outbound) | Blacklane · Booking #127664621 · Chauffeur: Mr. Said Yusifli · Business Van/SUV · 5 pax / 5 bags · Pickup: 1541 Armstrong Dr, Longmont CO 80504 | Jun 18 at 14:00 | ✅ CONFIRMED |
+| DEN → Home (return) | Blacklane · Booking # pending · Business Van/SUV | Jul 6 at 21:07 | ✅ CONFIRMED (booking # not yet captured) |
 
 ---
 
@@ -95,10 +101,10 @@ completed_tps: []
 | June 23 | Civitavecchia (Rome) | — | Evening | **EMBARKATION** |
 | June 24 | Naples | AM | PM | Italian Riviera |
 | June 25 | Giardini Naxos (Sicily) | AM | PM | Gateway to Mount Etna |
-| June 26 | Valletta (Malta) | AM | PM | Walled capital, UNESCO |
-| June 27 | At Sea | — | — | Day at Sea — Leisurely transit |
-| June 28 | Kotor (Montenegro) | AM | PM | Bay of Kotor, Adriatic gem |
-| June 29 | Bari (Italy) | AM | PM | Puglia region |
+| June 26 | Siracusa (Syracuse, Sicily) | AM | PM | Ancient Greek colony, Ortygia island |
+| June 27 | Valletta (Malta) | AM | PM | Walled capital, UNESCO |
+| June 28 | At Sea | — | — | Adriatic crossing — leisurely transit |
+| June 29 | Kotor (Montenegro) | AM | PM | Bay of Kotor, Adriatic gem |
 | June 30 | Dubrovnik (Croatia) | AM | PM | "Pearl of the Adriatic" |
 | July 1 | Split (Croatia) | AM | PM | Dalmatian Coast |
 | July 2 | Zadar (Croatia) | AM | PM | Roman Forum, sea organs |
@@ -179,7 +185,7 @@ completed_tps: []
 - **DOB:** June 24, 1983
 - **Address:** 1541 Armstrong Ct, Longmont CO 80504
 - **Passport:** A09468788 — expires September 15, 2032 ✅ VALID through trip
-- **Airline PNRs:** United ML237016 | American H1PY618
+- **Airline PNRs:** United ML237016 (outbound) | Air Canada H1PY618 (return)
 
 ### Melissa McGlasson
 - **Email:** memcglas@gmail.com
@@ -187,7 +193,7 @@ completed_tps: []
 - **DOB:** July 15, 1970
 - **Address:** 1541 Armstrong Dr, Longmont CO 80504
 - **Passport:** 582543236 — expires May 9, 2028 ✅ VALID through trip
-- **Airline PNRs:** United TF317131 | American N6TX610
+- **Airline PNRs:** United TF317131 (outbound) | Air Canada N6TX610 (return)
 
 ---
 
@@ -242,22 +248,22 @@ completed_tps: []
 
 ## DINING & EXCURSIONS STATUS
 
-### Shore Excursions — ✅ ALL 8 CONFIRMED (source: "Melissa and Erik Excursions.pdf" in Drive)
+### Shore Excursions — ✅ 7 CONFIRMED (source: Silversea activities portal Apr 27, 2026 + "Melissa and Erik Excursions.pdf" in Drive)
 
 | Date | Port | Excursion | Departs | Duration | Cost |
 |------|------|-----------|---------|----------|------|
-| Jun 24 | Naples | RUINS OF HERCULANUM | 08:45 | 3.5 hr | $0 (included) |
+| Jun 24 | Naples | RUINS OF HERCULANEUM | 08:45 | 3.5 hr | $0 (included) |
 | Jun 25 | Giardini Naxos (Sicily) | GREEK & ROMAN TAORMINA | 09:30 | 4 hr | $0 (included) |
-| Jun 26 | Valletta (Malta) | GAME OF THRONES | 09:15 | 4 hr | $0 (included) |
-| Jun 27 | At Sea | — | — | — | — |
-| Jun 28 | Kotor (Montenegro) | SPEEDBOAT ADVENTURE TO BLUE CAVE | 08:30 | 4 hr | $159/pp ($318 total) |
-| Jun 29 | Bari (Italy) | POLIGNANO & MR VOLARE'S WHITE CLIFF | 09:15 | 4 hr | $0 (included) |
+| Jun 26 | Siracusa (Syracuse, Sicily) | *(No excursion booked as of Apr 27, 2026)* | — | — | — |
+| Jun 27 | Valletta (Malta) | GAME OF THRONES FILMING LOCATIONS | 09:15 | 4 hr | $0 (included) |
+| Jun 28 | At Sea | — | — | — | — |
+| Jun 29 | Kotor (Montenegro) | SPEEDBOAT ADVENTURE TO BLUE CAVE | 08:30 | 4 hr | $159/pp ($318 total) |
 | Jun 30 | Dubrovnik (Croatia) | DAY AT THE BEACH CLUB | 09:00 | 5 hr | $139/pp ($278 total) |
 | Jul 1 | Split (Croatia) | UNESCO WORLD HERITAGE SITES | 08:45 | 4.5 hr | $0 (included) |
 | Jul 2 | Zadar (Croatia) | ZADAR, NIN SALT WORKS & ROYAL VINEYARDS | 08:45 | 5 hr | $0 (included) |
 
 **Total paid excursions: $596 ($318 Kotor + $278 Dubrovnik)**
-**Note: No excursion for Portofino or Antibes (pre-Rome departure ports — check full programme)**
+**Note: Siracusa — no excursion selected as of portal check Apr 27, 2026. Confirm with client if they wish to add one.**
 
 ### Specialty Dining
 | Category | Status | Notes |

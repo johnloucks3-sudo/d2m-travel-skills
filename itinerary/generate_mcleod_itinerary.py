@@ -857,7 +857,7 @@ body {{
     </div>
     <div class="pre-item">
       <div class="pre-icon">🚗</div>
-      <div class="pre-text"><strong>Jul 6 · Blacklane — Denver International Airport (DEN) → Home</strong> — Pickup: DEN arrivals · Destination: 1541 Armstrong Dr, Longmont CO 80504 · Complimentary (Silversea all-inclusive) · Booking confirmed May 24, 2026 · Booking # pending [Source: Erik McLeod, May 24, 2026 — confirmed via Telegram]</div>
+      <div class="pre-text"><strong>Jul 6 at 21:07 · Blacklane — Denver International Airport (DEN) → Home</strong> — Pickup: DEN arrivals · Destination: 1541 Armstrong Dr, Longmont CO 80504 · Complimentary (Silversea all-inclusive) · Booking # pending [Source: Commander confirmed May 29, 2026]</div>
     </div>
   </div>
 
