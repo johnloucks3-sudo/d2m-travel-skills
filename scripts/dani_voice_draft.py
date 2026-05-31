@@ -165,6 +165,35 @@ def _update_queue_status(client: str, tp_id: str, new_status: str, extra: dict |
     QUEUE_LOG.write_text("\n".join(out) + "\n", encoding="utf-8")
 
 
+def _route_to_naia_brand_pass(client: str, tp_id: str, draft_id: str, subject: str) -> None:
+    """Auto-route voice_drafted client draft to Naia for brand-pass gate (SO 2026-05-13).
+
+    Creates entry in naia_brand_pass_queue.jsonl for Naia persona to process.
+    Marks original entry as brand_pass_queued.
+    """
+    NAIA_QUEUE = THUNDERBIRD / "storage" / "naia_brand_pass_queue.jsonl"
+
+    queue_entry = {
+        "ts": datetime.now().isoformat(),
+        "client": client,
+        "tp_id": tp_id,
+        "draft_id": draft_id,
+        "subject": subject,
+        "routed_by": "dani_voice_draft",
+        "next_gate": "wf17_after_naia_approval",
+    }
+
+    # Append to Naia's queue
+    NAIA_QUEUE.parent.mkdir(parents=True, exist_ok=True)
+    with open(NAIA_QUEUE, "a", encoding="utf-8") as f:
+        f.write(json.dumps(queue_entry, ensure_ascii=False) + "\n")
+
+    # Mark original entry as brand_pass_queued
+    _update_queue_status(client, tp_id, "brand_pass_queued", {"routed_to_naia_ts": datetime.now().isoformat()})
+
+    logger.info(f"NAIA ROUTE: {client} TP {tp_id} — brand-pass gate triggered. SLA: <4h")
+
+
 # ---------------------------------------------------------------------------
 # Gmail draft update
 # ---------------------------------------------------------------------------
@@ -460,10 +489,12 @@ def process_drafts(
         ok = update_gmail_draft(draft_id, client_email, subject, full_html, service)
         if ok:
             _update_queue_status(client, tp_id, "voice_drafted")
-            results.append({"client": client, "tp_id": tp_id, "status": "voice_drafted"})
-            logger.info(f"Voiced draft updated: {client} TP {tp_id} draft_id={draft_id}")
+            # Auto-route client-facing draft to Naia brand-pass gate (SO 2026-05-13)
+            _route_to_naia_brand_pass(client, tp_id, draft_id, subject)
+            results.append({"client": client, "tp_id": tp_id, "status": "brand_pass_queued"})
+            logger.info(f"Voiced draft updated: {client} TP {tp_id} draft_id={draft_id} → routed to Naia")
             if not timer_mode:
-                print(f"  ✅ {client} TP {tp_id} — voiced and updated in Gmail")
+                print(f"  ✅ {client} TP {tp_id} — voiced, updated in Gmail, routed to Naia for brand pass")
         else:
             _update_queue_status(client, tp_id, "voice_error", {"error": "gmail_update_failed"})
             results.append({"client": client, "tp_id": tp_id, "status": "voice_error"})
