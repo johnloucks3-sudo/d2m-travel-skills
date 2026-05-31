@@ -224,14 +224,14 @@ def route_to_engine(task_text, task_id=None, task_context=None):
         }
 
     elif decision["engine"] == "grok":
-        # Grok Build via OpenRouter — ZEN counter-voice (independent reasoning)
-        command = f"opencode run -m 'openrouter/x-ai/grok-build-0.1' -- {task_text}"
+        # Grok Build via xAI API — ZEN counter-voice (independent reasoning)
+        command = f"opencode run -m 'xai/grok-build-0.1' -- {task_text}"
         if task_id:
-            command = f"opencode run -m 'openrouter/x-ai/grok-build-0.1' -- '[ZEN] {task_id}\n{task_text}'"
+            command = f"opencode run -m 'xai/grok-build-0.1' -- '[ZEN] {task_id}\n{task_text}'"
         return {
             **decision,
             "command": command,
-            "instructions": "Route to Grok Build via OpenRouter. Cost: $0.27/1M input tokens. Fallback: DeepSeek on rate limit.",
+            "instructions": "Route to Grok Build via xAI direct API. XAI_API_KEY required. Fallback: DeepSeek on rate limit.",
             "task_text": task_text,
         }
 

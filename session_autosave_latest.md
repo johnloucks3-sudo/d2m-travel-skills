@@ -1,14 +1,14 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-05-31 14:30:00 MT
+## Generated: 2026-05-31 14:50:00 MT
 
 ---
 
 ### Recent Commits
+- 1110cc5e docs: add Grok Build ZEN counter-voice to Model Routing section (SO-2026-05-31)
+- 0719f785 feat(grok-integration): add Grok Build ZEN counter-voice to OpenCode + keyword router
 - 811946be docs(p0-2): Navarro profile delivery escalation — EOD 2026-05-31
 - 36b640c3 fix(p0-1): implement Naia brand-pass standing trigger
 - 9ef69eb0 feat(personas): P2 completion — metrics scorecard + succession planning
-- 3777139b docs(succession): add succession planning brief for Dani/Naia/Sterling bottleneck roles
-- 61849582 docs: Add Persona Health Scorecard template for Baldrige monthly audit
 
 ### Uncommitted Changes
 - CLAUDE.md (modified)
@@ -18,9 +18,6 @@
 - OpsCenter/OPENCODE_INIT.md (modified)
 - OpsCenter/collaboration/blackboard_summary.txt (modified)
 - OpsCenter/collaboration/routing_log.md (modified)
-- OpsCenter/keyword_router.py (modified)
-- OpsCenter/keyword_router_test.py (modified)
-- OpsCenter/opencode_zen_counter.py (modified)
 - bryana/data.json (modified)
 - core/ai_infra/data/router_cost.db-shm (modified)
 - core/ai_infra/data/router_cost.db-wal (modified)

@@ -20,8 +20,8 @@ import sys
 from pathlib import Path
 
 OPENCODE_BIN = Path.home() / ".opencode/bin/opencode"
-ZEN_MODEL_GROK = "openrouter/x-ai/grok-build-0.1"  # Primary: Grok Build for independent reasoning (OpenRouter)
-ZEN_MODEL_DEEPSEEK = "openrouter/deepseek/deepseek-chat"  # Fallback: DeepSeek via OpenRouter
+ZEN_MODEL_GROK = "xai/grok-build-0.1"  # Primary: Grok Build for independent reasoning (xAI direct API)
+ZEN_MODEL_DEEPSEEK = "deepseek/deepseek-chat"  # Fallback: DeepSeek via OpenRouter
 THUNDERBIRD_DIR = Path.home() / "Thunderbird"
 
 COUNTER_SYSTEM = """You are ZEN — a DeepSeek-powered counter-voice for the Thunderbird Wing AI system.
@@ -49,7 +49,7 @@ def zen_counter(question: str, context: str = "", model: str = "grok") -> str:
         return "ZEN unavailable — opencode binary not found"
 
     selected_model = ZEN_MODEL_GROK if model.lower() == "grok" else ZEN_MODEL_DEEPSEEK
-    model_label = "Grok-2" if model.lower() == "grok" else "DeepSeek"
+    model_label = "Grok Build (xAI)" if model.lower() == "grok" else "DeepSeek"
 
     prompt = f"{COUNTER_SYSTEM}\n\n"
     if context:
@@ -87,7 +87,7 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     question = " ".join(args.question)
-    model_label = "Grok-2 (OpenRouter)" if args.model == "grok" else "DeepSeek"
+    model_label = "Grok Build (xAI)" if args.model == "grok" else "DeepSeek"
 
     print(f"\n[ ZEN Counter-Voice — {model_label} ]\n")
     result = zen_counter(question, context=args.context, model=args.model)

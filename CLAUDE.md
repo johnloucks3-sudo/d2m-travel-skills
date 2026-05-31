@@ -184,7 +184,7 @@ Multi-hop memo chain retired for client products. Client emails written from ONE
 
 ### Model Routing (mandatory, not advisory)
 - **Haiku** = DEFAULT for: file reads under 500 lines · single-grep summaries · JSON/structured extraction · routine code edits · status checks · classification · log scans · "is X present" lookups
-- **Grok Build** (OpenRouter) = ZEN counter-voice (independent reasoning on strategic decisions) · reasoning under time pressure when Sonnet budget constrained · triggered by keywords: "counter", "challenge", "push back", "zen perspective". Cost: $0.27/1M input (10% vs Sonnet). Fallback: DeepSeek. SO-2026-05-31.
+- **Grok Build** (xAI direct API) = ZEN counter-voice (independent reasoning on strategic decisions) · triggered by keywords: "counter", "challenge", "push back", "zen", "devil's advocate", "what could go wrong". XAI_API_KEY required. Fallback: DeepSeek. SO-2026-05-31.
 - **Sonnet** = synthesis across multiple sources · client-voice copy · staff papers · multi-step reasoning · novel problem-solving
 - **Opus** = ONLY on explicit Commander request OR architecture decisions with cost > $1K impact. No auto-escalation. If a Sonnet task hits a ceiling, surface the gap before escalating.
 
@@ -246,9 +246,9 @@ Multi-hop memo chain retired for client products. Client emails written from ONE
 - Allow all file reads, writes, edits, MCP tool calls, web searches, and non-destructive bash commands without confirmation.
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-05-31 14:28 MT -->
+<!-- Last sync: 2026-05-31 14:53 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-05-31 14:28 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-05-31 14:53 MT] ===
 Budget: Claude UNKNOWN | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE
