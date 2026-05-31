@@ -1,14 +1,14 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-05-31 13:20:00 MT
+## Generated: 2026-05-31 14:30:00 MT
 
 ---
 
 ### Recent Commits
-- 5b77180e chore(session-compression-tier3): context window limits + compression script
-- 637f8ef2 chore(tier-2-economizing): slim CLAUDE.md, consolidate router to Claude MAX only
-- 1e4f392f docs(tier-1): summary of completed optimizations — $22-32/month ROI
-- a2d9af89 chore(tier-1-optimization): routing policy + dead-code cleanup
-- 028cbb53 fix(so-24-apr-2026): refactor headless Claude spawns to use foolproof wrapper
+- 811946be docs(p0-2): Navarro profile delivery escalation — EOD 2026-05-31
+- 36b640c3 fix(p0-1): implement Naia brand-pass standing trigger
+- 9ef69eb0 feat(personas): P2 completion — metrics scorecard + succession planning
+- 3777139b docs(succession): add succession planning brief for Dani/Naia/Sterling bottleneck roles
+- 61849582 docs: Add Persona Health Scorecard template for Baldrige monthly audit
 
 ### Uncommitted Changes
 - CLAUDE.md (modified)
@@ -18,6 +18,9 @@
 - OpsCenter/OPENCODE_INIT.md (modified)
 - OpsCenter/collaboration/blackboard_summary.txt (modified)
 - OpsCenter/collaboration/routing_log.md (modified)
+- OpsCenter/keyword_router.py (modified)
+- OpsCenter/keyword_router_test.py (modified)
+- OpsCenter/opencode_zen_counter.py (modified)
 - bryana/data.json (modified)
 - core/ai_infra/data/router_cost.db-shm (modified)
 - core/ai_infra/data/router_cost.db-wal (modified)

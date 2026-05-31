@@ -100,6 +100,21 @@ CLAUDE_PRECEDENCE_PATTERN = re.compile(
     '|'.join(CLAUDE_PRECEDENCE_KEYWORDS), re.IGNORECASE
 )
 
+# Tier 2.5: Grok keywords (ZEN counter-voice, reasoning under time pressure)
+GROK_KEYWORDS = [
+    r'\b(?:counter|counter[- ]?voice|counter[- ]?argument|refute|challenge|dissent|push\s+back)\b',
+    r'\bzen\s+(?:counter|voice|perspective|take)\b',
+    r'\balternative\s+(?:view|perspective|opinion|take)\b',
+    r'\bplay\s+devil\'?s?\s+advocate\b',
+    r'\bchallenge\s+(?:this|the|my)\s+(?:claim|assumption|approach)\b',
+    r'\bwhat\s+could\s+go\s+wrong\b',
+    r'\bwhy\s+(?:not|wouldn\'?t)\b',
+]
+
+GROK_KEYWORD_PATTERN = re.compile(
+    '|'.join(GROK_KEYWORDS), re.IGNORECASE
+)
+
 
 def classify_task(task_text, task_context=None):
     """
@@ -128,6 +143,16 @@ def classify_task(task_text, task_context=None):
             "engine": "claude",
             "confidence": 0.99,
             "reason": "Claude precedence detected (tiebreak/escalation rule)"
+        }
+
+    # 1.5. Grok keywords — ZEN counter-voice (independent reasoning needed)
+    grok_matches = GROK_KEYWORD_PATTERN.findall(combined)
+    if grok_matches:
+        keywords_found = list(set(grok_matches))[:3]
+        return {
+            "engine": "grok",
+            "confidence": 0.85,
+            "reason": f"ZEN counter-voice detected: {', '.join(keywords_found)}. Grok for independent reasoning."
         }
 
     # 2. Claude keywords — reserved high-value tasks
@@ -195,6 +220,18 @@ def route_to_engine(task_text, task_id=None, task_context=None):
             **decision,
             "command": ollama_script,
             "instructions": "Route to local Ollama (phi3:mini) — $0 cost, ~4s latency. Fallback: OpenRouter on failure.",
+            "task_text": task_text,
+        }
+
+    elif decision["engine"] == "grok":
+        # Grok Build via OpenRouter — ZEN counter-voice (independent reasoning)
+        command = f"opencode run -m 'openrouter/x-ai/grok-build-0.1' -- {task_text}"
+        if task_id:
+            command = f"opencode run -m 'openrouter/x-ai/grok-build-0.1' -- '[ZEN] {task_id}\n{task_text}'"
+        return {
+            **decision,
+            "command": command,
+            "instructions": "Route to Grok Build via OpenRouter. Cost: $0.27/1M input tokens. Fallback: DeepSeek on rate limit.",
             "task_text": task_text,
         }
 

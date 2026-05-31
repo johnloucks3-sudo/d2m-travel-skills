@@ -28,6 +28,14 @@ tests = [
   ("claude already reviewed this", "claude", "Claude precedence"),
   ("previous claude session flagged", "claude", "Previous Claude"),
 
+  # --- Grok keywords (ZEN counter-voice) ---
+  ("counter this claim", "grok", "counter keyword → Grok ZEN"),
+  ("play devil's advocate", "grok", "devil's advocate → Grok ZEN"),
+  ("challenge my assumption", "grok", "challenge keyword → Grok ZEN"),
+  ("what could go wrong", "grok", "risk perspective → Grok ZEN"),
+  ("push back on this approach", "grok", "push back → Grok ZEN"),
+  ("zen counter-voice perspective", "grok", "zen counter keyword → Grok ZEN"),
+
   # --- Empty / unknown defaults → OpenCode ---
   ("", "opencode", "Empty task → OpenCode default"),
   ("check server status", "opencode", "Unknown → OpenCode default"),
