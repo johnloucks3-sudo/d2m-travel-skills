@@ -1,14 +1,14 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-05-31 12:30:00 MT
+## Generated: 2026-05-31 13:20:00 MT
 
 ---
 
 ### Recent Commits
+- 5b77180e chore(session-compression-tier3): context window limits + compression script
+- 637f8ef2 chore(tier-2-economizing): slim CLAUDE.md, consolidate router to Claude MAX only
 - 1e4f392f docs(tier-1): summary of completed optimizations — $22-32/month ROI
 - a2d9af89 chore(tier-1-optimization): routing policy + dead-code cleanup
 - 028cbb53 fix(so-24-apr-2026): refactor headless Claude spawns to use foolproof wrapper
-- df3166a8 fix(systemd): correct WantedBy to default.target for user-scope service
-- ba38f7fd chore(infra): update nginx htpasswd auth (attempted itinerary pw fix)
 
 ### Uncommitted Changes
 - CLAUDE.md (modified)
@@ -18,12 +18,12 @@
 - OpsCenter/OPENCODE_INIT.md (modified)
 - OpsCenter/collaboration/blackboard_summary.txt (modified)
 - OpsCenter/collaboration/routing_log.md (modified)
-- OpsCenter/thunderbird_tasking_watcher.py (modified)
 - bryana/data.json (modified)
 - core/ai_infra/data/router_cost.db-shm (modified)
 - core/ai_infra/data/router_cost.db-wal (modified)
 - reverie (modified)
-- docs/CLAUDE_REFERENCE.md (new)
+- session_autosave_latest.html (modified)
+- session_autosave_latest.md (modified)
 
 ### Active Work
 - SSS: 0 pending decision(s)

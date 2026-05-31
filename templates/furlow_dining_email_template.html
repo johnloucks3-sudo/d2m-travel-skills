@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Specialty Dining Selections — Regent Grandeur Scandinavia</title>
+    <style>
+        body {
+            font-family: Georgia, serif;
+            background-color: #f7f3ea;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 40px;
+            border-left: 4px solid #0000ff;
+        }
+        .header {
+            color: #0000ff;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .greeting {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .section-title {
+            color: #003087;
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 8px;
+        }
+        .trip-overview {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .dining-slot {
+            margin: 15px 0;
+            padding: 12px;
+            border-left: 3px solid #0000ff;
+            background-color: #fafafa;
+        }
+        .dining-slot-name {
+            font-weight: bold;
+            color: #003087;
+            font-size: 14px;
+        }
+        .dining-slot-details {
+            font-size: 13px;
+            color: #555;
+            margin-top: 4px;
+        }
+        .signature {
+            margin-top: 30px;
+            font-size: 13px;
+            color: #666;
+        }
+        .cta {
+            background-color: #0000ff;
+            color: #f7f3ea;
+            padding: 12px 20px;
+            text-align: center;
+            border-radius: 4px;
+            display: inline-block;
+            margin: 20px 0;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 13px;
+        }
+        table th {
+            background-color: #f0f0f0;
+            padding: 10px;
+            text-align: left;
+            border-bottom: 2px solid #0000ff;
+            font-weight: bold;
+            color: #003087;
+        }
+        table td {
+            padding: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .note {
+            background-color: #fffacd;
+            padding: 12px;
+            margin: 15px 0;
+            border-left: 3px solid #ffa500;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            Your Specialty Dining Selections
+        </div>
+
+        <div class="greeting">
+            John & Melissa,
+        </div>
+
+        <p>We've secured your specialty dining reservations for the SS Grandeur. Below are your confirmed selections—your culinary highlights for the cruise.</p>
+
+        <div class="trip-overview">
+            <strong>Regent SS Grandeur</strong> | Storied Scandinavia<br>
+            <strong>Suite:</strong> 827, Deck 8<br>
+            <strong>Voyage:</strong> August 29 – September 8, 2026<br>
+            <strong>Booking:</strong> 3071222
+        </div>
+
+        <div class="section-title">Your Confirmed Specialty Dining</div>
+
+        <!-- DINING SELECTIONS WILL BE INJECTED HERE BY THE SCRIPT -->
+        <!-- Placeholder structure below -->
+        <div id="dining-selections">
+            {{DINING_SELECTIONS}}
+        </div>
+
+        <div class="section-title">Your Included Shore Excursions</div>
+        <p>Your 7 Regent Choice excursions are confirmed for all ports. A reminder of your lineup:</p>
+
+        <table>
+            <tr>
+                <th>Port</th>
+                <th>Excursion</th>
+                <th>Date & Time</th>
+            </tr>
+            <tr>
+                <td>Stockholm</td>
+                <td>Highlights of Stockholm & Vasa Museum</td>
+                <td>Aug 30, 9:00 AM</td>
+            </tr>
+            <tr>
+                <td>Berlin/Warnemunde</td>
+                <td>The Berlin Experience</td>
+                <td>Sep 1, 7:30 AM</td>
+            </tr>
+            <tr>
+                <td>Berlin/Warnemunde</td>
+                <td>Amazing Rostock</td>
+                <td>Sep 2, 9:00 AM</td>
+            </tr>
+            <tr>
+                <td>Copenhagen</td>
+                <td>A Tour of Two Kingdoms</td>
+                <td>Sep 3, 8:45 AM</td>
+            </tr>
+            <tr>
+                <td>Kristiansand</td>
+                <td>Explore Kristiansand on Foot</td>
+                <td>Sep 6, 10:00 AM</td>
+            </tr>
+            <tr>
+                <td>Oslo</td>
+                <td>Hadeland Glass Works & Fram Museum</td>
+                <td>Sep 7, 9:30 AM</td>
+            </tr>
+        </table>
+
+        <div class="section-title">Next Steps</div>
+        <p><strong>Embarkation Day — August 29:</strong></p>
+        <ul>
+            <li>Check in at the Stockholm port (Stockholm Cruise Terminal)</li>
+            <li>Board begins at 3:00 PM; all guests must be onboard by 6:00 PM</li>
+            <li>Your pre-cruise hotel (Haymarket by Scandic) is reserved for August 27–28</li>
+            <li>Regent provides transportation from your hotel to the port on August 29</li>
+        </ul>
+
+        <p><strong>Onboard Dining:</strong> Your specialty dining reservations are confirmed. No additional action needed—present this email or your booking confirmation at each restaurant.</p>
+
+        <p><strong>Questions?</strong> Reply directly to this email or contact your Regent concierge once onboard.</p>
+
+        <div class="note">
+            <strong>Reminder:</strong> Please verify your passport is valid through at least March 2027 (Schengen requirement). Both passports have been confirmed with us.
+        </div>
+
+        <div class="signature">
+            <p>Warm regards,<br>
+            <strong>Dreams2Memories Travel, LLC</strong><br>
+            Your Luxury Travel Concierge<br>
+            <br>
+            <em style="color: #0000ff;">Your journey is our craft.</em>
+            </p>
+        </div>
+
+    </div>
+
+</body>
+</html>
