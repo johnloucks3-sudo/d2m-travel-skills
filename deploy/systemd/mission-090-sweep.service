@@ -1,0 +1,14 @@
+[Unit]
+Description=MISSION-090 — Worktree Dossier Sweep (weekly)
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/john/Thunderbird/output/mission-090_worktree_sweep.sh --email-json
+WorkingDirectory=/home/john/Thunderbird
+User=john
+Environment=HOME=/home/john
+
+[Install]
+WantedBy=default.target
