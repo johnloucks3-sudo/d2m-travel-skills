@@ -2,32 +2,26 @@ TIER_CHAINS: dict[str, list[str]] = {
     "FLAG": [
         "claude_max_oauth_sonnet",
         "claude_max_oauth_opus",
-        "deepseek_v4",
     ],
     "FLAG_OPUS": [
         "claude_max_oauth_opus",
         "claude_max_oauth_sonnet",
-        "deepseek_v4",
     ],
     "FLAG_SONNET": [
         "claude_max_oauth_sonnet",
         "claude_max_oauth_opus",
-        "deepseek_v4",
     ],
     "MID": [
         "claude_max_oauth_sonnet",
         "claude_max_oauth_haiku",
-        "deepseek_v4",
     ],
     "BULK": [
         "claude_max_oauth_haiku",
         "claude_max_oauth_sonnet",
-        "deepseek_v4",
     ],
     "ARB": [
         "claude_max_oauth_haiku",
         "claude_max_oauth_sonnet",
-        "deepseek_v4",
     ],
 }
 

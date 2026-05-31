@@ -18,12 +18,15 @@ import sys
 import time
 import json
 import logging
-import subprocess
 import requests
 from pathlib import Path
 from datetime import datetime
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
+
+# Use foolproof wrapper per SO 24 APR 2026
+sys.path.insert(0, str(Path("/home/john/Thunderbird")))
+from core.ai_infra.thunderbird_headless_spawn import spawn_headless_claude
 
 # Logging
 logging.basicConfig(
@@ -231,149 +234,51 @@ class InboxHandler(FileSystemEventHandler):
         invoke_fn(inbox_path)
 
     # ------------------------------------------------------------------ #
-    # Claude headless invocation with error monitoring & escalation
+    # Claude headless invocation via foolproof wrapper
     # ------------------------------------------------------------------ #
     def _invoke_claude(self, inbox_path):
-        import threading
-
-        ts      = datetime.now().strftime("%Y%m%d_%H%M%S")
-        log     = LOG_DIR / f"claude_invoke_{ts}.log"
         try:
             content = inbox_path.read_text()
         except Exception:
             content = ""
-        model   = model_for_priority(content)
-        prompt  = (
+
+        model = model_for_priority(content)
+        outbox_file = CLAUDE_OUTBOX
+
+        prompt = (
             f"You are Hale COS running headless. "
             f"Read {inbox_path} and process every task with status PENDING, UNREAD, "
             f"ACTIVE-CRITICAL, or FLAGGED-OVERDUE. "
-            f"For each actionable task: execute it, mark status COMPLETE with timestamp, "
-            f"write results to {CLAUDE_OUTBOX}. "
-            f"Then post a summary to "
-            f"/home/john/Thunderbird/OpsCenter/collaboration/wing_comms.md."
+            f"For each actionable task: execute it, mark status COMPLETE with timestamp. "
+            f"WRITE your results to {outbox_file}. "
+            f"Then append a summary to /home/john/Thunderbird/OpsCenter/collaboration/wing_comms.md."
         )
 
-        # PREEMPTIVE REFRESH: Check if token needs refresh before spawning Claude
-        # (Required because Anthropic disabled auto-refresh for headless invocations, Feb 2026)
-        # CRITICAL: If token refresh fails, HALT — do not spawn Claude
-        token_ok = refresh_oauth_token_preemptive()
+        # Use foolproof wrapper (background mode, no direct subprocess.Popen)
+        result = spawn_headless_claude(
+            prompt=prompt,
+            output_file=str(outbox_file),
+            model=model,
+            task_name="hale_inbox_process",
+            background=True
+        )
 
-        if not token_ok:
-            logging.critical("❌ WATCHER HALT: Token refresh FAILED — halting to prevent silent fallback to DeepSeek")
-            # Post critical alert to wing_comms
-            try:
-                alert_msg = f"\n## 🔴 [CRITICAL] Watcher Halted — Token Refresh Failed\n**Time:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n**Reason:** Token refresh returned FALSE. Watcher HALTING to prevent silent fallback to DeepSeek.\n**Action Required:** Check token state manually. Contact Commander.\n"
-                WING_COMMS = Path("/home/john/Thunderbird/OpsCenter/collaboration/wing_comms.md")
-                if WING_COMMS.exists():
-                    existing = WING_COMMS.read_text()
-                    WING_COMMS.write_text(existing.rstrip() + "\n" + alert_msg)
-            except Exception as e:
-                logging.error(f"Could not post alert: {e}")
-            # Hard halt
-            sys.exit(1)
-
-        fresh_env = load_oauth_env()
-        logging.info(f"Spawning Claude headless model={model} → log: {log}")
-        logging.info(f"OAuth token present: {'CLAUDE_CODE_OAUTH_TOKEN' in fresh_env or 'ANTHROPIC_API_KEY' in fresh_env}")
-
-        try:
-            proc = subprocess.Popen(
-                [CLAUDE_BIN, "-p", prompt, "--model", model, "--output-format", "text", "--mcp-config", "/home/john/.claude/mcp.json"],
-                stdout=open(log, "w"),
-                stderr=subprocess.STDOUT,
-                env=fresh_env,
-                start_new_session=True,
-            )
-            logging.info(f"Claude headless started (PID {proc.pid}, {model})")
-
-            # Monitor in background thread for credit errors and escalate if needed
-            def monitor_claude_errors(proc_obj, log_path, inbox):
-                try:
-                    returncode = proc_obj.wait(timeout=600)  # 10 min max
-                    if returncode != 0:
-                        time.sleep(0.5)  # Give filesystem time to flush
-                        try:
-                            log_text = Path(log_path).read_text()
-                            # Log the failure for Haiku supervisor to detect
-                            if any(err in log_text.lower() for err in ["402", "credit", "balance", "insufficient"]):
-                                logging.error(f"Claude hit credit/auth error (exit {returncode}) — token may have expired")
-                            else:
-                                logging.error(f"Claude exited with code {returncode}")
-                            # Do NOT auto-escalate. Haiku supervisor will see this failure and alert Yoda.
-                        except Exception as e:
-                            logging.error(f"Error reading log: {e}")
-                except subprocess.TimeoutExpired:
-                    logging.error(f"Claude headless timed out (>10 min)")
-                except Exception as e:
-                    logging.error(f"Monitor thread error: {e}")
-
-            monitor_thread = threading.Thread(
-                target=monitor_claude_errors,
-                args=(proc, log, inbox_path),
-                daemon=True
-            )
-            monitor_thread.start()
-
-        except Exception as e:
-            logging.error(f"Failed to spawn Claude: {e}")
-            logging.error(f"Claude invocation failed — no automatic fallback (fail gracefully)")
-            # Do NOT escalate to OpenCode/DeepSeek. Let failure be visible.
-            # Haiku supervisor will detect this and alert Yoda.
+        if result.get("status") in ["SPAWNED", "COMPLETED"]:
+            pid = result.get("pid")
+            log_file = result.get("log_file", "?")
+            logging.info(f"✅ Claude headless spawned (PID {pid}, model={model}) → log: {log_file}")
+        else:
+            logging.error(f"❌ Claude spawn failed: {result.get('error', 'unknown error')}")
+            if not result.get("can_retry"):
+                logging.critical("Fatal error — no retry possible. Supervisor will alert.")
 
     # ------------------------------------------------------------------ #
-    # OpenCode headless invocation
+    # OpenCode headless invocation (TODO: needs OpenCode wrapper per SO)
     # ------------------------------------------------------------------ #
     def _invoke_opencode(self, inbox_path):
-        ts  = datetime.now().strftime("%Y%m%d_%H%M%S")
-        log = LOG_DIR / f"opencode_invoke_{ts}.log"
-        prompt = (
-            f"Read {inbox_path}. "
-            f"Process every task with status PENDING or UNREAD. "
-            f"Execute each task. Mark status COMPLETE with timestamp. "
-            f"Write results to {CLAUDE_OUTBOX} and post summary to "
-            f"/home/john/Thunderbird/OpsCenter/collaboration/wing_comms.md."
-        )
-        logging.info(f"Spawning OpenCode headless → log: {log}")
-        try:
-            proc = subprocess.Popen(
-                [OPENCODE_BIN, "run", prompt],
-                stdout=open(log, "w"),
-                stderr=subprocess.STDOUT,
-                env={**os.environ},
-                start_new_session=True,
-            )
-            logging.info("OpenCode headless process started (PID %s)", proc.pid)
-            # ── Decision persistence bridge (SO 29 APR 2026) ──────────────────
-            # Log the dispatch to hale_decisions.md so it persists across context
-            # transitions (OpenCode → Claude Code). Without this, OpenCode's
-            # autonomous actions are invisible in the Claude Code audit trail.
-            try:
-                sys.path.insert(0, str(BASE))
-                from OpsCenter.hale_decision_logger import log_autonomous_decision
-                from core.ops.hale_activity_logger import task_dispatched
-                # Read task summary from inbox for context
-                try:
-                    inbox_snippet = inbox_path.read_text()[:200].replace('\n', ' ')
-                except Exception:
-                    inbox_snippet = str(inbox_path.name)
-                log_autonomous_decision(
-                    decision_description=f"OpenCode dispatched: {inbox_snippet[:120]}",
-                    domain="Autonomous Tasking",
-                    decision_type="routine",
-                    outcome="pending",
-                    autonomy_tier="T1",
-                    notes=f"PID {proc.pid} | Log: {log} | Inbox: {inbox_path.name}"
-                )
-                task_dispatched(
-                    task=inbox_snippet[:80],
-                    model="OpenCode/DeepSeek",
-                    source="tasking_watcher"
-                )
-            except Exception as _log_err:
-                logging.warning("Decision persistence log failed: %s", _log_err)
-            # ── End persistence bridge ────────────────────────────────────────
-        except Exception as e:
-            logging.error(f"Failed to spawn OpenCode: {e}")
+        logging.info(f"OpenCode invocation suspended (awaiting OpenCode spawn wrapper)")
+        # TODO: OpenCode spawn requires separate wrapper following SO 24 APR 2026 patterns
+        # For now, Claude dispatch is primary. OpenCode coordination via direct SDK calls
 
 
 def main():
