@@ -1350,17 +1350,19 @@
     },
     {
       "id": "MISSION-088",
-      "title": "Workflow → WF-17 Chain Automation",
+      "title": "Workflow \u2192 WF-17 Chain Automation",
       "status": "active",
       "priority": "P1",
       "assigned_to": "A7 Sterling",
-      "description": "Design pipeline script to automate WF-17 chain using Claude Code Workflow engine (v2.1.150+). Goal: single command runs the full WF-17 delivery sequence (Reyes → Luna → Naia → Dani → TALON/JET) with persona handoffs, quality gates, and error recovery. Eliminates manual chain execution. Source capability: Claude Code Workflow for multi-step persona orchestration. Owner: A7 Sterling. Design before code per Sterling A7 QAP.",
+      "description": "Design pipeline script to automate WF-17 chain using Claude Code Workflow engine (v2.1.150+). Goal: single command runs the full WF-17 delivery sequence (Reyes \u2192 Luna \u2192 Naia \u2192 Dani \u2192 TALON/JET) with persona handoffs, quality gates, and error recovery. Eliminates manual chain execution. Source capability: Claude Code Workflow for multi-step persona orchestration. Owner: A7 Sterling. Design before code per Sterling A7 QAP.",
       "deliverables": [
         "WF-17 Workflow pipeline design doc",
         "Implementation: Workflow script that chains all 5 WF-17 stages",
         "Integration with existing WF-17 gate infrastructure"
       ],
-      "dependencies": ["MISSION-046 (persona chains) — verify chain format compatible"],
+      "dependencies": [
+        "MISSION-046 (persona chains) \u2014 verify chain format compatible"
+      ],
       "suspense_date": "2026-06-14",
       "created_at": "2026-05-31T00:00:00Z",
       "updated_at": "2026-05-31T00:00:00Z",
@@ -1370,11 +1372,11 @@
     },
     {
       "id": "MISSION-089",
-      "title": "CronCreate → Daemon Retirement Audit",
+      "title": "CronCreate \u2192 Daemon Retirement Audit",
       "status": "active",
       "priority": "P1",
       "assigned_to": "A7 Sterling + A12 ELON",
-      "description": "Assess which Thunderbird systemd timers can be replaced by Claude Code CronCreate (v2.1.150+). Sterling: audit all systemd timers and daemon scripts, identify candidates for CronCreate replacement. ELON: frame kill audit — what cost/simplicity do we gain by retiring the timer stack? Target: reduce systemd timer surface by 60%+. Sterling assesses, ELON frames, joint recommendation to Commander.",
+      "description": "Assess which Thunderbird systemd timers can be replaced by Claude Code CronCreate (v2.1.150+). Sterling: audit all systemd timers and daemon scripts, identify candidates for CronCreate replacement. ELON: frame kill audit \u2014 what cost/simplicity do we gain by retiring the timer stack? Target: reduce systemd timer surface by 60%+. Sterling assesses, ELON frames, joint recommendation to Commander.",
       "deliverables": [
         "Systemd timer audit: all timers across deploy/systemd/, user services",
         "CronCreate compatibility matrix per timer (keep/retire/migrate)",
@@ -1391,7 +1393,7 @@
     },
     {
       "id": "MISSION-090",
-      "title": "Worktree Dossier Sweep — Parallel Monthly Validation",
+      "title": "Worktree Dossier Sweep \u2014 Parallel Monthly Validation",
       "status": "active",
       "priority": "P2",
       "assigned_to": "A8 Reyes",
@@ -1406,7 +1408,7 @@
       "created_at": "2026-05-31T00:00:00Z",
       "updated_at": "2026-05-31T00:00:00Z",
       "logs": [
-        "[2026-05-31T00:00:00] Mission created per Hale COS routing recommendation. Reyes domain — dossier ownership."
+        "[2026-05-31T00:00:00] Mission created per Hale COS routing recommendation. Reyes domain \u2014 dossier ownership."
       ]
     },
     {
@@ -1415,18 +1417,52 @@
       "status": "active",
       "priority": "P2",
       "assigned_to": "A2 Dembe",
-      "description": "Wire schema-validated subagent parallelization into fare watch and cruise price intel. Subagent calls with schema param return validated JSON — no parsing, no structure hallucination. Combined with parallel() fan-out for multi-source flight price lookups, cruise availability checks, commission reconciliation. Owner: A2 Dembe. Target: reduce per-query cost and latency through structured subagent returns.",
+      "description": "Wire schema-validated subagent parallelization into fare watch and cruise price intel. Subagent calls with schema param return validated JSON \u2014 no parsing, no structure hallucination. Combined with parallel() fan-out for multi-source flight price lookups, cruise availability checks, commission reconciliation. Owner: A2 Dembe. Target: reduce per-query cost and latency through structured subagent returns.",
       "deliverables": [
         "Schema design for price intel agent returns",
         "Integration with core/intel/thunderbird_agentic_intel.py",
         "Commission reconciliation multi-source schema agent"
       ],
-      "dependencies": ["MISSION-061 (invisible_playwright) — unblocks Centrav/CruiseComplete automation"],
+      "dependencies": [
+        "MISSION-061 (invisible_playwright) \u2014 unblocks Centrav/CruiseComplete automation"
+      ],
       "suspense_date": "2026-06-21",
       "created_at": "2026-05-31T00:00:00Z",
       "updated_at": "2026-05-31T00:00:00Z",
       "logs": [
-        "[2026-05-31T00:00:00] Mission created per Hale COS routing recommendation. Dembe domain — price intel pipeline."
+        "[2026-05-31T00:00:00] Mission created per Hale COS routing recommendation. Dembe domain \u2014 price intel pipeline."
+      ]
+    },
+    {
+      "id": "MISSION-092",
+      "title": "Adopt persistent Claude",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "Code scheduling for trip validation workflows MISSION-SCHEDULING-DURABLE: Replace session-only CronCreate jobs (auto-expire 7d) with durable scheduling mechanism for trip validation and final itinerary procedures. Current jobs: Furlow/Ely-Darrow/Nichols June 1 dining email automation (IDs 2affb392, 85e42493, 8dfece25) + McLeod/McGlasson June 4 final itinerary send gate. Design options: (1) Write cron expressions to persistent .crontab entry, (2) Implement standing orders (SO files) with headless Claude spawn, (3) Use systemd timers for durable scheduling. Acceptance: Jobs survive session exit, run on schedule regardless of Claude Code session state. Owner: ELON (automation architect). Gate: Approval from A12 on architecture approach. P1",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-05-31T19:43:32.703147+00:00",
+      "updated_at": "2026-05-31T19:43:32.703158+00:00"
+    },
+    {
+      "id": "MISSION-073",
+      "title": "Persona Health Scorecard Template \u2014 Baldrige Audit Framework",
+      "status": "completed",
+      "priority": "P1",
+      "assigned_to": "A7 Sterling",
+      "description": "Design monthly Persona Health Scorecard template for Thunderbird Wing's Sunday Baldrige audit (starting 2026-06-01). Track 7 core personas across domain-specific metrics: decision velocity, capability lift, autonomy band, WF-17 quality (Hale), brand turnaround, iteration rate, voice consistency (Naia), profile accuracy, confidence calibration, archetype match (Navarro), client SLA, relationship continuity, voice consistency (Dani), scenario coverage, publication velocity, emotional distance (Castillo), audit completion, measurement adoption, lessons implementation (Sterling), commission lag, ROI accuracy, financial clarity (Harlan). Includes green/yellow/red thresholds, monthly review cadence, rollup scoring, historical tracking.",
+      "deliverables": [
+        "docs/PERSONA_HEALTH_SCORECARD_TEMPLATE.md"
+      ],
+      "created_at": "2026-05-31T14:00:00Z",
+      "updated_at": "2026-05-31T14:30:00Z",
+      "logs": [
+        "[2026-05-31T14:00:00] MISSION-073 created per Commander standing order (WING EXERCISE SO-2026-05-16, Baldrige monthly deliberate review effective 2026-06-01)",
+        "[2026-05-31T14:30:00] COMPLETED \u2014 docs/PERSONA_HEALTH_SCORECARD_TEMPLATE.md delivered. Template includes 21 metrics across 7 personas, green/yellow/red thresholds, monthly cadence, rollup scoring (Wing Robustness %), and historical tracking framework. Ready for first monthly review 2026-06-01."
       ]
     }
   ],
