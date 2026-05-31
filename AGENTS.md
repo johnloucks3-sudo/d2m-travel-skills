@@ -364,6 +364,14 @@ python3 /home/john/Thunderbird/OpsCenter/dispatch_claude.py \
 # DO NOT use: nohup claude -p "..." &
 # Both inherit shell state that may break OAuth. Use dispatch_claude.py exclusively.
 
+# BACKGROUND TASKS (Claude Code v2.1.150+) — Survive session timeouts
+# Any task >10 min should use `claude agents --bg`. Task keeps running even
+# if CLI session drops (Chromebook suspend, SSH timeout, TMUX detach).
+# On completion, sends notification via SendMessage (Telegram + inbox).
+# Pattern:
+#   claude agents --bg --model sonnet -p "long running task"
+# Wing application: dossier generation, fare watch scans, batch research, monthly sweeps
+
 # Claude → OpenCode (append NEXUS task — Nexus daemon picks up, routes to OpenCode)
 echo "NEXUS: <task>" >> /home/john/Thunderbird/OpsCenter/collaboration/opencode_inbox.md
 

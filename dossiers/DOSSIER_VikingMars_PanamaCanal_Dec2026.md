@@ -19,7 +19,7 @@ Last Updated: March 07, 2026
 • ALL 6 declined travel protection
 • Viking pre-existing condition window closed (15 days from deposit, deposits Feb 7-10)
 • Trip Mate plan can still be purchased up to FPD (Mar 31)
-• Disembark port changed from FLL to West Palm Beach
+• Disembarkation: Port Everglades (Fort Lauderdale, FL) — confirmed per Viking official itinerary. Prior note "West Palm Beach" was a data entry error and has been removed.
 • E-check payment gets 2% discount (not eligible within 21 days of travel)
 • SBC Vouchers: $100/pp available on all 3 bookings
 

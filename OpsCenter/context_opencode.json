@@ -54,5 +54,21 @@
   {
     "role": "Hale, OpenCode, Sonnet",
     "text": "<b>Hale, OpenCode, Sonnet</b>\n\n**You're already on it, Commander.** This session is running on `opencode/big-pickle` — the model ID in my system config confirms it.\n\nIf you're asking how to *launch* explicitly next time:\n\n```bash\nopencode --model opencode/big-pickle\n```\n\nOr if using OpenCode CLI with config, set `\"model\": \"opencode/big-pickle\"` in your `opencode.json`.\n\nDeepSeek's in another window — just spin up a second terminal for Big Pickle and you can toggle between them. No need to choose. Run both."
+  },
+  {
+    "role": "Commander",
+    "text": "--status\n10:52 AM\n-- resume\n10:53 AM\n▣  Build · Claude Haiku 4.5\nBuild·Claude Haiku 4.5Anthropic Claude MAX\nCannot connect to API: The socket connection was closed unexpectedly. For more i... (click to expand) [retrying in 24s attempt #7]  Fix this please"
+  },
+  {
+    "role": "Hale, OpenCode, Sonnet",
+    "text": "<b>Hale, OpenCode, Sonnet</b>\n\n[Engine error — all models exhausted (rate limits + timeouts)]"
+  },
+  {
+    "role": "Commander",
+    "text": "Sonnet"
+  },
+  {
+    "role": "Hale, OpenCode, Sonnet",
+    "text": "<b>Hale, OpenCode, Sonnet</b>\n\n[Engine error — all models exhausted (rate limits + timeouts)]"
   }
 ]

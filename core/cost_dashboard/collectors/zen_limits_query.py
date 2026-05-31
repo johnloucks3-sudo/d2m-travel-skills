@@ -25,12 +25,6 @@ ZEN_LIMITS = {
         "requests_per_day": 500,
         "tokens_per_hour": 50000,
     },
-    "openrouter/nvidia/nemotron-3-super-120b-a12b:free": {
-        "name": "Nemotron (free tier OR)",
-        "requests_per_hour": 20,
-        "requests_per_day": 100,
-        "tokens_per_hour": 5000,
-    },
 }
 
 def query_zen_limits_via_opencode():

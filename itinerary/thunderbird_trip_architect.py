@@ -45,7 +45,7 @@ from thunderbird_personas import (
     build_system_prompt,
     resolve_id,
 )
-from thunderbird_model_router import route_call, MODEL_TAGS, _call_groq, GROQ_MODELS
+from thunderbird_model_router import route_call, MODEL_TAGS
 
 # Gmail — import with fallback so module loads even without OAuth token
 try:
@@ -369,19 +369,21 @@ Rules:
 def parse_client_inquiry(text: str) -> dict:
     """Extract structured travel requirements from a free-text client inquiry.
 
-    Uses Claude Opus via CLI for NLP extraction. Returns a structured dict.
+    Uses Claude Haiku MAX via adapter for NLP extraction. Returns a structured dict.
     """
     logger.info("Parsing client inquiry: %s", text[:120])
 
     try:
-        response = _call_groq(
-            _PARSE_SYSTEM_PROMPT,
-            text,
-            model="fast",
+        from adapters.claude_max_oauth import haiku_adapter
+        result = haiku_adapter.dispatch(
+            system=_PARSE_SYSTEM_PROMPT,
+            user=text,
             max_tokens=600,
-            temperature=0.2,
         )
+        if result.error:
+            raise RuntimeError(result.error)
 
+        response = result.text.strip()
         # Strip any markdown code fences the model might add
         cleaned = response.strip()
         cleaned = re.sub(r"^```(?:json)?\s*", "", cleaned)

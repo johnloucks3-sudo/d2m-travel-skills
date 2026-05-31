@@ -81,7 +81,8 @@ def configure_default_pools():
     cost_gates.configure_pool("max_weekly_all", soft_limit=-1, hard_limit=-1)
     cost_gates.configure_pool("max_weekly_haiku", soft_limit=-1, hard_limit=-1)
     cost_gates.configure_pool("max_monthly", soft_limit=-1, hard_limit=-1)
-    log.info("All cost pools set to unlimited (20X Claude MAX)")
+    cost_gates.configure_pool("opencode_native", soft_limit=-1, hard_limit=-1)
+    log.info("All cost pools set to unlimited (Claude MAX + DeepSeek ZEN)")
 
 
 def dispatch(task: TaskRequest) -> AdapterResult:

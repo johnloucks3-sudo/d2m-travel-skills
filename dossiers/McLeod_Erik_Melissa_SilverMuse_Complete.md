@@ -51,7 +51,7 @@ completed_tps: []
 | Leg | Details | Time | Status |
 |-----|---------|------|--------|
 | Home → DEN (outbound) | Blacklane · Booking #127664621 · Chauffeur: Mr. Said Yusifli · Business Van/SUV · 5 pax / 5 bags · Pickup: 1541 Armstrong Dr, Longmont CO 80504 | Jun 18 at 14:00 | ✅ CONFIRMED |
-| DEN → Home (return) | Blacklane · Booking # pending · Business Van/SUV | Jul 6 at 21:07 | ✅ CONFIRMED (booking # not yet captured) |
+| DEN → Home (return) | Blacklane · Booking # NOT YET RECEIVED — confirmed booked by Erik May 24 via silversea.blacklane.com · Business Van/SUV · Pickup: DEN | Jul 6 at 21:07 | ✅ CONFIRMED (booking # not in any email source — Commander must provide from Blacklane app or Erik's confirmation email) |
 
 ---
 
@@ -383,6 +383,7 @@ completed_tps: []
 | 2026-05-24 | Re: It's time to book your airport transfers with Blacklane | Erik (from personal) |
 | 2026-05-24 | Fwd: Final Silversea Cruise Documents including Air Tickets for 298475-25 MR ERIK WIEDENBACH MC LEOD | Erik, Melissa (from personal) |
 | 2026-05-26 | Fwd: McLeod Water Taxi — Venice Molino Stucky to Marco Polo Airport, 6 July 2026 | Erik, Melissa (from personal) |
+| 2026-05-29 | Silver Muse Mediterranean — Your Itinerary Is Ready · One Quick Question | Erik, Melissa |
 
 ---
 

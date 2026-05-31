@@ -6,6 +6,7 @@ import time
 from pathlib import Path
 
 from core.ai_infra.adapters.base import AdapterResult, HealthState
+from core.ops.zen_cache import ZenCache
 
 log = logging.getLogger("adapter.deepseek")
 
@@ -13,10 +14,13 @@ OPENCODE_BIN = Path("/home/john/.opencode/bin/opencode")
 THUNDERBIRD_DIR = Path("/home/john/Thunderbird")
 MODEL_ID = "opencode/deepseek-v4-flash-free"
 TIMEOUT = 120
+CACHE_TTL_HOURS = 24
 
 # Billing watchdog — alert on any non-zero cost
 _BILLING_WARNING_LOGGED = False
 _MAX_COST_WATCH = 5.0  # Cumulative soft limit before hard-refusing
+
+_cache = ZenCache(ttl_hours=CACHE_TTL_HOURS)
 
 
 def _strip_ansi(text: str) -> str:
@@ -57,6 +61,18 @@ class DeepSeekV4Adapter:
             )
 
         full_prompt = f"{system[:4000]}\n\n{user}" if system else user
+
+        # Check cache before API call
+        cache_key = _cache.make_key(MODEL_ID, system, user)
+        cached = _cache.get(cache_key)
+        if cached is not None:
+            log.debug("ZEN cache HIT for key %s", cache_key[:16])
+            return AdapterResult(
+                text=cached, error=None,
+                cost_consumed=0, cost_pool=self.cost_pool,
+                latency_ms=0, model_used=MODEL_ID,
+            )
+
         env = dict(os.environ)
         env.pop("ANTHROPIC_BASE_URL", None)
         env["PATH"] = f"/home/john/.opencode/bin:{env.get('PATH', '')}"
@@ -84,6 +100,10 @@ class DeepSeekV4Adapter:
                     cost_consumed=0, cost_pool=self.cost_pool,
                     latency_ms=elapsed, model_used=MODEL_ID,
                 )
+
+            # Cache successful response
+            _cache.set(cache_key, MODEL_ID, cache_key, output)
+            log.debug("ZEN cache MISS — stored key %s", cache_key[:16])
 
             # Billing watchdog: check stderr for cost indicators
             stderr_lower = (r.stderr or "").lower()

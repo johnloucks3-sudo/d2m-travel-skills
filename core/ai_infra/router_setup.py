@@ -2,20 +2,21 @@ import logging
 
 from core.ai_infra import unified_router
 from core.ai_infra.adapters.claude_max_oauth import sonnet_adapter, opus_adapter, haiku_adapter
+from core.ai_infra.adapters.opencode_deepseek_v4 import adapter as deepseek_v4_adapter
 
 log = logging.getLogger("router_setup")
 
 
 def register_all_adapters():
     count = 0
-    for adap in (sonnet_adapter, opus_adapter, haiku_adapter):
+    for adap in (sonnet_adapter, opus_adapter, haiku_adapter, deepseek_v4_adapter):
         try:
             unified_router.register_adapter(adap)
             count += 1
         except Exception as e:
             log.error("Failed to register %s: %s", adap.name, e)
     unified_router.configure_default_pools()
-    log.info("Registered %d Claude MAX adapters (all non-Claude paths removed)", count)
+    log.info("Registered %d adapters: Claude MAX + DeepSeek V4 ZEN fallback", count)
     return count
 
 

@@ -1,5 +1,5 @@
 # HALE — EOD Briefing
-*Generated: 2026-05-28 17:00 MT*
+*Generated: 2026-05-30 17:00 MT*
 
 ---
 
@@ -8,13 +8,6 @@
 ---
 
 ## 🚨 SPSA EOD — Cases & Status
-
-**Created Today:** 0 RED, 1 YELLOW
-
-### 🟡 NEW YELLOW (Today)
-
-**SPSA-20260528-AC5F1** | MCP Server health check failed...
-> Address immediately (2.0h)
 
 
 **Pipeline:** 7 open, 0 decided, 0 implementing
@@ -30,4 +23,4 @@
 - **Command Ready:** ✅ (COS Online)
 
 ---
-*— Ms. Victoria "Victory" Hale, SES-6 | Thunderbird Wing | 2026-05-28 17:00 MT*
+*— Ms. Victoria "Victory" Hale, SES-6 | Thunderbird Wing | 2026-05-30 17:00 MT*

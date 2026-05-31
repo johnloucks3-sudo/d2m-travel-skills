@@ -1324,6 +1324,110 @@
       "logs": [],
       "created_at": "2026-05-30T21:44:40.685091+00:00",
       "updated_at": "2026-05-30T21:44:40.685101+00:00"
+    },
+    {
+      "id": "MISSION-087",
+      "title": "Grandeur Group \u2014 Hotel, Transport & Seat Logistics (All 3 Couples)",
+      "status": "active",
+      "priority": "P1",
+      "assigned_to": "A10 Bridge (Ikeda)",
+      "description": "Sort out all remaining logistics for the Furlow group (3 couples: Furlow, Ely, Nichols) on Regent SS Grandeur Aug 29\u2013Sep 8, 2026. Scope: (1) HOTEL \u2014 Confirm Haymarket By Scandic room retention for all 3 couples through both nights (Aug 27-28 paid + Aug 28-29 Regent-included) so nobody has to move rooms. (2) TRANSPORT \u2014 Confirm Arlanda airport\u2192hotel transfer for all 3 couples (Royal Transfer paid for Furlows, verify coverage for Elys + Nichols). Verify Regent transport hotel\u2192ship Aug 29 and ship\u2192Oslo airport Sep 8 covers all 6 pax. (3) SEATS \u2014 Get HEL\u2192ARN (AY 811 Aug 27) seats assigned for Furlow PNR BB4X94. Get Nichols return seats assigned (BA 6776 OSL\u2192LHR + AA 79 LHR\u2192DFW, PNRs DSTAGH/BERJYH). (4) COORDINATION \u2014 Single status update to all 3 couples once everything is locked. Sub-missions: MISSION-082, MISSION-083, MISSION-084 roll up into this.",
+      "deliverables": [
+        "Haymarket room retention confirmed for all 3 rooms both nights",
+        "All airport\u2192hotel transfers confirmed for all 6 pax",
+        "HEL\u2192ARN seats assigned for Furlow (BB4X94)",
+        "Nichols return seats assigned (OSL\u2192LHR + LHR\u2192DFW)",
+        "Group status update sent to all 3 couples"
+      ],
+      "dependencies": [],
+      "suspense_date": "2026-06-07",
+      "created_at": "2026-05-30T22:00:00Z",
+      "updated_at": "2026-05-31T07:47:06Z",
+      "logs": [
+        "[2026-05-30T22:00:00] Mission created per Commander direction. Insurance noted as client-managed (AMEX/Chase Sapphire \u2014 Commander doesn't have the card). Focus: hotel, transport, seats for all 3 couples.",
+        "[2026-05-31T07:47:06] OPR assigned: A10 Bridge (MSgt Tommy Ikeda). Domain: hotel/transport/seat logistics \u2014 Bridge owns all three. Assigned by Hale-CC per MISSION-087-OWNER task."
+      ]
+    },
+    {
+      "id": "MISSION-088",
+      "title": "Workflow → WF-17 Chain Automation",
+      "status": "active",
+      "priority": "P1",
+      "assigned_to": "A7 Sterling",
+      "description": "Design pipeline script to automate WF-17 chain using Claude Code Workflow engine (v2.1.150+). Goal: single command runs the full WF-17 delivery sequence (Reyes → Luna → Naia → Dani → TALON/JET) with persona handoffs, quality gates, and error recovery. Eliminates manual chain execution. Source capability: Claude Code Workflow for multi-step persona orchestration. Owner: A7 Sterling. Design before code per Sterling A7 QAP.",
+      "deliverables": [
+        "WF-17 Workflow pipeline design doc",
+        "Implementation: Workflow script that chains all 5 WF-17 stages",
+        "Integration with existing WF-17 gate infrastructure"
+      ],
+      "dependencies": ["MISSION-046 (persona chains) — verify chain format compatible"],
+      "suspense_date": "2026-06-14",
+      "created_at": "2026-05-31T00:00:00Z",
+      "updated_at": "2026-05-31T00:00:00Z",
+      "logs": [
+        "[2026-05-31T00:00:00] Mission created per Hale COS routing recommendation. Highest-leverage integration per TALON capability analysis."
+      ]
+    },
+    {
+      "id": "MISSION-089",
+      "title": "CronCreate → Daemon Retirement Audit",
+      "status": "active",
+      "priority": "P1",
+      "assigned_to": "A7 Sterling + A12 ELON",
+      "description": "Assess which Thunderbird systemd timers can be replaced by Claude Code CronCreate (v2.1.150+). Sterling: audit all systemd timers and daemon scripts, identify candidates for CronCreate replacement. ELON: frame kill audit — what cost/simplicity do we gain by retiring the timer stack? Target: reduce systemd timer surface by 60%+. Sterling assesses, ELON frames, joint recommendation to Commander.",
+      "deliverables": [
+        "Systemd timer audit: all timers across deploy/systemd/, user services",
+        "CronCreate compatibility matrix per timer (keep/retire/migrate)",
+        "ELON kill audit: cost savings, simplification, risk assessment",
+        "Joint recommendation to Commander"
+      ],
+      "dependencies": [],
+      "suspense_date": "2026-06-14",
+      "created_at": "2026-05-31T00:00:00Z",
+      "updated_at": "2026-05-31T00:00:00Z",
+      "logs": [
+        "[2026-05-31T00:00:00] Mission created per Hale COS routing recommendation. Second-highest leverage integration."
+      ]
+    },
+    {
+      "id": "MISSION-090",
+      "title": "Worktree Dossier Sweep — Parallel Monthly Validation",
+      "status": "active",
+      "priority": "P2",
+      "assigned_to": "A8 Reyes",
+      "description": "Design monthly dossier validation sweep using Claude Code worktree isolation. Fan out one subagent per active dossier, each on a clean git branch (worktree). Auto-cleans branches with no changes. Eliminates step-on conflicts when multiple dossiers updated simultaneously. Owner: A8 Reyes. Use case: monthly validation sweep across all 8+ active dossiers in parallel instead of sequential.",
+      "deliverables": [
+        "Worktree dossier sweep design doc",
+        "Implementation: batch script using claude agents with isolation:worktree",
+        "Integration with monthly validation schedule"
+      ],
+      "dependencies": [],
+      "suspense_date": "2026-06-21",
+      "created_at": "2026-05-31T00:00:00Z",
+      "updated_at": "2026-05-31T00:00:00Z",
+      "logs": [
+        "[2026-05-31T00:00:00] Mission created per Hale COS routing recommendation. Reyes domain — dossier ownership."
+      ]
+    },
+    {
+      "id": "MISSION-091",
+      "title": "Schema-Valided Price Intel Agents",
+      "status": "active",
+      "priority": "P2",
+      "assigned_to": "A2 Dembe",
+      "description": "Wire schema-validated subagent parallelization into fare watch and cruise price intel. Subagent calls with schema param return validated JSON — no parsing, no structure hallucination. Combined with parallel() fan-out for multi-source flight price lookups, cruise availability checks, commission reconciliation. Owner: A2 Dembe. Target: reduce per-query cost and latency through structured subagent returns.",
+      "deliverables": [
+        "Schema design for price intel agent returns",
+        "Integration with core/intel/thunderbird_agentic_intel.py",
+        "Commission reconciliation multi-source schema agent"
+      ],
+      "dependencies": ["MISSION-061 (invisible_playwright) — unblocks Centrav/CruiseComplete automation"],
+      "suspense_date": "2026-06-21",
+      "created_at": "2026-05-31T00:00:00Z",
+      "updated_at": "2026-05-31T00:00:00Z",
+      "logs": [
+        "[2026-05-31T00:00:00] Mission created per Hale COS routing recommendation. Dembe domain — price intel pipeline."
+      ]
     }
   ],
   "suspense_watch": [
@@ -1383,7 +1487,7 @@
       "priority": "P1"
     }
   ],
-  "last_updated": "2026-05-26T01:20:00Z",
+  "last_updated": "2026-05-31T00:00:00Z",
   "t4_exercise_status": {
     "status": "CLOSED",
     "score": "9.5/10 GREEN",

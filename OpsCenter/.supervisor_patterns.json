@@ -1,5 +1,5 @@
 {
-  "total_invocations": 47,
+  "total_invocations": 56,
   "failures": [
     {
       "timestamp": "2026-05-15T21:00:37",
@@ -39,6 +39,6 @@
   "timeouts": 0,
   "logic_errors": 0,
   "last_30_min": [],
-  "checkpoint_passes": 2815,
+  "checkpoint_passes": 3420,
   "stale_tasks_detected": 5
 }

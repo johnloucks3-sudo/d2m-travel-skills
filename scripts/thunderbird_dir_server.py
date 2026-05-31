@@ -9,7 +9,7 @@ import os
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 
 USERNAME = "john"
-PASSWORD = "d2m2026!"
+PASSWORD = "5277"
 DIRECTORY = "/home/john/Thunderbird"
 PORT = 8900
 REALM = "D2M Thunderbird"

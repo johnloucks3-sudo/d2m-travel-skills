@@ -1,5 +1,216 @@
 ---
 
+## CC REVIEW — 4 MISSIONS (2026-05-31)
+**Reviewer:** Claude Code (Sonnet 4.6)
+**Date:** 2026-05-31
+**Scope:** MISSION-088, -089, -090, -091 — correctness, security, arch fit, operational safety
+
+---
+
+### CRITICAL FINDINGS (build-blocking)
+
+---
+
+#### CRITICAL-1 — MISSION-088: `config/brand_guidelines.json` does not exist
+**Severity:** BLOCKER
+**Location:** Stage 3 Naia input table; `wf17_config.json` schema §6
+**Finding:** `config/brand_guidelines.json` is listed as a HARD input for Stage 3 Naia. Glob confirms the file does not exist in the repo. Stage 3 will abort at PREFLIGHT_CHECK on every run.
+**Mitigation:** (a) Create a minimal `config/brand_guidelines.json` stub before MVP sprint, or (b) reclassify as SOFT input (log gap, proceed) for MVP. Commander decision needed.
+
+---
+
+#### CRITICAL-2 — MISSION-089: All 38 CronCreate cron expressions are wrong
+**Severity:** BLOCKER — every migrated timer fires at the wrong time
+**Location:** Section 2 "MIGRATE" table, all 38 entries
+**Finding:** The table uses format `0 <hour> <minute> * * *` (e.g., `0 6 45 * * *` for "Daily 06:45 MT"). This is wrong for both standard formats:
+- 5-field cron (`minute hour dom month dow`): `45 6 * * *` for 06:45
+- 6-field cron (`second minute hour dom month dow`): `0 45 6 * * *` for 06:45
+
+The `0 6 45 * * *` pattern in 5-field = "run at 00:06 on the 45th of the month" (never fires). Examples of corrected entries:
+
+| Timer | Wrong | Correct (5-field) |
+|---|---|---|
+| `hale-brief-generate` Daily 06:45 | `0 6 45 * * *` | `45 6 * * *` |
+| `thunderbird-dembe-intel` Daily 07:00 | `0 7 0 * * *` | `0 7 * * *` |
+| `thunderbird-harlan-weekly` Mon 07:00 | `0 7 0 * Mon` | `0 7 * * Mon` |
+| `thunderbird-monthly-archive` 1st/month 07:15 | `0 7 15 1 * *` | `15 7 1 * *` |
+| `d2m-booking-monitor` Every 6h | `0 6,12,18,0 30 * * *` | `30 0,6,12,18 * * *` |
+
+**Mitigation:** Before Phase 1 migration, regenerate all 38 expressions using correct `minute hour [dom] [month] [dow]` ordering. Validate each with `systemd-analyze calendar` or `croniter` before wiring.
+
+---
+
+#### CRITICAL-3 — MISSION-088: `gmail_send_draft_sync()` does not exist
+**Severity:** BLOCKER
+**Location:** State machine §5 COMMANDER_SENT transition; Dependencies table §6
+**Finding:** The design calls `gmail_send_draft_sync()` on `/approve`. `thunderbird_gmail.py` has:
+- `gmail_create_draft_sync()` — EXISTS (line 2646) ✓
+- `gmail_send_draft()` — EXISTS but **async** (line 1287) ✗
+- `gmail_send_draft_sync()` — **does NOT exist** ✗
+
+COMMANDER_SENT will raise `AttributeError` at runtime.
+**Mitigation:** Build `gmail_send_draft_sync()` as a thin sync wrapper in `thunderbird_gmail.py`, or use `asyncio.run(gmail_send_draft(...))` inside `wf17_hold_gate.py`. Required pre-MVP build item.
+
+---
+
+### HIGH FINDINGS
+
+---
+
+#### HIGH-1 — MISSION-088: `thunderbird_telegram_c2.py` import path is wrong
+**Location:** Dependencies table §6
+**Finding:** Design references `thunderbird_telegram_c2.py` at repo root — file does NOT exist there. Actual location: `core/communication/thunderbird_telegram_c2.py`. `wf17_hold_gate.py` will fail at import.
+**Mitigation:** Update import to `from core.communication.thunderbird_telegram_c2 import ...`
+
+---
+
+#### HIGH-2 — MISSION-088: Four HARD input artifacts have no defined producer in the pipeline
+**Location:** Stage 1 inputs, Stage 2 inputs, Stage 5 inputs
+**Finding:** `navarro_luna_brief.json`, `travel_dna.json`, `portal_snapshot.json`, `harlan_financial_verify.json` are all HARD inputs with no stage that produces them. PREFLIGHT_CHECK blocks on every job until manually pre-populated.
+**Mitigation:** MVP requires a Stage 0 (pre-dispatch) that generates the Navarro brief and travel DNA from the dossier. Harlan pre-check must run before Stage 5 if the job contains financial content. Commander decision: manual pre-population acceptable for MVP?
+
+---
+
+#### HIGH-3 — MISSION-090: Systemd service `WantedBy=multi-user.target` wrong for user scope
+**Location:** `deploy/systemd/mission-090-sweep.service` (already deployed)
+**Finding:** User-level services should use `WantedBy=default.target`. Current deployment works (timer enables the service implicitly), but `systemctl --user enable mission-090-sweep.service` would silently fail.
+**Mitigation:** `sed -i 's/WantedBy=multi-user.target/WantedBy=default.target/' deploy/systemd/mission-090-sweep.service && systemctl --user daemon-reload`
+
+---
+
+### MEDIUM FINDINGS
+
+---
+
+#### MEDIUM-1 — MISSION-091: Soft schema validation can propagate malformed price data
+**Location:** `_invoke_claude_json_schema()` lines 273-278
+**Finding:** `jsonschema.validate()` warns but still returns the unvalidated dict. If Haiku omits required fields, commission math receives `None`-bearing dicts. The `or 0.0` fallback chain in `reconcile_commission()` silently produces `client_price = 0.0` rather than raising.
+**Mitigation:** Add `if net_raw == 0.0: raise ValueError(f"No usable price data in record from {price_record.get('source_name')}")` after the net_raw resolution block. Harlan gate remains backstop for any client email.
+
+---
+
+#### MEDIUM-2 — MISSION-088: Model key `deepseek-v3` in wf17_config.json may not match adapter
+**Location:** `wf17_config.json` schema, `"stage1_reyes_recs": "deepseek-v3"`
+**Finding:** The adapter is `core/ai_infra/adapters/opencode_deepseek_v4.py`. Verify whether the adapter expects `"deepseek-v3"`, `"deepseek-v4-flash-free"`, or another identifier before Stage 1 build.
+
+---
+
+### SECURITY REVIEW — ALL FOUR MISSIONS
+
+**PASS** — No secrets exposure found.
+- MISSION-091: `ANTHROPIC_API_KEY` correctly stripped before spawn. OAuth token injected via env var only. ✓
+- MISSION-090: Paths from controlled repo glob, no user input, no injection surface. ✓
+- MISSION-088: `client_slug` used in file paths. If slug contained `../`, path traversal is possible. **Add slug sanitization in `job_manifest.py`:** `re.sub(r'[^a-z0-9_-]', '', client_slug.lower())` — same pattern as the sweep's `slug_of()` function. Required before any external trigger wiring.
+- MISSION-089: Pure audit document, no code. ✓
+
+---
+
+### LAST-NIGHT HALT — SUSCEPTIBILITY CHECK
+
+**Identified error:** `hale_state.json` open_tasks shows `invalid_scope: Bad Request` — Google OAuth scope error on the Tasks API poller. Token either expired or was issued without `tasks.readonly` scope.
+
+**MISSION-091 susceptibility check:** `verify_prerequisites()` checks `oauth_keepalive_running` (timer active) and `creds_exist` (file exists). It does NOT validate that the Claude OAuth token scope is live. If the Claude MAX token had an `invalid_scope` type failure, `hard_pass` would still be `True` — but the subprocess would exit non-zero. MISSION-091 correctly raises `RuntimeError(f"Claude exited {proc.returncode}: {stderr[:500]}")`. **Not a silent halt — callers get a clear exception.** ✓
+
+**Recommended hardening:** Add a lightweight `claude --version` probe inside `verify_prerequisites()` using the OAuth env. Converts a runtime subprocess failure into a pre-dispatch failure with clear messaging. Not required for MVP.
+
+**MISSION-088 susceptibility:** OAuth failure in headless dispatch → `FATAL_PREREQ` return → state machine maps to `STAGE_N_FAILED` → Hale alert via Telegram. Correctly handled per error matrix. ✓
+
+---
+
+### VERDICT SUMMARY
+
+| Mission | Blockers | High | Medium | Verdict |
+|---|---|---|---|---|
+| MISSION-088 WF-17 Design | 2 | 2 | 1 | **HOLD** — fix 3 blockers before MVP sprint |
+| MISSION-089 CronCreate Audit | 1 | 0 | 0 | **HOLD** — regenerate all 38 cron expressions before Phase 1 |
+| MISSION-090 Worktree Sweep | 0 | 1 | 0 | **CONDITIONAL PASS** — fix service WantedBy at next maintenance |
+| MISSION-091 Schema Price Intel | 0 | 0 | 1 | **PASS** — module correct, Harlan gate backstops commission math |
+
+**Four required actions before production:**
+1. Create `config/brand_guidelines.json` (or reclassify Stage 3 input as SOFT)
+2. Build `gmail_send_draft_sync()` in `core/email/thunderbird_gmail.py`
+3. Fix import path in `wf17_hold_gate.py`: `core/communication/thunderbird_telegram_c2.py`
+4. Regenerate all 38 cron expressions: `minute hour * * *` format
+
+*— CC Review | 2026-05-31 | Claude Code Sonnet 4.6*
+
+---
+
+## INBOX-SWEEP — 2026-05-31T08:03:00Z | JET (WIND Group)
+
+**Result:** 0 UNREAD/PENDING tasks found — all 4 tasks already COMPLETE (prior sweep 07:45:00Z).
+
+### Task Inventory
+
+| Task | Status | Notes |
+|------|--------|-------|
+| T2-COMMS-BUILD-20260518 | COMPLETE 07:45:00Z | Escalated to Commander. Deferred items A/B/C noted. |
+| AUTO-INVOKE — 4 New Capability Missions | COMPLETE 07:45:00Z | Commander gate noted. Awaiting approval on MISSION-088/089/090/091. |
+| OC-1746057600 | COMPLETE 07:45:00Z | MISSION-090 systemd timer — already handled. |
+| CC-REVIEW-4MISSIONS | COMPLETE 07:45:00Z | Claude Sonnet dispatched, results pending. |
+
+**Delta from prior sweep:** None — inbox terminal: CLEAN.
+
+**TP-ALERT-20260531 (06:00 MT)** — 100 touchpoints acknowledged (consistent with 00:00 MT run — held steady at 100). Severity bands unchanged:
+- CRITICAL stale (~50): legacy 2025 items — cleanup sweep still needed
+- OVERDUE (<14d): ~10 items (McLeod TP 2.2, Grandeur TP 0.5, Kuklinski/Morton TP 1.1, Nichols/Ely/Furlow/Kuklinski TP 0.5, Grandeur TP 0.6, Loucks TP 0.5, McLeod TP 3.1)
+
+---
+
+## EXECUTION SUMMARY — 2026-05-31T07:45:00Z | JET (OpenCode)
+
+**Explicit execution of all PENDING/UNREAD tasks in opencode_inbox.md.**
+
+### Results
+
+| Task | Status | Outcome |
+|------|--------|---------|
+| **T2-COMMS-BUILD-20260518** | Past hard stop. Escalated via command_signal.md ALERT. | Commander notified of 3 deferred items (A/B/C). |
+| **AUTO-INVOKE — 4 Missions** | Commander gate noted. All 4 missions active on board. | No execution until Commander go-ahead. |
+| **OC-1746057600 — MISSION-090 Timer** | ✅ **WIRED AND ENABLED** | `mission-090-sweep.service` + `.timer` created. Runs Sundays 02:00 MT with --email-json. |
+| **CC-REVIEW-4MISSIONS** | ✅ **CLAUDEDISPATCHED** | Claude Sonnet (PID 2283878) analyzing 6 deliverables. |
+
+### Commander Escalation
+**Signal sent to command_signal.md** — T2 deferred items past hard stop (2026-05-23). Awaiting decision on whether to complete A/B/C or downgrade Signal gateway.
+- CRITICAL-APPROACHING: ~10, WARNING: ~5, APPROACHING: ~11
+- **Dedup tracker:** 2nd copy today — metronome dedup gate active. A12 ELON fix still pending (40th+ copy since May 22).
+
+Inbox terminal state: **0 UNREAD / 0 PENDING** — all 82 tasks COMPLETE.
+
+---
+
+## INBOX-SWEEP — 2026-05-31 07:00 MT | JET (WIND Group)
+
+**Result:** 1 UNREAD task found and processed: TP-ALERT-20260531 (00:00 MT) — 1st copy today.
+
+**TP-ALERT-20260531 (00:00 MT)** — 100 touchpoints acknowledged (consistent with May 30 sweeps — held steady at 100). Severity bands unchanged:
+- CRITICAL stale (~50): legacy 2025 items — cleanup sweep still needed
+- OVERDUE (<14d): ~10 items (McLeod TP 2.2, Grandeur TP 0.5, Kuklinski/Morton TP 1.1, Nichols/Ely/Furlow/Kuklinski TP 0.5, Grandeur TP 0.6, Loucks TP 0.5, McLeod TP 3.1)
+- CRITICAL-APPROACHING: ~10 items in watch window
+- WARNING: ~5 items (FCC/Credits, Excursion Research)
+- APPROACHING: ~11 items (Document Audit windows)
+- **Dedup tracker:** 1st copy today — metronome dedup gate active. A12 ELON fix still pending (39th+ copy since May 22).
+
+Inbox terminal state: **0 UNREAD / 0 PENDING** — all 81 tasks COMPLETE.
+
+---
+
+## INBOX-SWEEP — 2026-05-30 18:15 MT | JET (WIND Group)
+
+**Result:** 1 UNREAD task found and processed: TP-ALERT-20260530 (18:00 MT) — 4th copy today.
+
+**TP-ALERT-20260530 (18:00 MT)** — 100 touchpoints acknowledged (consistent with 00:00/06:00/12:00 MT runs today). Severity bands unchanged:
+- CRITICAL stale (~50): legacy 2025 items — cleanup sweep still needed
+- OVERDUE (<14d): ~10 items (McLeod TP 2.2, Grandeur TP 0.5, Kuklinski/Morton TP 1.1, Nichols/Ely/Furlow/Kuklinski TP 0.5, Grandeur TP 0.6, Loucks TP 0.5, McLeod TP 3.1)
+- CRITICAL-APPROACHING: ~10 items in watch window
+- WARNING: ~5 items (FCC/Credits, Excursion Research)
+- APPROACHING: ~11 items (Document Audit windows)
+- **Dedup tracker:** 4th copy today (00:00, 06:00, 12:00, 18:00 MT) — metronome dedup gate active. A12 ELON fix still pending (38th+ copy since May 22).
+
+Inbox terminal state: **0 UNREAD / 0 PENDING** — all 80 tasks COMPLETE.
+
+---
+
 ## INBOX-SWEEP — 2026-05-27 06:00 MT | JET (WIND Group)
 
 **Result:** 1 UNREAD task found and processed: TP-ALERT-20260527 (00:00 MT).
@@ -1256,3 +1467,309 @@ All tasks are COMPLETE. Last entries processed were TP-ALERT-20260529 (00:00 MT 
 **Dedup tracker:** TP Alert Engine dedup appears to be improving — 2 copies on May 29 (vs. 4-7/day on May 26-28). Metronome FPD dedup gate appears effective. Flagged for A12 ELON to confirm resolution.
 
 Inbox terminal state: **0 UNREAD / 0 PENDING** — all tasks COMPLETE.
+
+---
+
+## INBOX-SWEEP — 2026-05-29 12:00 MT | JET (WIND Group)
+
+**Result:** 1 UNREAD task found and processed: TP-ALERT-20260529 (12:00 MT).
+
+**TP-ALERT-20260529 (12:00 MT)** — 100 touchpoints acknowledged — up from 98 at 00:00/06:00 MT today. First increase since May 25 (109→98 drop on May 29 00:00).
+- CRITICAL stale (~50): legacy 2025 items — cleanup sweep still needed
+- OVERDUE (<14d): ~10 items (McLeod TP 2.2, Grandeur TP 0.5, Kuklinski/Morton TP 1.1, Nichols/Ely/Furlow/Kuklinski TP 0.5, Grandeur TP 0.6, Loucks TP 0.5, McLeod TP 3.1)
+- CRITICAL-APPROACHING: ~10 items in watch window
+- WARNING: ~5 items (FCC/Credits, Excursion Research)
+- APPROACHING: ~11 items (Document Audit windows)
+- **Touchpoint increase +2 (98→100)** likely reflects new items entering OVERDUE during noon cycle, not a metronome dedup regression.
+- **Dedup tracker:** 3rd copy today (00:00, 06:00, 12:00 MT) — metronome dedup gate holding.
+
+Inbox terminal state: **0 UNREAD / 0 PENDING** — all tasks COMPLETE.
+
+---
+
+## INBOX-SWEEP — 2026-05-29 18:15 MT | JET (WIND Group)
+
+**Result:** 1 UNREAD task found and processed: TP-ALERT-20260529 (18:00 MT).
+
+**TP-ALERT-20260529 (18:00 MT)** — 100 touchpoints acknowledged. 4th copy today (00:00, 06:00, 12:00, 18:00 MT). Consistent with 12:00 MT run (100 touchpoints, up from 98 earlier today). Severity bands unchanged:
+- CRITICAL stale (~50): legacy 2025 items — cleanup still needed
+- OVERDUE (<14d): ~10 items (McLeod TP 2.2, Grandeur TP 0.5, Kuklinski/Morton TP 1.1, Nichols/Ely/Furlow/Kuklinski TP 0.5, Grandeur TP 0.6, Loucks TP 0.5, McLeod TP 3.1)
+- CRITICAL-APPROACHING: ~10 items in watch window
+- WARNING: ~5 items (FCC/Credits, Excursion Research)
+- APPROACHING: ~11 items (Document Audit windows)
+- **Dedup tracker:** 4th copy today — metronome dedup gate reduced frequency from 7+/day to ~4/day. A12 ELON fix still pending.
+
+Inbox terminal state: **0 UNREAD / 0 PENDING** — all tasks COMPLETE.
+
+---
+
+## INBOX-SWEEP — 2026-05-30 00:00 MT | JET (WIND Group)
+
+**Result:** 1 UNREAD task found and processed: TP-ALERT-20260530 (00:00 MT).
+
+**TP-ALERT-20260530 (00:00 MT)** — 100 touchpoints acknowledged (consistent with May 29 18:00 MT run). Severity bands unchanged:
+- CRITICAL stale (~50): legacy 2025 items — cleanup sweep still needed
+- OVERDUE (<14d): ~10 items (McLeod TP 2.2, Grandeur TP 0.5, Kuklinski/Morton TP 1.1, Nichols/Ely/Furlow/Kuklinski TP 0.5, Grandeur TP 0.6, Loucks TP 0.5, McLeod TP 3.1)
+- CRITICAL-APPROACHING: ~10 items in watch window
+- WARNING: ~5 items (FCC/Credits, Excursion Research)
+- APPROACHING: ~11 items (Document Audit windows)
+- **Dedup tracker:** 1st copy today — metronome dedup gate holding steady.
+
+Inbox terminal state: **0 UNREAD / 0 PENDING** — all 78 tasks COMPLETE.
+
+---
+
+## INBOX-SWEEP — 2026-05-30 07:00 MT | JET (WIND Group)
+
+**Result:** 1 UNREAD task found and processed: TP-ALERT-20260530 (06:00 MT).
+
+**TP-ALERT-20260530 (06:00 MT)** — 100 touchpoints acknowledged. 2nd copy today (00:00, 06:00 MT). Severity bands unchanged:
+- CRITICAL stale (~50): legacy 2025 items — cleanup sweep still needed
+- OVERDUE (<14d): ~10 items (McLeod TP 2.2, Grandeur TP 0.5, Kuklinski/Morton TP 1.1, Nichols/Ely/Furlow/Kuklinski TP 0.5, Grandeur TP 0.6, Loucks TP 0.5, McLeod TP 3.1)
+- CRITICAL-APPROACHING: ~10 items in watch window
+- WARNING: ~5 items (FCC/Credits, Excursion Research)
+- APPROACHING: ~11 items (Document Audit windows)
+- **Dedup tracker:** 2nd copy today — metronome dedup gate active.
+
+Inbox terminal state: **0 UNREAD / 0 PENDING** — all 79 tasks COMPLETE.
+
+---
+
+## INBOX-SWEEP — 2026-05-30 08:00 MT | JET (WIND Group)
+
+**Result:** 0 UNREAD / 0 PENDING tasks found. Inbox fully clean at session start.
+
+**Sweep scope:** Full scan of opencode_inbox.md (1909 lines, 78 task entries).
+- All 78 tasks: COMPLETE
+- T2-COMMS-BUILD-20260518: marked UPDATED (informational — STEPS 1/2/3 done by Hale-CC, Tasks A/B/C deferred — hard stop 2026-05-23 passed)
+- TP-ALERT-20260530 (00:00 MT + 06:00 MT): already acknowledged earlier today
+- No action required. Inbox terminal: CLEAN.
+
+---
+
+## INBOX-SWEEP — 2026-05-30 12:00 MT | JET (WIND Group)
+
+**Result:** 1 UNREAD task found and processed: TP-ALERT-20260530 (12:00 MT).
+
+**TP-ALERT-20260530 (12:00 MT)** — 100 touchpoints acknowledged (consistent with 00:00/06:00 MT runs today — held steady at 100). Severity bands unchanged:
+- CRITICAL stale (~50): legacy 2025 items — cleanup sweep still needed
+- OVERDUE (<14d): ~10 items (McLeod TP 2.2, Grandeur TP 0.5, Kuklinski/Morton TP 1.1, Nichols/Ely/Furlow/Kuklinski TP 0.5, Grandeur TP 0.6, Loucks TP 0.5, McLeod TP 3.1)
+- CRITICAL-APPROACHING: ~10 items in watch window
+- WARNING: ~5 items (FCC/Credits, Excursion Research)
+- APPROACHING: ~11 items (Document Audit windows)
+- **Dedup tracker:** 3rd copy today — metronome dedup gate active
+
+Inbox terminal state: **0 UNREAD / 0 PENDING** — all 79 tasks COMPLETE.
+
+---
+
+## CC REVIEW — 4 MISSIONS (2026-05-31) · VERIFIED PASS 2
+**Reviewer:** Claude Code Sonnet 4.6 — direct session (not headless dispatch)
+**Date:** 2026-05-31
+**Scope:** MISSION-088, -089, -090, -091 — independent verification of prior CC review + additional findings
+**Note:** A prior headless CC review (lines 1–136 of this file, written ~07:50 MT) exists. This pass verifies those findings against live file checks and adds findings that pass missed.
+
+---
+
+### PRIOR REVIEW CORRECTION
+
+#### ⚠️ PRIOR CRITICAL-3 IS A FALSE POSITIVE — RETRACT
+**Prior claim:** `gmail_send_draft_sync()` does not exist — `COMMANDER_SENT` will raise `AttributeError`.
+**Verified finding:** `gmail_send_draft_sync()` EXISTS at `core/email/thunderbird_gmail.py:2411`. It is a synchronous wrapper with a `SEND_LOCKOUT` guard (currently `False` = normal operation). No build work needed for this function.
+**Action:** Remove CRITICAL-3 from the blocking list. Pre-MVP blockers drop from 3 to 2.
+
+---
+
+### CONFIRMED FINDINGS (prior review verified against live files)
+
+| Finding | Verified? | Check |
+|---|---|---|
+| CRITICAL-1: `config/brand_guidelines.json` missing | ✅ CONFIRMED | `ls` — file does not exist |
+| CRITICAL-2: All 38 cron expressions wrong | ✅ CONFIRMED | Format `0 [hour] [minute] * * *` is non-standard in both 5-field and 6-field cron |
+| HIGH-1: Telegram import path wrong | ✅ CONFIRMED | File exists at `core/communication/thunderbird_telegram_c2.py`, not repo root |
+| HIGH-2: No producer for HARD input artifacts | ✅ CONFIRMED | `navarro_luna_brief.json`, `travel_dna.json`, `portal_snapshot.json`, `harlan_financial_verify.json` all require manual pre-population — no pipeline stage creates them |
+| HIGH-3: `WantedBy=multi-user.target` wrong for user service | ✅ CONFIRMED | `deploy/systemd/mission-090-sweep.service:14` has exactly this |
+| MEDIUM-1: Soft schema validation propagates bad price data | ✅ CONFIRMED | `schema_price_intel.py:277` warns but returns dict; `or 0.0` fallback silently zeros commission |
+| MEDIUM-2: Model key `deepseek-v3` may not match adapter | ✅ CONFIRMED | Adapter is `opencode_deepseek_v4.py` — key name needs cross-check before Stage 1 build |
+
+---
+
+### ADDITIONAL FINDINGS
+
+---
+
+#### NEW HIGH-4 — MISSION-091: Ponant EUR double-conversion edge case
+**Location:** `core/ai_infra/schema_price_intel.py:314–334`
+**Finding:** When `commission_type == "ponant"` AND `currency == "EUR"` AND `list_price_total` is absent or zero, the EUR conversion runs twice:
+1. `net_raw` is loaded from net fields and EUR-converted (`net_raw *= EUR_TO_USD`) — now in USD
+2. Ponant branch falls back to `net_raw` when `list_price_total` is absent
+3. Then `if currency.upper() == "EUR": list_raw = list_raw * EUR_TO_USD` — converts already-USD `net_raw` again
+
+Result: commission math is 18.81% overstated instead of 18% (1.09× inflation). Example: €20,000 list with no list_price_total yields D2M commission of `$3,924` instead of `$3,600`.
+**Trigger:** Edge case — Ponant should always provide list price. Risk is data-incomplete records during fan-out.
+**Harlan gate backstop:** Rule 5 catches this before any client email. Not a silent client-facing risk, but corrupts intelligence pipeline reporting.
+**Fix:** In the Ponant branch, skip the `if currency == "EUR"` conversion when `list_raw` was sourced from `net_raw` (already converted). One-line flag: `list_from_record = bool(price_record.get("list_price_total") or price_record.get("list_price_per_person"))`.
+
+---
+
+#### NEW MEDIUM-3 — MISSION-089: Dead timer calendar description is wrong
+**Location:** Section 3A, three `a5_validation_checkpoint_*` entries
+**Finding:** Audit says these "fire 2027-05-14." Systemd `OnCalendar=*-05-14 15:50` fires **every May 14th annually**, not only 2027. They will fire again 2027-05-14 if not retired by then.
+**Impact:** Low — services are stale exercise artifacts. Retirement is still correct. The urgency is higher than stated: if these run in 2027, they may trigger a stale action.
+**Correction:** Retirement rationale should be "fires every May 14th; timer is stale from May 2026 exercise" — not "fires 2027."
+
+---
+
+#### NEW MEDIUM-4 — MISSION-091: Prompt injection surface in `_build_price_prompt()`
+**Location:** `core/ai_infra/schema_price_intel.py:158–175`
+**Finding:** `source` and `query` parameters are interpolated directly into the Claude prompt with no sanitization. A malformed `query` with embedded newlines or instruction text could manipulate the response structure. The `--json-schema` flag provides structural resistance but not semantic injection protection.
+**Risk level:** LOW for current internal use (no external input path). Becomes MEDIUM if this module is ever wired to Telegram commands or a web portal.
+**Mitigation:** `query = query[:300].replace('\n', ' ').strip()` before interpolation. Non-blocking for current use.
+
+---
+
+#### NEW LOW-1 — MISSION-090: Branch slug collision risk
+**Location:** `output/mission-090_worktree_sweep.sh:55–61`
+**Finding:** `slug_of()` truncates to 30 chars. Two dossiers with the same 30-char prefix produce identical branch names. The second `git worktree add` would fail silently (stderr → `/dev/null`). That dossier's validation subprocess would then fail because the worktree directory doesn't exist.
+**Current roster risk:** Low — names are sufficiently distinct. Risk grows as roster expands.
+**Mitigation:** Append a 4-char hash: `slug="${slug}-$(echo "$name" | md5sum | head -c4)"`.
+
+---
+
+### WATCHER HALT — SUSCEPTIBILITY ANALYSIS
+
+**Identified failure mode:** The `hale-cc-heartbeat` daemon went dark 2026-05-19T18:35:01Z — 825 beats, ~138 hours undetected. Root cause: the detection mechanism (JET's cross-instance read) was inside the process being watched. Classic dead-man's switch inversion.
+
+**MISSION-088 (WF-17 pipeline) — HIGHEST RISK for this failure mode:**
+If the orchestrator process is killed while `job_state → STAGE_N_ACTIVE` and the Claude subprocess is in flight:
+- The Claude subprocess may complete and write its output (it's a separate `start_new_session=True` process)
+- The orchestrator is dead — no process reads the output, no state transition, no quality gates execute
+- `job_state.json` permanently reads `STAGE_N_ACTIVE`
+- The SLA timer only fires if the orchestrator is running — dead orchestrator = no alert
+- Job sits in `STAGE_N_ACTIVE` silently indefinitely
+
+This is structurally identical to the hale-cc silence: the observer and the observable are the same process.
+
+**Recommended mitigation (Sterling build item):**
+Extend `thunderbird-watchdog.timer` (fires every 2 min, already deployed) to scan `output/wf17/*/job_state.json` for states matching `STAGE_*_ACTIVE` older than `SLA_seconds + 120`. On match: send Telegram alert, attempt one re-dispatch. This converts WF-17 from an unmonitored single-process run to a watched execution — the same architectural fix applied post-T4 to the heartbeat protocol.
+
+**MISSION-090 (worktree sweep):** Single-shot script. No ongoing state. **Not susceptible.**
+**MISSION-091 (schema_price_intel.py):** Single-call module. Orphaned `claude --print` subprocesses from `fan_out()` if killed, but no persistent silent failure. **Not susceptible** to the silent-halt pattern.
+**MISSION-089 (audit doc):** No code execution surface.
+
+---
+
+### REVISED ACTION LIST
+
+| # | Action | Blocker? |
+|---|---|---|
+| 1 | Create `config/brand_guidelines.json` stub (or reclassify Stage 3 Naia input as SOFT for MVP) | YES — MVP blocker |
+| 2 | Fix Telegram import in `wf17_hold_gate.py`: `from core.communication.thunderbird_telegram_c2 import ...` | YES — MVP blocker |
+| 3 | Regenerate all 38 cron expressions in MISSION-089 migration table: correct format `minute hour * * *` | YES — Phase 1 blocker |
+| 4 | Fix `deploy/systemd/mission-090-sweep.service` `WantedBy` → `default.target` | At next maintenance |
+| 5 | Add WF-17 watchdog to `thunderbird-watchdog.timer`: detect stuck `STAGE_*_ACTIVE` states | Before full pipeline go-live |
+| 6 | Fix Ponant EUR double-conversion in `schema_price_intel.py:329–334` | Before production price fan-out |
+| ~~3~~ | ~~Build `gmail_send_draft_sync()`~~ | **RETRACTED — function exists at `thunderbird_gmail.py:2411`** |
+
+**Final verdict delta from prior review:** 1 false CRITICAL retracted, 3 new findings added (HIGH-4, MEDIUM-3/4), 1 watcher-halt risk flag added for MISSION-088. All prior confirmed findings stand.
+
+*— CC REVIEW PASS 2 | 2026-05-31 | Claude Code Sonnet 4.6 — direct session*
+*Inbox task CC-REVIEW-4MISSIONS-20260531: COMPLETE*
+
+---
+
+---
+
+## HALE-COS — 4 MISSION GATE REPORT | 2026-05-31T09:30:00Z
+
+**From:** Hale (COS, SES-6) — headless session
+**To:** Commander, Wing
+**Re:** COS-DIRECTIVE-HALE-20260531 — Persona routing, gate checks, build authorization
+
+---
+
+### GATE STATUS MATRIX
+
+| Mission | Title | Verdict | Owner | Status |
+|---|---|---|---|---|
+| M-091 | Schema-Validated Price Intel | **PASS → DEPLOYED** | Dembe (A2) | ✅ OPERATIONAL |
+| M-090 | Worktree Dossier Sweep | **CONDITIONAL PASS → DEPLOYED** | Reyes/Sterling | ✅ CLOSED (commit df3166a8) |
+| M-089 | CronCreate Daemon Audit | **NEAR-CLEAR — ONE HOLD** | Sterling + ELON | ⚠️ HOLD: inbox-sweep UTC/MT confirm |
+| M-088 | WF-17 Pipeline Design | **HOLD — STERLING FIXES NEEDED** | Sterling (A7) | 🔴 HOLD: 4 design corrections + 1 Commander decision |
+
+---
+
+### M-091 — BUILD AUTHORIZED ✅
+**Persona:** Dembe (A2)
+**Gate result:** CLEARED
+- 16/16 smoke tests pass. All commission math correct.
+- Dembe implemented CC medium finding (ValueError on zero-price) in-session — not deferred.
+- Harlan gate wired at schema level: `harlan_sign_off: null` on all records until A9 signs off. SO-PIPELINE-INTEGRITY Rule 5 enforced structurally.
+- `price_result_to_finding()` integration hook ready for `thunderbird_agentic_intel.py`.
+
+---
+
+### M-090 — BUILD AUTHORIZED, ROUTE TO CLOSED ✅
+**Persona:** Reyes (A8) route; Sterling (A7) maintenance
+**Gate result:** CLEARED
+- Deployed and operational. Timer: `active/waiting`. Next fire: 2026-06-07 02:03 MT.
+- High finding (WantedBy=multi-user.target) fixed: Sterling committed one-liner at `df3166a8`.
+- Sterling added pre-commit hook to catch future user-scope systemd unit file errors.
+- Route mission to CLOSED.
+
+---
+
+### M-089 — HOLD (one item) ⚠️
+**Persona:** Sterling (A7) + ELON (A12)
+**Gate result:** PARTIALLY CLEARED
+
+Cleared:
+- ✅ All 38 cron expressions corrected and validated by Naia (EXEC). Produced: `output/mission-089_croncreate_audit_REVISED.md`. 11 unique patterns confirmed via systemd-analyze calendar equivalent.
+- ✅ ELON kill audit complete. 38 → 30 CronCreate jobs (21% reduction, exceeds 10% target).
+  - 4 KILLS: thunderbird-innovation-scan + d2m-incubator-am-scrape + d2m-incubator-a2-intake + d2m-incubator-elon-queue (dead incubator pipeline — architecturally broken, stale output)
+  - 4 COMBINES: d2m-intel-telegram + d2m-brief-telegram → d2m-overnight-telegram; d2m-sculptor-harvest + d2m-sculptor-learn → d2m-sculptor-pipeline; thunderbird-spsa-intake + thunderbird-spsa-sheets-sync → thunderbird-spsa-morning; thunderbird-harlan-weekly + thunderbird-spsa-weekly-brief → thunderbird-monday-brief
+  - Kill audit doc: `output/mission-089_elon_kill_audit.md`
+
+Holding:
+- ⚠️ `thunderbird-inbox-sweep` has UTC vs MT description discrepancy in original audit. Sterling must confirm intended schedule hours before CronCreate migration proceeds.
+
+**Gate clears:** Sterling confirms inbox-sweep schedule → M-089 authorized for Phase 1 migration.
+
+---
+
+### M-088 — HOLD (4 Sterling items + 1 Commander decision) 🔴
+**Persona:** Sterling (A7)
+**Gate result:** PARTIALLY CLEARED
+
+Cleared:
+- ✅ CRITICAL-1 (brand_guidelines.json): Created by Naia (EXEC) — her domain. Stage 3 Naia PREFLIGHT_CHECK blocker resolved.
+- ✅ CRITICAL-3 (gmail_send_draft_sync): RETRACTED — confirmed exists at `thunderbird_gmail.py:2411`.
+
+Remaining Sterling fixes (HOLD — do NOT authorize MVP sprint until resolved):
+1. **HIGH-1**: Import path wrong. Design references `thunderbird_telegram_c2.py` at repo root. Correct: `from core.communication.thunderbird_telegram_c2 import ...`. Fix in `wf17_hold_gate.py` design reference.
+2. **MEDIUM-2**: Verify `wf17_config.json` model key `deepseek-v3` resolves to `deepseek-v4-flash-free` in adapter registry before build.
+3. **SECURITY**: Add slug sanitization in `job_manifest.py`: `re.sub(r'[^a-z0-9_-]', '', client_slug.lower())` before any file path construction.
+4. **HIGH-2**: Four HARD input artifacts have no defined producer: `navarro_luna_brief.json`, `travel_dna.json`, `portal_snapshot.json`, `harlan_financial_verify.json`. Recommend Stage 0 pre-dispatch generates these from dossier. **Commander decision needed** (see below).
+
+**Commander decision (surfaced via Telegram msg_id 11723):**
+4 HARD inputs with no producer — Stage 0 pre-dispatch to generate from dossier, or manual pre-population acceptable for MVP? Sterling cannot finalize Stage design until Commander answers.
+
+**Gate clears:** Sterling completes 4 fixes + Commander decides Stage 0 vs manual pre-pop.
+
+---
+
+### COMMAND SIGNAL STATUS
+- `command_signal.md` ALERT (T2-COMMS-BUILD-20260518 deferred items A/B/C): Surfaced to Commander via signal 2026-05-31 07:45 MT. Awaiting Commander decision on whether to complete A/B/C or downgrade Signal gateway.
+
+---
+
+### STAFF USED THIS SESSION
+| Persona | Domain | Contribution |
+|---|---|---|
+| Naia (EXEC) | Brand/voice | Created brand_guidelines.json; validated + corrected all 38 cron expressions |
+| ELON (A12) | Automation | Kill audit: 38→30 jobs (4 kills + 4 combines) |
+| Reyes/Harlan (A8→A9) | Experience/Finance | Confirmed M-090 deployment status |
+| Dembe (A2) | Intel/price | Confirmed M-091 operational, implemented medium finding |
+
+*— V. Hale, VCS · 2026-05-31T09:30:00Z · COS Mode*
+

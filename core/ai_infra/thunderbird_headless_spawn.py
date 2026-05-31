@@ -146,8 +146,13 @@ def spawn_headless_claude(
     model: str = "claude-haiku-4-5-20251001",
     task_name: str = "task",
     background: bool = False,
-    timeout: int = 300
+    timeout: int = 300,
+    mcp_config: str | None = None,
+    extra_args: list[str] | None = None,
+    system_prompt: str | None = None,
 ) -> Dict[str, Any]:
+    mcp_config = mcp_config or "/home/john/.claude/mcp.json"
+    extra_args = extra_args or []
     """
     FOOLPROOF headless Claude spawn wrapper.
 
@@ -166,10 +171,14 @@ def spawn_headless_claude(
         task_name: Human-readable task name for logging
         background: If True, detach and return immediately. If False, block until done.
         timeout: Synchronous mode only. Max seconds to wait. Default 300 (5 min).
+        extra_args: Optional list of extra CLI args to append (e.g. ["--json-schema", "{...}"])
+        system_prompt: Optional system prompt. If provided, auto-adds ["--system-prompt", system_prompt] to extra_args.
 
     Returns:
         dict with status, PID, log_file, output_file, and any errors
     """
+    if system_prompt:
+        extra_args = (extra_args or []) + ["--system-prompt", system_prompt]
 
     # PRE-SPAWN VERIFICATION
     logs_dir = Path("/home/john/Thunderbird/logs")
@@ -222,14 +231,15 @@ def spawn_headless_claude(
     usage_file = usage_dir / f"usage_{task_name}_{ts}.jsonl"
 
     if background:
-        return _spawn_background(prompt, output_path, log_file, model, task_name, env, usage_file)
+        return _spawn_background(prompt, output_path, log_file, model, task_name, env, usage_file, extra_args)
     else:
-        return _spawn_with_retry(prompt, output_path, log_file, model, task_name, env, timeout, usage_file, retries=2)
+        return _spawn_with_retry(prompt, output_path, log_file, model, task_name, env, timeout, usage_file, retries=2, extra_args=extra_args)
 
 
-def _spawn_with_retry(prompt, output_path, log_file, model, task_name, env, timeout, usage_file, retries=2, attempt=1):
+def _spawn_with_retry(prompt, output_path, log_file, model, task_name, env, timeout, usage_file, retries=2, attempt=1, extra_args=None):
     """Synchronous spawn with retry. retries=2 means 2 retries after initial attempt (3 total)."""
-    result = _spawn_synchronous(prompt, output_path, log_file, model, task_name, env, timeout, usage_file)
+    extra_args = extra_args or []
+    result = _spawn_synchronous(prompt, output_path, log_file, model, task_name, env, timeout, usage_file, extra_args)
 
     if result.get("status") == "COMPLETED":
         # Verify output is non-empty (catch silent failures)
@@ -249,18 +259,20 @@ def _spawn_with_retry(prompt, output_path, log_file, model, task_name, env, time
                 current = model_tiers[i + 1]
                 logger.info(f"  Escalating model: {model} -> {current}")
                 break
-        return _spawn_with_retry(prompt, output_path, log_file, current, f"{task_name}_retry{attempt}", env, timeout, usage_file, retries, attempt + 1)
+        return _spawn_with_retry(prompt, output_path, log_file, current, f"{task_name}_retry{attempt}", env, timeout, usage_file, retries, attempt + 1, extra_args=extra_args)
 
     return result
 
 
-def _spawn_synchronous(prompt, output_path, log_file, model, task_name, env, timeout, usage_file):
+def _spawn_synchronous(prompt, output_path, log_file, model, task_name, env, timeout, usage_file, extra_args=None):
     """Synchronous spawn — block on communicate() until done or timeout."""
+    extra_args = extra_args or []
     mcp_config = "/home/john/.claude/mcp.json"
     claude_bin = "/home/john/.local/bin/claude"
     try:
+        cmd = [claude_bin, "--model", model, "--print", "--output-format", "text", "--mcp-config", mcp_config] + extra_args
         proc = subprocess.Popen(
-            [claude_bin, "--model", model, "--print", "--output-format", "text", "--mcp-config", mcp_config],
+            cmd,
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
@@ -294,12 +306,13 @@ def _spawn_synchronous(prompt, output_path, log_file, model, task_name, env, tim
     }
 
 
-def _spawn_background(prompt, output_path, log_file, model, task_name, env, usage_file):
+def _spawn_background(prompt, output_path, log_file, model, task_name, env, usage_file, extra_args=None):
     """Background spawn — return PID immediately, output written by detached subprocess.
 
     Prompt MUST include 'WRITE [PATH]' instruction so the model writes to file.
     Stdout is redirected to log_file for debugging.
     """
+    extra_args = extra_args or []
     # Use -p flag for true background mode (model writes to file via WRITE instruction in prompt)
     # CRITICAL: --mcp-config is REQUIRED. Without it, Claude spins up its own MCP
     # host and may enter D-state (uninterruptible sleep) waiting for connections.
@@ -307,8 +320,9 @@ def _spawn_background(prompt, output_path, log_file, model, task_name, env, usag
     mcp_config = "/home/john/.claude/mcp.json"
     claude_bin = "/home/john/.local/bin/claude"
     try:
+        cmd = [claude_bin, "-p", prompt, "--model", model, "--output-format", "text", "--mcp-config", mcp_config] + extra_args
         proc = subprocess.Popen(
-            [claude_bin, "-p", prompt, "--model", model, "--output-format", "text", "--mcp-config", mcp_config],
+            cmd,
             stdout=open(log_file, "w"),
             stderr=subprocess.STDOUT,
             env=env,

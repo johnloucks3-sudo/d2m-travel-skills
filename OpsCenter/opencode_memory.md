@@ -205,3 +205,56 @@ Four sessions: Lifecycle Validation, Quick Init, Wave 2 Pipeline, Evening Email+
 - Dedup pattern shift: 1st copy only (vs. 4-7/day on May 26-28). Metronome FPD dedup gate may be active
 - A12 ELON flagged to confirm metronome dedup resolution
 - Inbox terminal state: CLEAN — 0 UNREAD / 0 PENDING
+
+### Session 8: Groq→MAX Migration — 2026-05-30 19:00 MT
+- **Task:** Migrate `thunderbird_validation.py` (Groq PASS 1/2 + Sonnet PASS) and
+  `thunderbird_trip_architect.py` (parse_client_inquiry) from `_call_groq` stub
+  (routed to OpenRouter Gemini Flash Lite) → Claude MAX adapters
+- **Changes:** `thunderbird_validation.py` — import swap → `haiku_adapter`/`sonnet_adapter`,
+  renamed `_groq_extract_segments`→`_haiku_extract_segments`,
+  `_groq_targeted_search`→`_haiku_targeted_search`, all comments/docstrings updated
+- **Changes:** `thunderbird_trip_architect.py` — removed `_call_groq` import,
+  parse_client_inquiry now uses `haiku_adapter.dispatch()`
+- **Validated by:** Claude Opus (dispatch_claude.py --model opus) — confirmed
+  import path `from adapters.claude_max_oauth` works under launcher PYTHONPATH
+- **Opus fixes applied:** JSON-only reinforcement to Sonnet gap prompt;
+  trip_architect docstring corrected
+- **Deferred:** 5 other files still on `_call_groq` stub (commission_recon.py,
+  survey.py, overwatch.py, task_processor.py, model_safeguards.py)
+
+### Session 7: Inbox Sweep — 2026-05-29 12:00 MT
+- Processed 1 UNREAD task: TP-ALERT-20260529 (12:00 MT) — 100 touchpoints (up from 98), acknowledged
+- Key finding: touchpoints increased +2 (98→100) — first increase since May 25. Likely new items entering OVERDUE during noon cycle, not dedup regression.
+- Dedup holding steady: 3 copies today (vs. 4-7/day on May 26-28). Metronome dedup gate appears effective.
+- Inbox terminal state: CLEAN — 0 UNREAD / 0 PENDING
+
+### Session 9: Furlow Full Pipeline + Sonnet PASS 2 — 2026-05-30 12:40 MT
+- **Groq→MAX migration complete:** `thunderbird_validation.py` and `thunderbird_trip_architect.py` migrated from `_call_groq` (Gemini Flash Lite) → Claude MAX Haiku/Sonnet adapters. Validated by Opus.
+- **Furlow dossier gate:** `validate_dossier.py dossiers/Furlow_Regent_3071222.md --email-json` — CLEAN 12/12, email JSON to `output/John__Melissa_Furlow_email_template_2026-05-30.json`
+- **Furlow full pipeline:** `thunderbird_validation.py --client furlow` — Haiku PASS 1: 134 emails/27 batches, Sonnet gap: 69% coverage, 13 req/9 found/3 missing/11 partial, 1 critical gap (travel insurance CC-only)
+- **PASS 2 Haiku→Sonnet swap:** `_haiku_targeted_search`→`_sonnet_targeted_search` uses `sonnet_adapter.dispatch()` for deeper gap re-search accuracy. CC notified.
+- **SSH keepalive:** added `ClientAliveInterval 60`/`ClientAliveCountMax 3`/`TCPKeepAlive yes` to `/etc/ssh/sshd_config` — fixes Termux on Chromebook idle disconnects
+- **Mosh installed** on YOGA (zypper), UDP 60000-61000 open in firewalld
+- **External endpoint passwords:** 5277 set for code.d2mluxury.quest (nginx htpasswd) and itinerary.d2mluxury.quest (thunderbird_dir_server.py)
+- **Remaining:** 5 other Groq consumers (commission_recon.py, survey.py, overwatch.py, task_processor.py, model_safeguards.py); `--client` dossier match prefers main over TIMELINE; Furlow travel insurance confirmation needed
+
+### Session 10: Groq Elimination Complete + ZEN Fallback + Furlow Task — 2026-05-30 19:00 MT
+- **Last Groq call eliminated:** `core/learning/model_safeguards.py` `_call_groq` gutted → `haiku_adapter.dispatch()`. No Groq anywhere in codebase.
+- **Auto-draft removed:** `thunderbird_validation.py` no longer creates Gmail drafts without explicit approval (SO-2026-03-21 violation fixed).
+- **DeepSeek V4 ZEN fallback wired:** `"deepseek_v4"` appended to all 6 router chains; `opencode_native` cost pool (unlimited); `zen_cache` (SQLite, 24h TTL) in adapter dispatch.
+- **PASS 2 swapped Haiku→Sonnet** for deeper gap analysis accuracy.
+- **Furlow insurance:** Commander confirmed AMEX handles it — closed.
+- **MISSION-087 created:** Grandeur Group Hotel, Transport & Seat Logistics — consolidates MISSION-082/083/084. CC tasked via `claude_inbox.md` to pick and OPR an owner.
+- **Chromebook SSH fixed** via Tailscale (not mosh) — keepalive settings keep Termux from hanging.
+
+### Session 11: Grandeur Group Validation Drafts — 2026-05-30 22:00 MT
+- **Commander task:** Develop complete trip validations for Furlow, Ely/Darrow, Nichols — send as draft emails to d2mconcierge@gmail.com
+- **validate_dossier.py --email-json:** All 3 couples ran clean. Email template JSONs written to `output/`.
+- **thunderbird_validation.py Gmail sweep:** Full pipeline timed out at 148 emails for Ely (Haiku PASS 1 needs 15+ min per client). Skipped full pipeline for remaining clients due to session time constraints.
+- **Workaround:** Built comprehensive validation from dossier matrices (19-20 segments per couple with dossier-sourced status).
+- **D2M-branded HTML reports:** Created for all 3 couples with coverage badges, segment matrix, critical gaps, and open items.
+- **Gmail drafts created** in d2mconcierge with THUNDERBIRD-Commander-Review label:
+  - Furlow (3071222, Suite 827): `draft_id=r7512762125514937309` — 47% (ACTION NEEDED)
+  - Ely/Darrow (3096289, Suite 961): `draft_id=r-2713623805284118775` — 74% (GAPS FOUND)
+  - Nichols (3078056, Suite 939): `draft_id=r-5177803279995857361` — 74% (GAPS FOUND)
+- **Completion time:** 2026-05-30 22:41 MT

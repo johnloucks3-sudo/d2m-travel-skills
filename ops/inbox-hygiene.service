@@ -1,0 +1,25 @@
+[Unit]
+Description=D2M Inbox Hygiene — johnloucks3 + d2mconcierge
+Documentation=file:///home/john/Thunderbird/core/email/inbox_hygiene.py
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=john
+WorkingDirectory=/home/john/Thunderbird
+Environment="PYTHONUNBUFFERED=1"
+EnvironmentFile=/home/john/Thunderbird/.env
+
+ExecStart=/usr/bin/python3 /home/john/Thunderbird/core/email/inbox_hygiene.py
+
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=inbox-hygiene
+
+MemoryLimit=128M
+TimeoutStartSec=120
+TimeoutStopSec=30
+
+[Install]
+WantedBy=multi-user.target

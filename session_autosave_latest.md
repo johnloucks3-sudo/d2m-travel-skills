@@ -1,40 +1,82 @@
-# SESSION AUTOSAVE — 2026-05-30 15:55 MT
-# Checkpoint: PM pause — resuming this evening
+# Thunderbird Session Checkpoint
+## Generated: 2026-05-31 12:00:00 MT
 
-## LAST ACTION
-- OpenRouter collector deleted from cost dashboard (per Commander directive — not billing OR)
-- app.py.bak deleted (stale backup)
-- Cost dashboard restarted, health OK (port 8902)
+---
 
-## EVENING LINE-UP (ordered by priority)
+### Recent Commits
+- df3166a8 fix(systemd): correct WantedBy to default.target for user-scope service
+- ba38f7fd chore(infra): update nginx htpasswd auth (attempted itinerary pw fix)
+- 9ef10194 chore(session): PM pause checkpoint — remove OpenRouter collector, save evening lineup
+- 74a0bd2c fix(mission-board): reassign MISSION-079-086 from NEXUS to real owners
+- 4ce272cf chore(doctrine): SO-2026-05-30 approved — Wing restructure 19→5 personas
 
-### TONIGHT — SPECIALTY DINING WINDOW
-| Mission | Action | Deadline |
-|---|---|---|
-| MISSION-081 | Grandeur Group specialty dining draft + WF-17 | Opens May 31 8pm ET |
+### Uncommitted Changes
+- .graphify_detect.json (modified)
+- AGENTS.md (modified)
+- CLAUDE.md (modified)
+- OpsCenter/.lifecycle_alerted.json (modified)
+- OpsCenter/.lifecycle_last_scan_date (modified)
+- OpsCenter/.metronome_seq (modified)
+- OpsCenter/.regent_cookie_alert_dedup.json (modified)
+- OpsCenter/.supervisor_patterns.json (modified)
+- OpsCenter/00_COMMAND_LOG.md (modified)
+- OpsCenter/CLAUDE_DESKTOP_INIT.md (modified)
+- OpsCenter/OPENCODE_INIT.md (modified)
+- OpsCenter/a7_metrics_dashboard.json (modified)
+- OpsCenter/collaboration/blackboard_summary.txt (modified)
+- OpsCenter/collaboration/claude_inbox.md (modified)
+- OpsCenter/collaboration/claude_outbox.md (modified)
+- OpsCenter/collaboration/opencode_inbox.md (modified)
+- OpsCenter/collaboration/opencode_outbox.md (modified)
+- OpsCenter/collaboration/routing_log.md (modified)
+- OpsCenter/collaboration/wing_comms.md (modified)
+- OpsCenter/command_signal.md (modified)
+- .graphify_ast.json (new)
+- .graphify_cached.json (new)
+- .graphify_uncached.txt (new)
+- OpsCenter/relay_last_update_id.json (new)
+- Personas/graphify-out/cache/c38c6d1ab1d09e02c74b2d1a74193429a09c1f081f34ce228f12eafde4523d34.json (new)
+- check_impact_output.json (new)
+- check_impact_parsed.json (new)
+- config/brand_guidelines.json (new)
+- core/ai_infra/schema_price_intel.py (new)
+- core/email/inbox_hygiene.py (new)
+- core/intel/intel/incubator_a2_intake_2026-05-30.json (new)
+- core/intel/intel/incubator_a2_intake_2026-05-31.json (new)
+- core/intel/intel/incubator_am_raw_2026-05-30.json (new)
+- core/intel/intel/incubator_am_raw_2026-05-31.json (new)
+- core/travel/data/airline_test_FLL_RIC_2026-12-27.json (new)
+- core/travel/data/airline_test_RIC_PTY_2026-12-16.json (new)
+- core/travel/data/airline_test_RIC_PTY_2026-12-17.json (new)
+- deploy/systemd/mission-090-sweep.timer (new)
+- docs/retros/2026-05-30-fixhale-production-lock-rule--hale-route.md (new)
+- docs/retros/2026-05-31-choreinfra-update-nginx-htpasswd-auth-at.md (new)
 
-### P0 QUEUE
-| Mission | Title | Status |
-|---|---|---|
-| MISSION-054 | McLeod Silver Muse — T-27 Final Validation | active — 19 days to departure |
-| MISSION-080 | McLeod Dossier — Mark CONFIRMED (Baglioni FCO, VCE transfer) | in_progress |
-| MISSION-082 | Furlows — HEL→ARN Seat Assignments (BB4X94, AY 811 Aug 27) | in_progress |
-| MISSION-083 | Nichols — Return Flight Seat Assignments (BA 6776 + AA 79) | in_progress |
-| MISSION-084 | Grandeur Group — Haymarket Room Retention (all 3 couples) | in_progress |
-| MISSION-085 | Grandeur Group — Schengen Entry Verification | in_progress |
-| MISSION-077 | Email Sig Block — Avatar Injection in thunderbird_gmail.py | in_progress |
-| MISSION-078 | Persona Avatar Generation — 10 Missing Personas | in_progress |
-| MISSION-079 | Sterling — File-Permission Architecture Design | in_progress |
-| MISSION-072 | Metronome <-> Lifecycle Router Integration | in_progress |
-| MISSION-076 | Regent Cookie Expiry — Metronome Monitor | in_progress |
-| MISSION-073 | RoboForm Share Acceptance + Credential Extraction | in_progress |
+### Active Work
+- SSS: 0 pending decision(s)
+- Learning: 8 rules pending validation
 
-## SYSTEM STATE
-- Relay: @d2m_channels_bot live, chat -5248121475
-- Metronome: GREEN, tick #1864
-- Cost dashboard: OpenRouter collector removed, health OK
-- Inbox: CLEAN — 0 UNREAD / 0 PENDING
-- opencode_memory.md: 213 lines (cap 200) — Sterling compaction needed
+### Recently Touched Dossiers
+- Kuklinski_Viking_Panama.md
+- DOSSIER_VikingMars_PanamaCanal_Dec2026.md
+- McLeod_Erik_Melissa_SilverMuse_Complete.md
+- Furlow_Regent_3071222.md
+- Ely_Darrow_Regent_3096289.md
 
-## RESUME
-Say `--resume` to reload this state.
+### Open TODOs
+- [tool_validation_plan.md] - [ ] read Booking Master tab
+- [tool_validation_plan.md] - [ ] write to Booking Master tab
+- [tool_validation_plan.md] - [ ] read Daily Itinerary tab
+- [tool_validation_plan.md] - [ ] write to Daily Itinerary tab
+- [tool_validation_plan.md] - [ ] read specific cell ranges
+- [tool_validation_plan.md] - [ ] write formatted data (USD, dates)
+- [tool_validation_plan.md] - [ ] verify fmt_usd() formatting in sheet output
+- [tool_validation_plan.md] - [ ] search confirmations
+- [tool_validation_plan.md] - [ ] read threads
+- [tool_validation_plan.md] - [ ] create drafts
+
+### Recent Telegram C2 Log (last 5 lines)
+  (no Telegram session logs found)
+
+---
+*Auto-generated by COS · Thunderbird OS · Auto-Save Protocol 2026-03-16*

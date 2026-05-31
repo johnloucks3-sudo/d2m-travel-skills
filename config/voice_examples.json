@@ -8,15 +8,15 @@
       "d2mconcierge@gmail.com"
     ],
     "days_back": 400,
-    "total_examples": 1320,
+    "total_examples": 1330,
     "by_tier": {
-      "personal": 376,
-      "client": 218,
+      "personal": 382,
+      "client": 220,
       "vendor": 48,
-      "internal": 671,
+      "internal": 673,
       "family": 7
     },
-    "last_sync": "2026-05-29T02:35:00.331398"
+    "last_sync": "2026-05-31T02:39:21.663435"
   },
   "examples": [
     {
@@ -476,6 +476,24 @@
       "to": "Al Ely <al.ely58@gmail.com>",
       "date": "Sun, 17 May 2026 14:10:40 -0600",
       "body": "Hi Al and Amy, sorry for the name mixup. That was me failing to check my\nrecords before making the reservation. But checking the records, the \"paid\nin full\" is for the cruise. I made the Haymarket transfer as a  \"pay-by\"\nversus \"pay immediately\". But if you desire, we can update your credit card\ninformation, and I will book your transfer and pay both.\n\nThanks\nJohn",
+      "score": 7
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "COS: Your company",
+      "to": "ann heer <iamheer@outlook.com>",
+      "date": "Fri, 29 May 2026 14:42:34 -0600",
+      "body": "Hi Ann, hope the travel planning is going well.  I had some time today and\ndecided to explore the idea of working with Shawn in creating and using a\nBoard of Director or other group of personas for your company. Could you or\nShawn send me some info so I can prime the AI pump so to speak? Anything\nyou or Shawn want to send. Thanks\n\nJohn\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 7
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "COS: Your company",
+      "to": "ann heer <iamheer@outlook.com>",
+      "date": "Fri, 29 May 2026 14:42:34 -0600",
+      "body": "Hi Ann, hope the travel planning is going well.  I had some time today and\ndecided to explore the idea of working with Shawn in creating and using a\nBoard of Director or other group of personas for your company. Could you or\nShawn send me some info so I can prime the AI pump so to speak? Anything\nyou or Shawn want to send. Thanks\n\nJohn\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
       "score": 7
     },
     {
@@ -3545,6 +3563,24 @@
       "to": "crnakim@yahoo.com",
       "date": "Thu, 28 May 2026 20:07:10 -0600",
       "body": "Please let me know if you find any errors, I looked at this but at a\nsurface level....soooooooory\n\nOn Thu, May 28, 2026 at 7:38 PM Dreams2Memories <d2mconcierge@gmail.com>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Silver Muse Mediterranean — Your Itinerary Is Ready · One Quick Question",
+      "to": "Erik W McLeod <emcleod@gmail.com>",
+      "date": "Fri, 29 May 2026 21:00:11 -0600",
+      "body": "Dreams2Memories Travel\nLuxury Travel Concierge\n\nErik and Melissa,\n\nYour Silver Muse Mediterranean itinerary is finalized — 19 days from\nLongmont to the Adriatic and back. It's a beautiful trip on paper, and I'm\nconfident it will be even better in person.\n\nHere's where everything stands:\nBlacklane (Outbound) *Jun 18 · Home → DEN* — Booking #127664621 ·\nChauffeur: Mr. Said Yusifli · 2:00 PM pickup ✓\nOutbound Flight *Jun 18 · DEN → FCO* — United UA 177 · Business Class ·\nSeats 3D/3F ✓\nRome Transfer *Jun 19 · FCO → Baglioni Hotel Regina* — Welcome Pickups ·\nOrder #w-6377007-2 ✓\nRome Hotel *Baglioni Hotel Regina* — Jun 19–23 · Conf #6851SF075162 · Chase\nLuxury perks ✓\nSilver Muse *Booking 298475-25* — Jun 23–Jul 3 · Paid in Full · 7 dining\nreservations · 3 excursions ✓\nVenice Transfer In *Jul 3 · Fusina → Hilton Molino Stucky* — Venice Guide &\nBoat · Order #14878 · €350 PAID ✓\nVenice Hotel *Hilton Molino Stucky* — Jul 3–6 · Confirmation number needed\n— see below\nVenice → Airport *Jul 6 · Hilton pier → VCE* — Consorzio Motoscafi ·\nBooking 96SGY · €170 PAID ✓\nReturn Flights *Jul 6 · VCE → YYZ → DEN* — Air Canada AC 817 + AC 1041 ·\nBusiness Class ✓\nBlacklane (Return) *Jul 6 · DEN → Home* — Confirmed May 24 ✓\n\nOne item I still need:\n\nI don't have the *Hilton Molino Stucky confirmation number* on file. When\nyou have a moment, can you forward me the booking confirmation from Hilton?\nI'd like to have it in your dossier before we share the final itinerary\ndocument.\n\nOnce I have that, I'll send you the complete itinerary — every transfer,\nport narrative, dining reservation, and excursion in one place. It reads\nwell. You're going to enjoy seeing it all laid out.\n\nYou're 25 days out. Everything is in excellent shape.\n\nThanks,\n\nJohn\n\n719-291-0742  ·  concierge@d2mluxury.quest\n\nDreams2Memories Travel, LLC\nDreams2Memories Travel, LLC  ·  Luxury Travel Concierge  ·  Monument, CO",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Silver Muse Mediterranean — Your Itinerary Is Ready · One Quick Question",
+      "to": "Erik W McLeod <emcleod@gmail.com>",
+      "date": "Fri, 29 May 2026 21:00:11 -0600",
+      "body": "Dreams2Memories Travel\nLuxury Travel Concierge\n\nErik and Melissa,\n\nYour Silver Muse Mediterranean itinerary is finalized — 19 days from\nLongmont to the Adriatic and back. It's a beautiful trip on paper, and I'm\nconfident it will be even better in person.\n\nHere's where everything stands:\nBlacklane (Outbound) *Jun 18 · Home → DEN* — Booking #127664621 ·\nChauffeur: Mr. Said Yusifli · 2:00 PM pickup ✓\nOutbound Flight *Jun 18 · DEN → FCO* — United UA 177 · Business Class ·\nSeats 3D/3F ✓\nRome Transfer *Jun 19 · FCO → Baglioni Hotel Regina* — Welcome Pickups ·\nOrder #w-6377007-2 ✓\nRome Hotel *Baglioni Hotel Regina* — Jun 19–23 · Conf #6851SF075162 · Chase\nLuxury perks ✓\nSilver Muse *Booking 298475-25* — Jun 23–Jul 3 · Paid in Full · 7 dining\nreservations · 3 excursions ✓\nVenice Transfer In *Jul 3 · Fusina → Hilton Molino Stucky* — Venice Guide &\nBoat · Order #14878 · €350 PAID ✓\nVenice Hotel *Hilton Molino Stucky* — Jul 3–6 · Confirmation number needed\n— see below\nVenice → Airport *Jul 6 · Hilton pier → VCE* — Consorzio Motoscafi ·\nBooking 96SGY · €170 PAID ✓\nReturn Flights *Jul 6 · VCE → YYZ → DEN* — Air Canada AC 817 + AC 1041 ·\nBusiness Class ✓\nBlacklane (Return) *Jul 6 · DEN → Home* — Confirmed May 24 ✓\n\nOne item I still need:\n\nI don't have the *Hilton Molino Stucky confirmation number* on file. When\nyou have a moment, can you forward me the booking confirmation from Hilton?\nI'd like to have it in your dossier before we share the final itinerary\ndocument.\n\nOnce I have that, I'll send you the complete itinerary — every transfer,\nport narrative, dining reservation, and excursion in one place. It reads\nwell. You're going to enjoy seeing it all laid out.\n\nYou're 25 days out. Everything is in excellent shape.\n\nThanks,\n\nJohn\n\n719-291-0742  ·  concierge@d2mluxury.quest\n\nDreams2Memories Travel, LLC\nDreams2Memories Travel, LLC  ·  Luxury Travel Concierge  ·  Monument, CO",
       "score": 4
     },
     {
@@ -10079,6 +10115,60 @@
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 28 May 2026 07:50:02 -0400",
       "body": "📊 HALE — DAILY OPERATIONAL BRIEF Generated 2026-05-28 · 06:00 MT · Commander John Loucks 📊 Client Lifecycle Wheel 7 active clients, urgency-coded segments, FPD countdown arcs. Click segment for detail panel. View Lifecycle Wheel → 💰 Financial Waterfall Commission pipeline flow: Prospects → Booked → At-Risk → Projected. Allianz claim divergence shown. View Waterfall → 🔥 Task Heat Map Clients × Task Types grid. Urgency-colored, effort-encoded. Hover for task roster by cell. View Heat Map → ⚠️ Risk Matrix Likelihood × Disruption scatter. Quadrants: Escalate (red), Mitigate (yellow), Monitor, Accept. Action registry below. View Risk Matrix → ⚡ DECISIONS NEEDED FROM COMMANDER Approve 11 Gmail Drafts? Kuklinski (validation), McLeod (Silver Muse 60-day + Grandeur TP0.5/TP0.6), Westbrook (Perx + SkyLux), Furlow/Nichols/Ely (CAK). All staged in d2mconcierge drafts folder. Initiate Lyons FPD Outreach? Nancy & Ken Lyons — FPD May 11 (14 days remaining). Direct Commander action required. Chase Furlow $15,486 Payment? Final payment was due Apr 1. Confirm received or authorize A9 follow-up. Re-Auth TESS? Financial feed is blind. Run: python3 thunderbird_tess.py --authorize to restore commission visibility. HALE — Ms. Victoria \"Victory\" Hale, SES-6 | Chief of Staff | Dreams2Memories Travel, LLC This brief is generated automatically at 05:50 MT daily and sent at 06:00 MT. Link expires in 90 days. Briefs archived locally + Google Drive.",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "Excursion ideas",
+      "to": "Susan Loucks <susanna.loucks@gmail.com>",
+      "date": "Fri, 29 May 2026 20:45:21 -0600",
+      "body": "Just ideas, see highlights\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "client",
+      "subject": "Excursion ideas",
+      "to": "Susan Loucks <susanna.loucks@gmail.com>",
+      "date": "Fri, 29 May 2026 20:45:21 -0600",
+      "body": "Just ideas, see highlights\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Immigration Status — Action Items This Week",
+      "to": "piontek@retiree.ucmo.edu",
+      "date": "Sat, 30 May 2026 14:53:56 -0600",
+      "body": "😂\n\nJohn reacted via Gmail\n<https://www.google.com/gmail/about/?utm_source=gmail-in-product&utm_medium=et&utm_campaign=emojireactionemail#app>",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "🦅 Thunderbird Brief — 30 May 2026 — 9 clients",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 30 May 2026 05:00:01 -0700",
+      "body": "🦅 THUNDERBIRD DAILY BRIEF — 2026-05-30 Generated 2026-05-30 06:00 MT · V. Hale, VCS 1. Client Wire Client Ship Departure FPD Next TP John & Susan Loucks Silversea Silver Nova 10 Apr 2026 🔴 🔴 OVERDUE (118d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 22 overdue McLeod McGlasson - Silver Muse Silversea Silver Muse 18 Jun 2026 🔴 OVERDUE (126d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 17 overdue Furlow / Ely-Darrow / Nichols Regent Seven Seas SS Grandeur 29 Aug 2026 🔴 OVERDUE (59d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 12 overdue Al Ely & Amy Darrow Regent Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 5 overdue John & Melissa Furlow Regent Seven Seas SS Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 5 overdue Larry & Heidi Nichols Regent Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 10 overdue Kuklinski Group (3 couples) Viking Viking Mars 17 Dec 2026 🔴 OVERDUE (60d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 8 overdue Joshua Morton & Erica Dodge Viking Viking Mars 17 Dec 2026 🔴 OVERDUE (60d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 7 overdue John & Susan Loucks Seven Seas Grandeur 29 Dec 2026 DUE 1 Aug 2026 TP 0.5 — Welcome / Booking Validation 2. WF-17 Gate — Drafts Awaiting Review Queue empty 3. Financial Pulse D2M pipeline $21,440.75 TESS received $244.80 — V. Hale, VCS · Thunderbird Wing · D2M Next brief: 2026-05-31 06:00 MT",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Immigration Status — Action Items This Week",
+      "to": "piontek@retiree.ucmo.edu",
+      "date": "Sat, 30 May 2026 14:53:56 -0600",
+      "body": "😂\n\nJohn reacted via Gmail\n<https://www.google.com/gmail/about/?utm_source=gmail-in-product&utm_medium=et&utm_campaign=emojireactionemail#app>",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "🦅 Thunderbird Brief — 30 May 2026 — 9 clients",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 30 May 2026 05:00:01 -0700",
+      "body": "🦅 THUNDERBIRD DAILY BRIEF — 2026-05-30 Generated 2026-05-30 06:00 MT · V. Hale, VCS 1. Client Wire Client Ship Departure FPD Next TP John & Susan Loucks Silversea Silver Nova 10 Apr 2026 🔴 🔴 OVERDUE (118d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 22 overdue McLeod McGlasson - Silver Muse Silversea Silver Muse 18 Jun 2026 🔴 OVERDUE (126d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 17 overdue Furlow / Ely-Darrow / Nichols Regent Seven Seas SS Grandeur 29 Aug 2026 🔴 OVERDUE (59d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 12 overdue Al Ely & Amy Darrow Regent Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 5 overdue John & Melissa Furlow Regent Seven Seas SS Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 5 overdue Larry & Heidi Nichols Regent Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 10 overdue Kuklinski Group (3 couples) Viking Viking Mars 17 Dec 2026 🔴 OVERDUE (60d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 8 overdue Joshua Morton & Erica Dodge Viking Viking Mars 17 Dec 2026 🔴 OVERDUE (60d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 7 overdue John & Susan Loucks Seven Seas Grandeur 29 Dec 2026 DUE 1 Aug 2026 TP 0.5 — Welcome / Booking Validation 2. WF-17 Gate — Drafts Awaiting Review Queue empty 3. Financial Pulse D2M pipeline $21,440.75 TESS received $244.80 — V. Hale, VCS · Thunderbird Wing · D2M Next brief: 2026-05-31 06:00 MT",
       "score": 3
     },
     {

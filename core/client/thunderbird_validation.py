@@ -2,17 +2,17 @@
 Thunderbird Trip Validation Pipeline
 ======================================
 
-Two-tier validation using Groq (fast/cheap) for email sweeps and Claude Sonnet
-(smart) for gap analysis. Ensures every booking segment is confirmed before
-final payment or embarkation.
+Two-tier validation using Claude Haiku MAX (fast) for email sweeps and Claude
+Sonnet MAX (smart) for gap analysis. Ensures every booking segment is confirmed
+before final payment or embarkation.
 
 Architecture:
-  1. GROQ PASS 1 — Email sweep: search Gmail for all booking-related emails
-     per client, extract found segments into structured JSON
+  1. CLAUDE MAX HAIKU PASS 1 — Email sweep: search Gmail for all booking-
+     related emails per client, extract found segments into structured JSON
   2. SONNET PASS — Gap matrix: compare required segments (from REQUIRED_SEGMENTS
      template) against found segments, produce a gap report
-  3. GROQ PASS 2 — Targeted re-search: for each gap, Groq searches Gmail with
-     narrower queries to find missing confirmations
+   3. CLAUDE MAX SONNET PASS 2 — Targeted re-search: for each gap, Sonnet searches
+      Gmail with narrower queries to find missing confirmations
   4. OUTPUT — Final validation report (dict + optional branded HTML draft)
 
 Usage:
@@ -39,10 +39,7 @@ from pathlib import Path
 from typing import Dict, List, Any, Optional, Tuple
 from dataclasses import dataclass, field, asdict
 
-from thunderbird_model_router import (
-    _call_groq, _call_claude, GROQ_API_KEY, GROQ_URL,
-    ANTHROPIC_API_KEY, CLAUDE_MODEL, MODEL_TAGS,
-)
+from adapters.claude_max_oauth import haiku_adapter, sonnet_adapter
 from thunderbird_gmail import _get_gmail_service, _decode_body, _extract_headers
 
 # ---------------------------------------------------------------------------
@@ -342,7 +339,7 @@ def _load_client_registry() -> Dict[str, Dict[str, Any]]:
 
 
 # ---------------------------------------------------------------------------
-# GROQ PASS 1 — Email Sweep
+# CLAUDE MAX HAIKU PASS 1 — Email Sweep
 # ---------------------------------------------------------------------------
 
 SWEEP_SYSTEM_PROMPT = """You are a travel booking extraction specialist for Dreams2Memories Travel, LLC.
@@ -418,8 +415,8 @@ def _search_gmail_for_client(service, client_name: str,
     return emails
 
 
-def _groq_extract_segments(emails: List[Dict], client_name: str) -> List[Dict]:
-    """Send emails to Groq in batches for segment extraction."""
+def _haiku_extract_segments(emails: List[Dict], client_name: str) -> List[Dict]:
+    """Send emails to Claude Haiku MAX in batches for segment extraction."""
     if not emails:
         return []
 
@@ -440,13 +437,18 @@ def _groq_extract_segments(emails: List[Dict], client_name: str) -> List[Dict]:
             email_text += f"Subject: {h.get('Subject', '(no subject)')}\n"
             email_text += f"Body:\n{email['body']}\n"
 
-        query = f"CLIENT: {client_name}\n\nEMAILS:\n{email_text}"
+        user = f"CLIENT: {client_name}\n\nEMAILS:\n{email_text}"
 
         try:
-            raw = _call_groq(
-                SWEEP_SYSTEM_PROMPT, query,
-                model="fast", max_tokens=2000, temperature=0.1
+            result = haiku_adapter.dispatch(
+                system=SWEEP_SYSTEM_PROMPT, user=user,
+                max_tokens=2000,
             )
+            if result.error:
+                logger.error("Haiku extraction failed in batch %d: %s", i, result.error)
+                continue
+
+            raw = result.text.strip()
             # Strip markdown fences
             if raw.startswith("```"):
                 raw = re.sub(r"^```(?:json)?\s*", "", raw)
@@ -455,13 +457,13 @@ def _groq_extract_segments(emails: List[Dict], client_name: str) -> List[Dict]:
             segments = json.loads(raw)
             if isinstance(segments, list):
                 all_segments.extend(segments)
-            logger.info("Groq extracted %d segments from batch %d-%d",
+            logger.info("Haiku extracted %d segments from batch %d-%d",
                        len(segments) if isinstance(segments, list) else 0,
                        i + 1, min(i + batch_size, len(emails)))
         except json.JSONDecodeError as e:
-            logger.error("Groq returned invalid JSON in batch %d: %s", i, e)
+            logger.error("Haiku returned invalid JSON in batch %d: %s", i, e)
         except Exception as e:
-            logger.error("Groq extraction failed in batch %d: %s", i, e)
+            logger.error("Haiku extraction failed in batch %d: %s", i, e)
 
     return all_segments
 
@@ -640,36 +642,41 @@ REQUIRED SEGMENTS:
 FOUND SEGMENTS (from email sweep + dossier):
 {json.dumps(found, indent=2)}
 
-Produce the gap analysis matrix."""
+Produce the gap analysis matrix.
+Return ONLY valid JSON. No markdown fences, no explanations outside the JSON."""
 
     try:
-        raw = _call_claude(
-            GAP_MATRIX_SYSTEM_PROMPT, query,
-            max_tokens=4000, temperature=0.1
+        adapter_result = sonnet_adapter.dispatch(
+            system=GAP_MATRIX_SYSTEM_PROMPT, user=query,
+            max_tokens=4000,
         )
+        if adapter_result.error:
+            raise RuntimeError(adapter_result.error)
+
+        raw = adapter_result.text.strip()
         # Strip markdown fences
         if raw.startswith("```"):
             raw = re.sub(r"^```(?:json)?\s*", "", raw)
             raw = re.sub(r"\s*```$", "", raw)
 
-        result = json.loads(raw)
+        parsed = json.loads(raw)
         logger.info("Sonnet gap analysis: %d required, %d found, %d missing, %d partial",
-                    result.get("total_required", 0),
-                    result.get("total_found", 0),
-                    result.get("total_missing", 0),
-                    result.get("total_partial", 0))
-        return result
+                    parsed.get("total_required", 0),
+                    parsed.get("total_found", 0),
+                    parsed.get("total_missing", 0),
+                    parsed.get("total_partial", 0))
+        return parsed
 
     except json.JSONDecodeError as e:
         logger.error("Sonnet returned invalid JSON: %s\nRaw: %s", e, raw[:500])
-        return {"error": f"JSON parse failed: {e}", "raw": raw[:1000]}
+        return {"error": f"JSON parse failed: {e}", "raw": raw[:500]}
     except Exception as e:
         logger.error("Sonnet gap analysis failed: %s", e)
         return {"error": str(e)}
 
 
 # ---------------------------------------------------------------------------
-# GROQ PASS 2 — Targeted Re-Search for Gaps
+# CLAUDE MAX SONNET PASS 2 — Targeted Re-Search for Gaps
 # ---------------------------------------------------------------------------
 
 TARGETED_SEARCH_PROMPT = """You are searching for a specific missing travel booking segment.
@@ -687,9 +694,9 @@ Return JSON:
 Return ONLY valid JSON."""
 
 
-def _groq_targeted_search(service, client_name: str,
-                            gaps: List[Dict]) -> List[Dict]:
-    """For each gap with a search_suggestion, run a targeted Gmail search."""
+def _sonnet_targeted_search(service, client_name: str,
+                             gaps: List[Dict]) -> List[Dict]:
+    """For each gap with a search_suggestion, run a targeted Gmail search + Claude Sonnet MAX."""
     results = []
 
     for gap in gaps:
@@ -719,7 +726,7 @@ def _groq_targeted_search(service, client_name: str,
                 })
                 continue
 
-            # Read the messages and send to Groq
+            # Read the messages and send to Claude Sonnet MAX
             email_text = ""
             for msg_stub in messages[:3]:
                 msg = service.users().messages().get(
@@ -737,12 +744,16 @@ def _groq_targeted_search(service, client_name: str,
                 email_text += f"Subject: {headers.get('Subject', '?')}\n"
                 email_text += f"Body:\n{body}\n---\n"
 
-            query = f"LOOKING FOR: {gap.get('segment', '?')}\nCLIENT: {client_name}\n\nEMAILS:\n{email_text}"
+            user = f"LOOKING FOR: {gap.get('segment', '?')}\nCLIENT: {client_name}\n\nEMAILS:\n{email_text}"
 
-            raw = _call_groq(
-                TARGETED_SEARCH_PROMPT, query,
-                model="fast", max_tokens=300, temperature=0.1
+            adapter_result = sonnet_adapter.dispatch(
+                system=TARGETED_SEARCH_PROMPT, user=user,
+                max_tokens=300,
             )
+            if adapter_result.error:
+                raise RuntimeError(adapter_result.error)
+
+            raw = adapter_result.text.strip()
             if raw.startswith("```"):
                 raw = re.sub(r"^```(?:json)?\s*", "", raw)
                 raw = re.sub(r"\s*```$", "", raw)
@@ -980,15 +991,13 @@ def _render_validation_html(report: Dict, client_name: str) -> str:
 
 def validate_client(client_key: str,
                      voyage_type: str = "cruise_standard",
-                     skip_email: bool = False,
-                     create_draft: bool = True) -> Dict:
+                     skip_email: bool = False) -> Dict:
     """Run the full validation pipeline for a single client.
 
     Args:
         client_key: lowercase client last name (must match dossier filename)
         voyage_type: key into REQUIRED_SEGMENTS template
         skip_email: if True, skip Gmail sweep (use dossier only)
-        create_draft: if True, create a Gmail draft with the HTML report
 
     Returns:
         Complete validation report dict
@@ -1013,7 +1022,7 @@ def validate_client(client_key: str,
         dossier_segments = _extract_dossier_segments(dossier_path)
         logger.info("Dossier extraction: %d segments", len(dossier_segments))
 
-    # 3. GROQ PASS 1 — Email sweep
+    # 3. CLAUDE MAX HAIKU PASS 1 — Email sweep
     email_segments = []
     if not skip_email:
         try:
@@ -1023,7 +1032,7 @@ def validate_client(client_key: str,
                 extra_terms=["flight", "hotel", "transfer", "cruise",
                             "insurance", "PNR", "seat", "excursion"]
             )
-            email_segments = _groq_extract_segments(emails, client_key)
+            email_segments = _haiku_extract_segments(emails, client_key)
             logger.info("Email extraction: %d segments", len(email_segments))
         except Exception as e:
             logger.error("Email sweep failed: %s", e)
@@ -1055,7 +1064,7 @@ def validate_client(client_key: str,
         logger.error("Sonnet gap analysis failed: %s", gap_matrix["error"])
         return gap_matrix
 
-    # 5. GROQ PASS 2 — Targeted re-search for gaps
+    # 5. CLAUDE MAX HAIKU PASS 2 — Targeted re-search for gaps
     missing_segments = [
         s for s in gap_matrix.get("segments", [])
         if s.get("status") == "missing" and s.get("search_suggestion")
@@ -1065,7 +1074,7 @@ def validate_client(client_key: str,
         logger.info("Re-searching %d gaps...", len(missing_segments))
         try:
             service = _get_gmail_service()
-            research = _groq_targeted_search(service, client_key, missing_segments)
+            research = _sonnet_targeted_search(service, client_key, missing_segments)
             gap_matrix = _merge_research_into_matrix(gap_matrix, research)
         except Exception as e:
             logger.error("Targeted re-search failed: %s", e)
@@ -1075,31 +1084,11 @@ def validate_client(client_key: str,
     report_path.write_text(json.dumps(gap_matrix, indent=2), encoding="utf-8")
     logger.info("Report saved: %s", report_path)
 
-    # 7. Create Gmail draft if requested
-    if create_draft:
-        try:
-            html = _render_validation_html(gap_matrix, client_key)
-            html_path = VALIDATION_DIR / f"{client_key}_validation_{datetime.now().strftime('%Y%m%d')}.html"
-            html_path.write_text(html, encoding="utf-8")
-
-            service = _get_gmail_service()
-            from email.mime.text import MIMEText
-            import base64
-
-            msg = MIMEText(html, "html")
-            msg["To"] = "johnloucks3@gmail.com"
-            msg["Subject"] = f"Trip Validation: {client_key.title()} — {gap_matrix.get('coverage_pct', 0):.0f}% Coverage"
-
-            raw = base64.urlsafe_b64encode(msg.as_bytes()).decode("utf-8")
-            draft = service.users().drafts().create(
-                userId="me",
-                body={"message": {"raw": raw}}
-            ).execute()
-            logger.info("Draft created: %s", draft.get("id", "?"))
-            gap_matrix["_draft_id"] = draft.get("id")
-
-        except Exception as e:
-            logger.error("Draft creation failed: %s", e)
+    # 7. Save HTML report (no auto-draft per SO-2026-03-21)
+    html = _render_validation_html(gap_matrix, client_key)
+    html_path = VALIDATION_DIR / f"{client_key}_validation_{datetime.now().strftime('%Y%m%d')}.html"
+    html_path.write_text(html, encoding="utf-8")
+    logger.info("HTML report saved: %s", html_path)
 
     logger.info("VALIDATION COMPLETE: %s — %.0f%% coverage, %d critical gaps",
                 client_key,
@@ -1109,8 +1098,7 @@ def validate_client(client_key: str,
     return gap_matrix
 
 
-def validate_all_active(voyage_type: str = "cruise_standard",
-                         create_drafts: bool = True) -> Dict[str, Dict]:
+def validate_all_active(voyage_type: str = "cruise_standard") -> Dict[str, Dict]:
     """Run validation for all active clients with dossiers."""
     registry = _load_client_registry()
     results = {}
@@ -1119,7 +1107,6 @@ def validate_all_active(voyage_type: str = "cruise_standard",
         try:
             results[client_key] = validate_client(
                 client_key, voyage_type=voyage_type,
-                create_draft=create_drafts
             )
         except Exception as e:
             logger.error("Validation failed for %s: %s", client_key, e)
@@ -1142,15 +1129,11 @@ if __name__ == "__main__":
                        help="Voyage type template")
     parser.add_argument("--no-email", action="store_true",
                        help="Skip email sweep (dossier only)")
-    parser.add_argument("--no-draft", action="store_true",
-                       help="Skip Gmail draft creation")
-
     args = parser.parse_args()
 
     if args.all:
         results = validate_all_active(
             voyage_type=args.type,
-            create_drafts=not args.no_draft
         )
         for name, report in results.items():
             cov = report.get("coverage_pct", 0)
@@ -1160,7 +1143,6 @@ if __name__ == "__main__":
         report = validate_client(
             args.client, voyage_type=args.type,
             skip_email=args.no_email,
-            create_draft=not args.no_draft
         )
         print(json.dumps(report, indent=2))
     else:

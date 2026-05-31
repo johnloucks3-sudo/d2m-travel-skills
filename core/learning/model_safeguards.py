@@ -33,6 +33,7 @@ import base64
 import time
 from collections import defaultdict
 from datetime import datetime
+from adapters.claude_max_oauth import haiku_adapter
 from enum import Enum
 from typing import Dict, Any, Optional, List
 from pathlib import Path
@@ -616,13 +617,12 @@ def _call_anthropic(system_prompt: str, query: str,
                                            temperature=temperature)
                 except Exception as e2:
                     logger.warning("OpenRouter FREE fallback failed: %s — trying Groq", e2)
-            # Fallback 2: Groq Llama 3.3 70B (free)
-            if GROQ_API_KEY:
-                try:
-                    return _call_groq(system_prompt, query, model="light",
-                                      max_tokens=max_tokens, temperature=temperature)
-                except Exception as e3:
-                    logger.warning("Groq fallback failed: %s — trying Gemini Flash", e3)
+            # Fallback 2: Claude Haiku MAX (replaces Groq — eliminated 2026-05-30)
+            try:
+                return _call_groq(system_prompt, query,
+                                  max_tokens=max_tokens, temperature=temperature)
+            except Exception as e3:
+                logger.warning("Haiku MAX fallback failed: %s — trying Gemini Flash", e3)
             # Fallback 3: Gemini Flash (last resort)
             return _call_gemini(system_prompt, query,
                                 max_tokens=max_tokens, temperature=temperature)
@@ -632,56 +632,22 @@ def _call_anthropic(system_prompt: str, query: str,
 def _call_groq(system_prompt: str, query: str, model: str = "fast",
                max_tokens: int = 600, temperature: float = 0.7,
                image_b64: str = None, image_mime: str = "image/jpeg") -> str:
-    """Call Groq API for fast/light/image tasks.
+    """Call Claude Haiku MAX as drop-in replacement for eliminated Groq API.
 
-    Routes fast/light/image to Groq; all other model tags fall back to Claude.
-    Pass image_b64 (base64-encoded bytes) with model="image" for vision tasks.
-    Falls back to Claude Sonnet if GROQ_API_KEY is not set.
+    Groq API eliminated 2026-05-30 per Commander SO. All calls now route
+    through Claude Haiku MAX (fast bulk tier, $0 via MAX OAuth).
+    Falls back to Gemini Flash on failure.
     """
-    groq_model = GROQ_MODELS.get(model)
-
-    # Non-Groq tags (premium, kimi, detail, visionary) → Claude directly
-    if groq_model in (CLAUDE_SONNET, CLAUDE_HAIKU, CLAUDE_OPUS, None):
-        claude_model = groq_model or CLAUDE_SONNET
-        return _call_anthropic(system_prompt, query, model=claude_model,
-                               max_tokens=max_tokens, temperature=temperature)
-
-    # Groq tags but no key → fall back to Gemini Flash (not Claude — avoids API key dependency)
-    if not GROQ_API_KEY:
-        logger.warning("GROQ_API_KEY not set — falling back to Gemini Flash for model=%s", model)
-        return _call_gemini(system_prompt, query,
-                            max_tokens=max_tokens, temperature=temperature)
-
-    # Build user message — support vision for image model
-    if image_b64 and model == "image":
-        user_content = [
-            {"type": "text", "text": query},
-            {"type": "image_url", "image_url": {
-                "url": f"data:{image_mime};base64,{image_b64}"
-            }},
-        ]
-    else:
-        user_content = query
-
-    payload = {
-        "model": groq_model,
-        "messages": [
-            {"role": "system", "content": system_prompt},
-            {"role": "user",   "content": user_content},
-        ],
-        "max_tokens": max_tokens,
-        "temperature": temperature,
-    }
-    headers = {
-        "Authorization": f"Bearer {GROQ_API_KEY}",
-        "Content-Type": "application/json",
-    }
     try:
-        resp = requests.post(GROQ_URL, json=payload, headers=headers, timeout=60)
-        resp.raise_for_status()
-        return resp.json()["choices"][0]["message"]["content"]
+        result = haiku_adapter.dispatch(
+            system=system_prompt, user=query,
+            max_tokens=max_tokens,
+        )
+        if result.error:
+            raise RuntimeError(result.error)
+        return result.text
     except Exception as e:
-        logger.warning("Groq call failed (%s), falling back to Gemini Flash: %s", model, e)
+        logger.warning("Haiku MAX fallback failed (%s), falling back to Gemini Flash: %s", model, e)
         return _call_gemini(system_prompt, query,
                             max_tokens=max_tokens, temperature=temperature)
 

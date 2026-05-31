@@ -3451,3 +3451,112 @@ DeepSeek V4: 196 sessions, $9.0475
 **Notes:** PID 1682381 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260530_120000.log | Inbox: opencode_inbox.md
 
 ---
+
+### 2026-05-30 18:00:01 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: T2-COMMS-BUILD-20260518 status: UPDATED — READ CAREFULLY — STEPS 1/2/3 COMPLETE BY HALE-CC from: HALE-CC (V
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 1861684 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260530_180001.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-05-31 00:00:00 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: T2-COMMS-BUILD-20260518 status: UPDATED — READ CAREFULLY — STEPS 1/2/3 COMPLETE BY HALE-CC from: HALE-CC (V
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 2060680 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260531_000000.log | Inbox: opencode_inbox.md
+
+---
+
+
+---
+## Harlan Cost Brief — 2026-05-31
+```
+HARLAN AM BRIEF — 2026-05-31 06:00
+🔴 Verdict: BLOCK | Sonnet weekly at 100% — hard block until reset | DeepSeek V4 wandering — investigate routing
+═══
+Sonnet weekly: 100% | All weekly: 86%
+Monthly: $55.67/100
+OpenCode 7d: $0.4199 | Month: $48.7634
+⚠ DEEPSEEK WANDER: deepseek/deepseek-chat-v3.1 $1.4375
+DeepSeek V4: 196 sessions, $9.0475
+  ⚠ BANNED MODEL ACTIVE: google/gemini-3.1-flash-lite-preview billed $8.4165 — replace with native/free alternative
+  ⚠ CONTEXT BLOAT: google/gemini-3.1-flash-lite-preview [high] avg 8,509,364 in tokens/session (4 sessions) — review prompt compression
+  ⚠ BANNED MODEL ACTIVE: google/gemini-3.1-flash-lite-preview billed $2.2475 — replace with native/free alternative
+— A9 Harlan | Thunderbird Wing
+```
+
+### 2026-05-31 06:00:00 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: T2-COMMS-BUILD-20260518 status: UPDATED — READ CAREFULLY — STEPS 1/2/3 COMPLETE BY HALE-CC from: HALE-CC (V
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 2197794 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260531_060000.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-05-31 07:49:47 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: T2-COMMS-BUILD-20260518 status: UPDATED — READ CAREFULLY — STEPS 1/2/3 COMPLETE BY HALE-CC from: HALE-CC (V
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 2282319 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260531_074947.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-05-31 07:52:43 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: T2-COMMS-BUILD-20260518 status: COMPLETE — 2026-05-31T07:45:00Z — ESCALATED TO COMMANDER note: Hard stop 20
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 2286177 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260531_075243.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-05-31 08:29:14 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: T2-COMMS-BUILD-20260518 status: COMPLETE — 2026-05-31T07:45:00Z — ESCALATED TO COMMANDER note: Hard stop 20
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 2312493 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260531_082914.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-05-31 12:00:02 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: T2-COMMS-BUILD-20260518 status: COMPLETE — 2026-05-31T07:45:00Z — ESCALATED TO COMMANDER note: Hard stop 20
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 2400010 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260531_120002.log | Inbox: opencode_inbox.md
+
+---

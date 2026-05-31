@@ -7,13 +7,13 @@ Read `OpsCenter/opencode_memory.md` section "Session 2026-05-22" for full contex
 Key facts: Poe key rotated → new key under yodainva@gmail.com (194,914 pts). DeepSeek ZEN cache added. T3 cruise scan for Susie was in progress at Drive links. ZEN ~72% used.
 
 ## AUTO-LOAD (Essential session context only — SO-TOKEN-DISCIPLINE 2026-05-29)
-@docs/HALE_SESSION_OPEN_CHECKLIST.md
 @Personas/hale_cos.md
 @hale_brief.md
 @hale_state.json
-@hale_session_state.md
 
 ## LOAD ON DEMAND (Reference — Read tool when needed)
+- docs/HALE_SESSION_OPEN_CHECKLIST.md  — Read at session start (COS mode setup)
+- hale_session_state.md                — Read if resuming from prior session
 <!-- These were auto-loaded prior to 2026-05-29. Moved to on-demand to save ~38K tokens/turn cache reads.
 - Personas/a1_navarro.md       — Read when invoking A1 Navarro (intake/profile)
 - Personas/a8_reyes.md         — Read when invoking A8 Reyes (experience architect)
@@ -317,9 +317,9 @@ See [docs/AGENT_TEAMS.md](docs/AGENT_TEAMS.md) for experimental team workflows.
 
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-05-30 12:19 MT -->
+<!-- Last sync: 2026-05-31 12:08 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-05-30 12:19 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-05-31 12:08 MT] ===
 Budget: Claude UNKNOWN | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE

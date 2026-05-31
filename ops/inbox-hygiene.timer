@@ -1,0 +1,13 @@
+[Unit]
+Description=D2M Inbox Hygiene Timer — every 10 min
+Documentation=file:///home/john/Thunderbird/core/email/inbox_hygiene.py
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=10min
+RandomizedDelaySec=30s
+AccuracySec=30s
+Persistent=true
+
+[Install]
+WantedBy=timers.target

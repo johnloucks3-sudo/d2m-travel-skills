@@ -22,6 +22,7 @@ import re
 import subprocess
 import sys
 import time
+import tempfile
 from datetime import datetime
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -33,6 +34,10 @@ from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
+
+# Use foolproof wrapper per SO 24 APR 2026
+sys.path.insert(0, str(Path.home() / "Thunderbird"))
+from core.ai_infra.thunderbird_headless_spawn import spawn_headless_claude
 
 # ============================================================================
 # CONFIGURATION
@@ -492,73 +497,45 @@ def execute_task(staff_key: str, email: dict) -> Optional[str]:
 
     logger.info(f"Executing task: persona={staff_key}, input={len(task_content)} chars")
 
-    cmd = [
-        "claude",
-        "-p", task_content,
-        "--system-prompt", system_prompt,
-        "--model", MODEL,
-        "--output-format", "stream-json",
-        "--verbose",
-        "--tools", "",   # text-only — no browsing, no file ops, no web search
-    ]
-
-    # Use Popen + streaming read to avoid pipe buffer deadlock on large output
+    # Use foolproof wrapper per SO 24 APR 2026
     response_text = None
     try:
-        proc = subprocess.Popen(
-            cmd,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            text=True,
-            env=_max_plan_env(),
+        with tempfile.NamedTemporaryFile(mode='w', suffix='.txt', delete=False) as tmp:
+            output_file = tmp.name
+
+        result = spawn_headless_claude(
+            prompt=task_content,
+            output_file=output_file,
+            model=MODEL,
+            task_name=f"persona_{staff_key}",
+            background=False,
+            timeout=TASK_TIMEOUT_SECONDS,
+            system_prompt=system_prompt,
+            extra_args=["--tools", ""],  # text-only — no browsing, no file ops, no web search
         )
-        import threading, queue
 
-        lines_q: queue.Queue = queue.Queue()
+        if result.get("status") == "TIMEOUT":
+            logger.error(f"Persona {staff_key} timed out after {TASK_TIMEOUT_SECONDS}s")
+            return None
+        elif result.get("status") not in ["COMPLETED"]:
+            logger.error(f"Persona {staff_key} spawn failed: {result.get('error', 'unknown error')}")
+            return None
 
-        def _reader(stream, q):
-            for line in stream:
-                q.put(line)
-            q.put(None)  # sentinel
-
-        t = threading.Thread(target=_reader, args=(proc.stdout, lines_q), daemon=True)
-        t.start()
-
-        deadline = time.time() + TASK_TIMEOUT_SECONDS
-        while True:
-            remaining = deadline - time.time()
-            if remaining <= 0:
-                proc.kill()
-                logger.error(f"Persona {staff_key} timed out after {TASK_TIMEOUT_SECONDS}s")
-                return None
-            try:
-                line = lines_q.get(timeout=min(remaining, 5.0))
-            except queue.Empty:
-                continue
-            if line is None:
-                break
-            line = line.strip()
-            if not line:
-                continue
-            try:
-                d = json.loads(line)
-            except json.JSONDecodeError:
-                continue
-
-            if d.get("type") == "result" and d.get("result"):
-                response_text = d["result"]
-                proc.kill()
-                break
-            if d.get("type") == "assistant":
-                for block in d.get("message", {}).get("content", []):
-                    if block.get("type") == "text" and block.get("text"):
-                        response_text = block["text"]
-
-        proc.wait(timeout=5)
+        # Read the output file
+        response_text = Path(output_file).read_text()
+        if not response_text or not response_text.strip():
+            logger.error(f"No response text from persona {staff_key}")
+            return None
 
     except Exception as e:
-        logger.error(f"Popen failed for {staff_key}: {e}")
+        logger.error(f"Persona {staff_key} invocation failed: {e}")
         return None
+    finally:
+        # Cleanup temp file
+        try:
+            Path(output_file).unlink()
+        except:
+            pass
 
     if response_text:
         logger.info(f"Persona {staff_key} responded ({len(response_text)} chars)")

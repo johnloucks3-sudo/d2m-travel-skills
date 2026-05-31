@@ -1,0 +1,10 @@
+[Unit]
+Description=MISSION-090 — Weekly Worktree Dossier Sweep — Sundays 02:00 MT
+
+[Timer]
+OnCalendar=Sun *-*-* 02:00:00
+Persistent=true
+RandomizedDelaySec=300
+
+[Install]
+WantedBy=timers.target

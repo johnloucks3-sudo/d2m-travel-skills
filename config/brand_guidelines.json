@@ -1,0 +1,160 @@
+{
+  "schema_version": "1.0",
+  "authored_by": "Naia Solberg-Vega (EXEC)",
+  "last_updated": "2026-05-31",
+  "note": "Primary brand reference for WF-17 Stage 3 (Naia brand pass). All client-facing products checked against this file before advancing to Dani.",
+
+  "company": {
+    "legal_name": "Dreams2Memories Travel, LLC",
+    "dba": "D2M Luxury Travel",
+    "preferred_short_form": "D2M",
+    "website_domain": "d2mluxury.quest",
+    "email_domain": "d2mluxury.quest",
+    "send_as_alias": "concierge@d2mluxury.quest",
+    "never_use": [
+      "Love Group Travel",
+      "Dreams to Memories",
+      "D2M Travel Agency",
+      "Dreams 2 Memories",
+      "D2M Concierge",
+      "D2M Travel"
+    ]
+  },
+
+  "visual_identity": {
+    "background_color": "#f7f3ea",
+    "background_label": "cream",
+    "ink_color": "#0000ff",
+    "ink_label": "blue",
+    "accent_color": "#003087",
+    "accent_label": "navy",
+    "font_primary": "Georgia",
+    "font_fallback": "serif",
+    "color_system_label": "USAFA colors — cream/blue/navy",
+    "requires_usafa_colors_on_all_emails": true,
+    "d2m_logo_on_client_emails_only": true
+  },
+
+  "voice": {
+    "tone_descriptors": [
+      "warm",
+      "literate",
+      "visually precise",
+      "never corporate",
+      "never generic",
+      "human first"
+    ],
+    "register": "semi-formal",
+    "primary_tone": "professional",
+    "secondary_tones": ["helpful", "friendly", "excited"],
+    "sentence_style": "medium-length, conversational-professional",
+    "prohibited_punctuation": ["em-dash", "ellipsis"],
+    "brand_personality": "credibility, care, confidence — trust is the product",
+    "core_belief": "People don't remember what you told them. They remember how you made them feel.",
+    "priority_order": ["Words (tone, tenor, relationships)", "Experience", "Images", "Inspiration"]
+  },
+
+  "commander_voice_profile": {
+    "greeting_patterns": [
+      "Hi [First Name],",
+      "[First Name] and [First Name],"
+    ],
+    "signoff_required": "Thanks,\nJohn",
+    "signoff_never_use": ["Best,", "Warm regards,", "Sincerely,", "Best regards,", "Kind regards,"],
+    "favorite_phrases": ["going to be", "looking forward to", "make sure"],
+    "use_bold_for_emphasis": true,
+    "include_specific_details_and_dates": true,
+    "paragraph_length": "2-5 sentences",
+    "exclamation_points": "occasional — for genuine enthusiasm only"
+  },
+
+  "banned_phrases": [
+    "Love Group Travel",
+    "likely",
+    "probably",
+    "approximately",
+    "pending confirmation",
+    "I believe",
+    "please don't hesitate",
+    "happy to help",
+    "as per your request",
+    "touch base",
+    "circle back",
+    "going forward",
+    "leverage",
+    "utilize",
+    "synergy",
+    "seamless",
+    "curated",
+    "bespoke",
+    "world-class",
+    "best-in-class",
+    "exciting opportunity",
+    "consider it done",
+    "standing by"
+  ],
+
+  "client_email_standards": {
+    "stationery": {
+      "background": "#f7f3ea",
+      "text_color": "#0000ff",
+      "accent": "#003087",
+      "font": "Georgia",
+      "banner_color": "#003087",
+      "requires_logo_banner": true
+    },
+    "opening": "Personal/relational paragraph required — Wing writes complete email, Commander adds nothing",
+    "ai_aware_clients": "John personal preface block before Dani block (see Kuklinski AI disclosure precedent)",
+    "prohibit_upsell_in_routine_replies": true,
+    "prohibit_generic_filler": true,
+    "prohibit_canned_responses": true
+  },
+
+  "brand_voice_checklist": [
+    "Zero instances of 'Love Group Travel' or other prohibited company name variants",
+    "USAFA colors (#f7f3ea / #0000ff / #003087) present in HTML products",
+    "Warm but not effusive — never sycophantic",
+    "Specific and concrete — no vague assurances",
+    "Personal opening paragraph present in all client emails",
+    "Sign-off: 'Thanks, John' — never 'Best'",
+    "No placeholder text ([INSERT], [TBD], [DRAFT]) remaining",
+    "No AI language or corporate jargon",
+    "No banned phrases from banned_phrases list",
+    "Emotional register matches client relationship depth",
+    "Client name correctly spelled and used",
+    "D2M logo present on client-facing products"
+  ],
+
+  "quality_gate": {
+    "brand_voice_score_minimum": 7,
+    "scale": "0-10",
+    "auto_fail_conditions": [
+      "company_name_violation",
+      "banned_phrase_in_client_position",
+      "love_group_travel_present",
+      "wrong_signoff"
+    ],
+    "soft_block_conditions": [
+      "usafa_colors_absent_in_html",
+      "avatar_placeholder_missing_in_sig"
+    ],
+    "rejection_routes_to": "Luna (A6) for rework — Naia rejection counts as Luna retry 1"
+  },
+
+  "target_cruise_lines": [
+    "Silversea",
+    "Regent Seven Seas",
+    "Cunard",
+    "Oceania",
+    "Seabourn",
+    "Viking",
+    "AmaWaterways",
+    "Ponant"
+  ],
+
+  "persona_avatars": {
+    "storage_path": "/home/john/Thunderbird/storage/output/images/",
+    "include_in_sig_block": true,
+    "note": "Personas without a generated avatar omit the photo slot — do NOT use a placeholder from another persona"
+  }
+}

@@ -1,0 +1,266 @@
+{
+  "client": "Furlow",
+  "analysis_date": "2026-05-30",
+  "total_required": 13,
+  "total_found": 9,
+  "total_missing": 1,
+  "total_partial": 11,
+  "coverage_pct": 69.2,
+  "segments": [
+    {
+      "category": "documents",
+      "segment": "Passports valid 6+ months",
+      "required": true,
+      "status": "partial",
+      "matched_detail": "Passport details uploaded to D2M client portal. Regent passport reminder received. John's Regent Guest Registration complete; Missy's incomplete (must complete directly at rssc.com).",
+      "gap_note": "Passport expiration dates not confirmed on file. Must be valid through at least March 2027 (6 months beyond Sep 8 2026 disembarkation). Specific expiration dates not documented in any source.",
+      "search_suggestion": "subject:passport expiration furlow 2026 OR from:furlow passport expires"
+    },
+    {
+      "category": "documents",
+      "segment": "Visa / entry requirements",
+      "required": true,
+      "status": "missing",
+      "matched_detail": null,
+      "gap_note": "No visa or entry requirement review documented in any email or dossier source. Itinerary visits Stockholm (Sweden), Rostock (Germany), Copenhagen (Denmark), Kristiansand (Norway), and Oslo (Norway). US passport holders generally visa-exempt in Schengen/EEA countries, but a formal review is not on file.",
+      "search_suggestion": "subject:visa entry requirements scandinavia furlow 2026 OR schengen us passport"
+    },
+    {
+      "category": "insurance",
+      "segment": "Travel insurance policy",
+      "required": true,
+      "status": "partial",
+      "matched_detail": "Chase Sapphire Reserve 21-day trip insurance noted as eligible in pre-departure brief. Both clients hold AMEX Platinum cards with trip insurance benefits. No standalone dedicated policy confirmed.",
+      "gap_note": "Insurance relies solely on credit card coverage \u2014 no standalone policy on file. Written confirmation needed that Chase Sapphire Reserve or AMEX Platinum covers: trip cancellation/interruption up to $18,120+, medical evacuation for Scandinavian itinerary, and full trip duration (Aug 26 \u2013 Sep 8). One source explicitly marks insurance as unknown.",
+      "search_suggestion": "subject:travel insurance furlow chase sapphire amex platinum coverage confirmation 2026"
+    },
+    {
+      "category": "flights",
+      "segment": "Outbound flight leg 1",
+      "required": true,
+      "status": "found",
+      "matched_detail": "AA 9018 (operated by Finnair) DFW\u2192HEL, Aug 26 2026, 4:50 PM departure \u2192 Aug 27 2026 10:45 AM arrival. Confirmation CKZHXA. Business Class, Booking Code I. Ticketed Jan 8 2026.",
+      "gap_note": null,
+      "search_suggestion": null
+    },
+    {
+      "category": "flights",
+      "segment": "Outbound flight leg 2",
+      "required": false,
+      "status": "found",
+      "matched_detail": "AY 811 (Finnair) HEL\u2192ARN, Aug 27 2026, 1:15 PM departure. PNR BB4X94. Business Class, Booking Code I.",
+      "gap_note": null,
+      "search_suggestion": null
+    },
+    {
+      "category": "flights",
+      "segment": "Outbound seat assignments",
+      "required": false,
+      "status": "missing",
+      "matched_detail": "PNR BB4X94 (DFW\u2192HEL and HEL\u2192ARN) explicitly flagged as ZERO OUTBOUND SEATS ASSIGNED across multiple sources. Finnair seat fee inquiry still open.",
+      "gap_note": "Both outbound Finnair legs (AA 9018 DFW\u2192HEL and AY 811 HEL\u2192ARN) on PNR BB4X94 have no seat assignments. Business class seat selection may incur additional fees per Finnair policy. Immediate action required.",
+      "search_suggestion": "subject:finnair BB4X94 seat assignment furlow 2026"
+    },
+    {
+      "category": "transfers",
+      "segment": "Airport \u2192 hotel transfer",
+      "required": true,
+      "status": "partial",
+      "matched_detail": "Transfer Ref #1095089 / AE693884 booked for ARN\u2192Stockholm hotel, Aug 27 2026. Private sedan/van ~$115\u2013$123 per couple. Originally routed to Haymarket by Scandic.",
+      "gap_note": "Hotel changed from Haymarket by Scandic to AT SIX Stockholm (Brunkebergstorg 6). Transfer destination must be updated. Rebooking requested in correspondence but not yet confirmed. Do not assume original booking is valid for AT SIX.",
+      "search_suggestion": "subject:airport transfer arlanda AT SIX stockholm furlow 2026"
+    },
+    {
+      "category": "hotel",
+      "segment": "Pre-cruise hotel (night 1)",
+      "required": true,
+      "status": "found",
+      "matched_detail": "AT SIX Stockholm, Aug 27 2026. Rate: $399/night. Booked by Melissa Furlow via AMEX Platinum. Confirmed reservation.",
+      "gap_note": null,
+      "search_suggestion": null
+    },
+    {
+      "category": "hotel",
+      "segment": "Pre-cruise hotel (night 2)",
+      "required": false,
+      "status": "partial",
+      "matched_detail": "AT SIX Stockholm, Aug 28 2026 (Regent-contracted night). Rate: $399. Haymarket by Scandic reservation being replaced. Awaiting Regent written confirmation to link room to ship group roster.",
+      "gap_note": "Room linkage deadline is Aug 15 (2 weeks prior to Aug 29 sailing). Regent written confirmation still pending. Haymarket cancellation must not proceed until confirmation is in hand. Scandic Haymarket cancellation shown as in-progress.",
+      "search_suggestion": "subject:AT SIX regent confirmation room linking group block furlow august 2026"
+    },
+    {
+      "category": "hotel",
+      "segment": "Pre-cruise hotel (night 3)",
+      "required": false,
+      "status": "not_applicable",
+      "matched_detail": null,
+      "gap_note": "Cruise departs Aug 29; pre-cruise stay covers Aug 27 and Aug 28 only. No third pre-cruise night required.",
+      "search_suggestion": null
+    },
+    {
+      "category": "transfers",
+      "segment": "Hotel \u2192 port transfer",
+      "required": true,
+      "status": "partial",
+      "matched_detail": "Regent motor coach from AT SIX hotel to embarkation pier identified in correspondence. Original Haymarket bus transportation flagged for cancellation.",
+      "gap_note": "Regent motor coach from AT SIX to embarkation pier not yet confirmed under Regent group block. Pickup time TBD. Haymarket transportation must be formally cancelled. Written Regent confirmation needed before Aug 15 deadline.",
+      "search_suggestion": "subject:regent bus motor coach embarkation pier stockholm AT SIX furlow august 29"
+    },
+    {
+      "category": "cruise",
+      "segment": "Cruise booking confirmed",
+      "required": true,
+      "status": "found",
+      "matched_detail": "Regent Seven Seas Grandeur Booking #3071222. Departure Aug 29 2026, Scandinavia itinerary (10 nights). Guests: John & Melissa Furlow. Travel Agency: NEXION LLC. Advisor: John Loucks. Preliminary Cruise Vacation Summary received May 11 2026.",
+      "gap_note": null,
+      "search_suggestion": null
+    },
+    {
+      "category": "cruise",
+      "segment": "Suite/cabin assignment",
+      "required": true,
+      "status": "found",
+      "matched_detail": "Concierge Suite D, Stateroom 827, 332 sq ft. Confirmed on Preliminary Cruise Vacation Summary. Regent Upgrade Advantage bid opportunity noted (bid-based upgrade to higher suite category available).",
+      "gap_note": null,
+      "search_suggestion": null
+    },
+    {
+      "category": "cruise",
+      "segment": "Cruise paid in full",
+      "required": true,
+      "status": "found",
+      "matched_detail": "Final payment of $15,486 received April 1 2026. Total cruise cost $18,120. Balance Due: $0. PAID IN FULL confirmed across commission audit and multiple booking sources. Commission $2,287.90 (Nexion 15%); D2M share $1,601.53 (70%).",
+      "gap_note": null,
+      "search_suggestion": null
+    },
+    {
+      "category": "dining",
+      "segment": "Specialty dining reserved",
+      "required": false,
+      "status": "partial",
+      "matched_detail": "Culinary class confirmed ($258, Melissa Furlow enrolled, Booking #3071222). Specialty restaurants La Veranda (French) and Uni (Japanese omakase) included with suite; reservation window opened May 31 2026 at 8 PM ET via My Regent portal.",
+      "gap_note": "Specialty restaurant reservations (La Veranda, Uni) not yet booked. Window opened May 31 \u2014 book immediately for preferred sailing dates. Culinary class is confirmed as the only dining add-on.",
+      "search_suggestion": "subject:specialty dining reservation regent grandeur La Veranda Uni furlow 2026"
+    },
+    {
+      "category": "excursions",
+      "segment": "Shore excursions booked",
+      "required": false,
+      "status": "found",
+      "matched_detail": "Six Regent Choice excursions confirmed at no charge: Aug 30 Swedish Nature Experience (Stockholm); Sep 1 Amazing Rostock; Sep 2 Medieval Flavors of Rostock; Sep 3 Christiansborg Palace & Tivoli (Copenhagen); Sep 4 Tour of Two Kingdoms (Copenhagen); Sep 7 Oslo During World War II. Berlin Experience Small Group tour also confirmed.",
+      "gap_note": "Kristiansand port call has no excursion booked. \u00c0 la carte options available up to $250 value.",
+      "search_suggestion": null
+    },
+    {
+      "category": "cruise",
+      "segment": "Embarkation details",
+      "required": false,
+      "status": "partial",
+      "matched_detail": "Embarkation Aug 29 at 3:00 PM, Booking #3071222. One invoice source states embarkation Helsinki / disembarkation Liverpool; pre-departure brief and most sources state Stockholm / Oslo.",
+      "gap_note": "Conflicting embarkation port: Regent invoice states Helsinki embarkation and Liverpool disembarkation; pre-departure brief and reservation emails state Stockholm embarkation and Oslo disembarkation. Must verify correct ports with Regent for Booking #3071222 before ground logistics are finalized.",
+      "search_suggestion": "subject:regent grandeur embarkation port stockholm helsinki booking 3071222"
+    },
+    {
+      "category": "transfers",
+      "segment": "Port \u2192 airport transfer",
+      "required": true,
+      "status": "partial",
+      "matched_detail": "Regent-provided motor coach from disembarkation pier to airport on Sep 8. One source confirms Regent transfer connects to AA 6776 OSL departure at 11:15 AM. Multiple other sources show status as pending or awaiting confirmation.",
+      "gap_note": "Conflicting status across sources: confirmed in one email, pending in several others. Written Regent confirmation needed. Transfer timing must allow boarding AA 6776 OSL\u2192LHR departing 11:15 AM Sep 8.",
+      "search_suggestion": "subject:regent disembarkation transfer oslo airport september 8 2026 furlow"
+    },
+    {
+      "category": "hotel",
+      "segment": "Post-cruise hotel",
+      "required": false,
+      "status": "not_applicable",
+      "matched_detail": null,
+      "gap_note": "Return flights depart Sep 8 (OSL\u2192LHR\u2192DFW). No post-cruise overnight required.",
+      "search_suggestion": null
+    },
+    {
+      "category": "transfers",
+      "segment": "Hotel \u2192 airport transfer",
+      "required": false,
+      "status": "not_applicable",
+      "matched_detail": null,
+      "gap_note": "No post-cruise hotel booked. Disembarkation transfer goes directly from ship pier to airport via Regent motor coach.",
+      "search_suggestion": null
+    },
+    {
+      "category": "flights",
+      "segment": "Return flight leg 1",
+      "required": true,
+      "status": "found",
+      "matched_detail": "AA 6776 (operated by British Airways) OSL\u2192LHR, Sep 8 2026, 11:15 AM \u2192 12:45 PM. Confirmation CKZHXA. Business Class guaranteed, Booking Code J.",
+      "gap_note": null,
+      "search_suggestion": null
+    },
+    {
+      "category": "flights",
+      "segment": "Return flight leg 2",
+      "required": false,
+      "status": "found",
+      "matched_detail": "AA 79 LHR\u2192DFW, Sep 8 2026, 2:25 PM \u2192 6:35 PM. Confirmation CKZHXA. Business Class, Booking Code I. Ticketed Jan 8 2026.",
+      "gap_note": null,
+      "search_suggestion": null
+    },
+    {
+      "category": "flights",
+      "segment": "Return seat assignments",
+      "required": false,
+      "status": "partial",
+      "matched_detail": "Return segments (AA 6776 OSL\u2192LHR and AA 79 LHR\u2192DFW) on CKZHXA, Business Class. AA business class stated to include seat selection in fare.",
+      "gap_note": "One source notes 'Seats TBD \u2014 confirm 24 hours prior to departure.' Specific assigned seat numbers not documented for return legs. Recommend verifying seat assignments are locked in American Airlines reservation system.",
+      "search_suggestion": "subject:american airlines seat assignment return LHR DFW oslo furlow CKZHXA"
+    },
+    {
+      "category": "admin",
+      "segment": "Emergency contacts on file",
+      "required": false,
+      "status": "missing",
+      "matched_detail": null,
+      "gap_note": "No emergency contact information found in any email sweep or dossier source for either John or Melissa Furlow.",
+      "search_suggestion": "subject:emergency contact furlow OR from:furlow \"in case of emergency\""
+    },
+    {
+      "category": "admin",
+      "segment": "Portal activated",
+      "required": false,
+      "status": "partial",
+      "matched_detail": "D2M client portal activated. John Furlow accessed portal, uploaded passport info, and registered payment cards. Regent Upgrade Advantage and shore excursion portals also noted.",
+      "gap_note": "Missy Furlow unable to receive portal activation code at missy.furlow@gmail.com \u2014 issue unresolved. Regent Guest Registration Form complete for John; Missy must complete directly at my.regent7seas.com (cannot be done through agency). Required before sailing.",
+      "search_suggestion": "subject:portal activation furlow missy login OR rssc guest registration furlow 2026"
+    },
+    {
+      "category": "admin",
+      "segment": "Client dossier current",
+      "required": true,
+      "status": "partial",
+      "matched_detail": "Dossier file exists (dossiers/Furlow_Missy_John.md) per system records. Booking #3071222, final payment status, and key booking references documented.",
+      "gap_note": "Dossier may not reflect: hotel change from Haymarket to AT SIX, updated transfer routing, outbound seat assignment gap on BB4X94, Regent room linkage pending status, and Missy's incomplete Guest Registration. Refresh recommended before any client communications.",
+      "search_suggestion": null
+    }
+  ],
+  "critical_gaps": [
+    "Visa / entry requirements"
+  ],
+  "recommendations": [
+    "URGENT \u2014 Assign outbound seats on PNR BB4X94 immediately (AA 9018 DFW\u2192HEL and AY 811 HEL\u2192ARN are both unassigned). Determine Finnair business class seat fee and resolve with clients.",
+    "URGENT \u2014 Obtain Regent written confirmation for AT SIX Stockholm room linkage on Aug 28 (Regent-contracted night). Deadline Aug 15. Do not cancel Haymarket reservation until written confirmation is in hand.",
+    "Complete formal visa and entry requirement review for all itinerary ports and document on file. US passport holders are generally visa-exempt in Schengen/EEA but a written review is required.",
+    "Verify passport expiration dates for John and Melissa Furlow. Must be valid through at least March 2027. Obtain expiration dates and document in dossier.",
+    "Re-route airport transfer (Ref #1095089 / AE693884) from Haymarket to AT SIX Stockholm (Brunkebergstorg 6) for Aug 27 arrival. Confirm rebooking in writing.",
+    "Confirm Regent motor coach seat assignments from AT SIX to embarkation pier for Aug 29. Cancel original Haymarket bus. Obtain pickup time.",
+    "Get written confirmation of Regent disembarkation transfer from Oslo pier to airport on Sep 8. Verify timing allows connection to AA 6776 OSL departure at 11:15 AM.",
+    "Obtain written confirmation of travel insurance coverage scope: trip cancellation/interruption up to $18,120+, medical evacuation for Scandinavia, full trip duration Aug 26\u2013Sep 8. If credit card coverage is insufficient, recommend standalone policy.",
+    "Book specialty restaurant reservations (La Veranda and Uni) immediately \u2014 reservation window opened May 31 via My Regent portal. Culinary class already secured.",
+    "Resolve Missy Furlow's Regent Guest Registration Form. Must be completed by Missy directly at my.regent7seas.com before sailing \u2014 cannot be done through agency portal.",
+    "Resolve Missy Furlow's D2M portal access (activation code not received at missy.furlow@gmail.com). Try alternate delivery method.",
+    "Clarify correct embarkation and disembarkation ports for Booking #3071222 with Regent directly \u2014 one invoice source states Helsinki/Liverpool while pre-departure brief states Stockholm/Oslo. Must be resolved before ground logistics are finalized.",
+    "Verify return seat assignments are confirmed in reservation system for AA 6776 (OSL\u2192LHR) and AA 79 (LHR\u2192DFW) on CKZHXA.",
+    "Update client dossier to reflect: AT SIX hotel replacing Haymarket, updated transfer details and status, outbound seat assignment gap, Regent room linkage pending, Missy incomplete Guest Registration, and correct embarkation port once verified.",
+    "Add emergency contact information for John and Melissa Furlow to client dossier.",
+    "Note Regent Upgrade Advantage bid opportunity (Booking #3071222, current Concierge Suite D) \u2014 advise clients on bid-based upgrade option before sailing."
+  ]
+}

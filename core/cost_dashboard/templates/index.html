@@ -99,22 +99,23 @@ td { font-size: 0.9rem; }
     </div>
 
     <div class="grid">
-        <div class="card"><h2>OpenRouter Budget</h2>
-            {% if snapshot %}
-            {% set pct = (snapshot.total_usage / snapshot.total_credits * 100) if snapshot.total_credits else 0 %}
-            <div class="gauge-bar">
-                <div class="gauge-fill" style="width: {{ pct }}%; background: {{ 'var(--red)' if pct > 80 else 'var(--orange)' if pct > 60 else 'var(--green)' }};"></div>
-            </div>
-            <p>${{ "%.2f"|format(snapshot.total_usage) }} / ${{ "%.0f"|format(snapshot.total_credits) }} spent ({{ "%.1f"|format(pct) }}%)</p>
+        <div class="card"><h2>OpenCode Pools</h2>
+            {% if oc_pools %}
             <table>
-                <tr><th>Period</th><th>Usage</th></tr>
-                <tr><td>Daily</td><td>${{ "%.2f"|format(snapshot.usage_daily) }}</td></tr>
-                <tr><td>Weekly</td><td>${{ "%.2f"|format(snapshot.usage_weekly) }}</td></tr>
-                <tr><td>Monthly</td><td>${{ "%.2f"|format(snapshot.usage_monthly) }}</td></tr>
+                <tr><th>Pool</th><th>Consumed</th><th>Soft Limit</th></tr>
+                {% for p in oc_pools %}
+                {% if p.name != 'poe_points' %}
+                <tr>
+                    <td>{{ p.name | replace('_', ' ') | title }}</td>
+                    <td>{{ "%.4f"|format(p.consumed or 0) }}</td>
+                    <td>{{ "Inf" if p.soft_limit == 0 or p.soft_limit < 0 else "%.2f"|format(p.soft_limit) }}</td>
+                </tr>
+                {% endif %}
+                {% endfor %}
             </table>
-            <p style="margin-top:10px;font-size:0.8rem;color:var(--gold-light);">Snapshot: {{ snapshot.ts[:16] }}</p>
+            <p style="margin-top:10px;font-size:0.8rem;color:var(--gold-light);">OpenCode native + MAX plan pools (free / unlimited)</p>
             {% else %}
-            <p>No OpenRouter data yet.</p>
+            <p>No OpenCode pool data yet.</p>
             {% endif %}
         </div>
         <div class="card"><h2>Poe API Points</h2>
@@ -156,9 +157,9 @@ td { font-size: 0.9rem; }
         </div>
         <div class="card"><h2>Daily Rollups</h2>
             {% if rollups %}
-            <table><tr><th>Date</th><th>Claude (eff)</th><th>OR Cost</th></tr>
+            <table><tr><th>Date</th><th>Claude (eff tokens)</th></tr>
             {% for r in rollups %}
-            <tr><td>{{ r.date }}</td><td>{{ r.claude_effective_tokens or 0 }}</td><td>${{ "%.2f"|format(r.openrouter_usd or 0) }}</td></tr>
+            <tr><td>{{ r.date }}</td><td>{{ r.claude_effective_tokens or 0 }}</td></tr>
             {% endfor %}
             </table>
             {% else %}
@@ -170,7 +171,7 @@ td { font-size: 0.9rem; }
             <table><tr><th>Model</th><th>Calls/hr</th><th>Calls/day</th><th>Tokens/hr</th></tr>
             {% for m in zen_limits %}
             <tr>
-                <td>{{ m.model | replace('opencode/', '') | replace('openrouter/', '') }}</td>
+                <td>{{ m.model | replace('opencode/', '') }}</td>
                 <td>{{ m.requests_per_hour }}</td>
                 <td>{{ m.requests_per_day }}</td>
                 <td>{{ m.tokens_per_hour }}</td>

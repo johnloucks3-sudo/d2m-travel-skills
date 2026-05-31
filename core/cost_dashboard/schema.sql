@@ -16,20 +16,6 @@ CREATE TABLE IF NOT EXISTS claude_events (
   UNIQUE(session_id, ts_start)
 );
 
-CREATE TABLE IF NOT EXISTS openrouter_snapshots (
-  id INTEGER PRIMARY KEY,
-  ts TEXT NOT NULL,
-  total_usage REAL,
-  usage_daily REAL,
-  usage_weekly REAL,
-  usage_monthly REAL,
-  limit_amount REAL,
-  limit_remaining REAL,
-  total_credits REAL,
-  is_free_tier BOOLEAN,
-  UNIQUE(ts)
-);
-
 CREATE TABLE IF NOT EXISTS claude_windows (
   window_start TEXT PRIMARY KEY,
   window_end TEXT NOT NULL,
@@ -42,12 +28,9 @@ CREATE TABLE IF NOT EXISTS daily_rollups (
   date TEXT PRIMARY KEY,
   claude_effective_tokens INTEGER,
   claude_windows_used REAL,
-  openrouter_usd REAL,
-  openrouter_requests INTEGER,
   total_estimated_usd REAL
 );
 
-CREATE INDEX IF NOT EXISTS idx_or_ts ON openrouter_snapshots(ts);
 CREATE INDEX IF NOT EXISTS idx_claude_ts ON claude_events(ts_start);
 
 CREATE TABLE IF NOT EXISTS poe_snapshots (

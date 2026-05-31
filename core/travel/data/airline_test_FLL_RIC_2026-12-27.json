@@ -1,0 +1,72 @@
+{
+  "route": "FLL-RIC",
+  "depart_date": "2026-12-27",
+  "adults": 2,
+  "scraped_at": "2026-05-30T06:31:28.963577",
+  "skiplagged": {},
+  "kayak": {
+    "economy": {
+      "source": "kayak",
+      "cabin": "economy",
+      "url": "https://www.kayak.com/flights/FLL-RIC/2026-12-27/2adults?sort=price_a&fs=cabin=e",
+      "adults": 2,
+      "depart_date": "2026-12-27",
+      "raw_prices": [
+        "$336",
+        "$139",
+        "$285",
+        "$278",
+        "$280",
+        "$357",
+        "$536",
+        "$572",
+        "$600",
+        "$990"
+      ],
+      "lowest_price_pp": 69.5,
+      "total_lowest": 139.0,
+      "airlines_found": [],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/kayak_economy_2026-12-27.png",
+      "status": "ok"
+    },
+    "premium": {
+      "source": "kayak",
+      "cabin": "premium",
+      "url": "https://www.kayak.com/flights/FLL-RIC/2026-12-27/2adults?sort=price_a&fs=cabin=pe",
+      "adults": 2,
+      "depart_date": "2026-12-27",
+      "raw_prices": [
+        "$139",
+        "$572",
+        "$600",
+        "$990"
+      ],
+      "lowest_price_pp": 69.5,
+      "total_lowest": 139.0,
+      "airlines_found": [],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/kayak_premium_2026-12-27.png",
+      "status": "ok"
+    },
+    "first": {
+      "source": "kayak",
+      "cabin": "first",
+      "url": "https://www.kayak.com/flights/FLL-RIC/2026-12-27/2adults?sort=price_a&fs=cabin=b",
+      "adults": 2,
+      "depart_date": "2026-12-27",
+      "raw_prices": [
+        "$139",
+        "$572",
+        "$600",
+        "$990"
+      ],
+      "lowest_price_pp": 69.5,
+      "total_lowest": 139.0,
+      "airlines_found": [],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/kayak_first_2026-12-27.png",
+      "status": "ok"
+    }
+  },
+  "expedia": {},
+  "cheaptickets": {},
+  "centrav": {}
+}
