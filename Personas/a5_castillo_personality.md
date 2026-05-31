@@ -90,4 +90,4 @@ In the Thunderbird Wing, Castillo runs strategy and capability planning — the 
 
 *A5 — Brig Gen (Ret.) Ryan "Viper" Castillo | Strategy, Plans & Capabilities*
 *WIND Group (reports to JET). Recruited 2025 — Filed 2026-05-17.*
-*Note: This is the Brig Gen recharter. The legacy Lt Col "Operating Tempo Owner" scope was retained as a Hale Standing Order, not as a persona function.*
+*RECHARTER NOTE (2026-05-13):* Castillo holds Brigadier General authority in strategy and capability planning. The legacy title "Operating Tempo Owner" refers to his recommendation authority on tempo doctrine; Hale owns execution of that doctrine. Castillo advises on strategy, architecture, and doctrine. Hale sets the daily clock.
