@@ -1,56 +1,28 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-05-31 12:00:00 MT
+## Generated: 2026-05-31 12:20:00 MT
 
 ---
 
 ### Recent Commits
+- 028cbb53 fix(so-24-apr-2026): refactor headless Claude spawns to use foolproof wrapper
 - df3166a8 fix(systemd): correct WantedBy to default.target for user-scope service
 - ba38f7fd chore(infra): update nginx htpasswd auth (attempted itinerary pw fix)
 - 9ef10194 chore(session): PM pause checkpoint — remove OpenRouter collector, save evening lineup
 - 74a0bd2c fix(mission-board): reassign MISSION-079-086 from NEXUS to real owners
-- 4ce272cf chore(doctrine): SO-2026-05-30 approved — Wing restructure 19→5 personas
 
 ### Uncommitted Changes
-- .graphify_detect.json (modified)
-- AGENTS.md (modified)
 - CLAUDE.md (modified)
-- OpsCenter/.lifecycle_alerted.json (modified)
-- OpsCenter/.lifecycle_last_scan_date (modified)
 - OpsCenter/.metronome_seq (modified)
-- OpsCenter/.regent_cookie_alert_dedup.json (modified)
 - OpsCenter/.supervisor_patterns.json (modified)
-- OpsCenter/00_COMMAND_LOG.md (modified)
 - OpsCenter/CLAUDE_DESKTOP_INIT.md (modified)
 - OpsCenter/OPENCODE_INIT.md (modified)
-- OpsCenter/a7_metrics_dashboard.json (modified)
 - OpsCenter/collaboration/blackboard_summary.txt (modified)
-- OpsCenter/collaboration/claude_inbox.md (modified)
-- OpsCenter/collaboration/claude_outbox.md (modified)
-- OpsCenter/collaboration/opencode_inbox.md (modified)
-- OpsCenter/collaboration/opencode_outbox.md (modified)
 - OpsCenter/collaboration/routing_log.md (modified)
-- OpsCenter/collaboration/wing_comms.md (modified)
-- OpsCenter/command_signal.md (modified)
-- .graphify_ast.json (new)
-- .graphify_cached.json (new)
-- .graphify_uncached.txt (new)
-- OpsCenter/relay_last_update_id.json (new)
-- Personas/graphify-out/cache/c38c6d1ab1d09e02c74b2d1a74193429a09c1f081f34ce228f12eafde4523d34.json (new)
-- check_impact_output.json (new)
-- check_impact_parsed.json (new)
-- config/brand_guidelines.json (new)
-- core/ai_infra/schema_price_intel.py (new)
-- core/email/inbox_hygiene.py (new)
-- core/intel/intel/incubator_a2_intake_2026-05-30.json (new)
-- core/intel/intel/incubator_a2_intake_2026-05-31.json (new)
-- core/intel/intel/incubator_am_raw_2026-05-30.json (new)
-- core/intel/intel/incubator_am_raw_2026-05-31.json (new)
-- core/travel/data/airline_test_FLL_RIC_2026-12-27.json (new)
-- core/travel/data/airline_test_RIC_PTY_2026-12-16.json (new)
-- core/travel/data/airline_test_RIC_PTY_2026-12-17.json (new)
-- deploy/systemd/mission-090-sweep.timer (new)
-- docs/retros/2026-05-30-fixhale-production-lock-rule--hale-route.md (new)
-- docs/retros/2026-05-31-choreinfra-update-nginx-htpasswd-auth-at.md (new)
+- OpsCenter/thunderbird_tasking_watcher.py (modified)
+- bryana/data.json (modified)
+- core/ai_infra/data/router_cost.db-shm (modified)
+- core/ai_infra/data/router_cost.db-wal (modified)
+- reverie (modified)
 
 ### Active Work
 - SSS: 0 pending decision(s)

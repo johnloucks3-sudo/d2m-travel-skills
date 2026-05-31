@@ -15,13 +15,10 @@ log = logging.getLogger("thunderbird_router")
 
 # API Keys & Constants (used by task_processor and other modules)
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
-GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
 XAI_API_KEY = os.getenv("XAI_API_KEY", "")
 
-# Model aliases (Groq eliminated 2026-04-28, replaced with OpenRouter DeepSeek)
+# Model aliases (Groq eliminated 2026-04-28, replaced with OpenRouter models)
 DEEPSEEK_PRIMARY_MODEL = "qwen/qwen3.6-plus-04-02:free"
-QWEN_PLUS_FREE_MODEL = "qwen/qwen3.6-plus-04-02:free"  # Legacy alias
-GROQ_MODELS = ["groq_fast", "groq_light"]  # Legacy—no longer used
 
 # Legacy task classification enum (for backward compatibility)
 class TaskType(Enum):
@@ -64,26 +61,6 @@ MODEL_STRATEGY = {
         "rationale": "Claude Sonnet via MAX subscription — user's primary for large context tasks. Headless spawn uses MAX OAuth credentials."
     },
 
-    ModelTier.GROK_2M.value: {
-        "provider": "openrouter",
-        "model_id": "x-ai/grok-4.3",
-        "context": "2M tokens",
-        "cost_per_M": 0.70,
-        "input_cost": 0.20,
-        "output_cost": 0.50,
-        "vision_support": False,
-        "reasoning": True,
-        "speed": "fast",
-        "use_cases": [
-            "large_context_research",
-            "incubator",
-            "intel_sweep",
-            "competitive_analysis",
-            "ship_research",
-            "document_analysis"
-        ],
-        "rationale": "2M context for complete document sets; cost-effective reasoning at scale (UNAVAILABLE — user doesn't have access)"
-    },
 
     ModelTier.GEMINI_VISION.value: {
         "provider": "openrouter",
@@ -151,25 +128,27 @@ MODEL_STRATEGY = {
 }
 
 
-# ── Crew Tier Map (Opus Plan — 2026-05-04) ───────────────────────────────────
+# ── Crew Tier Map (SO-TOKEN-DISCIPLINE 2026-05-29) ────────────────────────────
 # Maps each A-staff persona to the minimum cost tier appropriate for their role.
 # Rule: use the cheapest tier that meets quality bar. Only escalate to Sonnet
 # when client-facing copy or complex judgment is required.
+# Updated 2026-05-31: Removed unavailable Grok, routed expensive tasks to DeepSeek.
 CREW_MODEL_TIER: dict[str, str] = {
-    # Client-facing / judgment-required → Sonnet MAX ($0)
+    # Client-facing / judgment-required → Sonnet MAX ($0 on MAX plan)
     "HALE":   ModelTier.SONNET_MAX_LARGE.value,   # COS orchestration, decisions
     "A3":     ModelTier.SONNET_MAX_LARGE.value,   # Dani — ALL client-facing copy
     "A6":     ModelTier.SONNET_MAX_LARGE.value,   # Luna — narrative/brand copy
     "A1":     ModelTier.SONNET_MAX_LARGE.value,   # Navarro — profile synthesis (nuance)
     "EXEC":   ModelTier.SONNET_MAX_LARGE.value,   # Solberg-Vega — proposals, voice
-    # Research / structured output → Gemini Flash Lite (cheap, fast)
+    # Research / structured output → Gemini Flash Lite ($0.03/1M input)
     "A2":     ModelTier.GEMINI_VISION.value,      # Dembe — destination research
     "A5":     ModelTier.GEMINI_VISION.value,      # Castillo — strategy drafts
     "A7":     ModelTier.GEMINI_VISION.value,      # Sterling — process/metrics
     "A8":     ModelTier.GEMINI_VISION.value,      # Reyes — product matching
-    "A9":     ModelTier.GEMINI_VISION.value,      # Harlan — commission analysis
-    # Incubator / large-context reasoning → Grok 4.1 Fast (2M ctx)
-    "A12":    ModelTier.GROK_2M.value,            # ELON — innovation/disruption
+    # Commission analysis / simple extraction → DeepSeek ($0.14/1M input, 95% cheaper than Sonnet)
+    "A9":     ModelTier.DEEPSEEK_OPTIMIZED.value, # Harlan — commission audits (structured lookup, not reasoning-heavy)
+    # Innovation / large-context → Sonnet MAX (Grok 2M unavailable; MAX is backup for large context)
+    "A12":    ModelTier.SONNET_MAX_LARGE.value,   # ELON — innovation/disruption (fallback; ideally use Gemini for fast ideation)
 }
 
 # Models explicitly blocked from auto-selection (too expensive for bulk use)
@@ -224,6 +203,17 @@ def route_model(
             log.info(f"Model route: use case '{task_type}' → {tier}")
             return config
 
+    # Cost optimization: brief/summarization tasks → use cheaper tier (SO-TOKEN-DISCIPLINE 2026-05-29)
+    task_lower = task_type.lower()
+    if any(keyword in task_lower for keyword in ["brief", "summary", "summariz", "digest", "scan", "report"]):
+        log.info(f"Model route: brief/summary task '{task_type}' → {ModelTier.GEMINI_VISION.value}")
+        return MODEL_STRATEGY[ModelTier.GEMINI_VISION.value]
+
+    # Cost optimization: audit/extraction tasks → use DeepSeek (cheaper, good for structured tasks)
+    if any(keyword in task_lower for keyword in ["audit", "extract", "analyz", "commission", "reconcil", "inventory"]):
+        log.info(f"Model route: audit/analysis task '{task_type}' → {ModelTier.DEEPSEEK_OPTIMIZED.value}")
+        return MODEL_STRATEGY[ModelTier.DEEPSEEK_OPTIMIZED.value]
+
     # Heuristic routing
     if has_images and "vision" not in task_type.lower():
         log.info(f"Model route: vision detected → {ModelTier.GEMINI_VISION.value}")
@@ -241,7 +231,7 @@ def route_model(
         log.info(f"Model route: context required {required_context} → {ModelTier.SONNET_MAX_LARGE.value}")
         return MODEL_STRATEGY[ModelTier.SONNET_MAX_LARGE.value]
 
-    # Default: Gemini Vision (fastest, reasonable cost, multimodal ready)
+    # Default: Gemini Flash Lite (fastest, reasonable cost, multimodal ready)
     log.info(f"Model route: default → {ModelTier.GEMINI_VISION.value}")
     return MODEL_STRATEGY[ModelTier.GEMINI_VISION.value]
 
@@ -289,10 +279,10 @@ def log_routing_decision(task_type: str, selected_model: str, rationale: str = "
 
 # Additional routing functions (backward compatibility)
 MODEL_TAGS = {
-    "fast": "grok_2m",
-    "vision": "gemini_vision",
-    "research": "deepseek_optimized",
-    "cheap": "free"
+    "fast": "gemini_vision",        # Grok 2M removed 2026-05-31 (unavailable)
+    "vision": "gemini_vision",      # Gemini 3.1 Flash Lite ($0.03/1M input)
+    "research": "deepseek_optimized",  # DeepSeek ($0.14/1M input)
+    "cheap": "free"                 # OpenRouter free tier (rate limited)
 }
 
 
