@@ -1,0 +1,51 @@
+# FLIGHT PLAN
+## Dreams2Memories Travel, LLC — Thunderbird Wing
+**Commander:** John "Yoda" Loucks | **COS:** Hale
+**Issued:** 2026-06-01 | **Status:** LIVING DOCUMENT
+
+---
+
+## MISSION
+
+*"To use extraordinary capability to deliver exceptional travel experiences — for friends I'd serve for free, and for clients who deserve better than Pavlus but don't know they can have it."*
+
+---
+
+## SECTION I — CORE ATTRIBUTES
+*Every item on this board must satisfy all six.*
+
+| # | Attribute |
+|---|-----------|
+| **A1** | Conforms to the Mission |
+| **A2** | Technically Sound |
+| **A3** | Predictable |
+| **A4** | Responsive |
+| **A5** | Standardized |
+| **A6** | Functionally Useful |
+
+---
+
+## SECTION II — PRIORITIES
+
+| # | Item | Friction / Problem | Status |
+|---|------|--------------------|--------|
+| **P1** | Reliability | System froze; no failover | ✅ DONE — Failover chain live |
+| **P2** | Speed Diagnosis | "Too unreliable, takes too long" — bottleneck unidentified | 🔴 OPEN — Commander names the bottleneck |
+| **P3** | Model Stack Architecture | Sonnet limits out Mon-Wed; MAX untrusted; $200 Grok still producing outages | ✅ IN PROGRESS — Gemini free tier wired; chain: Sonnet → Haiku → Gemini 2.5 Flash |
+| **P4** | INBOX FIRST — WF-17 Visibility | 5 docs stuck in drafts; Commander lives in inbox/Telegram not drafts | 🔴 OPEN — Auto-flag, color change, auto-send to johnloucks3, Telegram hyperlink |
+| **P5** | Dossier Ingestion Trust | Data given → no confidence it lands right → can't trust validation output | 🔴 OPEN — Prove the chain: data in → dossier updated → returns on demand |
+| **P6** | Brief Noise & Depth | Too many AM comms; headlines only; FPD flagged repeatedly (say once, done) | 🔴 OPEN — Redesign: curate, hyperlink, kill FPD noise |
+| **P7** | OpenCode ≠ Claude Code | Same prompt, different answer depending on engine | 🔴 OPEN — Investigate; standardize results across engines |
+| **P8** | Lifecycle as Prison | Touchpoints create pressure; air scans/hotel scans make Commander slower | 🔴 OPEN — Audit signal vs. noise; cut what doesn't help real work |
+| **P9** | Helps Me Do Real Work | McLeod itinerary, Furlow/Ely/Nichols validations, Spencer DMC/hotels/tours due this week | 🔴 ACTIVE — Real work blocked by limits and process friction |
+| **P10** | Standardization Gate | Email/itinerary/proposal templates drifting | 🔴 OPEN — Lock templates; repeatable quality |
+| **P11** | 40-Hour Blackout Resilience | Internet died 40+ hours May 9-11; cruise test case | 🟡 DESIGN — Acceptable degradation undefined |
+| **P12** | Cruise-Ready State | Pre-departure: queue all touchpoints, lock commitments, minimize real-time decisions | 🟡 OPEN — Checklist needed |
+| **P13** | Simple Front Door | Rondo/Bryana/Stefanie will never navigate 19 personas | 🔴 NOT STARTED — UX: smart friend, not command structure |
+| **P14** | Norway 2027 (Rondo) | Best friend, widower; 18-month window starts now | 🟡 OPEN — Perx integration; reliable research layer |
+| **P15** | Hawaii 2028 (Family) | Multi-gen logistics; AI invisible; 2-year runway | 🟡 OPEN — Coordination plan needed |
+
+---
+
+*— Hale, COS | Thunderbird Wing | 2026-06-01*
+*Edit by number. Commander approves changes.*
