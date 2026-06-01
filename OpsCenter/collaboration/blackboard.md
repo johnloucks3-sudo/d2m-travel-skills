@@ -1,141 +1,81 @@
-# D2M BLACKBOARD — SHARED STATE
-# All agents read this file FIRST before executing any task.
-# Commander or any agent updates this after significant state changes.
-# APPEND ONLY below the session log line — never edit existing entries.
+# THUNDERBIRD BLACKBOARD — HALE ↔ WING COMMUNICATION CHANNEL
+# CC (Hale) writes HALE→OC. OC writes OC→HALE. Both read at session start.
+# Auto-status section updated by blackboard_sync.py.
+# Updated: 2026-06-01 | Architecture: 5-Persona (SO-2026-05-30)
 
-Last updated: 2026-05-12T15:32MDT by ELON (Claude Code)
-Claude budget status: GREEN (MAX plan — unlimited)
+---
+
+## AUTO-STATUS [updated by blackboard_sync.py]
+
+```
+=== THUNDERBIRD BLACKBOARD [2026-06-01 08:46 MT] ===
+Budget: Claude UNKNOWN | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE
-Standing directives:
-  - Claude.ai (Opus 4) = Hale/primary operator. Claude Code = ELON/architect.
-  - Hale→ELON channel: POST https://n8n.d2mluxury.quest/webhook/elon-task
-  - ELON→Hale channel: GET https://api.d2mluxury.quest/api/blackboard
-  - PII hard fence: never route client data to Deepseek or external LLMs
-  - Commander override keyword: /use claude
-
-WING STATUS [2026-05-12 15:11 MDT]:
-  Telegram C2: ACTIVE
-  n8n: 27 workflows ACTIVE (D2M_API_KEY injected)
-  Thunderbird API: UP — 256 tools / port 8766
-  MCP Tailscale (mobile): UP — port 8768 / 0.0.0.0 — thunderbird-mcp-tailscale.service ACTIVE
-  MCP Local (Claude Code): UP — port 8765 / 127.0.0.1 — thunderbird-mcp.service ACTIVE
-  MCP OpenCode: UP — port 8767 / 127.0.0.1 — goose-mcp-http.service ACTIVE
-  Dossier Scanner: ACTIVE — 3 CRITICAL / 24 WARNING / 9 INFO (Lyons FPD alert stale — paid 2026-03-14)
-  ANTHROPIC_API_KEY: INVALID — manual refresh required at console.anthropic.com
+Open items: none logged
+Next priority: check session_autosave_latest.md
+Standing: Claude=judgment | OpenCode=ops | Deepseek=arbitrator | PII fence: Deepseek
+Session checkpoint: /home/john/Thunderbird/session_autosave_latest.md
+Full blackboard: /home/john/Thunderbird/OpsCenter/collaboration/blackboard.md
+================================================
+```
 
 ---
-SESSION LOG (append below — format: [timestamp] | [agent] | [action]):
-[2026-03-30T02:00:00MT] | Claude Sonnet 4.6 | Blackboard initialized. Phase 1 execution begin.
-[2026-03-31T17:21:01MDT] | Goose | Session started. Reading inbox and manifest.
-[2026-03-31T17:21:26MDT] | Goose | Dissent received from goose_tasker for Claude task GT-20260331-1721-CLIE. Reason: 'Instructions contain potentially directive-contradicting language: ['love group travel']. Verify this does not violate standing orders.' I confirm the intent was to explicitly *avoid* using 'Love Group Travel' as per Standing Order #7.
 
-[2026-04-01T01:16:32.496MT] | Goose | Session restarted. Reading inbox and manifest.
-[2026-05-11T21:40MDT] | ELON (Claude Code) | SITREP executed: Telegram C2 conflict resolved (send-only), n8n 27 wf ACTIVE, dossier scan 36 alerts logged, blackboard webhook LIVE.
-[2026-05-11T22:10MDT] | ELON (Claude Code) | ETB-03 COMPLETE: Gmail draft r-8832905624489139654 created to johnloucks3@gmail.com.
-[2026-05-11T22:10MDT] | ELON (Claude Code) | ETB SESSION COMPLETE: ETB-01 DONE. ETB-02 already ACTIVE. ETB-03 DONE. ETB-04 DONE.
-[2026-05-12T15:11MDT] | ELON (Claude Code) | ETB 002 COMPLETE: thunderbird-mcp-tailscale.service deployed, port 8768 / 0.0.0.0, Tailscale IP 100.69.222.124:8768/mcp verified responding. Mobile Claude.ai MCP access now live.
-[2026-05-12T15:11MDT] | ELON (Claude Code) | ETB 003 COMPLETE: Dossier scan refreshed — 44 dossiers / 3 CRITICAL / 24 WARNING / 9 INFO. Lyons FPD alert is stale (paid Mar 14). See DOSSIER SCAN section below.
-[2026-05-12T15:11MDT] | ELON (Claude Code) | ETB 005 COMPLETE: Status table generated and logged to wing_comms. ETB 001 (n8n Gmail trigger) and ETB 004 (Autonomy broadcast) pending Commander protocol details.
----
-## DOSSIER SCAN [2026-05-11 21:40 MT] | auto — ELON auto-session ETB-03
+## HALE → OC (Claude Code writes here — OC reads at session start)
 
-**36 alerts total: 3 CRITICAL · 24 WARNING · 9 INFO**
+**Last updated:** 2026-06-01
 
-### 🔴 CRITICAL (3)
-| Dossier | Category | Alert |
-|---------|----------|-------|
-| DOSSIER_Grandeur_Scandinavia_Aug2026 | payment | Payment authorized but not yet confirmed as processed |
-| Furlow_Regent_3071222_TIMELINE | payment | Payment authorized but not yet confirmed as processed |
-| Lyons_Nancy_Ken | payment | FPD OVERDUE by 59 days (Mar 14) |
+**Current Wing state:**
+- 5-Persona restructure approved and active (SO-2026-05-30)
+- AGENTS.md created — OC now auto-loads Wing context every session
+- OAuth token: EXPIRED — run token refresh before Gmail MCP calls
+- WF-17 queue: 5 drafts staged (Kuklinski x4, Nichols x1) — Commander review pending
+- McLeod departure 18 Jun — 17 days out — escalation posture needed
 
-### 🟡 WARNING — Flights with unassigned seats (24)
-DOSSIER_Regent_Loucks_Dec2026_UPDATED: 17 segments · Ely_Darrow_Regent_3096289: 9 · Furlow_Regent_3071222_TIMELINE: 13 · McLeod_Erik_Melissa_SilverMuse: 19 · Nichols_Regent_3078056: 11 · Westbrook_SilverNova_Personal: 12 · Lyons_Nancy_Ken: 16 · Loucks_Personal_SilverNova_Japan: 6 · McLeod_McGlasson_Multi: 6 · Furlow_Regent_3071222: 8 · Loucks_Regent_Grandeur_3122006: 4 · Loucks_32Day_Itinerary: 3 · Heer_Ann_Shawn_Japan: 2 · Scandi_Group_Monthly_Brief: 1 · DOSSIER_Grandeur_Scandinavia: 1 · Celebrity_Constellation_Furlow: 1
+**OC priorities this session:**
+1. Check token status: `systemctl --user status claude-oauth-keepalive.timer`
+2. Run mission board: `python3 OpsCenter/mission_board_sync.py list`
+3. Report status as Hale with 🦅
 
-### 🟡 WARNING — Insurance + Documents
-- DOSSIER_Regent_Loucks_Dec2026_UPDATED: travel insurance not confirmed
-- Ely_Darrow_Regent_3096289: insurance not confirmed; uncertain portal upload
-- DOSSIER_Grandeur_Scandinavia_Aug2026: uncertain portal upload ("I think?")
-- Furlow_Regent_3071222: passport verification pending
-- Loucks_Regent_Grandeur_3122006: passport pending
-- Kuklinski_Viking_Panama: passport pending
-- McLeod_McGlasson_Multi: passport pending
-
-### ℹ️ INFO — Open Action Items (9)
-Kuklinski: 10 · Loucks_Regent_Grandeur: 14 · Lyons_Nancy_Ken: 8 · Lyons_Nancy_Ken_drive: 6 · Loucks_Ryan_Family: 7 · Loucks_Justin_Family: 5 · Westbrook: 5 · Ely_Darrow: 4 · Britan: 4
-
-*Commander authorization required before Gmail digest is sent.*
+**Capabilities available in CC (Claude Code) — call via /ask:**
+- Full MCP suite: Gmail (d2mconcierge + johnloucks3), Google Drive, Calendar, Playwright browser
+- Skills: /email-draft, /trip-validation, /itinerary, /cruise-research, /flight-price, /hotel-price
+- Subagents: Sterling (A7), Harlan (A9), Intel (A2), Dani (A3) — spawnable via Agent tool
+- Workflows: multi-agent fan-out for research, code review, email batch
+- Web browsing (headless Playwright) for portal scraping, cruise research
 
 ---
-## INFRASTRUCTURE [2026-05-11 21:50 MT] | ELON auto-session ETB-04
 
-**Blackboard Read Webhook — LIVE**
-- URL: `https://n8n.d2mluxury.quest/webhook/z4pYJ2Dr3XqLnf5d/webhook/blackboard`
-- Method: GET (no auth required)
-- Response: `{ "content": "<blackboard.md text>", "path": "<path>", "timestamp": "<ISO 8601>" }`
-- n8n Workflow ID: z4pYJ2Dr3XqLnf5d | Status: ACTIVE
-- ⚠️ Note: Requires deactivate/activate toggle after each n8n restart (n8n in-memory webhook registration issue). Auto-toggle script at `/home/john/Thunderbird/scripts/n8n_webhook_reinit.sh`.
+## OC → HALE (OpenCode writes here — CC reads at next session)
 
-**n8n System Status**
-- User-level n8n.service: DISABLED (was conflicting with system service)
-- System n8n.service: ACTIVE (PID 36606) | All 27 d2m-wf workflows ACTIVE
+**Last updated:** [OC fills this in]
+
+**Completed this session:** —
+
+**Blocked / needs CC help:** —
+
+**Handoffs to CC:** —
 
 ---
-## DOSSIER SCAN [2026-05-12 15:11 MT] | ELON Claude Code — ETB 003
 
-**44 dossiers scanned | 3 CRITICAL · 24 WARNING · 9 INFO**
+## STANDING CONTEXT (permanent — both sides read)
 
-### 🔴 CRITICAL (3)
-| Dossier | Category | Alert |
-|---------|----------|-------|
-| DOSSIER_Grandeur_Scandinavia_Aug2026 | payment | Payment authorized but not yet confirmed as processed |
-| Furlow_Regent_3071222_TIMELINE | payment | Payment authorized but not yet confirmed as processed |
-| Lyons_Nancy_Ken | payment | FPD OVERDUE 60 days (Mar 14) — ⚠️ STALE: friends/gratis, likely suppressed |
+| Rule | Detail |
+|---|---|
+| Email drafts | d2mconcierge ONLY — never johnloucks3 |
+| Client sends | WF-17 gate — Commander sends — never Wing |
+| PII fence | Never route client data to DeepSeek/external LLMs |
+| Mission board | `mission_board_sync.py` only — never write JSON directly |
+| $ figures | Harlan 6-step sign-off required before WF-17 |
+| Dani chain | 6 steps mandatory for every client product |
 
-### 🟡 WARNING — Flights unassigned seats (24 dossiers)
-DOSSIER_Regent_Loucks_Dec2026_UPDATED: 17 · Ely_Darrow: 9 · Furlow_TIMELINE: 13 · McLeod_SilverMuse: 19 · Nichols: 11 · Westbrook: 12 · Lyons: 16 · Loucks_Japan: 6 · McLeod_McGlasson: 6 · Furlow: 8 · Loucks_Grandeur: 4 · Loucks_32Day: 3 · Heer_Japan: 2 · Scandi_Brief: 1 · Grandeur_Scandi: 1 · Celebrity_Furlow: 1
+**Primary sources (client data):** TESS portal → booking record → client dossier (in priority order)
 
-### 🟡 WARNING — Insurance/Documents
-- DOSSIER_Regent_Loucks_Dec2026_UPDATED: travel insurance not confirmed
-- Ely_Darrow: insurance not confirmed; uncertain portal upload
-- DOSSIER_Grandeur_Scandinavia_Aug2026: uncertain portal upload ("I think?")
-- Furlow_Regent_3071222: passport pending
-- Loucks_Regent_Grandeur_3122006: passport pending
-- Kuklinski_Viking_Panama: passport pending
-- McLeod_McGlasson_Multi: passport pending
-
-### ℹ️ INFO — Open action items (9 dossiers)
-Kuklinski: 10 · Loucks_Regent_Grandeur: 14 · Lyons: 8 · Lyons_drive: 6 · Loucks_Ryan: 7 · Loucks_Justin: 5 · Westbrook: 5 · Ely_Darrow: 4 · Britan: 4
-
----
-## ETB STATUS [2026-05-12 15:11 MT] | ELON Claude Code — ETB 005
-
-| ETB | Title | Complexity | Status | Notes |
-|-----|-------|-----------|--------|-------|
-| 001 | n8n Gmail trigger build | Moderate | ✅ COMPLETE | d2m-wf-gmail-claude-trigger ACTIVE (ID: pl1M5NRh4uofPpdf). Polls Gmail label:d2m-ai-process every 5 min → Thunderbird API → R2 log + Telegram |
-| 002 | COMMAND-HUB SSE/HTTP migration | Moderate | ✅ COMPLETE | thunderbird-mcp-tailscale.service ACTIVE port 8768 / 0.0.0.0. Mobile endpoint: http://100.69.222.124:8768/mcp |
-| 003 | Blackboard diagnostic | Simple | ✅ COMPLETE | 44 dossiers / 3C/24W/9I. See scan above. |
-| 004 | Autonomy broadcast | Moderate | ✅ COMPLETE | Instructions.md v1.1 written to YOGA. CLAUDE_DESKTOP_INIT + opencode_memory updated. ELON task webhook LIVE. |
-| 005 | ETB status query | Simple | ✅ COMPLETE | This table |
-
-**5/5 ETBs COMPLETE.**
-
----
-## ELON ACK — SOP-ELON-001 [2026-05-12T15:32MDT]
-Designations confirmed. HALE = Claude.ai sole COS. ELON = Claude Code A12.
-
-SOP-ELON-001 PRIORITY EXECUTION STATUS:
-- Priority 1 (Telegram C2 fix): ✅ DONE — thunderbird-telegram-c2.service started, ACTIVE
-- Priority 2 (Activate 16 n8n workflows): ✅ DONE — 28/34 active. CCR Install variants intentionally inactive (one-shot). New workflows deployed.
-- Priority 3 (Deploy /webhook/elon-task): ✅ DONE — LIVE at https://n8n.d2mluxury.quest/webhook/elon-task (ID: 6U3tz0RFwMLI4lPh)
-- Priority 4 (Blackboard read webhook): ✅ DONE — LIVE at https://n8n.d2mluxury.quest/webhook/z4pYJ2Dr3XqLnf5d/webhook/blackboard
-- Priority 5 (Refresh Anthropic API key): ❌ BLOCKED — requires console.anthropic.com access (Commander action)
-
-ETB EXECUTION STATUS:
-- ETB 001 (Gmail trigger): IN EXECUTION — workflow JSON being built
-- ETB 004 (Autonomy broadcast): IN EXECUTION — Instructions.md written to YOGA, blackboard updated
-- Instructions.md now live at: /home/john/Thunderbird/OpsCenter/Instructions.md
-
-Standing by for HALE tasking via claude_inbox.md.
-— ELON (A12)
-
+**Key scripts:**
+- Email draft: `core/email/thunderbird_gmail.py → gmail_create_draft_sync()`
+- Drive write: `scripts/drive_upload_robust.py → upload_file()`
+- Mission board: `OpsCenter/mission_board_sync.py`
+- Headless CC: `ask 'task'` or `OpsCenter/dispatch_claude.py`
+- Trip validation: `itinerary/validate_dossier.py`
+- Itinerary: `itinerary/luxury_itinerary_generator.py` (photos required)

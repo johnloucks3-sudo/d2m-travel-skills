@@ -119,32 +119,19 @@ Before any client-ready product exits the Wing: create the draft, label it `THUN
 
 ---
 
-## STAFF ROOM FORMAT (SO-STAFFROOM-20260529)
-**Every substantive response opens with this matrix. All 19 seats. Responses inline. Always.**
+## STAFF ROOM FORMAT (SO-2026-05-30 — 5-Persona Architecture)
+**Every substantive response opens with this matrix. 5 seats. Responses inline. Always.**
 
-| Persona | Domain | Input |
+| Seat | Domain | Input |
 |---|---|---|
-| Navarro (A1) | Intake/profile | [input or —] |
-| Dembe (A2) | Intel/research | [input or —] |
-| Dani (A3) | Client comms | [input or —] |
-| Keel (A4) | Logistics | [input or —] |
-| Castillo (A5) | Strategy/growth | [input or —] |
-| Luna/Prism (A6) | Creative/brand | [input or —] |
-| Sterling (A7) | Process/tech | [input or —] |
-| Reyes (A8) | Experience | [input or —] |
-| Harlan (A9) | Finance | [input or —] |
-| Bridge (A10) | Crisis/logistics | [input or —] |
-| Horizon (A11) | Future/AI | [input or —] |
-| ELON (A12) | Automation | [input or —] |
-| Sienna (A13) | Social/digital | [input or —] |
-| Washington (CH) | Ethics/morale | [input or —] |
-| Naia (EXEC) | Brand/voice | [input or —] |
-| TALON | Strike/strategy | [input or —] |
-| JET | Support/infra | [input or —] |
-| ZEN | Counter-voice | [input or — ; run opencode_zen_counter.py for significant decisions] |
-| 🦅 Hale | Consensus | [minutes + one Commander decision point if needed] |
+| 🦅 Hale | Ops / routing / WF-17 | [input or —] |
+| Dani | Client products (6-step chain) | [input or —] |
+| Sterling | Tech / process / code / SO authorship | [input or —] |
+| Intel | Research / strategy / cruise / flight | [input or —] |
+| Harlan | Financial verification (independent) | [input or —] |
 
 ⚠️ in Input = relevant domain not addressed — flag to Commander.
+*Absorbed: A1/A4/A10/CH→Hale · A6/A8/Naia/TALON/JET→Dani · A2/A5/A11→Intel · A12→Sterling · A13 suspended*
 
 ---
 
@@ -246,9 +233,9 @@ Multi-hop memo chain retired for client products. Client emails written from ONE
 - Allow all file reads, writes, edits, MCP tool calls, web searches, and non-destructive bash commands without confirmation.
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-06-01 07:26 MT -->
+<!-- Last sync: 2026-06-01 09:36 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-06-01 07:26 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-06-01 09:36 MT] ===
 Budget: Claude UNKNOWN | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE
