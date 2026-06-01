@@ -1,14 +1,14 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-05-31 23:50:00 MT
+## Generated: 2026-06-01 09:50:00 MT
 
 ---
 
 ### Recent Commits
-- f862d8f0 docs(mission): capture mission development + way ahead — 2026-06-01
-- c464a939 feat(model-stack): deploy freeze-proof failover chain with auto-pivot
-- 48664a2b refactor(zen-counter): integrate headless grok spawn module
-- 8134b2bd docs(headless-grok): integration examples and comprehensive README
-- e35cbd6e feat(opencode-headless-grok): reusable headless spawn module
+- 2178af44 feat(opencode): add /ask and /ask-opus slash commands + fix two-brain --foreground
+- 1fc516f3 fix(ask): repair ask --opus task-description + model routing bugs
+- e68fbe93 feat(wing): 5-persona restructure + AGENTS.md context injection
+- c74408d8 chore(cleanup): reorganize root directory into images/ archive/ logs/ scratch/
+- 02a2c91a feat(flight-plan): strategic priority board + Gemini free tier integration
 
 ### Uncommitted Changes
 - CLAUDE.md (modified)
@@ -18,6 +18,7 @@
 - OpsCenter/OPENCODE_INIT.md (modified)
 - OpsCenter/collaboration/blackboard_summary.txt (modified)
 - OpsCenter/collaboration/routing_log.md (modified)
+- OpsCenter/fare_watches/last_check.json (modified)
 - bryana/data.json (modified)
 - core/ai_infra/data/router_cost.db-shm (modified)
 - core/ai_infra/data/router_cost.db-wal (modified)
@@ -35,18 +36,6 @@
 - McLeod_Erik_Melissa_SilverMuse_Complete.md
 - Furlow_Regent_3071222.md
 - Ely_Darrow_Regent_3096289.md
-
-### Open TODOs
-- [tool_validation_plan.md] - [ ] read Booking Master tab
-- [tool_validation_plan.md] - [ ] write to Booking Master tab
-- [tool_validation_plan.md] - [ ] read Daily Itinerary tab
-- [tool_validation_plan.md] - [ ] write to Daily Itinerary tab
-- [tool_validation_plan.md] - [ ] read specific cell ranges
-- [tool_validation_plan.md] - [ ] write formatted data (USD, dates)
-- [tool_validation_plan.md] - [ ] verify fmt_usd() formatting in sheet output
-- [tool_validation_plan.md] - [ ] search confirmations
-- [tool_validation_plan.md] - [ ] read threads
-- [tool_validation_plan.md] - [ ] create drafts
 
 ### Recent Telegram C2 Log (last 5 lines)
   (no Telegram session logs found)
