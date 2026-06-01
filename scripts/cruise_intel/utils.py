@@ -7,6 +7,7 @@ from datetime import datetime, date, timedelta
 from typing import Optional, List, Dict, Any
 
 from config import MONTH_MAP, EUROPE_MED_KEYWORDS, PONANT_EXCLUDE_PORTS, SHIP_LINE_MAP
+from config import TARGET_PORTS, LUXURY_ULTRA_LINES
 
 
 # ── Date parsing ───────────────────────────────────────────────────────────────
@@ -111,6 +112,21 @@ def is_europe_med_arctic(from_port: str, to_port: str, route_name: str = '') -> 
     if any(ex in text for ex in _SOUTHERN_HEMISPHERE_EXCLUDE):
         return False
     return any(kw in text for kw in EUROPE_MED_KEYWORDS)
+
+
+def has_target_port(from_port: str, to_port: str, route_name: str = '') -> bool:
+    """Return True if the sailing touches *at least one* of the T2 South Pacific/APAC target ports.
+    Used for the May/June 2028 re-scope (Papeete, Auckland, Sydney, Melbourne, Singapore + context).
+    """
+    text = (from_port + ' ' + to_port + ' ' + route_name).lower()
+    return any(p in text for p in TARGET_PORTS)
+
+
+def is_luxury_ultra_line(line_name: str) -> bool:
+    """Return True if the (canonical) cruise line is in the luxury/ultra-luxury whitelist for this scope."""
+    if not line_name:
+        return False
+    return line_name in LUXURY_ULTRA_LINES or line_name.strip() in LUXURY_ULTRA_LINES
 
 
 def is_ponant_excluded(from_port: str, to_port: str) -> bool:

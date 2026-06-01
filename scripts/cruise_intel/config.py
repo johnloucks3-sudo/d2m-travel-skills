@@ -258,3 +258,44 @@ MONTH_MAP = {
     'Jan':1,'Feb':2,'Mar':3,'Apr':4,'Jun':6,'Jul':7,'Aug':8,
     'Sep':9,'Oct':10,'Nov':11,'Dec':12,
 }
+
+
+# ── T2 Re-scope: South Pacific / APAC Luxury (May/June 2028) ───────────────────
+# Target: any sailing touching *at least one* of the listed ports (Papeete, Auckland, etc.)
+# Lines: luxury + ultra-luxury only (filter applied at assembly in build_master)
+# Usage: python3 run_pipeline.py --year 2028 --months 5 6 --tag may-june-2028-spac --no-xxx (skip slow)
+TARGET_YEAR = 2028
+TARGET_MONTHS = [5, 6]  # May, June 2028
+
+TARGET_PORTS = [
+    'papeete', 'tahiti',
+    'auckland', 'sydney', 'melbourne',
+    'singapore',
+    # Reasonable regional context (increases recall without diluting luxury focus)
+    'hobart', 'wellington', 'christchurch', 'port kembla', 'fremantle',
+    'noumea', 'suva', 'port vila', 'moorea', 'bora bora',
+]
+
+LUXURY_ULTRA_LINES = {
+    'Silversea',
+    'Regent Seven Seas Cruises',
+    'Seabourn',
+    'Crystal',
+    'PONANT',
+    'Explora Journeys',
+    'Scenic',
+    'Ritz-Carlton Yacht Club',
+    'Viking',                    # Ocean cruises (selective)
+    'Oceania Cruises',
+    'Azamara',
+    'Windstar Cruises',
+    'SeaDream Yacht Club',
+    'Atlas Ocean Voyages',
+    'Paul Gauguin Cruises',      # Tahiti specialist
+    'Lindblad Expeditions',
+}
+
+# Recommended --tag for this re-scope
+SPAC_TAG = 'may-june-2028-spac'
+SPAC_MASTER_CSV = OUTPUT_DIR / f'T2_MASTER_{SPAC_TAG}.csv'
+SPAC_REPORT   = OUTPUT_DIR / f'T2_CRUISE_REPORT_{SPAC_TAG}.html'

@@ -3,7 +3,9 @@
 Cruise Intel Pipeline — One-Command Orchestrator  (Wave 3 — 10 sources)
 
 Usage:
-  python3 run_pipeline.py                              # Full run: Oct/Nov 2026
+  python3 run_pipeline.py                              # Full run: Oct/Nov 2026 (Europe default)
+  # Re-scoped (Commander 2026-05-31):
+  python3 run_pipeline.py --year 2028 --months 5 6 --tag may-june-2028-spac --spac
   python3 run_pipeline.py --months 10 11 12            # Add December
   python3 run_pipeline.py --year 2027                  # Different year
   python3 run_pipeline.py --tag 2026-full              # Named output: T2_MASTER_2026-full.csv
@@ -21,6 +23,8 @@ Usage:
 Multi-period example:
   python3 run_pipeline.py --year 2026 --months 7 8 9 10 11 12 --tag 2026-full --skip-cruiseplum
   python3 run_pipeline.py --year 2027 --months 1 2 3 4 5 6 7 8 9 --tag 2027-h1 --skip-cruiseplum
+# T2 re-scope (South Pacific / APAC luxury, May/June 2028)
+  python3 run_pipeline.py --year 2028 --months 5 6 --tag may-june-2028-spac --spac --skip-oat --skip-ponant
   python3 merge_periods.py output/T2_MASTER_2026-full.csv output/T2_MASTER_2027-h1.csv
 
 NOTE: deluxecruises.com scraping requires manual gstack session.
@@ -281,6 +285,7 @@ def run_pipeline(
             output_csv=output_csv,
             stats_path=output_stats,
             skip_smoke=skip_smoke,
+            apply_spac=args.spac,
         )
         t.records = len(entries)
 
@@ -383,6 +388,8 @@ if __name__ == '__main__':
                         help='Skip all scraping, only reassemble master CSV')
     parser.add_argument('--skip-smoke',         action='store_true')
     parser.add_argument('--verbose',            action='store_true')
+    parser.add_argument('--spac', action='store_true',
+                        help='T2 re-scope: apply South Pacific/APAC luxury filter (May/June 2028 targets + luxury lines)')
     args = parser.parse_args()
 
     run_pipeline(

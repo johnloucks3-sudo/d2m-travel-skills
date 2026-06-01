@@ -120,7 +120,7 @@ task: |
 
 ---
 ## TASK: POST-INTEGRATION-FIX-WATCHER-SPAWN
-status: PENDING
+status: COMPLETE — 2026-05-31T19:30:00Z — Fix implemented: mcp_light.json created, spawn module accepts mcp_config param, watcher retrofitted with light MCP
 from: Commander evaluation
 priority: P1
 created: 2026-05-31
@@ -144,12 +144,25 @@ issue: |
 
 ---
 ## TASK: TP-ALERT-20260531
-status: UNREAD
+status: COMPLETE — 2026-05-31T19:00:00Z — Acknowledged in wing_comms.md (100 touchpoints, dedup active)
 from: TP Alert Engine
 priority: P0
 stakes: high
 task: |
   TP Alert Engine ran 2026-05-31 at 12:00 MT.
+  100 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+---
+## TASK: TP-ALERT-20260531
+status: COMPLETE — 2026-05-31T19:00:00Z — Acknowledged in wing_comms.md (100 touchpoints, dedup active)
+from: TP Alert Engine
+priority: P0
+stakes: high
+task: |
+  TP Alert Engine ran 2026-05-31 at 18:00 MT.
   100 high-severity touchpoints require attention.
   Review wing_comms.md for full staff tasking.
   Expected output: Review and acknowledge in wing_comms.md

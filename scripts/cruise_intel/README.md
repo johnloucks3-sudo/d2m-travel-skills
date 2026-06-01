@@ -246,3 +246,40 @@ When a voyage appears on 3+ sources, it carries confidence. When pricing differs
 ---
 
 *Dreams2Memories Travel, LLC · Thunderbird Wing · T2 Wave 3 Complete 2026-05-24*
+
+---
+
+## T2 Re-scope — South Pacific / APAC Luxury (May/June 2028)
+
+**New scope (Commander directive 2026-05-31):**
+- Period: May + June 2028
+- Filter: any sailing touching **at least one** of: Papeete (Tahiti), Auckland, Sydney, Melbourne, Singapore (+ reasonable regional context)
+- Lines: luxury + ultra-luxury only (see `LUXURY_ULTRA_LINES` in `config.py`)
+
+**Recommended run:**
+```bash
+cd ~/Thunderbird/scripts/cruise_intel
+python3 run_pipeline.py \
+  --year 2028 --months 5 6 \
+  --tag may-june-2028-spac \
+  --spac \
+  --skip-oat --skip-ponant --skip-cruiseplum   # start with fast sources; add back as needed
+```
+
+**Direct build with filter (after manual/ cached scrapes):**
+```bash
+python3 build_master.py --spac --output output/T2_MASTER_may-june-2028-spac.csv
+```
+
+**Artifacts produced:**
+- `T2_MASTER_may-june-2028-spac.csv`
+- `T2_CRUISE_REPORT_may-june-2028-spac.html`
+- Per-source JSONs (reuse with --build-only on subsequent runs)
+
+**Notes:**
+- 2028 schedules will be sparse early; re-run periodically as inventory opens (12–18 mo horizon).
+- Aggregators (CruiseMapper, CruisesOnly, CruisePlum) are the highest-yield for this geography.
+- Old Europe/Med pipeline remains untouched (use without `--spac` and original tags).
+- Filter logic lives in `utils.py:has_target_port()` + `is_luxury_ultra_line()` + assembly in `build_master.py`.
+
+**Standing order:** When re-running for this scope, always use `--tag` and `--spac` to keep datasets separate.

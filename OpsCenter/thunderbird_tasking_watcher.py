@@ -45,6 +45,7 @@ OC_INBOX      = BASE / "OpsCenter/collaboration/opencode_inbox.md"
 CLAUDE_OUTBOX = BASE / "OpsCenter/collaboration/claude_outbox.md"
 ACTIVITY      = BASE / "OpsCenter/collaboration/activity_board.md"
 OAUTH_CACHE   = BASE / "OpsCenter/.claude_oauth_cache"
+MCP_LIGHT     = "/home/john/.claude/mcp_light.json"
 LOG_DIR       = BASE / "logs"
 LOG_DIR.mkdir(exist_ok=True)
 
@@ -254,13 +255,14 @@ class InboxHandler(FileSystemEventHandler):
             f"Then append a summary to /home/john/Thunderbird/OpsCenter/collaboration/wing_comms.md."
         )
 
-        # Use foolproof wrapper (background mode, no direct subprocess.Popen)
+        # Use foolproof wrapper (background mode, light MCP — no travel MCP servers)
         result = spawn_headless_claude(
             prompt=prompt,
             output_file=str(outbox_file),
             model=model,
             task_name="hale_inbox_process",
-            background=True
+            background=True,
+            mcp_config=MCP_LIGHT,
         )
 
         if result.get("status") in ["SPAWNED", "COMPLETED"]:

@@ -22,7 +22,10 @@ from config import (
     CRUISEMAPPER_JSON, CRUISESONLY_JSON, CRUISEPLUM_JSON,
     CSV_COLUMNS, SHIP_LINE_MAP, LINE_CANONICAL,
 )
-from utils import parse_date, norm_ship, find_match, resolve_cruise_line, normalize_flag
+from utils import (
+    parse_date, norm_ship, find_match, resolve_cruise_line, normalize_flag,
+    has_target_port, is_luxury_ultra_line,
+)
 
 
 def load_json(path: Path, label: str) -> list:
@@ -357,6 +360,25 @@ def fill_missing_lines(entries: list) -> int:
     return fixed
 
 
+def apply_spac_filters(entries: list, require_target_port: bool = True, require_luxury: bool = True) -> list:
+    """Re-scope filter for T2 May/June 2028 South Pacific/APAC run.
+    Keeps only entries that (optionally) touch a target port AND are luxury/ultra-luxury lines.
+    Route text is used for port check when present.
+    """
+    kept = []
+    for e in entries:
+        line = e.get('cruise_line', '')
+        route = e.get('route', '')
+        from_p = ''  # route text usually contains the ports
+        to_p = ''
+        if require_target_port and not has_target_port(from_p, to_p, route):
+            continue
+        if require_luxury and not is_luxury_ultra_line(line):
+            continue
+        kept.append(e)
+    return kept
+
+
 def smoke_check(entries: list,
                 deluxe_expected: int, perx_expected: int,
                 oat_expected: int, ponant_expected: int,
@@ -478,19 +500,20 @@ def write_stats(entries: list, sources: dict, path: Path) -> None:
 
 
 def build_master(
-    deluxe_path: Path        = DELUXE_JSON,
-    perx_path: Path          = PERX_JSON,
-    oat_path: Path           = OAT_JSON,
-    ponant_path: Path        = PONANT_CLEAN_JSON,
-    hx_path: Path            = HX_JSON,
-    seadream_path: Path      = SEADREAM_JSON,
-    explora_path: Path       = EXPLORA_JSON,
-    cruisemapper_path: Path  = CRUISEMAPPER_JSON,
-    cruisesonly_path: Path   = CRUISESONLY_JSON,
-    cruiseplum_path: Path    = CRUISEPLUM_JSON,
-    output_csv: Path         = MASTER_CSV,
-    stats_path: Path         = STATS_JSON,
-    skip_smoke: bool         = False,
+    deluxe_path: Path = DELUXE_JSON,
+    perx_path: Path = PERX_JSON,
+    oat_path: Path = OAT_JSON,
+    ponant_path: Path = PONANT_CLEAN_JSON,
+    hx_path: Path = HX_JSON,
+    seadream_path: Path = SEADREAM_JSON,
+    explora_path: Path = EXPLORA_JSON,
+    cruisemapper_path: Path = CRUISEMAPPER_JSON,
+    cruisesonly_path: Path = CRUISESONLY_JSON,
+    cruiseplum_path: Path = CRUISEPLUM_JSON,
+    output_csv: Path = MASTER_CSV,
+    stats_path: Path = STATS_JSON,
+    skip_smoke: bool = False,
+    apply_spac: bool = False,   # T2 re-scope: South Pacific/APAC luxury (May/June 2028)
 ) -> list:
     print('[build] Loading source data...')
     deluxe_data       = load_json(deluxe_path,       'deluxecruises')
@@ -550,6 +573,12 @@ def build_master(
             canon_fixed += 1
     if canon_fixed:
         print(f'[build] Canonicalized {canon_fixed} cruise_line names via LINE_CANONICAL')
+
+    # T2 re-scope filter (South Pacific / APAC luxury) — applied only when requested
+    if apply_spac:
+        before = len(entries)
+        entries = apply_spac_filters(entries, require_target_port=True, require_luxury=True)
+        print(f'[build] SPAC filter applied: {before} → {len(entries)} (target ports + luxury/ultra only)')
 
     # Sort by departure date
     entries.sort(key=lambda e: e.get('departure_date', ''))
@@ -654,6 +683,8 @@ if __name__ == '__main__':
     parser.add_argument('--output',  type=Path, default=MASTER_CSV)
     parser.add_argument('--stats',   type=Path, default=STATS_JSON)
     parser.add_argument('--skip-smoke', action='store_true')
+    parser.add_argument('--spac', action='store_true',
+                        help='Apply T2 South Pacific/APAC luxury re-scope filter (target ports + luxury lines only)')
     args = parser.parse_args()
 
     build_master(
@@ -664,4 +695,5 @@ if __name__ == '__main__':
         output_csv=args.output,
         stats_path=args.stats,
         skip_smoke=args.skip_smoke,
+        apply_spac=args.spac,
     )

@@ -3560,3 +3560,16 @@ DeepSeek V4: 196 sessions, $9.0475
 **Notes:** PID 2400010 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260531_120002.log | Inbox: opencode_inbox.md
 
 ---
+
+### 2026-05-31 18:00:00 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: T2-COMMS-BUILD-20260518 status: COMPLETE — 2026-05-31T07:45:00Z — ESCALATED TO COMMANDER note: Hard stop 20
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 2640568 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260531_180000.log | Inbox: opencode_inbox.md
+
+---

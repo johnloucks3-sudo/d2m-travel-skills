@@ -1,0 +1,20 @@
+{
+  "claude_max": {
+    "limit_tokens_weekly": 2000000,
+    "used_this_week": 847000,
+    "reserved_critical": 400000,
+    "alert_at_pct": 85
+  },
+  "grok_xai": {
+    "limit_dollars": 10.0,
+    "spent": 6.11,
+    "alert_at_pct": 80
+  },
+  "deepseek_flash": {
+    "limit_dollars": 2.0,
+    "spent": 0.0,
+    "is_fallback": true
+  },
+  "last_alert": null,
+  "last_summary": "2026-05-31T22:08:54.731459"
+}

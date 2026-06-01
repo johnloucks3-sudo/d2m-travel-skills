@@ -1,5 +1,5 @@
 # HALE — EOD Briefing
-*Generated: 2026-05-30 17:00 MT*
+*Generated: 2026-05-31 17:00 MT*
 
 ---
 
@@ -23,4 +23,4 @@
 - **Command Ready:** ✅ (COS Online)
 
 ---
-*— Ms. Victoria "Victory" Hale, SES-6 | Thunderbird Wing | 2026-05-30 17:00 MT*
+*— Ms. Victoria "Victory" Hale, SES-6 | Thunderbird Wing | 2026-05-31 17:00 MT*
