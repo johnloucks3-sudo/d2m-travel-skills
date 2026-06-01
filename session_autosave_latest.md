@@ -1,14 +1,14 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-06-01 09:50:00 MT
+## Generated: 2026-06-01 10:00:00 MT
 
 ---
 
 ### Recent Commits
+- 5023cd94 chore(session-close): 2026-06-01 CC/OC consistency session close
+- f113d067 feat(oc-skills): add /email-draft, /validate, /itinerary procedure skills
 - 2178af44 feat(opencode): add /ask and /ask-opus slash commands + fix two-brain --foreground
 - 1fc516f3 fix(ask): repair ask --opus task-description + model routing bugs
 - e68fbe93 feat(wing): 5-persona restructure + AGENTS.md context injection
-- c74408d8 chore(cleanup): reorganize root directory into images/ archive/ logs/ scratch/
-- 02a2c91a feat(flight-plan): strategic priority board + Gemini free tier integration
 
 ### Uncommitted Changes
 - CLAUDE.md (modified)
@@ -18,13 +18,10 @@
 - OpsCenter/OPENCODE_INIT.md (modified)
 - OpsCenter/collaboration/blackboard_summary.txt (modified)
 - OpsCenter/collaboration/routing_log.md (modified)
-- OpsCenter/fare_watches/last_check.json (modified)
 - bryana/data.json (modified)
 - core/ai_infra/data/router_cost.db-shm (modified)
 - core/ai_infra/data/router_cost.db-wal (modified)
 - reverie (modified)
-- session_autosave_latest.html (modified)
-- session_autosave_latest.md (modified)
 
 ### Active Work
 - SSS: 0 pending decision(s)

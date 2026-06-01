@@ -1468,7 +1468,7 @@
     {
       "id": "MISSION-093",
       "title": "OC Skill: /dossier",
-      "status": "in_progress",
+      "status": "completed",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "Smart client dossier lookup by name. Search dossiers/ dir, surface key fields (ship, FPD, booking ref, specials), TESS cross-ref. Teach OC to find and parse any client file in <10s. P1",
@@ -1478,12 +1478,13 @@
       "escalation_rule": null,
       "logs": [],
       "created_at": "2026-06-01T15:52:17.060911+00:00",
-      "updated_at": "2026-06-01T15:52:17.060921+00:00"
+      "updated_at": "2026-06-01T15:52:17.060921+00:00",
+      "completed_at": "2026-06-01T16:07:22.722674+00:00"
     },
     {
       "id": "MISSION-094",
       "title": "OC Skill: /morning-brief",
-      "status": "in_progress",
+      "status": "completed",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "Daily brief generation: blackboard_sync.py + mission_board_sync.py list + format + send to johnloucks3 full send. Teach OC to run this autonomously at 0600 without searching for scripts. P1",
@@ -1493,12 +1494,13 @@
       "escalation_rule": null,
       "logs": [],
       "created_at": "2026-06-01T15:52:17.087041+00:00",
-      "updated_at": "2026-06-01T15:52:17.087051+00:00"
+      "updated_at": "2026-06-01T15:52:17.087051+00:00",
+      "completed_at": "2026-06-01T16:07:22.748620+00:00"
     },
     {
       "id": "MISSION-095",
       "title": "OC Skill: /health",
-      "status": "in_progress",
+      "status": "completed",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "Wing health check: OAuth token status, max-proxy service, Telegram bots, MCP service, Chrome debug port. Exact systemctl commands \u2014 no searching. P1",
@@ -1508,12 +1510,13 @@
       "escalation_rule": null,
       "logs": [],
       "created_at": "2026-06-01T15:52:17.112127+00:00",
-      "updated_at": "2026-06-01T15:52:17.112138+00:00"
+      "updated_at": "2026-06-01T15:52:17.112138+00:00",
+      "completed_at": "2026-06-01T16:07:22.775221+00:00"
     },
     {
       "id": "MISSION-096",
       "title": "OC Skill: /cruise-research",
-      "status": "in_progress",
+      "status": "completed",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "Cruise research procedure: rssc_full_scrape.py, rssc_targeted_scrape.py, thunderbird_fare_watch.py. Teach OC scraper sequence, output format, Drive storage of results. P2",
@@ -1523,12 +1526,13 @@
       "escalation_rule": null,
       "logs": [],
       "created_at": "2026-06-01T15:52:26.724497+00:00",
-      "updated_at": "2026-06-01T15:52:26.724509+00:00"
+      "updated_at": "2026-06-01T15:52:26.724509+00:00",
+      "completed_at": "2026-06-01T16:07:22.801303+00:00"
     },
     {
       "id": "MISSION-097",
       "title": "OC Skill: /flight-price",
-      "status": "in_progress",
+      "status": "completed",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "Flight price lookup: thunderbird_centrav_search.py (B2B wholesale) + thunderbird_flight_search.py. Teach OC to run both, format results, compare B2B vs consumer pricing. P2",
@@ -1538,12 +1542,13 @@
       "escalation_rule": null,
       "logs": [],
       "created_at": "2026-06-01T15:52:26.750460+00:00",
-      "updated_at": "2026-06-01T15:52:26.750472+00:00"
+      "updated_at": "2026-06-01T15:52:26.750472+00:00",
+      "completed_at": "2026-06-01T16:07:22.825782+00:00"
     },
     {
       "id": "MISSION-098",
       "title": "OC Skill: /fare-watch",
-      "status": "in_progress",
+      "status": "completed",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "Active client fare monitoring: thunderbird_fare_watch.py for all active bookings. Teach OC which clients to watch, alert thresholds, how to surface changes to Commander. P2",
@@ -1553,12 +1558,13 @@
       "escalation_rule": null,
       "logs": [],
       "created_at": "2026-06-01T15:52:26.792464+00:00",
-      "updated_at": "2026-06-01T15:52:26.792475+00:00"
+      "updated_at": "2026-06-01T15:52:26.792475+00:00",
+      "completed_at": "2026-06-01T16:07:22.850551+00:00"
     },
     {
       "id": "MISSION-099",
       "title": "OC Skill: /tour-price",
-      "status": "in_progress",
+      "status": "completed",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "Shore excursion pricing: thunderbird_tour_search.py via GetYourGuide. Teach OC port lookup, operator selection, output format for itinerary integration. P3",
@@ -1568,12 +1574,13 @@
       "escalation_rule": null,
       "logs": [],
       "created_at": "2026-06-01T15:52:26.816661+00:00",
-      "updated_at": "2026-06-01T15:52:26.816668+00:00"
+      "updated_at": "2026-06-01T15:52:26.816668+00:00",
+      "completed_at": "2026-06-01T16:07:22.874657+00:00"
     },
     {
       "id": "MISSION-100",
       "title": "OC Skill: /transfer-price",
-      "status": "in_progress",
+      "status": "completed",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "Transfer pricing: thunderbird_transfers.py via Kiwitaxi. Airport/port transfers for active clients. Teach OC route lookup and quote format. P3",
@@ -1583,7 +1590,8 @@
       "escalation_rule": null,
       "logs": [],
       "created_at": "2026-06-01T15:52:26.841411+00:00",
-      "updated_at": "2026-06-01T15:52:26.841420+00:00"
+      "updated_at": "2026-06-01T15:52:26.841420+00:00",
+      "completed_at": "2026-06-01T16:07:22.899325+00:00"
     }
   ],
   "suspense_watch": [
