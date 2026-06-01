@@ -1134,15 +1134,43 @@ def route_and_call(system_prompt: str, user_prompt: str,
                 "note": f"Fell back from {model_id} to {fallback}",
             }
         except Exception as e2:
-            logger.error("Both primary and fallback failed: %s", e2)
-            return {
-                "task_type": task_type.value,
-                "model": model_id,
-                "model_tier": tier,
-                "engine": "claude",
-                "response": f"ERROR: {e} (fallback also failed: {e2})",
-                "success": False,
-            }
+            # Claude exhausted (primary + Haiku/Sonnet both failed).
+            # Attempt Gemini 2.5 Flash as terminal fallback — free-tier direct API.
+            # This is the "Sonnet limit approached → Gemini" fallback chain
+            # required by SO-TOKEN-DISCIPLINE 2026-05-29 (A7 Sterling, 2026-06-01).
+            logger.warning("Claude primary+fallback both failed (%s / %s), attempting Gemini Flash fallback", e, e2)
+            try:
+                from core.ai_infra.gemini_client import call_gemini as _gemini_fallback
+                response = _gemini_fallback(
+                    system_prompt=system_prompt,
+                    user_prompt=user_prompt,
+                    max_tokens=max_tokens,
+                    temperature=temperature,
+                    caller=f"model_safeguards_fallback/{persona_id}",
+                    task_hint=f"claude-exhausted fallback | {task_type.value} | {user_prompt[:60]}",
+                )
+                _log_model_usage("GEMINI-FALLBACK (gemini-2.5-flash)", persona_id, user_prompt,
+                                 tokens_est=(len(system_prompt + user_prompt) + len(response)) // 4,
+                                 task_type=task_type.value)
+                return {
+                    "task_type": task_type.value,
+                    "model": "gemini-2.5-flash",
+                    "model_tier": "gemini_direct",
+                    "engine": "gemini_direct",
+                    "response": response,
+                    "success": True,
+                    "note": f"Fell back from Claude (both tiers failed) to Gemini 2.5 Flash direct API",
+                }
+            except Exception as e3:
+                logger.error("All fallbacks exhausted (Claude primary, Claude fallback, Gemini): %s", e3)
+                return {
+                    "task_type": task_type.value,
+                    "model": model_id,
+                    "model_tier": tier,
+                    "engine": "claude",
+                    "response": f"ERROR: {e} (Claude fallback: {e2}) (Gemini fallback: {e3})",
+                    "success": False,
+                }
 
 
 # ============================================================

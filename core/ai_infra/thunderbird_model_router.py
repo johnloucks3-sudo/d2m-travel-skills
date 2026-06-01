@@ -63,14 +63,14 @@ MODEL_STRATEGY = {
 
 
     ModelTier.GEMINI_VISION.value: {
-        "provider": "google_direct",
-        "model_id": "gemini-2.5-flash",
+        "provider": "openrouter",
+        "model_id": "google/gemini-flash-2.5-lite:free",
         "context": "1M tokens",
         "cost_per_M": 0.00,
         "input_cost": 0.00,
         "output_cost": 0.00,
         "vision_support": True,
-        "reasoning": True,
+        "reasoning": False,
         "speed": "fastest",
         "use_cases": [
             "brief_generation",
@@ -84,10 +84,10 @@ MODEL_STRATEGY = {
             "summarize",
             "ops_task"
         ],
-        "rationale": "Direct Google AI API — free tier. Replaced OpenRouter Gemini (paid) 2026-06-01. "
-                     "Uses GOOGLE_AI_API_KEY. Free tier: 15 RPM / 1M TPM / 1500 RPD. "
-                     "Guard enforced by core.ai_infra.gemini_client (allowlist + Harlan logging). "
-                     "Fallback chain: gemini-2.5-flash → Claude Sonnet MAX.",
+        "rationale": "OpenRouter free-tier Gemini Flash Lite. Provider kept as 'openrouter' so existing callers "
+                     "(thunderbird_incubator, opencode_headless_claude_dispatch) continue to work. "
+                     "Direct free-tier fallback (gemini_client) is wired separately in model_safeguards "
+                     "exception handler — not through this routing dict. 2026-06-01.",
     },
 
     ModelTier.DEEPSEEK_OPTIMIZED.value: {
