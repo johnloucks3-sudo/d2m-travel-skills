@@ -1,36 +1,29 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-05-31 21:50:00 MT
+## Generated: 2026-05-31 23:50:00 MT
 
 ---
 
 ### Recent Commits
+- f862d8f0 docs(mission): capture mission development + way ahead — 2026-06-01
+- c464a939 feat(model-stack): deploy freeze-proof failover chain with auto-pivot
 - 48664a2b refactor(zen-counter): integrate headless grok spawn module
 - 8134b2bd docs(headless-grok): integration examples and comprehensive README
 - e35cbd6e feat(opencode-headless-grok): reusable headless spawn module
-- 6efa821f chore(grok-zen-integration): switch from OpenRouter to xAI direct API (SO-2026-05-31)
-- 1110cc5e docs: add Grok Build ZEN counter-voice to Model Routing section (SO-2026-05-31)
 
 ### Uncommitted Changes
 - CLAUDE.md (modified)
 - OpsCenter/.metronome_seq (modified)
-- OpsCenter/.regent_cookie_alert_dedup.json (modified)
 - OpsCenter/.supervisor_patterns.json (modified)
 - OpsCenter/CLAUDE_DESKTOP_INIT.md (modified)
 - OpsCenter/OPENCODE_INIT.md (modified)
 - OpsCenter/collaboration/blackboard_summary.txt (modified)
-- OpsCenter/collaboration/claude_outbox.md (modified)
-- OpsCenter/collaboration/opencode_inbox.md (modified)
 - OpsCenter/collaboration/routing_log.md (modified)
-- OpsCenter/collaboration/wing_comms.md (modified)
-- OpsCenter/thunderbird_tasking_watcher.py (modified)
-- agents/claude_code_digest_seen.json (modified)
 - bryana/data.json (modified)
 - core/ai_infra/data/router_cost.db-shm (modified)
 - core/ai_infra/data/router_cost.db-wal (modified)
-- core/ai_infra/thunderbird_headless_spawn.py (modified)
-- hale_decisions.md (modified)
-- hale_eod_brief.md (modified)
 - reverie (modified)
+- session_autosave_latest.html (modified)
+- session_autosave_latest.md (modified)
 
 ### Active Work
 - SSS: 0 pending decision(s)

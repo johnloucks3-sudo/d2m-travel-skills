@@ -106,9 +106,11 @@
       "subject": "Your Specialty Dining Strategy \u2014 Three Approaches for the Group",
       "template_file": "Kuklinski_Discretionary_Arc_Library.md",
       "template_anchor": "ARC 4-B",
-      "status": "pending",
+      "status": "draft_created",
       "sent_date": null,
-      "notes": "Only send if ARC4-A reply received with preferences"
+      "notes": "Only send if ARC4-A reply received with preferences",
+      "draft_id": "r-2430553215768083145",
+      "draft_date": "2026-06-01"
     },
     {
       "id": "TP-3",

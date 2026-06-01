@@ -8,15 +8,15 @@
       "d2mconcierge@gmail.com"
     ],
     "days_back": 400,
-    "total_examples": 1330,
+    "total_examples": 1339,
     "by_tier": {
-      "personal": 382,
-      "client": 220,
+      "personal": 387,
+      "client": 221,
       "vendor": 48,
-      "internal": 673,
+      "internal": 676,
       "family": 7
     },
-    "last_sync": "2026-05-31T02:39:21.663435"
+    "last_sync": "2026-06-01T02:32:42.800042"
   },
   "examples": [
     {
@@ -3581,6 +3581,15 @@
       "to": "Erik W McLeod <emcleod@gmail.com>",
       "date": "Fri, 29 May 2026 21:00:11 -0600",
       "body": "Dreams2Memories Travel\nLuxury Travel Concierge\n\nErik and Melissa,\n\nYour Silver Muse Mediterranean itinerary is finalized — 19 days from\nLongmont to the Adriatic and back. It's a beautiful trip on paper, and I'm\nconfident it will be even better in person.\n\nHere's where everything stands:\nBlacklane (Outbound) *Jun 18 · Home → DEN* — Booking #127664621 ·\nChauffeur: Mr. Said Yusifli · 2:00 PM pickup ✓\nOutbound Flight *Jun 18 · DEN → FCO* — United UA 177 · Business Class ·\nSeats 3D/3F ✓\nRome Transfer *Jun 19 · FCO → Baglioni Hotel Regina* — Welcome Pickups ·\nOrder #w-6377007-2 ✓\nRome Hotel *Baglioni Hotel Regina* — Jun 19–23 · Conf #6851SF075162 · Chase\nLuxury perks ✓\nSilver Muse *Booking 298475-25* — Jun 23–Jul 3 · Paid in Full · 7 dining\nreservations · 3 excursions ✓\nVenice Transfer In *Jul 3 · Fusina → Hilton Molino Stucky* — Venice Guide &\nBoat · Order #14878 · €350 PAID ✓\nVenice Hotel *Hilton Molino Stucky* — Jul 3–6 · Confirmation number needed\n— see below\nVenice → Airport *Jul 6 · Hilton pier → VCE* — Consorzio Motoscafi ·\nBooking 96SGY · €170 PAID ✓\nReturn Flights *Jul 6 · VCE → YYZ → DEN* — Air Canada AC 817 + AC 1041 ·\nBusiness Class ✓\nBlacklane (Return) *Jul 6 · DEN → Home* — Confirmed May 24 ✓\n\nOne item I still need:\n\nI don't have the *Hilton Molino Stucky confirmation number* on file. When\nyou have a moment, can you forward me the booking confirmation from Hilton?\nI'd like to have it in your dossier before we share the final itinerary\ndocument.\n\nOnce I have that, I'll send you the complete itinerary — every transfer,\nport narrative, dining reservation, and excursion in one place. It reads\nwell. You're going to enjoy seeing it all laid out.\n\nYou're 25 days out. Everything is in excellent shape.\n\nThanks,\n\nJohn\n\n719-291-0742  ·  concierge@d2mluxury.quest\n\nDreams2Memories Travel, LLC\nDreams2Memories Travel, LLC  ·  Luxury Travel Concierge  ·  Monument, CO",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: excursions",
+      "to": "Nancy Lyons <nancylyons73@outlook.com>",
+      "date": "Sun, 31 May 2026 08:58:31 -0600",
+      "body": "Cartagena CRT 021 Food Tour\nPunta Arenas PNT 012 SKY WALK/FOOD\nPuerto Quetzal PQE STT\nAntigua QUZ 023 Bishops Palace Lunch\nAcapulco ACA 009 Historic ACA CLIFF Divers\nCabo San Lucas CSL 017 Arch and Clearboat\nSan Diego HydraTerra SAN 005\n\nwe are flexible and open\n\nOn Sun, May 24, 2026 at 12:26 PM Nancy Lyons <nancylyons73@outlook.com>\nwrote:",
       "score": 4
     },
     {
@@ -10173,6 +10182,69 @@
     },
     {
       "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Thunderbird Code Backup — 2026-06-01 @Thunderbird Backups #thunderbird #backup #code",
+      "to": "yodainva.5d9fc@m.evernote.com",
+      "date": "Mon, 1 Jun 2026 04:00:09 -0400",
+      "body": "Thunderbird Code Backup\nDate: 2026-06-01\nFiles: 2358 (2354 .py, 4 .md)\nTotal size: 30497 KB\nZip size: 9221 KB\n\nAttached: thunderbird_code_20260601.zip",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "How to Switch Grok Providers & Models in OpenCode",
+      "to": "John Loucks3 <johnloucks3@gmail.com>",
+      "date": "Sun, 31 May 2026 15:11:24 -0600",
+      "body": "Ann,\n\nFast guide on switching Grok providers and models in OpenCode if Deepseek\nor Big Pickle run out. The easiest way:---\n\n## QUICKEST METHOD — Ctrl+P (Interactive Provider Switch)\n\nInside any OpenCode chat:\n\n1. Press **Ctrl+P**\n2. Select provider from menu*: `xai` *| `openrouter` | `deepseek` | etc.\n3. Select model from that provider's list *Grok Build  or Grok 4.3--try\nGrok Build first*\n4. Continue chatting with new provider/model\n\n**That's it.**\n\n---\nEmail me if Ctrl+P isn't showing up (might need OpenCode update).\n\nThanks--\nJohn",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "VALIDATION: John & Melissa Furlow — Regent Grandeur Scandinavia (3071222)",
+      "to": "D2M Concierge <d2mconcierge@gmail.com>",
+      "date": "Sun, 31 May 2026 12:44:33 -0600",
+      "body": "DREAMS2MEMORIES TRAVEL\n\nTRIP VALIDATION REPORT\nJohn & Melissa Furlow\n\n3071222 · Suite 827 · Regent Grandeur Scandinavia\n\nAug 29 – Sep 8, 2026 · Primary: missy.furlow@gmail.com\nACTION NEEDED — 47%\n9\nCONFIRMED\n7\nNEEDS ATTENTION\n3\nMISSING\ndocuments\n⚠ Passports valid 6+ months* Passport images received. John's Regent\nregistration complete; Missy incomplete. PARTIAL\n✗ Visa/entry requirements* No formal Schengen entry review documented for\nUS passport holders. MISSING\ninsurance\n⚠ Travel insurance policy* Chase Sapphire Reserve + AMEX Platinum CC\ncoverage only. No standalone policy. PARTIAL\nflights\n✓ Outbound DFW->HEL (AA 9018)* Aug 26 4:50PM. PNR CKZHXA. Business Class.\nTicketed. FOUND\n✓ Outbound HEL->ARN (AY 811)* Aug 27 1:15PM. PNR BB4X94. Seats UNASSIGNED.\nFOUND\n✗ Outbound seat assignments BB4X94 (both legs) — zero seats assigned.\nFinnair seat fee pending. MISSING\n✓ Return OSL->LHR (BA 6776)* Sep 8 11:15AM. Seats 4C/4A. FOUND\n✓ Return LHR->DFW (AA 79)* Sep 8 2:25PM. Seats 7D/7G. FOUND\ntransfers\n✓ Airport->hotel transfer* Royal Transfer #1095089/AE693884.\nArlanda->Haymarket -> needs reroute to AT SIX. FOUND\n⚠ Hotel->port transfer* Regent motor coach. Pickup time TBD. Haymarket bus\nneeds cancellation. PARTIAL\n⚠ Port->airport transfer* Regent motor coach to Oslo airport. Written\nconfirmation pending. PARTIAL\nhotel\n✓ Pre-cruise hotel night 1* AT SIX Stockholm (replacing Haymarket). Booked\nvia AMEX Platinum. $399/night. FOUND\n⚠ Pre-cruise hotel night 2 (Regent)* Aug 28 Regent-contracted night. Room\nlinkage pending written confirmation (deadline Aug 15). PARTIAL\ncruise\n✓ Booking confirmed* Regent Grandeur #3071222. Suite 827. Concierge D. FOUND\n✓ Cruise paid in full* $15,486 charged Apr 1 to Chase Sapphire Reserve.\nBalance $0. FOUND\ndining\n⚠ Specialty dining Window opened May 31 8pm ET. Culinary class confirmed\n($258, Melissa). La Veranda/Uni not yet booked. PARTIAL\nexcursions\n✓ Shore excursions 6 Regent Choice confirmed. Kristiansand gap (no\nexcursion selected Sep 5). FOUND\nadmin\n✗ Emergency contacts No emergency contact info on file. MISSING\n⚠ Client dossier current* Needs update: AT SIX hotel change, seat gap,\ninsurance status. PARTIAL\nCritical Gaps\n\n   - Visa/entry requirements\n\nOpen Items\n\n   - Passports valid 6+ months\n   - Visa/entry requirements\n   - Travel insurance policy\n   - Outbound seat assignments\n   - Pre-cruise hotel night 2 (Regent)\n   - Hotel->port transfer\n   - Specialty dining\n   - Port->airport transfer\n   - Emergency contacts\n   - Client dossier current\n\nDreams2Memories Travel, LLC — Trip Validation\n\nGenerated May 30, 2026 10:41 PM",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "VALIDATION: Al Ely & Amy Darrow — Regent Grandeur Scandinavia (3096289)",
+      "to": "D2M Concierge <d2mconcierge@gmail.com>",
+      "date": "Sun, 31 May 2026 12:44:21 -0600",
+      "body": "DREAMS2MEMORIES TRAVEL\n\nTRIP VALIDATION REPORT\nAl Ely & Amy Darrow\n\n3096289 · Suite 961 · Regent Grandeur Scandinavia\n\nAug 29 – Sep 8, 2026 · Primary: al.ely58@gmail.com\nGAPS FOUND — 74%\n14\nCONFIRMED\n4\nNEEDS ATTENTION\n1\nMISSING\ndocuments\n✓ Passports valid 6+ months* Confirmed valid per Commander (2026-03-26).\nFOUND\n⚠ Visa/entry requirements* US passport — Schengen visa-free 90 days. No\nformal review on file. PENDING\ninsurance\n⚠ Travel insurance policy* Al deferred in March. Allianz Premier quote\n~$450 suspicious. OVERDUE follow-up. DEFERRED\nflights\n✓ Outbound DFW->HEL (AA 9018)* Aug 26 4:50PM. PNR UXVXZP. Business Class.\nSeats 2H/2D. FOUND\n✓ Outbound HEL->ARN (AY 811)* Aug 27 1:15PM. Seats assigned (numbers TBD).\nFOUND\n✓ Outbound seat assignments DFW->HEL: 2H/2D. HEL->ARN: assigned per\nCommander. FOUND\n✓ Return OSL->LHR (BA 6776)* Sep 8 11:15AM. Seats 2C/2A. FOUND\n✓ Return LHR->DFW (AA 79)* Sep 8 2:25PM. Seats 3G/3D. FOUND\ntransfers\n✓ Airport->hotel transfer* Royal Transfer #1095091/AE693884.\nArlanda->Haymarket. Paid. FOUND\n✓ Hotel->port transfer* Regent transport, Aug 29. FOUND\n✓ Port->airport transfer* Regent transport ship->Oslo airport. FOUND\nhotel\n✓ Pre-cruise hotel night 1* Haymarket By Scandic. On Furlow group booking\n131-2656351. FOUND\n⚠ Pre-cruise hotel night 2 (Regent)* Room retention at Haymarket through\nAug 28 pending confirmation. PARTIAL\ncruise\n✓ Booking confirmed* Regent Grandeur #3096289. Suite 961 (changed from\n1212). FOUND\n✓ Cruise paid in full* $16,640 charged Mar 26. Balance $0. FOUND\ndining\n⚠ Specialty dining Opens May 31 8pm ET. Reach out for preferences. NOT YET\nexcursions\n✓ Shore excursions 6 excursions booked. Kristiansand: none selected. FOUND\nadmin\n✗ Guest profile forms Not yet received from Al & Amy. MISSING\n✓ Client dossier current* Updated. FOUND\nOpen Items\n\n   - Visa/entry requirements\n   - Travel insurance policy\n   - Pre-cruise hotel night 2 (Regent)\n   - Guest profile forms\n\nDreams2Memories Travel, LLC — Trip Validation\n\nGenerated May 30, 2026 10:41 PM",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "VALIDATION: Larry & Heidi Nichols — Regent Grandeur Scandinavia (3078056)",
+      "to": "D2M Concierge <d2mconcierge@gmail.com>",
+      "date": "Sun, 31 May 2026 12:43:59 -0600",
+      "body": "DREAMS2MEMORIES TRAVEL\n\nTRIP VALIDATION REPORT\nLarry & Heidi Nichols\n\n3078056 · Suite 939 · Regent Grandeur Scandinavia\n\nAug 29 – Sep 8, 2026 · Primary: larry.nichols4811@gmail.com\nGAPS FOUND — 74%\n14\nCONFIRMED\n4\nNEEDS ATTENTION\n1\nMISSING\ndocuments\n✓ Passports valid 6+ months* Larry #654918129 exp Feb 2030. Heidi\n#654918130 exp Feb 2030. FOUND\n⚠ Visa/entry requirements* US passport — Schengen visa-free 90 days. No\nformal review on file. PENDING\ninsurance\n⚠ Travel insurance policy* Paid $700 Allianz policy exists but coverage\nunclear. Wants CFAR. Also has AMEX Platinum. PARTIAL\nflights\n✓ Outbound DFW->HEL (AA 9018)* Aug 26 4:50PM. PNR DSTAGH/BERJYH. Seats\n5D/5H. FOUND\n✓ Outbound HEL->ARN (AY 811)* Aug 27 1:15PM. Seats 2D/2F. FOUND\n✓ Outbound seat assignments All outbound seats confirmed (5D/5H + 2D/2F).\nFOUND\n✓ Return OSL->LHR (BA 6776)* Sep 8 11:15AM. Seats MISSING. FOUND\n✓ Return LHR->DFW (AA 79)* Sep 8 2:25PM. Seats MISSING. FOUND\n✗ Return seat assignments No return seats assigned on any flight. MISSING\ntransfers\n✓ Airport->hotel transfer* Transfer #1095089/LN693883. Arlanda->Haymarket.\nPaid. FOUND\n✓ Hotel->port transfer* Regent transport, Aug 29. FOUND\n✓ Port->airport transfer* Regent transport ship->Oslo airport. FOUND\nhotel\n✓ Pre-cruise hotel night 1* Haymarket By Scandic. On Furlow group booking.\nFOUND\n⚠ Pre-cruise hotel night 2 (Regent)* Room retention pending confirmation.\nPARTIAL\ncruise\n✓ Booking confirmed* Regent Grandeur #3078056. Suite 939. FOUND\n✓ Cruise paid in full* $18,896 paid. Balance $0. Heidi's birthday =\nembarkation day (Aug 29). FOUND\ndining\n⚠ Specialty dining Opens May 31 8pm ET. Heidi birthday = flag for special\ncelebration. NOT YET\nexcursions\n✓ Shore excursions 7 excursions booked. Kristiansand: none selected. FOUND\nadmin\n✓ Client dossier current* Updated. FOUND\nOpen Items\n\n   - Visa/entry requirements\n   - Travel insurance policy\n   - Pre-cruise hotel night 2 (Regent)\n   - Return seat assignments\n\nDreams2Memories Travel, LLC — Trip Validation\n\nGenerated May 30, 2026 10:41 PM",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "🦅 Thunderbird Brief — 31 May 2026 — 9 clients",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sun, 31 May 2026 08:00:01 -0400",
+      "body": "🦅 THUNDERBIRD DAILY BRIEF — 2026-05-31 Generated 2026-05-31 06:00 MT · V. Hale, VCS 1. Client Wire Client Ship Departure FPD Next TP John & Susan Loucks Silversea Silver Nova 10 Apr 2026 🔴 🔴 OVERDUE (119d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 22 overdue McLeod McGlasson - Silver Muse Silversea Silver Muse 18 Jun 2026 🔴 OVERDUE (127d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 17 overdue Furlow / Ely-Darrow / Nichols Regent Seven Seas SS Grandeur 29 Aug 2026 🔴 OVERDUE (60d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 12 overdue Al Ely & Amy Darrow Regent Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 5 overdue John & Melissa Furlow Regent Seven Seas SS Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 5 overdue Larry & Heidi Nichols Regent Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 10 overdue Kuklinski Group (3 couples) Viking Viking Mars 17 Dec 2026 🔴 OVERDUE (61d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 7 overdue Joshua Morton & Erica Dodge Viking Viking Mars 17 Dec 2026 🔴 OVERDUE (61d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 7 overdue John & Susan Loucks Seven Seas Grandeur 29 Dec 2026 DUE 1 Aug 2026 TP 0.5 — Welcome / Booking Validation 2. WF-17 Gate — Drafts Awaiting Review Client TP Phase Deadline Status Kuklinski TP 0.5 Welcome / Booking Validation 2026-05-27 voice_drafted Kuklinski TP 4.1 Payment Reminder #1 2026-03-17 voice_drafted Kuklinski TP 4.2 Payment Reminder #2 2026-03-24 voice_drafted Kuklinski TP 4.3 Payment Goal 2026-03-30 voice_drafted Nichols TP 0.5 Welcome / Booking Validation 2026-06-05 voice_drafted 3. Financial Pulse D2M pipeline $0.00 TESS received $0.00 — V. Hale, VCS · Thunderbird Wing · D2M Next brief: 2026-06-01 06:00 MT",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "HALE — DAILY BRIEF | 2026-05-31 06:00 MT",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sun, 31 May 2026 04:50:02 -0700",
+      "body": "📊 HALE — DAILY OPERATIONAL BRIEF Generated 2026-05-31 · 06:00 MT · Commander John Loucks 📊 Client Lifecycle Wheel 7 active clients, urgency-coded segments, FPD countdown arcs. Click segment for detail panel. View Lifecycle Wheel → 💰 Financial Waterfall Commission pipeline flow: Prospects → Booked → At-Risk → Projected. Allianz claim divergence shown. View Waterfall → 🔥 Task Heat Map Clients × Task Types grid. Urgency-colored, effort-encoded. Hover for task roster by cell. View Heat Map → ⚠️ Risk Matrix Likelihood × Disruption scatter. Quadrants: Escalate (red), Mitigate (yellow), Monitor, Accept. Action registry below. View Risk Matrix → ⚡ DECISIONS NEEDED FROM COMMANDER Approve 11 Gmail Drafts? Kuklinski (validation), McLeod (Silver Muse 60-day + Grandeur TP0.5/TP0.6), Westbrook (Perx + SkyLux), Furlow/Nichols/Ely (CAK). All staged in d2mconcierge drafts folder. Initiate Lyons FPD Outreach? Nancy & Ken Lyons — FPD May 11 (14 days remaining). Direct Commander action required. Chase Furlow $15,486 Payment? Final payment was due Apr 1. Confirm received or authorize A9 follow-up. Re-Auth TESS? Financial feed is blind. Run: python3 thunderbird_tess.py --authorize to restore commission visibility. HALE — Ms. Victoria \"Victory\" Hale, SES-6 | Chief of Staff | Dreams2Memories Travel, LLC This brief is generated automatically at 05:50 MT daily and sent at 06:00 MT. Link expires in 90 days. Briefs archived locally + Google Drive.",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
       "tier": "internal",
       "subject": "[COS] General: BREAKING:  Most Americans say war in Iran is going",
       "to": "johnloucks3@gmail.com",
@@ -11987,6 +12059,15 @@
       "to": "johnloucks3@gmail.com",
       "date": "Thu, 28 May 2026 13:00:19 -0500",
       "body": "ISSUE:\nProspect requires resend of Commander's recruiting message and application/information link; prior phone contact attempt failed.\n\nDISCUSSION:\nBryana Roelke is following up on Commander's business opportunity message for D2M. The phone number he provided doesn't work; she's requesting resend of the original message and application link.\n\nACTIONS I RECOMMEND TAKING:\n1. Resend Commander's original recruiting message and application/onboarding link to bryanajarboe@gmail.com\n2. Confirm receipt and clarify next steps\n3. Schedule initial intake conversation at 608-449-4699 or via email\n4. Flag as warm associate recruitment prospect — shows initiative by following up\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-05-28 12:00 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "RE: Washington State Gives \"Climate Commitment Act\" Funds To NGOs For \"Advocacy\" -- With Some Then Used To Attack The …",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sun, 31 May 2026 08:37:43 -0700",
+      "body": "Commander,\n\nTask completed by Col James 'Padre' Washington — Chaplain.\nOriginal email: \"Washington State Gives \"Climate Commitment Act\" Funds To NGOs For \"Advocacy\" -- With Some Then Used To Attack The …\" from \"Shipwreckedcrew from Shipwreckedcrew's Port-O-Call\" <shipwreckedcrew@substack.com>\nCompleted: 2026-05-31 09:37 MT\n\n────────────────────────────────────────────────────────────\n\nCommander,\n\nWashington here. You forwarded this, so let me give you a straight read.\n\n**The legitimate ethical concern underneath the partisan framing:**\n\nGovernment funds designated for a specific public purpose — reducing pollution, improving air quality — being redirected to political advocacy is a real accountability problem. That's not a conservative or liberal issue. That's stewardship. When $8.5 million earmarked for asthma reduction produces bicycle giveaways and advisory board stipends, someone has a fiduciary obligation to answer for it. The concern is valid regardless of who's raising it.\n\n**What to hold with caution:**\n\nThis piece is advocacy dressed as reporting. The author has a conclusion — \"left-wing NGO ecosystem\" — and the facts are arranged to support it. That doesn't make the facts wrong, but it means the framing is doing work. \"Intersectionality is grievance politics\" is an editorial sermon, not analysis. When I see that kind of language, I know the author wants my anger, not my judgment.\n\n**The ethical bottom line:**\n\nPublic money should do what it was promised to do. Accountability matters regardless of the political color of the program. But consuming media that speaks primarily to your existing convictions rather than challenging them is its own kind of drift.\n\n**My question back to you, Commander:**\n\nWhat are you considering doing with this? Sharing it? Taking a position? Or just processing it? The right path depends on what you're weighing.\n\nI'm here either way.\n\n— Padre Washington, CH\n\n────────────────────────────────────────────────────────────\n\nThanks,\nThunderbird Wing\nDreams2Memories Travel, LLC",
       "score": 2
     }
   ]

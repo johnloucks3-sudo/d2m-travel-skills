@@ -167,3 +167,29 @@ task: |
   Review wing_comms.md for full staff tasking.
   Expected output: Review and acknowledge in wing_comms.md
 
+
+---
+## TASK: TP-ALERT-20260601
+status: COMPLETE — 2026-06-01T00:05:00Z — Acknowledged in wing_comms.md
+from: TP Alert Engine
+priority: P0
+stakes: high
+task: |
+  TP Alert Engine ran 2026-06-01 at 00:00 MT.
+  100 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+---
+## TASK: TP-ALERT-20260601
+status: COMPLETE — 2026-06-01T12:00:38Z — Acknowledged in wing_comms.md
+from: TP Alert Engine
+priority: P0
+stakes: high
+task: |
+  TP Alert Engine ran 2026-06-01 at 06:00 MT.
+  100 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+

@@ -1,1 +1,1 @@
-/home/john/Thunderbird/docs/retros/2026-05-31-choreinfra-update-nginx-htpasswd-auth-at.md
+/home/john/Thunderbird/docs/retros/2026-06-01-docsmission-capture-mission-development-.md
