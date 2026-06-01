@@ -3,12 +3,16 @@
   "model": "anthropic/claude-sonnet-4-6",
   "fallbackModels": [
     "opencode/deepseek-v4-flash-free",
-    "opencode/nemotron-3-super-free"
+    "opencode/nemotron-3-super-free",
+    "google/gemini-2.5-flash"
   ],
   "providers": {
     "anthropic": {
       "apiKey": "claude-max-oauth",
       "baseURL": "http://localhost:5099"
+    },
+    "google": {
+      "apiKey": "env:GOOGLE_GENERATIVE_AI_API_KEY"
     }
   },
   "mcpServers": {

@@ -63,14 +63,14 @@ MODEL_STRATEGY = {
 
 
     ModelTier.GEMINI_VISION.value: {
-        "provider": "openrouter",
-        "model_id": "google/gemini-3.1-flash-lite-preview-20260303",
+        "provider": "google_direct",
+        "model_id": "gemini-2.5-flash",
         "context": "1M tokens",
-        "cost_per_M": 0.10,
-        "input_cost": 0.075,
-        "output_cost": 0.30,
+        "cost_per_M": 0.00,
+        "input_cost": 0.00,
+        "output_cost": 0.00,
         "vision_support": True,
-        "reasoning": False,
+        "reasoning": True,
         "speed": "fastest",
         "use_cases": [
             "brief_generation",
@@ -84,7 +84,10 @@ MODEL_STRATEGY = {
             "summarize",
             "ops_task"
         ],
-        "rationale": "Primary OpenCode model (confirmed invoice 2026-04). Net $0.005-$0.01/gen with cache credits. Gemini 3.1 Flash Lite — fastest, cheapest paid tier."
+        "rationale": "Direct Google AI API — free tier. Replaced OpenRouter Gemini (paid) 2026-06-01. "
+                     "Uses GOOGLE_AI_API_KEY. Free tier: 15 RPM / 1M TPM / 1500 RPD. "
+                     "Guard enforced by core.ai_infra.gemini_client (allowlist + Harlan logging). "
+                     "Fallback chain: gemini-2.5-flash → Claude Sonnet MAX.",
     },
 
     ModelTier.DEEPSEEK_OPTIMIZED.value: {

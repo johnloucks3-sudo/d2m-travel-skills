@@ -670,66 +670,26 @@ def _call_gemini(system_prompt: str, query: str,
                  max_tokens: int = 600, temperature: float = 0.7) -> str:
     """Call Google Gemini 2.5 Flash API.
 
-    Cost: $0.30/$2.50 per 1M tokens — cheap, native Google Workspace affinity.
-    Rate limiter: respects GEMINI_INTER_CALL_DELAY (default 0s, set to 6s for
-    OpenCode batch sessions to stay under 10 RPM free tier limit).
-    No circular fallback — raises cleanly on failure.
+    DELEGATES to core.ai_infra.gemini_client.call_gemini — canonical chokepoint.
+    That module enforces: allowlist guard, rate limiting, Harlan usage logging.
+    Direct HTTP implementation removed 2026-06-01 (A7 Sterling — single chokepoint rule).
     """
-    global _GEMINI_LAST_CALL
-
-    if not GOOGLE_AI_API_KEY:
-        raise RuntimeError("GOOGLE_AI_API_KEY not set — cannot call Gemini Flash")
-
-    # Rate limiting — enforce minimum gap between calls
-    if GEMINI_INTER_CALL_DELAY > 0:
-        elapsed = time.time() - _GEMINI_LAST_CALL
-        if elapsed < GEMINI_INTER_CALL_DELAY:
-            wait = GEMINI_INTER_CALL_DELAY - elapsed
-            logger.debug("Gemini rate limiter: sleeping %.1fs", wait)
-            time.sleep(wait)
-
-    url = f"{GEMINI_URL}?key={GOOGLE_AI_API_KEY}"
-    payload = {
-        "systemInstruction": {
-            "parts": [{"text": system_prompt}]
-        },
-        "contents": [
-            {"role": "user", "parts": [{"text": query}]}
-        ],
-        "generationConfig": {
-            "maxOutputTokens": max_tokens,
-            "temperature": temperature,
-        },
-    }
     try:
-        _GEMINI_LAST_CALL = time.time()
-        resp = requests.post(url, json=payload, timeout=60,
-                             headers={"Content-Type": "application/json"})
-        resp.raise_for_status()
-        data = resp.json()
-        candidate = data.get("candidates", [{}])[0]
-        finish = candidate.get("finishReason", "UNKNOWN")
-        # Safely extract text — content/parts may be absent on MAX_TOKENS truncation
-        parts = candidate.get("content", {}).get("parts", [])
-        text = parts[0].get("text", "") if parts else ""
-        if not text:
-            # Retry once with doubled token budget
-            if max_tokens < 4096:
-                logger.warning("Gemini empty response (finishReason=%s), retrying with 2x tokens", finish)
-                payload["generationConfig"]["maxOutputTokens"] = min(max_tokens * 2, 8192)
-                _GEMINI_LAST_CALL = time.time()
-                resp2 = requests.post(url, json=payload, timeout=60,
-                                      headers={"Content-Type": "application/json"})
-                resp2.raise_for_status()
-                data2 = resp2.json()
-                parts2 = data2.get("candidates", [{}])[0].get("content", {}).get("parts", [])
-                text = parts2[0].get("text", "") if parts2 else ""
-            if not text:
-                raise RuntimeError(f"Gemini returned empty text after retry (finishReason={finish})")
-        return text
-    except (requests.exceptions.RequestException, RuntimeError) as e:
-        logger.error("Gemini Flash failed: %s", e)
-        raise RuntimeError(f"Gemini Flash error: {e}")
+        from core.ai_infra.gemini_client import call_gemini as _canonical_gemini
+    except ImportError:
+        # Fallback path when relative imports fail (e.g., called from OpsCenter)
+        import sys
+        sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+        from core.ai_infra.gemini_client import call_gemini as _canonical_gemini
+
+    return _canonical_gemini(
+        system_prompt=system_prompt,
+        user_prompt=query,
+        max_tokens=max_tokens,
+        temperature=temperature,
+        caller="model_safeguards",
+        task_hint=query[:80],
+    )
 
 
 def _call_grok(system_prompt: str, query: str,
@@ -846,54 +806,26 @@ def _call_gemini_lite(system_prompt: str, query: str,
                       temperature: float = 0.7) -> str:
     """Call Gemini 2.5 Flash-Lite API — cheapest Gemini tier.
 
-    Cost: $0.10/$0.40 per 1M tokens. 1M context window.
-    Use for simple analysis, classification, tasks that don't need full Flash reasoning.
-    Respects the same rate limiter as full Flash (shared Google AI quota).
-    Falls back to full Gemini Flash if Lite endpoint fails.
+    DELEGATES to core.ai_infra.gemini_client.call_gemini_lite — canonical chokepoint.
+    That module enforces: allowlist guard, rate limiting, Harlan usage logging.
+    Falls back to full Flash automatically if Lite fails (handled by gemini_client).
+    Direct HTTP implementation removed 2026-06-01 (A7 Sterling — single chokepoint rule).
     """
-    global _GEMINI_LAST_CALL
-
-    if not GOOGLE_AI_API_KEY:
-        raise RuntimeError("GOOGLE_AI_API_KEY not set — cannot call Gemini Flash-Lite")
-
-    # Rate limiting — shared with full Flash
-    if GEMINI_INTER_CALL_DELAY > 0:
-        elapsed = time.time() - _GEMINI_LAST_CALL
-        if elapsed < GEMINI_INTER_CALL_DELAY:
-            wait = GEMINI_INTER_CALL_DELAY - elapsed
-            logger.debug("Gemini rate limiter: sleeping %.1fs", wait)
-            time.sleep(wait)
-
-    url = f"{GEMINI_LITE_URL}?key={GOOGLE_AI_API_KEY}"
-    payload = {
-        "systemInstruction": {
-            "parts": [{"text": system_prompt}]
-        },
-        "contents": [
-            {"role": "user", "parts": [{"text": query}]}
-        ],
-        "generationConfig": {
-            "maxOutputTokens": max_tokens,
-            "temperature": temperature,
-        },
-    }
     try:
-        _GEMINI_LAST_CALL = time.time()
-        resp = requests.post(url, json=payload, timeout=60,
-                             headers={"Content-Type": "application/json"})
-        resp.raise_for_status()
-        data = resp.json()
-        parts = data.get("candidates", [{}])[0].get("content", {}).get("parts", [])
-        text = parts[0].get("text", "") if parts else ""
-        if not text:
-            logger.warning("Gemini Flash-Lite empty response, falling back to full Flash")
-            return _call_gemini(system_prompt, query, max_tokens=max_tokens,
-                                temperature=temperature)
-        return text
-    except Exception as e:
-        logger.warning("Gemini Flash-Lite failed, falling back to full Flash: %s", e)
-        return _call_gemini(system_prompt, query, max_tokens=max_tokens,
-                            temperature=temperature)
+        from core.ai_infra.gemini_client import call_gemini_lite as _canonical_lite
+    except ImportError:
+        import sys
+        sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+        from core.ai_infra.gemini_client import call_gemini_lite as _canonical_lite
+
+    return _canonical_lite(
+        system_prompt=system_prompt,
+        user_prompt=query,
+        max_tokens=max_tokens,
+        temperature=temperature,
+        caller="model_safeguards",
+        task_hint=query[:80],
+    )
 
 
 def call_deepseek(system_prompt: str, query: str,
