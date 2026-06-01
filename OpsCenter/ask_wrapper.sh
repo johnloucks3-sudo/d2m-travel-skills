@@ -61,33 +61,7 @@ echo "$TIMESTAMP|$TIMESTAMP|$MODEL|inline|0" >> "$TRACK_FILE"
 # Dispatch based on model
 if [[ "$MODEL" == "opus" ]]; then
     echo "🔷 Dispatching to Opus (premium reasoning)..."
-    python3 << 'PYSCRIPT'
-import sys
-sys.path.insert(0, '/home/john/Thunderbird')
-from OpsCenter.opencode_headless_claude_dispatch import spawn_sonnet_inline
-import time
-
-start = time.time()
-result = spawn_sonnet_inline(
-    task_description=sys.argv[1],
-    task_name="opencode_opus"
-)
-
-# Patch: swap to Opus model in result display
-result["model"] = "claude-opus-4-7"
-
-if result["status"] == "SUCCESS":
-    print("=" * 70)
-    print(result["output"])
-    print("=" * 70)
-    print(f"\n✅ Done in {result['elapsed_seconds']:.1f}s (Opus)")
-elif result["status"] == "TIMEOUT":
-    print(f"⏱️  Timeout: {result['output']}")
-else:
-    print(f"❌ Error: {result['output']}")
-
-print(f"Output: {result['output_file']}\n")
-PYSCRIPT
+    python3 /home/john/Thunderbird/OpsCenter/opencode_sonnet_inline.py "$TASK_DESC" --model claude-opus-4-7
 else
     # Sonnet (default)
     python3 "$PYTHON_SCRIPT" "$TASK_DESC"

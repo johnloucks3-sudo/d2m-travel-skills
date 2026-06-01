@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
 """
-OpenCode → Sonnet inline wrapper (NO SCREEN SWITCHING).
+OpenCode → Claude inline wrapper (NO SCREEN SWITCHING).
 
-From OpenCode, run:
+Usage:
   python3 opencode_sonnet_inline.py "Your task description here"
+  python3 opencode_sonnet_inline.py "Your task" --model claude-opus-4-7
 
-Spawns Sonnet, waits for output, displays it inline. Returns to OpenCode immediately.
+Spawns Claude (Sonnet or Opus), waits for output, displays inline.
 """
 
 import sys
 import logging
 from pathlib import Path
 
-# Setup paths
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from OpsCenter.opencode_headless_claude_dispatch import spawn_sonnet_inline
@@ -20,29 +20,42 @@ from OpsCenter.opencode_headless_claude_dispatch import spawn_sonnet_inline
 logging.basicConfig(level=logging.INFO, format="%(message)s")
 logger = logging.getLogger("opencode_sonnet")
 
+DEFAULT_MODEL = "claude-sonnet-4-6"
+
 
 def main():
-    if len(sys.argv) < 2:
+    # Parse args — pull --model flag if present, rest is task description
+    args = sys.argv[1:]
+    model = DEFAULT_MODEL
+    model_label = "Sonnet"
+
+    filtered = []
+    i = 0
+    while i < len(args):
+        if args[i] == "--model" and i + 1 < len(args):
+            model = args[i + 1]
+            model_label = "Opus" if "opus" in model else "Sonnet"
+            i += 2
+        else:
+            filtered.append(args[i])
+            i += 1
+
+    task_description = " ".join(filtered)
+
+    if not task_description:
         print("Usage: python3 opencode_sonnet_inline.py 'Your task description'")
-        print("\nExample:")
-        print("  python3 opencode_sonnet_inline.py 'Analyze cruise pricing trends'")
+        print("       python3 opencode_sonnet_inline.py 'task' --model claude-opus-4-7")
         sys.exit(1)
 
-    # Collect all args as task description
-    task_description = " ".join(sys.argv[1:])
-    task_name = "opencode_interactive"
+    print(f"\n🚀 Dispatching to {model_label}...\n")
 
-    print(f"\n🚀 Dispatching to Sonnet...\n")
+    result = spawn_sonnet_inline(task_description, "opencode_interactive", model=model)
 
-    # Spawn and wait
-    result = spawn_sonnet_inline(task_description, task_name)
-
-    # Display result
     if result["status"] == "SUCCESS":
         print("=" * 70)
         print(result["output"])
         print("=" * 70)
-        print(f"\n✅ Done in {result['elapsed_seconds']:.1f}s")
+        print(f"\n✅ Done in {result['elapsed_seconds']:.1f}s ({model_label})")
     elif result["status"] == "TIMEOUT":
         print(f"⏱️  Timeout: {result['output']}")
     else:
