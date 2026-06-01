@@ -39,12 +39,7 @@ Is it both?
 ### Phase 2: Dispatch Sonnet (when needed)
 
 ```bash
-python3 /home/john/Thunderbird/OpsCenter/dispatch_claude.py \
-  --task "two-brain-$(date +%s)" \
-  --output "/home/john/Thunderbird/output/two_brain_$(date +%s).md" \
-  --prompt "YOUR TASK — WRITE to /home/john/Thunderbird/output/two_brain_$(date +%s).md" \
-  --model sonnet \
-  --foreground
+ask 'YOUR TASK — include all context needed'
 ```
 
 Or background (fire-and-forget, METRONOME monitors):
