@@ -122,7 +122,7 @@ completed_tps: ["4.1", "4.2", "4.3", "4.4", "4.5"]
 | 13 | Cruise | Suite assignment | YES | **CONFIRMED** | 961 (changed from 1212 — 10 APR 2026) |
 | 14 | Cruise | Payment status | YES | ✅ **PAYMENT COMPLETE** | $16,640 charged Mar 26 — Al authorized Mar 20, CVV 883 used. |
 | 15 | Cruise | Embarkation details | YES | **CONFIRMED** | Stockholm, Aug 29 |
-| 16 | Dining | Specialty dining | Optional | **NOT YET** | Opens May 31, 8pm ET |
+| 16 | Dining | Specialty dining | Optional | ✅ **CONFIRMED 2026-05-31** | Pacific Rim Aug 30@18:30 · Chartreuse Sep 2@19:30 · Prime 7 Sep 4@18:30 · SOURCE: portal 2026-05-31 |
 | 17 | Excursions | Shore excursions | Optional | **BOOKED** | 6 excursions confirmed (see below) |
 | 17a | Excursions | Culinary Arts Kitchen | Optional | **NOT YET** | Opens May 1, 8pm ET |
 | 18 | Transfers | Port → airport transfer | YES | **CONFIRMED** | Regent transport ship→Oslo airport |
@@ -172,4 +172,4 @@ All included (Regent Choice — $0.00). Both Al & Amy confirmed on all excursion
 - [ ] **Guest profile forms** — not yet received from Al & Amy. Request via Kyle's green-light channel.
 - [ ] **HEL→ARN seat numbers** — seats assigned (Mar 26) but numbers TBD. Confirm with AA/Finnair (PNR UXVXZP).
 - [ ] **Haymarket room retention** — confirm same room night Aug 28 (Regent covers hotel night, risk of room move).
-- [ ] **Specialty dining** — opens May 31 8pm ET. Reach out to Al/Amy for preferences.
+- [x] **Specialty dining** — CONFIRMED 2026-05-31: Pacific Rim Aug 30@18:30 · Chartreuse Sep 2@19:30 · Prime 7 Sep 4@18:30

@@ -192,7 +192,7 @@ completed_tps: ["4.1", "4.2", "4.3", "4.4", "4.5"]
 | 13 | Cruise | Suite assignment | YES | **CONFIRMED** | 827 |
 | 14 | Cruise | Payment status | YES | ✅ **PAYMENT COMPLETE (APR 1)** | $15,486 charged to Chase Sapphire Reserve — full payment processed, trip insurance activated |
 | 15 | Cruise | Embarkation details | YES | **CONFIRMED** | Stockholm, Aug 29 |
-| 16 | Dining | Specialty dining | Optional | **NOT YET** | Opens May 31, 8pm ET |
+| 16 | Dining | Specialty dining | Optional | ✅ **CONFIRMED 2026-05-31** | Pacific Rim Aug 30@18:30 · Chartreuse Sep 2@19:30 · Prime 7 Sep 4@18:30 · SOURCE: portal 2026-05-31 |
 | 17 | Excursions | Shore excursions | Optional | **BOOKED** | 7 excursions confirmed (see below) |
 | 17a | Excursions | Culinary Arts Kitchen | Optional | **NOT YET** | Opens May 1, 8pm ET |
 | 17b | Registration | Guest Registration | YES | **COMPLETE** | John COMPLETE, Melissa COMPLETE (confirmed Mar 18) |

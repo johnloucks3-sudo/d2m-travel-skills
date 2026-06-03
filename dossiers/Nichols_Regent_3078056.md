@@ -158,7 +158,7 @@ completed_tps: []
 | 13 | Cruise | Suite assignment | YES | **CONFIRMED** | 939 |
 | 14 | Cruise | Payment status | YES | **✅ PAID IN FULL** | $18,896.00 received — confirmed Mar 26, 2026 (portal scrape) |
 | 15 | Cruise | Embarkation details | YES | **CONFIRMED** | Stockholm, Aug 29 (Heidi's birthday!) |
-| 16 | Dining | Specialty dining | Optional | **NOT YET** | Opens May 31, 8pm ET |
+| 16 | Dining | Specialty dining | Optional | ✅ **CONFIRMED 2026-05-31** | Pacific Rim Aug 30@18:30 · Chartreuse Sep 2@19:30 · Prime 7 Sep 4@18:30 · SOURCE: portal 2026-05-31 — Heidi's birthday night! |
 | 17 | Excursions | Shore excursions | Optional | **BOOKED** | 7 excursions confirmed (see below) |
 | 17a | Excursions | Culinary Arts Kitchen | Optional | **NOT YET** | Opens May 1, 8pm ET |
 | 18 | Transfers | Port → airport transfer | YES | **CONFIRMED** | Regent transport ship→Oslo airport |
