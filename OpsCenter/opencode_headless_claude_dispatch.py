@@ -505,8 +505,8 @@ def spawn_sonnet_inline(task_description: str, task_name: str = "opencode_sonnet
         model=model  # Explicit: use provided model via MAX OAuth ($0)
     )
 
-    # Check spawn status
-    if spawn_result["status"] != "SPAWNED":
+    # Check spawn status — synchronous mode returns "COMPLETED", background returns "SPAWNED"
+    if spawn_result["status"] not in ("SPAWNED", "COMPLETED"):
         return {
             "status": "FAILED",
             "output": f"Spawn failed: {spawn_result.get('error')}",
@@ -515,32 +515,32 @@ def spawn_sonnet_inline(task_description: str, task_name: str = "opencode_sonnet
             "log_file": spawn_result.get("log_file")
         }
 
-    pid = spawn_result["pid"]
-    logger.info(f"✓ Sonnet spawned (PID {pid}), waiting for output...")
+    # If synchronous (COMPLETED), output is already written — skip polling
+    if spawn_result["status"] == "COMPLETED":
+        elapsed = time.time() - start_time
+    else:
+        pid = spawn_result["pid"]
+        logger.info(f"✓ {model_name} spawned (PID {pid}), waiting for output...")
 
-    # WAIT: Poll for output file creation and completion
-    max_wait_seconds = 120  # 2 minutes max
-    poll_interval = 0.5  # Check every 500ms
-    last_size = 0
-    stable_count = 0
+        # WAIT: Poll for output file creation and completion
+        max_wait_seconds = 120  # 2 minutes max
+        poll_interval = 0.5
+        last_size = 0
+        stable_count = 0
 
-    while time.time() - start_time < max_wait_seconds:
-        if output_file.exists():
-            current_size = output_file.stat().st_size
+        while time.time() - start_time < max_wait_seconds:
+            if output_file.exists():
+                current_size = output_file.stat().st_size
+                if current_size == last_size and current_size > 0:
+                    stable_count += 1
+                    if stable_count >= 2:
+                        break
+                else:
+                    stable_count = 0
+                last_size = current_size
+            time.sleep(poll_interval)
 
-            # Check if file is stable (size hasn't changed in 2 checks)
-            if current_size == last_size and current_size > 0:
-                stable_count += 1
-                if stable_count >= 2:  # File stable for 1 second
-                    break
-            else:
-                stable_count = 0
-
-            last_size = current_size
-
-        time.sleep(poll_interval)
-
-    elapsed = time.time() - start_time
+        elapsed = time.time() - start_time
 
     # READ: Load output
     if not output_file.exists():
