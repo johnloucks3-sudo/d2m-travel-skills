@@ -53,7 +53,6 @@ from core.learning.model_safeguards import (
 from thunderbird_model_router import (
     _call_groq,
     _call_claude,
-    GROQ_MODELS,
 )
 
 logger = logging.getLogger("thunderbird.overwatch")
