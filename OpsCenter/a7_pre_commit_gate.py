@@ -23,6 +23,8 @@ CLAUDE_SPAWN_WHITELIST = {
     # Metronome spawns Python (intel_keeper.py), not the claude binary.
     # "claude" string comes from DISPATCH_SCRIPT path reference, not a spawn target.
     "OpsCenter/metronome.py",
+    # MAX proxy IS the approved Claude CLI wrapper for OpenCode — exempted by design.
+    "OpsCenter/max_proxy.py",
 }
 
 # Functions that must NOT call _wrap_body_html or _wrap_staff_html
