@@ -1,5 +1,43 @@
 ---
 
+## 2026-06-03 DECISIONS
+
+### ESCALATED: thunderbird-overwatch Service Crash Loop (INC-20260603T222210Z-c5fdbc)
+
+**Date:** 2026-06-03 16:26–16:28 MT  
+**Event ID:** INC-20260603T222210Z-c5fdbc  
+**Severity:** CRITICAL — Core system service  
+**Authority:** ELON (A12) discovery + Hale routing + Commander gate
+
+**What Happened:**
+- Watchdog detected thunderbird-overwatch (Hale-Loop Daemon) in crash loop, restarting >3x in 10 min
+- systemd refusing further restarts after hitting StartLimitBurst=5 within 60 seconds
+- Journal errors: "Unknown key 'OnFailure' in section [Service]"
+
+**Fixed (Autonomously):**
+1. ✅ Systemd config syntax: Moved `OnFailure=thunderbird-alert@%n.service` from `[Service]` section to `[Unit]` section
+2. ✅ Python import cleanup: Removed unused `QWEN_PLUS_FREE_MODEL` import from task_processor.py (legacy alias, not defined in model_router)
+3. ✅ Config reload: `systemctl --user daemon-reload` applied
+
+**Escalated (Code Architecture):**
+- Service still fails on startup after syntax fix — reveals secondary issue:
+- `thunderbird_overwatch.py` line 56 imports `GROQ_MODELS` from `thunderbird_model_router` — this export no longer exists
+- Root cause: model_router module underwent refactoring that removed/renamed exports without updating consumers
+- **Scope:** This is an API consistency issue across multiple modules, not a single-file bug
+
+**Decision:** ESCALATE_TO_COMMANDER (Hale routing + ELON analysis)
+- Systemd fix is complete and safe (config syntax correction only)
+- Code issue requires STERLING architecture review to decide:
+  - Quick-fix: Add GROQ_MODELS stub to unblock, schedule audit
+  - Full audit: Sterling fixes all consumers before restart
+  - Disable: Temporarily disable service pending fix
+
+**Owner:** Commander (decision) → Sterling (code fix) → Hale (execution/monitoring)
+
+**Proposal:** `/home/john/Thunderbird/OpsCenter/elon_proposals/PROPOSAL-20260603-thunderbird-overwatch.md`
+
+---
+
 ## 2026-05-30 DECISIONS (Session Close)
 
 ### COMPLETED: Fix MISSION-079-086 Over-Assignment (NEXUS Daemon Claiming)
@@ -3617,3 +3655,169 @@ DeepSeek V4: 210 sessions, $9.0475
   ⚠ BANNED MODEL ACTIVE: google/gemini-3.1-flash-lite-preview billed $2.2475 — replace with native/free alternative
 — A9 Harlan | Thunderbird Wing
 ```
+
+### 2026-06-01 12:00:00 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: T2-COMMS-BUILD-20260518 status: COMPLETE — 2026-05-31T07:45:00Z — ESCALATED TO COMMANDER note: Hard stop 20
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 3237643 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260601_120000.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-06-01 18:00:01 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: T2-COMMS-BUILD-20260518 status: COMPLETE — 2026-05-31T07:45:00Z — ESCALATED TO COMMANDER note: Hard stop 20
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 3500735 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260601_180001.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-06-02 00:00:02 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: T2-COMMS-BUILD-20260518 status: COMPLETE — 2026-05-31T07:45:00Z — ESCALATED TO COMMANDER note: Hard stop 20
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 3691332 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260602_000002.log | Inbox: opencode_inbox.md
+
+---
+
+
+---
+## Harlan Cost Brief — 2026-06-02
+```
+HARLAN AM BRIEF — 2026-06-02 06:00
+🔴 Verdict: BLOCK | Sonnet weekly at 100% — hard block until reset | DeepSeek V4 wandering — investigate routing
+═══
+Sonnet weekly: 100% | All weekly: 86%
+Monthly: $55.67/100
+OpenCode 7d: $5.7889 | Month: $2.1180
+⚠ DEEPSEEK WANDER: deepseek/deepseek-chat-v3.1 $1.4375
+DeepSeek V4: 250 sessions, $11.9425
+  ⚠ NATIVE BILLING: deepseek-v4-flash-free charged $1.4475 — native provider should be $0
+  ⚠ BANNED MODEL ACTIVE: google/gemini-3.1-flash-lite-preview billed $8.4165 — replace with native/free alternative
+  ⚠ CONTEXT BLOAT: google/gemini-3.1-flash-lite-preview [high] avg 8,509,364 in tokens/session (4 sessions) — review prompt compression
+— A9 Harlan | Thunderbird Wing
+```
+
+### 2026-06-02 06:00:00 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: T2-COMMS-BUILD-20260518 status: COMPLETE — 2026-05-31T07:45:00Z — ESCALATED TO COMMANDER note: Hard stop 20
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 3816817 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260602_060000.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-06-02 12:00:01 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: T2-COMMS-BUILD-20260518 status: COMPLETE — 2026-05-31T07:45:00Z — ESCALATED TO COMMANDER note: Hard stop 20
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 3988578 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260602_120001.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-06-02 18:00:00 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: T2-COMMS-BUILD-20260518 status: COMPLETE — 2026-05-31T07:45:00Z — ESCALATED TO COMMANDER note: Hard stop 20
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 4123818 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260602_180000.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-06-03 00:00:00 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: T2-COMMS-BUILD-20260518 status: COMPLETE — 2026-05-31T07:45:00Z — ESCALATED TO COMMANDER note: Hard stop 20
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 58940 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260603_000000.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-06-03 06:00:00 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: T2-COMMS-BUILD-20260518 status: COMPLETE — 2026-05-31T07:45:00Z — ESCALATED TO COMMANDER note: Hard stop 20
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 175538 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260603_060000.log | Inbox: opencode_inbox.md
+
+---
+
+
+---
+## Harlan Cost Brief — 2026-06-03
+```
+HARLAN AM BRIEF — 2026-06-03 06:00
+🔴 Verdict: BLOCK | Sonnet weekly at 100% — hard block until reset | DeepSeek V4 wandering — investigate routing
+═══
+Sonnet weekly: 100% | All weekly: 86%
+Monthly: $55.67/100
+OpenCode 7d: $5.8811 | Month: $2.2102
+⚠ DEEPSEEK WANDER: deepseek/deepseek-chat-v3.1 $1.4375
+DeepSeek V4: 260 sessions, $11.9896
+  ⚠ NATIVE BILLING: deepseek-v4-flash-free charged $1.4710 — native provider should be $0
+  ⚠ BANNED MODEL ACTIVE: google/gemini-3.1-flash-lite-preview billed $8.4165 — replace with native/free alternative
+  ⚠ CONTEXT BLOAT: google/gemini-3.1-flash-lite-preview [high] avg 8,509,364 in tokens/session (4 sessions) — review prompt compression
+— A9 Harlan | Thunderbird Wing
+```
+
+### 2026-06-03 12:00:01 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: T2-COMMS-BUILD-20260518 status: COMPLETE — 2026-05-31T07:45:00Z — ESCALATED TO COMMANDER note: Hard stop 20
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 293930 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260603_120001.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-06-03 13:06:32 — Autonomous Decision (Tier T1)
+
+**Decision:** Sonnet inline dispatch: Return only the word PONG...
+
+**Domain:** Task Execution
+**Type:** routine
+**Outcome:** correct
+**Trust Points:** +1
+**Autonomy Tier:** T1
+**Notes:** OpenCode inline dispatch completed in 3.7s. Output: 5 chars. Model: Sonnet
+
+---

@@ -49,7 +49,6 @@ from thunderbird_model_router import (
     classify_task,
     TaskType,
     DEEPSEEK_PRIMARY_MODEL,
-    QWEN_PLUS_FREE_MODEL,  # Legacy alias → DEEPSEEK_PRIMARY_MODEL
     OPENROUTER_API_KEY,
 )
 from thunderbird_innovation_scanner import run_daily_scan, run_weekly_scan
