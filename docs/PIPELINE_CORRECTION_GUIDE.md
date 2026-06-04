@@ -169,6 +169,38 @@ delete, deleted, strip, stripped, suppress, suppressed
 "Deferred" is NOT a negation marker. "Deferred payment" = the payment arrangement is deferred,
 which should appear in the draft.
 
+All negation markers are matched at **word boundaries** (not substring). This prevents "cancel"
+from matching inside "cancellation" or "drop" matching inside "backdrop." CFAR = "Cancel For Any
+Reason" — a correction "CFAR dropped" classifies as EXPECT-ABSENT on the literal word "dropped",
+which correctly expects the CFAR content to be gone.
+
+---
+
+## KNOWN LIMITATIONS (Residual Risk — Hale must understand before trusting a PASS)
+
+**Limitation 1 — Literal term only, not concept.**
+EXPECT-ABSENT checks that the *literal term* is absent from the draft. It does NOT check that
+the *concept* is absent. If Commander says "eliminate insurance" and the draft uses "travel
+protection plan" instead of "insurance," the gate will PASS — even though the concept is still
+present. PASS = the literal word is confirmed absent. PASS does not mean the concept is gone.
+
+Implication: Hale must read the draft with human eyes before accepting a PASS on any EXPECT-ABSENT
+check for domain paraphrases (insurance / travel protection / coverage are common synonyms).
+
+**Limitation 2 — Phrase corrections must use exact draft terms.**
+Corrections should use the *exact token that will appear in the draft* for reliable matching.
+"At Six both nights" works because drafts say "At Six." A correction like "Hotel At Six both
+nights" also works — but "At Six Night 1 deferred" will extract a truncated term due to the
+ordinal-digit stop logic.
+
+If a PASS or FAIL result looks unexpected: check the "term=" audit output in the validate_draft
+report. That shows exactly what token was searched for. Adjust the correction wording if needed.
+
+**Limitation 3 — Gate is passive until wired into the pipeline.**
+`validate_draft_corrections.py` blocks when called, but it is NOT yet called automatically
+before `create_gmail_draft_direct.py`. Active enforcement requires wiring (AAR action #5 —
+Sterling backlog). Until wired: Hale must call it manually before any Gmail draft creation.
+
 ---
 
 ## METRICS

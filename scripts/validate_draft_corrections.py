@@ -63,13 +63,17 @@ NEGATION_MARKERS = {
     "suppressed",
 }
 
-# Stop words — never use these alone as a key term (too generic for reliable matching)
+# Stop words — never use these alone as a key term (too generic for reliable matching).
+# Includes common correction imperative verbs that describe the action, not the subject.
 STOP_WORDS = {
     "a", "an", "the", "and", "or", "but", "in", "on", "at", "to", "for",
     "of", "with", "by", "from", "is", "it", "its", "this", "that", "be",
     "as", "are", "was", "were", "all", "both", "only", "also", "not", "no",
     "do", "does", "did", "have", "has", "had", "will", "would", "should",
     "may", "can", "per", "via", "vs", "nights", "night", "days", "day",
+    # Correction imperative verbs — describe action, not the subject term
+    "add", "use", "use", "keep", "move", "update", "change", "include",
+    "ensure", "confirm", "confirmed", "note", "make", "set", "put",
 }
 
 
@@ -100,27 +104,44 @@ def classify_clause(clause: str) -> tuple[str, str, str]:
     """
     clause_lower = clause.lower()
 
-    # Detect negation
+    # Detect negation — word-boundary match to prevent substring false positives.
+    # "cancel" must not match inside "cancellation"; "drop" must not match "backdrop".
+    # "no longer" has a space so re.escape + \b on each word handles it correctly.
     polarity = "EXPECT-PRESENT"
     matched_marker = None
     for marker in sorted(NEGATION_MARKERS, key=len, reverse=True):  # longest-first
-        if marker in clause_lower:
+        pattern = r"\b" + re.escape(marker) + r"\b"
+        if re.search(pattern, clause_lower):
             polarity = "EXPECT-ABSENT"
             matched_marker = marker
             break
 
-    # Extract key term: prefer CAPITALIZED multi-word phrases (proper nouns)
-    # Pattern: consecutive words with at least one capital letter each
+    # Extract key term: prefer CAPITALIZED multi-word phrases (proper nouns).
+    # Pattern: consecutive ALPHA-ONLY words starting with uppercase.
+    # Does NOT span across digits or ordinals (Night 1 → stops before "1"),
+    # preventing over-long phrases like "At Six Night" that won't match drafts.
     proper_noun_re = re.compile(r"(?:[A-Z][a-zA-Z]+(?:\s+[A-Z][a-zA-Z]+)*)")
     proper_nouns = proper_noun_re.findall(clause)
 
-    # Filter out negation markers that happen to be capitalized and stop words
-    filtered = [
-        p for p in proper_nouns
-        if p.lower() not in NEGATION_MARKERS
-        and p.lower() not in STOP_WORDS
-        and len(p) > 2
-    ]
+    # Filter out negation markers that happen to be capitalized, stop words,
+    # and tokens that are immediately followed by a digit (ordinals: Night 1, Day 2)
+    filtered = []
+    for p in proper_nouns:
+        if p.lower() in NEGATION_MARKERS:
+            continue
+        if p.lower() in STOP_WORDS:
+            continue
+        if len(p) <= 2:
+            continue
+        # Check whether this phrase is immediately followed by a digit in the clause
+        # — if so, truncate to avoid absorbing ordinals into the key term
+        m = re.search(re.escape(p) + r"\s+\d", clause)
+        if m:
+            # Use only the first word of the phrase (e.g., "At Six" not "At Six Night")
+            first_two = " ".join(p.split()[:2])
+            filtered.append(first_two)
+        else:
+            filtered.append(p)
 
     if filtered:
         # Use the longest proper noun phrase as the key term
