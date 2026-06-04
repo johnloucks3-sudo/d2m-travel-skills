@@ -87,7 +87,11 @@ def pre_process_prompt(prompt: str) -> list:
 from thunderbird_tg_formatter import process as fmt_process
 from keyword_router import classify_task, CLAUDE_KEYWORD_PATTERN
 from thunderbird_gmail import publish_draft, _get_draft_metadata
-from thunderbird_stt import transcribe_audio
+try:
+    from thunderbird_stt import transcribe_audio
+except ImportError:
+    def transcribe_audio(*args, **kwargs):
+        return "[STT unavailable — whisper not installed]"
 # TTS optional — if missing, fall back silently
 TTS_AVAILABLE = False
 def synthesize_speech(text, output_path, voice_name="en-US-Journey-F"):

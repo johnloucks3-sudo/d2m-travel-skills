@@ -575,6 +575,76 @@ def send_brief_email(subject: str, html_body: str) -> bool:
 
 
 # ---------------------------------------------------------------------------
+# Overnight ops + credentials section
+# ---------------------------------------------------------------------------
+
+def _build_overnight_section() -> str:
+    """
+    Build OVERNIGHT OPS section for the brief.
+    Reads overnight_ops_log.json and credentials_health.json.
+    CP model: tells Commander what happened overnight without waking him.
+    """
+    state_dir = THUNDERBIRD / "OpsCenter" / "state"
+    overnight_log = state_dir / "overnight_ops_log.json"
+    creds_health = state_dir / "credentials_health.json"
+
+    lines = ["### 0. OVERNIGHT OPS\n*What the Wing did while you slept — no action needed unless flagged 🔴*\n"]
+
+    # --- Overnight events ---
+    events = []
+    if overnight_log.exists():
+        try:
+            entries = json.loads(overnight_log.read_text())
+            # Show last 12 hours of entries
+            cutoff = datetime.now().timestamp() - (12 * 3600)
+            for e in entries:
+                try:
+                    ts = datetime.fromisoformat(e["ts"].rstrip("Z")).timestamp()
+                    if ts > cutoff:
+                        events.append(e)
+                except Exception:
+                    pass
+        except Exception:
+            pass
+
+    if events:
+        for e in events:
+            ts_short = e.get("ts", "")[:16].replace("T", " ")
+            event_name = e.get("event", "event")
+            details = ", ".join(e.get("details", [])[:3])
+            client_alerts = e.get("client_alerts", 0)
+            flag = "🔴" if client_alerts > 0 else "✅"
+            lines.append(f"| {ts_short} | {flag} {event_name} | {details} |")
+    else:
+        lines.append("_No overnight events logged_")
+
+    lines.append("")
+
+    # --- Credentials health ---
+    lines.append("**Credentials Status:**\n")
+    cred_rows = []
+    if creds_health.exists():
+        try:
+            health = json.loads(creds_health.read_text())
+            for name, r in health.get("credentials", {}).items():
+                status = r.get("status", "?")
+                icon = "✅" if status == "valid" else "🔴" if r.get("client_affecting") else "🟡"
+                reason = r.get("reason", "")[:60]
+                cred_rows.append(f"| {icon} {name} | {status} | {reason} |")
+        except Exception:
+            pass
+
+    if cred_rows:
+        lines.append("| Credential | Status | Detail |")
+        lines.append("|---|---|---|")
+        lines.extend(cred_rows)
+    else:
+        lines.append("_Run `python3 scripts/credentials_health_check.py` to populate_")
+
+    return "\n".join(lines) + "\n"
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -606,10 +676,13 @@ def main() -> None:
     # A1 — Compressed 3-7-30 header
     compressed_brief = generate_compressed_brief(state, clients, queue, fpd_state)
 
+    # OVERNIGHT OPS + CREDENTIALS — run health check, inject into brief
+    overnight_section = _build_overnight_section()
+
     md_brief, html_brief = generate_brief(state, clients, queue)
 
-    # Write hale_brief.md — compressed header first, full brief appended
-    combined_md = compressed_brief + "\n---\n\n" + md_brief
+    # Write hale_brief.md — compressed header first, overnight ops, full brief appended
+    combined_md = compressed_brief + "\n---\n\n" + overnight_section + "\n---\n\n" + md_brief
     BRIEF_OUT.write_text(combined_md, encoding="utf-8")
     logger.info(f"hale_brief.md written ({len(combined_md)} chars, compressed+full)")
 

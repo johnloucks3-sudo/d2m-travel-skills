@@ -198,7 +198,7 @@ def _upload_to_drive(local_path: Path, folder_id: str) -> Optional[str]:
 
 
 def _create_draft(subject: str, body: str, attachment_paths: list = None):
-    """Create a Gmail draft with optional attachments."""
+    """Send report directly to Commander inbox. SO 27 MAR 2026: internal comms are FULL SENDS, not drafts."""
     try:
         service = _get_gmail_service()
 
@@ -225,15 +225,11 @@ def _create_draft(subject: str, body: str, attachment_paths: list = None):
                 message.attach(part)
 
         raw = base64.urlsafe_b64encode(message.as_bytes()).decode("utf-8")
-        draft = (
-            service.users()
-            .drafts()
-            .create(userId="me", body={"message": {"raw": raw}})
-            .execute()
-        )
-        logger.info(f"Gmail draft created: {subject} (ID: {draft['id']})")
+        # Direct send — SO 27 MAR 2026: internal reports go to Commander inbox, never drafts
+        sent = service.users().messages().send(userId="me", body={"raw": raw}).execute()
+        logger.info(f"Internal report sent to Commander: {subject} (ID: {sent['id']})")
     except Exception as e:
-        logger.error(f"Gmail draft failed: {e}")
+        logger.error(f"Gmail send failed: {e}")
 
 
 # ============================================================================

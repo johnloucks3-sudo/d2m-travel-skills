@@ -76,7 +76,7 @@ ACCOUNTS = {
     },
 }
 
-DEFAULT_ACCOUNT = "commander"
+DEFAULT_ACCOUNT = "d2mconcierge"  # SO 27 MAR 2026: send FROM d2mconcierge, not Commander's account
 
 # ── Logging ───────────────────────────────────────────────────────────────────
 
@@ -335,11 +335,20 @@ def main():
     send_from_name = "Commander" if args.account == "commander" else "D2M Concierge"
 
     if args.draft_only:
-        result = create_draft(service, recipient_email, args.subject, html_body, send_from)
-        draft_id = result.get("id", "unknown")
-        log.info(f"Draft created: {draft_id}")
-        log.info(f"Draft in {send_from_name}'s Gmail Drafts folder")
-        log.info(f"Access: https://mail.google.com/mail/u/0/#drafts")
+        # Guard: never create a draft to johnloucks3 — Commander doesn't see drafts there
+        # SO 27 MAR 2026: internal comms to johnloucks3 are FULL SENDS
+        if recipient_email == "johnloucks3@gmail.com":
+            log.warning("--draft-only blocked for johnloucks3 (SO 27 MAR 2026: internal comms are direct sends)")
+            log.info("Sending directly instead...")
+            result = send_email(service, recipient_email, args.subject, html_body, send_from)
+            msg_id = result.get("id", "unknown")
+            log.info(f"Email sent directly: {msg_id}")
+        else:
+            result = create_draft(service, recipient_email, args.subject, html_body, send_from)
+            draft_id = result.get("id", "unknown")
+            log.info(f"Draft created: {draft_id}")
+            log.info(f"Draft in {send_from_name}'s Gmail Drafts folder")
+            log.info(f"Access: https://mail.google.com/mail/u/0/#drafts")
     else:
         result = send_email(service, recipient_email, args.subject, html_body, send_from)
         msg_id = result.get("id", "unknown")
