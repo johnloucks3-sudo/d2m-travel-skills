@@ -490,14 +490,18 @@ def run_scheduler(check_date: date, dry_run: bool = False, client_filter: Option
             log.error(f"Error processing {client_file.name}: {e}")
             results["errors"].append(f"{client_file.name}: {str(e)[:100]}")
 
-    # Telegram notification
-    if draft_notifications and not dry_run:
-        msg_lines = [f"🦅 *LIFECYCLE SCHEDULER — {check_date}*", ""]
-        msg_lines.append(f"*{len(draft_notifications)} draft(s) ready for Commander review:*")
-        msg_lines.extend(draft_notifications)
+    # Telegram — escalation only. Routine drafts are silent (audit log is the record).
+    # Notify Commander ONLY when HALE cannot remedy: errors or gate violations.
+    if results["errors"] and not dry_run:
+        msg_lines = [
+            f"🦅 *LIFECYCLE SCHEDULER — ESCALATION — {check_date}*",
+            "",
+            f"*{len(results['errors'])} error(s) require Commander attention:*",
+        ]
+        for err in results["errors"]:
+            msg_lines.append(f"  • {err}")
         msg_lines.append("")
-        msg_lines.append("Check drafts → label: THUNDERBIRD-Commander-Review")
-        msg_lines.append("⚠️ Do NOT send without Commander approval (WF-17 gate)")
+        msg_lines.append("HALE unable to remedy. Commander action required.")
         send_telegram_notification("\n".join(msg_lines))
 
     log.info(f"Scheduler complete: {results}")
