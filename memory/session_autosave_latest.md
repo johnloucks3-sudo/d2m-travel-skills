@@ -27,3 +27,16 @@ last_updated: 2026-03-16 23:08 UTC
 ### Open Items
 - Confirm auto-save cron is ticking
 - AI disclosure clause exact language to be finalized in Voice Guide
+
+---
+
+## Learning — Explora Journeys (2026-06-04)
+**Product:** Explora II, Eastern Med, May 17→Jun 7 2027 (21n, $32,330/2pp retail OT1)
+**Key facts:**
+- 18% OA commission, no NCFs, 80/20 D2M/OA split = $4,656 D2M net on OT1 grand slam
+- OT1-OT4 all identical 377 sqft cabin; OT1 best value
+- Anthology by Mauro Colagreco = EUR165 pp surcharge (only upcharge venue)
+- ETAC portal access needed for private fares (30% off potential)
+- **Recommendation for personal trip:** OT1 deck 7, 21n grand slam, $32,330 retail; book at cost ($27,674) or full retail with D2M earning $4,656
+- Jennifer Greenfield (BDM) contacted for ETAC re-activation
+- TESS: TourOperatorID 49525 (Explora Journeys), 0 D2M bookings

@@ -1,6 +1,8 @@
 # OpenCode Memory — Active Operational State
 **Last Compaction:** 2026-06-01 | **Hard cap: 200 lines** | **Archive:** `archives/opencode_memory_20260523_full.md`
 **2026-06-01 session:** Regent Portal Automation Plan + Opus eval + /ask-opus syntax fix + Monday spike pending
+**2026-06-04 session:** CCP v2.0 + Campaign Plan v2 drive edits downloaded, all 3 documents reformatted (Verdana, standard layout), re-uploaded. Annex C corrected: "inbox as roadblock" moved from Accepts to Does NOT Accept. Hale overdue protocol added to AGENTS.md (Rule 0, INBOX DISCIPLINE section). MISSION-110 created. Phase I (SHAPE) activated per Commander approval.
+**2026-06-04 session (cont):** Explora Journeys grand slam research for Susie & John. Key findings: Explora II May 17→Jun 7 2027 (21n Istanbul→Athens→Venice→Athens) at $32,330/2pp retail OT1. 18% OA commission ($5,819 gross / $4,656 D2M net). Full suite range pricing compiled (OT1→OR from $32K→$291K / 2pp). All suite specs (377-1,346 sqft), dining venues (11, Anthology $165 surcharge), ship comparison documented. ETAC portal blocked — awaiting Jennifer Greenfield. Saved to Drive (Trip Dossiers + D2M root). Explora Journeys TESS record 49525 found (0 bookings).
 
 > Active file holds current state + rules only. Session summaries are archived immediately. Hard cap: 200 lines. Sterling audits on compaction. See ARCHIVE INDEX for resume keywords.
 
@@ -382,3 +384,59 @@ Four sessions: Lifecycle Validation, Quick Init, Wave 2 Pipeline, Evening Email+
 - Commander must WF-17 review and send the two staged insurance drafts
 - McLeod T-14 validation sweep due tomorrow (Jun 4) — Bon Voyage package + final itinerary PDF
 - Sterling to review and route SO amendment v1.1 draft
+
+## Session 2026-06-03/04
+**Hale** — Atlas Med B2B2B + Norway Research + Cross-Cutting Pipeline
+
+### Built
+- Full Atlas Ocean Voyages B2B2B analysis for Loucks personal trip (Jun–Jul 2027, World Traveller, 31nt)
+- Live-scraped Atlas booking pages via gstack browse (V2 pricing confirmed for Legs 1–2, Leg 3 "Call for Fares" noted)
+- Port-by-port itineraries extracted for all 3 legs (26 ports across Italy, France, Greece, Turkey)
+- Pricing for 1/2/3-leg combos with Sail More Save More + Military Edge discount stack (best: 1+2 B2B at $25,716 / $643 pp/night)
+- TA/FAM rate prediction for June peak Med: low probability (<20%)
+- Norway Aug–Nov 2027 research across Regent, Silversea, Atlas (season ends late Aug for classic, Sep+ for Atlas Arctic)
+- Dossier saved: `dossiers/DOSSIER_Loucks_Cruise2027_AtlasMed.md`
+- Synced to Google Drive via rclone
+- Emailed final report to johnloucks3@gmail.com
+
+### Lessons Learned — Flight Plan Evaluation
+
+**Pipeline replicability (→ P2, P9):** Full cross-cutting capability demonstrated: research→scrape→extract→analyze→document→store→sync→email. This is a template for any itinerary/cruise research task. Codify as a standard workflow.
+
+**Browse tool readiness (→ P2):** gstack browse needed setup on first use (bun build). Atlas booking engine blocked by Cloudflare Turnstile. Individual destination pages (atlasoceanvoyages.com/destination/) worked and yielded suite-level pricing. Pattern: use destination pages, not booking engines, for published pricing.
+
+**Email address correction (→ A4 Responsive):** Used john@d2mluxury.quest per earlier config — Commander corrected to johnloucks3@gmail.com. Lesson: Commander's primary personal email is johnloucks3@gmail.com. Logged.
+
+**Dossier as single source of truth (→ P5):** Dossier written with direct source attribution (✅ confirmed vs ❌ Call for Fares vs est), transparent estimation methodology, and full discount calculation. This builds ingestion trust.
+
+**Norway research feeds P14 (Rondo 2027):** Cross-line comparison done. Key finding: Atlas Arctic is the only option past Aug—and Atlas has the best military discount (up to 20%) and best B2B program (10-15%).
+
+### Open
+- Commander decision on Atlas Med B2B2B vs Norway option
+- Leg 3 V2 pricing still "Call for Fares" — needs Atlas call
+- Norway P14 deeper dive if Commander wants to narrow options
+
+---
+
+## Session 2026-06-04 — Flight Plan Update + Campaign Plan + CCP v1.0 (Hale via staff)
+
+### What was built
+- Flight Plan HTML updated with Commander's corrections (P3 7-day clock, P4 inbox redirect, P13 Bryana context, P15 Loucks Travel)
+- Ask/ask-opus spawn diagnosed and verified working (Sonnet 3.0s, Opus 2.5s)
+- Three-tier architecture deployed: Flight Plan (Strategic) → CCP (Operational Art) → Mission Board (Tactical)
+- Campaign Plan HTML (8 campaigns × 1 commander's intent, inferred from historical evidence)
+- CCP v1.0 — Combatant Commander Campaign Plan modeled on Desert Storm, staff-built via ask-opus dispatch
+  - J2 Strategic Environment (Dembe) — COGs, vulnerabilities, assumptions
+  - G3 Campaign Design (Sterling) — Commander's Intent, objectives, LOEs, phasing, decisive points, branches
+  - COS Sustainment (Hale) — Logistics, resource allocation, risk profile, BDA assessment
+  - Voice discipline (Dani) — 3-rule intent language framework
+- Mission board synced — 8 new campaign-aligned missions (M-102→109)
+- All 3 documents uploaded to Google Drive
+
+### What was fixed
+- Ask/ask-opus spawn reliability (P7) — previously broken, now working. 14-day watch active.
+
+### Left open
+- CCP needs Commander review and approval
+- P3 7-day reliability clock at day 1 (started 4 Jun)
+- P7 14-day spawn reliability watch active
