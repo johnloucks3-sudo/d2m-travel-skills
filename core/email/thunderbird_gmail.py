@@ -2572,26 +2572,20 @@ def gmail_check_wing_inbox(max_results: int = 10, mark_read: bool = True) -> lis
         List of dicts: message_id, thread_id, from, subject, date, snippet, body.
         Empty list if Wing Gmail unavailable or no unread Commander messages.
     """
-    try:
-        # FILTER: Prevent inbox clutter from automated wing noise
-        NOISY_SUBJECTS = [
-            "Delivery Status Notification",
-            "Task",
-            "Timer System Update",
-            "PREFLIGHT CHECK",
-            "HALE DAILY BRIEF"
-        ]
-        if subject and any(noisy in subject for noisy in NOISY_SUBJECTS):
-            logger.info(f"BLOCKED NOISY EMAIL: {subject} (Route: /logs/system_noise.log)")
-            with open("/home/john/Thunderbird/logs/system_noise.log", "a") as f:
-                f.write(f"[{datetime.now()}] BLOCKED: {subject}\n{body}\n---\n")
-            return {"status": "success", "message_id": "blocked_noise"}
+    # FILTER: Prevent inbox clutter from automated wing noise
+    NOISY_SUBJECTS = [
+        "Delivery Status Notification",
+        "Task",
+        "Timer System Update",
+        "PREFLIGHT CHECK",
+        "HALE DAILY BRIEF"
+    ]
 
+    try:
         service = _get_wing_gmail_service()
     except Exception as e:
         logger.warning(f"Wing Gmail not available for inbox check: {e}")
         return []
-
 
     # Build query: unread messages from any Commander address
     addrs = " OR ".join(f"from:{addr}" for addr in COMMANDER_ADDRS)
@@ -2621,6 +2615,15 @@ def gmail_check_wing_inbox(max_results: int = 10, mark_read: bool = True) -> lis
                 for h in full.get("payload", {}).get("headers", [])
             }
             body = _decode_body(full.get("payload", {}))
+            subject = headers.get("Subject", "")
+
+            # Skip noisy automated mail
+            if any(noisy in subject for noisy in NOISY_SUBJECTS):
+                logger.info(f"BLOCKED NOISY EMAIL: {subject}")
+                with open("/home/john/Thunderbird/logs/system_noise.log", "a") as f:
+                    from datetime import datetime
+                    f.write(f"[{datetime.now()}] BLOCKED: {subject}\n---\n")
+                continue
 
             if mark_read:
                 service.users().messages().modify(
@@ -2649,12 +2652,25 @@ def gmail_create_draft_sync(
     body: str,
     from_address: str = "concierge@d2mluxury.quest",
     label_review: bool = True,
+    # A8 — WF-17 deep-link Telegram notification fields
+    notify_telegram: bool = False,
+    persona_display: str = "D2M Concierge",
+    product_type: str = "",
+    chain_status: Optional[dict] = None,
 ) -> dict:
     """Synchronous wrapper: create a Gmail draft with D2M stationery.
 
     Used by n8n workflows to stage Intel / Tech drafts for Commander review.
     Applies THUNDERBIRD-Commander-Review label by default.
     Returns dict with draft_id, message_id, subject, and status.
+
+    A8 Extension — WF-17 deep-link Telegram notification:
+        notify_telegram: if True, push draft alert to Commander via Telegram
+        persona_display: human-readable persona name for Telegram message
+        product_type: e.g. "TP 0.5 Welcome", "TP 4.1 Payment Reminder"
+        chain_status: dict of creative chain completion flags, e.g.:
+            {"reyes": True, "luna": True, "naia": True, "dani": True,
+             "talon": False, "jet": False}
     """
     import base64 as _b64
 
@@ -2682,14 +2698,163 @@ def gmail_create_draft_sync(
             logger.warning(f"gmail_create_draft_sync: label tagging failed: {e}")
 
     logger.info(f"Draft created — id={draft_id} subject='{subject}'")
-    return {
+
+    result = {
         "status": "success",
         "draft_id": draft_id,
         "message_id": message_id,
         "subject": subject,
         "to": to,
         "label_applied": label_review,
+        "gmail_deep_link": (
+            f"https://mail.google.com/mail/b/{USER_EMAIL}/#drafts/{message_id}"
+            if message_id else ""
+        ),
     }
+
+    # A8 — Push WF-17 deep-link Telegram notification
+    if notify_telegram:
+        try:
+            _push_wf17_deep_link_alert(
+                draft_id=draft_id,
+                message_id=message_id,
+                to=to,
+                subject=subject,
+                body_full=body,
+                persona_display=persona_display,
+                product_type=product_type,
+                chain_status=chain_status or {},
+                send_as_address=from_address,
+            )
+        except Exception as tg_err:
+            logger.warning(f"A8 WF17 Telegram push failed (draft already saved): {tg_err}")
+
+    return result
+
+
+def _push_wf17_deep_link_alert(
+    draft_id: str,
+    message_id: str,
+    to: str,
+    subject: str,
+    body_full: str,
+    persona_display: str,
+    product_type: str,
+    chain_status: dict,
+    send_as_address: str,
+) -> None:
+    """A8 — Push enhanced WF-17 deep-link notification to Commander via Telegram.
+
+    Includes: Gmail deep-link URL, creative chain completion matrix,
+    send-as address, product type. Navigation only — Commander sends.
+    """
+    import urllib.request
+    import json as _json
+    import re as _re
+
+    poe_env = THUNDERBIRD_DIR / "config" / "poe.env"
+    bot_token = ""
+    chat_id = ""
+    if poe_env.exists():
+        for line in poe_env.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if line.startswith("TELEGRAM_BOT_TOKEN="):
+                bot_token = line.split("=", 1)[1].strip()
+            elif line.startswith("TELEGRAM_COMMANDER_ID="):
+                chat_id = line.split("=", 1)[1].strip()
+
+    if not bot_token or not chat_id:
+        logger.warning("A8 WF17 Telegram push skipped — no bot token/chat_id in poe.env")
+        return
+
+    tg_url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
+
+    # Gmail deep-link — uses message_id (the underlying message, not draft envelope)
+    gmail_link = (
+        f"https://mail.google.com/mail/b/{USER_EMAIL}/#drafts/{message_id}"
+        if message_id else ""
+    )
+
+    # Creative chain completion matrix
+    chain_labels = [
+        ("reyes", "Reyes (Experience)"),
+        ("luna", "Luna (Narrative)"),
+        ("naia", "Naia (Brand)"),
+        ("dani", "Dani (Client Voice)"),
+        ("talon", "TALON (Quality)"),
+        ("jet", "JET (Integrity)"),
+    ]
+    chain_lines = []
+    all_complete = True
+    for key, label in chain_labels:
+        val = chain_status.get(key)
+        if val is True:
+            icon = "✅"
+        elif val is False:
+            icon = "❌"
+            all_complete = False
+        else:
+            icon = "⚪"
+            all_complete = False
+        chain_lines.append(f"  {icon} {label}")
+
+    chain_block = "\n".join(chain_lines)
+    chain_summary = "COMPLETE" if all_complete else "INCOMPLETE"
+
+    header = (
+        f"📋 <b>WF-17 — Draft Ready for Commander Review</b>\n"
+        f"━━━━━━━━━━━━━━━━━━━━\n"
+        f"<b>From:</b> {persona_display}\n"
+        f"<b>To:</b> {to}\n"
+        f"<b>Send-As:</b> {send_as_address}\n"
+        f"<b>Subject:</b> {subject}\n"
+    )
+
+    if product_type:
+        header += f"<b>Product:</b> {product_type}\n"
+
+    if gmail_link:
+        header += f'<a href="{gmail_link}">Open in Gmail ↗</a>\n'
+
+    header += (
+        f"━━━━━━━━━━━━━━━━━━━━\n"
+        f"<b>Creative Chain — {chain_summary}</b>\n"
+        f"{chain_block}\n"
+        f"━━━━━━━━━━━━━━━━━━━━\n"
+        f"<i>Navigation only — Commander sends. NEVER auto-send.</i>"
+    )
+
+    # Keyboard: deep-link to draft (view only), no auto-send button
+    keyboard: dict = {"inline_keyboard": []}
+    if gmail_link:
+        keyboard["inline_keyboard"].append([
+            {"text": "📝 Open Draft in Gmail", "url": gmail_link},
+        ])
+    keyboard["inline_keyboard"].append([
+        {"text": "👁 Preview Body",       "callback_data": f"draft_preview:{draft_id}"},
+        {"text": "❌ Reject & Delete",    "callback_data": f"draft_reject:{draft_id}"},
+    ])
+
+    def _send(text: str, kb: dict | None = None) -> None:
+        payload_body: dict = {"chat_id": chat_id, "text": text, "parse_mode": "HTML"}
+        if kb:
+            payload_body["reply_markup"] = kb
+        data = _json.dumps(payload_body).encode()
+        req = urllib.request.Request(tg_url, data=data, headers={"Content-Type": "application/json"})
+        urllib.request.urlopen(req, timeout=8)
+
+    TG_LIMIT = 4096
+    # Strip HTML for preview excerpt
+    clean_excerpt = _re.sub(r"<[^>]+>", "", body_full).strip()[:200]
+    if len(body_full) > 200:
+        clean_excerpt += "…"
+
+    full_msg = f"{header}\n\n<b>Preview:</b>\n{clean_excerpt}"
+    if len(full_msg) > TG_LIMIT:
+        full_msg = full_msg[:TG_LIMIT - 10] + "…"
+
+    _send(full_msg, keyboard)
+    logger.info("A8 WF17 deep-link Telegram alert sent for draft_id=%s", draft_id)
 
 
 # T2 TOOL_REGISTRY — callable by OpenCode / any gateway importing this module
