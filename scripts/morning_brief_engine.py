@@ -45,6 +45,13 @@ BRIEF_OUT = THUNDERBIRD / "hale_brief.md"
 QUEUE_LOG = THUNDERBIRD / "storage" / "lifecycle_draft_queue.jsonl"
 STATE_FILE = THUNDERBIRD / "hale_state.json"
 
+# A3 — FPD Sentinel integration
+try:
+    from fpd_sentinel import sync_state as fpd_sync_state, get_fpd_brief_rows
+    FPD_SENTINEL_AVAILABLE = True
+except ImportError:
+    FPD_SENTINEL_AVAILABLE = False
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s BRIEF %(levelname)s %(message)s",
@@ -89,6 +96,14 @@ def get_client_statuses() -> list[dict]:
     today = date.today()
     statuses = []
 
+    # A3 — sync FPD sentinel state once per brief run
+    fpd_state: dict = {}
+    if FPD_SENTINEL_AVAILABLE:
+        try:
+            fpd_state = fpd_sync_state()
+        except Exception as _e:
+            logger.warning(f"FPD sentinel sync failed: {_e}")
+
     for rec in records:
         if not rec.is_schedulable:
             continue
@@ -119,13 +134,31 @@ def get_client_statuses() -> list[dict]:
         days_to_dep = (rec.departure - today).days if rec.departure else None
         fpd_str = rec.fpd.strftime("%-d %b %Y") if rec.fpd else "TBD"
 
-        # FPD status indicator
-        if payment_status in ("paid_in_full", "paid", "complete"):
-            fpd_label = f"✅ PAID"
+        # FPD status indicator — A3 sentinel-aware
+        sentinel_entry = fpd_state.get(full_name, {})
+        sentinel_status = sentinel_entry.get("status", "")
+
+        if sentinel_status == "RECEIVED" or payment_status in ("paid_in_full", "paid", "complete"):
+            fpd_label = "✅ PAID"
+        elif sentinel_status == "SILENT":
+            fpd_label = f"SILENT ({fpd_str})"
         elif rec.fpd:
             days_to_fpd = (rec.fpd - today).days
             if days_to_fpd < 0:
-                fpd_label = f"🔴 OVERDUE ({abs(days_to_fpd)}d ago)"
+                # OVERDUE — check if already flagged (suppress from TODAY, goes to 30-day watch)
+                flag_count = sentinel_entry.get("flag_count", 0)
+                last_flagged = sentinel_entry.get("last_flagged_at", "")
+                days_since_flag = 0
+                if last_flagged:
+                    try:
+                        days_since_flag = (today - date.fromisoformat(last_flagged)).days
+                    except ValueError:
+                        pass
+                if flag_count > 1 and days_since_flag < 30:
+                    # In 30-day watch window — mark as watch, not fresh flag
+                    fpd_label = f"👁 WATCH ({abs(days_to_fpd)}d overdue)"
+                else:
+                    fpd_label = f"🔴 OVERDUE ({abs(days_to_fpd)}d ago)"
             elif days_to_fpd <= 14:
                 fpd_label = f"🟡 DUE {fpd_str} (T-{days_to_fpd}d)"
             else:
