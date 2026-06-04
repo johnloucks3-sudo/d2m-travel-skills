@@ -1,3 +1,22 @@
+## PREFLIGHT LOCKED SNAPSHOT — 2026-06-04 23:08:46 UTC — USE THIS, NOT THE RAW DOSSIER
+> Source dossier: dossiers/Ely_Darrow_Regent_3096289.md
+> Corrections applied: 2
+> This snapshot expires: use a fresh preflight before each new session.
+
+## ACTIVE CORRECTIONS (override dossier where they conflict)
+> These are Commander-issued corrections captured after the dossier was written.
+> Where a correction contradicts the dossier, the CORRECTION is authoritative.
+> Note: if two corrections contradict each other, the LATEST one wins.
+
+**Correction 1** (2026-06-04 23:08:34 UTC): At Six both nights, eliminate insurance
+**Correction 2** (2026-06-04 23:08:42 UTC): deferred payment plan confirmed
+
+---
+
+## BASE DOSSIER CONTENT
+> Source: Ely_Darrow_Regent_3096289.md
+> Read: 2026-06-04 23:08:46 UTC
+
 ---
 client: Ely
 full_name: Al Ely & Amy Darrow
