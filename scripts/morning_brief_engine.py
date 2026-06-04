@@ -182,6 +182,208 @@ def get_client_statuses() -> list[dict]:
 
 
 # ---------------------------------------------------------------------------
+# A1 — Brief Compression Engine: 3-7-30 format
+# ---------------------------------------------------------------------------
+
+BRIEF_DELTA_PATH = THUNDERBIRD / "OpsCenter" / "state" / "brief_delta.json"
+
+
+def _load_brief_delta() -> dict:
+    """Load yesterday's brief snapshot for delta computation."""
+    if BRIEF_DELTA_PATH.exists():
+        try:
+            return json.loads(BRIEF_DELTA_PATH.read_text(encoding="utf-8"))
+        except Exception:
+            return {}
+    return {}
+
+
+def _save_brief_delta(snapshot: dict) -> None:
+    BRIEF_DELTA_PATH.parent.mkdir(parents=True, exist_ok=True)
+    BRIEF_DELTA_PATH.write_text(json.dumps(snapshot, indent=2, default=str), encoding="utf-8")
+
+
+def generate_compressed_brief(
+    state: dict,
+    clients: list[dict],
+    queue: list[dict],
+    fpd_state: dict | None = None,
+) -> str:
+    """
+    A1 — 3-7-30 compressed brief format.
+
+    TODAY (≤3 items): Commander action required now.
+    7-DAY HORIZON: Status changes since last brief.
+    30-DAY WATCH: Suppressed repeats / slow-burn items.
+
+    Integrates with A3 FPD sentinel state.
+    Full brief always linked from compressed header.
+    """
+    today = date.today()
+    now_str = datetime.now().strftime("%Y-%m-%d %H:%M MT")
+    yesterday_snap = _load_brief_delta()
+    yesterday_items = yesterday_snap.get("items", {})
+
+    # ── TODAY section — max 3, highest priority Commander actions ──────────
+
+    today_items: list[str] = []
+
+    # WF-17 items that are deadline-critical (today or past due)
+    for e in queue:
+        deadline_str = e.get("deadline", "")
+        is_urgent = False
+        if deadline_str:
+            try:
+                dl = datetime.strptime(deadline_str, "%Y-%m-%d").date()
+                if (dl - today).days <= 1:
+                    is_urgent = True
+            except ValueError:
+                pass
+        if is_urgent and len(today_items) < 3:
+            today_items.append(
+                f"  🔴 WF-17: {e.get('client')} TP {e.get('tp_id')} — "
+                f"review + send by {deadline_str}"
+            )
+
+    # Fresh FPD overdue flags (first-time or re-flag day)
+    if fpd_state is not None and FPD_SENTINEL_AVAILABLE:
+        try:
+            fpd_rows = get_fpd_brief_rows(fpd_state)
+            for row in fpd_rows.get("today_flags", [])[:2]:
+                if len(today_items) >= 3:
+                    break
+                today_items.append(
+                    f"  🔴 FPD OVERDUE: {row['client']} — "
+                    f"{row['days_overdue']}d past due ({row['fpd']})"
+                )
+        except Exception:
+            pass
+
+    # Upcoming departures within 7 days
+    for c in clients:
+        if len(today_items) >= 3:
+            break
+        if c.get("days_to_dep") is not None and 0 <= c["days_to_dep"] <= 7:
+            today_items.append(
+                f"  🛳 DEPARTURE T-{c['days_to_dep']}d: {c['client']} — {c['ship']}"
+            )
+
+    if not today_items:
+        today_items = ["  All clear — no Commander action required today."]
+
+    # ── 7-DAY HORIZON — status changes since last brief ────────────────────
+
+    seven_day_changes: list[str] = []
+
+    # New WF-17 queue items since yesterday
+    prev_wf17_ids = set(str(x) for x in yesterday_items.get("wf17_ids", []))
+    curr_wf17_ids = {f"{e.get('client')}:{e.get('tp_id')}" for e in queue}
+    new_drafts = curr_wf17_ids - prev_wf17_ids
+    for nd in list(new_drafts)[:3]:
+        seven_day_changes.append(f"  + NEW DRAFT: {nd}")
+
+    # Client count delta
+    prev_client_count = yesterday_items.get("client_count", 0)
+    curr_client_count = len(clients)
+    delta_clients = curr_client_count - prev_client_count
+    if delta_clients != 0:
+        sign = "+" if delta_clients > 0 else ""
+        seven_day_changes.append(f"  Δ Clients: {sign}{delta_clients} ({curr_client_count} total)")
+
+    # FPD watch items (ongoing overdue, not fresh flags)
+    if fpd_state is not None and FPD_SENTINEL_AVAILABLE:
+        try:
+            fpd_rows = get_fpd_brief_rows(fpd_state)
+            for row in fpd_rows.get("watch_items", [])[:3]:
+                seven_day_changes.append(
+                    f"  👁 FPD WATCH: {row['client']} — "
+                    f"{row['days_overdue']}d overdue (flagged {row['flag_count']}x)"
+                )
+        except Exception:
+            pass
+
+    # Departures within 7-14 days
+    for c in clients:
+        if c.get("days_to_dep") is not None and 7 < c["days_to_dep"] <= 14:
+            seven_day_changes.append(
+                f"  🛳 T-{c['days_to_dep']}d: {c['client']} — {c['ship']}"
+            )
+
+    if not seven_day_changes:
+        seven_day_changes = ["  No status changes since last brief."]
+
+    yesterday_delta_count = yesterday_items.get("item_count", 0)
+    delta_str = f"yesterday's Δ: {len(today_items) + len(seven_day_changes) - yesterday_delta_count:+d} items"
+
+    # ── 30-DAY WATCH — suppressed repeats ──────────────────────────────────
+
+    watch_30: list[str] = []
+
+    # WF-17 queue items not in today/urgent bucket
+    for e in queue[3:6]:
+        watch_30.append(
+            f"  ⏳ PENDING: {e.get('client')} TP {e.get('tp_id')} — {e.get('status')}"
+        )
+
+    # FPD items received (confirm suppression working)
+    if fpd_state is not None and FPD_SENTINEL_AVAILABLE:
+        try:
+            fpd_rows = get_fpd_brief_rows(fpd_state)
+            received = fpd_rows.get("received", [])
+            if received:
+                watch_30.append(
+                    f"  ✅ RECEIVED (suppressed): "
+                    + ", ".join(r["client"] for r in received[:4])
+                )
+        except Exception:
+            pass
+
+    if not watch_30:
+        watch_30 = ["  Nothing in 30-day watch."]
+
+    # ── Assemble compressed brief ────────────────────────────────────────────
+
+    financial = state.get("financial_pulse", {})
+    pipeline = financial.get("total_d2m_pipeline", 0)
+
+    compressed = f"""# HALE — Compressed Brief [{now_str}]
+*3-7-30 Format | {delta_str}*
+
+---
+
+## TODAY (Commander Action Required)
+{chr(10).join(today_items)}
+
+## 7-DAY HORIZON (Status Since Last Brief)
+{chr(10).join(seven_day_changes)}
+
+## 30-DAY WATCH (Suppressed Repeats)
+{chr(10).join(watch_30)}
+
+---
+
+| Pipeline | WF-17 Queue | Active Clients |
+|---|---|---|
+| **${pipeline:,.0f}** | {len(queue)} drafts | {len(clients)} |
+
+*Full brief: /home/john/Thunderbird/hale_brief.md*
+*— V. Hale, VCS · Next: {(today + timedelta(days=1)).isoformat()} 06:00 MT*
+"""
+
+    # Save delta snapshot for tomorrow's diff
+    _save_brief_delta({
+        "date": today.isoformat(),
+        "items": {
+            "wf17_ids": list(curr_wf17_ids),
+            "client_count": curr_client_count,
+            "item_count": len(today_items) + len(seven_day_changes),
+        },
+    })
+
+    return compressed
+
+
+# ---------------------------------------------------------------------------
 # Brief generator
 # ---------------------------------------------------------------------------
 
@@ -392,15 +594,31 @@ def main() -> None:
     clients = get_client_statuses()
     queue = load_queue_summary()
 
+    # Retrieve fpd_state generated during get_client_statuses()
+    fpd_state: dict = {}
+    if FPD_SENTINEL_AVAILABLE:
+        try:
+            from fpd_sentinel import _load_state as _fpd_load
+            fpd_state = _fpd_load()
+        except Exception:
+            pass
+
+    # A1 — Compressed 3-7-30 header
+    compressed_brief = generate_compressed_brief(state, clients, queue, fpd_state)
+
     md_brief, html_brief = generate_brief(state, clients, queue)
 
-    # Write hale_brief.md
-    BRIEF_OUT.write_text(md_brief, encoding="utf-8")
-    logger.info(f"hale_brief.md written ({len(md_brief)} chars)")
+    # Write hale_brief.md — compressed header first, full brief appended
+    combined_md = compressed_brief + "\n---\n\n" + md_brief
+    BRIEF_OUT.write_text(combined_md, encoding="utf-8")
+    logger.info(f"hale_brief.md written ({len(combined_md)} chars, compressed+full)")
 
     if not args.local:
+        # Email sends the compressed brief + full HTML — compressed as plain text header
+        compressed_html = f"<pre style='font-family:monospace;font-size:12px;background:#f7f3ea;padding:12px'>{compressed_brief}</pre><hr>"
+        full_html_out = compressed_html + html_brief
         subject = f"🦅 Thunderbird Brief — {today.strftime('%-d %b %Y')} — {len(clients)} clients"
-        ok = send_brief_email(subject, html_brief)
+        ok = send_brief_email(subject, full_html_out)
         if not args.timer:
             print(f"  {'✅' if ok else '❌'} Brief emailed to johnloucks3")
 
