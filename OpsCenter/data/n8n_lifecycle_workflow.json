@@ -1,0 +1,112 @@
+{
+  "name": "D2M Lifecycle Email Scheduler — ETB-003",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 12 * * *"
+            }
+          ]
+        }
+      },
+      "id": "cron-trigger",
+      "name": "Daily 0600 MT Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [240, 300],
+      "notes": "Fires at 12:00 UTC = 06:00 MT. Triggers lifecycle scheduler daily."
+    },
+    {
+      "parameters": {
+        "command": "cd /home/john/Thunderbird && python3 core/lifecycle/lifecycle_scheduler.py 2>&1"
+      },
+      "id": "exec-lifecycle",
+      "name": "Run Lifecycle Scheduler",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [460, 300],
+      "notes": "Runs lifecycle_scheduler.py. Creates Gmail DRAFTS only — never sends. Drafts labeled THUNDERBIRD-Commander-Review."
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true
+          },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.exitCode }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            }
+          ]
+        }
+      },
+      "id": "check-exit",
+      "name": "Check Exit Code",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "command": "python3 /home/john/Thunderbird/OpsCenter/thunderbird_telegram_gw.py --message '🦅 ETB-003 Lifecycle Scheduler — FAILED. Check OpsCenter/logs/lifecycle_audit.jsonl. Retry 1/3.' 2>&1 || true"
+      },
+      "id": "telegram-error",
+      "name": "Telegram Error Alert",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [900, 420],
+      "notes": "Sends Telegram alert to Commander on scheduler failure."
+    },
+    {
+      "parameters": {
+        "command": "python3 /home/john/Thunderbird/OpsCenter/thunderbird_telegram_gw.py --message '🦅 ETB-003 Lifecycle Scheduler — OK. Audit: OpsCenter/logs/lifecycle_audit.jsonl' 2>&1 || true"
+      },
+      "id": "telegram-ok",
+      "name": "Telegram Success Ack",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [900, 180],
+      "notes": "Success acknowledgment — only fires if no drafts created (silent days)."
+    }
+  ],
+  "connections": {
+    "Daily 0600 MT Trigger": {
+      "main": [
+        [{"node": "Run Lifecycle Scheduler", "type": "main", "index": 0}]
+      ]
+    },
+    "Run Lifecycle Scheduler": {
+      "main": [
+        [{"node": "Check Exit Code", "type": "main", "index": 0}]
+      ]
+    },
+    "Check Exit Code": {
+      "main": [
+        [{"node": "Telegram Success Ack", "type": "main", "index": 0}],
+        [{"node": "Telegram Error Alert", "type": "main", "index": 0}]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/Denver",
+    "saveManualExecutions": true,
+    "saveExecutionProgress": true
+  },
+  "staticData": null,
+  "tags": ["d2m", "lifecycle", "etb-003"],
+  "meta": {
+    "description": "ETB-003 — D2M Lifecycle Email Scheduler. Runs daily at 0600 MT. Creates Gmail DRAFTS only (WF-17 gate — Commander approval required before any send). Never auto-sends to clients.",
+    "version": "1.0",
+    "author": "HALE",
+    "created": "2026-06-04"
+  }
+}

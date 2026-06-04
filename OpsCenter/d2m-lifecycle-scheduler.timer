@@ -1,0 +1,12 @@
+[Unit]
+Description=D2M Lifecycle Scheduler — Daily 0600 MT (1200 UTC) — ETB-003
+Documentation=file:///home/john/Thunderbird/core/lifecycle/lifecycle_scheduler.py
+
+[Timer]
+# 0600 MT = 1200 UTC (Mountain Standard) / 1300 UTC (Mountain Daylight)
+OnCalendar=*-*-* 12:00:00 UTC
+Persistent=true
+RandomizedDelaySec=300
+
+[Install]
+WantedBy=timers.target

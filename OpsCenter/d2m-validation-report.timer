@@ -1,0 +1,12 @@
+[Unit]
+Description=D2M Validation Report — Monthly 15th at 0700 MT (1300 UTC) — ETB-004
+Documentation=file:///home/john/Thunderbird/core/lifecycle/validation_report_generator.py
+
+[Timer]
+# Monthly on 15th at 0700 MT = 1300 UTC (Mountain Standard)
+OnCalendar=*-*-15 13:00:00 UTC
+Persistent=true
+RandomizedDelaySec=120
+
+[Install]
+WantedBy=timers.target

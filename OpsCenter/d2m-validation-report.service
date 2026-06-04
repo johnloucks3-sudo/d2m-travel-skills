@@ -1,0 +1,15 @@
+[Unit]
+Description=D2M Monthly Validation Report Generator — ETB-004
+After=network.target
+Documentation=file:///home/john/Thunderbird/core/lifecycle/validation_report_generator.py
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/john/Thunderbird
+ExecStart=/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/core/lifecycle/validation_report_generator.py
+StandardOutput=append:/home/john/Thunderbird/OpsCenter/logs/validation_report.log
+StandardError=append:/home/john/Thunderbird/OpsCenter/logs/validation_report.log
+Environment="PYTHONPATH=/home/john/Thunderbird"
+
+[Install]
+WantedBy=default.target

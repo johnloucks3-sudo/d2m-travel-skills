@@ -1,0 +1,11 @@
+[Unit]
+Description=D2M Dashboard — Refresh Every 30 Min (0600-2200 MT) — ETB-006
+Documentation=file:///home/john/Thunderbird/OpsCenter/dashboard_generator.py
+
+[Timer]
+# Every 30 minutes between 1200-0400 UTC (0600-2200 MT)
+OnCalendar=*-*-* *:00:00/30 UTC
+Persistent=false
+
+[Install]
+WantedBy=timers.target
