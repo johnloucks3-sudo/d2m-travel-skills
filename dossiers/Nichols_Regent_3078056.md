@@ -40,7 +40,7 @@ completed_tps: []
 |------|-----------|
 | Mar 16 | Week Nichols asked to follow up |
 | Apr 1 | **FINAL PAYMENT DUE — $14,986** |
-| Aug 27 | Haymarket check-in |
+| Aug 27 | **At Six Stockholm check-in** (all 3 couples — same arrangement as Ely; Haymarket CANCEL PENDING) |
 | Aug 28 | Regent included hotel night |
 | Aug 29 | EMBARKATION (Heidi's birthday!) |
 | Sep 8 | Disembarkation |
