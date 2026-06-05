@@ -1529,36 +1529,39 @@ def relay_poll_loop() -> None:
         if not relay_queue.exists():
             return
         try:
-            lines = relay_queue.read_text().splitlines()
+            raw_lines = relay_queue.read_text().splitlines()
         except Exception:
             return
-        changed = False
-        for line in lines:
+
+        # Parse all entries; track updates by id so rewrite is correct
+        entries = []
+        for line in raw_lines:
             try:
-                entry = json.loads(line)
+                entries.append(json.loads(line))
             except Exception:
+                entries.append(line)  # keep malformed lines as-is
+
+        changed = False
+        for entry in entries:
+            if not isinstance(entry, dict):
                 continue
             if entry.get("to") != "CC" or entry.get("status") != "pending":
                 continue
-            msg_id = entry["id"]
+            msg_id   = entry["id"]
             from_app = entry.get("from", "OC")
             message  = entry.get("message", "")
             priority = entry.get("priority", "normal")
             log.info("[Relay] OC→CC queue item #%s: %s...", msg_id, message[:60])
 
-            # Post receipt to D2M Channels
             tg_send(TOKEN_RELAY, RELAY_CHAT_ID,
                     f"📨 <b>[{from_app}→CC]</b> #{msg_id} received — processing...")
 
-            # Process with Haiku (CC handles OC messages)
-            prompt = _build_hale_claude_prompt("", f"[From {from_app}] {message}")
+            prompt   = _build_hale_claude_prompt("", f"[From {from_app}] {message}")
             response = call_claude_engine(prompt, model=HAIKU_MODEL)
 
-            # Post response to D2M Channels (OC can also read relay_queue for CC→OC replies)
             tg_send(TOKEN_RELAY, RELAY_CHAT_ID,
                     f"✅ <b>[CC→{from_app}]</b> #{msg_id}\n{response[:3600]}")
 
-            # Write CC response back to OC inbox so OC picks it up
             ts = __import__("datetime").datetime.now(
                 __import__("datetime").timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
             try:
@@ -1571,20 +1574,19 @@ def relay_poll_loop() -> None:
             except Exception as e:
                 log.error("[Relay] OC inbox write failed: %s", e)
 
-            # Mark processed in queue
+            # Update status in-place on the dict (entries list holds the same objects)
             entry["status"] = "processed"
             entry["processed_at"] = ts
             changed = True
 
         if changed:
-            # Rewrite queue with updated statuses
+            # Rewrite using the already-parsed (and mutated) entry dicts
             updated = []
-            for line in lines:
-                try:
-                    e = json.loads(line)
+            for e in entries:
+                if isinstance(e, dict):
                     updated.append(json.dumps(e))
-                except Exception:
-                    updated.append(line)
+                else:
+                    updated.append(str(e))
             relay_queue.write_text("\n".join(updated) + "\n")
 
     while True:
