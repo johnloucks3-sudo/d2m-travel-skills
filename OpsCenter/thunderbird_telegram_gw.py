@@ -1506,20 +1506,95 @@ def send_to_relay(message: str, source: str = "SYSTEM") -> bool:
 
 def relay_poll_loop() -> None:
     """
-    D2M Channels relay thread.
-    - Monitors the relay channel for messages prefixed @CC: (route to Claude Code)
-      or @OC: (write to OpenCode inbox for pickup)
-    - All other messages are ignored (they're from automated Wing senders)
+    D2M Channels relay thread — OC↔CC bidirectional communication.
+
+    Two event sources:
+    1. Telegram D2M Channels: Commander-sent @CC: and @OC: directives
+    2. relay_queue.jsonl: messages from OC→CC (file-based, since bots can't
+       receive their own messages via getUpdates)
+
+    All responses posted to D2M Channels for Commander visibility.
     """
-    log.info("[Relay] D2M Channels poll loop starting (chat_id=%d)", RELAY_CHAT_ID)
-    offset = 0
+    log.info("[Relay] D2M Channels OC↔CC relay starting (chat_id=%d)", RELAY_CHAT_ID)
+
+    relay_queue = THUNDERBIRD / "OpsCenter" / "relay_queue.jsonl"
+    oc_inbox    = THUNDERBIRD / "OpsCenter" / "collaboration" / "opencode_inbox.md"
+    cc_inbox    = THUNDERBIRD / "OpsCenter" / "collaboration" / "claude_inbox.md"
+
+    offset   = 0
     _backoff = 5
 
-    relay_ctx = THUNDERBIRD / "OpsCenter" / "context_relay.json"
-    if not relay_ctx.exists():
-        _save_context(relay_ctx, [])
+    def _drain_relay_queue():
+        """Process pending OC→CC messages from relay_queue.jsonl."""
+        if not relay_queue.exists():
+            return
+        try:
+            lines = relay_queue.read_text().splitlines()
+        except Exception:
+            return
+        changed = False
+        for line in lines:
+            try:
+                entry = json.loads(line)
+            except Exception:
+                continue
+            if entry.get("to") != "CC" or entry.get("status") != "pending":
+                continue
+            msg_id = entry["id"]
+            from_app = entry.get("from", "OC")
+            message  = entry.get("message", "")
+            priority = entry.get("priority", "normal")
+            log.info("[Relay] OC→CC queue item #%s: %s...", msg_id, message[:60])
+
+            # Post receipt to D2M Channels
+            tg_send(TOKEN_RELAY, RELAY_CHAT_ID,
+                    f"📨 <b>[{from_app}→CC]</b> #{msg_id} received — processing...")
+
+            # Process with Haiku (CC handles OC messages)
+            prompt = _build_hale_claude_prompt("", f"[From {from_app}] {message}")
+            response = call_claude_engine(prompt, model=HAIKU_MODEL)
+
+            # Post response to D2M Channels (OC can also read relay_queue for CC→OC replies)
+            tg_send(TOKEN_RELAY, RELAY_CHAT_ID,
+                    f"✅ <b>[CC→{from_app}]</b> #{msg_id}\n{response[:3600]}")
+
+            # Write CC response back to OC inbox so OC picks it up
+            ts = __import__("datetime").datetime.now(
+                __import__("datetime").timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+            try:
+                with open(oc_inbox, "a") as f:
+                    f.write(
+                        f"\n---\n## CC-REPLY-{msg_id} — {ts}\n"
+                        f"priority: {priority}\nstatus: UNREAD\ntask: |\n"
+                        + "\n".join("  " + l for l in response.splitlines()) + "\n"
+                    )
+            except Exception as e:
+                log.error("[Relay] OC inbox write failed: %s", e)
+
+            # Mark processed in queue
+            entry["status"] = "processed"
+            entry["processed_at"] = ts
+            changed = True
+
+        if changed:
+            # Rewrite queue with updated statuses
+            updated = []
+            for line in lines:
+                try:
+                    e = json.loads(line)
+                    updated.append(json.dumps(e))
+                except Exception:
+                    updated.append(line)
+            relay_queue.write_text("\n".join(updated) + "\n")
 
     while True:
+        # ── Source 1: relay_queue.jsonl (OC→CC file-based messages) ─────────
+        try:
+            _drain_relay_queue()
+        except Exception as e:
+            log.error("[Relay] Queue drain error: %s", e)
+
+        # ── Source 2: Telegram D2M Channels (Commander @CC:/@OC: directives) ─
         try:
             updates = tg_get_updates(TOKEN_RELAY, offset=offset)
             _backoff = 5
@@ -1534,40 +1609,40 @@ def relay_poll_loop() -> None:
             msg_obj = update.get("message") or update.get("channel_post")
             if not msg_obj:
                 continue
+            user_id = msg_obj.get("from", {}).get("id", 0)
             text = msg_obj.get("text", "").strip()
             if not text:
                 continue
 
-            # @CC: route to Claude Code, post response back to relay
+            # Only process Commander's @CC:/@OC: directives
+            if user_id != COMMANDER_ID:
+                continue
+
             if text.upper().startswith("@CC:"):
                 task = text[4:].strip()
-                log.info("[Relay] @CC task: %s...", task[:60])
+                log.info("[Relay] Commander @CC: %s...", task[:60])
                 tg_typing(TOKEN_RELAY, RELAY_CHAT_ID)
                 prompt = _build_hale_claude_prompt("", task)
                 response = call_claude_engine(prompt, model=HAIKU_MODEL)
                 tg_send(TOKEN_RELAY, RELAY_CHAT_ID,
-                        f"[CC→Relay] {response[:3800]}")
+                        f"<b>[CC]</b> {response[:3800]}")
                 continue
 
-            # @OC: write to OpenCode inbox for pickup
             if text.upper().startswith("@OC:"):
                 task = text[4:].strip()
-                log.info("[Relay] @OC task forwarded to OC inbox: %s...", task[:60])
-                oc_inbox = THUNDERBIRD / "OpsCenter" / "collaboration" / "opencode_inbox.md"
+                log.info("[Relay] Commander @OC: forwarding to OC inbox")
                 ts = __import__("datetime").datetime.now().strftime("%Y-%m-%d %H:%M")
                 try:
                     with open(oc_inbox, "a") as f:
-                        f.write(f"\n---\n## RELAY TASK — {ts}\n{task}\n")
+                        f.write(f"\n---\n## COMMANDER→OC — {ts}\n{task}\n")
                     tg_send(TOKEN_RELAY, RELAY_CHAT_ID,
-                            f"[Relay→OC] Task queued in OC inbox: {task[:100]}")
+                            f"<b>[Relay→OC]</b> Queued in OC inbox: {task[:100]}")
                 except Exception as e:
                     log.error("[Relay] OC inbox write failed: %s", e)
                 continue
 
-            # All other messages in channel — system alerts, no action
-            # (they came from send_to_relay() or other Wing senders)
-
-        time.sleep(POLL_INTERVAL)
+        # Check queue every 15 seconds
+        time.sleep(15)
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
