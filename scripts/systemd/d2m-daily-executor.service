@@ -1,0 +1,17 @@
+[Unit]
+Description=D2M Daily Mission Executor — autonomous task execution
+After=network.target
+
+[Service]
+Type=oneshot
+User=john
+WorkingDirectory=/home/john/Thunderbird
+ExecStart=/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/scripts/daily_mission_executor.py --priority P0,P1
+StandardOutput=append:/home/john/Thunderbird/logs/daily_executor.log
+StandardError=append:/home/john/Thunderbird/logs/daily_executor.log
+Environment="PYTHONPATH=/home/john/Thunderbird"
+Environment="HOME=/home/john"
+Environment="PATH=/home/john/.local/bin:/usr/local/bin:/usr/bin:/bin"
+UnsetEnvironment=ANTHROPIC_API_KEY
+UnsetEnvironment=ANTHROPIC_BASE_URL
+TimeoutStartSec=1800

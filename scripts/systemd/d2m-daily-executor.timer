@@ -1,0 +1,11 @@
+[Unit]
+Description=D2M Daily Mission Executor — 06:15 MT
+Requires=d2m-daily-executor.service
+
+[Timer]
+OnCalendar=*-*-* 06:15:00
+Persistent=true
+AccuracySec=60s
+
+[Install]
+WantedBy=timers.target

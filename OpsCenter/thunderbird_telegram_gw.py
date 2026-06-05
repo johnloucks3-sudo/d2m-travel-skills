@@ -163,8 +163,15 @@ TOKEN_D2MC2C = os.environ.get("TELEGRAM_D2MC2C_TOKEN", "")
 TOKEN_GOOSE = os.environ.get("TELEGRAM_GOOSE_TOKEN", "")
 TOKEN_DANI = os.environ.get("TELEGRAM_DANI_TOKEN", "")
 COMMANDER_ID = int(os.environ.get("TELEGRAM_COMMANDER_ID", "7554895206"))
-POLL_INTERVAL = float(os.environ.get("TELEGRAM_GW_POLL_INTERVAL", "2"))
-ENGINE_TIMEOUT = int(os.environ.get("TELEGRAM_GW_TIMEOUT", "300"))
+# Per-bot allow-list: user_ids allowed to message each bot (besides Commander)
+# Add Bryana or other clients here — comma-separated ids in env var TELEGRAM_DANI_ALLOW_LIST
+DANI_ALLOW_LIST: set[int] = {
+    int(uid.strip()) for uid in
+    os.environ.get("TELEGRAM_DANI_ALLOW_LIST", "").split(",")
+    if uid.strip().isdigit()
+}
+POLL_INTERVAL = float(os.environ.get("TELEGRAM_GW_POLL_INTERVAL", "0"))
+ENGINE_TIMEOUT = int(os.environ.get("TELEGRAM_GW_TIMEOUT", "60"))
 OPENCODE_TIMEOUT = int(os.environ.get("OPENCODE_TIMEOUT", "60"))  # native models: 60s max per model before chain advances
 CHUNK_SIZE = int(os.environ.get("TELEGRAM_GW_CHUNK_SIZE", "4000"))
 CONTEXT_TURNS = int(os.environ.get("TELEGRAM_GW_CONTEXT_TURNS", "10"))
@@ -395,8 +402,8 @@ def tg(token: str, method: str, **kwargs) -> dict:
 
 
 def tg_get_updates(token: str, offset: int) -> list[dict]:
-    """Short-poll getUpdates (timeout=0). Returns list of update objects immediately."""
-    data = tg(token, "getUpdates", offset=offset, timeout=0, limit=20)
+    """Long-poll getUpdates (timeout=25). Holds connection; Telegram pushes on new messages."""
+    data = tg(token, "getUpdates", offset=offset, timeout=25, limit=20)
     if data.get("ok"):
         return data.get("result", [])
     return []
@@ -1126,10 +1133,11 @@ def handle_message(
 ) -> None:
     """Process one incoming message and send formatted response."""
 
-    # Security: Commander-only for D2MC2C and DECOMMISSIONED
-    # For Dani, still only accept Commander ID (clients use a separate flow later)
-    if user_id != COMMANDER_ID:
-        log.warning("Rejected message from non-Commander user_id=%d", user_id)
+    # Access control: Commander always allowed; Dani bot also accepts DANI_ALLOW_LIST
+    is_commander = (user_id == COMMANDER_ID)
+    is_dani_allowed = (bot_name == "Dani" and user_id in DANI_ALLOW_LIST)
+    if not is_commander and not is_dani_allowed:
+        log.warning("Rejected message from non-authorized user_id=%d on bot=%s", user_id, bot_name)
         return
 
     msg = text.strip()
@@ -1143,10 +1151,11 @@ def handle_message(
         elif cmd == "/status":
             handle_status(token, chat_id)
             return
+        elif cmd == "/brief":
+            handle_brief(token, chat_id)
+            return
         elif cmd == "/help":
             handle_help(token, chat_id, bot_name)
-            return
-            handle_brief(token, chat_id)
             return
         elif cmd == "/drafts":
             handle_drafts(token, chat_id)
@@ -1335,19 +1344,8 @@ def handle_message(
     # ── Format and send — model attribution always shown ──────────────────
     raw_response = f"<b>{assistant_label}</b>\n\n{raw_response}"
     
-    # ── Text-to-Speech synthesis ──────────────────────────────────────────
-    audio_path = f"/tmp/response_{chat_id}_{int(time.time())}.ogg"
-    synthesize_speech(raw_response, audio_path)
-    
-    # Send Voice
-    try:
-        with open(audio_path, 'rb') as f:
-            tg(token, "sendVoice", chat_id=chat_id, voice=f)
-    except Exception as e:
-        log.error("TTS sending failed: %s", e)
-    
-    if os.path.exists(audio_path):
-        os.remove(audio_path)
+    # TTS stub removed — synthesize_speech() is a no-op (TTS_AVAILABLE=False).
+    # Remove this comment when real TTS is implemented.
 
     chunks = fmt_process(raw_response, CHUNK_SIZE)
     tg_send_chunks(token, chat_id, chunks)
@@ -1378,7 +1376,8 @@ def hale_claude_engine(
     context_text: str, message: str, model_override: str | None
 ) -> str:
     prompt = _build_hale_claude_prompt(context_text, message)
-    model = model_override or SONNET_MODEL
+    # Haiku default for Telegram C2 chat — Sonnet auto-escalates via keyword routing
+    model = model_override or HAIKU_MODEL
     return call_claude_engine(prompt, model=model)
 
 
@@ -1401,8 +1400,9 @@ def dani_claude_engine(
     context_text: str, message: str, model_override: str | None
 ) -> str:
     prompt = _build_dani_claude_prompt(context_text, message)
-    # Dani always uses Sonnet (warm copy, client-facing)
-    return call_claude_engine(prompt, model=SONNET_MODEL)
+    # Haiku default — Sonnet on model_override or keyword escalation
+    model = model_override or HAIKU_MODEL
+    return call_claude_engine(prompt, model=model)
 
 
 # ── Bot Poll Loop ─────────────────────────────────────────────────────────────
