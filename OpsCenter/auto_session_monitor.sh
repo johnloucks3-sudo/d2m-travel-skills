@@ -23,8 +23,9 @@ log() {
 }
 
 # ── 1. Session process check ────────────────────────────────────────────────
-SESSION_PROCS=$(pgrep -f "claude.*--continue\|opencode.*--continue\|claude.*-p " 2>/dev/null | wc -l || echo 0)
-if [ "$SESSION_PROCS" -gt 0 ]; then
+# pgrep -c counts directly; exits 1 (no match) caught by || echo 0
+SESSION_PROCS=$(pgrep -c -f "claude.*--continue|opencode.*--continue|claude.*-p " 2>/dev/null || echo 0)
+if [ "${SESSION_PROCS:-0}" -gt 0 ]; then
     SESSION_STATUS="ACTIVE ($SESSION_PROCS procs)"
 else
     SESSION_STATUS="IDLE"
@@ -56,8 +57,9 @@ if [ -f "$MISSION_BOARD" ]; then
 import json, sys
 try:
     d = json.load(open('$MISSION_BOARD'))
-    tasks = d.get('tasks', [])
-    active = [t for t in tasks if t.get('status','') in ('in_progress','pending')]
+    # Board uses 'missions' key, not 'tasks'
+    missions = d.get('missions', []) + d.get('tasks', [])
+    active = [m for m in missions if m.get('status','') in ('active','in_progress','pending')]
     print(len(active))
 except:
     print(0)
@@ -65,8 +67,9 @@ except:
 fi
 
 # ── 5. Qdrant health ────────────────────────────────────────────────────────
+# NOTE: Qdrant /health returns 404 in v1.x — use /collections as the health probe
 QDRANT_STATUS="DOWN"
-if curl -sf http://localhost:6333/health >/dev/null 2>&1; then
+if curl -sf http://localhost:6333/collections >/dev/null 2>&1; then
     QDRANT_STATUS="UP"
 fi
 
@@ -84,6 +87,19 @@ fi
 # ── 8. Append heartbeat to COS persona memory ───────────────────────────────
 if [ -f "$PERSONA_NOTES" ]; then
     printf "\n### %s [auto-monitor]\n[heartbeat] %s\n" "$TS" "$STATUS_LINE" >> "$PERSONA_NOTES"
+fi
+
+# ── 9. Regenerate session context blast every hour ──────────────────────────
+# Keeps OpsCenter/session_context_latest.md (auto-loaded by CLAUDE.md) fresh
+# so every new Claude Code session gets current mission/project context.
+MINUTE=$(date +%M)
+if [ "$MINUTE" -lt 10 ]; then
+    VENV_PYTHON="$THUNDERBIRD_DIR/.venv/bin/python3"
+    if [ -x "$VENV_PYTHON" ]; then
+        "$VENV_PYTHON" "$THUNDERBIRD_DIR/core/memory/session_context_blast.py" \
+            >> "$THUNDERBIRD_DIR/logs/session_context_blast.log" 2>&1 || true
+        log "SESSION-CONTEXT: regenerated"
+    fi
 fi
 
 exit 0

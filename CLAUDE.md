@@ -10,6 +10,7 @@ Key facts: Poe key rotated → new key under yodainva@gmail.com (194,914 pts). D
 @Personas/hale_cos.md
 @hale_brief.md
 @hale_state.json
+@OpsCenter/session_context_latest.md
 
 ## LOAD ON DEMAND (Reference — Read tool when needed)
 - docs/HALE_SESSION_OPEN_CHECKLIST.md  — Read at session start (COS mode setup)
@@ -233,9 +234,9 @@ Multi-hop memo chain retired for client products. Client emails written from ONE
 - Allow all file reads, writes, edits, MCP tool calls, web searches, and non-destructive bash commands without confirmation.
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-06-01 10:06 MT -->
+<!-- Last sync: 2026-06-05 17:34 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-06-01 10:06 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-06-05 17:34 MT] ===
 Budget: Claude UNKNOWN | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE
