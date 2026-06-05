@@ -309,10 +309,19 @@ PRICING TIER DIFFERENTIATORS REMAIN:
 - **Return**: ZRH → DEN (July 2) for remaining 8
 
 ### COMMITTED DELIVERABLES
-- June 10, 2027: Flight quotes (all 3 groups)
-- June 17, 2027: Full package — accommodations, transfers, insurance, per-family pricing
-- Week of June 19: Review call (Mon/Fri — text to confirm)
+- **June 10, 2026**: Flight quotes (all 3 groups) — ⚠️ 6 DAYS OUT as of 2026-06-04
+- **June 17, 2026**: Full package — accommodations, transfers, insurance, per-family pricing
+- Week of June 19, 2026: Review call (Mon/Fri — text to confirm)
 - Upon approval: Service Agreement
+
+### FAMILY GROUP BREAKDOWN (3 groups, 12 total)
+| Group | Pax | Who | LEG 1 (DEN→FCO Jun 12) | LEG 2 | LEG 3 (ZRH→DEN Jul 2) |
+|---|---|---|---|---|---|
+| **Yaggi family** | 4 | Names via guest form | Business | — continues | Business (TBC) |
+| **Spencer principals + Nick/Amanda** | 4 | Bill, Kathleen, Nick, Amanda | Premium Economy | — continues | Premium Economy |
+| **Tim's family** | 4 | Tim, JoAnne, Robert (5), Judah (2) | Premium Economy | Business FCO→DEN Jun 23 | — departs Rome |
+
+**Two strollers on Tim's leg. Earliest FCO departure June 23: 12:30pm (cruise off Civitavecchia 8am, 1.5hr transfer).**
 
 ### CORRECTIONS TO EARLIER DRAFT
 1. ~~Departure June 20~~ → **June 12** (3 weeks earlier)

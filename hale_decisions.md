@@ -1,5 +1,62 @@
 ---
 
+## 2026-06-05 DECISIONS
+
+### Spencer Dossier Consolidation + Lifecycle Gap Fix
+**Date:** 2026-06-05 | **Authority:** Hale (autonomous — housekeeping + integrity fix)
+**Issue:** Spencer Grand Tour missing from Blackboard → lifecycle scheduler never surfaced June 10, 2026 air quote deadline. Three dossier files (main + empty prospect stub + typo duplicate). Deliverable year wrong (2027 vs 2026). Family breakdown only in quote matrix, not dossier.
+**Actions:** Created Blackboard YAML with P1 CRITICAL June 10 alert. Fixed year typo. Added family breakdown. Deleted 2 stub files.
+**Outstanding:** Scraper Firefox support — Chromium hardcoded, Firefox path needed for Centrav. Sterling backlog.
+
+---
+
+## 2026-06-04 DECISIONS
+
+### T2 WING EXERCISE AAR — Automation Slate + World Search
+**Date:** 2026-06-04  
+**Classification:** T2 (multi-domain: A12/ELON · A5/Intel · A7/Sterling)  
+**Authority:** Hale (Prompt Charter autonomous)  
+**Commander feedback:** "Sterling fixes code not words. Search the world before building."
+
+#### WORLD SEARCH FINDINGS — Download Before Build
+
+| Initiative | What exists | Source | Verdict |
+|---|---|---|---|
+| Client reply parsing | `mail-parser-reply` — maintained Dec 2025, multi-language, strips quoted history, typed | `pip install mail-parser-reply` (alfonsrv/GitHub) | **DOWNLOAD — don't build** |
+| Email lifecycle engine | **Dittofeed** — MIT, self-hosted Docker, event-triggered, Gmail SMTP, git-backed templates | github.com/dittofeed/dittofeed | **EVALUATE** — too much infra for 5 clients now; revisit at scale |
+| Email lifecycle engine (alt) | **Laudspeaker** — YC-backed, event-triggered, visual journey, multi-channel | github.com/laudspeaker/laudspeaker | Same as Dittofeed — evaluate at scale |
+| n8n CRM workflows | 411 CRM templates at n8n.io/workflows/categories/crm/ — travel/lifecycle likely exists | n8n.io | **CHECK BEFORE BUILDING** — import existing template |
+| Fare watch / flight monitor | `fly-tracker` (PyPI) — Google Flights, notification support; also Flight_Tracker, FlightPriceTracker GitHub repos | `pip install fly-tracker` | **SUPPLEMENT** — Centrav re-auth is still primary; fly-tracker as fallback |
+| Commission tracking | **Tern** travel-agent-specific commission recon (commercial); no pure-Python OSS found | tern.travel | MONITOR — Tern is commercial; custom timer for Harlan is correct approach |
+| Guest intake processing | No OSS drop-in found — structured form → YAML is D2M-specific | — | BUILD (small — wire dormant module) |
+
+#### RANKED SLATE (post-search, code-fix priority per Commander directive)
+
+| Rank | Initiative | Type | Sterling fix required | Effort |
+|------|-----------|------|----------------------|--------|
+| 1 | Fare watch re-auth (Centrav) | Repair | ✅ Code — re-auth logic fix | 1-2h |
+| 2 | Timer health audit | Audit | ✅ Code — dead timers removed | 2-3h |
+| 3 | `pip install mail-parser-reply` + wire reply flag-for-Hale | Download + wire | ✅ Code — new module | 1d |
+| 4 | Guest intake timer (wire dormant) | Wire | ✅ Code — service file + test | 2-3h |
+| 5 | Commission report-for-Harlan timer | Wire | ✅ Code — service file + Harlan concurrence | 3-4h |
+| 6 | ARC 6 post-voyage extension (ETB-003 addendum) | Build addendum | ✅ Code — extend lifecycle_scheduler.py | 4-6h |
+| 7 | Auto-enrich source audit → wire or kill | Audit first | ✅ Code — Sterling audits source, then decides | 1h audit |
+
+**Hold list (evaluate at scale, not now):**
+- Dittofeed / Laudspeaker — full lifecycle platform, over-engineered for 5 clients
+- n8n CRM template import — check library first before deciding
+
+**Sterling action items (code, not docs):**
+- [ ] Fix Centrav re-auth in `core/travel/` fare watch module
+- [ ] Timer audit: `systemctl --user list-timers` → kill dead/error timers
+- [ ] Audit `thunderbird_auto_enrich.py` source — primary or memo-derived?
+- [ ] Wire `thunderbird_guest_intake.py` to systemd timer after audit passes
+- [ ] Wire commission recon to systemd timer (report-for-Harlan, not replace-Harlan)
+
+**Anti-theater gate (Sterling owns):** All 5 action items must produce committed code within 7 days (by 2026-06-11) or this exercise is theater. `lessons_implementation_rate_pct` tracked.
+
+---
+
 ## 2026-06-03 DECISIONS
 
 ### ESCALATED: thunderbird-overwatch Service Crash Loop (INC-20260603T222210Z-c5fdbc)
@@ -3819,5 +3876,248 @@ DeepSeek V4: 260 sessions, $11.9896
 **Trust Points:** +1
 **Autonomy Tier:** T1
 **Notes:** OpenCode inline dispatch completed in 3.7s. Output: 5 chars. Model: Sonnet
+
+---
+
+### 2026-06-03 18:00:00 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: T2-COMMS-BUILD-20260518 status: COMPLETE — 2026-05-31T07:45:00Z — ESCALATED TO COMMANDER note: Hard stop 20
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 428353 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260603_180000.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-06-03 20:06:31 — Autonomous Decision (Tier T1)
+
+**Decision:** Sonnet inline dispatch: Say 'Hello from headless Claude' and nothing else...
+
+**Domain:** Task Execution
+**Type:** routine
+**Outcome:** correct
+**Trust Points:** +1
+**Autonomy Tier:** T1
+**Notes:** OpenCode inline dispatch completed in 3.0s. Output: 27 chars. Model: Sonnet
+
+---
+
+### 2026-06-03 20:06:36 — Autonomous Decision (Tier T1)
+
+**Decision:** Opus inline dispatch: Say 'Opus is alive' and nothing else...
+
+**Domain:** Task Execution
+**Type:** routine
+**Outcome:** correct
+**Trust Points:** +1
+**Autonomy Tier:** T1
+**Notes:** OpenCode inline dispatch completed in 2.5s. Output: 14 chars. Model: Opus
+
+---
+
+### 2026-06-03 20:06:43 — Autonomous Decision (Tier T1)
+
+**Decision:** Sonnet inline dispatch: say "shell integration working"...
+
+**Domain:** Task Execution
+**Type:** routine
+**Outcome:** correct
+**Trust Points:** +1
+**Autonomy Tier:** T1
+**Notes:** OpenCode inline dispatch completed in 2.5s. Output: 26 chars. Model: Sonnet
+
+---
+
+### 2026-06-03 20:07:56 — Autonomous Decision (Tier T1)
+
+**Decision:** Opus inline dispatch: You are A7 Sterling, Chief of Process & Standards at Thunder...
+
+**Domain:** Task Execution
+**Type:** routine
+**Outcome:** correct
+**Trust Points:** +1
+**Autonomy Tier:** T1
+**Notes:** OpenCode inline dispatch completed in 47.2s. Output: 2156 chars. Model: Opus
+
+---
+
+### 2026-06-03 20:07:56 — Autonomous Decision (Tier T1)
+
+**Decision:** Sonnet inline dispatch: You are A3 Dani, Chief of Client Experience & Voice at Thund...
+
+**Domain:** Task Execution
+**Type:** routine
+**Outcome:** correct
+**Trust Points:** +1
+**Autonomy Tier:** T1
+**Notes:** OpenCode inline dispatch completed in 43.6s. Output: 1259 chars. Model: Sonnet
+
+---
+
+### 2026-06-03 20:08:27 — Autonomous Decision (Tier T1)
+
+**Decision:** Sonnet inline dispatch: You are Ms. Victoria "Victory" Hale, SES-6, COS/COO of Thund...
+
+**Domain:** Task Execution
+**Type:** routine
+**Outcome:** correct
+**Trust Points:** +1
+**Autonomy Tier:** T1
+**Notes:** OpenCode inline dispatch completed in 71.5s. Output: 1701 chars. Model: Sonnet
+
+---
+
+### 2026-06-03 20:09:30 — Autonomous Decision (Tier T1)
+
+**Decision:** Opus inline dispatch: You are A2 Dembe, Chief Intelligence Officer, Thunderbird Wi...
+
+**Domain:** Task Execution
+**Type:** routine
+**Outcome:** correct
+**Trust Points:** +1
+**Autonomy Tier:** T1
+**Notes:** OpenCode inline dispatch completed in 17.0s. Output: 1975 chars. Model: Opus
+
+---
+
+### 2026-06-03 20:16:10 — Autonomous Decision (Tier T1)
+
+**Decision:** Opus inline dispatch: You are A2 Dembe, Chief Intelligence Officer, Thunderbird Wi...
+
+**Domain:** Task Execution
+**Type:** routine
+**Outcome:** correct
+**Trust Points:** +1
+**Autonomy Tier:** T1
+**Notes:** OpenCode inline dispatch completed in 20.9s. Output: 2117 chars. Model: Opus
+
+---
+
+### 2026-06-03 20:16:21 — Autonomous Decision (Tier T1)
+
+**Decision:** Opus inline dispatch: You are LTG Franks, G3 / Director of Plans, Thunderbird Wing...
+
+**Domain:** Task Execution
+**Type:** routine
+**Outcome:** correct
+**Trust Points:** +1
+**Autonomy Tier:** T1
+**Notes:** OpenCode inline dispatch completed in 26.6s. Output: 3036 chars. Model: Opus
+
+---
+
+### 2026-06-03 20:16:39 — Autonomous Decision (Tier T1)
+
+**Decision:** Sonnet inline dispatch: You are Ms. Victoria "Victory" Hale, SES-6, COS/COO, Thunder...
+
+**Domain:** Task Execution
+**Type:** routine
+**Outcome:** correct
+**Trust Points:** +1
+**Autonomy Tier:** T1
+**Notes:** OpenCode inline dispatch completed in 40.3s. Output: 5812 chars. Model: Sonnet
+
+---
+
+### 2026-06-04 00:00:03 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: T2-COMMS-BUILD-20260518 status: COMPLETE — 2026-05-31T07:45:00Z — ESCALATED TO COMMANDER note: Hard stop 20
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 544749 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260604_000003.log | Inbox: opencode_inbox.md
+
+---
+
+
+---
+## Harlan Cost Brief — 2026-06-04
+```
+HARLAN AM BRIEF — 2026-06-04 06:00
+🔴 Verdict: BLOCK | Sonnet weekly at 100% — hard block until reset | DeepSeek V4 wandering — investigate routing
+═══
+Sonnet weekly: 100% | All weekly: 86%
+Monthly: $55.67/100
+OpenCode 7d: $6.0498 | Month: $2.3789
+⚠ DEEPSEEK WANDER: deepseek/deepseek-chat-v3.1 $1.4375
+DeepSeek V4: 296 sessions, $12.3210
+  ⚠ NATIVE BILLING: deepseek-v4-flash-free charged $1.6367 — native provider should be $0
+  ⚠ BANNED MODEL ACTIVE: google/gemini-3.1-flash-lite-preview billed $8.4165 — replace with native/free alternative
+  ⚠ CONTEXT BLOAT: google/gemini-3.1-flash-lite-preview [high] avg 8,509,364 in tokens/session (4 sessions) — review prompt compression
+— A9 Harlan | Thunderbird Wing
+```
+
+### 2026-06-04 06:00:01 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: T2-COMMS-BUILD-20260518 status: COMPLETE — 2026-05-31T07:45:00Z — ESCALATED TO COMMANDER note: Hard stop 20
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 658473 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260604_060001.log | Inbox: opencode_inbox.md
+
+---
+
+---
+
+## 2026-06-04 DECISIONS
+
+### T2 WING EXERCISE — Automation Slate Post-ETB-003/004/005/006
+
+**Date:** 2026-06-04  
+**Exercise tier:** T2  
+**Staff:** A12 ELON · A5 Intel · A7 Sterling · ZEN counter-voice (4 inputs)  
+**Hale synthesis:** Complete  
+**Status:** PENDING COMMANDER DECISION
+
+**Ranked slate (7 initiatives):**
+
+| Rank | Initiative | Type | Est. effort | Status |
+|------|-----------|------|-------------|--------|
+| 1 | Fare watch re-auth (Centrav) | Repair | 1h | **Hale autonomous — executing** |
+| 2 | Timer health audit (30+ timers) | Prerequisite | 2-3h | **Hale autonomous — executing** |
+| 3 | Guest intake auto-processing (wire dormant module) | Wire | 2-3h | Pending Commander go |
+| 4 | Commission report-for-Harlan timer | Wire | 3-4h | Pending Harlan concurrence + Commander go |
+| 5 | ARC 6 post-voyage extension to ETB-003 | Build | 4-6h | Pending Commander go |
+| 6 | Client reply flag-for-Hale parser | Build (new) | 1-2 days | Pending Commander go — design: flag-not-write |
+| 7 | Auto-enrich source audit + wire | Audit first | 1h + 2h | Hold pending Sterling source audit |
+
+**Excluded (already automated):** FPD auto-update · TESS sync · portal keepalive  
+**Excluded (gate applies):** Portal client-activity monitoring (cruise line scraping out of scope)  
+**ZEN key flags:** Reply parser must be flag-not-write (contamination risk). Auto-enrich source must be primary-source only. Timer audit before any new timer wiring.  
+**Anti-theater deadline:** 2026-06-11 (7 days). Sterling tracks.
+
+
+### 2026-06-04 12:00:00 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: T2-COMMS-BUILD-20260518 status: COMPLETE — 2026-05-31T07:45:00Z — ESCALATED TO COMMANDER note: Hard stop 20
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 790359 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260604_120000.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-06-04 18:00:02 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: T2-COMMS-BUILD-20260518 status: COMPLETE — 2026-05-31T07:45:00Z — ESCALATED TO COMMANDER note: Hard stop 20
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 914623 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260604_180002.log | Inbox: opencode_inbox.md
 
 ---
