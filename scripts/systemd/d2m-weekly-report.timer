@@ -1,0 +1,11 @@
+[Unit]
+Description=D2M Weekly Activity Report — Friday 18:00 MT
+Requires=d2m-weekly-report.service
+
+[Timer]
+OnCalendar=Fri *-*-* 18:00:00
+Persistent=true
+AccuracySec=60s
+
+[Install]
+WantedBy=timers.target
