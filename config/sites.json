@@ -1,0 +1,449 @@
+{
+  "_meta": {
+    "generated": "2026-06-04",
+    "description": "Canonical inventory of all external supplier sites requiring credential management and/or site change detection"
+  },
+  "tier1_active_revenue_critical": [
+    {
+      "name": "Regent RSSC",
+      "url": "https://www.rssc.com/agent/",
+      "purpose": "Cruise booking portal — core D2M cruise line. Bookings: Ely, Nichols, Furlow, McLeod",
+      "auth_type": "session_cookies",
+      "auth_detail": "Two accounts (D2M direct + OA). Akamai bot protection. Headless Chromium blocked, requires Firefox or CDP-mode Chrome",
+      "cookie_file": "creds/regent_cookies.json",
+      "cookie_file_oa": "creds/regent_cookies_oa.json",
+      "session_ttl": "unknown (Akamai-gated, no auto-refresh)",
+      "has_auto_refresh": true,
+      "auto_refresh_timer": "d2m-rssc-session-keepalive.timer (every 4h)",
+      "scripts": [
+        "scripts/rssc_session_keepalive.py",
+        "scripts/rssc_multi_account_scrape.py",
+        "scripts/rssc_targeted_scrape.py",
+        "scripts/rssc_full_scrape.py",
+        "scripts/scrape_dining_reservations.py",
+        "scripts/scrape_dining_targeted.py"
+      ],
+      "failure_mode": "Previously: cookies expired silently. Now: auto-refreshed every 4h via systemd timer.",
+      "change_detection_needed": true,
+      "credential_freshness_needed": true,
+      "business_impact": "cannot operate without this"
+    },
+    {
+      "name": "Centrav B2B",
+      "url": "https://www.centrav.com",
+      "purpose": "B2B wholesale flight pricing — primary source for premium cabin quotes and fare watches",
+      "auth_type": "session_cookies_with_otp",
+      "auth_detail": "Login/password + reCAPTCHA + OTP via email. Session TTL ~2 hours idle. reCAPTCHA bypass via stealth Firefox (score 963/1005)",
+      "cookie_file": "creds/centrav_cookies.json",
+      "session_file": "core/travel/data/centrav_session.json",
+      "session_ttl": "~2 hours",
+      "has_auto_refresh": true,
+      "auto_refresh_timer": "d2m-centrav-session-keepalive.timer (every 90 min)",
+      "scripts": [
+        "scripts/centrav_reauth.py",
+        "scripts/centrav_flights.py",
+        "core/travel/thunderbird_centrav_search.py"
+      ],
+      "failure_mode": "Session expires after ~2hr. OTP polling from Gmail is fragile (API quota, subject parsing). reCAPTCHA can fail.",
+      "change_detection_needed": true,
+      "credential_freshness_needed": true,
+      "business_impact": "cannot operate without this"
+    },
+    {
+      "name": "Silversea",
+      "url": "https://my.silversea.com",
+      "purpose": "Agency portal — growing cruise line. McLeod booking on Silver Muse",
+      "auth_type": "login_password",
+      "auth_detail": "Agency credentials, CRM ID 32995587. Recently added 2026-06-01",
+      "cred_file": "config/portal_creds.json",
+      "has_auto_refresh": false,
+      "scripts": [
+        "scripts/test_silversea.py",
+        "core/ai_infra/intel_connectors/silversea_connector.py"
+      ],
+      "failure_mode": "New integration — no refresh maturity. Credentials in portal_creds.json only, no dedicated cookie store",
+      "change_detection_needed": true,
+      "credential_freshness_needed": true,
+      "business_impact": "growing line, active client"
+    },
+    {
+      "name": "Perx",
+      "url": "https://www.perx.com",
+      "purpose": "TA rate platform — Silversea pricing for Westbrook connection",
+      "auth_type": "session_cookies",
+      "auth_detail": "Login/password + Cloudflare + Google SSO cookies",
+      "cookie_file": "creds/perx_cookies.json",
+      "cookies_expire": "2026-05-25 (was hardcoded — now auto-refreshed via perx_session_keepalive.py)",
+      "has_auto_refresh": true,
+      "auto_refresh_timer": "d2m-perx-session-keepalive.timer (every 6h)",
+      "failure_mode": "Previously: hardcoded expiry not machine-readable. Now: auto-refreshed every 6h via systemd timer.",
+      "change_detection_needed": true,
+      "credential_freshness_needed": true,
+      "business_impact": "Silversea agent pricing"
+    },
+    {
+      "name": "TESS CRM",
+      "url": "https://crm.myagentgenie.com/api",
+      "purpose": "Outside Agents CRM — client/trip/booking records, dossier sync",
+      "auth_type": "oauth2_jwt",
+      "auth_detail": "OAuth 2.0 Authorization Code + PKCE, JWT bearer token. $ProtectedEncrypted Agent DTO pattern causes 500 errors on stale tokens",
+      "token_file": "tess_token.json",
+      "session_ttl": "~2 hours (token expires_in: 7199s)",
+      "has_auto_refresh": "yes — tess_token_keepalive.py runs every 90 min via systemd",
+      "scripts": [
+        "scripts/tess_token_keepalive.py",
+        "scripts/thunderbird_tess_token_refresh.py",
+        "core/booking/thunderbird_tess.py"
+      ],
+      "failure_mode": "$ProtectedEncrypted DTO pattern causes silent 500 on stale encryption. refresh_token can get invalid_grant requiring full re-auth",
+      "change_detection_needed": true,
+      "credential_freshness_needed": true,
+      "business_impact": "CRM data sync"
+    },
+    {
+      "name": "Room-Res",
+      "url": "https://room-res.com",
+      "purpose": "Hotel booking platform for travel agents",
+      "auth_type": "session_cookies",
+      "auth_detail": "Login/password + 142 cookies stored",
+      "cookie_file": "creds/room_res_cookies.json",
+      "has_auto_refresh": "partial — portal_keepalive.py can refresh but no timer",
+      "scripts": ["scripts/portal_keepalive.py"],
+      "failure_mode": "Cookies mostly analytics. Session cookie name may change. No active session validation.",
+      "change_detection_needed": true,
+      "credential_freshness_needed": true,
+      "business_impact": "hotel bookings"
+    },
+    {
+      "name": "Hotelbeds API",
+      "url": "https://api.test.hotelbeds.com",
+      "purpose": "B2B hotel GDS — 180k+ properties, wholesale net rates",
+      "auth_type": "api_key_signature",
+      "auth_detail": "api_key + api_secret, SHA-256 HMAC signature per request. Currently pointing at test endpoint only",
+      "cred_file": "creds/hotelbeds_credentials.json",
+      "has_auto_refresh": false,
+      "pointed_at_production": false,
+      "failure_mode": "Test endpoint only. Never exercised in production. Signature time-window sensitive (5 min drift).",
+      "change_detection_needed": true,
+      "credential_freshness_needed": false,
+      "business_impact": "potential primary hotel source, currently dormant"
+    },
+    {
+      "name": "Bedsonline",
+      "url": "https://book.bedsonline.com",
+      "purpose": "Hotelbeds B2B portal — Playwright fallback when API unavailable",
+      "auth_type": "login_password",
+      "auth_detail": "Portal credentials + browser automation",
+      "cred_file": "config/portal_creds.json",
+      "has_auto_refresh": false,
+      "failure_mode": "Two code paths to maintain (API + portal). Portal login flow could change.",
+      "change_detection_needed": true,
+      "credential_freshness_needed": true,
+      "business_impact": "hotel pricing fallback"
+    },
+    {
+      "name": "Amadeus API",
+      "url": "https://test.api.amadeus.com",
+      "purpose": "Flight search, tour/activity search, airport/city code autocomplete",
+      "auth_type": "oauth2_client_credentials",
+      "auth_detail": "client_id + client_secret. Test tier only (500 calls/month). Production endpoint: api.amadeus.com",
+      "cred_file": "creds/amadeus_credentials.json",
+      "has_auto_refresh": false,
+      "pointed_at_production": false,
+      "failure_mode": "Test tier only. No production credentials configured or tested.",
+      "change_detection_needed": true,
+      "credential_freshness_needed": false,
+      "business_impact": "primary flight search API, can route around via Centrav"
+    }
+  ],
+  "tier2_change_detection_only": [
+    {
+      "name": "Kiwitaxi",
+      "url": "https://www.kiwitaxi.com",
+      "purpose": "Ground transfer pricing — 20+ pre-mapped D2M routes, fixed pricing",
+      "auth_type": "none (public scrape)",
+      "scripts": ["scripts/test_transfer_scrapers.py"],
+      "failure_mode": "Static route URLs could change format",
+      "change_detection_needed": true,
+      "credential_freshness_needed": false
+    },
+    {
+      "name": "GetYourGuide",
+      "url": "https://www.getyourguide.com",
+      "purpose": "Day tours/excursions — consumer pricing, 500+ results per city",
+      "auth_type": "none (public scrape)",
+      "scripts": ["scripts/test_tour_scrapers.py"],
+      "failure_mode": "Selector rot (currently: [class*='activity-card'])",
+      "change_detection_needed": true,
+      "credential_freshness_needed": false
+    },
+    {
+      "name": "TourRadar",
+      "url": "https://www.tourradar.com",
+      "purpose": "Multi-day guided tours pricing",
+      "auth_type": "none (public scrape)",
+      "selector": ".tour-card",
+      "failure_mode": "Selector rot",
+      "change_detection_needed": true,
+      "credential_freshness_needed": false
+    },
+    {
+      "name": "Tiqets",
+      "url": "https://www.tiqets.com",
+      "purpose": "Activity/attraction tickets",
+      "auth_type": "none (public scrape)",
+      "selector": "article[class*='card']",
+      "failure_mode": "Selector rot",
+      "change_detection_needed": true,
+      "credential_freshness_needed": false
+    },
+    {
+      "name": "Silversea Public Pages",
+      "url": "https://www.silversea.com/find-a-voyage.html",
+      "purpose": "Price watch — Spring 2027 deployments",
+      "auth_type": "none (public)",
+      "scripts": ["workflows/silversea_spring2027_watch.json"],
+      "failure_mode": "URL params or page structure could change",
+      "change_detection_needed": true,
+      "credential_freshness_needed": false
+    },
+    {
+      "name": "Airline RSS Feeds",
+      "urls": ["Simple Flying RSS", "Routes Online RSS", "The Points Guy RSS", "Cranky Flier RSS"],
+      "purpose": "Route change monitoring — cross-references against client dossier airports",
+      "auth_type": "none (public RSS)",
+      "scripts": ["core/travel/thunderbird_airline_monitor.py"],
+      "failure_mode": "Feed URL or format changes",
+      "change_detection_needed": true,
+      "credential_freshness_needed": false
+    },
+    {
+      "name": "FX Rate API",
+      "url": "https://open.er-api.com/v6/latest/EUR",
+      "purpose": "Currency conversion for pricing",
+      "auth_type": "none (public)",
+      "failure_mode": "API endpoint deprecation",
+      "change_detection_needed": true,
+      "credential_freshness_needed": false
+    },
+    {
+      "name": "CruiseCritic",
+      "url": "https://www.cruisecritic.com/reviews/",
+      "purpose": "Ship reviews — Silversea monitoring",
+      "auth_type": "none (public)",
+      "failure_mode": "URL structure changes",
+      "change_detection_needed": true,
+      "credential_freshness_needed": false
+    }
+  ],
+  "tier3_registered_not_automated": [
+    {
+      "name": "Seabourn",
+      "url": "https://book2.seabourn.com",
+      "purpose": "Cruise booking portal",
+      "auth_type": "login_password",
+      "cred_file": "config/portal_creds.json",
+      "change_detection_needed": true,
+      "credential_freshness_needed": false
+    },
+    {
+      "name": "Seabourn Portal",
+      "url": "https://www.goseabourn.com",
+      "purpose": "Seabourn agent portal",
+      "auth_type": "login_password",
+      "cred_file": "config/portal_creds.json",
+      "change_detection_needed": true,
+      "credential_freshness_needed": false
+    },
+    {
+      "name": "Princess",
+      "url": "https://book.princess.com",
+      "purpose": "Carnival Corp booking portal",
+      "auth_type": "login_password",
+      "auth_detail": "Agent ID format: 00008IMC",
+      "cred_file": "config/portal_creds.json",
+      "change_detection_needed": true,
+      "credential_freshness_needed": false
+    },
+    {
+      "name": "Carnival CruisingPower",
+      "url": "https://secure.cruisingpower.com",
+      "purpose": "Carnival Corp agent portal (Carnival/HAL/Costa)",
+      "auth_type": "login_password",
+      "auth_detail": "Security questions required",
+      "cred_file": "config/portal_creds.json",
+      "change_detection_needed": true,
+      "credential_freshness_needed": false
+    },
+    {
+      "name": "Windstar",
+      "url": "https://advisorhub.windstarcruises.com",
+      "purpose": "Travel advisor hub",
+      "auth_type": "login_password",
+      "cred_file": "config/portal_creds.json",
+      "change_detection_needed": true,
+      "credential_freshness_needed": false
+    },
+    {
+      "name": "AmaWaterways",
+      "url": "https://www.amawaterways.com",
+      "purpose": "River cruise bookings",
+      "auth_type": "login_password",
+      "cred_file": "config/portal_creds.json",
+      "change_detection_needed": true,
+      "credential_freshness_needed": false
+    },
+    {
+      "name": "Atlas Ocean Voyages",
+      "url": "https://agents.atlasoceanvoyages.com",
+      "purpose": "Agent portal",
+      "auth_type": "login_password",
+      "cred_file": "config/portal_creds.json",
+      "auto_refresh_timer": "d2m-portal-keepalive",
+      "change_detection_needed": true,
+      "credential_freshness_needed": true
+    },
+    {
+      "name": "Explora Journeys",
+      "url": "https://agent.explorajourneys.com",
+      "purpose": "Agent portal",
+      "auth_type": "login_password",
+      "cred_file": "config/portal_creds.json",
+      "auto_refresh_timer": "d2m-portal-keepalive",
+      "change_detection_needed": true,
+      "credential_freshness_needed": true
+    },
+    {
+      "name": "Kensington Tours",
+      "url": "https://fit.kensingtontours.com",
+      "purpose": "FIT luxury tours booking",
+      "auth_type": "login_password",
+      "cred_file": "config/portal_creds.json",
+      "change_detection_needed": true,
+      "credential_freshness_needed": false
+    },
+    {
+      "name": "Gate 1 Travel",
+      "url": "https://www.gate1travel.com",
+      "purpose": "Group/escorted tours",
+      "auth_type": "login_password",
+      "cred_file": "config/portal_creds.json",
+      "change_detection_needed": true,
+      "credential_freshness_needed": false
+    },
+    {
+      "name": "Globus Family",
+      "url": "https://accounts.globusfamily.com",
+      "purpose": "Globus/Cosmos/Monograms/Avalon",
+      "auth_type": "login_password",
+      "cred_file": "config/portal_creds.json",
+      "change_detection_needed": true,
+      "credential_freshness_needed": false
+    },
+    {
+      "name": "World Agent Direct",
+      "url": "https://www.worldagentdirect.com",
+      "purpose": "Global travel agent portal",
+      "auth_type": "login_password",
+      "cred_file": "config/portal_creds.json",
+      "change_detection_needed": true,
+      "credential_freshness_needed": false
+    },
+    {
+      "name": "Agent Universe (TLN)",
+      "url": "https://affiliateus.agentuniverse.com",
+      "purpose": "Travel Leaders Network affiliate portal",
+      "auth_type": "login_password",
+      "cred_file": "config/portal_creds.json",
+      "change_detection_needed": true,
+      "credential_freshness_needed": false
+    },
+    {
+      "name": "Amadeus River Cruises",
+      "url": "https://www.amadeus-rivercruises.com",
+      "purpose": "River cruise B2B portal",
+      "auth_type": "login_password",
+      "cred_file": "config/portal_creds.json",
+      "change_detection_needed": true,
+      "credential_freshness_needed": false
+    },
+    {
+      "name": "Nexion",
+      "url": "https://app.myagentmate.com",
+      "purpose": "Host agency portal",
+      "auth_type": "login_password",
+      "cred_file": "config/portal_creds.json",
+      "change_detection_needed": true,
+      "credential_freshness_needed": false
+    },
+    {
+      "name": "MAGTAP (Odysseus)",
+      "url": "https://tap.myagentgenie.com",
+      "purpose": "Outside Agents TAP portal",
+      "auth_type": "login_password",
+      "cred_file": "config/portal_creds.json",
+      "change_detection_needed": true,
+      "credential_freshness_needed": false
+    },
+    {
+      "name": "Allianz Travel Insurance",
+      "url": "https://www.agentmaxonline.com",
+      "purpose": "Travel insurance quoting/binding",
+      "auth_type": "login_password",
+      "cred_file": "config/portal_creds.json",
+      "change_detection_needed": true,
+      "credential_freshness_needed": false
+    },
+    {
+      "name": "CruisePlum",
+      "url": "https://www.cruiseplum.com",
+      "purpose": "Cruise deal aggregator — Cloudflare-blocked from this IP",
+      "auth_type": "login_password",
+      "cred_file": "config/portal_creds.json",
+      "is_blocked": true,
+      "change_detection_needed": false,
+      "credential_freshness_needed": false
+    }
+  ],
+  "tier4_dormant_needs_registration": [
+    {"name": "Viator", "url": "https://www.viator.com", "status": "api_key empty, consumer site bot-blocked"},
+    {"name": "Welcome Pickups", "url": "https://www.welcomepickups.com", "status": "api_key empty"},
+    {"name": "Blacklane API", "url": "https://www.blacklane.com", "status": "api_key empty, only analytics cookies"},
+    {"name": "Mozio", "url": "https://www.mozio.com", "status": "api_key empty"},
+    {"name": "Shore Excursions Group", "url": "https://www.shoreexcursionsgroup.com", "status": "api_key + agent_id empty"},
+    {"name": "OpenTable", "url": "https://www.opentable.com", "status": "api_key + affiliate_id empty"},
+    {"name": "Expedia TAAP", "url": "https://www.expediataap.com", "status": "all fields empty"},
+    {"name": "Apify", "url": "https://apify.com", "status": "token empty"},
+    {"name": "SignWell", "url": "https://www.signwell.com", "status": "api_key empty"},
+    {"name": "Calendly", "url": "https://calendly.com", "status": "personal access token empty"},
+    {"name": "Zapier", "url": "https://zapier.com", "status": "OAuth credentials empty"},
+    {"name": "TomTom", "url": "https://developer.tomtom.com", "status": "api_key empty"},
+    {"name": "Viking TA Portal", "url": "https://www.viking.com/travel-advisor", "status": "consumer account, not TA-registered"},
+    {"name": "VacationsToGo", "url": "https://www.vacationstogo.com", "status": "registration pending with host IATAN/CLIA"},
+    {"name": "Klook", "url": "https://www.klook.com", "status": "bot-blocked (403)"}
+  ],
+  "infrastructure_self_monitoring": {
+    "description": "Your own services — need uptime and response health monitoring",
+    "sites": [
+      {"name": "API Gateway", "url": "https://api.d2mluxury.quest", "webhooks": 18},
+      {"name": "Client Portal", "url": "https://portal.d2mluxury.quest"},
+      {"name": "n8n", "url": "https://n8n.d2mluxury.quest"},
+      {"name": "MCP Server", "url": "https://mcp.d2mluxury.quest"},
+      {"name": "Telegram Gateway", "url": "https://tg.d2mluxury.quest"},
+      {"name": "Itinerary/Dossier Site", "url": "https://itinerary.d2mluxury.quest"}
+    ]
+  },
+  "ai_api_monitoring": {
+    "description": "AI/LLM API endpoints — need quota, rate limit, and key expiry monitoring",
+    "providers": [
+      "Anthropic (api.anthropic.com)",
+      "OpenRouter (openrouter.ai)",
+      "Google Gemini (generativelanguage.googleapis.com)",
+      "Groq (api.groq.com)",
+      "xAI/Grok (api.x.ai)",
+      "DeepSeek (api.deepseek.com)",
+      "Poe (api.poe.com)",
+      "Together AI (api.together.xyz)"
+    ]
+  }
+}

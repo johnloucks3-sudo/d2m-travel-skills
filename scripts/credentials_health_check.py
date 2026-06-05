@@ -73,7 +73,8 @@ CREDENTIALS = {
         "client_affecting": True,
         "alert_hours_ahead": 48,
         "notes": "Regent portal (direct D2M account). Ely/Nichols/Furlow/McLeod bookings.",
-        "reauth_cmd": "playwright: navigate rssc.com/agent → login → export cookies",
+        "reauth_cmd": "python3 scripts/rssc_session_keepalive.py",
+        "timer": "d2m-rssc-session-keepalive.timer",
     },
     "regent_cookies_oa": {
         "file": CREDS_DIR / "regent_cookies_oa.json",
@@ -81,7 +82,8 @@ CREDENTIALS = {
         "client_affecting": True,
         "alert_hours_ahead": 48,
         "notes": "Regent portal (OA account). Loucks + McLeod OA bookings.",
-        "reauth_cmd": "playwright: navigate rssc.com/agent → OA login → export cookies",
+        "reauth_cmd": "python3 scripts/rssc_session_keepalive.py --oa-only",
+        "timer": "d2m-rssc-session-keepalive.timer",
     },
     "gmail_token": {
         "file": CREDS_DIR / "gmail_token.json",
@@ -102,10 +104,11 @@ CREDENTIALS = {
     "perx_cookies": {
         "file": CREDS_DIR / "perx_cookies.json",
         "type": "cookies",
-        "client_affecting": False,
+        "client_affecting": True,
         "alert_hours_ahead": 24,
-        "notes": "Perx.com — Silversea docs access (Westbrook).",
-        "reauth_cmd": "playwright: navigate perx.com → login → export cookies",
+        "notes": "Perx.com — Silversea agent rate access (Westbrook connection).",
+        "reauth_cmd": "python3 scripts/perx_session_keepalive.py",
+        "timer": "d2m-perx-session-keepalive.timer",
     },
     "room_res_cookies": {
         "file": CREDS_DIR / "room_res_cookies.json",

@@ -1,0 +1,16 @@
+[Unit]
+Description=Sterling Lifecycle Validation — Verify all supplier keepalive systems
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/john/Thunderbird/.venv/bin/python /home/john/Thunderbird/scripts/sterling_validate_lifecycle.py --alert
+WorkingDirectory=/home/john/Thunderbird
+User=john
+Environment=HOME=/home/john
+Environment=PYTHONPATH=/home/john/Thunderbird
+EnvironmentFile=/home/john/Thunderbird/.env
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=sterling-validate

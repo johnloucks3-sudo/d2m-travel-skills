@@ -1,0 +1,10 @@
+[Unit]
+Description=Site Structure Sentinel — daily 08:00 MDT
+
+[Timer]
+OnCalendar=*-*-* 08:00:00
+Persistent=true
+RandomizedDelaySec=600
+
+[Install]
+WantedBy=timers.target

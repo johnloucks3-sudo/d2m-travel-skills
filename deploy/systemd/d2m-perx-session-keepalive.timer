@@ -1,0 +1,10 @@
+[Unit]
+Description=Perx Session Keepalive — every 6 hours
+
+[Timer]
+OnCalendar=*-*-* 00:00:00,06:00:00,12:00:00,18:00:00
+Persistent=true
+RandomizedDelaySec=300
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,16 @@
+[Unit]
+Description=Portal Session Keepalive — Refresh cookies for all supplier portals (Hale COS)
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/john/Thunderbird/.venv/bin/python /home/john/Thunderbird/scripts/portal_keepalive.py
+WorkingDirectory=/home/john/Thunderbird
+User=john
+Environment=HOME=/home/john
+Environment=PYTHONPATH=/home/john/Thunderbird
+EnvironmentFile=/home/john/Thunderbird/.env
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=portal-keepalive

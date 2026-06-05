@@ -2,12 +2,22 @@
 """
 portal_keepalive.py — Portal Session Keeper
 Keeps authenticated sessions warm for D2M travel portals.
-Runs daily via cron. Re-auths any portal whose cookies are stale or expiring.
+Runs via systemd timer. Re-auths any portal whose cookies are stale or expiring.
 
 Portals managed:
-  - centrav       (creds/centrav_cookies.json)
+  - centrav        (creds/centrav_cookies.json)
   - agent_universe (creds/agent_universe_cookies.json)
-  - room_res      (creds/room_res_cookies.json)
+  - room_res       (creds/room_res_cookies.json)
+  - silversea      (creds/silversea_cookies.json)
+  - seabourn       (creds/seabourn_cookies.json)
+  - windstar       (creds/windstar_cookies.json)
+  - princess       (creds/princess_cookies.json)
+  - carnival       (creds/carnival_cookies.json)
+  - kensington     (creds/kensington_cookies.json)
+  - agentmax       (creds/agentmax_cookies.json)
+  - globus         (creds/globus_cookies.json)
+  - atlas          (creds/atlas_cookies.json)
+  - explora        (creds/explora_cookies.json)
 
 Usage:
   python3 scripts/portal_keepalive.py              # check + refresh all
@@ -159,8 +169,130 @@ async def ping_agent_universe(page, cookies: list) -> bool:
     """Ping Agent Universe — returns True if still authenticated."""
     await page.context.add_cookies(cookies)
     resp = await page.goto("https://affiliateus.agentuniverse.com/", timeout=15000)
-    # If we get redirected to login, session is dead
     return resp and "login" not in page.url.lower() and "agentprofiler" not in page.url.lower()
+
+
+# ---------------------------------------------------------------------------
+# Generic simple-login refreshers
+# ---------------------------------------------------------------------------
+
+async def refresh_simple_login(page, creds: dict, login_url: str, domain_filter: str, success_indicator: str = "") -> list:
+    """Generic refresh for portals with standard email/username + password login forms."""
+    log.info(f"Navigating to {login_url}...")
+    await page.goto(login_url, wait_until="networkidle", timeout=30000)
+    await page.wait_for_timeout(2000)
+
+    email_val = creds.get("email") or creds.get("login") or ""
+    password_val = creds.get("password") or ""
+
+    if email_val:
+        try:
+            await page.fill('input[type="email"], input[name="email"], input[id*="email"]', email_val)
+        except Exception:
+            await page.fill('input[type="text"], input[name="login"], input[id*="login"]', email_val)
+    else:
+        login_val = creds.get("login", "")
+        await page.fill('input[type="text"], input[name="login"]', login_val)
+
+    await page.fill('input[type="password"]', password_val)
+    await page.click('button[type="submit"], input[type="submit"]')
+    await page.wait_for_load_state("networkidle", timeout=20000)
+    await page.wait_for_timeout(2000)
+
+    raw = await page.context.cookies()
+    cookies = [c for c in raw if domain_filter in c.get("domain", "")]
+    log.info(f"Captured {len(cookies)} cookies")
+    return cookies
+
+
+async def refresh_silversea(page, creds: dict) -> list:
+    """Re-auth Silversea agency portal."""
+    return await refresh_simple_login(
+        page, creds,
+        login_url="https://my.silversea.com/Account/Login",
+        domain_filter="silversea",
+    )
+
+
+async def refresh_seabourn(page, creds: dict) -> list:
+    """Re-auth Seabourn booking portal."""
+    return await refresh_simple_login(
+        page, creds,
+        login_url="https://book2.seabourn.com",
+        domain_filter="seabourn",
+    )
+
+
+async def refresh_windstar(page, creds: dict) -> list:
+    """Re-auth Windstar advisor hub."""
+    return await refresh_simple_login(
+        page, creds,
+        login_url="https://advisorhub.windstarcruises.com",
+        domain_filter="windstar",
+    )
+
+
+async def refresh_princess(page, creds: dict) -> list:
+    """Re-auth Princess booking portal."""
+    return await refresh_simple_login(
+        page, creds,
+        login_url="https://book.princess.com",
+        domain_filter="princess",
+    )
+
+
+async def refresh_carnival(page, creds: dict) -> list:
+    """Re-auth Carnival CruisingPower."""
+    return await refresh_simple_login(
+        page, creds,
+        login_url="https://secure.cruisingpower.com",
+        domain_filter="cruisingpower",
+    )
+
+
+async def refresh_kensington(page, creds: dict) -> list:
+    """Re-auth Kensington Tours FIT portal."""
+    return await refresh_simple_login(
+        page, creds,
+        login_url="https://fit.kensingtontours.com",
+        domain_filter="kensingtontours",
+    )
+
+
+async def refresh_agentmax(page, creds: dict) -> list:
+    """Re-auth Allianz AgentMax."""
+    return await refresh_simple_login(
+        page, creds,
+        login_url="https://www.agentmaxonline.com/agentmaxweb/agentportal/index.html",
+        domain_filter="agentmaxonline",
+    )
+
+
+async def refresh_globus(page, creds: dict) -> list:
+    """Re-auth Globus family portal."""
+    return await refresh_simple_login(
+        page, creds,
+        login_url="https://accounts.globusfamily.com",
+        domain_filter="globusfamily",
+    )
+
+
+async def refresh_atlas(page, creds: dict) -> list:
+    """Re-auth Atlas Ocean Voyages agent portal."""
+    return await refresh_simple_login(
+        page, creds,
+        login_url="https://agents.atlasoceanvoyages.com",
+        domain_filter="atlasoceanvoyages",
+    )
+
+
+async def refresh_explora(page, creds: dict) -> list:
+    """Re-auth Explora Journeys agent portal."""
+    return await refresh_simple_login(
+        page, creds,
+        login_url="https://agent.explorajourneys.com",
+        domain_filter="explorajourneys",
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -185,9 +317,79 @@ PORTALS = {
     "room_res": {
         "cookie_file": CREDS_DIR / "room_res_cookies.json",
         "creds_key": "room_res",
-        "ping_fn": None,  # analytics cookies only — no session ping needed
+        "ping_fn": None,
         "refresh_fn": refresh_room_res,
         "description": "Room-res hotel booking",
+    },
+    "silversea": {
+        "cookie_file": CREDS_DIR / "silversea_cookies.json",
+        "creds_key": "silversea",
+        "ping_fn": None,
+        "refresh_fn": refresh_silversea,
+        "description": "Silversea agency portal",
+    },
+    "seabourn": {
+        "cookie_file": CREDS_DIR / "seabourn_cookies.json",
+        "creds_key": "seabourn",
+        "ping_fn": None,
+        "refresh_fn": refresh_seabourn,
+        "description": "Seabourn booking portal",
+    },
+    "windstar": {
+        "cookie_file": CREDS_DIR / "windstar_cookies.json",
+        "creds_key": "windstar",
+        "ping_fn": None,
+        "refresh_fn": refresh_windstar,
+        "description": "Windstar advisor hub",
+    },
+    "princess": {
+        "cookie_file": CREDS_DIR / "princess_cookies.json",
+        "creds_key": "princess",
+        "ping_fn": None,
+        "refresh_fn": refresh_princess,
+        "description": "Princess booking portal",
+    },
+    "carnival": {
+        "cookie_file": CREDS_DIR / "carnival_cookies.json",
+        "creds_key": "carnival_cruisingpower",
+        "ping_fn": None,
+        "refresh_fn": refresh_carnival,
+        "description": "Carnival CruisingPower (Carnival/HAL/Costa)",
+    },
+    "kensington": {
+        "cookie_file": CREDS_DIR / "kensington_cookies.json",
+        "creds_key": "kensington_tours",
+        "ping_fn": None,
+        "refresh_fn": refresh_kensington,
+        "description": "Kensington Tours FIT portal",
+    },
+    "agentmax": {
+        "cookie_file": CREDS_DIR / "agentmax_cookies.json",
+        "creds_key": "agentmax_allianz",
+        "ping_fn": None,
+        "refresh_fn": refresh_agentmax,
+        "description": "Allianz AgentMax travel insurance",
+    },
+    "globus": {
+        "cookie_file": CREDS_DIR / "globus_cookies.json",
+        "creds_key": "globus",
+        "ping_fn": None,
+        "refresh_fn": refresh_globus,
+        "description": "Globus Family (Globus/Cosmos/Monograms/Avalon)",
+    },
+    "atlas": {
+        "cookie_file": CREDS_DIR / "atlas_cookies.json",
+        "creds_key": "atlas_ocean",
+        "ping_fn": None,
+        "refresh_fn": refresh_atlas,
+        "description": "Atlas Ocean Voyages agent portal",
+    },
+    "explora": {
+        "cookie_file": CREDS_DIR / "explora_cookies.json",
+        "creds_key": "explora_journeys",
+        "ping_fn": None,
+        "refresh_fn": refresh_explora,
+        "description": "Explora Journeys agent portal",
     },
 }
 
