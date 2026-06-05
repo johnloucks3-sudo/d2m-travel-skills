@@ -160,26 +160,23 @@ _load_env_file("/home/john/Thunderbird/.env")
 _load_env_file("/home/john/Thunderbird/config/telegram_gw.env")
 
 TOKEN_D2MC2C = os.environ.get("TELEGRAM_D2MC2C_TOKEN", "")
-TOKEN_GOOSE = os.environ.get("TELEGRAM_GOOSE_TOKEN", "")
-TOKEN_DANI = os.environ.get("TELEGRAM_DANI_TOKEN", "")
-COMMANDER_ID = int(os.environ.get("TELEGRAM_COMMANDER_ID", "7554895206"))
-# Per-bot allow-list: user_ids allowed to message each bot (besides Commander)
-# Add Bryana or other clients here — comma-separated ids in env var TELEGRAM_DANI_ALLOW_LIST
-DANI_ALLOW_LIST: set[int] = {
-    int(uid.strip()) for uid in
-    os.environ.get("TELEGRAM_DANI_ALLOW_LIST", "").split(",")
-    if uid.strip().isdigit()
-}
-POLL_INTERVAL = float(os.environ.get("TELEGRAM_GW_POLL_INTERVAL", "0"))
-ENGINE_TIMEOUT = int(os.environ.get("TELEGRAM_GW_TIMEOUT", "60"))
-OPENCODE_TIMEOUT = int(os.environ.get("OPENCODE_TIMEOUT", "60"))  # native models: 60s max per model before chain advances
-CHUNK_SIZE = int(os.environ.get("TELEGRAM_GW_CHUNK_SIZE", "4000"))
-CONTEXT_TURNS = int(os.environ.get("TELEGRAM_GW_CONTEXT_TURNS", "10"))
+TOKEN_HALE   = os.environ.get("TELEGRAM_GOOSE_TOKEN", "")   # HaleD2M — Hale chat
+TOKEN_DANI   = os.environ.get("TELEGRAM_DANI_TOKEN", "")
+TOKEN_RELAY  = os.environ.get("TELEGRAM_RELAY_TOKEN", "")   # D2M Channels — system relay
+RELAY_CHAT_ID = int(os.environ.get("TELEGRAM_RELAY_CHAT_ID", "0"))
 
+COMMANDER_ID = int(os.environ.get("TELEGRAM_COMMANDER_ID", "7554895206"))
+
+# Dani is open to all — no allow-list needed. D2MC2C and HaleD2M are Commander-only.
+POLL_INTERVAL  = float(os.environ.get("TELEGRAM_GW_POLL_INTERVAL", "0"))
+ENGINE_TIMEOUT = int(os.environ.get("TELEGRAM_GW_TIMEOUT", "60"))
+CHUNK_SIZE     = int(os.environ.get("TELEGRAM_GW_CHUNK_SIZE", "4000"))
+CONTEXT_TURNS  = int(os.environ.get("TELEGRAM_GW_CONTEXT_TURNS", "10"))
+
+# All engines → Claude Code. Sonnet auto-escalates on keywords; Opus on explicit request.
 SONNET_MODEL = "claude-sonnet-4-6"
-OPUS_MODEL = "claude-opus-4-6"
-HAIKU_MODEL = "claude-haiku-4-5-20251001"
-OPENCODE_BIN = Path("/home/john/.opencode/bin/opencode")
+OPUS_MODEL   = "claude-opus-4-6"
+HAIKU_MODEL  = "claude-haiku-4-5-20251001"
 
 # ── OpenRouter model aliases — prefix routing (e.g. "GROK: task") ────────────
 # Maps short prefix → OpenRouter model ID.  Used by model override detection
@@ -1133,11 +1130,13 @@ def handle_message(
 ) -> None:
     """Process one incoming message and send formatted response."""
 
-    # Access control: Commander always allowed; Dani bot also accepts DANI_ALLOW_LIST
-    is_commander = (user_id == COMMANDER_ID)
-    is_dani_allowed = (bot_name == "Dani" and user_id in DANI_ALLOW_LIST)
-    if not is_commander and not is_dani_allowed:
-        log.warning("Rejected message from non-authorized user_id=%d on bot=%s", user_id, bot_name)
+    # Access control:
+    # D2MC2C = Commander C2 only (command and control — no other users)
+    # HaleD2M = Commander only (personal Hale chat)
+    # Dani = open to anyone (client-facing concierge)
+    # Relay = system-only (no user interaction)
+    if bot_name in ("D2MC2C", "HaleD2M") and user_id != COMMANDER_ID:
+        log.warning("[%s] Rejected non-Commander user_id=%d", bot_name, user_id)
         return
 
     msg = text.strip()
@@ -1381,19 +1380,13 @@ def hale_claude_engine(
     return call_claude_engine(prompt, model=model)
 
 
-def hale_opencode_engine(
+def hale_chat_engine(
     context_text: str, message: str, model_override: str | None
 ) -> str:
-    """Direct OpenRouter (Gemini 2.5 Flash Lite) as Hale — bypasses opencode shell artifacts."""
-    system = _PERSONA_CACHE.get("hale_system", "")
-    text = (
-        (f"{context_text}\n\n" if context_text else "")
-        + f"Commander: {message}\n\n"
-        + "Respond as Hale. Brief-first. No preamble. No trailing summary."
-    )
-    if model_override:
-        return call_openrouter_engine(model_override, text, system_prompt=system)
-    return call_opencode_engine(system, text)  # native $0 chain (Big Pickle first)
+    """HaleD2M conversational channel — Claude Code (Haiku default, Sonnet on keywords)."""
+    prompt = _build_hale_claude_prompt(context_text, message)
+    model = model_override or HAIKU_MODEL
+    return call_claude_engine(prompt, model=model)
 
 
 def dani_claude_engine(
@@ -1489,13 +1482,102 @@ def bot_poll_loop(
         time.sleep(POLL_INTERVAL)
 
 
+# ── D2M Channels Relay ────────────────────────────────────────────────────────
+
+def send_to_relay(message: str, source: str = "SYSTEM") -> bool:
+    """
+    Send a message to D2M Channels (the system relay channel).
+    ALL automated Wing messages go here — never to D2MC2C directly.
+
+    Usage from any script:
+        from thunderbird_telegram_gw import send_to_relay
+        send_to_relay("Lifecycle alert: McLeod FPD overdue", source="Lifecycle")
+
+    Or standalone:
+        python3 thunderbird_telegram_gw.py --relay "message" --source "OC"
+    """
+    if not TOKEN_RELAY or not RELAY_CHAT_ID:
+        log.warning("Relay not configured — message dropped: %s", message[:80])
+        return False
+    prefix = f"[{source}] " if source and source != "SYSTEM" else ""
+    text = f"{prefix}{message}"
+    return tg_send(TOKEN_RELAY, RELAY_CHAT_ID, text[:4096])
+
+
+def relay_poll_loop() -> None:
+    """
+    D2M Channels relay thread.
+    - Monitors the relay channel for messages prefixed @CC: (route to Claude Code)
+      or @OC: (write to OpenCode inbox for pickup)
+    - All other messages are ignored (they're from automated Wing senders)
+    """
+    log.info("[Relay] D2M Channels poll loop starting (chat_id=%d)", RELAY_CHAT_ID)
+    offset = 0
+    _backoff = 5
+
+    relay_ctx = THUNDERBIRD / "OpsCenter" / "context_relay.json"
+    if not relay_ctx.exists():
+        _save_context(relay_ctx, [])
+
+    while True:
+        try:
+            updates = tg_get_updates(TOKEN_RELAY, offset=offset)
+            _backoff = 5
+        except Exception as e:
+            log.error("[Relay] getUpdates exception: %s", e)
+            time.sleep(_backoff)
+            _backoff = min(_backoff * 2, 60)
+            continue
+
+        for update in updates:
+            offset = update["update_id"] + 1
+            msg_obj = update.get("message") or update.get("channel_post")
+            if not msg_obj:
+                continue
+            text = msg_obj.get("text", "").strip()
+            if not text:
+                continue
+
+            # @CC: route to Claude Code, post response back to relay
+            if text.upper().startswith("@CC:"):
+                task = text[4:].strip()
+                log.info("[Relay] @CC task: %s...", task[:60])
+                tg_typing(TOKEN_RELAY, RELAY_CHAT_ID)
+                prompt = _build_hale_claude_prompt("", task)
+                response = call_claude_engine(prompt, model=HAIKU_MODEL)
+                tg_send(TOKEN_RELAY, RELAY_CHAT_ID,
+                        f"[CC→Relay] {response[:3800]}")
+                continue
+
+            # @OC: write to OpenCode inbox for pickup
+            if text.upper().startswith("@OC:"):
+                task = text[4:].strip()
+                log.info("[Relay] @OC task forwarded to OC inbox: %s...", task[:60])
+                oc_inbox = THUNDERBIRD / "OpsCenter" / "collaboration" / "opencode_inbox.md"
+                ts = __import__("datetime").datetime.now().strftime("%Y-%m-%d %H:%M")
+                try:
+                    with open(oc_inbox, "a") as f:
+                        f.write(f"\n---\n## RELAY TASK — {ts}\n{task}\n")
+                    tg_send(TOKEN_RELAY, RELAY_CHAT_ID,
+                            f"[Relay→OC] Task queued in OC inbox: {task[:100]}")
+                except Exception as e:
+                    log.error("[Relay] OC inbox write failed: %s", e)
+                continue
+
+            # All other messages in channel — system alerts, no action
+            # (they came from send_to_relay() or other Wing senders)
+
+        time.sleep(POLL_INTERVAL)
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 
 def main() -> None:
     log.info("═══════════════════════════════════════")
-    log.info("Thunderbird Telegram Gateway v1.5 — Both Ways Enabled")
-    log.info("Three bots. One process. Clean output.")
+    log.info("Thunderbird Telegram Gateway v2.0 — Four-Bot Architecture")
+    log.info("D2MC2C=C2  HaleD2M=Chat  Dani=Open  Relay=System+OC-CC")
+    log.info("All engines: Claude Code (Haiku/Sonnet). No OpenCode. No OpenRouter defaults.")
     log.info("═══════════════════════════════════════")
 
     # Validate tokens
@@ -1507,8 +1589,12 @@ def main() -> None:
     if missing:
         log.error("Missing required tokens: %s", ", ".join(missing))
         sys.exit(1)
-    if not TOKEN_GOOSE:
-        log.warning("TELEGRAM_GOOSE_TOKEN not set — GooseD2M bot will be skipped")
+    if not TOKEN_HALE:
+        log.warning("TELEGRAM_GOOSE_TOKEN not set — HaleD2M chat bot will be skipped")
+    if not TOKEN_RELAY:
+        log.warning("TELEGRAM_RELAY_TOKEN not set — D2M Channels relay will be skipped")
+    elif not RELAY_CHAT_ID:
+        log.warning("TELEGRAM_RELAY_CHAT_ID not set — relay bot won't post to channel")
 
     # Load persona cache
     _load_persona_cache()
@@ -1564,7 +1650,12 @@ def main() -> None:
         CONTEXT_TURNS,
     )
 
-    # Define bots
+    # ── Bot roles ────────────────────────────────────────────────────────────
+    # D2MC2C  → Commander C2: he directs, Wing responds. No automated sends.
+    # HaleD2M → Commander ↔ Hale conversational chat.
+    # Dani    → Open to all: clients, prospects, anyone. Concierge voice.
+    # Relay   → D2M Channels: all system/auto messages + OC↔CC relay.
+    # All engines → Claude Code (Haiku default, Sonnet on keyword upgrade).
     bot_configs = [
         {
             "token": TOKEN_D2MC2C,
@@ -1574,11 +1665,11 @@ def main() -> None:
             "assistant_label": "Hale",
         },
         {
-            "token": TOKEN_GOOSE,
-            "bot_name": "GooseD2M",
+            "token": TOKEN_HALE,
+            "bot_name": "HaleD2M",
             "ctx_file": CTX_OPENCODE,
-            "engine_fn": hale_opencode_engine,
-            "assistant_label": "Hale, OpenCode",
+            "engine_fn": hale_chat_engine,
+            "assistant_label": "Hale",
         },
         {
             "token": TOKEN_DANI,
@@ -1589,7 +1680,7 @@ def main() -> None:
         },
     ]
 
-    # Drop any bot with empty token (GooseD2M is optional)
+    # Drop bots with missing tokens
     bot_configs = [b for b in bot_configs if b["token"]]
 
     # Start a poll thread per bot
@@ -1605,7 +1696,19 @@ def main() -> None:
         threads.append(t)
         log.info("[%s] Poll thread started", cfg["bot_name"])
 
-    log.info("All 3 bot threads running. Gateway is LIVE.")
+    # D2M Channels relay thread (OC↔CC relay + all system messages)
+    if TOKEN_RELAY and RELAY_CHAT_ID:
+        relay_thread = threading.Thread(
+            target=relay_poll_loop,
+            name="poll_Relay",
+            daemon=True,
+        )
+        relay_thread.start()
+        threads.append(relay_thread)
+        log.info("[Relay] D2M Channels relay thread started (chat_id=%d)", RELAY_CHAT_ID)
+
+    active = len([b for b in bot_configs if b["token"]])
+    log.info("%d bot threads running. Gateway v2.0 LIVE.", active)
 
     # Keep main thread alive — monitor worker threads
     try:
@@ -1620,4 +1723,15 @@ def main() -> None:
 
 
 if __name__ == "__main__":
+    # Allow send_to_relay from command line:
+    # python3 thunderbird_telegram_gw.py --relay "message" --source "Metronome"
+    if len(sys.argv) > 1 and sys.argv[1] == "--relay":
+        _load_env_file("/home/john/Thunderbird/.env")
+        _load_env_file("/home/john/Thunderbird/config/telegram_gw.env")
+        msg = sys.argv[2] if len(sys.argv) > 2 else ""
+        src = sys.argv[4] if len(sys.argv) > 4 and sys.argv[3] == "--source" else "SYSTEM"
+        if msg:
+            ok = send_to_relay(msg, source=src)
+            sys.exit(0 if ok else 1)
+        sys.exit(1)
     main()

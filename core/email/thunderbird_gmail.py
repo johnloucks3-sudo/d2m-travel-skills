@@ -2004,31 +2004,38 @@ def _push_telegram_draft_alert(
     to: str, subject: str, body_full: str,
     persona_display: str,
 ) -> None:
-    """Push the complete draft to Commander via Telegram when staged for approval.
+    """Route WF-17 draft alert to D2M Channels relay (NOT D2MC2C).
 
-    Sends the full email body — no truncation.
-    Splits into multiple messages if body exceeds Telegram's 4096-char limit.
-    Buttons (Preview / Approve & Send / Reject) always appear on the last message.
+    D2MC2C is Commander C2 only. Draft notifications go to D2M Channels
+    where Commander can review. A single summary line is sent — not the full body.
     Failure is silent — draft is already saved in Gmail.
     """
-    import urllib.request
-    import json as _json
     import re as _re
+    import subprocess as _sp
 
-    poe_env = THUNDERBIRD_DIR / "config" / "poe.env"
-    bot_token = ""
-    chat_id   = ""
-    if poe_env.exists():
-        for line in poe_env.read_text(encoding="utf-8").splitlines():
-            line = line.strip()
-            if line.startswith("TELEGRAM_BOT_TOKEN="):
-                bot_token = line.split("=", 1)[1].strip()
-            elif line.startswith("TELEGRAM_COMMANDER_ID="):
-                chat_id = line.split("=", 1)[1].strip()
+    gmail_link = ""
+    if message_id:
+        gmail_link = f" | https://mail.google.com/mail/b/{USER_EMAIL}/#drafts/{message_id}"
 
-    if not bot_token or not chat_id:
-        logger.warning("WF17 Telegram push skipped — no bot token/chat_id in poe.env")
-        return
+    summary = (
+        f"📧 WF-17 Draft Staged: [{persona_display}→{to}] {subject}{gmail_link} "
+        f"| /approve {draft_id}"
+    )
+
+    try:
+        _sp.run(
+            [
+                "/usr/bin/python3",
+                str(THUNDERBIRD_DIR / "OpsCenter" / "thunderbird_telegram_gw.py"),
+                "--relay", summary[:4096],
+                "--source", "WF-17",
+            ],
+            timeout=10,
+            capture_output=True,
+        )
+    except Exception as e:
+        logger.warning("WF17 relay push failed (draft saved): %s", e)
+    return
 
     tg_url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
 

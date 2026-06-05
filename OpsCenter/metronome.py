@@ -133,27 +133,18 @@ def _age_seconds(ts_str):
 
 
 def _telegram_alert(message):
-    """Send alert to Commander via Telegram."""
+    """Route alert to D2M Channels relay — NOT to D2MC2C (Commander C2)."""
     try:
-        bot_token = ""
-        chat_id = "7554895206"
-        poe_env = os.path.join(ROOT, "config", "poe.env")
-        if os.path.exists(poe_env):
-            for line in open(poe_env):
-                if line.startswith("TELEGRAM_BOT_TOKEN="):
-                    bot_token = line.strip().split("=", 1)[1]
-                elif line.startswith("TELEGRAM_COMMANDER_ID="):
-                    chat_id = line.strip().split("=", 1)[1]
-        if not bot_token:
-            return
-        import urllib.request
-        payload = json.dumps({"chat_id": chat_id, "text": message, "parse_mode": "Markdown"}).encode()
-        req = urllib.request.Request(
-            f"https://api.telegram.org/bot{bot_token}/sendMessage",
-            data=payload,
-            headers={"Content-Type": "application/json"},
+        subprocess.run(
+            [
+                sys.executable,
+                os.path.join(ROOT, "OpsCenter", "thunderbird_telegram_gw.py"),
+                "--relay", message,
+                "--source", "Metronome",
+            ],
+            timeout=15,
+            capture_output=True,
         )
-        urllib.request.urlopen(req, timeout=10)
     except Exception:
         pass
 
