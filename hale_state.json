@@ -5,24 +5,24 @@
         "status": "LIVE",
         "username": "D2MC2C_bot",
         "bot_id": 8754681793,
-        "last_check": "2026-06-05T17:18:35.265314"
+        "last_check": "2026-06-05T17:56:07.360526"
       },
       "Dani": {
         "status": "LIVE",
         "username": "d2m_channels_bot",
         "bot_id": 8726363494,
-        "last_check": "2026-06-05T17:18:35.870572"
+        "last_check": "2026-06-05T17:56:07.975832"
       },
-      "last_health_check": "2026-06-05T17:18:35.870601"
+      "last_health_check": "2026-06-05T17:56:07.975876"
     },
-    "last_health_check": "2026-06-05T17:18:35.870784",
+    "last_health_check": "2026-06-05T17:56:07.976140",
     "chrome_debug_port_9222": "ONLINE",
     "mcp_server": "ONLINE",
     "opencode_status": "UNKNOWN",
     "telegram_bot": "UNKNOWN"
   },
   "_meta": {
-    "last_updated": "2026-06-05T17:18:35.870790-06:00"
+    "last_updated": "2026-06-05T23:56:27.764821+00:00"
   },
   "open_tasks": [
     {
@@ -146,13 +146,35 @@
         "mission": "MISSION-125",
         "owner": "STERLING",
         "notes": "Qdrant running. Need daily systemd timer for re-index."
+      },
+      {
+        "id": "PROJ-GOOGLE-AI",
+        "name": "Google AI Pro Integration (Mission-127)",
+        "status": "IN_PROGRESS",
+        "deadline": null,
+        "mission": "MISSION-127",
+        "owner": "HALE",
+        "notes": "Gemini adapter re-enabled. GEMINI_LARGE_CONTEXT tier added (1M ctx, direct API). gemini_file_reader.py built. NotebookLM workspace setup pending Commander action at notebooklm.google.com."
+      },
+      {
+        "id": "PROJ-SPENCER-AIR",
+        "name": "Spencer Air Quote (Mission-128)",
+        "status": "IN_PROGRESS",
+        "deadline": "2026-06-10",
+        "mission": "MISSION-128",
+        "owner": "DEMBE",
+        "notes": "Planning ranges sent to Commander. Booking window opens Jul 17 2026. NEXT: United Group Desk 800-426-1122 opt 3 for DEN-FCO 12-pax. Centrav session refresh needed."
       }
     ],
     "infrastructure_status": {
       "qdrant": "RUNNING",
       "auto_session_monitor": "FIXED",
       "persona_memory_last_written": "2026-06-05",
-      "mission_board_tasks": 7
+      "mission_board_tasks": 7,
+      "gemini_direct_api": "ACTIVE",
+      "gemini_file_reader": "BUILT",
+      "gemini_large_context_tier": "ACTIVE",
+      "notebooklm_workspace": "PENDING_COMMANDER_SETUP"
     }
   }
 }

@@ -1118,14 +1118,16 @@
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        "[2026-06-01T21:28:11] \ud83e\udd85 Hale: Browser launched via --accept. Share URL opened. Awaiting Commander interaction (log into RoboForm with d2mconcierge, accept the shared folder). After acceptance, will run --browser extraction."
+      ],
       "created_at": "2026-05-28T13:00:36.903917+00:00",
-      "updated_at": "2026-05-28T13:00:36.903925+00:00"
+      "updated_at": "2026-06-01T21:28:11.892910+00:00"
     },
     {
       "id": "MISSION-075",
       "title": "Loucks Dossier Corruption \u2014 Root Cause Audit + Rebuild",
-      "status": "open",
+      "status": "completed",
       "priority": "P1",
       "assigned_to": "A7 Sterling (root cause audit) + Hale (dossier restoration)",
       "description": "ACTIVE BOOKING DATA INTEGRITY DEFECT. Dossier at /home/john/Thunderbird/dossiers/Loucks_Regent_Grandeur_3122006.md is severely corrupted. File contains thousands of duplicated instances of 'GET CVC from Kyle \u2014 needed to process $21,244 total payment before Mar 31' across first 1,000+ lines, rendering dossier unusable as reference. Impact: Active booking 3122006 (John & Susan Loucks, Seven Seas Grandeur Panama Canal Dec 29 2026) with $24,798 outstanding balance. FPD: 2026-08-01 \u2014 65 days out. Any automated dossier scan or FPD sweep reading this file will produce unreliable output. Actions required: (1) Isolate root cause of corruption \u2014 suspected automated write loop (check logs for repetitive write events to this file). (2) Restore clean version from Drive mirror (Thunderbird_Client_Files > Loucks, John A III folder ID: 174sAduc7mdM9iHtjsg5p_WKjt6oER2Yd) or rebuild from TESS booking data. (3) Add dossier corruption detection to pre-scan validation routine \u2014 file size spike or repeated-line ratio check. Flagged by A7 Sterling as secondary finding in Regent Code 4232 post-mortem (output/sterling_qc_code4232_postmortem.md Section 6).",
@@ -1138,7 +1140,8 @@
       "suspense_date": "2026-06-07",
       "escalation_rule": "Escalate to Commander if dossier cannot be restored from Drive mirror before 2026-06-15 (45 days before FPD). Do not allow corrupted file to remain as primary reference after that date.",
       "logs": [
-        "[2026-05-28] MISSION created by A7 Sterling \u2014 secondary finding from Regent Code 4232 post-mortem. Corruption detected during dossier read as part of promo qualification audit."
+        "[2026-05-28] MISSION created by A7 Sterling \u2014 secondary finding from Regent Code 4232 post-mortem. Corruption detected during dossier read as part of promo qualification audit.",
+        "[2026-06-03] HALE COMPLETED \u2014 scope was much wider than originally assessed. Write-loop corruption found in 12 dossiers (not just Loucks). Two corruption layers: (1) 510x Kuklinski CVC line, (2) 255x Morton guest profile line. All 12 files repaired via scripts/dossier_repair.py. Loucks_Regent_Grandeur_3122006.md was already remediated 2026-05-28. Corruption detection tool created: scripts/dossier_corruption_check.py. Root cause: write-loop during prior session appended action items to all open dossiers. Post-repair scan: 28 CLEAN, 15 WARNING (cross-references expected in group bookings), 0 CORRUPT."
       ],
       "created_at": "2026-05-28T21:30:00.000000+00:00",
       "updated_at": "2026-05-28T21:30:00.000000+00:00"
@@ -1238,7 +1241,7 @@
     {
       "id": "MISSION-081",
       "title": "Grandeur Group \u2014",
-      "status": "in_progress",
+      "status": "completed",
       "priority": "P1",
       "assigned_to": "A8 Reyes",
       "description": "Specialty Dining Opens May 31 8pm ET All 3 couples (Furlow/Ely/Nichols). Draft specialty dining follow-up emails ready at WF-17 gate. Dining strategy already sent May 18. New email: choices are now open, here are recommendations, go book. Heidi Nichols birthday = embarkation day \u2014 flag for special table. P0 \u2014 36-hour window. P0",
@@ -1592,6 +1595,488 @@
       "created_at": "2026-06-01T15:52:26.841411+00:00",
       "updated_at": "2026-06-01T15:52:26.841420+00:00",
       "completed_at": "2026-06-01T16:07:22.899325+00:00"
+    },
+    {
+      "id": "MISSION-101",
+      "title": "TEST-TEMP temp mission",
+      "status": "completed",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "to check format",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-06-04T02:02:33.873925+00:00",
+      "updated_at": "2026-06-04T02:02:33.873939+00:00",
+      "completed_at": "2026-06-04T02:10:49.436396+00:00"
+    },
+    {
+      "id": "MISSION-102",
+      "title": "IRON CLOCK \u2014",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "Daily Model Health Check Campaign C1. Daily verification that model stack (MAX + DeepSeek V4 ZEN on OC) is operational. 7-day reliability clock started 4 Jun 2026. Report any stack failures immediately. Campaign link: C1",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-06-04T03:47:26] Phase I (SHAPE) activated 4 Jun 2026 per Commander approval. CCP v2.1 approved. Main effort: LOE-1 Model Stack. P3 clock Day 1 of 7."
+      ],
+      "created_at": "2026-06-04T02:10:12.825794+00:00",
+      "updated_at": "2026-06-04T03:47:26.539873+00:00"
+    },
+    {
+      "id": "MISSION-103",
+      "title": "WING STANDUP \u2014",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "Spawn Reliability Watch Campaign C2. Monitor ask/ask-opus spawn for 14-day reliability. If spawn fails within 14 days, escalate. If stable for 14 days, mark P7 resolved. Campaign link: C2",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-06-04T02:10:13.859582+00:00",
+      "updated_at": "2026-06-04T02:10:13.859593+00:00"
+    },
+    {
+      "id": "MISSION-104",
+      "title": "WING STANDUP \u2014",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "Build Front Door for Rondo/Stefanie Campaign C2. Design and build a simple front door so non-technical users (Rondo, Stefanie) can interact with the Wing. Bryana offer nixed by Susie \u2014 do not pursue Bryana. Campaign link: C2",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-06-04T02:10:14.787939+00:00",
+      "updated_at": "2026-06-04T02:10:14.787951+00:00"
+    },
+    {
+      "id": "MISSION-105",
+      "title": "INBOX FIRST \u2014",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "Verify Pipeline Redirect Campaign C4. Verify all relay points send final reports to johnloucks3 inbox by default. Establish exception protocol for case-by-case draft requests. Campaign link: C4",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-06-04T02:10:15.646262+00:00",
+      "updated_at": "2026-06-04T02:10:15.646275+00:00"
+    },
+    {
+      "id": "MISSION-106",
+      "title": "TEMPLATE \u2014 Full",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "Template Audit Campaign C5. Audit all existing templates against SO-2026-06-03 baseline. Identify drift, gaps, and duplicates. Due within 30 days. Campaign link: C5",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-06-04T02:10:16.418108+00:00",
+      "updated_at": "2026-06-04T02:10:16.418119+00:00"
+    },
+    {
+      "id": "MISSION-107",
+      "title": "SPEED \u2014 Bottleneck",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "Diagnosis Campaign C6. Identify the primary pipeline bottleneck. Determine whether delay is model latency, routing, or tool overhead. Recommend fix. Campaign link: C6",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-06-04T02:10:17.153767+00:00",
+      "updated_at": "2026-06-04T02:10:17.153778+00:00"
+    },
+    {
+      "id": "MISSION-108",
+      "title": "LOUCKS TRAVEL \u2014",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "Atlas Med Leg 3 Pricing Call Campaign C7. Call Atlas Voyages sales (844-442-8522) to get firm V2 pricing on World Traveller Leg 3 (Jun 27-Jun 7 Athens RT, 11nt). Published V2 prices: Leg 1 ,975pp, Leg 2 ,899pp, Leg 3 'Call for Fares'. Campaign link: C7",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-06-04T02:10:18.327896+00:00",
+      "updated_at": "2026-06-04T02:10:18.327909+00:00"
+    },
+    {
+      "id": "MISSION-109",
+      "title": "LOUCKS TRAVEL \u2014",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "Hawaii Apr 2027 Resort Research Campaign C7. Research Hawaii resort options for John and Susie Loucks, April 2027. Compare against Hawaii 2028 multi-gen planning. Campaign link: C7",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-06-04T02:10:19.204317+00:00",
+      "updated_at": "2026-06-04T02:10:19.204329+00:00"
+    },
+    {
+      "id": "MISSION-110",
+      "title": "INBOX DISCIPLINE Commander",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "correction: inbox is NEVER a roadblock. Hale surfaces overdue items every session before new work. Methods: session-open recap, inbox-zero tracker, escalation flags, read-ahead queue by 0600 MT. Track overdue rate and time-to-surface. P1",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": "2026-06-08",
+      "escalation_rule": null,
+      "logs": [
+        "[2026-06-04T03:47:29] Created per Commander 4 Jun 2026 correction: inbox is NEVER a roadblock. Hale protocol updated in AGENTS.md. Tracking overdue surfacing discipline."
+      ],
+      "created_at": "2026-06-04T03:47:05.623504+00:00",
+      "updated_at": "2026-06-04T03:52:56.625425+00:00"
+    },
+    {
+      "id": "MISSION-111",
+      "title": "Furlow Trip Validation",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "Email Send Furlow trip validation report to missy.furlow@gmail.com. Suspense: 5 Jun 2026 1600 MT. Draft ready in d2mconcierge (THUNDERBIRD-Commander-Review). Commander reviews and sends. P1",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": "2026-06-05T16:00",
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-06-04T03:53:43.231492+00:00",
+      "updated_at": "2026-06-04T03:53:46.045582+00:00"
+    },
+    {
+      "id": "MISSION-112",
+      "title": "Send 5 WF-17 drafts \u2014 Nichols + Kuklinski queue",
+      "status": "active",
+      "priority": "P0",
+      "assigned_to": "Commander",
+      "description": "Open drafts folder in d2mconcierge and send Nichols TP 0.5 (due today) plus Kuklinski TP 0.5/4.1/4.2/4.3 \u2014 these are review-and-send actions, not revisions; each is voice_drafted and gate-approved.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-06-05T22:55:01] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-06-05T22:55:01.733980+00:00",
+      "updated_at": "2026-06-05T22:55:01.733983+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-113",
+      "title": "Refresh Centrav + Regent portal session cookies",
+      "status": "active",
+      "priority": "P0",
+      "assigned_to": "Commander",
+      "description": "Log into Centrav and Regent portals in browser to restore expired sessions, unblocking Spencer air quote, Norway fare watch, and Regent portal verification.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-06-05T22:55:01] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-06-05T22:55:01.734035+00:00",
+      "updated_at": "2026-06-05T22:55:01.734038+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-114",
+      "title": "Spencer air quote \u2014 Centrav B2B before Jun 10",
+      "status": "active",
+      "priority": "P0",
+      "assigned_to": "Intel (Dembe)",
+      "description": "Run Centrav B2B flight pricing for Spencer Grand Tour routing and produce a quote email ready for WF-17 gate before the June 10 air deadline.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-06-05T22:55:01] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-06-05T22:55:01.734077+00:00",
+      "updated_at": "2026-06-05T22:55:01.734081+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-115",
+      "title": "Morton & Dodge \u2014 draft TP 0.5 welcome email",
+      "status": "active",
+      "priority": "P1",
+      "assigned_to": "Dani",
+      "description": "Start the Morton & Dodge lifecycle with a TP 0.5 welcome email (Viking Mars Dec 17 voyage) \u2014 no touchpoint has been sent and the client relationship has not been formally opened.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-06-05T22:55:01] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-06-05T22:55:01.734117+00:00",
+      "updated_at": "2026-06-05T22:55:01.734121+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-116",
+      "title": "Loucks Nova FPD \u2014 TESS reconciliation",
+      "status": "active",
+      "priority": "P1",
+      "assigned_to": "Harlan",
+      "description": "Verify whether the Silver Nova (Apr 10 departure, now sailed) commission was collected and unrecorded in TESS, or genuinely uncollected \u2014 clear the 124-day flag from the pipeline accordingly.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-06-05T22:55:01] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-06-05T22:55:01.734157+00:00",
+      "updated_at": "2026-06-05T22:55:01.734159+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-117",
+      "title": "Kuklinski + Morton/Dodge FPD classification",
+      "status": "active",
+      "priority": "P1",
+      "assigned_to": "Harlan",
+      "description": "Determine whether 66-day overdue FPDs are actual delinquency or TESS tracking against an internal date ahead of cruise-line FPD arrival; produce a one-paragraph ruling memo.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-06-05T22:55:01] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-06-05T22:55:01.734195+00:00",
+      "updated_at": "2026-06-05T22:55:01.734197+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-118",
+      "title": "Sterling Sunday audit \u2014 ETB + autonomy build complexity check",
+      "status": "active",
+      "priority": "P2",
+      "assigned_to": "Sterling",
+      "description": "Audit ETB-003/004/005/006 and the four June-04 autonomy builds for duplicate logic, silent failure modes, and overlapping spawn patterns before additional automation is layered on top.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-06-05T22:55:01] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-06-05T22:55:01.734234+00:00",
+      "updated_at": "2026-06-05T22:55:01.734236+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-119",
+      "title": "Build Centrav + Regent session auto-keepalive",
+      "status": "active",
+      "priority": "P1",
+      "assigned_to": "Sterling",
+      "description": "Implement automated session keepalive for Centrav and Regent portals per credentials auto-renewal standing order, with AM brief \u2705/\u274c health check per credential to eliminate manual refresh dependency.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-06-05T22:55:01] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-06-05T22:55:01.734274+00:00",
+      "updated_at": "2026-06-05T22:55:01.734276+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-120",
+      "title": "Nichols TP 0.5",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "\u2014 Welcome email WF-17 gate: voice_drafted. Due today 2026-06-05. Draft in d2mconcierge. Commander sends. P0",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-06-05T23:18:38.194445+00:00",
+      "updated_at": "2026-06-05T23:18:38.194457+00:00"
+    },
+    {
+      "id": "MISSION-121",
+      "title": "McLeod T-13 \u2014",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "Departure Jun 18 Departure imminent. TP 0.5 unsent. Check for any open client items before Jun 18. P0",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-06-05T23:18:38.222063+00:00",
+      "updated_at": "2026-06-05T23:18:38.222074+00:00"
+    },
+    {
+      "id": "MISSION-122",
+      "title": "Spencer Grand Tour",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "\u2014 Flight deadline Jun 10 Air quote deadline T-5. No quote on file. Dembe needs flight brief today. P1",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-06-05T23:18:38.246942+00:00",
+      "updated_at": "2026-06-05T23:18:38.246950+00:00"
+    },
+    {
+      "id": "MISSION-123",
+      "title": "Kuklinski \u2014 4",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "WF-17 drafts aging TP 0.5 Welcome + 4.1/4.2/4.3 payment reminders. All voice_drafted. Aging since Mar. P1",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-06-05T23:18:38.272794+00:00",
+      "updated_at": "2026-06-05T23:18:38.272804+00:00"
+    },
+    {
+      "id": "MISSION-124",
+      "title": "Bryana onboarding \u2014",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "drafts ready HTML drafts in drafts/bryana_*.html. Review and push to d2mconcierge WF-17. P1",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-06-05T23:18:38.298656+00:00",
+      "updated_at": "2026-06-05T23:18:38.298665+00:00"
+    },
+    {
+      "id": "MISSION-125",
+      "title": "INFRASTRUCTURE: Qdrant memory",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "\u2014 daily re-index timer Add systemd timer to re-embed memory files daily after session close. P2",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-06-05T23:18:38.323121+00:00",
+      "updated_at": "2026-06-05T23:18:38.323132+00:00"
+    },
+    {
+      "id": "MISSION-126",
+      "title": "INFRASTRUCTURE: Wire auto-session-monitor",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "to Qdrant health If Qdrant goes down overnight, monitor should auto-restart Docker container. P2",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-06-05T23:18:38.347839+00:00",
+      "updated_at": "2026-06-05T23:18:38.347852+00:00"
+    },
+    {
+      "id": "MISSION-127",
+      "title": "Google AI Pro Integration",
+      "status": "in_progress",
+      "priority": "P1",
+      "owner": "HALE",
+      "description": "Google AI Pro sub ($20.60/mo) \u2014 integrate Gemini 2.5 Pro/Flash/Lite into Thunderbird stack. Adapter re-enabled. Large-context tier added. gemini_file_reader.py built. NotebookLM for Dembe. Google Sheets via Drive MCP.",
+      "created": "2026-06-05",
+      "tasks": [
+        {
+          "task": "Re-enable Gemini Flash adapter \u2192 canonical client",
+          "status": "COMPLETE"
+        },
+        {
+          "task": "Add GEMINI_LARGE_CONTEXT tier (1M ctx, direct API)",
+          "status": "COMPLETE"
+        },
+        {
+          "task": "Build gemini_file_reader.py \u2014 PDF upload + extraction",
+          "status": "COMPLETE"
+        },
+        {
+          "task": "NotebookLM D2M workspace setup",
+          "status": "PENDING \u2014 Commander action"
+        },
+        {
+          "task": "Google Sheets MCP wire",
+          "status": "IN PROGRESS"
+        }
+      ]
+    },
+    {
+      "id": "MISSION-128",
+      "title": "Spencer Air Quote \u2014 Jun 10 Deadline",
+      "status": "in_progress",
+      "priority": "P0",
+      "owner": "DEMBE",
+      "description": "Spencer Grand Tour 2027 \u2014 3 air legs. Booking window opens ~Jul 17 2026. Planning ranges delivered. Group desk contact needed for 12-pax DEN-FCO.",
+      "created": "2026-06-05",
+      "deadline": "2026-06-10",
+      "tasks": [
+        {
+          "task": "DEN-FCO Jun 12 2027, 12 pax Business \u2014 planning range delivered",
+          "status": "COMPLETE"
+        },
+        {
+          "task": "FCO-DEN Jun 23 2027, 4 pax (Tim family)",
+          "status": "COMPLETE"
+        },
+        {
+          "task": "ZRH-DEN Jul 2 2027, 8 pax",
+          "status": "COMPLETE"
+        },
+        {
+          "task": "Contact United Group Desk for 12-pax firm quote",
+          "status": "PENDING"
+        },
+        {
+          "task": "Centrav session refresh for B2B pricing",
+          "status": "PENDING"
+        }
+      ]
     }
   ],
   "suspense_watch": [
@@ -1649,9 +2134,11 @@
       "date": "2026-12-17",
       "item": "Kuklinski/Morton Viking Mars",
       "priority": "P1"
-    }
+    },
+    "MISSION-110",
+    "MISSION-111"
   ],
-  "last_updated": "2026-05-31T00:00:00Z",
+  "last_updated": "2026-06-05T22:55:01.734280+00:00",
   "t4_exercise_status": {
     "status": "CLOSED",
     "score": "9.5/10 GREEN",

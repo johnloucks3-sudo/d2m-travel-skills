@@ -34,7 +34,8 @@ class ModelTier(Enum):
     """Model selection tiers"""
     SONNET_MAX_LARGE = "sonnet_max_large"  # Large context via MAX OAuth (user's primary for large tasks)
     GROK_2M = "grok_2m"              # 2M context, reasoning, cheapest for large (UNAVAILABLE — fallback to SONNET_MAX_LARGE)
-    GEMINI_VISION = "gemini_vision"  # 1M context, multimodal, fastest
+    GEMINI_VISION = "gemini_vision"  # 1M context, multimodal, fastest (OpenRouter free)
+    GEMINI_LARGE_CONTEXT = "gemini_large_context"  # 1M context, direct Google AI API (Pro sub) — PDF/cruise brochure reads
     DEEPSEEK_OPTIMIZED = "deepseek_optimized"  # 1M context, cheapest reasoning
     FREE = "free"                    # 200K context, $0, rate limited
 
@@ -90,6 +91,31 @@ MODEL_STRATEGY = {
                      "exception handler — not through this routing dict. 2026-06-01.",
     },
 
+    ModelTier.GEMINI_LARGE_CONTEXT.value: {
+        "provider": "google_ai_direct",
+        "model_id": "gemini-2.5-pro",
+        "context": "1M tokens",
+        "cost_per_M": 0.00,
+        "input_cost": 0.00,
+        "output_cost": 0.00,
+        "vision_support": True,
+        "reasoning": True,
+        "speed": "moderate",
+        "use_cases": [
+            "pdf_read",
+            "cruise_brochure",
+            "document_analysis",
+            "large_file_read",
+            "notebooklm_prep",
+            "deep_research",
+            "multi_doc_synthesis",
+        ],
+        "rationale": "Direct Google AI API via gemini_client.call_gemini_pro. "
+                     "1M context window — reads full cruise PDFs, brochures, dossier bundles in one shot. "
+                     "Google AI Pro subscription ($20.60/mo) — $0 marginal cost on free tier allowlist. "
+                     "Use for any task where content_size > 100K tokens. Re-enabled 2026-06-05.",
+    },
+
     ModelTier.DEEPSEEK_OPTIMIZED.value: {
         "provider": "openrouter",
         "model_id": "qwen/qwen3.6-plus-04-02:free",
@@ -143,8 +169,8 @@ CREW_MODEL_TIER: dict[str, str] = {
     "A6":     ModelTier.SONNET_MAX_LARGE.value,   # Luna — narrative/brand copy
     "A1":     ModelTier.SONNET_MAX_LARGE.value,   # Navarro — profile synthesis (nuance)
     "EXEC":   ModelTier.SONNET_MAX_LARGE.value,   # Solberg-Vega — proposals, voice
-    # Research / structured output → Gemini Flash Lite ($0.03/1M input)
-    "A2":     ModelTier.GEMINI_VISION.value,      # Dembe — destination research
+    # Research / structured output — Dembe gets large-context direct API for PDF/brochure reads
+    "A2":     ModelTier.GEMINI_LARGE_CONTEXT.value,  # Dembe — destination research + PDF brochures (1M ctx)
     "A5":     ModelTier.GEMINI_VISION.value,      # Castillo — strategy drafts
     "A7":     ModelTier.GEMINI_VISION.value,      # Sterling — process/metrics
     "A8":     ModelTier.GEMINI_VISION.value,      # Reyes — product matching
@@ -222,9 +248,9 @@ def route_model(
         log.info(f"Model route: vision detected → {ModelTier.GEMINI_VISION.value}")
         return MODEL_STRATEGY[ModelTier.GEMINI_VISION.value]
 
-    if content_size and content_size > 500_000 and "vision" not in task_type.lower():
-        log.info(f"Model route: large context ({content_size} tokens) → {ModelTier.SONNET_MAX_LARGE.value}")
-        return MODEL_STRATEGY[ModelTier.SONNET_MAX_LARGE.value]
+    if content_size and content_size > 100_000:
+        log.info(f"Model route: large context ({content_size} tokens) → {ModelTier.GEMINI_LARGE_CONTEXT.value}")
+        return MODEL_STRATEGY[ModelTier.GEMINI_LARGE_CONTEXT.value]
 
     if budget == "minimal":
         log.info(f"Model route: budget minimal → {ModelTier.DEEPSEEK_OPTIMIZED.value}")
@@ -410,6 +436,26 @@ def classify_task(prompt: str) -> str:
     Returns "general" for all inputs during recovery.
     """
     return "general"
+
+
+def call_gemini_large_context(system_prompt: str, user_prompt: str,
+                               max_tokens: int = 4096, caller: str = "router",
+                               task_hint: str = "") -> str:
+    """
+    Dispatch to Gemini 2.5 Pro via direct Google AI API.
+    Use for any task with >100K token content: cruise PDFs, brochure bundles,
+    multi-dossier synthesis, full itinerary reads.
+    Routes through gemini_client canonical chokepoint (rate limiting + Harlan logging).
+    Google AI Pro subscription — $0 marginal cost on free-tier allowlist.
+    """
+    from core.ai_infra.gemini_client import call_gemini_pro
+    return call_gemini_pro(
+        system_prompt=system_prompt,
+        user_prompt=user_prompt,
+        max_tokens=max_tokens,
+        caller=caller,
+        task_hint=task_hint,
+    )
 
 
 if __name__ == "__main__":

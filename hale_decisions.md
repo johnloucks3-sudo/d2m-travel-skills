@@ -4127,3 +4127,73 @@ DeepSeek V4: 296 sessions, $12.3210
 **Protocol:** Commander logs into any portal/travel site on their local browser, copies cookies from browser dev tools, pastes into session. Wing injects cookies, runs automated search, reports results and flags price movement vs. established baselines. Session keepalive timer maintains session post-login.
 **Applies to:** Centrav, United, SWISS, any travel search portal requiring auth.
 **Price flag rule:** Report increases or decreases from baseline estimates in master research file. Flag >5% movement explicitly.
+
+### 2026-06-05 00:00:02 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: T2-COMMS-BUILD-20260518 status: COMPLETE — 2026-05-31T07:45:00Z — ESCALATED TO COMMANDER note: Hard stop 20
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 1050421 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260605_000002.log | Inbox: opencode_inbox.md
+
+---
+
+
+---
+## Harlan Cost Brief — 2026-06-05
+```
+HARLAN AM BRIEF — 2026-06-05 06:00
+🔴 Verdict: BLOCK | Sonnet weekly at 100% — hard block until reset | DeepSeek V4 wandering — investigate routing
+═══
+Sonnet weekly: 100% | All weekly: 86%
+Monthly: $55.67/100
+OpenCode 7d: $7.2765 | Month: $3.6056
+⚠ DEEPSEEK WANDER: deepseek/deepseek-chat-v3.1 $1.4375
+DeepSeek V4: 318 sessions, $12.3210
+  ⚠ NATIVE BILLING: deepseek-v4-flash-free charged $1.6367 — native provider should be $0
+  ⚠ BANNED MODEL ACTIVE: google/gemini-3.1-flash-lite-preview billed $8.4165 — replace with native/free alternative
+  ⚠ CONTEXT BLOAT: google/gemini-3.1-flash-lite-preview [high] avg 8,509,364 in tokens/session (4 sessions) — review prompt compression
+— A9 Harlan | Thunderbird Wing
+```
+
+### 2026-06-05 06:00:02 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: T2-COMMS-BUILD-20260518 status: COMPLETE — 2026-05-31T07:45:00Z — ESCALATED TO COMMANDER note: Hard stop 20
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 1154585 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260605_060002.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-06-05 12:00:00 — Autonomous Decision (Tier T1)
+
+**Decision:** OpenCode dispatched: --- ## TASK: T2-COMMS-BUILD-20260518 status: COMPLETE — 2026-05-31T07:45:00Z — ESCALATED TO COMMANDER note: Hard stop 20
+
+**Domain:** Autonomous Tasking
+**Type:** routine
+**Outcome:** pending
+**Trust Points:** +0
+**Autonomy Tier:** T1
+**Notes:** PID 1303792 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260605_120000.log | Inbox: opencode_inbox.md
+
+---
+
+### 2026-06-05 15:29:38 — Autonomous Decision (Tier T1)
+
+**Decision:** Opus inline dispatch: REVIEW MY PLAN BEFORE IMPLEMENTATION — do NOT implement, jus...
+
+**Domain:** Task Execution
+**Type:** routine
+**Outcome:** correct
+**Trust Points:** +1
+**Autonomy Tier:** T1
+**Notes:** OpenCode inline dispatch completed in 109.4s. Output: 8576 chars. Model: Opus
+
+---
