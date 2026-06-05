@@ -285,51 +285,174 @@ PRICING TIER DIFFERENTIATORS REMAIN:
 
 ---
 
-## ⚠️ CONFIRMED DATA OVERRIDE — 2026-05-06
-*Source: Travel Timeline email sent to bkspencer381@gmail.com 2026-05-03 + Bill reply 2026-05-03*
+## ⚠️ CONFIRMED DATA OVERRIDE — 2026-05-06 (Updated 2026-06-05)
+*Primary sources: Bill Spencer email 2026-04-30 (original trip request) · Commander guidance 2026-04-30 · COS intake brief 2026-04-30 · May 3 Travel Timeline send + Bill reply · Coffee thread 2026-05-18–19*
 *Supersedes all earlier research/draft figures above.*
 
-### CONFIRMED ITINERARY (21 days)
-- **June 12, 2027** — Depart DEN → FCO, United Business Class nonstop (full party)
-- **June 12–15** — Rome, 3 nights, 5-star (Spanish Steps/Trevi or Borghese Park area)
-- **June 15–23** — Disney Wish Mediterranean cruise, 8 nights
-  - Deposit placed **2026-05-04** by Bill Spencer
-  - Booking Number: **🟡 PENDING** — Bill confirmed "deposit going in tomorrow" (May 3 reply)
-  - Commission rate / host agency: TBD once BN received
-- **June 23–25** — Florence, 2 nights, Centro Storico luxury
-- **June 25–30** — Switzerland, 5 nights. Two models offered:
-  - Model A: Interlaken base (Jungfraujoch, Lauterbrunnen)
-  - Model B: Zermatt 1–2 nights + Interlaken 3 nights
-- **July 1–2** — Zurich, 2 nights, pre-departure rest
+---
 
-### CONFIRMED DEPARTURES (3 family groups)
-- **Tim's family**: Departs Rome June 23 — FCO → DEN (does NOT continue to Florence/Switzerland)
-  - *Commander note 2026-05-03: "Make a note of Tim and families departure from Rome June 23rd"*
-- **Remaining 8 travelers**: Continue to Florence, Switzerland, Zurich
-- **Return**: ZRH → DEN (July 2) for remaining 8
+## CLIENT CONTACT RECORD
+| Field | Value |
+|---|---|
+| **Primary contact** | Bill Spencer |
+| **Email** | bkspencer381@gmail.com |
+| **Phone** | 719-213-9514 |
+| **Contact protocol** | Text to schedule · Calls Mon/Fri only (tied up mid-week) |
+| **Address** | 355 Sedona Drive, Colorado Springs, CO 80921 |
+| **Relationship** | USAFA classmate / close personal friend — Bill calls Commander "classmate/brother" |
+| **Last contact** | May 27, 2026 — Commander forwarded Journey Overview for morning breakfast meeting |
 
-### COMMITTED DELIVERABLES
-- **June 10, 2026**: Flight quotes (all 3 groups) — ⚠️ 6 DAYS OUT as of 2026-06-04
-- **June 17, 2026**: Full package — accommodations, transfers, insurance, per-family pricing
-- Week of June 19, 2026: Review call (Mon/Fri — text to confirm)
-- Upon approval: Service Agreement
+---
 
-### FAMILY GROUP BREAKDOWN (3 groups, 12 total)
-| Group | Pax | Who | LEG 1 (DEN→FCO Jun 12) | LEG 2 | LEG 3 (ZRH→DEN Jul 2) |
-|---|---|---|---|---|---|
-| **Bill's group** | 4 | Bill Spencer, Kathleen Spencer, Billy Spencer (son), Amanda | Premium Economy | — continues | Premium Economy |
-| **Tim's family** | 4 | Tim Spencer (son), JoAnne, Robert (5), Judah (2) | Business | Business FCO→DEN Jun 23 | — departs Rome |
-| **Yaggi family** | 4 | Mike Yaggi (son-in-law), wife, 2 kids | Business | — continues | Business |
+## COMPLETE TRAVELER ROSTER — 12 PAX
+*Source: Bill Spencer email 2026-04-30 (verbatim names and birthdates)*
 
-**Notes:** Two strollers on Tim's LEG 2. Earliest FCO departure June 23: 12:30pm (cruise off Civitavecchia 8am, 1.5hr transfer). Amanda's last name TBD. Yaggi wife's name TBD. ⚠️ Family data sheet import incomplete — verify names via guest profile forms.
+### Group 1 — Bill & Kathleen (PRINCIPALS — Full Trip)
+| Traveler | Full Legal Name | DOB | Age in Jun 2027 | Notes |
+|---|---|---|---|---|
+| **Bill** | James William Spencer | 02/28/1953 | 74 | Lead contact |
+| **Kathleen** | Kathleen Denise Spencer | 06/12/1955 | 72 | ⭐ BIRTHDAY = DEPARTURE DAY (Jun 12) |
 
-### CORRECTIONS TO EARLIER DRAFT
-1. ~~Departure June 20~~ → **June 12** (3 weeks earlier)
-2. ~~Iceland extension~~ → **Does not exist** — itinerary ends Zurich July 2
-3. ~~Cruise line TBD~~ → **Disney Wish** confirmed
-4. ~~All 12 travel together~~ → **Tim's family branches at Rome** June 23
-5. ~~Cruise embark June 23~~ → **Disney Wish June 15–23** (before Florence, not after Rome)
-6. Milan phase → **Not in itinerary** (replaced by Disney Wish segment)
+**Milestone: 50th Wedding Anniversary** (married ~1977)
 
-### BOOKING MASTER ENTRY
-Row 36 added 2026-05-06: Disney Wish Mediterranean Jun 15–23 2027 | Status: Pending | BN: 🟡 PENDING
+### Group 2 — Billy & Mandy (Unmarried Adult Children — Full Trip)
+| Traveler | Full Legal Name | DOB | Age in Jun 2027 | Notes |
+|---|---|---|---|---|
+| **Billy** | William Kendrick Spencer | 06/04/1979 | 48 | Unmarried son |
+| **Mandy** | Amanda Jean Spencer | 03/31/1987 | 40 | Unmarried daughter |
+
+**Milestone: Mandy's 40th Birthday**
+**⚠️ OPEN: Room arrangement for Billy & Mandy** — Bill explicitly flagged this as a question for us. Two unmarried adults — how do we configure rooms?
+
+### Group 3 — Yaggi Family (Full Trip)
+| Traveler | Full Legal Name | DOB | Age in Jun 2027 | Notes |
+|---|---|---|---|---|
+| **Mike** | Michael Yaggi | 05/06/1977 | 50 | Son-in-law (married Katie) |
+| **Katie** | Katie Elizabeth Yaggi (née Spencer) | 10/04/1980 | 46 | Bill & Kathleen's daughter |
+| **Lillie** | Lillianna Kathleen Yaggi | 10/29/2008 | 18 | Granddaughter |
+| **Clara** | Clara Elise Yaggi | 09/29/2011 | 15 | Granddaughter |
+
+**Milestone: Mike Yaggi's 50th Birthday** (May 6 — just before departure)
+**Milestone: Lillie Yaggi's High School Graduation** (Class of 2027)
+
+### Group 4 — Tim's Family (Rome + Cruise ONLY — Exits Rome June 23)
+| Traveler | Full Legal Name | DOB | Age in Jun 2027 | Notes |
+|---|---|---|---|---|
+| **Tim** | Timothy James Spencer | 04/24/1990 | 37 | Bill's son |
+| **JoAnne** | JoAnne Marie Spencer | 02/29/1992 | ~35 | ⭐ LEAP DAY birthday — only celebrates every 4 years |
+| **James** | James Robert Spencer | 09/04/2021 | 5 | Grandson (goes by James, not Robert) |
+| **Judah** | Judah Spencer | 02/25/2025 | 2 | Grandson |
+
+**Tim's family departs Rome June 23, FCO → DEN. Does NOT continue to Florence/Switzerland.**
+**⚠️ LOGISTICS: Tim's FCO departure no earlier than 1100** (Disney Wish docks Civitavecchia ~0800, 1.5hr transfer to airport — Commander standing directive)
+**Two strollers required for Tim's FCO→DEN leg.**
+
+---
+
+## CELEBRATION SUMMARY — 4 MILESTONES + 1 BONUS
+| Who | Milestone | Date |
+|---|---|---|
+| Bill & Kathleen | 50th Wedding Anniversary | Trip-wide |
+| Kathleen | Birthday (72nd) | June 12 — DEPARTURE DAY |
+| Mike Yaggi | 50th Birthday | May 6, 2027 (just before trip) |
+| Mandy Spencer | 40th Birthday | March 31, 2027 (before trip) |
+| Lillie Yaggi | High School Graduation | Spring 2027 |
+
+---
+
+## CONFIRMED ITINERARY (21 days)
+| Dates | Segment | Detail | Pax |
+|---|---|---|---|
+| Jun 12 | DEN → FCO | United Business Class nonstop | All 12 |
+| Jun 12–15 | Rome | 3 nights, 5-star, Spanish Steps/Borghese area | All 12 |
+| Jun 15–23 | Disney Wish | Mediterranean, 8 nights · Deposit placed 2026-05-04 via vacationstogo.com | All 12 |
+| Jun 23 | Tim's family exits | FCO → DEN (no earlier than 1100 departure) | Tim's 4 |
+| Jun 23–25 | Florence | 2 nights, Centro Storico luxury, high-speed train from Rome | Remaining 8 |
+| Jun 25–30 | Switzerland | 5 nights — Interlaken region | Remaining 8 |
+| Jul 1–2 | Zurich | 2 nights, pre-departure rest | Remaining 8 |
+| Jul 2 | ZRH → DEN | Return flight | Remaining 8 |
+
+**Disney Wish booking: Booked via vacationstogo.com — NOT a D2M commission activity.** Include in all planning (dining, excursions, transport) but no commission applies.
+**Disney Wish Booking Number: 🟡 PENDING** — deposit placed 2026-05-04.
+
+---
+
+## CLIENT EXCURSION GOALS (Verbatim from Bill's email)
+
+**Rome:**
+- Vatican (St. Peter's Basilica, Sistine Chapel, Museums)
+- Colosseum & Roman Forum tours
+- The Pantheon
+- Rome at night tour
+
+**Florence:**
+- Accademia Gallery (Michelangelo's David)
+- Tuscan dining experience
+- Commander recommendations welcome
+
+**Interlaken/Switzerland (Rail Focus — Bill is a rail fan):**
+- Zermatt and the Matterhorn
+- Jungfraujoch (Top of Europe)
+- Grindelwald
+- Lauterbrunnen
+- Recommended hike
+
+**Zurich:**
+- Lindt Chocolate Factory tour
+- Shopping districts
+- Packing/rest day before departure
+
+**Rail note:** Bill explicitly states "we are rail fans, so as much rail as possible." Maximize Eurail/Swiss Pass routing throughout Switzerland segment.
+
+---
+
+## SWITZERLAND DECISION — OPEN
+Two models presented to Bill:
+- **Model A:** Interlaken base only (Jungfraujoch, Lauterbrunnen, Grindelwald)
+- **Model B:** Zermatt 1–2 nights + Interlaken 3 nights (adds Matterhorn)
+**Status: Bill has not confirmed preference. Get this at next meeting.**
+
+---
+
+## BUDGET DIRECTIVE
+**"Spare no expense"** — Commander directive 2026-04-30.
+**Always provide 2 options** on every deliverable — one premium, one alternative.
+This is a once-in-a-lifetime multi-generational celebration. Quality over economy.
+
+---
+
+## COMMITTED DELIVERABLES
+| Deadline | Item | Status |
+|---|---|---|
+| **June 10, 2026** | Flight quotes — all 3 groups (DEN→FCO · FCO→DEN Tim · ZRH→DEN 8 pax) | 🔴 NOT STARTED |
+| **June 17, 2026** | Full package — hotels, transfers, insurance, per-family pricing | 🟡 IN PLANNING |
+| **Wk of June 19** | Review call with Bill & Kathleen (Mon/Fri — confirm by text) | ⬜ UNCONFIRMED |
+| **Upon approval** | Service Agreement | ⬜ PENDING |
+
+---
+
+## OPEN QUESTIONS (Priority Order)
+1. 🔴 Disney Wish booking number (BN) — deposit placed May 4, no BN in dossier
+2. 🔴 Switzerland: Model A (Interlaken only) or Model B (Zermatt + Interlaken)?
+3. 🟡 Tim's family headcount confirmed — 4 pax (Tim, JoAnne, James, Judah) ✅
+4. 🟡 Third family group identity — **Yaggis confirmed** ✅
+5. 🟡 Milestone assignments confirmed ✅ (see Celebration Summary above)
+6. 🟡 Dietary restrictions/medical needs — 12 pax incl. 2 young children
+7. 🟡 Billy & Mandy room arrangement — Bill flagged, answer TBD
+8. 🟢 Travel insurance — not yet offered/accepted; include in June 17 package
+9. 🟢 June 19 review call — confirm by text
+
+---
+
+## CORRECTIONS TO EARLIER DRAFT
+1. ~~Departure June 20~~ → **June 12**
+2. ~~Iceland extension~~ → **Does not exist**
+3. ~~Cruise line TBD~~ → **Disney Wish** (vacationstogo.com)
+4. ~~All 12 travel together~~ → **Tim's family exits Rome June 23**
+5. ~~Cruise embark June 23~~ → **June 15–23** (before Florence)
+6. ~~Milan phase~~ → **Not in itinerary**
+7. ~~Tim's son "Robert"~~ → **James Robert Spencer — goes by James**
+8. ~~3 milestones~~ → **4 milestones + Kathleen birthday on departure day**
+
+## BOOKING MASTER ENTRY
+Row 36: Disney Wish Mediterranean Jun 15–23 2027 | Status: Pending | BN: 🟡 PENDING | Commission: N/A (vacationstogo.com)

@@ -2,8 +2,8 @@
 ## Eastern Mediterranean · May 17 → Jun 7, 2027
 ### John & Susie Loucks — Personal Trip
 
-**Status:** Research complete · Pricing compiled · Awaiting Commander decision
-**Dossier generated:** 4 Jun 2026
+**Status:** ⚡ LIVE PORTAL PRICING UPDATED — 2026-06-05 · Awaiting Commander decision
+**Dossier generated:** 4 Jun 2026 · **Portal pricing pulled:** 2026-06-05 (Explora B2B portal, live)
 
 ---
 
@@ -62,36 +62,92 @@
 
 ---
 
-## PRICING — ALL SUITE CATEGORIES (21 nights, 2 people)
+## PRICING — LIVE B2B PORTAL DATA (Pulled 2026-06-05)
+*Source: Explora Journeys B2B booking portal (explorajourneys.com/int/en/travel-advisors) · "An Invitation to Discover" promotion active*
 
-| Category | Code | Sqft | Total 2pp | Per Night 2pp | Notes |
-|----------|------|------|-----------|---------------|-------|
-| **Ocean Terrace** | **OT1** | **377** | **$32,330** | **$1,540** | **Best value — recommended** |
-| Ocean Terrace | OT2 | 377 | ~$34,060 | ~$1,622 | Higher deck |
-| Ocean Grand Terrace | GT | ~430 | ~$37,150 | ~$1,769 | Larger terrace |
-| Penthouse | PH | ~538 | ~$46,710 | ~$2,224 | Separate living area |
-| Deluxe Penthouse | DP | ~592 | ~$48,440 | ~$2,307 | Expanded penthouse |
-| Grand Penthouse | GP | ~753 | ~$58,160 | ~$2,770 | Premium penthouse |
-| Cove Residence | CO | ~484 | ~$64,660 | ~$3,079 | Bow windows |
-| Retreat Residence | RR | ~753 | ~$72,920 | ~$3,472 | Lounge access |
-| Serenity Residence | SR | ~1,076 | ~$111,760 | ~$5,322 | Butler |
-| Owner's Residence | OR | ~1,346 | ~$291,480 | ~$13,880 | Ultimate |
+### Per-Leg Suite Pricing (Price Per Guest)
 
-> Pricing at current iCruise retail (May 2027) with "Up to 25% Savings" promo. OT1-OT4 are identical cabins (same size, same amenities) — only deck level differs.
+| Code | Category | Leg 1<br>May 17–24<br>Istanbul→Athens | Leg 2<br>May 24–31<br>Athens→Venice | Leg 3<br>May 31–Jun 7<br>Venice→Athens |
+|------|----------|------|------|------|
+| **OT1** | Ocean Terrace Deck 7 | **$5,160** 🔴 **WTL** | **$5,160** ⚠️ 2 LEFT | **$5,480** ✅ 9+ |
+| OT2 | Ocean Terrace Deck 8 | $5,440 ✅ 9+ | $5,440 🔴 **WTL** | $5,760 ✅ 9+ |
+| OT3 | Ocean Terrace Deck 9 | $5,680 ✅ 9+ | $5,680 ✅ 9+ | $6,040 ✅ 9+ |
+| OT4 | Ocean Terrace Deck 10 | $5,840 ✅ 9+ | $5,840 ✅ 9+ | $6,200 ✅ 9+ |
+| GT | Grand Terrace | $5,960 ✅ 9+ | $5,960 ✅ 9+ | $6,320 ✅ 9+ |
+| — | Ocean Penthouses | from $7,520 | from $7,520 | from $7,960 |
+| — | Ocean Residences | from $10,360 | from $10,360 | from $11,000 |
+| — | Owner's Residence | $51,760 | $51,760 | — |
+
+**WTL** = Waitlisted (no availability) · **⚠️** = Last suites — act now · **✅** = Available
+
+### Rack Rates (Explora Journeys Fare, no promo)
+
+| Code | Leg 1 | Leg 2 | Leg 3 |
+|------|-------|-------|-------|
+| OT1 | $6,450 | $6,450 | $6,850 |
+| OT2 | $6,800 | $6,800 | $7,200 |
+| OT3 | $7,100 | $7,100 | $7,550 |
+| OT4 | $7,300 | $7,300 | $7,750 |
+| GT  | $7,450 | $7,450 | $7,900 |
+
+### Journey Codes (Portal)
+- **Leg 1:** EP20270517ISTPIR
+- **Leg 2:** EP20270524PIRFSA
+- **Leg 3:** EP20270531FSAPIR
 
 ---
 
-## D2M COMMISSION STRUCTURE
+## GRAND SLAM TOTAL — 2 GUESTS (Promo Pricing)
 
-| Item | OT1 Grand Slam |
-|------|----------------|
-| Retail cost (2pp, 21n) | $32,330 |
-| Gross commission (18% via OA) | $5,819.40 |
-| D2M net (80% after OA split) | **$4,655.52** |
-| Option: Book at cost (retail − commission) | **$27,674** |
-| Option: Book at retail, D2M earns commission | $32,330 |
+| Scenario | OT1/Guest | OT2/Guest | OT3/Guest |
+|----------|-----------|-----------|-----------|
+| Leg 1 | $5,160 🔴WTL → $5,440 OT2 | $5,440 ✅ | $5,680 ✅ |
+| Leg 2 | $5,160 ⚠️ (2 left) | $5,440 🔴WTL → $5,680 OT3 | $5,680 ✅ |
+| Leg 3 | $5,480 ✅ | $5,760 ✅ | $6,040 ✅ |
+| **Per Guest Total** | **$16,080** | **$16,640** | **$17,400** |
+| **2-Guest Total** | **$32,160** | **$33,280** | **$34,800** |
 
-> No NCFs (non-commissionable fees). Full fare is commissionable. Private consortia fares (up to 30% off) may be available once ETAC is activated — Jennifer Greenfield contacted for re-activation link.
+**⚠️ AVAILABILITY ALERT:**
+- **OT1 cannot be held consistently across all 3 legs** — Leg 1 OT1 is waitlisted
+- **OT2 cannot be held consistently** — Leg 2 OT2 is waitlisted
+- **OT3 is the lowest category with 9+ availability on ALL THREE legs** — clean B2B2B execution
+- **Leg 2 OT1 (2 suites)** — if Commander wants OT1 on Leg 2, this is urgent. Book or lose it.
+
+### Previous Pricing (iCruise retail, Jun 4, 2026)
+OT1 21-night 2pp: $32,330 → **Portal promo is essentially the same** ($32,160 if mixed OT1/OT2 works; $34,800 for clean OT3)
+
+---
+
+## D2M COMMISSION STRUCTURE (Updated 2026-06-05 — Direct Account)
+**⚡ Commander confirmed direct Explora portal account — 18% commission goes 100% to D2M. No OA split.**
+
+| Item | OT3 Scenario A | OT1/Mix Scenario B | GT Scenario C |
+|------|----------------|-------------------|---------------|
+| Total retail 2pp | $34,800 | $32,160 | $36,480 |
+| Commission rate | 18% direct | 18% direct | 18% direct |
+| **D2M commission (100%)** | **$6,264** | **$5,789** | **$6,566** |
+| Net client price (at cost) | **$28,536** | **$26,371** | **$29,914** |
+| Per night 2pp (at net) | $1,359 | $1,256 | $1,425 |
+
+> No NCFs. Full fare commissionable. Portal login: johnloucks3@gmail.com / Falcons4me! · Agency: ASAP Cruises / C&TU · CLIA 00409065 · IATA 10766674
+
+---
+
+## SUPPLIER DATA (Explora Journeys Portal — Pulled 2026-06-05)
+
+| Field | Value |
+|-------|-------|
+| Agency Legal Name | ASAP Cruises Inc. |
+| Agency Trading Name | Cruises & Tours Unlimited/Outside Agents |
+| Agency Phone | +1 (904) 739-2224 |
+| Agency Address | 9125 Philips Highway, Jacksonville, FL 32256 |
+| Primary Consortia | Travel Leaders Network |
+| CLIA # | 00409065 |
+| IATA # | 10766674 |
+| Tech Partner 1 | REVELEX — Pseudocity: TLN33419 |
+| Tech Partner 2 | ODYSSEUS — Pseudocity: O141USCJ9K |
+| Active Promotion | An Invitation to Discover (expires Jun 23, 2026 per portal headlines) |
+| BDM | Jennifer Greenfield (ETAC re-activation pending) |
 
 ---
 
@@ -165,14 +221,19 @@
 
 ---
 
-## NEXT STEPS
+## NEXT STEPS (Updated 2026-06-05)
 
-- [ ] Decide OT1 vs upgrade (GT for larger terrace +~$2,820?)
-- [ ] Wait for Jennifer Greenfield / ETAC activation for private fares
-- [ ] If ETAC comes through: reprice with private fares (potentially 30% off)
-- [ ] Book: either at cost ($27,674) or full retail ($32,330)
-- [ ] Book flights (Istanbul→Athens, Athens→Colorado Springs)
-- [ ] Pre/post hotel planning (Istanbul pre, Athens post)
+### 🔴 URGENT
+- [ ] **Decision on OT3 vs accepting mixed categories** — OT3 = clean B2B2B at $34,800/2pp, or mix OT1/OT2 at $32,160 with availability constraints
+- [ ] **Leg 2 OT1 (2 suites left)** — if Commander wants OT1 on any leg, Leg 2 is the one to grab NOW
+- [ ] **"An Invitation to Discover" promo expires Jun 23, 2026** — 18 days. Book before promo expires or reprice at rack rate (~30% higher)
+
+### Standard
+- [ ] Await Jennifer Greenfield / ETAC re-activation — if activated, reprice (potentially 30% off rack → could beat current promo)
+- [ ] Decide OT3 vs GT upgrade (+$1,520 total 2pp for larger terrace across all 3 legs)
+- [ ] Book via Explora B2B portal or via OA (Outside Agents) for 18% commission
+- [ ] Book flights (DEN→IST outbound, ATH→DEN return)
+- [ ] Pre/post hotel planning (Istanbul pre-cruise, Athens post-cruise)
 
 ---
 
@@ -186,3 +247,27 @@
 - **Drive links:**
   - [Trip Dossiers](https://drive.google.com/file/d/1IWgqSZzKZm7yQ7156n_xbqeqcIBrND0i/view)
   - [D2M Root](https://drive.google.com/file/d/1CYHwo3DqI5Y0CLDe0NfskWVkHqBmfLLh/view)
+
+---
+
+## COMPETITIVE COMPARISON — SILVER NOVA (Added 2026-06-05)
+
+| Metric | Explora II OT3 | Silver Nova CV |
+|---|---|---|
+| Per night/pp (cruise only) | ~$749–$829 | ~$700–$736 |
+| Suite sqft | 377 sqft | 357 sqft (304 + 53 veranda) |
+| Butler | No (starts at SR) | Yes — all suites |
+| Pools | 4 | 2 |
+| D2M commission | **18% direct** | ~10–15% via host |
+| Promo deadline | Jun 23, 2026 | Sep 8, 2026 |
+
+**Silver Nova April–June 2027 Best Options (cruise only, per person):**
+- May 15 (14n, Athens RT, $10,300/pp) — best ~12n option
+- Jun 7 + Jun 16 B2B (20n, $14,490/pp) — best ~21n option
+- Full voyage list: `/home/john/Thunderbird/dossiers/DOSSIER_ExploraII_EMed_May2027.md`
+
+**Supplier: Silversea Silver Nova**
+- TA Portal: my.silversea.com (johnloucks3@gmail.com)
+- Commission: ~10–15% (verify via Nexion/C&TU)
+- Active promo: "Save Up to 40%" expires Sep 8, 2026
+- Inclusions (P2P): dining, beverages, butler, Wi-Fi, gratuities — excursions NOT included
