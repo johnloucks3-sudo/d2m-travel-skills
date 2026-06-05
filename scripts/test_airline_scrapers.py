@@ -854,7 +854,7 @@ async def scrape_centrav(
 
 SOURCES = ["skiplagged", "kayak", "expedia", "cheaptickets", "centrav"]
 
-async def run_tests(depart_date: str, headless: bool = True, source: str = "all"):
+async def run_tests(depart_date: str, headless: bool = True, source: str = "all", browser_type: str = "firefox"):
     log(f"=== Airline Scraper Test: {ORIGIN} → {DEST} ===")
     log(f"Date: {depart_date}  |  Adults: {ADULTS}  |  Headless: {headless}  |  Source: {source}")
     log(f"Sources: Skiplagged · Kayak · Expedia · CheapTickets · Centrav")
@@ -887,20 +887,25 @@ async def run_tests(depart_date: str, headless: bool = True, source: str = "all"
             log(f"  Warning: could not load existing JSON for merge: {e}")
 
     async with async_playwright() as p:
-        browser = await p.chromium.launch(
+        _browser_engine = p.firefox if browser_type == "firefox" else p.chromium
+        _launch_args = [] if browser_type == "firefox" else [
+            "--no-sandbox",
+            "--disable-blink-features=AutomationControlled",
+            "--disable-dev-shm-usage",
+        ]
+        _user_agent = (
+            "Mozilla/5.0 (X11; Linux x86_64; rv:124.0) Gecko/20100101 Firefox/124.0"
+            if browser_type == "firefox"
+            else "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+                 "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+        )
+        browser = await _browser_engine.launch(
             headless=headless,
-            args=[
-                "--no-sandbox",
-                "--disable-blink-features=AutomationControlled",
-                "--disable-dev-shm-usage",
-            ],
+            args=_launch_args,
         )
         context: BrowserContext = await browser.new_context(
             viewport={"width": 1440, "height": 900},
-            user_agent=(
-                "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
-                "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
-            ),
+            user_agent=_user_agent,
             java_script_enabled=True,
             locale="en-US",
         )
@@ -1042,7 +1047,7 @@ async def run_tests(depart_date: str, headless: bool = True, source: str = "all"
     return results
 
 
-async def centrav_login_flow():
+async def centrav_login_flow(browser_type: str = "firefox"):
     """One-time interactive Centrav login to save session cookies.
 
     Launches a VISIBLE browser, pre-fills credentials, waits for you to
@@ -1052,18 +1057,22 @@ async def centrav_login_flow():
     Usage: python3 test_airline_scrapers.py --centrav-login
     """
     log("=== Centrav One-Time Login ===")
-    log(f"Session will be saved to: {CENTRAV_SESSION_FILE}")
+    log(f"Browser: {browser_type} | Session will be saved to: {CENTRAV_SESSION_FILE}")
     async with async_playwright() as p:
-        browser = await p.chromium.launch(
+        _browser_engine = p.firefox if browser_type == "firefox" else p.chromium
+        _user_agent = (
+            "Mozilla/5.0 (X11; Linux x86_64; rv:124.0) Gecko/20100101 Firefox/124.0"
+            if browser_type == "firefox"
+            else "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+                 "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+        )
+        browser = await _browser_engine.launch(
             headless=False,
-            args=["--no-sandbox"],
+            args=[] if browser_type == "firefox" else ["--no-sandbox"],
         )
         context = await browser.new_context(
             viewport={"width": 1440, "height": 900},
-            user_agent=(
-                "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
-                "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
-            ),
+            user_agent=_user_agent,
         )
         page = await context.new_page()
         await page.goto("https://www.centrav.com/login", wait_until="domcontentloaded", timeout=30_000)
@@ -1112,14 +1121,20 @@ def main():
         action="store_true",
         help="One-time interactive Centrav login to save session cookies",
     )
+    parser.add_argument(
+        "--browser",
+        default="firefox",
+        choices=["firefox", "chromium"],
+        help="Browser engine to use (default: firefox — better bot evasion)",
+    )
     args = parser.parse_args()
     ORIGIN = args.origin.upper()
     DEST = args.dest.upper()
 
     if args.centrav_login:
-        asyncio.run(centrav_login_flow())
+        asyncio.run(centrav_login_flow(browser_type=args.browser))
     else:
-        asyncio.run(run_tests(args.date, headless=args.headless.lower() == "true", source=args.source))
+        asyncio.run(run_tests(args.date, headless=args.headless.lower() == "true", source=args.source, browser_type=args.browser))
 
 
 if __name__ == "__main__":
