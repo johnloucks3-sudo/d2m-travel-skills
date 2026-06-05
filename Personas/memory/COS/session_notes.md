@@ -24,3 +24,31 @@ Commander callsign: Yoda. Established via Telegram C2 2026-03-21.
 
 ### 2026-03-27 13:27 UTC
 [preference] STANDING ORDER 27 MAR 2026 — Report Format Standard: JSON format used in World Intel and Tech Intel briefs is now the standard for ALL reports. Commander confirmed "well done" on that format. Apply to: morning briefs, intel sweeps, incubator digests, sitreps, innovation briefings, world intel reports, tech monitor outputs. Full send to johnloucks3@gmail.com (no drafts in d2mconcierge for intel/briefs).
+
+### 2026-06-05 17:16 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (7208s old) | INBOX_PENDING=8 | ACTIVE_TASKS=0 | QDRANT=DOWN
+
+### 2026-06-05 17:16 MT [MISSION-111-FOLLOWUP — Capability Audit + Infrastructure Repair]
+
+[directive] Commander ordered: improve HALE memory persistence, organizational/planning ability, project oversight, build/project staying time. HALE+ELON+Dembe+Sterling exercise.
+
+[infrastructure] OPUS model correction: 4.8 does not exist. Canonical model = claude-opus-4-6.
+
+[fix] auto_session_monitor.sh was MISSING for 2.5 months (since ~Mar 2026). Service was failing every 10 min with status 203/EXEC. Created script at OpsCenter/auto_session_monitor.sh. Now fires correctly. Monitors: session processes, token freshness, inbox pending, mission board tasks, Qdrant health.
+
+[fix] Qdrant vector memory server was NOT running. Docker image was present (qdrant/qdrant:latest). Started container with persistent storage at data/qdrant_storage/. Systemd service created: ~/.config/systemd/user/qdrant.service (enabled, auto-start). Initial index: 221 files, 448 chunks, ~142K tokens estimated.
+
+[audit-elon] 10 underexploited systems found: Qdrant semantic memory (now fixed), Mem0 shared memory (built, unconnected), persona memory dirs (stale since Mar 27), commander directive sweep (inactive), session checkpoint (built, not wired), mission board (0 tasks), 4 MCPs installed but not in mcp.json (apify/foursquare/mapbox/yelp), multi-agent framework (unused), hale substrate chain (unused), context7 MCP (wired, unused).
+
+[audit-dembe] mem0ai v1.0.5 already installed. qdrant-client v1.17.1 already installed. 4 MCP servers in mcps/ (apify, foursquare, mapbox, yelp) downloaded but not configured. Commented-out travel MCPs: skiplagged, kiwi, trivago, ferryhopper, airbnb, ticketmaster.
+
+[active-projects] 
+  - Bryana onboarding (drafts in drafts/bryana_*.html)
+  - Spencer Grand Tour flight deadline Jun 10 (T-5)
+  - Nichols TP 0.5 due today
+  - McLeod departure Jun 18 (T-13)
+  - Loucks Dossier Atlas Mediterranean 2027
+
+[model-routing] Opus = claude-opus-4-6. No 4.7 or 4.8 exists.
+
+[next-session] Mission board has 0 tasks — needs population. Inbox has 8 PENDING/UNREAD items. Qdrant now searchable — use memory_search MCP tool for context retrieval.

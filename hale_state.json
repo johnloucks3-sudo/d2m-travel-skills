@@ -1,0 +1,158 @@
+{
+  "wing_health": {
+    "telegram_bots": {
+      "D2MC2C": {
+        "status": "LIVE",
+        "username": "D2MC2C_bot",
+        "bot_id": 8754681793,
+        "last_check": "2026-06-05T17:18:35.265314"
+      },
+      "Dani": {
+        "status": "LIVE",
+        "username": "d2m_channels_bot",
+        "bot_id": 8726363494,
+        "last_check": "2026-06-05T17:18:35.870572"
+      },
+      "last_health_check": "2026-06-05T17:18:35.870601"
+    },
+    "last_health_check": "2026-06-05T17:18:35.870784",
+    "chrome_debug_port_9222": "ONLINE",
+    "mcp_server": "ONLINE",
+    "opencode_status": "UNKNOWN",
+    "telegram_bot": "UNKNOWN"
+  },
+  "_meta": {
+    "last_updated": "2026-06-05T17:18:35.870790-06:00"
+  },
+  "open_tasks": [
+    {
+      "raw": "{\n  \"list_name\": \"D2M Client Tasks\",\n  \"tasks\": [],\n  \"count\": 0,\n  \"overdue\": 0\n}"
+    }
+  ],
+  "financial_pulse": {
+    "last_checked": "2026-06-05T06:45:05.136239-06:00",
+    "tess_auth_status": "ONLINE",
+    "tess_trips": 13,
+    "tess_bookings": 18,
+    "tess_clients": 25,
+    "tess_pkg_total": 138131.9,
+    "tess_received": 244.8,
+    "tess_due": 0.0,
+    "tess_checks_received": 1,
+    "sheet_status": "ONLINE",
+    "sheet_bookings": 35,
+    "sheet_commission_expected": 35214.47,
+    "sheet_d2m_share": 27146.41,
+    "sheet_upcoming_count": 23,
+    "pipeline_d2m_share_upcoming": 21440.75,
+    "pipeline_commission_upcoming": 28082.41,
+    "total_d2m_pipeline": 21440.75,
+    "raw_snippet": "D2M pipeline: $21,440.75 D2M share across 23 upcoming voyages (sheet) + 1 checks already received totaling $244.80 (TESS)."
+  },
+  "session_context": {
+    "last_checkpoint": "2026-06-05T06:45:05.136239-06:00"
+  },
+  "staff_load": {
+    "HALE": {
+      "last_seen": true,
+      "active": 12
+    },
+    "DEM": {
+      "last_seen": false,
+      "active": 0
+    },
+    "DAN": {
+      "last_seen": false,
+      "active": 0
+    },
+    "VIP": {
+      "last_seen": false,
+      "active": 0
+    },
+    "LUN": {
+      "last_seen": false,
+      "active": 0
+    },
+    "GAU": {
+      "last_seen": false,
+      "active": 0
+    },
+    "VIC": {
+      "last_seen": false,
+      "active": 0
+    },
+    "PAD": {
+      "last_seen": false,
+      "active": 0
+    },
+    "ELON": {
+      "last_seen": true,
+      "active": 2
+    }
+  },
+  "brain_routing_log": [
+    {
+      "ts": "2026-06-01T05:30:57.982482-06:00",
+      "task": "Write a lifecycle touchpoint email for this client:\nClient: Kyle Kuklinski\nTP: ARC4-B \u2014 Specialty Di",
+      "brain": "Brain 2 (Sonnet)",
+      "reason": "Commander override: SONNET",
+      "elapsed": 56.5
+    }
+  ],
+  "project_tracking": {
+    "last_updated": "2026-06-05T23:18:54.447536+00:00",
+    "active_projects": [
+      {
+        "id": "PROJ-NICHOLS-TP05",
+        "name": "Nichols TP 0.5 Welcome Email",
+        "status": "WF17_GATE",
+        "deadline": "2026-06-05",
+        "mission": "MISSION-120",
+        "owner": "HALE",
+        "notes": "Draft ready in d2mconcierge. Commander sends."
+      },
+      {
+        "id": "PROJ-MCLEOD-T13",
+        "name": "McLeod Departure Prep (Jun 18)",
+        "status": "MONITORING",
+        "deadline": "2026-06-18",
+        "mission": "MISSION-121",
+        "owner": "HALE",
+        "notes": "T-13. TP 0.5 unsent. Check open items."
+      },
+      {
+        "id": "PROJ-SPENCER-FLIGHT",
+        "name": "Spencer Grand Tour Air Quote",
+        "status": "URGENT",
+        "deadline": "2026-06-10",
+        "mission": "MISSION-122",
+        "owner": "DEMBE",
+        "notes": "T-5 to deadline. No quote on file."
+      },
+      {
+        "id": "PROJ-BRYANA-ONBOARD",
+        "name": "Bryana Onboarding Drafts",
+        "status": "DRAFT_READY",
+        "deadline": null,
+        "mission": "MISSION-124",
+        "owner": "HALE",
+        "notes": "HTML drafts in drafts/bryana_*.html"
+      },
+      {
+        "id": "PROJ-INFRA-QDRANT",
+        "name": "Qdrant Daily Re-index Timer",
+        "status": "IN_PROGRESS",
+        "deadline": null,
+        "mission": "MISSION-125",
+        "owner": "STERLING",
+        "notes": "Qdrant running. Need daily systemd timer for re-index."
+      }
+    ],
+    "infrastructure_status": {
+      "qdrant": "RUNNING",
+      "auto_session_monitor": "FIXED",
+      "persona_memory_last_written": "2026-06-05",
+      "mission_board_tasks": 7
+    }
+  }
+}
