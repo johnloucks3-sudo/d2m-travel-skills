@@ -317,11 +317,11 @@ PRICING TIER DIFFERENTIATORS REMAIN:
 ### FAMILY GROUP BREAKDOWN (3 groups, 12 total)
 | Group | Pax | Who | LEG 1 (DEN→FCO Jun 12) | LEG 2 | LEG 3 (ZRH→DEN Jul 2) |
 |---|---|---|---|---|---|
-| **Yaggi family** | 4 | Names via guest form | Business | — continues | Business (TBC) |
-| **Spencer principals + Nick/Amanda** | 4 | Bill, Kathleen, Nick, Amanda | Premium Economy | — continues | Premium Economy |
-| **Tim's family** | 4 | Tim, JoAnne, Robert (5), Judah (2) | Premium Economy | Business FCO→DEN Jun 23 | — departs Rome |
+| **Bill's group** | 4 | Bill Spencer, Kathleen Spencer, Billy Spencer (son), Amanda | Premium Economy | — continues | Premium Economy |
+| **Tim's family** | 4 | Tim Spencer (son), JoAnne, Robert (5), Judah (2) | Business | Business FCO→DEN Jun 23 | — departs Rome |
+| **Yaggi family** | 4 | Mike Yaggi (son-in-law), wife, 2 kids | Business | — continues | Business |
 
-**Two strollers on Tim's leg. Earliest FCO departure June 23: 12:30pm (cruise off Civitavecchia 8am, 1.5hr transfer).**
+**Notes:** Two strollers on Tim's LEG 2. Earliest FCO departure June 23: 12:30pm (cruise off Civitavecchia 8am, 1.5hr transfer). Amanda's last name TBD. Yaggi wife's name TBD. ⚠️ Family data sheet import incomplete — verify names via guest profile forms.
 
 ### CORRECTIONS TO EARLIER DRAFT
 1. ~~Departure June 20~~ → **June 12** (3 weeks earlier)

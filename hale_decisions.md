@@ -4121,3 +4121,9 @@ DeepSeek V4: 296 sessions, $12.3210
 **Notes:** PID 914623 | Log: /home/john/Thunderbird/logs/opencode_invoke_20260604_180002.log | Inbox: opencode_inbox.md
 
 ---
+
+### Standing Protocol — Cookie-Based Search Initiation (2026-06-05)
+**Authority:** Commander directive
+**Protocol:** Commander logs into any portal/travel site on their local browser, copies cookies from browser dev tools, pastes into session. Wing injects cookies, runs automated search, reports results and flags price movement vs. established baselines. Session keepalive timer maintains session post-login.
+**Applies to:** Centrav, United, SWISS, any travel search portal requiring auth.
+**Price flag rule:** Report increases or decreases from baseline estimates in master research file. Flag >5% movement explicitly.
