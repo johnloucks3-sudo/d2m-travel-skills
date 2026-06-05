@@ -10,37 +10,48 @@ import urllib.parse
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from io import BytesIO
 
-USERNAME = "john"
-PASSWORD = "5277"
-DIRECTORY = "/home/john/Thunderbird"
+# Multi-user credentials: username → (password, directory_scope)
+USERS = {
+    "john": ("OQybVhNgLUEK1Pk%k7#m", "/home/john/Thunderbird"),
+    "Bryana": ("f7lieTWcZwcdc6N4EH2c", "/home/john/Thunderbird/Bryana"),
+}
 PORT = 8900
 REALM = "D2M Thunderbird"
-
-_CREDS = base64.b64encode(f"{USERNAME}:{PASSWORD}".encode()).decode()
 
 
 class AuthHandler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, directory=DIRECTORY, **kwargs)
+        # Directory set per-request in do_GET/do_HEAD based on authenticated user
+        super().__init__(*args, directory=USERS["john"][1], **kwargs)
 
     def do_HEAD(self):
-        if self._check_auth():
+        user_dir = self._check_auth()
+        if user_dir:
+            self.directory = user_dir
             super().do_HEAD()
 
     def do_GET(self):
-        if self._check_auth():
+        user_dir = self._check_auth()
+        if user_dir:
+            self.directory = user_dir
             super().do_GET()
 
     def _check_auth(self):
         auth = self.headers.get("Authorization", "")
-        if auth == f"Basic {_CREDS}":
-            return True
+        if auth.startswith("Basic "):
+            try:
+                decoded = base64.b64decode(auth[6:]).decode()
+                username, password = decoded.split(":", 1)
+                if username in USERS and USERS[username][0] == password:
+                    return USERS[username][1]  # Return scoped directory
+            except Exception:
+                pass
         self.send_response(401)
         self.send_header("WWW-Authenticate", f'Basic realm="{REALM}"')
         self.send_header("Content-Length", "12")
         self.end_headers()
         self.wfile.write(b"Unauthorized")
-        return False
+        return None
 
     def list_directory(self, path):
         try:
@@ -236,7 +247,9 @@ def _file_icon(name):
 
 
 if __name__ == "__main__":
-    os.chdir(DIRECTORY)
+    root = USERS["john"][1]
+    os.chdir(root)
+    HTTPServer.allow_reuse_address = True
     server = HTTPServer(("0.0.0.0", PORT), AuthHandler)
-    print(f"Serving {DIRECTORY} on :{PORT} — auth required")
+    print(f"Serving {root} on :{PORT} — multi-user auth required")
     server.serve_forever()
