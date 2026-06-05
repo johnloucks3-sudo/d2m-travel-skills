@@ -295,6 +295,34 @@ async def refresh_explora(page, creds: dict) -> list:
     )
 
 
+async def ping_magtap(page, cookies: list) -> bool:
+    """Ping MAGTAP dashboard — returns True if PHPSESSID is still valid."""
+    await page.context.add_cookies(cookies)
+    resp = await page.goto("https://tap.myagentgenie.com/dashboard", timeout=15000)
+    return resp and "login" not in page.url.lower()
+
+
+async def refresh_magtap(page, creds: dict) -> list:
+    """Re-auth MAGTAP (Outside Agents TAP portal) via Google SSO login."""
+    log.info("MAGTAP: navigating to login...")
+    await page.goto("https://tap.myagentgenie.com", wait_until="networkidle", timeout=30000)
+    await page.wait_for_timeout(2000)
+    try:
+        # MAGTAP uses Google OAuth — fill Google email/password
+        await page.fill('input[type="email"]', creds.get("email", ""), timeout=5000)
+        await page.click('button, input[type="submit"]', timeout=3000)
+        await page.wait_for_timeout(1500)
+        await page.fill('input[type="password"]', creds.get("password", ""), timeout=5000)
+        await page.click('button, input[type="submit"]', timeout=3000)
+        await page.wait_for_load_state("networkidle", timeout=20000)
+    except Exception as e:
+        log.warning(f"MAGTAP login attempt: {e}")
+    raw = await page.context.cookies()
+    cookies = [c for c in raw if "myagentgenie" in c.get("domain", "")]
+    log.info(f"MAGTAP: captured {len(cookies)} cookies")
+    return cookies
+
+
 # ---------------------------------------------------------------------------
 # Portal registry
 # ---------------------------------------------------------------------------
@@ -390,6 +418,13 @@ PORTALS = {
         "ping_fn": None,
         "refresh_fn": refresh_explora,
         "description": "Explora Journeys agent portal",
+    },
+    "magtap": {
+        "cookie_file": CREDS_DIR / "magtap_cookies.json",
+        "creds_key": "magtap",
+        "ping_fn": ping_magtap,
+        "refresh_fn": refresh_magtap,
+        "description": "Outside Agents TAP/MAGCRM/TESS/Odysseus portal",
     },
 }
 
