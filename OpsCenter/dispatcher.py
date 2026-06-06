@@ -44,10 +44,10 @@ logging.basicConfig(
 log = logging.getLogger("dispatcher")
 
 # ── Config ────────────────────────────────────────────────────────────────────
-TELEGRAM_BOT_TOKEN   = os.environ.get("TELEGRAM_C2_BOT_TOKEN", "")
-TELEGRAM_COMMANDER   = os.environ.get("TELEGRAM_COMMANDER_ID", "")
+TELEGRAM_BOT_TOKEN   = os.environ.get("TELEGRAM_RELAY_TOKEN", "")   # → D2M Channels relay (not D2MC2C)
+TELEGRAM_COMMANDER   = os.environ.get("TELEGRAM_RELAY_CHAT_ID", "")
 MAX_TASKS_PER_RUN    = 10   # cap per timer tick — prevents runaway batches
-NOTIFY_PRIORITY_GATE = 3    # notify Commander for tasks with priority <= this
+NOTIFY_PRIORITY_GATE = 1    # notify Commander for tasks with priority <= this (P1 only — D2MC2C urgent-only SO)
 TELEGRAM_CHUNK       = 3900 # Telegram max is 4096; leave headroom for page tags
 MCP_HTTP_PORT        = 8765 # Direct MCP server — bypasses safe_cli_gate
 

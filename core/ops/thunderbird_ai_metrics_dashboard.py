@@ -708,8 +708,7 @@ def ai_metrics_export():
 ✅ <i>Data exported to Looker Studio</i>
 📅 {datetime.now().strftime('%Y-%m-%d %H:%M MT')}"""
         
-        send_telegram_notification(message)
-    
+
     return jsonify({
         "success": success,
         "message": "Exported to Google Sheets for Looker Studio" if success else "Export failed",
@@ -721,20 +720,9 @@ def ai_metrics_refresh():
     """Force refresh of metrics data."""
     metrics = get_combined_metrics()
     
-    # Send Telegram notification about refresh
-    message = f"""🔄 <b>AI Metrics Dashboard Refreshed</b>
-
-📊 Claude: {metrics['claude']['session']['percentage']}% session
-💰 OpenRouter: ${metrics['openrouter']['usage']['daily_usd']:.2f} today
-🎯 Status: {metrics['summary']['budget_status']}
-
-📅 {datetime.now().strftime('%Y-%m-%d %H:%M MT')}"""
-    
-    send_telegram_notification(message)
-    
     return jsonify({
         "success": True,
-        "message": "Metrics refreshed and notification sent",
+        "message": "Metrics refreshed",
         "timestamp": metrics["timestamp"],
     })
 
@@ -772,17 +760,6 @@ def main():
     # Start Flask server
     logger.info(f"Starting AI Metrics Dashboard on {args.host}:{args.port}")
     logger.info(f"Looker Studio URL: https://datastudio.google.com/u/0/reporting/8a4737e8-2759-4684-8dff-fb519be8f371/page/WSxnF/edit")
-    
-    # Send startup notification
-    startup_msg = f"""🚀 <b>AI Metrics Dashboard Started</b>
-
-🌐 <b>Dashboard URL:</b> http://{args.host}:{args.port}/ai-metrics
-📊 <b>Looker Studio:</b> Ready for integration
-🔔 <b>Notifications:</b> Active
-
-📅 {datetime.now().strftime('%Y-%m-%d %H:%M MT')}"""
-    
-    send_telegram_notification(startup_msg)
     
     app.run(host=args.host, port=args.port, debug=args.debug)
 

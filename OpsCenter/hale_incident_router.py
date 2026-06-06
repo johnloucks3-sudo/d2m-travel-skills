@@ -32,8 +32,8 @@ ELON_PROPOSALS = OPSCENTER / "elon_proposals"
 LOG_PATH = LOGS / "hale_incident_router.log"
 
 # ── Telegram ────────────────────────────────────────────────────────────────
-COMMANDER_CHAT_ID = int(os.environ.get("TELEGRAM_COMMANDER_ID", "7554895206"))
-BOT_TOKEN = os.environ.get("TELEGRAM_C2_BOT_TOKEN", "")
+COMMANDER_CHAT_ID = int(os.environ.get("TELEGRAM_RELAY_CHAT_ID", "-5248121475"))  # → D2M Channels relay
+BOT_TOKEN = os.environ.get("TELEGRAM_RELAY_TOKEN", "")
 
 # ── Rule 1 (hardcoded, never changes) ───────────────────────────────────────
 RULE_1 = "auto_heal_success_never_pages_commander"

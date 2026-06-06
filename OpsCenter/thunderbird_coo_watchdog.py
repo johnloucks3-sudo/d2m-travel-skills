@@ -43,7 +43,7 @@ STATE_FILE = BASE / "state" / "watchdog_state.json"
 PREFLIGHT_STATUS = BASE / "config" / "preflight_status.json"
 
 LOG_FILE = LOG_DIR / "coo_watchdog.log"
-COMMANDER_CHAT_ID = "7554895206"
+COMMANDER_CHAT_ID = "-5248121475"  # → D2M Channels relay (not D2MC2C)
 
 # Max restart attempts per service per hour before escalating to Commander
 MAX_RESTARTS_PER_HOUR = 3
@@ -101,13 +101,13 @@ def _now_iso() -> str:
 
 
 def _load_bot_token() -> str:
-    """Read TELEGRAM_BOT_TOKEN from .env files."""
-    for env_path in [BASE / ".env", BASE / "OpsCenter" / ".env"]:
+    """Read relay token from .env/telegram_gw.env — sends to D2M Channels, not D2MC2C."""
+    for env_path in [BASE / "config" / "telegram_gw.env", BASE / ".env"]:
         if env_path.exists():
             for line in env_path.read_text().splitlines():
-                if line.startswith("TELEGRAM_BOT_TOKEN="):
+                if line.startswith("TELEGRAM_RELAY_TOKEN="):
                     return line.split("=", 1)[1].strip().strip('"').strip("'")
-    raise RuntimeError("TELEGRAM_BOT_TOKEN not found in .env files")
+    raise RuntimeError("TELEGRAM_RELAY_TOKEN not found in .env files")
 
 
 def _run(cmd: list[str], timeout: int = 15) -> tuple[int, str]:
