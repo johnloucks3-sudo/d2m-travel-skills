@@ -1,0 +1,17 @@
+[Unit]
+Description=Thunderbird Commander Directive Sweep — scan for COS/COO/HALE directives
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/john/Thunderbird
+EnvironmentFile=/home/john/Thunderbird/.env
+ExecStart=/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/OpsCenter/run_commander_directive_sweep.py
+EnvironmentFile=/home/john/Thunderbird/deploy/thunderbird_pythonpath.env
+TimeoutStartSec=60
+StandardOutput=append:/home/john/Thunderbird/logs/commander_directive_sweep.log
+StandardError=append:/home/john/Thunderbird/logs/commander_directive_sweep.log
+
+[Install]
+WantedBy=default.target

@@ -4,9 +4,26 @@ Uses Playwright (headless Chromium) with agent credentials.
 
 Auth: portal_creds.json → viking.email / viking.password
 Login: Azure B2C OAuth (login.viking.com) — TA account required.
-       Current creds (johnloucks3@gmail.com) are a consumer account — will land on
-       /myjourney/no-active-booking instead of the TA portal.
-       Fix: Register at https://www.viking.com/travel-advisor (Commander action).
+
+⚠ TA ACCOUNT REQUIRED — READ THIS
+═══════════════════════════════════════════════════════
+Current creds (johnloucks3@gmail.com) are a consumer
+account. Login redirects to /myjourney/no-active-booking
+instead of the TA dashboard. Azure B2C validates the
+account tier on auth — consumer creds will never reach
+the TA portal regardless of password correctness.
+
+To fix, Commander must register a proper TA account:
+  1. Go to https://www.viking.com/travel-advisor
+  2. Click "Register" / "Create Account"
+  3. Use Nexion host agency credentials:
+     - Host: Nexion / Travel Leaders
+     - IATAN/CLIA: from Nexion (see Nexion profile)
+     - Agency info: per Dreams2Memories Travel, LLC
+  4. Verify via email link
+  5. Update portal_creds.json → viking.email / viking.password
+═══════════════════════════════════════════════════════
+
 TTL: 24h
 """
 import logging

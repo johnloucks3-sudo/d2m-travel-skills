@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-01T01:00:00.100097",
+  "timestamp": "2026-06-05T01:00:00.076627",
   "scans": {
     "deadline_radar": [],
     "stale_tasks": [
@@ -7,98 +7,203 @@
         "type": "stale_task",
         "mission_id": "MISSION-009",
         "title": "Kuklinski ARC4-A Specialty Dining Email",
-        "age_hours": 335.0,
+        "age_hours": 431.0,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-024",
         "title": "McLeod FPD Payment Orchestration",
-        "age_hours": 335.0,
+        "age_hours": 431.0,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-026",
         "title": "Cabin Selection Follow-up Monitoring",
-        "age_hours": 335.0,
+        "age_hours": 431.0,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-053",
         "title": "McLeod Grandeur \u2014 Booking Review + A2 Scrape Intel",
-        "age_hours": 233.1,
+        "age_hours": 329.1,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-054",
         "title": "McLeod Silver Muse \u2014 Final T-27 Detailed Validation",
-        "age_hours": 233.1,
+        "age_hours": 329.1,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-060",
         "title": "Chromebook Termux \u2014",
-        "age_hours": 171.2,
+        "age_hours": 267.2,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-063",
         "title": "Prompt Formatting Study \u2014 Persona Files & CLAUDE.md",
-        "age_hours": 163.0,
+        "age_hours": 259.0,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-064",
         "title": "Anthropic Small-Business Skills Ecosystem Investigation",
-        "age_hours": 163.0,
+        "age_hours": 259.0,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-067",
         "title": "Norway Luxury Cruise Perx Pricing \u2014 Late Jul/Mid-Aug 2027",
-        "age_hours": 151.3,
+        "age_hours": 247.3,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-069",
         "title": "Perx + Odysseus + CruiseComplete \u2014 Platform Reliability",
-        "age_hours": 151.1,
+        "age_hours": 247.1,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-065",
         "title": "Pacific Voyage Blog",
-        "age_hours": 153.8,
+        "age_hours": 249.8,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-072",
         "title": "MISSION-072: Metronome \u2194",
-        "age_hours": 106.6,
+        "age_hours": 202.6,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-073",
         "title": "RoboForm Share Acceptance",
-        "age_hours": 90.0,
+        "age_hours": 81.5,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-076",
         "title": "Regent Cookie Expiry",
-        "age_hours": 75.0,
+        "age_hours": 171.0,
+        "priority": "HIGH"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-077",
+        "title": "Email Sig Block",
+        "age_hours": 132.6,
+        "priority": "HIGH"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-078",
+        "title": "Persona Avatar Generation",
+        "age_hours": 132.6,
+        "priority": "HIGH"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-079",
+        "title": "Sterling \u2014 File-Permission",
+        "age_hours": 132.0,
+        "priority": "HIGH"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-080",
+        "title": "McLeod Dossier \u2014",
+        "age_hours": 132.0,
+        "priority": "HIGH"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-082",
+        "title": "Furlows \u2014 HEL\u2192ARN",
+        "age_hours": 132.0,
+        "priority": "HIGH"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-083",
+        "title": "Nichols \u2014 Return",
+        "age_hours": 132.0,
+        "priority": "HIGH"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-084",
+        "title": "Grandeur Group \u2014",
+        "age_hours": 132.0,
+        "priority": "HIGH"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-085",
+        "title": "Grandeur Group \u2014",
+        "age_hours": 132.0,
+        "priority": "HIGH"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-086",
+        "title": "MISSION-022: Dossier Option",
+        "age_hours": 129.3,
+        "priority": "HIGH"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-087",
+        "title": "Grandeur Group \u2014 Hotel, Transport & Seat Logistics (All 3 Couples)",
+        "age_hours": 119.2,
+        "priority": "HIGH"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-088",
+        "title": "Workflow \u2192 WF-17 Chain Automation",
+        "age_hours": 127.0,
+        "priority": "HIGH"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-089",
+        "title": "CronCreate \u2192 Daemon Retirement Audit",
+        "age_hours": 127.0,
+        "priority": "HIGH"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-090",
+        "title": "Worktree Dossier Sweep \u2014 Parallel Monthly Validation",
+        "age_hours": 127.0,
+        "priority": "HIGH"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-091",
+        "title": "Schema-Valided Price Intel Agents",
+        "age_hours": 127.0,
+        "priority": "HIGH"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-092",
+        "title": "Adopt persistent Claude",
+        "age_hours": 107.3,
         "priority": "HIGH"
       }
     ],
@@ -113,7 +218,7 @@
     "conflict_detection": [
       {
         "type": "priority_conflict",
-        "issue": "30 active missions may indicate priority overload",
+        "issue": "39 active missions may indicate priority overload",
         "priority": "MEDIUM"
       }
     ]

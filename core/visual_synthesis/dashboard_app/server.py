@@ -233,6 +233,9 @@ async def brief_risk_matrix(date: str):
     return HTMLResponse(html)
 
 
+app.mount("/training", StaticFiles(directory=str(ROOT / "Bryana"), html=True), name="training")
+
+
 if __name__ == "__main__":
     uvicorn.run(
         "server:app",

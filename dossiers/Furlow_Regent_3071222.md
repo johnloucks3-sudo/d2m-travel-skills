@@ -168,6 +168,7 @@ completed_tps: ["4.1", "4.2", "4.3", "4.4", "4.5"]
 | 2026-05-13 | Status of Hotels and Finnair seat assignments | John Furlow, Missy (from personal) |
 | 2026-05-13 | Fwd: Important - Regent Seven Seas Cruises Preliminary Cruise Vacation Summary:: FURLOW 3071222 | John Furlow (from personal) |
 | 2026-05-18 | SS Grandeur — Specialty Dining Strategy | John Furlow, Missy |
+| 2026-06-04 | Furlow — Trip Validation Report · Regent Seven Seas Grandeur · Storied Scandinavia · Aug 29 – Sep... | Missy |
 
 ---
 

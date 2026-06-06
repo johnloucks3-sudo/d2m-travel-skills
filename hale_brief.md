@@ -1,5 +1,16 @@
+# Daily Hale Transformation Audit — 2026-06-05
+Phase 1: ✅ 9.5/10
+Phase 2: ✅ COMPLETE (approved + deployed)
+Phase 3: ✅ ACTIVE (personality refinement, trust compounding, preference modeling)
+Standards: 100% self-enforced, Layer 8 live
+Operations: Lyons PAID (FPD archived). Welcome emails (Kuklinski + Westbrook) in progress, due Apr 15.
+Decisions: 144 logged
+Open Tasks: 1
+System Health: UNKNOWN
+## END AUDIT
+
 # HALE — Daily Brief
-*Generated: 2026-06-01 06:45 MT*
+*Generated: 2026-06-05 06:45 MT*
 
 ---
 
@@ -9,8 +20,10 @@
 
 🦅
 
-**THUNDERBIRD DAILY BRIEF — 2026-06-01 · 06:45 MT**
-*— V. Hale, VCS*
+---
+
+# THUNDERBIRD DAILY BRIEF — 2026-06-05 · COS MODE
+*— V. Hale, VCS · 06:45 MT*
 
 ---
 
@@ -18,26 +31,26 @@
 
 | Client | Ship | Departure | FPD | Priority |
 |---|---|---|---|---|
-| Loucks (J&S) | Silver Nova | 10 Apr 2026 🔴 | OVERDUE 120d | TP 0.5 — 22 TPs overdue |
-| McLeod/McGlasson | Silver Muse | 18 Jun 2026 | OVERDUE 128d | TP 0.5 — 17 TPs overdue |
-| Furlow/Ely-Darrow/Nichols | Grandeur | 29 Aug 2026 | OVERDUE 61d | TP 0.5 — 13 TPs overdue |
-| Kuklinski Group | Viking Mars | 17 Dec 2026 | OVERDUE 62d | TP 0.5 — 7 TPs overdue |
-| Morton/Dodge | Viking Mars | 17 Dec 2026 | OVERDUE 62d | TP 0.5 — 7 TPs overdue |
-| Loucks (J&S) | Grandeur | 29 Dec 2026 | Due 1 Aug 2026 | On track |
+| McLeod McGlasson | Silver Muse | **18 Jun** 🔴 | OVERDUE 132d | **T-13 — action window closing** |
+| Furlow / Ely-Darrow / Nichols | Grandeur | 29 Aug | OVERDUE 65d | TP 0.5 drafts ready |
+| Kuklinski Group | Viking Mars | 17 Dec | OVERDUE 66d | 4 drafts in WF-17 |
+| Morton & Dodge | Viking Mars | 17 Dec | OVERDUE 66d | No lifecycle started |
+| Loucks (Nova) | Silver Nova | 10 Apr 🔴 | OVERDUE 124d | 21 TPs overdue |
+| Loucks (Grandeur) | Grandeur | 29 Dec | DUE 1 Aug | TP 0.5 overdue |
 
 ---
 
-### 2. WF-17 GATE — AWAITING COMMANDER REVIEW
+### 2. WF-17 GATE — AWAITING COMMANDER
 
-| Client | TP | Draft Status |
-|---|---|---|
-| Kuklinski | TP 0.5 — Welcome/Validation | voice_drafted — **overdue 2026-05-27** |
-| Kuklinski | TP 4.1 — Payment Reminder #1 | voice_drafted — overdue 2026-03-17 |
-| Kuklinski | TP 4.2 — Payment Reminder #2 | voice_drafted — overdue 2026-03-24 |
-| Kuklinski | TP 4.3 — Payment Goal | voice_drafted — overdue 2026-03-30 |
-| Nichols | TP 0.5 — Welcome/Validation | voice_drafted — due 2026-06-05 |
+| Client | TP | Deadline | Status |
+|---|---|---|---|
+| Kuklinski | TP 0.5 — Welcome | 2026-05-27 🔴 | voice_drafted |
+| Kuklinski | TP 4.1 — Pmt Reminder #1 | 2026-03-17 🔴 | voice_drafted |
+| Kuklinski | TP 4.2 — Pmt Reminder #2 | 2026-03-24 🔴 | voice_drafted |
+| Kuklinski | TP 4.3 — Pmt Goal | 2026-03-30 🔴 | voice_drafted |
+| Nichols | TP 0.5 — Welcome | **2026-06-05** 🔴 | voice_drafted |
 
-**5 drafts staged. Commander action needed to clear the gate.**
+**5 drafts aging. Nichols due today.**
 
 ---
 
@@ -47,9 +60,8 @@
 |---|---|
 | D2M pipeline (upcoming) | **$21,440.75** |
 | TESS received | $244.80 |
-| Sheet commissions expected | $35,214.47 |
-| D2M share (all bookings) | $27,146.41 |
-| TESS pkg total | $138,131.90 |
+| Commission expected (total) | $35,214.47 |
+| FPDs overdue | Multiple — see Client Wire |
 
 ---
 
@@ -57,45 +69,48 @@
 
 | System | Status |
 |---|---|
-| MCP server | ✅ ONLINE |
-| Telegram — D2MC2C_bot | ✅ LIVE |
-| Telegram — Dani bot | ✅ LIVE |
-| Chrome debug port 9222 | ❌ OFFLINE |
+| MCP Server | ✅ ONLINE |
+| Telegram — D2MC2C | ✅ LIVE |
+| Telegram — Dani | ✅ LIVE |
+| Chrome debug :9222 | ❌ OFFLINE |
 | OpenCode | 💤 UNKNOWN |
-| OAuth token | 🔴 **EXPIRED** — invalid_grant error in open tasks |
+| Centrav cookies | 🔴 EXPIRED (165h) |
+| Regent cookies | 🔴 EXPIRED (72h) |
+| Regent OA cookies | 🔴 EXPIRED (164h) |
+| Gmail token | ✅ Valid (0.2h — auto-refreshes) |
 
-**⚠️ OAuth token needs refresh before any Gmail MCP calls will succeed.**
+**Credential gap:** Centrav + Regent expired. Scraper functions unavailable until refreshed.
 
 ---
 
-### 5. STAFF ASSIGNMENTS
+### 5. STAFF
 
-| Persona | Status | Active Tasks |
+| Staff | Status | Focus |
 |---|---|---|
-| Hale | ACTIVE | 12 |
-| ELON | ACTIVE | 2 |
-| All others | OFFLINE | 0 |
-
-Last brain dispatch: Kuklinski ARC4-B specialty dining email via Sonnet (Commander override, 05:30 MT).
+| HALE | Active (12) | Brief, routing, WF-17 queue |
+| ELON | Active (2) | Unknown — check mission board |
+| All others | Offline | Available on route |
 
 ---
 
-### 6. DECISIONS NEEDED
+### 6. DECISIONS NEEDED — COMMANDER
 
-1. **WF-17 review** — 5 Kuklinski/Nichols drafts staged; oldest overdue 75+ days. Approve or redirect.
-2. **OAuth token refresh** — invalid_grant blocking Gmail MCP. Hale can run token refresh on your go.
-3. **McLeod departure 18 Jun** — 17 days out, 128-day FPD overdue. Escalation posture needed.
+| # | Item | Urgency |
+|---|---|---|
+| 1 | Review + send 5 WF-17 drafts | 🔴 Nichols due today |
+| 2 | McLeod — T-13, any open client items? | 🔴 Departure imminent |
+| 3 | Morton & Dodge — lifecycle not started | 🟡 Same voyage as Kuklinski |
 
 ---
 
 ### 7. INTEL FLASH
 
-Monthly Deliberate Review due today (2026-06-01) — Sterling presents, Hale facilitates, 30 min. First of its kind per Wing Exercise Protocol SO 16 MAY 2026.
+Spencer Grand Tour air deadline **Jun 10** (T-5). No quote on file. If still pursuing, Dembe needs a flight brief today.
 
 ---
 
-*— V. Hale, VCS · Thunderbird Wing · 2026-06-01 06:45 MT*
+*— V. Hale, VCS · Thunderbird Wing · 2026-06-05*
 
 ---
-*— Victoria "Victory" Hale, SES-6 | Thunderbird Wing | 2026-06-01 06:45 MT*
-*Next brief: 2026-06-02 07:00 MT*
+*— Victoria "Victory" Hale, SES-6 | Thunderbird Wing | 2026-06-05 06:45 MT*
+*Next brief: 2026-06-06 07:00 MT*

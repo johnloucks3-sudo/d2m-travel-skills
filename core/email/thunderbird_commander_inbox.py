@@ -77,6 +77,7 @@ TELEGRAM_COMMANDER_ID = int(os.environ.get("TELEGRAM_COMMANDER_ID", "7554895206"
 
 # Classification categories and their routing
 CLASSIFICATION_ROUTING: Dict[str, Dict[str, str]] = {
+    "commander_directive": {"persona": "COS", "label": "TASKING"},
     "client_inquiry": {"persona": "A3", "label": "CLIENT"},
     "booking_confirmation": {"persona": "A3", "label": "BOOKING"},
     "vendor_comm": {"persona": "COS", "label": "VENDOR"},
@@ -468,7 +469,7 @@ def classify_email(subject: str, sender: str, body_preview: str) -> str:
     """Classify an email into a D2M routing category using Claude.
 
     Returns one of:
-      client_inquiry | booking_confirmation | vendor_comm |
+      commander_directive | client_inquiry | booking_confirmation | vendor_comm |
       financial | intel | personal
 
     Falls back to heuristics if Claude unavailable.
@@ -476,7 +477,10 @@ def classify_email(subject: str, sender: str, body_preview: str) -> str:
     sender_lower = sender.lower()
 
     # Fast-path: self-send — our own outbound replies showing in inbox thread
-    # These are NEVER inbound; skip immediately, no LLM waste
+    # EXCEPTION: subject starts with "COS, " or "Hale, " = Commander directive
+    subject_lower_for_check = subject.lower()
+    if subject_lower_for_check.startswith("cos, ") or subject_lower_for_check.startswith("hale, "):
+        return "commander_directive"
     if _SELF_ADDRESSES.search(sender_lower):
         return "personal"
 
@@ -542,6 +546,8 @@ def classify_email(subject: str, sender: str, body_preview: str) -> str:
         system = (
             "You are an email classification engine for Dreams2Memories Travel, LLC, "
             "a luxury travel agency. Classify the email into EXACTLY ONE of these categories:\n"
+            "  commander_directive — A directive or tasking from the Commander (John Loucks) "
+            "to COS Hale or staff. Subject lines starting with 'COS, ' or 'Hale, '.\n"
             "  client_inquiry     — A client or prospect asking about travel, trips, bookings, or quotes\n"
             "  booking_confirmation — A confirmation, itinerary, e-ticket, or travel document from a TRAVEL vendor\n"
             "  vendor_comm        — Correspondence from TRAVEL INDUSTRY contacts ONLY: cruise lines, hotels, "
@@ -1037,6 +1043,23 @@ def task_email(
         "status": "skipped",
     }
 
+    # STEP 1.5: Commander directive — route to COS immediately, bypass tier
+    if classification == "commander_directive":
+        result["status"] = "cos_tasking"
+        result["persona"] = "COS"
+        logger.info(f"[COMMANDER DIRECTIVE] {sender} — {subject[:60]}")
+        _notify_cos(
+            classification=classification,
+            sender=sender,
+            subject=subject,
+            persona_id="COS",
+            draft_id=None,
+            persona_note=f"⚡ COMMANDER DIRECTIVE\n\n"
+                         f"Subject: {subject}\n\n"
+                         f"Action: Route to Hale for immediate execution."
+        )
+        return result
+
     # STEP 2: Tier 3 (INTAKE) — Skip entirely
     if tier == "INTAKE":
         result["status"] = "intake_monitoring"
@@ -1128,8 +1151,8 @@ def scan_commander_inbox(hours_back: int = 4) -> List[Dict[str, Any]]:
 
     # Gmail search: Commander interaction triggers
     # Look for: (1) Emails from johnloucks3 (forwarded to us), (2) Trigger phrases (COS, Hale,)
-    # Only look at recent messages (last 20 min for 5-min sweeps)
-    cutoff = datetime.now(timezone.utc) - timedelta(minutes=20)
+    # Use the hours_back parameter (not hardcoded 20 min)
+    cutoff = datetime.now(timezone.utc) - timedelta(hours=hours_back)
     after_ts = int(cutoff.timestamp())
     query = (
         f"in:inbox after:{after_ts} "

@@ -8,6 +8,7 @@
   "reason": "Sonnet weekly at 100% \u2014 hard block until reset | DeepSeek V4 wandering \u2014 investigate routing",
   "degrade_reason": "deepseek_wandering",
   "flags": [
+    "NATIVE BILLING: deepseek-v4-flash-free charged $1.6367 \u2014 native provider should be $0",
     "BANNED MODEL ACTIVE: google/gemini-3.1-flash-lite-preview billed $8.4165 \u2014 replace with native/free alternative",
     "CONTEXT BLOAT: google/gemini-3.1-flash-lite-preview [high] avg 8,509,364 in tokens/session (4 sessions) \u2014 review prompt compression",
     "BANNED MODEL ACTIVE: google/gemini-3.1-flash-lite-preview billed $2.2475 \u2014 replace with native/free alternative",
@@ -16,6 +17,6 @@
     "OR BALANCE ZERO: OpenRouter credits exhausted \u2014 native/free-tier only",
     "DEEPSEEK WANDERING: DeepSeek V4 used banned or high-cost models"
   ],
-  "issued_at": "2026-06-01T12:00:00.430491+00:00",
+  "issued_at": "2026-06-05T12:00:02.144332+00:00",
   "source": "commander_report"
 }

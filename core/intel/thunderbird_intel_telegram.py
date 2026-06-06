@@ -21,10 +21,12 @@ from datetime import datetime
 from pathlib import Path
 
 BASE = Path(__file__).parent
+INTEL_OUTPUT_DIR = Path(__file__).resolve().parent / "output" / "intel_crew"
 BOT_TOKEN = os.environ.get("TELEGRAM_C2_BOT_TOKEN",
                             "***REMOVED-SECRET***")
 COMMANDER_ID = os.environ.get("TELEGRAM_COMMANDER_ID", "7554895206")
 MAX_CHUNK = 3800  # Telegram 4096 limit, with headroom
+DRIVE_FOLDER_ID = os.environ.get("DRIVE_INTEL_FOLDER_ID", "")
 
 
 def send_telegram(msg: str, parse_mode: str = "HTML"):
@@ -91,6 +93,53 @@ def format_header(package: dict) -> str:
     )
 
 
+def upload_to_drive(package: dict, package_path: Path) -> str:
+    """Upload intel package to Drive, return webViewLink."""
+    try:
+        thunderbird_root = Path(__file__).resolve().parent.parent.parent
+        sys.path.insert(0, str(thunderbird_root / "scripts"))
+        from drive_upload_robust import upload_file
+        uploaded = upload_file(
+            local_path=str(package_path),
+            folder_id=DRIVE_FOLDER_ID or None,
+            name=f"intel_package_{datetime.now().strftime('%Y%m%d')}.json",
+        )
+        return uploaded.get("webViewLink", "")
+    except Exception as e:
+        print(f"[intel-push] Drive upload failed: {e}")
+        return ""
+
+
+def format_sources_footer(package: dict, drive_link: str = "") -> str:
+    """Build a Telegram-formatted sources footer with key links."""
+    sources = package.get("sources", [])
+    if not sources and not drive_link:
+        return ""
+
+    lines = ["\n📎 **SOURCES & REFERENCES**\n"]
+
+    if drive_link:
+        lines.append(f"📄 **Full Intel Report:** {drive_link}")
+        lines.append("")
+
+    if sources:
+        news_count = 0
+        adv_count = 0
+        for s in sources:
+            if s["type"] == "news" and news_count < 8:
+                lines.append(f"📰 <a href='{s['url']}'>{s['title'][:80]}</a>")
+                news_count += 1
+            elif s["type"] == "advisory" and adv_count < 3:
+                lines.append(f"⚠️ {s['title']}")
+                adv_count += 1
+
+        total_news = sum(1 for s in sources if s["type"] == "news")
+        if total_news > 8:
+            lines.append(f"   _+ {total_news - 8} more news sources in full report_")
+
+    return "\n".join(lines)
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true",
@@ -127,8 +176,21 @@ def main():
         print("\n[dry-run] Not sent to Telegram.")
         return
 
-    # Push to Telegram C2
+    # Upload full report to Drive
+    drive_link = ""
+    latest_packages = sorted(INTEL_OUTPUT_DIR.glob("intel_package_*.json"))
+    if latest_packages:
+        drive_link = upload_to_drive(package, latest_packages[-1])
+
+    # Build sources footer
+    sources_footer = format_sources_footer(package, drive_link)
+
+    # Push COS review to Telegram C2
     chunk_and_send(cos_review, header=header)
+
+    # Push sources footer if there's content
+    if sources_footer:
+        send_telegram(sources_footer, parse_mode="HTML")
 
     # Airline client impacts as follow-on alert if critical
     if airline_impacts:

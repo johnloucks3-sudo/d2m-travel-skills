@@ -1,38 +1,67 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-06-01 10:00:00 MT
+## Generated: 2026-06-05 18:10:00 MT
 
 ---
 
 ### Recent Commits
-- 5023cd94 chore(session-close): 2026-06-01 CC/OC consistency session close
-- f113d067 feat(oc-skills): add /email-draft, /validate, /itinerary procedure skills
-- 2178af44 feat(opencode): add /ask and /ask-opus slash commands + fix two-brain --foreground
-- 1fc516f3 fix(ask): repair ask --opus task-description + model routing bugs
-- e68fbe93 feat(wing): 5-persona restructure + AGENTS.md context injection
+- c654a478 feat(google-ai): activate Gemini Pro integration + Spencer air brief
+- a9347e06 feat(memory+staying-time): capability audit + 4 infrastructure fixes
+- 66ebd8ba feat(memory+staying-time): capability audit + 4 infrastructure fixes
+- 6c13270b fix(relay): queue rewrite bug — mutated entries now persisted correctly
+- a2095d33 feat(relay): OC↔CC bidirectional relay via D2M Channels
 
 ### Uncommitted Changes
+- .opencode/skills/ask-opus/SKILL.md (modified)
+- .opencode/skills/ask/SKILL.md (modified)
+- AGENTS.md (modified)
 - CLAUDE.md (modified)
+- OpsCenter/.lifecycle_alerted.json (modified)
+- OpsCenter/.lifecycle_last_scan_date (modified)
 - OpsCenter/.metronome_seq (modified)
+- OpsCenter/.regent_cookie_alert_dedup.json (modified)
 - OpsCenter/.supervisor_patterns.json (modified)
+- OpsCenter/00_COMMAND_LOG.md (modified)
 - OpsCenter/CLAUDE_DESKTOP_INIT.md (modified)
 - OpsCenter/OPENCODE_INIT.md (modified)
+- OpsCenter/a7_metrics_dashboard.json (modified)
+- OpsCenter/ask_wrapper.sh (modified)
+- OpsCenter/claude_inbox.md (modified)
+- OpsCenter/collaboration/blackboard.md (modified)
 - OpsCenter/collaboration/blackboard_summary.txt (modified)
-- OpsCenter/collaboration/routing_log.md (modified)
-- bryana/data.json (modified)
-- core/ai_infra/data/router_cost.db-shm (modified)
-- core/ai_infra/data/router_cost.db-wal (modified)
-- reverie (modified)
+- OpsCenter/collaboration/claude_inbox.md (modified)
+- OpsCenter/collaboration/claude_outbox.md (modified)
+- OpsCenter/collaboration/opencode_inbox.md (modified)
+- .ask_usage_log (new)
+- .opencode/skills/xvfb-driver/SKILL.md (new)
+- Blackboard/ (new)
+- Bryana/01_Orientation/01_welcome_letter.html (new)
+- Bryana/01_Orientation/01_welcome_letter.md (new)
+- Bryana/01_Orientation/02_what_is_d2m.html (new)
+- Bryana/01_Orientation/02_what_is_d2m.md (new)
+- Bryana/01_Orientation/03_this_is_your_wing.html (new)
+- Bryana/01_Orientation/03_this_is_your_wing.md (new)
+- Bryana/01_Orientation/index.html (new)
+- Bryana/02_Training/01_curriculum_overview.html (new)
+- Bryana/02_Training/01_curriculum_overview.md (new)
+- Bryana/02_Training/02_travel_client_universe.html (new)
+- Bryana/02_Training/02_travel_client_universe.md (new)
+- Bryana/02_Training/03_travel_dna_profiling.html (new)
+- Bryana/02_Training/03_travel_dna_profiling.md (new)
+- Bryana/02_Training/index.html (new)
+- Bryana/03_The_Wing/01_persona_bios.html (new)
+- Bryana/03_The_Wing/01_persona_bios.md (new)
+- Bryana/03_The_Wing/02_who_to_ask_for_what.html (new)
 
 ### Active Work
 - SSS: 0 pending decision(s)
 - Learning: 8 rules pending validation
 
 ### Recently Touched Dossiers
-- Kuklinski_Viking_Panama.md
-- DOSSIER_VikingMars_PanamaCanal_Dec2026.md
 - McLeod_Erik_Melissa_SilverMuse_Complete.md
+- DOSSIER_ExploraII_EMed_May2027.md
+- spencer_bill_family_voyage_2027.md
 - Furlow_Regent_3071222.md
-- Ely_Darrow_Regent_3096289.md
+- Nichols_Regent_3078056.md
 
 ### Recent Telegram C2 Log (last 5 lines)
   (no Telegram session logs found)

@@ -704,6 +704,22 @@ COLLECTION STATS:
         except Exception as e:
             logger.warning(f"Airline impact check failed: {e}")
 
+        # Extract source links from raw collected data
+        sources = []
+        for article in raw.get("news_feeds", []):
+            if article.get("title") and article.get("url"):
+                sources.append({"title": article["title"], "url": article["url"], "type": "news"})
+        for article in raw.get("airline_articles", []):
+            if article.get("title") and article.get("url"):
+                sources.append({"title": article["title"], "url": article["url"], "type": "airline"})
+        for advisory in raw.get("advisories", []):
+            if advisory.get("country"):
+                sources.append({
+                    "title": f"Travel Advisory: {advisory['country']} (Level {advisory.get('advisory_level', '?')})",
+                    "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories.html/",
+                    "type": "advisory"
+                })
+
         package = {
             "timestamp": self.timestamp,
             "pipeline": "A2->A1->COS",
@@ -713,6 +729,7 @@ COLLECTION STATS:
             "audit_report": reviewed.get("audit_report", ""),
             "airline_impacts": airline_impacts,
             "raw_item_counts": reviewed.get("raw_item_counts", {}),
+            "sources": sources,
         }
 
         # Save the package

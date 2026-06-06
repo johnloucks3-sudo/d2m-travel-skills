@@ -1,15 +1,141 @@
 {
-  "date": "2026-05-30",
+  "date": "2026-06-05",
   "summary": {
-    "auto_healed": 1,
+    "auto_healed": 12,
     "self_repaired": 0,
     "unresolved": 0,
     "elon_proposals_new": 0
   },
   "incidents": [
     {
-      "time": "07:13",
+      "time": "13:32",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "13:57",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "14:12",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "14:12",
       "service": "d2m-tasking-watcher",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: probe error: Command '['systemctl', '--user', 'is-active', 'd2m-tasking-watcher']' timed out after 10 seconds",
+      "elon_invoked": false
+    },
+    {
+      "time": "14:15",
+      "service": "thunderbird-mcp",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: activating",
+      "elon_invoked": false
+    },
+    {
+      "time": "14:15",
+      "service": "thunderbird-overwatch",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "14:36",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "14:52",
+      "service": "thunderbird-overwatch",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "14:52",
+      "service": "thunderbird-overwatch",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "14:57",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "15:58",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "16:24",
+      "service": "d2m-tasking-watcher",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "16:24",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: probe error: Command '['systemctl', '--user', 'is-active', 'thunderbird-telegram-gw']' timed out after 10 seconds",
+      "elon_invoked": false
+    },
+    {
+      "time": "16:53",
+      "service": "thunderbird-telegram-gw",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "16:53",
+      "service": "thunderbird-telegram-gw",
       "event_type": "auto_healed",
       "action": "auto_healed_verified",
       "status": "GREEN",
@@ -17,5 +143,5 @@
       "elon_invoked": false
     }
   ],
-  "mode_now": "YELLOW"
+  "mode_now": "GREEN"
 }

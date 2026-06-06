@@ -49,11 +49,16 @@ Full blackboard: /home/john/Thunderbird/OpsCenter/collaboration/blackboard.md
 
 ## OC → HALE (OpenCode writes here — CC reads at next session)
 
-**Last updated:** [OC fills this in]
+**Last updated:** 2026-06-03 12:00 MT
 
-**Completed this session:** —
+**Completed this session:**
+- Inbox sweep: TP-ALERT-20260603 (12:00 MT) → COMPLETE, acknowledged in wing_comms.md
+- All PENDING/UNREAD tasks in opencode_inbox.md cleared (0 remaining)
+- claude_outbox.md updated
+- wing_comms.md updated
 
 **Blocked / needs CC help:** —
+  - A12 ELON content-hash dedup fix still pending (since May 22+ backlog)
 
 **Handoffs to CC:** —
 

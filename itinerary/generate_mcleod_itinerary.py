@@ -240,7 +240,7 @@ def load_file(path: str) -> dict:
         data = base64.b64encode(p.read_bytes()).decode()
         label = p.stem.replace("_", " ").title()
         return {"url": f"data:image/jpeg;base64,{data}",
-                "credit": f"{label} · Silver Muse Mediterranean" if "silver_muse" in str(p) else "Pexels",
+                "credit": f"{label} · Silver Muse Mediterranean" if "silver_muse" in str(p) else f"{label}",
                 "is_b64": True}
     except Exception as e:
         print(f"  ⚠ file {path}: {e}")
@@ -505,7 +505,7 @@ body {{
 .precruise {{
   padding: 32px 40px;
   border-bottom: 1px solid #ddd5c8;
-  background: white;
+  background: {CREAM};
 }}
 .precruise h2 {{
   font-size: 1.05em;

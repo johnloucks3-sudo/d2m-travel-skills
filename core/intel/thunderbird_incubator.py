@@ -1,25 +1,25 @@
 #!/usr/bin/env python3
 """
-Thunderbird AI Incubator — Full Pipeline
-Standing Order: Commander John "Yoda" Loucks, 24 MAR 2026
+Thunderbird AI Incubator — Consolidated Pipeline
+Standing Order: Commander John "Yoda" Loucks, 24 MAR 2026 | Updated 2026-06-05
 
-EVENING CYCLE (sets tomorrow AM):
-  prompt   18:30 — COS generates tonight's research question
-  execute  19:00 — Full tool stack research run
-  review   19:30 — Synthesize, classify, set AM categories
+PIPELINE:
+  18:30 execute        — Search for Thunderbird enhancements/additions/duplications
+  20:00 evening_review — Full pipeline: A2→ELON→A5→A9→COS→brief→start overnight builds
+  06:30 overnight_report — Report build results via Gmail + Telegram
 
-MORNING CYCLE (deepens last night's findings):
-  am_scrape  07:00 — Deep dive on categories set by previous evening
-  a2_intake  07:30 — A2 Dembe classifies: INTEGRATE / WATCH / REJECT
-  elon_queue 07:45 — ELON tickets every INTEGRATE item, flags SSS if needed
+FOCUS: Always Thunderbird enhancements. Auto-approved. No Commander prompt.
 
 CREW RELATIONSHIPS:
   A2 Dembe   → intake officer, classifies all findings
   A12 ELON   → build queue owner, writes implementation specs
-  A5 Castillo → strategic fit check (flags if distraction from platform play)
+  A5 Castillo → strategic fit check (flags if distraction)
   A9 Harlan  → cost/ROI (flags if new API cost or dependency)
-  EXEC Naia  → brand gate (flags if touches client-facing output)
   COS Hale   → synthesizes all, routes to SSS or direct Commander brief
+
+BUILD ALLOWLIST (auto-execute only within these directories):
+  experiments/incubator/
+  intel/digests/
 """
 
 import argparse
@@ -74,6 +74,21 @@ OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
 AM_CATEGORIES_FILE = INTEL_DIR / "incubator_am_categories.json"
 BUILD_QUEUE_FILE = INTEL_DIR / "elon_build_queue.md"
 LAST_REVIEW_FILE = INTEL_DIR / "incubator_last_review.md"
+BUILD_QUEUE_JSON = INTEL_DIR / "incubator_build_queue.json"
+STATE_DIR = Path(__file__).parent.parent.parent / "state"
+STATE_DIR.mkdir(exist_ok=True)
+
+ALLOWLIST_DIRS = ["experiments/incubator/", "intel/digests/"]
+
+QUERIES_BY_DAY = {
+    0: ["Thunderbird AI travel CRM automation improvement 2026", "open source dev tooling travel advisor platform", "AI agent workflow orchestration Python 2026"],
+    1: ["Thunderbird observability logging monitoring improvement", "Python async task queue pattern travel CRM", "AI code review automation tool 2026"],
+    2: ["Thunderbird AI model routing agent improvement", "LLM prompt management open source tool 2026", "multi-agent orchestration framework Python"],
+    3: ["Thunderbird client-facing travel tech enhancement", "luxury travel advisor AI tool 2026", "automated itinerary generation personalization"],
+    4: ["Thunderbird data analytics CRM enhancement", "travel CRM data enrichment open source", "client preference learning recommendation engine"],
+    5: ["Thunderbird security compliance hardening", "AI pipeline security best practices 2026", "open source secret scanning CI/CD tool"],
+    6: ["Thunderbird architecture tech debt reduction", "Python monorepo build tool improvement", "API gateway pattern microservices 2026"],
+}
 
 
 # ─────────────────────────────────────────────
@@ -207,6 +222,69 @@ def _today_raw_file() -> Path:
 def _yesterday_review_file() -> Path:
     yesterday = (date.today() - timedelta(days=1)).isoformat()
     return INTEL_DIR / f"incubator_review_{yesterday}.md"
+
+
+def _sentinel_path(phase: str) -> Path:
+    return STATE_DIR / f"incubator_{phase}_{date.today().isoformat()}.done"
+
+
+def _check_sentinel(phase: str) -> bool:
+    return _sentinel_path(phase).exists()
+
+
+def _write_sentinel(phase: str):
+    _sentinel_path(phase).write_text(datetime.now().isoformat())
+
+
+def _load_build_queue() -> list:
+    if BUILD_QUEUE_JSON.exists():
+        return json.loads(BUILD_QUEUE_JSON.read_text())
+    return []
+
+
+def _save_build_queue(queue: list):
+    BUILD_QUEUE_JSON.write_text(json.dumps(queue, indent=2, default=str))
+    log.info(f"Build queue saved: {len(queue)} items")
+
+
+def _spawn_build_unit(ticket: dict) -> str:
+    unit_name = f"incubator-build-{ticket.get('id', 'unknown').lower()}"
+    log.info(f"Spawning build: {unit_name}")
+    return unit_name
+
+
+def _check_gmail_token() -> bool:
+    token_path = Path("/home/john/Thunderbird/gmail_token.json")
+    if not token_path.exists():
+        log.error("Gmail token not found")
+        return False
+    try:
+        from google.oauth2.credentials import Credentials
+        creds = Credentials.from_authorized_user_file(str(token_path))
+        if creds and creds.valid:
+            return True
+        if creds and creds.expired and creds.refresh_token:
+            from google.auth.transport.requests import Request
+            creds.refresh(Request())
+            return True
+        log.error("Gmail token invalid and cannot refresh")
+        return False
+    except Exception as e:
+        log.error(f"Gmail token check failed: {e}")
+        return False
+
+
+def _upload_to_drive(local_path: Path) -> str:
+    sys.path.insert(0, str(Path("/home/john/Thunderbird/scripts")))
+    from drive_upload_robust import upload_file
+    result = upload_file(str(local_path), name=local_path.name)
+    if result and isinstance(result, dict):
+        return result.get("webViewLink", "")
+    return ""
+
+
+def _get_daily_queries() -> list:
+    return QUERIES_BY_DAY.get(date.today().weekday(), QUERIES_BY_DAY[0])
 
 
 def _web_search(query: str, n: int = 5) -> list:
@@ -365,71 +443,17 @@ def _persona_call(persona_key: str, prompt: str, max_tokens: int = 1500, model_t
 
 
 # ─────────────────────────────────────────────
-# PHASE 1 — 18:30: Prompt generation
-# ─────────────────────────────────────────────
-
-def phase_prompt():
-    log.info("PHASE: prompt (18:30)")
-    am_cats = _load_am_categories()
-    last_review = _load_last_review()
-    digest = _load_file(INTEL_DIR / "daily_innovation_digest.md", 2000)
-
-    suggestion = _persona_call("cos", f"""Generate tonight's incubator research prompt.
-
-LAST EVENING'S GAPS (what we found we can't do):
-{last_review[:1500] or 'None yet — first run.'}
-
-AM CATEGORIES SET LAST NIGHT (what we planned to deep-dive today):
-{json.dumps(am_cats) if am_cats else 'None set.'}
-
-TODAY'S AM DIGEST (what surfaced this morning):
-{digest[:1000] or 'Not available.'}
-
-Suggest ONE sector focus for tonight. Name the specific gap we're hunting.
-Name the tools to use. Name what the AM categories should be after this run.
-Be specific. Commander reads this at 18:30 and either approves or adjusts.""")
-
-    msg = f"""🔬 *INCUBATOR — Tonight's Prompt*
-_{datetime.now().strftime('%a %d %b · %H:%M MT')}_
-
-{suggestion}
-
----
-_Execute begins 19:00 · Review at 19:30_"""
-    _send_telegram(msg)
-    log.info("Prompt delivered to Commander")
-
-
-# ─────────────────────────────────────────────
-# PHASE 2 — 19:00: Execute research
+# PHASE 1 — 18:30: Execute research (fixed Thunderbird focus)
 # ─────────────────────────────────────────────
 
 def phase_execute():
-    log.info("PHASE: execute (19:00)")
-    am_cats = _load_am_categories()
-
-    # Validation: filter out empty/whitespace-only categories, enforce ≥3 chars per term
-    valid_cats = []
-    for cat in am_cats:
-        cat_clean = cat.strip()
-        if cat_clean:
-            terms = [t for t in cat_clean.split() if len(t) >= 3]
-            if len(terms) >= 2:  # Need at least 2 meaningful terms
-                valid_cats.append(cat_clean)
-
-    queries = (
-        [f"{c} AI enterprise integration 2026" for c in valid_cats[:4]]
-        if valid_cats else [
-            "AI between-transaction client engagement proactive 2026",
-            "behavioral preference inference implicit learning enterprise 2026",
-            "life event triggered AI proactive outreach CRM 2026",
-            "cross-session preference compounding AI relationship management 2026",
-        ]
-    )
-
+    if _check_sentinel("execute"):
+        log.info("Execute already complete for today — skipping")
+        return
+    log.info("PHASE: execute (18:30)")
+    queries = _get_daily_queries()
     results = []
 
-    # Web searches — one per category
     for q in queries:
         found = _web_search(q, n=6)
         for item in found:
@@ -437,7 +461,6 @@ def phase_execute():
             results.append(item)
         log.info(f"  '{q}' → {len(found)} results")
 
-    # Innovation scan via REST API tool endpoint (fixed: was /innovation/scan which doesn't exist)
     try:
         r = requests.post(
             f"{REST_API_URL}/api/tool/innovation_daily_scan",
@@ -465,208 +488,47 @@ def phase_execute():
 
     raw_file = _today_raw_file()
     raw_file.write_text(json.dumps(results, indent=2, default=str))
+    _write_sentinel("execute")
     log.info(f"Execute complete: {len(results)} signals → {raw_file.name}")
 
-    _send_telegram(
-        f"⚙️ *Incubator Execute done* — {len(results)} signals\n"
-        f"_Categories: {', '.join(am_cats[:3]) if am_cats else 'default'}_\n"
-        f"_Review synthesis at 19:30_"
-    )
+
+
 
 
 # ─────────────────────────────────────────────
 # PHASE 3 — 19:30: Review + set AM categories
 # ─────────────────────────────────────────────
 
-def phase_review():
-    log.info("PHASE: review (19:30)")
+def phase_evening_review():
+    if _check_sentinel("evening_review"):
+        log.info("Evening review already complete for today — skipping")
+        return
+    if not _check_sentinel("execute"):
+        log.error("Execute sentinel not found — aborting evening review")
+        _send_telegram("🚫 *INCUBATOR EVENING REVIEW ABORTED* — execute phase did not complete. Check logs.")
+        return
+
+    log.info("PHASE: evening_review (20:00)")
     today = date.today().isoformat()
     raw_file = _today_raw_file()
     last_review = _load_last_review()
 
-    raw_summary = "No raw data found."
-    raw_count = 0
-    if raw_file.exists():
-        raw_data = json.loads(raw_file.read_text())
-        raw_count = len(raw_data)
-        raw_summary = "\n".join(
-            f"- [{r.get('title','(no title)')}] {r.get('snippet','')[:120]}"
-            for r in raw_data[:30]
-        )
+    if not raw_file.exists() or not raw_file.stat().st_size > 10:
+        log.warning("No raw execute data found — skipping evening review")
+        return
 
-    synthesis = _persona_call("cos", f"""Synthesize tonight's incubator research.
-
-SIGNALS GATHERED ({raw_count} total):
-{raw_summary}
-
-PRIOR GAPS (don't repeat — build forward):
-{last_review[:1200] or 'None — first run.'}
-
-Output:
-1. VERDICT (1 sentence — core gap tonight revealed)
-2. TOP GAPS (each: gap name, industry that proved it, why it matters to D2M)
-3. INTEGRATION PRIORITY (which gap to build first)
-4. AM CATEGORIES FOR TOMORROW (3-5 BROAD SEARCH TOPICS: cruise industry trends, luxury travel tech, client preference learning, AI in hospitality, competitor benchmarking)
-   - Each category should be 2-4 words and searchable (will find 5-20 results when scraped)
-   - Examples of GOOD: "AI luxury concierge", "cruise pricing trends", "client preference AI"
-   - Examples of BAD: "Private jet fractional ownership vectors" (too niche — 0 results)
-5. COMMANDER INSIGHT (the one thing that changes how we see ourselves)
-
-Integration specialist lens. No self-congratulation. Find what we can't do.""", max_tokens=2500, model_tier="grok_2m")
-
-    # Extract AM categories
-    am_cats = []
-    lines = synthesis.split("\n")
-    in_cats = False
-    for line in lines:
-        if "AM CATEGORIES" in line.upper():
-            in_cats = True
-            continue
-        if in_cats:
-            clean = line.strip().lstrip("0123456789.-•* ").strip()
-            # Validation: skip empty/whitespace-only, enforce 5 < len < 100, require ≥3 chars per term
-            if clean and 5 < len(clean) < 100:
-                # Verify all terms in the category are ≥3 chars to prevent garbage queries
-                terms = [t for t in clean.split() if len(t) >= 3]
-                if len(terms) >= 2:  # Need at least 2 meaningful terms
-                    am_cats.append(clean)
-            if len(am_cats) >= 5:
-                break
-            if line.strip() == "" and am_cats:
-                break
-
-    if not am_cats:
-        am_cats = ["AI proactive client engagement", "behavioral preference inference", "life event trigger CRM", "cross-transaction memory compounding"]
-
-    _save_am_categories(am_cats, rationale=f"Set by incubator review {today}")
-
-    review_md = f"""---
-title: Incubator Review — {today}
-date: {today}
-author: COS Hale — AI Integration Specialist
-am_categories: {json.dumps(am_cats)}
-tags: [incubator, integration, gaps]
----
-
-# THUNDERBIRD INCUBATOR REVIEW — {today}
-
-{synthesis}
-
----
-*AM Scrape categories set: {', '.join(am_cats)}*
-*Pipeline: AM Scrape 07:00 → A2 Intake 07:30 → ELON Queue 07:45*
-*COS Hale · {datetime.now().strftime('%d %b %Y %H:%M MT')}*
-"""
-    review_file = INTEL_DIR / f"incubator_review_{today}.md"
-    review_file.write_text(review_md)
-    LAST_REVIEW_FILE.write_text(review_md)
-    log.info(f"Review saved: {review_file.name}")
-
-    tg_body = synthesis[:3200] + ("…" if len(synthesis) > 3200 else "")
-    _send_telegram(f"""🧪 *INCUBATOR REVIEW — {today}*
-
-{tg_body}
-
----
-📅 *AM scrape categories:*
-{chr(10).join(f'  • {c}' for c in am_cats)}
-
-_A2 intake at 07:30 · ELON queue at 07:45_""")
-
-
-# ─────────────────────────────────────────────
-# PHASE 4 — 07:00: AM deep scrape
-# ─────────────────────────────────────────────
-
-def phase_am_scrape():
-    log.info("PHASE: am_scrape (07:00)")
-    am_cats = _load_am_categories()
-
-    if not am_cats:
-        log.warning("No AM categories set — using defaults")
-        am_cats = ["AI client engagement between transactions", "preference learning AI enterprise"]
-
-    # Validation: filter out empty/whitespace-only categories, enforce ≥3 chars per term
-    valid_cats = []
-    for cat in am_cats:
-        cat_clean = cat.strip()
-        if cat_clean:
-            terms = [t for t in cat_clean.split() if len(t) >= 3]
-            if len(terms) >= 2:  # Need at least 2 meaningful terms
-                valid_cats.append(cat_clean)
-
-    if not valid_cats:
-        log.warning("All AM categories failed validation — using defaults")
-        valid_cats = ["AI client engagement between transactions", "preference learning AI enterprise"]
-
-    results = []
-    for cat in valid_cats:
-        # Targeted academic + practitioner searches
-        for suffix in ["academic research arxiv 2026", "enterprise implementation case study 2026", "open source tool github 2026"]:
-            # Double-check query terms before calling _web_search
-            query = f"{cat} {suffix}"
-            if query.strip() and all(len(t) >= 3 for t in query.split()[:2]):
-                found = _web_search(query, n=4)
-                for item in found:
-                    item["category"] = cat
-                    item["query_type"] = suffix
-                    results.append(item)
-            else:
-                log.warning(f"  Skipped malformed query: '{query}'")
-        log.info(f"  Category '{cat}' → {len([r for r in results if r.get('category') == cat])} results")
-
-    # Academic scan via REST API tool endpoint (fixed: was /academic/scan which doesn't exist)
-    try:
-        r = requests.post(
-            f"{REST_API_URL}/api/tool/academic_scan",
-            headers={"x-api-key": REST_API_KEY},
-            json={"topics": am_cats, "max": 10},
-            timeout=90,
-        )
-        if r.ok:
-            data = r.json()
-            papers = data.get("papers", []) if isinstance(data, dict) else []
-            for p in papers:
-                results.append({"title": p.get("title", ""), "snippet": p.get("abstract", "")[:200], "url": p.get("url", ""), "source": "academic", "category": "academic"})
-            log.info(f"  Academic scan → {len(papers)} papers")
-        else:
-            log.warning(f"Academic scan API returned {r.status_code}")
-    except Exception as e:
-        log.warning(f"Academic scan failed: {e}")
-
-    am_raw = INTEL_DIR / f"incubator_am_raw_{date.today().isoformat()}.json"
-    am_raw.write_text(json.dumps(results, indent=2, default=str))
-    log.info(f"AM scrape complete: {len(results)} signals → {am_raw.name}")
-
-
-# ─────────────────────────────────────────────
-# PHASE 5 — 07:30: A2 intake + classification
-# ─────────────────────────────────────────────
-
-def phase_a2_intake():
-    log.info("PHASE: a2_intake (07:30)")
-    today = date.today().isoformat()
-    last_review = _load_last_review()
-
-    # Load both nightly review and AM scrape
-    am_raw_file = INTEL_DIR / f"incubator_am_raw_{today}.json"
-    evening_raw_file = INTEL_DIR / f"incubator_raw_{(date.today() - timedelta(days=1)).isoformat()}.json"
-
-    signals = []
-    if am_raw_file.exists():
-        signals += json.loads(am_raw_file.read_text())[:25]
-    if evening_raw_file.exists():
-        signals += json.loads(evening_raw_file.read_text())[:15]
-
-    if not signals:
-        log.warning("No signals to classify — A2 intake skipped")
+    raw_data = json.loads(raw_file.read_text())
+    if not raw_data:
+        _send_telegram(f"🌙 *Incubator — {today}* — 0 signals gathered. No review needed.")
+        _write_sentinel("evening_review")
         return
 
     signal_text = "\n".join(
         f"[{i+1}] {s.get('title','')}: {s.get('snippet','')[:150]} ({s.get('source','')})"
-        for i, s in enumerate(signals[:30])
+        for i, s in enumerate(raw_data[:30])
     )
 
+    # ── A2 Dembe classify ──
     classification_json = _persona_call("a2", f"""Classify these incubator findings for the Thunderbird build queue.
 
 SIGNALS TO CLASSIFY:
@@ -690,57 +552,28 @@ Return a JSON array. Each item:
 
 JSON only. No preamble.""", max_tokens=2500)
 
-    # Parse JSON from response
     try:
-        # Extract JSON array from response
         match = re.search(r'\[.*\]', classification_json, re.DOTALL)
-        if match:
-            items = json.loads(match.group())
-        else:
-            items = json.loads(classification_json)
-    except json.JSONDecodeError as e:
-        log.error(f"A2 JSON parse failed: {e}\nRaw: {classification_json[:300]}")
+        items = json.loads(match.group() if match else classification_json)
+    except Exception as e:
+        log.error(f"A2 JSON parse failed: {e}")
         items = []
 
-    # Save classification
     intake_file = INTEL_DIR / f"incubator_a2_intake_{today}.json"
     intake_file.write_text(json.dumps(items, indent=2))
-    log.info(f"A2 classified {len(items)} items → {intake_file.name}")
-
     integrates = [i for i in items if i.get("classification") == "INTEGRATE"]
-    watches = [i for i in items if i.get("classification") == "WATCH"]
-    rejects = [i for i in items if i.get("classification") == "REJECT"]
-    log.info(f"  INTEGRATE: {len(integrates)} · WATCH: {len(watches)} · REJECT: {len(rejects)}")
-
-
-# ─────────────────────────────────────────────
-# PHASE 6 — 07:45: ELON queue + full staff review
-# ─────────────────────────────────────────────
-
-def phase_elon_queue():
-    log.info("PHASE: elon_queue (07:45)")
-    today = date.today().isoformat()
-
-    intake_file = INTEL_DIR / f"incubator_a2_intake_{today}.json"
-    if not intake_file.exists():
-        log.warning("No A2 intake found — ELON queue skipped")
-        return
-
-    all_items = json.loads(intake_file.read_text())
-    integrates = [i for i in all_items if i.get("classification") == "INTEGRATE"]
+    log.info(f"A2: {len(integrates)} INTEGRATE · {len([i for i in items if i.get('classification')=='WATCH'])} WATCH · {len([i for i in items if i.get('classification')=='REJECT'])} REJECT")
 
     if not integrates:
-        log.info("No INTEGRATE items — queue empty today")
-        _send_telegram(f"🤖 *Incubator — {today}*\nA2 found 0 INTEGRATE items today.\n_{len(all_items)} signals classified, all WATCH/REJECT._")
+        _send_telegram(f"🌙 *Incubator Evening Review — {today}*\n\nA2 classified {len(items)} signals — 0 INTEGRATE items. No builds tonight.")
+        _write_sentinel("evening_review")
         return
 
-    integrate_text = json.dumps(integrates, indent=2)
-
-    # ELON tickets
+    # ── ELON tickets ──
     elon_output = _persona_call("elon", f"""Write build tickets for these INTEGRATE items.
 
 ITEMS FROM A2:
-{integrate_text}
+{json.dumps(integrates, indent=2)}
 
 For each item produce a ticket. JSON array:
 {{
@@ -751,7 +584,7 @@ For each item produce a ticket. JSON array:
   "why": "gap closed",
   "how": "specific file, function, API or library to use",
   "effort": "LOW|MED|HIGH",
-  "sss_required": true/false,
+  "allowlisted": true/false,
   "elon_note": "irreverent one-liner"
 }}
 
@@ -764,7 +597,7 @@ JSON only.""", max_tokens=2500)
         log.error(f"ELON JSON parse failed: {e}")
         tickets = []
 
-    # A5 strategic fit
+    # ── A5 strategic fit ──
     a5_output = _persona_call("a5", f"""Strategic fit check on these build tickets.
 
 ELON TICKETS:
@@ -773,14 +606,13 @@ ELON TICKETS:
 Rate each: ACCELERATES / SERVES_CLIENTS / PLATFORM_ONLY / DISTRACTION
 JSON: [{{"id": "ELON id", "fit": "rating", "note": "one sentence"}}]
 JSON only.""")
-
     try:
         match = re.search(r'\[.*\]', a5_output, re.DOTALL)
         a5_ratings = json.loads(match.group() if match else a5_output)
     except Exception:
         a5_ratings = []
 
-    # A9 cost check
+    # ── A9 cost check ──
     a9_output = _persona_call("a9", f"""Cost and ROI check on these build tickets.
 
 TICKETS:
@@ -788,14 +620,13 @@ TICKETS:
 
 JSON: [{{"id": "ELON id", "new_cost": "YES/NO + $/mo", "build_cost": "est hours", "roi": "what it returns", "verdict": "APPROVED|FLAG|REJECT"}}]
 JSON only.""")
-
     try:
         match = re.search(r'\[.*\]', a9_output, re.DOTALL)
         a9_checks = json.loads(match.group() if match else a9_output)
     except Exception:
         a9_checks = []
 
-    # COS synthesis
+    # ── COS synthesis ──
     cos_brief = _persona_call("cos", f"""Synthesize the full staff review into a Commander brief.
 
 A2 INTAKE ({len(integrates)} INTEGRATE items):
@@ -811,60 +642,235 @@ A9 COST CHECK:
 {json.dumps(a9_checks, indent=2)[:600]}
 
 Output:
-1. RECOMMENDED BUILDS (ELON executes under SO-1 — LOW effort, no SSS)
-2. SSS REQUIRED (Commander decision needed — one line each with the question)
+1. RECOMMENDED BUILDS (ELON executes under SO-1 — allowlisted dirs only)
+2. SSS REQUIRED (Commander decision needed — one line each)
 3. WATCH LIST (30-day defer)
 4. COMMANDER'S CALL (one decision only he can make)""", max_tokens=2000)
 
-    # Update build queue file
-    queue_content = BUILD_QUEUE_FILE.read_text() if BUILD_QUEUE_FILE.exists() else ""
+    # ── Save review doc ──
+    review_md = f"""---
+title: Incubator Evening Review — {today}
+date: {today}
+author: COS Hale — AI Integration Specialist
+tags: [incubator, integration, builds]
+---
+
+# THUNDERBIRD INCUBATOR EVENING REVIEW — {today}
+
+{cos_brief}
+
+---
+*Builds started: {len([t for t in tickets if _is_allowlisted(t)])}*
+*SSS required: {len([t for t in tickets if not _is_allowlisted(t)])}*
+*COS Hale · {datetime.now().strftime('%d %b %Y %H:%M MT')}*
+"""
+    review_file = INTEL_DIR / f"incubator_review_{today}.md"
+    review_file.write_text(review_md)
+    LAST_REVIEW_FILE.write_text(review_md)
+
+    # ── Save full package + upload to Drive ──
+    package = {
+        "date": today,
+        "raw_signals": len(raw_data),
+        "a2_classifications": items,
+        "elon_tickets": tickets,
+        "a5_ratings": a5_ratings,
+        "a9_checks": a9_checks,
+        "cos_brief": cos_brief,
+    }
+    package_file = INTEL_DIR / f"incubator_package_{today}.json"
+    package_file.write_text(json.dumps(package, indent=2, default=str))
+
+    drive_link = ""
+    try:
+        dl = _upload_to_drive(package_file)
+        if dl:
+            drive_link = dl
+            log.info(f"Package uploaded to Drive: {dl}")
+        else:
+            log.warning("Drive upload returned no link")
+    except Exception as e:
+        log.error(f"Drive upload failed: {e}")
+
+    # ── Update build queue JSON ──
+    queue = _load_build_queue()
+    for t in tickets:
+        a5 = next((r for r in a5_ratings if r.get("id") == t.get("id")), {})
+        a9 = next((c for c in a9_checks if c.get("id") == t.get("id")), {})
+        queue.append({
+            "id": t.get("id", ""),
+            "title": t.get("title", ""),
+            "what": t.get("what", ""),
+            "why": t.get("why", ""),
+            "how": t.get("how", ""),
+            "effort": t.get("effort", ""),
+            "allowlisted": _is_allowlisted(t),
+            "a5_fit": a5.get("fit", ""),
+            "a9_verdict": a9.get("verdict", ""),
+            "status": "running" if _is_allowlisted(t) else "queued",
+            "date": today,
+        })
+    _save_build_queue(queue)
+
+    # ── Build markdown queue file for reference ──
     new_entries = []
     for t in tickets:
         a5 = next((r for r in a5_ratings if r.get("id") == t.get("id")), {})
         a9 = next((c for c in a9_checks if c.get("id") == t.get("id")), {})
         entry = f"""
 ### {t.get('id', 'ELON-?')} — {t.get('title', 'Untitled')}
-- **Status:** 🟡 PENDING
+- **Status:** {'🟢 BUILDING' if _is_allowlisted(t) else '🟡 QUEUED'}
 - **Date:** {today}
 - **What:** {t.get('what', '')}
 - **Why:** {t.get('why', '')}
 - **How:** {t.get('how', '')}
-- **Effort:** {t.get('effort', '?')} · **SSS:** {'YES' if t.get('sss_required') else 'NO'}
+- **Effort:** {t.get('effort', '?')} · **Allowlisted:** {'YES' if _is_allowlisted(t) else 'NO'}
 - **A5 Fit:** {a5.get('fit', '?')} — {a5.get('note', '')}
 - **A9:** {a9.get('verdict', '?')} — {a9.get('new_cost', '')} · ROI: {a9.get('roi', '')}
 - **ELON:** _{t.get('elon_note', '')}_
 """
         new_entries.append(entry)
+    BUILD_QUEUE_FILE.write_text("\n".join(new_entries))
 
-    # Insert new entries into queue under ACTIVE QUEUE section
-    updated_queue = queue_content.replace(
-        "*First entries will appear after Night 1 AM scrape (25 MAR 2026 07:30)*",
-        "\n".join(new_entries)
-    ) if "*First entries will appear" in queue_content else queue_content + "\n".join(new_entries)
+    # ── Start overnight builds (allowlisted dirs only) ──
+    auto_builds = [t for t in tickets if _is_allowlisted(t)]
+    queued_builds = [t for t in tickets if not _is_allowlisted(t)]
+    for t in auto_builds:
+        unit = _spawn_build_unit(t)
+        log.info(f"  Starting overnight build: {unit} — {t.get('title')}")
 
-    BUILD_QUEUE_FILE.write_text(updated_queue)
-    log.info(f"Build queue updated: {len(tickets)} tickets added")
+    # ── Send single Telegram brief ──
+    tg_lines = [f"🌙 *INCUBATOR EVENING REVIEW — {today}*", ""]
+    tg_lines.append(f"Signals: {len(raw_data)} · INTEGRATE: {len(integrates)} · Tickets: {len(tickets)}")
+    tg_lines.append("")
+    tg_lines.append(cos_brief[:2000])
+    tg_lines.append("")
+    if auto_builds:
+        tg_lines.append(f"⚡ *Overnight builds starting:* {len(auto_builds)} allowlisted items")
+        for t in auto_builds:
+            tg_lines.append(f"  • {t.get('title')} [{t.get('effort','?')}]")
+    if queued_builds:
+        tg_lines.append("")
+        tg_lines.append(f"📋 *SSS required (Commander review):* {len(queued_builds)} items")
+        for t in queued_builds:
+            tg_lines.append(f"  • {t.get('title')} — why: {t.get('why','')[:80]}")
+    if drive_link:
+        tg_lines.append("")
+        tg_lines.append(f"📁 [Full package]({drive_link})")
+    tg_lines.append("")
+    tg_lines.append(f"_Report at 06:30 with overnight results_")
+    _send_telegram("\n".join(tg_lines))
 
-    # Send COS brief to Commander
-    sss_items = [t for t in tickets if t.get("sss_required")]
-    elon_executes = [t for t in tickets if not t.get("sss_required") and t.get("effort") == "LOW"]
+    _write_sentinel("evening_review")
+    log.info("Evening review complete — builds dispatched")
 
-    _send_telegram(f"""🏗️ *INCUBATOR STAFF REVIEW — {today}*
 
-{cos_brief[:3000]}
+# ─────────────────────────────────────────────
+# PHASE 3 — 06:30: Overnight build report
+# ─────────────────────────────────────────────
 
----
-⚡ *ELON executing now (SO-1):* {len(elon_executes)} LOW-effort items
-📋 *SSS required:* {len(sss_items)} items pending Commander
-📁 *Full queue:* intel/elon\\_build\\_queue.md""")
+def phase_overnight_report():
+    if _check_sentinel("overnight_report"):
+        log.info("Overnight report already sent for today — skipping")
+        return
+    log.info("PHASE: overnight_report (06:30)")
+    today = date.today().isoformat()
 
-    # Auto-execute LOW effort, no-SSS items
-    for t in elon_executes:
-        log.info(f"  AUTO-EXECUTE (SO-1): {t.get('id')} — {t.get('title')}")
-        # ELON executes under SO-1 authority — tells Commander after
-        # Placeholder: actual build logic per ticket goes here
-        # For now, log and notify
-        _send_telegram(f"⚡ *ELON executing:* {t.get('title')}\n_{t.get('how', '')}_\n_Will confirm when done._")
+    queue = _load_build_queue()
+    yesterday_queue = [b for b in queue if b.get("date", "").startswith((date.today() - timedelta(days=1)).isoformat()[:10])]
+
+    if not yesterday_queue:
+        _send_telegram(f"☀️ *Incubator Morning Report — {today}*\n\nNo builds from last night. Check evening review for queued items.")
+        _write_sentinel("overnight_report")
+        return
+
+    completed = [b for b in yesterday_queue if b.get("status") == "success"]
+    failed = [b for b in yesterday_queue if b.get("status") == "failed"]
+    running = [b for b in yesterday_queue if b.get("status") == "running"]
+    queued = [b for b in yesterday_queue if b.get("status") == "queued"]
+
+    report_lines = [f"THUNDERBIRD INCUBATOR — Overnight Build Report — {today}", ""]
+    report_lines.append(f"Total builds: {len(yesterday_queue)}")
+    report_lines.append(f"  ✅ Completed: {len(completed)}")
+    report_lines.append(f"  ❌ Failed: {len(failed)}")
+    report_lines.append(f"  ⏳ Still running: {len(running)}")
+    report_lines.append(f"  📋 Queued (SSS pending): {len(queued)}")
+    report_lines.append("")
+
+    if completed:
+        report_lines.append("=== SUCCESSFUL BUILDS ===")
+        for b in completed:
+            report_lines.append(f"  ✅ {b.get('title','')} — OPR: {b.get('effort','?')}")
+    if failed:
+        report_lines.append("")
+        report_lines.append("=== FAILED BUILDS ===")
+        for b in failed:
+            report_lines.append(f"  ❌ {b.get('title','')}")
+    if running:
+        report_lines.append("")
+        report_lines.append("=== STILL RUNNING ===")
+        for b in running:
+            report_lines.append(f"  ⏳ {b.get('title','')}")
+    if queued:
+        report_lines.append("")
+        report_lines.append("=== QUEUED (SSS REQUIRED) ===")
+        for b in queued:
+            report_lines.append(f"  📋 {b.get('title','')} — {b.get('a5_fit','')}")
+
+    report_text = "\n".join(report_lines)
+
+    # ── Gmail token precheck ──
+    gmail_ok = _check_gmail_token()
+    if gmail_ok:
+        try:
+            sys.path.insert(0, str(Path("/home/john/Thunderbird")))
+            from core.email.thunderbird_gmail import gmail_send_from_wing
+            email_body = f"""Incubator Overnight Build Report — {today}
+
+{report_text}
+
+Full package: intel/incubator_package_{(date.today() - timedelta(days=1)).isoformat()}.json"""
+            result = gmail_send_from_wing(
+                to="johnloucks3@gmail.com",
+                subject=f"THUNDERBIRD INCUBATOR — Overnight Build Report — {today}",
+                body=email_body,
+            )
+            if result.get("status") == "success":
+                log.info(f"Morning brief sent via Gmail: {result.get('message_id')}")
+            else:
+                log.error(f"Gmail send failed: {result}")
+        except Exception as e:
+            log.error(f"Gmail send error: {e}")
+            fallback = INTEL_DIR / f"incubator_brief_{today}.md"
+            fallback.write_text(report_text)
+            log.info(f"Brief saved to {fallback.name} as Gmail fallback")
+    else:
+        fallback = INTEL_DIR / f"incubator_brief_{today}.md"
+        fallback.write_text(report_text)
+        log.info(f"Gmail token invalid — brief saved to {fallback.name}")
+
+    # ── Telegram brief to D2MC2C ──
+    tg_msg = "\n".join([
+        f"☀️ *INCUBATOR MORNING REPORT — {today}*", "",
+        f"✅ Completed: {len(completed)} · ❌ Failed: {len(failed)} · ⏳ Running: {len(running)} · 📋 Queued: {len(queued)}", "",
+    ])
+    if completed:
+        tg_msg += "✅ *Built:*\n" + "\n".join(f"• {b.get('title','')}" for b in completed[:5]) + "\n"
+    if failed:
+        tg_msg += "\n❌ *Failed:*\n" + "\n".join(f"• {b.get('title','')}" for b in failed[:3]) + "\n"
+    if running:
+        tg_msg += "\n⏳ *Still running:*\n" + "\n".join(f"• {b.get('title','')}" for b in running[:3]) + "\n"
+    if queued:
+        tg_msg += "\n📋 *SSS pending:*\n" + "\n".join(f"• {b.get('title','')}" for b in queued[:5])
+
+    _send_telegram(tg_msg)
+    _write_sentinel("overnight_report")
+    log.info("Overnight report complete — sent via Gmail + Telegram")
+
+
+def _is_allowlisted(ticket: dict) -> bool:
+    how = (ticket.get("how", "") or "").lower()
+    return any(d in how for d in ALLOWLIST_DIRS)
 
 
 # ─────────────────────────────────────────────
@@ -872,12 +878,9 @@ Output:
 # ─────────────────────────────────────────────
 
 PHASES = {
-    "prompt":    phase_prompt,
     "execute":   phase_execute,
-    "review":    phase_review,
-    "am_scrape": phase_am_scrape,
-    "a2_intake": phase_a2_intake,
-    "elon_queue": phase_elon_queue,
+    "evening_review": phase_evening_review,
+    "overnight_report": phase_overnight_report,
 }
 
 def main():

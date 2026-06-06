@@ -52,3 +52,27 @@ Commander callsign: Yoda. Established via Telegram C2 2026-03-21.
 [model-routing] Opus = claude-opus-4-6. No 4.7 or 4.8 exists.
 
 [next-session] Mission board has 0 tasks — needs population. Inbox has 8 PENDING/UNREAD items. Qdrant now searchable — use memory_search MCP tool for context retrieval.
+
+### 2026-06-05 17:26 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (7809s old) | INBOX_PENDING=8 | ACTIVE_TASKS=0 | QDRANT=DOWN
+
+### 2026-06-05 17:31 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (8135s old) | INBOX_PENDING=8 | ACTIVE_TASKS=56 | QDRANT=UP
+
+### 2026-06-05 17:36 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (8409s old) | INBOX_PENDING=8 | ACTIVE_TASKS=56 | QDRANT=UP
+
+### 2026-06-05 17:37 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (8493s old) | INBOX_PENDING=8 | ACTIVE_TASKS=56 | QDRANT=UP
+
+### 2026-06-05 17:38 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (8520s old) | INBOX_PENDING=8 | ACTIVE_TASKS=56 | QDRANT=UP
+
+### 2026-06-05 17:46 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (9013s old) | INBOX_PENDING=8 | ACTIVE_TASKS=56 | QDRANT=UP
+
+### 2026-06-05 17:56 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (9615s old) | INBOX_PENDING=8 | ACTIVE_TASKS=58 | QDRANT=UP
+
+### 2026-06-05 18:06 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (10216s old) | INBOX_PENDING=9 | ACTIVE_TASKS=66 | QDRANT=UP

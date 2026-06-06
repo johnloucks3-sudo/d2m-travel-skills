@@ -2077,6 +2077,150 @@
           "status": "PENDING"
         }
       ]
+    },
+    {
+      "id": "MISSION-129",
+      "title": "Commander sends 5 aging WF-17 drafts \u2014 Nichols + Kuklinski x4",
+      "status": "active",
+      "priority": "P0",
+      "assigned_to": "Commander",
+      "description": "Review and send Nichols TP 0.5 (due today) and all four Kuklinski drafts (TP 0.5, 4.1, 4.2, 4.3); Kuklinski sends require brief re-entry framing given 66\u201381 day delay.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-06-06T00:03:24] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-06-06T00:03:24.139298+00:00",
+      "updated_at": "2026-06-06T00:03:24.139300+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-130",
+      "title": "Call United Group Desk for Spencer DEN-FCO air quote",
+      "status": "active",
+      "priority": "P0",
+      "assigned_to": "Commander",
+      "description": "Call 800-426-1122 option 3 for 12-pax DEN-FCO group rate before June 10 deadline; Wing has research and quote matrix staged in MISSION-128.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-06-06T00:03:24] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-06-06T00:03:24.139349+00:00",
+      "updated_at": "2026-06-06T00:03:24.139351+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-131",
+      "title": "McLeod FPD collection \u2014 132-day overdue action",
+      "status": "active",
+      "priority": "P0",
+      "assigned_to": "Commander",
+      "description": "Contact McLeod McGlasson directly regarding final payment before June 18 departure; commission leverage disappears post-boarding.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-06-06T00:03:24] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-06-06T00:03:24.139394+00:00",
+      "updated_at": "2026-06-06T00:03:24.139399+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-132",
+      "title": "Refresh Centrav + Regent session cookies",
+      "status": "active",
+      "priority": "P0",
+      "assigned_to": "Hale",
+      "description": "Restore scraper access for both portals and conduct keepalive failure post-mortem with Sterling to determine why auto-refresh did not catch dual expiry.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-06-06T00:03:24] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-06-06T00:03:24.139440+00:00",
+      "updated_at": "2026-06-06T00:03:24.139444+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-133",
+      "title": "Author FPD enforcement escalation standing order",
+      "status": "active",
+      "priority": "P1",
+      "assigned_to": "Sterling",
+      "description": "Draft SO establishing that any FPD overdue 30+ days triggers Commander call within 48 hours \u2014 close the detect-but-never-collect doctrine gap Harlan identified.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-06-06T00:03:24] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-06-06T00:03:24.139484+00:00",
+      "updated_at": "2026-06-06T00:03:24.139487+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-134",
+      "title": "Start Morton and Dodge lifecycle \u2014 TP 0.5 welcome",
+      "status": "active",
+      "priority": "P1",
+      "assigned_to": "Dani",
+      "description": "Initiate lifecycle for Morton and Dodge (Viking Mars Dec 17) beginning with TP 0.5 welcome email; same voyage as Kuklinski, same urgency.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-06-06T00:03:24] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-06-06T00:03:24.139533+00:00",
+      "updated_at": "2026-06-06T00:03:24.139535+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-135",
+      "title": "Deduplicate MISSION-072 and repair truncated mission titles",
+      "status": "active",
+      "priority": "P2",
+      "assigned_to": "Sterling",
+      "description": "Audit mission_board.json for duplicate IDs and truncated title strings; corrupted entries will produce incorrect Telegram pages and weekly reports.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-06-06T00:03:24] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-06-06T00:03:24.139576+00:00",
+      "updated_at": "2026-06-06T00:03:24.139579+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-136",
+      "title": "Validate keepalive timer coverage for all expiring credentials",
+      "status": "active",
+      "priority": "P1",
+      "assigned_to": "Sterling",
+      "description": "Audit systemd timer registry to confirm Centrav, Regent, and Regent OA keepalive timers are active and firing on schedule; surface coverage map to Hale for AM brief health section.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-06-06T00:03:24] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-06-06T00:03:24.139617+00:00",
+      "updated_at": "2026-06-06T00:03:24.139620+00:00",
+      "source": "weekly_report"
     }
   ],
   "suspense_watch": [
@@ -2138,7 +2282,7 @@
     "MISSION-110",
     "MISSION-111"
   ],
-  "last_updated": "2026-06-05T22:55:01.734280+00:00",
+  "last_updated": "2026-06-06T00:03:24.139622+00:00",
   "t4_exercise_status": {
     "status": "CLOSED",
     "score": "9.5/10 GREEN",

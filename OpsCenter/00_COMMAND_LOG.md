@@ -782,3 +782,14 @@ Hale Routing: Task 'null' assigned to claude-3-opus-20240229
 - **[Sat May 30 01:47:24 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-05-30 01:46 MT ───────────────────
 - **[Sun May 31 01:48:44 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-05-31 01:46 MT ───────────────────
 - **[Mon Jun 01 01:47:21 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-06-01 01:46 MT ───────────────────
+- **[Tue Jun 02 01:46:34 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-06-02 01:45 MT ───────────────────
+
+- **[Tue Jun 2 2026]** HALE completed RSSC multi-account scrape operation.
+  - D2M account: Furlow (3071222), Ely (3096289), Nichols (3078056), McLeod (2984034) — all 3 couples on SS Grandeur Aug 29-Sep 8, McLeod Dec 19-29 same ship
+  - OA account (johnloucks3): Loucks 3122006 (Grandeur Dec 29-Jan 14, $24,798 due Aug 1, NOT registered), McLeod 3114500 (Prestige Dec 18-28 2027, $14,598 due Jul 21 2027)
+  - Key findings: All 3 Aug-Sep couples paid in full, 3/3 dining done, excursions booked. Furlow Suite 827 paid $19,494, Ely 961 paid $20,640 with $1,100 SBC ($58 left), Nichols 939 paid $18,896. McLeod 2984034 has $11,943 balance due Jul 22. Loucks 3122006 needs Guest Registration completed.
+  - New reusable script: scripts/rssc_multi_account_scrape.py
+  - Procedure saved. Relay notified via Telegram.
+- **[Wed Jun 03 01:46:24 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-06-03 01:46 MT ───────────────────
+- **[Thu Jun 04 01:47:16 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-06-04 01:46 MT ───────────────────
+- **[Fri Jun 05 01:47:07 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-06-05 01:46 MT ───────────────────

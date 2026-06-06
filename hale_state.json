@@ -5,24 +5,24 @@
         "status": "LIVE",
         "username": "D2MC2C_bot",
         "bot_id": 8754681793,
-        "last_check": "2026-06-05T17:56:07.360526"
+        "last_check": "2026-06-05T18:11:19.240506"
       },
       "Dani": {
         "status": "LIVE",
         "username": "d2m_channels_bot",
         "bot_id": 8726363494,
-        "last_check": "2026-06-05T17:56:07.975832"
+        "last_check": "2026-06-05T18:11:19.860689"
       },
-      "last_health_check": "2026-06-05T17:56:07.975876"
+      "last_health_check": "2026-06-05T18:11:19.860735"
     },
-    "last_health_check": "2026-06-05T17:56:07.976140",
+    "last_health_check": "2026-06-05T18:11:19.860986",
     "chrome_debug_port_9222": "ONLINE",
     "mcp_server": "ONLINE",
     "opencode_status": "UNKNOWN",
     "telegram_bot": "UNKNOWN"
   },
   "_meta": {
-    "last_updated": "2026-06-05T23:56:27.764821+00:00"
+    "last_updated": "2026-06-05T18:11:19.860991-06:00"
   },
   "open_tasks": [
     {
