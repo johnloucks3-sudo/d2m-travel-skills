@@ -69,11 +69,12 @@ PROCESSED_LABEL = "THUNDERBIRD-Scanned"
 # Max emails per sweep
 MAX_PER_SWEEP = 15
 
-# Telegram — use C2 bot token from environment (never hardcode Dani bot token)
+# Telegram — route inbox sweep notifications to relay (D2M Channels), not D2MC2C
+# D2MC2C = urgent Commander action only (SO). Inbox sweep is internal ops.
 TELEGRAM_BOT_TOKEN = os.environ.get(
-    "TELEGRAM_C2_BOT_TOKEN", os.environ.get("TELEGRAM_BOT_TOKEN", "")
+    "TELEGRAM_RELAY_TOKEN", os.environ.get("TELEGRAM_C2_BOT_TOKEN", os.environ.get("TELEGRAM_BOT_TOKEN", ""))
 )
-TELEGRAM_COMMANDER_ID = int(os.environ.get("TELEGRAM_COMMANDER_ID", "7554895206"))
+TELEGRAM_COMMANDER_ID = int(os.environ.get("TELEGRAM_RELAY_CHAT_ID", os.environ.get("TELEGRAM_COMMANDER_ID", "-5248121475")))
 
 # Classification categories and their routing
 CLASSIFICATION_ROUTING: Dict[str, Dict[str, str]] = {

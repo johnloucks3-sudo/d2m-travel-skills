@@ -1,0 +1,110 @@
+{
+  "_meta": {
+    "created": "2026-06-06",
+    "source": "Hansel & Gretel scraping intelligence registry",
+    "portal": "Silversea TA Portal (my.silversea.com)",
+    "auth_type": "OIDC (OpenID Connect — ASP.NET Core Data Protection session)",
+    "cloudflare": "CF_VERIFIED_DEVICE cookie valid until 2027-07-01 — major bypass asset",
+    "browser_required": "Playwright (Firefox or Chrome with stealth); headless Chrome blocked by Akamai on some endpoints",
+    "status": "LIVE — session cookies ingested 2026-06-06"
+  },
+  "credentials": {
+    "file": "config/portal_creds.json",
+    "key": "silversea"
+  },
+  "cookie_files": {
+    "primary": "~/.playwright/cookies_silversea.json",
+    "critical_cookies": [
+      "myssid",
+      "CF_VERIFIED_DEVICE_5766a3bd840ca165c90f5e394f7396eb5cab9b6789d96b5ce38ce599e685d1ad"
+    ],
+    "expiry_note": "myssid is Session-scoped server-side; CF_VERIFIED_DEVICE expires 2027-07-01. Refresh myssid via auto-login when 401/redirect detected."
+  },
+  "urls": {
+    "base": "https://my.silversea.com",
+    "dashboard": "https://my.silversea.com/",
+    "login": "https://my.silversea.com/Account/Login",
+    "voyages_search": "https://my.silversea.com/Voyages",
+    "my_bookings": "https://my.silversea.com/MyBookings",
+    "public_pricing": "https://www.silversea.com/all-cruises.html",
+    "public_voyage": "https://www.silversea.com/cruises/"
+  },
+  "login_flow": {
+    "type": "OIDC redirect",
+    "step1": "Navigate to https://my.silversea.com — redirects to IDP if session expired",
+    "step2": "IDP login form — email + password (johnloucks3@gmail.com / D2MCanal4me!)",
+    "step3": "IDP redirects back to my.silversea.com with auth code",
+    "step4": "my.silversea.com sets myssid session cookie",
+    "note": "With CF_VERIFIED_DEVICE cookie loaded, Cloudflare challenge is bypassed. IDP may require device verification on first login from new IP/session.",
+    "cookie_strategy": "Load cookies_silversea.json before navigation. If redirected to login, run full OIDC flow."
+  },
+  "session_health_check": {
+    "url": "https://my.silversea.com/",
+    "success_indicator": "text_contains: 'My Bookings' OR 'Welcome'",
+    "failure_indicator": "url_contains: '/Account/Login' OR '/signin' OR status_code: 401"
+  },
+  "api": {
+    "confirmed": "2026-06-06",
+    "voyages_endpoint": "https://my.silversea.com/re/api/voyages",
+    "voyages_params": "PageNum=1&PageSize=50&VoySpecial=N",
+    "agencies_endpoint": "https://my.silversea.com/re/api/agencies?AgnCod=179350",
+    "token_endpoint": "https://my.silversea.com/re/apix/get/Params",
+    "booking_flow": "https://my.silversea.com/bookings/create?code=179350",
+    "agency_code": "179350",
+    "agent_id": "32995587",
+    "auth_method": "Session cookies — no token required for read operations",
+    "voyage_fields": ["VoyId","VoyCod","Title","MinFare","Currency","Voydays","SailDate","SailDateTo","ShipCod","NumPorts","AreaCod","SpecialOffer","IsCharter","HasMessage"],
+    "note": "350 voyages returned across 7 pages (50/page). Pure requests library works — no Playwright needed for pricing reads."
+  },
+  "pricing_scraping": {
+    "voyage_search_url": "https://my.silversea.com/re/api/voyages",
+    "filters": {
+      "ship": "input or select element for ship filter",
+      "date_range": "date picker for departure window",
+      "destination": "destination/region selector"
+    },
+    "result_selectors": {
+      "voyage_card": ".voyage-card, [data-voyage-id], .voyage-item",
+      "voyage_name": ".voyage-name, .voyage-title, h2, h3",
+      "departure_date": ".departure-date, [data-departure]",
+      "ship_name": ".ship-name, [data-ship]",
+      "duration": ".duration, [data-nights]",
+      "price_from": ".price, .price-from, [data-price], .fare-amount",
+      "availability": ".availability, .cabins-available, [data-available]",
+      "category": ".category, .suite-category, [data-category]"
+    },
+    "note": "Selectors are initial best-guesses. Run discover_selectors() on live page to confirm."
+  },
+  "public_site_pricing": {
+    "url": "https://www.silversea.com/all-cruises.html",
+    "anti_bot": "Cloudflare — use CF_VERIFIED_DEVICE cookie or Camoufox",
+    "price_selector": ".price__amount, .price-from, [data-price]",
+    "voyage_selector": ".cruise-card, .voyage-listing",
+    "note": "Public prices are retail 'starting from' — TA portal prices may differ. Use TA portal for accurate agency rates."
+  },
+  "auto_refresh": {
+    "daemon_script": "scripts/silversea_cookie_refresh.py",
+    "timer": "thunderbird-silversea-session.timer",
+    "interval_hours": 48,
+    "trigger": "check session health → if expired → full OIDC login → save new cookies"
+  },
+  "known_ships": [
+    "Silver Nova",
+    "Silver Muse",
+    "Silver Ray",
+    "Silver Moon",
+    "Silver Wind",
+    "Silver Spirit",
+    "Silver Shadow",
+    "Silver Whisper",
+    "Silver Origin",
+    "Silver Endeavour"
+  ],
+  "antibot_notes": {
+    "cloudflare": "CF_VERIFIED_DEVICE cookie is a device verification token — expires 2027-07-01. This is the crown jewel. Guard it.",
+    "akamai": "my.silversea.com does NOT appear to use Akamai (unlike rssc.com). Standard Playwright should work.",
+    "rate_limiting": "Respect 1-2 second delays between requests. No rapid-fire scraping.",
+    "stealth_tool": "Camoufox preferred for public silversea.com. Playwright sufficient for my.silversea.com with valid session.",
+    "fingerprinting": "Session cookies bypass fingerprinting — no stealth tooling needed while myssid is valid."
+  }
+}

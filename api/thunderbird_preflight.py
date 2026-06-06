@@ -174,12 +174,12 @@ def check_mcp_port() -> Tuple[str, str, str]:
 # ---------------------------------------------------------------------------
 
 def send_telegram_alert(message: str) -> bool:
-    """Send alert via Telegram C2 bot."""
+    """Send preflight alert to relay (D2M Channels) — not D2MC2C (urgent-only SO)."""
     try:
         import requests
         env = _load_env()
-        token = env.get("TELEGRAM_BOT_TOKEN") or env.get("TELEGRAM_C2_BOT_TOKEN")
-        chat_id = env.get("TELEGRAM_COMMANDER_ID")
+        token = env.get("TELEGRAM_RELAY_TOKEN") or env.get("TELEGRAM_BOT_TOKEN") or env.get("TELEGRAM_C2_BOT_TOKEN")
+        chat_id = env.get("TELEGRAM_RELAY_CHAT_ID") or env.get("TELEGRAM_COMMANDER_ID")
         if not token or not chat_id:
             return False
         url = f"https://api.telegram.org/bot{token}/sendMessage"
