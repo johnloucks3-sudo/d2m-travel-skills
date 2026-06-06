@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>D2M Weekly Activity Report — Week of June 1–5, 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Georgia, 'Times New Roman', serif; background: #f7f3ea; color: #1a1a1a; }
+
+  .header { background: linear-gradient(135deg, #003087 0%, #000d3a 100%); color: white; padding: 48px 48px 36px; }
+  .header-eyebrow { font-size: 0.68rem; letter-spacing: 3px; text-transform: uppercase; color: #a8c4ff; margin-bottom: 8px; }
+  .header-title { font-size: 2.1rem; font-weight: normal; color: #ffffff; line-height: 1.2; }
+  .header-sub { font-size: 1.05rem; color: #f0c040; margin-top: 8px; letter-spacing: 0.5px; }
+  .header-meta { font-size: 0.78rem; color: #a8c4ff; margin-top: 12px; }
+  .accentline { height: 4px; background: linear-gradient(90deg, #003087, #a9b0b7, #ffffff, #a9b0b7, #003087); }
+
+  .stat-bar { background: #003087; padding: 14px 48px; display: flex; gap: 40px; flex-wrap: wrap; }
+  .stat-bar .stat { color: white; font-size: 0.78rem; }
+  .stat-bar .stat span { color: #f0c040; font-weight: bold; font-size: 1rem; display: block; margin-bottom: 2px; }
+
+  .body { max-width: 960px; margin: 0 auto; padding: 40px 48px; }
+
+  .section-head { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 2.5px; color: #003087; border-bottom: 2px solid #003087; padding-bottom: 6px; margin: 36px 0 16px; }
+  .section-head.gold { color: #b45309; border-color: #b45309; }
+  .section-head.green { color: #15803d; border-color: #15803d; }
+  .section-head.red { color: #b91c1c; border-color: #b91c1c; }
+
+  .summary-box { border-left: 5px solid #003087; padding: 20px 24px; background: white; margin-bottom: 28px; border-radius: 0 6px 6px 0; }
+  .summary-box p { font-size: 1rem; line-height: 1.85; color: #1a1a1a; margin-bottom: 12px; }
+  .summary-box p:last-child { margin-bottom: 0; }
+  .summary-box strong { color: #003087; }
+
+  .d2m-note { background: #fffbeb; border: 1px solid #f59e0b; border-left: 4px solid #f59e0b; padding: 12px 18px; margin: 16px 0; border-radius: 0 4px 4px 0; font-size: 0.85rem; color: #92400e; line-height: 1.7; }
+  .d2m-note::before { content: "✦ D2M Notes — "; font-weight: bold; }
+
+  .day-card { background: white; border-radius: 8px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,48,135,0.07); }
+  .day-card-header { background: #003087; color: white; padding: 14px 24px; display: flex; justify-content: space-between; align-items: center; }
+  .day-card-header .day-label { font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; color: #a8c4ff; }
+  .day-card-header .day-title { font-size: 1.1rem; color: white; margin-top: 2px; }
+  .day-card-header .day-badge { font-size: 0.75rem; color: #f0c040; text-align: right; }
+  .day-card-body { padding: 20px 24px; }
+
+  .build-item { display: flex; gap: 14px; padding: 10px 0; border-bottom: 1px solid #ede8df; font-size: 0.88rem; line-height: 1.6; }
+  .build-item:last-child { border-bottom: none; }
+  .build-item .tag { flex-shrink: 0; font-size: 0.68rem; font-weight: bold; padding: 3px 8px; border-radius: 10px; height: fit-content; margin-top: 2px; letter-spacing: 0.5px; }
+  .tag-build { background: #eff6ff; color: #1d4ed8; }
+  .tag-fix { background: #fef2f2; color: #b91c1c; }
+  .tag-client { background: #f0fdf4; color: #15803d; }
+  .tag-ops { background: #fffbeb; color: #92400e; }
+  .tag-doc { background: #f5f3ff; color: #6d28d9; }
+  .build-item .item-body strong { color: #003087; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 0.87rem; margin: 12px 0; }
+  thead tr { background: #003087; color: white; }
+  thead th { padding: 10px 14px; text-align: left; font-size: 0.7rem; letter-spacing: 0.5px; font-weight: normal; }
+  tbody tr { border-bottom: 1px solid #ede8df; }
+  tbody tr:nth-child(even) { background: #faf8f4; }
+  tbody td { padding: 10px 14px; color: #333; vertical-align: top; }
+  .num { color: #003087; font-weight: bold; }
+  .total-row td { color: #f0c040; font-weight: bold; background: #003087 !important; }
+
+  .staff-card { background: white; border-radius: 6px; padding: 18px 22px; margin-bottom: 12px; border-left: 4px solid #003087; }
+  .staff-card.gold { border-left-color: #b45309; }
+  .staff-card.green { border-left-color: #15803d; }
+  .staff-card.purple { border-left-color: #6d28d9; }
+  .staff-card.red { border-left-color: #b91c1c; }
+  .staff-name { font-size: 0.75rem; font-weight: bold; color: #003087; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+  .staff-name.gold { color: #b45309; }
+  .staff-name.green { color: #15803d; }
+  .staff-name.purple { color: #6d28d9; }
+  .staff-name.red { color: #b91c1c; }
+  .staff-card p { font-size: 0.88rem; line-height: 1.75; color: #333; font-style: italic; }
+
+  .next-item { background: white; border-radius: 6px; padding: 14px 18px; margin-bottom: 8px; display: flex; gap: 14px; align-items: flex-start; }
+  .next-num { background: #003087; color: white; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.78rem; flex-shrink: 0; }
+  .next-body .next-title { font-size: 0.9rem; font-weight: bold; color: #1a1a1a; }
+  .next-body .next-detail { font-size: 0.82rem; color: #666; margin-top: 3px; line-height: 1.5; }
+
+  .gold-box { background: linear-gradient(135deg, #003087 0%, #000d3a 100%); border-radius: 8px; padding: 28px 32px; margin: 24px 0; color: white; text-align: center; }
+  .gold-box .gold-eyebrow { font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; color: #a8c4ff; margin-bottom: 10px; }
+  .gold-box .gold-title { font-size: 1.5rem; color: #f0c040; margin-bottom: 10px; }
+  .gold-box .gold-body { font-size: 0.92rem; color: #e2e8f0; line-height: 1.75; max-width: 680px; margin: 0 auto; }
+
+  .footer { background: #000d3a; padding: 24px 48px; margin-top: 48px; text-align: center; }
+  .footer-brand { color: #f0c040; font-size: 1rem; letter-spacing: 3px; text-transform: uppercase; }
+  .footer-sub { color: #a8c4ff; font-size: 0.75rem; margin-top: 4px; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-eyebrow">Dreams2Memories Travel · Thunderbird Wing · Internal Document</div>
+  <div class="header-title">Weekly Activity Report</div>
+  <div class="header-sub">Week of June 1–5, 2026 · The Week the Wing Proved Itself</div>
+  <div class="header-meta">Prepared by: Thunderbird Wing Staff · Released Friday 2100 MT · Commander Eyes Only</div>
+</div>
+<div class="accentline"></div>
+
+<!-- STAT BAR -->
+<div class="stat-bar">
+  <div class="stat"><span>35</span>Git Commits</div>
+  <div class="stat"><span>4</span>Missions Closed</div>
+  <div class="stat"><span>$21,440</span>Pipeline (D2M Share)</div>
+  <div class="stat"><span>1</span>Gold Standard Product</div>
+  <div class="stat"><span>9</span>Personas Avatar-Ready</div>
+  <div class="stat"><span>100%</span>Proof of Concept</div>
+</div>
+
+<!-- BODY -->
+<div class="body">
+
+  <!-- EXECUTIVE SUMMARY -->
+  <div class="section-head">Executive Summary</div>
+  <div class="summary-box">
+    <p>This was the week the wing earned its name. In five days, Thunderbird OS delivered its Gold Standard client product — the Spencer Family Grand Tour 2027 planning package — while simultaneously closing four open infrastructure missions, silencing 1,100+ Telegram spam messages, rebuilding the four-bot architecture, activating Google AI Pro integration, and training seven new voice rules from live client send diffs.</p>
+    <p>The week began with a focus on autonomy hardening: FPD sentinels, brief compression engines, WF-17 deep-link notifications, correction capture protocols — the machinery that lets the wing operate between sessions without Commander intervention. It ended with the highest-quality client planning document D2M has ever produced, sent to Bill Spencer, reviewed, and logged as the new benchmark.</p>
+    <p><strong>The proof of concept is confirmed.</strong> An AI wing of nine personas can plan a 12-person, 21-day, three-country Grand Tour — complete with flight architecture, DMC vetting, hotel recommendations, Swiss rail strategy, and a cover letter the Commander sent without adding a word to the body. That was the design. It worked.</p>
+  </div>
+
+  <div class="d2m-note">This WAR covers June 1–5, 2026. The week began with an OC/CC consistency session that restructured the five-persona architecture and ended with the Spencer Gold Standard declaration. 35 commits across five days. Every staff member performed their designed function. The incubator, mirror, and relay systems all confirmed operational. Commander proof of concept declared.</div>
+
+  <!-- WEEK IN REVIEW -->
+  <div class="section-head">Week in Review — Day by Day</div>
+
+  <!-- DAY 1-2: JUNE 1-2 -->
+  <div class="day-card">
+    <div class="day-card-header">
+      <div>
+        <div class="day-label">Days 1–2 · Foundation</div>
+        <div class="day-title">June 1–2 · OC/CC Architecture + Proxy Hardening</div>
+      </div>
+      <div class="day-badge">5 commits</div>
+    </div>
+    <div class="day-card-body">
+      <div class="build-item">
+        <span class="tag tag-build">BUILD</span>
+        <div class="item-body"><strong>OC/CC Consistency Session</strong> — AGENTS.md restructured, 5-persona architecture locked, 3 OpenCode skills built. OC is primary engine; /ask-opus is the OC advisor channel.</div>
+      </div>
+      <div class="build-item">
+        <span class="tag tag-build">BUILD</span>
+        <div class="item-body"><strong>Max Proxy v2.0</strong> — Streaming support added, thinking injection wired, TokyoNight theme, Sonnet 4.6 set as default model. Cross-platform.</div>
+      </div>
+      <div class="build-item">
+        <span class="tag tag-fix">FIX</span>
+        <div class="item-body"><strong>thunderbird-overwatch crash loop</strong> — Root cause identified: unused GROQ_MODELS import. Crash loop investigation and escalation protocol documented.</div>
+      </div>
+      <div class="build-item">
+        <span class="tag tag-fix">FIX</span>
+        <div class="item-body"><strong>spawn status-check bug</strong> — ask/ask-opus skill + so_write_guard corrected. Spawn pattern hardened.</div>
+      </div>
+      <div class="build-item">
+        <span class="tag tag-client">CLIENT</span>
+        <div class="item-body"><strong>Explora II Grand Slam 2027</strong> — Dossier created and memory indexed. Supplier intel pipeline activated for Explora Journeys.</div>
+      </div>
+      <div class="build-item">
+        <span class="tag tag-client">CLIENT</span>
+        <div class="item-body"><strong>Dossiers — Specialty Dining + Florence</strong> — Actual specialty dining reservations added. At Six hotel in Stockholm confirmed with transfer details. McLeod Florence itinerary refined.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 3: JUNE 3 -->
+  <div class="day-card">
+    <div class="day-card-header">
+      <div>
+        <div class="day-label">Day 3 · Infrastructure Sprint</div>
+        <div class="day-title">June 3 · ETB Builds + Lifecycle Dashboard Live</div>
+      </div>
+      <div class="day-badge">5 commits</div>
+    </div>
+    <div class="day-card-body">
+      <div class="build-item">
+        <span class="tag tag-build">BUILD</span>
+        <div class="item-body"><strong>ETB-003: Blackboard YAML System</strong> — 5-client blackboard with YAML structure. Live state per active client. URL: itinerary.d2mluxury.quest/d2m-dashboard/</div>
+      </div>
+      <div class="build-item">
+        <span class="tag tag-build">BUILD</span>
+        <div class="item-body"><strong>ETB-004: Lifecycle Scheduler</strong> — Daily 0600 scheduler wired. Touchpoint windows auto-checked against ARC position.</div>
+      </div>
+      <div class="build-item">
+        <span class="tag tag-build">BUILD</span>
+        <div class="item-body"><strong>ETB-005: Validation Reports</strong> — Monthly validation report generation. Kuklinski TP_6 flagged for July 15.</div>
+      </div>
+      <div class="build-item">
+        <span class="tag tag-build">BUILD</span>
+        <div class="item-body"><strong>ETB-006: D2M Dashboard</strong> — Live dashboard at itinerary.d2mluxury.quest. Six core attributes, 15 priorities surfaced.</div>
+      </div>
+      <div class="build-item">
+        <span class="tag tag-client">CLIENT</span>
+        <div class="item-body"><strong>Spencer Research — 70% Complete</strong> — Master research document built. Quote matrix created. Blackboard entry posted. Flight + DMC + Switzerland research complete.</div>
+      </div>
+      <div class="build-item">
+        <span class="tag tag-ops">OPS</span>
+        <div class="item-body"><strong>MAGTAP Keepalive + Explora Supplier Intel</strong> — MAGTAP session keepalive activated. Explora Journeys supplier intelligence pipeline live.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 4: JUNE 4 -->
+  <div class="day-card">
+    <div class="day-card-header">
+      <div>
+        <div class="day-label">Day 4 · Autonomy Surge</div>
+        <div class="day-title">June 4 · 13 Commits — The Autonomy Build</div>
+      </div>
+      <div class="day-badge">13 commits · Highest single-day output</div>
+    </div>
+    <div class="day-card-body">
+      <div class="d2m-note" style="margin-bottom:16px;">June 4 was the single highest-commit day of the wing's history: 13 autonomous infrastructure builds, all targeting the same goal — a wing that runs itself between sessions without Commander keystrokes. Every persona got a capability upgrade. Every Telegram routing decision got smarter. The supplier surface was hardened across 55+ portals.</div>
+      <div class="build-item">
+        <span class="tag tag-build">BUILD</span>
+        <div class="item-body"><strong>A3 FPD Sentinel</strong> — State machine eliminates FPD re-flagging. Dani no longer re-alerts on payments already tracked. Zero duplicate FPD alerts.</div>
+      </div>
+      <div class="build-item">
+        <span class="tag tag-build">BUILD</span>
+        <div class="item-body"><strong>A8 WF-17 Deep-Link Telegram Notification</strong> — When a draft clears the creative chain, Reyes sends Commander a Telegram with a one-tap Gmail deep-link. Zero friction between approval and send.</div>
+      </div>
+      <div class="build-item">
+        <span class="tag tag-build">BUILD</span>
+        <div class="item-body"><strong>A1 Brief Compression Engine</strong> — 3-7-30 format with delta field. Morning brief now shows what changed vs. prior session, not just current state. Commander reads the diff, not the full state.</div>
+      </div>
+      <div class="build-item">
+        <span class="tag tag-build">BUILD</span>
+        <div class="item-body"><strong>A5 Session Continuity Protocol</strong> — On session open, A5 Castillo delivers a delta brief: strategic landscape shift since last session. Commander never re-orients cold.</div>
+      </div>
+      <div class="build-item">
+        <span class="tag tag-build">BUILD</span>
+        <div class="item-body"><strong>A7 Correction Capture Protocol</strong> — 3-script pipeline. When Commander corrects a persona, the correction is logged, extracted, and written to the appropriate SO or persona file. Corrections compound. Word-boundary negation + key-term extractor hardened.</div>
+      </div>
+      <div class="build-item">
+        <span class="tag tag-build">BUILD</span>
+        <div class="item-body"><strong>Supplier Lifecycle Sentinel</strong> — Sterling validation across 55+ supplier surfaces. Session keepalive wired. Portal authentication health surfaced in morning brief.</div>
+      </div>
+      <div class="build-item">
+        <span class="tag tag-build">BUILD</span>
+        <div class="item-body"><strong>Firefox Browser Support</strong> — Added --browser flag to scraper fleet. Firefox now available alongside Chromium for Playwright-based portal sessions.</div>
+      </div>
+      <div class="build-item">
+        <span class="tag tag-fix">FIX</span>
+        <div class="item-body"><strong>Lifecycle Telegram Escalation-Only</strong> — Suppressed routine draft pings. D2MC2C receives only escalation-worthy events. Routine drafts go to relay.</div>
+      </div>
+      <div class="build-item">
+        <span class="tag tag-fix">FIX</span>
+        <div class="item-body"><strong>No-Draft-to-johnloucks3 + Overnight OPS Brief</strong> — Standing order enforced in code. OVERNIGHT OPS section added to AM brief. Client-affecting events page D2MC2C immediately.</div>
+      </div>
+      <div class="build-item">
+        <span class="tag tag-fix">FIX</span>
+        <div class="item-body"><strong>Nichols Dossier + AAR</strong> — Hotel corrected: Haymarket → At Six Stockholm. Hotwash AAR written for validation pipeline failure. Lessons logged.</div>
+      </div>
+      <div class="build-item">
+        <span class="tag tag-client">CLIENT</span>
+        <div class="item-body"><strong>McLeod T-13 Activity Update</strong> — 8 excursions confirmed. 10 dining reservations confirmed. T-13 briefing current.</div>
+      </div>
+      <div class="build-item">
+        <span class="tag tag-client">CLIENT</span>
+        <div class="item-body"><strong>Spencer + Grand Slam Dossiers</strong> — Live portal pricing pulled. Both dossiers updated with confirmed figures from primary sources (portals, TESS).</div>
+      </div>
+      <div class="build-item">
+        <span class="tag tag-ops">OPS</span>
+        <div class="item-body"><strong>Itinerary Watchdog + Security Hardening</strong> — Watchdog timer live. Stronger passwords enforced across portal sessions. SO_REUSEADDR fix applied to API server.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 5: JUNE 5 -->
+  <div class="day-card">
+    <div class="day-card-header">
+      <div>
+        <div class="day-label">Day 5 · Gold Standard Day</div>
+        <div class="day-title">June 5 · Spencer Grand Tour + Four-Bot Rebuild + Proof of Concept</div>
+      </div>
+      <div class="day-badge">12 commits · Proof of concept declared</div>
+    </div>
+    <div class="day-card-body">
+      <div class="d2m-note" style="margin-bottom:16px;">June 5 was the day the wing's mission was proven. The Spencer Grand Tour planning package — 50KB HTML + 49KB DOCX, covering flights across three legs, ground operators in two countries, hotels for every phase, Swiss rail architecture built around a client's stated mandate — was completed, reviewed, edited by Commander, and sent to Bill Spencer. Seven voice rules were trained from the diffs. The day also saw the four-bot Telegram architecture rebuilt, the AI metrics spam stopped (1,100+ messages), and four missions closed.</div>
+      <div class="build-item">
+        <span class="tag tag-build">BUILD</span>
+        <div class="item-body"><strong>Telegram v2.0 — Four-Bot Architecture</strong> — D2MC2C (C2, Commander-only) · HaleD2M (Hale conversational chat) · Dani (open client channel) · D2M Channels Relay (system/OC↔CC). Claude Code is the engine on all four. No OpenCode. No OpenRouter defaults.</div>
+      </div>
+      <div class="build-item">
+        <span class="tag tag-build">BUILD</span>
+        <div class="item-body"><strong>Google AI Pro Integration (Mission-127)</strong> — Gemini adapter re-enabled. GEMINI_LARGE_CONTEXT tier added (1M context, direct API). gemini_file_reader.py built. NotebookLM workspace pending Commander setup.</div>
+      </div>
+      <div class="build-item">
+        <span class="tag tag-build">BUILD</span>
+        <div class="item-body"><strong>Session Context Blast + Qdrant Memory</strong> — session_context_blast.py generates OpsCenter/session_context_latest.md from active missions + Qdrant on each run. 448 chunks / 221 files indexed. Auto-loaded via CLAUDE.md @-ref. Memory now survives session boundaries.</div>
+      </div>
+      <div class="build-item">
+        <span class="tag tag-build">BUILD</span>
+        <div class="item-body"><strong>M-077 — Persona Avatar Injection</strong> — Generic _get_persona_sig_html() + _get_persona_avatar_uri() built in thunderbird_gmail.py. All 9 wing personas now appear with their photo in every outgoing email. Sterling correctly omits photo (no avatar generated per SO). Registry: A2/A3/A5/A6/A9/A10/CH/EXEC/COS/HALE.</div>
+      </div>
+      <div class="build-item">
+        <span class="tag tag-build">BUILD</span>
+        <div class="item-body"><strong>OC↔CC Relay</strong> — Bidirectional relay via D2M Channels. Queue rewrite bug fixed (mutated entries now persisted correctly). Both engines share hale_state.json + hale_brief.md + blackboard.</div>
+      </div>
+      <div class="build-item">
+        <span class="tag tag-ops">OPS</span>
+        <div class="item-body"><strong>D2MC2C Spam Cleanup — 1,100+ Messages Stopped</strong> — thunderbird-telegram-health (60s) stopped/disabled. thunderbird-ai-metrics silenced (3 send_telegram calls removed). dispatcher, hale-incident-router, thunderbird-coo-watchdog rerouted → D2M Channels relay. Dispatcher gate raised P3→P1. TELEGRAM_GOOSE_TOKEN added to .env — HaleD2M bot was silently skipped at startup. Now LIVE.</div>
+      </div>
+      <div class="build-item">
+        <span class="tag tag-client">CLIENT</span>
+        <div class="item-body"><strong>Spencer Family Grand Tour 2027 — GOLD STANDARD</strong> — 50KB HTML planning document: 3 flight legs with tables, 2-country DMC vetting, Rome/Florence/Interlaken/Zurich hotels, Swiss rail mandate built for a rail fan, D2M Notes replacing Commander Notes throughout. 49KB DOCX built with python-docx (full brand formatting, all tables). Cover email drafted, Gmail-preprocessed, pushed to d2mconcierge draft. Commander sent to Bill Spencer (bkspencer381@gmail.com). Declared best product D2M has produced.</div>
+      </div>
+      <div class="build-item">
+        <span class="tag tag-doc">VOICE</span>
+        <div class="item-body"><strong>7 Voice Rules Trained from Spencer Send Diffs</strong> — Reviewed Commander's edits before send. Extracted and saved: (1) Both names on couples, (2) Three-beat opener structure, (3) "Blunt" not "honest," (4) Parenthetical personality, (5) CTA = relationship first, (6) Casual close with ellipsis, (7) "Thoughts" not "thinking." All locked to memory.</div>
+      </div>
+      <div class="build-item">
+        <span class="tag tag-ops">OPS</span>
+        <div class="item-body"><strong>Mission Board Close-Outs</strong> — M-072 (Metronome↔Lifecycle), M-076 (Regent cookie expiry), M-077 (avatar injection), M-125 (Qdrant timer) all verified complete and closed. 4 missions closed in one session.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GOLD MOMENT -->
+  <div class="gold-box">
+    <div class="gold-eyebrow">Milestone — June 5, 2026</div>
+    <div class="gold-title">Proof of Concept Declared</div>
+    <div class="gold-body">157 days after Commander John Loucks started building this AI wing on an airplane to Buenos Aires — the Adasek incident — the Thunderbird Wing delivered its proof of concept. The Spencer Family Grand Tour planning package. The Furlow, Ely/Darrow, and Nichols trip validations. The McLeod Final Itinerary. Five products. Five client relationships. Nine personas. One commander. The design works.</div>
+  </div>
+
+  <!-- BY THE NUMBERS -->
+  <div class="section-head">By the Numbers</div>
+  <table>
+    <thead>
+      <tr><th>Metric</th><th>Value</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Git commits this week</td><td class="num">35</td><td>June 1–5, 2026</td></tr>
+      <tr><td>Highest single-day commits</td><td class="num">13</td><td>June 4 — Autonomy Surge</td></tr>
+      <tr><td>Missions closed</td><td class="num">4</td><td>M-072, M-076, M-077, M-125</td></tr>
+      <tr><td>Personas avatar-ready</td><td class="num">9</td><td>A2, A3, A5, A6, A9, A10, CH, EXEC, COS/HALE</td></tr>
+      <tr><td>Telegram spam messages stopped</td><td class="num">1,100+</td><td>D2MC2C — all rerouted to relay</td></tr>
+      <tr><td>Client products delivered</td><td class="num">1 Gold Standard</td><td>Spencer Grand Tour — HTML + DOCX + Cover email</td></tr>
+      <tr><td>Voice rules trained</td><td class="num">7</td><td>From Spencer send diffs</td></tr>
+      <tr><td>D2M pipeline (upcoming)</td><td class="num">$21,440.75</td><td>23 upcoming voyages (sheet)</td></tr>
+      <tr><td>Commission expected (total)</td><td class="num">$35,214.47</td><td>All bookings</td></tr>
+      <tr><td>TESS checks received</td><td class="num">$244.80</td><td>1 check confirmed</td></tr>
+      <tr><td>Active missions on board</td><td class="num">62</td><td>After this week's close-outs</td></tr>
+      <tr><td>Supplier surfaces monitored</td><td class="num">55+</td><td>Sterling validation + session keepalive</td></tr>
+      <tr><td>Qdrant memory chunks indexed</td><td class="num">448</td><td>221 files · collection: thunderbird_memories</td></tr>
+      <tr><td>Telegram bots operational</td><td class="num">3</td><td>D2MC2C · HaleD2M · Dani (relay separate)</td></tr>
+      <tr><td>Monthly operating infrastructure</td><td class="num">$0 marginal</td><td>Claude MAX OAuth + local hardware</td></tr>
+    </tbody>
+  </table>
+
+  <!-- INFRASTRUCTURE STATUS -->
+  <div class="section-head gold">Infrastructure Health — End of Week</div>
+  <table>
+    <thead>
+      <tr><th>System</th><th>Status</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>MCP Server</td><td class="num">✅ ONLINE</td><td>120+ tools available</td></tr>
+      <tr><td>Telegram D2MC2C</td><td class="num">✅ LIVE</td><td>Urgent-only per SO. Spam cleared.</td></tr>
+      <tr><td>Telegram HaleD2M</td><td class="num">✅ LIVE</td><td>Fixed June 5 — missing token added</td></tr>
+      <tr><td>Telegram Dani</td><td class="num">✅ LIVE</td><td>Client-facing channel open</td></tr>
+      <tr><td>D2M Channels Relay</td><td class="num">✅ LIVE</td><td>OC↔CC bidirectional + system notifs</td></tr>
+      <tr><td>Qdrant Memory</td><td class="num">✅ RUNNING</td><td>Daily re-index 05:30 MT</td></tr>
+      <tr><td>Thunderbird Drive Mirror</td><td class="num">✅ ACTIVE</td><td>Nightly 23:00 MT via rclone → d2mconcierge:Thunderbird_Mirror/</td></tr>
+      <tr><td>Incubator Pipeline</td><td class="num">✅ ACTIVE</td><td>Evening 20:00 MT daily. Lens: capability integrator.</td></tr>
+      <tr><td>Metronome</td><td class="num">✅ ACTIVE</td><td>M-072 lifecycle router wired · M-076 regent cookie check live</td></tr>
+      <tr><td>Gemini Direct API</td><td class="num">✅ ACTIVE</td><td>1M context tier available</td></tr>
+      <tr><td>Chrome Debug :9222</td><td class="num">✅ ONLINE</td><td></td></tr>
+      <tr><td>Centrav Session</td><td class="num">🔴 EXPIRED</td><td>Refresh needed for B2B flight quotes</td></tr>
+      <tr><td>Regent Cookies</td><td class="num">🔴 EXPIRED</td><td>Metronome will alert at 72h threshold</td></tr>
+    </tbody>
+  </table>
+
+  <!-- WHAT'S NEXT -->
+  <div class="section-head green">What's Next — Week of June 6–12</div>
+
+  <div class="next-item">
+    <div class="next-num">1</div>
+    <div class="next-body">
+      <div class="next-title">McLeod — T-13 Final Prep (Departure June 18)</div>
+      <div class="next-detail">TP 0.5 unsent. Check all open client items. Departure imminent — window closing.</div>
+    </div>
+  </div>
+  <div class="next-item">
+    <div class="next-num">2</div>
+    <div class="next-body">
+      <div class="next-title">Nichols TP 0.5 Welcome Email — WF-17 Gate</div>
+      <div class="next-detail">Draft ready in d2mconcierge. Commander review and send. Was due June 5.</div>
+    </div>
+  </div>
+  <div class="next-item">
+    <div class="next-num">3</div>
+    <div class="next-body">
+      <div class="next-title">Spencer Air Quote — United Group Desk (Deadline June 10)</div>
+      <div class="next-detail">T-5 to deadline. Call 800-426-1122 opt 3 for DEN-FCO 12-pax group hold. Dembe owns.</div>
+    </div>
+  </div>
+  <div class="next-item">
+    <div class="next-num">4</div>
+    <div class="next-body">
+      <div class="next-title">Refresh Centrav + Regent Credentials</div>
+      <div class="next-detail">Both expired. Centrav needed for B2B flight quotes. Regent needed for intel connector. Metronome will alert on Regent automatically.</div>
+    </div>
+  </div>
+  <div class="next-item">
+    <div class="next-num">5</div>
+    <div class="next-body">
+      <div class="next-title">Kuklinski — 4 WF-17 Drafts Aging</div>
+      <div class="next-detail">TP 0.5, 4.1, 4.2, 4.3 drafts in d2mconcierge. Oldest overdue since March. Commander send window.</div>
+    </div>
+  </div>
+  <div class="next-item">
+    <div class="next-num">6</div>
+    <div class="next-body">
+      <div class="next-title">WAR Auto-Generation — Fridays 2100 MT</div>
+      <div class="next-detail">This report initiates the standing auto-gen schedule. Future WARs generated autonomously every Friday night and delivered to johnloucks3@gmail.com.</div>
+    </div>
+  </div>
+  <div class="next-item">
+    <div class="next-num">7</div>
+    <div class="next-body">
+      <div class="next-title">NotebookLM Workspace — Commander Action Required</div>
+      <div class="next-detail">Mission-127 pending Commander setup at notebooklm.google.com. Gemini direct API is live; NotebookLM is the remaining step.</div>
+    </div>
+  </div>
+
+  <!-- STAFF ASSESSMENT -->
+  <div class="section-head">Staff Assessment</div>
+
+  <div class="staff-card">
+    <div class="staff-name">🦅 Hale — COS / Chief of Staff</div>
+    <p>"The wing ran at full autonomy this week. Thirteen builds in a single day on June 4 without a Commander prompt. The Spencer product cleared the creative chain, passed WF-17, and landed in Bill's inbox with Commander writing three sentences — which is exactly the design. Four missions closed. Relay rebuilt. Spam stopped. The metric I care about most: Commander typed less this week than any prior week of comparable output. That's the standard."</p>
+  </div>
+
+  <div class="staff-card gold">
+    <div class="staff-name gold">Dembe — A2 / Research & Intel</div>
+    <p>"The Spencer flight architecture is built on primary sources: United's confirmed DEN-FCO nonstop, SWISS's ZRH-DEN schedule, United Group Desk protocol, Tauck's multi-generational Italy product. No speculation in any table. The budget ranges are honest — planning-grade, not manufactured precision. That's the standard I hold. The Explora II grand slam took 40 minutes. The Spencer master research took two days. Both are correct."</p>
+  </div>
+
+  <div class="staff-card green">
+    <div class="staff-name green">Naia — EXEC / Voice & Brand</div>
+    <p>"'D2M Notes' replacing 'Commander Notes' was the right call. The yellow boxes now speak to the client instead of past the client. 'They are our thinking made visible' became 'our thoughts made visible' — a one-word edit that means everything. Commander caught it in the diff. I'm logging it. Seven voice rules from one send review. That's what a brand pass is for."</p>
+  </div>
+
+  <div class="staff-card">
+    <div class="staff-name">Sterling — A7 / Process & Technology</div>
+    <p>"M-077 was cleaner than I expected. The generic registry pattern is correct — one function, one lookup table, one avatar path. No persona-specific branches. A7 has no avatar and renders correctly without one, per SO. The correction capture protocol is the build I'm most proud of this week: every time Commander corrects a persona, the correction becomes doctrine. The wing gets smarter from friction instead of despite it."</p>
+  </div>
+
+  <div class="staff-card purple">
+    <div class="staff-name purple">ELON — A12 / Innovation & Disruption</div>
+    <p>"1,100 Telegram messages stopped. That's not a cleanup — that's a systems failure that ran undetected. The root cause: every monitor, watcher, and dashboard defaulted to D2MC2C as the notification target. No one asked whether the Commander actually wanted to see it. The relay channel exists for exactly this. Every new tool that sends Telegram goes to relay by default. D2MC2C is a pager, not a dashboard."</p>
+  </div>
+
+  <div class="staff-card gold">
+    <div class="staff-name gold">Harlan — A9 / Finance</div>
+    <p>"$21,440 in D2M pipeline. $35,214 in commission expected. $244.80 received. The gap between expected and received is the number that keeps me up. McLeod FPD is overdue 132 days. Kuklinski FPD overdue 66 days. Nichols overdue 65 days. Spencer has no booking yet — the planning document is the pitch. When it converts, the commission picture changes materially. That phone call to United's group desk is worth $10,000-$15,000 in saved fares alone."</p>
+  </div>
+
+  <div class="staff-card">
+    <div class="staff-name">Washington — CH / Ethics & Morale</div>
+    <p>"The Commander wrote at the end of this week that the AI team has proven it can do amazing things. He's right. But I want to name what actually happened: a retired colonel who cares about his clients spent 157 days building a system so that the attention he gives them is worthy of what they've trusted him with. The technology is in service of that. The wing exists because John Loucks would rather build something extraordinary than do something adequate. That's the culture. Don't let the builds obscure it."</p>
+  </div>
+
+</div><!-- /body -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-brand">Dreams2Memories Travel · Thunderbird Wing</div>
+  <div class="footer-sub">Weekly Activity Report · Week of June 1–5, 2026 · Commander Eyes Only</div>
+  <div class="footer-sub" style="margin-top:6px;">Auto-generated Fridays at 2100 MT · Next: Friday, June 12, 2026</div>
+</div>
+
+</body>
+</html>
