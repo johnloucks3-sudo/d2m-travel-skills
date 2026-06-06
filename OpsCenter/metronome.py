@@ -47,6 +47,11 @@ REGENT_COOKIES_OA = os.path.join(ROOT, "creds", "regent_cookies_oa.json")
 REGENT_COOKIE_DEDUP_FILE = os.path.join(ROOT, "OpsCenter", ".regent_cookie_alert_dedup.json")
 REGENT_COOKIE_ALERT_HOURS = 72  # alert when ASPXAUTH expires within this many hours
 
+# Silversea TA API session monitoring
+SILVERSEA_COOKIE_FILE = os.path.join(os.path.expanduser("~"), ".playwright", "cookies_silversea.json")
+SILVERSEA_SESSION_STATE = os.path.join(ROOT, "OpsCenter", "state", "silversea_session.json")
+SILVERSEA_API_DEDUP_FILE = os.path.join(ROOT, "OpsCenter", ".silversea_api_alert_dedup.json")
+
 # Intel Keeper fires every 3 ticks (3 × 5 min = 15 min), matching keeper TTL cadence
 INTEL_KEEPER_SCRIPT = os.path.join(ROOT, "core", "ai_infra", "intel_keeper.py")
 INTEL_KEEPER_TICKS = 3  # fire every N ticks
@@ -605,6 +610,90 @@ def _generate_daily_brief():
     return msg[:4000] + "..." if len(msg) > 4000 else msg
 
 
+def _check_silversea_api_session():
+    """Silversea TA API session health check — runs every tick, deduped daily.
+
+    Checks:
+    1. Cookie file exists and myssid cookie is present
+    2. CF_VERIFIED_DEVICE cookie expiry (alerts 30 days before — crown jewel)
+    3. Quick HTTP probe of /re/apix/get/Params to verify session is live
+    Alerts to relay (D2M Channels) not D2MC2C — not urgent Commander action.
+    """
+    import time
+    now = datetime.now(timezone.utc)
+    today_str = now.strftime("%Y-%m-%d")
+    dedup = _load_dedup(SILVERSEA_API_DEDUP_FILE)
+    dedup_key = f"silversea_api:{today_str}"
+    if dedup.get(dedup_key) == today_str:
+        return  # already checked today
+
+    if not os.path.exists(SILVERSEA_COOKIE_FILE):
+        _telegram_alert("*METRONOME* 🔴 SILVERSEA API — cookie file missing\n`~/.playwright/cookies_silversea.json` not found.\nRun: `python3 scripts/silversea_cookie_refresh.py`")
+        dedup[dedup_key] = today_str
+        _save_dedup(SILVERSEA_API_DEDUP_FILE, dedup)
+        return
+
+    try:
+        with open(SILVERSEA_COOKIE_FILE) as f:
+            cookies = json.load(f)
+    except (OSError, json.JSONDecodeError):
+        return
+
+    # Check CF_VERIFIED_DEVICE expiry (expires 2027-07-01 — the crown jewel)
+    cf_cookie = next(
+        (c for c in cookies if "CF_VERIFIED_DEVICE" in c.get("name", "")), None
+    )
+    if cf_cookie and cf_cookie.get("expires", 0) > 0:
+        exp_dt = datetime.fromtimestamp(cf_cookie["expires"], tz=timezone.utc)
+        days_left = (exp_dt - now).days
+        if days_left < 30:
+            _telegram_alert(
+                f"*METRONOME* 🟠 SILVERSEA CF_VERIFIED_DEVICE expiring in {days_left}d\n"
+                f"Expires: {exp_dt.strftime('%Y-%m-%d')}\n"
+                f"This cookie bypasses Cloudflare for the TA portal. Re-export before expiry."
+            )
+
+    # Quick API probe — check if session is still alive
+    try:
+        import urllib.request
+        cookie_header = "; ".join(
+            f"{c['name']}={c['value']}" for c in cookies
+            if "silversea.com" in c.get("domain", "") and c.get("name") in ("myssid", "ASP.NET_SessionId")
+        )
+        req = urllib.request.Request(
+            "https://my.silversea.com/re/apix/get/Params",
+            headers={
+                "User-Agent": "Mozilla/5.0",
+                "Cookie": cookie_header,
+                "Referer": "https://my.silversea.com/re/lansa.html",
+                "X-Requested-With": "XMLHttpRequest",
+            }
+        )
+        with urllib.request.urlopen(req, timeout=8) as resp:
+            body = json.loads(resp.read().decode())
+            role = body.get("Role", "")
+            if "Travel Agent" in role:
+                # Session live — write state
+                state_dir = os.path.dirname(SILVERSEA_SESSION_STATE)
+                os.makedirs(state_dir, exist_ok=True)
+                with open(SILVERSEA_SESSION_STATE, "w") as sf:
+                    json.dump({"last_check": now.isoformat(), "status": "HEALTHY", "role": role}, sf)
+                dedup[dedup_key] = today_str
+                _save_dedup(SILVERSEA_API_DEDUP_FILE, dedup)
+                return
+    except Exception:
+        pass
+
+    # Session dead — alert
+    _telegram_alert(
+        "*METRONOME* 🔴 SILVERSEA TA API — session expired\n"
+        "Run: `python3 scripts/silversea_cookie_refresh.py`\n"
+        "Or: navigate to my.silversea.com and re-export cookies."
+    )
+    dedup[dedup_key] = today_str
+    _save_dedup(SILVERSEA_API_DEDUP_FILE, dedup)
+
+
 def _run_intel_keeper_if_due(tick_n: int) -> str | None:
     """Spawn intel_keeper as a non-blocking subprocess every INTEL_KEEPER_TICKS ticks.
 
@@ -763,6 +852,7 @@ def main():
                   "yellow": len([a for a in lc if a["level"] == "YELLOW"])}
         keeper_status = _run_intel_keeper_if_due(tick_n)
         _check_regent_cookie_expiry()  # M-076 — run even on first tick
+        _check_silversea_api_session()  # Silversea TA API health
         entry = {
             "ts": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
             "tick": tick_n,
@@ -813,7 +903,8 @@ def main():
             break
     _save_dedup(SPSA_DEDUP_FILE, {k: v for k, v in fpd_dedup.items() if v == today_mt_str})
     _scan_lifecycle_windows()
-    _check_regent_cookie_expiry()  # M-076 — every tick, deduped daily per account
+    _check_regent_cookie_expiry()   # M-076 — every tick, deduped daily per account
+    _check_silversea_api_session()  # Silversea TA API health — deduped daily
 
     tick_n = _increment_tick()
     keeper_status = _run_intel_keeper_if_due(tick_n)
