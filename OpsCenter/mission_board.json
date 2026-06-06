@@ -1008,7 +1008,7 @@
     {
       "id": "MISSION-072",
       "title": "MISSION-072: Metronome \u2194",
-      "status": "in_progress",
+      "status": "complete",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "Lifecycle Router Integration Wire lifecycle_router.py into metronome.py. On each tick: check each active client ARC position vs today, fire TP-ALERTs when touchpoints are due, route to correct persona per YAML decision tree, add dedup gate to suppress duplicate alerts (fixes 30x TP-ALERT blocker). Owner: A7 Sterling. Design review before any code. P2",
@@ -1018,7 +1018,8 @@
       "escalation_rule": null,
       "logs": [],
       "created_at": "2026-05-27T20:25:56.691793+00:00",
-      "updated_at": "2026-05-27T20:25:56.691804+00:00"
+      "updated_at": "2026-05-27T20:25:56.691804+00:00",
+      "notes": "COMPLETE \u2014 lifecycle_router.py integrated in metronome._scan_lifecycle_windows() with graceful fallback. Route chain appended to HALE-ROUTE wing_comms nudge."
     },
     {
       "id": "MISSION-072",
@@ -1166,7 +1167,7 @@
     {
       "id": "MISSION-076",
       "title": "Regent Cookie Expiry",
-      "status": "in_progress",
+      "status": "complete",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "\u2014 Metronome Monitor Wire regent cookie expiry check into metronome.py. Read ASPXAUTH expiry from creds/regent_cookies.json + creds/regent_cookies_oa.json on each tick. Alert via Telegram when either token is within 72h of expiry. Include re-export instructions in the alert message. Both accounts must stay authenticated for intel connector to function. P2",
@@ -1176,12 +1177,13 @@
       "escalation_rule": null,
       "logs": [],
       "created_at": "2026-05-29T03:57:33.061651+00:00",
-      "updated_at": "2026-05-29T03:57:33.061660+00:00"
+      "updated_at": "2026-05-29T03:57:33.061660+00:00",
+      "notes": "COMPLETE \u2014 regent cookie expiry check fully implemented in metronome.py (both accounts, 72h dedup, Telegram alert with re-export instructions)"
     },
     {
       "id": "MISSION-077",
       "title": "Email Sig Block",
-      "status": "in_progress",
+      "status": "complete",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "\u2014 Avatar Injection in thunderbird_gmail.py Update _wrap_body_html() in core/email/thunderbird_gmail.py to inject persona avatar photo into signature block for all outgoing emails. Sterling backlog from SO_EMAIL_RULES_UPDATE_20260530. Requires read/test/verify gate per CODE TASK COMPLETION SO 13 MAY 2026. Avatar files at storage/output/images/. Owner: A7 Sterling. P2",
@@ -1191,7 +1193,8 @@
       "escalation_rule": null,
       "logs": [],
       "created_at": "2026-05-30T18:23:20.472653+00:00",
-      "updated_at": "2026-05-30T18:23:20.472666+00:00"
+      "updated_at": "2026-05-30T18:23:20.472666+00:00",
+      "notes": "COMPLETE \u2014 M-077 2026-06-05: generic _get_persona_sig_html() + _get_persona_avatar_uri() built in thunderbird_gmail.py. Registry covers A2/A3/A5/A6/A9/A10/CH/EXEC/COS/HALE. A7 Sterling correctly omits photo (no avatar generated). All 9 avatars resolve from storage/output/images/. _wrap_body_html() now calls _get_persona_sig_html(persona_id) for all personas."
     },
     {
       "id": "MISSION-078",
@@ -1988,7 +1991,7 @@
     {
       "id": "MISSION-125",
       "title": "INFRASTRUCTURE: Qdrant memory",
-      "status": "in_progress",
+      "status": "complete",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "\u2014 daily re-index timer Add systemd timer to re-embed memory files daily after session close. P2",
@@ -1998,7 +2001,8 @@
       "escalation_rule": null,
       "logs": [],
       "created_at": "2026-06-05T23:18:38.323121+00:00",
-      "updated_at": "2026-06-05T23:18:38.323132+00:00"
+      "updated_at": "2026-06-05T23:18:38.323132+00:00",
+      "notes": "COMPLETE \u2014 thunderbird-qdrant-reindex.timer enabled, fires 05:30 MT daily, runs embed-all + session_context_blast"
     },
     {
       "id": "MISSION-126",

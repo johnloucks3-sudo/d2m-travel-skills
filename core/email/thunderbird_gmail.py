@@ -731,6 +731,77 @@ def _get_logo_data_uri() -> str:
     return _get_logo_data_uri._cached
 
 
+# ── M-077: Persona avatar registry ───────────────────────────────────────────
+# Maps persona_id → (display_name, role_title, avatar_filename)
+# Personas without a generated avatar omit the photo slot per SO_EMAIL_RULES_20260530.
+_PERSONA_SIG_REGISTRY: dict[str, tuple[str, str, str]] = {
+    "A2":   ("Marcus 'Wraith' Dembe",   "Research & Market Intelligence",         "marcus_dembe_avatar.png"),
+    "A3":   ("Dani Moreau",             "D2M Luxury Travel Concierge",            "dani_moreau_avatar.png"),
+    "A5":   ("Ryan 'Viper' Castillo",   "Strategy & Business Growth",             "ryan_castillo_avatar.png"),
+    "A6":   ("Luna Voss",               "Creative Director & Brand",              "luna_voss_avatar.png"),
+    "A7":   ("Thomas 'Gauge' Sterling", "Process, Technology & Metrics",          ""),  # avatar pending
+    "A9":   ("Victor 'Vic' Harlan",     "Finance & Process Improvement",          "vic_harlan_avatar.png"),
+    "A10":  ("Tomoko 'Tommy' Ikeda",    "Nuclear Ops, Crisis & Logistics",        "tomoko_ikeda_avatar.png"),
+    "CH":   ("James 'Padre' Washington","Wisdom, Ethics & Morale",                "james_washington_avatar.png"),
+    "EXEC": ("Naia Solberg-Vega",       "EXEC — Voice, Visual & Commander Intent","naia_solberg_vega_avatar.png"),
+    "COS":  ("Victoria 'Victory' Hale", "Chief of Staff, Thunderbird Wing",       "victoria_hale_avatar.png"),
+    "HALE": ("Victoria 'Victory' Hale", "Chief of Staff, Thunderbird Wing",       "victoria_hale_avatar.png"),
+}
+
+_AVATAR_CACHE: dict[str, str] = {}
+
+def _get_persona_avatar_uri(persona_id: str) -> str:
+    """Load a persona avatar as base64 data URI. Cached by persona_id."""
+    pid = persona_id.upper()
+    if pid in _AVATAR_CACHE:
+        return _AVATAR_CACHE[pid]
+    info = _PERSONA_SIG_REGISTRY.get(pid)
+    if not info or not info[2]:
+        _AVATAR_CACHE[pid] = ""
+        return ""
+    avatar_path = Path(__file__).parent.parent.parent / "storage" / "output" / "images" / info[2]
+    if avatar_path.exists():
+        uri = "data:image/png;base64," + base64.b64encode(avatar_path.read_bytes()).decode()
+        _AVATAR_CACHE[pid] = uri
+        return uri
+    logger.warning("Avatar not found for persona %s at %s", pid, avatar_path)
+    _AVATAR_CACHE[pid] = ""
+    return ""
+
+
+def _get_persona_sig_html(persona_id: str) -> str:
+    """Return HTML sig block for any Wing persona with avatar. Empty string if no registry entry."""
+    pid = persona_id.upper()
+    info = _PERSONA_SIG_REGISTRY.get(pid)
+    if not info:
+        return ""
+    name, role, _ = info
+    avatar_uri = _get_persona_avatar_uri(pid)
+    avatar_cell = (
+        f'<td style="padding-right:14px;vertical-align:middle;">'
+        f'<img src="{avatar_uri}" alt="{name}" '
+        f'style="width:64px;height:64px;border-radius:50%;display:block;'
+        f'border:2px solid rgba(201,168,76,0.55);" /></td>'
+    ) if avatar_uri else '<td style="display:none;"></td>'
+    return (
+        '<div style="margin:22px 0 0 0;">'
+        '<table style="border-collapse:collapse;">'
+        '<tr>'
+        f'{avatar_cell}'
+        f'<td style="vertical-align:middle;font-family:Georgia,\'Times New Roman\',serif;'
+        f'font-size:9.5pt;color:#0000ff;line-height:1.7;">'
+        f'<strong>{name}</strong><br>'
+        f'<em>{role}</em><br>'
+        '<a href="mailto:concierge@d2mluxury.quest" style="color:#0000ff;text-decoration:none;">'
+        'concierge@d2mluxury.quest</a>'
+        '&nbsp;&middot;&nbsp;719-291-0742'
+        '</td>'
+        '</tr>'
+        '</table>'
+        '</div>'
+    )
+
+
 def _get_dani_avatar_data_uri() -> str:
     """Load Dani Moreau avatar as base64 data URI. Cached after first call."""
     if not hasattr(_get_dani_avatar_data_uri, '_cached'):
@@ -905,7 +976,7 @@ def _wrap_body_html(plain_text: str, persona_id: Optional[str] = None) -> str:
         f'font-size:10.5pt;line-height:1.75;">'
         f'{html_body}'
         f'</div>'
-        f'{_get_dani_sig_html() if persona_id == "A3" else ""}'
+        f'{_get_persona_sig_html(persona_id)}'
         f'{COMMANDER_SIGNATURE_HTML}'
         f'{logo_sig}'
         f'</div>'
