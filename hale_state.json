@@ -5,40 +5,34 @@
         "status": "LIVE",
         "username": "D2MC2C_bot",
         "bot_id": 8754681793,
-        "last_check": "2026-06-05T18:11:19.240506"
+        "last_check": "2026-06-05T21:24:44.166183"
       },
       "Dani": {
         "status": "LIVE",
         "username": "d2m_channels_bot",
         "bot_id": 8726363494,
-        "last_check": "2026-06-05T18:11:19.860689"
+        "last_check": "2026-06-05T21:24:44.578386"
       },
-      "last_health_check": "2026-06-05T18:11:19.860735"
+      "last_health_check": "2026-06-05T21:24:44.578424"
     },
-    "last_health_check": "2026-06-05T18:11:19.860986",
+    "last_health_check": "2026-06-07T15:27:45.679692+00:00",
     "chrome_debug_port_9222": "ONLINE",
     "mcp_server": "ONLINE",
     "opencode_status": "UNKNOWN",
     "telegram_bot": "UNKNOWN"
   },
   "_meta": {
-    "last_updated": "2026-06-05T18:11:19.860991-06:00"
+    "last_updated": "2026-06-07T15:27:45.679692+00:00"
   },
   "open_tasks": [
     {
-      "raw": "{\n  \"list_name\": \"D2M Client Tasks\",\n  \"tasks\": [],\n  \"count\": 0,\n  \"overdue\": 0\n}"
+      "raw": "{\"error\": \"<HttpError 403 when requesting https://tasks.googleapis.com/tasks/v1/users/@me/lists?maxResults=50&alt=json returned \\\"Request had insufficient authentication scopes.\\\". Details: \\\"[{'message': 'Insufficient Permission', 'domain': 'global', 'reason': 'insufficientPermissions'}]\\\">\"}"
     }
   ],
   "financial_pulse": {
-    "last_checked": "2026-06-05T06:45:05.136239-06:00",
-    "tess_auth_status": "ONLINE",
-    "tess_trips": 13,
-    "tess_bookings": 18,
-    "tess_clients": 25,
-    "tess_pkg_total": 138131.9,
-    "tess_received": 244.8,
-    "tess_due": 0.0,
-    "tess_checks_received": 1,
+    "last_checked": "2026-06-07T06:45:29.543414-06:00",
+    "tess_auth_status": "ERROR",
+    "tess_error": "Not authenticated. Run: python3 thunderbird_tess.py --authorize",
     "sheet_status": "ONLINE",
     "sheet_bookings": 35,
     "sheet_commission_expected": 35214.47,
@@ -47,15 +41,15 @@
     "pipeline_d2m_share_upcoming": 21440.75,
     "pipeline_commission_upcoming": 28082.41,
     "total_d2m_pipeline": 21440.75,
-    "raw_snippet": "D2M pipeline: $21,440.75 D2M share across 23 upcoming voyages (sheet) + 1 checks already received totaling $244.80 (TESS)."
+    "raw_snippet": "D2M pipeline: $21,440.75 D2M share across 23 upcoming voyages (sheet) + 0 checks already received totaling $0.00 (TESS)."
   },
   "session_context": {
-    "last_checkpoint": "2026-06-05T06:45:05.136239-06:00"
+    "last_checkpoint": "2026-06-07T06:45:29.543414-06:00"
   },
   "staff_load": {
     "HALE": {
       "last_seen": true,
-      "active": 12
+      "active": 14
     },
     "DEM": {
       "last_seen": false,
@@ -105,20 +99,28 @@
       {
         "id": "PROJ-NICHOLS-TP05",
         "name": "Nichols TP 0.5 Welcome Email",
-        "status": "WF17_GATE",
+        "status": "COMPLETE",
         "deadline": "2026-06-05",
         "mission": "MISSION-120",
         "owner": "HALE",
-        "notes": "Draft ready in d2mconcierge. Commander sends."
+        "notes": "SATISFIED 2026-06-06. Commander confirmed all TPs current for T-position before Aug 29 embarkation (Regent Grandeur)."
       },
       {
         "id": "PROJ-MCLEOD-T13",
         "name": "McLeod Departure Prep (Jun 18)",
-        "status": "MONITORING",
+        "status": "TP_CURRENT",
         "deadline": "2026-06-18",
         "mission": "MISSION-121",
         "owner": "HALE",
-        "notes": "T-13. TP 0.5 unsent. Check open items."
+        "notes": "SATISFIED 2026-06-06. Commander confirmed all TPs current for T-12 position before Jun 18 embarkation (Silver Muse Mediterranean). Monitor for final T-7 / T-3 items."
+      },
+      {
+        "id": "PROJ-KUKLINSKI-LIFECYCLE",
+        "name": "Kuklinski Lifecycle Emails \u2014 4 Drafts HOLD",
+        "status": "HOLD_UNTIL_2026-07-15",
+        "deadline": "2026-07-15",
+        "owner": "HALE",
+        "notes": "Commander order 2026-06-04: hold all 4 Kuklinski drafts (Welcome TP 0.5, Specialty Dining Reservation Reminder TP 4.1, Excursion Planning TP 4.2, Pre-Departure Checklist TP 4.3) until Jul 15 \u2014 excursion booking window. Do not surface at WF-17 before Jul 15."
       },
       {
         "id": "PROJ-SPENCER-FLIGHT",
@@ -127,7 +129,7 @@
         "deadline": "2026-06-10",
         "mission": "MISSION-122",
         "owner": "DEMBE",
-        "notes": "T-5 to deadline. No quote on file."
+        "notes": "SUSPENSE 2026-06-10 (Commander order). No quote on file. NEXT: United Group Desk 800-426-1122 opt 3 for DEN-FCO 12-pax."
       },
       {
         "id": "PROJ-BRYANA-ONBOARD",

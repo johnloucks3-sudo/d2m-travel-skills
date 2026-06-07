@@ -1,0 +1,38 @@
+{
+  "name": "d2m-travel-skills",
+  "version": "0.1.0",
+  "description": "Travel operations skills for luxury travel agencies — itinerary building, cruise pricing, client dossiers, invoice reconciliation, and portal emails.",
+  "author": "Dreams2Memories Travel, LLC",
+  "license": "MIT",
+  "homepage": "https://github.com/dreams2memories/d2m-travel-skills",
+  "plugins": [
+    {
+      "name": "itinerary-builder",
+      "description": "Construct multi-day luxury trip itineraries from supplier data, verify timing and transfers, output branded PDF.",
+      "source": "./plugins/itinerary-builder"
+    },
+    {
+      "name": "cruise-cost-compare",
+      "description": "Pull cabin prices from multiple cruise lines, compare amenities, flag best-value options for client presentation.",
+      "source": "./plugins/cruise-cost-compare"
+    },
+    {
+      "name": "invoice-reconciler",
+      "description": "Match supplier invoices against client bookings, flag discrepancies, produce reconciliation report.",
+      "source": "./plugins/invoice-reconciler"
+    },
+    {
+      "name": "trip-dossier-generator",
+      "description": "Compile client trip dossier from booking data, supplier contacts, hotel confirmations, and travel documents.",
+      "source": "./plugins/trip-dossier-generator"
+    },
+    {
+      "name": "client-portal-emailer",
+      "description": "Draft and send personalized portal activation emails with trip details in D2M stationery.",
+      "source": "./plugins/client-portal-emailer"
+    }
+  ],
+  "compatibility": "Claude Code 2.0+, Claude Cowork, Cursor, Gemini CLI, Goose",
+  "category": "travel-operations",
+  "tags": ["travel", "luxury", "cruise", "itinerary", "agency", "booking"]
+}

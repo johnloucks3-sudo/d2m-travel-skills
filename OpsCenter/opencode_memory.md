@@ -440,3 +440,35 @@ Four sessions: Lifecycle Validation, Quick Init, Wave 2 Pipeline, Evening Email+
 - CCP needs Commander review and approval
 - P3 7-day reliability clock at day 1 (started 4 Jun)
 - P7 14-day spawn reliability watch active
+
+---
+## 2026-06-07 — Signal C2 Full C2 Loop — RESOLVED
+
+**What was built:**
+- Hale linked as Signal secondary device on +17192910742 (Commander's number)
+- Docker container: `hale-signal-gateway` on YOGA port 8088 (bbernhard/signal-cli-rest-api, normal mode)
+- Data bind mount: `/home/john/signal-cli-data` → `/home/signal-cli/.local/share/signal-cli/` (with `:Z` for SELinux)
+- Gateway rewritten to use REST API (`GET /v1/receive/+17192910742`, `POST /v2/send`) — eliminates lock conflict with docker exec
+- Systemd user service: `~/.config/systemd/user/hale-signal-gw.service` — enabled, auto-restart, runs at boot
+
+**How linking was done:**
+1. Run `docker exec hale-signal-gateway signal-cli -c /home/signal-cli/.local/share/signal-cli link -n "Hale"` in background with output to file
+2. Capture `sgnl://` URI, generate QR via `qrencode -t UTF8`
+3. Commander scans QR in Signal app: Settings → Linked Devices → +
+4. Copy data: `docker cp hale-signal-gateway:/root/.local/share/signal-cli/. /home/john/signal-cli-data/`
+
+**Key gotcha — two different signal-cli paths inside container:**
+- `docker exec signal-cli` uses default `/root/.local/share/signal-cli/` (root user)
+- REST API uses bind mount via `-signal-cli-config=/home/signal-cli/.local/share/signal-cli`
+- Must copy data from root path → bind mount after linking for REST API to see it
+
+**Key gotcha — lock conflict:**
+- REST API's internal signal-cli holds a lock on the account data
+- Running `docker exec signal-cli receive` ALSO tries to lock → "Config file is in use by another instance"
+- Fix: use REST API endpoints exclusively, not docker exec
+
+**Gateway file:** `/home/john/Thunderbird/core/comms/thunderbird_signal_gw.py`
+- REST API at `http://localhost:8088` (YOGA)
+- POLL_INTERVAL = 15s
+- Routes inbound messages: status/mission/dossier/urgent keywords → replies via Signal
+- Logs to `/home/john/Thunderbird/OpsCenter/hale_signal_log.jsonl`

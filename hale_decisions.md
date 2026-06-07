@@ -4197,3 +4197,109 @@ DeepSeek V4: 318 sessions, $12.3210
 **Notes:** OpenCode inline dispatch completed in 109.4s. Output: 8576 chars. Model: Opus
 
 ---
+
+### 2026-06-06 18:20:05 — Autonomous Decision (Tier T1)
+
+**Decision:** Sonnet inline dispatch: --bare MISSION-067: Norway Luxury Cruise — Research Status B...
+
+**Domain:** Task Execution
+**Type:** routine
+**Outcome:** correct
+**Trust Points:** +1
+**Autonomy Tier:** T1
+**Notes:** OpenCode inline dispatch completed in 215.0s. Output: 2435 chars. Model: Sonnet
+
+---
+
+### 2026-06-06 18:20:51 — Autonomous Decision (Tier T1)
+
+**Decision:** Sonnet inline dispatch: --bare Run quick price check on these active Thunderbird boo...
+
+**Domain:** Task Execution
+**Type:** routine
+**Outcome:** correct
+**Trust Points:** +1
+**Autonomy Tier:** T1
+**Notes:** OpenCode inline dispatch completed in 413.7s. Output: 3311 chars. Model: Sonnet
+
+---
+
+### 2026-06-06 18:22:22 — Autonomous Decision (Tier T1)
+
+**Decision:** Sonnet inline dispatch: --bare MISSION-067 Deep Dive — Norway Luxury Cruise Synthesi...
+
+**Domain:** Task Execution
+**Type:** routine
+**Outcome:** correct
+**Trust Points:** +1
+**Autonomy Tier:** T1
+**Notes:** OpenCode inline dispatch completed in 63.9s. Output: 4598 chars. Model: Sonnet
+
+---
+
+### 2026-06-06 21:00:44 — Autonomous Decision (Tier T1)
+
+**Decision:** Opus inline dispatch: Evaluate this plan to fix the Telegram Gateway crashes (30x/...
+
+**Domain:** Task Execution
+**Type:** routine
+**Outcome:** correct
+**Trust Points:** +1
+**Autonomy Tier:** T1
+**Notes:** OpenCode inline dispatch completed in 54.8s. Output: 8250 chars. Model: Opus
+
+---
+
+### 2026-06-07 08:53:25 — Autonomous Decision (Tier T1)
+
+**Decision:** Sonnet inline dispatch: Set up the Hale Signal gateway as a persistent systemd user ...
+
+**Domain:** Task Execution
+**Type:** routine
+**Outcome:** correct
+**Trust Points:** +1
+**Autonomy Tier:** T1
+**Notes:** OpenCode inline dispatch completed in 31.7s. Output: 552 chars. Model: Sonnet
+
+---
+
+### 2026-06-07 09:02:03 — Autonomous Decision (Tier T1)
+
+**Decision:** Sonnet inline dispatch: Reply in one sentence: Signal C2 test. What is your status?...
+
+**Domain:** Task Execution
+**Type:** routine
+**Outcome:** correct
+**Trust Points:** +1
+**Autonomy Tier:** T1
+**Notes:** OpenCode inline dispatch completed in 4.4s. Output: 63 chars. Model: Sonnet
+
+---
+
+### 2026-06-07 09:03:29 — Autonomous Decision (Tier T1)
+
+**Decision:** Sonnet inline dispatch: Commander sent this via Signal C2: "status"
+
+You are Hale (M...
+
+**Domain:** Task Execution
+**Type:** routine
+**Outcome:** correct
+**Trust Points:** +1
+**Autonomy Tier:** T1
+**Notes:** OpenCode inline dispatch completed in 12.0s. Output: 335 chars. Model: Sonnet
+
+---
+
+### 2026-06-07 09:27:24 — Autonomous Decision (Tier T1)
+
+**Decision:** Sonnet inline dispatch: STERLING — M-063 ROUTING. You own gstack/CLAUDE.md. Execute ...
+
+**Domain:** Task Execution
+**Type:** routine
+**Outcome:** correct
+**Trust Points:** +1
+**Autonomy Tier:** T1
+**Notes:** OpenCode inline dispatch completed in 86.5s. Output: 798 chars. Model: Sonnet
+
+---

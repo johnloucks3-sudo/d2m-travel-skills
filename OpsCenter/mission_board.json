@@ -111,11 +111,12 @@
       "assigned_to": "Hale",
       "description": "McLeod Grandeur Lesser Antilles (Dec 19-29, 2026). FPD: 22-Jul-26. Cruise fare: $13,398. Balance due: $12,427. Cabin selection response OVERDUE (was May 10).",
       "created_at": "2026-05-04T20:00:00Z",
-      "updated_at": "2026-05-18T08:00:00Z",
+      "updated_at": "2026-06-06T23:45:42.727023+00:00",
       "logs": [
         "[2026-05-04T20:00:00] McLeod FPD critical discovery: 22-Jul-26 (78 days out), not Sep 1",
         "[2026-05-18T08:00:00] **OVERDUE**: Cabin selection response not received. Escalation needed."
-      ]
+      ],
+      "suspense_date": "2026-07-07"
     },
     {
       "id": "MISSION-025",
@@ -609,9 +610,9 @@
         "Dembe intel: all 5 ports + Regent excursion catalog",
         "Grandeur final itinerary overview document"
       ],
-      "suspense_date": "2026-05-25T23:59:00Z",
+      "suspense_date": "2026-06-20",
       "created_at": "2026-05-22T13:57:00Z",
-      "updated_at": "2026-05-22T13:57:00Z",
+      "updated_at": "2026-06-06T23:45:43.176925+00:00",
       "logs": [
         "[2026-05-22T13:57:00] MISSION-053 created per Commander direction. Suspense: 25 May."
       ]
@@ -619,7 +620,7 @@
     {
       "id": "MISSION-054",
       "title": "McLeod Silver Muse \u2014 Final T-27 Detailed Validation",
-      "status": "active",
+      "status": "completed",
       "priority": "P0",
       "assigned_to": "Hale + A3 Dani + A2 Dembe",
       "description": "Full detailed validation for Silver Muse Mediterranean (Jun 18 \u2013 Jul 6, 2026, booking 298475-25). Cover: flights (DEN\u2192FCO, VCE\u2192DEN), Rome hotel (Baglioni Regina, Jun 19-23), Civitavecchia transfer, Silversea Door-to-Door transfers, shore excursions, dining, post-cruise Venice hotel decision, water taxi logistics, passport validity, guest info form completion. Produce final T-27 validation report.",
@@ -633,7 +634,8 @@
       "updated_at": "2026-05-22T13:57:00Z",
       "logs": [
         "[2026-05-22T13:57:00] MISSION-054 created per Commander direction. Silver Muse T-27: 27 days to departure."
-      ]
+      ],
+      "completed_at": "2026-06-06T23:45:42.007772+00:00"
     },
     {
       "id": "MISSION-055",
@@ -777,7 +779,7 @@
     {
       "id": "MISSION-063",
       "title": "Prompt Formatting Study \u2014 Persona Files & CLAUDE.md",
-      "status": "active",
+      "status": "completed",
       "priority": "P3",
       "assigned_to": "A7 Sterling",
       "description": "30-minute review of all Wing persona files and CLAUDE.md: are key behavioral rules in prose or bullets? Flag anywhere format may be fighting intent. Based on LLM-prose-vs-bullets study showing 96% cooperation divergence from formatting alone.",
@@ -790,12 +792,13 @@
       "updated_at": "2026-05-25T12:00:00Z",
       "logs": [
         "[2026-05-25T12:00:00] Mission created \u2014 HALE COS, per Commander approval via Innovation Synthesis"
-      ]
+      ],
+      "completed_at": "2026-06-07T15:22:36.316771+00:00"
     },
     {
       "id": "MISSION-064",
       "title": "Anthropic Small-Business Skills Ecosystem Investigation",
-      "status": "active",
+      "status": "completed",
       "priority": "P3",
       "assigned_to": "A7 Sterling",
       "description": "Investigate the 31 Anthropic small-business skills (~382K day-one downloads) ecosystem. Relevance to our skill builder pipeline. Determine if any models, patterns, or integrations are worth adopting for Thunderbird skill infrastructure.",
@@ -808,7 +811,8 @@
       "updated_at": "2026-05-25T12:00:00Z",
       "logs": [
         "[2026-05-25T12:00:00] Mission created \u2014 HALE COS, per Commander approval via Innovation Synthesis"
-      ]
+      ],
+      "completed_at": "2026-06-07T15:22:36.349627+00:00"
     },
     {
       "id": "MISSION-067",
@@ -1757,7 +1761,7 @@
     {
       "id": "MISSION-111",
       "title": "Furlow Trip Validation",
-      "status": "in_progress",
+      "status": "completed",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "Email Send Furlow trip validation report to missy.furlow@gmail.com. Suspense: 5 Jun 2026 1600 MT. Draft ready in d2mconcierge (THUNDERBIRD-Commander-Review). Commander reviews and sends. P1",
@@ -1767,7 +1771,8 @@
       "escalation_rule": null,
       "logs": [],
       "created_at": "2026-06-04T03:53:43.231492+00:00",
-      "updated_at": "2026-06-04T03:53:46.045582+00:00"
+      "updated_at": "2026-06-04T03:53:46.045582+00:00",
+      "completed_at": "2026-06-07T15:22:13.511596+00:00"
     },
     {
       "id": "MISSION-112",
@@ -2225,6 +2230,270 @@
       "created_at": "2026-06-06T00:03:24.139617+00:00",
       "updated_at": "2026-06-06T00:03:24.139620+00:00",
       "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-137",
+      "title": "Activate Dembe for Spencer DEN-FCO 12-pax air quote",
+      "status": "active",
+      "priority": "P0",
+      "assigned_to": "Commander",
+      "description": "Activate Dembe with United Group Desk call (800-426-1122 opt 3) or direct Commander call before Jun 9 to capture DEN-FCO 12-pax pricing before the Jun 10 deadline.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-06-06T17:00:33] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-06-06T17:00:33.610873+00:00",
+      "updated_at": "2026-06-06T17:00:33.610877+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-138",
+      "title": "Send five aging WF-17 drafts \u2014 Nichols + Kuklinski",
+      "status": "active",
+      "priority": "P0",
+      "assigned_to": "Commander",
+      "description": "Execute send on all five drafts staged in d2mconcierge (Nichols TP 0.5 + Kuklinski TP 0.5 / 4.1 / 4.2 / 4.3) to clear the WF-17 queue and re-engage both client households before FPDs age further.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-06-06T17:00:33] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-06-06T17:00:33.610943+00:00",
+      "updated_at": "2026-06-06T17:00:33.610947+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-139",
+      "title": "Re-authorize TESS and restore financial verification chain",
+      "status": "active",
+      "priority": "P0",
+      "assigned_to": "Commander",
+      "description": "Run `python3 thunderbird_tess.py --authorize` to restore TESS access, enabling Harlan Rule 4/5 financial sign-off and independent verification of the $21,440.75 pipeline figure.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-06-06T17:00:33] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-06-06T17:00:33.611009+00:00",
+      "updated_at": "2026-06-06T17:00:33.611012+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-140",
+      "title": "Close McLeod T-12 open items before Jun 10",
+      "status": "active",
+      "priority": "P0",
+      "assigned_to": "Hale",
+      "description": "Audit all open McLeod Silver Muse items, confirm status against dossier and TESS, send TP 0.5 brief to Commander for review, and produce a clean T-10 handoff checklist by Jun 10.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-06-06T17:00:33] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-06-06T17:00:33.611081+00:00",
+      "updated_at": "2026-06-06T17:00:33.611085+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-141",
+      "title": "Extend supplier keepalive to cover Centrav + Regent + Regent OA",
+      "status": "active",
+      "priority": "P1",
+      "assigned_to": "Sterling",
+      "description": "Add Centrav (currently 165h expired), Regent (72h expired), and Regent OA (164h expired) to the existing keepalive system so AM brief credential table reads green on Monday.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-06-06T17:00:33] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-06-06T17:00:33.611161+00:00",
+      "updated_at": "2026-06-06T17:00:33.611164+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-142",
+      "title": "Create Morton/Dodge lifecycle reset \u2014 TP queue from scratch",
+      "status": "active",
+      "priority": "P1",
+      "assigned_to": "Dani",
+      "description": "Build a current-state lifecycle audit for Morton/Dodge (Viking Mars Dec 17, FPD overdue, no TP in queue) and produce a draft TP to re-engage before the relationship goes cold.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-06-06T17:00:33] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-06-06T17:00:33.611222+00:00",
+      "updated_at": "2026-06-06T17:00:33.611226+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-143",
+      "title": "Fix Google Tasks OAuth 403 \u2014 add tasks scope to credential grant",
+      "status": "active",
+      "priority": "P1",
+      "assigned_to": "Sterling",
+      "description": "Add `https://www.googleapis.com/auth/tasks` to the OAuth scope grant and re-authorize to restore mission board task monitoring and eliminate the 403 error in the AM brief.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-06-06T17:00:33] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-06-06T17:00:33.611283+00:00",
+      "updated_at": "2026-06-06T17:00:33.611287+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-144",
+      "title": "Escalate FPD overdue status to Commander \u2014 McLeod + Kuklinski + Morton/Dodge",
+      "status": "active",
+      "priority": "P1",
+      "assigned_to": "Hale",
+      "description": "Send structured FPD escalation brief to Commander for all three overdue households with current balance, portal link, and recommended Commander action for each to prevent revenue slippage into Q3.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-06-06T17:00:33] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-06-06T17:00:33.611340+00:00",
+      "updated_at": "2026-06-06T17:00:33.611342+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-145",
+      "title": "FARE WATCH \u2014",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "Telegram Alert Hook + Daily Scheduler Sterling build: (1) Wire Telegram alert hook \u2014 after check_fare() fires alert_triggered, call thunderbird_telegram_gw.py to ping D2MC2C with route/price/threshold details. (2) Add systemd timer for daily fare watch run. (3) Set baseline prices on all watches once Centrav re-login completes \u2014 then set alert_below thresholds (8% drop or as confirmed). Routes in queue: DEN-VCE Apr30 2027, ATH-DEN Jun1 2027 (Loucks Silver Nova), COS-FLL Dec27 2026, LAX/SNA-COS Jan14 2027 (Loucks Grandeur), RIC-PTY Dec17 2026 (Kuklinski), RSW-PTY Dec17 2026 (Morton/Dodge). Blocked on Centrav re-login for baselines. P1",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-06-06T19:58:18.268444+00:00",
+      "updated_at": "2026-06-06T19:58:18.268453+00:00"
+    },
+    {
+      "id": "MISSION-146",
+      "title": "MISSION-146: Hale Gmail",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "Expanded Capabilities Capability 1: gmail_concierge_triage \u2014 reads ALL unread d2mconcierge inbox, classifies client_inquiry/vendor/booking_confirmation/noise. Capability 2: gmail_dual_search \u2014 single query hits both d2mconcierge + johnloucks3 simultaneously. Both registered as MCP tools. File: core/email/hale_inbox_tools.py. Phase 2 pending: install gmail-mcp-multi for native multi-account MCP; wire concierge_triage into morning brief; add Gemini triage classifier. P1",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-06-06T20:09:14.164633+00:00",
+      "updated_at": "2026-06-06T20:09:14.164644+00:00"
+    },
+    {
+      "id": "MISSION-147",
+      "title": "Hale Gmail Capability",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "Expansion \u2014 Phase 2 Phase 1 complete (2026-06-06): Gemini Flash classifier wired into hale_inbox_tools.py; @klodr/gmail-mcp installed for both d2mconcierge + johnloucks3; @dguido/google-workspace-mcp installed (Gmail+Drive+Calendar+Docs+Sheets); all wired into ~/.claude/mcp.json. Phase 2 queue: (1) Test MCP servers on next CC session restart \u2014 gmail-d2mconcierge and google-workspace-d2mconcierge may need auth flow confirmation. (2) Wire gmail_concierge_triage output into morning brief (AM brief gets d2mconcierge unread count + client inquiries). (3) Upgrade classifier to google-genai 1.x SDK once confirmed stable. (4) Token auto-renewal: add cron to refresh adapted Node.js token files from Python tokens daily. Owner: Sterling + Hale. Blocked on: MCP server restart to activate new servers. P1",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-06-06T20:19:48.447718+00:00",
+      "updated_at": "2026-06-06T20:19:48.447733+00:00"
+    },
+    {
+      "id": "MISSION-148",
+      "title": "Telegram Feature Expansion",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "+ Google Maps/Routes All Telegram Bot API features + Google Maps/Routes build as a single delivery package. Sub-items: 1. sendPhoto / sendMediaGroup \u2014 ship photos, itinerary covers, fare charts to Telegram 2. sendDocument \u2014 push itinerary PDFs, proposals to D2MC2C 3. Inline keyboards \u2014 [Approve] [Reject] [Defer] on WF-17 draft notifications 4. sendLocation / sendVenue \u2014 hotel/cruise terminal pin drops in-chat 5. Polls \u2014 Commander votes on fare options with prices listed 6. Edit messages \u2014 status updates replace old messages (kill scroll spam) 7. sendMessageDraft \u2014 staged messages for Commander review in Telegram 8. Date-time entities \u2014 rich formatted dates in departure alerts 9. Live Photos \u2014 short video + photo for ship arrival vids 10. Mini Apps \u2014 Flight Plan dashboard / dossier as webview inside Telegram 11. Managed Bots \u2014 white-label client-facing Dani concierge bot per client group 12. Google Maps/Routes API \u2014 transfer route validation, drive times hotel\u2192port P1",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-06-06T21:00:22.093494+00:00",
+      "updated_at": "2026-06-06T21:00:22.093505+00:00"
+    },
+    {
+      "id": "MISSION-149",
+      "title": "CENTRAV Session Auto-Keepalive",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "NEXUS (auto)",
+      "description": "(MISSION-119) Build automatic session keepalive for Centrav. Current: manual Firefox cookie extraction via browser-cookie3. Target: headless keepalive that re-authenticates before session expiry (monitor trustId + laravel_session TTL). Must handle Centrav reCAPTCHA (use saved cookie refresh cycle until it fails, then escalate to Commander for headed solve). Reference: thunderbird_centrav_search.py session handling. Session file: core/travel/data/centrav_session.json. Cookiejar extraction script proven 2026-06-06 via browser-cookie3 + Firefox profile ttsjaman.default-release. Build: polling loop that checks session validity every 6h, re-extracts from Firefox cookies if valid session exists, escalates if both fail. P0",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-06-06T21:15:37.045232+00:00",
+      "updated_at": "2026-06-06T21:15:37.045244+00:00"
+    },
+    {
+      "id": "MISSION-150",
+      "title": "CENTRAV Session Keepalive + Claude Resurrection",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "Sterling",
+      "description": "Priority 1: Fix Claude MAX dispatch. Priority 2: Build Centrav session auto-keepalive daemon so daily fare watch refresh does not need manual cookie extraction.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-06-06T22:31:21.544294+00:00",
+      "updated_at": "2026-06-06T22:31:21.544306+00:00"
+    },
+    {
+      "id": "MISSION-151",
+      "title": "MISSION-120: Telegram Redesign",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "unassigned",
+      "description": "(Opus-via-CLI Phase A) Swap Gemini Flash \u2192 Claude Opus 4.8 via Max plan. All 9 personas embody COS at Opus quality. A1-A5 COMPLETE: Opus routing live on D2MC2C canary bot, 21:53 MT Sat Jun 6. P0",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-06-07T03:56:36.898397+00:00",
+      "updated_at": "2026-06-07T03:56:36.898411+00:00"
+    },
+    {
+      "id": "MISSION-152",
+      "title": "Phase E: Signal",
+      "status": "in_progress",
+      "priority": "P0",
+      "assigned_to": "unassigned",
+      "description": "C2 Complete Hale linked as secondary device on +17192910742. Docker container (bbernhard/signal-cli-rest-api) on YOGA, bind mounted data persistent. Gateway (thunderbird_signal_gw.py) uses docker exec wrapper \u2014 send/receive both verified from Chromebook. P2",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-06-07T14:51:06.290048+00:00",
+      "updated_at": "2026-06-07T14:51:06.290072+00:00"
     }
   ],
   "suspense_watch": [
@@ -2284,9 +2553,10 @@
       "priority": "P1"
     },
     "MISSION-110",
-    "MISSION-111"
+    "MISSION-024",
+    "MISSION-053"
   ],
-  "last_updated": "2026-06-06T00:03:24.139622+00:00",
+  "last_updated": "2026-06-06T17:00:33.611352+00:00",
   "t4_exercise_status": {
     "status": "CLOSED",
     "score": "9.5/10 GREEN",
