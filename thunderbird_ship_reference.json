@@ -26,9 +26,9 @@
         "crew_to_guest": "1:1.1"
       },
       "dining": {
-        "restaurant_count": 7,
-        "specialty": ["La Terrazza", "Atlantide", "The Grill", "Indochine"],
-        "bars": 6,
+        "restaurant_count": 9,
+        "specialty": ["La Terrazza", "Atlantide", "The Grill", "Kaiseki", "La Dame", "S.A.L.T. Kitchen"],
+        "bars": 9,
         "lounges": 8
       },
       "amenities": {
