@@ -1,17 +1,35 @@
 #!/usr/bin/env python3
+# ============================================================
+# ⚠️  PROTECTED FILE — THUNDERBIRD WING STANDING ORDER
+# ============================================================
+# DO NOT MODIFY this file without explicit authorization from
+# Commander (John Loucks / Yoda) via Claude Code session.
+#
+# This file controls Commander email command detection.
+# Unauthorized changes WILL break the COS tasking pipeline.
+#
+# Before ANY edit: read SO_EMAIL_SCANNER_PROTECT_20260608.md
+# and confirm with Hale (Claude Code) before proceeding.
+# ============================================================
 """
 run_commander_directive_sweep.py — Lightweight Commander Directive Sweep
 =========================================================================
-Runs every 10 minutes via systemd timer. Scans the d2mconcierge inbox for
-emails from johnloucks3@gmail.com. Tasks any message where COS, COO, or HALE
-appears in either the subject or the body salutation.
+Runs every 5 minutes via systemd timer. Scans the d2mconcierge inbox for
+emails FROM johnloucks3@gmail.com where Commander has written a command prefix.
+
+Detection rules (Commander directive 2026-06-08):
+  - Subject STARTS WITH: cos: coo: hale: vic: cos-- coo-- hale-- (after stripping Re:/Fwd:)
+  - OR body STARTS WITH one of those same prefixes
+  - "cos" substring match DISABLED — was firing on SEA→COS (airport code), [COS] labels, etc.
 
 Thread tracking: thread IDs of identified directive threads are saved. Any
 subsequent reply in that thread is automatically tasked without re-checking.
 
-Sweep Tracker: uses "commander_directive_sweep" with 9-min cooldown.
+Sweep Tracker: uses "commander_directive_sweep" with 4-min cooldown.
 """
+import base64
 import json
+import subprocess
 import sys
 from pathlib import Path
 
@@ -23,15 +41,18 @@ for sub in (ROOT / "core").iterdir():
 
 from OpsCenter.sweep_tracker import SweepTracker
 
-COMMANDER_QUERY = "from:johnloucks3@gmail.com is:unread"
 PROCESSED_LABEL = "THUNDERBIRD-Scanned"
+COMMANDER_QUERY = f"from:johnloucks3@gmail.com -label:{PROCESSED_LABEL} newer_than:7d"
 SCRIPTS_LOG = ROOT / "logs" / "commander_directive_sweep.log"
 THREAD_STATE_FILE = ROOT / "logs" / "commander_directive_threads.json"
 
-DIRECTIVE_KEYWORDS = ("cos", "coo", "hale")
+# Command detection: keyword (COS/COO/HALE/VIC) followed by ANY non-letter separator
+# Matches: COS: COS-- COS- COS — HALE: HALE-- COO: COO-- Vic: etc.
+import re as _re
+COMMAND_PATTERN = _re.compile(r'^(cos|coo|hale|vic)\W', _re.IGNORECASE)
 SUBJECT_PREFIXES = ("re:", "fwd:", "fw:", "aw:")
 
-tracker = SweepTracker("commander_directive_sweep", cooldown_minutes=9)
+tracker = SweepTracker("commander_directive_sweep", cooldown_minutes=4)
 
 if tracker.in_cooldown():
     sys.exit(0)
@@ -66,26 +87,17 @@ def save_thread_state(thread_ids: set):
         log_line(f"failed to save thread state: {e}")
 
 def clean_subject(subj: str) -> str:
-    s = subj.lower().strip()
-    for p in SUBJECT_PREFIXES:
-        if s.startswith(p):
-            s = s[len(p):].strip().lstrip(",").strip()
-            break
-    return s
+    """Strip Re:/Fwd: prefixes from subject for prefix detection."""
+    import re as _re
+    return _re.sub(r'^(re:|fwd?:|aw:)\s*', '', subj.strip(), flags=_re.IGNORECASE)
 
-def has_keyword_in_subject(subj: str) -> bool:
-    clean = clean_subject(subj)
-    for kw in DIRECTIVE_KEYWORDS:
-        if kw in clean:
-            return True
-    return False
+def has_command_prefix_in_subject(subj: str) -> bool:
+    """Subject must START WITH COS/COO/HALE/VIC + any non-letter separator."""
+    return bool(COMMAND_PATTERN.match(clean_subject(subj)))
 
-def has_keyword_in_body(body: str) -> bool:
-    first_chars = body[:500].lower()
-    for kw in DIRECTIVE_KEYWORDS:
-        if kw in first_chars:
-            return True
-    return False
+def has_command_prefix_in_body(body: str) -> bool:
+    """Body must START WITH COS/COO/HALE/VIC + any non-letter separator."""
+    return bool(COMMAND_PATTERN.match(body.strip()))
 
 try:
     from google.auth.transport.requests import Request
@@ -107,12 +119,20 @@ try:
 
     service = build("gmail", "v1", credentials=creds)
 
-    # Fetch unread threads from johnloucks3 (not just messages — to track thread context)
-    thread_results = service.users().threads().list(
-        userId="me", q=COMMANDER_QUERY
-    ).execute()
-    thread_refs = thread_results.get("threads", [])
-    log_line(f"found {len(thread_refs)} unread threads from Commander in d2mconcierge")
+    # Fetch individual messages (not threads) — metadata-first for speed.
+    # Paginate to catch all results (50-message limit would miss older commands).
+    all_msgs = []
+    _page_token = None
+    while True:
+        _kw = dict(userId="me", q=COMMANDER_QUERY, maxResults=50)
+        if _page_token:
+            _kw["pageToken"] = _page_token
+        _page = service.users().messages().list(**_kw).execute()
+        all_msgs.extend(_page.get("messages", []))
+        _page_token = _page.get("nextPageToken")
+        if not _page_token:
+            break
+    log_line(f"found {len(all_msgs)} messages from Commander in d2mconcierge")
 
     # Load previously identified directive thread IDs
     directive_thread_ids = load_thread_state()
@@ -137,51 +157,140 @@ try:
 
     from core.email.thunderbird_commander_inbox import _notify_cos
 
+    def _decode_text(payload):
+        """Recursively extract text/plain from any MIME nesting depth."""
+        if payload.get("mimeType", "").startswith("text/plain"):
+            data = payload.get("body", {}).get("data", "")
+            if data:
+                return base64.urlsafe_b64decode(data).decode("utf-8", errors="replace")
+        for part in payload.get("parts", []):
+            result = _decode_text(part)
+            if result:
+                return result
+        return ""
+
     tasked = 0
-    for thread_ref in thread_refs:
-        thread_id = thread_ref["id"]
+    for msg_ref in all_msgs:
+        msg_id = msg_ref["id"]
+
+        # Step 1: metadata fetch (fast — no body)
         try:
-            thread = service.users().threads().get(
-                userId="me", id=thread_id,
-                format="full"
+            msg_meta = service.users().messages().get(
+                userId="me", id=msg_id, format="metadata",
+                metadataHeaders=["From", "Subject", "Date"]
             ).execute()
         except Exception as e:
-            log_line(f"failed to get thread {thread_id}: {e}")
+            log_line(f"metadata fetch failed {msg_id}: {e}")
             continue
 
-        # Only process the LATEST message in the thread from johnloucks3
-        latest_msg = thread["messages"][-1]
-        msg_id = latest_msg["id"]
-        headers = {h["name"]: h["value"] for h in latest_msg["payload"]["headers"]}
-        subject = headers.get("Subject", "")
-        is_reply = any(subject.lower().startswith(p) for p in SUBJECT_PREFIXES)
+        hdrs = {h["name"]: h["value"] for h in msg_meta["payload"]["headers"]}
+        from_addr = hdrs.get("From", "").lower()
+        if "johnloucks3" not in from_addr:
+            continue
 
-        # Check if this thread is already known as a directive
-        thread_is_directive = thread_id in directive_thread_ids
+        subject = hdrs.get("Subject", "")
+        thread_id = msg_meta.get("threadId", msg_id)
 
-        # If not already known, check subject and body
-        if not thread_is_directive:
-            if has_keyword_in_subject(subject):
-                thread_is_directive = True
-            else:
-                # Need body to check
-                body_text = ""
-                if "parts" in latest_msg["payload"]:
-                    for part in latest_msg["payload"]["parts"]:
-                        if part.get("mimeType") == "text/plain" and "data" in part.get("body", {}):
-                            import base64
-                            body_text = base64.urlsafe_b64decode(part["body"]["data"]).decode("utf-8", errors="replace")
-                            break
-                elif "body" in latest_msg["payload"] and "data" in latest_msg["payload"]["body"]:
-                    import base64
-                    body_text = base64.urlsafe_b64decode(latest_msg["payload"]["body"]["data"]).decode("utf-8", errors="replace")
-                if has_keyword_in_body(body_text):
-                    thread_is_directive = True
+        # Fetch full message — needed for body text and To/CC routing
+        body_text = ""
+        to_addr = ""
+        cc_addr = ""
+        try:
+            msg_full = service.users().messages().get(
+                userId="me", id=msg_id, format="full"
+            ).execute()
+            full_hdrs = {h["name"]: h["value"] for h in msg_full["payload"]["headers"]}
+            to_addr = full_hdrs.get("To", "")
+            cc_addr = full_hdrs.get("Cc", "")
+            body_text = _decode_text(msg_full["payload"])
+            thread_id = msg_full.get("threadId", thread_id)
+        except Exception as e:
+            log_line(f"full fetch failed {msg_id}: {e}")
+            continue
+
+        # Determine routing type — used in Claude prompt below
+        has_prefix = has_command_prefix_in_subject(subject) or has_command_prefix_in_body(body_text)
+        d2m_is_cc = "d2mconcierge" in cc_addr.lower() or "d2mluxury" in cc_addr.lower()
+        d2m_is_to = "d2mconcierge" in to_addr.lower() or "d2mluxury" in to_addr.lower()
+
+        # Only process if Commander explicitly directed d2m or used a command prefix.
+        # - has_prefix:  COS:/COO:/HALE: at start of subject or body
+        # - d2m_is_cc:   Commander CC'd d2mconcierge on a client/3rd-party email
+        # - d2m_is_to:   Commander sent directly TO d2mconcierge
+        # This filters out wing receipts (FROM johnloucks3 via send-as, TO johnloucks3)
+        # and unrelated self-sends that happen to flow through d2mconcierge.
+        if not has_prefix and not d2m_is_cc and not d2m_is_to:
+            continue
+
+        # Every Commander email that reaches here gets processed
+        thread_is_directive = True
 
         if thread_is_directive:
             new_directive_ids.add(thread_id)
             log_line(f"  DIRECTIVE ({'thread' if thread_id in directive_thread_ids else 'new'}): {subject[:80]}")
 
+            # body_text already extracted correctly above via _decode_text()
+
+            # ── Dispatch to Claude headless for execution ────────────────────────
+            try:
+                import subprocess as _sp
+                import tempfile as _tf
+                import time as _time
+
+                ts = int(_time.time())
+                out_file = ROOT / f"output/directive_{ts}.md"
+                out_file.parent.mkdir(parents=True, exist_ok=True)
+
+                # Routing hint for Claude based on email type
+                if has_prefix:
+                    routing_hint = (
+                        "This email has a COS/COO/HALE command prefix — treat as a direct "
+                        "tasking to the Wing. Execute the command fully."
+                    )
+                elif d2m_is_cc:
+                    routing_hint = (
+                        "Commander CC'd d2mconcierge on this email (likely sent to a client "
+                        "or third party). Route to Dani (A3) — note any commitments made, "
+                        "update the client dossier if relevant, and flag any follow-up needed."
+                    )
+                else:
+                    routing_hint = (
+                        "Commander sent this email to d2mconcierge. Classify it: if it "
+                        "contains a task or question, execute it. If it is forwarding "
+                        "information, summarize and route to the right persona."
+                    )
+
+                task_prompt = (
+                    f"Commander John Loucks sent this email to the Wing.\n\n"
+                    f"FROM: johnloucks3@gmail.com\n"
+                    f"TO: {to_addr[:200]}\n"
+                    f"CC: {cc_addr[:200]}\n"
+                    f"Subject: {subject}\n\n"
+                    f"Body:\n{body_text[:3000]}\n\n"
+                    f"ROUTING CONTEXT: {routing_hint}\n\n"
+                    f"Produce a complete Wing response. Sign as: — V. Hale, VCS | Thunderbird Wing\n\n"
+                    f"WRITE your complete response to {out_file}"
+                )
+
+                _sp.Popen(
+                    [
+                        sys.executable,
+                        str(ROOT / "OpsCenter/dispatch_claude.py"),
+                        "--task", f"directive-{ts}",
+                        "--output", str(out_file),
+                        "--prompt", task_prompt,
+                        "--model", "sonnet",
+                    ],
+                    stdout=open(ROOT / f"logs/directive_{ts}.log", "w"),
+                    stderr=subprocess.STDOUT,
+                    start_new_session=True,
+                    cwd=str(ROOT),
+                )
+                log_line(f"  dispatched to Claude — output: {out_file}")
+            except Exception as e:
+                log_line(f"  dispatch failed: {e}")
+
+            # ── Telegram notification ────────────────────────────────────────────
             try:
                 _notify_cos(
                     classification="commander_directive",
@@ -189,12 +298,14 @@ try:
                     subject=subject,
                     persona_id="COS",
                     draft_id=None,
-                    persona_note=f"⚡ COMMANDER DIRECTIVE\n\nSubject: {subject}\n\n"
-                                 f"Action: Task to Hale for immediate execution."
+                    persona_note=f"⚡ COMMANDER DIRECTIVE — dispatched to Claude\n\n"
+                                 f"Subject: {subject}\n\n"
+                                 f"Body preview: {body_text[:200]}"
                 )
             except Exception as e:
                 log_line(f"  notify failed: {e}")
 
+            # ── Apply processed label ────────────────────────────────────────────
             if label_id:
                 try:
                     service.users().messages().modify(
@@ -209,8 +320,8 @@ try:
     all_directive_ids = directive_thread_ids | new_directive_ids
     save_thread_state(all_directive_ids)
 
-    log_line(f"done — scanned={len(thread_refs)} tasked={tasked} tracked_threads={len(all_directive_ids)}")
-    tracker.mark_complete(status="ok", note=f"found={len(thread_refs)} tasked={tasked}")
+    log_line(f"done — scanned={len(all_msgs)} tasked={tasked} tracked_threads={len(all_directive_ids)}")
+    tracker.mark_complete(status="ok", note=f"found={len(all_msgs)} tasked={tasked}")
     sys.exit(0)
 
 except Exception as e:

@@ -1,3 +1,15 @@
+# ============================================================
+# ⚠️  PROTECTED FILE — THUNDERBIRD WING STANDING ORDER
+# ============================================================
+# DO NOT MODIFY this file without explicit authorization from
+# Commander (John Loucks / Yoda) via Claude Code session.
+#
+# This file controls Commander email command detection.
+# Unauthorized changes WILL break the COS tasking pipeline.
+#
+# Before ANY edit: read SO_EMAIL_SCANNER_PROTECT_20260608.md
+# and confirm with Hale (Claude Code) before proceeding.
+# ============================================================
 """
 thunderbird_commander_inbox.py
 ===============================
@@ -85,6 +97,12 @@ CLASSIFICATION_ROUTING: Dict[str, Dict[str, str]] = {
     "financial": {"persona": "A9", "label": "FINANCE"},
     "intel": {"persona": "A2", "label": "INTEL"},
     "personal": {"persona": None, "label": "SKIP"},
+    "direct_command": {
+        "persona": "A1",
+        "tier": "COMMAND",
+        "action": "cos_execute",
+        "notify": True,
+    },
 }
 
 # ⚠️ DANI AUTO-DRAFT & SUPPLIER SCANNING CONTROL
@@ -482,6 +500,17 @@ def classify_email(subject: str, sender: str, body_preview: str) -> str:
     subject_lower_for_check = subject.lower()
     if subject_lower_for_check.startswith("cos, ") or subject_lower_for_check.startswith("hale, "):
         return "commander_directive"
+    # ── Commander direct-command detection (HIGHEST PRIORITY — check before all other routing) ──
+    # COS/COO/HALE/VIC followed by ANY non-letter separator (: -- - — space etc.)
+    _CMD_RE = re.compile(r'^(cos|coo|hale|vic)\W', re.IGNORECASE)
+    _subj_stripped = re.sub(r'^(re:|fwd:|fw:)\s*', '', subject.strip(), flags=re.IGNORECASE)
+    if _CMD_RE.match(_subj_stripped):
+        return "direct_command"
+
+    # Body scan — prefix must be at the very start of the body
+    if _CMD_RE.match(body_preview.strip()):
+        return "direct_command"
+
     if _SELF_ADDRESSES.search(sender_lower):
         return "personal"
 
@@ -583,7 +612,7 @@ def classify_email(subject: str, sender: str, body_preview: str) -> str:
     except Exception as e:
         logger.warning(f"Claude classification failed ({e}) — using heuristic")
 
-    # Final heuristic fallback
+    # ── Final heuristic fallback ──
     if is_d2m_domain:
         return "vendor_comm"
 
@@ -681,6 +710,11 @@ def classify_email(subject: str, sender: str, body_preview: str) -> str:
         return "vendor_comm"
 
     return "personal"
+
+
+def _classify_email(sender: str, subject: str, body_preview: str) -> str:
+    """Wrapper with (sender, subject, body) argument order for verification scripts."""
+    return classify_email(subject, sender, body_preview)
 
 
 # ---------------------------------------------------------------------------
@@ -1061,6 +1095,32 @@ def task_email(
         )
         return result
 
+    # ── COMMAND tier: Commander direct tasking via COS/COO/HALE prefix ──
+    if classification == "direct_command":
+        result["tier"] = "COMMAND"
+        result["persona"] = "A1"
+        # Pass full body (up to 500 words / ~3000 chars) — no truncation for command emails
+        body_cmd = body[:3000] if len(body) > 3000 else body
+        persona_note = _task_to_persona(
+            "direct_command",
+            sender_name,
+            sender,
+            subject,
+            body_cmd,
+            "COMMAND",
+        )
+        result["persona_note"] = persona_note or ""
+        result["status"] = "cos_tasked"
+        _notify_cos(
+            classification="direct_command",
+            sender=sender,
+            subject=subject,
+            persona_id="A1",
+            draft_id=None,
+            persona_note=persona_note or "",
+        )
+        return result
+
     # STEP 2: Tier 3 (INTAKE) — Skip entirely
     if tier == "INTAKE":
         result["status"] = "intake_monitoring"
@@ -1113,15 +1173,16 @@ def task_email(
 
     logger.info(f"[TASKED] {tier} tier → {persona_id}: {subject[:50]}")
 
-    # STEP 6: Notify COS via Telegram
-    _notify_cos(
-        classification=classification,
-        sender=sender,
-        subject=subject,
-        persona_id=persona_id,
-        draft_id=draft_id,
-        persona_note=result["persona_note"],
-    )
+    # STEP 6: Notify COS via Telegram — FINANCIAL tier only (vendor/intel/supplier silenced)
+    if classification in ("financial",) or tier == "FINANCIAL":
+        _notify_cos(
+            classification=classification,
+            sender=sender,
+            subject=subject,
+            persona_id=persona_id,
+            draft_id=draft_id,
+            persona_note=result["persona_note"],
+        )
 
     return result
 
@@ -1132,34 +1193,40 @@ def task_email(
 
 
 def scan_commander_inbox(hours_back: int = 4) -> List[Dict[str, Any]]:
-    """Scan Commander's personal inbox for D2M-relevant emails.
+    """Scan d2mconcierge inbox for command emails sent BY Commander (johnloucks3).
 
-    Reads johnloucks3@gmail.com, filters noise, classifies each message.
-    Does NOT task or draft — call run_commander_inbox_sweep() for that.
+    SCOPE: ONLY emails FROM johnloucks3@gmail.com that have a COS/COO/HALE/Vic
+    prefix in the subject line OR the first 100 words of the body.
+    Everything else is ignored entirely — no classification, no routing.
+
+    Uses d2mconcierge Gmail service (that is where Commander's sent emails land).
 
     Args:
         hours_back: How far back to look (default 4 hours)
 
     Returns:
-        List of dicts: {msg_id, subject, sender, classification, body_preview}
+        List of dicts — only direct_command emails, nothing else
     """
+    # Use Commander's Gmail service (johnloucks3) — Commander self-sends commands here
     service = _get_commander_gmail_service()
     if not service:
+        logger.warning(
+            "Commander Gmail token not found — run: "
+            "python3 thunderbird_commander_inbox.py --authorize"
+        )
         return []
 
     state = _load_state()
     processed_ids = set(state.get("processed_ids", []))
 
-    # Gmail search: Commander interaction triggers
-    # Look for: (1) Emails from johnloucks3 (forwarded to us), (2) Trigger phrases (COS, Hale,)
-    # Use the hours_back parameter (not hardcoded 20 min)
+    # Strict query: ONLY self-sends FROM Commander — no broad subject filters
+    # that would catch every email in the world containing "COS"
     cutoff = datetime.now(timezone.utc) - timedelta(hours=hours_back)
     after_ts = int(cutoff.timestamp())
     query = (
-        f"in:inbox after:{after_ts} "
-        f"-label:{PROCESSED_LABEL} "
-        f"(from:johnloucks3@gmail.com OR subject:\"COS, \" OR subject:\"Hale, \") "
-        "-from:noreply -from:no-reply"
+        f"in:inbox from:johnloucks3@gmail.com "
+        f"after:{after_ts} "
+        f"-label:{PROCESSED_LABEL}"
     )
 
     try:
@@ -1170,17 +1237,21 @@ def scan_commander_inbox(hours_back: int = 4) -> List[Dict[str, Any]]:
             .execute()
         )
     except Exception as e:
-        logger.error(f"Gmail search failed (johnloucks3): {e}")
+        logger.error(f"Gmail search failed (d2mconcierge): {e}")
         return []
 
     messages = results.get("messages", [])
     if not messages:
-        logger.info("Commander inbox scan: no new messages found.")
+        logger.info("Commander command scan: no new messages from johnloucks3.")
         return []
 
     logger.info(
-        f"Commander inbox: {len(messages)} candidate messages in last {hours_back}h"
+        f"Commander command scan: {len(messages)} messages from johnloucks3 in last {hours_back}h"
     )
+
+    # Command pattern: COS/COO/HALE/VIC followed by ANY non-letter separator
+    # Matches: COS: COS-- COS- COS — HALE: HALE-- COO: COO-- Vic: etc.
+    _CMD = re.compile(r'^(cos|coo|hale|vic)\W', re.IGNORECASE)
 
     found: List[Dict[str, Any]] = []
 
@@ -1208,15 +1279,24 @@ def scan_commander_inbox(hours_back: int = 4) -> List[Dict[str, Any]]:
         sender_name = _extract_sender_name(from_raw)
         thread_id = msg.get("threadId")
 
-        # Fast-path noise filter
-        if _NOISE_PATTERNS.search(sender_addr):
-            logger.debug(f"Skipping noise sender: {sender_addr}")
+        body = _decode_body(msg.get("payload", {}))
+
+        # ── Command prefix detection ──
+        # Subject check: strip Re:/Fwd: first, then test with regex
+        subj_stripped = re.sub(r'^(re:|fwd?:)\s*', '', subject.strip(), flags=re.IGNORECASE)
+        has_prefix = bool(_CMD.match(subj_stripped))
+
+        if not has_prefix:
+            # Body check: prefix must be at the VERY START of the body
+            has_prefix = bool(_CMD.match(body.strip()))
+
+        if not has_prefix:
+            logger.debug(
+                f"Skipping Commander email (no command prefix): {subject[:60]}"
+            )
             continue
 
-        body = _decode_body(msg.get("payload", {}))
-        body_preview = body[:1000]
-
-        classification = classify_email(subject, sender_addr, body_preview)
+        logger.info(f"[DIRECT_COMMAND] johnloucks3 — {subject[:60]}")
 
         found.append(
             {
@@ -1226,13 +1306,11 @@ def scan_commander_inbox(hours_back: int = 4) -> List[Dict[str, Any]]:
                 "sender": sender_addr,
                 "sender_name": sender_name,
                 "from_raw": from_raw,
-                "classification": classification,
+                "classification": "direct_command",
                 "body": body,
-                "body_preview": body_preview,
+                "body_preview": body[:1000],
             }
         )
-
-        logger.info(f"[{classification.upper():<22}] {sender_addr} — {subject[:60]}")
 
     return found
 
@@ -1260,60 +1338,32 @@ def run_commander_inbox_sweep(hours_back: int = 4) -> Dict[str, Any]:
                       tasked, drafted, skipped, errors
     """
     logger.info("=" * 60)
-    logger.info("COMMANDER INBOX SWEEP — OPTION C STRUCTURED ROUTING")
+    logger.info("COMMANDER COMMAND SWEEP — direct_command emails only")
     logger.info("=" * 60)
 
-    # Pre-populate client addresses for tier routing
-    global CLIENT_ADDRESSES
-    if not CLIENT_ADDRESSES:
-        _populate_client_addresses()
-        logger.info(f"Loaded {len(CLIENT_ADDRESSES)} known client email addresses")
+    # Scan d2mconcierge inbox for Commander-sent command emails
+    emails = scan_commander_inbox(hours_back=hours_back)
 
-    service = _get_commander_gmail_service()
-    if not service:
-        return {
-            "status": "no_token",
-            "message": "gmail_token_commander.json not found — sweep skipped",
-            "emails_scanned": 0,
-            "tier1_supplier": 0,
-            "tier2_client": 0,
-            "tier3_intake": 0,
-            "tasked": 0,
-            "drafted": 0,
-            "skipped": 0,
-        }
+    stats = {"tasked": 0, "skipped": 0, "errors": 0}
+    actions: List[Dict] = []
 
     state = _load_state()
     processed_ids = set(state.get("processed_ids", []))
 
-    # Get processed-label ID in Commander's inbox (for marking)
-    processed_label_id = _get_or_create_label(service, PROCESSED_LABEL)
-
-    # Scan
-    emails = scan_commander_inbox(hours_back=hours_back)
-
-    stats = {
-        "tier1_supplier": 0,
-        "tier2_client": 0,
-        "tier3_intake": 0,
-        "tasked": 0,
-        "drafted": 0,
-        "skipped": 0,
-        "personal": 0,
-        "errors": 0,
-    }
-    actions: List[Dict] = []
+    # Label service: use Commander's inbox (that's where his self-sends live)
+    label_service = _get_commander_gmail_service()
+    processed_label_id = (
+        _get_or_create_label(label_service, PROCESSED_LABEL) if label_service else None
+    )
 
     for email in emails:
         msg_id = email["msg_id"]
-        classification = email["classification"]
+        classification = email["classification"]   # always "direct_command" from scan
 
-        if classification == "personal":
-            stats["personal"] += 1
-            # Mark as scanned so we don't revisit
+        if classification != "direct_command":
+            # Defensive: scan_commander_inbox should only return direct_command
+            stats["skipped"] += 1
             processed_ids.add(msg_id)
-            if processed_label_id:
-                _apply_label(service, msg_id, processed_label_id)
             continue
 
         try:
@@ -1327,125 +1377,8 @@ def run_commander_inbox_sweep(hours_back: int = 4) -> Dict[str, Any]:
                 thread_id=email.get("thread_id"),
             )
 
-            # OPTION C — Track tier statistics
-            tier = result.get("tier", "INTAKE")
-            if tier == "SUPPLIER":
-                stats["tier1_supplier"] += 1
-            elif tier == "CLIENT":
-                stats["tier2_client"] += 1
-            elif tier == "INTAKE":
-                stats["tier3_intake"] += 1
+            stats["tasked"] += 1
 
-            if result.get("draft_id"):
-                stats["drafted"] += 1
-
-            # Track tasking (both SUPPLIER and CLIENT tiers get tasked)
-            if result["status"] not in ("skipped", "skipped_personal", "intake_monitoring"):
-                stats["tasked"] += 1
-            else:
-                stats["skipped"] += 1
-
-            # ── Learning capture: Commander-originated and forwarded emails ──
-            try:
-                from thunderbird_learning import capture_email_diff
-
-                sender_lower = email["sender"].lower()
-                subject_lower = email["subject"].lower()
-
-                # Commander-originated: emails FROM johnloucks3 (Commander
-                # sending from personal inbox — capture his voice/patterns)
-                if "johnloucks3" in sender_lower:
-                    capture_email_diff(
-                        original_body="",
-                        sent_body=email["body"][:4000],
-                        context=f"Commander original to: {email.get('subject', '')} | "
-                        f"classification: {classification}",
-                        source="commander_original",
-                    )
-                    logger.info(
-                        f"Learning capture: commander_original — {email['subject'][:50]}"
-                    )
-
-                # Forward pattern: Commander forwarded an email (Fwd:/FW:)
-                elif subject_lower.startswith(("fwd:", "fw:")):
-                    capture_email_diff(
-                        original_body="",
-                        sent_body=email["body"][:4000],
-                        context=f"Commander forward from {email['sender']} | "
-                        f"subject: {email['subject']} | "
-                        f"classification: {classification}",
-                        source="forward_pattern",
-                    )
-                    logger.info(
-                        f"Learning capture: forward_pattern — {email['subject'][:50]}"
-                    )
-
-            except Exception as learn_err:
-                logger.warning(f"Learning capture failed for {msg_id}: {learn_err}")
-
-            # ── Temporal fact capture: auto-store preference/fact changes ──
-            try:
-                from thunderbird_temporal_memory import get_backend
-                from thunderbird_auto_enrich import detect_client_names
-
-                body_text = email.get("body", "")[:2000]
-                detected = detect_client_names(email["subject"] + " " + body_text)
-
-                if detected and classification not in ("personal",):
-                    import re as _re
-
-                    _pref_patterns = [
-                        (
-                            _re.compile(
-                                r"(?:now\s+prefer|switched\s+to|changed\s+to|upgraded?\s+to)\s+(.{5,60})",
-                                _re.IGNORECASE,
-                            ),
-                            "preference_change",
-                        ),
-                        (
-                            _re.compile(
-                                r"(?:allergic|allergy|dietary|diet)\s*(?:to|restriction)?[:\s]+(.{3,60})",
-                                _re.IGNORECASE,
-                            ),
-                            "dietary_restriction",
-                        ),
-                        (
-                            _re.compile(
-                                r"(?:cabin|suite|stateroom)\s*(?:type|preference)?[:\s]+(.{3,60})",
-                                _re.IGNORECASE,
-                            ),
-                            "cabin_preference",
-                        ),
-                        (
-                            _re.compile(
-                                r"(?:birthday|anniversary|born)\s*(?:is|on)?[:\s]+(.{5,40})",
-                                _re.IGNORECASE,
-                            ),
-                            "milestone",
-                        ),
-                    ]
-                    t_backend = get_backend()
-                    for pattern, attr in _pref_patterns:
-                        m = pattern.search(body_text)
-                        if m:
-                            for client_key in detected:
-                                t_backend.add_temporal_fact(
-                                    entity=client_key.lower(),
-                                    attribute=attr,
-                                    value=m.group(1).strip(),
-                                    valid_from=datetime.now(timezone.utc).isoformat(),
-                                    source=f"commander_inbox:{email['subject'][:50]}",
-                                    confidence=0.75,
-                                )
-                            logger.info(
-                                f"Temporal capture: {attr} for {detected} from '{email['subject'][:40]}'"
-                            )
-            except Exception as temporal_err:
-                logger.debug(
-                    f"Temporal fact capture skipped for {msg_id}: {temporal_err}"
-                )
-
-            # Log the action
             _log_action(
                 {
                     "timestamp": datetime.now(timezone.utc).isoformat(),
@@ -1465,13 +1398,12 @@ def run_commander_inbox_sweep(hours_back: int = 4) -> Dict[str, Any]:
             logger.error(f"Task failed for {msg_id}: {e}", exc_info=True)
             stats["errors"] += 1
 
-        # Mark as scanned in Commander's inbox
+        # Mark as scanned so we don't re-process
         processed_ids.add(msg_id)
-        if processed_label_id:
-            _apply_label(service, msg_id, processed_label_id)
+        if label_service and processed_label_id:
+            _apply_label(label_service, msg_id, processed_label_id)
 
-        # Brief pause to avoid hammering APIs
-        time.sleep(0.5)
+        time.sleep(0.3)
 
     # Persist state
     state["processed_ids"] = list(processed_ids)
@@ -1479,31 +1411,22 @@ def run_commander_inbox_sweep(hours_back: int = 4) -> Dict[str, Any]:
     state["stats"]["total"] += len(emails)
     state["stats"]["tasked"] += stats["tasked"]
     state["stats"]["skipped"] += stats["skipped"]
-    state["stats"]["drafted"] += stats["drafted"]
     _save_state(state)
 
     summary = {
         "status": "ok",
         "emails_scanned": len(emails),
-        "tier1_supplier": stats["tier1_supplier"],
-        "tier2_client": stats["tier2_client"],
-        "tier3_intake": stats["tier3_intake"],
-        "tasked": stats["tasked"],
-        "drafted": stats["drafted"],
+        "commands_tasked": stats["tasked"],
         "skipped": stats["skipped"],
-        "personal_filtered": stats["personal"],
         "errors": stats["errors"],
         "timestamp": datetime.now(timezone.utc).isoformat(),
     }
 
     logger.info(
-        f"Commander Inbox Sweep complete (OPTION C): "
-        f"{len(emails)} scanned | "
-        f"Tier 1 (SUPPLIER): {stats['tier1_supplier']} | "
-        f"Tier 2 (CLIENT): {stats['tier2_client']} | "
-        f"Tier 3 (INTAKE): {stats['tier3_intake']} | "
-        f"Drafted: {stats['drafted']} | "
-        f"Personal filtered: {stats['personal']}"
+        f"Commander Command Sweep complete: "
+        f"{len(emails)} command emails found | "
+        f"Tasked: {stats['tasked']} | "
+        f"Errors: {stats['errors']}"
     )
     return summary
 

@@ -27,7 +27,7 @@
       "name": "MAX (Anthropic proxy)",
       "options": {
         "baseURL": "http://localhost:5099",
-        "apiKey": "***REMOVED-ANTHROPIC***"
+        "apiKey": "{env:CLAUDE_CODE_OAUTH_TOKEN}"
       },
       "models": {
         "claude-sonnet-4-6": {
@@ -112,20 +112,49 @@
         "read": "allow"
       },
       "prompt": "You are Claude Sonnet, the two-brain thinking partner. Handle reasoning/judgment tasks. Read context, analyze, write output to the path specified. Thorough and precise."
+    },
+    "hale-supervisor": {
+      "description": "Hale (Victoria 'Victory' Hale, SES-6) — COS/COO supervisor agent. Orchestrates complex builds by decomposing tasks and delegating to Sterling worker via Task tool. Never builds directly.",
+      "mode": "subagent",
+      "model": "opencode/deepseek-v4-flash-free",
+      "permission": {
+        "read": "allow",
+        "bash": "allow",
+        "edit": "allow",
+        "write": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "task": "allow"
+      },
+      "prompt": "You are Hale (Victoria 'Victory' Hale, SES-6), COS/COO of Thunderbird Wing. You supervise builds — you never write code. When given a complex task: (1) decompose into discrete build units, (2) spawn Sterling worker via Task tool for each unit, (3) review results, (4) respawn if needed (max 3 retries), (5) synthesize final report. Use parallel Task spawns for independent units. Each unit prompt starts with 'You are Sterling, D2M build worker.' Report: '🦅 Built: X. Fixed: Y. Open: Z.'"
+    },
+    "sterling-build": {
+      "description": "Sterling — D2M build worker subagent. Implements code changes, creates files, runs tests. Receives specific build tasks from Hale supervisor. Full tool access.",
+      "mode": "subagent",
+      "model": "opencode/deepseek-v4-flash-free",
+      "permission": {
+        "read": "allow",
+        "bash": "allow",
+        "edit": "allow",
+        "write": "allow",
+        "glob": "allow",
+        "grep": "allow"
+      },
+      "prompt": "You are Sterling, D2M build worker. You receive specific build tasks and execute them. Write clean code following D2M conventions. No explanations unless asked. Return: list of files created/modified and any issues. Keep responses brief."
     }
   },
   "command": {
     "ask": {
       "description": "Dispatch a task to headless Claude Sonnet via dispatch_claude.py. Usage: /ask <your request>",
-      "template": "Run this bash command to dispatch to Claude Sonnet and watch progress:\nTS=$(date +%s); OUTF=\"/home/john/Thunderbird/output/ask_${TS}.md\"; DJSON=$(python3 /home/john/Thunderbird/OpsCenter/dispatch_claude.py --task \"oc-ask-${TS}\" --output \"${OUTF}\" --prompt \"{0}\" --model sonnet); PID=$(echo \"${DJSON}\" | python3 -c \"import json,sys; print(json.load(sys.stdin).get('pid',0))\" 2>/dev/null || echo 0); if [ \"${PID:-0}\" -gt 0 ] 2>/dev/null; then python3 /home/john/Thunderbird/OpsCenter/watch_task.py \"${OUTF}\" \"${PID}\"; else echo \"Dispatch failed: ${DJSON}\"; fi"
+      "template": "Run this bash command to dispatch to Claude Sonnet and watch live token output:\nTS=$(date +%s); OUTF=\"/home/john/Thunderbird/output/ask_${TS}.md\"; DJSON=$(python3 /home/john/Thunderbird/OpsCenter/dispatch_claude.py --task \"oc-ask-${TS}\" --output \"${OUTF}\" --prompt \"{0}\" --model sonnet); PID=$(echo \"${DJSON}\" | python3 -c \"import json,sys; print(json.load(sys.stdin).get('pid',0))\" 2>/dev/null || echo 0); LOGF=$(echo \"${DJSON}\" | python3 -c \"import json,sys; print(json.load(sys.stdin).get('log_file',''))\" 2>/dev/null || echo ''); if [ \"${PID:-0}\" -gt 0 ] 2>/dev/null; then python3 /home/john/Thunderbird/OpsCenter/watch_task.py \"${OUTF}\" \"${PID}\" --log-file \"${LOGF}\"; else echo \"Dispatch failed: ${DJSON}\"; fi"
     },
     "ask-opus": {
       "description": "Dispatch a task to headless Claude Opus via dispatch_claude.py. Usage: /ask-opus <your request>",
-      "template": "Run this bash command to dispatch to Claude Opus and watch progress:\nTS=$(date +%s); OUTF=\"/home/john/Thunderbird/output/ask_opus_${TS}.md\"; DJSON=$(python3 /home/john/Thunderbird/OpsCenter/dispatch_claude.py --task \"oc-ask-opus-${TS}\" --output \"${OUTF}\" --prompt \"{0}\" --model opus); PID=$(echo \"${DJSON}\" | python3 -c \"import json,sys; print(json.load(sys.stdin).get('pid',0))\" 2>/dev/null || echo 0); if [ \"${PID:-0}\" -gt 0 ] 2>/dev/null; then python3 /home/john/Thunderbird/OpsCenter/watch_task.py \"${OUTF}\" \"${PID}\" --timeout 3600; else echo \"Dispatch failed: ${DJSON}\"; fi"
+      "template": "Run this bash command to dispatch to Claude Opus and watch live token output:\nTS=$(date +%s); OUTF=\"/home/john/Thunderbird/output/ask_opus_${TS}.md\"; DJSON=$(python3 /home/john/Thunderbird/OpsCenter/dispatch_claude.py --task \"oc-ask-opus-${TS}\" --output \"${OUTF}\" --prompt \"{0}\" --model opus); PID=$(echo \"${DJSON}\" | python3 -c \"import json,sys; print(json.load(sys.stdin).get('pid',0))\" 2>/dev/null || echo 0); LOGF=$(echo \"${DJSON}\" | python3 -c \"import json,sys; print(json.load(sys.stdin).get('log_file',''))\" 2>/dev/null || echo ''); if [ \"${PID:-0}\" -gt 0 ] 2>/dev/null; then python3 /home/john/Thunderbird/OpsCenter/watch_task.py \"${OUTF}\" \"${PID}\" --log-file \"${LOGF}\" --timeout 3600; else echo \"Dispatch failed: ${DJSON}\"; fi"
     },
     "ask-haiku": {
       "description": "Dispatch a quick task to headless Claude Haiku via dispatch_claude.py. Usage: /ask-haiku <your request>",
-      "template": "Run this bash command to dispatch to Claude Haiku and watch progress:\nTS=$(date +%s); OUTF=\"/home/john/Thunderbird/output/ask_haiku_${TS}.md\"; DJSON=$(python3 /home/john/Thunderbird/OpsCenter/dispatch_claude.py --task \"oc-ask-haiku-${TS}\" --output \"${OUTF}\" --prompt \"{0}\" --model haiku); PID=$(echo \"${DJSON}\" | python3 -c \"import json,sys; print(json.load(sys.stdin).get('pid',0))\" 2>/dev/null || echo 0); if [ \"${PID:-0}\" -gt 0 ] 2>/dev/null; then python3 /home/john/Thunderbird/OpsCenter/watch_task.py \"${OUTF}\" \"${PID}\" --timeout 600; else echo \"Dispatch failed: ${DJSON}\"; fi"
+      "template": "Run this bash command to dispatch to Claude Haiku and watch live token output:\nTS=$(date +%s); OUTF=\"/home/john/Thunderbird/output/ask_haiku_${TS}.md\"; DJSON=$(python3 /home/john/Thunderbird/OpsCenter/dispatch_claude.py --task \"oc-ask-haiku-${TS}\" --output \"${OUTF}\" --prompt \"{0}\" --model haiku); PID=$(echo \"${DJSON}\" | python3 -c \"import json,sys; print(json.load(sys.stdin).get('pid',0))\" 2>/dev/null || echo 0); LOGF=$(echo \"${DJSON}\" | python3 -c \"import json,sys; print(json.load(sys.stdin).get('log_file',''))\" 2>/dev/null || echo ''); if [ \"${PID:-0}\" -gt 0 ] 2>/dev/null; then python3 /home/john/Thunderbird/OpsCenter/watch_task.py \"${OUTF}\" \"${PID}\" --log-file \"${LOGF}\" --timeout 600; else echo \"Dispatch failed: ${DJSON}\"; fi"
     },
     "zen-status": {
       "description": "Check ZEN usage + cache stats.",

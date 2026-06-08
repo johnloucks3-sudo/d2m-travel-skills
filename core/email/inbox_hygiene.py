@@ -53,8 +53,11 @@ JOHNLOUCKS3_CLUTTER = [
     ("Duplicate daily briefs",      'subject:"THUNDERBIRD BRIEFING" older_than:1d'),
     ("Duplicate daily briefs",      'subject:"HALE — DAILY BRIEF" older_than:1d'),
     ("Duplicate daily briefs",      'subject:"THUNDERBIRD MORNING BRIEFING" older_than:1d'),
-    # Loop guard — own reply flood (belt + suspenders after scanner fix)
-    ("Own reply loop guard",        'from:d2mconcierge@gmail.com "Task completed by Ms. Victoria"'),
+    # REMOVED 2026-06-08 (Commander directive): "Own reply loop guard" rule was
+    # auto-trashing every legitimate "Task completed by Hale" reply. The original
+    # Padre loop is now blocked at the source in run_commander_directive_sweep.py
+    # (sweep no longer re-fires on its own receipts), so this rule is unnecessary
+    # and was causing the Wing's actual responses to disappear into trash.
 ]
 
 D2MCONCIERGE_CLUTTER = [

@@ -1,4 +1,18 @@
 #!/usr/bin/env python3
+# ============================================================
+# ⚠️  PROTECTED FILE — THUNDERBIRD WING STANDING ORDER
+# ============================================================
+# DO NOT MODIFY without explicit Commander authorization
+# via Claude Code (Hale) session.
+#
+# SPECIFICALLY: DeepSeek v4 / any OpenCode non-Claude model
+# MAY NOT edit this file autonomously. Any non-Claude AI
+# operating in OpenCode MUST relay a change request to
+# Claude Code and receive explicit "proceed" before touching
+# this file or any protected scanner/email file.
+#
+# Full SO: standing_orders/SO_EMAIL_SCANNER_PROTECT_20260608.md
+# ============================================================
 """
 D2M RELAY SEND — OC↔CC Bidirectional Communication
 OpsCenter/relay_send.py

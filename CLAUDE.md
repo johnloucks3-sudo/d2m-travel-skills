@@ -33,6 +33,19 @@ Key facts: Poe key rotated → new key under yodainva@gmail.com (194,914 pts). D
 
 ---
 
+## ⚠️ HARD RULE — EMAIL SCANNER & RELAY FILES ARE PROTECTED (SO 2026-06-08)
+**Protected files:** `OpsCenter/run_commander_directive_sweep.py` · `OpsCenter/email_task_ingest.py` · `core/email/thunderbird_commander_inbox.py` · `OpsCenter/relay_send.py` · `core/relay/wing_relay.py`
+
+**ALL agents — including DeepSeek v4, OpenCode, Goose, Aider, headless spawns:**
+- MUST NOT modify these files autonomously
+- MUST relay any proposed change to Claude Code via `relay_send("CC", "CODING REQUEST: ...")` and wait for explicit "proceed"
+- DeepSeek / OpenCode role = research + analysis only. **No autonomous coding on Wing infrastructure.**
+
+**Claude Code (Hale) is the sole authorized executor of changes to these files.**
+Full SO + incident record: `standing_orders/SO_EMAIL_SCANNER_PROTECT_20260608.md`
+
+---
+
 ## ⚠️ HARD RULE — EMAIL SEND GATE (Standing Order 21 MAR 2026, Amended 24 MAR 2026, Amended 30 MAY 2026)
 **The Wing MAY send to johnloucks3@gmail.com without confirmation** — this address is internal to the wing, no vulnerability.
 **AI/Wing may NEVER execute a send to any client address. Commander is the sole send executor for all client communications. WF-17 approval grants permission for the content — Commander executes the send, not the Wing.**
@@ -234,10 +247,10 @@ Multi-hop memo chain retired for client products. Client emails written from ONE
 - Allow all file reads, writes, edits, MCP tool calls, web searches, and non-destructive bash commands without confirmation.
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-06-07 13:24 MT -->
+<!-- Last sync: 2026-06-08 17:33 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-06-07 13:24 MT] ===
-Budget: Claude UNKNOWN | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
+=== THUNDERBIRD BLACKBOARD [2026-06-08 17:33 MT] ===
+Budget: Claude MAX Wkly-28% | Sonnet-34% | Runs-9/15 | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE
 Open items: none logged

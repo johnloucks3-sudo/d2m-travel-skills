@@ -1,4 +1,16 @@
 #!/usr/bin/env python3
+# ============================================================
+# ⚠️  PROTECTED FILE — THUNDERBIRD WING STANDING ORDER
+# ============================================================
+# DO NOT MODIFY this file without explicit authorization from
+# Commander (John Loucks / Yoda) via Claude Code session.
+#
+# This file controls Commander email command detection.
+# Unauthorized changes WILL break the COS tasking pipeline.
+#
+# Before ANY edit: read SO_EMAIL_SCANNER_PROTECT_20260608.md
+# and confirm with Hale (Claude Code) before proceeding.
+# ============================================================
 """
 EMAIL TASKING SYSTEM v2 — Secure email-to-task pipeline
 Fetches unread emails from Commander, validates sender, parses task directives, routes to personas.
@@ -116,7 +128,7 @@ def check_for_tasks():
     search_cmd = [
         "/home/john/Thunderbird/mcp_bridge.sh",
         "gmail_search_messages",
-        json.dumps({"query": "is:unread", "max_results": 20}),
+        json.dumps({"query": "from:johnloucks3@gmail.com -label:THUNDERBIRD-Scanned newer_than:1d", "max_results": 20}),
     ]
 
     try:
@@ -220,69 +232,47 @@ def _verify_sender(sender: str) -> bool:
     return False
 
 
+import re as _re
+# Command prefix regex — COS/COO/HALE/VIC followed by ANY non-letter separator
+# Must appear at START of subject (after Re:/Fwd:) or START of body.
+# Disables old TRIGGER_KEYWORDS broad-scan which fired on [COS] in wing-generated
+# email subjects and "WASHINGTON" in body text (caused Chaplain feedback loop).
+_CMD_PATTERN = _re.compile(r'^(cos|coo|hale|vic)\W', _re.IGNORECASE)
+
+def _strip_reply_prefix(s: str) -> str:
+    return _re.sub(r'^(re:|fwd?:|fw:)\s*', '', s.strip(), flags=_re.IGNORECASE)
+
 def _has_trigger(subject: str, body: str) -> bool:
-    """Check if subject or body contains trigger keyword."""
-    combined = f"{subject} {body}".upper()
-    for trigger in TRIGGER_KEYWORDS:
-        if trigger.upper() in combined:
-            return True
+    """Command prefix must appear at START of subject or START of body.
+    Checks subject first (after stripping Re:/Fwd:), then body first line.
+    Does NOT scan mid-subject or mid-body — prevents false positives from
+    [COS] wing labels in subject or 'Washington' references in body text.
+    """
+    if _CMD_PATTERN.match(_strip_reply_prefix(subject)):
+        return True
+    if _CMD_PATTERN.match(body.strip()):
+        return True
     return False
 
 
 def _extract_persona(subject: str, body: str) -> str:
-    """Extract persona tag from [PERSONA] or infer from content."""
-    combined = f"{subject} {body}".upper()
+    """Extract persona from explicit [TAG] in subject or body prefix keyword.
+    Only checks the first 200 chars of subject+body to avoid false matches
+    in quoted reply text.
+    """
+    combined = f"{subject} {body[:200]}".upper()
 
-    # Check for explicit tags like [COS], [A3], etc.
+    # Explicit bracketed tags only — no keyword inference from body content
     for tag in VALID_PERSONAS.keys():
         if f"[{tag}]" in combined:
             return VALID_PERSONAS[tag]
 
-    # Infer from content keywords
-    if "client" in combined or "booking" in combined or "dani" in combined:
-        return VALID_PERSONAS.get("A3", "dani")
-    if "research" in combined or "intel" in combined or "a2" in combined:
-        return VALID_PERSONAS.get("A2", "dembe")
-    if "strategy" in combined or "business" in combined or "a5" in combined:
-        return VALID_PERSONAS.get("A5", "castillo")
-    if "finance" in combined or "commission" in combined or "a9" in combined:
-        return VALID_PERSONAS.get("A9", "harlan")
-    if "write" in combined or "draft" in combined or "a7" in combined:
-        return VALID_PERSONAS.get("A7", "sterling")
-
-    # Default to COS
+    # Default to COS/Hale — Commander addressed us, Hale handles it
     return VALID_PERSONAS.get("COS", "hale")
 
 
 def route_task(persona: str, subject: str, body: str, msg_id: str, sender: str):
-    """Create task JSON and add to queue."""
-
-    # ── Hale Dispatcher early-exit ──
-    # If the inbound email warrants Sonnet/Opus tier handling, route through
-    # the Hale dispatcher (substrate-aware: MAX OAuth → Sonnet/Opus, fallback
-    # Haiku) and skip the legacy queue.  Falls through on any error so the
-    # legacy persona queue still receives the task.
-    if _HALE_DISPATCHER_AVAILABLE:
-        try:
-            if is_hale_tier_email(subject, body):
-                result = handle_email_task(subject=subject, body=body, sender=sender)
-                logging.info(
-                    "[EMAIL INGEST] Hale dispatcher handled %s: substrate=%s savings=$%.4f",
-                    msg_id[:8],
-                    result.get("substrate_used", "?"),
-                    result.get("telemetry", {}).get("savings_usd", 0),
-                )
-                send_receipt(persona, subject)
-                ok = mark_read(msg_id)
-                if not ok:
-                    logging.warning(
-                        f"[EMAIL INGEST] mark_read FAILED post-Hale for {msg_id} (in-session dedup blocks reprocess)."
-                    )
-                return  # task handled — skip legacy persona queue
-        except Exception as e:
-            logging.warning(
-                f"[EMAIL INGEST] Hale dispatcher error for {msg_id} — falling through to legacy queue: {e}"
-            )
+    """Create task, write to opencode_inbox.md, then handle via Hale dispatcher if applicable."""
 
     task_json = {
         "task_id": f"EMAIL-TASK-{msg_id[:8]}",
@@ -297,13 +287,18 @@ def route_task(persona: str, subject: str, body: str, msg_id: str, sender: str):
         "priority": "HIGH" if "🔴" in subject or "RED" in subject.upper() else "NORMAL",
     }
 
+    # Write to opencode_inbox.md FIRST — always. This is the primary C2 channel
+    # that the thunderbird_tasking_watcher monitors. [COS]/[COO] emails MUST
+    # reach the watcher regardless of Hale dispatcher routing.
+    _write_to_opencode_inbox(task_json)
+
+    # Write to JSON task queue (legacy — task_processor.py consumer)
     queue_path = "/home/john/Thunderbird/OpsCenter/01_TASK_QUEUE.json"
     try:
         with open(queue_path, "r") as f:
             queue = json.load(f)
     except Exception:
         queue = []
-
     queue.append(task_json)
     try:
         with open(queue_path, "w") as f:
@@ -311,7 +306,25 @@ def route_task(persona: str, subject: str, body: str, msg_id: str, sender: str):
         logging.info(f"[EMAIL INGEST] Task queued: {task_json['task_id']}")
     except Exception as e:
         logging.error(f"[EMAIL INGEST] Failed to queue task: {e}")
-        return
+
+    # ── Hale Dispatcher (fast-path for high-tier tasks) ──
+    # Runs alongside the watcher path — does NOT early-return. The watcher
+    # sees the task in opencode_inbox.md and spawns OpenCode; the Hale
+    # dispatcher handles it immediately via Sonnet/Opus as a speed bonus.
+    if _HALE_DISPATCHER_AVAILABLE:
+        try:
+            if is_hale_tier_email(subject, body):
+                result = handle_email_task(subject=subject, body=body, sender=sender)
+                logging.info(
+                    "[EMAIL INGEST] Hale dispatcher handled %s: substrate=%s savings=$%.4f",
+                    msg_id[:8],
+                    result.get("substrate_used", "?"),
+                    result.get("telemetry", {}).get("savings_usd", 0),
+                )
+        except Exception as e:
+            logging.warning(
+                f"[EMAIL INGEST] Hale dispatcher error for {msg_id} — task already in opencode_inbox.md for watcher: {e}"
+            )
 
     send_receipt(persona, subject)
     success = mark_read(msg_id)
@@ -319,6 +332,40 @@ def route_task(persona: str, subject: str, body: str, msg_id: str, sender: str):
         logging.warning(
             f"[EMAIL INGEST] ⚠️  mark_read FAILED for {msg_id} — in-session dedup will block re-processing."
         )
+
+
+def _write_to_opencode_inbox(task: dict):
+    """Append task to opencode_inbox.md in watcher-compatible format."""
+    inbox = Path("/home/john/Thunderbird/OpsCenter/collaboration/opencode_inbox.md")
+
+    priority_map = {"HIGH": "P0", "NORMAL": "P1", "LOW": "P2"}
+    prio = priority_map.get(task.get("priority", "NORMAL"), "P1")
+
+    persona_label = task.get("assigned_to", "hale").upper()
+
+    entry = (
+        f"---\n"
+        f"## TASK: {task['task_id']}\n"
+        f"status: PENDING\n"
+        f"from: Commander via Email\n"
+        f"to: HALE-OC\n"
+        f"priority: {prio}\n"
+        f"persona: {persona_label}\n"
+        f"updated: {datetime.now().strftime('%Y-%m-%d')}\n"
+        f"\n"
+        f"task: |\n"
+        f"  {task.get('subject', 'No subject')}\n"
+        f"  {task.get('body', 'No body')}\n"
+        f"\n"
+    )
+
+    try:
+        inbox.parent.mkdir(parents=True, exist_ok=True)
+        with open(inbox, "a") as f:
+            f.write(entry)
+        logging.info(f"[EMAIL INGEST] Task written to opencode_inbox.md: {task['task_id']}")
+    except Exception as e:
+        logging.error(f"[EMAIL INGEST] Failed to write to opencode_inbox.md: {e}")
 
 
 def send_receipt(persona: str, subject: str):

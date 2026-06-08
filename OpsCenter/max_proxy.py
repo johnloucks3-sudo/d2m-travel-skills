@@ -16,7 +16,7 @@ from pathlib import Path
 PORT      = 5099
 TIMEOUT   = 300
 PROXY_LOG = Path("/home/john/Thunderbird/logs/max_proxy_requests.jsonl")
-CWD       = '/home/john/Thunderbird'
+CWD       = '/tmp'
 CLAUDE_MODEL = 'claude-sonnet-4-6'
 
 MODEL_MAP = {
@@ -88,15 +88,47 @@ def _log(model, cli_model, prompt, response):
 
 # ── blocking call (non-streaming requests) ───────────────────────────────────
 
+RATE_LIMIT_SIGNALS = (
+    "There's an issue with the selected model",
+    "rate_limit", "rate limit", "overloaded",
+    "lost contact", "connection", "timed out",
+)
+HAIKU_FALLBACK = 'claude-haiku-4-5-20251001'
+
+
+def _is_rate_limited(text: str) -> bool:
+    tl = text.lower()
+    return any(s.lower() in tl for s in RATE_LIMIT_SIGNALS)
+
+
 def _call_max(prompt: str, model: str) -> str:
     cli_model = MODEL_MAP.get(model, CLAUDE_MODEL)
+    # Use -p - (stdin) to avoid OSError: Argument list too long on large prompts
     r = subprocess.run(
-        ['claude', '--model', cli_model, '-p', prompt,
-         '--dangerously-skip-permissions'],
-        capture_output=True, text=True, timeout=TIMEOUT,
+        ['claude', '--model', cli_model, '-p', '-',
+         '--output-format', 'text', '--dangerously-skip-permissions'],
+        input=prompt, capture_output=True, text=True, timeout=TIMEOUT,
         env=_clean_env(), cwd=CWD,
     )
-    text = r.stdout.strip() or r.stderr.strip() or '[max_proxy: no response]'
+    text = r.stdout.strip() or r.stderr.strip() or ''
+    if not text:
+        text = f'[max_proxy FALLBACK — claude -p rc={r.returncode}; no output]'
+
+    # ── Rate-limit / wrong-model fallback to Haiku ──
+    # The claude CLI surfaces 429 rate-limits as "There's an issue with the
+    # selected model" — misleading. Detect and retry on Haiku automatically.
+    if _is_rate_limited(text) and cli_model != HAIKU_FALLBACK:
+        r2 = subprocess.run(
+            ['claude', '--model', HAIKU_FALLBACK, '-p', '-',
+             '--output-format', 'text', '--dangerously-skip-permissions'],
+            input=prompt, capture_output=True, text=True, timeout=TIMEOUT,
+            env=_clean_env(), cwd=CWD,
+        )
+        fallback_text = r2.stdout.strip() or r2.stderr.strip() or ''
+        if fallback_text and not _is_rate_limited(fallback_text):
+            text = f'[⚡ Haiku fallback — {cli_model} rate-limited]\n\n{fallback_text}'
+        # else return original error so caller knows both failed
+
     _log(model, cli_model, prompt, text)
     return text
 
@@ -115,13 +147,17 @@ def _stream_max(prompt: str, model: str, on_chunk, on_flush) -> str:
     Returns full accumulated response text.
     """
     cli_model = MODEL_MAP.get(model, CLAUDE_MODEL)
+    # Use -p - (stdin) to avoid OSError: Argument list too long on large prompts
     proc = subprocess.Popen(
-        ['claude', '--model', cli_model, '-p', prompt,
+        ['claude', '--model', cli_model, '-p', '-',
          '--output-format', 'stream-json', '--dangerously-skip-permissions'],
-        stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-        text=True, bufsize=1,          # line-buffered — flush per JSON event
+        stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+        text=True, bufsize=1,
         env=_clean_env(), cwd=CWD,
     )
+    # Write prompt via stdin then close to signal EOF
+    proc.stdin.write(prompt)
+    proc.stdin.close()
 
     parts = []
     try:
@@ -169,6 +205,15 @@ def _stream_max(prompt: str, model: str, on_chunk, on_flush) -> str:
             proc.kill()
 
     full_text = ''.join(parts).strip() or '[max_proxy: no response]'
+
+    # ── Rate-limit fallback (streaming path) ──
+    if _is_rate_limited(full_text) and cli_model != HAIKU_FALLBACK:
+        fallback_text = _call_max(prompt, HAIKU_FALLBACK)
+        if fallback_text and not _is_rate_limited(fallback_text):
+            full_text = f'[⚡ Haiku fallback — {cli_model} rate-limited]\n\n{fallback_text}'
+            on_chunk(full_text)
+            on_flush()
+
     _log(model, cli_model, prompt, full_text)
     return full_text
 

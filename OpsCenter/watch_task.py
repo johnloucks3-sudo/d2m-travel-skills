@@ -1,51 +1,25 @@
 #!/usr/bin/env python3
 """
-watch_task.py — 2-stage progress watcher for headless Claude dispatch tasks.
+watch_task.py — Live token-streaming watcher for headless Claude dispatch tasks.
 
-Stage 1 (0–120s): polls every 5s with live spinner + stage label
-Stage 2 (120s+):  2-minute recurring heartbeat lines
+Watches both the output file (done signal) AND the log file (live stream-json tokens).
+Prints each token as Claude generates it — no more "screen with no movement."
 
 Usage:
   python3 OpsCenter/watch_task.py <output_file> <pid>
+  python3 OpsCenter/watch_task.py <output_file> <pid> --log-file /path/to/log
   python3 OpsCenter/watch_task.py <output_file> <pid> --timeout 3600
 """
 
+import json
 import os
 import sys
 import time
 from pathlib import Path
 
-STAGE1_POLL = 5
-STAGE1_WINDOW = 150   # 150s of fast polling covers most Claude tasks
-STAGE2_POLL = 120
+POLL_INTERVAL   = 0.3     # How fast to poll log file for new tokens (300ms)
+HEARTBEAT_EVERY = 15      # Print a heartbeat line if no tokens for this many seconds
 DEFAULT_TIMEOUT = 1800
-
-_SPINNER = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
-
-_STAGES = [
-    (0,   "Initializing"),
-    (10,  "Loading context"),
-    (25,  "Analyzing request"),
-    (50,  "Generating response"),
-    (90,  "Writing output"),
-    (150, "Extended task running"),
-    (300, "Long-running — still active"),
-]
-
-
-def _stage_name(elapsed: float) -> str:
-    name = _STAGES[0][1]
-    for threshold, label in _STAGES:
-        if elapsed >= threshold:
-            name = label
-    return name
-
-
-def _fmt_time(secs: float) -> str:
-    if secs < 60:
-        return f"{int(secs)}s"
-    m, s = divmod(int(secs), 60)
-    return f"{m}m{s:02d}s"
 
 
 def _pid_alive(pid: int) -> bool:
@@ -56,78 +30,147 @@ def _pid_alive(pid: int) -> bool:
         return False
 
 
-def watch(output_file: str, pid: int, timeout: int) -> int:
-    out = Path(output_file)
+def _fmt_time(secs: float) -> str:
+    if secs < 60:
+        return f"{int(secs)}s"
+    m, s = divmod(int(secs), 60)
+    return f"{m}m{s:02d}s"
+
+
+def _extract_token(line: str) -> str:
+    """Extract text delta from a stream-json line. Returns '' if not a text token."""
+    try:
+        evt = json.loads(line)
+        etype = evt.get("type", "")
+        # Per-token delta
+        if etype == "content_block_delta":
+            delta = evt.get("delta", {})
+            if delta.get("type") == "text_delta":
+                return delta.get("text", "")
+        # Complete assistant turn (fallback)
+        if etype == "assistant":
+            parts = []
+            for block in evt.get("message", {}).get("content", []):
+                if block.get("type") == "text":
+                    parts.append(block.get("text", ""))
+            return "".join(parts)
+    except (json.JSONDecodeError, KeyError):
+        pass
+    return ""
+
+
+def watch(output_file: str, pid: int, log_file: str | None, timeout: int) -> int:
+    out   = Path(output_file)
+    log   = Path(log_file) if log_file else None
     start = time.monotonic()
-    spin_i = 0
-    stage = 1
 
-    print(f"Task dispatched — PID {pid}")
-    print(f"Output  → {output_file}")
-    print()
+    print(f"🤖  Claude dispatched — PID {pid}")
+    print(f"    Output → {output_file}")
+    if log:
+        print(f"    Log    → {log_file}")
+    print(f"{'─' * 60}")
+    sys.stdout.flush()
 
-    interval = STAGE1_POLL
+    log_pos          = 0
+    last_token_time  = time.monotonic()
+    chars_on_line    = 0
+    printed_any      = False
+    heartbeat_count  = 0
+
     while True:
         elapsed = time.monotonic() - start
 
-        # Done check
+        # ── Live token drain from log file ──────────────────────────
+        if log and log.exists():
+            try:
+                with open(log, "r", errors="replace") as fh:
+                    fh.seek(log_pos)
+                    new_data = fh.read()
+                    log_pos  = fh.tell()
+
+                if new_data:
+                    for raw_line in new_data.splitlines():
+                        tok = _extract_token(raw_line)
+                        if tok:
+                            sys.stdout.write(tok)
+                            sys.stdout.flush()
+                            chars_on_line   += len(tok)
+                            last_token_time  = time.monotonic()
+                            printed_any      = True
+                            heartbeat_count  = 0
+            except OSError:
+                pass
+
+        # ── Done check ──────────────────────────────────────────────
         if out.exists() and out.stat().st_size > 0:
-            if stage == 1:
-                print(f"\r✅  Done in {_fmt_time(elapsed)}{' ' * 40}")
-            else:
-                print(f"✅  Done in {_fmt_time(elapsed)}")
-            print()
-            print(out.read_text())
+            if printed_any:
+                print()  # newline after streaming tokens
+            print(f"\n✅  Done in {_fmt_time(elapsed)}")
+            print(f"{'─' * 60}")
+            # Only print output if no tokens were streamed (avoid double-printing)
+            if not printed_any:
+                print(out.read_text())
             return 0
 
-        # Timeout
+        # ── Timeout ─────────────────────────────────────────────────
         if elapsed >= timeout:
-            if stage == 1:
-                print(f"\r⏱  Timeout after {_fmt_time(elapsed)}{' ' * 30}")
-            else:
-                print(f"⏱  Timeout after {_fmt_time(elapsed)}")
-            print(f"Check: cat {output_file}")
+            if printed_any:
+                print()
+            print(f"\n⏱  Timeout after {_fmt_time(elapsed)}")
+            print(f"    Check: cat {output_file}")
             return 1
 
-        # Stage 1 → Stage 2 transition — immediate re-check before first long sleep
-        if stage == 1 and elapsed >= STAGE1_WINDOW:
-            stage = 2
-            interval = STAGE2_POLL
-            print(f"\r⏳  {_fmt_time(elapsed)} — switching to 2-min checks{' ' * 20}")
-            print(f"    Output: {output_file}")
-            print()
-            continue  # loop back to done-check immediately before first 120s sleep
+        # ── Heartbeat when no tokens for a while ────────────────────
+        silent_for = time.monotonic() - last_token_time
+        if silent_for >= HEARTBEAT_EVERY:
+            heartbeat_count += 1
+            # Newline first so heartbeat doesn't interrupt a partial token line
+            if chars_on_line > 0:
+                print()
+                chars_on_line = 0
+            bar_filled = min(20, int((elapsed / 60) * 20))  # fills over ~1 min
+            bar = "█" * bar_filled + "░" * (20 - bar_filled)
+            print(f"  ⏳ [{bar}] {_fmt_time(elapsed)} — working (PID {pid} alive={_pid_alive(pid)})")
+            sys.stdout.flush()
+            last_token_time = time.monotonic()  # reset so we don't flood
 
-        # Stage 2: print a heartbeat line and sleep
-        if stage == 2:
-            next_in = _fmt_time(interval)
-            remaining = _fmt_time(timeout - elapsed)
-            print(f"  [{_fmt_time(elapsed)}] Running — next check in {next_in}  ({remaining} until timeout)")
-            time.sleep(interval)
-            continue
-
-        # Stage 1: spinner on a single overwritten line
-        spin = _SPINNER[spin_i % len(_SPINNER)]
-        spin_i += 1
-        label = _stage_name(elapsed)
-        print(f"\r  {spin} {_fmt_time(elapsed)} — {label} ...", end="", flush=True)
-        time.sleep(interval)
+        time.sleep(POLL_INTERVAL)
 
 
 def main() -> None:
-    args = sys.argv[1:]
+    args     = sys.argv[1:]
     if len(args) < 2:
-        sys.exit(f"Usage: {sys.argv[0]} <output_file> <pid> [--timeout SECS]")
+        sys.exit(f"Usage: {sys.argv[0]} <output_file> <pid> [--log-file PATH] [--timeout SECS]")
 
     output_file = args[0]
-    pid = int(args[1])
-    timeout = DEFAULT_TIMEOUT
+    pid         = int(args[1])
+    log_file    = None
+    timeout     = DEFAULT_TIMEOUT
 
-    for i, a in enumerate(args):
-        if a == "--timeout" and i + 1 < len(args):
+    i = 2
+    while i < len(args):
+        if args[i] == "--timeout" and i + 1 < len(args):
             timeout = int(args[i + 1])
+            i += 2
+        elif args[i] == "--log-file" and i + 1 < len(args):
+            log_file = args[i + 1]
+            i += 2
+        else:
+            i += 1
 
-    sys.exit(watch(output_file, pid, timeout))
+    # Auto-detect log file if not provided: look for matching .log next to output
+    if not log_file:
+        out_path = Path(output_file)
+        candidates = [
+            out_path.with_suffix(".log"),
+            out_path.parent / (out_path.stem + ".log"),
+        ]
+        for c in candidates:
+            if c.exists():
+                log_file = str(c)
+                break
+
+    sys.exit(watch(output_file, pid, log_file, timeout))
 
 
 if __name__ == "__main__":

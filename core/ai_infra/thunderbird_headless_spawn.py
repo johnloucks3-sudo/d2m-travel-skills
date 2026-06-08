@@ -321,7 +321,7 @@ def _spawn_background(prompt, output_path, log_file, model, task_name, env, usag
     # The watcher service confirmed this pattern works (2026-05-17).
     claude_bin = "/home/john/.local/bin/claude"
     try:
-        cmd = [claude_bin, "-p", prompt, "--model", model, "--output-format", "text", "--mcp-config", mcp_config] + extra_args
+        cmd = [claude_bin, "-p", prompt, "--model", model, "--output-format", "stream-json", "--mcp-config", mcp_config] + extra_args
         proc = subprocess.Popen(
             cmd,
             stdout=open(log_file, "w"),
