@@ -234,9 +234,10 @@ class DossierRecord:
     return_date:    Optional[date] = None
     fpd:            Optional[date] = None
     fpd_amount:     Optional[float] = None
-    booking_date:   Optional[date] = None   # Derived from file mtime if absent
+    booking_date:   Optional[date] = None   # None if absent — missing booking_date → BLOCKED
     status:         str = "active"
     parse_error:    Optional[str] = None
+    completed_tps:  set = field(default_factory=set)  # TP IDs confirmed done in dossier frontmatter
 
     @property
     def is_schedulable(self) -> bool:
@@ -281,9 +282,9 @@ def load_dossier(path: Path) -> DossierRecord:
         raw_amt = fm.get("fpd_amount")
         rec.fpd_amount  = float(raw_amt) if raw_amt else None
         rec.booking_date = _parse_date(fm.get("booking_date"))
-        # Fallback: booking_date from file mtime (rough approximation)
-        if rec.booking_date is None:
-            rec.booking_date = date.fromtimestamp(path.stat().st_mtime)
+        # No mtime fallback — missing booking_date → BLOCKED (prevents spurious overdue alerts)
+        completed_raw = fm.get("completed_tps", []) or []
+        rec.completed_tps = set(str(t) for t in completed_raw)
     except Exception as exc:
         rec.parse_error = str(exc)
     return rec
@@ -348,7 +349,7 @@ def _compute_ref_date(tp: TPDef, rec: DossierRecord) -> Optional[date]:
     elif tp.trigger_ref == DateRef.FPD:
         return rec.fpd
     elif tp.trigger_ref == DateRef.POST_DEP:
-        return rec.departure
+        return rec.return_date  # departure fires mid-voyage; return_date is correct anchor
     return None
 
 
@@ -363,6 +364,12 @@ def generate_schedule(rec: DossierRecord, today: Optional[date] = None) -> list[
     for tp in CANONICAL_TPS:
         ref = _compute_ref_date(tp, rec)
         stp = ScheduledTP(client=rec.client, tp_def=tp, trigger_date=None, deadline=None)
+
+        # Completion check — TP marked done in dossier frontmatter, skip window eval
+        if tp.tp_id in rec.completed_tps:
+            stp.status = TPStatus.COMPLETE
+            scheduled.append(stp)
+            continue
 
         if ref is None:
             # Blocked — required reference date not in dossier

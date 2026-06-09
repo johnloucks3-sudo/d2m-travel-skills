@@ -28,6 +28,10 @@ BLACKBOARD_DIR = Path("/home/john/Thunderbird/Blackboard/clients")
 AUDIT_LOG = Path("/home/john/Thunderbird/OpsCenter/logs/lifecycle_audit.jsonl")
 TEMPLATES_DIR = Path("/home/john/Thunderbird/core/lifecycle/templates")
 THUNDERBIRD_ROOT = Path("/home/john/Thunderbird")
+SENT_LEDGER_PATH = Path("/home/john/Thunderbird/Blackboard/lifecycle_sent_ledger.json")
+
+# Catch-up window: phases overdue by more than this many days go to stale (not auto-drafted)
+DEFAULT_LOOKBACK_DAYS = 14
 
 # ── Logging ───────────────────────────────────────────────────────────────────
 logging.basicConfig(
@@ -352,43 +356,121 @@ def audit_log(entry: dict) -> None:
         f.write(json.dumps({**entry, "timestamp": datetime.utcnow().isoformat() + "Z"}) + "\n")
 
 
+# ── Sent-Phase Ledger (sidecar — avoids mutating Blackboard YAML) ─────────────
+
+def load_sent_ledger() -> dict:
+    """Load the persisted sent-phase ledger. Returns empty dict if absent/corrupt."""
+    if SENT_LEDGER_PATH.exists():
+        try:
+            return json.loads(SENT_LEDGER_PATH.read_text())
+        except Exception as e:
+            log.warning(f"Sent ledger read error (treating as empty): {e}")
+    return {}
+
+
+def record_sent(ledger: dict, client_id: str, phase_id: str, draft_id: str, sent_date: date) -> None:
+    """Record a sent phase in the in-memory ledger and persist to disk."""
+    if client_id not in ledger:
+        ledger[client_id] = {}
+    ledger[client_id][phase_id] = {
+        "sent_date": str(sent_date),
+        "draft_id": draft_id or "",
+    }
+    try:
+        SENT_LEDGER_PATH.parent.mkdir(parents=True, exist_ok=True)
+        SENT_LEDGER_PATH.write_text(json.dumps(ledger, indent=2))
+    except Exception as e:
+        log.error(f"Failed to persist sent ledger: {e}")
+
+
 # ── Phase Due-Date Calculation ────────────────────────────────────────────────
 
-def calculate_due_phases(lifecycle: dict, check_date: date) -> list:
-    """Return phases whose due_date is today (check_date)."""
-    due = []
+def calculate_due_phases(
+    lifecycle: dict,
+    check_date: date,
+    lookback_days: int = DEFAULT_LOOKBACK_DAYS,
+    client_sent: Optional[dict] = None,
+) -> tuple:
+    """
+    Return (due_phases, stale_phases).
+
+    due_phases   — scheduled phases with due_date in [check_date - lookback_days, check_date]
+                   that are not already in client_sent or marked status!=scheduled.
+    stale_phases — scheduled phases older than the lookback window (need human review,
+                   do not auto-draft; surface via dead-man's-switch alert).
+    """
+    if client_sent is None:
+        client_sent = {}
+
+    lookback_start = check_date - timedelta(days=lookback_days)
+    due: list = []
+    stale: list = []
+
     for phase in lifecycle.get("phases", []):
         due_str = phase.get("due_date")
-        if not due_str or due_str in ("NEEDED", "TBD", "null", None):
+        if not due_str or str(due_str) in ("NEEDED", "TBD", "null", "None", ""):
             continue
         try:
             phase_date = date.fromisoformat(str(due_str))
-            if phase_date == check_date:
-                status = phase.get("status", "")
-                if status == "scheduled":
-                    due.append(phase)
-        except ValueError:
+        except (ValueError, TypeError):
             continue
-    return due
+
+        # Only fire on 'scheduled' phases — sent/obe/etc. are already handled
+        if phase.get("status", "") != "scheduled":
+            continue
+
+        # Already fired this session (sidecar ledger idempotency)
+        phase_id = phase.get("phase_id", "")
+        if phase_id and phase_id in client_sent:
+            continue
+
+        if phase_date > check_date:
+            # Future — not yet due
+            continue
+        elif phase_date >= lookback_start:
+            # Within the catch-up window → actionable
+            due.append(phase)
+        else:
+            # Older than lookback window → stale (surface for human review)
+            stale.append(phase)
+
+    return due, stale
 
 
 # ── Main Scheduler ────────────────────────────────────────────────────────────
 
-def run_scheduler(check_date: date, dry_run: bool = False, client_filter: Optional[str] = None) -> dict:
+def run_scheduler(
+    check_date: date,
+    dry_run: bool = False,
+    client_filter: Optional[str] = None,
+    lookback_days: int = DEFAULT_LOOKBACK_DAYS,
+) -> dict:
     """Main scheduler loop. Returns summary dict."""
-    log.info(f"Lifecycle scheduler starting — date={check_date} dry_run={dry_run}")
-    results = {"date": str(check_date), "processed": 0, "drafts_created": 0, "errors": [], "skipped": 0}
+    log.info(f"Lifecycle scheduler starting — date={check_date} dry_run={dry_run} lookback={lookback_days}d")
+    results = {
+        "date": str(check_date),
+        "processed": 0,
+        "drafts_created": 0,
+        "phases_due": 0,
+        "phases_stale": 0,
+        "errors": [],
+        "skipped": 0,
+    }
 
     if not BLACKBOARD_DIR.exists():
         log.error(f"Blackboard directory not found: {BLACKBOARD_DIR}")
         results["errors"].append("Blackboard directory missing")
         return results
 
+    # Load sidecar ledger once — tracks sent phases across runs (avoids YAML mutation)
+    sent_ledger = load_sent_ledger()
+
     client_files = sorted(BLACKBOARD_DIR.glob("*.yaml"))
     if client_filter:
         client_files = [f for f in client_files if client_filter in f.stem]
 
     draft_notifications = []
+    stale_items = []  # For dead-man's-switch alert
 
     for client_file in client_files:
         try:
@@ -407,10 +489,30 @@ def run_scheduler(check_date: date, dry_run: bool = False, client_filter: Option
 
             results["processed"] += 1
             lifecycle = client.get("lifecycle", {})
-            due_phases = calculate_due_phases(lifecycle, check_date)
+            client_sent = sent_ledger.get(client_id, {})
+            due_phases, these_stale = calculate_due_phases(
+                lifecycle, check_date, lookback_days=lookback_days, client_sent=client_sent
+            )
+
+            results["phases_due"] += len(due_phases)
+            results["phases_stale"] += len(these_stale)
+
+            for sp in these_stale:
+                stale_items.append({
+                    "client_id": client_id,
+                    "phase_id": sp.get("phase_id"),
+                    "due_date": str(sp.get("due_date")),
+                })
+                audit_log({
+                    "event": "phase_stale",
+                    "client_id": client_id,
+                    "phase_id": sp.get("phase_id"),
+                    "due_date": str(sp.get("due_date")),
+                    "note": f"Older than {lookback_days}d lookback — needs data review",
+                })
 
             if not due_phases:
-                log.info(f"{client_id} — no phases due today")
+                log.info(f"{client_id} — no phases due in window")
                 continue
 
             # Find primary contact email + primary cruise booking
@@ -427,7 +529,7 @@ def run_scheduler(check_date: date, dry_run: bool = False, client_filter: Option
 
             for phase in due_phases:
                 phase_id = phase.get("phase_id", "UNKNOWN")
-                log.info(f"{client_id} — phase {phase_id} due today")
+                log.info(f"{client_id} — phase {phase_id} due (date={phase.get('due_date')})")
 
                 template = get_template(phase_id, client, cruise_booking)
                 if not template:
@@ -442,7 +544,7 @@ def run_scheduler(check_date: date, dry_run: bool = False, client_filter: Option
                         "client_id": client_id,
                         "phase_id": phase_id,
                         "subject": template["subject"],
-                        "to": primary_email
+                        "to": primary_email,
                     })
                     results["drafts_created"] += 1
                     continue
@@ -466,6 +568,8 @@ def run_scheduler(check_date: date, dry_run: bool = False, client_filter: Option
                     draft_notifications.append(
                         f"• {client.get('client_names')} — {phase_id}: {template['subject']}"
                     )
+                    # Record in sidecar ledger — prevents re-draft on next run
+                    record_sent(sent_ledger, client_id, phase_id, draft_id, check_date)
                     audit_log({
                         "event": "draft_created",
                         "client_id": client_id,
@@ -473,7 +577,7 @@ def run_scheduler(check_date: date, dry_run: bool = False, client_filter: Option
                         "subject": template["subject"],
                         "to": primary_email,
                         "draft_id": draft_id,
-                        "label": "THUNDERBIRD-Commander-Review"
+                        "label": "THUNDERBIRD-Commander-Review",
                     })
                     log.info(f"Draft created: {draft_id}")
                 else:
@@ -483,26 +587,43 @@ def run_scheduler(check_date: date, dry_run: bool = False, client_filter: Option
                         "client_id": client_id,
                         "phase_id": phase_id,
                         "subject": template["subject"],
-                        "to": primary_email
+                        "to": primary_email,
                     })
 
         except Exception as e:
             log.error(f"Error processing {client_file.name}: {e}")
             results["errors"].append(f"{client_file.name}: {str(e)[:100]}")
 
-    # Telegram — escalation only. Routine drafts are silent (audit log is the record).
-    # Notify Commander ONLY when HALE cannot remedy: errors or gate violations.
-    if results["errors"] and not dry_run:
-        msg_lines = [
-            f"🦅 *LIFECYCLE SCHEDULER — ESCALATION — {check_date}*",
-            "",
-            f"*{len(results['errors'])} error(s) require Commander attention:*",
-        ]
-        for err in results["errors"]:
-            msg_lines.append(f"  • {err}")
-        msg_lines.append("")
-        msg_lines.append("HALE unable to remedy. Commander action required.")
-        send_telegram_notification("\n".join(msg_lines))
+    if not dry_run:
+        # Dead-man's-switch: phases were due but ZERO drafts created → silent zero confirmed → PAGE
+        if results["phases_due"] > 0 and results["drafts_created"] == 0:
+            msg_lines = [
+                f"🦅 *LIFECYCLE — DEAD MAN'S SWITCH — {check_date}*",
+                "",
+                f"*{results['phases_due']} phase(s) due — 0 drafts created.*",
+                "Silent-zero condition. Likely cause: Gmail auth dead or no primary email.",
+                "Check `OpsCenter/logs/lifecycle_audit.jsonl` for details.",
+            ]
+            send_telegram_notification("\n".join(msg_lines))
+
+        # Stale phases: log to audit, include in error-page if errors also present
+        if stale_items:
+            stale_summary = ", ".join(f"{i['client_id']}/{i['phase_id']}({i['due_date']})" for i in stale_items)
+            log.warning(f"Stale phases (>={lookback_days}d overdue, not auto-drafted): {stale_summary}")
+            audit_log({"event": "stale_phases_summary", "count": len(stale_items), "items": stale_items})
+
+        # Error escalation
+        if results["errors"]:
+            msg_lines = [
+                f"🦅 *LIFECYCLE SCHEDULER — ESCALATION — {check_date}*",
+                "",
+                f"*{len(results['errors'])} error(s) require Commander attention:*",
+            ]
+            for err in results["errors"]:
+                msg_lines.append(f"  • {err}")
+            msg_lines.append("")
+            msg_lines.append("HALE unable to remedy. Commander action required.")
+            send_telegram_notification("\n".join(msg_lines))
 
     log.info(f"Scheduler complete: {results}")
     audit_log({"event": "scheduler_complete", "summary": results})
@@ -516,13 +637,25 @@ def main():
     parser.add_argument("--dry-run", action="store_true", help="Calculate due phases without creating drafts")
     parser.add_argument("--client", help="Filter to specific client_id")
     parser.add_argument("--date", help="Override date (YYYY-MM-DD), default=today")
+    parser.add_argument(
+        "--lookback-days",
+        type=int,
+        default=DEFAULT_LOOKBACK_DAYS,
+        help=f"Catch-up window: fire phases up to N days overdue (default {DEFAULT_LOOKBACK_DAYS}). "
+             "Phases older than this go to stale log, not auto-drafted.",
+    )
     args = parser.parse_args()
 
     check_date = date.today()
     if args.date:
         check_date = date.fromisoformat(args.date)
 
-    result = run_scheduler(check_date=check_date, dry_run=args.dry_run, client_filter=args.client)
+    result = run_scheduler(
+        check_date=check_date,
+        dry_run=args.dry_run,
+        client_filter=args.client,
+        lookback_days=args.lookback_days,
+    )
 
     print(json.dumps(result, indent=2, default=str))
     if result["errors"]:
