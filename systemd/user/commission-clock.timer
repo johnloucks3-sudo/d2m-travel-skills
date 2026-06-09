@@ -1,0 +1,12 @@
+[Unit]
+Description=D2M Commission Clock Timer — Sunday 22:00 MT (Monday 04:00 UTC)
+Documentation=file:///home/john/Thunderbird/scripts/commission_clock.py
+
+[Timer]
+# Sunday 22:00 MT = Monday 04:00 UTC (Mountain Daylight) / 05:00 UTC (Standard)
+OnCalendar=Mon *-*-* 04:00:00 UTC
+Persistent=true
+RandomizedDelaySec=300
+
+[Install]
+WantedBy=timers.target

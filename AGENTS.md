@@ -6,10 +6,13 @@
 
 ## SESSION STARTUP — RUN THESE FIRST, EVERY SESSION
 ```bash
+python3 /home/john/Thunderbird/OpsCenter/state_bridge/session_startup_hook.py
 cat /home/john/Thunderbird/OpsCenter/collaboration/blackboard.md | tail -50
 python3 /home/john/Thunderbird/OpsCenter/mission_board_sync.py list
 python3 /home/john/Thunderbird/core/relay/wing_relay.py read OC
 ```
+The first line (state_bridge) prints the delta since the last session — read it before
+running the rest. It opens a session record so subsequent events are attributed.
 Then open with **🦅** + status update to Commander. No exceptions.
 
 **Before any SO file work (`ops/SO-*`):**

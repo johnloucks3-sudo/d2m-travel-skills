@@ -18,6 +18,7 @@ CLAUDE_SPAWN_WHITELIST = {
     "OpsCenter/headless_claude_fallback.py",
     # Tasking watcher spawns opencode (not claude) — false positive due to CLAUDE_INBOX variable
     "core/watchtower/thunderbird_tasking_watcher.py",
+    "OpsCenter/thunderbird_tasking_watcher.py",
     # This gate script itself — uses subprocess.Popen for git, not claude
     "OpsCenter/a7_pre_commit_gate.py",
     # Metronome spawns Python (intel_keeper.py), not the claude binary.

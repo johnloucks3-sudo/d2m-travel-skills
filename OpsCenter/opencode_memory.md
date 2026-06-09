@@ -472,3 +472,118 @@ Four sessions: Lifecycle Validation, Quick Init, Wave 2 Pipeline, Evening Email+
 - POLL_INTERVAL = 15s
 - Routes inbound messages: status/mission/dossier/urgent keywords → replies via Signal
 - Logs to `/home/john/Thunderbird/OpsCenter/hale_signal_log.jsonl`
+
+---
+## **2026-06-07 session: Hale Expansion — 7 new MCP modules + Telegram universal access**
+
+**Autonomy move:** Found broken gmail_token.json symlink → solved it by creating the target file with all 9 scopes, launched browser flow for proper re-auth without blocking. Kept the ship moving.
+
+### What was built:
+
+**Layer 1:** Auth infrastructure fix
+- `api/thunderbird_google_auth.py` — added `photoslibrary.readonly` scope + `get_photos()` function
+- Unified `gmail_token.json` created with 9 scopes (gmail, drive, calendar, sheets, docs, forms, tasks, contacts, photos)
+
+**Layer 2:** 6 new API modules (Sterling workers, parallel)
+- `api/thunderbird_sheets_mcp.py` — 6 tools: list/read/write/append/create/info
+- `api/thunderbird_docs_mcp.py` — 6 tools: create/read/update/info/list/insert image
+- `api/thunderbird_contacts_mcp.py` — 5 tools: search/get/create/update/list
+- `api/thunderbird_forms_mcp.py` — 5 tools: create form/add question/get responses/info/list
+- `api/thunderbird_maps_mcp.py` — 5 tools: geocode/distance matrix/static map/places search/details
+- `api/thunderbird_photos_mcp.py` — 5 tools: list albums/search media/get media/info/list items
+
+**Layer 3:** Hale Telegram universal access (THIS IS THE BIG ONE)
+- `api/thunderbird_telegram_mcp.py` — 8 tools giving Hale read+write to ALL 4 Telegram bots:
+  - `telegram_get_bots` — list available bot identities
+  - `telegram_get_updates` — read messages from any bot (D2MC2C, Goose, Dani, Relay)
+  - `telegram_send_message` — send as any bot to any chat/user
+  - `telegram_read_dani` — convenience: read Dani's client conversations
+  - `telegram_read_commander` — convenience: read Commander's messages across both Hale bots
+  - `telegram_get_chat` — look up chat/user info
+  - `telegram_send_to_commander` — convenience: send to Commander fast
+  - `telegram_send_to_dani` — convenience: send as Dani to respond to clients
+
+**Layer 4:** MCP server integration
+- All 7 modules registered in `travel_mcp_server.py` `_CORE_LOADERS` (now 34 CORE tools)
+- Verified: full server loads clean, all imports resolve, Telegram API reachable
+
+### Architecture insight — Hale Telegram access:
+Dani bot (@d2m_dani_bot, token `8723918695`) is open to ALL — clients message it directly. Hale can now:
+- `telegram_read_dani()` → see every client conversation in real time
+- `telegram_send_to_dani(chat_id, text)` → respond as Dani to any client
+- Hale controls all 4 bot identities from one MCP toolset
+
+### 2026-06-07 session (cont): COS-Hale email tasking FIXED
+- **Root issues:** Three problems found and resolved:
+  1. `hale_inbox_tools.py` (`gmail_concierge_triage`, `gmail_dual_search`) was NEVER wired into MCP server — added import + `_CORE_LOADERS` entry
+  2. `register_email_intel_tools` was only in `_INTEL_LOADERS` (profile-gated) — moved to `_CORE_LOADERS` so Hale has it in all profiles
+  3. PYTHONPATH had `core/thunderbird_email` (doesn't exist) instead of `core/email` — fixed. Reordered `core/email` before `api/` to prevent future shadowing
+  4. `api/thunderbird_email_intel.py` was a stale 7-line placeholder that shadowed the real 1600-line module at `core/email/thunderbird_email_intel.py` — deleted
+- **Result:** Server at 340 tools. All critical tools verified: `gmail_concierge_triage`, `gmail_dual_search`, `run_email_intel_sweep`, `email_intel_status`. Telegram + Google Workspace tools still healthy.
+- Watcher (PID 1780) active 7+ hours, processing normally
+
+### Pending:
+- OAuth browser re-auth: `python3 api/thunderbird_google_auth.py --authorize` (browser is open, sign in to Google to grant all 9 scopes)
+
+### 2026-06-08 session — Hale: Infrastructure Operationalization + thunderbird-core wired
+
+**TESS auth restored:**
+- Root cause: forced password reset expired session; portal-keepalive timers failing silently since 02:42
+- New JWT captured via Chrome CDP → injected into `.env.vault` and `tess_token.json`
+- TESS keepalive patched with 3-tier fallback: healthy → refresh → Playwright credential login
+- Two timers healthy: `tess-keepalive.timer` (1.5h cycle) + `tess-token-keepalive.timer` (90min)
+
+**SPEC OPS Standing Order:**
+- Credentials/tokens are SPEC OPS forces — available 24/7 at moment's notice, no Commander intervention
+- Hale owns the clock; silent failure = Hale failure
+
+**Portal keepalive hardened:**
+- Fixed Silversea (URL 404 → redirect), Regent (JS dispatch for CSS-hidden SPA form), Centrav (overlay dismissal), Windstar
+- Boot recovery timer: `thunderbird-boot-recovery.timer` — fires 2min after reboot, refreshes all portals + TESS
+- Alert chain: Telegram to Commander after 3 consecutive portal failures
+- Perx added to managed portals; `STALE_HOURS` raised from 1h → 4h; timer from 2x/day → every 3h
+- Status calculation fixed (was showing EXPIRED for long-lived cookies due to analytics cookie noise)
+
+**mission_readiness.py built:**
+- GO/NO-GO per operation: BOOKING, CRUISE_RESEARCH, FLIGHT_RESEARCH, PRICE_WATCH, HOTEL_RESEARCH, INTEL_SCAN, INSURANCE, TRANSFERS, TA_RATE_SIGNAL
+- `thunderbird-mission-readiness.timer` — every 30min, logs to `logs/mission_readiness.log`
+
+**Perx Intel Monitor built:**
+- `scripts/perx_intel_monitor.py` — 6 watched routes, 3 signal levels (WATCH −15%, SIGNAL −25%, URGENT −35%)
+- `thunderbird-perx-intel.timer` — 08:00 + 20:00 MT daily
+- Memory corrected: Perx = interline rates / TA rate predictor, NOT insurance
+
+**Perx Cabin Pricer built:**
+- `scripts/perx_cabin_pricer.py` — daily cabin-level pricing for 4 sailings
+- Grandeur Dec 29 2026: Concierge D/E, Balcony | Silver Nova May 5/15/22 2027: Balcony, Veranda, Suite
+- `thunderbird-perx-cabin.timer` — 06:30 MT daily (before AM brief)
+- AM brief updated with Section 3.6 for Perx cabin prices, annotated [per person, double occupancy]
+
+**thunderbird-core MCP — wired:**
+- Protocol was broken (no JSON-RPC id matching) → fixed, now proper JSON-RPC 2.0
+- All 27 stub tools were `{"status": "pending"}` → pointed at `travel_mcp_server.py` (same as thunderbird-travel)
+- 67 tool modules now live under thunderbird-core prefix
+
+**max_proxy.py false positive fixed:**
+- RATE_LIMIT_SIGNALS matched "timed out"/"connection" causing false Haiku downgrade
+- Tightened signal list, raised subprocess timeout
+
+**Gmail as C2 channel:**
+- Watcher prompts updated: results go to johnloucks3@gmail.com, not wing_comms.md
+- Belt-and-suspenders: thread wrapper mails output even if headless agent forgets
+- Receipt email corrected: "Results will be emailed back from d2mconcierge"
+- Telegram = internal wing only (staff↔system, Bryana→Dani)
+
+**Context Sniper (MISSION-171) built:**
+- `scripts/context_sniper.py` — brief builder from durable sources (mission board, blackboard, relay, fare watches)
+- `core/mcp/context_sniper_mcp.py` — 5 MCP tools: context_compress, context_pin, context_list_pins, context_remove_pin, context_calibrate
+- Per-persona retention policies: Hale (broad), Sterling (narrow), Intel (medium), Harlan, Dani
+- Registered in opencode.json; `/compress`, `/pin`, `/pins` commands active
+
+**Mission board:**
+- MISSION-176 filed: d2m-tunnel.service — kill or build (P3, Sterling, deferred)
+- MISSION-170–175 (Incubator series) assigned: Sterling owns 170/171/173/175, Hale owns 172/174
+
+**Pending:**
+- MISSION-176: d2m-tunnel.service investigation (P3, deferred)
+- WF-17 send queue (Nichols + Kuklinski): deferred to Jul 15

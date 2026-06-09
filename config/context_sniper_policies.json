@@ -1,0 +1,119 @@
+{
+  "_doc": "Context Sniper retention policies per persona. depth=broad means Hale tracks many threads; depth=narrow means Sterling tracks only the current build.",
+  "personas": {
+    "hale": {
+      "depth": "broad",
+      "description": "COS/COO — tracking multiple missions simultaneously",
+      "brief_sections": [
+        "overdue_missions",
+        "active_p0_p1",
+        "pending_wf17",
+        "blackboard_delta",
+        "relay_last5",
+        "financial_pulse",
+        "pins"
+      ],
+      "max_missions_shown": 15,
+      "max_relay_lines": 10,
+      "pin_limit": 25,
+      "token_budget_warn": 80000,
+      "token_budget_compress": 120000
+    },
+    "sterling": {
+      "depth": "narrow",
+      "description": "Build worker — focused on one spec/file at a time",
+      "brief_sections": [
+        "current_mission",
+        "pins",
+        "git_status_short",
+        "active_p0_only"
+      ],
+      "max_missions_shown": 3,
+      "max_relay_lines": 3,
+      "pin_limit": 10,
+      "token_budget_warn": 60000,
+      "token_budget_compress": 100000
+    },
+    "intel": {
+      "depth": "medium",
+      "description": "Dembe — research/scan operations",
+      "brief_sections": [
+        "active_fare_watches",
+        "pins",
+        "blackboard_delta",
+        "active_p0_p1"
+      ],
+      "max_missions_shown": 5,
+      "max_relay_lines": 5,
+      "pin_limit": 15,
+      "token_budget_warn": 70000,
+      "token_budget_compress": 110000
+    },
+    "harlan": {
+      "depth": "narrow",
+      "description": "Finance — focused on dollar verification",
+      "brief_sections": [
+        "financial_pulse",
+        "pins",
+        "active_p0_only"
+      ],
+      "max_missions_shown": 5,
+      "max_relay_lines": 3,
+      "pin_limit": 10,
+      "token_budget_warn": 60000,
+      "token_budget_compress": 100000
+    },
+    "dani": {
+      "depth": "medium",
+      "description": "Client content — focused on current client email/product",
+      "brief_sections": [
+        "pins",
+        "active_p0_p1",
+        "blackboard_delta"
+      ],
+      "max_missions_shown": 5,
+      "max_relay_lines": 3,
+      "pin_limit": 15,
+      "token_budget_warn": 70000,
+      "token_budget_compress": 110000
+    },
+    "default": {
+      "depth": "medium",
+      "description": "General — balanced context",
+      "brief_sections": [
+        "overdue_missions",
+        "active_p0_p1",
+        "pins",
+        "blackboard_delta",
+        "relay_last5"
+      ],
+      "max_missions_shown": 8,
+      "max_relay_lines": 5,
+      "pin_limit": 15,
+      "token_budget_warn": 80000,
+      "token_budget_compress": 120000
+    }
+  },
+  "drop_categories": [
+    "success_confirmation",
+    "directory_listing_old",
+    "superseded_file_read",
+    "closed_tool_call",
+    "stale_status_check"
+  ],
+  "summarize_categories": [
+    "tool_result_3plus_turns_ago",
+    "file_read_superseded",
+    "completed_search",
+    "resolved_error"
+  ],
+  "always_keep": [
+    "user_instruction",
+    "current_plan",
+    "pending_task_list",
+    "last_git_diff",
+    "pinned_item",
+    "client_send_gate",
+    "financial_commitment"
+  ]
+}

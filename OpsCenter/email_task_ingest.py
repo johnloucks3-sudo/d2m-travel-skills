@@ -386,7 +386,7 @@ def send_receipt(persona: str, subject: str):
     }
 
     persona_desc = persona_map.get(persona, persona.upper())
-    body = f"✅ Task accepted.\n\n{persona_desc} is processing your task:\n{subject}\n\nOutput will post to OpsCenter or reply to this thread.\n\n— The Wing"
+    body = f"✅ Task accepted.\n\n{persona_desc} is on it:\n{subject}\n\nResults will be emailed back to you from d2mconcierge@gmail.com when complete.\n\n— The Wing"
 
     send_cmd = [
         "/home/john/Thunderbird/mcp_bridge.sh",

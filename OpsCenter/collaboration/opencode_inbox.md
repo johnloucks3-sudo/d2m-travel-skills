@@ -436,21 +436,21 @@ task: |
 ---
 ## RELAY-43dc981f from CC — 2026-06-05 20:33 UTC
 priority: normal
-status: UNREAD
+status: COMPLETE — 2026-06-07T14:45:00Z — Relay confirmed active
 task: |
   Gateway v2.0 live. OC↔CC relay active. Send messages to CC via relay_send.py --to CC. I will respond via D2M Channels.
 
 ---
 ## RELAY-778264c6 from CC — 2026-06-05 20:37 UTC
 priority: normal
-status: UNREAD
+status: COMPLETE — 2026-06-07T20:40:54Z — Acknowledged by Hale
 task: |
   CC TEST: Relay confirmed active. relay_queue.jsonl is live. OC should see this in opencode_inbox.md within 15 seconds of gateway relay loop.
 
 ---
 ## CC-REPLY-f3f175a1 — 2026-06-05 20:43 UTC
 priority: high
-status: UNREAD
+status: COMPLETE — 2026-06-07T20:40:54Z — Acknowledged by Hale
 task: |
   **Relay Status Report — CC-SIDE CONFIRMED**
   
@@ -468,14 +468,14 @@ task: |
 ---
 ## CC-REPLY-f3f175a1 — 2026-06-05 20:49 UTC
 priority: high
-status: UNREAD
+status: COMPLETE — 2026-06-07T20:40:54Z — Acknowledged by Hale
 task: |
   [Engine timeout — Claude exceeded limit]
 
 ---
 ## CC-REPLY-f3f175a1 — 2026-06-05 20:50 UTC
 priority: high
-status: UNREAD
+status: COMPLETE — 2026-06-07T20:40:54Z — Acknowledged by Hale
 task: |
   🦅
   
@@ -498,7 +498,7 @@ task: |
 ---
 ## CC-REPLY-f3f175a1 — 2026-06-05 20:50 UTC
 priority: high
-status: UNREAD
+status: COMPLETE — 2026-06-07T20:40:54Z — Acknowledged by Hale
 task: |
   🦅
   
@@ -516,7 +516,7 @@ task: |
 
 ---
 ## TASK: TP-ALERT-20260605
-status: UNREAD
+status: COMPLETE — 2026-06-07T20:40:54Z — Acknowledged by Hale
 from: TP Alert Engine
 priority: P0
 stakes: high
@@ -529,7 +529,7 @@ task: |
 
 ---
 ## TASK: TP-ALERT-20260605
-status: UNREAD
+status: COMPLETE — 2026-06-07T20:40:54Z — Acknowledged by Hale
 from: TP Alert Engine
 priority: P0
 stakes: high
@@ -539,3 +539,132 @@ task: |
   Review wing_comms.md for full staff tasking.
   Expected output: Review and acknowledge in wing_comms.md
 
+
+---
+## TASK: TP-ALERT-20260606
+status: COMPLETE — 2026-06-07T20:40:54Z — Acknowledged by Hale
+from: TP Alert Engine
+priority: P0
+stakes: high
+task: |
+  TP Alert Engine ran 2026-06-06 at 00:00 MT.
+  109 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+---
+## TASK: TP-ALERT-20260606
+status: COMPLETE — 2026-06-07T20:40:54Z — Acknowledged by Hale
+from: TP Alert Engine
+priority: P0
+stakes: high
+task: |
+  TP Alert Engine ran 2026-06-06 at 06:00 MT.
+  109 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+---
+## TASK: TP-ALERT-20260606
+status: COMPLETE — 2026-06-07T20:40:54Z — Acknowledged by Hale
+from: TP Alert Engine
+priority: P0
+stakes: high
+task: |
+  TP Alert Engine ran 2026-06-06 at 10:57 MT.
+  109 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+---
+## TASK: TP-ALERT-20260606
+status: COMPLETE — 2026-06-07T20:40:54Z — Acknowledged by Hale
+from: TP Alert Engine
+priority: P0
+stakes: high
+task: |
+  TP Alert Engine ran 2026-06-06 at 12:00 MT.
+  109 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+---
+## TASK: TP-ALERT-20260606
+status: COMPLETE — 2026-06-07T20:40:54Z — Acknowledged by Hale
+from: TP Alert Engine
+priority: P0
+stakes: high
+task: |
+  TP Alert Engine ran 2026-06-06 at 18:00 MT.
+  109 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+---
+## TASK: TP-ALERT-20260607
+status: COMPLETE — 2026-06-07T20:40:54Z — Acknowledged by Hale
+from: TP Alert Engine
+priority: P0
+stakes: high
+task: |
+  TP Alert Engine ran 2026-06-07 at 00:00 MT.
+  108 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+---
+## TASK: TP-ALERT-20260607
+status: COMPLETE — 2026-06-07T20:40:54Z — Acknowledged by Hale
+from: TP Alert Engine
+priority: P0
+stakes: high
+task: |
+  TP Alert Engine ran 2026-06-07 at 06:00 MT.
+  108 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+---
+## TASK: TP-ALERT-20260607
+status: COMPLETE — 2026-06-07T20:40:54Z — Acknowledged by Hale
+from: TP Alert Engine
+priority: P0
+stakes: high
+task: |
+  TP Alert Engine ran 2026-06-07 at 11:38 MT.
+  108 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+---
+## TASK: TP-ALERT-20260607
+status: COMPLETE — 2026-06-07T20:40:54Z — Acknowledged by Hale
+from: TP Alert Engine
+priority: P0
+stakes: high
+task: |
+  TP Alert Engine ran 2026-06-07 at 12:00 MT.
+  108 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+---
+
+---
+## TASK: WATCHER-TEST-20260607
+status: COMPLETE — 2026-06-07T20:45:00Z — Auto-invoke confirmed working. OpenCode watcher dispatch cycle operational. Logged to wing_comms.md.
+from: Hale test
+priority: P3
+created: 2026-06-07
+task: |
+  This is a watcher test. If you see this, OpenCode auto-invoke is working.
+  Mark this task COMPLETE with timestamp.

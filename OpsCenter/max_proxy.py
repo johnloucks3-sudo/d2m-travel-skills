@@ -14,7 +14,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
 
 PORT      = 5099
-TIMEOUT   = 300
+TIMEOUT   = 600
 PROXY_LOG = Path("/home/john/Thunderbird/logs/max_proxy_requests.jsonl")
 CWD       = '/tmp'
 CLAUDE_MODEL = 'claude-sonnet-4-6'
@@ -91,7 +91,8 @@ def _log(model, cli_model, prompt, response):
 RATE_LIMIT_SIGNALS = (
     "There's an issue with the selected model",
     "rate_limit", "rate limit", "overloaded",
-    "lost contact", "connection", "timed out",
+    "API Error 429", "429 Too Many Requests",
+    "Request rate limit reached",
 )
 HAIKU_FALLBACK = 'claude-haiku-4-5-20251001'
 

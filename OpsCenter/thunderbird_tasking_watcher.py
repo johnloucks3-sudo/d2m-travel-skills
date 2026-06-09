@@ -18,6 +18,8 @@ import sys
 import time
 import json
 import logging
+import subprocess
+import threading
 import requests
 from pathlib import Path
 from datetime import datetime
@@ -169,6 +171,30 @@ def load_oauth_env() -> dict:
     return env
 
 
+def _deliver_to_commander(subject: str, result_text: str, persona_id: str = "COS"):
+    """Send task result back to Commander via Gmail (d2mconcierge → johnloucks3).
+
+    Gmail is the primary C2 channel. Telegram is for internal wing comms only.
+    Called after any headless agent completes — ensures Commander always gets
+    results in their inbox regardless of whether the agent mailed them itself.
+    """
+    try:
+        _TB = Path("/home/john/Thunderbird")
+        if str(_TB) not in sys.path:
+            sys.path.insert(0, str(_TB))
+        from core.email.thunderbird_gmail import gmail_send_from_wing
+        reply_subject = subject if subject.startswith("Re:") else f"Re: {subject} — COMPLETED"
+        gmail_send_from_wing(
+            to="johnloucks3@gmail.com",
+            subject=reply_subject,
+            body=result_text,
+            persona_id=persona_id,
+        )
+        logging.info(f"[WATCHER] ✅ Result delivered to Commander via Gmail: {reply_subject[:60]}")
+    except Exception as e:
+        logging.error(f"[WATCHER] Gmail delivery failed: {e}")
+
+
 def model_for_priority(content: str) -> str:
     """Route model — explicit model: field wins, else priority, else Haiku."""
     # Explicit override: model: opus / sonnet / haiku
@@ -246,13 +272,26 @@ class InboxHandler(FileSystemEventHandler):
         model = model_for_priority(content)
         outbox_file = CLAUDE_OUTBOX
 
+        # Extract original subject for Gmail reply
+        original_subject = "Commander task"
+        for line in content.split("\n"):
+            if line.strip().startswith("task: |"):
+                idx = content.find(line)
+                snippet = content[idx:idx+200].split("\n")
+                if len(snippet) > 1:
+                    original_subject = snippet[1].strip()
+                break
+
         prompt = (
             f"You are Hale COS running headless. "
             f"Read {inbox_path} and process every task with status PENDING, UNREAD, "
             f"ACTIVE-CRITICAL, or FLAGGED-OVERDUE. "
-            f"For each actionable task: execute it, mark status COMPLETE with timestamp. "
+            f"For each actionable task: execute it fully, mark status COMPLETE with timestamp. "
             f"WRITE your results to {outbox_file}. "
-            f"Then append a summary to /home/john/Thunderbird/OpsCenter/collaboration/wing_comms.md."
+            f"Append a summary to /home/john/Thunderbird/OpsCenter/collaboration/wing_comms.md. "
+            f"CRITICAL: When all tasks are done, call gmail_send_from_wing to email your results "
+            f"to johnloucks3@gmail.com — subject 'Re: {original_subject} — COMPLETED'. "
+            f"Commander's inbox is Gmail. Results that don't reach Gmail don't exist."
         )
 
         # Use foolproof wrapper (background mode, light MCP — no travel MCP servers)
@@ -269,18 +308,118 @@ class InboxHandler(FileSystemEventHandler):
             pid = result.get("pid")
             log_file = result.get("log_file", "?")
             logging.info(f"✅ Claude headless spawned (PID {pid}, model={model}) → log: {log_file}")
+
+            # Belt-and-suspenders: monitor output file, deliver to Gmail when populated
+            def _monitor_and_deliver(out_file, subj, wait_pid):
+                deadline = time.time() + 600
+                while time.time() < deadline:
+                    time.sleep(15)
+                    try:
+                        text = Path(out_file).read_text().strip()
+                        if text and len(text) > 50:
+                            _deliver_to_commander(subj, text[-4000:], "COS")
+                            return
+                    except Exception:
+                        pass
+                _deliver_to_commander(subj, f"Task timed out after 10 minutes — check {out_file}", "COS")
+
+            t = threading.Thread(
+                target=_monitor_and_deliver,
+                args=(str(outbox_file), original_subject, result.get("pid")),
+                daemon=True,
+            )
+            t.start()
         else:
             logging.error(f"❌ Claude spawn failed: {result.get('error', 'unknown error')}")
             if not result.get("can_retry"):
                 logging.critical("Fatal error — no retry possible. Supervisor will alert.")
 
     # ------------------------------------------------------------------ #
-    # OpenCode headless invocation (TODO: needs OpenCode wrapper per SO)
+    # OpenCode headless invocation via opencode run
     # ------------------------------------------------------------------ #
     def _invoke_opencode(self, inbox_path):
-        logging.info(f"OpenCode invocation suspended (awaiting OpenCode spawn wrapper)")
-        # TODO: OpenCode spawn requires separate wrapper following SO 24 APR 2026 patterns
-        # For now, Claude dispatch is primary. OpenCode coordination via direct SDK calls
+        try:
+            content = inbox_path.read_text()
+        except Exception:
+            content = ""
+
+        # Extract task summary and original subject for Gmail reply threading
+        tasks = []
+        subjects = []
+        for line in content.split("\n"):
+            line_stripped = line.strip()
+            if line_stripped.startswith("## TASK:"):
+                tasks.append(line_stripped.replace("## TASK:", "").strip())
+            elif line_stripped.startswith("task: |"):
+                break
+
+        # Try to pull subject from task block for Gmail reply subject line
+        for line in content.split("\n"):
+            if line.strip().startswith("task: |"):
+                idx = content.find(line)
+                snippet = content[idx:idx+200].split("\n")
+                if len(snippet) > 1:
+                    subjects.append(snippet[1].strip())
+                break
+
+        summary = "; ".join(tasks[:3]) if tasks else "Process pending tasks"
+        if len(tasks) > 3:
+            summary += f" (+{len(tasks)-3} more)"
+        original_subject = subjects[0] if subjects else summary
+
+        message = (
+            f"Watcher dispatch: {summary}. "
+            f"Read {inbox_path} and process every task with status PENDING, UNREAD, "
+            f"ACTIVE-CRITICAL, or FLAGGED-OVERDUE. "
+            f"For each actionable task: execute it completely, mark status COMPLETE with timestamp. "
+            f"Use MCP tools as needed. "
+            f"Write results back to {inbox_path} and log to wing_comms.md. "
+            f"IMPORTANT: When done, use gmail_send_from_wing to email your results summary "
+            f"to johnloucks3@gmail.com — subject 'Re: {original_subject} — COMPLETED'. "
+            f"Gmail is Commander's primary C2 channel. Results must reach the inbox."
+        )
+
+        log_path = LOG_DIR / f"opencode_spawn_{int(time.time())}.log"
+
+        def _run_and_deliver():
+            try:
+                with open(log_path, "w") as log_f:
+                    proc = subprocess.Popen(
+                        [OPENCODE_BIN, "run", message],
+                        stdout=log_f,
+                        stderr=log_f,
+                        stdin=subprocess.DEVNULL,
+                        start_new_session=True,
+                    )
+                logging.info(f"✅ OpenCode spawned (PID {proc.pid}) — task: {summary}")
+                proc.wait(timeout=600)
+
+                # Read captured output — deliver to Commander via Gmail regardless
+                # of whether the headless agent mailed it itself (belt-and-suspenders).
+                try:
+                    output = log_path.read_text()[-4000:]  # last 4k chars
+                    if not output.strip():
+                        output = f"Task '{summary}' completed. No output captured — check wing_comms.md for details."
+                except Exception:
+                    output = f"Task '{summary}' completed (output unreadable — check {log_path})."
+
+                _deliver_to_commander(
+                    subject=original_subject,
+                    result_text=output,
+                    persona_id="COS",
+                )
+            except subprocess.TimeoutExpired:
+                logging.error(f"[WATCHER] OpenCode timed out after 600s for: {summary}")
+                _deliver_to_commander(
+                    subject=original_subject,
+                    result_text=f"⚠️ Task '{summary}' timed out after 10 minutes. Check {log_path} for partial output.",
+                    persona_id="COS",
+                )
+            except Exception as e:
+                logging.error(f"❌ OpenCode spawn/delivery failed: {e}")
+
+        t = threading.Thread(target=_run_and_deliver, daemon=True)
+        t.start()
 
 
 def main():
