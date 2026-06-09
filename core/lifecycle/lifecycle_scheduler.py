@@ -33,6 +33,9 @@ SENT_LEDGER_PATH = Path("/home/john/Thunderbird/Blackboard/lifecycle_sent_ledger
 # Catch-up window: phases overdue by more than this many days go to stale (not auto-drafted)
 DEFAULT_LOOKBACK_DAYS = 14
 
+# Urgent-stale window: stale phases for clients departing within N days PAGE immediately
+URGENT_STALE_HORIZON_DAYS = 30
+
 # ── Logging ───────────────────────────────────────────────────────────────────
 logging.basicConfig(
     level=logging.INFO,
@@ -470,7 +473,8 @@ def run_scheduler(
         client_files = [f for f in client_files if client_filter in f.stem]
 
     draft_notifications = []
-    stale_items = []  # For dead-man's-switch alert
+    stale_items = []       # All stale phases (audit log + stale summary)
+    urgent_stale_items = []  # Stale phases for clients departing ≤ URGENT_STALE_HORIZON_DAYS
 
     for client_file in client_files:
         try:
@@ -497,17 +501,48 @@ def run_scheduler(
             results["phases_due"] += len(due_phases)
             results["phases_stale"] += len(these_stale)
 
+            # Resolve client departure for urgency check
+            dep_str = lifecycle.get("departure_date")
+            client_departure = None
+            if dep_str:
+                try:
+                    client_departure = date.fromisoformat(str(dep_str))
+                except (ValueError, TypeError):
+                    pass
+            if client_departure is None:
+                # Fallback: cruise booking embarkation_date
+                cruise = next((b for b in client.get("bookings", []) if b.get("booking_type") == "cruise"), {})
+                dep_raw = cruise.get("embarkation_date")
+                if dep_raw:
+                    try:
+                        client_departure = date.fromisoformat(str(dep_raw))
+                    except (ValueError, TypeError):
+                        pass
+
+            is_urgent = (
+                client_departure is not None
+                and 0 <= (client_departure - check_date).days <= URGENT_STALE_HORIZON_DAYS
+            )
+
             for sp in these_stale:
-                stale_items.append({
+                item = {
                     "client_id": client_id,
                     "phase_id": sp.get("phase_id"),
                     "due_date": str(sp.get("due_date")),
-                })
+                    "client_names": client.get("client_names", client_id),
+                    "departure": str(client_departure) if client_departure else "UNKNOWN",
+                    "urgent": is_urgent,
+                }
+                stale_items.append(item)
+                if is_urgent:
+                    urgent_stale_items.append(item)
                 audit_log({
                     "event": "phase_stale",
                     "client_id": client_id,
                     "phase_id": sp.get("phase_id"),
                     "due_date": str(sp.get("due_date")),
+                    "departure": str(client_departure) if client_departure else "UNKNOWN",
+                    "urgent": is_urgent,
                     "note": f"Older than {lookback_days}d lookback — needs data review",
                 })
 
@@ -606,11 +641,26 @@ def run_scheduler(
             ]
             send_telegram_notification("\n".join(msg_lines))
 
-        # Stale phases: log to audit, include in error-page if errors also present
+        # Stale phases: audit log + urgent-departure page
         if stale_items:
             stale_summary = ", ".join(f"{i['client_id']}/{i['phase_id']}({i['due_date']})" for i in stale_items)
             log.warning(f"Stale phases (>={lookback_days}d overdue, not auto-drafted): {stale_summary}")
             audit_log({"event": "stale_phases_summary", "count": len(stale_items), "items": stale_items})
+
+        # Urgent-stale page: stale phases for clients departing within URGENT_STALE_HORIZON_DAYS
+        # Fires once per 0600 run — not per-phase, so not "flooding" pattern
+        if urgent_stale_items:
+            msg_lines = [
+                f"🦅 *LIFECYCLE — STALE PHASES (URGENT — DEPARTURE ≤{URGENT_STALE_HORIZON_DAYS}d) — {check_date}*",
+                "",
+                f"*{len(urgent_stale_items)} unsent phase(s) on imminent-departure clients:*",
+            ]
+            for item in urgent_stale_items:
+                days_to_dep = (date.fromisoformat(item["departure"]) - check_date).days if item["departure"] != "UNKNOWN" else "?"
+                msg_lines.append(f"  • {item['client_names']}: {item['phase_id']} (was due {item['due_date']}, departs in {days_to_dep}d)")
+            msg_lines.append("")
+            msg_lines.append("Mark as `sent`/`obe` in Blackboard YAML to suppress, or manually send if appropriate.")
+            send_telegram_notification("\n".join(msg_lines))
 
         # Error escalation
         if results["errors"]:
@@ -624,6 +674,14 @@ def run_scheduler(
             msg_lines.append("")
             msg_lines.append("HALE unable to remedy. Commander action required.")
             send_telegram_notification("\n".join(msg_lines))
+
+    # Dry-run: show urgent stale items that would be paged in live run
+    if dry_run and urgent_stale_items:
+        log.warning(f"[DRY RUN] Would PAGE urgent stale phases (departure ≤{URGENT_STALE_HORIZON_DAYS}d):")
+        for item in urgent_stale_items:
+            dep = item.get("departure", "?")
+            days_to = (date.fromisoformat(dep) - check_date).days if dep not in ("UNKNOWN", "?") else "?"
+            log.warning(f"  [DRY RUN]   {item['client_names']}: {item['phase_id']} (was due {item['due_date']}, T-{days_to})")
 
     log.info(f"Scheduler complete: {results}")
     audit_log({"event": "scheduler_complete", "summary": results})
