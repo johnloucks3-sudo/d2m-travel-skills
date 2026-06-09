@@ -55,7 +55,8 @@ completed_tps: []
 ## Multiple Bookings | Dreams2Memories Travel, LLC
 ### ⭐ BEST CLIENT — 4 Active Bookings Across 3 Cruise Lines
 
-> 🔴 **FPD ALERT: Booking 2984034 (Regent Grandeur Dec 2026) — $11,943.15 DUE JULY 22, 2026 (43 DAYS)**
+> 🟡 **FPD ALERT: Booking 2984034 (Regent Grandeur Dec 2026) — $11,943.15 DUE JULY 22, 2026**
+> ⏸️ **DEFERRED: DO NOT CONTACT UNTIL AFTER JULY 6** — client is on Silver Muse Jun 23–Jul 6. FPD window: Jul 6–Jul 22 (16 days). Commander directive 2026-06-09.
 
 ---
 
