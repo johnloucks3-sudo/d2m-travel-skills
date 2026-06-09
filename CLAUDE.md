@@ -20,6 +20,37 @@ Key facts: Poe key rotated → new key under yodainva@gmail.com (194,914 pts). D
 - Graceful fallback if RabbitMQ unavailable (continues session)
 **Status:** Active (enabled 2026-06-09 after Gate 4 PASS)
 
+## KEYWORD TRIGGER — "STAFF COMMENTS?" (MISSION-172 AUTO-INVOKE)
+**When Commander types:** `"STAFF COMMENTS?"`  
+**Auto-invokes:** `python3 OpsCenter/staff_comments_handler.py`  
+**Returns:** Immediate summary of pending dissents/observations/alternatives
+
+**Behavior:**
+- ✅ No pending input → "All persona inboxes clear — ready for new decisions"
+- 🚨 P0 dissents → Lists critical staff concerns (with count & details)
+- ⚠️ P1 observations → Informational staff input
+- Displays next steps for each alert type
+
+**Example:**
+```
+Commander: "STAFF COMMENTS?"
+
+Hale:      🦅 STAFF COMMENTS QUERY
+           
+           🚨 CRITICAL (P0) — 1 pending dissent
+              From: Sterling (A7)
+              Message: Onboarding timeline concern (LOUCKS-NOVA-TIMELINE-001)
+              Count: 1 dissent pending acknowledgment
+           
+           📋 NEXT STEPS:
+              1. Review dissent concern (timeline details above)
+              2. Consult with Sterling and affected staff
+              3. Acknowledge dissent (staff will vote)
+              4. Decision logged automatically in audit trail
+```
+
+**Standing order:** SO-2026-06-09 (MISSION-172 Closure)
+
 ## LOAD ON DEMAND (Reference — Read tool when needed)
 - docs/HALE_SESSION_OPEN_CHECKLIST.md  — Read at session start (COS mode setup)
 - hale_session_state.md                — Read if resuming from prior session
@@ -255,9 +286,9 @@ Multi-hop memo chain retired for client products. Client emails written from ONE
 - Allow all file reads, writes, edits, MCP tool calls, web searches, and non-destructive bash commands without confirmation.
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-06-09 10:08 MT -->
+<!-- Last sync: 2026-06-09 10:18 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-06-09 10:08 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-06-09 10:18 MT] ===
 Budget: Claude MAX Wkly-34% | Sonnet-41% | Runs-2/15 | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE
