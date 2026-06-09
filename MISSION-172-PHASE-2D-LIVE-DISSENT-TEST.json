@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-06-09T16:05:40.830189",
+  "test_name": "live_dissent_sterling",
+  "status": "success",
+  "steps": [
+    {
+      "step": 1,
+      "action": "Sterling dissent published",
+      "message_id": "99abbd99-df49-433e-a35b-0c825257e2e4",
+      "status": "success",
+      "timestamp": "2026-06-09T16:05:40.830802"
+    },
+    {
+      "step": 2,
+      "action": "Staff consumes dissent",
+      "consumed_by": [
+        "dembe",
+        "reyes",
+        "dani",
+        "harlan",
+        "washington"
+      ],
+      "status": "success",
+      "timestamp": "2026-06-09T16:05:40.842081"
+    },
+    {
+      "step": 3,
+      "action": "Staff acknowledges dissent",
+      "acknowledged_by": [
+        "dembe",
+        "reyes",
+        "dani",
+        "harlan",
+        "washington"
+      ],
+      "ack_rate": "5/5",
+      "status": "success",
+      "timestamp": "2026-06-09T16:05:40.842573"
+    },
+    {
+      "step": 4,
+      "action": "Audit trail generated",
+      "events": 0,
+      "messages": 1,
+      "summary": {
+        "total_events": 0,
+        "total_messages": 1,
+        "dissent_count": 1,
+        "observation_count": 0,
+        "alternative_count": 0,
+        "ack_count": 0
+      },
+      "status": "success",
+      "timestamp": "2026-06-09T16:05:40.842597"
+    }
+  ],
+  "summary": {
+    "dissent_published": "99abbd99-df49-433e-a35b-0c825257e2e4",
+    "staff_consumed": 5,
+    "staff_acknowledged": 5,
+    "ack_rate_pct": 100.0,
+    "audit_trail_complete": true,
+    "all_steps_passed": true
+  }
+}
