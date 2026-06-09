@@ -15,14 +15,14 @@
       },
       "last_health_check": "2026-06-05T21:24:44.578424"
     },
-    "last_health_check": "2026-06-09T17:53:58.587232+00:00",
+    "last_health_check": "2026-06-09T18:03:59.277015+00:00",
     "chrome_debug_port_9222": "ONLINE",
     "mcp_server": "ONLINE",
     "opencode_status": "UNKNOWN",
     "telegram_bot": "UNKNOWN"
   },
   "_meta": {
-    "last_updated": "2026-06-09T17:53:58.587232+00:00"
+    "last_updated": "2026-06-09T18:05:55.902450+00:00"
   },
   "open_tasks": [
     {
@@ -556,7 +556,7 @@
   ],
   "financial_pulse": {
     "last_checked": "2026-06-09T15:45:00-06:00",
-    "tess_auth_status": "ONLINE",
+    "tess_auth_status": "EXPIRED",
     "tess_trips": 13,
     "tess_bookings": 18,
     "tess_clients": 25,
@@ -573,7 +573,8 @@
     "pipeline_commission_upcoming": 28082.41,
     "total_d2m_pipeline": 21440.75,
     "raw_snippet": "D2M pipeline: $21,440.75 D2M share across 23 upcoming voyages (sheet) + 1 checks already received totaling $244.80 (TESS).",
-    "all_fpd_status": "\u2705 PAID (zero outstanding)"
+    "all_fpd_status": "\u2705 PAID (zero outstanding)",
+    "tess_auth_note": "Token expired 2026-06-09 ~08:00 MT. Refresh returning 400 invalid_client. Requires Commander interactive re-auth. Run: python3 scripts/tess_authorize.sh"
   },
   "session_context": {
     "last_checkpoint": "2026-06-09T06:45:23.430443-06:00"

@@ -3034,6 +3034,24 @@
         "[2026-06-09T08:54:44.600089] Created by Commander \u2014 Strategic initiative for persona collaboration infrastructure",
         "[2026-06-09T08:54:44.600091] Priority: P1 | Assigned: Sterling (owner) + Harlan (consulting) | Due: Jun 20"
       ]
+    },
+    {
+      "id": "MISSION-178",
+      "title": "Dembe Standing Intel Sweep \u2014 Weekly Proactive OSINT",
+      "description": "STANDING MISSION \u2014 runs automatically every 4h cycle when no higher-priority tasks pending. Dembe (A2) runs proactive AFA-format OSINT sweep covering: (1) cruise line pricing changes for active client bookings, (2) travel advisories for upcoming departures, (3) competitor intel on active itinerary ports. Output: brief filed to johnloucks3@gmail.com. No Commander prompt required. Auto-approved. Owner: Intel/Dembe.",
+      "priority": "P2",
+      "status": "active",
+      "owner": "Intel",
+      "auto_execute": true,
+      "standing": true,
+      "created": "2026-06-09T18:05:47.315082+00:00",
+      "tags": [
+        "dembe",
+        "intel",
+        "osint",
+        "standing",
+        "auto"
+      ]
     }
   ],
   "suspense_watch": [
