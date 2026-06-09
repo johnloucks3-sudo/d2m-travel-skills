@@ -89,13 +89,14 @@ class HarlanBookingMaster:
             col_idx = {h: i for i, h in enumerate(headers)}
 
             self._rows = []
-            for row in raw[1:]:
+            for idx, row in enumerate(raw[1:]):
                 def g(col):
                     i = col_idx.get(col, -1)
                     return row[i].strip() if i >= 0 and i < len(row) else ""
 
                 record = {col: g(col) for col in headers}
                 record["_col_idx"] = col_idx
+                record["_sheet_row"] = idx + 2  # 1 header + 1-based
                 self._rows.append(record)
 
             self._loaded = True
@@ -250,6 +251,134 @@ class HarlanBookingMaster:
             "status": pay_status,
             "harlan_signoff": signoff,
             "warning": warning,
+        }
+
+    def _row_quality(self, r: dict) -> tuple[int, list[str]]:
+        """Score a row's data quality. Higher = better canonical candidate.
+        Returns (score, issues)."""
+        score = 0
+        issues = []
+        client = r.get("Client_Name", "")
+        total = r.get("Total_Cost", "")
+        balance = r.get("Balance_Due", "")
+        status = r.get("Status", "")
+        fpd = r.get("Final_Payment_Date", "")
+
+        # Column-shift corruption: Total_Cost holding a non-numeric like "Confirmed"
+        if total and self._clean_amount(total) is None and total not in ("", "TBD"):
+            score -= 20
+            issues.append(f"COLUMN-SHIFT: Total_Cost='{total}' (non-numeric)")
+
+        # Name-field corruption (travel-protection status bled into client name)
+        if "Declined" in client or "Guest" in client and "&" not in client:
+            score -= 8
+            issues.append(f"NAME-CORRUPT: client='{client[:30]}'")
+
+        # Agency name instead of traveler
+        if client.upper() in ("NEXION LLC", "CRUISES AND TOURS UNLIMITED"):
+            score -= 5
+            issues.append("AGENCY-NAME: not a traveler row")
+
+        # Existing in-sheet duplicate flag (unreliable but informative)
+        if "DUPLICATE" in status:
+            score -= 3
+            issues.append("flagged DUPLICATE in-sheet")
+
+        # Positive signals
+        if self._clean_amount(total) is not None and self._clean_amount(total):
+            score += 5
+        if "&" in client or "," in client:  # both travelers present
+            score += 4
+        if fpd and fpd not in ("", "TBD") and "$" not in fpd:
+            score += 3
+        if status in ("Confirmed", "Declined"):
+            score += 2
+
+        return score, issues
+
+    def dedup_dry_run(self) -> dict:
+        """Read-only dedup analysis. Groups by confirmation, proposes keep/delete
+        with reasoning, tiered by safety. WRITES NOTHING.
+
+        Returns:
+            {
+              'tier_a_safe': [...],      # pure duplicates, safe to delete
+              'tier_b_confirm': [...],   # balance/data conflict — needs Harlan confirm
+              'tier_c_manual': [...],    # corruption — do not auto-delete
+              'summary': {...}
+            }
+        """
+        self._ensure_loaded()
+        from collections import defaultdict
+
+        by_conf = defaultdict(list)
+        for r in self._rows:
+            conf = r.get("Confirmation_Number", "").strip()
+            if conf and not conf.startswith("🟡"):
+                by_conf[conf].append(r)
+
+        tier_a, tier_b, tier_c = [], [], []
+
+        for conf, recs in sorted(by_conf.items()):
+            if len(recs) < 2:
+                continue
+
+            scored = sorted(
+                [(self._row_quality(r), r) for r in recs],
+                key=lambda x: x[0][0], reverse=True
+            )
+            canonical = scored[0][1]
+            losers = [r for (_, r) in scored[1:]]
+
+            # Detect balance conflict among the rows
+            balances = {self._clean_amount(r.get("Balance_Due", "")) for r in recs}
+            balances.discard(None)
+            balance_conflict = len(balances) > 1
+
+            # Detect corruption in the group
+            any_corruption = any(
+                "COLUMN-SHIFT" in iss or "NAME-CORRUPT" in iss
+                for (_, isslist), _ in [(self._row_quality(r), r) for r in recs]
+                for iss in isslist
+            )
+
+            entry = {
+                "conf": conf,
+                "keep_row": canonical["_sheet_row"],
+                "keep_client": canonical.get("Client_Name", ""),
+                "keep_total": canonical.get("Total_Cost", ""),
+                "keep_balance": canonical.get("Balance_Due", ""),
+                "keep_fpd": canonical.get("Final_Payment_Date", ""),
+                "delete_rows": [
+                    {
+                        "row": r["_sheet_row"],
+                        "client": r.get("Client_Name", "")[:38],
+                        "total": r.get("Total_Cost", ""),
+                        "balance": r.get("Balance_Due", ""),
+                        "issues": self._row_quality(r)[1],
+                    } for r in losers
+                ],
+                "balance_conflict": balance_conflict,
+                "balances_seen": sorted(b for b in balances),
+            }
+
+            if any_corruption:
+                tier_c.append(entry)
+            elif balance_conflict:
+                tier_b.append(entry)
+            else:
+                tier_a.append(entry)
+
+        return {
+            "tier_a_safe": tier_a,
+            "tier_b_confirm": tier_b,
+            "tier_c_manual": tier_c,
+            "summary": {
+                "duplicate_groups": len(tier_a) + len(tier_b) + len(tier_c),
+                "tier_a_rows_to_delete": sum(len(e["delete_rows"]) for e in tier_a),
+                "tier_b_rows_to_delete": sum(len(e["delete_rows"]) for e in tier_b),
+                "tier_c_rows_flagged": sum(len(e["delete_rows"]) for e in tier_c),
+            },
         }
 
     def fpd_alerts(self, days_ahead: int = 60) -> list[dict]:
