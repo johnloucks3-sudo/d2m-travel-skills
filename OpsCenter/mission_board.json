@@ -2906,14 +2906,15 @@
       "status": "completed",
       "priority": "P0",
       "assigned_to": "Hale",
-      "description": "(BUILD) Session continuity daemon \u2014 SQLite event store tracking state across sessions. On startup: produces structured 'State Briefing' with git delta, decision drift, pending work, mission board changes. Sterling build. (HOLD \u2014 tooling decision pending) P1",
+      "description": "Develop inter-persona communication infrastructure enabling true collaborative dialogue. Current state: siloed via files/Telegram/email. Goal: Direct persona-to-persona channels with full dialogue support. Personas may: make observations, raise concerns, suggest improvements, offer dissent, challenge assumptions, propose alternatives, offer assistance. Async reply chains, shared state broadcasts, confirmation patterns. Output: Communication protocol spec + reference implementation.",
       "deliverables": [],
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
       "logs": [
         "[2026-06-09T04:30:00] Reassigned to Hale \u2014 two-brain skill",
-        "[2026-06-09T03:59:27] BUILD COMPLETE. All 7 files created under OpsCenter/state_bridge/. SQLite event store with sessions/events schema, git/file/mission watchers, delta briefing generator, session startup hook. Verified: --briefing, --status, session_startup_hook.py all functional. Defensive guard added in _row_to_event for edge cases. SPEC: ops/BUILD-StateBridge_v1.md"
+        "[2026-06-09T03:59:27] BUILD COMPLETE. All 7 files created under OpsCenter/state_bridge/. SQLite event store with sessions/events schema, git/file/mission watchers, delta briefing generator, session startup hook. Verified: --briefing, --status, session_startup_hook.py all functional. Defensive guard added in _row_to_event for edge cases. SPEC: ops/BUILD-StateBridge_v1.md",
+        "[2026-06-09T08:56:39.476669] Scope expanded \u2014 Full dialogue support added: observations, dissent, challenges, suggestions, assistance, alternatives"
       ],
       "created_at": "2026-06-09T03:36:44.509276+00:00",
       "updated_at": "2026-06-09T03:59:27.308741+00:00",
