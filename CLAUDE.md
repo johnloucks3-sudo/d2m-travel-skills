@@ -12,6 +12,14 @@ Key facts: Poe key rotated → new key under yodainva@gmail.com (194,914 pts). D
 @hale_state.json
 @OpsCenter/session_context_latest.md
 
+## SESSION STARTUP — HALE INBOX CHECKS (MISSION-172 ACTIVE)
+**Run on every session open:** `python3 OpsCenter/session_init.py`
+- Checks all 6 persona inboxes (RabbitMQ on yoga)
+- Verifies credential timers (oauth-keepalive, token-monitor, watchdog)
+- Surfaces alerts to morning brief (P0 = critical dissent, P1 = warnings)
+- Graceful fallback if RabbitMQ unavailable (continues session)
+**Status:** Active (enabled 2026-06-09 after Gate 4 PASS)
+
 ## LOAD ON DEMAND (Reference — Read tool when needed)
 - docs/HALE_SESSION_OPEN_CHECKLIST.md  — Read at session start (COS mode setup)
 - hale_session_state.md                — Read if resuming from prior session
@@ -247,10 +255,10 @@ Multi-hop memo chain retired for client products. Client emails written from ONE
 - Allow all file reads, writes, edits, MCP tool calls, web searches, and non-destructive bash commands without confirmation.
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-06-08 17:33 MT -->
+<!-- Last sync: 2026-06-09 10:08 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-06-08 17:33 MT] ===
-Budget: Claude MAX Wkly-28% | Sonnet-34% | Runs-9/15 | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
+=== THUNDERBIRD BLACKBOARD [2026-06-09 10:08 MT] ===
+Budget: Claude MAX Wkly-34% | Sonnet-41% | Runs-2/15 | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE
 Open items: none logged
