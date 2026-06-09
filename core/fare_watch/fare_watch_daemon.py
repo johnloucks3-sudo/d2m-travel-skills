@@ -62,6 +62,17 @@ log = logging.getLogger("fare_daemon")
 CENTRAV_SCRIPT = THUNDERBIRD / "scripts" / "centrav_flights.py"
 VENV_PYTHON = THUNDERBIRD / ".venv" / "bin" / "python3"
 
+# M-091: Schema-validated price intel for cruise lookups
+try:
+    from core.ai_infra.schema_price_intel import SchemaPriceAgent
+
+    _SCHEMA_AGENT = SchemaPriceAgent(model="claude-haiku-4-5-20251001", timeout=30)
+    _SCHEMA_AVAILABLE = True
+except ImportError:
+    _SCHEMA_AGENT = None
+    _SCHEMA_AVAILABLE = False
+    log.warning("SchemaPriceAgent not available — cruise price lookup disabled")
+
 
 # ============================================================================
 # PRICE LOOKUP — FLIGHTS
@@ -129,7 +140,21 @@ def get_live_price(watch: Dict[str, Any]) -> Optional[float]:
         return price
 
     elif wtype == "cruise":
-        log.warning(f"[{wid}] TOOL UNAVAILABLE — cruise price lookup requires portal session — manual check needed")
+        if _SCHEMA_AVAILABLE:
+            try:
+                response = _SCHEMA_AGENT.lookup_price(  # type: ignore[union-attr] — guarded by _SCHEMA_AVAILABLE
+                    source=watch.get("provider", watch.get("label", "")),
+                    query=f"{watch.get('route', '')} {watch.get('travel_date', '')} cabin pricing",
+                )
+                price_pp = response.get("list_price_per_person") or response.get("net_price_per_person")
+                if price_pp:
+                    log.info(f"[{wid}] Schema price intel: ${price_pp:,.0f}/pp")
+                    return float(price_pp)
+                log.warning(f"[{wid}] Schema agent returned no price — falling back to manual")
+            except Exception as exc:
+                log.warning(f"[{wid}] Schema price lookup failed: {exc} — manual check needed")
+        else:
+            log.warning(f"[{wid}] TOOL UNAVAILABLE — cruise price lookup requires SchemaPriceAgent — manual check needed")
         return None
 
     elif wtype == "hotel":

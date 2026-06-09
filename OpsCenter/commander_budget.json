@@ -15,6 +15,18 @@
     "spent": 0.0,
     "is_fallback": true
   },
+  "gemini": {
+    "limit_dollars": 50.0,
+    "spent": 0.0,
+    "alert_at_pct": 80,
+    "notes": "Gemini API \u2014 $50/mo ceiling per Commander directive"
+  },
+  "silversea_ta": {
+    "limit_dollars": 0.0,
+    "spent": 0.0,
+    "is_pass_through": true,
+    "notes": "Silversea TA API \u2014 no direct cost (portal access via agent credentials)"
+  },
   "last_alert": null,
-  "last_summary": "2026-05-31T22:08:54.731459"
+  "last_summary": "2026-06-08T22:14:28.200835"
 }

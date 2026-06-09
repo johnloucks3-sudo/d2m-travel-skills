@@ -53,6 +53,18 @@ class BudgetTracker:
                 "spent": 0.00,
                 "is_fallback": True,
             },
+            "gemini": {
+                "limit_dollars": 50.00,
+                "spent": 0.00,
+                "alert_at_pct": 80,
+                "notes": "Gemini API — $50/mo ceiling",
+            },
+            "silversea_ta": {
+                "limit_dollars": 0.00,
+                "spent": 0.00,
+                "is_pass_through": True,
+                "notes": "Silversea TA API — no direct cost (agent portal)",
+            },
             "last_alert": None,
             "last_summary": None,
         }
@@ -69,20 +81,34 @@ class BudgetTracker:
             self.budget["grok_xai"]["spent"] += cost
         elif model == "deepseek_flash" and cost > 0:
             self.budget["deepseek_flash"]["spent"] += cost
+        elif model == "gemini" and cost > 0:
+            self.budget["gemini"]["spent"] += cost
+        elif model == "silversea_ta" and cost > 0:
+            self.budget["silversea_ta"]["spent"] += cost
 
         self.save_budget()
 
+    def _pct_alert(self, key: str, label: str, field: str = "spent",
+                    limit_field: str = "limit_dollars") -> Optional[str]:
+        """Generic percentage-based alert helper."""
+        item = self.budget.get(key)
+        if not item or item.get("is_pass_through"):
+            return None
+        limit = item.get(limit_field, 0)
+        if not limit:
+            return None
+        pct = (item.get(field, 0) / limit) * 100
+        alert_pct = item.get("alert_at_pct", 85)
+        if pct >= alert_pct:
+            return f"⚠️ {label}: ${item[field]:.2f} of ${limit:.2f} ({pct:.0f}%)"
+        return None
+
     def check_alerts(self) -> Optional[str]:
         """Check budget thresholds and return alert if needed."""
-        alerts = []
-
-        # Grok 80% check
-        grok = self.budget["grok_xai"]
-        grok_pct = (grok["spent"] / grok["limit_dollars"]) * 100
-        if grok_pct >= grok["alert_at_pct"]:
-            alerts.append(
-                f"⚠️ GROK BUDGET: ${grok['spent']:.2f} of ${grok['limit_dollars']:.2f} ({grok_pct:.0f}%)"
-            )
+        alerts = list(filter(None, [
+            self._pct_alert("grok_xai", "GROK"),
+            self._pct_alert("gemini", "GEMINI"),
+        ]))
 
         # Claude 85% check
         claude = self.budget["claude_max"]
