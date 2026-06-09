@@ -8,17 +8,43 @@ Ack pattern: critical messages (dissent) require ack
 """
 
 import os
+from pathlib import Path
+
+
+def _load_dotenv_password() -> str | None:
+    """Read RABBITMQ_PASSWORD from the repo .env if not already in os.environ.
+
+    No python-dotenv dependency — a minimal KEY=VALUE parse. This makes the
+    secret available to every client regardless of how it was launched
+    (session_init, handlers, tests, daemons) without baking it into source.
+    .env is gitignored; the password never enters version control.
+    """
+    if os.getenv("RABBITMQ_PASSWORD"):
+        return os.environ["RABBITMQ_PASSWORD"]
+    env_path = Path(__file__).resolve().parent.parent.parent / ".env"
+    if not env_path.exists():
+        return None
+    for line in env_path.read_text().splitlines():
+        line = line.strip()
+        if line.startswith("RABBITMQ_PASSWORD="):
+            val = line.split("=", 1)[1].strip().strip('"').strip("'")
+            if val:
+                os.environ["RABBITMQ_PASSWORD"] = val  # cache for other readers
+                return val
+    return None
+
 
 class MessagingConfig:
     """Production configuration."""
 
     # Yoga deployment (192.168.1.198)
-    # All credentials must come from environment variables or .env.vault
-    # No hardcoded secrets
+    # Credentials come from the environment or the gitignored .env — never source.
+    # No insecure fallback: a missing password fails loud at connect time rather
+    # than silently using a default that is committed and network-guessable.
     RABBITMQ_HOST = os.getenv("RABBITMQ_HOST", "192.168.1.198")
     RABBITMQ_PORT = int(os.getenv("RABBITMQ_PORT", "5672"))
     RABBITMQ_USER = os.getenv("RABBITMQ_USER", "persona_user")
-    RABBITMQ_PASSWORD = os.getenv("RABBITMQ_PASSWORD", "persona_password")
+    RABBITMQ_PASSWORD = _load_dotenv_password()
 
     # Fallback to localhost for testing
     RABBITMQ_HOST_FALLBACK = "localhost"
@@ -79,11 +105,19 @@ class MessagingConfig:
         host = MessagingConfig.RABBITMQ_HOST_FALLBACK if use_fallback else MessagingConfig.RABBITMQ_HOST
         port = MessagingConfig.RABBITMQ_PORT_FALLBACK if use_fallback else MessagingConfig.RABBITMQ_PORT
 
+        password = MessagingConfig.RABBITMQ_PASSWORD or _load_dotenv_password()
+        if not password:
+            raise RuntimeError(
+                "RABBITMQ_PASSWORD is not set. Add it to the repo .env "
+                "(RABBITMQ_PASSWORD=...) or export it. Refusing to connect with "
+                "an insecure default."
+            )
+
         return {
             'host': host,
             'port': port,
             'username': MessagingConfig.RABBITMQ_USER,
-            'password': MessagingConfig.RABBITMQ_PASSWORD,
+            'password': password,
             'connection_attempts': MessagingConfig.CONNECTION_ATTEMPTS,
             'retry_delay': MessagingConfig.RETRY_DELAY,
             'heartbeat': MessagingConfig.HEARTBEAT,

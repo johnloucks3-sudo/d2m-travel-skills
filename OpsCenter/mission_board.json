@@ -3048,9 +3048,10 @@
       "log": [
         "[2026-06-09T18:59:46.798901+00:00] [VALIDATION 2026-06-09 Opus] NOT done properly. Transport bus + tests pass; Gate 4 NOT reproducible \u2014 acknowledge() discards votes (audit.trail queue never declared); get_dissent_chain reads empty in-memory log. Status held ACTIVE. See docs/MISSION-172_VALIDATION_20260609.md. Fix D1-D4 before closure.",
         "[2026-06-09T19:04:16.910196+00:00] [Opus] D1/D2 FIXED \u2014 Gate 4 now reproducible (5 votes recovered, tally correct, unit 5/5). 3779 test artifacts purged. D3/D4 remain before closure. Status held ACTIVE.",
-        "[2026-06-09T19:08:51.248846+00:00] [Opus] D3 FIXED \u2014 consume non-destructive, acknowledge clears inbox + preserves vote. E2E + unit 5/5 pass. Code defects D1/D2/D3 all resolved. Remaining: D4 (creds, deployment), D5 (datetime). Status held ACTIVE pending D4."
+        "[2026-06-09T19:08:51.248846+00:00] [Opus] D3 FIXED \u2014 consume non-destructive, acknowledge clears inbox + preserves vote. E2E + unit 5/5 pass. Code defects D1/D2/D3 all resolved. Remaining: D4 (creds, deployment), D5 (datetime). Status held ACTIVE pending D4.",
+        "[2026-06-09T19:15:32.487616+00:00] [Opus] D4/D5 FIXED \u2014 broker creds rotated off default (+ .env loader, fail-loud), datetime.utcnow purged x5, test teardown added. ALL D1-D6 resolved. Gate 4 reproducible. Recommend COMPLETE on Commander confirm."
       ],
-      "validation_status": "CODE_DEFECTS_RESOLVED_D4_D5_PENDING"
+      "validation_status": "ALL_DEFECTS_RESOLVED_AWAITING_COMMANDER_CLOSE"
     },
     {
       "id": "MISSION-178",

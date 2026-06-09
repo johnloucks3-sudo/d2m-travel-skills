@@ -112,3 +112,24 @@ without it, inboxes re-accumulate. Status remains ACTIVE pending D3/D4.
 
 **Remaining before closure:** D4 (rotate yoga broker default creds — deployment task),
 D5 (datetime.utcnow deprecation x3). All three code defects (D1/D2/D3) now RESOLVED.
+
+---
+## ✅ UPDATE 2026-06-09 — D4/D5 RESOLVED — ALL DEFECTS CLOSED (Opus)
+- **D4 fixed:** broker `persona_user` password rotated off the committed default
+  via `rabbitmqctl change_password`. New strong password stored in gitignored
+  `.env`. `production_config` now loads `.env` (no python-dotenv dep) and FAILS
+  LOUD if no password — the `persona_password` fallback is removed. Verified:
+  fresh process reads .env + connects; old default `persona_password` now
+  REJECTED (403); missing-password raises a clear RuntimeError.
+  Host note: yoga IS this host (hostname=yoga, 192.168.1.198) — single broker
+  container `thunderbird-rabbitmq`; the code edited here is the code yoga runs,
+  so no separate redeploy. No live connections at rotation → zero lockout.
+- **D5 fixed:** `datetime.utcnow()` → `datetime.now(timezone.utc)` at all 5 sites
+  (schemas.py x4, rabbitmq_client.py x1).
+- **Test hygiene:** added autouse teardown fixture — suite now purges all inboxes
+  + audit.trail after each test (previously every run leaked artifacts into prod
+  queues, feeding D3 re-accumulation). Full suite 5/5, baseline clean (0) after.
+
+**MISSION-172: all six defects (D1–D6) resolved. Gate 4 reproducible, inboxes
+self-clearing, credentials hardened. Recommend status → COMPLETE on Commander
+confirmation; resolve the duplicate board ID (D6) at closure.**

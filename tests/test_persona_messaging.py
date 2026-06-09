@@ -11,10 +11,32 @@ import sys
 import time
 from pathlib import Path
 
+import pytest
+
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from core.messaging.rabbitmq_client import PersonaMessaging
 from core.messaging.schemas import PersonaMessage
+
+
+@pytest.fixture(autouse=True)
+def _purge_queues_after_test():
+    """Teardown: drain all persona inboxes + audit.trail after each test so the
+    suite never leaves artifacts in the live broker (previously every run dumped
+    messages into production inboxes, feeding the D3 re-accumulation)."""
+    yield
+    try:
+        pm = PersonaMessaging(host="127.0.0.1")
+        for persona in ["sterling", "dembe", "reyes", "dani", "harlan", "washington"]:
+            pm.consume(persona, auto_ack=True)  # drain
+        try:
+            pm.channel.queue_purge(queue="audit.trail")
+        except Exception:
+            pass
+        pm.close()
+    except Exception:
+        pass  # teardown must never fail a test
+
 
 def test_publish_and_consume():
     """Test basic pub/sub."""

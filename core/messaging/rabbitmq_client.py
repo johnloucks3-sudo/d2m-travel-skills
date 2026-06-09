@@ -12,7 +12,7 @@ import logging
 import uuid
 from typing import List, Optional, Callable
 from dataclasses import asdict
-from datetime import datetime
+from datetime import datetime, timezone
 import pika
 from .schemas import PersonaMessage
 from .production_config import MessagingConfig
@@ -137,7 +137,7 @@ class PersonaMessaging:
                 'from_persona': msg.from_persona,
                 'to_personas': msg.to_personas,
                 'msg_type': msg.msg_type,
-                'timestamp': datetime.utcnow().isoformat(),
+                'timestamp': datetime.now(timezone.utc).isoformat(),
                 'requires_ack': msg.requires_ack
             })
 
