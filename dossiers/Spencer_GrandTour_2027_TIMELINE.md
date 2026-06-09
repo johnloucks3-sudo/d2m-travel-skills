@@ -40,16 +40,20 @@ Mike Yaggi 50th birthday (May 6) · **Kathleen's 72nd birthday = Jun 12 = depart
 
 ---
 
-## PHASE A — PROPOSAL & DECISIONS  ⏰ NOW (Jun 2026)
-*The pre-anchor stretch. Lock the open decisions so components can be booked.*
+## PHASE A — PROPOSAL & DECISIONS  ⏸️ HELD — STARTS JUL 7, 2026 (Commander-directed)
+*The pre-anchor stretch. Held until Jul 7. Lock the open decisions so components can be booked.*
 
-| Item | Target | Status |
+| Item | Window (Jul-7 start) | Status |
 |---|---|---|
-| Flight quotes — 3 groups, both classes | **Jun 10, 2026** | in progress (Spencer_FlightQuotes_DMC_2027) |
-| Full package — hotels, transfers, insurance options | Jun 17, 2026 | in planning |
-| Review call w/ Bill & Kathleen | wk of Jun 19, 2026 | unconfirmed |
-| Submit to clients for decision | end Jun 2026 | — |
-| Lunch (Bill, Kathleen, John, Susie) | mid-Jul 2026 | — |
+| Flight quotes — 3 groups, both classes (refresh) | ~Jul 7–11, 2026 | prior quotes on file (Spencer_FlightQuotes_DMC_2027) |
+| Full package — hotels, transfers, insurance options | ~mid-Jul 2026 | in planning |
+| Review call w/ Bill & Kathleen | late Jul 2026 | unconfirmed |
+| Submit to clients for decision | late Jul / early Aug 2026 | — |
+| Lunch (Bill, Kathleen, John, Susie) | **NO DATE SET — TBD** | not scheduled |
+
+> Delay note: pushing Phase A to Jul 7 does **not** worsen the insurance window (if that
+> clock started on the ~May 4 deposit it's already closed — confirm regardless) and still
+> leaves ~11 months of air-booking runway. Booking Sprint (Phase B) shifts to Aug–Fall 2026.
 
 **Open decisions that GATE booking (get these from Bill):**
 1. Rome — apartment vs. hotel (drives the whole Rome booking)
