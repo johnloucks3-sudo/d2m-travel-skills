@@ -57,8 +57,8 @@ completed_tps: ["4.1", "4.2", "4.3", "4.4", "4.5"]
 | Apr 1 | **FINAL PAYMENT DUE — $15,486** |
 | May 31 | Specialty Dining opens |
 | Aug 22 | Excursions/dining close (E-7) |
-| Aug 27 | Haymarket check-in |
-| Aug 28 | Regent included hotel night |
+| Aug 27 | At Six Stockholm check-in (client-directed; Haymarket cancelling) |
+| Aug 28 | Regent included hotel night — At Six Stockholm |
 | Aug 29 | EMBARKATION |
 | Sep 8 | Disembarkation |
 
@@ -81,9 +81,9 @@ completed_tps: ["4.1", "4.2", "4.3", "4.4", "4.5"]
 ### HOTEL & TRANSFERS
 | Booking | Item | Dates | Status | Cost |
 |---------|------|-------|--------|------|
-| Bedsonline 131-2656351 | Haymarket By Scandic — 3x Grande King | Aug 27-28 | ✅ **PAID** | $418 |
-| — | Haymarket By Scandic — Regent included hotel night | Aug 28-29 | Included | — |
-| Royal Transfer | Arlanda transfer (hotel → airport) | Aug 27 | ✅ **PAID** | ~$176 |
+| At Six Stockholm | Pre-cruise Night 1 (client-directed) — replaces Haymarket; booking 131-2656351 ($418 paid) **CANCELLING → refund pending** | Aug 27-28 | ⚠️ to arrange | — |
+| — | At Six Stockholm — Regent included hotel night (Conf #9092637820900) | Aug 28-29 | Included | — |
+| New — D2M to book | ARN → At Six transfer — replaces ARN→Haymarket (Royal Transfer 1095074/DVF6U6, $176 paid → **cancel/refund**) | Aug 27 | ⚠️ to book | — |
 | — | Regent transport hotel → ship | Aug 29 | Included | — |
 | — | Regent transport ship → Oslo airport | Sep 8 | Included | — |
 
@@ -189,9 +189,9 @@ completed_tps: ["4.1", "4.2", "4.3", "4.4", "4.5"]
 | 5 | Flights | Outbound leg 2 (HEL→ARN) | YES | **CONFIRMED** | AY 811 Aug 27 1:15PM |
 | 6 | Flights | Outbound PNR / e-ticket | YES | **CONFIRMED** | AA: CKZHXA / Finnair: BB4X94 |
 | 7 | Flights | Outbound seat assignments | Nice-to-have | **PARTIAL** | DFW→HEL: ✅ assigned (seat #s TBD); HEL→ARN: ⚠️ still unassigned (BB4X94) |
-| 8 | Transfers | Airport → hotel transfer | YES | ✅ **PAID** | Royal Transfer (Arlanda) — ~$176 |
-| 9 | Hotel | Pre-cruise hotel (1 night) | YES | ✅ **PAID** | Haymarket By Scandic, Aug 27-28, Grande King — $418 |
-| 10 | Hotel | Regent included hotel night | YES | **CONFIRMED** | Haymarket By Scandic, Aug 28-29 |
+| 8 | Transfers | Airport → hotel transfer | YES | ⚠️ **REBOOKING** | ARN→At Six to book; ARN→Haymarket Royal Transfer (1095074/DVF6U6, $176 paid) cancelling → refund |
+| 9 | Hotel | Pre-cruise hotel (1 night) | YES | ⚠️ **REBOOKING** | At Six Stockholm, Aug 27-28 (client-directed). Haymarket (131-2656351, $418 paid) cancelling → refund pending |
+| 10 | Hotel | Regent included hotel night | YES | **CONFIRMED** | At Six Stockholm, Aug 28-29 (Conf #9092637820900) |
 | 11 | Transfers | Hotel → port transfer | YES | **CONFIRMED** | Regent transport, Aug 29 |
 | 12 | Cruise | Booking confirmed | YES | **CONFIRMED** | 3071222, Suite 827 |
 | 13 | Cruise | Suite assignment | YES | **CONFIRMED** | 827 |
@@ -260,7 +260,7 @@ Commander replied to Missy at 15:13 MT: "Thanks Missy, got it — John" ✅
 ### ISSUES NEEDING RESOLUTION
 
 1. **Finnair HEL→ARN Seat Assignment** — Seats unassigned on AY 811 (PNR BB4X94, Aug 27). This is the ONLY remaining seat gap on the full booking (DFW→HEL and return flights all confirmed). Contact Finnair/AA to assign seats for John & Melissa.
-2. **Haymarket Hotel Room Retention** — Confirm with Haymarket By Scandic that John & Melissa will remain in their room on the night of Aug 28 (when Regent covers the hotel night) rather than being asked to move rooms.
+2. **At Six Stockholm — Night 1 booking + ARN→At Six transfer** (client-directed) — book At Six Aug 27-28 (replaces Haymarket) and the ARN→At Six transfer; cancel Haymarket booking (131-2656351, $418 → refund) and ARN→Haymarket Royal Transfer (1095074/DVF6U6, $176 → refund). Both nights now At Six — no room change.
 
 **Status:** Both items target resolution by May 15, 2026 (E-45 milestone).
 

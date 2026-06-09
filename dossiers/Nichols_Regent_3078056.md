@@ -68,9 +68,9 @@ completed_tps: []
 ### HOTEL & TRANSFERS
 | Booking | Item | Dates | Status | Cost |
 |---------|------|-------|--------|------|
-| Bedsonline 131-2656351 | Haymarket By Scandic (on Furlow group booking, 3x Grande King) | Aug 27-28 | **CONFIRMED** | incl. |
-| — | Regent included hotel night (Hotel At Six — Conf #9092637820900) | Aug 28-29 | Included | — |
-| #1095089 / LN693883 | Transfer — Book Now Pay Later | — | **CONFIRMED** | — |
+| At Six Stockholm | Pre-cruise Night 1 (client-directed) — replaces Haymarket group booking (131-2656351, CANCELLING) | Aug 27-28 | ⚠️ to arrange | — |
+| — | At Six Stockholm — Regent included hotel night (Conf #9092637820900) | Aug 28-29 | Included | — |
+| New — D2M to book | ARN → At Six transfer — replaces ARN→Haymarket (#1095089/LN693883, cancelling) | Aug 27 | ⚠️ to book | — |
 | — | Regent transport hotel → ship | Aug 29 | Included | — |
 | — | Regent transport ship → Oslo airport | Sep 8 | Included | — |
 
@@ -154,9 +154,9 @@ completed_tps: []
 | 5 | Flights | Outbound leg 2 (HEL→ARN) | YES | **CONFIRMED** | AY 811 Aug 27 1:15PM |
 | 6 | Flights | Outbound PNR / e-ticket | YES | **CONFIRMED** | AA: DSTAGH / Finnair: BERJYH |
 | 7 | Flights | Outbound seat assignments | Nice-to-have | **✅ ALL CONFIRMED** | DFW→HEL: 5D/5H; HEL→ARN: 2D/2F (Heidi confirmed Mar 16) |
-| 8 | Transfers | Airport → hotel transfer | YES | **CONFIRMED** | Bedsonline #1095089/LN693883 |
-| 9 | Hotel | Pre-cruise hotel (1 night) | YES | **CONFIRMED** | Haymarket By Scandic, Aug 27-28 (Furlow group) |
-| 10 | Hotel | Regent included hotel night | YES | **CONFIRMED** | Aug 28 |
+| 8 | Transfers | Airport → hotel transfer | YES | ⚠️ **REBOOKING** | ARN→At Six to book; ARN→Haymarket (#1095089/LN693883) cancelling |
+| 9 | Hotel | Pre-cruise hotel (1 night) | YES | ⚠️ **REBOOKING** | At Six Stockholm, Aug 27-28 (client-directed; replaces Haymarket) |
+| 10 | Hotel | Regent included hotel night | YES | **CONFIRMED** | At Six Stockholm, Aug 28-29 (Conf #9092637820900) |
 | 11 | Transfers | Hotel → port transfer | YES | **CONFIRMED** | Regent transport, Aug 29 |
 | 12 | Cruise | Booking confirmed | YES | **CONFIRMED** | 3078056, Suite 939 |
 | 13 | Cruise | Suite assignment | YES | **CONFIRMED** | 939 |
@@ -199,7 +199,7 @@ All included (Regent Choice — $0.00). Both Larry & Heidi confirmed on all excu
 ### ISSUES NEEDING RESOLUTION
 
 1. **Return Flight Seat Assignments** — Seats NOT assigned on BA 6776 (OSL→LHR, Sep 8) and AA 79 (LHR→DFW, Sep 8). Outbound flights confirmed (5D/5H + 2D/2F). Contact BA/AA to assign return seats for Larry & Heidi.
-2. **Haymarket Hotel Room Retention** — Confirm with Haymarket By Scandic that Larry & Heidi will remain in their room on the night of Aug 28 (when Regent covers the hotel night) rather than being asked to move rooms.
+2. **At Six Stockholm — Night 1 booking + ARN→At Six transfer** (client-directed) — book At Six Aug 27-28 (replaces Haymarket) and the ARN→At Six transfer; cancel Haymarket group booking (131-2656351) and ARN→Haymarket transfer (#1095089/LN693883). Both nights now At Six — no room change.
 3. **Insurance Policy Clarification** — Allianz policy purchased ($700+) but coverage unclear to client. They want CFAR confirmation. Cross-reference with Amex Platinum travel protection and provide clear summary of what is/isn't covered. Target: May 15.
 4. **Schengen Visa/Entry Requirements** — Confirm Sweden/Norway entry requirements for US passports (6+ month validity). Both passports valid through Feb 2030.
 
