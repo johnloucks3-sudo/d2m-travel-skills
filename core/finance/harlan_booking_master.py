@@ -426,6 +426,9 @@ if __name__ == "__main__":
     parser.add_argument("--all", action="store_true", help="Show all active bookings")
     parser.add_argument("--fpd-alerts", action="store_true", help="Show upcoming FPD alerts")
     parser.add_argument("--days", type=int, default=60, help="Days ahead for FPD alerts")
+    parser.add_argument("--dedup", action="store_true",
+                        help="Read-only dedup scan. Exit 0=clean, 2=duplicates found. "
+                             "Never deletes — for the Sunday Sterling audit.")
     parser.add_argument("--json", action="store_true", help="JSON output")
     args = parser.parse_args()
 
@@ -433,6 +436,28 @@ if __name__ == "__main__":
     if not hbm.load():
         print(f"❌ Failed to load Booking Master: {hbm._load_error}")
         sys.exit(1)
+
+    if args.dedup:
+        plan = hbm.dedup_dry_run()
+        s = plan["summary"]
+        if args.json:
+            print(json.dumps(plan, indent=2, default=str))
+        else:
+            groups = s["duplicate_groups"]
+            if groups == 0:
+                print("GREEN: Booking Master clean — 0 duplicate confirmation groups")
+            else:
+                print(f"RED: {groups} duplicate confirmation group(s) detected "
+                      f"(A-safe:{s['tier_a_rows_to_delete']} "
+                      f"B-confirm:{s['tier_b_rows_to_delete']} "
+                      f"C-manual:{s['tier_c_rows_flagged']})")
+                for e in plan["tier_a_safe"] + plan["tier_b_confirm"] + plan["tier_c_manual"]:
+                    rows = ", ".join(str(d["row"]) for d in e["delete_rows"])
+                    print(f"  conf {e['conf']}: keep row {e['keep_row']}, review rows {rows}")
+                print("  → run: python3 core/finance/harlan_booking_master.py (dedup_dry_run) "
+                      "then Commander-gated deletion")
+        # Exit 2 signals "duplicates present" to the audit harness (0 reserved for clean)
+        sys.exit(0 if s["duplicate_groups"] == 0 else 2)
 
     if args.conf:
         result = hbm.harlan_verify(args.conf)

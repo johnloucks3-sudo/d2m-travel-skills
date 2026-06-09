@@ -32,6 +32,30 @@ else:
     print('GREEN: No duplicate script sprawl')
 "
 
+# Booking Master dedup scan — SUNDAY ONLY (weekly Baldrige sweep)
+# Read-only: detects + flags duplicate confirmation groups. Never deletes —
+# deletions remain Commander-gated (tiered dry-run + approval).
+if [ "$(date +%u)" = "7" ]; then
+    echo "[$(date -Iseconds)] [SUNDAY] Booking Master dedup scan..."
+    set +e
+    DEDUP_OUT=$(python3 core/finance/harlan_booking_master.py --dedup 2>&1)
+    DEDUP_RC=$?
+    set -e
+    echo "$DEDUP_OUT"
+    if [ "$DEDUP_RC" = "2" ]; then
+        echo "RED: Booking Master duplicates reappeared — flag to Hale before 07:00 brief"
+        STAMP=$(date '+%Y-%m-%d %H:%M MT')
+        printf '\n## [A7 STERLING — SUNDAY AUDIT] Booking Master duplicates — %s\nDedup scan exit 2. Review: python3 core/finance/harlan_booking_master.py --dedup\nDeletions are Commander-gated (Tier A/B/C). Do not auto-delete.\n' "$STAMP" >> "$THUNDERBIRD/claude_inbox.md" 2>/dev/null \
+            && echo "Flagged to claude_inbox.md" || echo "INFO: inbox flag skipped"
+    elif [ "$DEDUP_RC" = "0" ]; then
+        echo "GREEN: Booking Master clean (0 duplicate groups)"
+    else
+        echo "INFO: dedup scan could not complete (rc=$DEDUP_RC) — Sheets auth?"
+    fi
+else
+    echo "[$(date -Iseconds)] Booking Master dedup scan skipped (Sunday-only)"
+fi
+
 # SLA violations scan
 echo "[$(date -Iseconds)] Checking SLA violations..."
 if [ -f "$THUNDERBIRD/logs/task_sla_violations.log" ]; then
