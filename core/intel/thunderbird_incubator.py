@@ -188,10 +188,29 @@ def _call_claude(prompt: str, system: str, max_tokens: int = 2000) -> str:
             raise RuntimeError(f"CLI returned unusable output: {output[:100]}")
         return output
     except Exception as e:
-        log.warning(f"Claude CLI unavailable ({e}) — falling back to OpenRouter")
-        if OPENROUTER_API_KEY:
-            return _call_openrouter(prompt, system, "deepseek/deepseek-chat", max_tokens)
-        return f"[Claude unavailable, no OpenRouter fallback configured]"
+        log.warning(f"Claude CLI unavailable ({e}) — falling back to OpenCode ZEN (deepseek-v4-flash-free)")
+        return _call_opencode_zen(prompt, system, max_tokens)
+
+
+def _call_opencode_zen(prompt: str, system: str, max_tokens: int = 2000) -> str:
+    """Call OpenCode ZEN (deepseek-v4-flash-free) — free tier fallback when Claude CLI is unavailable."""
+    import subprocess
+    opencode_bin = Path.home() / ".opencode" / "bin" / "opencode"
+    full_prompt = f"{system}\n\n---\n\n{prompt}"
+    try:
+        result = subprocess.run(
+            [str(opencode_bin), "run", "-m", "opencode/deepseek-v4-flash-free", full_prompt],
+            capture_output=True,
+            text=True,
+            timeout=120,
+        )
+        output = result.stdout.strip()
+        # Strip opencode header lines ("> build · deepseek-v4-flash-free")
+        lines = [l for l in output.splitlines() if not l.startswith(">") and l.strip()]
+        return "\n".join(lines).strip() or f"[ZEN empty response]"
+    except Exception as e:
+        log.error(f"OpenCode ZEN failed: {e}")
+        return f"[ZEN unavailable: {e}]"
 
 
 def _load_am_categories() -> list:
