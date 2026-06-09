@@ -1,0 +1,20 @@
+{
+  "phase": "Phase 2C Staging",
+  "duration_seconds": 1,
+  "messages": {
+    "published": 31,
+    "consumed": 37,
+    "dissent": 10,
+    "observation": 10,
+    "alternative": 10,
+    "ack": 21
+  },
+  "latency_ms": {
+    "min": 0.08320808410644531,
+    "avg": 0.27825755457724294,
+    "max": 0.9236335754394531
+  },
+  "errors": 0,
+  "error_details": [],
+  "gate_3_pass": true
+}

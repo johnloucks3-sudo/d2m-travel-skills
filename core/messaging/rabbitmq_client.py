@@ -91,8 +91,14 @@ class PersonaMessaging:
             if not msg.message_id:
                 msg.message_id = str(uuid.uuid4())
 
-            # Route to exchange based on message type
-            exchange = f"persona.{msg.msg_type}"
+            # Route to exchange based on message type (pluralize: observation→observations)
+            exchange_map = {
+                'dissent': 'persona.dissent',
+                'observation': 'persona.observations',
+                'alternative': 'persona.alternatives',
+                'confirmation': 'persona.dissent'  # confirmations route to dissent for now
+            }
+            exchange = exchange_map.get(msg.msg_type, f"persona.{msg.msg_type}s")
 
             # Broadcast routing: send to each target persona separately
             for target in msg.to_personas:
