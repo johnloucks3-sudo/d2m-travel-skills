@@ -67,6 +67,16 @@ completed_tps: []   # top-level intentionally empty — McLeod is multi-booking;
 > 🟡 **FPD ALERT: Booking 2984034 (Regent Grandeur Dec 2026) — $11,943.15 DUE JULY 22, 2026**
 > ⏸️ **DEFERRED: DO NOT CONTACT UNTIL AFTER JULY 6** — client is on Silver Muse Jun 23–Jul 6. FPD window: Jul 6–Jul 22 (16 days). Commander directive 2026-06-09.
 
+> 📇 **THIS IS THE RELATIONSHIP HUB — NOT the scheduling source (split 2026-06-09).**
+> Each trip now has its own engine-scheduled per-booking dossier:
+> - Silver Muse (current, departing Jun 23) → `McLeod_Erik_Melissa_SilverMuse_Complete.md`
+> - Grandeur Lesser Antilles (Dec 2026) → `McLeod_Grandeur_LesserAntilles_2984034.md`
+> - Princess Mexico Riviera (Mar 2027) → `McLeod_Princess_MexicoRiviera_8X6PGQ.md`
+> - Prestige Season to Cheer (Dec 2027) → `McLeod_Prestige_SeasonToCheer_3114500.md`
+>
+> The lifecycle engine reads those per-booking files (one record per file). This hub
+> holds cross-trip relationship context, preferences, and the issues log only.
+
 ---
 
 ## QUICK REFERENCE
