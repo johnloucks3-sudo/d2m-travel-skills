@@ -20,16 +20,22 @@ Key facts: Poe key rotated → new key under yodainva@gmail.com (194,914 pts). D
 - Graceful fallback if RabbitMQ unavailable (continues session)
 **Status:** Active (enabled 2026-06-09 after Gate 4 PASS)
 
-## KEYWORD TRIGGER — "STAFF COMMENTS?" (MISSION-172 AUTO-INVOKE)
+## KEYWORD TRIGGER — "STAFF COMMENTS?" (MISSION-172 + MISSION BOARD AUTO-EXECUTION)
 **When Commander types:** `"STAFF COMMENTS?"`  
 **Auto-invokes:** `python3 OpsCenter/staff_comments_handler.py`  
-**Returns:** Immediate summary of pending dissents/observations/alternatives
+**Dual-purpose activation:**
+1. **Check persona inboxes** → surface dissents/observations/alternatives
+2. **Auto-execute Mission Board tasks** → execute eligible P0/P1 tasks
 
 **Behavior:**
 - ✅ No pending input → "All persona inboxes clear — ready for new decisions"
 - 🚨 P0 dissents → Lists critical staff concerns (with count & details)
 - ⚠️ P1 observations → Informational staff input
-- Displays next steps for each alert type
+- 🚀 Auto-executes Mission Board tasks that are:
+  - Status: `ready` or `pending_execution`
+  - Priority: P0 or P1
+  - No blocking dependencies
+- Displays next steps + execution status
 
 **Example:**
 ```
