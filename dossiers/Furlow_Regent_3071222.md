@@ -11,6 +11,8 @@ departure: 2026-08-29
 return: 2026-09-08
 fpd: 2026-04-01
 fpd_amount: 15486
+fpd_amount_verified_date: NEEDS_VERIFICATION
+fpd_amount_source: NEEDS_VERIFICATION
 payment_status: paid_in_full
 status: active
 relationship: client

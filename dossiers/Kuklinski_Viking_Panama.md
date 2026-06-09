@@ -8,6 +8,8 @@ departure: 2026-12-17
 return: 2026-12-27
 fpd: 2026-03-31
 fpd_amount: 21244
+fpd_amount_verified_date: NEEDS_VERIFICATION
+fpd_amount_source: NEEDS_VERIFICATION
 status: active
 relationship: client
 completed_tps: []

@@ -6,6 +6,8 @@ departure: 2026-06-18
 return: 2026-07-06
 fpd: 2026-01-24
 fpd_amount: 27813.32
+fpd_amount_verified_date: NEEDS_VERIFICATION
+fpd_amount_source: NEEDS_VERIFICATION
 booking_date: 2025-02-06
 status: active
 fpd_status: PAID
