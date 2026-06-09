@@ -1,5 +1,61 @@
+---
+client: McLeod McGlasson
+full_name: Erik Wiedenbach McLeod + Melissa Etola McGlasson
+relationship: client
+status: active
+note: BEST CLIENT — 4 active bookings across 3 cruise lines
+
+# Booking 1 — CURRENT TRIP (T-9)
+booking_1: "298475-25"
+booking_1_ship: Silver Muse
+booking_1_departure: 2026-06-23
+booking_1_fpd: 2026-01-24
+booking_1_fpd_amount: 27813.32
+booking_1_fpd_amount_verified_date: 2026-06-09
+booking_1_fpd_amount_source: invoice
+booking_1_payment_status: paid_in_full
+booking_1_harlan_signoff: "Confirmed: $27,813.32 PAID IN FULL, source: Silversea final invoice 298475-25 dated 20-Jan-26"
+
+# Booking 2 — FPD ORANGE (43 days)
+booking_2: "2984034"
+booking_2_ship: SS Grandeur
+booking_2_departure: 2026-12-19
+booking_2_fpd: 2026-07-22
+booking_2_fpd_amount: 11943.15
+booking_2_fpd_amount_verified_date: 2026-06-09
+booking_2_fpd_amount_source: invoice
+booking_2_payment_status: deposit_only
+booking_2_harlan_signoff: "Confirmed: balance_due=$11,943.15, FPD Jul-22-2026 (43 DAYS), source: Regent invoice 2984034 dated 23-May-26"
+
+# Booking 3 — Princess Mexico Riviera
+booking_3: "8X6PGQ"
+booking_3_ship: Discovery Princess
+booking_3_departure: 2027-03-13
+booking_3_fpd: 2026-12-13
+booking_3_fpd_amount: 6062.00
+booking_3_fpd_amount_verified_date: 2026-06-09
+booking_3_fpd_amount_source: invoice
+booking_3_payment_status: deposit_only
+booking_3_harlan_signoff: "Confirmed: $200 deposit paid (FCC), gross balance $6,222 due Dec-13-2026, source: Princess confirmation 8X6PGQ dated Mar-21-2025"
+
+# Booking 4 — Regent Prestige Dec 2027
+booking_4: "3114500"
+booking_4_ship: SS Prestige
+booking_4_departure: 2027-12-18
+booking_4_fpd: 2027-07-21
+booking_4_fpd_amount: NEEDS_VERIFICATION
+booking_4_fpd_amount_verified_date: NEEDS_VERIFICATION
+booking_4_fpd_amount_source: NEEDS_VERIFICATION
+booking_4_payment_status: deposit_only
+
+completed_tps: []
+---
+
 # CLIENT DOSSIER — Erik McLeod & Melissa McGlasson
 ## Multiple Bookings | Dreams2Memories Travel, LLC
+### ⭐ BEST CLIENT — 4 Active Bookings Across 3 Cruise Lines
+
+> 🔴 **FPD ALERT: Booking 2984034 (Regent Grandeur Dec 2026) — $11,943.15 DUE JULY 22, 2026 (43 DAYS)**
 
 ---
 
@@ -19,12 +75,12 @@ completed_tps: []
 
 ## ACTIVE BOOKINGS
 
-| Booking | Supplier | Ship | Dates | FPD | Status | Cabin |
-|---------|----------|------|-------|-----|--------|-------|
-| 298475-25 | Silversea | Silver Muse | Jun 23–Jul 3, 2026 | Jan 24 (✅ PAID) | Active | Suite 617, Classic Veranda |
-| 2984034 | Regent | SS Grandeur | Dec 19–29, 2026 | Jul 22 ($11,943.15) | Active | Suite 863, Deck 8, Concierge E |
-| 3114500 | Regent | SS Prestige | Dec 18–28, 2027 | Jul 21, 2027 ($14,598.00) | Future | Suite 820, Deck 8, Concierge D |
-| 8X6PGQ | Princess | TBD | Mar 13–20, 2027 | ~Dec 2026 | Future | TBD |
+| Booking | Supplier | Ship | Dates | FPD | Balance | Status | Cabin |
+|---------|----------|------|-------|-----|---------|--------|-------|
+| 298475-25 | Silversea | Silver Muse | Jun 23–Jul 3, 2026 | Jan 24 ✅ | **PAID** | T-9 ACTIVE | Suite 617, Classic Veranda |
+| **2984034** | **Regent** | **SS Grandeur** | **Dec 19–29, 2026** | **🔴 Jul 22** | **$11,943.15** | **DEPOSIT ONLY** | **Suite 863, E-Concierge (UPGRADED)** |
+| 8X6PGQ | Princess | Discovery Princess | Mar 13–20, 2027 | Dec 13, 2026 | ~$6,062 | Deposit only | D727, S3, Queen, Aft |
+| 3114500 | Regent | SS Prestige | Dec 18–28, 2027 | Jul 21, 2027 | TBD | Future | Suite 820, D-Concierge |
 
 ---
 
