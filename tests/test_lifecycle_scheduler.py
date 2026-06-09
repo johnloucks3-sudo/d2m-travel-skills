@@ -202,3 +202,72 @@ class TestCalculateDuePhasesIntegration:
         due, stale = calculate_due_phases(lc, TODAY, lookback_days=14)
         assert len(due) == 0
         assert len(stale) == 1, "Kuklinski TP_3 should be stale, not auto-drafted"
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# run_scheduler — dead-man's-switch (P0: "produced nothing when work was due"
+# must never be silent). Covers the run_scheduler paging path, not just the
+# date math — the prior session's tests stopped at calculate_due_phases.
+# ─────────────────────────────────────────────────────────────────────────────
+
+import yaml as _yaml
+from core.lifecycle import lifecycle_scheduler as _ls
+
+
+def _write_client_yaml(dirpath, client_id, phase_id, due_date, departure=None):
+    """Write a minimal active-client Blackboard YAML with one scheduled phase."""
+    doc = {
+        "client_id": client_id,
+        "client_names": "Test Client",
+        "status": "active",
+        "contacts": [{"role": "primary", "email": "test@example.com"}],
+        "bookings": [{"booking_type": "cruise", "embarkation_date": departure or "2026-12-31"}],
+        "lifecycle": {
+            "departure_date": departure or "2026-12-31",
+            "phases": [{"phase_id": phase_id, "due_date": due_date, "status": "scheduled"}],
+        },
+    }
+    (dirpath / f"{client_id}.yaml").write_text(_yaml.safe_dump(doc))
+
+
+class TestDeadMansSwitch:
+    def _isolate(self, tmp_path, monkeypatch, draft_return):
+        """Point scheduler at a temp Blackboard + ledger, stub draft+telegram, capture pages."""
+        bb = tmp_path / "clients"
+        bb.mkdir()
+        monkeypatch.setattr(_ls, "BLACKBOARD_DIR", bb)
+        monkeypatch.setattr(_ls, "SENT_LEDGER_PATH", tmp_path / "ledger.json")
+        monkeypatch.setattr(_ls, "AUDIT_LOG", tmp_path / "audit.jsonl")
+        pages = []
+        monkeypatch.setattr(_ls, "send_telegram_notification", lambda m: pages.append(m))
+        monkeypatch.setattr(_ls, "create_gmail_draft", lambda **kw: draft_return)
+        return bb, pages
+
+    def test_switch_fires_when_due_but_zero_drafts(self, tmp_path, monkeypatch):
+        """Phase due, draft creation fails (returns None) → 0 drafts → MUST page."""
+        bb, pages = self._isolate(tmp_path, monkeypatch, draft_return=None)
+        _write_client_yaml(bb, "acme", "TP_7", str(TODAY))  # due today
+        result = _ls.run_scheduler(TODAY, dry_run=False)
+        assert result["phases_due"] == 1
+        assert result["drafts_created"] == 0
+        switch = [m for m in pages if "DEAD MAN'S SWITCH" in m]
+        assert switch, "Dead-man's-switch MUST page when work was due but 0 drafts produced"
+
+    def test_switch_silent_when_drafts_created(self, tmp_path, monkeypatch):
+        """Phase due, draft succeeds → switch must NOT fire (no false page)."""
+        bb, pages = self._isolate(tmp_path, monkeypatch, draft_return="draft_xyz")
+        _write_client_yaml(bb, "acme", "TP_7", str(TODAY))
+        result = _ls.run_scheduler(TODAY, dry_run=False)
+        assert result["drafts_created"] == 1
+        assert not [m for m in pages if "DEAD MAN'S SWITCH" in m], \
+            "Switch must stay silent when drafts were produced"
+
+    def test_no_switch_when_nothing_due(self, tmp_path, monkeypatch):
+        """No phase due (future) → no drafts expected → switch must NOT fire."""
+        bb, pages = self._isolate(tmp_path, monkeypatch, draft_return=None)
+        _write_client_yaml(bb, "acme", "TP_7", str(TODAY + timedelta(days=60)))  # future
+        result = _ls.run_scheduler(TODAY, dry_run=False)
+        assert result["phases_due"] == 0
+        assert result["drafts_created"] == 0
+        assert not [m for m in pages if "DEAD MAN'S SWITCH" in m], \
+            "Switch must not fire when no work was due (0 due, 0 drafts is correct)"
