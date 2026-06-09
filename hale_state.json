@@ -15,14 +15,14 @@
       },
       "last_health_check": "2026-06-05T21:24:44.578424"
     },
-    "last_health_check": "2026-06-09T15:18:31.292374+00:00",
+    "last_health_check": "2026-06-09T17:53:58.587232+00:00",
     "chrome_debug_port_9222": "ONLINE",
     "mcp_server": "ONLINE",
     "opencode_status": "UNKNOWN",
     "telegram_bot": "UNKNOWN"
   },
   "_meta": {
-    "last_updated": "2026-06-09T15:45:00-06:00"
+    "last_updated": "2026-06-09T17:53:58.587232+00:00"
   },
   "open_tasks": [
     {
@@ -719,6 +719,14 @@
         "mission": "MISSION-128",
         "owner": "DEMBE",
         "notes": "Planning ranges sent to Commander. Booking window opens Jul 17 2026. NEXT: United Group Desk 800-426-1122 opt 3 for DEN-FCO 12-pax. Centrav session refresh needed."
+      },
+      {
+        "id": "PROJ-MCLEOD-2984034-FPD",
+        "name": "McLeod Regent Grandeur 2984034 \u2014 FPD Jul 22",
+        "status": "HOLD_UNTIL_2026-07-07",
+        "deadline": "2026-07-22",
+        "owner": "HALE",
+        "notes": "FPD $11,943.15 due Jul 22, 2026. Commander directive 2026-06-09: DO NOT CONTACT until client returns from Silver Muse (Jul 6). Activate Jul 7 \u2014 15 days to FPD. Dossier: McLeod_McGlasson_Multi.md booking_2=2984034. Source: Regent invoice 23-May-26 verified by Harlan."
       }
     ],
     "infrastructure_status": {
@@ -731,5 +739,18 @@
       "gemini_large_context_tier": "ACTIVE",
       "notebooklm_workspace": "PENDING_COMMANDER_SETUP"
     }
-  }
+  },
+  "deferred_alerts": [
+    {
+      "id": "MCLEOD-2984034-FPD-TRIGGER",
+      "trigger_date": "2026-07-07",
+      "priority": "P0",
+      "message": "McLeod Regent Grandeur 2984034 \u2014 FPD Jul 22 is 15 days out. $11,943.15 due. Contact Erik McLeod re final payment.",
+      "client": "McLeod McGlasson",
+      "booking": "2984034",
+      "amount": 11943.15,
+      "fpd": "2026-07-22",
+      "deferred_reason": "Client on Silver Muse Jun 23\u2013Jul 6"
+    }
+  ]
 }

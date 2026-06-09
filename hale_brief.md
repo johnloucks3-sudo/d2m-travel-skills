@@ -14,7 +14,7 @@ System Health: NOMINAL
 
 ---
 
-**Sir, FPD status cleared. All clients paid in full.**
+**Sir, FPD status: 6 of 7 cleared. McLeod Regent Grandeur $11,943.15 due Jul 22 — contact deferred until Jul 7 (client on Silver Muse).**
 
 ---
 
@@ -29,7 +29,8 @@ System Health: NOMINAL
 
 | Client | Ship | Departure | FPD Status | Hot Item |
 |---|---|---|---|---|
-| McLeod McGlasson | Silver Muse | **Jun 18** (T-9) | ✅ PAID (Apr 2026) | T-7 creative chain: initiated via MISSION-162 |
+| McLeod McGlasson | Silver Muse | **Jun 23** (T-14) | ✅ PAID $27,813 | T-7 chain complete · **4 active bookings** |
+| McLeod — Regent Grandeur 2984034 | SS Grandeur | Dec 19 | ⏸️ **$11,943 due Jul 22** | **HOLD until Jul 7** — client on Silver Muse |
 | Nichols (3 couples) | Regent Grandeur | Aug 29 | ✅ PAID (May 2026) | TP 0.5 draft in WF-17 queue |
 | Kuklinski Group | Viking Mars | Dec 17 | ✅ PAID (Mar 2026) | 4 TPs released Jul 15 |
 | Morton & Dodge | Viking Mars | Dec 17 | ✅ PAID (Mar 2026) | TP 0.5 draft in progress |
