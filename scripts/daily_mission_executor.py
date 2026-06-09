@@ -33,9 +33,25 @@ import time
 import fcntl
 from pathlib import Path
 from datetime import datetime, timezone
+from urllib.request import Request, urlopen
 
 THUNDERBIRD = Path("/home/john/Thunderbird")
 sys.path.insert(0, str(THUNDERBIRD))
+
+TELEGRAM_BOT_TOKEN = "***REMOVED-SECRET***"
+COMMANDER_CHAT_ID = 7554895206
+RUN_LOCK = THUNDERBIRD / "OpsCenter" / "executor_run.lock"
+
+
+def _send_telegram(message: str) -> None:
+    try:
+        url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
+        payload = json.dumps({"chat_id": COMMANDER_CHAT_ID, "text": message,
+                               "parse_mode": "HTML"}).encode()
+        urlopen(Request(url, data=payload,
+                        headers={"Content-Type": "application/json"}), timeout=10)
+    except Exception:
+        pass
 
 OPSCENTER = THUNDERBIRD / "OpsCenter"
 BOARD_PATH = OPSCENTER / "mission_board.json"
@@ -56,8 +72,9 @@ GATE_KEYWORDS = [
 # Owners that map to Commander gate (these require human decision)
 GATE_OWNERS = {"Commander", "commander", "COMMANDER"}
 
-# Task statuses we skip
-SKIP_STATUSES = {"completed", "complete", "done", "archived", "cancelled", "suspended"}
+# Task statuses we skip — pending_review means "executed, awaiting Commander close-out"
+SKIP_STATUSES = {"completed", "complete", "done", "archived", "cancelled", "suspended",
+                 "pending_review"}
 
 # Max tasks to execute per run (token discipline)
 MAX_TASKS_PER_RUN = 5
@@ -260,9 +277,22 @@ def log_result_to_board(board: dict, mission_id: str, result: dict):
             m.setdefault("logs", []).append(entry)
             m["updated_at"] = ts
             if result["success"]:
-                # Move P0 complete tasks to done; leave others for Commander review
-                if m.get("priority") == "P0":
+                # HALE auto-approval: Check output for issues
+                # If clean → auto-approve to completed
+                # If issues detected → hold for Commander review
+                output_lower = result["output"].lower()
+                has_issues = any(flag in output_lower for flag in [
+                    "error", "failed", "issue", "flag", "warning",
+                    "blocked", "pending", "investigate", "review needed"
+                ])
+
+                if has_issues:
+                    # Hold for Commander review
                     m["status"] = "pending_review"
+                else:
+                    # HALE auto-approves clean executions
+                    m["status"] = "completed"
+                    m["logs"].append(f"[{ts}] 🦅 HALE auto-approved closure (no issues detected)")
             break
 
 
@@ -278,6 +308,16 @@ def main():
     parser.add_argument("--priority", choices=["P0", "P1", "P0,P1"],
                         default="P0,P1", help="Priority filter (default: P0,P1)")
     args = parser.parse_args()
+
+    # ── Singleton lock — prevent concurrent runs ─────────────────────────────
+    try:
+        lock_fd = open(RUN_LOCK, "w")
+        fcntl.flock(lock_fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        lock_fd.write(str(os.getpid()))
+        lock_fd.flush()
+    except BlockingIOError:
+        print(f"[SKIP] Another executor is already running (lock: {RUN_LOCK}). Exiting.")
+        return
 
     now = datetime.now()
     log(f"Daily Mission Executor — {now.strftime('%Y-%m-%d %H:%M MT')}")
@@ -344,8 +384,43 @@ def main():
     }, indent=2))
 
     succeeded = sum(1 for r in results_summary if r["success"])
+    failed = len(results_summary) - succeeded
     log(f"\nExecutor complete: {succeeded}/{len(results_summary)} tasks succeeded.")
     log(f"Summary: {summary_path}")
+
+    # ── Log routine run consumption to usage ledger ──────────────────────────
+    try:
+        ledger_path = THUNDERBIRD / "OpsCenter" / "usage_ledger.json"
+        ledger = json.loads(ledger_path.read_text()) if ledger_path.exists() else {"routine_runs": [], "manual_snapshots": []}
+        ledger.setdefault("routine_runs", []).append({
+            "ts": datetime.now(timezone.utc).isoformat(),
+            "count": len(results_summary),
+            "succeeded": succeeded,
+            "missions": [r["id"] for r in results_summary],
+        })
+        ledger["routine_runs"] = ledger["routine_runs"][-60:]  # keep last 60 entries
+        ledger_path.write_text(json.dumps(ledger, indent=2))
+    except Exception as e:
+        log(f"  [ledger] write failed: {e}")
+
+    # ── Telegram page to Commander ──────────────────────────────────────────────
+    run_label = now.strftime("%H:%M MT")
+    lines = [f"🦅 <b>EXECUTOR — {run_label}</b>  {succeeded}/{len(results_summary)} ✅"]
+    for r in results_summary:
+        icon = "✅" if r["success"] else "❌"
+        lines.append(f"{icon} {r['id']}: {r['title'][:45]}")
+    if failed:
+        lines.append(f"\n⚠️ {failed} task(s) failed — check logs/daily_executor.log")
+    lines.append(f"\nOutput: output/executor_results/")
+    _send_telegram("\n".join(lines))
+
+    # ── Release run lock ─────────────────────────────────────────────────────
+    try:
+        fcntl.flock(lock_fd, fcntl.LOCK_UN)
+        lock_fd.close()
+        RUN_LOCK.unlink(missing_ok=True)
+    except Exception:
+        pass
 
 
 if __name__ == "__main__":
