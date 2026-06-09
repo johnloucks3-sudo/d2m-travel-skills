@@ -34,7 +34,7 @@
     {
       "id": "MISSION-009",
       "title": "Kuklinski ARC4-A Specialty Dining Email",
-      "status": "completed",
+      "status": "pending_review",
       "priority": "P1",
       "assigned_to": "A3 Dani (via JET/OpenCode \u2192 TALON/Claude for voice)",
       "description": "Draft Dani lifecycle email (ARC4-A \u2014 specialty dining reservation). D2M stationery applied. Preprocess via scripts/gmail_template_stripper.py. Push to Gmail draft labeled THUNDERBIRD-Commander-Review. WF-17 gate \u2014 do NOT send.",
@@ -108,7 +108,7 @@
     {
       "id": "MISSION-024",
       "title": "McLeod FPD Payment Orchestration",
-      "status": "completed",
+      "status": "pending_review",
       "priority": "P1",
       "assigned_to": "Hale",
       "description": "McLeod Grandeur Lesser Antilles (Dec 19-29, 2026). FPD: 22-Jul-26. Cruise fare: $13,398. Balance due: $12,427. Cabin selection response OVERDUE (was May 10).",
@@ -138,7 +138,7 @@
     {
       "id": "MISSION-026",
       "title": "Cabin Selection Follow-up Monitoring",
-      "status": "completed",
+      "status": "pending_review",
       "priority": "P1",
       "assigned_to": "Hale",
       "description": "Monitor cabin selection responses from McLeod + Kuklinski. BOTH OVERDUE.",
@@ -166,7 +166,7 @@
     {
       "id": "MISSION-014",
       "title": "AUDIT \u2014 Draft & Final Delivery Procedures (WF-17 Chain)",
-      "status": "completed",
+      "status": "pending_review",
       "priority": "P1",
       "assigned_to": "A7 Sterling + OpenCode",
       "description": "Full audit of draft/final delivery patterns. Output at output/audit_draft_delivery_procedures_20260518.md.",
@@ -607,7 +607,7 @@
     {
       "id": "MISSION-053",
       "title": "McLeod Grandeur \u2014 Booking Review + A2 Scrape Intel",
-      "status": "completed",
+      "status": "pending_review",
       "priority": "P1",
       "assigned_to": "Hale + A2 Dembe",
       "description": "Review McLeod Grandeur (SS Grandeur, Dec 19-29, 2026, booking 2984034) online in TESS/Regent portal. A2 Dembe: scrape port intel, excursion availability, dining schedule. Compress TP 1.1 research into 3 days \u2014 produce final Grandeur itinerary overview by suspense.",
@@ -824,7 +824,7 @@
     {
       "id": "MISSION-067",
       "title": "Norway Luxury Cruise Perx Pricing \u2014 Late Jul/Mid-Aug 2027",
-      "status": "completed",
+      "status": "pending_review",
       "priority": "P1",
       "assigned_to": "A2 Dembe",
       "description": "Research luxury cruise itineraries to Norway for late July \u2013 mid August 2027, comparable to Silver Spirit Arctic Norway (Voyage 2: May 21\u2013Jun 5, 2027 \u2014 fjords, North Cape, Bergen). Pull Perx regular pricing and any available historical Perx pricing on equivalent Norway sailings. Cruise lines in scope: Silversea, Seabourn, Regent, Viking. Output to Telegram and output/dembe_norway_2027_perx_pricing.md.",
@@ -845,7 +845,7 @@
     {
       "id": "MISSION-066",
       "title": "Web Lead Pipeline \u2014 Live Site Test",
-      "status": "completed",
+      "status": "pending_review",
       "priority": "P1",
       "assigned_to": "Commander + Hale",
       "description": "End-to-end live test of the Dani web lead pipeline on app.d2mluxury.quest. Verify: (1) Dani qualifies cruise, dates, cabin, party over 2+ turns, (2) commits to 2hr proposal when all four criteria met, (3) visitor provides email, (4) Telegram \ud83d\udd25 RFP alert fires to Commander, (5) draft worker spawns, (6) Sonnet prices cruise from conversation context, (7) HTML proposal created with correct stationery, (8) Gmail Commander-Review draft appears in d2mconcierge, (9) Telegram \u2705 completion alert fires. Commander supplies real or realistic test lead data.",
@@ -866,7 +866,7 @@
     {
       "id": "MISSION-069",
       "title": "Perx + Odysseus + CruiseComplete \u2014 Platform Reliability",
-      "status": "completed",
+      "status": "pending_review",
       "priority": "P1",
       "assigned_to": "A7 Sterling / Hale",
       "description": "Make Perx, Odysseus (TESS/book.myagentgenie.com), and CruiseComplete (TLN AgentUniverse) reliable automated data sources for fare scanning. Root issue: Chrome debug port 9222 is OFFLINE \u2014 both Odysseus and CruiseComplete use CDP via port 9222. Perx requires authenticated session. Goal: all three platforms health-checked, session-validated, and scan-ready so MISSION-068 Norway cruise scan can execute without manual intervention.",
@@ -901,7 +901,7 @@
     {
       "id": "MISSION-068",
       "title": "Norway/Scandinavia 2027 Cruise Scan \u2014 Ongoing Fare Watch",
-      "status": "completed",
+      "status": "pending_review",
       "priority": "P1",
       "assigned_to": "Hale / A2 Dembe",
       "description": "Establish periodic fare scan for luxury Norway/Scandinavia cruises July\u2013August 2027. Reference: Commander directive 2026-05-25 + MISSION-067 Dembe research. Target: Copenhagen \u2192 Southampton (or similar), 10\u201318 days. Lines: Silversea (Silver Dawn), Seabourn (Quest), Regent (Voyager). Pull pricing from Perx, Odysseus/TESS, and CruiseComplete. Alert Commander via Telegram when price drops below alert threshold or new sailings surface.",
@@ -1233,7 +1233,7 @@
     {
       "id": "MISSION-079",
       "title": "Sterling \u2014 File-Permission",
-      "status": "in_progress",
+      "status": "pending_review",
       "priority": "P1",
       "assigned_to": "A7 Sterling",
       "description": "Architecture Design Commander-approved 2026-05-30: Design which files are locked to which domain owners, which personas get write access, how pre-commit hook enforces it. Deliverable: architecture document. Implementation week following. P1",
@@ -1241,9 +1241,11 @@
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        "[2026-06-09T14:13:18] \u2705 Auto-executed by daily_mission_executor \u2014 148s \u2014 SUCCESS: Perfect. I've completed MISSION-079 by designing a comprehensive file-level permission architecture for Thunderbird OS. Here's what was delivered:\n\n## Deliverables Created\n\n**1. Main Architecture Docu"
+      ],
       "created_at": "2026-05-30T19:02:46.091028+00:00",
-      "updated_at": "2026-05-30T19:02:46.091038+00:00"
+      "updated_at": "2026-06-09T14:13:18"
     },
     {
       "id": "MISSION-080",
@@ -1338,7 +1340,7 @@
     {
       "id": "MISSION-086",
       "title": "MISSION-022: Dossier Option",
-      "status": "in_progress",
+      "status": "pending_review",
       "priority": "P1",
       "assigned_to": "A7 Sterling",
       "description": "B \u2014 Build Core + Sweep Design approved by Commander 2026-05-30. Dossier cache layer (Redis, 4h TTL) + nightly validation sweep (0200 MT daily). Architecture spec in hale_decisions.md entry 2026-05-30. Scope: (1) Cache connector (get/set/invalidate/list_keys), (2) Nightly sweep job (0200 MT, validates FPD/pricing/departure vs TESS/portal/cruise line), (3) Mismatch alerting to Hale. Code files: core/dossier/dossier_cache.py + core/dossier/dossier_validation_sweep.py. DEADLINE: Build by 2026-06-02, go-live 2026-06-03. QUESTIONS FOR STERLING: (1) Cache backend \u2014 Redis or in-process (dict+pickle to disk)? (2) Sweep scope \u2014 validate all 6 Harlan steps or FPD/pricing only? (3) Mismatch alert cadence \u2014 immediate page to Hale or roll up into morning brief? Owner: A7 Sterling. P1",
@@ -1346,9 +1348,11 @@
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        "[2026-06-09T14:15:17] \u2705 Auto-executed by daily_mission_executor \u2014 117s \u2014 SUCCESS: **STATUS: COMPLETE**\n\n---\n\n## Summary\n\n**MISSION-086 \u2014 Dossier Option B (Cache + Daily Sweep)** is now **fully operational**.\n\n### What Was Completed\n\n1. **Dossier Cache Layer** \u2014 Already built and fu"
+      ],
       "created_at": "2026-05-30T21:44:40.685091+00:00",
-      "updated_at": "2026-05-30T21:44:40.685101+00:00"
+      "updated_at": "2026-06-09T14:15:17"
     },
     {
       "id": "MISSION-087",
@@ -1377,7 +1381,7 @@
     {
       "id": "MISSION-088",
       "title": "Workflow \u2192 WF-17 Chain Automation",
-      "status": "active",
+      "status": "pending_review",
       "priority": "P1",
       "assigned_to": "A7 Sterling",
       "description": "Design pipeline script to automate WF-17 chain using Claude Code Workflow engine (v2.1.150+). Goal: single command runs the full WF-17 delivery sequence (Reyes \u2192 Luna \u2192 Naia \u2192 Dani \u2192 TALON/JET) with persona handoffs, quality gates, and error recovery. Eliminates manual chain execution. Source capability: Claude Code Workflow for multi-step persona orchestration. Owner: A7 Sterling. Design before code per Sterling A7 QAP.",
@@ -1391,15 +1395,16 @@
       ],
       "suspense_date": "2026-06-14",
       "created_at": "2026-05-31T00:00:00Z",
-      "updated_at": "2026-05-31T00:00:00Z",
+      "updated_at": "2026-06-09T14:17:27",
       "logs": [
-        "[2026-05-31T00:00:00] Mission created per Hale COS routing recommendation. Highest-leverage integration per TALON capability analysis."
+        "[2026-05-31T00:00:00] Mission created per Hale COS routing recommendation. Highest-leverage integration per TALON capability analysis.",
+        "[2026-06-09T14:17:27] \u2705 Auto-executed by daily_mission_executor \u2014 128s \u2014 SUCCESS: Delivered the complete WF-17 chain automation design to `/home/john/Thunderbird/output/executor_results/MISSION-088_20260609.md`. \n\n**Design includes:**\n- **6-step architecture:** Reyes (experience) \u2192"
       ]
     },
     {
       "id": "MISSION-089",
       "title": "CronCreate \u2192 Daemon Retirement Audit",
-      "status": "active",
+      "status": "pending_review",
       "priority": "P1",
       "assigned_to": "A7 Sterling + A12 ELON",
       "description": "Assess which Thunderbird systemd timers can be replaced by Claude Code CronCreate (v2.1.150+). Sterling: audit all systemd timers and daemon scripts, identify candidates for CronCreate replacement. ELON: frame kill audit \u2014 what cost/simplicity do we gain by retiring the timer stack? Target: reduce systemd timer surface by 60%+. Sterling assesses, ELON frames, joint recommendation to Commander.",
@@ -1412,9 +1417,10 @@
       "dependencies": [],
       "suspense_date": "2026-06-14",
       "created_at": "2026-05-31T00:00:00Z",
-      "updated_at": "2026-05-31T00:00:00Z",
+      "updated_at": "2026-06-09T14:19:38",
       "logs": [
-        "[2026-05-31T00:00:00] Mission created per Hale COS routing recommendation. Second-highest leverage integration."
+        "[2026-05-31T00:00:00] Mission created per Hale COS routing recommendation. Second-highest leverage integration.",
+        "[2026-06-09T14:19:38] \u2705 Auto-executed by daily_mission_executor \u2014 129s \u2014 SUCCESS: **MISSION-089 COMPLETE**\n\n## What I Delivered\n\n**CronCreate \u2192 Daemon Retirement Audit** \u2014 A comprehensive two-part analysis with joint recommendation:\n\n### A7 Sterling's Technical Audit\n- **Current st"
       ]
     },
     {
@@ -1834,7 +1840,7 @@
     {
       "id": "MISSION-114",
       "title": "Spencer air quote \u2014 Centrav B2B before Jun 10",
-      "status": "completed",
+      "status": "pending_review",
       "priority": "P0",
       "assigned_to": "Intel (Dembe)",
       "description": "Run Centrav B2B flight pricing for Spencer Grand Tour routing and produce a quote email ready for WF-17 gate before the June 10 air deadline.",
@@ -1853,7 +1859,7 @@
     {
       "id": "MISSION-115",
       "title": "Morton & Dodge \u2014 draft TP 0.5 welcome email",
-      "status": "active",
+      "status": "pending_review",
       "priority": "P1",
       "assigned_to": "Dani",
       "description": "Start the Morton & Dodge lifecycle with a TP 0.5 welcome email (Viking Mars Dec 17 voyage) \u2014 no touchpoint has been sent and the client relationship has not been formally opened.",
@@ -1862,10 +1868,11 @@
       "suspense_date": null,
       "escalation_rule": null,
       "logs": [
-        "[2026-06-05T22:55:01] Created by Weekly Report Generator"
+        "[2026-06-05T22:55:01] Created by Weekly Report Generator",
+        "[2026-06-09T14:21:08] \u2705 Auto-executed by daily_mission_executor \u2014 89s \u2014 SUCCESS: **MISSION-115 COMPLETE**\n\nI've drafted the TP 0.5 welcome/validation email for Joshua Morton & Erica Dodge's Viking Mars Panama Canal voyage (Dec 17\u201327, 2026).\n\n**What I produced:**\n\nA full client-rea"
       ],
       "created_at": "2026-06-05T22:55:01.734117+00:00",
-      "updated_at": "2026-06-05T22:55:01.734121+00:00",
+      "updated_at": "2026-06-09T14:21:08",
       "source": "weekly_report"
     },
     {
@@ -2172,7 +2179,7 @@
     {
       "id": "MISSION-132",
       "title": "Refresh Centrav + Regent session cookies",
-      "status": "completed",
+      "status": "pending_review",
       "priority": "P0",
       "assigned_to": "Hale",
       "description": "Restore scraper access for both portals and conduct keepalive failure post-mortem with Sterling to determine why auto-refresh did not catch dual expiry.",
@@ -2325,7 +2332,7 @@
     {
       "id": "MISSION-140",
       "title": "Close McLeod T-12 open items before Jun 10",
-      "status": "completed",
+      "status": "pending_review",
       "priority": "P0",
       "assigned_to": "Hale",
       "description": "Audit all open McLeod Silver Muse items, confirm status against dossier and TESS, send TP 0.5 brief to Commander for review, and produce a clean T-10 handoff checklist by Jun 10.",
@@ -2493,7 +2500,7 @@
     {
       "id": "MISSION-150",
       "title": "CENTRAV Session Keepalive + Claude Resurrection",
-      "status": "completed",
+      "status": "pending_review",
       "priority": "P0",
       "assigned_to": "Sterling",
       "description": "Priority 1: Fix Claude MAX dispatch. Priority 2: Build Centrav session auto-keepalive daemon so daily fare watch refresh does not need manual cookie extraction.",
@@ -2555,7 +2562,7 @@
     {
       "id": "MISSION-154",
       "title": "Restore TESS auth before McLeod T-7 window opens",
-      "status": "active",
+      "status": "completed",
       "priority": "P0",
       "assigned_to": "Commander",
       "description": "Run `python3 thunderbird_tess.py --authorize` to restore TESS authentication so Harlan can satisfy Rule 4 financial hard-source verification before any T-7 client product is drafted for McLeod.",
@@ -2564,7 +2571,8 @@
       "suspense_date": null,
       "escalation_rule": null,
       "logs": [
-        "[2026-06-07T17:40:53] Created by Weekly Report Generator"
+        "[2026-06-07T17:40:53] Created by Weekly Report Generator",
+        "[2026-06-09T08:10:00] \u2705 TESS authentication restored \u2014 token valid, bookings accessible"
       ],
       "created_at": "2026-06-07T17:40:53.422168+00:00",
       "updated_at": "2026-06-07T17:40:53.422170+00:00",
@@ -2699,7 +2707,7 @@
     {
       "id": "MISSION-162",
       "title": "Initiate McLeod T-7 departure email creative chain",
-      "status": "completed",
+      "status": "pending_review",
       "priority": "P0",
       "assigned_to": "Hale",
       "description": "Route McLeod departure email (T-7 trigger) through full creative chain (Reyes \u2192 Luna \u2192 Naia \u2192 Dani \u2192 TALON/JET \u2192 WF-17) immediately, targeting Commander review by Jun 12 for Jun 15 send.",
@@ -2740,7 +2748,7 @@
     {
       "id": "MISSION-164",
       "title": "Refresh Centrav and Regent portal cookies before Spencer call",
-      "status": "completed",
+      "status": "pending_review",
       "priority": "P0",
       "assigned_to": "Hale",
       "description": "Restore both expired portal sessions (Centrav 165h, Regent 72h) before Dembe calls United Group Desk Jun 10, ensuring B2B cross-validation capability is live during Spencer air quote.",
@@ -2851,7 +2859,7 @@
     {
       "id": "MISSION-170",
       "title": "Anansi Scraper Evaluation",
-      "status": "completed",
+      "status": "pending_review",
       "priority": "P0",
       "assigned_to": "Sterling",
       "description": "vs Regent Portal Approach Evaluate Anansi self-healing scraper (selector auto-repair, TLS fingerprint evasion, browser rendering fallback) against current Playwright+regentrssc.json manual approach. Determine: full replacement, supplement, or hold. Decision checkpoint: Wed 2026-06-10. Owner: A7 Sterling. P0",
@@ -2868,7 +2876,7 @@
     {
       "id": "MISSION-171",
       "title": "Incubator: Context Sniper",
-      "status": "completed",
+      "status": "pending_review",
       "priority": "P0",
       "assigned_to": "Sterling",
       "description": "Token budget foreman \u2014 middleware that compresses/strips stale context between OpenCode turns. Keeps current plan + last 2-3 file reads, summarizes older outputs, drops noise. Persona-aware retention policies. Self-calibrating aggressiveness. Write spec for Sterling build (HOLD). P1",
@@ -2906,7 +2914,7 @@
     {
       "id": "MISSION-173",
       "title": "Incubator: Commander Compiler",
-      "status": "completed",
+      "status": "pending_review",
       "priority": "P0",
       "assigned_to": "Sterling",
       "description": "Pre-generation lint for Dani chain \u2014 scores drafts against voice profiles, learning principles, temporal facts BEFORE generation. PASS/WARN/FAIL per dimension (tone, facts, structure, pricing). Auto-fix WARNS. Write spec for Sterling build (HOLD). P1",
@@ -2942,7 +2950,7 @@
     {
       "id": "MISSION-175",
       "title": "Incubator: Skill Forge",
-      "status": "completed",
+      "status": "pending_review",
       "priority": "P0",
       "assigned_to": "Sterling",
       "description": "Self-service skill generator \u2014 takes capability gap description, produces full skill package (SKILL.md + handler + triggers + tests + registration). Reads existing skills for conventions, persona-appropriate output. Self-pruning for unused skills. Write spec for Sterling build (HOLD). P1",
@@ -2961,7 +2969,7 @@
     {
       "id": "MISSION-176",
       "title": "d2m-tunnel.service \u2014 kill",
-      "status": "completed",
+      "status": "pending_review",
       "priority": "P0",
       "assigned_to": "Sterling",
       "description": "or build Startup script references d2m-tunnel.service which does not exist, causing cosmetic error on every OpenCode session open. Investigate: is this tunnel needed for any active operation? If no: remove the reference. If yes: build the service. Do not touch until decision is made. P3",
@@ -3060,7 +3068,7 @@
     "MISSION-007",
     "MISSION-034"
   ],
-  "last_updated": "2026-06-09T12:30:23.407930+00:00",
+  "last_updated": "2026-06-09T14:21:10.859311+00:00",
   "t4_exercise_status": {
     "status": "CLOSED",
     "score": "9.5/10 GREEN",
