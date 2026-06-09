@@ -15,24 +15,555 @@
       },
       "last_health_check": "2026-06-05T21:24:44.578424"
     },
-    "last_health_check": "2026-06-07T15:27:45.679692+00:00",
+    "last_health_check": "2026-06-09T15:18:31.292374+00:00",
     "chrome_debug_port_9222": "ONLINE",
     "mcp_server": "ONLINE",
     "opencode_status": "UNKNOWN",
     "telegram_bot": "UNKNOWN"
   },
   "_meta": {
-    "last_updated": "2026-06-07T15:27:45.679692+00:00"
+    "last_updated": "2026-06-09T15:45:00-06:00"
   },
   "open_tasks": [
     {
-      "raw": "{\"error\": \"<HttpError 403 when requesting https://tasks.googleapis.com/tasks/v1/users/@me/lists?maxResults=50&alt=json returned \\\"Request had insufficient authentication scopes.\\\". Details: \\\"[{'message': 'Insufficient Permission', 'domain': 'global', 'reason': 'insufficientPermissions'}]\\\">\"}"
+      "id": "MISSION-009",
+      "title": "Kuklinski ARC4-A Specialty Dining Email",
+      "priority": "P1",
+      "status": "pending_review"
+    },
+    {
+      "id": "MISSION-024",
+      "title": "McLeod FPD Payment Orchestration",
+      "priority": "P1",
+      "status": "pending_review"
+    },
+    {
+      "id": "MISSION-026",
+      "title": "Cabin Selection Follow-up Monitoring",
+      "priority": "P1",
+      "status": "pending_review"
+    },
+    {
+      "id": "MISSION-014",
+      "title": "AUDIT \u2014 Draft & Final Delivery Procedures (WF-17 Chain)",
+      "priority": "P1",
+      "status": "pending_review"
+    },
+    {
+      "id": "MISSION-053",
+      "title": "McLeod Grandeur \u2014 Booking Review + A2 Scrape Intel",
+      "priority": "P1",
+      "status": "pending_review"
+    },
+    {
+      "id": "MISSION-060",
+      "title": "Chromebook Termux \u2014",
+      "priority": "P0",
+      "status": "in_progress"
+    },
+    {
+      "id": "MISSION-067",
+      "title": "Norway Luxury Cruise Perx Pricing \u2014 Late Jul/Mid-Aug 2027",
+      "priority": "P1",
+      "status": "pending_review"
+    },
+    {
+      "id": "MISSION-066",
+      "title": "Web Lead Pipeline \u2014 Live Site Test",
+      "priority": "P1",
+      "status": "pending_review"
+    },
+    {
+      "id": "MISSION-069",
+      "title": "Perx + Odysseus + CruiseComplete \u2014 Platform Reliability",
+      "priority": "P1",
+      "status": "pending_review"
+    },
+    {
+      "id": "MISSION-068",
+      "title": "Norway/Scandinavia 2027 Cruise Scan \u2014 Ongoing Fare Watch",
+      "priority": "P1",
+      "status": "pending_review"
+    },
+    {
+      "id": "MISSION-065",
+      "title": "Pacific Voyage Blog",
+      "priority": "P0",
+      "status": "in_progress"
+    },
+    {
+      "id": "MISSION-072",
+      "title": "Dead Link Audit + Portal Login Verification",
+      "priority": "P2",
+      "status": "IN_PROGRESS"
+    },
+    {
+      "id": "MISSION-073",
+      "title": "RoboForm Share Acceptance",
+      "priority": "P0",
+      "status": "in_progress"
+    },
+    {
+      "id": "MISSION-078",
+      "title": "Persona Avatar Generation",
+      "priority": "P0",
+      "status": "in_progress"
+    },
+    {
+      "id": "MISSION-079",
+      "title": "Sterling \u2014 File-Permission",
+      "priority": "P1",
+      "status": "in_progress"
+    },
+    {
+      "id": "MISSION-080",
+      "title": "McLeod Dossier \u2014",
+      "priority": "P1",
+      "status": "in_progress"
+    },
+    {
+      "id": "MISSION-082",
+      "title": "Furlows \u2014 HEL\u2192ARN",
+      "priority": "P1",
+      "status": "in_progress"
+    },
+    {
+      "id": "MISSION-083",
+      "title": "Nichols \u2014 Return",
+      "priority": "P1",
+      "status": "in_progress"
+    },
+    {
+      "id": "MISSION-084",
+      "title": "Grandeur Group \u2014",
+      "priority": "P1",
+      "status": "in_progress"
+    },
+    {
+      "id": "MISSION-085",
+      "title": "Grandeur Group \u2014",
+      "priority": "P1",
+      "status": "in_progress"
+    },
+    {
+      "id": "MISSION-086",
+      "title": "MISSION-022: Dossier Option",
+      "priority": "P1",
+      "status": "in_progress"
+    },
+    {
+      "id": "MISSION-087",
+      "title": "Grandeur Group \u2014 Hotel, Transport & Seat Logistics (All 3 Couples)",
+      "priority": "P1",
+      "status": "active"
+    },
+    {
+      "id": "MISSION-088",
+      "title": "Workflow \u2192 WF-17 Chain Automation",
+      "priority": "P1",
+      "status": "active"
+    },
+    {
+      "id": "MISSION-089",
+      "title": "CronCreate \u2192 Daemon Retirement Audit",
+      "priority": "P1",
+      "status": "active"
+    },
+    {
+      "id": "MISSION-092",
+      "title": "Adopt persistent Claude",
+      "priority": "P0",
+      "status": "in_progress"
+    },
+    {
+      "id": "MISSION-102",
+      "title": "IRON CLOCK \u2014",
+      "priority": "P0",
+      "status": "in_progress"
+    },
+    {
+      "id": "MISSION-103",
+      "title": "WING STANDUP \u2014",
+      "priority": "P0",
+      "status": "in_progress"
+    },
+    {
+      "id": "MISSION-104",
+      "title": "WING STANDUP \u2014",
+      "priority": "P0",
+      "status": "in_progress"
+    },
+    {
+      "id": "MISSION-105",
+      "title": "INBOX FIRST \u2014",
+      "priority": "P0",
+      "status": "in_progress"
+    },
+    {
+      "id": "MISSION-106",
+      "title": "TEMPLATE \u2014 Full",
+      "priority": "P0",
+      "status": "in_progress"
+    },
+    {
+      "id": "MISSION-107",
+      "title": "SPEED \u2014 Bottleneck",
+      "priority": "P0",
+      "status": "in_progress"
+    },
+    {
+      "id": "MISSION-108",
+      "title": "LOUCKS TRAVEL \u2014",
+      "priority": "P0",
+      "status": "in_progress"
+    },
+    {
+      "id": "MISSION-109",
+      "title": "LOUCKS TRAVEL \u2014",
+      "priority": "P0",
+      "status": "in_progress"
+    },
+    {
+      "id": "MISSION-110",
+      "title": "INBOX DISCIPLINE Commander",
+      "priority": "P0",
+      "status": "in_progress"
+    },
+    {
+      "id": "MISSION-112",
+      "title": "Send 5 WF-17 drafts \u2014 Nichols + Kuklinski queue",
+      "priority": "P0",
+      "status": "active"
+    },
+    {
+      "id": "MISSION-113",
+      "title": "Refresh Centrav + Regent portal session cookies",
+      "priority": "P0",
+      "status": "active"
+    },
+    {
+      "id": "MISSION-114",
+      "title": "Spencer air quote \u2014 Centrav B2B before Jun 10",
+      "priority": "P0",
+      "status": "pending_review"
+    },
+    {
+      "id": "MISSION-115",
+      "title": "Morton & Dodge \u2014 draft TP 0.5 welcome email",
+      "priority": "P1",
+      "status": "active"
+    },
+    {
+      "id": "MISSION-116",
+      "title": "Loucks Nova FPD \u2014 TESS reconciliation",
+      "priority": "P1",
+      "status": "active"
+    },
+    {
+      "id": "MISSION-118",
+      "title": "Sterling Sunday audit \u2014 ETB + autonomy build complexity check",
+      "priority": "P2",
+      "status": "active"
+    },
+    {
+      "id": "MISSION-120",
+      "title": "Nichols TP 0.5",
+      "priority": "P0",
+      "status": "in_progress"
+    },
+    {
+      "id": "MISSION-121",
+      "title": "McLeod T-13 \u2014",
+      "priority": "P0",
+      "status": "in_progress"
+    },
+    {
+      "id": "MISSION-122",
+      "title": "Spencer Grand Tour",
+      "priority": "P0",
+      "status": "in_progress"
+    },
+    {
+      "id": "MISSION-123",
+      "title": "Kuklinski \u2014 4",
+      "priority": "P0",
+      "status": "in_progress"
+    },
+    {
+      "id": "MISSION-124",
+      "title": "Bryana onboarding \u2014",
+      "priority": "P0",
+      "status": "in_progress"
+    },
+    {
+      "id": "MISSION-126",
+      "title": "INFRASTRUCTURE: Wire auto-session-monitor",
+      "priority": "P0",
+      "status": "in_progress"
+    },
+    {
+      "id": "MISSION-127",
+      "title": "Google AI Pro Integration",
+      "priority": "P1",
+      "status": "in_progress"
+    },
+    {
+      "id": "MISSION-128",
+      "title": "Spencer Air Quote \u2014 Jun 10 Deadline",
+      "priority": "P0",
+      "status": "in_progress"
+    },
+    {
+      "id": "MISSION-129",
+      "title": "Commander sends 5 aging WF-17 drafts \u2014 Nichols + Kuklinski x4",
+      "priority": "P0",
+      "status": "active"
+    },
+    {
+      "id": "MISSION-130",
+      "title": "Call United Group Desk for Spencer DEN-FCO air quote",
+      "priority": "P0",
+      "status": "active"
+    },
+    {
+      "id": "MISSION-132",
+      "title": "Refresh Centrav + Regent session cookies",
+      "priority": "P0",
+      "status": "pending_review"
+    },
+    {
+      "id": "MISSION-133",
+      "title": "Author FPD enforcement escalation standing order",
+      "priority": "P1",
+      "status": "active"
+    },
+    {
+      "id": "MISSION-134",
+      "title": "Start Morton and Dodge lifecycle \u2014 TP 0.5 welcome",
+      "priority": "P1",
+      "status": "active"
+    },
+    {
+      "id": "MISSION-135",
+      "title": "Deduplicate MISSION-072 and repair truncated mission titles",
+      "priority": "P2",
+      "status": "active"
+    },
+    {
+      "id": "MISSION-136",
+      "title": "Validate keepalive timer coverage for all expiring credentials",
+      "priority": "P1",
+      "status": "active"
+    },
+    {
+      "id": "MISSION-137",
+      "title": "Activate Dembe for Spencer DEN-FCO 12-pax air quote",
+      "priority": "P0",
+      "status": "active"
+    },
+    {
+      "id": "MISSION-138",
+      "title": "Send five aging WF-17 drafts \u2014 Nichols + Kuklinski",
+      "priority": "P0",
+      "status": "active"
+    },
+    {
+      "id": "MISSION-140",
+      "title": "Close McLeod T-12 open items before Jun 10",
+      "priority": "P0",
+      "status": "pending_review"
+    },
+    {
+      "id": "MISSION-142",
+      "title": "Create Morton/Dodge lifecycle reset \u2014 TP queue from scratch",
+      "priority": "P1",
+      "status": "active"
+    },
+    {
+      "id": "MISSION-143",
+      "title": "Fix Google Tasks OAuth 403 \u2014 add tasks scope to credential grant",
+      "priority": "P1",
+      "status": "active"
+    },
+    {
+      "id": "MISSION-145",
+      "title": "FARE WATCH \u2014",
+      "priority": "P0",
+      "status": "in_progress"
+    },
+    {
+      "id": "MISSION-146",
+      "title": "MISSION-146: Hale Gmail",
+      "priority": "P0",
+      "status": "in_progress"
+    },
+    {
+      "id": "MISSION-147",
+      "title": "Hale Gmail Capability",
+      "priority": "P0",
+      "status": "in_progress"
+    },
+    {
+      "id": "MISSION-148",
+      "title": "Telegram Feature Expansion",
+      "priority": "P0",
+      "status": "in_progress"
+    },
+    {
+      "id": "MISSION-149",
+      "title": "CENTRAV Session Auto-Keepalive",
+      "priority": "P0",
+      "status": "in_progress"
+    },
+    {
+      "id": "MISSION-150",
+      "title": "CENTRAV Session Keepalive + Claude Resurrection",
+      "priority": "P0",
+      "status": "pending_review"
+    },
+    {
+      "id": "MISSION-151",
+      "title": "MISSION-120: Telegram Redesign",
+      "priority": "P0",
+      "status": "in_progress"
+    },
+    {
+      "id": "MISSION-152",
+      "title": "Phase E: Signal",
+      "priority": "P0",
+      "status": "in_progress"
+    },
+    {
+      "id": "MISSION-153",
+      "title": "Telegram Gateway Auto-Restart",
+      "priority": "P0",
+      "status": "in_progress"
+    },
+    {
+      "id": "MISSION-154",
+      "title": "Restore TESS auth before McLeod T-7 window opens",
+      "priority": "P0",
+      "status": "active"
+    },
+    {
+      "id": "MISSION-155",
+      "title": "Activate Dembe \u2014 Spencer air quote DEN-FCO 12-pax",
+      "priority": "P0",
+      "status": "active"
+    },
+    {
+      "id": "MISSION-156",
+      "title": "Create Morton & Dodge lifecycle mission and TP-0.5 draft",
+      "priority": "P1",
+      "status": "active"
+    },
+    {
+      "id": "MISSION-157",
+      "title": "Refresh Centrav and Regent session cookies",
+      "priority": "P1",
+      "status": "active"
+    },
+    {
+      "id": "MISSION-158",
+      "title": "Send Bryana onboarding drafts after Commander review",
+      "priority": "P1",
+      "status": "active"
+    },
+    {
+      "id": "MISSION-159",
+      "title": "Document FPD resolution plans for Kuklinski and Morton & Dodge",
+      "priority": "P1",
+      "status": "active"
+    },
+    {
+      "id": "MISSION-160",
+      "title": "Ship Qdrant daily re-index systemd timer",
+      "priority": "P1",
+      "status": "active"
+    },
+    {
+      "id": "MISSION-161",
+      "title": "Verify McLeod Silver Muse booking holds \u2014 no cancellation risk from overdue FPD",
+      "priority": "P1",
+      "status": "active"
+    },
+    {
+      "id": "MISSION-162",
+      "title": "Initiate McLeod T-7 departure email creative chain",
+      "priority": "P0",
+      "status": "pending_review"
+    },
+    {
+      "id": "MISSION-164",
+      "title": "Refresh Centrav and Regent portal cookies before Spencer call",
+      "priority": "P0",
+      "status": "pending_review"
+    },
+    {
+      "id": "MISSION-165",
+      "title": "Draft Morton/Dodge TP 0.5 welcome email for WF-17",
+      "priority": "P1",
+      "status": "active"
+    },
+    {
+      "id": "MISSION-166",
+      "title": "Implement Centrav and Regent cookie auto-keepalive",
+      "priority": "P1",
+      "status": "active"
+    },
+    {
+      "id": "MISSION-167",
+      "title": "14-day watch protocol on A1/A3/A5/A8 autonomy scripts",
+      "priority": "P1",
+      "status": "active"
+    },
+    {
+      "id": "MISSION-168",
+      "title": "Root-cause overwatch crash loop and close Sterling ticket",
+      "priority": "P1",
+      "status": "active"
+    },
+    {
+      "id": "MISSION-170",
+      "title": "Anansi Scraper Evaluation",
+      "priority": "P0",
+      "status": "pending_review"
+    },
+    {
+      "id": "MISSION-171",
+      "title": "Incubator: Context Sniper",
+      "priority": "P0",
+      "status": "pending_review"
+    },
+    {
+      "id": "MISSION-173",
+      "title": "Incubator: Commander Compiler",
+      "priority": "P0",
+      "status": "pending_review"
+    },
+    {
+      "id": "MISSION-175",
+      "title": "Incubator: Skill Forge",
+      "priority": "P0",
+      "status": "pending_review"
+    },
+    {
+      "id": "MISSION-176",
+      "title": "d2m-tunnel.service \u2014 kill",
+      "priority": "P0",
+      "status": "pending_review"
     }
   ],
   "financial_pulse": {
-    "last_checked": "2026-06-07T06:45:29.543414-06:00",
-    "tess_auth_status": "ERROR",
-    "tess_error": "Not authenticated. Run: python3 thunderbird_tess.py --authorize",
+    "last_checked": "2026-06-09T15:45:00-06:00",
+    "tess_auth_status": "ONLINE",
+    "tess_trips": 13,
+    "tess_bookings": 18,
+    "tess_clients": 25,
+    "tess_pkg_total": 138131.9,
+    "tess_received": 244.8,
+    "tess_due": 0.0,
+    "tess_checks_received": 1,
     "sheet_status": "ONLINE",
     "sheet_bookings": 35,
     "sheet_commission_expected": 35214.47,
@@ -41,10 +572,11 @@
     "pipeline_d2m_share_upcoming": 21440.75,
     "pipeline_commission_upcoming": 28082.41,
     "total_d2m_pipeline": 21440.75,
-    "raw_snippet": "D2M pipeline: $21,440.75 D2M share across 23 upcoming voyages (sheet) + 0 checks already received totaling $0.00 (TESS)."
+    "raw_snippet": "D2M pipeline: $21,440.75 D2M share across 23 upcoming voyages (sheet) + 1 checks already received totaling $244.80 (TESS).",
+    "all_fpd_status": "\u2705 PAID (zero outstanding)"
   },
   "session_context": {
-    "last_checkpoint": "2026-06-07T06:45:29.543414-06:00"
+    "last_checkpoint": "2026-06-09T06:45:23.430443-06:00"
   },
   "staff_load": {
     "HALE": {
@@ -91,6 +623,27 @@
       "brain": "Brain 2 (Sonnet)",
       "reason": "Commander override: SONNET",
       "elapsed": 56.5
+    },
+    {
+      "ts": "2026-06-08T05:46:54.968419-06:00",
+      "task": "BRIEF ME ON THESE FIVE ITEMS:\n\n1. IRAN/HORMUZ TOLL REGIME (Feb\u2013May 2026)\n   - Iran closed Strait of ",
+      "brain": "Brain 2 (Opus)",
+      "reason": "Auto-classified + optimized | Model: opus | Strategies: output_specification, note_batchable",
+      "elapsed": 21.4
+    },
+    {
+      "ts": "2026-06-08T06:31:44.707547-06:00",
+      "task": "QUERY: Iran Persian Gulf Strait Authority (PGSA) toll regime \u2014 June 2026 status\n\nUSER CLAIMS (War on",
+      "brain": "Brain 2 (Sonnet \u2014 free model escalation)",
+      "reason": "Auto-classified + optimized | Model: haiku | Strategies: output_specification, note_batchable",
+      "elapsed": 0.2
+    },
+    {
+      "ts": "2026-06-08T06:31:45.491015-06:00",
+      "task": "Research task: What is the current status of US military operations related to Iran as of June 2026?",
+      "brain": "Brain 2 (Sonnet \u2014 free model escalation)",
+      "reason": "Auto-classified + optimized | Model: haiku | Strategies: output_specification",
+      "elapsed": 0.2
     }
   ],
   "project_tracking": {
