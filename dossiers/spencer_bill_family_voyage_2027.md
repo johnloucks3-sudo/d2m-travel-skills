@@ -1,5 +1,15 @@
 
-SPENCER FAMILY GRAND TOUR - JUNE 2027
+> # ⛔ OBSOLETE — DO NOT BUILD FROM THIS FILE
+> **Retired 2026-06-09 (Commander directive).** This early draft is WRONG: Milan/Iceland,
+> Jun-20 departure, and the extension are all obsolete. The authoritative Spencer plan is:
+> - **`dossiers/Spencer_GrandTour_2027_TIMELINE.md`** (the lifecycle chart / scheduling source)
+> - **`Commander_Review/Spencer_Grand_Tour_2027_Working CC edits.md`** (Commander source)
+> Correct trip: Rome → Disney Wish Med → Florence → Switzerland, **Jun 12–Jul 2, 2027**, mid-trip split Jun 23.
+> Retained for history only. Risk-flag #6 closed.
+
+---
+
+SPENCER FAMILY GRAND TOUR - JUNE 2027  [OBSOLETE]
 =======================================
 CLIENT: Bill & Kathleen Spencer
 EMAIL: bkspencer381@gmail.com
