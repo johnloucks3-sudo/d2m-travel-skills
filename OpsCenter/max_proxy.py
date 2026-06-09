@@ -22,13 +22,17 @@ CLAUDE_MODEL = 'claude-sonnet-4-6'
 MODEL_MAP = {
     'claude-sonnet-4-5':  'claude-sonnet-4-6',
     'claude-sonnet-4-6':  'claude-sonnet-4-6',
-    'claude-opus-4':      'claude-opus-4-7',
-    'claude-opus-4-5':    'claude-opus-4-7',
-    'claude-opus-4-7':    'claude-opus-4-7',
+    # Opus: generic + all older aliases resolve to the current latest (4-8).
+    # Previously these pinned to 4-7 — stale; opus work never reached 4-8.
+    'claude-opus-4':      'claude-opus-4-8',
+    'claude-opus-4-5':    'claude-opus-4-8',
+    'claude-opus-4-6':    'claude-opus-4-8',
+    'claude-opus-4-7':    'claude-opus-4-7',   # explicit 4-7 request honored
     'claude-opus-4-8':    'claude-opus-4-8',
-    'claude-haiku-3-5':   'claude-haiku-4-5',
-    'claude-haiku-3':     'claude-haiku-4-5',
-    'claude-haiku-4-5':   'claude-haiku-4-5',
+    # Haiku targets use the dated canonical ID (matches HAIKU_FALLBACK).
+    'claude-haiku-3-5':   'claude-haiku-4-5-20251001',
+    'claude-haiku-3':     'claude-haiku-4-5-20251001',
+    'claude-haiku-4-5':   'claude-haiku-4-5-20251001',
 }
 
 

@@ -114,7 +114,8 @@ def route_task(
             # Claude Sonnet (Max plan — client facing, strategy)
             result = run_claude(
                 f"[{mission_id}] TASK TYPE: {task_type}\n\n{task_text}",
-                timeout=300
+                timeout=300,
+                model="claude-sonnet-4-6",
             )
             return result[1] if result[0] else f"ERROR: {result[1]}"
 
@@ -122,7 +123,8 @@ def route_task(
             # Claude Opus (Max plan — arbitration, tiebreaking)
             result = run_claude(
                 f"[{mission_id}] CRITICAL DECISION REQUIRED\nTASK TYPE: {task_type}\n\n{task_text}\n\nProvide definitive judgment with reasoning.",
-                timeout=300
+                timeout=300,
+                model="claude-opus-4-8",
             )
             return result[1] if result[0] else f"ERROR: {result[1]}"
 
@@ -130,7 +132,8 @@ def route_task(
             # Claude Code direct (system fallback)
             result = run_claude(
                 f"[{mission_id}] SYSTEM FALLBACK\n\n{task_text}",
-                timeout=300
+                timeout=300,
+                model="claude-sonnet-4-6",
             )
             return result[1] if result[0] else f"ERROR: {result[1]}"
 

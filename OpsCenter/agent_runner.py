@@ -71,15 +71,25 @@ def _base_env() -> dict:
     return env
 
 
-def run_claude(content: str, timeout: int = 300) -> tuple[bool, str]:
+def run_claude(
+    content: str,
+    timeout: int = 300,
+    model: str = "claude-sonnet-4-6",
+) -> tuple[bool, str]:
     """
     Run Claude Code CLI in headless mode.
     Uses Max plan OAuth — zero API cost.
+
+    The model is pinned explicitly. Headless dispatch MUST NOT inherit the
+    interactive `/model` default — that made brain selection non-deterministic
+    (brain3 "Opus" silently ran on whatever the CLI default happened to be).
+    Pass a full model ID (claude-sonnet-4-6 | claude-opus-4-8 |
+    claude-haiku-4-5-20251001).
     """
     env = _base_env()
     try:
         result = subprocess.run(
-            ["claude", "--print", content],
+            ["claude", "--model", model, "--print", content],
             capture_output=True,
             text=True,
             timeout=timeout,
