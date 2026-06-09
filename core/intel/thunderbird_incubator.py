@@ -182,11 +182,16 @@ def _call_claude(prompt: str, system: str, max_tokens: int = 2000) -> str:
         )
         if result.returncode != 0:
             log.error(f"Claude CLI failed (exit {result.returncode}): {result.stderr[:300]}")
-            return f"[Claude CLI error: exit {result.returncode}]"
-        return result.stdout.strip()
+            raise RuntimeError(f"CLI exit {result.returncode}")
+        output = result.stdout.strip()
+        if not output or "issue with the selected model" in output:
+            raise RuntimeError(f"CLI returned unusable output: {output[:100]}")
+        return output
     except Exception as e:
-        log.error(f"Claude subprocess error: {e}")
-        return f"[Error calling Claude: {e}]"
+        log.warning(f"Claude CLI unavailable ({e}) — falling back to OpenRouter")
+        if OPENROUTER_API_KEY:
+            return _call_openrouter(prompt, system, "deepseek/deepseek-chat", max_tokens)
+        return f"[Claude unavailable, no OpenRouter fallback configured]"
 
 
 def _load_am_categories() -> list:
@@ -293,7 +298,10 @@ def _web_search(query: str, n: int = 5) -> list:
     2026-03-27 COS fix — Root Cause Imperative."""
     results = []
     try:
-        from duckduckgo_search import DDGS
+        try:
+            from ddgs import DDGS
+        except ImportError:
+            from duckduckgo_search import DDGS
         with DDGS() as ddgs:
             for r in ddgs.text(query, max_results=n):
                 results.append({
