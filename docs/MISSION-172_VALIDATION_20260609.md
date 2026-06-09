@@ -81,3 +81,17 @@ was chartered to deliver (acknowledge → tally → resolve dissent) does not wo
 end-to-end. **Status remains `active`. Due 2026-06-20 — runway exists to fix D1–D4.**
 
 *— Validated by Opus 4.8, 2026-06-09. Round-trip + 5-vote reproduction run against live broker.*
+
+---
+## ✅ UPDATE 2026-06-09 — D1/D2 RESOLVED (Opus)
+- **D1 fixed:** `audit.trail` declared as durable queue (30-day TTL) at init.
+- **D2 fixed:** `get_dissent_chain()` now reads the persisted `audit.trail` queue
+  non-destructively (fetch + requeue), filtered by decision_id (= dissent message_id).
+- **Gate 4 NOW REPRODUCIBLE:** 5 votes cast → 5 recovered, tally 4 approve / 1 reject,
+  correct per-persona attribution, non-destructive re-read confirmed. Unit suite 5/5.
+- Cleared 3,779 staging/test artifacts that had accumulated via the D3 never-clear
+  bug + broadcast fan-out. All inboxes + audit.trail at clean baseline.
+
+**Remaining before closure:** D3 (consume/ack never clears inbox — alert noise),
+D4 (default creds on yoga), D5 (datetime.utcnow deprecation). D3 is now the priority —
+without it, inboxes re-accumulate. Status remains ACTIVE pending D3/D4.

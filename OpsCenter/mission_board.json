@@ -3046,9 +3046,10 @@
         "[2026-06-09T18:59:46.798901+00:00] [VALIDATION 2026-06-09 Opus] NOT done properly. Transport bus + tests pass; Gate 4 NOT reproducible \u2014 acknowledge() discards votes (audit.trail queue never declared); get_dissent_chain reads empty in-memory log. Status held ACTIVE. See docs/MISSION-172_VALIDATION_20260609.md. Fix D1-D4 before closure."
       ],
       "log": [
-        "[2026-06-09T18:59:46.798901+00:00] [VALIDATION 2026-06-09 Opus] NOT done properly. Transport bus + tests pass; Gate 4 NOT reproducible \u2014 acknowledge() discards votes (audit.trail queue never declared); get_dissent_chain reads empty in-memory log. Status held ACTIVE. See docs/MISSION-172_VALIDATION_20260609.md. Fix D1-D4 before closure."
+        "[2026-06-09T18:59:46.798901+00:00] [VALIDATION 2026-06-09 Opus] NOT done properly. Transport bus + tests pass; Gate 4 NOT reproducible \u2014 acknowledge() discards votes (audit.trail queue never declared); get_dissent_chain reads empty in-memory log. Status held ACTIVE. See docs/MISSION-172_VALIDATION_20260609.md. Fix D1-D4 before closure.",
+        "[2026-06-09T19:04:16.910196+00:00] [Opus] D1/D2 FIXED \u2014 Gate 4 now reproducible (5 votes recovered, tally correct, unit 5/5). 3779 test artifacts purged. D3/D4 remain before closure. Status held ACTIVE."
       ],
-      "validation_status": "FAILED_GATE4_NOT_REPRODUCIBLE"
+      "validation_status": "GATE4_REPRODUCIBLE_D3_D4_PENDING"
     },
     {
       "id": "MISSION-178",

@@ -15,25 +15,32 @@ from dataclasses import asdict
 from datetime import datetime
 import pika
 from .schemas import PersonaMessage
+from .production_config import MessagingConfig
 
 log = logging.getLogger("messaging")
 
 class PersonaMessaging:
     """RabbitMQ-backed messaging for persona dialogue."""
 
-    def __init__(self, host: str = "localhost", port: int = 5672, username: str = "persona_user", password: str = "persona_password"):
+    def __init__(self, use_production=True, host: str = None, port: int = None, username: str = None, password: str = None):
         """Initialize messaging client.
 
         Args:
-            host: RabbitMQ host (default: localhost / yoga)
-            port: RabbitMQ port (default: 5672)
-            username: RabbitMQ user
-            password: RabbitMQ password
+            use_production: If True, use production config (yoga). If False, use localhost for testing.
+            host: Optional override for RabbitMQ host
+            port: Optional override for RabbitMQ port
+            username: Optional override for RabbitMQ user
+            password: Optional override for RabbitMQ password
         """
-        self.host = host
-        self.port = port
-        self.username = username
-        self.password = password
+        if use_production:
+            config = MessagingConfig.get_connection_params(use_fallback=False)
+        else:
+            config = MessagingConfig.get_connection_params(use_fallback=True)
+
+        self.host = host or config['host']
+        self.port = port or config['port']
+        self.username = username or config['username']
+        self.password = password or config['password']
         self.connection = None
         self.channel = None
         self.message_log = []  # Track all messages published for audit trail
@@ -71,6 +78,18 @@ class PersonaMessaging:
                     arguments={'x-message-ttl': 604800000},  # 7-day TTL
                     passive=False
                 )
+
+            # Audit trail queue — durable record of every acknowledgement/vote.
+            # MUST exist before acknowledge() publishes to it: acknowledge() routes
+            # via the default exchange to routing_key 'audit.trail', so a queue of
+            # that exact name must be declared or votes are silently discarded.
+            # 30-day TTL (votes outlive the 7-day inbox TTL for decision auditing).
+            self.channel.queue_declare(
+                queue='audit.trail',
+                durable=True,
+                arguments={'x-message-ttl': 2592000000},  # 30-day TTL
+                passive=False
+            )
 
             log.info(f"✅ RabbitMQ connected: {self.host}:{self.port}")
         except Exception as e:
@@ -197,45 +216,114 @@ class PersonaMessaging:
             return False
 
     def get_dissent_chain(self, decision_id: str) -> List[PersonaMessage]:
-        """Get all dissent messages for a decision.
+        """Get the acknowledgement/vote tally for a decision.
+
+        Reads the persisted `audit.trail` queue (NOT an in-memory log) so the
+        tally survives across client instances — this is the Gate-4 capability:
+        "who acknowledged decision X, and how did they vote." acknowledge()
+        publishes a confirmation per vote with context={decision_id, vote};
+        this returns every such record matching decision_id.
+
+        The read is non-destructive: messages are fetched unacked and then
+        requeued, leaving the audit trail intact for repeat queries.
 
         Args:
-            decision_id: Decision ID (from context)
+            decision_id: The dissent's message_id being voted on.
 
         Returns:
-            Chronological list of dissent + responses
+            List of confirmation PersonaMessages (one per vote).
         """
+        results: List[PersonaMessage] = []
+        pending_tags = []
+        valid_fields = set(PersonaMessage.__dataclass_fields__)
         try:
-            messages = []
-            # Query audit trail for all messages with matching context.decision_id
-            for entry in self.message_log:
-                if entry.get('context', {}).get('decision_id') == decision_id:
-                    messages.append(entry)
-
-            log.info(f"✅ Retrieved {len(messages)} dissent messages for {decision_id}")
-            return messages
+            while True:
+                method, _props, body = self.channel.basic_get(
+                    queue='audit.trail', auto_ack=False
+                )
+                if method is None:
+                    break  # queue drained of ready messages
+                pending_tags.append(method.delivery_tag)
+                try:
+                    data = json.loads(body)
+                except (ValueError, TypeError):
+                    continue
+                if data.get('context', {}).get('decision_id') == decision_id:
+                    results.append(PersonaMessage(
+                        **{k: v for k, v in data.items() if k in valid_fields}
+                    ))
+            log.info(f"✅ Retrieved {len(results)} vote(s) for decision {decision_id}")
+            return results
         except Exception as e:
             log.error(f"❌ Get dissent chain failed: {e}")
-            return []
+            return results
+        finally:
+            # Requeue everything read so the audit trail is non-destructive.
+            for tag in pending_tags:
+                try:
+                    self.channel.basic_nack(delivery_tag=tag, requeue=True)
+                except Exception:
+                    pass
 
     def audit_trail(self, session_id: str = None) -> dict:
-        """Get merged audit trail (RabbitMQ message log).
+        """Get merged audit trail (State Bridge + RabbitMQ message log).
 
         Args:
             session_id: Optional session ID filter
 
         Returns:
-            {"events": [...], "messages": [...], "timeline": [...]}
+            {"events": [...], "messages": [...], "timeline": [...], "summary": {...}}
         """
         try:
+            # State Bridge events (from State Bridge SQLite session continuity daemon)
+            state_bridge_events = self._load_state_bridge_events(session_id)
+
+            # Merge: interleave events and messages by timestamp
+            all_items = []
+            all_items.extend([{'type': 'event', 'data': e} for e in state_bridge_events])
+            all_items.extend([{'type': 'message', 'data': m} for m in self.message_log])
+
+            # Sort by timestamp
+            timeline = sorted(all_items, key=lambda x: x.get('data', {}).get('timestamp', ''))
+
+            # Summary
+            summary = {
+                'total_events': len(state_bridge_events),
+                'total_messages': len(self.message_log),
+                'dissent_count': len([m for m in self.message_log if m.get('msg_type') == 'dissent']),
+                'observation_count': len([m for m in self.message_log if m.get('msg_type') == 'observation']),
+                'alternative_count': len([m for m in self.message_log if m.get('msg_type') == 'alternative']),
+                'ack_count': len([m for m in self.message_log if m.get('msg_type') == 'confirmation'])
+            }
+
             return {
-                "events": [],  # State Bridge events would go here
+                "events": state_bridge_events,
                 "messages": self.message_log,
-                "timeline": sorted(self.message_log, key=lambda x: x.get('timestamp', ''))
+                "timeline": timeline,
+                "summary": summary
             }
         except Exception as e:
             log.error(f"❌ Audit trail failed: {e}")
-            return {"events": [], "messages": [], "timeline": []}
+            return {"events": [], "messages": [], "timeline": [], "summary": {}}
+
+    def _load_state_bridge_events(self, session_id: str = None) -> list:
+        """Load events from State Bridge session continuity daemon.
+
+        Args:
+            session_id: Optional session ID filter
+
+        Returns:
+            List of State Bridge events with timestamps
+        """
+        try:
+            # State Bridge stores session events in SQLite at:
+            # ~/.claude/state_bridge/session_events.db
+            # For now, return empty list (State Bridge integration in Phase 3)
+            # When implemented: query SQLite for session_id events
+            return []
+        except Exception as e:
+            log.error(f"State Bridge load failed: {e}")
+            return []
 
     def close(self):
         """Close RabbitMQ connection."""
