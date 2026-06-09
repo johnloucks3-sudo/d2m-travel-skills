@@ -1,0 +1,74 @@
+{
+  "timestamp": "2026-06-09T16:15:40.972305",
+  "scenario": "ONBOARDING_TIMELINE_CONCERN",
+  "acts": [
+    {
+      "act": 1,
+      "actor": "Sterling",
+      "action": "Raises dissent",
+      "message_id": "70a14f82-f457-4841-8936-8cd34ae2ec3d",
+      "broadcast_to": 6,
+      "status": "published"
+    },
+    {
+      "act": 2,
+      "action": "Staff consumes dissent",
+      "consumed_by": {
+        "dembe": 1,
+        "reyes": 1,
+        "dani": 1,
+        "harlan": 1,
+        "washington": 1
+      },
+      "status": "received"
+    },
+    {
+      "act": 3,
+      "action": "Staff acknowledges dissent",
+      "acknowledgments": {
+        "dembe": {
+          "vote": true,
+          "reason": "Confirmed: no geopolitical blockers for Dec 29 window"
+        },
+        "reyes": {
+          "vote": true,
+          "reason": "72h window aligns with excursion booking cycle"
+        },
+        "dani": {
+          "vote": true,
+          "reason": "Client prefers 72h + aligns with Grandeur SOP"
+        },
+        "harlan": {
+          "vote": true,
+          "reason": "No financial impact: timeline shift neutral"
+        },
+        "washington": {
+          "vote": true,
+          "reason": "Pro-client: gives more planning time"
+        }
+      },
+      "approval_rate": "5/5 (100%)",
+      "status": "resolved"
+    },
+    {
+      "act": 4,
+      "action": "Audit trail logged",
+      "summary": {
+        "total_events": 0,
+        "total_messages": 0,
+        "dissent_count": 0,
+        "observation_count": 0,
+        "alternative_count": 0,
+        "ack_count": 0
+      },
+      "status": "complete"
+    },
+    {
+      "act": 5,
+      "action": "Decision resolved",
+      "decision": "Extend onboarding to 72h",
+      "approval_chain": "Sterling \u2192 5 staff \u2192 Commander",
+      "status": "implemented"
+    }
+  ]
+}
