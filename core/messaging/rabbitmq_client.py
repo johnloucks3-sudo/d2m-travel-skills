@@ -157,30 +157,82 @@ class PersonaMessaging:
 
         Returns:
             List of messages in inbox
+
+        Semantics:
+            auto_ack=False (default) — NON-DESTRUCTIVE PEEK. Messages are fetched
+              then requeued, so a "what's pending" read leaves the inbox unchanged
+              and leaves nothing in unacked limbo (prior behavior left messages
+              checked out, which both hid them from a later acknowledge() scan and
+              made them re-surface forever). Use this to display pending items.
+            auto_ack=True — DRAIN. Messages are removed as read. Use to clear.
+
+            Messages leave the inbox only via acknowledge() (the persona acted on
+            it) or a deliberate auto_ack=True drain — never just by being viewed.
         """
         try:
             queue_name = f"{persona_name}.inbox"
             messages = []
+            valid_fields = set(PersonaMessage.__dataclass_fields__)
+            pending_tags = []  # only used in peek mode
 
-            # Get all messages from queue without consuming them
             method, properties, body = self.channel.basic_get(queue=queue_name, auto_ack=auto_ack)
-
             while method:
-                msg_dict = json.loads(body)
-                msg = PersonaMessage(**msg_dict)
-                messages.append(msg)
-
-                if callback:
-                    callback(msg)
-
-                # Get next message
+                if not auto_ack:
+                    pending_tags.append(method.delivery_tag)
+                try:
+                    msg_dict = json.loads(body)
+                    msg = PersonaMessage(**{k: v for k, v in msg_dict.items() if k in valid_fields})
+                    messages.append(msg)
+                    if callback:
+                        callback(msg)
+                except (ValueError, TypeError):
+                    pass
                 method, properties, body = self.channel.basic_get(queue=queue_name, auto_ack=auto_ack)
 
-            log.info(f"✅ Consumed {len(messages)} messages for {persona_name}")
+            # Peek mode: requeue everything so the read is non-destructive and
+            # nothing is left checked out (unacked).
+            for tag in pending_tags:
+                try:
+                    self.channel.basic_nack(delivery_tag=tag, requeue=True)
+                except Exception:
+                    pass
+
+            log.info(f"✅ {'Drained' if auto_ack else 'Peeked'} {len(messages)} messages for {persona_name}")
             return messages
         except Exception as e:
             log.error(f"❌ Consume failed for {persona_name}: {e}")
             return []
+
+    def _remove_from_inbox(self, persona_name: str, message_id: str) -> bool:
+        """Remove a single message (by message_id) from a persona's inbox.
+
+        Scans the inbox: acks (removes) the matching message, requeues the rest.
+        Returns True if the message was found and removed.
+        """
+        queue_name = f"{persona_name}.inbox"
+        removed = False
+        requeue_tags = []
+        try:
+            method, _props, body = self.channel.basic_get(queue=queue_name, auto_ack=False)
+            while method:
+                match = False
+                try:
+                    match = json.loads(body).get("message_id") == message_id
+                except (ValueError, TypeError):
+                    match = False
+                if match and not removed:
+                    self.channel.basic_ack(delivery_tag=method.delivery_tag)  # remove
+                    removed = True
+                else:
+                    requeue_tags.append(method.delivery_tag)
+                method, _props, body = self.channel.basic_get(queue=queue_name, auto_ack=False)
+        finally:
+            for tag in requeue_tags:
+                try:
+                    self.channel.basic_nack(delivery_tag=tag, requeue=True)
+                except Exception:
+                    pass
+        return removed
 
     def acknowledge(self, message_id: str, persona_name: str, vote: bool = True) -> bool:
         """Acknowledge a critical message.
@@ -201,7 +253,7 @@ class PersonaMessaging:
                 vote=vote
             )
 
-            # Route to audit trail
+            # Route to audit trail (durable vote record)
             self.channel.basic_publish(
                 exchange='',
                 routing_key='audit.trail',
@@ -209,7 +261,13 @@ class PersonaMessaging:
                 properties=pika.BasicProperties(delivery_mode=2)
             )
 
-            log.info(f"✅ {persona_name} acknowledged {message_id}: {'approved' if vote else 'rejected'}")
+            # Remove the acted-on message from this persona's inbox so it stops
+            # surfacing as "pending". The vote is preserved in audit.trail above;
+            # clearing the inbox is what prevents 7-day false-positive re-alerts.
+            cleared = self._remove_from_inbox(persona_name, message_id)
+
+            log.info(f"✅ {persona_name} acknowledged {message_id}: "
+                     f"{'approved' if vote else 'rejected'} (inbox cleared: {cleared})")
             return True
         except Exception as e:
             log.error(f"❌ Acknowledge failed: {e}")

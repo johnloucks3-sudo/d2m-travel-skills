@@ -95,3 +95,20 @@ end-to-end. **Status remains `active`. Due 2026-06-20 — runway exists to fix D
 **Remaining before closure:** D3 (consume/ack never clears inbox — alert noise),
 D4 (default creds on yoga), D5 (datetime.utcnow deprecation). D3 is now the priority —
 without it, inboxes re-accumulate. Status remains ACTIVE pending D3/D4.
+
+---
+## ✅ UPDATE 2026-06-09 — D3 RESOLVED (Opus)
+- **consume()** is now a true non-destructive peek (fetch + requeue; no unacked
+  limbo). Viewing pending items never alters the inbox or hides them from a later
+  acknowledge scan.
+- **acknowledge()** now removes the acted-on message from the persona's inbox
+  (via _remove_from_inbox: ack the match, requeue the rest) AFTER recording the
+  vote to audit.trail. Acknowledged items stop surfacing as "pending."
+- **E2E verified:** 2 dissents → peek×2 non-destructive (2,2); ack(m1) clears only
+  m1, m2 remains; vote for m1 preserved in audit.trail; ack(m2) → inbox empty.
+  Unit suite 5/5. Re-accumulation root cause eliminated.
+- Note: observations (requires_ack=False) still rely on 7-day TTL — informational,
+  low-stakes, not part of the dissent/vote lifecycle.
+
+**Remaining before closure:** D4 (rotate yoga broker default creds — deployment task),
+D5 (datetime.utcnow deprecation x3). All three code defects (D1/D2/D3) now RESOLVED.
