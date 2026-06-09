@@ -2903,10 +2903,10 @@
     {
       "id": "MISSION-172",
       "title": "Incubator: State Bridge",
-      "status": "completed",
+      "status": "active",
       "priority": "P0",
       "assigned_to": "Hale",
-      "description": "Develop inter-persona communication infrastructure enabling true collaborative dialogue. **PHASE 0 (Research): Search worldwide web and institutions for extant capability before building.** Current state: siloed via files/Telegram/email. Goal: Direct persona-to-persona channels with full dialogue support. Personas may: make observations, raise concerns, suggest improvements, offer dissent, challenge assumptions, propose alternatives, offer assistance. Async reply chains, shared state broadcasts, confirmation patterns. Output: Research findings + Communication protocol spec + reference implementation.",
+      "description": "**WING EXERCISE \u2014 Full Compressed Timeline (Hours, not Days)**\n\nDevelop inter-persona communication infrastructure enabling true collaborative dialogue. PHASE 0 (2h): Research extant solutions worldwide. PHASE 1 (2h): Architecture & risk analysis. PHASE 2 (3h): Reference implementation. TOTAL: ~7 hours with contingencies.\n\nPersonas may: observations, concerns, suggestions, dissent, challenges, alternatives, assistance. Output: Risk-mitigated protocol spec + reference implementation.",
       "deliverables": [],
       "dependencies": [],
       "suspense_date": null,
@@ -2915,11 +2915,17 @@
         "[2026-06-09T04:30:00] Reassigned to Hale \u2014 two-brain skill",
         "[2026-06-09T03:59:27] BUILD COMPLETE. All 7 files created under OpsCenter/state_bridge/. SQLite event store with sessions/events schema, git/file/mission watchers, delta briefing generator, session startup hook. Verified: --briefing, --status, session_startup_hook.py all functional. Defensive guard added in _row_to_event for edge cases. SPEC: ops/BUILD-StateBridge_v1.md",
         "[2026-06-09T08:56:39.476669] Scope expanded \u2014 Full dialogue support added: observations, dissent, challenges, suggestions, assistance, alternatives",
-        "[2026-06-09T08:59:08.493871] Phase 0 (Research) added \u2014 Search extant solutions before building"
+        "[2026-06-09T08:59:08.493871] Phase 0 (Research) added \u2014 Search extant solutions before building",
+        "[2026-06-09T09:02:21.276630] WING EXERCISE escalation \u2014 Compressed to hours; Sterling (lead) + ELON (co-chair)",
+        "[2026-06-09T09:04:52.865913] \ud83e\udd85 T3 WING EXERCISE COMPLETE (AAR saved)",
+        "[2026-06-09T09:04:52.865924] DECISIONS: RabbitMQ + event log + managed queue + critical-message confirmation",
+        "[2026-06-09T09:04:52.865925] ASSIGNED: Sterling (arch), Harlan (cost), Dembe (research), Washington (ethics)",
+        "[2026-06-09T09:04:52.865929] TIMELINE: Research 2h | Architecture 2h | Implementation 3h | Contingency buffer"
       ],
       "created_at": "2026-06-09T03:36:44.509276+00:00",
       "updated_at": "2026-06-09T03:59:27.308741+00:00",
-      "completed_at": "2026-06-09T03:59:29.079800+00:00"
+      "completed_at": "2026-06-09T03:59:29.079800+00:00",
+      "deadline": "2026-06-09T16:00:00"
     },
     {
       "id": "MISSION-173",
