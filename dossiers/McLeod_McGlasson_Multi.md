@@ -43,10 +43,13 @@ booking_4: "3114500"
 booking_4_ship: SS Prestige
 booking_4_departure: 2027-12-18
 booking_4_fpd: 2027-07-21
-booking_4_fpd_amount: NEEDS_VERIFICATION
-booking_4_fpd_amount_verified_date: NEEDS_VERIFICATION
-booking_4_fpd_amount_source: NEEDS_VERIFICATION
+booking_4_total: 15098.00
+booking_4_balance_due: 14598.00
+booking_4_fpd_amount: 14598.00
+booking_4_fpd_amount_verified_date: 2026-06-09
+booking_4_fpd_amount_source: portal
 booking_4_payment_status: deposit_only
+booking_4_harlan_signoff: "Confirmed: total=$15,098.00, paid=$500.00, balance_due=$14,598.00, FPD 2027-07-21, source: Regent portal 2026-06-02 + invoice 3114500 dated 11-Jan-26"
 
 completed_tps: []
 ---
@@ -81,7 +84,7 @@ completed_tps: []
 | 298475-25 | Silversea | Silver Muse | Jun 23–Jul 3, 2026 | Jan 24 ✅ | **PAID** | T-9 ACTIVE | Suite 617, Classic Veranda |
 | **2984034** | **Regent** | **SS Grandeur** | **Dec 19–29, 2026** | **🔴 Jul 22** | **$11,943.15** | **DEPOSIT ONLY** | **Suite 863, E-Concierge (UPGRADED)** |
 | 8X6PGQ | Princess | Discovery Princess | Mar 13–20, 2027 | Dec 13, 2026 | ~$6,062 | Deposit only | D727, S3, Queen, Aft |
-| 3114500 | Regent | SS Prestige | Dec 18–28, 2027 | Jul 21, 2027 | TBD | Future | Suite 820, D-Concierge |
+| 3114500 | Regent | SS Prestige | Dec 18–28, 2027 | Jul 21, 2027 | **$14,598.00** | Future | Suite 820, D-Concierge |
 
 ---
 
