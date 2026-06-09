@@ -200,7 +200,7 @@ All included (Regent Choice — $0.00). Both Larry & Heidi confirmed on all excu
 
 1. **Return Flight Seat Assignments** — Seats NOT assigned on BA 6776 (OSL→LHR, Sep 8) and AA 79 (LHR→DFW, Sep 8). Outbound flights confirmed (5D/5H + 2D/2F). Contact BA/AA to assign return seats for Larry & Heidi.
 2. **At Six Stockholm — Night 1 booking + ARN→At Six transfer** (client-directed) — book At Six Aug 27-28 (replaces Haymarket) and the ARN→At Six transfer; cancel Haymarket group booking (131-2656351) and ARN→Haymarket transfer (#1095089/LN693883). Both nights now At Six — no room change.
-3. **Insurance Policy Clarification** — Allianz policy purchased ($700+) but coverage unclear to client. They want CFAR confirmation. Cross-reference with Amex Platinum travel protection and provide clear summary of what is/isn't covered. Target: May 15.
+3. ~~**Insurance Policy Clarification**~~ — **MOOT** (Commander-arbitrated 2026-06-09, all 3 couples). CFAR dropped; no further action. Historical email log above retained as record.
 4. **Schengen Visa/Entry Requirements** — Confirm Sweden/Norway entry requirements for US passports (6+ month validity). Both passports valid through Feb 2030.
 
 **Special Note:** Heidi's birthday = Aug 29 (embarkation day). Relevant for dining reservations (opens May 31) — consider noting for onboard surprise/celebration.

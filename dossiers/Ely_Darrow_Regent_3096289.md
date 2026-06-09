@@ -115,7 +115,7 @@ completed_tps: ["4.1", "4.2", "4.3", "4.4", "4.5"]
 |---|----------|---------|----------|--------|---------|
 | 1 | Documents | Passports valid 6+ months | YES | **✅ CONFIRMED** | Valid — Commander confirmed 2026-03-26 |
 | 2 | Documents | Visa / entry requirements | YES | **PENDING** | Sweden/Norway Schengen |
-| 3 | Insurance | Travel insurance policy | YES | **DEFERRED** | Al holding off ~2 months (per Mar 20 email). Allianz Premier $15K quote still suspicious — follow up May. |
+| 3 | Insurance | Travel insurance policy | YES | **MOOT** | Insurance moot — Commander-arbitrated 2026-06-09 (all 3 couples). No follow-up. |
 | 4 | Flights | Outbound leg 1 (DFW→HEL) | YES | **CONFIRMED** | AA 9018 Aug 26 4:50PM, seats 2H/2D |
 | 5 | Flights | Outbound leg 2 (HEL→ARN) | YES | **CONFIRMED** | AY 811 Aug 27 1:15PM |
 | 6 | Flights | Outbound PNR / e-ticket | YES | **CONFIRMED** | PNR: UXVXZP |

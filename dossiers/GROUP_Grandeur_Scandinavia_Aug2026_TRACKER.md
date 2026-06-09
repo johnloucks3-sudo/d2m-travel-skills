@@ -74,6 +74,24 @@ Excursions: all confirmed per couple (Regent Choice, $0) — Furlow 7 · Ely 5 �
 | 5 | **Capture Furlow DOB / anniversary / loyalty #s** | D2M (ask Missy) | when appropriate |
 | 6 | ⛔ Reconcile dossiers — **HOLD until final COS version confirmed** | Hale | after version verified |
 
+## 💰 REFUND RECEIVABLES (Harlan — track on Haymarket cancellation)
+Money owed back when the Haymarket bookings cancel (client-directed move to At Six):
+
+| Couple | Item | Paid | Refund status |
+|---|---|---|---|
+| Furlow | Haymarket hotel (Bedsonline 131-2656351) | $418 | ⚠️ refund pending on cancel |
+| Furlow | ARN→Haymarket Royal Transfer (1095074/DVF6U6) | ~$176 | ⚠️ refund pending on cancel |
+| Ely-Darrow | ARN→Haymarket Royal Transfer (1095091/AE693884) | ~$176 | ⚠️ verify paid → refund |
+| Nichols | ARN→Haymarket transfer (1095089/LN693883) | Book-Now-Pay-Later | likely no charge — verify, cancel |
+| All | Haymarket group hotel share | TBD | Harlan to confirm actual amounts at cancellation |
+
+**Harlan action:** confirm each amount actually paid, track as receivable, verify refund posts after cancellation.
+
+## 🛡️ INSURANCE — MOOT, ALL 3 COUPLES (Commander-arbitrated 2026-06-09)
+This file is authoritative: insurance/CFAR is moot for Furlow, Ely-Darrow, and Nichols.
+Supersedes any remaining "deferred/wants CFAR/follow-up" status lines still scattered in
+the individual dossiers (historical email logs retained as record). Do not raise in client comms.
+
 ## 📅 SUSPENSE CALENDAR (T-81 → departure)
 
 | Date | Event | Type |
