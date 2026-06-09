@@ -5,9 +5,17 @@ cruise_line: Silversea
 departure: 2026-06-18
 return: 2026-07-06
 fpd: 2026-01-24
+fpd_verified_date: 2026-06-09
+fpd_source: invoice
 fpd_amount: 27813.32
-fpd_amount_verified_date: NEEDS_VERIFICATION
-fpd_amount_source: NEEDS_VERIFICATION
+fpd_amount_verified_date: 2026-06-09
+fpd_amount_source: invoice
+commission_amount: 2594.54
+commission_verified_date: 2026-06-09
+commission_source: invoice
+invoice_total: 25896.00
+payment_status: paid_in_full
+harlan_signoff: "CAVEAT: Invoice 298475-25 (Feb-2025, Jun-23 departure) may not match current booking (dossier Jun-18 departure, $27,813.32). FPD PAID per dossier 2026-06-05. Obtain current Silversea invoice before any client email with dollar figures."
 booking_date: 2025-02-06
 status: active
 fpd_status: PAID

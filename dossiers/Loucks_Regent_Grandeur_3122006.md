@@ -2,9 +2,19 @@
 client: "John & Susan Loucks"
 booking: "3122006"
 fpd: "2026-08-01"
+fpd_verified_date: 2026-06-09
+fpd_source: invoice
 ship: "Seven Seas Grandeur"
 departure: "2026-12-29"
 balance_due: 24798.00
+balance_due_verified_date: 2026-06-09
+balance_due_source: invoice
+commission_amount: 3729.42
+commission_verified_date: 2026-06-09
+commission_source: invoice
+invoice_total: 25798.00
+payment_status: deposit_only
+harlan_signoff: "Confirmed: balance_due=$24,798.00 UNPAID, FPD Aug-1-2026, source: Regent invoice 3122006 dated 02-Jun-26 (same day — FRESHEST SOURCE)"
 ---
 # DOSSIER — John & Susan Loucks | Regent Seven Seas Grandeur | Panama Canal & Pacific Gems
 **Status: 45% COMPLETE | Last updated: 2026-06-06**

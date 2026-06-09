@@ -9,9 +9,17 @@ agency_conf: CUW88R8
 departure: 2026-12-17
 return: 2026-12-27
 fpd: 2026-03-31
+fpd_verified_date: 2026-06-09
+fpd_source: invoice
 fpd_amount: 6148
-fpd_amount_verified_date: NEEDS_VERIFICATION
-fpd_amount_source: NEEDS_VERIFICATION
+fpd_amount_verified_date: 2026-06-09
+fpd_amount_source: invoice
+commission_amount: 1053.66
+commission_verified_date: 2026-06-09
+commission_source: invoice
+invoice_total: 6198.00
+payment_status: paid_in_full
+harlan_signoff: "Confirmed: $6,148.00 PAID by Kyle Kuklinski (CC AX), FPD Mar-31 passed, source: Viking invoice 9595029 dated 16-Feb-26"
 status: active
 relationship: client
 group: Kuklinski Viking Panama

@@ -7,9 +7,17 @@ voyage: Panama Canal
 departure: 2026-12-17
 return: 2026-12-27
 fpd: 2026-03-31
+fpd_verified_date: 2026-06-09
+fpd_source: invoice
 fpd_amount: 21244
-fpd_amount_verified_date: NEEDS_VERIFICATION
-fpd_amount_source: NEEDS_VERIFICATION
+fpd_amount_verified_date: 2026-06-09
+fpd_amount_source: invoice
+commission_amount: 3635.14
+commission_verified_date: 2026-06-09
+commission_source: invoice
+invoice_total: 21244.00
+payment_status: paid_in_full
+harlan_signoff: "Confirmed: $21,244.00 PAID (3 bookings 9593873+9593880+9595029), FPD Mar-31 passed, source: Viking invoices Feb-2026"
 status: active
 relationship: client
 completed_tps: []

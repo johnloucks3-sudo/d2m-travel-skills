@@ -10,9 +10,11 @@ booking: "3096289"
 departure: 2026-08-29
 return: 2026-09-08
 fpd: 2026-04-01
+fpd_verified_date: 2026-06-09
+fpd_source: invoice
 fpd_amount: 16640
-fpd_amount_verified_date: NEEDS_VERIFICATION
-fpd_amount_source: NEEDS_VERIFICATION
+fpd_amount_verified_date: 2026-06-09
+fpd_amount_source: invoice
 payment_status: paid_in_full
 status: active
 relationship: client

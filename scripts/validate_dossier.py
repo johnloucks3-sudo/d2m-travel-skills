@@ -35,7 +35,6 @@ FINANCIAL_FIELDS = [
     "balance_due",
     "total_cost",
     "deposit_amount",
-    "commission_amount",
 ]
 
 # Max age (days) before a financial field is flagged stale
