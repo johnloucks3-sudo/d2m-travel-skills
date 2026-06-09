@@ -18,7 +18,7 @@ note: "Renders CURRENT state + forward suspense calendar. 35-TP clock lives in t
 
 > **COMMANDER'S OWN TRIP — no client-send gate.** Hale manages the lifecycle FOR the Commander; reports go directly to johnloucks3@gmail.com (full send, no draft step).
 > **Lyons (Nancy & Ken) travel companions on a SEPARATE booking** — any Lyons-facing communication DOES require WF-17 (Dani formats, COS reviews, Commander approves).
-> **Nearest real FPD across all 5 trips: Aug 1, 2026 — $24,798** (Payment Reminder #1 ~Jul 11).
+> **FPD Aug 1, 2026 — $24,798** (Payment Reminder #1 ~Jul 11). (McLeod Grandeur FPD Jul 22 is earlier; this is the second-nearest FPD across the 5 trips.)
 > Handoff: register with scheduler once timing-engine fix lands.
 
 ---

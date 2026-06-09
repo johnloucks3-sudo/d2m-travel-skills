@@ -20,8 +20,8 @@ payment_status: paid_in_full
 harlan_signoff: "Confirmed: $21,244.00 PAID (3 bookings 9593873+9593880+9595029), FPD Mar-31 passed, source: Viking invoices Feb-2026"
 status: active
 relationship: client
-completed_tps: ["0.5", "1.1"]
-completed_tps_basis: "0.5 Welcome/Validation SENT Apr 17 (lifecycle doc + correspondence log); 1.1 Voyage Preview SENT Apr 17 (lifecycle doc). FPD Mar 31 PAID Mar 27 ($21,244, Harlan-verified) — Kuklinski lifecycle is cruise-paid-early with no Phase 4 payment TPs to close. NOT marked complete: 0.6 insurance (DEFERRED, not done), 2.x/3.x/5.x (future)."
+completed_tps: ["0.5", "1.1", "4.1", "4.2", "4.3", "4.4", "4.5"]
+completed_tps_basis: "0.5 Welcome/Validation SENT Apr 17 + 1.1 Voyage Preview SENT Apr 17 (lifecycle doc + correspondence log). 4.1-4.5 payment sequence CLOSED: PAID IN FULL $21,244 (FPD Mar 31, paid Mar 27, Harlan-verified Viking invoices Feb 2026) — the engine (DateRef.FPD, passed FPD) would otherwise fire 4.1-4.5 as false-OVERDUE. NOT marked: 0.6 insurance (DEFERRED, not done); 4.6 FCC (conditional, no FCC); 2.x/3.x/5.x (future windows)."
 fpd_status: PAID
 ---
 # CLIENT DOSSIER — Kuklinski Group (3 bookings)

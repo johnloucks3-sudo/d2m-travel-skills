@@ -79,6 +79,7 @@ note: "Renders CURRENT state + forward suspense calendar. 35-TP clock lives in t
 | 4 | **Verify + apply $200 Regent FCC** to booking 2984034 | Harlan | before FPD |
 | 5 | **Refresh lifecycle-doc payment amounts** to $11,943.15 (route, do not edit here) | Harlan / Sterling | next lifecycle revision |
 | 6 | **Excursion research** — 5 ports, Regent portal | A2 Dembe | per lifecycle window |
+| 7 | ⚠️ **STRUCTURAL — Commander/scheduler-owner to decide.** The TP scheduler (`core/booking/thunderbird_tp_scheduler.py`) reads ONE record per dossier file via TOP-LEVEL `departure`/`fpd`/`completed_tps`. `McLeod_McGlasson_Multi.md` is a 4-booking hub with only `booking_N_*` keys → engine sees no top-level dates → all 23 TPs resolve **BLOCKED** (not OVERDUE), so McLeod currently fires zero false-overdues but is also **unscheduled**. The `booking_N_completed_tps` keys I added are INERT (engine doesn't read them). Flattening to one top-level `completed_tps` is unsafe (would false-complete the 3 deposit-only bookings). **Fix requires either split per-booking dossiers OR an engine change to handle multi-booking hubs** — out of my data-artifact scope. | Commander / scheduler owner | structural |
 
 ---
 
