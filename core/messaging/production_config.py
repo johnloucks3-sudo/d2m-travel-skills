@@ -18,7 +18,7 @@ class MessagingConfig:
     RABBITMQ_HOST = os.getenv("RABBITMQ_HOST", "192.168.1.198")
     RABBITMQ_PORT = int(os.getenv("RABBITMQ_PORT", "5672"))
     RABBITMQ_USER = os.getenv("RABBITMQ_USER", "persona_user")
-    RABBITMQ_PASSWORD = os.getenv("RABBITMQ_PASSWORD", "")  # Must be set in environment
+    RABBITMQ_PASSWORD = os.getenv("RABBITMQ_PASSWORD", "persona_password")
 
     # Fallback to localhost for testing
     RABBITMQ_HOST_FALLBACK = "localhost"
