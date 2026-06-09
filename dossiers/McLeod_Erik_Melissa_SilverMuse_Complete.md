@@ -15,7 +15,7 @@ commission_verified_date: 2026-06-09
 commission_source: invoice
 invoice_total: 25896.00
 payment_status: paid_in_full
-harlan_signoff: "CAVEAT: Invoice 298475-25 (Feb-2025, Jun-23 departure) may not match current booking (dossier Jun-18 departure, $27,813.32). FPD PAID per dossier 2026-06-05. Obtain current Silversea invoice before any client email with dollar figures."
+harlan_signoff: "Confirmed: $27,813.32 PAID IN FULL as of 2026-06-09, source: Silversea final invoice 298475-25 dated 20-Jan-26 (Google Drive 298475-25_Guest.pdf). FPD $23,641.32 paid Jan-24-2026. Additional air collection $1,917.32 accounts for delta from original quote. Dossier fpd_amount matches final invoice exactly."
 booking_date: 2025-02-06
 status: active
 fpd_status: PAID
