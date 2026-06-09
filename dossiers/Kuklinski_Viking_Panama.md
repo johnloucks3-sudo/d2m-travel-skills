@@ -20,8 +20,9 @@ payment_status: paid_in_full
 harlan_signoff: "Confirmed: $21,244.00 PAID (3 bookings 9593873+9593880+9595029), FPD Mar-31 passed, source: Viking invoices Feb-2026"
 status: active
 relationship: client
-completed_tps: []
-fpd_status: PENDING
+completed_tps: ["0.5", "1.1"]
+completed_tps_basis: "0.5 Welcome/Validation SENT Apr 17 (lifecycle doc + correspondence log); 1.1 Voyage Preview SENT Apr 17 (lifecycle doc). FPD Mar 31 PAID Mar 27 ($21,244, Harlan-verified) — Kuklinski lifecycle is cruise-paid-early with no Phase 4 payment TPs to close. NOT marked complete: 0.6 insurance (DEFERRED, not done), 2.x/3.x/5.x (future)."
+fpd_status: PAID
 ---
 # CLIENT DOSSIER — Kuklinski Group (3 bookings)
 ## Viking Mars | Panama Canal | Dec 17–27, 2026

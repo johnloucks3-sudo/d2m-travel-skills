@@ -16,7 +16,8 @@ fpd_amount_source: invoice
 payment_status: paid_in_full
 status: active
 relationship: client
-completed_tps: []
+completed_tps: ["4.1", "4.2", "4.3", "4.4", "4.5"]
+completed_tps_basis: "PAID IN FULL $14,986 (FPD Apr 1 2026 passed, Harlan-verified invoice). Payment sequence verifiably closed — same basis as Ely/Furlow Scandinavia-group peers. No payment conflict on record."
 ---
 
 # CLIENT DOSSIER — Larry & Heidi Nichols

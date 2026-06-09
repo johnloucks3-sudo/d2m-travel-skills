@@ -26,6 +26,7 @@ group: Kuklinski Viking Panama
 cc_on_file: true
 cc_note: Kyle Kuklinski paying ALL THREE bookings (his, Roger's, and Morton/Dodge) — confirmed 24 MAR 2026
 completed_tps: []
+completed_tps_basis: "⚠️ CONFLICT — Commander/Harlan to confirm. Frontmatter harlan_signoff says $6,148 PAID (FPD Mar-31 passed, Viking invoice 16-Feb-26), BUT Morton_Dodge lifecycle doc (Jun 9) flags FPD CONFLICTED — Apr 28 financial snapshot showed $6,148 OVERDUE; was Kyle's Mar 27 charge for 3 bookings or 2? Per safety rule (false-complete worse than false-overdue), payment TPs left UNMARKED pending Harlan TESS verification. Client-facing TPs also UNMARKED: lifecycle is in RESET (zero TPs ever sent; TP 0.5 DRAFT READY, not sent). fpd_status field below left untouched (do not auto-pick)."
 fpd_status: PENDING
 ---
 

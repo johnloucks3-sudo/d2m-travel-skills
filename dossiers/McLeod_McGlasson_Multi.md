@@ -51,7 +51,13 @@ booking_4_fpd_amount_source: portal
 booking_4_payment_status: deposit_only
 booking_4_harlan_signoff: "Confirmed: total=$15,098.00, paid=$500.00, balance_due=$14,598.00, FPD 2027-07-21, source: Regent portal 2026-06-02 + invoice 3114500 dated 11-Jan-26"
 
-completed_tps: []
+# Per-booking completed_tps (multi-booking client — resolve per booking, not trip-level)
+booking_1_completed_tps: ["4.1", "4.2", "4.3", "4.4", "4.5"]   # Silver Muse PAID IN FULL ($27,813.32, FPD Jan 24 passed). Payment sequence verifiably done.
+booking_2_completed_tps: ["0.5"]   # Grandeur 2984034: 0.5 Booking Validation on record (lifecycle doc); guest reg COMPLETE both. FPD Jul 22 FUTURE → payment TPs NOT done. Contact-held until Jul 7.
+booking_3_completed_tps: []   # Princess 8X6PGQ: deposit only, FPD Dec 13 2026 future. Nothing verifiably complete beyond deposit. $6,062 vs $6,222 figure unreconciled.
+booking_4_completed_tps: []   # Prestige 3114500: deposit only, FPD Jul 21 2027 future. Nothing verifiably complete beyond deposit.
+completed_tps_basis: "Per-booking. Silver Muse paid in full → payment TPs closed. Grandeur 0.5 validation sent + guest reg complete. Princess/Prestige: deposit only, future FPD, no TPs to close. Future-FPD payment TPs deliberately NOT marked complete."
+completed_tps: []   # top-level intentionally empty — McLeod is multi-booking; use per-booking keys above
 ---
 
 # CLIENT DOSSIER — Erik McLeod & Melissa McGlasson
