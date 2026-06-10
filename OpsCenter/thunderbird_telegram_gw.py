@@ -1192,6 +1192,32 @@ def handle_message(
             args = msg.split()[1:]
             handle_reject(token, chat_id, args)
             return
+        elif cmd == "/agent":
+            # MISSION-180: full-MCP async delegation. Tool-needing requests run a
+            # detached headless Hale agent (Gmail/Drive/TESS/wing tools) off the poll
+            # loop and deliver the result back here. Commander + Hale bots only.
+            if user_id != COMMANDER_ID or bot_name not in ("D2MC2C", "HaleD2M"):
+                tg_send(token, chat_id, "🦅 /agent is Commander-only on the C2 channel.")
+                return
+            task = " ".join(msg.split()[1:]).strip()
+            if not task:
+                tg_send(token, chat_id, "Usage: /agent &lt;task that needs tools — e.g. check my inbox, draft a reply, look up a booking&gt;")
+                return
+            try:
+                import subprocess as _sp_agent
+                _sp_agent.Popen(
+                    [sys.executable, str(THUNDERBIRD / "OpsCenter" / "telegram_async_agent.py"),
+                     "--token", token, "--chat-id", str(chat_id),
+                     "--task", task, "--model", "sonnet"],
+                    stdout=open(THUNDERBIRD / "logs" / "telegram_async_agent.log", "a"),
+                    stderr=_sp_agent.STDOUT,
+                    start_new_session=True,   # detached — poll loop never blocks
+                    cwd=str(THUNDERBIRD),
+                )
+                tg_send(token, chat_id, "🦅 Wilco — on it with full tools. I'll deliver the result here shortly.")
+            except Exception as e:
+                tg_send(token, chat_id, f"🦅 Couldn't launch agent: {e}")
+            return
         elif cmd == "/dispatch_status" and _HALE_DISPATCHER_AVAILABLE:
             try:
                 tg_send(token, chat_id, dispatch_status_text())
