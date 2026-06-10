@@ -54,7 +54,7 @@
       "npm": "@ai-sdk/xai",
       "name": "Grok (ZEN backup)",
       "options": {
-        "apiKey": "***REMOVED-SECRET***"
+        "apiKey": "{env:XAI_API_KEY}"
       },
       "models": {
         "grok-3": {
@@ -163,6 +163,18 @@
     "two-brain": {
       "description": "Two-Brain session \u2014 OpenCode + Claude Sonnet partner. Usage: /two-brain status | /two-brain dispatch <task> | /two-brain tick",
       "template": "TS=$(date +%s); case \"{0}\" in status) python3 /home/john/Thunderbird/OpsCenter/metronome.py --status ;; tick) python3 /home/john/Thunderbird/OpsCenter/metronome.py --force-tick ;; dispatch*) TASK=\"$(echo \"{0}\" | sed 's/^dispatch *//')\"; OUTF=\"/home/john/Thunderbird/output/two_brain_${TS}.md\"; DJSON=$(python3 /home/john/Thunderbird/OpsCenter/dispatch_claude.py --task \"two-brain-${TS}\" --output \"${OUTF}\" --prompt \"${TASK} WRITE to ${OUTF}\" --model sonnet); PID=$(echo \"${DJSON}\" | python3 -c \"import json,sys; print(json.load(sys.stdin).get('pid',0))\" 2>/dev/null || echo 0); if [ \"${PID:-0}\" -gt 0 ] 2>/dev/null; then python3 /home/john/Thunderbird/OpsCenter/watch_task.py \"${OUTF}\" \"${PID}\" --timeout 600; else echo \"Dispatch failed: ${DJSON}\"; fi ;; *) echo 'Usage: /two-brain status | tick | dispatch <task>' ;; esac"
+    },
+    "compress": {
+      "description": "Context Sniper \u2014 rebuild context brief from durable sources. Usage: /compress [persona] e.g. /compress hale | /compress sterling | /compress",
+      "template": "python3 /home/john/Thunderbird/scripts/context_sniper.py brief --persona \"${1:-default}\" ${2:+--hint \"$2\"}"
+    },
+    "pin": {
+      "description": "Pin an item so it always appears in context_compress briefs. Usage: /pin <item text>",
+      "template": "python3 /home/john/Thunderbird/scripts/context_sniper.py pin \"{0}\""
+    },
+    "pins": {
+      "description": "List all active context sniper pins.",
+      "template": "python3 /home/john/Thunderbird/scripts/context_sniper.py pins"
     }
   }
 }

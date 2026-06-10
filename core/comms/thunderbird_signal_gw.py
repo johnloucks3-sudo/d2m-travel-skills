@@ -140,9 +140,11 @@ def _dispatch_to_hale(text: str) -> str:
             "Keep your reply under 500 characters when possible. Lead with the answer."
         )
         try:
-            from core.ai_infra.hale_persona_loader import wrap_with_persona
+            from core.ai_infra.hale_persona_loader import wrap_with_persona, load_state_summary
+            _state = load_state_summary()
+            _state_block = f"\n\n{_state}\n" if _state else ""
             prompt = wrap_with_persona(
-                f"Commander sent this via Signal C2: \"{text}\"\n\n{channel_directive}",
+                f"{_state_block}Commander sent this via Signal C2: \"{text}\"\n\n{channel_directive}",
                 channel="telegram",  # thin-channel hint; Signal shares the tight format
                 compact=True,
             )

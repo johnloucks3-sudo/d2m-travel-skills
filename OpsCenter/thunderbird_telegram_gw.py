@@ -453,9 +453,20 @@ def _build_hale_claude_prompt(context_text: str, message: str) -> str:
     persona = _PERSONA_CACHE.get("hale_system", "")
     memory_snip = _PERSONA_CACHE.get("hale_memory_snippet", "")
 
+    # P4: live state injection — so Telegram-Hale can answer "what's the McLeod
+    # FPD / what's overdue" from current hale_state.json (single-source helper).
+    state_summary = ""
+    try:
+        from core.ai_infra.hale_persona_loader import load_state_summary
+        state_summary = load_state_summary()
+    except Exception:
+        pass
+
     parts = []
     if persona:
         parts.append(persona)
+    if state_summary:
+        parts.append(f"\n\n---\n{state_summary}")
     if memory_snip:
         parts.append(f"\n\n---\n## CURRENT MEMORY SNAPSHOT\n{memory_snip}")
     if context_text:

@@ -131,6 +131,47 @@ def wrap_with_persona(request: str, channel: Optional[str] = None,
     )
 
 
+_STATE_PATH = Path("/home/john/Thunderbird/hale_state.json")
+
+
+def load_state_summary(max_tasks: int = 6) -> str:
+    """Return a tight live-state summary for per-turn injection on thin channels.
+
+    Single source so Telegram, Signal, and email all answer "what's the McLeod
+    FPD / what's overdue" from the same data. Reads hale_state.json (financial
+    pulse, open P0/P1 tasks, deferred FPD alerts). Kept compact (~1-1.5K).
+    Returns "" on any error — never blocks a reply.
+    """
+    try:
+        import json as _json
+        s = _json.loads(_STATE_PATH.read_text())
+    except Exception:
+        return ""
+
+    lines = ["## LIVE STATE (hale_state.json — current)"]
+
+    fp = s.get("financial_pulse", {})
+    pipe = fp.get("total_d2m_pipeline") or fp.get("pipeline_d2m_share_upcoming")
+    comm = fp.get("pipeline_commission_upcoming")
+    if pipe:
+        lines.append(f"- Pipeline: ${pipe:,.2f} D2M share"
+                     + (f" · commission ${comm:,.2f}" if comm else ""))
+
+    alerts = s.get("deferred_alerts", [])
+    for a in alerts[:3]:
+        msg = a.get("message", "")
+        if msg:
+            lines.append(f"- ALERT: {msg[:140]}")
+
+    tasks = s.get("open_tasks", [])
+    p0 = [t for t in tasks if t.get("priority") == "P0"][:max_tasks]
+    if p0:
+        lines.append(f"- Open P0 ({len(p0)} shown): "
+                     + "; ".join(f"{t.get('id')} {t.get('title','')[:40]}" for t in p0))
+
+    return "\n".join(lines) if len(lines) > 1 else ""
+
+
 def get_persona_summary() -> dict:
     """Return cache state + file existence for diagnostics."""
     return {
