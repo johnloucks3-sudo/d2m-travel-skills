@@ -2889,9 +2889,7 @@ def gmail_create_draft_sync(
     from_address = _resolve_wing_from(service, from_address)
 
     stripped = body.strip()
-    html_body = _wrap_body_html(body) if not (
-        stripped.lower().startswith("<!doctype") or stripped.lower().startswith("<html")
-    ) else body
+    html_body = _wrap_body_html(body)
 
     alt = MIMEMultipart("alternative")
     alt.attach(MIMEText(body if not stripped.lower().startswith("<") else _strip_html(stripped), "plain"))
