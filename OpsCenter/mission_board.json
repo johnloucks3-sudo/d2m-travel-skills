@@ -3186,6 +3186,38 @@
       ],
       "created_at": "2026-06-10T18:31:11.666524+00:00",
       "updated_at": "2026-06-10T18:44:04.063039+00:00"
+    },
+    {
+      "id": "MISSION-180",
+      "title": "Hale Parity Phase B \u2014 close 5 remaining platform gaps (email drift, Dani voice, board awareness, relay, voice test)",
+      "status": "in_progress",
+      "priority": "P1",
+      "assigned_to": "HALE Opus (Claude Code) \u2014 LEAD",
+      "description": "HALE PARITY \u2014 PHASE B (follow-on to MISSION-179). Core persona/gates/brevity/state parity DONE in MISSION-179. This mission closes the 5 remaining gaps from the Hale Sonnet brief (OpsCenter/HALE_OPUS_MISSION_BRIEF_20260610.md) that MISSION-179 did not cover. Hale Opus (Claude Code) in the LEAD per Commander 2026-06-10; Hale Sonnet returned to Loucks guinea-pig project. ITEMS (resume here if rate-limited): (1) EMAIL ACCOUNT DRIFT \u2014 gmail_token.json auths johnloucks3 not d2mconcierge; d2mconcierge lacks concierge alias. Verify current state across config/persona_gmail_token.json + gmail_token.json; map which client-product path uses which token. HIGH business impact (client sends). GATE auth changes behind Commander. (2) DANI VOICE ISOLATION \u2014 confirm Dani bot persona cleanly separated from Hale voice (telegram gw dani_claude_engine). (3) LIVE VOICE-FIDELITY TEST \u2014 Commander's thumbs on Telegram D2MC2C (Wilco/Roger/Done check). Commander action. (4) MISSION-BOARD AWARENESS \u2014 do Telegram/OpenCode Hale read/write the board? (5) RELAY DELIVERY VERIFICATION \u2014 confirm relays land at each instance inbox. GUARDRAIL: protected files (run_commander_directive_sweep.py, dispatch_and_email.py, relay_send.py, wing_relay.py, email_task_ingest.py, thunderbird_commander_inbox.py) \u2014 Claude Code executes; auth/send-path changes gated to Commander.",
+      "deliverables": [
+        "Email account drift: current-state map + remediation (auth changes gated to Commander)",
+        "Dani voice isolation: pass/fail + fix if needed",
+        "Mission-board awareness: which instances read/write",
+        "Relay delivery: verified to all inboxes",
+        "Voice-fidelity test: prepped for Commander thumbs"
+      ],
+      "dependencies": [
+        "MISSION-179"
+      ],
+      "suspense_date": null,
+      "escalation_rule": "Auth/send-path changes require Commander approval before execution.",
+      "logs": [
+        {
+          "ts": "2026-06-10T18:57:36.186104+00:00",
+          "msg": "Created. MISSION-179 (core parity) complete. This closes 5 follow-on gaps. Hale Opus in lead. Parallel audit dispatching."
+        },
+        {
+          "ts": "2026-06-10T19:04:53.347270+00:00",
+          "msg": "Parallel audit complete (3 agents). EXECUTED: Dani\u2192Hale public exposure closed (security, committed). FINDINGS: (1) Email drift CONFIRMED \u2014 gmail_token.json auths johnloucks3 not d2mconcierge; main client-draft funcs land drafts in johnloucks3 (SO violation); concierge alias is on johnloucks3 not d2mconcierge; d2mconcierge token revoked. NEEDS COMMANDER DECISION on From strategy + re-auth. (2) Dani personas clean, MISSION-179 didn't affect Dani. (3) Board: CC+OC aware; Telegram/Signal see hale_state mirror only; email sweep blind. Relay: reaches CC+OC via Telegram channel; Telegram/Signal NOT relay recipients; today's parity relays DID land + OC acked. PARKED as options: relay fan-out to thin channels, board\u2192mirror sync, OC reads opencode_inbox. Dani model label (Sonnet vs actual Haiku) = Commander cost/quality call."
+        }
+      ],
+      "created_at": "2026-06-10T18:57:36.186104+00:00",
+      "updated_at": "2026-06-10T19:04:53.347270+00:00"
     }
   ],
   "suspense_watch": [
