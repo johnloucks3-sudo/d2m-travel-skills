@@ -61,12 +61,9 @@ def log_line(msg: str):
     from datetime import datetime, timezone
     ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
     line = f"[{ts}] {msg}"
-    print(line)
-    try:
-        with open(SCRIPTS_LOG, "a") as f:
-            f.write(line + "\n")
-    except Exception:
-        pass
+    # Print to stdout only — systemd appends stdout to SCRIPTS_LOG.
+    # Direct file write removed: was causing every line to appear twice.
+    print(line, flush=True)
 
 def load_thread_state() -> set:
     try:
@@ -367,6 +364,19 @@ try:
                             userId="me", id=d_msg_id,
                             body={"addLabelIds": [d2mc_label_id]}
                         ).execute()
+                    continue
+
+                # Block Re: and Fwd: — conversational replies to Hale and forwarded
+                # FYI emails are not Commander directives. Loop fix: prevents Hale's
+                # reply landing back in d2mc inbox from triggering another dispatch.
+                _clean_sub = d_subject.lstrip().lower()
+                if _clean_sub.startswith("re:") or _clean_sub.startswith("fwd:") or _clean_sub.startswith("fw:"):
+                    if d2mc_label_id:
+                        d2mc_service.users().messages().modify(
+                            userId="me", id=d_msg_id,
+                            body={"addLabelIds": [d2mc_label_id]}
+                        ).execute()
+                    log_line(f"  d2mc skip (Re:/Fwd:): {d_subject[:60]}")
                     continue
 
                 log_line(f"  D2MC DIRECTIVE: {d_subject[:80]}")
