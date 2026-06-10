@@ -384,18 +384,10 @@ try:
                 # won't match and will dispatch normally.
                 if _clean_sub.startswith("re:"):
                     _ACK_PHRASES = {
-                        # Pilot / military brevity
+                        # Pilot brevity — same protocol both directions
                         "roger", "roger.", "roger that", "roger that.",
-                        "wilco", "wilco.", "wilco.",
+                        "wilco", "wilco.",
                         "done", "done.",
-                        # Standard acks
-                        "thanks", "thank you", "thx", "ty",
-                        "ok", "okay", "ok.", "okay.",
-                        "got it", "got it.", "gotcha",
-                        "perfect", "perfect.", "great", "great.",
-                        "sounds good", "sounds good.", "will do",
-                        "noted", "understood", "received",
-                        "👍", "✅",
                     }
                     _body_stripped = d_body.strip().lower().rstrip("!")
                     if _body_stripped in _ACK_PHRASES:
