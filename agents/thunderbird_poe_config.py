@@ -206,27 +206,27 @@ TASK_MODEL_MAP: dict[str, str] = {
     "summarize_short":   "claude-haiku-4-5-20251001",
     "intel_classify":    "claude-haiku-4-5-20251001",
 
-    # ── Opus: Dani client-facing responses only ──────────────────────────────
-    "dani_response":     "claude-sonnet-4-6",    # Dani → client — Sonnet (SO 2026-03-27: Opus retired)
-
-    # ── Sonnet: everything else — C2, internal, drafts, proposals ────────────
-    "default":           "claude-sonnet-4-6",
-    "email_draft":       "claude-sonnet-4-6",   # internal drafting (Dani persona handles Opus via PERSONA_MODEL_MAP)
-    "client_proposal":   "claude-sonnet-4-6",
-    "ship_comparison":   "claude-sonnet-4-6",
-    "dossier_update":    "claude-sonnet-4-6",
-    "itinerary":         "claude-sonnet-4-6",
-    "research":          "claude-sonnet-4-6",
-    "booking_extract":   "claude-sonnet-4-6",
-    "flight_search":     "claude-sonnet-4-6",
-    "hotel_search":      "claude-sonnet-4-6",
-    "tour_search":       "claude-sonnet-4-6",
-    "intel_analysis":    "claude-sonnet-4-6",
-    "morning_brief":     "claude-sonnet-4-6",
-    "weekly_report":     "claude-sonnet-4-6",
-    "architecture":      "claude-sonnet-4-6",
-    "crisis":            "claude-sonnet-4-6",
-    "strategy_review":   "claude-sonnet-4-6",
+    # ── Opus 4.8: ALL persona work — C2 commands, Dani, all internal ────────
+    # PHASE A DEPLOYMENT (2026-06-06): Upgrade all persona dispatch to Opus
+    # via Max plan ($0 incremental). 90% cost reduction + S-tier quality.
+    "dani_response":     "claude-opus-4-8",      # Dani → client — Opus quality
+    "default":           "claude-opus-4-8",      # All personas, all C2 commands
+    "email_draft":       "claude-opus-4-8",     # internal drafting — Opus quality
+    "client_proposal":   "claude-opus-4-8",
+    "ship_comparison":   "claude-opus-4-8",
+    "dossier_update":    "claude-opus-4-8",
+    "itinerary":         "claude-opus-4-8",
+    "research":          "claude-opus-4-8",
+    "booking_extract":   "claude-opus-4-8",
+    "flight_search":     "claude-opus-4-8",
+    "hotel_search":      "claude-opus-4-8",
+    "tour_search":       "claude-opus-4-8",
+    "intel_analysis":    "claude-opus-4-8",
+    "morning_brief":     "claude-opus-4-8",
+    "weekly_report":     "claude-opus-4-8",
+    "architecture":      "claude-opus-4-8",
+    "crisis":            "claude-opus-4-8",
+    "strategy_review":   "claude-opus-4-8",
 }
 
 

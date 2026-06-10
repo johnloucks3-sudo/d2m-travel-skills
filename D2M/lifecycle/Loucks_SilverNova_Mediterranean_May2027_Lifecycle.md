@@ -4,9 +4,21 @@
 
 ---
 
-## OWNER-CLIENT PROTOCOL
-This is Commander Loucks' personal voyage. No WF-17 gate. All briefs sent directly to johnloucks3@gmail.com.
-Hale manages lifecycle FOR the Commander. Hale has full autonomy band (no confirmation loops) except for actual payments and booking commitments, which Commander executes.
+## CLIENT TREATMENT PROTOCOL — Amended 2026-06-10
+Commander directive: Treat Loucks as a full client. Full lifecycle TP email chain. Dani voice on all client emails.
+
+**WF-17 Exception (Commander directive 2026-06-10):**
+Dani is authorized to send lifecycle emails to both John and Susan once Hale approves. Standard WF-17 Commander-send gate is replaced by:
+1. Hale approves draft (same quality gate as WF-17)
+2. Copy of email sent to johnloucks3@gmail.com 24 hours before scheduled send
+3. Commander may intervene in 24-hr window — if no intervention, Dani sends
+4. Recipients: johnloucks3@gmail.com + susanna.loucks@gmail.com (both on every touchpoint unless noted)
+
+**Send addresses:**
+- John: johnloucks3@gmail.com
+- Susan: susanna.loucks@gmail.com
+
+**Full creative chain applies** — Reyes → Luna → Naia → Dani → TALON/JET → Hale approval → 24hr preview → send.
 
 ---
 

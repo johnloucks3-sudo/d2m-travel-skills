@@ -98,6 +98,49 @@ print(f"Last checked: {last_checked}")
 
 **Harlan financial sign-off note:** The financial pulse is sourced from `hale_state.json` which aggregates TESS + commission sheet. For the morning brief these figures are a summary dashboard — no individual booking dollar amounts are cited. Harlan 6-step sign-off is required only when a specific client dollar figure appears in a client-facing email. The morning brief to Commander uses aggregate pipeline figures only — those do not require individual Harlan sign-off, but flag `last_checked` age if > 12 hours stale.
 
+### 3.5. FARE WATCH — Daily Price Check (Active: Jun 6–20, 2026)
+
+**Target:** Icelandair May 2027 (DEN→VCE + ATH→DEN). Runs every brief for 14 days.
+
+```python
+import json, asyncio, sys
+from pathlib import Path
+sys.path.insert(0, str(Path.home() / "Thunderbird"))
+
+watches = json.loads(Path.home().joinpath("Thunderbird/core/travel/data/fare_watches.json").read_text())
+targets = ["loucks-silver-nova-may2027-outbound", "loucks-silver-nova-may2027-return"]
+
+# Report current vs baseline
+for wid in targets:
+    w = watches.get(wid)
+    if w:
+        cp = w.get("current_price_pp", 0)
+        bp = w.get("baseline_price_pp", 0)
+        pct = ((cp - bp) / bp * 100) if bp else 0
+        arrow = "⬆" if pct > 0 else "⬇" if pct < 0 else "—"
+        alert = "🔴 BREACH" if w.get("alert_below") and cp and cp <= w["alert_below"] else "✅ OK"
+        print(f"{w['label']}: ${cp}/pp (baseline ${bp}) {arrow} {abs(pct):.0f}% {alert}")
+
+# Re-run Centrav to get live prices
+from core.travel.thunderbird_centrav_search import run_centrav_search
+async def refresh():
+    r1 = await run_centrav_search("DEN", "VCE", "2027-04-30", adults=2, cabins=["business"])
+    r2 = await run_centrav_search("ATH", "DEN", "2027-06-01", adults=2, cabins=["business"])
+    fw = json.loads(Path.home().joinpath("Thunderbird/core/travel/data/fare_watches.json").read_text())
+    for key, r in [("loucks-silver-nova-may2027-outbound", r1), ("loucks-silver-nova-may2027-return", r2)]:
+        b = r.get("results", {}).get("business", {})
+        if b.get("lowest_total"):
+            fw[key]["current_price_pp"] = b["lowest_total"] / 2
+        fw[key]["last_checked"] = __import__("datetime").datetime.now().isoformat()
+    Path.home().joinpath("Thunderbird/core/travel/data/fare_watches.json").write_text(json.dumps(fw, indent=2))
+    for label, r in [("DEN→VCE Business", r1), ("ATH→DEN Business", r2)]:
+        p = r.get("results", {}).get("business", {}).get("lowest_total", 0)
+        print(f"{label}: ${p} total / ${p/2 if p else 0} pp {'✅' if p else '⚠️'}")
+asyncio.run(refresh())
+```
+
+**Duration:** This section runs through Jun 20, 2026. After that date, remove this section and retire to `Step 6 — Open Items` if prices haven't moved.
+
 ---
 
 ## Step 4 — Read Wing Health (Sterling)
@@ -191,6 +234,30 @@ Flag oldest overdue first. If none: "No drafts staged — gate clear."
 [Table: Metric | Value]
 Rows: D2M pipeline | TESS received | Sheet commissions expected | D2M share | TESS pkg total
 Note last_checked time. If > 12h stale: add "⚠️ Stale — refresh recommended."
+
+### 3.5. FARE WATCH — Active Price Monitoring (Jun 6–20)
+[Table: Route | Cabin | Current/pp | Baseline/pp | ±% | Alert]
+Target: Icelandair May 2027 (DEN→VCE + ATH→DEN Business). Run Centrav refresh, print comparison.
+
+### 3.6. PERX INTERLINE RATES — TA Rate Signal Watch (Standing — no expiry)
+[Table: Sailing | Cabin Category | Price/pp | vs Baseline | Signal]
+
+**Watched sailings (Commander standing order 2026-06-08):**
+- Seven Seas Grandeur — Dec 29, 2026 → Concierge D, Concierge E, Balcony
+- Silver Nova — May 5, 2027 (voyage 1 of 3) → Balcony/Veranda, Suite
+- Silver Nova — May 12, 2027 (voyage 2 of 3) → Balcony/Veranda, Suite
+- Silver Nova — May 19, 2027 (voyage 3 of 3) → Balcony/Veranda, Suite
+
+**How to pull:**
+```bash
+python3 /home/john/Thunderbird/scripts/perx_cabin_pricer.py --brief
+```
+
+If no live data (first run or Perx session expired): read `data/perx_cabin_prices.json` for last cached prices. Label as [LIVE] or [cached dd-Mon].
+
+**Signal logic:** Interline rate on Perx is a **leading indicator** — heavy discounts precede TA rate release by 7–14 days. Flag any sailing where price is ≥15% below baseline.
+
+Signal thresholds: 👁 WATCH (−15%), ⚠️ SIGNAL (−25%), 🔴 URGENT (−35%) → check TA portals immediately.
 
 ### 4. WING HEALTH
 [Table: System | Status]

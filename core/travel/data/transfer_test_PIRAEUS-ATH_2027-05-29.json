@@ -1,0 +1,96 @@
+{
+  "route": "PIRAEUS-ATH",
+  "from": "Piraeus Port",
+  "to": "Athens Airport",
+  "date": "2027-05-29",
+  "pax": 2,
+  "scraped_at": "2026-06-06T12:03:52.233017",
+  "kiwitaxi": {
+    "source": "kiwitaxi",
+    "route": "PIRAEUS-ATH",
+    "description": "Piraeus Port \u2192 Athens Airport",
+    "url": "https://kiwitaxi.com/en/greece/piraeus-port-athens-airport",
+    "pax": 2,
+    "date": "2027-05-29",
+    "scraped_at": "2026-06-06T12:03:52.592774",
+    "duration_min": 45,
+    "transfers": [
+      {
+        "vehicle_class": "Comfort",
+        "price_usd": 76,
+        "pax_capacity": 4,
+        "bags_capacity": 3,
+        "vehicle_examples": null,
+        "badge": null
+      },
+      {
+        "vehicle_class": "Minivan 4PAX",
+        "price_usd": 110,
+        "pax_capacity": 4,
+        "bags_capacity": 4,
+        "vehicle_examples": null,
+        "badge": null
+      },
+      {
+        "vehicle_class": "Minibus 7PAX",
+        "price_usd": 113,
+        "pax_capacity": 7,
+        "bags_capacity": 7,
+        "vehicle_examples": null,
+        "badge": "Best Choice"
+      },
+      {
+        "vehicle_class": "Business",
+        "price_usd": 156,
+        "pax_capacity": 3,
+        "bags_capacity": 3,
+        "vehicle_examples": null,
+        "badge": null
+      },
+      {
+        "vehicle_class": "Minibus 10PAX",
+        "price_usd": 219,
+        "pax_capacity": 10,
+        "bags_capacity": 10,
+        "vehicle_examples": null,
+        "badge": null
+      },
+      {
+        "vehicle_class": "Premium Minibus",
+        "price_usd": 234,
+        "pax_capacity": 6,
+        "bags_capacity": 4,
+        "vehicle_examples": null,
+        "badge": null
+      },
+      {
+        "vehicle_class": "Minibus 13PAX",
+        "price_usd": 266,
+        "pax_capacity": 13,
+        "bags_capacity": 13,
+        "vehicle_examples": null,
+        "badge": null
+      },
+      {
+        "vehicle_class": "Minibus 16PAX",
+        "price_usd": 281,
+        "pax_capacity": 16,
+        "bags_capacity": 16,
+        "vehicle_examples": null,
+        "badge": null
+      },
+      {
+        "vehicle_class": "Minibus 19PAX",
+        "price_usd": 312,
+        "pax_capacity": 19,
+        "bags_capacity": 19,
+        "vehicle_examples": null,
+        "badge": null
+      }
+    ],
+    "screenshot": "/home/john/Thunderbird/core/travel/data/transfer_kiwitaxi_piraeus-ath_2027-05-29.png",
+    "status": "ok",
+    "notes": "Prices are per vehicle (not per person). Fixed price regardless of date."
+  },
+  "welcomepickups": {}
+}

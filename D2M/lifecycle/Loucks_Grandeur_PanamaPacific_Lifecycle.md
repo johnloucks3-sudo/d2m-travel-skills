@@ -64,6 +64,7 @@
 | **Aug 31, 2026** | **Culinary Arts Kitchen Classes open (8pm ET)** | ⏳ PENDING |
 | **Sep 30, 2026** | **Dining reservations open (8pm ET)** | ⏳ PENDING |
 | **Dec 8, 2026** | **Online check-in opens** | ⏳ PENDING |
+| **Nov 29, 2026** | **AR-3.0 Embarkation Gift — ORDER by E-30** | ⏳ PENDING |
 | Dec 22, 2026 | Final Confirmation (E-7) | ⏳ PENDING |
 | Dec 26, 2026 | Send-Off (E-3) | ⏳ PENDING |
 | **Dec 29, 2026** | **EMBARKATION — Miami** | ⏳ PENDING |

@@ -1,0 +1,19 @@
+{
+  "timestamp": "2026-06-01T20:01:18.383701",
+  "bookings": 3,
+  "3071222_Furlow": {
+    "auth": "AUTHENTICATED",
+    "endpoints": 16,
+    "sections": []
+  },
+  "3078056_Nichols": {
+    "auth": "AUTHENTICATED",
+    "endpoints": 16,
+    "sections": []
+  },
+  "3096289_Ely": {
+    "auth": "AUTHENTICATED",
+    "endpoints": 15,
+    "sections": []
+  }
+}

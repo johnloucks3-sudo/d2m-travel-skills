@@ -1,0 +1,134 @@
+{
+  "retrieved": "2026-06-06T18:30:00Z",
+  "passengers": 2,
+  "trip_context": "Mediterranean cruise — Commander John Loucks + Susan Loucks",
+  "outbound": {
+    "route": "DEN-VCE",
+    "date": "2027-05-01",
+    "notes_general": "No nonstop DEN-VCE exists. All options require 1 stop. Total travel time typically 14-16 hours. May 1 is shoulder season — good availability expected, prices lower than peak summer.",
+    "options": [
+      {
+        "carrier": "Icelandair",
+        "routing": "DEN → KEF (Reykjavik Keflavik) → VCE (Venice Marco Polo)",
+        "cabin": "Saga Premium (Icelandair's premium cabin — recliner seat, NOT lie-flat)",
+        "price_pp": "$1,500-$2,000 one-way estimated",
+        "price_2pax": "$3,000-$4,000 estimated",
+        "duration": "~14-15 hrs total (DEN-KEF ~8.5 hrs + KEF-VCE ~4.75 hrs + connection)",
+        "stops": 1,
+        "aircraft": "Boeing 737 MAX 8 (DEN-KEF) + Boeing 737 MAX 8 or A321LR (KEF-VCE)",
+        "notes": "CONFIRMED: Icelandair serves both DEN and VCE. Venice service launched May 22, 2026 — 3x weekly (Tue/Fri/Sun) through Oct 18. IMPORTANT: 2027 Venice schedule not yet released; Icelandair must confirm seasonal service continues. Saga Premium is recliner (40-inch pitch, 20.5-inch width, 5-inch recline) in 2x2 layout — comparable to premium economy, NOT true business class with lie-flat. Includes priority check-in, lounge access at KEF, 3-course meal, 2 checked bags. Roundtrip Saga Premium pricing typically $1,100-$2,000 RT per person; one-way estimated at ~$700-$1,200 per person in off-peak. Stopover in Iceland available at no extra airfare cost (up to 7 days). BOOK PRIORITY: Check icelandair.com when May 2027 schedule releases (typically ~330 days out, ~Jul 2026). This is the Commander's preferred carrier — verify Venice service continuation for 2027.",
+        "saga_premium_verdict": "Best value for comfort on this route IF lie-flat not required. Significant savings vs United Polaris ($3,500+/pp one-way). Ideal for shoulder-season 8.5hr transatlantic leg."
+      },
+      {
+        "carrier": "United Airlines",
+        "routing": "DEN → EWR (Newark) → VCE (Venice Marco Polo)",
+        "cabin": "Polaris Business Class (lie-flat, aisle access)",
+        "price_pp": "$2,460-$2,900 one-way estimated",
+        "price_2pax": "$4,920-$5,800 estimated",
+        "duration": "~15-17 hrs total (DEN-EWR ~3.5 hrs + EWR-VCE ~9 hrs + connection)",
+        "stops": 1,
+        "aircraft": "Regional/737 (DEN-EWR) + Boeing 767-400 (EWR-VCE)",
+        "notes": "United operates nonstop EWR-VCE seasonal (summer). CONFIRMED: EWR-VCE one-way Polaris cash fares start at $3,510 and exceed $5,800 on peak days (per live review data). Roundtrip DEN-VCE business class $4,919 found for Aug 2026 — May pricing may be lower as shoulder season. Connection at EWR adds ~3-4 hrs to journey. DEN-EWR leg on regional aircraft — Polaris only applies EWR-VCE. Polaris features lie-flat seat, Saks Fifth Avenue bedding, aisle access, United Polaris Lounge at EWR. Award alternative: ~80,000 MileagePlus miles one-way EWR-VCE via Air Canada partner redemption (better value than United's own 163,300 miles).",
+        "polaris_verdict": "True lie-flat business class — premium experience for the 9-hour transatlantic leg. Higher cost but full-flat bed appropriate for overnight/long haul. Best option if comfort is paramount."
+      },
+      {
+        "carrier": "United Airlines (alternate hub)",
+        "routing": "DEN → IAD (Washington Dulles) → VCE",
+        "cabin": "Polaris Business Class",
+        "price_pp": "$2,400-$2,800 one-way estimated",
+        "price_2pax": "$4,800-$5,600 estimated",
+        "duration": "~16-18 hrs total",
+        "stops": 1,
+        "aircraft": "Regional (DEN-IAD) + Boeing 787 (IAD-VCE)",
+        "notes": "United also operates Dulles-Europe routes. Less convenient than EWR connection for Venice specifically. Check availability — EWR is United's primary VCE hub for summer season."
+      },
+      {
+        "carrier": "Lufthansa / SWISS (Star Alliance)",
+        "routing": "DEN → MUC (Munich) or ZRH (Zurich) → VCE",
+        "cabin": "Business Class (lie-flat on long-haul DEN-MUC/ZRH leg)",
+        "price_pp": "$2,000-$3,000 one-way estimated",
+        "price_2pax": "$4,000-$6,000 estimated",
+        "duration": "~15-17 hrs total",
+        "stops": 1,
+        "aircraft": "Boeing 787 or A350 (DEN-MUC/ZRH) + regional (MUC/ZRH-VCE)",
+        "notes": "Lufthansa confirmed serving DEN-MUC (~11 weekly flights, 9h35m). MUC-VCE short connecting flight ~1h. SWISS also operates DEN-ZRH. Both offer lie-flat business on the Atlantic leg. Redeemable on United MileagePlus as Star Alliance partners. DEN-ATH via Lufthansa starting at $888 base (economy) — business class significantly higher. Good alternative if United/Icelandair aren't available."
+      }
+    ]
+  },
+  "return": {
+    "route": "ATH-DEN",
+    "date": "2027-05-25",
+    "notes_general": "No nonstop ATH-DEN. All options require 1-2 stops. ATH is well-served by US carriers — United, Delta both have nonstop to US East Coast hubs. Icelandair ATH-KEF confirmed operational. Total travel time typically 14-16 hrs.",
+    "options": [
+      {
+        "carrier": "United Airlines",
+        "routing": "ATH (Athens Eleftherios Venizelos) → EWR (Newark) → DEN",
+        "cabin": "Polaris Business Class (ATH-EWR) + Polaris/First (EWR-DEN)",
+        "price_pp": "$1,800-$2,500 one-way estimated",
+        "price_2pax": "$3,600-$5,000 estimated",
+        "duration": "~14-16 hrs total (ATH-EWR ~10 hrs + connection + EWR-DEN ~4 hrs)",
+        "stops": 1,
+        "aircraft": "Boeing 787-10 (ATH-EWR) + regional or 737 (EWR-DEN)",
+        "notes": "CONFIRMED: United operates 3 daily nonstop flights ATH to US hubs (EWR, IAD, ORD) for summer 2026 on 787-10. United is celebrating 10 years of ATH-EWR service (per Jun 2026 news). Polaris lie-flat applies ATH-EWR leg. DEN-ATH RT business class from $2,641 per data sources; one-way return estimated $1,500-$2,500. Polaris cabin: lie-flat, all-aisle access, United Premium Plus also available as lower-cost premium option (~$800-$1,200 one-way). BOOK PRIORITY: Check united.com when 2027 summer schedule releases.",
+        "best_value_note": "United Premium Plus (premium economy, lie-flat adjacent recliner) available at lower price point if full Polaris budget is concern."
+      },
+      {
+        "carrier": "Icelandair",
+        "routing": "ATH (Athens) → KEF (Reykjavik) → DEN",
+        "cabin": "Saga Premium (recliner, NOT lie-flat)",
+        "price_pp": "$1,200-$1,800 one-way estimated",
+        "price_2pax": "$2,400-$3,600 estimated",
+        "duration": "~15-16 hrs total (ATH-KEF ~5h50m + KEF-DEN ~8.5 hrs + connection)",
+        "stops": 1,
+        "aircraft": "Boeing 737 MAX 8 or A321LR (ATH-KEF) + Boeing 737 MAX 8 (KEF-DEN)",
+        "notes": "CONFIRMED: Icelandair operates ATH-KEF service. RT pricing from Athens-Denver found at $3,111 (Icelandair, one of lowest on route). KEF connection allows Iceland stopover option. Saga Premium recliner acceptable for 5h50m ATH-KEF leg; less ideal for 8.5hr KEF-DEN leg without lie-flat. Best budget premium option. Saggi Club members may find upgrade deals. Check icelandair.com for 2027 schedule.",
+        "saga_premium_verdict": "Lower cost but no lie-flat. Good option for value-conscious booking. 8.5hr KEF-DEN in recliner is manageable but not equivalent to Polaris."
+      },
+      {
+        "carrier": "Delta Air Lines",
+        "routing": "ATH → JFK (New York JFK) → DEN",
+        "cabin": "Delta One Business Class (lie-flat suite with door)",
+        "price_pp": "$2,500-$4,500 one-way estimated",
+        "price_2pax": "$5,000-$9,000 estimated",
+        "duration": "~14-16 hrs total (ATH-JFK ~10 hrs + connection + JFK-DEN ~4 hrs)",
+        "stops": 1,
+        "aircraft": "Airbus A350 or Boeing 767 (ATH-JFK) + regional (JFK-DEN)",
+        "notes": "Delta operates JFK-ATH nonstop. Delta One suite features privacy door, lie-flat, Westin Heavenly bedding, Tumi amenity kit. Premium pricing — Delta One RT fares JFK-ATH typically $7,229-$10,043 per round-trip data. One-way return estimated $2,500-$4,500 range. Highest comfort level available (suite with door). Delta SkyMiles redemption may offer better value. Connection at JFK to DEN adds time but manageable.",
+        "delta_one_verdict": "Premium product with privacy door suite — best in-flight experience available on this route if budget allows. Significantly more expensive than United or Icelandair."
+      },
+      {
+        "carrier": "Lufthansa",
+        "routing": "ATH → MUC (Munich) → DEN",
+        "cabin": "Business Class (lie-flat)",
+        "price_pp": "$2,000-$3,500 one-way estimated",
+        "price_2pax": "$4,000-$7,000 estimated",
+        "duration": "~15-17 hrs total (ATH-MUC ~2h30m + connection + MUC-DEN ~9h35m)",
+        "stops": 1,
+        "aircraft": "Regional (ATH-MUC) + Boeing 787 or A380 (MUC-DEN)",
+        "notes": "Lufthansa operates ATH-MUC with 33 weekly flights. MUC-DEN ~11 weekly flights. Long connection in Munich possible. Business class on MUC-DEN long-haul leg is lie-flat. Star Alliance — redeemable on United MileagePlus. Good fallback option if US carriers are sold out."
+      }
+    ]
+  },
+  "recommendations": {
+    "best_value": "Icelandair Saga Premium both directions — DEN-KEF-VCE outbound + ATH-KEF-DEN return. Total estimated 2-pax: $5,400-$7,600. Saga Premium is premium economy equivalent (recliner, not lie-flat). Best option if budget is primary driver and lie-flat not required.",
+    "best_comfort": "United Polaris DEN-EWR-VCE outbound + ATH-EWR-DEN return. True lie-flat business class both long-haul legs. Total estimated 2-pax: $8,520-$10,800. Best option if comfort and sleep capability are priority.",
+    "best_experience": "United Polaris outbound + Delta One return (or reverse). Splits the experience across two premium products. Total estimated 2-pax: $9,000-$13,000+.",
+    "award_note": "United MileagePlus: ~80,000 miles one-way EWR-VCE via Air Canada redemption (better value than United's own 163K). If Yoda has MileagePlus miles, this route is well-suited for award redemption."
+  },
+  "booking_timing": {
+    "icelandair_2027_schedule": "Not yet released as of Jun 2026. Venice service confirmed through Oct 18 2026 — 2027 continuation not yet announced. Monitor icelandair.com. Schedule typically releases ~330 days prior (around Jul-Aug 2026 for May 2027 travel).",
+    "united_2027_schedule": "Summer 2027 schedule not yet released. Check united.com starting ~Sep-Oct 2026 for May 2027 availability.",
+    "price_watch": "May 1 and May 25 are shoulder season (pre-peak summer). Prices typically 20-30% lower than June-August travel. Book 6-9 months out for best availability in premium cabins."
+  },
+  "research_notes": "Research conducted Jun 6, 2026. Key findings: (1) Icelandair DOES serve Venice — KEF-VCE launched May 22 2026, 3x weekly on 737 MAX 8, through Oct 18 2026. 2027 continuation not yet confirmed. DEN is an Icelandair North American hub city. (2) United operates EWR-VCE seasonal (summer) on 767-400, Polaris lie-flat. Cash fares start $3,510 one-way from VCE. (3) United operates 3 daily nonstop ATH-EWR on 787-10 for summer. (4) Icelandair operates ATH-KEF service — ATH-DEN RT from $3,111 with Icelandair. (5) No nonstop DEN-VCE or ATH-DEN exists on any carrier. All routes require 1 stop. (6) Pricing estimates based on comparable routes/seasons — actual May 2027 fares not yet bookable. All prices are estimates only. (7) Saga Premium is NOT lie-flat — it is a recliner product more comparable to premium economy. Important distinction vs United Polaris or Delta One. Sources: Icelandair route announcements, United aviation reviews, KAYAK/Expedia route data, businessclass.com fare data.",
+  "sources": [
+    "https://www.icelandair.com/en-us/flights/flights-from-denver-to-italy",
+    "https://www.icelandairgroup.com/newsroom/news/icelandair-takes-flight-to-venice",
+    "https://news.gtp.gr/2026/06/02/united-airlines-marks-10-years-of-flights-between-athens-and-newark-new-york/",
+    "https://www.aviationwithkrish.com/blog/nine-hours-on-a-767-united-polaris-business-class-between-venice-and-newark",
+    "https://www.going.com/guides/icelandair-saga-business-class",
+    "https://www.businessclass.com/en-us/flights/business-class/DEN/ATH/flights-from-denver-to-athens.tsp",
+    "https://www.kayak.com/flight-routes/Denver-Intl-DEN/Venice-Marco-Polo-VCE",
+    "https://thepointsguy.com/news/book-united-polaris-business-class-europe/"
+  ]
+}

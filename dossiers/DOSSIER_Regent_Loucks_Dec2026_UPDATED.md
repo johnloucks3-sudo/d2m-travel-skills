@@ -406,3 +406,17 @@ Track proactive touchpoints & content delivery to keep clients engaged and infor
 ---
 
 *Dossier compiled by Thunderbird Wing, Dreams2Memories Travel, LLC. Formatted per D2M standards (2026-04-26). All dates in ISO format (YYYY-MM-DD). Status: PRE-DEPARTURE. Next milestone: Contact info verification & summer research kickoff.*
+
+
+### EMAIL LOG
+
+**Jun 08 — Dreams2Memories** (Re: Re: Join Susie & John on the Mediterranean — Silver Nova, May 2027)
+> 2026-06-07: Personal invitation to Mediterranean Silver Nova (May 2027, 3 legs) — soft decline. Sofi has Peru trips Oct/Nov 2026. Prefer <12mo lead time. Keep in touch. Opportunity: South America/Peru tours on faster timeline.
+
+
+### OPEN ACTION ITEMS
+- [ ] DOSSIER: Create Trien_Steve_Sofi_prospect.md — met Apr 2026 Silver Nova, Peru interest (Oct/Nov), prefers 6-month+ lead time (auto-intel Jun 08)
+
+- [ ] FLAG SYSTEM: 'COS Restore failed' error and Kuklinski mislabel — investigate routing automation (auto-intel Jun 08)
+
+- [ ] PROSPECT CAMPAIGN: Tag for Dec 2026 follow-up with short-lead Mediterranean or Caribbean options (auto-intel Jun 08)

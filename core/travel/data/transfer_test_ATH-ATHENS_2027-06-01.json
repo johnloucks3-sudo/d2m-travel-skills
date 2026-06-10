@@ -1,0 +1,23 @@
+{
+  "route": "ATH-ATHENS",
+  "from": "Athens Airport",
+  "to": "Athens city",
+  "date": "2027-06-01",
+  "pax": 2,
+  "scraped_at": "2026-06-06T12:04:01.045340",
+  "kiwitaxi": {
+    "source": "kiwitaxi",
+    "route": "ATH-ATHENS",
+    "description": "Athens Airport \u2192 Athens city",
+    "url": "https://kiwitaxi.com/en/greece/athens-airport-athens-city-centre",
+    "pax": 2,
+    "date": "2027-06-01",
+    "scraped_at": "2026-06-06T12:04:01.391852",
+    "duration_min": null,
+    "transfers": [],
+    "screenshot": "/home/john/Thunderbird/core/travel/data/transfer_kiwitaxi_ath-athens_2027-06-01.png",
+    "status": "no_results",
+    "notes": "Prices are per vehicle (not per person). Fixed price regardless of date."
+  },
+  "welcomepickups": {}
+}

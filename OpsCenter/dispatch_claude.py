@@ -54,7 +54,7 @@ from core.ai_infra.thunderbird_headless_spawn import spawn_headless_claude
 MODEL_ALIASES = {
     "haiku": "claude-haiku-4-5-20251001",
     "sonnet": "claude-sonnet-4-6",
-    "opus": "claude-opus-4-7",
+    "opus": "claude-opus-4-8",
 }
 
 

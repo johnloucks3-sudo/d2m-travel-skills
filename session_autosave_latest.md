@@ -1,20 +1,26 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-06-05 18:10:00 MT
+## Generated: 2026-06-10 17:10:00 MT
 
 ---
 
 ### Recent Commits
-- c654a478 feat(google-ai): activate Gemini Pro integration + Spencer air brief
-- a9347e06 feat(memory+staying-time): capability audit + 4 infrastructure fixes
-- 66ebd8ba feat(memory+staying-time): capability audit + 4 infrastructure fixes
-- 6c13270b fix(relay): queue rewrite bug — mutated entries now persisted correctly
-- a2095d33 feat(relay): OC↔CC bidirectional relay via D2M Channels
+- 7132454b A7 Build: EOD brief engine — 4-section 1800 MT daily + 1730 nomination ping
+- f178d621 A7 Build: Consolidated daily brief engine — retire 4-timer sprawl
+- 4411b6a0 Fix gmail_create_draft_sync: route full HTML through _wrap_body_html() for CSS inlining
+- d1e3980f KILL inbox flood: retire rogue echo scanner (email_scanner_fixed); trash 463 echoes
+- 5ec8953f Defer concierge alias (Commander) — tracked as deferred P2; drafts stage correctly meanwhile
 
 ### Uncommitted Changes
+- .opencode.json (modified)
 - .opencode/skills/ask-opus/SKILL.md (modified)
 - .opencode/skills/ask/SKILL.md (modified)
-- AGENTS.md (modified)
+- .opencode/skills/morning-brief/SKILL.md (modified)
 - CLAUDE.md (modified)
+- D2M/lifecycle/Kuklinski_Viking_Panama_Lifecycle.md (modified)
+- D2M/lifecycle/Loucks_Grandeur_PanamaPacific_Lifecycle.md (modified)
+- D2M/lifecycle/Loucks_SilverNova_Mediterranean_May2027_Lifecycle.md (modified)
+- D2M/lifecycle/McLeod_Grandeur_LesserAntilles_Lifecycle.md (modified)
+- MISSION-172-PHASE-2D-LIVE-DISSENT-TEST.json (modified)
 - OpsCenter/.lifecycle_alerted.json (modified)
 - OpsCenter/.lifecycle_last_scan_date (modified)
 - OpsCenter/.metronome_seq (modified)
@@ -25,13 +31,10 @@
 - OpsCenter/OPENCODE_INIT.md (modified)
 - OpsCenter/a7_metrics_dashboard.json (modified)
 - OpsCenter/ask_wrapper.sh (modified)
-- OpsCenter/claude_inbox.md (modified)
-- OpsCenter/collaboration/blackboard.md (modified)
-- OpsCenter/collaboration/blackboard_summary.txt (modified)
-- OpsCenter/collaboration/claude_inbox.md (modified)
-- OpsCenter/collaboration/claude_outbox.md (modified)
-- OpsCenter/collaboration/opencode_inbox.md (modified)
 - .ask_usage_log (new)
+- .opencode.json.dead (new)
+- .opencode/skills/hale-supervisor/SKILL.md (new)
+- .opencode/skills/sterling-build/SKILL.md (new)
 - .opencode/skills/xvfb-driver/SKILL.md (new)
 - Blackboard/ (new)
 - Bryana/01_Orientation/01_welcome_letter.html (new)
@@ -48,20 +51,17 @@
 - Bryana/02_Training/03_travel_dna_profiling.html (new)
 - Bryana/02_Training/03_travel_dna_profiling.md (new)
 - Bryana/02_Training/index.html (new)
-- Bryana/03_The_Wing/01_persona_bios.html (new)
-- Bryana/03_The_Wing/01_persona_bios.md (new)
-- Bryana/03_The_Wing/02_who_to_ask_for_what.html (new)
 
 ### Active Work
 - SSS: 0 pending decision(s)
 - Learning: 8 rules pending validation
 
 ### Recently Touched Dossiers
-- McLeod_Erik_Melissa_SilverMuse_Complete.md
-- DOSSIER_ExploraII_EMed_May2027.md
-- spencer_bill_family_voyage_2027.md
-- Furlow_Regent_3071222.md
-- Nichols_Regent_3078056.md
+- Spencer_GrandTour_2027_TIMELINE.md
+- DOSSIER_DoorCounty_SisterBay_Sep2026.md
+- Loucks_Regent_Grandeur_3122006.md
+- DOSSIER_Loucks_SilverNova_May2027.md
+- Kuklinski_Viking_Panama.md
 
 ### Recent Telegram C2 Log (last 5 lines)
   (no Telegram session logs found)

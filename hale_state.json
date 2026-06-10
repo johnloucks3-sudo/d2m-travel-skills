@@ -15,43 +15,104 @@
       },
       "last_health_check": "2026-06-05T21:24:44.578424"
     },
-    "last_health_check": "2026-06-09T18:14:00.298128+00:00",
+    "last_health_check": "2026-06-10T23:15:00.038779+00:00",
     "chrome_debug_port_9222": "ONLINE",
-    "mcp_server": "ONLINE",
+    "mcp_server": "ERROR: HTTPConnectionPool(host='127.0.0.1', port=8765): Read timed out. (read timeout=20)",
     "opencode_status": "UNKNOWN",
-    "telegram_bot": "UNKNOWN"
+    "telegram_bot": "UNKNOWN",
+    "keepalive_timers": {
+      "portal_keepalive": {
+        "status": "ACTIVE",
+        "schedule": "every 3 hours",
+        "last_run": "2026-06-10T05:51:00-06:00",
+        "next_run": "2026-06-10T08:51:00-06:00",
+        "enabled": true
+      },
+      "claude_oauth_keepalive": {
+        "status": "ACTIVE",
+        "schedule": "every 90 minutes",
+        "last_run": "2026-06-10T07:12:50-06:00",
+        "next_run": "2026-06-10T08:42:50-06:00",
+        "enabled": true
+      },
+      "tess_keepalive": {
+        "status": "ACTIVE",
+        "schedule": "every 90 minutes",
+        "last_run": "2026-06-10T07:12:50-06:00",
+        "next_run": "2026-06-10T08:42:50-06:00",
+        "enabled": true
+      },
+      "johnloucks3_oauth_keepalive": {
+        "status": "ACTIVE",
+        "schedule": "every 90 minutes",
+        "last_run": "2026-06-10T13:48:48-06:00",
+        "next_run": "2026-06-10T15:18:48-06:00",
+        "enabled": true
+      }
+    },
+    "credential_status": {
+      "centrav": {
+        "status": "OK",
+        "expires": "2026-12-07T02:38:00Z",
+        "hours_remaining": 4308.0,
+        "days_remaining": 179,
+        "keepalive_coverage": "portal_keepalive.timer",
+        "last_verified": "2026-06-10T08:38:06-06:00"
+      },
+      "regent_direct": {
+        "status": "OK",
+        "expires": "2027-07-13T20:50:00Z",
+        "hours_remaining": 9558.2,
+        "days_remaining": 398,
+        "keepalive_coverage": "portal_keepalive.timer",
+        "last_verified": "2026-06-10T08:38:06-06:00"
+      },
+      "regent_oa": {
+        "status": "OK",
+        "expires": "2027-07-13T20:50:00Z",
+        "hours_remaining": 9558.2,
+        "days_remaining": 398,
+        "keepalive_coverage": "portal_keepalive.timer",
+        "last_verified": "2026-06-10T08:38:06-06:00"
+      },
+      "claude_oauth": {
+        "status": "OK",
+        "keepalive_coverage": "claude_oauth_keepalive.timer",
+        "schedule": "every 90 minutes",
+        "last_verified": "2026-06-10T08:42:50-06:00"
+      },
+      "tess_token": {
+        "status": "OK",
+        "keepalive_coverage": "tess_keepalive.timer + tess_token_keepalive.timer",
+        "schedule": "dual-layer, every 90 minutes",
+        "last_verified": "2026-06-10T08:42:50-06:00"
+      },
+      "johnloucks3_gmail_mcp": {
+        "status": "OK",
+        "keepalive_coverage": "johnloucks3_oauth_keepalive.timer",
+        "schedule": "every 90 minutes",
+        "last_verified": "2026-06-10T13:48:48-06:00"
+      },
+      "d2mconcierge_gmail_mcp": {
+        "status": "OK",
+        "keepalive_coverage": "d2mconcierge-oauth-keepalive.timer",
+        "schedule": "every 45 minutes",
+        "targets": [
+          "~/.gmail-mcp/d2mconcierge/credentials.json (validate)",
+          "config/persona_gmail_token.json (active refresh)"
+        ],
+        "last_verified": "2026-06-10T13:58:47-06:00",
+        "persona_token_expires": "2026-06-10T20:58:46Z"
+      }
+    }
   },
   "_meta": {
-    "last_updated": "2026-06-09T18:14:18.665016+00:00"
+    "last_updated": "2026-06-10T23:15:00.038779+00:00"
   },
   "open_tasks": [
     {
-      "id": "MISSION-009",
-      "title": "Kuklinski ARC4-A Specialty Dining Email",
-      "priority": "P1",
-      "status": "pending_review"
-    },
-    {
-      "id": "MISSION-024",
-      "title": "McLeod FPD Payment Orchestration",
-      "priority": "P1",
-      "status": "pending_review"
-    },
-    {
       "id": "MISSION-026",
       "title": "Cabin Selection Follow-up Monitoring",
-      "priority": "P1",
-      "status": "pending_review"
-    },
-    {
-      "id": "MISSION-014",
-      "title": "AUDIT \u2014 Draft & Final Delivery Procedures (WF-17 Chain)",
-      "priority": "P1",
-      "status": "pending_review"
-    },
-    {
-      "id": "MISSION-053",
-      "title": "McLeod Grandeur \u2014 Booking Review + A2 Scrape Intel",
       "priority": "P1",
       "status": "pending_review"
     },
@@ -62,12 +123,6 @@
       "status": "in_progress"
     },
     {
-      "id": "MISSION-067",
-      "title": "Norway Luxury Cruise Perx Pricing \u2014 Late Jul/Mid-Aug 2027",
-      "priority": "P1",
-      "status": "pending_review"
-    },
-    {
       "id": "MISSION-066",
       "title": "Web Lead Pipeline \u2014 Live Site Test",
       "priority": "P1",
@@ -76,12 +131,6 @@
     {
       "id": "MISSION-069",
       "title": "Perx + Odysseus + CruiseComplete \u2014 Platform Reliability",
-      "priority": "P1",
-      "status": "pending_review"
-    },
-    {
-      "id": "MISSION-068",
-      "title": "Norway/Scandinavia 2027 Cruise Scan \u2014 Ongoing Fare Watch",
       "priority": "P1",
       "status": "pending_review"
     },
@@ -107,12 +156,6 @@
       "id": "MISSION-078",
       "title": "Persona Avatar Generation",
       "priority": "P0",
-      "status": "in_progress"
-    },
-    {
-      "id": "MISSION-079",
-      "title": "Sterling \u2014 File-Permission",
-      "priority": "P1",
       "status": "in_progress"
     },
     {
@@ -146,26 +189,8 @@
       "status": "in_progress"
     },
     {
-      "id": "MISSION-086",
-      "title": "MISSION-022: Dossier Option",
-      "priority": "P1",
-      "status": "in_progress"
-    },
-    {
       "id": "MISSION-087",
       "title": "Grandeur Group \u2014 Hotel, Transport & Seat Logistics (All 3 Couples)",
-      "priority": "P1",
-      "status": "active"
-    },
-    {
-      "id": "MISSION-088",
-      "title": "Workflow \u2192 WF-17 Chain Automation",
-      "priority": "P1",
-      "status": "active"
-    },
-    {
-      "id": "MISSION-089",
-      "title": "CronCreate \u2192 Daemon Retirement Audit",
       "priority": "P1",
       "status": "active"
     },
@@ -242,24 +267,6 @@
       "status": "active"
     },
     {
-      "id": "MISSION-114",
-      "title": "Spencer air quote \u2014 Centrav B2B before Jun 10",
-      "priority": "P0",
-      "status": "pending_review"
-    },
-    {
-      "id": "MISSION-115",
-      "title": "Morton & Dodge \u2014 draft TP 0.5 welcome email",
-      "priority": "P1",
-      "status": "active"
-    },
-    {
-      "id": "MISSION-116",
-      "title": "Loucks Nova FPD \u2014 TESS reconciliation",
-      "priority": "P1",
-      "status": "active"
-    },
-    {
       "id": "MISSION-118",
       "title": "Sterling Sunday audit \u2014 ETB + autonomy build complexity check",
       "priority": "P2",
@@ -326,24 +333,6 @@
       "status": "active"
     },
     {
-      "id": "MISSION-132",
-      "title": "Refresh Centrav + Regent session cookies",
-      "priority": "P0",
-      "status": "pending_review"
-    },
-    {
-      "id": "MISSION-133",
-      "title": "Author FPD enforcement escalation standing order",
-      "priority": "P1",
-      "status": "active"
-    },
-    {
-      "id": "MISSION-134",
-      "title": "Start Morton and Dodge lifecycle \u2014 TP 0.5 welcome",
-      "priority": "P1",
-      "status": "active"
-    },
-    {
       "id": "MISSION-135",
       "title": "Deduplicate MISSION-072 and repair truncated mission titles",
       "priority": "P2",
@@ -366,12 +355,6 @@
       "title": "Send five aging WF-17 drafts \u2014 Nichols + Kuklinski",
       "priority": "P0",
       "status": "active"
-    },
-    {
-      "id": "MISSION-140",
-      "title": "Close McLeod T-12 open items before Jun 10",
-      "priority": "P0",
-      "status": "pending_review"
     },
     {
       "id": "MISSION-142",
@@ -416,12 +399,6 @@
       "status": "in_progress"
     },
     {
-      "id": "MISSION-150",
-      "title": "CENTRAV Session Keepalive + Claude Resurrection",
-      "priority": "P0",
-      "status": "pending_review"
-    },
-    {
       "id": "MISSION-151",
       "title": "MISSION-120: Telegram Redesign",
       "priority": "P0",
@@ -440,21 +417,9 @@
       "status": "in_progress"
     },
     {
-      "id": "MISSION-154",
-      "title": "Restore TESS auth before McLeod T-7 window opens",
-      "priority": "P0",
-      "status": "active"
-    },
-    {
       "id": "MISSION-155",
       "title": "Activate Dembe \u2014 Spencer air quote DEN-FCO 12-pax",
       "priority": "P0",
-      "status": "active"
-    },
-    {
-      "id": "MISSION-156",
-      "title": "Create Morton & Dodge lifecycle mission and TP-0.5 draft",
-      "priority": "P1",
       "status": "active"
     },
     {
@@ -466,12 +431,6 @@
     {
       "id": "MISSION-158",
       "title": "Send Bryana onboarding drafts after Commander review",
-      "priority": "P1",
-      "status": "active"
-    },
-    {
-      "id": "MISSION-159",
-      "title": "Document FPD resolution plans for Kuklinski and Morton & Dodge",
       "priority": "P1",
       "status": "active"
     },
@@ -524,60 +483,34 @@
       "status": "active"
     },
     {
-      "id": "MISSION-170",
-      "title": "Anansi Scraper Evaluation",
-      "priority": "P0",
-      "status": "pending_review"
+      "id": "MISSION-172",
+      "title": "Cross-Staff Communication Tools",
+      "priority": "P1",
+      "status": "active"
     },
     {
-      "id": "MISSION-171",
-      "title": "Incubator: Context Sniper",
-      "priority": "P0",
-      "status": "pending_review"
-    },
-    {
-      "id": "MISSION-173",
-      "title": "Incubator: Commander Compiler",
-      "priority": "P0",
-      "status": "pending_review"
-    },
-    {
-      "id": "MISSION-175",
-      "title": "Incubator: Skill Forge",
-      "priority": "P0",
-      "status": "pending_review"
-    },
-    {
-      "id": "MISSION-176",
-      "title": "d2m-tunnel.service \u2014 kill",
-      "priority": "P0",
-      "status": "pending_review"
+      "id": "MISSION-178",
+      "title": "Dembe Standing Intel Sweep \u2014 Weekly Proactive OSINT",
+      "priority": "P2",
+      "status": "active"
     }
   ],
   "financial_pulse": {
-    "last_checked": "2026-06-09T15:45:00-06:00",
-    "tess_auth_status": "EXPIRED",
-    "tess_trips": 13,
-    "tess_bookings": 18,
-    "tess_clients": 25,
-    "tess_pkg_total": 138131.9,
-    "tess_received": 244.8,
-    "tess_due": 0.0,
-    "tess_checks_received": 1,
+    "last_checked": "2026-06-10T06:45:59.958182-06:00",
+    "tess_auth_status": "ERROR",
+    "tess_error": "Not authenticated. Run: python3 thunderbird_tess.py --authorize",
     "sheet_status": "ONLINE",
-    "sheet_bookings": 35,
-    "sheet_commission_expected": 35214.47,
-    "sheet_d2m_share": 27146.41,
-    "sheet_upcoming_count": 23,
-    "pipeline_d2m_share_upcoming": 21440.75,
-    "pipeline_commission_upcoming": 28082.41,
-    "total_d2m_pipeline": 21440.75,
-    "raw_snippet": "D2M pipeline: $21,440.75 D2M share across 23 upcoming voyages (sheet) + 1 checks already received totaling $244.80 (TESS).",
-    "all_fpd_status": "\u2705 PAID (zero outstanding)",
-    "tess_auth_note": "Token expired. Re-auth: login at crm.myagentgenie.com \u2192 DevTools \u2192 Application \u2192 Local Storage \u2192 authenticationData \u2192 copy JSON \u2192 python3 core/booking/thunderbird_tess.py --inject-token '<JSON>'"
+    "sheet_bookings": 25,
+    "sheet_commission_expected": 24600.39,
+    "sheet_d2m_share": 18655.14,
+    "sheet_upcoming_count": 17,
+    "pipeline_d2m_share_upcoming": 16311.93,
+    "pipeline_commission_upcoming": 21671.39,
+    "total_d2m_pipeline": 16311.93,
+    "raw_snippet": "D2M pipeline: $16,311.93 D2M share across 17 upcoming voyages (sheet) + 0 checks already received totaling $0.00 (TESS)."
   },
   "session_context": {
-    "last_checkpoint": "2026-06-09T06:45:23.430443-06:00"
+    "last_checkpoint": "2026-06-10T06:45:59.958182-06:00"
   },
   "staff_load": {
     "HALE": {

@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-07T17:38:02.176235+00:00",
+  "generated_at": "2026-06-10T12:00:01.083026+00:00",
   "note": "Automated generation by generate_a7_metrics.py",
   "process": {
-    "open_tasks_count": 1,
+    "open_tasks_count": 88,
     "system_mode": "UNKNOWN"
   },
   "quality": {
@@ -20,6 +20,23 @@
   "cost_control": {},
   "exercise": {},
   "red_items": [
-    "Quality score (42%) below red threshold (60%). Review latest 1 exercises."
-  ]
+    "Quality score (42%) below red threshold (60%). Review latest 1 exercises.",
+    "Open tasks (88) exceeds 5."
+  ],
+  "a7_builds": {
+    "consolidated_daily_brief": {
+      "status": "COMPLETE",
+      "built_at": "2026-06-10T22:10:37Z",
+      "commit": "f178d621",
+      "timers_killed": ["hale-morning-brief", "hale-brief-generator", "thunderbird-morning-brief", "hale-brief-generate"],
+      "timers_active": ["thunderbird-daily-brief"],
+      "next_fire": "2026-06-11T06:00:00 MDT",
+      "live_send_verified": true,
+      "send_lock_verified": true,
+      "message_id_test": "19eb396604c90040",
+      "p0_filter": "active/pending_review only (9 items vs prior 38)",
+      "wf17_source": "Gmail THUNDERBIRD-Commander-Review label + draft_metadata fallback",
+      "deferred": ["cruise_line_portal_scans", "drive_pipeline_real_upload", "wf17_label_id_hardening"]
+    }
+  }
 }

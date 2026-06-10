@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>D2M Guest Profile — John & Susie Loucks · Silver Nova May 2027</title>
+<style>
+  :root{
+    --cream:#f7f3ea; --ink:#0000ff; --navy:#003087; --navy2:#0a4596;
+    --gold:#b8902e; --line:#d8cfb8; --muted:#5b5340; --red:#9c4221;
+    --soft:#eae4d5;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;padding:0 0 60px;background:var(--cream);font-family:Georgia,'Times New Roman',serif;color:#2b2517;}
+  header{background:var(--navy);padding:28px 24px 24px;border-bottom:4px solid var(--gold);}
+  header .badge{color:var(--gold);font-size:11px;letter-spacing:.14em;text-transform:uppercase;}
+  header h1{color:#f7f3ea;font-size:22px;margin:10px 0 4px;line-height:1.25;}
+  header p{color:#c5bfa8;font-size:13px;margin:0;}
+  .wrap{max-width:660px;margin:0 auto;padding:0 20px;}
+  .intro{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:0 6px 6px 0;padding:18px 22px;margin:28px 0 26px;font-size:14px;line-height:1.7;}
+  .intro strong{color:var(--navy);}
+  .progress{display:flex;gap:4px;margin:0 0 28px;flex-wrap:wrap;}
+  .pip{height:4px;flex:1;background:var(--line);border-radius:2px;min-width:18px;}
+  .pip.done{background:var(--gold);}
+
+  section{margin:0 0 30px;background:#fff;border:1px solid var(--line);border-radius:6px;overflow:hidden;}
+  section .sec-head{background:var(--navy);padding:12px 18px;display:flex;align-items:center;gap:10px;}
+  section .sec-num{background:var(--gold);color:#2b1a00;font-size:11px;font-weight:bold;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  section h2{color:#f7f3ea;font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin:0;}
+  section .sec-body{padding:18px 18px 10px;}
+
+  .field{margin:0 0 16px;}
+  label.lbl{display:block;font-size:13px;color:var(--muted);margin-bottom:5px;font-weight:bold;}
+  label.lbl .req{color:var(--red);}
+  .sub{font-size:12px;color:#8a7f6a;font-weight:normal;display:block;margin-top:2px;}
+  input[type=text],input[type=email],input[type=tel],input[type=date],textarea,select{
+    width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:4px;
+    background:#fff;font-family:Georgia,serif;font-size:14px;color:#2b2517;
+    outline:none;transition:border .15s;
+  }
+  input:focus,textarea:focus,select:focus{border-color:var(--navy);}
+  textarea{min-height:76px;resize:vertical;}
+  .two-col{display:flex;gap:14px;}
+  .two-col .field{flex:1;}
+  .three-col{display:flex;gap:14px;}
+  .three-col .field{flex:1;}
+  .options{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;}
+  .opt{display:flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:6px 13px;cursor:pointer;font-size:13px;transition:all .15s;user-select:none;}
+  .opt input{display:none;}
+  .opt.selected{background:var(--navy);border-color:var(--navy);color:#f7f3ea;}
+  .opt:hover:not(.selected){border-color:var(--navy2);}
+  .note{font-size:12px;color:var(--muted);margin-top:5px;font-style:italic;}
+  .prefill-bar{background:#f0f4fb;border:1px solid #c5d3e8;border-radius:4px;padding:9px 13px;font-size:12px;color:#3a558a;margin-bottom:14px;}
+  .prefill-bar strong{color:var(--navy);}
+  .divider{border:none;border-top:1px solid var(--line);margin:14px 0;}
+
+  .submit-box{background:var(--navy);border-radius:8px;padding:28px 24px 24px;margin-top:32px;text-align:center;}
+  .submit-box .headline{color:#f7f3ea;font-size:16px;margin:0 0 8px;}
+  .submit-box p{color:#c5bfa8;font-size:13px;line-height:1.65;margin:0 0 18px;}
+  .steps{text-align:left;margin:0 0 20px;display:inline-block;}
+  .step{display:flex;align-items:flex-start;gap:10px;margin:0 0 8px;font-size:13px;color:#c5bfa8;}
+  .step .n{background:rgba(255,255,255,.15);border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;color:#fff;}
+  .btn{display:inline-block;background:var(--gold);color:#2b1a00;font-family:Georgia,serif;font-size:16px;font-weight:bold;padding:14px 44px;border:none;border-radius:4px;cursor:pointer;text-decoration:none;letter-spacing:.02em;margin-top:4px;}
+  .btn:hover{background:#d4a835;}
+  .save-note{color:#8fa8c8;font-size:12px;margin-top:12px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="badge">Dreams2Memories Travel · Guest Profile</div>
+  <h1>Help us take care of you exactly right</h1>
+  <p>Silver Nova Mediterranean · May 5–29, 2027 · Booking 506101-26</p>
+</header>
+
+<div class="wrap">
+
+  <div class="intro">
+    <strong>Hi John and Susie —</strong> we've pre-filled everything we already know about you. Just confirm what looks right, fill in anything we've left blank, and click <em>Send</em> at the bottom. Your answers go straight to Dani and stay on file for this voyage and every future one.<br><br>
+    <strong>Why the longer form this time?</strong> We've combined your preference form with your full guest profile — the kind of detail the cruise line, your butler, and Dani all need in one place. Once it's done, you'll never have to answer these questions again.
+  </div>
+
+  <div class="progress" id="progress"></div>
+
+  <!-- ─────────────────────────────── 1 · YOUR PARTY ─────────────────────── -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">1</div>
+      <h2>Your Party</h2>
+    </div>
+    <div class="sec-body">
+      <div class="prefill-bar"><strong>Pre-filled:</strong> John &amp; Susie Loucks · 2 guests · Booking 506101-26</div>
+      <div class="two-col">
+        <div class="field">
+          <label class="lbl">Guest 1 — First Name <span class="req">*</span></label>
+          <input type="text" id="g1_first" value="John">
+        </div>
+        <div class="field">
+          <label class="lbl">Guest 1 — Last Name</label>
+          <input type="text" id="g1_last" value="Loucks">
+        </div>
+      </div>
+      <div class="two-col">
+        <div class="field">
+          <label class="lbl">Guest 2 — First Name</label>
+          <input type="text" id="g2_first" value="Susie">
+        </div>
+        <div class="field">
+          <label class="lbl">Guest 2 — Last Name</label>
+          <input type="text" id="g2_last" value="Loucks">
+        </div>
+      </div>
+      <div class="field">
+        <label class="lbl">How should Dani address you in emails?</label>
+        <div class="options">
+          <label class="opt selected"><input type="radio" name="address_pref" value="John & Susie" checked> John &amp; Susie</label>
+          <label class="opt"><input type="radio" name="address_pref" value="John & Susan"> John &amp; Susan</label>
+          <label class="opt"><input type="radio" name="address_pref" value="Colonel and Mrs. Loucks"> Colonel and Mrs. Loucks</label>
+          <label class="opt"><input type="radio" name="address_pref" value="Other"> Other (see notes)</label>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────── 2 · CONTACT ───────────────────────── -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">2</div>
+      <h2>Contact &amp; Emergency</h2>
+    </div>
+    <div class="sec-body">
+      <div class="two-col">
+        <div class="field">
+          <label class="lbl">Email — John <span class="req">*</span></label>
+          <input type="email" id="email_john" value="johnloucks3@gmail.com">
+        </div>
+        <div class="field">
+          <label class="lbl">Email — Susie</label>
+          <input type="email" id="email_susie" value="susanna.loucks@gmail.com">
+        </div>
+      </div>
+      <div class="two-col">
+        <div class="field">
+          <label class="lbl">Mobile — John</label>
+          <input type="tel" id="phone_john" value="719-291-0742">
+        </div>
+        <div class="field">
+          <label class="lbl">Mobile — Susie</label>
+          <input type="tel" id="phone_susie" value="">
+        </div>
+      </div>
+      <div class="field">
+        <label class="lbl">Best way to reach you for time-sensitive things (fare alerts, urgent logistics)</label>
+        <div class="options">
+          <label class="opt"><input type="radio" name="contact_pref" value="Email"> Email</label>
+          <label class="opt selected"><input type="radio" name="contact_pref" value="Text" checked> Text</label>
+          <label class="opt"><input type="radio" name="contact_pref" value="Telegram"> Telegram</label>
+          <label class="opt"><input type="radio" name="contact_pref" value="Call"> Phone call</label>
+        </div>
+      </div>
+      <div class="field">
+        <label class="lbl">Which emails should Susie receive?</label>
+        <div class="options">
+          <label class="opt"><input type="radio" name="susie_emails" value="All"> All emails</label>
+          <label class="opt selected"><input type="radio" name="susie_emails" value="Milestone + experiential" checked> Milestone + experiential only</label>
+          <label class="opt"><input type="radio" name="susie_emails" value="John forwards"> John handles it</label>
+        </div>
+        <div class="note">Operational emails (payment reminders, flight logistics) go to John only by default.</div>
+      </div>
+      <hr class="divider">
+      <div class="field">
+        <label class="lbl">Emergency contact — Name &amp; relationship <span class="req">*</span>
+          <span class="sub">Someone who can be reached if there's an issue mid-voyage</span>
+        </label>
+        <input type="text" id="emergency_name" value="" placeholder="e.g., Justin Loucks — son">
+      </div>
+      <div class="field">
+        <label class="lbl">Emergency contact — Phone</label>
+        <input type="tel" id="emergency_phone" value="" placeholder="">
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────── 3 · PASSPORT ─────────────────────── -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">3</div>
+      <h2>Passport &amp; Travel Documents</h2>
+    </div>
+    <div class="sec-body">
+      <div class="note" style="margin-bottom:14px;font-style:normal;">These details go directly to Silversea for your reservation and pre-departure paperwork — we need legal names exactly as they appear on your passport.</div>
+      <div class="two-col">
+        <div class="field">
+          <label class="lbl">Legal First Name — John <span class="req">*</span></label>
+          <input type="text" id="legal_first_john" value="John" placeholder="As on passport">
+        </div>
+        <div class="field">
+          <label class="lbl">Middle Name — John</label>
+          <input type="text" id="legal_middle_john" value="" placeholder="As on passport">
+        </div>
+      </div>
+      <div class="field">
+        <label class="lbl">Legal Last Name — John <span class="req">*</span></label>
+        <input type="text" id="legal_last_john" value="Loucks">
+      </div>
+      <div class="two-col">
+        <div class="field">
+          <label class="lbl">Date of Birth — John</label>
+          <input type="date" id="dob_john" value="">
+        </div>
+        <div class="field">
+          <label class="lbl">Passport Number — John</label>
+          <input type="text" id="passport_john" value="" placeholder="Optional — for pre-registration">
+        </div>
+      </div>
+      <hr class="divider">
+      <div class="two-col">
+        <div class="field">
+          <label class="lbl">Legal First Name — Susie</label>
+          <input type="text" id="legal_first_susie" value="Susan" placeholder="As on passport">
+        </div>
+        <div class="field">
+          <label class="lbl">Middle Name — Susie</label>
+          <input type="text" id="legal_middle_susie" value="" placeholder="As on passport">
+        </div>
+      </div>
+      <div class="field">
+        <label class="lbl">Legal Last Name — Susie</label>
+        <input type="text" id="legal_last_susie" value="Loucks">
+      </div>
+      <div class="two-col">
+        <div class="field">
+          <label class="lbl">Date of Birth — Susie</label>
+          <input type="date" id="dob_susie" value="">
+        </div>
+        <div class="field">
+          <label class="lbl">Passport Number — Susie</label>
+          <input type="text" id="passport_susie" value="" placeholder="Optional — for pre-registration">
+        </div>
+      </div>
+      <hr class="divider">
+      <div class="field">
+        <label class="lbl">Home address <span class="sub">Used for cruise line documentation and any shipments</span></label>
+        <textarea id="home_address" placeholder="Street, City, State, ZIP"></textarea>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────── 4 · DINING ───────────────────────── -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">4</div>
+      <h2>Dining &amp; Food</h2>
+    </div>
+    <div class="sec-body">
+      <div class="two-col">
+        <div class="field">
+          <label class="lbl">Dietary restrictions — John</label>
+          <input type="text" id="diet_john" value="None" placeholder="Allergies, avoidances, preferences">
+        </div>
+        <div class="field">
+          <label class="lbl">Dietary restrictions — Susie</label>
+          <input type="text" id="diet_susie" value="No raw fish" placeholder="Allergies, avoidances, preferences">
+        </div>
+      </div>
+      <div class="two-col">
+        <div class="field">
+          <label class="lbl">Wine &amp; spirits — John</label>
+          <input type="text" id="wine_john" value="Cabernet Sauvignon, Malbec">
+        </div>
+        <div class="field">
+          <label class="lbl">Wine &amp; spirits — Susie</label>
+          <input type="text" id="wine_susie" value="White wines">
+        </div>
+      </div>
+      <div class="field">
+        <label class="lbl">What does a perfect dinner look like? (select all)</label>
+        <div class="options">
+          <label class="opt selected"><input type="checkbox" name="dining" value="Local and regional cuisine" checked> Local &amp; regional cuisine</label>
+          <label class="opt selected"><input type="checkbox" name="dining" value="Wine-paired tasting menus" checked> Wine-paired tasting menus</label>
+          <label class="opt"><input type="checkbox" name="dining" value="Fine dining, formal"> Fine dining, formal</label>
+          <label class="opt"><input type="checkbox" name="dining" value="Casual and relaxed"> Casual &amp; relaxed</label>
+          <label class="opt"><input type="checkbox" name="dining" value="Chef's table experiences"> Chef's table experiences</label>
+          <label class="opt"><input type="checkbox" name="dining" value="Outdoor / alfresco"> Outdoor &amp; alfresco</label>
+        </div>
+      </div>
+      <div class="field">
+        <label class="lbl">Minibar stocking preferences <span class="sub">We pass this to your butler before embarkation</span></label>
+        <input type="text" id="minibar" value="" placeholder="e.g., red wine, sparkling water, bourbon, diet Coke">
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────── 5 · MOBILITY ─────────────────────── -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">5</div>
+      <h2>Mobility &amp; Accessibility</h2>
+    </div>
+    <div class="sec-body">
+      <div class="two-col">
+        <div class="field">
+          <label class="lbl">Mobility — John</label>
+          <input type="text" id="mobility_john" value="Low distance preferred" placeholder="e.g., walking tolerance, stairs, uneven terrain">
+        </div>
+        <div class="field">
+          <label class="lbl">Mobility — Susie</label>
+          <input type="text" id="mobility_susie" value="None" placeholder="e.g., none, or describe">
+        </div>
+      </div>
+      <div class="field">
+        <label class="lbl">Excursion transport preference</label>
+        <div class="options">
+          <label class="opt selected"><input type="radio" name="transport" value="Vehicle tours preferred" checked> Vehicle or guided vehicle tours</label>
+          <label class="opt"><input type="radio" name="transport" value="Walking tours fine"> Walking tours fine</label>
+          <label class="opt"><input type="radio" name="transport" value="Mix depending on distance"> Mix — depends on distance</label>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────── 6 · TRAVEL STYLE ─────────────────── -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">6</div>
+      <h2>Travel Style</h2>
+    </div>
+    <div class="sec-body">
+      <div class="field">
+        <label class="lbl">Your travel pace</label>
+        <div class="options">
+          <label class="opt"><input type="radio" name="pace" value="Slow and savoring"> Slow &amp; savoring — linger in every place</label>
+          <label class="opt selected"><input type="radio" name="pace" value="Moderate" checked> Moderate — mix of activity and downtime</label>
+          <label class="opt"><input type="radio" name="pace" value="High energy"> High energy — pack it all in</label>
+        </div>
+      </div>
+      <div class="field">
+        <label class="lbl">What matters most to you on a trip? (select all)</label>
+        <div class="options">
+          <label class="opt selected"><input type="checkbox" name="matters" value="Fine dining and wine" checked> Fine dining &amp; wine</label>
+          <label class="opt"><input type="checkbox" name="matters" value="History and architecture"> History &amp; architecture</label>
+          <label class="opt"><input type="checkbox" name="matters" value="Shows and entertainment"> Shows &amp; entertainment</label>
+          <label class="opt"><input type="checkbox" name="matters" value="Wellness and spa"> Wellness &amp; spa</label>
+          <label class="opt selected"><input type="checkbox" name="matters" value="Quiet spaces and relaxation" checked> Quiet &amp; relaxation</label>
+          <label class="opt"><input type="checkbox" name="matters" value="Nature and wildlife"> Nature &amp; wildlife</label>
+          <label class="opt"><input type="checkbox" name="matters" value="Meeting locals and culture"> Meeting locals &amp; culture</label>
+        </div>
+      </div>
+      <div class="field">
+        <label class="lbl">How would you describe your travel personality?</label>
+        <div class="options">
+          <label class="opt"><input type="radio" name="traveler_type" value="Relaxing / Zen"> Relaxing / Zen</label>
+          <label class="opt"><input type="radio" name="traveler_type" value="Cultural immersion"> Cultural immersion</label>
+          <label class="opt selected"><input type="radio" name="traveler_type" value="Ultra-luxury / pampering" checked> Ultra-luxury &amp; pampering</label>
+          <label class="opt"><input type="radio" name="traveler_type" value="High-energy / adventure"> High-energy &amp; adventure</label>
+        </div>
+      </div>
+      <div class="field">
+        <label class="lbl">Bedding preference</label>
+        <div class="options">
+          <label class="opt selected"><input type="radio" name="bedding" value="King bed" checked> King bed</label>
+          <label class="opt"><input type="radio" name="bedding" value="Twin beds"> Twin beds</label>
+          <label class="opt"><input type="radio" name="bedding" value="No preference"> No preference</label>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────── 7 · EXCURSIONS ───────────────────── -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">7</div>
+      <h2>Shore Excursions</h2>
+    </div>
+    <div class="sec-body">
+      <div class="field">
+        <label class="lbl">What do you enjoy most on a port day? (select all)</label>
+        <div class="options">
+          <label class="opt"><input type="checkbox" name="excursion" value="Historical sites and archaeology"> Historical sites &amp; archaeology</label>
+          <label class="opt selected"><input type="checkbox" name="excursion" value="Food markets and culinary tours" checked> Food markets &amp; culinary tours</label>
+          <label class="opt selected"><input type="checkbox" name="excursion" value="Wine and spirits tastings" checked> Wine &amp; spirits tastings</label>
+          <label class="opt selected"><input type="checkbox" name="excursion" value="Scenic drives and sightseeing" checked> Scenic drives &amp; sightseeing</label>
+          <label class="opt"><input type="checkbox" name="excursion" value="Art galleries and museums"> Art galleries &amp; museums</label>
+          <label class="opt"><input type="checkbox" name="excursion" value="Local neighborhood walks"> Local neighborhood walks</label>
+          <label class="opt"><input type="checkbox" name="excursion" value="Private guided tours"> Private guided tours</label>
+          <label class="opt"><input type="checkbox" name="excursion" value="Stay aboard the ship"> Stay aboard the ship</label>
+        </div>
+      </div>
+      <div class="field">
+        <label class="lbl">Any ports on this itinerary you're most excited about?</label>
+        <textarea id="fav_ports" placeholder="e.g., Dubrovnik, Santorini, Kusadasi/Ephesus, Kotor, Monte Carlo..."></textarea>
+      </div>
+      <div class="field">
+        <label class="lbl">Any excursions, experiences, or activities you've always wanted to do in the Mediterranean?</label>
+        <textarea id="bucket_excursions" placeholder="e.g., private Acropolis visit, truffle hunting in Tuscany, cooking class in a port village..."></textarea>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────── 8 · SUITE & BUTLER ───────────────── -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">8</div>
+      <h2>Suite &amp; Butler</h2>
+    </div>
+    <div class="sec-body">
+      <div class="two-col">
+        <div class="field">
+          <label class="lbl">Preferred suite category <span class="sub">For future bookings or upgrades</span></label>
+          <div class="options" style="flex-direction:column;align-items:flex-start;">
+            <label class="opt"><input type="radio" name="suite_cat" value="Penthouse / top tier"> Penthouse / top tier</label>
+            <label class="opt selected"><input type="radio" name="suite_cat" value="Veranda suite" checked> Veranda suite</label>
+            <label class="opt"><input type="radio" name="suite_cat" value="Standard balcony"> Standard balcony</label>
+            <label class="opt"><input type="radio" name="suite_cat" value="No preference"> No preference</label>
+          </div>
+        </div>
+        <div class="field">
+          <label class="lbl">Ship position preference</label>
+          <div class="options" style="flex-direction:column;align-items:flex-start;">
+            <label class="opt"><input type="radio" name="ship_position" value="Aft (back of ship)"> Aft (back of ship)</label>
+            <label class="opt"><input type="radio" name="ship_position" value="Forward (front of ship)"> Forward (front)</label>
+            <label class="opt selected"><input type="radio" name="ship_position" value="Midship (center)" checked> Midship (center)</label>
+            <label class="opt"><input type="radio" name="ship_position" value="No preference"> No preference</label>
+          </div>
+        </div>
+      </div>
+      <div class="two-col">
+        <div class="field">
+          <label class="lbl">Pillow preference</label>
+          <div class="options">
+            <label class="opt"><input type="radio" name="pillow" value="Firm"> Firm</label>
+            <label class="opt selected"><input type="radio" name="pillow" value="Medium" checked> Medium</label>
+            <label class="opt"><input type="radio" name="pillow" value="Soft"> Soft</label>
+          </div>
+        </div>
+        <div class="field">
+          <label class="lbl">Suite temperature</label>
+          <div class="options">
+            <label class="opt"><input type="radio" name="temp" value="Cool (68-70F)"> Cool (68–70°F)</label>
+            <label class="opt selected"><input type="radio" name="temp" value="Moderate (71-73F)" checked> Moderate (71–73°F)</label>
+            <label class="opt"><input type="radio" name="temp" value="Warm (74-76F)"> Warm (74–76°F)</label>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label class="lbl">In-suite dining — do you use it?</label>
+        <div class="options">
+          <label class="opt"><input type="radio" name="insuite" value="Yes, frequently"> Yes, frequently</label>
+          <label class="opt selected"><input type="radio" name="insuite" value="Occasionally — breakfast" checked> Occasionally — breakfast mainly</label>
+          <label class="opt"><input type="radio" name="insuite" value="Rarely"> Rarely</label>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────── 9 · FLIGHTS & HOTELS ─────────────── -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">9</div>
+      <h2>Flights &amp; Hotels</h2>
+    </div>
+    <div class="sec-body">
+      <div class="note" style="margin-bottom:14px;font-style:normal;">These preferences apply any time D2M arranges flights or hotels for you — before or after a voyage.</div>
+      <div class="two-col">
+        <div class="field">
+          <label class="lbl">Preferred cabin class</label>
+          <div class="options" style="flex-direction:column;align-items:flex-start;">
+            <label class="opt selected"><input type="radio" name="air_class" value="Business class" checked> Business class</label>
+            <label class="opt"><input type="radio" name="air_class" value="Premium economy"> Premium economy</label>
+            <label class="opt"><input type="radio" name="air_class" value="Economy"> Economy</label>
+            <label class="opt"><input type="radio" name="air_class" value="No preference"> No preference</label>
+          </div>
+        </div>
+        <div class="field">
+          <label class="lbl">Seat preference</label>
+          <div class="options" style="flex-direction:column;align-items:flex-start;">
+            <label class="opt"><input type="radio" name="seat_pref" value="Window"> Window</label>
+            <label class="opt selected"><input type="radio" name="seat_pref" value="Aisle" checked> Aisle</label>
+            <label class="opt"><input type="radio" name="seat_pref" value="Front of cabin"> Front of cabin</label>
+            <label class="opt"><input type="radio" name="seat_pref" value="No preference"> No preference</label>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label class="lbl">Hotel style — what feels most like home away from home?</label>
+        <div class="options">
+          <label class="opt selected"><input type="radio" name="hotel_style" value="Boutique and unique" checked> Boutique &amp; unique</label>
+          <label class="opt"><input type="radio" name="hotel_style" value="Historic and grand"> Historic &amp; grand</label>
+          <label class="opt"><input type="radio" name="hotel_style" value="International brands"> International brands</label>
+          <label class="opt"><input type="radio" name="hotel_style" value="No preference"> No preference</label>
+        </div>
+      </div>
+      <div class="field">
+        <label class="lbl">Home departure airport <span class="sub">So we can quote from your actual origin</span></label>
+        <input type="text" id="home_airport" value="Denver (DEN)" placeholder="e.g., Denver (DEN), Colorado Springs (COS)">
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────── 10 · LOYALTY PROGRAMS ────────────── -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">10</div>
+      <h2>Loyalty Programs</h2>
+    </div>
+    <div class="sec-body">
+      <div class="note" style="margin-bottom:14px;font-style:normal;">We track these on your behalf so you never have to ask twice. Every booking includes your numbers at registration.</div>
+      <div class="field">
+        <label class="lbl">Airline frequent flyer numbers <span class="sub">e.g., United MileagePlus, Delta SkyMiles, American AAdvantage</span></label>
+        <textarea id="ff_numbers" rows="2" placeholder="Airline — Member number (e.g., United MileagePlus — 123456789)"></textarea>
+      </div>
+      <div class="field">
+        <label class="lbl">Hotel loyalty numbers <span class="sub">e.g., Marriott Bonvoy, Hilton Honors, IHG</span></label>
+        <textarea id="hotel_loyalty" rows="2" placeholder="Brand — Member number"></textarea>
+      </div>
+      <div class="field">
+        <label class="lbl">Cruise loyalty numbers <span class="sub">e.g., Silversea Venetian Society, Regent Seven Seas Society</span></label>
+        <textarea id="cruise_loyalty" rows="2" placeholder="Cruise line — Member number (if applicable)"></textarea>
+      </div>
+      <div class="field">
+        <label class="lbl">Global Entry / TSA PreCheck / Known Traveler Number</label>
+        <input type="text" id="known_traveler" value="" placeholder="e.g., Global Entry — KTN: 123456789">
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────── 11 · SPECIAL OCCASIONS ──────────── -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">11</div>
+      <h2>Special Occasions</h2>
+    </div>
+    <div class="sec-body">
+      <div class="field">
+        <label class="lbl">Any birthdays, anniversaries, or milestones during May 5–29, 2027?</label>
+        <input type="text" id="occasions" value="None during this voyage" placeholder="e.g., Anniversary May 18, or none">
+      </div>
+      <div class="field">
+        <label class="lbl">Anything you'd like the ship to know before you board? <span class="sub">A milestone, a reunion, a wish — anything that deserves special attention</span></label>
+        <textarea id="ship_notes" placeholder="e.g., this is our first Silversea voyage, celebrating retirement, traveling with dear friends..."></textarea>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────── 12 · YOUR DREAM TRIP ─────────────── -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">12</div>
+      <h2>Your Dream Trip &amp; Final Notes</h2>
+    </div>
+    <div class="sec-body">
+      <div class="field">
+        <label class="lbl">What would make this trip a perfect 10 out of 10? <span class="sub">One sentence or one paragraph — whatever comes to mind</span></label>
+        <textarea id="dream_trip" placeholder="The one experience, moment, or detail that would make this voyage unforgettable..."></textarea>
+      </div>
+      <div class="field">
+        <label class="lbl">Things Dani should always do in communications</label>
+        <textarea id="always_do" placeholder="e.g., always copy Susie on excursion suggestions, always include a map link for port days..."></textarea>
+      </div>
+      <div class="field">
+        <label class="lbl">Things Dani should never do</label>
+        <textarea id="never_do" placeholder="e.g., never call before 9am, never suggest adventure activities..."></textarea>
+      </div>
+      <div class="field">
+        <label class="lbl">Anything else you'd like us to know?</label>
+        <textarea id="other_notes" placeholder="Open field — no wrong answers here"></textarea>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────── SUBMIT ────────────────────────────── -->
+  <div class="submit-box">
+    <p class="headline">You're all set.</p>
+    <p>Click <strong>Send My Profile</strong> and your email app opens with everything pre-formatted. One more click and Dani has your complete profile on file — for this voyage and every one after it.</p>
+    <div class="steps">
+      <div class="step"><div class="n">1</div> Click the button below</div>
+      <div class="step"><div class="n">2</div> Your email app opens with answers already formatted</div>
+      <div class="step"><div class="n">3</div> Press Send — done. Dani has everything she needs.</div>
+    </div>
+    <br>
+    <button class="btn" onclick="submitForm()">Send My Profile &rarr;</button>
+    <div class="save-note">Sends to concierge@d2mluxury.quest · Dani Moreau · Dreams2Memories Travel</div>
+  </div>
+
+</div><!-- /wrap -->
+
+<script>
+// ─── Helpers ───────────────────────────────────────────────────────────────
+function val(id){ var el=document.getElementById(id); return el?el.value.trim():''; }
+function rad(name){ var el=document.querySelector('input[name="'+name+'"]:checked'); return el?el.value:'Not specified'; }
+function chks(name){ var els=document.querySelectorAll('input[name="'+name+'"]:checked'); var v=[]; els.forEach(function(e){v.push(e.value);}); return v.length?v.join(' | '):'None selected'; }
+function line(label,value){ return value&&value!=='Not specified'&&value!==''?label+': '+value:''; }
+function block(title, lines){
+  var filled=lines.filter(function(l){return l&&l.trim()!='';});
+  return filled.length?'\n--- '+title+' ---\n'+filled.join('\n'):'';
+}
+
+// ─── Progress pips ─────────────────────────────────────────────────────────
+var SECTIONS=12;
+var pipContainer=document.getElementById('progress');
+for(var i=0;i<SECTIONS;i++){
+  var pip=document.createElement('div');
+  pip.className='pip';
+  pip.id='pip'+i;
+  pipContainer.appendChild(pip);
+}
+function updateProgress(){
+  var sections=document.querySelectorAll('section');
+  sections.forEach(function(sec,i){
+    var inputs=sec.querySelectorAll('input:not([type=radio]):not([type=checkbox]),textarea,select');
+    var filled=0, total=inputs.length;
+    inputs.forEach(function(inp){ if(inp.value.trim()) filled++; });
+    var radios=sec.querySelectorAll('input[type=radio]:checked,input[type=checkbox]:checked');
+    if(radios.length>0) filled+=1;
+    var pip=document.getElementById('pip'+i);
+    if(pip&&filled>0) pip.classList.add('done');
+  });
+}
+updateProgress();
+document.addEventListener('change',updateProgress);
+document.addEventListener('input',updateProgress);
+
+// ─── Pill toggles ─────────────────────────────────────────────────────────
+document.querySelectorAll('.opt').forEach(function(el){
+  el.addEventListener('click',function(){
+    var inp=el.querySelector('input');
+    if(!inp) return;
+    if(inp.type==='radio'){
+      document.querySelectorAll('input[name="'+inp.name+'"]').forEach(function(r){
+        r.closest('.opt').classList.remove('selected');
+      });
+      inp.checked=true;
+      el.classList.add('selected');
+    } else {
+      inp.checked=!inp.checked;
+      el.classList.toggle('selected',inp.checked);
+    }
+  });
+});
+
+// ─── Submit ────────────────────────────────────────────────────────────────
+function submitForm(){
+  var parts=[
+    'DREAMS2MEMORIES TRAVEL',
+    'Guest Profile — John & Susie Loucks',
+    'Silver Nova Mediterranean · May 5–29, 2027 · Booking 506101-26',
+    '='.repeat(52),
+    '',
+    block('YOUR PARTY',[
+      line('Guest 1',val('g1_first')+' '+val('g1_last')),
+      line('Guest 2',val('g2_first')+' '+val('g2_last')),
+      line('Address us as',rad('address_pref'))
+    ]),
+    block('CONTACT & EMERGENCY',[
+      line('John email',val('email_john')),
+      line('Susie email',val('email_susie')),
+      line('John mobile',val('phone_john')),
+      line('Susie mobile',val('phone_susie')),
+      line('Preferred contact (urgent)',rad('contact_pref')),
+      line('Susie email coverage',rad('susie_emails')),
+      line('Emergency contact',val('emergency_name')),
+      line('Emergency phone',val('emergency_phone'))
+    ]),
+    block('PASSPORT & DOCUMENTS',[
+      line('Legal name — John',val('legal_first_john')+' '+val('legal_middle_john')+' '+val('legal_last_john')),
+      line('DOB — John',val('dob_john')),
+      line('Passport — John',val('passport_john')),
+      line('Legal name — Susie',val('legal_first_susie')+' '+val('legal_middle_susie')+' '+val('legal_last_susie')),
+      line('DOB — Susie',val('dob_susie')),
+      line('Passport — Susie',val('passport_susie')),
+      line('Home address',val('home_address'))
+    ]),
+    block('DINING & FOOD',[
+      line('Dietary — John',val('diet_john')),
+      line('Dietary — Susie',val('diet_susie')),
+      line('Wine / spirits — John',val('wine_john')),
+      line('Wine / spirits — Susie',val('wine_susie')),
+      line('Dining style',chks('dining')),
+      line('Minibar',val('minibar'))
+    ]),
+    block('MOBILITY',[
+      line('Mobility — John',val('mobility_john')),
+      line('Mobility — Susie',val('mobility_susie')),
+      line('Transport preference',rad('transport'))
+    ]),
+    block('TRAVEL STYLE',[
+      line('Pace',rad('pace')),
+      line('What matters most',chks('matters')),
+      line('Traveler type',rad('traveler_type')),
+      line('Bedding',rad('bedding'))
+    ]),
+    block('SHORE EXCURSIONS',[
+      line('Excursion interests',chks('excursion')),
+      line('Excited about ports',val('fav_ports')),
+      line('Bucket list excursions',val('bucket_excursions'))
+    ]),
+    block('SUITE & BUTLER',[
+      line('Suite category preference',rad('suite_cat')),
+      line('Ship position',rad('ship_position')),
+      line('Pillows',rad('pillow')),
+      line('Suite temperature',rad('temp')),
+      line('In-suite dining',rad('insuite'))
+    ]),
+    block('FLIGHTS & HOTELS',[
+      line('Cabin class',rad('air_class')),
+      line('Seat preference',rad('seat_pref')),
+      line('Hotel style',rad('hotel_style')),
+      line('Home airport',val('home_airport'))
+    ]),
+    block('LOYALTY PROGRAMS',[
+      line('Frequent flyer',val('ff_numbers')),
+      line('Hotel loyalty',val('hotel_loyalty')),
+      line('Cruise loyalty',val('cruise_loyalty')),
+      line('Known Traveler / Global Entry',val('known_traveler'))
+    ]),
+    block('SPECIAL OCCASIONS',[
+      line('Occasions during voyage',val('occasions')),
+      line('Ship notes',val('ship_notes'))
+    ]),
+    block('DREAM TRIP & NOTES',[
+      line('Perfect 10 — what would it look like',val('dream_trip')),
+      line('Always do',val('always_do')),
+      line('Never do',val('never_do')),
+      line('Anything else',val('other_notes'))
+    ]),
+    '',
+    '='.repeat(52),
+    'Submitted from D2M Guest Profile Form v2.0',
+    'Date: '+new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})
+  ];
+
+  var body=parts.filter(function(p){return p!==undefined;}).join('\n');
+  var subject=encodeURIComponent('D2M Guest Profile — Loucks Silver Nova May 2027 — Booking 506101-26');
+  window.location.href='mailto:concierge@d2mluxury.quest?subject='+subject+'&body='+encodeURIComponent(body);
+}
+</script>
+</body>
+</html>

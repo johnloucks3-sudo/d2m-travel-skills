@@ -1,0 +1,1128 @@
+{
+  "3071222_Furlow": {
+    "booking_id": "3071222_Furlow",
+    "time": "2026-06-02T21:48:00.232593",
+    "html_length": 1191717,
+    "sections": {
+      "e20 linkText -small -variant-1": {
+        "text": "800.285.1835",
+        "tag": "A",
+        "id": ""
+      },
+      "e20 linkText -small -variant-1 hide": {
+        "text": "1.866.585.0942",
+        "tag": "A",
+        "id": ""
+      },
+      "e20 linkText -small -variant-2": {
+        "text": "English",
+        "tag": "A",
+        "id": ""
+      },
+      "c81_tabs": {
+        "text": "English",
+        "tag": "DIV",
+        "id": ""
+      },
+      "c81_tabs_scroll simplebar-over": {
+        "text": "English",
+        "tag": "DIV",
+        "id": ""
+      },
+      "tab-menu": {
+        "text": "English",
+        "tag": "DIV",
+        "id": ""
+      },
+      "c81_list -notable nav": {
+        "text": "HomeSpecial OffersFind a CruiseRequest InformationMy AccountAgent Center",
+        "tag": "UL",
+        "id": ""
+      },
+      "e20  -variant-3": {
+        "text": "Agent Center",
+        "tag": "A",
+        "id": ""
+      },
+      "e26": {
+        "text": "Contact Us",
+        "tag": "A",
+        "id": ""
+      },
+      "tab-content": {
+        "text": "BECOME A REGENT INSIDERRegent Seven Seas Cruises' exceptional service begins long before you step ab",
+        "tag": "DIV",
+        "id": ""
+      },
+      "c81-tab-content-3888-0": {
+        "text": "BACKFind a Cruise",
+        "tag": "DIV",
+        "id": "c81-tab-content-3888-0"
+      },
+      "c81-tab-content-3888-1": {
+        "text": "BACKWhat's IncludedImmersive ExplorationCulinary ExperiencesLuxury SuitesHeartfelt HospitalityOnboar",
+        "tag": "DIV",
+        "id": "c81-tab-content-3888-1"
+      },
+      "c81-tab-content-3888-2": {
+        "text": "BACKSeven Seas Prestige\u2122Seven Seas Grandeur\u00aeSeven Seas Splendor\u00aeSeven Seas Explorer\u00aeSeven Seas Voyag",
+        "tag": "DIV",
+        "id": "c81-tab-content-3888-2"
+      },
+      "c81-tab-content-3888-3": {
+        "text": "BACKAfrica & ArabiaAlaskaAsiaAustralia & New ZealandBermudaCanada & New EnglandCaribbean & Panama Ca",
+        "tag": "DIV",
+        "id": "c81-tab-content-3888-3"
+      },
+      "c81-tab-content-3888-4": {
+        "text": "BACKRegent Cruise Collections",
+        "tag": "DIV",
+        "id": "c81-tab-content-3888-4"
+      },
+      "c81-tab-content-3888-5": {
+        "text": "BACKSpecial Offers",
+        "tag": "DIV",
+        "id": "c81-tab-content-3888-5"
+      },
+      "c81-tab-content-3888-6": {
+        "text": "BACKDigital BrochuresVirtual ToursDestination InsightsLuxury Goes Exploring BlogSocial MediaDiscover",
+        "tag": "DIV",
+        "id": "c81-tab-content-3888-6"
+      },
+      "c81-tab-content-3888-7": {
+        "text": "BACKSeven Seas Society",
+        "tag": "DIV",
+        "id": "c81-tab-content-3888-7"
+      },
+      "c81-tab-content-3888-8": {
+        "text": "Contact UsReservations1.866.585.0942Request a CallPost Cruise InquiryHave a question? You may find a",
+        "tag": "DIV",
+        "id": "c81-tab-content-3888-8"
+      },
+      "c81-tab-content-b-0": {
+        "text": "BACK",
+        "tag": "DIV",
+        "id": "c81-tab-content-b-0"
+      },
+      "c81-tab-content-b-1": {
+        "text": "BACK",
+        "tag": "DIV",
+        "id": "c81-tab-content-b-1"
+      },
+      "c81-tab-content-b-2": {
+        "text": "BACK",
+        "tag": "DIV",
+        "id": "c81-tab-content-b-2"
+      },
+      "c81-tab-content-b-3": {
+        "text": "BACK",
+        "tag": "DIV",
+        "id": "c81-tab-content-b-3"
+      },
+      "c81-tab-content-b-4": {
+        "text": "BACK",
+        "tag": "DIV",
+        "id": "c81-tab-content-b-4"
+      },
+      "c81-tab-content-b-5": {
+        "text": "BACKHomeMy BookingsMarketing ToolsPromotionsSales ResourcesRSSC UniversityUpdate ProfileLogout",
+        "tag": "DIV",
+        "id": "c81-tab-content-b-5"
+      },
+      "c93_tabs": {
+        "text": "By DestinationBy Ship",
+        "tag": "DIV",
+        "id": ""
+      },
+      "c88_link label -small active": {
+        "text": "By Destination",
+        "tag": "A",
+        "id": ""
+      },
+      "c88_link label -small": {
+        "text": "By Ship",
+        "tag": "A",
+        "id": ""
+      },
+      "explore-menu-19853-0": {
+        "text": "var mapObject = {};\n            mapObject.url = \"mapbox:\\/\\/styles\\/regentsevenseascruises\\/cjzubl6q",
+        "tag": "DIV",
+        "id": "explore-menu-19853-0"
+      },
+      "destination-menu-20323-0": {
+        "text": "var mapObject = {};\n            mapObject.url = \"mapbox:\\/\\/styles\\/regentsevenseascruises\\/cjzubl6q",
+        "tag": "DIV",
+        "id": "destination-menu-20323-0"
+      },
+      "c96_tabs": {
+        "text": "var mapObject = {};\n            mapObject.url = \"mapbox:\\/\\/styles\\/regentsevenseascruises\\/cjzubl6q",
+        "tag": "DIV",
+        "id": ""
+      },
+      "e24 hide": {
+        "text": "World Cruises",
+        "tag": "A",
+        "id": ""
+      },
+      "c96_content tab-content": {
+        "text": "Africa & Arabia879Free Excursions57Ports Alaska296Free Excursions14Ports Asia1103Free Excursions73Po",
+        "tag": "DIV",
+        "id": ""
+      },
+      "dest-map-tab-87813-0": {
+        "text": "Africa & Arabia879Free Excursions57Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-87813-0"
+      },
+      "dest-map-tab-87813-1": {
+        "text": "Alaska296Free Excursions14Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-87813-1"
+      },
+      "dest-map-tab-87813-2": {
+        "text": "Asia1103Free Excursions73Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-87813-2"
+      },
+      "dest-map-tab-87813-3": {
+        "text": "Australia & New Zealand590Free Excursions38Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-87813-3"
+      },
+      "dest-map-tab-87813-4": {
+        "text": "Bermuda36Free Excursions2Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-87813-4"
+      },
+      "dest-map-tab-87813-5": {
+        "text": "Canada & New England370Free Excursions24Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-87813-5"
+      },
+      "dest-map-tab-87813-6": {
+        "text": "Caribbean & Panama Canal1042Free Excursions55Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-87813-6"
+      },
+      "dest-map-tab-87813-7": {
+        "text": "Mediterranean2922Free Excursions126Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-87813-7"
+      },
+      "dest-map-tab-87813-8": {
+        "text": "Northern Europe1722Free Excursions108Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-87813-8"
+      },
+      "dest-map-tab-87813-9": {
+        "text": "South America487Free Excursions41Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-87813-9"
+      },
+      "dest-map-tab-87813-10": {
+        "text": "South Pacific360Free Excursions35Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-87813-10"
+      },
+      "dest-map-tab-87813-11": {
+        "text": "Transoceanic Crossings0Free Excursions0Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-87813-11"
+      },
+      "dest-map-tab-87813-12": {
+        "text": "Grand Voyages0Free Excursions0Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-87813-12"
+      },
+      "dest-map-tab-87813-13": {
+        "text": "World Cruises0Free Excursions0Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-87813-13"
+      },
+      "destination-menu-20323-1": {
+        "text": "Africa & Arabia 57 Ports Alaska 14 Ports Asia 73 Ports Australia & New Zealand 38 Ports Bermuda 2 Po",
+        "tag": "DIV",
+        "id": "destination-menu-20323-1"
+      },
+      "c76_tabs": {
+        "text": "Africa & Arabia 57 Ports Alaska 14 Ports Asia 73 Ports Australia & New Zealand 38 Ports Bermuda 2 Po",
+        "tag": "DIV",
+        "id": ""
+      },
+      "explore-menu-19853-1": {
+        "text": "SEVEN SEASPRESTIGE\u2122SEVEN SEASGRANDEUR\u00aeSEVEN SEASEXPLORER\u00aeSEVEN SEASSPLENDOR\u00aeSEVEN SEASVOYAGER\u00aeSEVEN ",
+        "tag": "DIV",
+        "id": "explore-menu-19853-1"
+      },
+      "c94_tabs": {
+        "text": "SEVEN SEASPRESTIGE\u2122SEVEN SEASGRANDEUR\u00aeSEVEN SEASEXPLORER\u00aeSEVEN SEASSPLENDOR\u00aeSEVEN SEASVOYAGER\u00aeSEVEN ",
+        "tag": "DIV",
+        "id": ""
+      },
+      "c77": {
+        "text": "SEVEN SEASNAVIGATOR\u00ae",
+        "tag": "A",
+        "id": ""
+      },
+      "c311_tabs": {
+        "text": "Request PricingSpecial OffersRequest a CallSubmit an InquiryGroup Travel BenefitsOrder a BrochureBec",
+        "tag": "DIV",
+        "id": ""
+      },
+      "c313_body_tabs": {
+        "text": "Request PricingSpecial OffersRequest a CallSubmit an InquiryGroup Travel BenefitsOrder a BrochureBec",
+        "tag": "DIV",
+        "id": ""
+      },
+      "e26 active": {
+        "text": "Become a Regent Insider",
+        "tag": "A",
+        "id": ""
+      },
+      "c311-tab-content-panel-request-insider": {
+        "text": "BECOME A REGENT INSIDERRegent Seven Seas Cruises' exceptional service begins long before you step ab",
+        "tag": "DIV",
+        "id": "c311-tab-content-panel-request-insider"
+      },
+      "btn dropdown-toggle paragraph -small bs-placeholder": {
+        "text": "Select",
+        "tag": "BUTTON",
+        "id": ""
+      },
+      "c346_body_table": {
+        "text": "Name of creditIDBook by DateSail by DateAmountEligible To Convert",
+        "tag": "DIV",
+        "id": ""
+      },
+      "table table-mobile table-striped-lighter -variant-5": {
+        "text": "Name of creditIDBook by DateSail by DateAmountEligible To Convert",
+        "tag": "TABLE",
+        "id": ""
+      },
+      "e5 btn btn-primary": {
+        "text": "Log in",
+        "tag": "A",
+        "id": ""
+      },
+      "uxBookedCruiseWrapper_uxCustomize_uxDiningButton": {
+        "text": "Customize",
+        "tag": "A",
+        "id": "uxBookedCruiseWrapper_uxCustomize_uxDiningButton"
+      },
+      "uxBookedCruiseWrapper_uxCustomize_uxHotelLandButton": {
+        "text": "Customize",
+        "tag": "A",
+        "id": "uxBookedCruiseWrapper_uxCustomize_uxHotelLandButton"
+      },
+      "tablePortName": {
+        "text": "Oslo (2 Day(s) in Port)",
+        "tag": "TR",
+        "id": ""
+      },
+      "tableExcursionName": {
+        "text": "HADELAND GLASS WORKS & FRAM MUSEUM-",
+        "tag": "TR",
+        "id": ""
+      },
+      "uxBookedCruiseWrapper_uxCustomize_uxBookCulinaryWorkshopButton": {
+        "text": "Customize",
+        "tag": "A",
+        "id": "uxBookedCruiseWrapper_uxCustomize_uxBookCulinaryWorkshopButton"
+      },
+      "c66_header_title -double-md-up": {
+        "text": "Country Selector",
+        "tag": "A",
+        "id": ""
+      },
+      "footer-collapse-Plan-a-Cruise": {
+        "text": "Find a CruiseSeven Seas SocietyRequest A BrochureRequest A BrochureSign-up for Special OffersGroup T",
+        "tag": "DIV",
+        "id": "footer-collapse-Plan-a-Cruise"
+      },
+      "footer-collapse-Resources": {
+        "text": "My AccountFrequently Asked QuestionsRegentCare Travel ProtectionUpdate Marketing PreferencesTravel P",
+        "tag": "DIV",
+        "id": "footer-collapse-Resources"
+      },
+      "footer-collapse-Company-Information": {
+        "text": "About UsGlobal PartnershipsCareersLegalPress & MediaFor InvestorsSite MapPrivacy PolicyAccessibility",
+        "tag": "DIV",
+        "id": "footer-collapse-Company-Information"
+      },
+      "footer-collapse-country-selector": {
+        "text": "United States",
+        "tag": "DIV",
+        "id": "footer-collapse-country-selector"
+      },
+      "linkText -footer": {
+        "text": "Enable Accessibility",
+        "tag": "A",
+        "id": ""
+      },
+      "ot-accordion-layout ot-cat-item ot-vs-config": {
+        "text": "Sales/Sharing/Targeted Ads  Sales/Sharing/Targeted Ads If you would like to exercise the do not sell",
+        "tag": "DIV",
+        "id": ""
+      }
+    },
+    "inner_text": "Press Alt+1 for screen-reader mode, Alt+0 to cancel\nAccessibility Screen-Reader Guide, Feedback, and Issue Reporting | New window\nMENU\nSPECIAL OFFERS\nFIND A CRUISE\nREQUEST INFORMATION\nPARTNER CENTER\n800.285.1835\nMY ACCOUNT\nReturn to dashboard\nSTOCKHOLM TO OSLO - STORIED SCANDINAVIA\nReservation No:\t3071222\t\nSHOW MY ITINERARY\nCRUISE DETAILS\n\nDeparts on August 29, 2026\n\nReturns on September 08, 2026\n\nSails on Seven Seas Grandeur\n\nGUEST DETAILS\n\nJOHN FURLOW\nGUEST REGISTRATION & TICKET CONTRACT COMPLETE.\n\nMELISSA FURLOW\nGUEST REGISTRATION & TICKET CONTRACT COMPLETE.\n\nSUITE DETAILS\n\nSuite Category is Concierge Suite - D\n\nSuite Location is Deck 8\n\nSuite Number is 827\nSHOW SUITE DETAILS\n\nMY TO-DO LIST\nSEPTEMBER 15, 2025\nDeposit Received.\nAPRIL 1, 2026\nFinal Payment Made.\nGuest Registration & Ticket Contract Complete.\nSATURDAY, JANUARY 31, 2026\nShore Excursions Booked.\nMAY 31, 2026\n3 of 3 Dining Reservations Completed.\nAUGUST 8, 2026\nComplete Online Check-in.\nCUSTOMIZE YOUR VOYAGE *\n* CUSTOMIZATION IS OPTIONAL\nSHORE\nEXCURSIONS\nYour trip includes:\n\nUnlimited Shore Excursions\n\nBook your excursions now\n\nCUSTOMIZE\nBEVERAGES, DINING, AND GRATUITIES\nYour trip includes:\n\nFREE beverages, including alcohol, FREE restaurants and room service, and all pre-paid gratuities.\n\nBook your dining now\n\nCUSTOMIZE\nHOTEL / LAND\nPACKAGES\nOptional exploration:\n\nFor a more in-depth exploration into the culture of the region, extend your cruise with a hotel or land package.\n\nAdd a Hotel or Land Program\n\nCUSTOMIZE\n\n\nx\nSHORE EXCURSION SUMMARY\n\nYou may reserve your shore excursions online up to seven days before your voyage begins. To start, choose a port of call from the dropdown menu and add your preferred excursions to your cart.\n\nOnce you\u2019ve made your selections for all desired ports, return to your summary page and select \u201cProceed to Checkout.\u201d To complete your reservation, be sure to select \u201cConfirm Your Tours\u201d in the final step.\n\nPlease Note: When booking multiple excursions on the same day, the second tour must start at least 75 minutes after the first tour is scheduled to return to the ship.\n\nSelect a port:\n-- CHOOSE PORT --\n\nBelow is a summary of your chosen excursions.\n\nNeed to make changes? You can update or cancel your selections from this session anytime before checkout. To modify tours you\u2019ve already reserved, please contact us at 877-505-5370.\n\n\n\nDescription\tAdd\tReserved\tPrice\nStockholm (2 Day(s) in Port)\nHIGHLIGHTS OF STOCKHOLM & VASA MUSEUM\t-\nAug 30, 2026 09:00\t\nFURLOW, JOHN\t\t\t-\nFURLOW, MELISSA\t\t\t-\nBerlin (Warnemunde) (2 Day(s) in Port)\nAMAZING ROSTOCK\t-\nSep 02, 2026 09:00\t\nFURLOW, JOHN\t\t\t-\nFURLOW, MELISSA\t\t\t-\nSG-THE BERLIN EXPERIENCE\t-\nSep 01, 2026 07:30\t\nFURLOW, JOHN\t\t\t-\nFURLOW, MELISSA\t\t\t-\nCopenhagen (2 Day(s) in Port)\nA TOUR OF TWO KINGDOMS - DENMARK TO SWED\t-\nSep 03, 2026 08:45\t\nFURLOW, JOHN\t\t\t-\nFURLOW, MELISSA\t\t\t-\nKristiansand (1 Day(s) in Port)\nEXPLORE KRISTIANSAND ON FOOT\t-\nSep 06, 2026 10:00\t\nFURLOW, JOHN\t\t\t-\nFURLOW, MELISSA\t\t\t-\nOslo (2 Day(s) in Port)\nHADELAND GLASS WORKS & FRAM MUSEUM\t-\nSep 07, 2026 09:30\t\nFURLOW, JOHN\t\t\t-\nFURLOW, MELISSA\t\t\t-\nCART TOTAL:\n$0.00\nAMOUNT DUE:\n$0.00\nCULINARY ARTS\nKITCHEN CLASSES\nOptional Culinary Arts Kitchen classes:\n\nExpand your culinary skills through highly-individualized hands-on instruction.\n\nBook your Culinary Arts Kitchen Class now. Subject to availability.\n\nCUSTOMIZE\nPAYMENTS\nINVOICE NO. 3071222\n\nTotal Booking Amount:\n\n$19,494.00\n\nPaid to Date:\n\n$19,494.00\n\nBalance Due:\n\n$0.00\n\nRemaining Balance Due:\n\n4/1/2026\n\nMAKE A PAYMENT\nPLAN A CRUISE\nFIND A CRUISE\nSEVEN SEAS SOCIETY\nREQUEST A BROCHURE\nSIGN-UP FOR SPECIAL OFFERS\nRESOURCES\nMY ACCOUNT\nFREQUENTLY ASKED QUESTIONS\nREGENTCARE TRAVEL PROTECTION\nUPDATE MARKETING PREFERENCES\nTRAVEL PARTNER CENTER\nVIDEOS\nDIGITAL BROCHURES\nCHARTERS, MEETINGS & INCENTIVES\nTHE REGENT BED COLLECTION\nGIFT ORDER FORM\nSAIL & SUSTAIN\nCOMPANY INFORMATION\nABOUT US\nGLOBAL PARTNERSHIPS\nCAREERS\nLEGAL\nPRESS & MEDIA\nFOR INVESTORS\nSITE MAP\nPRIVACY POLICY\nACCESSIBILITY STATEMENT\nTRAVEL RESTRICTIONS\nCONTACT US\nFOLLOW US\n\n\u00a9 2026 Seven Seas Cruises Ltd. Ships' Registry: Bahamas and Marshall Islands. All Rights Reserved. See Terms And Conditions \u00a0and Privacy Policy. Your Privacy Choices \u00a0Enable Accessibility",
+    "extracted": {
+      "shore_excursions": "Booked.\nMAY 31, 2026\n3 of 3 Dining Reservations Completed.\nAUGUST 8, 2026\nComplete Online Check-in.\nCUSTOMIZE YOUR VOYAGE *\n* CUSTOMIZATION IS OPTIONAL\nSHORE\nEXCURSIONS\nYour trip includes:\n\nUnlimited Shore Excursions\n\nBook your excursions now\n\nCUSTOMIZE\nBEVERAGES, DINING, AND GRATUITIES\nYour trip includes:\n\nFREE beverages, including alcohol, FREE restaurants and room service, and all pre-paid gratuities.\n\nBook your dining now\n\nCUSTOMIZE\nHOTEL / LAND\nPACKAGES",
+      "dining": "Reservation No:\t3071222\t\nSHOW MY ITINERARY\nCRUISE DETAILS\n\nDeparts on August 29, 2026\n\nReturns on September 08, 2026\n\nSails on Seven Seas Grandeur\n\nGUEST DETAILS\n\nJOHN FURLOW\nGUEST REGISTRATION & TICKET CONTRACT COMPLETE.\n\nMELISSA FURLOW\nGUEST REGISTRATION & TICKET CONTRACT COMPLETE.\n\nSUITE DETAILS\n\nSuite Category is Concierge Suite - D\n\nSuite Location is Deck 8\n\nSuite Number is 827\nSHOW SUITE DETAILS\n\nMY TO-DO LIST\nSEPTEMBER 15, 2025\nDeposit Received.\nAPRIL 1, 2026\nFinal Payment Made.\nGuest Registration & Ticket Contract Complete.\nSATURDAY, JANUARY 31, 2026"
+    }
+  },
+  "3096289_Ely": {
+    "booking_id": "3096289_Ely",
+    "time": "2026-06-02T21:49:19.702036",
+    "html_length": 1195752,
+    "sections": {
+      "e20 linkText -small -variant-1": {
+        "text": "800.285.1835",
+        "tag": "A",
+        "id": ""
+      },
+      "e20 linkText -small -variant-1 hide": {
+        "text": "1.866.585.0942",
+        "tag": "A",
+        "id": ""
+      },
+      "e20 linkText -small -variant-2": {
+        "text": "English",
+        "tag": "A",
+        "id": ""
+      },
+      "c81_tabs": {
+        "text": "English",
+        "tag": "DIV",
+        "id": ""
+      },
+      "c81_tabs_scroll simplebar-over": {
+        "text": "English",
+        "tag": "DIV",
+        "id": ""
+      },
+      "tab-menu": {
+        "text": "English",
+        "tag": "DIV",
+        "id": ""
+      },
+      "c81_list -notable nav": {
+        "text": "HomeSpecial OffersFind a CruiseRequest InformationMy AccountAgent Center",
+        "tag": "UL",
+        "id": ""
+      },
+      "e20  -variant-3": {
+        "text": "Agent Center",
+        "tag": "A",
+        "id": ""
+      },
+      "e26": {
+        "text": "Contact Us",
+        "tag": "A",
+        "id": ""
+      },
+      "tab-content": {
+        "text": "BECOME A REGENT INSIDERRegent Seven Seas Cruises' exceptional service begins long before you step ab",
+        "tag": "DIV",
+        "id": ""
+      },
+      "c81-tab-content-7394-0": {
+        "text": "BACKFind a Cruise",
+        "tag": "DIV",
+        "id": "c81-tab-content-7394-0"
+      },
+      "c81-tab-content-7394-1": {
+        "text": "BACKWhat's IncludedImmersive ExplorationCulinary ExperiencesLuxury SuitesHeartfelt HospitalityOnboar",
+        "tag": "DIV",
+        "id": "c81-tab-content-7394-1"
+      },
+      "c81-tab-content-7394-2": {
+        "text": "BACKSeven Seas Prestige\u2122Seven Seas Grandeur\u00aeSeven Seas Splendor\u00aeSeven Seas Explorer\u00aeSeven Seas Voyag",
+        "tag": "DIV",
+        "id": "c81-tab-content-7394-2"
+      },
+      "c81-tab-content-7394-3": {
+        "text": "BACKAfrica & ArabiaAlaskaAsiaAustralia & New ZealandBermudaCanada & New EnglandCaribbean & Panama Ca",
+        "tag": "DIV",
+        "id": "c81-tab-content-7394-3"
+      },
+      "c81-tab-content-7394-4": {
+        "text": "BACKRegent Cruise Collections",
+        "tag": "DIV",
+        "id": "c81-tab-content-7394-4"
+      },
+      "c81-tab-content-7394-5": {
+        "text": "BACKSpecial Offers",
+        "tag": "DIV",
+        "id": "c81-tab-content-7394-5"
+      },
+      "c81-tab-content-7394-6": {
+        "text": "BACKDigital BrochuresVirtual ToursDestination InsightsLuxury Goes Exploring BlogSocial MediaDiscover",
+        "tag": "DIV",
+        "id": "c81-tab-content-7394-6"
+      },
+      "c81-tab-content-7394-7": {
+        "text": "BACKSeven Seas Society",
+        "tag": "DIV",
+        "id": "c81-tab-content-7394-7"
+      },
+      "c81-tab-content-7394-8": {
+        "text": "Contact UsReservations1.866.585.0942Request a CallPost Cruise InquiryHave a question? You may find a",
+        "tag": "DIV",
+        "id": "c81-tab-content-7394-8"
+      },
+      "c81-tab-content-b-0": {
+        "text": "BACK",
+        "tag": "DIV",
+        "id": "c81-tab-content-b-0"
+      },
+      "c81-tab-content-b-1": {
+        "text": "BACK",
+        "tag": "DIV",
+        "id": "c81-tab-content-b-1"
+      },
+      "c81-tab-content-b-2": {
+        "text": "BACK",
+        "tag": "DIV",
+        "id": "c81-tab-content-b-2"
+      },
+      "c81-tab-content-b-3": {
+        "text": "BACK",
+        "tag": "DIV",
+        "id": "c81-tab-content-b-3"
+      },
+      "c81-tab-content-b-4": {
+        "text": "BACK",
+        "tag": "DIV",
+        "id": "c81-tab-content-b-4"
+      },
+      "c81-tab-content-b-5": {
+        "text": "BACKHomeMy BookingsMarketing ToolsPromotionsSales ResourcesRSSC UniversityUpdate ProfileLogout",
+        "tag": "DIV",
+        "id": "c81-tab-content-b-5"
+      },
+      "c93_tabs": {
+        "text": "By DestinationBy Ship",
+        "tag": "DIV",
+        "id": ""
+      },
+      "c88_link label -small active": {
+        "text": "By Destination",
+        "tag": "A",
+        "id": ""
+      },
+      "c88_link label -small": {
+        "text": "By Ship",
+        "tag": "A",
+        "id": ""
+      },
+      "explore-menu-3013-0": {
+        "text": "var mapObject = {};\n            mapObject.url = \"mapbox:\\/\\/styles\\/regentsevenseascruises\\/cjzubl6q",
+        "tag": "DIV",
+        "id": "explore-menu-3013-0"
+      },
+      "destination-menu-14015-0": {
+        "text": "var mapObject = {};\n            mapObject.url = \"mapbox:\\/\\/styles\\/regentsevenseascruises\\/cjzubl6q",
+        "tag": "DIV",
+        "id": "destination-menu-14015-0"
+      },
+      "c96_tabs": {
+        "text": "var mapObject = {};\n            mapObject.url = \"mapbox:\\/\\/styles\\/regentsevenseascruises\\/cjzubl6q",
+        "tag": "DIV",
+        "id": ""
+      },
+      "e24 hide": {
+        "text": "World Cruises",
+        "tag": "A",
+        "id": ""
+      },
+      "c96_content tab-content": {
+        "text": "Africa & Arabia879Free Excursions57Ports Alaska296Free Excursions14Ports Asia1103Free Excursions73Po",
+        "tag": "DIV",
+        "id": ""
+      },
+      "dest-map-tab-33669-0": {
+        "text": "Africa & Arabia879Free Excursions57Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-33669-0"
+      },
+      "dest-map-tab-33669-1": {
+        "text": "Alaska296Free Excursions14Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-33669-1"
+      },
+      "dest-map-tab-33669-2": {
+        "text": "Asia1103Free Excursions73Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-33669-2"
+      },
+      "dest-map-tab-33669-3": {
+        "text": "Australia & New Zealand590Free Excursions38Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-33669-3"
+      },
+      "dest-map-tab-33669-4": {
+        "text": "Bermuda36Free Excursions2Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-33669-4"
+      },
+      "dest-map-tab-33669-5": {
+        "text": "Canada & New England370Free Excursions24Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-33669-5"
+      },
+      "dest-map-tab-33669-6": {
+        "text": "Caribbean & Panama Canal1042Free Excursions55Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-33669-6"
+      },
+      "dest-map-tab-33669-7": {
+        "text": "Mediterranean2922Free Excursions126Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-33669-7"
+      },
+      "dest-map-tab-33669-8": {
+        "text": "Northern Europe1722Free Excursions108Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-33669-8"
+      },
+      "dest-map-tab-33669-9": {
+        "text": "South America487Free Excursions41Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-33669-9"
+      },
+      "dest-map-tab-33669-10": {
+        "text": "South Pacific360Free Excursions35Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-33669-10"
+      },
+      "dest-map-tab-33669-11": {
+        "text": "Transoceanic Crossings0Free Excursions0Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-33669-11"
+      },
+      "dest-map-tab-33669-12": {
+        "text": "Grand Voyages0Free Excursions0Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-33669-12"
+      },
+      "dest-map-tab-33669-13": {
+        "text": "World Cruises0Free Excursions0Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-33669-13"
+      },
+      "destination-menu-14015-1": {
+        "text": "Africa & Arabia 57 Ports Alaska 14 Ports Asia 73 Ports Australia & New Zealand 38 Ports Bermuda 2 Po",
+        "tag": "DIV",
+        "id": "destination-menu-14015-1"
+      },
+      "c76_tabs": {
+        "text": "Africa & Arabia 57 Ports Alaska 14 Ports Asia 73 Ports Australia & New Zealand 38 Ports Bermuda 2 Po",
+        "tag": "DIV",
+        "id": ""
+      },
+      "explore-menu-3013-1": {
+        "text": "SEVEN SEASPRESTIGE\u2122SEVEN SEASGRANDEUR\u00aeSEVEN SEASEXPLORER\u00aeSEVEN SEASSPLENDOR\u00aeSEVEN SEASVOYAGER\u00aeSEVEN ",
+        "tag": "DIV",
+        "id": "explore-menu-3013-1"
+      },
+      "c94_tabs": {
+        "text": "SEVEN SEASPRESTIGE\u2122SEVEN SEASGRANDEUR\u00aeSEVEN SEASEXPLORER\u00aeSEVEN SEASSPLENDOR\u00aeSEVEN SEASVOYAGER\u00aeSEVEN ",
+        "tag": "DIV",
+        "id": ""
+      },
+      "c77": {
+        "text": "SEVEN SEASNAVIGATOR\u00ae",
+        "tag": "A",
+        "id": ""
+      },
+      "c311_tabs": {
+        "text": "Request PricingSpecial OffersRequest a CallSubmit an InquiryGroup Travel BenefitsOrder a BrochureBec",
+        "tag": "DIV",
+        "id": ""
+      },
+      "c313_body_tabs": {
+        "text": "Request PricingSpecial OffersRequest a CallSubmit an InquiryGroup Travel BenefitsOrder a BrochureBec",
+        "tag": "DIV",
+        "id": ""
+      },
+      "e26 active": {
+        "text": "Become a Regent Insider",
+        "tag": "A",
+        "id": ""
+      },
+      "c311-tab-content-panel-request-insider": {
+        "text": "BECOME A REGENT INSIDERRegent Seven Seas Cruises' exceptional service begins long before you step ab",
+        "tag": "DIV",
+        "id": "c311-tab-content-panel-request-insider"
+      },
+      "btn dropdown-toggle paragraph -small bs-placeholder": {
+        "text": "Select",
+        "tag": "BUTTON",
+        "id": ""
+      },
+      "c346_body_table": {
+        "text": "Name of creditIDBook by DateSail by DateAmountEligible To Convert",
+        "tag": "DIV",
+        "id": ""
+      },
+      "table table-mobile table-striped-lighter -variant-5": {
+        "text": "Name of creditIDBook by DateSail by DateAmountEligible To Convert",
+        "tag": "TABLE",
+        "id": ""
+      },
+      "e5 btn btn-primary": {
+        "text": "Log in",
+        "tag": "A",
+        "id": ""
+      },
+      "uxBookedCruiseWrapper_uxBookedCruiseDetails_creditAmounts": {
+        "text": "Total\n                                        \n                                        \n            ",
+        "tag": "DIV",
+        "id": "uxBookedCruiseWrapper_uxBookedCruiseDetails_creditAmounts"
+      },
+      "sbc-cell-results-table": {
+        "text": "$1,100\n                                        \n                                        \n           ",
+        "tag": "DIV",
+        "id": ""
+      },
+      "uxBookedCruiseWrapper_uxCustomize_uxDiningButton": {
+        "text": "Customize",
+        "tag": "A",
+        "id": "uxBookedCruiseWrapper_uxCustomize_uxDiningButton"
+      },
+      "uxBookedCruiseWrapper_uxCustomize_uxHotelLandButton": {
+        "text": "Customize",
+        "tag": "A",
+        "id": "uxBookedCruiseWrapper_uxCustomize_uxHotelLandButton"
+      },
+      "tablePortName": {
+        "text": "Oslo (2 Day(s) in Port)",
+        "tag": "TR",
+        "id": ""
+      },
+      "tableExcursionName": {
+        "text": "OSLO DURING WORLD WAR II-",
+        "tag": "TR",
+        "id": ""
+      },
+      "uxBookedCruiseWrapper_uxCustomize_uxBookCulinaryWorkshopButton": {
+        "text": "Customize",
+        "tag": "A",
+        "id": "uxBookedCruiseWrapper_uxCustomize_uxBookCulinaryWorkshopButton"
+      },
+      "c66_header_title -double-md-up": {
+        "text": "Country Selector",
+        "tag": "A",
+        "id": ""
+      },
+      "footer-collapse-Plan-a-Cruise": {
+        "text": "Find a CruiseSeven Seas SocietyRequest A BrochureRequest A BrochureSign-up for Special OffersGroup T",
+        "tag": "DIV",
+        "id": "footer-collapse-Plan-a-Cruise"
+      },
+      "footer-collapse-Resources": {
+        "text": "My AccountFrequently Asked QuestionsRegentCare Travel ProtectionUpdate Marketing PreferencesTravel P",
+        "tag": "DIV",
+        "id": "footer-collapse-Resources"
+      },
+      "footer-collapse-Company-Information": {
+        "text": "About UsGlobal PartnershipsCareersLegalPress & MediaFor InvestorsSite MapPrivacy PolicyAccessibility",
+        "tag": "DIV",
+        "id": "footer-collapse-Company-Information"
+      },
+      "footer-collapse-country-selector": {
+        "text": "United States",
+        "tag": "DIV",
+        "id": "footer-collapse-country-selector"
+      },
+      "linkText -footer": {
+        "text": "Enable Accessibility",
+        "tag": "A",
+        "id": ""
+      },
+      "ot-accordion-layout ot-cat-item ot-vs-config": {
+        "text": "Sales/Sharing/Targeted Ads  Sales/Sharing/Targeted Ads If you would like to exercise the do not sell",
+        "tag": "DIV",
+        "id": ""
+      }
+    },
+    "inner_text": "Press Alt+1 for screen-reader mode, Alt+0 to cancel\nAccessibility Screen-Reader Guide, Feedback, and Issue Reporting | New window\nMENU\nSPECIAL OFFERS\nFIND A CRUISE\nREQUEST INFORMATION\nPARTNER CENTER\n800.285.1835\nMY ACCOUNT\nReturn to dashboard\nSTOCKHOLM TO OSLO - STORIED SCANDINAVIA\nReservation No:\t3096289\t\nSHOW MY ITINERARY\nCRUISE DETAILS\n\nDeparts on August 29, 2026\n\nReturns on September 08, 2026\n\nSails on Seven Seas Grandeur\n\nGUEST DETAILS\n\nALFRED ELY\nGUEST REGISTRATION & TICKET CONTRACT COMPLETE.\n\nAMY DARROW\nGUEST REGISTRATION & TICKET CONTRACT COMPLETE.\n\nSUITE DETAILS\n\nSuite Category is Concierge Suite - D\n\nSuite Location is Deck 9\n\nSuite Number is 961\nSHOW SUITE DETAILS\n\n\t\nTOTAL\tREMAINING\n\t\nSHIPBOARD CREDITS\t\n\t\n$1,100\t$58\n\u00a0\t\u00a0\t\u00a0\n\tVIEW DETAILS\nVIEW PURCHASES\nMY TO-DO LIST\nNOVEMBER 18, 2025\nDeposit Received.\nAPRIL 1, 2026\nFinal Payment Made.\nGuest Registration & Ticket Contract Complete.\nSATURDAY, JANUARY 31, 2026\nShore Excursions Booked.\nMAY 31, 2026\n3 of 3 Dining Reservations Completed.\nAUGUST 8, 2026\nComplete Online Check-in.\nCUSTOMIZE YOUR VOYAGE *\n* CUSTOMIZATION IS OPTIONAL\nSHORE\nEXCURSIONS\nYour trip includes:\n\nUnlimited Shore Excursions\n\nRegent Choice Shore Excursions are eligible for shipboard credit.\n\nBook your excursions now\n\nCUSTOMIZE\nBEVERAGES, DINING, AND GRATUITIES\nYour trip includes:\n\nFREE beverages, including alcohol, FREE restaurants and room service, and all pre-paid gratuities.\n\nBook your dining now\n\nCUSTOMIZE\nHOTEL / LAND\nPACKAGES\nOptional exploration:\n\nFor a more in-depth exploration into the culture of the region, extend your cruise with a hotel or land package.\n\nAdd a Hotel or Land Program\n\nHotel and Land Packages are NOT eligible for shipboard credit.\n\nCUSTOMIZE\n\n\nx\nSHORE EXCURSION SUMMARY\n\nYou may reserve your shore excursions online up to seven days before your voyage begins. To start, choose a port of call from the dropdown menu and add your preferred excursions to your cart.\n\nOnce you\u2019ve made your selections for all desired ports, return to your summary page and select \u201cProceed to Checkout.\u201d To complete your reservation, be sure to select \u201cConfirm Your Tours\u201d in the final step.\n\nPlease Note: When booking multiple excursions on the same day, the second tour must start at least 75 minutes after the first tour is scheduled to return to the ship.\n\nSelect a port:\n-- CHOOSE PORT --\n\nBelow is a summary of your chosen excursions.\n\nNeed to make changes? You can update or cancel your selections from this session anytime before checkout. To modify tours you\u2019ve already reserved, please contact us at 877-505-5370.\n\n\n\nDescription\tAdd\tReserved\tPrice\nStockholm (2 Day(s) in Port)\nGG-SWEDISH NATURE EXPERIENCE\t-\nAug 30, 2026 10:30\t\nELY, ALFRED\t\t\t-\nDARROW, AMY\t\t\t-\nBerlin (Warnemunde) (2 Day(s) in Port)\nAMAZING ROSTOCK\t-\nSep 01, 2026 09:00\t\nELY, ALFRED\t\t\t-\nDARROW, AMY\t\t\t-\nMEDIEVAL FLAVORS OF ROSTOCK\t-\nSep 02, 2026 02:30\t\nELY, ALFRED\t\t\t-\nDARROW, AMY\t\t\t-\nCopenhagen (2 Day(s) in Port)\nA TOUR OF TWO KINGDOMS - DENMARK TO SWED\t-\nSep 04, 2026 09:00\t\nELY, ALFRED\t\t\t-\nDARROW, AMY\t\t\t-\nCHRISTIANSBORG PALACE & TIVOLI GARDENS\t-\nSep 03, 2026 01:30\t\nELY, ALFRED\t\t\t-\nDARROW, AMY\t\t\t-\nKristiansand (1 Day(s) in Port)\nNo excursions selected for this port.\nOslo (2 Day(s) in Port)\nOSLO DURING WORLD WAR II\t-\nSep 07, 2026 09:00\t\nELY, ALFRED\t\t\t-\nDARROW, AMY\t\t\t-\nCART TOTAL:\n$0.00\nSHIPBOARD CREDIT APPLIED:\n$0.00\nAMOUNT DUE:\n$0.00\nCULINARY ARTS\nKITCHEN CLASSES\nOptional Culinary Arts Kitchen classes:\n\nExpand your culinary skills through highly-individualized hands-on instruction.\n\nCulinary Workshops are eligible for shipboard credit.\n\nBook your Culinary Arts Kitchen Class now. Subject to availability.\n\nCUSTOMIZE\nPAYMENTS\nINVOICE NO. 3096289\n\nTotal Booking Amount:\n\n$20,640.00\n\nPaid to Date:\n\n$20,640.00\n\nBalance Due:\n\n$0.00\n\nRemaining Balance Due:\n\n4/1/2026\n\nMAKE A PAYMENT\nPLAN A CRUISE\nFIND A CRUISE\nSEVEN SEAS SOCIETY\nREQUEST A BROCHURE\nSIGN-UP FOR SPECIAL OFFERS\nRESOURCES\nMY ACCOUNT\nFREQUENTLY ASKED QUESTIONS\nREGENTCARE TRAVEL PROTECTION\nUPDATE MARKETING PREFERENCES\nTRAVEL PARTNER CENTER\nVIDEOS\nDIGITAL BROCHURES\nCHARTERS, MEETINGS & INCENTIVES\nTHE REGENT BED COLLECTION\nGIFT ORDER FORM\nSAIL & SUSTAIN\nCOMPANY INFORMATION\nABOUT US\nGLOBAL PARTNERSHIPS\nCAREERS\nLEGAL\nPRESS & MEDIA\nFOR INVESTORS\nSITE MAP\nPRIVACY POLICY\nACCESSIBILITY STATEMENT\nTRAVEL RESTRICTIONS\nCONTACT US\nFOLLOW US\n\n\u00a9 2026 Seven Seas Cruises Ltd. Ships' Registry: Bahamas and Marshall Islands. All Rights Reserved. See Terms And Conditions \u00a0and Privacy Policy. Your Privacy Choices \u00a0Enable Accessibility",
+    "extracted": {
+      "shore_excursions": "Booked.\nMAY 31, 2026\n3 of 3 Dining Reservations Completed.\nAUGUST 8, 2026\nComplete Online Check-in.\nCUSTOMIZE YOUR VOYAGE *\n* CUSTOMIZATION IS OPTIONAL\nSHORE\nEXCURSIONS\nYour trip includes:\n\nUnlimited Shore Excursions\n\nRegent Choice Shore Excursions are eligible for shipboard credit.\n\nBook your excursions now\n\nCUSTOMIZE\nBEVERAGES, DINING, AND GRATUITIES\nYour trip includes:\n\nFREE beverages, including alcohol, FREE restaurants and room service, and all pre-paid gratuities.\n\nBook your dining now\n\nCUSTOMIZE\nHOTEL / LAND\nPACKAGES",
+      "dining": "Reservation No:\t3096289\t\nSHOW MY ITINERARY\nCRUISE DETAILS\n\nDeparts on August 29, 2026\n\nReturns on September 08, 2026\n\nSails on Seven Seas Grandeur\n\nGUEST DETAILS\n\nALFRED ELY\nGUEST REGISTRATION & TICKET CONTRACT COMPLETE.\n\nAMY DARROW\nGUEST REGISTRATION & TICKET CONTRACT COMPLETE.\n\nSUITE DETAILS\n\nSuite Category is Concierge Suite - D\n\nSuite Location is Deck 9\n\nSuite Number is 961\nSHOW SUITE DETAILS\n\n\t\nTOTAL\tREMAINING\n\t\nSHIPBOARD CREDITS\t\n\t\n$1,100\t$58\n\u00a0\t\u00a0\t\u00a0\n\tVIEW DETAILS\nVIEW PURCHASES\nMY TO-DO LIST\nNOVEMBER 18, 2025\nDeposit Received.\nAPRIL 1, 2026\nFinal Payment Made.\nGuest Registration & Ticket Contract Complete.\nSATURDAY, JANUARY 31, 2026"
+    }
+  },
+  "3078056_Nichols": {
+    "booking_id": "3078056_Nichols",
+    "time": "2026-06-02T21:50:32.988098",
+    "html_length": 1195465,
+    "sections": {
+      "e20 linkText -small -variant-1": {
+        "text": "800.285.1835",
+        "tag": "A",
+        "id": ""
+      },
+      "e20 linkText -small -variant-1 hide": {
+        "text": "1.866.585.0942",
+        "tag": "A",
+        "id": ""
+      },
+      "e20 linkText -small -variant-2": {
+        "text": "English",
+        "tag": "A",
+        "id": ""
+      },
+      "c81_tabs": {
+        "text": "English",
+        "tag": "DIV",
+        "id": ""
+      },
+      "c81_tabs_scroll simplebar-over": {
+        "text": "English",
+        "tag": "DIV",
+        "id": ""
+      },
+      "tab-menu": {
+        "text": "English",
+        "tag": "DIV",
+        "id": ""
+      },
+      "c81_list -notable nav": {
+        "text": "HomeSpecial OffersFind a CruiseRequest InformationMy AccountAgent Center",
+        "tag": "UL",
+        "id": ""
+      },
+      "e20  -variant-3": {
+        "text": "Agent Center",
+        "tag": "A",
+        "id": ""
+      },
+      "e26": {
+        "text": "Contact Us",
+        "tag": "A",
+        "id": ""
+      },
+      "tab-content": {
+        "text": "BECOME A REGENT INSIDERRegent Seven Seas Cruises' exceptional service begins long before you step ab",
+        "tag": "DIV",
+        "id": ""
+      },
+      "c81-tab-content-51375-0": {
+        "text": "BACKFind a Cruise",
+        "tag": "DIV",
+        "id": "c81-tab-content-51375-0"
+      },
+      "c81-tab-content-51375-1": {
+        "text": "BACKWhat's IncludedImmersive ExplorationCulinary ExperiencesLuxury SuitesHeartfelt HospitalityOnboar",
+        "tag": "DIV",
+        "id": "c81-tab-content-51375-1"
+      },
+      "c81-tab-content-51375-2": {
+        "text": "BACKSeven Seas Prestige\u2122Seven Seas Grandeur\u00aeSeven Seas Splendor\u00aeSeven Seas Explorer\u00aeSeven Seas Voyag",
+        "tag": "DIV",
+        "id": "c81-tab-content-51375-2"
+      },
+      "c81-tab-content-51375-3": {
+        "text": "BACKAfrica & ArabiaAlaskaAsiaAustralia & New ZealandBermudaCanada & New EnglandCaribbean & Panama Ca",
+        "tag": "DIV",
+        "id": "c81-tab-content-51375-3"
+      },
+      "c81-tab-content-51375-4": {
+        "text": "BACKRegent Cruise Collections",
+        "tag": "DIV",
+        "id": "c81-tab-content-51375-4"
+      },
+      "c81-tab-content-51375-5": {
+        "text": "BACKSpecial Offers",
+        "tag": "DIV",
+        "id": "c81-tab-content-51375-5"
+      },
+      "c81-tab-content-51375-6": {
+        "text": "BACKDigital BrochuresVirtual ToursDestination InsightsLuxury Goes Exploring BlogSocial MediaDiscover",
+        "tag": "DIV",
+        "id": "c81-tab-content-51375-6"
+      },
+      "c81-tab-content-51375-7": {
+        "text": "BACKSeven Seas Society",
+        "tag": "DIV",
+        "id": "c81-tab-content-51375-7"
+      },
+      "c81-tab-content-51375-8": {
+        "text": "Contact UsReservations1.866.585.0942Request a CallPost Cruise InquiryHave a question? You may find a",
+        "tag": "DIV",
+        "id": "c81-tab-content-51375-8"
+      },
+      "c81-tab-content-b-0": {
+        "text": "BACK",
+        "tag": "DIV",
+        "id": "c81-tab-content-b-0"
+      },
+      "c81-tab-content-b-1": {
+        "text": "BACK",
+        "tag": "DIV",
+        "id": "c81-tab-content-b-1"
+      },
+      "c81-tab-content-b-2": {
+        "text": "BACK",
+        "tag": "DIV",
+        "id": "c81-tab-content-b-2"
+      },
+      "c81-tab-content-b-3": {
+        "text": "BACK",
+        "tag": "DIV",
+        "id": "c81-tab-content-b-3"
+      },
+      "c81-tab-content-b-4": {
+        "text": "BACK",
+        "tag": "DIV",
+        "id": "c81-tab-content-b-4"
+      },
+      "c81-tab-content-b-5": {
+        "text": "BACKHomeMy BookingsMarketing ToolsPromotionsSales ResourcesRSSC UniversityUpdate ProfileLogout",
+        "tag": "DIV",
+        "id": "c81-tab-content-b-5"
+      },
+      "c93_tabs": {
+        "text": "By DestinationBy Ship",
+        "tag": "DIV",
+        "id": ""
+      },
+      "c88_link label -small active": {
+        "text": "By Destination",
+        "tag": "A",
+        "id": ""
+      },
+      "c88_link label -small": {
+        "text": "By Ship",
+        "tag": "A",
+        "id": ""
+      },
+      "explore-menu-6710-0": {
+        "text": "var mapObject = {};\n            mapObject.url = \"mapbox:\\/\\/styles\\/regentsevenseascruises\\/cjzubl6q",
+        "tag": "DIV",
+        "id": "explore-menu-6710-0"
+      },
+      "destination-menu-14808-0": {
+        "text": "var mapObject = {};\n            mapObject.url = \"mapbox:\\/\\/styles\\/regentsevenseascruises\\/cjzubl6q",
+        "tag": "DIV",
+        "id": "destination-menu-14808-0"
+      },
+      "c96_tabs": {
+        "text": "var mapObject = {};\n            mapObject.url = \"mapbox:\\/\\/styles\\/regentsevenseascruises\\/cjzubl6q",
+        "tag": "DIV",
+        "id": ""
+      },
+      "e24 hide": {
+        "text": "World Cruises",
+        "tag": "A",
+        "id": ""
+      },
+      "c96_content tab-content": {
+        "text": "Africa & Arabia879Free Excursions57Ports Alaska296Free Excursions14Ports Asia1103Free Excursions73Po",
+        "tag": "DIV",
+        "id": ""
+      },
+      "dest-map-tab-42839-0": {
+        "text": "Africa & Arabia879Free Excursions57Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-42839-0"
+      },
+      "dest-map-tab-42839-1": {
+        "text": "Alaska296Free Excursions14Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-42839-1"
+      },
+      "dest-map-tab-42839-2": {
+        "text": "Asia1103Free Excursions73Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-42839-2"
+      },
+      "dest-map-tab-42839-3": {
+        "text": "Australia & New Zealand590Free Excursions38Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-42839-3"
+      },
+      "dest-map-tab-42839-4": {
+        "text": "Bermuda36Free Excursions2Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-42839-4"
+      },
+      "dest-map-tab-42839-5": {
+        "text": "Canada & New England370Free Excursions24Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-42839-5"
+      },
+      "dest-map-tab-42839-6": {
+        "text": "Caribbean & Panama Canal1042Free Excursions55Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-42839-6"
+      },
+      "dest-map-tab-42839-7": {
+        "text": "Mediterranean2922Free Excursions126Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-42839-7"
+      },
+      "dest-map-tab-42839-8": {
+        "text": "Northern Europe1722Free Excursions108Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-42839-8"
+      },
+      "dest-map-tab-42839-9": {
+        "text": "South America487Free Excursions41Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-42839-9"
+      },
+      "dest-map-tab-42839-10": {
+        "text": "South Pacific360Free Excursions35Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-42839-10"
+      },
+      "dest-map-tab-42839-11": {
+        "text": "Transoceanic Crossings0Free Excursions0Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-42839-11"
+      },
+      "dest-map-tab-42839-12": {
+        "text": "Grand Voyages0Free Excursions0Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-42839-12"
+      },
+      "dest-map-tab-42839-13": {
+        "text": "World Cruises0Free Excursions0Ports",
+        "tag": "DIV",
+        "id": "dest-map-tab-42839-13"
+      },
+      "destination-menu-14808-1": {
+        "text": "Africa & Arabia 57 Ports Alaska 14 Ports Asia 73 Ports Australia & New Zealand 38 Ports Bermuda 2 Po",
+        "tag": "DIV",
+        "id": "destination-menu-14808-1"
+      },
+      "c76_tabs": {
+        "text": "Africa & Arabia 57 Ports Alaska 14 Ports Asia 73 Ports Australia & New Zealand 38 Ports Bermuda 2 Po",
+        "tag": "DIV",
+        "id": ""
+      },
+      "explore-menu-6710-1": {
+        "text": "SEVEN SEASPRESTIGE\u2122SEVEN SEASGRANDEUR\u00aeSEVEN SEASEXPLORER\u00aeSEVEN SEASSPLENDOR\u00aeSEVEN SEASVOYAGER\u00aeSEVEN ",
+        "tag": "DIV",
+        "id": "explore-menu-6710-1"
+      },
+      "c94_tabs": {
+        "text": "SEVEN SEASPRESTIGE\u2122SEVEN SEASGRANDEUR\u00aeSEVEN SEASEXPLORER\u00aeSEVEN SEASSPLENDOR\u00aeSEVEN SEASVOYAGER\u00aeSEVEN ",
+        "tag": "DIV",
+        "id": ""
+      },
+      "c77": {
+        "text": "SEVEN SEASNAVIGATOR\u00ae",
+        "tag": "A",
+        "id": ""
+      },
+      "c311_tabs": {
+        "text": "Request PricingSpecial OffersRequest a CallSubmit an InquiryGroup Travel BenefitsOrder a BrochureBec",
+        "tag": "DIV",
+        "id": ""
+      },
+      "c313_body_tabs": {
+        "text": "Request PricingSpecial OffersRequest a CallSubmit an InquiryGroup Travel BenefitsOrder a BrochureBec",
+        "tag": "DIV",
+        "id": ""
+      },
+      "e26 active": {
+        "text": "Become a Regent Insider",
+        "tag": "A",
+        "id": ""
+      },
+      "c311-tab-content-panel-request-insider": {
+        "text": "BECOME A REGENT INSIDERRegent Seven Seas Cruises' exceptional service begins long before you step ab",
+        "tag": "DIV",
+        "id": "c311-tab-content-panel-request-insider"
+      },
+      "btn dropdown-toggle paragraph -small bs-placeholder": {
+        "text": "Select",
+        "tag": "BUTTON",
+        "id": ""
+      },
+      "c346_body_table": {
+        "text": "Name of creditIDBook by DateSail by DateAmountEligible To Convert",
+        "tag": "DIV",
+        "id": ""
+      },
+      "table table-mobile table-striped-lighter -variant-5": {
+        "text": "Name of creditIDBook by DateSail by DateAmountEligible To Convert",
+        "tag": "TABLE",
+        "id": ""
+      },
+      "e5 btn btn-primary": {
+        "text": "Log in",
+        "tag": "A",
+        "id": ""
+      },
+      "uxBookedCruiseWrapper_uxCustomize_uxDiningButton": {
+        "text": "Customize",
+        "tag": "A",
+        "id": "uxBookedCruiseWrapper_uxCustomize_uxDiningButton"
+      },
+      "uxBookedCruiseWrapper_uxCustomize_uxHotelLandButton": {
+        "text": "Customize",
+        "tag": "A",
+        "id": "uxBookedCruiseWrapper_uxCustomize_uxHotelLandButton"
+      },
+      "tablePortName": {
+        "text": "Oslo (2 Day(s) in Port)",
+        "tag": "TR",
+        "id": ""
+      },
+      "tableExcursionName": {
+        "text": "PANORAMIC OSLO-",
+        "tag": "TR",
+        "id": ""
+      },
+      "uxBookedCruiseWrapper_uxCustomize_uxBookCulinaryWorkshopButton": {
+        "text": "Customize",
+        "tag": "A",
+        "id": "uxBookedCruiseWrapper_uxCustomize_uxBookCulinaryWorkshopButton"
+      },
+      "c66_header_title -double-md-up": {
+        "text": "Country Selector",
+        "tag": "A",
+        "id": ""
+      },
+      "footer-collapse-Plan-a-Cruise": {
+        "text": "Find a CruiseSeven Seas SocietyRequest A BrochureRequest A BrochureSign-up for Special OffersGroup T",
+        "tag": "DIV",
+        "id": "footer-collapse-Plan-a-Cruise"
+      },
+      "footer-collapse-Resources": {
+        "text": "My AccountFrequently Asked QuestionsRegentCare Travel ProtectionUpdate Marketing PreferencesTravel P",
+        "tag": "DIV",
+        "id": "footer-collapse-Resources"
+      },
+      "footer-collapse-Company-Information": {
+        "text": "About UsGlobal PartnershipsCareersLegalPress & MediaFor InvestorsSite MapPrivacy PolicyAccessibility",
+        "tag": "DIV",
+        "id": "footer-collapse-Company-Information"
+      },
+      "footer-collapse-country-selector": {
+        "text": "United States",
+        "tag": "DIV",
+        "id": "footer-collapse-country-selector"
+      },
+      "linkText -footer": {
+        "text": "Enable Accessibility",
+        "tag": "A",
+        "id": ""
+      },
+      "ot-accordion-layout ot-cat-item ot-vs-config": {
+        "text": "Sales/Sharing/Targeted Ads  Sales/Sharing/Targeted Ads If you would like to exercise the do not sell",
+        "tag": "DIV",
+        "id": ""
+      }
+    },
+    "inner_text": "Press Alt+1 for screen-reader mode, Alt+0 to cancel\nAccessibility Screen-Reader Guide, Feedback, and Issue Reporting | New window\nMENU\nSPECIAL OFFERS\nFIND A CRUISE\nREQUEST INFORMATION\nPARTNER CENTER\n800.285.1835\nMY ACCOUNT\nReturn to dashboard\nSTOCKHOLM TO OSLO - STORIED SCANDINAVIA\nReservation No:\t3078056\t\nSHOW MY ITINERARY\nCRUISE DETAILS\n\nDeparts on August 29, 2026\n\nReturns on September 08, 2026\n\nSails on Seven Seas Grandeur\n\nGUEST DETAILS\n\nLARRY NICHOLS\nGUEST REGISTRATION & TICKET CONTRACT COMPLETE.\n\nHEIDI NICHOLS\nGUEST REGISTRATION & TICKET CONTRACT COMPLETE.\n\nSUITE DETAILS\n\nSuite Category is Concierge Suite - D\n\nSuite Location is Deck 9\n\nSuite Number is 939\nSHOW SUITE DETAILS\n\nMY TO-DO LIST\nOCTOBER 1, 2025\nDeposit Received.\nAPRIL 1, 2026\nFinal Payment Made.\nGuest Registration & Ticket Contract Complete.\nSATURDAY, JANUARY 31, 2026\nShore Excursions Booked.\nMAY 31, 2026\n3 of 3 Dining Reservations Completed.\nAUGUST 8, 2026\nComplete Online Check-in.\nCUSTOMIZE YOUR VOYAGE *\n* CUSTOMIZATION IS OPTIONAL\nSHORE\nEXCURSIONS\nYour trip includes:\n\nUnlimited Shore Excursions\n\nBook your excursions now\n\nCUSTOMIZE\nBEVERAGES, DINING, AND GRATUITIES\nYour trip includes:\n\nFREE beverages, including alcohol, FREE restaurants and room service, and all pre-paid gratuities.\n\nBook your dining now\n\nCUSTOMIZE\nHOTEL / LAND\nPACKAGES\nOptional exploration:\n\nFor a more in-depth exploration into the culture of the region, extend your cruise with a hotel or land package.\n\nAdd a Hotel or Land Program\n\nCUSTOMIZE\n\n\nx\nSHORE EXCURSION SUMMARY\n\nYou may reserve your shore excursions online up to seven days before your voyage begins. To start, choose a port of call from the dropdown menu and add your preferred excursions to your cart.\n\nOnce you\u2019ve made your selections for all desired ports, return to your summary page and select \u201cProceed to Checkout.\u201d To complete your reservation, be sure to select \u201cConfirm Your Tours\u201d in the final step.\n\nPlease Note: When booking multiple excursions on the same day, the second tour must start at least 75 minutes after the first tour is scheduled to return to the ship.\n\nSelect a port:\n-- CHOOSE PORT --\n\nBelow is a summary of your chosen excursions.\n\nNeed to make changes? You can update or cancel your selections from this session anytime before checkout. To modify tours you\u2019ve already reserved, please contact us at 877-505-5370.\n\n\n\nDescription\tAdd\tReserved\tPrice\nStockholm (2 Day(s) in Port)\nHIGHLIGHTS OF STOCKHOLM & VASA MUSEUM\t-\nAug 30, 2026 09:00\t\nNICHOLS, LARRY\t\t\t-\nNICHOLS, HEIDI\t\t\t-\nBerlin (Warnemunde) (2 Day(s) in Port)\nAMAZING ROSTOCK\t-\nSep 02, 2026 09:00\t\nNICHOLS, LARRY\t\t\t-\nNICHOLS, HEIDI\t\t\t-\nSG-THE BERLIN EXPERIENCE\t-\nSep 01, 2026 07:30\t\nNICHOLS, LARRY\t\t\t-\nNICHOLS, HEIDI\t\t\t-\nMEDIEVAL FLAVORS OF ROSTOCK\t-\nSep 02, 2026 02:30\t\nNICHOLS, LARRY\t\t\t-\nNICHOLS, HEIDI\t\t\t-\nCopenhagen (2 Day(s) in Port)\nTIVOLI GARDENS & CANAL CRUISE\t-\nSep 04, 2026 10:15\t\nNICHOLS, LARRY\t\t\t-\nNICHOLS, HEIDI\t\t\t-\nA TOUR OF TWO KINGDOMS - DENMARK TO SWED\t-\nSep 03, 2026 08:45\t\nNICHOLS, LARRY\t\t\t-\nNICHOLS, HEIDI\t\t\t-\nKristiansand (1 Day(s) in Port)\nNo excursions selected for this port.\nOslo (2 Day(s) in Port)\nPANORAMIC OSLO\t-\nSep 07, 2026 09:15\t\nNICHOLS, LARRY\t\t\t-\nNICHOLS, HEIDI\t\t\t-\nCART TOTAL:\n$0.00\nAMOUNT DUE:\n$0.00\nCULINARY ARTS\nKITCHEN CLASSES\nOptional Culinary Arts Kitchen classes:\n\nExpand your culinary skills through highly-individualized hands-on instruction.\n\nBook your Culinary Arts Kitchen Class now. Subject to availability.\n\nCUSTOMIZE\nPAYMENTS\nINVOICE NO. 3078056\n\nTotal Booking Amount:\n\n$18,896.00\n\nPaid to Date:\n\n$18,896.00\n\nBalance Due:\n\n$0.00\n\nRemaining Balance Due:\n\n4/1/2026\n\nMAKE A PAYMENT\nPLAN A CRUISE\nFIND A CRUISE\nSEVEN SEAS SOCIETY\nREQUEST A BROCHURE\nSIGN-UP FOR SPECIAL OFFERS\nRESOURCES\nMY ACCOUNT\nFREQUENTLY ASKED QUESTIONS\nREGENTCARE TRAVEL PROTECTION\nUPDATE MARKETING PREFERENCES\nTRAVEL PARTNER CENTER\nVIDEOS\nDIGITAL BROCHURES\nCHARTERS, MEETINGS & INCENTIVES\nTHE REGENT BED COLLECTION\nGIFT ORDER FORM\nSAIL & SUSTAIN\nCOMPANY INFORMATION\nABOUT US\nGLOBAL PARTNERSHIPS\nCAREERS\nLEGAL\nPRESS & MEDIA\nFOR INVESTORS\nSITE MAP\nPRIVACY POLICY\nACCESSIBILITY STATEMENT\nTRAVEL RESTRICTIONS\nCONTACT US\nFOLLOW US\n\n\u00a9 2026 Seven Seas Cruises Ltd. Ships' Registry: Bahamas and Marshall Islands. All Rights Reserved. See Terms And Conditions \u00a0and Privacy Policy. Your Privacy Choices \u00a0Enable Accessibility",
+    "extracted": {
+      "shore_excursions": "Booked.\nMAY 31, 2026\n3 of 3 Dining Reservations Completed.\nAUGUST 8, 2026\nComplete Online Check-in.\nCUSTOMIZE YOUR VOYAGE *\n* CUSTOMIZATION IS OPTIONAL\nSHORE\nEXCURSIONS\nYour trip includes:\n\nUnlimited Shore Excursions\n\nBook your excursions now\n\nCUSTOMIZE\nBEVERAGES, DINING, AND GRATUITIES\nYour trip includes:\n\nFREE beverages, including alcohol, FREE restaurants and room service, and all pre-paid gratuities.\n\nBook your dining now\n\nCUSTOMIZE\nHOTEL / LAND\nPACKAGES",
+      "dining": "Reservation No:\t3078056\t\nSHOW MY ITINERARY\nCRUISE DETAILS\n\nDeparts on August 29, 2026\n\nReturns on September 08, 2026\n\nSails on Seven Seas Grandeur\n\nGUEST DETAILS\n\nLARRY NICHOLS\nGUEST REGISTRATION & TICKET CONTRACT COMPLETE.\n\nHEIDI NICHOLS\nGUEST REGISTRATION & TICKET CONTRACT COMPLETE.\n\nSUITE DETAILS\n\nSuite Category is Concierge Suite - D\n\nSuite Location is Deck 9\n\nSuite Number is 939\nSHOW SUITE DETAILS\n\nMY TO-DO LIST\nOCTOBER 1, 2025\nDeposit Received.\nAPRIL 1, 2026\nFinal Payment Made.\nGuest Registration & Ticket Contract Complete.\nSATURDAY, JANUARY 31, 2026"
+    }
+  }
+}

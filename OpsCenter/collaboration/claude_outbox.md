@@ -1,5 +1,31 @@
 ---
 
+## CC INBOX SWEEP — 2026-06-10T18:30:00Z
+status: COMPLETE
+completed: 2026-06-10T18:30:00Z
+executor: Hale-CC (Claude Code / Sonnet 4.6)
+
+tasks_processed: 1
+
+what_done: |
+  Processed all UNREAD tasks from OpsCenter/collaboration/claude_inbox.md:
+
+  → RELAY-6fcd8f41 (2026-06-10 17:52 UTC — UNREAD, normal): Sweep fix relay from CC — ACKNOWLEDGED.
+    - Commit d03991a: Two bugs patched in D2MC dispatch loop
+    - Fix 1 (D2MC LOOP GUARD): Re:/Fwd:/Fw: subjects now labeled+skipped — prevents Hale re-dispatching
+      Commander replies and Silversea forwarded emails. Active on next sweep cycle.
+    - Fix 2 (DUPLICATE LOG LINES): log_line was writing to both file and stdout simultaneously,
+      doubling systemd log entries. Fixed to stdout only.
+    - No Commander gate triggered (informational relay, no client-facing action, no financial commitment)
+    - Task marked COMPLETE with timestamp in claude_inbox.md
+
+what_next: |
+  - Inbox terminal: CLEAN — 0 UNREAD / 0 PENDING remaining
+  - D2MC sweep loop operational on next cycle with loop guard active
+  - No open items from this sweep
+
+---
+
 ## CC INBOX SWEEP — 2026-06-05T20:37:57Z
 status: COMPLETE
 completed: 2026-06-05T20:37:57Z

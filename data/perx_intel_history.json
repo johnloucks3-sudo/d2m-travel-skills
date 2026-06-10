@@ -1,0 +1,1559 @@
+{
+  "norway-2027-silversea_seven_seas_cruises_nodate": {
+    "watch_id": "norway-2027-silversea",
+    "key": "norway-2027-silversea_seven_seas_cruises_nodate",
+    "ship": "Seven Seas Cruises",
+    "cruise_line": "",
+    "departure_date": "",
+    "route": "Seven Seas Cruises sailing",
+    "baseline_price": 863.0,
+    "prices": [
+      {
+        "ts": "2026-06-08T22:24:57.250672+00:00",
+        "price": 863.0
+      },
+      {
+        "ts": "2026-06-09T08:00:03.554928+00:00",
+        "price": 863.0
+      },
+      {
+        "ts": "2026-06-09T20:00:04.403236+00:00",
+        "price": 863.0
+      },
+      {
+        "ts": "2026-06-10T08:00:05.403561+00:00",
+        "price": 863.0
+      },
+      {
+        "ts": "2026-06-10T20:00:04.504303+00:00",
+        "price": 863.0
+      }
+    ],
+    "last_signal": null,
+    "last_checked": "2026-06-10T20:00:04.504303+00:00"
+  },
+  "norway-2027-silversea_seabourn_cruise_nodate": {
+    "watch_id": "norway-2027-silversea",
+    "key": "norway-2027-silversea_seabourn_cruise_nodate",
+    "ship": "Seabourn Cruise",
+    "cruise_line": "",
+    "departure_date": "",
+    "route": "Seabourn Cruise sailing",
+    "baseline_price": 979.0,
+    "prices": [
+      {
+        "ts": "2026-06-08T22:24:57.250672+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-08T22:24:57.250672+00:00",
+        "price": 613.0
+      },
+      {
+        "ts": "2026-06-09T08:00:03.554928+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-09T08:00:03.554928+00:00",
+        "price": 613.0
+      },
+      {
+        "ts": "2026-06-09T20:00:04.403236+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-09T20:00:04.403236+00:00",
+        "price": 622.0
+      },
+      {
+        "ts": "2026-06-10T08:00:05.403561+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-10T08:00:05.403561+00:00",
+        "price": 622.0
+      },
+      {
+        "ts": "2026-06-10T20:00:04.504303+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-10T20:00:04.504303+00:00",
+        "price": 639.0
+      }
+    ],
+    "last_signal": null,
+    "last_checked": "2026-06-10T20:00:04.504303+00:00"
+  },
+  "norway-2027-silversea_viking_ocean_nodate": {
+    "watch_id": "norway-2027-silversea",
+    "key": "norway-2027-silversea_viking_ocean_nodate",
+    "ship": "Viking Ocean",
+    "cruise_line": "",
+    "departure_date": "",
+    "route": "Viking Ocean sailing",
+    "baseline_price": 1084.0,
+    "prices": [
+      {
+        "ts": "2026-06-08T22:24:57.250672+00:00",
+        "price": 1084.0
+      },
+      {
+        "ts": "2026-06-08T22:24:57.250672+00:00",
+        "price": 553.0
+      },
+      {
+        "ts": "2026-06-09T08:00:03.554928+00:00",
+        "price": 1084.0
+      },
+      {
+        "ts": "2026-06-09T08:00:03.554928+00:00",
+        "price": 553.0
+      },
+      {
+        "ts": "2026-06-09T20:00:04.403236+00:00",
+        "price": 1084.0
+      },
+      {
+        "ts": "2026-06-09T20:00:04.403236+00:00",
+        "price": 553.0
+      },
+      {
+        "ts": "2026-06-10T08:00:05.403561+00:00",
+        "price": 1084.0
+      },
+      {
+        "ts": "2026-06-10T08:00:05.403561+00:00",
+        "price": 553.0
+      },
+      {
+        "ts": "2026-06-10T20:00:04.504303+00:00",
+        "price": 1084.0
+      },
+      {
+        "ts": "2026-06-10T20:00:04.504303+00:00",
+        "price": 543.0
+      }
+    ],
+    "last_signal": null,
+    "last_checked": "2026-06-10T20:00:04.504303+00:00"
+  },
+  "norway-2027-silversea_le_havre_nodate": {
+    "watch_id": "norway-2027-silversea",
+    "key": "norway-2027-silversea_le_havre_nodate",
+    "ship": "Le Havre",
+    "cruise_line": "",
+    "departure_date": "",
+    "route": "Le Havre sailing",
+    "baseline_price": 824.0,
+    "prices": [
+      {
+        "ts": "2026-06-08T22:24:57.250672+00:00",
+        "price": 824.0
+      },
+      {
+        "ts": "2026-06-08T22:24:57.250672+00:00",
+        "price": 677.0
+      },
+      {
+        "ts": "2026-06-08T22:24:57.250672+00:00",
+        "price": 1021.0
+      },
+      {
+        "ts": "2026-06-09T08:00:03.554928+00:00",
+        "price": 824.0
+      },
+      {
+        "ts": "2026-06-09T08:00:03.554928+00:00",
+        "price": 677.0
+      },
+      {
+        "ts": "2026-06-09T08:00:03.554928+00:00",
+        "price": 1021.0
+      },
+      {
+        "ts": "2026-06-09T20:00:04.403236+00:00",
+        "price": 824.0
+      },
+      {
+        "ts": "2026-06-09T20:00:04.403236+00:00",
+        "price": 677.0
+      },
+      {
+        "ts": "2026-06-09T20:00:04.403236+00:00",
+        "price": 1021.0
+      },
+      {
+        "ts": "2026-06-10T08:00:05.403561+00:00",
+        "price": 824.0
+      },
+      {
+        "ts": "2026-06-10T08:00:05.403561+00:00",
+        "price": 677.0
+      },
+      {
+        "ts": "2026-06-10T08:00:05.403561+00:00",
+        "price": 1021.0
+      },
+      {
+        "ts": "2026-06-10T20:00:04.504303+00:00",
+        "price": 824.0
+      },
+      {
+        "ts": "2026-06-10T20:00:04.504303+00:00",
+        "price": 677.0
+      },
+      {
+        "ts": "2026-06-10T20:00:04.504303+00:00",
+        "price": 1021.0
+      }
+    ],
+    "last_signal": null,
+    "last_checked": "2026-06-10T20:00:04.504303+00:00"
+  },
+  "norway-2027-regent_seven_seas_cruises_nodate": {
+    "watch_id": "norway-2027-regent",
+    "key": "norway-2027-regent_seven_seas_cruises_nodate",
+    "ship": "Seven Seas Cruises",
+    "cruise_line": "",
+    "departure_date": "",
+    "route": "Seven Seas Cruises sailing",
+    "baseline_price": 863.0,
+    "prices": [
+      {
+        "ts": "2026-06-08T22:25:04.305168+00:00",
+        "price": 863.0
+      },
+      {
+        "ts": "2026-06-09T08:00:05.873247+00:00",
+        "price": 863.0
+      },
+      {
+        "ts": "2026-06-09T20:00:05.980772+00:00",
+        "price": 863.0
+      },
+      {
+        "ts": "2026-06-10T08:00:07.248025+00:00",
+        "price": 863.0
+      },
+      {
+        "ts": "2026-06-10T20:00:07.118401+00:00",
+        "price": 863.0
+      }
+    ],
+    "last_signal": null,
+    "last_checked": "2026-06-10T20:00:07.118401+00:00"
+  },
+  "norway-2027-regent_seabourn_cruise_nodate": {
+    "watch_id": "norway-2027-regent",
+    "key": "norway-2027-regent_seabourn_cruise_nodate",
+    "ship": "Seabourn Cruise",
+    "cruise_line": "",
+    "departure_date": "",
+    "route": "Seabourn Cruise sailing",
+    "baseline_price": 979.0,
+    "prices": [
+      {
+        "ts": "2026-06-08T22:25:04.305168+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-08T22:25:04.305168+00:00",
+        "price": 613.0
+      },
+      {
+        "ts": "2026-06-09T08:00:05.873247+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-09T08:00:05.873247+00:00",
+        "price": 613.0
+      },
+      {
+        "ts": "2026-06-09T20:00:05.980772+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-09T20:00:05.980772+00:00",
+        "price": 622.0
+      },
+      {
+        "ts": "2026-06-10T08:00:07.248025+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-10T08:00:07.248025+00:00",
+        "price": 622.0
+      },
+      {
+        "ts": "2026-06-10T20:00:07.118401+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-10T20:00:07.118401+00:00",
+        "price": 639.0
+      }
+    ],
+    "last_signal": null,
+    "last_checked": "2026-06-10T20:00:07.118401+00:00"
+  },
+  "norway-2027-regent_viking_ocean_nodate": {
+    "watch_id": "norway-2027-regent",
+    "key": "norway-2027-regent_viking_ocean_nodate",
+    "ship": "Viking Ocean",
+    "cruise_line": "",
+    "departure_date": "",
+    "route": "Viking Ocean sailing",
+    "baseline_price": 1084.0,
+    "prices": [
+      {
+        "ts": "2026-06-08T22:25:04.305168+00:00",
+        "price": 1084.0
+      },
+      {
+        "ts": "2026-06-08T22:25:04.305168+00:00",
+        "price": 553.0
+      },
+      {
+        "ts": "2026-06-09T08:00:05.873247+00:00",
+        "price": 1084.0
+      },
+      {
+        "ts": "2026-06-09T08:00:05.873247+00:00",
+        "price": 553.0
+      },
+      {
+        "ts": "2026-06-09T20:00:05.980772+00:00",
+        "price": 1084.0
+      },
+      {
+        "ts": "2026-06-09T20:00:05.980772+00:00",
+        "price": 553.0
+      },
+      {
+        "ts": "2026-06-10T08:00:07.248025+00:00",
+        "price": 1084.0
+      },
+      {
+        "ts": "2026-06-10T08:00:07.248025+00:00",
+        "price": 553.0
+      },
+      {
+        "ts": "2026-06-10T20:00:07.118401+00:00",
+        "price": 1084.0
+      },
+      {
+        "ts": "2026-06-10T20:00:07.118401+00:00",
+        "price": 543.0
+      }
+    ],
+    "last_signal": null,
+    "last_checked": "2026-06-10T20:00:07.118401+00:00"
+  },
+  "norway-2027-regent_le_havre_nodate": {
+    "watch_id": "norway-2027-regent",
+    "key": "norway-2027-regent_le_havre_nodate",
+    "ship": "Le Havre",
+    "cruise_line": "",
+    "departure_date": "",
+    "route": "Le Havre sailing",
+    "baseline_price": 824.0,
+    "prices": [
+      {
+        "ts": "2026-06-08T22:25:04.305168+00:00",
+        "price": 824.0
+      },
+      {
+        "ts": "2026-06-08T22:25:04.305168+00:00",
+        "price": 677.0
+      },
+      {
+        "ts": "2026-06-08T22:25:04.305168+00:00",
+        "price": 1021.0
+      },
+      {
+        "ts": "2026-06-09T08:00:05.873247+00:00",
+        "price": 824.0
+      },
+      {
+        "ts": "2026-06-09T08:00:05.873247+00:00",
+        "price": 677.0
+      },
+      {
+        "ts": "2026-06-09T08:00:05.873247+00:00",
+        "price": 1021.0
+      },
+      {
+        "ts": "2026-06-09T20:00:05.980772+00:00",
+        "price": 824.0
+      },
+      {
+        "ts": "2026-06-09T20:00:05.980772+00:00",
+        "price": 677.0
+      },
+      {
+        "ts": "2026-06-09T20:00:05.980772+00:00",
+        "price": 1021.0
+      },
+      {
+        "ts": "2026-06-10T08:00:07.248025+00:00",
+        "price": 824.0
+      },
+      {
+        "ts": "2026-06-10T08:00:07.248025+00:00",
+        "price": 677.0
+      },
+      {
+        "ts": "2026-06-10T08:00:07.248025+00:00",
+        "price": 1021.0
+      },
+      {
+        "ts": "2026-06-10T20:00:07.118401+00:00",
+        "price": 824.0
+      },
+      {
+        "ts": "2026-06-10T20:00:07.118401+00:00",
+        "price": 677.0
+      },
+      {
+        "ts": "2026-06-10T20:00:07.118401+00:00",
+        "price": 1021.0
+      }
+    ],
+    "last_signal": null,
+    "last_checked": "2026-06-10T20:00:07.118401+00:00"
+  },
+  "norway-2027-seabourn_seabourn_cruise_nodate": {
+    "watch_id": "norway-2027-seabourn",
+    "key": "norway-2027-seabourn_seabourn_cruise_nodate",
+    "ship": "Seabourn Cruise",
+    "cruise_line": "",
+    "departure_date": "",
+    "route": "Seabourn Cruise sailing",
+    "baseline_price": 979.0,
+    "prices": [
+      {
+        "ts": "2026-06-08T22:25:07.851321+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-08T22:25:07.851321+00:00",
+        "price": 613.0
+      },
+      {
+        "ts": "2026-06-09T08:00:07.701564+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-09T08:00:07.701564+00:00",
+        "price": 613.0
+      },
+      {
+        "ts": "2026-06-09T20:00:08.880585+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-09T20:00:08.880585+00:00",
+        "price": 622.0
+      },
+      {
+        "ts": "2026-06-10T08:00:09.365221+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-10T08:00:09.365221+00:00",
+        "price": 622.0
+      },
+      {
+        "ts": "2026-06-10T20:00:08.689769+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-10T20:00:08.689769+00:00",
+        "price": 639.0
+      }
+    ],
+    "last_signal": null,
+    "last_checked": "2026-06-10T20:00:08.689769+00:00"
+  },
+  "silver-nova-2026_seven_seas_cruises_nodate": {
+    "watch_id": "silver-nova-2026",
+    "key": "silver-nova-2026_seven_seas_cruises_nodate",
+    "ship": "Seven Seas Cruises",
+    "cruise_line": "",
+    "departure_date": "",
+    "route": "Seven Seas Cruises sailing",
+    "baseline_price": 863.0,
+    "prices": [
+      {
+        "ts": "2026-06-09T08:00:10.641665+00:00",
+        "price": 863.0
+      },
+      {
+        "ts": "2026-06-09T20:00:10.017916+00:00",
+        "price": 863.0
+      },
+      {
+        "ts": "2026-06-10T08:00:10.657758+00:00",
+        "price": 863.0
+      },
+      {
+        "ts": "2026-06-10T20:00:09.681476+00:00",
+        "price": 863.0
+      }
+    ],
+    "last_signal": null,
+    "last_checked": "2026-06-10T20:00:09.681476+00:00"
+  },
+  "silver-nova-2026_seabourn_cruise_nodate": {
+    "watch_id": "silver-nova-2026",
+    "key": "silver-nova-2026_seabourn_cruise_nodate",
+    "ship": "Seabourn Cruise",
+    "cruise_line": "",
+    "departure_date": "",
+    "route": "Seabourn Cruise sailing",
+    "baseline_price": 979.0,
+    "prices": [
+      {
+        "ts": "2026-06-09T08:00:10.641665+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-09T08:00:10.641665+00:00",
+        "price": 613.0
+      },
+      {
+        "ts": "2026-06-09T20:00:10.017916+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-09T20:00:10.017916+00:00",
+        "price": 622.0
+      },
+      {
+        "ts": "2026-06-10T08:00:10.657758+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-10T08:00:10.657758+00:00",
+        "price": 622.0
+      },
+      {
+        "ts": "2026-06-10T20:00:09.681476+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-10T20:00:09.681476+00:00",
+        "price": 639.0
+      }
+    ],
+    "last_signal": null,
+    "last_checked": "2026-06-10T20:00:09.681476+00:00"
+  },
+  "silver-nova-2026_viking_ocean_nodate": {
+    "watch_id": "silver-nova-2026",
+    "key": "silver-nova-2026_viking_ocean_nodate",
+    "ship": "Viking Ocean",
+    "cruise_line": "",
+    "departure_date": "",
+    "route": "Viking Ocean sailing",
+    "baseline_price": 1084.0,
+    "prices": [
+      {
+        "ts": "2026-06-09T08:00:10.641665+00:00",
+        "price": 1084.0
+      },
+      {
+        "ts": "2026-06-09T08:00:10.641665+00:00",
+        "price": 553.0
+      },
+      {
+        "ts": "2026-06-09T20:00:10.017916+00:00",
+        "price": 1084.0
+      },
+      {
+        "ts": "2026-06-09T20:00:10.017916+00:00",
+        "price": 553.0
+      },
+      {
+        "ts": "2026-06-10T08:00:10.657758+00:00",
+        "price": 1084.0
+      },
+      {
+        "ts": "2026-06-10T08:00:10.657758+00:00",
+        "price": 553.0
+      },
+      {
+        "ts": "2026-06-10T20:00:09.681476+00:00",
+        "price": 1084.0
+      },
+      {
+        "ts": "2026-06-10T20:00:09.681476+00:00",
+        "price": 543.0
+      }
+    ],
+    "last_signal": null,
+    "last_checked": "2026-06-10T20:00:09.681476+00:00"
+  },
+  "silver-nova-2026_le_havre_nodate": {
+    "watch_id": "silver-nova-2026",
+    "key": "silver-nova-2026_le_havre_nodate",
+    "ship": "Le Havre",
+    "cruise_line": "",
+    "departure_date": "",
+    "route": "Le Havre sailing",
+    "baseline_price": 824.0,
+    "prices": [
+      {
+        "ts": "2026-06-09T08:00:10.641665+00:00",
+        "price": 824.0
+      },
+      {
+        "ts": "2026-06-09T08:00:10.641665+00:00",
+        "price": 677.0
+      },
+      {
+        "ts": "2026-06-09T08:00:10.641665+00:00",
+        "price": 1021.0
+      },
+      {
+        "ts": "2026-06-09T20:00:10.017916+00:00",
+        "price": 824.0
+      },
+      {
+        "ts": "2026-06-09T20:00:10.017916+00:00",
+        "price": 677.0
+      },
+      {
+        "ts": "2026-06-09T20:00:10.017916+00:00",
+        "price": 1021.0
+      },
+      {
+        "ts": "2026-06-10T08:00:10.657758+00:00",
+        "price": 824.0
+      },
+      {
+        "ts": "2026-06-10T08:00:10.657758+00:00",
+        "price": 677.0
+      },
+      {
+        "ts": "2026-06-10T08:00:10.657758+00:00",
+        "price": 1021.0
+      },
+      {
+        "ts": "2026-06-10T20:00:09.681476+00:00",
+        "price": 824.0
+      },
+      {
+        "ts": "2026-06-10T20:00:09.681476+00:00",
+        "price": 677.0
+      },
+      {
+        "ts": "2026-06-10T20:00:09.681476+00:00",
+        "price": 1021.0
+      }
+    ],
+    "last_signal": null,
+    "last_checked": "2026-06-10T20:00:09.681476+00:00"
+  },
+  "grandeur-2026_seven_seas_cruises_nodate": {
+    "watch_id": "grandeur-2026",
+    "key": "grandeur-2026_seven_seas_cruises_nodate",
+    "ship": "Seven Seas Cruises",
+    "cruise_line": "",
+    "departure_date": "",
+    "route": "Seven Seas Cruises sailing",
+    "baseline_price": 863.0,
+    "prices": [
+      {
+        "ts": "2026-06-09T08:00:12.426358+00:00",
+        "price": 863.0
+      },
+      {
+        "ts": "2026-06-09T20:00:11.582187+00:00",
+        "price": 863.0
+      },
+      {
+        "ts": "2026-06-10T08:00:12.432375+00:00",
+        "price": 863.0
+      },
+      {
+        "ts": "2026-06-10T20:00:11.260279+00:00",
+        "price": 863.0
+      }
+    ],
+    "last_signal": null,
+    "last_checked": "2026-06-10T20:00:11.260279+00:00"
+  },
+  "grandeur-2026_seabourn_cruise_nodate": {
+    "watch_id": "grandeur-2026",
+    "key": "grandeur-2026_seabourn_cruise_nodate",
+    "ship": "Seabourn Cruise",
+    "cruise_line": "",
+    "departure_date": "",
+    "route": "Seabourn Cruise sailing",
+    "baseline_price": 979.0,
+    "prices": [
+      {
+        "ts": "2026-06-09T08:00:12.426358+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-09T08:00:12.426358+00:00",
+        "price": 613.0
+      },
+      {
+        "ts": "2026-06-09T20:00:11.582187+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-09T20:00:11.582187+00:00",
+        "price": 622.0
+      },
+      {
+        "ts": "2026-06-10T08:00:12.432375+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-10T08:00:12.432375+00:00",
+        "price": 622.0
+      },
+      {
+        "ts": "2026-06-10T20:00:11.260279+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-10T20:00:11.260279+00:00",
+        "price": 639.0
+      }
+    ],
+    "last_signal": null,
+    "last_checked": "2026-06-10T20:00:11.260279+00:00"
+  },
+  "grandeur-2026_viking_ocean_nodate": {
+    "watch_id": "grandeur-2026",
+    "key": "grandeur-2026_viking_ocean_nodate",
+    "ship": "Viking Ocean",
+    "cruise_line": "",
+    "departure_date": "",
+    "route": "Viking Ocean sailing",
+    "baseline_price": 1084.0,
+    "prices": [
+      {
+        "ts": "2026-06-09T08:00:12.426358+00:00",
+        "price": 1084.0
+      },
+      {
+        "ts": "2026-06-09T08:00:12.426358+00:00",
+        "price": 553.0
+      },
+      {
+        "ts": "2026-06-09T20:00:11.582187+00:00",
+        "price": 1084.0
+      },
+      {
+        "ts": "2026-06-09T20:00:11.582187+00:00",
+        "price": 553.0
+      },
+      {
+        "ts": "2026-06-10T08:00:12.432375+00:00",
+        "price": 1084.0
+      },
+      {
+        "ts": "2026-06-10T08:00:12.432375+00:00",
+        "price": 553.0
+      },
+      {
+        "ts": "2026-06-10T20:00:11.260279+00:00",
+        "price": 1084.0
+      },
+      {
+        "ts": "2026-06-10T20:00:11.260279+00:00",
+        "price": 543.0
+      }
+    ],
+    "last_signal": null,
+    "last_checked": "2026-06-10T20:00:11.260279+00:00"
+  },
+  "grandeur-2026_le_havre_nodate": {
+    "watch_id": "grandeur-2026",
+    "key": "grandeur-2026_le_havre_nodate",
+    "ship": "Le Havre",
+    "cruise_line": "",
+    "departure_date": "",
+    "route": "Le Havre sailing",
+    "baseline_price": 824.0,
+    "prices": [
+      {
+        "ts": "2026-06-09T08:00:12.426358+00:00",
+        "price": 824.0
+      },
+      {
+        "ts": "2026-06-09T08:00:12.426358+00:00",
+        "price": 677.0
+      },
+      {
+        "ts": "2026-06-09T08:00:12.426358+00:00",
+        "price": 1021.0
+      },
+      {
+        "ts": "2026-06-09T20:00:11.582187+00:00",
+        "price": 824.0
+      },
+      {
+        "ts": "2026-06-09T20:00:11.582187+00:00",
+        "price": 677.0
+      },
+      {
+        "ts": "2026-06-09T20:00:11.582187+00:00",
+        "price": 1021.0
+      },
+      {
+        "ts": "2026-06-10T08:00:12.432375+00:00",
+        "price": 824.0
+      },
+      {
+        "ts": "2026-06-10T08:00:12.432375+00:00",
+        "price": 677.0
+      },
+      {
+        "ts": "2026-06-10T08:00:12.432375+00:00",
+        "price": 1021.0
+      },
+      {
+        "ts": "2026-06-10T20:00:11.260279+00:00",
+        "price": 824.0
+      },
+      {
+        "ts": "2026-06-10T20:00:11.260279+00:00",
+        "price": 677.0
+      },
+      {
+        "ts": "2026-06-10T20:00:11.260279+00:00",
+        "price": 1021.0
+      }
+    ],
+    "last_signal": null,
+    "last_checked": "2026-06-10T20:00:11.260279+00:00"
+  },
+  "med-2027-luxury_seven_seas_cruises_nodate": {
+    "watch_id": "med-2027-luxury",
+    "key": "med-2027-luxury_seven_seas_cruises_nodate",
+    "ship": "Seven Seas Cruises",
+    "cruise_line": "",
+    "departure_date": "",
+    "route": "Seven Seas Cruises sailing",
+    "baseline_price": 863.0,
+    "prices": [
+      {
+        "ts": "2026-06-09T08:00:13.657717+00:00",
+        "price": 863.0
+      },
+      {
+        "ts": "2026-06-09T20:00:12.592253+00:00",
+        "price": 863.0
+      },
+      {
+        "ts": "2026-06-10T08:00:13.810908+00:00",
+        "price": 863.0
+      },
+      {
+        "ts": "2026-06-10T20:00:12.301983+00:00",
+        "price": 863.0
+      }
+    ],
+    "last_signal": null,
+    "last_checked": "2026-06-10T20:00:12.301983+00:00"
+  },
+  "med-2027-luxury_seabourn_cruise_nodate": {
+    "watch_id": "med-2027-luxury",
+    "key": "med-2027-luxury_seabourn_cruise_nodate",
+    "ship": "Seabourn Cruise",
+    "cruise_line": "",
+    "departure_date": "",
+    "route": "Seabourn Cruise sailing",
+    "baseline_price": 979.0,
+    "prices": [
+      {
+        "ts": "2026-06-09T08:00:13.657717+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-09T08:00:13.657717+00:00",
+        "price": 613.0
+      },
+      {
+        "ts": "2026-06-09T20:00:12.592253+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-09T20:00:12.592253+00:00",
+        "price": 622.0
+      },
+      {
+        "ts": "2026-06-10T08:00:13.810908+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-10T08:00:13.810908+00:00",
+        "price": 622.0
+      },
+      {
+        "ts": "2026-06-10T20:00:12.301983+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-10T20:00:12.301983+00:00",
+        "price": 639.0
+      }
+    ],
+    "last_signal": null,
+    "last_checked": "2026-06-10T20:00:12.301983+00:00"
+  },
+  "med-2027-luxury_viking_ocean_nodate": {
+    "watch_id": "med-2027-luxury",
+    "key": "med-2027-luxury_viking_ocean_nodate",
+    "ship": "Viking Ocean",
+    "cruise_line": "",
+    "departure_date": "",
+    "route": "Viking Ocean sailing",
+    "baseline_price": 1084.0,
+    "prices": [
+      {
+        "ts": "2026-06-09T08:00:13.657717+00:00",
+        "price": 1084.0
+      },
+      {
+        "ts": "2026-06-09T08:00:13.657717+00:00",
+        "price": 553.0
+      },
+      {
+        "ts": "2026-06-09T20:00:12.592253+00:00",
+        "price": 1084.0
+      },
+      {
+        "ts": "2026-06-09T20:00:12.592253+00:00",
+        "price": 553.0
+      },
+      {
+        "ts": "2026-06-10T08:00:13.810908+00:00",
+        "price": 1084.0
+      },
+      {
+        "ts": "2026-06-10T08:00:13.810908+00:00",
+        "price": 553.0
+      },
+      {
+        "ts": "2026-06-10T20:00:12.301983+00:00",
+        "price": 1084.0
+      },
+      {
+        "ts": "2026-06-10T20:00:12.301983+00:00",
+        "price": 543.0
+      }
+    ],
+    "last_signal": null,
+    "last_checked": "2026-06-10T20:00:12.301983+00:00"
+  },
+  "med-2027-luxury_le_havre_nodate": {
+    "watch_id": "med-2027-luxury",
+    "key": "med-2027-luxury_le_havre_nodate",
+    "ship": "Le Havre",
+    "cruise_line": "",
+    "departure_date": "",
+    "route": "Le Havre sailing",
+    "baseline_price": 824.0,
+    "prices": [
+      {
+        "ts": "2026-06-09T08:00:13.657717+00:00",
+        "price": 824.0
+      },
+      {
+        "ts": "2026-06-09T08:00:13.657717+00:00",
+        "price": 677.0
+      },
+      {
+        "ts": "2026-06-09T08:00:13.657717+00:00",
+        "price": 1021.0
+      },
+      {
+        "ts": "2026-06-09T20:00:12.592253+00:00",
+        "price": 824.0
+      },
+      {
+        "ts": "2026-06-09T20:00:12.592253+00:00",
+        "price": 677.0
+      },
+      {
+        "ts": "2026-06-09T20:00:12.592253+00:00",
+        "price": 1021.0
+      },
+      {
+        "ts": "2026-06-10T08:00:13.810908+00:00",
+        "price": 824.0
+      },
+      {
+        "ts": "2026-06-10T08:00:13.810908+00:00",
+        "price": 677.0
+      },
+      {
+        "ts": "2026-06-10T08:00:13.810908+00:00",
+        "price": 1021.0
+      },
+      {
+        "ts": "2026-06-10T20:00:12.301983+00:00",
+        "price": 824.0
+      },
+      {
+        "ts": "2026-06-10T20:00:12.301983+00:00",
+        "price": 677.0
+      },
+      {
+        "ts": "2026-06-10T20:00:12.301983+00:00",
+        "price": 1021.0
+      }
+    ],
+    "last_signal": null,
+    "last_checked": "2026-06-10T20:00:12.301983+00:00"
+  },
+  "grandeur-dec29-2026_seven_seas_cruises_nodate": {
+    "watch_id": "grandeur-dec29-2026",
+    "key": "grandeur-dec29-2026_seven_seas_cruises_nodate",
+    "ship": "Seven Seas Cruises",
+    "cruise_line": "",
+    "departure_date": "",
+    "route": "Seven Seas Cruises sailing",
+    "baseline_price": 863.0,
+    "prices": [
+      {
+        "ts": "2026-06-09T08:00:15.533091+00:00",
+        "price": 863.0
+      },
+      {
+        "ts": "2026-06-09T20:00:15.159729+00:00",
+        "price": 863.0
+      },
+      {
+        "ts": "2026-06-10T08:00:16.136620+00:00",
+        "price": 863.0
+      },
+      {
+        "ts": "2026-06-10T20:00:14.150893+00:00",
+        "price": 863.0
+      }
+    ],
+    "last_signal": null,
+    "last_checked": "2026-06-10T20:00:14.150893+00:00"
+  },
+  "grandeur-dec29-2026_seabourn_cruise_nodate": {
+    "watch_id": "grandeur-dec29-2026",
+    "key": "grandeur-dec29-2026_seabourn_cruise_nodate",
+    "ship": "Seabourn Cruise",
+    "cruise_line": "",
+    "departure_date": "",
+    "route": "Seabourn Cruise sailing",
+    "baseline_price": 979.0,
+    "prices": [
+      {
+        "ts": "2026-06-09T08:00:15.533091+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-09T08:00:15.533091+00:00",
+        "price": 613.0
+      },
+      {
+        "ts": "2026-06-09T20:00:15.159729+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-09T20:00:15.159729+00:00",
+        "price": 622.0
+      },
+      {
+        "ts": "2026-06-10T08:00:16.136620+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-10T08:00:16.136620+00:00",
+        "price": 622.0
+      },
+      {
+        "ts": "2026-06-10T20:00:14.150893+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-10T20:00:14.150893+00:00",
+        "price": 639.0
+      }
+    ],
+    "last_signal": null,
+    "last_checked": "2026-06-10T20:00:14.150893+00:00"
+  },
+  "grandeur-dec29-2026_viking_ocean_nodate": {
+    "watch_id": "grandeur-dec29-2026",
+    "key": "grandeur-dec29-2026_viking_ocean_nodate",
+    "ship": "Viking Ocean",
+    "cruise_line": "",
+    "departure_date": "",
+    "route": "Viking Ocean sailing",
+    "baseline_price": 1084.0,
+    "prices": [
+      {
+        "ts": "2026-06-09T08:00:15.533091+00:00",
+        "price": 1084.0
+      },
+      {
+        "ts": "2026-06-09T08:00:15.533091+00:00",
+        "price": 553.0
+      },
+      {
+        "ts": "2026-06-09T20:00:15.159729+00:00",
+        "price": 1084.0
+      },
+      {
+        "ts": "2026-06-09T20:00:15.159729+00:00",
+        "price": 553.0
+      },
+      {
+        "ts": "2026-06-10T08:00:16.136620+00:00",
+        "price": 1084.0
+      },
+      {
+        "ts": "2026-06-10T08:00:16.136620+00:00",
+        "price": 553.0
+      },
+      {
+        "ts": "2026-06-10T20:00:14.150893+00:00",
+        "price": 1084.0
+      },
+      {
+        "ts": "2026-06-10T20:00:14.150893+00:00",
+        "price": 543.0
+      }
+    ],
+    "last_signal": null,
+    "last_checked": "2026-06-10T20:00:14.150893+00:00"
+  },
+  "grandeur-dec29-2026_le_havre_nodate": {
+    "watch_id": "grandeur-dec29-2026",
+    "key": "grandeur-dec29-2026_le_havre_nodate",
+    "ship": "Le Havre",
+    "cruise_line": "",
+    "departure_date": "",
+    "route": "Le Havre sailing",
+    "baseline_price": 824.0,
+    "prices": [
+      {
+        "ts": "2026-06-09T08:00:15.533091+00:00",
+        "price": 824.0
+      },
+      {
+        "ts": "2026-06-09T08:00:15.533091+00:00",
+        "price": 677.0
+      },
+      {
+        "ts": "2026-06-09T08:00:15.533091+00:00",
+        "price": 1021.0
+      },
+      {
+        "ts": "2026-06-09T20:00:15.159729+00:00",
+        "price": 824.0
+      },
+      {
+        "ts": "2026-06-09T20:00:15.159729+00:00",
+        "price": 677.0
+      },
+      {
+        "ts": "2026-06-09T20:00:15.159729+00:00",
+        "price": 1021.0
+      },
+      {
+        "ts": "2026-06-10T08:00:16.136620+00:00",
+        "price": 824.0
+      },
+      {
+        "ts": "2026-06-10T08:00:16.136620+00:00",
+        "price": 677.0
+      },
+      {
+        "ts": "2026-06-10T08:00:16.136620+00:00",
+        "price": 1021.0
+      },
+      {
+        "ts": "2026-06-10T20:00:14.150893+00:00",
+        "price": 824.0
+      },
+      {
+        "ts": "2026-06-10T20:00:14.150893+00:00",
+        "price": 677.0
+      },
+      {
+        "ts": "2026-06-10T20:00:14.150893+00:00",
+        "price": 1021.0
+      }
+    ],
+    "last_signal": null,
+    "last_checked": "2026-06-10T20:00:14.150893+00:00"
+  },
+  "silver-nova-may2027-voyage1_seven_seas_cruises_nodate": {
+    "watch_id": "silver-nova-may2027-voyage1",
+    "key": "silver-nova-may2027-voyage1_seven_seas_cruises_nodate",
+    "ship": "Seven Seas Cruises",
+    "cruise_line": "",
+    "departure_date": "",
+    "route": "Seven Seas Cruises sailing",
+    "baseline_price": 863.0,
+    "prices": [
+      {
+        "ts": "2026-06-09T08:00:17.981323+00:00",
+        "price": 863.0
+      },
+      {
+        "ts": "2026-06-09T20:00:18.305115+00:00",
+        "price": 863.0
+      },
+      {
+        "ts": "2026-06-10T08:00:18.838386+00:00",
+        "price": 863.0
+      },
+      {
+        "ts": "2026-06-10T20:00:15.736863+00:00",
+        "price": 863.0
+      }
+    ],
+    "last_signal": null,
+    "last_checked": "2026-06-10T20:00:15.736863+00:00"
+  },
+  "silver-nova-may2027-voyage1_seabourn_cruise_nodate": {
+    "watch_id": "silver-nova-may2027-voyage1",
+    "key": "silver-nova-may2027-voyage1_seabourn_cruise_nodate",
+    "ship": "Seabourn Cruise",
+    "cruise_line": "",
+    "departure_date": "",
+    "route": "Seabourn Cruise sailing",
+    "baseline_price": 979.0,
+    "prices": [
+      {
+        "ts": "2026-06-09T08:00:17.981323+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-09T08:00:17.981323+00:00",
+        "price": 613.0
+      },
+      {
+        "ts": "2026-06-09T20:00:18.305115+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-09T20:00:18.305115+00:00",
+        "price": 622.0
+      },
+      {
+        "ts": "2026-06-10T08:00:18.838386+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-10T08:00:18.838386+00:00",
+        "price": 622.0
+      },
+      {
+        "ts": "2026-06-10T20:00:15.736863+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-10T20:00:15.736863+00:00",
+        "price": 639.0
+      }
+    ],
+    "last_signal": null,
+    "last_checked": "2026-06-10T20:00:15.736863+00:00"
+  },
+  "silver-nova-may2027-voyage1_viking_ocean_nodate": {
+    "watch_id": "silver-nova-may2027-voyage1",
+    "key": "silver-nova-may2027-voyage1_viking_ocean_nodate",
+    "ship": "Viking Ocean",
+    "cruise_line": "",
+    "departure_date": "",
+    "route": "Viking Ocean sailing",
+    "baseline_price": 1084.0,
+    "prices": [
+      {
+        "ts": "2026-06-09T08:00:17.981323+00:00",
+        "price": 1084.0
+      },
+      {
+        "ts": "2026-06-09T08:00:17.981323+00:00",
+        "price": 553.0
+      },
+      {
+        "ts": "2026-06-09T20:00:18.305115+00:00",
+        "price": 1084.0
+      },
+      {
+        "ts": "2026-06-09T20:00:18.305115+00:00",
+        "price": 553.0
+      },
+      {
+        "ts": "2026-06-10T08:00:18.838386+00:00",
+        "price": 1084.0
+      },
+      {
+        "ts": "2026-06-10T08:00:18.838386+00:00",
+        "price": 553.0
+      },
+      {
+        "ts": "2026-06-10T20:00:15.736863+00:00",
+        "price": 1084.0
+      },
+      {
+        "ts": "2026-06-10T20:00:15.736863+00:00",
+        "price": 543.0
+      }
+    ],
+    "last_signal": null,
+    "last_checked": "2026-06-10T20:00:15.736863+00:00"
+  },
+  "silver-nova-may2027-voyage1_le_havre_nodate": {
+    "watch_id": "silver-nova-may2027-voyage1",
+    "key": "silver-nova-may2027-voyage1_le_havre_nodate",
+    "ship": "Le Havre",
+    "cruise_line": "",
+    "departure_date": "",
+    "route": "Le Havre sailing",
+    "baseline_price": 824.0,
+    "prices": [
+      {
+        "ts": "2026-06-09T08:00:17.981323+00:00",
+        "price": 824.0
+      },
+      {
+        "ts": "2026-06-09T08:00:17.981323+00:00",
+        "price": 677.0
+      },
+      {
+        "ts": "2026-06-09T08:00:17.981323+00:00",
+        "price": 1021.0
+      },
+      {
+        "ts": "2026-06-09T20:00:18.305115+00:00",
+        "price": 824.0
+      },
+      {
+        "ts": "2026-06-09T20:00:18.305115+00:00",
+        "price": 677.0
+      },
+      {
+        "ts": "2026-06-09T20:00:18.305115+00:00",
+        "price": 1021.0
+      },
+      {
+        "ts": "2026-06-10T08:00:18.838386+00:00",
+        "price": 824.0
+      },
+      {
+        "ts": "2026-06-10T08:00:18.838386+00:00",
+        "price": 677.0
+      },
+      {
+        "ts": "2026-06-10T08:00:18.838386+00:00",
+        "price": 1021.0
+      },
+      {
+        "ts": "2026-06-10T20:00:15.736863+00:00",
+        "price": 824.0
+      },
+      {
+        "ts": "2026-06-10T20:00:15.736863+00:00",
+        "price": 677.0
+      },
+      {
+        "ts": "2026-06-10T20:00:15.736863+00:00",
+        "price": 1021.0
+      }
+    ],
+    "last_signal": null,
+    "last_checked": "2026-06-10T20:00:15.736863+00:00"
+  },
+  "silver-nova-may2027-window_seven_seas_cruises_nodate": {
+    "watch_id": "silver-nova-may2027-window",
+    "key": "silver-nova-may2027-window_seven_seas_cruises_nodate",
+    "ship": "Seven Seas Cruises",
+    "cruise_line": "",
+    "departure_date": "",
+    "route": "Seven Seas Cruises sailing",
+    "baseline_price": 863.0,
+    "prices": [
+      {
+        "ts": "2026-06-09T08:00:19.935901+00:00",
+        "price": 863.0
+      },
+      {
+        "ts": "2026-06-09T20:00:19.877341+00:00",
+        "price": 863.0
+      },
+      {
+        "ts": "2026-06-10T08:00:20.710986+00:00",
+        "price": 863.0
+      },
+      {
+        "ts": "2026-06-10T20:00:17.324662+00:00",
+        "price": 863.0
+      }
+    ],
+    "last_signal": null,
+    "last_checked": "2026-06-10T20:00:17.324662+00:00"
+  },
+  "silver-nova-may2027-window_seabourn_cruise_nodate": {
+    "watch_id": "silver-nova-may2027-window",
+    "key": "silver-nova-may2027-window_seabourn_cruise_nodate",
+    "ship": "Seabourn Cruise",
+    "cruise_line": "",
+    "departure_date": "",
+    "route": "Seabourn Cruise sailing",
+    "baseline_price": 979.0,
+    "prices": [
+      {
+        "ts": "2026-06-09T08:00:19.935901+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-09T08:00:19.935901+00:00",
+        "price": 613.0
+      },
+      {
+        "ts": "2026-06-09T20:00:19.877341+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-09T20:00:19.877341+00:00",
+        "price": 622.0
+      },
+      {
+        "ts": "2026-06-10T08:00:20.710986+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-10T08:00:20.710986+00:00",
+        "price": 622.0
+      },
+      {
+        "ts": "2026-06-10T20:00:17.324662+00:00",
+        "price": 979.0
+      },
+      {
+        "ts": "2026-06-10T20:00:17.324662+00:00",
+        "price": 639.0
+      }
+    ],
+    "last_signal": null,
+    "last_checked": "2026-06-10T20:00:17.324662+00:00"
+  },
+  "silver-nova-may2027-window_viking_ocean_nodate": {
+    "watch_id": "silver-nova-may2027-window",
+    "key": "silver-nova-may2027-window_viking_ocean_nodate",
+    "ship": "Viking Ocean",
+    "cruise_line": "",
+    "departure_date": "",
+    "route": "Viking Ocean sailing",
+    "baseline_price": 1084.0,
+    "prices": [
+      {
+        "ts": "2026-06-09T08:00:19.935901+00:00",
+        "price": 1084.0
+      },
+      {
+        "ts": "2026-06-09T08:00:19.935901+00:00",
+        "price": 553.0
+      },
+      {
+        "ts": "2026-06-09T20:00:19.877341+00:00",
+        "price": 1084.0
+      },
+      {
+        "ts": "2026-06-09T20:00:19.877341+00:00",
+        "price": 553.0
+      },
+      {
+        "ts": "2026-06-10T08:00:20.710986+00:00",
+        "price": 1084.0
+      },
+      {
+        "ts": "2026-06-10T08:00:20.710986+00:00",
+        "price": 553.0
+      },
+      {
+        "ts": "2026-06-10T20:00:17.324662+00:00",
+        "price": 1084.0
+      },
+      {
+        "ts": "2026-06-10T20:00:17.324662+00:00",
+        "price": 543.0
+      }
+    ],
+    "last_signal": null,
+    "last_checked": "2026-06-10T20:00:17.324662+00:00"
+  },
+  "silver-nova-may2027-window_le_havre_nodate": {
+    "watch_id": "silver-nova-may2027-window",
+    "key": "silver-nova-may2027-window_le_havre_nodate",
+    "ship": "Le Havre",
+    "cruise_line": "",
+    "departure_date": "",
+    "route": "Le Havre sailing",
+    "baseline_price": 824.0,
+    "prices": [
+      {
+        "ts": "2026-06-09T08:00:19.935901+00:00",
+        "price": 824.0
+      },
+      {
+        "ts": "2026-06-09T08:00:19.935901+00:00",
+        "price": 677.0
+      },
+      {
+        "ts": "2026-06-09T08:00:19.935901+00:00",
+        "price": 1021.0
+      },
+      {
+        "ts": "2026-06-09T20:00:19.877341+00:00",
+        "price": 824.0
+      },
+      {
+        "ts": "2026-06-09T20:00:19.877341+00:00",
+        "price": 677.0
+      },
+      {
+        "ts": "2026-06-09T20:00:19.877341+00:00",
+        "price": 1021.0
+      },
+      {
+        "ts": "2026-06-10T08:00:20.710986+00:00",
+        "price": 824.0
+      },
+      {
+        "ts": "2026-06-10T08:00:20.710986+00:00",
+        "price": 677.0
+      },
+      {
+        "ts": "2026-06-10T08:00:20.710986+00:00",
+        "price": 1021.0
+      },
+      {
+        "ts": "2026-06-10T20:00:17.324662+00:00",
+        "price": 824.0
+      },
+      {
+        "ts": "2026-06-10T20:00:17.324662+00:00",
+        "price": 677.0
+      },
+      {
+        "ts": "2026-06-10T20:00:17.324662+00:00",
+        "price": 1021.0
+      }
+    ],
+    "last_signal": null,
+    "last_checked": "2026-06-10T20:00:17.324662+00:00"
+  }
+}

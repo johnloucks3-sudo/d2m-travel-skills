@@ -474,7 +474,7 @@ class TestEscalationDeduplication:
 
     def test_second_mission_board_escalation_within_window_is_deduped(self):
         """Second call within 30 min must be rejected by in-process dedup."""
-        svc = "d2m-tunnel"
+        svc = "thunderbird-tunnel"
         failure = self._make_failure(svc=svc)
 
         # Manually set in-process dedup state as if first escalation just happened

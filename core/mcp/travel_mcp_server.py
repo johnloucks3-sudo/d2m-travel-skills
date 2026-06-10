@@ -43,6 +43,7 @@ from thunderbird_evernote import register_evernote_tools
 from thunderbird_whatsapp import register_whatsapp_tools
 from thunderbird_quote_render import register_quote_tools
 from thunderbird_dani_email import register_dani_email_tools
+from hale_inbox_tools import register_hale_inbox_tools
 from thunderbird_dining import register_dining_tools
 from thunderbird_anchor_dates import register_anchor_date_tools
 from thunderbird_dossier import register_dossier_tools
@@ -55,6 +56,16 @@ from thunderbird_competitive_surveillance import register_surveillance_tools
 from thunderbird_price_monitor import register_price_monitor_tools
 from thunderbird_email_intel import register_email_intel_tools
 from thunderbird_gmail import register_gmail_tools
+from thunderbird_drive import register_drive_tools
+from thunderbird_keep import register_keep_tools
+from thunderbird_calendar_sync import register_calendar_tools
+from thunderbird_sheets_mcp import register_sheets_mcp_tools
+from thunderbird_docs_mcp import register_docs_mcp_tools
+from thunderbird_contacts_mcp import register_contacts_mcp_tools
+from thunderbird_forms_mcp import register_forms_mcp_tools
+from thunderbird_maps_mcp import register_maps_mcp_tools
+from thunderbird_photos_mcp import register_photos_mcp_tools
+from thunderbird_telegram_mcp import register_telegram_mcp_tools
 from thunderbird_tess import register_tess_tools
 from thunderbird_shared_memory import register_memory_tools
 from thunderbird_crewai import register_crewai_tools
@@ -497,18 +508,23 @@ _CORE_LOADERS = [
     register_dossier_tools, register_tasks_tools, register_memory_tools,
     register_sss_tools, register_persona_tools, register_learning_tools,
     register_commander_inbox_tools, register_checkpoint_tools, register_router_tools,
-    register_dani_email_tools, register_quote_tools, register_dani_voice_tools,
+    register_dani_email_tools, register_hale_inbox_tools, register_quote_tools, register_dani_voice_tools,
     register_voice_ledger_tools, register_health_tools, register_info_delta_tools,
     register_temporal_tools, register_conversation_learner_tools,
     register_recipient_profile_tools, register_email_classifier_tools,
     register_dossier_scanner_tools, register_bulletin_tools, register_anchor_date_tools,
     register_briefing_tools, register_gmail_tools,
+    register_drive_tools, register_keep_tools, register_calendar_tools,
+    register_sheets_mcp_tools, register_docs_mcp_tools, register_contacts_mcp_tools,
+    register_forms_mcp_tools, register_maps_mcp_tools, register_photos_mcp_tools,
+    register_telegram_mcp_tools,
+    register_email_intel_tools,
 ]
 
 # ── INTEL additions ───────────────────────────────────────────────────────────
 _INTEL_LOADERS = [
     register_x_osint_tools, register_academic_scanner_tools, register_surveillance_tools,
-    register_price_monitor_tools, register_email_intel_tools, register_airline_monitor_tools,
+    register_price_monitor_tools, register_airline_monitor_tools,
     register_intel_crew_tools, register_innovation_tools, register_a2a_tools,
     register_crewai_tools,
 ]

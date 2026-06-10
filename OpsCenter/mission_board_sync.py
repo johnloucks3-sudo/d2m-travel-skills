@@ -12,7 +12,7 @@ Commands:
   EXEC: list board          → Show all active missions
   EXEC: list suspended      → Show suspense queue
   EXEC: list complete       → Show completed missions
-  EXEC: add <title> <desc>  → Create new mission (auto-P0)
+  EXEC: add <title> <desc>  → Create new mission (Hale assigns — no NEXUS)
   EXEC: add suspense <id> <date>  → Set suspense_date
   EXEC: complete <id>       → Mark mission done
   EXEC: status <id>         → Show mission details
@@ -134,7 +134,7 @@ def cmd_list_complete(board):
 
 
 def cmd_add(board, args):
-    """EXEC: add <title> [--priority P0|P1|P2|P3] [--to <assignee>] <description>"""
+    """EXEC: add <title> <description>"""
     # Parse simple format: EXEC: add MISSION-XXX title here
     title = " ".join(args[:3])
     desc = " ".join(args[3:]) if len(args) > 3 else "No description"
@@ -157,7 +157,7 @@ def cmd_add(board, args):
         "title": title,
         "status": "in_progress",
         "priority": "P0",
-        "assigned_to": "NEXUS (auto)",
+        "assigned_to": "unassigned",
         "description": desc,
         "deliverables": [],
         "dependencies": [],
@@ -172,7 +172,7 @@ def cmd_add(board, args):
         board["missions"].append(new_mission)
     else:
         board.setdefault("missions", []).append(new_mission)
-    return f"✅ Created: {mission_id} — {title}\nPriority: P0 | Assigned: NEXUS (auto)"
+    return f"✅ Created: {mission_id} — {title}\nPriority: P0 | Assigned: unassigned"
 
 
 def cmd_suspense(board, mission_id, date_str):

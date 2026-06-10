@@ -1,44 +1,11 @@
 {
-  "total_invocations": 56,
-  "failures": [
-    {
-      "timestamp": "2026-05-15T21:00:37",
-      "log_path": "/home/john/Thunderbird/logs/claude_invoke_20260515_210037.log",
-      "model": "sonnet",
-      "issues": [
-        "credit_error"
-      ]
-    },
-    {
-      "timestamp": "2026-05-16T16:12:41",
-      "log_path": "/home/john/Thunderbird/logs/claude_invoke_20260516_161241.log",
-      "model": "sonnet",
-      "issues": [
-        "empty_response"
-      ]
-    },
-    {
-      "timestamp": "2026-05-17T11:02:15",
-      "log_path": "/home/john/Thunderbird/logs/claude_invoke_20260517_110215.log",
-      "model": "opus",
-      "issues": [
-        "auth_error"
-      ]
-    },
-    {
-      "timestamp": "2026-05-18T09:55:25",
-      "log_path": "/home/john/Thunderbird/logs/claude_invoke_20260518_095525.log",
-      "model": "opus",
-      "issues": [
-        "execution_error"
-      ]
-    }
-  ],
-  "auth_errors": 1,
-  "credit_errors": 1,
+  "total_invocations": 0,
+  "failures": [],
+  "auth_errors": 0,
+  "credit_errors": 0,
   "timeouts": 0,
   "logic_errors": 0,
   "last_30_min": [],
-  "checkpoint_passes": 3683,
-  "stale_tasks_detected": 5
+  "checkpoint_passes": 585,
+  "stale_tasks_detected": 0
 }

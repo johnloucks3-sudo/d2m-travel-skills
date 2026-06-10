@@ -83,13 +83,18 @@ def update():
     else:
         state["wing_health"]["mcp_server"] = f"ERROR: {health.get('error', '?')}"
 
-    # ── Open tasks ──
-    tasks_result = _mcp("list_tasks")
-    if tasks_result.get("ok"):
-        raw = tasks_result["text"].strip()
-        state["open_tasks"] = [{"raw": raw[:500]}] if raw and raw != "[]" else []
-    else:
-        state["open_tasks"] = [{"error": tasks_result.get("error")}]
+    # ── Open tasks — read from mission board (Google Tasks scope not authorized) ──
+    try:
+        board = json.loads((_ROOT / "OpsCenter" / "mission_board.json").read_text())
+        active = [
+            {"id": m["id"], "title": m.get("title", "")[:80],
+             "priority": m.get("priority", "?"), "status": m.get("status", "?")}
+            for m in board.get("missions", [])
+            if m.get("status") not in {"completed", "complete", "done", "archived", "cancelled", "suspended"}
+        ]
+        state["open_tasks"] = active
+    except Exception as e:
+        state["open_tasks"] = [{"error": f"mission_board read failed: {e}"}]
 
     # ── Client dossiers ──
     dossier_result = _mcp("scan_dossiers")

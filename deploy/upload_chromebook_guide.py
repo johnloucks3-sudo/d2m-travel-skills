@@ -177,8 +177,8 @@ TROUBLESHOOTING
 ═══════════════════════════════════════════════════════
 
 TUNNEL WON'T CONNECT:
-    ssh ssh.d2mluxury.quest "systemctl --user status d2m-tunnel"
-    ssh ssh.d2mluxury.quest "systemctl --user restart d2m-tunnel"
+    ssh ssh.d2mluxury.quest "systemctl --user status thunderbird-tunnel"
+    ssh ssh.d2mluxury.quest "systemctl --user restart thunderbird-tunnel"
 
 MCP SERVER WON'T START LOCALLY:
     cd ~/Thunderbird && source venv/bin/activate
@@ -195,10 +195,10 @@ DV7 REMOTE MANAGEMENT (From Anywhere)
 ═══════════════════════════════════════════════════════
 
 Check all services:
-    ssh ssh.d2mluxury.quest "systemctl --user status d2m-mcp d2m-api d2m-tunnel"
+    ssh ssh.d2mluxury.quest "systemctl --user status d2m-mcp d2m-api thunderbird-tunnel"
 
 Restart everything:
-    ssh ssh.d2mluxury.quest "systemctl --user restart d2m-mcp d2m-api d2m-tunnel"
+    ssh ssh.d2mluxury.quest "systemctl --user restart d2m-mcp d2m-api thunderbird-tunnel"
 
 View health check log:
     ssh ssh.d2mluxury.quest "tail -20 ~/Thunderbird/logs/health_check.log"

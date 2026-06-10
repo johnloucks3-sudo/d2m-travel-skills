@@ -1,0 +1,39 @@
+[Unit]
+Description=Thunderbird Cruise Fare Watch Scanner — Norway/Scandinavia 2027
+Documentation=file:///home/john/Thunderbird/docs/CRUISE_FARE_WATCH_SETUP.md
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=john
+WorkingDirectory=/home/john/Thunderbird
+Environment="PATH=/home/john/.local/bin:/usr/local/bin:/usr/bin:/bin"
+Environment="PYTHONUNBUFFERED=1"
+Environment="TB_LOG_LEVEL=INFO"
+
+# Load .env for TELEGRAM_D2MC2C_TOKEN
+EnvironmentFile=%h/.env
+EnvironmentFile=%h/Thunderbird/.env
+
+# Main script with Chrome CDP connection
+ExecStart=/usr/bin/python3 /home/john/Thunderbird/scripts/fare_watch_cruise_scanner.py
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=cruise-scan
+
+# Security / isolation
+PrivateTmp=yes
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/home/john/Thunderbird/data /home/john/Thunderbird/logs
+
+# Restart policy
+Restart=on-failure
+RestartSec=300
+
+[Install]
+WantedBy=default.target

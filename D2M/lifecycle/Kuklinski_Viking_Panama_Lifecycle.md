@@ -196,6 +196,7 @@ gantt
 
 | # | TP | Name | Search Window | Send Date | Status | Owner | Notes |
 |---|-----|------|---------------|-----------|--------|-------|-------|
+| AR | **AR-3.0** | **Embarkation Gift — ORDER** | — | **Nov 17** (E-30) | ⏳ PENDING | Commander | Order/arrange in-suite amenity or gift by E-30. Nag queue fires daily until cleared. |
 | 10 | **3.1** | Pre-Voyage Brief | Aug 25 - Nov 19 | **Nov 26** | ⏳ PENDING | A2 Dembe / Luna | Destination deep-dive, packing, logistics |
 | 11 | **3.2** | Final Confirmation | Dec 1 - Dec 8 (compile) | **Dec 10** | ⏳ PENDING | Hale | All bookings, flights, hotels, transfers consolidated |
 | 12 | **3.3** | Send-Off | -- | **Dec 14** | ⏳ PENDING | Dani | Bon voyage — 3 days before embarkation |

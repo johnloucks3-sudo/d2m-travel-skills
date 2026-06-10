@@ -1,0 +1,68 @@
+[
+  {
+    "id": "A2-2026-06-09-001",
+    "title": "Python learning resources",
+    "source_signal": "Welcome to Python.org",
+    "classification": "REJECT",
+    "gap_closed": "N/A",
+    "thunderbird_component": "N/A",
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "General Python education not relevant to Thunderbird's AI/CRM architecture."
+  },
+  {
+    "id": "A2-2026-06-09-002",
+    "title": "Python certification programs",
+    "source_signal": "PY4E - Python for Everybody",
+    "classification": "REJECT",
+    "gap_closed": "N/A",
+    "thunderbird_component": "N/A",
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "Training pathways don't address known D2M capability gaps."
+  },
+  {
+    "id": "A2-2026-06-09-003",
+    "title": "Codecademy Python courses",
+    "source_signal": "Best Python Courses + Tutorials | Codecademy",
+    "classification": "REJECT",
+    "gap_closed": "N/A",
+    "thunderbird_component": "N/A",
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "Commercial upskilling content unrelated to our behavioral inference systems."
+  },
+  {
+    "id": "A2-2026-06-09-004",
+    "title": "Python package repository",
+    "source_signal": "PyPI \u00b7 The Python Package Index",
+    "classification": "WATCH",
+    "gap_closed": "Potential future library dependencies",
+    "thunderbird_component": "AI model training pipeline",
+    "risk": "MED",
+    "sss_required": false,
+    "rationale": "Package ecosystem monitoring for future NLP/ML dependencies, but no immediate integration need."
+  },
+  {
+    "id": "A2-2026-06-09-005",
+    "title": "Online Python IDE",
+    "source_signal": "Online Python - IDE, Editor, Compiler, Interpreter",
+    "classification": "REJECT",
+    "gap_closed": "N/A",
+    "thunderbird_component": "N/A",
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "Development tools don't align with Thunderbird's production environment needs."
+  },
+  {
+    "id": "A2-2026-06-09-006",
+    "title": "W3Schools Python reference",
+    "source_signal": "Python Tutorial - W3Schools",
+    "classification": "REJECT",
+    "gap_closed": "N/A",
+    "thunderbird_component": "N/A",
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "Basic syntax documentation irrelevant to our AI-driven travel personalization stack."
+  }
+]

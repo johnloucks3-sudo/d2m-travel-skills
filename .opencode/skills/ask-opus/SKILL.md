@@ -12,8 +12,12 @@ anything where Sonnet quality isn't enough.
 ## How to invoke
 
 ```bash
-ask --opus 'task description here'
+ask-opus 'task description here'
 ```
+
+**NOTE:** `/ask-opus` is the canonical name (one hyphen, no double-dash).
+The old `ask --opus` flag format is deprecated but still works for backward compatibility.
+The command is symlinked to `OpsCenter/ask_wrapper.sh` in `~/.local/bin/`.
 
 ## When to use /ask-opus vs /ask
 
@@ -28,7 +32,7 @@ ask --opus 'task description here'
 ## Example
 
 ```bash
-ask --opus 'Analyze all three Viking Mars options for the Kuklinski group — stateroom categories, dining packages, excursion pre-purchase timing. Recommend the optimal package with full rationale.'
+ask-opus 'Analyze all three Viking Mars options for the Kuklinski group — stateroom categories, dining packages, excursion pre-purchase timing. Recommend the optimal package with full rationale.'
 ```
 
 ## Output location

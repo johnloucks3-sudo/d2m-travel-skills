@@ -70,13 +70,13 @@ TIER2_SERVICES: dict[str, str] = {
     "d2m-booking-monitor":    "Booking status change detection",
     "thunderbird-fare-watch": "Fare price monitoring",
     "d2m-mcp":                "MCP server (port 8765)",
-    "d2m-tunnel":             "Cloudflared external tunnel",
+    "thunderbird-tunnel":     "Cloudflared external tunnel",
 }
 
 # Port map for "port not responding" diagnostics
 SERVICE_PORTS: dict[str, int] = {
-    "d2m-mcp":    8765,
-    "d2m-tunnel": 8900,
+    "d2m-mcp":           8765,
+    "thunderbird-tunnel": 8900,  # Port mapping may be obsolete for cloudflared tunnel run
 }
 
 # ─── Logging setup ────────────────────────────────────────────────────────────

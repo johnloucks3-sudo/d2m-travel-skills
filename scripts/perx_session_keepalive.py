@@ -1,21 +1,31 @@
 #!/usr/bin/env python3
 """
-Perx Session Keepalive — Cookie Refresh for TA Rate Platform
-=============================================================
-Perx provides agent-rate pricing for Silversea. Cookies have a hardcoded
-expiry of 2026-05-25 and need manual re-export. This script automates the
-login flow via Playwright Chromium.
+Perx Session Keepalive — Cookie Refresh for Interline Rate Platform
+====================================================================
+Perx provides interline (employee/industry) fares. Heavy discounts = TA rate signal.
+
+Flow:
+  1. HTTP fast-check: are existing cookies still valid on an authenticated endpoint?
+  2. If valid → touch/save cookies and exit (no browser needed).
+  3. If expired → Playwright CLEAN context (no stale cookies) → login form → save new cookies.
+
+CRITICAL: Stale cookies must NOT be loaded into the Playwright context before navigating
+to the login page — Perx redirects sessions-with-stale-cookies to a marketing page
+instead of the login form. Clean context → login form appears.
 
 Usage:
     python3 scripts/perx_session_keepalive.py
 
-Exit codes: 0 = OK, 1 = failed
-
-Dreams2Memories Travel, LLC — Thunderbird Wing — Hale COS 2026-06-04
+Dreams2Memories Travel, LLC — Thunderbird Wing — Hale/Intel 2026-06-08
 """
-import asyncio, json, logging, sys
+import asyncio
+import json
+import logging
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
+
+import requests
 from playwright.async_api import async_playwright
 
 THUNDERBIRD = Path(__file__).resolve().parent.parent
@@ -37,80 +47,145 @@ EMAIL = "yodainva@gmail.com"
 PASSWORD = "Falcons4me!"
 COOKIE_FILE = CREDS_DIR / "perx_cookies.json"
 
-async def main():
+HEADERS = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/124.0.0.0"}
+
+
+def _load_existing_cookies() -> list:
+    if not COOKIE_FILE.exists():
+        return []
+    try:
+        raw = json.loads(COOKIE_FILE.read_text(encoding="utf-8"))
+        return raw if isinstance(raw, list) else raw.get("cookies", [])
+    except Exception:
+        return []
+
+
+def _check_session_http(cookies: list) -> bool:
+    """Return True if existing cookies are valid on an authenticated endpoint."""
+    jar = {c["name"]: c["value"] for c in cookies if "perx" in c.get("domain", "")}
+    if not jar.get("sessionid"):
+        return False
+    try:
+        # /account/ redirects to /login/ when session is expired
+        resp = requests.get(
+            "https://www.perx.com/account/",
+            cookies=jar,
+            headers=HEADERS,
+            allow_redirects=False,
+            timeout=15,
+        )
+        # 200 = authenticated page loaded; 302 to /login/ = expired
+        return resp.status_code == 200
+    except Exception as exc:
+        log.warning("HTTP session check failed: %s", exc)
+        return False
+
+
+def _save_cookies(cookies: list):
+    # Save as raw list — consistent across all Thunderbird consumers
+    COOKIE_FILE.write_text(json.dumps(cookies, indent=2, ensure_ascii=False), encoding="utf-8")
+    perx_only = [c for c in cookies if "perx" in c.get("domain", "")]
+    log.info("Saved %d Perx cookies to %s", len(perx_only), COOKIE_FILE.name)
+    expiry = None
+    for c in perx_only:
+        exp = c.get("expires") or c.get("expiry")
+        if exp and exp > 0:
+            dt = datetime.fromtimestamp(exp, tz=timezone.utc)
+            if expiry is None or dt < expiry:
+                expiry = dt
+    if expiry:
+        log.info("Earliest cookie expiry: %s", expiry.strftime("%Y-%m-%d %H:%M UTC"))
+
+
+async def _login_playwright() -> list:
+    """
+    Log in to Perx via a CLEAN Playwright context (no stale cookies).
+    Returns the new cookies on success, [] on failure.
+    """
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
+        # DO NOT add existing cookies — stale cookies redirect to marketing page
         context = await browser.new_context(
-            viewport={"width": 1920, "height": 1080}
+            viewport={"width": 1920, "height": 1080},
+            user_agent=HEADERS["User-Agent"],
         )
         page = await context.new_page()
-
         try:
-            log.info("Navigating to perx.com...")
-            await page.goto("https://www.perx.com", wait_until="networkidle", timeout=60000)
+            log.info("Navigating to Perx login form...")
+            await page.goto("https://www.perx.com/account/login/", wait_until="networkidle", timeout=60000)
+            await page.wait_for_timeout(2000)
+
+            inputs = await page.evaluate(
+                "() => Array.from(document.querySelectorAll('input')).map(i => i.name)"
+            )
+            log.info("Inputs on page: %s", inputs)
+
+            if "username" not in inputs:
+                body = await page.evaluate("() => document.body.innerText")
+                log.error("Login form not found. URL=%s body=%s", page.url, body[:300])
+                return []
+
+            log.info("Dismissing cookie banner and opening login modal...")
+            # Dismiss cookie consent if present
+            try:
+                await page.click('#onetrust-accept-btn-handler', timeout=5000)
+                await page.wait_for_timeout(1000)
+            except Exception:
+                pass
+
+            # Click "Log In" button to open the #login-modal
+            await page.click('a[data-target="#login-modal"]', timeout=10000)
+            await page.wait_for_timeout(1500)
+
+            log.info("Filling login form in modal...")
+            # Modal form fields are now visible
+            await page.locator('#login-modal input[name="username"]').fill(EMAIL)
+            await page.locator('#login-modal input[name="password"]').fill(PASSWORD)
+            await page.locator('#login-modal button[type="submit"]').click()
+            await page.wait_for_load_state("networkidle", timeout=30000)
             await page.wait_for_timeout(3000)
 
-            body = await page.evaluate("() => document.body.innerText")
+            post_url = page.url
+            if "login" in post_url:
+                body = await page.evaluate("() => document.body.innerText")
+                if "invalid" in body.lower() or "incorrect" in body.lower():
+                    log.error("Login rejected — credentials may be wrong")
+                    return []
 
-            if "Sign Out" in body or "Logout" in body or "My Account" in body:
-                log.info("Already logged in")
-            else:
-                log.info("Attempting login...")
-                await page.goto(
-                    "https://www.perx.com/account/login",
-                    wait_until="networkidle", timeout=30000
-                )
-                await page.wait_for_timeout(2000)
-
-                try:
-                    await page.fill('input[type="email"], input[name="email"], input[name="login"]', EMAIL)
-                    await page.fill('input[type="password"]', PASSWORD)
-                    await page.click('button[type="submit"], input[type="submit"], .login-button')
-                    await page.wait_for_load_state("networkidle", timeout=30000)
-                    await page.wait_for_timeout(3000)
-                except Exception as e:
-                    log.warning(f"Standard login failed, trying alternate selector: {e}")
-                    try:
-                        await page.fill('input[id*="email"], input[id*="Email"]', EMAIL)
-                        await page.fill('input[id*="password"], input[id*="Password"]', PASSWORD)
-                        await page.get_by_role("button").filter(has_text="Sign").click()
-                        await page.wait_for_load_state("networkidle", timeout=30000)
-                        await page.wait_for_timeout(3000)
-                    except Exception as e2:
-                        log.error(f"All login attempts failed: {e2}")
-                        body = await page.evaluate("() => document.body.innerText")
-                        log.info(f"Page body: {body[:500]}")
-                        return 1
-
+            log.info("Login successful, URL now: %s", post_url)
             cookies = await context.cookies()
-            perx_cookies = [c for c in cookies if "perx" in c.get("domain", "")]
-            metadata = {
-                "_account": EMAIL,
-                "_password": PASSWORD,
-                "_expires": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
-                "cookies": perx_cookies,
-            }
-            COOKIE_FILE.write_text(json.dumps(metadata, indent=2))
-            log.info(f"Exported {len(perx_cookies)} Perx cookies to {COOKIE_FILE.name}")
+            return [c for c in cookies if "perx" in c.get("domain", "")]
 
-            expiry = None
-            for c in perx_cookies:
-                exp = c.get("expires") or c.get("expiry")
-                if exp and exp > 0:
-                    dt = datetime.fromtimestamp(exp, tz=timezone.utc)
-                    if expiry is None or dt < expiry:
-                        expiry = dt
-            if expiry:
-                log.info(f"Earliest cookie expiry: {expiry.strftime('%Y-%m-%d %H:%M UTC')}")
-
-            return 0
-
-        except Exception as e:
-            log.error(f"Perx keepalive failed: {e}")
-            return 1
+        except Exception as exc:
+            log.error("Playwright login failed: %s", exc)
+            return []
         finally:
             await context.close()
             await browser.close()
+
+
+async def main():
+    existing = _load_existing_cookies()
+
+    # Fast path: HTTP check
+    if existing:
+        log.info("Checking existing session via HTTP (%d cookies)...", len(existing))
+        if _check_session_http(existing):
+            log.info("Session still valid — no login needed")
+            _save_cookies(existing)
+            return 0
+        log.info("Session expired — proceeding to Playwright login")
+
+    # Playwright login
+    new_cookies = await _login_playwright()
+    if not new_cookies:
+        log.error("Login failed — no new cookies obtained")
+        return 1
+
+    _save_cookies(new_cookies)
+    log.info("Perx session refreshed successfully")
+    return 0
+
 
 if __name__ == "__main__":
     sys.exit(asyncio.run(main()))

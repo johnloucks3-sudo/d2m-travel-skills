@@ -1,0 +1,251 @@
+{
+  "validated_at": "2026-06-09T19:18:07.492613+00:00",
+  "health": "degraded",
+  "timers": {
+    "d2m-rssc-session-keepalive": {
+      "timer": "d2m-rssc-session-keepalive",
+      "active": false,
+      "last_trigger": null,
+      "next_trigger": null,
+      "health": "never_fired",
+      "issues": [
+        "Timer has never fired",
+        "regent_cookies.json stale: last modified 22.5h ago"
+      ]
+    },
+    "d2m-centrav-session-keepalive": {
+      "timer": "d2m-centrav-session-keepalive",
+      "active": false,
+      "last_trigger": null,
+      "next_trigger": null,
+      "health": "never_fired",
+      "issues": [
+        "Timer has never fired"
+      ]
+    },
+    "d2m-perx-session-keepalive": {
+      "timer": "d2m-perx-session-keepalive",
+      "active": false,
+      "last_trigger": null,
+      "next_trigger": null,
+      "health": "never_fired",
+      "issues": [
+        "Timer has never fired"
+      ]
+    },
+    "d2m-portal-keepalive": {
+      "timer": "d2m-portal-keepalive",
+      "active": false,
+      "last_trigger": null,
+      "next_trigger": null,
+      "health": "never_fired",
+      "issues": [
+        "Timer has never fired",
+        "silversea_cookies.json stale: last modified 22.5h ago",
+        "seabourn_cookies.json missing",
+        "windstar_cookies.json stale: last modified 22.6h ago",
+        "princess_cookies.json missing",
+        "carnival_cookies.json missing",
+        "kensington_cookies.json stale: last modified 22.6h ago",
+        "agentmax_cookies.json missing",
+        "globus_cookies.json missing",
+        "room_res_cookies.json stale: last modified 22.7h ago",
+        "agent_universe_cookies.json stale: last modified 22.4h ago",
+        "atlas_cookies.json stale: last modified 22.6h ago",
+        "explora_cookies.json missing"
+      ]
+    },
+    "d2m-site-sentinel": {
+      "timer": "d2m-site-sentinel",
+      "active": false,
+      "last_trigger": null,
+      "next_trigger": null,
+      "health": "never_fired",
+      "issues": [
+        "Timer has never fired"
+      ]
+    }
+  },
+  "credential_health": {
+    "status": "ok",
+    "checked_at": "2026-06-04T15:36:33.885018-06:00",
+    "alerts": [
+      {
+        "name": "centrav_cookies",
+        "status": "expired",
+        "client_affecting": true,
+        "reason": "Expired 165.6h ago (cookie: _gat_gtag_UA_84997498_3)",
+        "reauth_cmd": "python3 scripts/centrav_reauth.py"
+      },
+      {
+        "name": "regent_cookies",
+        "status": "expired",
+        "client_affecting": true,
+        "reason": "Expired 72.1h ago (cookie: _hjSession_1263849)",
+        "reauth_cmd": "playwright: navigate rssc.com/agent \u2192 login \u2192 export cookies"
+      },
+      {
+        "name": "regent_cookies_oa",
+        "status": "expired",
+        "client_affecting": true,
+        "reason": "Expired 164.0h ago (cookie: kndctr_8DD367C25245AFCC0A490D4C_AdobeOrg_cluster)",
+        "reauth_cmd": "playwright: navigate rssc.com/agent \u2192 OA login \u2192 export cookies"
+      },
+      {
+        "name": "gmail_token",
+        "status": "valid",
+        "client_affecting": true,
+        "reason": "Expires in 0.2h",
+        "reauth_cmd": "systemctl --user restart claude-oauth-keepalive.timer"
+      },
+      {
+        "name": "perx_cookies",
+        "status": "session_only",
+        "client_affecting": false,
+        "reason": "All cookies are session-only (no persistent expiry). Likely invalid.",
+        "reauth_cmd": "playwright: navigate perx.com \u2192 login \u2192 export cookies"
+      },
+      {
+        "name": "room_res_cookies",
+        "status": "expired",
+        "client_affecting": false,
+        "reason": "Expired 9.6h ago (cookie: _gat)",
+        "reauth_cmd": "playwright: navigate room-res.com \u2192 login \u2192 export cookies"
+      }
+    ],
+    "client_alerts": [
+      {
+        "name": "centrav_cookies",
+        "status": "expired",
+        "client_affecting": true,
+        "reason": "Expired 165.6h ago (cookie: _gat_gtag_UA_84997498_3)",
+        "reauth_cmd": "python3 scripts/centrav_reauth.py"
+      },
+      {
+        "name": "regent_cookies",
+        "status": "expired",
+        "client_affecting": true,
+        "reason": "Expired 72.1h ago (cookie: _hjSession_1263849)",
+        "reauth_cmd": "playwright: navigate rssc.com/agent \u2192 login \u2192 export cookies"
+      },
+      {
+        "name": "regent_cookies_oa",
+        "status": "expired",
+        "client_affecting": true,
+        "reason": "Expired 164.0h ago (cookie: kndctr_8DD367C25245AFCC0A490D4C_AdobeOrg_cluster)",
+        "reauth_cmd": "playwright: navigate rssc.com/agent \u2192 OA login \u2192 export cookies"
+      },
+      {
+        "name": "gmail_token",
+        "status": "valid",
+        "client_affecting": true,
+        "reason": "Expires in 0.2h",
+        "reauth_cmd": "systemctl --user restart claude-oauth-keepalive.timer"
+      }
+    ]
+  },
+  "sentinel_health": {
+    "status": "no_data",
+    "baselines": 0,
+    "last_run": null
+  },
+  "alerts": [
+    {
+      "source": "d2m-rssc-session-keepalive",
+      "issue": "Timer has never fired"
+    },
+    {
+      "source": "d2m-rssc-session-keepalive",
+      "issue": "regent_cookies.json stale: last modified 22.5h ago"
+    },
+    {
+      "source": "d2m-centrav-session-keepalive",
+      "issue": "Timer has never fired"
+    },
+    {
+      "source": "d2m-perx-session-keepalive",
+      "issue": "Timer has never fired"
+    },
+    {
+      "source": "d2m-portal-keepalive",
+      "issue": "Timer has never fired"
+    },
+    {
+      "source": "d2m-portal-keepalive",
+      "issue": "silversea_cookies.json stale: last modified 22.5h ago"
+    },
+    {
+      "source": "d2m-portal-keepalive",
+      "issue": "seabourn_cookies.json missing"
+    },
+    {
+      "source": "d2m-portal-keepalive",
+      "issue": "windstar_cookies.json stale: last modified 22.6h ago"
+    },
+    {
+      "source": "d2m-portal-keepalive",
+      "issue": "princess_cookies.json missing"
+    },
+    {
+      "source": "d2m-portal-keepalive",
+      "issue": "carnival_cookies.json missing"
+    },
+    {
+      "source": "d2m-portal-keepalive",
+      "issue": "kensington_cookies.json stale: last modified 22.6h ago"
+    },
+    {
+      "source": "d2m-portal-keepalive",
+      "issue": "agentmax_cookies.json missing"
+    },
+    {
+      "source": "d2m-portal-keepalive",
+      "issue": "globus_cookies.json missing"
+    },
+    {
+      "source": "d2m-portal-keepalive",
+      "issue": "room_res_cookies.json stale: last modified 22.7h ago"
+    },
+    {
+      "source": "d2m-portal-keepalive",
+      "issue": "agent_universe_cookies.json stale: last modified 22.4h ago"
+    },
+    {
+      "source": "d2m-portal-keepalive",
+      "issue": "atlas_cookies.json stale: last modified 22.6h ago"
+    },
+    {
+      "source": "d2m-portal-keepalive",
+      "issue": "explora_cookies.json missing"
+    },
+    {
+      "source": "d2m-site-sentinel",
+      "issue": "Timer has never fired"
+    },
+    {
+      "source": "credentials_health",
+      "issue": "centrav_cookies: Expired 165.6h ago (cookie: _gat_gtag_UA_84997498_3)"
+    },
+    {
+      "source": "credentials_health",
+      "issue": "regent_cookies: Expired 72.1h ago (cookie: _hjSession_1263849)"
+    },
+    {
+      "source": "credentials_health",
+      "issue": "regent_cookies_oa: Expired 164.0h ago (cookie: kndctr_8DD367C25245AFCC0A490D4C_AdobeOrg_cluster)"
+    },
+    {
+      "source": "credentials_health",
+      "issue": "gmail_token: Expires in 0.2h"
+    },
+    {
+      "source": "credentials_health",
+      "issue": "perx_cookies: All cookies are session-only (no persistent expiry). Likely invalid."
+    },
+    {
+      "source": "credentials_health",
+      "issue": "room_res_cookies: Expired 9.6h ago (cookie: _gat)"
+    }
+  ],
+  "alert_count": 24
+}

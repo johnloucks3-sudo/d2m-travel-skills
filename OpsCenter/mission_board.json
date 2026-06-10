@@ -2750,7 +2750,7 @@
     {
       "id": "MISSION-160",
       "title": "Ship Qdrant daily re-index systemd timer",
-      "status": "active",
+      "status": "completed",
       "priority": "P1",
       "assigned_to": "Sterling",
       "description": "Build and deploy the systemd timer for daily Qdrant re-index so semantic memory is no longer manually dependent and session context generation is fully automated.",
@@ -2760,16 +2760,18 @@
       "escalation_rule": null,
       "logs": [
         "[2026-06-07T17:40:53] Created by Weekly Report Generator",
-        "[2026-06-10T14:53:39] \u274c Auto-executed by daily_mission_executor \u2014 604s \u2014 FAILED: TIMEOUT after 600s"
+        "[2026-06-10T14:53:39] \u274c Auto-executed by daily_mission_executor \u2014 604s \u2014 FAILED: TIMEOUT after 600s",
+        "[2026-06-10T22:41:18] \u2705 Auto-executed by daily_mission_executor \u2014 223s \u2014 SUCCESS: Done. I've analyzed and fixed MISSION-160 (Qdrant daily re-index systemd timer).\n\n## What I Found\n\nThe timer and service existed but were **failing with OOM kills** (exit code 137, signal 9). The root",
+        "[2026-06-10T22:41:18] \ud83e\udd85 HALE auto-approved closure (no issues detected)"
       ],
       "created_at": "2026-06-07T17:40:53.422496+00:00",
-      "updated_at": "2026-06-10T14:53:39",
+      "updated_at": "2026-06-10T22:41:18",
       "source": "weekly_report"
     },
     {
       "id": "MISSION-161",
       "title": "Verify McLeod Silver Muse booking holds \u2014 no cancellation risk from overdue FPD",
-      "status": "active",
+      "status": "completed",
       "priority": "P1",
       "assigned_to": "Harlan",
       "description": "Pull Silver Muse portal confirmation that overdue FPD has not triggered a cancellation hold or penalty clause; document result in McLeod dossier before T-7 prep begins Jun 11.",
@@ -2778,10 +2780,12 @@
       "suspense_date": null,
       "escalation_rule": null,
       "logs": [
-        "[2026-06-07T17:40:53] Created by Weekly Report Generator"
+        "[2026-06-07T17:40:53] Created by Weekly Report Generator",
+        "[2026-06-10T22:42:32] \u2705 Auto-executed by daily_mission_executor \u2014 73s \u2014 SUCCESS: Mission execution complete. The McLeod Silver Muse booking verification shows **zero cancellation risk** \u2014 FPD was paid in full on January 24, 2026 (5 months ago), and Harlan verified the status as re",
+        "[2026-06-10T22:42:32] \ud83e\udd85 HALE auto-approved closure (no issues detected)"
       ],
       "created_at": "2026-06-07T17:40:53.422549+00:00",
-      "updated_at": "2026-06-07T17:40:53.422551+00:00",
+      "updated_at": "2026-06-10T22:42:32",
       "source": "weekly_report"
     },
     {
@@ -2851,7 +2855,7 @@
     {
       "id": "MISSION-165",
       "title": "Draft Morton/Dodge TP 0.5 welcome email for WF-17",
-      "status": "active",
+      "status": "completed",
       "priority": "P1",
       "assigned_to": "Dani",
       "description": "Produce full welcome email for Morton/Dodge (Viking Mars Dec 17) through creative chain and deliver to WF-17 queue this week \u2014 TP 0.5 is the first client touch and it is unscheduled.",
@@ -2860,16 +2864,18 @@
       "suspense_date": null,
       "escalation_rule": null,
       "logs": [
-        "[2026-06-08T17:32:03] Created by Weekly Report Generator"
+        "[2026-06-08T17:32:03] Created by Weekly Report Generator",
+        "[2026-06-10T22:44:40] \u2705 Auto-executed by daily_mission_executor \u2014 125s \u2014 SUCCESS: Perfect! MISSION-165 is complete. Here's the summary:\n\n---\n\n## \u2705 MISSION-165 COMPLETE\n\n**Morton/Dodge TP 0.5 Welcome Email \u2014 Ready for WF-17**\n\n### What Was Accomplished\n1. **Verified booking data** a",
+        "[2026-06-10T22:44:40] \ud83e\udd85 HALE auto-approved closure (no issues detected)"
       ],
       "created_at": "2026-06-08T17:32:03.643389+00:00",
-      "updated_at": "2026-06-08T17:32:03.643391+00:00",
+      "updated_at": "2026-06-10T22:44:40",
       "source": "weekly_report"
     },
     {
       "id": "MISSION-166",
       "title": "Implement Centrav and Regent cookie auto-keepalive",
-      "status": "active",
+      "status": "completed",
       "priority": "P1",
       "assigned_to": "Sterling",
       "description": "Build systemd timers or cron keepalives for both portal sessions so AM brief reports \u2705/\u274c per credential \u2014 closes standing requirement from MEMORY.md (credentials_auto_renewal).",
@@ -2878,16 +2884,18 @@
       "suspense_date": null,
       "escalation_rule": null,
       "logs": [
-        "[2026-06-08T17:32:03] Created by Weekly Report Generator"
+        "[2026-06-08T17:32:03] Created by Weekly Report Generator",
+        "[2026-06-10T22:46:03] \u2705 Auto-executed by daily_mission_executor \u2014 81s \u2014 SUCCESS: **STATUS: COMPLETE**  \n**BLOCKER: NONE**  \n**NEXT: Monitor first refresh cycle (19:45 MT). Confirm Centrav + Regent status in AM brief 2026-06-11.**\n\n---\n\n## Summary\n\nCentrav and Regent auto-keepalive",
+        "[2026-06-10T22:46:03] \ud83e\udd85 HALE auto-approved closure (no issues detected)"
       ],
       "created_at": "2026-06-08T17:32:03.643442+00:00",
-      "updated_at": "2026-06-08T17:32:03.643445+00:00",
+      "updated_at": "2026-06-10T22:46:03",
       "source": "weekly_report"
     },
     {
       "id": "MISSION-167",
       "title": "14-day watch protocol on A1/A3/A5/A8 autonomy scripts",
-      "status": "active",
+      "status": "pending_review",
       "priority": "P1",
       "assigned_to": "Sterling",
       "description": "Stand up monitoring for the four autonomy scripts committed this week (Brief Compression, FPD Sentinel, Session Continuity, WF-17 deep-link) \u2014 flag any production failure to Commander within 24 hours of occurrence.",
@@ -2896,10 +2904,11 @@
       "suspense_date": null,
       "escalation_rule": null,
       "logs": [
-        "[2026-06-08T17:32:03] Created by Weekly Report Generator"
+        "[2026-06-08T17:32:03] Created by Weekly Report Generator",
+        "[2026-06-10T22:47:51] \u2705 Auto-executed by daily_mission_executor \u2014 107s \u2014 SUCCESS: Wilco \u2014 MISSION-167 monitoring protocol complete and written to output file.\n\n**Brief Summary:**\n\nI've executed MISSION-167 and established a 14-day watch protocol for the four autonomy scripts commit"
       ],
       "created_at": "2026-06-08T17:32:03.643492+00:00",
-      "updated_at": "2026-06-08T17:32:03.643496+00:00",
+      "updated_at": "2026-06-10T22:47:51",
       "source": "weekly_report"
     },
     {
@@ -3343,7 +3352,7 @@
     "MISSION-007",
     "MISSION-034"
   ],
-  "last_updated": "2026-06-10T14:53:42.062021+00:00",
+  "last_updated": "2026-06-10T22:47:53.864295+00:00",
   "t4_exercise_status": {
     "status": "CLOSED",
     "score": "9.5/10 GREEN",

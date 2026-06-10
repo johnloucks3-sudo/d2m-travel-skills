@@ -1,0 +1,136 @@
+---
+# MISSION BOARD — Live State Tracking
+# Updated: 2026-06-06 Commander directive sync
+# Authority: Mission board rebuilt per Commander review
+# Rule: Never write stale entries. Status reflects actual action required TODAY.
+
+active_missions:
+  - id: MISSION-024
+    title: McLeod FPD Payment Orchestration
+    priority: P1
+    status: on_hold
+    assigned_to: Hale
+    suspense_date: 2026-07-07
+    next_action: "Await FPD payment confirmation, re-engage 2026-07-07"
+    notes: "Payment verification blocked until post-itinerary. Commander directed hold until after 2026-07-06."
+
+  - id: MISSION-026
+    title: Cabin Selection Follow-up Monitoring
+    priority: P1
+    status: on_hold
+    assigned_to: Hale
+    suspense_date: null
+    next_action: "Monitoring only — McLeod responded to itinerary. Update status on next cabin event."
+    notes: "McLeod Final Itinerary delivered. Cabin selection follow-up subsumed into itinerary closure."
+
+  - id: MISSION-053
+    title: McLeod Grandeur — Booking Review + A2 Scrape Intel
+    priority: P1
+    status: on_hold
+    assigned_to: Hale + A2 Dembe
+    suspense_date: 2026-06-20
+    next_action: "Resume full review 2026-06-20 (T-20 to departure)"
+    notes: "Scheduled itinerary completion 2026-06-06. Grandeur booking follow-up resumes 2026-06-20."
+
+  - id: MISSION-009
+    title: Kuklinski ARC4-A Specialty Dining Email
+    priority: P1
+    status: on_hold
+    assigned_to: A3 Dani
+    suspense_date: "selection-date minus 30"
+    next_action: "Await cabin selection from Kuklinski. Trigger ARC4-A when selection confirmed."
+    notes: "Hold until cabin selection date minus 30 days per Commander directive."
+
+  - id: MISSION-067
+    title: Norway Luxury Cruise Perx Pricing — Late Jul/Mid-Aug 2027
+    priority: P1
+    status: active
+    assigned_to: A2 Dembe
+    suspense_date: 2026-05-25
+    last_update: "2026-05-25T23:45:00Z"
+    notes: "Research phase complete. Awaiting Commander decision on fare watch continuation."
+
+  - id: MISSION-068
+    title: Norway/Scandinavia 2027 Cruise Scan — Ongoing Fare Watch
+    priority: P1
+    status: blocked
+    assigned_to: Hale / A2 Dembe
+    blocker: "MISSION-069 infrastructure (Chrome port 9222, portal authentication)"
+    notes: "Blocked on Commander authentication of Odysseus, TLN CruiseComplete, Perx portals."
+
+  - id: MISSION-069
+    title: Perx + Odysseus + CruiseComplete — Platform Reliability
+    priority: P1
+    status: completed
+    assigned_to: A7 Sterling / Hale
+    completed_at: "2026-05-25T23:56:00Z"
+    summary: "Chrome port 9222 online, CDP clients (Odysseus, TLN CC) smoke-tested. chrome-cdp-health watchdog running."
+    next_step: "Commander must authenticate portals (Odysseus, TLN, Perx) in Chrome debug profile for scans to proceed."
+
+  - id: MISSION-071
+    title: Grok 4 + Grok Build — Wing Intel Review
+    priority: P2
+    status: completed
+    assigned_to: A2 Dembe + A12 ELON
+    completed_at: "2026-05-28T22:56:57Z"
+    deliverable: "OpsCenter/M071_Grok4_GrokBuild_Staff_Paper.md"
+    summary: "Grok 4.3 benchmarks just above Sonnet 4.6. Recommendation: Add Grok OSINT path (Jun 4), pilot Grok Build vs OpenCode (Jun 14)."
+
+  - id: MISSION-072
+    title: Dead Link Audit + Portal Login Verification
+    priority: P2
+    status: in_progress
+    assigned_to: A7 Sterling + Hale
+    findings: "10 dead URLs in cruise intel pipeline. 5 portal logins need credential refresh (Centrav stale, Perx API dead, Bedsonline incomplete)."
+    next_action: "Verify live portal URLs. Refresh credentials. Add dossier corruption detection."
+
+  - id: MISSION-073
+    title: RoboForm Share Acceptance + Credential Extraction
+    priority: P0
+    status: in_progress
+    assigned_to: Commander + Hale
+    blocker: "AWAITING COMMANDER: Accept RoboForm share at d2mconcierge@gmail.com"
+    steps: [
+      "Commander logs into d2mconcierge@gmail.com",
+      "Accept RoboForm folder share (John Loucks HALE, shared 2026-05-25)",
+      "Run: python3 scripts/roboform_extract.py --browser to extract portal credentials"
+    ]
+
+  - id: MISSION-075
+    title: Loucks Dossier Corruption — Root Cause Audit + Rebuild
+    priority: P1
+    status: completed
+    assigned_to: A7 Sterling + Hale
+    completed_at: "2026-06-03"
+    summary: "12 dossiers affected by write-loop corruption (Kuklinski CVC 510x, Morton guest profile 255x). All repaired via scripts/dossier_repair.py. Corruption detection tool created: scripts/dossier_corruption_check.py."
+
+completed_today:
+  - id: MISSION-054
+    title: McLeod Silver Muse — Final T-27 Detailed Validation
+    priority: P0
+    status: completed
+    completed_at: "2026-06-06"
+    summary: "Full detailed validation delivered. All action items resolved or flagged for Commander."
+
+on_watch:
+  - id: MISSION-063
+    title: Prompt Formatting Study — Persona Files & CLAUDE.md
+    priority: P3
+    status: active
+    assigned_to: A7 Sterling
+    suspense_date: 2026-06-07
+    notes: "30-minute audit of prose vs bullets in Wing persona files. Format impacts LLM behavior (96% cooperation divergence)."
+
+  - id: MISSION-064
+    title: Anthropic Small-Business Skills Ecosystem Investigation
+    priority: P3
+    status: active
+    assigned_to: A7 Sterling
+    suspense_date: 2026-06-07
+    notes: "Investigate 31 Anthropic small-biz skills ecosystem (382K day-one downloads). Assess relevance to Thunderbird skill infrastructure."
+
+metadata:
+  last_sync: 2026-06-06T18:45:00Z
+  authority: "Commander John Loucks directive"
+  maintained_by: "HALE-OC"
+  mode: "live state only — stale entries purged, P0/P1 reflects action required TODAY"

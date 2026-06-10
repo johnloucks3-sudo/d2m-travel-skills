@@ -41,6 +41,9 @@ MAX_TOKENS = 50_000             # Hard stop 3: token budget per mission
 DEADLOCK_THRESHOLD = 2          # Hard stop 4: iterations w/ no status change
 HEARTBEAT_INTERVAL = 30         # Seconds between lock heartbeat writes
 
+# ── Lifecycle Notifications ────────────────────────────────────────────────────
+LIFECYCLE_INTERIM_NOTICES = False  # Disable mid-run Telegram alerts. Daily pulse + errors only.
+
 # ── Action Whitelist (no blind pass-through) ─────────────────────────────────
 ALLOWED_ACTIONS = {
     "route_to_opencode",  # primary dispatch (OpenCode/OpenRouter models)

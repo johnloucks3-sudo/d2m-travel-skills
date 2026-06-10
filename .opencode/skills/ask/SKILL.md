@@ -15,7 +15,8 @@ trip validation, itinerary generation, or anything that needs CLAUDE.md knowledg
 ask 'task description here'
 ```
 
-The `ask` command is available in PATH via `OpsCenter/ask_wrapper.sh`.
+The `ask` command is symlinked to `OpsCenter/ask_wrapper.sh` in `~/.local/bin/`.
+Available as **`/ask`** (canonical name) or `ask` (bash command — slash is a doc convention).
 
 ## When to use /ask
 

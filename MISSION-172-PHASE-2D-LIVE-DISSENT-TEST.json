@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-09T16:05:40.830189",
+  "timestamp": "2026-06-09T17:17:12.562145",
   "test_name": "live_dissent_sterling",
   "status": "success",
   "steps": [
     {
       "step": 1,
       "action": "Sterling dissent published",
-      "message_id": "99abbd99-df49-433e-a35b-0c825257e2e4",
+      "message_id": "aeba307e-ad0d-4bb9-834e-2aa47e2f1564",
       "status": "success",
-      "timestamp": "2026-06-09T16:05:40.830802"
+      "timestamp": "2026-06-09T17:17:12.562807"
     },
     {
       "step": 2,
@@ -21,7 +21,7 @@
         "washington"
       ],
       "status": "success",
-      "timestamp": "2026-06-09T16:05:40.842081"
+      "timestamp": "2026-06-09T17:17:12.567404"
     },
     {
       "step": 3,
@@ -35,7 +35,7 @@
       ],
       "ack_rate": "5/5",
       "status": "success",
-      "timestamp": "2026-06-09T16:05:40.842573"
+      "timestamp": "2026-06-09T17:17:12.567789"
     },
     {
       "step": 4,
@@ -51,11 +51,11 @@
         "ack_count": 0
       },
       "status": "success",
-      "timestamp": "2026-06-09T16:05:40.842597"
+      "timestamp": "2026-06-09T17:17:12.567810"
     }
   ],
   "summary": {
-    "dissent_published": "99abbd99-df49-433e-a35b-0c825257e2e4",
+    "dissent_published": "aeba307e-ad0d-4bb9-834e-2aa47e2f1564",
     "staff_consumed": 5,
     "staff_acknowledged": 5,
     "ack_rate_pct": 100.0,

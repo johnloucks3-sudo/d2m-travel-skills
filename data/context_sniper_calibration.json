@@ -1,0 +1,29 @@
+{
+  "calls": [
+    {
+      "ts": "2026-06-09T04:00:11Z",
+      "persona": "hale",
+      "brief_tokens": 855
+    },
+    {
+      "ts": "2026-06-09T04:00:44Z",
+      "persona": "sterling",
+      "brief_tokens": 149
+    },
+    {
+      "ts": "2026-06-09T04:01:26Z",
+      "persona": "hale",
+      "brief_tokens": 925
+    },
+    {
+      "ts": "2026-06-09T12:02:02Z",
+      "persona": "hale",
+      "brief_tokens": 925
+    },
+    {
+      "ts": "2026-06-09T12:02:55Z",
+      "persona": "sterling",
+      "brief_tokens": 244
+    }
+  ]
+}

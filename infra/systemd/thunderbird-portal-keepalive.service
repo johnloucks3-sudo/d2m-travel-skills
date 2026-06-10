@@ -1,0 +1,19 @@
+[Unit]
+Description=Thunderbird Portal Session Keepalive (Centrav, Room-res, etc.)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=john
+WorkingDirectory=/home/john/Thunderbird
+ExecStart=/usr/bin/python3 /home/john/Thunderbird/scripts/portal_keepalive.py
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=thunderbird-portal-keepalive
+
+# Timeout after 5 minutes (to account for slow portal loads)
+TimeoutStartSec=300
+
+[Install]
+WantedBy=default.target

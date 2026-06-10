@@ -1,0 +1,163 @@
+[
+  {
+    "id": "norway-2027-silversea",
+    "label": "Norway/Scandinavia 2027 \u2014 Silversea",
+    "search_terms": [
+      "norway",
+      "silversea"
+    ],
+    "year": 2027,
+    "months": [
+      7,
+      8
+    ],
+    "notes": "MISSION-067/068 active watch"
+  },
+  {
+    "id": "norway-2027-regent",
+    "label": "Norway/Scandinavia 2027 \u2014 Regent Seven Seas",
+    "search_terms": [
+      "norway",
+      "regent"
+    ],
+    "year": 2027,
+    "months": [
+      7,
+      8
+    ],
+    "notes": "MISSION-068 active watch"
+  },
+  {
+    "id": "norway-2027-seabourn",
+    "label": "Norway/Scandinavia 2027 \u2014 Seabourn",
+    "search_terms": [
+      "norway",
+      "seabourn"
+    ],
+    "year": 2027,
+    "months": [
+      7,
+      8
+    ],
+    "notes": "MISSION-068 active watch"
+  },
+  {
+    "id": "silver-nova-2026",
+    "label": "Silver Nova 2026 sailings",
+    "search_terms": [
+      "silver nova"
+    ],
+    "year": 2026,
+    "months": [
+      10,
+      11,
+      12
+    ],
+    "notes": "Active D2M client sailings"
+  },
+  {
+    "id": "grandeur-2026",
+    "label": "Seven Seas Grandeur 2026",
+    "search_terms": [
+      "grandeur",
+      "regent"
+    ],
+    "year": 2026,
+    "months": [
+      7,
+      8,
+      9,
+      10
+    ],
+    "notes": "McLeod/Furlough active booking \u2014 MISSION-053"
+  },
+  {
+    "id": "med-2027-luxury",
+    "label": "Mediterranean 2027 \u2014 Luxury lines",
+    "search_terms": [
+      "mediterranean"
+    ],
+    "year": 2027,
+    "months": [
+      4,
+      5,
+      6,
+      9,
+      10
+    ],
+    "notes": "Speculative watch \u2014 luxury TA rate signal"
+  },
+  {
+    "id": "grandeur-dec29-2026",
+    "label": "Seven Seas Grandeur \u2014 Dec 29, 2026",
+    "search_terms": [
+      "seven seas grandeur",
+      "regent"
+    ],
+    "year": 2026,
+    "months": [
+      12
+    ],
+    "target_date": "2026-12-29",
+    "cabin_categories": [
+      "Concierge D",
+      "Concierge E",
+      "Balcony"
+    ],
+    "pax": 2,
+    "notes": "Commander watch \u2014 MISSION-053 Furlow/McLeod area sailing",
+    "daily_brief": true,
+    "signal_type": "TA_RATE"
+  },
+  {
+    "id": "silver-nova-may2027-voyage1",
+    "label": "Silver Nova \u2014 May 5, 2027 (Voyage 1 of 3)",
+    "search_terms": [
+      "silver nova",
+      "silversea"
+    ],
+    "year": 2027,
+    "months": [
+      5
+    ],
+    "target_date": "2027-05-05",
+    "cabin_categories": [
+      "Balcony",
+      "Classic Veranda",
+      "Veranda",
+      "Suite",
+      "Silver Suite"
+    ],
+    "pax": 2,
+    "notes": "Commander watch \u2014 May 5-29 window, 3 voyages",
+    "daily_brief": true,
+    "signal_type": "TA_RATE"
+  },
+  {
+    "id": "silver-nova-may2027-window",
+    "label": "Silver Nova \u2014 May 2027 (all 3 voyages, May 5\u201329)",
+    "search_terms": [
+      "silver nova",
+      "silversea"
+    ],
+    "year": 2027,
+    "months": [
+      5
+    ],
+    "target_date_range": [
+      "2027-05-05",
+      "2027-05-29"
+    ],
+    "cabin_categories": [
+      "Balcony",
+      "Classic Veranda",
+      "Veranda",
+      "Suite",
+      "Silver Suite"
+    ],
+    "pax": 2,
+    "notes": "Watch all 3 voyages departing May 5\u201329, 2027 \u2014 TA rate signal",
+    "daily_brief": true,
+    "signal_type": "TA_RATE"
+  }
+]

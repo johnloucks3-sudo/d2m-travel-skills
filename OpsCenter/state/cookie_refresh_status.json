@@ -1,12 +1,12 @@
 {
   "centrav": {
-    "last_check": "2026-06-09T18:43:10.717679+00:00",
+    "last_check": "2026-06-10T14:42:32.958549+00:00",
     "status": "UNCLEAR",
     "detail": "Login incomplete. URL: https://www.centrav.com/login"
   },
   "regent": {
-    "last_check": "2026-06-09T18:43:13.653630+00:00",
+    "last_check": "2026-06-10T14:42:35.713896+00:00",
     "status": "HEALTHY",
-    "detail": "Session verified at 2026-06-09T12:43:13.653537"
+    "detail": "Session verified at 2026-06-10T08:42:35.713804"
   }
 }

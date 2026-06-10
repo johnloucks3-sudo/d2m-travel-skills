@@ -1,0 +1,42 @@
+{
+  "run_at": "2026-06-10T16:37:34.716203",
+  "tasks_attempted": 5,
+  "tasks_succeeded": 5,
+  "results": [
+    {
+      "id": "MISSION-160",
+      "title": "Ship Qdrant daily re-index systemd timer",
+      "success": true,
+      "elapsed": 223.44216513633728,
+      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-160_20260610.md"
+    },
+    {
+      "id": "MISSION-161",
+      "title": "Verify McLeod Silver Muse booking holds \u2014 no cancellation risk from overdue FPD",
+      "success": true,
+      "elapsed": 72.50897264480591,
+      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-161_20260610.md"
+    },
+    {
+      "id": "MISSION-165",
+      "title": "Draft Morton/Dodge TP 0.5 welcome email for WF-17",
+      "success": true,
+      "elapsed": 125.3551516532898,
+      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-165_20260610.md"
+    },
+    {
+      "id": "MISSION-166",
+      "title": "Implement Centrav and Regent cookie auto-keepalive",
+      "success": true,
+      "elapsed": 81.29003739356995,
+      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-166_20260610.md"
+    },
+    {
+      "id": "MISSION-167",
+      "title": "14-day watch protocol on A1/A3/A5/A8 autonomy scripts",
+      "success": true,
+      "elapsed": 106.52749443054199,
+      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-167_20260610.md"
+    }
+  ]
+}

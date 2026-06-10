@@ -1,0 +1,121 @@
+{
+  "grandeur-dec29-2026_balcony": {
+    "sailing_id": "grandeur-dec29-2026",
+    "cabin": "Balcony",
+    "route": "Seven Seas Grandeur \u2014 Dec 29, 2026",
+    "baseline_price": 425.0,
+    "prices": [
+      {
+        "ts": "2026-06-09T12:30:22.148313+00:00",
+        "price": 425.0
+      },
+      {
+        "ts": "2026-06-10T12:30:18.777096+00:00",
+        "price": 313.0
+      }
+    ],
+    "last_checked": "2026-06-10T12:30:18.777096+00:00"
+  },
+  "silver-nova-may05-2027_balcony": {
+    "sailing_id": "silver-nova-may05-2027",
+    "cabin": "Balcony",
+    "route": "Silver Nova \u2014 May 5, 2027 (10 nights)",
+    "baseline_price": 425.0,
+    "prices": [
+      {
+        "ts": "2026-06-09T12:30:37.935642+00:00",
+        "price": 425.0
+      },
+      {
+        "ts": "2026-06-10T12:30:35.659913+00:00",
+        "price": 313.0
+      }
+    ],
+    "last_checked": "2026-06-10T12:30:35.659913+00:00"
+  },
+  "silver-nova-may05-2027_suite": {
+    "sailing_id": "silver-nova-may05-2027",
+    "cabin": "Suite",
+    "route": "Silver Nova \u2014 May 5, 2027 (10 nights)",
+    "baseline_price": 420.0,
+    "prices": [
+      {
+        "ts": "2026-06-09T12:30:37.935662+00:00",
+        "price": 420.0
+      },
+      {
+        "ts": "2026-06-10T12:30:35.659933+00:00",
+        "price": 428.0
+      }
+    ],
+    "last_checked": "2026-06-10T12:30:35.659933+00:00"
+  },
+  "silver-nova-may15-2027_balcony": {
+    "sailing_id": "silver-nova-may15-2027",
+    "cabin": "Balcony",
+    "route": "Silver Nova \u2014 May 15, 2027 (7 nights)",
+    "baseline_price": 425.0,
+    "prices": [
+      {
+        "ts": "2026-06-09T12:30:56.195129+00:00",
+        "price": 425.0
+      },
+      {
+        "ts": "2026-06-10T12:30:56.810114+00:00",
+        "price": 313.0
+      }
+    ],
+    "last_checked": "2026-06-10T12:30:56.810114+00:00"
+  },
+  "silver-nova-may15-2027_suite": {
+    "sailing_id": "silver-nova-may15-2027",
+    "cabin": "Suite",
+    "route": "Silver Nova \u2014 May 15, 2027 (7 nights)",
+    "baseline_price": 420.0,
+    "prices": [
+      {
+        "ts": "2026-06-09T12:30:56.195151+00:00",
+        "price": 420.0
+      },
+      {
+        "ts": "2026-06-10T12:30:56.810135+00:00",
+        "price": 428.0
+      }
+    ],
+    "last_checked": "2026-06-10T12:30:56.810135+00:00"
+  },
+  "silver-nova-may22-2027_balcony": {
+    "sailing_id": "silver-nova-may22-2027",
+    "cabin": "Balcony",
+    "route": "Silver Nova \u2014 May 22, 2027 (7 nights)",
+    "baseline_price": 425.0,
+    "prices": [
+      {
+        "ts": "2026-06-09T12:31:11.892333+00:00",
+        "price": 425.0
+      },
+      {
+        "ts": "2026-06-10T12:31:15.760074+00:00",
+        "price": 313.0
+      }
+    ],
+    "last_checked": "2026-06-10T12:31:15.760074+00:00"
+  },
+  "silver-nova-may22-2027_suite": {
+    "sailing_id": "silver-nova-may22-2027",
+    "cabin": "Suite",
+    "route": "Silver Nova \u2014 May 22, 2027 (7 nights)",
+    "baseline_price": 420.0,
+    "prices": [
+      {
+        "ts": "2026-06-09T12:31:11.892349+00:00",
+        "price": 420.0
+      },
+      {
+        "ts": "2026-06-10T12:31:15.760097+00:00",
+        "price": 428.0
+      }
+    ],
+    "last_checked": "2026-06-10T12:31:15.760097+00:00"
+  }
+}

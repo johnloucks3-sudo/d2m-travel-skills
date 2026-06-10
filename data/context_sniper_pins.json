@@ -1,0 +1,12 @@
+{
+  "pins": [
+    {
+      "id": 1,
+      "item": "Current task: wire thunderbird-core tools to travel_mcp_server backends",
+      "category": "plan",
+      "created": "2026-06-09T04:00:44Z",
+      "active": true
+    }
+  ],
+  "next_id": 2
+}

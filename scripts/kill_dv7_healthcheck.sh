@@ -32,7 +32,7 @@ crontab -l 2>/dev/null
 # Disable d2m services so they don't restart
 systemctl --user disable d2m-mcp.service 2>/dev/null
 systemctl --user disable d2m-api.service 2>/dev/null
-systemctl --user disable d2m-tunnel.service 2>/dev/null
+systemctl --user disable thunderbird-tunnel.service 2>/dev/null
 systemctl --user disable d2m-scheduler.service 2>/dev/null
 echo "All d2m services disabled"
 

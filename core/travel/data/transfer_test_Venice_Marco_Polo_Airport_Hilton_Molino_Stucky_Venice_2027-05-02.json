@@ -1,0 +1,66 @@
+{
+  "route": "Venice_Marco_Polo_Airport_Hilton_Molino_Stucky_Venice",
+  "from": "Venice Marco Polo Airport",
+  "to": "Hilton Molino Stucky Venice",
+  "date": "2027-05-02",
+  "pax": 2,
+  "scraped_at": "2026-06-06T12:04:24.737774",
+  "kiwitaxi": {
+    "source": "kiwitaxi",
+    "route": "Venice Marco Polo Airport\u2192Hilton Molino Stucky Venice",
+    "description": "Venice Marco Polo Airport \u2192 Hilton Molino Stucky Venice",
+    "url": "https://kiwitaxi.com/en/italy/venice-marco-polo-airport-airport-venice-district-venice?ref=sf#transfers",
+    "pax": 2,
+    "date": "2027-05-02",
+    "scraped_at": "2026-06-06T12:04:25.092894",
+    "duration_min": 50,
+    "transfers": [
+      {
+        "vehicle_class": "Comfort",
+        "price_usd": 324,
+        "pax_capacity": 4,
+        "bags_capacity": 3,
+        "badge": null
+      },
+      {
+        "vehicle_class": "Premium Minibus",
+        "price_usd": 324,
+        "pax_capacity": 6,
+        "bags_capacity": 4,
+        "badge": null
+      },
+      {
+        "vehicle_class": "Business",
+        "price_usd": 324,
+        "pax_capacity": 3,
+        "bags_capacity": 3,
+        "badge": null
+      },
+      {
+        "vehicle_class": "Minivan 4PAX",
+        "price_usd": 341,
+        "pax_capacity": 4,
+        "bags_capacity": 4,
+        "badge": null
+      },
+      {
+        "vehicle_class": "Minibus 7PAX",
+        "price_usd": 374,
+        "pax_capacity": 7,
+        "bags_capacity": 7,
+        "badge": "Best Choice"
+      },
+      {
+        "vehicle_class": "Minibus 10PAX",
+        "price_usd": 486,
+        "pax_capacity": 10,
+        "bags_capacity": 10,
+        "badge": null
+      }
+    ],
+    "screenshot": "/home/john/Thunderbird/core/travel/data/transfer_kiwitaxi_custom_2027-05-02.png",
+    "status": "ok",
+    "notes": "Form-fill mode (route not in pre-map)"
+  },
+  "welcomepickups": {}
+}

@@ -1,0 +1,4104 @@
+{
+  "booking_id": "3096289_Ely",
+  "timestamp": "2026-06-01T20:00:54.364287",
+  "requests": [
+    {
+      "url": "https://www.rssc.com/agent/myaccount/bookedcruise.aspx?McWU05z77cmpnbQbEo2CdOumw8lV3LRNPvEArhnrrs3hl5RgmNGc6tgCF0LEwSWn9KttcnSG6QV03Ue0ckTSqA%3d%3d",
+      "status": 301,
+      "content_type": "text/html; charset=utf-8",
+      "timing": {
+        "startTime": 1780344055439.355,
+        "domainLookupStart": 22.46,
+        "domainLookupEnd": 43.012,
+        "connectStart": 43.132,
+        "secureConnectionStart": 75.408,
+        "connectEnd": 145.096,
+        "requestStart": 145.291,
+        "responseStart": 247.156,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/agent/default.aspx?ReturnUrl=%2fagent%2fmyaccount%2fbookedcruise.aspx&McWU05z77cmpnbQbEo2CdOumw8lV3LRNPvEArhnrrs3hl5RgmNGc6tgCF0LEwSWn9KttcnSG6QV03Ue0ckTSqA%3d%3d",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "timing": {
+        "startTime": 1780344055687.752,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 3.478,
+        "responseStart": 543.549,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.css?v=1772105142",
+      "status": 200,
+      "content_type": "text/css; charset=utf-8",
+      "timing": {
+        "startTime": 1780344056261.574,
+        "domainLookupStart": 40.709,
+        "domainLookupEnd": 46.254,
+        "connectStart": 46.604,
+        "secureConnectionStart": 46.604,
+        "connectEnd": 78.767,
+        "requestStart": 78.895,
+        "responseStart": 104.712,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/static/35795d8d4c772eb0a1ccd35eb439726d7c7800d103b1e9",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056260.651,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 39.679,
+        "responseStart": 107.151,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/css/global.css?v=133256163903536516",
+      "status": 200,
+      "content_type": "text/css",
+      "timing": {
+        "startTime": 1780344056260.889,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 40.519,
+        "responseStart": 110.042,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/css/register_modal.css?v=133256163903536516",
+      "status": 200,
+      "content_type": "text/css",
+      "timing": {
+        "startTime": 1780344056260.972,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 40.69,
+        "responseStart": 138.7,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/css/offers.css?v=133256163903536516",
+      "status": 200,
+      "content_type": "text/css",
+      "timing": {
+        "startTime": 1780344056261.079,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 40.809,
+        "responseStart": 141.703,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/css/booking_override.css?v=133256163903536516",
+      "status": 200,
+      "content_type": "text/css",
+      "timing": {
+        "startTime": 1780344056261.197,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 40.933,
+        "responseStart": 144.722,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/css/colorbox.css",
+      "status": 200,
+      "content_type": "text/css",
+      "timing": {
+        "startTime": 1780344056261.267,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 40.743,
+        "responseStart": 147.823,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/assets/v1/styles/dotnet.css",
+      "status": 200,
+      "content_type": "text/css",
+      "timing": {
+        "startTime": 1780344056261.395,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 41.403,
+        "responseStart": 156.184,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/css/validation.css",
+      "status": 200,
+      "content_type": "text/css",
+      "timing": {
+        "startTime": 1780344056261.506,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 41.135,
+        "responseStart": 170.38,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/css/galleria.twelve/galleria.twelve.css",
+      "status": 200,
+      "content_type": "text/css",
+      "timing": {
+        "startTime": 1780344056261.337,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 41.151,
+        "responseStart": 172.101,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/css/payment.css",
+      "status": 200,
+      "content_type": "text/css",
+      "timing": {
+        "startTime": 1780344056261.451,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 41.609,
+        "responseStart": 172.91,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/scripts/jquery.query-2.1.7.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056262.774,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 56.393,
+        "responseStart": 173.226,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/scripts/jquery.ui.core.min.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056262.252,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 57.317,
+        "responseStart": 174.924,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/assets/v1/scripts/libraries.js?v=1772105142",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056261.636,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 41.302,
+        "responseStart": 177.186,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://assets.adobedtm.com/dfde4cf50702/170fd7a0f0ad/launch-9ad7b1f84cff.min.js",
+      "status": 200,
+      "content_type": "application/x-javascript",
+      "timing": {
+        "startTime": 1780344056260.786,
+        "domainLookupStart": 39.594,
+        "domainLookupEnd": 59.442,
+        "connectStart": 59.594,
+        "secureConnectionStart": 92.656,
+        "connectEnd": 132.378,
+        "requestStart": 132.457,
+        "responseStart": 167.892,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/scripts/custom-form-elements.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056261.964,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 57.359,
+        "responseStart": 207.105,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://cdn.bc0a.com/be_ixf_js_sdk.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056268.461,
+        "domainLookupStart": 37.801,
+        "domainLookupEnd": 37.826,
+        "connectStart": 37.91,
+        "secureConnectionStart": 91.692,
+        "connectEnd": 156.251,
+        "requestStart": 156.317,
+        "responseStart": 222.614,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/scripts/AdTracking.js?v=1772105142",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056262.851,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 56.592,
+        "responseStart": 222.939,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/scripts/Regent.Common.js?v=1772105142",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056262.916,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 56.779,
+        "responseStart": 230.111,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/assets/v1/scripts/scripts.js?v=1772105142",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056261.697,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 58.122,
+        "responseStart": 231.685,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/scripts/jquery-latest.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056261.76,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 60.721,
+        "responseStart": 238.946,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/scripts/jquery.cycle.all.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056261.838,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 61.223,
+        "responseStart": 242.641,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/scripts/jcarousellite_1.1.min.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056261.899,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 62.02,
+        "responseStart": 243.262,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/scripts/ship.explorer.xml.js?v1.1",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056268.784,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 69.562,
+        "responseStart": 236.838,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/scripts/jaaulde-cookies.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056262.713,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 75.819,
+        "responseStart": 243.155,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/scripts/ship.explorer.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056268.862,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 69.818,
+        "responseStart": 237.833,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/scripts/jquery.function.new.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056262.197,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 101.218,
+        "responseStart": 244.74,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/scripts/galleria-1.2.9.min.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056262.979,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 101.135,
+        "responseStart": 244.5,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/scripts/jquery.ui.widget.min.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056262.334,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 102.096,
+        "responseStart": 245.881,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/css/galleria.twelve/galleria.twelve.min.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056263.092,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 101.619,
+        "responseStart": 245.942,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/scripts/tooltip.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056262.02,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 102.954,
+        "responseStart": 247.226,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/scripts/extensions/utils.js?v=1772105142",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056301.18,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 63.931,
+        "responseStart": 208.28,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/agent/ScriptResource.axd?d=ae0COloRPppMg0Ds9X_gW1apw6_yKCPrSHv68zfrk9bq6PAJRbkXccnEhzaSWnSnb76Y-pUXDWpy4oqXCOcC_zChWP_5OC9xAcC9DZAVcbSLHYR0sLlB8UC8PorAby0MJVFPxEtHkxR79yoA6_YcQIZbwgMH824OVqnnyvdqYPzRs-8y0&t=32e5dfca",
+      "status": 200,
+      "content_type": "application/x-javascript",
+      "timing": {
+        "startTime": 1780344056300.984,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 63.861,
+        "responseStart": 209.986,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/scripts/mobile-detect.min.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056263.152,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 102.178,
+        "responseStart": 247.443,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/671slj/x/l/MAloNV-peFOU/EuODbS1SurVuzwzi/UExGPFZyWg8/dlxFbic/eeHUB",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056301.333,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 64.134,
+        "responseStart": 209.974,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/agent/ScriptResource.axd?d=CqqPw6Gq34T_e4jk62EWqLmVXiVA6gZ9US02avN-yOk3oBoFEmDZ4dt-l-JLKzA3Iv7gPxiWNUT5zuc4t5W4bGE9Rf3pJGGV6ONXk8EAVZ4UIHTvSLQ19-17aCdjYCkOwoq7-4XLWL_ggNxjc826O08gEUw1&t=ffffffffe6692900",
+      "status": 200,
+      "content_type": "application/x-javascript",
+      "timing": {
+        "startTime": 1780344056300.857,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 63.416,
+        "responseStart": 215.829,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/scripts/jquery.ui.position.min.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056262.407,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 103.221,
+        "responseStart": 255.182,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/scripts/jquery.sidr.min.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056263.215,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 102.669,
+        "responseStart": 254.707,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/scripts/Regent.CruiseResults.js?v=1772105142",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056268.165,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 113.073,
+        "responseStart": 250.115,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/scripts/jquery.ui.autocomplete.min.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056262.468,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 119.017,
+        "responseStart": 256.126,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/scripts/Regent.CruiseSearch.js?v=1772105142",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056268.253,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 113.509,
+        "responseStart": 250.693,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/scripts/jquery.mousewheel.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056262.083,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 119.898,
+        "responseStart": 257.196,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/scripts/Regent.SpecialOffers.js?v=1772105142",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056268.328,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 113.873,
+        "responseStart": 251.257,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/scripts/jquery.colorbox-min.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056262.525,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 119.973,
+        "responseStart": 257.36,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/scripts/Regent.Address.js?v=1772105142",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056268.404,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 114.346,
+        "responseStart": 251.888,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/akam/13/5d02401",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056268.518,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 128.995,
+        "responseStart": 251.903,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/scripts/chosen.jquery.min.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056262.581,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 135.209,
+        "responseStart": 258.146,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/scripts/jquery-ui-1.8.15.custom.min.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056268.578,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 129.497,
+        "responseStart": 252.568,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/scripts/jquery.jscrollpane.min.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056262.141,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 136.267,
+        "responseStart": 259.758,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/scripts/easing.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056268.645,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 130.022,
+        "responseStart": 253.596,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/scripts/jquery.cookies.2.2.0.min.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056262.638,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 136.287,
+        "responseStart": 260.033,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/scripts/iscroll.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056268.704,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 130.509,
+        "responseStart": 254.295,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/sites/default/files/Africa_StaticMaps_Explore.jpg",
+      "status": 200,
+      "content_type": "image/jpeg",
+      "timing": {
+        "startTime": 1780344056299.553,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 66.203,
+        "responseStart": 223.77,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/sites/default/files/Alaska_StaticMaps_Explore.jpg",
+      "status": 200,
+      "content_type": "image/jpeg",
+      "timing": {
+        "startTime": 1780344056299.652,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 66.451,
+        "responseStart": 224.006,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/sites/default/files/Asia_StaticMaps_Explore.jpg",
+      "status": 200,
+      "content_type": "image/jpeg",
+      "timing": {
+        "startTime": 1780344056299.713,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 81.397,
+        "responseStart": 224.72,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/sites/default/files/Australia_StaticMaps_Explore.jpg",
+      "status": 200,
+      "content_type": "image/jpeg",
+      "timing": {
+        "startTime": 1780344056299.777,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 81.595,
+        "responseStart": 225.231,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/sites/default/files/Bermuda_StaticMaps_Explore.jpg",
+      "status": 200,
+      "content_type": "image/jpeg",
+      "timing": {
+        "startTime": 1780344056299.837,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 81.795,
+        "responseStart": 225.957,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/sites/default/files/CanadaNewEngland_StaticMaps_Explore.jpg",
+      "status": 200,
+      "content_type": "image/jpeg",
+      "timing": {
+        "startTime": 1780344056299.996,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 81.878,
+        "responseStart": 226.312,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/sites/default/files/Caribbean_StaticMaps_Explore.jpg",
+      "status": 200,
+      "content_type": "image/jpeg",
+      "timing": {
+        "startTime": 1780344056300.066,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 82.026,
+        "responseStart": 227.761,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/sites/default/files/Mediterranean_StaticMaps_Explore.jpg",
+      "status": 200,
+      "content_type": "image/jpeg",
+      "timing": {
+        "startTime": 1780344056300.129,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 82.214,
+        "responseStart": 228.336,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/sites/default/files/NorthernEurope_StaticMaps_Explore.jpg",
+      "status": 200,
+      "content_type": "image/jpeg",
+      "timing": {
+        "startTime": 1780344056300.193,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 82.433,
+        "responseStart": 228.981,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/sites/default/files/SouthAmerica_StaticMaps_Explore.jpg",
+      "status": 200,
+      "content_type": "image/jpeg",
+      "timing": {
+        "startTime": 1780344056300.269,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 82.605,
+        "responseStart": 229.51,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/sites/default/files/SouthPacific_StaticMaps_Explore.jpg",
+      "status": 200,
+      "content_type": "image/jpeg",
+      "timing": {
+        "startTime": 1780344056300.389,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 96.94,
+        "responseStart": 229.972,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/sites/default/files/Ships_Overview_Thumbs_Splendor_091219.png",
+      "status": 200,
+      "content_type": "image/png",
+      "timing": {
+        "startTime": 1780344056300.452,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 97.202,
+        "responseStart": 230.138,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/sites/default/files/Ships_Overview_Thumbs_Explorer_091219.png",
+      "status": 200,
+      "content_type": "image/png",
+      "timing": {
+        "startTime": 1780344056300.529,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 97.41,
+        "responseStart": 230.397,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/sites/default/files/Ships_Overview_Thumbs_Voyager_091219.png",
+      "status": 200,
+      "content_type": "image/png",
+      "timing": {
+        "startTime": 1780344056300.612,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 97.598,
+        "responseStart": 230.663,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/sites/default/files/Ships_Overview_Thumbs_Mariner_091219.png",
+      "status": 200,
+      "content_type": "image/png",
+      "timing": {
+        "startTime": 1780344056300.671,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 97.871,
+        "responseStart": 231.054,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/sites/default/files/Ships_Overview_Thumbs_Navigator_091219.png",
+      "status": 200,
+      "content_type": "image/png",
+      "timing": {
+        "startTime": 1780344056300.726,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 98.07,
+        "responseStart": 231.292,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/agent/media/hostedfiles/agent/JUN2601134-Jun-AugLandProgramToolkit_900x250_NoCTA.png",
+      "status": 200,
+      "content_type": "image/png",
+      "timing": {
+        "startTime": 1780344056301.062,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 98.024,
+        "responseStart": 231.538,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/media/common/loading.png",
+      "status": 200,
+      "content_type": "image/png",
+      "timing": {
+        "startTime": 1780344056301.27,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 98.076,
+        "responseStart": 232.943,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/agent/WebResource.axd?d=SjUfFrCLdw6uTCSDf10Jf2AMXLjKN4Wk493sc49bWrLsbpwb5ZH9fLcgj5BMX0qpfFE1RKHMb078CLmihpSpWXYgPak1&t=638901627720898773",
+      "status": 200,
+      "content_type": "application/x-javascript",
+      "timing": {
+        "startTime": 1780344056300.791,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 63.1,
+        "responseStart": 234.027,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/agent/ScriptResource.axd?d=2h54a8hp0bJoM20Azz-CFE6k8VHadPMIU_fmP5buawo2JgTFmt546Dmobu06IhlOPF4w31L82vuYXYePkO3LZH9yVhYEArRv7xQgbexwDLGeVogtc8GYm_VPM13TibXu9FPwpTKEoaMOHjtbLw2lN_RSvcY1&t=32e5dfca",
+      "status": 200,
+      "content_type": "application/x-javascript",
+      "timing": {
+        "startTime": 1780344056300.927,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 63.643,
+        "responseStart": 234.252,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://p11.techlab-cdn.com/e/65257_1825202461.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056421.926,
+        "domainLookupStart": 2.973,
+        "domainLookupEnd": 47.748,
+        "connectStart": 48.054,
+        "secureConnectionStart": 80.478,
+        "connectEnd": 120.548,
+        "requestStart": 120.646,
+        "responseStart": 163.572,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://p11.techlab-cdn.com/e/64885_1825202492.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056421.993,
+        "domainLookupStart": 3.111,
+        "domainLookupEnd": 47.7,
+        "connectStart": 48.039,
+        "secureConnectionStart": 81.483,
+        "connectEnd": 124.575,
+        "requestStart": 124.941,
+        "responseStart": 166.74,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://p11.techlab-cdn.com/e/65226_747628217.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056422.053,
+        "domainLookupStart": 3.28,
+        "domainLookupEnd": 47.67,
+        "connectStart": 48.082,
+        "secureConnectionStart": 81.802,
+        "connectEnd": 124.736,
+        "requestStart": 125.063,
+        "responseStart": 168.49,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://assets.adobedtm.com/extensions/EP8757b503532a44a68eee17773f6f10a0/AppMeasurement_Module_ActivityMap.min.js",
+      "status": 200,
+      "content_type": "application/x-javascript",
+      "timing": {
+        "startTime": 1780344056604.33,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 1.64,
+        "responseStart": 33.418,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://assets.adobedtm.com/extensions/EP8757b503532a44a68eee17773f6f10a0/AppMeasurement.min.js",
+      "status": 200,
+      "content_type": "application/x-javascript",
+      "timing": {
+        "startTime": 1780344056604.079,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 1.397,
+        "responseStart": 33.887,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://p11.techlab-cdn.com/e/65319_1825172608.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056421.759,
+        "domainLookupStart": 2.895,
+        "domainLookupEnd": 47.886,
+        "connectStart": 48.116,
+        "secureConnectionStart": 81.172,
+        "connectEnd": 125.255,
+        "requestStart": 125.553,
+        "responseStart": 210.618,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://assets.adobedtm.com/dfde4cf50702/170fd7a0f0ad/6ae1024889af/RC0b00ac3f73304249abbc0f543125814f-source.min.js",
+      "status": 200,
+      "content_type": "application/x-javascript",
+      "timing": {
+        "startTime": 1780344056619.25,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 1.326,
+        "responseStart": 34.727,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://assets.adobedtm.com/dfde4cf50702/170fd7a0f0ad/6ae1024889af/RCe77ed45d749d4a9ead0281d7d4c39711-source.min.js",
+      "status": 200,
+      "content_type": "application/x-javascript",
+      "timing": {
+        "startTime": 1780344056624.266,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 1.127,
+        "responseStart": 34.333,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://assets.adobedtm.com/dfde4cf50702/170fd7a0f0ad/6ae1024889af/RCa9dc99b92fe0435d86480e82aa6af0bd-source.min.js",
+      "status": 200,
+      "content_type": "application/x-javascript",
+      "timing": {
+        "startTime": 1780344056625.175,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.882,
+        "responseStart": 33.646,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/assets/v1/fonts/regent-icons-set.woff2?hsp2af",
+      "status": 200,
+      "content_type": "font/woff2",
+      "timing": {
+        "startTime": 1780344056739.625,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 2.962,
+        "responseStart": 50.962,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/assets/v1/fonts/montserrat-v31-latin_latin-ext-regular.woff2",
+      "status": 200,
+      "content_type": "font/woff2",
+      "timing": {
+        "startTime": 1780344056739.774,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 3.221,
+        "responseStart": 51.472,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/assets/v1/fonts/montserrat-v31-latin_latin-ext-500.woff2",
+      "status": 200,
+      "content_type": "font/woff2",
+      "timing": {
+        "startTime": 1780344056739.717,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 3.084,
+        "responseStart": 52.143,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://dpm.demdex.net/id?d_visid_ver=5.5.0&d_fieldgroup=AAM&d_rtbd=json&d_ver=2&d_orgid=8DD367C25245AFCC0A490D4C%40AdobeOrg&d_nsid=0&d_mid=10378091413200685834407591966796167347&d_blob=RKhpRz8krg2tLO6pguXWp5olkAcUniQYPHaMWWgdJ3xzPWQmdj0y&ts=1780344056594",
+      "status": 200,
+      "content_type": "application/json;charset=utf-8",
+      "timing": {
+        "startTime": 1780344056594.92,
+        "domainLookupStart": 1.119,
+        "domainLookupEnd": 46.315,
+        "connectStart": 46.453,
+        "secureConnectionStart": 97.187,
+        "connectEnd": 154.254,
+        "requestStart": 154.359,
+        "responseStart": 218.792,
+        "responseEnd": -1
+      },
+      "body_preview": "{'d_mid': '10378091413200685834407591966796167347', 'id_sync_ttl': 604800, 'd_blob': 'RKhpRz8krg2tLO6pguXWp5olkAcUniQYPHaMWWgdJ3xzPWQmdj0y', 'dcs_region': 7, 'd_ottl': 7200, 'ibs': [{'id': '411', 'ttl': 10080, 'tag': 'img', 'fireURLSync': 1, 'syncOnPage': 1, 'url': ['//cm.everesttech.net/cm/dd?d_uuid=03289459130665756324025451640163091012']}], 'subdomain': 'nclbahamasltd', 'tid': 'abdUPmvHQC8='}"
+    },
+    {
+      "url": "https://s.go-mpulse.net/boomerang/***REMOVED-SECRET***",
+      "status": 200,
+      "content_type": "application/javascript; charset=utf-8",
+      "timing": {
+        "startTime": 1780344056711.003,
+        "domainLookupStart": 1.397,
+        "domainLookupEnd": 49.102,
+        "connectStart": 49.243,
+        "secureConnectionStart": 74.629,
+        "connectEnd": 108.312,
+        "requestStart": 108.384,
+        "responseStart": 178.175,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/assets/v1/fonts/montserrat-v31-latin_latin-ext-700.woff2",
+      "status": 200,
+      "content_type": "font/woff2",
+      "timing": {
+        "startTime": 1780344056845.403,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 9.348,
+        "responseStart": 55.518,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/assets/v1/fonts/montserrat-v31-latin_latin-ext-300.woff2",
+      "status": 200,
+      "content_type": "font/woff2",
+      "timing": {
+        "startTime": 1780344056845.481,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 9.033,
+        "responseStart": 55.884,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/assets/v1/fonts/cinzel-v26-latin_latin-ext-regular.woff2",
+      "status": 200,
+      "content_type": "font/woff2",
+      "timing": {
+        "startTime": 1780344056845.317,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 8.868,
+        "responseStart": 56.652,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/api/browse/v1/cruises/filtersLang.js?siteCountry=US",
+      "status": 200,
+      "content_type": "text/javascript",
+      "timing": {
+        "startTime": 1780344056924.885,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 1.329,
+        "responseStart": 48.258,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/api/browse/v1/shorex/filtersLang.js?siteCountry=US",
+      "status": 200,
+      "content_type": "text/javascript",
+      "timing": {
+        "startTime": 1780344056924.963,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 1.463,
+        "responseStart": 48.54,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/media/common/chosen-sprite.png",
+      "status": 200,
+      "content_type": "image/png",
+      "timing": {
+        "startTime": 1780344056921.809,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 1.997,
+        "responseStart": 51.941,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://assets.adobedtm.com/dfde4cf50702/170fd7a0f0ad/6ae1024889af/RC76d31726eb784c9aa67b396506daf490-source.min.js",
+      "status": 200,
+      "content_type": "application/x-javascript",
+      "timing": {
+        "startTime": 1780344056945.575,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 1.081,
+        "responseStart": 34.1,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://norwegiancruiselines.tt.omtrdc.net/rest/v1/delivery?client=norwegiancruiselines&sessionId=a197d56806a54c08a7024c6aabad2a81&version=2.11.4",
+      "status": 200,
+      "content_type": "application/json;charset=UTF-8",
+      "timing": {
+        "startTime": 1780344056622.931,
+        "domainLookupStart": 1.233,
+        "domainLookupEnd": 29.733,
+        "connectStart": 29.872,
+        "secureConnectionStart": 109.56,
+        "connectEnd": 195.394,
+        "requestStart": 195.483,
+        "responseStart": 370.984,
+        "responseEnd": -1
+      },
+      "body_preview": "{'status': 200, 'requestId': '664e20b50e234b18b32c09f2bced62cd', 'client': 'norwegiancruiselines', 'id': {'tntId': '215fd5f4ea2a449e99af1b3c2c14d06a.35_0', 'marketingCloudVisitorId': '10378091413200685834407591966796167347'}, 'edgeHost': 'mboxedge35.tt.omtrdc.net', 'prefetch': {'views': [{'name': 'advance search results', 'key': 'advance search results', 'state': 'zu9d1nSh2OKiBPogm8PLyd87kBkspfhFzEMK2J0e3wu3TosY1hTl2ULnzLXKUQsL5idCDzH04XTDDyPyAQznKDjruREGE20OwlRN9xNy3WIxhqinNlkaLYWxxLhmmChRUaTL1"
+    },
+    {
+      "url": "https://www.rssc.com/671slj/x/l/MAloNV-peFOU/EuODbS1SurVuzwzi/UExGPFZyWg8/dlxFbic/eeHUB",
+      "status": 201,
+      "content_type": "application/json",
+      "timing": {
+        "startTime": 1780344056844.303,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 6.973,
+        "responseStart": 170.741,
+        "responseEnd": -1
+      },
+      "body_preview": "{'success': True}"
+    },
+    {
+      "url": "https://www.rssc.com/data/explorer/ships.xml?rnd=N9053",
+      "status": 200,
+      "content_type": "text/xml",
+      "timing": {
+        "startTime": 1780344056923.396,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 1.087,
+        "responseStart": 100.906,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344056943.579,
+        "domainLookupStart": 1.155,
+        "domainLookupEnd": 23.874,
+        "connectStart": 24.027,
+        "secureConnectionStart": 49.374,
+        "connectEnd": 82.128,
+        "requestStart": 82.21,
+        "responseStart": 114.227,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/data/explorer/undefined/deck.xml?rnd=N9053",
+      "status": 301,
+      "content_type": "text/html; charset=utf-8",
+      "timing": {
+        "startTime": 1780344057030.973,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 1.756,
+        "responseStart": 114.249,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/api/browse/v1/getCookieNotification",
+      "status": 200,
+      "content_type": "application/json",
+      "timing": {
+        "startTime": 1780344057094.376,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 1.778,
+        "responseStart": 65.936,
+        "responseEnd": -1
+      },
+      "body_preview": null
+    },
+    {
+      "url": "https://cdn.cookielaw.org/consent/1b680a73-8e08-4edb-a82a-5be473f785ef/1b680a73-8e08-4edb-a82a-5be473f785ef.json",
+      "status": 200,
+      "content_type": "application/json",
+      "timing": {
+        "startTime": 1780344057065.695,
+        "domainLookupStart": 1.682,
+        "domainLookupEnd": 1.722,
+        "connectStart": 1.891,
+        "secureConnectionStart": 27.102,
+        "connectEnd": 59.591,
+        "requestStart": 59.679,
+        "responseStart": 97.74,
+        "responseEnd": -1
+      },
+      "body_preview": "{'CookieSPAEnabled': False, 'CookieSameSiteNoneEnabled': False, 'CookieV2CSPEnabled': False, 'MultiVariantTestingEnabled': False, 'UseV2': True, 'MobileSDK': False, 'SkipGeolocation': False, 'ScriptType': 'PRODUCTION', 'Version': '202311.1.0', 'OptanonDataJSON': '1b680a73-8e08-4edb-a82a-5be473f785ef', 'GeolocationUrl': 'https://geolocation.onetrust.com/cookieconsentpub/v1/geo/location', 'BulkDomainCheckUrl': 'https://cookies-data.onetrust.io/bannersdk/v1/domaingroupcheck', 'RuleSet': [{'Id': '01"
+    },
+    {
+      "url": "https://nclbahamasltd.demdex.net/dest5.html?d_nsid=0",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "timing": {
+        "startTime": 1780344056984.672,
+        "domainLookupStart": 3.71,
+        "domainLookupEnd": 51.155,
+        "connectStart": 51.27,
+        "secureConnectionStart": 103.393,
+        "connectEnd": 161.517,
+        "requestStart": 161.627,
+        "responseStart": 217.808,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://cdn.cookielaw.org/scripttemplates/202311.1.0/otBannerSdk.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344057171.012,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 1.322,
+        "responseStart": 34.281,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.youtube.com/player_api?_=1780344056654",
+      "status": 200,
+      "content_type": "text/javascript; charset=utf-8",
+      "timing": {
+        "startTime": 1780344057033.17,
+        "domainLookupStart": 1.009,
+        "domainLookupEnd": 29.14,
+        "connectStart": 29.252,
+        "secureConnectionStart": 73.689,
+        "connectEnd": 130.708,
+        "requestStart": 130.789,
+        "responseStart": 206.918,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/api/leads/v1/form-schema/become-insider-form-optin-and-disclaimer?region=Country_US",
+      "status": 200,
+      "content_type": "application/json",
+      "timing": {
+        "startTime": 1780344057202.401,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 3.238,
+        "responseStart": 52.973,
+        "responseEnd": -1
+      },
+      "body_preview": null
+    },
+    {
+      "url": "https://www.rssc.com/api/leads/v1/form-schema/become-insider-form-validation-json-schema-flyout?region=Country_US",
+      "status": 200,
+      "content_type": "application/json",
+      "timing": {
+        "startTime": 1780344057204.951,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 1.951,
+        "responseStart": 50.795,
+        "responseEnd": -1
+      },
+      "body_preview": null
+    },
+    {
+      "url": "https://code.approachguides.com/6z8qq6/7mq1zw/loader.js",
+      "status": 200,
+      "content_type": "application/javascript; charset=utf-8",
+      "timing": {
+        "startTime": 1780344057001.971,
+        "domainLookupStart": 1.706,
+        "domainLookupEnd": 151.589,
+        "connectStart": 151.692,
+        "secureConnectionStart": 183.393,
+        "connectEnd": 240.644,
+        "requestStart": 240.713,
+        "responseStart": 278.464,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.youtube.com/s/player/886cbf26/www-widgetapi.vflset/www-widgetapi.js",
+      "status": 200,
+      "content_type": "text/javascript",
+      "timing": {
+        "startTime": 1780344057242.666,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 1.088,
+        "responseStart": 48.156,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/404",
+      "status": 404,
+      "content_type": "text/html",
+      "timing": {
+        "startTime": 1780344057146.285,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 3.075,
+        "responseStart": 158.103,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://cdn.cookielaw.org/consent/1b680a73-8e08-4edb-a82a-5be473f785ef/019a55cf-4f46-7e2e-a1ba-d954be24f056/en.json",
+      "status": 200,
+      "content_type": "application/json",
+      "timing": {
+        "startTime": 1780344057262.455,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 1.494,
+        "responseStart": 41.482,
+        "responseEnd": -1
+      },
+      "body_preview": "{'DomainData': {'pclifeSpanYr': 'Year', 'pclifeSpanYrs': 'Years', 'pclifeSpanSecs': 'A few seconds', 'pclifeSpanWk': 'Week', 'pclifeSpanWks': 'Weeks', 'pccontinueWithoutAcceptText': 'Continue without Accepting', 'pccloseButtonType': 'Icon', 'MainText': '', 'MainInfoText': 'We use data to improve and analyze our functionality and customize our services, ads, and offers to your interests. If you would like to exercise the do not sell, do not share, or opt out of targeted advertising right for cook"
+    },
+    {
+      "url": "https://www.rssc.com/api/browse/v1/countryStates?regions=US%7CCA%7CAU%7CNZ%7CMX%7CBR",
+      "status": 200,
+      "content_type": "application/json",
+      "timing": {
+        "startTime": 1780344057266.282,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 1.528,
+        "responseStart": 50.796,
+        "responseEnd": -1
+      },
+      "body_preview": null
+    },
+    {
+      "url": "https://js-agent.newrelic.com/nr-spa-1216.min.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344057306.445,
+        "domainLookupStart": 2.622,
+        "domainLookupEnd": 5.619,
+        "connectStart": 5.762,
+        "secureConnectionStart": 27.347,
+        "connectEnd": 56.622,
+        "requestStart": 56.697,
+        "responseStart": 79.08,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://cdn.cookielaw.org/scripttemplates/202311.1.0/assets/otCommonStyles.css",
+      "status": 200,
+      "content_type": "text/css",
+      "timing": {
+        "startTime": 1780344057383.67,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 1.393,
+        "responseStart": 32.147,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://cdn.cookielaw.org/scripttemplates/202311.1.0/assets/v2/otPcCenter.json",
+      "status": 200,
+      "content_type": "application/json",
+      "timing": {
+        "startTime": 1780344057383.536,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 1.416,
+        "responseStart": 30.423,
+        "responseEnd": -1
+      },
+      "body_preview": "{'name': 'otPcCenter', 'html': 'PGRpdiBpZD0ib25ldHJ1c3QtcGMtc2RrIiBjbGFzcz0ib3RQY0NlbnRlciBvdC1oaWRlIG90LWZhZGUtaW4iPjxkaXYgcm9sZT0iYWxlcnRkaWFsb2ciIGFyaWEtbW9kYWw9InRydWUiIGFyaWEtZGVzY3JpYmVkYnk9Im90LXBjLWRlc2MiPjwhLS0gQ2xvc2UgQnV0dG9uIC0tPjxkaXYgY2xhc3M9Im90LXBjLWhlYWRlciI+PCEtLSBMb2dvIFRhZyAtLT48ZGl2IGNsYXNzPSJvdC1wYy1sb2dvIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IkNvbXBhbnkgTG9nbyI+PC9kaXY+PGJ1dHRvbiBpZD0iY2xvc2UtcGMtYnRuLWhhbmRsZXIiIGNsYXNzPSJvdC1jbG9zZS1pY29uIiBhcmlhLWxhYmVsPSJDbG9zZSI+PC9idXR0b24+"
+    },
+    {
+      "url": "https://cdn.cookielaw.org/scripttemplates/202311.1.0/assets/otFlat.json",
+      "status": 200,
+      "content_type": "application/json",
+      "timing": {
+        "startTime": 1780344057382.432,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 1.453,
+        "responseStart": 33.903,
+        "responseEnd": -1
+      },
+      "body_preview": "{'name': 'otFlat', 'html': 'PGRpdiBpZD0ib25ldHJ1c3QtYmFubmVyLXNkayIgY2xhc3M9Im90RmxhdCI+PGRpdiByb2xlPSJhbGVydGRpYWxvZyIgYXJpYS1kZXNjcmliZWRieT0ib25ldHJ1c3QtcG9saWN5LXRleHQiPjxkaXYgY2xhc3M9Im90LXNkay1jb250YWluZXIiPjxkaXYgY2xhc3M9Im90LXNkay1yb3ciPjxkaXYgaWQ9Im9uZXRydXN0LWdyb3VwLWNvbnRhaW5lciIgY2xhc3M9Im90LXNkay1laWdodCBvdC1zZGstY29sdW1ucyI+PGRpdiBjbGFzcz0iYmFubmVyX2xvZ28iPjwvZGl2PjxkaXYgaWQ9Im9uZXRydXN0LXBvbGljeSI+PGgyIGlkPSJvbmV0cnVzdC1wb2xpY3ktdGl0bGUiPlRpdGxlPC9oMj48ZGl2IGlkPSJvbmV0cnVzdC1wb2xp"
+    },
+    {
+      "url": "https://www.rssc.com/akam/13/pixel_5d02401",
+      "status": 200,
+      "content_type": "text/html",
+      "timing": {
+        "startTime": 1780344057392.404,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 1.548,
+        "responseStart": 42.261,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://cdn.cookielaw.org/logos/3b29983e-65ce-4479-a104-3fcc5cc101d0/019c0b60-4e5a-7860-b7d2-fcf2089cb6f0/9d25f109-506c-4753-a59a-fb2392256a90/logo-rssc-black-v2.png",
+      "status": 200,
+      "content_type": "image/png",
+      "timing": {
+        "startTime": 1780344057474.406,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 30.249,
+        "responseStart": 60.55,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://cdn.cookielaw.org/logos/static/ot_guard_logo.svg",
+      "status": 200,
+      "content_type": "image/svg+xml",
+      "timing": {
+        "startTime": 1780344057456.829,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 46.687,
+        "responseStart": 78.252,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://cdn.cookielaw.org/logos/static/powered_by_logo.svg",
+      "status": 200,
+      "content_type": "image/svg+xml",
+      "timing": {
+        "startTime": 1780344057474.52,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 30.262,
+        "responseStart": 60.713,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://assets.adobedtm.com/dfde4cf50702/170fd7a0f0ad/6ae1024889af/RC76d0791bdda04b868e568b9d4c539240-source.min.js",
+      "status": 200,
+      "content_type": "application/x-javascript",
+      "timing": {
+        "startTime": 1780344057484.19,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 20.295,
+        "responseStart": 56.081,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://assets.adobedtm.com/dfde4cf50702/170fd7a0f0ad/6ae1024889af/RC8e5be4b1ba67468da8e5bb2360bba0b3-source.min.js",
+      "status": 200,
+      "content_type": "application/x-javascript",
+      "timing": {
+        "startTime": 1780344057485.049,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 19.515,
+        "responseStart": 55.43,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://assets.adobedtm.com/dfde4cf50702/170fd7a0f0ad/6ae1024889af/RC0c7543563cae484895af2173d9e8b3a3-source.min.js",
+      "status": 200,
+      "content_type": "application/x-javascript",
+      "timing": {
+        "startTime": 1780344057485.697,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 19.017,
+        "responseStart": 54.85,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://bam.nr-data.net/1/a8140a057e?a=1012796355&v=1216.487a282&to=NFFVMUYCXxdTAhEMWA0bdjZkTFUBVAAQCUNNVUQVTA%3D%3D&rst=1967&ck=1&ref=https://www.rssc.com/agent/default.aspx&ap=304&be=1186&fe=1863&dc=1466&af=err,xhr,stn,ins,spa&perf=%7B%22timing%22:%7B%22of%22:1780344055441,%22n%22:0,%22r%22:-5,%22re%22:246,%22f%22:247,%22dn%22:247,%22dne%22:247,%22c%22:247,%22s%22:247,%22ce%22:247,%22rq%22:250,%22rp%22:790,%22rpe%22:790,%22dl%22:805,%22di%22:1383,%22ds%22:1417,%22de%22:1485,%22dc%22:1862,%22l%22:1862,%22le%22:1884%7D,%22navigation%22:%7B%22rc%22:1%7D%7D&jsonp=NREUM.setToken",
+      "status": 200,
+      "content_type": "text/javascript",
+      "timing": {
+        "startTime": 1780344057410.154,
+        "domainLookupStart": 1.254,
+        "domainLookupEnd": 4.666,
+        "connectStart": 4.775,
+        "secureConnectionStart": 25.951,
+        "connectEnd": 56.345,
+        "requestStart": 56.39,
+        "responseStart": 154.573,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://assets.adobedtm.com/dfde4cf50702/170fd7a0f0ad/6ae1024889af/RC45a116f14e1f4a2d88aa7d8efb3bf5f3-source.min.js",
+      "status": 200,
+      "content_type": "application/x-javascript",
+      "timing": {
+        "startTime": 1780344057566.426,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 29.185,
+        "responseStart": 61.407,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://assets.adobedtm.com/dfde4cf50702/170fd7a0f0ad/6ae1024889af/RCdcdd5a92f0364fa2a3197b2045f593a9-source.min.js",
+      "status": 200,
+      "content_type": "application/x-javascript",
+      "timing": {
+        "startTime": 1780344057567.154,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 28.571,
+        "responseStart": 60.808,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://assets.adobedtm.com/dfde4cf50702/170fd7a0f0ad/6ae1024889af/RC892848c21a5746fda72d657db350f3b8-source.min.js",
+      "status": 200,
+      "content_type": "application/x-javascript",
+      "timing": {
+        "startTime": 1780344057575.15,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 20.655,
+        "responseStart": 52.968,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://assets.adobedtm.com/dfde4cf50702/170fd7a0f0ad/6ae1024889af/RC1a0084dbf4c14be7b42ca0ca55c1b361-source.min.js",
+      "status": 200,
+      "content_type": "application/x-javascript",
+      "timing": {
+        "startTime": 1780344057576.968,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 18.969,
+        "responseStart": 51.226,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://cdn.datasteam.io/js/D2CF58AA81572B.js",
+      "status": 200,
+      "content_type": "application/x-javascript",
+      "timing": {
+        "startTime": 1780344057552.03,
+        "domainLookupStart": 37.752,
+        "domainLookupEnd": 37.795,
+        "connectStart": 38.289,
+        "secureConnectionStart": 60.282,
+        "connectEnd": 92.464,
+        "requestStart": 92.726,
+        "responseStart": 118.889,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://js.ipredictive.com/viant_universal_pixel.js",
+      "status": 200,
+      "content_type": "text/javascript",
+      "timing": {
+        "startTime": 1780344057553.242,
+        "domainLookupStart": 37.978,
+        "domainLookupEnd": 38.008,
+        "connectStart": 38.088,
+        "secureConnectionStart": 59.684,
+        "connectEnd": 92.637,
+        "requestStart": 92.693,
+        "responseStart": 121.3,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://static.hotjar.com/c/hotjar-1263849.js?sv=6",
+      "status": 200,
+      "content_type": "application/javascript; charset=UTF-8",
+      "timing": {
+        "startTime": 1780344057558.139,
+        "domainLookupStart": 36.844,
+        "domainLookupEnd": 36.88,
+        "connectStart": 36.989,
+        "secureConnectionStart": 58.387,
+        "connectEnd": 87.843,
+        "requestStart": 88.084,
+        "responseStart": 121.073,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://edge.adobedc.net/ee/v1/privacy/set-consent?configId=8dcc5a5b-bab5-44f7-a906-d55ac039be39&requestId=38d64c5a-0691-447c-af02-f055523e36df",
+      "status": 200,
+      "content_type": "application/json;charset=utf-8",
+      "timing": {
+        "startTime": 1780344057478.556,
+        "domainLookupStart": 26.281,
+        "domainLookupEnd": 26.307,
+        "connectStart": 26.411,
+        "secureConnectionStart": 77.895,
+        "connectEnd": 135.082,
+        "requestStart": 135.174,
+        "responseStart": 199.128,
+        "responseEnd": -1
+      },
+      "body_preview": "{'requestId': '38d64c5a-0691-447c-af02-f055523e36df-187217f191de40f3', 'handle': [{'payload': [{'id': '78182727061750552004159770047569461355', 'namespace': {'code': 'ECID'}}], 'type': 'identity:result'}, {'payload': [{'scope': 'Target', 'hint': '34', 'ttlSeconds': 1800}, {'scope': 'AAM', 'hint': '7', 'ttlSeconds': 1800}, {'scope': 'EdgeNetwork', 'hint': 'va6', 'ttlSeconds': 1800}], 'type': 'locationHint:result'}, {'payload': [{'collect': {'val': 'y'}, 'metadata': {'time': '2026-06-01T13:00:57-0"
+    },
+    {
+      "url": "https://js.adsrvr.org/up_loader.1.1.0.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344057560.079,
+        "domainLookupStart": 35.142,
+        "domainLookupEnd": 40.074,
+        "connectStart": 40.223,
+        "secureConnectionStart": 61.627,
+        "connectEnd": 93.551,
+        "requestStart": 93.595,
+        "responseStart": 116.268,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://assets.adobedtm.com/dfde4cf50702/170fd7a0f0ad/6ae1024889af/RCa362b469cf16493b8ac47078a2fed59b-source.min.js",
+      "status": 200,
+      "content_type": "application/x-javascript",
+      "timing": {
+        "startTime": 1780344057647.808,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 15.251,
+        "responseStart": 48.013,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://assets.adobedtm.com/dfde4cf50702/170fd7a0f0ad/6ae1024889af/RC23be7a71762a4912b2f0fe55e09d9f1f-source.min.js",
+      "status": 200,
+      "content_type": "application/x-javascript",
+      "timing": {
+        "startTime": 1780344057649.931,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 13.809,
+        "responseStart": 45.998,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://pt.ispot.tv/v2/TC-4920-1.gif?app=web&type=visit",
+      "status": 200,
+      "content_type": "image/gif",
+      "timing": {
+        "startTime": 1780344057555.409,
+        "domainLookupStart": 60.922,
+        "domainLookupEnd": 61.002,
+        "connectStart": 61.73,
+        "secureConnectionStart": 84.046,
+        "connectEnd": 118.55,
+        "requestStart": 118.63,
+        "responseStart": 147.011,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://universal.iperceptions.com/wrapper.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344057557.77,
+        "domainLookupStart": 37.173,
+        "domainLookupEnd": 68.092,
+        "connectStart": 68.228,
+        "secureConnectionStart": 89.467,
+        "connectEnd": 120.821,
+        "requestStart": 120.89,
+        "responseStart": 149.595,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://s.pinimg.com/ct/core.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344057559.513,
+        "domainLookupStart": 35.543,
+        "domainLookupEnd": 58.809,
+        "connectStart": 58.912,
+        "secureConnectionStart": 80.99,
+        "connectEnd": 128.256,
+        "requestStart": 128.385,
+        "responseStart": 152.387,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://bam.nr-data.net/resources/1/a8140a057e?a=1012796355&v=1216.487a282&to=NFFVMUYCXxdTAhEMWA0bdjZkTFUBVAAQCUNNVUQVTA%3D%3D&rst=2148&ck=1&ref=https://www.rssc.com/agent/default.aspx&st=1780344055441",
+      "status": 200,
+      "content_type": "text/plain",
+      "timing": {
+        "startTime": 1780344057594.082,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 23.195,
+        "responseStart": 122.555,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://bat.bing.com/bat.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344057553.118,
+        "domainLookupStart": 37.496,
+        "domainLookupEnd": 37.534,
+        "connectStart": 37.615,
+        "secureConnectionStart": 69.401,
+        "connectEnd": 113.094,
+        "requestStart": 113.169,
+        "responseStart": 178.622,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://s.yimg.com/wi/ytc.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344057554.33,
+        "domainLookupStart": 38.806,
+        "domainLookupEnd": 41.704,
+        "connectStart": 41.787,
+        "secureConnectionStart": 85.692,
+        "connectEnd": 142.738,
+        "requestStart": 142.826,
+        "responseStart": 193.326,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.googletagmanager.com/gtag/js?id=DC-10112902",
+      "status": 200,
+      "content_type": "application/javascript; charset=UTF-8",
+      "timing": {
+        "startTime": 1780344057554.456,
+        "domainLookupStart": 39.514,
+        "domainLookupEnd": 39.551,
+        "connectStart": 39.632,
+        "secureConnectionStart": 84.011,
+        "connectEnd": 148.111,
+        "requestStart": 148.398,
+        "responseStart": 204.349,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://universal.iperceptions.com/iFrame.html",
+      "status": 200,
+      "content_type": "text/html",
+      "timing": {
+        "startTime": 1780344057733.133,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 3.907,
+        "responseStart": 29.767,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://s.pinimg.com/ct/lib/main.0fc62dfe.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344057737.829,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 7.242,
+        "responseStart": 31.139,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://connect.facebook.net/en_US/fbevents.js",
+      "status": 200,
+      "content_type": "application/x-javascript; charset=utf-8",
+      "timing": {
+        "startTime": 1780344057638.122,
+        "domainLookupStart": 24.513,
+        "domainLookupEnd": 56.082,
+        "connectStart": 56.512,
+        "secureConnectionStart": 56.512,
+        "connectEnd": 101.607,
+        "requestStart": 102.024,
+        "responseStart": 140.526,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://script.hotjar.com/modules.6a0f3932cb1341a35c18.js",
+      "status": 200,
+      "content_type": "application/javascript; charset=utf-8",
+      "timing": {
+        "startTime": 1780344057708.701,
+        "domainLookupStart": 10.999,
+        "domainLookupEnd": 31.525,
+        "connectStart": 31.667,
+        "secureConnectionStart": 54.644,
+        "connectEnd": 82.23,
+        "requestStart": 82.307,
+        "responseStart": 112.874,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://secure.adnxs.com/px?id=1647924&t=2",
+      "status": 307,
+      "content_type": "text/html; charset=utf-8",
+      "timing": {
+        "startTime": 1780344057554.77,
+        "domainLookupStart": 48.589,
+        "domainLookupEnd": 48.689,
+        "connectStart": 48.816,
+        "secureConnectionStart": 97.927,
+        "connectEnd": 207.939,
+        "requestStart": 208.078,
+        "responseStart": 270.053,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.googletagmanager.com/gtag/js?id=DC-12975515",
+      "status": 200,
+      "content_type": "application/javascript; charset=UTF-8",
+      "timing": {
+        "startTime": 1780344057641.698,
+        "domainLookupStart": 21.227,
+        "domainLookupEnd": 22.112,
+        "connectStart": 22.695,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 61.226,
+        "responseStart": 184.385,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://bam.nr-data.net/events/1/a8140a057e?a=1012796355&v=1216.487a282&to=NFFVMUYCXxdTAhEMWA0bdjZkTFUBVAAQCUNNVUQVTA%3D%3D&rst=2300&ck=1&ref=https://www.rssc.com/agent/default.aspx&ptid=6202d181-0001-b946-0e17-019e84c66f50",
+      "status": 200,
+      "content_type": "image/gif",
+      "timing": {
+        "startTime": 1780344057742.445,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 4.516,
+        "responseStart": 87.9,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://bat.bing.com/p/action/151002275.js",
+      "status": 200,
+      "content_type": "application/javascript; charset=utf-8",
+      "timing": {
+        "startTime": 1780344057747.614,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 3.709,
+        "responseStart": 86.023,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://b.videoamp.com/d2/e7e7ecec-b28f-430a-a796-27f30579a40a/8435/impression?bwb=35&vpxid=8435&dnt=false&cevt=SITE_VISIT&us_privacy={{US_PRIVACY_STRING}}",
+      "status": 200,
+      "content_type": "image/gif",
+      "timing": {
+        "startTime": 1780344057560.34,
+        "domainLookupStart": 68.079,
+        "domainLookupEnd": 68.148,
+        "connectStart": 68.264,
+        "secureConnectionStart": 120.74,
+        "connectEnd": 235.798,
+        "requestStart": 235.891,
+        "responseStart": 293.588,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://acsbapp.com/apps/app/dist/js/app.js",
+      "status": 200,
+      "content_type": "text/javascript",
+      "timing": {
+        "startTime": 1780344057640.238,
+        "domainLookupStart": 22.661,
+        "domainLookupEnd": 26.658,
+        "connectStart": 26.751,
+        "secureConnectionStart": 50.313,
+        "connectEnd": 85.727,
+        "requestStart": 85.802,
+        "responseStart": 222.201,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://secure.adnxs.com/bounce?%2Fpx%3Fid%3D1647924%26t%3D2",
+      "status": 200,
+      "content_type": "image/gif",
+      "timing": {
+        "startTime": 1780344057825.54,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 18.891,
+        "responseStart": 71.108,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://bat.bing.com/action/0?ti=151002275&Ver=2&mid=bb87d27e-f25a-4d53-bb17-6e3838bc8b5f&bo=2&sid=9af5e1c05df411f1a9ca67435623c8d9&vid=779983805af911f1bff45d9dede8181a&vids=0&msclkid=N&pi=0&lg=en-US&sw=1440&sh=900&sc=24&nwd=1&tl=Regent%20Travel%20Partner%20Center%20%7C%20Regent%20Seven%20Seas%20Cruises&kw=Travel%20Partner%20Center&p=https%3A%2F%2Fwww.rssc.com%2Fagent%2Fdefault.aspx%3FReturnUrl%3D%252fagent%252fmyaccount%252fbookedcruise.aspx%26McWU05z77cmpnbQbEo2CdOumw8lV3LRNPvEArhnrrs3hl5RgmNGc6tgCF0LEwSWn9KttcnSG6QV03Ue0ckTSqA%253d%253d&r=&lt=1884&evt=pageLoad&sv=2&asc=G&cdb=AQER&rn=679024",
+      "status": 204,
+      "content_type": "",
+      "timing": {
+        "startTime": 1780344057842.613,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 11.475,
+        "responseStart": 68.199,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://connect.facebook.net/signals/config/312952738893059?v=2.9.329&r=stable&domain=www.rssc.com&hme=af8aa31887db259becaf70277daef60bd8bc35c2df82c2acd4258de27ecac4b5&ex_m=104%2C207%2C155%2C22%2C72%2C73%2C146%2C68%2C67%2C11%2C164%2C90%2C16%2C138%2C127%2C39%2C75%2C78%2C134%2C160%2C166%2C8%2C4%2C5%2C7%2C6%2C3%2C91%2C101%2C167%2C172%2C221%2C62%2C188%2C189%2C55%2C279%2C30%2C74%2C233%2C232%2C231%2C23%2C33%2C103%2C61%2C10%2C63%2C97%2C98%2C99%2C105%2C130%2C31%2C29%2C132%2C133%2C129%2C128%2C156%2C76%2C159%2C157%2C158%2C50%2C60%2C123%2C15%2C163%2C45%2C266%2C267%2C265%2C26%2C27%2C28%2C48%2C147%2C77%2C112%2C18%2C20%2C44%2C40%2C42%2C41%2C83%2C92%2C96%2C110%2C145%2C148%2C46%2C111%2C24%2C21%2C119%2C69%2C36%2C150%2C149%2C151%2C142%2C140%2C25%2C35%2C59%2C109%2C162%2C70%2C17%2C153%2C114%2C81%2C66%2C19%2C85%2C86%2C116%2C84%2C136%2C135%2C139%2C161%2C34%2C281%2C297%2C214%2C203%2C204%2C202%2C300%2C291%2C52%2C215%2C107%2C131%2C80%2C121%2C54%2C47%2C49%2C113%2C120%2C126%2C125%2C58%2C64%2C152%2C115%2C37%2C32%2C53%2C56%2C100%2C165%2C1%2C124%2C14%2C122%2C12%2C2%2C57%2C93%2C65%2C118%2C89%2C88%2C168%2C169%2C94%2C95%2C9%2C102%2C51%2C143%2C87%2C79%2C71%2C117%2C106%2C43%2C144%2C0%2C82%2C137%2C141%2C154%2C38%2C108%2C13%2C170",
+      "status": 200,
+      "content_type": "application/x-javascript; charset=utf-8",
+      "timing": {
+        "startTime": 1780344057891.586,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 10.075,
+        "responseStart": 47.835,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://ct.pinterest.com/user/?event=pagevisit&ed=%7B%7D&tid=2613675688276&cb=1780344057783&dep=5%2CEVENT_TAGS_ABSENT",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "timing": {
+        "startTime": 1780344057784.323,
+        "domainLookupStart": 8.279,
+        "domainLookupEnd": 45.924,
+        "connectStart": 46.292,
+        "secureConnectionStart": 68.193,
+        "connectEnd": 99.357,
+        "requestStart": 99.463,
+        "responseStart": 161.485,
+        "responseEnd": -1
+      },
+      "body_preview": "{'aemEnabled': False, 'aemFnLnEnabled': False, 'aemPhEnabled': False, 'aemGeEnabled': False, 'aemDbEnabled': False, 'aemLocEnabled': False, 'aemExternalIdEnabled': False, 'ctEpikIframeEnabled': True, 'chromeNewUserAgentEnabled': True, 'isEu': False, 'isUtilizingAdvertiser1pEnabled': True, 'aemStorageEnabled': True, 'isRestrictedRegion': False, 'mdFrequency': 0.0, 'piaaEndPoint': '', 'noCodeCapiDomains': []}"
+    },
+    {
+      "url": "https://ct.pinterest.com/user/?tid=2613675688276&pd=%7B%22pin_unauth%22%3A%22***REMOVED-SECRET***%22%7D&cb=1780344057782&dep=2%2CPAGE_LOAD",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "timing": {
+        "startTime": 1780344057783.059,
+        "domainLookupStart": 9.394,
+        "domainLookupEnd": 47.156,
+        "connectStart": 47.411,
+        "secureConnectionStart": 69.924,
+        "connectEnd": 103.589,
+        "requestStart": 103.668,
+        "responseStart": 164.898,
+        "responseEnd": -1
+      },
+      "body_preview": "{'aemEnabled': False, 'aemFnLnEnabled': False, 'aemPhEnabled': False, 'aemGeEnabled': False, 'aemDbEnabled': False, 'aemLocEnabled': False, 'aemExternalIdEnabled': False, 'ctEpikIframeEnabled': True, 'chromeNewUserAgentEnabled': True, 'isEu': False, 'isUtilizingAdvertiser1pEnabled': True, 'aemStorageEnabled': True, 'isRestrictedRegion': False, 'mdFrequency': 0.0, 'piaaEndPoint': '', 'noCodeCapiDomains': []}"
+    },
+    {
+      "url": "https://ct.pinterest.com/v3/?tid=2613675688276&pd=%7B%22pin_unauth%22%3A%22***REMOVED-SECRET***%22%7D&event=init&ad=%7B%22loc%22%3A%22https%3A%2F%2Fwww.rssc.com%2Fagent%2Fdefault.aspx%3FReturnUrl%3D%252fagent%252fmyaccount%252fbookedcruise.aspx%26McWU05z77cmpnbQbEo2CdOumw8lV3LRNPvEArhnrrs3hl5RgmNGc6tgCF0LEwSWn9KttcnSG6QV03Ue0ckTSqA%253d%253d%22%2C%22ref%22%3A%22%22%2C%22if%22%3Afalse%2C%22sh%22%3A900%2C%22sw%22%3A1440%2C%22mh%22%3A%220fc62dfe%22%2C%22is_eu%22%3Atrue%2C%22ecm_enabled%22%3Afalse%7D&cb=1780344057784",
+      "status": 200,
+      "content_type": "image/gif",
+      "timing": {
+        "startTime": 1780344057784.965,
+        "domainLookupStart": 8.067,
+        "domainLookupEnd": 45.31,
+        "connectStart": 45.7,
+        "secureConnectionStart": 69.151,
+        "connectEnd": 99.882,
+        "requestStart": 99.977,
+        "responseStart": 165.862,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://insight.adsrvr.org/track/cei?advertiser_id=85anqsc&cookie_sync=1&upv=3.0.0&upid=ggphg70&ref=https://www.rssc.com/agent/default.aspx?ReturnUrl=%2fagent%2fmyaccount%2fbookedcruise.aspx&McWU05z77cmpnbQbEo2CdOumw8lV3LRNPvEArhnrrs3hl5RgmNGc6tgCF0LEwSWn9KttcnSG6QV03Ue0ckTSqA%3d%3d",
+      "status": 302,
+      "content_type": "text/html",
+      "timing": {
+        "startTime": 1780344057724.652,
+        "domainLookupStart": 3.489,
+        "domainLookupEnd": 8.156,
+        "connectStart": 8.286,
+        "secureConnectionStart": 30.385,
+        "connectEnd": 171.337,
+        "requestStart": 171.453,
+        "responseStart": 226.514,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://script.hotjar.com/survey-v2.e6c6788db3e06a837094.js",
+      "status": 200,
+      "content_type": "application/javascript; charset=utf-8",
+      "timing": {
+        "startTime": 1780344057881.489,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 18.481,
+        "responseStart": 79.992,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.googletagmanager.com/gtag/js?id=AW-701488714",
+      "status": 200,
+      "content_type": "application/javascript; charset=UTF-8",
+      "timing": {
+        "startTime": 1780344057638.408,
+        "domainLookupStart": 24.273,
+        "domainLookupEnd": 24.436,
+        "connectStart": 25.601,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 65.094,
+        "responseStart": 313.986,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://bat.bing.com/actionp/0?ti=151002275&Ver=2&mid=bb87d27e-f25a-4d53-bb17-6e3838bc8b5f&bo=1&evt=consent&src=default&cdb=AQER&asc=G",
+      "status": 204,
+      "content_type": "",
+      "timing": {
+        "startTime": 1780344057839.994,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 12.248,
+        "responseStart": 143.321,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://s.yimg.com/wi/config/10160307.json",
+      "status": 200,
+      "content_type": "text/html",
+      "timing": {
+        "startTime": 1780344057757.515,
+        "domainLookupStart": 3.014,
+        "domainLookupEnd": 3.652,
+        "connectStart": 3.764,
+        "secureConnectionStart": 45.362,
+        "connectEnd": 94.866,
+        "requestStart": 94.958,
+        "responseStart": 225.925,
+        "responseEnd": -1
+      },
+      "body_preview": null
+    },
+    {
+      "url": "https://c.go-mpulse.net/api/config.json?key=***REMOVED-SECRET***&d=www.rssc.com&t=5934480&v=1.815.0&sl=0&si=602fd9fa-5814-466c-9de1-d930b03cb496-tfyy9j&plugins=AK,ConfigOverride,Continuity,PageParams,IFrameDelay,AutoXHR,SPA,History,Angular,Backbone,Ember,RT,CrossDomain,BW,PaintTiming,NavigationTiming,ResourceTiming,Memory,CACHE_RELOAD,Errors,TPAnalytics,UserTiming,Akamai,Early,EventTiming,BFCache,LOGN&acao=&ak.ai=197091",
+      "status": 200,
+      "content_type": "application/json",
+      "timing": {
+        "startTime": 1780344057751.093,
+        "domainLookupStart": 3.375,
+        "domainLookupEnd": 63.55,
+        "connectStart": 63.67,
+        "secureConnectionStart": 95.154,
+        "connectEnd": 136.458,
+        "requestStart": 136.518,
+        "responseStart": 246.504,
+        "responseEnd": -1
+      },
+      "body_preview": "{'h.key': '***REMOVED-SECRET***', 'h.d': 'rssc.com', 'h.t': 1780344057950, 'h.cr': 'd50de850ec34341fb57a2963527fddced3ad00c4-3170c6b0-4a067348', 'session_id': 'fa47e0f7-bf70-417e-a7e8-cb3a117f06ae', 'site_domain': 'rssc.com', 'beacon_url': '//17de4c1d.akstat.io/', 'autorun': False, 'instrument_xhr': True, 'beacon_interval': 60, 'BW': {'enabled': False}, 'RT': {'session_exp': 1800}, 'ResourceTiming': {'enabled': True, 'splitAtPath': True}, 'History': {'enabled': True, 'auto': True}, 'Err"
+    },
+    {
+      "url": "https://match.adsrvr.org/track/cei?advertiser_id=85anqsc&cookie_sync=1&upv=3.0.0&upid=ggphg70&ref=https%3a%2f%2fwww.rssc.com&McWU05z77cmpnbQbEo2CdOumw8lV3LRNPvEArhnrrs3hl5RgmNGc6tgCF0LEwSWn9KttcnSG6QV03Ue0ckTSqA===&redirect=1",
+      "status": 200,
+      "content_type": "text/html",
+      "timing": {
+        "startTime": 1780344057952.41,
+        "domainLookupStart": 3.521,
+        "domainLookupEnd": 7.895,
+        "connectStart": 8.053,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 8.199,
+        "responseStart": 64.092,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://ct.pinterest.com/ct.html",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "timing": {
+        "startTime": 1780344057964.399,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 3.824,
+        "responseStart": 66.76,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://ct.pinterest.com/v3/?event=pagevisit&ed=%7B%7D&tid=2613675688276&cb=1780344057958&dep=5%2CEVENT_TAGS_ABSENT&pd=%7B%22pin_unauth%22%3A%22***REMOVED-SECRET***%22%7D&ad=%7B%22loc%22%3A%22https%3A%2F%2Fwww.rssc.com%2Fagent%2Fdefault.aspx%3FReturnUrl%3D%252fagent%252fmyaccount%252fbookedcruise.aspx%26McWU05z77cmpnbQbEo2CdOumw8lV3LRNPvEArhnrrs3hl5RgmNGc6tgCF0LEwSWn9KttcnSG6QV03Ue0ckTSqA%253d%253d%22%2C%22ref%22%3A%22%22%2C%22if%22%3Afalse%2C%22sh%22%3A900%2C%22sw%22%3A1440%2C%22mh%22%3A%220fc62dfe%22%2C%22is_eu%22%3Atrue%2C%22ecm_enabled%22%3Afalse%7D",
+      "status": 200,
+      "content_type": "image/gif",
+      "timing": {
+        "startTime": 1780344057958.457,
+        "domainLookupStart": -11.845,
+        "domainLookupEnd": -11.801,
+        "connectStart": -11.431,
+        "secureConnectionStart": -11.431,
+        "connectEnd": 16.054,
+        "requestStart": 21.297,
+        "responseStart": 84.644,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://js.adsrvr.org/universal_pixel.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344058045.774,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.993,
+        "responseStart": 25.941,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://ib.adnxs.com/getuid?https%3a%2f%2fmatch.adsrvr.org%2ftrack%2fcmf%2fappnexus%3fttd%3d1%26anid%3d%24UID&ttd_tdid=7e072e97-0f85-490d-ab34-a6cb630d6e39",
+      "status": 302,
+      "content_type": "text/html; charset=utf-8",
+      "timing": {
+        "startTime": 1780344058051.922,
+        "domainLookupStart": 1.783,
+        "domainLookupEnd": 5.399,
+        "connectStart": 6.381,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 6.502,
+        "responseStart": 60.085,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/671slj/x/l/MAloNV-peFOU/EuODbS1SurVuzwzi/UExGPFZyWg8/dlxFbic/eeHUB",
+      "status": 201,
+      "content_type": "application/json",
+      "timing": {
+        "startTime": 1780344057953.808,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 25.631,
+        "responseStart": 192.155,
+        "responseEnd": -1
+      },
+      "body_preview": "{'success': True}"
+    },
+    {
+      "url": "https://sp.analytics.yahoo.com/sp.pl?a=10000&d=Mon%2C%2001%20Jun%202026%2020%3A00%3A57%20GMT&n=6d&b=Regent%20Travel%20Partner%20Center%20%7C%20Regent%20Seven%20Seas%20Cruises&.yp=10160307&f=https%3A%2F%2Fwww.rssc.com%2Fagent%2Fdefault.aspx%3FReturnUrl%3D%252fagent%252fmyaccount%252fbookedcruise.aspx%26McWU05z77cmpnbQbEo2CdOumw8lV3LRNPvEArhnrrs3hl5RgmNGc6tgCF0LEwSWn9KttcnSG6QV03Ue0ckTSqA%253d%253d&enc=UTF-8&yv=1.16.6&tagmgr=tealium%2Cadobe",
+      "status": 200,
+      "content_type": "image/gif",
+      "timing": {
+        "startTime": 1780344057987.633,
+        "domainLookupStart": 4.781,
+        "domainLookupEnd": 4.806,
+        "connectStart": 4.942,
+        "secureConnectionStart": 56.316,
+        "connectEnd": 113.994,
+        "requestStart": 114.085,
+        "responseStart": 167.656,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://match.adsrvr.org/track/cmf/appnexus?ttd=1&anid=2102252849595064750&ttd_tdid=7e072e97-0f85-490d-ab34-a6cb630d6e39",
+      "status": 200,
+      "content_type": "image/gif",
+      "timing": {
+        "startTime": 1780344058112.734,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 1.76,
+        "responseStart": 56.664,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.facebook.com/tr/?id=312952738893059&ev=PageView&dl=https%3A%2F%2Fwww.rssc.com%2Fagent%2Fdefault.aspx%3FReturnUrl%3D%252fagent%252fmyaccount%252fbookedcruise.aspx%26McWU05z77cmpnbQbEo2CdOumw8lV3LRNPvEArhnrrs3hl5RgmNGc6tgCF0LEwSWn9KttcnSG6QV03Ue0ckTSqA%253d%253d&rl=&if=false&ts=1780344058022&sw=1440&sh=900&v=2.9.329&r=stable&ec=0&o=12318&fbp=fb.1.1780344058019.655985534130027653&eid=ob3_plugin-set_21690adb0346e9029b6e5afbeafcc32577b67209b6592c253711de38c7efc293&ler=empty&pmd[title]=Regent%20Travel%20Partner%20Center%20%7C%20Regent%20Seven%20Seas%20Cruises&pmd[keywords]=Travel%20Partner%20Center&pmd[description]=Login%20to%20the%20Travel%20Partner%20Center%20to%20find%20materials%2C%20resources%2C%20and%20helpful%20information%20for%20travel%20partners.%20Click%20here%20to%20learn%20more%20about%20becoming%20a%20preferred%20travel%20partner.&plt=1486&iss=1&imft=1&tz=-360&it=1780344057890&coo=false&cf=1&expv2[0]=pl1&expv2[1]=el2&expv2[2]=bc1&expv2[3]=ra2&expv2[4]=rp2&expv2[5]=im0&expv2[6]=hf0&rqm=GET",
+      "status": 200,
+      "content_type": "text/plain",
+      "timing": {
+        "startTime": 1780344058026.641,
+        "domainLookupStart": 76.294,
+        "domainLookupEnd": 76.342,
+        "connectStart": 76.449,
+        "secureConnectionStart": 110.032,
+        "connectEnd": 151.494,
+        "requestStart": 152.08,
+        "responseStart": 188.92,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://script.hotjar.com/Roboto-Regular.422781.woff2",
+      "status": 200,
+      "content_type": "font/woff2",
+      "timing": {
+        "startTime": 1780344058185.089,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 15.646,
+        "responseStart": 43.32,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://pixel.rubiconproject.com/tap.php?v=8981&nid=2307&put=7e072e97-0f85-490d-ab34-a6cb630d6e39&gdpr=0&gdpr_consent=&expires=30&next=https%3A%2F%2Fmatch.adsrvr.org%2Ftrack%2Fcmf%2Frubicon",
+      "status": 302,
+      "content_type": "text/html",
+      "timing": {
+        "startTime": 1780344058054.008,
+        "domainLookupStart": 1.932,
+        "domainLookupEnd": 7.774,
+        "connectStart": 7.915,
+        "secureConnectionStart": 60.595,
+        "connectEnd": 120.367,
+        "requestStart": 120.469,
+        "responseStart": 175.562,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://script.hotjar.com/Roboto-Medium.ef8bb0.woff2",
+      "status": 200,
+      "content_type": "font/woff2",
+      "timing": {
+        "startTime": 1780344058185.2,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 15.648,
+        "responseStart": 57.519,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://giiruexqxx.us-east-1.awsapprunner.com/events/d18de9d104ef42472084e2ce6251478fbbb33e73e4130fbceedb37a1a5f4cb57",
+      "status": 200,
+      "content_type": "",
+      "timing": {
+        "startTime": 1780344058024.929,
+        "domainLookupStart": 1.243,
+        "domainLookupEnd": 5.919,
+        "connectStart": 6.075,
+        "secureConnectionStart": 59.409,
+        "connectEnd": 169.619,
+        "requestStart": 169.703,
+        "responseStart": 223.583,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://cm.g.doubleclick.net/pixel?google_nid=TheTradeDesk&google_cm&google_sc&google_hm=N2UwNzJlOTctMGY4NS00OTBkLWFiMzQtYTZjYjYzMGQ2ZTM5&gdpr=0&gdpr_consent=&ttd_tdid=7e072e97-0f85-490d-ab34-a6cb630d6e39",
+      "status": 302,
+      "content_type": "text/html; charset=UTF-8",
+      "timing": {
+        "startTime": 1780344058055.928,
+        "domainLookupStart": 1.289,
+        "domainLookupEnd": 6.92,
+        "connectStart": 7.028,
+        "secureConnectionStart": 63.162,
+        "connectEnd": 131.278,
+        "requestStart": 131.45,
+        "responseStart": 199.381,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://surveystats.hotjar.io/hit?id=1072438&device=desktop&survey_type=button",
+      "status": 200,
+      "content_type": "application/octet-stream",
+      "timing": {
+        "startTime": 1780344058155.451,
+        "domainLookupStart": 39.614,
+        "domainLookupEnd": 39.666,
+        "connectStart": 39.84,
+        "secureConnectionStart": 60.285,
+        "connectEnd": 88.439,
+        "requestStart": 88.506,
+        "responseStart": 112.577,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://match.adsrvr.org/track/cmf/rubicon?gdpr=0",
+      "status": 200,
+      "content_type": "image/gif",
+      "timing": {
+        "startTime": 1780344058233.013,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 2.027,
+        "responseStart": 56.121,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://api.iperceptions.com/InviteTriggers",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "timing": {
+        "startTime": 1780344058072.773,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 177.282,
+        "responseStart": 231.722,
+        "responseEnd": -1
+      },
+      "body_preview": "{'EngineUrl': '//universal.iperceptions.com/core/IpEngine_v79.0.js', 'DataUrl': 'https://sd.iperceptions.com/ius-552c4685f10c444b12afbe0e3c7dc445/370_638893937453359501', 'IsActive': True, 'Device': 'desktop', 'Culture': 1, 'VisitorId': '8086984833'}"
+    },
+    {
+      "url": "https://www.googletagmanager.com/gtag/js?id=DC-10112902",
+      "status": 200,
+      "content_type": "application/javascript; charset=UTF-8",
+      "timing": {
+        "startTime": 1780344057637.158,
+        "domainLookupStart": 25.388,
+        "domainLookupEnd": 25.431,
+        "connectStart": 25.593,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 65.815,
+        "responseStart": 670.028,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://cm.g.doubleclick.net/pixel?google_nid=TheTradeDesk&google_cm=&google_sc=&google_hm=N2UwNzJlOTctMGY4NS00OTBkLWFiMzQtYTZjYjYzMGQ2ZTM5&gdpr=0&gdpr_consent=&ttd_tdid=7e072e97-0f85-490d-ab34-a6cb630d6e39&google_tc=",
+      "status": 302,
+      "content_type": "text/html; charset=UTF-8",
+      "timing": {
+        "startTime": 1780344058256.015,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 1.444,
+        "responseStart": 68.63,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://universal.iperceptions.com/core/IpEngine_v79.0.js",
+      "status": 200,
+      "content_type": "text/javascript",
+      "timing": {
+        "startTime": 1780344058307.719,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 2.889,
+        "responseStart": 27.046,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://match.adsrvr.org/track/cmf/google?g_uuid=&gdpr=0&gdpr_consent=&ttd_tdid=7e072e97-0f85-490d-ab34-a6cb630d6e39&google_gid=CAESEOJipXyYdu-FCs2cNIYa_ig&google_cver=1",
+      "status": 200,
+      "content_type": "image/gif",
+      "timing": {
+        "startTime": 1780344058325.537,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 1.672,
+        "responseStart": 56.245,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://sd.iperceptions.com/ius-552c4685f10c444b12afbe0e3c7dc445/370_638893937453359501",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344058337.764,
+        "domainLookupStart": 2.539,
+        "domainLookupEnd": 28.919,
+        "connectStart": 29.055,
+        "secureConnectionStart": 49.911,
+        "connectEnd": 76.789,
+        "requestStart": 76.851,
+        "responseStart": 104.311,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://api.datasteam.io/v1/C/RawData/CF58AA81572B?v=365c0be5-16b1-498c-8861-ddee4aab9dcc&se=e0b327ca-ad8e-45e2-b346-2baeb389f089&d=eyJ2IjoiMzY1YzBiZTUtMTZiMS00OThjLTg4NjEtZGRlZTRhYWI5ZGNjIiwibSI6ImZhNmE1ZGYxLWNmNzEtNDQ4MC1hYzQ4LTM4MzE2ZjFiMmVjOCIsImNzaSI6IiIsInNlIjoiZTBiMzI3Y2EtYWQ4ZS00NWUyLWIzNDYtMmJhZWIzODlmMDg5IiwibiI6MSwicCI6Ijk1MTRlOTdlLWIwYzQtNGU1Yi05ZDRlLTYzMjkxYjVkZDBhMiIsInUiOiJodHRwczovL3d3dy5yc3NjLmNvbS9hZ2VudC9kZWZhdWx0LmFzcHg%2FUmV0dXJuVXJsPSUyZmFnZW50JTJmbXlhY2NvdW50JTJmYm9va2VkY3J1aXNlLmFzcHgmTWNXVTA1ejc3Y21wbmJRYkVvMkNkT3VtdzhsVjNMUk5QdkVBcmhucnJzM2hsNVJnbU5HYzZ0Z0NGMExFd1NXbjlLdHRjblNHNlFWMDNVZTBja1RTcUElM2QlM2QiLCJwbiI6Ii9hZ2VudC9kZWZhdWx0LmFzcHgiLCJyIjoiIiwidCI6IlJlZ2VudCBUcmF2ZWwgUGFydG5lciBDZW50ZXIgfCBSZWdlbnQgU2V2ZW4gU2VhcyBDcnVpc2VzIiwiYyI6Imh0dHBzOi8vd3d3LnJzc2MuY29tL2FnZW50L2RlZmF1bHQuYXNweD9SZXR1cm5Vcmw9JTJmYWdlbnQlMmZteWFjY291bnQlMmZib29rZWRjcnVpc2UuYXNweCZNY1dVMDV6NzdjbXBuYlFiRW8yQ2RPdW13OGxWM0xSTlB2RUFyaG5ycnMzaGw1UmdtTkdjNnRnQ0YwTEV3U1duOUt0dGNuU0c2UVYwM1VlMGNrVFNxQSUzZCUzZCIsInByIjoiODE1NzJCIiwicyI6MSwidnMiOjEsImwiOiJQYWdlTG9hZCJ9&callback=cbdefd3338c677c",
+      "status": 200,
+      "content_type": "",
+      "timing": {
+        "startTime": 1780344058211.981,
+        "domainLookupStart": 10.516,
+        "domainLookupEnd": 29.793,
+        "connectStart": 30.053,
+        "secureConnectionStart": 85.051,
+        "connectEnd": 202.286,
+        "requestStart": 202.351,
+        "responseStart": 259.309,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://aa.agkn.com/adscores/g.pixel?sid=9202283468&_userID=81572B-365C0BE5-16B1-498C-8861-DDEE4AAB9DCC&_takID=CF58AA81572B",
+      "status": 302,
+      "content_type": "",
+      "timing": {
+        "startTime": 1780344058480.499,
+        "domainLookupStart": 7.176,
+        "domainLookupEnd": 48.905,
+        "connectStart": 49.13,
+        "secureConnectionStart": 70.611,
+        "connectEnd": 98.253,
+        "requestStart": 98.373,
+        "responseStart": 156.643,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://aa.agkn.com/adscores/g.jsonp?sid=9202274878&userid=81572B-365C0BE5-16B1-498C-8861-DDEE4AAB9DCC",
+      "status": 200,
+      "content_type": "application/json",
+      "timing": {
+        "startTime": 1780344058478.872,
+        "domainLookupStart": 8.232,
+        "domainLookupEnd": 50.496,
+        "connectStart": 50.661,
+        "secureConnectionStart": 72.946,
+        "connectEnd": 99.932,
+        "requestStart": 101.006,
+        "responseStart": 162.484,
+        "responseEnd": -1
+      },
+      "body_preview": null
+    },
+    {
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-VG9NB3XP9D",
+      "status": 200,
+      "content_type": "application/javascript; charset=UTF-8",
+      "timing": {
+        "startTime": 1780344057556.641,
+        "domainLookupStart": 38.107,
+        "domainLookupEnd": 38.139,
+        "connectStart": 38.224,
+        "secureConnectionStart": 81.009,
+        "connectEnd": 146.008,
+        "requestStart": 147.128,
+        "responseStart": 1107.863,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://api.datasteam.io/v1/C/RawData/CF58AA81572B?v=365c0be5-16b1-498c-8861-ddee4aab9dcc&se=e0b327ca-ad8e-45e2-b346-2baeb389f089&d=eyJ2IjoiMzY1YzBiZTUtMTZiMS00OThjLTg4NjEtZGRlZTRhYWI5ZGNjIiwibSI6IjBhYmE0ZTA1LTI5M2EtNDdhNy1hMjAwLThlMTA5ZTdmNzcwYSIsImNzaSI6IiIsInNlIjoiZTBiMzI3Y2EtYWQ4ZS00NWUyLWIzNDYtMmJhZWIzODlmMDg5IiwicCI6Ijk1MTRlOTdlLWIwYzQtNGU1Yi05ZDRlLTYzMjkxYjVkZDBhMiIsInUiOiJodHRwczovL3d3dy5yc3NjLmNvbS9hZ2VudC9kZWZhdWx0LmFzcHg%2FUmV0dXJuVXJsPSUyZmFnZW50JTJmbXlhY2NvdW50JTJmYm9va2VkY3J1aXNlLmFzcHgmTWNXVTA1ejc3Y21wbmJRYkVvMkNkT3VtdzhsVjNMUk5QdkVBcmhucnJzM2hsNVJnbU5HYzZ0Z0NGMExFd1NXbjlLdHRjblNHNlFWMDNVZTBja1RTcUElM2QlM2QiLCJwbiI6Ii9hZ2VudC9kZWZhdWx0LmFzcHgiLCJyIjoiIiwidCI6IlJlZ2VudCBUcmF2ZWwgUGFydG5lciBDZW50ZXIgfCBSZWdlbnQgU2V2ZW4gU2VhcyBDcnVpc2VzIiwiYyI6Imh0dHBzOi8vd3d3LnJzc2MuY29tL2FnZW50L2RlZmF1bHQuYXNweD9SZXR1cm5Vcmw9JTJmYWdlbnQlMmZteWFjY291bnQlMmZib29rZWRjcnVpc2UuYXNweCZNY1dVMDV6NzdjbXBuYlFiRW8yQ2RPdW13OGxWM0xSTlB2RUFyaG5ycnMzaGw1UmdtTkdjNnRnQ0YwTEV3U1duOUt0dGNuU0c2UVYwM1VlMGNrVFNxQSUzZCUzZCIsInByIjoiODE1NzJCIiwiZWlkIjoibnNfc2VnXzA1NSIsInMiOjIsInZzIjoxLCJsIjoiQWN0aW9uIiwidjAxIjoiRWlkIiwidjAyIjoibnNfc2VnXzA1NSJ9&callback=cbefbc0c34f2e41",
+      "status": 200,
+      "content_type": "",
+      "timing": {
+        "startTime": 1780344058660.984,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 6.987,
+        "responseStart": 62.663,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://i.liadm.com/s/63537?bidder_id=242861&bidder_uuid=81572B-365C0BE5-16B1-498C-8861-DDEE4AAB9DCC",
+      "status": 303,
+      "content_type": "",
+      "timing": {
+        "startTime": 1780344058479.953,
+        "domainLookupStart": 7.687,
+        "domainLookupEnd": 30.379,
+        "connectStart": 30.551,
+        "secureConnectionStart": 82.692,
+        "connectEnd": 192.769,
+        "requestStart": 192.843,
+        "responseStart": 248.517,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://i.liadm.com/s/63537?bidder_id=242861&bidder_uuid=81572B-365C0BE5-16B1-498C-8861-DDEE4AAB9DCC&_li_chk=true&previous_uuid=e38697409f7c4ec9a70b767ab9ec25db",
+      "status": 303,
+      "content_type": "",
+      "timing": {
+        "startTime": 1780344058729.478,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 9.885,
+        "responseStart": 64.942,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://api.datasteam.io/v1/C/RawData/CF58AA81572B?v=365c0be5-16b1-498c-8861-ddee4aab9dcc&se=e0b327ca-ad8e-45e2-b346-2baeb389f089&d=eyJ2IjoiMzY1YzBiZTUtMTZiMS00OThjLTg4NjEtZGRlZTRhYWI5ZGNjIiwibSI6IjU1ZGRkN2IyLTZiMjktNGNiZi1iMzExLTI2YmNkY2MzZWE1YiIsImNzaSI6IiIsInNlIjoiZTBiMzI3Y2EtYWQ4ZS00NWUyLWIzNDYtMmJhZWIzODlmMDg5IiwicCI6Ijk1MTRlOTdlLWIwYzQtNGU1Yi05ZDRlLTYzMjkxYjVkZDBhMiIsInUiOiJodHRwczovL3d3dy5yc3NjLmNvbS9hZ2VudC9kZWZhdWx0LmFzcHg%2FUmV0dXJuVXJsPSUyZmFnZW50JTJmbXlhY2NvdW50JTJmYm9va2VkY3J1aXNlLmFzcHgmTWNXVTA1ejc3Y21wbmJRYkVvMkNkT3VtdzhsVjNMUk5QdkVBcmhucnJzM2hsNVJnbU5HYzZ0Z0NGMExFd1NXbjlLdHRjblNHNlFWMDNVZTBja1RTcUElM2QlM2QiLCJwbiI6Ii9hZ2VudC9kZWZhdWx0LmFzcHgiLCJyIjoiIiwidCI6IlJlZ2VudCBUcmF2ZWwgUGFydG5lciBDZW50ZXIgfCBSZWdlbnQgU2V2ZW4gU2VhcyBDcnVpc2VzIiwiYyI6Imh0dHBzOi8vd3d3LnJzc2MuY29tL2FnZW50L2RlZmF1bHQuYXNweD9SZXR1cm5Vcmw9JTJmYWdlbnQlMmZteWFjY291bnQlMmZib29rZWRjcnVpc2UuYXNweCZNY1dVMDV6NzdjbXBuYlFiRW8yQ2RPdW13OGxWM0xSTlB2RUFyaG5ycnMzaGw1UmdtTkdjNnRnQ0YwTEV3U1duOUt0dGNuU0c2UVYwM1VlMGNrVFNxQSUzZCUzZCIsInByIjoiODE1NzJCIiwiZWlkIjoibnNfc2VnXzA1NSIsInMiOjMsInZzIjoxLCJsIjoiQWN0aW9uIiwidjAxIjoiRXMxIiwidjAyIjoiODA4MzEifQ%3D%3D&callback=cbdf4b3385292ef8",
+      "status": 200,
+      "content_type": "",
+      "timing": {
+        "startTime": 1780344058728.123,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 11.345,
+        "responseStart": 66.705,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://insight.adsrvr.org/track/realtimeconversion",
+      "status": 200,
+      "content_type": "application/json",
+      "timing": {
+        "startTime": 1780344058719.308,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 59.608,
+        "responseStart": 113.398,
+        "responseEnd": -1
+      },
+      "body_preview": "{'Message': None, 'EventResponses': []}"
+    },
+    {
+      "url": "https://fid.agkn.com/f?apiKey=2520642820",
+      "status": 200,
+      "content_type": "application/javascript;charset=iso-8859-1",
+      "timing": {
+        "startTime": 1780344058478.608,
+        "domainLookupStart": 8.452,
+        "domainLookupEnd": 51.336,
+        "connectStart": 51.461,
+        "secureConnectionStart": 128.182,
+        "connectEnd": 287.759,
+        "requestStart": 287.833,
+        "responseStart": 366.464,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://api.dtstmio.com/v1/visitaction/nspx?segment=055&userID=81572B-365C0BE5-16B1-498C-8861-DDEE4AAB9DCC&takID=CF58AA81572B&seg1=80831",
+      "status": 302,
+      "content_type": "",
+      "timing": {
+        "startTime": 1780344058637.924,
+        "domainLookupStart": 1.934,
+        "domainLookupEnd": 6.683,
+        "connectStart": 6.83,
+        "secureConnectionStart": 57.92,
+        "connectEnd": 168.51,
+        "requestStart": 168.568,
+        "responseStart": 221.561,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://api.datasteam.io/v1/C/RawData/CF58AA81572B?v=365c0be5-16b1-498c-8861-ddee4aab9dcc&se=e0b327ca-ad8e-45e2-b346-2baeb389f089&d=eyJ2IjoiMzY1YzBiZTUtMTZiMS00OThjLTg4NjEtZGRlZTRhYWI5ZGNjIiwibSI6ImY0ZDFkMmYyLTU0YzAtNDc3MS05ZTFlLWJmN2RmNzkyODVjYSIsImNzaSI6IiIsInNlIjoiZTBiMzI3Y2EtYWQ4ZS00NWUyLWIzNDYtMmJhZWIzODlmMDg5IiwicCI6Ijk1MTRlOTdlLWIwYzQtNGU1Yi05ZDRlLTYzMjkxYjVkZDBhMiIsInUiOiJodHRwczovL3d3dy5yc3NjLmNvbS9hZ2VudC9kZWZhdWx0LmFzcHg%2FUmV0dXJuVXJsPSUyZmFnZW50JTJmbXlhY2NvdW50JTJmYm9va2VkY3J1aXNlLmFzcHgmTWNXVTA1ejc3Y21wbmJRYkVvMkNkT3VtdzhsVjNMUk5QdkVBcmhucnJzM2hsNVJnbU5HYzZ0Z0NGMExFd1NXbjlLdHRjblNHNlFWMDNVZTBja1RTcUElM2QlM2QiLCJwbiI6Ii9hZ2VudC9kZWZhdWx0LmFzcHgiLCJyIjoiIiwidCI6IlJlZ2VudCBUcmF2ZWwgUGFydG5lciBDZW50ZXIgfCBSZWdlbnQgU2V2ZW4gU2VhcyBDcnVpc2VzIiwiYyI6Imh0dHBzOi8vd3d3LnJzc2MuY29tL2FnZW50L2RlZmF1bHQuYXNweD9SZXR1cm5Vcmw9JTJmYWdlbnQlMmZteWFjY291bnQlMmZib29rZWRjcnVpc2UuYXNweCZNY1dVMDV6NzdjbXBuYlFiRW8yQ2RPdW13OGxWM0xSTlB2RUFyaG5ycnMzaGw1UmdtTkdjNnRnQ0YwTEV3U1duOUt0dGNuU0c2UVYwM1VlMGNrVFNxQSUzZCUzZCIsInByIjoiODE1NzJCIiwiZWlkIjoibnNfc2VnXzA1NSIsInMiOjQsInZzIjoxLCJsIjoiQWN0aW9uIiwidjAxIjoidHVsMyIsInYwMiI6IlJmMk11VVJ5Qmx5Mm1NTmZHODZuSyt3YWd1OVNtTUN5aE9ST1c0VFVrK0U9In0%3D&callback=cbdd2aa35c493908",
+      "status": 200,
+      "content_type": "",
+      "timing": {
+        "startTime": 1780344058850.317,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 13.815,
+        "responseStart": 69.209,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://i6.liadm.com/s/63537?bidder_id=242861&bidder_uuid=81572B-365C0BE5-16B1-498C-8861-DDEE4AAB9DCC",
+      "status": 200,
+      "content_type": "image/gif",
+      "timing": {
+        "startTime": 1780344058795.003,
+        "domainLookupStart": 3.623,
+        "domainLookupEnd": 48.951,
+        "connectStart": 49.11,
+        "secureConnectionStart": 95.697,
+        "connectEnd": 195.756,
+        "requestStart": 195.827,
+        "responseStart": 245.236,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://api.datasteam.io/v1/visitaction/nspx?segment=055&userID=81572B-365C0BE5-16B1-498C-8861-DDEE4AAB9DCC&takID=CF58AA81572B&seg1=80831",
+      "status": 302,
+      "content_type": "",
+      "timing": {
+        "startTime": 1780344058860.333,
+        "domainLookupStart": 4.492,
+        "domainLookupEnd": 4.534,
+        "connectStart": 4.719,
+        "secureConnectionStart": 58.416,
+        "connectEnd": 171.815,
+        "requestStart": 171.872,
+        "responseStart": 226.273,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-VG9NB3XP9D&cx=c&gtm=4e65s0h1",
+      "status": 200,
+      "content_type": "application/javascript; charset=UTF-8",
+      "timing": {
+        "startTime": 1780344059090.981,
+        "domainLookupStart": -1330.984,
+        "domainLookupEnd": -1330.96,
+        "connectStart": -1330.523,
+        "secureConnectionStart": -1330.523,
+        "connectEnd": -1275.873,
+        "requestStart": 23.638,
+        "responseStart": 80.972,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://i.liadm.com/s/63537?bidder_id=242861&bidder_uuid=81572B-365C0BE5-16B1-498C-8861-DDEE4AAB9DCC",
+      "status": 200,
+      "content_type": "image/gif",
+      "timing": {
+        "startTime": 1780344059087.405,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 36.325,
+        "responseStart": 91.25,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.googletagmanager.com/gtag/js?id=AW-701488714&cx=c&gtm=4e65s0h1",
+      "status": 200,
+      "content_type": "application/javascript; charset=UTF-8",
+      "timing": {
+        "startTime": 1780344059096.632,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 18.199,
+        "responseStart": 82.344,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.google.com/ccm/collect?rcb=7&frm=0&auid=1158347921.1780344059&dt=Regent%20Travel%20Partner%20Center%20%7C%20Regent%20Seven%20Seas%20Cruises&en=page_view&dl=https%3A%2F%2Fwww.rssc.com%2Fagent%2Fdefault.aspx&scrsrc=www.googletagmanager.com&rnd=1896380677.1780344059&navt=n&npa=0&_ng=1&ep.user_data_mode=a&gtm=45fe65s0h1v9179450314za200zd9179450314xec&gcd=13l3l3l3l1l1&dma=0&tag_exp=0~115616986~115938465~115938468~116701382~118128923~118131809~119034493~119168155&apve=1&apvf=f&apvc=1&tids=DC-10112902&tid=DC-10112902&tft=1780344059097&tfd=3655",
+      "status": 200,
+      "content_type": "text/plain",
+      "timing": {
+        "startTime": 1780344059097.402,
+        "domainLookupStart": 1.209,
+        "domainLookupEnd": 25.043,
+        "connectStart": 25.429,
+        "secureConnectionStart": 25.429,
+        "connectEnd": 64.913,
+        "requestStart": 65.532,
+        "responseStart": 129.963,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.google.com/ccm/collect?rcb=14&frm=0&auid=1158347921.1780344059&dt=Regent%20Travel%20Partner%20Center%20%7C%20Regent%20Seven%20Seas%20Cruises&en=page_view&dl=https%3A%2F%2Fwww.rssc.com%2Fagent%2Fdefault.aspx&scrsrc=www.googletagmanager.com&rnd=1896380677.1780344059&navt=n&npa=0&_ng=1&ep.user_data_mode=a&_tu=IA&gtm=45fe65s0v9135077610za200zd9135077610xec&gcd=13l3l3l3l1l1&dma=0&tag_exp=0~115938465~115938468~116701382~118131809~119034493~119205316&apve=1&apvf=f&apvc=0&tids=DC-12975515&tid=DC-12975515&tft=1780344059214&tfd=3773",
+      "status": 200,
+      "content_type": "text/plain",
+      "timing": {
+        "startTime": 1780344059214.454,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 1.251,
+        "responseStart": 64.183,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://ad.doubleclick.net/activity;src=10112902;type=rssc;cat=page-0;rcb=7;ord=6750428870438;npa=0;auiddc=1158347921.1780344059;u1=us;pscdl=noapi;frm=0;_ng=1;user_data_mode=a;_tu=IFA;gtm=45fe65s0h1v9179450314za200zd9179450314xec;gcd=13l3l3l3l1l1;dma=0;dc_fmt=3;tag_exp=0~115616986~115938465~115938468~116701382~118128923~118131809~119034493~119168155;epver=2;em=tv.1;dc_random=1780344059_DzUi3BSnL-_YfySzHvUV3MZi-2GwVRgsZg;~oref=https%3A%2F%2Fwww.rssc.com%2Fagent%2Fdefault.aspx%3FReturnUrl%3D%252fagent%252fmyaccount%252fbookedcruise.aspx%26McWU05z77cmpnbQbEo2CdOumw8lV3LRNPvEArhnrrs3hl5RgmNGc6tgCF0LEwSWn9KttcnSG6QV03Ue0ckTSqA%253d%253d?",
+      "status": 200,
+      "content_type": "image/gif",
+      "timing": {
+        "startTime": 1780344059097.788,
+        "domainLookupStart": 1.52,
+        "domainLookupEnd": 27.406,
+        "connectStart": 27.783,
+        "secureConnectionStart": 27.783,
+        "connectEnd": 96.886,
+        "requestStart": 97.494,
+        "responseStart": 219.252,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.rssc.com/assets/v1/images/favicon/favicon.ico?v=1772105142",
+      "status": 200,
+      "content_type": "image/x-icon",
+      "timing": {
+        "startTime": 1780344056849.967,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 2474.831,
+        "responseStart": 2523.912,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://10112902.fls.doubleclick.net/activityi;src=10112902;type=rssc;cat=page-0;rcb=7;ord=6750428870438;npa=0;auiddc=1158347921.1780344059;u1=us;pscdl=noapi;frm=0;_ng=1;user_data_mode=a;_tu=IFA;gtm=45fe65s0h1v9179450314za200zd9179450314xec;gcd=13l3l3l3l1l1;dma=0;dc_fmt=2;tag_exp=0~115616986~115938465~115938468~116701382~118128923~118131809~119034493~119168155;epver=2;em=tv.1;dc_random=1780344059_DzUi3BSnL-_YfySzHvUV3MZi-2GwVRgsZg;_dc_test=1;~oref=https%3A%2F%2Fwww.rssc.com%2Fagent%2Fdefault.aspx%3FReturnUrl%3D%252fagent%252fmyaccount%252fbookedcruise.aspx%26McWU05z77cmpnbQbEo2CdOumw8lV3LRNPvEArhnrrs3hl5RgmNGc6tgCF0LEwSWn9KttcnSG6QV03Ue0ckTSqA%253d%253d?",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "timing": {
+        "startTime": 1780344059101.333,
+        "domainLookupStart": 4.041,
+        "domainLookupEnd": 6.688,
+        "connectStart": 6.809,
+        "secureConnectionStart": 63.486,
+        "connectEnd": 131.308,
+        "requestStart": 132.058,
+        "responseStart": 342.526,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://assets.adobedtm.com/dfde4cf50702/170fd7a0f0ad/6ae1024889af/RCf7da0781243745019c8d0b4afe517cb6-source.min.js",
+      "status": 200,
+      "content_type": "application/x-javascript",
+      "timing": {
+        "startTime": 1780344059265.34,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 155.94,
+        "responseStart": 188.656,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://norwegiancruiselines.tt.omtrdc.net/rest/v1/delivery?client=norwegiancruiselines&sessionId=a197d56806a54c08a7024c6aabad2a81&version=2.11.4",
+      "status": 200,
+      "content_type": "application/json;charset=UTF-8",
+      "timing": {
+        "startTime": 1780344059219.506,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 200.016,
+        "responseStart": 288.083,
+        "responseEnd": -1
+      },
+      "body_preview": "{'status': 200, 'requestId': 'd7c8d2ed31a54d8498d1619a7011a856', 'client': 'norwegiancruiselines', 'id': {'tntId': '215fd5f4ea2a449e99af1b3c2c14d06a.35_0', 'marketingCloudVisitorId': '10378091413200685834407591966796167347'}, 'edgeHost': 'mboxedge35.tt.omtrdc.net', 'prefetch': {'views': [{'name': 'advance search results', 'key': 'advance search results', 'state': 'zu9d1nSh2OKiBPogm8PLyd87kBkspfhFzEMK2J0e3wu3TosY1hTl2ULnzLXKUQsL5idCDzH04XTDDyPyAQznKDjruREGE20OwlRN9xNy3WIxhqinNlkaLYWxxLhmmChRUaTL1"
+    },
+    {
+      "url": "https://norwegiancruiselines.tt.omtrdc.net/rest/v1/delivery?client=norwegiancruiselines&sessionId=a197d56806a54c08a7024c6aabad2a81&version=2.11.4",
+      "status": 204,
+      "content_type": "",
+      "timing": {
+        "startTime": 1780344059228.759,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 191.06,
+        "responseStart": 281.526,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://cdn.acsbapp.com/config/rssc.com/config.json?page=%2Fagent%2Fdefault.aspx%3FReturnUrl%3D%252fagent%252fmyaccount%252fbookedcruise.aspx%26McWU05z77cmpnbQbEo2CdOumw8lV3LRNPvEArhnrrs3hl5RgmNGc6tgCF0LEwSWn9KttcnSG6QV03Ue0ckTSqA%253d%253d",
+      "status": 200,
+      "content_type": "application/json",
+      "timing": {
+        "startTime": 1780344059391.23,
+        "domainLookupStart": 34.283,
+        "domainLookupEnd": 34.321,
+        "connectStart": 34.465,
+        "secureConnectionStart": 59.662,
+        "connectEnd": 91.679,
+        "requestStart": 91.772,
+        "responseStart": 171.447,
+        "responseEnd": -1
+      },
+      "body_preview": null
+    },
+    {
+      "url": "https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=CSR3J4JC77U9A53MU22G&lib=ttq",
+      "status": 200,
+      "content_type": "application/javascript; charset=UTF-8",
+      "timing": {
+        "startTime": 1780344059203.071,
+        "domainLookupStart": 215.458,
+        "domainLookupEnd": 215.51,
+        "connectStart": 215.621,
+        "secureConnectionStart": 248.691,
+        "connectEnd": 288.644,
+        "requestStart": 288.749,
+        "responseStart": 373.2,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://assets.adobedtm.com/dfde4cf50702/170fd7a0f0ad/6ae1024889af/RCa16acec7c64c45f6903631b2a3fa1e43-source.min.js",
+      "status": 200,
+      "content_type": "application/x-javascript",
+      "timing": {
+        "startTime": 1780344059501.063,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 49.013,
+        "responseStart": 82.21,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.google.com/rmkt/collect/701488714/?random=1780344059522&cv=11&fst=1780344059522&fmt=8&bg=ffffff&guid=ON&async=1&en=gtag.config&gtm=45be65s0v874270698za200zb9179450314zd9179450314xec&gcd=13l3l3l3l1l1&dma=0&tag_exp=0~115938465~115938468~116701382~118131809~119027223~119034491&u_w=1440&u_h=900&url=https%3A%2F%2Fwww.rssc.com%2Fagent%2Fdefault.aspx%3FReturnUrl%3D%252fagent%252fmyaccount%252fbookedcruise.aspx%26McWU05z77cmpnbQbEo2CdOumw8lV3LRNPvEArhnrrs3hl5RgmNGc6tgCF0LEwSWn9KttcnSG6QV03Ue0ckTSqA%253d%253d&rcb=17&_ng=1&frm=0&tiba=Regent%20Travel%20Partner%20Center%20%7C%20Regent%20Seven%20Seas%20Cruises&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1158347921.1780344059&_tu=IA&data=event%3Dgtag.config&gcp=5",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "timing": {
+        "startTime": 1780344059545.066,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 1.611,
+        "responseStart": 54.057,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.google.com/ccm/collect?rcb=17&_ng=1&frm=0&auid=1158347921.1780344059&dt=Regent%20Travel%20Partner%20Center%20%7C%20Regent%20Seven%20Seas%20Cruises&en=page_view&dl=https%3A%2F%2Fwww.rssc.com%2Fagent%2Fdefault.aspx&scrsrc=www.googletagmanager.com&rnd=1896380677.1780344059&navt=n&npa=0&_tu=IA&gtm=45be65s0v874270698za200zb9179450314zd9179450314xec&gcd=13l3l3l3l1l1&dma=0&tag_exp=0~115938465~115938468~116701382~118131809~119027223~119034491&apve=1&apvf=f&apvc=0&tids=AW-701488714&tid=AW-701488714&tft=1780344059546&tfd=4104",
+      "status": 200,
+      "content_type": "text/plain",
+      "timing": {
+        "startTime": 1780344059546.626,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.842,
+        "responseStart": 65.723,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://edge.adobedc.net/ee/va6/v1/interact?configId=8dcc5a5b-bab5-44f7-a906-d55ac039be39&requestId=62ffad32-9977-4f1e-8bf0-b35cf3d7f575",
+      "status": 200,
+      "content_type": "application/json;charset=utf-8",
+      "timing": {
+        "startTime": 1780344059509.763,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 72.748,
+        "responseStart": 139.737,
+        "responseEnd": -1
+      },
+      "body_preview": "{'requestId': '62ffad32-9977-4f1e-8bf0-b35cf3d7f575-8d47a1d2d0674457', 'handle': [{'payload': [{'id': '78182727061750552004159770047569461355', 'namespace': {'code': 'ECID'}}], 'type': 'identity:result'}, {'payload': [{'scope': 'Target', 'hint': '34', 'ttlSeconds': 1800}, {'scope': 'AAM', 'hint': '7', 'ttlSeconds': 1800}, {'scope': 'EdgeNetwork', 'hint': 'va6', 'ttlSeconds': 1800}], 'type': 'locationHint:result'}, {'payload': [{'key': 'kndctr_8DD367C25245AFCC0A490D4C_AdobeOrg_cluster', 'value': "
+    },
+    {
+      "url": "https://googleads.g.doubleclick.net/pagead/viewthroughconversion/701488714/?random=1780344059522&cv=11&fst=1780344059522&bg=ffffff&guid=ON&async=1&en=gtag.config&gtm=45be65s0v874270698za200zb9179450314zd9179450314xec&gcd=13l3l3l3l1l1&dma=0&tag_exp=0~115938465~115938468~116701382~118131809~119027223~119034491&u_w=1440&u_h=900&url=https%3A%2F%2Fwww.rssc.com%2Fagent%2Fdefault.aspx%3FReturnUrl%3D%252fagent%252fmyaccount%252fbookedcruise.aspx%26McWU05z77cmpnbQbEo2CdOumw8lV3LRNPvEArhnrrs3hl5RgmNGc6tgCF0LEwSWn9KttcnSG6QV03Ue0ckTSqA%253d%253d&rcb=17&_ng=1&frm=0&tiba=Regent%20Travel%20Partner%20Center%20%7C%20Regent%20Seven%20Seas%20Cruises&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1158347921.1780344059&_tu=IA&data=event%3Dgtag.config&rfmt=3&fmt=4",
+      "status": 200,
+      "content_type": "text/javascript; charset=UTF-8",
+      "timing": {
+        "startTime": 1780344059544.723,
+        "domainLookupStart": -1288.736,
+        "domainLookupEnd": -1288.689,
+        "connectStart": -1288.27,
+        "secureConnectionStart": -1288.27,
+        "connectEnd": -1219.532,
+        "requestStart": 37.872,
+        "responseStart": 122.384,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://stats.g.doubleclick.net/g/collect?v=2&_ng=1&tid=G-VG9NB3XP9D&cid=322738779.1776211013&gtm=45je65s0v887199635za200zb9179450314zd9179450314&rcb=18&aip=1&dma=0&gcd=13l3l3l3l1l1&npa=0&frm=0&tag_exp=0~115938465~115938469~118128922~119034491",
+      "status": 204,
+      "content_type": "text/plain",
+      "timing": {
+        "startTime": 1780344059573.85,
+        "domainLookupStart": 38.119,
+        "domainLookupEnd": 38.167,
+        "connectStart": 38.29,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 38.643,
+        "responseStart": 101.605,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.googleadservices.com/pagead/conversion.js",
+      "status": 200,
+      "content_type": "text/javascript; charset=UTF-8",
+      "timing": {
+        "startTime": 1780344059578.588,
+        "domainLookupStart": 2.143,
+        "domainLookupEnd": 27.247,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 27.609,
+        "responseStart": 98.381,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://analytics.tiktok.com/i18n/pixel/static/main.MTc5ZjUxNDU4MA.js",
+      "status": 200,
+      "content_type": "application/javascript; charset=UTF-8",
+      "timing": {
+        "startTime": 1780344059635.181,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 16.427,
+        "responseStart": 57.614,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://analytics.google.com/g/collect?v=2&tid=G-VG9NB3XP9D&gtm=45je65s0v887199635za200zb9179450314zd9179450314&_p=1780344057553&_gaz=1&gcd=13l3l3l3l1l1&npa=0&_ng=1&dma=0&_eu=AAAAAGQC&cid=322738779.1776211013&frm=0&pscdl=noapi&rcb=18&sr=1440x900&ul=en-us&gaf=2&_s=1&tag_exp=0~115938465~115938469~118128922~119034491&dp=%2Fagent%2Fdefault.aspx&dt=Regent%20Travel%20Partner%20Center%20%7C%20Regent%20Seven%20Seas%20Cruises&sid=1780344059&sct=7&seg=0&dl=https%3A%2F%2Fwww.rssc.com%2Fagent%2Fdefault.aspx%3FReturnUrl%3D%252fagent%252fmyaccount%252fbookedcruise.aspx%26McWU05z77cmpnbQbEo2CdOumw8lV3LRNPvEArhnrrs3hl5RgmNGc6tgCF0LEwSWn9KttcnSG6QV03Ue0ckTSqA%253d%253d&en=page_view&_ss=1&_ee=1&ep.anonymize_ip=true&ep.page_name=%2Fagent%2Fdefault.aspx&ep.site_country=us&ep.site_language=en&tfd=4130",
+      "status": 204,
+      "content_type": "text/plain",
+      "timing": {
+        "startTime": 1780344059572.474,
+        "domainLookupStart": 1.29,
+        "domainLookupEnd": 8.434,
+        "connectStart": 8.597,
+        "secureConnectionStart": 41.026,
+        "connectEnd": 79.515,
+        "requestStart": 79.609,
+        "responseStart": 131.019,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://assets.adobedtm.com/dfde4cf50702/170fd7a0f0ad/6ae1024889af/RCf45272bdb06f4d068df1e75bc5307f3a-source.min.js",
+      "status": 200,
+      "content_type": "application/x-javascript",
+      "timing": {
+        "startTime": 1780344059688.178,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 9.664,
+        "responseStart": 42.262,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://assets.adobedtm.com/dfde4cf50702/170fd7a0f0ad/6ae1024889af/RC8bb7f4db75f549fba077df160b67c5b3-source.min.js",
+      "status": 200,
+      "content_type": "application/x-javascript",
+      "timing": {
+        "startTime": 1780344059689.282,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 8.653,
+        "responseStart": 41.294,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.google.com/pagead/1p-user-list/701488714/?random=1780344059522&cv=11&fst=1780344000000&bg=ffffff&guid=ON&async=1&en=gtag.config&gtm=45be65s0v874270698za200zb9179450314zd9179450314xec&gcd=13l3l3l3l1l1&dma=0&tag_exp=0~115938465~115938468~116701382~118131809~119027223~119034491&u_w=1440&u_h=900&url=https%3A%2F%2Fwww.rssc.com%2Fagent%2Fdefault.aspx%3FReturnUrl%3D%252fagent%252fmyaccount%252fbookedcruise.aspx%26McWU05z77cmpnbQbEo2CdOumw8lV3LRNPvEArhnrrs3hl5RgmNGc6tgCF0LEwSWn9KttcnSG6QV03Ue0ckTSqA%253d%253d&rcb=17&_ng=1&frm=0&tiba=Regent%20Travel%20Partner%20Center%20%7C%20Regent%20Seven%20Seas%20Cruises&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1158347921.1780344059&_tu=IA&data=event%3Dgtag.config&rfmt=3&fmt=3&is_vtc=1&cid=CAQS4QEAEQoqgQrNtweJaOhVQChTRkyvEOrr8CHSZ8K851L1cCIAySIaAXlKzyiit4hQo3NLJmDpx0kbl4jWynJNYkW_ocVfbf-Qosyb2Ni18wwm7PnvqXdTu1z5r2awhPFpzSg4OkVbfJpt8BWka96lq6k4JHEx9S6Je5HDVGyaY-qv0YC3Q9PyVVtyrHkxy7vpNTIKXJ1kn3tHyoo4txYv3QYDSAr72Bf3AkyyAtGc-bgHGK-A3r2n0glMAe6-jaDkN4Oyq4zqibzCVVRaeUj16BP39kHtVyxMnt65oUBETGR5_bg&random=2038833992&rmt_tld=0&ipr=y",
+      "status": 200,
+      "content_type": "image/gif",
+      "timing": {
+        "startTime": 1780344059679.708,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 18.373,
+        "responseStart": 76.031,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://adservice.google.com/ddm/fls/z/src=10112902;type=rssc;cat=page-0;rcb=7;ord=6750428870438;npa=0;auiddc=*;u1=us;pscdl=noapi;frm=0;_ng=1;user_data_mode=a;_tu=IFA;gtm=45fe65s0h1v9179450314za200zd9179450314xec;gcd=13l3l3l3l1l1;dma=0;dc_fmt=2;tag_exp=0~115616986~115938465~115938468~116701382~118128923~118131809~119034493~119168155;epver=2;em=tv.*;dc_random=1780344059_DzUi3BSnL-_YfySzHvUV3MZi-2GwVRgsZg;_dc_test=1;~oref=https%3A%2F%2Fwww.rssc.com%2Fagent%2Fdefault.aspx%3FReturnUrl%3D%252fagent%252fmyaccount%252fbookedcruise.aspx%26McWU05z77cmpnbQbEo2CdOumw8lV3LRNPvEArhnrrs3hl5RgmNGc6tgCF0LEwSWn9KttcnSG6QV03Ue0ckTSqA%253d%253d",
+      "status": 200,
+      "content_type": "image/gif",
+      "timing": {
+        "startTime": 1780344059579.019,
+        "domainLookupStart": 1.96,
+        "domainLookupEnd": 25.357,
+        "connectStart": 25.784,
+        "secureConnectionStart": 25.784,
+        "connectEnd": 120.495,
+        "requestStart": 121.599,
+        "responseStart": 207.057,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.googleadservices.com/pagead/conversion/457401225/?random=1780344059710&cv=9&fst=1780344059710&num=1&npa=1&label=CaYzCJiNjZADEInHjdoB&guid=ON&resp=GooglemKTybQhCsO&eid=375603260%2C466465926%2C512247839%2C658953496&u_h=900&u_w=1440&ig=1&auid=1158347921.1780344059&frm=2&url=https%3A%2F%2F10112902.fls.doubleclick.net%2Factivityi%3Bsrc%3D10112902%3Btype%3Drssc%3Bcat%3Dpage-0%3Brcb%3D7%3Bord%3D6750428870438%3Bnpa%3D0%3Bauiddc%3D1158347921.1780344059%3Bu1%3Dus%3Bpscdl%3Dnoapi%3Bfrm%3D0%3B_ng%3D1%3Buser_data_mode%3Da%3B_tu%3DIFA%3Bgtm%3D45fe65s0h1v9179450314za200zd9179450314xec%3Bgcd%3D13l3l3l3l1l1%3Bdma%3D0%3Bdc_fmt%3D2%3Btag_exp%3D0~115616986~115938465~115938468~116701382~118128923~118131809~119034493~119168155%3Bepver%3D2%3Bem%3Dtv.1%3Bdc_random%3D1780344059_DzUi3BSnL-_YfySzHvUV3MZi-2GwVRgsZg%3B_dc_test%3D1%3B~oref%3Dhttps%253A%252F%252Fwww.rssc.com%252Fagent%252Fdefault.aspx%253FReturnUr&ref=https%3A%2F%2Fwww.rssc.com%2F&top=https%3A%2F%2Fwww.rssc.com%2F&hn=www.googleadservices.com&rfmt=3&fmt=4",
+      "status": 200,
+      "content_type": "text/javascript; charset=UTF-8",
+      "timing": {
+        "startTime": 1780344059711.396,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 2.156,
+        "responseStart": 93.827,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://analytics.tiktok.com/i18n/pixel/static/identify_5cff1caf.js",
+      "status": 200,
+      "content_type": "application/javascript; charset=UTF-8",
+      "timing": {
+        "startTime": 1780344059804.646,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 49.107,
+        "responseStart": 85.777,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://googleads.g.doubleclick.net/pagead/viewthroughconversion/457401225/?random=1402592592&cv=9&fst=1780344059710&num=1&npa=1&label=CaYzCJiNjZADEInHjdoB&guid=ON&resp=GooglemKTybQhCsO&eid=375603260%2C466465926%2C512247839%2C658953496&u_h=900&u_w=1440&ig=1&auid=1158347921.1780344059&frm=2&url=https%3A%2F%2F10112902.fls.doubleclick.net%2Factivityi%3Bsrc%3D10112902%3Btype%3Drssc%3Bcat%3Dpage-0%3Brcb%3D7%3Bord%3D6750428870438%3Bnpa%3D0%3Bauiddc%3D1158347921.1780344059%3Bu1%3Dus%3Bpscdl%3Dnoapi%3Bfrm%3D0%3B_ng%3D1%3Buser_data_mode%3Da%3B_tu%3DIFA%3Bgtm%3D45fe65s0h1v9179450314za200zd9179450314xec%3Bgcd%3D13l3l3l3l1l1%3Bdma%3D0%3Bdc_fmt%3D2%3Btag_exp%3D0~115616986~115938465~115938468~116701382~118128923~118131809~119034493~119168155%3Bepver%3D2%3Bem%3Dtv.1%3Bdc_random%3D1780344059_DzUi3BSnL-_YfySzHvUV3MZi-2GwVRgsZg%3B_dc_test%3D1%3B~oref%3Dhttps%253A%252F%252Fwww.rssc.com%252Fagent%252Fdefault.aspx%253FReturnUr&ref=https%3A%2F%2Fwww.rssc.com%2F&top=https%3A%2F%2Fwww.rssc.com%2F&hn=www.googleadservices.com&fmt=3&ct_cookie_present=false&crd=CLTesQII8t-xAgit4bECCKG4sQIIscGxAgiwwbECCLHDsQIIisWxAgjCybECCLTGsQIIk9qxAgjb3LECCIfbsQII08WxAgjrzLECCO3OsQII1c-xAgj02rECCJfUsQIIyduxAgix4bECCLPhsQIIpt2xAgiw3rECCIDbsQI&cerd=CgEA&fsk=ChAI8Nv00AYQ5Mef3cSm_sdYEiwAWv6Z3UoWM9o_nZfE69IOG54YsEw0_9O1FZ4Mpv-8MQZ0sQ0j_h-OceRQohoCuis&pscrd=IhMIzvSIuurmlAMVesV-CR0e6y8sOiVodHRwczovLzEwMTEyOTAyLmZscy5kb3VibGVjbGljay5uZXQvQlhDaEVJOE52MDBBWVExcGVrbXRqWm5fWGtBUkl0QUw3eTZVWFRQU002d0NuQU1Gel82QnZpS1UtUV8tZjdDVW1YVXVNZlRYejJJakIzUVAxTm5zbE4xeTJQegwICWIICAAQABgAIAA",
+      "status": 302,
+      "content_type": "image/gif",
+      "timing": {
+        "startTime": 1780344059869.606,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 1.549,
+        "responseStart": 78.63,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://analytics.tiktok.com/api/v2/pixel",
+      "status": 200,
+      "content_type": "",
+      "timing": {
+        "startTime": 1780344059833.974,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 20.547,
+        "responseStart": 126.144,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://analytics.tiktok.com/api/v2/pixel",
+      "status": 200,
+      "content_type": "",
+      "timing": {
+        "startTime": 1780344059839.268,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 15.374,
+        "responseStart": 132.33,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://dtm.rssc.com/profile/visit/js/1_0?dtm_cid=61333&dtm_cmagic=450d86&dtm_fid=101&dtm_promo_id=3&cachebuster=481456231",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344059735.541,
+        "domainLookupStart": 4.721,
+        "domainLookupEnd": 46.413,
+        "connectStart": 46.594,
+        "secureConnectionStart": 117.324,
+        "connectEnd": 195.636,
+        "requestStart": 195.845,
+        "responseStart": 276.663,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://www.google.com/pagead/1p-conversion/457401225/?random=1402592592&cv=9&fst=1780344059710&num=1&npa=1&label=CaYzCJiNjZADEInHjdoB&guid=ON&resp=GooglemKTybQhCsO&eid=375603260%2C466465926%2C512247839%2C658953496&u_h=900&u_w=1440&ig=1&auid=1158347921.1780344059&frm=2&url=https%3A%2F%2F10112902.fls.doubleclick.net%2Factivityi%3Bsrc%3D10112902%3Btype%3Drssc%3Bcat%3Dpage-0%3Brcb%3D7%3Bord%3D6750428870438%3Bnpa%3D0%3Bauiddc%3D1158347921.1780344059%3Bu1%3Dus%3Bpscdl%3Dnoapi%3Bfrm%3D0%3B_ng%3D1%3Buser_data_mode%3Da%3B_tu%3DIFA%3Bgtm%3D45fe65s0h1v9179450314za200zd9179450314xec%3Bgcd%3D13l3l3l3l1l1%3Bdma%3D0%3Bdc_fmt%3D2%3Btag_exp%3D0~115616986~115938465~115938468~116701382~118128923~118131809~119034493~119168155%3Bepver%3D2%3Bem%3Dtv.1%3Bdc_random%3D1780344059_DzUi3BSnL-_YfySzHvUV3MZi-2GwVRgsZg%3B_dc_test%3D1%3B~oref%3Dhttps%253A%252F%252Fwww.rssc.com%252Fagent%252Fdefault.aspx%253FReturnUr&ref=https%3A%2F%2Fwww.rssc.com%2F&top=https%3A%2F%2Fwww.rssc.com%2F&hn=www.googleadservices.com&fmt=3&ct_cookie_present=false&crd=CLTesQII8t-xAgit4bECCKG4sQIIscGxAgiwwbECCLHDsQIIisWxAgjCybECCLTGsQIIk9qxAgjb3LECCIfbsQII08WxAgjrzLECCO3OsQII1c-xAgj02rECCJfUsQIIyduxAgix4bECCLPhsQIIpt2xAgiw3rECCIDbsQI&cerd=CgEA&fsk=ChAI8Nv00AYQ5Mef3cSm_sdYEiwAWv6Z3UoWM9o_nZfE69IOG54YsEw0_9O1FZ4Mpv-8MQZ0sQ0j_h-OceRQohoCuis&pscrd=IhMIzvSIuurmlAMVesV-CR0e6y8sOiVodHRwczovLzEwMTEyOTAyLmZscy5kb3VibGVjbGljay5uZXQvQlhDaEVJOE52MDBBWVExcGVrbXRqWm5fWGtBUkl0QUw3eTZVWFRQU002d0NuQU1Gel82QnZpS1UtUV8tZjdDVW1YVXVNZlRYejJJakIzUVAxTm5zbE4xeTJQegwICWIICAAQABgAIAA&is_vtc=1&vdi=1&cid=CAQSvgEAEQoqgeoOAAKtVbZuit3Yl1DsX7mTYCUUdx2u9ATAOWaKf5jDrfDrbjq5fwdRPQz27-4bSLvCmLeryJtClhNlfuYokei5gL2s0mEO5lUMzVpcBdRxcF6GKcmENoPzxVbElHLk87IW6zw9cl3wFLN5YuFnLqosoiRk-GsByvoVrRH44YpW-Sjn5wrrFrCTxljnbfuE38FZDPgaj71z-uEf2V6TRgaXpAkqJnSCmmYTg0V3iBfchffUZB71J9oJ&random=3875389261&resp=GooglemKTybQhCsO",
+      "status": 200,
+      "content_type": "image/gif",
+      "timing": {
+        "startTime": 1780344059948.996,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 2.032,
+        "responseStart": 68.567,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://sstats.rssc.com/b/ss/rsscprod/1/JS-2.27.0-LGPQ/s6762238264568?AQB=1&ndh=1&pf=1&t=1%2F5%2F2026%2014%3A0%3A59%201%20360&sdid=6166358B008FC917-4C69FAD2CE903A9A&mid=10378091413200685834407591966796167347&aamlh=7&ce=UTF-8&ns=norwegiancruiseline&cdp=2&pageName=%2Fagent%2Fdefault.aspx&g=https%3A%2F%2Fwww.rssc.com%2Fagent%2Fdefault.aspx%3FReturnUrl%3D%252fagent%252fmyaccount%252fbookedcruise.aspx%26McWU05z77cmpnbQbEo2CdOumw8lV3LRNPvEArhnrrs3hl5RgmNGc6tgCF0LEwSWn9KttcnSG6QV03Ue0ckTSqA%253d%253d&c.&getPercentPageViewed=5.1&apl=4.0&cm.&ssf=1&.cm&.c&cc=USD&ch=agent&server=www.rssc.com&events=event207%3D1.485&aamb=RKhpRz8krg2tLO6pguXWp5olkAcUniQYPHaMWWgdJ3xzPWQmdj0y&c1=%2Fagent%2Fdefault.aspx&c2=New&c22=highestPercentViewed%3D56%20%7C%20initialPercentViewed%3D56%20%7C%20foldsSeen%3D1%20%7C%20foldsAvailable%3D1&c51=https%3A%2F%2Fassets.adobedtm.com%2Fdfde4cf50702%2F170fd7a0f0ad%2Flaunch-9ad7b1f84cff.min.js%7Cundefined%7Cundefined&v71=us%20%7C%20en&v131=D%3Dmid&v200=D%3DpageName&s=1440x900&c=24&j=1.6&v=N&k=Y&bw=1440&bh=900&mcorgid=8DD367C25245AFCC0A490D4C%40AdobeOrg&AQE=1",
+      "status": 200,
+      "content_type": "image/gif;charset=utf-8",
+      "timing": {
+        "startTime": 1780344059797.56,
+        "domainLookupStart": 53.671,
+        "domainLookupEnd": 53.749,
+        "connectStart": 53.895,
+        "secureConnectionStart": 106.301,
+        "connectEnd": 162.962,
+        "requestStart": 163.157,
+        "responseStart": 221.313,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://analytics-ipv6.tiktokw.us/ipv6/enrich_ipv6",
+      "status": 200,
+      "content_type": "",
+      "timing": {
+        "startTime": 1780344059826.545,
+        "domainLookupStart": 27.842,
+        "domainLookupEnd": 51.667,
+        "connectStart": 51.855,
+        "secureConnectionStart": 73.165,
+        "connectEnd": 117.042,
+        "requestStart": 117.147,
+        "responseStart": 225.487,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://analytics.tiktok.com/api/v2/pixel/act",
+      "status": 200,
+      "content_type": "",
+      "timing": {
+        "startTime": 1780344060085.931,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 15.888,
+        "responseStart": 112.212,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://login-ds.dotomi.com/profile/visit/final/js?dtm_token_dc=AQAINeenmcvSZQEmYc3FAQHulAABAQCfhcd5SwEBAJ-Fx3lL&dtm_form_uid=663408648350837067&dtm_token_ls=AQAINeenmcvSZQEmYc3FAQHulAABAQCfhcd5SwEBAJ-Fx3lL&cachebuster=481456231&tcflag=true&dtm_token_assignment_type=0&dtm_cid=61333&dtm_fid=101&dtm_zip_code=80831&dtm_user_dc=sjc&dtm_id_assgn_type=0&dtm_state=CO&dccu=true&dtm_user_agent=Mozilla%2F5.0%20(X11%3B%20Linux%20x86_64%3B%20rv%3A146.0)%20Gecko%2F20100101%20Firefox%2F146.0&dtm_country_code=US&init_wl_code=2&ops_test_camp=false&dtm_dma_code=752&dtm_cmagic=450d86&dtm_token_ss=AQAINeenmcvSZQEmYc3FAQHulAABAQCfhcd5SwEBAJ-Fx3lL&init_ts=1780344059978&dtm_client_optout=false&wl_domains_key=%5E(.*%5C.)%3Frssc%5C.com%24-dtm.rssc.com--&dtm_promo_id=3&dtm_cookies_enabled=true&dtmc_action_type=undefined&dtmc_lead_type=undefined&dtmc_destination=undefined&dtmc_country_code=us&dtmc_source=%2Fagent%2Fdefault.aspx&data_object_type_code=1&canonical_url=https%3A%2F%2Fwww.rssc.com%2Fagent%2Fdefault.aspx%3FReturnUrl%3D%252fagent%252fmyaccount%252fbookedcruise.aspx%26McWU05z77cmpnbQbEo2CdOumw8lV3LRNPvEArhnrrs3hl5RgmNGc6tgCF0LEwSWn9KttcnSG6QV03Ue0ckTSqA%253d%253d&dtmc_ref=&dtmc_loc=https%3A%2F%2Fwww.rssc.com%2Fagent%2Fdefault.aspx%3FReturnUrl%3D%252fagent%252fmyaccount%252fbookedcruise.aspx%26McWU05z77cmpnbQbEo2CdOumw8lV3LRNPvEArhnrrs3hl5RgmNGc6tgCF0LEwSWn9KttcnSG6QV03Ue0ckTSqA%253d%253d&cli_promo_id=3&cmps_queried=true&dtm_paapi=0",
+      "status": 200,
+      "content_type": "application/javascript",
+      "timing": {
+        "startTime": 1780344060090.449,
+        "domainLookupStart": 15.572,
+        "domainLookupEnd": 49.547,
+        "connectStart": 49.783,
+        "secureConnectionStart": 106.196,
+        "connectEnd": 168.453,
+        "requestStart": 168.554,
+        "responseStart": 231.309,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://17de4c1d.akstat.io/",
+      "status": 204,
+      "content_type": "image/gif",
+      "timing": {
+        "startTime": 1780344060606.91,
+        "domainLookupStart": 28.506,
+        "domainLookupEnd": 49.971,
+        "connectStart": 50.185,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 50.384,
+        "responseStart": 219.047,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://trial-eum-clientnsv4-s.akamaihd.net/eum/getdns.txt?c=p4miy9ch7",
+      "status": 302,
+      "content_type": "",
+      "timing": {
+        "startTime": 1780344060792.149,
+        "domainLookupStart": 3.557,
+        "domainLookupEnd": 30.275,
+        "connectStart": 30.442,
+        "secureConnectionStart": 62.546,
+        "connectEnd": 103.738,
+        "requestStart": 103.806,
+        "responseStart": 135.848,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://trial-eum-clienttons-s.akamaihd.net/eum/getdns.txt?c=p4miy9ch7",
+      "status": 302,
+      "content_type": "",
+      "timing": {
+        "startTime": 1780344060793.018,
+        "domainLookupStart": 2.885,
+        "domainLookupEnd": 50.974,
+        "connectStart": 51.183,
+        "secureConnectionStart": 84.589,
+        "connectEnd": 125.889,
+        "requestStart": 125.948,
+        "responseStart": 159.582,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://eya3bap7alxvsjqacqdxiaaanzvb3zh4-p4miy9-2e807b1cd-clienttons-s.akamaihd.net/eum/results.txt",
+      "status": 200,
+      "content_type": "text/plain",
+      "timing": {
+        "startTime": 1780344060953.946,
+        "domainLookupStart": 1.938,
+        "domainLookupEnd": 60.666,
+        "connectStart": 60.885,
+        "secureConnectionStart": 94.87,
+        "connectEnd": 228.35,
+        "requestStart": 228.445,
+        "responseStart": 261.365,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://eyucozaxf42dm2q54t6a-p4miy9-7d4f276b9-clientnsv4-s.akamaihd.net/eum/results.txt",
+      "status": 200,
+      "content_type": "text/plain",
+      "timing": {
+        "startTime": 1780344060929.955,
+        "domainLookupStart": 2.044,
+        "domainLookupEnd": 45.691,
+        "connectStart": 45.919,
+        "secureConnectionStart": 90.34,
+        "connectEnd": 275.322,
+        "requestStart": 275.386,
+        "responseStart": 320.919,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://bam.nr-data.net/events/1/a8140a057e?a=1012796355&v=1216.487a282&to=NFFVMUYCXxdTAhEMWA0bdjZkTFUBVAAQCUNNVUQVTA%3D%3D&rst=11969&ck=1&ref=https://www.rssc.com/agent/default.aspx&ptid=6202d181-0001-b946-0e17-019e84c66f50",
+      "status": 200,
+      "content_type": "image/gif",
+      "timing": {
+        "startTime": 1780344067414.043,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 6.805,
+        "responseStart": 99.54,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://bam.nr-data.net/resources/1/a8140a057e?a=1012796355&v=1216.487a282&to=NFFVMUYCXxdTAhEMWA0bdjZkTFUBVAAQCUNNVUQVTA%3D%3D&rst=12287&ck=1&ref=https://www.rssc.com/agent/default.aspx&ptid=6202d181-0001-b946-0e17-019e84c66f50&st=1780344055441",
+      "status": 200,
+      "content_type": "text/plain",
+      "timing": {
+        "startTime": 1780344067732.13,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 5.701,
+        "responseStart": 154.47,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://analytics.tiktok.com/api/v2/pixel",
+      "status": 200,
+      "content_type": "",
+      "timing": {
+        "startTime": 1780344069844.668,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 23.033,
+        "responseStart": 114.614,
+        "responseEnd": -1
+      }
+    },
+    {
+      "url": "https://bam.nr-data.net/resources/1/a8140a057e?a=1012796355&v=1216.487a282&to=NFFVMUYCXxdTAhEMWA0bdjZkTFUBVAAQCUNNVUQVTA%3D%3D&rst=22292&ck=1&ref=https://www.rssc.com/agent/default.aspx&ptid=6202d181-0001-b946-0e17-019e84c66f50&st=1780344055441",
+      "status": 200,
+      "content_type": "text/plain",
+      "timing": {
+        "startTime": 1780344077737.32,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 6.323,
+        "responseStart": 136.93,
+        "responseEnd": -1
+      }
+    }
+  ],
+  "api_endpoints": {
+    "https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.css": {
+      "method": "GET",
+      "statuses": [
+        200
+      ],
+      "content_types": [
+        "text/css; charset=utf-8"
+      ]
+    },
+    "https://www.rssc.com/api/browse/v1/cruises/filtersLang.js": {
+      "method": "GET",
+      "statuses": [
+        200
+      ],
+      "content_types": [
+        "text/javascript"
+      ]
+    },
+    "https://www.rssc.com/api/browse/v1/shorex/filtersLang.js": {
+      "method": "GET",
+      "statuses": [
+        200
+      ],
+      "content_types": [
+        "text/javascript"
+      ]
+    },
+    "https://www.rssc.com/api/browse/v1/getCookieNotification": {
+      "method": "GET",
+      "statuses": [
+        200
+      ],
+      "content_types": [
+        "application/json"
+      ]
+    },
+    "https://www.rssc.com/api/leads/v1/form-schema/become-insider-form-optin-and-disclaimer": {
+      "method": "GET",
+      "statuses": [
+        200
+      ],
+      "content_types": [
+        "application/json"
+      ]
+    },
+    "https://www.rssc.com/api/leads/v1/form-schema/become-insider-form-validation-json-schema-flyout": {
+      "method": "GET",
+      "statuses": [
+        200
+      ],
+      "content_types": [
+        "application/json"
+      ]
+    },
+    "https://www.youtube.com/s/player/886cbf26/www-widgetapi.vflset/www-widgetapi.js": {
+      "method": "GET",
+      "statuses": [
+        200
+      ],
+      "content_types": [
+        "text/javascript"
+      ]
+    },
+    "https://www.rssc.com/api/browse/v1/countryStates": {
+      "method": "GET",
+      "statuses": [
+        200
+      ],
+      "content_types": [
+        "application/json"
+      ]
+    },
+    "https://c.go-mpulse.net/api/config.json": {
+      "method": "GET",
+      "statuses": [
+        200
+      ],
+      "content_types": [
+        "application/json"
+      ]
+    },
+    "https://api.iperceptions.com/InviteTriggers": {
+      "method": "GET",
+      "statuses": [
+        200
+      ],
+      "content_types": [
+        "application/json; charset=utf-8"
+      ]
+    },
+    "https://api.datasteam.io/v1/C/RawData/CF58AA81572B": {
+      "method": "GET",
+      "statuses": [
+        200
+      ],
+      "content_types": [
+        ""
+      ]
+    },
+    "https://api.dtstmio.com/v1/visitaction/nspx": {
+      "method": "GET",
+      "statuses": [
+        302
+      ],
+      "content_types": [
+        ""
+      ]
+    },
+    "https://api.datasteam.io/v1/visitaction/nspx": {
+      "method": "GET",
+      "statuses": [
+        302
+      ],
+      "content_types": [
+        ""
+      ]
+    },
+    "https://analytics.tiktok.com/api/v2/pixel": {
+      "method": "POST",
+      "statuses": [
+        200
+      ],
+      "content_types": [
+        ""
+      ]
+    },
+    "https://analytics.tiktok.com/api/v2/pixel/act": {
+      "method": "POST",
+      "statuses": [
+        200
+      ],
+      "content_types": [
+        ""
+      ]
+    }
+  },
+  "auth_status": "AUTHENTICATED",
+  "sections_found": []
+}

@@ -1,0 +1,358 @@
+{
+  "report_type": "WORLD_INTEL_BRIEF",
+  "classification": "D2M INTERNAL — COMMANDER EYES",
+  "date": "2026-06-10",
+  "analyst": "Lt Col Marcus 'Wraith' Dembe, A2",
+  "report_id": "A2-WIB-20260610",
+  "confidence_legend": {
+    "HIGH": "Multiple independent sources, primary documentation confirmed",
+    "MEDIUM": "Single source or secondhand confirmation",
+    "LOW": "Single source, unverified, or analytically inferred"
+  },
+  "domains": {
+    "WAR_GEOPOLITICS_MILITARY": {
+      "summary": "Iran has operationalized the Strait of Hormuz closure through formal PGSA bureaucracy, converting the waterway into a cryptocurrency-priced toll zone with immediate energy market implications. Israel-Lebanon conflict remains unresolved despite four months of fighting and US-mediated ceasefire attempts; Hezbollah rejection and continued IDF operations indicate prolonged instability. Trump administration's Armenia-Azerbaijan peace success contrasts with stalled US-Iran dialogue.",
+      "items": [
+        {
+          "headline": "Iran Strait of Hormuz Toll Regime Now Operational (PGSA Launched May 18)",
+          "analysis": "In late February 2026, Iran closed the Strait of Hormuz to foreign shipping and formally established the Persian Gulf Strait Authority (PGSA) as a state bureaucracy with internet domain (pgsa.ir), X/social media presence, and contact email infrastructure. This represents escalation from blockade to institutional transit control. The regime has delineated a 'management supervision area' across the strait and instituted a permit-based transit scheme converting what international law treats as an international waterway into a vetted toll plaza with cryptocurrency pricing. This creates a permanent structural cost increase in global energy logistics — any vessel transiting the strait now faces both delay (vetting process) and direct cost (permit fees). The operational sophistication indicates this is not a temporary political gesture but a sustained revenue mechanism. Cryptocurrency pricing suggests intent to evade US financial tracking and sanctions enforcement.",
+          "confidence": "HIGH",
+          "client_impact": null,
+          "recommended_action": "Flag for all Eastern Mediterranean/Suez transits; monitor PGSA fee structure for energy cost pass-through analysis; assess impact on cruise line fuel surcharges and Mediterranean route pricing."
+        },
+        {
+          "headline": "Israel-Lebanon Conflict: Ceasefire Negotiations Stalled, Hezbollah Rejects Deal",
+          "analysis": "US-hosted talks between Israel and Lebanese government have continued since April 2026, but the conflict remains active with no resolution in sight. Hezbollah has explicitly rejected a proposed ceasefire agreement that would theoretically require Lebanese Armed Forces disarmament of the militant group. Progress on disarmament is moving slowly, and there are credible fears of Lebanese Armed Forces fragmentation if a disarmament order is enforced. Complicating the picture: Israeli military operations have killed members of the Lebanese Armed Forces during raids targeting Iranian missile defense systems, undermining the legitimacy of any ceasefire involving Lebanese state forces. Analyst assessment: this is now an 'increasingly fictional ceasefire' — diplomatic language masking continued military operations. IDF is systematically degrading Iranian air defense capacity in the region. No timeline for resolution visible.",
+          "confidence": "HIGH",
+          "client_impact": {
+            "clients": ["Erik McLeod & Melissa McGlasson (Silver Muse Mediterranean Jun 23-Jul 3, 2026)"],
+            "impact": "Mediterranean cruise departing June 23 will operate near active conflict zone. While Beirut is not typically a Silversea port, broader Eastern Mediterranean (Greece, Cyprus, Turkey, possibly Egypt) carries elevated military risk from Israeli air operations and potential Hezbollah retaliation. Recommend port-level risk assessment; monitor daily for itinerary adjustments."
+          },
+          "recommended_action": "Monitor McLeod Silver Muse itinerary daily through departure; establish escalation protocol if Israeli-Iranian direct confrontation occurs; prepare contingency Western Mediterranean ports."
+        },
+        {
+          "headline": "Iran-US Spycraft War: Intelligence Conflict Potentially Benefiting Both Powers",
+          "analysis": "After four months of active conflict (Israel-Iran proxy engagement), Israel maintains target inventory for additional strikes while US-Iran peace talks have stalled. RealClearWorld analysis (Simon Watkins, Oil Price) suggests both Washington and Tehran may have structural incentives to maintain prolonged conflict rather than seek rapid resolution. US benefits from containment of Iranian regional power without direct confrontation; Tehran benefits from conflict narrative and resource mobilization without risking existential military defeat. The implication is that the current stalemate may persist 12+ months. Longer-term risk: escalatory spiral if either side miscalculates — particularly if Israeli strikes hit Iranian nuclear facilities.",
+          "confidence": "MEDIUM",
+          "client_impact": null,
+          "recommended_action": "Assume prolonged Eastern Mediterranean military tension through end of 2026; monitor for any US strikes on Iranian targets; if direct US-Iran military exchange occurs, immediately assess impact on cruise line insurance and routing."
+        },
+        {
+          "headline": "Trump Administration Succeeds in Armenia-Azerbaijan Conflict Resolution",
+          "analysis": "US and European efforts spanning 35 years to resolve the Armenia-Azerbaijan territorial dispute failed to produce sustained peace. Russian 'peacekeeping' presence also failed. Trump administration negotiated resolution where predecessors could not. This indicates the administration possesses leverage or diplomatic approach that bypassed previous stalemates. Geopolitical implication: if this pattern repeats in the Middle East, regional stability may improve faster than conventional analysis suggests.",
+          "confidence": "MEDIUM",
+          "client_impact": null,
+          "recommended_action": "Note as potential positive indicator for broader Middle East stability; monitor for spillover effects on Mediterranean security posture."
+        },
+        {
+          "headline": "Russian Shadow Fleet Sanctions Evasion Model Refined and Scaled",
+          "analysis": "Russia has operationalized North Korea's sanctions evasion playbook at massive scale. Tanker fleets are systematically transferred between port registries, shell companies, and flag states to obscure Russian ownership. The visible component — ships caught by enforcement — represents only the tip of the actual shadow fleet operation. The vast majority of shadow fleet vessels operate undetected, effectively keeping sanctioned Russian oil flowing and maintaining Russia's primary revenue source. Long-term strategic problem: if the shadow fleet operates indefinitely with only occasional captures, the sanctions regime's deterrent value diminishes. Russia maintains significant ongoing revenue from oil sales, enabling sustained military modernization.",
+          "confidence": "HIGH",
+          "client_impact": null,
+          "recommended_action": "Monitor for shadow fleet vessel seizures in Mediterranean (indicator of tightening enforcement); track oil price movements for evidence of sanctions regime degradation."
+        },
+        {
+          "headline": "US Military Infrastructure Crisis: 700,000+ Facilities in Disrepair",
+          "analysis": "Pentagon maintains operational responsibility for over 700,000 facilities across 5,000 military sites globally. Much of this infrastructure is aging and in disrepair. The Fort Hood burst pipe incident (2021, $50M damage) illustrates systemic vulnerability: aging infrastructure fails catastrophically under stress. The cycle perpetuates — deferred maintenance accumulates, failure costs spike, budget reallocation required, creating readiness shortfalls elsewhere. War on the Rocks assessment: breaking this cycle requires systematic capital investment. Current trajectory suggests infrastructure-driven readiness degradation will intensify.",
+          "confidence": "HIGH",
+          "client_impact": null,
+          "recommended_action": "Note as indirect indicator of US military readiness posture; monitor for base closures or operational relocations affecting cruise embarkation ports."
+        },
+        {
+          "headline": "Turkey $11B Eurofighter Deal: F-35 Exclusion Drives European Procurement Pivot",
+          "analysis": "Turkey signed £8B (~$11B USD) contract for 20 new-built Eurofighter Typhoons with option on 24 additional second-hand aircraft from Oman and Qatar. This deal is directly attributable to Turkey's exclusion from the F-35 program following its S-400 purchase from Russia (2019). Geopolitical context: US used F-35 denial as leverage; Turkey responded by committing to European fighter acquisition, strengthening European defense industrial base while weakening US influence in Turkish procurement. UK PM Starmer negotiated the deal alongside parallel trade and security pact discussions. Turkey is transitioning from US-dependent to selectively-partnered defense procurer — long-term NATO alliance friction implication.",
+          "confidence": "HIGH",
+          "client_impact": null,
+          "recommended_action": "Monitor Turkey's defense posture shift; note as indicator of NATO alliance friction; assess implications for Mediterranean military balance."
+        }
+      ]
+    },
+    "POLITICS_POLICY": {
+      "summary": "Trump administration demonstrating conflict-resolution capability (Armenia-Azerbaijan success); European defense partnerships strengthening (UK-Turkey Eurofighter deal); US military infrastructure and readiness posture under sustained strain from deferred maintenance. Policy trends suggest bifurcated US-Europe relationship: cooperation on defense/security, divergence on China/Russia strategy.",
+      "items": [
+        {
+          "headline": "US-Europe Defense Partnership Strengthened by Turkey Eurofighter Deal",
+          "analysis": "UK-brokered Turkish purchase of European fighter aircraft represents significant policy shift in European defense industrial strategy. Rather than allowing Turkey to procure Russian or Chinese systems post-F-35 exclusion, UK negotiated a UK-led Eurofighter sale, maintaining Turkish alignment within European defense ecosystem. Parallel UK-Turkey trade and security pact negotiations indicate broader strategic realignment. This approach — using defense procurement as leverage to maintain alliance cohesion — represents institutionalization of European defense partnerships independent of US procurement leverage. Europe is building defense autonomy, reducing US monopoly on allied weapons procurement.",
+          "confidence": "HIGH",
+          "client_impact": null,
+          "recommended_action": "Monitor European defense industrial consolidation; assess implications for NATO interoperability and Mediterranean military posture."
+        },
+        {
+          "headline": "Trump Administration Conflict Resolution Pattern Emerging",
+          "analysis": "Where 35 years of US-European diplomatic effort and Russian military presence failed in the South Caucasus, the Trump administration negotiated durable Armenia-Azerbaijan peace. The policy implication: unilateral Trump-era diplomacy may prove effective in regional conflict resolution where multilateral approaches failed. If this pattern repeats — particularly in Middle East — geopolitical stability calculus shifts materially for 2026-2027 travel risk assessments.",
+          "confidence": "MEDIUM",
+          "client_impact": null,
+          "recommended_action": "Monitor for additional Trump administration conflict-resolution attempts in Middle East; assess for positive cascading effects on Mediterranean security."
+        }
+      ]
+    },
+    "SOCIAL_ISSUES": {
+      "summary": "No primary social issues identified in current intelligence package. Ukrainian public discourse remains active and candid regarding military and strategic questions, indicating robust domestic debate within conflict context.",
+      "items": [
+        {
+          "headline": "Ukraine: Candid Frontline and Strategic Debate Continues Despite Conflict",
+          "analysis": "Weekly Ukrainian media commentary digests (War on the Rocks, Jun 8) reveal varied, skeptical perspectives on military strategy and national priorities. Ukrainian media is not monolithic; strategic disagreements between military, political, and public voices are visible and debated openly. This indicates Ukrainian institutional resilience and public engagement despite protracted conflict. Analytically significant: absence of monolithic state narrative suggests functioning civil society and press environment — positive indicator for long-term Ukrainian institutional durability.",
+          "confidence": "MEDIUM",
+          "client_impact": null,
+          "recommended_action": "Monitor Ukrainian media for indicators of war fatigue or institutional fracture; current absence of such indicators is positive resilience signal."
+        }
+      ]
+    },
+    "CRUISE_MARITIME": {
+      "summary": "Mediterranean cruise operations face elevated military risk from Israel-Lebanon conflict. Beirut port security infrastructure has systemic gaps unable to detect distributed supply chain threats. Atlantic hurricane season protocols require active monitoring for itinerary adjustments starting peak season (August-October). Hormuz closure affects any Persian Gulf cruise operations.",
+      "items": [
+        {
+          "headline": "Beirut Port Security Gap: AI Scanners Miss Distributed Militant Supply Chains",
+          "analysis": "Port of Beirut recently installed advanced scanning infrastructure to detect contraband. Scanners successfully identified individual components (lithium batteries, drone propellers, fiber optic cable) from flagged shipments. However, scanners cannot correlate distributed supply chains: components arriving on separate vessels over multiple weeks from different companies that collectively constitute a complete weapons system. Port security operates at the item/vessel level; militant logistics operate at the supply-chain level. This allows weapons and military equipment to accumulate in Beirut despite ostensible port security. The technical problem is integration, not technology: no single container triggers an alert, so no alert fires. Analytical implication: Beirut port represents both strategic importance (regional hub) and strategic vulnerability (porous security) simultaneously.",
+          "confidence": "HIGH",
+          "client_impact": {
+            "clients": ["Erik McLeod & Melissa McGlasson (Silver Muse Mediterranean Jun 23-Jul 3, 2026)"],
+            "impact": "Mediterranean ports of call may include proximity to Beirut region or under Hezbollah influence. Port security gaps indicate potential for military escalation without warning. Recommend immediate itinerary review for Eastern Mediterranean port risk."
+          },
+          "recommended_action": "Flag Beirut and Lebanese port region for elevated risk; prepare port substitution options for McLeod Silver Muse; monitor daily for regional military escalation."
+        },
+        {
+          "headline": "Strait of Hormuz: Closed to Commercial Shipping, Cryptocurrency Toll Regime Operational",
+          "analysis": "Iran's operational closure of the Strait of Hormuz through PGSA toll authority directly impacts any cruise itinerary transiting the Persian Gulf or Arabian Gulf. Commercial shipping is blocked pending permit acquisition and toll payment in cryptocurrency. No D2M clients currently have Persian Gulf itineraries, but this advisory applies to any future Middle East cruise planning. Current operational status: Hormuz is inaccessible to commercial shipping absent PGSA permit. This is not a temporary blockade — it is institutionalized revenue extraction designed to persist.",
+          "confidence": "HIGH",
+          "client_impact": null,
+          "recommended_action": "Assume Hormuz closed through 2026; flag for any future Persian Gulf itinerary planning; recommend Suez-routed alternatives or non-Gulf itineraries."
+        },
+        {
+          "headline": "Carnival Hurricane Season Protocols: Itinerary Flexibility Standard Practice",
+          "analysis": "Cruise Hive detailed examination of Carnival's operational procedures during hurricane season reveals systematic itinerary flexibility, port swaps, and passenger accommodation protocols. Cruise lines maintain contingency ports and flexible routing to avoid hurricane zones. As we approach peak hurricane season (August-October), probability of itinerary modifications increases substantially for Caribbean and Gulf Coast routes. Industry standard: lines will modify itineraries to avoid hurricanes, but will provide accommodation and alternative port experiences. Client expectation management is the key action item — modifications are not failures, they are standard operational practice.",
+          "confidence": "HIGH",
+          "client_impact": {
+            "clients": ["John & Melissa Furlow (Regent Grandeur Scandinavia Aug 29-Sep 8, 2026)", "Al Ely & Amy Darrow (Regent Grandeur Scandinavia Aug 29-Sep 8, 2026)", "Larry & Heidi Nichols (Regent Grandeur Scandinavia Aug 29-Sep 8, 2026)"],
+            "impact": "Scandinavian itineraries are outside primary Atlantic hurricane zone — low hurricane risk for these clients. However, general hurricane season briefing is appropriate for all late-summer bookings."
+          },
+          "recommended_action": "Prepare hurricane season briefing for all late-summer Caribbean/Gulf bookings; note Scandinavian August cruises are low-risk; monitor Atlantic hurricane tracking through September."
+        }
+      ]
+    },
+    "AIRLINE_AVIATION": {
+      "summary": "Spirit Airlines liquidation complete; LGA slots ($87M, 22 slots) up for bid July. JetBlue establishing first true hub at Fort Lauderdale. Southwest leadership instability with succession plan disrupted. United advancing long-haul WiFi (Starlink on 777s). Hawaiian Airlines ending free coach meals June 30. LAX remains highly competitive with no dominant carrier. Korean Air exploring Alaska codeshare despite Delta JV relationship.",
+      "items": [
+        {
+          "headline": "Spirit Airlines Liquidation Complete; LGA Slots ($87M) Up for Competitive Auction in July",
+          "analysis": "Spirit Airlines is operationally defunct. Liquidation process complete. Most immediately significant: 22 departure/arrival slots at LaGuardia Airport (LGA), valued at approximately $87M on the street market, are being auctioned in July 2026. LGA slots are extraordinarily valuable — LaGuardia is constrained capacity, slot scarcity ensures high demand. Multiple carriers expected to bid aggressively: United, American, JetBlue, Southwest, potentially international carriers seeking East Coast presence. Winner gains access to New York-area market with guaranteed schedule reliability. Spirit's exit has fragmented its East Coast presence (Focus Cities, secondary hubs) among multiple carriers, creating route rearrangement across the East Coast market. Secondary market impact: Spirit's previous customers are distributing across JetBlue, Frontier, and legacy carriers — with JetBlue Fort Lauderdale hub as primary absorber.",
+          "confidence": "HIGH",
+          "client_impact": {
+            "clients": ["Justin Loucks (DCA, IAD, COS, DEN usage)", "John & Susan Loucks (DEN, MIA, IAD usage)"],
+            "impact": "LGA slot auction may affect East Coast route network. IAD/DCA routes may see frequency and pricing changes depending on auction winner. Monitor post-auction for Northeast route adjustments affecting client itineraries."
+          },
+          "recommended_action": "Monitor LGA auction results in July; assess impact on East Coast domestic route network; flag for any clients using Northeast airports if frequencies change materially."
+        },
+        {
+          "headline": "JetBlue Fort Lauderdale Hub: First True Hub Established Post-Spirit Exit",
+          "analysis": "JetBlue is formally establishing its first true hub at Fort Lauderdale (FLL). Prior to this, JetBlue operated point-to-point. FLL hub creation represents major strategic shift toward hub-and-spoke model. Catalyst: Spirit Airlines' exit from FLL creates infrastructure opportunity (gates, facilities) and market void. JetBlue now operates significantly expanded FLL departures connecting US domestic to Caribbean. Competitive implication: JetBlue connecting flights now directly compete with incumbent Caribbean carriers for cruise-connecting passengers. For D2M positioning flights to Caribbean cruise embarkation, JetBlue FLL hub represents new and potentially superior routing option.",
+          "confidence": "HIGH",
+          "client_impact": {
+            "clients": ["All D2M clients using FLL for Caribbean cruise embarkation"],
+            "impact": "JetBlue FLL hub expansion provides new routing options for pre-cruise positioning flights. Clients may find better connections and pricing on JetBlue to FLL than prior options."
+          },
+          "recommended_action": "Update client positioning flight recommendations to evaluate JetBlue FLL service; monitor JetBlue fare offerings to FLL for cost optimization."
+        },
+        {
+          "headline": "Southwest Airlines Leadership Instability: Succession Plan Disrupted",
+          "analysis": "Southwest Airlines quietly disrupted its succession plan following CEO Gary Kelly's 2022 departure. Extended leadership transition period now indicates internal strategic disagreement or execution problems with the succession process. Short-term operational risk is low — Southwest remains financially stable. Medium-term strategic risk is real: if leadership instability persists 12+ months, competitive position may erode. Southwest's strength has been point-to-point efficiency and operational discipline; leadership void could disrupt both. Specific concern: any deterioration in Southwest's signature no-change-fee model or operational reliability would affect clients who depend on Southwest for flexible domestic travel.",
+          "confidence": "MEDIUM",
+          "client_impact": {
+            "clients": ["Ron & Linda Westbrook (Southwest users)", "Justin Loucks (Southwest user)"],
+            "impact": "Southwest remains operationally stable short-term. However, extended leadership disruption could affect route reliability and pricing strategy. Monitor for service quality changes."
+          },
+          "recommended_action": "Monitor Southwest leadership announcements; flag if succession remains unresolved beyond Q3 2026; prepare alternative carrier recommendations if Southwest service quality degrades for affected clients."
+        },
+        {
+          "headline": "United Airlines Starlink WiFi Retrofit: Long-Haul Connectivity Race Advancing",
+          "analysis": "United Airlines completed first retrofit of a Boeing 777 with Starlink satellite internet, advancing the competitive long-haul WiFi arms race among US carriers. Starlink provides consistent broadband-speed connectivity at cruise altitude, enabling streaming and real-time communications. Competitive significance: airlines with Starlink-equipped fleets capture high-value business traveler premium segment. This technology is trending toward table-stakes status for premium long-haul service within 2-3 years. United's early deployment signals confidence in technology maturity and positions it ahead of most competitors on this capability.",
+          "confidence": "HIGH",
+          "client_impact": null,
+          "recommended_action": "Note as positive development for international cruise-positioning flights; monitor for Starlink deployments on other carriers serving D2M clients."
+        },
+        {
+          "headline": "Hawaiian Airlines Ending Free Coach Meals June 30: Last US Carrier Discontinues Practice",
+          "analysis": "Hawaiian Airlines, the last US carrier offering complimentary domestic coach meal service, announced discontinuation effective June 30, 2026. All major US carriers have now eliminated free domestic coach meals. Hawaiian's move was driven by margin pressure and competitive necessity — cannot sustain cost advantage when competitors have eliminated the same service. Impact for D2M clients on Hawaii-based positioning flights (e.g., DEN-HNL): meals previously included are now à la carte. Cost per passenger increases approximately $15-25 per flight segment.",
+          "confidence": "HIGH",
+          "client_impact": {
+            "clients": ["John & Melissa Furlow (HNL airport)", "Al Ely & Amy Darrow (HNL airport)", "John & Susan Loucks (HNL airport)", "Ron & Linda Westbrook (HNL usage)"],
+            "impact": "Hawaiian Airlines positioning flights to Hawaii will now require meal purchases. Cost impact: $15-25 per passenger per segment. Brief affected clients; recommend meal advance purchase."
+          },
+          "recommended_action": "Update client briefing materials for Hawaii-based embarkation/positioning flights; recommend meal advance purchase to minimize cost impact; clarify Hawaiian meal pricing before client travel."
+        },
+        {
+          "headline": "LAX Airport: No Dominant Carrier, Fluid Competitive Dynamics",
+          "analysis": "Detailed Cranky Flier analysis of Los Angeles International Airport (LAX) competitive landscape reveals no single dominant carrier — a condition unique among major US airports. United, Delta, American, and Southwest all maintain significant presence but none dominates. This competitive fragmentation creates ongoing price competition and service differentiation. For D2M positioning flights utilizing LAX, multiple carrier options remain viable with genuine competitive pricing. No single preferred carrier warranted; route-by-route evaluation is required.",
+          "confidence": "HIGH",
+          "client_impact": {
+            "clients": ["John & Susan Loucks (LAX usage)", "Ron & Linda Westbrook (LAX usage)"],
+            "impact": "LAX offers competitive carrier options for West Coast positioning flights. Leverage competitive dynamics for pricing optimization; no single carrier dominates."
+          },
+          "recommended_action": "Continue multi-carrier evaluation for LAX positioning flights; leverage competitive dynamics for pricing optimization."
+        },
+        {
+          "headline": "Korean Air Alaska Codeshare Request: Cross-Alliance Partnership Challenges Delta JV",
+          "analysis": "Korean Air (Delta's traditional JV partner within SkyTeam alliance) filed request to launch codeshare with Alaska Airlines (OneWorld member), an unusual cross-alliance arrangement. This move suggests Korean Air is diversifying beyond the Delta partnership, potentially offering route opportunities unavailable via Delta alone. Secondary context: Korean Air is simultaneously integrating Asiana into a single operating entity, suggesting aggressive regional consolidation. Delta is watching closely — any erosion of Korean Air exclusivity in JV framework weakens Delta's Pacific position. For D2M transpacific positioning flights, Korean Air-Alaska codeshare expansion may create new routing and pricing options.",
+          "confidence": "MEDIUM",
+          "client_impact": null,
+          "recommended_action": "Monitor Korean Air codeshare approval status; assess for improved routing options on transpacific flights; flag for pricing opportunities if Korean Air-Alaska codeshare opens new connections."
+        }
+      ]
+    },
+    "MARKETS_ENERGY": {
+      "summary": "Iran Strait of Hormuz closure creates new permanent cost structure in global energy logistics. Russia's shadow fleet continues to suppress oil price pressure while eroding sanctions regime credibility. US-Iran peace talks stalled; prolonged conflict may benefit both Washington and Tehran structurally. Oil market faces potential supercycle trigger if regional instability escalates further.",
+      "items": [
+        {
+          "headline": "Iran Hormuz Toll Regime: New Permanent Cost Structure in Global Energy Logistics",
+          "analysis": "Iran's operationalization of PGSA toll authority creates permanent, institutionalized cost increase for any vessel transiting the Strait of Hormuz. Global oil supply passes through Hormuz (approximately 20-30% of seaborne petroleum); toll regime impacts global energy pricing directly. For airline fuel costs and cruise ship fuel surcharges, Hormuz toll creates structural upward cost pressure. Analysts estimate $2-5 per barrel incremental cost from Hormuz tolls depending on fee structure and cryptocurrency price volatility. This feeds directly into fuel surcharges on aviation and cruise operations. Risk: if PGSA expands toll structure beyond current framework, cost impact accelerates.",
+          "confidence": "HIGH",
+          "client_impact": {
+            "clients": ["All D2M clients (fuel surcharge passthrough across all cruise lines and airlines)"],
+            "impact": "Cruise line fuel surcharges will likely increase 2-5% due to Hormuz toll regime. Airline ticket fuel surcharges may increase similarly. Monitor fuel surcharge trends on client voyage invoices."
+          },
+          "recommended_action": "Monitor PGSA toll structure monthly; flag to Commander if toll increases exceed 10% threshold; assess impact on future cruise pricing models."
+        },
+        {
+          "headline": "Russian Shadow Fleet Sanctions Evasion: Long-Term Erosion of Sanctions Regime",
+          "analysis": "Russia continues to operate shadow fleet (tankers with obscured ownership, multiple flag changes, shell company intermediaries) to export sanctioned oil. The visible enforcement component represents only the tip of the actual shadow fleet operation. The vast majority of vessels operate undetected, continuously supplying Russia with oil export revenue. Two implications: (1) Russian oil supply suppression is less than sanctions advocates predicted — partly suppressing oil price spikes; (2) sanctions regime's deterrent value is diminishing. If shadow fleet operations continue scaling and enforcement remains sporadic, sanctions may be functionally obsolete within 12-18 months, enabling sustained Russian military modernization.",
+          "confidence": "HIGH",
+          "client_impact": null,
+          "recommended_action": "Monitor for shadow fleet enforcement actions; assess sanctions regime effectiveness trajectory; flag if enforcement declines further as indicator of sanctions failure."
+        },
+        {
+          "headline": "US-Iran Peace Talks Stalled: Potential Oil Supercycle Trigger from Prolonged Conflict",
+          "analysis": "US-Iran peace negotiations are stalled with no visible breakthrough timeline. Analysis from RealClearWorld/Oil Price suggests both Washington and Tehran may have structural incentives to maintain prolonged conflict rather than pursue rapid resolution. This strategic equilibrium is unstable — any escalation (Israeli strike on Iranian nuclear facilities, Hezbollah major attack, US carrier incident) could trigger rapid conflict escalation. Energy market implication: if Iran-Israel confrontation escalates to direct warfare, Iranian oil supply disruption becomes possible, triggering supercycle oil price spike ($150+ per barrel). Current probability assessment (MEDIUM confidence): 40-50% escalation risk over next 6-12 months. Implication: current oil prices potentially undervaluing geopolitical risk.",
+          "confidence": "MEDIUM",
+          "client_impact": {
+            "clients": ["All D2M clients (fuel surcharge passthrough)"],
+            "impact": "Oil price spike from Iran escalation would increase fuel surcharges significantly (5-15% cost impact per spike event). Pre-briefing clients on fuel cost environment is prudent."
+          },
+          "recommended_action": "Monitor US-Iran diplomatic developments weekly; flag to Commander if escalation indicators spike; assess impact on fuel surcharge forecasting models."
+        }
+      ]
+    },
+    "TRAVEL_ADVISORIES": {
+      "summary": "Eastern Mediterranean elevated risk from Israel-Lebanon active conflict; Strait of Hormuz closed to commercial shipping; Atlantic hurricane season operational risk requires active monitoring for August-September cruise itinerary adjustments. No primary travel advisory alerts from official channels — risk assessment inferred from military/geopolitical intelligence. Official advisory feed returned zero items (intelligence gap flagged).",
+      "items": [
+        {
+          "headline": "Eastern Mediterranean: Elevated Military Risk from Israel-Lebanon Conflict",
+          "analysis": "Israel-Lebanon conflict remains active with no ceasefire in effect despite four months of fighting and US mediation attempts. Israeli military operations include airstrikes targeting Iranian air defense systems; Hezbollah maintains attack capability. Risk to maritime traffic: Eastern Mediterranean ports (Syria, Lebanon, potentially Cyprus and Greek waters) face elevated military risk from air operations and potential maritime interdiction. Cruise lines operating Mediterranean routes are likely to avoid Beirut and Tripoli ports due to direct conflict proximity. Alternative ports (Athens, Rhodes, Cyprus, Turkish Riviera) remain available but face secondary risk from air operations. Travel advisory assessment: Eastern Mediterranean requires elevated caution; active conflict zone within operational range of some ports.",
+          "confidence": "HIGH",
+          "client_impact": {
+            "clients": ["Erik McLeod & Melissa McGlasson (Silver Muse Mediterranean Jun 23-Jul 3, 2026)", "Lyons (Athens/Piraeus ports, Regent/RSSC)"],
+            "impact": "McLeod departure June 23 will operate in active conflict zone proximity. Lyons' Athens/Piraeus itinerary may face operational disruption if conflict spreads. Recommend itinerary review for both; confirm no Beirut/Tripoli port calls; brief clients on military situation."
+          },
+          "recommended_action": "Flag McLeod Silver Muse for elevated Mediterranean risk review; flag Lyons Athens/Piraeus for monitoring; confirm itineraries exclude high-risk ports; brief both client groups on risk; establish daily monitoring protocol through departure dates."
+        },
+        {
+          "headline": "Strait of Hormuz: Closed to Commercial Shipping Pending PGSA Permit",
+          "analysis": "Iran has operationally closed the Strait of Hormuz through PGSA toll authority. No commercial shipping transits without permit acquisition and cryptocurrency payment. Current status: Hormuz is effectively inaccessible for routine commercial use. No D2M clients are directly affected (no Persian Gulf itineraries currently); however, this advisory applies to any future Middle East or Arabian Gulf cruises. Any itineraries requiring Hormuz transit must route via Suez Canal (longer, more expensive) or avoid Persian Gulf entirely.",
+          "confidence": "HIGH",
+          "client_impact": null,
+          "recommended_action": "Flag for any future Persian Gulf cruise planning; assume Hormuz closed through 2026; recommend Suez-routed alternatives or non-Gulf itineraries for all future planning."
+        },
+        {
+          "headline": "Atlantic Hurricane Season: Active Risk for Caribbean and Gulf Itineraries",
+          "analysis": "Atlantic hurricane season (June 1–November 30) is operationally active. Peak season: August-September-October. Any Caribbean or Gulf Coast cruise itineraries during August-September-October 2026 face elevated hurricane risk. Cruise lines maintain contingency protocols (itinerary adjustments, port swaps, passenger accommodation). Standard industry practice: modifications are not failures, they are normal operational practice. Key action item is client expectation management — brief clients on possibility before they encounter it.",
+          "confidence": "HIGH",
+          "client_impact": {
+            "clients": ["John & Melissa Furlow (Regent Grandeur Scandinavia Aug 29-Sep 8, 2026)", "Al Ely & Amy Darrow (Regent Grandeur Scandinavia Aug 29-Sep 8, 2026)", "Larry & Heidi Nichols (Regent Grandeur Scandinavia Aug 29-Sep 8, 2026)"],
+            "impact": "Scandinavian itineraries are outside Atlantic hurricane zone — low hurricane risk for these specific clients. General hurricane season awareness appropriate."
+          },
+          "recommended_action": "Prepare hurricane season client briefing; deliver to all August-September Caribbean/Gulf itinerary clients; establish itinerary change monitoring protocol for affected voyages."
+        }
+      ]
+    }
+  },
+  "d2m_action_items": [
+    {
+      "priority": "P0",
+      "action": "URGENT: McLeod Silver Muse (Jun 23-Jul 3 Mediterranean) — Itinerary risk review. Israel-Lebanon conflict active. Confirm itinerary excludes Beirut/Tripoli. Prepare contingency Western Mediterranean ports. Brief clients on military situation. Establish daily monitoring through departure.",
+      "owner": "Hale",
+      "deadline": "2026-06-12",
+      "intelligence_source": "Israel-Lebanon conflict, Beirut port security analysis"
+    },
+    {
+      "priority": "P0",
+      "action": "Lyons Athens/Piraeus — Monitor Eastern Mediterranean military risk. Confirm Regent/RSSC itinerary excludes high-risk Eastern Med ports. Brief clients if Athens/Piraeus threat posture changes.",
+      "owner": "Hale",
+      "deadline": "2026-06-15",
+      "intelligence_source": "Israel-Lebanon conflict, Eastern Mediterranean risk assessment"
+    },
+    {
+      "priority": "P1",
+      "action": "Fuel surcharge monitoring: Hormuz toll regime operationalized May 18. Estimate 2-5% fuel cost increase. Monitor PGSA toll structure monthly; flag to Commander if toll increases >10%. Assess impact on future cruise pricing models.",
+      "owner": "Hale/Harlan",
+      "deadline": "2026-06-30",
+      "intelligence_source": "Iran Hormuz toll regime analysis"
+    },
+    {
+      "priority": "P1",
+      "action": "Hurricane season client briefing: Prepare and deliver hurricane season advisory to all August-September 2026 Caribbean/Gulf itinerary clients. Note Scandinavian clients (Furlow, Ely-Darrow, Nichols) are low-risk. Focus on Caribbean/Gulf bookings.",
+      "owner": "Dani",
+      "deadline": "2026-06-30",
+      "intelligence_source": "Carnival hurricane protocols analysis"
+    },
+    {
+      "priority": "P1",
+      "action": "Hawaiian Airlines meal advisory: Update client briefing materials for Hawaii-based embarkation. Hawaiian ending free domestic coach meals June 30. Cost impact $15-25/passenger/segment. Affected clients: Furlow, Ely-Darrow, Loucks, Westbrook (HNL routes).",
+      "owner": "Dani",
+      "deadline": "2026-06-20",
+      "intelligence_source": "Hawaiian Airlines meal service discontinuation"
+    },
+    {
+      "priority": "P1",
+      "action": "JetBlue FLL hub: Evaluate JetBlue as preferred carrier for Fort Lauderdale positioning flights. Updated pricing and schedule review for any clients embarking at FLL.",
+      "owner": "Hale",
+      "deadline": "2026-06-30",
+      "intelligence_source": "JetBlue FLL hub establishment"
+    },
+    {
+      "priority": "P2",
+      "action": "Monitor Southwest Airlines leadership transition through Q3 2026. Flag if succession remains unresolved; assess service quality. Prepare alternative carrier recommendations for Westbrook and Justin Loucks if Southwest service degrades.",
+      "owner": "Hale",
+      "deadline": "2026-09-30",
+      "intelligence_source": "Southwest succession plan disruption"
+    },
+    {
+      "priority": "P2",
+      "action": "LGA slot auction monitoring (July 2026): Track Spirit Airlines LGA slot auction results. Assess impact on East Coast domestic route network for Justin Loucks, John Loucks, and other Northeast-airport clients.",
+      "owner": "Hale",
+      "deadline": "2026-07-31",
+      "intelligence_source": "Spirit Airlines liquidation, LGA slot auction"
+    },
+    {
+      "priority": "P2",
+      "action": "Geopolitical escalation monitoring: US-Iran peace talks stalled. Monitor weekly for escalation indicators. If escalation threshold breached, brief Commander on oil price spike impact to fuel surcharges.",
+      "owner": "Dembe",
+      "deadline": "ongoing",
+      "intelligence_source": "US-Iran conflict analysis, RealClearWorld assessment"
+    }
+  ],
+  "intel_gaps": [
+    {
+      "category": "TRAVEL_ADVISORIES",
+      "gap": "Official State Department advisory feed returned ZERO items in the intel package. This is likely a collection failure — not an absence of advisories. Eastern Mediterranean, Israel, Lebanon, and Middle East travel advisories are presumed active based on conflict intelligence. Recommend manual State Dept advisory pull before McLeod departure.",
+      "impact": "D2M travel advisory reporting relies on State Dept feed; if feed is broken, Commander has no official advisory visibility",
+      "recommendation": "Manual pull: travel.state.gov for Israel, Lebanon, Cyprus, Greece advisories before McLeod Jun 23 departure"
+    },
+    {
+      "category": "CRUISE_MARITIME",
+      "gap": "Real-time McLeod Silver Muse itinerary confirmation. Current intelligence confirms conflict proximity but lacks final port-of-call data for Jun 23 departure. Recommend direct contact with Silversea operations for itinerary confirmation and port security briefing.",
+      "impact": "Unable to assess specific port-of-call risk without current itinerary; McLeod client briefing incomplete",
+      "recommendation": "Contact Silversea directly for final itinerary; flag any Eastern Mediterranean port calls for individual risk assessment"
+    },
+    {
+      "category": "MARKETS_ENERGY",
+      "gap": "Current PGSA toll fee structure and cryptocurrency payment amounts. Intelligence confirms regime operationalization but lacks detailed pricing data for quantitative fuel surcharge modeling.",
+      "impact": "Unable to precisely calculate fuel cost passthrough without exact toll amounts",
+      "recommendation": "Monthly monitoring of pgsa.ir portal for updated fee schedule; correlate with fuel surcharge announcements from cruise lines"
+    },
+    {
+      "category": "AIRLINE_OPERATIONS",
+      "gap": "Southwest Airlines succession plan specifics — current candidates, timeline, internal conflict indicators. Intelligence confirms disruption but lacks granularity.",
+      "impact": "Unable to assess probability of Southwest service degradation; contingency planning incomplete",
+      "recommendation": "Monitor Southwest quarterly earnings calls Q2 2026; flag any additional leadership exits"
+    }
+  ]
+}

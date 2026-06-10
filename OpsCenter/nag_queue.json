@@ -1,0 +1,22 @@
+{
+  "nags": [
+    {
+      "id": "NAG-001",
+      "client": "McLeod",
+      "type": "embarkation_gift",
+      "label": "McLeod Embarkation Gift",
+      "embark_date": "2026-06-23",
+      "depart_date": "2026-06-18",
+      "order_deadline": "2026-06-14",
+      "mission_id": "MISSION-170",
+      "status": "OPEN",
+      "note": "Silversea TA portal in-suite amenity or ship to Rome hotel. Order by June 14.",
+      "created": "2026-06-08",
+      "cleared_date": null
+    }
+  ],
+  "_schema": {
+    "status": ["OPEN", "CLEARED"],
+    "type": "embarkation_gift | bon_voyage | anniversary | other"
+  }
+}

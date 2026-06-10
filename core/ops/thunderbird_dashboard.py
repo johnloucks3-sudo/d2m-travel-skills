@@ -209,7 +209,7 @@ def _get_scheduler_status():
     except Exception:
         pass
     # Check d2m systemd services
-    for svc in ["d2m-mcp", "d2m-api", "d2m-tunnel"]:
+    for svc in ["d2m-mcp", "d2m-api", "thunderbird-tunnel"]:
         try:
             result = subprocess.run(
                 ["systemctl", "--user", "is-active", f"{svc}.service"],

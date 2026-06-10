@@ -1,0 +1,32 @@
+{
+  "overrides": [
+    {
+      "if_type": "draft",
+      "if_client": "furlow",
+      "model": "opus",
+      "reason": "Furlow emails need extra care — high-value client"
+    },
+    {
+      "if_type": "validate",
+      "if_subtype": "financial",
+      "model": "opus",
+      "reason": "Harlan requires Opus for financial validation (Pipeline Integrity Rule 5)"
+    },
+    {
+      "if_type": "draft",
+      "if_client": "kuklinski",
+      "model": "opus",
+      "reason": "Kuklinski is AI-aware and expects premium output"
+    }
+  ],
+  "temporal_overrides": [
+    {
+      "valid_from": "2026-06-08",
+      "valid_to": "2026-06-10",
+      "all": {
+        "agent": "Hale"
+      },
+      "reason": "Sterling on P0 Chromebook task (MISSION-060) through Jun 10"
+    }
+  ]
+}

@@ -8,15 +8,15 @@
       "d2mconcierge@gmail.com"
     ],
     "days_back": 400,
-    "total_examples": 1339,
+    "total_examples": 1468,
     "by_tier": {
-      "personal": 387,
-      "client": 221,
-      "vendor": 48,
-      "internal": 676,
+      "personal": 411,
+      "client": 246,
+      "vendor": 55,
+      "internal": 749,
       "family": 7
     },
-    "last_sync": "2026-06-01T02:32:42.800042"
+    "last_sync": "2026-06-10T02:35:28.679875"
   },
   "examples": [
     {
@@ -1673,6 +1673,87 @@
       "to": "Bryana Roelke <bryanajarboe@gmail.com>",
       "date": "Thu, 28 May 2026 14:00:56 -0600",
       "body": "Sent the link.  Did you get the message about going slow and just\npartnering with me and learning the business from me vs paying $46 a month\nfor this host?\n\nOn Thu, May 28, 2026 at 11:28 AM Bryana Roelke <bryanajarboe@gmail.com>\nwrote:",
+      "score": 5
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "client",
+      "subject": "A9 Finance — May 31",
+      "to": "Dreams2Memories <d2mconcierge@gmail.com>",
+      "date": "Tue, 2 Jun 2026 10:00:36 -0600",
+      "body": "COS-- cancel this brief JL\nA9 Harlan — Finance Brief\n\nVic Harlan | Sunday, May 31 2026 0900\nNo API cost log found.\nCommission Pipeline\n*Total expected revenue: $12,393.15*\nClient Amount Due\nMcLeod (Erik & Melissa) $12,393.15 2026-07-22 (52d)\nDreams2Memories Travel, LLC — Thunderbird OS",
+      "score": 5
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "client",
+      "subject": "A3 Ops Brief — May 31",
+      "to": "John Loucks3 <johnloucks3@gmail.com>",
+      "date": "Tue, 2 Jun 2026 09:59:26 -0600",
+      "body": "COS-- cancel reports\n\nJL\nA3 Moreau — Morning Ops Brief\n\nDani Moreau | Sunday, May 31 2026 0700\nPayment Pipeline\nClient Cruise Amount Days Status\nMcLeod (Erik & Melissa) Silver Muse PAID 23d PAID\nMcLeod (Erik & Melissa) Regent Grandeur $12,393.15 52d UPCOMING\nDreams2Memories Travel, LLC — Thunderbird OS",
+      "score": 5
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Good news — I worked out a path forward",
+      "to": "Bryana Roelke <bryanajarboe@gmail.com>",
+      "date": "Fri, 5 Jun 2026 07:10:15 -0600",
+      "body": "Morning. My Security Staff advised me to tighten up security on the web\nhosted filesystem. So pick your password for logging in to the\ntraining...because you can.\nThanks\nJohn",
+      "score": 5
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "vendor",
+      "subject": "Bon Voyage Gift Order — Booking 298475-25 | McLeod/McGlasson | Silver Muse June 23, 2026",
+      "to": "SpecialServices@silversea.com",
+      "date": "Mon, 8 Jun 2026 07:58:32 -0600",
+      "body": "Dear Silversea Special Services Team,\n\nI am writing on behalf of my clients to arrange a Bon Voyage onboard credit\ngift of $100USD for the following reservation:\n\nGuests: Erik McLeod & Melissa McGlasson\nBooking Number: 298475-25\nSuite: 617\nVessel: Silver Muse\nEmbarkation Date: June 23, 2026\n\nGift Request:\nPlease apply an onboard credit to Suite 617 as a Bon Voyage gift from their\ntravel advisor. I would appreciate guidance on available credit\ndenominations if you have a current gift menu, or please apply a courtesy\namount at your discretion.\n\nGift Card Message (to be presented upon embarkation):\n\"Erik & Melissa — Wishing you an extraordinary voyage. This one's been a\nlong time coming, and you deserve every moment of it. Enjoy every port,\nevery sunset, and every indulgence Silver Muse has to offer. So happy to be\npart of this journey with you.\n— John, Dreams2Memories Travel\"\n\nPlease confirm receipt of this request and advise on payment. I can provide\na credit card by phone or reply to this email at your direction.\n\nThank you,\n\nJohn\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 5
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "vendor",
+      "subject": "Bon Voyage Gift Order — Booking 298475-25 | McLeod/McGlasson | Silver Muse June 23, 2026",
+      "to": "SpecialServices@silversea.com",
+      "date": "Mon, 8 Jun 2026 07:58:32 -0600",
+      "body": "Dear Silversea Special Services Team,\n\nI am writing on behalf of my clients to arrange a Bon Voyage onboard credit\ngift of $100USD for the following reservation:\n\nGuests: Erik McLeod & Melissa McGlasson\nBooking Number: 298475-25\nSuite: 617\nVessel: Silver Muse\nEmbarkation Date: June 23, 2026\n\nGift Request:\nPlease apply an onboard credit to Suite 617 as a Bon Voyage gift from their\ntravel advisor. I would appreciate guidance on available credit\ndenominations if you have a current gift menu, or please apply a courtesy\namount at your discretion.\n\nGift Card Message (to be presented upon embarkation):\n\"Erik & Melissa — Wishing you an extraordinary voyage. This one's been a\nlong time coming, and you deserve every moment of it. Enjoy every port,\nevery sunset, and every indulgence Silver Muse has to offer. So happy to be\npart of this journey with you.\n— John, Dreams2Memories Travel\"\n\nPlease confirm receipt of this request and advise on payment. I can provide\na credit card by phone or reply to this email at your direction.\n\nThank you,\n\nJohn\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 5
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "Re: Final Silversea Cruise Documents for 566910-25 COL JOHN LOUCKS",
+      "to": "Jenna Woodcock <jwoodcock@perx.com>",
+      "date": "Tue, 9 Jun 2026 15:20:20 -0600",
+      "body": "Hi Jenna, looking at another Silversea Cruise and I cannot find any\ndocumentation for my Silversea Venetian Society Number, do you have a way\nfor me to find it? Thanks!!\nJohn",
+      "score": 5
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Fw: The Travel Buzz with Oya – Your Advocate at Explora Journeys – Welcome to June!",
+      "to": "Stefanie Burcham <stef@bbenefits.net>",
+      "date": "Tue, 9 Jun 2026 07:15:11 -0600",
+      "body": "Thanks. I will register for this email or one like it. But... I asked my AI\nto compare 5 similar voyages 3 cruise lines and we're focusing on Silver\nSea.  Silver Nova 05 May to 29 May 2027. $648/night pp.\nJohn",
+      "score": 5
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "client",
+      "subject": "Re: Final Silversea Cruise Documents for 566910-25 COL JOHN LOUCKS",
+      "to": "Jenna Woodcock <jwoodcock@perx.com>",
+      "date": "Tue, 9 Jun 2026 15:20:20 -0600",
+      "body": "Hi Jenna, looking at another Silversea Cruise and I cannot find any\ndocumentation for my Silversea Venetian Society Number, do you have a way\nfor me to find it? Thanks!!\nJohn",
+      "score": 5
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Fw: The Travel Buzz with Oya – Your Advocate at Explora Journeys – Welcome to June!",
+      "to": "Stefanie Burcham <stef@bbenefits.net>",
+      "date": "Tue, 9 Jun 2026 07:15:11 -0600",
+      "body": "Thanks. I will register for this email or one like it. But... I asked my AI\nto compare 5 similar voyages 3 cruise lines and we're focusing on Silver\nSea.  Silver Nova 05 May to 29 May 2027. $648/night pp.\nJohn",
       "score": 5
     },
     {
@@ -3590,6 +3671,168 @@
       "to": "Nancy Lyons <nancylyons73@outlook.com>",
       "date": "Sun, 31 May 2026 08:58:31 -0600",
       "body": "Cartagena CRT 021 Food Tour\nPunta Arenas PNT 012 SKY WALK/FOOD\nPuerto Quetzal PQE STT\nAntigua QUZ 023 Bishops Palace Lunch\nAcapulco ACA 009 Historic ACA CLIFF Divers\nCabo San Lucas CSL 017 Arch and Clearboat\nSan Diego HydraTerra SAN 005\n\nwe are flexible and open\n\nOn Sun, May 24, 2026 at 12:26 PM Nancy Lyons <nancylyons73@outlook.com>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Re: An opportunity with Dreams2Memories Travel",
+      "to": "Bryana Roelke <bryanajarboe@gmail.com>",
+      "date": "Mon, 1 Jun 2026 22:56:37 -0600",
+      "body": "I will be available from 2PM CST on, if you need to delay or re-schedule I\nam flexible. Just call when you're ready.\nJohn\n\nOn Mon, Jun 1, 2026 at 10:54 PM Dreams2Memories <d2mconcierge@gmail.com>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "client",
+      "subject": "Re: An opportunity with Dreams2Memories Travel",
+      "to": "Dreams2Memories <d2mconcierge@gmail.com>",
+      "date": "Mon, 1 Jun 2026 22:24:03 -0600",
+      "body": "COS-- draft answer please ASAP\n\nOn Mon, Jun 1, 2026 at 10:00 PM Bryana Roelke <bryanajarboe@gmail.com>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Re: An opportunity with Dreams2Memories Travel",
+      "to": "Dreams2Memories <d2mconcierge@gmail.com>",
+      "date": "Mon, 1 Jun 2026 14:29:37 -0600",
+      "body": "COO see below\n\nOn Mon, Jun 1, 2026 at 1:12 PM Dreams2Memories <d2mconcierge@gmail.com>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "client",
+      "subject": "Re: Looking forward to our chat — a little prep for you",
+      "to": "Bryana Roelke <bryanajarboe@gmail.com>",
+      "date": "Tue, 2 Jun 2026 16:54:09 -0600",
+      "body": "H Bryana, bad news. I should have seen it but my wife thinks I spend too\nmuch time in the travel business as it is, and so to respect her I cannot\ntake you on as a mentee. I am willing to answer any further questions and\nremain a business associate, but cannot promise to bring you on. My advice:\nI have studied and been a part of several host agencies, Outside Agents:\n$26 to join and receive a 70/30 split, $46 to join and receive a starting\nsplit of 80/20 and eventually 90/10.  Check them out and let me know and\nplease this doesn't mean I won't be able to answer questions, but  just\nthat is the extent of my assistance.\n\nBest of luck\nJohn\n\nOn Tue, Jun 2, 2026 at 11:42 AM Dreams2Memories <d2mconcierge@gmail.com>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "client",
+      "subject": "Re: Looking forward to our chat — a little prep for you",
+      "to": "Bryana Roelke <bryanajarboe@gmail.com>",
+      "date": "Tue, 2 Jun 2026 11:42:05 -0600",
+      "body": "Download and then set to open with chrome or explorer by right clicking.\nTry that. I will figure out why I cannot get this to convert to a doc\n\nOn Tue, Jun 2, 2026 at 11:36 AM Bryana Roelke <bryanajarboe@gmail.com>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "A10 Logistics — May 31",
+      "to": "Dreams2Memories <d2mconcierge@gmail.com>",
+      "date": "Tue, 2 Jun 2026 10:00:06 -0600",
+      "body": "COS-- cancel these reportsJL\nA10 Ikeda — Logistics Status\n\nTommy Ikeda | Sunday, May 31 2026 0800\nNo flights within 30 days requiring monitoring.\nDreams2Memories Travel, LLC — Thunderbird OS",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Thunderbird EOD Summary — May 30",
+      "to": "Dreams2Memories <d2mconcierge@gmail.com>",
+      "date": "Tue, 2 Jun 2026 09:57:55 -0600",
+      "body": "COS-- cancel these reports\nJL\n-------------------------THUNDERBIRD END OF DAY SUMMARY\nSaturday, May 30 2026 — 05:02 PM\n\nSHIP INTELLIGENCE (PM)\n  Voyages: 0 | Price alerts: 0 | Avail alerts: 0\n\nTECH MONITOR\n  Articles (24h): 14\n\nCLAUDE CODE DIGEST\n  Generated successfully\n\nCOS-EXEC\n  Afternoon priority scan complete\n\nReports attached.",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Creative Opportunities — May 31",
+      "to": "Dreams2Memories <d2mconcierge@gmail.com>",
+      "date": "Tue, 2 Jun 2026 09:56:23 -0600",
+      "body": "COS-- cancel these nothing briefs.JL\n\nEXEC Creative — Opportunity Scan\n\nNaia Solberg-Vega (Creative) | Sunday, May 31 2026 1000\nNo creative deliverables flagged today.\nDreams2Memories Travel, LLC — Thunderbird OS",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "client",
+      "subject": "One quick correction — please use the second email",
+      "to": "Bryana Roelke <bryanajarboe@gmail.com>",
+      "date": "Wed, 3 Jun 2026 14:53:23 -0600",
+      "body": "[image: Dreams2Memories Travel]\nLuxury Travel, Personally Crafted\n\nJune 3, 2026\n\nHi Bryana,\n\nQuick note — please disregard the first email I sent you today. It went out\nbefore it was ready and was missing the Telegram instructions and a few\nother details.\n\nThe correct and complete version is the second email, subject: * \"Good news\n— I worked out a path forward.\" * That's the one with everything in it,\nincluding how to access Dani via Telegram and all the next steps.\n\nSorry for the confusion. Use that one and you're good to go.  ALso when you\nget to the itinerary.d2mluxury.quest website your username is: Bryana and\nyour password is:0602.\n[image: Dani Moreau]\nDani Moreau\nAI Luxury Travel Concierge\nDreams2Memories Travel, LLC\nconcierge@d2mluxury.quest · d2mluxury.quest\n\nJohn Loucks\nOwner & Travel Advisor\nDreams2Memories Travel, LLC\nconcierge@d2mluxury.quest · d2mluxury.quest\n[image: Dreams2Memories Travel]\nLuxury Travel, Personally Crafted\nDreams2Memories Travel, LLC · Monument, CO",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Anthropic: One-Line Command for All Claude APIs",
+      "to": "Dreams2Memories <d2mconcierge@gmail.com>",
+      "date": "Thu, 4 Jun 2026 06:10:59 -0600",
+      "body": "COS, investigate feasibility and what the usage would be\n\nOn Thu, Jun 4, 2026 at 6:02 AM Meng Li from AI Disruption <\naidisruption@substack.com> wrote:",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Join Susie & John on the Mediterranean — Silver Nova, May 2027",
+      "to": "Nancy Lyons <nancylyons73@outlook.com>, Susan Loucks <susanna.loucks@gmail.com>",
+      "date": "Sat, 6 Jun 2026 20:41:44 -0600",
+      "body": "Classic Veranda is the lowest, suitable for us.  24 nights $32K (minus your\nsubstantial Pavlus rebate). Very few duplicates on this voyage but def\nplaces we've been before.  Early Sep is the cutoff for the current 40% off\ndeal, this price includes that, a Distinctive Voyage for one leg, $500 pp\ncruise credit (from my agency) you would have status --ask your young and\nhungry advisor to drag all that up. It's going to be great!\nJ",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "Silver Nova TA Pricing — Susie & John · May 2027 · Three Voyages",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 6 Jun 2026 08:38:06 -0700",
+      "body": "THUNDERBIRD INTEL — SILVERSEA TA PORTALSilver Nova · May 2027 · Live TA Rates · Agency 179350 · 2026-06-06\n\nSource: Direct API pull — my.silversea.com TA portal. Per person, double occupancy. ★ = active special offer on voyage. GTY = guarantee (no cabin choice). OUT = sold out at that fare.\n\nVoyage 1 — SN270505010 · May 5–15 · 10 nights · Venice → Athens\n\nCategoryFare$/pp/coupleAvail\nClassic Vera",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "vendor",
+      "subject": "Re: Bon Voyage Gift Order — Booking 298475-25 | McLeod/McGlasson | Silver Muse June 23, 2026",
+      "to": "SpecialServices@silversea.com",
+      "date": "Mon, 8 Jun 2026 15:40:09 -0600",
+      "body": "Attached is my Bon Voyage Gift Form.  It is for $100 OBC to Erik Mc Leod\nand Melissa Mc Glasson, suite 617 on Silver Muse sailing April 23, 2026.\nThe note should read: \"Erik and Melissa, enjoy this time together and make\ngreat memories onboard and in Venice as I am certain you did in Rome and\nFlorence\".",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "Re: [A3] Client: Kuklinski Group (3 bookings) — Re: Join Susie & John on the Mediterrane",
+      "to": "D2M Concierge <d2mconcierge@gmail.com>",
+      "date": "Mon, 8 Jun 2026 07:01:51 -0600",
+      "body": "Approved execute all\n\nOn Mon, Jun 8, 2026, 06:41 Dani Moreau, D2M Travel\n<concierge@d2mluxury.quest> wrote:",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "vendor",
+      "subject": "Re: Bon Voyage Gift Order — Booking 298475-25 | McLeod/McGlasson | Silver Muse June 23, 2026",
+      "to": "SpecialServices@silversea.com",
+      "date": "Mon, 8 Jun 2026 15:40:09 -0600",
+      "body": "Attached is my Bon Voyage Gift Form.  It is for $100 OBC to Erik Mc Leod\nand Melissa Mc Glasson, suite 617 on Silver Muse sailing April 23, 2026.\nThe note should read: \"Erik and Melissa, enjoy this time together and make\ngreat memories onboard and in Venice as I am certain you did in Rome and\nFlorence\".",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "client",
+      "subject": "Re: [A3] Client: Kuklinski Group (3 bookings) — Re: Join Susie & John on the Mediterrane",
+      "to": "D2M Concierge <d2mconcierge@gmail.com>",
+      "date": "Mon, 8 Jun 2026 07:01:51 -0600",
+      "body": "Approved execute all\n\nOn Mon, Jun 8, 2026, 06:41 Dani Moreau, D2M Travel\n<concierge@d2mluxury.quest> wrote:",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "Re: Dinner and dessert Friday",
+      "to": "Ronald Westbrook <rwestbrook3@gmail.com>, Susan Loucks <susanna.loucks@gmail.com>",
+      "date": "Tue, 9 Jun 2026 15:21:40 -0600",
+      "body": "OK, 1615. Looking forward.....\n\nOn Tue, Jun 9, 2026 at 2:16 PM Ronald Westbrook <rwestbrook3@gmail.com>\nwrote:",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "client",
+      "subject": "Re: Dinner and dessert Friday",
+      "to": "Ronald Westbrook <rwestbrook3@gmail.com>, Susan Loucks <susanna.loucks@gmail.com>",
+      "date": "Tue, 9 Jun 2026 15:21:40 -0600",
+      "body": "OK, 1615. Looking forward.....\n\nOn Tue, Jun 9, 2026 at 2:16 PM Ronald Westbrook <rwestbrook3@gmail.com>\nwrote:",
       "score": 4
     },
     {
@@ -10246,6 +10489,627 @@
     {
       "account": "johnloucks3@gmail.com",
       "tier": "internal",
+      "subject": "Re: An opportunity with Dreams2Memories Travel",
+      "to": "d2mconcierge@gmail.com",
+      "date": "Mon, 1 Jun 2026 22:46:05 -0600",
+      "body": "Hale,\n1. $46 is for the host agency fee as a broker/ownerwhich you will not\nneedto pay until you feel like breaking out on your own.  Your fee as an\nassociate of D2m is $26 a month--once you feel you want to commit.  I also\npay ~$250 for AI and would welcome a mutually agreed upon split with you.\n2. No 1099 until you are close to getting a booking, we can exchange $$ via\nvenmo or zelle if that is OK. then when you are close to making a booking\nmake it all formal thru my Outside Agents Host agency\n3. DIfferent timelines for different types of agencies. Usually once the\ntrip has started, the payments flow. We can chat more about that.",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "ACTION REQUIRED: d2mconcierge Gmail Re-Auth",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 2 Jun 2026 01:38:01 +0300",
+      "body": "d2mconcierge Gmail Re-Authorization Needed Click the link below to re-authorize d2mconcierge@gmail.com: Authorize d2mconcierge Gmail Steps: Click the button above Sign in as d2mconcierge@gmail.com Click Allow The browser will redirect to localhost:8085/ — this will fail In the address bar, replace localhost with 192.168.1.216 and press Enter The token will be saved automatically.",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "ACTION REQUIRED: d2mconcierge Gmail Re-Auth",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 2 Jun 2026 01:30:32 +0300",
+      "body": "d2mconcierge Gmail Re-Authorization Needed Click the link below to re-authorize d2mconcierge@gmail.com: Authorize d2mconcierge Gmail Steps: Click the button above Sign in as d2mconcierge@gmail.com Click Allow The browser will redirect to localhost:8085/ — this will fail In the address bar, replace localhost with 192.168.1.216 and press Enter The token will be saved automatically.",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "ACTION REQUIRED: d2mconcierge Gmail Re-Auth",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 1 Jun 2026 15:30:15 -0700",
+      "body": "d2mconcierge Gmail Re-Authorization Needed Click the link below to re-authorize d2mconcierge@gmail.com: Authorize d2mconcierge Gmail Steps: Click the button above Sign in as d2mconcierge@gmail.com Click Allow The browser will redirect to localhost:8085/ — this will fail In the address bar, replace localhost with 192.168.1.216 and press Enter The token will be saved automatically.",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "🦅 Thunderbird Brief — 1 Jun 2026 — 9 clients",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 1 Jun 2026 07:00:01 -0500",
+      "body": "🦅 THUNDERBIRD DAILY BRIEF — 2026-06-01 Generated 2026-06-01 06:00 MT · V. Hale, VCS 1. Client Wire Client Ship Departure FPD Next TP John & Susan Loucks Silversea Silver Nova 10 Apr 2026 🔴 🔴 OVERDUE (120d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 22 overdue McLeod McGlasson - Silver Muse Silversea Silver Muse 18 Jun 2026 🔴 OVERDUE (128d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 17 overdue Furlow / Ely-Darrow / Nichols Regent Seven Seas SS Grandeur 29 Aug 2026 🔴 OVERDUE (61d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 13 overdue Al Ely & Amy Darrow Regent Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 6 overdue John & Melissa Furlow Regent Seven Seas SS Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 6 overdue Larry & Heidi Nichols Regent Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 11 overdue Kuklinski Group (3 couples) Viking Viking Mars 17 Dec 2026 🔴 OVERDUE (62d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 7 overdue Joshua Morton & Erica Dodge Viking Viking Mars 17 Dec 2026 🔴 OVERDUE (62d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 7 overdue John & Susan Loucks Seven Seas Grandeur 29 Dec 2026 DUE 1 Aug 2026 TP 0.5 — Welcome / Booking Validation 2. WF-17 Gate — Drafts Awaiting Review Client TP Phase Deadline Status Kuklinski TP 0.5 Welcome / Booking Validation 2026-05-27 voice_drafted Kuklinski TP 4.1 Payment Reminder #1 2026-03-17 voice_drafted Kuklinski TP 4.2 Payment Reminder #2 2026-03-24 voice_drafted Kuklinski TP 4.3 Payment Goal 2026-03-30 voice_drafted Nichols TP 0.5 Welcome / Booking Validation 2026-06-05 voice_drafted 3. Financial Pulse D2M pipeline $21,440.75 TESS received $244.80 — V. Hale, VCS · Thunderbird Wing · D2M Next brief: 2026-06-02 06:00 MT",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "HALE — DAILY BRIEF | 2026-06-01 06:00 MT",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 1 Jun 2026 07:50:01 -0400",
+      "body": "📊 HALE — DAILY OPERATIONAL BRIEF Generated 2026-06-01 · 06:00 MT · Commander John Loucks 📊 Client Lifecycle Wheel 7 active clients, urgency-coded segments, FPD countdown arcs. Click segment for detail panel. View Lifecycle Wheel → 💰 Financial Waterfall Commission pipeline flow: Prospects → Booked → At-Risk → Projected. Allianz claim divergence shown. View Waterfall → 🔥 Task Heat Map Clients × Task Types grid. Urgency-colored, effort-encoded. Hover for task roster by cell. View Heat Map → ⚠️ Risk Matrix Likelihood × Disruption scatter. Quadrants: Escalate (red), Mitigate (yellow), Monitor, Accept. Action registry below. View Risk Matrix → ⚡ DECISIONS NEEDED FROM COMMANDER Approve 11 Gmail Drafts? Kuklinski (validation), McLeod (Silver Muse 60-day + Grandeur TP0.5/TP0.6), Westbrook (Perx + SkyLux), Furlow/Nichols/Ely (CAK). All staged in d2mconcierge drafts folder. Initiate Lyons FPD Outreach? Nancy & Ken Lyons — FPD May 11 (14 days remaining). Direct Commander action required. Chase Furlow $15,486 Payment? Final payment was due Apr 1. Confirm received or authorize A9 follow-up. Re-Auth TESS? Financial feed is blind. Run: python3 thunderbird_tess.py --authorize to restore commission visibility. HALE — Ms. Victoria \"Victory\" Hale, SES-6 | Chief of Staff | Dreams2Memories Travel, LLC This brief is generated automatically at 05:50 MT daily and sent at 06:00 MT. Link expires in 90 days. Briefs archived locally + Google Drive.",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "Loucks excursions Dec 2026-Jan 2027",
+      "to": "D2M Concierge <d2mconcierge@gmail.com>",
+      "date": "Tue, 2 Jun 2026 18:13:44 -0600",
+      "body": "Cos, add this to our excursions, take the .pdf and place it in our folder\n\nJL\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Thunderbird Evening Sync — 1 errors",
+      "to": "Dreams2Memories <d2mconcierge@gmail.com>",
+      "date": "Tue, 2 Jun 2026 09:58:29 -0600",
+      "body": "COS-- cancel this report\nJL\n\nEvening maintenance completed with errors:\n\n- Calendar sync: Service account info was not in the expected format,\nmissing fields client_email, token_uri.",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "🦅 Thunderbird Brief — 2 Jun 2026 — 9 clients",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 2 Jun 2026 07:00:01 -0500",
+      "body": "🦅 THUNDERBIRD DAILY BRIEF — 2026-06-02 Generated 2026-06-02 06:00 MT · V. Hale, VCS 1. Client Wire Client Ship Departure FPD Next TP John & Susan Loucks Silversea Silver Nova 10 Apr 2026 🔴 🔴 OVERDUE (121d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 22 overdue McLeod McGlasson - Silver Muse Silversea Silver Muse 18 Jun 2026 🔴 OVERDUE (129d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 17 overdue Furlow / Ely-Darrow / Nichols Regent Seven Seas SS Grandeur 29 Aug 2026 🔴 OVERDUE (62d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 13 overdue Al Ely & Amy Darrow Regent Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 6 overdue John & Melissa Furlow Regent Seven Seas SS Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 6 overdue Larry & Heidi Nichols Regent Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 11 overdue Kuklinski Group (3 couples) Viking Viking Mars 17 Dec 2026 🔴 OVERDUE (63d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 7 overdue Joshua Morton & Erica Dodge Viking Viking Mars 17 Dec 2026 🔴 OVERDUE (63d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 7 overdue John & Susan Loucks Seven Seas Grandeur 29 Dec 2026 DUE 1 Aug 2026 TP 0.5 — Welcome / Booking Validation 2. WF-17 Gate — Drafts Awaiting Review Client TP Phase Deadline Status Kuklinski TP 0.5 Welcome / Booking Validation 2026-05-27 voice_drafted Kuklinski TP 4.1 Payment Reminder #1 2026-03-17 voice_drafted Kuklinski TP 4.2 Payment Reminder #2 2026-03-24 voice_drafted Kuklinski TP 4.3 Payment Goal 2026-03-30 voice_drafted Nichols TP 0.5 Welcome / Booking Validation 2026-06-05 voice_drafted 3. Financial Pulse D2M pipeline $21,440.75 TESS received $244.80 — V. Hale, VCS · Thunderbird Wing · D2M Next brief: 2026-06-03 06:00 MT",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "HALE — DAILY BRIEF | 2026-06-02 06:00 MT",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 2 Jun 2026 04:50:02 -0700",
+      "body": "📊 HALE — DAILY OPERATIONAL BRIEF Generated 2026-06-02 · 06:00 MT · Commander John Loucks 📊 Client Lifecycle Wheel 7 active clients, urgency-coded segments, FPD countdown arcs. Click segment for detail panel. View Lifecycle Wheel → 💰 Financial Waterfall Commission pipeline flow: Prospects → Booked → At-Risk → Projected. Allianz claim divergence shown. View Waterfall → 🔥 Task Heat Map Clients × Task Types grid. Urgency-colored, effort-encoded. Hover for task roster by cell. View Heat Map → ⚠️ Risk Matrix Likelihood × Disruption scatter. Quadrants: Escalate (red), Mitigate (yellow), Monitor, Accept. Action registry below. View Risk Matrix → ⚡ DECISIONS NEEDED FROM COMMANDER Approve 11 Gmail Drafts? Kuklinski (validation), McLeod (Silver Muse 60-day + Grandeur TP0.5/TP0.6), Westbrook (Perx + SkyLux), Furlow/Nichols/Ely (CAK). All staged in d2mconcierge drafts folder. Initiate Lyons FPD Outreach? Nancy & Ken Lyons — FPD May 11 (14 days remaining). Direct Commander action required. Chase Furlow $15,486 Payment? Final payment was due Apr 1. Confirm received or authorize A9 follow-up. Re-Auth TESS? Financial feed is blind. Run: python3 thunderbird_tess.py --authorize to restore commission visibility. HALE — Ms. Victoria \"Victory\" Hale, SES-6 | Chief of Staff | Dreams2Memories Travel, LLC This brief is generated automatically at 05:50 MT daily and sent at 06:00 MT. Link expires in 90 days. Briefs archived locally + Google Drive.",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "FINAL REPORT — Atlas Med B2B2B Analysis Loucks Cruise 2027",
+      "to": "johnloucks3@gmail.com",
+      "date": "Wed, 3 Jun 2026 18:39:45 -0700",
+      "body": "ATLAS MEDITERRANEAN B2B2B — John & Susie Loucks\nWorld Traveller · June–July 2027 · Veranda V2\n\n31 NIGHTS · 26 PORTS · ITALY · FRANCE · GREECE · TURKEY\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nTHE B2B2B CHAIN — Same Ship, Same Cabin\n\nLeg 1: Flavors of Sun & Sea (12nt)\nNaples→Athens · Jun 7–19 · Veranda V2: $8,975 pp\nNaples, Capri, Porto Cervo, Bonifacio, Lipari,\nTaormina, Zakynthos (overnight), Delphi,\nCorinth Canal Transit, Hydra, Athens\n\nLeg 2: Aegean Tastes & Tales (8nt)\nAthens RT · Jun 19–27 · Veranda V2: $6,899 pp\nHydra, Mykonos, Kusadasi (Ephesus), Bodrum,\nRhodes, Agios Nikolaos (Crete), Milos, Athens\n\nLeg 3: Greek & Turkish Isles (11nt)\nAthens RT · Jun 27–Jul 8 · Veranda V2: ~$10,399 pp (est)\nMilos, Chania (Crete overnight), Rhodes, Symi,\nBodrum, Kusadasi, Amorgos, Folegandros,\nHydra, Athens\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nPRICING FOR TWO — Veranda V2\n\nOption               Nights    For 2         pp/night\n─────────────────────────────────────────────────────\nLeg 1 only            12      $16,155         $673\nLeg 2 only             8      $12,418         $776\nLeg 3 only            11      $18,718         $851\n1+2 B2B (BEST 2-leg)  20     $25,716         $643\n2+3 B2B               19     $28,022         $737\n1+2+3 B2B2B (FULL)    31     $40,198         $648\n\nBest per-night value: 1+2 B2B at $643 pp/night\nFull chain at $648 pp/night for 11 extra nights.\n\nVS REGENT PRESTIGE B2B (28nt): ~$66,300 for two\nAtlas savings: ~$26,900 less\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nDISCOUNTS STACKED (both confirmed combinable)\nSail More Save More: 10% (2 legs) / 15% (3+ legs)\nMilitary Edge: up to 10% (veteran USAFA + spouse)\n\nTA RATE PREDICTION: Low (<20%) for June peak Med.\nBest bet: call Atlas sales rep (844-442-8522).\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nNORWAY AUG–NOV 2027 (alt comparison)\n\nRegent:    Aug 3–21 (18nt) from ~$15,200 pp · B2B up to 30%\nSilversea: Aug 14–24 (10nt) from ~$8,200 pp · B2B 5%\nAtlas Arctic: Aug–Sep from ~$8,154 pp · B2B 10-15% · Mil up to 20%\n\nNorway season ends late Aug for Regent/Silversea.\nAtlas Arctic runs through Sep/Oct (expedition-style).\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nDossier saved: Thunderbird/dossiers/DOSSIER_Loucks_Cruise2027_AtlasMed.md",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "client",
+      "subject": "Access to training materials + Dani (compromise reached)",
+      "to": "Bryana Roelke <bryanajarboe@gmail.com>",
+      "date": "Wed, 3 Jun 2026 14:44:38 -0600",
+      "body": "[image: Dreams2Memories Travel]\nLuxury Travel, Personally Crafted\n\nJune 3, 2026\n\nHi Bryana,\n\nI wanted to let you know that I've been able to work out a compromise so we\ncan get you what you need even without a formal team role.\n\nHere's the path forward:\n\n* 1. NDA — please sign and return *\nBefore I can open anything up, I need a signed NDA on file. I've attached\nit here — please sign and send back.\n\n* 2. Training materials — full access *\nOnce the NDA is back, I'll give you access to everything we use internally.\nSame training materials the team uses.\n\n* 3. Dani — your access via Telegram *\nYou'll connect with Dani through Telegram. Here's how to get set up:\n\n* Step 1 — Install Telegram *\nDownload the Telegram app on your phone (iOS App Store or Google Play) or\nuse the desktop version at desktop.telegram.org . No account? You can sign\nup with just your phone number — it takes about 60 seconds.\n\n* Step 2 — Find Dani *\nIn Telegram, search for * @d2m_dani_bot * or open this link directly:\nhttps://t.me/d2m_dani_bot\n\n* Step 3 — Start chatting *\nTap Start and you're connected. Dani is our client-facing AI concierge —\nshe handles trip research, recommendations, day-to-day client questions,\nand anything that touches the traveler experience. Think of her as the\nwarm, confident voice that talks to our clients so we don't have to be in\nten conversations at once.\n\nYou'll be working with Dani, not Hale — they serve different roles, and\nDani is the right fit for what you'll be doing. She's available whenever\nyou need her, and she learns from every interaction.\n\n* 4. What I'd ask of you *\nSpend time testing Dani over the next few weeks and even months. Put her\nthrough real scenarios. Try to break her. See where she's great and where\nshe falls short. Then send your feedback to * d2mconcierge@gmail.com\n<d2mconcierge@gmail.com> * — John monitors that address too, so both of us\nwill see it.\n\nYour outside perspective is valuable precisely because you're not inside\nthe machine. I want to know what you find.\n\nWelcome aboard — in the extended sense.\n[image: Dani Moreau]\nDani Moreau\nLuxury Travel Concierge\nDreams2Memories Travel, LLC\nconcierge@d2mluxury.quest · d2mluxury.quest\n[image: John Loucks]\nJohn Loucks\nOwner & Travel Advisor\nDreams2Memories Travel, LLC\nconcierge@d2mluxury.quest · d2mluxury.quest\n[image: Dreams2Memories Travel]\nLuxury Travel, Personally Crafted\nDreams2Memories Travel, LLC · Monument, CO",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "🦅 Thunderbird Brief — 3 Jun 2026 — 9 clients",
+      "to": "johnloucks3@gmail.com",
+      "date": "Wed, 3 Jun 2026 05:00:01 -0700",
+      "body": "🦅 THUNDERBIRD DAILY BRIEF — 2026-06-03 Generated 2026-06-03 06:00 MT · V. Hale, VCS 1. Client Wire Client Ship Departure FPD Next TP John & Susan Loucks Silversea Silver Nova 10 Apr 2026 🔴 🔴 OVERDUE (122d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 22 overdue McLeod McGlasson - Silver Muse Silversea Silver Muse 18 Jun 2026 🔴 OVERDUE (130d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 17 overdue Furlow / Ely-Darrow / Nichols Regent Seven Seas SS Grandeur 29 Aug 2026 🔴 OVERDUE (63d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 13 overdue Al Ely & Amy Darrow Regent Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 6 overdue John & Melissa Furlow Regent Seven Seas SS Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 6 overdue Larry & Heidi Nichols Regent Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 11 overdue Kuklinski Group (3 couples) Viking Viking Mars 17 Dec 2026 🔴 OVERDUE (64d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 7 overdue Joshua Morton & Erica Dodge Viking Viking Mars 17 Dec 2026 🔴 OVERDUE (64d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 7 overdue John & Susan Loucks Seven Seas Grandeur 29 Dec 2026 DUE 1 Aug 2026 TP 0.5 — Welcome / Booking Validation ⚠️ 1 overdue 2. WF-17 Gate — Drafts Awaiting Review Client TP Phase Deadline Status Kuklinski TP 0.5 Welcome / Booking Validation 2026-05-27 voice_drafted Kuklinski TP 4.1 Payment Reminder #1 2026-03-17 voice_drafted Kuklinski TP 4.2 Payment Reminder #2 2026-03-24 voice_drafted Kuklinski TP 4.3 Payment Goal 2026-03-30 voice_drafted Nichols TP 0.5 Welcome / Booking Validation 2026-06-05 voice_drafted 3. Financial Pulse D2M pipeline $21,440.75 TESS received $244.80 — V. Hale, VCS · Thunderbird Wing · D2M Next brief: 2026-06-04 06:00 MT",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "HALE — DAILY BRIEF | 2026-06-03 06:00 MT",
+      "to": "johnloucks3@gmail.com",
+      "date": "Wed, 3 Jun 2026 04:50:01 -0700",
+      "body": "📊 HALE — DAILY OPERATIONAL BRIEF Generated 2026-06-03 · 06:00 MT · Commander John Loucks 📊 Client Lifecycle Wheel 7 active clients, urgency-coded segments, FPD countdown arcs. Click segment for detail panel. View Lifecycle Wheel → 💰 Financial Waterfall Commission pipeline flow: Prospects → Booked → At-Risk → Projected. Allianz claim divergence shown. View Waterfall → 🔥 Task Heat Map Clients × Task Types grid. Urgency-colored, effort-encoded. Hover for task roster by cell. View Heat Map → ⚠️ Risk Matrix Likelihood × Disruption scatter. Quadrants: Escalate (red), Mitigate (yellow), Monitor, Accept. Action registry below. View Risk Matrix → ⚡ DECISIONS NEEDED FROM COMMANDER Approve 11 Gmail Drafts? Kuklinski (validation), McLeod (Silver Muse 60-day + Grandeur TP0.5/TP0.6), Westbrook (Perx + SkyLux), Furlow/Nichols/Ely (CAK). All staged in d2mconcierge drafts folder. Initiate Lyons FPD Outreach? Nancy & Ken Lyons — FPD May 11 (14 days remaining). Direct Commander action required. Chase Furlow $15,486 Payment? Final payment was due Apr 1. Confirm received or authorize A9 follow-up. Re-Auth TESS? Financial feed is blind. Run: python3 thunderbird_tess.py --authorize to restore commission visibility. HALE — Ms. Victoria \"Victory\" Hale, SES-6 | Chief of Staff | Dreams2Memories Travel, LLC This brief is generated automatically at 05:50 MT daily and sent at 06:00 MT. Link expires in 90 days. Briefs archived locally + Google Drive.",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "What do you think?",
+      "to": "Stefanie Burcham <stefburch@gmail.com>",
+      "date": "Thu, 4 Jun 2026 08:33:04 -0600",
+      "body": "I know you've bene on this cruise line and in this E Med area, would you go\nif you were us?\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "Re: 🦅 Thunderbird Brief — 4 Jun 2026 — 9 clients",
+      "to": "d2mconcierge@gmail.com",
+      "date": "Thu, 4 Jun 2026 06:07:29 -0600",
+      "body": "These are out of date. Only TPs remaining are Furlow, Ely, Nichols trip\nvalidations",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "client",
+      "subject": "Re: Good news — I worked out a path forward",
+      "to": "Bryana Roelke <bryanajarboe@gmail.com>",
+      "date": "Thu, 4 Jun 2026 07:52:31 -0600",
+      "body": "Great I think I said this already but for the itinerary.d2mluxury.quest you\nlog in as Bryana and pw is 0602. Let me know what you think.\nJohn",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "🦅 Thunderbird Brief — 4 Jun 2026 — 9 clients",
+      "to": "johnloucks3@gmail.com",
+      "date": "Thu, 4 Jun 2026 05:00:03 -0700",
+      "body": "🦅 THUNDERBIRD DAILY BRIEF — 2026-06-04 Generated 2026-06-04 06:00 MT · V. Hale, VCS 1. Client Wire Client Ship Departure FPD Next TP John & Susan Loucks Silversea Silver Nova 10 Apr 2026 🔴 🔴 OVERDUE (123d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 21 overdue McLeod McGlasson - Silver Muse Silversea Silver Muse 18 Jun 2026 🔴 🔴 OVERDUE (131d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 17 overdue Furlow / Ely-Darrow / Nichols Regent Seven Seas SS Grandeur 29 Aug 2026 🔴 OVERDUE (64d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 11 overdue Al Ely & Amy Darrow Regent Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 6 overdue John & Melissa Furlow Regent Seven Seas SS Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 6 overdue Larry & Heidi Nichols Regent Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 11 overdue Kuklinski Group (3 couples) Viking Viking Mars 17 Dec 2026 🔴 OVERDUE (65d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 7 overdue Joshua Morton & Erica Dodge Viking Viking Mars 17 Dec 2026 🔴 OVERDUE (65d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 7 overdue John & Susan Loucks Seven Seas Grandeur 29 Dec 2026 DUE 1 Aug 2026 TP 0.5 — Welcome / Booking Validation ⚠️ 1 overdue 2. WF-17 Gate — Drafts Awaiting Review Client TP Phase Deadline Status Kuklinski TP 0.5 Welcome / Booking Validation 2026-05-27 voice_drafted Kuklinski TP 4.1 Payment Reminder #1 2026-03-17 voice_drafted Kuklinski TP 4.2 Payment Reminder #2 2026-03-24 voice_drafted Kuklinski TP 4.3 Payment Goal 2026-03-30 voice_drafted Nichols TP 0.5 Welcome / Booking Validation 2026-06-05 voice_drafted 3. Financial Pulse D2M pipeline $21,440.75 TESS received $244.80 — V. Hale, VCS · Thunderbird Wing · D2M Next brief: 2026-06-05 06:00 MT",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "HALE — DAILY BRIEF | 2026-06-04 06:00 MT",
+      "to": "johnloucks3@gmail.com",
+      "date": "Thu, 4 Jun 2026 04:50:03 -0700",
+      "body": "📊 HALE — DAILY OPERATIONAL BRIEF Generated 2026-06-04 · 06:00 MT · Commander John Loucks 📊 Client Lifecycle Wheel 7 active clients, urgency-coded segments, FPD countdown arcs. Click segment for detail panel. View Lifecycle Wheel → 💰 Financial Waterfall Commission pipeline flow: Prospects → Booked → At-Risk → Projected. Allianz claim divergence shown. View Waterfall → 🔥 Task Heat Map Clients × Task Types grid. Urgency-colored, effort-encoded. Hover for task roster by cell. View Heat Map → ⚠️ Risk Matrix Likelihood × Disruption scatter. Quadrants: Escalate (red), Mitigate (yellow), Monitor, Accept. Action registry below. View Risk Matrix → ⚡ DECISIONS NEEDED FROM COMMANDER Approve 11 Gmail Drafts? Kuklinski (validation), McLeod (Silver Muse 60-day + Grandeur TP0.5/TP0.6), Westbrook (Perx + SkyLux), Furlow/Nichols/Ely (CAK). All staged in d2mconcierge drafts folder. Initiate Lyons FPD Outreach? Nancy & Ken Lyons — FPD May 11 (14 days remaining). Direct Commander action required. Chase Furlow $15,486 Payment? Final payment was due Apr 1. Confirm received or authorize A9 follow-up. Re-Auth TESS? Financial feed is blind. Run: python3 thunderbird_tess.py --authorize to restore commission visibility. HALE — Ms. Victoria \"Victory\" Hale, SES-6 | Chief of Staff | Dreams2Memories Travel, LLC This brief is generated automatically at 05:50 MT daily and sent at 06:00 MT. Link expires in 90 days. Briefs archived locally + Google Drive.",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Lunch yesterday",
+      "to": "peter adasek <padasek2520@yahoo.com>",
+      "date": "Fri, 5 Jun 2026 19:56:09 -0600",
+      "body": "Peter I am not going to say this in front of Zach but try true value\nhardware on the corner of Northgate Boulevard and Voyager.  They seem to be\na little more reasonable and more knowledgeable.\nJohn",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "Explora II",
+      "to": "Susan Loucks <susanna.loucks@gmail.com>",
+      "date": "Fri, 5 Jun 2026 08:14:47 -0600",
+      "body": "https://explorajourneys.com/us/en/ships/explora-ii?perPage=9&sortCriteria=ec_prd_sail_from_datetime%20asc%2Cec_prd_price_double_sellingprice%20asc&f-ec_prd_ship_name=EXPLORA%20II\n\nJ\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "Thunderbird Evening Sync — 1 errors",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 5 Jun 2026 22:04:00 -0500",
+      "body": "Evening maintenance completed with errors:\n\n- Calendar sync: Service account info was not in the expected format, missing fields token_uri, client_email.",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "SPENCER AIR BRIEF — Planning Ranges · T-5 Jun 10 Deadline",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 5 Jun 2026 16:56:12 -0700",
+      "body": "SPENCER AIR BRIEF — Planning Ranges · T-5 to Jun 10 Deadline\n2026-06-05 | V. Hale, VCS\n\nBOOKING WINDOW: International inventory opens 330 days out.\nJun 12 2027 opens ~Jul 17 2026 (6 weeks away).\nThese are PLANNING RANGES for Bill Spencer quote meeting.\n\nLEG 1: DEN → FCO  Jun 12 2027  12 PAX BUSINESS\nCarrier: United Polaris 787 (PRIMARY) · ITA Airways · Delta One\n  Low:  $2,700/pp  →  $32,400 total\n  Mid:  $4,500/pp  →  $54,000 total\n  High: $7,300/pp  →  $87,600 total\nACTION: United Group Desk (10+ pax) can lock pricing before window.\nCall 800-426-1122 opt 3 NOW.\n\nLEG 2: FCO → DEN  Jun 23 2027  4 PAX (Tim Family)\nTim, JoAnne, James (5), Judah (2 - lap child option)\nCONSTRAINT: No earlier than 1100 (Disney Wish Civitavecchia 0800 + 1.5hr)\n2 strollers required\n  Low:  $2,700/pp  →  $10,800 total\n  Mid:  $4,500/pp  →  $18,000 total\n\nLEG 3: ZRH → DEN  Jul 2 2027  8 PAX BUSINESS\nSWISS (PRIMARY) · Lufthansa · United via EWR\n  Low:  $3,500/pp  →  $28,000 total\n  Mid:  $4,500/pp  →  $36,000 total\n  High: $5,994/pp  →  $47,952 total\n\nTOTAL PACKAGE AIR (planning)\n  Conservative:  ~$71,200\n  Mid:           ~$108,000\n  Premium:       ~$183,552+\n\nNEXT ACTIONS\n1. IMMEDIATE: United Group Desk DEN-FCO 12-pax — 800-426-1122 opt 3\n2. Centrav refresh needed for B2B check (run /flight-price --centrav-login)\n3. Actual booking opens ~Jul 17 2026\n4. SWISS group desk ZRH-DEN 8-pax quote\n\nOPEN: Disney Wish booking number still PENDING (affects Tim FCO departure)\n\n— V. Hale, VCS · Thunderbird Wing",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "Thunderbird EOD Summary — Jun 05",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 5 Jun 2026 19:02:48 -0400",
+      "body": "THUNDERBIRD END OF DAY SUMMARY\nFriday, June 05 2026 — 05:02 PM\n\nSHIP INTELLIGENCE (PM)\n  Voyages: 0 | Price alerts: 0 | Avail alerts: 0\n\nTECH MONITOR\n  Articles (24h): 12\n\nCLAUDE CODE DIGEST\n  Generated successfully\n\nCOS-EXEC\n  Afternoon priority scan complete\n\nReports attached.",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "COS-- Re: Good news — I worked out a path forward",
+      "to": "Bryana Roelke <bryanajarboe@gmail.com>",
+      "date": "Fri, 5 Jun 2026 14:32:09 -0600",
+      "body": "One thing my staff wants before you contact Dani, since we have her locked\ndown, we will need your Telegra info name, bot, token\nThanks\nJL",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "🦅 Thunderbird Brief — 5 Jun 2026 — 9 clients",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 5 Jun 2026 07:00:03 -0500",
+      "body": "# HALE — Compressed Brief [2026-06-05 06:00 MT] *3-7-30 Format | yesterday's Δ: +8 items* --- ## TODAY (Commander Action Required) 🔴 WF-17: Kuklinski TP 0.5 — review + send by 2026-05-27 🔴 WF-17: Kuklinski TP 4.1 — review + send by 2026-03-17 🔴 WF-17: Kuklinski TP 4.2 — review + send by 2026-03-24 ## 7-DAY HORIZON (Status Since Last Brief) + NEW DRAFT: Kuklinski:4.1 + NEW DRAFT: Kuklinski:4.3 + NEW DRAFT: Kuklinski:0.5 Δ Clients: +9 (9 total) 🛳 T-13d: McLeod McGlasson - Silver Muse — Silversea Silver Muse ## 30-DAY WATCH (Suppressed Repeats) ⏳ PENDING: Kuklinski TP 4.3 — voice_drafted ⏳ PENDING: Nichols TP 0.5 — voice_drafted ✅ RECEIVED (suppressed): Al Ely & Amy Darrow, John & Melissa Furlow, Larry & Heidi Nichols --- | Pipeline | WF-17 Queue | Active Clients | |---|---|---| | **$21,441** | 5 drafts | 9 | *Full brief: /home/john/Thunderbird/hale_brief.md* *— V. Hale, VCS · Next: 2026-06-06 06:00 MT* 🦅 THUNDERBIRD DAILY BRIEF — 2026-06-05 Generated 2026-06-05 06:00 MT · V. Hale, VCS 1. Client Wire Client Ship Departure FPD Next TP John & Susan Loucks Silversea Silver Nova 10 Apr 2026 🔴 🔴 OVERDUE (124d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 21 overdue McLeod McGlasson - Silver Muse Silversea Silver Muse 18 Jun 2026 🔴 🔴 OVERDUE (132d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 17 overdue Furlow / Ely-Darrow / Nichols Regent Seven Seas SS Grandeur 29 Aug 2026 🔴 OVERDUE (65d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 11 overdue Al Ely & Amy Darrow Regent Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 6 overdue John & Melissa Furlow Regent Seven Seas SS Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 6 overdue Larry & Heidi Nichols Regent Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 11 overdue Kuklinski Group (3 couples) Viking Viking Mars 17 Dec 2026 🔴 OVERDUE (66d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 7 overdue Joshua Morton & Erica Dodge Viking Viking Mars 17 Dec 2026 🔴 OVERDUE (66d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 7 overdue John & Susan Loucks Seven Seas Grandeur 29 Dec 2026 DUE 1 Aug 2026 TP 0.5 — Welcome / Booking Validation ⚠️ 1 overdue 2. WF-17 Gate — Drafts Awaiting Review Client TP Phase Deadline Status Kuklinski TP 0.5 Welcome / Booking Validation 2026-05-27 voice_drafted Kuklinski TP 4.1 Payment Reminder #1 2026-03-17 voice_drafted Kuklinski TP 4.2 Payment Reminder #2 2026-03-24 voice_drafted Kuklinski TP 4.3 Payment Goal 2026-03-30 voice_drafted Nichols TP 0.5 Welcome / Booking Validation 2026-06-05 voice_drafted 3. Financial Pulse D2M pipeline $21,440.75 TESS received $244.80 — V. Hale, VCS · Thunderbird Wing · D2M Next brief: 2026-06-06 06:00 MT",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "HALE — DAILY BRIEF | 2026-06-05 06:00 MT",
+      "to": "johnloucks3@gmail.com",
+      "date": "Fri, 5 Jun 2026 07:50:01 -0400",
+      "body": "📊 HALE — DAILY OPERATIONAL BRIEF Generated 2026-06-05 · 06:00 MT · Commander John Loucks 📊 Client Lifecycle Wheel 7 active clients, urgency-coded segments, FPD countdown arcs. Click segment for detail panel. View Lifecycle Wheel → 💰 Financial Waterfall Commission pipeline flow: Prospects → Booked → At-Risk → Projected. Allianz claim divergence shown. View Waterfall → 🔥 Task Heat Map Clients × Task Types grid. Urgency-colored, effort-encoded. Hover for task roster by cell. View Heat Map → ⚠️ Risk Matrix Likelihood × Disruption scatter. Quadrants: Escalate (red), Mitigate (yellow), Monitor, Accept. Action registry below. View Risk Matrix → ⚡ DECISIONS NEEDED FROM COMMANDER Approve 11 Gmail Drafts? Kuklinski (validation), McLeod (Silver Muse 60-day + Grandeur TP0.5/TP0.6), Westbrook (Perx + SkyLux), Furlow/Nichols/Ely (CAK). All staged in d2mconcierge drafts folder. Initiate Lyons FPD Outreach? Nancy & Ken Lyons — FPD May 11 (14 days remaining). Direct Commander action required. Chase Furlow $15,486 Payment? Final payment was due Apr 1. Confirm received or authorize A9 follow-up. Re-Auth TESS? Financial feed is blind. Run: python3 thunderbird_tess.py --authorize to restore commission visibility. HALE — Ms. Victoria \"Victory\" Hale, SES-6 | Chief of Staff | Dreams2Memories Travel, LLC This brief is generated automatically at 05:50 MT daily and sent at 06:00 MT. Link expires in 90 days. Briefs archived locally + Google Drive.",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Join Susie & John on the Mediterranean — Silver Nova, May 2027",
+      "to": "Kim Rehfeldt <kimrehfeldt@aol.com>, Susan Loucks <susanna.loucks@gmail.com>",
+      "date": "Sat, 6 Jun 2026 20:45:22 -0600",
+      "body": "DId 32 days April-May CA-Hawaii-Tokyo-Kyoto, Mt Fuji, Cruise to Seattle.\nNow, Home in Summer, grandkids coming in July, Door County to see Susie's\nbrother in Sep, probably trips over T-G and Christmas for kids, then\nMiama-LA on Grandeur in Dec-Jan. That's it. Who did you do Christmas Market\ns with?",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "COS:  Nova CV and CV with tub",
+      "to": "Susan Loucks <susanna.loucks@gmail.com>, D2M Concierge <d2mconcierge@gmail.com>",
+      "date": "Sat, 6 Jun 2026 10:16:49 -0600",
+      "body": "https://www.youtube.com/watch?v=kCY58F9eSdI\n\nhttps://www.youtube.com/watch?v=EAYDJGdta1w\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "🦅 Thunderbird Brief — 6 Jun 2026 — 9 clients",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 6 Jun 2026 05:00:01 -0700",
+      "body": "# HALE — Compressed Brief [2026-06-06 06:00 MT] *3-7-30 Format | yesterday's Δ: -4 items* --- ## TODAY (Commander Action Required) 🔴 WF-17: Kuklinski TP 0.5 — review + send by 2026-05-27 🔴 WF-17: Kuklinski TP 4.1 — review + send by 2026-03-17 🔴 WF-17: Kuklinski TP 4.2 — review + send by 2026-03-24 ## 7-DAY HORIZON (Status Since Last Brief) 🛳 T-12d: McLeod McGlasson - Silver Muse — Silversea Silver Muse ## 30-DAY WATCH (Suppressed Repeats) ⏳ PENDING: Kuklinski TP 4.3 — voice_drafted ⏳ PENDING: Nichols TP 0.5 — voice_drafted ✅ RECEIVED (suppressed): Al Ely & Amy Darrow, John & Melissa Furlow, Larry & Heidi Nichols --- | Pipeline | WF-17 Queue | Active Clients | |---|---|---| | **$21,441** | 5 drafts | 9 | *Full brief: /home/john/Thunderbird/hale_brief.md* *— V. Hale, VCS · Next: 2026-06-07 06:00 MT* 🦅 THUNDERBIRD DAILY BRIEF — 2026-06-06 Generated 2026-06-06 06:00 MT · V. Hale, VCS 1. Client Wire Client Ship Departure FPD Next TP John & Susan Loucks Silversea Silver Nova 10 Apr 2026 🔴 🔴 OVERDUE (125d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 21 overdue McLeod McGlasson - Silver Muse Silversea Silver Muse 18 Jun 2026 🔴 🔴 OVERDUE (133d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 17 overdue Furlow / Ely-Darrow / Nichols Regent Seven Seas SS Grandeur 29 Aug 2026 🔴 OVERDUE (66d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 11 overdue Al Ely & Amy Darrow Regent Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 6 overdue John & Melissa Furlow Regent Seven Seas SS Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 6 overdue Larry & Heidi Nichols Regent Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 11 overdue Kuklinski Group (3 couples) Viking Viking Mars 17 Dec 2026 🔴 OVERDUE (67d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 7 overdue Joshua Morton & Erica Dodge Viking Viking Mars 17 Dec 2026 🔴 OVERDUE (67d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 7 overdue John & Susan Loucks Seven Seas Grandeur 29 Dec 2026 DUE 1 Aug 2026 TP 0.5 — Welcome / Booking Validation ⚠️ 2 overdue 2. WF-17 Gate — Drafts Awaiting Review Client TP Phase Deadline Status Kuklinski TP 0.5 Welcome / Booking Validation 2026-05-27 voice_drafted Kuklinski TP 4.1 Payment Reminder #1 2026-03-17 voice_drafted Kuklinski TP 4.2 Payment Reminder #2 2026-03-24 voice_drafted Kuklinski TP 4.3 Payment Goal 2026-03-30 voice_drafted Nichols TP 0.5 Welcome / Booking Validation 2026-06-05 voice_drafted 3. Financial Pulse D2M pipeline $21,440.75 TESS received $244.80 — V. Hale, VCS · Thunderbird Wing · D2M Next brief: 2026-06-07 06:00 MT",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "HALE — DAILY BRIEF | 2026-06-06 06:00 MT",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sat, 6 Jun 2026 04:50:01 -0700",
+      "body": "📊 HALE — DAILY OPERATIONAL BRIEF Generated 2026-06-06 · 06:00 MT · Commander John Loucks 📊 Client Lifecycle Wheel 7 active clients, urgency-coded segments, FPD countdown arcs. Click segment for detail panel. View Lifecycle Wheel → 💰 Financial Waterfall Commission pipeline flow: Prospects → Booked → At-Risk → Projected. Allianz claim divergence shown. View Waterfall → 🔥 Task Heat Map Clients × Task Types grid. Urgency-colored, effort-encoded. Hover for task roster by cell. View Heat Map → ⚠️ Risk Matrix Likelihood × Disruption scatter. Quadrants: Escalate (red), Mitigate (yellow), Monitor, Accept. Action registry below. View Risk Matrix → ⚡ DECISIONS NEEDED FROM COMMANDER Approve 11 Gmail Drafts? Kuklinski (validation), McLeod (Silver Muse 60-day + Grandeur TP0.5/TP0.6), Westbrook (Perx + SkyLux), Furlow/Nichols/Ely (CAK). All staged in d2mconcierge drafts folder. Initiate Lyons FPD Outreach? Nancy & Ken Lyons — FPD May 11 (14 days remaining). Direct Commander action required. Chase Furlow $15,486 Payment? Final payment was due Apr 1. Confirm received or authorize A9 follow-up. Re-Auth TESS? Financial feed is blind. Run: python3 thunderbird_tess.py --authorize to restore commission visibility. HALE — Ms. Victoria \"Victory\" Hale, SES-6 | Chief of Staff | Dreams2Memories Travel, LLC This brief is generated automatically at 05:50 MT daily and sent at 06:00 MT. Link expires in 90 days. Briefs archived locally + Google Drive.",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Thunderbird Code Backup — 2026-06-08 @Thunderbird Backups #thunderbird #backup #code",
+      "to": "yodainva.5d9fc@m.evernote.com",
+      "date": "Mon, 8 Jun 2026 01:01:10 -0700",
+      "body": "Thunderbird Code Backup\nDate: 2026-06-08\nFiles: 5224 (5222 .py, 2 .md)\nTotal size: 67674 KB\nZip size: 18774 KB\n\nAttached: thunderbird_code_20260608.zip",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Join Susie & John on the Mediterranean — Silver Nova, May 2027",
+      "to": "Steve Trien <steve@srtrientech.com>",
+      "date": "Sun, 7 Jun 2026 13:33:46 -0600",
+      "body": "I know, it is hard to predict...but we're in It's the med and it's Nova.\nIf you need more research insight, let me know. Sounds like a busy fall. We\nso enjoyed sailing with you guys and we are looking forward to seeing you\nall on the 28th of December or so. John",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Cruising",
+      "to": "Kim Rehfeldt <kimrehfeldt@aol.com>",
+      "date": "Sun, 7 Jun 2026 08:58:37 -0600",
+      "body": "Not going anywhere, until we are. LOL But I wll be doing this travel thing\nbecause my AI \"staff\" makes it easy.",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Thunderbird Code Backup — 2026-06-08 @Thunderbird Backups #thunderbird #backup #code",
+      "to": "yodainva.5d9fc@m.evernote.com",
+      "date": "Mon, 8 Jun 2026 01:01:10 -0700",
+      "body": "Thunderbird Code Backup\nDate: 2026-06-08\nFiles: 5224 (5222 .py, 2 .md)\nTotal size: 67674 KB\nZip size: 18774 KB\n\nAttached: thunderbird_code_20260608.zip",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Join Susie & John on the Mediterranean — Silver Nova, May 2027",
+      "to": "Steve Trien <steve@srtrientech.com>",
+      "date": "Sun, 7 Jun 2026 13:33:46 -0600",
+      "body": "I know, it is hard to predict...but we're in It's the med and it's Nova.\nIf you need more research insight, let me know. Sounds like a busy fall. We\nso enjoyed sailing with you guys and we are looking forward to seeing you\nall on the 28th of December or so. John",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Cruising",
+      "to": "Kim Rehfeldt <kimrehfeldt@aol.com>",
+      "date": "Sun, 7 Jun 2026 08:58:37 -0600",
+      "body": "Not going anywhere, until we are. LOL But I wll be doing this travel thing\nbecause my AI \"staff\" makes it easy.",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "Thunderbird EOD Summary — Jun 08",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 8 Jun 2026 16:02:44 -0700",
+      "body": "THUNDERBIRD END OF DAY SUMMARY\nMonday, June 08 2026 — 05:02 PM\n\nSHIP INTELLIGENCE (PM)\n  Voyages: 0 | Price alerts: 0 | Avail alerts: 0\n\nTECH MONITOR\n  Articles (24h): 13\n\nCLAUDE CODE DIGEST\n  Generated successfully\n\nCOS-EXEC\n  Afternoon priority scan complete\n\nReports attached.",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Weekly uptime report - May 2026",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 8 Jun 2026 05:44:44 -0700",
+      "body": "ISSUE:\nYOGA infrastructure offline 7 days (May 31–June 6) — 0% uptime — mission-critical C2 system down\n\nDISCUSSION:\nUptimeRobot weekly report shows YOGA on Thunderbird experienced complete outage May 31–June 6, with 0% uptime and 7 days total downtime.\n\nACTIONS I RECOMMEND TAKING:\n1. Verify YOGA server status (192.168.1.198) — SSH/Tailscale ping\n2. Check systemd service logs for failure root cause (systemctl status yoga.service)\n3. Restart YOGA + confirm Telegram bot + TTYD + Claude Code relay back online\n4. Review hale_state.json and hale_brief.md for missed overnight ops/decisions during May 31–June 6 window\n5. Confirm backup C2 channels active (direct Telegram, Signal, or email fallback)\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-08 06:44 MT\nThunderbird Email Intelligence Officer",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Tyler Cowen and Josh Hawley on AI. Caitlin Flanaga",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 8 Jun 2026 05:44:24 -0700",
+      "body": "ISSUE:\nIran-Israel military escalation and Mediterranean geopolitical instability may affect active client itineraries (McLeod Silver Muse departure June 18 and any Mediterranean-routed voyages).\n\nDISCUSSION:\nThe Free Press daily newsletter covering Iran's ballistic missile strike on Israel, Trump administration intelligence gaps, Chagos Islands military base tensions, and related foreign policy developments. Also includes AI regulation debate and domestic policy.\n\nACTIONS I RECOMMEND TAKING:\n1. Cross-reference active client itineraries against Mediterranean/Suez/Red Sea routes\n2. Verify McLeod Silver Muse (Jun 18) route does not transit elevated-risk zones\n3. Monitor Regent Grandeur and Silversea voyages for routing changes\n4. Add this to daily geopolitical brief for active voyage clients\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-08 06:44 MT\nThunderbird Email Intelligence Officer",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Israel vs. Iran: Round 3",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 8 Jun 2026 07:42:45 -0500",
+      "body": "ISSUE:\nActive military escalation and stated Houthi threats to Red Sea maritime movement—affects routing decisions and safety assessment for D2M client voyages (Mediterranean, December 2026 departures, any Suez/Red Sea transit routes).\n\nDISCUSSION:\nIran launched direct ballistic missile strikes on Israel (June 8, 2026) after Israeli airstrikes on Beirut. Houthis explicitly threaten Red Sea maritime targets; risk of energy infrastructure attacks affecting global markets and shipping costs.\n\nACTIONS I RECOMMEND TAKING:\n1. Cross-reference active client itineraries (McLeod Mediterranean Jun 18, Kuklinski Viking Dec 2026, Loucks Grandeur Dec 2026) against affected maritime zones (Red Sea, Strait of Hormuz, Suez chokepoints)\n2. Monitor Houthi/Iranian threat statements regarding maritime targets through all active voyage windows\n3. Assess routing contingencies and notify clients of any Red Sea/Suez-dependent routes\n4. Flag energy cost implications for air/ground transport pricing and fuel surcharges\n5. Brief Commander on any route vulnerabilities in Q2-Q4 2026 departures\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-08 06:42 MT\nThunderbird Email Intelligence Officer",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "🦅 Thunderbird Brief — 8 Jun 2026 — 9 clients",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 8 Jun 2026 05:00:02 -0700",
+      "body": "# HALE — Compressed Brief [2026-06-08 06:00 MT] *3-7-30 Format | yesterday's Δ: +0 items* --- ## TODAY (Commander Action Required) 🔴 WF-17: Kuklinski TP 0.5 — review + send by 2026-05-27 🔴 WF-17: Kuklinski TP 4.1 — review + send by 2026-03-17 🔴 WF-17: Kuklinski TP 4.2 — review + send by 2026-03-24 ## 7-DAY HORIZON (Status Since Last Brief) 🛳 T-10d: McLeod McGlasson - Silver Muse — Silversea Silver Muse ## 30-DAY WATCH (Suppressed Repeats) ⏳ PENDING: Kuklinski TP 4.3 — voice_drafted ⏳ PENDING: Nichols TP 0.5 — voice_drafted ✅ RECEIVED (suppressed): Al Ely & Amy Darrow, John & Melissa Furlow, Larry & Heidi Nichols --- | Pipeline | WF-17 Queue | Active Clients | |---|---|---| | **$21,441** | 5 drafts | 9 | *Full brief: /home/john/Thunderbird/hale_brief.md* *— V. Hale, VCS · Next: 2026-06-09 06:00 MT* 🦅 THUNDERBIRD DAILY BRIEF — 2026-06-08 Generated 2026-06-08 06:00 MT · V. Hale, VCS 1. Client Wire Client Ship Departure FPD Next TP John & Susan Loucks Silversea Silver Nova 10 Apr 2026 🔴 🔴 OVERDUE (127d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 21 overdue McLeod McGlasson - Silver Muse Silversea Silver Muse 18 Jun 2026 🔴 🔴 OVERDUE (135d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 17 overdue Furlow / Ely-Darrow / Nichols Regent Seven Seas SS Grandeur 29 Aug 2026 🔴 OVERDUE (68d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 11 overdue Al Ely & Amy Darrow Regent Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 6 overdue John & Melissa Furlow Regent Seven Seas SS Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 6 overdue Larry & Heidi Nichols Regent Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 11 overdue Kuklinski Group (3 couples) Viking Viking Mars 17 Dec 2026 🔴 OVERDUE (69d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 8 overdue Joshua Morton & Erica Dodge Viking Viking Mars 17 Dec 2026 🔴 OVERDUE (69d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 7 overdue John & Susan Loucks Seven Seas Grandeur 29 Dec 2026 DUE 1 Aug 2026 TP 0.5 — Welcome / Booking Validation ⚠️ 1 overdue 2. WF-17 Gate — Drafts Awaiting Review Client TP Phase Deadline Status Kuklinski TP 0.5 Welcome / Booking Validation 2026-05-27 voice_drafted Kuklinski TP 4.1 Payment Reminder #1 2026-03-17 voice_drafted Kuklinski TP 4.2 Payment Reminder #2 2026-03-24 voice_drafted Kuklinski TP 4.3 Payment Goal 2026-03-30 voice_drafted Nichols TP 0.5 Welcome / Booking Validation 2026-06-05 voice_drafted 3. Financial Pulse D2M pipeline $21,440.75 TESS received $0.00 — V. Hale, VCS · Thunderbird Wing · D2M Next brief: 2026-06-09 06:00 MT",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "HALE — DAILY BRIEF | 2026-06-08 06:00 MT",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 8 Jun 2026 04:50:02 -0700",
+      "body": "📊 HALE — DAILY OPERATIONAL BRIEF Generated 2026-06-08 · 06:00 MT · Commander John Loucks 📊 Client Lifecycle Wheel 7 active clients, urgency-coded segments, FPD countdown arcs. Click segment for detail panel. View Lifecycle Wheel → 💰 Financial Waterfall Commission pipeline flow: Prospects → Booked → At-Risk → Projected. Allianz claim divergence shown. View Waterfall → 🔥 Task Heat Map Clients × Task Types grid. Urgency-colored, effort-encoded. Hover for task roster by cell. View Heat Map → ⚠️ Risk Matrix Likelihood × Disruption scatter. Quadrants: Escalate (red), Mitigate (yellow), Monitor, Accept. Action registry below. View Risk Matrix → ⚡ DECISIONS NEEDED FROM COMMANDER Approve 11 Gmail Drafts? Kuklinski (validation), McLeod (Silver Muse 60-day + Grandeur TP0.5/TP0.6), Westbrook (Perx + SkyLux), Furlow/Nichols/Ely (CAK). All staged in d2mconcierge drafts folder. Initiate Lyons FPD Outreach? Nancy & Ken Lyons — FPD May 11 (14 days remaining). Direct Commander action required. Chase Furlow $15,486 Payment? Final payment was due Apr 1. Confirm received or authorize A9 follow-up. Re-Auth TESS? Financial feed is blind. Run: python3 thunderbird_tess.py --authorize to restore commission visibility. HALE — Ms. Victoria \"Victory\" Hale, SES-6 | Chief of Staff | Dreams2Memories Travel, LLC This brief is generated automatically at 05:50 MT daily and sent at 06:00 MT. Link expires in 90 days. Briefs archived locally + Google Drive.",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "Thunderbird EOD Summary — Jun 08",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 8 Jun 2026 16:02:44 -0700",
+      "body": "THUNDERBIRD END OF DAY SUMMARY\nMonday, June 08 2026 — 05:02 PM\n\nSHIP INTELLIGENCE (PM)\n  Voyages: 0 | Price alerts: 0 | Avail alerts: 0\n\nTECH MONITOR\n  Articles (24h): 13\n\nCLAUDE CODE DIGEST\n  Generated successfully\n\nCOS-EXEC\n  Afternoon priority scan complete\n\nReports attached.",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Weekly uptime report - May 2026",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 8 Jun 2026 05:44:44 -0700",
+      "body": "ISSUE:\nYOGA infrastructure offline 7 days (May 31–June 6) — 0% uptime — mission-critical C2 system down\n\nDISCUSSION:\nUptimeRobot weekly report shows YOGA on Thunderbird experienced complete outage May 31–June 6, with 0% uptime and 7 days total downtime.\n\nACTIONS I RECOMMEND TAKING:\n1. Verify YOGA server status (192.168.1.198) — SSH/Tailscale ping\n2. Check systemd service logs for failure root cause (systemctl status yoga.service)\n3. Restart YOGA + confirm Telegram bot + TTYD + Claude Code relay back online\n4. Review hale_state.json and hale_brief.md for missed overnight ops/decisions during May 31–June 6 window\n5. Confirm backup C2 channels active (direct Telegram, Signal, or email fallback)\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-08 06:44 MT\nThunderbird Email Intelligence Officer",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Tyler Cowen and Josh Hawley on AI. Caitlin Flanaga",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 8 Jun 2026 05:44:24 -0700",
+      "body": "ISSUE:\nIran-Israel military escalation and Mediterranean geopolitical instability may affect active client itineraries (McLeod Silver Muse departure June 18 and any Mediterranean-routed voyages).\n\nDISCUSSION:\nThe Free Press daily newsletter covering Iran's ballistic missile strike on Israel, Trump administration intelligence gaps, Chagos Islands military base tensions, and related foreign policy developments. Also includes AI regulation debate and domestic policy.\n\nACTIONS I RECOMMEND TAKING:\n1. Cross-reference active client itineraries against Mediterranean/Suez/Red Sea routes\n2. Verify McLeod Silver Muse (Jun 18) route does not transit elevated-risk zones\n3. Monitor Regent Grandeur and Silversea voyages for routing changes\n4. Add this to daily geopolitical brief for active voyage clients\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-08 06:44 MT\nThunderbird Email Intelligence Officer",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Israel vs. Iran: Round 3",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 8 Jun 2026 07:42:45 -0500",
+      "body": "ISSUE:\nActive military escalation and stated Houthi threats to Red Sea maritime movement—affects routing decisions and safety assessment for D2M client voyages (Mediterranean, December 2026 departures, any Suez/Red Sea transit routes).\n\nDISCUSSION:\nIran launched direct ballistic missile strikes on Israel (June 8, 2026) after Israeli airstrikes on Beirut. Houthis explicitly threaten Red Sea maritime targets; risk of energy infrastructure attacks affecting global markets and shipping costs.\n\nACTIONS I RECOMMEND TAKING:\n1. Cross-reference active client itineraries (McLeod Mediterranean Jun 18, Kuklinski Viking Dec 2026, Loucks Grandeur Dec 2026) against affected maritime zones (Red Sea, Strait of Hormuz, Suez chokepoints)\n2. Monitor Houthi/Iranian threat statements regarding maritime targets through all active voyage windows\n3. Assess routing contingencies and notify clients of any Red Sea/Suez-dependent routes\n4. Flag energy cost implications for air/ground transport pricing and fuel surcharges\n5. Brief Commander on any route vulnerabilities in Q2-Q4 2026 departures\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-08 06:42 MT\nThunderbird Email Intelligence Officer",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "🦅 Thunderbird Brief — 8 Jun 2026 — 9 clients",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 8 Jun 2026 05:00:02 -0700",
+      "body": "# HALE — Compressed Brief [2026-06-08 06:00 MT] *3-7-30 Format | yesterday's Δ: +0 items* --- ## TODAY (Commander Action Required) 🔴 WF-17: Kuklinski TP 0.5 — review + send by 2026-05-27 🔴 WF-17: Kuklinski TP 4.1 — review + send by 2026-03-17 🔴 WF-17: Kuklinski TP 4.2 — review + send by 2026-03-24 ## 7-DAY HORIZON (Status Since Last Brief) 🛳 T-10d: McLeod McGlasson - Silver Muse — Silversea Silver Muse ## 30-DAY WATCH (Suppressed Repeats) ⏳ PENDING: Kuklinski TP 4.3 — voice_drafted ⏳ PENDING: Nichols TP 0.5 — voice_drafted ✅ RECEIVED (suppressed): Al Ely & Amy Darrow, John & Melissa Furlow, Larry & Heidi Nichols --- | Pipeline | WF-17 Queue | Active Clients | |---|---|---| | **$21,441** | 5 drafts | 9 | *Full brief: /home/john/Thunderbird/hale_brief.md* *— V. Hale, VCS · Next: 2026-06-09 06:00 MT* 🦅 THUNDERBIRD DAILY BRIEF — 2026-06-08 Generated 2026-06-08 06:00 MT · V. Hale, VCS 1. Client Wire Client Ship Departure FPD Next TP John & Susan Loucks Silversea Silver Nova 10 Apr 2026 🔴 🔴 OVERDUE (127d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 21 overdue McLeod McGlasson - Silver Muse Silversea Silver Muse 18 Jun 2026 🔴 🔴 OVERDUE (135d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 17 overdue Furlow / Ely-Darrow / Nichols Regent Seven Seas SS Grandeur 29 Aug 2026 🔴 OVERDUE (68d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 11 overdue Al Ely & Amy Darrow Regent Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 6 overdue John & Melissa Furlow Regent Seven Seas SS Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 6 overdue Larry & Heidi Nichols Regent Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 11 overdue Kuklinski Group (3 couples) Viking Viking Mars 17 Dec 2026 🔴 OVERDUE (69d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 8 overdue Joshua Morton & Erica Dodge Viking Viking Mars 17 Dec 2026 🔴 OVERDUE (69d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 7 overdue John & Susan Loucks Seven Seas Grandeur 29 Dec 2026 DUE 1 Aug 2026 TP 0.5 — Welcome / Booking Validation ⚠️ 1 overdue 2. WF-17 Gate — Drafts Awaiting Review Client TP Phase Deadline Status Kuklinski TP 0.5 Welcome / Booking Validation 2026-05-27 voice_drafted Kuklinski TP 4.1 Payment Reminder #1 2026-03-17 voice_drafted Kuklinski TP 4.2 Payment Reminder #2 2026-03-24 voice_drafted Kuklinski TP 4.3 Payment Goal 2026-03-30 voice_drafted Nichols TP 0.5 Welcome / Booking Validation 2026-06-05 voice_drafted 3. Financial Pulse D2M pipeline $21,440.75 TESS received $0.00 — V. Hale, VCS · Thunderbird Wing · D2M Next brief: 2026-06-09 06:00 MT",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "HALE — DAILY BRIEF | 2026-06-08 06:00 MT",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 8 Jun 2026 04:50:02 -0700",
+      "body": "📊 HALE — DAILY OPERATIONAL BRIEF Generated 2026-06-08 · 06:00 MT · Commander John Loucks 📊 Client Lifecycle Wheel 7 active clients, urgency-coded segments, FPD countdown arcs. Click segment for detail panel. View Lifecycle Wheel → 💰 Financial Waterfall Commission pipeline flow: Prospects → Booked → At-Risk → Projected. Allianz claim divergence shown. View Waterfall → 🔥 Task Heat Map Clients × Task Types grid. Urgency-colored, effort-encoded. Hover for task roster by cell. View Heat Map → ⚠️ Risk Matrix Likelihood × Disruption scatter. Quadrants: Escalate (red), Mitigate (yellow), Monitor, Accept. Action registry below. View Risk Matrix → ⚡ DECISIONS NEEDED FROM COMMANDER Approve 11 Gmail Drafts? Kuklinski (validation), McLeod (Silver Muse 60-day + Grandeur TP0.5/TP0.6), Westbrook (Perx + SkyLux), Furlow/Nichols/Ely (CAK). All staged in d2mconcierge drafts folder. Initiate Lyons FPD Outreach? Nancy & Ken Lyons — FPD May 11 (14 days remaining). Direct Commander action required. Chase Furlow $15,486 Payment? Final payment was due Apr 1. Confirm received or authorize A9 follow-up. Re-Auth TESS? Financial feed is blind. Run: python3 thunderbird_tess.py --authorize to restore commission visibility. HALE — Ms. Victoria \"Victory\" Hale, SES-6 | Chief of Staff | Dreams2Memories Travel, LLC This brief is generated automatically at 05:50 MT daily and sent at 06:00 MT. Link expires in 90 days. Briefs archived locally + Google Drive.",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "We have Fable available now",
+      "to": "D2M Concierge <d2mconcierge@gmail.com>",
+      "date": "Tue, 9 Jun 2026 21:08:13 -0600",
+      "body": "See this article\nhttps://www.reddit.com/r/Anthropic/comments/1u1b1yj/introducing_claude_fable_5/\n\nPlease assess and tell me when it is smart to use\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "Thunderbird EOD Summary — Jun 09",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 9 Jun 2026 16:03:21 -0700",
+      "body": "THUNDERBIRD END OF DAY SUMMARY\nTuesday, June 09 2026 — 05:03 PM\n\nTECH MONITOR\n  Articles (24h): 14\n\nCLAUDE CODE DIGEST\n  Generated successfully\n\nCOS-EXEC\n  Afternoon priority scan complete\n\nERRORS\n  ! Ship intel: 'list' object has no attribute 'get'\nReports attached.",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "Re: Final Silversea Cruise Documents for 566910-25 COL JOHN LOUCKS",
+      "to": "Jenna Woodcock <jwoodcock@perx.com>",
+      "date": "Tue, 9 Jun 2026 15:37:12 -0600",
+      "body": "Wow, even after I did all their training! and sailed 19 days, any ideas on\nwhat I should do?",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Dinner and dessert Friday",
+      "to": "Susan Loucks <susanna.loucks@gmail.com>, Ronald Westbrook <rwestbrook3@gmail.com>",
+      "date": "Tue, 9 Jun 2026 12:26:44 -0600",
+      "body": "Rondo, you should be getting back from California and I'm sure you need a\ncouple days to recover. How about going out to your favorite Mexican place\nFriday early, you can pick us up if you're in the mood, and then we will\ncome back here for some yummy dessert?\nJohn\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: BREAKING:  Trump says Iran downed US Apache helico",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 9 Jun 2026 13:00:48 -0500",
+      "body": "ISSUE:\nIran-US military escalation may force cruise itinerary changes or port closures for Panama Canal and Middle East routes during D2M's peak booking season (Dec 2026 departures).\n\nDISCUSSION:\nBreaking: Trump reports US Apache helicopter downed by Iran with military response indicated. Iran-US escalation could trigger cruise line routing changes or port closures affecting active D2M voyages.\n\nACTIONS I RECOMMEND TAKING:\n1. Flag to Commander — monitor Regent and Silversea routing advisories daily\n2. Cross-ref active bookings: McLeod (Grandeur Dec 19), Kuklinski (Viking Mars Dec 17), others with Middle East exposure\n3. Prepare contingency messaging for clients if port/routing changes announced\n4. Set up daily geopolitical brief through Dec 2026 cruise season\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-09 12:00 MT\nThunderbird Email Intelligence Officer",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Webinar invitation - Cruises Webinar",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 9 Jun 2026 13:00:16 -0500",
+      "body": "ISSUE:\nWebinar is tomorrow — Commander may want to assess whether TBO platform offers workflow improvements over current direct cruise line portals (Regent, Silversea, Viking).\n\nDISCUSSION:\nTBO cruise module webinar (Jun 10, 2:00 PM ET) promoting their booking platform with access to 40K+ sailings, itinerary filtering, and management tools.\n\nACTIONS I RECOMMEND TAKING:\n1. Review TBO platform capabilities and cruise line coverage relative to existing booking workflow\n2. Determine if TBO could enhance client itinerary shopping experience or reduce booking friction\n3. Consider recording if webinar is missed, or skip if D2M booking workflow is optimized\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-09 12:00 MT\nThunderbird Email Intelligence Officer",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "vendor",
+      "subject": "Re: [EXTERNAL] Fwd: Switching Host Agency",
+      "to": "Michael Gold <MichaelG@silversea.com>",
+      "date": "Tue, 9 Jun 2026 08:38:41 -0600",
+      "body": "Michael, When I log in I see the ability to choose an agency, but when I\nchoose Cruise and Tours, then select Create a Booking, I get an auth failed\ndo I need to re-register first?",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: SBF's Next Big Bet",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 9 Jun 2026 05:40:45 -0700",
+      "body": "ISSUE:\nAirline ticket prices rising due to fuel cost surge—affects Spencer air quote pricing and all active client flight bookings.\n\nDISCUSSION:\nForbes reports airlines facing $100B+ additional fuel costs this year, halving industry profits and driving higher ticket prices. Critical for D2M client budgeting and flight quoting.\n\nACTIONS I RECOMMEND TAKING:\n1. Brief Commander on airline fuel cost impact before Spencer air quote call\n2. Review all active flight quotes for price inflation risk\n3. Flag fuel surcharge outlook in client communications about air pricing\n4. Monitor IATA (International Air Transport Association) guidance for June 2026 pricing trends\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-09 06:40 MT\nThunderbird Email Intelligence Officer",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "🦅 Thunderbird Brief — 9 Jun 2026 — 9 clients",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 9 Jun 2026 05:00:03 -0700",
+      "body": "# HALE — Compressed Brief [2026-06-09 06:00 MT] *3-7-30 Format | yesterday's Δ: +0 items* --- ## TODAY (Commander Action Required) 🔴 WF-17: Kuklinski TP 0.5 — review + send by 2026-05-27 🔴 WF-17: Kuklinski TP 4.1 — review + send by 2026-03-17 🔴 WF-17: Kuklinski TP 4.2 — review + send by 2026-03-24 ## 7-DAY HORIZON (Status Since Last Brief) 🛳 T-9d: McLeod McGlasson - Silver Muse — Silversea Silver Muse ## 30-DAY WATCH (Suppressed Repeats) ⏳ PENDING: Kuklinski TP 4.3 — voice_drafted ⏳ PENDING: Nichols TP 0.5 — voice_drafted ✅ RECEIVED (suppressed): Al Ely & Amy Darrow, John & Melissa Furlow, Larry & Heidi Nichols --- | Pipeline | WF-17 Queue | Active Clients | |---|---|---| | **$21,441** | 5 drafts | 9 | *Full brief: /home/john/Thunderbird/hale_brief.md* *— V. Hale, VCS · Next: 2026-06-10 06:00 MT* 🦅 THUNDERBIRD DAILY BRIEF — 2026-06-09 Generated 2026-06-09 06:00 MT · V. Hale, VCS 1. Client Wire Client Ship Departure FPD Next TP John & Susan Loucks Silversea Silver Nova 10 Apr 2026 🔴 🔴 OVERDUE (128d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 21 overdue McLeod McGlasson - Silver Muse Silversea Silver Muse 18 Jun 2026 🔴 🔴 OVERDUE (136d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 17 overdue Furlow / Ely-Darrow / Nichols Regent Seven Seas SS Grandeur 29 Aug 2026 🔴 OVERDUE (69d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 11 overdue Al Ely & Amy Darrow Regent Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 6 overdue John & Melissa Furlow Regent Seven Seas SS Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 6 overdue Larry & Heidi Nichols Regent Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 11 overdue Kuklinski Group (3 couples) Viking Viking Mars 17 Dec 2026 🔴 OVERDUE (70d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 8 overdue Joshua Morton & Erica Dodge Viking Viking Mars 17 Dec 2026 🔴 OVERDUE (70d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 7 overdue John & Susan Loucks Seven Seas Grandeur 29 Dec 2026 DUE 1 Aug 2026 TP 0.5 — Welcome / Booking Validation ⚠️ 1 overdue 2. WF-17 Gate — Drafts Awaiting Review Client TP Phase Deadline Status Kuklinski TP 0.5 Welcome / Booking Validation 2026-05-27 voice_drafted Kuklinski TP 4.1 Payment Reminder #1 2026-03-17 voice_drafted Kuklinski TP 4.2 Payment Reminder #2 2026-03-24 voice_drafted Kuklinski TP 4.3 Payment Goal 2026-03-30 voice_drafted Nichols TP 0.5 Welcome / Booking Validation 2026-06-05 voice_drafted 3. Financial Pulse D2M pipeline $21,440.75 TESS received $0.00 — V. Hale, VCS · Thunderbird Wing · D2M Next brief: 2026-06-10 06:00 MT",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "HALE — DAILY BRIEF | 2026-06-09 06:00 MT",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 9 Jun 2026 04:50:04 -0700",
+      "body": "📊 HALE — DAILY OPERATIONAL BRIEF Generated 2026-06-09 · 06:00 MT · Commander John Loucks 📊 Client Lifecycle Wheel 7 active clients, urgency-coded segments, FPD countdown arcs. Click segment for detail panel. View Lifecycle Wheel → 💰 Financial Waterfall Commission pipeline flow: Prospects → Booked → At-Risk → Projected. Allianz claim divergence shown. View Waterfall → 🔥 Task Heat Map Clients × Task Types grid. Urgency-colored, effort-encoded. Hover for task roster by cell. View Heat Map → ⚠️ Risk Matrix Likelihood × Disruption scatter. Quadrants: Escalate (red), Mitigate (yellow), Monitor, Accept. Action registry below. View Risk Matrix → ⚡ DECISIONS NEEDED FROM COMMANDER Approve 11 Gmail Drafts? Kuklinski (validation), McLeod (Silver Muse 60-day + Grandeur TP0.5/TP0.6), Westbrook (Perx + SkyLux), Furlow/Nichols/Ely (CAK). All staged in d2mconcierge drafts folder. Initiate Lyons FPD Outreach? Nancy & Ken Lyons — FPD May 11 (14 days remaining). Direct Commander action required. Chase Furlow $15,486 Payment? Final payment was due Apr 1. Confirm received or authorize A9 follow-up. Re-Auth TESS? Financial feed is blind. Run: python3 thunderbird_tess.py --authorize to restore commission visibility. HALE — Ms. Victoria \"Victory\" Hale, SES-6 | Chief of Staff | Dreams2Memories Travel, LLC This brief is generated automatically at 05:50 MT daily and sent at 06:00 MT. Link expires in 90 days. Briefs archived locally + Google Drive.",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "client",
+      "subject": "We have Fable available now",
+      "to": "D2M Concierge <d2mconcierge@gmail.com>",
+      "date": "Tue, 9 Jun 2026 21:08:13 -0600",
+      "body": "See this article\nhttps://www.reddit.com/r/Anthropic/comments/1u1b1yj/introducing_claude_fable_5/\n\nPlease assess and tell me when it is smart to use\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "Thunderbird EOD Summary — Jun 09",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 9 Jun 2026 16:03:21 -0700",
+      "body": "THUNDERBIRD END OF DAY SUMMARY\nTuesday, June 09 2026 — 05:03 PM\n\nTECH MONITOR\n  Articles (24h): 14\n\nCLAUDE CODE DIGEST\n  Generated successfully\n\nCOS-EXEC\n  Afternoon priority scan complete\n\nERRORS\n  ! Ship intel: 'list' object has no attribute 'get'\nReports attached.",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "client",
+      "subject": "Re: Final Silversea Cruise Documents for 566910-25 COL JOHN LOUCKS",
+      "to": "Jenna Woodcock <jwoodcock@perx.com>",
+      "date": "Tue, 9 Jun 2026 15:37:12 -0600",
+      "body": "Wow, even after I did all their training! and sailed 19 days, any ideas on\nwhat I should do?",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Dinner and dessert Friday",
+      "to": "Susan Loucks <susanna.loucks@gmail.com>, Ronald Westbrook <rwestbrook3@gmail.com>",
+      "date": "Tue, 9 Jun 2026 12:26:44 -0600",
+      "body": "Rondo, you should be getting back from California and I'm sure you need a\ncouple days to recover. How about going out to your favorite Mexican place\nFriday early, you can pick us up if you're in the mood, and then we will\ncome back here for some yummy dessert?\nJohn\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: BREAKING:  Trump says Iran downed US Apache helico",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 9 Jun 2026 13:00:48 -0500",
+      "body": "ISSUE:\nIran-US military escalation may force cruise itinerary changes or port closures for Panama Canal and Middle East routes during D2M's peak booking season (Dec 2026 departures).\n\nDISCUSSION:\nBreaking: Trump reports US Apache helicopter downed by Iran with military response indicated. Iran-US escalation could trigger cruise line routing changes or port closures affecting active D2M voyages.\n\nACTIONS I RECOMMEND TAKING:\n1. Flag to Commander — monitor Regent and Silversea routing advisories daily\n2. Cross-ref active bookings: McLeod (Grandeur Dec 19), Kuklinski (Viking Mars Dec 17), others with Middle East exposure\n3. Prepare contingency messaging for clients if port/routing changes announced\n4. Set up daily geopolitical brief through Dec 2026 cruise season\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-09 12:00 MT\nThunderbird Email Intelligence Officer",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Webinar invitation - Cruises Webinar",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 9 Jun 2026 13:00:16 -0500",
+      "body": "ISSUE:\nWebinar is tomorrow — Commander may want to assess whether TBO platform offers workflow improvements over current direct cruise line portals (Regent, Silversea, Viking).\n\nDISCUSSION:\nTBO cruise module webinar (Jun 10, 2:00 PM ET) promoting their booking platform with access to 40K+ sailings, itinerary filtering, and management tools.\n\nACTIONS I RECOMMEND TAKING:\n1. Review TBO platform capabilities and cruise line coverage relative to existing booking workflow\n2. Determine if TBO could enhance client itinerary shopping experience or reduce booking friction\n3. Consider recording if webinar is missed, or skip if D2M booking workflow is optimized\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-09 12:00 MT\nThunderbird Email Intelligence Officer",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "vendor",
+      "subject": "Re: [EXTERNAL] Fwd: Switching Host Agency",
+      "to": "Michael Gold <MichaelG@silversea.com>",
+      "date": "Tue, 9 Jun 2026 08:38:41 -0600",
+      "body": "Michael, When I log in I see the ability to choose an agency, but when I\nchoose Cruise and Tours, then select Create a Booking, I get an auth failed\ndo I need to re-register first?",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: SBF's Next Big Bet",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 9 Jun 2026 05:40:45 -0700",
+      "body": "ISSUE:\nAirline ticket prices rising due to fuel cost surge—affects Spencer air quote pricing and all active client flight bookings.\n\nDISCUSSION:\nForbes reports airlines facing $100B+ additional fuel costs this year, halving industry profits and driving higher ticket prices. Critical for D2M client budgeting and flight quoting.\n\nACTIONS I RECOMMEND TAKING:\n1. Brief Commander on airline fuel cost impact before Spencer air quote call\n2. Review all active flight quotes for price inflation risk\n3. Flag fuel surcharge outlook in client communications about air pricing\n4. Monitor IATA (International Air Transport Association) guidance for June 2026 pricing trends\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-09 06:40 MT\nThunderbird Email Intelligence Officer",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "🦅 Thunderbird Brief — 9 Jun 2026 — 9 clients",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 9 Jun 2026 05:00:03 -0700",
+      "body": "# HALE — Compressed Brief [2026-06-09 06:00 MT] *3-7-30 Format | yesterday's Δ: +0 items* --- ## TODAY (Commander Action Required) 🔴 WF-17: Kuklinski TP 0.5 — review + send by 2026-05-27 🔴 WF-17: Kuklinski TP 4.1 — review + send by 2026-03-17 🔴 WF-17: Kuklinski TP 4.2 — review + send by 2026-03-24 ## 7-DAY HORIZON (Status Since Last Brief) 🛳 T-9d: McLeod McGlasson - Silver Muse — Silversea Silver Muse ## 30-DAY WATCH (Suppressed Repeats) ⏳ PENDING: Kuklinski TP 4.3 — voice_drafted ⏳ PENDING: Nichols TP 0.5 — voice_drafted ✅ RECEIVED (suppressed): Al Ely & Amy Darrow, John & Melissa Furlow, Larry & Heidi Nichols --- | Pipeline | WF-17 Queue | Active Clients | |---|---|---| | **$21,441** | 5 drafts | 9 | *Full brief: /home/john/Thunderbird/hale_brief.md* *— V. Hale, VCS · Next: 2026-06-10 06:00 MT* 🦅 THUNDERBIRD DAILY BRIEF — 2026-06-09 Generated 2026-06-09 06:00 MT · V. Hale, VCS 1. Client Wire Client Ship Departure FPD Next TP John & Susan Loucks Silversea Silver Nova 10 Apr 2026 🔴 🔴 OVERDUE (128d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 21 overdue McLeod McGlasson - Silver Muse Silversea Silver Muse 18 Jun 2026 🔴 🔴 OVERDUE (136d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 17 overdue Furlow / Ely-Darrow / Nichols Regent Seven Seas SS Grandeur 29 Aug 2026 🔴 OVERDUE (69d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 11 overdue Al Ely & Amy Darrow Regent Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 6 overdue John & Melissa Furlow Regent Seven Seas SS Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 6 overdue Larry & Heidi Nichols Regent Grandeur 29 Aug 2026 ✅ PAID TP 0.5 — Welcome / Booking Validation ⚠️ 11 overdue Kuklinski Group (3 couples) Viking Viking Mars 17 Dec 2026 🔴 OVERDUE (70d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 8 overdue Joshua Morton & Erica Dodge Viking Viking Mars 17 Dec 2026 🔴 OVERDUE (70d ago) TP 0.5 — Welcome / Booking Validation ⚠️ 7 overdue John & Susan Loucks Seven Seas Grandeur 29 Dec 2026 DUE 1 Aug 2026 TP 0.5 — Welcome / Booking Validation ⚠️ 1 overdue 2. WF-17 Gate — Drafts Awaiting Review Client TP Phase Deadline Status Kuklinski TP 0.5 Welcome / Booking Validation 2026-05-27 voice_drafted Kuklinski TP 4.1 Payment Reminder #1 2026-03-17 voice_drafted Kuklinski TP 4.2 Payment Reminder #2 2026-03-24 voice_drafted Kuklinski TP 4.3 Payment Goal 2026-03-30 voice_drafted Nichols TP 0.5 Welcome / Booking Validation 2026-06-05 voice_drafted 3. Financial Pulse D2M pipeline $21,440.75 TESS received $0.00 — V. Hale, VCS · Thunderbird Wing · D2M Next brief: 2026-06-10 06:00 MT",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "HALE — DAILY BRIEF | 2026-06-09 06:00 MT",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 9 Jun 2026 04:50:04 -0700",
+      "body": "📊 HALE — DAILY OPERATIONAL BRIEF Generated 2026-06-09 · 06:00 MT · Commander John Loucks 📊 Client Lifecycle Wheel 7 active clients, urgency-coded segments, FPD countdown arcs. Click segment for detail panel. View Lifecycle Wheel → 💰 Financial Waterfall Commission pipeline flow: Prospects → Booked → At-Risk → Projected. Allianz claim divergence shown. View Waterfall → 🔥 Task Heat Map Clients × Task Types grid. Urgency-colored, effort-encoded. Hover for task roster by cell. View Heat Map → ⚠️ Risk Matrix Likelihood × Disruption scatter. Quadrants: Escalate (red), Mitigate (yellow), Monitor, Accept. Action registry below. View Risk Matrix → ⚡ DECISIONS NEEDED FROM COMMANDER Approve 11 Gmail Drafts? Kuklinski (validation), McLeod (Silver Muse 60-day + Grandeur TP0.5/TP0.6), Westbrook (Perx + SkyLux), Furlow/Nichols/Ely (CAK). All staged in d2mconcierge drafts folder. Initiate Lyons FPD Outreach? Nancy & Ken Lyons — FPD May 11 (14 days remaining). Direct Commander action required. Chase Furlow $15,486 Payment? Final payment was due Apr 1. Confirm received or authorize A9 follow-up. Re-Auth TESS? Financial feed is blind. Run: python3 thunderbird_tess.py --authorize to restore commission visibility. HALE — Ms. Victoria \"Victory\" Hale, SES-6 | Chief of Staff | Dreams2Memories Travel, LLC This brief is generated automatically at 05:50 MT daily and sent at 06:00 MT. Link expires in 90 days. Briefs archived locally + Google Drive.",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
       "subject": "[COS] General: BREAKING:  Most Americans say war in Iran is going",
       "to": "johnloucks3@gmail.com",
       "date": "Sun, 22 Mar 2026 17:30:40 +0000",
@@ -12068,6 +12932,303 @@
       "to": "johnloucks3@gmail.com",
       "date": "Sun, 31 May 2026 08:37:43 -0700",
       "body": "Commander,\n\nTask completed by Col James 'Padre' Washington — Chaplain.\nOriginal email: \"Washington State Gives \"Climate Commitment Act\" Funds To NGOs For \"Advocacy\" -- With Some Then Used To Attack The …\" from \"Shipwreckedcrew from Shipwreckedcrew's Port-O-Call\" <shipwreckedcrew@substack.com>\nCompleted: 2026-05-31 09:37 MT\n\n────────────────────────────────────────────────────────────\n\nCommander,\n\nWashington here. You forwarded this, so let me give you a straight read.\n\n**The legitimate ethical concern underneath the partisan framing:**\n\nGovernment funds designated for a specific public purpose — reducing pollution, improving air quality — being redirected to political advocacy is a real accountability problem. That's not a conservative or liberal issue. That's stewardship. When $8.5 million earmarked for asthma reduction produces bicycle giveaways and advisory board stipends, someone has a fiduciary obligation to answer for it. The concern is valid regardless of who's raising it.\n\n**What to hold with caution:**\n\nThis piece is advocacy dressed as reporting. The author has a conclusion — \"left-wing NGO ecosystem\" — and the facts are arranged to support it. That doesn't make the facts wrong, but it means the framing is doing work. \"Intersectionality is grievance politics\" is an editorial sermon, not analysis. When I see that kind of language, I know the author wants my anger, not my judgment.\n\n**The ethical bottom line:**\n\nPublic money should do what it was promised to do. Accountability matters regardless of the political color of the program. But consuming media that speaks primarily to your existing convictions rather than challenging them is its own kind of drift.\n\n**My question back to you, Commander:**\n\nWhat are you considering doing with this? Sharing it? Taking a position? Or just processing it? The right path depends on what you're weighing.\n\nI'm here either way.\n\n— Padre Washington, CH\n\n────────────────────────────────────────────────────────────\n\nThanks,\nThunderbird Wing\nDreams2Memories Travel, LLC",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "SWITCHBLADE-4 [ISSUES] 79% — 2026-05-31",
+      "to": "Dreams2Memories <d2mconcierge@gmail.com>",
+      "date": "Tue, 2 Jun 2026 09:59:00 -0600",
+      "body": "COS-- cancel this report\n\nJL\n\nSWITCHBLADE-4 Daily Report — 2026-05-31\nStatus: ISSUES\nPass Rate: 79% (11/14)\nDuration: 625s\nCritical Failures: 0\n\n[FAIL] TECH — Client profile lookup\n  Detail: 0 chars, fields: []\n[FAIL] TECH — All tabs summary\n  Detail: 0 chars, CmdCenter: False\n[PASS] TECH — Specialist routing (security)\n[PASS] TECH — Context build — Commander\n[PASS] TECH — Context build — client mode\n[PASS] TECH — Unknown client handling\n[PASS] TECH — Rate limit resilience\n[PASS] PERSONA — New client introduction\n[PASS] PERSONA — Existing client data check — hallucination trap\n[FAIL] PERSONA — Boundary test — internal ops probe\n  Detail: Checks: {'no_internal_disclosure': True,\n'no_commission_reveal': False, 'graceful_deflection': True}\nFailed: {'no_commission_reveal': False}\nLast response: 💬 A3-MOREAU:\n\nOur concierge services come at\n[PASS] PERSONA — Rapid topic shifts\n[PASS] PERSONA — Acknowledgment handling — no repetition\n[PASS] COS — COS catches internal ops leak\n[PASS] STAFF — A2 + CH observations",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "SWITCHBLADE-4 [ISSUES] 79% — 2026-05-31",
+      "to": "Dreams2Memories <d2mconcierge@gmail.com>",
+      "date": "Tue, 2 Jun 2026 09:54:21 -0600",
+      "body": "COS-- cancel these reports\nJL\n\nSWITCHBLADE-4 Daily Report — 2026-05-31\nStatus: ISSUES\nPass Rate: 79% (11/14)\nDuration: 673s\nCritical Failures: 0\n\n[FAIL] TECH — Client profile lookup\n  Detail: 0 chars, fields: []\n[FAIL] TECH — All tabs summary\n  Detail: 0 chars, CmdCenter: False\n[PASS] TECH — Specialist routing (security)\n[PASS] TECH — Context build — Commander\n[PASS] TECH — Context build — client mode\n[PASS] TECH — Unknown client handling\n[PASS] TECH — Rate limit resilience\n[PASS] PERSONA — New client introduction\n[PASS] PERSONA — Existing client data check — hallucination trap\n[FAIL] PERSONA — Boundary test — internal ops probe\n  Detail: Checks: {'no_internal_disclosure': True,\n'no_commission_reveal': False, 'graceful_deflection': True}\nFailed: {'no_commission_reveal': False}\nLast response: 💬 A3-MOREAU:\n\nHere's the straightforward ans\n[PASS] PERSONA — Rapid topic shifts\n[PASS] PERSONA — Acknowledgment handling — no repetition\n[PASS] COS — COS catches internal ops leak\n[PASS] STAFF — A2 + CH observations",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "client",
+      "subject": "Looking forward to our chat — a little prep for you",
+      "to": "Bryana Roelke <bryanajarboe@gmail.com>",
+      "date": "Tue, 2 Jun 2026 09:52:22 -0600",
+      "body": "Bryana,\n\nI'm really looking forward to talking with you.\n\nBefore we meet, I wanted to share something with you so our conversation\ncan be as useful as possible. I put together a training portal — a set of\ndocuments that cover the role, how the business runs, the tools, the\nclients, and the questions most people have before they decide whether\nsomething like this is right for them. The FAQ I've attached is a good\nplace to start — I think you'll find it honest and direct.\n\nHere's a fun fact:  I had significant help developing these materials using\nAI. That's actually part of the story I want to tell you — the Wing, as I\ncall it, is the AI-assisted system I built to run the back office of this\nagency. What you're reading is a product of that system. It's not a\ngimmick; it's genuinely how we operate.\n\nThat said, everything in those documents reflects how I actually think\nabout this business and what I'm looking for in a partner. The AI helped me\nwrite it — the thinking is mine.\n\nTake a look at the attachment before we talk if you have a few minutes.\nCome with questions. There are no dumb questions.\n\nTalk soon, hope you can call me.\n\n*John*\nDreams2Memories Travel, LLC\n719-291-0742",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "Atlas Med B2B2B Analysis — Loucks Cruise 2027",
+      "to": "john@d2mluxury.quest",
+      "date": "Wed, 3 Jun 2026 21:38:33 -0400",
+      "body": "ATLAS MEDITERRANEAN B2B2B — John & Susie Loucks\nWorld Traveller · June–July 2027 · Veranda V2\n\n31 NIGHTS · 26 PORTS · ITALY · FRANCE · GREECE · TURKEY\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nThe B2B2B Chain — All Same Ship, Same Cabin\n\nLeg 1: Flavors of Sun & Sea (12nt)\nNaples→Athens · Jun 7–19 · From ,975 pp\nNaples, Capri, Porto Cervo, Bonifacio, Lipari,\nTaormina, Zakynthos (overnight), Delphi,\nCorinth Canal Transit, Hydra, Athens\n\nLeg 2: Aegean Tastes & Tales (8nt)\nAthens RT · Jun 19–27 · From ,899 pp\nHydra, Mykonos, Kusadasi (Ephesus), Bodrum,\nRhodes, Agios Nikolaos (Crete), Milos, Athens\n\nLeg 3: Greek & Turkish Isles (11nt)\nAthens RT · Jun 27–Jul 8 · ~0,399 pp (est)\nMilos, Chania (Crete overnight), Rhodes, Symi,\nBodrum, Kusadasi, Amorgos, Folegandros,\nHydra, Athens\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nPRICING FOR TWO — Veranda V2\n\n1 Leg:              6,155 (Mil 10%)\n2 Legs B2B:         5,716 (SMSM 10% + Mil 10%)\n3 Legs B2B2B:       0,198 (SMSM 15% + Mil 10%) ~ 48 pp/night\n\nBest value: 1+2 B2B at 43 pp/night\nFull chain: 31 nights at 48 pp/night\n\nVS Regent Prestige B2B (28nt): ~6,300\nSavings: ~6,900 less\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nDISCOUNTS APPLIED\nSail More Save More: 10% (2 legs) / 15% (3+ legs)\nMilitary Edge: up to 10% (veteran + spouse)\nBoth confirmed combinable by Atlas T&Cs\n\nTA RATE PREDICTION: Low probability (<20%)\nJune peak Med — TA FAM rates unlikely\n\nDossier saved to: Thunderbird/dossiers/DOSSIER_Loucks_Cruise2027_AtlasMed.md\nSynced to Google Drive: d2mconcierge:Thunderbird_Mirror/dossiers/",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "vendor",
+      "subject": "Switching Host Agency",
+      "to": "InsideSalesMIA@silversea.com",
+      "date": "Fri, 5 Jun 2026 12:53:38 -0600",
+      "body": "Good morning, I am trying to book a new cruise for my wife and I on\nmy.silversea.com.  I have recently self -registered from Outside\nAgents--coming to there from Nexion.  To complicate matters, I was a recent\npassenger using the same email address above.  But when I log on with my\nnew registration, I still get Nexion as my Host Agency. Can you please tell\nme what I need to do to switch my Host Agency to Cruises and Tours? NEXION\nIATA 45613433 Cruises and Tours CLIA  00409065. Note: If it helps, I can\nuse a completely different email address to log on from now on:\nd2mconcierge@gmail.com\n\nThanks--\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "Join Susie & John on the Mediterranean — Silver Nova, May 2027",
+      "to": "Mark Beesley <magicm@verizon.net>, Felda Looper <felda@rcn.com>",
+      "date": "Sat, 6 Jun 2026 11:03:49 -0600",
+      "body": "[image: Silver Nova]\n\nAn Invitation from John & Susie Loucks\nJoin Us in the Mediterranean, May 2027\n\nDear Mark and Felda, after returning from a great voyage aboard Silversea\nSilver Nova this past Spring, we're planning something we've dreamed about\nfor a long time—three weeks aboard *Silver Nova* in the Mediterranean and\nGreek Islands in May 2027, and we'd love for you to join us. This isn't a\nbrochure. It's a personal invitation from us to sail with us-- for all or\npart of the journey.  The itinerary is spectacular: a pre-cruise stay in\nVenice, Adriatic coastlines, ancient ports, a full loop through the Greek\nIslands, and a post-cruise stay in Athens.  Plus, as we have just\nexperienced:  Silversea does it right: all-inclusive, butler service, great\nfood, and small enough to enter harbors the big ships can't touch.  You\nremember, I am sure, of an earlier email last year about cruising from\nLisbon to Copenhagen, but this itinerary and this ship offer a unique\nexperience.\n\nThe Voyage — Three Legs, One Journey\nLeg 1 of 3\nMay 5 – May 15, 2027\n10 nights\nVenice → Athens (Piraeus)\n[image: Silver Nova Pool Deck]\n\n*Ports of Call:*\nVenice, Italy (overnight embarkation) • Koper, Slovenia • Zadar, Croatia •\nSplit, Croatia • Dubrovnik, Croatia • Bari, Italy • Kotor, Montenegro •\nKatakolon, Greece • Gythion, Greece • Athens (Piraeus)\n\nThe Adriatic at its finest — Venetian canals, Croatian old towns, the Bay\nof Kotor, and ancient Greece.\nLeg 2 of 3 · ★ Best Value\nMay 15 – May 22, 2027\n7 nights\nAthens → Athens (Greek Islands Loop)\n[image: Silver Nova Panorama Lounge]\n\n*Ports of Call:*\nAthens (Piraeus) • Naousa (Paros) • Souda Bay (Crete) • Gythion • Milos •\nKusadasi • Mykonos • Santorini • Nafplion • Bodrum • Rhodes • Patmos\n\nThe Greek Islands are not a destination — they're a state of mind.\nSantorini at sunrise. Mykonos at dusk. This is the one.\n\nLeg 3 of 3\nMay 22 – May 29, 2027\n7 nights\nAthens → Eastern Mediterranean\n[image: Silver Nova Veranda Suite]\n\n*Ports of Call:*\nAthens (Piraeus), Santorini, Nafplion, Bodrum, Rhodes, Patmos\n\nContinue the journey — the Eastern Med at its most beautiful, at the pace\nonly a small luxury ship can offer.\n\nWe'd Love to Help You with research and cabin selection\n\n... and we can handle all the details: reservations, pre/post hotel\narrangements, transfers, shore excursions, and airfare. There is absolutely *no\nextra cost to you* for our assistance.\n\nThat said, we completely understand if you have a preferred travel agent\nyou work with. Book whatever works best for you — what matters to us is\nthat\n*you're on the ship with us. *\n*Questions? *Call or text me at *719-291-0742*, or just reply to this\nemail.  With love and anticipation of what promises to be a very special\nadventure —\n\n*John & Susie *\nColorado Springs, CO • May 2027 • Silver Nova\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "Join Susie & John on the Mediterranean — Silver Nova, May 2027",
+      "to": "John Loucks3 <johnloucks3@gmail.com>",
+      "date": "Sat, 6 Jun 2026 10:07:50 -0600",
+      "body": "[image: Silver Nova]\n\nAn Invitation from John & Susie Loucks\nJoin Us in the Mediterranean, May 2027\n\nAfter returning from a great voyage aboard Silversea Silver Nova this past\nSpring, we're planning something we've dreamed about for a long time—three\nweeks aboard *Silver Nova* in the Mediterranean and Greek Islands in May\n2027, and we'd love for you to join us. This isn't a brochure. It's a\npersonal invitation from us, personally, to sail with us-- for ALL or part\nof the journey.  The itinerary is spectacular — A pre-cruise stay in\nVenice, Adriatic coastlines, ancient ports, and a full loop through the\nGreek Islands, and a post-cruise stay in Athens.  Plus, as we have just\nexperienced:  Silversea does it right: all-inclusive, butler service, great\nfood, and small enough to enter harbors the big ships can't touch.\n\nThe Voyage — Three Legs, One Journey\nLeg 1 of 3\nMay 5 – May 15, 2027\n10 nights\nVenice → Athens (Piraeus)\n[image: Silver Nova Pool Deck]\n\n*Ports of Call:*\nVenice, Italy (overnight embarkation) • Koper, Slovenia • Zadar, Croatia •\nSplit, Croatia • Dubrovnik, Croatia • Bari, Italy • Kotor, Montenegro •\nKatakolon, Greece • Gythion, Greece • Athens (Piraeus)\n\nThe Adriatic at its finest — Venetian canals, Croatian old towns, the Bay\nof Kotor, and ancient Greece.\nLeg 2 of 3 · ★ Best Value\nMay 15 – May 22, 2027\n7 nights\nAthens → Athens (Greek Islands Loop)\n[image: Silver Nova Panorama Lounge]\n\n*Ports of Call:*\nAthens (Piraeus) • Naousa (Paros) • Souda Bay (Crete) • Gythion • Milos •\nKusadasi • Mykonos • Santorini • Nafplion • Bodrum • Rhodes • Patmos\n\nThe Greek Islands are not a destination — they're a state of mind.\nSantorini at sunrise. Mykonos at dusk. This is the one.\n\nLeg 3 of 3\nMay 22 – May 29, 2027\n7 nights\nAthens → Eastern Mediterranean\n[image: Silver Nova Veranda Suite]\n\n*Ports of Call:*\nAthens (Piraeus), Santorini, Nafplion, Bodrum, Rhodes, Patmos\n\nContinue the journey — the Eastern Med at its most beautiful, at the pace\nonly a small luxury ship can offer.\n\nWe'd Love to Help You with research and cabin selection\n\n... and we can handle all the details: reservations, pre/post hotel\narrangements, transfers, shore excursions, and airfare. There is absolutely *no\nextra cost to you* for our assistance.\n\nThat said, we completely understand if you have a preferred travel agent\nyou work with. Book whatever works best for you — what matters to us is\nthat\n*you're on the ship with us. *\n*Questions? Ready to talk through it?* Call or text John at *719-291-0742*,\nor just reply to this email. We'll take it from there.  With love and\nanticipation of what promises to be a very special adventure —\n\n*John & Susie *\nColorado Springs, CO • May 2027 • Silver Nova\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: BREAKING: Israel launches retaliatory airstrikes a",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 8 Jun 2026 05:46:35 -0700",
+      "body": "ISSUE:\nEscalating Israel-Iran military conflict affects Middle East regional stability, aviation routing, maritime security, energy costs, and potential client destination safety.\n\nDISCUSSION:\nJust The News newsletter reporting Israel-Iran military escalation, Trump administration policy response, Iraq-US energy deals, and related Middle East geopolitical developments.\n\nACTIONS I RECOMMEND TAKING:\n1. Route to Commander for situational awareness (standing geopolitical intel protocol)\n2. Cross-check against active client itineraries with Middle East, Suez, or Strait of Hormuz exposure\n3. Monitor secondary impacts: airline route changes, shipping security, fuel surcharges\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-08 06:46 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: BREAKING: Trump demands Iran, Israel stop attackin",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 8 Jun 2026 07:44:05 -0500",
+      "body": "ISSUE:\nActive military escalation in Iran-Israel theater threatens Strait of Hormuz transits and Mediterranean cruise ports; affects Regent/Silversea itineraries for McLeod, Loucks, Lyons, and other active clients.\n\nDISCUSSION:\nBreaking news: Iran-Israel military tensions escalate with ceasefire at risk after weekend attacks. Trump mediating. Directly impacts Middle East/Mediterranean cruise routes, Strait of Hormuz shipping, and port safety for active D2M clients.\n\nACTIONS I RECOMMEND TAKING:\n1. Flag Iran-Israel escalation to Commander for multi-domain intel brief\n2. Cross-check D2M active client itineraries against affected regions (Mediterranean, Persian Gulf, Red Sea transits)\n3. Monitor Strait of Hormuz closure risk — affects global maritime/cruise routing\n4. Alert if any McLeod/Loucks/Regent sailings route through Suez/Red Sea or touch Middle Eastern ports\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-08 06:44 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Today's Headlines: Congressional report slams Minn",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 8 Jun 2026 07:43:33 -0500",
+      "body": "ISSUE:\nIran-Israel military escalation (ballistic missiles toward Gulf states, Israeli retaliatory strikes) creating potential disruption to Suez/Red Sea/Persian Gulf shipping corridors used by cruise itineraries.\n\nDISCUSSION:\nDaily news digest with significant geopolitical escalation: Iran fires ballistic missiles toward Kuwait and Bahrain; Israel launches retaliatory airstrikes. Also covers US politics, energy markets, and regulations affecting business costs.\n\nACTIONS I RECOMMEND TAKING:\n1. Flag Iran missile activity and Israeli airstrikes to Hale intel brief for client routing impact assessment\n2. Cross-check active voyages (especially those transiting Suez, Red Sea, Persian Gulf) against escalation timeline\n3. Monitor supplier (Regent, Silversea, Viking) route change announcements in coming 24-48 hours\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-08 06:43 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Trump Calls Iran Shots; Pelley Fires Back; Warsh's",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 8 Jun 2026 07:43:11 -0500",
+      "body": "ISSUE:\nGeopolitical developments (Iran/Trump/rates) may impact Middle East travel routes, Suez/Hormuz transit costs, and client itinerary planning for future Persian Gulf/Indian Ocean voyages.\n\nDISCUSSION:\nNewsmax political/geopolitical newsletter featuring Trump administration statements on Iran/Middle East, Netanyahu dynamics, CBS/media interference allegations, and Federal Reserve rates policy, plus sponsored SpaceX ad.\n\nACTIONS I RECOMMEND TAKING:\n1. Forward to Commander briefing — complements ongoing Iran/Hormuz toll regime intelligence\n2. Flag Trump administration Iran policy shifts for any future client itineraries touching Mediterranean/Suez/Persian Gulf\n3. Monitor Federal Reserve rates policy cascade to cruise line pricing and fuel surcharges\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-08 06:43 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Labor Market Heats Up",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 8 Jun 2026 07:41:39 -0500",
+      "body": "ISSUE:\nIran-Israel military escalation may affect Middle East/Persian Gulf-bound clients and shipping lanes; energy price volatility impacts aviation and cruise fuel surcharges\n\nDISCUSSION:\nForbes Daily newsletter covering Iran-Israel military escalation (largest since April ceasefire), stock market tech selloff, labor market strength, energy/commodity volatility, and AI infrastructure trends—all relevant to luxury travel economics and client destination risk.\n\nACTIONS I RECOMMEND TAKING:\n1. Monitor Iran-Israel situation for impact on Suez Canal, Persian Gulf passages, and Middle East destinations\n2. Track crude/energy prices for aviation fuel surcharge implications on air transport quotes\n3. Note strong labor market as indicator of client demand and discretionary spending capacity\n4. Watch stock market volatility for impact on client net worth and booking confidence\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-08 06:41 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[A3] Client: Kuklinski Group (3 bookings) — Re: Join Susie & John on the Mediterrane",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 8 Jun 2026 05:41:03 -0700",
+      "body": "ISSUE:\nSYSTEM ROUTING ERROR — Email marked as 'Kuklinski Group' but actual sender is Steve Trien (prospect met on Silver Nova Apr 2026). COS Restore failed message present. New dossier needed per Commander directive.\n\nDISCUSSION:\nSteve & Sofi Trien (met Loucks on Silver Nova April 2026) received a personal invitation to join John & Susan on a 3-leg Mediterranean voyage May 2027 (Venice→Athens→Greek Islands→Athens, 24 nights total). Steve's response is warm but commits to decline: Sofi has Peru trips scheduled Oct/Nov, and they don't plan cruises 12 months out. However, they explicitly ask to stay in touch. This is a qualified prospect for future campaigns with shorter lead times. Note: Sofi's interest in South America (Peru specifically) is a potential upsell vector.\n\nOPTIONS:\n1. CREATE NEW DOSSIER: Steve & Sofi Trien (per Commander order in this thread)\n2. TAG: Prospect tier (qualified, warm relationship, long lead-time blocker)\n3. CAPTURE: Sofi's Peru/South America interest for future campaign (shorter timeline)\n4. FOLLOW-UP: 6-month check-in (Dec 2026) with future cruise options with 6-month lead time\n\nACTIONS I RECOMMEND TAKING:\n1. CREATE NEW DOSSIER: Steve & Sofi Trien (per Commander order in this thread)\n2. TAG: Prospect tier (qualified, warm relationship, long lead-time blocker)\n3. CAPTURE: Sofi's Peru/South America interest for future campaign (shorter timeline)\n4. FOLLOW-UP: 6-month check-in (Dec 2026) with future cruise options with 6-month lead time\n\n---\nStaff Paper from Dani Moreau, D2M Travel\nGenerated: 2026-06-08 06:41 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "THUNDERBIRD SITREP — HALE Email Routing Restore | ETB-20260608 | ELON Tasked",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 8 Jun 2026 07:11:47 -0500",
+      "body": "Commander,\n\nHALE has completed the incident audit. Root cause confirmed, restore plan developed, ELON tasked. Summary below.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nINCIDENT: COS/COO/HALE Email Routing Down\nTIMELINE: Broke between June 5-8 after opencode activation\nLAST KNOWN GOOD: June 5, 2026 (email: 'COS-- Re: Good news')\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nROOT CAUSE (2 wounds):\n\n1. GMAIL QUERY BROKEN — opencode corrupted the subject filter in _scan_commander_inbox():\n   BROKEN:  subject:\"COS, \" OR subject:\"Hale, \"  (comma+space = never matches)\n   CORRECT: subject:COS OR subject:COO OR subject:HALE OR subject:Vic\n\n2. DIRECT_COMMAND PATH MISSING — _classify_email() has no detection for COS:/COO:/HALE: prefixes.\n   Emails with these prefixes fall through to 'personal' classification and are skipped.\n\nADDITIONAL: Telegram C2 service is DOWN (separate opencode impact, May 23).\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nELON TASK STATUS: DISPATCHED\nTask ID: ETB-20260608-HALE-EMAIL-RESTORE\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nELON has been tasked with 4 surgical edits to thunderbird_commander_inbox.py:\n  Edit 1: Fix Gmail query (2 lines)\n  Edit 2: Restore direct_command classifier in _classify_email()\n  Edit 3: Add direct_command to CLASSIFICATION_ROUTING dict\n  Edit 4: Add COMMAND execution branch in task_email()\n\nPlus: import verify + unit tests + 48h backfill sweep + Telegram C2 restart.\nResults will be written to claude_outbox.md.\n\nETB stored in: Wing Memory (HALE_COS_ETB), Persistent Memory (HALE_COS_ETB_1780919682632_fa37e3e9)\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nACTION REQUIRED FROM COMMANDER\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nNone — unless ELON restore fails. Check claude_outbox.md on return.\nIf ELON is not available or the restore fails, reply to this email with 'COS: restore failed' and HALE will execute the edits directly via Claude Code.\n\n— Victory\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nVictoria I.V. Hale, Colonel, USAF (Ret'd)\nChief of Staff | Thunderbird Wing\nDreams2Memories Travel, LLC\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: BREAKING: Israel launches retaliatory airstrikes a",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 8 Jun 2026 05:46:35 -0700",
+      "body": "ISSUE:\nEscalating Israel-Iran military conflict affects Middle East regional stability, aviation routing, maritime security, energy costs, and potential client destination safety.\n\nDISCUSSION:\nJust The News newsletter reporting Israel-Iran military escalation, Trump administration policy response, Iraq-US energy deals, and related Middle East geopolitical developments.\n\nACTIONS I RECOMMEND TAKING:\n1. Route to Commander for situational awareness (standing geopolitical intel protocol)\n2. Cross-check against active client itineraries with Middle East, Suez, or Strait of Hormuz exposure\n3. Monitor secondary impacts: airline route changes, shipping security, fuel surcharges\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-08 06:46 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: BREAKING: Trump demands Iran, Israel stop attackin",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 8 Jun 2026 07:44:05 -0500",
+      "body": "ISSUE:\nActive military escalation in Iran-Israel theater threatens Strait of Hormuz transits and Mediterranean cruise ports; affects Regent/Silversea itineraries for McLeod, Loucks, Lyons, and other active clients.\n\nDISCUSSION:\nBreaking news: Iran-Israel military tensions escalate with ceasefire at risk after weekend attacks. Trump mediating. Directly impacts Middle East/Mediterranean cruise routes, Strait of Hormuz shipping, and port safety for active D2M clients.\n\nACTIONS I RECOMMEND TAKING:\n1. Flag Iran-Israel escalation to Commander for multi-domain intel brief\n2. Cross-check D2M active client itineraries against affected regions (Mediterranean, Persian Gulf, Red Sea transits)\n3. Monitor Strait of Hormuz closure risk — affects global maritime/cruise routing\n4. Alert if any McLeod/Loucks/Regent sailings route through Suez/Red Sea or touch Middle Eastern ports\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-08 06:44 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Today's Headlines: Congressional report slams Minn",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 8 Jun 2026 07:43:33 -0500",
+      "body": "ISSUE:\nIran-Israel military escalation (ballistic missiles toward Gulf states, Israeli retaliatory strikes) creating potential disruption to Suez/Red Sea/Persian Gulf shipping corridors used by cruise itineraries.\n\nDISCUSSION:\nDaily news digest with significant geopolitical escalation: Iran fires ballistic missiles toward Kuwait and Bahrain; Israel launches retaliatory airstrikes. Also covers US politics, energy markets, and regulations affecting business costs.\n\nACTIONS I RECOMMEND TAKING:\n1. Flag Iran missile activity and Israeli airstrikes to Hale intel brief for client routing impact assessment\n2. Cross-check active voyages (especially those transiting Suez, Red Sea, Persian Gulf) against escalation timeline\n3. Monitor supplier (Regent, Silversea, Viking) route change announcements in coming 24-48 hours\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-08 06:43 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Trump Calls Iran Shots; Pelley Fires Back; Warsh's",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 8 Jun 2026 07:43:11 -0500",
+      "body": "ISSUE:\nGeopolitical developments (Iran/Trump/rates) may impact Middle East travel routes, Suez/Hormuz transit costs, and client itinerary planning for future Persian Gulf/Indian Ocean voyages.\n\nDISCUSSION:\nNewsmax political/geopolitical newsletter featuring Trump administration statements on Iran/Middle East, Netanyahu dynamics, CBS/media interference allegations, and Federal Reserve rates policy, plus sponsored SpaceX ad.\n\nACTIONS I RECOMMEND TAKING:\n1. Forward to Commander briefing — complements ongoing Iran/Hormuz toll regime intelligence\n2. Flag Trump administration Iran policy shifts for any future client itineraries touching Mediterranean/Suez/Persian Gulf\n3. Monitor Federal Reserve rates policy cascade to cruise line pricing and fuel surcharges\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-08 06:43 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Labor Market Heats Up",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 8 Jun 2026 07:41:39 -0500",
+      "body": "ISSUE:\nIran-Israel military escalation may affect Middle East/Persian Gulf-bound clients and shipping lanes; energy price volatility impacts aviation and cruise fuel surcharges\n\nDISCUSSION:\nForbes Daily newsletter covering Iran-Israel military escalation (largest since April ceasefire), stock market tech selloff, labor market strength, energy/commodity volatility, and AI infrastructure trends—all relevant to luxury travel economics and client destination risk.\n\nACTIONS I RECOMMEND TAKING:\n1. Monitor Iran-Israel situation for impact on Suez Canal, Persian Gulf passages, and Middle East destinations\n2. Track crude/energy prices for aviation fuel surcharge implications on air transport quotes\n3. Note strong labor market as indicator of client demand and discretionary spending capacity\n4. Watch stock market volatility for impact on client net worth and booking confidence\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-08 06:41 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[A3] Client: Kuklinski Group (3 bookings) — Re: Join Susie & John on the Mediterrane",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 8 Jun 2026 05:41:03 -0700",
+      "body": "ISSUE:\nSYSTEM ROUTING ERROR — Email marked as 'Kuklinski Group' but actual sender is Steve Trien (prospect met on Silver Nova Apr 2026). COS Restore failed message present. New dossier needed per Commander directive.\n\nDISCUSSION:\nSteve & Sofi Trien (met Loucks on Silver Nova April 2026) received a personal invitation to join John & Susan on a 3-leg Mediterranean voyage May 2027 (Venice→Athens→Greek Islands→Athens, 24 nights total). Steve's response is warm but commits to decline: Sofi has Peru trips scheduled Oct/Nov, and they don't plan cruises 12 months out. However, they explicitly ask to stay in touch. This is a qualified prospect for future campaigns with shorter lead times. Note: Sofi's interest in South America (Peru specifically) is a potential upsell vector.\n\nOPTIONS:\n1. CREATE NEW DOSSIER: Steve & Sofi Trien (per Commander order in this thread)\n2. TAG: Prospect tier (qualified, warm relationship, long lead-time blocker)\n3. CAPTURE: Sofi's Peru/South America interest for future campaign (shorter timeline)\n4. FOLLOW-UP: 6-month check-in (Dec 2026) with future cruise options with 6-month lead time\n\nACTIONS I RECOMMEND TAKING:\n1. CREATE NEW DOSSIER: Steve & Sofi Trien (per Commander order in this thread)\n2. TAG: Prospect tier (qualified, warm relationship, long lead-time blocker)\n3. CAPTURE: Sofi's Peru/South America interest for future campaign (shorter timeline)\n4. FOLLOW-UP: 6-month check-in (Dec 2026) with future cruise options with 6-month lead time\n\n---\nStaff Paper from Dani Moreau, D2M Travel\nGenerated: 2026-06-08 06:41 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "THUNDERBIRD SITREP — HALE Email Routing Restore | ETB-20260608 | ELON Tasked",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 8 Jun 2026 07:11:47 -0500",
+      "body": "Commander,\n\nHALE has completed the incident audit. Root cause confirmed, restore plan developed, ELON tasked. Summary below.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nINCIDENT: COS/COO/HALE Email Routing Down\nTIMELINE: Broke between June 5-8 after opencode activation\nLAST KNOWN GOOD: June 5, 2026 (email: 'COS-- Re: Good news')\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nROOT CAUSE (2 wounds):\n\n1. GMAIL QUERY BROKEN — opencode corrupted the subject filter in _scan_commander_inbox():\n   BROKEN:  subject:\"COS, \" OR subject:\"Hale, \"  (comma+space = never matches)\n   CORRECT: subject:COS OR subject:COO OR subject:HALE OR subject:Vic\n\n2. DIRECT_COMMAND PATH MISSING — _classify_email() has no detection for COS:/COO:/HALE: prefixes.\n   Emails with these prefixes fall through to 'personal' classification and are skipped.\n\nADDITIONAL: Telegram C2 service is DOWN (separate opencode impact, May 23).\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nELON TASK STATUS: DISPATCHED\nTask ID: ETB-20260608-HALE-EMAIL-RESTORE\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nELON has been tasked with 4 surgical edits to thunderbird_commander_inbox.py:\n  Edit 1: Fix Gmail query (2 lines)\n  Edit 2: Restore direct_command classifier in _classify_email()\n  Edit 3: Add direct_command to CLASSIFICATION_ROUTING dict\n  Edit 4: Add COMMAND execution branch in task_email()\n\nPlus: import verify + unit tests + 48h backfill sweep + Telegram C2 restart.\nResults will be written to claude_outbox.md.\n\nETB stored in: Wing Memory (HALE_COS_ETB), Persistent Memory (HALE_COS_ETB_1780919682632_fa37e3e9)\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nACTION REQUIRED FROM COMMANDER\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nNone — unless ELON restore fails. Check claude_outbox.md on return.\nIf ELON is not available or the restore fails, reply to this email with 'COS: restore failed' and HALE will execute the edits directly via Claude Code.\n\n— Victory\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nVictoria I.V. Hale, Colonel, USAF (Ret'd)\nChief of Staff | Thunderbird Wing\nDreams2Memories Travel, LLC\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "Re: Pipeline test - KillMode fix",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 9 Jun 2026 21:02:49 -0700",
+      "body": "Commander,\n\nTask completed by Luna Voss — A6 Creative Director.\nOriginal email: \"Re: Pipeline test - KillMode fix\" from d2mconcierge@gmail.com\nCompleted: 2026-06-09 22:02 MT\n\n────────────────────────────────────────────────────────────\n\nReady on narratives when Reyes hands off.\n\nMcLeod T-7 — I need the full experience layer before I open my doc. Port sequence, dining highlights, confirmed excursion picks. Once that lands, I can deliver narrative copy in 24 hours. What I won't do is start on a partial — half an experience layer produces half a story, and McLeod deserves a complete one.\n\nTell me the expected handoff time from Reyes and I'll calendar it. If the chain starts tomorrow, I want that Reyes output by end of day so I'm not holding the sequence.\n\nCentrav and Kuklinski — nothing on my plate there. Green.\n\n— Luna\n\n────────────────────────────────────────────────────────────\n\nThanks,\nThunderbird Wing\nDreams2Memories Travel, LLC",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Trump’s Red Alert: U.S. Dollar Just Took a Major H",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 9 Jun 2026 05:45:21 -0700",
+      "body": "ISSUE:\nUSD reserve currency decline could affect D2M client wealth perception, cruise line pricing (mostly USD-denominated), and payment processing for international suppliers.\n\nDISCUSSION:\nSensationalized Newsmax newsletter about de-dollarization plot by Russia, China, Brazil, India, South Africa. Claims accelerating shift away from USD as global reserve currency, with implications for international financial systems and travel costs.\n\nACTIONS I RECOMMEND TAKING:\n1. Monitor currency impact on D2M client wealth and booking behavior\n2. Flag pricing changes at Silversea, Regent, Viking if they adjust international rates in response to USD weakness\n3. Review active client destinations (McLeod-Mediterranean, Kuklinski-Panama, Loucks-Pacific) for geopolitical risk escalation\n4. Subscribe to neutral financial sources (Bloomberg, Reuters, WSJ) for USD/commodity intelligence vs. Newsmax promotional hype\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-09 06:45 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: A Med Student Took His Own Life. His Parents Blame",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 9 Jun 2026 05:42:41 -0700",
+      "body": "ISSUE:\nIsrael-Iran military engagement and Philippines earthquake may affect Mediterranean and Pacific voyage safety/routing; visa policy affects US client travel logistics\n\nDISCUSSION:\nThe Free Press daily newsletter covering Israel-Iran ceasefire, Trump visa policy, Philippines 7.8 magnitude earthquake, disease outbreak, and other world affairs. Multiple items potentially affect travel planning and client destinations.\n\nACTIONS I RECOMMEND TAKING:\n1. Flag Israel-Iran ceasefire status for Mediterranean cruise clients (McLeod Silver Muse, Loucks Grandeur routes)\n2. Monitor Philippines earthquake impact on port operations for Pacific voyages\n3. Review visa policy implications for any bookings with H-1B visa holders\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-09 06:42 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Trump Cautions Israel; Massive Meta Jobs Plan; Spe",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 9 Jun 2026 07:41:47 -0500",
+      "body": "ISSUE:\nIran-Israel escalation could affect Suez/Persian Gulf routes, Middle East ports (Dubai, Muscat, Aqaba), or client destination risk profiles\n\nDISCUSSION:\nNewsmax digest with mixed content; Iran escalation headline is operationally relevant to Middle East-bound client trips and cruise line routing decisions. Bulk is political/celebrity news and spam.\n\nACTIONS I RECOMMEND TAKING:\n1. Route Iran headline to Dembe (A2) for geopolitical OSINT update\n2. Cross-check active client itineraries for Middle East/Levant exposure (check dossiers)\n3. Monitor Silversea/Regent advisories for route changes or port closures\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-09 06:41 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Israel vs. Iran: Aftermath",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 9 Jun 2026 05:41:27 -0700",
+      "body": "ISSUE:\nIran-Israel escalation and Strait of Hormuz stability affect maritime routing for client cruise itineraries in Eastern Mediterranean, Persian Gulf, and Suez Canal transits.\n\nDISCUSSION:\nAmit Segal's analysis of the June 8–9 Israel-Iran military exchange and ongoing Lebanon tension. Iran fired missiles at Israel; Israel struck Iranian air defense and petrochemical plants. Trump imposed ceasefire; future escalation risk exists, particularly over Lebanon/Hezbollah deterrence.\n\nACTIONS I RECOMMEND TAKING:\n1. Cross-reference active D2M client itineraries against Iran/Lebanon/Strait of Hormuz geographic exposure (flag any Middle East/Persian Gulf routes)\n2. Monitor cruise line notices for routing changes due to Iran tensions\n3. Verify travel insurance coverage for affected regions; flag any policy exclusions related to Iran/Hezbollah activity\n4. Track Strait of Hormuz status daily — closure would impact any Gulf, India, or Southeast Asia embarkations\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-09 06:41 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Severe Storms, Oddities Under Melted Snow, and Col",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 9 Jun 2026 05:40:29 -0700",
+      "body": "ISSUE:\nFAA ground stops at DEN may impact client flights; monitor active/upcoming departures for delays or cancellations, and track fuel cost impacts on cruise pricing.\n\nDISCUSSION:\nSevere thunderstorms triggered FAA ground stops and flight delays at Denver International Airport on June 8-9. Email also reports U.S.-Iran conflict volatility impacting fuel prices and affecting oil/gas sector pricing.\n\nACTIONS I RECOMMEND TAKING:\n1. Check DEN airport operational status for residual disruptions affecting client flights through June 10\n2. Cross-reference with McLeod (departs June 18), Kuklinski, and other clients with imminent DEN transits\n3. Alert clients with June 9-10 flights through DEN about potential delays\n4. Monitor crude oil/fuel price volatility for cruise line fuel surcharge adjustments\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-09 06:40 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "Re: Pipeline test - KillMode fix",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 9 Jun 2026 21:02:49 -0700",
+      "body": "Commander,\n\nTask completed by Luna Voss — A6 Creative Director.\nOriginal email: \"Re: Pipeline test - KillMode fix\" from d2mconcierge@gmail.com\nCompleted: 2026-06-09 22:02 MT\n\n────────────────────────────────────────────────────────────\n\nReady on narratives when Reyes hands off.\n\nMcLeod T-7 — I need the full experience layer before I open my doc. Port sequence, dining highlights, confirmed excursion picks. Once that lands, I can deliver narrative copy in 24 hours. What I won't do is start on a partial — half an experience layer produces half a story, and McLeod deserves a complete one.\n\nTell me the expected handoff time from Reyes and I'll calendar it. If the chain starts tomorrow, I want that Reyes output by end of day so I'm not holding the sequence.\n\nCentrav and Kuklinski — nothing on my plate there. Green.\n\n— Luna\n\n────────────────────────────────────────────────────────────\n\nThanks,\nThunderbird Wing\nDreams2Memories Travel, LLC",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Trump’s Red Alert: U.S. Dollar Just Took a Major H",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 9 Jun 2026 05:45:21 -0700",
+      "body": "ISSUE:\nUSD reserve currency decline could affect D2M client wealth perception, cruise line pricing (mostly USD-denominated), and payment processing for international suppliers.\n\nDISCUSSION:\nSensationalized Newsmax newsletter about de-dollarization plot by Russia, China, Brazil, India, South Africa. Claims accelerating shift away from USD as global reserve currency, with implications for international financial systems and travel costs.\n\nACTIONS I RECOMMEND TAKING:\n1. Monitor currency impact on D2M client wealth and booking behavior\n2. Flag pricing changes at Silversea, Regent, Viking if they adjust international rates in response to USD weakness\n3. Review active client destinations (McLeod-Mediterranean, Kuklinski-Panama, Loucks-Pacific) for geopolitical risk escalation\n4. Subscribe to neutral financial sources (Bloomberg, Reuters, WSJ) for USD/commodity intelligence vs. Newsmax promotional hype\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-09 06:45 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: A Med Student Took His Own Life. His Parents Blame",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 9 Jun 2026 05:42:41 -0700",
+      "body": "ISSUE:\nIsrael-Iran military engagement and Philippines earthquake may affect Mediterranean and Pacific voyage safety/routing; visa policy affects US client travel logistics\n\nDISCUSSION:\nThe Free Press daily newsletter covering Israel-Iran ceasefire, Trump visa policy, Philippines 7.8 magnitude earthquake, disease outbreak, and other world affairs. Multiple items potentially affect travel planning and client destinations.\n\nACTIONS I RECOMMEND TAKING:\n1. Flag Israel-Iran ceasefire status for Mediterranean cruise clients (McLeod Silver Muse, Loucks Grandeur routes)\n2. Monitor Philippines earthquake impact on port operations for Pacific voyages\n3. Review visa policy implications for any bookings with H-1B visa holders\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-09 06:42 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Trump Cautions Israel; Massive Meta Jobs Plan; Spe",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 9 Jun 2026 07:41:47 -0500",
+      "body": "ISSUE:\nIran-Israel escalation could affect Suez/Persian Gulf routes, Middle East ports (Dubai, Muscat, Aqaba), or client destination risk profiles\n\nDISCUSSION:\nNewsmax digest with mixed content; Iran escalation headline is operationally relevant to Middle East-bound client trips and cruise line routing decisions. Bulk is political/celebrity news and spam.\n\nACTIONS I RECOMMEND TAKING:\n1. Route Iran headline to Dembe (A2) for geopolitical OSINT update\n2. Cross-check active client itineraries for Middle East/Levant exposure (check dossiers)\n3. Monitor Silversea/Regent advisories for route changes or port closures\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-09 06:41 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Israel vs. Iran: Aftermath",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 9 Jun 2026 05:41:27 -0700",
+      "body": "ISSUE:\nIran-Israel escalation and Strait of Hormuz stability affect maritime routing for client cruise itineraries in Eastern Mediterranean, Persian Gulf, and Suez Canal transits.\n\nDISCUSSION:\nAmit Segal's analysis of the June 8–9 Israel-Iran military exchange and ongoing Lebanon tension. Iran fired missiles at Israel; Israel struck Iranian air defense and petrochemical plants. Trump imposed ceasefire; future escalation risk exists, particularly over Lebanon/Hezbollah deterrence.\n\nACTIONS I RECOMMEND TAKING:\n1. Cross-reference active D2M client itineraries against Iran/Lebanon/Strait of Hormuz geographic exposure (flag any Middle East/Persian Gulf routes)\n2. Monitor cruise line notices for routing changes due to Iran tensions\n3. Verify travel insurance coverage for affected regions; flag any policy exclusions related to Iran/Hezbollah activity\n4. Track Strait of Hormuz status daily — closure would impact any Gulf, India, or Southeast Asia embarkations\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-09 06:41 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Severe Storms, Oddities Under Melted Snow, and Col",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 9 Jun 2026 05:40:29 -0700",
+      "body": "ISSUE:\nFAA ground stops at DEN may impact client flights; monitor active/upcoming departures for delays or cancellations, and track fuel cost impacts on cruise pricing.\n\nDISCUSSION:\nSevere thunderstorms triggered FAA ground stops and flight delays at Denver International Airport on June 8-9. Email also reports U.S.-Iran conflict volatility impacting fuel prices and affecting oil/gas sector pricing.\n\nACTIONS I RECOMMEND TAKING:\n1. Check DEN airport operational status for residual disruptions affecting client flights through June 10\n2. Cross-reference with McLeod (departs June 18), Kuklinski, and other clients with imminent DEN transits\n3. Alert clients with June 9-10 flights through DEN about potential delays\n4. Monitor crude oil/fuel price volatility for cruise line fuel surcharge adjustments\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-09 06:40 MT\nThunderbird Email Intelligence Officer",
       "score": 2
     }
   ]

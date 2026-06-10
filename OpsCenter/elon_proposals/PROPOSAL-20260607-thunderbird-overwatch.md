@@ -1,0 +1,3 @@
+Proposal written. Verified the root cause at write time — `task_processor.py` imports four modules (`thunderbird_model_router`, `thunderbird_innovation_scanner`, `thunderbird_morning_briefing`, `thunderbird_overwatch`) that exist nowhere on disk; venv-Python import probe returns `ModuleNotFoundError`. Hale-Loop has been paper-tiger for 7+ days while the watchdog logged "auto-healed" each cycle.
+
+**Hale decision:** APPLY_AUTONOMOUSLY — mask the unit, file Sterling ticket `STERLING-OVERWATCH-IMPORTS-20260607` to repoint imports + add `ExecStartPre=` import probe, single-line surface in AM brief under OVERNIGHT OPS. No Commander gate touched.

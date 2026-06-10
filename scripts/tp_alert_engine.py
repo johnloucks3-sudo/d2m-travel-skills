@@ -6,15 +6,19 @@ Dreams2Memories Travel, LLC | scripts/tp_alert_engine.py
 Runs the TP scheduler with a 14-day horizon, classifies alerts by severity,
 writes staff tasks to wing_comms.md, surfaces to opencode_inbox, and logs
 to an audit trail. Designed to run via systemd timer every 6 hours.
+Includes content-signature dedup: consecutive identical alert sets skip
+file writes (but always log to JSONL audit trail).
 
 Usage:
     python3 tp_alert_engine.py                    # Full scan + notification
     python3 tp_alert_engine.py --report-only      # Print to stdout only
     python3 tp_alert_engine.py --client McLeod     # Filter by client
     python3 tp_alert_engine.py --timer             # Silent mode (systemd timer)
+    python3 tp_alert_engine.py --force             # Override dedup, force write
 """
 
 import argparse
+import hashlib
 import json
 import logging
 import sys
@@ -45,6 +49,7 @@ logging.basicConfig(
 logger = logging.getLogger("tp_alert")
 
 ALERT_LOG = THUNDERBIRD / "logs" / "tp_alerts.jsonl"
+LAST_RUN_SIG = THUNDERBIRD / "logs" / "tp_alerts_last_sig.txt"
 WING_COMMS = THUNDERBIRD / "OpsCenter" / "collaboration" / "wing_comms.md"
 OPENCODE_INBOX = THUNDERBIRD / "OpsCenter" / "collaboration" / "opencode_inbox.md"
 MISSION_BOARD = THUNDERBIRD / "OpsCenter" / "mission_board.json"
@@ -196,7 +201,31 @@ def log_alerts(alerts):
     logger.info(f"Logged {len(entries)} alerts to tp_alerts.jsonl")
 
 
-def run_scan(client_filter=None, horizon=14, report_only=False, timer=False):
+def _compute_run_signature(alerts):
+    """Deterministic SHA-256 signature of the (client, tp_id, status) set.
+    Two runs with the same actionable TPs in the same state produce the same signature."""
+    sig_parts = sorted(
+        f"{tp.client}|{tp.tp_id}|{tp.status.name}"
+        for _, tp in alerts
+    )
+    return hashlib.sha256("\n".join(sig_parts).encode()).hexdigest()
+
+
+def _read_last_signature():
+    """Read the last-written run signature from state file."""
+    try:
+        return LAST_RUN_SIG.read_text().strip()
+    except (FileNotFoundError, OSError):
+        return None
+
+
+def _write_signature(sig):
+    """Persist the current run signature for next-run comparison."""
+    LAST_RUN_SIG.parent.mkdir(parents=True, exist_ok=True)
+    LAST_RUN_SIG.write_text(sig)
+
+
+def run_scan(client_filter=None, horizon=14, report_only=False, timer=False, force=False):
     today = date.today()
     logger.info(f"Scanning with horizon={horizon}d, client={client_filter or 'all'}")
 
@@ -223,11 +252,23 @@ def run_scan(client_filter=None, horizon=14, report_only=False, timer=False):
     alert_text = build_staff_alert_text(alerts)
     task_text = build_inbox_task(alerts)
 
-    if timer:
-        logger.info(f"Timer mode — {len(alerts)} actionable TPs, {len([a for a in alerts if a[0] in ('CRITICAL','WARNING','CRITICAL-APPROACHING')])} high-severity")
+    # Dedup: skip file writes if the alert set hasn't changed since last run
+    current_sig = _compute_run_signature(alerts)
+    last_sig = _read_last_signature()
+    is_duplicate = (current_sig == last_sig) and not force
 
-    write_wing_comms(alert_text)
-    write_opencode_task(task_text)
+    if is_duplicate and not timer:
+        logger.info(f"Duplicate run detected (sig={current_sig[:12]}...) — skipping file writes")
+
+    if not is_duplicate:
+        write_wing_comms(alert_text)
+        write_opencode_task(task_text)
+        _write_signature(current_sig)
+    elif timer:
+        critical_count = len([a for a in alerts if a[0] in ('CRITICAL','WARNING','CRITICAL-APPROACHING')])
+        logger.info(f"Timer mode — duplicate, skipped file writes ({len(alerts)} actionable, {critical_count} high-severity)")
+
+    # Always log to audit trail regardless of dedup
     log_alerts(alerts)
 
     logger.info(f"Alert engine complete — {len(alerts)} actionable TPs processed")
@@ -240,6 +281,7 @@ def main():
     parser.add_argument("--horizon", type=int, default=14, help="Alert horizon in days (default 14)")
     parser.add_argument("--report-only", action="store_true", help="Print to stdout only, no writes")
     parser.add_argument("--timer", action="store_true", help="Silent timer mode (still writes, less verbose)")
+    parser.add_argument("--force", action="store_true", help="Force write even if duplicate (override dedup)")
     args = parser.parse_args()
 
     run_scan(
@@ -247,6 +289,7 @@ def main():
         horizon=args.horizon,
         report_only=args.report_only,
         timer=args.timer,
+        force=args.force,
     )
 
 

@@ -1,0 +1,168 @@
+{
+  "routine_runs": [
+    {
+      "ts": "2026-06-09T12:09:18.071800+00:00",
+      "count": 5,
+      "succeeded": 5,
+      "missions": [
+        "MISSION-170",
+        "MISSION-171",
+        "MISSION-173",
+        "MISSION-175",
+        "MISSION-176"
+      ]
+    },
+    {
+      "ts": "2026-06-09T12:30:23.409195+00:00",
+      "count": 5,
+      "succeeded": 5,
+      "missions": [
+        "MISSION-053",
+        "MISSION-067",
+        "MISSION-066",
+        "MISSION-069",
+        "MISSION-068"
+      ]
+    },
+    {
+      "ts": "2026-06-09T14:21:10.860573+00:00",
+      "count": 5,
+      "succeeded": 5,
+      "missions": [
+        "MISSION-079",
+        "MISSION-086",
+        "MISSION-088",
+        "MISSION-089",
+        "MISSION-115"
+      ]
+    },
+    {
+      "ts": "2026-06-09T14:50:51.028242+00:00",
+      "count": 5,
+      "succeeded": 5,
+      "missions": [
+        "MISSION-116",
+        "MISSION-133",
+        "MISSION-134",
+        "MISSION-136",
+        "MISSION-142"
+      ]
+    },
+    {
+      "ts": "2026-06-09T18:45:55.866075+00:00",
+      "count": 5,
+      "succeeded": 5,
+      "missions": [
+        "MISSION-172",
+        "MISSION-143",
+        "MISSION-156",
+        "MISSION-157",
+        "MISSION-159"
+      ]
+    },
+    {
+      "ts": "2026-06-09T22:49:51.072736+00:00",
+      "count": 5,
+      "succeeded": 5,
+      "missions": [
+        "MISSION-114",
+        "MISSION-132",
+        "MISSION-140",
+        "MISSION-150",
+        "MISSION-162"
+      ]
+    },
+    {
+      "ts": "2026-06-10T02:51:13.156816+00:00",
+      "count": 5,
+      "succeeded": 5,
+      "missions": [
+        "MISSION-164",
+        "MISSION-170",
+        "MISSION-173",
+        "MISSION-175",
+        "MISSION-176"
+      ]
+    },
+    {
+      "ts": "2026-06-10T06:45:24.787238+00:00",
+      "count": 5,
+      "succeeded": 5,
+      "missions": [
+        "MISSION-009",
+        "MISSION-024",
+        "MISSION-026",
+        "MISSION-014",
+        "MISSION-053"
+      ]
+    },
+    {
+      "ts": "2026-06-10T10:46:27.279325+00:00",
+      "count": 5,
+      "succeeded": 5,
+      "missions": [
+        "MISSION-067",
+        "MISSION-066",
+        "MISSION-069",
+        "MISSION-068",
+        "MISSION-079"
+      ]
+    },
+    {
+      "ts": "2026-06-10T12:28:24.536144+00:00",
+      "count": 5,
+      "succeeded": 5,
+      "missions": [
+        "MISSION-086",
+        "MISSION-088",
+        "MISSION-089",
+        "MISSION-115",
+        "MISSION-116"
+      ]
+    },
+    {
+      "ts": "2026-06-10T14:53:42.577001+00:00",
+      "count": 5,
+      "succeeded": 4,
+      "missions": [
+        "MISSION-136",
+        "MISSION-142",
+        "MISSION-143",
+        "MISSION-157",
+        "MISSION-160"
+      ]
+    },
+    {
+      "ts": "2026-06-10T22:47:53.865652+00:00",
+      "count": 5,
+      "succeeded": 5,
+      "missions": [
+        "MISSION-160",
+        "MISSION-161",
+        "MISSION-165",
+        "MISSION-166",
+        "MISSION-167"
+      ]
+    }
+  ],
+  "manual_snapshots": [
+    {
+      "ts": "2026-06-08T18:17:07.496117+00:00",
+      "weekly_all_pct": 28,
+      "weekly_sonnet_pct": 34,
+      "runs_used": 9,
+      "runs_total": 15,
+      "source": "manual_paste"
+    },
+    {
+      "ts": "2026-06-09T04:23:53.207532+00:00",
+      "weekly_all_pct": 34,
+      "weekly_sonnet_pct": 41,
+      "runs_used": 2,
+      "runs_total": 15,
+      "source": "manual_paste"
+    }
+  ],
+  "reset_day": "Thursday",
+  "reset_time_mt": "21:00"
+}

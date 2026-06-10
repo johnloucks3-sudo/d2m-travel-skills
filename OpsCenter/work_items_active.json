@@ -1,0 +1,86 @@
+{
+  "created": "2026-06-06T18:58:40.349615",
+  "last_updated": "2026-06-06T18:58:40.349623",
+  "items": [
+    {
+      "id": "WI-001",
+      "title": "Grandeur Furlow HEL\u2192ARN seat assignment",
+      "owner": "Sterling",
+      "priority": "P0",
+      "deadline": "2026-06-13",
+      "status": "open",
+      "created": "2026-06-06",
+      "notes": "Finnair AA 9018, PNR BB4X94, 2 seats unassigned"
+    },
+    {
+      "id": "WI-002",
+      "title": "McLeod Hilton Molino Stucky CRS confirmation",
+      "owner": "Dembe",
+      "priority": "P1",
+      "deadline": "2026-06-15",
+      "status": "open",
+      "created": "2026-06-06",
+      "notes": "Verbal confirmation only (May 5), needs CRS # for client delivery"
+    },
+    {
+      "id": "WI-003",
+      "title": "McLeod pre-voyage coordination (phone #, GIF, charges)",
+      "owner": "Dembe",
+      "priority": "P1",
+      "deadline": "2026-06-17",
+      "status": "open",
+      "created": "2026-06-06",
+      "notes": "Collect phone numbers, verify GIF on MySilversea, settle $716 charges"
+    },
+    {
+      "id": "WI-004",
+      "title": "Kuklinski Jun 15 validation email",
+      "owner": "Dembe",
+      "priority": "P1",
+      "deadline": "2026-06-15",
+      "status": "open",
+      "created": "2026-06-06",
+      "notes": "DUE IN 9 DAYS \u2014 Monthly validation touch to all 3 couples"
+    },
+    {
+      "id": "WI-005",
+      "title": "Kuklinski Josh Morton form resolution",
+      "owner": "Dembe",
+      "priority": "P1",
+      "deadline": "2026-06-20",
+      "status": "open",
+      "created": "2026-06-06",
+      "notes": "Follow up with Kyle Kuklinski on Josh's missing GIF"
+    },
+    {
+      "id": "WI-006",
+      "title": "Grandeur Furlow missing address + seat docs",
+      "owner": "Dembe",
+      "priority": "P1",
+      "deadline": "2026-06-20",
+      "status": "open",
+      "created": "2026-06-06",
+      "notes": "Collect Melissa email + address, confirm DFW\u2192HEL seat docs"
+    },
+    {
+      "id": "WI-007",
+      "title": "Kuklinski post-departure insurance options",
+      "owner": "Intel",
+      "priority": "P1",
+      "deadline": "2026-06-20",
+      "status": "open",
+      "created": "2026-06-06",
+      "notes": "Research Viking post-departure TP availability (pre-existing closed Feb 23)"
+    },
+    {
+      "id": "WI-008",
+      "title": "Grandeur excursion recommendations",
+      "owner": "Dembe",
+      "priority": "P2",
+      "deadline": "2026-08-22",
+      "status": "open",
+      "created": "2026-06-06",
+      "notes": "Send to all 3 couples before Aug 22 close date"
+    }
+  ]
+}

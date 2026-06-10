@@ -1,0 +1,318 @@
+{
+  "registryVersion": "1.0",
+  "lastUpdated": "2026-06-09",
+  "description": "Complete file ownership registry for Thunderbird OS permission enforcement",
+  "ownershipMap": {
+    "Sterling": {
+      "id": "A7",
+      "title": "Process / Technology",
+      "role": "master",
+      "authority": "Absolute authority over production architecture, code, and governance",
+      "files": [
+        {
+          "pattern": "core/**/*.py",
+          "type": "code",
+          "protection": "master",
+          "description": "Production Python code (all modules)",
+          "exceptions": []
+        },
+        {
+          "pattern": "scripts/**/*.py",
+          "type": "code",
+          "protection": "master",
+          "description": "Utility scripts",
+          "exceptions": []
+        },
+        {
+          "pattern": "CLAUDE.md",
+          "type": "governance",
+          "protection": "master",
+          "description": "Wing operating manual (primary OS document)",
+          "exceptions": []
+        },
+        {
+          "pattern": "standing_orders/SO_*.md",
+          "type": "governance",
+          "protection": "master",
+          "description": "Standing orders (policy documents)",
+          "exceptions": ["standing_orders/archive/*"]
+        },
+        {
+          "pattern": "docs/*.md",
+          "type": "documentation",
+          "protection": "master",
+          "description": "Technical documentation",
+          "exceptions": ["docs/internal/*", "docs/training/*"]
+        },
+        {
+          "pattern": "docs/FILE_OWNERSHIP_REGISTRY.json",
+          "type": "governance",
+          "protection": "master",
+          "description": "This file: ownership registry",
+          "exceptions": []
+        },
+        {
+          "pattern": "config/**/*.{py,json,yaml}",
+          "type": "configuration",
+          "protection": "master",
+          "description": "System configuration files",
+          "exceptions": []
+        },
+        {
+          "pattern": ".pre-commit-config.yaml",
+          "type": "infrastructure",
+          "protection": "master",
+          "description": "Pre-commit hook configuration",
+          "exceptions": []
+        },
+        {
+          "pattern": "hooks/**/*.py",
+          "type": "infrastructure",
+          "protection": "master",
+          "description": "Git hooks and enforcement scripts",
+          "exceptions": []
+        },
+        {
+          "pattern": "Personas/**/*.md",
+          "type": "governance",
+          "protection": "master",
+          "description": "Persona files and role definitions",
+          "exceptions": ["Personas/memory/*", "Personas/archive/*"]
+        },
+        {
+          "pattern": "infra/**/*",
+          "type": "infrastructure",
+          "protection": "master",
+          "description": "Infrastructure and deployment files",
+          "exceptions": []
+        },
+        {
+          "pattern": ".github/workflows/*",
+          "type": "infrastructure",
+          "protection": "master",
+          "description": "CI/CD workflows",
+          "exceptions": []
+        },
+        {
+          "pattern": "dossiers/*/[A-Z]*.md",
+          "type": "dossier",
+          "protection": "master",
+          "description": "Dossier financial/data fields (Sterling owns non-experience sections)",
+          "exceptions": [
+            "dossiers/*/Excursion*.md",
+            "dossiers/*/Dining*.md",
+            "dossiers/*/Activity*.md",
+            "dossiers/*/Accessibility*.md",
+            "dossiers/*/Preferences*.md"
+          ]
+        }
+      ]
+    },
+    "Reyes": {
+      "id": "A8",
+      "title": "Experience Layer",
+      "role": "expert",
+      "authority": "Expert authority over client experience planning and execution",
+      "files": [
+        {
+          "pattern": "dossiers/*/Excursion*.md",
+          "type": "dossier",
+          "protection": "expert",
+          "description": "Excursion planning and selections",
+          "exceptions": []
+        },
+        {
+          "pattern": "dossiers/*/Dining*.md",
+          "type": "dossier",
+          "protection": "expert",
+          "description": "Dining venue selections and reservations",
+          "exceptions": []
+        },
+        {
+          "pattern": "dossiers/*/Activity*.md",
+          "type": "dossier",
+          "protection": "expert",
+          "description": "Activity planning and notes",
+          "exceptions": []
+        },
+        {
+          "pattern": "dossiers/*/Accessibility*.md",
+          "type": "dossier",
+          "protection": "expert",
+          "description": "Accessibility requirements and accommodations",
+          "exceptions": []
+        },
+        {
+          "pattern": "dossiers/*/Preferences*.md",
+          "type": "dossier",
+          "protection": "expert",
+          "description": "Passenger preferences and notes",
+          "exceptions": []
+        }
+      ]
+    },
+    "Hale": {
+      "id": "COS",
+      "title": "Chief of Staff / Operations",
+      "role": "coordinator",
+      "authority": "Coordinator authority over operational state and routing",
+      "files": [
+        {
+          "pattern": "hale_state.json",
+          "type": "state",
+          "protection": "coordinator",
+          "description": "Live operational state (tasks, staff assignments, health)",
+          "exceptions": []
+        },
+        {
+          "pattern": "hale_brief.md",
+          "type": "state",
+          "protection": "coordinator",
+          "description": "Daily briefing document",
+          "exceptions": []
+        },
+        {
+          "pattern": "hale_decisions.md",
+          "type": "state",
+          "protection": "coordinator",
+          "description": "Autonomous decisions log",
+          "exceptions": []
+        },
+        {
+          "pattern": "hale_memory.md",
+          "type": "state",
+          "protection": "coordinator",
+          "description": "Institutional memory notes",
+          "exceptions": []
+        },
+        {
+          "pattern": "OpsCenter/collaboration/*",
+          "type": "routing",
+          "protection": "coordinator",
+          "description": "Inter-team routing tickets and collaboration",
+          "exceptions": []
+        },
+        {
+          "pattern": "OpsCenter/session_context_latest.md",
+          "type": "state",
+          "protection": "coordinator",
+          "description": "Current session context snapshot",
+          "exceptions": []
+        },
+        {
+          "pattern": "logs/executor_results/*",
+          "type": "logging",
+          "protection": "coordinator",
+          "description": "Mission execution results and logs",
+          "exceptions": []
+        },
+        {
+          "pattern": "OpsCenter/mission_board.json",
+          "type": "state",
+          "protection": "coordinator",
+          "description": "Mission board state (not ELON creation; Hale owns state)",
+          "exceptions": []
+        }
+      ]
+    },
+    "ELON": {
+      "id": "A12",
+      "title": "Innovation / Curation",
+      "role": "curator",
+      "authority": "Curation authority over innovation proposals and mission framing",
+      "files": [
+        {
+          "pattern": "OpsCenter/elon_proposals/*",
+          "type": "proposal",
+          "protection": "curator",
+          "description": "Innovation proposals and incubator items",
+          "exceptions": []
+        }
+      ]
+    }
+  },
+  "protectionLevels": {
+    "master": "Only A7 Sterling can commit changes. All others denied by pre-commit hook.",
+    "expert": "A8 Reyes + A7 Sterling. Others denied by pre-commit hook.",
+    "coordinator": "Hale (COS) + authorized coordinators. Others denied by pre-commit hook.",
+    "curator": "A12 ELON. Others denied by pre-commit hook.",
+    "editorial": "No direct file writes. Editorial pass via review process only (Naia, Dani).",
+    "public": "All authors allowed. No protection."
+  },
+  "exceptions": {
+    "archived": "Files in */archive/* or .archive/ directories exempt from protection (retired material)",
+    "generated": "Files in output/*, logs/*, or data/* exempt from protection (auto-generated)",
+    "dependencies": "Third-party dependencies in .venv/*, node_modules/*, or similar exempt",
+    "drafts": "Files in drafts/* directory exempt (temporary working area)"
+  },
+  "editorialRoles": {
+    "Naia": {
+      "id": "EXEC",
+      "title": "Brand Director",
+      "authority": "Provides editorial brand/voice feedback. Does NOT commit files.",
+      "scope": [
+        "D2M/email_templates/*.html (review only)",
+        "Client-facing copy tone and consistency",
+        "Brand guideline compliance"
+      ],
+      "workflow": "Reviews drafts → provides feedback → original author incorporates feedback"
+    },
+    "Dani": {
+      "id": "A3",
+      "title": "Client Concierge",
+      "authority": "Provides editorial client-voice feedback. Does NOT commit files.",
+      "scope": [
+        "Client email voice and register",
+        "Client communication tone",
+        "Relationship management tone"
+      ],
+      "workflow": "Reviews drafts → provides feedback → original author incorporates feedback"
+    }
+  },
+  "specialCases": {
+    "dossiers": {
+      "rule": "Dossier ownership is SPLIT by section type",
+      "Sterling": "Client data, financial fields, booking references, dates",
+      "Reyes": "Experience items (Excursion, Dining, Activity, Accessibility, Preferences)",
+      "example": "dossiers/Kuklinski_Group_Viking.md can have Reyes-owned Excursion section AND Sterling-owned FPD section"
+    },
+    "missionBoard": {
+      "rule": "Mission board task CREATION is ELON's; task STATE is Hale's",
+      "ELON": "Creates/frames tasks (OpsCenter/elon_proposals/* for incubator)",
+      "Hale": "Manages task state changes (OpsCenter/mission_board.json)",
+      "remark": "ELON nominates; Hale executes state transitions"
+    },
+    "standingOrders": {
+      "rule": "SO authorship varies; publication is Sterling's",
+      "authors": "Various personas author SOs based on domain (e.g., A9 Harlan authors financial SOs)",
+      "Sterling": "Owns publication, retirement, compliance audits",
+      "remark": "Author writes SO content; Sterling publishes/retires"
+    }
+  },
+  "violationProtocol": {
+    "detection": "Pre-commit hook detects unauthorized commits",
+    "errorMessage": "❌ [file]: [protection level] file owned by [owner]. Author '[author]' not authorized.",
+    "resolution": [
+      "1. REVERT changes (git checkout <file>)",
+      "2. ROUTE to domain owner via PRODUCTION-LOCK ticket",
+      "3. OBTAIN Commander override (one-time, named task only)"
+    ],
+    "escalation": {
+      "first_violation": "Pre-commit hook blocks commit + clear error message",
+      "repeat_violation": "Sterling → Commander brief on governance failure",
+      "emergency_override": "Commander: 'Hale, execute [task] yourself.' (fires once)"
+    }
+  },
+  "deployment": {
+    "phase1": "2026-06-09 — Registry created, approved",
+    "phase2": "2026-06-16 — Pre-commit hook deployed (warning mode)",
+    "phase3": "2026-06-23 — Enforcement mode (hard reject)",
+    "phase4": "2026-06-30+ — Optional Unix group-based permissions (Layer 2)"
+  },
+  "audit": {
+    "frequency": "Weekly (Sterling, Sunday Baldrige sweep)",
+    "command": "git log --since=1.week --name-only | xargs -I {} python3 hooks/file-permission-pre-commit.py --audit {}",
+    "metric": "Unauthorized commits per week (target: 0)",
+    "report": "Monthly summary in Baldrige metrics + morning brief"
+  }
+}

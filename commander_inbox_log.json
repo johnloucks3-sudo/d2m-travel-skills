@@ -4858,5 +4858,125 @@
     "persona": "COS",
     "draft_id": null,
     "status": "tasked"
+  },
+  {
+    "timestamp": "2026-06-06T14:15:08.077608+00:00",
+    "msg_id": "19e9cfc03c65bc6a",
+    "subject": "THUNDERBIRD COMMAND BRIEF // Jun 06 \u2014 COS-APPROVED",
+    "sender": "",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "intake_monitoring"
+  },
+  {
+    "timestamp": "2026-06-06T14:15:09.076354+00:00",
+    "msg_id": "19e9cc4cc10211fc",
+    "subject": "HALE \u2014 DAILY BRIEF | 2026-06-06 06:00 MT",
+    "sender": "",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "intake_monitoring"
+  },
+  {
+    "timestamp": "2026-06-07T14:15:09.030281+00:00",
+    "msg_id": "19ea222b180c8ad5",
+    "subject": "THUNDERBIRD COMMAND BRIEF // Jun 07 \u2014 COS-APPROVED",
+    "sender": "",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "intake_monitoring"
+  },
+  {
+    "timestamp": "2026-06-07T14:15:10.119960+00:00",
+    "msg_id": "19ea1eb30816c900",
+    "subject": "HALE \u2014 DAILY BRIEF | 2026-06-07 06:00 MT",
+    "sender": "",
+    "classification": "booking_confirmation",
+    "persona": "A3",
+    "draft_id": null,
+    "status": "intake_monitoring"
+  },
+  {
+    "timestamp": "2026-06-08T14:15:40.610986+00:00",
+    "msg_id": "19ea74544fb24c93",
+    "subject": "(no subject)",
+    "sender": "",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "intake_monitoring"
+  },
+  {
+    "timestamp": "2026-06-08T14:15:41.613489+00:00",
+    "msg_id": "19ea74392d1cffaf",
+    "subject": "(no subject)",
+    "sender": "",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "intake_monitoring"
+  },
+  {
+    "timestamp": "2026-06-08T14:15:42.586429+00:00",
+    "msg_id": "19ea74346dd8c9ba",
+    "subject": "(no subject)",
+    "sender": "",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "intake_monitoring"
+  },
+  {
+    "timestamp": "2026-06-08T14:15:43.595685+00:00",
+    "msg_id": "19ea742fb0e1edcd",
+    "subject": "(no subject)",
+    "sender": "",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "intake_monitoring"
+  },
+  {
+    "timestamp": "2026-06-08T14:15:44.587291+00:00",
+    "msg_id": "19ea742817db4d85",
+    "subject": "(no subject)",
+    "sender": "",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "intake_monitoring"
+  },
+  {
+    "timestamp": "2026-06-08T14:15:45.592307+00:00",
+    "msg_id": "19ea7422908aaf43",
+    "subject": "(no subject)",
+    "sender": "",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "intake_monitoring"
+  },
+  {
+    "timestamp": "2026-06-08T14:15:46.581121+00:00",
+    "msg_id": "19ea741c25be2171",
+    "subject": "(no subject)",
+    "sender": "",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "intake_monitoring"
+  },
+  {
+    "timestamp": "2026-06-08T14:15:47.583197+00:00",
+    "msg_id": "19ea740c3b64f447",
+    "subject": "(no subject)",
+    "sender": "",
+    "classification": "intel",
+    "persona": "A2",
+    "draft_id": null,
+    "status": "intake_monitoring"
   }
 ]

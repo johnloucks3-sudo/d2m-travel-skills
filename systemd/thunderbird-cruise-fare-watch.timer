@@ -1,0 +1,21 @@
+[Unit]
+Description=Thunderbird Cruise Fare Watch Scanner — Weekly Timer
+Documentation=file:///home/john/Thunderbird/docs/CRUISE_FARE_WATCH_SETUP.md
+Requires=thunderbird-cruise-fare-watch.service
+
+[Timer]
+# Run every Monday at 0600 MT (6 AM Mountain Time)
+OnCalendar=Mon *-*-* 06:00:00
+Timezone=America/Denver
+
+# Fallback: If system was asleep, run as soon as it wakes
+Persistent=true
+
+# Run 5 minutes after boot as backup
+OnBootSec=5min
+
+# Create persistent timer across reboots
+Unit=thunderbird-cruise-fare-watch.service
+
+[Install]
+WantedBy=timers.target

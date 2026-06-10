@@ -252,6 +252,7 @@ flowchart TD
 | 2026-09-20 | E-90 All docs confirmed / Dining reservations open (Regent, 8pm ET) | TP 2.3 | ⏳ PENDING |
 | 2026-10-15 | Monthly Validation Oct | TP 2.2e | ⏳ PENDING |
 | 2026-11-15 | Monthly Validation Nov | TP 2.2f | ⏳ PENDING |
+| 2026-11-19 | **E-30 Embarkation Gift — ORDER by this date** | AR-3.0 | ⏳ PENDING |
 | 2026-11-28 | E-21 Pre-Voyage Brief / Online Check-In Opens | TP 3.1 | ⏳ PENDING |
 | 2026-12-05 | E-14 Regent milestone | — | ⏳ PENDING |
 | 2026-12-12 | E-7 Final Confirmation | TP 3.2 | ⏳ PENDING |

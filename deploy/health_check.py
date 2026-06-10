@@ -26,7 +26,7 @@ LOG_DIR.mkdir(exist_ok=True)
 SERVICES = [
     "d2m-mcp.service",
     "d2m-api.service",
-    "d2m-tunnel.service",
+    "thunderbird-tunnel.service",
     "d2m-scheduler.service",
 ]
 

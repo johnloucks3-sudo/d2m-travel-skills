@@ -56,6 +56,8 @@ SCOPES = [
     "https://www.googleapis.com/auth/tasks",
     # People / Contacts — read and write contact records
     "https://www.googleapis.com/auth/contacts",
+    # Photos Library — list albums, search and read media items
+    "https://www.googleapis.com/auth/photoslibrary.readonly",
 ]
 
 # ---------------------------------------------------------------------------
@@ -263,6 +265,19 @@ def get_tasks():
 def get_people():
     """Return authenticated People API v1 service."""
     return build("people", "v1", credentials=get_credentials())
+
+
+def get_photos():
+    """Google Photos Library API client.
+
+    Uses static_discovery=False because Google does not publish a
+    discovery document for the Photos Library API.
+    """
+    return build(
+        "photoslibrary", "v1",
+        credentials=get_credentials(),
+        static_discovery=False,
+    )
 
 
 # ---------------------------------------------------------------------------

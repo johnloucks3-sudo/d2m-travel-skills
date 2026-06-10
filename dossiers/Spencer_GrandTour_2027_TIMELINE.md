@@ -45,11 +45,11 @@ Mike Yaggi 50th birthday (May 6) · **Kathleen's 72nd birthday = Jun 12 = depart
 
 | Item | Window (Jul-7 start) | Status |
 |---|---|---|
-| Flight quotes — 3 groups, both classes (refresh) | ~Jul 7–11, 2026 | prior quotes on file (Spencer_FlightQuotes_DMC_2027) |
+| Flight quotes — 3 groups, both classes (refresh) | ~Jul 7–11, 2026 | prior quotes on file (Spencer_FlightQuotes_DMC_2027) · United Group Desk call **DEFERRED — pending lunch** |
 | Full package — hotels, transfers, insurance options | ~mid-Jul 2026 | in planning |
 | Review call w/ Bill & Kathleen | late Jul 2026 | unconfirmed |
 | Submit to clients for decision | late Jul / early Aug 2026 | — |
-| Lunch (Bill, Kathleen, John, Susie) | **NO DATE SET — TBD** | not scheduled |
+| Lunch (Bill, Kathleen, John, Susie) | **TARGETING NEXT WEEK (Jun 15–19)** | pre-lunch email staged 2026-06-10 → WF-17 → Commander sends |
 
 > Delay note: pushing Phase A to Jul 7 does **not** worsen the insurance window (if that
 > clock started on the ~May 4 deposit it's already closed — confirm regardless) and still

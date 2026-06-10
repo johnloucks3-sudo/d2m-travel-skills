@@ -25,7 +25,7 @@ echo "=== Starting n8n ==="
 systemctl enable --now n8n.service
 
 echo "=== Restarting cloudflared tunnel (picks up new n8n route) ==="
-systemctl restart d2m-tunnel.service 2>/dev/null || echo "  (tunnel service not found — restart cloudflared manually)"
+systemctl --user restart thunderbird-tunnel.service 2>/dev/null || echo "  (tunnel service not found — restart cloudflared manually)"
 
 echo "=== Enabling batch timer ==="
 systemctl enable --now thunderbird-batch.timer
