@@ -378,20 +378,27 @@ try:
                     log_line(f"  d2mc skip (Fwd:): {d_subject[:60]}")
                     continue
 
-                # Re: replies — allow substantive follow-ups but skip short acks.
-                # "thanks" / "got it" / "ok" should not re-trigger a full dispatch.
-                # Rule: Re: + body < 15 words + no command prefix → acknowledgment, skip.
-                # Real follow-up questions are longer or carry a command prefix.
+                # Re: replies — skip pure acknowledgments, dispatch everything else.
+                # Match a tight list of ack phrases. Any real question or instruction
+                # won't match and will dispatch normally.
                 if _clean_sub.startswith("re:"):
-                    _word_count = len(d_body.split())
-                    _has_cmd = has_command_prefix_in_subject(d_subject) or has_command_prefix_in_body(d_body)
-                    if _word_count < 15 and not _has_cmd:
+                    _ACK_PHRASES = {
+                        "thanks", "thank you", "thx", "ty",
+                        "ok", "okay", "ok.", "okay.",
+                        "got it", "got it.", "gotcha",
+                        "perfect", "perfect.", "great", "great.",
+                        "sounds good", "sounds good.", "will do",
+                        "noted", "understood", "received",
+                        "👍", "✅",
+                    }
+                    _body_stripped = d_body.strip().lower().rstrip("!")
+                    if _body_stripped in _ACK_PHRASES:
                         if d2mc_label_id:
                             d2mc_service.users().messages().modify(
                                 userId="me", id=d_msg_id,
                                 body={"addLabelIds": [d2mc_label_id]}
                             ).execute()
-                        log_line(f"  d2mc skip (Re: ack {_word_count}w): {d_subject[:60]}")
+                        log_line(f"  d2mc skip (Re: ack): {d_subject[:60]}")
                         continue
 
                 log_line(f"  D2MC DIRECTIVE: {d_subject[:80]}")
