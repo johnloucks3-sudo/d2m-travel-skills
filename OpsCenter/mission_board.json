@@ -3253,6 +3253,30 @@
       ],
       "created_at": "2026-06-10T20:02:49.681823+00:00",
       "updated_at": "2026-06-10T20:02:49.681823+00:00"
+    },
+    {
+      "id": "MISSION-182",
+      "title": "Inbox flood KILLED \u2014 retired rogue echo scanner (thunderbird_email_scanner_fixed)",
+      "status": "completed",
+      "priority": "P0",
+      "assigned_to": "HALE Opus (Claude Code)",
+      "description": "ROOT CAUSE of the 'Task completed by...' inbox flood (johnloucks3 + d2mconcierge). core/email/thunderbird_email_scanner_fixed.py send_reply() fired a 'Task completed by [persona]. Original email: ...' receipt for EVERY email it scanned, including the wing's own internal emails (T2 exercise, sweep-fix) and its own echoes -> loop -> 460+ emails. Run by d2m-email-scanner.timer (was enabled/active) + d2m-email-ingest.service. This is a REDUNDANT competing system to the canonical directive sweep (run_commander_directive_sweep.py). FIX: stopped+disabled+renamed .DISABLED the timer and both services (~/.config/systemd/user/). Trashed 460 echoes from johnloucks3 + 3 from d2mconcierge. MUST STAY DEAD \u2014 do not re-enable d2m-email-scanner/d2m-email-ingest. inbox-hygiene is the cleanup tool, not the source.",
+      "deliverables": [
+        "Scanner retired (.DISABLED)",
+        "460+ echoes trashed",
+        "No active echo timer/process"
+      ],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": "If echoes return, check d2m-email-scanner.timer + any watchdog re-enabling timers.",
+      "logs": [
+        {
+          "ts": "2026-06-10T20:08:38.370787+00:00",
+          "msg": "Flood killed: scanner retired, 463 echoes trashed, verified no live caller/timer/process."
+        }
+      ],
+      "created_at": "2026-06-10T20:08:38.370787+00:00",
+      "updated_at": "2026-06-10T20:08:38.370787+00:00"
     }
   ],
   "suspense_watch": [
