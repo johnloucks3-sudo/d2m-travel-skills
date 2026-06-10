@@ -1264,7 +1264,10 @@ def register_gmail_tools(mcp):
         When from_persona is set, uses the D2M persona display name with concierge@d2mluxury.quest as the From address.
         """
         try:
-            service = _get_gmail_service()
+            # MISSION-180: align with gmail_create_draft_sync — stage client drafts
+            # in d2mconcierge, fail loud on wrong account.
+            service = _get_wing_gmail_service()
+            _assert_wing_account(service)
 
             # Lane 1 (Edit Lane): plain draft only — no stationery template.
             # Template is applied at publish time via publish_draft() so Gmail compose
@@ -1310,6 +1313,8 @@ def register_gmail_tools(mcp):
                 pid = from_persona.upper()
                 display_name = PERSONA_DISPLAY_NAMES[pid]
                 from_addr = COMMANDER_D2M_EMAIL if pid == "COMMANDER" else D2M_FROM_ADDRESS
+                # Branded alias only if verified on d2mconcierge; else fall back.
+                from_addr = _resolve_wing_from(service, from_addr)
                 message["from"] = f'"{display_name}" <{from_addr}>'
                 message["reply-to"] = COMMANDER_EMAIL
             else:
