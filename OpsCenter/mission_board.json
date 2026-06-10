@@ -3218,10 +3218,14 @@
         {
           "ts": "2026-06-10T19:17:18.634733+00:00",
           "msg": "Commander chose Option 1. EXECUTED+TESTED: gmail_create_draft_sync repointed to d2mconcierge w/ fail-loud account guard + adaptive branded-From. Test draft staged in d2mconcierge then deleted (no send). Telegram never-substitute fix committed + persisted to memory. PENDING COMMANDER: add concierge@d2mluxury.quest send-as alias to d2mconcierge in Gmail Settings (re-auth did not add it). FOLLOW-ON: MCP gmail_create_draft still drifted (general tool \u2014 fix or deprecate for client use)."
+        },
+        {
+          "ts": "2026-06-10T19:29:04.961081+00:00",
+          "msg": "MCP gmail_create_draft aligned with sync fix (d2mconcierge + fail-loud + adaptive From), tested. MCP EQUIVALENCE MAP: 4/5 platforms at full MCP parity via ~/.claude/mcp.json headless-spawn default \u2014 Claude Code (interactive), Email sweep (1800s agentic), Signal (spawn_headless_claude), OpenCode (own dreams2memories + /ask-haiku full-MCP spawn). Telegram is the bounded outlier: call_claude_engine passes NO mcp-config, 60s text, agentic dispatcher force-disabled (_HALE_DISPATCHER_AVAILABLE=False, disabled because sync spawn blocked poll loop). Recommend async background delegation as the proper fix \u2014 NOT cramming MCP into the per-message hot path of the Commander's primary C2 channel. Password for concierge send-as = Gmail App Password (smtp.gmail.com) not the account password. SECURITY: config/roboform_d2mconcierge_password.txt is plaintext-committed \u2014 rotate/clean."
         }
       ],
       "created_at": "2026-06-10T18:57:36.186104+00:00",
-      "updated_at": "2026-06-10T19:17:18.634733+00:00"
+      "updated_at": "2026-06-10T19:29:04.961081+00:00"
     }
   ],
   "suspense_watch": [
