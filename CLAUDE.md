@@ -51,6 +51,14 @@ Hale:      🦅 STAFF COMMENTS QUERY
 
 **Standing order:** SO-2026-06-09 (MISSION-172 Closure)
 
+## EOD BRIEF + INCUBATOR PROTOCOL (SO-EOD-INCUBATOR-20260610)
+**Full SO:** `standing_orders/SO_EOD_INCUBATOR_PROTOCOL_20260610.md`
+- **1730 MT** — Telegram nomination ping (3 sectors). 5-min window. No reply = Wing executes.
+- **1800 MT** — EOD brief → johnloucks3. 4 sections: Before You Sleep / What We Did Today (prose) / Tonight's Search / Overnight Queue.
+- **Overnight** — Wing builds gate-passing incubator candidate. AM brief surfaces results.
+- **10 sectors** (A–J): Claude Code · OpenCode · CC/OC Aug · Agentic Apps · GitHub · LLM · Travel B2B · Voice · Competitor · CRM. Rotate 3/night.
+- **Config:** `OpsCenter/eod_incubator_config.json` · Scripts: `agents/thunderbird_eod_brief.py` + `agents/thunderbird_1730_nomination.py`
+
 ## LOAD ON DEMAND (Reference — Read tool when needed)
 - docs/HALE_SESSION_OPEN_CHECKLIST.md  — Read at session start (COS mode setup)
 - hale_session_state.md                — Read if resuming from prior session
