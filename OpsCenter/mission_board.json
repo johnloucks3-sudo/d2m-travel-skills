@@ -3214,10 +3214,14 @@
         {
           "ts": "2026-06-10T19:04:53.347270+00:00",
           "msg": "Parallel audit complete (3 agents). EXECUTED: Dani\u2192Hale public exposure closed (security, committed). FINDINGS: (1) Email drift CONFIRMED \u2014 gmail_token.json auths johnloucks3 not d2mconcierge; main client-draft funcs land drafts in johnloucks3 (SO violation); concierge alias is on johnloucks3 not d2mconcierge; d2mconcierge token revoked. NEEDS COMMANDER DECISION on From strategy + re-auth. (2) Dani personas clean, MISSION-179 didn't affect Dani. (3) Board: CC+OC aware; Telegram/Signal see hale_state mirror only; email sweep blind. Relay: reaches CC+OC via Telegram channel; Telegram/Signal NOT relay recipients; today's parity relays DID land + OC acked. PARKED as options: relay fan-out to thin channels, board\u2192mirror sync, OC reads opencode_inbox. Dani model label (Sonnet vs actual Haiku) = Commander cost/quality call."
+        },
+        {
+          "ts": "2026-06-10T19:17:18.634733+00:00",
+          "msg": "Commander chose Option 1. EXECUTED+TESTED: gmail_create_draft_sync repointed to d2mconcierge w/ fail-loud account guard + adaptive branded-From. Test draft staged in d2mconcierge then deleted (no send). Telegram never-substitute fix committed + persisted to memory. PENDING COMMANDER: add concierge@d2mluxury.quest send-as alias to d2mconcierge in Gmail Settings (re-auth did not add it). FOLLOW-ON: MCP gmail_create_draft still drifted (general tool \u2014 fix or deprecate for client use)."
         }
       ],
       "created_at": "2026-06-10T18:57:36.186104+00:00",
-      "updated_at": "2026-06-10T19:04:53.347270+00:00"
+      "updated_at": "2026-06-10T19:17:18.634733+00:00"
     }
   ],
   "suspense_watch": [
