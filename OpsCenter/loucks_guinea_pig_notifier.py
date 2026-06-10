@@ -18,6 +18,7 @@ from datetime import date, timedelta, datetime
 ROOT = Path("/home/john/Thunderbird")
 SCHEDULE_FILE = ROOT / "OpsCenter" / "loucks_guinea_pig_schedule.json"
 ALERTS_FILE   = ROOT / "OpsCenter" / "loucks_advance_alerts.json"
+INBOX_FILE    = ROOT / "OpsCenter" / "collaboration" / "claude_inbox.md"
 ENV_FILE      = ROOT / ".env"
 
 
@@ -131,6 +132,8 @@ def main():
 
     # Write alerts file for morning brief pickup
     _write_alerts(matching, tomorrow_str)
+    # Pre-staging doctrine: write Wing prep request to claude_inbox.md
+    _write_inbox_request(matching, tomorrow_str)
 
     if failed:
         print(f"[WARN] Failed to send: {failed}", file=sys.stderr)
@@ -160,6 +163,41 @@ def _write_alerts(events: list, for_date: str) -> None:
         ]
     }
     ALERTS_FILE.write_text(json.dumps(alerts, indent=2))
+
+
+def _write_inbox_request(events: list, for_date: str) -> None:
+    """Append Wing prep requests to claude_inbox.md for morning session pickup.
+
+    Pre-staging doctrine (Commander directive 2026-06-10):
+    Wing prepares support items BEFORE the TP fires — not reactively during Commander's session.
+    """
+    if not events:
+        return
+
+    ts = datetime.now().strftime("%Y-%m-%d %H:%M")
+    lines = [
+        f"\n---",
+        f"## GUINEA PIG PRE-STAGE — {ts} MT",
+        f"*{len(events)} TP(s) fire tomorrow ({for_date}). Hale: assess and prep Wing support before Commander's session.*\n",
+    ]
+
+    for e in events:
+        urgency = e.get("urgency", "P1")
+        lines.append(f"**[{urgency}] {e.get('tp', '')} — {e.get('label', '')}**")
+        lines.append(f"- Trip: {e.get('trip', '')}")
+        lines.append(f"- Fire date: {e.get('fire_date', '')}")
+        if e.get("notes"):
+            lines.append(f"- Context: {e.get('notes')}")
+        lines.append(f"- **Hale action**: Review what Wing can pre-complete, stage, or surface so Commander's session is execution-ready, not discovery-mode.")
+        lines.append("")
+
+    lines.append("*— loucks_guinea_pig_notifier · pre-staging doctrine 2026-06-10*\n")
+
+    if INBOX_FILE.exists():
+        with open(INBOX_FILE, "a") as f:
+            f.write("\n".join(lines))
+    else:
+        INBOX_FILE.write_text("\n".join(lines))
 
 
 if __name__ == "__main__":
