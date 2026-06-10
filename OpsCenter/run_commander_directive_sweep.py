@@ -366,17 +366,17 @@ try:
                         ).execute()
                     continue
 
-                # Block Re: and Fwd: — conversational replies to Hale and forwarded
-                # FYI emails are not Commander directives. Loop fix: prevents Hale's
-                # reply landing back in d2mc inbox from triggering another dispatch.
+                # Block Fwd: only — forwarded FYI emails (booking confirmations,
+                # airline emails, etc.) are for filing, not for Hale to respond to.
+                # Re: (conversational replies) are intentional and should dispatch.
                 _clean_sub = d_subject.lstrip().lower()
-                if _clean_sub.startswith("re:") or _clean_sub.startswith("fwd:") or _clean_sub.startswith("fw:"):
+                if _clean_sub.startswith("fwd:") or _clean_sub.startswith("fw:"):
                     if d2mc_label_id:
                         d2mc_service.users().messages().modify(
                             userId="me", id=d_msg_id,
                             body={"addLabelIds": [d2mc_label_id]}
                         ).execute()
-                    log_line(f"  d2mc skip (Re:/Fwd:): {d_subject[:60]}")
+                    log_line(f"  d2mc skip (Fwd:): {d_subject[:60]}")
                     continue
 
                 log_line(f"  D2MC DIRECTIVE: {d_subject[:80]}")
