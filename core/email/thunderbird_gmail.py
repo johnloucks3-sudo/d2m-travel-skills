@@ -769,8 +769,10 @@ def _get_persona_avatar_uri(persona_id: str) -> str:
     return ""
 
 
-def _get_persona_sig_html(persona_id: str) -> str:
+def _get_persona_sig_html(persona_id: Optional[str]) -> str:
     """Return HTML sig block for any Wing persona with avatar. Empty string if no registry entry."""
+    if not persona_id:
+        return ""
     pid = persona_id.upper()
     info = _PERSONA_SIG_REGISTRY.get(pid)
     if not info:
@@ -1924,6 +1926,81 @@ def register_gmail_tools(mcp):
         except HttpError as e:
             return json.dumps({"status": "error", "error": str(e)})
 
+    # ------------------------------------------------------------------ #
+    # COS↔Commander email chat tools (SO-2026-06-07)
+    # ------------------------------------------------------------------ #
+    # These wrap the synchronous module-level functions (gmail_reply_in_thread
+    # and gmail_send_from_wing defined above) so MCP can call them by name
+    # without shadow ambiguity inside the closure.
+
+    import functools as _ft
+
+    @mcp.tool(
+        name="gmail_reply_in_thread",
+        annotations={
+            "title": "Reply in Email Thread",
+            "readOnlyHint": False,
+        }
+    )
+    @_retry_on_error
+    async def _mcp_reply_in_thread(
+        thread_id: str = Field(..., description="Gmail thread ID — places message in existing thread."),
+        in_reply_to: str = Field(..., description="RFC 2822 Message-ID of the email being replied to."),
+        subject: str = Field(..., description='Subject line ("Re: " prefix added automatically if absent).'),
+        body: str = Field(..., description="Plain-text body of the reply."),
+        html_body: Optional[str] = Field(None, description="Optional HTML body with wing stationery."),
+        persona_id: str = Field("COS", description='Sending persona (default: COS / Victory Hale).'),
+        to: str = Field("johnloucks3@gmail.com", description="Commander email address."),
+    ) -> str:
+        """Send a thread-aware reply FROM d2mconcierge TO Commander.
+
+        Sets In-Reply-To + References headers so Gmail nests the reply in the
+        correct conversation thread.  This is COS's primary email C2 channel
+        for back-and-forth chat with Commander.
+
+        SAFETY: Only sends to Commander-owned addresses (johnloucks3@gmail.com,
+        john@d2mluxury.quest).  Never to clients.  Guard enforced in call.
+        """
+        _fn = _ft.partial(gmail_reply_in_thread, thread_id=thread_id, in_reply_to=in_reply_to,
+                         subject=subject, body=body, html_body=html_body,
+                         persona_id=persona_id, to=to)
+        try:
+            return json.dumps(_fn(), indent=2)
+        except Exception as e:
+            logger.error(f"gmail_reply_in_thread error: {e}")
+            return json.dumps({"status": "error", "error": str(e)})
+
+    @mcp.tool(
+        name="gmail_send_from_wing",
+        annotations={
+            "title": "Send Email from Wing to Commander",
+            "readOnlyHint": False,
+        }
+    )
+    @_retry_on_error
+    async def _mcp_send_from_wing(
+        subject: str = Field(..., description="Email subject line."),
+        body: str = Field(..., description="Plain-text or simple HTML body."),
+        to: str = Field("johnloucks3@gmail.com", description="Commander email address."),
+        persona_id: str = Field("COS", description='Sending persona (default: COS). Options: COS, A2, A3, EXEC, A5, A9.'),
+        cc: Optional[str] = Field(None, description="Optional comma-separated CC addresses."),
+    ) -> str:
+        """Send a new email FROM d2mconcierge TO Commander (within-wing only).
+
+        Primary channel for Wing persona → Commander communication.
+        Does NOT create a draft — sends directly to Commander.
+
+        SAFETY: Only sends to Commander-owned addresses.  Not for client-facing
+        email (use gmail_send_as_persona + WF-17 gate for clients).
+        """
+        _fn = _ft.partial(gmail_send_from_wing, to=to, subject=subject, body=body,
+                         persona_id=persona_id, cc=cc)
+        try:
+            return json.dumps(_fn(), indent=2)
+        except Exception as e:
+            logger.error(f"gmail_send_from_wing error: {e}")
+            return json.dumps({"status": "error", "error": str(e)})
+
     logger.info("Gmail tools registered successfully (including Send As persona tools + email management)")
 
 
@@ -2730,6 +2807,8 @@ def gmail_create_draft_sync(
     body: str,
     from_address: str = "concierge@d2mluxury.quest",
     label_review: bool = True,
+    cc: Optional[str] = None,
+    attachment_paths: Optional[List[str]] = None,
     # A8 — WF-17 deep-link Telegram notification fields
     notify_telegram: bool = False,
     persona_display: str = "D2M Concierge",
@@ -2741,6 +2820,9 @@ def gmail_create_draft_sync(
     Used by n8n workflows to stage Intel / Tech drafts for Commander review.
     Applies THUNDERBIRD-Commander-Review label by default.
     Returns dict with draft_id, message_id, subject, and status.
+
+    cc: optional comma-separated CC addresses
+    attachment_paths: list of absolute file paths to attach (text, HTML, PDF, images)
 
     A8 Extension — WF-17 deep-link Telegram notification:
         notify_telegram: if True, push draft alert to Commander via Telegram
@@ -2754,12 +2836,42 @@ def gmail_create_draft_sync(
 
     service = _get_gmail_service()
 
-    msg = MIMEMultipart("alternative")
+    stripped = body.strip()
+    html_body = _wrap_body_html(body) if not (
+        stripped.lower().startswith("<!doctype") or stripped.lower().startswith("<html")
+    ) else body
+
+    alt = MIMEMultipart("alternative")
+    alt.attach(MIMEText(body if not stripped.lower().startswith("<") else _strip_html(stripped), "plain"))
+    alt.attach(MIMEText(html_body, "html"))
+
+    attached_files: List[str] = []
+    if attachment_paths:
+        msg = MIMEMultipart("mixed")
+        msg.attach(alt)
+        for path_str in attachment_paths:
+            fp = Path(path_str)
+            if not fp.is_file():
+                logger.warning(f"gmail_create_draft_sync: attachment not found — {fp}")
+                continue
+            content_type, _ = mimetypes.guess_type(str(fp))
+            if content_type is None:
+                content_type = "application/octet-stream"
+            main_type, sub_type = content_type.split("/", 1)
+            att = MIMEBase(main_type, sub_type)
+            att.set_payload(fp.read_bytes())
+            encoders.encode_base64(att)
+            att.add_header("Content-Disposition", "attachment", filename=fp.name)
+            msg.attach(att)
+            attached_files.append(fp.name)
+    else:
+        msg = alt
+
     msg["to"] = to
     msg["from"] = from_address
     msg["subject"] = subject
-    msg.attach(MIMEText(body, "plain"))
-    msg.attach(MIMEText(_wrap_body_html(body), "html"))
+    if cc:
+        msg["cc"] = cc
 
     raw = _b64.urlsafe_b64encode(msg.as_bytes()).decode()
     draft = service.users().drafts().create(
@@ -2783,6 +2895,8 @@ def gmail_create_draft_sync(
         "message_id": message_id,
         "subject": subject,
         "to": to,
+        "cc": cc or "",
+        "attachments": attached_files,
         "label_applied": label_review,
         "gmail_deep_link": (
             f"https://mail.google.com/mail/b/{USER_EMAIL}/#drafts/{message_id}"
