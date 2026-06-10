@@ -3174,10 +3174,14 @@
         {
           "ts": "2026-06-10T18:31:11.666524+00:00",
           "msg": "Mission created. Audit complete (5 recon agents). Phase 1 starting. Commander directing; protected-file override active."
+        },
+        {
+          "ts": "2026-06-10T18:37:39.897550+00:00",
+          "msg": "P1 COMPLETE (commit 76e4ee7c): gates restored to Telegram+Signal via compact loader; both services restarted healthy. P3 COMPLETE: brevity protocol promoted into hale_cos.md Layer 4, propagates via loader. REMAINING: P2 (wire email sweep + OpenCode through loader; regenerate AGENTS.md), P4 (state reads, retire dead units, secrets to env)."
         }
       ],
       "created_at": "2026-06-10T18:31:11.666524+00:00",
-      "updated_at": "2026-06-10T18:31:11.666524+00:00"
+      "updated_at": "2026-06-10T18:37:39.897550+00:00"
     }
   ],
   "suspense_watch": [
