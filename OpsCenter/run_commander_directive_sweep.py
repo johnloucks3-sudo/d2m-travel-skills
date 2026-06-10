@@ -42,7 +42,7 @@ for sub in (ROOT / "core").iterdir():
 from OpsCenter.sweep_tracker import SweepTracker
 
 PROCESSED_LABEL = "THUNDERBIRD-Scanned"
-COMMANDER_QUERY = f"from:johnloucks3@gmail.com -label:{PROCESSED_LABEL} newer_than:7d"
+COMMANDER_QUERY = f"from:johnloucks3@gmail.com -label:{PROCESSED_LABEL} newer_than:1d"
 SCRIPTS_LOG = ROOT / "logs" / "commander_directive_sweep.log"
 THREAD_STATE_FILE = ROOT / "logs" / "commander_directive_threads.json"
 
@@ -104,23 +104,42 @@ try:
     from google.oauth2.credentials import Credentials
     from googleapiclient.discovery import build
 
-    token_file = ROOT / "gmail_token.json"
-    if not token_file.exists():
-        log_line("d2mconcierge token not found — skipping")
+    # johnloucks3 token — scans Commander's sent mail for emails TO d2mconcierge
+    jl3_token_file = ROOT / "gmail_token.json"
+    if not jl3_token_file.exists():
+        log_line("johnloucks3 token not found — skipping")
         sys.exit(0)
 
-    creds = Credentials.from_authorized_user_file(str(token_file))
+    creds = Credentials.from_authorized_user_file(str(jl3_token_file))
     if creds.expired and creds.refresh_token:
         creds.refresh(Request())
-        token_file.write_text(creds.to_json())
+        jl3_token_file.write_text(creds.to_json())
     if not creds.valid:
-        log_line("d2mconcierge token invalid — skipping")
+        log_line("johnloucks3 token invalid — skipping")
         sys.exit(0)
 
     service = build("gmail", "v1", credentials=creds)
 
-    # Fetch individual messages (not threads) — metadata-first for speed.
-    # Paginate to catch all results (50-message limit would miss older commands).
+    # d2mconcierge token — scans d2mconcierge inbox for self-sends (d2m→d2m)
+    d2mc_token_file = ROOT / "config" / "persona_gmail_token.json"
+    d2mc_service = None
+    if d2mc_token_file.exists():
+        try:
+            d2mc_creds = Credentials.from_authorized_user_file(str(d2mc_token_file))
+            if d2mc_creds.expired and d2mc_creds.refresh_token:
+                d2mc_creds.refresh(Request())
+                d2mc_token_file.write_text(d2mc_creds.to_json())
+            if d2mc_creds.valid:
+                d2mc_service = build("gmail", "v1", credentials=d2mc_creds)
+        except Exception as e:
+            log_line(f"d2mconcierge token load failed: {e}")
+
+    # Collect messages from both accounts
+    # 1. johnloucks3 sent to d2mconcierge (from:johnloucks3, any unread in sent)
+    # 2. d2mconcierge inbox unread (self-sends or Commander emails via d2mc)
+    D2MC_QUERY = f"from:johnloucks3@gmail.com -label:{PROCESSED_LABEL} newer_than:1d"
+    D2MC_SELF_QUERY = f"in:inbox -label:{PROCESSED_LABEL} newer_than:1d"
+
     all_msgs = []
     _page_token = None
     while True:
@@ -132,7 +151,18 @@ try:
         _page_token = _page.get("nextPageToken")
         if not _page_token:
             break
-    log_line(f"found {len(all_msgs)} messages from Commander in d2mconcierge")
+
+    # Also collect from d2mconcierge inbox if token available
+    d2mc_msgs = []
+    if d2mc_service:
+        try:
+            _d2mc_page = d2mc_service.users().messages().list(
+                userId="me", q=D2MC_SELF_QUERY, maxResults=20
+            ).execute()
+            d2mc_msgs = _d2mc_page.get("messages", [])
+        except Exception as e:
+            log_line(f"d2mconcierge inbox scan failed: {e}")
+    log_line(f"found {len(all_msgs)} jl3 msgs + {len(d2mc_msgs)} d2mc inbox msgs")
 
     # Load previously identified directive thread IDs
     directive_thread_ids = load_thread_state()
@@ -154,8 +184,6 @@ try:
             label_id = lbl["id"]
     except Exception:
         pass
-
-    from core.email.thunderbird_commander_inbox import _notify_cos
 
     def _decode_text(payload):
         """Recursively extract text/plain from any MIME nesting depth."""
@@ -202,6 +230,7 @@ try:
             full_hdrs = {h["name"]: h["value"] for h in msg_full["payload"]["headers"]}
             to_addr = full_hdrs.get("To", "")
             cc_addr = full_hdrs.get("Cc", "")
+            msg_id_header = full_hdrs.get("Message-ID", "")
             body_text = _decode_text(msg_full["payload"])
             thread_id = msg_full.get("threadId", thread_id)
         except Exception as e:
@@ -213,99 +242,9 @@ try:
         d2m_is_cc = "d2mconcierge" in cc_addr.lower() or "d2mluxury" in cc_addr.lower()
         d2m_is_to = "d2mconcierge" in to_addr.lower() or "d2mluxury" in to_addr.lower()
 
-        # Only process if Commander explicitly directed d2m or used a command prefix.
-        # - has_prefix:  COS:/COO:/HALE: at start of subject or body
-        # - d2m_is_cc:   Commander CC'd d2mconcierge on a client/3rd-party email
-        # - d2m_is_to:   Commander sent directly TO d2mconcierge
-        # This filters out wing receipts (FROM johnloucks3 via send-as, TO johnloucks3)
-        # and unrelated self-sends that happen to flow through d2mconcierge.
+        # Skip emails not addressed to d2m and without a command prefix.
+        # Apply label even on skip so non-directive d2m emails drain from the queue.
         if not has_prefix and not d2m_is_cc and not d2m_is_to:
-            continue
-
-        # Every Commander email that reaches here gets processed
-        thread_is_directive = True
-
-        if thread_is_directive:
-            new_directive_ids.add(thread_id)
-            log_line(f"  DIRECTIVE ({'thread' if thread_id in directive_thread_ids else 'new'}): {subject[:80]}")
-
-            # body_text already extracted correctly above via _decode_text()
-
-            # ── Dispatch to Claude headless for execution ────────────────────────
-            try:
-                import subprocess as _sp
-                import tempfile as _tf
-                import time as _time
-
-                ts = int(_time.time())
-                out_file = ROOT / f"output/directive_{ts}.md"
-                out_file.parent.mkdir(parents=True, exist_ok=True)
-
-                # Routing hint for Claude based on email type
-                if has_prefix:
-                    routing_hint = (
-                        "This email has a COS/COO/HALE command prefix — treat as a direct "
-                        "tasking to the Wing. Execute the command fully."
-                    )
-                elif d2m_is_cc:
-                    routing_hint = (
-                        "Commander CC'd d2mconcierge on this email (likely sent to a client "
-                        "or third party). Route to Dani (A3) — note any commitments made, "
-                        "update the client dossier if relevant, and flag any follow-up needed."
-                    )
-                else:
-                    routing_hint = (
-                        "Commander sent this email to d2mconcierge. Classify it: if it "
-                        "contains a task or question, execute it. If it is forwarding "
-                        "information, summarize and route to the right persona."
-                    )
-
-                task_prompt = (
-                    f"Commander John Loucks sent this email to the Wing.\n\n"
-                    f"FROM: johnloucks3@gmail.com\n"
-                    f"TO: {to_addr[:200]}\n"
-                    f"CC: {cc_addr[:200]}\n"
-                    f"Subject: {subject}\n\n"
-                    f"Body:\n{body_text[:3000]}\n\n"
-                    f"ROUTING CONTEXT: {routing_hint}\n\n"
-                    f"Produce a complete Wing response. Sign as: — V. Hale, VCS | Thunderbird Wing\n\n"
-                    f"WRITE your complete response to {out_file}"
-                )
-
-                _sp.Popen(
-                    [
-                        sys.executable,
-                        str(ROOT / "OpsCenter/dispatch_claude.py"),
-                        "--task", f"directive-{ts}",
-                        "--output", str(out_file),
-                        "--prompt", task_prompt,
-                        "--model", "sonnet",
-                    ],
-                    stdout=open(ROOT / f"logs/directive_{ts}.log", "w"),
-                    stderr=subprocess.STDOUT,
-                    start_new_session=True,
-                    cwd=str(ROOT),
-                )
-                log_line(f"  dispatched to Claude — output: {out_file}")
-            except Exception as e:
-                log_line(f"  dispatch failed: {e}")
-
-            # ── Telegram notification ────────────────────────────────────────────
-            try:
-                _notify_cos(
-                    classification="commander_directive",
-                    sender="johnloucks3@gmail.com",
-                    subject=subject,
-                    persona_id="COS",
-                    draft_id=None,
-                    persona_note=f"⚡ COMMANDER DIRECTIVE — dispatched to Claude\n\n"
-                                 f"Subject: {subject}\n\n"
-                                 f"Body preview: {body_text[:200]}"
-                )
-            except Exception as e:
-                log_line(f"  notify failed: {e}")
-
-            # ── Apply processed label ────────────────────────────────────────────
             if label_id:
                 try:
                     service.users().messages().modify(
@@ -314,13 +253,174 @@ try:
                     ).execute()
                 except Exception:
                     pass
+            continue
 
-            tasked += 1
+        # If email is directly TO d2mconcierge, skip jl3 dispatch — d2mc path handles
+        # it with the correct thread_id. Label to drain from jl3 queue.
+        if d2m_is_to and not d2m_is_cc:
+            if label_id:
+                try:
+                    service.users().messages().modify(
+                        userId="me", id=msg_id,
+                        body={"addLabelIds": [label_id]}
+                    ).execute()
+                except Exception:
+                    pass
+            continue
+
+        # Every Commander email that reaches here gets dispatched (CC'd or prefix-only)
+        new_directive_ids.add(thread_id)
+        log_line(f"  DIRECTIVE ({'thread' if thread_id in directive_thread_ids else 'new'}): {subject[:80]}")
+
+        # ── Dispatch to Claude headless for execution ────────────────────────
+        try:
+            import subprocess as _sp
+            import time as _time
+
+            ts = int(_time.time())
+            out_file = ROOT / f"output/directive_{ts}.md"
+            out_file.parent.mkdir(parents=True, exist_ok=True)
+
+            task_prompt = (
+                f"You are Hale, COS for John Loucks at Dreams2Memories Travel. "
+                f"John just emailed you:\n\n"
+                f"Subject: {subject}\n\n"
+                f"{body_text[:2000]}\n\n"
+                f"Reply conversationally — short, direct, no formal header, no sign-off, "
+                f"no wings branding. Like a text message from a trusted colleague. "
+                f"If it's a task, confirm you're on it and say what you'll do. "
+                f"If it's a question, answer it. Keep it under 150 words.\n\n"
+                f"WRITE your reply to {out_file}"
+            )
+
+            _sp.Popen(
+                [
+                    sys.executable,
+                    str(ROOT / "OpsCenter/dispatch_and_email.py"),
+                    "--task", f"directive-{ts}",
+                    "--output", str(out_file),
+                    "--prompt", task_prompt,
+                    "--subject", subject or "(no subject)",
+                    "--model", "haiku",
+                    "--timeout", "1800",
+                    "--thread-id", thread_id or "",
+                    "--in-reply-to", msg_id_header or "",
+                ],
+                stdout=open(ROOT / f"logs/directive_{ts}.log", "w"),
+                stderr=subprocess.STDOUT,
+                start_new_session=True,
+                cwd=str(ROOT),
+            )
+            log_line(f"  dispatched (threaded reply) — output: {out_file}")
+        except Exception as e:
+            log_line(f"  dispatch failed: {e}")
+
+        # Mark processed so it doesn't re-trigger
+        if label_id:
+            try:
+                service.users().messages().modify(
+                    userId="me", id=msg_id,
+                    body={"addLabelIds": [label_id]}
+                ).execute()
+            except Exception:
+                pass
+
+        tasked += 1
+
+    # ── Process d2mconcierge inbox messages (d2m→d2m self-sends) ────────────────
+    if d2mc_service and d2mc_msgs:
+        d2mc_label_id = None
+        try:
+            d2mc_labels = d2mc_service.users().labels().list(userId="me").execute()
+            for lbl in d2mc_labels.get("labels", []):
+                if lbl["name"] == PROCESSED_LABEL:
+                    d2mc_label_id = lbl["id"]
+                    break
+            if not d2mc_label_id:
+                lbl = d2mc_service.users().labels().create(
+                    userId="me",
+                    body={"name": PROCESSED_LABEL, "labelListVisibility": "labelShow",
+                          "messageListVisibility": "show"}
+                ).execute()
+                d2mc_label_id = lbl["id"]
+        except Exception:
+            pass
+
+        for d_ref in d2mc_msgs:
+            d_msg_id = d_ref["id"]
+            try:
+                d_full = d2mc_service.users().messages().get(
+                    userId="me", id=d_msg_id, format="full"
+                ).execute()
+                d_hdrs = {h["name"]: h["value"] for h in d_full["payload"]["headers"]}
+                d_from = d_hdrs.get("From", "").lower()
+                d_to = d_hdrs.get("To", "").lower()
+                d_subject = d_hdrs.get("Subject", "")
+                d_thread_id = d_full.get("threadId", d_msg_id)
+                d_msg_id_hdr = d_hdrs.get("Message-ID", "")
+                d_body = _decode_text(d_full["payload"])
+
+                # Only handle emails from Commander addresses or self-sends
+                if "johnloucks3" not in d_from and "d2mconcierge" not in d_from:
+                    if d2mc_label_id:
+                        d2mc_service.users().messages().modify(
+                            userId="me", id=d_msg_id,
+                            body={"addLabelIds": [d2mc_label_id]}
+                        ).execute()
+                    continue
+
+                log_line(f"  D2MC DIRECTIVE: {d_subject[:80]}")
+                new_directive_ids.add(d_thread_id)
+
+                import time as _time2
+                ts2 = int(_time2.time())
+                out_file2 = ROOT / f"output/directive_{ts2}.md"
+                out_file2.parent.mkdir(parents=True, exist_ok=True)
+
+                task_prompt2 = (
+                    f"You are Hale, COS for John Loucks at Dreams2Memories Travel. "
+                    f"Commander just emailed you:\n\n"
+                    f"Subject: {d_subject}\n\n"
+                    f"{d_body[:2000]}\n\n"
+                    f"Reply conversationally — short, direct, no formal header, no sign-off. "
+                    f"Like a text message from a trusted colleague. Under 150 words.\n\n"
+                    f"WRITE your reply to {out_file2}"
+                )
+
+                import subprocess as _sp2
+                _sp2.Popen(
+                    [
+                        sys.executable,
+                        str(ROOT / "OpsCenter/dispatch_and_email.py"),
+                        "--task", f"d2mc-directive-{ts2}",
+                        "--output", str(out_file2),
+                        "--prompt", task_prompt2,
+                        "--subject", d_subject or "(no subject)",
+                        "--model", "haiku",
+                        "--timeout", "1800",
+                        "--thread-id", d_thread_id or "",
+                        "--in-reply-to", d_msg_id_hdr or "",
+                    ],
+                    stdout=open(ROOT / f"logs/directive_{ts2}.log", "w"),
+                    stderr=subprocess.STDOUT,
+                    start_new_session=True,
+                    cwd=str(ROOT),
+                )
+                log_line(f"  d2mc dispatched — output: {out_file2}")
+
+                if d2mc_label_id:
+                    d2mc_service.users().messages().modify(
+                        userId="me", id=d_msg_id,
+                        body={"addLabelIds": [d2mc_label_id]}
+                    ).execute()
+                tasked += 1
+            except Exception as e:
+                log_line(f"  d2mc msg {d_msg_id} failed: {e}")
 
     all_directive_ids = directive_thread_ids | new_directive_ids
     save_thread_state(all_directive_ids)
 
-    log_line(f"done — scanned={len(all_msgs)} tasked={tasked} tracked_threads={len(all_directive_ids)}")
+    log_line(f"done — scanned={len(all_msgs)+len(d2mc_msgs)} tasked={tasked} tracked_threads={len(all_directive_ids)}")
     tracker.mark_complete(status="ok", note=f"found={len(all_msgs)} tasked={tasked}")
     sys.exit(0)
 
