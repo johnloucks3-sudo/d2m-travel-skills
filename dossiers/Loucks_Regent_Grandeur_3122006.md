@@ -2,19 +2,19 @@
 client: "John & Susan Loucks"
 booking: "3122006"
 fpd: "2026-08-01"
-fpd_verified_date: 2026-06-09
-fpd_source: invoice
+fpd_verified_date: 2026-06-10
+fpd_source: portal
 ship: "Seven Seas Grandeur"
 departure: "2026-12-29"
 balance_due: 24798.00
-balance_due_verified_date: 2026-06-09
-balance_due_source: invoice
+balance_due_verified_date: 2026-06-10
+balance_due_source: portal
 commission_amount: 3729.42
 commission_verified_date: 2026-06-09
 commission_source: invoice
 invoice_total: 25798.00
 payment_status: deposit_only
-harlan_signoff: "Confirmed: balance_due=$24,798.00 UNPAID, FPD Aug-1-2026, source: Regent invoice 3122006 dated 02-Jun-26 (same day — FRESHEST SOURCE)"
+harlan_signoff: "Confirmed: balance_due=$24,798.00 UNPAID, FPD Aug-1-2026, source: Regent portal scrape 2026-06-10 (portal > invoice — upgraded). Invoice 3122006 dated 02-Jun-26 corroborated."
 completed_tps: []
 completed_tps_basis: "Nothing verifiably complete. FPD Aug 1 2026 FUTURE → payment TPs NOT done (deposit only $1,000). Guest registration NOT COMPLETE (both John & Susan). TP 0.5 Welcome shows ACTIVE (not SENT) in lifecycle doc. Commander's own trip — internal. Leave empty until items verifiably close."
 ---
