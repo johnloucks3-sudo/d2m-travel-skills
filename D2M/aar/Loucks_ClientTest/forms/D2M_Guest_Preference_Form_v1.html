@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>D2M Guest Preference Form — Silver Nova May 2027</title>
+<style>
+  :root{
+    --cream:#f7f3ea; --ink:#0000ff; --navy:#003087; --navy2:#0a4596;
+    --gold:#b8902e; --line:#d8cfb8; --muted:#5b5340; --red:#9c4221;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;padding:0 0 60px;background:var(--cream);font-family:Georgia,'Times New Roman',serif;color:#2b2517;}
+  header{background:var(--navy);padding:28px 24px 22px;border-bottom:4px solid var(--gold);}
+  header .badge{color:var(--gold);font-size:11px;letter-spacing:.14em;text-transform:uppercase;}
+  header h1{color:#f7f3ea;font-size:20px;margin:10px 0 4px;line-height:1.25;}
+  header p{color:#c5bfa8;font-size:13px;margin:0;}
+  .wrap{max-width:640px;margin:0 auto;padding:0 20px;}
+  .intro{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:0 6px 6px 0;padding:16px 20px;margin:28px 0 24px;font-size:14px;line-height:1.65;}
+  .intro strong{color:var(--navy);}
+  section{margin:0 0 28px;}
+  section h2{color:var(--navy);font-size:13px;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid var(--line);padding-bottom:6px;margin:0 0 14px;}
+  .field{margin:0 0 16px;}
+  label{display:block;font-size:13px;color:var(--muted);margin-bottom:5px;font-weight:bold;}
+  label .req{color:var(--red);}
+  input[type=text],input[type=email],input[type=tel],textarea,select{
+    width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:4px;
+    background:#fff;font-family:Georgia,serif;font-size:14px;color:#2b2517;
+    outline:none;transition:border .15s;
+  }
+  input:focus,textarea:focus,select:focus{border-color:var(--navy);}
+  textarea{min-height:80px;resize:vertical;}
+  .two-col{display:flex;gap:16px;}
+  .two-col .field{flex:1;}
+  .options{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;}
+  .opt{display:flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:6px 13px;cursor:pointer;font-size:13px;transition:all .15s;}
+  .opt input{display:none;}
+  .opt.selected,.opt:has(input:checked){background:var(--navy);border-color:var(--navy);color:#f7f3ea;}
+  .opt:hover{border-color:var(--navy2);}
+  .note{font-size:12px;color:var(--muted);margin-top:4px;}
+  .submit-box{background:var(--navy);border-radius:8px;padding:24px 24px 20px;margin-top:32px;text-align:center;}
+  .submit-box p{color:#c5bfa8;font-size:13px;line-height:1.6;margin:0 0 16px;}
+  .btn{display:inline-block;background:var(--gold);color:#2b1a00;font-family:Georgia,serif;font-size:15px;font-weight:bold;padding:13px 36px;border:none;border-radius:4px;cursor:pointer;text-decoration:none;letter-spacing:.02em;}
+  .btn:hover{background:#d4a835;}
+  .step{display:flex;align-items:flex-start;gap:12px;margin:10px 0 6px;font-size:13px;color:#c5bfa8;}
+  .step .n{background:rgba(255,255,255,.15);border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;color:#fff;}
+  .prefill{background:#f0f4fb;border:1px solid #c5d3e8;border-radius:4px;padding:10px 14px;font-size:13px;color:var(--muted);margin-bottom:6px;}
+  .prefill strong{color:var(--navy2);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="badge">Dreams2Memories Travel · Guest Preference Form</div>
+  <h1>Help us take care of you exactly right</h1>
+  <p>Silver Nova Mediterranean · May 5–29, 2027 · Booking 506101-26</p>
+</header>
+
+<div class="wrap">
+
+  <div class="intro">
+    <strong>Two minutes. One form. A much better trip.</strong><br><br>
+    This form tells your concierge Dani — and the rest of the D2M team — exactly how to look after you throughout this voyage and every communication leading up to it. The more you tell us here, the less you'll have to repeat yourself later. We use your answers to personalize every email, excursion recommendation, butler brief, and dining suggestion.<br><br>
+    <strong>How to return this form:</strong> Fill it out below, then click the <em>Send My Preferences</em> button at the bottom. Your completed form will open in your email app, pre-formatted and ready to send with a single click. That's it.
+  </div>
+
+  <!-- Section 1 — Guests -->
+  <section>
+    <h2>1 · Your Party</h2>
+    <div class="prefill"><strong>Pre-filled from your booking:</strong> John & Susie Loucks · 2 guests · Booking 506101-26</div>
+    <div class="two-col">
+      <div class="field">
+        <label>Guest 1 — First Name <span class="req">*</span></label>
+        <input type="text" id="g1_first" value="John" placeholder="First name">
+      </div>
+      <div class="field">
+        <label>Guest 1 — Last Name</label>
+        <input type="text" id="g1_last" value="Loucks">
+      </div>
+    </div>
+    <div class="two-col">
+      <div class="field">
+        <label>Guest 2 — First Name</label>
+        <input type="text" id="g2_first" value="Susie" placeholder="First name">
+      </div>
+      <div class="field">
+        <label>Guest 2 — Last Name</label>
+        <input type="text" id="g2_last" value="Loucks">
+      </div>
+    </div>
+    <div class="field">
+      <label>How should we address you in our emails? <span class="req">*</span></label>
+      <select id="address_pref">
+        <option value="">— choose one —</option>
+        <option value="John & Susie" selected>John &amp; Susie (first names, warm)</option>
+        <option value="John & Susan">John &amp; Susan</option>
+        <option value="Colonel and Mrs. Loucks">Colonel and Mrs. Loucks (formal)</option>
+        <option value="Other — see notes">Other (explain in notes below)</option>
+      </select>
+    </div>
+  </section>
+
+  <!-- Section 2 — Contact -->
+  <section>
+    <h2>2 · Best Way to Reach You</h2>
+    <div class="two-col">
+      <div class="field">
+        <label>Primary email — John <span class="req">*</span></label>
+        <input type="email" id="email_john" value="johnloucks3@gmail.com">
+      </div>
+      <div class="field">
+        <label>Primary email — Susie</label>
+        <input type="email" id="email_susie" value="susanna.loucks@gmail.com">
+      </div>
+    </div>
+    <div class="two-col">
+      <div class="field">
+        <label>Mobile — John</label>
+        <input type="tel" id="phone_john" value="719-291-0742">
+      </div>
+      <div class="field">
+        <label>Mobile — Susie</label>
+        <input type="tel" id="phone_susie" value="719-291-0743">
+      </div>
+    </div>
+    <div class="field">
+      <label>Preferred contact method for time-sensitive items (e.g., fare alerts, urgent logistics)</label>
+      <div class="options">
+        <label class="opt"><input type="radio" name="contact_pref" value="Email"> Email</label>
+        <label class="opt selected"><input type="radio" name="contact_pref" value="Text" checked> Text message</label>
+        <label class="opt"><input type="radio" name="contact_pref" value="Telegram"> Telegram</label>
+        <label class="opt"><input type="radio" name="contact_pref" value="Call"> Phone call</label>
+      </div>
+    </div>
+    <div class="field">
+      <label>Which email updates should Susie receive?</label>
+      <div class="options">
+        <label class="opt"><input type="radio" name="susie_emails" value="All emails"> All emails</label>
+        <label class="opt selected"><input type="radio" name="susie_emails" value="Milestone and experiential only" checked> Milestone + experiential emails only</label>
+        <label class="opt"><input type="radio" name="susie_emails" value="John forwards"> John handles — he'll forward as needed</label>
+      </div>
+      <div class="note">Operational emails (FPD reminders, flight logistics) go to John by default.</div>
+    </div>
+  </section>
+
+  <!-- Section 3 — Dining -->
+  <section>
+    <h2>3 · Dining & Food</h2>
+    <div class="two-col">
+      <div class="field">
+        <label>Dietary restrictions — John</label>
+        <input type="text" id="diet_john" value="None" placeholder="Allergies, avoidances, preferences">
+      </div>
+      <div class="field">
+        <label>Dietary restrictions — Susie</label>
+        <input type="text" id="diet_susie" value="No raw fish" placeholder="Allergies, avoidances, preferences">
+      </div>
+    </div>
+    <div class="field">
+      <label>Wine & spirits preferences — John</label>
+      <input type="text" id="wine_john" value="Cabernet Sauvignon, Malbec" placeholder="e.g., red wine, bourbon, sparkling">
+    </div>
+    <div class="field">
+      <label>Wine & spirits preferences — Susie</label>
+      <input type="text" id="wine_susie" value="White wines" placeholder="e.g., Sauvignon Blanc, Rosé, Champagne">
+    </div>
+    <div class="field">
+      <label>Specialty dining style — what a perfect dinner looks like for you</label>
+      <div class="options">
+        <label class="opt selected"><input type="checkbox" name="dining" value="Local and regional cuisine"> Local &amp; regional cuisine</label>
+        <label class="opt selected"><input type="checkbox" name="dining" value="Wine-paired tasting menus"> Wine-paired tasting menus</label>
+        <label class="opt"><input type="checkbox" name="dining" value="Fine dining formal"> Fine dining, formal</label>
+        <label class="opt"><input type="checkbox" name="dining" value="Casual and relaxed"> Casual &amp; relaxed</label>
+        <label class="opt"><input type="checkbox" name="dining" value="Chef's table experiences"> Chef's table experiences</label>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4 — Mobility -->
+  <section>
+    <h2>4 · Mobility & Accessibility</h2>
+    <div class="field">
+      <label>Mobility considerations — John</label>
+      <input type="text" id="mobility_john" value="Can walk but prefers short distances — low-distance excursions preferred" placeholder="e.g., walking distance tolerance, steps, uneven terrain">
+    </div>
+    <div class="field">
+      <label>Mobility considerations — Susie</label>
+      <input type="text" id="mobility_susie" value="None" placeholder="e.g., none, or describe">
+    </div>
+    <div class="field">
+      <label>Excursion transport preference</label>
+      <div class="options">
+        <label class="opt selected"><input type="radio" name="transport" value="Vehicle/golf cart tours preferred" checked> Vehicle or guided vehicle tours preferred</label>
+        <label class="opt"><input type="radio" name="transport" value="Walking tours fine"> Walking tours fine</label>
+        <label class="opt"><input type="radio" name="transport" value="Mix depending on distance"> Mix — depends on distance</label>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5 — Excursions -->
+  <section>
+    <h2>5 · Shore Excursion Style</h2>
+    <div class="field">
+      <label>What do you enjoy most on a port day? (select all that apply)</label>
+      <div class="options">
+        <label class="opt"><input type="checkbox" name="excursion" value="Historical sites and archaeology"> Historical sites &amp; archaeology</label>
+        <label class="opt selected"><input type="checkbox" name="excursion" value="Food markets and culinary tours" checked> Food markets &amp; culinary tours</label>
+        <label class="opt selected"><input type="checkbox" name="excursion" value="Wine and spirits tastings" checked> Wine &amp; spirits tastings</label>
+        <label class="opt selected"><input type="checkbox" name="excursion" value="Scenic drives and leisurely sightseeing" checked> Scenic drives &amp; leisurely sightseeing</label>
+        <label class="opt"><input type="checkbox" name="excursion" value="Art galleries and museums"> Art galleries &amp; museums</label>
+        <label class="opt"><input type="checkbox" name="excursion" value="Local neighborhood walks"> Local neighborhood walks</label>
+        <label class="opt"><input type="checkbox" name="excursion" value="Private guided tours"> Private guided tours</label>
+        <label class="opt"><input type="checkbox" name="excursion" value="Stay on the ship"> Stay on the ship</label>
+      </div>
+    </div>
+    <div class="field">
+      <label>Any ports you're most excited about on this itinerary?</label>
+      <textarea id="fav_ports" placeholder="e.g., Dubrovnik, Santorini, Kusadasi/Ephesus, Kotor..."></textarea>
+    </div>
+  </section>
+
+  <!-- Section 6 — Suite & Butler -->
+  <section>
+    <h2>6 · Suite & Butler Preferences</h2>
+    <div class="field">
+      <label>Pillow preference</label>
+      <div class="options">
+        <label class="opt"><input type="radio" name="pillow" value="Firm"> Firm</label>
+        <label class="opt selected"><input type="radio" name="pillow" value="Medium" checked> Medium</label>
+        <label class="opt"><input type="radio" name="pillow" value="Soft"> Soft</label>
+        <label class="opt"><input type="radio" name="pillow" value="No preference"> No preference</label>
+      </div>
+    </div>
+    <div class="field">
+      <label>Minibar stocking preferences</label>
+      <input type="text" id="minibar" placeholder="e.g., red wine, sparkling water, bourbon, diet Coke...">
+    </div>
+    <div class="field">
+      <label>In-suite dining — do you use it?</label>
+      <div class="options">
+        <label class="opt"><input type="radio" name="insuite" value="Yes, frequently"> Yes, frequently</label>
+        <label class="opt selected"><input type="radio" name="insuite" value="Occasionally for breakfast" checked> Occasionally — breakfast mainly</label>
+        <label class="opt"><input type="radio" name="insuite" value="Rarely"> Rarely</label>
+        <label class="opt"><input type="radio" name="insuite" value="No preference"> No preference</label>
+      </div>
+    </div>
+    <div class="field">
+      <label>Temperature preference in your suite</label>
+      <div class="options">
+        <label class="opt"><input type="radio" name="temp" value="Cool (68-70F)"> Cool (68–70°F)</label>
+        <label class="opt selected"><input type="radio" name="temp" value="Moderate (71-73F)" checked> Moderate (71–73°F)</label>
+        <label class="opt"><input type="radio" name="temp" value="Warm (74-76F)"> Warm (74–76°F)</label>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7 — Special Occasions -->
+  <section>
+    <h2>7 · Special Occasions</h2>
+    <div class="field">
+      <label>Any birthdays, anniversaries, or milestones May 5–29, 2027?</label>
+      <input type="text" id="occasions" value="None during this voyage" placeholder="e.g., Anniversary May 18, or none">
+    </div>
+    <div class="field">
+      <label>Anything you'd like the ship to know before you board?</label>
+      <textarea id="ship_notes" placeholder="e.g., celebrating a retirement, honeymoon, reunion — anything that deserves special attention"></textarea>
+    </div>
+  </section>
+
+  <!-- Section 8 — Anything else -->
+  <section>
+    <h2>8 · Anything Else</h2>
+    <div class="field">
+      <label>Things we should always do in our communications with you</label>
+      <textarea id="always_do" placeholder="e.g., always copy Susie on shore excursion suggestions, always include a map link..."></textarea>
+    </div>
+    <div class="field">
+      <label>Things we should never do</label>
+      <textarea id="never_do" placeholder="e.g., never call before 9am, never suggest adventure activities..."></textarea>
+    </div>
+    <div class="field">
+      <label>Anything else you'd like Dani to know?</label>
+      <textarea id="other_notes" placeholder="Open field — anything at all"></textarea>
+    </div>
+  </section>
+
+  <!-- Submit -->
+  <div class="submit-box">
+    <p>When you click <strong>Send My Preferences</strong>, your answers will open in your email app — already formatted and ready. Just press <em>Send</em> in your email and you're done.</p>
+    <div class="step"><div class="n">1</div> Click the button below</div>
+    <div class="step"><div class="n">2</div> Your email app opens with your answers already filled in</div>
+    <div class="step"><div class="n">3</div> Press <em>Send</em> — done. Dani has everything she needs.</div>
+    <br>
+    <button class="btn" onclick="submitForm()">Send My Preferences &rarr;</button>
+  </div>
+
+</div>
+
+<script>
+function val(id){ var el=document.getElementById(id); return el?el.value.trim():''; }
+function radios(name){ var els=document.querySelectorAll('input[name="'+name+'"]:checked'); var vals=[]; els.forEach(function(e){vals.push(e.value);}); return vals.join(', ')||'Not specified'; }
+function checks(name){ var els=document.querySelectorAll('input[name="'+name+'"]:checked'); var vals=[]; els.forEach(function(e){vals.push(e.value);}); return vals.length?vals.join(' | '):'None selected'; }
+
+function submitForm(){
+  var body = [
+    'DREAMS2MEMORIES TRAVEL',
+    'Guest Preference Form — Silver Nova Mediterranean May 2027',
+    'Booking: 506101-26',
+    '=========================================',
+    '',
+    '--- PARTY ---',
+    'Guest 1: '+val('g1_first')+' '+val('g1_last'),
+    'Guest 2: '+val('g2_first')+' '+val('g2_last'),
+    'Address us as: '+val('address_pref'),
+    '',
+    '--- CONTACT ---',
+    'John email: '+val('email_john'),
+    'Susie email: '+val('email_susie'),
+    'John phone: '+val('phone_john'),
+    'Susie phone: '+val('phone_susie'),
+    'Preferred contact (urgent): '+radios('contact_pref'),
+    'Susie email coverage: '+radios('susie_emails'),
+    '',
+    '--- DINING ---',
+    'Dietary — John: '+val('diet_john'),
+    'Dietary — Susie: '+val('diet_susie'),
+    'Wine/spirits — John: '+val('wine_john'),
+    'Wine/spirits — Susie: '+val('wine_susie'),
+    'Dining style: '+checks('dining'),
+    '',
+    '--- MOBILITY ---',
+    'Mobility — John: '+val('mobility_john'),
+    'Mobility — Susie: '+val('mobility_susie'),
+    'Transport preference: '+radios('transport'),
+    '',
+    '--- EXCURSIONS ---',
+    'Excursion style: '+checks('excursion'),
+    'Excited about: '+val('fav_ports'),
+    '',
+    '--- SUITE & BUTLER ---',
+    'Pillows: '+radios('pillow'),
+    'Minibar: '+val('minibar'),
+    'In-suite dining: '+radios('insuite'),
+    'Suite temperature: '+radios('temp'),
+    '',
+    '--- SPECIAL OCCASIONS ---',
+    'Occasions: '+val('occasions'),
+    'Ship notes: '+val('ship_notes'),
+    '',
+    '--- COMMUNICATIONS ---',
+    'Always do: '+val('always_do'),
+    'Never do: '+val('never_do'),
+    'Other notes: '+val('other_notes'),
+    '',
+    '=========================================',
+    'Submitted from D2M Guest Preference Form v1.0'
+  ].join('\n');
+
+  var subject = encodeURIComponent('D2M Guest Preferences — Loucks Silver Nova May 2027 — Booking 506101-26');
+  var bodyEncoded = encodeURIComponent(body);
+  window.location.href = 'mailto:concierge@d2mluxury.quest?subject='+subject+'&body='+bodyEncoded;
+}
+
+// Visual toggle for option pills
+document.querySelectorAll('.opt').forEach(function(el){
+  el.addEventListener('click', function(){
+    var inp = el.querySelector('input');
+    if(inp.type==='radio'){
+      document.querySelectorAll('input[name="'+inp.name+'"]').forEach(function(r){
+        r.closest('.opt').classList.remove('selected');
+      });
+      el.classList.add('selected');
+    } else {
+      el.classList.toggle('selected');
+    }
+  });
+});
+</script>
+</body>
+</html>
