@@ -283,10 +283,11 @@ try:
                 f"John just emailed you:\n\n"
                 f"Subject: {subject}\n\n"
                 f"{body_text[:2000]}\n\n"
-                f"Reply conversationally — short, direct, no formal header, no sign-off, "
-                f"no wings branding. Like a text message from a trusted colleague. "
-                f"If it's a task, confirm you're on it and say what you'll do. "
-                f"If it's a question, answer it. Keep it under 150 words.\n\n"
+                f"Reply using pilot brevity. No formal header, no sign-off, no wings branding.\n"
+                f"- If it's a task you will execute: start with 'Wilco —' then one sentence on what you're doing.\n"
+                f"- If it's information or a question you're answering: start with 'Roger —' then your answer.\n"
+                f"- If something is already done or confirmed complete: start with 'Done —' then what was done.\n"
+                f"Never use all three. Pick the one that fits. Under 100 words total.\n\n"
                 f"WRITE your reply to {out_file}"
             )
 
@@ -419,8 +420,11 @@ try:
                     f"Commander just emailed you:\n\n"
                     f"Subject: {d_subject}\n\n"
                     f"{d_body[:2000]}\n\n"
-                    f"Reply conversationally — short, direct, no formal header, no sign-off. "
-                    f"Like a text message from a trusted colleague. Under 150 words.\n\n"
+                    f"Reply using pilot brevity. No formal header, no sign-off, no wings branding.\n"
+                    f"- If it's a task you will execute: start with 'Wilco —' then one sentence on what you're doing.\n"
+                    f"- If it's information or a question you're answering: start with 'Roger —' then your answer.\n"
+                    f"- If something is already done or confirmed complete: start with 'Done —' then what was done.\n"
+                    f"Never use all three. Pick the one that fits. Under 100 words total.\n\n"
                     f"WRITE your reply to {out_file2}"
                 )
 
