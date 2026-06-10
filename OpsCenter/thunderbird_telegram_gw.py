@@ -168,7 +168,7 @@ RELAY_CHAT_ID = int(os.environ.get("TELEGRAM_RELAY_CHAT_ID", "0"))
 COMMANDER_ID = int(os.environ.get("TELEGRAM_COMMANDER_ID", "7554895206"))
 
 # Dani is open to all — no allow-list needed. D2MC2C and HaleD2M are Commander-only.
-POLL_INTERVAL  = float(os.environ.get("TELEGRAM_GW_POLL_INTERVAL", "0"))
+POLL_INTERVAL  = float(os.environ.get("TELEGRAM_GW_POLL_INTERVAL", "2"))
 ENGINE_TIMEOUT = int(os.environ.get("TELEGRAM_GW_TIMEOUT", "60"))
 CHUNK_SIZE     = int(os.environ.get("TELEGRAM_GW_CHUNK_SIZE", "4000"))
 CONTEXT_TURNS  = int(os.environ.get("TELEGRAM_GW_CONTEXT_TURNS", "10"))
@@ -246,12 +246,22 @@ def _load_persona_cache() -> None:
     """Pre-load persona files at startup."""
     global _PERSONA_CACHE
     with _PERSONA_LOCK:
-        # Hale COS persona (first 5K chars — the authoritative system prompt)
+        # Hale COS persona — single source of truth via hale_persona_loader.
+        # GATES-GUARANTEED compact load (~9.5K). The prior [:5000] raw-char
+        # truncation silently cut the four gates (authority layer starts at
+        # char 5298) — fixed 2026-06-10 (MISSION-179 parity build).
         hale_cos = ""
-        if HALE_COS.exists():
-            hale_cos = HALE_COS.read_text(encoding="utf-8")[:5000]
-        elif HALE_INIT.exists():
-            hale_cos = HALE_INIT.read_text(encoding="utf-8")
+        try:
+            from core.ai_infra.hale_persona_loader import load_compact_persona
+            hale_cos = load_compact_persona()
+        except Exception as _e:
+            log.warning("persona loader unavailable, falling back: %s", _e)
+        if not hale_cos:
+            if HALE_COS.exists():
+                # Fallback floor: 9000 chars still clears the gates (~7480).
+                hale_cos = HALE_COS.read_text(encoding="utf-8")[:9000]
+            elif HALE_INIT.exists():
+                hale_cos = HALE_INIT.read_text(encoding="utf-8")
 
         # Hale memory (condensed — Commander prefs, standing orders, clients)
         hale_mem = ""
@@ -488,15 +498,19 @@ def call_claude_engine(prompt: str, model: str = SONNET_MODEL) -> str:
             pass
 
     try:
+        # Use -p - (stdin) to avoid OSError: Argument list too long on large prompts
         result = subprocess.run(
             [
                 "/home/john/.local/bin/claude",
                 "--model",
                 model,
                 "-p",
-                prompt,
+                "-",
+                "--output-format",
+                "text",
                 "--dangerously-skip-permissions",
             ],
+            input=prompt,
             capture_output=True,
             text=True,
             timeout=ENGINE_TIMEOUT,

@@ -1,190 +1,220 @@
 """
 thunderbird_signal_gw.py — Hale Signal Gateway.
-Polls signal-cli REST API on YOGA, routes messages through unified classifier,
-replies as Hale. Commander-only channel. Plain text. No stationery.
+Uses the bbernhard/signal-cli-rest-api HTTP endpoints (port 8088 on YOGA).
+Commander sends Signal "Note to Self" → Hale receives + replies.
 
-signal-cli REST API: http://192.168.1.198:8080
-Commander number: 719-291-0742 (+17192910742)
-Log: OpsCenter/hale_signal_log.jsonl
-
-Checked by A7 Sterling verify_comms_health.py L4.1–L4.6.
+REST API:
+  Receive: GET  http://YOGA:8088/v1/receive/+17192910742
+  Send:    POST http://YOGA:8088/v2/send  {message, number, recipients}
 """
 
 import json
 import logging
-import os
+import subprocess
 import sys
 import time
-import urllib.request
-import urllib.error
 from datetime import datetime, timezone
 from pathlib import Path
 
-# ---------------------------------------------------------------------------
-# Config
-# ---------------------------------------------------------------------------
-YOGA_HOST        = os.environ.get("YOGA_HOST", "192.168.1.198")
-SIGNAL_CLI_PORT  = int(os.environ.get("SIGNAL_CLI_PORT", "8080"))
-SIGNAL_BASE_URL  = f"http://{YOGA_HOST}:{SIGNAL_CLI_PORT}"
-COMMANDER_NUMBER = os.environ.get("COMMANDER_NUMBER", "+17192910742")
-POLL_INTERVAL    = int(os.environ.get("SIGNAL_POLL_INTERVAL", "10"))  # seconds
+import urllib.request
+import urllib.error
 
-BASE             = Path(__file__).resolve().parent.parent.parent
-SIGNAL_LOG       = BASE / "OpsCenter" / "hale_signal_log.jsonl"
+ACCOUNT      = "+17192910742"
+API_BASE     = "http://localhost:8088"
+POLL_INTERVAL = 15  # seconds
+SIGNAL_MAX_CHARS = 900  # truncate AI replies above this
+
+BASE       = Path(__file__).resolve().parent.parent.parent
+SIGNAL_LOG = BASE / "OpsCenter" / "hale_signal_log.jsonl"
+
+sys.path.insert(0, str(BASE))
 
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [signal_gw] %(levelname)s %(message)s",
 )
-logger = logging.getLogger("signal_gw")
+log = logging.getLogger("signal_gw")
 
 
-# ---------------------------------------------------------------------------
-# SignalGateway — primary class (A7 Sterling L4.2)
-# ---------------------------------------------------------------------------
+def _get(path: str, timeout: int = 20):
+    url = f"{API_BASE}{path}"
+    try:
+        req = urllib.request.Request(url)
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            return json.loads(resp.read())
+    except urllib.error.HTTPError as e:
+        log.error(f"GET {path} → HTTP {e.code}: {e.read().decode()[:120]}")
+        return None
+    except Exception as e:
+        log.error(f"GET {path} failed: {e}")
+        return None
 
-class SignalGateway:
-    """Hale Signal Gateway — polls signal-cli, classifies, replies as Hale."""
 
-    def __init__(
-        self,
-        base_url: str = SIGNAL_BASE_URL,
-        commander_number: str = COMMANDER_NUMBER,
-        poll_interval: int = POLL_INTERVAL,
-        log_path: Path = SIGNAL_LOG,
-    ):
-        self.base_url         = base_url
-        self.commander_number = commander_number
-        self.poll_interval    = poll_interval
-        self.log_path         = log_path
+def _post(path: str, body: dict, timeout: int = 15):
+    url = f"{API_BASE}{path}"
+    data = json.dumps(body).encode()
+    try:
+        req = urllib.request.Request(url, data=data, headers={"Content-Type": "application/json"})
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            return json.loads(resp.read())
+    except urllib.error.HTTPError as e:
+        log.error(f"POST {path} → HTTP {e.code}: {e.read().decode()[:120]}")
+        return None
+    except Exception as e:
+        log.error(f"POST {path} failed: {e}")
+        return None
 
-    # -----------------------------------------------------------------------
-    # Signal CLI helpers
-    # -----------------------------------------------------------------------
 
-    def _request(self, path: str, method: str = "GET", data: dict | None = None) -> dict | list | None:
-        url  = f"{self.base_url}{path}"
-        body = json.dumps(data).encode() if data else None
-        headers = {"Content-Type": "application/json"} if body else {}
-        req = urllib.request.Request(url, data=body, headers=headers, method=method)
-        try:
-            with urllib.request.urlopen(req, timeout=8) as resp:
-                raw = resp.read()
-                return json.loads(raw) if raw else {}
-        except urllib.error.URLError as e:
-            logger.error(f"Signal CLI request failed {method} {path}: {e}")
-            return None
+def send(message: str, recipient: str = ACCOUNT) -> bool:
+    result = _post("/v2/send", {
+        "message": message,
+        "number": ACCOUNT,
+        "recipients": [recipient],
+    })
+    if result and "timestamp" in result:
+        log.info(f"Sent to {recipient}: ts={result['timestamp']}")
+        return True
+    log.error(f"Send failed: {result}")
+    return False
 
-    def alive(self) -> bool:
-        return self._request("/v1/about") is not None
 
-    def receive(self) -> list[dict]:
-        result = self._request(f"/v1/receive/{self.commander_number}")
-        if isinstance(result, list):
-            return result
+def receive() -> list[dict]:
+    data = _get(f"/v1/receive/{ACCOUNT}")
+    if not isinstance(data, list):
         return []
+    return data
 
-    def send(self, recipient: str, message: str) -> bool:
-        payload = {
-            "message":    message,
-            "number":     self.commander_number,
-            "recipients": [recipient],
-        }
-        return self._request("/v2/send", method="POST", data=payload) is not None
 
-    # -----------------------------------------------------------------------
-    # Logging (A7 Sterling L4.5 schema: {ts, sender, direction, text})
-    # -----------------------------------------------------------------------
+def _log(sender: str, direction: str, text: str) -> None:
+    SIGNAL_LOG.parent.mkdir(parents=True, exist_ok=True)
+    entry = {
+        "ts": datetime.now(timezone.utc).isoformat(),
+        "sender": sender,
+        "direction": direction,
+        "text": text,
+    }
+    with SIGNAL_LOG.open("a") as f:
+        f.write(json.dumps(entry) + "\n")
 
-    def log(self, sender: str, direction: str, text: str) -> None:
-        """Append one entry: direction = 'inbound' | 'outbound'."""
-        self.log_path.parent.mkdir(parents=True, exist_ok=True)
-        entry = {
-            "ts":        datetime.now(timezone.utc).isoformat(),
-            "sender":    sender,
-            "direction": direction,
-            "text":      text,
-        }
-        with self.log_path.open("a") as f:
-            f.write(json.dumps(entry) + "\n")
 
-    # -----------------------------------------------------------------------
-    # Message handling
-    # -----------------------------------------------------------------------
+def _extract_text(msg: dict) -> str | None:
+    """Extract body text from a signal-cli-rest-api message envelope."""
+    try:
+        body = (
+            msg.get("envelope", {})
+               .get("dataMessage", {})
+               .get("message", "")
+            or msg.get("envelope", {})
+               .get("syncMessage", {})
+               .get("sentMessage", {})
+               .get("message", "")
+        )
+        return body.strip() or None
+    except Exception:
+        return None
 
-    def handle(self, envelope: dict) -> None:
+
+def _is_sync_only(msg: dict) -> bool:
+    """True if this is just a sync echo of something Commander sent, not an inbound command."""
+    try:
+        # syncMessage.sentMessage means Commander sent this — skip it
+        if msg.get("envelope", {}).get("syncMessage", {}).get("sentMessage"):
+            return True
+        return False
+    except Exception:
+        return False
+
+
+def _dispatch_to_hale(text: str) -> str:
+    """Dispatch the Commander's message to headless Sonnet (Hale) and return the reply."""
+    try:
+        from OpsCenter.opencode_headless_claude_dispatch import spawn_sonnet_inline
+
+        # Single source of truth — gates-guaranteed compact persona.
+        # Replaces the prior one-line identity that left Signal-Hale blind to
+        # the four gates (2026-06-10 audit / MISSION-179 parity build).
+        channel_directive = (
+            "Reply concisely — Signal is a C2 channel, not a full briefing room. "
+            "For complex deliverables (emails, itineraries, reports), acknowledge the task and "
+            "say you'll route the full output via Telegram or email. "
+            "Keep your reply under 500 characters when possible. Lead with the answer."
+        )
         try:
-            data_msg = envelope.get("dataMessage") or {}
-            text     = (data_msg.get("message") or "").strip()
-            sender   = envelope.get("source") or ""
+            from core.ai_infra.hale_persona_loader import wrap_with_persona
+            prompt = wrap_with_persona(
+                f"Commander sent this via Signal C2: \"{text}\"\n\n{channel_directive}",
+                channel="telegram",  # thin-channel hint; Signal shares the tight format
+                compact=True,
+            )
+        except Exception as _e:
+            log.warning(f"persona loader unavailable, minimal persona: {_e}")
+            prompt = (
+                f"Commander sent this via Signal C2: \"{text}\"\n\n"
+                "You are Hale (Ms. Victoria 'Victory' Hale, SES-6, COS/COO Thunderbird Wing, D2M Travel). "
+                "Four gates you cannot open without the Commander: client sends, financial commitments, "
+                "new-client first contact, strategy direction. " + channel_directive
+            )
+        result = spawn_sonnet_inline(prompt, "signal_hale_reply")
+        if result.get("status") == "SUCCESS":
+            return result["output"].strip()
+        log.error(f"Sonnet dispatch failed: {result.get('status')}")
+        return "🦅 Received. Processing — check Telegram in 2 min.\n— Hale"
+    except Exception as e:
+        log.error(f"Dispatch error: {e}", exc_info=True)
+        return "🦅 Signal received. Processing error — check Telegram.\n— Hale"
 
-            if not text:
-                return
 
-            logger.info(f"Signal message from {sender}: {text[:80]}")
-            self.log(sender, "inbound", text)
+def _trim_for_signal(text: str) -> str:
+    """Trim AI response to Signal-appropriate length, routing long content to Telegram."""
+    if len(text) <= SIGNAL_MAX_CHARS:
+        return text
+    truncated = text[:SIGNAL_MAX_CHARS].rsplit("\n", 1)[0]
+    return f"{truncated}\n\n[Full response → Telegram]"
 
-            from core.comms.hale_unified_classifier import classify_message
-            classification = classify_message(text, channel="signal", sender="commander")
 
-            reply = self._build_reply(text, classification)
-            if not reply:
-                return
+def handle(msg: dict) -> None:
+    # Skip sync echoes (messages Commander sent from their own phone)
+    if _is_sync_only(msg):
+        return
 
-            if self.send(sender, reply):
-                self.log(self.commander_number, "outbound", reply)
-                logger.info(f"Replied to {sender}: {reply[:80]}")
-            else:
-                logger.error(f"Failed to send reply to {sender}")
+    text = _extract_text(msg)
+    if not text:
+        return
 
+    sender = msg.get("envelope", {}).get("source", ACCOUNT)
+    log.info(f"Inbound from {sender}: {text[:80]}")
+    _log(sender, "inbound", text)
+
+    raw_reply = _dispatch_to_hale(text)
+    reply = _trim_for_signal(raw_reply)
+
+    if send(reply, recipient=sender):
+        _log(ACCOUNT, "outbound", reply)
+        log.info(f"Replied: {reply[:80]}")
+    else:
+        log.error("Reply send failed.")
+
+
+def run() -> None:
+    log.info(f"Signal gateway starting — REST API at {API_BASE}, poll every {POLL_INTERVAL}s")
+
+    # Startup health check
+    probe = _get(f"/v1/receive/{ACCOUNT}")
+    if probe is None:
+        log.error(f"REST API unreachable at {API_BASE}. Exiting.")
+        raise SystemExit(1)
+    log.info("REST API reachable. Gateway online.")
+
+    send("🦅 Hale Signal C2 online. Send me orders here, Commander.")
+
+    while True:
+        try:
+            for msg in receive():
+                handle(msg)
         except Exception as e:
-            logger.error(f"Error handling signal message: {e}", exc_info=True)
-
-    def _build_reply(self, text: str, classification: dict) -> str:
-        """Build Hale's reply. Plain text. Sign-off: — Hale"""
-        brain  = classification.get("brain", "self")
-        intent = classification.get("intent", "chat")
-
-        if intent == "urgent":
-            body = "Received P0 signal. Investigating now. Will update on Telegram in 2 min."
-        elif intent == "task":
-            body = f"Tasking received via Signal. Running [{brain}] — check Telegram for full response."
-        elif intent == "chat":
-            body = "Read you. Check Telegram for full response — Signal is C2 only."
-        else:
-            body = f"Signal received. Routing to [{brain}]. Telegram for full output."
-
-        return f"{body}\n— Hale"
-
-    # -----------------------------------------------------------------------
-    # Poll loop
-    # -----------------------------------------------------------------------
-
-    def run(self) -> None:
-        logger.info(f"Signal gateway starting — polling {self.base_url} every {self.poll_interval}s")
-
-        if not self.alive():
-            logger.error("signal-cli container not responding. Check YOGA Docker status.")
-            sys.exit(1)
-
-        logger.info("signal-cli alive. Gateway running.")
-
-        while True:
-            try:
-                for envelope in self.receive():
-                    self.handle(envelope)
-            except Exception as e:
-                logger.error(f"Poll loop error: {e}", exc_info=True)
-            time.sleep(self.poll_interval)
-
-
-# ---------------------------------------------------------------------------
-# Module-level shims (backward compat + __main__ entry)
-# ---------------------------------------------------------------------------
-
-def run_poll_loop() -> None:
-    SignalGateway().run()
+            log.error(f"Poll error: {e}", exc_info=True)
+        time.sleep(POLL_INTERVAL)
 
 
 if __name__ == "__main__":
-    run_poll_loop()
+    run()

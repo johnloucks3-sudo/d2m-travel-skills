@@ -22,7 +22,7 @@ from pathlib import Path
 from typing import Optional
 
 _PERSONA_PATH = Path("/home/john/Thunderbird/Personas/hale_cos.md")
-_CHARTER_PATH = Path("/home/john/Thunderbird/standing_orders/SO_HALE_REAL_AUTONOMY_20260504.md")
+_CHARTER_PATH = Path("/home/john/Thunderbird/standing_orders/archive/SO_HALE_REAL_AUTONOMY_20260504.md")
 
 _CACHE: dict = {"text": None, "loaded_at": 0.0}
 _CACHE_TTL_S = 60
@@ -48,18 +48,60 @@ def _load_persona_text() -> str:
     return text
 
 
-def wrap_with_persona(request: str, channel: Optional[str] = None) -> str:
+def load_compact_persona() -> str:
+    """Return a token-bounded persona for thin channels (Telegram, Signal).
+
+    GUARANTEES the four gates are always included — assembled by section
+    marker, never by raw char count, so a growing persona file can never
+    silently truncate the authority/gates section (the 2026-06-10 audit bug).
+
+    Includes: Layer 1 (identity), Layer 2 (authority + the four gates),
+    Layer 4 (voice). Drops the extended governance layers that a C2
+    responder does not need per-message. Falls back to a gates-inclusive
+    char floor if section markers ever move.
+    """
+    if not _PERSONA_PATH.exists():
+        return ""
+    full = _PERSONA_PATH.read_text()
+
+    # Core: identity + authority + gates (start → just before FAILURE MODE block)
+    core_end = full.find("## FAILURE MODE CORRECTIONS")
+    if core_end == -1:
+        # Marker moved — fall back to a floor that still clears the gates
+        # (Three Gates section sits ~char 7480; 9000 guarantees inclusion).
+        core = full[:9000]
+    else:
+        core = full[:core_end].rstrip()
+
+    # Voice layer (Layer 4 → before PERSISTENT FILES table)
+    voice = ""
+    v_start = full.find("## LAYER 4 — VOICE")
+    if v_start != -1:
+        v_end = full.find("## PERSISTENT FILES", v_start)
+        voice = full[v_start:v_end].rstrip() if v_end != -1 else full[v_start:].rstrip()
+
+    # Hard safety check: the gates MUST be present. If not, ship full file.
+    if "Three Gates You Cannot Open" not in core:
+        return full
+
+    return core + ("\n\n" + voice if voice else "")
+
+
+def wrap_with_persona(request: str, channel: Optional[str] = None,
+                      compact: bool = False) -> str:
     """Prepend Hale persona context to a request.
 
     Args:
         request: The raw user request.
         channel: Optional channel hint ('telegram', 'claude_code', 'opencode',
                  'email'). Affects how strongly the persona is signaled.
+        compact: If True, use the token-bounded gates-guaranteed persona
+                 (for thin per-message channels like Telegram/Signal).
 
     Returns:
         A composed prompt that signals the model to respond AS Hale.
     """
-    persona = _load_persona_text()
+    persona = load_compact_persona() if compact else _load_persona_text()
     if not persona:
         # Fallback if persona files missing — at least set the role
         return (
