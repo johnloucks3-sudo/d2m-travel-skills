@@ -1,4 +1,17 @@
 #!/usr/bin/env python3
+# ============================================================
+# ⚠️  PROTECTED FILE — THUNDERBIRD WING STANDING ORDER
+# ============================================================
+# DO NOT MODIFY this file without explicit authorization from
+# Commander (John Loucks / Yoda) via Claude Code session.
+#
+# This file controls threaded Gmail reply delivery and the
+# THUNDERBIRD-Hale blue label pipeline. Unauthorized changes
+# WILL break Commander's email C2 channel.
+#
+# Before ANY edit: read SO_EMAIL_SCANNER_PROTECT_20260608.md
+# and confirm with Hale (Claude Code) before proceeding.
+# ============================================================
 """
 dispatch_and_email.py — Dispatch to headless Claude, reply via Gmail.
 

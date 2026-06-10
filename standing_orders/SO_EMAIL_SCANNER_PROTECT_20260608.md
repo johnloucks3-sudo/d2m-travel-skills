@@ -15,7 +15,8 @@ Breakage = Commander cannot task HALE.
 
 | File | Purpose |
 |---|---|
-| `OpsCenter/run_commander_directive_sweep.py` | 5-min sweep — detects COS/COO/HALE prefix |
+| `OpsCenter/run_commander_directive_sweep.py` | 2-min sweep — detects emails, routes to d2mc pipeline |
+| `OpsCenter/dispatch_and_email.py` | Threaded Gmail reply + THUNDERBIRD-Hale blue label delivery |
 | `OpsCenter/email_task_ingest.py` | Email-to-task pipeline — routes to personas |
 | `core/email/thunderbird_commander_inbox.py` | Core inbox scanner and classifier |
 | `OpsCenter/relay_send.py` | OC↔CC bidirectional relay |
