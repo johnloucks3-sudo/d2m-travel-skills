@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loucks Silver Nova Mediterranean May 2027 — Lifecycle Management</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<style>
+  :root{
+    --cream:#f7f3ea; --ink:#0000ff; --navy:#003087; --navy2:#0a4596;
+    --line:#d8cfb8; --muted:#5b5340; --gold:#b8902e;
+    --done:#3d6b1e; --active:#1f6fb2; --pending:#8a8164; --crit:#9c4221; --gate:#7b2d8e;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--cream);color:#2b2517;font-family:Georgia,'Times New Roman',serif;line-height:1.5;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 22px 70px;}
+  header.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);color:var(--cream);padding:30px 22px 26px;border-bottom:5px solid var(--gold);}
+  header.hero .inner{max-width:1180px;margin:0 auto;}
+  .badge{display:inline-block;border:1px solid var(--gold);color:var(--gold);border-radius:20px;padding:3px 13px;font-size:.74rem;letter-spacing:.13em;text-transform:uppercase;}
+  header.hero h1{margin:12px 0 4px;font-size:2rem;letter-spacing:.01em;}
+  header.hero p{margin:0;opacity:.92;font-size:1.02rem;}
+  .shield{margin-top:16px;background:rgba(255,255,255,.07);border:1px solid rgba(247,243,234,.35);border-radius:10px;padding:14px 18px;font-size:.95rem;}
+  .shield b{color:#ffe7a8;}
+  .facts{display:flex;flex-wrap:wrap;gap:12px;margin:22px 0 6px;}
+  .fact{flex:1 1 130px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04);}
+  .fact .n{font-size:1.5rem;color:var(--navy);font-weight:bold;}
+  .fact .l{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;}
+  h2{color:var(--navy);border-bottom:2px solid var(--gold);padding-bottom:6px;margin:42px 0 14px;font-size:1.4rem;}
+  h3{color:var(--navy2);margin:24px 0 8px;font-size:1.08rem;}
+  table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin:10px 0 6px;font-size:.92rem;}
+  th{background:var(--navy);color:var(--cream);text-align:left;padding:9px 11px;font-size:.8rem;letter-spacing:.05em;text-transform:uppercase;}
+  td{padding:9px 11px;border-top:1px solid var(--line);vertical-align:top;}
+  tr:nth-child(even) td{background:#fbf8f0;}
+  .tp{font-weight:bold;color:var(--ink);white-space:nowrap;}
+  .chip{display:inline-block;border-radius:12px;padding:2px 9px;font-size:.72rem;font-weight:bold;color:#fff;white-space:nowrap;}
+  .c-done{background:var(--done);} .c-active{background:var(--active);} .c-pending{background:var(--pending);}
+  .c-crit{background:var(--crit);} .c-gate{background:var(--gate);} .c-anchor{background:var(--gold);color:#3a2c05;}
+  .c-urgent{background:#c0392b;}
+  .note{background:#fff;border-left:4px solid var(--gold);padding:11px 15px;margin:14px 0;border-radius:0 8px 8px 0;font-size:.92rem;}
+  .note.risk{border-left-color:var(--crit);}
+  .note.gate{border-left-color:var(--gate);}
+  .note.owner{border-left-color:var(--navy);}
+  .mermaid{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px;margin:12px 0;overflow-x:auto;}
+  .legend{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0;}
+  .legend .chip{font-weight:normal;}
+  footer{margin-top:46px;padding-top:16px;border-top:1px solid var(--line);font-size:.8rem;color:var(--muted);}
+  .twocol{display:flex;flex-wrap:wrap;gap:20px;}
+  .twocol > div{flex:1 1 360px;}
+  a{color:var(--ink);}
+  .seg-block{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin:10px 0;}
+  .seg-block h4{margin:0 0 8px;color:var(--navy2);font-size:1rem;}
+  .seg-ports{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
+  .port{background:var(--cream);border:1px solid var(--line);border-radius:8px;padding:3px 10px;font-size:.82rem;color:#2b2517;}
+  .port.anchor{border-color:var(--gold);color:var(--gold);font-weight:bold;}
+  .urgent-box{background:#fff5f5;border:2px solid var(--crit);border-radius:10px;padding:14px 18px;margin:14px 0;}
+  .urgent-box h4{color:var(--crit);margin:0 0 8px;}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="inner">
+    <span class="badge">Dreams2Memories Travel · Personal Voyage Management</span>
+    <h1>Loucks — Silver Nova Mediterranean May 2027</h1>
+    <p>Fusina (Venice) → Adriatic Coast → Athens (Piraeus) · 3 Segments B2B2B · May 5–29, 2027</p>
+    <div class="shield">
+      <b>John &amp; Susan Loucks</b> · 2 guests · 24 nights · Suite 8071 / Superior Veranda &nbsp;|&nbsp;
+      Silversea booking <b>506101-26</b> · Cruises &amp; Tours Unlimited &nbsp;|&nbsp;
+      All-inclusive · TLNHOSTED Distinctive Voyages amenity &nbsp;|&nbsp;
+      <b>FPD Dec 6, 2026 — $25,837.50</b>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="urgent-box">
+    <h4>🔴 URGENT — Action Required Now</h4>
+    <table>
+      <tr><th>Item</th><th>Why Now</th><th>Action</th></tr>
+      <tr><td><b>DEN→VCE Apr 30 flights</b></td><td>B2B fare window open since May 5. Fares will rise. $7,178/2 pax Lufthansa Biz — fare watch at $3,302/pp (−8%)</td><td>Book via Centrav (re-login needed)</td></tr>
+      <tr><td><b>ATH→DEN Jun 1 flights</b></td><td>B2B window opens Jun 7. Best prices in first 30 days of open window</td><td>Book Jun 7 or immediately after</td></tr>
+      <tr><td><b>Venice hotel — Hilton Molino Stucky</b></td><td>May 1–5 (4 nights). Venice fills for spring season. No hard deadline but book now</td><td>Book direct at hilton.com for Honors pts</td></tr>
+      <tr><td><b>Athens hotel — Athens Gate Hotel</b></td><td>May 29–Jun 1 (3 nights). Lower scarcity than Venice but confirm now</td><td>athensgate.gr — request Acropolis balcony</td></tr>
+    </table>
+  </div>
+
+  <div class="facts">
+    <div class="fact"><div class="n">2</div><div class="l">Guests</div></div>
+    <div class="fact"><div class="n">24</div><div class="l">Cruise nights</div></div>
+    <div class="fact"><div class="n">3</div><div class="l">Segments</div></div>
+    <div class="fact"><div class="n">22+</div><div class="l">Port calls</div></div>
+    <div class="fact"><div class="n">$34,450</div><div class="l">Total charge</div></div>
+    <div class="fact"><div class="n">Dec 6</div><div class="l">FPD 2026</div></div>
+    <div class="fact"><div class="n">All-Incl</div><div class="l">Dining + butler</div></div>
+  </div>
+
+  <div class="note owner">
+    <b>Owner-Client Protocol:</b> This is Commander Loucks' personal voyage. Hale manages the lifecycle <i>for</i> the Commander, not on behalf of a client.
+    <ul style="margin:6px 0 0;padding-left:18px;">
+      <li><b>No WF-17 gate</b> — Commander IS the recipient. All briefs and reports sent directly to johnloucks3@gmail.com.</li>
+      <li><b>No Dani routing</b> for internal communications — Hale handles all lifecycle touchpoints directly.</li>
+      <li><b>Full autonomy band</b> — Hale executes booking research, reminders, and briefs without Commander confirmation loop.</li>
+      <li>Exception: actual payments and booking commitments require Commander execution.</li>
+    </ul>
+  </div>
+
+  <h2>⚓ Anchor Dates</h2>
+  <div class="twocol">
+    <div>
+      <h3>Fixed anchors</h3>
+      <table>
+        <tr><th>Anchor</th><th>Date</th><th>Status</th></tr>
+        <tr><td><b>Outbound flight DEN→VCE</b></td><td>Apr 30, 2027 (Fri)</td><td><span class="chip c-urgent">BOOK NOW</span></td></tr>
+        <tr><td>Venice pre-cruise check-in</td><td>May 1, 2027</td><td>Hotel not booked</td></tr>
+        <tr><td><b>Embarkation — Fusina (Venice)</b></td><td>May 5, 2027</td><td><span class="chip c-done">CONFIRMED</span></td></tr>
+        <tr><td>Segment 1 ends / Segment 2 begins</td><td>May 15, 2027</td><td><span class="chip c-done">CONFIRMED</span></td></tr>
+        <tr><td>Segment 2 ends / Segment 3 begins</td><td>May 22, 2027</td><td><span class="chip c-done">CONFIRMED</span></td></tr>
+        <tr><td><b>Disembarkation — Athens (Piraeus)</b></td><td>May 29, 2027</td><td><span class="chip c-done">CONFIRMED</span></td></tr>
+        <tr><td>Athens post-cruise hotel</td><td>May 29–Jun 1</td><td>Hotel not booked</td></tr>
+        <tr><td><b>Return flight ATH→DEN</b></td><td>Jun 1, 2027 (Tue)</td><td><span class="chip c-urgent">BOOK Jun 7</span></td></tr>
+      </table>
+    </div>
+    <div>
+      <h3>Supplier-set windows</h3>
+      <table>
+        <tr><th>Window</th><th>Opens</th><th>Action</th></tr>
+        <tr><td>Flights DEN→VCE (B2B Centrav)</td><td>May 5, 2026 ✅ OPEN NOW</td><td>Book immediately</td></tr>
+        <tr><td>Flights ATH→DEN (B2B Centrav)</td><td>Jun 7, 2026</td><td>Book on open day</td></tr>
+        <tr><td>Shore excursions — all 3 segs</td><td>Available now</td><td>Research &amp; book</td></tr>
+        <tr><td>Specialty dining Seg 1</td><td>Jan 5, 2027</td><td>Book opening day</td></tr>
+        <tr><td>Specialty dining Seg 2</td><td>Jan 15, 2027</td><td>Book opening day</td></tr>
+        <tr><td>Specialty dining Seg 3</td><td>Jan 22, 2027</td><td>Book opening day</td></tr>
+        <tr><td>Online check-in</td><td>~Feb 4, 2027 (E−90)</td><td>Complete immediately</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <h2>🚢 Voyage Segments</h2>
+  <div class="seg-block">
+    <h4>Segment 1 — SN270505010 · Fusina (Venice) → Athens · May 5–15, 2027 · 10 nights</h4>
+    <div class="seg-ports">
+      <span class="port anchor">Fusina (Venice) EMBARK</span>
+      <span class="port">Koper, Slovenia</span>
+      <span class="port">Zadar, Croatia</span>
+      <span class="port">Split, Croatia</span>
+      <span class="port">Dubrovnik, Croatia</span>
+      <span class="port">Bari, Italy</span>
+      <span class="port">Kotor, Montenegro</span>
+      <span class="port">Day at Sea</span>
+      <span class="port">Katakolon (Olympia), Greece</span>
+      <span class="port">Gythion, Greece</span>
+      <span class="port anchor">Athens (Piraeus) CONTINUE</span>
+    </div>
+    <p style="margin:8px 0 0;font-size:.88rem;color:var(--muted);">Specialty dining opens <b>Jan 5, 2027</b> · Shore excursion credit available</p>
+  </div>
+  <div class="seg-block">
+    <h4>Segment 2 — SN270515007 · Athens (Piraeus) Round Trip · May 15–22, 2027 · 7 nights</h4>
+    <div class="seg-ports">
+      <span class="port anchor">Athens (Piraeus) CONTINUE</span>
+      <span class="port">Naousa, Paros, Greece</span>
+      <span class="port">Souda Bay (Crete), Greece</span>
+      <span class="port">Gythion, Greece</span>
+      <span class="port">Milos, Greece</span>
+      <span class="port">Kusadasi, Turkey</span>
+      <span class="port">Mykonos, Greece</span>
+      <span class="port anchor">Athens (Piraeus) CONTINUE</span>
+    </div>
+    <p style="margin:8px 0 0;font-size:.88rem;color:var(--muted);">Specialty dining opens <b>Jan 15, 2027</b></p>
+  </div>
+  <div class="seg-block">
+    <h4>Segment 3 — SN270522007 · Athens (Piraeus) Round Trip · May 22–29, 2027 · 7 nights</h4>
+    <div class="seg-ports">
+      <span class="port anchor">Athens (Piraeus) CONTINUE</span>
+      <span class="port">Santorini, Greece</span>
+      <span class="port">Nafplion, Greece</span>
+      <span class="port">Day at Sea</span>
+      <span class="port">Bodrum, Turkey</span>
+      <span class="port">Rhodes, Greece</span>
+      <span class="port">Patmos, Greece</span>
+      <span class="port anchor">Athens (Piraeus) DEBARK</span>
+    </div>
+    <p style="margin:8px 0 0;font-size:.88rem;color:var(--muted);">Specialty dining opens <b>Jan 22, 2027</b></p>
+  </div>
+
+  <h2>📊 Lifecycle Gantt</h2>
+  <div class="legend">
+    <span class="chip c-done">Confirmed / window open</span>
+    <span class="chip c-active">Active / rolling</span>
+    <span class="chip c-crit">Critical / anchor</span>
+    <span class="chip c-gate">◆ Milestone</span>
+    <span class="chip c-pending">Pending</span>
+  </div>
+  <pre class="mermaid">
+gantt
+    title Loucks Silver Nova Mediterranean May 2027 — Lifecycle Timeline
+    dateFormat YYYY-MM-DD
+    axisFormat %b '%y
+
+    section Phase 0 — Onboarding
+    TP 0.5 Validation email (booking confirmed)    :done, tp05, 2026-06-10, 5d
+    TP 0.6 Insurance review (Allianz Annual)       :active, tp06, 2026-06-10, 14d
+
+    section Phase A — Book Flights and Hotels (URGENT)
+    A.1 DEN→VCE Apr 30 — BOOK NOW (window open)    :crit, a1, 2026-06-10, 14d
+    A.2 ATH→DEN Jun 1 — book at window open Jun 7  :crit, a2, 2026-06-07, 14d
+    A.3 Verify Icelandair ATH seasonal Jun 2027     :a3, 2026-06-10, 21d
+    A.4 Venice hotel — Hilton Molino Stucky         :crit, a4, 2026-06-10, 21d
+    A.5 Athens hotel — Athens Gate Hotel            :a5, 2026-06-10, 30d
+    A.6 Transfers — Venice (motoscafo x2)           :a6, 2026-06-17, 21d
+    A.7 Transfers — Piraeus + ATH airport           :a7, 2026-06-17, 21d
+    A.8 Insurance confirm (within 15d of first pmt) :crit, a8, 2026-06-10, 30d
+
+    section Phase B — Momentum
+    B.1 Shore excursion research (all 3 segs)       :active, b1, 2026-06-10, 60d
+    B.2 Shore excursion booking (Silversea portal)  :b2, 2026-07-01, 45d
+    B.3 Guest profiles — dietary/medical collect    :b3, 2026-06-10, 45d
+    B.4 Passport audit + visa requirements          :b4, 2026-09-01, 30d
+    B.5 FPD-60 alert                                :crit, milestone, fpd60, 2026-10-07, 0d
+    B.6 FPD-30 alert                                :crit, milestone, fpd30, 2026-11-06, 0d
+    B.7 FINAL PAYMENT DUE — $25,837.50              :crit, milestone, fpd, 2026-12-06, 0d
+
+    section Phase C — Silversea Booking Windows
+    C.1 Specialty dining Seg 1 opens (Jan 5)        :crit, milestone, c1, 2027-01-05, 0d
+    C.2 Specialty dining Seg 1 book                 :c1b, 2027-01-05, 5d
+    C.3 Specialty dining Seg 2 opens (Jan 15)       :crit, milestone, c3, 2027-01-15, 0d
+    C.4 Specialty dining Seg 2 book                 :c3b, 2027-01-15, 5d
+    C.5 Specialty dining Seg 3 opens (Jan 22)       :crit, milestone, c5, 2027-01-22, 0d
+    C.6 Specialty dining Seg 3 book                 :c5b, 2027-01-22, 5d
+    C.7 Online check-in opens (E-90 ~Feb 4)         :crit, milestone, c7, 2027-02-04, 0d
+    C.8 Complete online check-in                    :c8, 2027-02-04, 10d
+
+    section Phase D — Pre-Departure
+    D.1 Document audit + visa confirmation          :d1, 2027-03-01, 30d
+    D.2 Pre-voyage brief (E-21)                     :d2, 2027-04-08, 7d
+    D.3 Pre-voyage brief SEND                       :milestone, d2s, 2027-04-14, 0d
+    D.4 Final confirmation (E-7)                    :d4, 2027-04-25, 4d
+    D.5 Final confirmation SEND                     :milestone, d4s, 2027-04-28, 0d
+    D.6 Send-off (E-3)                              :d6, 2027-05-02, 1d
+
+    section Voyage
+    Depart DEN to VCE (Apr 30)                      :crit, milestone, dep, 2027-04-30, 0d
+    Venice pre-cruise (May 1-5)                     :venice, 2027-05-01, 4d
+    EMBARKATION Fusina (Venice)                     :crit, milestone, emb, 2027-05-05, 0d
+    Segment 1 — Venice to Athens (10N)              :seg1, 2027-05-05, 10d
+    Segment 2 — Athens loop (7N)                    :seg2, 2027-05-15, 7d
+    Segment 3 — Athens loop (7N)                    :seg3, 2027-05-22, 7d
+    DISEMBARKATION Athens (Piraeus)                 :crit, milestone, dis, 2027-05-29, 0d
+    Athens post-cruise (May 29 - Jun 1)             :athens, 2027-05-29, 3d
+    Return ATH to DEN (Jun 1)                       :crit, milestone, ret, 2027-06-01, 0d
+
+    section Phase E — Post-Voyage
+    E.1 Welcome home                                :milestone, e1, 2027-06-02, 0d
+    E.2 Survey (return +7)                          :milestone, e2, 2027-06-08, 0d
+    E.3 Thank-you + referral                        :milestone, e3, 2027-06-15, 0d
+    E.4 Next voyage plant (return +30)              :milestone, e4, 2027-07-01, 0d
+  </pre>
+
+  <h2>🗂️ Touchpoint Master — All Phases</h2>
+
+  <h3>Phase 0 — Onboarding <span class="chip c-active">In Progress · Jun 2026</span></h3>
+  <table>
+    <tr><th>TP</th><th>Item</th><th>Window</th><th>Status</th><th>Owner</th></tr>
+    <tr><td class="tp">0.5</td><td>Validation / booking confirmation — suite 8071, payment schedule, FPD reminder, Distinctive Voyages amenity note</td><td>Jun 10–15, 2026</td><td><span class="chip c-active">In Progress</span></td><td>Hale → Commander directly</td></tr>
+    <tr><td class="tp">0.6</td><td>Insurance review — verify Allianz Annual Premier covers May 2027 dates. Pre-existing waiver window check. If gap: quote Allianz / Travel Guard</td><td>Jun 10–24, 2026</td><td><span class="chip c-active">In Progress</span></td><td>Harlan + Commander</td></tr>
+  </table>
+  <div class="note"><b>Owner protocol:</b> TP 0.5 is a direct send to johnloucks3@gmail.com — no WF-17. Commander reviews his own booking summary.</div>
+
+  <h3>Phase A — Flights, Hotels &amp; Transfers <span class="chip c-urgent">URGENT — Act now</span></h3>
+  <table>
+    <tr><th>TP</th><th>Component</th><th>Target Book Date</th><th>Details</th><th>Status</th></tr>
+    <tr><td class="tp">A.1</td><td><b>DEN→VCE Apr 30 — Business class</b></td><td><b>NOW</b></td><td>Centrav B2B: $7,178 total / $3,589 pp (Lufthansa via MUC). Icelandair Saga $2,758 total / $1,379 pp (recliner). Fare alert: −8%. Window open since May 5.</td><td><span class="chip c-urgent">Book Now</span></td></tr>
+    <tr><td class="tp">A.2</td><td><b>ATH→DEN Jun 1 — Business class</b></td><td><b>Jun 7, 2026</b></td><td>Centrav B2B: $11,009 total / $5,505 pp (Lufthansa via FRA). Fare alert: −8%. Window opens Jun 7.</td><td><span class="chip c-crit" style="background:var(--crit)">Jun 7</span></td></tr>
+    <tr><td class="tp">A.3</td><td>Verify Icelandair ATH→KEF Jun 2027 seasonal schedule</td><td>Jul 1, 2026</td><td>Icelandair KEF→DEN is daily. ATH→KEF seasonal — must confirm before booking</td><td><span class="chip c-pending">Pending</span></td></tr>
+    <tr><td class="tp">A.4</td><td><b>Venice — Hilton Molino Stucky (4 nights May 1–5)</b></td><td>ASAP</td><td>Best available Venice-view room. ~$450–600/night. Book direct via hilton.com. Est. $1,800–$2,400 total.</td><td><span class="chip c-urgent">Book Now</span></td></tr>
+    <tr><td class="tp">A.5</td><td>Athens — Athens Gate Hotel (3 nights May 29–Jun 1)</td><td>Jun 2026</td><td>Request Acropolis view balcony. ~$250–350/night. Est. $750–$1,050 total.</td><td><span class="chip c-pending">Pending</span></td></tr>
+    <tr><td class="tp">A.6</td><td>Venice transfers — airport motoscafo + hotel→Fusina</td><td>After hotel booked</td><td>VCE→Hilton: private motoscafo €180–200 (veneziataxi.it / Ziptransfers). Hilton→Fusina: motoscafo ~€80–120. Kiwitaxi $324 available as backup.</td><td><span class="chip c-pending">Pending</span></td></tr>
+    <tr><td class="tp">A.7</td><td>Athens transfers — Piraeus→hotel + hotel→ATH airport</td><td>After hotel booked</td><td>Piraeus→Athens Gate: Kiwitaxi Comfort $76/vehicle. Athens Gate→ATH: Welcome Pickups €43 (prebooked).</td><td><span class="chip c-pending">Pending</span></td></tr>
+    <tr><td class="tp">A.8</td><td><b>Insurance — confirm/top-up within 15 days of first deposit</b></td><td>By Jun 25, 2026</td><td>Allianz Annual Premier — verify May 2027 coverage. Pre-existing waiver window open until FPD payment. Each payment triggers a 15-day top-up window.</td><td><span class="chip c-active">In Progress</span></td></tr>
+  </table>
+  <div class="note"><b>Air recommendation:</b> Icelandair Saga Premium preferred by Commander (~$4,693 pp RT). Note: recliner seat, not lie-flat. Lufthansa Business (lie-flat) at ~$9,094 pp RT if flat-bed required. Book same session for outbound + return.</div>
+
+  <h3>Phase B — Momentum <span class="chip c-active">Jun–Nov 2026</span></h3>
+  <table>
+    <tr><th>TP</th><th>Item</th><th>Window</th><th>Action</th><th>Owner</th></tr>
+    <tr><td class="tp">B.1</td><td>Shore excursion research — all 3 segments (22+ port calls)</td><td>Jun–Aug 2026</td><td>Silversea excursion portal open now. Pre-research: Dubrovnik Old Town, Kotor walls, Olympia archaeological, Santorini caldera, Ephesus. D2M builds recommendation list before opening day.</td><td>Intel (Dembe)</td></tr>
+    <tr><td class="tp">B.2</td><td>Shore excursion booking — priority ports</td><td>Jul–Aug 2026</td><td>Book Dubrovnik, Santorini, Ephesus, Mykonos early. Popular excursions sell. Silversea shore excursion credit applies.</td><td>Commander + Hale</td></tr>
+    <tr><td class="tp">B.3</td><td>Guest profiles — dietary / medical</td><td>Jun–Jul 2026</td><td>Collect dietary preferences and medical notes for both guests. Required for butler service setup. Currently NEEDED in dossier.</td><td>Hale</td></tr>
+    <tr><td class="tp">B.4</td><td>Passport audit + visa verification</td><td>Sep 2026</td><td>John: expires 02/01/2030 (valid). Susie: expires 04/10/2031 (valid). Turkey: no visa for port-only (confirmed in booking docs). Croatia, Slovenia, Montenegro, Greece: no visa needed (US passports).</td><td>Hale</td></tr>
+    <tr><td class="tp">B.5</td><td>FPD-60 alert ✅</td><td><b>Oct 7, 2026</b></td><td>Calendar event set. Surface to Commander: confirm wire transfer plan for $25,837.50.</td><td>Hale → Commander</td></tr>
+    <tr><td class="tp">B.6</td><td>FPD-30 alert ✅</td><td><b>Nov 6, 2026</b></td><td>Calendar event set. Execute payment preparation.</td><td>Hale → Commander</td></tr>
+    <tr><td class="tp">B.7</td><td><b>FINAL PAYMENT DUE — $25,837.50 ✅</b></td><td><b>Dec 6, 2026</b></td><td>Wire: Bank of America · ABA 026009593 · SWIFT BOFAUS3N · Acct 003603984188 · Ref 506101-26. Calendar event set with full wire instructions.</td><td>Commander executes</td></tr>
+  </table>
+
+  <h3>Phase C — Silversea Booking Windows <span class="chip c-pending">Jan–Feb 2027</span></h3>
+  <table>
+    <tr><th>TP</th><th>Item</th><th>Opens</th><th>Action</th><th>Owner</th></tr>
+    <tr><td class="tp">C.1</td><td><b>Specialty dining — Segment 1</b> (Venice→Athens)</td><td><b>Jan 5, 2027</b></td><td>Book La Terrazza, S.A.L.T. Kitchen, Kaiseki on opening day. Adriatic/Balkan route = peak demand for S.A.L.T. local experiences.</td><td>Commander + Hale</td></tr>
+    <tr><td class="tp">C.2</td><td><b>Specialty dining — Segment 2</b> (Athens loop)</td><td><b>Jan 15, 2027</b></td><td>Greek island segment — Aegean S.A.L.T. program. Book La Terrazza + any Greek-themed specialty evenings.</td><td>Commander + Hale</td></tr>
+    <tr><td class="tp">C.3</td><td><b>Specialty dining — Segment 3</b> (Athens loop)</td><td><b>Jan 22, 2027</b></td><td>Turkey + Greek islands — Kusadasi / Bodrum ports. Book opening day.</td><td>Commander + Hale</td></tr>
+    <tr><td class="tp">C.4</td><td>Online check-in opens (~E−90)</td><td><b>~Feb 4, 2027</b></td><td>Complete immediately for both guests. Upload passports, dietary notes, emergency contacts. Select arrival transfer preferences.</td><td>Commander</td></tr>
+    <tr><td class="tp">C.5</td><td>Silversea guest preferences form</td><td>After check-in opens</td><td>Butler setup: pillow preferences, minibar, in-suite dining preferences, dietary needs. Distinctive Voyages amenity package confirmation.</td><td>Commander + Hale</td></tr>
+  </table>
+  <div class="note"><b>TLNHOSTED Distinctive Voyages:</b> Both guests have this amenity on record (×2). This typically includes: hosted cocktail party onboard, shipboard credit, private shore event, and/or branded gift. Confirm exact amenity value with Distinctive Voyages before embarkation.</div>
+
+  <h3>Phase D — Pre-Departure <span class="chip c-pending">Mar–May 2027</span></h3>
+  <table>
+    <tr><th>TP</th><th>Item</th><th>Send Date</th><th>Action</th><th>Owner</th></tr>
+    <tr><td class="tp">D.1</td><td>Document audit — all components locked</td><td>Mar 2027</td><td>Verify: flights PNR, hotel confirmations, all transfer bookings, excursions, dining reservations, check-in complete, insurance active.</td><td>Hale</td></tr>
+    <tr><td class="tp">D.2</td><td><b>Pre-voyage brief</b> (E−21)</td><td><b>Apr 14, 2027</b></td><td>Full brief: packing for 24 nights, port weather, excursion reminders, dining calendar, Silversea app setup, Fusina terminal logistics, Athens disembarkation plan.</td><td>Hale (send direct)</td></tr>
+    <tr><td class="tp">D.3</td><td><b>Final confirmation</b> (E−7)</td><td><b>Apr 28, 2027</b></td><td>All flights confirmed, transfers staged, hotels reconfirmed. Fusina terminal: terminal is outside Venice — water taxi from Hilton Giudecca to Fusina (~15 min lagoon crossing). Departure time: ship departs 7:00 PM.</td><td>Hale (send direct)</td></tr>
+    <tr><td class="tp">D.4</td><td>Send-off (E−3)</td><td><b>May 2, 2027</b></td><td>Bon voyage. Remind: Silversea app, butler onboarding, Distinctive Voyages contact onboard, emergency: +1-855-278-7881.</td><td>Hale (send direct)</td></tr>
+    <tr><td class="tp">D.5</td><td>Departure day watch</td><td>Apr 30, 2027</td><td>Monitor DEN→VCE flight status. Confirm Venice hotel arrival. Water taxi booked and confirmed.</td><td>Hale (passive)</td></tr>
+  </table>
+
+  <h3>Phase E — Post-Voyage <span class="chip c-pending">Jun 2027</span></h3>
+  <table>
+    <tr><th>TP</th><th>Item</th><th>Date</th><th>Action</th><th>Owner</th></tr>
+    <tr><td class="tp">E.1</td><td>Welcome home</td><td>Jun 2, 2027 (return +1)</td><td>Personal note from Hale. Confirm safe return. Ask for first impressions.</td><td>Hale (send direct)</td></tr>
+    <tr><td class="tp">E.2</td><td>Voyage debrief</td><td>Jun 8, 2027 (return +7)</td><td>What worked, what didn't. S.A.L.T. experience, butler, specialty dining. Distinctive Voyages amenity — did it deliver? Notes for dossier.</td><td>Hale</td></tr>
+    <tr><td class="tp">E.3</td><td>Voyage review + next voyage plant</td><td>Jun 15–Jul 1, 2027</td><td>Archive all booking data. Note Silversea Silver Nova verdict. Seed: Silver Nova Japan 2026 experience comparison. What's next — Regent, Silversea, or Scenic?</td><td>Intel + Hale</td></tr>
+  </table>
+
+  <h2>💰 Financial Summary</h2>
+  <table>
+    <tr><th>Item</th><th>Amount</th><th>Status / Source</th></tr>
+    <tr><td><b>Total cruise charge (2 guests)</b></td><td><b>$34,450.00</b></td><td>✅ Confirmed — Agency PDF 506101-26 · 2026-06-10</td></tr>
+    <tr><td>Per-guest: All Inclusive</td><td>$25,900.00</td><td>Silversea rack</td></tr>
+    <tr><td>Per-guest: Combo Savings</td><td>−$905.00</td><td>Applied</td></tr>
+    <tr><td>Per-guest: Miscellaneous credits</td><td>−$7,770.00</td><td>Applied</td></tr>
+    <tr><td>Per-guest net charge</td><td>$17,225.00</td><td>×2 = $34,450</td></tr>
+    <tr><td>Deposit PAID (credit card)</td><td>$8,612.50</td><td>✅ Received — 2026-06-10</td></tr>
+    <tr><td><b>Final Payment Due — Dec 6, 2026</b></td><td><b>$25,837.50</b></td><td>🔴 Calendar alerts set</td></tr>
+    <tr><td>Agency commission (17%)</td><td>$5,517.18</td><td>16% base + 1% new-to-brand on $32,454</td></tr>
+    <tr><td><b>D2M commission (80%)</b></td><td><b>$4,413.74</b></td><td>Harlan verified · 2026-06-10</td></tr>
+  </table>
+  <div class="note"><b>Wire instructions for FPD:</b> Silversea Cruises Ltd. · Bank of America, Ft. Lauderdale FL · ABA# 026009593 · SWIFT: BOFAUS3N · Account: 003603984188 · Reference: Booking 506101-26</div>
+
+  <h2>✈️ Flight Summary (Centrav B2B — Live as of 2026-06-06)</h2>
+  <table>
+    <tr><th>Leg</th><th>Date</th><th>Cabin</th><th>Price (2 pax)</th><th>Per Person</th><th>Alert (−8%)</th></tr>
+    <tr><td><b>DEN→VCE</b> (via MUC or KEF)</td><td>Apr 30, 2027</td><td>Business class</td><td><b>$7,178</b></td><td><b>$3,589</b> (Lufthansa)</td><td>$3,302</td></tr>
+    <tr><td><b>DEN→VCE</b> Saga Premium option</td><td>Apr 30, 2027</td><td>Premium Economy</td><td>$2,758</td><td>$1,379 (Icelandair)</td><td>—</td></tr>
+    <tr><td><b>ATH→DEN</b> (via FRA or KEF)</td><td>Jun 1, 2027</td><td>Business class</td><td><b>$11,009</b></td><td><b>$5,505</b> (Lufthansa)</td><td>$5,064</td></tr>
+    <tr><td><b>ATH→DEN</b> Saga Premium option</td><td>Jun 1, 2027</td><td>Premium Economy</td><td>$6,627</td><td>$3,314 (Icelandair)</td><td>—</td></tr>
+    <tr><td colspan="3"><b>Business class RT total (2 pax)</b></td><td><b>$18,187</b></td><td><b>$9,094 pp</b></td><td></td></tr>
+    <tr><td colspan="3"><b>Saga Premium RT total (2 pax)</b></td><td><b>$9,385</b></td><td><b>$4,693 pp</b></td><td></td></tr>
+  </table>
+  <div class="note risk"><b>Icelandair note:</b> ATH→KEF seasonal schedule in June 2027 must be verified before booking Saga Premium on the return leg. If not operating: Lufthansa ATH→FRA→DEN at $5,505 pp is the best true business fallback.</div>
+
+  <h2>🔄 Staff Workflow</h2>
+  <pre class="mermaid">
+flowchart TD
+    CMD["Commander Loucks<br/>Client &amp; Owner<br/>(personal voyage)"]
+    Hale["Hale (COS)<br/>Lifecycle owner, direct comms<br/>No WF-17 gate"]
+    Intel["Intel (Dembe)<br/>excursion research<br/>flight/hotel options"]
+    Harlan["Harlan (A9)<br/>FPD tracking<br/>insurance verification"]
+    Luna["Luna (A6)<br/>pre-voyage narrative<br/>port guides"]
+    Reyes["Reyes (A8)<br/>excursion + dining<br/>butler preferences"]
+
+    Hale --> Intel
+    Hale --> Harlan
+    Hale --> Luna
+    Hale --> Reyes
+    Intel --> |research products| Hale
+    Harlan --> |financial alerts| Hale
+    Luna --> |narrative copy| Hale
+    Reyes --> |experience recommendations| Hale
+    Hale --> |direct sends, no gate| CMD
+
+    classDef coo fill:#003087,color:#fff,stroke:#001f5c;
+    classDef research fill:#0a4596,color:#fff,stroke:#003087;
+    classDef creative fill:#553c9a,color:#fff,stroke:#3d2a72;
+    classDef cmd fill:#9c4221,color:#fff,stroke:#6b2c16;
+    class Hale coo;
+    class Intel,Harlan research;
+    class Luna,Reyes creative;
+    class CMD cmd;
+  </pre>
+
+  <h2>⚠️ Risk &amp; Flag Register</h2>
+  <div class="note risk"><b>1. Flight booking window — OPEN NOW.</b> DEN→VCE B2B pricing has been live since May 5. Each passing week risks price increase on peak-spring transatlantic fares. Book this session.</div>
+  <div class="note risk"><b>2. Venice hotel — scarcity risk.</b> May 1–5 is late spring Venice. Hilton Molino Stucky books out. No hard deadline, but delay = higher rate or unavailability. Book this week.</div>
+  <div class="note risk"><b>3. Icelandair ATH→KEF seasonal — UNVERIFIED.</b> Commander prefers Icelandair Saga Premium. Return leg (ATH, Jun 1) requires seasonal schedule confirmation before booking. Lufthansa is the fallback at $5,505 pp.</div>
+  <div class="note risk"><b>4. Insurance pre-existing waiver.</b> Pre-existing condition waiver window is open until FPD payment. Must confirm Allianz Annual Premier coverage window — or purchase new policy before first deposit. Harlan owns this.</div>
+  <div class="note risk"><b>5. Specialty dining — book on opening day.</b> Silver Nova has limited specialty venue capacity. S.A.L.T. Kitchen and La Terrazza fill fast. Jan 5, Jan 15, Jan 22 are critical days.</div>
+  <div class="note"><b>6. TLNHOSTED Distinctive Voyages amenity.</b> Applied ×2 to this booking. Typically includes shipboard credit, hosted cocktail reception, and/or private shore event. Confirm exact package value before embarkation. No action needed now — note for C.5 brief.</div>
+  <div class="note"><b>7. Guest profiles — dietary/medical NEEDED.</b> Butler service requires this pre-arrival. Collect in Phase B. Low urgency now, critical before online check-in opens (Feb 4, 2027).</div>
+
+  <footer>
+    Dreams2Memories Travel, LLC · Thunderbird Wing · Loucks Silver Nova Mediterranean May 2027 — Lifecycle Management<br/>
+    Booking 506101-26 · Suite 8071 / Superior Veranda · Source: Agency PDF verified 2026-06-10 · Owner: V. Hale, VCS · Classification: PERSONAL / INTERNAL<br/>
+    Generated: 2026-06-10 · Dossier: <i>dossiers/DOSSIER_Loucks_SilverNova_May2027.md</i>
+  </footer>
+
+</div>
+
+<script>
+  mermaid.initialize({
+    startOnLoad:true,
+    theme:'base',
+    themeVariables:{
+      fontFamily:'Georgia, serif',
+      primaryColor:'#e9f0fb', primaryBorderColor:'#003087', primaryTextColor:'#1b2433',
+      lineColor:'#0a4596',
+      sectionBkgColor:'#f3ede0', altSectionBkgColor:'#fbf8f0',
+      taskBkgColor:'#3d6b1e', taskBorderColor:'#2c4f15', taskTextColor:'#ffffff',
+      taskTextLightColor:'#ffffff', taskTextOutsideColor:'#2b2517',
+      activeTaskBkgColor:'#1f6fb2', activeTaskBorderColor:'#13496f',
+      critBkgColor:'#9c4221', critBorderColor:'#6b2c16',
+      doneTaskBkgColor:'#8a8164', doneTaskBorderColor:'#5b5340',
+      milestoneBkgColor:'#b8902e',
+      gridColor:'#d8cfb8'
+    },
+    gantt:{ barHeight:20, barGap:5, topPadding:42, leftPadding:240, fontSize:12 }
+  });
+</script>
+</body>
+</html>
