@@ -1,0 +1,548 @@
+{
+  "_meta": {
+    "created": "2026-06-10",
+    "owner": "Hale",
+    "purpose": "One-day advance notice for all Loucks guinea pig lifecycle events",
+    "trips": [
+      "Door County — Country House Resort Sep 7-14 2026",
+      "Loucks Seven Seas Grandeur — Panama Canal Dec 29 2026",
+      "Loucks Silver Nova — Mediterranean B2B2B May 5-29 2027"
+    ],
+    "channels": ["telegram_d2mc2c", "morning_brief"]
+  },
+  "events": [
+    {
+      "id": "DC-TP12",
+      "trip": "Door County",
+      "tp": "TP 1.2",
+      "label": "Airfare Watch — book DEN→GRB Sep 6 / GRB→DEN Sep 14",
+      "fire_date": "2026-06-13",
+      "urgency": "P0",
+      "notes": "United via ORD or Delta via MSP. Business cabin recommended. GRB is small — book now."
+    },
+    {
+      "id": "DC-TP13",
+      "trip": "Door County",
+      "tp": "TP 1.3",
+      "label": "Hotel Options — GRB night of Sep 6",
+      "fire_date": "2026-06-13",
+      "urgency": "P0",
+      "notes": "Verify Packers home schedule Sep 6 FIRST. Home2 Suites recommended. Rates surge on home game days."
+    },
+    {
+      "id": "DC-TP23",
+      "trip": "Door County",
+      "tp": "TP 2.3",
+      "label": "Dining Reservations — White Gull Inn fish boil + Wickman House",
+      "fire_date": "2026-06-13",
+      "urgency": "P0",
+      "notes": "White Gull Inn: whitegullinn.com. Wickman House: Ellison Bay. Both fill weeks out in Sep."
+    },
+    {
+      "id": "DC-TP06",
+      "trip": "Door County",
+      "tp": "TP 0.6",
+      "label": "Insurance Conversation — travel insurance for Door County",
+      "fire_date": "2026-06-24",
+      "urgency": "P1",
+      "notes": "Short domestic trip — basic trip cancellation + medical. Harlan to quote."
+    },
+    {
+      "id": "DC-RENTAL",
+      "trip": "Door County",
+      "tp": "ACTION",
+      "label": "Rental Car — book GRB Sep 6-14 (midsize SUV)",
+      "fire_date": "2026-06-13",
+      "urgency": "P0",
+      "notes": "Enterprise or National at GRB. Small airport, peak season — inventory thin. Book now."
+    },
+    {
+      "id": "DC-TP21",
+      "trip": "Door County",
+      "tp": "TP 2.1",
+      "label": "Excursion Recommendations — Door County activities",
+      "fire_date": "2026-07-08",
+      "urgency": "P1",
+      "notes": "Research done by Dembe 2026-06-10. Cave Point kayak, sunset sail, Peninsula State Park, wine trail."
+    },
+    {
+      "id": "DC-TP31",
+      "trip": "Door County",
+      "tp": "TP 3.1",
+      "label": "Pre-Voyage Brief (E-21) — Door County trip packet",
+      "fire_date": "2026-08-17",
+      "urgency": "P1",
+      "notes": "Full brief: confirmed resort, itinerary, driving directions, activity reservations, check-in logistics."
+    },
+    {
+      "id": "DC-TP32",
+      "trip": "Door County",
+      "tp": "TP 3.2",
+      "label": "Final Confirmation (E-7) — all logistics locked",
+      "fire_date": "2026-08-31",
+      "urgency": "P1",
+      "notes": "Flights, hotel Sep 6, car rental, resort balance, dining reservations all confirmed."
+    },
+    {
+      "id": "DC-TP33",
+      "trip": "Door County",
+      "tp": "TP 3.3",
+      "label": "Send-Off (E-3) — bon voyage Door County",
+      "fire_date": "2026-09-04",
+      "urgency": "P1",
+      "notes": "Check-in time 3-10pm Sep 7. Drive from GRB ~75 min via WI-57. Balance $1,789.84 due at check-in."
+    },
+    {
+      "id": "DC-CHECKIN",
+      "trip": "Door County",
+      "tp": "MILESTONE",
+      "label": "CHECK-IN — Country House Resort, Sister Bay",
+      "fire_date": "2026-09-07",
+      "urgency": "P0",
+      "notes": "King Waterview. Check-in 3-10pm. Balance $1,789.84 due at front desk. Confirmation #95833."
+    },
+    {
+      "id": "DC-CHECKOUT",
+      "trip": "Door County",
+      "tp": "MILESTONE",
+      "label": "CHECK-OUT — Country House Resort (11am) → drive GRB → fly home",
+      "fire_date": "2026-09-14",
+      "urgency": "P1",
+      "notes": "Check-out by 11am. Drive ~75 min to GRB. Afternoon flight DEN."
+    },
+    {
+      "id": "DC-TP51",
+      "trip": "Door County",
+      "tp": "TP 5.1",
+      "label": "Welcome Home (E+7)",
+      "fire_date": "2026-09-21",
+      "urgency": "P1",
+      "notes": "Debrief — how was the trip? Capture feedback for guinea pig lifecycle review."
+    },
+    {
+      "id": "DC-TP52",
+      "trip": "Door County",
+      "tp": "TP 5.2",
+      "label": "Post-Voyage Survey (E+14)",
+      "fire_date": "2026-09-28",
+      "urgency": "P2",
+      "notes": "Guinea pig lifecycle debrief — what worked, what to improve for real clients."
+    },
+    {
+      "id": "DC-TP53",
+      "trip": "Door County",
+      "tp": "TP 5.3",
+      "label": "Thank You + Referral Ask (E+21)",
+      "fire_date": "2026-10-05",
+      "urgency": "P2",
+      "notes": "Personal thank-you. Any referrals from Door County circle?"
+    },
+    {
+      "id": "DC-TP54",
+      "trip": "Door County",
+      "tp": "TP 5.4",
+      "label": "Next Voyage Plant (E+30)",
+      "fire_date": "2026-10-14",
+      "urgency": "P2",
+      "notes": "What's next for John & Susie? Seed next adventure."
+    },
+
+    {
+      "id": "GP-TP12",
+      "trip": "Grandeur Panama Canal",
+      "tp": "TP 1.2",
+      "label": "Airfare Watch — COS→MIA Dec 28 outbound + LAX→COS Jan 14 return",
+      "fire_date": "2026-06-15",
+      "urgency": "P1",
+      "notes": "Also Lyons: GA→MIA + LAX→GA. Monitor 4-6 month sweet spot. Dec 28 Miami overnight needed."
+    },
+    {
+      "id": "GP-TP13",
+      "trip": "Grandeur Panama Canal",
+      "tp": "TP 1.3",
+      "label": "Hotel Options — Miami Dec 28 pre-cruise + LA Jan 14 post-cruise",
+      "fire_date": "2026-07-01",
+      "urgency": "P1",
+      "notes": "Miami: Fontainebleau/Four Seasons/Mandarin. LA: Shutters on the Beach/Fairmont Miramar."
+    },
+    {
+      "id": "GP-TP22-JUL",
+      "trip": "Grandeur Panama Canal",
+      "tp": "TP 2.2",
+      "label": "Monthly Validation — Grandeur Panama (July)",
+      "fire_date": "2026-07-01",
+      "urgency": "P2",
+      "notes": "Rolling check: payments, flights, hotels, transfers, excursions, dining, documents, guest registration."
+    },
+    {
+      "id": "GP-TP41",
+      "trip": "Grandeur Panama Canal",
+      "tp": "TP 4.1",
+      "label": "Payment Reminder #1 (FPD-21) — $24,798 due Aug 1",
+      "fire_date": "2026-07-11",
+      "urgency": "P0",
+      "notes": "21 days to FPD. Surface payment options. Confirm method on file."
+    },
+    {
+      "id": "GP-TP42",
+      "trip": "Grandeur Panama Canal",
+      "tp": "TP 4.2",
+      "label": "Payment Reminder #2 (FPD-14) — $24,798 due Aug 1",
+      "fire_date": "2026-07-18",
+      "urgency": "P0",
+      "notes": "14 days to FPD. Confirm payment method ready. Check card expiration if paying by card."
+    },
+    {
+      "id": "GP-TP43",
+      "trip": "Grandeur Panama Canal",
+      "tp": "TP 4.3",
+      "label": "Payment Goal (FPD-7) — $24,798 due Aug 1",
+      "fire_date": "2026-07-25",
+      "urgency": "P0",
+      "notes": "7 days to FPD. Pay this week — avoid last-day risk. Booking cancellation if missed."
+    },
+    {
+      "id": "GP-TP44",
+      "trip": "Grandeur Panama Canal",
+      "tp": "TP 4.4",
+      "label": "🚨 FINAL PAYMENT DUE — $24,798 to Regent Seven Seas",
+      "fire_date": "2026-08-01",
+      "urgency": "P0",
+      "notes": "CANCELLATION RISK IF MISSED. Suite 658, Deck 6 released. Deposit at risk. Verify payment posted by EOD."
+    },
+    {
+      "id": "GP-TP22-AUG",
+      "trip": "Grandeur Panama Canal",
+      "tp": "TP 2.2",
+      "label": "Monthly Validation — Grandeur Panama (August)",
+      "fire_date": "2026-08-01",
+      "urgency": "P2",
+      "notes": "Rolling monthly check. This month: confirm FPD paid, update dossier."
+    },
+    {
+      "id": "GP-TP45",
+      "trip": "Grandeur Panama Canal",
+      "tp": "TP 4.5",
+      "label": "Payment Confirmation (FPD+7) — verify $24,798 posted",
+      "fire_date": "2026-08-08",
+      "urgency": "P1",
+      "notes": "Confirm $0 balance. Update dossier and Google Sheet. Shipboard credit $300 intact."
+    },
+    {
+      "id": "GP-TP23",
+      "trip": "Grandeur Panama Canal",
+      "tp": "TP 2.3",
+      "label": "Culinary Arts Kitchen Classes OPEN — Regent portal 8pm ET",
+      "fire_date": "2026-08-31",
+      "urgency": "P1",
+      "notes": "Book opening night. Research class offerings before tonight. Dembe to prep."
+    },
+    {
+      "id": "GP-TP22-SEP",
+      "trip": "Grandeur Panama Canal",
+      "tp": "TP 2.2",
+      "label": "Monthly Validation — Grandeur Panama (September)",
+      "fire_date": "2026-09-01",
+      "urgency": "P2",
+      "notes": "Rolling monthly check."
+    },
+    {
+      "id": "GP-TP24",
+      "trip": "Grandeur Panama Canal",
+      "tp": "TP 2.4",
+      "label": "Dining Reservations OPEN — Regent portal 8pm ET",
+      "fire_date": "2026-09-30",
+      "urgency": "P1",
+      "notes": "Book Prime 7, Chartreuse, Pacific Rim, Sette Mari. Coordinate with Lyons for shared tables."
+    },
+    {
+      "id": "GP-TP22-OCT",
+      "trip": "Grandeur Panama Canal",
+      "tp": "TP 2.2",
+      "label": "Monthly Validation — Grandeur Panama (October)",
+      "fire_date": "2026-10-01",
+      "urgency": "P2",
+      "notes": "Rolling monthly check."
+    },
+    {
+      "id": "GP-TP25",
+      "trip": "Grandeur Panama Canal",
+      "tp": "TP 2.5",
+      "label": "Document Audit — passports, guest registration, visa requirements",
+      "fire_date": "2026-10-15",
+      "urgency": "P1",
+      "notes": "CRITICAL: Guest registration MUST be complete (both John & Susan). Passports valid through Jul 2027. Colombia/CR/Guatemala/Mexico/Panama entry reqs."
+    },
+    {
+      "id": "GP-TP22-NOV",
+      "trip": "Grandeur Panama Canal",
+      "tp": "TP 2.2",
+      "label": "Monthly Validation — Grandeur Panama (November)",
+      "fire_date": "2026-11-01",
+      "urgency": "P2",
+      "notes": "Rolling monthly check."
+    },
+    {
+      "id": "GP-EMB-GIFT",
+      "trip": "Grandeur Panama Canal",
+      "tp": "ACTION",
+      "label": "Embarkation Gift — order by E-30 (Nov 29)",
+      "fire_date": "2026-11-29",
+      "urgency": "P1",
+      "notes": "Order embarkation cabin gift for John & Susie. Last day to order for Dec 29 delivery."
+    },
+    {
+      "id": "GP-TP22-DEC",
+      "trip": "Grandeur Panama Canal",
+      "tp": "TP 2.2",
+      "label": "Monthly Validation — Grandeur Panama (December)",
+      "fire_date": "2026-12-01",
+      "urgency": "P2",
+      "notes": "Final monthly check before departure."
+    },
+    {
+      "id": "GP-TP31",
+      "trip": "Grandeur Panama Canal",
+      "tp": "TP 3.1",
+      "label": "Pre-Voyage Brief (E-21) + Online Check-in Opens — Grandeur Panama",
+      "fire_date": "2026-12-08",
+      "urgency": "P1",
+      "notes": "Comprehensive trip packet. Complete online check-in tonight. Guest registration MUST be done."
+    },
+    {
+      "id": "GP-TP32",
+      "trip": "Grandeur Panama Canal",
+      "tp": "TP 3.2",
+      "label": "Final Confirmation (E-7) — Grandeur Panama",
+      "fire_date": "2026-12-22",
+      "urgency": "P1",
+      "notes": "Every booking confirmed: flights, Miami hotel, transfers, excursions, dining, check-in complete."
+    },
+    {
+      "id": "GP-TP33",
+      "trip": "Grandeur Panama Canal",
+      "tp": "TP 3.3",
+      "label": "Send-Off (E-3) — Bon Voyage Grandeur Panama",
+      "fire_date": "2026-12-26",
+      "urgency": "P1",
+      "notes": "Final weather. Miami port address + boarding time. Regent app reminder. Emergency contacts."
+    },
+    {
+      "id": "GP-EMBARK",
+      "trip": "Grandeur Panama Canal",
+      "tp": "MILESTONE",
+      "label": "EMBARKATION — Seven Seas Grandeur, Miami",
+      "fire_date": "2026-12-29",
+      "urgency": "P0",
+      "notes": "Booking 3122006. Suite 658 Deck 6. Miami departure 5pm. Balance PAID (confirm). Shipboard credit $300."
+    },
+    {
+      "id": "GP-DISEMBARK",
+      "trip": "Grandeur Panama Canal",
+      "tp": "MILESTONE",
+      "label": "DISEMBARKATION — Los Angeles",
+      "fire_date": "2027-01-14",
+      "urgency": "P1",
+      "notes": "Los Angeles 7am. Transfer to LAX/SNA. Flight home today."
+    },
+    {
+      "id": "GP-TP51",
+      "trip": "Grandeur Panama Canal",
+      "tp": "TP 5.1",
+      "label": "Welcome Home (E+7) — Grandeur Panama",
+      "fire_date": "2027-01-21",
+      "urgency": "P1",
+      "notes": "Debrief. Photo highlights. How was the Panama Canal transit?"
+    },
+    {
+      "id": "GP-TP52",
+      "trip": "Grandeur Panama Canal",
+      "tp": "TP 5.2",
+      "label": "Post-Voyage Survey (E+14) — Grandeur Panama",
+      "fire_date": "2027-01-28",
+      "urgency": "P2",
+      "notes": "Gauge survey. Capture: Regent service, excursions, dining, suite, overall."
+    },
+    {
+      "id": "GP-TP53",
+      "trip": "Grandeur Panama Canal",
+      "tp": "TP 5.3",
+      "label": "Thank You + Referral (E+21) — Grandeur Panama",
+      "fire_date": "2027-02-04",
+      "urgency": "P2",
+      "notes": "Personalized thank-you. Referral ask — Nancy's Africa/India interest. Photo book."
+    },
+    {
+      "id": "GP-TP54",
+      "trip": "Grandeur Panama Canal",
+      "tp": "TP 5.4",
+      "label": "Next Voyage Plant (E+30) — Grandeur Panama",
+      "fire_date": "2027-02-13",
+      "urgency": "P2",
+      "notes": "Viper develops next strategy. Commander's post-Panama preferences. Early 2028 horizon."
+    },
+
+    {
+      "id": "SN-ICELANDAIR",
+      "trip": "Silver Nova Mediterranean",
+      "tp": "ACTION",
+      "label": "Verify Icelandair ATH→KEF seasonal schedule Jun 2027",
+      "fire_date": "2026-07-01",
+      "urgency": "P1",
+      "notes": "Confirm seasonal Icelandair operates ATH→DEN via KEF in Jun 2027 before recommending."
+    },
+    {
+      "id": "SN-FPD60",
+      "trip": "Silver Nova Mediterranean",
+      "tp": "TP 4.1",
+      "label": "FPD-60 Alert — $25,837.50 due Dec 6, 2026",
+      "fire_date": "2026-10-07",
+      "urgency": "P1",
+      "notes": "Surface wire transfer plan. Confirm payment method. $25,837.50 to Cruises & Tours Unlimited."
+    },
+    {
+      "id": "SN-FPD30",
+      "trip": "Silver Nova Mediterranean",
+      "tp": "TP 4.2",
+      "label": "FPD-30 Alert — $25,837.50 due Dec 6, 2026",
+      "fire_date": "2026-11-06",
+      "urgency": "P0",
+      "notes": "Execute payment prep. 30 days to FPD. Verify wire instructions."
+    },
+    {
+      "id": "SN-FPD",
+      "trip": "Silver Nova Mediterranean",
+      "tp": "TP 4.4",
+      "label": "🚨 FINAL PAYMENT DUE — $25,837.50 Silver Nova Mediterranean",
+      "fire_date": "2026-12-06",
+      "urgency": "P0",
+      "notes": "Wire transfer to Cruises & Tours Unlimited. Booking 506101-26. Confirm receipt."
+    },
+    {
+      "id": "SN-DIN1",
+      "trip": "Silver Nova Mediterranean",
+      "tp": "TP 2.3",
+      "label": "Dining Opens — Silver Nova Seg 1 (La Terrazza / S.A.L.T. / Kaiseki)",
+      "fire_date": "2027-01-05",
+      "urgency": "P1",
+      "notes": "Book opening day. Segment 1: Fusina→Adriatic Coast→Athens. Jan 5, 2027 portal opening."
+    },
+    {
+      "id": "SN-DIN2",
+      "trip": "Silver Nova Mediterranean",
+      "tp": "TP 2.4",
+      "label": "Dining Opens — Silver Nova Seg 2 (Aegean S.A.L.T. program)",
+      "fire_date": "2027-01-15",
+      "urgency": "P1",
+      "notes": "Book opening day. Segment 2: Athens loop Greek islands + Turkey."
+    },
+    {
+      "id": "SN-DIN3",
+      "trip": "Silver Nova Mediterranean",
+      "tp": "TP 2.5",
+      "label": "Dining Opens — Silver Nova Seg 3 (Santorini/Rhodes/Patmos)",
+      "fire_date": "2027-01-22",
+      "urgency": "P1",
+      "notes": "Book opening day. Segment 3: Athens loop Santorini/Rhodes/Patmos."
+    },
+    {
+      "id": "SN-CHECKIN",
+      "trip": "Silver Nova Mediterranean",
+      "tp": "ACTION",
+      "label": "Online Check-in Opens — Silver Nova (E-90 ~ Feb 4, 2027)",
+      "fire_date": "2027-02-04",
+      "urgency": "P1",
+      "notes": "Complete immediately for both John & Susan. Guest dietary/medical profiles needed."
+    },
+    {
+      "id": "SN-DOCAUDIT",
+      "trip": "Silver Nova Mediterranean",
+      "tp": "TP 2.5",
+      "label": "Document Audit — Silver Nova Mediterranean",
+      "fire_date": "2027-03-05",
+      "urgency": "P1",
+      "notes": "Passports, flights PNR, hotels (Venice + Athens), transfers, excursions, dining, check-in all verified."
+    },
+    {
+      "id": "SN-TP31",
+      "trip": "Silver Nova Mediterranean",
+      "tp": "TP 3.1",
+      "label": "Pre-Voyage Brief (E-21) — Silver Nova Mediterranean",
+      "fire_date": "2027-04-14",
+      "urgency": "P1",
+      "notes": "Full brief: 3-segment itinerary, ports, weather, Fusina terminal logistics, dining calendar, Silversea app."
+    },
+    {
+      "id": "SN-TP32",
+      "trip": "Silver Nova Mediterranean",
+      "tp": "TP 3.2",
+      "label": "Final Confirmation (E-7) — Silver Nova Mediterranean",
+      "fire_date": "2027-04-28",
+      "urgency": "P1",
+      "notes": "All flights, Venice hotel (May 1-5), Athens hotel (May 29-Jun 1), transfers, dining confirmed."
+    },
+    {
+      "id": "SN-DEPART-DEN",
+      "trip": "Silver Nova Mediterranean",
+      "tp": "MILESTONE",
+      "label": "DEN→VCE Departure (Apr 30 to Venice for May 5 embarkation)",
+      "fire_date": "2027-04-30",
+      "urgency": "P0",
+      "notes": "Lufthansa via MUC or Icelandair. 4 nights Venice hotel May 1-5. Fusina terminal May 5."
+    },
+    {
+      "id": "SN-TP33",
+      "trip": "Silver Nova Mediterranean",
+      "tp": "TP 3.3",
+      "label": "Send-Off (E-3) — Bon Voyage Silver Nova",
+      "fire_date": "2027-05-02",
+      "urgency": "P1",
+      "notes": "Final weather. Fusina terminal logistics. Butler onboarding. Distinctive Voyages contact onboard. Emergency: +1-855-278-7881."
+    },
+    {
+      "id": "SN-EMBARK",
+      "trip": "Silver Nova Mediterranean",
+      "tp": "MILESTONE",
+      "label": "EMBARKATION — Silver Nova, Fusina (Venice)",
+      "fire_date": "2027-05-05",
+      "urgency": "P0",
+      "notes": "Booking 506101-26. Suite 8071 Superior Veranda. 24-night B2B2B Mediterranean voyage begins."
+    },
+    {
+      "id": "SN-DISEMBARK",
+      "trip": "Silver Nova Mediterranean",
+      "tp": "MILESTONE",
+      "label": "DISEMBARKATION — Silver Nova, Athens (Piraeus)",
+      "fire_date": "2027-05-29",
+      "urgency": "P1",
+      "notes": "Athens Gate Hotel May 29-Jun 1 (3 nights). ATH→DEN Jun 1."
+    },
+    {
+      "id": "SN-TP51",
+      "trip": "Silver Nova Mediterranean",
+      "tp": "TP 5.1",
+      "label": "Welcome Home (E+4) — Silver Nova Mediterranean",
+      "fire_date": "2027-06-02",
+      "urgency": "P1",
+      "notes": "Back in Denver Jun 1. How was the S.A.L.T. program? Butler experience?"
+    },
+    {
+      "id": "SN-TP52",
+      "trip": "Silver Nova Mediterranean",
+      "tp": "TP 5.2",
+      "label": "Voyage Debrief (E+10) — Silver Nova Mediterranean",
+      "fire_date": "2027-06-08",
+      "urgency": "P2",
+      "notes": "S.A.L.T. program verdict, butler, specialty dining, Distinctive Voyages amenity, overall NPS."
+    },
+    {
+      "id": "SN-TP53",
+      "trip": "Silver Nova Mediterranean",
+      "tp": "TP 5.3",
+      "label": "Thank You + Next Voyage Plant — Silver Nova Mediterranean",
+      "fire_date": "2027-06-15",
+      "urgency": "P2",
+      "notes": "Archive voyage data. What's next for John & Susie? Lifecycle closes."
+    }
+  ]
+}
