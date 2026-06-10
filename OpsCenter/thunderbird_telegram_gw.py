@@ -1265,6 +1265,13 @@ def handle_message(
 
     # ── Both Ways forward check ────────────────────────────────────────────────
     forward_target = _detect_forward(msg, bot_name)
+    # SECURITY (MISSION-180): the public-facing Dani bot must never expose an
+    # internal engine (Hale/OpenCode) to a non-Commander user. A client typing
+    # "hale, ..." to Dani was reaching Hale's full COS persona. Cross-bot
+    # forwarding from Dani is Commander-only; for the public it falls through to
+    # normal Dani handling.
+    if forward_target and bot_name == "Dani" and user_id != COMMANDER_ID:
+        forward_target = None
     if forward_target:
         _handle_forward(token, chat_id, msg, bot_name, ctx_file, forward_target,
                         model_override, openrouter_override)
