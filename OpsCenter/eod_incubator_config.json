@@ -1,0 +1,17 @@
+{
+  "sectors_tonight": [
+    "Claude Code",
+    "GitHub New Releases",
+    "Travel Tech B2B"
+  ],
+  "gate_candidate": {
+    "name": "claude agents --json session monitor",
+    "owner": "Sterling",
+    "status": "approved",
+    "description": "Wire claude agents --json output into hale_state.json wing_health section"
+  },
+  "nomination_time": "17:30",
+  "execute_window_minutes": 5,
+  "last_updated": "2026-06-10",
+  "last_nomination_sent": "2026-06-10T22:23:34.085657"
+}
