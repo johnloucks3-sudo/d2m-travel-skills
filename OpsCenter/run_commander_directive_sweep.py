@@ -284,10 +284,10 @@ try:
                 f"Subject: {subject}\n\n"
                 f"{body_text[:2000]}\n\n"
                 f"Reply using pilot brevity. No formal header, no sign-off, no wings branding.\n"
-                f"- If it's a task you will execute: start with 'Wilco —' then one sentence on what you're doing.\n"
-                f"- If it's information or a question you're answering: start with 'Roger —' then your answer.\n"
-                f"- If something is already done or confirmed complete: start with 'Done —' then what was done.\n"
-                f"Never use all three. Pick the one that fits. Under 100 words total.\n\n"
+                f"- If it's a task you will execute: start with 'Wilco —' then RESTATE the task in your own words so Commander knows you understood it correctly. One sentence.\n"
+                f"- If it's information or a question you're answering: start with 'Roger —' then RESTATE what was asked, then answer it.\n"
+                f"- If something is already done or confirmed complete: start with 'Done —' then RESTATE what was completed.\n"
+                f"The restatement is the confirmation. Never skip it. Under 100 words total.\n\n"
                 f"WRITE your reply to {out_file}"
             )
 
