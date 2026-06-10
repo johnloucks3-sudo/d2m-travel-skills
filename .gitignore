@@ -36,6 +36,7 @@ backups/
 *.xlsx
 screenshots/
 output/
+!core/output/
 
 # Images (keep logo refs but not bulk)
 *.jpg
