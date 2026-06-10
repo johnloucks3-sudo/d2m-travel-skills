@@ -93,6 +93,49 @@ COMMANDER_ADDRS = {
     "john@d2mluxury.quest",
 }
 
+# Client-draft account guard (account-drift incident 2026-06-09/10 / MISSION-180).
+# Client drafts MUST stage in d2mconcierge, never johnloucks3. These helpers make
+# that fail-loud and make the branded From auto-upgrade once the alias is added.
+_wing_account_cache: dict = {"email": None, "from": None}
+
+
+def _assert_wing_account(service):
+    """Fail loud if a client-draft service is not d2mconcierge."""
+    email = _wing_account_cache.get("email")
+    if not email:
+        email = service.users().getProfile(userId="me").execute().get("emailAddress", "")
+        _wing_account_cache["email"] = email
+    if email.lower() != "d2mconcierge@gmail.com":
+        raise RuntimeError(
+            f"Client-draft account guard: expected d2mconcierge, got {email!r}. "
+            "Refusing to stage a client draft in the wrong mailbox. Run --authorize-persona."
+        )
+    return email
+
+
+def _resolve_wing_from(service, requested: str) -> str:
+    """Return the branded alias only if verified on d2mconcierge; else the primary
+    address. Auto-upgrades to branded the moment the alias is added in Gmail Settings."""
+    cached = _wing_account_cache.get("from")
+    if cached is not None and cached.get("requested") == requested:
+        return cached["resolved"]
+    resolved = "d2mconcierge@gmail.com"
+    try:
+        aliases = service.users().settings().sendAs().list(userId="me").execute().get("sendAs", [])
+        verified = {a.get("sendAsEmail", "").lower() for a in aliases
+                    if a.get("isPrimary") or a.get("verificationStatus") == "accepted"}
+        if requested.lower() in verified:
+            resolved = requested
+        else:
+            logger.warning(
+                f"Wing From alias {requested!r} not verified on d2mconcierge — using "
+                "d2mconcierge@gmail.com. Add the alias in Gmail Settings to enable branded From."
+            )
+    except Exception as e:
+        logger.warning(f"sendAs check failed ({e}) — using d2mconcierge@gmail.com")
+    _wing_account_cache["from"] = {"requested": requested, "resolved": resolved}
+    return resolved
+
 # Persona display names for Send As support
 PERSONA_DISPLAY_NAMES = {
     "COS": "Victory Hale, D2M Travel",
@@ -2834,7 +2877,11 @@ def gmail_create_draft_sync(
     """
     import base64 as _b64
 
-    service = _get_gmail_service()
+    # MISSION-180: client drafts stage in d2mconcierge (was drifting to johnloucks3).
+    # Fail loud on wrong account; resolve branded From only if the alias is verified.
+    service = _get_wing_gmail_service()
+    _assert_wing_account(service)
+    from_address = _resolve_wing_from(service, from_address)
 
     stripped = body.strip()
     html_body = _wrap_body_html(body) if not (
