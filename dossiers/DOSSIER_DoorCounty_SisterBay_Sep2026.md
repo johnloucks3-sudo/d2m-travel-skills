@@ -164,7 +164,7 @@ completed_tps: []
 | 3 | **Cave Point Sea Kayak** | Door County Kayak Tours · doorcountykayaktours.com | Enter limestone sea caves at water level. Guided. Calm morning conditions best. | Book in advance |
 | 4 | **Eagle Bluff Lighthouse + Peninsula State Park** | WI DNR — no reservation | Guided tours 11am–4pm daily. Combine with Eagle Trail hike (150-ft bluffs). $8 daily state park fee. | Walk-in |
 | 5 | **Door County Wine Trail** | Lautenbach's Orchard Country Winery · orchardcountry.com | Sept orchard tours $15 pp — cherry wines, private tasting, keepsake glass. | Walk-in or reserve |
-| 6 | **Wickman House Dinner** ⭐ | Ellison Bay (10 min north) | Best farm-to-table dinner in northern Door County. Reservations essential. | **Reserve now** |
+| 6 | **CHOP Dinner** ⭐ | Sister Bay · chopdoorcounty.com · (920) 854-2700 | Dry-aged beef, casual-elegant. Best dinner option in Sister Bay. OpenTable or call. Replaced Wickman House — permanently closed 2026. | **Reserve now** |
 | 7 | **Cana Island Lighthouse + Ridges Sanctuary** | Baileys Harbor · dcmm.org/cana-island | Most photographed lighthouse in Midwest. Combine with Ridges Sanctuary nature boardwalk. | Walk-in |
 | 8 | **Door County Boat Tour** | doorcountyboattours.com | Covers caves, shipwrecks, lighthouses by motor launch — different experience than kayak. | Flexible |
 | 9 | **Peninsula State Park Bike Ride** | Fish Creek (10 min south) | Resort provides complimentary bikes. 8-mile paved loop, bay views, maples turning mid-Sep. | No booking |
@@ -175,7 +175,7 @@ completed_tps: []
 - Sep 8: Fish boil at White Gull Inn (Fish Creek)
 - Sep 9: Cave Point kayak (morning) + wine trail (afternoon)
 - Sep 10: Eagle Bluff Lighthouse + Peninsula State Park hike/bike
-- Sep 11: Sunset sail (evening) + Wickman House dinner
+- Sep 11: Sunset sail (evening) + CHOP dinner (Sister Bay)
 - Sep 12: Boat tour (morning) + relaxed bay afternoon
 - Sep 13: Cana Island + Ridges Sanctuary + last dinner in Sister Bay
 - Sep 14: Breakfast at resort · check-out 11am
@@ -190,12 +190,12 @@ completed_tps: []
 | 2 | Lodging | Balance $1,789.84 at check-in | 🟡 PENDING | No separate FPD — due Sep 7 |
 | 3 | Air | DEN→GRB Sep 6 | 🔴 NOT BOOKED | United/Delta via ORD or MSP |
 | 4 | Air | GRB→DEN Sep 14 | 🔴 NOT BOOKED | Post-checkout afternoon |
-| 5 | Hotel | Green Bay Sep 6 (1 night) | 🔴 NOT BOOKED | Verify Packers schedule first |
-| 6 | Ground | Rental car GRB Sep 6–14 | 🔴 NOT BOOKED | Midsize SUV, book now |
+| 5 | Hotel | Green Bay Sep 6 (1 night) | 🔴 NOT BOOKED | ✅ No Packers home game Sep 6 (first home game Sep 24). Normal rates. |
+| 6 | Ground | Rental car GRB Sep 6–14 | 🔴 NOT BOOKED | Midsize SUV, book now — small airport, peak season |
 | 7 | Ground | GRB → Sister Bay drive Sep 7 | ⏳ PLANNED | ~75 min, WI-57 or WI-42 |
 | 8 | Ground | Sister Bay → GRB Sep 14 | ⏳ PLANNED | Depart by ~11:30 AM |
-| 9 | Dining | White Gull Inn fish boil | 🔴 NOT RESERVED | Sep fills weeks out — book now |
-| 10 | Dining | Wickman House dinner | 🔴 NOT RESERVED | Best in northern Door County — book now |
+| 9 | Dining | White Gull Inn fish boil | 🔴 NOT RESERVED | (920) 868-3517 · Wed/Fri/Sat/Sun · $28.75/adult — book today |
+| 10 | Dining | CHOP dinner (Sister Bay) | 🔴 NOT RESERVED | OpenTable / (920) 854-2700 · Replaced Wickman House (closed) |
 | 11 | Insurance | Travel insurance | ⚠️ NOT DISCUSSED | Commander decision |
 | 12 | Documents | Passports | ✅ N/A | Domestic travel — no passport needed |
 | 13 | Preferences | Guest Profile Form sent | ⏳ GUINEA PIG | TP 0.5 test — GP form v2 |
@@ -237,7 +237,7 @@ completed_tps: []
 | TP 1.2 | Airfare Watch | NOW (unbooked) | Dani + Dembe | ⏳ Active gap |
 | TP 1.3 | Hotel Options (GRB) | NOW (unbooked) | Dani + Dembe | ⏳ Active gap |
 | TP 2.1 | Excursion Recommendations | ~Jul 15, 2026 | Dani + Dembe | ⏳ Research done |
-| TP 2.3 | Dining Reservations | NOW — fills fast | Dani | ⏳ Fish boil + Wickman urgent |
+| TP 2.3 | Dining Reservations | NOW — fills fast | Dani | ⏳ Fish boil + CHOP urgent (Wickman closed) |
 | TP 3.1 | Pre-Voyage Brief | Aug 17, 2026 (E-21) | Dani + Luna | ⏳ Future |
 | TP 3.2 | Final Confirmation | Aug 31, 2026 (E-7) | Hale | ⏳ Future |
 | TP 3.3 | Send-Off | Sep 4, 2026 (E-3) | Dani + Luna | ⏳ Future |
@@ -252,12 +252,12 @@ completed_tps: []
 
 | ID | Action | Owner | Priority | Due |
 |----|--------|-------|----------|-----|
-| DC-01 | Book air DEN→GRB Sep 6 + GRB→DEN Sep 14 (United/Delta, business cabin) | Commander | 🔴 P0 | ASAP — 89 days out |
-| DC-02 | Verify Packers home schedule Sep 6 before booking GRB hotel | Commander | 🔴 P0 | Before DC-03 |
-| DC-03 | Book GRB hotel night of Sep 6 (Home2 Suites recommended) | Commander | 🔴 P0 | After DC-02 |
-| DC-04 | Book midsize SUV at GRB Sep 6–14 (Enterprise/National) | Commander | 🔴 P0 | ASAP — small airport |
-| DC-05 | Reserve White Gull Inn Fish Boil (fills weeks out in Sep) | Commander | 🔴 P0 | TODAY |
-| DC-06 | Reserve Wickman House dinner (best in northern Door County) | Commander | 🔴 P0 | TODAY |
+| DC-01 | Book air DEN→GRB Sep 6 + GRB→DEN Sep 14 — Delta via MSP (shortest) or United via ORD (MileagePlus). Book before Jul 7. | Commander | 🔴 P0 | Before Jul 7 |
+| DC-02 | ✅ DONE — Packers Sep 6 confirmed clear. First home game Sep 24. Normal hotel rates. | Hale | ✅ | 2026-06-10 |
+| DC-03 | Book GRB hotel night of Sep 6 (Home2 Suites or similar — no Packers premium) | Commander | 🔴 P0 | This week |
+| DC-04 | Book midsize SUV at GRB Sep 6–14 (Enterprise/National — small airport, book now) | Commander | 🔴 P0 | ASAP |
+| DC-05 | Reserve White Gull Inn Fish Boil — call (920) 868-3517 TODAY. Sep weekends book fast. $28.75/adult. | Commander | 🔴 P0 | TODAY |
+| DC-06 | Reserve CHOP dinner — OpenTable or (920) 854-2700. Wickman House permanently closed. | Commander | 🔴 P0 | TODAY |
 | DC-07 | Draft TP 0.5 Welcome email with GP form v2 attached | Dani → WF-17 | 🟡 P1 | This week |
 | DC-08 | Book Sail Door County sunset charter | Commander | 🟡 P1 | Within 2 weeks |
 | DC-09 | Book Door County Kayak Cave Point tour | Commander | 🟡 P1 | Within 2 weeks |
