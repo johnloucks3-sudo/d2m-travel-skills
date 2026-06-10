@@ -3230,6 +3230,29 @@
       ],
       "created_at": "2026-06-10T18:57:36.186104+00:00",
       "updated_at": "2026-06-10T19:37:57.718108+00:00"
+    },
+    {
+      "id": "MISSION-181",
+      "title": "Add concierge@d2mluxury.quest send-as alias to d2mconcierge (DEFERRED by Commander)",
+      "status": "deferred",
+      "priority": "P2",
+      "assigned_to": "Commander (manual Gmail step)",
+      "description": "DEFERRED 2026-06-10 by Commander. Branded From (concierge@d2mluxury.quest) is NOT active on d2mconcierge \u2014 send-as list shows primary only, no verification email generated. Code already handles it: drafts stage correctly in d2mconcierge and branded From AUTO-ACTIVATES the moment the alias verifies (adaptive _resolve_wing_from). STEPS WHEN READY: (1) sign into d2mconcierge, generate a Gmail App Password (Security > 2-Step > App passwords). (2) Gmail Settings > Accounts > Send mail as > add concierge@d2mluxury.quest, SMTP smtp.gmail.com:587 TLS, user d2mconcierge@gmail.com, pass=the App Password (NOT account login). (3) click verification link. Then ask Hale to re-test. No code change needed. Until then: drafts correct, From unbranded (d2mconcierge@gmail.com).",
+      "deliverables": [
+        "Alias verified on d2mconcierge",
+        "Re-test confirms branded From"
+      ],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": "No urgency \u2014 drafts stage correctly meanwhile. Resurface on request or next email-product cycle.",
+      "logs": [
+        {
+          "ts": "2026-06-10T20:02:49.681823+00:00",
+          "msg": "Deferred by Commander after test showed alias not active on d2mconcierge."
+        }
+      ],
+      "created_at": "2026-06-10T20:02:49.681823+00:00",
+      "updated_at": "2026-06-10T20:02:49.681823+00:00"
     }
   ],
   "suspense_watch": [
