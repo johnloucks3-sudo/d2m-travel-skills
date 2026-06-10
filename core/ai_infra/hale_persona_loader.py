@@ -148,20 +148,25 @@ def load_state_summary(max_tasks: int = 6) -> str:
     except Exception:
         return ""
 
-    lines = ["## LIVE STATE (hale_state.json — current)"]
+    lines = ["## AMBIENT WING STATE — background only.",
+             "NOT necessarily the answer to what the Commander asked. Each figure below belongs",
+             "ONLY to the specific client/item it names."]
 
     fp = s.get("financial_pulse", {})
     pipe = fp.get("total_d2m_pipeline") or fp.get("pipeline_d2m_share_upcoming")
     comm = fp.get("pipeline_commission_upcoming")
     if pipe:
-        lines.append(f"- Pipeline: ${pipe:,.2f} D2M share"
+        lines.append(f"- Pipeline (aggregate): ${pipe:,.2f} D2M share"
                      + (f" · commission ${comm:,.2f}" if comm else ""))
 
     alerts = s.get("deferred_alerts", [])
     for a in alerts[:3]:
+        # Label every alert with its client so it can never be read as a generic answer.
+        client = a.get("client", "")
         msg = a.get("message", "")
         if msg:
-            lines.append(f"- ALERT: {msg[:140]}")
+            tag = f"[{client}] " if client else ""
+            lines.append(f"- FPD alert {tag}: {msg[:140]}")
 
     tasks = s.get("open_tasks", [])
     p0 = [t for t in tasks if t.get("priority") == "P0"][:max_tasks]
@@ -169,7 +174,18 @@ def load_state_summary(max_tasks: int = 6) -> str:
         lines.append(f"- Open P0 ({len(p0)} shown): "
                      + "; ".join(f"{t.get('id')} {t.get('title','')[:40]}" for t in p0))
 
-    return "\n".join(lines) if len(lines) > 1 else ""
+    # HARD GUARD — the McLeod/Loucks substitution failure (2026-06-10). Never let a
+    # thin-channel reply hand the Commander one client's figure when he asked about another.
+    lines.append("")
+    lines.append("DATA DISCIPLINE (hard rule): Answer the Commander's ACTUAL question. If he names a "
+                 "client, booking, or dollar figure that is NOT explicitly listed above, do NOT substitute "
+                 "a different client's number. Say you do not have that specific record in front of you on "
+                 "this channel and will pull it from the dossier/TESS. A wrong client's number is worse than "
+                 '"I\'ll get it."')
+
+    # Only return if we actually have data rows (not just the header + guard).
+    has_data = any(l.startswith("- ") for l in lines)
+    return "\n".join(lines) if has_data else ""
 
 
 def get_persona_summary() -> dict:
