@@ -20,13 +20,29 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from OpsCenter.session_init import init_thunderbird_session, format_alerts_for_brief
 from core.messaging.session_startup_hook import startup_persona_reporting
+from OpsCenter import staff_comments_feed
 
 def handle_staff_comments():
-    """Check persona inboxes for staff feedback on implementations."""
+    """Check persona inboxes for staff feedback on implementations.
+
+    REALTIME (SO 2026-06-11): also syncs every source into the append-only live
+    feed (staff_comments_live.jsonl) so the manual query is no longer the only
+    path — the OODA loop and brief read the same feed continuously.
+    """
     print("\n" + "=" * 80)
     print("🦅 STAFF COMMENTS QUERY")
     print("=" * 80)
     print("\nStaff input on recent implementations:\n")
+
+    # Realtime: fold every source into the live feed before reporting.
+    try:
+        feed_summary = staff_comments_feed.sync_sources()
+        if feed_summary.get("total_new"):
+            print(f"📡 Live feed: +{feed_summary['total_new']} new "
+                  f"(rabbitmq {feed_summary['rabbitmq_new']}, "
+                  f"notifications {feed_summary['notifications_new']})\n")
+    except Exception as e:
+        print(f"ℹ️  Live-feed sync skipped: {e}\n")
 
     try:
         # Run full session init to check inboxes
@@ -94,21 +110,31 @@ def handle_staff_comments():
             'message': 'Inbox check unavailable'
         }
 
-def format_brief_section(result):
-    """Format result as morning brief section."""
-    if result['status'] == 'clear':
-        return "### STAFF INPUT STATUS\n\n✅ All persona inboxes clear — ready for new decisions"
+def format_brief_section(result=None):
+    """Format the morning/EOD brief section from the REALTIME live feed.
 
-    if result['status'] == 'alerts':
-        section = "### STAFF INPUT PENDING\n\n"
-        if result['p0_count'] > 0:
-            section += f"🚨 **{result['p0_count']} CRITICAL message(s)** — requires immediate response\n"
-        if result['p1_count'] > 0:
-            section += f"⚠️  **{result['p1_count']} informational message(s)** — for review\n"
-        section += f"\nTotal pending: {result['pending_count']}\n"
-        return section
+    SO 2026-06-11: the brief now reads the append-only feed
+    (staff_comments_live.jsonl) instead of an ephemeral inbox count. This is the
+    single function the brief generators call — no manual query required.
 
-    return "### STAFF INPUT CHECK\n\n⚠️  Status unavailable (inbox service offline)"
+    `result` is accepted for backward compatibility but no longer needed: the
+    feed renderer auto-syncs every source before rendering.
+    """
+    try:
+        return staff_comments_feed.format_brief_section()
+    except Exception as e:
+        # Fallback to the legacy ephemeral-count rendering if the feed is broken.
+        if result and result.get('status') == 'clear':
+            return "### STAFF INPUT STATUS\n\n✅ All persona inboxes clear — ready for new decisions"
+        if result and result.get('status') == 'alerts':
+            section = "### STAFF INPUT PENDING\n\n"
+            if result['p0_count'] > 0:
+                section += f"🚨 **{result['p0_count']} CRITICAL message(s)** — requires immediate response\n"
+            if result['p1_count'] > 0:
+                section += f"⚠️  **{result['p1_count']} informational message(s)** — for review\n"
+            section += f"\nTotal pending: {result['pending_count']}\n"
+            return section
+        return f"### STAFF COMMENTS (LIVE)\n\n⚠️  Feed unavailable: {e}"
 
 if __name__ == '__main__':
     result = handle_staff_comments()
