@@ -8,17 +8,19 @@
 # it pages once per outage, not every 10 min.
 #
 # Install (on the off-box host):
-#   1) Set TELEGRAM_BOT_TOKEN + COMMANDER_ID below (or export in cron env).
-#   2) chmod +x yoga_heartbeat_check.sh
-#   3) crontab -e  →  add:
-#        */10 * * * * /path/to/yoga_heartbeat_check.sh >> /tmp/yoga_heartbeat.log 2>&1
+#   1) chmod +x yoga_heartbeat_check.sh
+#   2) crontab -e  →  add (token supplied via env, NOT hardcoded):
+#        */10 * * * * TELEGRAM_BOT_TOKEN='8754681793:<token>' COMMANDER_ID='7554895206' /path/to/yoga_heartbeat_check.sh >> /tmp/yoga_heartbeat.log 2>&1
+#      (the D2MC2C bot token is in Yoga's /home/john/Thunderbird/.env as TELEGRAM_BOT_TOKEN)
 #
 set -u
 
 # --- config -----------------------------------------------------------------
 YOGA_URL="${YOGA_URL:-https://itinerary.d2mluxury.quest/}"   # public health surface
 YOGA_TS_URL="${YOGA_TS_URL:-http://100.69.222.124/}"          # tailscale fallback
-TELEGRAM_BOT_TOKEN="${TELEGRAM_BOT_TOKEN:-***REMOVED-SECRET***}"
+# SECRET HYGIENE: token MUST come from the environment — never hardcode it in a
+# git-tracked file. Set it in the off-box crontab line or a sourced env file.
+TELEGRAM_BOT_TOKEN="${TELEGRAM_BOT_TOKEN:?set TELEGRAM_BOT_TOKEN in the cron env}"
 COMMANDER_ID="${COMMANDER_ID:-7554895206}"
 STATE_FILE="${STATE_FILE:-/tmp/yoga_heartbeat.state}"
 # ----------------------------------------------------------------------------
