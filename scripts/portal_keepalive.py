@@ -143,43 +143,146 @@ def save_cookies(path: Path, cookies: list) -> None:
     path.write_text(json.dumps(cookies, indent=2))
 
 
-def cookie_expiry_status(cookies: list) -> dict:
-    """Return dict based on the longest-lived cookie expiry.
-    Short-lived analytics/CSRF cookies (< 1 hour) are ignored — they skew status.
+def cookie_expiry_status(cookies: list, auth_cookie_names: list = None, auth_domain: str = None) -> dict:
+    """Return session health based on the auth-gate cookie, not the longest-lived one.
+
+    Bug fixed 2026-06-11 (Sterling/A7): prior logic used the longest-lived cookie.
+    This masked expired session cookies behind long-lived analytics cookies (e.g.
+    _GRECAPTCHA from google.com, 4296h) or tracking beacons, reporting OK when the
+    actual session was dead.
+
+    Priority order:
+      1. Named auth cookies (auth_cookie_names) scoped to auth_domain — exact match.
+      2. Cookies that are httpOnly=True AND from auth_domain — likely auth tokens.
+      3. Shortest-expiring non-ephemeral cookie from auth_domain only.
+      4. Shortest-expiring non-ephemeral cookie across all domains (legacy fallback).
+
+    Cookies with expiry > 10 years from now are treated as tracking beacons and
+    skipped in all passes (they are never session auth tokens).
     """
     now = datetime.now(timezone.utc).timestamp()
-    # Use the longest-lived cookie (most likely to be the session token)
-    best = None
+    TEN_YEARS = 10 * 365 * 24 * 3600
+    # Pre-epoch stale timestamps (< year 2000) are corrupt stored cookies — ignore.
+    EPOCH_2000 = 946684800.0
+
+    def _is_beacon(exp):
+        """True if expiry looks like a long-lived tracking beacon, not a session token."""
+        return exp is not None and exp > (now + TEN_YEARS)
+
+    def _domain_match(cookie_domain, target_domain):
+        if not target_domain:
+            return True
+        d = cookie_domain.lstrip(".")
+        t = target_domain.lstrip(".")
+        return d == t or d.endswith("." + t)
+
+    # Pass 1: named auth cookies on auth_domain
+    if auth_cookie_names and auth_domain:
+        for c in cookies:
+            name = c.get("name", "")
+            exp = c.get("expires")
+            if name.upper() in [n.upper() for n in auth_cookie_names]:
+                if _domain_match(c.get("domain", ""), auth_domain):
+                    if exp is None or exp <= 0:
+                        # Session cookie (no persistent expiry) — treat as unknown/stale
+                        return {"soonest_expiry": None, "hours_left": None, "status": "SESSION_ONLY",
+                                "auth_cookie": name}
+                    hours_left = (exp - now) / 3600
+                    status = "EXPIRED" if hours_left < 0 else (
+                        "STALE" if hours_left < STALE_HOURS else (
+                        "WARN" if hours_left < WARN_HOURS else "OK"
+                    ))
+                    return {
+                        "soonest_expiry": exp,
+                        "hours_left": round(hours_left, 1),
+                        "status": status,
+                        "expires_at": datetime.fromtimestamp(exp, tz=timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
+                        "auth_cookie": name,
+                    }
+
+    # Pass 2: httpOnly cookies from auth_domain (likely session tokens)
+    http_only_exp = None
+    http_only_name = None
+    if auth_domain:
+        for c in cookies:
+            if not c.get("httpOnly"):
+                continue
+            if not _domain_match(c.get("domain", ""), auth_domain):
+                continue
+            exp = c.get("expires")
+            if not exp or exp < EPOCH_2000 or _is_beacon(exp):
+                continue
+            if http_only_exp is None or exp < http_only_exp:
+                http_only_exp = exp
+                http_only_name = c.get("name", "?")
+
+    if http_only_exp is not None:
+        hours_left = (http_only_exp - now) / 3600
+        status = "EXPIRED" if hours_left < 0 else (
+            "STALE" if hours_left < STALE_HOURS else (
+            "WARN" if hours_left < WARN_HOURS else "OK"
+        ))
+        return {
+            "soonest_expiry": http_only_exp,
+            "hours_left": round(hours_left, 1),
+            "status": status,
+            "expires_at": datetime.fromtimestamp(http_only_exp, tz=timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
+            "auth_cookie": http_only_name,
+        }
+
+    # Pass 3: shortest-expiring non-beacon from auth_domain
+    domain_exp = None
+    domain_name = None
+    if auth_domain:
+        for c in cookies:
+            if not _domain_match(c.get("domain", ""), auth_domain):
+                continue
+            exp = c.get("expires")
+            if not exp or exp < EPOCH_2000 or _is_beacon(exp):
+                continue
+            if domain_exp is None or exp < domain_exp:
+                domain_exp = exp
+                domain_name = c.get("name", "?")
+
+    if domain_exp is not None:
+        hours_left = (domain_exp - now) / 3600
+        status = "EXPIRED" if hours_left < 0 else (
+            "STALE" if hours_left < STALE_HOURS else (
+            "WARN" if hours_left < WARN_HOURS else "OK"
+        ))
+        return {
+            "soonest_expiry": domain_exp,
+            "hours_left": round(hours_left, 1),
+            "status": status,
+            "expires_at": datetime.fromtimestamp(domain_exp, tz=timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
+            "auth_cookie": domain_name,
+        }
+
+    # Pass 4: legacy fallback — shortest non-beacon across all domains
+    fallback_exp = None
+    fallback_name = None
     for c in cookies:
         exp = c.get("expires")
-        # Skip ephemeral cookies (expire within 1 hour — analytics, CSRF tokens)
-        if exp and exp > (now + 3600):
-            if best is None or exp > best:
-                best = exp
-    if best is None:
-        # Fall back to any positive expiry
-        for c in cookies:
-            exp = c.get("expires")
-            if exp and exp > 0:
-                if best is None or exp > best:
-                    best = exp
-    soonest = best
-    if soonest is None:
+        if not exp or exp < EPOCH_2000 or _is_beacon(exp):
+            continue
+        if fallback_exp is None or exp < fallback_exp:
+            fallback_exp = exp
+            fallback_name = c.get("name", "?")
+
+    if fallback_exp is None:
         return {"soonest_expiry": None, "hours_left": None, "status": "SESSION_ONLY"}
-    hours_left = (soonest - now) / 3600
-    if hours_left < 0:
-        status = "EXPIRED"
-    elif hours_left < STALE_HOURS:
-        status = "STALE"
-    elif hours_left < WARN_HOURS:
-        status = "WARN"
-    else:
-        status = "OK"
+
+    hours_left = (fallback_exp - now) / 3600
+    status = "EXPIRED" if hours_left < 0 else (
+        "STALE" if hours_left < STALE_HOURS else (
+        "WARN" if hours_left < WARN_HOURS else "OK"
+    ))
     return {
-        "soonest_expiry": soonest,
+        "soonest_expiry": fallback_exp,
         "hours_left": round(hours_left, 1),
         "status": status,
-        "expires_at": datetime.fromtimestamp(soonest, tz=timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
+        "expires_at": datetime.fromtimestamp(fallback_exp, tz=timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
+        "auth_cookie": fallback_name,
     }
 
 
@@ -572,6 +675,8 @@ PORTALS = {
         "refresh_fn": refresh_centrav,
         "browser_type": "chromium",
         "description": "Centrav B2B flight booking",
+        "auth_cookie_names": ["laravel_session"],   # A7 2026-06-11: verified auth gate
+        "auth_domain": "centrav.com",
     },
     "agent_universe": {
         "cookie_file": CREDS_DIR / "agent_universe_cookies.json",
@@ -698,6 +803,8 @@ PORTALS = {
         "refresh_fn": refresh_regent,
         "browser_type": "firefox",
         "description": "Regent Seven Seas direct D2M account (Ely, Furlow, Nichols, McLeod)",
+        "auth_cookie_names": ["ASPXAUTH"],   # A7 2026-06-11: verified auth gate (httpOnly, www.rssc.com)
+        "auth_domain": "rssc.com",
     },
     "regent_oa": {
         "cookie_file": CREDS_DIR / "regent_cookies_oa.json",
@@ -707,6 +814,8 @@ PORTALS = {
         "refresh_fn": refresh_regent,
         "browser_type": "firefox",
         "description": "Regent Seven Seas OA account (Loucks, McLeod bookings)",
+        "auth_cookie_names": ["ASPXAUTH"],   # A7 2026-06-11: verified auth gate (httpOnly, www.rssc.com)
+        "auth_domain": "rssc.com",
     },
     "perx": {
         "cookie_file": CREDS_DIR / "perx_cookies.json",
@@ -731,9 +840,16 @@ async def run(portals_to_check: list, status_only: bool) -> None:
     for name in portals_to_check:
         portal = PORTALS[name]
         cookies = load_cookies(portal["cookie_file"])
-        status = cookie_expiry_status(cookies)
+        # Pass auth_cookie_names + auth_domain if defined — ensures we check the
+        # actual session gate, not long-lived analytics/tracking beacons. A7 2026-06-11.
+        status = cookie_expiry_status(
+            cookies,
+            auth_cookie_names=portal.get("auth_cookie_names"),
+            auth_domain=portal.get("auth_domain"),
+        )
         report[name] = status
-        log.info(f"{name}: {status['status']} | {status.get('hours_left', '?')}h left | {status.get('expires_at', 'session-only')}")
+        auth_label = f" [{status.get('auth_cookie', '?')}]" if status.get("auth_cookie") else ""
+        log.info(f"{name}: {status['status']}{auth_label} | {status.get('hours_left', '?')}h left | {status.get('expires_at', 'session-only')}")
 
     if status_only:
         print("\n=== PORTAL SESSION STATUS ===")

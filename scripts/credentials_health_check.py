@@ -65,7 +65,12 @@ CREDENTIALS = {
         "client_affecting": True,
         "alert_hours_ahead": 48,
         "notes": "B2B flight pricing. Expired = no wholesale quotes. Needs OTP reauth.",
-        "reauth_cmd": "python3 scripts/centrav_reauth.py",
+        "reauth_cmd": "python3 scripts/portal_keepalive.py --portal centrav",
+        # A7 2026-06-11: laravel_session is the auth gate. Prior shortest-expiry logic
+        # picked _gat_gtag analytics cookie (21h) — same session, same expiry group.
+        # Real fix: check laravel_session directly.
+        "auth_cookie_names": ["laravel_session"],
+        "auth_domain": "centrav.com",
     },
     "regent_cookies": {
         "file": CREDS_DIR / "regent_cookies.json",
@@ -73,8 +78,13 @@ CREDENTIALS = {
         "client_affecting": True,
         "alert_hours_ahead": 48,
         "notes": "Regent portal (direct D2M account). Ely/Nichols/Furlow/McLeod bookings.",
-        "reauth_cmd": "python3 scripts/rssc_session_keepalive.py",
-        "timer": "d2m-rssc-session-keepalive.timer",
+        "reauth_cmd": "python3 scripts/portal_keepalive.py --portal regent_direct",
+        "timer": "portal-keepalive.timer",
+        # A7 2026-06-11: ASPXAUTH is the auth gate (httpOnly, www.rssc.com, ~24h TTL).
+        # Prior shortest-expiry logic picked _hjSession_1263849 (HotJar analytics, expired)
+        # or ASP.NET_SessionId with a pre-epoch corrupt timestamp (-494774h) — both wrong.
+        "auth_cookie_names": ["ASPXAUTH"],
+        "auth_domain": "rssc.com",
     },
     "regent_cookies_oa": {
         "file": CREDS_DIR / "regent_cookies_oa.json",
@@ -82,8 +92,10 @@ CREDENTIALS = {
         "client_affecting": True,
         "alert_hours_ahead": 48,
         "notes": "Regent portal (OA account). Loucks + McLeod OA bookings.",
-        "reauth_cmd": "python3 scripts/rssc_session_keepalive.py --oa-only",
-        "timer": "d2m-rssc-session-keepalive.timer",
+        "reauth_cmd": "python3 scripts/portal_keepalive.py --portal regent_oa",
+        "timer": "portal-keepalive.timer",
+        "auth_cookie_names": ["ASPXAUTH"],   # A7 2026-06-11: same gate as regent_direct
+        "auth_domain": "rssc.com",
     },
     "gmail_token": {
         "file": CREDS_DIR / "gmail_token.json",
@@ -122,9 +134,26 @@ CREDENTIALS = {
 
 # ── Cookie expiry check ────────────────────────────────────────────────────────
 
-def _check_cookies(cookie_file: Path) -> dict:
-    """Check cookie file for expiry. Returns status dict."""
+def _check_cookies(cookie_file: Path, auth_cookie_names: list = None, auth_domain: str = None) -> dict:
+    """Check cookie file for expiry against the auth-gate cookie.
+
+    Bug fixed 2026-06-11 (Sterling/A7): prior logic used shortest-expiring cookie,
+    which picked analytics/tracking cookies (e.g. _hjSession_1263849 HotJar, or
+    ASP.NET_SessionId with a pre-epoch corrupt timestamp) and reported false EXPIRED
+    when the actual auth token (ASPXAUTH, laravel_session) was healthy.
+
+    Priority order:
+      1. Named auth cookies (auth_cookie_names) scoped to auth_domain.
+      2. Shortest-expiring httpOnly cookie from auth_domain.
+      3. Shortest-expiring non-beacon cookie from auth_domain.
+      4. Shortest-expiring non-beacon cookie across all domains (legacy fallback).
+
+    Cookies with expiry > 10 years out are tracking beacons — skipped.
+    Cookies with expiry before year 2000 are corrupt stored values — skipped.
+    """
     now = time.time()
+    TEN_YEARS = 10 * 365 * 24 * 3600
+    EPOCH_2000 = 946684800.0
 
     try:
         data = json.loads(cookie_file.read_text())
@@ -136,52 +165,105 @@ def _check_cookies(cookie_file: Path) -> dict:
     if not cookies:
         return {"status": "empty", "reason": "No cookies found", "expires_in_hours": None}
 
-    # Find the earliest-expiring meaningful cookie
-    min_expiry = None
-    min_name = None
-    session_only = True  # True if all cookies are session-only (no expiry)
+    def _domain_match(cookie_domain, target_domain):
+        if not target_domain:
+            return True
+        d = (cookie_domain or "").lstrip(".")
+        t = target_domain.lstrip(".")
+        return d == t or d.endswith("." + t)
 
+    def _is_beacon(exp):
+        return exp is not None and exp > (now + TEN_YEARS)
+
+    def _result(exp, name, label=""):
+        delta = (exp - now) / 3600
+        if delta < 0:
+            return {
+                "status": "expired",
+                "reason": f"Expired {abs(delta):.1f}h ago (cookie: {name}{label})",
+                "expires_in_hours": delta,
+            }
+        return {
+            "status": "valid",
+            "reason": f"Expires in {delta:.1f}h (cookie: {name}{label})",
+            "expires_in_hours": delta,
+        }
+
+    # Pass 1: named auth cookies on auth_domain
+    if auth_cookie_names and auth_domain:
+        for c in cookies:
+            name = c.get("name", "")
+            exp = c.get("expires", c.get("expiry"))
+            if name.upper() in [n.upper() for n in auth_cookie_names]:
+                if _domain_match(c.get("domain", ""), auth_domain):
+                    if exp is None or exp <= 0:
+                        return {
+                            "status": "session_only",
+                            "reason": f"Auth cookie {name} is session-only (no persistent expiry).",
+                            "expires_in_hours": 0,
+                        }
+                    return _result(exp, name, " [auth-gate]")
+
+    # Pass 2: shortest httpOnly from auth_domain
+    best_exp = None
+    best_name = None
+    if auth_domain:
+        for c in cookies:
+            if not c.get("httpOnly"):
+                continue
+            if not _domain_match(c.get("domain", ""), auth_domain):
+                continue
+            exp = c.get("expires", c.get("expiry"))
+            if not exp or exp < EPOCH_2000 or _is_beacon(exp):
+                continue
+            if best_exp is None or exp < best_exp:
+                best_exp = exp
+                best_name = c.get("name", "?")
+    if best_exp is not None:
+        return _result(best_exp, best_name, " [httpOnly+domain]")
+
+    # Pass 3: shortest non-beacon from auth_domain
+    best_exp = None
+    best_name = None
+    if auth_domain:
+        for c in cookies:
+            if not _domain_match(c.get("domain", ""), auth_domain):
+                continue
+            exp = c.get("expires", c.get("expiry"))
+            if not exp or exp < EPOCH_2000 or _is_beacon(exp):
+                continue
+            if best_exp is None or exp < best_exp:
+                best_exp = exp
+                best_name = c.get("name", "?")
+    if best_exp is not None:
+        return _result(best_exp, best_name, " [domain-scoped]")
+
+    # Pass 4: legacy fallback — shortest non-beacon, all domains
+    best_exp = None
+    best_name = None
+    session_only = True
     for c in cookies:
         exp = c.get("expires", c.get("expiry", -1))
         name = c.get("name", "?")
-
         if exp is None or exp <= 0:
-            continue  # session cookie or no-expiry
-
-        session_only = False
-
-        # Skip obviously stale cookies (expiry in the distant past might be intentional)
-        if exp < 0:
             continue
+        session_only = False
+        if exp < EPOCH_2000 or _is_beacon(exp):
+            continue
+        if best_exp is None or exp < best_exp:
+            best_exp = exp
+            best_name = name
 
-        if min_expiry is None or exp < min_expiry:
-            min_expiry = exp
-            min_name = name
-
-    if min_expiry is None:
+    if best_exp is None:
         if session_only:
-            # Session cookies expire when browser closes — treat as likely expired
             return {
                 "status": "session_only",
                 "reason": "All cookies are session-only (no persistent expiry). Likely invalid.",
                 "expires_in_hours": 0,
             }
-        return {"status": "unknown", "reason": "No expiry timestamps found", "expires_in_hours": None}
+        return {"status": "unknown", "reason": "No valid expiry timestamps found", "expires_in_hours": None}
 
-    delta_hours = (min_expiry - now) / 3600
-
-    if delta_hours < 0:
-        return {
-            "status": "expired",
-            "reason": f"Expired {abs(delta_hours):.1f}h ago (cookie: {min_name})",
-            "expires_in_hours": delta_hours,
-        }
-    else:
-        return {
-            "status": "valid",
-            "reason": f"Expires in {delta_hours:.1f}h (cookie: {min_name})",
-            "expires_in_hours": delta_hours,
-        }
+    return _result(best_exp, best_name)
 
 
 def _check_oauth_token(token_file: Path) -> dict:
@@ -230,7 +312,13 @@ def run_check() -> dict:
         if not cfile.exists():
             result = {"status": "missing", "reason": "File not found", "expires_in_hours": None}
         elif spec["type"] == "cookies":
-            result = _check_cookies(cfile)
+            # Pass auth_cookie_names + auth_domain if defined — checks the actual
+            # session gate instead of the shortest/longest-lived cookie. A7 2026-06-11.
+            result = _check_cookies(
+                cfile,
+                auth_cookie_names=spec.get("auth_cookie_names"),
+                auth_domain=spec.get("auth_domain"),
+            )
         elif spec["type"] == "oauth_token":
             result = _check_oauth_token(cfile)
         else:
