@@ -47,6 +47,29 @@ PREVIEW_DIR = THUNDERBIRD_DIR / "output"
 LOGO_FILE = THUNDERBIRD_DIR / "Agency_Logo_email.png"
 HEADSHOT_FILE = THUNDERBIRD_DIR / "John_Headshot.jpg"
 
+# Send-lock prevents duplicate sends on the same day
+# Lock file: OpsCenter/morning_brief_sent_YYYYMMDD.lock (MT date)
+_LOCK_DIR = THUNDERBIRD_DIR / "OpsCenter"
+
+
+def _morning_brief_lock_path() -> Path:
+    try:
+        import zoneinfo
+        mt_date = datetime.now(tz=zoneinfo.ZoneInfo("America/Denver")).strftime("%Y%m%d")
+    except Exception:
+        mt_date = date.today().strftime("%Y%m%d")
+    return _LOCK_DIR / f"morning_brief_sent_{mt_date}.lock"
+
+
+def _morning_brief_lock_exists() -> bool:
+    return _morning_brief_lock_path().exists()
+
+
+def _write_morning_brief_lock():
+    p = _morning_brief_lock_path()
+    p.write_text(json.dumps({"sent_at": datetime.utcnow().isoformat()}))
+    logger.info(f"Morning brief send-lock written: {p}")
+
 SHEET_ID = "1GFjUe8RvP-GT4YHGn0DYv_BEAZGXlYfwEicFrm8ANuU"
 SA_CREDS = THUNDERBIRD_DIR / "credentials.json"
 GMAIL_TOKEN = THUNDERBIRD_DIR / "gmail_token.json"
@@ -736,7 +759,8 @@ def render_briefing_html(
             summ  = art.get("summary", "")[:300]
             rel   = art.get("relevance_score", 1)
             border = "border-left:3px solid #c9a84c;padding-left:10px;" if rel >= 3 else ""
-            link  = f'<a href="{url}" style="color:#7eb8ff;text-decoration:none;">{title}</a>' if url else f'<span style="color:#c8d0dc;">{title}</span>'
+            # Commander directive 2026-06-11: no hyperlinks in briefing articles — plain text only
+            link  = f'<span style="color:#c8d0dc;">{title}</span>'
             summ_html = (f'<div style="font-size:12px;color:#8a9ab5;margin-top:3px;line-height:1.5;">{summ}</div>'
                          if summ else "")
             out.append(
@@ -1501,10 +1525,20 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Thunderbird Morning Briefing")
     parser.add_argument("--preview", action="store_true", help="Save HTML locally, don't send")
     parser.add_argument("--weekly", action="store_true", help="Weekly digest mode")
+    parser.add_argument("--force", action="store_true", help="Ignore send-lock (testing only)")
     args = parser.parse_args()
+
+    # Send-lock guard — prevent double-send on same day
+    if not args.preview and not args.force:
+        if _morning_brief_lock_exists():
+            logger.info("Morning brief send-lock exists — already sent today. Exiting.")
+            sys.exit(0)
 
     try:
         result = run_briefing(preview=args.preview, weekly=args.weekly)
+        # Write lock after successful send (not preview)
+        if not args.preview:
+            _write_morning_brief_lock()
         print(f"Done: {result}", file=sys.stderr)
     except Exception as e:
         logger.error(f"Briefing FAILED: {e}", exc_info=True)

@@ -358,6 +358,34 @@ def collect_yesterdays_outputs() -> list[dict]:
         return []
 
 
+def collect_concierge_inbox(max_results: int = 20) -> dict:
+    """
+    Triage the d2mconcierge@gmail.com inbox for the morning brief.
+
+    Wraps core/email/hale_inbox_tools.concierge_inbox_triage (M-146 Hale Gmail).
+    Returns the triage dict (summary + classified messages) or a safe degraded
+    payload on ANY failure. This collector MUST NOT raise — the 06:00 timer
+    emails the Commander, and a triage exception cannot be allowed to break the
+    brief. Degrades to {"available": False, "error": ...}.
+    """
+    try:
+        # core/email already on sys.path via _EXTRA_PATHS bootstrap
+        from hale_inbox_tools import concierge_inbox_triage
+        r = concierge_inbox_triage(max_results=max_results)
+        if r.get("error"):
+            return {"available": False, "error": r["error"], "summary": {}, "messages": []}
+        return {
+            "available": True,
+            "account": r.get("account", "d2mconcierge@gmail.com"),
+            "unread_count": r.get("unread_count", 0),
+            "summary": r.get("summary", {}),
+            "messages": r.get("messages", []),
+        }
+    except Exception as e:
+        logger.warning(f"Concierge inbox triage failed (degrading gracefully): {e}")
+        return {"available": False, "error": str(e), "summary": {}, "messages": []}
+
+
 def collect_overnight_missions() -> list[dict]:
     """Mission board tasks updated in last 24h."""
     results = []
@@ -434,8 +462,38 @@ def collect_fare_watches() -> tuple[list[dict], list[dict]]:
     return client_fares, personal_fares
 
 
-def collect_rss_news() -> dict:
-    """Fetch RSS feeds. Returns {'cruise': [...], 'geopolitical': [...], 'business': [...]}"""
+def _parse_article_age_hours(published: str) -> float:
+    """Parse feedparser published string and return article age in hours. Returns 999 on parse failure."""
+    if not published:
+        return 999.0
+    try:
+        import email.utils
+        import calendar
+        # Try RFC 2822 format first (most RSS feeds)
+        parsed = email.utils.parsedate_tz(published)
+        if parsed:
+            ts = calendar.timegm(parsed[:9])
+            offset = parsed[9] or 0
+            ts_utc = ts - offset
+            age_hours = (datetime.utcnow().timestamp() - ts_utc) / 3600.0
+            return age_hours
+    except Exception:
+        pass
+    try:
+        # Try ISO 8601
+        from datetime import timezone
+        dt = datetime.fromisoformat(published.replace("Z", "+00:00"))
+        age_hours = (datetime.now(timezone.utc) - dt).total_seconds() / 3600.0
+        return age_hours
+    except Exception:
+        return 999.0
+
+
+def collect_rss_news(max_age_hours: float = 24.0) -> dict:
+    """Fetch RSS feeds. Returns {'cruise': [...], 'geopolitical': [...], 'business': [...]}.
+
+    Commander directive 2026-06-11: only include articles <= 24h old.
+    """
     results = {"cruise": [], "geopolitical": [], "business": []}
     try:
         from thunderbird_morning_briefing import fetch_direct_rss_feeds, _SOURCE_CATEGORIES
@@ -455,6 +513,11 @@ def collect_rss_news() -> dict:
         }
 
         for article in articles:
+            # Commander directive 2026-06-11: skip articles older than max_age_hours
+            age = _parse_article_age_hours(article.get("published", ""))
+            if age > max_age_hours:
+                continue
+
             cat = article.get("category", "Other")
             bucket = category_map.get(cat, "business")
             if len(results[bucket]) < 10:
@@ -462,6 +525,7 @@ def collect_rss_news() -> dict:
                     "title": article.get("title", ""),
                     "url": article.get("url", ""),
                     "source": article.get("source", ""),
+                    "published": article.get("published", ""),
                 })
     except Exception as e:
         logger.warning(f"RSS collection failed: {e}")
@@ -492,29 +556,105 @@ def collect_next_24h_missions() -> list[dict]:
     return results[:15]  # cap at 15 to keep brief readable
 
 
-def generate_incubator_proposal() -> str:
-    """Generate one incubator proposal from pipeline gaps."""
-    # Check hale_state for project tracking gaps
+def generate_incubator_proposals(n: int = 3) -> str:
+    """Generate multiple incubator candidates from pipeline gaps.
+
+    Commander directive 2026-06-11: increase incubator candidates in 0600 brief.
+    Returns HTML block with up to n candidates numbered for fast review.
+    """
+    candidates = []
+
+    # Source 1: active projects without deadlines (open-ended research targets)
     try:
         hs = json.loads(HALE_STATE_PATH.read_text())
         projects = hs.get("project_tracking", {}).get("active_projects", [])
         for proj in projects:
-            if proj.get("status") in ("IN_PROGRESS",) and not proj.get("deadline"):
-                return (
-                    f"<strong>{proj.get('name', 'Project')}</strong> — "
-                    f"{proj.get('notes', 'No notes')[:200]}<br>"
-                    f"<em>90-day revenue path: Confirm booking → commission trigger</em>"
-                )
+            if proj.get("status") in ("IN_PROGRESS", "URGENT") and not proj.get("deadline"):
+                candidates.append({
+                    "title": proj.get("name", "Project"),
+                    "detail": proj.get("notes", "No notes")[:200],
+                    "path": "Confirm booking → commission trigger",
+                })
+            if len(candidates) >= n:
+                break
     except Exception:
         pass
 
-    # Fallback proposal
-    return (
-        "<strong>Proactive Air Quote Expansion</strong> — "
-        "Survey all active clients for 2027 voyages. Any booking without confirmed air "
-        "= research opportunity. Spencer Grand Tour model applies.<br>"
-        "<em>90-day revenue path: Quote → client decision → booking within 90 days</em>"
-    )
+    # Source 2: hardcoded pipeline gap proposals (always relevant)
+    standing_proposals = [
+        {
+            "title": "Proactive Air Quote Expansion",
+            "detail": (
+                "Survey all active clients for 2027 voyages. Any booking without confirmed air "
+                "= research opportunity. Spencer Grand Tour model applies."
+            ),
+            "path": "Quote → client decision → booking within 90 days",
+        },
+        {
+            "title": "Morton/Dodge Lifecycle Reset",
+            "detail": (
+                "Joshua Morton & Erica Dodge (Viking Mars Dec 2026) have no active TP queue. "
+                "TP 0.5 Welcome email still pending. Window closing — departure in 6 months."
+            ),
+            "path": "Draft TP 0.5 → WF-17 → send → begin lifecycle cadence",
+        },
+        {
+            "title": "2027 Voyage Prospecting — McLeod & Loucks",
+            "detail": (
+                "Erik McLeod has 3 active bookings including a Dec 2027 Regent Grandeur. "
+                "John Loucks has a May 2027 Silver Nova. Neither has air booked. "
+                "Air window opens 11 months out — initiate fare watch now."
+            ),
+            "path": "Fare watch → air quote at window open → booking commission",
+        },
+        {
+            "title": "Grandeur Group Insurance Gap",
+            "detail": (
+                "Furlow/Ely-Darrow/Nichols (Regent Grandeur Aug 29) — insurance status unknown. "
+                "Pre-existing condition window may be closing. Verify and surface to Commander."
+            ),
+            "path": "Verify → surface gap → insurance booking → referral commission",
+        },
+        {
+            "title": "Kuklinski Excursion Window (Opens Jul 15)",
+            "detail": (
+                "Excursion booking window opens Jul 15 for Viking Mars Dec 2026. "
+                "TP 4.1-4.3 lifecycle drafts are staged and ready. Resume campaign Jul 15."
+            ),
+            "path": "Jul 15 trigger → send 4 staged drafts → excursion bookings",
+        },
+    ]
+
+    # Fill remaining slots from standing proposals
+    for prop in standing_proposals:
+        if len(candidates) >= n:
+            break
+        # Avoid duplicating by title
+        if not any(c["title"] == prop["title"] for c in candidates):
+            candidates.append(prop)
+
+    # Build HTML
+    if not candidates:
+        return (
+            "<strong>No incubator candidates found</strong> — check hale_state.json project_tracking."
+        )
+
+    html_parts = []
+    for i, c in enumerate(candidates[:n], 1):
+        html_parts.append(
+            f'<div style="margin-bottom:10px;padding:8px 14px;background:#fffef5;'
+            f'border-left:4px solid {GOLD};font-family:Georgia,serif;font-size:10pt;color:{TEXT_DARK};">'
+            f'<strong>{i}. {c["title"]}</strong><br>'
+            f'{c["detail"]}<br>'
+            f'<em style="color:#888;font-size:9pt;">90-day path: {c["path"]}</em>'
+            f'</div>'
+        )
+    return "\n".join(html_parts)
+
+
+def generate_incubator_proposal() -> str:
+    """Backward-compat wrapper — returns first candidate only. Use generate_incubator_proposals() for multi."""
+    return generate_incubator_proposals(n=1)
 
 
 # ---------------------------------------------------------------------------
@@ -575,6 +715,7 @@ def build_html_brief(
     next_24h_missions: list,
     incubator_proposal: str,
     feedback_items: list,
+    concierge_inbox: dict | None = None,
 ) -> str:
     """Build the full cream/blue/navy HTML brief."""
 
@@ -629,6 +770,62 @@ def build_html_brief(
                 )
         if rows:
             sections.append(_section_header("COMMANDER ACTION REQUIRED") + rows)
+
+    # ── CONCIERGE INBOX TRIAGE (M-146) ────────────────────────────────────────
+    # Surface d2mconcierge inbox state in the brief — client inquiries first.
+    if concierge_inbox is not None:
+        if not concierge_inbox.get("available"):
+            sections.append(
+                _section_header("CONCIERGE INBOX")
+                + _bullet_row(
+                    "Inbox triage unavailable this run — "
+                    f"<em style='color:#888;font-size:8pt;'>"
+                    f"{(concierge_inbox.get('error') or 'service offline')[:120]}</em>"
+                )
+            )
+        else:
+            summ = concierge_inbox.get("summary", {}) or {}
+            unread = concierge_inbox.get("unread_count", 0)
+            ci = summ.get("client_inquiry", 0)
+            fin = summ.get("financial", 0)
+            ven = summ.get("vendor", 0)
+            bk = summ.get("booking_confirmation", 0)
+            noise = summ.get("noise", 0)
+            summary_line = (
+                f"<strong>{unread}</strong> unread &nbsp;&bull;&nbsp; "
+                f"<strong style='color:{BLUE};'>{ci}</strong> client &nbsp;&bull;&nbsp; "
+                f"<strong>{fin}</strong> financial &nbsp;&bull;&nbsp; "
+                f"{ven} vendor &nbsp;&bull;&nbsp; {bk} booking &nbsp;&bull;&nbsp; "
+                f"<em style='color:#888;'>{noise} noise</em>"
+            )
+            rows = _bullet_row(summary_line)
+            # Detail rows: surface client_inquiry + financial only (actionable);
+            # vendor/booking are informational, noise is suppressed.
+            # Suppress wing-internal senders (Commander/wing addresses) from the
+            # actionable detail rows — the classifier tags internal/test mail from
+            # johnloucks3 as client_inquiry, which would otherwise put "Blue label
+            # test" in front of the Commander flagged as a client. (M-146 fix.)
+            _WING_INTERNAL = (
+                "johnloucks3@gmail.com",
+                "d2mconcierge@gmail.com",
+                "susanna.loucks@gmail.com",
+                "concierge@d2mluxury.quest",
+            )
+            for m in concierge_inbox.get("messages", []):
+                cat = m.get("category", "")
+                if cat not in ("client_inquiry", "financial"):
+                    continue
+                frm_full = (m.get("from", "") or "").lower()
+                if any(addr in frm_full for addr in _WING_INTERNAL):
+                    continue
+                tag = "CLIENT" if cat == "client_inquiry" else "FINANCIAL"
+                frm = (m.get("from", "") or "")[:42]
+                subj = (m.get("subject", "") or "")[:64]
+                rows += _bullet_row(
+                    f"<strong style='color:{BLUE};font-size:8pt;'>[{tag}]</strong> "
+                    f"{subj} &nbsp;<em style='color:#888;font-size:8pt;'>{frm}</em>"
+                )
+            sections.append(_section_header("CONCIERGE INBOX") + rows)
 
     # ── YESTERDAY'S OUTPUTS ───────────────────────────────────────────────────
     if yesterdays_outputs:
@@ -876,6 +1073,14 @@ def main():
     yesterdays_outputs = collect_yesterdays_outputs()
     logger.info(f"    {len(yesterdays_outputs)} items")
 
+    logger.info("  Concierge inbox triage...")
+    concierge_inbox = collect_concierge_inbox()
+    if concierge_inbox.get("available"):
+        logger.info(f"    {concierge_inbox.get('unread_count', 0)} unread, "
+                    f"summary={concierge_inbox.get('summary')}")
+    else:
+        logger.info(f"    unavailable: {concierge_inbox.get('error')}")
+
     logger.info("  Overnight missions...")
     overnight_missions = collect_overnight_missions()
     logger.info(f"    {len(overnight_missions)} items")
@@ -893,8 +1098,8 @@ def main():
     next_24h_missions = collect_next_24h_missions()
     logger.info(f"    {len(next_24h_missions)} missions queued")
 
-    logger.info("  Incubator proposal...")
-    incubator_proposal = generate_incubator_proposal()
+    logger.info("  Incubator proposals (3 candidates)...")
+    incubator_proposal = generate_incubator_proposals(n=3)  # Commander directive 2026-06-11: increase candidates
 
     # ── STEP 3: BUILD HTML ────────────────────────────────────────────────────
     logger.info("Step 3: Building HTML brief...")
@@ -909,6 +1114,7 @@ def main():
         next_24h_missions=next_24h_missions,
         incubator_proposal=incubator_proposal,
         feedback_items=feedback_items,
+        concierge_inbox=concierge_inbox,
     )
     logger.info(f"  HTML built: {len(html):,} bytes")
 

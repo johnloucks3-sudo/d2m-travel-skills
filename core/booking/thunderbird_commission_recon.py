@@ -37,6 +37,8 @@ from typing import Optional
 
 import gspread
 from google.oauth2 import service_account as sa_credentials
+from google.oauth2.credentials import Credentials as UserCredentials
+from google.auth.transport.requests import Request
 from mcp.server.fastmcp import FastMCP
 from pydantic import Field
 
@@ -45,7 +47,19 @@ from pydantic import Field
 # ---------------------------------------------------------------------------
 
 THUNDERBIRD_DIR = Path.home() / "Thunderbird"
+# NOTE (Sterling/A7 2026-06-11 — M-127): credentials.json on this box is an OAuth
+# *installed-app client* ({"installed": {...}}), NOT a service account. The prior
+# code called from_service_account_file() against it and raised MalformedError on
+# every run — the Sheets read path was silently dead.
+#
+# CANONICAL ALIGNMENT: core/booking/booking_master.py (the working sheet reader
+# that populates hale_state financial_pulse) already documented this same trap and
+# uses the real service-account key at .service_account_gemini.json. We point recon
+# at the *same* credential so there is ONE auth method for the Booking Master sheet,
+# not three. drive_token.json (OAuth user) kept only as a last-resort fallback.
 CREDENTIALS_FILE = THUNDERBIRD_DIR / "credentials.json"
+SERVICE_ACCOUNT_FILE = THUNDERBIRD_DIR / ".service_account_gemini.json"
+USER_TOKEN_FILE = THUNDERBIRD_DIR / "drive_token.json"
 LOG_DIR = THUNDERBIRD_DIR / "logs"
 LOG_FILE = LOG_DIR / "commission_recon.log"
 
@@ -92,12 +106,56 @@ logger = logging.getLogger(__name__)
 # GOOGLE SHEETS — Read Expected Commissions
 # ---------------------------------------------------------------------------
 
+def _is_service_account(path: Path) -> bool:
+    """True only if the JSON is a real service-account key (has client_email + token_uri)."""
+    try:
+        d = json.loads(path.read_text())
+        return d.get("type") == "service_account" and "client_email" in d and "token_uri" in d
+    except Exception:
+        return False
+
+
 def _get_sheets_client():
-    """Return an authorized gspread client using the service account."""
-    creds = sa_credentials.Credentials.from_service_account_file(
-        str(CREDENTIALS_FILE),
-        scopes=SHEETS_SCOPES,
+    """Return an authorized gspread client.
+
+    Preference order:
+      1. A real service-account key at config/sheets_service_account.json (if provisioned)
+      2. The Commander's OAuth user token (drive_token.json) — the working default
+
+    The legacy path used from_service_account_file() against credentials.json,
+    which is an OAuth *client* file, not a service account — that always raised
+    MalformedError. Fixed 2026-06-11 (Sterling/A7, M-127).
+    """
+    # Path 1 — real service account, only if one actually exists and is well-formed.
+    if _is_service_account(SERVICE_ACCOUNT_FILE):
+        creds = sa_credentials.Credentials.from_service_account_file(
+            str(SERVICE_ACCOUNT_FILE),
+            scopes=SHEETS_SCOPES,
+        )
+        return gspread.authorize(creds)
+
+    # Path 2 — OAuth user token (default). drive_token.json opens the booking sheet.
+    if not USER_TOKEN_FILE.exists():
+        raise FileNotFoundError(
+            f"No Sheets credential available. Neither a service account at "
+            f"{SERVICE_ACCOUNT_FILE} nor an OAuth user token at {USER_TOKEN_FILE} exists."
+        )
+    data = json.loads(USER_TOKEN_FILE.read_text())
+    creds = UserCredentials(
+        token=data.get("token"),
+        refresh_token=data.get("refresh_token"),
+        token_uri=data.get("token_uri"),
+        client_id=data.get("client_id"),
+        client_secret=data.get("client_secret"),
+        scopes=data.get("scopes"),
     )
+    if creds.expired and creds.refresh_token:
+        creds.refresh(Request())
+        # Persist the refreshed token so the keepalive timer and other readers stay in sync.
+        try:
+            USER_TOKEN_FILE.write_text(creds.to_json())
+        except Exception as e:
+            logger.warning(f"Could not persist refreshed drive token: {e}")
     return gspread.authorize(creds)
 
 
