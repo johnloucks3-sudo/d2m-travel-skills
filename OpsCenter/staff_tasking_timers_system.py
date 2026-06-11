@@ -319,6 +319,11 @@ def dispatch_to_inboxes(tasks: List[Dict]) -> None:
                 logger.info(f"Skipping duplicate task: {task['task_id']}")
                 continue
 
+        # owners must be bound BEFORE the f-string below references {owners}.
+        # Prior code assigned it ~10 lines later → UnboundLocalError on every dispatch.
+        # Fixed 2026-06-10 (Sterling/A7).
+        owners = task["owners"]
+
         inbox_task = f"""
 ---
 ## TASK: {task["task_id"]}
@@ -341,8 +346,7 @@ task: |
         dedup_state[dedup_key] = now.isoformat()
         updated = True
 
-        # Route by primary owner
-        owners = task["owners"]
+        # Route by primary owner (owners already bound above, before the f-string)
         if "A3" in owners or "COS" in owners:
             claude_tasks.append(inbox_task)
         else:

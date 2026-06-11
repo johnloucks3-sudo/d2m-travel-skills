@@ -31,6 +31,18 @@
 # --- EXCLUDE: rclone's own log (race condition: file changes during sync) ---
 - .rclone_sync.log
 
+# --- EXCLUDE: live/volatile logs & DBs written DURING the sync (race condition:
+#     "source file is being updated"). Added 2026-06-10 (Sterling/A7). The 515MB
+#     phase3a_health_check.log was growing mid-sync and failed the whole rclone run
+#     with exit 1. Logs are reproducible — no need to mirror them. ---
+- logs/**
+- *.log
+- *.db
+- *.db-journal
+- *.db-wal
+- *.sqlite
+- *.sqlite3
+
 # --- EXCLUDE: compiled/temp ---
 - *.pyc
 - *.pyo

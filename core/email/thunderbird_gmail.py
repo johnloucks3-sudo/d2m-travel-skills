@@ -19,6 +19,7 @@ Dependencies: google-api-python-client, google-auth, google-auth-oauthlib
 
 import json
 import logging
+import sys
 import time
 import functools
 import base64
@@ -40,6 +41,15 @@ from googleapiclient.errors import HttpError
 
 # Configuration
 THUNDERBIRD_DIR = Path.home() / "Thunderbird"
+
+# thunderbird_google_auth lives in api/. This module imports it bare (see
+# _get_wing_gmail_service), relying on the caller's sys.path. Callers like
+# generate_weekly_report.py only put the repo root on PYTHONPATH and hit
+# ModuleNotFoundError. Add api/ here so every caller resolves it without each
+# unit file having to set PYTHONPATH. Added 2026-06-10 (Sterling/A7).
+_API_DIR = str(THUNDERBIRD_DIR / "api")
+if _API_DIR not in sys.path:
+    sys.path.insert(0, _API_DIR)
 OAUTH_CREDENTIALS_FILE = THUNDERBIRD_DIR / "gmail_oauth_credentials.json"
 TOKEN_FILE = THUNDERBIRD_DIR / "gmail_token.json"
 EMAIL_SENT_LOG = THUNDERBIRD_DIR / "logs" / "email_sent.log"

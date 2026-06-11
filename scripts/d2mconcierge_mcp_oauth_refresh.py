@@ -67,6 +67,12 @@ def refresh_persona_token() -> bool:
         expiry_str = data.get("expiry", "")
         if expiry_str:
             expiry_dt = datetime.fromisoformat(expiry_str.replace("Z", "+00:00"))
+            # google-auth writes expiry as a NAIVE ISO string (no Z/offset). The .replace()
+            # above is then a no-op and fromisoformat returns a naive datetime. Subtracting it
+            # from an aware now_utc raised TypeError → exit 1 every other run. Force UTC tzinfo
+            # when naive so the comparison is always aware-vs-aware. Fixed 2026-06-10 (Sterling/A7).
+            if expiry_dt.tzinfo is None:
+                expiry_dt = expiry_dt.replace(tzinfo=timezone.utc)
             now_utc = datetime.now(timezone.utc)
             mins_left = (expiry_dt - now_utc).total_seconds() / 60
             if mins_left > 30:

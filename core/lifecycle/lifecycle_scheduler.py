@@ -313,7 +313,15 @@ def create_gmail_draft(to_email: str, subject: str, html_body: str, client_names
             subject=subject,
             body=full_html
         )
+        # gmail_create_draft_sync returns {"status":"success","draft_id":...,"message_id":...}
+        # — NO top-level "id" key. Prior code read result.get("id") → always None on a draft
+        # that WAS created → false draft_failed → sys.exit(1) AND duplicate-draft loop
+        # (record_sent never fired, so every run re-created the same draft). draft_id is
+        # always populated; message_id may be "". Fixed 2026-06-10 (Sterling/A7).
+        if result and result.get("status") == "success":
+            return result.get("draft_id") or result.get("message_id")
         if result:
+            # Back-compat: tolerate any wrapper still returning id / message.id
             return result.get("id") or result.get("message", {}).get("id")
     except Exception as e:
         log.error(f"Gmail draft creation failed: {e}")

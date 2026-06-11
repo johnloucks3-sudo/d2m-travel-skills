@@ -39,8 +39,21 @@ TESS_DASHBOARD_HOST = "crm.myagentgenie.com"
 def _load_vault() -> dict:
     if not VAULT_FILE.exists():
         return {}
+    raw = VAULT_FILE.read_text()
+    # The vault is currently JSON ({"KEY": "value"}). Prior code only parsed dotenv
+    # (KEY=value) lines, so JSON keys were silently skipped → "No vault credentials"
+    # even though D2M_TESS_AGENT_USERNAME/PASSWORD were present. Try JSON first, fall
+    # back to dotenv. Fixed 2026-06-10 (Sterling/A7).
+    stripped = raw.strip()
+    if stripped.startswith("{"):
+        try:
+            data = json.loads(stripped)
+            if isinstance(data, dict):
+                return {str(k): str(v) for k, v in data.items()}
+        except (ValueError, json.JSONDecodeError):
+            pass  # fall through to dotenv parse
     result = {}
-    for line in VAULT_FILE.read_text().splitlines():
+    for line in raw.splitlines():
         s = line.strip()
         if s and not s.startswith("#") and "=" in s:
             k, _, v = s.partition("=")
