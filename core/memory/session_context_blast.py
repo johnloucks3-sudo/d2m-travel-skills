@@ -16,6 +16,7 @@ Auto-triggered by: auto_session_monitor.sh (on session start detection)
 Output: OpsCenter/session_context_latest.md (@ auto-loaded in CLAUDE.md)
 """
 
+import hashlib
 import json
 import os
 import sys
@@ -32,6 +33,49 @@ OUTPUT = THUNDERBIRD / "OpsCenter" / "session_context_latest.md"
 COLLECTION = "thunderbird_memories"
 QDRANT_URL = "http://localhost:6333"
 EMBEDDING_MODEL = "BAAI/bge-small-en-v1.5"
+
+# P5a: Differential fingerprint cache (A7 Sterling 2026-06-10)
+# If source files haven't changed since last blast, skip regeneration.
+FINGERPRINT_CACHE = THUNDERBIRD / "OpsCenter" / ".session_blast_fingerprint.json"
+SOURCE_FILES_FOR_FINGERPRINT = [MISSION_BOARD, HALE_STATE]
+
+
+def _compute_fingerprint() -> dict:
+    """SHA-256 hash of each source file. Missing files get 'MISSING' sentinel."""
+    fp: dict = {}
+    for p in SOURCE_FILES_FOR_FINGERPRINT:
+        try:
+            content = p.read_bytes()
+            fp[str(p)] = hashlib.sha256(content).hexdigest()
+        except FileNotFoundError:
+            fp[str(p)] = "MISSING"
+        except Exception as e:
+            fp[str(p)] = f"ERROR:{e}"
+    return fp
+
+
+def _load_cached_fingerprint() -> dict:
+    try:
+        return json.loads(FINGERPRINT_CACHE.read_text())
+    except Exception:
+        return {}
+
+
+def _save_fingerprint(fp: dict) -> None:
+    try:
+        FINGERPRINT_CACHE.write_text(json.dumps(fp, indent=2))
+    except Exception:
+        pass  # Non-critical
+
+
+def _sources_changed() -> bool:
+    """Return True if any source file has changed since last blast."""
+    current = _compute_fingerprint()
+    cached = _load_cached_fingerprint()
+    changed = current != cached
+    if not changed:
+        print("[session_context_blast] P5a: sources unchanged — skipping regeneration")
+    return changed
 
 
 def _qdrant_up() -> bool:
@@ -215,7 +259,14 @@ def main():
     parser.add_argument("--top-missions", type=int, default=8)
     parser.add_argument("--query", nargs="*", help="Extra semantic queries")
     parser.add_argument("--stdout", action="store_true", help="Print instead of writing file")
+    parser.add_argument("--force", action="store_true",
+                        help="P5a: bypass fingerprint check and regenerate unconditionally")
     args = parser.parse_args()
+
+    # P5a: Differential fingerprint check — skip if sources unchanged (unless --force)
+    if not args.stdout and not args.force and not _sources_changed():
+        print(f"[session_context_blast] P5a: no source changes — {OUTPUT} unchanged")
+        return
 
     blast = generate_blast(top_missions=args.top_missions, extra_queries=args.query)
 
@@ -223,6 +274,7 @@ def main():
         print(blast)
     else:
         OUTPUT.write_text(blast)
+        _save_fingerprint(_compute_fingerprint())  # P5a: record this run's fingerprint
         print(f"[session_context_blast] Written to {OUTPUT}")
         print(f"[session_context_blast] {blast.count(chr(10))} lines, {len(blast)} chars")
 

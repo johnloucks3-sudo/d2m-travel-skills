@@ -162,27 +162,79 @@ def check_timer_armed(name: str) -> bool:
     return raw.strip() == "active"
 
 
+# ─── P1: Dynamic failed-unit discovery ───────────────────────────────────────
+# A7 Sterling 2026-06-10: Replace phantom-list blind spot with live discovery.
+# USER SCOPE ONLY — system-scope units tagged for visibility but never restarted
+# (user john lacks polkit authority for system units).
+# Discovered units that are not already in TIER1/TIER2 are injected as Tier-2
+# default: self-heal attempt + log + visible in summary. Never invisible again.
+
+def discover_failed_units() -> list[str]:
+    """
+    Query systemctl --user for ALL currently failed units.
+
+    Returns list of service names (without .service suffix) that are in failed
+    state and are NOT already in the TIER1_SERVICES or TIER2_SERVICES dicts.
+    These are units the static allowlists missed — injected as Tier-2-default.
+
+    User-scope only: we have authority to restart user units. System-scope units
+    (if any) would need root/polkit — not attempted here.
+    """
+    known = set(TIER1_SERVICES.keys()) | set(TIER2_SERVICES.keys())
+    discovered: list[str] = []
+
+    _, raw = _run(
+        ["systemctl", "--user", "list-units", "--state=failed", "--no-legend", "--plain"],
+        timeout=15,
+    )
+    for line in raw.splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        # Format: "unit.service  loaded failed failed  Description"
+        parts = line.split()
+        if not parts:
+            continue
+        unit = parts[0]
+        if unit.endswith(".service"):
+            svc_name = unit[:-len(".service")]
+            if svc_name not in known:
+                discovered.append(svc_name)
+                log.info("P1-DISCOVERY: found failed unit not in allowlists: %s", svc_name)
+
+    if not discovered:
+        log.info("P1-DISCOVERY: no uncatalogued failed units found")
+
+    return discovered
+
+
 def run_health_scan() -> dict[str, Any]:
     """
     Full scan of all Tier 1 and Tier 2 services.
+
+    P1 enhancement: discovers any failed user-scope units NOT in the static
+    TIER1/TIER2 dicts and injects them as Tier-2-default entries so they are
+    never invisible to the watchdog.
 
     Returns a scan dict:
     {
         "timestamp": ISO,
         "tier1": {svc_name: {active, status, detail, timer_ok}, ...},
         "tier2": {svc_name: {active, status, detail}, ...},
+        "tier2_discovered": [svc_name, ...],   # NEW: dynamically found units
         "tier1_failures": [svc_name, ...],
         "tier2_failures": [svc_name, ...],
         "all_clear": bool,
     }
     """
     scan: dict[str, Any] = {
-        "timestamp":      _now_iso(),
-        "tier1":          {},
-        "tier2":          {},
-        "tier1_failures": [],
-        "tier2_failures": [],
-        "all_clear":      True,
+        "timestamp":        _now_iso(),
+        "tier1":            {},
+        "tier2":            {},
+        "tier2_discovered": [],   # units found by P1 discovery, not in static dicts
+        "tier1_failures":   [],
+        "tier2_failures":   [],
+        "all_clear":        True,
     }
 
     for svc in TIER1_SERVICES:
@@ -208,6 +260,19 @@ def run_health_scan() -> dict[str, Any]:
             log.warning("T2 FAIL: %s", svc)
         else:
             log.info("T2 OK: %s", svc)
+
+    # P1: Inject dynamically discovered failed units as Tier-2-default
+    discovered = discover_failed_units()
+    for svc in discovered:
+        result = check_service(svc)
+        result["discovered"] = True  # tag so reports can distinguish static vs discovered
+        scan["tier2"][svc] = result
+        scan["tier2_discovered"].append(svc)
+
+        if result["status"] == "failed":
+            scan["tier2_failures"].append(svc)
+            scan["all_clear"] = False
+            log.warning("T2-DISCOVERED FAIL: %s (not in static allowlists — now tracked)", svc)
 
     return scan
 
@@ -417,8 +482,12 @@ def log_scan(
     Write a structured scan summary line to the watchdog log.
 
     Format: timestamp | status | services_checked | failures | diagnostics | recoveries
+    P1 addition: includes discovered_count (units found outside static allowlists).
     """
-    total = len(TIER1_SERVICES) + len(TIER2_SERVICES)
+    static_total = len(TIER1_SERVICES) + len(TIER2_SERVICES)
+    discovered_count = len(scan.get("tier2_discovered", []))
+    total = static_total + discovered_count
+
     t1_fail = len(scan["tier1_failures"])
     t2_fail = len(scan["tier2_failures"])
     failures = t1_fail + t2_fail
@@ -427,10 +496,11 @@ def log_scan(
     delta_str = ";".join(f"{d['service']}:{d['prev_status']}->{d['curr_status']}" for d in deltas) or "none"
     diag_svcs = ",".join(diagnostics_map.keys()) or "none"
     recovery_str = ";".join(f"{s}={'OK' if ok else 'FAIL'}" for s, ok in recovery_map.items()) or "none"
+    disc_str = ",".join(scan.get("tier2_discovered", [])) or "none"
 
     log.info(
-        "SCAN | %s | services=%d | failures=%d | deltas=[%s] | diagnostics=[%s] | recovery=[%s]",
-        status, total, failures, delta_str, diag_svcs, recovery_str,
+        "SCAN | %s | services=%d(+%d_discovered) | failures=%d | deltas=[%s] | diagnostics=[%s] | recovery=[%s] | discovered=[%s]",
+        status, static_total, discovered_count, failures, delta_str, diag_svcs, recovery_str, disc_str,
     )
 
 

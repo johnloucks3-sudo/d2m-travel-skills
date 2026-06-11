@@ -28,15 +28,68 @@
       "status": "COMPLETE",
       "built_at": "2026-06-10T22:10:37Z",
       "commit": "f178d621",
-      "timers_killed": ["hale-morning-brief", "hale-brief-generator", "thunderbird-morning-brief", "hale-brief-generate"],
-      "timers_active": ["thunderbird-daily-brief"],
+      "timers_killed": [
+        "hale-morning-brief",
+        "hale-brief-generator",
+        "thunderbird-morning-brief",
+        "hale-brief-generate"
+      ],
+      "timers_active": [
+        "thunderbird-daily-brief"
+      ],
       "next_fire": "2026-06-11T06:00:00 MDT",
       "live_send_verified": true,
       "send_lock_verified": true,
       "message_id_test": "19eb396604c90040",
       "p0_filter": "active/pending_review only (9 items vs prior 38)",
       "wf17_source": "Gmail THUNDERBIRD-Commander-Review label + draft_metadata fallback",
-      "deferred": ["cruise_line_portal_scans", "drive_pipeline_real_upload", "wf17_label_id_hardening"]
+      "deferred": [
+        "cruise_line_portal_scans",
+        "drive_pipeline_real_upload",
+        "wf17_label_id_hardening"
+      ]
     }
-  }
+  },
+  "continuity_recert": {
+    "timestamp": "2026-06-11T04:29:34.916696+00:00",
+    "overall": "RED",
+    "metrics": {
+      "failed_unit_count": {
+        "value": 4,
+        "status": "RED",
+        "threshold_red": ">2",
+        "failed_units": [
+          "p4a_cert_test.service",
+          "tess-keepalive.service",
+          "tess-token-keepalive.service",
+          "thunderbird-boot-recovery.service"
+        ]
+      },
+      "heartbeat_ping_miss_24h": {
+        "value": 106,
+        "status": "RED",
+        "threshold_red": ">1",
+        "last_scan_ts": "2026-06-10 22:20:59",
+        "window_hours": 24
+      },
+      "scrape_checkpoint_completion_pct": {
+        "value": null,
+        "status": "N/A",
+        "note": "No scrape run detected today (no .done files found)",
+        "bookings_total": 4,
+        "bookings_done": 0,
+        "missing_bookings": [
+          "3096289_Ely",
+          "3078056_Nichols",
+          "3071222_Furlow",
+          "2984034_McLeod"
+        ]
+      }
+    },
+    "red_items": [
+      "failed_unit_count=4 (threshold >2)",
+      "heartbeat_miss_24h=106 (threshold >1)"
+    ]
+  },
+  "_last_updated": "2026-06-11T04:29:34.916696+00:00"
 }

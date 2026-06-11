@@ -497,11 +497,33 @@ async def main():
         await page.route("**/*analytics*", lambda route: route.abort())
         await page.route("**/*adsrvr*", lambda route: route.abort())
 
+        # P3b: Per-booking checkpoint helper (A7 Sterling 2026-06-10)
+        # Write a .done file after each booking scrapes successfully.
+        # If the process is killed and restarted, already-done bookings are skipped.
+        def _checkpoint_path(b_id: str) -> str:
+            return f"{OUTPUT_DIR}/{b_id}.scrape.done"
+
+        def _is_done(b_id: str) -> bool:
+            import os as _os
+            return _os.path.exists(_checkpoint_path(b_id))
+
+        def _mark_done(b_id: str) -> None:
+            import os as _os
+            try:
+                with open(_checkpoint_path(b_id), "w") as _f:
+                    _f.write(f"{datetime.now().isoformat()}\n")
+            except Exception as _e:
+                print(f"  WARN: could not write checkpoint for {b_id}: {_e}")
+
         # ── 1. EXCURSIONS for all 4 bookings ──
         for booking_id, url in BOOKINGS.items():
+            if _is_done(booking_id):
+                print(f"  SKIP {booking_id} — checkpoint found (already scraped this run)")
+                continue
             try:
                 exc_data = await scrape_excursions(page, booking_id, url)
                 all_results["excursions"][booking_id] = exc_data
+                _mark_done(booking_id)  # P3b: mark this booking complete
             except Exception as e:
                 print(f"  ERROR scraping {booking_id}: {e}")
                 all_results["excursions"][booking_id] = {"error": str(e)}

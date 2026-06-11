@@ -1177,8 +1177,19 @@ def run_daemon(poll_interval: int = 5):
 
     _log("✓ All startup health checks passed")
 
+    # P4b: WatchdogSec integration (A7 Sterling 2026-06-10)
+    # Ping systemd watchdog every loop iteration so WatchdogSec=300 in the unit file
+    # can detect genuine hangs (process alive but not processing).
+    import subprocess as _subprocess
+    def _watchdog_ping():
+        try:
+            _subprocess.run(["systemd-notify", "WATCHDOG=1"], check=False, timeout=2)
+        except Exception:
+            pass  # Non-critical — watchdog notify failure should not crash the daemon
+
     while True:
         try:
+            _watchdog_ping()
             processed = process_one()
             if processed:
                 _log("Task processed. Applying 10-second rate limit before next task.")
