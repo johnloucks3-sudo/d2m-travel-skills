@@ -10,6 +10,13 @@ Checks:
   2. Financial fields have verified_date and source tags
   3. Financial field freshness (flags if > 30 days since last verification)
   4. YAML frontmatter exists on client dossiers
+  5. FPD–PAYMENT-SIGNAL HARD CHECK (Sterling A7, 2026-06-11):
+     Any status:active dossier carrying an `fpd:` field MUST also carry a
+     payment signal — `payment_status:` OR `balance_due:`. An FPD with no
+     payment signal is exactly what made Loucks Grandeur's $24,798 FPD
+     invisible. This is a FAILURE (exit 1), surfaced by name + missing field.
+     Plus two WARNINGS (never affect exit code): `fpd:` not valid ISO date,
+     and `fpd_verified_date` > 30 days stale.
 """
 
 import sys
@@ -28,14 +35,21 @@ REQUIRED_FIELDS = [
     "payment_status",
 ]
 
-# Financial fields that require freshness tracking
+# Financial DOLLAR fields that require strict freshness tracking (hard fail when stale).
+# NOTE: `fpd` (a DATE, not a dollar amount) is intentionally NOT here — its own
+# ISO-validity and verified-date staleness are handled as WARNINGS by
+# check_fpd_payment_signal() per Sterling A7 2026-06-11 (task: stale fpd = warn,
+# not fail). `fpd_amount` remains here so the dollar figure stays strictly fresh.
 FINANCIAL_FIELDS = [
     "fpd_amount",
-    "fpd",
     "balance_due",
     "total_cost",
     "deposit_amount",
 ]
+
+# A status:active dossier with an fpd: but none of these payment signals is the
+# Loucks-Grandeur invisible-FPD bug. Presence of ANY one satisfies the hard check.
+PAYMENT_SIGNAL_FIELDS = ["payment_status", "balance_due"]
 
 # Max age (days) before a financial field is flagged stale
 FRESHNESS_THRESHOLD_DAYS = 30
@@ -109,6 +123,63 @@ def check_freshness(fields: dict, path: Path) -> list[str]:
     return issues
 
 
+def check_fpd_payment_signal(fields: dict) -> tuple[list[str], list[str]]:
+    """FPD–payment-signal hard check + fpd warnings.
+
+    Returns (failures, warnings).
+      FAILURE (exit 1): status:active + fpd present + NO payment signal.
+      WARNING (no exit impact): fpd value not valid ISO date;
+                                fpd_verified_date > 30 days stale.
+
+    Sterling A7 2026-06-11 — compounding rule from the Loucks-Grandeur
+    $24,798 invisible-FPD incident. An FPD with no payment signal hides
+    a payable balance from every downstream sweep.
+    """
+    failures: list[str] = []
+    warnings: list[str] = []
+
+    if "fpd" not in fields:
+        return failures, warnings
+
+    is_active = fields.get("status", "").strip().lower() == "active"
+
+    # --- HARD CHECK: active + fpd + no payment signal => FAIL ---
+    if is_active:
+        if not any(sig in fields for sig in PAYMENT_SIGNAL_FIELDS):
+            failures.append(
+                "❌  FPD–PAYMENT-SIGNAL: status:active carries fpd "
+                f"({fields['fpd']!r}) but NO payment signal — add "
+                f"'payment_status:' or 'balance_due:' (Loucks-Grandeur invisible-FPD class)"
+            )
+
+    # --- WARNING: fpd value not valid ISO date ---
+    fpd_raw = fields["fpd"].strip().strip('"')
+    try:
+        date.fromisoformat(fpd_raw)
+    except ValueError:
+        warnings.append(
+            f"⚠️  fpd value {fpd_raw!r} is not a valid ISO date (expected YYYY-MM-DD)"
+        )
+
+    # --- WARNING: fpd_verified_date stale (>30d) ---
+    vdate = fields.get("fpd_verified_date", "").strip().strip('"')
+    if vdate:
+        try:
+            verified = date.fromisoformat(vdate)
+            age = (TODAY - verified).days
+            if age > FRESHNESS_THRESHOLD_DAYS:
+                warnings.append(
+                    f"⚠️  fpd_verified_date {verified} is {age}d stale "
+                    f"(>{FRESHNESS_THRESHOLD_DAYS}d) — re-verify against portal"
+                )
+        except ValueError:
+            warnings.append(
+                f"⚠️  fpd_verified_date {vdate!r} is not a valid ISO date"
+            )
+
+    return failures, warnings
+
+
 def validate_dossier(path: Path) -> dict:
     result = {
         "file": path.name,
@@ -117,6 +188,8 @@ def validate_dossier(path: Path) -> dict:
         "has_frontmatter": False,
         "missing_required": [],
         "freshness_issues": [],
+        "fpd_failures": [],
+        "warnings": [],
         "pass": False,
     }
 
@@ -136,7 +209,17 @@ def validate_dossier(path: Path) -> dict:
             result["missing_required"].append(f"required field '{req}' absent")
 
     result["freshness_issues"] = check_freshness(fields, path)
-    result["pass"] = not result["missing_required"] and not result["freshness_issues"]
+
+    fpd_failures, fpd_warnings = check_fpd_payment_signal(fields)
+    result["fpd_failures"] = fpd_failures
+    result["warnings"] = fpd_warnings
+
+    # Warnings NEVER affect the exit code — only hard failures do.
+    result["pass"] = (
+        not result["missing_required"]
+        and not result["freshness_issues"]
+        and not result["fpd_failures"]
+    )
     return result
 
 
@@ -168,10 +251,21 @@ def print_report(results: list[dict]) -> int:
             print(f"\n  📄 {r['file']}")
             for issue in r["missing_required"]:
                 print(f"  ❌  {issue}")
+            for issue in r["fpd_failures"]:
+                print(f"  {issue}")
             for issue in r["freshness_issues"]:
                 print(f"  {issue}")
     else:
         print("\n✅ All client dossiers pass validation")
+
+    # WARNINGS — informational only, never affect exit code.
+    warned = [r for r in client_results if r["warnings"]]
+    if warned:
+        print(f"\n⚠️  WARNINGS (advisory, do not fail the run): {len(warned)} dossier(s)")
+        for r in warned:
+            print(f"\n  📄 {r['file']}")
+            for w in r["warnings"]:
+                print(f"  {w}")
 
     if passed:
         print(f"\n✅ PASSED: {len(passed)}")
@@ -190,6 +284,13 @@ def print_report(results: list[dict]) -> int:
         print(f"  🔴 Stale financial fields (>{FRESHNESS_THRESHOLD_DAYS}d): {stale}")
     if missing_dates:
         print(f"  ⚠️  Financial fields missing verified_date: {missing_dates}")
+
+    # FPD–payment-signal hard-check rollup (Sterling A7 — Baldrige sweep signal)
+    fpd_no_signal = sum(1 for r in client_results if r["fpd_failures"])
+    fpd_warnings = sum(len(r["warnings"]) for r in client_results)
+    print(f"  🔒 FPD without payment signal (HARD FAIL): {fpd_no_signal}")
+    if fpd_warnings:
+        print(f"  ⚠️  FPD advisory warnings: {fpd_warnings}")
     print("=" * 72 + "\n")
 
     return 1 if failed else 0
