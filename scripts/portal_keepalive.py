@@ -101,6 +101,38 @@ def record_portal_success(portal_name: str) -> None:
         _save_fail_counts(counts)
         log.info(f"{portal_name}: failure counter reset after successful refresh")
 
+
+def _auth_gate_present(cookies: list, auth_cookie_names: list, auth_domain: str) -> bool:
+    """Verify the returned cookie set contains the expected auth-gate cookie.
+
+    Guards the save path: a silent login failure (captcha, Akamai challenge, wrong
+    page) still produces dozens of analytics/tracking cookies.  Saving those would
+    overwrite a healthy session with a dead one.  This check requires the named
+    auth-gate cookie from the expected domain to be present before we commit the
+    new cookie set.  If auth_cookie_names or auth_domain is not specified for a
+    portal, we skip the check (backwards-compatible with portals that predate the
+    auth-gate registry).
+
+    Added 2026-06-11 (Sterling/A7) — A7 finding: save-on-any-cookies is a
+    correctness gap; a failed re-login can report 'refreshed OK' and destroy a
+    valid session.
+    """
+    if not auth_cookie_names or not auth_domain:
+        return True  # no registry metadata → cannot verify, allow save
+
+    def _domain_match(cookie_domain, target_domain):
+        d = cookie_domain.lstrip(".")
+        t = target_domain.lstrip(".")
+        return d == t or d.endswith("." + t)
+
+    for c in cookies:
+        name = c.get("name", "")
+        if name.upper() in [n.upper() for n in auth_cookie_names]:
+            if _domain_match(c.get("domain", ""), auth_domain):
+                return True
+    return False
+
+
 THUNDERBIRD = Path("/home/john/Thunderbird")
 CREDS_DIR = THUNDERBIRD / "creds"
 CONFIG_FILE = THUNDERBIRD / "config" / "portal_creds.json"
@@ -906,9 +938,19 @@ async def run(portals_to_check: list, status_only: bool) -> None:
                 try:
                     fresh_cookies = await portal["refresh_fn"](page, portal_creds)
                     if fresh_cookies:
-                        save_cookies(portal["cookie_file"], fresh_cookies)
-                        log.info(f"{name}: refreshed OK — {len(fresh_cookies)} cookies saved to {portal['cookie_file'].name}")
-                        record_portal_success(name)
+                        auth_names = portal.get("auth_cookie_names")
+                        auth_dom = portal.get("auth_domain")
+                        if _auth_gate_present(fresh_cookies, auth_names, auth_dom):
+                            save_cookies(portal["cookie_file"], fresh_cookies)
+                            log.info(f"{name}: refreshed OK — {len(fresh_cookies)} cookies saved to {portal['cookie_file'].name}")
+                            record_portal_success(name)
+                        else:
+                            log.error(
+                                f"{name}: refresh returned {len(fresh_cookies)} cookies but "
+                                f"auth-gate cookie '{auth_names}' NOT found on '{auth_dom}' — "
+                                f"login likely failed silently (captcha/challenge). Old cookies preserved."
+                            )
+                            record_portal_failure(name)
                     else:
                         log.error(f"{name}: refresh returned no cookies — manual re-auth may be needed")
                         record_portal_failure(name)
@@ -930,9 +972,19 @@ async def run(portals_to_check: list, status_only: bool) -> None:
                 try:
                     fresh_cookies = await portal["refresh_fn"](page, portal_creds)
                     if fresh_cookies:
-                        save_cookies(portal["cookie_file"], fresh_cookies)
-                        log.info(f"{name}: refreshed OK — {len(fresh_cookies)} cookies saved to {portal['cookie_file'].name}")
-                        record_portal_success(name)
+                        auth_names = portal.get("auth_cookie_names")
+                        auth_dom = portal.get("auth_domain")
+                        if _auth_gate_present(fresh_cookies, auth_names, auth_dom):
+                            save_cookies(portal["cookie_file"], fresh_cookies)
+                            log.info(f"{name}: refreshed OK — {len(fresh_cookies)} cookies saved to {portal['cookie_file'].name}")
+                            record_portal_success(name)
+                        else:
+                            log.error(
+                                f"{name}: refresh returned {len(fresh_cookies)} cookies but "
+                                f"auth-gate cookie '{auth_names}' NOT found on '{auth_dom}' — "
+                                f"login likely failed silently (captcha/challenge). Old cookies preserved."
+                            )
+                            record_portal_failure(name)
                     else:
                         log.error(f"{name}: refresh returned no cookies — manual re-auth may be needed")
                         record_portal_failure(name)
