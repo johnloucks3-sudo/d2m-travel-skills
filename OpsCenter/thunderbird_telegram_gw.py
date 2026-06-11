@@ -258,8 +258,10 @@ def _load_persona_cache() -> None:
             log.warning("persona loader unavailable, falling back: %s", _e)
         if not hale_cos:
             if HALE_COS.exists():
-                # Fallback floor: 9000 chars still clears the gates (~7480).
-                hale_cos = HALE_COS.read_text(encoding="utf-8")[:9000]
+                # Fallback floor: 14000 chars clears the gates AND the ACTIVE
+                # STANDING ORDERS block (~char 11863–13355). Raised from 9000
+                # 2026-06-10 so the 8-Hale governance survives loader failure.
+                hale_cos = HALE_COS.read_text(encoding="utf-8")[:14000]
             elif HALE_INIT.exists():
                 hale_cos = HALE_INIT.read_text(encoding="utf-8")
 

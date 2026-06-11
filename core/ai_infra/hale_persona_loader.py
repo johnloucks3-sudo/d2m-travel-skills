@@ -67,9 +67,11 @@ def load_compact_persona() -> str:
     # Core: identity + authority + gates (start → just before FAILURE MODE block)
     core_end = full.find("## FAILURE MODE CORRECTIONS")
     if core_end == -1:
-        # Marker moved — fall back to a floor that still clears the gates
-        # (Three Gates section sits ~char 7480; 9000 guarantees inclusion).
-        core = full[:9000]
+        # Marker moved — fall back to a floor that still clears the gates AND
+        # the ACTIVE STANDING ORDERS block (ends ~char 13355 before the marker).
+        # 2026-06-10: raised from 9000 so PRODUCTION-LOCK-retired / OODA /
+        # liberal-delegation SOs survive the fallback path on all 8 Hales.
+        core = full[:14000]
     else:
         core = full[:core_end].rstrip()
 
