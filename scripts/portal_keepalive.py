@@ -31,7 +31,7 @@ import argparse
 import sys
 import urllib.request
 import urllib.parse
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 from playwright.async_api import async_playwright
@@ -43,10 +43,62 @@ from playwright.async_api import async_playwright
 FAIL_STATE_FILE = Path("/home/john/Thunderbird/logs/portal_fail_counts.json")
 ALERT_THRESHOLD = 3  # consecutive failures before Telegram alert
 
+# ---------------------------------------------------------------------------
+# Consecutive-failure backoff guard (A7 Sterling 2026-06-11)
+# ---------------------------------------------------------------------------
+# Context: portal-keepalive cadence was tightened 3h -> 90min globally. Portals
+# that are persistently FAILING (e.g. seabourn, carnival, globus — not active D2M
+# lines) would then receive a fresh login attempt every 90min. Repeated failed
+# logins on a real account risk provider-side account lockout.
+#
+# Guard: after BACKOFF_THRESHOLD consecutive failures, stop hammering. Compute a
+# capped exponential backoff and record next_attempt. The refresh loop skips any
+# portal whose next_attempt is still in the future. A single SUCCESS clears both
+# the counter and the backoff. Skipping does NOT count as a failure — otherwise
+# the portal would be pushed out forever and never retried.
+BACKOFF_THRESHOLD = 3          # consecutive failures before backoff engages
+BACKOFF_BASE_HOURS = 6.0       # first backoff step (count==threshold) — far above 90min cadence
+BACKOFF_CAP_HOURS = 24.0       # maximum backoff interval
+
+def _backoff_hours_for(count: int) -> float:
+    """Capped exponential backoff in hours for a given consecutive-failure count.
+
+    count <  BACKOFF_THRESHOLD  -> 0 (no backoff; normal 90min cadence applies)
+    count == BACKOFF_THRESHOLD  -> BACKOFF_BASE_HOURS (6h)
+    each additional failure doubles the interval, capped at BACKOFF_CAP_HOURS.
+    e.g. 3 -> 6h, 4 -> 12h, 5 -> 24h, 6+ -> 24h (cap).
+    """
+    if count < BACKOFF_THRESHOLD:
+        return 0.0
+    steps = count - BACKOFF_THRESHOLD          # 0, 1, 2, ...
+    hours = BACKOFF_BASE_HOURS * (2 ** steps)
+    return min(hours, BACKOFF_CAP_HOURS)
+
+def _normalize_record(value) -> dict:
+    """Coerce a stored fail record to canonical {'count': int, 'next_attempt': iso|None}.
+
+    Backward-compatible: legacy on-disk format was {portal: int}. An int value is
+    promoted to {'count': int, 'next_attempt': None} so the existing state file and
+    the Telegram alert path keep working without a migration step.
+    """
+    if isinstance(value, dict):
+        return {
+            "count": int(value.get("count", 0)),
+            "next_attempt": value.get("next_attempt"),
+        }
+    # legacy int (or anything unexpected) -> count only
+    try:
+        return {"count": int(value), "next_attempt": None}
+    except (TypeError, ValueError):
+        return {"count": 0, "next_attempt": None}
+
 def _load_fail_counts() -> dict:
+    """Load fail state, normalizing every record to {'count', 'next_attempt'}."""
     if FAIL_STATE_FILE.exists():
         try:
-            return json.loads(FAIL_STATE_FILE.read_text())
+            raw = json.loads(FAIL_STATE_FILE.read_text())
+            if isinstance(raw, dict):
+                return {k: _normalize_record(v) for k, v in raw.items()}
         except Exception:
             pass
     return {}
@@ -54,6 +106,28 @@ def _load_fail_counts() -> dict:
 def _save_fail_counts(counts: dict) -> None:
     FAIL_STATE_FILE.parent.mkdir(exist_ok=True)
     FAIL_STATE_FILE.write_text(json.dumps(counts, indent=2))
+
+def is_in_backoff(portal_name: str, now: datetime = None) -> bool:
+    """True if portal_name is under an active backoff window (skip re-login).
+
+    A skip is NOT a failure — callers must not record a failure when this returns
+    True, or the backoff window would extend indefinitely and the portal would
+    never be retried.
+    """
+    now = now or datetime.now(timezone.utc)
+    rec = _load_fail_counts().get(portal_name)
+    if not rec:
+        return False
+    next_attempt = rec.get("next_attempt")
+    if not next_attempt:
+        return False
+    try:
+        nxt = datetime.fromisoformat(next_attempt)
+        if nxt.tzinfo is None:
+            nxt = nxt.replace(tzinfo=timezone.utc)
+    except (TypeError, ValueError):
+        return False
+    return now < nxt
 
 def _send_telegram_alert(message: str) -> None:
     """Send alert to Commander via D2MC2C bot."""
@@ -83,23 +157,48 @@ def _send_telegram_alert(message: str) -> None:
         log.warning(f"Telegram alert send failed: {exc}")
 
 def record_portal_failure(portal_name: str) -> None:
+    """Record one ACTUAL attempted-and-failed refresh.
+
+    Increments the consecutive-failure counter, arms a capped exponential backoff
+    once the threshold is crossed, and fires the Telegram alert. MUST NOT be called
+    when a portal is skipped for backoff — a skip is not a failure.
+    """
     counts = _load_fail_counts()
-    counts[portal_name] = counts.get(portal_name, 0) + 1
+    rec = counts.get(portal_name) or {"count": 0, "next_attempt": None}
+    rec["count"] = rec.get("count", 0) + 1
+    count = rec["count"]
+
+    backoff_h = _backoff_hours_for(count)
+    if backoff_h > 0:
+        next_attempt = datetime.now(timezone.utc) + timedelta(hours=backoff_h)
+        rec["next_attempt"] = next_attempt.isoformat()
+        log.warning(
+            f"{portal_name}: {count} consecutive failures — backoff engaged, "
+            f"next re-login attempt no sooner than {next_attempt.strftime('%Y-%m-%d %H:%M UTC')} "
+            f"(+{backoff_h:g}h). Lockout-risk guard active."
+        )
+    else:
+        rec["next_attempt"] = None
+
+    counts[portal_name] = rec
     _save_fail_counts(counts)
-    if counts[portal_name] >= ALERT_THRESHOLD:
+
+    if count >= ALERT_THRESHOLD:
         _send_telegram_alert(
             f"Portal <b>{portal_name}</b> has failed to refresh "
-            f"{counts[portal_name]} consecutive times.\n"
+            f"{count} consecutive times.\n"
+            f"Backoff engaged (+{backoff_h:g}h) to prevent account lockout.\n"
             f"Manual re-authentication may be required.\n"
             f"Time: {datetime.now().strftime('%Y-%m-%d %H:%M MDT')}"
         )
-        log.error(f"{portal_name}: ALERT SENT — {counts[portal_name]} consecutive failures")
+        log.error(f"{portal_name}: ALERT SENT — {count} consecutive failures")
 
 def record_portal_success(portal_name: str) -> None:
+    """Reset the failure counter AND clear any backoff window after a real success."""
     counts = _load_fail_counts()
     if counts.pop(portal_name, None) is not None:
         _save_fail_counts(counts)
-        log.info(f"{portal_name}: failure counter reset after successful refresh")
+        log.info(f"{portal_name}: failure counter + backoff reset after successful refresh")
 
 
 def _auth_gate_present(cookies: list, auth_cookie_names: list, auth_domain: str) -> bool:
@@ -904,8 +1003,23 @@ async def run(portals_to_check: list, status_only: bool) -> None:
     if needs_warn:
         log.warning(f"Cookies expiring soon (< {WARN_HOURS}h): {needs_warn}")
 
+    # Backoff guard (A7 Sterling 2026-06-11): drop any portal still inside an
+    # active backoff window BEFORE the browser split, so both chromium and firefox
+    # loops are covered by one filter. Skipping here is NOT a failure — we do not
+    # touch the fail counter for skipped portals.
+    backed_off = [name for name in needs_refresh if is_in_backoff(name)]
+    if backed_off:
+        rec = _load_fail_counts()
+        for name in backed_off:
+            r = rec.get(name, {})
+            log.warning(
+                f"{name}: SKIP — in failure-backoff ({r.get('count', '?')} consecutive "
+                f"failures, next attempt {r.get('next_attempt', '?')}). Avoiding lockout risk."
+            )
+    needs_refresh = [name for name in needs_refresh if name not in backed_off]
+
     if not needs_refresh:
-        log.info("All portals OK — no refresh needed.")
+        log.info("All portals OK or backed-off — no refresh attempt this cycle.")
         return
 
     log.info(f"Refreshing: {needs_refresh}")
