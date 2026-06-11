@@ -50,10 +50,19 @@ from core.learning.model_safeguards import (
     DEEPSEEK_URL,
     DEEPSEEK_API_KEY,
 )
-from thunderbird_model_router import (
-    _call_groq,
-    _call_claude,
-)
+# ── Defensive imports with fallbacks ──
+try:
+    from thunderbird_model_router import (
+        _call_groq,
+        _call_claude,
+    )
+except ImportError as e:
+    logger.warning(f"thunderbird_model_router unavailable: {e}")
+    # Define stub functions that fail gracefully if called
+    def _call_groq(system, query, **kwargs):
+        raise RuntimeError(f"Groq unavailable: {e}")
+    def _call_claude(system, query, **kwargs):
+        raise RuntimeError(f"Claude unavailable: {e}")
 
 logger = logging.getLogger("thunderbird.overwatch")
 

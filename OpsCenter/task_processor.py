@@ -41,20 +41,59 @@ from dotenv import load_dotenv
 load_dotenv(str(_ROOT / ".env"))
 load_dotenv(str(_ROOT / ".env.telegram"))
 
-from thunderbird_model_router import (
-    _call_groq,
-    _call_gemini,
-    _call_claude,
-    _call_openrouter,
-    classify_task,
-    TaskType,
-    DEEPSEEK_PRIMARY_MODEL,
-    OPENROUTER_API_KEY,
-)
-from thunderbird_innovation_scanner import run_daily_scan, run_weekly_scan
-from thunderbird_morning_briefing import run_briefing as run_morning_briefing_pipeline
-from thunderbird_overwatch import run_sentinel_sweep, _check_dossier_currency, _check_commission_math, CheckStatus, CheckResult
-from thunderbird_telegram_fmt import split_message, md_to_telegram, strip_markdown
+# ── Defensive imports with explicit error handling ──
+# NOTE: Using print() instead of logger since logger is not yet defined
+try:
+    from thunderbird_model_router import (
+        _call_groq,
+        _call_gemini,
+        _call_claude,
+        _call_openrouter,
+        classify_task,
+        TaskType,
+        DEEPSEEK_PRIMARY_MODEL,
+        OPENROUTER_API_KEY,
+    )
+except ImportError as e:
+    print(f"FATAL: Cannot import from thunderbird_model_router: {e}", file=sys.stderr)
+    raise SystemExit(f"Startup failed: thunderbird_model_router import error: {e}")
+
+try:
+    from thunderbird_innovation_scanner import run_daily_scan, run_weekly_scan
+except ImportError as e:
+    print(f"WARN: thunderbird_innovation_scanner unavailable: {e}", file=sys.stderr)
+    run_daily_scan = None
+    run_weekly_scan = None
+
+try:
+    from thunderbird_morning_briefing import run_briefing as run_morning_briefing_pipeline
+except ImportError as e:
+    print(f"WARN: thunderbird_morning_briefing unavailable: {e}", file=sys.stderr)
+    run_morning_briefing_pipeline = None
+
+try:
+    from thunderbird_overwatch import (
+        run_sentinel_sweep,
+        _check_dossier_currency,
+        _check_commission_math,
+        CheckStatus,
+        CheckResult,
+    )
+except ImportError as e:
+    print(f"WARN: thunderbird_overwatch unavailable: {e}", file=sys.stderr)
+    run_sentinel_sweep = None
+    _check_dossier_currency = None
+    _check_commission_math = None
+    CheckStatus = None
+    CheckResult = None
+
+try:
+    from thunderbird_telegram_fmt import split_message, md_to_telegram, strip_markdown
+except ImportError as e:
+    print(f"WARN: thunderbird_telegram_fmt unavailable: {e}", file=sys.stderr)
+    split_message = None
+    md_to_telegram = None
+    strip_markdown = None
 
 
 import re
@@ -1123,6 +1162,20 @@ def run_daemon(poll_interval: int = 5):
     _log(f"Poll interval: {poll_interval}s")
     _log(f"Telegram bot: {'configured' if TELEGRAM_BOT_TOKEN else 'MISSING'}")
     _log(f"Commander ID: {TELEGRAM_COMMANDER_ID or 'MISSING'}")
+
+    # Health check: verify critical modules are available
+    _log("Running startup health checks...")
+    pythonpath = os.environ.get("PYTHONPATH", "NOT SET")
+    _log(f"PYTHONPATH: {pythonpath[:200]}")  # Truncate for logs
+
+    try:
+        import thunderbird_model_router
+        _log("✓ Health check: thunderbird_model_router OK")
+    except ImportError as e:
+        _log(f"✗ Health check FAILED: Cannot import thunderbird_model_router: {e}")
+        raise SystemExit(f"Critical module unavailable: {e}")
+
+    _log("✓ All startup health checks passed")
 
     while True:
         try:
