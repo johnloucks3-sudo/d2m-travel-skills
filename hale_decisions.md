@@ -4525,3 +4525,12 @@ Read the f...
 **Notes:** Verbatim order — "Production lock permanently removed, your discretion, use agents, use Sonnet and Haiku liberally." Retired in Personas/hale_cos.md (Failure D section marked RETIRED, historical record preserved). Spot-it-fix-it exception updated. STILL BINDING: three Commander gates (client send/financial/strategic) + 6 protected email-scanner/relay files (SO 2026-06-08) — these are NOT PRODUCTION-LOCK and survive. Wingman note logged to Commander: May-13 lane-crossing risk now rides on Hale's discipline by choice, accepted. Context: issued mid critical-infra remediation (Sterling executing batch in background).
 
 ---
+
+## 2026-06-10 — WORKING METHOD & LIBERAL DELEGATION AUTHORITY (Commander Directive)
+**Decision:** Commander permanently authorized (a) liberal subagent use, (b) Hale's free choice between self-coding and delegation by results not rule ("you're the same Claude"), and (c) a mandatory show-your-work method on non-trivial tasks: OODA (Observe-Orient-Decide-Act) wrapped around a visible plan → checkable to-do list → check-offs → Assess → AAR → Survey/Replan.
+**Domain:** Working Method / Autonomy
+**Type:** strategic (Commander-issued, permanent)
+**Outcome:** executed
+**Notes:** Verbatim — "permanently authorize liberal use of agents, self coding vs delegation as you deem necessary (you're the same claude), Show your work: Observe-Orient-Decide-Act // detailed planning - to do list - check off - assess, AAR, survey, replan." Canonical in Personas/hale_cos.md Layer 2 (Posture Rules). Memory: feedback_working_method_ooda.md. Visibility is the deliverable — plan/todo/check-offs/AAR are products, not scaffolding. Calibrate depth to task size.
+
+---
