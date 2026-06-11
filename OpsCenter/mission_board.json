@@ -144,7 +144,7 @@
     {
       "id": "MISSION-026",
       "title": "Cabin Selection Follow-up Monitoring",
-      "status": "pending_review",
+      "status": "completed",
       "priority": "P1",
       "assigned_to": "Hale",
       "description": "Monitor cabin selection responses from McLeod + Kuklinski. BOTH OVERDUE.",
@@ -744,7 +744,7 @@
     {
       "id": "MISSION-060",
       "title": "Chromebook Termux \u2014",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "Enhanced Terminal (Colors + Function) Deliver setup_termux.sh to Chromebook Termux. Installs: tmux (persistent sessions, mouse support, OSC52 clipboard, vi copy mode, C-a prefix), COLORTERM=truecolor, extra keys row (ESC/TAB/CTRL/ALT/arrows), Thunderbird dark color theme (bg #1a1a2e). Script at scripts/setup_termux.sh. Delivery blocked \u2014 bracketed paste appends tilde, SSH unreachable (Tailscale one-way). Next: user to manually curl to s.sh~ then bash s.sh~ from Chromebook keyboard. P2",
@@ -862,7 +862,7 @@
     {
       "id": "MISSION-066",
       "title": "Web Lead Pipeline \u2014 Live Site Test",
-      "status": "pending_review",
+      "status": "completed",
       "priority": "P1",
       "assigned_to": "Commander + Hale",
       "description": "End-to-end live test of the Dani web lead pipeline on app.d2mluxury.quest. Verify: (1) Dani qualifies cruise, dates, cabin, party over 2+ turns, (2) commits to 2hr proposal when all four criteria met, (3) visitor provides email, (4) Telegram \ud83d\udd25 RFP alert fires to Commander, (5) draft worker spawns, (6) Sonnet prices cruise from conversation context, (7) HTML proposal created with correct stationery, (8) Gmail Commander-Review draft appears in d2mconcierge, (9) Telegram \u2705 completion alert fires. Commander supplies real or realistic test lead data.",
@@ -885,7 +885,7 @@
     {
       "id": "MISSION-069",
       "title": "Perx + Odysseus + CruiseComplete \u2014 Platform Reliability",
-      "status": "pending_review",
+      "status": "completed",
       "priority": "P1",
       "assigned_to": "A7 Sterling / Hale",
       "description": "Make Perx, Odysseus (TESS/book.myagentgenie.com), and CruiseComplete (TLN AgentUniverse) reliable automated data sources for fare scanning. Root issue: Chrome debug port 9222 is OFFLINE \u2014 both Odysseus and CruiseComplete use CDP via port 9222. Perx requires authenticated session. Goal: all three platforms health-checked, session-validated, and scan-ready so MISSION-068 Norway cruise scan can execute without manual intervention.",
@@ -990,7 +990,7 @@
     {
       "id": "MISSION-065",
       "title": "Pacific Voyage Blog",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "\u2014 Interview Series (Segments Remaining) Interview-based blog posts for www.d2mluxury.quest. Commander provides truth, Hale writes in his voice. Remaining segments: (1) OC/family leg Apr 10-13 John Wayne, (2) Hawaii Apr 13-18, (3) Silver Nova dining \u2014 La Dame/Kaiseki/SALT/Silver Note, (4) Sea days rhythm, (5) Miyako Apr 25 first port, (6) Final wrap/reflections. Method: interview Commander per segment, one post per sitting. Do NOT publish without Commander review. P2",
@@ -1047,7 +1047,7 @@
     {
       "id": "MISSION-072",
       "title": "MISSION-072: Metronome \u2194",
-      "status": "completed",
+      "status": "archived",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "Lifecycle Router Integration Wire lifecycle_router.py into metronome.py. On each tick: check each active client ARC position vs today, fire TP-ALERTs when touchpoints are due, route to correct persona per YAML decision tree, add dedup gate to suppress duplicate alerts (fixes 30x TP-ALERT blocker). Owner: A7 Sterling. Design review before any code. P2",
@@ -1067,7 +1067,7 @@
     {
       "id": "MISSION-072",
       "title": "Dead Link Audit + Portal Login Verification",
-      "status": "IN_PROGRESS",
+      "status": "archived",
       "priority": "P2",
       "created": "2026-05-27T17:10:05.069933",
       "owner": "A7 Sterling + Hale",
@@ -1154,7 +1154,7 @@
     {
       "id": "MISSION-073",
       "title": "RoboForm Share Acceptance",
-      "status": "in_progress",
+      "status": "completed",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "+ Credential Extraction Commander must accept RoboForm share at d2mconcierge@gmail.com (folder: John Loucks HALE, shared 2026-05-25). Steps: (1) Log into d2mconcierge@gmail.com in browser. (2) Create/login RoboForm account with that address. (3) Run: python3 scripts/roboform_extract.py --accept to open share link. (4) After acceptance: python3 scripts/roboform_extract.py --browser to extract portal creds. Likely yields: TLN/CruiseComplete login, Viking, Regent, and other portal credentials. P1",
@@ -1242,7 +1242,7 @@
     {
       "id": "MISSION-078",
       "title": "Persona Avatar Generation",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "\u2014 10 Missing Personas Generate avatar images for 10 personas lacking photos: Sterling (A7), Navarro (A1), Keel (A4), Reyes (A8), ELON (A12), Sienna (A13), TALON, JET, ZEN, Horizon (A11). Required for email sig block standard (SO_EMAIL_RULES_UPDATE_20260530). Sterling recommends routing to ELON (A12) for batch generation. Existing avatars in storage/output/images/ as reference for style consistency. Owner: A12 ELON. P2",
@@ -1277,7 +1277,7 @@
     {
       "id": "MISSION-080",
       "title": "McLeod Dossier \u2014",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P1",
       "assigned_to": "A8 Reyes",
       "description": "Mark CONFIRMED: Baglioni FCO, VCE transfer, Rome/Venice dining Commander confirmed in session 2026-05-30: FCO\u2192Baglioni Hotel, VCE transfer, Rome dining, Venice dining all CONFIRMED. Update dossier Silver Muse Complete \u2014 still showing PENDING. P1",
@@ -1307,7 +1307,7 @@
     {
       "id": "MISSION-082",
       "title": "Furlows \u2014 HEL\u2192ARN",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P1",
       "assigned_to": "A8 Reyes",
       "description": "Seat Assignments (BB4X94) AY 811 Aug 27 \u2014 seats still unassigned as of May 30. E-45 target passed. Contact Finnair/AA with PNR BB4X94. Same issue affects Nichols (same flights, DSTAGH/BERJYH). P1",
@@ -1322,7 +1322,7 @@
     {
       "id": "MISSION-083",
       "title": "Nichols \u2014 Return",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P1",
       "assigned_to": "A8 Reyes",
       "description": "Flight Seat Assignments Missing BA 6776 OSL\u2192LHR Sep 8 AND AA 79 LHR\u2192DFW Sep 8 \u2014 zero seat assignments for Larry & Heidi. PNRs: AA DSTAGH / Finnair BERJYH. E-45 target passed. P1",
@@ -1337,7 +1337,7 @@
     {
       "id": "MISSION-084",
       "title": "Grandeur Group \u2014",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P1",
       "assigned_to": "A8 Reyes",
       "description": "Haymarket Room Retention (all 3 couples) All 3 couples (Furlow 827, Ely 961, Nichols 939) are on Furlow group Bedsonline booking 131-2656351. Confirm with Haymarket By Scandic that clients stay in same room night Aug 27-28 AND Aug 28-29 (Regent covers the Aug 28 night). Risk: hotel may ask guests to move rooms. P1",
@@ -1352,7 +1352,7 @@
     {
       "id": "MISSION-085",
       "title": "Grandeur Group \u2014",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P1",
       "assigned_to": "A8 Reyes",
       "description": "Schengen Entry Verification US passports \u2014 Sweden/Norway/Denmark. Should be visa-free 90 days but needs formal verification documented in all 3 dossiers. Owner: Navarro (A1). All passports valid 2030+. P2",
@@ -1508,7 +1508,7 @@
     {
       "id": "MISSION-092",
       "title": "Adopt persistent Claude",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "Code scheduling for trip validation workflows MISSION-SCHEDULING-DURABLE: Replace session-only CronCreate jobs (auto-expire 7d) with durable scheduling mechanism for trip validation and final itinerary procedures. Current jobs: Furlow/Ely-Darrow/Nichols June 1 dining email automation (IDs 2affb392, 85e42493, 8dfece25) + McLeod/McGlasson June 4 final itinerary send gate. Design options: (1) Write cron expressions to persistent .crontab entry, (2) Implement standing orders (SO files) with headless Claude spawn, (3) Use systemd timers for durable scheduling. Acceptance: Jobs survive session exit, run on schedule regardless of Claude Code session state. Owner: ELON (automation architect). Gate: Approval from A12 on architecture approach. P1",
@@ -1701,7 +1701,7 @@
     {
       "id": "MISSION-103",
       "title": "WING STANDUP \u2014",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "Spawn Reliability Watch Campaign C2. Monitor ask/ask-opus spawn for 14-day reliability. If spawn fails within 14 days, escalate. If stable for 14 days, mark P7 resolved. Campaign link: C2",
@@ -1716,7 +1716,7 @@
     {
       "id": "MISSION-104",
       "title": "WING STANDUP \u2014",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "Build Front Door for Rondo/Stefanie Campaign C2. Design and build a simple front door so non-technical users (Rondo, Stefanie) can interact with the Wing. Bryana offer nixed by Susie \u2014 do not pursue Bryana. Campaign link: C2",
@@ -1731,7 +1731,7 @@
     {
       "id": "MISSION-105",
       "title": "INBOX FIRST \u2014",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "Verify Pipeline Redirect Campaign C4. Verify all relay points send final reports to johnloucks3 inbox by default. Establish exception protocol for case-by-case draft requests. Campaign link: C4",
@@ -1746,7 +1746,7 @@
     {
       "id": "MISSION-106",
       "title": "TEMPLATE \u2014 Full",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "Template Audit Campaign C5. Audit all existing templates against SO-2026-06-03 baseline. Identify drift, gaps, and duplicates. Due within 30 days. Campaign link: C5",
@@ -1761,7 +1761,7 @@
     {
       "id": "MISSION-107",
       "title": "SPEED \u2014 Bottleneck",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "Diagnosis Campaign C6. Identify the primary pipeline bottleneck. Determine whether delay is model latency, routing, or tool overhead. Recommend fix. Campaign link: C6",
@@ -1776,7 +1776,7 @@
     {
       "id": "MISSION-108",
       "title": "LOUCKS TRAVEL \u2014",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "Atlas Med Leg 3 Pricing Call Campaign C7. Call Atlas Voyages sales (844-442-8522) to get firm V2 pricing on World Traveller Leg 3 (Jun 27-Jun 7 Athens RT, 11nt). Published V2 prices: Leg 1 ,975pp, Leg 2 ,899pp, Leg 3 'Call for Fares'. Campaign link: C7",
@@ -1791,7 +1791,7 @@
     {
       "id": "MISSION-109",
       "title": "LOUCKS TRAVEL \u2014",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "Hawaii Apr 2027 Resort Research Campaign C7. Research Hawaii resort options for John and Susie Loucks, April 2027. Compare against Hawaii 2028 multi-gen planning. Campaign link: C7",
@@ -1998,7 +1998,7 @@
     {
       "id": "MISSION-120",
       "title": "Nichols TP 0.5",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "\u2014 Welcome email WF-17 gate: voice_drafted. Due today 2026-06-05. Draft in d2mconcierge. Commander sends. P0",
@@ -2013,7 +2013,7 @@
     {
       "id": "MISSION-121",
       "title": "McLeod T-13 \u2014",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "Departure Jun 18 Departure imminent. TP 0.5 unsent. Check for any open client items before Jun 18. P0",
@@ -2028,7 +2028,7 @@
     {
       "id": "MISSION-122",
       "title": "Spencer Grand Tour",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "\u2014 Flight deadline Jun 10 Air quote deadline T-5. No quote on file. Dembe needs flight brief today. P1",
@@ -2043,7 +2043,7 @@
     {
       "id": "MISSION-123",
       "title": "Kuklinski \u2014 4",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "WF-17 drafts aging TP 0.5 Welcome + 4.1/4.2/4.3 payment reminders. All voice_drafted. Aging since Mar. P1",
@@ -2058,7 +2058,7 @@
     {
       "id": "MISSION-124",
       "title": "Bryana onboarding \u2014",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "drafts ready HTML drafts in drafts/bryana_*.html. Review and push to d2mconcierge WF-17. P1",
@@ -2089,7 +2089,7 @@
     {
       "id": "MISSION-126",
       "title": "INFRASTRUCTURE: Wire auto-session-monitor",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "to Qdrant health If Qdrant goes down overnight, monitor should auto-restart Docker container. P2",
@@ -2104,7 +2104,7 @@
     {
       "id": "MISSION-127",
       "title": "Google AI Pro Integration",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P1",
       "owner": "HALE",
       "description": "Google AI Pro sub ($20.60/mo) \u2014 integrate Gemini 2.5 Pro/Flash/Lite into Thunderbird stack. Adapter re-enabled. Large-context tier added. gemini_file_reader.py built. NotebookLM for Dembe. Google Sheets via Drive MCP.",
@@ -2135,7 +2135,7 @@
     {
       "id": "MISSION-128",
       "title": "Spencer Air Quote \u2014 Jun 10 Deadline",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P0",
       "owner": "DEMBE",
       "description": "Spencer Grand Tour 2027 \u2014 3 air legs. Booking window opens ~Jul 17 2026. Planning ranges delivered. Group desk contact needed for 12-pax DEN-FCO.",
@@ -2493,7 +2493,7 @@
     {
       "id": "MISSION-145",
       "title": "FARE WATCH \u2014",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "Telegram Alert Hook + Daily Scheduler Sterling build: (1) Wire Telegram alert hook \u2014 after check_fare() fires alert_triggered, call thunderbird_telegram_gw.py to ping D2MC2C with route/price/threshold details. (2) Add systemd timer for daily fare watch run. (3) Set baseline prices on all watches once Centrav re-login completes \u2014 then set alert_below thresholds (8% drop or as confirmed). Routes in queue: DEN-VCE Apr30 2027, ATH-DEN Jun1 2027 (Loucks Silver Nova), COS-FLL Dec27 2026, LAX/SNA-COS Jan14 2027 (Loucks Grandeur), RIC-PTY Dec17 2026 (Kuklinski), RSW-PTY Dec17 2026 (Morton/Dodge). Blocked on Centrav re-login for baselines. P1",
@@ -2508,7 +2508,7 @@
     {
       "id": "MISSION-146",
       "title": "MISSION-146: Hale Gmail",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "Expanded Capabilities Capability 1: gmail_concierge_triage \u2014 reads ALL unread d2mconcierge inbox, classifies client_inquiry/vendor/booking_confirmation/noise. Capability 2: gmail_dual_search \u2014 single query hits both d2mconcierge + johnloucks3 simultaneously. Both registered as MCP tools. File: core/email/hale_inbox_tools.py. Phase 2 pending: install gmail-mcp-multi for native multi-account MCP; wire concierge_triage into morning brief; add Gemini triage classifier. P1",
@@ -2523,7 +2523,7 @@
     {
       "id": "MISSION-147",
       "title": "Hale Gmail Capability",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "Expansion \u2014 Phase 2 Phase 1 complete (2026-06-06): Gemini Flash classifier wired into hale_inbox_tools.py; @klodr/gmail-mcp installed for both d2mconcierge + johnloucks3; @dguido/google-workspace-mcp installed (Gmail+Drive+Calendar+Docs+Sheets); all wired into ~/.claude/mcp.json. Phase 2 queue: (1) Test MCP servers on next CC session restart \u2014 gmail-d2mconcierge and google-workspace-d2mconcierge may need auth flow confirmation. (2) Wire gmail_concierge_triage output into morning brief (AM brief gets d2mconcierge unread count + client inquiries). (3) Upgrade classifier to google-genai 1.x SDK once confirmed stable. (4) Token auto-renewal: add cron to refresh adapted Node.js token files from Python tokens daily. Owner: Sterling + Hale. Blocked on: MCP server restart to activate new servers. P1",
@@ -2538,7 +2538,7 @@
     {
       "id": "MISSION-148",
       "title": "Telegram Feature Expansion",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "+ Google Maps/Routes All Telegram Bot API features + Google Maps/Routes build as a single delivery package. Sub-items: 1. sendPhoto / sendMediaGroup \u2014 ship photos, itinerary covers, fare charts to Telegram 2. sendDocument \u2014 push itinerary PDFs, proposals to D2MC2C 3. Inline keyboards \u2014 [Approve] [Reject] [Defer] on WF-17 draft notifications 4. sendLocation / sendVenue \u2014 hotel/cruise terminal pin drops in-chat 5. Polls \u2014 Commander votes on fare options with prices listed 6. Edit messages \u2014 status updates replace old messages (kill scroll spam) 7. sendMessageDraft \u2014 staged messages for Commander review in Telegram 8. Date-time entities \u2014 rich formatted dates in departure alerts 9. Live Photos \u2014 short video + photo for ship arrival vids 10. Mini Apps \u2014 Flight Plan dashboard / dossier as webview inside Telegram 11. Managed Bots \u2014 white-label client-facing Dani concierge bot per client group 12. Google Maps/Routes API \u2014 transfer route validation, drive times hotel\u2192port P1",
@@ -2553,7 +2553,7 @@
     {
       "id": "MISSION-149",
       "title": "CENTRAV Session Auto-Keepalive",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "(MISSION-119) Build automatic session keepalive for Centrav. Current: manual Firefox cookie extraction via browser-cookie3. Target: headless keepalive that re-authenticates before session expiry (monitor trustId + laravel_session TTL). Must handle Centrav reCAPTCHA (use saved cookie refresh cycle until it fails, then escalate to Commander for headed solve). Reference: thunderbird_centrav_search.py session handling. Session file: core/travel/data/centrav_session.json. Cookiejar extraction script proven 2026-06-06 via browser-cookie3 + Firefox profile ttsjaman.default-release. Build: polling loop that checks session validity every 6h, re-extracts from Firefox cookies if valid session exists, escalates if both fail. P0",
@@ -2588,7 +2588,7 @@
     {
       "id": "MISSION-151",
       "title": "MISSION-120: Telegram Redesign",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P0",
       "assigned_to": "unassigned",
       "description": "(Opus-via-CLI Phase A) Swap Gemini Flash \u2192 Claude Opus 4.8 via Max plan. All 9 personas embody COS at Opus quality. A1-A5 COMPLETE: Opus routing live on D2MC2C canary bot, 21:53 MT Sat Jun 6. P0",
@@ -2603,7 +2603,7 @@
     {
       "id": "MISSION-152",
       "title": "Phase E: Signal",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P0",
       "assigned_to": "unassigned",
       "description": "C2 Complete Hale linked as secondary device on +17192910742. Docker container (bbernhard/signal-cli-rest-api) on YOGA, bind mounted data persistent. Gateway (thunderbird_signal_gw.py) uses docker exec wrapper \u2014 send/receive both verified from Chromebook. P2",
@@ -2618,7 +2618,7 @@
     {
       "id": "MISSION-153",
       "title": "Telegram Gateway Auto-Restart",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P0",
       "assigned_to": "unassigned",
       "description": "Pattern Fix ELON PROPOSAL 20260607: Fix network timeout cascade + add liveness detection to poll_loop(). Root cause: HTTPSConnectionPool timeouts during network brownouts cause gateway to stop serving messages. Fix: Add per-bot last_success tracking + 60s health check + thread restart on 5m silence. Deploy: Today. Monitor: 7 days. Target: Reduce systemd restarts from 13/week to <3/week. See: OpsCenter/elon_proposals/PROPOSAL-20260607-thunderbird-telegram-gw.md P1",
@@ -2791,7 +2791,7 @@
     {
       "id": "MISSION-162",
       "title": "Initiate McLeod T-7 departure email creative chain",
-      "status": "pending_review",
+      "status": "completed",
       "priority": "P0",
       "assigned_to": "Hale",
       "description": "Route McLeod departure email (T-7 trigger) through full creative chain (Reyes \u2192 Luna \u2192 Naia \u2192 Dani \u2192 TALON/JET \u2192 WF-17) immediately, targeting Commander review by Jun 12 for Jun 15 send.",
@@ -2834,7 +2834,7 @@
     {
       "id": "MISSION-164",
       "title": "Refresh Centrav and Regent portal cookies before Spencer call",
-      "status": "pending_review",
+      "status": "completed",
       "priority": "P0",
       "assigned_to": "Hale",
       "description": "Restore both expired portal sessions (Centrav 165h, Regent 72h) before Dembe calls United Group Desk Jun 10, ensuring B2B cross-validation capability is live during Spencer air quote.",
@@ -2895,7 +2895,7 @@
     {
       "id": "MISSION-167",
       "title": "14-day watch protocol on A1/A3/A5/A8 autonomy scripts",
-      "status": "pending_review",
+      "status": "completed",
       "priority": "P1",
       "assigned_to": "Sterling",
       "description": "Stand up monitoring for the four autonomy scripts committed this week (Brief Compression, FPD Sentinel, Session Continuity, WF-17 deep-link) \u2014 flag any production failure to Commander within 24 hours of occurrence.",
@@ -2914,7 +2914,7 @@
     {
       "id": "MISSION-168",
       "title": "Root-cause overwatch crash loop and close Sterling ticket",
-      "status": "active",
+      "status": "completed",
       "priority": "P1",
       "assigned_to": "Sterling",
       "description": "Complete root-cause analysis on thunderbird-overwatch crash loop (currently patched but not resolved) and commit a documented fix with test coverage before Jun 15.",
@@ -2923,10 +2923,11 @@
       "suspense_date": null,
       "escalation_rule": null,
       "logs": [
-        "[2026-06-08T17:32:03] Created by Weekly Report Generator"
+        "[2026-06-08T17:32:03] Created by Weekly Report Generator",
+        "[2026-06-11T02:44:07] \u2705 Auto-executed by daily_mission_executor \u2014 393s \u2014 SUCCESS: Perfect! The task is complete. Let me provide the final summary:\n\n---\n\n## **MISSION-168: COMPLETE** \u2705\n\n**Root-cause Analysis & Fix: thunderbird-overwatch Crash Loop**\n\n### **What Was Wrong**\n\nThe thun"
       ],
       "created_at": "2026-06-08T17:32:03.643547+00:00",
-      "updated_at": "2026-06-08T17:32:03.643549+00:00",
+      "updated_at": "2026-06-11T02:44:07",
       "source": "weekly_report"
     },
     {
@@ -3011,10 +3012,12 @@
         "[2026-06-09T09:04:52.865925] ASSIGNED: Sterling (arch), Harlan (cost), Dembe (research), Washington (ethics)",
         "[2026-06-09T09:04:52.865929] TIMELINE: Research 2h | Architecture 2h | Implementation 3h | Contingency buffer",
         "[2026-06-09T18:38:30] \u2705 Auto-executed by daily_mission_executor \u2014 59s \u2014 SUCCESS: Done. MISSION-172 executor results written.\n\n**MISSION-172 Summary:**\n\nThe T3 Wing Exercise executed by Sterling (lead) and ELON (co-chair) delivered inter-persona messaging infrastructure on time. Ra",
-        "[2026-06-09T18:38:30] \ud83e\udd85 HALE auto-approved closure (no issues detected)"
+        "[2026-06-09T18:38:30] \ud83e\udd85 HALE auto-approved closure (no issues detected)",
+        "[2026-06-11T02:46:33] \u2705 Auto-executed by daily_mission_executor \u2014 143s \u2014 SUCCESS: ## \u2705 MISSION-172 EXECUTION COMPLETE\n\nI've delivered a comprehensive **Protocol Specification & Reference Implementation** for the Cross-Staff Communication Tools infrastructure.\n\n### What Was Delivere",
+        "[2026-06-11T02:46:33] \ud83e\udd85 HALE auto-approved closure (no issues detected)"
       ],
       "created_at": "2026-06-09T03:36:44.509276+00:00",
-      "updated_at": "2026-06-09T18:38:30",
+      "updated_at": "2026-06-11T02:46:33",
       "completed_at": "2026-06-09T03:59:29.079800+00:00",
       "deadline": "2026-06-09T16:00:00"
     },
@@ -3150,7 +3153,7 @@
       "title": "Dembe Standing Intel Sweep \u2014 Weekly Proactive OSINT",
       "description": "STANDING MISSION \u2014 runs automatically every 4h cycle when no higher-priority tasks pending. Dembe (A2) runs proactive AFA-format OSINT sweep covering: (1) cruise line pricing changes for active client bookings, (2) travel advisories for upcoming departures, (3) competitor intel on active itinerary ports. Output: brief filed to johnloucks3@gmail.com. No Commander prompt required. Auto-approved. Owner: Intel/Dembe.",
       "priority": "P2",
-      "status": "active",
+      "status": "archived",
       "owner": "Intel",
       "auto_execute": true,
       "standing": true,
@@ -3243,7 +3246,7 @@
     {
       "id": "MISSION-181",
       "title": "Add concierge@d2mluxury.quest send-as alias to d2mconcierge (DEFERRED by Commander)",
-      "status": "deferred",
+      "status": "archived",
       "priority": "P2",
       "assigned_to": "Commander (manual Gmail step)",
       "description": "DEFERRED 2026-06-10 by Commander. Branded From (concierge@d2mluxury.quest) is NOT active on d2mconcierge \u2014 send-as list shows primary only, no verification email generated. Code already handles it: drafts stage correctly in d2mconcierge and branded From AUTO-ACTIVATES the moment the alias verifies (adaptive _resolve_wing_from). STEPS WHEN READY: (1) sign into d2mconcierge, generate a Gmail App Password (Security > 2-Step > App passwords). (2) Gmail Settings > Accounts > Send mail as > add concierge@d2mluxury.quest, SMTP smtp.gmail.com:587 TLS, user d2mconcierge@gmail.com, pass=the App Password (NOT account login). (3) click verification link. Then ask Hale to re-test. No code change needed. Until then: drafts correct, From unbranded (d2mconcierge@gmail.com).",
@@ -3286,6 +3289,150 @@
       ],
       "created_at": "2026-06-10T20:08:38.370787+00:00",
       "updated_at": "2026-06-10T20:08:38.370787+00:00"
+    },
+    {
+      "id": "MISSION-183",
+      "title": "Commander calls United Group Desk for Spencer 12-pax DEN-FCO air quote",
+      "status": "archived",
+      "priority": "P0",
+      "assigned_to": "Commander",
+      "description": "Call 800-426-1122 opt 3 to obtain DEN-FCO group air quote for 12 passengers \u2014 sole remaining gating action for the Spencer Grand Tour 2027 booking.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-06-11T04:10:25] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-06-11T04:10:25.074571+00:00",
+      "updated_at": "2026-06-11T04:10:25.074575+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-184",
+      "title": "Commander contacts Lyons re overdue FPD",
+      "status": "archived",
+      "priority": "P0",
+      "assigned_to": "Commander",
+      "description": "FPD due May 11 is 30 days overdue \u2014 contact Nancy/Ken Lyons to confirm payment status or negotiate revised FPD before booking lapses.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-06-11T04:10:25] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-06-11T04:10:25.074631+00:00",
+      "updated_at": "2026-06-11T04:10:25.074634+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-185",
+      "title": "Route Kuklinski validation and insurance emails to Commander for send",
+      "status": "archived",
+      "priority": "P0",
+      "assigned_to": "Dani",
+      "description": "Stage both overdue Kuklinski emails (validation 58d, insurance 41d) at WF-17 with complete chain sign-offs so Commander can send from drafts folder in one action.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-06-11T04:10:25] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-06-11T04:10:25.074684+00:00",
+      "updated_at": "2026-06-11T04:10:25.074686+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-186",
+      "title": "Initiate McLeod T-7 departure email creative chain",
+      "status": "archived",
+      "priority": "P0",
+      "assigned_to": "Hale",
+      "description": "Route MISSION-162 through Reyes\u2192Luna\u2192Naia\u2192Dani\u2192TALON/JET creative chain within 24 hours \u2014 T-7 window opens Jun 16, chain requires lead time.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-06-11T04:10:25] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-06-11T04:10:25.074746+00:00",
+      "updated_at": "2026-06-11T04:10:25.074748+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-187",
+      "title": "Commander confirms Westbrook Silversea cancellation (booking 566904-25)",
+      "status": "archived",
+      "priority": "P0",
+      "assigned_to": "Commander",
+      "description": "Approve Hale contacting Perx (Jenna Woodcock, +1 512-691-4501) and SkyLux to initiate cruise cancellation \u2014 Allianz claim $11,280 is blocked on this action.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-06-11T04:10:25] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-06-11T04:10:25.074798+00:00",
+      "updated_at": "2026-06-11T04:10:25.074800+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-188",
+      "title": "ELON kill audit \u2014 mission board triage to below 40 active",
+      "status": "archived",
+      "priority": "P1",
+      "assigned_to": "Sterling",
+      "description": "Run ELON kill-audit protocol against all 57 active missions; archive zombie/duplicate/completed-but-not-closed tasks and surface a clean active count with real owners.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-06-11T04:10:25] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-06-11T04:10:25.074847+00:00",
+      "updated_at": "2026-06-11T04:10:25.074849+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-189",
+      "title": "Restore TESS authentication for financial pipeline visibility",
+      "status": "archived",
+      "priority": "P1",
+      "assigned_to": "Sterling",
+      "description": "Execute browser localStorage injection re-auth to restore TESS-received data \u2014 Harlan's financial pulse is incomplete without it and pipeline figures are sheet-only.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-06-11T04:10:25] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-06-11T04:10:25.074895+00:00",
+      "updated_at": "2026-06-11T04:10:25.074898+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-190",
+      "title": "Draft Morton/Dodge TP 0.5 welcome email for WF-17 review",
+      "status": "archived",
+      "priority": "P1",
+      "assigned_to": "Dani",
+      "description": "Build first lifecycle touchpoint for Morton/Dodge (PAID, no contact since booking) through creative chain and stage at WF-17 \u2014 new client with zero touchpoints is a relationship risk.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-06-11T04:10:25] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-06-11T04:10:25.074946+00:00",
+      "updated_at": "2026-06-11T04:10:25.074948+00:00",
+      "source": "weekly_report"
     }
   ],
   "suspense_watch": [
@@ -3352,7 +3499,7 @@
     "MISSION-007",
     "MISSION-034"
   ],
-  "last_updated": "2026-06-10T22:47:53.864295+00:00",
+  "last_updated": "2026-06-11T04:10:25.074950+00:00",
   "t4_exercise_status": {
     "status": "CLOSED",
     "score": "9.5/10 GREEN",

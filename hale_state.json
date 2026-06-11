@@ -15,7 +15,7 @@
       },
       "last_health_check": "2026-06-05T21:24:44.578424"
     },
-    "last_health_check": "2026-06-11T04:25:58.268043+00:00",
+    "last_health_check": "2026-06-11T00:46:30.396954+00:00",
     "chrome_debug_port_9222": "ONLINE",
     "mcp_server": "OK: 127.0.0.1:8765 /mcp HTTP 406 in 1.7ms (live probe 2026-06-11T03:11:06Z; prior read-timeout was transient)",
     "opencode_status": "ONLINE: opencode v1.16.2 CLI-on-demand; opencode-spsa-monitor.service active (probe 2026-06-11T03:12:09Z)",
@@ -107,144 +107,18 @@
     }
   },
   "_meta": {
-    "last_updated": "2026-06-11T04:25:58.268043+00:00"
+    "last_updated": "2026-06-11T06:46:10.813446+00:00"
   },
   "open_tasks": [
     {
-      "id": "MISSION-026",
-      "title": "Cabin Selection Follow-up Monitoring",
-      "priority": "P1",
-      "status": "pending_review"
-    },
-    {
-      "id": "MISSION-060",
-      "title": "Chromebook Termux —",
-      "priority": "P0",
-      "status": "in_progress"
-    },
-    {
-      "id": "MISSION-066",
-      "title": "Web Lead Pipeline — Live Site Test",
-      "priority": "P1",
-      "status": "pending_review"
-    },
-    {
-      "id": "MISSION-069",
-      "title": "Perx + Odysseus + CruiseComplete — Platform Reliability",
-      "priority": "P1",
-      "status": "pending_review"
-    },
-    {
-      "id": "MISSION-065",
-      "title": "Pacific Voyage Blog",
-      "priority": "P0",
-      "status": "in_progress"
-    },
-    {
-      "id": "MISSION-072",
-      "title": "Dead Link Audit + Portal Login Verification",
-      "priority": "P2",
-      "status": "IN_PROGRESS"
-    },
-    {
-      "id": "MISSION-073",
-      "title": "RoboForm Share Acceptance",
-      "priority": "P0",
-      "status": "in_progress"
-    },
-    {
-      "id": "MISSION-078",
-      "title": "Persona Avatar Generation",
-      "priority": "P0",
-      "status": "in_progress"
-    },
-    {
-      "id": "MISSION-080",
-      "title": "McLeod Dossier —",
-      "priority": "P1",
-      "status": "in_progress"
-    },
-    {
-      "id": "MISSION-082",
-      "title": "Furlows — HEL→ARN",
-      "priority": "P1",
-      "status": "in_progress"
-    },
-    {
-      "id": "MISSION-083",
-      "title": "Nichols — Return",
-      "priority": "P1",
-      "status": "in_progress"
-    },
-    {
-      "id": "MISSION-084",
-      "title": "Grandeur Group —",
-      "priority": "P1",
-      "status": "in_progress"
-    },
-    {
-      "id": "MISSION-085",
-      "title": "Grandeur Group —",
-      "priority": "P1",
-      "status": "in_progress"
-    },
-    {
       "id": "MISSION-087",
-      "title": "Grandeur Group — Hotel, Transport & Seat Logistics (All 3 Couples)",
+      "title": "Grandeur Group \u2014 Hotel, Transport & Seat Logistics (All 3 Couples)",
       "priority": "P1",
       "status": "active"
     },
     {
-      "id": "MISSION-092",
-      "title": "Adopt persistent Claude",
-      "priority": "P0",
-      "status": "in_progress"
-    },
-    {
       "id": "MISSION-102",
-      "title": "IRON CLOCK —",
-      "priority": "P0",
-      "status": "in_progress"
-    },
-    {
-      "id": "MISSION-103",
-      "title": "WING STANDUP —",
-      "priority": "P0",
-      "status": "in_progress"
-    },
-    {
-      "id": "MISSION-104",
-      "title": "WING STANDUP —",
-      "priority": "P0",
-      "status": "in_progress"
-    },
-    {
-      "id": "MISSION-105",
-      "title": "INBOX FIRST —",
-      "priority": "P0",
-      "status": "in_progress"
-    },
-    {
-      "id": "MISSION-106",
-      "title": "TEMPLATE — Full",
-      "priority": "P0",
-      "status": "in_progress"
-    },
-    {
-      "id": "MISSION-107",
-      "title": "SPEED — Bottleneck",
-      "priority": "P0",
-      "status": "in_progress"
-    },
-    {
-      "id": "MISSION-108",
-      "title": "LOUCKS TRAVEL —",
-      "priority": "P0",
-      "status": "in_progress"
-    },
-    {
-      "id": "MISSION-109",
-      "title": "LOUCKS TRAVEL —",
+      "title": "IRON CLOCK \u2014",
       "priority": "P0",
       "status": "in_progress"
     },
@@ -256,7 +130,7 @@
     },
     {
       "id": "MISSION-112",
-      "title": "Send 5 WF-17 drafts — Nichols + Kuklinski queue",
+      "title": "Send 5 WF-17 drafts \u2014 Nichols + Kuklinski queue",
       "priority": "P0",
       "status": "active"
     },
@@ -268,61 +142,13 @@
     },
     {
       "id": "MISSION-118",
-      "title": "Sterling Sunday audit — ETB + autonomy build complexity check",
+      "title": "Sterling Sunday audit \u2014 ETB + autonomy build complexity check",
       "priority": "P2",
       "status": "active"
     },
     {
-      "id": "MISSION-120",
-      "title": "Nichols TP 0.5",
-      "priority": "P0",
-      "status": "in_progress"
-    },
-    {
-      "id": "MISSION-121",
-      "title": "McLeod T-13 —",
-      "priority": "P0",
-      "status": "in_progress"
-    },
-    {
-      "id": "MISSION-122",
-      "title": "Spencer Grand Tour",
-      "priority": "P0",
-      "status": "in_progress"
-    },
-    {
-      "id": "MISSION-123",
-      "title": "Kuklinski — 4",
-      "priority": "P0",
-      "status": "in_progress"
-    },
-    {
-      "id": "MISSION-124",
-      "title": "Bryana onboarding —",
-      "priority": "P0",
-      "status": "in_progress"
-    },
-    {
-      "id": "MISSION-126",
-      "title": "INFRASTRUCTURE: Wire auto-session-monitor",
-      "priority": "P0",
-      "status": "in_progress"
-    },
-    {
-      "id": "MISSION-127",
-      "title": "Google AI Pro Integration",
-      "priority": "P1",
-      "status": "in_progress"
-    },
-    {
-      "id": "MISSION-128",
-      "title": "Spencer Air Quote — Jun 10 Deadline",
-      "priority": "P0",
-      "status": "in_progress"
-    },
-    {
       "id": "MISSION-129",
-      "title": "Commander sends 5 aging WF-17 drafts — Nichols + Kuklinski x4",
+      "title": "Commander sends 5 aging WF-17 drafts \u2014 Nichols + Kuklinski x4",
       "priority": "P0",
       "status": "active"
     },
@@ -339,12 +165,6 @@
       "status": "active"
     },
     {
-      "id": "MISSION-136",
-      "title": "Validate keepalive timer coverage for all expiring credentials",
-      "priority": "P1",
-      "status": "active"
-    },
-    {
       "id": "MISSION-137",
       "title": "Activate Dembe for Spencer DEN-FCO 12-pax air quote",
       "priority": "P0",
@@ -352,80 +172,14 @@
     },
     {
       "id": "MISSION-138",
-      "title": "Send five aging WF-17 drafts — Nichols + Kuklinski",
+      "title": "Send five aging WF-17 drafts \u2014 Nichols + Kuklinski",
       "priority": "P0",
       "status": "active"
-    },
-    {
-      "id": "MISSION-142",
-      "title": "Create Morton/Dodge lifecycle reset — TP queue from scratch",
-      "priority": "P1",
-      "status": "active"
-    },
-    {
-      "id": "MISSION-143",
-      "title": "Fix Google Tasks OAuth 403 — add tasks scope to credential grant",
-      "priority": "P1",
-      "status": "active"
-    },
-    {
-      "id": "MISSION-145",
-      "title": "FARE WATCH —",
-      "priority": "P0",
-      "status": "in_progress"
-    },
-    {
-      "id": "MISSION-146",
-      "title": "MISSION-146: Hale Gmail",
-      "priority": "P0",
-      "status": "in_progress"
-    },
-    {
-      "id": "MISSION-147",
-      "title": "Hale Gmail Capability",
-      "priority": "P0",
-      "status": "in_progress"
-    },
-    {
-      "id": "MISSION-148",
-      "title": "Telegram Feature Expansion",
-      "priority": "P0",
-      "status": "in_progress"
-    },
-    {
-      "id": "MISSION-149",
-      "title": "CENTRAV Session Auto-Keepalive",
-      "priority": "P0",
-      "status": "in_progress"
-    },
-    {
-      "id": "MISSION-151",
-      "title": "MISSION-120: Telegram Redesign",
-      "priority": "P0",
-      "status": "in_progress"
-    },
-    {
-      "id": "MISSION-152",
-      "title": "Phase E: Signal",
-      "priority": "P0",
-      "status": "in_progress"
-    },
-    {
-      "id": "MISSION-153",
-      "title": "Telegram Gateway Auto-Restart",
-      "priority": "P0",
-      "status": "in_progress"
     },
     {
       "id": "MISSION-155",
-      "title": "Activate Dembe — Spencer air quote DEN-FCO 12-pax",
+      "title": "Activate Dembe \u2014 Spencer air quote DEN-FCO 12-pax",
       "priority": "P0",
-      "status": "active"
-    },
-    {
-      "id": "MISSION-157",
-      "title": "Refresh Centrav and Regent session cookies",
-      "priority": "P1",
       "status": "active"
     },
     {
@@ -435,63 +189,9 @@
       "status": "active"
     },
     {
-      "id": "MISSION-160",
-      "title": "Ship Qdrant daily re-index systemd timer",
-      "priority": "P1",
-      "status": "active"
-    },
-    {
-      "id": "MISSION-161",
-      "title": "Verify McLeod Silver Muse booking holds — no cancellation risk from overdue FPD",
-      "priority": "P1",
-      "status": "active"
-    },
-    {
-      "id": "MISSION-162",
-      "title": "Initiate McLeod T-7 departure email creative chain",
-      "priority": "P0",
-      "status": "pending_review"
-    },
-    {
-      "id": "MISSION-164",
-      "title": "Refresh Centrav and Regent portal cookies before Spencer call",
-      "priority": "P0",
-      "status": "pending_review"
-    },
-    {
-      "id": "MISSION-165",
-      "title": "Draft Morton/Dodge TP 0.5 welcome email for WF-17",
-      "priority": "P1",
-      "status": "active"
-    },
-    {
-      "id": "MISSION-166",
-      "title": "Implement Centrav and Regent cookie auto-keepalive",
-      "priority": "P1",
-      "status": "active"
-    },
-    {
-      "id": "MISSION-167",
-      "title": "14-day watch protocol on A1/A3/A5/A8 autonomy scripts",
-      "priority": "P1",
-      "status": "active"
-    },
-    {
-      "id": "MISSION-168",
-      "title": "Root-cause overwatch crash loop and close Sterling ticket",
-      "priority": "P1",
-      "status": "active"
-    },
-    {
       "id": "MISSION-172",
       "title": "Cross-Staff Communication Tools",
       "priority": "P1",
-      "status": "active"
-    },
-    {
-      "id": "MISSION-178",
-      "title": "Dembe Standing Intel Sweep — Weekly Proactive OSINT",
-      "priority": "P2",
       "status": "active"
     }
   ],
@@ -553,29 +253,29 @@
   "brain_routing_log": [
     {
       "ts": "2026-06-01T05:30:57.982482-06:00",
-      "task": "Write a lifecycle touchpoint email for this client:\nClient: Kyle Kuklinski\nTP: ARC4-B — Specialty Di",
+      "task": "Write a lifecycle touchpoint email for this client:\nClient: Kyle Kuklinski\nTP: ARC4-B \u2014 Specialty Di",
       "brain": "Brain 2 (Sonnet)",
       "reason": "Commander override: SONNET",
       "elapsed": 56.5
     },
     {
       "ts": "2026-06-08T05:46:54.968419-06:00",
-      "task": "BRIEF ME ON THESE FIVE ITEMS:\n\n1. IRAN/HORMUZ TOLL REGIME (Feb–May 2026)\n   - Iran closed Strait of ",
+      "task": "BRIEF ME ON THESE FIVE ITEMS:\n\n1. IRAN/HORMUZ TOLL REGIME (Feb\u2013May 2026)\n   - Iran closed Strait of ",
       "brain": "Brain 2 (Opus)",
       "reason": "Auto-classified + optimized | Model: opus | Strategies: output_specification, note_batchable",
       "elapsed": 21.4
     },
     {
       "ts": "2026-06-08T06:31:44.707547-06:00",
-      "task": "QUERY: Iran Persian Gulf Strait Authority (PGSA) toll regime — June 2026 status\n\nUSER CLAIMS (War on",
-      "brain": "Brain 2 (Sonnet — free model escalation)",
+      "task": "QUERY: Iran Persian Gulf Strait Authority (PGSA) toll regime \u2014 June 2026 status\n\nUSER CLAIMS (War on",
+      "brain": "Brain 2 (Sonnet \u2014 free model escalation)",
       "reason": "Auto-classified + optimized | Model: haiku | Strategies: output_specification, note_batchable",
       "elapsed": 0.2
     },
     {
       "ts": "2026-06-08T06:31:45.491015-06:00",
       "task": "Research task: What is the current status of US military operations related to Iran as of June 2026?",
-      "brain": "Brain 2 (Sonnet — free model escalation)",
+      "brain": "Brain 2 (Sonnet \u2014 free model escalation)",
       "reason": "Auto-classified + optimized | Model: haiku | Strategies: output_specification",
       "elapsed": 0.2
     }
@@ -603,11 +303,11 @@
       },
       {
         "id": "PROJ-KUKLINSKI-LIFECYCLE",
-        "name": "Kuklinski Lifecycle Emails — 4 Drafts HOLD",
+        "name": "Kuklinski Lifecycle Emails \u2014 4 Drafts HOLD",
         "status": "HOLD_UNTIL_2026-07-15",
         "deadline": "2026-07-15",
         "owner": "HALE",
-        "notes": "Commander order 2026-06-04: hold all 4 Kuklinski drafts (Welcome TP 0.5, Specialty Dining Reservation Reminder TP 4.1, Excursion Planning TP 4.2, Pre-Departure Checklist TP 4.3) until Jul 15 — excursion booking window. Do not surface at WF-17 before Jul 15."
+        "notes": "Commander order 2026-06-04: hold all 4 Kuklinski drafts (Welcome TP 0.5, Specialty Dining Reservation Reminder TP 4.1, Excursion Planning TP 4.2, Pre-Departure Checklist TP 4.3) until Jul 15 \u2014 excursion booking window. Do not surface at WF-17 before Jul 15."
       },
       {
         "id": "PROJ-SPENCER-FLIGHT",
@@ -656,11 +356,11 @@
       },
       {
         "id": "PROJ-MCLEOD-2984034-FPD",
-        "name": "McLeod Regent Grandeur 2984034 — FPD Jul 22",
+        "name": "McLeod Regent Grandeur 2984034 \u2014 FPD Jul 22",
         "status": "HOLD_UNTIL_2026-07-07",
         "deadline": "2026-07-22",
         "owner": "HALE",
-        "notes": "FPD $11,943.15 due Jul 22, 2026. Commander directive 2026-06-09: DO NOT CONTACT until client returns from Silver Muse (Jul 6). Activate Jul 7 — 15 days to FPD. Dossier: McLeod_McGlasson_Multi.md booking_2=2984034. Source: Regent invoice 23-May-26 verified by Harlan."
+        "notes": "FPD $11,943.15 due Jul 22, 2026. Commander directive 2026-06-09: DO NOT CONTACT until client returns from Silver Muse (Jul 6). Activate Jul 7 \u2014 15 days to FPD. Dossier: McLeod_McGlasson_Multi.md booking_2=2984034. Source: Regent invoice 23-May-26 verified by Harlan."
       }
     ],
     "infrastructure_status": {
@@ -679,13 +379,13 @@
       "id": "MCLEOD-2984034-FPD-TRIGGER",
       "trigger_date": "2026-07-07",
       "priority": "P0",
-      "message": "McLeod Regent Grandeur 2984034 — FPD Jul 22 is 15 days out. $11,943.15 due. Contact Erik McLeod re final payment.",
+      "message": "McLeod Regent Grandeur 2984034 \u2014 FPD Jul 22 is 15 days out. $11,943.15 due. Contact Erik McLeod re final payment.",
       "client": "McLeod McGlasson",
       "booking": "2984034",
       "amount": 11943.15,
       "fpd": "2026-07-22",
-      "deferred_reason": "Client on Silver Muse Jun 23–Jul 6",
-      "condition": "date>=2026-07-07 AND client_returned (deferred: Client on Silver Muse Jun 23–Jul 6)",
+      "deferred_reason": "Client on Silver Muse Jun 23\u2013Jul 6",
+      "condition": "date>=2026-07-07 AND client_returned (deferred: Client on Silver Muse Jun 23\u2013Jul 6)",
       "condition_type": "date_and_client_status"
     }
   ]
