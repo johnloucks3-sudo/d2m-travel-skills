@@ -31,7 +31,10 @@ logging.basicConfig(
 )
 logger = logging.getLogger("tess_keepalive")
 
-REFRESH_THRESHOLD_SECONDS = 30 * 60
+REFRESH_THRESHOLD_SECONDS = 3600  # 60 min. Was 30 SECONDS (bug) — token (120min)
+                            # never fell within 30s of expiry when the 90min timer fired, so
+                            # it always skipped and the token died. 60min > (120-90) guarantees
+                            # the 90-min timer always refreshes with margin. Fixed 2026-06-11. * 60
 TESS_LOGIN_URL = "https://crm.myagentgenie.com/app/maglogin"
 TESS_DASHBOARD_HOST = "crm.myagentgenie.com"
 
