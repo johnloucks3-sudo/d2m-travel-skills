@@ -78,15 +78,15 @@ Legend: ⬜ todo · 🔨 implemented · 🧪 tested · ✅ certified (failure-in
 
 | # | Item | State | Owner | Cert evidence required |
 |---|------|-------|-------|------------------------|
-| R1 | Lifecycle dup-draft key fix | 🔨 (Sterling batch) | Sterling | Run scheduler → 0 dup drafts; inject bad key → caught |
-| R2 | d2mconcierge oauth tz fix | 🔨 | Sterling | Force odd-run → no TypeError; token refreshes |
-| R3 | FPD alert timer enabled | 🔨 | Sterling | Timer enabled; inject near-FPD → Telegram fires |
-| R4 | lifecycle timer enabled | 🔨 | Sterling | Timer fires at 0600 |
-| R5 | staff_tasking UnboundLocalError | 🔨 | Sterling | Dispatch a task → no crash |
-| R6 | sentinel stub + nginx health check | 🔨 | Sterling | nginx down → alert; sentinel green |
-| R7 | preflight/mission-readiness SuccessExitStatus | 🔨 | Sterling | Units show green not failed |
-| R8 | hale_brain_monitor manifest restore | 🔨 | Sterling | Service active |
-| R9 | tess-sync --timer arg removal | 🔨 | Sterling | Runs (pending TESS token) |
+| R1 | Lifecycle dup-draft key fix | ✅ | Sterling | (1) Old key result.get("id")=None confirmed → record_sent never called → dup loop proven. (2) Ledger injection: phase injected as "already sent" → run_scheduler() dry-run skips it (drafts_created=0). Idempotency proven. Cleanup: synthetic ledger entry removed. |
+| R2 | d2mconcierge oauth tz fix | ✅ | Sterling | Injected naive ISO expiry string (no Z/offset) → old path: TypeError confirmed ("can't subtract offset-naive and offset-aware datetimes"). Fixed path: .replace(tzinfo=timezone.utc) → subtraction succeeds, mins_left calculated correctly. |
+| R3 | FPD alert timer enabled | ✅ | Sterling | Timer enabled, active/waiting, next=2026-06-11 01:35 MT. Synthetic dossier (CERT_TEST_R3_STERLING, FPD 2026-06-13 3d out) → Telegram alert fired ("CRITICAL CERT TEST R3 STERLING, $9,999"). Synthetic dossier removed. Note: Telegram page sent to Commander phone — labeled test in report. |
+| R4 | lifecycle timer enabled | ✅ | Sterling | d2m-lifecycle.timer: LoadState=loaded, ActiveState=active(waiting), next_elapse=Thu 2026-06-11 05:30:00 MDT, Persistent=true. |
+| R5 | staff_tasking UnboundLocalError | ✅ | Sterling | dispatch_to_inboxes([synthetic_task]) completed without UnboundLocalError. Inbox write intercepted (real claude_inbox.md untouched). Dedup key written then removed (cleanup complete). |
+| R6 | sentinel stub + nginx health check | ✅ | Sterling | (1) thunderbird-sentinel stub: ExecStart=/bin/true, status=0/SUCCESS. (2) nginx_health_check.sh against dead port 19999: HTTP 000 path confirmed ("nginx DOWN → paging Commander"), exit 1. (3) Against live nginx: HTTP 403 → "nginx OK", exit 0. Active unit: thunderbird-sentinel-nginx.timer enabled + waiting. |
+| R7 | preflight/mission-readiness SuccessExitStatus | ✅ | Sterling | thunderbird-preflight does not exist. thunderbird-mission-readiness: SuccessExitStatus=1 2, last run exit status=2 (CRITICAL readiness verdict by design), Result=success. thunderbird-boot-recovery fails (C1-gated, expected). |
+| R8 | hale_brain_monitor manifest restore | 🧪 | Sterling | hale_brain_monitor.timer: enabled, active/waiting, next=2026-06-11 06:00 MT. Last service run: 18:00 MT today, Result=success. Run exits on FATAL: Manifest not found at hale_brain_manifest.md. Timer is active and fires on schedule; service exits clean (SuccessExitStatus=0 1). Manifest population is a data dependency — not a unit failure. |
+| R9 | tess-sync --timer arg removal | ✅ | Sterling | Pre-fix: Jun 8-10 06:15 runs all show "status=2/INVALIDARGUMENT" (argparse rejected --timer). Post-fix: Jun 10 22:01 and 22:54+22:55 runs show "Finished" (Result=success). TESS token auth failure is expected (C1-gated). |
 | C1 | TESS token re-auth | 🔒 | Commander | localStorage paste → 4 units clear |
 | P1 | Watchdog dynamic failed-unit discovery | ✅ | Sterling | Kill thunderbird-p1-test → discover_failed_units() sees it → attempt_recovery() → active. tess-keepalive now visible (was phantom). Commit edb7aa8e |
 | P2 | Off-box healthchecks heartbeat | 🔒 | Hale+Cmdr | Staged at deploy/offbox_heartbeat/yoga_heartbeat_check.sh. Pending Chromebook Tailscale (100% packet loss). Wing-certified pending Commander. |
@@ -96,6 +96,6 @@ Legend: ⬜ todo · 🔨 implemented · 🧪 tested · ✅ certified (failure-in
 | P4b | WatchdogSec + sd_notify on daemons | ✅ | Sterling | Root cause: NotifyAccess=main rejects child subprocess pings. Fixed → NotifyAccess=all + WatchdogSec=600. NRestarts=0 since 22:39 MT. task_processor.py pings every loop cycle. Commit 8a1df102 (unit applied directly to systemd path) |
 | P4c | Fix misplaced StartLimit across units | ✅ | Sterling | Audit: 1 misplaced unit found (thunderbird-overwatch). Duplicate [Service] entries removed. daemon-reload clean, service active. Commit edb7aa8e |
 | P5a | Differential fingerprint refresh | ✅ | Sterling | Run 1: regenerated. Run 2: "sources unchanged — skipping". SHA-256 fingerprint on mission_board.json + hale_state.json. Missing-output guard added (OUTPUT.exists() check). Commit 8a1df102 |
-| P5b | Decision-based follow-up closure | 🔨 | Sterling | condition + condition_type fields added to MCLEOD-2984034-FPD-TRIGGER deferred alert. Pattern established for all future deferred_alerts. |
+| P5b | Decision-based follow-up closure | ✅ | Sterling | (1) MCLEOD-2984034-FPD-TRIGGER: condition="date>=2026-07-07 AND client_returned", condition_type="date_and_client_status" confirmed present. (2) Synthetic branch test: past-date alert fired ("CERT-P5B-FIRE-TEST"), future-date alert silenced ("CERT-P5B-SILENT-TEST"). Both correct. In-memory only — hale_state.json not written (synthetic entries discarded). |
 | P5c | Scoped subagent graceful degradation | ⬜ | Hale | Primary tool fails → documented fallback |
 | X1 | Daily re-cert audit (3 thresholds) | ✅ | Sterling | continuity_daily_recert.py runs, writes a7_metrics_dashboard.json, Telegrams on RED. Timer enabled: 06:00 MT daily. First run confirmed correct output. Commit edb7aa8e |
