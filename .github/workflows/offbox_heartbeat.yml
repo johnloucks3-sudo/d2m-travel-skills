@@ -19,7 +19,7 @@ jobs:
           URL=https://api.d2mluxury.quest/health
           alive=0
           for i in 1 2 3; do
-            code=$(curl -s -o /dev/null -m 20 -w "%{http_code}" "$URL" || echo "000")
+            code=$(curl -s -o /dev/null -m 20 -w "%{http_code}" "$URL" || true)
             # ANY HTTP response (incl 401/403) = host+tunnel up. 000 = unreachable.
             if [ "$code" != "000" ]; then alive=1; echo "check $i: HTTP $code (alive)"; break; fi
             echo "check $i: unreachable"; sleep 30
