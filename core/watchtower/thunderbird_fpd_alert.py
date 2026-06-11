@@ -5,6 +5,8 @@ booking with FPD within 14 days.
 """
 import re
 import os
+import sys
+import argparse
 import urllib.request
 import urllib.parse
 import json
@@ -49,8 +51,19 @@ def send_telegram(msg: str):
     urllib.request.urlopen(req, timeout=10)
 
 
-def main():
-    today = date.today()
+# Paid-skip vocabulary (Gap 3 hardening 2026-06-11, Sterling/A7).
+# Dossier payment marking is INCONSISTENT across the corpus — so paid-skip uses
+# TWO independent signals (this keyword set OR balance_due==0). Deliberately
+# STRICT: a "paid" signal must be unambiguous. "confirmed" / "deposit_only" /
+# "balance_due" are NOT paid — they mean money is still owed and MUST alert.
+# Widening this set to suppress an ambiguous status is exactly how a real FPD
+# goes silent. Add a value here only when it provably means paid-in-full.
+PAID_STATUSES = {"paid", "paid_in_full", "paidinfull", "complete", "completed", "settled"}
+
+
+def main(today: date = None):
+    if today is None:
+        today = date.today()
     alerts = []
 
     # Empty-source guard: a monitor that reads 0 files must NOT silently report
@@ -75,9 +88,10 @@ def main():
             continue
 
         # Paid-skip (2026-06-11): don't false-alert on bookings already paid.
-        # Dossier payment marking is inconsistent, so use three signals.
-        pay = fm.get("payment_status", "").lower()
-        if pay in ("paid", "paid_in_full", "complete", "completed"):
+        # Signal 1 — explicit paid status keyword (strict set, see PAID_STATUSES).
+        # Normalize separators so "paid in full" / "paid-in-full" all match.
+        pay = re.sub(r"[\s\-]+", "_", fm.get("payment_status", "").lower().strip())
+        if pay in PAID_STATUSES:
             continue
         bal_raw = str(fm.get("balance_due", "")).replace(",", "").replace('"', "").strip()
         try:
@@ -125,9 +139,26 @@ def main():
 
     msg = "\n".join(lines)
     print(msg)
+    if _DRY_RUN:
+        print(f"[DRY RUN] Would have sent {len(alerts)} alert(s) to Telegram — suppressed.")
+        return
     send_telegram(msg)
     print(f"Sent {len(alerts)} alert(s) to Telegram.")
 
 
+# Module-level flag set by CLI; default False keeps the daily timer (argless) live.
+_DRY_RUN = False
+
+
 if __name__ == "__main__":
-    main()
+    # The daily systemd timer calls this script with NO args → date.today(), live send.
+    # --today and --dry-run exist for testability/verification ONLY (Sterling 2026-06-11):
+    # prove a future FPD is caught by simulating fpd-minus-N days without paging Commander.
+    parser = argparse.ArgumentParser(description="FPD Alert — Final Payment Deadline monitor")
+    parser.add_argument("--today", help="Override 'today' as YYYY-MM-DD (verification only)")
+    parser.add_argument("--dry-run", action="store_true",
+                        help="Compute + print alerts but DO NOT send to Telegram")
+    args = parser.parse_args()
+    _DRY_RUN = args.dry_run
+    override = date.fromisoformat(args.today) if args.today else None
+    main(today=override)
