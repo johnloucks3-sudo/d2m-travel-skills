@@ -99,41 +99,36 @@ def count_heartbeat_misses() -> dict:
     (i.e., the line contains 'DEGRADED' but no corresponding 'ALL_GREEN' within 2 cycles).
     Simplified metric: count of DEGRADED scan lines in 24h window.
     """
-    now = datetime.now(timezone.utc)
-    cutoff = now - timedelta(hours=24)
-    misses = 0
-    last_ts = None
-
+    # CURRENT consecutive-DEGRADED streak, not 24h-cumulative. A resolved outage
+    # earlier today must not keep the metric RED — once the watchdog logs an
+    # ALL_GREEN scan the streak resets to 0. Counts back from the newest SCAN
+    # line until a non-DEGRADED scan. Fixed 2026-06-11 (was 24h-cumulative,
+    # which false-RED'd on history after a same-day fix).
     if not WATCHDOG_LOG.exists():
         return {"value": 0, "status": "UNKNOWN", "note": "watchdog log not found"}
 
     try:
-        lines = WATCHDOG_LOG.read_text().splitlines()
-        for line in lines:
-            if "SCAN |" not in line:
-                continue
-            # Parse timestamp from log format: "2026-06-10 22:20:43,740 [INFO] SCAN | ..."
-            try:
-                ts_str = line.split("[")[0].strip().replace(",", ".")
-                ts_str = ts_str[:19]  # "2026-06-10 22:20:43"
-                ts = datetime.strptime(ts_str, "%Y-%m-%d %H:%M:%S").replace(tzinfo=timezone.utc)
-            except Exception:
-                continue
-            if ts < cutoff:
-                continue
-            last_ts = ts_str
-            if "DEGRADED" in line:
-                misses += 1
+        scan_lines = [l for l in WATCHDOG_LOG.read_text().splitlines() if "SCAN |" in l]
     except Exception as e:
         return {"value": 0, "status": "UNKNOWN", "note": f"log parse error: {e}"}
 
-    status = "GREEN" if misses == 0 else ("YELLOW" if misses <= THRESHOLD_HEARTBEAT_MISS_RED else "RED")
+    streak = 0
+    last_ts = None
+    for line in reversed(scan_lines):
+        if last_ts is None:
+            last_ts = line.split("[")[0].strip()[:19]
+        if "DEGRADED" in line:
+            streak += 1
+        else:
+            break  # hit an ALL_GREEN scan — current streak ends
+
+    status = "GREEN" if streak == 0 else ("YELLOW" if streak <= THRESHOLD_HEARTBEAT_MISS_RED else "RED")
     return {
-        "value": misses,
+        "value": streak,
         "status": status,
         "threshold_red": f">{THRESHOLD_HEARTBEAT_MISS_RED}",
         "last_scan_ts": last_ts,
-        "window_hours": 24,
+        "note": "current consecutive DEGRADED scans (0 = last scan healthy)",
     }
 
 

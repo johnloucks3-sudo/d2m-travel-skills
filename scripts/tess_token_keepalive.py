@@ -62,21 +62,26 @@ def _load_vault() -> dict:
 
 
 def _write_vault_key(key: str, value: str) -> None:
-    lines = VAULT_FILE.read_text().splitlines() if VAULT_FILE.exists() else []
-    out = []
-    written = False
-    for line in lines:
-        s = line.strip()
-        if s and not s.startswith("#") and "=" in s:
-            k, _, _ = s.partition("=")
-            if k.strip() == key:
-                out.append(f"{key}={value}")
-                written = True
-                continue
-        out.append(line)
-    if not written:
-        out.append(f"{key}={value}")
-    VAULT_FILE.write_text("\n".join(out) + "\n")
+    # Vault is flat JSON ({"KEY":"value"}). Load as JSON, update one key, write
+    # JSON back. Fixed 2026-06-11: the prior dotenv writer appended KEY=value
+    # lines into the JSON file, corrupting it and losing the agent creds on the
+    # first successful token write (Sterling flagged). Dotenv fallback preserved.
+    data = {}
+    if VAULT_FILE.exists():
+        raw = VAULT_FILE.read_text().strip()
+        if raw.startswith("{"):
+            try:
+                data = json.loads(raw)
+            except (ValueError, json.JSONDecodeError):
+                data = {}
+        if not data:
+            for line in VAULT_FILE.read_text().splitlines():
+                s = line.strip()
+                if s and not s.startswith("#") and "=" in s:
+                    k, _, v = s.partition("=")
+                    data[k.strip()] = v.strip()
+    data[key] = value
+    VAULT_FILE.write_text(json.dumps(data, indent=2) + "\n")
     os.chmod(VAULT_FILE, 0o600)
 
 
@@ -99,10 +104,11 @@ async def _credential_login_playwright(username: str, password: str) -> bool:
             await page.goto(TESS_LOGIN_URL, wait_until="networkidle", timeout=30000)
             await page.wait_for_timeout(1500)
 
-            await page.fill('input[type="email"], input[name="email"], input[id*="email"]',
-                            username, timeout=10000)
-            await page.fill('input[type="password"]', password, timeout=10000)
-            await page.click('button[type="submit"], input[type="submit"]', timeout=5000)
+            # Selector fix 2026-06-11: maglogin uses a "User Name" field
+            # (input[name="username"], type=text), NOT email. Verified live.
+            await page.fill('input[name="username"]', username, timeout=10000)
+            await page.fill('input[name="password"]', password, timeout=10000)
+            await page.click('button[type="submit"]', timeout=5000)
             await page.wait_for_load_state("networkidle", timeout=30000)
             await page.wait_for_timeout(2000)
 
@@ -129,7 +135,10 @@ async def _credential_login_playwright(username: str, password: str) -> bool:
             if isinstance(auth_data, str):
                 auth_data = json.loads(auth_data)
 
-            access_token = auth_data.get("accessToken", "")
+            # Live localStorage (verified 2026-06-11): ls.authenticationData =
+            # {"token": <JWT>, "refreshToken": <str>}. No accessToken/expiresAt/
+            # userID fields — token IS the access JWT; expiry comes from its exp.
+            access_token = auth_data.get("token") or auth_data.get("accessToken", "")
             refresh_token_val = auth_data.get("refreshToken", "")
             expires_at_str = auth_data.get("expiresAt", "")
             user_id = auth_data.get("userID", "")
@@ -139,13 +148,28 @@ async def _credential_login_playwright(username: str, password: str) -> bool:
                 return False
 
             import datetime
+            expires_at_unix = None
+            # Prefer the JWT's own exp claim (no expiresAt field in localStorage).
             try:
-                exp_dt = datetime.datetime.fromisoformat(
-                    expires_at_str.replace("Z", "+00:00")
-                )
-                expires_at_unix = exp_dt.timestamp()
+                import base64
+                payload_b64 = access_token.split(".")[1]
+                payload_b64 += "=" * (-len(payload_b64) % 4)  # pad
+                claims = json.loads(base64.urlsafe_b64decode(payload_b64))
+                if claims.get("exp"):
+                    expires_at_unix = float(claims["exp"])
+                    expires_at_str = datetime.datetime.fromtimestamp(
+                        expires_at_unix, datetime.timezone.utc
+                    ).isoformat().replace("+00:00", "Z")
             except Exception:
-                expires_at_unix = time.time() + 7200
+                pass
+            if expires_at_unix is None:
+                try:
+                    exp_dt = datetime.datetime.fromisoformat(
+                        expires_at_str.replace("Z", "+00:00")
+                    )
+                    expires_at_unix = exp_dt.timestamp()
+                except Exception:
+                    expires_at_unix = time.time() + 7200
 
             token_data = {
                 "access_token": access_token,
