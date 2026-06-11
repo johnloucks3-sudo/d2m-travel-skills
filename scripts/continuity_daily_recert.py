@@ -32,6 +32,16 @@ THRESHOLD_SCRAPE_COMPLETION_RED = 80.0  # < this % = RED
 
 BOOKING_IDS = ["3096289_Ely", "3078056_Nichols", "3071222_Furlow", "2984034_McLeod"]
 
+# Commander-gated units: known-blocked on a credential only the Commander can
+# supply. Reported as "pending Commander," NOT counted toward the RED
+# failed_unit_count (goal addition #3, 2026-06-10). boot-recovery's ExecStartPost
+# runs the TESS keepalive, so it shares the TESS root cause and clears on inject.
+COMMANDER_GATED_UNITS = {
+    "tess-keepalive.service",
+    "tess-token-keepalive.service",
+    "thunderbird-boot-recovery.service",
+}
+
 
 # ── Helpers ────────────────────────────────────────────────────────────────────
 
@@ -64,8 +74,10 @@ def count_failed_units() -> dict:
     """Count all currently-failed user-scope systemd units."""
     _, raw = _run(["systemctl", "--user", "list-units", "--state=failed",
                    "--no-legend", "--plain"])
-    units = [line.split()[0] for line in raw.splitlines()
-             if line.strip() and line.split()[0].endswith(".service")]
+    all_failed = [line.split()[0] for line in raw.splitlines()
+                  if line.strip() and line.split()[0].endswith(".service")]
+    gated = [u for u in all_failed if u in COMMANDER_GATED_UNITS]
+    units = [u for u in all_failed if u not in COMMANDER_GATED_UNITS]
     count = len(units)
     status = "GREEN" if count == 0 else ("YELLOW" if count <= THRESHOLD_FAILED_UNITS_RED else "RED")
     return {
@@ -73,6 +85,7 @@ def count_failed_units() -> dict:
         "status": status,
         "threshold_red": f">{THRESHOLD_FAILED_UNITS_RED}",
         "failed_units": units,
+        "commander_gated": gated,
     }
 
 
@@ -203,19 +216,29 @@ def run_recert() -> dict:
     m2 = count_heartbeat_misses()
     m3 = scrape_checkpoint_pct()
 
+    # Commander-gate carve-out (goal addition #3, 2026-06-10): when the only
+    # failing units are Commander-gated, the watchdog stays DEGRADED because of
+    # them — so heartbeat "misses" are gated-attributable, not a new breach.
+    # Don't RED-page on a condition the Commander already owns.
+    gated = m1.get("commander_gated", [])
+    gated_only = (m1["value"] == 0 and bool(gated))
+
     red_items = []
     if m1["status"] == "RED":
         red_items.append(f"failed_unit_count={m1['value']} (threshold >{THRESHOLD_FAILED_UNITS_RED})")
-    if m2["status"] == "RED":
+    if m2["status"] == "RED" and not gated_only:
         red_items.append(f"heartbeat_miss_24h={m2['value']} (threshold >{THRESHOLD_HEARTBEAT_MISS_RED})")
     if m3["status"] == "RED":
         red_items.append(f"scrape_completion={m3['value']}% (threshold <{THRESHOLD_SCRAPE_COMPLETION_RED}%)")
 
-    overall = "GREEN"
-    if any(m["status"] == "RED" for m in [m1, m2, m3]):
+    if red_items:
         overall = "RED"
+    elif gated_only:
+        overall = "GREEN_PENDING_COMMANDER"
     elif any(m["status"] == "YELLOW" for m in [m1, m2, m3]):
         overall = "YELLOW"
+    else:
+        overall = "GREEN"
 
     result = {
         "timestamp": ts,
@@ -226,6 +249,7 @@ def run_recert() -> dict:
             "scrape_checkpoint_completion_pct": m3,
         },
         "red_items": red_items,
+        "commander_gated": gated,
     }
 
     print(f"[X1 re-cert] Overall: {overall}")
