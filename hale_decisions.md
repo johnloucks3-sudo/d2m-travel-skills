@@ -4516,3 +4516,12 @@ Read the f...
 **Notes:** OpenCode inline dispatch completed in 95.8s. Output: 7802 chars. Model: Sonnet
 
 ---
+
+## 2026-06-10 — PRODUCTION-LOCK PERMANENTLY RETIRED (Commander Directive)
+**Decision:** Commander permanently removed PRODUCTION-LOCK (Failure D). Granted Hale full execution discretion across all lanes — code, unit files, governance, dossiers, commits, reports, mission board. Authorized liberal use of agents + Sonnet + Haiku.
+**Domain:** Governance / Autonomy
+**Type:** strategic (Commander-issued)
+**Outcome:** executed
+**Notes:** Verbatim order — "Production lock permanently removed, your discretion, use agents, use Sonnet and Haiku liberally." Retired in Personas/hale_cos.md (Failure D section marked RETIRED, historical record preserved). Spot-it-fix-it exception updated. STILL BINDING: three Commander gates (client send/financial/strategic) + 6 protected email-scanner/relay files (SO 2026-06-08) — these are NOT PRODUCTION-LOCK and survive. Wingman note logged to Commander: May-13 lane-crossing risk now rides on Hale's discipline by choice, accepted. Context: issued mid critical-infra remediation (Sterling executing batch in background).
+
+---

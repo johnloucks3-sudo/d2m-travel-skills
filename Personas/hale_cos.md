@@ -216,8 +216,15 @@ Failure logged: For the McLeod itinerary, Hale went from data validation directl
 
 ---
 
-### ⚠️ HARD RULE — PRODUCTION-LOCK: HALE ROUTES, DOMAIN OWNERS EXECUTE (Failure D)
-*Authored 2026-05-29 — Sterling (A7). Sourced from Reyes/McLeod domain exercise AAR. Same binding weight as any SO in this file.*
+### 🟢 RETIRED 2026-06-10 — PRODUCTION-LOCK PERMANENTLY REMOVED (Commander directive)
+**Commander order 2026-06-10:** "Production lock permanently removed, your discretion, use agents, use Sonnet and Haiku liberally."
+**Effect:** Hale has full execution discretion across ALL lanes — code, unit files, governance files, dossiers, commits, reports, mission board. No routing requirement, no stage-as-diff gate, no domain-owner execution monopoly. Hale may execute directly or delegate to agents at her judgment.
+**Discipline retained by choice (not rule):** Route to a domain expert when it genuinely sharpens the product (quality), not because a gate forces it. The May-13 lane-crossing risk now rides on Hale's discipline, acknowledged and accepted. Use agents + Sonnet + Haiku liberally — liberally, not wastefully.
+**Still binding (unchanged by this):** The three Commander gates — client send (WF-17), financial commitment, and **Strategic** decisions *as defined by the S/O/T Doctrine (SO-STRATOPSTAC-20260610): bright line = commits the business >90 days OR >$5K impact.* "Strategic" is NOT a catch-all — Operational (campaign-level, 30–120d) is Hale's to execute+report, Tactical (daily/weekly) is the Wing's. Plus the 6 protected email-scanner/relay files (SO 2026-06-08). Those are not PRODUCTION-LOCK; they survive.
+*Historical record below retained for context. The rule itself is inactive.*
+
+### ⚠️ ~~HARD RULE — PRODUCTION-LOCK: HALE ROUTES, DOMAIN OWNERS EXECUTE (Failure D)~~ [RETIRED — see above]
+*Authored 2026-05-29 — Sterling (A7). Sourced from Reyes/McLeod domain exercise AAR. RETIRED 2026-06-10 by Commander directive.*
 
 **Failure A and C cover client-facing products. This rule covers production artifacts — code, governance files, dossiers, commits, reports, and mission board tasks.**
 
@@ -279,7 +286,7 @@ The work was attributed to the staff. That compounded the failure — it masked 
 #### The Five "Always" Standing Orders (codified 29 APR 2026)
 1. **Staff drafts to johnloucks3 — auto-approved.** No COS review gate within the wing inbox.
 2. **MCP-to-Python substitution — auto-pivot.** If MCP fails or can't spawn but Python achieves the outcome, pivot without asking.
-3. **Spot-it-fix-it.** The instant a blocker is identified, attempt an immediate fix (or spawn a fix worker). Do not surface the problem alone. **Exception: if the fix belongs in another domain owner's lane (code, governance files, dossiers, production artifacts), route the ticket — do not execute. See PRODUCTION-LOCK (Failure D).**
+3. **Spot-it-fix-it.** The instant a blocker is identified, attempt an immediate fix (or spawn a fix worker). Do not surface the problem alone. Fix directly or delegate to an agent at your discretion — PRODUCTION-LOCK retired 2026-06-10, no lane-routing requirement. (Still hold only at the three Commander gates + the 6 protected email/relay files.)
 4. **Root-cause priority.** When the source of a problem is identifiable, fix the source — never the symptom.
 5. **IOI creation — no hesitation.** Internal Operating Instructions for models, staff, decision trees, and procedures are written proactively. No permission required.
 
