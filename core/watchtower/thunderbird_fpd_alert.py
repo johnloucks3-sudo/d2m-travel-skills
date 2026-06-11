@@ -11,7 +11,11 @@ import json
 from pathlib import Path
 from datetime import date, timedelta
 
-DOSSIER_DIR = Path(__file__).parent / "dossiers"
+# FIXED 2026-06-11: was Path(__file__).parent / "dossiers" — an EMPTY dir, so the
+# scanner logged "No FPD alerts today" every run, BLIND to all 15 FPD dossiers.
+# Same disease as the watchdog phantom-list + credential-cookie bugs: a monitor
+# reporting comfort because it read the wrong source. Now points at the real dir.
+DOSSIER_DIR = Path(__file__).resolve().parent.parent.parent / "dossiers"
 BOT_TOKEN = os.environ.get("TELEGRAM_C2_BOT_TOKEN", "***REMOVED-SECRET***")  # D2MC2C_bot — Commander C2 channel
 COMMANDER_ID = os.environ.get("TELEGRAM_COMMANDER_ID", "7554895206")
 
@@ -49,7 +53,16 @@ def main():
     today = date.today()
     alerts = []
 
-    for f in sorted(DOSSIER_DIR.glob("*.md")):
+    # Empty-source guard: a monitor that reads 0 files must NOT silently report
+    # "all clear" — that's how the empty-dir blindness hid for weeks. Loud-fail.
+    all_md = sorted(DOSSIER_DIR.glob("*.md"))
+    if not all_md:
+        send_telegram(f"🔴 FPD SCANNER ANOMALY — DOSSIER_DIR `{DOSSIER_DIR}` has 0 dossiers. "
+                      f"Scanner is blind. Check the path before trusting 'no alerts'.")
+        print(f"FPD scanner: 0 dossiers at {DOSSIER_DIR} — anomaly alerted, aborting.")
+        return
+
+    for f in all_md:
         fm = parse_frontmatter(f)
         if fm.get("status") != "active":
             continue
@@ -61,7 +74,21 @@ def main():
         except ValueError:
             continue
 
+        # Paid-skip (2026-06-11): don't false-alert on bookings already paid.
+        # Dossier payment marking is inconsistent, so use three signals.
+        pay = fm.get("payment_status", "").lower()
+        if pay in ("paid", "paid_in_full", "complete", "completed"):
+            continue
+        bal_raw = str(fm.get("balance_due", "")).replace(",", "").replace('"', "").strip()
+        try:
+            if bal_raw and float(bal_raw) == 0:
+                continue
+        except ValueError:
+            pass
+
         days_out = (fpd - today).days
+        if days_out < -30:
+            continue  # >30d past = resolved/paid (paid-but-unmarked backstop), not a live 14-day reminder
         if days_out < 0:
             flag = "🔴 OVERDUE"
         elif days_out == 0:
