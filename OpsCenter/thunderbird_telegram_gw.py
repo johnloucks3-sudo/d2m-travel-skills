@@ -444,6 +444,202 @@ def tg_send_chunks(token: str, chat_id: int, chunks: list[str]) -> None:
             time.sleep(0.5)
 
 
+# ── Media send (M-148 — sendPhoto / sendMediaGroup) ──────────────────────────
+# Lets Hale push images/media to the Commander: brief charts, ship photos,
+# dossier images. Two transports:
+#   • URL or Telegram file_id  → JSON body via tg() (cheap, no upload)
+#   • local file path          → multipart upload via requests files=
+# A local path is detected by os.path.isfile(); everything else is treated as
+# a URL/file_id and sent through the JSON path.
+_TG_IMAGE_EXTS = (".jpg", ".jpeg", ".png", ".gif", ".webp", ".bmp")
+
+
+def _is_local_path(media: str) -> bool:
+    """True if media refers to an existing local file (needs multipart upload)."""
+    try:
+        return bool(media) and os.path.isfile(media)
+    except Exception:
+        return False
+
+
+def tg_send_photo(
+    token: str,
+    chat_id: int,
+    photo: str,
+    caption: str = "",
+    parse_mode: str = "HTML",
+) -> bool:
+    """Send a single photo. `photo` is a URL, Telegram file_id, or local path.
+
+    Returns True on success. Captions over Telegram's 1024-char limit are
+    truncated so the API call doesn't fail outright.
+    """
+    if caption and len(caption) > 1024:
+        caption = caption[:1020] + "\n…"
+
+    if _is_local_path(photo):
+        # Multipart upload — tg()'s JSON path cannot carry a file body.
+        url = TG_BASE.format(token=token, method="sendPhoto")
+        data = {"chat_id": chat_id}
+        if caption:
+            data["caption"] = caption
+            data["parse_mode"] = parse_mode
+        try:
+            with open(photo, "rb") as fh:
+                r = requests.post(url, data=data, files={"photo": fh}, timeout=60)
+            resp = r.json()
+            if not resp.get("ok"):
+                log.warning("sendPhoto (upload) error: %s", resp.get("description", "?"))
+            return bool(resp.get("ok"))
+        except Exception as e:
+            log.error("sendPhoto (upload) exception: %s", e)
+            return False
+
+    # URL or file_id → JSON body
+    kwargs = {"chat_id": chat_id, "photo": photo}
+    if caption:
+        kwargs["caption"] = caption
+        kwargs["parse_mode"] = parse_mode
+    data = tg(token, "sendPhoto", **kwargs)
+    return bool(data.get("ok"))
+
+
+def tg_send_media_group(
+    token: str,
+    chat_id: int,
+    media: list,
+    caption: str = "",
+) -> bool:
+    """Send 2–10 photos as an album via sendMediaGroup.
+
+    `media` is a list where each item is one of:
+      • a str  → URL, file_id, or local file path
+      • a dict → {"media": <url/file_id/path>, "caption": <optional>}
+    The album caption (if given) is attached to the first item only — Telegram
+    shows it under the group.
+
+    Local files are uploaded via multipart using attach:// references; URLs and
+    file_ids ride the JSON body. Mixed local + remote in one group is supported.
+
+    Telegram limits a media group to 10 items. Lists >10 are chunked into
+    sequential groups. A single item degrades to tg_send_photo.
+    """
+    # Normalise to list of dicts
+    norm = []
+    for item in media:
+        if isinstance(item, dict):
+            norm.append(dict(item))
+        else:
+            norm.append({"media": item})
+
+    if not norm:
+        log.warning("sendMediaGroup called with empty media list")
+        return False
+    if len(norm) == 1:
+        only = norm[0]
+        return tg_send_photo(
+            token, chat_id, only["media"], caption or only.get("caption", "")
+        )
+
+    # Chunk into groups of 10 (Telegram hard cap)
+    all_ok = True
+    for start in range(0, len(norm), 10):
+        group = norm[start : start + 10]
+        ok = _send_one_media_group(token, chat_id, group, caption if start == 0 else "")
+        all_ok = all_ok and ok
+        if len(norm) > 10:
+            time.sleep(0.5)
+    return all_ok
+
+
+def _send_one_media_group(
+    token: str, chat_id: int, group: list, caption: str
+) -> bool:
+    """Send a single ≤10-item media group. Builds InputMediaPhoto entries,
+    uploading any local files via multipart attach:// refs."""
+    input_media = []
+    files = {}
+    for idx, item in enumerate(group):
+        src = item.get("media", "")
+        entry = {"type": "photo"}
+        if _is_local_path(src):
+            attach_name = f"file{idx}"
+            entry["media"] = f"attach://{attach_name}"
+            files[attach_name] = open(src, "rb")
+        else:
+            entry["media"] = src
+        item_caption = item.get("caption") or (caption if idx == 0 else "")
+        if item_caption:
+            entry["caption"] = item_caption[:1024]
+            entry["parse_mode"] = "HTML"
+        input_media.append(entry)
+
+    url = TG_BASE.format(token=token, method="sendMediaGroup")
+    try:
+        if files:
+            # Multipart: media JSON travels as a form field alongside the files.
+            data = {"chat_id": chat_id, "media": json.dumps(input_media)}
+            r = requests.post(url, data=data, files=files, timeout=120)
+        else:
+            r = requests.post(
+                url,
+                json={"chat_id": chat_id, "media": input_media},
+                timeout=60,
+            )
+        resp = r.json()
+        if not resp.get("ok"):
+            log.warning("sendMediaGroup error: %s", resp.get("description", "?"))
+        return bool(resp.get("ok"))
+    except Exception as e:
+        log.error("sendMediaGroup exception: %s", e)
+        return False
+    finally:
+        for fh in files.values():
+            try:
+                fh.close()
+            except Exception:
+                pass
+
+
+def send_photo_to_commander(
+    photo: str, caption: str = "", source: str = "SYSTEM"
+) -> bool:
+    """Module-level entry mirroring send_to_relay — lets any Wing script push a
+    photo to the Commander's C2 channel.
+
+        from thunderbird_telegram_gw import send_photo_to_commander
+        send_photo_to_commander("/path/chart.png", "McLeod FPD trend", source="Brief")
+
+    Routes to D2MC2C (Commander C2). Falls back to relay channel if D2MC2C token
+    is unset. Returns True on success.
+    """
+    cap = caption
+    if source and source != "SYSTEM" and cap:
+        cap = f"[{source}] {cap}"
+    if TOKEN_D2MC2C:
+        return tg_send_photo(TOKEN_D2MC2C, COMMANDER_ID, photo, cap)
+    if TOKEN_RELAY and RELAY_CHAT_ID:
+        return tg_send_photo(TOKEN_RELAY, RELAY_CHAT_ID, photo, cap)
+    log.warning("send_photo_to_commander: no D2MC2C or relay token configured")
+    return False
+
+
+def send_media_group_to_commander(
+    media: list, caption: str = "", source: str = "SYSTEM"
+) -> bool:
+    """Module-level album entry mirroring send_to_relay. Pushes 2–10 images to
+    the Commander's C2 channel (e.g. a ship photo set)."""
+    cap = caption
+    if source and source != "SYSTEM" and cap:
+        cap = f"[{source}] {cap}"
+    if TOKEN_D2MC2C:
+        return tg_send_media_group(TOKEN_D2MC2C, COMMANDER_ID, media, cap)
+    if TOKEN_RELAY and RELAY_CHAT_ID:
+        return tg_send_media_group(TOKEN_RELAY, RELAY_CHAT_ID, media, cap)
+    log.warning("send_media_group_to_commander: no D2MC2C or relay token configured")
+    return False
+
+
 import re  # noqa: E402 — needed for tg_send_chunks fallback above
 
 
@@ -1491,51 +1687,64 @@ def bot_poll_loop(
             continue
 
         for update in updates:
-            offset = update["update_id"] + 1
-
-            msg_obj = update.get("message")
-            if not msg_obj:
-                continue  # Skip non-message updates (callbacks, etc.)
-
-            chat_id = msg_obj.get("chat", {}).get("id")
-            user_id = msg_obj.get("from", {}).get("id")
-            text = msg_obj.get("text", "")
-
-            if not chat_id or not text:
+            # M-153 — per-update guard. A single malformed update or a failed
+            # thread spawn must not kill the poll thread (which main() cannot
+            # resurrect — only a full process restart recovers). Advance the
+            # offset first so a poison update is never re-fetched, then handle
+            # the body defensively.
+            try:
+                offset = update["update_id"] + 1
+            except Exception as e:
+                log.error("[%s] Malformed update (no update_id): %s", bot_name, e)
                 continue
 
-            # Dispatch in a thread so we don't block the poll loop
-            if msg_obj.get("voice"):
-                t = threading.Thread(
-                    target=handle_voice,
-                    args=(
-                        token,
-                        chat_id,
-                        user_id,
-                        msg_obj["voice"],
-                        bot_name,
-                        ctx_file,
-                        engine_fn,
-                        assistant_label,
-                    ),
-                    daemon=True,
-                )
-            else:
-                t = threading.Thread(
-                    target=handle_message,
-                    args=(
-                        token,
-                        chat_id,
-                        user_id,
-                        text,
-                        bot_name,
-                        ctx_file,
-                        engine_fn,
-                        assistant_label,
-                    ),
-                    daemon=True,
-                )
-            t.start()
+            try:
+                msg_obj = update.get("message")
+                if not msg_obj:
+                    continue  # Skip non-message updates (callbacks, etc.)
+
+                chat_id = msg_obj.get("chat", {}).get("id")
+                user_id = msg_obj.get("from", {}).get("id")
+                text = msg_obj.get("text", "")
+
+                if not chat_id or not text:
+                    continue
+
+                # Dispatch in a thread so we don't block the poll loop
+                if msg_obj.get("voice"):
+                    t = threading.Thread(
+                        target=handle_voice,
+                        args=(
+                            token,
+                            chat_id,
+                            user_id,
+                            msg_obj["voice"],
+                            bot_name,
+                            ctx_file,
+                            engine_fn,
+                            assistant_label,
+                        ),
+                        daemon=True,
+                    )
+                else:
+                    t = threading.Thread(
+                        target=handle_message,
+                        args=(
+                            token,
+                            chat_id,
+                            user_id,
+                            text,
+                            bot_name,
+                            ctx_file,
+                            engine_fn,
+                            assistant_label,
+                        ),
+                        daemon=True,
+                    )
+                t.start()
+            except Exception as e:
+                log.error("[%s] Update dispatch failed (continuing): %s", bot_name, e)
+                continue
 
 
         # Brief sleep between polls to avoid hammering Telegram
@@ -1667,40 +1876,51 @@ def relay_poll_loop() -> None:
             continue
 
         for update in updates:
-            offset = update["update_id"] + 1
-            msg_obj = update.get("message") or update.get("channel_post")
-            if not msg_obj:
+            # M-153 — per-update guard (same rationale as bot_poll_loop): a
+            # malformed update or an inline engine failure must not kill the
+            # relay thread.
+            try:
+                offset = update["update_id"] + 1
+            except Exception as e:
+                log.error("[Relay] Malformed update (no update_id): %s", e)
                 continue
-            user_id = msg_obj.get("from", {}).get("id", 0)
-            text = msg_obj.get("text", "").strip()
-            if not text:
-                continue
+            try:
+                msg_obj = update.get("message") or update.get("channel_post")
+                if not msg_obj:
+                    continue
+                user_id = msg_obj.get("from", {}).get("id", 0)
+                text = msg_obj.get("text", "").strip()
+                if not text:
+                    continue
 
-            # Only process Commander's @CC:/@OC: directives
-            if user_id != COMMANDER_ID:
-                continue
+                # Only process Commander's @CC:/@OC: directives
+                if user_id != COMMANDER_ID:
+                    continue
 
-            if text.upper().startswith("@CC:"):
-                task = text[4:].strip()
-                log.info("[Relay] Commander @CC: %s...", task[:60])
-                tg_typing(TOKEN_RELAY, RELAY_CHAT_ID)
-                prompt = _build_hale_claude_prompt("", task)
-                response = call_claude_engine(prompt, model=HAIKU_MODEL)
-                tg_send(TOKEN_RELAY, RELAY_CHAT_ID,
-                        f"<b>[CC]</b> {response[:3800]}")
-                continue
-
-            if text.upper().startswith("@OC:"):
-                task = text[4:].strip()
-                log.info("[Relay] Commander @OC: forwarding to OC inbox")
-                ts = __import__("datetime").datetime.now().strftime("%Y-%m-%d %H:%M")
-                try:
-                    with open(oc_inbox, "a") as f:
-                        f.write(f"\n---\n## COMMANDER→OC — {ts}\n{task}\n")
+                if text.upper().startswith("@CC:"):
+                    task = text[4:].strip()
+                    log.info("[Relay] Commander @CC: %s...", task[:60])
+                    tg_typing(TOKEN_RELAY, RELAY_CHAT_ID)
+                    prompt = _build_hale_claude_prompt("", task)
+                    response = call_claude_engine(prompt, model=HAIKU_MODEL)
                     tg_send(TOKEN_RELAY, RELAY_CHAT_ID,
-                            f"<b>[Relay→OC]</b> Queued in OC inbox: {task[:100]}")
-                except Exception as e:
-                    log.error("[Relay] OC inbox write failed: %s", e)
+                            f"<b>[CC]</b> {response[:3800]}")
+                    continue
+
+                if text.upper().startswith("@OC:"):
+                    task = text[4:].strip()
+                    log.info("[Relay] Commander @OC: forwarding to OC inbox")
+                    ts = __import__("datetime").datetime.now().strftime("%Y-%m-%d %H:%M")
+                    try:
+                        with open(oc_inbox, "a") as f:
+                            f.write(f"\n---\n## COMMANDER→OC — {ts}\n{task}\n")
+                        tg_send(TOKEN_RELAY, RELAY_CHAT_ID,
+                                f"<b>[Relay→OC]</b> Queued in OC inbox: {task[:100]}")
+                    except Exception as e:
+                        log.error("[Relay] OC inbox write failed: %s", e)
+                    continue
+            except Exception as e:
+                log.error("[Relay] Update dispatch failed (continuing): %s", e)
                 continue
 
         # Check queue every 15 seconds
@@ -1871,4 +2091,34 @@ if __name__ == "__main__":
             ok = send_to_relay(msg, source=src)
             sys.exit(0 if ok else 1)
         sys.exit(1)
+
+    # M-148 — send a photo to the Commander C2 channel:
+    # python3 thunderbird_telegram_gw.py --photo /path/img.png --caption "Trend" --source "Brief"
+    if len(sys.argv) > 1 and sys.argv[1] == "--photo":
+        import argparse
+        _load_env_file("/home/john/Thunderbird/.env")
+        _load_env_file("/home/john/Thunderbird/config/telegram_gw.env")
+        ap = argparse.ArgumentParser(prog="thunderbird_telegram_gw.py")
+        ap.add_argument("--photo", required=True, help="URL, file_id, or local path")
+        ap.add_argument("--caption", default="")
+        ap.add_argument("--source", default="SYSTEM")
+        args = ap.parse_args()
+        ok = send_photo_to_commander(args.photo, caption=args.caption, source=args.source)
+        sys.exit(0 if ok else 1)
+
+    # M-148 — send an album (2–10 images) to the Commander C2 channel:
+    # python3 thunderbird_telegram_gw.py --media-group img1.png img2.png --caption "Ship set"
+    if len(sys.argv) > 1 and sys.argv[1] == "--media-group":
+        import argparse
+        _load_env_file("/home/john/Thunderbird/.env")
+        _load_env_file("/home/john/Thunderbird/config/telegram_gw.env")
+        ap = argparse.ArgumentParser(prog="thunderbird_telegram_gw.py")
+        ap.add_argument("--media-group", dest="media", nargs="+", required=True,
+                        help="2–10 URLs, file_ids, or local paths")
+        ap.add_argument("--caption", default="")
+        ap.add_argument("--source", default="SYSTEM")
+        args = ap.parse_args()
+        ok = send_media_group_to_commander(args.media, caption=args.caption, source=args.source)
+        sys.exit(0 if ok else 1)
+
     main()
