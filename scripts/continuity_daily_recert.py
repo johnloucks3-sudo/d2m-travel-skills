@@ -128,17 +128,18 @@ def count_heartbeat_misses() -> dict:
 
 def scrape_checkpoint_pct() -> dict:
     """
-    Check per-booking .scrape.done checkpoint files in validations/rssc_scrape/.
-    Completion % = bookings with .done file / total bookings * 100.
-    Note: .done files are cleared at the start of each scrape run.
+    Check per-booking date-keyed .scrape.done checkpoint files in validations/rssc_scrape/.
+    Checkpoints are keyed by YYYYMMDD so stale prior-day files do not report false-green.
+    Completion % = bookings with today's .done file / total bookings * 100.
     If no .done files exist (scrape hasn't run today), report as N/A rather than 0%.
     """
+    today_str = datetime.now(timezone.utc).strftime("%Y%m%d")
     done_count = 0
     total = len(BOOKING_IDS)
     missing = []
 
     for b_id in BOOKING_IDS:
-        done_file = SCRAPE_DIR / f"{b_id}.scrape.done"
+        done_file = SCRAPE_DIR / f"{b_id}.{today_str}.scrape.done"
         if done_file.exists():
             done_count += 1
         else:

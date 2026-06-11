@@ -497,11 +497,17 @@ async def main():
         await page.route("**/*analytics*", lambda route: route.abort())
         await page.route("**/*adsrvr*", lambda route: route.abort())
 
-        # P3b: Per-booking checkpoint helper (A7 Sterling 2026-06-10)
-        # Write a .done file after each booking scrapes successfully.
-        # If the process is killed and restarted, already-done bookings are skipped.
+        # P3b: Per-booking checkpoint helper (A7 Sterling 2026-06-10, rev 2026-06-10)
+        # Write a date-keyed .done file after each booking scrapes successfully.
+        # Checkpoints are date-keyed: {booking}.{YYYYMMDD}.scrape.done
+        # Same-day kill→restart = resumes from last completed booking.
+        # Next calendar day = starts fresh (stale checkpoints from prior run are ignored).
+        # This prevents the silent-skip trap where old .done files mask a dead scraper.
+        def _today_str() -> str:
+            return datetime.now().strftime("%Y%m%d")
+
         def _checkpoint_path(b_id: str) -> str:
-            return f"{OUTPUT_DIR}/{b_id}.scrape.done"
+            return f"{OUTPUT_DIR}/{b_id}.{_today_str()}.scrape.done"
 
         def _is_done(b_id: str) -> bool:
             import os as _os

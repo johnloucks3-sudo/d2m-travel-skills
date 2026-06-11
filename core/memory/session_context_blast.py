@@ -264,7 +264,8 @@ def main():
     args = parser.parse_args()
 
     # P5a: Differential fingerprint check — skip if sources unchanged (unless --force)
-    if not args.stdout and not args.force and not _sources_changed():
+    # Also regenerate if output file is missing, regardless of fingerprint state.
+    if not args.stdout and not args.force and not _sources_changed() and OUTPUT.exists():
         print(f"[session_context_blast] P5a: no source changes — {OUTPUT} unchanged")
         return
 
