@@ -1,117 +1,118 @@
-# HALE — Compressed Brief [2026-06-10 16:46 MT]
-*3-7-30 Format | yesterday's Δ: +0 items*
+# WING STATUS — 2026-06-13 · Dreams2Memories Travel, LLC
+*Last updated: 2026-06-13 15:16 MT · Source: hale_state.json, dossiers, mission board*
 
 ---
 
-## TODAY (Commander Action Required)
-  🔴 WF-17: Kuklinski TP 0.5 — review + send by 2026-05-27
-  🔴 WF-17: Kuklinski TP 4.1 — review + send by 2026-03-17
-  🔴 WF-17: Kuklinski TP 4.2 — review + send by 2026-03-24
+## 🔴 OVERDUE — ACTION REQUIRED NOW
 
-## 7-DAY HORIZON (Status Since Last Brief)
-  Δ Clients: +2 (14 total)
-  🛳 T-8d: McLeod McGlasson - Silver Muse — Silversea Silver Muse
-
-## 30-DAY WATCH (Suppressed Repeats)
-  ⏳ PENDING: Kuklinski TP 4.3 — voice_drafted
-  ⏳ PENDING: Nichols TP 0.5 — voice_drafted
-  ✅ RECEIVED (suppressed): Al Ely & Amy Darrow, John & Melissa Furlow, Kuklinski Group (3 couples), McLeod_Erik_Melissa_SilverMuse_Complete
+| Item | Client | Days Over | Owner | Status |
+|------|--------|-----------|-------|--------|
+| Validation/Welcome email | Kuklinski | ~58d | A6→A9→A3 | Draft ready. **HOLD until 2026-07-15** per Commander order (excursion window). Not sent yet. |
+| Insurance email | Kuklinski | ~41d | A9→A3 | Pre-existing waiver window. **HOLD until 2026-07-15.** |
+| Josh Morton guest form | Kuklinski | ~58d | A3 → Josh | Delivery to Josh (one of 3 couples). **HOLD until 2026-07-15.** |
 
 ---
 
-| Pipeline | WF-17 Queue | Active Clients |
-|---|---|---|
-| **$16,312** | 5 drafts | 14 |
+## 🟡 NEXT 30 DAYS
 
-*Full brief: /home/john/Thunderbird/hale_brief.md*
-*— V. Hale, VCS · Next: 2026-06-11 06:00 MT*
-
----
-
-### 0. OVERNIGHT OPS
-*What the Wing did while you slept — no action needed unless flagged 🔴*
-
-_No overnight events logged_
-
-**Credentials Status:**
-
-| Credential | Status | Detail |
-|---|---|---|
-| 🔴 centrav_cookies | expired | Expired 165.6h ago (cookie: _gat_gtag_UA_84997498_3) |
-| 🔴 regent_cookies | expired | Expired 72.1h ago (cookie: _hjSession_1263849) |
-| 🔴 regent_cookies_oa | expired | Expired 164.0h ago (cookie: kndctr_8DD367C25245AFCC0A490D4C_ |
-| ✅ gmail_token | valid | Expires in 0.2h |
-| ✅ johnloucks3_token | valid | Access token expired but has refresh_token (auto-refreshes) |
-| 🟡 perx_cookies | session_only | All cookies are session-only (no persistent expiry). Likely  |
-| 🟡 room_res_cookies | expired | Expired 9.6h ago (cookie: _gat) |
+| Item | Client | Due | Owner | Status |
+|------|--------|-----|-------|--------|
+| Excursion booking window opens | Kuklinski | Aug 2, 2026 | A8 Reyes | Viking portal opens; 4 TP deliveries ready to unhold on Jul 15. |
+| December sailing (Grandeur) | Lyons (PRO BONO) | Dec 29, 2026 | COS | 200 days out. Pre-cruise logistics to queue Jul-Aug. |
+| McLeod departure | McLeod | Jun 23, 2026 | COS | 10 days (T-10). Pre-departure TP chain ready. |
 
 ---
 
-# HALE — Daily Brief
-*Generated: 2026-06-10 16:46 MT*
+## CLIENTS — sorted by departure
+
+| Client | Ship / Line | Depart | Phase | FPD | Open Items |
+|--------|------------|--------|-------|-----|------------|
+| McLeod / McGlasson | Silver Muse · Silversea · Med | 2026-06-23 | PRE-DEPARTURE | ✅ PAID | 2 (transfer dispute, return flights TBD) |
+| Lyons, Nancy & Ken | Seven Seas Splendor · Athens→NY | 2026-08-11 | PRE-DEPARTURE | **PRO BONO** | 4 (ATH hotel dinner res, transfers in/out, LGA transfer Sep 6) |
+| Furlow, Missy & John | Seven Seas Grandeur · Scandinavia | 2026-08-29 | PRE-DEPARTURE | ✅ PAID $15,486 | 1 (insurance pending) |
+| Nichols, Larry | Seven Seas Grandeur · Scandinavia | 2026-08-29 | PRE-DEPARTURE | ✅ PAID | 2 (insurance on file (review), flights TBD) |
+| Ely / Darrow | Seven Seas Grandeur · Scandinavia | 2026-08-29 | PRE-DEPARTURE | ✅ PAID | 2 (flights TBD, pre/post hotel TBD) |
+| Kuklinski · 3 couples | Viking Mars · Panama Canal | 2026-12-17 | RESEARCH | ✅ PAID $21,244 | 4 TP drafts **HELD until 2026-07-15** (validation, insurance, guest forms, 1 pending) |
+| Lyons, Nancy & Ken | Seven Seas Grandeur · Miami→LA (Panama + Pacific) | 2027-01-14 | RESEARCH | **PRO BONO** | Pre-cruise logistics queued for Jul-Aug. |
 
 ---
 
-🦅
+## KUKLINSKI — DETAIL (most complex active client)
 
-**THUNDERBIRD DAILY BRIEF — 2026-06-10 · COS MODE**
-*— V. Hale, VCS*
-
----
-
-### 1. CLIENT WIRE
-
-| Client | Ship | Departure | FPD Status | Next TP |
-|---|---|---|---|---|
-| John & Susan Loucks | Silversea Silver Nova | 10 Apr 2026 🔴 | 🔴 OVERDUE (129d ago) | TP 1.1 — Voyage Preview (destination guide) ⚠️ 20 overdue |
-| McLeod McGlasson - Silver Muse | Silversea Silver Muse | 18 Jun 2026 🔴 | ✅ PAID | TP 0.5 — Welcome / Booking Validation ⚠️ 17 overdue |
-| Furlow / Ely-Darrow / Nichols | Regent Seven Seas SS Grandeur | 29 Aug 2026 | 🔴 OVERDUE (70d ago) | TP 1.1 — Voyage Preview (destination guide) ⚠️ 11 overdue |
-| Al Ely & Amy Darrow | Regent Grandeur | 29 Aug 2026 | ✅ PAID | TP 1.1 — Voyage Preview (destination guide) ⚠️ 6 overdue |
-| John & Melissa Furlow | Regent Seven Seas SS Grandeur | 29 Aug 2026 | ✅ PAID | TP 1.1 — Voyage Preview (destination guide) ⚠️ 6 overdue |
-| Larry & Heidi Nichols | Regent Grandeur | 29 Aug 2026 | ✅ PAID | TP 1.1 — Voyage Preview (destination guide) ⚠️ 6 overdue |
-| John A. Loucks III & Susan Loucks |  | 7 Sep 2026 | TBD | TP 1.1 — Voyage Preview (destination guide) ⚠️ 5 overdue |
-| Kuklinski Group (3 couples) | Viking Viking Mars | 17 Dec 2026 | ✅ PAID | TP 1.2 — Airfare Watch ⚠️ 1 overdue |
-| Joshua Morton & Erica Dodge | Viking Viking Mars | 17 Dec 2026 | ✅ PAID | TP 1.1 — Voyage Preview (destination guide) ⚠️ 2 overdue |
-| Erik Wiedenbach McLeod + Melissa Etola McGlasson | Regent Seven Seas SS Grandeur | 19 Dec 2026 | DUE 22 Jul 2026 | TP 1.1 — Voyage Preview (destination guide) ⚠️ 1 overdue |
-| John & Susan Loucks | Seven Seas Grandeur | 29 Dec 2026 | DUE 1 Aug 2026 | TP 1.1 — Voyage Preview (destination guide) ⚠️ 1 overdue |
-| Erik Wiedenbach McLeod + Melissa Etola McGlasson | Princess Discovery Princess | 13 Mar 2027 | DUE 13 Dec 2026 | All clear |
-| Colonel John Aldon Loucks & Ms Susan Dee Loucks | Silversea Silver Nova | 5 May 2027 | DUE 6 Dec 2026 | All clear |
-| Erik Wiedenbach McLeod + Melissa Etola McGlasson | Regent Seven Seas SS Prestige | 18 Dec 2027 | DUE 21 Jul 2027 | All clear |
+- **Booking:** 9593880 / 9593873 / 9595029 · Viking Mars · Panama City → Ft Lauderdale · Dec 17–27, 2026
+- **Guests:** Kyle + Amy, Roger + Carla, Josh + [spouse] — 6 pax, 3 couples
+- **TP Hold status:** 4 drafts (validation email, insurance email, guest forms, 1 pending) **held until 2026-07-15** per Commander order 2026-06-04. Excursion booking window opens Aug 2; these release on Jul 15 (15d prior). **Not overdue; purposefully held.**
+- **Next scheduled delivery:** Air fare watch — Jun 17; Hotel 3+3 search — Jun 17
 
 ---
 
-### 2. WF-17 GATE — DRAFTS AWAITING COMMANDER REVIEW
+## LYONS, NANCY & KEN — PRO BONO (Advisory/Concierge Only)
 
-| Client | TP | Phase | Deadline | Status |
-|---|---|---|---|---|
-| Kuklinski | TP 0.5 | Welcome / Booking Validation | 2026-05-27 | voice_drafted |
-| Kuklinski | TP 4.1 | Payment Reminder #1 | 2026-03-17 | voice_drafted |
-| Kuklinski | TP 4.2 | Payment Reminder #2 | 2026-03-24 | voice_drafted |
-| Kuklinski | TP 4.3 | Payment Goal | 2026-03-30 | voice_drafted |
-| Nichols | TP 0.5 | Welcome / Booking Validation | 2026-06-05 | voice_drafted |
+**Relationship:** Friend Service. Zero commission, zero booking involvement. D2M provides logistics gaps PAVLUS doesn't fill (transfers, dinner reservations, destination intel).
 
----
+### August 2026 — Seven Seas Splendor (Res 2979301)
+| Field | Details |
+|-------|---------|
+| **Voyage** | Historic Horizons · Athens (Piraeus) → New York |
+| **Dates** | Aug 11 – Sep 6, 2026 (26 nights) |
+| **Suite** | 847 · Deck 8 · Serenity Suite F1 |
+| **Payment** | ✅ FPD made Mar 14, 2026. All paid in full. |
+| **Status** | Guest registration complete. 14 shore excursions booked (all complimentary). Dining: 6 of 6 completed. |
+| **Open items** | (1) Dinner reservation Hotel Grande Bretagne, Athens — Aug 10 evening (GB Roof Garden preferred). (2) Transfer: ATH airport → Grande Bretagne (Aug 10, ~noon). (3) Transfer: Grande Bretagne → Piraeus port (Aug 11, embark 5:00 PM). (4) Transfer: LGA → JAX (Sep 6, tight timing: DL5613 departs 12:00p). (5) Alert Nancy: Dining reservations open May 13 (already passed — confirm booked). (6) Reminder: Online check-in due Jul 21. |
 
-### 3. FINANCIAL PULSE
+### December 2026–January 2027 — Seven Seas Grandeur (Res 3116314)
+| Field | Details |
+|-------|---------|
+| **Voyage** | Panama Canal & Pacific Gems (GRA261229) · Miami → Los Angeles |
+| **Dates** | Dec 29, 2026 – Jan 14, 2027 (16 nights) |
+| **Suite** | 749 · Deck 7 · Serenity Suite F1 |
+| **Payment** | **UNCONFIRMED** — Guest portal shows checklist label "Deposit Needed to Confirm" (stale label; registration is complete, 7 excursions booked, $4,640 FCC applied). **ACTION:** Confirm deposit + Aug 1 final-payment status via Pavlus before using. |
+| **Status** | Guest registration complete. 7 shore excursions booked (all complimentary). Dining reservations open Sep 30, 2026 (not yet booked). |
+| **Open items** | (1) Confirm payment status (deposit + Aug 1 FPD) via Pavlus or agent portal / TESS. (2) Queue dining reservation reminder: Sep 30 at 8:00 PM ET. (3) Queue pre-cruise logistics: transfers, pre/post hotel research. (4) Online check-in: Dec 8. |
 
-| Metric | Value |
-|---|---|
-| D2M pipeline | **$16,311.93** |
-| TESS received | $0.00 |
-
----
-
-### 4. WING HEALTH
-
-| System | Status |
-|---|---|
-| last_health_check | 💤 2026-06-10T22:44:57.343597+00:00 |
-| chrome_debug_port_9222 | ✅ ONLINE |
-| mcp_server | 💤 ERROR: HTTPConnectionPool(host='127.0.0.1', port=8765): Read timed out. (read timeout=20) |
-| opencode_status | 💤 UNKNOWN |
-| telegram_bot | 💤 UNKNOWN |
+### Future Voyages (Out of Scope — Noted for Reference)
+- **Sep 13–25, 2027:** Seven Seas Splendor (Enchanted Scotland, Res 3116322)
+- **Sep 25–Oct 8, 2027:** Seven Seas Splendor (Sparkling Wines & Glimmering Seas, Res 3116323)
 
 ---
 
-*— V. Hale, VCS · Thunderbird Wing · 2026-06-10 16:46 MT*
-*Next brief: 2026-06-11 06:00 MT*
+## ARCHIVED — CLOSED/CANCELLED
+
+### Westbrook, Ron & Lindy — Silver Nova Pacific (CANCELLED)
+
+- **Booking:** 566904-25 (Silver Nova, $10,800) — **CANCELLED medical emergency 2026-04-20**
+- **Original departure:** Apr 23, 2026 (now past)
+- **Transfers:** Both cancelled and refunded (2026-04-19)
+- **Insurance claim:** Allianz Annual Premier Conf E2549991663 ($15K policy) — claim scope $11,280, **PENDING**
+- **Hotels:** Hilton Tokyo 33S2013960 (~$480) — Allianz claim also pending
+- **Status:** Awaiting Commander approval to contact Jenna Woodcock (Perx, +1 512-691-4501) and Zoro L (SkyLux) to initiate cruise cancellation paperwork and insurance claim settlement. **No further action until approved.**
+
+---
+
+## STAFF ASSIGNMENTS — ACTIVE
+
+| Staff | Active Workload |
+|-------|----------------|
+| A2 Dembe (Wraith) | Kuklinski air/hotel search, Panama Canal research; Lyons Aug destination intel (dining, transfers) |
+| A3 Dani | McLeod pre-trip comms; Lyons Aug/Dec logistics (transfers, reservations) |
+| A8 Reyes | Kuklinski excursion/dining TP drafts (on hold until Jul 15) |
+| A9 Harlan | Financial verification (commissions, FPD tracking); Lyons Dec payment confirmation |
+| COS Hale | Coordination across all lanes |
+
+---
+
+## SYSTEM HEALTH
+
+| Service | Status |
+|---------|--------|
+| d2m-tasking-watcher | RUNNING (V6 inotify) |
+| MCP server | RUNNING port 8765 |
+| Telegram gateway | RUNNING 3 bots |
+| OAuth cache | LIVE (auto-refresh) |
+| Chrome debug | ONLINE port 9222 |
+| Keepalive supervisor | 🟢 GREEN (G8/Y0/R0/U0) · last check 2026-06-13 21:21 UTC (15:21 MT) |
+
+---
+
+*Auto-regen target: 05:30 MT daily via scripts/generate_wing_status.py*
+*Token count target: <1000 · Timestamp: 2026-06-13T15:16:00 MT (21:16 UTC)*
