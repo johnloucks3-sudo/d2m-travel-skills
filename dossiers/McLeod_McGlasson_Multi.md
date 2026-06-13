@@ -423,6 +423,103 @@ completed_tps: []
 
 ---
 
+## DESTINATION KNOWLEDGE — All Cities on Itinerary
+*Added 2026-06-12 by Hale (COS) · Per Commander directive: dossier is ground truth for Dani Oracle knowledge*
+
+### ROME (Jun 19–23 · 4 nights · Base city)
+**Hotel area:** Via Veneto — walkable to Trevi Fountain (7 min), Spanish Steps (10 min), Piazza del Popolo (15 min)
+**Key sights:** Colosseum/Arena Floor/Forum/Palatine (booked Jun 20, GYG) · Vatican/Sistine/Dome Climb (booked Jun 22, GYG) · Trevi Fountain (free, go at dawn) · Pantheon (small fee, no queue at open) · Piazza Navona (free, evening stroll) · Borghese Gallery (book ahead, Bernini masterworks)
+**Neighborhoods:** Trastevere (medieval, best for dinner, 20 min walk) · Testaccio (food market, local pizza al taglio) · Prati (near Vatican, quieter residential)
+**Dining (researched, status: pending booking):**
+- Sistina 52 — 5-star modern Italian, Trevi area, 7 min walk, reachable with 1-2 days notice
+- Diana's Place — 1 Michelin star, Trastevere, 12 min walk, book 1 week ahead
+- Colline Emiliane — traditional Emilia-Romagna, near Spanish Steps, book 3-4 days ahead
+- Aroma at Palazzo Manfredi — 1 Michelin star, rooftop with Colosseum view at night, ~€180-220/pp, books months ahead
+- Glass Hostaria (Trastevere) — 1 Michelin star, Chef Cristina Bowerman, ~€100-140/pp
+- La Pergola (Waldorf Cavalieri) — 3 Michelin stars, €250+/pp, books 2-3 months ahead
+**Transport:** Walk in centro storico · Metro A (red line) connects Via Veneto to Vatican/Termini · Fixed taxi rate Termini→centro ~€15 · Trenitalia Frecciarossa departs Roma Termini (30 min taxi/Metro from Baglioni)
+
+### FLORENCE (Jun 21 · Day trip from Rome)
+**Access:** Trenitalia Frecciarossa 8502 · 6:45 AM · Roma Termini → Firenze S.M.N. · 1h 45m · Ref JJQ6Z5
+**Key sights:** Uffizi (Botticelli's Birth of Venus, da Vinci, Raphael, Titian) · Accademia (Michelangelo's David, 5.17m marble, 1504) · Duomo/Brunelleschi's Dome (exterior free) · Ponte Vecchio (gold/silver shops on medieval bridge) · Piazza della Signoria (outdoor museum)
+**Gelato:** Gelateria dei Neri (near Uffizi, art historians' favorite) · Gelateria del Campanile (near Accademia)
+**Quick lunch:** Buca Mario (oldest restaurant in Florence, near Piazza della Signoria) · Trattoria Mario (cash only, communal tables, lunch only, ribollita)
+**Station tip:** Luggage storage at SMN station ~€6/bag — leave bags and explore hands-free
+**Return:** Frecciarossa 9431 (Executive Class) · 6:45 PM · Firenze S.M.N. → Roma Termini · arrives ~8:30 PM
+
+### NAPLES (Jun 24 · Port call · Excursion: Herculaneum)
+**Herculaneum vs Pompeii:** Better preserved (pyroclastic surge sealed it instantly, wood and fabric survived), smaller, less crowded, no Vesuvius climb required
+**If time after excursion:** Spaccanapoli (straight cut through city) · Quartieri Spagnoli (street art, coffee)
+**Pizza:** Da Michele (Via Cesare Sersale 1, cash only, 2 options only, legendary, expect queue) · Sorbillo (Spaccanapoli, longer menu)
+**Coffee tip:** Naples espresso is the best in Italy — stand at any bar, €1, never sit
+**Transport:** Port → Herculaneum station by Circumvesuviana train (20 min) or Silversea bus
+
+### GIARDINI NAXOS / TAORMINA (Jun 25 · Port call · Excursion: Greek & Roman Taormina)
+**Taormina access:** 204m above sea level · cable car (Funivia) from Giardini Naxos €3/way · tour bus included
+**Greek Theatre (Teatro Greco):** Built 3rd century BC · Mount Etna backdrop is most photographed view in Sicily · summer concerts performed here
+**Streets:** Via Teatro Greco (boutiques, views) · Corso Umberto (main café/shopping street) · Villa Comunale gardens (free, panoramic views)
+**Food:** Pasticceria Etna — granita con brioche, essential Sicilian breakfast
+**Etna:** Visible from virtually everywhere — ask guide for best photo angle
+
+### SIRACUSA / NOTO (Jun 26 · Port call · Excursion: Baroque Town of Noto)
+**Noto:** 32km from port (excursion bus) · UNESCO Baroque World Heritage · rebuilt after 1693 earthquake in pure golden limestone Baroque
+**Cathedral of San Nicolò:** Baroque masterpiece, facade best at 10 AM when light hits it directly
+**Caffè Sicilia (Via Vittorio Emanuele 125, Noto):** Best granita in Sicily (pistachio, almond) · Chef Corrado Assenza has international reputation
+**Ortygia (Siracusa island, if time after tour):** Greek Temple of Athena columns absorbed into Norman cathedral · Arethusa Spring (papyrus grows, only place outside Africa) · Piazza del Duomo (one of Europe's finest Baroque squares)
+
+### VALLETTA (Jun 27 · Port call · Excursion: Game of Thrones Filming Locations)
+**Walking city:** 800m × 600m inside walls, everything reachable on foot
+**St. John's Co-Cathedral:** Caravaggio's only signed painting (The Beheading of St. John) · most ornate cathedral in the Mediterranean
+**Upper Barrakka Gardens:** Free · best Grand Harbour panorama in Malta
+**GoT sites:** City walls = King's Landing · Mdina (nearby) = Red Keep in early seasons · Fort Ricasoli = Dragonstone scenes
+**Food:** Is-Suq tal-Belt (city market, best in Valletta) · Trabuxu Bistro (wine + Maltese food) · Pastizzeria (€0.50 ricotta or mushy pea pastry, street snack)
+**Transport:** Port is 10 min walk to city gate
+
+### KOTOR (Jun 29 · Port call · Excursion: Speedboat Adventure to Blue Cave)
+**Bay of Kotor:** Southernmost fjord in Europe · UNESCO World Heritage · dramatic karst mountains drop into enclosed sea
+**Old Town:** Venetian-era walled city · Cathedral of St. Tryphon (1166) · Piazza d'Armi · famous for cats (Cat Museum)
+**City Walls hike (if not on excursion):** 1,350 steps to San Giovanni Fortress · 1.5 hrs up · spectacular views · go before 8 AM or after 4 PM (heat)
+**Blue Cave (excursion):** Only accessible by water · bioluminescent, best light at mid-morning · speedboat allows swimming
+**Transport:** Old town 10 min walk from pier · entrance fee at some gates ~€3
+
+### DUBROVNIK (Jun 30 · Port call · Excursion: Day at the Beach Club)
+**City Walls walk:** 2km loop · sea on one side, terracotta rooftops on the other · €35 (skip today — beach club day)
+**GoT:** Most of King's Landing was filmed in Dubrovnik · Cersei's Walk of Shame = Stradun · Purple Wedding = Rector's Palace courtyard · Red Keep exterior = Fort Lovrijenac
+**Cable car:** Mount Srđ, panoramic view of walled city and islands, €30 return (highly recommended if time allows)
+**Lokrum island:** 10 min boat (€20 return) · Game of Thrones Iron Throne replica · peacocks · botanical garden
+**Transport:** Port 3km from old town — shuttle bus or taxi ~€10
+
+### SPLIT (Jul 1 · Port call · Excursion: UNESCO World Heritage Sites)
+**Diocletian's Palace:** Built AD 305 · entire living city center occupies its walls · ~3,000 residents live inside a Roman palace
+**Peristyle:** Open-air courtyard at center · once the emperor's reception hall · now hosts summer concerts
+**Riva Promenade:** Wide waterfront esplanade, palm trees, cafes, ship visible from here
+**Food:** Zora Restaurant (fresh fish, near palace) · Konoba Matejuška (Varoš neighborhood, tiny fishing harbor, locals eat here)
+**Note:** Less touristy than Dubrovnik — a real working city with a real population
+
+### ZADAR (Jul 2 · Port call · Excursion: Nin Salt Works & Royal Vineyards)
+**Sea Organ (Morske orgulje):** 35 stone steps with pipes underneath · Adriatic waves produce ambient music · unique in the world · free
+**Sun Salutation:** Adjacent to Sea Organ · 300 glass plates, light show at dusk · worth seeing if evening
+**Roman Forum:** One of largest in the Roman Empire outside Italy · 1st century BC
+**Nin Salt Works (excursion):** Hand-harvested fleur de sel · chefs in Dubrovnik and Venice pay premium for it · 18km north (excursion bus)
+**Church of St. Donat:** 9th-century Byzantine pre-Romanesque cylinder · unusual shape, summer concerts
+
+### VENICE / FUSINA (Jul 3–6 · 3 nights · Post-cruise)
+**Hotel:** Hilton Molino Stucky · Giudecca Island · private water dock · Silver Muse arrives at Fusina → water taxi to hotel dock (Order 14878, €350)
+**Neighborhoods:** Giudecca (hotel — quiet, residential, authentic) · Dorsoduro (artsy, Zattere promenade, Accademia) · Cannaregio (least touristy, Jewish Ghetto) · San Polo/Rialto (market, cicchetti bars) · San Marco (tourist center) · Castello (quiet residential)
+**Must-see:** St. Mark's Basilica (free, go before 9:30 AM, no bags allowed — leave at hotel) · Doge's Palace (adjoining) · Rialto Bridge and market (closes noon) · Accademia (Titian, Bellini, Veronese) · Peggy Guggenheim (20th-century art, Dorsoduro)
+**SEAFOOD (Melissa's priority — 3 dinners Jul 3–6):**
+- Osteria Alle Testiere (Castello): 22 seats, best seafood in Venice, Chef Bruno Gavagnin — past booking window; call day-of or arrive at 6 PM opening
+- Trattoria Altanella (Giudecca): 5 min walk from hotel, legendary fritto misto, cash only, book 1-2 days ahead
+- La Palanca (Giudecca): Steps from hotel, canal-side, locals only, lunch only (closes 3 PM), cash preferred, €15
+- Zanze XVI (Cannaregio): Local neighborhood favorite, lagoon fish, no tourists, same-day reservation
+- Trattoria da Romano (Burano island): Family-run since 1919, 45 min vaporetto, legendary fritto misto
+**Cicchetti (Venetian tapas):** All'Arco (near Rialto market) · Cantinone già Schiavi (Dorsoduro, wine walls) · Bacaro Jazz (San Marco area, late night)
+**Day trips:** Murano glass (30 min) · Burano lace/colors (45 min) · Torcello (quiet Byzantine mosaics, oldest settlement)
+**Transport:** Vaporetto Line 2 — Molino Stucky → San Marco in 15 min (€9.50/trip or €25 day pass) · free hotel shuttle to Zattere + San Zaccaria · water taxi ~€80-100 · gondola ~€100/30 min (set rate)
+**Tips:** Go early to St. Mark's · Rialto market closes noon weekdays · dress modestly at churches · acqua alta (flooding) rare in June
+
+---
+
 ## NOTES
 
 **Grant Narrative Asset (Commander 2026-03-19):**
@@ -437,5 +534,5 @@ Melissa is thorough, detail-oriented researcher. Erik delegates to Melissa for p
 ---
 
 **Dossier Owner:** Col Victoria Hale, COS  
-**Last Updated:** Apr 26, 2026, 18:30 MT  
-**Next Validation:** May 25, 2026
+**Last Updated:** Jun 12, 2026, 22:30 MT — Added: destination knowledge for all 11 cities (SO-REVERIE-QC-20260612)  
+**Next Validation:** Jun 23, 2026 (departure day)
