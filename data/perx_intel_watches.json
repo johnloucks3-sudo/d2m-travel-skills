@@ -28,20 +28,6 @@
     "notes": "MISSION-068 active watch"
   },
   {
-    "id": "norway-2027-seabourn",
-    "label": "Norway/Scandinavia 2027 \u2014 Seabourn",
-    "search_terms": [
-      "norway",
-      "seabourn"
-    ],
-    "year": 2027,
-    "months": [
-      7,
-      8
-    ],
-    "notes": "MISSION-068 active watch"
-  },
-  {
     "id": "silver-nova-2026",
     "label": "Silver Nova 2026 sailings",
     "search_terms": [
@@ -158,6 +144,44 @@
     "pax": 2,
     "notes": "Watch all 3 voyages departing May 5\u201329, 2027 \u2014 TA rate signal",
     "daily_brief": true,
+    "signal_type": "TA_RATE"
+  },
+  {
+    "id": "luxury-2027-atlas",
+    "label": "Atlas Ocean Voyages 2027 \u2014 luxury watch",
+    "search_terms": [
+      "atlas ocean"
+    ],
+    "year": 2027,
+    "months": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "notes": "Commander 2026-06-13 \u2014 Perx line set {Silversea, Regent, Atlas, Explora}",
+    "signal_type": "TA_RATE"
+  },
+  {
+    "id": "luxury-2027-explora",
+    "label": "Explora Journeys 2027 \u2014 luxury watch",
+    "search_terms": [
+      "explora"
+    ],
+    "year": 2027,
+    "months": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "notes": "Commander 2026-06-13 \u2014 Perx line set {Silversea, Regent, Atlas, Explora}",
     "signal_type": "TA_RATE"
   }
 ]

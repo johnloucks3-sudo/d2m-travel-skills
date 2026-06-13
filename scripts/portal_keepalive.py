@@ -181,17 +181,29 @@ def record_portal_failure(portal_name: str) -> None:
         rec["next_attempt"] = None
 
     counts[portal_name] = rec
+
+    # Alert dedup (2026-06-13, Commander: "getting too many of those"):
+    # fire ONE Telegram per outage — on first crossing of ALERT_THRESHOLD — then
+    # stay silent until the portal recovers (record_portal_success pops rec and
+    # clears the flag). Prevents one stuck portal (e.g. Explora awaiting manual
+    # re-auth) from paging every keepalive cycle.
+    should_alert = count >= ALERT_THRESHOLD and not rec.get("alerted")
+    if should_alert:
+        rec["alerted"] = True
     _save_fail_counts(counts)
 
-    if count >= ALERT_THRESHOLD:
+    if should_alert:
         _send_telegram_alert(
             f"Portal <b>{portal_name}</b> has failed to refresh "
             f"{count} consecutive times.\n"
             f"Backoff engaged (+{backoff_h:g}h) to prevent account lockout.\n"
             f"Manual re-authentication may be required.\n"
+            f"You will NOT be re-alerted for this portal until it recovers.\n"
             f"Time: {datetime.now().strftime('%Y-%m-%d %H:%M MDT')}"
         )
-        log.error(f"{portal_name}: ALERT SENT — {count} consecutive failures")
+        log.error(f"{portal_name}: ALERT SENT (one-per-outage) — {count} consecutive failures")
+    elif count >= ALERT_THRESHOLD:
+        log.info(f"{portal_name}: {count} consecutive failures — alert suppressed (already notified, awaiting recovery)")
 
 def record_portal_success(portal_name: str) -> None:
     """Reset the failure counter AND clear any backoff window after a real success."""
