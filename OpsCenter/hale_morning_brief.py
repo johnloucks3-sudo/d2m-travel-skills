@@ -63,23 +63,79 @@ def get_work_items_status():
     return {}
 
 def get_recent_activity():
-    """Check recent work and completions"""
+    """Check recent work and completions from executor logs"""
+    from datetime import date
+    import re
+
     activity = {
         'completed_yesterday': 0,
+        'completed_detail': [],
+        'failed_count': 0,
         'active_now': 0,
         'blockers': 0,
-        'decisions_needed': 0
+        'decisions_needed': 0,
+        'last_run': 'Unknown'
     }
 
-    log_file = Path('/home/john/Thunderbird/OpsCenter/hale_chat_log.jsonl')
-    if log_file.exists():
-        try:
-            lines = log_file.read_text().strip().split('\n')
-            if lines:
-                last_entry = json.loads(lines[-1])
-                activity['last_update'] = last_entry.get('timestamp', 'Unknown')
-        except:
-            pass
+    # Read from executor logs and get last N runs
+    executor_logs = [
+        Path('/home/john/Thunderbird/logs/mission_executor_4h.log'),
+        Path('/home/john/Thunderbird/logs/daily_executor.log'),
+    ]
+
+    all_lines = []
+    for log_file in executor_logs:
+        if log_file.exists():
+            try:
+                all_lines.extend(log_file.read_text().strip().split('\n'))
+            except:
+                continue
+
+    if not all_lines:
+        return activity
+
+    # Search from the end backwards to find the most recent executor runs
+    # Get the last 100 lines (covers multiple executor runs)
+    recent_lines = all_lines[-100:]
+
+    total_completed = 0
+    total_failed = 0
+    seen_missions = set()
+
+    for line in recent_lines:
+        # Track individual mission completions
+        if '✅ MISSION-' in line:
+            match = re.search(r'MISSION-(\d+)', line)
+            if match:
+                mission_id = f"MISSION-{match.group(1)}"
+                if mission_id not in seen_missions:
+                    seen_missions.add(mission_id)
+                    total_completed += 1
+                    if len(activity['completed_detail']) < 5:
+                        # Extract mission title if available
+                        title_part = line.split('—')[-1].strip() if '—' in line else ""
+                        if not title_part and ':' in line:
+                            title_part = line.split(':')[-1].strip()[:40]
+                        activity['completed_detail'].append(f"{mission_id}{f': {title_part}' if title_part else ''}")
+                    # Capture time
+                    if line.startswith('['):
+                        activity['last_run'] = line[1:9]
+
+        # Track failures
+        if '❌' in line or 'FAILED' in line:
+            if 'MISSION-' in line:
+                total_failed += 1
+
+    # Look for summary line: "Executor complete: X/Y tasks succeeded"
+    for line in reversed(recent_lines):
+        if 'Executor complete:' in line and 'tasks' in line:
+            match = re.search(r'(\d+)/(\d+)\s+tasks', line)
+            if match:
+                total_completed = int(match.group(1))
+                break
+
+    activity['completed_yesterday'] = total_completed
+    activity['failed_count'] = total_failed
 
     return activity
 
@@ -171,8 +227,10 @@ def format_morning_brief(timestamp):
     </div>
 
     <div class="section">
-        <div class="section-title">ACTIVITY SNAPSHOT</div>
-        <div class="metric">Completed Yesterday: {activity['completed_yesterday']} missions</div>
+        <div class="section-title">ACTIVITY SNAPSHOT — Previous 24 Hours</div>
+        <div class="metric"><strong>Completed Yesterday: {activity['completed_yesterday']} missions</strong> {f'(Failed: {activity["failed_count"]})' if activity.get('failed_count', 0) > 0 else ''}</div>
+        {f'<div style="margin-left:20px; font-size:0.95em;">' + ''.join([f'<div class="metric">  • {m}</div>' for m in activity.get('completed_detail', [])]) + '</div>' if activity.get('completed_detail') else ''}
+        <div class="metric">Last Executor Run: {activity.get('last_run', 'Unknown')}</div>
         <div class="metric">Active Right Now: {activity['active_now']} in progress</div>
         <div class="metric priority">Blockers: {activity['blockers']} (awaiting decision)</div>
         <div class="metric">Decisions Needed: {activity['decisions_needed']}</div>
