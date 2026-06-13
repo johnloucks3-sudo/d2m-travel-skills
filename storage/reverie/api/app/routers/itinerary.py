@@ -202,7 +202,7 @@ async def get_itinerary(request: Request):
                     "cost": "Included",
                     "booked": True,
                 },
-                "notes": "RUINS OF HERCULANEUM · Depart 08:45 · 3.5 hrs · Included",
+                "notes": "RUINS OF HERCULANEUM · Depart 08:45 · 3.5 hrs · Included\nLA DAME · 19:30 · $120 (2 pax) · Birthday Dinner for Erik",
                 "narrative": NARRATIVES["naples"],
             },
             {

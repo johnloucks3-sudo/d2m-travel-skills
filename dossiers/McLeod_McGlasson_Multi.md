@@ -193,7 +193,7 @@ completed_tps: []
 | Item | Amount |
 |------|--------|
 | Cruise base (2 pax) | $27,813.32 |
-| Specialty dining (La Dame, night of Jun 24) | $120 |
+| Specialty dining (La Dame, night of Jun 24 — Erik's birthday) | $120 |
 | Shore excursions (Kotor speedboat, Dubrovnik beach) | $596 |
 | **Total outstanding for cruise** | **$716** |
 
@@ -329,7 +329,7 @@ completed_tps: []
 | 14 | Cruise | Suite assignment | YES | **✅ CONFIRMED** | 617 — Classic Veranda |
 | 15 | Cruise | Payment status | YES | **✅ PAID IN FULL** | $27,813.32 |
 | 16 | Cruise | Embarkation details | YES | **✅ CONFIRMED** | Civitavecchia (Rome), Jun 23 |
-| 17 | Dining | Specialty dining | Optional | **✅ BOOKED** | La Dame ($120), others complimentary |
+| 17 | Dining | Specialty dining | Optional | **✅ BOOKED** | La Dame Jun 24 ($120) — Erik's birthday · Silver Note Jun 28 · The Grill Jun 26 · La Terrazza Jul 1 |
 | 18 | Excursions | Shore excursions | Optional | **✅ BOOKED** | Kotor speedboat ($318) + Dubrovnik beach ($278) = $596 |
 | 19 | Cruise | Disembarkation | YES | **✅ CONFIRMED** | Fusina (Venice), Jul 3 |
 | 20 | Transfers | Pier→hotel (Fusina→Molino Stucky) | YES | **✅ CONFIRMED COMPLIMENTARY** | Silversea group transfer Jul 3 (Hilton is contracted) |
