@@ -47,6 +47,13 @@ Both Ways auto-upgrade:
     Keywords (strategy, architect, draft, etc.) auto-route to Opus/Sonnet.
 """
 
+# Force all CUDA-aware libraries to CPU-only mode (SO-2026-06-13-ELON).
+# Telegram gateway is CPU-only; prevents silent CUDA init crashes from ML libraries
+# (PyTorch, TensorFlow, Hugging Face transformers, etc. that auto-init GPU on import).
+import os
+os.environ["CUDA_VISIBLE_DEVICES"] = ""  # Hide all CUDA devices
+os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"  # Explicit mode (safeguard)
+
 import json
 import logging
 import os
@@ -2067,13 +2074,26 @@ def main() -> None:
     active = len([b for b in bot_configs if b["token"]])
     log.info("%d bot threads running. Gateway v2.0 LIVE.", active)
 
-    # Keep main thread alive — monitor worker threads
+    # Keep main thread alive — monitor worker threads.
+    # M-153 liveness fix: a dead poll thread = that bot is SILENTLY dead while
+    # the process stays alive, so systemd (Restart=always) never sees a fault and
+    # the Commander's C2 goes quiet with no recovery. Previously we only logged it.
+    # Now: log the dead thread, then force a non-zero process exit so the hardened
+    # unit restarts the WHOLE gateway cleanly (re-spawning all poll threads with
+    # fresh offsets). The StartLimitIntervalSec=300/StartLimitBurst=5 guard in the
+    # unit prevents a tight crash-loop if the death is a persistent code/auth fault.
+    # os._exit is used (not sys.exit) so a non-daemon thread can't swallow the exit.
     try:
         while True:
             dead = [t for t in threads if not t.is_alive()]
             if dead:
                 for d in dead:
-                    log.error("Thread %s died — gateway may be degraded", d.name)
+                    log.error(
+                        "Thread %s died — bot silently down. Exiting process so "
+                        "systemd restarts the full gateway (M-153 liveness).",
+                        d.name,
+                    )
+                os._exit(1)
             time.sleep(30)
     except KeyboardInterrupt:
         log.info("Gateway shutting down (KeyboardInterrupt)")
