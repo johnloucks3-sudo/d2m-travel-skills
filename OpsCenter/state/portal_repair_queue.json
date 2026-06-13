@@ -1,0 +1,34 @@
+{
+ "explora": {
+  "status": "needs_repair",
+  "owner": "HALE",
+  "consecutive_failures": 6,
+  "first_seen": "2026-06-13T21:07:31.849972+00:00",
+  "last_seen": "2026-06-13T21:07:31.849972+00:00",
+  "action": "Hale: attempt re-auth/self-heal; escalate to Commander only if manual re-auth required."
+ },
+ "atlas": {
+  "status": "needs_repair",
+  "owner": "HALE",
+  "consecutive_failures": 5,
+  "first_seen": "2026-06-13T21:07:31.849972+00:00",
+  "last_seen": "2026-06-13T21:07:31.849972+00:00",
+  "action": "Hale: attempt re-auth/self-heal; escalate to Commander only if manual re-auth required."
+ },
+ "regent_direct": {
+  "status": "needs_repair",
+  "owner": "HALE",
+  "consecutive_failures": 3,
+  "first_seen": "2026-06-13T21:07:31.849972+00:00",
+  "last_seen": "2026-06-13T21:07:31.849972+00:00",
+  "action": "Hale: attempt re-auth/self-heal; escalate to Commander only if manual re-auth required."
+ },
+ "regent_oa": {
+  "status": "needs_repair",
+  "owner": "HALE",
+  "consecutive_failures": 3,
+  "first_seen": "2026-06-13T21:07:31.849972+00:00",
+  "last_seen": "2026-06-13T21:07:31.849972+00:00",
+  "action": "Hale: attempt re-auth/self-heal; escalate to Commander only if manual re-auth required."
+ }
+}

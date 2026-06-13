@@ -41,7 +41,14 @@ from playwright.async_api import async_playwright
 # ---------------------------------------------------------------------------
 
 FAIL_STATE_FILE = Path("/home/john/Thunderbird/logs/portal_fail_counts.json")
-ALERT_THRESHOLD = 3  # consecutive failures before Telegram alert
+ALERT_THRESHOLD = 3  # consecutive failures before raising a repair task
+
+# Portal-health is HALE's spot-it-fix-it domain, NOT a Commander page
+# (Commander 2026-06-13: "these should be alerting YOU so you fix them").
+# A persistent failure raises a REPAIR TASK in Hale's queue; Hale attempts
+# self-heal (re-auth) in her OODA loop and escalates to the Commander ONLY when
+# repair genuinely fails (e.g. captcha / manual re-auth truly required).
+REPAIR_QUEUE_FILE = Path("/home/john/Thunderbird/OpsCenter/state/portal_repair_queue.json")
 
 # ---------------------------------------------------------------------------
 # Consecutive-failure backoff guard (A7 Sterling 2026-06-11)
@@ -59,6 +66,13 @@ ALERT_THRESHOLD = 3  # consecutive failures before Telegram alert
 BACKOFF_THRESHOLD = 3          # consecutive failures before backoff engages
 BACKOFF_BASE_HOURS = 6.0       # first backoff step (count==threshold) — far above 90min cadence
 BACKOFF_CAP_HOURS = 24.0       # maximum backoff interval
+
+# Disabled portals (Commander 2026-06-13): not in the D2M line set
+# {Silversea, Regent, Atlas Ocean, Explora}. Skipped from refresh entirely —
+# no login attempts, so no failures, no alerts, no lockout risk. Re-enable by
+# removing from this set. (Seabourn/Viking out per Commander; Princess/Carnival/
+# Globus/AgentMax are mass-market/tools, not active D2M lines.)
+DISABLED_PORTALS = {"seabourn", "princess", "carnival", "globus", "agentmax"}
 
 def _backoff_hours_for(count: int) -> float:
     """Capped exponential backoff in hours for a given consecutive-failure count.
@@ -156,6 +170,37 @@ def _send_telegram_alert(message: str) -> None:
     except Exception as exc:
         log.warning(f"Telegram alert send failed: {exc}")
 
+def _queue_hale_repair(portal_name: str, count: int, backoff_h: float) -> None:
+    """Raise a portal-repair task in Hale's queue (NOT a Commander page).
+
+    Hale consumes this in her OODA OBSERVE phase and attempts self-heal. The
+    Commander is only involved if Hale's repair fails and manual re-auth is
+    genuinely required. One open entry per portal outage (cleared on recovery).
+    """
+    try:
+        REPAIR_QUEUE_FILE.parent.mkdir(parents=True, exist_ok=True)
+        q = {}
+        if REPAIR_QUEUE_FILE.exists():
+            try:
+                q = json.loads(REPAIR_QUEUE_FILE.read_text())
+            except Exception:
+                q = {}
+        existing = q.get(portal_name, {})
+        q[portal_name] = {
+            "status": "needs_repair",
+            "owner": "HALE",
+            "consecutive_failures": count,
+            "backoff_hours": backoff_h,
+            "first_seen": existing.get("first_seen", datetime.now(timezone.utc).isoformat()),
+            "last_seen": datetime.now(timezone.utc).isoformat(),
+            "action": "Hale: attempt re-auth/self-heal; escalate to Commander only if manual re-auth required.",
+        }
+        REPAIR_QUEUE_FILE.write_text(json.dumps(q, indent=1))
+        log.error(f"{portal_name}: REPAIR TASK queued for Hale ({count} consecutive failures) — Commander not paged")
+    except Exception as exc:
+        log.warning(f"Failed to queue Hale repair task for {portal_name}: {exc}")
+
+
 def record_portal_failure(portal_name: str) -> None:
     """Record one ACTUAL attempted-and-failed refresh.
 
@@ -193,17 +238,10 @@ def record_portal_failure(portal_name: str) -> None:
     _save_fail_counts(counts)
 
     if should_alert:
-        _send_telegram_alert(
-            f"Portal <b>{portal_name}</b> has failed to refresh "
-            f"{count} consecutive times.\n"
-            f"Backoff engaged (+{backoff_h:g}h) to prevent account lockout.\n"
-            f"Manual re-authentication may be required.\n"
-            f"You will NOT be re-alerted for this portal until it recovers.\n"
-            f"Time: {datetime.now().strftime('%Y-%m-%d %H:%M MDT')}"
-        )
-        log.error(f"{portal_name}: ALERT SENT (one-per-outage) — {count} consecutive failures")
+        # Route to HALE's repair queue, not the Commander (Commander 2026-06-13).
+        _queue_hale_repair(portal_name, count, backoff_h)
     elif count >= ALERT_THRESHOLD:
-        log.info(f"{portal_name}: {count} consecutive failures — alert suppressed (already notified, awaiting recovery)")
+        log.info(f"{portal_name}: {count} consecutive failures — repair already queued, awaiting Hale/recovery")
 
 def record_portal_success(portal_name: str) -> None:
     """Reset the failure counter AND clear any backoff window after a real success."""
@@ -211,6 +249,15 @@ def record_portal_success(portal_name: str) -> None:
     if counts.pop(portal_name, None) is not None:
         _save_fail_counts(counts)
         log.info(f"{portal_name}: failure counter + backoff reset after successful refresh")
+    # Clear any open Hale repair task — the portal healed.
+    try:
+        if REPAIR_QUEUE_FILE.exists():
+            q = json.loads(REPAIR_QUEUE_FILE.read_text())
+            if q.pop(portal_name, None) is not None:
+                REPAIR_QUEUE_FILE.write_text(json.dumps(q, indent=1))
+                log.info(f"{portal_name}: cleared from Hale repair queue (recovered)")
+    except Exception as exc:
+        log.warning(f"Failed to clear repair queue for {portal_name}: {exc}")
 
 
 def _auth_gate_present(cookies: list, auth_cookie_names: list, auth_domain: str) -> bool:
@@ -1005,6 +1052,7 @@ async def run(portals_to_check: list, status_only: bool) -> None:
         if report[name]["status"] in ("EXPIRED", "STALE", "SESSION_ONLY")
         and PORTALS[name]["refresh_fn"] is not None
         and PORTALS[name]["cookie_file"] is not None
+        and name not in DISABLED_PORTALS   # Commander 2026-06-13 — skip non-D2M lines
     ]
 
     needs_warn = [
