@@ -3,6 +3,9 @@ client: McLeod McGlasson
 full_name: Erik Wiedenbach McLeod + Melissa Etola McGlasson
 relationship: client
 status: active
+contact_hold: true
+contact_hold_until: 2026-07-07
+contact_hold_reason: "Commander 2026-06-13 — McLeod/McGlasson aboard Silver Muse (depart 2026-06-23, return ~2026-07-06). NO lifecycle products until return. All blackboard TPs set scheduled->hold. Reactivate post-Jul-7."
 note: BEST CLIENT — 4 active bookings across 3 cruise lines
 
 # Booking 1 — CURRENT TRIP (T-9)

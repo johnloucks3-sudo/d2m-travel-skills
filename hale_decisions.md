@@ -4548,3 +4548,13 @@ Read the f...
 **Strategic upside (staff AAR):** Shore-excursion arbitrage (3rd-party beats cruise line 35-50%) is a repeatable D2M value-add for ALL cruise clients (Castillo A5 to evaluate). Check PE advisor-commission program (Harlan A9). PE accessible_tag/skillLevel = structured mobility filter (Reyes A8).
 **Artifacts:** `output/scraping_aar/SESSION_AAR_20260613_PROJECTEXPEDITION.md` · `scraping_intel/projectexpedition.json` · memory `reference_projectexpedition_api_scraping.md` + `project_shore_excursion_arbitrage.md` · `dossiers/Loucks_SilverNova_May2027_Excursions.md`.
 **Commander directive satisfied:** "record what you learned, AAR with staff, report and document, always."
+
+---
+
+## 2026-06-13 — McLEOD LIFECYCLE FREEZE (Commander Directive)
+**Decision:** Commander — "not sending anymore lifecycle products to McLeod until they get back, close them all." McLeod/McGlasson aboard Silver Muse (depart 2026-06-23, return ~2026-07-06).
+**Action (source-level close):** (1) `Blackboard/clients/mcleod_erik_mcglasson_melissa.yaml` — all 16 `status: scheduled` TPs → `hold` (lifecycle_scheduler.py only drafts `scheduled`, so generation stops at source); CONTACT HOLD banner added. (2) MISSION-162 (T-7 departure email chain) CLOSED (OBE); MISSION-193 dup already completed. (3) `dossiers/McLeod_McGlasson_Multi.md` — `contact_hold: true`, `contact_hold_until: 2026-07-07`.
+**Domain:** Client lifecycle / Ops
+**Type:** directed action (Commander)
+**Outcome:** executed — zero McLeod lifecycle products generate or surface until reactivation post-Jul-7.
+**Note:** No McLeod trigger fired before return anyway (only deferred alert = MCLEOD-2984034-FPD Jul 7, post-return). Hold is reversible — flip hold->scheduled to resume. Internal McLeod missions (080 dossier, 230 template) left active — not client-facing products.
