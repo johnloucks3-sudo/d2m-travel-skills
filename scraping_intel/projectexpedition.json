@@ -1,0 +1,85 @@
+{
+  "_meta": {
+    "site": "Project Expedition",
+    "domain": "projectexpedition.com",
+    "type": "third-party shore-excursion / tours marketplace",
+    "purpose": "Price-compare shore excursions vs cruise-line + commercial. Agent pays NET, no commission (per Commander 2026-06-13).",
+    "created": "2026-06-13",
+    "owner": "Sterling (A7)",
+    "status": "PARTIAL — API mapped, but aggressive Imperva bot-wall limits systematic scraping"
+  },
+  "auth": {
+    "model": "Google SSO login -> sets pe_access (PE user token) + PHPSESSID (session)",
+    "cookies_needed_for_listings": ["PHPSESSID", "country=US", "currency=USD"],
+    "note": "Product LISTINGS (getLocationProducts) do not require pe_access/login — PHPSESSID + geo cookies suffice. pe_access only needed for booking/account.",
+    "account": "d2mconcierge@gmail.com (Canal4me! as of 2026-06-13)"
+  },
+  "urls": {
+    "location_page": "https://www.projectexpedition.com/location/{country}/{city}/",
+    "country_page": "https://www.projectexpedition.com/location/{country}/",
+    "internal_api": "https://www.projectexpedition.com/rq/ (POST)",
+    "country_slug_examples": ["greece", "italy", "croatia", "montenegro", "turkey", "slovenia"]
+  },
+  "api": {
+    "endpoint": "POST /rq/",
+    "headers": {"X-Requested-With": "XMLHttpRequest", "Referer": "https://www.projectexpedition.com/"},
+    "body": "p_sAction=get_all_products&p_sArgs=<base64 JSON>",
+    "p_sArgs_json": {
+      "function": "getLocationProducts",
+      "param_1": "<location_id>",
+      "param_2": "true",
+      "param_3": "region",
+      "param_4": "3500",
+      "search": "",
+      "key": "PAGE_LOCATION_PRODUCTS_2<location_id>_regionUSD",
+      "order": "",
+      "pe": {}
+    },
+    "response_format": "<script>var tours = cleanTours([ {product}, ... ])</script> — parse the JS array between cleanTours( and the matching ]",
+    "product_fields": {
+      "tourName": "title",
+      "productPrice": "'Prices from::US$ ::<amount>::<Per Person|blank>::::1::::USD::' — regex US\\$\\s*::\\s*([0-9.]+); 'Per Person' present = per-person, absent or private_tour set = per-party",
+      "duration": "'::<hours>::'",
+      "accessible_tag": "'Limited Mobility Required' (good/low-walk) | 'Wheelchair Accessible' (best) | 'Not Wheelchair Friendly' (walking) | null",
+      "skillLevel": "Easy | Moderate | ...",
+      "shoreex_refund_policy": "'Cruise Friendly Refund Policy' = back-to-ship guarantee",
+      "private_tour": "truthy = priced per party (divide by pax for per-person)",
+      "fb_included / food_description / beverage_description": "food/wine signal",
+      "peRating / reviewAvgRating / reviewCount": "quality",
+      "productSlug": "detail URL",
+      "visitTowns / meeting_location / pickupTowns": "geography (watch for mis-located tours, e.g. 'from Dubrovnik' under Kotor)"
+    }
+  },
+  "location_id_resolution": {
+    "method": "GET the location page, regex: setup_location_page',\\s*\\{\\s*l_sId:\\s*'([0-9]+)'",
+    "known_ids": {
+      "Santorini": "1655",
+      "Zadar": "378",
+      "Kotor": "820",
+      "Paros": "1652"
+    },
+    "redirect_loop_slugs": "Athens, Kusadasi, Bari, Nafplion, Bodrum, Katakolon, Koper, Split, Dubrovnik — /location page 301s to itself; defeats curl/curl_cffi EVEN unblocked. Need real browser to resolve id, OR an undiscovered /rq location-search function."
+  },
+  "data_quality_filters": {
+    "drop_price": "<= 0 (hasPrices=false) and < 5",
+    "noise_keywords_exclude": "airport, lounge, audio, self-guided, e-ticket, transfer, atv, quad, jet ski, kayak, hike, diving, scuba, snorkel, bike, cycling, parasail, bungee, skydive, tubing, buggy, segway, jeep, safari, massage, spa",
+    "senior_fit": "skillLevel == Easy AND not noise; prefer accessible_tag good + food/wine + scenic",
+    "per_person_vs_private": "private_tour true -> price is per-party; for a couple divide by 2 (often makes private a per-person bargain)",
+    "mislocation_check": "verify visitTowns/duration match the port — long tours 'from <other city>' get filed under a port but depart elsewhere"
+  },
+  "antibot_notes": {
+    "wall": "Imperva — RATE/BEHAVIOR-based, not just TLS-fingerprint",
+    "trip_threshold": "~6 requests per IP/session before 403; re-arms fast",
+    "blast_radius": "IP-level — blocks the Commander's own browser too, not just the scraper",
+    "curl_cffi_chrome131": "DID NOT bypass (unlike Finnair). TLS mimicry insufficient against rate-based Imperva.",
+    "redirect_loop": "separate, second blocker on 9 slugs (above) — independent of the wall",
+    "doctrine": "On commercial sites with anti-bot: throttle from request #1 (>=3s), cache RAW per-port immediately, cap to priority/decision-grade targets only, abort-on-first-403. Do NOT sweep all targets. Human browsing of the site is fine; only systematic automation trips it.",
+    "recovery": "IP-based + temporary. Change egress (hotspot / VPN / Tailscale exit) or wait. Do not repeatedly reload — extends the timer.",
+    "full_sweep_path": "would require residential-proxy rotation — judged not worth it 2026-06-13 (8 confirmed ports already decision-grade)"
+  },
+  "value_finding": {
+    "headline": "Third-party + commercial shore tours beat cruise-line shore excursions ~35-50% at major Med ports, with better structured mobility metadata.",
+    "loucks_result": "Best-value hybrid ~$1,297pp vs ~$2,001pp all-Silversea (~$700pp / ~$1,400 couple saved), before NET pricing + ~$1,520 Silversea shore credit.",
+    "strategic": "Repeatable D2M value-add for EVERY cruise client (Castillo A5 to evaluate as service differentiator). Check PE advisor-commission program (Harlan)."
+  }
+}

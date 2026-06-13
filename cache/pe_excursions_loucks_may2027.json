@@ -1,0 +1,332 @@
+{
+ "Koper": {
+  "status": "no_id (Failed to perform, curl: (47) Maximum (3)"
+ },
+ "Zadar": {
+  "status": "ok",
+  "id": "378",
+  "slug": "zadar",
+  "total": 15,
+  "senior": 8,
+  "bench": 79,
+  "top": [
+   {
+    "name": "Private Tour Of Zadar Heritage, Culinary Delights and Wine",
+    "price": 119,
+    "per": "private",
+    "dur": 2.0,
+    "acc": "Not Wheelchair Friendly",
+    "fb": true,
+    "rate": "0.00",
+    "n": 0,
+    "priv": true,
+    "slug": "/tour-activity/zadar/private-tour-of-zadar-heritage-culinary-delights-and-wine/95389/"
+   },
+   {
+    "name": "Preko Cooking Class and Shellfishing Experience with a Local",
+    "price": 179,
+    "per": "private",
+    "dur": 6.0,
+    "acc": null,
+    "fb": false,
+    "rate": "0.00",
+    "n": 0,
+    "priv": true,
+    "slug": "/tour-activity/zadar/preko-cooking-class-and-shellfishing-experience-with-a-local/58163/"
+   },
+   {
+    "name": "Private Tour: Explore Split and Trogir from Zadar",
+    "price": 197,
+    "per": "private",
+    "dur": 7.0,
+    "acc": "Not Wheelchair Friendly",
+    "fb": false,
+    "rate": "5.00",
+    "n": 1,
+    "priv": true,
+    "slug": "/tour-activity/split/private-tour-explore-split-and-trogir-from-zadar/95346/"
+   },
+   {
+    "name": "Private Zadar Lunch with Village Visit & Exclusive Olive Oil Tas",
+    "price": 232,
+    "per": "private",
+    "dur": 6.0,
+    "acc": "Not Wheelchair Friendly",
+    "fb": true,
+    "rate": "0.00",
+    "n": 0,
+    "priv": true,
+    "slug": "/tour-activity/zadar/private-zadar-lunch-with-village-visit-exclusive-olive-oil-tasting/95391/"
+   },
+   {
+    "name": "Private Krka Waterfalls with Wine and Prosciutto Shore Excursion",
+    "price": 237,
+    "per": "private",
+    "dur": 5.0,
+    "acc": "Not Wheelchair Friendly",
+    "fb": true,
+    "rate": "5.00",
+    "n": 1,
+    "priv": true,
+    "slug": "/tour-activity/zadar/private-krka-waterfalls-with-wine-and-prosciutto-shore-excursion/95385/"
+   },
+   {
+    "name": "Private Olive Harvest and Local Culinary Delights Tour",
+    "price": 238,
+    "per": "private",
+    "dur": 4.0,
+    "acc": null,
+    "fb": true,
+    "rate": "0.00",
+    "n": 0,
+    "priv": true,
+    "slug": "/tour-activity/zadar/private-olive-harvest-and-local-culinary-delights-tour/95386/"
+   },
+   {
+    "name": "Zadar Private Walking Tour With A Professional Guide",
+    "price": 259,
+    "per": "private",
+    "dur": 2.0,
+    "acc": "Not Wheelchair Friendly",
+    "fb": false,
+    "rate": "0.00",
+    "n": 0,
+    "priv": true,
+    "slug": "/tour-activity/zadar/zadar-private-walking-tour-with-a-professional-guide/92416/"
+   }
+  ]
+ },
+ "Split": {
+  "status": "no_id (404)"
+ },
+ "Dubrovnik": {
+  "status": "no_id (404)"
+ },
+ "Bari": {
+  "status": "no_id (Failed to perform, curl: (47) Maximum (3)"
+ },
+ "Kotor": {
+  "status": "ok",
+  "id": "820",
+  "slug": "kotor",
+  "total": 50,
+  "senior": 34,
+  "bench": 109,
+  "top": [
+   {
+    "name": "The Best of Montenegro Day Trip From Dubrovnik",
+    "price": 71,
+    "per": "pp*",
+    "dur": 11.0,
+    "acc": null,
+    "fb": false,
+    "rate": "0.00",
+    "n": 0,
+    "priv": false,
+    "slug": "/tour-activity/dubrovnik/the-best-of-montenegro-day-trip-from-dubrovnik/73719/"
+   },
+   {
+    "name": "Small Group, Half-Day Boat Trip: Explore Kotor Bay & More",
+    "price": 76,
+    "per": "pp",
+    "dur": 4.0,
+    "acc": null,
+    "fb": true,
+    "rate": "5.00",
+    "n": 3,
+    "priv": false,
+    "slug": "/tour-activity/kotor/small-group-halfday-boat-trip-explore-kotor-bay-more/57479/"
+   },
+   {
+    "name": "Group Tour Bay of Kotor from Dubrovnik",
+    "price": 77,
+    "per": "pp",
+    "dur": 12.0,
+    "acc": null,
+    "fb": false,
+    "rate": "0.00",
+    "n": 0,
+    "priv": false,
+    "slug": "/tour-activity/dubrovnik/group-tour-bay-of-kotor-from-dubrovnik/31702/"
+   },
+   {
+    "name": "Small Group Montenegro Day Trip From Dubrovnik",
+    "price": 179,
+    "per": "pp*",
+    "dur": 11.0,
+    "acc": null,
+    "fb": false,
+    "rate": "4.67",
+    "n": 3,
+    "priv": false,
+    "slug": "/tour-activity/dubrovnik/small-group-montenegro-day-trip-from-dubrovnik/73649/"
+   },
+   {
+    "name": "Private Boat Tour: Highlights of Kotor Bay w/ Blue Cave & Beach ",
+    "price": 447,
+    "per": "pp*",
+    "dur": 4.0,
+    "acc": null,
+    "fb": true,
+    "rate": "5.00",
+    "n": 2,
+    "priv": false,
+    "slug": "/tour-activity/kotor/private-boat-tour-highlights-of-kotor-bay-w-blue-cave-beach-time/56743/"
+   },
+   {
+    "name": "3-Days Tour From Kotor (customizable)",
+    "price": 745,
+    "per": "pp",
+    "dur": 3.0,
+    "acc": "Not Wheelchair Friendly",
+    "fb": false,
+    "rate": "0.00",
+    "n": 0,
+    "priv": false,
+    "slug": "/tour-activity/kotor/3days-tour-from-kotor-customizable/29963/"
+   },
+   {
+    "name": "Kotor Boat Tour: Boka Bay Sailing Experience",
+    "price": 1586,
+    "per": "pp*",
+    "dur": 8.0,
+    "acc": null,
+    "fb": true,
+    "rate": "0.00",
+    "n": 0,
+    "priv": false,
+    "slug": "/tour-activity/tivat/kotor-boat-tour-boka-bay-sailing-experience/53021/"
+   }
+  ]
+ },
+ "Katakolon": {
+  "status": "no_id (Failed to perform, curl: (47) Maximum (3)"
+ },
+ "Gythion": {
+  "status": "no_id (Failed to perform, curl: (47) Maximum (3)"
+ },
+ "Athens": {
+  "status": "no_id (Failed to perform, curl: (47) Maximum (3)"
+ },
+ "Paros": {
+  "status": "ok",
+  "id": "1652",
+  "slug": "paros",
+  "total": 19,
+  "senior": 15,
+  "bench": 89,
+  "top": [
+   {
+    "name": "Daily Cruise from Paros to Delos + Mykonos",
+    "price": 104,
+    "per": "pp*",
+    "dur": 9.0,
+    "acc": "Not Wheelchair Friendly",
+    "fb": false,
+    "rate": "2.50",
+    "n": 2,
+    "priv": false,
+    "slug": "/tour-activity/parikia/daily-cruise-from-paros-to-delos-mykonos/49071/"
+   },
+   {
+    "name": "Full day Cruise from Paros to Mykonos",
+    "price": 104,
+    "per": "pp*",
+    "dur": 9.0,
+    "acc": null,
+    "fb": false,
+    "rate": "0.00",
+    "n": 0,
+    "priv": false,
+    "slug": "/tour-activity/parikia/full-day-cruise-from-paros-to-mykonos/49165/"
+   },
+   {
+    "name": "Private Yacht Evening Tour from Paros to Paros Coasts or Naxos",
+    "price": 107,
+    "per": "pp*",
+    "dur": 3.0,
+    "acc": null,
+    "fb": true,
+    "rate": "0.00",
+    "n": 0,
+    "priv": false,
+    "slug": "/tour-activity/piso-livadi/private-yacht-evening-tour-from-paros-to-paros-coasts-or-naxos/86650/"
+   },
+   {
+    "name": "Full day Cruise from Paros to Santorini",
+    "price": 118,
+    "per": "pp*",
+    "dur": 8.0,
+    "acc": "Not Wheelchair Friendly",
+    "fb": false,
+    "rate": "0.00",
+    "n": 0,
+    "priv": false,
+    "slug": "/tour-activity/parikia/full-day-cruise-from-paros-to-santorini/49145/"
+   },
+   {
+    "name": "Antiparos & Despotiko Full Day Cruise from Paros",
+    "price": 122,
+    "per": "pp*",
+    "dur": 7.0,
+    "acc": "Not Wheelchair Friendly",
+    "fb": true,
+    "rate": "5.00",
+    "n": 3,
+    "priv": false,
+    "slug": "/tour-activity/parikia/antiparos-despotiko-full-day-cruise-from-paros/83137/"
+   },
+   {
+    "name": "Full Day Charter: Heraklion and Naxos - SY AGERAS",
+    "price": 203,
+    "per": "pp*",
+    "dur": 8.0,
+    "acc": null,
+    "fb": true,
+    "rate": "0.00",
+    "n": 0,
+    "priv": false,
+    "slug": "/tour-activity/parikia/full-day-charter-heraklion-and-naxos-sy-ageras/143011/"
+   },
+   {
+    "name": "Semi Private Iraklia, Schinoussa & Naxos Sailing Day",
+    "price": 203,
+    "per": "pp",
+    "dur": 9.0,
+    "acc": "Not Wheelchair Friendly",
+    "fb": true,
+    "rate": "0.00",
+    "n": 0,
+    "priv": false,
+    "slug": "/tour-activity/piso-livadi/semi-private-iraklia-schinoussa-naxos-sailing-day/104666/"
+   }
+  ]
+ },
+ "Crete-Chania": {
+  "status": "no_id (403)"
+ },
+ "Milos": {
+  "status": "no_id (403)"
+ },
+ "Kusadasi": {
+  "status": "no_id (403)"
+ },
+ "Mykonos": {
+  "status": "no_id (403)"
+ },
+ "Santorini": {
+  "status": "no_id (403)"
+ },
+ "Nafplion": {
+  "status": "no_id (403)"
+ },
+ "Bodrum": {
+  "status": "no_id (403)"
+ },
+ "Rhodes": {
+  "status": "no_id (403)"
+ },
+ "Patmos": {
+  "status": "no_id (403)"
+ }
+}

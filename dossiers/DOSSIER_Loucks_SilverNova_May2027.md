@@ -39,7 +39,7 @@ wf17_exception_date: 2026-06-10
 # DOSSIER — John & Susan Loucks | Silver Nova | May 2027
 **Status: ✅ CONFIRMED — Booking 506101-26 | Last updated: 2026-06-10 (Agency PDF verified)**
 **FPD: Dec 6, 2026 — 60-day alert Oct 7, 2026 | 30-day alert Nov 6, 2026**
-**Cruise: CONFIRMED | Transfers: ALL QUOTED | Hotels: CONFIRMED DATES | Flights: ✅ CENTRAV PRICED — Business $3,589 pp / $5,505 pp return | Alert: -8%**
+**Cruise: CONFIRMED | Transfers: ALL QUOTED | Hotels: CONFIRMED DATES | Flights: ✅ CENTRAV LIVE 2026-06-11 (May 1/29 dates) — Turkish Business $3,952 pp ($7,904/2) · United-via-MUC $6,443 pp ($12,886/2, nonstop+miles) | Watches: Turkish floor + United code-shares**
 
 ---
 
@@ -97,15 +97,29 @@ wf17_exception_date: 2026-06-10
 | **Special occasions** | None during May 5–29, 2027 voyage |
 | **Email restrictions** | None — all topics OK |
 
-### Mobility Flag — Port-by-Port Notes (Reyes/Intel to complete)
-- Santorini: cable car preferred over donkeys (steep climb) ✅ fine
-- Dubrovnik Old City: cobblestones — manageable, short circuit recommended
-- Kotor city walls: **SKIP** — 1,350 steps
-- Katakolon/Olympia: uneven ancient terrain — **vehicle tour preferred** over walking tour
-- Kusadasi/Ephesus: significant walking on ancient stone — **golf cart/vehicle tour preferred**
-- Nafplion: compact waterfront — flat, manageable ✅
-- Rhodes Old Town: cobblestones, moderate distances ✅ with pacing
-- All others: TBD by Reyes excursion research
+### Mobility Flag — Port-by-Port Notes (✅ COMPLETE 2026-06-13 — see Excursion Supplement)
+*Resolved against the three official Silversea Tour Programmes. ⭐ = Silversea-flagged "Suitable for limited mobility."*
+- Koper: flat old town OK; KOP-G seafood-sail is ⭐ suitable (500m) if splurging
+- Zadar: ZAD-C short but 40 church steps — pace
+- Split: **SPL-B Trogir ⭐ suitable** — recommended
+- Dubrovnik Old City: cobblestones — DBV-E Cavtat is the gentlest (minimal, flat, 15 steps)
+- Bari: **no suitable tour** — food tour is 1.5–2mi cobble; BRI-V private car = seated alternative
+- Kotor city walls: **SKIP** — 1,350 steps. **KTR-D Budva ⭐ suitable** instead
+- Katakolon/Olympia: uneven ancient terrain — **KAT-B (mostly vehicle, wine)** or KAT-H (most accessible)
+- Gythion: GYT-G wine (10 steps) gentler than Mani villages; Diros Cave glide passive but ~2mi walk
+- Milos: **hardest port — volcanic/rocky, no suitable tour. Ship-day candidate.**
+- Kusadasi/Ephesus: **KUS-G "Easy Ephesus" ⭐ suitable** (or KUS-S full wheelchair $239)
+- Mykonos: **JMK-B ⭐ wheelchair accessible** — ouzo + mezedes
+- Nafplion: flat ✅ — **NAV-F Nemea wine ⭐ suitable** (best wine of trip)
+- Santorini: cable car (not donkeys) ✅; all cobbled — JTR-A wine, pace it
+- Bodrum: no easy food/wine — BXN-E gulet cruise is the gentle scenic move
+- Rhodes Old Town: **RHO-E Panoramic ⭐ suitable** (minimal walking)
+- Patmos: uphill sacred sites — PAT-C minimizes if cave descent skipped
+- Athens (×3): **PIR-S At Your Leisure ⭐ suitable** — self-paced
+
+> 📄 **Full excursion plan:** `dossiers/Loucks_SilverNova_May2027_Excursions.md`
+> 📄 **Onboard one-pager:** `output/Loucks_SilverNova_May2027_Excursions.html` / `.pdf`
+> Recommended one-per-port plan ≈ **$2,100 pp gross**; net after the ~$1,520 shore-excursion credit ≈ **$1,300–1,600 pp** — inside the Commander's $2,500 ceiling. Seven ⭐ mobility-suitable tours anchor the trip.
 
 ### Silver Nova Prior Experience Note
 *Sailed Silver Nova Tokyo→Seattle, departed Apr 23, 2026 (completed ~May 7-8, 2026 — just 5 weeks before this booking was confirmed). They know the ship. They loved it enough to book 24 more nights.*
@@ -117,15 +131,15 @@ wf17_exception_date: 2026-06-10
 
 | Dates | Segment | Status |
 |-------|---------|--------|
-| Apr 30, 2027 (FRI) | DEN → VCE — **Depart Apr 30. Cheapest business class. Icelandair Saga Premium (Fri OK), Lufthansa via MUC, United Polaris all in scope.** | ✅ B2B FARE WINDOW OPEN — Centrav re-login needed |
-| May 1–5 (4 nights) | Venice pre-cruise — Hilton Molino Stucky, best available Venice-view room | NEEDS BOOKING |
+| **May 1, 2027 (SAT)** | DEN → VCE — **Depart May 1, arrive VCE Sun May 2 = Sina check-in day (no gap). Icelandair KEF→VCE flies Sun ✓; Lufthansa via MUC / United Polaris also in scope.** Shifted from Apr 30 per Commander 2026-06-11. | ✅ B2B FARE WINDOW OPEN |
+| **May 2–5 (3 nights)** | Venice pre-cruise — **Sina Palazzo Sant'Angelo** (Grand Canal, SLH) · Premium Deluxe, breakfast incl · **Conf TZ201ZG53502** · €1,914 (€1,671 room + €216 Antinoo's dinner + €27 city tax) · CLUBBB flexible — **no prepay, free cancel until Apr 30** | ✅ **BOOKED 2026-06-11** (was Molino Stucky/4nts) · ⚠️ **May 1 arrival night uncovered** — extend Sina +1 or land May 2 |
 | May 5, 2027 | Embarkation — Venice to Silver Nova | Confirmed |
 | May 5–15, 2027 (10 nights) | Segment 1 — SN27050510 | IN PROCESS |
 | May 15–22, 2027 (7 nights) | Segment 2 — SN27051507 | IN PROCESS |
 | May 22–29, 2027 (7 nights) | Segment 3 — SN27052207 | IN PROCESS |
-| May 29, 2027 | Disembarkation — Piraeus/Athens | Confirmed |
-| May 29 – Jun 1, 2027 (3 nights) | Athens post-cruise — Athens Gate Hotel | NEEDS BOOKING |
-| Jun 1, 2027 | ATH → DEN (return flight) | NEEDS QUOTE |
+| May 29, 2027 | Disembarkation Piraeus · **0900 transfer ship → ATH** (Kiwitaxi Minivan $111) | Confirmed |
+| **May 29, 2027** | **ATH → DEN (return, SAME DAY)** — Commander 2026-06-11: fly home May 29 | NEEDS BOOKING — afternoon dep after 0900 transfer |
+| ~~May 29–Jun 1 · Athens Gate Hotel · Jun 1 flight~~ | ❌ **CANCELLED** — Commander dropped the 3-night Athens post-stay 2026-06-11 | OBE |
 
 *Detailed port itinerary: pull from Silversea TA portal via /silversea-ta skill*
 
@@ -157,6 +171,30 @@ Athens (Piraeus) · Santorini · Nafplion · Day at Sea · Bodrum · Rhodes · P
 
 ## FLIGHT RESEARCH
 *Status as of 2026-06-06: **✅ CENTRAV B2B PRICING PULLED LIVE.** All cabins priced. Commander prefers Icelandair Saga Premium. Fare watches active with 8% drop thresholds. Session cookies saved and auto-keepalive being built (MISSION-149).*
+
+> ⚠️ **The 2026-06-06 table below is SUPERSEDED on dates** — it priced the old Apr 30 / Jun 1 one-way legs. Real trip is **May 1 / May 29** round-trip. See the authoritative multi-city pull immediately below.
+
+---
+
+### ✅ CENTRAV B2B — AUTHORITATIVE PULL (live 2026-06-11 23:11 CT · correct May 1/May 29 2027 dates · Business multi-city · 2 pax)
+*Pulled over the warm Centrav session (keepalive now live). 500 fares returned, trimmed to the decision set.*
+
+| Option | Fare (2 pax) | /pp | Outbound | Inbound | Total time | Note |
+|--------|-------------|-----|----------|---------|-----------|------|
+| 🥇 **Turkish — price leader** | **$7,904** | **$3,952** | DEN✈IST✈VCE (TK202 DEN 8:25p→IST, TK1867 IST→VCE 8:20a) | ATH✈IST✈DEN (TK1844 ATH 10:25a→IST, TK201 IST 2:45p→DEN 6:25p) | Out **27h55** · In 17h | Business both ways. **~$5K under everything.** Catch: outbound ~13h IST layover (overnight). Return connection ideal ~2h45. |
+| 🛫 **United via Munich** ⭐ *miles* | **$12,886** cash ($13,337 cc) | ~$6,443 cash | **DEN→MUC NONSTOP** (UA760 8:25p→2:10p), MUC✈VCE (UA9714/Air Dolomiti) | ATH✈YYZ✈DEN (AC897/AC1041) | Out **12h10 (shortest)** · In 16h08 | The DEN-MUC nonstop Business Commander asked for. United miles earn. ~$5K premium for comfort. |
+| Air Canada | $12,846 cash ($13,296 cc) | ~$6,423 | DEN✈YUL✈VCE | ATH✈YYZ✈DEN | Out 14h · In 16h | Same tier as United but 2 stops each way — **skip**. |
+
+**These are NET consolidator fares** (Commander is the agent) → for personal travel that's the actual price paid, no markup. $3,952pp Business is exceptional for May trans-Atlantic.
+
+**Decision frame (Commander 2026-06-11):**
+- **Turkish $7,904** is the buy *if* a night in Istanbul is acceptable. **Open watch:** alert the moment a Turkish Business itin shows an **outbound connection of 2–4h** at/near this price — that's the trigger. Also alert on any drop below $3,750pp.
+- **United via MUC $12,886** is the comfort + **United-miles** play (nonstop transatlantic). **Watch ALL United code-shares** (UA760, UA-coded Air Dolomiti/Lufthansa/Air Canada) for drops or better nonstop inventory.
+- Commander: *"open to anything that saves $$."* Route-floor watch catches any carrier that undercuts.
+
+**Fare watches (data/fare_watches.json):**
+- `loucks-silvernova-air-2027` → Turkish/route-floor, baseline **$3,952pp**, alert <$3,750 + connection-improvement flag. ITA-polled daily.
+- `loucks-silvernova-united-2027` → United/Star Alliance via MUC, baseline **$6,443pp**, alert <$6,100. Checked in warm-Centrav sessions.
 
 ### FLIGHT REQUIREMENTS (Commander confirmed 2026-06-06)
 
@@ -240,20 +278,22 @@ Athens (Piraeus) · Santorini · Nafplion · Day at Sea · Bodrum · Rhodes · P
 
 | Leg | Mode | Net/Vehicle | D2M Client (×1.25) | Vendor | Status |
 |-----|------|------------|---------------------|--------|--------|
-| VCE Airport → Hilton Molino Stucky (Giudecca) | Private motoscafo (water taxi) | €180–200 (~$195–215) | ~€225–250 | Venezia Taxi / Ziptransfers | ✅ RECOMMENDED — direct, fastest, luxury |
-| VCE Airport → Hilton (Kiwitaxi land+water combo) | Land vehicle + water connection | $324 net / $405 D2M | $405 | Kiwitaxi ✅ QUOTED 2026-06-06 | OPTION — land route, more expensive than motoscafo |
-| VCE Airport → Hilton (budget option) | Alilaguna shared water bus | €10–14/pp | N/A (retail) | Alilaguna Line | OPTION — 1hr+ transit |
-| Hilton Molino Stucky (Giudecca) → Fusina Cruise Terminal | Private motoscafo (lagoon crossing ~15 min) | €80–120 est. | ~€100–150 | Venezia Taxi / hotel concierge | ESTIMATED — Commander confirmed motoscafo all the way |
-| Piraeus Port → Athens Gate Hotel | Comfort sedan | $76 net | $95 | Kiwitaxi ✅ QUOTED | QUOTED — not yet booked |
-| Piraeus Port → Athens Gate Hotel | Business sedan | $156 net | $195 | Kiwitaxi ✅ QUOTED | OPTION |
-| Athens Gate Hotel → ATH Airport | Sedan | €40–55 | N/A (retail taxi) | Local taxi / Welcome Pickups | RESEARCHED |
-| Athens Gate Hotel → ATH Airport | Prebooked sedan | €43 | ~€54 | Welcome Pickups ✅ | OPTION — book in advance |
+| VCE Airport → **Sina Palazzo Sant'Angelo** (San Marco, Grand Canal) | Private motoscafo → hotel's private dock (~30 min) | €120–160 (~$130–175) | retail (personal) | veneziataxi.it / Consorzio Motoscafi / Sina concierge | ✅ RECOMMENDED — direct to hotel dock |
+| VCE Airport → Sina (budget) | Alilaguna Orange Line → **S. Angelo stop (at hotel)** | €15/pp | retail | Alilaguna | OPTION — ~75–90 min, shared |
+| **Sina (San Marco) → Fusina Cruise Terminal** (May 5, embark) | Private motoscafo, hotel dock → Fusina via lagoon (~30 min) | **€300–350** (San Marco is across the lagoon — pricier than old Giudecca plan) | retail | veneziataxi.it / Consorzio Motoscafi / **Sina concierge** | 📧 CONCIERGE EMAIL DRAFTED 2026-06-11 |
+| Sina → Fusina (value alt) | Water taxi → Piazzale Roma (€80–100) + car → Fusina (€60) | €140–160 combo | retail | — | OPTION — 2 transfers |
+| **Piraeus Port → ATH Airport** (May 29, **0900 ship pickup**) | Comfort sedan (3 bags) | **$77 net** | $96 | Kiwitaxi ✅ QUOTED 2026-06-11 | QUOTED |
+| Piraeus Port → ATH Airport (May 29) | **Minivan 4PAX (4 bags)** ★ cruise luggage | **$111 net** | $139 | Kiwitaxi ✅ | ★ RECOMMENDED for cruise bags |
+| Piraeus Port → ATH Airport (May 29) | Business (Mercedes E, luxury) | $158 net | $198 | Kiwitaxi ✅ | LUXURY OPTION |
+| Piraeus Port → Athens Gate Hotel (if Jun 1 plan kept) | Comfort sedan | $76 net | $95 | Kiwitaxi ✅ QUOTED 2026-06-06 | OPTION — only if 3-night Athens stay retained |
+| Athens Gate Hotel → ATH Airport (if Jun 1) | Prebooked sedan | €43 | ~€54 | Welcome Pickups ✅ | OPTION |
 
-**Notes:**
-- **Venice airport → hotel:** Kiwitaxi quoted $324/vehicle (land+water combo) — LIVE QUOTE 2026-06-06. Private motoscafo from airport water taxi dock: €180–200 (~$195–215). **Motoscafo recommended** — cheaper AND direct water entrance to Giudecca. Book via veneziataxi.it or Ziptransfers. Kiwitaxi available as backup.
-- **Hotel → Fusina terminal:** Commander confirmed motoscafo all the way. Private water taxi from Hilton Molino Stucky Giudecca dock → Fusina cruise terminal via lagoon (~3km, ~15 min). Est. €80–120. Book via veneziataxi.it or hotel concierge. Silversea may also arrange ship transfer from a Venice point — confirm at booking and compare.
-- **Piraeus → Athens Gate:** Kiwitaxi LIVE QUOTE 2026-06-06. Comfort $76/vehicle. ~45 min. Book via kiwitaxi.com.
-- **Athens Gate → ATH:** Welcome Pickups prebooked €43/sedan = recommended (reliable, English-speaking, meet & greet). Athens taxis ~€40 day / €55 night.
+**Notes (UPDATED 2026-06-11):**
+- ⚠️ **HOTEL CHANGED:** Hilton Molino Stucky (Giudecca) → **Sina Palazzo Sant'Angelo (San Marco), booked conf TZ201ZG53502, May 2–5.** ALL Venice transfers re-quoted for the San Marco/Grand Canal origin (farther from Fusina than Giudecca was → motoscafo ~€300–350 vs old ~€80–120).
+- ⚠️ **Silversea embark transfer NOT included:** Silversea All-Inclusive (U3) includes hotel↔ship transfers only when the hotel is booked THROUGH Silversea, and airport↔ship only with Silversea air. Loucks booked Sina direct + own Icelandair air → **transfer is self-arranged.** (Confirm w/ Silversea, but plan to self-book.)
+- 📧 **Concierge email drafted 2026-06-11** (to sinapalazzosantangelo@sinahotels.com): confirm Sina Club enrollment (CLUBBB rate), arrange motoscafo from private dock → Fusina May 5 AM, request May 2 early check-in. Held for Commander send.
+- ⚠️ **May 29 vs Jun 1 departure unresolved:** Commander requested Piraeus→ATH May 29 0900 — confirm whether flying home May 29 (drop the 3-night Athens stay + Athens Gate hotel + Jun 1 flight) or keeping Jun 1. Affects return flight date + Athens hotel.
+- **Venice airport → hotel:** Private motoscafo to Sina's private Grand Canal dock €120–160; Alilaguna Orange Line stops at S. Angelo (the hotel's stop) for €15/pp.
 
 ---
 
@@ -326,6 +366,26 @@ The **Medallion Suite** is a premium suite category on Silver Nova above Classic
 
 ### Inclusions (Silversea Classic Veranda)
 All dining · Premium beverages · Butler service · Wi-Fi · Gratuities · Shore excursion credit (varies by segment) · **Excursions beyond credit NOT included**
+
+---
+
+## AMENITIES & PROMOTIONS — TA Portal Capture
+*Source: Silversea TA Portal voyage details, captured by Commander 2026-06-11 (file: `Loucks May 2027 Amenities`). This is a B2B2B — three voyage segments under booking 506101-26.*
+
+| Seg | Voyage code | Embark (approx) | Days-to-sail @ capture | Promotions available |
+|---|---|---|---|---|
+| 1 | **SN270505010** | ~2027-05-05 | 328 | Q3 2026 Base Promo: **30% savings lower suites** / 10% upper suites (auto) |
+| 2 | **SN270515007** | ~2027-05-15 | 338 | Q3 2026 Base: **20% lower** / 10% upper (auto) · **$500 pp Shipboard Credit** (combo w/ Seg 3) · Travel Leaders Network **Hosted Promo** (manual) |
+| 3 | **SN270522007** | ~2027-05-22 | 345 | Q3 2026 Base: **20% lower** / 10% upper (auto) · **$500 pp Shipboard Credit** (combo w/ Seg 2) |
+
+**Headline amenities:**
+- 🪙 **Shipboard Credit: $500 pp** on the Seg 2 + Seg 3 combo (`SN270515007`+`SN270522007`) — $1,000/couple per the combo. No limit per booking.
+- 💰 **Base savings:** 30% off lower suites on Seg 1; 20% off lower suites on Segs 2–3; 10% off upper suites throughout (Q3 2026 Base Promo, auto-applied).
+- 🎁 **Travel Leaders Network Hosted Promo** (Seg 2) — manual apply. ⚠️ **NOT combinable with Amex Platinum / Centurion benefit** — decision point if the Loucks intend to book through an Amex travel benefit.
+
+**Fare-code legend:** S3 = All-Inclusive Plus · U3 = All-Inclusive · SB = Unbundled Combo *with* Shorex Credit · UB = Unbundled Combo *no* Shorex Credit. (Savings promos apply on S3/U3; SBC combo applies on SB/UB.)
+
+⚠️ **Applicability flag:** Portal note reads *"applicable to bookings created today."* Booking 506101-26 already exists (deposit paid). **Verify whether these current promos (esp. the $500 pp SBC + savings) can be applied/repriced to the existing booking, or were already captured at original booking** — potential value-add to confirm with Silversea before FPD (2026-12-06).
 
 ---
 
@@ -478,3 +538,4 @@ All dining · Premium beverages · Butler service · Wi-Fi · Gratuities · Shor
 *Session 8 updated: 2026-06-07 — Medallion Suite added as possible upgrade option from Classic Veranda. Pricing pull needed from TA portal.*
 *Format: Spencer Grand Tour working document standard*
 *Session 9 updated: 2026-06-10 — BOOKING CONFIRMED. Agency PDF 506101-26 ingested. Booking #506101-26 assigned. Suite 8071/Superior Veranda. Deposit $8,612.50 PAID. Balance $25,837.50 due Dec 6, 2026. Commission $5,517.18 / D2M share $4,413.74 (80%). Host agency transfer RESOLVED (Cruises & Tours Unlimited). YAML frontmatter added per dossier schema v2.0.*
+*Session 10 updated: 2026-06-13 — EXCURSION PLAN built from 3 official Silversea Tour Programmes. Mobility port-by-port stub RESOLVED. Supplement created (`Loucks_SilverNova_May2027_Excursions.md`) + onboard one-pager (`output/...html`/`.pdf`). Recommended one-per-port ≈ $2,100 pp gross / ~$1,300–1,600 pp net of shore credit. 7 ⭐ limited-mobility-suitable tours anchor the plan. OPEN: confirm shore-credit per-person vs per-booking + SBC excursion eligibility before the booking window opens (~T-130).*
