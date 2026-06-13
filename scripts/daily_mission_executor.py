@@ -77,7 +77,7 @@ SKIP_STATUSES = {"completed", "complete", "done", "archived", "cancelled", "susp
                  "pending_review"}
 
 # Max tasks to execute per run (token discipline)
-MAX_TASKS_PER_RUN = 5
+MAX_TASKS_PER_RUN = 4
 
 # Timeout per headless Claude dispatch (seconds)
 TASK_TIMEOUT = 600

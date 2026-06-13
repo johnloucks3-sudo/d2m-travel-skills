@@ -1,0 +1,12 @@
+[Unit]
+Description=D2M Mission Executor — Every 4 Hours (4-mission limit)
+Requires=d2m-mission-executor-4h.service
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=4h
+AccuracySec=60s
+Persistent=true
+
+[Install]
+WantedBy=timers.target
