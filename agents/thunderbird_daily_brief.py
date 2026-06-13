@@ -295,13 +295,30 @@ def collect_commander_actions() -> list[dict]:
         except Exception as e:
             logger.warning(f"Draft metadata read failed: {e}")
 
-    # FPDs due within 15 days (from hale_state deferred_alerts + fpd_state)
+    # Deferred alerts: both trigger_date alerts and FPDs due within 15 days
     try:
         hs = json.loads(HALE_STATE_PATH.read_text())
         fifteen_days_out = today_mt + timedelta(days=15)
         for alert in hs.get("deferred_alerts", []):
-            fpd_str = alert.get("fpd", "")
             trigger_str = alert.get("trigger_date", "")
+            fpd_str = alert.get("fpd", "")
+
+            # Check trigger_date first (any type of alert with a trigger_date that fires today)
+            if trigger_str:
+                try:
+                    trigger_date = datetime.strptime(trigger_str, "%Y-%m-%d").date()
+                    if trigger_date == today_mt:  # Fire on exact trigger_date
+                        items.append({
+                            "type": "DEFERRED_ALERT",
+                            "id": alert.get("id", ""),
+                            "title": alert.get("message", "Alert"),
+                            "priority": alert.get("priority", "P2"),
+                            "client": alert.get("client", ""),
+                        })
+                except Exception:
+                    pass
+
+            # Check FPD alerts: due within 15 days from today
             if fpd_str:
                 try:
                     fpd_date = datetime.strptime(fpd_str, "%Y-%m-%d").date()
@@ -312,11 +329,12 @@ def collect_commander_actions() -> list[dict]:
                             "title": f"FPD due {fpd_str}: {alert.get('client','')} — ${alert.get('amount',0):,.2f}",
                             "fpd": fpd_str,
                             "amount": alert.get("amount", 0),
+                            "message": alert.get("message", ""),  # contact/action language from deferred_alert
                         })
                 except Exception:
                     pass
     except Exception as e:
-        logger.warning(f"FPD collection failed: {e}")
+        logger.warning(f"Deferred alerts collection failed: {e}")
 
     # Also check fpd_state.json
     try:
@@ -765,8 +783,20 @@ def build_html_brief(
                     f"&nbsp;<em>to {item.get('to','')}</em>"
                 )
             elif itype == "FPD_DUE":
+                fpd_msg = item.get("message", "")
+                detail_html = (
+                    f"<br><em style='color:#555;font-size:9pt;'>{fpd_msg}</em>"
+                    if fpd_msg else ""
+                )
                 rows += _bullet_row(
-                    f"FPD DUE {item.get('fpd','')} &rarr; {item['title']}"
+                    f"FPD DUE {item.get('fpd','')} &rarr; {item['title']}{detail_html}"
+                )
+            elif itype == "DEFERRED_ALERT":
+                priority = item.get("priority", "P2")
+                priority_color = "#ff0000" if priority == "P0" else "#cc6600" if priority == "P1" else "#0066cc"
+                rows += _bullet_row(
+                    f"<span style='color:{priority_color};font-weight:700;'>[{priority}]</span> "
+                    f"{item.get('title', 'Alert')}"
                 )
         if rows:
             sections.append(_section_header("COMMANDER ACTION REQUIRED") + rows)
