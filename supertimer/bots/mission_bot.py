@@ -34,11 +34,13 @@ class MissionBot(BotBase):
         Task("preflight",
              venv("api/thunderbird_preflight.py"),
              interval_sec=86400, timeout_sec=120),
-        Task("mission-090-sweep",
-             bash(f"{ROOT}/output/mission-090_worktree_sweep.sh --email-json")
-             if (ROOT / "output/mission-090_worktree_sweep.sh").exists()
-             else sys_py("scripts/mission_board_promoter.py"),
-             interval_sec=86400, timeout_sec=120),
+        # DISABLED 2026-06-14 23:33 — 31 consecutive timeouts (120s)
+        # Root cause: bash script hangs on startup. Under investigation.
+        # Task("mission-090-sweep",
+        #      bash(f"{ROOT}/output/mission-090_worktree_sweep.sh --email-json")
+        #      if (ROOT / "output/mission-090_worktree_sweep.sh").exists()
+        #      else sys_py("scripts/mission_board_promoter.py"),
+        #      interval_sec=86400, timeout_sec=120),
     ]
 
 if __name__ == "__main__":
