@@ -66,7 +66,10 @@ uses the same codes back; a bare Roger/Wilco/Done from him closes the loop, no r
 ## HARD RULES — NEVER VIOLATE
 
 0. **Commander's inbox is NEVER a roadblock.** Hale surfaces overdue items proactively every session — before any new work. Silence on a stalled deliverable is a Hale failure. Train to this standard.
-1. **Email drafts → d2mconcierge ONLY by default.** Label: THUNDERBIRD-Commander-Review. **Exception:** Wing may draft to johnloucks3 ONLY on explicit Commander OK (e.g., "draft to johnloucks3", "put in my drafts", "Commander OK"). Required label: WING-PERSONAL-DRAFT. Without explicit Commander OK, d2mconcierge is the only draft account. (Amended 2026-06-14, Commander directive.)
+1. **EMAIL DRAFT ROUTING — see `standing_orders/SO_DRAFT_ROUTING_20260614.md` (full SO). Three cases:**
+   - **Internal briefs/reports/intel** → DIRECT SEND to johnloucks3. No draft. No gate.
+   - **Client-facing products** → d2mconcierge draft · label `THUNDERBIRD-Commander-Review` · Commander sends.
+   - **Draft to johnloucks3** → ONLY on explicit Commander OK ("draft to johnloucks3" / "put in my drafts"). Label: `WING-PERSONAL-DRAFT`. Without explicit OK: never create a silent johnloucks3 draft.
 2. **Never send to a client.** WF-17 gate. Commander sends. Always.
 3. **Dani's 6-step chain is mandatory** for every client product. Zero steps skipped.
 4. **CLAUDE.md and SO files** → Sterling owns by default. Route when time allows.
@@ -183,7 +186,7 @@ Creates user-level timers only (no sudo). Log: `logs/<timer-name>.log`.
 python3 scripts/fpd_calendar_alerts.py            # create GCal events for all deferred_alerts
 python3 scripts/fpd_calendar_alerts.py --dry-run  # preview
 ```
-Reads `hale_state.json` deferred_alerts → creates johnloucks3 calendar events with 30-day warning + day-of popups/emails.
+Reads `hale_state.json` deferred_alerts → creates d2mconcierge calendar events with 30-day warning + day-of popups/emails. NEVER johnloucks3 (SO 2026-06-14).
 
 ### API Wrappers — Research & Bookings
 ```python
@@ -204,6 +207,17 @@ from core.intel.thunderbird_twitter_osint import run_twitter_osint_sweep
 
 # Viator/GYG/SignWell/Apify — STUBS, need API keys (see creds/ for setup notes)
 ```
+
+### MCP — Lean Context (SO 2026-06-14)
+Always-on (3 servers): `dreams2memories` · `gmail-d2mconcierge` · `google-workspace-d2mconcierge`
+On-demand (5 servers — in `~/.claude/mcp_on_demand.json`, copy into mcp.json to activate):
+- `context7` — unfamiliar library docs
+- `multi-model` — explicit multi-model dispatch
+- `lastminute` — lastminute.com search
+- `gmail-johnloucks3` — klodr Gmail ops on johnloucks3 beyond workspace coverage
+- `anansi` — bot-wall bypass sessions
+
+**Never add a server to always-on without Commander approval.** Multiplies by every turn × every session.
 
 ### Trip Validation — Canonical Pipeline (SO-2026-06-03)
 ```bash

@@ -111,6 +111,7 @@ Before any client-ready product exits the Wing: create the draft, label it `THUN
 | D2M-to-Chief internal (reports, briefs, intel) | FULL SEND to johnloucks3 inbox — no draft step | Wing sends directly |
 
 **Routing rule:** Check email type first → route to correct account → apply correct sig block. Full SO: `standing_orders/SO_EMAIL_RULES_UPDATE_20260530.md`
+**Draft routing SO (2026-06-14):** `standing_orders/SO_DRAFT_ROUTING_20260614.md` — johnloucks3 draft requires explicit Commander OK; internal comms = direct send always; see AGENTS.md Hard Rule #1.
 
 ## ⚠️ HARD RULE — EMAIL SIGNATURE BLOCK STANDARDS (Standing Order 2026-05-30)
 **Full SO:** `standing_orders/SO_EMAIL_RULES_UPDATE_20260530.md`
@@ -294,17 +295,17 @@ Multi-hop memo chain retired for client products. Client emails written from ONE
 - Allow all file reads, writes, edits, MCP tool calls, web searches, and non-destructive bash commands without confirmation.
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-06-13 21:05 MT -->
+<!-- Last sync: 2026-06-14 16:20 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-06-13 21:05 MT] ===
-Budget: Claude MAX 21% sess | Sonnet 7% wkly | OpenCode GREEN
-Active tasks: 32 (hale_state.json)
-Top P0 items: MISSION-191 (Kuklinski validation) · MISSION-192 (Lyons FPD status) · MISSION-193 (McLeod T-7 email) · MISSION-194 (5 aging WF-17 drafts)
-P1 items: MISSION-195 (TESS re-auth) · MISSION-196 (Spencer call) · MISSION-198 (McLeod FPD trigger)
-Next priority: Execute P0 WF-17 queue before end of week
-Standing: Claude=judgment | OpenCode=ops
+=== THUNDERBIRD BLACKBOARD [2026-06-14 16:20 MT] ===
+Budget: Claude MAX Wkly-40% | Sonnet-46% | Runs-9/15 | Sess-4% | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
+Active tasks: 0
+Last Deepseek ruling: NONE
+Open items: none logged
+Next priority: check session_autosave_latest.md
+Standing: Claude=judgment | OpenCode=ops | Deepseek=arbitrator | PII fence: Deepseek
 Session checkpoint: /home/john/Thunderbird/session_autosave_latest.md
-Full board: /home/john/Thunderbird/OpsCenter/collaboration/blackboard.md
+Full blackboard: /home/john/Thunderbird/OpsCenter/collaboration/blackboard.md
 ================================================
 ```
 # BLACKBOARD_END
