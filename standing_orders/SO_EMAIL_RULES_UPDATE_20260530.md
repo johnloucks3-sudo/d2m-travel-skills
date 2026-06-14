@@ -195,20 +195,24 @@ With explicit Commander OK: create draft in johnloucks3, label WING-PERSONAL-DRA
 [Email body]
 
 ────────────────────────────────────────
-[Persona avatar IMAGE — Hale or Dani, whoever authored the email]
-[Persona name · title · D2M · contact]
+[Persona complete signature block — Hale or Dani, whoever authored the email]
+  → avatar image · name · title · DREAMS2MEMORIES TRAVEL · email
 
 [Commander's D2M signature block — VERY BOTTOM]
+  → John A Loucks III · Owner · phone · email · website · D2M logo
 ```
 
-### Element 1 — Persona avatar (not at the very bottom)
-- **Image file** — use the actual avatar PNG, not an emoji or symbol
-- Hale emails: `storage/output/images/victoria_hale_avatar.png`
-- Dani emails: `storage/output/images/dani_moreau_avatar.png`
-- Size: 52×52px, border-radius 50%, navy border — consistent with existing template standard
-- Placed above Commander's sig block, separated by a thin rule or whitespace
+### Element 1 — Persona complete signature block (above Commander sig)
+- **Use the complete canonical sig block file** — not just an avatar image or emoji
+- **Hale emails:** `storage/signatures/hale_sig.html`
+  - Avatar: `victoria_hale_avatar.png` · Name: Victoria "Victory" Hale · Title: Chief of Staff
+- **Dani emails:** `storage/signatures/dani_sig.html`
+  - Avatar: `dani_moreau_avatar.png` · Name: Dani Moreau · Title: Concierge Intelligence
+- Both sig files are self-contained HTML tables with base64-embedded avatars (64×64px, circular border)
+- Placed ABOVE Commander's sig block, separated by a thin rule or whitespace
+- Persona sig does NOT go at the very bottom — Commander sig occupies that slot
 
-### Element 2 — Commander's D2M sig block (very bottom)
+### Element 2 — Commander's D2M sig block (VERY BOTTOM — always last)
 Source of truth: `storage/signatures/commander_d2m_sig.html` (pulled from Gmail 2026-06-14)
 
 ```
@@ -223,8 +227,15 @@ www.d2mluxury.quest
 Full HTML: `storage/signatures/commander_d2m_sig.html`
 Logo src (stable): `https://lh3.googleusercontent.com/d/1HYa61cNwcialWk64DimGwIfCAbUjESsu`
 
+### Canonical sig file inventory (storage/signatures/)
+| File | Persona | Contains |
+|---|---|---|
+| `hale_sig.html` | Victoria Hale (COS) | avatar · name · Chief of Staff · D2M · concierge email |
+| `dani_sig.html` | Dani Moreau | avatar · name · Concierge Intelligence · D2M · concierge email |
+| `commander_d2m_sig.html` | Commander (footer) | John A Loucks III · Owner · phone · email · D2M logo |
+
 ### What this replaces
-Prior rule (Decision 6) placed only the persona avatar in the sig. This amendment adds Commander's D2M sig block as a permanent footer beneath the persona sig on all D2M client emails.
+Prior rule (Decision 6) placed only the persona avatar in the sig. This amendment specifies use of COMPLETE persona signature blocks (canonical files) plus Commander's D2M sig as permanent footer on all D2M client emails.
 
 ### Applies to
 All D2M client-facing products: validation emails, lifecycle TPs, proposals, itineraries, insurance emails. Does NOT apply to internal Wing-to-Commander reports/briefs (those stay streamlined — no Commander sig block needed on his own reports).
