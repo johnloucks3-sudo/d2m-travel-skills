@@ -1,0 +1,76 @@
+{
+  "bots": {
+    "ops_bot": {
+      "interval_sec": 60,
+      "timeout_sec": 120,
+      "description": "Heartbeats, watchdogs, blackboard sync — pulse of the wing",
+      "script": "supertimer/bots/ops_bot.py"
+    },
+    "comms_bot": {
+      "interval_sec": 120,
+      "timeout_sec": 300,
+      "description": "Commander directive sweep, inbox hygiene, email intel",
+      "script": "supertimer/bots/comms_bot.py"
+    },
+    "infra_bot": {
+      "interval_sec": 300,
+      "timeout_sec": 300,
+      "description": "All OAuth keepalives, TESS, tool keys, Chrome/Qdrant health",
+      "script": "supertimer/bots/infra_bot.py"
+    },
+    "client_bot": {
+      "interval_sec": 300,
+      "timeout_sec": 420,
+      "description": "Lifecycle, dossier freshness, touchpoints, fare watch, booking monitor",
+      "script": "supertimer/bots/client_bot.py"
+    },
+    "metrics_bot": {
+      "interval_sec": 600,
+      "timeout_sec": 240,
+      "description": "Dashboards, usage monitoring, FPD alerts, cost tracking",
+      "script": "supertimer/bots/metrics_bot.py"
+    },
+    "intel_bot": {
+      "interval_sec": 900,
+      "timeout_sec": 900,
+      "description": "Airline, weather, X-OSINT, Perx, flight scan, innovation scan",
+      "script": "supertimer/bots/intel_bot.py"
+    },
+    "mission_bot": {
+      "interval_sec": 900,
+      "timeout_sec": 600,
+      "description": "Mission board promoter, 1730 nomination, WAR, preflight",
+      "script": "supertimer/bots/mission_bot.py"
+    },
+    "finance_bot": {
+      "interval_sec": 1800,
+      "timeout_sec": 600,
+      "description": "Commission watch, FDP reconcile, supplier rate/promo scan",
+      "script": "supertimer/bots/finance_bot.py"
+    },
+    "ai_exec_bot": {
+      "interval_sec": 3600,
+      "timeout_sec": 1200,
+      "description": "Mission executor, sculptor, incubator, power harvest, daily brief",
+      "script": "supertimer/bots/ai_exec_bot.py"
+    },
+    "backup_bot": {
+      "interval_sec": 7200,
+      "timeout_sec": 900,
+      "description": "Drive sync, Evernote backup, logrotate, monthly archive, claude-sync",
+      "script": "supertimer/bots/backup_bot.py"
+    },
+    "audit_bot": {
+      "interval_sec": 21600,
+      "timeout_sec": 600,
+      "description": "Anti-theater audit, lessons tracker, timer self-audit, validation report",
+      "script": "supertimer/bots/audit_bot.py"
+    }
+  },
+  "leader": {
+    "max_parallel_bots": 6,
+    "health_file": "OpsCenter/supertimer_health.json",
+    "log_file": "logs/supertimer_leader.log",
+    "alert_on_consecutive_failures": 2
+  }
+}
