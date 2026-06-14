@@ -101,11 +101,45 @@ Sterling (A7), Navarro (A1), Keel (A4), Reyes (A8), ELON (A12), Sienna (A13), TA
 
 ---
 
+---
+
+## AMENDMENT 2026-06-14 — COMMANDER REVIEW CONSOLIDATION (Commander directive)
+
+### Label restructure (effective immediately)
+
+| Old label | New label | Color | Account |
+|---|---|---|---|
+| `PIPELINE/Commander-Review` | `Commander Review/New` | 🔴 Red (#fb4c2f) | johnloucks3 |
+| `THUNDERBIRD-Commander-Review` | `Commander Review/Done` | ⬜ Grey (#cccccc) | johnloucks3 |
+| `THUNDERBIRD-Commander-Review` | `THUNDERBIRD-Commander-Review` | 🔴 Red (#fb4c2f) | d2mconcierge |
+
+### New draft routing rule
+
+**Commander lives in johnloucks3.** All review items must surface there — one inbox, one label folder.
+
+Updated routing table (supersedes Decision 2 above):
+
+| Email type | Draft created in | Review label applied | Commander finds it |
+|---|---|---|---|
+| D2M client products (WF-17) | johnloucks3 (review copy) + d2mconcierge (send copy) | `Commander Review/New` (red) | johnloucks3 left sidebar — red dot |
+| Personal non-D2M | johnloucks3 | `Commander Review/New` (red) | johnloucks3 left sidebar — red dot |
+| D2M-to-Chief internal | Full send to johnloucks3 inbox | None (already delivered) | johnloucks3 Inbox |
+
+**Send flow:** Commander clicks draft in `Commander Review/New` → reviews content → clicks "Open in d2mconcierge" link in footer → sends from d2mconcierge with correct From address → Wing relabels to `Commander Review/Done`.
+
+**Script:** `scripts/wf17_stage_review.py` — Wing calls this after any WF-17 pass to stage a review card in johnloucks3.
+
+### When to relabel Done
+- Wing moves `Commander Review/New` → `Commander Review/Done` after Commander confirms send
+- OR Commander manually relabels when item is reviewed/no longer needed
+
+---
+
 ## ENFORCEMENT
 
 **A7 Sterling:** Audits all client email drafts at WF-17 gate for sig block compliance and USAFA color compliance. Violations returned to Hale before Commander review.
 
-**Hale:** Routes drafts to correct account per Decision 2 table. Verifies label applied. Personal drafts in johnloucks3 must carry label WING-PERSONAL-DRAFT.
+**Hale:** Routes drafts per updated Decision 2 table (Amendment 2026-06-14). Every WF-17 client product creates a johnloucks3 review card labeled `Commander Review/New`. Personal drafts in johnloucks3 also carry `Commander Review/New`.
 
 **Metric:** `email_sig_block_compliance_pct` — target 100%. Added to `OpsCenter/a7_metrics_dashboard.json`. First measurement: 2026-06-06 (one week post-activation).
 
@@ -123,3 +157,76 @@ Sterling (A7), Navarro (A1), Keel (A4), Reyes (A8), ELON (A12), Sienna (A13), TA
 *Authored: A7 Sterling, 2026-05-30*
 *Staged by: V. Hale, VCS*
 *Commander directive: 2026-05-30 session*
+
+---
+
+## AMENDMENT — 2026-06-14 (Commander directive)
+
+**Amends:** Decision 2 routing table — johnloucks3 draft exception
+
+A 2026-06-04 policy (memory entry) tightened the "Personal non-D2M" row to require direct sends only (no drafts to johnloucks3). This amendment restores the draft capability with an explicit Commander OK gate.
+
+**Rule (effective 2026-06-14):**
+
+Wing may create drafts in johnloucks3 ONLY when Commander explicitly approves it in session. Acceptable signals: "draft to johnloucks3", "put in my drafts", "OK to draft to johnloucks3", or similar explicit language.
+
+Without explicit Commander OK: continue sending direct to johnloucks3 inbox (full send) per the D2M-to-Chief internal row. The default is NOT draft — the default is direct send.
+
+With explicit Commander OK: create draft in johnloucks3, label WING-PERSONAL-DRAFT.
+
+**Updated routing table:**
+
+| Email type | Default | On Commander OK | Label |
+|---|---|---|---|
+| D2M client products | d2mconcierge draft | N/A — WF-17 gate, no change | THUNDERBIRD-Commander-Review |
+| Pro bono / D2M-adjacent | d2mconcierge draft | N/A | THUNDERBIRD-Commander-Review |
+| Personal non-D2M | johnloucks3 draft | Already allowed — no change | WING-PERSONAL-DRAFT |
+| D2M-to-Chief internal | johnloucks3 direct send | johnloucks3 draft (if OK given) | WING-PERSONAL-DRAFT |
+
+*Amendment authored: V. Hale, per Commander directive 2026-06-14*
+
+---
+
+## AMENDMENT 2026-06-14B — D2M EMAIL SIGNATURE LAYOUT (Commander directive)
+
+### Rule: Every D2M client email has TWO signature elements, in this order
+
+```
+[Email body]
+
+────────────────────────────────────────
+[Persona avatar IMAGE — Hale or Dani, whoever authored the email]
+[Persona name · title · D2M · contact]
+
+[Commander's D2M signature block — VERY BOTTOM]
+```
+
+### Element 1 — Persona avatar (not at the very bottom)
+- **Image file** — use the actual avatar PNG, not an emoji or symbol
+- Hale emails: `storage/output/images/victoria_hale_avatar.png`
+- Dani emails: `storage/output/images/dani_moreau_avatar.png`
+- Size: 52×52px, border-radius 50%, navy border — consistent with existing template standard
+- Placed above Commander's sig block, separated by a thin rule or whitespace
+
+### Element 2 — Commander's D2M sig block (very bottom)
+Source of truth: `storage/signatures/commander_d2m_sig.html` (pulled from Gmail 2026-06-14)
+
+```
+John A Loucks III
+Owner, Dreams2Memories, LLC
+719-291-0742
+johnloucks3@gmail.com
+www.d2mluxury.quest
+[D2M logo image]
+```
+
+Full HTML: `storage/signatures/commander_d2m_sig.html`
+Logo src (stable): `https://lh3.googleusercontent.com/d/1HYa61cNwcialWk64DimGwIfCAbUjESsu`
+
+### What this replaces
+Prior rule (Decision 6) placed only the persona avatar in the sig. This amendment adds Commander's D2M sig block as a permanent footer beneath the persona sig on all D2M client emails.
+
+### Applies to
+All D2M client-facing products: validation emails, lifecycle TPs, proposals, itineraries, insurance emails. Does NOT apply to internal Wing-to-Commander reports/briefs (those stay streamlined — no Commander sig block needed on his own reports).
+
+*Amendment authored: V. Hale, per Commander directive 2026-06-14*

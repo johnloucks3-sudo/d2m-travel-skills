@@ -119,7 +119,10 @@ Before any client-ready product exits the Wing: create the draft, label it `THUN
 1. **USAFA colors on ALL emails** — cream (#f7f3ea) background, blue (#0000ff) ink, navy (#003087) accent, Georgia font. Every email the Wing produces, regardless of type.
 2. **Signature block required on ALL emails** — no email exits the Wing without one.
 3. **Personal non-D2M emails:** USAFA colors YES. D2M logo/banner/branding NO. Personal sig: `John Loucks / [USAFA Class of '75 callsign] / [phone if appropriate]`.
-4. **All personas include their avatar photo** in their sig block (`storage/output/images/`). Personas without a generated avatar omit the photo slot — do NOT use a placeholder from another persona.
+4. **D2M client email signature layout — TWO elements, in order (Amendment 2026-06-14B):**
+   - **Persona avatar IMAGE** (not emoji) — Hale or Dani, 52×52px, above Commander sig. `storage/output/images/victoria_hale_avatar.png` or `dani_moreau_avatar.png`
+   - **Commander's D2M sig block — VERY BOTTOM** — `storage/signatures/commander_d2m_sig.html`. Contains: John A Loucks III · Owner, D2M · 719-291-0742 · johnloucks3@gmail.com · www.d2mluxury.quest · D2M logo.
+   - Personas without a generated avatar omit the photo slot — do NOT use a placeholder.
 5. **Wing writes the COMPLETE email** including personal/relationship opening paragraph. Commander should not need to add anything before sending. If relationship context is missing: ask ONE clarifying question ("What is my context on [name]?"), then draft complete.
 6. **Routing check before drafting:** D2M client product → d2mconcierge, label THUNDERBIRD-Commander-Review. Personal → johnloucks3, label WING-PERSONAL-DRAFT. Internal brief/report → full send to johnloucks3 inbox.
 
@@ -295,9 +298,9 @@ Multi-hop memo chain retired for client products. Client emails written from ONE
 - Allow all file reads, writes, edits, MCP tool calls, web searches, and non-destructive bash commands without confirmation.
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-06-14 16:20 MT -->
+<!-- Last sync: 2026-06-14 16:25 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-06-14 16:20 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-06-14 16:25 MT] ===
 Budget: Claude MAX Wkly-40% | Sonnet-46% | Runs-9/15 | Sess-4% | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE
