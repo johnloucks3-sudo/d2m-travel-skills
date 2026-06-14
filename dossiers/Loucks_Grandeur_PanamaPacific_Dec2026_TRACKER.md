@@ -30,7 +30,7 @@ note: "Renders CURRENT state + forward suspense calendar. 35-TP clock lives in t
 | **Travelers** | John & Susan Loucks (Commander & spouse) |
 | **Companions** | Nancy & Ken Lyons (separate booking, same ship) |
 | **Suite** | 658, Deck 6 — Concierge Suite E (447 sq ft) |
-| **Air** | COS→FLL (Dec 27, buffer) · LAX/SNA→COS (Jan 14). Lyons: ATL↔. All NOT BOOKED. |
+| **Air** | COS→MIA Dec 27 · IAD→MIA Dec 27 (added 2026-06-14) · LAX/SNA→COS Jan 14. Lyons: ATL↔. All NOT BOOKED. |
 
 ---
 
@@ -56,10 +56,10 @@ No financial conflict — dossier frontmatter, lifecycle doc, and spec all agree
 |---|---|---|
 | **Cruise booking** | ✅ CONFIRMED | Suite 658, E-Concierge |
 | **Payment** | 🟡 DEPOSIT ONLY | $24,798 due Aug 1 — single highest-risk date |
-| **Air (Loucks)** | 🔴 NOT BOOKED | COS→FLL Dec 27 ($416pp watch); LAX/SNA→COS Jan 14 ($416pp watch). Fare watches live. |
-| **Air (Lyons)** | 🔴 NOT BOOKED | ATL→FLL / LAX→ATL — coordinate |
-| **Hotel (pre/post)** | 🔴 NOT BOOKED | FLL Dec 27–28; Miami Dec 28–29 (optional); LA Jan 14 if late flights |
-| **Transfers** | 🔴 NOT PLANNED | FLL→Port of Miami; Port of LA→airport |
+| **Air (Loucks)** | 🔴 NOT BOOKED | COS→MIA Dec 27 · IAD→MIA Dec 27 · LAX→COS Jan 14. Fare watches live. *(Updated 2026-06-14: FLL→MIA, IAD added. Priced 2026-06-14 — see fare watch below.)* |
+| **Air (Lyons)** | 🔴 NOT BOOKED | ATL→MIA Dec 27 / LAX→ATL Jan 14 — coordinate (WF-17) |
+| **Hotel (pre/post)** | 🔴 NOT BOOKED | Miami Dec 27–29 (2 nights pre-cruise); LA Jan 14 if late flights |
+| **Transfers** | 🔴 NOT PLANNED | Hotel→Port of Miami Dec 29; Port of LA→airport Jan 14 |
 | **Excursions** | ⏳ OPENS JUN 2 | 8 intl ports + Panama transit. Pre-research critical. |
 | **Dining** | ⏳ PENDING | Culinary classes open Aug 31; specialty dining open Sep 30 |
 | **Documents** | 🔴 GUEST REG INCOMPLETE | Both John & Susan guest registration NOT COMPLETE — required before Dec 8 check-in. Passport validity through Jul 14, 2027. |
@@ -77,6 +77,32 @@ No financial conflict — dossier frontmatter, lifecycle doc, and spec all agree
 | 4 | **Excursions open Jun 2** — pre-research done, book opening day | A2 Dembe / Commander | Jun 2 |
 | 5 | **Air — both legs + Lyons** — Dec holiday fare pressure, fare watches live | A2 Dembe / A5 Viper | Jun–Jul sweet spot |
 | 6 | **Coordinate Lyons** ATL flights + shared logistics (Lyons comms = WF-17) | Hale / Dani | before Dec |
+
+---
+
+## ✈️ FARE WATCH — Priced 2026-06-14 (lastminute.com, 2 adults)
+
+### COS → MIA · Dec 27
+| Option | Depart | Arrive | Duration | Stops | Price (2 pax) | Per person |
+|--------|--------|--------|----------|-------|--------------|-----------|
+| ⭐ Best | SW 05:25 | 14:40 | 7h 15m | 1 | **$918** | ~$459 |
+| Alt | SW 10:45 | 23:20 | 10h 35m | 1 | $930 | ~$465 |
+| Alt | SW 11:00 | 23:05 | 10h 5m | 2 | $960 | ~$480 |
+*Southwest only on this route. No nonstop COS→MIA exists. Early 05:25 dep arrives 14:40 — best option. Dec 27 holiday pressure — fares up slightly from prior $416pp watch.*
+
+### IAD → MIA · Dec 27
+| Option | Depart | Arrive | Duration | Stops | Price (2 pax) | Per person |
+|--------|--------|--------|----------|-------|--------------|-----------|
+| ⏳ Pending | — | — | — | — | — | — |
+*lastminute.com = 0 results (confirmed coverage gap — US domestic route). ITA Matrix search armed (loucks-grandeur-iad-mia-2026) — price populates on next overnight poll. United nonstop daily IAD→MIA ~2h50m; Frontier also nonstop. Expect ~$150–250pp economy Dec 27. Check united.com directly for quote now.*
+
+### LAX → COS · Jan 14 (return)
+| Option | Depart | Arrive | Duration | Stops | Price (2 pax) | Per person |
+|--------|--------|--------|----------|-------|--------------|-----------|
+| ⭐ Best | LGB 14:55 | COS 19:45 | 3h 50m | 1 | **$371** | ~$186 |
+| Alt | LAX 14:40 | COS 19:45 | 4h 5m | 1 | $394 | ~$197 |
+| Alt | LAX 07:35 | COS 12:45 | 4h 10m | 1 | $394 | ~$197 |
+*Southwest dominates COS returns. LGB (Long Beach) often cheaper than LAX proper — same Southwest network. Early morning 07:35 gets home by 12:45 day of disembarkation.*
 
 ---
 
