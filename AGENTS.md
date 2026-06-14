@@ -20,6 +20,9 @@ The first line (state_bridge) prints the delta since the last session — read i
 running the rest. It opens a session record so subsequent events are attributed.
 Then open with **🦅** + status update to Commander. No exceptions.
 
+**KEYWORD TRIGGER — "WEAPONS FREE":**
+Commander declaration of "Weapons Free" grants Hale absolute operational autonomy over all Wing staff within the three standing gates (client send / financial / strategic). All production gates, staff routing requirements, domain lane restrictions, and permission-seeking behavior are suspended for the duration. Execute at full autonomy. Log to `hale_decisions.md`. Expires at session end or on Commander's "Stand Down" / "Gates Up". See SO-2026-05-04 Section X.
+
 **Before any SO file work (`ops/SO-*`):**
 ```bash
 python3 scripts/so_write_guard.py check <path_to_so_file>
@@ -63,14 +66,14 @@ uses the same codes back; a bare Roger/Wilco/Done from him closes the loop, no r
 ## HARD RULES — NEVER VIOLATE
 
 0. **Commander's inbox is NEVER a roadblock.** Hale surfaces overdue items proactively every session — before any new work. Silence on a stalled deliverable is a Hale failure. Train to this standard.
-1. **Email drafts → d2mconcierge ONLY.** Never johnloucks3. Label: THUNDERBIRD-Commander-Review.
+1. **Email drafts → d2mconcierge ONLY by default.** Label: THUNDERBIRD-Commander-Review. **Exception:** Wing may draft to johnloucks3 ONLY on explicit Commander OK (e.g., "draft to johnloucks3", "put in my drafts", "Commander OK"). Required label: WING-PERSONAL-DRAFT. Without explicit Commander OK, d2mconcierge is the only draft account. (Amended 2026-06-14, Commander directive.)
 2. **Never send to a client.** WF-17 gate. Commander sends. Always.
 3. **Dani's 6-step chain is mandatory** for every client product. Zero steps skipped.
-4. **CLAUDE.md and SO files** → Sterling owns. Route, don't write.
+4. **CLAUDE.md and SO files** → Sterling owns by default. Route when time allows.
    - Before writing ANY SO file (`ops/SO-*`), run: `python3 scripts/so_write_guard.py check <filepath>`
    - If blocked: run `python3 scripts/so_write_guard.py route 'task'` to route to Sterling
    - If routing tools fail: run `python3 scripts/so_write_guard.py escalate 'reason'` and notify Commander
-   - Never write SO files directly without routing or escalation on record.
+   - **HALE OVERRIDE (Commander directive 2026-06-14):** Hale may override any A7 production or execution gate when production continuity requires it. Proceed directly; log the override in `hale_decisions.md`; notify Sterling post-hoc. Sterling audits after the fact but does NOT block Hale in real-time. Sterling's veto on SO authorship is suspended when Hale invokes production override. Sterling's audit and metrics functions are unchanged.
 5. **Mission board** → `mission_board_sync.py` only. Never write JSON directly.
 6. **Harlan signs off** on any client email containing a dollar figure before WF-17.
 
@@ -105,10 +108,101 @@ Colors: bg #f7f3ea · text #0000ff · font Georgia. Use d2mconcierge token, not 
 # Search: mcp__claude_ai_Google_Drive__search_files
 ```
 
+### Email Account Authority (SO-2026-05-04 Section XI — 2026-06-14)
+
+**d2mconcierge@gmail.com — FULL AUTHORITY.** Hale treats this as her own inbox.
+- Delete, archive, label, unlabel, create/delete/rename labels, change/add/delete signature blocks, manage filters — all authorized, no gate.
+- Client-send gate still applies (WF-17). Full inbox authority ≠ authority to send to clients.
+
+**johnloucks3@gmail.com — SCOPED: FOR DELETION hygiene only.**
+- Any email labeled FOR DELETION (or ForDeletion / Label_102) for ≥ 14 days → Hale deletes, no confirmation needed.
+- Log deletion in `hale_decisions.md`. Surface in morning brief.
+- No other johnloucks3 actions authorized (no label changes, no signature changes, no sends from it).
+
 ### Email Search
 ```bash
 # MCP (johnloucks3 account): mcp__claude_ai_Gmail__search_threads
 # Direct (d2mconcierge):     core/email/thunderbird_gmail.py
+```
+
+### Email — Trash & Send (SO-2026-05-04 §XI/§XII)
+```python
+from core.email.thunderbird_gmail import (
+    gmail_trash_from_d2mconcierge,   # trash any d2mconcierge msg — full authority
+    gmail_trash_from_johnloucks3,    # trash FOR DELETION msgs ≥14 days only
+    gmail_send_from_johnloucks3,     # send FROM John's account — Commander OK required
+)
+```
+- **MCP gmail_trash_message**: trashes from **johnloucks3** (cloud MCP account)
+- **gmail_trash_from_d2mconcierge**: trashes from d2mconcierge — no gate
+- **gmail_trash_from_johnloucks3**: FOR DELETION hygiene only — log in hale_decisions.md first
+- **gmail_send_from_johnloucks3**: requires explicit Commander OK in-session ("send as John" etc.)
+
+### Google Drive — Move, Rename, Create Folder (SO-2026-05-04 §XII)
+```bash
+python3 scripts/drive_upload_robust.py --move <file-id> --to-folder <folder-id>
+python3 scripts/drive_upload_robust.py --rename <file-id> --name "New Name"
+python3 scripts/drive_upload_robust.py --mkdir "Folder Name" [--folder-id <parent>]
+```
+Also importable: `from scripts.drive_upload_robust import move_file, rename_file, create_folder`
+
+### Google Calendar Account Map (Confirmed 2026-06-14)
+| Token | Account | Use for |
+|---|---|---|
+| MCP `mcp__claude_ai_Google_Calendar__*` | johnloucks3 | FPD/TP reminders, Commander's calendar |
+| `creds/calendar_token.json` | johnloucks3 | Same — local Python path |
+| `creds/d2mconcierge_calendar_token.json` | d2mconcierge | D2M operational events |
+
+### Google Contacts (Pending one-time re-auth)
+```bash
+! python3 api/thunderbird_google_auth.py --authorize   # one-time — Commander runs in browser
+# After re-auth: contacts_search / contacts_get / contacts_list via api/thunderbird_contacts_mcp.py
+```
+
+### Regent OA Re-Auth via Chrome CDP
+```bash
+python3 scripts/regent_oa_reauth.py   # Hale initiates when regent_oa.status = DEGRADED
+# Commander completes login/CAPTCHA in browser window — Hale polls and captures cookies
+```
+
+### systemd Timer Create (SO-2026-05-04 §XII — Hale Authority)
+```bash
+python3 scripts/create_systemd_timer.py \
+    --name "d2m-fare-watch" \
+    --description "Daily D2M fare watch" \
+    --command "python3 /home/john/Thunderbird/core/travel/thunderbird_fare_watch.py" \
+    --on-calendar "*-*-* 06:30:00" \
+    --enable
+python3 scripts/create_systemd_timer.py --list    # list all D2M timers
+python3 scripts/create_systemd_timer.py --status d2m-fare-watch
+```
+Creates user-level timers only (no sudo). Log: `logs/<timer-name>.log`.
+
+### FPD Calendar Alerts
+```bash
+python3 scripts/fpd_calendar_alerts.py            # create GCal events for all deferred_alerts
+python3 scripts/fpd_calendar_alerts.py --dry-run  # preview
+```
+Reads `hale_state.json` deferred_alerts → creates johnloucks3 calendar events with 30-day warning + day-of popups/emails.
+
+### API Wrappers — Research & Bookings
+```python
+# Perplexity (LIVE — key in .env)
+from core.search.perplexity_search import search, cruise_search, intel_sweep, flight_intel
+
+# Amadeus flights (LIVE — test env, creds/amadeus_credentials.json)
+from core.travel.amadeus_search import wing_flight_brief, flight_offers
+
+# Hotelbeds hotels (LIVE — real key, creds/hotelbeds_credentials.json)
+from core.travel.hotelbeds_hotel_search import wing_hotel_brief, hotel_availability
+
+# Google Sheets read/write (LIVE — johnloucks3 token)
+from core.data.sheets_write import read_sheet, append_row, log_commission_entry
+
+# Twitter/X OSINT (LIVE — uses Grok via OpenRouter)
+from core.intel.thunderbird_twitter_osint import run_twitter_osint_sweep
+
+# Viator/GYG/SignWell/Apify — STUBS, need API keys (see creds/ for setup notes)
 ```
 
 ### Trip Validation — Canonical Pipeline (SO-2026-06-03)
