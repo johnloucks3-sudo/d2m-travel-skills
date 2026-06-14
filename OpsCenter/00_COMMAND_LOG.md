@@ -798,3 +798,18 @@ Hale Routing: Task 'null' assigned to claude-3-opus-20240229
 - **[Mon Jun 08 01:46:35 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-06-08 01:45 MT ───────────────────
 - **[Tue Jun 09 01:46:21 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-06-09 01:45 MT ───────────────────
 - **[Wed Jun 10 01:46:29 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-06-10 01:45 MT ───────────────────
+- **[Thu Jun 11 01:47:00 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-06-11 01:46 MT ───────────────────
+- **[Fri Jun 12 01:52:44 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-06-12 01:46 MT ───────────────────
+- **[Sat Jun 13 01:47:00 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-06-13 01:46 MT ───────────────────
+- **[Sun Jun 14 01:47:06 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-06-14 01:46 MT ───────────────────
+- **[Sun Jun 14 03:27:51 PM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-06-14 15:27 MT ───────────────────
+- **[Sun Jun 14 03:29:27 PM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-06-14 15:28 MT ───────────────────
+- **[Sun Jun 14 03:31:22 PM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-06-14 15:30 MT ───────────────────
+
+---
+**2026-06-14 — AUTO-RELAY POST-COMMIT HOOK (Commander directive)**
+Rule: after every git commit, Wing auto-relays `[POST-COMMIT] hash: msg | stat | author` to OC relay queue.
+Hook: `.git/hooks/post-commit` → `relay_send.py --from CC --to OC`
+Log: `logs/relay_hook.log`
+Purpose: OC always knows what CC committed — no siloed changes.
+Both CC and OC are bound: same hook applies when OC commits (OC's post-commit should mirror this via AGENTS.md).

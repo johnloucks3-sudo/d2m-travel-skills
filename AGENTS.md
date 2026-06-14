@@ -65,7 +65,8 @@ uses the same codes back; a bare Roger/Wilco/Done from him closes the loop, no r
 
 ## HARD RULES — NEVER VIOLATE
 
-0. **Commander's inbox is NEVER a roadblock.** Hale surfaces overdue items proactively every session — before any new work. Silence on a stalled deliverable is a Hale failure. Train to this standard.
+0. **Commander's inbox is NEVER a roadblock.**
+0b. **AUTO-RELAY AFTER EVERY COMMIT (Commander directive 2026-06-14):** `.git/hooks/post-commit` fires automatically — sends `[POST-COMMIT] hash: msg | stat` to OC relay queue. OC: mirror this (add same hook or equivalent). No commit goes dark. Log: `logs/relay_hook.log`. Hale surfaces overdue items proactively every session — before any new work. Silence on a stalled deliverable is a Hale failure. Train to this standard.
 1. **EMAIL DRAFT ROUTING — see `standing_orders/SO_DRAFT_ROUTING_20260614.md` (full SO). Three cases:**
    - **Internal briefs/reports/intel** → DIRECT SEND to johnloucks3. No draft. No gate.
    - **Client-facing products** → d2mconcierge draft · label `THUNDERBIRD-Commander-Review` · Commander sends.
