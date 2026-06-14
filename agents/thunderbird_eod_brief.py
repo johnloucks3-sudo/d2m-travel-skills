@@ -21,14 +21,22 @@ Lock file: OpsCenter/eod_sent_YYYYMMDD.lock (MT date)
 
 import argparse
 import base64
+import functools
 import json
 import logging
 import os
+import socket
 import sys
+import time
 from datetime import datetime, timedelta, timezone
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from pathlib import Path
+
+try:
+    import httplib2
+except ImportError:
+    httplib2 = None
 
 # ---------------------------------------------------------------------------
 # BOOTSTRAP
@@ -585,11 +593,51 @@ def build_html_eod_brief(
 # SEND — separate from AM brief to protect AM brief's feedback-config chain
 # ---------------------------------------------------------------------------
 
+def _retry_on_transient(max_attempts: int = 3, base_delay: float = 2.0):
+    """Decorator: retry on transient Gmail API / network failures.
+
+    Catches DNS failures, network timeouts, and temporary API errors.
+    Uses exponential backoff: 2s, 4s, 8s.
+    """
+    def decorator(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            last_exception = None
+            for attempt in range(1, max_attempts + 1):
+                try:
+                    return func(*args, **kwargs)
+                except (socket.gaierror, TimeoutError, OSError) as e:
+                    last_exception = e
+                    if attempt < max_attempts:
+                        delay = base_delay * (2 ** (attempt - 1))
+                        logger.warning(
+                            f"Transient error on attempt {attempt}/{max_attempts}: {type(e).__name__}: {e}. "
+                            f"Retrying in {delay}s..."
+                        )
+                        time.sleep(delay)
+                    else:
+                        logger.error(
+                            f"Final attempt {attempt}/{max_attempts} failed: {type(e).__name__}: {e}"
+                        )
+                except Exception as e:
+                    # Non-transient errors (auth, quota, malformed request) — fail immediately
+                    logger.error(f"Non-transient error (no retry): {type(e).__name__}: {e}")
+                    raise
+            # If we exhausted retries, raise the last transient exception
+            if last_exception:
+                raise last_exception
+        return wrapper
+    return decorator
+
+
+@_retry_on_transient(max_attempts=3, base_delay=2.0)
 def _send_eod_brief(subject: str, html_body: str) -> dict:
     """Send EOD brief via d2mconcierge persona token to Commander inbox.
 
     Intentionally separate from _send_brief in thunderbird_daily_brief.py
     to avoid clobbering last_brief_message_id used for AM feedback-reply tracking.
+
+    Retries transient network/DNS failures up to 3 times with exponential backoff.
     """
     from thunderbird_google_auth import get_persona_gmail
 
