@@ -53,6 +53,10 @@ except Exception:
 CFG = ROOT / "data" / "fare_watches.json"
 SPACING_S = 75          # space polls to stay under ITA's rate limit
 RENDER_WAIT_S = 180     # let the matrix compute — observed 2-5min in headless (was 24, too short)
+# Limit watches per supertimer run: 7 watches × 3 min = 28 min >> 600s task timeout.
+# Rotate through MAX_PER_RUN watches each run; all 7 covered every ~4 runs (24h at 6h interval).
+MAX_PER_RUN = 2
+_ROTATION_FILE = ROOT / "logs" / "ita_fare_watch_rotation.json"
 ALERT_BAND = 0.10       # ±10% auto bands when seeding
 
 
@@ -104,12 +108,29 @@ async def poll_url(url):
 async def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--id"); ap.add_argument("--brief", action="store_true")
+    ap.add_argument("--all", action="store_true", help="poll all watches (ignores MAX_PER_RUN)")
     args = ap.parse_args()
 
     doc, cont, mode = load()
     ita = [w for w in watches(cont)
            if isinstance(w, dict) and w.get("provider") == "ITA" and w.get("ita_url")
            and (not args.id or w.get("id") == args.id)]
+
+    # Rotate through MAX_PER_RUN watches per supertimer run to stay under timeout.
+    if not args.id and not args.all and len(ita) > MAX_PER_RUN:
+        try:
+            rot = json.loads(_ROTATION_FILE.read_text()) if _ROTATION_FILE.exists() else {}
+        except Exception:
+            rot = {}
+        start = rot.get("next_index", 0) % len(ita)
+        ita_selected = (ita[start:] + ita[:start])[:MAX_PER_RUN]
+        next_start = (start + len(ita_selected)) % len(ita)
+        try:
+            _ROTATION_FILE.write_text(json.dumps({"next_index": next_start}))
+        except Exception:
+            pass
+        print(f"[rotation] polling {len(ita_selected)}/{len(ita)} watches (idx {start}→{next_start})")
+        ita = ita_selected
 
     report = []
     for i, w in enumerate(ita):

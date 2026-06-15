@@ -3,12 +3,12 @@
     "ops_bot": {
       "interval_sec": 60,
       "timeout_sec": 120,
-      "description": "Heartbeats, watchdogs, blackboard sync — pulse of the wing",
+      "description": "Heartbeats, watchdogs, blackboard sync \u2014 pulse of the wing",
       "script": "supertimer/bots/ops_bot.py"
     },
     "comms_bot": {
       "interval_sec": 120,
-      "timeout_sec": 300,
+      "timeout_sec": 360,
       "description": "Commander directive sweep, inbox hygiene, email intel",
       "script": "supertimer/bots/comms_bot.py"
     },
@@ -20,7 +20,7 @@
     },
     "client_bot": {
       "interval_sec": 300,
-      "timeout_sec": 420,
+      "timeout_sec": 650,
       "description": "Lifecycle, dossier freshness, touchpoints, fare watch, booking monitor",
       "script": "supertimer/bots/client_bot.py"
     },
