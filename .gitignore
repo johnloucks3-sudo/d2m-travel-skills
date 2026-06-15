@@ -102,6 +102,13 @@ config/portal_creds.json
 config/monitor_state.json
 .gstack/
 
+# ── SECURITY 2026-06-15 — Telegram Credentials (MISSION-245 Rotation) ────────
+# Explicit coverage for telegram_gw.env in all locations (tokens revoked 2026-06-15)
+# Live credentials stored in /home/john/.telegram_gw_live.env (not in repo)
+config/telegram_gw.env
+.claude/worktrees/**/config/telegram_gw.env
+.telegram_gw_live.env
+
 # Backup and temp files
 *.backup.*
 *.bak.*
@@ -121,3 +128,19 @@ infra/itinerary_passwords.txt
 state/**/cookies*
 state/**/*.sqlite*
 *.sqlite-wal
+
+# ── SECURITY 2026-06-15 — history-scrub lockout (deleted from history; never re-add) ──
+config/portal_creds.json
+config/roboform_*.txt
+infra/itinerary_passwords.txt
+scratch/
+state/**/cookies*
+state/**/*.sqlite*
+.service_account_gemini.json
+OpsCenter/.claude_oauth_cache
+OpsCenter/context_haluyoda.json
+cache/client_context/loucks_context.json
+scripts/termius_termux_setup.md
+data/qdrant_storage/
+backup_staging/
+OpsCenter/task_queue.db
