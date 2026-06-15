@@ -150,8 +150,15 @@ def _scan_one_dossier(filepath: Path, today: datetime) -> List[Alert]:
 
     if fpd_date:
         days_until = (fpd_date - today).days
+        # Payment-made detection — must match the frontmatter forms too, or PAID clients
+        # get flagged "FPD OVERDUE" forever. (Fixed 2026-06-15: 'paid_in_full' underscores,
+        # 'Final Payment Made', and pro-bono were all being missed.)
         payment_confirmed = bool(re.search(
-            r"(PAYMENT\s+(CONFIRMED|PROCESSED|COMPLETE|PAID))|(\bPAID IN FULL\b)",
+            r"(PAYMENT\s+(CONFIRMED|PROCESSED|COMPLETE|PAID|MADE))"
+            r"|(PAID[_ ]IN[_ ]FULL)"
+            r"|(PAYMENT[_ ]STATUS[:\s]+PAID)"
+            r"|(FINAL PAYMENT[^\n]{0,40}(MADE|PAID|✅))"
+            r"|(PRO[_ ]BONO)",
             text_upper,
         ))
         if not payment_confirmed:

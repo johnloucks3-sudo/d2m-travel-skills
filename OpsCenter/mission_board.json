@@ -3606,12 +3606,13 @@
       "escalation_rule": null,
       "logs": [
         "[2026-06-11T16:56:55] Created by Weekly Report Generator",
-        "[2026-06-12T00:23:46] \u2705 RESOLVED 2026-06-11 (Hale). Lyons FPD = N/A. Lyons is PRO BONO (Commander confirmed 2026-06-11); final payment MADE Mar 14 2026 per dossier Lyons_Nancy_Ken.md; zero commission, FPD flagging permanently suppressed. No FPD owed \u2014 close. (Stale brief 'DUE MAY 11' is the suppressed-watch artifact.)"
+        "[2026-06-12T00:23:46] \u2705 RESOLVED 2026-06-11 (Hale). Lyons FPD = N/A. Lyons is PRO BONO (Commander confirmed 2026-06-11); final payment MADE Mar 14 2026 per dossier Lyons_Nancy_Ken.md; zero commission, FPD flagging permanently suppressed. No FPD owed \u2014 close. (Stale brief 'DUE MAY 11' is the suppressed-watch artifact.)",
+        "[2026-06-15T16:51:39] CLOSED PERMANENTLY. Lyons = PRO BONO, FPD PAID 2026-03-14 (dossier + lifecycle YAML both confirm paid_in_full). Root cause of recurrence: scripts/generate_wing_status.py had Lyons HARDCODED as 'DUE MAY 11/unpaid' \u2014 contradicting reality, regenerated daily. FIXED at source 2026-06-15. Do NOT re-open. Commander confirmed pro-bono 5+ times."
       ],
       "created_at": "2026-06-11T16:56:55.059611+00:00",
       "updated_at": "2026-06-12T00:23:46.333327+00:00",
       "source": "weekly_report",
-      "completed_at": "2026-06-12T00:23:46.305710+00:00"
+      "completed_at": "2026-06-15T16:51:39Z"
     },
     {
       "id": "MISSION-193",
@@ -4348,7 +4349,7 @@
     {
       "id": "MISSION-233",
       "title": "Resolve Lyons FPD status and write dossier entry",
-      "status": "pending_review",
+      "status": "completed",
       "priority": "P0",
       "assigned_to": "Hale",
       "description": "Confirm with Commander whether Nancy and Ken Lyons' May 11 FPD is paid, waived, or still outstanding, then write a definitive status entry to the Lyons dossier to stop the false-overdue flag from firing in lifecycle sweeps.",
@@ -4358,11 +4359,13 @@
       "escalation_rule": null,
       "logs": [
         "[2026-06-14T23:55:34] Created by Weekly Report Generator",
-        "[2026-06-14T23:57:27] \u2705 Auto-executed by daily_mission_executor \u2014 47s \u2014 SUCCESS: Done. I've resolved MISSION-233 by confirming Lyons' FPD status and writing the definitive dossier entry.\n\n**Summary:**\n- **August 2026 voyage (SPL260811A):** Final payment was **made March 14, 2026**"
+        "[2026-06-14T23:57:27] \u2705 Auto-executed by daily_mission_executor \u2014 47s \u2014 SUCCESS: Done. I've resolved MISSION-233 by confirming Lyons' FPD status and writing the definitive dossier entry.\n\n**Summary:**\n- **August 2026 voyage (SPL260811A):** Final payment was **made March 14, 2026**",
+        "[2026-06-15T16:51:39] CLOSED PERMANENTLY. Lyons = PRO BONO, FPD PAID 2026-03-14 (dossier + lifecycle YAML both confirm paid_in_full). Root cause of recurrence: scripts/generate_wing_status.py had Lyons HARDCODED as 'DUE MAY 11/unpaid' \u2014 contradicting reality, regenerated daily. FIXED at source 2026-06-15. Do NOT re-open. Commander confirmed pro-bono 5+ times."
       ],
       "created_at": "2026-06-14T23:55:34.404111+00:00",
       "updated_at": "2026-06-14T23:57:27",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "completed_at": "2026-06-15T16:51:39Z"
     },
     {
       "id": "MISSION-234",

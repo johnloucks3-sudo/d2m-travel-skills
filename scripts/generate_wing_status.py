@@ -51,12 +51,15 @@ CLIENTS = [
         "name": "Lyons, Nancy & Ken",
         "ship": "Regent Splendor · Athens→NY",
         "departure": "2026-08-11",
-        "phase": "MOMENTUM",
-        "fpd_status": "DUE MAY 11",
-        "fpd_paid": False,
-        "fpd_due": "2026-05-11",
-        "open": ["FPD due May 11", "flights TBD", "Athens hotel TBD"],
-        "owner": "Commander → Lyons",
+        "phase": "PRO BONO — advisory only",
+        # PRO BONO / friend service. FPD PAID 2026-03-14 (booked via Pavlus, D2M does not touch booking).
+        # Commander confirmed pro-bono 5+ times — NEVER flag FPD/payment/commission for Lyons. (Fixed 2026-06-15)
+        "fpd_status": "PAID (pro bono)",
+        "fpd_paid": True,
+        "fpd_due": None,
+        "open": [],
+        "owner": "Commander (friend service)",
+        "probono": True,
         "cancelled": False,
     },
     {
@@ -66,8 +69,8 @@ CLIENTS = [
         "phase": "PRE-DEPARTURE",
         "fpd_status": "PAID $15,486",
         "fpd_paid": True,
-        "open": ["insurance pending"],
-        "owner": "A9→A3",
+        "open": ["flights TBD"],
+        "owner": "A3",
         "cancelled": False,
     },
     {
@@ -77,7 +80,7 @@ CLIENTS = [
         "phase": "PRE-DEPARTURE",
         "fpd_status": "PAID",
         "fpd_paid": True,
-        "open": ["insurance on file (review)", "flights TBD"],
+        "open": ["flights TBD"],
         "owner": "A3",
         "cancelled": False,
     },
@@ -99,8 +102,9 @@ CLIENTS = [
         "phase": "RESEARCH",
         "fpd_status": "PAID $21,244",
         "fpd_paid": True,
-        "open": ["validation email (~OVERDUE)", "insurance email (~OVERDUE)",
-                 "Josh Morton guest form (~OVERDUE)", "air fare watch (A2)", "hotel search (A2)"],
+        "open": ["air fare watch (A2, Jun 17)", "hotel 3+3 search (A2, Jun 17)",
+                 "validation email (HOLD → Jul 15)", "insurance email (HOLD → Jul 15)",
+                 "Josh Morton guest form (HOLD → Jul 15)"],
         "owner": "A6→A9→A3",
         "cancelled": False,
     },
@@ -111,7 +115,7 @@ CLIENTS = [
         "phase": "CANCELLED",
         "fpd_status": "CANCELLED",
         "fpd_paid": False,
-        "open": ["Allianz claim $11,280 pending", "contact Perx+SkyLux (awaiting Commander confirm)"],
+        "open": ["CLOSED 2026-06-13 — Allianz claim is Ron's personal matter (Commander directive)"],
         "owner": "COS",
         "cancelled": True,
         "cancel_note": "Medical emergency 2026-04-20 · Booking 566904-25",
@@ -119,29 +123,30 @@ CLIENTS = [
 ]
 
 # ─── Overdue actions (manual; update when resolved) ─────────────────────────
-# MANUAL — remove entries when resolved; add when new overdue items surface
+# HOLDS in effect (see hale_state.json project_tracking + hale_decisions.md):
+#   Kuklinski all emails → HOLD until 2026-07-15 (Commander directive 2026-06-12)
+#   McLeod all lifecycle → HOLD until 2026-07-07 (Commander directive 2026-06-13)
+# REMOVE hold entries from here; restore when holds lift on those dates.
 OVERDUE = [
-    {"item": "Validation/Welcome email",          "client": "Kuklinski", "days": None, "owner": "A6→A9→A3"},
-    {"item": "Insurance email (pre-existing waiver window)", "client": "Kuklinski", "days": None, "owner": "A9→A3"},
-    {"item": "Josh Morton guest form",            "client": "Kuklinski", "days": None, "owner": "A3 → Josh"},
-    {"item": "Silversea cancel booking 566904-25","client": "Westbrook", "days": 0,    "owner": "COS — awaiting Commander confirm"},
+    {"item": "Silversea cancel booking 566904-25","client": "Westbrook", "days": 0, "owner": "COS — awaiting Commander confirm"},
 ]
 
 # ─── Next-30-day items ────────────────────────────────────────────────────────
 # MANUAL — roll forward as items complete or new deadlines emerge
 NEXT_30 = [
-    {"item": "FPD payment (amount TBD)",   "client": "Lyons",           "due": "May 11", "owner": "Commander → Lyons"},
-    {"item": "Loucks Japan voyage active", "client": "Loucks (personal)","due": "Apr 23–May 11", "owner": "Commander aboard"},
+    {"item": "Kuklinski air fare watch + hotel 3+3 search", "client": "Kuklinski", "due": "Jun 17", "owner": "A2 Dembe"},
+    {"item": "McLeod lifecycle + FPD contact ($11,943)",    "client": "McLeod",     "due": "Jul 7",  "owner": "Hale"},
+    {"item": "Kuklinski emails reactivation (all)",         "client": "Kuklinski",  "due": "Jul 15", "owner": "Hale"},
+    {"item": "Loucks Grandeur FPD $24,798",                 "client": "Loucks",     "due": "Aug 1",  "owner": "Commander pays"},
 ]
 
 # ─── Staff assignments ────────────────────────────────────────────────────────
 # MANUAL — update when task load shifts between sessions
 STAFF = [
-    {"name": "A2 Dembe (Wraith)", "workload": "Kuklinski air/hotel search, Panama Canal research"},
-    {"name": "A3 Dani",           "workload": "Kuklinski emails (overdue), Lyons FPD follow-up, McLeod pre-trip"},
-    {"name": "A6 Luna",           "workload": "Kuklinski validation email copy (draft)"},
-    {"name": "A9 Harlan",         "workload": "Kuklinski insurance email, commission tracking"},
-    {"name": "COS Hale",          "workload": "Westbrook cancellation, Lyons FPD escalation"},
+    {"name": "A2 Dembe (Wraith)", "workload": "Kuklinski air/hotel search (Jun 17 delivery), Panama Canal research"},
+    {"name": "A3 Dani",           "workload": "Kuklinski emails HOLD until Jul 15"},
+    {"name": "A9 Harlan",         "workload": "Commission tracking, Loucks FPD Aug 1 watch"},
+    {"name": "COS Hale",          "workload": "Westbrook cancellation pending; McLeod/Kuklinski holds monitoring"},
 ]
 
 # ─── System health (read from hale_state.json if available) ──────────────────
@@ -169,6 +174,32 @@ def load_system_health():
         return DEFAULT_SYS
 
 
+def load_keepalive_health():
+    """Read OpsCenter/keepalive_health.json (MISSION-211 supervisor output).
+
+    Returns (status_line, escalation_lines). Fully defensive — a missing or
+    malformed file never breaks the brief; it just yields an UNKNOWN line.
+    """
+    kh_path = "/home/john/Thunderbird/OpsCenter/keepalive_health.json"
+    try:
+        with open(kh_path) as f:
+            kh = json.load(f)
+        overall = kh.get("overall_status", "UNKNOWN")
+        c = kh.get("counts", {})
+        gen = kh.get("generated_mt", "?")
+        flag = {"GREEN": "🟢", "YELLOW": "🟡", "RED": "🔴", "UNKNOWN": "⚪"}.get(overall, "⚪")
+        status_line = (f"{flag} {overall} "
+                       f"(G{c.get('GREEN',0)}/Y{c.get('YELLOW',0)}/"
+                       f"R{c.get('RED',0)}/U{c.get('UNKNOWN',0)}) · {gen}")
+        esc_lines = []
+        for e in kh.get("escalations", []) or []:
+            esc_lines.append(f"- ⚠️ **{e.get('credential','?')}** needs re-auth: "
+                             f"`{e.get('command','(no command)')}`")
+        return status_line, esc_lines
+    except Exception:
+        return "⚪ UNKNOWN (keepalive_health.json not readable)", []
+
+
 def days_overdue(due_date_str: str) -> int:
     """Return days since due_date (positive = overdue)."""
     try:
@@ -193,14 +224,13 @@ def build_hale_brief(sys_health: dict) -> str:
         "|------|--------|-----------|-------|",
     ]
 
-    # Compute days overdue for Kuklinski items
-    kuklinski_overdue = [
-        {"item": "Validation/Welcome email",  "client": "Kuklinski", "days_over": "~58d",  "owner": "A6→A9→A3"},
-        {"item": "Insurance email (pre-existing waiver window)", "client": "Kuklinski", "days_over": "~41d", "owner": "A9→A3"},
-        {"item": "Josh Morton guest form",    "client": "Kuklinski", "days_over": "~58d",  "owner": "A3 → Josh"},
-        {"item": "Silversea cancel booking 566904-25", "client": "Westbrook", "days_over": "TODAY", "owner": "COS — **awaiting Commander confirm**"},
-    ]
-    for o in kuklinski_overdue:
+    # HOLDS / CLOSED (Commander directives — see hale_decisions.md for dates):
+    #   Kuklinski all emails → HOLD Jul 15 (2026-06-12)
+    #   McLeod all lifecycle → HOLD Jul 7  (2026-06-13)
+    #   Westbrook → CLOSED   (2026-06-13) — Allianz claim is Ron's personal matter
+    #   Lyons → CLOSED until Aug (2026-06-14) — FPD paid, reactivate Jul 25 (T-14)
+    active_overdue = []  # nothing overdue — update when new items surface
+    for o in active_overdue:
         lines.append(f"| {o['item']} | {o['client']} | {o['days_over']} | {o['owner']} |")
 
     lines += [
@@ -253,8 +283,8 @@ def build_hale_brief(sys_health: dict) -> str:
         "- **Active search windows:** Air (A2, open now), Hotel pre/post (A2, open now)",
         "- **Excursion window opens:** Aug 2, 2026 (Viking portal)",
         "- **Dining window opens:** Sep 18, 2026 (T-90)",
-        "- **Critical overdue:** Validation email, insurance email, Josh guest form",
-        "- **Next scheduled delivery:** Air fare watch — Jun 17; Hotel 3+3 search — Jun 17",
+        "- **ON HOLD until Jul 15:** Validation email, insurance email, Josh guest form (Commander directive 2026-06-12)",
+        "- **Next delivery:** Air fare watch — Jun 17; Hotel 3+3 search — Jun 17",
         "",
         "---",
         "",
@@ -287,6 +317,17 @@ def build_hale_brief(sys_health: dict) -> str:
     ]
     for svc, status in sys_health.items():
         lines.append(f"| {svc} | {status} |")
+
+    # MISSION-211 — keepalive supervisor health + any human re-auth escalations.
+    ka_status, ka_esc = load_keepalive_health()
+    lines.append(f"| Keepalive supervisor | {ka_status} |")
+    if ka_esc:
+        lines += [
+            "",
+            "### 🔑 CREDENTIAL RE-AUTH NEEDED (keepalive supervisor)",
+            "",
+        ]
+        lines += ka_esc
 
     lines += [
         "",
