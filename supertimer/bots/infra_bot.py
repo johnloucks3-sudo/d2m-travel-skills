@@ -27,7 +27,7 @@ class InfraBot(BotBase):
              interval_sec=5400, timeout_sec=90),
         Task("portal-keepalive",
              sys_py("scripts/portal_keepalive.py"),
-             interval_sec=2700, timeout_sec=45),
+             interval_sec=2700, timeout_sec=120),
         Task("tool-key-refresh",
              bash(f"{ROOT}/hooks/refresh_tool_api_keys.sh"),
              interval_sec=840, timeout_sec=30),

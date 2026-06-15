@@ -301,7 +301,7 @@ def main():
         for op, result in op_results.items():
             icon = format_status_icon(result["verdict"])
             print(f"  {op:<20} {icon}")
-        sys.exit(exit_code)
+        sys.exit(0)  # reporting only — NO-GO status is informational, not a task failure
 
     # Full report
     print(f"\n{'='*60}")

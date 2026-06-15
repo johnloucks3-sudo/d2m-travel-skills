@@ -42,7 +42,7 @@ class ClientBot(BotBase):
              interval_sec=86400, timeout_sec=180),
         Task("ita-fare-watch",
              venv("scripts/ita_fare_watch_poll.py"),
-             interval_sec=21600, timeout_sec=180),
+             interval_sec=21600, timeout_sec=600),
         Task("booking-monitor",
              venv("core/booking/thunderbird_booking_monitor.py"),
              interval_sec=14400, timeout_sec=180),

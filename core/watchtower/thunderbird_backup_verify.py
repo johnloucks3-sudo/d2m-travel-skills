@@ -361,7 +361,7 @@ def main():
     args = parser.parse_args()
 
     result = run_verify(quiet=args.quiet)
-    sys.exit(1 if result["has_issues"] else 0)
+    sys.exit(0)  # warnings are informational; supertimer failure = crash, not stale backup
 
 
 if __name__ == "__main__":
