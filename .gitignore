@@ -110,3 +110,13 @@ intel/tmp_*
 
 # Soak directories (14-day hold before rm — auto-rm 2026-06-12)
 core/*.soak_*/
+
+# ── Secrets untracked by SECURITY AUDIT 2026-06-15 (rotate + history-scrub: MISSION-242..245,264) ──
+scratch/
+config/portal_creds.json
+config/roboform_*.txt
+config/*.txt
+infra/itinerary_passwords.txt
+state/**/cookies*
+state/**/*.sqlite*
+*.sqlite-wal
