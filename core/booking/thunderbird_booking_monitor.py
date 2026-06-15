@@ -249,7 +249,8 @@ async def run(args):
     changed = 0
 
     async with async_playwright() as pw:
-        browser = await pw.chromium.launch(headless=True)
+        # Firefox: chromium_headless_shell SIGTRAP's on this OS (openSUSE); firefox stable
+        browser = await pw.firefox.launch(headless=True)
         context = await browser.new_context(
             user_agent=(
                 "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "

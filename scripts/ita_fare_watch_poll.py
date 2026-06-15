@@ -14,7 +14,7 @@ Usage:
   .venv/bin/python scripts/ita_fare_watch_poll.py --id <watch_id>
   .venv/bin/python scripts/ita_fare_watch_poll.py --brief    # print brief block only
 """
-import asyncio, json, re, sys, argparse
+import asyncio, json, re, sys, argparse, os
 from pathlib import Path
 
 # Date is injected (Date.now is unavailable in some harnesses); fall back to system.
@@ -22,6 +22,34 @@ import datetime
 TODAY = datetime.date.today().isoformat()
 
 ROOT = Path("/home/john/Thunderbird")
+
+# Lock file: abort immediately if another instance is already running.
+# Prevents concurrent Firefox spawns (which cause SIGSEGV on resource contention).
+_LOCK = ROOT / "logs" / "ita_fare_watch.lock"
+if _LOCK.exists():
+    _lock_pid = None
+    try:
+        _lock_pid = int(_LOCK.read_text().strip())
+    except Exception:
+        pass
+    _running = False
+    if _lock_pid:
+        try:
+            os.kill(_lock_pid, 0)   # signal 0 = just check existence
+            _running = True
+        except (ProcessLookupError, PermissionError):
+            pass
+    if _running:
+        print(f"SKIP: ita_fare_watch already running (PID {_lock_pid})")
+        sys.exit(0)
+    else:
+        _LOCK.unlink(missing_ok=True)  # stale lock from crashed run
+try:
+    _LOCK.write_text(str(os.getpid()))
+    import atexit
+    atexit.register(lambda: _LOCK.unlink(missing_ok=True))
+except Exception:
+    pass
 CFG = ROOT / "data" / "fare_watches.json"
 SPACING_S = 75          # space polls to stay under ITA's rate limit
 RENDER_WAIT_S = 180     # let the matrix compute — observed 2-5min in headless (was 24, too short)

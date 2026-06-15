@@ -21,7 +21,7 @@ class CommsBot(BotBase):
              interval_sec=600, timeout_sec=60),
         Task("email-intel",
              venv("core/email/thunderbird_email_intel.py", "--sweep", "--hours=1"),
-             interval_sec=3600, timeout_sec=120),
+             interval_sec=3600, timeout_sec=300),
         Task("inbox-sweep",
              venv("OpsCenter/run_inbox_sweep.py"),
              interval_sec=10800, timeout_sec=120),
