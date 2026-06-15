@@ -58,7 +58,7 @@ def _get_gemini_client():
         return _gemini_client
     try:
         from google import genai
-        api_key = os.environ.get("GOOGLE_AI_API_KEY") or os.environ.get("GEMINI_API_KEY")
+        api_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GEMINI_API_KEY")
         if not api_key:
             logger.warning("Gemini API key not set — falling back to regex classifier")
             return None

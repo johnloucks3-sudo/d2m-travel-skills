@@ -82,11 +82,11 @@ _USAGE_LOG = Path(__file__).parent / "data" / "gemini_usage.jsonl"
 # ---------------------------------------------------------------------------
 
 def _get_api_key() -> str:
-    """Return GOOGLE_AI_API_KEY from env. Raises if absent."""
-    key = os.environ.get("GOOGLE_AI_API_KEY", "")
+    """Return GEMINI_API_KEY from env. Raises if absent."""
+    key = os.environ.get("GEMINI_API_KEY", "")
     if not key:
         raise RuntimeError(
-            "GOOGLE_AI_API_KEY not set — Gemini calls are unavailable. "
+            "GEMINI_API_KEY not set — Gemini calls are unavailable. "
             "Check /home/john/Thunderbird/.env."
         )
     return key

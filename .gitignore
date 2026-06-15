@@ -96,8 +96,9 @@ credentials.json
 drive_token.json
 
 
-# Ignore Smart Environment folder
-.smart-envconfig/portal_creds.json
+# Ignore Smart Environment folder (SECURITY 2026-06-15: fixed missing newline that glued these two rules)
+.smart-env/
+config/portal_creds.json
 config/monitor_state.json
 .gstack/
 

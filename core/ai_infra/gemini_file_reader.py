@@ -153,9 +153,9 @@ Provide a structured summary of this document:
 
 
 def _get_api_key() -> str:
-    key = os.environ.get("GOOGLE_AI_API_KEY", "")
+    key = os.environ.get("GEMINI_API_KEY", "")
     if not key:
-        raise RuntimeError("GOOGLE_AI_API_KEY not set — check /home/john/Thunderbird/.env")
+        raise RuntimeError("GEMINI_API_KEY not set — check /home/john/Thunderbird/.env")
     return key
 
 

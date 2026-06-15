@@ -70,13 +70,25 @@ class AnthropicEmbeddingProvider(EmbeddingProvider):
     def __init__(self, dimension: int = 384):
         self._dimension = dimension
 
+    _fastembed_model = None  # lazy class-level cache (bge-small, 384-dim, local $0)
+
+    def _fastembed(self, text: str) -> List[float]:
+        """Local semantic embedding via FastEmbed (bge-small, 384-dim, zero API cost).
+        Replaces the retired OpenRouter embedding path (MISSION-267, 2026-06-15)."""
+        if AnthropicEmbeddingProvider._fastembed_model is None:
+            from fastembed import TextEmbedding
+            AnthropicEmbeddingProvider._fastembed_model = TextEmbedding(model_name="BAAI/bge-small-en-v1.5")
+        vec = list(next(AnthropicEmbeddingProvider._fastembed_model.embed([text[:8000]])))
+        return [float(x) for x in vec]
+
     def embed(self, text: str) -> List[float]:
-        """Generate a deterministic embedding from text.
-        
-        Uses SHA-256 hash projected to dimension via modular arithmetic.
-        Not as good as real embeddings but works for exact/near-exact recall.
-        For true semantic search, configure OPENROUTER_API_KEY for external embeddings.
+        """Generate an embedding. Order: local FastEmbed (semantic, $0) -> hash fallback.
+        OpenRouter embedding path retired 2026-06-15 (MISSION-267) in favor of local FastEmbed.
         """
+        try:
+            return self._fastembed(text)
+        except Exception as _e:
+            logger.debug(f"FastEmbed unavailable ({_e}); falling back")
         if os.environ.get("OPENROUTER_API_KEY"):
             return self._openrouter_embed(text)
         

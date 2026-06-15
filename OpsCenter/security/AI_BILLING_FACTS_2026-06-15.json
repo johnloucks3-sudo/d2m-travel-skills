@@ -1,0 +1,187 @@
+{
+  "_meta": {
+    "title": "AI / API Recurring Spend — Billing Forensics",
+    "generated": "2026-06-15",
+    "mailbox_searched": "johnloucks3@gmail.com (+ yodainva@gmail.com surfaced)",
+    "lookback_days": 180,
+    "method": "Gmail receipt forensics (amounts extracted from receipt bodies) + web pricing (cited). Estimated values flagged explicitly.",
+    "card_on_file": "Visa ****6174 (used for Anthropic, Google, Poe)"
+  },
+
+  "providers": {
+
+    "anthropic_claude_max": {
+      "amount": 200.00,
+      "amount_net_first_cycle": 168.54,
+      "cadence": "monthly",
+      "type": "subscription (consumer/Pro UI + Claude Code via MAX OAuth)",
+      "account": "johnloucks3@gmail.com",
+      "source_receipt_date": "2026-05-23",
+      "receipt_id": "2021-5705-1087",
+      "confirmed": "RECEIPT",
+      "detail": "UPGRADED from Max 5x ($100) to Max 20x ($200) on 2026-05-23. May receipt = $168.54 net (prorated, $200.00 Max 20x minus $31.46 credit for unused 5x). Steady-state = $200.00/mo. History: Feb 21 Claude Pro $20 -> Mar/Apr/early-May Max 5x $100 -> May 23 Max 20x $200.",
+      "no_separate_charges_found": "No separate Console/API charge in any Anthropic receipt. The Feb 21 'Claude Pro $20' was REPLACED by Max, not stacked. Only ONE active Anthropic line: $200 Max 20x.",
+      "recommendation_hint": "KEEP — foundation. Orchestrator runs on this at $0 marginal (ANTHROPIC_API_KEY popped)."
+    },
+
+    "google_ai_pro": {
+      "amount": 19.99,
+      "amount_with_tax": 20.60,
+      "cadence": "monthly",
+      "type": "consumer subscription (Google One / Gemini app + 5TB) — NO API access",
+      "account": "johnloucks3@gmail.com (billed via Google Play)",
+      "source_receipt_date": "2026-06-05",
+      "order_id": "SOP.3395-9144-1944-58686..6",
+      "confirmed": "RECEIPT",
+      "detail": "Google AI Pro (5 TB) (Google One) $19.99/mo + $0.61 tax = $20.60. Auto-renews the 5th monthly (receipts Apr 5, May 5, Jun 5). Consumer UI only; cannot be called from the autonomous stack (per GOOGLE_AI_PRO_INTEGRATION_SPSA).",
+      "recommendation_hint": "KEEP if app surfaces (NotebookLM/Deep Research/Gemini-in-Gmail) are actually used; otherwise CUT — it buys nothing the scripts can call."
+    },
+
+    "google_cloud_gemini_api": {
+      "amount": "variable (metered)",
+      "amount_recent": [
+        {"date": "2026-06-01", "amt": 5.23},
+        {"date": "2026-05-01", "amt": 3.84},
+        {"date": "2026-04-03", "amt": 100.00},
+        {"date": "2026-04-01", "amt": 52.99}
+      ],
+      "cadence": "metered (pay-as-you-go, monthly settle)",
+      "type": "API usage (Gemini / Google Cloud Platform)",
+      "account": "johnloucks3@gmail.com (payments-noreply, acct 5327-9596-5694)",
+      "source_receipt_date": "2026-06-01",
+      "confirmed": "RECEIPT",
+      "detail": "Separate from the $20 AI Pro consumer sub. Normal months ~$4-5. April spiked to $100 + $53 (one-time experimentation, two payments). Budget alert cap set at $10/mo. This is the bill that grows if the stack leans on Gemini API.",
+      "recommendation_hint": "WATCH — keep budget cap at $10/mo; this is the real variable cost of a Gemini fallback layer."
+    },
+
+    "google_workspace": {
+      "amount": "unconfirmed (invoice attached as PDF, not extracted)",
+      "cadence": "monthly",
+      "type": "Google Workspace Business Plus subscription (business email/domain, NOT AI)",
+      "account": "johnloucks3@gmail.com",
+      "source_receipt_date": "2026-06-02",
+      "confirmed": "PARTIAL (invoice exists; price-change notice for May 6 2026)",
+      "detail": "Business infra, not AI stack. Price changed May 6 2026. Listed for completeness; out of AI-spend scope.",
+      "recommendation_hint": "OUT OF SCOPE for AI rationalization — business email infrastructure."
+    },
+
+    "poe": {
+      "amount": 4.99,
+      "cadence": "monthly (auto-renew per receipt) — RENEWAL STATUS UNVERIFIED",
+      "type": "subscription (multi-model aggregator) + one-time points top-ups",
+      "account": "yodainva@gmail.com",
+      "source_receipt_date": "2026-02-15",
+      "invoice_id": "in_1T1F7iGQ5L54VFKVmaXvxV7p",
+      "confirmed": "RECEIPT (sub $4.99) — but NO charges since Feb 15",
+      "points_topups": [
+        {"date": "2026-02-13", "points": 333333, "amount": 10.00, "method": "Visa ****6174", "expires": "2027-02-14"},
+        {"date": "2026-02-28", "points": 166667, "amount": 5.00, "method": "Link ****0000", "expires": "2027-02-28"}
+      ],
+      "points_topups_total": 15.00,
+      "detail": "Sub receipt Feb 15 = $4.99/mo (a low/intro tier; standard Poe is $19.99). Auto-renew language present. BUT zero Poe receipts after Feb 15 in 180-day window AND Poe does NOT appear in RocketMoney's tracked-subscription list (Jun 5 digest) -> sub effectively LAPSED/inactive. ONE-TIME points top-ups CONFIRMED from receipt htmlBody: 333,333 pts = $10.00 (Feb 13) + 166,667 pts = $5.00 (Feb 28) = $15.00 total, both expire Feb 2027.",
+      "recommendation_hint": "CUT/CONFIRM-DEAD — redundant with Claude MAX 20x + Gemini app. Evidence points to already-lapsed ($4.99 sub absent from RocketMoney). Verify cancelled; $15 points are sunk and expire Feb 2027."
+    },
+
+    "perplexity": {
+      "amount": 10.00,
+      "cadence": "one-time (metered API credits, top-up as needed)",
+      "type": "API credits (Sonar) — NOT a Pro subscription",
+      "account": "johnloucks3@gmail.com",
+      "source_receipt_date": "2026-06-14",
+      "confirmed": "RECEIPT",
+      "detail": "Credits purchased $10.00 / amount paid $10.00 on 2026-06-14. NO Perplexity Pro ($20) subscription receipt found anywhere — this is metered API only. Burns down as used.",
+      "recommendation_hint": "KEEP as metered (no recurring commitment). Cheap, controllable, good Sonar web-search-in-API capability."
+    },
+
+    "openai": {
+      "amount": 0,
+      "cadence": "none",
+      "type": "NO active paid plan",
+      "account": "johnloucks3@gmail.com",
+      "source_receipt_date": null,
+      "confirmed": "NEGATIVE — no receipt/invoice in 180 days",
+      "detail": "Only marketing emails + one generic 'Application of Taxes on Your Invoices' policy blast (Apr 17, sent to all accounts, NOT proof of active billing). No ChatGPT Plus receipt, no API invoice. No live OpenAI paid plan.",
+      "recommendation_hint": "NOTHING TO CUT — not paying. Ignore the tax-policy email."
+    },
+
+    "xai": {
+      "amount": "variable / unconfirmed",
+      "cadence": "metered API (no sub found)",
+      "type": "API key (Grok / ZEN counter-voice) — no SuperGrok sub receipt",
+      "account": "johnloucks3@gmail.com / yodainco",
+      "source_receipt_date": null,
+      "confirmed": "NEGATIVE on subscription — no sub or payment receipt in 180 days",
+      "detail": "Only an API product announcement (Grok Build 0.1, Jun 5) and a new-login security alert (Feb 16). No SuperGrok subscription receipt, no payment receipt. XAI_API_KEY is used for ZEN counter-voice; any spend is metered/unbilled-in-email or on prepaid credits.",
+      "recommendation_hint": "KEEP key for ZEN diversity (metered). No sub to cut."
+    },
+
+    "pinecone_groq_together_huggingface": {
+      "amount": 0,
+      "cadence": "none / free tier",
+      "type": "no paid receipts found",
+      "account": "johnloucks3@gmail.com",
+      "source_receipt_date": null,
+      "confirmed": "NEGATIVE — no receipts in 180 days",
+      "detail": "No paid invoices from Pinecone, Groq, Together, or HuggingFace. Assumed free tier. Groq free tier (web-confirmed): 30 RPM / 6K-30K TPM / 1K-14.4K req/day, no card required.",
+      "recommendation_hint": "KEEP free tiers; no spend."
+    }
+  },
+
+  "totals": {
+    "claude_max_foundation_monthly": 200.00,
+    "recurring_above_max_monthly_confirmed": {
+      "google_ai_pro": 20.60,
+      "note": "Poe $4.99 EXCLUDED from confirmed total (renewal unverified — no charge since Feb). Google Cloud Gemini API is metered (~$5/mo typical) not a fixed sub. Perplexity is one-time top-up, not recurring."
+    },
+    "recurring_above_max_monthly_total_confirmed": 20.60,
+    "recurring_above_max_monthly_total_if_poe_active": 25.59,
+    "rocketmoney_corroboration": "RocketMoney 'check-in' digest (2026-06-05) tracks 14 subscriptions. ONLY AI sub listed = 'Claude Monthly $168.54' (matches the May upgrade-cycle net charge exactly — independent confirmation). Poe, Google AI Pro, Perplexity, OpenAI, xAI do NOT appear in the tracked list -> Poe sub treated as inactive; Google AI Pro bills via Google Play (separate flow). Other (non-AI) subs: Anytime Fitness $20.69, SiriusXM $39.54, Walmart+ $13.61, Paramount+ $5.00, SimpliSafe $32.99, FOX Nation $9.73, etc.",
+    "metered_oneoffs_last30d": {
+      "perplexity_api_credits": 10.00,
+      "google_cloud_gemini_api_typical": 5.23
+    },
+    "estimated_all_in_monthly_run_rate": "~$226-236/mo (MAX $200 + Google AI Pro $20.60 + ~$5 Gemini API metered + occasional Perplexity top-ups; +$4.99 if Poe still live)"
+  },
+
+  "redundancy_analysis": {
+    "poe_vs_claude_max": "REDUNDANT. Poe's whole value prop is multi-model UI access. Claude MAX 20x ($200) + Google AI Pro app (Gemini) already give frontier-model coverage. Poe $4.99 (and any future points) is duplicative.",
+    "openai_plus": "N/A — not subscribed (good; ChatGPT Plus would duplicate MAX/Poe).",
+    "perplexity_pro_vs_credits": "Commander correctly bought METERED $10 credits, NOT the $20 Pro sub. Pro's $5/mo bundled API credit (web-reported as possibly removed in 2026) would not justify $20/mo for API-driven use. Stay metered.",
+    "google_ai_pro_app_vs_api": "Not redundant with each other but the $20 consumer sub adds ZERO programmatic capability — only worth it if the human-facing app surfaces (NotebookLM/Deep Research/Gemini-in-Gmail) are genuinely used."
+  },
+
+  "part_b_pricing_web": {
+    "note": "Gemini API + Google AI Pro pricing already in GOOGLE_AI_PRO_INTEGRATION_SPSA_2026-06-15.md — not duplicated here.",
+    "perplexity_sonar_api": {
+      "sonar": {"input_per_1M": 1.00, "output_per_1M": 1.00, "search_per_1k_req": "5-12 (low-high context)"},
+      "sonar_pro": {"input_per_1M": 3.00, "output_per_1M": 15.00, "search_per_1k_req": "6-14"},
+      "deep_research_query": "~$0.41+ per query",
+      "simple_query_example": "~$0.006 (500 in/200 out, low context)",
+      "source": "cloudzero.com/blog/perplexity-pricing, screenapp.io/blog/perplexity-pricing"
+    },
+    "perplexity_pro_20": {
+      "price": "$20/mo or $200/yr",
+      "includes": "unlimited Pro Search + 20 Deep Research/day + (historically) $5/mo Sonar API credits — credit reportedly removed ~Mar 2026, status in flux",
+      "consumer_vs_api_trap": "Pro is a CONSUMER subscription; its bundled API credit (if present) is only $5/mo and does not roll over. For API-driven use, metered credits beat the $20 sub.",
+      "source": "goosed.ie, felloai.com/perplexity-pricing, finout.io"
+    },
+    "xai_grok_api": {
+      "grok_4.3_flagship": {"input_per_1M": 1.25, "output_per_1M": 2.50, "cached_input_per_1M": 0.20},
+      "grok_4.1_fast": {"input_per_1M": 0.20, "output_per_1M": 0.50, "cached_input_per_1M": 0.05},
+      "grok_4.20_long_ctx": {"input_per_1M": 2.00, "output_per_1M": 6.00},
+      "note": "No SuperGrok sub needed for ZEN counter-voice — metered API is cheaper for low volume.",
+      "source": "eesel.ai/blog/xai-pricing, mem0.ai/blog/xai-grok-api-pricing, aipricing.guru/xai-pricing"
+    },
+    "groq_free_tier": {
+      "free": "30 RPM / 6K-30K TPM / 1K-14.4K req-day, no card; Whisper 2K audio req/day",
+      "developer_tier": "25% cheaper/token + up to 10x rate limits (e.g. llama-3.1-8b 14.4K->500K RPD)",
+      "source": "eesel.ai/blog/groq-pricing, tokenmix.ai/blog/groq-free-tier-limits-2026"
+    },
+    "poe_sub_2026": {
+      "price": "$19.99/mo standard = 1,000,000 points (Commander is on a $4.99 tier per receipt)",
+      "value_prop": "one sub = multi-provider UI access (GPT-5.x, Claude Opus, Gemini, image/video models)",
+      "redundancy_verdict": "Redundant given Claude MAX 20x + Google AI Pro app already cover frontier models.",
+      "source": "poe.com/subscription_plans, costbench.com/software/ai-chatbots/poe"
+    }
+  }
+}

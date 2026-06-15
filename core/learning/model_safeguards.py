@@ -84,11 +84,11 @@ GEMINI_INTER_CALL_DELAY = float(os.environ.get("GEMINI_INTER_CALL_DELAY", "0"))
 
 TOGETHER_API_KEY = os.environ.get("TOGETHER_API_KEY", "")
 TOGETHER_URL = "https://api.together.xyz/v1"
-HF_API_KEY = os.environ.get("HF_API_KEY", "***REMOVED-SECRET***")
+HF_API_KEY = os.environ.get("HF_API_KEY", "")  # SECURITY 2026-06-15: removed hardcoded token fallback (rotate token in HF account — MISSION-253)
 HF_INFERENCE_URL = "https://router.huggingface.co/hf-inference/models"
 
 # Gemini 2.5 Flash — $0.30/$2.50 per 1M tokens
-GOOGLE_AI_API_KEY = os.environ.get("GOOGLE_AI_API_KEY", "")
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 GEMINI_MODEL = "gemini-2.5-flash"
 GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent"
 
@@ -1288,8 +1288,8 @@ def route_call(persona_id: str, query: str,
         if groq_model in ("gemini", "workspace"):
             response = _call_gemini(system_prompt, query, max_tokens=max_tokens,
                                     temperature=temperature)
-            model_used = GEMINI_MODEL if GOOGLE_AI_API_KEY else CLAUDE_SONNET
-            engine = "gemini" if GOOGLE_AI_API_KEY else "claude"
+            model_used = GEMINI_MODEL if GEMINI_API_KEY else CLAUDE_SONNET
+            engine = "gemini" if GEMINI_API_KEY else "claude"
         # Route to Grok for research/grok-tagged models
         elif groq_model in ("research", "grok"):
             response = _call_grok(system_prompt, query, max_tokens=max_tokens,
