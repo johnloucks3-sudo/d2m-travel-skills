@@ -59,6 +59,10 @@ EXCLUDE_DIRS = {
     ".venv", "venv", "__pycache__", "node_modules", ".git",
     "output", ".mypy_cache", ".pytest_cache", "dist", "build",
     "egg-info",
+    # Additional large/redundant dirs to stay under 25MB limit
+    ".venv_scraper", ".venv_new", ".claude", "storage", "logs",
+    "browser_profiles", "mcps", "screenshots", "archive", "data",
+    "media", "restaurant_images", "validations", "scratch",
 }
 
 # Key markdown files to include (relative to THUNDERBIRD_DIR)

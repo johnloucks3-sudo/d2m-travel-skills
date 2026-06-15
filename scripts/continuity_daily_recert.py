@@ -40,6 +40,9 @@ COMMANDER_GATED_UNITS = {
     "tess-keepalive.service",
     "tess-token-keepalive.service",
     "thunderbird-boot-recovery.service",
+    # Requires Commander to manually log in to Firefox (Akamai/reCAPTCHA blocked).
+    # Auto-restart does not fix it. Not counted toward RED threshold.
+    "regent-firefox-capture.service",
 }
 
 
@@ -280,4 +283,7 @@ def run_recert() -> dict:
 
 if __name__ == "__main__":
     result = run_recert()
-    sys.exit(0 if result["overall"] != "RED" else 1)
+    # Always exit 0 — RED state is reported via Telegram alert, not systemd failure.
+    # Exiting 1 on RED causes the service itself to show as failed, inflating the
+    # failed_unit_count metric it's designed to measure.
+    sys.exit(0)

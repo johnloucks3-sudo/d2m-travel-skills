@@ -29,7 +29,7 @@ class IntelBot(BotBase):
              venv("scripts/flight_scan_trigger.py"),
              interval_sec=86400, timeout_sec=180),
         Task("intel-telegram",
-             venv("core/communication/thunderbird_intel_telegram.py"),
+             venv("core/intel/thunderbird_intel_telegram.py"),
              interval_sec=86400, timeout_sec=180),
         Task("airline-monitor",
              goose("recipes/airline_monitor.yaml"),
