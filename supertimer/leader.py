@@ -36,7 +36,6 @@ logging.basicConfig(
     datefmt="%Y-%m-%d %H:%M:%S",
     handlers=[
         logging.StreamHandler(sys.stdout),
-        logging.FileHandler(str(LOG_FILE), mode="a"),
     ],
 )
 log = logging.getLogger("leader")

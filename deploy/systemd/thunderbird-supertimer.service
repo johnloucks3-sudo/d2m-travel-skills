@@ -1,0 +1,18 @@
+[Unit]
+Description=Thunderbird Supertimer Leader — polls 11 bots, replaces 76 individual timers
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/john/Thunderbird
+EnvironmentFile=/home/john/Thunderbird/.env
+EnvironmentFile=/home/john/Thunderbird/deploy/thunderbird_pythonpath.env
+ExecStart=/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/supertimer/leader.py
+TimeoutStartSec=1400
+KillMode=control-group
+StandardOutput=append:/home/john/Thunderbird/logs/supertimer_leader.log
+StandardError=append:/home/john/Thunderbird/logs/supertimer_leader.log
+
+[Install]
+WantedBy=default.target
