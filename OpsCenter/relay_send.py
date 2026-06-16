@@ -54,6 +54,21 @@ CC_INBOX    = THUNDERBIRD / "OpsCenter" / "collaboration" / "claude_inbox.md"
 GW_SCRIPT   = THUNDERBIRD / "OpsCenter" / "thunderbird_telegram_gw.py"
 
 # Telegram tokens (loaded from env)
+def _expand_env_value(val: str, env: dict) -> str:
+    """Expand shell-style ${VAR} and ${VAR:-default} against already-loaded
+    values (then os.environ). Files like config/telegram_gw.env use the bash
+    idiom ${TELEGRAM_RELAY_TOKEN:-PLACEHOLDER} to inherit from .env; without
+    this expansion the literal placeholder string clobbers the real token and
+    every Telegram POST 404s (api.telegram.org/bot${...}/sendMessage)."""
+    import os, re
+
+    def repl(m):
+        name, default = m.group(1), m.group(3)
+        return env.get(name) or os.environ.get(name) or (default if default is not None else m.group(0))
+
+    return re.sub(r"\$\{([A-Za-z_][A-Za-z0-9_]*)(:-([^}]*))?\}", repl, val)
+
+
 def _load_env():
     env = {}
     for f in [THUNDERBIRD / ".env", THUNDERBIRD / "config" / "telegram_gw.env"]:
@@ -62,7 +77,11 @@ def _load_env():
                 line = line.strip()
                 if "=" in line and not line.startswith("#"):
                     k, _, v = line.partition("=")
-                    env[k.strip()] = v.strip()
+                    k, v = k.strip(), _expand_env_value(v.strip(), env)
+                    # Never let an unresolved ${...} placeholder overwrite a real value.
+                    if "${" in v and k in env:
+                        continue
+                    env[k] = v
         except Exception:
             pass
     return env
