@@ -4911,3 +4911,26 @@ TRIGGER: Commander "check d2m inbox to COS/COO past 2 days, answer unanswered, F
 - FLOOD STOPPED ("stop all the thinking emails"): the sweep auto-replied via headless Haiku, DOUBLED (jl3+d2mc double-dispatch) → repeated "Re: T2 EXERCISE STATUS UPDATE" floods at 00:09/00:16/02:02/09:27. Disabled thunderbird-commander-directive-sweep.timer. Recommended re-enable = surface-to-Hale, not auto-email.
 - ANSWERED all 6 directives in ONE consolidated email to johnloucks3 (no flood): /grace fixed; flood stopped; brief links+interactive queued; Al Ely COO assessment (answer sufficient; flagged annual-policy cancellation-effective-date for Harlan); Silversea→dossier+Wed monitor (Wilco); Door County fare watch+1st scan (Wilco).
 - OPEN (committed actions, not yet executed): Silversea dossier entry + Wed monitor; Door County fare watch scan.
+
+---
+## 2026-06-16 — AUTHORIZED CLIENT SEND (WF-17 waived by Commander)
+**Decision:** Hale executed a direct send to stef@bbenefits.net (Commander's sister, D2M's first client) — the "Grace gift" email — as a reply-in-thread on johnloucks3, cc johnloucks3.
+**Authority:** Commander explicit real-time directive 2026-06-16: "I am dispensing with WF-17, YOU send... I have not reviewed it." This is the Commander exercising his send authority by delegating this specific send to Hale; NOT a self-authorized Wing send. One-off, this message only.
+**Artifacts:** drafts/burcham_send_final.gmail.html (Hale sig under Grace's section + Commander D2M sig+logo at bottom, process-hale stripper applied) · scripts/send_burcham_grace_gift.py · sent msg id 19ed204b8a25df4d / thread 19eac7e1135c239f.
+**Note:** Standing prohibition (SO 21 MAR 2026 / WF-17) remains intact for all future client sends — this entry documents an explicit Commander-directed exception, not a precedent.
+
+## 2026-06-16 — Bryana portal logon fix + mentor/gift email staged
+- **Infra (Hale lane, Commander-directed):** Reset Bryana's training-portal password `f7lieTWcZwcdc6N4EH2c` → **`0602`** in `scripts/thunderbird_dir_server.py` (:8900 origin, realm "D2M Thunderbird"); restarted `itinerary-server.service`; synced `infra/itinerary_passwords.txt`. **Verified live:** `Bryana:0602` → HTTP 200 at `https://itinerary.d2mluxury.quest/` and `/01_Orientation/`; old pw → 401.
+- **Root cause of prior lockout:** email/instructions said pw `0602`, but live basic-auth held `f7lieTWcZwcdc6N4EH2c`. Also `/training/` path 404s publicly (that mount is local-only on :8901 dashboard; public site = :8900 static server serving `Bryana/` at root). Email points to root — correct.
+- **Email staged (WF-17 hold, Commander sends):** d2mconcierge draft `r-7548485124135870326` to bryanajarboe@gmail.com. Two-voice (Hale→Dani), modeled on the Burcham/Grace gift path, personalized to Bryana (building her own travel business, not D2M staff). Added per Commander: locked mission statement (competitor name softened to "deserve far better than they've been handed"), gift verbiage, "not working together as closely as he'd hoped → access to the Wing through Dani," and "no charge, no obligation." Superseded draft r2679196808311031492 deleted.
+- **Gate:** NOT sent. Commander is sole send executor.
+
+## 2026-06-16 — concierge@d2mluxury.quest send-as alias: PARKED (Commander decision)
+- Investigated: alias forwards to johnloucks3 (Cloudflare routing). Binding it as send-as on the **consumer** d2mconcierge Gmail needs (1) `gmail.settings.sharing` scope (interactive consent) + (2) likely an outbound SMTP relay for the domain (we have inbound-only Cloudflare routing). 403 on API create with current scopes confirmed.
+- **Commander chose: leave as d2mconcierge@gmail.com.** Body + sig already display concierge@d2mluxury.quest, so client-visible address is correct. No further action.
+- Parked artifact (ready if revisited): `scripts/reauth_d2mconcierge_sharing.py` (adds sharing scope → enables API sendAs.create; verification would auto-confirm from johnloucks3 inbox).
+
+## 2026-06-16 — Westbrook (Kim + Brent) Dani invitation SENT (WF-17 waived)
+- Sent: d2mconcierge → Kim Westbrook (crnakim@yahoo.com) + Brent Westbrook (WESTY737@gmail.com), **CC johnloucks3**. Msg `19ed2bfbd67651c0`.
+- Two-voice (Hale→Dani) gift invite. Personalized: Celebrity Ascent Rome round-trip (real ports: Messina/Dubrovnik/Split/Bar/Corfu/Katakolon/Naples), Ava→Auburn, pro-bono friends (Brent = Rondo's son). Dani channel = Telegram @d2m_dani_bot (open to clients). Added "more than two dozen tools" (honest: 25+ travel skills). "No charge, no obligation."
+- WF-17 waived per Commander send directive ("send cc me"). Per-send, not standing.
