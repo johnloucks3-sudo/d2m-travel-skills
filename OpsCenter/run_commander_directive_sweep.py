@@ -42,7 +42,7 @@ for sub in (ROOT / "core").iterdir():
 from OpsCenter.sweep_tracker import SweepTracker
 
 PROCESSED_LABEL = "THUNDERBIRD-Scanned"
-COMMANDER_QUERY = f"from:johnloucks3@gmail.com -label:{PROCESSED_LABEL} newer_than:1d"
+COMMANDER_QUERY = f"from:johnloucks3@gmail.com -label:{PROCESSED_LABEL} newer_than:3d"
 SCRIPTS_LOG = ROOT / "logs" / "commander_directive_sweep.log"
 THREAD_STATE_FILE = ROOT / "logs" / "commander_directive_threads.json"
 
@@ -134,8 +134,8 @@ try:
     # Collect messages from both accounts
     # 1. johnloucks3 sent to d2mconcierge (from:johnloucks3, any unread in sent)
     # 2. d2mconcierge inbox unread (self-sends or Commander emails via d2mc)
-    D2MC_QUERY = f"from:johnloucks3@gmail.com -label:{PROCESSED_LABEL} newer_than:1d"
-    D2MC_SELF_QUERY = f"in:inbox -label:{PROCESSED_LABEL} newer_than:1d"
+    D2MC_QUERY = f"from:johnloucks3@gmail.com -label:{PROCESSED_LABEL} newer_than:3d"
+    D2MC_SELF_QUERY = f"in:inbox -label:{PROCESSED_LABEL} newer_than:3d"
 
     all_msgs = []
     _page_token = None
@@ -369,15 +369,20 @@ try:
 
                 _clean_sub = d_subject.lstrip().lower()
 
-                # Block Fwd:/Fw: — forwarded FYIs are for filing, not for responding.
+                # Fwd:/Fw: — a forward is a filing UNLESS the Commander wrote a command
+                # prefix (COS/COO/HALE/VIC) at the top. "COO analyze..." / "COS-- add to
+                # dossier" arrive as forwards and ARE directives. (Fix 2026-06-16: these
+                # were silently dropped — the scanning gap.)
                 if _clean_sub.startswith("fwd:") or _clean_sub.startswith("fw:"):
-                    if d2mc_label_id:
-                        d2mc_service.users().messages().modify(
-                            userId="me", id=d_msg_id,
-                            body={"addLabelIds": [d2mc_label_id]}
-                        ).execute()
-                    log_line(f"  d2mc skip (Fwd:): {d_subject[:60]}")
-                    continue
+                    if not has_command_prefix_in_body(d_body):
+                        if d2mc_label_id:
+                            d2mc_service.users().messages().modify(
+                                userId="me", id=d_msg_id,
+                                body={"addLabelIds": [d2mc_label_id]}
+                            ).execute()
+                        log_line(f"  d2mc skip (Fwd:, no command prefix): {d_subject[:60]}")
+                        continue
+                    log_line(f"  d2mc Fwd: WITH command prefix — treating as directive: {d_subject[:60]}")
 
                 # Re: replies — skip pure acknowledgments, dispatch everything else.
                 # Match a tight list of ack phrases. Any real question or instruction

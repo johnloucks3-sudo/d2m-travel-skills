@@ -4903,3 +4903,11 @@ HOSTING (spot-it-fix-it, didn't defer):
 - ORIGIN VERIFIED: https://www.d2mluxury.quest/buddy/ → 200 (correct page) via --resolve to 127.0.0.1. No regression on /.
 - PUBLIC BLOCKER = Cloudflare Access (whole d2mluxury.quest domain behind zero-trust; public /buddy/ returns 401, root 302→login). Origin is ready; needs a Cloudflare Access BYPASS policy for /buddy/ (Commander's CF dashboard — outward-facing, his account, I won't touch it).
 - Link NOT added to the email (not publicly reachable yet → "add if ready" = not ready). Once CF bypass is set, link = https://www.d2mluxury.quest/buddy/
+
+## 2026-06-16 — Answered 2-day COS/COO backlog + FIXED scanning gap + stopped email flood
+TRIGGER: Commander "check d2m inbox to COS/COO past 2 days, answer unanswered, FIX scanning gap" + "fix the reference."
+- REFERENCE FIX: config/telegram_gw.env had `${TELEGRAM_D2MC2C_TOKEN:-PLACEHOLDER}` that doesn't expand under the gw loader/systemd and OVERRODE .env (loaded after). Mirrored real token to TELEGRAM_D2MC2C_TOKEN in untracked .env; neutralized placeholder; gw restarted; token now resolves. (This was ALSO why /grace gave zero response.)
+- SCANNING GAP (root cause): run_commander_directive_sweep.py scanned his emails (labeled THUNDERBIRD-Scanned) but found=0 — (a) d2mc loop DROPPED all Fwd: emails even when they carried a COS/COO command prefix ("COO analyze Al", "COS-- Silversea dossier" lost); (b) 1d lookback too short. FIXED: Fwd-with-command-prefix now dispatches; lookback 1d→3d. Syntax OK.
+- FLOOD STOPPED ("stop all the thinking emails"): the sweep auto-replied via headless Haiku, DOUBLED (jl3+d2mc double-dispatch) → repeated "Re: T2 EXERCISE STATUS UPDATE" floods at 00:09/00:16/02:02/09:27. Disabled thunderbird-commander-directive-sweep.timer. Recommended re-enable = surface-to-Hale, not auto-email.
+- ANSWERED all 6 directives in ONE consolidated email to johnloucks3 (no flood): /grace fixed; flood stopped; brief links+interactive queued; Al Ely COO assessment (answer sufficient; flagged annual-policy cancellation-effective-date for Harlan); Silversea→dossier+Wed monitor (Wilco); Door County fare watch+1st scan (Wilco).
+- OPEN (committed actions, not yet executed): Silversea dossier entry + Wed monitor; Door County fare watch scan.
