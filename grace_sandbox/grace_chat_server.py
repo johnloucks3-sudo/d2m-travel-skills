@@ -193,7 +193,11 @@ class Handler(BaseHTTPRequestHandler):
             self._send(404, {"error": "not found"})
             return
 
-        ip = self.headers.get("X-Real-IP") or self.client_address[0]
+        # Public path is Cloudflare -> cloudflared tunnel -> here (nginx bypassed),
+        # so the real client IP arrives as CF-Connecting-IP, not X-Real-IP.
+        ip = (self.headers.get("CF-Connecting-IP")
+              or self.headers.get("X-Real-IP")
+              or self.client_address[0])
         if not throttle_ok(ip):
             self._send(429, {"error": "Slow down a moment, then try again."})
             return
