@@ -1,0 +1,14 @@
+[Unit]
+Description=Grace public chat backend (D2M gift-world persona, free Gemini, /buddy/grace)
+After=network.target
+
+[Service]
+Type=simple
+User=john
+WorkingDirectory=/home/john/Thunderbird
+ExecStart=/usr/bin/python3 /home/john/Thunderbird/grace_sandbox/grace_chat_server.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

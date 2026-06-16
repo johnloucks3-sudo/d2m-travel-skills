@@ -144,3 +144,6 @@ scripts/termius_termux_setup.md
 data/qdrant_storage/
 backup_staging/
 OpsCenter/task_queue.db
+
+# Grace chat runtime-served copies (derived artifacts)
+grace_sandbox/public/
