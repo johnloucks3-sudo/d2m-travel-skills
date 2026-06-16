@@ -78,7 +78,8 @@ Executing in 5 unless redirected.
 
 **Rotation rule:** Wing nominates 3 sectors each evening. Fast-moving sectors (A, E, F) rotate more frequently. Commander and Hale confirm nightly at the 1730 ping. If no Commander reply in 5 minutes, Wing executes the nominations.
 
-**Gate:** 90-day path to revenue/retained client/risk protection. Fails gate = flag for future, not tonight's build.
+**⚠️ NO GATE ON SEARCH — PERMANENT (Commander directive 2026-06-14).** Tech searches have NO screening gate. The purpose of tech search is to look BEYOND our boundaries — a revenue gate defeated that intent and is permanently removed. Surface ALL findings raw; the Commander decides what matters. No 90-day filter, no degrees-from-revenue test, no silent cancellation. **No gate may be re-applied to any tech search without the Commander's express approval.** This applies EVERYWHERE, ALL THE TIME — every sector, every platform, every agent.
+*(Build prioritization is a separate, later step — anything we choose to BUILD still respects the three Commander gates. But search/exploration is unfiltered.)*
 
 **Config file:** `OpsCenter/eod_incubator_config.json` — update each evening with tonight's sectors and gate candidate.
 

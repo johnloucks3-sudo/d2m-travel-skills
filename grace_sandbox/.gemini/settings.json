@@ -1,0 +1,13 @@
+{
+  "security": { "folderTrust": { "enabled": false } },
+  "coreTools": [],
+  "excludeTools": [
+    "google_web_search",
+    "run_shell_command",
+    "write_file",
+    "edit",
+    "read_file",
+    "read_many_files"
+  ],
+  "_note": "Grace fence: native Gemini tools OFF. google_web_search is billed (500s on free key) AND a data path — web access comes from D2M's own tools instead. Shell/file tools OFF so Grace cannot escape grace_sandbox/ or reach the repo (.env, dossiers/, config/). Capability is added via the wrapper's allowlisted D2M tools, never the native CLI toolset."
+}

@@ -1452,6 +1452,32 @@ def handle_message(
             except Exception:
                 pass
             return
+        elif cmd in ("/ask", "/gmn", "/reyes", "/dembe", "/grace"):
+            # Free Gemini lane ($0, 1,500/day Flash). /ask = quick; /reyes /dembe = research
+            # scaffold; /grace = gift-world persona (public-good voice).
+            q = " ".join(msg.split()[1:]).strip()
+            if not q:
+                tg_send(token, chat_id, "Usage: <code>/ask &lt;your question&gt;</code>")
+                return
+            tg_typing(token, chat_id)
+            try:
+                import subprocess as _sp_ask
+                if cmd in ("/reyes", "/dembe"):
+                    _script = str(THUNDERBIRD / "scripts" / "gemini_research.sh")
+                    _argv = ["bash", _script, cmd.lstrip("/"), q]
+                elif cmd == "/grace":
+                    _script = str(THUNDERBIRD / "scripts" / "grace.sh")
+                    _argv = ["bash", _script, q]
+                else:
+                    _script = str(THUNDERBIRD / "scripts" / "gmn.sh")
+                    _argv = ["bash", _script, q]
+                _r = _sp_ask.run(_argv, capture_output=True, text=True,
+                                 timeout=90, cwd=str(THUNDERBIRD))
+                ans = (_r.stdout or _r.stderr or "(no output)").strip()
+            except Exception as e:
+                ans = f"⚠️ ask error: {e}"
+            tg_send_chunks(token, chat_id, fmt_process(ans, CHUNK_SIZE))
+            return
         elif cmd == "/start":
             tg_send(
                 token, chat_id, f"<b>{bot_name} online.</b> Type /help for commands."

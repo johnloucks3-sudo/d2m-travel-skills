@@ -168,28 +168,49 @@ def _classify_message(from_addr: str, subject: str, snippet: str) -> str:
     return "client_inquiry"
 
 
+# Account → OAuth token file. Self-contained: no dependency on thunderbird_gmail
+# internals (the old _get_wing_gmail_service import did not exist and broke this
+# helper entirely — fixed at the source 2026-06-14, Hale).
+_THIS_DIR = os.path.dirname(os.path.abspath(__file__))
+_REPO_ROOT = os.path.abspath(os.path.join(_THIS_DIR, "..", ".."))
+_ACCOUNT_TOKENS = {
+    "concierge": os.path.join(_REPO_ROOT, "config", "persona_gmail_token.json"),
+    "d2mconcierge": os.path.join(_REPO_ROOT, "config", "persona_gmail_token.json"),
+    "commander": os.path.join(_REPO_ROOT, "creds", "johnloucks3_token.json"),
+    "johnloucks3": os.path.join(_REPO_ROOT, "creds", "johnloucks3_token.json"),
+}
+
+
 def _safe_get_service(account: str):
-    """Get Gmail service for named account, return None on failure."""
+    """Build a Gmail service for the named account from its OAuth token file.
+    Returns None on failure. Accounts: concierge/d2mconcierge, commander/johnloucks3."""
     try:
-        from thunderbird_gmail import _get_wing_gmail_service, _get_commander_gmail_service
-        if account == "concierge":
-            return _get_wing_gmail_service()
-        else:
-            return _get_commander_gmail_service()
+        from google.oauth2.credentials import Credentials
+        from googleapiclient.discovery import build
+        token_path = _ACCOUNT_TOKENS.get(account, _ACCOUNT_TOKENS["concierge"])
+        if not os.path.exists(token_path):
+            logger.warning(f"Gmail token missing for '{account}': {token_path}")
+            return None
+        creds = Credentials.from_authorized_user_file(token_path)
+        return build("gmail", "v1", credentials=creds, cache_discovery=False)
     except Exception as e:
         logger.warning(f"Gmail service unavailable ({account}): {e}")
         return None
 
 
+def _hdr_map(headers: list) -> dict:
+    """Flatten Gmail payload headers list into a {name: value} dict."""
+    return {h.get("name", ""): h.get("value", "") for h in (headers or [])}
+
+
 def _fetch_message_summary(service, msg_id: str) -> Optional[dict]:
     """Fetch a single message summary (metadata + snippet)."""
     try:
-        from thunderbird_gmail import _decode_body, _extract_headers
         msg = service.users().messages().get(
             userId="me", id=msg_id, format="metadata",
             metadataHeaders=["From", "To", "Subject", "Date"]
         ).execute()
-        headers = _extract_headers(msg.get("payload", {}).get("headers", []))
+        headers = _hdr_map(msg.get("payload", {}).get("headers", []))
         return {
             "message_id": msg["id"],
             "thread_id": msg.get("threadId", ""),

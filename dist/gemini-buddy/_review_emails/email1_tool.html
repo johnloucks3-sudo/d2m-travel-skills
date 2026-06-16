@@ -1,0 +1,114 @@
+<!DOCTYPE html><html><body style="background:#f7f3ea;font-family:Georgia,serif;color:#1a1a1a;padding:24px;">
+<div style="max-width:680px;margin:0 auto;background:#fffdf7;border:1px solid #c9bfa5;border-radius:12px;padding:24px;">
+<h2 style="color:#003087;margin:.2em 0;">🦅 Buddy — the giftable tool (1 of 3)</h2>
+<p style="color:#0000ff;">This is the actual gift: a single web page (works on phone) where each person uses their OWN free Google key. No D2M key inside. Open it locally to test: dist/gemini-buddy/gemini-buddy.html. Source below for review.</p>
+<p><b>What it does:</b> patient AI helper, plain-English answers, dignity-first UI, 3 starter buttons, optional smarter brain. Key saved on the user's device only. No phone-home.</p><pre style="white-space:pre-wrap;font-family:Georgia,serif;font-size:.98rem;background:#f7f3ea;padding:14px;border-radius:8px;">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;title&gt;Buddy — your patient AI helper&lt;/title&gt;
+&lt;style&gt;
+  :root{ --cream:#f7f3ea; --ink:#0000ff; --navy:#003087; }
+  *{ box-sizing:border-box; }
+  body{ font-family:Georgia,&#x27;Times New Roman&#x27;,serif; background:var(--cream); color:#1a1a1a;
+        margin:0; padding:18px; line-height:1.5; }
+  .wrap{ max-width:680px; margin:0 auto; }
+  h1{ color:var(--navy); font-size:1.5rem; margin:.2em 0; }
+  .sub{ color:#444; margin:0 0 16px; font-size:.95rem; }
+  textarea,input{ width:100%; font-family:inherit; font-size:1.05rem; padding:12px;
+        border:1px solid #c9bfa5; border-radius:10px; background:#fffdf7; }
+  textarea{ min-height:90px; resize:vertical; }
+  button{ font-family:inherit; font-size:1.05rem; background:var(--ink); color:#fff;
+        border:0; border-radius:10px; padding:12px 20px; margin-top:10px; cursor:pointer; }
+  button:disabled{ opacity:.5; cursor:wait; }
+  .row{ display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+  .answer{ white-space:pre-wrap; background:#fffdf7; border:1px solid #c9bfa5; border-radius:10px;
+        padding:16px; margin-top:16px; min-height:40px; }
+  .chips button{ background:#eee6d2; color:var(--navy); font-size:.92rem; padding:8px 12px; margin:4px 4px 0 0; }
+  .keybar{ background:#eee6d2; border-radius:10px; padding:12px; margin-bottom:16px; font-size:.9rem; }
+  .keybar a{ color:var(--ink); }
+  label{ font-size:.9rem; color:#333; }
+  .foot{ color:#777; font-size:.8rem; margin-top:22px; text-align:center; }
+  .hide{ display:none; }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class=&quot;wrap&quot;&gt;
+  &lt;h1&gt;Buddy&lt;/h1&gt;
+  &lt;p class=&quot;sub&quot;&gt;A patient helper that answers anything — in plain English. It&#x27;s yours. You can&#x27;t break it.&lt;/p&gt;
+
+  &lt;!-- Key setup: shown only until a key is saved --&gt;
+  &lt;div id=&quot;keybar&quot; class=&quot;keybar&quot;&gt;
+    &lt;b&gt;One-time setup (≈2 min):&lt;/b&gt; Get your own free key at
+    &lt;a href=&quot;https://aistudio.google.com/apikey&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;aistudio.google.com/apikey&lt;/a&gt;
+    → sign in → &lt;i&gt;Create API key&lt;/i&gt; → copy it → paste below. It stays on this device only.
+    &lt;div class=&quot;row&quot; style=&quot;margin-top:10px;&quot;&gt;
+      &lt;input id=&quot;key&quot; type=&quot;password&quot; placeholder=&quot;Paste your key here (starts with AIza...)&quot; autocomplete=&quot;off&quot;&gt;
+      &lt;button id=&quot;savekey&quot;&gt;Save&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;chips&quot; id=&quot;chips&quot;&gt;
+    &lt;button data-p=&quot;Explain this letter in plain English and tell me what to do next: &quot;&gt;Explain a letter&lt;/button&gt;
+    &lt;button data-p=&quot;Write a warm thank-you note. Here are the details: &quot;&gt;Write a thank-you note&lt;/button&gt;
+    &lt;button data-p=&quot;Help me understand: &quot;&gt;Explain something&lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;textarea id=&quot;q&quot; placeholder=&quot;Type your question here, or tap a button above to start…&quot;&gt;&lt;/textarea&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;button id=&quot;ask&quot;&gt;Ask&lt;/button&gt;
+    &lt;label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;pro&quot;&gt; Use the smarter (slower) brain&lt;/label&gt;
+    &lt;button id=&quot;forget&quot; style=&quot;background:#999; font-size:.85rem;&quot;&gt;Change key&lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;div id=&quot;answer&quot; class=&quot;answer hide&quot;&gt;&lt;/div&gt;
+
+  &lt;p class=&quot;foot&quot;&gt;A gift from a friend at Dreams2Memories. · It can be confidently wrong — double-check anything that matters. · Don&#x27;t paste other people&#x27;s private information.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+const $ = s =&gt; document.querySelector(s);
+const LS = &quot;buddy_gemini_key&quot;;
+function refreshKeyUI(){ $(&quot;#keybar&quot;).classList.toggle(&quot;hide&quot;, !!localStorage.getItem(LS)); }
+$(&quot;#savekey&quot;).onclick = () =&gt; {
+  const k = $(&quot;#key&quot;).value.trim();
+  if(!k){ alert(&quot;Paste your key first.&quot;); return; }
+  localStorage.setItem(LS, k); $(&quot;#key&quot;).value=&quot;&quot;; refreshKeyUI();
+};
+$(&quot;#forget&quot;).onclick = () =&gt; { localStorage.removeItem(LS); refreshKeyUI(); };
+document.querySelectorAll(&quot;#chips button&quot;).forEach(b=&gt;{
+  b.onclick = () =&gt; { $(&quot;#q&quot;).value = b.dataset.p; $(&quot;#q&quot;).focus(); };
+});
+$(&quot;#ask&quot;).onclick = async () =&gt; {
+  const key = localStorage.getItem(LS);
+  if(!key){ alert(&quot;Do the one-time setup first (get your free key).&quot;); refreshKeyUI(); return; }
+  const q = $(&quot;#q&quot;).value.trim();
+  if(!q){ return; }
+  const model = $(&quot;#pro&quot;).checked ? &quot;gemini-2.5-pro&quot; : &quot;gemini-2.5-flash&quot;;
+  const ans = $(&quot;#answer&quot;); ans.classList.remove(&quot;hide&quot;); ans.textContent = &quot;Thinking…&quot;;
+  $(&quot;#ask&quot;).disabled = true;
+  try{
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(key)}`;
+    const r = await fetch(url, {
+      method:&quot;POST&quot;, headers:{&quot;Content-Type&quot;:&quot;application/json&quot;},
+      body: JSON.stringify({ contents:[{ parts:[{ text:q }] }] })
+    });
+    const d = await r.json();
+    if(d.candidates &amp;&amp; d.candidates[0]){
+      ans.textContent = d.candidates[0].content.parts.map(p=&gt;p.text).join(&quot;&quot;);
+    } else {
+      ans.textContent = &quot;Hmm — &quot; + ((d.error &amp;&amp; d.error.message) || &quot;no answer came back. Check your key and try again.&quot;);
+    }
+  }catch(e){ ans.textContent = &quot;Connection problem: &quot; + e.message; }
+  $(&quot;#ask&quot;).disabled = false;
+};
+refreshKeyUI();
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<hr style="border:none;border-top:1px solid #c9bfa5;margin:20px 0;">
+<p style="font-size:.85rem;color:#555;">For your review — part of the "Lend It Out" build. Full proposal: OpsCenter/PROPOSAL_lend_it_out_20260614.md<br>
+— V. Hale, VCS · Dreams2Memories</p>
+</div></body></html>
