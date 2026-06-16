@@ -76,7 +76,14 @@ ACCOUNTS = {
     },
 }
 
-DEFAULT_ACCOUNT = "d2mconcierge"  # SO 27 MAR 2026: send FROM d2mconcierge, not Commander's account
+DEFAULT_ACCOUNT = "commander"  # johnloucks3 PRIMARY (Commander 2026-06-14). d2mconcierge still supported.
+
+# Accept friendly aliases for --from so both accounts are easy to name.
+ACCOUNT_ALIASES = {
+    "commander": "commander", "jl3": "commander", "johnloucks3": "commander",
+    "johnloucks3@gmail.com": "commander", "loucks": "commander",
+    "d2mconcierge": "d2mconcierge", "d2m": "d2mconcierge", "concierge": "d2mconcierge",
+}
 
 # ── Logging ───────────────────────────────────────────────────────────────────
 
@@ -263,7 +270,7 @@ def main():
     parser.add_argument("--to", required=True, help="Recipient email address")
     parser.add_argument("--subject", help="Email subject line")
     parser.add_argument("--from", dest="account", default=DEFAULT_ACCOUNT,
-                        help=f"Account to send from: commander (default), d2mconcierge")
+                        help="Account to send from: commander/jl3/johnloucks3 (DEFAULT), or d2mconcierge/d2m/concierge")
     parser.add_argument("--draft-only", action="store_true", help="Create draft instead of sending")
     parser.add_argument("--dry-run", action="store_true", help="Preview without API calls")
     parser.add_argument("--authorize", action="store_true", help="Authorize recipient before sending")
@@ -271,6 +278,9 @@ def main():
     parser.add_argument("--tier", default="member", help="Recipient tier (for --authorize): pilot, member, prospect, friend")
     parser.add_argument("--note", default="", help="Internal note about recipient (for --authorize)")
     args = parser.parse_args()
+
+    # Resolve --from alias → canonical account (johnloucks3 primary, d2mconcierge supported)
+    args.account = ACCOUNT_ALIASES.get((args.account or "").strip().lower(), args.account)
 
     recipient_email = args.to.strip().lower()
 
@@ -294,8 +304,8 @@ def main():
         log.error("--html and --subject are required for send mode")
         sys.exit(1)
 
-    # ── Check authorization ────────────────────────────────────────────────
-    if not is_authorized(recipient_email):
+    # ── Check authorization (SENDS only; drafts aren't delivered) ───────────
+    if not args.draft_only and not is_authorized(recipient_email):
         log.warning(f"Recipient not authorized: {recipient_email}")
         log.warning("Run with --authorize --name \"Name\" --tier <pilot|member|prospect|friend>")
         sys.exit(1)
@@ -335,20 +345,14 @@ def main():
     send_from_name = "Commander" if args.account == "commander" else "D2M Concierge"
 
     if args.draft_only:
-        # Guard: never create a draft to johnloucks3 — Commander doesn't see drafts there
-        # SO 27 MAR 2026: internal comms to johnloucks3 are FULL SENDS
-        if recipient_email == "johnloucks3@gmail.com":
-            log.warning("--draft-only blocked for johnloucks3 (SO 27 MAR 2026: internal comms are direct sends)")
-            log.info("Sending directly instead...")
-            result = send_email(service, recipient_email, args.subject, html_body, send_from)
-            msg_id = result.get("id", "unknown")
-            log.info(f"Email sent directly: {msg_id}")
-        else:
-            result = create_draft(service, recipient_email, args.subject, html_body, send_from)
-            draft_id = result.get("id", "unknown")
-            log.info(f"Draft created: {draft_id}")
-            log.info(f"Draft in {send_from_name}'s Gmail Drafts folder")
-            log.info(f"Access: https://mail.google.com/mail/u/0/#drafts")
+        # johnloucks3 drafts ALLOWED (Commander 2026-06-14): client/external products John
+        # sends himself are staged as drafts in his account. The old auto-convert-to-send
+        # block is retired; --draft-only now always drafts.
+        result = create_draft(service, recipient_email, args.subject, html_body, send_from)
+        draft_id = result.get("id", "unknown")
+        log.info(f"Draft created: {draft_id}")
+        log.info(f"Draft in {send_from_name}'s Gmail Drafts folder")
+        log.info(f"Access: https://mail.google.com/mail/u/0/#drafts")
     else:
         result = send_email(service, recipient_email, args.subject, html_body, send_from)
         msg_id = result.get("id", "unknown")
