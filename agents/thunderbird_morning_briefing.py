@@ -749,6 +749,25 @@ def render_briefing_html(
     }
 
     # ── Build expanded HTML per card ──
+    def _get_dossier_link(bkey: str) -> str:
+        """Find dossier file for a booking key and return file:// URL."""
+        import glob
+        dossier_dir = THUNDERBIRD_DIR / "dossiers"
+        if not bkey or not dossier_dir.exists():
+            return ""
+        # Look for dossier files matching the booking key
+        pattern = str(dossier_dir / f"*{bkey}*.md")
+        files = glob.glob(pattern)
+        if files:
+            return f"file://{files[0]}"
+        # Try matching by client name (first part of bkey, e.g., "McLeod" from "McLeod_Silversea_298475")
+        client_name = bkey.split("_")[0]
+        pattern = str(dossier_dir / f"{client_name}*.md")
+        files = glob.glob(pattern)
+        if files:
+            return f"file://{files[0]}"
+        return ""
+
     def _story_list(items: list, max_items: int = 15) -> str:
         out = []
         for art in items[:max_items]:
@@ -787,11 +806,16 @@ def render_briefing_html(
                 cat   = item.get("category", "")
                 dt    = item.get("date", "")
                 color = "#ff4444" if bucket == "overdue" else ("#ff8800" if bucket == "due_today" else "#c9a84c")
+
+                # Generate dossier link
+                dossier_link = _get_dossier_link(bkey)
+                bkey_html = f'<a href="{dossier_link}" style="color:#7eb8ff;text-decoration:none;">{bkey}</a>' if dossier_link else bkey
+
                 items_html.append(
                     f'<div style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);">'
                     f'<span style="color:{color};font-weight:700;">{dt}</span> — '
                     f'<span style="color:#c8d0dc;">{label}</span> '
-                    f'<span style="color:#6b7c99;font-size:11px;">({bkey}) [{cat}]</span>'
+                    f'<span style="color:#6b7c99;font-size:11px;">({bkey_html}) [{cat}]</span>'
                     f'</div>'
                 )
         return "\n".join(items_html) if items_html else '<p style="color:#6b7c99;">No active items.</p>'
@@ -801,7 +825,10 @@ def render_briefing_html(
     for bucket in ["overdue", "due_today", "due_this_week"]:
         for item in anchor_report.get(bucket, [])[:2]:
             prefix = "🔴" if bucket == "overdue" else ("🟠" if bucket == "due_today" else "🟡")
-            anchor_bullets.append(f'{prefix} {item.get("label","")} — {item.get("booking","")}')
+            bkey = item.get("booking","")
+            dossier_link = _get_dossier_link(bkey)
+            bkey_text = f'<a href="{dossier_link}" style="color:#7eb8ff;text-decoration:underline;">{bkey}</a>' if dossier_link else bkey
+            anchor_bullets.append(f'{prefix} {item.get("label","")} — {bkey_text}')
 
     # ── Intel Crew summary ──
     crew_expanded = ""
