@@ -98,28 +98,54 @@ async def scrape_getyourguide(page, dest: str, date: str, query: str = "") -> di
     if dest_slug:
         url = f"https://www.getyourguide.com/{dest_slug}/"
     else:
-        # Fallback: search URL
-        search_q = query if query else dest
+        # Fallback: search URL — combine dest + query so the city isn't dropped
+        search_q = f"{dest} {query}".strip() if query else dest
         url = f"https://www.getyourguide.com/s/?q={search_q.replace(' ', '+')}"
 
     result["url"] = url
     log(f"  GetYourGuide → {url}")
 
     try:
-        await page.goto(url, timeout=30000, wait_until="domcontentloaded")
+        response = await page.goto(url, timeout=30000, wait_until="domcontentloaded")
         await asyncio.sleep(4)
 
-        # Check for bot wall
+        # FAIL LOUD on HTTP error — GYG/Cloudflare serves 403 (not 200) when the IP is
+        # bot-flagged. The old code ignored the status, found 0 article cards on the
+        # error page, and reported "no_results" — masking a block as an empty result.
+        http_status = response.status if response else None
+        if http_status and http_status >= 400:
+            result["http_status"] = http_status
+            result["status"] = "bot_blocked" if http_status in (403, 429, 503) else "http_error"
+            result["notes"] = (
+                f"HTTP {http_status} from GYG — IP likely Cloudflare/bot-flagged. "
+                "Retry from a different egress IP (hotspot/VPN) or use WebSearch/WebFetch."
+            )
+            log(f"    HTTP {http_status} — {result['status'].upper()} (not 'no_results')")
+            return result
+
+        # Check for bot wall / error interstitial in the page body (covers 200-with-error)
         body_text = ""
         try:
             body_text = await page.locator("body").inner_text()
         except Exception:
             pass
 
-        if "access is temporarily restricted" in body_text.lower():
+        BOT_MARKERS = [
+            "access is temporarily restricted",
+            "an error occurred",      # GYG current Cloudflare interstitial
+            "we'll be right back",
+            "we will be right back",
+            "request blocked",
+            "access denied",
+            "ray id",                 # Cloudflare error page signature
+            "are you a robot",
+            "verify you are human",
+        ]
+        bl = body_text.lower()
+        if any(m in bl for m in BOT_MARKERS):
             result["status"] = "bot_blocked"
-            result["notes"] = "GYG bot wall detected"
-            log(f"    BOT-BLOCKED")
+            result["notes"] = "GYG bot wall / error interstitial detected in page body"
+            log(f"    BOT-BLOCKED (interstitial)")
             return result
 
         # Screenshot
@@ -134,92 +160,85 @@ async def scrape_getyourguide(page, dest: str, date: str, query: str = "") -> di
         except Exception:
             pass
 
-        # Extract tour cards (article elements)
-        articles = await page.locator("article").all()
-        log(f"    Found {len(articles)} article cards")
+        # Extract tour cards. GYG dropped <article> in favor of div-based cards,
+        # so the old page.locator("article") found 0 and silently returned no_results.
+        # New approach: in ONE in-browser pass, grab every unique tour anchor (URLs
+        # contain "-t<digits>") plus its nearest price-bearing container. Fast and
+        # resilient to class-name churn.
+        raw_cards = await page.evaluate(
+            """() => {
+              const anchors = [...document.querySelectorAll("a[href*='-t']")]
+                .filter(a => /-t\\d+/.test(a.getAttribute('href') || ''));
+              const seen = new Set(); const out = [];
+              for (const a of anchors) {
+                const href = (a.getAttribute('href') || '').split('?')[0];
+                if (!href || seen.has(href)) continue; seen.add(href);
+                let el = a, cont = a;
+                for (let i = 0; i < 6 && el; i++) {
+                  if (/[€$]\\s?\\d/.test(el.innerText || '')) { cont = el; break; }
+                  el = el.parentElement;
+                }
+                const txt = (cont.innerText || '').trim();
+                out.push({ href, lines: txt.split('\\n').map(s => s.trim()).filter(Boolean).slice(0, 12) });
+              }
+              return out;
+            }"""
+        )
+        log(f"    Found {len(raw_cards)} tour cards")
+
+        BADGES = {"new activity", "top pick", "top rated", "bestseller",
+                  "likely to sell out", "originally", "from"}
 
         tours = []
-        for art in articles:
-            try:
-                text_lines = (await art.inner_text()).strip().split("\n")
-                text_lines = [l.strip() for l in text_lines if l.strip()]
+        for card in raw_cards:
+            lines = card.get("lines", [])
+            href = card.get("href")
+            tour_url = f"https://www.getyourguide.com{href}" if href and href.startswith("/") else href
 
-                # URL from the link inside article
-                link_el = art.locator("a[data-test-id='vertical-activity-card-link']").first
-                tour_url = None
-                try:
-                    href = await link_el.get_attribute("href")
-                    if href:
-                        tour_url = f"https://www.getyourguide.com{href}" if href.startswith("/") else href
-                        # Strip ranking params
-                        tour_url = tour_url.split("?")[0]
-                except Exception:
-                    pass
+            prices, rating, review_count, duration = [], None, None, None
+            per_group = any("per group" in l.lower() for l in lines)
+            for l in lines:
+                if re.match(r"^[€$][\d,]+$", l):
+                    v = fmt_price(l)
+                    if v:
+                        prices.append(v)
+                elif rating is None and re.match(r"^\d\.\d$", l):
+                    rating = float(l)
+                elif review_count is None and re.match(r"^\(([\d,]+)\)$", l):
+                    review_count = int(re.sub(r"[^\d]", "", l))
+                elif duration is None and re.search(r"\d+\s*(?:-\s*[\d.]+\s*)?(hours?|days?|minutes?|hrs?|min)\b", l, re.I):
+                    duration = l
 
-                # Name from h3
-                name = None
-                try:
-                    name = await art.locator("h3").first.inner_text()
-                    name = name.strip()
-                except Exception:
-                    pass
+            # Name = the longest line that isn't a badge / price / number / duration / meta
+            cand = []
+            for l in lines:
+                ll = l.lower()
+                if ll in BADGES:
+                    continue
+                if re.match(r"^[€$][\d,]+$", l):
+                    continue
+                if re.match(r"^\(?[\d,.]+\)?$", l):
+                    continue
+                if re.search(r"(hours?|days?|minutes?|hrs?|min)\b", ll):
+                    continue
+                if "per group" in ll or "per person" in ll:
+                    continue
+                cand.append(l)
+            name = max(cand, key=len) if cand else None
 
-                # Parse price — find $ amounts in text
-                prices = []
-                for line in text_lines:
-                    p = fmt_price(line) if line.startswith("$") else None
-                    if p and p > 0:
-                        prices.append(p)
-
-                lowest_price = min(prices) if prices else None
-                original_price = max(prices) if len(prices) > 1 else None
-
-                # Rating — look for pattern like "4.7"
-                rating = None
-                for line in text_lines:
-                    m = re.match(r"^(\d\.\d)$", line)
-                    if m:
-                        rating = float(m.group(1))
-                        break
-
-                # Review count — look for pattern like "(20,842)"
-                review_count = None
-                for line in text_lines:
-                    m = re.match(r"^\(([0-9,]+)\)$", line)
-                    if m:
-                        review_count = int(m.group(1).replace(",", ""))
-                        break
-
-                # Duration — look for "X hours", "X days", "X minutes"
-                duration = None
-                for line in text_lines:
-                    if re.search(r"\d+[\s\-]+\d*\s*(hours?|days?|minutes?|hrs?|min)", line, re.IGNORECASE):
-                        duration = line
-                        break
-
-                # Badge (Top pick, New activity, etc.)
-                badge = None
-                badge_keywords = ["top pick", "new activity", "bestseller", "likely to sell out"]
-                for line in text_lines:
-                    if line.lower() in badge_keywords:
-                        badge = line
-                        break
-
-                if name:
-                    tours.append({
-                        "name": name,
-                        "duration": duration,
-                        "rating": rating,
-                        "review_count": review_count,
-                        "price_pp": lowest_price,
-                        "original_price_pp": original_price if original_price != lowest_price else None,
-                        "badge": badge,
-                        "url": tour_url,
-                    })
-
-            except Exception as e:
-                log(f"    Card parse error: {e}")
-                continue
+            lowest = min(prices) if prices else None
+            original = max(prices) if len(prices) > 1 else None
+            if name:
+                tours.append({
+                    "name": name,
+                    "duration": duration,
+                    "rating": rating,
+                    "review_count": review_count,
+                    "price_pp": lowest,
+                    "original_price_pp": original if original != lowest else None,
+                    "per_group_price": per_group,  # True = price is per GROUP, divide by pax
+                    "url": tour_url,
+                })
 
         result["tours"] = tours
         result["status"] = "ok" if tours else "no_results"
@@ -287,8 +306,17 @@ async def scrape_tourradar(page, dest: str, date: str) -> dict:
     log(f"  TourRadar → {url}")
 
     try:
-        await page.goto(url, timeout=30000, wait_until="domcontentloaded")
+        response = await page.goto(url, timeout=30000, wait_until="domcontentloaded")
         await asyncio.sleep(4)
+
+        # FAIL LOUD on HTTP error (bot wall) before pretending "no_results"
+        http_status = response.status if response else None
+        if http_status and http_status >= 400:
+            result["http_status"] = http_status
+            result["status"] = "bot_blocked" if http_status in (403, 429, 503) else "http_error"
+            result["notes"] = f"HTTP {http_status} from TourRadar — IP may be flagged."
+            log(f"    HTTP {http_status} — {result['status'].upper()} (not 'no_results')")
+            return result
 
         screenshot_path = OUTPUT_DIR / f"tour_tourradar_{dest}_{date}.png"
         await page.screenshot(path=str(screenshot_path))
@@ -473,7 +501,8 @@ async def run_tests(dest: str, date: str, source: str = "all", query: str = ""):
         if len(tours) > 10:
             print(f"  ... and {len(tours)-10} more")
     elif gyg.get("status") == "bot_blocked":
-        print("\nGetYourGuide: BOT-BLOCKED")
+        code = gyg.get("http_status")
+        print(f"\nGetYourGuide: BOT-BLOCKED{f' (HTTP {code})' if code else ''} — {gyg.get('notes', '')}")
     elif gyg:
         print(f"\nGetYourGuide: {gyg.get('status', 'unknown')} — {gyg.get('notes', '')}")
 

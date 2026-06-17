@@ -120,6 +120,7 @@ wf17_exception_date: 2026-06-10
 > 📄 **Full excursion plan:** `dossiers/Loucks_SilverNova_May2027_Excursions.md`
 > 📄 **Onboard one-pager:** `output/Loucks_SilverNova_May2027_Excursions.html` / `.pdf`
 > Recommended one-per-port plan ≈ **$2,100 pp gross**; net after the ~$1,520 shore-excursion credit ≈ **$1,300–1,600 pp** — inside the Commander's $2,500 ceiling. Seven ⭐ mobility-suitable tours anchor the trip.
+> 🟢 **BOOKED so far (2026-06-17):** 5 Silversea CONFIRMED ($990) + 4 Project Expedition PENDING ($464.26) = **$1,454.26 / two ($727 pp)**. See ACTUAL BOOKINGS section in the supplement. ⚠️ Open items: fix Susan's name on PE Cape Sounio booking; PE holds auto-cancel — earliest pay-by Apr 27 2027; Patmos pick is uphill (mobility).
 
 ### Silver Nova Prior Experience Note
 *Sailed Silver Nova Tokyo→Seattle, departed Apr 23, 2026 (completed ~May 7-8, 2026 — just 5 weeks before this booking was confirmed). They know the ship. They loved it enough to book 24 more nights.*

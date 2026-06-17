@@ -17,12 +17,111 @@ relationship: client
 doc_type: excursion_supplement
 source: Silversea Tour Programmes DM_1548442 (SN270505010) · DM_1548443 (SN270515007) · DM_1548444 (SN270522007)
 source_verified_date: 2026-06-13
+booked_excursions: "5 Silversea CONFIRMED ($990) + 4 Project Expedition PENDING ($464.26) — see ACTUAL BOOKINGS section"
+booked_verified_date: 2026-06-17
+booked_source: Silversea portal + Project Expedition portal (Commander pull)
 prices_note: "Silversea 'indicative' prices, per person, subject to change. Verify live in Silversea portal at booking."
 ---
 
 # EXCURSION PLAN — John & Susie Loucks | Silver Nova | May 5–29, 2027
 **Supplement to `DOSSIER_Loucks_SilverNova_May2027.md` · Built 2026-06-13 from the three official Silversea Tour Programmes (73p / 54p / 47p).**
 **Budget posture (Commander): "very tight on excursion $." Target ≤ $2,500 pp across all ports.**
+
+---
+
+## 🟢 ACTUAL BOOKINGS — as of 2026-06-17 (Commander portal pull)
+*This is the booked reality and supersedes the recommended plan below for the ports listed. Prices verified live in the Silversea + Project Expedition portals.*
+
+### Silversea shore excursions — 5 CONFIRMED (cart $990, payment due $990)
+
+| Date | Port | Tour | $ pp | × 2 | Mobility note |
+|---|---|---|---|---|---|
+| May 06 | Koper, Slovenia | Lipizzaners Horses Farm & Training | 149 | **$298** | Mostly seated — good fit for John |
+| May 08 | Split, Croatia | Diocletian's Split & Olive Oil Tasting On Foot | 79 | **$158** | On-foot, ~25 stairs — pace it |
+| May 17 | Souda Bay (Crete), Greece | Treasures of Cretan Culture | 89 | **$178** | ⭐ suitable — winery + olive oil + soap |
+| May 24 | Nafplion, Greece | Ancient Corinth & Canal View | 99 | **$198** | Mostly vehicle/scenic — easy |
+| May 28 | Patmos, Greece | St. John's Patmos & Churches | 79 | **$158** | ⚠️ June-13 plan flagged this **strenuous uphill** for John — confirm pace or swap to PAT-C beach |
+| | | **Silversea subtotal** | | **$990** | Payment due $990 |
+
+### Project Expedition — 4 PENDING (Hold without Payment — must pay/confirm before cancel-by dates)
+
+| Date | Port | Tour · Operator | PE Booking | Total | Pay by | Cancel by |
+|---|---|---|---|---|---|---|
+| May 09 · 10:00 | Dubrovnik | Dubrovnik Panorama + On Your Own · *Dubrovnik transfer travel agency* | PE181140617 | $107.24 | Apr 27 2027 | May 7 2027 |
+| May 10 · 11:30 | Bari | Bari Street Food Tour · *Do Eat Better Experience* | PE181142217 | $136.09 | Apr 27 2027 | May 7 2027 |
+| May 15 · 09:00 | Athens/Piraeus | Hop-on Hop-off Classic Athens 3-Day · *Sights of Athens* | PE181149717 | $60.06 | May 4 2027 | May 14 2027 |
+| May 22 · 08:00 | Athens/Cape Sounio | Cape Sounio + Temple of Poseidon Swim & Sunset · *Greece Athens Transfers and Tours* | PE181156317 | $160.87 | May 12 2027 | ~May 21 2027 |
+| | | **PE subtotal** | | **$464.26** | | |
+
+**⚠️ Data flags (Commander, fix when convenient):**
+1. **PE181156317 (Cape Sounio)** lists travelers as *"John Aldon Loucks III, John Aldon Loucks III"* — Susan's name is missing/duplicated. Correct in the PE portal before payment.
+2. **PE bookings are all "Pending — Need More Info / Hold without Payment."** They auto-cancel if not paid by the dates above. Earliest pay-by: **Apr 27, 2027** (Dubrovnik + Bari).
+3. **Patmos (May 28)** — booked the uphill churches tour; flag John's mobility.
+4. ~~May 23 Cape Sounio / Santorini date conflict~~ **RESOLVED 2026-06-17:** Commander moved Cape Sounio to **May 22** (Athens turnaround day) — Attica day-trip now fits the port. **Santorini (May 23) is back open** for its own excursion. Confirm new cancel-by date in PE portal after the move.
+
+### Booked total so far
+
+| | Silversea (confirmed) | Project Expedition (pending) | Combined |
+|---|---|---|---|
+| **For two** | $990.00 | $464.26 | **$1,454.26** |
+| **Per person** | $495.00 | $232.13 | **$727.13 pp** |
+
+**Status vs budget:** $727 pp booked against the $2,500 pp ceiling — **~$1,773 pp of headroom** still open across the unbooked ports (Zadar, Kotor, Katakolon, Gythion ×2, Paros, Milos, Kusadasi, Mykonos, Santorini, Rhodes). Tracking comfortably under budget.
+
+---
+
+## ☑️ BOOK-READY SLATE — open ports (recommended one-per-port, 2026-06-17)
+*Book through Silversea TA portal under 506101-26 unless noted. ⭐ = Silversea limited-mobility-suitable.*
+
+- [ ] **May 7 · Zadar** — ZAD-C Taste of Zadar (Maraschino + cake) — **$79 pp / $158** — one 40-step church, pace it
+- [ ] **May 11 · Kotor** — KTR-D Pearls of the Adriatic / Budva ⭐ — **$109 pp / $218** — skip the 1,350-step walls
+- [ ] **May 13 · Katakolon** — KAT-B Olympia & Peloponnese Wine — **$139 pp / $278** — mostly vehicle, Mercouri Estate wine
+- [ ] **May 14 · Gythion** — GYT-G Nectars of the Peloponnese — **$139 pp / $278** — olive museum + estate wine, 10 steps
+- [ ] **May 16 · Paros** — NSA-D Chrissi Akti Beach — **$89 pp / $178** — true rest day, 200m sand
+- [ ] **May 18 · Gythion (2nd)** — GYT-B Glide in Diros Cave — **$99 pp / $198** — ⚠️ ~2 mi walk; **ship-day candidate**
+- [ ] **May 19 · Milos** — **SHIP DAY recommended** — ⚠️ hardest port, no suitable tour (MLO-C $99 if you go)
+- [ ] **May 20 · Kusadasi** — KUS-G Easy Ephesus ⭐ — **$79 pp / $158** — lowest price of the trip
+- [ ] **May 21 · Mykonos** — JMK-B Mykonos Panorama ⭐ — **$69 pp / $138** — ouzo + mezedes, wheelchair-access
+- [ ] **May 22 · Athens** — ✅ **Cape Sounio (PE181156317) — booked** (moved here from May 23)
+- [ ] **May 23 · Santorini** — JTR-A Oia & Winery — **$109 pp / $218** — use the cable car, not donkeys
+- [ ] **May 26 · Bodrum** — BXN-E Aegean Gulet Cruise — **$189 pp / $378** — gentle, your style
+- [ ] **May 27 · Rhodes** — RHO-E Panoramic Rhodes ⭐ — **$79 pp / $158** — Philerimos + Lindos + pottery
+
+**Slate subtotal (Milos as ship day): ~$1,179 pp / $2,358 for two.** Combined with already-booked ($727 pp) → **~$1,906 pp** total out-of-pocket — under the $2,500 ceiling (no shore credit applies — see correction above). This is the real number.
+
+---
+
+## 🔁 3RD-PARTY ALTERNATIVES TO THE 5 BOOKED SILVERSEA TOURS
+*Commander request 2026-06-17 — similar-experience swaps via Project Expedition / GetYourGuide-class operators, typically 30–50% under Silversea. Prices are market benchmarks (~EST) pending live confirmation; PE retail shown, Commander's NET may be lower. ✅ = confirmed accessible source.*
+
+| Booked (Silversea) | $ pp | Similar 3rd-party swap | ~$ pp | Notes |
+|---|---|---|---|---|
+| **Koper** Lipizzaners Farm | $149 | **Lipica Stud Farm half-day** from Koper (GYG / local operator) — same stud farm | ~$70–90 | Same Lipizzaner experience direct, not via cruise line. PE Koper was bot-blocked; GYG lists it |
+| **Split** Diocletian's + Olive Oil | $79 | **Diocletian's Palace walking tour + olive-oil tasting** (PE/GYG, abundant) | ~$45–55 | Dense market; many combo tours. Mostly on-foot regardless |
+| **Crete (Souda)** Cretan Culture | $89 | **Chania + Cretan winery & olive-oil tasting** (GYG/PE from Souda) | ~$65–75 | Closest match incl. winery; soap workshop is Silversea-unique |
+| **Nafplion** Ancient Corinth & Canal | $99 | **Ancient Corinth + Corinth Canal** day tour (PE/GYG from Nafplion) | ~$60–80 | Same two sites, vehicle-based, easy |
+| **Patmos** St. John's & Churches | $79 | **Monastery of St. John + Cave of the Apocalypse** (GYG) | ~$50–70 | ⚠️ PE market thin at Patmos; uphill on any operator — mobility unchanged |
+
+**Net effect if all 5 swapped to mid-range 3rd-party:** ~$495 pp → ~$290–365 pp — **saves ~$130–205 pp ($260–410/couple).** With **no shore credit** to forfeit, the only trade-off is door-to-door cruise-line logistics + tender priority; soap workshop (Crete) is the one Silversea-unique item lost.
+
+### 🟢 LIVE QUOTES — 2026-06-17 (final, GetYourGuide scraper fixed mid-task)
+*First pass was blocked (PE Imperva + GYG 403). After fixing the GYG scraper's stale card selector + bot-block detection, GYG returned 24–25 live tours/port. Numbers below are real GYG per-person prices (shared, retail) cross-checked against operator sites. **2 of 5 have a genuine cheaper like-for-like; 3 of 5 the Silversea pick wins.***
+
+| Port | Silversea (booked) | Best live 3rd-party | Verdict |
+|---|---|---|---|
+| Split Diocletian's + olive oil | **$79 pp** | **GYG $17** Diocletian's SMALL GROUP 4.9★ (+~$18 olive-oil tasting = ~$35) | 🔻 **SWAP saves ~$44–62 pp** |
+| Crete Cretan Culture | **$89 pp** | **GYG $40** Chania Local Flavors (wine+olive oil+cheese, 6 hr); olive-oil-only $12 | 🔻 **SWAP saves ~$49 pp** (loses soap workshop) |
+| Patmos St John & Cave | **$79 pp** | **GYG $35** *Monastery of St. John & Cave of the Apocalypse Tour* 4.7★, 3.5 hr (exact same tour; reseller wanted $396) | 🔻 **SWAP saves ~$44 pp** |
+| Koper Lipizzaners | **$149 pp** | No like-for-like — GYG cheap tours are Koper/Piran tastings, not Lipica horses; private Lipica ~$70–90 or $177 w/ caves | ✅ **Keep Silversea** (or book Lipica direct) |
+| Nafplion Corinth & Canal | **$99 pp** | No clean per-person GYG price (matches were private/per-group); reseller ~$166 pp | ✅ **Keep Silversea** for a couple |
+
+**Bottom line (revised again — Patmos flipped once the GYG scraper got through):** **THREE worth swapping to GetYourGuide** — Split ($17 palace + ~$18 oil), Crete (Chania Local Flavors $40), **Patmos ($35 monastery+cave)**. Combined swap saves **~$135–155 pp / ~$270–310 couple**, no shore credit forfeited. **Keep Koper + Nafplion on Silversea** (no cheaper like-for-like found). GYG links:
+- Split: https://www.getyourguide.com/split-l268/diocletian-s-palace-and-old-town-small-group-walking-tour-t862564/
+- Crete: GYG `chania-l1807` → "Chania Local Flavors – Wine, Olive oil, Cheese Tasting"
+- Patmos: https://www.getyourguide.com/patmos-l89366/patmos-monastery-of-st-john-cave-of-the-apocalypse-tour-t1021482/
+- Trade-off: GYG tours are guest-arranged (no cruise-line tender priority / back-to-ship guarantee). Split & Crete (Souda) dock easy; **Patmos is a tender port** — keep Silversea there if you want the back-to-ship guarantee, else GYG saves $44 pp.
+
+**🔁 Active watch:** Koper + Nafplion + Patmos scanned weekly by `scripts/loucks_excursion_watch.py` — alerts Commander when a cheaper/better-value option appears. (Patmos already flagged $35 on first run 2026-06-17.)
 
 ---
 
@@ -37,7 +136,7 @@ prices_note: "Silversea 'indicative' prices, per person, subject to change. Veri
 
 **Filtering rule applied:** Silversea's *"Suitable for limited mobility"* flag is the gold standard for John. Tours carrying it are marked ⭐ below and are the spine of the plan. Where a port has no suitable-flagged option, the gentlest available tour is chosen and the walking load is flagged plainly — those are the **"pace it or skip it"** ports.
 
-**Shore-excursion credit (value lever):** Portal pull (2026-06-06) showed shore-excursion credit of **$640 / $480 / $400 = $1,520 combined** across the three segments, plus the **$500 pp Shipboard Credit on the Seg 2+3 combo ($1,000/couple)**. ⚠️ Confirm with Silversea whether the $1,520 is per-booking or per-person and whether SBC is excursion-eligible — this materially lowers out-of-pocket. **At minimum the recommended plan's true cost is well under the gross figures below.**
+**⚠️ NO SHORE-EXCURSION CREDIT (Commander confirmed 2026-06-17).** Earlier drafts assumed a ~$1,520 shore credit + $1,000/couple SBC from a 2026-06-06 portal pull. **That credit does NOT apply to this booking.** All excursion prices below are real out-of-pocket — no offset. ~~$1,520 shore credit / $1,000 SBC~~ struck throughout. This makes 3rd-party swaps strictly cheaper (no Silversea credit is forfeited by booking off-ship).
 
 ---
 
@@ -224,6 +323,31 @@ Silversea explicitly marks these *Suitable for limited mobility* — and they ha
 | | *PAT-I Patmos Wine Experience* | 169 | 338 | 3.0 | Not suitable | Patoinos winery, 3 wines + platter |
 | May 29 Athens | PIR-F1 Acropolis + Airport Transfer | 109 | 218 | 4.0 | Not suitable | Disembark-day option |
 | | PIR-S At Your Leisure | 69 | 138 | 6.0 | ⭐ Suitable | If a leisure morning before the flight |
+
+---
+
+## 📎 LINKS & SOURCES — all in one place (2026-06-17)
+
+**Booked — Silversea (My Silversea / TA portal, booking 506101-26):**
+- Koper Lipizzaners · Split Diocletian's+OliveOil · Crete Cretan Culture · Nafplion Ancient Corinth · Patmos St John's — manage under booking **506101-26**.
+
+**Booked — Project Expedition (account d2mconcierge@gmail.com, "Manage Bookings"):**
+- Dubrovnik Panorama — **PE181140617** — $107.24 — pay by Apr 27 2027
+- Bari Street Food — **PE181142217** — $136.09 — pay by Apr 27 2027
+- Athens Hop-on/off 3-Day — **PE181149717** — $60.06 — pay by May 4 2027
+- Cape Sounio (now **May 22**) — **PE181156317** — $160.87 — pay by May 12 2027 · ⚠️ fix Susan's name
+
+**Cheaper GetYourGuide swaps (verified live 2026-06-17):**
+- **Split** $17, Diocletian's Palace & Old Town SMALL GROUP (4.9★): https://www.getyourguide.com/split-l268/diocletian-s-palace-and-old-town-small-group-walking-tour-t862564/
+- **Split** alt $17, Old Town–Diocletian guide: https://www.getyourguide.com/split-l268/split-walking-tour-t54976/
+- **Split** olive-oil add-on $18, Klis Olive Museum & Oil Tasting (4.8★, 75 min) — pair with palace tour
+- **Crete** $12, Terra Creta Olive Oil Experience (4.7★): https://www.getyourguide.com/crete-l404/the-terra-creta-olive-oil-experience-tour-t142116/
+- **Crete** $40, Chania Local Flavors (wine+olive oil+cheese, 6 hr) — closest match to the booked Cretan Culture tour
+- **Patmos** $35, Monastery of St. John & Cave of the Apocalypse (4.7★, 3.5 hr): https://www.getyourguide.com/patmos-l89366/patmos-monastery-of-st-john-cave-of-the-apocalypse-tour-t1021482/ — ⚠️ tender port; Silversea $79 keeps back-to-ship guarantee
+
+**Watch (the 3 still on Silversea):** `scripts/loucks_excursion_watch.py` — weekly GYG value-scan for Koper(Lipica) / Nafplion(Corinth+Canal) / Patmos(Monastery+Cave). State: `OpsCenter/loucks_excursion_watch.json` · Log: `logs/loucks_excursion_watch.log` · Alerts Commander on Telegram when a cheaper/better-value option appears.
+
+**Scraper:** `scripts/test_tour_scrapers.py` (GYG + TourRadar). Fixed 2026-06-17 — HTTP-status bot-block detection + div-card extraction. PE direct = Imperva-walled (book via your logged-in PE account).
 
 ---
 

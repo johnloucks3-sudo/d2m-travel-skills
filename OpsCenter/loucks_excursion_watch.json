@@ -1,0 +1,31 @@
+{
+  "Koper": {
+    "last_run": "2026-06-17T11:11:52.077238",
+    "status": "ok",
+    "silversea_pp": 149,
+    "best_price": null,
+    "best_name": null,
+    "best_url": null,
+    "last_alert_price": null
+  },
+  "Nafplion": {
+    "last_run": "2026-06-17T11:11:52.077238",
+    "status": "ok",
+    "silversea_pp": 99,
+    "best_price": null,
+    "best_name": null,
+    "best_url": null,
+    "last_alert_price": null
+  },
+  "Patmos": {
+    "last_run": "2026-06-17T11:11:52.077238",
+    "status": "ok",
+    "silversea_pp": 79,
+    "best_price": 35.0,
+    "best_name": "Monastery of St. John & Cave of the Apocalypse Tour",
+    "best_url": "https://www.getyourguide.com/patmos-l89366/patmos-monastery-of-st-john-cave-of-the-apocalypse-tour-t1021482/",
+    "last_alert_price": 35.0,
+    "best_rating": 4.7,
+    "best_duration": "3.5 hours"
+  }
+}
