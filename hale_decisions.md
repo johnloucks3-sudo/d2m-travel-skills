@@ -4953,3 +4953,12 @@ TRIGGER: Commander "check d2m inbox to COS/COO past 2 days, answer unanswered, F
 - Retired data/fare_watches.json → .RETIRED-20260616 (also .bak). ONE store now. 44 watches (9 ITA). Smoke-tested all readers OK; syntax OK.
 - DEDUPED Door County: removed my junk loucks-doorcounty-den-grb ($62 Kayak — bogus uniform read) ; kept established loucks-doorcounty-air-2026 with REAL ITA baseline $419.63/pp (DEN-GRB-DEN United). Vindicates ITA-as-default.
 - Backups: data/fare_watches.json.bak.20260616, core/travel/data/fare_watches.json.bak.20260616.
+
+## 2026-06-16 — FIXED the "labeled but no reply" scanner (Commander's core complaint)
+Commander spec: ANY email from johnloucks3 hitting the d2m inbox → a reply, NO prefix/code required, mark read. Was broken: labeled, never replied. Root causes found + fixed in OpsCenter/run_commander_directive_sweep.py:
+1. LABEL COLLISION (primary): sweep's PROCESSED_LABEL was "THUNDERBIRD-Scanned" — SHARED with the inbox-sweep, which stamped Commander emails first, so the sweep's `-label:` exclusion skipped them as "already processed." → gave the sweep its OWN label "THUNDERBIRD-DirectiveReplied."
+2. SELF-REPLY FLOOD: d2mc loop replied to d2mconcierge's OWN sends too → reply-to-self loop (the T2 flood). → reply ONLY to johnloucks3.
+3. DOUBLING + 404s: the jl3 SENT-mail path dispatched replies threaded to johnloucks3 thread-ids but sent from d2mconcierge → HttpError 404 "entity not found" (reply generated, send failed = labeled-no-reply). → DISABLED the jl3 path; the d2m INBOX loop (correct d2mc thread-ids) is the SOLE replier.
+4. PREFIX REQUIREMENT removed; forwards now reply too (only pure acks roger/wilco/done skipped).
+- Backfilled THUNDERBIRD-DirectiveReplied on 19 backlog emails (already covered by this afternoon's consolidated answer) to avoid a re-flood burst on re-enable.
+- Re-enabled thunderbird-commander-directive-sweep.timer. End-to-end verification (fresh no-prefix test email → reply) running.

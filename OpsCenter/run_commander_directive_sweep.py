@@ -41,7 +41,7 @@ for sub in (ROOT / "core").iterdir():
 
 from OpsCenter.sweep_tracker import SweepTracker
 
-PROCESSED_LABEL = "THUNDERBIRD-Scanned"
+PROCESSED_LABEL = "THUNDERBIRD-DirectiveReplied"  # 2026-06-16: was "THUNDERBIRD-Scanned" — SHARED with the inbox-sweep, which stamped Commander emails first so this sweep skipped them as "processed" → labeled-but-never-replied. Distinct label fixes it.
 COMMANDER_QUERY = f"from:johnloucks3@gmail.com -label:{PROCESSED_LABEL} newer_than:3d"
 SCRIPTS_LOG = ROOT / "logs" / "commander_directive_sweep.log"
 THREAD_STATE_FILE = ROOT / "logs" / "commander_directive_threads.json"
@@ -137,17 +137,11 @@ try:
     D2MC_QUERY = f"from:johnloucks3@gmail.com -label:{PROCESSED_LABEL} newer_than:3d"
     D2MC_SELF_QUERY = f"in:inbox -label:{PROCESSED_LABEL} newer_than:3d"
 
+    # jl3 SENT-mail path DISABLED 2026-06-16 (Commander spec: reply when an email "hits the
+    # d2m inbox from johnloucks3"). The d2mconcierge INBOX loop below is the SOLE replier.
+    # Scanning jl3's sent copies caused (a) double-replies (sent copy + inbox copy) and
+    # (b) a separate label namespace that re-fired on old mail. One path = one reply.
     all_msgs = []
-    _page_token = None
-    while True:
-        _kw = dict(userId="me", q=COMMANDER_QUERY, maxResults=50)
-        if _page_token:
-            _kw["pageToken"] = _page_token
-        _page = service.users().messages().list(**_kw).execute()
-        all_msgs.extend(_page.get("messages", []))
-        _page_token = _page.get("nextPageToken")
-        if not _page_token:
-            break
 
     # Also collect from d2mconcierge inbox if token available
     d2mc_msgs = []
@@ -358,8 +352,9 @@ try:
                 d_msg_id_hdr = d_hdrs.get("Message-ID", "")
                 d_body = _decode_text(d_full["payload"])
 
-                # Only handle emails from Commander addresses or self-sends
-                if "johnloucks3" not in d_from and "d2mconcierge" not in d_from:
+                # Reply ONLY to the Commander (johnloucks3). Do NOT reply to the wing's
+                # own d2mconcierge sends — that self-reply loop was the 2026-06-16 flood.
+                if "johnloucks3" not in d_from:
                     if d2mc_label_id:
                         d2mc_service.users().messages().modify(
                             userId="me", id=d_msg_id,
@@ -369,20 +364,9 @@ try:
 
                 _clean_sub = d_subject.lstrip().lower()
 
-                # Fwd:/Fw: — a forward is a filing UNLESS the Commander wrote a command
-                # prefix (COS/COO/HALE/VIC) at the top. "COO analyze..." / "COS-- add to
-                # dossier" arrive as forwards and ARE directives. (Fix 2026-06-16: these
-                # were silently dropped — the scanning gap.)
-                if _clean_sub.startswith("fwd:") or _clean_sub.startswith("fw:"):
-                    if not has_command_prefix_in_body(d_body):
-                        if d2mc_label_id:
-                            d2mc_service.users().messages().modify(
-                                userId="me", id=d_msg_id,
-                                body={"addLabelIds": [d2mc_label_id]}
-                            ).execute()
-                        log_line(f"  d2mc skip (Fwd:, no command prefix): {d_subject[:60]}")
-                        continue
-                    log_line(f"  d2mc Fwd: WITH command prefix — treating as directive: {d_subject[:60]}")
+                # Commander directive 2026-06-16: EVERY email from johnloucks3 gets a reply —
+                # NO prefix/code required, forwards included. (Forwards used to be dropped as
+                # "filing"; that's retired.) Only pure acks are skipped (below) to avoid ping-pong.
 
                 # Re: replies — skip pure acknowledgments, dispatch everything else.
                 # Match a tight list of ack phrases. Any real question or instruction
