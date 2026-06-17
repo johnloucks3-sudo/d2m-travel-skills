@@ -362,3 +362,39 @@ Silversea explicitly marks these *Suitable for limited mobility* — and they ha
 
 *Built by Hale · 2026-06-13 · Source: 3 official Silversea Tour Programmes. Personal travel — Commander + Susie.*
 *Companion onboard one-pager: `output/Loucks_SilverNova_May2027_Excursions.html` / `.pdf`*
+
+---
+
+## 🛟 ALL-PORTS GUARANTEED-RETURN SCAN — 2026-06-17 (zero baseline)
+*Commander directive: only tours that **meet at the port/tender** and carry a **guaranteed return to ship**; search the **experience we picked** per port + a food/wine alt; not anchored to Silversea price. Sources: **Shore Excursions Group** (return-to-ship + pier transport on every tour) + **ToursByLocals** ("No One Left Behind" guarantee; private, quote-priced) for SEG-gap ports. Live data: `core/travel/data/loucks_cruise_excursions.json` · rescans weekly via `scripts/cruise_excursion_scan.py`. ⚓ = tender port (guarantee matters most here).*
+
+| Date | Port | Provider | Best PICKED-experience (guaranteed) | Best FOOD/WINE alt |
+|---|---|---|---|---|
+| 05-06 | Koper | SEG | [Lipica Stud Farm & Skocjan Caves](https://www.shoreexcursionsgroup.com/tour/lipica-stud-farm-a-kocjan-caves/eukplipicafarm) — **$177** | — |
+| 05-07 | Zadar | SEG | [Old Town Historical Walk and Golden Tr](https://www.shoreexcursionsgroup.com/tour/old-town-historical-walk-treasures-zadar-church/euzagldzadhiscutvhar) — **$82** | — |
+| 05-08 | Split | SEG | [Grand Diocletian Tour](https://www.shoreexcursionsgroup.com/tour/grand-diocletian-tour/euslgranddio) — **$59** | [Small Group Split Food Tasting Walk](https://www.shoreexcursionsgroup.com/tour/small-group-split-food-tasting-walk/euslfoodtoursplit) — **$152** |
+| 05-09 | Dubrovnik | SEG | [Game of Thrones and the Old Town Tour](https://www.shoreexcursionsgroup.com/tour/game-of-thrones-and-the-old-town-tour/eudvgameold) — **$51** | [Korcula Island with Wine](https://www.shoreexcursionsgroup.com/tour/korcula-island-with-wine/eudvstonkorc) — **$97** |
+| 05-10 | Bari | SEG | [Walking Tour of Bari](https://www.shoreexcursionsgroup.com/tour/walking-tour-of-bari-local-sights-italy-bari/eubawalk) — **$46** | — |
+| 05-11 | Kotor | SEG | [Kotor Bay's Beauty by Kayak](https://www.shoreexcursionsgroup.com/tour/kotor-bay-beauty-by-kayak/eukobaybykyk) — **$58** | [Wine and Culinary Tour](https://www.shoreexcursionsgroup.com/tour/wine-and-culinary-lake-skadar/eukowinecul) — **$293** |
+| 05-13 | Katakolon | SEG | [Ancient Olympia On Your Own](https://www.shoreexcursionsgroup.com/tour/ancient-olympia-on-your-own/eukaolympia2) — **$103** | — |
+| 05-14 | Gythion ⚓ | — | _no guaranteed option found_ | |
+| 05-15 | Athens (Piraeus) | SEG | [Hop-on Hop-off Athens Highlights Tour ](https://www.shoreexcursionsgroup.com/tour/hop-on-hop-off-athens-highlights-tour/euatcsonoff2) — **$59** | [Exclusive Walking Food Tour for Cruise](https://www.shoreexcursionsgroup.com/tour/walking-food-tour-athens/euatawtmgwalt) — **$183** |
+| 05-16 | Paros ⚓ | ToursByLocals | [Meet Paros - Half Day Shore Excursion](https://www.toursbylocals.com/tours/greece/paros/tour-details/meet-paros---half-day-shore-excursion-664d2321ebf20b19574bbad4) — **quote** | — |
+| 05-17 | Crete (Souda) | SEG | [Cretan Wines Jeep Safari](https://www.shoreexcursionsgroup.com/tour/cretan-wines-jeep-safari/euchjeepwine) — **$139** | — |
+| 05-18 | Gythion ⚓ | — | _no guaranteed option found_ | |
+| 05-19 | Milos ⚓ | ToursByLocals | [Milos Classics Tour - Full Day Shore E](https://www.toursbylocals.com/tours/greece/milos/tour-details/milos-classics-tour---full-day-shore-excursion-664d230b17832fdc0da8219c) — **quote** | — |
+| 05-20 | Kusadasi | SEG | [Guided Ephesus and Wine Tasting at Sir](https://www.shoreexcursionsgroup.com/tour/guided-ephesus-wine-tasting-at-sirince-village/eukuephwwinetstr) — **$62** | — |
+| 05-21 | Mykonos ⚓ | SEG | [Mykonos Town Walking Discovery](https://www.shoreexcursionsgroup.com/tour/mykonos-town-talking-discovery/eumywalkbigblu) — **$80** | [Executive Wine Tasting](https://www.shoreexcursionsgroup.com/tour/executive-wine-tasting/eumywinebigblu) — **$297** |
+| 05-22 | Athens (Piraeus) | SEG | [Hop-on Hop-off Athens Highlights Tour ](https://www.shoreexcursionsgroup.com/tour/hop-on-hop-off-athens-highlights-tour/euatcsonoff2) — **$59** | [Exclusive Walking Food Tour for Cruise](https://www.shoreexcursionsgroup.com/tour/walking-food-tour-athens/euatawtmgwalt) — **$183** |
+| 05-23 | Santorini ⚓ | SEG | [Shared Shuttle Transfers in Santorini](https://www.shoreexcursionsgroup.com/tour/shared-shuttle-transfers-in-santorini/eusnshuttletrans) — **$61** | [Morning Sea Kayak and Snorkel with Lun](https://www.shoreexcursionsgroup.com/tour/morning-sea-kayak-and-snorkel-with-lunch/eusnamseakaylnch) — **$265** |
+| 05-24 | Nafplion | ToursByLocals | [Mycenae, Epidaurus Private Shore Excur](https://www.toursbylocals.com/tours/greece/nafplio/tour-details/mycenae-epidaurus-and-nafplio-full-day-tour-664d24c71bbe5b817c2ef9f4) — **quote** | — |
+| 05-26 | Bodrum | SEG | [Bodrum Castle, Halicarnassus Mausoleum](https://www.shoreexcursionsgroup.com/tour/bodrum-castle-halicarnassus-mausoleum-etrim-lunch/eubucastlemaus) — **$79** | — |
+| 05-27 | Rhodes | SEG | [Lindos On Your Own](https://www.shoreexcursionsgroup.com/tour/lindos-on-your-own/eurhlindosoyo) — **$48** | [Butterfly Valley and Wine Tasting](https://www.shoreexcursionsgroup.com/tour/butterfly-valley-wine-tasting/eurhbutterflywine) — **$128** |
+| 05-28 | Patmos ⚓ | ToursByLocals | [Scenic Patmos Half Day Tour with your ](https://www.toursbylocals.com/tours/greece/patmos/tour-details/scenic-patmos-half-day-tour-with-your-private-guide-664d281d1bbe5b817c4a9a1f) — **quote** | — |
+
+**Coverage:** 19/21 ports have a guaranteed-return option. Gap: **Gythion** (May 14 & 18) — not on SEG or TBL; book ship tour or a local operator with a written all-aboard guarantee.
+
+**Guaranteed-return options cheaper than the booked Silversea pick:**
+- **Split**: SEG $59 vs Silversea $79 — save ~$20 pp
+
+*Note: ToursByLocals prices are per-group quotes (divide by pax); SEG prices are per-person sale prices. Some SEG 'picked' matches are broad (e.g. transfers/hop-on-off) — verify the specific tour content + that it explicitly states return-to-ship before booking.*
