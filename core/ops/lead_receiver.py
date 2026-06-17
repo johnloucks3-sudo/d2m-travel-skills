@@ -26,9 +26,18 @@ THUNDERBIRD = Path("/home/john/Thunderbird")
 LEADS_LOG = THUNDERBIRD / "logs" / "leads.jsonl"
 DOSSIER_DIR = THUNDERBIRD / "dossiers"
 VENV_PYTHON = THUNDERBIRD / ".venv" / "bin" / "python3"
+ENV_FILE = THUNDERBIRD / ".env"
 
-BOT_TOKEN = "***REMOVED-SECRET***"
 COMMANDER_CHAT_ID = "7554895206"
+
+
+def _load_tg_token() -> str:
+    """Load Telegram bot token from .env file or environment. Matches lead_pipeline.py pattern."""
+    if ENV_FILE.exists():
+        for line in ENV_FILE.read_text(encoding="utf-8").splitlines():
+            if line.startswith("TELEGRAM_C2_BOT_TOKEN="):
+                return line.split("=", 1)[1].strip().strip('"').strip("'")
+    return os.environ.get("TELEGRAM_C2_BOT_TOKEN", "")
 
 FORM_HTML = """<!DOCTYPE html>
 <html lang="en">
@@ -265,9 +274,13 @@ app = Flask(__name__)
 
 
 def tg_notify(msg: str):
-    """Send Telegram message to Commander. Fire-and-forget."""
+    """Send Telegram message to Commander. Fire-and-forget. Token loaded from .env."""
+    token = _load_tg_token()
+    if not token:
+        print("[lead] Telegram notify skipped — TELEGRAM_C2_BOT_TOKEN not found in .env or environment")
+        return
     try:
-        url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
+        url = f"https://api.telegram.org/bot{token}/sendMessage"
         payload = json.dumps({
             "chat_id": COMMANDER_CHAT_ID,
             "text": msg,
