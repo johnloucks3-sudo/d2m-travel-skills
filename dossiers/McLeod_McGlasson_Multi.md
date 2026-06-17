@@ -539,3 +539,9 @@ Melissa is thorough, detail-oriented researcher. Erik delegates to Melissa for p
 **Dossier Owner:** Col Victoria Hale, COS  
 **Last Updated:** Jun 12, 2026, 22:30 MT — Added: destination knowledge for all 11 cities (SO-REVERIE-QC-20260612)  
 **Next Validation:** Jun 23, 2026 (departure day)
+
+---
+## SILVERSEA — Special-Occasion Request (logged 2026-06-16, Commander directive "add to dossier and monitor")
+- **Context:** Melissa McGlasson special-occasion request on the Silver Muse (Med, depart Jun 23). Commander emailed her this AM to establish a record; offered to arrange a special dessert at **La Dame** that evening.
+- **Commander's words:** "Sent email this AM. I like to send an email to establish a record, I will follow-up on Weds if no answer. At the very least, I am certain you could order a special dessert to be served at La Dame that night."
+- **MONITOR:** Follow up **Wed 2026-06-18** if no reply from Melissa. Owner: Hale.

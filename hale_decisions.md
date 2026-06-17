@@ -4934,3 +4934,7 @@ TRIGGER: Commander "check d2m inbox to COS/COO past 2 days, answer unanswered, F
 - Sent: d2mconcierge → Kim Westbrook (crnakim@yahoo.com) + Brent Westbrook (WESTY737@gmail.com), **CC johnloucks3**. Msg `19ed2bfbd67651c0`.
 - Two-voice (Hale→Dani) gift invite. Personalized: Celebrity Ascent Rome round-trip (real ports: Messina/Dubrovnik/Split/Bar/Corfu/Katakolon/Naples), Ava→Auburn, pro-bono friends (Brent = Rondo's son). Dani channel = Telegram @d2m_dani_bot (open to clients). Added "more than two dozen tools" (honest: 25+ travel skills). "No charge, no obligation."
 - WF-17 waived per Commander send directive ("send cc me"). Per-send, not standing.
+
+## 2026-06-16 — Executed the 2 open committed actions
+1. SILVERSEA (McGlasson) → dossier + monitor: appended special-occasion (La Dame dessert) note to dossiers/McLeod_McGlasson_Multi.md; added NAG-002 (trigger 2026-06-18 Wed) to OpsCenter/nag_queue.json — follow up if no reply.
+2. DOOR COUNTY fare watch: ran Kayak scan DEN-GRB Sep 6 → $62/pp (first scan baseline). Registered fare watch "loucks-doorcounty-den-grb" (route DEN-GRB, Sep6/Sep14, 1 pax, alert <$56 / >$68 = +/-10%). UA 1928/5371 out, UA 5280/767 home. Caveat: Kayak returned uniform $62 across cabins (likely single basic-economy fare for regional GRB) — baseline is conservative; watch will track movement.

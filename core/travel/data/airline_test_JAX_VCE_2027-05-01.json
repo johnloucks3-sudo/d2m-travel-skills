@@ -1,0 +1,84 @@
+{
+  "route": "JAX-VCE",
+  "depart_date": "2027-05-01",
+  "adults": 2,
+  "scraped_at": "2026-06-12T19:21:03.207586",
+  "skiplagged": {},
+  "kayak": {},
+  "expedia": {},
+  "cheaptickets": {},
+  "centrav": {
+    "economy": {
+      "source": "centrav",
+      "cabin": "economy",
+      "url": "https://www.centrav.com/fares",
+      "adults": 2,
+      "depart_date": "2027-05-01",
+      "raw_prices": [
+        "$997",
+        "$1,025",
+        "$1,051",
+        "$1,099",
+        "$1,154",
+        "$1,306",
+        "$1,356",
+        "$1,864",
+        "$1,092",
+        "$1,312"
+      ],
+      "lowest_price_pp": 498.5,
+      "total_lowest": 997.0,
+      "airlines_found": [],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/centrav_search_economy_2027-05-01.png",
+      "status": "ok"
+    },
+    "premium": {
+      "source": "centrav",
+      "cabin": "premium",
+      "url": "https://www.centrav.com/fares",
+      "adults": 2,
+      "depart_date": "2027-05-01",
+      "raw_prices": [
+        "$2,739",
+        "$3,400",
+        "$3,662",
+        "$3,714",
+        "$3,754",
+        "$3,768",
+        "$6,052",
+        "$3,136",
+        "$4,204",
+        "$4,228"
+      ],
+      "lowest_price_pp": 1369.5,
+      "total_lowest": 2739.0,
+      "airlines_found": [],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/centrav_search_premium_2027-05-01.png",
+      "status": "ok"
+    },
+    "first": {
+      "source": "centrav",
+      "cabin": "first",
+      "url": "https://www.centrav.com/fares",
+      "adults": 2,
+      "depart_date": "2027-05-01",
+      "raw_prices": [
+        "$6,886",
+        "$7,243",
+        "$7,984",
+        "$8,800",
+        "$8,846",
+        "$9,226",
+        "$12,050",
+        "$13,820",
+        "$13,834",
+        "$21,809"
+      ],
+      "lowest_price_pp": 3443.0,
+      "total_lowest": 6886.0,
+      "airlines_found": [],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/centrav_search_first_2027-05-01.png",
+      "status": "ok"
+    }
+  }
+}

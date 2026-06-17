@@ -1,0 +1,125 @@
+{
+  "route": "DFW-ARN",
+  "depart_date": "2026-08-26",
+  "adults": 2,
+  "scraped_at": "2026-06-13T16:05:41.654846",
+  "skiplagged": {},
+  "kayak": {
+    "economy": {
+      "source": "kayak",
+      "cabin": "economy",
+      "url": "https://www.kayak.com/flights/DFW-ARN/2026-08-26/2adults?sort=price_a&fs=cabin=e",
+      "adults": 2,
+      "depart_date": "2026-08-26",
+      "raw_prices": [
+        "$456",
+        "$341",
+        "$463",
+        "$471",
+        "$462",
+        "$458",
+        "$620",
+        "$606",
+        "$974",
+        "$6,297"
+      ],
+      "lowest_price_pp": 170.5,
+      "total_lowest": 341.0,
+      "airlines_found": [],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/kayak_economy_2026-08-26.png",
+      "status": "ok"
+    },
+    "premium": {
+      "source": "kayak",
+      "cabin": "premium",
+      "url": "https://www.kayak.com/flights/DFW-ARN/2026-08-26/2adults?sort=price_a&fs=cabin=pe",
+      "adults": 2,
+      "depart_date": "2026-08-26",
+      "raw_prices": [
+        "$341",
+        "$974",
+        "$6,297",
+        "$934",
+        "$299",
+        "$227",
+        "$290",
+        "$199",
+        "$229",
+        "$170"
+      ],
+      "lowest_price_pp": 170.5,
+      "total_lowest": 341.0,
+      "airlines_found": [],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/kayak_premium_2026-08-26.png",
+      "status": "ok",
+      "sanity_corrected": true
+    },
+    "first": {
+      "source": "kayak",
+      "cabin": "first",
+      "url": "https://www.kayak.com/flights/DFW-ARN/2026-08-26/2adults?sort=price_a&fs=cabin=b",
+      "adults": 2,
+      "depart_date": "2026-08-26",
+      "raw_prices": [
+        "$6,297",
+        "$6,313",
+        "$6,308",
+        "$6,317",
+        "$8,386",
+        "$341",
+        "$974",
+        "$934",
+        "$472",
+        "$478"
+      ],
+      "lowest_price_pp": 149.5,
+      "total_lowest": 299.0,
+      "airlines_found": [],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/kayak_first_2026-08-26.png",
+      "status": "ok"
+    }
+  },
+  "expedia": {},
+  "cheaptickets": {},
+  "centrav": {
+    "economy": {
+      "source": "centrav",
+      "cabin": "economy",
+      "url": "https://www.centrav.com/login",
+      "adults": 2,
+      "depart_date": "2026-08-26",
+      "raw_prices": [],
+      "lowest_price_pp": null,
+      "total_lowest": null,
+      "airlines_found": [],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/centrav_search_economy_2026-08-26.png",
+      "status": "no_prices_found"
+    },
+    "premium": {
+      "source": "centrav",
+      "cabin": "premium",
+      "url": "https://www.centrav.com/login",
+      "adults": 2,
+      "depart_date": "2026-08-26",
+      "raw_prices": [],
+      "lowest_price_pp": null,
+      "total_lowest": null,
+      "airlines_found": [],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/centrav_search_premium_2026-08-26.png",
+      "status": "no_prices_found"
+    },
+    "first": {
+      "source": "centrav",
+      "cabin": "first",
+      "url": "https://www.centrav.com/login",
+      "adults": 2,
+      "depart_date": "2026-08-26",
+      "raw_prices": [],
+      "lowest_price_pp": null,
+      "total_lowest": null,
+      "airlines_found": [],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/centrav_search_first_2026-08-26.png",
+      "status": "no_prices_found"
+    }
+  }
+}

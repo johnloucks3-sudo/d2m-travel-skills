@@ -1,0 +1,20 @@
+{
+  "dest": "cartagena",
+  "query": "",
+  "date": "2026-12-19",
+  "scraped_at": "2026-06-13T16:12:06.641477",
+  "getyourguide": {
+    "source": "getyourguide",
+    "dest": "cartagena",
+    "query": "",
+    "url": "https://www.getyourguide.com/cartagena-l2459/",
+    "scraped_at": "2026-06-13T16:12:07.171697",
+    "date_filter": "2026-12-19",
+    "tours": [],
+    "total_found_estimate": "130 results:",
+    "screenshot": "/home/john/Thunderbird/core/travel/data/tour_gyg_cartagena_2026-12-19.png",
+    "status": "no_results",
+    "notes": ""
+  },
+  "tourradar": {}
+}

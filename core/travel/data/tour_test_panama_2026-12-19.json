@@ -1,0 +1,81 @@
+{
+  "dest": "panama",
+  "query": "",
+  "date": "2026-12-19",
+  "scraped_at": "2026-06-13T16:12:15.740979",
+  "getyourguide": {
+    "source": "getyourguide",
+    "dest": "panama",
+    "query": "",
+    "url": "https://www.getyourguide.com/s/?q=panama",
+    "scraped_at": "2026-06-13T16:12:16.083906",
+    "date_filter": "2026-12-19",
+    "tours": [],
+    "total_found_estimate": "427 results:",
+    "screenshot": "/home/john/Thunderbird/core/travel/data/tour_gyg_panama_2026-12-19.png",
+    "status": "no_results",
+    "notes": ""
+  },
+  "tourradar": {
+    "source": "tourradar",
+    "dest": "panama",
+    "url": "https://www.tourradar.com/d/panama",
+    "scraped_at": "2026-06-13T16:12:21.595545",
+    "date_filter": "2026-12-19",
+    "tours": [
+      {
+        "name": "9 Days Across Panama: Culture, Mountains & Caribbean Paradise",
+        "duration": "9 Days Across Panama: Culture, Mountains & Caribbean Paradise",
+        "rating": 5.0,
+        "price_pp": 1990.0,
+        "url": "https://www.tourradar.com/t/316756"
+      },
+      {
+        "name": "Panama & San Blas Islands (Guna Yala) - 5 days",
+        "duration": "Panama & San Blas Islands (Guna Yala) - 5 days",
+        "rating": 5.0,
+        "price_pp": 150.0,
+        "url": "https://www.tourradar.com/t/192917"
+      },
+      {
+        "name": "Explore Panama and Enjoy Paradise at Playa Bonita",
+        "duration": "8 days",
+        "rating": 4.3,
+        "price_pp": 1418.0,
+        "url": "https://www.tourradar.com/t/218326"
+      },
+      {
+        "name": "San Blas Yanis Island Budget Experience 4D/3N",
+        "duration": "4 days",
+        "rating": 3.8,
+        "price_pp": 442.0,
+        "url": "https://www.tourradar.com/t/179572"
+      },
+      {
+        "name": "Panama: Panama city and Boca de Toros - 7 days",
+        "duration": "Panama: Panama city and Boca de Toros - 7 days",
+        "rating": 4.0,
+        "price_pp": 1409.0,
+        "url": "https://www.tourradar.com/t/296608"
+      },
+      {
+        "name": "Tropical Adventure in Panama: Gamboa Rainforest and Panama City",
+        "duration": "7 days",
+        "rating": null,
+        "price_pp": 1450.0,
+        "url": "https://www.tourradar.com/t/229019"
+      },
+      {
+        "name": "Panama Highlights: City, Highlands, and Island Escapes",
+        "duration": "10 days",
+        "rating": 4.0,
+        "price_pp": 3263.0,
+        "url": "https://www.tourradar.com/t/296899"
+      }
+    ],
+    "total_found_estimate": "49 tours",
+    "screenshot": "/home/john/Thunderbird/core/travel/data/tour_tourradar_panama_2026-12-19.png",
+    "status": "ok",
+    "notes": "Multi-day guided tours (not day excursions)"
+  }
+}

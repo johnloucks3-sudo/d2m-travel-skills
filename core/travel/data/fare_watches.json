@@ -576,5 +576,39 @@
     "active": true,
     "created": "2026-06-10T06:40:38.438590",
     "last_checked": null
+  },
+  "lyons-flights": {
+    "id": "lyons-flights",
+    "watch_type": "flight",
+    "label": "Lyons — Seven Seas Splendor · Regent Seven Seas",
+    "provider": "centrav",
+    "route": "JAX→ARN",
+    "travel_date": "2026-08-11",
+    "passengers": 2,
+    "current_price_pp": 0.0,
+    "baseline_price_pp": 0.0,
+    "alert_below": null,
+    "alert_above": null,
+    "notes": "Auto-registered by flight_scan_trigger.py · TP 1.2 window open",
+    "active": true,
+    "created": "2026-06-15T06:40:00.608142",
+    "last_checked": null
+  },
+  "loucks-doorcounty-den-grb": {
+    "id": "loucks-doorcounty-den-grb",
+    "watch_type": "flight",
+    "label": "Door County DEN-GRB (Sep 6) / GRB-DEN (Sep 14)",
+    "provider": "kayak",
+    "route": "DEN-GRB",
+    "travel_date": "2026-09-06",
+    "passengers": 1,
+    "current_price_pp": 62.0,
+    "baseline_price_pp": 62.0,
+    "alert_below": 55.8,
+    "alert_above": 68.2,
+    "notes": "Commander Door County. UA 1928/5371 out Sep6 / UA 5280/767 home Sep14. Alert +/-10%. First scan Kayak 2026-06-16 = $62/pp.",
+    "active": true,
+    "created": "2026-06-16T21:37:04.114672",
+    "last_checked": null
   }
 }

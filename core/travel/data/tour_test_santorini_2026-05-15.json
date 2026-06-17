@@ -1,0 +1,20 @@
+{
+  "dest": "santorini",
+  "query": "Oia winery villages",
+  "date": "2026-05-15",
+  "scraped_at": "2026-06-13T11:44:33.349726",
+  "getyourguide": {
+    "source": "getyourguide",
+    "dest": "santorini",
+    "query": "Oia winery villages",
+    "url": "https://www.getyourguide.com/santorini-l2744/",
+    "scraped_at": "2026-06-13T11:44:33.989732",
+    "date_filter": "2026-05-15",
+    "tours": [],
+    "total_found_estimate": null,
+    "screenshot": "/home/john/Thunderbird/core/travel/data/tour_gyg_santorini_2026-05-15.png",
+    "status": "no_results",
+    "notes": ""
+  },
+  "tourradar": {}
+}

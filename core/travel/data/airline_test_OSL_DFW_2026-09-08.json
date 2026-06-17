@@ -1,0 +1,85 @@
+{
+  "route": "OSL-DFW",
+  "depart_date": "2026-09-08",
+  "adults": 2,
+  "scraped_at": "2026-06-13T16:07:54.968950",
+  "skiplagged": {},
+  "kayak": {
+    "economy": {
+      "source": "kayak",
+      "cabin": "economy",
+      "url": "https://www.kayak.com/flights/OSL-DFW/2026-09-08/2adults?sort=price_a&fs=cabin=e",
+      "adults": 2,
+      "depart_date": "2026-09-08",
+      "raw_prices": [
+        "$560",
+        "$400",
+        "$679",
+        "$559",
+        "$561",
+        "$825",
+        "$863",
+        "$755",
+        "$2,783",
+        "$2,261"
+      ],
+      "lowest_price_pp": 200.0,
+      "total_lowest": 400.0,
+      "airlines_found": [],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/kayak_economy_2026-09-08.png",
+      "status": "ok"
+    },
+    "premium": {
+      "source": "kayak",
+      "cabin": "premium",
+      "url": "https://www.kayak.com/flights/OSL-DFW/2026-09-08/2adults?sort=price_a&fs=cabin=pe",
+      "adults": 2,
+      "depart_date": "2026-09-08",
+      "raw_prices": [
+        "$400",
+        "$2,783",
+        "$2,261",
+        "$2,131",
+        "$91",
+        "$146",
+        "$108",
+        "$225",
+        "$99",
+        "$309"
+      ],
+      "lowest_price_pp": 200.0,
+      "total_lowest": 400.0,
+      "airlines_found": [],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/kayak_premium_2026-09-08.png",
+      "status": "ok",
+      "sanity_corrected": true
+    },
+    "first": {
+      "source": "kayak",
+      "cabin": "first",
+      "url": "https://www.kayak.com/flights/OSL-DFW/2026-09-08/2adults?sort=price_a&fs=cabin=b",
+      "adults": 2,
+      "depart_date": "2026-09-08",
+      "raw_prices": [
+        "$2,261",
+        "$3,252",
+        "$4,002",
+        "$3,993",
+        "$4,012",
+        "$400",
+        "$2,783",
+        "$2,131",
+        "$627",
+        "$730"
+      ],
+      "lowest_price_pp": 200.0,
+      "total_lowest": 400.0,
+      "airlines_found": [],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/kayak_first_2026-09-08.png",
+      "status": "ok"
+    }
+  },
+  "expedia": {},
+  "cheaptickets": {},
+  "centrav": {}
+}

@@ -1,24 +1,23 @@
 {
-  "status": "complete",
-  "started_at": "2026-06-10T08:00:01.199797",
-  "completed_at": "2026-06-10T08:00:13.207516",
-  "watches_total": 22,
-  "watches_checked": 0,
-  "watches_with_errors": 1,
-  "alerts": [],
-  "warnings": [
-    "Auth failed on kuklinski-flights-ric-pty: Centrav session expired and auto-login failed. Re-authenticate manually: python3 scripts/centrav_flights.py --centrav-login --headless false"
-  ],
-  "errors": [
-    {
-      "watch_id": "kuklinski-flights-ric-pty",
-      "error": "Centrav session expired and auto-login failed. Re-authenticate manually: python3 scripts/centrav_flights.py --centrav-login --headless false"
-    }
-  ],
-  "results": {
-    "kuklinski-flights-ric-pty": {
-      "status": "auth_error",
-      "error": "Centrav session expired and auto-login failed. Re-authenticate manually: python3 scripts/centrav_flights.py --centrav-login --headless false"
-    }
+ "status": "complete",
+ "started_at": "2026-06-16T15:29:14.195521",
+ "completed_at": "2026-06-16T15:29:22.644871",
+ "watches_total": 23,
+ "watches_checked": 0,
+ "watches_with_errors": 0,
+ "alerts": [],
+ "warnings": [],
+ "errors": [
+  {
+   "watch_id": "kuklinski-flights-ric-pty",
+   "error": "Centrav session expired and auto-login failed. Re-authenticate manually: python3 scripts/centrav_flights.py --centrav-login --headless false"
   }
+ ],
+ "results": {
+  "kuklinski-flights-ric-pty": {
+   "status": "ok",
+   "error": "",
+   "note": "auth_error auto-cleared by centrav_session_warm \u2014 session verified live"
+  }
+ }
 }

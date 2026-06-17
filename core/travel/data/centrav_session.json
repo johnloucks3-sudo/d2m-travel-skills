@@ -1,311 +1,151 @@
 [
   {
-    "name": "_ga",
-    "value": "GA1.2.307216406.1752688643",
-    "domain": ".booking.com",
+    "name": "NID",
+    "value": "532=ocSc5sIA4N4fAa5KjNNbVw2S0mhjNhYJtxUdLiKHqnIO4KaVKqQ29D20ZbpCpH9uAGYudg53fe_NchLr73AjpAkVMeBMqpDfqmsLBP1SF0382TIKLFaVXs1pK1SQqfqaq_j0-NxdaVcdNYzaARxJ4e58GKwptQOrSSFT_RJXA-7QL7iH8tdmbq7_J9Ke3KyqDQ36sc0",
+    "domain": ".google.com",
     "path": "/",
-    "expires": -1,
-    "httpOnly": false,
-    "secure": false,
-    "sameSite": "Lax"
+    "expires": 1797013082.358,
+    "httpOnly": true,
+    "secure": true,
+    "sameSite": "None"
   },
   {
-    "name": "_gid",
-    "value": "GA1.2.525817748.1780862497",
-    "domain": ".booking.com",
+    "name": "OTZ",
+    "value": "8648298_80_84_104220_80_446880",
+    "domain": "www.google.com",
     "path": "/",
-    "expires": -1,
+    "expires": 1783793885,
     "httpOnly": false,
-    "secure": false,
-    "sameSite": "Lax"
+    "secure": true,
+    "sameSite": "None"
   },
   {
-    "name": "OptanonAlertBoxClosed",
-    "value": "2026-02-11T17:57:23.000Z",
-    "domain": ".engadget.com",
+    "name": "__Secure-BUCKET",
+    "value": "CHA",
+    "domain": ".google.com",
     "path": "/",
-    "expires": -1,
-    "httpOnly": false,
-    "secure": false,
-    "sameSite": "Lax"
-  },
-  {
-    "name": "_dc_gtm_UA-41897289-1",
-    "value": "1",
-    "domain": ".apnews.com",
-    "path": "/",
-    "expires": -1,
-    "httpOnly": false,
-    "secure": false,
-    "sameSite": "Lax"
-  },
-  {
-    "name": "_clck",
-    "value": "e2528baf|2|f81|0|1771178243",
-    "domain": ".booking.com",
-    "path": "/",
-    "expires": -1,
-    "httpOnly": false,
-    "secure": false,
-    "sameSite": "Lax"
-  },
-  {
-    "name": "_fbp",
-    "value": "fb.1.1780028009000.2819171262",
-    "domain": ".wired.com",
-    "path": "/",
-    "expires": -1,
-    "httpOnly": false,
-    "secure": false,
-    "sameSite": "Lax"
+    "expires": 1796753922.343,
+    "httpOnly": true,
+    "secure": true,
+    "sameSite": "None"
   },
   {
     "name": "_GRECAPTCHA",
-    "value": "LsWlbIUL57hXwd8CXDqiGJpCDzZLkk7N18lqUFdRQoXlk6GfbRqW0Tzr_4uCpblhDMmMop8s_eRjPkTRTahUY3hiACr471xfQoToNBXsRY-ezh5V8BYnB8KQs6oL",
-    "domain": ".google.com",
-    "path": "/",
-    "expires": -1,
-    "httpOnly": false,
-    "secure": false,
-    "sameSite": "Lax"
+    "value": "09AKhCRwghnfWrzWgZ6IOtGQRh2ERKcCs3ssXPkwwntEdzu3jIbc9dc8HApP4pO8kwQmvwV-xXvuhYeDOQgC8bQaM",
+    "domain": "www.google.com",
+    "path": "/recaptcha",
+    "expires": 1796789093.075,
+    "httpOnly": true,
+    "secure": true,
+    "sameSite": "None"
   },
   {
-    "name": "cookieyes-consent",
-    "value": "consentid:OXd76xHP9kAffY-tGR24pvNdpgxr,consent:yes,action:yes,necessary:yes,functional:yes,analytics:yes",
-    "domain": ".booking.com",
+    "name": "trustId07cc8dbd25dcface7c116c80c7289109",
+    "value": "eyJpdiI6InZTZnpmOTdNaWQ4WHROdmJBS091R0E9PSIsInZhbHVlIjoiZUZBOE0xOHkwdjNvcDM2d3JneVlMVHFETHp1bzl3U2tTWUljSWtaV2IwNGwxRm5KSFFXVi9BdWlRZ25OMVdINlpjQmhUczZGc1FTbk1SbE9vaGtyRzRoQkwyeW9BZ2lxT0poQ3FCMzR5QUU9IiwibWFjIjoiMjUzMGM4ZTEyZmQ2MWM1YzBkYzlkYTc5OWUwZTA2MWUwMWI0YjU3NjhlOWNkYTQzZjRkYzE0ZjBkN2Q2NDE5ZiIsInRhZyI6IiJ9",
+    "domain": ".centrav.com",
     "path": "/",
-    "expires": -1,
-    "httpOnly": false,
-    "secure": false,
-    "sameSite": "Lax"
-  },
-  {
-    "name": "_dc_gtm_UA-77125363-7",
-    "value": "1",
-    "domain": ".dev.to",
-    "path": "/",
-    "expires": -1,
-    "httpOnly": false,
-    "secure": false,
-    "sameSite": "Lax"
-  },
-  {
-    "name": "_dc_gtm_UA-55271283-1",
-    "value": "1",
-    "domain": ".bbc.com",
-    "path": "/",
-    "expires": -1,
-    "httpOnly": false,
-    "secure": false,
-    "sameSite": "Lax"
-  },
-  {
-    "name": "_dc_gtm_UA-87390929-1",
-    "value": "1",
-    "domain": ".imdb.com",
-    "path": "/",
-    "expires": -1,
-    "httpOnly": false,
-    "secure": false,
-    "sameSite": "Lax"
-  },
-  {
-    "name": "__cf_bm",
-    "value": "nMh0BfaexpvXu9IqSoBwqXUQzI38HsQkEQX7m1QGgud.1759130322-1-1-1-1",
-    "domain": ".github.com",
-    "path": "/",
-    "expires": -1,
-    "httpOnly": false,
-    "secure": false,
-    "sameSite": "Lax"
-  },
-  {
-    "name": "_dc_gtm_UA-55082313-9",
-    "value": "1",
-    "domain": ".mozilla.org",
-    "path": "/",
-    "expires": -1,
-    "httpOnly": false,
-    "secure": false,
-    "sameSite": "Lax"
-  },
-  {
-    "name": "_dc_gtm_UA-72541333-7",
-    "value": "1",
-    "domain": ".youtube.com",
-    "path": "/",
-    "expires": -1,
-    "httpOnly": false,
-    "secure": false,
-    "sameSite": "Lax"
-  },
-  {
-    "name": "_dc_gtm_UA-20113421-5",
-    "value": "1",
-    "domain": ".cnn.com",
-    "path": "/",
-    "expires": -1,
-    "httpOnly": false,
-    "secure": false,
-    "sameSite": "Lax"
+    "expires": 1786384933.358,
+    "httpOnly": true,
+    "secure": true,
+    "sameSite": "None"
   },
   {
     "name": "_gat_gtag_UA_84997498_3",
     "value": "1",
     "domain": ".centrav.com",
     "path": "/",
-    "expires": -1,
+    "expires": 1781668022.254,
     "httpOnly": false,
-    "secure": false,
-    "sameSite": "Lax"
+    "secure": true,
+    "sameSite": "None"
   },
   {
     "name": "laravel_session",
-    "value": "9289J2HN3OyYfECquu2pxzYlT4UVVFWh8O44Xnyr",
+    "value": "aj0wccdZlTgLUeUyAM3HmOOIuiMTfP11LCQzVnRg",
     "domain": ".centrav.com",
     "path": "/",
-    "expires": 1780948817.854097,
+    "expires": 1781674526.92,
     "httpOnly": true,
     "secure": true,
-    "sameSite": "Lax"
+    "sameSite": "None"
   },
   {
-    "name": "_dc_gtm_UA-33776709-9",
-    "value": "1",
-    "domain": ".amazon.com",
-    "path": "/",
-    "expires": -1,
-    "httpOnly": false,
-    "secure": false,
-    "sameSite": "Lax"
-  },
-  {
-    "name": "_dc_gtm_UA-70267900-8",
-    "value": "1",
-    "domain": ".theguardian.com",
-    "path": "/",
-    "expires": -1,
-    "httpOnly": false,
-    "secure": false,
-    "sameSite": "Lax"
-  },
-  {
-    "name": "__hssrc",
-    "value": "3",
-    "domain": ".wired.com",
-    "path": "/",
-    "expires": -1,
-    "httpOnly": false,
-    "secure": false,
-    "sameSite": "Lax"
-  },
-  {
-    "name": "_dc_gtm_UA-81099909-7",
-    "value": "1",
-    "domain": ".arstechnica.com",
-    "path": "/",
-    "expires": -1,
-    "httpOnly": false,
-    "secure": false,
-    "sameSite": "Lax"
-  },
-  {
-    "name": "_dc_gtm_UA-58661966-7",
-    "value": "1",
-    "domain": ".wired.com",
-    "path": "/",
-    "expires": -1,
-    "httpOnly": false,
-    "secure": false,
-    "sameSite": "Lax"
-  },
-  {
-    "name": "NID",
-    "value": "387=hOq20SIgEYKin_CGrzHo43dvG2vldvWkTyxL3qwNRWeoSG2hFJs649InZ_b6xGJl9JnrN7mQIVlIFf1d9PUTQ_VPAaGxnvE4rqNBzOoNFk_ic5yc-iJQj1M6EkoETIIkrjc_DgoMqNNZwSo2GN-vdEqiOzmddIutncFkga2CVqpMLgD5aV",
-    "domain": ".google.com",
-    "path": "/",
-    "expires": -1,
-    "httpOnly": false,
-    "secure": false,
-    "sameSite": "Lax"
-  },
-  {
-    "name": "CONSENT",
-    "value": "YES+cb.20250214-17-p7.en+FX+858",
-    "domain": ".google.com",
-    "path": "/",
-    "expires": -1,
-    "httpOnly": false,
-    "secure": false,
-    "sameSite": "Lax"
-  },
-  {
-    "name": "SOCS",
-    "value": "CAES6hhY0Ag8n5URlX7ZKYkuN-vnSt3CovkfrXww0waMyjt2CWLDj5EsOp_h",
-    "domain": ".google.com",
-    "path": "/",
-    "expires": -1,
-    "httpOnly": false,
-    "secure": false,
-    "sameSite": "Lax"
-  },
-  {
-    "name": "ENID",
-    "value": "SBi4RlXQZdo2zpgXQQKs-P-APQDZyt-An8aGnJcnjV4G-pnt2nZeXako6wnE0SXltdd940Im1e6ON0Okp0qyFX1jr_2o5bCF-XguyL4CNKD-AFdTDk2gT-7tT5AEw6oi4xoZ_1_i3j4I8y1JGcykF__2GCwRZdwRNRZfAqnfHeoeHW7CTVKoHxKSheycNU-45-sBcTUF6FAiv8Fo5RWjixxKEWDzclIfnnuIou6TDvtwpwWKNK-L63cgh9ev",
-    "domain": ".google.com",
-    "path": "/",
-    "expires": -1,
-    "httpOnly": false,
-    "secure": false,
-    "sameSite": "Lax"
-  },
-  {
-    "name": "_dc_gtm_UA-91123484-2",
-    "value": "1",
-    "domain": ".booking.com",
-    "path": "/",
-    "expires": -1,
-    "httpOnly": false,
-    "secure": false,
-    "sameSite": "Lax"
-  },
-  {
-    "name": "trustId07cc8dbd25dcface7c116c80c7289109",
-    "value": "eyJpdiI6ImFJVGtnaUgwSzhob0hOQlpvN2hvMkE9PSIsInZhbHVlIjoibDREaS9NKzNpV1h2YUhjM2Y5Z2ViU1hnNWJhS1dHdVQzUGFaU2VGWnVweWpzWjNaU05BNU15VVI3QnoveUZrckxmN2tGUHNGb2FYTkpsOTVEVlozS3JFWFhUcmdzYlU3TFVNQUNxd3Npa009IiwibWFjIjoiMDc2ZTNhMGI3MjA5Y2ZiMTJkODU4ZTA4ODg4YjQ2MzRhMzIzYzA2OGQ1NDBlYWQ1MTNlMWY2YTg4MGRlNzVjYiIsInRhZyI6IiJ9",
+    "name": "_ga_BRSGVXC6DN",
+    "value": "GS2.1.s1781667111$o58$g1$t1781667327$j60$l0$h0",
     "domain": ".centrav.com",
     "path": "/",
-    "expires": -1,
-    "httpOnly": false,
-    "secure": false,
-    "sameSite": "Lax"
-  },
-  {
-    "name": "_gid",
-    "value": "GA1.2.1548892990.1780941538",
-    "domain": ".centrav.com",
-    "path": "/",
-    "expires": 1780948818.06906,
+    "expires": 1781674527.46,
     "httpOnly": false,
     "secure": true,
     "sameSite": "None"
   },
   {
     "name": "_ga",
-    "value": "GA1.2.1547717055.1780941538",
+    "value": "GA1.2.1020085370.1781462622",
     "domain": ".centrav.com",
     "path": "/",
-    "expires": 1780948818.068729,
+    "expires": 1781674527.703,
     "httpOnly": false,
     "secure": true,
     "sameSite": "None"
   },
   {
-    "name": "_ga_BRSGVXC6DN",
-    "value": "GS2.1.s1780941537$o1$g1$t1780941656$j21$l0$h0",
+    "name": "_gid",
+    "value": "GA1.2.676539573.1781462623",
     "domain": ".centrav.com",
     "path": "/",
-    "expires": 1780948856.381888,
+    "expires": 1781674527.703,
     "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "__lc_cid",
+    "value": "7877c936-065f-48b8-aa42-15a696f2ba94",
+    "domain": ".accounts.livechatinc.com",
+    "path": "/v2/customer/token",
+    "expires": 1815797158.007,
+    "httpOnly": true,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "__lc_cst",
+    "value": "8b4acd0ecf3b607b8173dc25b00f8783c17d056abb949062d4d076c2ce02eac034c61e38fb0275332d5b1fb683ff74fb1ccfa11859d1332a3ab972f8df74",
+    "domain": ".accounts.livechatinc.com",
+    "path": "/v2/customer/token",
+    "expires": 1815797158.008,
+    "httpOnly": true,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "__lc_cid",
+    "value": "7877c936-065f-48b8-aa42-15a696f2ba94",
+    "domain": ".accounts.livechatinc.com",
+    "path": "/customer/token",
+    "expires": 1815797158.008,
+    "httpOnly": true,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "__lc_cst",
+    "value": "8b4acd0ecf3b607b8173dc25b00f8783c17d056abb949062d4d076c2ce02eac034c61e38fb0275332d5b1fb683ff74fb1ccfa11859d1332a3ab972f8df74",
+    "domain": ".accounts.livechatinc.com",
+    "path": "/customer/token",
+    "expires": 1815797158.008,
+    "httpOnly": true,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "__oauth_redirect_detector",
+    "value": "counter=1&t=1781237187&tag=55fb8788db5dfdeb00e6fca69a6b93d3c0bad45c",
+    "domain": "accounts.livechatinc.com",
+    "path": "/",
+    "expires": 1781237188.009,
+    "httpOnly": true,
     "secure": true,
     "sameSite": "None"
   }
