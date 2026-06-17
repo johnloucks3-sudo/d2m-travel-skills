@@ -4938,3 +4938,11 @@ TRIGGER: Commander "check d2m inbox to COS/COO past 2 days, answer unanswered, F
 ## 2026-06-16 — Executed the 2 open committed actions
 1. SILVERSEA (McGlasson) → dossier + monitor: appended special-occasion (La Dame dessert) note to dossiers/McLeod_McGlasson_Multi.md; added NAG-002 (trigger 2026-06-18 Wed) to OpsCenter/nag_queue.json — follow up if no reply.
 2. DOOR COUNTY fare watch: ran Kayak scan DEN-GRB Sep 6 → $62/pp (first scan baseline). Registered fare watch "loucks-doorcounty-den-grb" (route DEN-GRB, Sep6/Sep14, 1 pax, alert <$56 / >$68 = +/-10%). UA 1928/5371 out, UA 5280/767 home. Caveat: Kayak returned uniform $62 across cabins (likely single basic-economy fare for regional GRB) — baseline is conservative; watch will track movement.
+
+## 2026-06-16 — ITA Matrix = DEFAULT flight source (Commander directive)
+- "ITA Matrix should be our default, not kayak." Flipped doctrine.
+- flight-price SKILL.md: default source now ITA Matrix (Centrav = B2B/premium bookable; Kayak = last-resort fallback only).
+- Door County watch migrated kayak→ITA: built base64-JSON matrix.itasoftware.com URL (multi-city DEN→GRB Sep6 / GRB→DEN Sep14, COACH, 2pax); added provider:"ITA" watch to data/fare_watches.json (the ITA-poller store); removed kayak dup from core/travel/data store.
+- ITA poll (scripts/ita_fare_watch_poll.py --id loucks-doorcounty-den-grb) running for real first-scan baseline (interim baseline $62 from Kayak until ITA records).
+- FLAGGED: two separate fare-watch stores (data/fare_watches.json = ITA poller; core/travel/data/fare_watches.json = add_watch, 35) — consolidation is a backlog item. Memory: project_ita_matrix_flight_intel.md updated.
+- INCIDENT (self-caught + fixed): a bad dedup write corrupted core/travel/data/fare_watches.json; restored from git, re-removed cleanly. Both stores valid.
