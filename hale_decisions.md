@@ -4962,3 +4962,6 @@ Commander spec: ANY email from johnloucks3 hitting the d2m inbox → a reply, NO
 4. PREFIX REQUIREMENT removed; forwards now reply too (only pure acks roger/wilco/done skipped).
 - Backfilled THUNDERBIRD-DirectiveReplied on 19 backlog emails (already covered by this afternoon's consolidated answer) to avoid a re-flood burst on re-enable.
 - Re-enabled thunderbird-commander-directive-sweep.timer. End-to-end verification (fresh no-prefix test email → reply) running.
+
+## 2026-06-16 — SCANNER FIX VERIFIED END-TO-END
+Sent a no-prefix test email johnloucks3→d2mconcierge → sweep caught it via the d2m inbox loop (found 0 jl3 / 1 d2mc; jl3 path dead) → dispatched → threaded reply SENT to johnloucks3 (no 404) + blue THUNDERBIRD-Hale label applied. "Labeled but no reply" is FIXED. Going forward: every johnloucks3 email to d2m inbox gets one reply, no prefix needed.
