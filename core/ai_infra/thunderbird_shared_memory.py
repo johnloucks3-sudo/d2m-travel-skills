@@ -42,11 +42,14 @@ logger = logging.getLogger("thunderbird_shared_memory")
 # Mem0 configuration — uses local storage (no external vector DB needed)
 MEM0_CONFIG = {
     "version": "v1.1",
-    # Mem0 LLM via OpenRouter/DeepSeek V3.1 — no ANTHROPIC_API_KEY required
+    # Mem0 LLM via OpenRouter/DeepSeek — no ANTHROPIC_API_KEY required.
+    # NOTE: "deepseek/deepseek-chat-v3-5" was an invalid OpenRouter model ID
+    # (400 errors → memory-add failures). "deepseek/deepseek-chat" is the valid
+    # current alias used as the standard fallback across the wing. (Fixed 2026-06-17)
     "llm": {
         "provider": "openai",
         "config": {
-            "model": "deepseek/deepseek-chat-v3-5",
+            "model": "deepseek/deepseek-chat",
             "openai_base_url": "https://openrouter.ai/api/v1",
             "api_key": os.getenv("OPENROUTER_API_KEY", ""),
             "temperature": 0.1,

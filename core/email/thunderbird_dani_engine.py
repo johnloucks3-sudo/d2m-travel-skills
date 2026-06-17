@@ -58,7 +58,11 @@ def _load_brand_voice_card() -> dict:
 # Constants
 # ---------------------------------------------------------------------------
 
-SA_CREDS = Path(os.path.expanduser("~/Thunderbird/credentials.json"))
+# credentials.json is the OAuth installed-app secret (no client_email/token_uri) —
+# gspread's service_account loader rejects it ("missing fields"). The real
+# service-account key is .service_account_gemini.json (same one booking_master uses).
+# (Fixed 2026-06-17 — was silently failing every Sheets pull.)
+SA_CREDS = Path(os.path.expanduser("~/Thunderbird/.service_account_gemini.json"))
 SHEET_ID = "1GFjUe8RvP-GT4YHGn0DYv_BEAZGXlYfwEicFrm8ANuU"
 DOSSIER_DIR = Path(os.path.expanduser("~/Thunderbird/dossiers"))
 
