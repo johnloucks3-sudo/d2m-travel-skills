@@ -42,7 +42,7 @@ CREDS_DIR = TB / "creds"
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 LOGS_DIR.mkdir(parents=True, exist_ok=True)
 
-FARE_WATCHES_FILE = DATA_DIR / "fare_watches.json"
+FARE_WATCHES_FILE = TB / "core" / "travel" / "data" / "fare_watches.json"  # consolidated single store (2026-06-16; was DATA_DIR)
 LAST_CHECK_FILE = DATA_DIR / "fare_watches" / "last_check_cruise.json"
 LAST_CHECK_FILE.parent.mkdir(parents=True, exist_ok=True)
 

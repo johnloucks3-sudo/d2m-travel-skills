@@ -179,7 +179,7 @@ def read_financial_pulse() -> str:
         return "(financial pulse unavailable)"
 
 def read_fare_watches() -> str:
-    fw_path = BASE / "data/fare_watches.json"
+    fw_path = BASE / "core/travel/data/fare_watches.json"  # consolidated single store (2026-06-16)
     try:
         data = load_json(fw_path, [])
         if not data:

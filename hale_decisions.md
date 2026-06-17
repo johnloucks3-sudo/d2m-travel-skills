@@ -4946,3 +4946,10 @@ TRIGGER: Commander "check d2m inbox to COS/COO past 2 days, answer unanswered, F
 - ITA poll (scripts/ita_fare_watch_poll.py --id loucks-doorcounty-den-grb) running for real first-scan baseline (interim baseline $62 from Kayak until ITA records).
 - FLAGGED: two separate fare-watch stores (data/fare_watches.json = ITA poller; core/travel/data/fare_watches.json = add_watch, 35) — consolidation is a backlog item. Memory: project_ita_matrix_flight_intel.md updated.
 - INCIDENT (self-caught + fixed): a bad dedup write corrupted core/travel/data/fare_watches.json; restored from git, re-removed cleanly. Both stores valid.
+
+## 2026-06-16 — Consolidated the two fare-watch stores → ONE canonical
+- Canonical = core/travel/data/fare_watches.json (aligns with fare_watch_db.py LEGACY_JSON_PRIMARY + generate_fare_watch_html + thunderbird_fare_watch).
+- Migrated all 10 ITA watches from data/fare_watches.json into canonical; repointed ita_fare_watch_poll.py CFG, context_sniper.py, fare_watch_cruise_scanner.py to canonical. (flight_scan_trigger only referenced it in a docstring.)
+- Retired data/fare_watches.json → .RETIRED-20260616 (also .bak). ONE store now. 44 watches (9 ITA). Smoke-tested all readers OK; syntax OK.
+- DEDUPED Door County: removed my junk loucks-doorcounty-den-grb ($62 Kayak — bogus uniform read) ; kept established loucks-doorcounty-air-2026 with REAL ITA baseline $419.63/pp (DEN-GRB-DEN United). Vindicates ITA-as-default.
+- Backups: data/fare_watches.json.bak.20260616, core/travel/data/fare_watches.json.bak.20260616.

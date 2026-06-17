@@ -50,7 +50,7 @@ try:
     atexit.register(lambda: _LOCK.unlink(missing_ok=True))
 except Exception:
     pass
-CFG = ROOT / "data" / "fare_watches.json"
+CFG = ROOT / "core" / "travel" / "data" / "fare_watches.json"  # consolidated single store (2026-06-16) — was data/fare_watches.json
 SPACING_S = 75          # space polls to stay under ITA's rate limit
 RENDER_WAIT_S = 180     # let the matrix compute — observed 2-5min in headless (was 24, too short)
 # Limit watches per supertimer run: 7 watches × 3 min = 28 min >> 600s task timeout.
