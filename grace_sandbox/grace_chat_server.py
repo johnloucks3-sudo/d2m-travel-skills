@@ -128,7 +128,17 @@ def call_gemini(user_msg, history):
     payload = {
         "systemInstruction": {"parts": [{"text": FRAME}]},
         "contents": contents,
-        "generationConfig": {"temperature": 0.7, "maxOutputTokens": 800},
+        "generationConfig": {
+            "temperature": 0.7,
+            "maxOutputTokens": 2048,
+            # Gemini 2.5 Flash is a THINKING model: thinking tokens count against
+            # maxOutputTokens. At the old 800 cap, ~345 tokens went to internal
+            # "thoughts", leaving the reply to truncate mid-sentence (or come back
+            # empty) — the "partial responses" Stefanie reported. Grace is a plain
+            # warm helper and needs no extended reasoning, so we turn thinking off
+            # and give the whole budget to the reply. (Verified 2026-06-17.)
+            "thinkingConfig": {"thinkingBudget": 0},
+        },
     }
     r = requests.post(
         f"{GEMINI_URL}?key={GEMINI_KEY}",
@@ -139,7 +149,14 @@ def call_gemini(user_msg, history):
     r.raise_for_status()
     data = r.json()
     try:
-        return data["candidates"][0]["content"]["parts"][0]["text"].strip()
+        cand = data["candidates"][0]
+        text = cand["content"]["parts"][0]["text"].strip()
+        # Safety net: if a very long answer still hits the cap, close gently
+        # instead of cutting mid-sentence.
+        if cand.get("finishReason") == "MAX_TOKENS":
+            text += ("\n\n(There's more I can share on this — just say "
+                     "\"keep going\" and I'll continue.)")
+        return text
     except (KeyError, IndexError):
         # safety / blocked / empty
         return ("I'm sorry — I couldn't find the words for that one. "
