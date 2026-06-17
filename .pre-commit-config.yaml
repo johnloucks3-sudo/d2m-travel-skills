@@ -1,0 +1,35 @@
+# .pre-commit-config.yaml — Thunderbird Wing
+# MISSION-261 | A7 Sterling | 2026-06-16
+#
+# PURPOSE: Managed gitleaks pre-commit hook.
+# This is the RECOMMENDED path for new clones.
+# The repo also has a hand-rolled .git/hooks/pre-commit that handles
+# Python syntax + A7 quality gate — those checks are NOT replaced here.
+#
+# INSTALL (once per clone):
+#   pip install pre-commit
+#   pre-commit install
+#
+# IMPORTANT — hook coexistence:
+#   `pre-commit install` overwrites .git/hooks/pre-commit with pre-commit's runner.
+#   The runner executes all hooks defined in this file.  The existing A7 shell hook
+#   (credential scan + syntax + quality gate) is preserved in .git/hooks/pre-commit.bak.*
+#   by pre-commit automatically.  To keep the A7 gate active after `pre-commit install`,
+#   add it as a `local` hook here (see MIGRATION NOTE below) or re-invoke it from
+#   the pre-commit runner via a passthrough script.
+#
+# For now: gitleaks is the managed hook. A7 gate continues to run via the shell hook
+# if this config is NOT installed (e.g., on the current yoga clone).
+#
+# MIGRATION NOTE (A7 backlog item, not this cycle):
+#   Migrate Steps 1-3 of .git/hooks/pre-commit into local hooks here so the full
+#   gate suite runs under pre-commit management. Until then, both paths are supported.
+
+repos:
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.27.2          # pinned release — bump with: pre-commit autoupdate
+    hooks:
+      - id: gitleaks
+        # Runs: gitleaks protect --staged --redact
+        # gitleaks reads .gitleaks.toml from repo root automatically.
+        # Failure blocks the commit; exit 1 with findings printed.

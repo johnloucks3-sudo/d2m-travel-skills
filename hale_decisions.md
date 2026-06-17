@@ -4979,3 +4979,33 @@ $20/mo bundle of ChatGPT5/Gemini3/Claude Sonnet4.5/Grok4.1 in ONE WEB DASHBOARD.
 - Susan Loucks: medical dossier + eye options/questions (Grace warm version) built; reframed to operated-LEFT-eye-worse second opinion (CME/membrane/IOL/AMD differential, non-surgical options first). Emailed to johnloucks3. Calendar: Jul 9 12:50 Dr. Jesse Smith (Colorado Retina). NAG-003 prep Jul 7. Files gitignored (dossiers/medical/).
 - SPCX (SpaceX IPO'd Jun 12, ticker SPCX): Commander CAN buy directly in Vanguard Roth now. Harlan fact sheet + DCA plan (wait; buy 1/3 each ~Aug post-earnings, ~Nov Q3, ~Dec 180-day cliff; cap 3-5%; Roth-loss trap). Decision sheet dossiers/personal/Loucks_Financial/ (gitignored, added dossiers/personal/ to .gitignore). 3 calendar buy-window reminders set on johnloucks3 (Aug 17 / Nov 9 / Dec 8).
 - Bluehost AI All-Access evaluated → SKIP (no API).
+
+## 2026-06-16 23:1x — WEAPONS FREE invoked (Commander) — overnight mission-board attack
+Commander: "attack the mission board tonight, maximum effort, spawn agents, sonnet/haiku/grace, 1-hour cycles 2315–0615, weapons free." Logged per Weapons Free SO. Gates still binding: client send, financial, strategic. Op order: OpsCenter/overnight_mission_attack_20260616.md. Arming hourly loop. Stand down at 0615 w/ AAR.
+
+## 2026-06-16 ~2312 — Overnight attack CYCLE 1
+Board dedup+re-ID (229/213 complete; 7 collapsed, 11 re-titled, open 61→55). gitleaks CI created (261 in_progress). Found 6 hardcoded secrets in tracked files → MISSION-253 runbook (rotation HELD overnight, Commander final-inch). Grace 034 re-running.
+
+## 2026-06-16 ~2344 — Overnight attack CYCLE 2
+Spencer call last-inch (196 → ops/spencer_united_call_prep.md). Dead-link audit (072) found origin-down subdomains + SSL breakage (remediation held). Grace: Explora scaffold complete (034), excursion-arbitrage methodology (231). Final-Inch Queue updated.
+
+## 2026-06-17 ~0044 — Overnight attack CYCLE 3
+230 REVERIE template complete; 232 draft audit (2 Nichols send-ready, Kuklinski hold); 265 shrink plan + executed 2 safe wins (untracked qdrant+Firefox cookies/logins, commit 23e935a2); 065 Grace blog drafting. Open 56.
+
+## 2026-06-17 ~0144 — Overnight attack CYCLE 4
+078 avatars complete (8 generated, wing=18); 167 watch protocol complete (2 yellows: A1 dossier scanner stale, A8 TPs); 066 lead pipeline backend fixed (lead_receiver token, 03d497b6) + 3 gaps for Commander; 148 Grace telegram research. Open ~54.
+
+## 2026-06-17 ~0244 — Overnight attack CYCLE 5
+145 fare-alert built (5 live crossings found, 2 urgent unbooked-air spikes); 260 Infisical secrets plan (+1 live defect); 255 Dani-bot sandbox prepared (public bot skip-permissions exposure); 263 Grace EDR research. Open ~50.
+
+## 2026-06-17 ~0344 — Overnight attack CYCLE 6
+060 Termux script complete (+SSH-key finding); 247 CF Access runbook (P0: costs.d2mluxury public exposure); 254 HMAC trust design (substring-bypass found); 262 Grace YubiKey guide. Security findings consolidating in final-inch. Open ~50.
+
+## 2026-06-17 ~0444 — Overnight attack CYCLE 7
+220 off-box heartbeat: prober green but alert never fired (no GH secret) — cert staged, Commander 3 steps; 080 McLeod dossier confirmed (Hilton conf# gap, dinners unbooked); 261 gitleaks binary present; 152 Grace Signal research. Open ~50.
+
+## 2026-06-17 ~0544 — Overnight attack CYCLE 8 (final)
+Consolidated SECURITY_REMEDIATION_RUNBOOK (P0=2); 072 origin-down remediation runbook (quick-wins identified); Grace blog #2. Next tick = stand-down/AAR.
+
+## 2026-06-17 06:45 — OVERNIGHT ATTACK STAND-DOWN (AAR)
+8 cycles complete (2315-0615), weapons free, zero hard gates crossed. Board 69→53 (7 done, 9 collapsed, 11 re-titled, ~15 staged). Executed safe fixes (board cleanup, 8 avatars, Termux, gitleaks CI, fare-alert, untracked firefox cookies/logins, lead-notify fix). Grace 8 deliverables. Mapped security cluster (P0: costs public + heartbeat alert dead) → docs/SECURITY_REMEDIATION_RUNBOOK_20260617.md. Final-Inch Queue staged for Commander. AAR in op order + morning brief. Cron deleting.
