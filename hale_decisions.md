@@ -4965,3 +4965,17 @@ Commander spec: ANY email from johnloucks3 hitting the d2m inbox → a reply, NO
 
 ## 2026-06-16 — SCANNER FIX VERIFIED END-TO-END
 Sent a no-prefix test email johnloucks3→d2mconcierge → sweep caught it via the d2m inbox loop (found 0 jl3 / 1 d2mc; jl3 path dead) → dispatched → threaded reply SENT to johnloucks3 (no 404) + blue THUNDERBIRD-Hale label applied. "Labeled but no reply" is FIXED. Going forward: every johnloucks3 email to d2m inbox gets one reply, no prefix needed.
+
+## 2026-06-16 — Bluehost AI All-Access — EVALUATED, SKIP (incubator)
+$20/mo bundle of ChatGPT5/Gemini3/Claude Sonnet4.5/Grok4.1 in ONE WEB DASHBOARD. Decisive: NO API (dashboard-only) → cannot integrate into Thunderbird's agent fabric. Can't replace free OpenCode (agentic) or high-capacity Claude MAX (OAuth/API). Sonnet 4.5 is behind our Opus 4.8/Sonnet 4.6. PII-fence conflict (prompts route through Newfold intermediary). Verdict: SKIP for wing; optional personal multi-model scratchpad only (redundant — we already reach all 4 families). Keep stack: MAX + OpenCode + free Gemini + Grok.
+
+## 2026-06-16 — Susan Loucks MEDICAL DOSSIER created (eye/retina) + records analyzed
+- Recovered both PDFs from the d2m inbox email "ATTN: Curtis, medical background files" (Dr_Luu 24p, Dr_Neufer 16p attachments) → dossiers/medical/Susan_Loucks/ (gitignored, NOT pushed; PII-fenced).
+- Built dossiers/medical/Susan_Loucks/Susan_Loucks_Medical_Dossier.md (eye-focused).
+- KEY CLINICAL: Dry AMD OU progressed Early→INTERMEDIATE dry (2026-05-26), no wet conversion, on AREDS2+Amsler. ERM/macular pucker OS stable. PVD OS (LVT 11/14/25). Cataract sx LEFT 9/17/25 (VIVITY IOL → pseudophakia OS); RIGHT cataract not yet done. YAG capsulotomy LEFT 11/14/25. Dry eye (Restasis). Transient retinal heme OS resolved. Pre-diabetes. ⚠️ MRI flag: implanted IOL may not be MRI-compatible.
+- Appt: Dr. Jesse Smith, Colorado Retina Associates, Jul 9 2026 12:50 (NEW practice vs Dr. Luu — flagged to confirm reason). NAG-003 prep reminder set (trigger Jul 7).
+
+## 2026-06-16 — Session close: Susan medical + SPCX
+- Susan Loucks: medical dossier + eye options/questions (Grace warm version) built; reframed to operated-LEFT-eye-worse second opinion (CME/membrane/IOL/AMD differential, non-surgical options first). Emailed to johnloucks3. Calendar: Jul 9 12:50 Dr. Jesse Smith (Colorado Retina). NAG-003 prep Jul 7. Files gitignored (dossiers/medical/).
+- SPCX (SpaceX IPO'd Jun 12, ticker SPCX): Commander CAN buy directly in Vanguard Roth now. Harlan fact sheet + DCA plan (wait; buy 1/3 each ~Aug post-earnings, ~Nov Q3, ~Dec 180-day cliff; cap 3-5%; Roth-loss trap). Decision sheet dossiers/personal/Loucks_Financial/ (gitignored, added dossiers/personal/ to .gitignore). 3 calendar buy-window reminders set on johnloucks3 (Aug 17 / Nov 9 / Dec 8).
+- Bluehost AI All-Access evaluated → SKIP (no API).

@@ -18,7 +18,7 @@
       "id": "NAG-002",
       "client": "McLeod / McGlasson",
       "type": "other",
-      "label": "Silversea — follow up La Dame special-dessert request",
+      "label": "Silversea \u2014 follow up La Dame special-dessert request",
       "embark_date": "2026-06-23",
       "depart_date": "2026-06-23",
       "order_deadline": "2026-06-18",
@@ -28,10 +28,25 @@
       "note": "Follow up with Melissa McGlasson on the special-occasion dessert at La Dame if no reply (Commander emailed her AM of 2026-06-16). Wed 2026-06-18.",
       "created": "2026-06-16",
       "cleared_date": null
+    },
+    {
+      "id": "NAG-003",
+      "client": "Susan Loucks (personal)",
+      "type": "other",
+      "label": "Susan eye appt \u2014 Dr. Jesse Smith, Colorado Retina Assoc",
+      "trigger_date": "2026-07-07",
+      "order_deadline": "2026-07-07",
+      "note": "Appt Thu Jul 9 2026 12:50, Dr. Jesse Smith, Colorado Retina Associates. Bring medical dossier + Dr. Luu/Neuffer PDF records + AREDS2 + med list. Dossier: dossiers/medical/Susan_Loucks/. Confirm WHY new retina practice (vs Dr. Luu).",
+      "status": "OPEN",
+      "created": "2026-06-16",
+      "cleared_date": null
     }
   ],
   "_schema": {
-    "status": ["OPEN", "CLEARED"],
+    "status": [
+      "OPEN",
+      "CLEARED"
+    ],
     "type": "embarkation_gift | bon_voyage | anniversary | other"
   }
 }
