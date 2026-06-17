@@ -98,6 +98,9 @@ For T0/T1: No charter required.
 
 Acceptable artifacts: CLAUDE.md edit, Standing Order, code commit, `hale_decisions.md` entry.
 
+#### AMENDMENT 2026-06-17 — T2 AARs are FILE/DOSSIER ONLY (no routine email)
+**Commander directive 2026-06-17:** Discontinue emailing Tier-2 (T2) exercise AARs/reports to the Commander. T2 AARs are written to their durable artifact (file/dossier/`hale_decisions.md`) and logged — **they are NOT mailed.** The Commander is emailed about a T2 exercise **only** when it hits a failure or surfaces an issue that needs his decision. "Just failures or issues you need me for." (T3 still reaches the Commander — T3 is a Gate-4 event by definition.)
+
 **Metric (Sterling owns):** `lessons_implementation_rate_pct` — target ≥ 80%. Red threshold: below 50% at 60 days triggers halt and redesign. Reported weekly in Sterling's metrics dashboard.
 
 **DOTMLPF-P routing:** Sterling classifies each hotwash finding by category (Doctrine, Organization, Training, Materiel, Leadership, Personnel, Facilities, Policy) to route it to the right owner.
