@@ -194,7 +194,7 @@
     {
       "id": "MISSION-034",
       "title": "Explora Journeys Competitive Intelligence Deep Dive",
-      "status": "archived",
+      "status": "complete",
       "priority": "P2",
       "assigned_to": "A2 Dembe (WIND Group)",
       "description": "Comprehensive competitive intelligence on Explora Journeys (MSC luxury brand). Deliverable: output/wind_staff_dembe_explora_journeys_intel.md",
@@ -207,7 +207,8 @@
       "logs": [
         "[2026-05-19T13:46:00] DISPATCHED via wind_staff.py dembe. Initial assessment delivered.",
         "[2026-05-19T13:50:00] Full structured report pending per Commander direction."
-      ]
+      ],
+      "note": "Cycle1-2: Grace competitor-intel scaffold (Explora) \u2192 intel/Explora_competitor_scaffold_20260616.md"
     },
     {
       "id": "MISSION-035",
@@ -745,7 +746,7 @@
     },
     {
       "id": "MISSION-060",
-      "title": "Chromebook Termux \u2014",
+      "title": "Chromebook Termux \u2014 Enhanced Terminal Setup (Colors + Persistent Sessions)",
       "status": "in_progress",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
@@ -756,7 +757,8 @@
       "escalation_rule": null,
       "logs": [],
       "created_at": "2026-05-25T03:50:35.411662+00:00",
-      "updated_at": "2026-05-25T03:50:35.411673+00:00"
+      "updated_at": "2026-06-16T06:00:00-06:00",
+      "notes": " | Title clarified from truncated form by A7 MISSION-213 2026-06-16."
     },
     {
       "id": "MISSION-061",
@@ -1006,7 +1008,8 @@
         "[2026-06-12T00:13:36] \u2705 Segment 3 drafted 2026-06-11 (Luna): drafts/blog/2026-06-11_silver-nova-dining-at-sea.md ('Silver Nova dining at sea'). Built on CONFIRMED venues only (S.A.L.T./Silver Note/Atlantide/La Terrazza); REFUSED to invent La Dame/Kaiseki (not in canon \u2014 Negative-Space Rule). Carries a 4-question Commander-interview block for La Dame+Kaiseki \u2014 awaiting Commander answers to complete. Internal draft, not published, awaiting review. Series continues (segments remain)."
       ],
       "created_at": "2026-05-25T21:11:19.746921+00:00",
-      "updated_at": "2026-06-12T00:13:36.405905+00:00"
+      "updated_at": "2026-06-12T00:13:36.405905+00:00",
+      "note": "Cycle3: Grace blog segment (Pacific Voyage) \u2192 intel/pacific_voyage_blog_segment_20260616.md (drafting)."
     },
     {
       "id": "MISSION-071",
@@ -1053,7 +1056,7 @@
     {
       "id": "MISSION-072",
       "title": "MISSION-072: Metronome \u2194",
-      "status": "completed",
+      "status": "in_progress",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "Lifecycle Router Integration Wire lifecycle_router.py into metronome.py. On each tick: check each active client ARC position vs today, fire TP-ALERTs when touchpoints are due, route to correct persona per YAML decision tree, add dedup gate to suppress duplicate alerts (fixes 30x TP-ALERT blocker). Owner: A7 Sterling. Design review before any code. P2",
@@ -1069,7 +1072,8 @@
       "created_at": "2026-05-27T20:25:56.691793+00:00",
       "updated_at": "2026-06-11T23:28:45.126168+00:00",
       "notes": "COMPLETE \u2014 lifecycle_router.py integrated in metronome._scan_lifecycle_windows() with graceful fallback. Route chain appended to HALE-ROUTE wing_comms nudge.",
-      "completed_at": "2026-06-11T23:53:34.337512+00:00"
+      "completed_at": "2026-06-11T23:53:34.337512+00:00",
+      "note": "Cycle2: dead-link audit DONE \u2192 output/dead_link_audit_20260616.md. 8 OK / 12 broken / 28 auth-walled(expected). REAL BREAKAGE (remediation held-infra): n8n/allm/tg/wa/dossier/thunderbird subdomains CF-502/525 origin-down (webhooks silently failing); bare-domain SSL + broken logo/banner assets; health endpoints 404. See AAR."
     },
     {
       "id": "MISSION-072",
@@ -1283,7 +1287,7 @@
     },
     {
       "id": "MISSION-080",
-      "title": "McLeod Dossier \u2014",
+      "title": "McLeod Dossier \u2014 Mark CONFIRMED: Baglioni, VCE Transfer, Dining",
       "status": "in_progress",
       "priority": "P1",
       "assigned_to": "A8 Reyes",
@@ -1294,7 +1298,8 @@
       "escalation_rule": null,
       "logs": [],
       "created_at": "2026-05-30T19:02:46.115168+00:00",
-      "updated_at": "2026-05-30T19:02:46.115177+00:00"
+      "updated_at": "2026-06-16T06:00:00-06:00",
+      "notes": " | Title clarified from truncated form by A7 MISSION-213 2026-06-16."
     },
     {
       "id": "MISSION-081",
@@ -1820,7 +1825,7 @@
     },
     {
       "id": "MISSION-108",
-      "title": "LOUCKS TRAVEL \u2014 Atlas Med Leg 3 Pricing Call",
+      "title": "LOUCKS TRAVEL \u2014 Call Atlas Voyages for Med Leg 3 Firm Pricing (C7)",
       "status": "in_progress",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
@@ -1833,7 +1838,8 @@
         "[2026-06-11T14:03:13Z] [ELON kill-audit 2026-06-11] TITLE-FIX: 'LOUCKS TRAVEL \u2014' \u2192 'LOUCKS TRAVEL \u2014 Atlas Med Leg 3 Pricing Call'"
       ],
       "created_at": "2026-06-04T02:10:18.327896+00:00",
-      "updated_at": "2026-06-04T02:10:18.327909+00:00"
+      "updated_at": "2026-06-16T06:00:00-06:00",
+      "notes": " | Title clarified from truncated form by A7 MISSION-213 2026-06-16."
     },
     {
       "id": "MISSION-109",
@@ -1907,9 +1913,10 @@
         "[2026-06-11T23:59:56Z] [MISSION-197 dedup] SUPERSEDED (was deferred) \u2014 canonical = MISSION-129. WF-17 5-draft Nichols+Kuklinski queue. Deferred to Jul 15 by Commander. Canonical (deferred, matches reality) = M-129."
       ],
       "created_at": "2026-06-05T22:55:01.733980+00:00",
-      "updated_at": "2026-06-11T23:59:56.567112+00:00",
+      "updated_at": "2026-06-16T06:00:00-06:00",
       "source": "weekly_report",
-      "superseded_by": "MISSION-129"
+      "superseded_by": "MISSION-129",
+      "notes": " | Superseded by MISSION-232 (canonical WF-17 draft-send task). A7 dedup 2026-06-16."
     },
     {
       "id": "MISSION-113",
@@ -2254,7 +2261,7 @@
     {
       "id": "MISSION-129",
       "title": "Commander sends 5 aging WF-17 drafts \u2014 Nichols + Kuklinski x4",
-      "status": "deferred",
+      "status": "superseded",
       "priority": "P0",
       "assigned_to": "Commander",
       "description": "Review and send Nichols TP 0.5 (due today) and all four Kuklinski drafts (TP 0.5, 4.1, 4.2, 4.3); Kuklinski sends require brief re-entry framing given 66\u201381 day delay.",
@@ -2269,8 +2276,9 @@
         "[2026-06-11T14:03:13Z] [ELON kill-audit 2026-06-11] DEFER: WF-17 sends deferred by Commander 2026-07-15. Resume Jul 15 \u2014 Nichols TP 0.5 + Kuklinski x4."
       ],
       "created_at": "2026-06-06T00:03:24.139298+00:00",
-      "updated_at": "2026-06-08T19:46:40.230771+00:00",
-      "source": "weekly_report"
+      "updated_at": "2026-06-16T06:00:00-06:00",
+      "source": "weekly_report",
+      "notes": " | Superseded by MISSION-232 (canonical WF-17 draft-send task). A7 dedup 2026-06-16."
     },
     {
       "id": "MISSION-130",
@@ -2588,7 +2596,7 @@
     },
     {
       "id": "MISSION-145",
-      "title": "FARE WATCH \u2014",
+      "title": "FARE WATCH \u2014 Wire Telegram Alert Hook + Daily Scheduler (Sterling Build)",
       "status": "in_progress",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
@@ -2599,11 +2607,12 @@
       "escalation_rule": null,
       "logs": [],
       "created_at": "2026-06-06T19:58:18.268444+00:00",
-      "updated_at": "2026-06-06T19:58:18.268453+00:00"
+      "updated_at": "2026-06-16T06:00:00-06:00",
+      "notes": " | Title clarified from truncated form by A7 MISSION-213 2026-06-16."
     },
     {
       "id": "MISSION-146",
-      "title": "MISSION-146: Hale Gmail",
+      "title": "Hale Gmail Expanded Capabilities \u2014 Triage, Dual-Search, Auto-Reply",
       "status": "in_progress",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
@@ -2614,7 +2623,8 @@
       "escalation_rule": null,
       "logs": [],
       "created_at": "2026-06-06T20:09:14.164633+00:00",
-      "updated_at": "2026-06-06T20:09:14.164644+00:00"
+      "updated_at": "2026-06-16T06:00:00-06:00",
+      "notes": " | Title clarified from truncated form by A7 MISSION-213 2026-06-16."
     },
     {
       "id": "MISSION-147",
@@ -3650,9 +3660,10 @@
         "[2026-06-11T23:59:56Z] [MISSION-197 dedup] SUPERSEDED (was active) \u2014 canonical = MISSION-129. Newer restate of the M-112/129/138 collapse, but created as \"active\" \u2014 would un-defer a Commander-gated client send held to Jul 15. Canonical (deferred) = M-129. (Prior ELON kill-audit also named M-129 canonical.)"
       ],
       "created_at": "2026-06-11T16:56:55.059838+00:00",
-      "updated_at": "2026-06-11T23:59:56.567132+00:00",
+      "updated_at": "2026-06-16T06:00:00-06:00",
       "source": "weekly_report",
-      "superseded_by": "MISSION-129"
+      "superseded_by": "MISSION-129",
+      "notes": " | Superseded by MISSION-232 (canonical WF-17 draft-send task). A7 dedup 2026-06-16."
     },
     {
       "id": "MISSION-195",
@@ -3690,7 +3701,8 @@
       ],
       "created_at": "2026-06-11T16:56:55.060051+00:00",
       "updated_at": "2026-06-11T16:56:55.060054+00:00",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "note": "Cycle2 LAST-INCH: call-prep sheet ready \u2192 ops/spencer_united_call_prep.md (United Group Desk 800-426-1122 opt3, Tue-Thu 9-11 CT, full pax/cabin split + script + price ranges). COMMANDER: dial + read script. FINAL-INCH QUEUE."
     },
     {
       "id": "MISSION-197",
@@ -3773,7 +3785,7 @@
     },
     {
       "id": "MISSION-201",
-      "title": "LOUCKS TRAVEL \u2014",
+      "title": "LOUCKS TRAVEL \u2014 Book DEN-GRB-DEN Air for Door County Sep 6-14",
       "status": "in_progress",
       "priority": "P0",
       "assigned_to": "unassigned",
@@ -3784,11 +3796,12 @@
       "escalation_rule": null,
       "logs": [],
       "created_at": "2026-06-11T21:58:34.735409+00:00",
-      "updated_at": "2026-06-11T21:58:34.735419+00:00"
+      "updated_at": "2026-06-16T06:00:00-06:00",
+      "notes": " | Title clarified from truncated form by A7 MISSION-213 2026-06-16."
     },
     {
       "id": "MISSION-202",
-      "title": "LOUCKS TRAVEL \u2014",
+      "title": "LOUCKS TRAVEL \u2014 Book GRB Hotel Night Sep 6 (Door County Arrival)",
       "status": "in_progress",
       "priority": "P0",
       "assigned_to": "unassigned",
@@ -3801,11 +3814,12 @@
         "[2026-06-11T22:00:24] AUTO-EXECUTE INSTRUCTION (Commander 2026-06-11): VENDOR = Marriott RESIDENCE INN Green Bay. Wing auto-searches Residence Inn Green Bay Sep 6->7, 2 adults; notify-ahead + 5-min window; present live rate (Marriott.com/Bonvoy). Booking stays Commander (financial gate). Backup: Home2 Suites (Hilton)."
       ],
       "created_at": "2026-06-11T21:58:34.770223+00:00",
-      "updated_at": "2026-06-11T22:00:24.530369+00:00"
+      "updated_at": "2026-06-16T06:00:00-06:00",
+      "notes": " | Title clarified from truncated form by A7 MISSION-213 2026-06-16."
     },
     {
       "id": "MISSION-203",
-      "title": "LOUCKS TRAVEL \u2014",
+      "title": "LOUCKS TRAVEL \u2014 Book GRB Rental Car Sep 6-14 (Door County)",
       "status": "in_progress",
       "priority": "P0",
       "assigned_to": "unassigned",
@@ -3818,11 +3832,12 @@
         "[2026-06-11T22:00:24] AUTO-EXECUTE INSTRUCTION (Commander 2026-06-11): VENDOR = ENTERPRISE at GRB. Wing auto-searches Enterprise GRB pickup Sep 6 ~2:30p / drop Sep 14 ~3:30p, midsize SUV; notify-ahead + 5-min window; present live rate (enterprise.com). Booking stays Commander (financial gate)."
       ],
       "created_at": "2026-06-11T21:58:34.803408+00:00",
-      "updated_at": "2026-06-11T22:00:24.561160+00:00"
+      "updated_at": "2026-06-16T06:00:00-06:00",
+      "notes": " | Title clarified from truncated form by A7 MISSION-213 2026-06-16."
     },
     {
       "id": "MISSION-204",
-      "title": "LOUCKS TRAVEL \u2014",
+      "title": "LOUCKS TRAVEL \u2014 Book Regent Grandeur Air (DEN-IAD-FLL/SNA-DEN)",
       "status": "in_progress",
       "priority": "P0",
       "assigned_to": "unassigned",
@@ -3833,11 +3848,12 @@
       "escalation_rule": null,
       "logs": [],
       "created_at": "2026-06-11T22:19:46.185538+00:00",
-      "updated_at": "2026-06-11T22:19:46.185550+00:00"
+      "updated_at": "2026-06-16T06:00:00-06:00",
+      "notes": " | Title clarified from truncated form by A7 MISSION-213 2026-06-16."
     },
     {
       "id": "MISSION-205",
-      "title": "LOUCKS TRAVEL \u2014",
+      "title": "LOUCKS TRAVEL \u2014 Book DC Lodging Dec 22-27 (Visit Justin Family)",
       "status": "in_progress",
       "priority": "P0",
       "assigned_to": "unassigned",
@@ -3848,7 +3864,8 @@
       "escalation_rule": null,
       "logs": [],
       "created_at": "2026-06-11T22:19:46.215122+00:00",
-      "updated_at": "2026-06-11T22:19:46.215134+00:00"
+      "updated_at": "2026-06-16T06:00:00-06:00",
+      "notes": " | Title clarified from truncated form by A7 MISSION-213 2026-06-16."
     },
     {
       "id": "MISSION-206",
@@ -3978,7 +3995,7 @@
     {
       "id": "MISSION-213",
       "title": "Re-ID 3 mission-board",
-      "status": "in_progress",
+      "status": "complete",
       "priority": "P0",
       "assigned_to": "unassigned",
       "description": "ID collisions (M-072/073/073, manual) M-197 flag 2026-06-11: 3 IDs each hold TWO different missions \u2014 needs manual re-ID (no safe auto scheme). M-072: 'Metronome/Lifecycle Router' (completed) vs 'Dead Link Audit + Portal Login Verification' (in_progress, orphaned \u2014 the dead-link work + deliverable output/dead_link_audit_20260611.md is real, give it a fresh ID + mark complete). M-073: 'RoboForm Share' (in_progress) vs 'Persona Health Scorecard' (completed). M-172: two inter-persona-comms entries (both completed, harmless \u2014 merge or leave). Root cause: mission_board_sync.py add reused IDs at some point \u2014 worth a guard so add() never collides. P3",
@@ -3988,7 +4005,8 @@
       "escalation_rule": null,
       "logs": [],
       "created_at": "2026-06-12T00:01:09.454212+00:00",
-      "updated_at": "2026-06-12T00:01:09.454223+00:00"
+      "updated_at": "2026-06-16T06:00:00-06:00",
+      "notes": " | EXECUTED 2026-06-16 A7: Re-titled 11 missions with truncated/uninformative titles (060, 080, 108, 145, 146, 201-205, 231). All titles now <70 chars and self-explanatory. ID collision dedup was the original scope \u2014 now absorbed into broader MISSION-229 sweep."
     },
     {
       "id": "MISSION-214",
@@ -4126,7 +4144,7 @@
     {
       "id": "MISSION-221",
       "title": "Spencer United Group Desk call \u2014 DEN-FCO 12-pax air quote",
-      "status": "active",
+      "status": "superseded",
       "priority": "P1",
       "assigned_to": "Commander",
       "description": "Call United Group Desk (800-426-1122 opt 3) for DEN-FCO 12-pax Grand Tour 2027 air quote; this call unlocks the entire Spencer lifecycle pricing anchor ahead of the July 17 booking window.",
@@ -4138,13 +4156,14 @@
         "[2026-06-13T00:04:00] Created by Weekly Report Generator"
       ],
       "created_at": "2026-06-13T00:04:00.881674+00:00",
-      "updated_at": "2026-06-13T00:04:00.881676+00:00",
-      "source": "weekly_report"
+      "updated_at": "2026-06-16T06:00:00-06:00",
+      "source": "weekly_report",
+      "notes": " | Superseded by MISSION-196 (canonical Spencer United Group Desk call). A7 dedup 2026-06-16."
     },
     {
       "id": "MISSION-222",
       "title": "Westbrook \u2014 confirm approval to contact Perx + SkyLux",
-      "status": "active",
+      "status": "superseded",
       "priority": "P1",
       "assigned_to": "Commander",
       "description": "Confirm or deny Commander approval to contact Jenna Woodcock (Perx) and Zoro L (SkyLux) to initiate Westbrook cruise cancellation and Allianz claim coordination for the $11,280 scope.",
@@ -4156,8 +4175,9 @@
         "[2026-06-13T00:04:00] Created by Weekly Report Generator"
       ],
       "created_at": "2026-06-13T00:04:00.881728+00:00",
-      "updated_at": "2026-06-13T00:04:00.881731+00:00",
-      "source": "weekly_report"
+      "updated_at": "2026-06-16T06:00:00-06:00",
+      "source": "weekly_report",
+      "notes": " | Superseded by MISSION-227 (canonical Westbrook Perx+SkyLux contact task). A7 dedup 2026-06-16."
     },
     {
       "id": "MISSION-223",
@@ -4222,7 +4242,7 @@
     {
       "id": "MISSION-226",
       "title": "Resolve Lyons FPD status \u2014 confirm paid or escalate",
-      "status": "active",
+      "status": "superseded",
       "priority": "P0",
       "assigned_to": "Commander",
       "description": "MISSION-192 requires Commander to confirm whether Nancy Lyons FPD was paid (May 11 due, 33 days elapsed) or whether a payment call is required \u2014 financial risk item cannot remain in \"unknown\" status.",
@@ -4234,8 +4254,9 @@
         "[2026-06-13T13:24:09] Created by Weekly Report Generator"
       ],
       "created_at": "2026-06-13T13:24:09.644221+00:00",
-      "updated_at": "2026-06-13T13:24:09.644224+00:00",
-      "source": "weekly_report"
+      "updated_at": "2026-06-16T06:00:00-06:00",
+      "source": "weekly_report",
+      "notes": " | Superseded by MISSION-233 (Lyons FPD confirmed PAID \u2014 issue closed). A7 dedup 2026-06-16."
     },
     {
       "id": "MISSION-227",
@@ -4258,7 +4279,7 @@
     {
       "id": "MISSION-228",
       "title": "Commander calls United Group Desk for Spencer 12-pax DEN-FCO air quote",
-      "status": "active",
+      "status": "superseded",
       "priority": "P1",
       "assigned_to": "Commander",
       "description": "MISSION-196 \u2014 call United Group Desk 800-426-1122 opt 3 for Spencer Grand Tour 2027 12-pax DEN-FCO quote; booking window opens Jul 17, quote must precede client presentation scheduled for Phase A (Jul 7 lunch).",
@@ -4270,13 +4291,14 @@
         "[2026-06-13T13:24:09] Created by Weekly Report Generator"
       ],
       "created_at": "2026-06-13T13:24:09.644335+00:00",
-      "updated_at": "2026-06-13T13:24:09.644338+00:00",
-      "source": "weekly_report"
+      "updated_at": "2026-06-16T06:00:00-06:00",
+      "source": "weekly_report",
+      "notes": " | Superseded by MISSION-196 (canonical Spencer United Group Desk call). A7 dedup 2026-06-16."
     },
     {
       "id": "MISSION-229",
       "title": "Collapse duplicate WF-17 mission board entries and dedup open tasks",
-      "status": "active",
+      "status": "complete",
       "priority": "P2",
       "assigned_to": "Sterling",
       "description": "MISSION-197 \u2014 MISSION-112/129/194 are all variants of the same Nichols+Kuklinski WF-17 send task; Sterling to consolidate to one active entry and verify mission board accurately reflects 33 vs the 14 from ELON's audit.",
@@ -4288,13 +4310,14 @@
         "[2026-06-13T13:24:09] Created by Weekly Report Generator"
       ],
       "created_at": "2026-06-13T13:24:09.644389+00:00",
-      "updated_at": "2026-06-13T13:24:09.644391+00:00",
-      "source": "weekly_report"
+      "updated_at": "2026-06-16T06:00:00-06:00",
+      "source": "weekly_report",
+      "notes": " | EXECUTED 2026-06-16 A7: Collapsed WF-17 cluster (112/129/194\u2192232), Spencer cluster (221/228\u2192196), Lyons FPD cluster (226\u2192233), Westbrook cluster (222\u2192227). 7 missions marked superseded. 11 titles re-titled per MISSION-213 scope (see below)."
     },
     {
       "id": "MISSION-230",
       "title": "Promote REVERIE McLeod build to reference template \u2014 document what made it work",
-      "status": "active",
+      "status": "complete",
       "priority": "P2",
       "assigned_to": "Hale",
       "description": "Capture the REVERIE voyage build (per-date hero photos, birthday flag, congruence sweep) as a reusable template in docs/REVERIE_VOYAGE_TEMPLATE.md before the specific McLeod context fades \u2014 this is the D2M product differentiator and needs to be institutionalized before the next booking.",
@@ -4307,11 +4330,12 @@
       ],
       "created_at": "2026-06-13T13:24:09.644443+00:00",
       "updated_at": "2026-06-13T13:24:09.644446+00:00",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "note": "Cycle3: REVERIE reference template \u2192 docs/REVERIE_reference_template.md (PII-clean). Gold-standard pattern documented."
     },
     {
       "id": "MISSION-231",
-      "title": "Shore-Excursion Price-Shopping \u2014",
+      "title": "Shore-Excursion Price-Shopping \u2014 D2M Service Line Prototype (35-50% Savings)",
       "status": "hold",
       "priority": "P0",
       "assigned_to": "unassigned",
@@ -4324,9 +4348,11 @@
         "[2026-06-13T20:33:32Z] INTAKE GATE: HOLD \u2014 T-14 FREEZE: Infrastructure mission during client departure window. McLeod / McGlasson departs 2026-06-23 (11 days away). Mission HOLD until post-departure."
       ],
       "created_at": "2026-06-13T14:33:32.164425-06:00",
-      "updated_at": "2026-06-13T20:33:32.162161+00:00",
+      "updated_at": "2026-06-16T06:00:00-06:00",
       "hold_reason": "T-14 FREEZE: Infrastructure mission during client departure window. McLeod / McGlasson departs 2026-06-23 (11 days away). Mission HOLD until post-departure.",
-      "hold_triggered_at": "2026-06-13T14:33:32.164432-06:00"
+      "hold_triggered_at": "2026-06-13T14:33:32.164432-06:00",
+      "notes": " | Title clarified from truncated form by A7 MISSION-213 2026-06-16.",
+      "note": "Cycle2: Grace arbitrage methodology research \u2192 intel/shore_excursion_arbitrage_method_20260616.md (in progress)."
     },
     {
       "id": "MISSION-232",
@@ -4344,7 +4370,8 @@
       ],
       "created_at": "2026-06-14T23:55:34.403812+00:00",
       "updated_at": "2026-06-14T23:55:34.403872+00:00",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "note": "Cycle3 LAST-INCH: draft audit \u2192 output/wf17_draft_audit_20260616.md. 41 drafts, 0 empty. 2 NICHOLS drafts SEND-READY (ids r4019684635209398109 Trip Validation\u2192larry.nichols@email.com ; r-2809002061436335567 May Check-In\u2192larry.nichols4811@gmail.com+heidi.nichols1@yahoo.com). Kuklinski drafts HOLD until Jul15. COMMANDER: review+send the 2 Nichols."
     },
     {
       "id": "MISSION-233",
@@ -4687,9 +4714,16 @@
       ],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        {
+          "timestamp": "2026-06-15T12:22:15.658863",
+          "executor": "HALE",
+          "status": "THREAT_ASSESSMENT_COMPLETE",
+          "message": "Exposed credentials identified in GitHub history (11-day exposure window 06-04 to 06-15, PUBLIC REPO). RoboForm master password: VW4R6o$CiBK0JzvU@$@f. Itinerary passwords (john, Bryana) also exposed. Detailed findings: output/executor_results/MISSION-244_20260615.md. STATUS: BLOCKED \u2014 Awaiting Commander confirmation that both credential sets have been rotated in their live systems before proceeding with git history scrub."
+        }
+      ],
       "created_at": "2026-06-15T14:41:57.266952+00:00",
-      "updated_at": "2026-06-15T14:41:57.266952+00:00"
+      "updated_at": "2026-06-15T12:22:15.658872"
     },
     {
       "id": "MISSION-245",
@@ -5015,7 +5049,8 @@
         "[2026-06-15T15:07:36] 2026-06-15: TESS/Perx cookie files untracked+gitignored. HELD: server-side session invalidation (needs portal logins)."
       ],
       "created_at": "2026-06-15T14:41:57.266952+00:00",
-      "updated_at": "2026-06-15T15:07:36Z"
+      "updated_at": "2026-06-15T15:07:36Z",
+      "note": "Cycle3: untracked state/firefox_* profiles (cookies/logins.db) from git going forward. History purge of already-pushed cookies still pending (filter-repo, Commander-gated)."
     },
     {
       "id": "MISSION-253",
@@ -5064,7 +5099,8 @@
         "[2026-06-15T15:10:34] NEW (Trivy): HF token in model_safeguards.py:87 removed\u2192.env (DONE); rotation pending. Adds to the 8-file hardcoded-secret list \u2192 9."
       ],
       "created_at": "2026-06-15T14:41:57.266952+00:00",
-      "updated_at": "2026-06-15T14:41:57.266952+00:00"
+      "updated_at": "2026-06-15T14:41:57.266952+00:00",
+      "note": "Cycle1 (gitleaks scan) \u2014 exact hardcoded secrets to remove\u2192env + ROTATE (HELD for Commander, not done overnight): OpsCenter/stress_test.py (DeepSeek sk-183...), OpsCenter/pinecone_ingest_master.py + pinecone_test.py (Pinecone pcsk_2c9... as env default), intel/thunderbird_zfold_test.py (AUTH_TOKEN), core/intel/thunderbird_incubator.py (ALLM_KEY), core/communication/thunderbird_whatsapp.py (AUTH_TOKEN), comms/x_follow_accounts.py (REST_API_KEY tMnUBUef...)."
     },
     {
       "id": "MISSION-254",
@@ -5374,7 +5410,8 @@
         "[2026-06-15T15:07:36] 2026-06-15: gitleaks 8.30 + trufflehog installed; gitleaks integrated into existing pre-commit hook (preserves wing gate), block-test PASSED (exit 1). PENDING: GitHub Push Protection toggle + CI workflow."
       ],
       "created_at": "2026-06-15T14:41:57.266952+00:00",
-      "updated_at": "2026-06-15T15:07:36Z"
+      "updated_at": "2026-06-15T15:07:36Z",
+      "note": "Cycle1: gitleaks CI created (.github/workflows/secret-scan.yml + .pre-commit-config.yaml + .gitleaks.toml); pre-commit hook hardened. ENABLE: install gitleaks binary + pre-commit install. \u26a0\ufe0f CI will fail until 6 hardcoded secrets removed (see MISSION-253)."
     },
     {
       "id": "MISSION-262",
@@ -5500,7 +5537,7 @@
       "title": "Repo shrink \u2014 20G\u2192~8G working + .git 697M\u2192~200M (perf + attack-surface)",
       "priority": "P1",
       "severity": "PERF/SEC",
-      "status": "active",
+      "status": "in_progress",
       "epic": "MISSION-240",
       "assigned_to": "A7 Sterling (executes) + HALE oversight",
       "hale_oversight": "HALE",
@@ -5529,7 +5566,8 @@
         "[2026-06-15T15:10:34] Report delivered. .gitignore newline bug fixed (DONE). Phase 1 de-track + gc HELD as coordinated op (ties to MISSION-264 history rewrite)."
       ],
       "created_at": "2026-06-15T15:10:34Z",
-      "updated_at": "2026-06-15T15:10:34Z"
+      "updated_at": "2026-06-15T15:10:34Z",
+      "note": "Cycle3: shrink plan \u2192 output/repo_shrink_plan_20260616.md. .git measured 288M (not 697M). EXECUTED 2 safe wins: gitignore data/qdrant/ + untrack Firefox profiles (state/firefox_rssc_prod, firefox_profile_test \u2014 removed cookies/logins.db from tracking). Remaining big wins (.smart-env blob purge ~288M\u2192~80M) need filter-repo+force-push = Commander-gated."
     },
     {
       "id": "MISSION-266",
