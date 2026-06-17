@@ -398,3 +398,21 @@ Silversea explicitly marks these *Suitable for limited mobility* — and they ha
 - **Split**: SEG $59 vs Silversea $79 — save ~$20 pp
 
 *Note: ToursByLocals prices are per-group quotes (divide by pax); SEG prices are per-person sale prices. Some SEG 'picked' matches are broad (e.g. transfers/hop-on-off) — verify the specific tour content + that it explicitly states return-to-ship before booking.*
+
+---
+
+## 📌 PORT DECISIONS — Commander 2026-06-17 (authoritative; supersedes scan table where noted)
+
+**Self-guided — NO tour (Commander's call):**
+- **Gythion (May 14 & 18)** — walk around + café. Been there.
+- **Kusadasi (May 20)** — walk around. Been 3×.
+- **Mykonos (May 21)** — walk around. Been once.
+- **Rhodes (May 27)** — walk to the Medieval Old Town (eat/shop). **Port is adjacent — 5–15 min walk, free shuttle in peak season; no excursion/shuttle to buy.** Skip Lindos/Acropolis (done it).
+
+**Booked / closed:** Koper, Split, Crete, Nafplion, Patmos (Silversea) · Dubrovnik, Bari, Athens May 15 (3-day hop-on/off), Cape Sounio May 22 (Project Expedition).
+
+**Chased guaranteed-return options (Commander to book):**
+- **Kotor (May 11)** — *not* the $58 kayak. Guaranteed-return picks: **Bay of Kotor $69** (scenic, low-effort) · History of Kotor by Land $72 · **Beauties of Budva $139** (coastal scenic). SEG.
+- **Santorini (May 23, tender)** — **Exclusive Santorini, Oia & Winery $139** (exact fit) or Oia & Fira Highlights w/ boat transfer $129. SEG.
+
+**Still open to decide:** Zadar (SEG $82), Katakolon (SEG $103), Paros (TBL private/quote), Milos (TBL private/quote), Bodrum (SEG $79).

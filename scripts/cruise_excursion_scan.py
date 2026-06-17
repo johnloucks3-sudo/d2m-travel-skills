@@ -47,13 +47,13 @@ ITINERARY = [
     ("2027-05-17", "Crete (Souda)",    "chania-crete-shore-excursions",    False, ["chania", "winery", "olive", "cretan"]),
     ("2027-05-18", "Gythion",          None,                         True,  []),  # Commander: self-guided walk + cafe, no tour
     ("2027-05-19", "Milos",            "milos-shore-excursions",     True,  ["milos", "island", "sarakiniko", "boat", "catamaran"]),
-    ("2027-05-20", "Kusadasi",         "kusadasi-shore-excursions",  False, ["ephesus"]),
-    ("2027-05-21", "Mykonos",          "mykonos-shore-excursions",   True,  ["mykonos", "panoram", "town", "beach"]),
+    ("2027-05-20", "Kusadasi",         None,                         False, []),  # Commander: walk-around, been 3x
+    ("2027-05-21", "Mykonos",          None,                         True,  []),  # Commander: walk-around, been once
     ("2027-05-22", "Athens (Piraeus)", "athens-shore-excursions",   False, ["sounio", "poseidon", "cape", "athens"]),
     ("2027-05-23", "Santorini",        "santorini-shore-excursions", True,  ["oia", "winery", "santorini", "caldera"]),
     ("2027-05-24", "Nafplion",         "nafplion-shore-excursions",  False, ["corinth", "canal", "mycenae", "nafplio"]),
     ("2027-05-26", "Bodrum",           "bodrum-turkey-excursions",    False, ["gulet", "boat", "coast", "cruise", "bodrum"]),
-    ("2027-05-27", "Rhodes",           "rhodes-shore-excursions",    False, ["lindos", "rhodes", "panoram", "filerimos", "old town"]),
+    ("2027-05-27", "Rhodes",           None,                         False, []),  # Commander: walk to Old Town (port adjacent, no shuttle needed)
     ("2027-05-28", "Patmos",           "patmos-shore-excursions",    True,  ["monaster", "apocalyp", "patmos", "cave"]),
 ]
 

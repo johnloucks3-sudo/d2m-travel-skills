@@ -1,5 +1,5 @@
 {
-  "scanned_at": "2026-06-17T11:38:54.599918",
+  "scanned_at": "2026-06-17T12:03:42.939119",
   "sources": [
     "Shore Excursions Group",
     "ToursByLocals (gap ports, quote-priced)"
@@ -774,14 +774,8 @@
       "date": "2027-05-14",
       "port": "Gythion",
       "tender": true,
-      "picked_kw": [
-        "olive",
-        "estate",
-        "mani",
-        "village"
-      ],
-      "status": "http_404",
-      "url": "https://www.shoreexcursionsgroup.com/port/gythion-shore-excursions",
+      "status": "self_guided",
+      "note": "Commander's choice \u2014 no tour",
       "tours": []
     },
     {
@@ -1137,13 +1131,8 @@
       "date": "2027-05-18",
       "port": "Gythion",
       "tender": true,
-      "picked_kw": [
-        "diros",
-        "cave",
-        "mystras"
-      ],
-      "status": "http_404",
-      "url": "https://www.shoreexcursionsgroup.com/port/gythion-shore-excursions",
+      "status": "self_guided",
+      "note": "Commander's choice \u2014 no tour",
       "tours": []
     },
     {
@@ -1210,301 +1199,17 @@
       "date": "2027-05-20",
       "port": "Kusadasi",
       "tender": false,
-      "picked_kw": [
-        "ephesus"
-      ],
-      "status": "ok",
-      "url": "https://www.shoreexcursionsgroup.com/port/kusadasi-shore-excursions",
-      "tours": [
-        {
-          "name": "Guided Ephesus and Wine Tasting at Sirince Village",
-          "price_pp": 62.0,
-          "list_price_pp": null,
-          "match": "picked",
-          "size": "Small",
-          "type": "Scenic, Cultural, Historical",
-          "reviews": 54,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/guided-ephesus-wine-tasting-at-sirince-village/eukuephwwinetstr"
-        },
-        {
-          "name": "Overview of Ephesus and Temple of Artemis Remains",
-          "price_pp": 69.0,
-          "list_price_pp": null,
-          "match": "picked",
-          "size": "Small",
-          "type": "Scenic, Cultural, Historical",
-          "reviews": 6,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/overview-of-ephesus-and-temple-of-artemis-remains/eukuephsteart"
-        },
-        {
-          "name": "Ancient Ephesus, Terrace Houses, and House of Virgin Mary with Lunch",
-          "price_pp": 79.0,
-          "list_price_pp": null,
-          "match": "picked",
-          "size": "Small",
-          "type": "Scenic, Cultural, Historical",
-          "reviews": 7,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/ancient-ephesus-terrace-houses-virgin-mary-lunch/eukuephterrhovtour"
-        },
-        {
-          "name": "Guided Ephesus, Selcuk City Stroll, and Street Food",
-          "price_pp": 87.0,
-          "list_price_pp": null,
-          "match": "picked",
-          "size": "Small",
-          "type": "Culinary / Food",
-          "reviews": 24,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/guided-ephesus-selcuk-city-stroll-street-food/eukuephslclgrmttr"
-        },
-        {
-          "name": "Exclusive Ancient Ephesus",
-          "price_pp": 99.0,
-          "list_price_pp": 119.0,
-          "match": "picked",
-          "size": "Standard",
-          "type": "Scenic, Cultural, Historical",
-          "reviews": 287,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/ancient-ephesus-kusadasi/eukukvtgrpeph"
-        },
-        {
-          "name": "Exclusive Ancient Ephesus, Travel Through Time",
-          "price_pp": 99.0,
-          "list_price_pp": 129.0,
-          "match": "picked",
-          "size": "Standard",
-          "type": "Scenic, Cultural, Historical",
-          "reviews": 66,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/exclusive-ancient-ephesus-travel-through-time/eukuexcleph"
-        },
-        {
-          "name": "Exclusive Ephesus, St John and Carpets",
-          "price_pp": 105.0,
-          "list_price_pp": null,
-          "match": "picked",
-          "size": "Standard",
-          "type": "Scenic, Cultural, Historical",
-          "reviews": 40,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/ephesus-st-john-carpets/eukukvtexfldy"
-        },
-        {
-          "name": "House of Virgin Mary and Ancient Ephesus",
-          "price_pp": 125.0,
-          "list_price_pp": null,
-          "match": "picked",
-          "size": "Standard",
-          "type": "Scenic, Cultural, Historical",
-          "reviews": 61,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/house-virgin-mary-ephesus/eukumaryhs2"
-        },
-        {
-          "name": "Best of Ephesus",
-          "price_pp": 169.0,
-          "list_price_pp": 199.0,
-          "match": "picked",
-          "size": "Standard",
-          "type": "Scenic, Cultural, Historical",
-          "reviews": 97,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/best-of-ephesus/eukubesteph"
-        }
-      ]
+      "status": "self_guided",
+      "note": "Commander's choice \u2014 no tour",
+      "tours": []
     },
     {
       "date": "2027-05-21",
       "port": "Mykonos",
       "tender": true,
-      "picked_kw": [
-        "mykonos",
-        "panoram",
-        "town",
-        "beach"
-      ],
-      "status": "ok",
-      "url": "https://www.shoreexcursionsgroup.com/port/mykonos-shore-excursions",
-      "tours": [
-        {
-          "name": "Mykonos Town Walking Discovery",
-          "price_pp": 80.0,
-          "list_price_pp": null,
-          "match": "picked",
-          "size": "Standard",
-          "type": "Walking Tour",
-          "reviews": 6,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/mykonos-town-talking-discovery/eumywalkbigblu"
-        },
-        {
-          "name": "Mykonos Beach Break",
-          "price_pp": 93.0,
-          "list_price_pp": null,
-          "match": "picked",
-          "size": "Standard",
-          "type": "Beach",
-          "reviews": 2,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/mykonos-beach-break/eumybchbrk"
-        },
-        {
-          "name": "Mykonos Sunset and Little Venice by Boat",
-          "price_pp": 95.0,
-          "list_price_pp": null,
-          "match": "picked",
-          "size": "Standard",
-          "type": "Scenic, Cultural, Historical",
-          "reviews": 2,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/mykonos-sunset-and-little-venice-by-boat/eumysunvcebigblu"
-        },
-        {
-          "name": "Authentic Mykonos",
-          "price_pp": 98.0,
-          "list_price_pp": 108.0,
-          "match": "picked",
-          "size": "Standard",
-          "type": "Scenic, Cultural, Historical",
-          "reviews": 8,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/authentic-mykonos/eumyautmykbig"
-        },
-        {
-          "name": "Exclusive Mykonos Old and New",
-          "price_pp": 109.0,
-          "list_price_pp": 129.0,
-          "match": "picked",
-          "size": "Standard",
-          "type": "Scenic, Cultural, Historical",
-          "reviews": 296,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/old-new-mykonos/eumytcacrnmyc"
-        },
-        {
-          "name": "Highlights of Mykonos",
-          "price_pp": 115.0,
-          "list_price_pp": 135.0,
-          "match": "picked",
-          "size": "Standard",
-          "type": "Scenic, Cultural, Historical",
-          "reviews": 90,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/highlights-of-mykonos/eumyhilights"
-        },
-        {
-          "name": "Mykonos Souvlaki Experience Cooking Class with Lunch",
-          "price_pp": 139.0,
-          "list_price_pp": null,
-          "match": "picked",
-          "size": "Standard",
-          "type": "Culinary / Food",
-          "reviews": null,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/mykonos-souvlaki-experience-cooking-class-lunch/eumysouvlaki"
-        },
-        {
-          "name": "Cruise to the Southern Beaches of Mykonos",
-          "price_pp": 155.0,
-          "list_price_pp": null,
-          "match": "picked",
-          "size": "Standard",
-          "type": "Beach",
-          "reviews": 6,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/cruise-to-southern-beaches-mykonos/eumymyksthbeachcrse"
-        },
-        {
-          "name": "Panoramic Mykonos 4x4 SUV Adventure",
-          "price_pp": 170.0,
-          "list_price_pp": null,
-          "match": "picked",
-          "size": "Standard",
-          "type": "Off Road Vehicle",
-          "reviews": 5,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/panoramic-mykonos-4x4-suv-adventure/eumymykjeep"
-        },
-        {
-          "name": "Grand Tour of Mykonos",
-          "price_pp": 222.0,
-          "list_price_pp": null,
-          "match": "picked",
-          "size": "Standard",
-          "type": "Scenic, Cultural, Historical",
-          "reviews": null,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/grand-tour-mykonos/eumygrandbigblu"
-        },
-        {
-          "name": "Mykonos Cooking Class",
-          "price_pp": 293.0,
-          "list_price_pp": null,
-          "match": "picked",
-          "size": "Standard",
-          "type": "Culinary / Food",
-          "reviews": 1,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/mykonos-cooking-class/eumycookbigblu"
-        },
-        {
-          "name": "Executive Wine Tasting",
-          "price_pp": 297.0,
-          "list_price_pp": null,
-          "match": "food/wine",
-          "size": "Standard",
-          "type": "Culinary / Food",
-          "reviews": null,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/executive-wine-tasting/eumywinebigblu"
-        }
-      ]
+      "status": "self_guided",
+      "note": "Commander's choice \u2014 no tour",
+      "tours": []
     },
     {
       "date": "2027-05-22",
@@ -2259,134 +1964,9 @@
       "date": "2027-05-27",
       "port": "Rhodes",
       "tender": false,
-      "picked_kw": [
-        "lindos",
-        "rhodes",
-        "panoram",
-        "filerimos",
-        "old town"
-      ],
-      "status": "ok",
-      "url": "https://www.shoreexcursionsgroup.com/port/rhodes-shore-excursions",
-      "tours": [
-        {
-          "name": "Lindos On Your Own",
-          "price_pp": 48.0,
-          "list_price_pp": null,
-          "match": "picked",
-          "size": "Standard",
-          "type": "Scenic, Cultural, Historical",
-          "reviews": 16,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/lindos-on-your-own/eurhlindosoyo"
-        },
-        {
-          "name": "Rhodes City and Old Town by Segway Mini",
-          "price_pp": 91.0,
-          "list_price_pp": null,
-          "match": "picked",
-          "size": "Small",
-          "type": "Segway Tour",
-          "reviews": null,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/rhodes-city-old-town-segway-mini/eurhctyoldseg"
-        },
-        {
-          "name": "Medieval Old Town Rhodes Walking Tour",
-          "price_pp": 108.0,
-          "list_price_pp": null,
-          "match": "picked",
-          "size": "Standard",
-          "type": "Walking Tour",
-          "reviews": 5,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/medieval-old-town-rhodes-walking-tour/eurhmedoldwalk"
-        },
-        {
-          "name": "Exclusive Medieval Town of Rhodes",
-          "price_pp": 115.0,
-          "list_price_pp": 145.0,
-          "match": "picked",
-          "size": "Small",
-          "type": "Scenic, Cultural, Historical",
-          "reviews": 90,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/medieval-town-rhodes/eurhtcaexcwalk"
-        },
-        {
-          "name": "Best of Lindos and Rhodes",
-          "price_pp": 119.0,
-          "list_price_pp": 139.0,
-          "match": "picked",
-          "size": "Standard",
-          "type": "Scenic, Cultural, Historical",
-          "reviews": 67,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/best-of-lindos-and-rhodes/eurhbest"
-        },
-        {
-          "name": "Butterfly Valley and Wine Tasting",
-          "price_pp": 128.0,
-          "list_price_pp": null,
-          "match": "food/wine",
-          "size": "Standard",
-          "type": "Culinary / Food",
-          "reviews": 5,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/butterfly-valley-wine-tasting/eurhbutterflywine"
-        },
-        {
-          "name": "Rhodes Fishing Boat Trip",
-          "price_pp": 143.0,
-          "list_price_pp": null,
-          "match": "picked",
-          "size": "Small",
-          "type": "Fishing",
-          "reviews": 1,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/rhodes-fishing-boat-trip/eurhfishboat"
-        },
-        {
-          "name": "Rhodes Back Country Adventure",
-          "price_pp": 177.0,
-          "list_price_pp": null,
-          "match": "picked",
-          "size": "Small",
-          "type": "Scenic, Cultural, Historical",
-          "reviews": 10,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/rhodes-back-country-adventure/eurhjeepsaf"
-        },
-        {
-          "name": "A Taste of Rhodes",
-          "price_pp": 242.0,
-          "list_price_pp": null,
-          "match": "picked",
-          "size": "Small",
-          "type": "Culinary / Food",
-          "reviews": 5,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/a-taste-of-rhodes/eurhcook"
-        }
-      ]
+      "status": "self_guided",
+      "note": "Commander's choice \u2014 no tour",
+      "tours": []
     },
     {
       "date": "2027-05-28",
