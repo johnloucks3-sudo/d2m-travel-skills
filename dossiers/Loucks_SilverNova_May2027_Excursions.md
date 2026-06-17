@@ -377,11 +377,11 @@ Silversea explicitly marks these *Suitable for limited mobility* — and they ha
 | 05-10 | Bari | SEG | [Walking Tour of Bari](https://www.shoreexcursionsgroup.com/tour/walking-tour-of-bari-local-sights-italy-bari/eubawalk) — **$46** | — |
 | 05-11 | Kotor | SEG | [Kotor Bay's Beauty by Kayak](https://www.shoreexcursionsgroup.com/tour/kotor-bay-beauty-by-kayak/eukobaybykyk) — **$58** | [Wine and Culinary Tour](https://www.shoreexcursionsgroup.com/tour/wine-and-culinary-lake-skadar/eukowinecul) — **$293** |
 | 05-13 | Katakolon | SEG | [Ancient Olympia On Your Own](https://www.shoreexcursionsgroup.com/tour/ancient-olympia-on-your-own/eukaolympia2) — **$103** | — |
-| 05-14 | Gythion ⚓ | — | _no guaranteed option found_ | |
+| 05-14 | Gythion ⚓ | — | 🚶 **Self-guided — walk + café** (Commander's choice, been there; no tour) | |
 | 05-15 | Athens (Piraeus) | SEG | [Hop-on Hop-off Athens Highlights Tour ](https://www.shoreexcursionsgroup.com/tour/hop-on-hop-off-athens-highlights-tour/euatcsonoff2) — **$59** | [Exclusive Walking Food Tour for Cruise](https://www.shoreexcursionsgroup.com/tour/walking-food-tour-athens/euatawtmgwalt) — **$183** |
 | 05-16 | Paros ⚓ | ToursByLocals | [Meet Paros - Half Day Shore Excursion](https://www.toursbylocals.com/tours/greece/paros/tour-details/meet-paros---half-day-shore-excursion-664d2321ebf20b19574bbad4) — **quote** | — |
 | 05-17 | Crete (Souda) | SEG | [Cretan Wines Jeep Safari](https://www.shoreexcursionsgroup.com/tour/cretan-wines-jeep-safari/euchjeepwine) — **$139** | — |
-| 05-18 | Gythion ⚓ | — | _no guaranteed option found_ | |
+| 05-18 | Gythion ⚓ | — | 🚶 **Self-guided — walk + café** (Commander's choice, been there; no tour) | |
 | 05-19 | Milos ⚓ | ToursByLocals | [Milos Classics Tour - Full Day Shore E](https://www.toursbylocals.com/tours/greece/milos/tour-details/milos-classics-tour---full-day-shore-excursion-664d230b17832fdc0da8219c) — **quote** | — |
 | 05-20 | Kusadasi | SEG | [Guided Ephesus and Wine Tasting at Sir](https://www.shoreexcursionsgroup.com/tour/guided-ephesus-wine-tasting-at-sirince-village/eukuephwwinetstr) — **$62** | — |
 | 05-21 | Mykonos ⚓ | SEG | [Mykonos Town Walking Discovery](https://www.shoreexcursionsgroup.com/tour/mykonos-town-talking-discovery/eumywalkbigblu) — **$80** | [Executive Wine Tasting](https://www.shoreexcursionsgroup.com/tour/executive-wine-tasting/eumywinebigblu) — **$297** |
@@ -392,7 +392,7 @@ Silversea explicitly marks these *Suitable for limited mobility* — and they ha
 | 05-27 | Rhodes | SEG | [Lindos On Your Own](https://www.shoreexcursionsgroup.com/tour/lindos-on-your-own/eurhlindosoyo) — **$48** | [Butterfly Valley and Wine Tasting](https://www.shoreexcursionsgroup.com/tour/butterfly-valley-wine-tasting/eurhbutterflywine) — **$128** |
 | 05-28 | Patmos ⚓ | ToursByLocals | [Scenic Patmos Half Day Tour with your ](https://www.toursbylocals.com/tours/greece/patmos/tour-details/scenic-patmos-half-day-tour-with-your-private-guide-664d281d1bbe5b817c4a9a1f) — **quote** | — |
 
-**Coverage:** 19/21 ports have a guaranteed-return option. Gap: **Gythion** (May 14 & 18) — not on SEG or TBL; book ship tour or a local operator with a written all-aboard guarantee.
+**Coverage:** 19/21 ports have a guaranteed-return option. **Gythion (May 14 & 18) = self-guided walk + café (Commander's choice — been there, no tour).** No coverage gaps remain.
 
 **Guaranteed-return options cheaper than the booked Silversea pick:**
 - **Split**: SEG $59 vs Silversea $79 — save ~$20 pp

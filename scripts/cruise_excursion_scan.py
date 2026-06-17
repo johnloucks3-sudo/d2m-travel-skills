@@ -41,11 +41,11 @@ ITINERARY = [
     ("2027-05-10", "Bari",             "bari-shore-excursions",      False, ["bari", "old town", "street"]),
     ("2027-05-11", "Kotor",            "kotor-shore-excursions",     False, ["budva", "kotor", "panoram", "coast", "bay"]),
     ("2027-05-13", "Katakolon",        "katakolon-shore-excursions", False, ["olympia"]),
-    ("2027-05-14", "Gythion",          "gythion-shore-excursions",   True,  ["olive", "estate", "mani", "village"]),
+    ("2027-05-14", "Gythion",          None,                         True,  []),  # Commander: self-guided walk + cafe, no tour
     ("2027-05-15", "Athens (Piraeus)", "athens-shore-excursions",   False, ["athens", "acropolis", "plaka", "city"]),
     ("2027-05-16", "Paros",            "paros-shore-excursions",     True,  ["paros", "beach", "village", "naoussa"]),
     ("2027-05-17", "Crete (Souda)",    "chania-crete-shore-excursions",    False, ["chania", "winery", "olive", "cretan"]),
-    ("2027-05-18", "Gythion",          "gythion-shore-excursions",   True,  ["diros", "cave", "mystras"]),
+    ("2027-05-18", "Gythion",          None,                         True,  []),  # Commander: self-guided walk + cafe, no tour
     ("2027-05-19", "Milos",            "milos-shore-excursions",     True,  ["milos", "island", "sarakiniko", "boat", "catamaran"]),
     ("2027-05-20", "Kusadasi",         "kusadasi-shore-excursions",  False, ["ephesus"]),
     ("2027-05-21", "Mykonos",          "mykonos-shore-excursions",   True,  ["mykonos", "panoram", "town", "beach"]),
@@ -246,7 +246,10 @@ async def main():
         page = await ctx.new_page()
         for date, label, slug, tender, kw in ITINERARY:
             if not slug:
-                results["ports"].append({"date": date, "port": label, "tender": tender, "status": "no_slug", "tours": []})
+                # Intentional skip (e.g. Gythion = Commander's self-guided walk + cafe day)
+                results["ports"].append({"date": date, "port": label, "tender": tender,
+                                         "status": "self_guided", "note": "Commander's choice — no tour", "tours": []})
+                log(f"{date} {label}: self-guided (no tour, per Commander)")
                 continue
             res = await scrape_seg(page, slug, kw)
             # Fall back to ToursByLocals where SEG has no page / no match
@@ -280,7 +283,7 @@ async def main():
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(results, indent=2))
     ok = [p for p in results["ports"] if p["status"] == "ok"]
-    gaps = [p for p in results["ports"] if p["status"] != "ok"]
+    gaps = [p for p in results["ports"] if p["status"] not in ("ok", "self_guided")]
     log(f"Saved → {OUT}")
     log(f"COVERAGE: {len(ok)}/{len(results['ports'])} ports matched. "
         f"Still-gap: {', '.join(p['port'] for p in gaps) or 'none'}")
