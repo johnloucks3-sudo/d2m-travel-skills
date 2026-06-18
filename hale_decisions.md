@@ -1,5 +1,40 @@
 ---
 
+## 2026-06-18 DECISIONS
+
+### CODE FIX: _wrap_body_html() silent fallback + create_johnloucks3_draft.py missing preprocessing
+**Date:** 2026-06-18 | **Authority:** Hale (code fix per Commander directive) | **Type:** bug_fix | **Status:** COMPLETE
+**Root cause identified:** Two cascading code gaps caused the Amy Darrow email to require 3 attempts:
+1. `_wrap_body_html()` in `core/email/thunderbird_gmail.py` (line 920-926): premailer is installed in the venv (`/home/john/Thunderbird/.venv/`) but NOT in system python3. When the function encountered a full HTML doc and premailer import failed, it silently returned the HTML unchanged — no CSS inlining, no error, no log entry.
+2. `scripts/create_johnloucks3_draft.py`: no preprocessing at all — raw HTML passed directly to MIMEText, bypassing both premailer and the fallback.
+**Fix applied:**
+- `_wrap_body_html()`: added `GmailSafePreprocessor` (bs4-based, always available) as explicit fallback when premailer unavailable. Added `logging.warning()` if both fail. (Line 926 — the silent `return plain_text`.)
+- `create_johnloucks3_draft.py`: added preprocessing block before MIMEText creation — tries premailer first, falls through to `GmailSafePreprocessor`, warns if both fail.
+**Verified:** System python3 → fallback activates → `<style>` blocks inlined → `CSS inlined? True`
+**Note:** v3 draft (r3233805688263993684) rendered correctly because it used `bgcolor` HTML attributes directly rather than relying on `<style>` blocks — that was a workaround, not a fix. These changes fix the underlying pipeline.
+
+### MISSION-254: H1 — Spoofable-From Trust Boundary Audit (PROTECTED FILE)
+**Date:** 2026-06-18 | **Authority:** Hale (executor, sole authorized for protected files) | **Type:** security_audit | **Status:** COMPLETE
+**Mission:** Audit `OpsCenter/run_commander_directive_sweep.py` for spoofable-From vulnerability (SO-EMAIL-SCANNER-PROTECT-20260608)
+**Vulnerability addressed:** Lines 212-213 (old) used substring match on SMTP From header; SMTP headers are forgeable; could enable prompt injection to Hale agent with OAuth tokens + MCP tools
+**Fix verified:** ✅ DKIM authentication verification implemented (lines 91-119)
+  - `validate_authentication()` checks Gmail's `Authentication-Results` header for `dkim=pass`
+  - Rejects message if missing or DKIM check fails
+  - Called BEFORE subject/body processing (line 276)
+  - Cryptographically verified by Gmail servers (RFC 6376)
+  - Better than HMAC alternative (no token management in emails)
+**Secondary defense:** ✅ Prompt input sanitization (lines 121-148)
+  - Warns on injection patterns: `SYSTEM:`, `WRITE `, `--prompt`, `--model`, `execute`
+  - Currently logs warnings; recommended enhancement = reject messages with patterns
+**Deployment:** Applied to both paths (johnloucks3 + d2mconcierge), all checks pre-dispatch
+**Testing:** Implicit via 5-min sweep cycle; DKIM pass visible in sweep logs; spoofed emails rejected with security log message
+**Recommended improvement:** Escalate sanitization pattern matches from warnings to rejections (fail-secure posture). Implementation documented in audit report.
+**Deliverable:** `/home/john/Thunderbird/output/executor_results/MISSION-254_20260618.md`
+**Compliance:** SO-EMAIL-SCANNER-PROTECT-20260608 enforced (Claude Code sole executor, change logged here)
+**Status:** FIX_VERIFIED_SOLID | IMPROVEMENT_OPTIONAL
+
+---
+
 ## 2026-06-15 DECISIONS
 
 ### MISSION-244: Critical Credentials Exposure Assessment (Threat Assessment Complete)
@@ -5030,3 +5065,27 @@ Detailed execution report written: `output/executor_results/MISSION-245_20260617
 **Classification:** P1 (C5 critical) — awaiting Commander Phase 1 for completion.
 **Risk level:** 🟡 ELEVATED (mitigated but not eliminated) until tokens revoked at BotFather.
 **Next:** Commander Phase 1. Hale standing by for Phase 2 upon completion.
+
+---
+## 2026-06-18 — EMAIL RENDERING FAILURE × 2 + TONE FAILURE (Amy Darrow Insurance Email)
+
+**Decision logged by:** Hale (autonomous — failure log)
+
+### What failed
+1. **Rendering (×2):** First draft used d2mconcierge path (thunderbird_gmail.py) — stripped Commander sig,  showed Dani branding when Commander directed Commander-only. Second draft used mcp__claude_ai_Gmail__create_draft (johnloucks3 MCP) — cream background and navy rendered inconsistently in Gmail; colors stripped because bgcolor HTML attributes were missing (CSS-only background-color is not guaranteed to survive Gmail).
+2. **Tone:** Melodramatic voice crept in — "I won't pretend otherwise," "you deserve to know it plainly," "I looked hard at this," "I'm behind you either way." Commander directive: state the fact plainly. Empathy through word choice ("unfortunately"), not through performance.
+
+### Root cause
+- **Rendering:** mcp__claude_ai_Gmail__create_draft does not preprocess HTML. Gmail strips CSS background-color without the bgcolor HTML attribute. Fix: use create_johnloucks3_draft.py (proper token) + both bgcolor attribute AND style property on every td.
+- **Tone:** Bias toward solicitous/dramatic framing in sensitive health-topic emails. Not John's voice.
+
+### Fix applied
+- Switched to create_johnloucks3_draft.py (uses johnloucks3_token.json, proper Gmail API)
+- Added bgcolor attribute to all table cells alongside CSS background-color
+- Added D2M logo nav header (navy) and corrected tone throughout
+- Saved voice rule to memory: feedback_voice_no_melodrama.md
+
+### Draft delivered
+- Draft ID: r3233805688263993684 in johnloucks3 drafts
+- Subject: "Scandinavia — Travel Insurance Options"
+- To: amy.darrow@me.com

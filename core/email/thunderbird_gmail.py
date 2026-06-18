@@ -922,7 +922,26 @@ def _wrap_body_html(plain_text: str, persona_id: Optional[str] = None) -> str:
             import premailer
             return premailer.transform(plain_text, remove_classes=False, strip_important=False)
         except Exception:
-            pass  # Fall through and return as-is if premailer unavailable
+            pass  # premailer unavailable (not on system python3); try fallback
+        # Fallback: gmail_template_stripper uses bs4 which is always installed.
+        # Handles <style> block inlining without premailer dependency.
+        try:
+            import sys as _sys
+            import os as _os
+            _scripts_dir = _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.dirname(__file__))), 'scripts')
+            if _scripts_dir not in _sys.path:
+                _sys.path.insert(0, _scripts_dir)
+            from gmail_template_stripper import GmailSafePreprocessor
+            processed, _log = GmailSafePreprocessor().process(plain_text)
+            return processed
+        except Exception as _fallback_err:
+            import logging as _logging
+            _logging.getLogger(__name__).warning(
+                "_wrap_body_html: premailer and gmail_template_stripper both unavailable "
+                f"({_fallback_err!r}); returning HTML without CSS inlining — "
+                "Gmail may strip <style> blocks. Fix: install premailer in system python3 "
+                "or use /home/john/Thunderbird/.venv/bin/python3 for email scripts."
+            )
         return plain_text
 
     import html as html_mod

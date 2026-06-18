@@ -180,6 +180,29 @@ def create_johnloucks3_draft(
     with open(html_file, "r", encoding="utf-8") as f:
         html_body = f.read()
 
+    # Preprocess HTML for Gmail compatibility:
+    # inline CSS from <style> blocks, add bgcolor attributes, strip unsafe tags.
+    # Try premailer first; fall back to gmail_template_stripper (bs4-based).
+    preprocessed = False
+    try:
+        import premailer
+        html_body = premailer.transform(html_body, remove_classes=False, strip_important=False)
+        preprocessed = True
+        print("✓ HTML preprocessed via premailer")
+    except Exception:
+        pass
+    if not preprocessed:
+        try:
+            _this_dir = str(Path(__file__).parent)
+            if _this_dir not in sys.path:
+                sys.path.insert(0, _this_dir)
+            from gmail_template_stripper import GmailSafePreprocessor
+            html_body, _log = GmailSafePreprocessor().process(html_body)
+            preprocessed = True
+            print("✓ HTML preprocessed via gmail_template_stripper (bs4 fallback)")
+        except Exception as _e:
+            print(f"⚠️ HTML preprocessing skipped ({_e}) — Gmail may strip <style> blocks")
+
     print(f"\n📧 Creating draft:")
     print(f"  To: {to_email}")
     print(f"  From: {from_email} (via johnloucks3@gmail.com)")
