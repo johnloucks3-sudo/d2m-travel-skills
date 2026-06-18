@@ -82,12 +82,18 @@ completed_tps: ["4.1", "4.2", "4.3", "4.4", "4.5"]
 
 ---
 
+### HEALTH / MEDICAL
+| Guest | Condition | Notes |
+|-------|-----------|-------|
+| Amy Darrow | **Parkinson's disease** | Confirmed 2026-06-18 (Amy's direct email). Affects insurance eligibility — pre-existing condition for trip cancellation and medical coverage purposes. Severity/stage unknown. Wing note: unexpected progression possible — monitor for trip-jeopardy flags. |
+
 ### COMMANDER NOTES LOG
 | Date | Source | Note |
 |------|--------|------|
 | Mar 18, 2026 | Commander (CLI session) | Al uploaded CC to Regent portal ✓ — ready for final payment processing |
 | Mar 20, 2026 | Commander (CLI session) | CC confirmed in portal ✓. Payment confirmation email drafted (Draft ID: r4102814620273636434). Asking: all 3 items or cruise only? |
 | Mar 20, 2026 | Al Ely (email to Commander) | Al authorized charges for cruise, hotel, and transportation. Passport photo uploaded to portal (self-reported — "I think?", needs verification). Insurance deferred — will activate in a couple months. John replied confirming processing this week. |
+| Jun 18, 2026 | Amy Darrow (email to Commander) | Amy wrote directly asking: (1) What are our options if I'm unable to make the trip due to Parkinson's? (pre-existing condition for cancellation); (2) Would airfare be covered? Commander answered: (1) Parkinson's = pre-existing condition for cancellation purposes; (2) Airfare covered only if insurance was purchased at ticket-buy time (was not). Insurance options email sent — three plans + Squaremouth. Deadline Jun 26. |
 
 ### EMAIL LOG (Mar 3–10, 2026)
 
@@ -115,7 +121,7 @@ completed_tps: ["4.1", "4.2", "4.3", "4.4", "4.5"]
 |---|----------|---------|----------|--------|---------|
 | 1 | Documents | Passports valid 6+ months | YES | **✅ CONFIRMED** | Valid — Commander confirmed 2026-03-26 |
 | 2 | Documents | Visa / entry requirements | YES | **PENDING** | Sweden/Norway Schengen |
-| 3 | Insurance | Travel insurance policy | YES | **MOOT** | Insurance moot — Commander-arbitrated 2026-06-09 (all 3 couples). No follow-up. |
+| 3 | Insurance | Travel insurance policy | YES | **EMAIL SENT 2026-06-18** | Amy emailed directly 2026-06-18 with Parkinson's-specific questions. Commander sent insurance options email (johnloucks3 → amy.darrow@me.com, subject "Scandinavia — Travel Insurance Options"). Deadline: buy by Jun 26 for 60-day waiting period to clear Aug 25 (day before departure). Three plans listed: Seven Corners Annual (recommended), BCBS Multi-Trip Platinum, IMG Patriot. Squaremouth quote link: squaremouth.com/quotes/6XD3-983E. |
 | 4 | Flights | Outbound leg 1 (DFW→HEL) | YES | **CONFIRMED** | AA 9018 Aug 26 4:50PM, seats 2H/2D |
 | 5 | Flights | Outbound leg 2 (HEL→ARN) | YES | **CONFIRMED** | AY 811 Aug 27 1:15PM |
 | 6 | Flights | Outbound PNR / e-ticket | YES | **CONFIRMED** | PNR: UXVXZP |
