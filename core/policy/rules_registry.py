@@ -288,6 +288,43 @@ def _tool_is(ctx: dict, *names: str) -> bool:
 
 
 # ---------------------------------------------------------------------------
+# Bash mutating-operation detection (for SELF-DISABLE predicate).
+# Only operations that actually WRITE or DELETE a file are considered mutating.
+# Read-only ops (grep, cat, git add, git log, py_compile) are explicitly allowed.
+# ---------------------------------------------------------------------------
+_MUTATING_BASH_CMDS = frozenset({
+    "rm", "rmdir", "unlink", "shred", "truncate", "dd", "mv", "install", "patch",
+})
+_BASH_INPLACE_RE = re.compile(
+    r"\bsed\s+\S*-[iI]\S*"       # sed -i / sed --in-place variants
+    r"|\bperl\s+-[pni]*i",           # perl -pi -e
+    re.IGNORECASE,
+)
+def _bash_redirects_to_protected(cmd: str) -> bool:
+    """True only when stdout redirect destination is a protected file."""
+    for m in re.finditer(r'>{1,2}\s*(\S+)', cmd):
+        target = m.group(1).strip("'\"")
+        norm = (os.path.normpath(target)
+                if os.path.isabs(target)
+                else os.path.normpath(os.path.join("/home/john/Thunderbird", target)))
+        if norm in PROTECTED_PATHS:
+            return True
+    for m in re.finditer(r'\|\s*tee\s+(\S+)', cmd):
+        target = m.group(1).strip("'\"")
+        norm = (os.path.normpath(target)
+                if os.path.isabs(target)
+                else os.path.normpath(os.path.join("/home/john/Thunderbird", target)))
+        if norm in PROTECTED_PATHS:
+            return True
+    return False
+
+
+_BASH_GIT_DESTRUCTIVE_RE = re.compile(
+    r"\bgit\s+(?:checkout\s+--|restore\s+\S|reset\s+--hard\b)",
+    re.IGNORECASE,
+)
+
+# ---------------------------------------------------------------------------
 # Bash send / relay pattern detection
 # ---------------------------------------------------------------------------
 # matches: .send(  |  send_<word>.py  |  messages().send  |  drafts().send
@@ -317,9 +354,41 @@ _SPAWN_SEND_TERMS = ("send to", "email")
 # Predicates — each confirms category FIRST, then applies the test.
 # ===========================================================================
 
-# 1. SELF-DISABLE-001 — DENY
+# 1. SELF-DISABLE-001 — DENY (mutating ops only for Bash; always blocks Edit/Write)
 def _p_self_disable(ctx: dict) -> bool:
-    return _targets_protected(ctx, PROTECTED_PATHS)
+    tool = ctx.get("tool", "")
+
+    # Edit / Write / MultiEdit always mutate — check file_path only
+    if tool in ("Edit", "Write", "MultiEdit"):
+        fp = ctx.get("file_path", "") or ""
+        if not fp:
+            return False
+        norm = os.path.normpath(fp) if os.path.isabs(fp) else _abs(fp)
+        return norm in PROTECTED_PATHS
+
+    # Bash — only block if a protected path is targeted AND a mutating op is present.
+    # Read-only ops (grep, cat, git add, git log, py_compile) fall through to False.
+    if tool == "Bash":
+        cmd = ctx.get("command", "") or ""
+        if not cmd:
+            return False
+        # Step 1: does the command reference any protected path?
+        if not any(cand in PROTECTED_PATHS for cand in _normalized_path_candidates(ctx)):
+            return False
+        # Step 2: is the operation mutating?
+        tokens = re.split(r"[\s;|&]+", cmd.strip())
+        first = tokens[0].split("/")[-1] if tokens else ""
+        if first in _MUTATING_BASH_CMDS:
+            return True
+        if _BASH_INPLACE_RE.search(cmd):
+            return True
+        if _bash_redirects_to_protected(cmd):
+            return True
+        if _BASH_GIT_DESTRUCTIVE_RE.search(cmd):
+            return True
+        return False  # read-only op — allowed
+
+    return False
 
 
 # 2. WF17-CLIENT-SEND-001 — DENY (absolute client-send prohibition)
