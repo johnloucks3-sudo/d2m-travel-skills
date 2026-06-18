@@ -94,6 +94,24 @@ def pre_process_prompt(prompt: str) -> list:
 from thunderbird_tg_formatter import process as fmt_process
 from keyword_router import classify_task, CLAUDE_KEYWORD_PATTERN
 from thunderbird_gmail import publish_draft, _get_draft_metadata
+
+# ── Wing Policy Engine (graceful degradation) ──────────────────────────────────
+# If the policy module is unavailable, the gateway still runs unguarded — we LOG
+# a warning but never block. _POLICY_AVAILABLE gates every call below.
+try:
+    from core.policy.wing_policy import (
+        check_draft_send,
+        check_relay_action,
+        check_spawn,
+        check_telegram_send,
+    )
+    _POLICY_AVAILABLE = True
+except ImportError as _pol_err:
+    _POLICY_AVAILABLE = False
+    logging.getLogger("tg_gw").warning(
+        "Wing Policy Engine unavailable — gateway running UNGUARDED: %s", _pol_err
+    )
+
 try:
     from thunderbird_stt import transcribe_audio
 except ImportError:
@@ -1085,6 +1103,16 @@ def handle_approve(token: str, chat_id: int, args: list) -> None:
     # Lane 2: two-lane publish path (template applied at send time)
     metadata = _get_draft_metadata(draft_id)
     if metadata:
+        # ── Wing Policy gate: client-send prohibition (recipient from sidecar) ──
+        if _POLICY_AVAILABLE:
+            try:
+                _res = check_draft_send(draft_id, metadata.get("to", ""))
+            except Exception as _e:
+                log.warning("POLICY check_draft_send errored — proceeding: %s", _e)
+                _res = None
+            if _res is not None and not _res.allowed:
+                tg_send(token, chat_id, f"🚫 POLICY GATE: {_res.message}")
+                return
         try:
             result = publish_draft(draft_id)
             if result.get("status") == "success":
@@ -1122,6 +1150,16 @@ def handle_approve(token: str, chat_id: int, args: list) -> None:
         }
         subject = headers.get("subject", "?")
         to = headers.get("to", "?")
+        # ── Wing Policy gate: client-send prohibition (legacy/raw send path) ──
+        if _POLICY_AVAILABLE:
+            try:
+                _res = check_draft_send(draft_id, to)
+            except Exception as _e:
+                log.warning("POLICY check_draft_send errored — proceeding: %s", _e)
+                _res = None
+            if _res is not None and not _res.allowed:
+                tg_send(token, chat_id, f"🚫 POLICY GATE: {_res.message}")
+                return
         svc.users().drafts().send(userId="me", body={"id": draft_id}).execute()
         tg_send(
             token,
@@ -1415,6 +1453,16 @@ def handle_message(
             if not task:
                 tg_send(token, chat_id, "Usage: /agent &lt;task that needs tools — e.g. check my inbox, draft a reply, look up a booking&gt;")
                 return
+            # ── Wing Policy gate: headless agent spawn ──────────────────────
+            if _POLICY_AVAILABLE:
+                try:
+                    _res = check_spawn(task, "sonnet")
+                except Exception as _e:
+                    log.warning("POLICY check_spawn errored — proceeding: %s", _e)
+                    _res = None
+                if _res is not None and not _res.allowed:
+                    tg_send(token, chat_id, f"🚫 POLICY GATE: {_res.message}")
+                    return
             try:
                 import subprocess as _sp_agent
                 _sp_agent.Popen(
@@ -1466,6 +1514,16 @@ def handle_message(
             if not q:
                 tg_send(token, chat_id, "Usage: <code>/ask &lt;your question&gt;</code>")
                 return
+            # ── Wing Policy gate: dispatch (free Gemini lane) ───────────────
+            if _POLICY_AVAILABLE:
+                try:
+                    _res = check_spawn(q, f"gemini:{cmd.lstrip('/')}")
+                except Exception as _e:
+                    log.warning("POLICY check_spawn errored — proceeding: %s", _e)
+                    _res = None
+                if _res is not None and not _res.allowed:
+                    tg_send(token, chat_id, f"🚫 POLICY GATE: {_res.message}")
+                    return
             tg_typing(token, chat_id)
             try:
                 import subprocess as _sp_ask
@@ -1643,6 +1701,20 @@ def handle_message(
     # Remove this comment when real TTS is implemented.
 
     chunks = fmt_process(raw_response, CHUNK_SIZE)
+    # ── Wing Policy gate: client-facing Telegram send ──────────────────────
+    # Only guard NON-Commander recipients on NON-D2MC2C bots (the Dani concierge
+    # bot is open to clients). The D2MC2C Commander-only flow is never gated.
+    if _POLICY_AVAILABLE and bot_name != "D2MC2C" and user_id != COMMANDER_ID:
+        try:
+            _res = check_telegram_send(chat_id, raw_response, bot=bot_name)
+        except Exception as _e:
+            log.warning("POLICY check_telegram_send errored — proceeding: %s", _e)
+            _res = None
+        if _res is not None and not _res.allowed:
+            log.warning("[%s] POLICY blocked client-facing send to chat_id=%s: %s",
+                        bot_name, chat_id, _res.message)
+            tg_send(token, chat_id, f"🚫 POLICY GATE: {_res.message}")
+            return
     tg_send_chunks(token, chat_id, chunks)
 
     # ── Save to rolling context ───────────────────────────────────────────────
@@ -1862,6 +1934,23 @@ def relay_poll_loop() -> None:
             message  = entry.get("message", "")
             priority = entry.get("priority", "normal")
             log.info("[Relay] OC→CC queue item #%s: %s...", msg_id, message[:60])
+
+            # ── Wing Policy gate: relay action ──────────────────────────────
+            # Check BEFORE any Telegram ping or engine dispatch. On block, mark
+            # the entry so it persists (rewrite below) and is NOT re-drained next
+            # cycle — a bare `continue` would reprocess + re-ping forever.
+            if _POLICY_AVAILABLE:
+                try:
+                    _res = check_relay_action(entry.get("to", ""), message)
+                except Exception as _e:
+                    log.warning("POLICY check_relay_action errored — proceeding: %s", _e)
+                    _res = None
+                if _res is not None and not _res.allowed:
+                    log.warning("[Relay] POLICY blocked queue item #%s: %s", msg_id, _res.message)
+                    entry["status"] = "blocked"
+                    entry["blocked_reason"] = _res.message
+                    changed = True
+                    continue
 
             tg_send(TOKEN_RELAY, RELAY_CHAT_ID,
                     f"📨 <b>[{from_app}→CC]</b> #{msg_id} received — processing...")

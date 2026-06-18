@@ -24,6 +24,16 @@ API_BASE     = "http://localhost:8088"
 POLL_INTERVAL = 15  # seconds
 SIGNAL_MAX_CHARS = 900  # truncate AI replies above this
 
+# Commander's Signal number(s) — only these may dispatch commands
+COMMANDER_NUMBERS = frozenset({
+    "+17192910742",   # Commander John Loucks work/personal cell
+})
+
+
+def _is_authorized_sender(sender: str) -> bool:
+    """Returns True only if sender is in the Commander allowlist."""
+    return sender in COMMANDER_NUMBERS
+
 BASE       = Path(__file__).resolve().parent.parent.parent
 SIGNAL_LOG = BASE / "OpsCenter" / "hale_signal_log.jsonl"
 
@@ -184,6 +194,12 @@ def handle(msg: dict) -> None:
         return
 
     sender = msg.get("envelope", {}).get("source", ACCOUNT)
+
+    # Allowlist gate — silently drop unauthorized senders
+    if not _is_authorized_sender(sender):
+        log.warning("SIGNAL POLICY: message from unauthorized sender %s — dropped", sender)
+        return  # Silently drop — do not reply (don't confirm the gateway is live)
+
     log.info(f"Inbound from {sender}: {text[:80]}")
     _log(sender, "inbound", text)
 

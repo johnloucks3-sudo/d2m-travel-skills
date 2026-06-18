@@ -23,6 +23,12 @@ from pathlib import Path
 from datetime import datetime
 from typing import Dict, Any
 
+try:
+    from core.policy.wing_policy import check_spawn, summary_for_prompt
+    _POLICY_AVAILABLE = True
+except ImportError:
+    _POLICY_AVAILABLE = False
+
 logger = logging.getLogger("thunderbird_headless_spawn")
 
 
@@ -229,6 +235,57 @@ def spawn_headless_claude(
     usage_dir = Path.home() / ".claude" / "projects" / "-home-john"
     usage_dir.mkdir(parents=True, exist_ok=True)
     usage_file = usage_dir / f"usage_{task_name}_{ts}.jsonl"
+
+    # ── POLICY GATE ─────────────────────────────────────────────────────────
+    # a) Pre-spawn policy check — BLOCKS on actual violations, graceful on import error
+    if _POLICY_AVAILABLE and prompt:
+        try:
+            _policy_res = check_spawn(prompt, model or "")
+            if not _policy_res.allowed:
+                raise RuntimeError(f"POLICY GATE: spawn blocked — {_policy_res.message}")
+        except RuntimeError:
+            raise  # Re-raise policy violations — they must block
+        except Exception as _e:
+            logger.warning(f"Policy check error (non-blocking): {_e}")
+
+    # b) Settings-dir assertion — child must load the PROJECT PreToolUse hook
+    try:
+        _project_settings = Path("/home/john/Thunderbird/.claude/settings.json")
+        if not _project_settings.exists():
+            raise RuntimeError(
+                "POLICY: Project settings.json missing — PreToolUse hook cannot load in child"
+            )
+        # Child inherits cwd; no additional action needed — the hook loads from project root
+    except RuntimeError:
+        raise  # Settings assertion failures must block
+    except Exception as _e:
+        logger.warning(f"Settings assertion error (non-blocking): {_e}")
+
+    # c) Policy banner injection — prepend binding policy summary to prompt
+    if _POLICY_AVAILABLE and prompt:
+        try:
+            _banner = summary_for_prompt()
+            prompt = f"[WING POLICY — BINDING ON THIS SESSION]\n{_banner}\n\n[TASK BEGINS]\n{prompt}"
+        except Exception as _e:
+            logger.warning(f"Policy banner injection error (non-blocking): {_e}")
+
+    # d) Reject dangerous spawn flags that would strip PreToolUse hooks
+    FORBIDDEN_SPAWN_FLAGS = [
+        "--no-pretools",
+        "--disable-hooks",
+        "--settings /tmp",
+        "--settings /home/john/.claude",
+    ]
+    try:
+        if any(flag in str(extra_args or []) for flag in FORBIDDEN_SPAWN_FLAGS):
+            raise RuntimeError(
+                "POLICY: Spawn flags strip PreToolUse hooks — rejected"
+            )
+    except RuntimeError:
+        raise  # Forbidden-flag violations must block
+    except Exception as _e:
+        logger.warning(f"Spawn flag check error (non-blocking): {_e}")
+    # ── END POLICY GATE ──────────────────────────────────────────────────────
 
     if background:
         return _spawn_background(prompt, output_path, log_file, model, task_name, env, usage_file, extra_args, mcp_config)

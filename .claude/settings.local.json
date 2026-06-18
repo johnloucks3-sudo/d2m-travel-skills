@@ -1,0 +1,174 @@
+{
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(*)",
+      "Read(*)",
+      "Edit(*)",
+      "Write(*)",
+      "Glob(*)",
+      "Grep(*)",
+      "WebFetch(*)",
+      "WebSearch(*)",
+      "mcp__dreams2memories_travel_mcp__*",
+      "mcp__claude_ai_Gmail__gmail_get_profile",
+      "mcp__claude_ai_Gmail__gmail_search_messages",
+      "mcp__claude_ai_Gmail__gmail_read_message",
+      "mcp__claude_ai_Gmail__gmail_read_thread",
+      "mcp__claude_ai_Gmail__gmail_list_drafts",
+      "mcp__claude_ai_Gmail__gmail_list_labels",
+      "mcp__claude_ai_Google_Calendar__*",
+      "mcp__claude_ai_Canva__*",
+      "mcp__dreams2memories__drive_list_files",
+      "mcp__dreams2memories__drive_search",
+      "mcp__dreams2memories__drive_create_folder",
+      "mcp__dreams2memories__drive_move_file",
+      "mcp__dreams2memories__drive_upload_file",
+      "mcp__dreams2memories__gmail_search_messages",
+      "mcp__dreams2memories__gmail_read_message",
+      "mcp__dreams2memories__gmail_list_drafts",
+      "mcp__dreams2memories__gmail_delete_draft",
+      "mcp__dreams2memories__gmail_create_draft",
+      "mcp__dreams2memories__gmail_update_draft",
+      "mcp__dreams2memories__draft_client_email",
+      "mcp__dreams2memories__dani_email_log",
+      "mcp__dreams2memories__run_dani_email_sweep",
+      "mcp__dreams2memories__gmail_list_labels",
+      "mcp__dreams2memories__shell_exec",
+      "mcp__dreams2memories__gmail_read_thread",
+      "mcp__dreams2memories__oa_connect",
+      "mcp__dreams2memories__oa_scrape_bookings",
+      "mcp__dreams2memories__oa_scrape_commissions",
+      "mcp__dreams2memories__oa_browse",
+      "mcp__dreams2memories__tess_list_trips",
+      "mcp__dreams2memories__browse_and_click",
+      "mcp__dreams2memories__browse_url",
+      "mcp__dreams2memories__star_protocol_log",
+      "mcp__dreams2memories__search_flights",
+      "mcp__dreams2memories__wing_memory_stats",
+      "mcp__dreams2memories__drive_get_file_info",
+      "Skill(update-config)",
+      "mcp__dreams2memories__mirror_to_evernote",
+      "mcp__dreams2memories__drive_delete_file",
+      "mcp__dreams2memories__wing_memory_search",
+      "mcp__dreams2memories__recall_persona_memory",
+      "mcp__dreams2memories__learning_capture_diff",
+      "mcp__dreams2memories__innovation_daily_scan",
+      "mcp__dreams2memories__academic_scan",
+      "mcp__dreams2memories__mcp_connector_tools_list",
+      "mcp__dreams2memories__get_tech_news",
+      "mcp__dreams2memories__list_skill_packages",
+      "mcp__dreams2memories__system_health_check",
+      "mcp__dreams2memories__scan_dossiers",
+      "mcp__dreams2memories__run_innovation_scan",
+      "mcp__dreams2memories__learning_extract",
+      "mcp__dreams2memories__learning_list_rules",
+      "mcp__dreams2memories__presend_evaluate",
+      "mcp__dreams2memories__drive_read_document",
+      "mcp__dreams2memories__drive_download_file",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_fill_form",
+      "mcp__playwright__browser_click",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_tabs",
+      "mcp__playwright__browser_snapshot",
+      "mcp__playwright__browser_type",
+      "mcp__dreams2memories__keep_create_note",
+      "mcp__dreams2memories__session_checkpoint",
+      "mcp__dreams2memories__keep_search_notes",
+      "mcp__dreams2memories__gmail_create_label",
+      "mcp__playwright__browser_wait_for",
+      "mcp__dreams2memories__reconcile_all_bookings_tool",
+      "mcp__dreams2memories__scan_anchor_dates",
+      "mcp__dreams2memories__oa_status",
+      "mcp__dreams2memories__extract_pdf_booking_details",
+      "mcp__dreams2memories__search_blacklane_transfers",
+      "mcp__dreams2memories__search_welcome_pickups",
+      "mcp__dreams2memories__search_mozio_transfers",
+      "mcp__dreams2memories__consult_persona",
+      "mcp__dreams2memories__keep_list_notes",
+      "mcp__dreams2memories__keep_update_note",
+      "mcp__dreams2memories__mcp_connector_status",
+      "mcp__Claude_Preview__preview_start",
+      "Bash([ -f \"$MAIN/$f\" ])",
+      "Bash(cp /home/john/.claude/projects/-home-john-Thunderbird-Thunderbird/memory/__TRACKED_VAR__ /home/john/.claude/projects/-home-john-Thunderbird/memory/__TRACKED_VAR__)",
+      "Bash(rm -f /home/john/Thunderbird/.git/index.lock)",
+      "Bash(rtk git *)",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "mcp__Desktop_Commander__read_file",
+      "mcp__Claude_in_Chrome__navigate",
+      "mcp__Claude_in_Chrome__read_page",
+      "mcp__Claude_in_Chrome__computer"
+    ],
+    "deny": [
+      "mcp__playwright__browser_evaluate",
+      "mcp__playwright__browser_run_code",
+      "mcp__playwright__browser_run_code_unsafe",
+      "mcp__Claude_in_Chrome__javascript_tool",
+      "mcp__claude_ai_Gmail__gmail_send_draft",
+      "mcp__dreams2memories__gmail_send_email",
+      "mcp__dreams2memories__gmail_send_draft",
+      "mcp__dreams2memories__send_client_email",
+      "mcp__dreams2memories__send_whatsapp",
+      "mcp__dreams2memories__send_sms_notification",
+      "mcp__dreams2memories__send_morning_briefing",
+      "mcp__dreams2memories__send_client_survey",
+      "mcp__dreams2memories__email_flight_quote",
+      "mcp__dreams2memories__email_hotel_quote",
+      "mcp__dreams2memories__email_tour_quote",
+      "mcp__dreams2memories__email_intel_status",
+      "mcp__dreams2memories__oa_send_invoice",
+      "mcp__dreams2memories__crew_client_response"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "dreams2memories"
+  ],
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/john/Thunderbird/.claude/hooks/session-health-check.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/john/Thunderbird/.claude/hooks/post-edit-lint.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Agent",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/john/Thunderbird/.claude/hooks/escalation-quality-gate.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/john/Thunderbird/.claude/hooks/session-end-sync.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

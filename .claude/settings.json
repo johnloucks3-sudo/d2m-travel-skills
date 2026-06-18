@@ -1,0 +1,68 @@
+{
+  "permissions": {
+    "deny": [
+      "mcp__playwright__browser_evaluate",
+      "mcp__playwright__browser_run_code_unsafe",
+      "mcp__Claude_in_Chrome__javascript_tool"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [{"type": "command", "command": "python3 /home/john/Thunderbird/hooks/pretooluse_policy.py"}]
+      },
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [{"type": "command", "command": "python3 /home/john/Thunderbird/hooks/pretooluse_policy.py"}]
+      },
+      {
+        "matcher": "mcp__playwright__browser_navigate|mcp__playwright__browser_click|mcp__playwright__browser_fill_form|mcp__playwright__browser_type|mcp__playwright__browser_evaluate|mcp__playwright__browser_run_code_unsafe|mcp__playwright__browser_run_code",
+        "hooks": [{"type": "command", "command": "python3 /home/john/Thunderbird/hooks/pretooluse_policy.py"}]
+      },
+      {
+        "matcher": "mcp__claude_ai_Gmail__gmail_create_draft|mcp__dreams2memories__gmail_create_draft|mcp__dreams2memories__draft_client_email|mcp__Claude_in_Chrome__javascript_tool",
+        "hooks": [{"type": "command", "command": "python3 /home/john/Thunderbird/hooks/pretooluse_policy.py"}]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [{"type": "command", "command": "python3 /home/john/Thunderbird/hooks/posttooluse_audit.py"}]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "claudekit-hooks run create-checkpoint"
+          }
+        ]
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /home/john/Thunderbird/hooks/post_stop_retro.sh"
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "claudekit-hooks run create-checkpoint"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [],
+    "UserPromptSubmit": []
+  }
+}
