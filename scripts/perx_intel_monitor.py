@@ -52,6 +52,8 @@ DATA_DIR.mkdir(parents=True, exist_ok=True)
 COOKIE_FILE = CREDS_DIR / "perx_cookies.json"
 HISTORY_FILE = DATA_DIR / "perx_intel_history.json"
 WATCHES_FILE = DATA_DIR / "perx_intel_watches.json"
+ALERT_DEDUP_FILE = DATA_DIR / "perx_alert_dedup.json"
+EOD_QUEUE_FILE = DATA_DIR / "perx_eod_queue.json"
 ENV_FILE = TB / ".env"
 
 # ── Signal thresholds ──────────────────────────────────────────────────────────
@@ -156,6 +158,52 @@ def _tg_send(text: str) -> bool:
     except Exception as exc:
         log.error("Telegram send failed: %s", exc)
         return False
+
+
+def _load_dedup() -> dict:
+    if ALERT_DEDUP_FILE.exists():
+        try:
+            return json.loads(ALERT_DEDUP_FILE.read_text(encoding="utf-8"))
+        except Exception:
+            pass
+    return {}
+
+
+def _save_dedup(dedup: dict) -> None:
+    ALERT_DEDUP_FILE.write_text(json.dumps(dedup, indent=2), encoding="utf-8")
+
+
+def _is_already_sent_today(dedup: dict, key: str, level: str) -> bool:
+    """Return True if this alert key+level was already Telegram-sent today."""
+    entry = dedup.get(f"{key}:{level}")
+    if not entry:
+        return False
+    sent_date = entry.get("date", "")
+    today = datetime.now().strftime("%Y-%m-%d")
+    return sent_date == today
+
+
+def _mark_sent(dedup: dict, key: str, level: str) -> None:
+    today = datetime.now().strftime("%Y-%m-%d")
+    dedup[f"{key}:{level}"] = {"date": today, "ts": datetime.now().isoformat()}
+
+
+def _queue_for_eod(signals: list[dict]) -> None:
+    """Persist WATCH-level signals to EOD queue file for morning brief pickup."""
+    today = datetime.now().strftime("%Y-%m-%d")
+    queue: dict = {}
+    if EOD_QUEUE_FILE.exists():
+        try:
+            queue = json.loads(EOD_QUEUE_FILE.read_text(encoding="utf-8"))
+        except Exception:
+            pass
+    if queue.get("date") != today:
+        queue = {"date": today, "watches": []}
+    seen_keys = {w["key"] for w in queue.get("watches", [])}
+    for s in signals:
+        if s["key"] not in seen_keys:
+            queue.setdefault("watches", []).append(s)
+    EOD_QUEUE_FILE.write_text(json.dumps(queue, indent=2), encoding="utf-8")
 
 
 def _load_history() -> dict:
@@ -626,10 +674,30 @@ def run_perx_watch_cycle(
         sum(1 for s in all_signals if s["level"] == "WATCH"),
     )
 
-    if all_signals and not dry_run:
-        msg = _build_telegram_message(all_signals, watches_run)
-        sent = _tg_send(msg)
-        log.info("Telegram signal sent: %s", sent)
+    # WATCH-level signals → EOD queue only (never Telegram)
+    watch_signals = [s for s in all_signals if s["level"] == "WATCH"]
+    actionable = [s for s in all_signals if s["level"] in ("SIGNAL", "URGENT")]
+
+    if watch_signals:
+        _queue_for_eod(watch_signals)
+        log.info("WATCH signals (%d) queued to EOD report — no Telegram", len(watch_signals))
+
+    # SIGNAL/URGENT → Telegram, deduped: one ping per key per day
+    if actionable and not dry_run:
+        dedup = _load_dedup()
+        new_alerts = [s for s in actionable if not _is_already_sent_today(dedup, s["key"], s["level"])]
+        if new_alerts:
+            msg = _build_telegram_message(new_alerts, watches_run)
+            sent = _tg_send(msg)
+            if sent:
+                for s in new_alerts:
+                    _mark_sent(dedup, s["key"], s["level"])
+                _save_dedup(dedup)
+            log.info("Telegram alert sent (%d new actionable signals): %s", len(new_alerts), sent)
+        else:
+            log.info("All SIGNAL/URGENT signals already sent today — skipping Telegram")
+    elif actionable and dry_run:
+        log.info("dry-run: %d actionable signals would have been sent", len(actionable))
 
     return {
         "watches_run": watches_run,
