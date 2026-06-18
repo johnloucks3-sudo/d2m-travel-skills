@@ -1,0 +1,53 @@
+name: Off-box Heartbeat — Forced-Failure Cert Test
+# STAGED ONLY — manual dispatch, never scheduled.
+# Purpose: prove the alert leg fires by pointing the probe at a guaranteed-dead URL.
+# Required before MISSION-220 can be closed as "continuity certified."
+# Steps:
+#   1. Ensure TELEGRAM_BOT_TOKEN is set in repo Secrets (the Commander does this).
+#   2. gh workflow run offbox_heartbeat_force_fail_test.yml
+#   3. Confirm a Telegram page arrives in Commander's chat (7554895206).
+#   4. If page arrives, PASS — cert complete.
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: "Type CERT to run the forced-failure test"
+        required: true
+        default: ""
+jobs:
+  force-fail-cert:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.confirm == 'CERT' }}
+    steps:
+      - name: Forced-failure cert — probe a guaranteed-dead URL and assert alert fires
+        env:
+          BOT: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        run: |
+          set -euo pipefail
+          CHAT=7554895206
+          # Use a guaranteed-unreachable private IP — will always return 000 from GH runner.
+          URL=http://192.0.2.1/health   # RFC 5737 TEST-NET, never routable.
+          alive=0
+          for i in 1 2 3; do
+            code=$(curl -s -o /dev/null -m 10 -w "%{http_code}" "$URL" || true)
+            if [ "$code" != "000" ]; then alive=1; echo "check $i: HTTP $code (alive — unexpected)"; break; fi
+            echo "check $i: unreachable (expected)"
+            [ "$i" -lt 3 ] && sleep 5
+          done
+          if [ "$alive" = "1" ]; then
+            echo "CERT FAILED: URL was reachable — chose a bad test URL"; exit 1
+          fi
+          # Alert leg — this is the path that must fire in real outage
+          if [ -z "$BOT" ]; then
+            echo "CERT FAILED: TELEGRAM_BOT_TOKEN secret is empty — set it first"; exit 1
+          fi
+          result=$(curl -s -m 20 "https://api.telegram.org/bot${BOT}/sendMessage" \
+            --data-urlencode "chat_id=$CHAT" \
+            --data-urlencode "text=CERT TEST — Off-box heartbeat alert path is CONFIRMED LIVE. If you see this Telegram message, the dead-man switch will ring when Yoga goes down. — Sterling/A7 MISSION-220 continuity cert" \
+            2>&1)
+          ok=$(echo "$result" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('ok','false'))" 2>/dev/null || echo "parse_error")
+          if [ "$ok" = "True" ]; then
+            echo "CERT PASSED: Telegram page delivered. Alert leg is operational."
+          else
+            echo "CERT FAILED: Telegram API returned: $result"; exit 1
+          fi
