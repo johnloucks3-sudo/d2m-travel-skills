@@ -693,11 +693,17 @@ def _build_dani_claude_prompt(context_text: str, message: str) -> str:
     return "".join(parts)
 
 
-def call_claude_engine(prompt: str, model: str = SONNET_MODEL) -> str:
+_DANI_SANDBOX_FLAGS = ["--tools", ""]  # disables all tools; no --dangerously-skip-permissions needed
+
+
+def call_claude_engine(
+    prompt: str, model: str = SONNET_MODEL, extra_flags: list | None = None
+) -> str:
     """
     Invoke Claude headless via `claude -p`.
     Uses Max OAuth — injects CLAUDE_CODE_OAUTH_TOKEN from credentials file
     because the systemd service env does not inherit the interactive session token.
+    extra_flags: optional list of CLI flags appended before the prompt (e.g. _DANI_SANDBOX_FLAGS).
     """
     env = dict(os.environ)
     # Strip stale API key — it overrides OAuth and causes "Invalid API key" rc=1.
@@ -713,6 +719,7 @@ def call_claude_engine(prompt: str, model: str = SONNET_MODEL) -> str:
         except Exception:
             pass
 
+    flags = extra_flags if extra_flags is not None else ["--dangerously-skip-permissions"]
     try:
         # Use -p - (stdin) to avoid OSError: Argument list too long on large prompts
         result = subprocess.run(
@@ -724,7 +731,7 @@ def call_claude_engine(prompt: str, model: str = SONNET_MODEL) -> str:
                 "-",
                 "--output-format",
                 "text",
-                "--dangerously-skip-permissions",
+                *flags,
             ],
             input=prompt,
             capture_output=True,
@@ -1684,7 +1691,8 @@ def dani_claude_engine(
     prompt = _build_dani_claude_prompt(context_text, message)
     # Haiku default — Sonnet on model_override or keyword escalation
     model = model_override or HAIKU_MODEL
-    return call_claude_engine(prompt, model=model)
+    # Sandbox: public-facing bot gets no tool access (no --dangerously-skip-permissions)
+    return call_claude_engine(prompt, model=model, extra_flags=_DANI_SANDBOX_FLAGS)
 
 
 # ── Bot Poll Loop ─────────────────────────────────────────────────────────────

@@ -2,80 +2,97 @@
   "missions": [
     {
       "id": "MISSION-COST-01",
-      "title": "Real claude.ai MAX usage on cost dashboard — Cloudflare-limited",
+      "title": "Real claude.ai MAX usage on cost dashboard \u2014 Cloudflare-limited",
       "status": "in_progress",
       "priority": "P2",
       "assigned_to": "Hale + Commander (pick feed method)",
-      "description": "costs.d2mluxury.quest now shows REAL claude.ai MAX (20x) usage (session %, weekly all-models %, weekly Sonnet %, resets) via POST /api/plan?token=yoda-grandeur. DONE: ingest endpoint + 'MAX (20x) real usage' panel in realtime_tracker.py; bookmarklet; Tampermonkey userscript (dist/userscripts/d2m-max-usage.user.js); 2-min best-effort CDP reader (scripts/push_claude_usage.py + claude-usage-push.timer) that reads the Commander's open usage tab. CONSTRAINT: Cloudflare bot-walls claude.ai/settings/usage — NO tool can reliably auto-pull (even the open tab shows 'Just a moment...' to any automation/CDP read). Reliable feed requires the page's own JS. OPEN — Commander picks the feed: (1) do nothing -> timer captures opportunistically when tab is clear; (2) click bookmarklet for instant exact update; (3) install Tampermonkey userscript for set-and-forget real-time. Local JSONL token-estimate gauge remains as fallback.",
+      "description": "costs.d2mluxury.quest now shows REAL claude.ai MAX (20x) usage (session %, weekly all-models %, weekly Sonnet %, resets) via POST /api/plan?token=yoda-grandeur. DONE: ingest endpoint + 'MAX (20x) real usage' panel in realtime_tracker.py; bookmarklet; Tampermonkey userscript (dist/userscripts/d2m-max-usage.user.js); 2-min best-effort CDP reader (scripts/push_claude_usage.py + claude-usage-push.timer) that reads the Commander's open usage tab. CONSTRAINT: Cloudflare bot-walls claude.ai/settings/usage \u2014 NO tool can reliably auto-pull (even the open tab shows 'Just a moment...' to any automation/CDP read). Reliable feed requires the page's own JS. OPEN \u2014 Commander picks the feed: (1) do nothing -> timer captures opportunistically when tab is clear; (2) click bookmarklet for instant exact update; (3) install Tampermonkey userscript for set-and-forget real-time. Local JSONL token-estimate gauge remains as fallback.",
       "created_at": "2026-06-17T19:00:00Z",
       "updated_at": "2026-06-17T19:00:00Z",
-      "logs": ["[2026-06-17] Built ingest + real-usage panel + bookmarklet + userscript + best-effort 2-min CDP timer. Cloudflare blocks reliable auto-pull; userscript is the only fully-reliable feed. Awaiting Commander's choice of feed method."]
+      "logs": [
+        "[2026-06-17] Built ingest + real-usage panel + bookmarklet + userscript + best-effort 2-min CDP timer. Cloudflare blocks reliable auto-pull; userscript is the only fully-reliable feed. Awaiting Commander's choice of feed method."
+      ]
     },
     {
       "id": "MISSION-SEC-00",
-      "title": "Security session 2026-06-17 — completed fixes (record)",
+      "title": "Security session 2026-06-17 \u2014 completed fixes (record)",
       "status": "completed",
       "priority": "P1",
       "assigned_to": "Hale",
       "description": "DONE this session: (1) www.d2mluxury.quest was misrouted in cloudflared ingress to :8080 code-server -> fixed to :8901 (real site); this also removed code-server's only public route. (2) code-server hardened: bind 0.0.0.0->127.0.0.1, new strong password (in ~/.config/code-server/config.yaml). (3) costs dashboard realtime_tracker.py bound 0.0.0.0->127.0.0.1 (defense-in-depth). Ref docs/SECURITY_REMEDIATION_RUNBOOK_20260617.md.",
       "created_at": "2026-06-17T18:00:00Z",
       "updated_at": "2026-06-17T18:00:00Z",
-      "logs": ["[2026-06-17] www fix + code-server lockdown + costs loopback completed by Hale"]
+      "logs": [
+        "[2026-06-17] www fix + code-server lockdown + costs loopback completed by Hale"
+      ]
     },
     {
       "id": "MISSION-SEC-01",
-      "title": "Apex d2mluxury.quest returns 525 — fix DNS to tunnel",
+      "title": "Apex d2mluxury.quest returns 525 \u2014 fix DNS to tunnel",
       "status": "open",
       "priority": "P1",
       "assigned_to": "Commander (CF dashboard)",
       "description": "Bare apex d2mluxury.quest returns HTTP 525 (www works). cloudflared route dns failed: a conflicting A/AAAA/CNAME record exists. FIX: Cloudflare dashboard -> DNS -> edit d2mluxury.quest record -> delete old A/AAAA -> add proxied CNAME -> 0e0f57b6-33a1-4ed1-b3db-9b886f5add72.cfargotunnel.com. Origin (8901) is healthy.",
       "created_at": "2026-06-17T18:00:00Z",
       "updated_at": "2026-06-17T18:00:00Z",
-      "logs": ["[2026-06-17] Discovered during Wave web-pane test; cloudflared CLI cannot overwrite existing record"]
+      "logs": [
+        "[2026-06-17] Discovered during Wave web-pane test; cloudflared CLI cannot overwrite existing record"
+      ]
     },
     {
       "id": "MISSION-SEC-02",
-      "title": "costs.d2mluxury.quest still publicly reachable — add CF Access",
+      "title": "costs.d2mluxury.quest still publicly reachable \u2014 add CF Access",
       "status": "open",
       "priority": "P0",
       "assigned_to": "Commander (CF dashboard)",
       "description": "Loopback bind done, but costs.d2mluxury.quest is still public via the tunnel (no auth). CLOSE IT: CF Zero Trust -> Access -> Applications -> Add self-hosted -> hostname costs.d2mluxury.quest -> Allow policy 'Email is johnloucks3@gmail.com'. ALT: Hale can remove costs from cloudflared ingress (closes public; local-only). Runbook P0-1 / MISSION-247.",
       "created_at": "2026-06-17T18:00:00Z",
       "updated_at": "2026-06-17T18:00:00Z",
-      "logs": ["[2026-06-17] Wing did loopback bind; CF Access is the closing step"]
+      "logs": [
+        "[2026-06-17] Wing did loopback bind; CF Access is the closing step"
+      ]
     },
     {
       "id": "MISSION-SEC-03",
-      "title": "Off-box heartbeat alert cert (dead-man switch) — P0-2",
+      "title": "Off-box heartbeat alert cert (dead-man switch) \u2014 P0-2",
       "status": "completed",
       "priority": "P0",
       "assigned_to": "Hale",
       "description": "Alert leg silently broken (BOT secret empty in Action logs). RUN: git add .github/workflows/offbox_heartbeat_force_fail_test.yml && commit && git push origin master; gh secret set TELEGRAM_BOT_TOKEN (paste D2MC2C bot token from .env); gh workflow run offbox_heartbeat_force_fail_test.yml -f confirm=CERT; confirm Telegram page to chat 7554895206. NOT done via shell this session due to rtk corruption. Runbook P0-2 / MISSION-220.",
       "created_at": "2026-06-17T18:00:00Z",
       "updated_at": "2026-06-17T18:00:00Z",
-      "logs": ["[2026-06-17] Deferred to clean shell (token handling) per security caution", "[2026-06-17] Step 1 DONE: workflow pushed to origin/master (c895d57c). Remaining: gh secret set TELEGRAM_BOT_TOKEN + gh workflow run -f confirm=CERT.", "[2026-06-17] COMPLETE: secret set from .env, cert run 27728651829 conclusion=success -> Telegram alert fired to Commander chat. Dead-man switch certified."]
+      "logs": [
+        "[2026-06-17] Deferred to clean shell (token handling) per security caution",
+        "[2026-06-17] Step 1 DONE: workflow pushed to origin/master (c895d57c). Remaining: gh secret set TELEGRAM_BOT_TOKEN + gh workflow run -f confirm=CERT.",
+        "[2026-06-17] COMPLETE: secret set from .env, cert run 27728651829 conclusion=success -> Telegram alert fired to Commander chat. Dead-man switch certified."
+      ]
     },
     {
       "id": "MISSION-SEC-04",
-      "title": "rtk shell wrapper corrupting commands — investigate/disable",
+      "title": "rtk shell wrapper corrupting commands \u2014 investigate/disable",
       "status": "completed",
       "priority": "P1",
       "assigned_to": "Hale",
       "description": "Root cause: PreToolUse Bash hook in ~/.claude/settings.json ran /home/john/.claude/hooks/rtk-rewrite.sh, rewriting every agent Bash command (cat->rtk read) and mangling complex ones (corrupted a password mid-write). FIXED 2026-06-17: removed the PreToolUse Bash->rtk-rewrite hook. Not in .bashrc/.alias (harness-level). Verified clean.",
       "created_at": "2026-06-17T18:00:00Z",
       "updated_at": "2026-06-17T18:30:00Z",
-      "logs": ["[2026-06-17] Corrupted a security config mid-session; flagged to Commander", "[2026-06-17] FIXED: removed PreToolUse Bash rtk-rewrite hook from ~/.claude/settings.json; verified $()/heredoc/pipe run clean, no rtk warning."]
+      "logs": [
+        "[2026-06-17] Corrupted a security config mid-session; flagged to Commander",
+        "[2026-06-17] FIXED: removed PreToolUse Bash rtk-rewrite hook from ~/.claude/settings.json; verified $()/heredoc/pipe run clean, no rtk warning."
+      ]
     },
     {
       "id": "MISSION-SEC-05",
-      "title": "Rotate burned credentials pushed to GitHub — runbook Tier 2",
+      "title": "Rotate burned credentials pushed to GitHub \u2014 runbook Tier 2",
       "status": "open",
       "priority": "P1",
       "assigned_to": "Commander + Hale",
       "description": "scratch/'~~DO NOT DELETE API Keys.txt' (and OAuth scripts) pushed to GitHub with live secrets. Rotation is the ONLY mitigation while history exists. ROTATE: OpenSSH private key (regen + revoke old from authorized_keys); Google OAuth client secret (GCP -> delete+recreate, also hardcoded in 3 scripts); 3x Google API keys (delete+recreate, min scope); Telegram bot token (@BotFather /revoke). Then history purge. Full steps: docs/SECURITY_REMEDIATION_RUNBOOK_20260617.md Tier 2.",
       "created_at": "2026-06-17T18:00:00Z",
       "updated_at": "2026-06-17T18:00:00Z",
-      "logs": ["[2026-06-17] Captured from overnight security runbook"]
+      "logs": [
+        "[2026-06-17] Captured from overnight security runbook"
+      ]
     },
     {
       "id": "MISSION-007",
@@ -3787,7 +3804,8 @@
       "created_at": "2026-06-11T16:56:55.060051+00:00",
       "updated_at": "2026-06-11T16:56:55.060054+00:00",
       "source": "weekly_report",
-      "note": "Cycle2 LAST-INCH: call-prep sheet ready \u2192 ops/spencer_united_call_prep.md (United Group Desk 800-426-1122 opt3, Tue-Thu 9-11 CT, full pax/cabin split + script + price ranges). COMMANDER: dial + read script. FINAL-INCH QUEUE."
+      "note": "Cycle2 LAST-INCH: call-prep sheet ready \u2192 ops/spencer_united_call_prep.md (United Group Desk 800-426-1122 opt3, Tue-Thu 9-11 CT, full pax/cabin split + script + price ranges). COMMANDER: dial + read script. FINAL-INCH QUEUE.",
+      "commander_note_20260617": "Deferred by Commander 2026-06-17: execute AFTER Spencer lunch date."
     },
     {
       "id": "MISSION-197",
@@ -4443,7 +4461,7 @@
     {
       "id": "MISSION-232",
       "title": "Send 5 aging WF-17 drafts \u2014 Nichols and Kuklinski queue",
-      "status": "active",
+      "status": "completed",
       "priority": "P0",
       "assigned_to": "Commander",
       "description": "Review and send the 5 client drafts that have been aging in THUNDERBIRD-Commander-Review since before June 7; content risk of staleness increases daily.",
@@ -4457,7 +4475,8 @@
       "created_at": "2026-06-14T23:55:34.403812+00:00",
       "updated_at": "2026-06-14T23:55:34.403872+00:00",
       "source": "weekly_report",
-      "note": "Cycle3 LAST-INCH: draft audit \u2192 output/wf17_draft_audit_20260616.md. 41 drafts, 0 empty. 2 NICHOLS drafts SEND-READY (ids r4019684635209398109 Trip Validation\u2192larry.nichols@email.com ; r-2809002061436335567 May Check-In\u2192larry.nichols4811@gmail.com+heidi.nichols1@yahoo.com). Kuklinski drafts HOLD until Jul15. COMMANDER: review+send the 2 Nichols."
+      "note": "Cycle3 LAST-INCH: draft audit \u2192 output/wf17_draft_audit_20260616.md. 41 drafts, 0 empty. 2 NICHOLS drafts SEND-READY (ids r4019684635209398109 Trip Validation\u2192larry.nichols@email.com ; r-2809002061436335567 May Check-In\u2192larry.nichols4811@gmail.com+heidi.nichols1@yahoo.com). Kuklinski drafts HOLD until Jul15. COMMANDER: review+send the 2 Nichols.",
+      "commander_note_20260617": "Commander confirmed sent 2026-06-17."
     },
     {
       "id": "MISSION-233",
@@ -4681,7 +4700,7 @@
     {
       "id": "MISSION-242",
       "title": "C2 \u2014 Rotate ALL secrets in git-pushed 'DO NOT DELETE API Keys.txt' + purge from history",
-      "status": "pending_review",
+      "status": "completed",
       "priority": "P0",
       "severity": "CRITICAL",
       "assigned_to": "Commander (rotations) + HALE (untrack + history scrub)",
@@ -4720,7 +4739,8 @@
         "[2026-06-15T16:04:40] \u2705 Auto-executed by daily_mission_executor \u2014 142s \u2014 SUCCESS: ## Summary\n\n**MISSION-242 Status Report** \u2014 Two documents written to `/home/john/Thunderbird/output/executor_results/`:\n\n### \u2705 COMPLETED (Earlier Today)\n- File `scratch/~~DO NOT DELETE API Keys.txt` u"
       ],
       "created_at": "2026-06-15T14:41:57.266952+00:00",
-      "updated_at": "2026-06-15T16:04:40"
+      "updated_at": "2026-06-15T16:04:40",
+      "commander_note_20260617": "Commander directive 2026-06-17: no need, closed."
     },
     {
       "id": "MISSION-243",
@@ -4768,7 +4788,7 @@
     {
       "id": "MISSION-244",
       "title": "C4 \u2014 Rotate RoboForm master password + itinerary passwords (both pushed to GitHub)",
-      "status": "active",
+      "status": "completed",
       "priority": "P0",
       "severity": "CRITICAL",
       "assigned_to": "Commander (RoboForm + itinerary) + HALE (untrack + scrub)",
@@ -4809,7 +4829,8 @@
         }
       ],
       "created_at": "2026-06-15T14:41:57.266952+00:00",
-      "updated_at": "2026-06-15T12:22:15.658872"
+      "updated_at": "2026-06-15T12:22:15.658872",
+      "commander_note_20260617": "Commander directive 2026-06-17: no need, closed."
     },
     {
       "id": "MISSION-245",
@@ -5229,7 +5250,7 @@
     {
       "id": "MISSION-255",
       "title": "H2 \u2014 Sandbox public Dani Telegram bot (drop --dangerously-skip-permissions / add allow-list)",
-      "status": "in_progress",
+      "status": "completed",
       "priority": "P1",
       "severity": "HIGH",
       "assigned_to": "A7 Sterling + HALE oversight",
@@ -5260,7 +5281,8 @@
       "logs": [],
       "created_at": "2026-06-15T14:41:57.266952+00:00",
       "updated_at": "2026-06-15T14:41:57.266952+00:00",
-      "note": "Cycle5: PREPARED \u2192 docs/dani_bot_sandbox_plan.md. Public Dani bot runs --dangerously-skip-permissions w/ NO user filter (real exposure). Fix = parameterize call_claude_engine + Dani gets --tools '' (verified RC0). 2 edits, 1 file, Commander applies + gw restart. NOT applied (live public bot)."
+      "note": "Cycle5: PREPARED \u2192 docs/dani_bot_sandbox_plan.md. Public Dani bot runs --dangerously-skip-permissions w/ NO user filter (real exposure). Fix = parameterize call_claude_engine + Dani gets --tools '' (verified RC0). 2 edits, 1 file, Commander applies + gw restart. NOT applied (live public bot).",
+      "commander_note_20260617": "Applied 2026-06-17 by Hale. Sandboxed via --tools \"\" + extra_flags param. RC=0 verified. Gateway restarted active."
     },
     {
       "id": "MISSION-256",
@@ -5579,7 +5601,7 @@
     {
       "id": "MISSION-264",
       "title": "META \u2014 Git history scrub (filter-repo) AFTER rotations, then force-push",
-      "status": "in_progress",
+      "status": "active",
       "priority": "P1",
       "severity": "HIGH",
       "assigned_to": "HALE",
@@ -5622,14 +5644,15 @@
         "[2026-06-15T15:07:36] 2026-06-15: 9 pushed secret/cookie files UNTRACKED + gitignored (commit 610854fc); auto-commit watchers can no longer re-add. HELD: full history scrub (git filter-repo+force-push) until AFTER rotations 242-245."
       ],
       "created_at": "2026-06-15T14:41:57.266952+00:00",
-      "updated_at": "2026-06-15T15:07:36Z"
+      "updated_at": "2026-06-15T15:07:36Z",
+      "commander_note_20260617": "Commander attempted 2026-06-17 \u2014 blocked. Deferring. Investigate blocker tonight."
     },
     {
       "id": "MISSION-265",
       "title": "Repo shrink \u2014 20G\u2192~8G working + .git 697M\u2192~200M (perf + attack-surface)",
       "priority": "P1",
       "severity": "PERF/SEC",
-      "status": "in_progress",
+      "status": "active",
       "epic": "MISSION-240",
       "assigned_to": "A7 Sterling (executes) + HALE oversight",
       "hale_oversight": "HALE",
@@ -5659,7 +5682,8 @@
       ],
       "created_at": "2026-06-15T15:10:34Z",
       "updated_at": "2026-06-15T15:10:34Z",
-      "note": "Cycle3: shrink plan \u2192 output/repo_shrink_plan_20260616.md. .git measured 288M (not 697M). EXECUTED 2 safe wins: gitignore data/qdrant/ + untrack Firefox profiles (state/firefox_rssc_prod, firefox_profile_test \u2014 removed cookies/logins.db from tracking). Remaining big wins (.smart-env blob purge ~288M\u2192~80M) need filter-repo+force-push = Commander-gated."
+      "note": "Cycle3: shrink plan \u2192 output/repo_shrink_plan_20260616.md. .git measured 288M (not 697M). EXECUTED 2 safe wins: gitignore data/qdrant/ + untrack Firefox profiles (state/firefox_rssc_prod, firefox_profile_test \u2014 removed cookies/logins.db from tracking). Remaining big wins (.smart-env blob purge ~288M\u2192~80M) need filter-repo+force-push = Commander-gated.",
+      "commander_note_20260617": "Commander attempted git filter-repo 2026-06-17 \u2014 blocked. Pair with 264."
     },
     {
       "id": "MISSION-266",
