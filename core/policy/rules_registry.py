@@ -294,6 +294,7 @@ def _tool_is(ctx: dict, *names: str) -> bool:
 # ---------------------------------------------------------------------------
 _MUTATING_BASH_CMDS = frozenset({
     "rm", "rmdir", "unlink", "shred", "truncate", "dd", "mv", "install", "patch",
+    "cp", "tee", "ln",   # cp overwrites dest; tee writes stdin to args; ln may replace
 })
 _BASH_INPLACE_RE = re.compile(
     r"\bsed\s+\S*-[iI]\S*"       # sed -i / sed --in-place variants
@@ -306,14 +307,14 @@ def _bash_redirects_to_protected(cmd: str) -> bool:
         target = m.group(1).strip("'\"")
         norm = (os.path.normpath(target)
                 if os.path.isabs(target)
-                else os.path.normpath(os.path.join("/home/john/Thunderbird", target)))
+                else _abs(target))
         if norm in PROTECTED_PATHS:
             return True
     for m in re.finditer(r'\|\s*tee\s+(\S+)', cmd):
         target = m.group(1).strip("'\"")
         norm = (os.path.normpath(target)
                 if os.path.isabs(target)
-                else os.path.normpath(os.path.join("/home/john/Thunderbird", target)))
+                else _abs(target))
         if norm in PROTECTED_PATHS:
             return True
     return False
