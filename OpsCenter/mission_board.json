@@ -47,13 +47,13 @@
     {
       "id": "MISSION-SEC-04",
       "title": "rtk shell wrapper corrupting commands — investigate/disable",
-      "status": "open",
+      "status": "completed",
       "priority": "P1",
       "assigned_to": "Hale",
-      "description": "~/Thunderbird/.rtk/filters.toml ('untrusted - filters NOT applied') is mangling shell commands: it injected cloudflared log text into the code-server password field mid-write. Reliability + safety hazard for automation. ACTION: run 'rtk trust' to review filters, or disable rtk wrapping for non-interactive shells. Verify simple + piped + heredoc commands run clean afterward.",
+      "description": "Root cause: PreToolUse Bash hook in ~/.claude/settings.json ran /home/john/.claude/hooks/rtk-rewrite.sh, rewriting every agent Bash command (cat->rtk read) and mangling complex ones (corrupted a password mid-write). FIXED 2026-06-17: removed the PreToolUse Bash->rtk-rewrite hook. Not in .bashrc/.alias (harness-level). Verified clean.",
       "created_at": "2026-06-17T18:00:00Z",
-      "updated_at": "2026-06-17T18:00:00Z",
-      "logs": ["[2026-06-17] Corrupted a security config mid-session; flagged to Commander"]
+      "updated_at": "2026-06-17T18:30:00Z",
+      "logs": ["[2026-06-17] Corrupted a security config mid-session; flagged to Commander", "[2026-06-17] FIXED: removed PreToolUse Bash rtk-rewrite hook from ~/.claude/settings.json; verified $()/heredoc/pipe run clean, no rtk warning."]
     },
     {
       "id": "MISSION-SEC-05",
