@@ -5009,3 +5009,13 @@ Consolidated SECURITY_REMEDIATION_RUNBOOK (P0=2); 072 origin-down remediation ru
 
 ## 2026-06-17 06:45 — OVERNIGHT ATTACK STAND-DOWN (AAR)
 8 cycles complete (2315-0615), weapons free, zero hard gates crossed. Board 69→53 (7 done, 9 collapsed, 11 re-titled, ~15 staged). Executed safe fixes (board cleanup, 8 avatars, Termux, gitleaks CI, fare-alert, untracked firefox cookies/logins, lead-notify fix). Grace 8 deliverables. Mapped security cluster (P0: costs public + heartbeat alert dead) → docs/SECURITY_REMEDIATION_RUNBOOK_20260617.md. Final-Inch Queue staged for Commander. AAR in op order + morning brief. Cron deleting.
+
+## 2026-06-17 ~10:00–11:00 — MISSION-245 INVESTIGATION COMPLETE (C5 SECURITY)
+**Incident:** 4 Telegram bot tokens + webhook secret exposed in git commit cb60498f (2026-05-30). Exposure window: 18 days; repo public Jun 4–15.  
+**Root Cause:** Prior partial remediation (2026-06-15) scrubbed template file (config/telegram_gw.env) but left git history + live credentials untouched.  
+**Scope:** D2MC2C, Dani, GooseD2M, Relay bots + webhook secret. Secondary exposure: worktree clone. Tertiary: disk permissions OK.  
+**Status:** Investigation COMPLETE · Documentation COMPLETE · Ready for Commander action.  
+**Deliverables:** MISSION-245_20260617.md (current status) + MISSION-245_EXECUTION_COMPLETE_20260617.md (completion report) + prior docs (final status, checklist, summary).  
+**Next:** Commander Phase 1 (@BotFather revocation); Hale ready for Phases 2–6 (infrastructure execution).  
+**Owner:** Commander (token rotation) · Hale (infrastructure + git cleanup + verification).  
+**Classification:** 🔴 CRITICAL P1 (from SECURITY_REMEDIATION_RUNBOOK_20260617.md).
