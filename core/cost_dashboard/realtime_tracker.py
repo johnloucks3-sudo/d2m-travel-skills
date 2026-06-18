@@ -76,6 +76,16 @@ def _scan_jsonl():
                     usage = msg.get("usage")
                     if not usage:
                         continue
+                    model = msg.get("model", "unknown")
+                    inp   = usage.get("input_tokens", 0)
+                    out   = usage.get("output_tokens", 0)
+                    cr    = usage.get("cache_read_input_tokens", 0)
+                    cw    = usage.get("cache_creation_input_tokens", 0)
+                    # Skip Claude Code synthetic / no-op events: they carry an empty
+                    # usage block (model "<synthetic>", 0 tokens) and otherwise flood
+                    # the live MAX feed and inflate call counts.
+                    if model == "<synthetic>" or (inp == 0 and out == 0 and cr == 0 and cw == 0):
+                        continue
                     ts_str = ev.get("timestamp", "")
                     try:
                         ts = datetime.datetime.fromisoformat(ts_str.replace("Z", "+00:00"))
@@ -84,11 +94,11 @@ def _scan_jsonl():
                     with S.lock:
                         S.events.append({
                             "ts":    ts.isoformat(),
-                            "model": msg.get("model", "unknown"),
-                            "inp":   usage.get("input_tokens", 0),
-                            "out":   usage.get("output_tokens", 0),
-                            "cr":    usage.get("cache_read_input_tokens", 0),
-                            "cw":    usage.get("cache_creation_input_tokens", 0),
+                            "model": model,
+                            "inp":   inp,
+                            "out":   out,
+                            "cr":    cr,
+                            "cw":    cw,
                         })
                 S.offsets[fpath] = f.tell()
         except (OSError, IOError):
@@ -536,4 +546,4 @@ if __name__ == "__main__":
     t = threading.Thread(target=_scan_loop, daemon=True)
     t.start()
     print(f"[tracker] Thunderbird Cost Tracker → http://localhost:{PORT}")
-    uvicorn.run(app, host="0.0.0.0", port=PORT, log_level="warning")
+    uvicorn.run(app, host="127.0.0.1", port=PORT, log_level="warning")

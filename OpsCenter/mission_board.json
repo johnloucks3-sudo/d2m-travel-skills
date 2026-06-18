@@ -1,6 +1,72 @@
 {
   "missions": [
     {
+      "id": "MISSION-SEC-00",
+      "title": "Security session 2026-06-17 — completed fixes (record)",
+      "status": "completed",
+      "priority": "P1",
+      "assigned_to": "Hale",
+      "description": "DONE this session: (1) www.d2mluxury.quest was misrouted in cloudflared ingress to :8080 code-server -> fixed to :8901 (real site); this also removed code-server's only public route. (2) code-server hardened: bind 0.0.0.0->127.0.0.1, new strong password (in ~/.config/code-server/config.yaml). (3) costs dashboard realtime_tracker.py bound 0.0.0.0->127.0.0.1 (defense-in-depth). Ref docs/SECURITY_REMEDIATION_RUNBOOK_20260617.md.",
+      "created_at": "2026-06-17T18:00:00Z",
+      "updated_at": "2026-06-17T18:00:00Z",
+      "logs": ["[2026-06-17] www fix + code-server lockdown + costs loopback completed by Hale"]
+    },
+    {
+      "id": "MISSION-SEC-01",
+      "title": "Apex d2mluxury.quest returns 525 — fix DNS to tunnel",
+      "status": "open",
+      "priority": "P1",
+      "assigned_to": "Commander (CF dashboard)",
+      "description": "Bare apex d2mluxury.quest returns HTTP 525 (www works). cloudflared route dns failed: a conflicting A/AAAA/CNAME record exists. FIX: Cloudflare dashboard -> DNS -> edit d2mluxury.quest record -> delete old A/AAAA -> add proxied CNAME -> 0e0f57b6-33a1-4ed1-b3db-9b886f5add72.cfargotunnel.com. Origin (8901) is healthy.",
+      "created_at": "2026-06-17T18:00:00Z",
+      "updated_at": "2026-06-17T18:00:00Z",
+      "logs": ["[2026-06-17] Discovered during Wave web-pane test; cloudflared CLI cannot overwrite existing record"]
+    },
+    {
+      "id": "MISSION-SEC-02",
+      "title": "costs.d2mluxury.quest still publicly reachable — add CF Access",
+      "status": "open",
+      "priority": "P0",
+      "assigned_to": "Commander (CF dashboard)",
+      "description": "Loopback bind done, but costs.d2mluxury.quest is still public via the tunnel (no auth). CLOSE IT: CF Zero Trust -> Access -> Applications -> Add self-hosted -> hostname costs.d2mluxury.quest -> Allow policy 'Email is johnloucks3@gmail.com'. ALT: Hale can remove costs from cloudflared ingress (closes public; local-only). Runbook P0-1 / MISSION-247.",
+      "created_at": "2026-06-17T18:00:00Z",
+      "updated_at": "2026-06-17T18:00:00Z",
+      "logs": ["[2026-06-17] Wing did loopback bind; CF Access is the closing step"]
+    },
+    {
+      "id": "MISSION-SEC-03",
+      "title": "Off-box heartbeat alert cert (dead-man switch) — P0-2",
+      "status": "open",
+      "priority": "P0",
+      "assigned_to": "Commander (run in Wave) / Hale assist",
+      "description": "Alert leg silently broken (BOT secret empty in Action logs). RUN: git add .github/workflows/offbox_heartbeat_force_fail_test.yml && commit && git push origin master; gh secret set TELEGRAM_BOT_TOKEN (paste D2MC2C bot token from .env); gh workflow run offbox_heartbeat_force_fail_test.yml -f confirm=CERT; confirm Telegram page to chat 7554895206. NOT done via shell this session due to rtk corruption. Runbook P0-2 / MISSION-220.",
+      "created_at": "2026-06-17T18:00:00Z",
+      "updated_at": "2026-06-17T18:00:00Z",
+      "logs": ["[2026-06-17] Deferred to clean shell (token handling) per security caution"]
+    },
+    {
+      "id": "MISSION-SEC-04",
+      "title": "rtk shell wrapper corrupting commands — investigate/disable",
+      "status": "open",
+      "priority": "P1",
+      "assigned_to": "Hale",
+      "description": "~/Thunderbird/.rtk/filters.toml ('untrusted - filters NOT applied') is mangling shell commands: it injected cloudflared log text into the code-server password field mid-write. Reliability + safety hazard for automation. ACTION: run 'rtk trust' to review filters, or disable rtk wrapping for non-interactive shells. Verify simple + piped + heredoc commands run clean afterward.",
+      "created_at": "2026-06-17T18:00:00Z",
+      "updated_at": "2026-06-17T18:00:00Z",
+      "logs": ["[2026-06-17] Corrupted a security config mid-session; flagged to Commander"]
+    },
+    {
+      "id": "MISSION-SEC-05",
+      "title": "Rotate burned credentials pushed to GitHub — runbook Tier 2",
+      "status": "open",
+      "priority": "P1",
+      "assigned_to": "Commander + Hale",
+      "description": "scratch/'~~DO NOT DELETE API Keys.txt' (and OAuth scripts) pushed to GitHub with live secrets. Rotation is the ONLY mitigation while history exists. ROTATE: OpenSSH private key (regen + revoke old from authorized_keys); Google OAuth client secret (GCP -> delete+recreate, also hardcoded in 3 scripts); 3x Google API keys (delete+recreate, min scope); Telegram bot token (@BotFather /revoke). Then history purge. Full steps: docs/SECURITY_REMEDIATION_RUNBOOK_20260617.md Tier 2.",
+      "created_at": "2026-06-17T18:00:00Z",
+      "updated_at": "2026-06-17T18:00:00Z",
+      "logs": ["[2026-06-17] Captured from overnight security runbook"]
+    },
+    {
       "id": "MISSION-007",
       "title": "Looker Studio Dashboard Implementation",
       "status": "archived",
