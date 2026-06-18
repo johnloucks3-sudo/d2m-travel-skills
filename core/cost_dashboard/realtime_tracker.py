@@ -14,18 +14,38 @@ from pathlib import Path
 from collections import deque
 from typing import Dict, List
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
 PORT          = 8903
 CLAUDE_DIR    = Path.home() / ".claude"
 PROXY_LOG     = Path("/home/john/Thunderbird/logs/max_proxy_requests.jsonl")
-TOKEN_CAP     = 600_000   # MAX 5x session cap (observed: 4% @ 24K tokens → ~600K)
+# Real claude.ai MAX usage (session/weekly %), fed by the browser bookmarklet —
+# the only reliable source (claude.ai/settings/usage is Cloudflare-bot-walled).
+PLAN_FILE     = Path("/home/john/Thunderbird/OpsCenter/claude_plan_usage.json")
+INGEST_TOKEN  = "yoda-grandeur"   # shared secret for POST /api/plan (costs.d2m is public)
+TOKEN_CAP     = 600_000   # local JSONL estimate cap (MAX 5x ~600K)
 WINDOW_HOURS  = 5
 SCAN_SECS     = 10
 
 app = FastAPI(title="Thunderbird Cost Tracker", docs_url=None, redoc_url=None)
+app.add_middleware(CORSMiddleware, allow_origins=["https://claude.ai"],
+                   allow_methods=["GET", "POST"], allow_headers=["*"])
+
+
+def _load_plan():
+    try:
+        return json.loads(PLAN_FILE.read_text())
+    except Exception:
+        return None
+
+def _save_plan(d: dict):
+    try:
+        PLAN_FILE.write_text(json.dumps(d, indent=2))
+    except Exception:
+        pass
 
 
 # ── in-memory state ───────────────────────────────────────────────────────────
@@ -206,6 +226,7 @@ def _compute():
         "billing_safe": True,   # sk-ant key never reaches api.anthropic.com — always true
         "last_scan": S.last_scan,
         "now":      now.isoformat(),
+        "plan":     _load_plan(),   # real claude.ai MAX usage (bookmarklet-fed)
     }
 
 def _ts_ok(ts_str: str, cutoff: datetime.datetime) -> bool:
@@ -227,6 +248,20 @@ def _proxy_alive() -> bool:
 @app.get("/api/status")
 def api_status():
     return JSONResponse(_compute())
+
+@app.post("/api/plan")
+async def ingest_plan(req: Request):
+    # Fed by the claude.ai bookmarklet (runs as the page's own JS — bypasses the
+    # Cloudflare bot wall that blocks headless scraping of claude.ai/settings/usage).
+    if req.query_params.get("token") != INGEST_TOKEN:
+        return JSONResponse({"ok": False, "error": "bad token"}, status_code=403)
+    try:
+        body = await req.json()
+    except Exception:
+        return JSONResponse({"ok": False, "error": "bad json"}, status_code=400)
+    body["received_at"] = datetime.datetime.now(datetime.timezone.utc).isoformat()
+    _save_plan(body)
+    return {"ok": True}
 
 @app.get("/")
 def dashboard():
@@ -304,18 +339,22 @@ _HTML = r"""<!DOCTYPE html>
 
     <!-- Weekly plan limits (manual — check claude.ai) -->
     <div class="card">
-      <h2>weekly plan limits · claude.ai</h2>
+      <h2>MAX (20x) · real usage · claude.ai</h2>
       <div class="info-row">
-        <span class="info-lbl">All models</span>
-        <span class="info-val" id="wk-all" style="color:var(--yellow)">60% used</span>
+        <span class="info-lbl">Current session</span>
+        <span class="info-val" id="pl-session" style="color:var(--green)">—</span>
       </div>
       <div class="info-row">
-        <span class="info-lbl">Sonnet only</span>
-        <span class="info-val" id="wk-sonnet" style="color:var(--orange)">73% used ⚠</span>
+        <span class="info-lbl">Weekly · all models</span>
+        <span class="info-val" id="wk-all" style="color:var(--dim)">—</span>
       </div>
       <div class="info-row">
-        <span class="info-lbl">Resets</span>
-        <span class="info-val" id="wk-reset" style="color:var(--dim)">Thu ~9:00 PM</span>
+        <span class="info-lbl">Weekly · Sonnet</span>
+        <span class="info-val" id="wk-sonnet" style="color:var(--dim)">—</span>
+      </div>
+      <div class="info-row">
+        <span class="info-lbl">Weekly resets</span>
+        <span class="info-val" id="wk-reset" style="color:var(--dim)">—</span>
       </div>
       <div class="info-row" style="padding-top:8px">
         <span class="info-lbl" style="font-size:11px;color:var(--dim)">
@@ -486,6 +525,20 @@ function update(){
       document.getElementById('day-inp').textContent = fmt(dy.inp);
       document.getElementById('day-out').textContent = fmt(dy.out);
       document.getElementById('day-calls').textContent = dy.calls;
+
+      // Real MAX usage (claude.ai, fed by bookmarklet) — authoritative
+      const pl = d.plan;
+      const setpl = (id,txt,col)=>{const e=document.getElementById(id); if(e){e.textContent=txt; if(col) e.style.color=col;}};
+      const colpct = v => v>=90?'var(--red)':v>=75?'var(--orange)':v>=50?'var(--yellow)':'var(--green)';
+      if (pl) {
+        if (pl.session_pct!=null) setpl('pl-session', pl.session_pct+'% used'+(pl.session_reset?' · '+pl.session_reset:''), colpct(pl.session_pct));
+        if (pl.weekly_all_pct!=null) setpl('wk-all', pl.weekly_all_pct+'% used', colpct(pl.weekly_all_pct));
+        if (pl.weekly_sonnet_pct!=null) setpl('wk-sonnet', pl.weekly_sonnet_pct+'% used', colpct(pl.weekly_sonnet_pct));
+        if (pl.weekly_all_reset) setpl('wk-reset', pl.weekly_all_reset);
+        if (pl.received_at) setpl('wk-updated', 'updated '+new Date(pl.received_at).toLocaleString());
+      } else {
+        setpl('pl-session','no data — run the bookmarklet','var(--dim)');
+      }
 
       // Model table
       const mtb = document.getElementById('model-table');
