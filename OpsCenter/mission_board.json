@@ -1,6 +1,17 @@
 {
   "missions": [
     {
+      "id": "MISSION-COST-01",
+      "title": "Real claude.ai MAX usage on cost dashboard — Cloudflare-limited",
+      "status": "in_progress",
+      "priority": "P2",
+      "assigned_to": "Hale + Commander (pick feed method)",
+      "description": "costs.d2mluxury.quest now shows REAL claude.ai MAX (20x) usage (session %, weekly all-models %, weekly Sonnet %, resets) via POST /api/plan?token=yoda-grandeur. DONE: ingest endpoint + 'MAX (20x) real usage' panel in realtime_tracker.py; bookmarklet; Tampermonkey userscript (dist/userscripts/d2m-max-usage.user.js); 2-min best-effort CDP reader (scripts/push_claude_usage.py + claude-usage-push.timer) that reads the Commander's open usage tab. CONSTRAINT: Cloudflare bot-walls claude.ai/settings/usage — NO tool can reliably auto-pull (even the open tab shows 'Just a moment...' to any automation/CDP read). Reliable feed requires the page's own JS. OPEN — Commander picks the feed: (1) do nothing -> timer captures opportunistically when tab is clear; (2) click bookmarklet for instant exact update; (3) install Tampermonkey userscript for set-and-forget real-time. Local JSONL token-estimate gauge remains as fallback.",
+      "created_at": "2026-06-17T19:00:00Z",
+      "updated_at": "2026-06-17T19:00:00Z",
+      "logs": ["[2026-06-17] Built ingest + real-usage panel + bookmarklet + userscript + best-effort 2-min CDP timer. Cloudflare blocks reliable auto-pull; userscript is the only fully-reliable feed. Awaiting Commander's choice of feed method."]
+    },
+    {
       "id": "MISSION-SEC-00",
       "title": "Security session 2026-06-17 — completed fixes (record)",
       "status": "completed",
