@@ -42,7 +42,7 @@
       "description": "Alert leg silently broken (BOT secret empty in Action logs). RUN: git add .github/workflows/offbox_heartbeat_force_fail_test.yml && commit && git push origin master; gh secret set TELEGRAM_BOT_TOKEN (paste D2MC2C bot token from .env); gh workflow run offbox_heartbeat_force_fail_test.yml -f confirm=CERT; confirm Telegram page to chat 7554895206. NOT done via shell this session due to rtk corruption. Runbook P0-2 / MISSION-220.",
       "created_at": "2026-06-17T18:00:00Z",
       "updated_at": "2026-06-17T18:00:00Z",
-      "logs": ["[2026-06-17] Deferred to clean shell (token handling) per security caution"]
+      "logs": ["[2026-06-17] Deferred to clean shell (token handling) per security caution", "[2026-06-17] Step 1 DONE: workflow pushed to origin/master (c895d57c). Remaining: gh secret set TELEGRAM_BOT_TOKEN + gh workflow run -f confirm=CERT."]
     },
     {
       "id": "MISSION-SEC-04",
