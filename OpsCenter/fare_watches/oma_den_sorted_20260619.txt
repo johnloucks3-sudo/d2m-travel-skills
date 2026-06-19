@@ -1,0 +1,67 @@
+OMA → DEN  ·  Sat Jul 18 out / Sat Jul 25 return  ·  sorted by departure time
+─────────────────────────────────────────────────────────────────────────────────────────────────────────
+  DEPART      $/2pax  AIRLINE     OUTBOUND FLIGHT                RETURN / NOTE
+─────────────────────────────────────────────────────────────────────────────────────────────────────────
+  06:15 AM   $647.62  Southwest   WN 3127                        WN 1123 10:15AM→OMA 12:50PM
+                                                                  1h35m nonstop
+
+  01:48 PM   $663.58  United      UA 1195                        UA 361  10:09AM→OMA 12:42PM
+                                                                  1h47m nonstop
+
+  01:48 PM   $663.58  United      UA 1195                        UA 2327 01:50PM→OMA 04:24PM
+                                                                  1h47m nonstop, later return
+
+  02:05 PM   $647.62  Southwest   WN 1410                        WN 1123 10:15AM→OMA 12:50PM
+                                                                  1h40m nonstop
+
+  04:10 PM   $543.22  Southwest   WN 1313 + WN 4639 via HOU      WN 1123 10:15AM→OMA 12:50PM
+                                                                  5h50m via HOU
+
+  04:10 PM   $562.82  Southwest   WN 1313 + WN 4639 via HOU      WN 1675+4470 via PHX→OMA 12:40PM
+                                                                  5h50m via HOU / PHX back
+
+  04:10 PM   $562.82  Southwest   WN 1313 + WN 4639 via HOU      WN 2285+4587 via LAS→OMA 12:15AM
+                                                                  5h50m via HOU / LAS back (overnight)
+
+  04:45 PM   $543.22  Southwest   WN 426 + WN 4176 via STL       WN 1123 10:15AM→OMA 12:50PM
+                                                                  6h30m via STL
+
+  05:27 PM   $663.58  United      UA 1943                        UA 361  10:09AM→OMA 12:42PM
+                                                                  1h48m nonstop
+
+  05:40 PM   $543.22  Southwest   WN 2267 + WN 3535 via DAL      WN 1123 10:15AM→OMA 12:50PM
+                                                                  5h20m via DAL
+
+  05:40 PM   $562.82  Southwest   WN 2267 + WN 3535 via DAL      WN 1675+4470 via PHX→OMA 12:40PM
+                                                                  5h20m via DAL / PHX back
+
+  05:40 PM   $562.82  Southwest   WN 2267 + WN 3535 via DAL      WN 2285+4587 via LAS→OMA 12:15AM
+                                                                  5h20m via DAL / LAS back (overnight)
+
+  07:10 PM   $523.62  Southwest   WN 2844                        WN 1123 10:15AM→OMA 12:50PM ★
+                                                                  ★ BEST $524 · 1h40m nonstop
+
+  07:10 PM   $543.22  Southwest   WN 2844                        WN 1675+4470 via PHX→OMA 12:40PM
+                                                                  1h40m out / PHX back
+
+  07:10 PM   $543.22  Southwest   WN 2844                        WN 2285+4587 via LAS→OMA 12:15AM
+                                                                  1h40m out / LAS back (overnight)
+
+  07:10 PM   $605.60  Southwest   WN 2844                        WN 1659 07:40PM→OMA 10:15PM
+                                                                  1h40m out / evening return
+
+  07:10 PM   $625.20  Southwest   WN 2844                        WN 1751+1080 via STL→OMA 11:30AM
+                                                                  1h40m out / STL back
+
+  07:10 PM   $625.20  Southwest   WN 2844                        WN 1517+426  via DAL→OMA 04:00PM
+                                                                  1h40m out / DAL back
+
+  07:10 PM   $647.22  Southwest   WN 2844                        WN 1598+4905 via MDW→OMA 11:40AM
+                                                                  1h40m out / MDW back
+
+  07:10 PM   $647.62  Southwest   WN 2844                        WN 1313 01:05PM→OMA 03:30PM
+                                                                  nonstop both ways
+
+─────────────────────────────────────────────────────────────────────────────────────────────────────────
+  460 total fares found · 20 captured from visible page · $15 service fee included in all prices
+  Pay by deadline: tonight 11:55 PM CT

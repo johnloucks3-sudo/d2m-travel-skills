@@ -1,0 +1,51 @@
+{
+  "captured": "2026-06-19",
+  "route": "OMA-DEN",
+  "dates": "Sat Jul 18 – Sat Jul 25 2026",
+  "total_fares_found": 460,
+  "displayed": 145,
+  "fare_matrix_summary": {
+    "published_no_commission": [524, 664, 839, 899, 1815],
+    "ndc_no_commission": [749],
+    "student": [1224],
+    "commissionable_ndc": {"price": 1345, "commission": 11.58}
+  },
+  "filters": {
+    "nonstop": {"count": 194, "from": 524},
+    "one_connection": {"count": 266, "from": 543},
+    "two_plus_connections": {"count": 0}
+  },
+  "best_nonstop": {
+    "price_total_2pax": 523.62,
+    "price_per_adult": 261.81,
+    "airfare": 246.81,
+    "service_fee": 15.00,
+    "airline": "Southwest",
+    "outbound": {"flight": "WN 2844", "dep": "OMA 07:10PM", "arr": "DEN 07:50PM", "duration": "1h40m"},
+    "inbound": {"flight": "WN 1123", "dep": "DEN 10:15AM", "arr": "OMA 12:50PM", "duration": "1h35m"},
+    "pay_by": "Today 11:55 PM CT"
+  },
+  "fares_captured": [
+    {"price": 523.62, "airline": "Southwest", "type": "Published", "stops": 0, "out_flight": "WN 2844 07:10PM OMA-DEN", "in_flight": "WN 1123 10:15AM DEN-OMA"},
+    {"price": 543.22, "airline": "Southwest", "type": "Published", "stops": 1, "out_via": "DAL", "out_flight": "WN 2267 05:40PM + WN 3535 08:35PM", "in_flight": "WN 1123 10:15AM"},
+    {"price": 543.22, "airline": "Southwest", "type": "Published", "stops": 0, "out_flight": "WN 2844 07:10PM OMA-DEN", "in_via": "PHX", "in_flight": "WN 1675 06:00AM + WN 4470 08:10AM"},
+    {"price": 543.22, "airline": "Southwest", "type": "Published", "stops": 1, "out_via": "HOU", "out_flight": "WN 1313 04:10PM + WN 4639 07:10PM", "in_flight": "WN 1123 10:15AM"},
+    {"price": 543.22, "airline": "Southwest", "type": "Published", "stops": 0, "out_flight": "WN 2844 07:10PM OMA-DEN", "in_via": "LAS", "in_flight": "WN 2285 04:55PM + WN 4587 07:30PM"},
+    {"price": 543.22, "airline": "Southwest", "type": "Published", "stops": 1, "out_via": "STL", "out_flight": "WN 426 04:45PM + WN 4176 08:55PM", "in_flight": "WN 1123 10:15AM"},
+    {"price": 562.82, "airline": "Southwest", "type": "Published", "stops": 1, "note": "DAL connection both ways"},
+    {"price": 562.82, "airline": "Southwest", "type": "Published", "stops": 1, "note": "HOU out / PHX back"},
+    {"price": 562.82, "airline": "Southwest", "type": "Published", "stops": 1, "note": "DAL out / LAS back"},
+    {"price": 562.82, "airline": "Southwest", "type": "Published", "stops": 1, "note": "HOU out / LAS back"},
+    {"price": 605.60, "airline": "Southwest", "type": "Published", "stops": 0, "out_flight": "WN 2844 07:10PM OMA-DEN", "in_flight": "WN 1659 07:40PM DEN-OMA"},
+    {"price": 625.20, "airline": "Southwest", "type": "Published", "stops": 0, "out_flight": "WN 2844 07:10PM OMA-DEN", "in_via": "STL"},
+    {"price": 625.20, "airline": "Southwest", "type": "Published", "stops": 0, "out_flight": "WN 2844 07:10PM OMA-DEN", "in_via": "DAL"},
+    {"price": 647.22, "airline": "Southwest", "type": "Published", "stops": 0, "out_flight": "WN 2844 07:10PM OMA-DEN", "in_via": "MDW"},
+    {"price": 647.62, "airline": "Southwest", "type": "Published", "stops": 0, "out_flight": "WN 2844 07:10PM", "note": "multiple inbound options"},
+    {"price": 647.62, "airline": "Southwest", "type": "Published", "stops": 0, "out_flight": "WN 3127 06:15AM OMA-DEN", "in_flight": "WN 1123 10:15AM"},
+    {"price": 647.62, "airline": "Southwest", "type": "Published", "stops": 0, "out_flight": "WN 1410 02:05PM OMA-DEN", "in_flight": "WN 1123 10:15AM"},
+    {"price": 663.58, "airline": "United", "type": "Published", "stops": 0, "out_flight": "UA 1195 01:48PM OMA-DEN", "in_flight": "UA 361 10:09AM DEN-OMA"},
+    {"price": 663.58, "airline": "United", "type": "Published", "stops": 0, "out_flight": "UA 1195 01:48PM OMA-DEN", "in_flight": "UA 2327 01:50PM DEN-OMA"},
+    {"price": 663.58, "airline": "United", "type": "Published", "stops": 0, "out_flight": "UA 1943 05:27PM OMA-DEN", "in_flight": "UA 361 10:09AM DEN-OMA"}
+  ],
+  "note": "Page showed 145 of 460 fares. 20 fares captured from pasted content. Full export requires scrolling/pagination."
+}

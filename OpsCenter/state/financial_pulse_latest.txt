@@ -1,0 +1,4 @@
+Pipeline: 26 bookings | Balance due: $87,959.50
+Commission expected: $30,117.57 | D2M share: $23,068.88
+Last verified: 2026-06-19 live (core/booking/booking_master.py)
+Harlan: Confirmed — $23,068.88 D2M share, source: booking_master live sheet read 2026-06-19

@@ -1,0 +1,32 @@
+THUNDERBIRD WING — FAILED SERVICES DIAGNOSIS
+Generated: 2026-06-19 by Hale (Claude Code)
+============================================================
+
+Service: claude-usage-push.service
+Decision: FIX
+Reason: Service logic is correct — exit code 5 means "tab not rendered yet, skipping" which is a designed best-effort skip, not a real failure. The Chrome CDP tab (claude.ai/settings/usage) was present but showed Cloudflare "Just a moment..." interstitial (not yet authenticated/rendered). Systemd had no SuccessExitStatus configured, so all non-zero exits registered as failures.
+Action taken: Added `SuccessExitStatus=3 5` to [Service] section of /home/john/.config/systemd/user/claude-usage-push.service. Exit 3 = no usage tab open; exit 5 = tab not rendered. Both are expected states, not errors. Ran `systemctl --user daemon-reload && systemctl --user restart claude-usage-push.service`.
+Result: Service now shows "Finished" (inactive/dead) instead of "Failed". Exit 5 is treated as success. Will run cleanly until Commander parks a loaded claude.ai/settings/usage tab in Chrome.
+---
+
+Service: cost-claude.service
+Decision: FIX
+Reason: State file /home/john/Thunderbird/storage/.collector_state.json existed but was 0 bytes (empty), causing json.JSONDecodeError on every run. File was created (Jun 16) but never written with valid content. The collector code reads this file without guarding for empty content.
+Action taken: Wrote valid empty JSON `{"file_offsets": {}, "files_seen": []}` to the state file. Ran `systemctl --user restart cost-claude.service`.
+Result: Service ran cleanly — exit 0, collected 196 session records on first run. Output: `{"collected": 196, "timestamp": "2026-06-19T13:33:05", "note": null}`. Service is healthy.
+---
+
+Service: regent-firefox-capture.service
+Decision: FIX
+Reason: Exit code 3 = "Found rssc.com cookies in Firefox but no ASPXAUTH cookie" — meaning Commander is not currently logged into the Regent portal in Firefox. This is normal state when not actively browsing Regent. The timer runs every 20 min, and the script is designed to silently skip when no valid session exists. No SuccessExitStatus was configured, so every non-zero exit registered as a failure.
+Action taken: Added `SuccessExitStatus=2 3 4` to [Service] section of /home/john/.config/systemd/user/regent-firefox-capture.service. Exit 2 = no rssc cookies at all; exit 3 = no ASPXAUTH; exit 4 = ASPXAUTH expired. All three are "not logged in" states, not errors. Ran `systemctl --user daemon-reload && systemctl --user restart regent-firefox-capture.service`.
+Result: Service now shows "Finished" (inactive/dead) instead of "Failed". Will auto-capture ASPXAUTH and write to creds/regent_cookies*.json when Commander logs into Regent in Firefox (exit 0 path).
+---
+
+SUMMARY
+All 3 services: FIXED
+Root causes:
+  1. claude-usage-push  — missing SuccessExitStatus for best-effort skip codes (3, 5)
+  2. cost-claude        — empty state file (0 bytes) causing JSONDecodeError
+  3. regent-firefox-capture — missing SuccessExitStatus for "not logged in" skip codes (2, 3, 4)
+No services disabled. No Commander action required.

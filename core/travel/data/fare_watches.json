@@ -825,5 +825,68 @@
     "active": true,
     "created": "2026-06-19T13:01:20.562059+00:00",
     "last_checked": "2026-06-19T13:01:20.562059+00:00"
+  },
+  "norway-scandinavia-cruise-jul-aug-2027": {
+    "id": "norway-scandinavia-cruise-jul-aug-2027",
+    "watch_type": "cruise",
+    "label": "Norway/Scandinavia 2027 Prospecting \u2014 Silversea/Seabourn/Regent Jul-Aug",
+    "provider": "Multiple (Silversea, Seabourn, Regent)",
+    "route": "Copenhagen \u2192 Southampton (or similar fjord routes)",
+    "travel_date": "2027-07-01",
+    "passengers": 2,
+    "current_price_pp": null,
+    "baseline_price_pp": 9360,
+    "alert_below": 9360,
+    "alert_above": 11960,
+    "notes": "Target: Silversea Silver Dawn, Seabourn Quest, Regent Seven Seas Voyager. Monitor 10-18 day Norway/Scandinavia routes. Alert on price drops below baseline ($9,360pp) or spikes above $11,960pp.",
+    "active": true,
+    "created": "2026-06-19T19:10:51.928608+00:00",
+    "last_checked": null
+  },
+  "loucks-ava-charlotte-oma-den-jul2026": {
+    "id": "loucks-ava-charlotte-oma-den-jul2026",
+    "watch_type": "flight",
+    "label": "Ava & Charlotte Loucks \u2014 OMA\u2192DEN (Ryan's daughters, visit Justin/Kayleigh/Aldon)",
+    "provider": "Centrav",
+    "route": "OMA \u2192 DEN",
+    "origin": "OMA",
+    "destination": "DEN",
+    "outbound_date": "2026-07-18",
+    "return_date": "2026-07-25",
+    "passengers": 2,
+    "cabin": "Economy",
+    "current_best_total": 647.62,
+    "current_best_pp": 323.81,
+    "current_best_flight": "WN 3127 06:15AM nonstop OMA\u2192DEN (morning)",
+    "baseline_total": 647.62,
+    "alert_below": 599.0,
+    "alert_above": null,
+    "preferred_nonstop": true,
+    "preferred_airlines": [
+      "Southwest",
+      "United"
+    ],
+    "notes": "Personal \u2014 Loucks family. Ryan's daughters visiting Justin's family, cousin Kayleigh, and Aldon. Target ~07:10 AM departure nonstop OMA\u2192DEN. Alert Commander via SMS when fare drops below $599 on morning flight.",
+    "family_context": {
+      "passengers": [
+        "Ava Loucks",
+        "Charlotte Loucks"
+      ],
+      "father": "Ryan Loucks",
+      "visiting": [
+        "Justin (family)",
+        "Kayleigh (cousin)",
+        "Aldon"
+      ],
+      "trip_type": "personal_family"
+    },
+    "active": true,
+    "alert_channel": "sms",
+    "created": "2026-06-19T20:16:41.409398+00:00",
+    "last_checked": "2026-06-19T20:19:43.056055+00:00",
+    "last_price": 523.62,
+    "departure_window": "~07:10 AM",
+    "departure_earliest": "06:45",
+    "departure_latest": "07:30"
   }
 }

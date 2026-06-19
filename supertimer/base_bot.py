@@ -205,6 +205,15 @@ class BotBase:
             )
         except Exception:
             pass
+        # Escalate to SMS for P0 — Commander's primary C2 channel
+        try:
+            sms_msg = f"🔴 WING ALERT: {self.bot_name} — {len(failures)} task(s) failed x{consec}. Check Telegram."
+            subprocess.run(
+                [VENV_PYTHON, str(ROOT / "core/comms/wing_sms.py"), sms_msg],
+                timeout=15, capture_output=True,
+            )
+        except Exception:
+            pass
 
 
 def venv(script: str, *args: str) -> list[str]:
