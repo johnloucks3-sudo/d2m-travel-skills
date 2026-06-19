@@ -15,7 +15,7 @@
       },
       "last_health_check": "2026-06-05T21:24:44.578424"
     },
-    "last_health_check": "2026-06-11T00:46:30.396954+00:00",
+    "last_health_check": "2026-06-19T03:30:44.089513+00:00",
     "chrome_debug_port_9222": "ONLINE",
     "mcp_server": "OK: 127.0.0.1:8765 /mcp HTTP 406 in 1.7ms (live probe 2026-06-11T03:11:06Z; prior read-timeout was transient)",
     "opencode_status": "ONLINE: opencode v1.16.2 CLI-on-demand; opencode-spsa-monitor.service active (probe 2026-06-11T03:12:09Z)",
@@ -107,7 +107,7 @@
     }
   },
   "_meta": {
-    "last_updated": "2026-06-11T06:46:10.813446+00:00"
+    "last_updated": "2026-06-19T03:30:44.089513+00:00"
   },
   "open_tasks": [
     {
@@ -196,18 +196,16 @@
     }
   ],
   "financial_pulse": {
-    "last_checked": "2026-06-10T06:45:59.958182-06:00",
-    "tess_auth_status": "ERROR",
-    "tess_error": "Not authenticated. Run: python3 thunderbird_tess.py --authorize",
+    "last_checked": "2026-06-18T21:27:23.023203",
     "sheet_status": "ONLINE",
-    "sheet_bookings": 25,
-    "sheet_commission_expected": 24600.39,
-    "sheet_d2m_share": 18655.14,
-    "sheet_upcoming_count": 17,
-    "pipeline_d2m_share_upcoming": 16311.93,
-    "pipeline_commission_upcoming": 21671.39,
-    "total_d2m_pipeline": 16311.93,
-    "raw_snippet": "D2M pipeline: $16,311.93 D2M share across 17 upcoming voyages (sheet) + 0 checks already received totaling $0.00 (TESS)."
+    "sheet_bookings": 26,
+    "sheet_commission_expected": 30117.57,
+    "sheet_d2m_share": 23068.88,
+    "sheet_upcoming_count": 18,
+    "pipeline_d2m_share_upcoming": 20725.67,
+    "pipeline_commission_upcoming": 27188.57,
+    "total_d2m_pipeline": 20725.67,
+    "raw_snippet": "D2M pipeline: $20,725.67 D2M share across 18 upcoming voyages (sheet)."
   },
   "session_context": {
     "last_checkpoint": "2026-06-10T06:45:59.958182-06:00"

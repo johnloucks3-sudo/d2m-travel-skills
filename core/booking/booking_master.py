@@ -50,8 +50,8 @@ _CRED_CANDIDATES = [
 ]
 
 SCOPES = [
-    "https://www.googleapis.com/auth/spreadsheets.readonly",
-    "https://www.googleapis.com/auth/drive.readonly",
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive",
 ]
 
 
@@ -396,6 +396,73 @@ class BookingMasterClient:
             "raw": t,
         }
 
+    # -- write operations ---------------------------------------------------
+
+    def _get_headers(self) -> list[str]:
+        """Return the header row from the sheet (row 1)."""
+        ws = self._worksheet()
+        return ws.row_values(1)
+
+    def add_booking(self, data: dict[str, Any]) -> int:
+        """Append a new booking row. Keys must match column headers.
+
+        Returns the 1-based row index of the new row.
+        """
+        ws = self._worksheet()
+        headers = self._get_headers()
+        row = [str(data.get(h, "")) for h in headers]
+        ws.append_row(row, value_input_option="USER_ENTERED")
+        self._cache = None  # invalidate cache
+        return ws.row_count  # approximate — last row after append
+
+    def update_booking(
+        self,
+        booking_id: str,
+        updates: dict[str, Any],
+        match_col: str = "Booking_ID",
+    ) -> bool:
+        """Update fields on an existing booking row.
+
+        Finds the row where match_col == booking_id and writes updates.
+        Returns True if a row was found and updated, False otherwise.
+        """
+        ws = self._worksheet()
+        headers = self._get_headers()
+
+        try:
+            col_idx = headers.index(match_col) + 1  # 1-based
+        except ValueError:
+            raise ValueError(f"Column '{match_col}' not found in sheet headers")
+
+        # Find the row
+        col_values = ws.col_values(col_idx)
+        try:
+            row_idx = col_values.index(booking_id) + 1  # 1-based (header is row 1)
+        except ValueError:
+            logger.warning("Booking_ID '%s' not found in column '%s'", booking_id, match_col)
+            return False
+
+        # Write each updated field
+        for field, value in updates.items():
+            if field not in headers:
+                logger.warning("Column '%s' not in sheet — skipping", field)
+                continue
+            col = headers.index(field) + 1
+            ws.update_cell(row_idx, col, str(value))
+
+        self._cache = None  # invalidate cache
+        logger.info("Updated booking '%s': %s", booking_id, list(updates.keys()))
+        return True
+
+    def get_booking_by_id(self, booking_id: str) -> dict[str, Any] | None:
+        """Return the sheet row for a specific Booking_ID, or None."""
+        for row in self.list_bookings():
+            if str(row.get("Booking_ID", "")).strip() == str(booking_id).strip():
+                return row
+            if str(row.get("Confirmation_Number", "")).strip() == str(booking_id).strip():
+                return row
+        return None
+
     def cross_reference_with_tess(
         self, tess_bookings: Iterable[dict[str, Any]]
     ) -> dict[str, list[dict[str, Any]]]:
@@ -504,21 +571,148 @@ def get_booking_master_client() -> BookingMasterClient:
     return _default_client
 
 
-# ----- CLI smoke test ------------------------------------------------------
+# ----- CLI -----------------------------------------------------------------
 
 if __name__ == "__main__":
+    import argparse, sys
+
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
+
+    parser = argparse.ArgumentParser(description="D2M Booking Master Sheet CLI")
+    sub = parser.add_subparsers(dest="cmd")
+
+    # list
+    sub.add_parser("list", help="List all bookings (summary)")
+
+    # query
+    qp = sub.add_parser("query", help="Search by client name or booking ID")
+    qp.add_argument("term", help="Name or booking ID to search")
+
+    # get
+    gp = sub.add_parser("get", help="Get one booking by ID")
+    gp.add_argument("booking_id", help="Booking_ID or Confirmation_Number")
+
+    # summary
+    sub.add_parser("summary", help="Commission + pipeline totals")
+
+    # upcoming
+    sub.add_parser("upcoming", help="Upcoming voyages sorted by departure")
+
+    # update
+    up = sub.add_parser("update", help="Update fields on an existing booking")
+    up.add_argument("booking_id", help="Booking_ID to update")
+    up.add_argument("fields", nargs="+",
+                    help="key=value pairs, e.g. Pre_Cruise_Hotel='Sina Palazzo'")
+
+    # pulse — quick financial pulse for hale_state.json
+    sub.add_parser("pulse", help="Emit JSON financial pulse block for hale_state.json")
+
+    args = parser.parse_args()
+
     client = BookingMasterClient()
-    rows = client.list_bookings()
-    print(f"Loaded {len(rows)} bookings.")
-    if rows:
-        cols = [c for c in rows[0].keys() if not c.startswith("_")]
-        print(f"{len(cols)} columns. First 5: {cols[:5]}")
-    summary = client.commission_summary()
-    print(
-        f"Commission expected: ${summary['total_expected']:,.2f}  "
-        f"D2M share: ${summary['total_d2m_share']:,.2f}  "
-        f"Bookings: {summary['booking_count']}"
-    )
-    upcoming = client.upcoming_voyages()
-    print(f"Upcoming voyages: {len(upcoming)}")
+
+    if args.cmd == "list" or args.cmd is None:
+        rows = client.list_bookings()
+        print(f"{'Booking_ID':<20} {'Client_Name':<35} {'Supplier':<22} {'Start_Date':<12} {'Status'}")
+        print("-" * 105)
+        for r in rows:
+            print(
+                f"{str(r.get('Booking_ID','')):<20} "
+                f"{str(r.get('Client_Name','')):<35} "
+                f"{str(r.get('Supplier','')):<22} "
+                f"{str(r.get('Start_Date','')):<12} "
+                f"{r.get('Status','')}"
+            )
+        print(f"\n{len(rows)} bookings total.")
+
+    elif args.cmd == "query":
+        results = client.get_by_client(args.term)
+        if not results:
+            # Also try exact booking ID
+            r = client.get_booking_by_id(args.term)
+            results = [r] if r else []
+        if not results:
+            print(f"No results for '{args.term}'")
+            sys.exit(1)
+        for r in results:
+            cols = [c for c in r.keys() if not c.startswith("_")]
+            for c in cols:
+                if r[c]:
+                    print(f"  {c}: {r[c]}")
+            print()
+
+    elif args.cmd == "get":
+        r = client.get_booking_by_id(args.booking_id)
+        if not r:
+            print(f"Not found: {args.booking_id}")
+            sys.exit(1)
+        cols = [c for c in r.keys() if not c.startswith("_")]
+        for c in cols:
+            if r[c]:
+                print(f"  {c}: {r[c]}")
+
+    elif args.cmd == "summary":
+        s = client.commission_summary()
+        print(f"Bookings: {s['booking_count']}")
+        print(f"Commission expected: ${s['total_expected']:,.2f}")
+        print(f"D2M share:           ${s['total_d2m_share']:,.2f}")
+        print(f"Client paid:         ${s['total_received']:,.2f}")
+        print(f"Balance due:         ${s['total_due']:,.2f}")
+        print("\nBy supplier:")
+        for sup, v in sorted(s["by_supplier"].items(), key=lambda x: -x[1]["share"]):
+            print(f"  {sup:<30} expected ${v['expected']:>10,.2f}  D2M ${v['share']:>10,.2f}  ({v['count']} bookings)")
+
+    elif args.cmd == "upcoming":
+        rows = client.upcoming_voyages()
+        print(f"{'Start_Date':<12} {'Client_Name':<35} {'Supplier':<22} {'Booking_ID'}")
+        print("-" * 90)
+        for r in rows:
+            print(
+                f"{str(r.get('Start_Date','')):<12} "
+                f"{str(r.get('Client_Name','')):<35} "
+                f"{str(r.get('Supplier','')):<22} "
+                f"{r.get('Booking_ID','')}"
+            )
+        print(f"\n{len(rows)} upcoming voyages.")
+
+    elif args.cmd == "update":
+        updates: dict[str, str] = {}
+        for kv in args.fields:
+            if "=" not in kv:
+                print(f"Bad field spec '{kv}' — use key=value", file=sys.stderr)
+                sys.exit(1)
+            k, _, v = kv.partition("=")
+            updates[k.strip()] = v.strip().strip("'\"")
+        ok = client.update_booking(args.booking_id, updates)
+        if ok:
+            print(f"Updated {args.booking_id}: {list(updates.keys())}")
+        else:
+            print(f"Booking '{args.booking_id}' not found.")
+            sys.exit(1)
+
+    elif args.cmd == "pulse":
+        from datetime import datetime as dt
+        rows = client.list_bookings()
+        upcoming = client.upcoming_voyages()
+        s = client.commission_summary()
+        pulse = {
+            "last_checked": dt.now().isoformat(),
+            "sheet_status": "ONLINE",
+            "sheet_bookings": len(rows),
+            "sheet_commission_expected": s["total_expected"],
+            "sheet_d2m_share": s["total_d2m_share"],
+            "sheet_upcoming_count": len(upcoming),
+            "pipeline_d2m_share_upcoming": round(
+                sum(r["_parsed_d2m_share"] for r in upcoming), 2
+            ),
+            "pipeline_commission_upcoming": round(
+                sum(r["_parsed_commission"] for r in upcoming), 2
+            ),
+        }
+        pulse["total_d2m_pipeline"] = pulse["pipeline_d2m_share_upcoming"]
+        pulse["raw_snippet"] = (
+            f"D2M pipeline: ${pulse['pipeline_d2m_share_upcoming']:,.2f} D2M share "
+            f"across {len(upcoming)} upcoming voyages (sheet)."
+        )
+        import json as _json
+        print(_json.dumps(pulse, indent=2))

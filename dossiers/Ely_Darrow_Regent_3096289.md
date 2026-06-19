@@ -146,6 +146,31 @@ completed_tps: ["4.1", "4.2", "4.3", "4.4", "4.5"]
 
 **Coverage: ~93%** | **Critical Gaps:** Insurance (deferred — follow up May), guest profile forms not received
 
+---
+
+### INSURANCE INTEL — Seven Corners vs Allianz (Filed 2026-06-18 per Commander directive)
+*Commander Jun 17: "Capture the differences."*
+
+**Context:** Amy Darrow has Parkinson's disease (confirmed 2026-06-18). Commander sent insurance options email Jun 18 — three plans recommended. Al had been considering Allianz AllTrips Premier $15K. Key comparison below.
+
+| Factor | **Seven Corners Annual** *(Commander-recommended)* | **Allianz AllTrips Premier $15K** |
+|--------|---------------------------------------------------|------------------------------------|
+| Trip cancellation | Up to $10,000/person/trip (varies by tier) | Up to **$15,000/person/trip** |
+| Emergency medical | **$1,000,000** | $50,000 (much lower) |
+| Emergency evacuation | Unlimited | $500,000 |
+| Pre-existing waiver window | 20 days from first deposit | 14 days from first deposit |
+| CFAR available | Yes (add-on, covers ~75% of trip cost) | Not standard on annual plans |
+| Annual plan structure | Annual multi-trip (per trip limits apply) | Annual multi-trip (per trip limits apply) |
+| Approx. premium | ~$275–400/person/year | ~$459+/person/year (Premier $15K level) |
+
+**Key finding — Amy's Parkinson's:** Both plans require purchase within 14–20 days of the FIRST trip deposit for pre-existing condition coverage. Since booking was placed March 2026 and insurance is being arranged in June 2026, the pre-existing condition waiver deadline has passed for both plans. **Trip cancellation due to Parkinson's progression is not covered** under standard terms. The path forward is:
+1. **CFAR add-on via Seven Corners** (if available on their annual plan) — covers ~75% of trip cost regardless of reason, including pre-existing health issues. Check at time of purchase.
+2. Alternatively: **Cancel for Any Reason upgrade** available through Squaremouth (squaremouth.com/quotes/6XD3-983E).
+
+**Al's $450 quote confusion:** The $450 quote Al saw was almost certainly Allianz AllTrips **Basic or Plus** (lower tier) — NOT the Premier $15K. The Premier $15K for two travelers is typically $800–1,000+. *Source: INFERRED from known plan tier structures; verify at time of purchase.*
+
+**Recommendation:** Seven Corners Annual is the stronger plan for medical emergencies (20× more medical coverage, unlimited evacuation vs Allianz). Allianz has higher trip cancellation per-person but lower medical. For a cruise with Amy's Parkinson's, medical/evacuation coverage outweighs trip cancellation coverage. **Buy by Jun 26** (60-day waiting period clears before Aug 26 departure).
+
 ### SHORE EXCURSIONS (Confirmed RSSC Portal — Mar 24, 2026)
 All included (Regent Choice — $0.00). Both Al & Amy confirmed on all excursions. SBC-eligible.
 

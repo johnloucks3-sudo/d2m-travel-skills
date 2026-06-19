@@ -295,6 +295,16 @@ Athens (Piraeus) · Santorini · Nafplion · Day at Sea · Bodrum · Rhodes · P
 - 📧 **Concierge email drafted 2026-06-11** (to sinapalazzosantangelo@sinahotels.com): confirm Sina Club enrollment (CLUBBB rate), arrange motoscafo from private dock → Fusina May 5 AM, request May 2 early check-in. Held for Commander send.
 - ⚠️ **May 29 vs Jun 1 departure unresolved:** Commander requested Piraeus→ATH May 29 0900 — confirm whether flying home May 29 (drop the 3-night Athens stay + Athens Gate hotel + Jun 1 flight) or keeping Jun 1. Affects return flight date + Athens hotel.
 - **Venice airport → hotel:** Private motoscafo to Sina's private Grand Canal dock €120–160; Alilaguna Orange Line stops at S. Angelo (the hotel's stop) for €15/pp.
+- 🔍 **SINA CLUB INTEL — Filed 2026-06-18 (A2 Dembe research):**
+  - **Sina Hotels:** Italy's longest-running luxury hotel group (est. 1958, Bocca family-owned). 11 Italy-only properties. SLH-affiliated. Sant'Angelo is San Marco, Grand Canal.
+  - **Sina Club program:** Free to join (sinahotels.com member portal). Flat structure — no tiers. 15% discount on best available online rates via member portal. Hotel-specific perks revealed at booking (not pre-published). At Sant'Angelo: **20% discount at Antinoo's Restaurant** (Sina Centurion Palace, 15 min walk — canal-side, well-regarded). Additional booking-level perks not pre-disclosed; worth a direct inquiry.
+  - **SLH stacking:** SLH withIN agent program (breakfast, room upgrade, early/late checkout, welcome amenity) **cannot be stacked** with SLH Club on same reservation. Sina Club and withIN serve different booking channels.
+  - **What Commander should do:**
+    1. Verify booking TZ201ZG53502 is linked to the Sina Club member account at sinahotels.com. If not, contact property (+39 041 2411452) — may honor perks retroactively at check-in.
+    2. If booked via D2M's SLH withIN affiliation: SLH agent perks (breakfast, upgrade) should already attach — verify. If booked direct: Sina Club's 15% was the better play at time of booking.
+    3. **Book at least one dinner at Antinoo's** (Centurion Palace, 15 min walk) — 20% off a canal-side dinner in Venice is meaningful. Confirmed perk for Sina Club members at Sant'Angelo.
+    4. For future Italy Sina stays (Rome, Florence): book logged into Sina Club portal to capture 15% member rate. Cross-reference against SLH withIN rate; take better net package.
+  - *Source: A2 Dembe primary research 2026-06-18 (sinahotels.com, SLH, ClassicTravel). CONFIRMED on program structure; member perks at Sant'Angelo partially INFERRED (Sina does not pre-publish all perks).*
 
 ---
 
