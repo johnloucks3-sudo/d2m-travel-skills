@@ -33,11 +33,11 @@ class IntelBot(BotBase):
              venv("core/intel/thunderbird_intel_telegram.py"),
              interval_sec=43200, timeout_sec=180),   # 2x/day (was daily)
         Task("airline-monitor",
-             goose("recipes/airline_monitor.yaml"),
-             interval_sec=43200, timeout_sec=300),   # 2x/day (was daily)
+             venv("core/travel/thunderbird_airline_monitor.py"),
+             interval_sec=43200, timeout_sec=300),   # 2x/day — Goose/DeepSeek retired
         Task("x-osint",
-             goose("recipes/x_osint.yaml"),
-             interval_sec=43200, timeout_sec=300),   # 2x/day (was daily)
+             venv("core/intel/thunderbird_x_osint.py"),
+             interval_sec=43200, timeout_sec=300),   # 2x/day — Goose/DeepSeek retired
         Task("innovation-scan",
              bash(
                  f"jq '. += [{{\"task_id\": \"TKT-AUTO\", \"task_type\": \"innovation_scan\", \"persona\": \"A12\"}}]' "
