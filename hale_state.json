@@ -15,7 +15,7 @@
       },
       "last_health_check": "2026-06-05T21:24:44.578424"
     },
-    "last_health_check": "2026-06-19T03:30:44.089513+00:00",
+    "last_health_check": "2026-06-19T21:02:39.295026+00:00",
     "chrome_debug_port_9222": "ONLINE",
     "mcp_server": "OK: 127.0.0.1:8765 /mcp HTTP 406 in 1.7ms (live probe 2026-06-11T03:11:06Z; prior read-timeout was transient)",
     "opencode_status": "ONLINE: opencode v1.16.2 CLI-on-demand; opencode-spsa-monitor.service active (probe 2026-06-11T03:12:09Z)",
@@ -107,7 +107,7 @@
     }
   },
   "_meta": {
-    "last_updated": "2026-06-19T03:30:44.089513+00:00"
+    "last_updated": "2026-06-19T21:02:50.750071+00:00"
   },
   "open_tasks": [
     {
@@ -132,7 +132,7 @@
       "id": "MISSION-112",
       "title": "Send 5 WF-17 drafts \u2014 Nichols + Kuklinski queue",
       "priority": "P0",
-      "status": "active"
+      "status": "complete"
     },
     {
       "id": "MISSION-113",
@@ -150,7 +150,7 @@
       "id": "MISSION-129",
       "title": "Commander sends 5 aging WF-17 drafts \u2014 Nichols + Kuklinski x4",
       "priority": "P0",
-      "status": "active"
+      "status": "complete"
     },
     {
       "id": "MISSION-130",
@@ -174,7 +174,7 @@
       "id": "MISSION-138",
       "title": "Send five aging WF-17 drafts \u2014 Nichols + Kuklinski",
       "priority": "P0",
-      "status": "active"
+      "status": "complete"
     },
     {
       "id": "MISSION-155",
@@ -196,16 +196,12 @@
     }
   ],
   "financial_pulse": {
-    "last_checked": "2026-06-18T21:27:23.023203",
+    "last_checked": "2026-06-19T19:35:22.464062+00:00",
     "sheet_status": "ONLINE",
     "sheet_bookings": 26,
     "sheet_commission_expected": 30117.57,
     "sheet_d2m_share": 23068.88,
-    "sheet_upcoming_count": 18,
-    "pipeline_d2m_share_upcoming": 20725.67,
-    "pipeline_commission_upcoming": 27188.57,
-    "total_d2m_pipeline": 20725.67,
-    "raw_snippet": "D2M pipeline: $20,725.67 D2M share across 18 upcoming voyages (sheet)."
+    "raw_snippet": "D2M share $23,068.88 across 26 bookings. Balance due: $87,959.50."
   },
   "session_context": {
     "last_checkpoint": "2026-06-10T06:45:59.958182-06:00"
@@ -213,7 +209,7 @@
   "staff_load": {
     "HALE": {
       "last_seen": true,
-      "active": 14
+      "active": 17
     },
     "DEM": {
       "last_seen": false,
@@ -284,11 +280,11 @@
       {
         "id": "PROJ-NICHOLS-TP05",
         "name": "Nichols TP 0.5 Welcome Email",
-        "status": "COMPLETE",
+        "status": "DRAFT_IN_JOHNLOUCKS3",
         "deadline": "2026-06-05",
         "mission": "MISSION-120",
         "owner": "HALE",
-        "notes": "SATISFIED 2026-06-06. Commander confirmed all TPs current for T-position before Aug 29 embarkation (Regent Grandeur)."
+        "notes": "SATISFIED 2026-06-06. TP 0.5 validation draft also pushed to johnloucks3 Gmail drafts on 2026-06-19 per Commander directive."
       },
       {
         "id": "PROJ-MCLEOD-T13",
@@ -302,10 +298,10 @@
       {
         "id": "PROJ-KUKLINSKI-LIFECYCLE",
         "name": "Kuklinski Lifecycle Emails \u2014 4 Drafts HOLD",
-        "status": "HOLD_UNTIL_2026-07-15",
+        "status": "DRAFTS_IN_JOHNLOUCKS3",
         "deadline": "2026-07-15",
         "owner": "HALE",
-        "notes": "Commander order 2026-06-04: hold all 4 Kuklinski drafts (Welcome TP 0.5, Specialty Dining Reservation Reminder TP 4.1, Excursion Planning TP 4.2, Pre-Departure Checklist TP 4.3) until Jul 15 \u2014 excursion booking window. Do not surface at WF-17 before Jul 15."
+        "notes": "Hold rescinded 2026-06-19 (Commander directive). All 4 lifecycle draft emails pushed to johnloucks3 Gmail drafts: TP 0.5 Welcome, TP 4.1 Specialty Dining, TP 4.2 Excursion Planning, TP 4.3 Logistics. Commander reviews and sends from johnloucks3."
       },
       {
         "id": "PROJ-SPENCER-FLIGHT",

@@ -1,4 +1,16 @@
 {
-  "scriptId": "PLACEHOLDER",
-  "rootDir": "."
+  "scriptId": "11JvPceUmZhCYfeAuhxXDTQ7dK148NEkPl1Z_D9zn3JHoyKZxaEruPj1T",
+  "rootDir": "",
+  "scriptExtensions": [
+    ".js",
+    ".gs"
+  ],
+  "htmlExtensions": [
+    ".html"
+  ],
+  "jsonExtensions": [
+    ".json"
+  ],
+  "filePushOrder": [],
+  "skipSubdirectories": false
 }
