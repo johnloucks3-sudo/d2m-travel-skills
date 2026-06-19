@@ -16,6 +16,9 @@ Exit codes:
     0 = all checks passed, safe to generate
     1 = warnings only (generate at your own risk)
     2 = errors — generator should refuse to run
+
+Spelling fixes: unambiguous corrections in SPELL_FIXES are applied in-place automatically.
+No human gate — spot-it-fix-it (SO-2026-05-04).
 """
 
 import sys, re, json
@@ -51,14 +54,20 @@ REQUIRED_CHECKS = [
     ("Schengen/visa status",    r"(?i)(schengen|visa|entry requirement|passport valid|U\.?S\.? passport|no visa required|visa-free)", "WARN"),
 ]
 
-# ── KNOWN MISSPELLINGS TO CATCH ───────────────────────────────────────────────
-SPELL_ERRORS = {
-    "Herculanum":    "Herculaneum",
-    "Herculanium":   "Herculaneum",
-    "Polignano":     "(Bari/Polignano — verify: is this port actually on the voyage?)",
-    "Blacklain":     "Blacklane",
-    "Valleta":       "Valletta",
+# ── SPELLING CORRECTIONS ─────────────────────────────────────────────────────
+# SPELL_FIXES: unambiguous wrong→right pairs applied in-place automatically.
+# No human gate — spot-it-fix-it (SO-2026-05-04).
+SPELL_FIXES = {
+    "Herculanum":      "Herculaneum",
+    "Herculanium":     "Herculaneum",
+    "Blacklain":       "Blacklane",
+    "Valleta":         "Valletta",
     "Kotor Montengro": "Kotor, Montenegro",
+}
+
+# SPELL_FLAGS: ambiguous — flag for human review, never auto-apply.
+SPELL_FLAGS = {
+    "Polignano": "(Bari/Polignano — verify: is this port actually on the voyage?)",
 }
 
 # ── PORT ORDER VERIFICATION ───────────────────────────────────────────────────
@@ -80,11 +89,34 @@ PORT_ORDERS = {
 }
 
 
+def apply_spelling_fixes(content: str, dossier_path: Path) -> tuple[str, list[str]]:
+    """Apply SPELL_FIXES in-place. Returns (updated_content, list_of_applied_fixes).
+    Case-preserving: matches any case variant of the wrong word."""
+    applied = []
+    for wrong, correct in SPELL_FIXES.items():
+        pattern = re.compile(re.escape(wrong), re.IGNORECASE)
+        if pattern.search(content):
+            # Preserve ALL-CAPS if source is all-caps
+            def _replace(m):
+                src = m.group(0)
+                if src.isupper():
+                    return correct.upper()
+                if src[0].isupper():
+                    return correct[0].upper() + correct[1:]
+                return correct
+            content = pattern.sub(_replace, content)
+            applied.append(f"'{wrong}' → '{correct}'")
+    if applied:
+        dossier_path.write_text(content, encoding="utf-8")
+    return content, applied
+
+
 def check_spelling(content: str) -> list:
+    """Return flag-only issues (ambiguous — never auto-corrected)."""
     issues = []
-    for wrong, suggestion in SPELL_ERRORS.items():
+    for wrong, note in SPELL_FLAGS.items():
         if wrong.lower() in content.lower():
-            issues.append(f"SPELL: '{wrong}' found — should be '{suggestion}'")
+            issues.append(f"SPELL FLAG: '{wrong}' — {note}")
     return issues
 
 
@@ -129,6 +161,12 @@ def validate(dossier_path: Path, verbose: bool = True) -> tuple[int, list, list]
         print(f"\n{'='*60}")
         print(f"VALIDATING: {dossier_path.name}")
         print(f"{'='*60}")
+
+    # Auto-fix unambiguous spelling errors in-place before any other checks
+    content, fixed = apply_spelling_fixes(content, dossier_path)
+    for fix in fixed:
+        if verbose:
+            print(f"  ✎ AUTO-FIXED: {fix}")
 
     # Required field checks
     for label, pattern, severity in REQUIRED_CHECKS:
