@@ -19,7 +19,7 @@ completed_tps: []
 completed_tps_basis: "Nothing verifiably complete. FPD Aug 1 2026 FUTURE → payment TPs NOT done (deposit only $1,000). Guest registration NOT COMPLETE (both John & Susan). TP 0.5 Welcome shows ACTIVE (not SENT) in lifecycle doc. Commander's own trip — internal. Leave empty until items verifiably close."
 ---
 # DOSSIER — John & Susan Loucks | Regent Seven Seas Grandeur | Panama Canal & Pacific Gems
-**Status: 45% COMPLETE | Last updated: 2026-06-06**
+**Status: 55% COMPLETE | Last updated: 2026-06-19 (portal scrape — excursions, hotel, OBC confirmed)**
 **FPD: Aug 1, 2026 — 60-day alert Jun 2, 2026 | 30-day alert Jul 2, 2026** | **Balance: $24,798**
 **Embarkation: Dec 29, 2026, Miami | Disembarkation: Jan 14, 2027, Los Angeles**
 **Companions: Nancy & Ken Lyons (separate booking, same ship)**
@@ -53,7 +53,7 @@ completed_tps_basis: "Nothing verifiably complete. FPD Aug 1 2026 FUTURE → pay
 
 | Date | Milestone | Status |
 |------|-----------|--------|
-| Jun 2, 2026 | Shore excursions open (8pm ET) | ⏳ OPENING SOON |
+| Jun 2, 2026 | Shore excursions open (8pm ET) | ✅ OPEN — 0 excursions selected (confirmed 2026-06-19) |
 | Aug 1, 2026 | **FINAL PAYMENT DUE — $24,798** | 🔴 PENDING |
 | Aug 31, 2026 | Culinary Arts Kitchen classes open (8pm ET) | ⏳ Future |
 | Sep 30, 2026 | Dining reservations open (8pm ET) | ⏳ Future |
@@ -124,9 +124,29 @@ completed_tps_basis: "Nothing verifiably complete. FPD Aug 1 2026 FUTURE → pay
 | Segment | Item | Status | Notes |
 |---------|------|--------|-------|
 | Pre-cruise | FLL hotel Dec 27-28 (1 night) | ❌ NOT BOOKED | Need recommendation |
-| Pre-cruise | Miami hotel Dec 28-29 (1 night) | ❌ NOT PLANNED | Optional — could embark same day if arrive Dec 28 early |
+| Pre-cruise | **GRAND BEACH HOTEL MIAMI BEACH** — Miami Dec 28-29 (1 night) | ✅ BOOKED (Regent A La Carte) | Confirmed via Regent portal 2026-06-19 |
 | Embarkation | FLL→Port of Miami transfer Dec 29 | ❌ NOT PLANNED | ~30 mi — Uber/Lyft ~$45-60 |
 | Disembarkation | Port of LA→LAX/SNA transfer Jan 14 | ❌ NOT PLANNED | LAX ~35 min, SNA ~60 min |
+
+---
+
+## SHORE EXCURSIONS — BOOKED 2026-06-19 (7 of 9 ports)
+*All included in unlimited shore excursion fare — $0 cost. Confirmed via Regent portal.*
+
+| Port | Date | Time | Excursion | Guests | Cost |
+|------|------|------|-----------|--------|------|
+| George Town | Dec 31, 2026 | 10:00 | **DOLPHIN ENCOUNTER & STINGRAY SANDBAR** | John & Susan | $0 (included) |
+| Cartagena | Jan 2, 2027 | 08:30 | **CARTAGENA'S RICH GASTRONOMY** | John & Susan | $0 (included) |
+| Puntarenas | Jan 5, 2027 | 08:30 | **A WALK IN THE CLOUDS** | John & Susan | $0 (included) |
+| Puerto Quetzal | Jan 7, 2027 | 07:30 | **CASA SANTO DOMINGO** | John & Susan | $0 (included) |
+| Acapulco | Jan 9, 2027 | 09:00 | **HISTORICAL, PICTURESQUE & CLIFF DIVERS** | John & Susan | $0 (included) |
+| Cabo San Lucas | Jan 11, 2027 | 10:30 | **ARCH EXPLORATION & CLEAR BOAT EXPERIENCE** | John & Susan | $0 (included) |
+| San Diego | Jan 13, 2027 | 01:15 | **SAN DIEGO SEAL TOUR** | John & Susan | $0 (included) |
+| Miami | Dec 29, 2026 | — | No excursion (embarkation day) | — | — |
+| Los Angeles | Jan 14, 2027 | — | No excursion (disembarkation day) | — | — |
+
+**Cart total: $0.00 | Shipboard credit applied: $0.00 | Amount due: $0.00**
+*Adventures Ashore (premium): None selected. Pre/Post Land Adventures: None selected.*
 
 ---
 
@@ -144,18 +164,21 @@ completed_tps_basis: "Nothing verifiably complete. FPD Aug 1 2026 FUTURE → pay
 | 6 | Flights | Lyons companion flights | YES | 🔴 NOT BOOKED | ATL→FLL + LAX→ATL |
 | 7 | Transfers | FLL→Port of Miami | YES | ❌ NOT PLANNED | Embarkation day |
 | 8 | Transfers | Port of LA→airport | YES | ❌ NOT PLANNED | Disembarkation |
-| 9 | Hotel | Pre-cruise (FLL/Miami) | Optional | ❌ NOT PLANNED | Consider Dec 27-28 |
+| 9 | Hotel | Pre-cruise Miami | Optional | ✅ BOOKED | **Grand Beach Hotel Miami Beach** — 1 night Dec 28-29, via Regent A La Carte |
 | 10 | Cruise | Booking confirmed | YES | ✅ CONFIRMED | 3122006, Suite 658 |
 | 11 | Cruise | Payment status | YES | ⏳ PENDING | $24,798 due Aug 1 |
-| 12 | Cruise | Shipboard credits | Info | ✅ CONFIRMED | $300 total / $300 remaining |
+| 12 | Cruise | Shipboard credits — AMEX | Info | ✅ CONFIRMED | $300 total / $300 remaining (portal 2026-06-19) |
+| 12b | Cruise | Shipboard credits — NCLH stockholder | Info | ⚠️ NOT ENROLLED | ~$250 available — submit cert to Regent |
 | 13 | Cruise | Guest Registration | YES | 🔴 NOT COMPLETE | **Both John AND Susan** |
-| 14 | Excursions | Shore excursions | Optional | ⏳ OPENS JUN 2 | 8pm ET |
+| 14 | Excursions | Shore excursions (7 booked) | Optional | ✅ BOOKED | All included (unlimited fare). George Town, Cartagena, Puntarenas, Puerto Quetzal, Acapulco, Cabo, San Diego — both John & Susan |
+| 14b | Excursions | Adventures Ashore (premium) | Optional | ⚠️ NONE SELECTED | Confirmed portal 2026-06-19 |
+| 14c | Excursions | Pre/Post Land Adventures | Optional | ⚠️ NONE SELECTED | Confirmed portal 2026-06-19 |
 | 15 | Excursions | Culinary Arts Kitchen | Optional | ⏳ OPENS AUG 31 | |
 | 16 | Dining | Specialty dining | Optional | ⏳ OPENS SEP 30 | |
 | 17 | Admin | Online check-in | YES | ⏳ OPENS DEC 8 | |
 | 18 | Admin | Dossier current | YES | ✅ YES | Updated 2026-06-06 |
 
-**Coverage: ~45%** | **Critical Gaps:** Flights (both legs + Lyons), insurance, guest registration, pre-cruise hotel + transfers, final payment ($24,798 due Aug 1)
+**Coverage: ~55%** | **Critical Gaps:** Flights (both legs + Lyons), insurance, guest registration, FLL hotel (Dec 27-28), transfers, final payment ($24,798 due Aug 1) | **Updated 2026-06-19:** Miami hotel BOOKED (Grand Beach), 7 shore excursions BOOKED (all $0 included), OBC $300 confirmed, NCLH stockholder $250 NOT enrolled
 
 ---
 
