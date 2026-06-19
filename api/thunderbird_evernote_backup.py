@@ -31,6 +31,7 @@ import logging
 import os
 import shutil
 import sys
+import time
 import zipfile
 from datetime import datetime, timezone
 from pathlib import Path
@@ -149,6 +150,61 @@ def collect_md_files() -> list[Path]:
     return sorted(set(result))
 
 
+def collect_sheets_mirror_files() -> list[tuple[Path, str]]:
+    """Collect Sheets mirror JSON files for backup.
+
+    Returns a list of (abs_path, arcname) tuples so mirror files land under
+    ``sheets_mirror/`` inside the zip (not ``cache/sheets_mirror/``).
+
+    Three guards must all pass or an empty list is returned (non-fatal skip):
+      1. cache/sheets_mirror/ directory exists
+      2. manifest.json is present AND less than 6 hours old
+      3. Total mirror file size won't push the zip over MAX_ZIP_BYTES
+    """
+    mirror_dir = THUNDERBIRD_DIR / "cache" / "sheets_mirror"
+
+    # Guard 1 — directory exists
+    if not mirror_dir.is_dir():
+        logger.info("Sheets mirror: directory not found — skipping")
+        return []
+
+    # Guard 2 — manifest present and fresh (< 6 hours)
+    manifest_path = mirror_dir / "manifest.json"
+    if not manifest_path.exists():
+        logger.info("Sheets mirror: manifest.json not found — skipping")
+        return []
+    age_hours = (time.time() - manifest_path.stat().st_mtime) / 3600
+    if age_hours >= 6:
+        logger.warning(
+            f"Sheets mirror: manifest.json is {age_hours:.1f}h old (>= 6h) — skipping"
+        )
+        return []
+
+    # Collect all JSON files
+    json_files = sorted(mirror_dir.glob("*.json"))
+    if not json_files:
+        logger.info("Sheets mirror: no JSON files found — skipping")
+        return []
+
+    # Guard 3 — size check (uncompressed mirror total vs remaining budget)
+    mirror_total = sum(f.stat().st_size for f in json_files)
+    if mirror_total > MAX_ZIP_BYTES:
+        logger.warning(
+            f"Sheets mirror: {mirror_total / 1024 / 1024:.1f} MB exceeds "
+            f"25 MB limit — skipping"
+        )
+        return []
+
+    # Build (path, arcname) pairs — land under sheets_mirror/ in the zip
+    pairs = [(f, f"sheets_mirror/{f.name}") for f in json_files]
+
+    logger.info(
+        f"Sheets mirror: {len(pairs)} files queued "
+        f"({mirror_total / 1024:.0f} KB, manifest age {age_hours:.2f}h)"
+    )
+    return pairs
+
+
 def collect_all_files() -> list[Path]:
     """Collect all files for backup."""
     py_files = collect_py_files()
@@ -159,17 +215,31 @@ def collect_all_files() -> list[Path]:
 # Zip creation
 # ---------------------------------------------------------------------------
 
-def create_backup_zip(files: list[Path], date_str: str) -> tuple[Path, int]:
+def create_backup_zip(
+    files: list[Path],
+    date_str: str,
+    mirror_files: Optional[list[tuple[Path, str]]] = None,
+) -> tuple[Path, int]:
     """Create a zip archive of the given files.
 
-    Returns (zip_path, total_uncompressed_size).
-    Raises ValueError if the zip exceeds 25 MB.
+    Args:
+        files: Standard .py/.md files to include (arcname derived from THUNDERBIRD_DIR).
+        date_str: Date string for the zip filename.
+        mirror_files: Optional list of (abs_path, arcname) tuples for the Sheets
+                      mirror. Each tuple supplies its own arcname so mirror files
+                      land under ``sheets_mirror/`` rather than ``cache/sheets_mirror/``.
+
+    Returns:
+        (zip_path, total_uncompressed_size)
+    Raises:
+        ValueError if the zip exceeds 25 MB.
     """
     zip_name = f"thunderbird_code_{date_str}.zip"
     zip_path = THUNDERBIRD_DIR / zip_name
 
     total_size = 0
     with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as zf:
+        # Standard .py / .md files
         for fpath in files:
             rel = fpath.relative_to(THUNDERBIRD_DIR)
             try:
@@ -177,6 +247,20 @@ def create_backup_zip(files: list[Path], date_str: str) -> tuple[Path, int]:
                 total_size += fpath.stat().st_size
             except (OSError, PermissionError) as e:
                 logger.warning(f"Skipping {rel}: {e}")
+
+        # Sheets mirror files (custom arcnames keep them under sheets_mirror/)
+        mirror_count = 0
+        mirror_total_size = 0
+        if mirror_files:
+            for fpath, arcname in mirror_files:
+                try:
+                    zf.write(fpath, arcname=arcname)
+                    file_size = fpath.stat().st_size
+                    total_size += file_size
+                    mirror_total_size += file_size
+                    mirror_count += 1
+                except (OSError, PermissionError) as e:
+                    logger.warning(f"Skipping mirror file {arcname}: {e}")
 
     zip_size = zip_path.stat().st_size
     if zip_size > MAX_ZIP_BYTES:
@@ -188,6 +272,17 @@ def create_backup_zip(files: list[Path], date_str: str) -> tuple[Path, int]:
 
     logger.info(f"Created {zip_name}: {zip_size / 1024:.0f} KB compressed, "
                 f"{total_size / 1024:.0f} KB uncompressed")
+
+    # Verification log for Sheets mirror inclusion
+    if mirror_files is not None:
+        if mirror_count > 0:
+            logger.info(
+                f"Sheets mirror included: {mirror_count} files, "
+                f"{mirror_total_size / 1024:.0f} KB uncompressed"
+            )
+        else:
+            logger.warning("Sheets mirror: 0 files written to zip (all skipped)")
+
     return zip_path, total_size
 
 # ---------------------------------------------------------------------------
@@ -444,9 +539,11 @@ def run_local_backup(target_dir: Optional[str] = None) -> dict:
     if not files:
         return {"status": "error", "error": "No files found to back up"}
 
+    mirror_files = collect_sheets_mirror_files()
+
     # Create the zip
     try:
-        zip_path, total_size = create_backup_zip(files, date_str)
+        zip_path, total_size = create_backup_zip(files, date_str, mirror_files=mirror_files)
     except ValueError as e:
         return {"status": "error", "error": str(e)}
 
@@ -570,9 +667,12 @@ def run_evernote_backup() -> dict:
     md_count = sum(1 for f in files if f.suffix == ".md")
     logger.info(f"Collected {len(files)} files ({py_count} .py, {md_count} .md)")
 
+    # Collect Sheets mirror files (empty list = skip gracefully)
+    mirror_files = collect_sheets_mirror_files()
+
     # Create zip
     try:
-        zip_path, total_size = create_backup_zip(files, date_str)
+        zip_path, total_size = create_backup_zip(files, date_str, mirror_files=mirror_files)
     except ValueError as e:
         return {"status": "error", "error": str(e)}
 
@@ -615,6 +715,7 @@ def run_evernote_backup() -> dict:
         "files_count": len(files),
         "py_count": py_count,
         "md_count": md_count,
+        "mirror_files_count": len(mirror_files),
         "zip_size_kb": round(zip_size / 1024),
         "total_size_kb": round(total_size / 1024),
         "date": date_str,
@@ -700,10 +801,21 @@ def dry_run():
     md_files = [f for f in files if f.suffix == ".md"]
     total_size = sum(f.stat().st_size for f in files)
 
+    mirror_files = collect_sheets_mirror_files()
+    mirror_size = sum(p.stat().st_size for p, _ in mirror_files)
+
+    grand_total = total_size + mirror_size
+
     print("\nThunderbird Evernote Backup — Dry Run")
     print("=" * 50)
     print(f"\nTotal files: {len(files)} ({len(py_files)} .py, {len(md_files)} .md)")
-    print(f"Total size:  {total_size / 1024:.0f} KB ({total_size / 1024 / 1024:.1f} MB)")
+    print(f"Code size:   {total_size / 1024:.0f} KB ({total_size / 1024 / 1024:.1f} MB)")
+
+    if mirror_files:
+        print(f"Mirror files:{len(mirror_files)} JSON files ({mirror_size / 1024:.0f} KB)")
+        print(f"Grand total: {grand_total / 1024:.0f} KB ({grand_total / 1024 / 1024:.1f} MB)")
+    else:
+        print("Mirror files: SKIPPED (dir missing, manifest stale, or oversized)")
 
     date_str = datetime.now().strftime("%Y%m%d")
     print(f"Zip name:    thunderbird_code_{date_str}.zip")
@@ -722,6 +834,12 @@ def dry_run():
         rel = f.relative_to(THUNDERBIRD_DIR)
         size_kb = f.stat().st_size / 1024
         print(f"  {str(rel):50s}  {size_kb:6.1f} KB")
+
+    if mirror_files:
+        print(f"\nSheets mirror files ({len(mirror_files)}) → sheets_mirror/ in zip:")
+        for fpath, arcname in mirror_files:
+            size_kb = fpath.stat().st_size / 1024
+            print(f"  {arcname:50s}  {size_kb:6.1f} KB")
 
     # Check state
     state = load_state()
