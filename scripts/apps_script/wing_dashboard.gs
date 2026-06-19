@@ -24,6 +24,7 @@ var PORT_DIRECTORY_TAB = "Port_City_Directory";
 // ─────────────────────────────────────────── menu
 
 function onOpen() {
+  _ensureTriggers(); // self-heal: installs time triggers if missing
   SpreadsheetApp.getUi()
     .createMenu("🦅 Wing Ops")
     .addItem("📊 Go to Dashboard", "goToDashboard")
@@ -241,16 +242,58 @@ function highlightP0Missions() {
 
 // ─────────────────────────────────────────── triggers
 
+/**
+ * onInstall — fires once when user installs the script. Sets up all
+ * time-based triggers so the sheet runs itself without manual setup.
+ */
+function onInstall() {
+  onOpen();
+  _ensureTriggers();
+}
+
+/**
+ * onEdit — fires on every cell edit. Auto-highlights the edited row
+ * in Action_Tracker if priority column changes.
+ */
+function onEdit(e) {
+  if (!e) return;
+  var sh = e.range.getSheet();
+  if (sh.getName() !== ACTION_TRACKER_TAB) return;
+  // Column D = priority (1-indexed col 4)
+  var col = e.range.getColumn();
+  if (col !== 4) return;
+  var priority = String(e.value).trim();
+  var rowRange = sh.getRange(e.range.getRow(), 1, 1, sh.getLastColumn());
+  if (priority === "P0") {
+    rowRange.setBackground("#f4cccc").setFontWeight("bold");
+  } else if (priority === "P1") {
+    rowRange.setBackground("#fff2cc").setFontWeight("normal");
+  } else {
+    rowRange.setBackground(null).setFontWeight("normal");
+  }
+}
+
+function _ensureTriggers() {
+  var existing = ScriptApp.getProjectTriggers();
+  var hasDashboard = false, hasMissions = false;
+  for (var i = 0; i < existing.length; i++) {
+    if (existing[i].getHandlerFunction() === "formatDashboard") hasDashboard = true;
+    if (existing[i].getHandlerFunction() === "highlightP0Missions") hasMissions = true;
+  }
+  if (!hasDashboard) {
+    ScriptApp.newTrigger("formatDashboard").timeBased().everyHours(1).create();
+  }
+  if (!hasMissions) {
+    ScriptApp.newTrigger("highlightP0Missions").timeBased().everyHours(6).create();
+  }
+}
+
 function createHourlyTrigger() {
-  removeTriggers(); // clean slate
-  ScriptApp.newTrigger("formatDashboard")
-    .timeBased()
-    .everyHours(1)
-    .create();
-  SpreadsheetApp.getUi().alert(
-    "Hourly auto-format enabled.\n\n" +
-    "Note: This formats the dashboard. Data refresh requires Python sheets_wing_sync.py " +
-    "to run (via backup_bot or manually)."
+  removeTriggers();
+  _ensureTriggers();
+  SpreadsheetApp.getActiveSpreadsheet().toast(
+    "Auto-format: hourly ✓  P0 highlight: every 6h ✓\nSheet now runs itself.",
+    "🦅 Wing Ops", 5
   );
 }
 
