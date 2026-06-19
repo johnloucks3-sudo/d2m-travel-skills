@@ -248,6 +248,8 @@ completed_tps: []
 - [x] Arrange Fusina → Venice Hotel water taxi — ✅ Venice Guide and Boat, Order #14878, July 3 09:30, €350 PAID
 - [x] Obtain missing phone numbers and home addresses — ✅ Complete as of 2026-05-26
 - [x] Consolidate airline PNRs — ✅ All 4 PNRs confirmed 2026-05-26
+- [x] Commander sent Melissa departure-prep tips Jun 17 — butler strategy (write Erik's birthday wishes + bar preferences, slip paper for surprises) + Reservation desk tip (visit early Day 1 to request arrangements) — logged 2026-06-17
+- [ ] 🔔 MONITOR (Jun 23 embarkation): Confirm Melissa visited Silver Muse Butler + Reservation desk on Day 1 re: Erik's birthday arrangements and La Dame special requests
 
 🟢 **RELEASED - PLANNING RESUMED:**
 - [x] Send Giudecca intel and Venice hotel recommendations
@@ -262,7 +264,7 @@ completed_tps: []
 
 | Date | Port | Excursion | Departs | Duration | Difficulty | Cost |
 |------|------|-----------|---------|----------|------------|------|
-| Jun 24 | Naples | RUINS OF HERCULANUM | 08:45 | 3.5 hr | Extensive | $0 (included) |
+| Jun 24 | Naples | RUINS OF HERCULANEUM | 08:45 | 3.5 hr | Extensive | $0 (included) |
 | Jun 25 | Giardini Naxos (Sicily) | GREEK & ROMAN TAORMINA | 09:30 | 4 hr | Extensive | $0 (included) |
 | Jun 26 | Siracusa (Sicily) | **THE BAROQUE TOWN OF NOTO** ← NEW | 08:45 | 3.5 hr | Moderate | $0 (included) |
 | Jun 27 | Valletta (Malta) | GAME OF THRONES | 09:15 | 4 hr | Moderate | $0 (included) |

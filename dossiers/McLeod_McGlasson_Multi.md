@@ -7,8 +7,6 @@ contact_hold: true
 contact_hold_until: 2026-07-07
 contact_hold_reason: "Commander 2026-06-13 — McLeod/McGlasson aboard Silver Muse (depart 2026-06-23, return ~2026-07-06). NO lifecycle products until return. All blackboard TPs set scheduled->hold. Reactivate post-Jul-7."
 note: BEST CLIENT — 4 active bookings across 3 cruise lines
-
-# Booking 1 — CURRENT TRIP (T-9)
 booking_1: "298475-25"
 booking_1_ship: Silver Muse
 booking_1_departure: 2026-06-23
@@ -18,8 +16,6 @@ booking_1_fpd_amount_verified_date: 2026-06-09
 booking_1_fpd_amount_source: invoice
 booking_1_payment_status: paid_in_full
 booking_1_harlan_signoff: "Confirmed: $27,813.32 PAID IN FULL, source: Silversea final invoice 298475-25 dated 20-Jan-26"
-
-# Booking 2 — FPD ORANGE (43 days)
 booking_2: "2984034"
 booking_2_ship: SS Grandeur
 booking_2_departure: 2026-12-19
@@ -29,8 +25,6 @@ booking_2_fpd_amount_verified_date: 2026-06-09
 booking_2_fpd_amount_source: invoice
 booking_2_payment_status: deposit_only
 booking_2_harlan_signoff: "Confirmed: balance_due=$11,943.15, FPD Jul-22-2026 (43 DAYS), source: Regent invoice 2984034 dated 23-May-26"
-
-# Booking 3 — Princess Mexico Riviera
 booking_3: "8X6PGQ"
 booking_3_ship: Discovery Princess
 booking_3_departure: 2027-03-13
@@ -40,8 +34,6 @@ booking_3_fpd_amount_verified_date: 2026-06-09
 booking_3_fpd_amount_source: invoice
 booking_3_payment_status: deposit_only
 booking_3_harlan_signoff: "Confirmed: $200 deposit paid (FCC), gross balance $6,222 due Dec-13-2026, source: Princess confirmation 8X6PGQ dated Mar-21-2025"
-
-# Booking 4 — Regent Prestige Dec 2027
 booking_4: "3114500"
 booking_4_ship: SS Prestige
 booking_4_departure: 2027-12-18
@@ -53,14 +45,13 @@ booking_4_fpd_amount_verified_date: 2026-06-09
 booking_4_fpd_amount_source: portal
 booking_4_payment_status: deposit_only
 booking_4_harlan_signoff: "Confirmed: total=$15,098.00, paid=$500.00, balance_due=$14,598.00, FPD 2027-07-21, source: Regent portal 2026-06-02 + invoice 3114500 dated 11-Jan-26"
-
-# Per-booking completed_tps (multi-booking client — resolve per booking, not trip-level)
 booking_1_completed_tps: ["4.1", "4.2", "4.3", "4.4", "4.5"]   # Silver Muse PAID IN FULL ($27,813.32, FPD Jan 24 passed). Payment sequence verifiably done.
 booking_2_completed_tps: ["0.5"]   # Grandeur 2984034: 0.5 Booking Validation on record (lifecycle doc); guest reg COMPLETE both. FPD Jul 22 FUTURE → payment TPs NOT done. Contact-held until Jul 7.
 booking_3_completed_tps: []   # Princess 8X6PGQ: deposit only, FPD Dec 13 2026 future. Nothing verifiably complete beyond deposit. $6,062 vs $6,222 figure unreconciled.
 booking_4_completed_tps: []   # Prestige 3114500: deposit only, FPD Jul 21 2027 future. Nothing verifiably complete beyond deposit.
 completed_tps_basis: "Per-booking. Silver Muse paid in full → payment TPs closed. Grandeur 0.5 validation sent + guest reg complete. Princess/Prestige: deposit only, future FPD, no TPs to close. Future-FPD payment TPs deliberately NOT marked complete."
 completed_tps: []   # top-level intentionally empty — McLeod is multi-booking; use per-booking keys above
+fpd_status: PENDING
 ---
 
 # CLIENT DOSSIER — Erik McLeod & Melissa McGlasson
@@ -204,7 +195,7 @@ completed_tps: []
 
 | Date | Port | Excursion | Time | Duration | Cost | Notes |
 |------|------|-----------|------|----------|------|-------|
-| Jun 24 | Naples, Italy | Ruins of Herculanum | 08:45 | 3h 30m | Included | UNESCO World Heritage |
+| Jun 24 | Naples, Italy | Ruins of Herculaneum | 08:45 | 3h 30m | Included | UNESCO World Heritage |
 | Jun 25 | Giardini Naxos, Sicily | Greek & Roman Taormina | 09:30 | 4h | Included | Ancient history |
 | Jun 26 | Siracusa, Sicily | Baroque Town of Noto | 08:45 | 3h 30m | Included | UNESCO town |
 | Jun 27 | Valletta, Malta | Game of Thrones locations | 09:15 | 4h | Included | GoT fans + history |
